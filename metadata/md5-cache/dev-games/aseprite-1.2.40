@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 ) test? ( dev-cpp/gtest ) app-arch/unzip dev-util/gn virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=|| ( >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 ) test? ( dev-cpp/gtest ) app-arch/unzip dev-util/gn virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=app-arch/libarchive:= app-text/cmark:= dev-cpp/json11 dev-libs/tinyxml media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:= media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl sys-libs/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= kde? ( dev-qt/qtcore:5 dev-qt/qtgui:5 kde-frameworks/kio:5 ) webp? ( media-libs/libwebp:= ) x11-base/xorg-proto
 DESCRIPTION=Animated sprite editor & pixel art tool
@@ -12,5 +12,5 @@ RDEPEND=app-arch/libarchive:= app-text/cmark:= dev-cpp/json11 dev-libs/tinyxml m
 RESTRICT=bindist mirror !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aseprite/aseprite/releases/download/v1.2.40/Aseprite-v1.2.40-Source.zip https://github.com/google/skia/archive/3338e90707323d2cd3a150276acb9f39933deee2.tar.gz -> skia-m102-3338e90707323d2cd3a150276acb9f39933deee2.gh.tar.gz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	desktop	021728fdc1b03b36357dbc89489e0f0d	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	desktop	021728fdc1b03b36357dbc89489e0f0d	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
 _md5_=629d0e46a5c5530bbc41cdf19c65418d

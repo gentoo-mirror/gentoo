@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( || ( >=dev-lang/python-3.11.1-r1:3.11[xml(+)] >=dev-lang/python-3.10.9-r1:3.10[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv )
+BDEPEND=virtual/pkgconfig doc? ( || ( >=dev-lang/python-3.11.3:3.11[xml(+)] >=dev-lang/python-3.10.11:3.10[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv )
 DEFINED_PHASES=configure install prepare pretend setup test unpack
 DEPEND=dev-libs/json-parser:0= dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc(+)] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) test? ( net-libs/socket_wrapper sys-libs/uid_wrapper !gnutls? ( dev-libs/openssl:0[weak-ssl-ciphers(-)] ) )
 DESCRIPTION=Free client for Cisco AnyConnect SSL VPN software
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/json-parser:0= dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=ftp://ftp.infradead.org/pub/openconnect/openconnect-9.01.tar.gz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
 _md5_=3a7cfe14e6981d723506bde3b86148e5

@@ -1,6 +1,6 @@
 BDEPEND=python? ( dev-lang/swig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=gssapi? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) sys-libs/libcap-ng >=sys-kernel/linux-headers-2.6.34 test? ( dev-libs/check )
+DEPEND=gssapi? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) sys-libs/libcap-ng >=sys-kernel/linux-headers-2.6.34 test? ( dev-libs/check )
 DESCRIPTION=Userspace utilities for storing and processing auditing records
 EAPI=8
 HOMEPAGE=https://people.redhat.com/sgrubb/audit/
@@ -8,10 +8,10 @@ INHERIT=autotools multilib-minimal toolchain-funcs python-r1 linux-info systemd 
 IUSE=gssapi ldap python static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 python_targets_python3_10 python_targets_python3_11 split-usr
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2+ LGPL-2.1+
-RDEPEND=gssapi? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) sys-libs/libcap-ng
+RDEPEND=gssapi? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) sys-libs/libcap-ng
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://people.redhat.com/sgrubb/audit/audit-3.0.9.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	5f4bb0758df2e483babf68cd517078ca	usr-ldscript	cd36f6d91e8173d95e25b0e0cf036960
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	5f4bb0758df2e483babf68cd517078ca	usr-ldscript	cd36f6d91e8173d95e25b0e0cf036960
 _md5_=820ba431ee119788a75d42bb6c26355a

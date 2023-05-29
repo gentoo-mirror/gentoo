@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext test? ( python_single_target_python3_10? ( dev-python/pyfakefs[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyfakefs[python_targets_python3_11(-)] ) ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] )
+DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] )
 DESCRIPTION=Backup system inspired by TimeVault and FlyBack
 EAPI=8
 HOMEPAGE=https://backintime.readthedocs.io/en/latest/ https://github.com/bit-team/backintime/
@@ -9,9 +9,9 @@ INHERIT=python-single-r1 xdg git-r3
 IUSE=examples qt5 test python_single_target_python3_10 python_single_target_python3_11
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] ) virtual/openssh net-misc/rsync[xattr,acl] qt5? ( dev-python/PyQt5[gui,widgets] )
+RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] ) virtual/openssh net-misc/rsync[xattr,acl] qt5? ( dev-python/PyQt5[gui,widgets] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	git-r3	27e13c09a4c7e4c78ac812f74727e676
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=c84e74dc62ffe8618c40b10c8f52b050

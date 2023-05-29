@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm
-DEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm appindicator? ( dev-libs/libayatana-appindicator ) geoclue? ( app-misc/geoclue:2.0 dev-libs/glib:2 ) gtk? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) >=dev-util/intltool-0.50 nls? ( sys-devel/gettext )
+DEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm appindicator? ( dev-libs/libayatana-appindicator ) geoclue? ( app-misc/geoclue:2.0 dev-libs/glib:2 ) gtk? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) >=dev-util/intltool-0.50 nls? ( sys-devel/gettext )
 DESCRIPTION=A screen color temperature adjusting software
 EAPI=8
 HOMEPAGE=http://jonls.dk/redshift/
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic systemd xdg-utils python-r1
 IUSE=appindicator geoclue gtk nls python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-3
-RDEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm appindicator? ( dev-libs/libayatana-appindicator ) geoclue? ( app-misc/geoclue:2.0 dev-libs/glib:2 ) gtk? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) gtk? ( dev-python/pygobject[python_targets_python3_10(-)?,python_targets_python3_11(-)?] x11-libs/gtk+:3[introspection] dev-python/pyxdg[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
+RDEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm appindicator? ( dev-libs/libayatana-appindicator ) geoclue? ( app-misc/geoclue:2.0 dev-libs/glib:2 ) gtk? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) gtk? ( dev-python/pygobject[python_targets_python3_10(-)?,python_targets_python3_11(-)?] x11-libs/gtk+:3[introspection] dev-python/pyxdg[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 REQUIRED_USE=gtk? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	systemd	5f4bb0758df2e483babf68cd517078ca	xdg-utils	baea6080dd821f5562d715887954c9d3	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	systemd	5f4bb0758df2e483babf68cd517078ca	xdg-utils	baea6080dd821f5562d715887954c9d3	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d
 _md5_=11cdd6d84fbf170e76c8687886718717

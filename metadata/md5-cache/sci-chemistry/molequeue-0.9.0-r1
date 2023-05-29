@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 zeromq? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) net-libs/cppzmq:0= )
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 zeromq? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) net-libs/cppzmq:0= )
 DESCRIPTION=Abstract, manage and coordinate execution of tasks
 EAPI=7
 HOMEPAGE=https://www.openchemistry.org/projects/molequeue/
@@ -8,10 +8,10 @@ INHERIT=cmake python-r1 virtualx
 IUSE=+client doc server test +zeromq python_targets_python3_10 python_targets_python3_11 test
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 zeromq? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) net-libs/cppzmq:0= )
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 zeromq? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) net-libs/cppzmq:0= )
 REQUIRED_USE=server? ( client ) test? ( server ) zeromq? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/OpenChemistry/molequeue/archive/0.9.0.tar.gz -> molequeue-0.9.0.tar.gz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	741bfa77afb2a9321261501aca58c208	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	741bfa77afb2a9321261501aca58c208	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	virtualx	817571665ee28575da44ee08135089e5
 _md5_=2acaaa36499f3c8d72f2f8be2a487a89

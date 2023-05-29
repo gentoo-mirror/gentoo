@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 ) || ( ( >=dev-lang/python-3.11.1-r1:3.11 dev-ada/langkit[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 dev-ada/langkit[python_targets_python3_10(-)] ) ) dev-ada/libadalang
+BDEPEND=|| ( >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 ) || ( ( >=dev-lang/python-3.11.3:3.11 dev-ada/langkit[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.11:3.10 dev-ada/langkit[python_targets_python3_10(-)] ) ) dev-ada/libadalang
 DEFINED_PHASES=compile configure install setup
 DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] dev-ada/gnatcoll-bindings[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?,iconv,gmp] dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?]
 DESCRIPTION=LibGPR2 - Parser for GPR Project files
@@ -12,5 +12,5 @@ RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? (
 REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/gpr/archive/refs/tags/v23.0.0.tar.gz -> gpr-23.0.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	ada	bb78cd39726bbc190344572dd3631ac3
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	ada	bb78cd39726bbc190344572dd3631ac3
 _md5_=6aef6e25dc5f707eec2280a093712e93

@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 ) virtual/pkgconfig virtual/pkgconfig
+BDEPEND=|| ( >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 ) virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install setup
 DEPEND=acct-group/bitlbee acct-user/bitlbee dev-libs/glib:2 dev-libs/json-parser:= purple? ( net-im/pidgin ) libevent? ( dev-libs/libevent:= ) otr? ( >=net-libs/libotr-4 ) gnutls? ( net-libs/gnutls:= ) !gnutls? ( nss? ( dev-libs/nss ) !nss? ( dev-libs/openssl:0= ) ) selinux? ( sec-policy/selinux-bitlbee ) test? ( dev-libs/check )
 DESCRIPTION=irc to IM gateway that support multiple IM protocols
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( purple xmpp ) purple? ( plugins ) test? ( xmpp )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://get.bitlbee.org/src/bitlbee-3.6.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=74ba95a38374cf7ffb8683b9467d54df

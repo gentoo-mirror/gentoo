@@ -1,6 +1,6 @@
 BDEPEND=doc? ( dev-python/sphinx )
 DEFINED_PHASES=compile install test
-DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 )
 DESCRIPTION=DesktopEntry eXecution - tool to manage and launch autostart entries
 EAPI=8
 HOMEPAGE=http://e-jc.de/
@@ -8,10 +8,10 @@ INHERIT=python-r1
 IUSE=doc python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/jceb/dex/archive/v0.9.0.tar.gz -> dex-0.9.0.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d
 _md5_=9ca7b493f544ac59d860a84b053064e4

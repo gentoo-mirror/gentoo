@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
-DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] ) )
+DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11[threads(+)] ) )
 DESCRIPTION=Daemon for exposing legacy ALSA sequencer applications in JACK MIDI system
 EAPI=8
 HOMEPAGE=https://github.com/linuxaudio/a2jmidid
@@ -8,9 +8,9 @@ INHERIT=meson python-single-r1
 IUSE=dbus python python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-2
-RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] ) )
+RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11[threads(+)] ) )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/linuxaudio/a2jmidid/archive/9.tar.gz -> a2jmidid-9.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	meson	915ec7c25e08d7886558215e6809ca1e	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=6e7984c48b4578cac8d4dfb7f6189faf

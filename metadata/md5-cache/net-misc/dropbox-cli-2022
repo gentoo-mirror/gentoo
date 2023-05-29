@@ -6,9 +6,9 @@ INHERIT=python-r1 bash-completion-r1
 IUSE=+gpg python_targets_python3_10
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=net-misc/dropbox python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) gpg? ( app-crypt/gpgme[python] ) dev-python/pygobject:3[python_targets_python3_10(-)?]
+RDEPEND=net-misc/dropbox python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) gpg? ( app-crypt/gpgme[python] ) dev-python/pygobject:3[python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~grozin/dropbox-cli-2022.py.xz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
 _md5_=e8388df005182ef7d7fb29d8b0151d07

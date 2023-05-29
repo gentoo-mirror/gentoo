@@ -1,6 +1,6 @@
-BDEPEND=doc? ( >=dev-python/sphinx-5.3.0 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/wheel-0.38.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+BDEPEND=doc? ( >=dev-python/sphinx-5.3.0 ) python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.7.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/wheel-0.40.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 )
 DESCRIPTION=Python bindings generator for C/C++ libraries
 EAPI=8
 HOMEPAGE=https://www.riverbankcomputing.com/software/sip/ https://pypi.org/project/sip/
@@ -8,9 +8,9 @@ INHERIT=distutils-r1 pypi
 IUSE=doc python_targets_python3_10 python_targets_python3_11 debug
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=|| ( GPL-2 GPL-3 SIP )
-RDEPEND=!<dev-python/sip-4.19.25-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] !=dev-python/sip-5.5.0-r0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/ply[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-python/tomli[python_targets_python3_10(-)?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+RDEPEND=!<dev-python/sip-4.19.25-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] !=dev-python/sip-5.5.0-r0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/ply[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-python/tomli[python_targets_python3_10(-)?] ) python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=5
 SRC_URI=https://files.pythonhosted.org/packages/source/s/sip/sip-6.7.9.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	104e1332efb829e2f7cbf89307a474f1	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	dc5ca9013da6279b2e24b0ae156f030e	pypi	3b6a844fbf71f1581992b44c78b549b7
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	104e1332efb829e2f7cbf89307a474f1	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	57f007adcdf3953627f14277c7eae6e0	pypi	3b6a844fbf71f1581992b44c78b549b7
 _md5_=cb81b6ecb72f9c7690c7b6b0a58a7617

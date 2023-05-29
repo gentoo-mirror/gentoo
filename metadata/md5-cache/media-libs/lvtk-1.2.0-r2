@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install setup unpack
-DEPEND=media-libs/lv2 dev-libs/boost python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] ) gtk2? ( dev-cpp/gtkmm:2.4 ) doc? ( app-doc/doxygen media-gfx/graphviz ) virtual/pkgconfig
+DEPEND=media-libs/lv2 dev-libs/boost python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11[threads(+)] ) gtk2? ( dev-cpp/gtkmm:2.4 ) doc? ( app-doc/doxygen media-gfx/graphviz ) virtual/pkgconfig
 DESCRIPTION=A set of C++ wrappers around the LV2 C API
 EAPI=7
 HOMEPAGE=https://lvtk.org/
@@ -7,9 +7,9 @@ INHERIT=python-single-r1 waf-utils
 IUSE=debug doc examples +gtk2 +tools python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=media-libs/lv2 dev-libs/boost python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[threads(+)] ) gtk2? ( dev-cpp/gtkmm:2.4 )
+RDEPEND=media-libs/lv2 dev-libs/boost python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11[threads(+)] ) gtk2? ( dev-cpp/gtkmm:2.4 )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/lvtk/lvtk/archive/1.2.0.tar.gz -> lvtk-1.2.0.tar.gz https://waf.io/waf-2.0.20
-_eclasses_=eapi8-dosym	741bfa77afb2a9321261501aca58c208	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-single-r1	75118e916668a74c660a13b0ecb22562	waf-utils	be1df8dc616c09387b18633b4155fcb5
+_eclasses_=eapi8-dosym	741bfa77afb2a9321261501aca58c208	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562	waf-utils	be1df8dc616c09387b18633b4155fcb5
 _md5_=3d41ba5d04cef578469a38df52bb1f09

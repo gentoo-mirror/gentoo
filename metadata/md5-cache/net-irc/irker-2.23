@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xml-dtd:4.1.2 app-text/xmlto python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[ssl] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[ssl] ) python_single_target_python3_12? ( >=dev-lang/python-3.12.0_beta1:3.12[ssl] ) virtual/pkgconfig
+BDEPEND=app-text/docbook-xml-dtd:4.1.2 app-text/xmlto python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10[ssl] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11[ssl] ) python_single_target_python3_12? ( >=dev-lang/python-3.12.0_beta1:3.12[ssl] ) virtual/pkgconfig
 DEFINED_PHASES=install postinst prepare setup
 DESCRIPTION=Submission tools for IRC notifications
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=optfeature python-single-r1 systemd
 IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=amd64 arm arm64 hppa ~ia64 ppc ppc64 ~s390 sparc x86
 LICENSE=BSD-2
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10[ssl] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11[ssl] ) python_single_target_python3_12? ( >=dev-lang/python-3.12.0_beta1:3.12[ssl] )
+RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10[ssl] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11[ssl] ) python_single_target_python3_12? ( >=dev-lang/python-3.12.0_beta1:3.12[ssl] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=http://www.catb.org/esr/irker/irker-2.23.tar.gz
-_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=d385a0903135396fa4d7663ef9824c10

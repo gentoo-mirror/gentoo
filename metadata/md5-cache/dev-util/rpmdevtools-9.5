@@ -1,6 +1,6 @@
 BDEPEND=sys-apps/help2man
 DEFINED_PHASES=prepare setup
-DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) app-arch/rpm[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] dev-lang/perl:* python_single_target_python3_10? ( dev-python/progressbar2[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/progressbar2[python_targets_python3_11(-)] ) python_single_target_python3_10? ( dev-python/requests_download[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/requests_download[python_targets_python3_11(-)] )
+DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) app-arch/rpm[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] dev-lang/perl:* python_single_target_python3_10? ( dev-python/progressbar2[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/progressbar2[python_targets_python3_11(-)] ) python_single_target_python3_10? ( dev-python/requests_download[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/requests_download[python_targets_python3_11(-)] )
 DESCRIPTION=Collection of rpm packaging related utilities
 EAPI=7
 HOMEPAGE=https://pagure.io/rpmdevtools
@@ -8,9 +8,9 @@ INHERIT=python-single-r1
 IUSE=emacs python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) app-arch/rpm[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] dev-lang/perl:* python_single_target_python3_10? ( dev-python/progressbar2[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/progressbar2[python_targets_python3_11(-)] ) python_single_target_python3_10? ( dev-python/requests_download[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/requests_download[python_targets_python3_11(-)] ) net-misc/curl emacs? ( app-emacs/rpm-spec-mode )
+RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) app-arch/rpm[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] dev-lang/perl:* python_single_target_python3_10? ( dev-python/progressbar2[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/progressbar2[python_targets_python3_11(-)] ) python_single_target_python3_10? ( dev-python/requests_download[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/requests_download[python_targets_python3_11(-)] ) net-misc/curl emacs? ( app-emacs/rpm-spec-mode )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://releases.pagure.org/rpmdevtools/rpmdevtools-9.5.tar.xz
-_eclasses_=eapi8-dosym	741bfa77afb2a9321261501aca58c208	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=eapi8-dosym	741bfa77afb2a9321261501aca58c208	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=823cf90dc733f74075599c5757b7c6f4

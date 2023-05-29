@@ -1,6 +1,6 @@
 BDEPEND=python? ( python_targets_python3_10? ( >=dev-python/PyQt-builder-1.10[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/sip-5:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( >=dev-python/PyQt-builder-1.10[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/sip-5:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_targets_python3_10? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) )
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) python_targets_python3_10? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) )
 DESCRIPTION=Hex editor library, Qt application written in C++ with Python bindings
 EAPI=8
 HOMEPAGE=https://github.com/Simsys/qhexedit2/
@@ -8,9 +8,9 @@ INHERIT=python-r1 qmake-utils
 IUSE=doc +gui python python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-2
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) python_targets_python3_10? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) )
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) python_targets_python3_10? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( >=dev-python/PyQt5-5.15.6[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/Simsys/qhexedit2/archive/541139125be034b90b6811a84faa1413e357fd94.tar.gz -> qhexedit2-0.8.9_p20210525.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-r1	3c6cd0f418ba702c186a9865b85e704d	qmake-utils	59420c906278d16deaaa629f9d115707
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	qmake-utils	59420c906278d16deaaa629f9d115707
 _md5_=812233f6a213d0bdc45b4bbf66f18d58

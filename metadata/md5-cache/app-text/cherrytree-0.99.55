@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-util/cpputest ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 ) app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/fribidi dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libxml2:2 dev-libs/spdlog:= >=x11-libs/vte-0.70.2:2.91 net-misc/curl x11-libs/cairo x11-libs/gtk+:3 x11-libs/pango
+DEPEND=|| ( >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 ) app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/fribidi dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libxml2:2 dev-libs/spdlog:= >=x11-libs/vte-0.70.2:2.91 net-misc/curl x11-libs/cairo x11-libs/gtk+:3 x11-libs/pango
 DESCRIPTION=A hierarchical note taking application (C++ version)
 EAPI=8
 HOMEPAGE=https://www.giuspen.com/cherrytree/
@@ -13,5 +13,5 @@ RDEPEND=app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gt
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/giuspen/cherrytree/releases/download/0.99.55/cherrytree_0.99.55.tar.xz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=331a598c91004b68ae4de26b64920630

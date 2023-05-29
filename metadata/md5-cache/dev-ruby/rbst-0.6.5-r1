@@ -1,6 +1,6 @@
 BDEPEND=ruby_targets_ruby30? ( test? ( >=dev-ruby/minitest-5.14.0:5[ruby_targets_ruby30(-)] >=dev-ruby/mocha-1.1.0:1.0[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( >=dev-ruby/minitest-5.14.0:5[ruby_targets_ruby31(-)] >=dev-ruby/mocha-1.1.0:1.0[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rake[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=test? ( dev-python/docutils python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+DEPEND=test? ( dev-python/docutils python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 DESCRIPTION=A simple Ruby wrapper for processing rST via docutils
 EAPI=8
 HOMEPAGE=https://github.com/xwmx/rbst/
@@ -8,10 +8,10 @@ INHERIT=python-single-r1 ruby-fakegem
 IUSE=test python_single_target_python3_10 python_single_target_python3_11 ruby_targets_ruby30 ruby_targets_ruby31 doc test test
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-python/docutils python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+RDEPEND=dev-python/docutils python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 ) || ( ruby_targets_ruby30 ruby_targets_ruby31 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/xwmx/rbst/archive/0.6.5.tar.gz -> rbst-0.6.5.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	d676fb844e9408f4290d20bc7312f8bb	python-single-r1	75118e916668a74c660a13b0ecb22562	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	ded1d92dc7636277a04b01f3b3cb7e26	ruby-ng	af08d2b1445bef89013607f69330a791	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	ded1d92dc7636277a04b01f3b3cb7e26	ruby-ng	af08d2b1445bef89013607f69330a791	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
 _md5_=def003e3cbdea77d5bdc6fc67fe34ee5
