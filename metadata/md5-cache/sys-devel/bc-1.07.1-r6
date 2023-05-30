@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/bc/bc.html
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=libedit readline static
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 PDEPEND=app-alternatives/bc
 RDEPEND=!readline? ( libedit? ( dev-libs/libedit:= ) ) readline? ( sys-libs/readline:= sys-libs/ncurses:= )
 SLOT=0
 SRC_URI=mirror://gnu/bc/bc-1.07.1.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
-_md5_=20c6e351599d91dc45882fd0366a5273
+_md5_=c19ac95e082cdece02a306966b62ba8c
