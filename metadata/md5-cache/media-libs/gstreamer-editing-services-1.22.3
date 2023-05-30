@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) >=dev-libs/glib-2.40.0:2 dev-libs/libxml2:2 >=media-libs/gstreamer-1.22.3:1.0[introspection?] >=media-libs/gst-plugins-base-1.22.3:1.0[introspection?] >=media-libs/gst-plugins-bad-1.22.3:1.0[introspection?] introspection? ( >=dev-libs/gobject-introspection-0.9.6:= )
+DESCRIPTION=SDK for making video editors and more
+EAPI=7
+HOMEPAGE=http://wiki.pitivi.org/wiki/GES
+INHERIT=meson python-r1
+IUSE=+introspection test python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2+
+RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) >=dev-libs/glib-2.40.0:2 dev-libs/libxml2:2 >=media-libs/gstreamer-1.22.3:1.0[introspection?] >=media-libs/gst-plugins-base-1.22.3:1.0[introspection?] >=media-libs/gst-plugins-bad-1.22.3:1.0[introspection?] introspection? ( >=dev-libs/gobject-introspection-0.9.6:= )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=test
+SLOT=1.0
+SRC_URI=https://gstreamer.freedesktop.org/src/gstreamer-editing-services/gst-editing-services-1.22.3.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	eapi8-dosym	741bfa77afb2a9321261501aca58c208	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_md5_=bdd80ed4f4f4e4c2f03c84cb8b6bb5a2
