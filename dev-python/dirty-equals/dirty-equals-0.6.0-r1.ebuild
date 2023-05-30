@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1
 
@@ -24,6 +24,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
+	dev-python/pydantic[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2021.3[${PYTHON_USEDEP}]
 "
 BDEPEND="
