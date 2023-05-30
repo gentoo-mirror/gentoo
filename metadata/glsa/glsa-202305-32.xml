@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-32">
+    <title>WebKitGTK+: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in WebkitGTK+, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">webkit-gtk</product>
+    <announced>2023-05-30</announced>
+    <revised count="1">2023-05-30</revised>
+    <bug>871732</bug>
+    <bug>879571</bug>
+    <bug>888563</bug>
+    <bug>905346</bug>
+    <bug>905349</bug>
+    <bug>905351</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/webkit-gtk" auto="yes" arch="*">
+            <unaffected range="ge">2.40.1</unaffected>
+            <vulnerable range="lt">2.40.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in WebKitGTK+. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All WebKitGTK+ users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/webkit-gtk-2.40.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32885">CVE-2022-32885</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32886">CVE-2022-32886</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32888">CVE-2022-32888</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32891">CVE-2022-32891</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32923">CVE-2022-32923</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42799">CVE-2022-42799</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42823">CVE-2022-42823</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42824">CVE-2022-42824</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42826">CVE-2022-42826</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42852">CVE-2022-42852</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42856">CVE-2022-42856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42863">CVE-2022-42863</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42867">CVE-2022-42867</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46691">CVE-2022-46691</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46692">CVE-2022-46692</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46698">CVE-2022-46698</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46699">CVE-2022-46699</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46700">CVE-2022-46700</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23517">CVE-2023-23517</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23518">CVE-2023-23518</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23529">CVE-2023-23529</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25358">CVE-2023-25358</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25360">CVE-2023-25360</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25361">CVE-2023-25361</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25362">CVE-2023-25362</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25363">CVE-2023-25363</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-27932">CVE-2023-27932</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-27954">CVE-2023-27954</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28205">CVE-2023-28205</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2022-0009.html">WSA-2022-0009</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2022-0010.html">WSA-2022-0010</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2023-0001.html">WSA-2023-0001</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2023-0002.html">WSA-2023-0002</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2023-0003.html">WSA-2023-0003</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-30T03:01:57.042063Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-30T03:01:57.045898Z">ajak</metadata>
+</glsa>
