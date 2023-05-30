@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-30">
+    <title>X.Org X server, XWayland: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in the Xorg Server and XWayland, the worst of which can result in privilege escalation or remote code execution.</synopsis>
+    <product type="ebuild">xorg-server,xwayland</product>
+    <announced>2023-05-30</announced>
+    <revised count="1">2023-05-30</revised>
+    <bug>829208</bug>
+    <bug>877459</bug>
+    <bug>885825</bug>
+    <bug>893438</bug>
+    <bug>903547</bug>
+    <access>remote</access>
+    <affected>
+        <package name="x11-base/xorg-server" auto="yes" arch="*">
+            <unaffected range="ge">21.1.8</unaffected>
+            <vulnerable range="lt">21.1.8</vulnerable>
+        </package>
+        <package name="x11-base/xwayland" auto="yes" arch="*">
+            <unaffected range="ge">23.1.1</unaffected>
+            <vulnerable range="lt">23.1.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The X Window System is a graphical windowing system based on a client/server model.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in X.Org X server, XWayland. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All X.Org X server users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xorg-server-21.1.8"
+        </code>
+        
+        <p>All XWayland users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xwayland-23.1.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4008">CVE-2021-4008</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4009">CVE-2021-4009</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4010">CVE-2021-4010</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4011">CVE-2021-4011</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3550">CVE-2022-3550</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3551">CVE-2022-3551</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3553">CVE-2022-3553</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4283">CVE-2022-4283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46283">CVE-2022-46283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46340">CVE-2022-46340</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46341">CVE-2022-46341</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46342">CVE-2022-46342</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46343">CVE-2022-46343</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46344">CVE-2022-46344</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0494">CVE-2023-0494</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1393">CVE-2023-1393</uri>
+        <uri>ZDI-CAN-19596</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-30T02:54:51.090310Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-30T02:54:51.098055Z">ajak</metadata>
+</glsa>
