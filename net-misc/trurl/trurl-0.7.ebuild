@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+PYTHON_COMPAT=( python3_{10..12} )
+inherit toolchain-funcs python-any-r1
 
 DESCRIPTION="Command line tool for URL parsing and manipulation"
 HOMEPAGE="https://curl.se/trurl/ https://daniel.haxx.se/blog/2023/04/03/introducing-trurl/"
@@ -15,7 +16,7 @@ else
 	SRC_URI="https://github.com/curl/trurl/archive/refs/tags/${P}.tar.gz"
 	S="${WORKDIR}"/${PN}-${P}
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~arm64"
 fi
 
 LICENSE="curl"
@@ -26,17 +27,24 @@ RESTRICT="!test? ( test )"
 # Older curls may work but not all features will be present
 DEPEND=">=net-misc/curl-7.81.0"
 RDEPEND="${DEPEND}"
-BDEPEND="
-	test? (
-		dev-lang/perl
-		virtual/perl-JSON-PP
-	)
-"
+BDEPEND="test? ( ${PYTHON_DEPS} )"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.7-fix-makefile.patch
+)
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
 
 src_compile() {
 	tc-export CC
 
 	default
+}
+
+src_test() {
+	emake PYTHON3="${EPYTHON}" test
 }
 
 src_install() {

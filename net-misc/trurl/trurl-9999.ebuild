@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit toolchain-funcs python-any-r1
 
 DESCRIPTION="Command line tool for URL parsing and manipulation"
@@ -16,7 +16,7 @@ else
 	SRC_URI="https://github.com/curl/trurl/archive/refs/tags/${P}.tar.gz"
 	S="${WORKDIR}"/${PN}-${P}
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~arm64"
 fi
 
 LICENSE="curl"
@@ -30,7 +30,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="test? ( ${PYTHON_DEPS} )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.5-fix-makefile.patch
+	"${FILESDIR}"/${PN}-0.7-fix-makefile.patch
 )
 
 pkg_setup() {
