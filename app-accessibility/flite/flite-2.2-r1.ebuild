@@ -1,7 +1,8 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit autotools multilib-minimal toolchain-funcs
 
 DESCRIPTION="Flite text to speech engine"
@@ -45,11 +46,11 @@ LICENSE="BSD freetts public-domain regexp-UofT BSD-2"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
 IUSE="alsa oss pulseaudio test voices"
-RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( alsa )"
+RESTRICT="!test? ( test )"
 
 DEPEND="
-	pulseaudio? ( media-sound/pulseaudio[${MULTILIB_USEDEP}] )
+	pulseaudio? ( media-libs/libpulse[${MULTILIB_USEDEP}] )
 	!pulseaudio? ( alsa? ( >=media-libs/alsa-lib-1.0.27.2[${MULTILIB_USEDEP}] ) )
 "
 RDEPEND="${DEPEND}"
