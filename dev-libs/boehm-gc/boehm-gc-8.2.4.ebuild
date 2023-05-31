@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit multilib-minimal libtool
 
@@ -9,8 +9,7 @@ MY_P="gc-${PV}"
 
 DESCRIPTION="The Boehm-Demers-Weiser conservative garbage collector"
 HOMEPAGE="https://www.hboehm.info/gc/ https://github.com/ivmai/bdwgc/"
-SRC_URI="https://github.com/ivmai/bdwgc/releases/download/v${PV}/${MY_P}.tar.gz
-	https://dev.gentoo.org/~xen0n/distfiles/${P}-fix-headers-install.patch.xz"
+SRC_URI="https://github.com/ivmai/bdwgc/releases/download/v${PV}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="boehm-gc"
@@ -18,20 +17,18 @@ LICENSE="boehm-gc"
 # We've been using subslot 0 for these instead of "1.1".
 SLOT="0"
 # Upstream marked this version as "Pre-release"
-KEYWORDS="~loong"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="cxx +large static-libs +threads"
 
 RDEPEND=">=dev-libs/libatomic_ops-7.4[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
-	"${WORKDIR}/${P}-fix-headers-install.patch"
-)
-
 src_prepare() {
 	default
-	elibtoolize #594754
+
+	# bug #594754
+	elibtoolize
 }
 
 multilib_src_configure() {
@@ -44,7 +41,7 @@ multilib_src_configure() {
 		$(use_enable large large-config)
 	)
 
-	ECONF_SOURCE=${S} econf "${config[@]}"
+	ECONF_SOURCE="${S}" econf "${config[@]}"
 }
 
 multilib_src_install_all() {
@@ -52,7 +49,7 @@ multilib_src_install_all() {
 	einstalldocs
 	dodoc doc/README{.environment,.linux,.macros}
 
-	# package provides .pc files
+	# Package provides .pc files
 	find "${ED}" -name '*.la' -delete || die
 
 	newman doc/gc.man GC_malloc.1
