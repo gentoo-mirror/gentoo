@@ -15,11 +15,15 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-thomasdickey )"
 
 DOCS=( ACKNOWLEDGMENT CHANGES README )
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	arc4random_push # doesn't exist on Linux
+)
 
 src_configure() {
 	tc-export BUILD_CC
