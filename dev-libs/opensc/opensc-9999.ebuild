@@ -7,18 +7,25 @@ inherit bash-completion-r1 libtool
 
 DESCRIPTION="Libraries and applications to access smartcards"
 HOMEPAGE="https://github.com/OpenSC/OpenSC/wiki"
-SRC_URI="https://github.com/OpenSC/OpenSC/releases/download/${PV}/${P}.tar.gz"
+
+if [[ ${PV} == *9999 ]]; then
+	inherit autotools git-r3
+	EGIT_REPO_URI="https://github.com/OpenSC/OpenSC.git"
+else
+	SRC_URI="https://github.com/OpenSC/OpenSC/releases/download/${PV}/${P}.tar.gz"
+	KEYWORDS="~amd64 ~ppc64 ~x86"
+fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ppc64 x86"
-IUSE="ctapi doc openct notify +pcsc-lite readline secure-messaging ssl test zlib"
+IUSE="ctapi doc openct notify pace +pcsc-lite readline secure-messaging ssl test zlib"
 RESTRICT="!test? ( test )"
 
 RDEPEND="zlib? ( sys-libs/zlib )
 	readline? ( sys-libs/readline:0= )
 	ssl? ( dev-libs/openssl:0= )
 	openct? ( >=dev-libs/openct-0.5.0 )
+	pace? ( dev-libs/openpace:= )
 	pcsc-lite? ( >=sys-apps/pcsc-lite-1.3.0 )
 	notify? ( dev-libs/glib:2 )"
 DEPEND="${RDEPEND}
@@ -35,20 +42,27 @@ REQUIRED_USE="
 
 src_prepare() {
 	default
-	elibtoolize
+
+	if [[ ${PV} == *9999 ]]; then
+		eautoreconf
+	else
+		elibtoolize
+	fi
 }
 
 src_configure() {
+	# don't want to run upstream's clang-tidy checks
+	export ac_cv_path_CLANGTIDY=""
+
 	econf \
 		--with-completiondir="$(get_bashcompdir)" \
-		--disable-openpace \
-		--disable-static \
 		--disable-strict \
 		--enable-man \
 		$(use_enable ctapi) \
 		$(use_enable doc) \
-		$(use_enable notify ) \
+		$(use_enable notify) \
 		$(use_enable openct) \
+		$(use_enable pace openpace) \
 		$(use_enable pcsc-lite pcsc) \
 		$(use_enable readline) \
 		$(use_enable secure-messaging sm) \
@@ -59,7 +73,9 @@ src_configure() {
 
 src_install() {
 	default
-	find "${D}" -name '*.la' -delete || die
+
 	insinto /etc/pkcs11/modules/
-	doins "${FILESDIR}/${PN}.module"
+	doins "${FILESDIR}"/opensc.module
+
+	find "${ED}" -name '*.la' -delete || die
 }
