@@ -62,7 +62,7 @@ BDEPEND="
 
 PATCHES=(
 	# https://github.com/Intel-Media-SDK/MediaSDK/pull/2998
-	"${FILESDIR}/${P}-gcc13.patch"
+	"${FILESDIR}/${PN}-23.2.0-gcc13.patch"
 )
 
 multilib_src_configure() {
