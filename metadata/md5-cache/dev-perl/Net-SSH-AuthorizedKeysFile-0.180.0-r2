@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Net-SSH-AuthorizedKeysFile
 INHERIT=perl-module
 IUSE=test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=virtual/perl-Digest-MD5 virtual/perl-File-Spec >=dev-perl/Log-Log4perl-1.0.0 virtual/perl-Text-ParseWords dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MS/MSCHILLI/Net-SSH-AuthorizedKeysFile-0.18.tar.gz https://github.com/mschilli/net-ssh-authorizedkeysfile-perl/pull/3.patch -> Net-SSH-AuthorizedKeysFile-0.180.0-r2-extra-keys.patch
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	8c55459fea879ccdec282839a3b22f78
-_md5_=48f13c69bba3e665bc15a47861a3ac33
+_md5_=e477c3133c8114d210ff2e868f02bf16
