@@ -1,11 +1,12 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
+PYTHON_COMPAT=( python3_{10..12} )
 
-inherit flag-o-matic lua-single
+inherit flag-o-matic lua-single python-any-r1
 
 DESCRIPTION="The PowerDNS Daemon"
 HOMEPAGE="https://www.powerdns.com/"
@@ -13,19 +14,14 @@ SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
-# other possible flags:
-# db2: we lack the dep
-# oracle: dito (need Oracle Client Libraries)
-# xdb: (almost) dead, surely not supported
-
-IUSE="debug doc geoip ldap lmdb lua-records mysql postgres remote sodium sqlite systemd tools tinydns test"
+IUSE="debug doc geoip ldap lmdb lua lua-records mysql odbc postgres remote sodium sqlite systemd tools tinydns test"
 RESTRICT="!test? ( test )"
 
-REQUIRED_USE="lua-records? ( ${LUA_REQUIRED_USE} )"
+REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} ) lua-records? ( lua )"
 
-DEPEND="lua-records? ( ${LUA_DEPS} )
+DEPEND="lua? ( ${LUA_DEPS} )
 	dev-libs/openssl:=
 	dev-libs/boost:=
 	lmdb? ( >=dev-db/lmdb-0.9.29 )
@@ -33,6 +29,7 @@ DEPEND="lua-records? ( ${LUA_DEPS} )
 	mysql? ( dev-db/mysql-connector-c:= )
 	postgres? ( dev-db/postgresql:= )
 	ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 )
+	odbc? ( dev-db/unixODBC )
 	sqlite? ( dev-db/sqlite:3 )
 	geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip )
 	sodium? ( dev-libs/libsodium:= )
@@ -49,6 +46,7 @@ S="${WORKDIR}"/${P/_/-}
 
 pkg_setup() {
 	lua-single_pkg_setup
+	python-any-r1_pkg_setup
 	append-lfs-flags
 	append-cppflags -D_TIME_BITS=64
 }
@@ -56,17 +54,16 @@ pkg_setup() {
 src_configure() {
 	local cnf_dynmodules="pipe bind" # the default backends, always enabled
 
-	#use db2 && cnf_dynmodules+=" db2"
+	use geoip && cnf_dynmodules+=" geoip"
 	use ldap && cnf_dynmodules+=" ldap"
 	use lmdb && cnf_dynmodules+=" lmdb"
+	use lua && cnf_dynmodules+=" lua2"
 	use mysql && cnf_dynmodules+=" gmysql"
-	#use oracle && cnf_dynmodules+=" goracle oracle"
+	use odbc && cnf_dynmodules+=" godbc"
 	use postgres && cnf_dynmodules+=" gpgsql"
 	use remote && cnf_dynmodules+=" remote"
 	use sqlite && cnf_dynmodules+=" gsqlite3"
 	use tinydns && cnf_dynmodules+=" tinydns"
-	use geoip && cnf_dynmodules+=" geoip"
-	#use xdb && cnf_dynmodules+=" xdb"
 
 	econf \
 		--disable-static \
