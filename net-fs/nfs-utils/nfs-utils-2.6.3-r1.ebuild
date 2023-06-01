@@ -14,7 +14,7 @@ if [[ ${PV} == *_rc* ]] ; then
 	S="${WORKDIR}/${PN}-${PN}-${MY_PV}"
 else
 	SRC_URI="mirror://sourceforge/nfs/${P}.tar.bz2"
-	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86"
 fi
 
 LICENSE="GPL-2"
@@ -33,6 +33,8 @@ COMMON_DEPEND="
 	net-libs/libtirpc:=
 	>=net-nds/rpcbind-0.2.4
 	sys-fs/e2fsprogs
+	dev-db/sqlite:3
+	dev-libs/libevent:=
 	caps? ( sys-libs/libcap )
 	ldap? (
 		net-nds/openldap:=
@@ -43,8 +45,6 @@ COMMON_DEPEND="
 	)
 	libmount? ( sys-apps/util-linux )
 	nfsv4? (
-		dev-db/sqlite:3
-		dev-libs/libevent:=
 		>=sys-apps/keyutils-1.5.9:=
 		kerberos? (
 			>=net-libs/libtirpc-0.2.4-r1[kerberos]
@@ -126,6 +126,10 @@ src_configure() {
 		$(use_enable nfsv41)
 		$(use_enable uuid)
 		$(use_with tcpd tcp-wrappers)
+		# XXX: Remove this hack after 2.6.3
+		# See bug #904718.
+		# Patch: https://git.linux-nfs.org/?p=steved/nfs-utils.git;a=commit;h=bc4a5deef9f820c55fdac3c0070364c17cd91cca
+		LIBS="-lsqlite3 -levent_core"
 	)
 	econf "${myeconfargs[@]}"
 }
