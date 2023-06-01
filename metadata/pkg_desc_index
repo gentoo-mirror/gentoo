@@ -944,7 +944,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.0-r1 1.14.0-r2: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.27.133 1.27.137 1.27.142 1.27.143: Universal Command Line Environment for AWS
+app-admin/awscli 1.27.133 1.27.137 1.27.142 1.27.143 1.27.144: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.7.20 2.7.24 2.7.28 2.9.23 2.11.5 2.11.17: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2022.12.0 2023.2.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r1 3.2.60-r2: Distribution-independent installer framework
@@ -7940,8 +7940,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.26.133 1.26.137 1.26.142 1.26.143 9999: The AWS SDK for Python
-dev-python/botocore 1.29.133 1.29.137 1.29.142 1.29.143 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.26.133 1.26.137 1.26.142 1.26.143 1.26.144 9999: The AWS SDK for Python
+dev-python/botocore 1.29.133 1.29.137 1.29.142 1.29.143 1.29.144 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -7953,7 +7953,7 @@ dev-python/browser-cookie3 0.18.1: Loads cookies from your browser into a cookie
 dev-python/brython 3.10.5 3.11: Python 3 implementation for client-side web programming
 dev-python/bsddb3 6.2.9-r1: Python bindings for Berkeley DB
 dev-python/build 0.10.0: A simple, correct PEP517 package builder
-dev-python/cachecontrol 0.12.11: httplib2 caching for requests
+dev-python/cachecontrol 0.12.11 0.13.0: httplib2 caching for requests
 dev-python/cached-property 1.5.2-r1: A cached-property for decorating methods in classes
 dev-python/cachelib 0.10.2-r1: Collection of cache libraries in the same API interface. Extracted from werkzeug
 dev-python/cachetools 5.3.0 5.3.1: Extensible memoizing collections and decorators
@@ -8266,7 +8266,7 @@ dev-python/hvac 1.1.0: HashiCorp Vault API client
 dev-python/hypercorn 0.14.3-r1: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.75.3 6.75.5 6.75.6 6.75.7: A library for property based testing
+dev-python/hypothesis 6.75.3 6.75.5 6.75.6 6.75.7 6.75.9: A library for property based testing
 dev-python/icalendar 5.0.5 5.0.6 5.0.7: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.23 2.5.24: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
@@ -8506,7 +8506,7 @@ dev-python/nbclassic 0.5.5 0.5.6 1.0.0: Jupyter Notebook as a Jupyter Server Ext
 dev-python/nbclient 0.7.4 0.8.0: A client library for executing Jupyter notebooks
 dev-python/nbconvert 7.3.1 7.4.0: Converting Jupyter Notebooks
 dev-python/nbdime 3.1.1-r2 3.2.0 3.2.1: Diff and merge of Jupyter Notebooks
-dev-python/nbformat 5.8.0: Reference implementation of the Jupyter Notebook format
+dev-python/nbformat 5.8.0 5.9.0: Reference implementation of the Jupyter Notebook format
 dev-python/nbsphinx 0.9.1 0.9.2: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.10.0-r1: A pytest plugin to validate Jupyter notebooks
 dev-python/nbxmpp 3.2.5-r1 4.2.2 4.3.0 4.3.1: Python library to use Jabber/XMPP networks in a non-blocking way
@@ -9049,7 +9049,7 @@ dev-python/rfc3339-validator 0.1.4-r1: A pure python RFC3339 validator
 dev-python/rfc3986 2.0.0-r1: Validating URI References per RFC 3986
 dev-python/rfc3986-validator 0.1.1-r1: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r2: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
-dev-python/rich 13.3.4: Python library for rendering rich text, tables, etc. to the terminal
+dev-python/rich 13.3.4 13.4.1: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/roman 4.0 4.1: An Integer to Roman numerals converter
 dev-python/rope 1.7.0 1.8.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
@@ -9063,14 +9063,14 @@ dev-python/rst-linker 2.4.0: Sphinx plugin to add links and timestamps to the ch
 dev-python/rtimulib 7.2.1-r2: Python Binding for RTIMULib, a versatile IMU library
 dev-python/rtslib-fb 2.1.74: A Python object API for managing the Linux LIO kernel target
 dev-python/ruamel-std-pathlib 0.12.0: Ruamel enhancements to pathlib and pathlib2
-dev-python/ruamel-yaml 0.17.21-r2 0.17.22 0.17.23 0.17.24 0.17.26 0.17.28 0.17.30: YAML parser/emitter that supports roundtrip comment preservation
+dev-python/ruamel-yaml 0.17.21-r2 0.17.22 0.17.23 0.17.24 0.17.26 0.17.28 0.17.30 0.17.31: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.7: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.12.1: A high performance Python graph library implemented in Rust
 dev-python/s3transfer 0.6.0-r1 0.6.1: An Amazon S3 Transfer Manager
 dev-python/sabyenc 5.4.4 7.0.2: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif_om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
-dev-python/scikit-build 0.16.4 0.16.7 0.17.5: Improved build system generator for Python C/C++/Fortran/Cython extensions
+dev-python/scikit-build 0.16.4 0.16.7 0.17.5 0.17.6: Improved build system generator for Python C/C++/Fortran/Cython extensions
 dev-python/scipy 1.10.1: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r2: A very small text templating language
 dev-python/scrypt 0.8.20: Bindings for the scrypt key derivation function library
@@ -14803,7 +14803,7 @@ net-misc/dropbox-cli 2022 2023: Cli interface for dropbox (python), part of naut
 net-misc/econnman 1.1_p20160305: ConnMan User Interface written with EFL & python
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electron-cash 4.2.11: Lightweight Bitcoin Cash client (BCH fork of Electrum)
-net-misc/electrum 4.3.4-r1 4.4.0 4.4.1 4.4.2-r1 4.4.3: User friendly Bitcoin client
+net-misc/electrum 4.3.4-r1 4.4.0 4.4.1 4.4.2-r1 4.4.3 4.4.4: User friendly Bitcoin client
 net-misc/electrum-ltc 4.2.2.1: User friendly Litecoin client
 net-misc/ena-driver 2.6.1 2.8.7: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
 net-misc/endlessh 1.1-r2 9999: SSH tarpit that slowly sends and endless banner
@@ -14884,7 +14884,7 @@ net-misc/memcached 1.6.18 1.6.19 1.6.20: High-performance, distributed memory ob
 net-misc/mico 2.3.13-r14: A freely available and fully compliant implementation of the CORBA standard
 net-misc/midentd 2.3.1-r2: ident daemon with masquerading and fake replies support
 net-misc/mikutter 5.0.4 9999: Simple, powerful and moeful twitter client
-net-misc/minidlna 1.3.2-r1: DLNA/UPnP-AV compliant media server
+net-misc/minidlna 1.3.2-r1 1.3.3: DLNA/UPnP-AV compliant media server
 net-misc/minissdpd 1.5.20211105 1.6.0: MiniSSDP Daemon
 net-misc/miniupnpd 2.3.1 2.3.2 2.3.3: MiniUPnP IGD Daemon
 net-misc/mobile-broadband-provider-info 20230416: Database of mobile broadband service providers
