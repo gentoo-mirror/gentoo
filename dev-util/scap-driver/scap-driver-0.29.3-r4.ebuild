@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake linux-mod
+inherit cmake linux-mod-r1
 
 DESCRIPTION="Kernel module for dev-util/sysdig"
 HOMEPAGE="https://sysdig.com/"
@@ -28,6 +28,7 @@ PATCHES=(
 	"${FILESDIR}"/${PV}-fix-kmod-build-on-5.18+.patch
 	"${FILESDIR}"/${PV}-fix-kmod-build-on-6.2+.patch
 	"${FILESDIR}"/${PV}-fix-kmod-build-on-6.3+.patch
+	"${FILESDIR}"/${PV}-fix-kmod-build-on-6.4+.patch
 )
 
 src_configure() {
@@ -40,21 +41,11 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
 
-	# setup linux-mod ugliness
-	MODULE_NAMES="scap(extra:${BUILD_DIR}/driver/src:)"
-	BUILD_PARAMS='KERNELDIR="${KERNEL_DIR}"'
-	# work with clang-built kernels (#816024)
-	if linux_chkconfig_present CC_IS_CLANG; then
-		BUILD_PARAMS+=' CC=${CHOST}-clang'
-		if linux_chkconfig_present LD_IS_LLD; then
-			BUILD_PARAMS+=' LD=ld.lld'
-			if linux_chkconfig_present LTO_CLANG_THIN; then
-				# kernel enables cache by default leading to sandbox violations
-				BUILD_PARAMS+=' ldflags-y=--thinlto-cache-dir= LDFLAGS_MODULE=--thinlto-cache-dir='
-			fi
-		fi
-	fi
+src_compile() {
+	local modlist=( scap=:"${BUILD_DIR}"/driver/src )
+	local modargs=( KERNELDIR="${KV_OUT_DIR}" )
 
-	BUILD_TARGETS="all"
+	linux-mod-r1_src_compile
 }
