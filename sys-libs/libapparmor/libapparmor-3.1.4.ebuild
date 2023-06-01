@@ -3,8 +3,9 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 GENTOO_DEPEND_ON_PERL="no"
 
 inherit autotools distutils-r1 perl-functions
@@ -17,7 +18,7 @@ SRC_URI="https://launchpad.net/apparmor/${MY_PV}/${PV}/+download/apparmor-${PV}.
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm arm64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="doc +perl +python static-libs"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
