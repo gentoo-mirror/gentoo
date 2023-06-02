@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst prepare unpack
-DEPEND=logger? ( !<sys-apps/util-linux-2.34-r3 !>=sys-apps/util-linux-2.34-r3[logger] )
+DEPEND=logger? ( sys-apps/util-linux[-logger(+)] )
 DESCRIPTION=Standard log daemons
 EAPI=8
 HOMEPAGE=https://troglobit.com/sysklogd.html https://github.com/troglobit/sysklogd
@@ -8,8 +8,8 @@ INHERIT=flag-o-matic systemd toolchain-funcs autotools git-r3
 IUSE=logger logrotate
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=logger? ( !<sys-apps/util-linux-2.34-r3 !>=sys-apps/util-linux-2.34-r3[logger] ) logrotate? ( app-admin/logrotate )
+RDEPEND=logger? ( sys-apps/util-linux[-logger(+)] ) logrotate? ( app-admin/logrotate )
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	systemd	5f4bb0758df2e483babf68cd517078ca	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=e2fa4945c49a18672592f66259051e81
+_md5_=459e82ea4bd5cf50fd65dcbefbf5a04a
