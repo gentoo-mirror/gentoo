@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.infradead.org/openconnect/
 INHERIT=linux-info python-any-r1 verify-sig
 IUSE=doc +gnutls gssapi libproxy lz4 nls pskc selinux smartcard stoken test verify-sig
-KEYWORDS=~amd64 arm arm64 ~loong ppc64 ~riscv x86
+KEYWORDS=amd64 arm arm64 ~loong ppc64 ~riscv x86
 LICENSE=LGPL-2.1 GPL-2
 RDEPEND=dev-libs/json-parser:0= dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc(+)] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) sys-apps/iproute2 >=net-vpn/vpnc-scripts-20210402-r1 selinux? ( sec-policy/selinux-vpn )
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz verify-sig? ( https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz.asc )
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
-_md5_=7bc1a415c7961d7dfdad18b94e81c61c
+_md5_=5ede2dad0d504e2e124a8f7353f6025b
