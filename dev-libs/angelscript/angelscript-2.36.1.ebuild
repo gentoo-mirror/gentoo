@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,10 +16,6 @@ IUSE="doc static-libs"
 BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}/sdk"
-PATCHES=(
-	"${FILESDIR}/0004-Add-as_callfunc_arm64.cpp-to-gnuc-makefile.patch"
-	"${FILESDIR}/0006-Add-as_callfunc_arm_gcc.S-to-gnuc-makefile.patch"
-)
 
 pkg_setup() {
 	tc-export CXX AR RANLIB
