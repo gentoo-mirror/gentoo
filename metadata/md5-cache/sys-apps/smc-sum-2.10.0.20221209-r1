@@ -1,0 +1,17 @@
+BDEPEND=sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig )
+DEFINED_PHASES=compile install postinst prepare setup
+DEPEND=virtual/linux-sources
+DESCRIPTION=Updates the BIOS and IPMI firmware and system settings on Supermicro mainboards
+EAPI=8
+HOMEPAGE=https://www.supermicro.com
+IDEPEND=sys-apps/kmod[tools]
+INHERIT=linux-mod-r1
+IUSE=module dist-kernel modules-sign +strip
+KEYWORDS=-* ~amd64
+LICENSE=supermicro
+RDEPEND=sys-libs/zlib sys-power/iasl sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://www.supermicro.com/Bios/sw_download/527/sum_2.10.0_Linux_x86_64_20221209.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod-r1	e4bed03b66db7089d7e83f3542673a7d
+_md5_=e7a61c3c01061566c7e15371ea3bd513

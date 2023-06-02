@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig )
+DEFINED_PHASES=compile install postinst setup
+DEPEND=virtual/linux-sources
+DESCRIPTION=A linux kernel module that enables calls to ACPI
+EAPI=8
+HOMEPAGE=https://github.com/nix-community/acpi_call
+IDEPEND=sys-apps/kmod[tools]
+INHERIT=linux-mod-r1
+IUSE=examples dist-kernel modules-sign +strip
+KEYWORDS=amd64
+LICENSE=GPL-3+
+RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+SLOT=0
+SRC_URI=https://github.com/nix-community/acpi_call/archive/v1.2.2.tar.gz -> acpi_call-1.2.2.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod-r1	e4bed03b66db7089d7e83f3542673a7d
+_md5_=c351750242c4bff0cc4240e596ce49bc
