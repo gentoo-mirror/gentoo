@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://rubygems.org/
 INHERIT=ruby-ng prefix
 IUSE=server test ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=|| ( Ruby MIT )
 PDEPEND=server? ( =dev-ruby/builder-3* )
 RDEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rubygems/rubygems/archive/v3.4.6.tar.gz -> rubygems-3.4.6.tar.gz
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	e06533c14f2bbca05b01fb6b0506e83a	ruby-ng	af08d2b1445bef89013607f69330a791	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=d950c1c95ed2b7247fe0e16c34c2a8f9
+_md5_=c26af3947124f1d4a89b3b254157ae67
