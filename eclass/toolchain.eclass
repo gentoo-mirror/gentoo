@@ -426,15 +426,17 @@ fi
 # Set the source directory depending on whether we're using
 # a live git tree, snapshot, or release tarball.
 if [[ ${TOOLCHAIN_SET_S} == yes ]] ; then
-	S=$(
-		if tc_is_live ; then
-			echo ${EGIT_CHECKOUT_DIR}
-		elif [[ -n ${SNAPSHOT} ]] ; then
-			echo ${WORKDIR}/gcc-${SNAPSHOT}
-		else
-			echo ${WORKDIR}/gcc-${GCC_RELEASE_VER}
-		fi
-	)
+	s_path=
+	if tc_is_live ; then
+		s_path=${EGIT_CHECKOUT_DIR}
+	elif [[ -n ${SNAPSHOT} ]] ; then
+		s_path=${WORKDIR}/gcc-${SNAPSHOT}
+	else
+		s_path=${WORKDIR}/gcc-${GCC_RELEASE_VER}
+	fi
+
+	S="${s_path}"
+	unset s_path
 fi
 
 gentoo_urls() {
@@ -526,13 +528,6 @@ gentoo_urls() {
 #			The resulting filename of this tarball will be:
 #			gcc-${SPECS_GCC_VER:-${GCC_RELEASE_VER}}-specs-${SPECS_VER}.tar.xz
 #
-#	CYGWINPORTS_GITREV
-#			If set, this variable signals that we should apply additional patches
-#			maintained by upstream Cygwin developers at github/cygwinports/gcc,
-#			using the specified git commit id there.  The list of patches to
-#			apply is extracted from gcc.cygport, maintained there as well.
-#			This is done for compilers running on Cygwin, not for cross compilers
-#			with a Cygwin target.
 get_gcc_src_uri() {
 	export PATCH_GCC_VER=${PATCH_GCC_VER:-${GCC_RELEASE_VER}}
 	export MUSL_GCC_VER=${MUSL_GCC_VER:-${PATCH_GCC_VER}}
@@ -583,11 +578,6 @@ get_gcc_src_uri() {
 			GCC_SRC_URI+=" gcj? ( ftp://sourceware.org/pub/java/ecj-4.3.jar )"
 		fi
 	fi
-
-	# Cygwin patches from https://github.com/cygwinports/gcc
-	[[ -n ${CYGWINPORTS_GITREV} ]] && \
-		GCC_SRC_URI+=" elibc_Cygwin? ( https://github.com/cygwinports/gcc/archive/${CYGWINPORTS_GITREV}.tar.gz
-			-> gcc-cygwinports-${CYGWINPORTS_GITREV}.tar.gz )"
 
 	echo "${GCC_SRC_URI}"
 }
@@ -675,7 +665,6 @@ toolchain_src_prepare() {
 
 	do_gcc_gentoo_patches
 	do_gcc_PIE_patches
-	do_gcc_CYGWINPORTS_patches
 
 	if tc_is_live ; then
 		BRANDING_GCC_PKGVERSION="${BRANDING_GCC_PKGVERSION}, commit ${EGIT_VERSION}"
@@ -799,23 +788,6 @@ do_gcc_PIE_patches() {
 	eapply "${WORKDIR}"/piepatch/*.patch
 
 	BRANDING_GCC_PKGVERSION="${BRANDING_GCC_PKGVERSION}, pie-${PIE_VER}"
-}
-
-do_gcc_CYGWINPORTS_patches() {
-	[[ -n ${CYGWINPORTS_GITREV} ]] || return 0
-	use elibc_Cygwin || return 0
-
-	local p d="${WORKDIR}/gcc-${CYGWINPORTS_GITREV}"
-	# readarray -t is available since bash-4.4 only, bug #690686
-	local patches=( $(
-		for p in $(
-			sed -e '1,/PATCH_URI="/d;/"/,$d' < "${d}"/gcc.cygport
-		); do
-			echo "${d}/${p}"
-		done
-	) )
-	einfo "Applying cygwin port patches ..."
-	eapply -- "${patches[@]}"
 }
 
 # configure to build with the hardened GCC specs as the default
@@ -1196,9 +1168,6 @@ toolchain_src_configure() {
 				;;
 			*-musl*)
 				needed_libc=musl
-				;;
-			*-cygwin)
-				needed_libc=cygwin
 				;;
 			x86_64-*-mingw*|*-w64-mingw*)
 				needed_libc=mingw64-runtime
