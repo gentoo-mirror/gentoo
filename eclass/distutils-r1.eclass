@@ -125,6 +125,8 @@ esac
 #
 # - pdm - pdm.pep517 backend
 #
+# - pdm-backend - pdm.backend backend
+#
 # - poetry - poetry-core backend
 #
 # - setuptools - distutils or setuptools (incl. legacy mode)
@@ -230,7 +232,7 @@ _distutils_set_globals() {
 				;;
 			maturin)
 				bdep+='
-					>=dev-util/maturin-0.14.17[${PYTHON_USEDEP}]
+					>=dev-util/maturin-1.0.1[${PYTHON_USEDEP}]
 				'
 				;;
 			no)
@@ -239,7 +241,7 @@ _distutils_set_globals() {
 				;;
 			meson-python)
 				bdep+='
-					>=dev-python/meson-python-0.12.1[${PYTHON_USEDEP}]
+					>=dev-python/meson-python-0.13.1[${PYTHON_USEDEP}]
 				'
 				;;
 			pbr)
@@ -250,6 +252,11 @@ _distutils_set_globals() {
 			pdm)
 				bdep+='
 					>=dev-python/pdm-pep517-1.1.4[${PYTHON_USEDEP}]
+				'
+				;;
+			pdm-backend)
+				bdep+='
+					>=dev-python/pdm-backend-2.0.7[${PYTHON_USEDEP}]
 				'
 				;;
 			poetry)
@@ -984,6 +991,12 @@ _distutils-r1_print_package_versions() {
 					dev-python/setuptools
 				)
 				;;
+			pdm-backend)
+				packages+=(
+					dev-python/pdm-backend
+					dev-python/setuptools
+				)
+				;;
 			poetry)
 				packages+=(
 					dev-python/poetry-core
@@ -1178,6 +1191,9 @@ _distutils-r1_backend_to_key() {
 		pbr.build)
 			echo pbr
 			;;
+		pdm.backend)
+			echo pdm-backend
+			;;
 		pdm.pep517.api)
 			echo pdm
 			;;
@@ -1331,65 +1347,39 @@ distutils_pep517_install() {
 	local config_settings=
 	case ${DISTUTILS_USE_PEP517} in
 		maturin)
-			# ebuild's DISTUTILS_ARGS are currently ignored if <1.0.0, ebuilds
-			# should set the dependency if used until this can be cleaned up
-			# (reminder to cleanup the old MATURIN_PEP517_ARGS block too)
-			if has_version -b '>=dev-util/maturin-1.0.0'; then
-				# `maturin pep517 build-wheel --help` for options
-				local maturin_args=(
-					"${DISTUTILS_ARGS[@]}"
-					--jobs="$(makeopts_jobs)"
-					--skip-auditwheel # see bug #831171
-					$(in_iuse debug && usex debug '--profile=dev' '')
-				)
+			# `maturin pep517 build-wheel --help` for options
+			local maturin_args=(
+				"${DISTUTILS_ARGS[@]}"
+				--jobs="$(makeopts_jobs)"
+				--skip-auditwheel # see bug #831171
+				$(in_iuse debug && usex debug '--profile=dev' '')
+			)
 
-				config_settings=$(
-					"${EPYTHON}" - "${maturin_args[@]}" <<-EOF || die
-						import json
-						import sys
-						print(json.dumps({"build-args": sys.argv[1:]}))
-					EOF
-				)
-			fi
+			config_settings=$(
+				"${EPYTHON}" - "${maturin_args[@]}" <<-EOF || die
+					import json
+					import sys
+					print(json.dumps({"build-args": sys.argv[1:]}))
+				EOF
+			)
 			;;
 		meson-python)
 			local -x NINJAOPTS=$(get_NINJAOPTS)
-			if has_version -b '>=dev-python/meson-python-0.13'; then
-				config_settings=$(
-					"${EPYTHON}" - "${DISTUTILS_ARGS[@]}" <<-EOF || die
-						import json
-						import os
-						import shlex
-						import sys
+			config_settings=$(
+				"${EPYTHON}" - "${DISTUTILS_ARGS[@]}" <<-EOF || die
+					import json
+					import os
+					import shlex
+					import sys
 
-						ninjaopts = shlex.split(os.environ["NINJAOPTS"])
-						print(json.dumps({
-							"builddir": "${BUILD_DIR}",
-							"setup-args": sys.argv[1:],
-							"compile-args": ["-v"] + ninjaopts,
-						}))
-					EOF
-				)
-			else
-				config_settings=$(
-					"${EPYTHON}" - "${DISTUTILS_ARGS[@]}" <<-EOF || die
-						import json
-						import os
-						import shlex
-						import sys
-
-						ninjaopts = shlex.split(os.environ["NINJAOPTS"])
-						print(json.dumps({
-							"builddir": "${BUILD_DIR}",
-							"setup-args": sys.argv[1:],
-							"compile-args": [
-								"-v",
-								f"--ninja-args={ninjaopts!r}",
-							],
-						}))
-					EOF
-				)
-			fi
+					ninjaopts = shlex.split(os.environ["NINJAOPTS"])
+					print(json.dumps({
+						"builddir": "${BUILD_DIR}",
+						"setup-args": sys.argv[1:],
+						"compile-args": ["-v"] + ninjaopts,
+					}))
+				EOF
+			)
 			;;
 		setuptools)
 			if [[ -n ${DISTUTILS_ARGS[@]} ]]; then
@@ -1524,15 +1514,6 @@ distutils-r1_python_compile() {
 				fi
 			else
 				esetup.py build -j "${jobs}" "${@}"
-			fi
-			;;
-		maturin)
-			if has_version -b '<dev-util/maturin-1.0.0'; then
-				local -x MATURIN_PEP517_ARGS="
-					--jobs=$(makeopts_jobs)
-					--skip-auditwheel
-					$(in_iuse debug && usex debug --profile=dev '')
-				"
 			fi
 			;;
 		no)
@@ -1814,9 +1795,11 @@ distutils-r1_run_phase() {
 		# and _all() already localizes it
 		local -x PATH=${PATH}
 
-		# Undo the default switch in setuptools-60+ for the time being,
-		# to avoid replacing .egg-info file with directory in-place.
-		local -x SETUPTOOLS_USE_DISTUTILS="${SETUPTOOLS_USE_DISTUTILS:-stdlib}"
+		if _python_impl_matches "${EPYTHON}" 3.{9..11}; then
+			# Undo the default switch in setuptools-60+ for the time being,
+			# to avoid replacing .egg-info file with directory in-place.
+			local -x SETUPTOOLS_USE_DISTUTILS="${SETUPTOOLS_USE_DISTUTILS:-stdlib}"
+		fi
 
 		# Bug 559644
 		# using PYTHONPATH when the ${BUILD_DIR}/lib is not created yet might lead to
@@ -1842,8 +1825,6 @@ distutils-r1_run_phase() {
 	# How to build Python modules in different worlds...
 	local ldopts
 	case "${CHOST}" in
-		# provided by haubi, 2014-07-08
-		*-aix*) ldopts='-shared -Wl,-berok';; # good enough
 		# provided by grobian, 2014-06-22, bug #513664 c7
 		*-darwin*) ldopts='-bundle -undefined dynamic_lookup';;
 		*) ldopts='-shared';;
