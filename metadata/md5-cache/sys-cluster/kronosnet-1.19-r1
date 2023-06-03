@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://kronosnet.org
 INHERIT=autotools
 IUSE=doc nss +openssl zstd lz4 lzo2
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ppc64 ~x86
 LICENSE=LGPL-2.1
 RDEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 sys-libs/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
 SLOT=0/1
 SRC_URI=https://kronosnet.org/releases/kronosnet-1.19.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=590902290ab3faae14864509ae844c39
+_md5_=1c1d9cc485323735b3fcedaba4adfe9c
