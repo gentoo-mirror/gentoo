@@ -18,7 +18,7 @@ S="${WORKDIR}/OpenCPN-Release_${PV}"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc lzma opengl"
+IUSE="doc lzma"
 
 RDEPEND="
 	app-arch/bzip2
@@ -29,11 +29,12 @@ RDEPEND="
 	media-libs/jasper
 	media-libs/portaudio
 	net-misc/curl
-	opengl? ( virtual/opengl )
 	sys-libs/zlib
-	virtual/libusb:0
+	virtual/libusb:1
+	virtual/opengl
+	x11-base/xorg-proto
 	x11-libs/gtk+:3
-	x11-libs/wxGTK:${WX_GTK_VER}=[opengl?,X]
+	x11-libs/wxGTK:${WX_GTK_VER}=[opengl,X]
 	"
 DEPEND="${RDEPEND}"
 BDEPEND="
