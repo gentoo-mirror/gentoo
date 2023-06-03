@@ -225,22 +225,10 @@ www-client/chromium-bin
 =sci-libs/metis-5.2.1-r1
 =sci-libs/parmetis-4.0.3_p20230326
 
-# Michał Górny <mgorny@gentoo.org> (2023-05-03)
-# Unmaintained upstream.  Fails to build without sys-apps/which, fails
-# with modern autoconf.
-# Removal on 2023-06-02.  Bug #896896.
-dev-python/thunarx-python
-
 # Sam James <sam@gentoo.org> (2023-05-01)
 # Breaks dev-python/scipy build. See bug #905396 and https://github.com/serge-sans-paille/gast/issues/74.
 =dev-python/pythran-0.13.0
 =dev-python/gast-0.5.4
-
-# John Helmert III <ajak@gentoo.org> (2023-04-30)
-# STARTTLS vulnerability, depends on gtk+:2, practically unmainatined
-# upstream. Use mail-client/claws instead. Removal in 30 days, bugs
-# #769293, #807358
-mail-client/sylpheed
 
 # Sam James <sam@gentoo.org> (2023-05-01)
 # Quite broken, see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=109672.
@@ -249,30 +237,6 @@ mail-client/sylpheed
 # Andreas Sturmlechner <asturm@gentoo.org> 2023-04-30
 # Breaking even latest ~arch version of KDE PIM, bug #905352.
 =dev-libs/ktextaddons-1.3*
-
-# Mike Gilbert <floppym@gentoo.org> (2023-04-26)
-# Merged into net-libs/ldns.  Bug 828109.
-# Removal on 2023-05-26.
-net-dns/ldns-utils
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-04-22)
-# Unused acct-group. Removal on 2023-05-22
-# The server was removed on 2021-08-24 with commit
-# 7a1e8a90fa8a09a84741dc8ef5f774d92ae8433c
-acct-group/resin
-
-# Jakov Smolić <jsmolic@gentoo.org> (2023-04-21)
-# Does not support python 3.11, uses deprecated dev-python/future,
-# inactive upstream (last commit in 2019).
-# Removal on 2023-05-21. Bugs #897102, #888293
-net-irc/quasselgrep
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-04-21)
-# Unused java libraries. Removal on 2023-05-22
-dev-java/avalon-framework
-dev-java/avalon-logkit
-java-virtuals/servlet-api
-dev-java/resin-servlet-api
 
 # Sam James <sam@gentoo.org> (2023-04-19)
 # Last-minute libstdc++ symbol versioning magic causes e.g. mold, cmake
