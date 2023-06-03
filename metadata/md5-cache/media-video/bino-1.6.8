@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst postrm preinst prepare
-DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 >=media-libs/glew-1.6.0:0= >=media-libs/libass-0.9.9 >=media-libs/openal-1.15.1 virtual/libintl >=media-video/ffmpeg-0.7:0= lirc? ( app-misc/lirc ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 >=media-libs/glew-1.6.0:0= >=media-libs/libass-0.9.9 >=media-libs/openal-1.15.1 virtual/libintl <media-video/ffmpeg-5:= lirc? ( app-misc/lirc ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
 DESCRIPTION=Stereoscopic and multi-display media player
 EAPI=8
 HOMEPAGE=https://bino3d.org/
@@ -9,8 +9,8 @@ INHERIT=autotools flag-o-matic qmake-utils xdg
 IUSE=debug doc lirc video_cards_nvidia
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 >=media-libs/glew-1.6.0:0= >=media-libs/libass-0.9.9 >=media-libs/openal-1.15.1 virtual/libintl >=media-video/ffmpeg-0.7:0= lirc? ( app-misc/lirc ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 >=media-libs/glew-1.6.0:0= >=media-libs/libass-0.9.9 >=media-libs/openal-1.15.1 virtual/libintl <media-video/ffmpeg-5:= lirc? ( app-misc/lirc ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
 SLOT=0
 SRC_URI=https://bino3d.org/releases/bino-1.6.8.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=12950743551263ccade8c96adb9cc8eb
+_md5_=19d2adcd156d9177dd706dd8344c395c
