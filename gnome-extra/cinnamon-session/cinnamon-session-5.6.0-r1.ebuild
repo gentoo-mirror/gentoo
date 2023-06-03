@@ -14,9 +14,9 @@ SRC_URI="https://github.com/linuxmint/cinnamon-session/archive/${PV}.tar.gz -> $
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
-IUSE="ipv6 systemd"
+IUSE="systemd"
 
-DEPEND="
+COMMON_DEPEND="
 	>=dev-libs/glib-2.37.3:2
 	media-libs/libcanberra[pulseaudio]
 	virtual/opengl
@@ -33,13 +33,16 @@ DEPEND="
 	x11-libs/libXtst
 	x11-libs/pango[X]
 	>=x11-libs/xapp-2.4.1
-	x11-libs/xtrans
 
 	systemd? ( >=sys-apps/systemd-183 )
 	!systemd? ( sys-auth/elogind[policykit] )
 "
+DEPEND="
+	${COMMON_DEPEND}
+	x11-libs/xtrans
+"
 RDEPEND="
-	${DEPEND}
+	${COMMON_DEPEND}
 	>=gnome-extra/cinnamon-desktop-5.6:0=
 "
 BDEPEND="
@@ -55,7 +58,7 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use ipv6)
+		-Dipv6=true
 		-Dxtrans=true
 	)
 	meson_src_configure
