@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune-build-info test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= dev-ml/zmq:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Multi-engine SMT-based automatic model checker
+EAPI=8
+HOMEPAGE=https://kind2-mc.github.io/kind2/ https://github.com/kind2-mc/kind2/
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-ml/menhir:= dev-ml/num:= dev-ml/yojson:= dev-ml/zmq:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/1.9.0
+SRC_URI=https://github.com/kind2-mc/kind2/archive/v1.9.0.tar.gz -> kind2-1.9.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=eec3a83e9471f8df36d4d7f95abe502a
