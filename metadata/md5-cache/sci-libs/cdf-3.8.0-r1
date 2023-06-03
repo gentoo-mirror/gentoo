@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://cdf.gsfc.nasa.gov
 INHERIT=java-pkg-opt-2 multilib toolchain-funcs
 IUSE=doc examples java ncurses static-libs java
-KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux
 LICENSE=CDF
 RDEPEND=java? ( >=virtual/jre-1.8:= ) ncurses? ( sys-libs/ncurses:0= ) java? ( >=dev-java/java-config-2.2.0-r3 )
 RESTRICT=bindist
 SLOT=0
 SRC_URI=https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_0-dist-cdf.tar.gz java? ( https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_0-dist-java.tar.gz ) doc? ( https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf38ifd.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380crm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380csrm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380frm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380prm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380ug.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380vbrm.pdf )
 _eclasses_=java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-opt-2	4d26f2efd4c5ec82b66d1e8816f421b2	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e
-_md5_=e96c407f9b5e04ea90ec94687b49b11e
+_md5_=e5a4c5b3d920d6d55e00898f31f0f4b8

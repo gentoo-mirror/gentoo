@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/libLAS/libLAS/
 INHERIT=cmake
 IUSE=gdal
-KEYWORDS=amd64 ~arm ~arm64 ~ia64 ppc ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ~ia64 ~ppc ppc64 x86
 LICENSE=BSD
 RDEPEND=dev-libs/boost:= sci-geosciences/laszip sci-libs/libgeotiff:= gdal? ( sci-libs/gdal:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/libLAS/libLAS/archive/1.8.1.tar.gz -> liblas-1.8.1.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
-_md5_=0d4e1877144680886756fc955f592962
+_md5_=b5a7b67cbb3a4b42de70616a8c01ab7e
