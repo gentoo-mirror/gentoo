@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-db/qt5-sqlcipher >=dev-libs/libsodium-1.0.18:= >=dev-qt/qtcore-5.7.1:5= >=dev-qt/qtgui-5.7.1:5= >=dev-qt/qtmultimedia-5.7.1:5=[widgets] >=dev-qt/qtnetwork-5.7.1:5=[ssl] >=dev-qt/qtsql-5.7.1:5=[sqlite] >=dev-qt/qtwidgets-5.7.1:5= >=media-gfx/qrencode-3.4.4-r1:= test? ( >=dev-cpp/gtest-1.8.0 )
+DESCRIPTION=Open source chat client for Threema-style end-to-end encrypted chat networks
+EAPI=8
+HOMEPAGE=https://www.openmittsu.de/
+INHERIT=cmake desktop
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+ BitstreamVera OFL-1.1 Apache-2.0 CC0-1.0 MIT BSD
+RDEPEND=dev-db/qt5-sqlcipher >=dev-libs/libsodium-1.0.18:= >=dev-qt/qtcore-5.7.1:5= >=dev-qt/qtgui-5.7.1:5= >=dev-qt/qtmultimedia-5.7.1:5=[widgets] >=dev-qt/qtnetwork-5.7.1:5=[ssl] >=dev-qt/qtsql-5.7.1:5=[sqlite] >=dev-qt/qtwidgets-5.7.1:5= >=media-gfx/qrencode-3.4.4-r1:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~ulm/distfiles/openmittsu-0.10.0.0.tar.xz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=8e6f72a51a8d99811d1d2d9202d3bc04
