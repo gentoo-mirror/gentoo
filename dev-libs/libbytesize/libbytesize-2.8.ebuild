@@ -1,9 +1,9 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit autotools python-r1
 
@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/storaged-project/libbytesize"
 SRC_URI="https://github.com/storaged-project/libbytesize/releases/download/${PV}/${P}.tar.gz"
 LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~mips ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc python test tools"
 
 REQUIRED_USE="
@@ -23,7 +23,7 @@ REQUIRED_USE="
 RDEPEND="
 	dev-libs/gmp:0=
 	dev-libs/mpfr:=
-	dev-libs/libpcre2
+	dev-libs/libpcre2:=
 	python? ( ${PYTHON_DEPS} )
 "
 
@@ -31,7 +31,10 @@ DEPEND="${RDEPEND}"
 
 BDEPEND="
 	sys-devel/gettext
-	doc? ( dev-util/gtk-doc )
+	doc? (
+		dev-util/gtk-doc
+		virtual/pkgconfig
+	)
 	test? (
 		dev-python/pocketlint[${PYTHON_USEDEP}]
 		dev-python/polib[${PYTHON_USEDEP}]
@@ -44,11 +47,10 @@ RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.4-no_Werror.patch"
-	"${FILESDIR}/${PN}-2.6-configure-bashism.patch"
 )
 
 python_do() {
-	if use python; then
+	if use python ; then
 		python_foreach_impl run_in_build_dir "$@"
 	else
 		"$@"
