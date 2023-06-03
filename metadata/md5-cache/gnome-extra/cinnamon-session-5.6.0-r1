@@ -1,15 +1,15 @@
 BDEPEND=|| ( >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 ) dev-util/gdbus-codegen virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-libs/glib-2.37.3:2 media-libs/libcanberra[pulseaudio] virtual/opengl x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXcomposite x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango[X] >=x11-libs/xapp-2.4.1 x11-libs/xtrans systemd? ( >=sys-apps/systemd-183 ) !systemd? ( sys-auth/elogind[policykit] )
+DEPEND=>=dev-libs/glib-2.37.3:2 media-libs/libcanberra[pulseaudio] virtual/opengl x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXcomposite x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango[X] >=x11-libs/xapp-2.4.1 systemd? ( >=sys-apps/systemd-183 ) !systemd? ( sys-auth/elogind[policykit] ) x11-libs/xtrans
 DESCRIPTION=Cinnamon session manager
 EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-session
 INHERIT=meson gnome2-utils python-any-r1 xdg-utils
-IUSE=ipv6 systemd
+IUSE=systemd
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-2+ LGPL-2+
-RDEPEND=>=dev-libs/glib-2.37.3:2 media-libs/libcanberra[pulseaudio] virtual/opengl x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXcomposite x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango[X] >=x11-libs/xapp-2.4.1 x11-libs/xtrans systemd? ( >=sys-apps/systemd-183 ) !systemd? ( sys-auth/elogind[policykit] ) >=gnome-extra/cinnamon-desktop-5.6:0=
+RDEPEND=>=dev-libs/glib-2.37.3:2 media-libs/libcanberra[pulseaudio] virtual/opengl x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXcomposite x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango[X] >=x11-libs/xapp-2.4.1 systemd? ( >=sys-apps/systemd-183 ) !systemd? ( sys-auth/elogind[policykit] ) >=gnome-extra/cinnamon-desktop-5.6:0=
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-session/archive/5.6.0.tar.gz -> cinnamon-session-5.6.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	eapi8-dosym	741bfa77afb2a9321261501aca58c208	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=e5c4b4be5250738bcdd791b70126e8e8
+_md5_=eff31d8198668ffe480b1a25d9987a04

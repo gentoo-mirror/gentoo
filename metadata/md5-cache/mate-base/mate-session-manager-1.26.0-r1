@@ -1,16 +1,16 @@
 BDEPEND=dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils sys-devel/gnuconfig || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=>=dev-libs/dbus-glib-0.76 >=dev-libs/glib-2.50:2 dev-libs/libxslt sys-apps/dbus x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango gles2? ( media-libs/mesa[egl(+),gles2] ) systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) xtrans? ( x11-libs/xtrans ) >=dev-lang/perl-5 dev-util/desktop-file-utils x11-misc/shared-mime-info >=mate-base/mate-common-1.26
+DEPEND=>=dev-libs/dbus-glib-0.76 >=dev-libs/glib-2.50:2 dev-libs/libxslt sys-apps/dbus x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango gles2? ( media-libs/mesa[egl(+),gles2] ) systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) >=dev-lang/perl-5 x11-libs/xtrans dev-util/desktop-file-utils x11-misc/shared-mime-info >=mate-base/mate-common-1.26
 DESCRIPTION=MATE session manager
 EAPI=7
 HOMEPAGE=https://mate-desktop.org/
 INHERIT=mate
-IUSE=debug elogind gles2 gnome-keyring ipv6 nls systemd +xtrans
+IUSE=debug elogind gles2 gnome-keyring nls systemd
 KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv x86
 LICENSE=GPL-2+ GPL-3+ HPND LGPL-2+ LGPL-2.1+
-RDEPEND=>=dev-libs/dbus-glib-0.76 >=dev-libs/glib-2.50:2 dev-libs/libxslt sys-apps/dbus x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango gles2? ( media-libs/mesa[egl(+),gles2] ) systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) xtrans? ( x11-libs/xtrans ) mate-base/mate-desktop virtual/libintl x11-apps/xdpyinfo x11-misc/xdg-user-dirs x11-misc/xdg-user-dirs-gtk gnome-keyring? ( gnome-base/gnome-keyring )
+RDEPEND=>=dev-libs/dbus-glib-0.76 >=dev-libs/glib-2.50:2 dev-libs/libxslt sys-apps/dbus x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.22:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango gles2? ( media-libs/mesa[egl(+),gles2] ) systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) mate-base/mate-desktop virtual/libintl x11-apps/xdpyinfo x11-misc/xdg-user-dirs x11-misc/xdg-user-dirs-gtk gnome-keyring? ( gnome-base/gnome-keyring )
 REQUIRED_USE=^^ ( elogind systemd )
 SLOT=0
 SRC_URI=https://pub.mate-desktop.org/releases/1.26/mate-session-manager-1.26.0.tar.xz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	9bd787a54d31405e742ae7537eed650b	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	6ae9a4347149b19a112caa1182d03bde	mate-desktop.org	46dd83b4e2012277a35ac955603b5fb9	mate	467afb829b36c9c9b4ee0cba4e1efcdd
-_md5_=a1684f320d6e30daf65d638c8d0ee13b
+_md5_=ccb097d8d1d91a64701bf9d28c6f52ed
