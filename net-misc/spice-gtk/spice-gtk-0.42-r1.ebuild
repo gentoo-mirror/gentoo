@@ -45,6 +45,9 @@ RDEPEND="
 	introspection? ( dev-libs/gobject-introspection )
 	dev-libs/openssl:=
 	lz4? ( app-arch/lz4 )
+	policykit? (
+		>=sys-auth/polkit-0.110-r1
+	)
 	sasl? ( dev-libs/cyrus-sasl )
 	smartcard? ( app-emulation/qemu[smartcard] )
 	usbredir? (
@@ -52,9 +55,6 @@ RDEPEND="
 		>=sys-apps/usbredir-0.4.2
 		virtual/acl
 		virtual/libusb:1
-		policykit? (
-			>=sys-auth/polkit-0.110-r1
-		)
 	)
 	webdav? (
 		net-libs/phodav:3.0
@@ -76,12 +76,13 @@ DEPEND="${RDEPEND}
 BDEPEND="
 	dev-perl/Text-CSV
 	dev-util/glib-utils
+	dev-util/gtk-doc
 	>=sys-devel/gettext-0.17
 	virtual/pkgconfig
 	vala? ( $(vala_depend) )
 	$(python_gen_any_dep '
-		dev-python/six[${PYTHON_USEDEP}]
 		dev-python/pyparsing[${PYTHON_USEDEP}]
+		dev-python/six[${PYTHON_USEDEP}]
 	')
 "
 
@@ -92,6 +93,8 @@ python_check_deps() {
 
 src_prepare() {
 	default
+
+	python_fix_shebang subprojects/keycodemapdb/tools/keymap-gen
 
 	use vala && vala_setup
 }
