@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit multilib toolchain-funcs
 
@@ -14,12 +14,9 @@ S="${WORKDIR}/unrar"
 
 LICENSE="unRAR"
 SLOT="0/6" # subslot = soname version
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.9.3-build.patch
-	"${FILESDIR}"/${PN}-5.5.5-honor-flags.patch
-)
+PATCHES=( "${FILESDIR}/${PN}-6.2.6-honor-flags.patch" )
 
 src_prepare() {
 	default
