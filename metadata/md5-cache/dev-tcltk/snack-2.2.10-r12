@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=http://www.speech.kth.se/snack/
 INHERIT=distutils-r1 flag-o-matic toolchain-funcs virtualx
 IUSE=alsa examples python vorbis python_targets_python3_10 python_targets_python3_11 test
-KEYWORDS=amd64 ~hppa ppc sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~arm64 ~hppa ppc sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=dev-lang/tcl:0= dev-lang/tk:0= alsa? ( media-libs/alsa-lib ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) vorbis? ( media-libs/libvorbis )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=http://www.speech.kth.se/snack/dist/snack2.2.10.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	2d32e797ee29a8ffdd452f4a85860666	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	virtualx	817571665ee28575da44ee08135089e5
-_md5_=9e7d9dc3eeec5ef44442d5eaf5e9aa1d
+_md5_=5b52341362b6144baee797d8b89aa2b3

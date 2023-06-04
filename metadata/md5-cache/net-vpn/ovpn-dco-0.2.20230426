@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://github.com/OpenVPN/ovpn-dco
 INHERIT=linux-mod
 IUSE=debug dist-kernel
-KEYWORDS=~amd64 ~loong ~riscv
+KEYWORDS=~amd64 ~arm ~loong ~riscv
 LICENSE=GPL-2
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
 SRC_URI=https://github.com/OpenVPN/ovpn-dco/archive/refs/tags/v0.2.20230426.tar.gz -> ovpn-dco-0.2.20230426.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	073dc5c9bc044e85d704b503ebc764a2
-_md5_=ba7cce3ddd5116abaa5b2dd4904dfb96
+_md5_=628079c78d40b3ac54f0ec7cf0c758e2

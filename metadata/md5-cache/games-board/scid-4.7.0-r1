@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=http://scid.sourceforge.net/
 INHERIT=cmake desktop optfeature python-single-r1
 IUSE=photos scripts test python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/tcl:= dev-lang/tk dev-tcltk/tkimg scripts? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) )
 REQUIRED_USE=scripts? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/scid/scid-code-4.7.0.zip mirror://sourceforge/scid/scid-4.7.0_x64_linux.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	desktop	021728fdc1b03b36357dbc89489e0f0d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=bff8428fc9e380cf83f95a0ad6862508
+_md5_=c0937e0294d48e194576db1c239d8c7b
