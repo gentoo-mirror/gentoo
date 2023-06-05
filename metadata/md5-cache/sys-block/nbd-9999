@@ -1,14 +1,14 @@
-BDEPEND=sys-devel/bison app-text/docbook-sgml-dtd:4.5 app-text/docbook-sgml-utils sys-devel/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/bison virtual/pkgconfig app-text/docbook-sgml-dtd:4.5 app-text/docbook-sgml-utils sys-devel/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare unpack
-DEPEND=>=dev-libs/glib-2.26.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( sys-libs/zlib )
+DEPEND=>=dev-libs/glib-2.32.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( sys-libs/zlib )
 DESCRIPTION=Userland client/server for kernel network block device
-EAPI=7
-HOMEPAGE=https://nbd.sourceforge.net/
+EAPI=8
+HOMEPAGE=https://nbd.sourceforge.io/
 INHERIT=systemd autotools git-r3
 IUSE=debug gnutls netlink zlib
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=dev-libs/glib-2.26.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( sys-libs/zlib )
+RDEPEND=>=dev-libs/glib-2.32.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( sys-libs/zlib )
 SLOT=0
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=fc9dc08faebd9fb6733ec9b89e2f09b6
+_md5_=10b70065b64026304ab7c569bcda00c5
