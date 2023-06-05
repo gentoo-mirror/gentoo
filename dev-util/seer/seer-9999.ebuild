@@ -13,7 +13,8 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	SRC_URI="https://github.com/epasveer/seer/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-	KEYWORDS="~amd64 ~ppc64"
+	# Unkeyworded until tested a bit more
+	#KEYWORDS="~amd64 ~arm64 ~ppc64"
 fi
 
 S="${WORKDIR}"/${P}/src
@@ -34,6 +35,16 @@ RDEPEND="
 	${DEPEND}
 	sys-devel/gdb
 "
+
+src_configure() {
+	local mycmakeargs=(
+		# TODO: Support Qt 6 once it's unmasked
+		# Note that >= 2.0 barely supports Qt 5, see https://github.com/epasveer/seer/wiki/Building-Seer---Qt5.
+		-DQTVERSION=QT5
+	)
+
+	cmake_src_configure
+}
 
 src_install() {
 	cmake_src_install
