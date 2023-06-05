@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/yacc virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install
+DESCRIPTION=IP multicast routing daemon
+EAPI=8
+HOMEPAGE=https://troglobit.com/projects/mrouted/
+INHERIT=toolchain-funcs systemd
+IUSE=rsrr test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=Stanford GPL-2
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://github.com/troglobit/mrouted/releases/download/4.5/mrouted-4.5.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=5c391156403c925c941de58d76620220
