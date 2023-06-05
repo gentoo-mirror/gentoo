@@ -6,9 +6,9 @@ EAPI=8
 inherit systemd
 
 SRC_URI="
-	amd64? ( https://github.com/Radarr/Radarr/releases/download/v${PV}/Radarr.master.${PV}.linux-core-x64.tar.gz )
-	arm? ( https://github.com/Radarr/Radarr/releases/download/v${PV}/Radarr.master.${PV}.linux-core-arm.tar.gz )
-	arm64? ( https://github.com/Radarr/Radarr/releases/download/v${PV}/Radarr.master.${PV}.linux-core-arm64.tar.gz )
+	amd64? ( https://github.com/Radarr/Radarr/releases/download/v${PV}/Radarr.develop.${PV}.linux-core-x64.tar.gz )
+	arm? ( https://github.com/Radarr/Radarr/releases/download/v${PV}/Radarr.develop.${PV}.linux-core-arm.tar.gz )
+	arm64? ( https://github.com/Radarr/Radarr/releases/download/v${PV}/Radarr.develop.${PV}.linux-core-arm64.tar.gz )
 "
 
 DESCRIPTION="A fork of Sonarr to work with movies a la Couchpotato"
