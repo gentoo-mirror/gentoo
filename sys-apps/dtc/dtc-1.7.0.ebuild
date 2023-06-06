@@ -3,10 +3,10 @@
 
 EAPI=8
 
-inherit meson toolchain-funcs
+inherit meson
 
 if [[ ${PV} == 9999 ]] ; then
-	EGIT_REPO_URI="git://git.kernel.org/pub/scm/utils/dtc/dtc.git"
+	EGIT_REPO_URI="https://git.kernel.org/pub/scm/utils/dtc/dtc.git"
 	inherit git-r3
 else
 	SRC_URI="https://www.kernel.org/pub/software/utils/${PN}/${P}.tar.xz"
@@ -18,7 +18,8 @@ HOMEPAGE="https://devicetree.org/ https://git.kernel.org/cgit/utils/dtc/dtc.git/
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="static-libs yaml"
+IUSE="static-libs test yaml"
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	sys-devel/bison
@@ -39,10 +40,19 @@ PATCHES=(
 	"${FILESDIR}"/${P}-meson-macos.patch
 )
 
+src_prepare() {
+	default
+
+	if ! use test ; then
+		sed -i -e "/subdir('tests')/d" meson.build || die
+	fi
+}
+
 src_configure() {
 	local emesonargs=(
 		-Ddefault_library=$(usex static-libs both shared)
 		-Dpython=disabled
+		-Dtools=true
 		-Dvalgrind=disabled # only used for some tests
 		$(meson_feature yaml)
 	)
