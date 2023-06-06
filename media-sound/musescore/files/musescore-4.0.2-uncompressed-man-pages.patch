@@ -1,6 +1,6 @@
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -660,7 +660,7 @@ if (NOT MINGW AND NOT MSVC AND NOT APPLE)
+--- a/build/cmake/SetupAppImagePackaging.cmake
++++ b/build/cmake/SetupAppImagePackaging.cmake
+@@ -85,7 +85,7 @@ if (NOT MINGW AND NOT MSVC AND NOT APPLE
      # Compress man pages if gzip is installed (don't on OpenBSD)
      # Note: Compressing man pages is normal on Linux but not OpenBSD
      find_program( GZIP_EXECUTABLE gzip DOC "A tool for compressing manpages (optional)." )
@@ -9,7 +9,7 @@
          message(STATUS "Found 'gzip'. Man pages will be compressed.")
          set(MAN_TARGET ${MAN_BUILD})
          set(MAN_EXTENSION ${MAN_EXTENSION}.gz)
-@@ -677,7 +677,7 @@ if (NOT MINGW AND NOT MSVC AND NOT APPLE)
+@@ -102,7 +102,7 @@ if (NOT MINGW AND NOT MSVC AND NOT APPLE
              COMMAND echo "Man pages have been compressed ready for installation."
              VERBATIM
              )
@@ -18,7 +18,7 @@
          if (CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
              message(STATUS "System is OpenBSD: Man pages will not be compressed.")
          else (CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
-@@ -687,7 +687,7 @@ if (NOT MINGW AND NOT MSVC AND NOT APPLE)
+@@ -112,7 +112,7 @@ if (NOT MINGW AND NOT MSVC AND NOT APPLE
              COMMAND echo "Man pages will be installed uncompressed."
              VERBATIM
              )
