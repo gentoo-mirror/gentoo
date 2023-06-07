@@ -14,6 +14,7 @@ fi
 PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_USE_SETUPTOOLS=no
+DISTUTILS_EXT=1
 
 inherit xdg xdg-utils distutils-r1 tmpfiles udev
 
@@ -99,7 +100,7 @@ RDEPEND="
 	x11-apps/xmodmap
 	ibus? ( app-i18n/ibus )
 	pinentry? ( app-crypt/pinentry )
-	trayicon? ( dev-libs/libappindicator:3 )
+	trayicon? ( dev-libs/libayatana-appindicator )
 	udev? ( virtual/udev )
 "
 DEPEND+="
