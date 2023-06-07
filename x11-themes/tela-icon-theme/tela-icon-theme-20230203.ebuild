@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ MY_PV="${PV:0:4}-${PV:4:2}-${PV:6:2}"
 MY_PN="${PN^}"
 
 # standard comes first
-MY_COLOR_VARIANTS=( standard black blue brown green grey orange pink purple red yellow manjaro ubuntu nord )
+MY_COLOR_VARIANTS=( standard black blue brown green grey orange pink purple red yellow manjaro ubuntu dracula nord )
 
 inherit xdg
 
@@ -35,10 +35,10 @@ REQUIRED_USE="|| ( ${MY_COLOR_VARIANTS[*]} )"
 # not needed and slows us down, package installs 120 000 small files
 RESTRICT="binchecks strip test"
 
-# technically we can use app-arch/harlink too, but it's deprecated
+# technically we can use app-arch/hardlink too, but it's deprecated
 BDEPEND="
 	app-shells/bash
-	sys-apps/util-linux[hardlink(-)?]
+	hardlink? ( sys-apps/util-linux[hardlink(-)?] )
 "
 
 src_prepare() {
@@ -49,10 +49,10 @@ src_prepare() {
 
 src_install() {
 	local v variants=(
-		$(usev kde '-c')
 		$(for v in ${MY_COLOR_VARIANTS[@]}; do
 			usev ${v}
 		done)
+		$(usev kde '-c')
 	)
 
 	dodir /usr/share/icons
