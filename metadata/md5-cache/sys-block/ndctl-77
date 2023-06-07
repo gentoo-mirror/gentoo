@@ -1,16 +1,16 @@
 BDEPEND=doc? ( app-text/asciidoc app-text/xmlto ) sys-devel/libtool virtual/pkgconfig virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm test
-DEPEND=dev-libs/iniparser:0= dev-libs/json-c:= sys-apps/keyutils:= sys-apps/kmod:= sys-apps/util-linux:= virtual/libudev:= systemd? ( sys-apps/systemd:= )
+DEPEND=dev-libs/iniparser:0= dev-libs/json-c:= sys-apps/keyutils:= sys-apps/kmod:= sys-apps/util-linux:= virtual/libudev:= libtracefs? ( dev-libs/libtracefs:= ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=Helper tools and libraries for managing non-volatile memory on Linux
 EAPI=8
 HOMEPAGE=https://github.com/pmem/ndctl
 INHERIT=udev meson bash-completion-r1
-IUSE=doc systemd test
+IUSE=doc libtracefs systemd test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 LGPL-2.1 MIT CC0-1.0
-RDEPEND=dev-libs/iniparser:0= dev-libs/json-c:= sys-apps/keyutils:= sys-apps/kmod:= sys-apps/util-linux:= virtual/libudev:= systemd? ( sys-apps/systemd:= )
+RDEPEND=dev-libs/iniparser:0= dev-libs/json-c:= sys-apps/keyutils:= sys-apps/kmod:= sys-apps/util-linux:= virtual/libudev:= libtracefs? ( dev-libs/libtracefs:= ) systemd? ( sys-apps/systemd:= )
 RESTRICT=!test? ( test ) test
 SLOT=0/6
-SRC_URI=https://github.com/pmem/ndctl/archive/v75.tar.gz -> ndctl-75.tar.gz
+SRC_URI=https://github.com/pmem/ndctl/archive/v77.tar.gz -> ndctl-77.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	udev	eec0bbab06977f1cfc5597269c1fa152	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=78a8b9a830facf6bb595b760bcce006d
+_md5_=3b1995c3ebd516231de47a55c63fcebe
