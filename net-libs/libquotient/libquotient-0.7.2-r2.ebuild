@@ -18,12 +18,14 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/libqtolm
+	dev-libs/openssl:=
 	dev-libs/olm
 	dev-libs/qtkeychain:=[qt5(+)]
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtmultimedia:5
 	dev-qt/qtnetwork:5[ssl]
+	dev-qt/qtsql:5
 "
 DEPEND="${RDEPEND}
 	test? (
