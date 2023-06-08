@@ -5,14 +5,14 @@ EAPI=8
 inherit font
 
 DESCRIPTION="Google's font family that aims to support all the world's languages"
-HOMEPAGE="https://www.google.com/get/noto/ https://github.com/notofonts/notofonts.github.io"
+HOMEPAGE="https://fonts.google.com/noto https://github.com/notofonts/notofonts.github.io"
 
-COMMIT="f589dbf1a59852047e5e506bf8f3ee93be8d6cce"
+COMMIT="f20eb388d2742b5ebf2cf3d1a2992303cce67cf6"
 SRC_URI="https://github.com/notofonts/notofonts.github.io/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 # Extra allows to optionally reduce disk usage even returning to tofu
 # issue as described in https://www.google.com/get/noto/
 IUSE="cjk +extra"
