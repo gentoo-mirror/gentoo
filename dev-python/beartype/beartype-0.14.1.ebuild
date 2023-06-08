@@ -4,20 +4,14 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Unbearably fast runtime type checking in pure Python"
 HOMEPAGE="
 	https://pypi.org/project/beartype/
 	https://github.com/beartype/beartype/
-"
-# as of 0.13.0, sdist is missing mypy.ini required by tests
-# https://github.com/beartype/beartype/pull/230
-SRC_URI="
-	https://github.com/beartype/beartype/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
