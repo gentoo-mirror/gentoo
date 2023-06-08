@@ -1,16 +1,16 @@
 BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm setup
-DEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) )
+DEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) )
 DESCRIPTION=A general purpose tile map editor
 EAPI=8
 HOMEPAGE=https://www.mapeditor.org/
 INHERIT=python-single-r1 qmake-utils xdg-utils
-IUSE=examples python +python_single_target_python3_10
+IUSE=examples python python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64
 LICENSE=BSD BSD-2 GPL-2+
-RDEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 ) )
+RDEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/bjorn/tiled/archive/v1.8.6/tiled-1.8.6.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=b93a733d7e1e24c055c376d9558d6187
+_md5_=0ce21f2ff51f8c360d2e6f6052aa41bb
