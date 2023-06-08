@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop linux-mod xdg
+inherit desktop linux-mod-r1 xdg
 
 DESCRIPTION="Use your phone or tablet as webcam with a v4l device driver and app"
 HOMEPAGE="https://www.dev47apps.com/droidcam/linux/"
@@ -40,14 +40,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-BUILD_TARGETS="all"
-MODULE_NAMES="v4l2loopback-dc(video:${S}/v4l2loopback:${S}/v4l2loopback)"
-MODULESD_V4L2LOOPBACK_DC_ENABLED="yes"
-
 CONFIG_CHECK="~SND_ALOOP VIDEO_DEV MEDIA_SUPPORT MEDIA_CAMERA_SUPPORT"
 ERROR_SND_ALOOP="CONFIG_SND_ALOOP is optionally required for audio support"
 
-PATCHES="${FILESDIR}/${PN}-1.8.2_p20220831-makefile-fixes.patch"
+PATCHES=(
+	"${FILESDIR}/${P}-libusbmuxd-20.patch"
+)
 
 src_prepare() {
 	if ! use gtk; then
@@ -70,22 +68,14 @@ src_configure() {
 
 src_compile() {
 	if use gtk; then
-		emake droidcam
+		APPINDICATOR=ayatana-appindicator3-0.1 emake droidcam
 	fi
-	emake droidcam-cli
+	 APPINDICATOR=ayatana-appindicator3-0.1 emake droidcam-cli
 
-	if linux_chkconfig_present CC_IS_CLANG; then
-		BUILD_PARAMS+=' CC=${CHOST}-clang'
-		if linux_chkconfig_present LD_IS_LLD; then
-			BUILD_PARAMS+=' LD=ld.lld'
-			if linux_chkconfig_present LTO_CLANG_THIN; then
-				# kernel enables cache by default leading to sandbox violations
-				BUILD_PARAMS+=' ldflags-y=--thinlto-cache-dir= LDFLAGS_MODULE=--thinlto-cache-dir='
-			fi
-		fi
-	fi
-	export KERNEL_DIR || die
-	linux-mod_src_compile
+	local modlist=(
+		v4l2loopback-dc=video:v4l2loopback:v4l2loopback:all
+	)
+	linux-mod-r1_src_compile
 }
 
 src_test() {
@@ -104,7 +94,7 @@ src_install() {
 	fi
 	dobin droidcam-cli
 
-	# The cli and gui do not auto load the module if unloaded (why not though?)
+	# The cli and gui do not auto load the module if unloaded,
 	# so we just put it in modules-load.d to make sure it always works
 	insinto /etc/modules-load.d
 	if linux_config_exists; then
@@ -120,19 +110,17 @@ src_install() {
 		fi
 	fi
 
-	einstalldocs
-	linux-mod_src_install
+	linux-mod-r1_src_install
 }
 
 pkg_preinst() {
-	linux-mod_pkg_preinst
 	if use gtk; then
 		xdg_pkg_preinst
 	fi
 }
 
 pkg_postinst() {
-	linux-mod_pkg_postinst
+	linux-mod-r1_pkg_postinst
 	if use gtk; then
 		xdg_pkg_postinst
 	else
@@ -149,7 +137,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	linux-mod_pkg_postrm
 	if use gtk; then
 		xdg_pkg_postrm
 	fi
