@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Implementation of the Double Ratchet cryptographic ratchet in C++
+EAPI=8
+HOMEPAGE=https://gitlab.matrix.org/matrix-org/olm
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.15/olm-3.2.15.tar.bz2
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
+_md5_=bb9863f4b2b61a6b9ce705af4e33f2dd
