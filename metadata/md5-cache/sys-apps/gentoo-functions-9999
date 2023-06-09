@@ -1,12 +1,14 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure unpack
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test unpack
 DESCRIPTION=Base functions required by all Gentoo systems
 EAPI=8
 HOMEPAGE=https://gitweb.gentoo.org/proj/gentoo-functions.git
-INHERIT=git-r3 toolchain-funcs flag-o-matic
+INHERIT=git-r3 meson
+IUSE=test
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=>=sys-apps/findutils-4.9
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
-_md5_=def052cea7d3f6ce7305d63ba57b8de1
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=04f30e73e31f7bb8c3e7651138ccda4d
