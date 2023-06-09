@@ -1,39 +1,43 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit toolchain-funcs
 
-AT_M4DIR="config"
-
+MY_P="${P/_/.}"
 DESCRIPTION="Provides Remote-Console and System Management Software as per IPMI v1.5/2.0"
 HOMEPAGE="https://www.gnu.org/software/freeipmi/"
-
-MY_P="${P/_/.}"
-[[ ${MY_P} == *.beta* ]] && ALPHA="-alpha"
-SRC_URI="mirror://gnu${ALPHA}/${PN}/${MY_P}.tar.gz"
+SRC_URI="mirror://gnu/${PN}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~hppa ~ppc64 ~x86"
-IUSE="debug nagios without-root"
+IUSE="debug doc nagios without-root"
 
-RDEPEND="dev-libs/libgcrypt:0="
-DEPEND="${RDEPEND}
-	virtual/os-headers"
-RDEPEND="${RDEPEND}
+RDEPEND="dev-libs/libgcrypt:="
+DEPEND="
+	${RDEPEND}
+	virtual/os-headers
+"
+RDEPEND="
+	${RDEPEND}
 	nagios? (
 		|| ( net-analyzer/icinga net-analyzer/nagios )
 		dev-lang/perl
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.6.10-header-fixes.patch
+)
+
 src_configure() {
 	local myeconfargs=(
 		$(use_enable debug)
-		$(usex without-root --with-dont-check-for-root "")
+		$(use_enable doc)
+		$(usev without-root --with-dont-check-for-root)
 		--disable-static
 		--disable-init-scripts
 		--localstatedir="${EPREFIX}"/var
@@ -42,9 +46,6 @@ src_configure() {
 
 	econf "${myeconfargs[@]}"
 }
-
-# There are no tests
-src_test() { :; }
 
 src_install() {
 	default
