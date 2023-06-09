@@ -4,11 +4,11 @@ EAPI=6
 HOMEPAGE=http://www.cadsoft.de
 INHERIT=desktop
 IUSE=doc
-KEYWORDS=-* amd64 x86
+KEYWORDS=-* amd64 ~x86
 LICENSE=cadsoft-2
 RDEPEND=sys-libs/glibc || ( <dev-libs/openssl-1.1 dev-libs/openssl-compat:1.0.0 ) >=sys-libs/zlib-1.2.8-r1 >=media-libs/freetype-2.5.0.1 >=media-libs/fontconfig-2.10.92 x11-libs/libXext x11-libs/libX11 >=x11-libs/libXrender-0.9.8 >=x11-libs/libXrandr-1.4.2 >=x11-libs/libXcursor-1.1.14 >=x11-libs/libXi-1.7.2 net-print/cups x11-libs/libxcb
 RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=x86? ( ftp://ftp.cadsoft.de/eagle/program/7.7/eagle-lin32-7.7.0.run ) amd64? ( ftp://ftp.cadsoft.de/eagle/program/7.7/eagle-lin64-7.7.0.run )
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d
-_md5_=e03320fb119f7572fe64ad641ef6b70c
+_md5_=2b46bfb0fc206974931a35043b43d6f7

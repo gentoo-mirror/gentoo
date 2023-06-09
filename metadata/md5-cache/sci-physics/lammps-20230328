@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://lammps.sandia.gov/
 INHERIT=cmake fortran-2 distutils-r1
 IUSE=cuda examples gzip hip lammps-memalign mpi opencl python test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= ) dev-cpp/eigen:3 virtual/fortran
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) ) ?? ( cuda opencl hip )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://download.lammps.org/tars/lammps-28Mar2023.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	2d32e797ee29a8ffdd452f4a85860666
-_md5_=cd6afa9e2df65d25fdfbfbf9f2c016a0
+_md5_=3578572cd19378e0a2fc2eb9da6d5ab0

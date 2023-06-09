@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=http://www.bioperl.org/
 INHERIT=perl-module
 IUSE=minimal graphviz sqlite +db +network +run test
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 PDEPEND=db? ( >=sci-biology/bioperl-db-1.6.9 ) network? ( >=sci-biology/bioperl-network-1.6.9 ) run? ( >=sci-biology/bioperl-run-1.6.9 )
 RDEPEND=dev-perl/libwww-perl !minimal? ( dev-perl/Algorithm-Munkres dev-perl/Array-Compare dev-perl/YAML dev-perl/Bio-ASN1-EntrezGene dev-perl/Clone dev-perl/Convert-Binary-C dev-perl/Data-Stag dev-perl/GD dev-perl/Graph >=dev-perl/HTML-Parser-3.60 dev-perl/List-MoreUtils dev-perl/Math-Random dev-perl/PostScript dev-perl/Set-Scalar dev-perl/SOAP-Lite dev-perl/Sort-Naturally dev-perl/Spreadsheet-ParseExcel >=virtual/perl-Storable-2.05 >=dev-perl/SVG-2.26 >=dev-perl/SVG-Graph-0.01 dev-perl/URI >=dev-perl/XML-DOM-XPath-0.13 dev-perl/XML-Parser >=dev-perl/XML-SAX-0.15 dev-perl/XML-Simple dev-perl/XML-Twig >=dev-perl/XML-Writer-0.4 dev-perl/XML-DOM dev-perl/XML-XPath ) graphviz? ( dev-perl/GraphViz ) sqlite? ( dev-perl/DBD-SQLite ) dev-lang/perl:=
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/C/CJ/CJFIELDS/BioPerl-1.6.901.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	8c55459fea879ccdec282839a3b22f78
-_md5_=e2bc1ba3ce7d3071e3bfff1ff59b93fa
+_md5_=275c67756e8440c392c02c29c75e1388
