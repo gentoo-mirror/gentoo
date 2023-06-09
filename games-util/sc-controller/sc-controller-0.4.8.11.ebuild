@@ -3,9 +3,10 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit distutils-r1 linux-info xdg
 
 DESCRIPTION="User-mode driver and GTK-based GUI for Steam Controllers and others"
