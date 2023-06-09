@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://mediaarea.net/mediainfo/ https://github.com/MediaArea/MediaInfoLib
 INHERIT=autotools edos2unix flag-o-matic
 IUSE=curl doc mms
-KEYWORDS=~amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86
 LICENSE=BSD-2
 RDEPEND=dev-libs/tinyxml2:= >=media-libs/libzen-0.4.41 sys-libs/zlib curl? ( net-misc/curl ) mms? ( >=media-libs/libmms-0.6.1 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://mediaarea.net/download/source/libmediainfo/23.03/libmediainfo_23.03.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	edos2unix	33e347e171066657f91f8b0c72ec8773	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
-_md5_=f4eb4e58781072e00d9e3dc6d0e1f50d
+_md5_=3d26e0ce2b8fb9551d3bd80671be8c25
