@@ -5,19 +5,30 @@ EAPI=8
 
 inherit qt6-build
 
-DESCRIPTION="Qt Multimedia"
+DESCRIPTION="Multimedia (audio, video, radio, camera) library for the Qt6 framework"
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64"
 fi
 
-IUSE="gstreamer"
+IUSE="alsa +ffmpeg gstreamer pulseaudio v4l"
+
+REQUIRED_USE="|| ( ffmpeg gstreamer )"
 
 RDEPEND="
 	=dev-qt/qtbase-${PV}*[gui,network,widgets]
 	=dev-qt/qtdeclarative-${PV}*
+	=dev-qt/qtquick3d-${PV}*
 	=dev-qt/qtshadertools-${PV}*
 	=dev-qt/qtsvg-${PV}*
+	alsa? ( media-libs/alsa-lib )
+	ffmpeg? (
+		media-libs/libva:=
+		media-video/ffmpeg:=
+		x11-libs/libX11
+		x11-libs/libXext
+		x11-libs/libXrandr
+	)
 	gstreamer? (
 		dev-libs/glib:2
 		media-libs/gstreamer:1.0
@@ -25,17 +36,20 @@ RDEPEND="
 		media-libs/gst-plugins-base:1.0
 		media-libs/libglvnd
 	)
+	pulseaudio? ( media-libs/libpulse[glib] )
 "
 DEPEND="${RDEPEND}
 	gstreamer? ( x11-base/xorg-proto )
+	v4l? ( sys-kernel/linux-headers )
 "
 
 src_configure() {
-	# TODO: linux_v4l automagic
 	local mycmakeargs=(
-		-DQT_FEATURE_alsa=off
-		-DQT_FEATURE_pulseaudio=off
+		$(qt_feature alsa)
+		$(qt_feature ffmpeg)
 		$(qt_feature gstreamer)
+		$(qt_feature v4l linux_v4l)
+		$(qt_feature pulseaudio)
 	)
 
 	qt6-build_src_configure

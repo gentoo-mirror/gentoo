@@ -13,7 +13,7 @@ fi
 
 IUSE="
 	assistant designer distancefieldgenerator +linguist pixeltool
-	qdbus qdoc qtattributionsscanner qtdiag qtplugininfo
+	qattributionsscanner qdbus qdoc qdiag qplugininfo
 "
 
 DEPEND="
@@ -27,7 +27,7 @@ DEPEND="
 	pixeltool? ( =dev-qt/qtbase-${PV}*[widgets] )
 	qdbus? ( =dev-qt/qtbase-${PV}*[widgets] )
 	qdoc? ( sys-devel/clang:= )
-	qtdiag? ( =dev-qt/qtbase-${PV}*[opengl,widgets] )
+	qdiag? ( =dev-qt/qtbase-${PV}*[opengl,widgets] )
 "
 RDEPEND="${DEPEND}"
 
@@ -39,11 +39,11 @@ src_configure() {
 		$(qt_feature distancefieldgenerator)
 		$(qt_feature linguist)
 		$(qt_feature pixeltool)
+		$(qt_feature qattributionsscanner qtattributionsscanner)
 		$(qt_feature qdbus)
 		$(qt_feature qdoc clang)
-		$(qt_feature qtattributionsscanner)
-		$(qt_feature qtdiag)
-		$(qt_feature qtplugininfo)
+		$(qt_feature qdiag qtdiag)
+		$(qt_feature qplugininfo qtplugininfo)
 		-DQT_FEATURE_thread=ON
 	)
 
@@ -61,6 +61,6 @@ src_install() {
 	use qdbus && qt6_symlink_binary_to_path qdbus 6
 	use qdbus && qt6_symlink_binary_to_path qdbusviewer 6
 	use qdoc && qt6_symlink_binary_to_path qdoc 6
-	use qtdiag && qt6_symlink_binary_to_path qtdiag 6
-	use qtplugininfo && qt6_symlink_binary_to_path qtplugininfo 6
+	use qdiag && qt6_symlink_binary_to_path qtdiag 6
+	use qplugininfo && qt6_symlink_binary_to_path qtplugininfo 6
 }

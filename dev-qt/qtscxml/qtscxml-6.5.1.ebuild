@@ -11,10 +11,10 @@ if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64"
 fi
 
+IUSE=""
+
 DEPEND="
-	=dev-qt/qtbase-${PV}*
+	=dev-qt/qtbase-${PV}*[gui,network,opengl,widgets]
 	=dev-qt/qtdeclarative-${PV}*
 "
-RDEPEND="
-	${DEPEND}
-"
+RDEPEND="${DEPEND}"
