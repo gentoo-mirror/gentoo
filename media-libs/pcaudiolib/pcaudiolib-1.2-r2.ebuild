@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ REQUIRED_USE="|| ( alsa oss pulseaudio )"
 
 RDEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.18 )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -40,7 +40,6 @@ src_configure() {
 		$(use_with oss)
 		$(use_with alsa)
 		$(use_with pulseaudio)
-		--disable-static
 	)
 	econf "${econf_args[@]}"
 }
