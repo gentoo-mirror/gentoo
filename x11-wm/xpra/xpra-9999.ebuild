@@ -68,7 +68,7 @@ DEPEND="
 	ffmpeg? ( >=media-video/ffmpeg-3.2.2:0=[x264] )
 	jpeg? ( media-libs/libjpeg-turbo )
 	pulseaudio? (
-		media-sound/pulseaudio
+		media-libs/libpulse
 		media-plugins/gst-plugins-pulse:1.0
 	)
 	sound? (
@@ -128,7 +128,7 @@ python_prepare_all() {
 	# double-prefixes some files under /etc. Looks tricky to fix. :(
 	#hprefixify $(find -type f \( -name "*.py" -o -name "*.conf" \))
 
-	sed -r -e "/\bdoc_dir =/s:/${PN}\":/${PF}/html\":" \
+	sed -r -e "/\bdoc_dir =/s:/${PN}/\":/${PF}/html\":" \
 		-i setup.py || die
 
 	if use minimal; then
