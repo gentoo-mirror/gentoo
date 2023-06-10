@@ -1,13 +1,14 @@
-BDEPEND=>=virtual/rust-1.53
-DEFINED_PHASES=compile configure install test unpack
+BDEPEND=<sys-devel/clang-17 virtual/pkgconfig >=virtual/rust-1.53
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=!!sys-devel/llvm:0
 DESCRIPTION=pkgcraft-based tools for Gentoo
 EAPI=8
 HOMEPAGE=https://pkgcraft.github.io/
-INHERIT=cargo
+INHERIT=cargo llvm
 IUSE=debug
 KEYWORDS=~amd64
 LICENSE=MIT Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3+ ISC MIT Unicode-DFS-2016
 SLOT=0
 SRC_URI=https://github.com/pkgcraft/pkgcraft/releases/download/pkgcraft-tools-0.0.7/pkgcraft-tools-0.0.7.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	cargo	13d82eeaf1c62efca46b4a826ea76f80
-_md5_=788e0ea60c3711c18641f88618fb5d26
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	cargo	13d82eeaf1c62efca46b4a826ea76f80	llvm	4cc6f8e29d24a8011266413e74c728bb
+_md5_=cbb83953f2c6a0d0c7832ae7b7581b5f
