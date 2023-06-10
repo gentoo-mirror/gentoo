@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit linux-info meson systemd
 
@@ -43,30 +43,31 @@ COMMON_DEPEND="
 		)
 	)
 	pulseaudio? (
+		media-libs/libpulse
 		media-libs/libsndfile
-		media-sound/pulseaudio
 	)
 	purple? ( net-im/pidgin )
 	speech? ( app-accessibility/speech-dispatcher )
 	systemd? ( sys-apps/systemd:= )
 	upnp? ( >=net-libs/gssdp-1.2:0= )
-	webhook? ( net-libs/libsoup:2.4 )
-	websocket? ( net-libs/libsoup:2.4 )
+	webhook? ( net-libs/libsoup:3.0 )
+	websocket? ( net-libs/libsoup:3.0 )
 	zeroconf? ( net-dns/avahi[dbus] )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
+	fbcon? ( virtual/os-headers )
+"
+RDEPEND="
+	${COMMON_DEPEND}
+	net-libs/glib-networking[ssl]
+"
+BDEPEND="
 	app-text/docbook-xml-dtd:4.5
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
-	fbcon? ( virtual/os-headers )
+	virtual/pkgconfig
 "
-RDEPEND="${COMMON_DEPEND}
-	net-libs/glib-networking[ssl]
-"
-BDEPEND="virtual/pkgconfig"
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.27.0-fno-common.patch
-)
 
 pkg_setup() {
 	if use ipv6; then
@@ -82,6 +83,7 @@ src_configure() {
 		-Dsystemdsystemunitdir="$(systemd_get_systemunitdir)"
 		-Ddbussessionservicedir="${EPREFIX}/usr/share/dbus-1/services"
 		-Dnd-wayland=false
+		-Dvapi=false
 		$(meson_feature websocket)
 		$(meson_feature zeroconf dns-sd)
 		$(meson_feature upnp ssdp)

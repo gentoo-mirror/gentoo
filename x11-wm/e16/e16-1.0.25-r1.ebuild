@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -50,8 +50,8 @@ COMMON_DEPEND="
 		alsa? ( media-libs/alsa-lib )
 		player? ( media-sound/alsa-utils )
 		pulseaudio? ( || (
+			media-libs/libpulse
 			media-sound/apulse[sdk]
-			media-sound/pulseaudio
 		) )
 		audiofile? ( media-libs/audiofile:= )
 		sndfile? ( media-libs/libsndfile )

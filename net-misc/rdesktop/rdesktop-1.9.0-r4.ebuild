@@ -1,21 +1,19 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit autotools
+EAPI=8
 
-MY_PV=${PV/_/-}
+inherit autotools
 
 DESCRIPTION="A Remote Desktop Protocol Client"
 HOMEPAGE="http://www.rdesktop.org/"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
+S=${WORKDIR}/${PN}-${PV/_/-}
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris"
 IUSE="alsa ao ipv6 kerberos oss pcsc-lite pulseaudio xrandr"
-
-S=${WORKDIR}/${PN}-${MY_PV}
 
 RDEPEND="
 	dev-libs/nettle:0=
@@ -37,8 +35,8 @@ RDEPEND="
 	pcsc-lite? ( >=sys-apps/pcsc-lite-1.6.6 )
 	oss? ( media-libs/libsamplerate )
 	pulseaudio? (
+		media-libs/libpulse
 		media-libs/libsamplerate
-		media-sound/pulseaudio
 	)
 	xrandr? ( x11-libs/libXrandr )"
 DEPEND="${RDEPEND}
