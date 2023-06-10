@@ -22,7 +22,7 @@ REQUIRED_USE="
 QTGUI_IUSE="accessibility egl eglfs evdev gles2-only +jpeg +libinput tslib tuio vulkan +X"
 QTNETWORK_IUSE="brotli gssapi libproxy sctp +ssl vnc"
 QTSQL_IUSE="freetds mysql oci8 odbc postgres +sqlite"
-IUSE+=" ${QTGUI_IUSE} ${QTNETWORK_IUSE} ${QTSQL_IUSE} cups gtk icu systemd +udev"
+IUSE+=" ${QTGUI_IUSE} ${QTNETWORK_IUSE} ${QTSQL_IUSE} cups gtk icu systemd +udev wayland"
 # QtPrintSupport = QtGui + QtWidgets enabled.
 # ibus = xkbcommon + dbus, and xkbcommon needs either libinput or X
 REQUIRED_USE+="
@@ -102,6 +102,7 @@ DEPEND="
 	zstd? ( app-arch/zstd:= )
 "
 RDEPEND="${DEPEND}"
+PDEPEND="wayland? ( =dev-qt/qtwayland-${PV}* )"
 
 PATCHES=( "${FILESDIR}/${PN}-6.5.1-CVE-2023-34410.patch" )
 
