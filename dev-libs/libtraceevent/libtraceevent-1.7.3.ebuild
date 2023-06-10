@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit meson
 
 DESCRIPTION="Linux kernel trace event library"
 HOMEPAGE="https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/"
@@ -18,33 +18,30 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="doc"
+IUSE="doc test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	!<dev-util/trace-cmd-3.0
 "
 BDEPEND="
-	doc? ( app-text/xmlto app-text/asciidoc )
+	app-text/asciidoc
+	app-text/xmlto
+	test? ( dev-util/cunit )
 "
 
 src_configure() {
-	EMAKE_FLAGS=(
-		"prefix=${EPREFIX}/usr"
-		"libdir=${EPREFIX}/usr/$(get_libdir)"
-		"CC=$(tc-getCC)"
-		"AR=$(tc-getAR)"
-		VERBOSE=1
+	local emesonargs=(
+		-Dasciidoctor=false
 	)
-}
 
-src_compile() {
-	emake "${EMAKE_FLAGS[@]}"
-	use doc && emake doc
+	# TODO: get docs & tests optional upstream
+	meson_src_configure
 }
 
 src_install() {
-	emake "${EMAKE_FLAGS[@]}" DESTDIR="${ED}" install
-	# can't prevent installation of the static lib with parameters
-	rm "${ED}/usr/$(get_libdir)/libtraceevent.a" || die
-	use doc && emake "${EMAKE_FLAGS[@]}" DESTDIR="${ED}" install-doc
+	# TODO: get docs & tests optional upstream
+	meson_src_install
+
+	find "${ED}" -type f -name '*.a' -delete || die
 }
