@@ -273,21 +273,11 @@ xorg-3_src_unpack() {
 xorg-3_reconf_source() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	case ${CHOST} in
-		*-aix* | *-winnt*)
-			# some hosts need full eautoreconf
-			[[ -e "./configure.ac" || -e "./configure.in" ]] \
-				&& XORG_EAUTORECONF=yes
-			;;
-		*)
-			# elibtoolize required for BSD
-			[[ ${XORG_EAUTORECONF} != no && ( -e "./configure.ac" || -e "./configure.in" ) ]] \
-				&& XORG_EAUTORECONF=yes
-			;;
-	esac
-
-	[[ ${XORG_EAUTORECONF} != no ]] && eautoreconf
-	elibtoolize --patch-only
+	if [[ ${XORG_EAUTORECONF} != no ]] ; then
+		eautoreconf
+	else
+		elibtoolize --patch-only
+	fi
 }
 
 # @FUNCTION: xorg-3_src_prepare
@@ -325,9 +315,6 @@ xorg-3_font_configure() {
 # Set up CFLAGS for a debug build
 xorg-3_flags_setup() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	# Win32 require special define
-	[[ ${CHOST} == *-winnt* ]] && append-cppflags -DWIN32 -D__STDC__
 
 	# Hardened flags break module autoloading et al (also fixes #778494)
 	if [[ ${PN} == xorg-server || ${PN} == xf86-video-* || ${PN} == xf86-input-* ]]; then
