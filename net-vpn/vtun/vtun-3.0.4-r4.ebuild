@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-info
+inherit linux-info autotools
 
 DESCRIPTION="Create tunnels over TCP/IP networks with shaping, encryption, and compression"
 SRC_URI="https://sourceforge.net/projects/vtun/files/${PN}/${PV}/${P}.tar.gz"
@@ -11,7 +11,7 @@ HOMEPAGE="https://vtun.sourceforge.net/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ppc ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86"
 IUSE="lzo socks5 ssl zlib"
 
 RDEPEND="
@@ -23,7 +23,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-alternatives/lex
-	app-alternatives/yacc
+	sys-devel/bison
 "
 
 DOCS=( ChangeLog Credits FAQ README README.Setup README.Shaper TODO )
@@ -34,10 +34,12 @@ PATCHES=(
 	"${FILESDIR}"/${P}-includes.patch
 	"${FILESDIR}"/${P}-naughty-inlines.patch
 	"${FILESDIR}"/${P}-autoconf-fork-not-working.patch
+	"${FILESDIR}"/${P}-use-bison-for-yacc.patch
 )
 
 src_prepare() {
 	default
+	eautoreconf
 	sed -i -e '/^LDFLAGS/s|=|+=|g' Makefile.in || die
 	sed -i 's:$(BIN_DIR)/strip $(DESTDIR)$(SBIN_DIR)/vtund::' Makefile.in || die
 }
