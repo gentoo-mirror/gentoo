@@ -1,0 +1,14 @@
+BDEPEND=app-text/asciidoc app-text/xmlto dev-util/source-highlight sys-devel/bison sys-devel/flex virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=!<dev-util/trace-cmd-3.1.4-r2 >=dev-libs/libtraceevent-1.7.0
+DESCRIPTION=Linux kernel trace file system library
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/
+INHERIT=meson
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=!<dev-util/trace-cmd-3.1.4-r2 >=dev-libs/libtraceevent-1.7.0
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-1.7.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=78426c1e73c3238c2f91478072b62fab

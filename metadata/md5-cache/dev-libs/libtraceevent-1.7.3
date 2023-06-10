@@ -1,0 +1,15 @@
+BDEPEND=app-text/asciidoc app-text/xmlto test? ( dev-util/cunit ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Linux kernel trace event library
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/
+INHERIT=meson
+IUSE=doc test
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=!<dev-util/trace-cmd-3.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/snapshot/libtraceevent-1.7.3.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=9e8d98ebf085bc32fb79e1ce5fa6b37e

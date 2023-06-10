@@ -1,0 +1,17 @@
+BDEPEND=app-text/asciidoc dev-util/source-highlight virtual/pkgconfig python? ( dev-lang/swig ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=>=app-arch/zstd-1.4 !<dev-libs/libtracefs-1.6.1 >=dev-libs/libtracefs-1.6.1-r1 >=dev-libs/libtraceevent-1.6.3 sys-libs/zlib sys-process/audit python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) ) sys-kernel/linux-headers test? ( dev-util/cunit )
+DESCRIPTION=User-space front-end for Ftrace
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git
+INHERIT=linux-info meson python-single-r1
+IUSE=python test python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=>=app-arch/zstd-1.4 !<dev-libs/libtracefs-1.6.1 >=dev-libs/libtracefs-1.6.1-r1 >=dev-libs/libtraceevent-1.6.3 sys-libs/zlib sys-process/audit python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
+RESTRICT=!test? ( test ) test
+SLOT=0/3.2
+SRC_URI=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/snapshot/trace-cmd-v3.2.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	915ec7c25e08d7886558215e6809ca1e	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=eda03c4c4c3b90ec9ba1d6345d87e49e
