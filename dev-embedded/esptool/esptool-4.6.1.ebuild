@@ -15,7 +15,7 @@ SRC_URI="https://github.com/espressif/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -32,7 +32,9 @@ BDEPEND="
 	')
 	test? ( $(python_gen_cond_dep '
 		dev-python/cffi[${PYTHON_USEDEP}]
+		dev-python/pyaml[${PYTHON_USEDEP}]
 		dev-python/pyelftools[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 	') )
 "
 
@@ -43,6 +45,13 @@ EPYTEST_DESELECT=(
 	test/test_esptool.py
 	test/test_espefuse.py
 )
+
+src_prepare() {
+	default
+
+	# test_espsecure_hsm.py needs setup of a "Soft HSM" or real hardware. remove.
+	rm test/test_espsecure_hsm.py || die
+}
 
 pkg_postinst() {
 	if ver_test ${REPLACING_VERSIONS} -lt 4; then

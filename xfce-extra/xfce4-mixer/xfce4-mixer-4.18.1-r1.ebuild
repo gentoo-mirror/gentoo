@@ -29,7 +29,7 @@ DEPEND="
 	alsa? ( >=media-libs/alsa-lib-0.9:= )
 	keybinder? ( >=dev-libs/keybinder-0.3:3 )
 	sndio? ( >=media-sound/sndio-1.7.0 )
-	pulseaudio? ( media-sound/pulseaudio[glib] )
+	pulseaudio? ( media-libs/libpulse[glib] )
 "
 RDEPEND="
 	${DEPEND}
