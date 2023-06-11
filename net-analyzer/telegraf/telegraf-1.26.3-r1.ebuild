@@ -26,11 +26,10 @@ DEPEND="acct-group/telegraf
 
 src_compile() {
 	unset LDFLAGS
-	emake \
+	emake -j1 \
 		COMMIT=${COMMIT} \
 		BRANCH=${BRANCH} \
-		VERSION=v${MY_PV} \
-		telegraf
+		VERSION=v${MY_PV}
 }
 
 src_install() {
@@ -42,7 +41,7 @@ src_install() {
 	systemd_dounit scripts/telegraf.service
 	newconfd "${FILESDIR}"/telegraf.confd telegraf
 	newinitd "${FILESDIR}"/telegraf.rc telegraf
-	dodoc -r docs/*
+	dodoc -r *.md docs
 	keepdir /var/log/telegraf
 	fowners telegraf:telegraf /var/log/telegraf
 }
