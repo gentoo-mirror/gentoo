@@ -1,10 +1,11 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit fcaps meson
 
-DESCRIPTION="generates a status bar for dzen2, xmobar or similar"
+DESCRIPTION="Generates a status bar for dzen2, xmobar or similar"
 HOMEPAGE="https://i3wm.org/i3status/"
 SRC_URI="https://i3wm.org/${PN}/${P}.tar.xz"
 
@@ -19,18 +20,13 @@ RDEPEND="
 	dev-libs/confuse:=
 	dev-libs/libnl:3
 	media-libs/alsa-lib
-	pulseaudio? ( || ( media-sound/pulseaudio media-sound/apulse[sdk] ) )
+	pulseaudio? ( || ( media-libs/libpulse media-sound/apulse[sdk] ) )
 "
 
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	app-text/asciidoc
 	app-text/xmlto
 "
-
-PATCHES=(
-
-)
 
 src_prepare() {
 	default
