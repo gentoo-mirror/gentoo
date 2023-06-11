@@ -1,9 +1,8 @@
 # Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-
 EAPI=8
 
-inherit go-module systemd
+inherit flag-o-matic go-module systemd
 
 DESCRIPTION="soju is a user-friendly IRC bouncer"
 HOMEPAGE="https://soju.im/"
@@ -13,7 +12,8 @@ SRC_URI+=" https://github.com/alfredfo/${PN}-deps/raw/master/${P}-deps.tar.xz"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
-IUSE="pam"
+IUSE="moderncsqlite +sqlite pam"
+REQUIRED_USE="?? ( moderncsqlite sqlite )"
 
 BDEPEND="
 	app-text/scdoc
@@ -21,15 +21,24 @@ BDEPEND="
 RDEPEND="
 	acct-user/soju
 	acct-group/soju
+	sqlite? ( dev-db/sqlite:3 )
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.6.0-fix-dup-upstream-connections.patch
-)
-
 src_compile() {
-	GOFLAGS+=" -tags=moderncsqlite"
+	# musl removed legacy LFS64 interfaces in version 1.2.4
+	# temporarily reenabled using _LARGEFILE64_SOURCE until
+	# this is resolved upstream
+	# https://github.com/mattn/go-sqlite3/issues/1164
+	append-cflags "-D_LARGEFILE64_SOURCE"
+
+	if use sqlite; then
+		GOFLAGS+=" -tags=libsqlite3"
+	elif use moderncsqlite; then
+		GOFLAGS+=" -tags=moderncsqlite"
+	else
+		GOFLAGS+=" -tags=nosqlite"
+	fi
 	use pam && GOFLAGS+=" -tags=pam"
 
 	ego build ${GOFLAGS} ./cmd/soju
