@@ -42,14 +42,14 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		  ${RDEPEND}
-		  dev-python/mapbox-vector-tile[${PYTHON_USEDEP}]
-		  dev-python/numpy[${PYTHON_USEDEP}]
-		  dev-python/pandas[${PYTHON_USEDEP}]
-		  dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		  dev-python/python-dateutil[${PYTHON_USEDEP}]
-		  >=dev-python/pyyaml-5.4[${PYTHON_USEDEP}]
-		  dev-python/unasync[${PYTHON_USEDEP}]
+		${RDEPEND}
+		dev-python/mapbox-vector-tile[${PYTHON_USEDEP}]
+		dev-python/numpy[${PYTHON_USEDEP}]
+		dev-python/pandas[${PYTHON_USEDEP}]
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
+		>=dev-python/pyyaml-5.4[${PYTHON_USEDEP}]
+		dev-python/unasync[${PYTHON_USEDEP}]
 	)
 "
 
@@ -115,7 +115,7 @@ src_test() {
 
 	# start local instance of elasticsearch
 	"${ES_DIR}"/bin/elasticsearch -d -p "${pid}" \
-			   -Ecluster.name="${es_instance}" -Epath.repo="${es_temp}" || die
+			-Ecluster.name="${es_instance}" -Epath.repo="${es_temp}" || die
 
 	local i es_started=0
 	for i in {1..20}; do
