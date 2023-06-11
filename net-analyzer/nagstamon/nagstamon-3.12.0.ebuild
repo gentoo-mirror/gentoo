@@ -3,9 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{10,11} )
+DISTUTILS_USE_PEP517=setuptools
 
-inherit python-r1 distutils-r1
+inherit distutils-r1
+
+distutils_enable_tests pytest
 
 MY_PN="Nagstamon"
 MY_P="${MY_PN}-${PV/_p/-}"
@@ -17,13 +20,16 @@ SRC_URI="https://github.com/HenriWahl/Nagstamon/archive/v${PV}.tar.gz -> ${P}.ta
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
+IUSE="test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-python/lxml[${PYTHON_USEDEP}]
-	dev-python/PyQt5[gui,multimedia,svg,widgets,${PYTHON_USEDEP}]
+	|| (
+	   dev-python/PyQt6[gui,multimedia,svg,widgets,${PYTHON_USEDEP}]
+	   dev-python/PyQt5[gui,multimedia,svg,widgets,${PYTHON_USEDEP}]
+	   )
 	dev-python/PySocks[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/dbus-python[${PYTHON_USEDEP}]
@@ -36,11 +42,12 @@ RDEPEND="${PYTHON_DEPS}
 	>=dev-python/python-xlib-0.19[${PYTHON_USEDEP}]
 	dev-python/requests-kerberos[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]"
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	test? ( dev-python/pylint[${PYTHON_USEDEP}] )"
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}/${PN}-3.8-setup.patch" )
+PATCHES=( "${FILESDIR}/${PN}-3.12.0-setup.patch" )
 
 src_prepare() {
 	default_src_prepare
