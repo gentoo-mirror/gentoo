@@ -22,13 +22,17 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-python/anyascii[${PYTHON_USEDEP}]
 	dev-python/astroid[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-6.0[${PYTHON_USEDEP}]
+"
+
+BDEPEND+="
+	test? ( dev-python/beautifulsoup4[${PYTHON_USEDEP}] )
 "
 
 DOCS=( README.rst CHANGELOG.rst )
