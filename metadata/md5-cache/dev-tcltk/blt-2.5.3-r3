@@ -1,8 +1,8 @@
 BDEPEND=app-arch/unzip sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
-DEFINED_PHASES=compile configure install prepare
+DEFINED_PHASES=compile configure install preinst prepare
 DEPEND=dev-lang/tk:0= jpeg? ( media-libs/libjpeg-turbo:0= ) x11-libs/libX11
 DESCRIPTION=Extension to Tk, adding new widgets, geometry managers, and misc commands
-EAPI=7
+EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/wize/
 INHERIT=autotools flag-o-matic multilib toolchain-funcs
 IUSE=jpeg static-libs
@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=dev-lang/tk:0= jpeg? ( media-libs/libjpeg-turbo:0= ) x11-libs/libX11
 SLOT=0/25
 SRC_URI=mirror://sourceforge/wize/blt-src-2.5.3.zip https://dev.gentoo.org/~tupone/distfiles/blt-2.5.3-debian-patches.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
-_md5_=190905f87bedd9f4bffc810f9af8204c
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6
+_md5_=e17590fe3b93ed903dca1001b617d517
