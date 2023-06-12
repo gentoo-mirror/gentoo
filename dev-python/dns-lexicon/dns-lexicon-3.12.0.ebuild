@@ -33,7 +33,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		dev-python/boto3[${PYTHON_USEDEP}]
+		>=dev-python/boto3-1.25[${PYTHON_USEDEP}]
 		dev-python/zeep[${PYTHON_USEDEP}]
 		dev-python/vcrpy[${PYTHON_USEDEP}]
 	)
