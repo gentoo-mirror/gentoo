@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,9 +14,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="exif kde opencv video"
 
-BDEPEND="
-	virtual/pkgconfig
-"
 DEPEND="
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
@@ -29,12 +26,13 @@ DEPEND="
 	opencv? ( media-libs/opencv:= )
 	video? ( media-video/mpv:=[libmpv] )
 "
-RDEPEND="
-	${DEPEND}
-"
+RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
+PATCHES=( # git master backports
 	"${FILESDIR}"/${P}-libmpv-api2.patch
+	"${FILESDIR}"/${P}-fix-apng-cannot-play.patch
+	"${FILESDIR}"/${P}-exiv2-0.28.patch # bug 906493
 )
 
 src_configure() {
