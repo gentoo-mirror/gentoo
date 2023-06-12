@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MY_PN=Vulkan-Tools
+MY_PN=Vulkan-ValidationLayers
 PYTHON_COMPAT=( python3_{9..12} )
 inherit cmake-multilib python-any-r1
 
@@ -13,66 +13,47 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/sdk-${PV}.0.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 	S="${WORKDIR}"/${MY_PN}-sdk-${PV}.0
 fi
 
-DESCRIPTION="Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS"
-HOMEPAGE="https://github.com/KhronosGroup/Vulkan-Tools"
+DESCRIPTION="Vulkan Validation Layers"
+HOMEPAGE="https://github.com/KhronosGroup/Vulkan-ValidationLayers"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="cube wayland +X"
+IUSE="wayland X"
 
-# Cube demo only supports one window system at a time
-REQUIRED_USE="cube? ( ^^ ( X wayland ) )"
-
-BDEPEND="${PYTHON_DEPS}
-	cube? ( ~dev-util/glslang-${PV}:=[${MULTILIB_USEDEP}] )
-"
-RDEPEND="
-	~media-libs/vulkan-loader-${PV}:=[${MULTILIB_USEDEP},wayland?,X?]
+RDEPEND="~dev-util/spirv-tools-${PV}:=[${MULTILIB_USEDEP}]"
+DEPEND="${RDEPEND}
+	${PYTHON_DEPS}
+	>=dev-cpp/robin-hood-hashing-3.11.5
+	~dev-util/glslang-${PV}:=[${MULTILIB_USEDEP}]
+	~dev-util/vulkan-headers-${PV}
 	wayland? ( dev-libs/wayland:=[${MULTILIB_USEDEP}] )
 	X? (
 		x11-libs/libX11:=[${MULTILIB_USEDEP}]
 		x11-libs/libXrandr:=[${MULTILIB_USEDEP}]
 	)
 "
-DEPEND="${RDEPEND}
-	~dev-util/vulkan-headers-${PV}
-"
 
-pkg_setup() {
-	MULTILIB_CHOST_TOOLS=(
-		/usr/bin/vulkaninfo
-	)
-
-	use cube && MULTILIB_CHOST_TOOLS+=(
-		/usr/bin/vkcube
-		/usr/bin/vkcubepp
-	)
-
-	python-any-r1_pkg_setup
-}
+PATCHES="${FILESDIR}/${PN}-1.3.250-Build-shared-libs.patch"
 
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_C_FLAGS="${CFLAGS} -DNDEBUG"
 		-DCMAKE_CXX_FLAGS="${CXXFLAGS} -DNDEBUG"
 		-DCMAKE_SKIP_RPATH=ON
-		-DBUILD_VULKANINFO=ON
-		-DBUILD_CUBE=$(usex cube)
+		-DBUILD_LAYER_SUPPORT_FILES=ON
 		-DBUILD_WERROR=OFF
 		-DBUILD_WSI_WAYLAND_SUPPORT=$(usex wayland)
 		-DBUILD_WSI_XCB_SUPPORT=$(usex X)
 		-DBUILD_WSI_XLIB_SUPPORT=$(usex X)
-		-DVULKAN_HEADERS_INSTALL_DIR="${ESYSROOT}/usr"
+		-DBUILD_TESTS=OFF
 	)
-
-	use cube && mycmakeargs+=(
-		-DGLSLANG_INSTALL_DIR="${ESYSROOT}/usr"
-		-DCUBE_WSI_SELECTION=$(usex X XCB WAYLAND)
-	)
-
 	cmake_src_configure
+}
+
+multilib_src_install_all() {
+	find "${ED}" -type f -name \*.a -delete || die
 }
