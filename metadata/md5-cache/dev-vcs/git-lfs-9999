@@ -1,4 +1,4 @@
-BDEPEND=doc? ( || ( app-text/ronn-ng app-text/ronn ) ) >=dev-lang/go-1.18 app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=doc? ( app-text/ronn-ng ) >=dev-lang/go-1.18 app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
 DESCRIPTION=Command line extension and specification for managing large files with git
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=dev-vcs/git
 RESTRICT=!test? ( test ) strip
 SLOT=0
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	9c75e51a48520b2f01471c1f91762882	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=63ed92a7e6512a4cf791e820482ecbd6
+_md5_=41c8df1275a4f42c5680b1827d6dbb2d

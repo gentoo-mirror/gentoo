@@ -1,4 +1,4 @@
-BDEPEND=|| ( app-text/ronn-ng app-text/ronn ) app-arch/gzip virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=app-text/ronn-ng app-arch/gzip virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-libs/protobuf-2:= virtual/opengl media-libs/openal net-misc/curl dev-libs/tinyxml >=dev-libs/tinyxml2-6:= dev-libs/libtar dev-cpp/tbb:= >=dev-games/ogre-1.7.4:=[freeimage] <dev-games/ogre-1.10 >=media-libs/freeimage-3.15.4[png] sci-libs/libccd >=media-video/ffmpeg-2.6:0= sci-libs/gts >=sci-physics/bullet-2.82:= >=dev-libs/sdformat-9.8:= dev-qt/qtwidgets:5 dev-qt/qtcore:5 dev-qt/qtopengl:5 dev-libs/boost:= sci-libs/gdal:= virtual/libusb:1 dev-libs/libspnav media-libs/freeimage sci-libs/hdf5:=[cxx] sys-apps/util-linux >=media-gfx/graphviz-4 net-libs/ignition-msgs:5= sci-libs/ignition-math:6= net-libs/ignition-transport:8= sci-libs/ignition-common:3= sci-libs/ignition-fuel-tools:4= x11-libs/qwt:6=[qt5(+)] dev-qt/qttest:5 x11-apps/mesa-progs test? ( dev-libs/libxslt )
 DESCRIPTION=A 3D multiple robot simulator with dynamics
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=https://osrf-distributions.s3.amazonaws.com/gazebo/releases/gazebo-11.12.0.tar.bz2
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
-_md5_=f4d60a2e2dca07bd20a37c530040d72e
+_md5_=ad7be9b19b7ec7ed3824ade8de173ab5
