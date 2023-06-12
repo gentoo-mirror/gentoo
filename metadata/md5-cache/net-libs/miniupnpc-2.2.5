@@ -1,0 +1,13 @@
+BDEPEND=kernel_linux? ( sys-apps/lsb-release ) verify-sig? ( sec-keys/openpgp-keys-miniupnp ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile install prepare test unpack
+DESCRIPTION=UPnP client library and a simple UPnP client
+EAPI=8
+HOMEPAGE=http://miniupnp.free.fr/ https://miniupnp.tuxfamily.org/ https://github.com/miniupnp/miniupnp/
+INHERIT=toolchain-funcs verify-sig
+IUSE=ipv6 verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=BSD
+SLOT=0/17
+SRC_URI=https://miniupnp.tuxfamily.org/files/miniupnpc-2.2.5.tar.gz verify-sig? ( https://miniupnp.tuxfamily.org/files/miniupnpc-2.2.5.tar.gz.sig )
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
+_md5_=2b081770f943b3a33d12755af3a6ebd2
