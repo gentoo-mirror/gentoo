@@ -3,13 +3,13 @@ DEFINED_PHASES=compile configure install postinst prepare setup unpack
 DEPEND=acct-user/sogo dev-libs/libmemcached net-misc/curl net-misc/memcached >=gnustep-libs/sope-5.1.1[ldap] activesync? ( dev-libs/libwbxml ) gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) sodium? ( dev-libs/libsodium:= ) >=gnustep-base/gnustep-make-2.6.3 virtual/gnustep-back
 DESCRIPTION=Groupware server built around OpenGroupware.org and the SOPE application server
 EAPI=7
-HOMEPAGE=http://www.sogo.nu
+HOMEPAGE=https://www.sogo.nu
 INHERIT=gnustep-2 vcs-snapshot
 IUSE=activesync gnutls +ssl sodium debug doc
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=acct-user/sogo dev-libs/libmemcached net-misc/curl net-misc/memcached >=gnustep-libs/sope-5.1.1[ldap] activesync? ( dev-libs/libwbxml ) gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) sodium? ( dev-libs/libsodium:= ) virtual/gnustep-back
 SLOT=0
-SRC_URI=https://github.com/inverse-inc/sogo/archive/SOGo-5.1.1.tar.gz -> sogo-5.1.1.tar.gz
+SRC_URI=https://github.com/Alinto/sogo/archive/SOGo-5.1.1.tar.gz -> sogo-5.1.1.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	gnustep-base	0f0e8f7274aa8dcc1733e190ad12cd81	gnustep-2	191cacca9e01ae0fe9b898b09e4555b8	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
-_md5_=1e094827844b87451603d2b36c6187d7
+_md5_=3271f04a83efe179f6be1ee470d2c257
