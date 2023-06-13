@@ -48,10 +48,6 @@ DEPEND="
 		net-misc/rsync
 	)"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-realpath_return.patch
-)
-
 src_prepare() {
 	default
 	eautoreconf
@@ -85,6 +81,7 @@ pkg_postinst() {
 	elog "Various builders are supported, as alternative to the internal ch-image."
 	optfeature "Building with Buildah" app-containers/buildah
 	optfeature "Building with Docker" app-containers/docker
+	optfeature "Building with Podman" app-containers/podman
 	optfeature "Progress bars during long operations" sys-apps/pv
 	optfeature "Pack and unpack squashfs images" sys-fs/squashfs-tools
 	optfeature "Mount and umount squashfs images" sys-fs/squashfuse
