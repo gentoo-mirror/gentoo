@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://openvpn.net/
 INHERIT=autotools flag-o-matic systemd linux-info tmpfiles
 IUSE=down-root examples inotify iproute2 +lz4 +lzo mbedtls +openssl pam pkcs11 +plugins selinux systemd test
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=kernel_linux? ( iproute2? ( sys-apps/iproute2[-minimal] ) ) lz4? ( app-arch/lz4 ) lzo? ( >=dev-libs/lzo-1.07 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( >=dev-libs/openssl-0.9.8:0= ) pam? ( sys-libs/pam ) pkcs11? ( >=dev-libs/pkcs11-helper-1.11 ) systemd? ( sys-apps/systemd ) acct-group/openvpn acct-user/openvpn selinux? ( sec-policy/selinux-openvpn ) virtual/tmpfiles
 REQUIRED_USE=^^ ( openssl mbedtls ) pkcs11? ( !mbedtls ) !plugins? ( !pam !down-root ) inotify? ( plugins )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://build.openvpn.net/downloads/releases/openvpn-2.5.6.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	16483e58fadb0d47b4528f0aa7e171f6	systemd	5f4bb0758df2e483babf68cd517078ca	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=029c008fd857504f77ab6d0ee68ed626
+_md5_=ca775402b0c2fcc4ca0250d95c1890f1
