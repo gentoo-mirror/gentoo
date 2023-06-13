@@ -1,5 +1,5 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
-DEFINED_PHASES=configure postinst prepare setup
+DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=ch-image? ( python_single_target_python3_10? ( dev-python/lark[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/lark[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) ) doc? ( python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx-rtd-theme[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) net-misc/rsync )
 DESCRIPTION=Lightweight user-defined software stacks for high-performance computing
 EAPI=8
@@ -12,6 +12,6 @@ RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) pyth
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/hpc/charliecloud/archive/v0.30.tar.gz -> charliecloud-0.30.tar.gz
+SRC_URI=https://github.com/hpc/charliecloud/archive/v0.33.tar.gz -> charliecloud-0.33.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=1def66ba9b2806171685a6bb179a2137
+_md5_=d3b2e629063408c470b9412690f4b5be
