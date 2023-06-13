@@ -51,6 +51,8 @@ BDEPEND="dev-util/cmake
 
 PATCHES=(
 	"${FILESDIR}/${PN}-docfiles.patch"
+	"${FILESDIR}/${PN}-$(ver_cut 1-2)-stdint.patch"
+	"${FILESDIR}/${PN}-$(ver_cut 1-2)-tiff.patch"
 )
 
 DOCS=( README.md NEWS ChangeLog AUTHORS )
