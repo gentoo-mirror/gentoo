@@ -1,15 +1,15 @@
-BDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.7.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/wheel-0.40.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+BDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) python_targets_python3_12? ( >=dev-lang/python-3.12.0_beta1:3.12 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.7.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/wheel-0.40.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=A library for wrapping and filling UTF-8 CJK text
 EAPI=8
 HOMEPAGE=https://f.gallai.re/cjkwrap https://gitlab.com/fgallaire/cjkwrap
 INHERIT=distutils-r1
-IUSE=python_targets_python3_10 python_targets_python3_11
+IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=amd64 arm64 x86
 LICENSE=LGPL-3+
-RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.3:3.11 ) python_targets_python3_12? ( >=dev-lang/python-3.12.0_beta1:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://github.com/fgallaire/cjkwrap/archive/v2.2.tar.gz -> cjkwrap-2.2.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	2d32e797ee29a8ffdd452f4a85860666
-_md5_=b63f3ebd42c922694ea092f34bf80bc5
+_md5_=4f601d01f42d63bb5651bc47f2005dc6
