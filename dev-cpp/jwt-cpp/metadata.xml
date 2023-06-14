@@ -13,14 +13,11 @@
     <email>proxy-maint@gentoo.org</email>
     <name>Proxy Maintainers</name>
   </maintainer>
-  <longdescription lang="en">
-  SciTokens provide a token format for distributed authorization. The tokens are
-  self-describing, can be verified in a distributed fashion (no need to contact
-  the issuer to determine if the token is valid). This is convenient for a
-  federated environment where several otherwise-independent storage endpoints
-  want to delegate trust for an issuer for managing a storage allocation.
-  </longdescription>
   <upstream>
-    <remote-id type="github">scitokens/scitokens-cpp</remote-id>
+    <bugs-to>https://github.com/Thalhammer/jwt-cpp/issues</bugs-to>
+    <remote-id type="github">Thalhammer/jwt-cpp</remote-id>
   </upstream>
+  <use>
+    <flag name="picojson">Enable use of <pkg>dev-cpp/picojson</pkg></flag>
+  </use>
 </pkgmetadata>
