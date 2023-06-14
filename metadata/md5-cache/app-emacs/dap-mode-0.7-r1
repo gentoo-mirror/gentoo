@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/bui app-emacs/dash app-emacs/f app-emacs/ht app-emacs/lsp-mode app-emacs/lsp-treemacs app-emacs/posframe app-emacs/s test? ( app-emacs/ert-runner ) >=app-editors/emacs-26.1:*
+BDEPEND=app-emacs/bui app-emacs/dash app-emacs/f app-emacs/ht app-emacs/hydra app-emacs/lsp-mode app-emacs/lsp-treemacs app-emacs/posframe app-emacs/s test? ( app-emacs/ert-runner ) >=app-editors/emacs-26.1:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Debug Adapter Protocol mode
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=~amd64
 LICENSE=GPL-3+
-RDEPEND=app-emacs/bui app-emacs/dash app-emacs/f app-emacs/ht app-emacs/lsp-mode app-emacs/lsp-treemacs app-emacs/posframe app-emacs/s >=app-editors/emacs-26.1:*
+RDEPEND=app-emacs/bui app-emacs/dash app-emacs/f app-emacs/ht app-emacs/hydra app-emacs/lsp-mode app-emacs/lsp-treemacs app-emacs/posframe app-emacs/s >=app-editors/emacs-26.1:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/emacs-lsp/dap-mode/archive/0.7.tar.gz -> dap-mode-0.7.tar.gz
 _eclasses_=elisp-common	01bc6dc778b74a9deebe4e419a3b790e	elisp	7190c722d9e06fabcae26ef1e1dc9183
-_md5_=026a2c3dd575a10f4675803a5b5d5226
+_md5_=19e895987659da77e28272b23d766136
