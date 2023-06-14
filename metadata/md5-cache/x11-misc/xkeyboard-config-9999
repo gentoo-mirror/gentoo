@@ -1,11 +1,11 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 ) dev-lang/perl dev-libs/libxslt sys-devel/gettext >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( >=dev-lang/python-3.12.0_beta1:3.12 >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 ) dev-lang/perl dev-libs/libxslt sys-devel/gettext >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=X keyboard configuration database
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.freedesktop.org/wiki/Software/XKeyboardConfig https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config
 INHERIT=meson python-any-r1 git-r3
 LICENSE=MIT
 PROPERTIES=live
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	18d046bdb14e1bdb22cce6e5d953e364	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=62632ee4d4ad1fa5fbf7f4edf8d997f4
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	ba15b8b81f30ca448294d759a9f7902c	meson	18d046bdb14e1bdb22cce6e5d953e364	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	git-r3	27e13c09a4c7e4c78ac812f74727e676
+_md5_=97a4e7427b946df7354467bb93fe4efd
