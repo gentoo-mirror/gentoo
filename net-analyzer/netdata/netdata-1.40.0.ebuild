@@ -50,7 +50,7 @@ RDEPEND="
 	)
 	dev-libs/libuv:=
 	cloud? ( dev-libs/protobuf:= )
-	compression? ( sys-libs/zlib )
+	sys-libs/zlib
 	ipmi? ( sys-libs/freeipmi )
 	jsonc? ( dev-libs/json-c:= )
 	mongodb? ( dev-libs/mongo-c-driver )
@@ -113,8 +113,7 @@ src_configure() {
 		$(use_enable mongodb exporting-mongodb) \
 		$(use_enable prometheus exporting-prometheus-remote-write) \
 		$(use_enable xen plugin-xenstat) \
-		$(use_enable cpu_flags_x86_sse2 x86-sse) \
-		$(use_with compression zlib)
+		$(use_enable cpu_flags_x86_sse2 x86-sse)
 }
 
 src_compile() {
