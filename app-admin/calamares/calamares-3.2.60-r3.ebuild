@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="true"
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit ecm python-single-r1
 
@@ -55,7 +55,7 @@ RDEPEND="${COMMON_DEPEND}
 	app-admin/sudo
 	dev-libs/libatasmart
 	net-misc/rsync
-	|| ( sys-boot/grub:2 sys-boot/systemd-boot )
+	|| ( sys-boot/grub:2 sys-apps/systemd sys-apps/systemd-utils[boot] )
 	sys-boot/os-prober
 	sys-fs/squashfs-tools
 	sys-libs/timezone-data
