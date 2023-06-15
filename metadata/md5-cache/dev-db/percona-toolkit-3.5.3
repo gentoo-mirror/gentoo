@@ -1,14 +1,16 @@
-BDEPEND=dev-lang/perl
+BDEPEND=dev-lang/perl test? ( virtual/perl-Test-Simple )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-perl/DBI dev-perl/DBD-mysql virtual/perl-Time-HiRes virtual/perl-ExtUtils-MakeMaker dev-lang/perl
 DESCRIPTION=Advanced command-line tools to perform a variety of MySQL and system tasks
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.percona.com/software/mysql-tools/percona-toolkit
 INHERIT=perl-module
-KEYWORDS=amd64 x86 ~amd64-linux ~x86-linux
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( GPL-2 Artistic )
 RDEPEND=dev-perl/DBI dev-perl/DBD-mysql virtual/perl-Time-HiRes dev-perl/JSON dev-perl/libwww-perl dev-perl/Role-Tiny virtual/perl-File-Path virtual/perl-Getopt-Long virtual/perl-Time-Local virtual/perl-Digest-MD5 virtual/perl-IO-Compress virtual/perl-File-Temp virtual/perl-File-Spec virtual/perl-Scalar-List-Utils dev-perl/TermReadKey dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://www.percona.com/downloads/percona-toolkit/3.3.1/source/tarball/percona-toolkit-3.3.1.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	8c55459fea879ccdec282839a3b22f78
-_md5_=38a92ec0e7a24c3f494e5c371df604f9
+SRC_URI=https://www.percona.com/downloads/percona-toolkit/3.5.3/source/tarball/percona-toolkit-3.5.3.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	8c55459fea879ccdec282839a3b22f78
+_md5_=c5b5756f08f3117f18bf0123c523c540
