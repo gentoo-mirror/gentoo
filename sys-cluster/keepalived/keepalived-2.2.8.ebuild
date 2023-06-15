@@ -4,12 +4,10 @@
 EAPI=8
 
 inherit autotools systemd
-GIT_COMMIT="fbd699fac85d768c3ddab048a8f9d3dfaec7eaad"
 
 DESCRIPTION="A strong & robust keepalive facility to the Linux Virtual Server project"
 HOMEPAGE="https://www.keepalived.org/"
-SRC_URI="https://github.com/acassen/keepalived/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/keepalived-${GIT_COMMIT}"
+SRC_URI="https://www.keepalived.org/software/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
