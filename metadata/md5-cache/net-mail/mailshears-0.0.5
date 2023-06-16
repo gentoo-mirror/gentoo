@@ -1,17 +1,17 @@
-BDEPEND=test? ( ruby_targets_ruby30? ( >=dev-ruby/pg-1.2[ruby_targets_ruby30(-)] <dev-ruby/pg-2[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby30? ( doc? ( dev-ruby/yard[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) )
+BDEPEND=test? ( ruby_targets_ruby30? ( >=dev-ruby/pg-1.2[ruby_targets_ruby30(-)] <dev-ruby/pg-2[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/pg-1.2[ruby_targets_ruby31(-)] <dev-ruby/pg-2[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( doc? ( dev-ruby/yard[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/yard[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+DEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
 DESCRIPTION=Mangle your mail garden
 EAPI=8
 HOMEPAGE=http://michael.orlitzky.com/code/mailshears.xhtml
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby30 doc test
+IUSE=test ruby_targets_ruby30 ruby_targets_ruby31 doc test
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3
-RDEPEND=ruby_targets_ruby30? ( >=dev-ruby/pg-1.2[ruby_targets_ruby30(-)] <dev-ruby/pg-2[ruby_targets_ruby30(-)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby30 )
+RDEPEND=ruby_targets_ruby30? ( >=dev-ruby/pg-1.2[ruby_targets_ruby30(-)] <dev-ruby/pg-2[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/pg-1.2[ruby_targets_ruby31(-)] <dev-ruby/pg-2[ruby_targets_ruby31(-)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby30 ruby_targets_ruby31 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/mailshears-0.0.5.gem
 _eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	ruby-utils	e06533c14f2bbca05b01fb6b0506e83a	ruby-ng	e7004f981e452d70374b865ccff407aa	ruby-fakegem	a84353aa00af1967bcbf6b3486217f18
-_md5_=aaf583f98e44baee8078e7aeefc2b968
+_md5_=954436331ce6266e6999e505d7e71602
