@@ -45,17 +45,6 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx-celery
 
-EPYTEST_IGNORE=(
-	# Unpackaged azure-servicebus
-	t/unit/transport/test_azureservicebus.py
-	# Unpackaged librabbitmq
-	t/unit/transport/test_librabbitmq.py
-	# Unpackaged python-consul
-	t/unit/transport/test_consul.py
-	# AttributeError: test_Etcd instance has no attribute 'patch'
-	t/unit/transport/test_etcd.py
-)
-
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
