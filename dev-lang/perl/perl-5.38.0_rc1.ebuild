@@ -39,13 +39,12 @@ MY_PV="${DIST_VERSION%-RC*}"
 
 DESCRIPTION="Larry Wall's Practical Extraction and Report Language"
 
-#	mirror://cpan/src/5.0/${MY_P}.tar.xz
-#	mirror://cpan/authors/id/${DIST_AUTHOR:0:1}/${DIST_AUTHOR:0:2}/${DIST_AUTHOR}/${MY_P}.tar.xz
 SRC_URI="
+	mirror://cpan/src/5.0/${MY_P}.tar.xz
+	mirror://cpan/authors/id/${DIST_AUTHOR:0:1}/${DIST_AUTHOR:0:2}/${DIST_AUTHOR}/${MY_P}.tar.xz
 	https://github.com/gentoo-perl/perl-patchset/archive/refs/tags/${PATCH_BASE}.tar.gz
 	https://dev.gentoo.org/~${PATCH_DEV}/distfiles/${PATCH_BASE}.tar.gz
 	https://github.com/arsv/perl-cross/releases/download/${CROSS_VER}/perl-cross-${CROSS_VER}.tar.gz
-	https://semiotic.systems/perl-5.38.0-RC0.tar.gz
 "
 
 HOMEPAGE="https://www.perl.org/"
@@ -396,10 +395,6 @@ src_prepare() {
 	# add_patch "${FILESDIR}/${PN}-5.26.2-hppa.patch" "100-5.26.2-hppa.patch"\
 	#		"Fix broken miniperl on hppa"\
 	#		"https://bugs.debian.org/869122" "https://bugs.gentoo.org/634162"
-
-	add_patch "${FILESDIR}/${PN}-5.36.1-http-tiny.patch" "0111-5.36.1-http-tiny.patch"\
-			"Enable certificate checking in HTTP::Tiny by default"\
-			"https://bugs.gentoo.org/905296" "https://bugs.debian.org/954089"
 
 	if [[ ${CHOST} == *-solaris* ]] ; then
 		# do NOT mess with nsl, on Solaris this is always necessary,
