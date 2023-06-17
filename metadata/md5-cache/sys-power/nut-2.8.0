@@ -1,0 +1,15 @@
+BDEPEND=man? ( app-text/asciidoc ) virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm prepare pretend setup unpack
+DEPEND=acct-group/nut acct-user/nut cgi? ( >=media-libs/gd-2[png] ) dev-libs/libltdl i2c? ( sys-apps/i2c-tools ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers ) usb? ( virtual/libusb:1 ) virtual/udev xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi )
+DESCRIPTION=Network-UPS Tools
+EAPI=8
+HOMEPAGE=https://networkupstools.org/
+INHERIT=bash-completion-r1 flag-o-matic linux-info optfeature systemd tmpfiles toolchain-funcs udev
+IUSE=cgi doc ipmi serial i2c +man snmp +usb modbus selinux split-usr ssl tcpd xml zeroconf
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/nut acct-user/nut cgi? ( >=media-libs/gd-2[png] ) dev-libs/libltdl i2c? ( sys-apps/i2c-tools ) ipmi? ( sys-libs/freeipmi ) modbus? ( dev-libs/libmodbus ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( >=dev-libs/openssl-1:= ) tcpd? ( sys-apps/tcp-wrappers ) usb? ( virtual/libusb:1 ) virtual/udev xml? ( >=net-libs/neon-0.25.0:= ) zeroconf? ( net-dns/avahi ) selinux? ( sec-policy/selinux-nut ) virtual/tmpfiles
+SLOT=0
+SRC_URI=https://networkupstools.org/source/2.8/nut-2.8.0.tar.gz
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	ad475baa777c9978fa035216c8264a10	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	eec0bbab06977f1cfc5597269c1fa152
+_md5_=1f0cb4cd1b313cb2031d0d13deccb3df
