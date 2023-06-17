@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,6 +23,14 @@ RDEPEND="dev-libs/boost:=
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/ArborX-${PV}
+
+src_prepare() {
+	default
+	cmake_src_prepare
+
+	# replace hardcoded "lib/" directory:
+	sed -i -e "s#lib/#$(get_libdir)/#g" CMakeLists.txt || die "sed failed"
+}
 
 src_configure() {
 	local mycmakeargs=(
