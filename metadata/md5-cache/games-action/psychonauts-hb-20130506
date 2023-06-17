@@ -1,15 +1,15 @@
-BDEPEND=app-arch/unzip
-DEFINED_PHASES=install nofetch postinst postrm preinst pretend setup unpack
+BDEPEND=app-arch/unzip media-libs/libpng
+DEFINED_PHASES=install nofetch postinst postrm preinst prepare pretend setup unpack
 DESCRIPTION=A mind-bending platforming adventure from Double Fine Productions
 EAPI=8
 HOMEPAGE=https://www.doublefine.com/games/psychonauts
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=check-reqs desktop unpacker wrapper xdg
 KEYWORDS=~amd64 ~x86
-LICENSE=GOG-EULA
-RDEPEND=media-libs/libsdl[abi_x86_32,opengl,video] media-libs/openal[abi_x86_32] >=sys-devel/gcc-3.4[cxx] sys-libs/glibc !games-action/psychonauts !games-action/psychonauts-hb
+LICENSE=all-rights-reserved
+RDEPEND=media-libs/libsdl[abi_x86_32,opengl,video] media-libs/openal[abi_x86_32] >=sys-devel/gcc-3.4[cxx] sys-libs/glibc !games-action/psychonauts !games-action/psychonauts-gog
 RESTRICT=bindist fetch splitdebug
 SLOT=0
-SRC_URI=gog_psychonauts_2.0.0.4.sh
+SRC_URI=psychonauts-linux-05062013-bin
 _eclasses_=check-reqs	a5f1e025c53d62f98bc24bd63d7d95e1	desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	unpacker	aa6a4e924009232d8b78b31e932c30b5	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=7366545685bda621162e24ed9628413c
+_md5_=72e59fa02a4db1d66cd59a9269ed8d11
