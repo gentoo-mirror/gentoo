@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/sasagawa888/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD-2"
@@ -26,7 +26,7 @@ DOCS=( README{,-ja}.md documents )
 RDEPEND="sys-libs/ncurses:="
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-Makefile.patch )
+PATCHES=( "${FILESDIR}"/${PN}-2.85-Makefile.patch )
 
 src_compile() {
 	emake CC="$(tc-getCC)" clean edlis eisl
