@@ -5,17 +5,23 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit readme.gentoo-r1 systemd udev xdg-utils distutils-r1 linux-mod
+inherit readme.gentoo-r1 systemd udev xdg-utils distutils-r1 linux-mod-r1
 
 DESCRIPTION="Drivers and user-space daemon to control Razer devices on GNU/Linux"
 HOMEPAGE="https://openrazer.github.io/
 	https://github.com/openrazer/openrazer/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
-	-> ${P}.tar.gz"
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+else
+	SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz
+		-> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
 
 IUSE="+client +daemon"
 REQUIRED_USE="
@@ -53,15 +59,6 @@ To automatically start up the OpenRazer daemon on session login copy
 /usr/share/openrazer/openrazer-daemon.desktop file into Your user's
 ~/.config/autostart/ directory."
 
-BUILD_TARGETS="clean driver"
-BUILD_PARAMS="-C ${S} SUBDIRS=${S}/driver KERNELDIR=${KERNEL_DIR}"
-MODULE_NAMES="
-	razeraccessory(hid:${S}/driver)
-	razerkbd(hid:${S}/driver)
-	razerkraken(hid:${S}/driver)
-	razermouse(hid:${S}/driver)
-"
-
 distutils_enable_tests unittest
 
 python_compile() {
@@ -93,7 +90,15 @@ src_prepare() {
 }
 
 src_compile() {
-	linux-mod_src_compile
+	local -a modargs=(
+		SUBDIRS="${S}"/driver
+		KERNELDIR="${KERNEL_DIR}"
+	)
+	local -a modlist=(
+		{razeraccessory,razerkbd,razerkraken,razermouse}="hid:${S}:driver"
+	)
+	linux-mod-r1_src_compile
+
 	distutils-r1_src_compile
 
 	if use daemon ; then
@@ -108,7 +113,7 @@ src_test() {
 }
 
 src_install() {
-	linux-mod_src_install
+	linux-mod-r1_src_install
 	distutils-r1_src_install
 
 	udev_dorules "${S}"/install_files/udev/99-razer.rules
@@ -138,7 +143,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	linux-mod_pkg_postinst
+	linux-mod-r1_pkg_postinst
 	udev_reload
 
 	if use daemon ; then
@@ -150,7 +155,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	linux-mod_pkg_postrm
+	linux-mod-r1_pkg_postrm
 	udev_reload
 
 	if use daemon ; then
