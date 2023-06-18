@@ -59,20 +59,25 @@ ECARGO_VENDOR="${ECARGO_HOME}/gentoo"
 # Bash string containing all crates that are to be downloaded.
 # It is used by cargo_crate_uris.
 #
+# Ideally, crate names and versions should be separated by a `@`
+# character.  A legacy syntax using hyphen is also supported but it is
+# much slower.
+#
 # Example:
 # @CODE
 # CRATES="
-# metal-1.2.3
-# bar-4.5.6
-# iron_oxide-0.0.1
+# metal@1.2.3
+# bar@4.5.6
+# iron_oxide@0.0.1
 # "
 # inherit cargo
 # ...
-# SRC_URI="$(cargo_crate_uris)"
+# SRC_URI="${CARGO_CRATE_URIS}"
 # @CODE
 
 # @ECLASS_VARIABLE: GIT_CRATES
 # @DEFAULT_UNSET
+# @PRE_INHERIT
 # @DESCRIPTION:
 # Bash associative array containing all of the crates that are to be
 # fetched via git.  It is used by cargo_crate_uris.
@@ -162,63 +167,87 @@ ECARGO_VENDOR="${ECARGO_HOME}/gentoo"
 # group, and then switch over to building with FEATURES=userpriv.
 # Or vice-versa.
 
+# @ECLASS_VARIABLE: CARGO_CRATE_URIS
+# @OUTPUT_VARIABLE
+# @DESCRIPTION:
+# List of URIs to put in SRC_URI created from CRATES variable.
+
+# @FUNCTION: _cargo_set_crate_uris
+# @USAGE: <crates>
+# @DESCRIPTION:
+# Generates the URIs to put in SRC_URI to help fetch dependencies.
+# Constructs a list of crates from its arguments.
+# If no arguments are provided, it uses the CRATES variable.
+# The value is set as CARGO_CRATE_URIS.
+_cargo_set_crate_uris() {
+	local -r regex='^([a-zA-Z0-9_\-]+)-([0-9]+\.[0-9]+\.[0-9]+.*)$'
+	local crates=${1}
+	local crate
+
+	CARGO_CRATE_URIS=
+	for crate in ${crates}; do
+		local name version url
+		if [[ ${crate} == *@* ]]; then
+			name=${crate%@*}
+			version=${crate##*@}
+		else
+			[[ ${crate} =~ ${regex} ]] ||
+				die "Could not parse name and version from crate: ${crate}"
+			name="${BASH_REMATCH[1]}"
+			version="${BASH_REMATCH[2]}"
+		fi
+		url="https://crates.io/api/v1/crates/${name}/${version}/download -> ${name}-${version}.crate"
+		CARGO_CRATE_URIS+="${url} "
+	done
+
+	if declare -p GIT_CRATES &>/dev/null; then
+		if [[ $(declare -p GIT_CRATES) == "declare -A"* ]]; then
+			local crate commit crate_uri crate_dir repo_ext feat_expr
+
+			for crate in "${!GIT_CRATES[@]}"; do
+				IFS=';' read -r crate_uri commit crate_dir <<< "${GIT_CRATES[${crate}]}"
+
+				case "${crate_uri}" in
+					https://github.com/*)
+						repo_ext=".gh"
+						repo_name="${crate_uri##*/}"
+						crate_uri="${crate_uri%/}/archive/%commit%.tar.gz"
+					;;
+					https://gitlab.com/*)
+						repo_ext=".gl"
+						repo_name="${crate_uri##*/}"
+						crate_uri="${crate_uri%/}/-/archive/%commit%/${repo_name}-%commit%.tar.gz"
+					;;
+					*)
+						repo_ext=
+						repo_name="${crate}"
+					;;
+				esac
+
+				CARGO_CRATE_URIS+="${crate_uri//%commit%/${commit}} -> ${repo_name}-${commit}${repo_ext}.tar.gz "
+			done
+		else
+			die "GIT_CRATE must be declared as an associative array"
+		fi
+	fi
+}
+_cargo_set_crate_uris "${CRATES}"
+
 # @FUNCTION: cargo_crate_uris
+# @USAGE: [<crates>...]
 # @DESCRIPTION:
 # Generates the URIs to put in SRC_URI to help fetch dependencies.
 # Constructs a list of crates from its arguments.
 # If no arguments are provided, it uses the CRATES variable.
 cargo_crate_uris() {
-	local -r regex='^([a-zA-Z0-9_\-]+)-([0-9]+\.[0-9]+\.[0-9]+.*)$'
-	local crate crates
-
-	if [[ -n ${@} ]]; then
-		crates="$@"
-	elif [[ -n ${CRATES} ]]; then
-		crates="${CRATES}"
-	else
+	local crates=${*-${CRATES}}
+	if [[ -z ${crates} ]]; then
 		eerror "CRATES variable is not defined and nothing passed as argument"
 		die "Can't generate SRC_URI from empty input"
 	fi
 
-	for crate in ${crates}; do
-		local name version url
-		[[ $crate =~ $regex ]] || die "Could not parse name and version from crate: $crate"
-		name="${BASH_REMATCH[1]}"
-		version="${BASH_REMATCH[2]}"
-		url="https://crates.io/api/v1/crates/${name}/${version}/download -> ${crate}.crate"
-		echo "${url}"
-	done
-
-	local git_crates_type
-	git_crates_type="$(declare -p GIT_CRATES 2>&-)"
-	if [[ ${git_crates_type} == "declare -A "* ]]; then
-		local crate commit crate_uri crate_dir repo_ext feat_expr
-
-		for crate in "${!GIT_CRATES[@]}"; do
-			IFS=';' read -r crate_uri commit crate_dir <<< "${GIT_CRATES[${crate}]}"
-
-			case "${crate_uri}" in
-				https://github.com/*)
-					repo_ext=".gh"
-					repo_name="${crate_uri##*/}"
-					crate_uri="${crate_uri%/}/archive/%commit%.tar.gz"
-				;;
-				https://gitlab.com/*)
-					repo_ext=".gl"
-					repo_name="${crate_uri##*/}"
-					crate_uri="${crate_uri%/}/-/archive/%commit%/${repo_name}-%commit%.tar.gz"
-				;;
-				*)
-					repo_ext=
-					repo_name="${crate}"
-				;;
-			esac
-
-			printf -- '%s -> %s\n' "${crate_uri//%commit%/${commit}}" "${repo_name}-${commit}${repo_ext}.tar.gz"
-		done
-	elif [[ -n ${git_crates_type} ]]; then
-		die "GIT_CRATE must be declared as an associative array"
-	fi
+	_cargo_set_crate_uris "${crates}"
+	echo "${CARGO_CRATE_URIS}"
 }
 
 # @FUNCTION: cargo_gen_config
