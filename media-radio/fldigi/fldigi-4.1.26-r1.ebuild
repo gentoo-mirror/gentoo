@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ RDEPEND="x11-libs/fltk:1[threads,xft]
 		media-libs/portaudio[alsa]
 	)
 	hamlib? ( media-libs/hamlib:= )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	>=media-libs/libsndfile-1.0.10"
 DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )
@@ -35,8 +35,7 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 
-PATCHES=( "${FILESDIR}/${PN}-4.1.20-musl.patch"
-		"${FILESDIR}/${PN}-drop-nullptr-definition.patch" )
+PATCHES=( "${FILESDIR}/${PN}-drop-nullptr-definition.patch" )
 
 src_prepare() {
 	eapply ${PATCHES[@]}
