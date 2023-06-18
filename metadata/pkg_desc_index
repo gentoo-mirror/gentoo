@@ -1045,7 +1045,7 @@ app-admin/op-cli-bin 1.7.0 1.12.3: command line interface for the 1password pass
 app-admin/openrc-settingsd 1.2.0 1.3.0 1.4.0: System settings D-Bus service for OpenRC
 app-admin/pass 1.7.3-r2 1.7.4-r2 9999: Stores, retrieves, generates, and synchronizes passwords securely
 app-admin/pass-otp 1.2.0 1.2.0-r1: A pass extension for managing one-time-password (OTP) tokens
-app-admin/passwordsafe 1.15.0 1.16.0: Password manager with wxGTK based frontend
+app-admin/passwordsafe 1.15.0 1.16.0 1.17.0: Password manager with wxGTK based frontend
 app-admin/paxtest 0.9.15-r1: PaX regression test suite
 app-admin/perl-cleaner 2.30 2.30-r1 9999: User land tool for cleaning up old perl installs
 app-admin/petrovich 1.0.0-r1 1.0.0-r2: Filesystem Integrity Checker
@@ -2452,7 +2452,7 @@ app-forensics/scalpel 2.1_pre20210326: A high performance file carver
 app-forensics/sleuthkit 4.10.1-r5 4.11.1-r1: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20210124: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.0.1 2.4.0-r1 2.4.1-r1: Framework for analyzing volatile memory
-app-forensics/yara 4.2.3 4.3.0 4.3.1 9999: A malware identification and classification tool
+app-forensics/yara 4.3.1 4.3.2 9999: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -9493,21 +9493,21 @@ dev-qt/qtxmlpatterns 5.15.9 5.15.10: XPath, XQuery, XSLT, and XML Schema validat
 dev-ruby/GeoRuby 2.5.2-r1: Ruby data holder for OGC Simple Features
 dev-ruby/abstract 1.0.0-r5: Library which enable you to define abstract method in Ruby
 dev-ruby/acme-client 2.0.9: A Ruby client for the letsencrypt's ACME protocol
-dev-ruby/actioncable 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Integrated WebSockets for Rails
-dev-ruby/actionmailbox 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Framework for designing email-service layers
-dev-ruby/actionmailer 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Framework for designing email-service layers
-dev-ruby/actionpack 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Eases web-request routing, handling, and response
+dev-ruby/actioncable 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Integrated WebSockets for Rails
+dev-ruby/actionmailbox 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Framework for designing email-service layers
+dev-ruby/actionmailer 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Framework for designing email-service layers
+dev-ruby/actionpack 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Eases web-request routing, handling, and response
 dev-ruby/actionpack-action_caching 1.2.2: Action caching for Action Pack (removed from core in Rails 4.0)
 dev-ruby/actionpack-xml_parser 2.0.1-r2: XML parameters parser for Action Pack (removed from core in Rails 4.0)
-dev-ruby/actiontext 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Edit and display rich text in Rails applications
-dev-ruby/actionview 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Simple, battle-tested conventions and helpers for building web pages
-dev-ruby/activejob 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Job framework with pluggable queues
+dev-ruby/actiontext 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Edit and display rich text in Rails applications
+dev-ruby/actionview 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Simple, battle-tested conventions and helpers for building web pages
+dev-ruby/activejob 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Job framework with pluggable queues
 dev-ruby/activeldap 6.1.0-r1: ActiveLDAP provides an activerecord inspired object oriented interface to LDAP
-dev-ruby/activemodel 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Toolkit for building modeling frameworks like Active Record and Active Resource
+dev-ruby/activemodel 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Toolkit for building modeling frameworks like Active Record and Active Resource
 dev-ruby/activemodel-serializers-xml 1.0.2-r2: XML serialization for your Active Model objects and Active Record models
-dev-ruby/activerecord 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
-dev-ruby/activestorage 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Attach cloud and local files in Rails applications
-dev-ruby/activesupport 6.0.6.1-r1 6.0.6.1-r2 6.1.7.2-r1 6.1.7.3-r1 6.1.7.3-r2 7.0.4.3-r1 7.0.4.3-r2: Utility Classes and Extension to the Standard Library
+dev-ruby/activerecord 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
+dev-ruby/activestorage 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Attach cloud and local files in Rails applications
+dev-ruby/activesupport 6.0.6.1-r1 6.0.6.1-r2 6.1.7.2-r1 6.1.7.3-r1 6.1.7.3-r2 7.0.4.3-r1 7.0.4.3-r2 7.0.5: Utility Classes and Extension to the Standard Library
 dev-ruby/acts_as_list 1.0.4 1.1.0: Capabilities for sorting and reordering a number of objects in a list
 dev-ruby/addressable 2.8.1 2.8.2 2.8.3 2.8.4: A replacement for the URI implementation that is part of Ruby's standard library
 dev-ruby/ae 1.8.2-r1: Assertive Expressive is an assertions library designed for reuse
@@ -9880,10 +9880,10 @@ dev-ruby/rack-protection 2.2.3 3.0.5 3.0.6: This gem protects against typical we
 dev-ruby/rack-test 1.1.0-r1 2.0.2 2.1.0: Rack::Test is a small, simple testing API for Rack apps
 dev-ruby/rackup 2.1.0: A general server command for Rack applications
 dev-ruby/radius 0.7.5-r1: Powerful tag-based template system
-dev-ruby/rails 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: ruby on rails is a web-application and persistence framework
+dev-ruby/rails 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: ruby on rails is a web-application and persistence framework
 dev-ruby/rails-dom-testing 2.0.3-r2: Compare doms and assert certain elements exists in doms using Nokogiri
 dev-ruby/rails-html-sanitizer 1.5.0 1.6.0: Sanitize HTML fragments in Rails applications
-dev-ruby/railties 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1: Tools for creating, working with, and running Rails applications
+dev-ruby/railties 6.0.6.1 6.1.7.2 6.1.7.3 7.0.4.3 7.0.4.3-r1 7.0.5: Tools for creating, working with, and running Rails applications
 dev-ruby/rainbow 3.1.1: Colorize printed text on ANSI terminals
 dev-ruby/rake 13.0.6-r2: Make-like scripting in Ruby
 dev-ruby/rake-compiler 1.2.1 1.2.3: Provide a standard and simplified way to build and package Ruby extensions
@@ -12617,7 +12617,7 @@ media-gfx/gthumb 3.12.2-r4 3.12.2-r5: Image viewer and browser for Gnome
 media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
 media-gfx/hp2xx 3.4.4-r3: Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
 media-gfx/hugin 2022.0.0 9999: GUI for the creation & processing of panoramic images
-media-gfx/hydrus 526 528 9999: A booru-like media organizer for the desktop
+media-gfx/hydrus 528 531 9999: A booru-like media organizer for the desktop
 media-gfx/icon-slicer 0.3 0.3-r1: Utility for generating icon themes and libXcursor cursor themes
 media-gfx/icoutils 0.32.3: Tools to extract and convert images in icon and cursor files (.ico, .cur)
 media-gfx/igal 3.1: Static HTML image gallery generator
@@ -12717,7 +12717,7 @@ media-gfx/sane-backends 1.1.1-r11 1.1.1-r13 1.2.1: Scanner Access Now Easy - Bac
 media-gfx/sane-frontends 1.0.14-r6: Scanner Access Now Easy
 media-gfx/scantailor-advanced 1.0.16-r3: Interactive post-processing tool for scanned pages
 media-gfx/scour 0.38.2-r1: Take an SVG file and produce a cleaner and more concise file
-media-gfx/scrot 1.9 9999: Screen capture utility using imlib2 library
+media-gfx/scrot 1.9 1.10 9999: Screen capture utility using imlib2 library
 media-gfx/sfftobmp 3.1.2-r3: sff to bmp converter
 media-gfx/shotwell 0.32.0 0.32.1: Open source photo manager for GNOME
 media-gfx/simple-scan 44.0: Simple document scanning utility
@@ -13453,7 +13453,7 @@ media-radio/kochmorse 3.5.1: Morse-code tutor using the Koch method
 media-radio/qrq 0.3.5: Yet another CW trainer for Linux/Unix
 media-radio/qsstv 9.5.8: Amateur radio SSTV software
 media-radio/svxlink 19.09.2: Multi Purpose Voice Services System, including Qtel for EchoLink
-media-radio/tlf 1.4.1-r1 1.4.1-r2: Console-mode amateur radio contest logger
+media-radio/tlf 1.4.1-r1 1.4.1-r2 1.4.1-r3: Console-mode amateur radio contest logger
 media-radio/tqsl 2.6.4 2.6.5: ARRL Logbook of the World
 media-radio/tucnak 4.43 4.44: Amateur Radio VHF Contest Logbook
 media-radio/unixcw 3.5.1-r1 3.6.0: A package of programs that fit together to form a morse code tutor program
@@ -14415,7 +14415,7 @@ net-im/skypeforlinux 8.96.0.408 8.97.0.204 8.97.0.404 8.98.0.206 8.98.0.402: Ins
 net-im/slack 4.29.149-r1: Team collaboration tool
 net-im/spectrum2 2.2.0-r1: An open source instant messaging transport
 net-im/swift 4.0.2-r102: An elegant, secure, adaptable and intuitive XMPP Client
-net-im/synapse 1.82.0-r1 1.83.0 1.84.1: Reference implementation of Matrix homeserver
+net-im/synapse 1.82.0-r1 1.83.0 1.84.1 1.85.2: Reference implementation of Matrix homeserver
 net-im/telegram-desktop 4.8.1-r2 4.8.3: Official desktop client for Telegram
 net-im/telegram-desktop-bin 4.8.3 4.8.4: Official desktop client for Telegram (binary package)
 net-im/telepathy-connection-managers 2-r2: Meta-package for Telepathy Connection Managers
@@ -16559,7 +16559,7 @@ sys-apps/cciss_vol_status 1.12a: Shows status of logical drives attached to HP S
 sys-apps/ccs-tools 1.8.3_p20130214: TOMOYO Linux tools
 sys-apps/checkpolicy 3.5 9999: SELinux policy compiler
 sys-apps/chname 1.1-r1: Run a command with a new system hostname
-sys-apps/cinit 0.2.1: a fast, small and simple init with support for profiles
+sys-apps/cinit 0.2.1 0.2.1-r1: a fast, small and simple init with support for profiles
 sys-apps/ckbcomp 1.164 1.217: Compile an XKB keymap for loadkeys
 sys-apps/clrngd 1.0.3-r1: Clock randomness gathering daemon
 sys-apps/collectl 4.3.1-r1: Performance monitoring tool capable of interactive reporting and logging to disk
@@ -16813,7 +16813,7 @@ sys-apps/usbguard 1.1.2: Daemon protecting your computer against BadUSB
 sys-apps/usbmon 6.1: Userland for USB monitoring framework
 sys-apps/usbredir 0.12.0 0.13.0: TCP daemon and set of libraries for usbredir protocol (redirecting USB traffic)
 sys-apps/usbutils 014-r1 015: USB enumeration utilities
-sys-apps/usermode-utilities 20070815-r4: Tools for use with Usermode Linux virtual machines
+sys-apps/usermode-utilities 20070815-r4 20070815-r5: Tools for use with Usermode Linux virtual machines
 sys-apps/utempter 0.5.5.6-r1: App that allows non-privileged apps to write utmp (login) info
 sys-apps/util-linux 2.38.1-r2 2.39-r4 9999: Various useful Linux utilities
 sys-apps/uutils-coreutils 0.0.18 0.0.19 9999: GNU coreutils rewritten in Rust
@@ -16890,7 +16890,7 @@ sys-block/arcconf 2.01.22270-r2 4.09.00.25611: Microsemi Adaptec RAID Controller
 sys-block/blktrace 1.3.0: show detailed info about what is happening on a block device io queue
 sys-block/bmap-tools 3.6-r1: Flashing tool using block maps and sparse files
 sys-block/buffer 1.19-r4: A tapedrive tool for speeding up reading from and writing to tape
-sys-block/cec 14: Coraid Ethernet Console client
+sys-block/cec 14 14-r1: Coraid Ethernet Console client
 sys-block/devio 1.2-r1: Correctly read (or write) a region of a block device
 sys-block/di 4.51: Disk Information Utility
 sys-block/disktype 9-r1: Detect the content format of a disk or disk image
@@ -17446,7 +17446,7 @@ sys-process/cronie 1.6.1-r3: Cronie is a standard UNIX daemon cron based on the 
 sys-process/cronutils 1.9: Utilities to assist running batch processing jobs
 sys-process/ctop 0.7.7: Top-like interface for container-metrics
 sys-process/daemontools 0.76-r10 0.76-r11: Collection of tools for managing UNIX services
-sys-process/daemontools-encore 1.11-r1: Collection of tools for managing UNIX services
+sys-process/daemontools-encore 1.11-r1 1.11-r2: Collection of tools for managing UNIX services
 sys-process/dcron 4.5-r2: A cute little cron from Matt Dillon
 sys-process/dumb-init 1.2.5: A minimal init system for Linux containers
 sys-process/evisum 0.6.0: System and process monitor written with EFL
