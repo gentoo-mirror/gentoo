@@ -11,9 +11,12 @@ if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64"
 fi
 
-IUSE="alsa +ffmpeg gstreamer pulseaudio v4l"
+IUSE="alsa +ffmpeg gstreamer pulseaudio v4l vaapi"
 
-REQUIRED_USE="|| ( ffmpeg gstreamer )"
+REQUIRED_USE="
+	|| ( ffmpeg gstreamer )
+	vaapi? ( ffmpeg )
+"
 
 RDEPEND="
 	=dev-qt/qtbase-${PV}*[gui,network,widgets]
@@ -37,6 +40,11 @@ RDEPEND="
 		media-libs/libglvnd
 	)
 	pulseaudio? ( media-libs/libpulse[glib] )
+	vaapi? (
+		=dev-qt/qtbase-${PV}*[opengl]
+		media-libs/libglvnd
+		media-libs/libva:=
+	)
 "
 DEPEND="${RDEPEND}
 	gstreamer? ( x11-base/xorg-proto )
@@ -50,6 +58,7 @@ src_configure() {
 		$(qt_feature gstreamer)
 		$(qt_feature v4l linux_v4l)
 		$(qt_feature pulseaudio)
+		$(qt_feature vaapi)
 	)
 
 	qt6-build_src_configure
