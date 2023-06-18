@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -20,7 +20,7 @@ RDEPEND="ncurses? ( sys-libs/ncurses:= )
 		dev-qt/qtgui:5
 		dev-qt/qtwidgets:5 )
 	alsa? ( media-libs/alsa-lib )
-	pulseaudio? ( media-sound/pulseaudio )"
+	pulseaudio? ( media-libs/libpulse )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	sys-devel/libtool"
@@ -28,9 +28,8 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	append-cflags -std=gnu11
 	append-cxxflags -std=gnu++11
-	eapply -p0 "${FILESDIR}"/${PN}-3.5-tinfo.patch \
-		"${FILESDIR}"/${PN}-tests.patch
-	# Bug# 837617
+	eapply -p0 "${FILESDIR}"/$PN-3.6-tinfo.patch
+	# Bug# 837617 and 858278
 	sed -i -e "s/curses, initscr/ncurses, initscr/" \
 		-e "s/_curses_initscr/_ncurses_initscr/" configure.ac || die
 	eapply_user
