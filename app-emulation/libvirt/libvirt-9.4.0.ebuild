@@ -31,9 +31,10 @@ SLOT="0/${PV}"
 IUSE="
 	apparmor audit bash-completion +caps dtrace firewalld fuse glusterfs
 	iscsi iscsi-direct +libvirtd lvm libssh libssh2 lxc nfs nls numa openvz
-	parted pcap policykit +qemu rbd sasl selinux +udev
+	parted pcap policykit +qemu rbd sasl selinux test +udev
 	virtualbox +virt-network wireshark-plugins xen zfs
 "
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	firewalld? ( virt-network )
@@ -106,6 +107,7 @@ RDEPEND="
 	)
 	qemu? (
 		>=app-emulation/qemu-4.2
+		app-crypt/swtpm
 		>=dev-libs/yajl-2.0.3:=
 	)
 	rbd? ( sys-cluster/ceph )
@@ -141,9 +143,9 @@ PDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-6.0.0-fix_paths_in_libvirt-guests_sh.patch
-	"${FILESDIR}"/${PN}-8.2.0-do-not-use-sysconfig.patch
-	"${FILESDIR}"/${PN}-8.2.0-fix-paths-for-apparmor.patch
+	"${FILESDIR}"/${PN}-9.4.0-fix_paths_in_libvirt-guests_sh.patch
+	"${FILESDIR}"/${PN}-9.4.0-do-not-use-sysconfig.patch
+	"${FILESDIR}"/${PN}-9.5.0-fix-paths-for-apparmor.patch
 )
 
 pkg_setup() {
@@ -280,6 +282,7 @@ src_configure() {
 		$(meson_feature rbd storage_rbd)
 		$(meson_feature sasl)
 		$(meson_feature selinux)
+		$(meson_feature test tests)
 		$(meson_feature udev)
 		$(meson_feature virt-network driver_network)
 		$(meson_feature virtualbox driver_vbox)
@@ -300,6 +303,7 @@ src_configure() {
 		-Ddriver_vmware=enabled
 
 		--localstatedir="${EPREFIX}/var"
+		-Dinitconfdir="${EPREFIX}/etc/conf.d"
 		-Drunstatedir="${EPREFIX}/run"
 		-Ddocdir="${EPREFIX}/usr/share/doc/${PF}"
 	)
