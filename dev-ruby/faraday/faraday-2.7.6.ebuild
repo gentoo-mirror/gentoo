@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby30 ruby31 ruby32"
 
 RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -28,13 +28,13 @@ IUSE=""
 DEPEND+=" test? ( sys-process/lsof )"
 
 ruby_add_rdepend "
-	dev-ruby/faraday-net_http:2
+	|| ( =dev-ruby/faraday-net_http-3.0* dev-ruby/faraday-net_http:2 )
 	>=dev-ruby/ruby2_keywords-0.0.4
 "
 ruby_add_bdepend "test? (
 		>=dev-ruby/test-unit-2.4
 		>=dev-ruby/connection_pool-2.2.2
-		dev-ruby/rack
+		dev-ruby/rack:2.2
 		dev-ruby/webmock
 	)"
 
@@ -48,17 +48,12 @@ all_ruby_prepare() {
 		-e '/simplecov/ s:^:#:' \
 		-e '/SimpleCov/,/end/ s:^:#:' \
 		-e '/pry/ s:^:#:' \
+		-e '3igem "rack", "~> 2.2"' \
 		-i spec/spec_helper.rb || die
 
 	sed -e '/git ls-files/ s:^:#:' \
 		-e "s:_relative ': './:" \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
-
-	# Avoid multipart tests that require an unpackaged dependency
-	# that appears to be no longer maintained.
-	#rm -f spec/faraday/request/multipart_spec.rb || die
-	#sed -e '/multipart_parser/ s:^:#:' \
-	#	-i spec/support/helper_methods.rb || die
 }
 
 each_ruby_test() {
