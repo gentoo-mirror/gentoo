@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,7 +8,7 @@ inherit cmake toolchain-funcs
 DESCRIPTION="Scalable Algorithms for Parallel Adaptive Mesh Refinement on Forests of Octrees"
 HOMEPAGE="http://www.p4est.org/"
 
-LIBSC_VERSION="2.8.3"
+LIBSC_VERSION="${PV}"
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
@@ -36,7 +36,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.8-fix_build_system.patch
+	"${FILESDIR}"/${P}-fix_build_system.patch
 	"${FILESDIR}"/${P}-set_version.patch
 )
 
@@ -61,7 +61,8 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	rm "${ED}"/usr/lib/cmake/Modules/FindSC.cmake || die "rm failed"
+	rm -r "${ED}"/usr/cmake || die "rm failed"
+	mkdir -p "${ED}"/usr/share/doc/${P}
 	mv "${ED}"/usr/share/docs/P4EST/* "${ED}"/usr/share/doc/${P}/ || die "mv failed"
 	rm -r "${ED}"/usr/share/docs || die "rm failed"
 }

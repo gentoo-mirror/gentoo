@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,7 +23,7 @@ IUSE="debug examples mpi openmp threads"
 
 RDEPEND="
 	sys-apps/util-linux
-	sys-libs/zlib
+	sys-libs/zlib-ng
 	virtual/blas
 	virtual/lapack
 	mpi? ( virtual/mpi[romio] )"
@@ -31,8 +31,10 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.8.3-fix_build_system.patch
 	"${FILESDIR}"/${P}-set_version.patch
+	"${FILESDIR}"/${P}-fix_build_system.patch
+	"${FILESDIR}"/${P}-do_not_compile_zlib-ng.patch
+	"${FILESDIR}"/${P}-use_zlib-ng_symbols.patch
 )
 
 pkg_pretend() {
@@ -55,6 +57,8 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+
+	rm -r "${ED}"/usr/cmake || die "rm failed"
 
 	rm -r "${ED}"/usr/include/getopt.h \
 		"${ED}"/usr/include/getopt_int.h \
