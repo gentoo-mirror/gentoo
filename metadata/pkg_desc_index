@@ -6596,6 +6596,7 @@ dev-perl/Hash-MoreUtils 0.60.0: Provide the stuff missing in Hash::Util
 dev-perl/Hash-MultiValue 0.160.0-r1: Store multiple values per key
 dev-perl/Hash-NoRef 0.30.0-r3: Hash to store values without increasing reference count (weak references)
 dev-perl/Hash-Ordered 0.14.0: Fast, pure-Perl ordered hash class
+dev-perl/Hash-SafeKeys 0.40.0: Get hash contents without resetting each iterator
 dev-perl/Heap 0.800.0-r3: Perl extensions for keeping data partially sorted
 dev-perl/Hook-LexWrap 0.260.0-r1: Lexically scoped subroutine wrappers
 dev-perl/IMAP-Admin 1.6.8-r1: Perl module for basic IMAP server administration
@@ -6976,7 +6977,7 @@ dev-perl/PDL 2.17.0-r2 2.54.0 2.63.0: Perl Data Language for scientific computin
 dev-perl/PDL-Graphics-Gnuplot 2.17.0 2.19.0: Gnuplot-based plotting for PDL
 dev-perl/PDL-IO-CSV 0.11.0: Load/save PDL from/to CSV file (optimized for speed and large data)
 dev-perl/PDL-Transform-Color 1.5.0: Useful color system conversions for PDL
-dev-perl/PGPLOT 2.270.0: allow subroutines in the PGPLOT graphics library to be called from Perl
+dev-perl/PGPLOT 2.270.0 2.280.0: Allow subroutines in the PGPLOT graphics library to be called from Perl
 dev-perl/PHP-Serialization 0.340.0-r2: Convert PHP's serialize() into the equivalent Perl structure, and vice versa
 dev-perl/POE 1.368.0 1.370.0: Framework for creating multitasking programs in Perl
 dev-perl/POE-Component-Client-DNS 1.54.0-r1: Non-blocking, parallel DNS client
@@ -7015,6 +7016,7 @@ dev-perl/Params-Classify 0.15.0-r1: Argument type classification
 dev-perl/Params-Util 1.102.0: Utility functions to aid in parameter checking
 dev-perl/Params-Validate 1.300.0: Flexible system for validation of method/function call parameters
 dev-perl/Params-ValidationCompiler 0.300.0: Build an optimized subroutine parameter validator once, use it forever
+dev-perl/Parse-Distname 0.50.0: Parse a distribution name
 dev-perl/Parse-ErrorString-Perl 0.270.0-r1: Parse error messages from the perl interpreter
 dev-perl/Parse-ExuberantCTags 1.20.0-r2: Efficiently parse exuberant ctags files
 dev-perl/Parse-RecDescent 1.967.15-r1: Generate Recursive-Descent Parsers
@@ -7035,37 +7037,37 @@ dev-perl/Perl-Critic-Deprecated 1.119.0-r1: Perl::Critic policies which have bee
 dev-perl/Perl-Critic-Dynamic 0.50.0-r4: Base class for dynamic Policies
 dev-perl/Perl-Critic-Nits 1.0.0-r2: policies of nits I like to pick
 dev-perl/Perl-Critic-Policy-Dynamic-NoIndirect 0.60.0-r2: Perl::Critic policy against indirect method calls
-dev-perl/Perl-LanguageServer 2.2.0 2.3.0: Language Server and Debug Protocol Adapter for Perl
+dev-perl/Perl-LanguageServer 2.2.0 2.3.0 2.5.0: Language Server and Debug Protocol Adapter for Perl
 dev-perl/Perl-MinimumVersion 1.400.0: Find a minimum required version of perl for Perl code
-dev-perl/Perl-PrereqScanner 1.24.0: a tool to scan your Perl code for its prerequisites
-dev-perl/Perl-PrereqScanner-NotQuiteLite 0.991.400: a tool to scan your Perl code for its prerequisites
+dev-perl/Perl-PrereqScanner 1.24.0 1.100.0: Tool to scan your Perl code for its prerequisites
+dev-perl/Perl-PrereqScanner-NotQuiteLite 0.991.400 0.991.700: Tool to scan your Perl code for its prerequisites
 dev-perl/Perl-Strip 1.100.0: reduce file size by stripping whitespace, comments, pod etc
 dev-perl/Perl-Tags 0.320.0-r2: Generate (possibly exuberant) Ctags style tags for Perl sourcecode
-dev-perl/Perl-Tidy 20210717.0.0 20211029.0.0: Perl script indenter and beautifier
+dev-perl/Perl-Tidy 20210717.0.0 20211029.0.0 20230309.0.0: Perl script indenter and beautifier
 dev-perl/Perl-Unsafe-Signals 0.30.0-r2: Allow unsafe handling of signals in selected blocks
 dev-perl/Perl-Version 1.13.0-r1: Parse and manipulate Perl version strings
 dev-perl/Perl6-Junction 1.600.0-r1: Perl6 style Junction operators in Perl5
 dev-perl/PerlIO-Layers 0.12.0: Querying your filehandle's capabilities
 dev-perl/PerlIO-eol 0.170.0 0.180.0: PerlIO layer for normalizing line endings
 dev-perl/PerlIO-gzip 0.200.0-r1: PerlIO layer to gzip/gunzip
-dev-perl/PerlIO-utf8_strict 0.8.0: Fast and correct UTF-8 IO
+dev-perl/PerlIO-utf8_strict 0.8.0 0.10.0: Fast and correct UTF-8 IO
 dev-perl/PerlIO-via-Timeout 0.320.0-r1: PerlIO layer that adds read & write timeout to a handle
 dev-perl/PerlIO-via-dynamic 0.140.0-r2: Dynamic PerlIO layers
 dev-perl/Perlbal 1.800.0-r3: Reverse-proxy load balancer and webserver
 dev-perl/PlRPC 0.202.0-r4: The Perl RPC Module
-dev-perl/Plack 1.4.800: Perl Superglue for Web frameworks and Web Servers (PSGI toolkit)
+dev-perl/Plack 1.4.800 1.5.0: Perl Superglue for Web frameworks and Web Servers (PSGI toolkit)
 dev-perl/Plucene 1.250.0-r3: Plucene - the Perl lucene port
 dev-perl/Pod-Abstract 0.200.0-r3: Abstract document tree for Perl POD documents
 dev-perl/Pod-Coverage 0.230.0-r2: Checks if the documentation of a module is comprehensive
-dev-perl/Pod-Elemental 0.103.5: Work with nestable Pod elements
-dev-perl/Pod-Elemental-PerlMunger 0.200.6-r1: A thing that takes a string of Perl and rewrites its documentation
-dev-perl/Pod-Eventual 0.94.2: read a POD document as a series of trivial events
+dev-perl/Pod-Elemental 0.103.5 0.103.6: Work with nestable Pod elements
+dev-perl/Pod-Elemental-PerlMunger 0.200.6-r1 0.200.7: Thing that takes a string of Perl and rewrites its documentation
+dev-perl/Pod-Eventual 0.94.2 0.94.3: read a POD document as a series of trivial events
 dev-perl/Pod-LaTeX 0.610.0-r2: Convert Pod data to formatted LaTeX
 dev-perl/Pod-Markdown 3.300.0: Convert POD to Markdown
 dev-perl/Pod-Markdown-Github 0.40.0: Convert POD to Github's specific markdown
 dev-perl/Pod-POM 2.10.0-r1: POD Object Model
 dev-perl/Pod-POM-View-Restructured 1.0.3: View for Pod::POM that outputs reStructuredText
-dev-perl/Pod-Parser 1.630.0-r1: POD filters and translators
+dev-perl/Pod-Parser 1.630.0-r1 1.660.0: POD filters and translators
 dev-perl/Pod-Readme 1.2.3: Intelligently generate a README file from POD
 dev-perl/Pod-Simple-LaTeX 0.60.0-r1: format Pod as LaTeX
 dev-perl/Pod-Spell 1.200.0-r1 1.260.0: A formatter for spellchecking Pod
