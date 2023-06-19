@@ -6,7 +6,7 @@ EAPI=8
 inherit pax-utils python-utils-r1 toolchain-funcs
 
 PYPY_PV=${PV%_p*}
-PYVER=3.10
+PYVER=3.9
 MY_P="pypy${PYVER}-v${PYPY_PV/_}"
 PATCHSET="pypy${PYVER}-gentoo-patches-${PV/_rc/rc}"
 
@@ -24,7 +24,7 @@ S="${WORKDIR}/${MY_P}-src"
 LICENSE="MIT"
 # pypy3 -c 'import sysconfig; print(sysconfig.get_config_var("SOABI"))'
 # also check pypy/interpreter/pycode.py -> pypy_incremental_magic
-SLOT="0/pypy310-pp73-384"
+SLOT="0/pypy39-pp73-336"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+ensurepip gdbm +jit ncurses sqlite tk"
 # many tests are failing upstream
@@ -46,7 +46,7 @@ RDEPEND="
 		dev-lang/tk:0=
 		dev-tcltk/tix:0=
 	)
-	!~dev-python/pypy3-7.3.12_rc1
+	!<dev-python/pypy3-7.3.12_rc
 "
 DEPEND="
 	${RDEPEND}
@@ -123,6 +123,7 @@ src_compile() {
 	cffi_targets=(
 		pypy_util blake2/_blake2 sha3/_sha3 ssl
 		audioop syslog pwdgrp resource lzma posixshmem
+		testmultiphase
 	)
 	use gdbm && cffi_targets+=( gdbm )
 	use ncurses && cffi_targets+=( curses )
