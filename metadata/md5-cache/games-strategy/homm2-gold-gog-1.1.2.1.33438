@@ -1,0 +1,14 @@
+BDEPEND=app-arch/innoextract flac? ( app-arch/unzip )
+DEFINED_PHASES=install nofetch postinst
+DEPEND=games-engines/fheroes2
+DESCRIPTION=Data files for HoMM II Gold from gog.com
+EAPI=8
+HOMEPAGE=https://www.gog.com/en/game/heroes_of_might_and_magic_2_gold_edition
+IUSE=flac
+KEYWORDS=~amd64
+LICENSE=GOG-EULA
+RDEPEND=games-engines/fheroes2 !games-strategy/homm2-demo
+RESTRICT=bindist fetch
+SLOT=0
+SRC_URI=setup_heroes_of_might_and_magic_2_gold_1.01_(2.1)_(33438).exe flac? ( homm_2_ost_flac.zip )
+_md5_=be8524074ed85604c6bac7efab5328c4
