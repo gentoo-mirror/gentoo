@@ -27,11 +27,9 @@ DEPEND="test? ( dev-cpp/doctest )"
 HTML_DOCS=( docs/. )
 
 PATCHES=(
-	"${FILESDIR}"/taskflow-9999-fix_doctest.patch
 )
 
 src_prepare() {
-	rm -r "${S}/3rd-party" || die "rm failed"
 	cmake_src_prepare
 }
 
