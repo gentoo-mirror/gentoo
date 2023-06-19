@@ -8,170 +8,177 @@ EAPI=8
 CRATES="
 	adler-1.0.2
 	ahash-0.8.3
-	anyhow-1.0.69
+	anstream-0.3.2
+	anstyle-1.0.0
+	anstyle-parse-0.2.0
+	anstyle-query-1.0.0
+	anstyle-wincon-1.0.1
+	anyhow-1.0.71
 	arc-swap-1.6.0
-	atoi-2.0.0
 	autocfg-1.1.0
 	bitflags-1.3.2
-	bstr-1.3.0
+	bitflags-2.3.1
+	bstr-1.5.0
 	btoi-0.4.3
-	bytesize-1.2.0
-	bzip2-0.4.4
-	bzip2-sys-0.1.11+1.0.8
-	castaway-0.2.2
+	bzip2-rs-0.1.2
 	cc-1.0.79
 	cfg-if-1.0.0
-	clap-4.1.6
-	clap_lex-0.3.2
+	clap-4.3.0
+	clap_builder-4.3.0
+	clap_lex-0.5.0
 	clru-0.6.1
-	compact_str-0.6.1
+	colorchoice-1.0.0
 	crc32fast-1.3.2
-	ctrlc-3.2.5
+	ctrlc-3.3.1
 	curl-0.4.44
-	curl-sys-0.4.60+curl-7.88.1
-	dashmap-5.4.0
-	dirs-4.0.0
-	dirs-sys-0.3.7
-	dunce-1.0.3
+	curl-sys-0.4.62+curl-8.1.0
+	dunce-1.0.4
 	encoding_rs-0.8.32
-	errno-0.2.8
+	errno-0.3.1
 	errno-dragonfly-0.1.2
 	fastrand-1.9.0
-	filetime-0.2.20
-	flate2-1.0.25
+	filetime-0.2.21
+	flate2-1.0.26
 	form_urlencoded-1.1.0
-	getrandom-0.2.8
-	gix-0.37.2
-	gix-actor-0.17.2
-	gix-attributes-0.8.3
-	gix-bitmap-0.2.1
+	getrandom-0.2.9
+	gix-0.44.1
+	gix-actor-0.20.0
+	gix-attributes-0.12.0
+	gix-bitmap-0.2.3
 	gix-chunk-0.4.1
 	gix-command-0.2.4
-	gix-config-0.16.3
-	gix-config-value-0.10.1
-	gix-credentials-0.9.2
-	gix-date-0.4.3
-	gix-diff-0.26.3
-	gix-discover-0.13.1
-	gix-features-0.26.5
-	gix-glob-0.5.5
-	gix-hash-0.10.3
-	gix-hashtable-0.1.1
-	gix-index-0.12.4
-	gix-lock-3.0.2
-	gix-mailmap-0.9.3
-	gix-object-0.26.4
-	gix-odb-0.40.2
-	gix-pack-0.30.3
-	gix-path-0.7.2
-	gix-prompt-0.3.2
-	gix-quote-0.4.2
-	gix-ref-0.24.1
-	gix-refspec-0.7.3
-	gix-revision-0.10.4
-	gix-sec-0.6.2
-	gix-tempfile-3.0.2
-	gix-traverse-0.22.2
-	gix-url-0.13.3
-	gix-validate-0.7.3
-	gix-worktree-0.12.3
+	gix-config-0.22.0
+	gix-config-value-0.12.0
+	gix-credentials-0.14.0
+	gix-date-0.5.0
+	gix-diff-0.29.0
+	gix-discover-0.18.1
+	gix-features-0.29.0
+	gix-fs-0.1.1
+	gix-glob-0.7.0
+	gix-hash-0.11.1
+	gix-hashtable-0.2.0
+	gix-ignore-0.2.0
+	gix-index-0.16.1
+	gix-lock-5.0.1
+	gix-mailmap-0.12.0
+	gix-object-0.29.2
+	gix-odb-0.45.0
+	gix-pack-0.35.0
+	gix-path-0.8.0
+	gix-prompt-0.5.0
+	gix-quote-0.4.3
+	gix-ref-0.29.1
+	gix-refspec-0.10.1
+	gix-revision-0.13.0
+	gix-sec-0.8.0
+	gix-tempfile-5.0.3
+	gix-traverse-0.25.0
+	gix-url-0.18.0
+	gix-utils-0.1.1
+	gix-validate-0.7.4
+	gix-worktree-0.17.1
 	hashbrown-0.12.3
 	hashbrown-0.13.2
 	hermit-abi-0.3.1
 	hex-0.4.3
-	home-0.5.4
-	human_format-1.0.3
+	home-0.5.5
 	idna-0.3.0
 	imara-diff-0.1.5
-	indexmap-1.9.2
+	indexmap-1.9.3
 	instant-0.1.12
 	io-close-0.3.7
-	io-lifetimes-1.0.5
-	is-terminal-0.4.4
-	itoa-1.0.5
-	libc-0.2.139
-	libz-sys-1.1.8
-	linux-raw-sys-0.1.4
+	io-lifetimes-1.0.11
+	is-terminal-0.4.7
+	itoa-1.0.6
+	kstring-2.0.0
+	libc-0.2.144
+	libz-sys-1.1.9
+	linux-raw-sys-0.3.8
 	lock_api-0.4.9
 	log-0.4.17
 	memchr-2.5.0
 	memmap2-0.5.10
 	minimal-lexical-0.2.1
-	miniz_oxide-0.6.2
+	miniz_oxide-0.7.1
 	nix-0.26.2
 	nom-7.1.3
 	num-traits-0.2.15
 	num_threads-0.1.6
 	once_cell-1.17.1
 	openssl-probe-0.1.5
-	openssl-sys-0.9.80
-	os_str_bytes-6.4.1
-	parking_lot-0.11.2
+	openssl-sys-0.9.87
 	parking_lot-0.12.1
-	parking_lot_core-0.8.6
 	parking_lot_core-0.9.7
 	percent-encoding-2.2.0
-	pkg-config-0.3.26
-	proc-macro2-1.0.51
-	prodash-23.0.0
-	quick-error-2.0.1
-	quote-1.0.23
+	pkg-config-0.3.27
+	proc-macro2-1.0.58
+	prodash-23.1.2
+	quote-1.0.27
 	redox_syscall-0.2.16
-	redox_users-0.4.3
+	redox_syscall-0.3.5
 	regex-automata-0.1.10
-	remove_dir_all-0.5.3
-	rustix-0.36.8
-	rustversion-1.0.11
-	ryu-1.0.12
+	rustix-0.37.19
+	ryu-1.0.13
 	same-file-1.0.6
 	schannel-0.1.21
 	scopeguard-1.1.0
-	serde-1.0.152
-	serde_derive-1.0.152
-	serde_json-1.0.93
+	serde-1.0.163
+	serde_derive-1.0.163
+	serde_json-1.0.96
 	sha1_smol-1.0.0
 	signal-hook-0.3.15
 	signal-hook-registry-1.4.1
 	smallvec-1.10.0
-	socket2-0.4.7
+	socket2-0.4.9
 	static_assertions-1.1.0
 	strsim-0.10.0
-	syn-1.0.109
+	syn-2.0.16
 	tar-0.4.38
-	tempfile-3.3.0
+	tempfile-3.5.0
 	termcolor-1.2.0
-	terminal_size-0.2.5
-	thiserror-1.0.38
-	thiserror-impl-1.0.38
-	time-0.3.19
-	time-core-0.1.0
-	time-macros-0.2.7
+	terminal_size-0.2.6
+	thiserror-1.0.40
+	thiserror-impl-1.0.40
+	time-0.3.21
+	time-core-0.1.1
+	time-macros-0.2.9
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.1
-	unicode-bidi-0.3.10
-	unicode-bom-1.1.4
-	unicode-ident-1.0.6
+	unicode-bidi-0.3.13
+	unicode-bom-2.0.2
+	unicode-ident-1.0.9
 	unicode-normalization-0.1.22
 	url-2.3.1
+	utf8parse-0.2.1
 	vcpkg-0.2.15
 	version_check-0.9.4
-	walkdir-2.3.2
+	walkdir-2.3.3
 	wasi-0.11.0+wasi-snapshot-preview1
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-0.43.0
+	windows-0.48.0
 	windows-sys-0.42.0
 	windows-sys-0.45.0
-	windows-targets-0.42.1
-	windows_aarch64_gnullvm-0.42.1
-	windows_aarch64_msvc-0.42.1
-	windows_i686_gnu-0.42.1
-	windows_i686_msvc-0.42.1
-	windows_x86_64_gnu-0.42.1
-	windows_x86_64_gnullvm-0.42.1
-	windows_x86_64_msvc-0.42.1
+	windows-sys-0.48.0
+	windows-targets-0.42.2
+	windows-targets-0.48.0
+	windows_aarch64_gnullvm-0.42.2
+	windows_aarch64_gnullvm-0.48.0
+	windows_aarch64_msvc-0.42.2
+	windows_aarch64_msvc-0.48.0
+	windows_i686_gnu-0.42.2
+	windows_i686_gnu-0.48.0
+	windows_i686_msvc-0.42.2
+	windows_i686_msvc-0.48.0
+	windows_x86_64_gnu-0.42.2
+	windows_x86_64_gnu-0.48.0
+	windows_x86_64_gnullvm-0.42.2
+	windows_x86_64_gnullvm-0.48.0
+	windows_x86_64_msvc-0.42.2
+	windows_x86_64_msvc-0.48.0
 	xattr-0.2.3
 "
 
