@@ -1,34 +1,29 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake toolchain-funcs
 
-DESCRIPTION="Scalable Algorithms for Parallel Adaptive Mesh Refinement on Forests of Octrees"
+DESCRIPTION="Support for parallel scientific applications"
 HOMEPAGE="http://www.p4est.org/"
 
-LIBSC_VERSION="${PV}"
-
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/cburstedde/${PN}.git"
 	EGIT_BRANCH="develop"
-	SRC_URI=""
 else
 	SRC_URI="https://github.com/cburstedde/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="GPL-2+"
+LICENSE="LGPL-2.1+"
 SLOT="0"
-
-# TODO petsc
-IUSE="debug doc examples mpi openmp threads +vtk-binary"
+IUSE="debug examples mpi openmp threads"
 
 RDEPEND="
-	~sci-libs/libsc-${LIBSC_VERSION}[mpi=,openmp=,threads=]
 	sys-apps/util-linux
+	sys-libs/zlib-ng
 	virtual/blas
 	virtual/lapack
 	mpi? ( virtual/mpi[romio] )"
@@ -36,8 +31,11 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix_build_system.patch
 	"${FILESDIR}"/${P}-set_version.patch
+	"${FILESDIR}"/${P}-fix_build_system.patch
+	"${FILESDIR}"/${P}-do_not_compile_zlib-ng.patch
+	"${FILESDIR}"/${P}-use_zlib-ng_symbols.patch
+	"${FILESDIR}"/${P}-fix_cmake_path.patch
 )
 
 pkg_pretend() {
@@ -61,9 +59,10 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	mv "${ED}"/usr/cmake "${ED}"/usr/$(get_libdir)/ || die "mv failed"
+	rm -r "${ED}"/usr/include/getopt.h \
+		"${ED}"/usr/include/getopt_int.h \
+		"${ED}"/usr/include/sc_builtin || die "rm failed"
 
-	mkdir -p "${ED}"/usr/share/doc/${P}
-	mv "${ED}"/usr/share/docs/P4EST/* "${ED}"/usr/share/doc/${P}/ || die "mv failed"
+	mv "${ED}"/usr/share/docs/SC/* "${ED}"/usr/share/doc/${PF}/ || die "mv failed"
 	rm -r "${ED}"/usr/share/docs || die "rm failed"
 }
