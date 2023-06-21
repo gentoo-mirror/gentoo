@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/tablist sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/tablist sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=app-editors/emacs-26.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= media-libs/harfbuzz:= media-libs/libpng:= x11-libs/cairo:=
 DESCRIPTION=Emacs Lisp support library for PDF documents
@@ -7,9 +7,9 @@ HOMEPAGE=https://github.com/vedang/pdf-tools/
 INHERIT=autotools elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= media-libs/harfbuzz:= media-libs/libpng:= x11-libs/cairo:= app-emacs/tablist >=app-editors/emacs-25.3:*
+RDEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= media-libs/harfbuzz:= media-libs/libpng:= x11-libs/cairo:= app-emacs/tablist >=app-editors/emacs-26.3:*
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/vedang/pdf-tools/archive/fe42da60ad68e806af1677210249caccd7b99451.tar.gz -> pdf-tools-1.0.0_pre20220619.tar.gz
+SRC_URI=https://github.com/vedang/pdf-tools/archive/v1.1.0.tar.gz -> pdf-tools-1.1.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	elisp-common	01bc6dc778b74a9deebe4e419a3b790e	elisp	7190c722d9e06fabcae26ef1e1dc9183
-_md5_=b75b0b6bba429d06e976bbcf4a0d5a9d
+_md5_=cf62bbc1fde3e336d64e923a8218dde1
