@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Net-DNS
 INHERIT=toolchain-funcs perl-module
 IUSE=minimal test examples
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=MIT
 PDEPEND=!minimal? ( >=dev-perl/Net-DNS-SEC-1.30.0 )
 RDEPEND=>=virtual/perl-Carp-1.100.0 >=dev-perl/Digest-HMAC-1.30.0 >=virtual/perl-Digest-MD5-2.130.0 >=virtual/perl-Digest-SHA-5.230.0 >=virtual/perl-Encode-2.260.0 >=virtual/perl-Exporter-5.630.0 >=virtual/perl-File-Spec-3.290.0 >=virtual/perl-MIME-Base64-2.130.0 >=virtual/perl-Scalar-List-Utils-1.190.0 >=virtual/perl-Time-Local-1.190.0 >=virtual/perl-IO-Socket-IP-0.380.0 >=virtual/perl-IO-1.140.0 !minimal? ( >=dev-perl/Digest-BubbleBabble-0.20.0 >=dev-perl/Net-LibIDN2-1.0.0 ) dev-lang/perl:=
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/N/NL/NLNETLABS/Net-DNS-1.39.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2
-_md5_=0335bfee9e117b3fc13cd8a4f006cc89
+_md5_=f83b147dbe333b2a0c6657ce739505f2
