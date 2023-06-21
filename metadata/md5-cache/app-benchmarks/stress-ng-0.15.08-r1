@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://github.com/ColinIanKing/stress-ng
 INHERIT=linux-info toolchain-funcs
 IUSE=apparmor sctp
-KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/libaio dev-libs/libbsd dev-libs/libgcrypt:0= sys-apps/attr sys-apps/keyutils:= sys-libs/libcap sys-libs/zlib virtual/libcrypt:= apparmor? ( sys-apps/apparmor-utils sys-libs/libapparmor ) sctp? ( net-misc/lksctp-tools )
 SLOT=0
 SRC_URI=https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.15.08.tar.gz -> stress-ng-0.15.08.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
-_md5_=dd95641c8daa07986e32083ecc876c2b
+_md5_=0c36638e4d09894c2cb8deff5002ce99
