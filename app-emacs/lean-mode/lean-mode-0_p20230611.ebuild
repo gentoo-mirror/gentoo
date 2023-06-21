@@ -3,19 +3,24 @@
 
 EAPI=8
 
-[[ ${PV} == 20211220 ]] && COMMIT=a4205749d20a09871f0951c34f919d4ee5fbdb55
-
 inherit elisp
 
 DESCRIPTION="Emacs mode for the Lean 3 theorem prover"
 HOMEPAGE="https://github.com/leanprover/lean-mode/"
-SRC_URI="https://github.com/leanprover/${PN}/archive/${COMMIT}.tar.gz
-	-> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${COMMIT}
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/leanprover/${PN}.git"
+else
+	[[ ${PV} == *_p20230611 ]] && COMMIT=99d6a34dc5b12f6e996e9217fa9f6fe4a6af037a
+	SRC_URI="https://github.com/leanprover/${PN}/archive/${COMMIT}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${COMMIT}
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64"
 
 BDEPEND="
 	>=app-emacs/dash-2.18.1

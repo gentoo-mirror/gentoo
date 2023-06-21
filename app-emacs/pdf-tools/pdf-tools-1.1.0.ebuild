@@ -3,17 +3,23 @@
 
 EAPI=8
 
-COMMIT=fe42da60ad68e806af1677210249caccd7b99451
+NEED_EMACS=26.3
 
 inherit autotools elisp
 
 DESCRIPTION="Emacs Lisp support library for PDF documents"
 HOMEPAGE="https://github.com/vedang/pdf-tools/"
-SRC_URI="https://github.com/vedang/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${COMMIT}
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/vedang/${PN}.git"
+else
+	SRC_URI="https://github.com/vedang/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-3+"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 # Cask is a hard dependency for tests; it is ran by helper functions too.
