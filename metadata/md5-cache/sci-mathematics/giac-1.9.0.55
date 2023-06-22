@@ -1,0 +1,17 @@
+BDEPEND=dev-tex/hevea virtual/pkgconfig app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=dev-libs/gmp:=[cxx(+)] sys-libs/readline:= gui? ( x11-libs/fltk[opengl] media-libs/libpng:= ) ao? ( media-libs/libao ) dev-libs/mpfr:= sci-libs/mpfi sci-libs/gsl:= sci-mathematics/pari:=[threads] dev-libs/ntl:= virtual/lapack virtual/blas net-misc/curl sci-mathematics/cliquer sci-mathematics/nauty ecm? ( sci-mathematics/gmp-ecm ) glpk? ( sci-mathematics/glpk ) gc? ( dev-libs/boehm-gc )
+DESCRIPTION=A free C++ Computer Algebra System library and its interfaces
+EAPI=8
+HOMEPAGE=https://www-fourier.ujf-grenoble.fr/~parisse/giac.html
+INHERIT=autotools flag-o-matic xdg-utils
+IUSE=ao doc +ecm examples gc +glpk gui test l10n_el l10n_en l10n_es l10n_pt
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/gmp:=[cxx(+)] sys-libs/readline:= gui? ( x11-libs/fltk[opengl] media-libs/libpng:= ) ao? ( media-libs/libao ) dev-libs/mpfr:= sci-libs/mpfi sci-libs/gsl:= sci-mathematics/pari:=[threads] dev-libs/ntl:= virtual/lapack virtual/blas net-misc/curl sci-mathematics/cliquer sci-mathematics/nauty ecm? ( sci-mathematics/gmp-ecm ) glpk? ( sci-mathematics/glpk ) gc? ( dev-libs/boehm-gc )
+REQUIRED_USE=test? ( gui )
+RESTRICT=!test? ( test ) mirror
+SLOT=0
+SRC_URI=https://www-fourier.ujf-grenoble.fr/~parisse/debian/dists/stable/main/source/giac_1.9.0-55.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	ad475baa777c9978fa035216c8264a10	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=d0595aa60e3324a5a8422d41de07d047
