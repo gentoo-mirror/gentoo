@@ -3,8 +3,6 @@
 
 EAPI=8
 
-[[ ${PV} == *_p20221211 ]] && COMMIT=6317b5cf181e56253da10e0e5051ac75bbb5c4b2
-
 inherit toolchain-funcs
 
 DESCRIPTION="An assembler and emulator for the Uxn stack-machine, written in ANSI C"
@@ -14,11 +12,14 @@ HOMEPAGE="https://wiki.xxiivv.com/site/uxn.html
 if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~rabbits/uxn.git"
-else
+elif [[ ${PV} == *_p20230609 ]] ; then
+	COMMIT=f3674b2562e6c5557fc008edbac71d9fcfde64ff
 	SRC_URI="https://git.sr.ht/~rabbits/uxn/archive/${COMMIT}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}"/${PN}-${COMMIT}
-	KEYWORDS="amd64 ~x86"
+	S="${WORKDIR}"/uxn-${COMMIT}
+	KEYWORDS="~amd64 ~x86"
+else
+	die "wrong package version (PV), given: ${PV}"
 fi
 
 LICENSE="MIT"
@@ -27,16 +28,19 @@ SLOT="0"
 RDEPEND="media-libs/libsdl2:="
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/uxn-build.sh.patch )
+PATCHES=( "${FILESDIR}"/uxn-0_p20230609-build.sh.patch )
 
 src_compile() {
 	CC="$(tc-getCC)" CFLAGS="${CFLAGS} ${LDFLAGS}" ./build.sh --no-run ||
 		die "build failed"
 
 	local f
+	local f_base
 	for f in ./projects/{examples/*,software,utils}/*.tal ; do
-		./bin/uxnasm "${f}" "$(dirname "${f}")"/"$(basename "${f}" .tal)".rom ||
-			die "failed to assemble ${f}"
+		f_base="$(basename "${f}" .tal)"
+		ebegin "Assembling ROM ${f_base}"
+		./bin/uxnasm "${f}" "$(dirname "${f}")"/"${f_base}".rom
+		eend ${?} ||  die "failed to assemble ${f}"
 	done
 }
 
