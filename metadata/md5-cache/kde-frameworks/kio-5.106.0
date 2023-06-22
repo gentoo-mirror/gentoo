@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org xdg-utils
 IUSE=acl +handbook kerberos +kwallet X test debug designer doc test
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
 PDEPEND=>=kde-frameworks/kded-5.106:5
 RDEPEND=dev-libs/libxml2 dev-libs/libxslt >=dev-qt/qtdbus-5.15.5:5 >=dev-qt/qtdeclarative-5.15.5:5 >=dev-qt/qtgui-5.15.5:5 >=dev-qt/qtnetwork-5.15.5:5[ssl] >=dev-qt/qtwidgets-5.15.5:5 >=dev-qt/qtxml-5.15.5:5 =kde-frameworks/kauth-5.106*:5 =kde-frameworks/karchive-5.106*:5 =kde-frameworks/kbookmarks-5.106*:5 =kde-frameworks/kcodecs-5.106*:5 =kde-frameworks/kcompletion-5.106*:5 =kde-frameworks/kconfig-5.106*:5 =kde-frameworks/kconfigwidgets-5.106*:5 =kde-frameworks/kcoreaddons-5.106*:5 =kde-frameworks/kcrash-5.106*:5 =kde-frameworks/kdbusaddons-5.106*:5 =kde-frameworks/kguiaddons-5.106*:5 =kde-frameworks/ki18n-5.106*:5 =kde-frameworks/kiconthemes-5.106*:5 =kde-frameworks/kitemviews-5.106*:5 =kde-frameworks/kjobwidgets-5.106*:5 =kde-frameworks/knotifications-5.106*:5 =kde-frameworks/kservice-5.106*:5 =kde-frameworks/ktextwidgets-5.106*:5 =kde-frameworks/kwidgetsaddons-5.106*:5 =kde-frameworks/kwindowsystem-5.106*:5[X?] =kde-frameworks/kxmlgui-5.106*:5 =kde-frameworks/solid-5.106*:5 acl? ( sys-apps/attr virtual/acl ) handbook? ( =kde-frameworks/kdoctools-5.106*:5 ) kerberos? ( virtual/krb5 ) kwallet? ( =kde-frameworks/kwallet-5.106*:5 ) X? ( >=dev-qt/qtx11extras-5.15.5:5 ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test ) !test? ( test )
 SLOT=5/5.106
 SRC_URI=mirror://kde/stable/frameworks/5.106/kio-5.106.0.tar.xz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c	virtualx	817571665ee28575da44ee08135089e5	ecm	19519473dcf88ee9005d248652004e9b	kde.org	411cb92019a6e2aa174d06896084bf57	frameworks.kde.org	6556398a532490b4d6d03158a82e455a
-_md5_=4ba223b44918a27fa707a1ac7e730c63
+_md5_=6310eb19820a048db69fa20f0272694c

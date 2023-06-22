@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=frameworks.kde.org distutils-r1
 IUSE=python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=BSD-2
 RDEPEND=app-doc/doxygen python_single_target_python3_10? ( dev-python/jinja[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/jinja[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] ) media-gfx/graphviz[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] python_single_target_python3_10? ( >=dev-lang/python-3.10.11:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.3:3.11 )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=5/5.106
 SRC_URI=mirror://kde/stable/frameworks/5.106/kapidox-5.106.0.tar.xz
 _eclasses_=kde.org	411cb92019a6e2aa174d06896084bf57	frameworks.kde.org	6556398a532490b4d6d03158a82e455a	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	a34d5f83235297b76d71eaf8deb53768	python-single-r1	75118e916668a74c660a13b0ecb22562	distutils-r1	2d32e797ee29a8ffdd452f4a85860666
-_md5_=d99fa00f47fac056be9e7ae564f40077
+_md5_=46f10f2e999e3ff25d74e00ac2458888
