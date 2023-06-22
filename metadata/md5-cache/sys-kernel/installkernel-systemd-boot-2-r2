@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Wrap kernel-install from systemd-boot as installkernel
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=public-domain
+RDEPEND=!sys-kernel/installkernel-gentoo || ( sys-apps/systemd sys-apps/systemd-utils[boot] )
+SLOT=0
+_md5_=02b6f07c97ccf5a0a6c8364de2b74ae4
