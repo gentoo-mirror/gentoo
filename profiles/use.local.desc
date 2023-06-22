@@ -1055,15 +1055,6 @@ app-portage/gemato:pretty-log - Pull dev-python/rich to enable pretty logs
 app-portage/gemato:tools - Install additional utilities (benchmarks, hash testing tools, fast Manifest generators) to /usr/share/gemato.
 app-portage/grs:server - Install all the tools building systems
 app-portage/kuroneko:scraper - Include the dependencies necessary for Bugzilla scraping.
-app-portage/layman:cvs - Support dev-vcs/cvs based overlays
-app-portage/layman:darcs - Support dev-vcs/darcs based overlays
-app-portage/layman:g-sorcery - Support app-portage/g-sorcery based overlays
-app-portage/layman:git - Support dev-vcs/git based overlays
-app-portage/layman:gpg - Support app-crypt/gnupg signed overlays lists and manifests
-app-portage/layman:mercurial - Support dev-vcs/mercurial based overlays
-app-portage/layman:squashfs - Support mounting squashfs image overlays locally read-only
-app-portage/layman:subversion - Support dev-vcs/subversion based overlays
-app-portage/layman:sync-plugin-portage - Install the sys-apps/portage sync module
 app-portage/nattka:depgraph-order - Process packages in depgraph order whenever possible.
 app-portage/pfl:network-cron - Adds a cron job which does a weekly submit of the package database
 app-portage/portage-utils:qmanifest - Build qmanifest applet, this adds additional dependencies for GPG, OpenSSL and BLAKE2B hashing
@@ -2844,9 +2835,6 @@ dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without reco
 dev-util/vulkan-tools:cube - Build the cube/cubepp demos
 dev-util/watchman:python - Install pywatchman bindings and the watchman-{wait,make} utils
 dev-vcs/cvs:server - Enable server support
-dev-vcs/cvsync:gcrypt - Use dev-libs/libgcrypt for hash functions.
-dev-vcs/cvsync:mhash - Use app-crypt/mhash for hash functions.
-dev-vcs/cvsync:openssl - Use dev-libs/openssl for hash functions.
 dev-vcs/darcs:terminfo - Use the terminfo package for enhanced console support.
 dev-vcs/darcs:threaded - Use threading and SMP support.
 dev-vcs/fossil:fusefs - Enable the Fuse Filesystem
@@ -3015,10 +3003,6 @@ games-emulation/mupen64plus-core:opencv - Support video capture via media-libs/o
 games-emulation/mupen64plus-core:osd - Overlay emulator messages using on-screen-display
 games-emulation/mupen64plus-video-glide64mk2:hires - Support hi-resolution textures (requires dev-libs/boost)
 games-emulation/pcsx2:sndio - Enable support for the media-sound/sndio backend
-games-emulation/pcsxr:archive - Support compressed files (via libarchive)
-games-emulation/pcsxr:ccdda - Support compressed CDDA (requires ffmpeg)
-games-emulation/pcsxr:cdio - Use libcdio for CD support
-games-emulation/pcsxr:sdl - Use SDL sound backend (other parts of SDL are used unconditionally)
 games-emulation/ppsspp:discord - Enable interfacing with a locally running Discord desktop client
 games-emulation/snes9x:glslang - Build support for slang-type shaders
 games-emulation/snes9x:libretro - Build libretro port
@@ -8589,8 +8573,6 @@ www-client/chromium:system-harfbuzz - Use system harfbuzz instead of the bundled
 www-client/chromium:system-icu - Use system icu instead of the bundled one
 www-client/chromium:system-png - Use system libpng instead of the bundled one.
 www-client/chromium:widevine - Unsupported closed-source DRM capability (required by Netflix VOD)
-www-client/chromium-bin:suid - Install the SUID sandbox, which is only needed on CONFIG_USER_NS=n kernels.
-www-client/chromium-bin:widevine - Unsupported closed-source DRM capability (required by Netflix VOD).
 www-client/elinks:bittorrent - Enable support for the BitTorrent protocol
 www-client/elinks:brotli - Enable support for brotli compression
 www-client/elinks:finger - Enable support for the finger protocol
