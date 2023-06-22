@@ -277,62 +277,11 @@ sys-libs/cygwin-crypt
 # as a workaround. bug #906797.
 ~sys-apps/util-linux-2.39
 
-# Michał Górny <mgorny@gentoo.org> (2023-05-19)
-# Replaced by dev-python/pyproject-hooks.  No revdeps left.
-# Removal on 2023-06-18.  Bug #906789.
-dev-python/pep517
-
 # David Seifert <soap@gentoo.org> (2023-05-19)
 # Abandoned, NIH library only used by other obsolete packages like gkeys
 # and layman, use app-crypt/gpgme[python] as a proper upstream
 # supported gpg library. Removal on 2023-08-17.
 dev-python/pyGPG
-
-# David Seifert <soap@gentoo.org> (2023-05-19)
-# Abandoned, replaced by 'eselect repository', tons of open bugs.
-# Removal on 2023-08-17. Bug #761199.
-app-portage/layman
-
-# David Seifert <soap@gentoo.org> (2023-05-19)
-# EAPI 6, abandoned, never went anywhere, long obsolete with
-# app-crypt/gkeys removal.
-# Use these instead:
-# sec-keys/openpgp-keys-gentoo-auth
-# sec-keys/openpgp-keys-gentoo-developers
-# sec-keys/openpgp-keys-gentoo-release
-# Removal on 2023-06-18. Bug #566782, #659822
-app-crypt/gentoo-keys
-
-# Thomas Beierlein <tomjbe@gentoo.org> (2023-05-17)
-# Functionality got integrated into >=net-wireless/gnuradio-3.10
-# itself. See
-# https://wiki.analog.com/resources/tools-software/linux-software/gnuradio
-# Removal on 2023-06-17. Bug #897168.
-net-wireless/gr-iio
-
-# Michał Górny <mgorny@gentoo.org> (2023-05-16)
-# Unmaintained since 2020.  Does not implement TOML 1.0, buggy.
-# Alternatives include built-in tomllib module (Python 3.11+),
-# dev-python/tomli along with dev-python/tomli-w, dev-python/tomlkit.
-# Removal on 2023-06-15.  Bug #878651.
-dev-python/toml
-
-# David Seifert <soap@gentoo.org> (2023-05-14)
-# QA and build issues, EAPI 6, no proper releases, no other
-# distro packages this. Removal on 2023-06-13. Bug #713794, #872539.
-dev-vcs/cvsync
-
-# David Seifert <soap@gentoo.org> (2023-05-14)
-# EAPI 6, last release over 20 years ago, no other distro packages this
-# anymore. Removal on 2023-06-13.
-dev-tex/cpp2latex
-
-# Michał Górny <mgorny@gentoo.org> (2023-05-13)
-# Unmaintained.  Does not build anymore.  No activity upstream
-# since 2019, the build system is messy and fixing the issues would take
-# a lot of effort.
-# Removal on 2023-06-12.  Bug #791034.
-games-emulation/pcsxr
 
 # Sam James <sam@gentoo.org> (2023-05-10)
 # A major reverse depndency (kde-apps/libkexiv2) does not yet build against this
@@ -363,13 +312,6 @@ dev-python/pynest2d
 dev-python/uranium
 media-gfx/fdm-materials
 media-gfx/curaengine
-
-# Mike Gilbert <floppym@gentoo.org> (2023-05-04)
-# Out of date by several versions. Many unresolved security
-# vulnerabilities. Lack of manpower/interest in keeping it up to date.
-# Removal on 2023-06-03.
-# Chromium-based bin alternatives: google-chrome, microsoft-edge & vivaldi.
-www-client/chromium-bin
 
 # Sam James <sam@gentoo.org> (2023-05-03)
 # Broken pkgconfig file, please upgrade to -r1.
