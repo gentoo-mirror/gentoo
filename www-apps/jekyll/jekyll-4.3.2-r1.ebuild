@@ -3,18 +3,16 @@
 
 EAPI=8
 
-USE_RUBY="ruby30"
+USE_RUBY="ruby30 ruby31"
 
 inherit ruby-fakegem
 
 RUBY_FAKEGEM_EXTRADOC="README.markdown History.markdown"
 RUBY_FAKEGEM_EXTRAINSTALL="features"
-
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
-
 RUBY_FAKEGEM_BINDIR="exe"
 
-DESCRIPTION="A simple, blog aware, static site generator"
+DESCRIPTION="Simple, blog aware, static site generator"
 HOMEPAGE="https://jekyllrb.com https://github.com/jekyll/jekyll"
 SRC_URI="https://github.com/jekyll/${PN}/archive/v${PV}.tar.gz  -> ${P}.tar.gz"
 
@@ -34,12 +32,10 @@ ruby_add_rdepend "
 	>=dev-ruby/mercenary-0.4.0
 	>=dev-ruby/pathutil-0.9
 	|| ( dev-ruby/rouge:4 dev-ruby/rouge:2 )
-	>=dev-ruby/safe_yaml-1.0
 	|| ( dev-ruby/terminal-table:3 dev-ruby/terminal-table:2 )
 	>=www-apps/jekyll-sass-converter-2.0
 	>=www-apps/jekyll-watch-2.2.1-r1
 "
-
 ruby_add_bdepend "
 	test? (
 		dev-ruby/httpclient
@@ -58,6 +54,7 @@ ruby_add_bdepend "
 all_ruby_prepare() {
 	eapply "${FILESDIR}"/jekyll-3.6.0-test-helper.patch
 	eapply -R "${FILESDIR}/${P}-sass.patch"
+	eapply "${FILESDIR}"/jekyll-4.3.2-no-safe_yaml.patch
 
 	# Drop tests requiring bundler
 	sed -i -e '/bundle_message/d' test/test_new_command.rb || die
