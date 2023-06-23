@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=http://www.ezmlm.org
 INHERIT=qmail toolchain-funcs
 IUSE=mysql postgres
-KEYWORDS=~alpha amd64 ~hppa ~mips ppc sparc x86
+KEYWORDS=~alpha amd64 ~hppa ~mips sparc x86
 LICENSE=GPL-2
 RDEPEND=mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:* ) virtual/qmail
 REQUIRED_USE=?? ( mysql postgres )
 SLOT=0
 SRC_URI=http://www.ezmlm.org/archive/7.0.0/ezmlm-idx-7.0.0.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	fixheadtails	1721997ed44d035654efe12da50797ef	qmail	30f39e6819a20ba64005ceeadd3845e0
-_md5_=5d0b8d9686fcc56b4181abd8ebe6e874
+_md5_=ceaa5d99fd6ca581b03f07fcd918a430

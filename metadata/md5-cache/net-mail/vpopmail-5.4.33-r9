@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=http://www.inter7.com/index.php?page=vpopmail
 INHERIT=autotools fixheadtails qmail
 IUSE=clearpasswd ipalias maildrop mysql postgres spamassassin
-KEYWORDS=amd64 arm ~hppa ~ia64 ~ppc ppc64 ~s390 sparc x86
+KEYWORDS=amd64 arm ~hppa ~ia64 ppc64 ~s390 sparc x86
 LICENSE=GPL-2
 RDEPEND=acct-group/vpopmail acct-user/vpopmail virtual/libcrypt:= virtual/qmail maildrop? ( mail-filter/maildrop ) mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:= ) spamassassin? ( mail-filter/spamassassin )
 REQUIRED_USE=mysql? ( !postgres )
 SLOT=0
 SRC_URI=mirror://sourceforge/vpopmail/vpopmail-5.4.33.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	fixheadtails	1721997ed44d035654efe12da50797ef	flag-o-matic	ad475baa777c9978fa035216c8264a10	qmail	30f39e6819a20ba64005ceeadd3845e0
-_md5_=65d2d68ba4f8d9045e9317eb1c8372d0
+_md5_=a5a10cd17ee714af35718a86a6886606
