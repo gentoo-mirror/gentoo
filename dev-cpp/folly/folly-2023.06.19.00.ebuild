@@ -49,6 +49,7 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2023.05.22.00-musl-fix.patch
+	"${FILESDIR}"/${PN}-2023.06.19.00-fmt.patch
 )
 
 src_unpack() {
