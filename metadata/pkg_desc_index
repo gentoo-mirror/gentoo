@@ -1304,7 +1304,7 @@ app-benchmarks/pmbw 0.6.3: Parallel Memory Bandwidth Measurement / Benchmark Too
 app-benchmarks/ramspeed 3.5.0-r2: Benchmarking for memory and cache
 app-benchmarks/siege 4.1.0 4.1.6: A HTTP regression testing and benchmarking utility
 app-benchmarks/stress 1.0.7: A deliberately simple workload generator for POSIX systems
-app-benchmarks/stress-ng 0.15.08-r1: Stress test for a computer system with various selectable ways
+app-benchmarks/stress-ng 0.15.10: Stress test for a computer system with various selectable ways
 app-benchmarks/sysbench 1.0.20-r101: A scriptable multi-threaded benchmark tool based on LuaJIT
 app-benchmarks/tiobench 0.5.0: Portable, robust, fully-threaded I/O benchmark program
 app-benchmarks/wrk 4.2.0: A HTTP benchmarking tool
@@ -1558,7 +1558,7 @@ app-dicts/aspell-ca 2.5.0-r1: Aspell (Catalan) language dictionary
 app-dicts/aspell-cs 20040614.1-r1: Aspell (Czech) language dictionary
 app-dicts/aspell-csb 0.02.0-r1: Aspell (Kashubian) language dictionary
 app-dicts/aspell-cy 0.50.3-r1: Aspell (Welsh) language dictionary
-app-dicts/aspell-da 4.2 4.2.1: Aspell (Danish) language dictionary
+app-dicts/aspell-da 4.2.1: Aspell (Danish) language dictionary
 app-dicts/aspell-de 20161207.7.0-r1: Aspell (German, Austria-German and Swiss-German) language dictionary
 app-dicts/aspell-de-alt 2.1.1-r2: Aspell (German (traditional orthography)) language dictionary
 app-dicts/aspell-el 0.08.0-r1: Aspell (Greek) language dictionary
@@ -3273,7 +3273,7 @@ app-text/openpaperwork-core 2.1.2: Core part of Paperwork (plugin management)
 app-text/openpaperwork-gtk 2.1.2: Paperwork plugins
 app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2: Conversion between markup formats
-app-text/pandoc-bin 3.1.2 3.1.3: Conversion between markup formats (binary package)
+app-text/pandoc-bin 3.1.2 3.1.3 3.1.4: Conversion between markup formats (binary package)
 app-text/paperwork 2.1.2: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.1.2: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
@@ -5126,10 +5126,10 @@ dev-libs/imath 3.1.6 3.1.7: Imath basic math package
 dev-libs/inih 56-r1: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1 4.1-r1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 23.13.26032.26 23.17.26241.15: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-compute-runtime 23.17.26241.15: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-discovery 1.12.164: A user mode library that provides access to GPU performance data
 dev-libs/intel-metrics-library 0_pre20230417: User mode driver helper library that provides access to GPU performance counters
-dev-libs/intel-vc-intrinsics 0.12.1-r1 0.12.3: A set of new intrinsics on top of core LLVM IR instructions
+dev-libs/intel-vc-intrinsics 0.12.3: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1: Intelligent Storage Acceleration Library
 dev-libs/isa-l_crypto 2.24.0: Intelligent Storage Acceleration Library - cryptographic components
 dev-libs/isl 0.24-r2 0.26: A library for manipulating integer points bounded by linear constraints
@@ -5161,7 +5161,7 @@ dev-libs/ktextaddons 1.2.1 1.3.0: Various text handling addons
 dev-libs/kuserfeedback 1.2.0: Framework to collect user feedback for applications via telemetry and surveys
 dev-libs/kweathercore 0.7: Library for retrieval of weather information including forecasts and alerts
 dev-libs/leatherman 1.12.9: A C++ toolkit
-dev-libs/level-zero 1.11.0: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.11.0 1.12.0: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.20 1.23-r5: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5621,7 +5621,7 @@ dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.5: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r1: Simple streaming interface to zlib for Lua
 dev-lua/lua_cliargs 3.0_p2-r1: A command-line argument parsing module for Lua
-dev-lua/luacheck 1.1.0: A tool for linting and static analysis of Lua code
+dev-lua/luacheck 1.1.0 1.1.1: A tool for linting and static analysis of Lua code
 dev-lua/luacov 0.15.0: A simple coverage analyzer for Lua scripts
 dev-lua/luadbi 0.7.2-r1: A database interface library for Lua
 dev-lua/luaevent 0.4.6-r1: Binding of libevent for Lua
@@ -5630,7 +5630,7 @@ dev-lua/luafilesystem 1.8.0-r101: File System Library for the Lua programming la
 dev-lua/luajson 1.3.4: JSON Parser/Constructor for Lua
 dev-lua/lualdap 1.3.1: A lua binding for the OpenLDAP client libraries
 dev-lua/luaossl 20220711: Most comprehensive OpenSSL module in the Lua universe
-dev-lua/luaposix 36.1: Bindings for POSIX APIs
+dev-lua/luaposix 36.1 36.2.1: Bindings for POSIX APIs
 dev-lua/luarocks 3.9.2: A package manager for the Lua programming language
 dev-lua/luasec 1.2.0 1.3.1: Lua binding for OpenSSL library to provide TLS/SSL communication
 dev-lua/luasocket 3.1.0: Networking support for the Lua language
@@ -11454,11 +11454,11 @@ games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic com
 games-rpg/xu4 0.9-r1: A remake of the computer game Ultima IV
 games-rpg/zsdx 1.12.3: Free 2D Zelda fangame
 games-rpg/zsxd 1.12.2: Free 2D Zelda fangame parody
-games-server/bedrock-server 1.19.83.01 1.20.0.01: The official bedrock (non-java) based server for the sandbox video game
+games-server/bedrock-server 1.20.1.02: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r1: Server for Mednafen emulator
-games-server/minecraft-server 1.19.4 1.20: The official server for the sandbox video game
+games-server/minecraft-server 1.20.1: The official server for the sandbox video game
 games-server/monopd 0.10.2-r1: server for atlantik games
 games-server/mtavc 0.5-r2: dedicated server for GTA3 multiplayer
 games-server/pvpgn 1.99.7.2.1-r1: A gaming server for Battle.Net compatible clients
@@ -13780,7 +13780,7 @@ media-sound/synaesthesia 2.4-r1: a nice graphical accompaniment to music
 media-sound/taginfo 1.2-r2: A simple ID3 tag reader for use in shell scripts
 media-sound/tagtool 0.12.3-r2: Audio Tag Tool Ogg/Mp3 Tagger
 media-sound/tap-reverbed 0-r2: Standalone JACK counterpart of LADSPA plugin TAP Reverberator
-media-sound/teamspeak-client 3.5.6-r8 5.0.0_beta73: A client software for quality voice communication via the internet
+media-sound/teamspeak-client 3.5.6-r9 3.6.0 5.0.0_beta73: A client software for quality voice communication via the internet
 media-sound/teamspeak-server 3.13.7: A server software for hosting quality voice communication via the internet
 media-sound/tempest_for_eliza 1.0.5-r2: Listen to music on the radio generated by images on your screen
 media-sound/terminatorx 4.2.0: Realtime audio synthesizer allowing you to 'scratch' on sampled audio data
@@ -16585,7 +16585,7 @@ sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 8.32-r1 9.1-r2 9.3-r2 9.3-r3 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 4.5.1 4.5.2 4.5.3: A Free software that gathers information on CPU, motherboard and more
-sys-apps/cpuid 20230505: Linux tool to dump x86 CPUID information about the CPUs
+sys-apps/cpuid 20230505 20230614: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.9.8 2.9.10 2.9.11: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
