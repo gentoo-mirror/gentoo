@@ -7,7 +7,7 @@ RUBY_OPTIONAL=no
 USE_RUBY="ruby31"
 # note: define maximally ONE implementation here
 
-PYTHON_COMPAT=( python3_{9,10,11} )
+PYTHON_COMPAT=( python3_{9,10,11,12} )
 
 inherit toolchain-funcs python-single-r1 ruby-ng
 
@@ -17,7 +17,7 @@ if [[ ${PV} = 9999* ]]; then
 	EGIT_CHECKOUT_DIR=${WORKDIR}/all/${P}
 else
 	SRC_URI="https://www.klayout.org/downloads/source/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 ~x86"
 fi
 
 DESCRIPTION="Viewer and editor for GDS and OASIS integrated circuit layouts"
