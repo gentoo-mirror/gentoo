@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=http://www.opencircuitdesign.com/magic/index.html
 INHERIT=python-any-r1
 IUSE=cairo debug opengl
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ~ppc ~x86
 LICENSE=HPND GPL-2+
 RDEPEND=sys-libs/ncurses:0= sys-libs/readline:0= sys-libs/zlib:= dev-lang/tcl:0= dev-lang/tk:0= dev-tcltk/blt cairo? ( x11-libs/cairo ) opengl? ( virtual/glu virtual/opengl ) !net-misc/ipsorcery
 SLOT=0
 SRC_URI=http://www.opencircuitdesign.com/magic/archive/magic-8.3.365.tgz http://opencircuitdesign.com/~tim/programs/magic/archive/2002a.tar.gz -> magic-tech-mosis-2002a.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a34d5f83235297b76d71eaf8deb53768	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=f47932d319bd097a5c14b3b08709fc9a
+_md5_=4925b00bb17d7b9123db1c8747df2bd6
