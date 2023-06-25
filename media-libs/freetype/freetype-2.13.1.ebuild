@@ -1,29 +1,34 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools flag-o-matic libtool multilib-build multilib-minimal toolchain-funcs
+inherit autotools flag-o-matic libtool multilib-minimal toolchain-funcs
 
 DESCRIPTION="High-quality and portable font engine"
 HOMEPAGE="https://www.freetype.org/"
-IUSE="X +adobe-cff brotli bzip2 +cleartype-hinting debug fontforge harfbuzz infinality +png static-libs svg utils"
 
-if [[ "${PV}" != 9999 ]] ; then
-	SRC_URI="mirror://sourceforge/freetype/${P/_/}.tar.xz
-		mirror://nongnu/freetype/${P/_/}.tar.xz
-		utils?	( mirror://sourceforge/freetype/ft2demos-${PV}.tar.xz
-			mirror://nongnu/freetype/ft2demos-${PV}.tar.xz )
-		doc?	( mirror://sourceforge/freetype/${PN}-doc-${PV}.tar.xz
-			mirror://nongnu/freetype/${PN}-doc-${PV}.tar.xz )"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
-	IUSE+=" doc"
-else
+if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
+else
+	SRC_URI="
+		mirror://sourceforge/freetype/${P/_/}.tar.xz
+		mirror://nongnu/freetype/${P/_/}.tar.xz
+		utils? (
+			mirror://sourceforge/freetype/ft2demos-${PV}.tar.xz
+			mirror://nongnu/freetype/ft2demos-${PV}.tar.xz
+		)
+		doc? (
+			mirror://sourceforge/freetype/${PN}-doc-${PV}.tar.xz
+			mirror://nongnu/freetype/${PN}-doc-${PV}.tar.xz
+		)
+	"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 LICENSE="|| ( FTL GPL-2+ )"
 SLOT="2"
+IUSE="X +adobe-cff brotli bzip2 +cleartype-hinting debug doc fontforge harfbuzz infinality +png static-libs svg utils"
 
 RDEPEND="
 	>=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}]
@@ -45,7 +50,7 @@ PATCHES=(
 )
 
 _egit_repo_handler() {
-	if [[ "${PV}" == 9999 ]] ; then
+	if [[ ${PV} == 9999 ]] ; then
 		local phase="${1}"
 		case ${phase} in
 			fetch|unpack)
@@ -75,15 +80,11 @@ pkg_pretend() {
 	fi
 }
 
-src_fetch() {
-	_egit_repo_handler ${EBUILD_PHASE}
-}
-
 src_unpack() {
 	_egit_repo_handler ${EBUILD_PHASE}
 
-	if [[ "${PV}" == 9999 ]] ; then
-		# Need to copy stuff from dlg subproject (#758902)
+	if [[ ${PV} == 9999 ]] ; then
+		# Need to copy stuff from dlg subproject (bug #758902)
 		local dlg_inc_dir="${S}/subprojects/dlg/include/dlg"
 		local dlg_src_dir="${S}/subprojects/dlg/src/dlg"
 		local dlg_dest_dir="${S}/include"
@@ -94,10 +95,11 @@ src_unpack() {
 }
 
 src_prepare() {
-	if [[ "${PV}" == 9999 ]] ; then
-		# Do NOT automagically mess with submodules!!!
+	if [[ ${PV} == 9999 ]] ; then
+		# Do NOT automagically mess with submodules!
 		sed '/setup: copy_submodule/d' -i builds/toplevel.mk || die
-		# inspired by shipped autogen.sh script
+
+		# Inspired by shipped autogen.sh script
 		eval $(sed -n \
 			-e 's/^#define  *\(FREETYPE_MAJOR\)  *\([0-9][0-9]*\).*/\1=\2/p' \
 			-e 's/^#define  *\(FREETYPE_MINOR\)  *\([0-9][0-9]*\).*/\1=\2/p' \
@@ -105,11 +107,10 @@ src_prepare() {
 			include/freetype/freetype.h || die)
 		FREETYPE="${FREETYPE_MAJOR}.${FREETYPE_MINOR}"
 		[[ "${FREETYPE_PATCH}" != 0 ]] && FREETYPE+=".${FREETYPE_PATCH}"
+
 		pushd builds/unix &>/dev/null || die
 		sed -e "s;@VERSION@;${FREETYPE};" \
 			< configure.raw > configure.ac || die
-		# eautoheader produces broken ftconfig.in
-		AT_NOEAUTOHEADER="yes" AT_M4DIR="." eautoreconf
 		unset FREETYPE_MAJOR FREETYPE_MINOR FREETYPE_PATCH FREETYPE
 		popd &>/dev/null || die
 	fi
@@ -175,7 +176,7 @@ src_prepare() {
 	# bug #869803
 	rm docs/reference/sitemap.xml.gz || die
 
-	# we need non-/bin/sh to run configure
+	# We need non-/bin/sh to run configure
 	if [[ -n ${CONFIG_SHELL} ]] ; then
 		sed -i -e "1s:^#![[:space:]]*/bin/sh:#!${CONFIG_SHELL}:" \
 			"${S}"/builds/unix/configure || die
@@ -186,7 +187,8 @@ src_prepare() {
 
 multilib_src_configure() {
 	append-flags -fno-strict-aliasing
-	type -P gmake &> /dev/null && export GNUMAKE=gmake
+
+	export GNUMAKE=gmake
 
 	local myeconfargs=(
 		--disable-freetype-config
@@ -199,7 +201,7 @@ multilib_src_configure() {
 		$(use_enable static-libs static)
 		$(usex utils $(use_with svg librsvg) --without-librsvg)
 
-		# avoid using libpng-config
+		# Avoid using libpng-config
 		LIBPNG_CFLAGS="$($(tc-getPKG_CONFIG) --cflags libpng)"
 		LIBPNG_LDFLAGS="$($(tc-getPKG_CONFIG) --libs libpng)"
 	)
@@ -221,7 +223,7 @@ multilib_src_compile() {
 
 	if multilib_is_native_abi && use utils ; then
 		einfo "Building utils"
-		# fix for Prefix, bug #339334
+		# Fix for Prefix, bug #339334
 		emake \
 			X11_PATH="${EPREFIX}/usr/$(get_libdir)" \
 			FT2DEMOS=1 TOP_DIR_2="${WORKDIR}/ft2demos-${PV}"
@@ -240,7 +242,7 @@ multilib_src_install() {
 
 multilib_src_install_all() {
 	if use fontforge ; then
-		# Probably fontforge needs less but this way makes things simplier...
+		# fontforge can probably cope with fewer of these, but this is simpler
 		einfo "Installing internal headers required for fontforge"
 		local header
 		find src/truetype include/freetype/internal -name '*.h' | \
@@ -251,7 +253,7 @@ multilib_src_install_all() {
 	fi
 
 	dodoc docs/{CHANGES,CUSTOMIZE,DEBUG,INSTALL.UNIX,*.txt,PROBLEMS,TODO}
-	if [[ "${PV}" != 9999 ]] && use doc ; then
+	if [[ ${PV} != 9999 ]] && use doc ; then
 		docinto html
 		dodoc -r docs/*
 	fi
