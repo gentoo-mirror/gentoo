@@ -12,7 +12,7 @@ RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Provides checking functionality for Nanoc"
+DESCRIPTION="Provides deploying functionality for Nanoc"
 HOMEPAGE="https://nanoc.app/"
 LICENSE="MIT"
 
@@ -21,6 +21,7 @@ SLOT="$(ver_cut 1)"
 IUSE=""
 
 ruby_add_rdepend "
-	>=www-apps/nanoc-cli-4.12.4:0
-	>=www-apps/nanoc-core-4.12.4:0
+	www-apps/nanoc-checking:1
+	>=www-apps/nanoc-cli-4.11.15:0
+	>=www-apps/nanoc-core-4.11.15:0
 "

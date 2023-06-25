@@ -4,23 +4,20 @@
 EAPI=8
 USE_RUBY="ruby30 ruby31"
 
-# Upstream has specs but they are not available in the gem and the
-# repository upstream is not tagged for this.
 RUBY_FAKEGEM_RECIPE_TEST="none"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Provides checking functionality for Nanoc"
+DESCRIPTION="Provides Nanoc::Spec, containing functionality for writing tests for Nanoc"
 HOMEPAGE="https://nanoc.app/"
 LICENSE="MIT"
 
 KEYWORDS="~amd64 ~riscv"
-SLOT="$(ver_cut 1)"
-IUSE=""
+SLOT="0"
+IUSE="${IUSE} minimal"
 
 ruby_add_rdepend "
-	>=www-apps/nanoc-cli-4.12.4:0
-	>=www-apps/nanoc-core-4.12.4:0
+	>=www-apps/nanoc-core-4.11.13:0
 "
