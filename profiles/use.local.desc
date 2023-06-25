@@ -8177,16 +8177,6 @@ sys-devel/llvm:xar - Support dumping LLVM bitcode sections in Mach-O files (uses
 sys-devel/llvm:z3 - Enable support for sci-mathematics/z3 constraint solver
 sys-devel/llvm-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 sys-devel/llvm-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'objdump' and 'ranlib', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
-sys-devel/parity:vc10_0 - Enable support for Visual Studio 2010
-sys-devel/parity:vc11_0 - Enable support for Visual Studio 2012
-sys-devel/parity:vc12_0 - Enable support for Visual Studio 2013
-sys-devel/parity:vc14_0 - Enable support for Visual Studio 2015
-sys-devel/parity:vc15 - Enable support for Visual Studio 2017
-sys-devel/parity:vc16 - Enable support for Visual Studio 2019
-sys-devel/parity:vc8_0 - Enable support for Visual Studio 2005
-sys-devel/parity:vc9_0 - Enable support for Visual Studio 2008
-sys-devel/parity:vcx64 - Enable support for 64bit Visual Studio compilers
-sys-devel/parity:vcx86 - Enable support for 32bit Visual Studio compilers
 sys-devel/sparse:gtk - Build the test-inspect utility (requires x11-libs/gtk+:3)
 sys-devel/sparse:llvm - Build the sparse-llvm utility
 sys-devel/sparse:xml - Build the c2xml utility (requires dev-libs/libxml2)
