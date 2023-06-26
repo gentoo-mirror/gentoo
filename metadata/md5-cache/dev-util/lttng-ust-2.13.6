@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig test? ( dev-lang/perl )
+DEFINED_PHASES=configure install
+DEPEND=>=dev-libs/userspace-rcu-0.12:= numa? ( sys-process/numactl )
+DESCRIPTION=Linux Trace Toolkit - UST library
+EAPI=8
+HOMEPAGE=https://lttng.org
+IUSE=examples numa test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/userspace-rcu-0.12:= numa? ( sys-process/numactl )
+RESTRICT=!test? ( test )
+SLOT=0/2.13
+SRC_URI=https://lttng.org/files/lttng-ust/lttng-ust-2.13.6.tar.bz2
+_md5_=17dcf579151ac6283ac11cd7cb5bcd48
