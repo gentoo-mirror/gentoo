@@ -109,15 +109,16 @@ src_install() {
 	doins -r calendar cef email json ringtone scheduler sip timezones \
 		translations
 	doins *.pcm Embedded.properties version.txt
-	doexe zoom zopen ZoomLauncher *.sh
+	doexe zoom zopen ZoomLauncher *.sh \
+		aomhost libaomagent.so libdvf.so libmkldnn.so \
+		libavcodec.so* libavformat.so* libavutil.so* libswresample.so*
 	fperms a+x /opt/zoom/cef/chrome-sandbox
 	dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libmpg123.so
 	dosym -r "/usr/$(get_libdir)/libfdk-aac.so.2" /opt/zoom/libfdkaac2.so
 	dosym -r "/usr/$(get_libdir)/libquazip1-qt5.so" /opt/zoom/libquazip.so
 
 	if use opencl; then
-		doexe aomhost libaomagent.so libclDNN64.so libdvf.so libmkldnn.so \
-			libavcodec.so* libavformat.so* libavutil.so* libswresample.so*
+		doexe libclDNN64.so
 		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libOpenCL.so.1
 	fi
 
