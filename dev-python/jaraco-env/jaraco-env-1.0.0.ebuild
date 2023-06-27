@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc ~ppc64"
 
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
