@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 JAVA_PKG_BSFIX_NAME="build.xml build-unix.xml"
 inherit autotools java-pkg-opt-2 java-ant-2
@@ -16,13 +16,13 @@ HOMEPAGE="https://www.sleuthkit.org/sleuthkit/"
 #		See: https://bugs.gentoo.org/689752
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.tar.gz
 	java? (
-		http://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.25.2/sqlite-jdbc-3.25.2.jar
+		https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.36.0.3/sqlite-jdbc-3.36.0.3.jar
 	)
 	ewf? ( https://github.com/sleuthkit/libewf_64bit/archive/VisualStudio_2010.tar.gz -> sleuthkit-libewf_64bit-20130416.tar.gz )"
 
 LICENSE="BSD CPL-1.0 GPL-2+ IBM java? ( Apache-2.0 )"
 SLOT="0/19" # subslot = major soname version
-KEYWORDS="amd64 ~hppa ppc x86"
+KEYWORDS="~amd64 ~hppa ~ppc ~x86"
 IUSE="aff doc ewf java static-libs test +threads zlib"
 RESTRICT="!test? ( test )"
 
@@ -32,23 +32,30 @@ DEPEND="
 	aff? ( app-forensics/afflib )
 	ewf? ( sys-libs/zlib )
 	java? (
-		>=dev-java/c3p0-0.9.5:0
+		>=dev-java/c3p0-0.9.5.5:0
 		dev-java/commons-lang:3.6
 		>=dev-java/commons-validator-1.6:0
 		>=dev-java/gson-2.8.5:2.6
 		dev-java/guava:0
 		>=dev-java/jdbc-postgresql-9.4:0
 		>=dev-java/joda-time-2.4:0
+		>=dev-java/mchange-commons-0.2.20:0
 		dev-java/sparsebitset:0
 	)
 	zlib? ( sys-libs/zlib )
 "
-# TODO: add support for not-in-tree libraries libvhdi and libvmdk
+# TODO: add support for not-in-tree libraries:
 # libvhdi: https://github.com/libyal/libvhdi
 # libvmdk: https://github.com/libyal/libvmdk
+# libvslvm: https://github.com/libyal/libvslvm
+#   Upstream also says "A stand-alone version of libbfio is needed
+#   to allow libvslvm to directly read from a TSK_IMAGE." Not sure
+#   what it means yet.
+#
 # DEPEND="${DEPEND}
 # 	vhdi? ( dev-libs/libvhdi )
 # 	vmdk? ( dev-libs/libvmdk )
+#   vslvm? ( dev-libs/libvslvm dev-libs/libbfio )
 # "
 
 RDEPEND="${DEPEND}
@@ -56,9 +63,12 @@ RDEPEND="${DEPEND}
 "
 DEPEND="${DEPEND}
 	java? ( virtual/jdk:1.8 )
-	test? ( >=dev-util/cppunit-1.2.1 )
+	test? (
+		>=dev-util/cppunit-1.2.1
+	)
 "
 BDEPEND="
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 "
 
@@ -123,6 +133,15 @@ src_prepare() {
 		java-pkg-opt-2_src_prepare
 
 		popd &>/dev/null || die
+
+		# Call ant with jar target for case-uco.
+		# The default invocation of ant tries to
+		# run junit tests, which there are none.
+		# It ends up failing with:
+		# junit.framework.AssertionFailedError: No tests found in org.sleuthkit.caseuco.TestSuite
+		sed -e '/\tant \$(ant_args)/ s|$| jar|' \
+			-i "${S}"/case-uco/java/Makefile.am \
+			|| die
 	fi
 
 	# Override the doxygen output directories
@@ -196,18 +215,23 @@ src_configure() {
 		--enable-offline="${TSK_JAR_DIR}"
 		$(use_enable java)
 		$(use_enable static-libs static)
+		$(use_enable test cppunit)
 		$(use_enable threads multithreading)
 		$(use_with aff afflib)
 		$(use_with zlib)
 	)
-	# TODO: add support for non-existing libraries libvhdi and libvmdk
+	# TODO: add support for non-existing libraries:
 	# myeconfargs+=(
 	# 	$(use_with vhdi libvhdi)
 	# 	$(use_with vmdk libvmdk)
+	# 	$(use_with vslvm libvslvm)
+	# 	$(use_with vslvm libbfio) # not a typo
 	# )
 	myeconfargs+=(
 		--without-libvhdi
 		--without-libvmdk
+		--without-libvslvm
+		--without-libbfio
 	)
 
 	use ewf && tsk_compile_libewf
@@ -235,6 +259,7 @@ src_compile() {
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" guava
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" jdbc-postgresql
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" joda-time
+		java-pkg_jar-from --into "${TSK_JAR_DIR}" mchange-commons
 		java-pkg_jar-from --into "${TSK_JAR_DIR}" sparsebitset
 
 		# case-uco needs gson and expects it under case-uco/java/lib
@@ -269,7 +294,7 @@ src_install() {
 		pushd "${TSK_JAR_DIR}" &>/dev/null || die
 		for f in *; do
 			# Skip the symlinks java-pkg_jar-from created
-			[[ -f ${f} ]] || continue
+			[[ -L ${f} ]] && continue
 
 			# Strip the version numbers as per eclass recommendation
 			[[ ${f} =~ -([0-9]+\.)+jar$ ]] || continue
@@ -293,4 +318,8 @@ src_install() {
 	fi
 
 	find "${D}" -name '*.la' -delete || die
+}
+
+src_test() {
+	emake -C "${S}"/unit_tests check
 }
