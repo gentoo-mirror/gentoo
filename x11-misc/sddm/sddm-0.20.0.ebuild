@@ -3,14 +3,12 @@
 
 EAPI=8
 
-COMMIT=40250a647291ea0cf587631c79f61903ced075e3
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
-	SRC_URI="https://github.com/${PN}/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${COMMIT}"
-	KEYWORDS=""
+	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 QTMIN=5.15.2
@@ -45,6 +43,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-qt/qttest-${QTMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
+	x11-base/xorg-server
 	!systemd? ( gui-libs/display-manager-init )
 "
 BDEPEND="
@@ -56,11 +55,12 @@ BDEPEND="
 
 PATCHES=(
 	# Downstream patches
-	"${FILESDIR}/${PN}-0.20.0-respect-user-flags.patch"
+	"${FILESDIR}/${P}-respect-user-flags.patch"
 	"${FILESDIR}/${PN}-0.18.1-Xsession.patch" # bug 611210
-	"${FILESDIR}/${PN}-0.20.0-sddm.pam-use-substack.patch" # bug 728550
-	"${FILESDIR}/${PN}-0.20.0-disable-etc-debian-check.patch"
-	"${FILESDIR}/${PN}-0.20.0-no-default-pam_systemd-module.patch" # bug 669980
+	"${FILESDIR}/${P}-sddm.pam-use-substack.patch" # bug 728550
+	"${FILESDIR}/${P}-disable-etc-debian-check.patch"
+	"${FILESDIR}/${P}-no-default-pam_systemd-module.patch" # bug 669980
+	"${FILESDIR}/${P}-fix-use-development-sessions.patch" # git master
 )
 
 pkg_setup() {
@@ -125,13 +125,8 @@ pkg_postinst() {
 		elog "  to the troubleshooting section."
 	fi
 
-	optfeature "X11 DisplayServer support" x11-base/xorg-server
 	optfeature "Weston DisplayServer support (EXPERIMENTAL)" dev-libs/weston
 	optfeature "KWin DisplayServer support (EXPERIMENTAL)" kde-plasma/kwin
-
-	if has_version x11-base/xorg-server; then
-		ewarn "SDDM version no longer pulls in x11-base/xorg-server via USE=X."
-	fi
 
 	systemd_reenable sddm.service
 }

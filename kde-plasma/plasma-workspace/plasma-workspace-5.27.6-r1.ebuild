@@ -161,6 +161,7 @@ PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 PATCHES=(
 	"${FILESDIR}/${PN}-5.24.80-split-libkworkspace.patch" # downstream
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
+	"${FILESDIR}/${P}-fix-libtaskmanager-potential-leak.patch" # in 5.27.7
 )
 
 src_prepare() {
