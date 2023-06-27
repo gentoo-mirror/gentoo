@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,14 +28,12 @@ RDEPEND="
 	nsight? (
 		dev-libs/libpfm
 		dev-libs/wayland
+		dev-qt/qtwayland:6
 		|| (
 			dev-libs/openssl-compat:1.1.1
 			=dev-libs/openssl-1.1.1*
 		)
-		|| (
-			media-libs/tiff-compat:4
-			media-libs/tiff:0/0
-		)
+		media-libs/tiff-compat:4
 		sys-libs/zlib
 	)
 	vis-profiler? (
@@ -43,7 +41,7 @@ RDEPEND="
 	)"
 
 QA_PREBUILT="opt/cuda/*"
-CHECKREQS_DISK_BUILD="6800M"
+CHECKREQS_DISK_BUILD="15000M"
 
 pkg_setup() {
 	check-reqs_pkg_setup
@@ -51,7 +49,7 @@ pkg_setup() {
 
 src_prepare() {
 	# ATTENTION: change requires revbump
-	local cuda_supported_gcc="8.5 9.4 9.5 10 10.3 10.4 11 11.1 11.2 11.3"
+	local cuda_supported_gcc="8.5 9.5 10 11"
 
 	sed \
 		-e "s:CUDA_SUPPORTED_GCC:${cuda_supported_gcc}:g" \
