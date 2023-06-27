@@ -1,0 +1,17 @@
+BDEPEND=sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig )
+DEFINED_PHASES=compile install postinst prepare setup
+DEPEND=app-crypt/pesign sys-libs/zlib sys-apps/pciutils dev-libs/elfutils sys-devel/bison test? ( dev-util/shellcheck-bin ) virtual/linux-sources
+DESCRIPTION=Dynamic kernel patching for Linux
+EAPI=8
+HOMEPAGE=https://github.com/dynup/kpatch
+IDEPEND=sys-apps/kmod[tools]
+INHERIT=flag-o-matic linux-mod-r1
+IUSE=contrib +kpatch +kpatch-build kmod test dist-kernel modules-sign +strip
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=app-crypt/pesign sys-libs/zlib sys-apps/pciutils sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/dynup/kpatch/archive/v0.9.8.tar.gz -> kpatch-0.9.8.tar.gz
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod-r1	3adf4125a2c5f60764f8d3bba0d4111b
+_md5_=58a4ede41effa6b0861656a17f5805e6
