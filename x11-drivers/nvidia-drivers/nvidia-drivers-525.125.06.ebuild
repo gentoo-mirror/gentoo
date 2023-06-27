@@ -7,7 +7,7 @@ MODULES_OPTIONAL_IUSE=+modules
 inherit desktop flag-o-matic linux-mod-r1 multilib readme.gentoo-r1
 inherit systemd toolchain-funcs unpacker user-info
 
-MODULES_KERNEL_MAX=6.2
+MODULES_KERNEL_MAX=6.4
 NV_URI="https://download.nvidia.com/XFree86/"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
@@ -23,7 +23,7 @@ S="${WORKDIR}"
 
 LICENSE="NVIDIA-r2 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* amd64 ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="+X abi_x86_32 abi_x86_64 kernel-open persistenced +static-libs +tools wayland"
 REQUIRED_USE="kernel-open? ( modules )"
 
@@ -81,11 +81,10 @@ BDEPEND="
 QA_PREBUILT="lib/firmware/* opt/bin/* usr/lib*"
 
 PATCHES=(
-	"${FILESDIR}"/nvidia-drivers-470.141.03-clang15.patch
+	"${FILESDIR}"/nvidia-drivers-525.116.04-clang-unused-option.patch
 	"${FILESDIR}"/nvidia-kernel-module-source-515.86.01-raw-ldflags.patch
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
 	"${FILESDIR}"/nvidia-settings-390.144-desktop.patch
-	"${FILESDIR}"/nvidia-settings-390.144-no-gtk2.patch
 	"${FILESDIR}"/nvidia-settings-390.144-raw-ldflags.patch
 )
 
@@ -190,9 +189,6 @@ src_prepare() {
 	rm nvidia-xconfig && mv nvidia-xconfig{-${PV},} || die
 	mv NVIDIA-kernel-module-source-${PV} kernel-module-source || die
 
-	eapply --directory=kernel-module-source/kernel-open \
-		-p2 "${FILESDIR}"/nvidia-drivers-470.141.03-clang15.patch
-
 	default
 
 	# prevent detection of incomplete kernel DRM support (bug #603818)
@@ -204,6 +200,9 @@ src_prepare() {
 		nvidia-persistenced/init/systemd/nvidia-persistenced.service.template \
 		> "${T}"/nvidia-persistenced.service || die
 	use !amd64 || sed -i "s|/usr|${EPREFIX}/opt|" systemd/system/nvidia-powerd.service || die
+
+	# use alternative vulkan icd option if USE=-X (bug #909181)
+	use X || sed -i 's/"libGLX/"libEGL/' nvidia_{layers,icd}.json || die
 
 	# enable nvidia-drm.modeset=1 by default with USE=wayland
 	cp "${FILESDIR}"/nvidia-470.conf "${T}"/nvidia.conf || die
@@ -233,6 +232,7 @@ src_compile() {
 		PREFIX="${EPREFIX}"/usr
 		HOST_CC="$(tc-getBUILD_CC)"
 		HOST_LD="$(tc-getBUILD_LD)"
+		BUILD_GTK2LIB=
 		NV_USE_BUNDLED_LIBJANSSON=0
 		NV_VERBOSE=1 DO_STRIP= MANPAGE_GZIP= OUTPUTDIR=out
 		WAYLAND_AVAILABLE=$(usex wayland 1 0)
@@ -271,7 +271,9 @@ src_compile() {
 		CFLAGS="-Wno-deprecated-declarations ${CFLAGS}" \
 			emake "${NV_ARGS[@]}" -C nvidia-settings
 	elif use static-libs; then
-		emake "${NV_ARGS[@]}" -C nvidia-settings/src out/libXNVCtrl.a
+		# pretend GTK+3 is available, not actually used (bug #880879)
+		emake "${NV_ARGS[@]}" BUILD_GTK3LIB=1 \
+			-C nvidia-settings/src out/libXNVCtrl.a
 	fi
 }
 
@@ -297,10 +299,7 @@ src_install() {
 	)
 
 	local skip_files=(
-		# nvidia_icd/layers(vulkan): skip with -X too as it uses libGLX_nvidia
-		$(usev !X "
-			libGLX_nvidia libglxserver_nvidia
-			nvidia_icd.json nvidia_layers.json")
+		$(usev !X "libGLX_nvidia libglxserver_nvidia")
 		$(usev !wayland libnvidia-vulkan-producer)
 		libGLX_indirect # non-glvnd unused fallback
 		libnvidia-{gtk,wayland-client} nvidia-{settings,xconfig} # from source
