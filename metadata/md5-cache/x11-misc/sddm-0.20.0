@@ -6,11 +6,12 @@ EAPI=8
 HOMEPAGE=https://github.com/sddm/sddm
 INHERIT=cmake linux-info optfeature systemd tmpfiles
 IUSE=+elogind systemd test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain
-RDEPEND=acct-group/sddm acct-user/sddm >=dev-qt/qtcore-5.15.2:5 >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtnetwork-5.15.2:5 sys-libs/pam x11-libs/libXau x11-libs/libxcb:= elogind? ( sys-auth/elogind[pam] ) systemd? ( sys-apps/systemd:=[pam] ) !systemd? ( sys-power/upower ) !systemd? ( gui-libs/display-manager-init ) virtual/tmpfiles
+RDEPEND=acct-group/sddm acct-user/sddm >=dev-qt/qtcore-5.15.2:5 >=dev-qt/qtdbus-5.15.2:5 >=dev-qt/qtdeclarative-5.15.2:5 >=dev-qt/qtgui-5.15.2:5 >=dev-qt/qtnetwork-5.15.2:5 sys-libs/pam x11-libs/libXau x11-libs/libxcb:= elogind? ( sys-auth/elogind[pam] ) systemd? ( sys-apps/systemd:=[pam] ) !systemd? ( sys-power/upower ) x11-base/xorg-server !systemd? ( gui-libs/display-manager-init ) virtual/tmpfiles
 REQUIRED_USE=^^ ( elogind systemd )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/sddm/sddm/archive/40250a647291ea0cf587631c79f61903ced075e3.tar.gz -> sddm-0.19.0_p20230608.tar.gz
+SRC_URI=https://github.com/sddm/sddm/archive/refs/tags/v0.20.0.tar.gz -> sddm-0.20.0.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	1abaebfe913f48975739281ab7d7ab75	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=4cf76eb25e4312d1640f08a1e37e5f21
+_md5_=976fb3646d0aa7c078ed1e7f23f141d3
