@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare setup
+DEPEND=dev-libs/glib:2 dev-libs/libnl:3
+DESCRIPTION=cifsd/ksmbd kernel server userspace utilities
+EAPI=8
+HOMEPAGE=https://github.com/cifsd-team/ksmbd-tools
+INHERIT=autotools linux-info systemd
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=GPL-2+
+RDEPEND=dev-libs/glib:2 dev-libs/libnl:3
+SLOT=0
+SRC_URI=https://github.com/cifsd-team/ksmbd-tools/archive/3.4.8.tar.gz -> ksmbd-tools-3.4.8.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=71ec52e974bd3b60e62ea32812261e1a

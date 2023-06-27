@@ -1,6 +1,6 @@
 BDEPEND=dev-util/cmake >=virtual/rust-1.57.0 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst setup test unpack
-DEPEND=media-libs/fontconfig:= media-libs/freetype:2 x11-libs/libxkbcommon X? ( x11-libs/libxcb:= ) || ( >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 )
+DEPEND=media-libs/fontconfig:= media-libs/freetype:2 x11-libs/libxkbcommon X? ( x11-libs/libxcb:= ) || ( >=dev-lang/python-3.12.0_beta1:3.12 >=dev-lang/python-3.11.3:3.11 >=dev-lang/python-3.10.11:3.10 )
 DESCRIPTION=GPU-accelerated terminal emulator
 EAPI=8
 HOMEPAGE=https://alacritty.org
@@ -12,4 +12,4 @@ RDEPEND=media-libs/fontconfig:= media-libs/freetype:2 x11-libs/libxkbcommon X? (
 REQUIRED_USE=|| ( wayland X )
 SLOT=0
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	cddd4ee89517b7a52ddce3da8abf3109	desktop	021728fdc1b03b36357dbc89489e0f0d	python-utils-r1	a34d5f83235297b76d71eaf8deb53768	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=99ac394c26c314e5732097b452b0cb49
+_md5_=3a1888d8bece2591de144f5f097f646a
