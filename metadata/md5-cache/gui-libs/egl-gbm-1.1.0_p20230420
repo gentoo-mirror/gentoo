@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=media-libs/mesa-21.2[gbm(+)] x11-libs/libdrm !<x11-drivers/nvidia-drivers-495.46-r20[wayland(-)] >=media-libs/libglvnd-1.3.4 gui-libs/eglexternalplatform
+DESCRIPTION=GBM EGL external platform library
+EAPI=8
+HOMEPAGE=https://github.com/NVIDIA/egl-gbm/
+INHERIT=meson
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=>=media-libs/mesa-21.2[gbm(+)] x11-libs/libdrm !<x11-drivers/nvidia-drivers-495.46-r20[wayland(-)]
+SLOT=0
+SRC_URI=https://github.com/NVIDIA/egl-gbm/archive/e5eee6058a812bce6df792c54efc484c4f15b6d1.tar.gz -> egl-gbm-1.1.0_p20230420.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a34d5f83235297b76d71eaf8deb53768	meson	18d046bdb14e1bdb22cce6e5d953e364
+_md5_=7d4bafd0f3e21231f190b73fcef53e86
