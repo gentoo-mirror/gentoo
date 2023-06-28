@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1
 
@@ -33,7 +33,6 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/cython-0.29.34[${PYTHON_USEDEP}]
 	test? (
-		dev-python/GitPython[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
 			>=dev-python/typing-extensions-3.7.4[${PYTHON_USEDEP}]
@@ -52,6 +51,17 @@ python_test() {
 		tests/test_project.py::test_user_args
 	)
 	unset NINJA
+
+	if [[ ${EPYTHON} == pypy3 ]]; then
+		EPYTEST_DESELECT+=(
+			# broken venv usage that copies pypy3 executable, making it
+			# unable to find lib_pypy
+			tests/test_editable.py::test_editable_install
+			tests/test_editable.py::test_editble_reentrant
+			tests/test_examples.py::test_spam
+			tests/test_wheel.py::test_local_lib
+		)
+	fi
 
 	epytest
 
