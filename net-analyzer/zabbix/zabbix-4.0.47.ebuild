@@ -1,33 +1,24 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# To create the go modules tarball:
-#   cd src/go
-#   GOMODCACHE="${PWD}"/go-mod go mod download -modcacherw
-#   tar -acf zabbix-${PV}-go-deps.tar.xz go-mod
-
 EAPI=8
 
-GO_OPTIONAL="yes"
 # needed to make webapp-config dep optional
 WEBAPP_OPTIONAL="yes"
-inherit webapp java-pkg-opt-2 systemd tmpfiles toolchain-funcs go-module user-info
+inherit webapp java-pkg-opt-2 systemd toolchain-funcs tmpfiles user-info
 
 DESCRIPTION="ZABBIX is software for monitoring of your applications, network and servers"
 HOMEPAGE="https://www.zabbix.com/"
 MY_P=${P/_/}
 MY_PV=${PV/_/}
-SRC_URI="https://cdn.zabbix.com/${PN}/sources/stable/$(ver_cut 1-2)/${P}.tar.gz
-	agent2? ( https://dev.gentoo.org/~fordfrog/distfiles/${P}-go-deps.tar.xz )
-"
-
+SRC_URI="https://cdn.zabbix.com/${PN}/sources/stable/$(ver_cut 1-2)/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/$(ver_cut 1-2)"
 WEBAPP_MANUAL_SLOT="yes"
 KEYWORDS="~amd64 ~x86"
-IUSE="agent +agent2 curl frontend gnutls ipv6 java ldap libxml2 mysql odbc openipmi +openssl oracle +postgres proxy server snmp sqlite ssh static"
-REQUIRED_USE="|| ( agent agent2 frontend proxy server )
-	?? ( gnutls openssl )
+IUSE="+agent curl frontend gnutls ipv6 java ldap libxml2 mbedtls mysql odbc openipmi +openssl oracle +postgres proxy selinux server snmp sqlite ssh static xmpp"
+REQUIRED_USE="|| ( agent frontend proxy server )
+	?? ( gnutls mbedtls openssl )
 	proxy? ( ^^ ( mysql oracle postgres sqlite ) )
 	server? ( ^^ ( mysql oracle postgres ) !sqlite )
 	static? ( !oracle !snmp )"
@@ -42,6 +33,7 @@ COMMON_DEPEND="
 		net-nds/openldap:=
 	)
 	libxml2? ( dev-libs/libxml2 )
+	mbedtls? ( net-libs/mbedtls:0= )
 	mysql? ( dev-db/mysql-connector-c:= )
 	odbc? ( dev-db/unixODBC )
 	openipmi? ( sys-libs/openipmi )
@@ -59,6 +51,7 @@ COMMON_DEPEND="
 	snmp? ( net-analyzer/net-snmp:= )
 	sqlite? ( dev-db/sqlite )
 	ssh? ( net-libs/libssh2 )
+	xmpp? ( dev-libs/iksemel )
 "
 
 RDEPEND="${COMMON_DEPEND}
@@ -67,12 +60,13 @@ RDEPEND="${COMMON_DEPEND}
 	java? ( >=virtual/jre-1.8:* )
 	mysql? ( virtual/mysql )
 	proxy? (
-		dev-libs/libpcre2:=
+		dev-libs/libpcre
 		net-analyzer/fping[suid]
 	)
+	selinux? ( sec-policy/selinux-zabbix )
 	server? (
 		app-admin/webapp-config
-		dev-libs/libpcre2:=
+		dev-libs/libpcre
 		net-analyzer/fping[suid]
 	)
 	frontend? (
@@ -105,19 +99,11 @@ DEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	virtual/pkgconfig
-	agent2? (
-		>=dev-lang/go-1.12
-		app-arch/unzip
-	)
 "
-
-# upstream tests fail for agent2
-RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.0.18-modulepathfix.patch"
 	"${FILESDIR}/${PN}-3.0.30-security-disable-PidFile.patch"
-	"${FILESDIR}/${PN}-6.0.3-system.sw.packages.patch"
 )
 
 S=${WORKDIR}/${MY_P}
@@ -148,31 +134,28 @@ src_prepare() {
 }
 
 src_configure() {
-	local econf_args=(
-		--with-libpcre2
-		"$(use_enable agent)"
-		"$(use_enable agent2)"
-		"$(use_enable ipv6)"
-		"$(use_enable java)"
-		"$(use_enable proxy)"
-		"$(use_enable server)"
-		"$(use_enable static)"
-		"$(use_with curl libcurl)"
-		"$(use_with gnutls)"
-		"$(use_with ldap)"
-		"$(use_with libxml2)"
-		"$(use_with mysql)"
-		"$(use_with odbc unixodbc)"
-		"$(use_with openipmi openipmi)"
-		"$(use_with openssl)"
-		"$(use_with oracle)"
-		"$(use_with postgres postgresql)"
-		"$(use_with snmp net-snmp)"
-		"$(use_with sqlite sqlite3)"
-		"$(use_with ssh ssh2)"
-	)
-
-	econf ${econf_args[@]}
+	econf \
+		$(use_enable agent) \
+		$(use_enable ipv6) \
+		$(use_enable java) \
+		$(use_enable proxy) \
+		$(use_enable server) \
+		$(use_enable static) \
+		$(use_with curl libcurl) \
+		$(use_with gnutls) \
+		$(use_with ldap) \
+		$(use_with libxml2) \
+		$(use_with mbedtls) \
+		$(use_with mysql) \
+		$(use_with odbc unixodbc) \
+		$(use_with openipmi openipmi) \
+		$(use_with openssl) \
+		$(use_with oracle) \
+		$(use_with postgres postgresql) \
+		$(use_with snmp net-snmp) \
+		$(use_with sqlite sqlite3) \
+		$(use_with ssh ssh2) \
+		$(use_with xmpp jabber)
 }
 
 src_compile() {
@@ -193,6 +176,7 @@ src_install() {
 	)
 
 	for dir in "${dirs[@]}"; do
+		dodir "${dir}"
 		keepdir "${dir}"
 	done
 
@@ -246,20 +230,6 @@ src_install() {
 		systemd_dounit "${FILESDIR}"/zabbix-agentd.service
 		newtmpfiles "${FILESDIR}"/zabbix-agentd.tmpfiles zabbix-agentd.conf
 	fi
-	if use agent2; then
-		insinto /etc/zabbix
-		doins "${S}"/src/go/conf/zabbix_agent2.conf
-		fperms 0640 /etc/zabbix/zabbix_agent2.conf
-		fowners root:zabbix /etc/zabbix/zabbix_agent2.conf
-		keepdir /etc/zabbix/zabbix_agent2.d/plugins.d
-
-		newinitd "${FILESDIR}"/zabbix-agent2.init zabbix-agent2
-
-		dosbin src/go/bin/zabbix_agent2
-
-		systemd_dounit "${FILESDIR}"/zabbix-agent2.service
-		newtmpfiles "${FILESDIR}"/zabbix-agent2.tmpfiles zabbix-agent2.conf
-	fi
 
 	fowners root:zabbix /etc/zabbix
 	fowners zabbix:zabbix \
@@ -287,7 +257,7 @@ src_install() {
 
 	if use frontend; then
 		webapp_src_preinst
-		cp -R ui/* "${D}/${MY_HTDOCSDIR}"
+		cp -R frontends/php/* "${D}/${MY_HTDOCSDIR}"
 		webapp_configfile \
 			"${MY_HTDOCSDIR}"/include/db.inc.php \
 			"${MY_HTDOCSDIR}"/include/config.inc.php
@@ -301,7 +271,7 @@ src_install() {
 			/${ZABBIXJAVA_BASE}/lib
 		keepdir /${ZABBIXJAVA_BASE}
 		exeinto /${ZABBIXJAVA_BASE}/bin
-		doexe src/zabbix_java/bin/zabbix-java-gateway-"${MY_PV}".jar
+		doexe src/zabbix_java/bin/zabbix-java-gateway-${MY_PV}.jar
 		exeinto /${ZABBIXJAVA_BASE}/lib
 		doexe \
 			src/zabbix_java/lib/logback-classic-1.2.9.jar \
@@ -324,14 +294,15 @@ pkg_postinst() {
 
 		zabbix_homedir=$(egethome zabbix)
 		if [ -n "${zabbix_homedir}" ] && \
-			[ "${zabbix_homedir}" != "/var/lib/zabbix/home" ]; then
+		   [ "${zabbix_homedir}" != "/var/lib/zabbix/home" ]; then
 			ewarn
 			ewarn "The user 'zabbix' should have his homedir changed"
 			ewarn "to /var/lib/zabbix/home if you want to use"
 			ewarn "custom alert scripts."
 			ewarn
 			ewarn "A real homedir might be needed for configfiles"
-			ewarn "for custom alert scripts."
+			ewarn "for custom alert scripts (e.g. ~/.sendxmpprc when"
+			ewarn "using sendxmpp for Jabber alerts)."
 			ewarn
 			ewarn "To change the homedir use:"
 			ewarn "  usermod -d /var/lib/zabbix/home zabbix"
@@ -358,10 +329,6 @@ pkg_postinst() {
 
 	if use agent; then
 		tmpfiles_process zabbix-agentd.conf
-	fi
-
-	if use agent2; then
-		tmpfiles_process zabbix-agent2.conf
 	fi
 
 	elog "--"
