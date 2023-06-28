@@ -943,7 +943,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.0-r1 1.14.0-r2: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.27.142 1.27.146 1.27.151 1.27.152 1.27.153 1.27.154 1.27.155 1.27.156 1.27.157 1.27.158 1.27.159 1.27.160 1.27.161: Universal Command Line Environment for AWS
+app-admin/awscli 1.27.142 1.27.146 1.27.151 1.27.152 1.27.153 1.27.154 1.27.155 1.27.156 1.27.157 1.27.158 1.27.159 1.27.160 1.27.161 1.27.162: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2022.12.0 2023.2.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -7833,10 +7833,10 @@ dev-python/APScheduler 3.10.1: In-process task scheduler with Cron-like capabili
 dev-python/Arpeggio 2.0.0: Parser interpreter based on PEG grammars
 dev-python/Babel 2.12.1: Collection of tools for internationalizing Python applications
 dev-python/BitVector 3.5.0-r1: A pure-Python memory-efficient packed representation for bit arrays
-dev-python/ConfigArgParse 1.5.3: Drop-in replacement for argparse supporting config files and env variables
+dev-python/ConfigArgParse 1.5.3 1.5.5: Drop-in replacement for argparse supporting config files and env variables
 dev-python/CppHeaderParser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/DBUtils 3.0.2-r1 3.0.3: Database connections for multi-threaded environments
-dev-python/Faker 18.9.0 18.10.1 18.11.1: A Python package that generates fake data for you
+dev-python/Faker 18.9.0 18.10.1 18.11.1 18.11.2: A Python package that generates fake data for you
 dev-python/Frozen-Flask 0.18-r1: Freezes a Flask application into a set of static files
 dev-python/GitPython 3.1.31: Library used to interact with Git repositories
 dev-python/GridDataFormats 1.0.1: Reading and writing of data on regular grids in Python
@@ -7967,8 +7967,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.26.142 1.26.146 1.26.151 1.26.152 1.26.153 1.26.154 1.26.155 1.26.156 1.26.157 1.26.158 1.26.159 1.26.160 1.26.161 9999: The AWS SDK for Python
-dev-python/botocore 1.29.142 1.29.146 1.29.151 1.29.152 1.29.153 1.29.154 1.29.155 1.29.156 1.29.157 1.29.158 1.29.159 1.29.160 1.29.161 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.26.142 1.26.146 1.26.151 1.26.152 1.26.153 1.26.154 1.26.155 1.26.156 1.26.157 1.26.158 1.26.159 1.26.160 1.26.161 1.26.162 9999: The AWS SDK for Python
+dev-python/botocore 1.29.142 1.29.146 1.29.151 1.29.152 1.29.153 1.29.154 1.29.155 1.29.156 1.29.157 1.29.158 1.29.159 1.29.160 1.29.161 1.29.162 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8041,7 +8041,7 @@ dev-python/commentjson 0.9.0-r2: Add Python and JavaScript style comments in you
 dev-python/commonmark 0.9.1-r1: Python parser for the CommonMark Markdown spec
 dev-python/configclass 0.2.0 0.2.0-r1: A Python to class to hold configuration values
 dev-python/configobj 5.0.8: Simple config file reader and writer
-dev-python/configshell-fb 1.1.29-r2: A Python library for building configuration shells
+dev-python/configshell-fb 1.1.29-r2 1.1.30: A Python library for building configuration shells
 dev-python/configupdater 3.1.1: Parser like ConfigParser but for updating configuration files
 dev-python/confuse 2.0.1: Confuse is a configuration library for Python that uses YAML
 dev-python/cons 0.4.5 0.4.6: Implementation of Lisp/Scheme-like cons in Python
@@ -8118,7 +8118,7 @@ dev-python/django-prometheus 2.2.0-r1 2.3.1: Library to export Django metrics fo
 dev-python/django-redis 5.2.0 5.3.0: Full featured redis cache backend for Django
 dev-python/django-registration 3.3: user-registration application for Django
 dev-python/django-sortedm2m 3.1.1: Drop-in replacement for django's many to many field with sorted relations
-dev-python/django-tables2 2.5.3: Table/data-grid framework for Django
+dev-python/django-tables2 2.5.3 2.6.0: Table/data-grid framework for Django
 dev-python/django-taggit 3.1.0: Simple tagging for Django
 dev-python/django-timezone-field 5.0 5.1: A Django app providing database and form fields for pytz timezone objects
 dev-python/django_polymorphic 3.1-r1: Seamless Polymorphic Inheritance for Django Models
@@ -8187,7 +8187,7 @@ dev-python/filebytes 0.10.2 9999: Classes/Types to read and edit executable file
 dev-python/filelock 3.12.0 3.12.1 3.12.2: A platform independent file lock for Python
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 2.3.0: Python module import analysis tool
-dev-python/fitsio 1.1.8 1.1.9: Python library to read from and write to FITS files
+dev-python/fitsio 1.1.8 1.1.9 1.1.10: Python library to read from and write to FITS files
 dev-python/fixtures 4.0.1 4.1.0: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 6.0.0: A wrapper around PyFlakes, pep8 & mccabe
 dev-python/flake8-polyfill 1.0.2-r1: Polyfill package for Flake8 plugins
@@ -8289,12 +8289,12 @@ dev-python/httpx 0.24.1: Fully-featured HTTP client which provides sync and asyn
 dev-python/httpx-socks 0.7.6: Proxy (HTTP, SOCKS) transports for httpx
 dev-python/huawei-lte-api 1.6.11 1.7.3: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r1: Human friendly output for text interfaces using Python
-dev-python/humanize 4.6.0: Common humanization utilities
+dev-python/humanize 4.6.0 4.7.0: Common humanization utilities
 dev-python/hvac 1.1.0 1.1.1: HashiCorp Vault API client
 dev-python/hypercorn 0.14.3-r1: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.76.0 6.79.0 6.79.1 6.79.2 6.79.3: A library for property based testing
+dev-python/hypothesis 6.76.0 6.79.0 6.79.1 6.79.2 6.79.3 6.80.0: A library for property based testing
 dev-python/icalendar 5.0.7: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.24: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
@@ -8520,7 +8520,7 @@ dev-python/mrcfile 1.4.3: MRC2014 file format I/O library
 dev-python/msgpack 1.0.5: MessagePack (de)serializer for Python
 dev-python/mss 7.0.1 8.0.2 8.0.3 9.0.0 9.0.1: An ultra fast cross-platform multiple screenshots module in python using ctypes
 dev-python/multidict 6.0.4: multidict implementation
-dev-python/multipledispatch 0.6.0-r1: Multiple dispatch
+dev-python/multipledispatch 0.6.0-r1 1.0.0: Multiple dispatch
 dev-python/multiprocess 0.70.14: better multiprocessing and multithreading in python
 dev-python/munch 2.5.0-r2 3.0.0: A dot-accessible dictionary (a la JavaScript objects)
 dev-python/munkres 1.1.4-r1: Module implementing munkres algorithm for the Assignment Problem
@@ -8669,7 +8669,7 @@ dev-python/podman 4.4.0 4.5.0: A library to interact with a Podman server
 dev-python/poetry-core 1.6.1: Poetry PEP 517 Build Backend
 dev-python/polib 1.2.0: A library to manipulate gettext files (.po and .mo files)
 dev-python/pooch 1.7.0: Manage your Python library's sample data files
-dev-python/portend 3.1.0: TCP port monitoring utilities
+dev-python/portend 3.1.0 3.2.0: TCP port monitoring utilities
 dev-python/poyo 0.5.0-r1: A lightweight YAML Parser for Python
 dev-python/precis-i18n 1.0.5: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r2: A library for stubbing in Python
@@ -8810,7 +8810,7 @@ dev-python/pyotp 2.8.0: PyOTP is a Python library for generating and verifying o
 dev-python/pyparsing 3.0.9 3.1.0: Easy-to-use Python module for text parsing
 dev-python/pyparted 3.12.0: Python bindings for sys-block/parted
 dev-python/pypax 0.9.5-r1 9999: Python module to get or set either PT_PAX and/or XATTR_PAX flags
-dev-python/pypdf 3.10.0 3.11.0: Python library to work with PDF files
+dev-python/pypdf 3.10.0 3.11.0 3.11.1: Python library to work with PDF files
 dev-python/pyperclip 1.8.2-r1: A cross-platform clipboard module for Python
 dev-python/pyphen 0.14.0: Python module for hyphenation using hunspell dictionaries
 dev-python/pypiserver 1.5.1: Minimal PyPI server
@@ -9252,7 +9252,7 @@ dev-python/tblib 1.7.0-r1 2.0.0: Traceback fiddling library for Python
 dev-python/tcolorpy 0.1.2-r1 0.1.3: tcolorpy is a Python library to apply true color for terminal text
 dev-python/tekore 4.6.1 5.0.0: Spotify Web API client
 dev-python/tempest 34.2.0 35.0.0: OpenStack Integration Testing
-dev-python/tempora 5.2.2 5.3.0: Objects and routines pertaining to date and time
+dev-python/tempora 5.2.2 5.3.0 5.5.0: Objects and routines pertaining to date and time
 dev-python/tenacity 8.2.2: General-purpose retrying library
 dev-python/termcolor 2.3.0: ANSI Color formatting for output in terminal
 dev-python/terminado 0.17.1: Terminals served to term.js using Tornado websockets
@@ -15121,7 +15121,7 @@ net-news/canto-curses 0.9.9: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
 net-news/liferea 1.12.10 1.12.10-r1 1.14.5: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.21-r1 2.23-r1 2.28 2.29 2.30.1: An RSS/Atom feed reader for text terminals
-net-news/rssguard 4.3.3 4.3.4: Simple (yet powerful) news feed reader
+net-news/rssguard 4.3.3 4.3.4 4.4.0: Simple (yet powerful) news feed reader
 net-news/rsstail 2.1 2.1_p20200310: A tail-like RSS-reader
 net-news/rsstool 1.0.1_rc2: cmdline tool to read, parse, merge, and write RSS (and Atom) feeds
 net-news/sfeed 1.5 1.6 1.8: Simple RSS and Atom parser
