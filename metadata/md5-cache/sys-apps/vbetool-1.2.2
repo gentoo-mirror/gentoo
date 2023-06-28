@@ -5,10 +5,11 @@ DESCRIPTION=Run real-mode video BIOS code to alter hw state (i.e. reinitialize v
 EAPI=8
 HOMEPAGE=https://cgit.freedesktop.org/~airlied/vbetool/
 INHERIT=autotools
+IUSE=selinux
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/libx86 sys-libs/zlib:= x11-libs/libpciaccess
+RDEPEND=dev-libs/libx86 sys-libs/zlib:= x11-libs/libpciaccess selinux? ( sec-policy/selinux-vbetool )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~ionen/distfiles/vbetool-1.2.2.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=e98e2b2b172e43958af7a4936362d690
+_md5_=d42585678a62a7900defa84936339470

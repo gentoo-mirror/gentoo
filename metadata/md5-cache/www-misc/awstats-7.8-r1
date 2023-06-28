@@ -2,10 +2,10 @@ DEFINED_PHASES=install postinst prepare
 DESCRIPTION=AWStats is short for Advanced Web Statistics
 EAPI=7
 HOMEPAGE=https://www.awstats.org/
-IUSE=geoip ipv6
+IUSE=geoip ipv6 selinux
 KEYWORDS=~alpha ~amd64 ~hppa ~ppc ~sparc ~x86
 LICENSE=GPL-3
-RDEPEND=>=dev-lang/perl-5.6.1 dev-perl/URI virtual/perl-Time-Local geoip? ( dev-perl/Geo-IP ) ipv6? ( dev-perl/Net-DNS dev-perl/Net-IP )
+RDEPEND=>=dev-lang/perl-5.6.1 dev-perl/URI virtual/perl-Time-Local geoip? ( dev-perl/Geo-IP ) ipv6? ( dev-perl/Net-DNS dev-perl/Net-IP ) selinux? ( sec-policy/selinux-awstats )
 SLOT=0
 SRC_URI=https://www.awstats.org/files/awstats-7.8.tar.gz
-_md5_=80e6ee3c53d008caca52ae52953b4041
+_md5_=dab15aeade6dfefab8ee73171d9a44c7
