@@ -1,7 +1,8 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
+
 inherit flag-o-matic
 
 DESCRIPTION="Library for easy processing of keyboard entry from terminal-based programs"
@@ -14,10 +15,18 @@ KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86 ~x64-macos"
 IUSE="demos static-libs"
 
 RDEPEND="dev-libs/unibilium:="
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
 	sys-devel/libtool
 	virtual/pkgconfig
-	demos? ( dev-libs/glib:2 )"
+	demos? ( dev-libs/glib:2 )
+"
+
+PATCHES=(
+	"${FILESDIR}"/no-automagic-manpages-compress.patch
+)
 
 src_prepare() {
 	default
@@ -36,4 +45,6 @@ src_install() {
 	emake PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)" DESTDIR="${D}" install
 	use static-libs || rm "${ED}"/usr/$(get_libdir)/${PN}.a || die
 	rm "${ED}"/usr/$(get_libdir)/${PN}.la || die
+	doman "${S}"/man/*.3
+	doman "${S}"/man/*.7
 }
