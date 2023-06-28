@@ -71,10 +71,13 @@ BDEPEND="
 	test? ( virtual/latex-base )"
 
 PATCHES=(
-	"${FILESDIR}"/R-3.4.1-parallel.patch
-	"${FILESDIR}"/R-3.6.2-no-LDFLAGS-in-libR-pkg-config.patch
-	"${FILESDIR}"/R-3.6.2-no-gzip-doc.patch
+	"${FILESDIR}"/R-4.3.0-parallel.patch
+	"${FILESDIR}"/R-4.3.0-no-LDFLAGS-in-libR-pkg-config.patch
+	"${FILESDIR}"/R-4.3.0-no-gzip-doc.patch
 )
+
+# false positive, the linking step fails (as it should)
+QA_CONFIG_IMPL_DECL_SKIP=( iconvlist )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
