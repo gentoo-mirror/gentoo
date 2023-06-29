@@ -35,8 +35,6 @@ BDEPEND="${DEPEND}
 	test? ( dev-util/cmocka )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-c99.patch )
-
 src_configure() {
 	local mycmakeargs=(
 		-DHAVE_LZLIB_DEVEL=$(usex lzip ON OFF)
