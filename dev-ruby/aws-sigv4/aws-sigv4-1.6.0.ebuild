@@ -3,19 +3,21 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby30 ruby31 ruby32"
 
-# Not packaged and upstream not tagged.
 RUBY_FAKEGEM_RECIPE_TEST="none"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md"
+RUBY_FAKEGEM_EXTRAINSTALL="VERSION"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Amazon Web Services event stream library"
+DESCRIPTION="Amazon Web Services Signature Version 4 signing library"
 HOMEPAGE="https://aws.amazon.com/sdk-for-ruby/"
 
 LICENSE="Apache-2.0"
 SLOT="1"
 KEYWORDS="~amd64 ~arm64"
 IUSE=""
+
+ruby_add_rdepend ">=dev-ruby/aws-eventstream-1.0.2:1"
