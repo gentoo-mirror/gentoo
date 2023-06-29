@@ -18,10 +18,12 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://chromium.org/"
+PATCHSET="2"
+PATCHSET_NAME="chromium-115-patchset-${PATCHSET}"
 PATCHSET_URI_PPC64="https://quickbuild.io/~raptor-engineering-public"
 PATCHSET_NAME_PPC64="chromium_114.0.5735.106-1raptor0~deb11u1.debian"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
-	https://dev.gentoo.org/~sam/distfiles/www-client/chromium/chromium-112-gcc-13-patches.tar.xz
+	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
 	ppc64? (
 		${PATCHSET_URI_PPC64}/+archive/ubuntu/chromium/+files/${PATCHSET_NAME_PPC64}.tar.xz
 		https://dev.gentoo.org/~sultan/distfiles/www-client/chromium/chromium-ppc64le-gentoo-patches-1.tar.xz
@@ -29,14 +31,15 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/stable"
-KEYWORDS="~amd64 ~arm64 ~ppc64"
-IUSE="+X component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo pic +proprietary-codecs pulseaudio qt5 screencast selinux +suid +system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-png vaapi wayland widevine"
+SLOT="0/beta"
+KEYWORDS="~amd64 ~arm64"
+IUSE="+X component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo pic +proprietary-codecs pulseaudio qt5 qt6 screencast selinux +suid +system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-png vaapi wayland widevine"
 REQUIRED_USE="
 	component-build? ( !suid !libcxx )
 	screencast? ( wayland )
 	!headless? ( || ( X wayland ) )
 	pgo? ( X !wayland )
+	qt6? ( qt5 )
 "
 
 COMMON_X_DEPEND="
@@ -53,6 +56,7 @@ COMMON_X_DEPEND="
 
 COMMON_SNAPSHOT_DEPEND="
 	system-icu? ( >=dev-libs/icu-71.1:= )
+	dev-libs/libevdev
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
 	dev-libs/nspr:=
 	>=dev-libs/nss-3.26:=
@@ -75,7 +79,7 @@ COMMON_SNAPSHOT_DEPEND="
 	!headless? (
 		dev-libs/glib:2
 		>=media-libs/alsa-lib-1.0.19:=
-		pulseaudio? ( media-sound/pulseaudio:= )
+		pulseaudio? ( media-libs/libpulse:= )
 		sys-apps/pciutils:=
 		kerberos? ( virtual/krb5 )
 		vaapi? ( >=media-libs/libva-2.7:=[X?,wayland?] )
@@ -121,6 +125,7 @@ COMMON_DEPEND="
 			dev-qt/qtcore:5
 			dev-qt/qtwidgets:5
 		)
+		qt6? ( dev-qt/qtbase:6[gui,widgets] )
 	)
 "
 RDEPEND="${COMMON_DEPEND}
@@ -130,6 +135,7 @@ RDEPEND="${COMMON_DEPEND}
 			gui-libs/gtk:4[X?,wayland?]
 		)
 		qt5? ( dev-qt/qtgui:5[X?,wayland?] )
+		qt6? ( dev-qt/qtbase:6[X?,wayland?] )
 	)
 	virtual/ttf-fonts
 	selinux? ( sec-policy/selinux-chromium )
@@ -171,6 +177,7 @@ BDEPEND="
 	>=app-arch/gzip-1.7
 	!headless? (
 		qt5? ( dev-qt/qtcore:5 )
+		qt6? ( dev-qt/qtbase:6 )
 	)
 	libcxx? ( >=sys-devel/clang-16 )
 	lto? ( $(depend_clang_llvm_versions 16) )
@@ -278,7 +285,7 @@ pkg_pretend() {
 	pre_build_checks
 
 	if use headless; then
-		local headless_unused_flags=("cups" "kerberos" "pulseaudio" "qt5" "vaapi" "wayland")
+		local headless_unused_flags=("cups" "kerberos" "pulseaudio" "qt5" "qt6" "vaapi" "wayland")
 		for myiuse in ${headless_unused_flags[@]}; do
 			use ${myiuse} && ewarn "Ignoring USE=${myiuse} since USE=headless is set."
 		done
@@ -313,7 +320,6 @@ pkg_setup() {
 	fi
 
 	chromium_suid_sandbox_check_kernel_config
-
 }
 
 src_prepare() {
@@ -324,42 +330,17 @@ src_prepare() {
 	sed -i -e \
 		"/\"GlobalMediaControlsCastStartStop\",/{n;s/ENABLED/DISABLED/;}" \
 		"chrome/browser/media/router/media_router_feature.cc" || die
-	# Tis lazy, but tidy this up in 115.
-	pushd "${WORKDIR}/chromium-112-gcc-13-patches/" || die
-		rm chromium-112-gcc-13-0002-perfetto.patch || die
-		rm chromium-112-gcc-13-0004-swiftshader.patch || die
-		rm chromium-112-gcc-13-0007-misc.patch || die
-		rm chromium-112-gcc-13-0008-dawn.patch || die
-		rm chromium-112-gcc-13-0009-base.patch || die
-		rm chromium-112-gcc-13-0010-components.patch || die
-		rm chromium-112-gcc-13-0011-s2cellid.patch || die
-		rm chromium-112-gcc-13-0012-webrtc-base64.patch || die
-		rm chromium-112-gcc-13-0013-quiche.patch || die
-		rm chromium-112-gcc-13-0015-net.patch || die
-		rm chromium-112-gcc-13-0016-cc-targetproperty.patch || die
-		rm chromium-112-gcc-13-0017-gpu_feature_info.patch || die
-		rm chromium-112-gcc-13-0018-encounteredsurfacetracker.patch || die
-		rm chromium-112-gcc-13-0019-documentattachmentinfo.patch  || die
-		rm chromium-112-gcc-13-0020-pdfium.patch || die
-		rm chromium-112-gcc-13-0021-gcc-copy-list-init-net-HostCache.patch || die
-		rm chromium-112-gcc-13-0022-gcc-ambiguous-ViewTransitionElementId-type.patch || die
-		rm chromium-112-gcc-13-0023-gcc-incomplete-type-v8-subtype.patch || die
-	popd || die
 
 	local PATCHES=(
+		"${WORKDIR}/patches"
 		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
+		"${FILESDIR}/chromium-qt6.patch"
 		"${FILESDIR}/chromium-98-gtk4-build.patch"
 		"${FILESDIR}/chromium-108-EnumTable-crash.patch"
-		"${FILESDIR}/chromium-109-system-openh264.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
-		"${WORKDIR}/chromium-112-gcc-13-patches"
-		"${FILESDIR}/chromium-113-gcc-13-0001-vulkanmemoryallocator.patch"
-		"${FILESDIR}/chromium-113-swiftshader-cstdint.patch"
-		"${FILESDIR}/chromium-114-compiler.patch"
-		"${FILESDIR}/chromium-114-gcc12.patch"
-		"${FILESDIR}/chromium-114-sigsegv-dom.patch"
+
 	)
 
 	if use ppc64 ; then
@@ -553,6 +534,7 @@ src_prepare() {
 		third_party/private_membership
 		third_party/protobuf
 		third_party/pthreadpool
+		third_party/puffin
 		third_party/pyjson5
 		third_party/pyyaml
 		third_party/qcms
@@ -971,17 +953,30 @@ chromium_configure() {
 		myconf_gn+=" use_system_libdrm=true"
 		myconf_gn+=" use_system_minigbm=true"
 		myconf_gn+=" use_xkbcommon=true"
-		if use qt5; then
-			local moc_dir="$(qt5_get_bindir)"
+		if use qt5 || use qt6; then
+			local cbuild_libdir=$(get_libdir)
 			if tc-is-cross-compiler; then
 				# Hack to workaround get_libdir not being able to handle CBUILD, bug #794181
 				local cbuild_libdir=$($(tc-getBUILD_PKG_CONFIG) --keep-system-libs --libs-only-L libxslt)
 				cbuild_libdir=${cbuild_libdir:2}
-				moc_dir="${EPREFIX}"/${cbuild_libdir/% }/qt5/bin
+				cbuild_libdir=${cbuild_libdir/% }
 			fi
-			export PATH="${PATH}:${moc_dir}"
+			if use qt5; then
+				if tc-is-cross-compiler; then
+					myconf_gn+=" moc_qt5_path=\"${EPREFIX}/${cbuild_libdir}/qt5/bin\""
+				else
+					myconf_gn+=" moc_qt5_path=\"$(qt5_get_bindir)\""
+				fi
+			fi
+			if use qt6; then
+				myconf_gn+=" moc_qt6_path=\"${EPREFIX}/usr/${cbuild_libdir}/qt6/libexec\""
+			fi
+
+			myconf_gn+=" use_qt=true"
+			myconf_gn+=" use_qt6=$(usex qt6 true false)"
+		else
+			myconf_gn+=" use_qt=false"
 		fi
-		myconf_gn+=" use_qt=$(usex qt5 true false)"
 		myconf_gn+=" ozone_platform_x11=$(usex X true false)"
 		myconf_gn+=" ozone_platform_wayland=$(usex wayland true false)"
 		myconf_gn+=" ozone_platform=$(usex wayland \"wayland\" \"x11\")"
@@ -1263,6 +1258,12 @@ pkg_postinst() {
 			elog "Chromium prefers GTK3 over GTK4 at runtime. To override this"
 			elog "behavior you need to pass --gtk-version=4, e.g. by adding it"
 			elog "to CHROMIUM_FLAGS in /etc/chromium/default."
+		fi
+		if use qt5 && use qt6; then
+			elog "Chromium automatically selects Qt5 or Qt6 based on your desktop"
+			elog "environment. To override you need to pass --qt-version=5 or"
+			elog "--qt-version=6, e.g. by adding it to CHROMIUM_FLAGS in"
+			elog "/etc/chromium/default."
 		fi
 	fi
 }
