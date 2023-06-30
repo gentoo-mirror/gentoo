@@ -1,7 +1,8 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit autotools multilib-minimal
 
 MY_P="${P/_/-}"
@@ -9,11 +10,13 @@ MY_P="${P/_/-}"
 DESCRIPTION="A lossy image compression format"
 HOMEPAGE="https://developers.google.com/speed/webp/download"
 SRC_URI="https://storage.googleapis.com/downloads.webmproject.org/releases/webp/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD"
 SLOT="0/7" # subslot = libwebp soname version
-[[ "${PV}" = *_rc* ]] || \
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+if [[ ${PV} != *_rc* ]] ; then
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+fi
 IUSE="cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 gif +jpeg opengl +png static-libs swap-16bit-csp tiff"
 
 # TODO: dev-lang/swig bindings in swig/ subdirectory
@@ -22,18 +25,18 @@ RDEPEND="gif? ( media-libs/giflib:= )
 	opengl? (
 		media-libs/freeglut
 		virtual/opengl
-		)
+	)
 	png? ( media-libs/libpng:= )
 	tiff? ( media-libs/tiff:= )"
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${MY_P}"
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.2.3-libpng-pkg-config.patch
+)
 
 src_prepare() {
 	default
-
-	# Fix libtool relinking, bug 499270.
-	#elibtoolize
+	# Needed for pkg-config patch; use elibtoolize instead if that's ever dropped
 	eautoreconf
 }
 
@@ -53,7 +56,7 @@ multilib_src_configure() {
 		$(use_enable cpu_flags_x86_sse4_1 sse4.1)
 		$(use_enable cpu_flags_arm_neon neon)
 
-		# Only used for gif2webp binary wrt #486646
+		# Only used for gif2webp binary wrt bug #486646
 		$(multilib_native_use_enable gif)
 	)
 
@@ -66,5 +69,5 @@ multilib_src_install() {
 
 multilib_src_install_all() {
 	find "${ED}" -type f -name "*.la" -delete || die
-	dodoc AUTHORS ChangeLog doc/*.txt NEWS README{,.mux}
+	dodoc AUTHORS ChangeLog doc/*.txt NEWS README.md
 }
