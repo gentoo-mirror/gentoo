@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby30 ruby31 ruby32"
 
 RUBY_FAKEGEM_GEMSPEC="puma.gemspec"
 
@@ -58,5 +58,7 @@ all_ruby_prepare() {
 
 each_ruby_test() {
 	einfo "Running test suite"
-	PUMA_CI_RACK_2=true ${RUBY} -Ilib:.:test -e "gem 'minitest', '~>5.9'; gem 'test-unit', '~>3.0'; gem 'rack', '<3'; require 'minitest/autorun'; Dir['test/**/*test_*.rb'].each{|f| require f}" || die
+	PUMA_CI_RACK_2=true \
+	${RUBY} -Ilib:.:test \
+		-e "gem 'rack', '<3'; require 'minitest/autorun'; Dir['test/**/*test_*.rb'].each{require _1}" || die
 }
