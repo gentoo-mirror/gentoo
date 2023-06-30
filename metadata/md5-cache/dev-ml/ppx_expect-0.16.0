@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/ppxlib-0.28.0:= >=dev-ml/re-1.8.0:= dev-ml/base:0/0.16 dev-ml/ppx_here:0/0.16 dev-ml/ppx_inline_test:0/0.16 dev-ml/stdio:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Cram like framework for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/ppx_expect
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-ml/ppxlib-0.28.0:= >=dev-ml/re-1.8.0:= dev-ml/base:0/0.16 dev-ml/ppx_here:0/0.16 dev-ml/ppx_inline_test:0/0.16 dev-ml/stdio:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/0.16
+SRC_URI=https://github.com/janestreet/ppx_expect/archive/v0.16.0.tar.gz -> ppx_expect-0.16.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=5317b516bf3b7961de6bb7bf24f0ad81
