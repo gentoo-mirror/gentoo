@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools desktop gnome2-utils xdg-utils
+inherit autotools desktop gnome2-utils
 
 DESCRIPTION="Electronic Identity Card middleware supplied by the Belgian Federal Government"
 HOMEPAGE="https://eid.belgium.be"
@@ -54,9 +54,10 @@ src_prepare() {
 		-e "s:get_lsb_info('c'):strdup(_(\"n/a\")):" \
 		plugins_tools/aboutmw/gtk/about-main.c || die
 
-	# Fix libdir for pkcs11_manifestdir
+	# Fix libdir for manifestdir
 	sed -i \
 		-e "/pkcs11_manifestdir/ s:prefix)/lib:libdir):" \
+		-e "/managed_storage_manifestdir/ s:prefix)/lib:libdir):" \
 		cardcomm/pkcs11/src/Makefile.am || die
 
 	# See bug #732994
