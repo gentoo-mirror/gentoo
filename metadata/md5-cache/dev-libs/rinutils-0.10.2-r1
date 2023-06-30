@@ -1,6 +1,5 @@
-BDEPEND=test? ( dev-perl/Env-Path dev-perl/Path-Tiny dev-perl/Inline dev-perl/Inline-C dev-perl/Test-TrailingSpace dev-perl/Test-Differences dev-perl/IO-All dev-perl/Perl-Critic dev-perl/Perl-Tidy dev-perl/Test-Pod dev-perl/Test-Pod-Coverage dev-perl/Test-Trap ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=test? ( dev-perl/Env-Path dev-perl/Path-Tiny dev-perl/Inline dev-perl/Inline-C dev-perl/Test-TrailingSpace dev-perl/Test-Differences dev-perl/IO-All dev-perl/Perl-Critic dev-perl/Perl-Tidy dev-perl/Test-Pod dev-perl/Test-Pod-Coverage dev-perl/Test-Trap dev-util/cmocka ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=test? ( dev-util/cmocka )
 DESCRIPTION=Set of C headers containing macros and static functions
 EAPI=8
 HOMEPAGE=https://www.shlomifish.org/open-source/projects/ https://github.com/shlomif/rinutils
@@ -12,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/shlomif/rinutils/releases/download/0.10.2/rinutils-0.10.2.tar.xz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	1abaebfe913f48975739281ab7d7ab75
-_md5_=bcb47af22247750b622bd21ead645c61
+_md5_=b22f0b04a817dfe1323fc9e3f097b2dd

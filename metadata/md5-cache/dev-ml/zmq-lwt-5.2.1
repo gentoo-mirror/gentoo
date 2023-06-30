@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune-configurator test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/lwt:= dev-ml/zmq:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Lwt-aware bindings to ZMQ for OCaml
 EAPI=8
 HOMEPAGE=https://github.com/issuu/ocaml-zmq/
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/5.2.1
 SRC_URI=https://github.com/issuu/ocaml-zmq/archive/5.2.1.tar.gz -> ocaml-zmq-5.2.1.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
-_md5_=e6beca17e17680319b1e04ce583ceb5f
+_md5_=c5e01a7c4db1e75839db6f62b31470ed
