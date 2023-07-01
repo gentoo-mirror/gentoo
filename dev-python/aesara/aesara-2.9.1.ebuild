@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/cons[${PYTHON_USEDEP}]
@@ -94,7 +94,7 @@ python_test() {
 	AESARA_FLAGS+=",config.gcc__cxxflags=\"${CXXFLAGS}\""
 	AESARA_FLAGS+=',compiledir_format="compiledir_%(thread_id)s"'
 
-	epytest -p xdist.plugin -n "$(makeopts_jobs)"
+	epytest -p xdist.plugin -n "$(makeopts_jobs)" --dist=worksteal
 	# clean up the compiledir, as it can grow pretty large
 	rm -r "${HOME}"/.aesara || die
 }
