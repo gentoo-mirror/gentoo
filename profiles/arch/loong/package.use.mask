@@ -1,6 +1,14 @@
 # Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# WANG Xuerui <xen0n@gentoo.org> (2023-07-01)
+# Upstream accepted vector asm for loong before corresponding assembler
+# support is ready, leading to build failures. Disable asm for the time being
+# before a fix is created.
+#
+# See https://github.com/openssl/openssl/issues/21340
+>=dev-libs/openssl-3.1 asm
+
 # WANG Xuerui <xen0n@gentoo.org> (2023-06-03)
 # sys-cluster/knem not keyworded yet
 # sys-cluster/torque fails to build (seemingly because of incompatible hwloc)
@@ -178,8 +186,10 @@ mate-base/mate help
 # UBSan: https://reviews.llvm.org/D139292 (LLVM 16 since 20221208)
 # SafeStack: https://reviews.llvm.org/D139494 (LLVM 16 since 20221210)
 # LSan: https://reviews.llvm.org/D139686 (LLVM 16 since 20230114)
+# MSan: https://reviews.llvm.org/D152692 (LLVM 17 since 20230629)
 >=sys-libs/compiler-rt-sanitizers-15 -asan
->=sys-libs/compiler-rt-sanitizers-16.0.0_rc1 -lsan -safestack -scudo -tsan -ubsan
+>=sys-libs/compiler-rt-sanitizers-16 -lsan -safestack -scudo -tsan -ubsan
+>=sys-libs/compiler-rt-sanitizers-17.0.0_pre20230630 -msan
 
 # WANG Xuerui <xen0n@gentoo.org> (2022-07-08)
 # virtual/{jdk,jre} is not available on loong yet.
