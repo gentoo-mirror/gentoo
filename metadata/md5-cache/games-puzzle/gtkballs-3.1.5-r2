@@ -1,14 +1,15 @@
+BDEPEND=virtual/pkgconfig nls? ( >=sys-devel/gettext-0.10.38 )
 DEFINED_PHASES=configure install prepare
-DEPEND=x11-libs/gtk+:2 nls? ( virtual/libintl ) virtual/pkgconfig nls? ( >=sys-devel/gettext-0.10.38 )
+DEPEND=x11-libs/gtk+:2 nls? ( virtual/libintl )
 DESCRIPTION=An entertaining game based on the old DOS game lines
-EAPI=6
+EAPI=8
 HOMEPAGE=http://gtkballs.antex.ru/
 INHERIT=desktop
 IUSE=nls
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=x11-libs/gtk+:2 nls? ( virtual/libintl )
 SLOT=0
 SRC_URI=http://gtkballs.antex.ru/dist/gtkballs-3.1.5.tar.gz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d
-_md5_=73c20bf967cb11593ef98ecc9a728a01
+_md5_=611f5badebf883fd2452a56c60e2da19
