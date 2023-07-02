@@ -212,7 +212,7 @@ _distutils_set_globals() {
 		case ${DISTUTILS_USE_PEP517} in
 			flit)
 				bdep+='
-					>=dev-python/flit-core-3.8.0[${PYTHON_USEDEP}]
+					>=dev-python/flit-core-3.9.0[${PYTHON_USEDEP}]
 				'
 				;;
 			flit_scm)
@@ -256,12 +256,17 @@ _distutils_set_globals() {
 				;;
 			pdm-backend)
 				bdep+='
-					>=dev-python/pdm-backend-2.0.7[${PYTHON_USEDEP}]
+					>=dev-python/pdm-backend-2.1.0[${PYTHON_USEDEP}]
 				'
 				;;
 			poetry)
 				bdep+='
-					>=dev-python/poetry-core-1.5.2[${PYTHON_USEDEP}]
+					>=dev-python/poetry-core-1.6.1[${PYTHON_USEDEP}]
+				'
+				;;
+			scikit-build-core)
+				bdep+='
+					>=dev-python/scikit-build-core-0.4.6[${PYTHON_USEDEP}]
 				'
 				;;
 			setuptools)
@@ -272,7 +277,7 @@ _distutils_set_globals() {
 				;;
 			sip)
 				bdep+='
-					>=dev-python/sip-6.7.8[${PYTHON_USEDEP}]
+					>=dev-python/sip-6.7.9[${PYTHON_USEDEP}]
 				'
 				;;
 			standalone)
@@ -287,7 +292,7 @@ _distutils_set_globals() {
 			eqawarn "is enabled."
 		fi
 	else
-		local setuptools_dep='>=dev-python/setuptools-65.7.0[${PYTHON_USEDEP}]'
+		local setuptools_dep='>=dev-python/setuptools-67.7.2[${PYTHON_USEDEP}]'
 
 		case ${DISTUTILS_USE_SETUPTOOLS:-bdepend} in
 			no|manual)
@@ -1002,9 +1007,15 @@ _distutils-r1_print_package_versions() {
 					dev-python/poetry-core
 				)
 				;;
+			scikit-build-core)
+				packages+=(
+					dev-python/scikit-build-core
+				)
+				;;
 			setuptools)
 				packages+=(
 					dev-python/setuptools
+					dev-python/setuptools-rust
 					dev-python/setuptools-scm
 					dev-python/wheel
 				)
@@ -1199,6 +1210,9 @@ _distutils-r1_backend_to_key() {
 			;;
 		poetry.core.masonry.api|poetry.masonry.api)
 			echo poetry
+			;;
+		scikit_build_core.build)
+			echo scikit-build-core
 			;;
 		setuptools.build_meta|setuptools.build_meta:__legacy__)
 			echo setuptools
