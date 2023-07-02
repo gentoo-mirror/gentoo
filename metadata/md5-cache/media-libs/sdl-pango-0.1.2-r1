@@ -2,7 +2,7 @@ DEFINED_PHASES=configure install prepare unpack
 DEPEND=x11-libs/pango media-libs/libsdl[video] virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DESCRIPTION=connect the text rendering engine of GNOME to SDL
 EAPI=6
-HOMEPAGE=http://sdlpango.sourceforge.net/
+HOMEPAGE=https://sdlpango.sourceforge.net/
 INHERIT=autotools
 IUSE=static-libs
 KEYWORDS=~alpha amd64 ~hppa ~ia64 ppc sparc x86
@@ -11,4 +11,4 @@ RDEPEND=x11-libs/pango media-libs/libsdl[video]
 SLOT=0
 SRC_URI=mirror://sourceforge/sdlpango/SDL_Pango-0.1.2.tar.gz http://zarb.org/~gc/t/SDL_Pango-0.1.2-API-adds.patch
 _eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=fcb9196d13acecb33f8b558ce9ed0faa
+_md5_=94cb1ba0114ca0cc4b3c8e72e64baa12
