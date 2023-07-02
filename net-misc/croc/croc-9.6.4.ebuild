@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,8 +7,8 @@ inherit bash-completion-r1 go-module systemd
 
 DESCRIPTION="Easily and securely send things from one computer to another"
 HOMEPAGE="https://github.com/schollz/croc"
-
-SRC_URI="https://github.com/schollz/croc/releases/download/v${PV}/${PN}_${PV}_src.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/schollz/croc/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://dev.gentoo.org/~sultan/distfiles/net-misc/croc/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
