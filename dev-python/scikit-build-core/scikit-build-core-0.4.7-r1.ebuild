@@ -41,6 +41,10 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-setuptools-hooks.patch
+)
+
 distutils_enable_tests pytest
 
 python_test() {
