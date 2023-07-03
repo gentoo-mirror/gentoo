@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..11} )
 LUA_COMPAT=( lua5-{1,2,3,4} luajit )
 
 inherit meson lua-single python-any-r1
@@ -22,8 +22,9 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="bittorrent brotli bzip2 debug finger ftp gopher gpm gnutls guile idn
-	lua lzma +mouse nls nntp perl samba ssl tre unicode X xml zlib zstd"
+IUSE="bittorrent brotli bzip2 debug finger ftp gopher gpm gnutls guile idn"
+IUSE+=" javascript lua lzma +mouse nls nntp perl samba ssl test tre unicode X xml zlib zstd"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
 RDEPEND="
@@ -35,6 +36,10 @@ RDEPEND="
 	)
 	guile? ( >=dev-scheme/guile-1.6.4-r1[deprecated] )
 	idn? ( net-dns/libidn:= )
+	javascript? (
+		dev-cpp/libxmlpp:5.0
+		dev-lang/mujs:=
+	)
 	lua? ( ${LUA_DEPS} )
 	lzma? ( app-arch/xz-utils )
 	perl? ( dev-lang/perl:= )
@@ -52,15 +57,19 @@ RDEPEND="
 	zlib? ( >=sys-libs/zlib-1.1.4 )
 	zstd? ( app-arch/zstd:= )
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	X? ( x11-base/xorg-proto )"
 BDEPEND="
 	${PYTHON_DEPS}
-	nls? ( sys-devel/gettext )
 	virtual/pkgconfig
+	nls? ( sys-devel/gettext )
+	test? (
+		net-dns/libidn
+	)
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-no-mouse-build.patch
+	"${FILESDIR}"/${PN}-0.16.1.1-perl-5.38.patch
 )
 
 pkg_setup() {
@@ -71,6 +80,9 @@ pkg_setup() {
 
 src_configure() {
 	local emesonargs=(
+		-Ddocdir="${EPREFIX}"/usr/share/doc/${PF}
+		-Dhtmldoc=false
+		-Dpdfdoc=false
 		-D88-colors=true
 		-D256-colors=true
 		$(meson_use bittorrent)
@@ -81,13 +93,14 @@ src_configure() {
 		$(meson_use ftp)
 		-Dfsp=false
 		-Dgemini=false
-		-Dgettext=true
+		$(meson_use nls gettext)
 		$(meson_use gopher)
 		$(meson_use gpm)
 		$(meson_use guile)
 		-Dgssapi=false
 		-Dhtml-highlight=true
 		$(meson_use idn)
+		$(meson_use javascript mujs)
 		-Dipv6=true
 		-Dleds=true
 		-Dlibev=false
@@ -106,6 +119,7 @@ src_configure() {
 		-Dsm-scripting=false
 		-Dspidermonkey=false
 		-Dterminfo=true
+		$(meson_use test)
 		$(meson_use tre)
 		-Dtrue-color=true
 		$(meson_use xml xbel)
