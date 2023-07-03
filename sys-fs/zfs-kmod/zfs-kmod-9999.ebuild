@@ -22,7 +22,7 @@ else
 	MY_PV=${PV/_rc/-rc}
 	SRC_URI="https://github.com/openzfs/zfs/releases/download/zfs-${MY_PV}/zfs-${MY_PV}.tar.gz"
 	SRC_URI+=" verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-${MY_PV}/zfs-${MY_PV}.tar.gz.asc )"
-	S="${WORKDIR}/zfs-${PV%_rc?}"
+	S="${WORKDIR}/zfs-${MY_PV}"
 
 	ZFS_KERNEL_COMPAT="${MODULES_KERNEL_MAX}"
 	# Increments minor eg 5.14 -> 5.15, and still supports override.
@@ -40,8 +40,8 @@ IUSE="custom-cflags debug +rootfs"
 RESTRICT="test"
 
 BDEPEND="
-	dev-lang/perl
 	app-alternatives/awk
+	dev-lang/perl
 "
 
 if [[ ${PV} != 9999 ]] ; then
@@ -183,10 +183,10 @@ _old_layout_cleanup() {
 }
 
 pkg_postinst() {
-	# check for old module layout before doing anything else.
+	# Check for old module layout before doing anything else.
 	# only attempt layout cleanup if new .ko location is used.
 	local newko=( "${EROOT}/lib/modules/${KV_FULL}/extra"/{zfs,spl}.ko* )
-	# we check first array member, if glob above did not exand, it will be "zfs.ko*" and -f will return false.
+	# We check first array member, if glob above did not exand, it will be "zfs.ko*" and -f will return false.
 	# if glob expanded -f will do correct file precense check.
 	[[ -f ${newko[0]} ]] && _old_layout_cleanup
 
