@@ -10,12 +10,14 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://code.videolan.org/videolan/libplacebo.git"
 	inherit git-r3
 else
+	MY_PV=${PV/_/-}
 	GLAD_PV=2.0.4
 	SRC_URI="
-		https://code.videolan.org/videolan/libplacebo/-/archive/v${PV}/libplacebo-v${PV}.tar.bz2
+		https://code.videolan.org/videolan/libplacebo/-/archive/v${MY_PV}/libplacebo-v${MY_PV}.tar.bz2
 		opengl? ( https://github.com/Dav1dde/glad/archive/refs/tags/v${GLAD_PV}.tar.gz -> ${PN}-glad-${GLAD_PV}.tar.gz )"
-	S="${WORKDIR}/${PN}-v${PV}"
-	KEYWORDS="~amd64 ~ppc64 ~x86"
+	S="${WORKDIR}/${PN}-v${MY_PV}"
+	# unkeyworded _rc for use with mpv-9999 if not using libplacebo-9999
+	#KEYWORDS="~amd64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Reusable library for GPU-accelerated image processing primitives"
