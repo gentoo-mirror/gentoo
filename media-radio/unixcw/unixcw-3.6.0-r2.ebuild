@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools flag-o-matic
 
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ppc x86"
+KEYWORDS="~alpha ~amd64 ~ppc ~x86"
 IUSE="alsa ncurses pulseaudio suid test qt5"
 RESTRICT="!test? ( test )"
 
@@ -21,8 +21,8 @@ RDEPEND="ncurses? ( sys-libs/ncurses:= )
 		dev-qt/qtwidgets:5 )
 	alsa? ( media-libs/alsa-lib )
 	pulseaudio? ( media-libs/libpulse )"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig
 	sys-devel/libtool"
 
 src_prepare() {
@@ -37,7 +37,7 @@ src_prepare() {
 }
 
 src_configure() {
-	econf --libdir=/usr/$(get_libdir) \
+	econf --libdir="${EPREFIX}/usr/$(get_libdir)" \
 		$(use_enable pulseaudio ) \
 		$(use_enable alsa ) \
 		$(use_enable ncurses cwcp ) \
@@ -46,9 +46,8 @@ src_configure() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
-	find "${D}" -name '*.la' -type f -delete || die
-	dodoc ChangeLog NEWS README
+	default
+
 	if ! use suid ; then
 		fperms 711 /usr/bin/cw
 		if use ncurses ; then
@@ -58,6 +57,8 @@ src_install() {
 			fperms 711 /usr/bin/xcwcp
 		fi
 	fi
+
+	find "${D}" -name '*.la' -type f -delete || die
 }
 
 pkg_postinst() {
