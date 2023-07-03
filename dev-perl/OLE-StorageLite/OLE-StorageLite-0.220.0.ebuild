@@ -5,7 +5,7 @@ EAPI=8
 
 DIST_NAME=OLE-Storage_Lite
 DIST_AUTHOR=JMCNAMARA
-DIST_VERSION=0.21
+DIST_VERSION=0.22
 inherit perl-module
 
 DESCRIPTION="Simple Class for OLE document interface"
