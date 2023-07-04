@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=haproxy dataplane api / sidecar
+EAPI=8
+HOMEPAGE=https://github.com/haproxytech/dataplaneapi https://www.haproxy.com/documentation/dataplaneapi/latest/
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=BSD
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/haproxytech/dataplaneapi/archive/v2.8.0.tar.gz -> haproxy-dataplaneapi-2.8.0.tar.gz http://gentooexperimental.org/~patrick/haproxy-dataplaneapi-2.8.0-vendor.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22
+_md5_=f2779bc8be22608634ff7f682cb8bdba
