@@ -5508,6 +5508,8 @@ net-dns/hash-slinger:ipsec - Enable support for IPSECKEY records (ipseckey)
 net-dns/hash-slinger:openpgp - Enable support for OPENPGPKEY records (openpgpkey)
 net-dns/hash-slinger:ssh - Enable support for SSHFP records (sshfp)
 net-dns/idnkit:liteonly - Compile and install lite library only
+net-dns/inadyn:mbedtls - Use net-libs/mbedtls as tls provider.
+net-dns/inadyn:openssl - Use dev-libs/openssl as tls provider.
 net-dns/knot:cookies - Enable the DNS cookie module (RFC 7873)
 net-dns/knot:dnsproxy - Enable the tiny DNS proxy module
 net-dns/knot:dnstap - Include support for the dnstap binary log format (http://dnstap.info/)
@@ -8631,12 +8633,13 @@ www-client/lynx:ssl - Enable HTTPS support.
 www-client/microsoft-edge:mip - Install Microsoft Information Protection plugin.
 www-client/microsoft-edge-beta:mip - Install Microsoft Information Protection plugin.
 www-client/microsoft-edge-dev:mip - Install Microsoft Information Protection plugin.
-www-client/netsurf:bmp - BMP bitmap image support (media-libs/libnsbmp)
+www-client/netsurf:bmp - Bitmap (BMP and ICO) image support via media-libs/libnsbmp
 www-client/netsurf:gtk - Build GTK3 GUI
 www-client/netsurf:gtk2 - Build GTK2 GUI
-www-client/netsurf:psl - Use public suffix list via media-libs/libnspsl
-www-client/netsurf:rosprite - RISC OS Sprite bitmap image support (media-libs/librosprite)
-www-client/netsurf:svgtiny - SVG image support via media-libs/svgatiny instead of gnome-base/librsvg
+www-client/netsurf:psl - Use public suffix list from media-libs/libnspsl to detect supercookies (recommended)
+www-client/netsurf:rosprite - RISC OS Sprite bitmap image support via media-libs/librosprite
+www-client/netsurf:svgtiny - Use media-libs/libsvgtiny instead of gnome-base/librsvg for SVG support
+www-client/netsurf:truetype - Use media-libs/freetype for text in the framebuffer frontend
 www-client/opera:proprietary-codecs - Enable codecs for patent-encumbered audio and video formats.
 www-client/opera-beta:proprietary-codecs - Enable codecs for patent-encumbered audio and video formats.
 www-client/opera-developer:proprietary-codecs - Enable codecs for patent-encumbered audio and video formats.
