@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit distutils-r1 pypi
 
@@ -20,7 +20,7 @@ KEYWORDS=""
 
 RDEPEND="
 	>=dev-python/annotated-types-0.4.0[${PYTHON_USEDEP}]
-	~dev-python/pydantic-core-0.39.0[${PYTHON_USEDEP}]
+	~dev-python/pydantic-core-2.0.2[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.6.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -35,10 +35,7 @@ BDEPEND="
 distutils_enable_tests pytest
 
 python_test() {
-	local EPYTEST_DESELECT=(
-		# expect -Werror
-		tests/test_deprecated.py::test_extra_used_as_enum
-	)
+	local EPYTEST_DESELECT=()
 	local EPYTEST_IGNORE=(
 		# require pytest-examples
 		tests/test_docs.py

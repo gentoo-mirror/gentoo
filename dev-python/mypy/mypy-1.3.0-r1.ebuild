@@ -27,8 +27,6 @@ KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 
 RDEPEND="
 	!dev-util/stubgen
 	>=dev-python/psutil-4[${PYTHON_USEDEP}]
-	>=dev-python/typed-ast-1.4.0[${PYTHON_USEDEP}]
-	<dev-python/typed-ast-2[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-3.10[${PYTHON_USEDEP}]
 	>=dev-python/mypy_extensions-1.0.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
@@ -40,11 +38,11 @@ BDEPEND="
 		>=dev-python/attrs-18.0[${PYTHON_USEDEP}]
 		>=dev-python/filelock-3.3.0[${PYTHON_USEDEP}]
 		>=dev-python/lxml-4.4.0[${PYTHON_USEDEP}]
+		<dev-python/pytest-7.4.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-6.1.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-xdist-1.18[${PYTHON_USEDEP}]
 		>=dev-python/py-1.5.2[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
-		>=dev-python/typed-ast-1.4.0[${PYTHON_USEDEP}]
 		>=dev-python/virtualenv-16.0.0[${PYTHON_USEDEP}]
 	)
 "
@@ -64,5 +62,5 @@ python_test() {
 	# Some mypy/test/testcmdline.py::PythonCmdlineSuite tests
 	# fail with high COLUMNS values
 	local -x COLUMNS=80
-	epytest -n "$(makeopts_jobs)"
+	epytest -n "$(makeopts_jobs)" --dist=worksteal
 }
