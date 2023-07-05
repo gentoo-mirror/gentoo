@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( pypy3 python3_{9..11} )
+PYTHON_COMPAT=( pypy3 python3_{10..11} )
 
 inherit distutils-r1 pypi
 
@@ -36,10 +36,8 @@ BDEPEND="
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
 
-python_prepare_all() {
-	# Override pytest options to skip coverage and flake8
-	sed -e '/^addopts =/d' -i setup.cfg || die
-	distutils-r1_python_prepare_all
+python_test() {
+	epytest -o addopts=
 }
 
 python_install_all() {
