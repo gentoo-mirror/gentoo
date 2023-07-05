@@ -30,10 +30,13 @@ RDEPEND=">=dev-libs/rocr-runtime-5.3
 	>=dev-libs/rocm-device-libs-5.3
 	>=virtual/opencl-3
 	media-libs/mesa"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-util/opencl-headers"
 BDEPEND=">=dev-util/rocm-cmake-5.3
-	media-libs/glew
-	test? ( >=x11-apps/mesa-progs-8.5.0[X] )
+	test? (
+		>=x11-apps/mesa-progs-8.5.0[X]
+		media-libs/glew
+	)
 	"
 
 CLR_S="${WORKDIR}/ROCclr-rocm-${PV}"
