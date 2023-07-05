@@ -5,20 +5,18 @@ EAPI=8
 
 USE_RUBY="ruby30 ruby31 ruby32"
 
+RUBY_FAKEGEM_EXTRADOC="README.markdown"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
-
-RUBY_FAKEGEM_EXTRADOC="README.md"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Simple Hash extension to make working with nested hashes easier"
-HOMEPAGE="https://github.com/svenfuchs/hashr"
-
+DESCRIPTION="Easy and customizable generation of forged data"
+HOMEPAGE="https://github.com/sevenwire/forgery"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
 all_ruby_prepare() {
-	sed -i -e '1i require "spec_helper"' spec/hashr/delegate/conditional_spec.rb || die
+	sed -i -e '/[Bb]undler/d' Rakefile spec/spec_helper.rb || die
 }
