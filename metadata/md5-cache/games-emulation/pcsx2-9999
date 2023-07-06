@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/qttools:6[linguist] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-qt/qttools:6[linguist] wayland? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DEPEND=app-arch/xz-utils app-arch/zstd:= dev-cpp/rapidyaml:= dev-libs/libaio dev-libs/libchdr dev-libs/libzip:=[zstd] dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtsvg:6 media-libs/libglvnd media-libs/libpng:= >=media-libs/libsdl2-2.0.22[haptic,joystick] media-video/ffmpeg:= net-libs/libpcap net-misc/curl sys-libs/zlib:= virtual/libudev:= x11-libs/libXrandr alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) jack? ( virtual/jack ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) x11-base/xorg-proto test? ( dev-cpp/gtest )
 DESCRIPTION=PlayStation 2 emulator
@@ -14,4 +14,4 @@ REQUIRED_USE=cpu_flags_x86_sse4_1
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	desktop	021728fdc1b03b36357dbc89489e0f0d	fcaps	c0a086b957a1b183a8d136eabf02f191	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=8a9937e05d728556aa32c91c2ad8f3e7
+_md5_=761a5fe75d23a22cf9bccd9d2260bce5
