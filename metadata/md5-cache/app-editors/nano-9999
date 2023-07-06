@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install postrm prepare unpack
 DEPEND=!static? ( >=sys-libs/ncurses-5.9-r1:=[unicode(+)?] sys-libs/ncurses:= magic? ( sys-apps/file ) nls? ( virtual/libintl ) ) static? ( >=sys-libs/ncurses-5.9-r1:=[unicode(+)?] sys-libs/ncurses:=[static-libs(+)] magic? ( sys-apps/file[static-libs(+)] ) nls? ( virtual/libintl ) )
 DESCRIPTION=GNU GPL'd Pico clone with more functionality
 EAPI=8
-HOMEPAGE=https://www.nano-editor.org/ https://wiki.gentoo.org/wiki/Nano/Basics_Guide
+HOMEPAGE=https://www.nano-editor.org/ https://wiki.gentoo.org/wiki/Nano/Guide
 INHERIT=flag-o-matic autotools git-r3
 IUSE=debug justify magic minimal ncurses nls +spell static unicode
 LICENSE=GPL-3+ LGPL-2.1+ || ( GPL-3+ FDL-1.2+ )
@@ -12,4 +12,4 @@ RDEPEND=!static? ( >=sys-libs/ncurses-5.9-r1:=[unicode(+)?] sys-libs/ncurses:= m
 REQUIRED_USE=magic? ( !minimal )
 SLOT=0
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=8db67c1c72c9e2c416035ee1794f7692
+_md5_=74cbce4465dbcd99d7cf00a036616d07
