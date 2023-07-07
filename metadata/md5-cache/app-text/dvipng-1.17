@@ -2,7 +2,7 @@ DEFINED_PHASES=configure
 DEPEND=>=dev-libs/kpathsea-6.2.1:= media-libs/gd:2=[jpeg,png] media-libs/libpng:0= virtual/latex-base sys-libs/zlib truetype? ( >=media-libs/freetype-2.1.5 ) virtual/texi2dvi virtual/pkgconfig test? ( dev-texlive/texlive-fontsrecommended )
 DESCRIPTION=Translate DVI files into PNG or GIF graphics
 EAPI=7
-HOMEPAGE=http://dvipng.sourceforge.net/
+HOMEPAGE=https://dvipng.sourceforge.net/
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=truetype test
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/dvipng/dvipng-1.17.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10
-_md5_=b0517922c628a4eaa0fdd4bf32494a6b
+_md5_=d4413d6ed7e7967e8be46003c742a86a
