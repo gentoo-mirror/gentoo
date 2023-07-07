@@ -7,7 +7,7 @@ MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit autotools flag-o-matic multilib multilib-build toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=7.4.0
+WINE_MONO=8.0.0
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -28,11 +28,11 @@ LICENSE="LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
 SLOT="${PV}"
 IUSE="
 	+X +abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups dos
-	llvm-libunwind debug custom-cflags +fontconfig +gecko gphoto2
-	+gstreamer kerberos +mingw +mono netapi nls odbc opencl +opengl
-	osmesa pcap perl pulseaudio samba scanner +sdl selinux smartcard
-	+ssl +truetype udev udisks +unwind usb v4l +vulkan wayland
-	+xcomposite xinerama"
+	llvm-libunwind custom-cflags +fontconfig +gecko gphoto2 +gstreamer
+	kerberos +mingw +mono netapi nls odbc opencl +opengl osmesa pcap
+	perl pulseaudio samba scanner +sdl selinux smartcard +ssl +strip
+	+truetype udev udisks +unwind usb v4l +vulkan wayland +xcomposite
+	xinerama"
 REQUIRED_USE="
 	X? ( truetype )
 	crossdev-mingw? ( mingw )" # bug #551124 for truetype
@@ -271,8 +271,6 @@ src_configure() {
 
 			# use *FLAGS for mingw, but strip unsupported
 			: "${CROSSCFLAGS:=$(
-				# >=wine-7.21 configure.ac no longer adds -fno-strict by mistake
-				append-cflags '-fno-strict-aliasing'
 				filter-flags '-fstack-protector*' #870136
 				filter-flags '-mfunction-return=thunk*' #878849
 				# -mavx with mingw-gcc has a history of obscure issues and
@@ -323,13 +321,17 @@ src_install() {
 		make_wrapper "${bin##*/}-${P#wine-}" "${bin#"${ED}"}"
 	done
 
-	# don't let portage try to strip PE files with the wrong
-	# strip executable and instead handle it here (saves ~120MB)
 	if use mingw; then
+		# don't let portage try to strip PE files with the wrong
+		# strip executable and instead handle it here (saves ~120MB)
 		dostrip -x ${WINE_PREFIX}/wine/{i386,x86_64}-windows
-		use debug ||
+
+		if use strip; then
+			ebegin "Stripping Windows (PE) binaries"
 			find "${ED}"${WINE_PREFIX}/wine/*-windows -regex '.*\.\(a\|dll\|exe\)' \
-				-exec $(usex abi_x86_64 x86_64 i686)-w64-mingw32-strip --strip-unneeded {} + || die
+				-exec $(usex abi_x86_64 x86_64 i686)-w64-mingw32-strip --strip-unneeded {} +
+			eend ${?} || die
+		fi
 	fi
 
 	dodoc ANNOUNCE AUTHORS README* documentation/README*
