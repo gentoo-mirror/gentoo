@@ -43,7 +43,7 @@ RDEPEND="
 	x11-libs/pango
 	sound? (
 		|| (
-			media-sound/pulseaudio
+			media-libs/libpulse
 			media-sound/apulse
 		)
 	)
