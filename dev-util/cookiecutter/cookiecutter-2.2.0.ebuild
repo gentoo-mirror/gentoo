@@ -1,9 +1,10 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..12} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Command-line utility to create projects from cookiecutters (project templates)"
@@ -12,18 +13,18 @@ SRC_URI="https://github.com/cookiecutter/cookiecutter/archive/${PV}.tar.gz -> ${
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
+	dev-python/arrow[${PYTHON_USEDEP}]
 	>=dev-python/binaryornot-0.4.4[${PYTHON_USEDEP}]
 	>=dev-python/click-7.0[${PYTHON_USEDEP}]
+	<dev-python/click-9.0.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.7[${PYTHON_USEDEP}]
 	<dev-python/jinja-4.0.0[${PYTHON_USEDEP}]
-	>=dev-python/jinja2-time-0.2.0[${PYTHON_USEDEP}]
-	>=dev-python/poyo-0.5.0[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-5.3.1[${PYTHON_USEDEP}]
 	>=dev-python/python-slugify-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.23.0[${PYTHON_USEDEP}]
-	>=dev-python/six-1.10[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -41,9 +42,10 @@ PATCHES=(
 )
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs \
-	dev-python/sphinx-rtd-theme \
-	dev-python/recommonmark
+# TODO: Package sphinx-click
+# distutils_enable_sphinx docs \
+# 	dev-python/sphinx-rtd-theme \
+# 	dev-python/recommonmark
 
 python_test() {
 	epytest -o addopts=
