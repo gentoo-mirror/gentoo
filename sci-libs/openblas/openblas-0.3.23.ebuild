@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit flag-o-matic fortran-2 toolchain-funcs
+inherit fortran-2 toolchain-funcs
 
 DESCRIPTION="Optimized BLAS library based on GotoBLAS2"
 HOMEPAGE="https://github.com/xianyi/OpenBLAS"
@@ -26,9 +26,8 @@ RDEPEND="
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.3.12-shared-blas-lapack.patch"
-	"${FILESDIR}/${PN}-0.3.20-fix-riscv.patch"
-	"${FILESDIR}/${PN}-0.3.20-fix-loong.patch"
+	"${FILESDIR}/${PN}-0.3.23-shared-blas-lapack.patch"
+	"${FILESDIR}/${PN}-0.3.21-fix-loong.patch"
 )
 
 pkg_pretend() {
@@ -70,27 +69,22 @@ pkg_setup() {
 	fi
 	export USE_THREAD USE_OPENMP
 
-	# We need to filter these while building the library, and not just
-	# while building the test suite. Will hopefully get fixed upstream:
-	# https://github.com/xianyi/OpenBLAS/issues/2657
-	use test && filter-flags "-fbounds-check" "-fcheck=bounds" "-fcheck=all"
-
 	# disable submake with -j and default optimization flags
 	# in Makefile.system
 	# Makefile.rule says to not modify COMMON_OPT/FCOMMON_OPT...
 	export MAKE_NB_JOBS=-1 \
-	       COMMON_OPT=" " \
-	       FCOMMON_OPT=" "
+		   COMMON_OPT=" " \
+		   FCOMMON_OPT=" "
 
 	# Target CPU ARCH options
 	# generally detected automatically from cross toolchain
 	use dynamic && \
 		export DYNAMIC_ARCH=1 \
-		       NO_AFFINITY=1 \
-		       TARGET=GENERIC
+			   NO_AFFINITY=1 \
+			   TARGET=GENERIC
 
 	export NUM_PARALLEL=${OPENBLAS_NPARALLEL:-8} \
-	       NUM_THREADS=${OPENBLAS_NTHREAD:-64}
+		   NUM_THREADS=${OPENBLAS_NTHREAD:-64}
 
 	# setting OPENBLAS_TARGET to override auto detection
 	# in case the toolchain is not enough to detect
@@ -112,7 +106,8 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	# Disable tests by default
+	# Don't build the tests as part of "make all". We'll do
+	# it explicitly later if the test phase is enabled.
 	sed -e "/^all ::/s/tests //" -i Makefile || die
 
 	# if 64bit-index is needed, create second library
@@ -129,8 +124,8 @@ src_compile() {
 
 	if use index-64bit; then
 		emake -C"${S}-index-64bit" \
-		      INTERFACE64=1 \
-		      LIBPREFIX=libopenblas64
+			  INTERFACE64=1 \
+			  LIBPREFIX=libopenblas64
 	fi
 }
 
@@ -140,8 +135,8 @@ src_test() {
 
 src_install() {
 	emake install DESTDIR="${D}" \
-	              OPENBLAS_INCLUDE_DIR='$(PREFIX)'/include/${PN} \
-	              OPENBLAS_LIBRARY_DIR='$(PREFIX)'/$(get_libdir)
+				  OPENBLAS_INCLUDE_DIR='$(PREFIX)'/include/${PN} \
+				  OPENBLAS_LIBRARY_DIR='$(PREFIX)'/$(get_libdir)
 
 	dodoc GotoBLAS_*.txt *.md Changelog.txt
 
