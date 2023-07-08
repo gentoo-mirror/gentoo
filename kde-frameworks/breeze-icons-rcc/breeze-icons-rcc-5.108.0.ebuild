@@ -15,13 +15,13 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
+DEPEND="test? ( dev-qt/qttest:5 )"
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
 	dev-qt/qtcore:5
 	>=kde-frameworks/extra-cmake-modules-${PVCUT}:5
 	test? ( app-misc/fdupes )
 "
-DEPEND="test? ( dev-qt/qttest:5 )"
 
 python_check_deps() {
 	python_has_version "dev-python/lxml[${PYTHON_USEDEP}]"
@@ -39,4 +39,11 @@ src_configure() {
 		-DSKIP_INSTALL_ICONS=ON
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	# provided by kde-frameworks/breeze-icons
+	rm -rv "${ED}"/usr/$(get_libdir)/cmake/KF5BreezeIcons || die
 }

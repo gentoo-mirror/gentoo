@@ -41,6 +41,8 @@ QT5_GENTOO_PRIVATE_CONFIG=(
 	:network
 )
 
+PATCHES=( "${FILESDIR}/${P}-ssl-upgr-default-DH-params.patch" )
+
 src_configure() {
 	local myconf=(
 		$(qt_use gssapi feature-gssapi)

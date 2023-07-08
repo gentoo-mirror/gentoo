@@ -36,6 +36,7 @@ BDEPEND="wayland? ( >=dev-qt/qtwaylandscanner-${QTMIN}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_GEO_SCHEME_HANDLER=ON # coordinate on/off with KF6
 		-DWITH_DBUS=$(usex dbus)
 		-DWITH_WAYLAND=$(usex wayland)
 		-DWITH_X11=$(usex X)

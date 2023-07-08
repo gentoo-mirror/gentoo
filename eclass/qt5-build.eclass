@@ -326,6 +326,25 @@ qt5-build_pkg_postrm() {
 
 ######  Public helpers  ######
 
+# @FUNCTION: qt5_syncqt_version
+# @DESCRIPTION:
+# Wrapper for Qt5 syncqt.pl to sync header files for ${PV} (required to run if
+# headers are added/removed by patching)
+qt5_syncqt_version() {
+	if [[ ${PV} == *9999* ]]; then
+		return
+	fi
+
+	local syncqt
+	if [[ ${PN} == qtcore ]]; then
+		syncqt=bin/syncqt.pl
+	else
+		syncqt=${QT5_BINDIR}/syncqt.pl
+	fi
+
+	perl ${syncqt} -version ${PV} || die
+}
+
 # @FUNCTION: qt5_symlink_binary_to_path
 # @USAGE: <target binary name> [suffix]
 # @DESCRIPTION:
@@ -720,9 +739,44 @@ qt5_tools_configure() {
 	# allow the ebuild to override what we set here
 	myqmakeargs=( "${qmakeargs[@]}" "${myqmakeargs[@]}" )
 
-	mkdir -p "${QT5_BUILD_DIR}" || die
+	# out-of-source build quirks
+	case ${PN} in
+		qdoc)
+			# bug 676948
+			qt5_tools_oos_quirk qtqdoc-config.pri src/qdoc
+			;;
+		qtlocation)
+			# src/plugins/geoservices requires files that are only generated
+			# when qmake is run in the root directory. bug 633776
+			qt5_tools_oos_quirk qtlocation-config.pri src/location
+			;;
+		*) ;;
+	esac
+
+	qt5_tools_oos_quirk qttools-config.pri
+}
+
+# @FUNCTION: qt5_tools_oos_quirk
+# @INTERNAL
+# @USAGE: <file> or <file> <path>
+# @DESCRIPTION:
+# Quirk for out-of-source builds. Runs qmake in root directory, copies
+# generated pri <file> from source <path> to build dir <path>.
+# If no <path> is given, <file> is copied to ${QT5_BUILD_DIR}.
+qt5_tools_oos_quirk() {
+	if [[ "$#" == 2 ]]; then
+		local source="${2}/${1}"
+		local dest="${QT5_BUILD_DIR}/${2}"
+	elif [[ "$#" == 1 ]]; then
+		local source="${1}"
+		local dest="${QT5_BUILD_DIR}"
+	else
+		die "${FUNCNAME[0]} must be passed either one or two arguments"
+	fi
+
+	mkdir -p "${dest}" || die
 	qt5_qmake "${QT5_BUILD_DIR}"
-	cp qttools-config.pri "${QT5_BUILD_DIR}" || die
+	cp "${source}" "${dest}" || die
 }
 
 # @FUNCTION: qt5_qmake_args
