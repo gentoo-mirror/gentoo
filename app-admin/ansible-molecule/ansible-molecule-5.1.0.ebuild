@@ -26,7 +26,8 @@ KEYWORDS="~amd64 ~riscv"
 IUSE="selinux"
 
 RDEPEND="$(python_gen_cond_dep '
-	<dev-python/ansible-compat-4.0.0[${PYTHON_USEDEP}]
+	>=app-admin/ansible-core-2.12.10[${PYTHON_USEDEP}]
+	>=dev-python/ansible-compat-4.1.2[${PYTHON_USEDEP}]
 	>=dev-python/click-8.0[${PYTHON_USEDEP}]
 	<dev-python/click-9[${PYTHON_USEDEP}]
 	>=dev-python/click-help-colors-0.9[${PYTHON_USEDEP}]
@@ -47,10 +48,10 @@ BDEPEND="$(python_gen_cond_dep '
 		media-fonts/roboto
 	)
 	test? (
-		app-admin/ansible-lint[${PYTHON_USEDEP}]
+		>=app-admin/ansible-lint-6.12.1[${PYTHON_USEDEP}]
 		app-misc/check-jsonschema[${PYTHON_USEDEP}]
-		>=dev-python/ansi2html-1.6.0[${PYTHON_USEDEP}]
-		dev-python/filelock[${PYTHON_USEDEP}]
+		>=dev-python/ansi2html-1.8.0[${PYTHON_USEDEP}]
+		>=dev-python/filelock-3.9.0[${PYTHON_USEDEP}]
 		<dev-python/pexpect-5[${PYTHON_USEDEP}]
 		>=dev-python/pytest-mock-3.10.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-plus-0.4.0[${PYTHON_USEDEP}]
