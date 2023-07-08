@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit rpm toolchain-funcs
 
@@ -13,15 +13,14 @@ SRC_URI="http://download.opensuse.org/tumbleweed/repo/src-oss/src/${P}-1.1.src.r
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ~riscv x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
-RDEPEND="
-	amd64? ( dev-libs/libx86emu )
+RDEPEND="amd64? ( dev-libs/libx86emu )
 	x86? ( dev-libs/libx86emu )"
 DEPEND="${RDEPEND}
-	sys-devel/flex
 	>=sys-kernel/linux-headers-2.6.17"
+BDEPEND="sys-devel/flex"
 
 MAKEOPTS="${MAKEOPTS} -j1"
 
@@ -47,7 +46,7 @@ src_prepare() {
 
 src_compile() {
 	tc-export AR
-	emake CC="$(tc-getCC)" RPM_OPT_FLAGS="${CFLAGS}"
+	emake CC="$(tc-getCC)" RPM_OPT_FLAGS="${CFLAGS}" LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 }
 
 src_install() {
