@@ -1,8 +1,6 @@
-diff --git a/Makefile b/Makefile
-index a1f53e6..0a9bec4 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -23,9 +23,9 @@ all:
+@@ -23,9 +23,9 @@
  
  install:
  	mkdir -p -m 755 $(PREFIX)/bin
@@ -15,18 +13,16 @@ index a1f53e6..0a9bec4 100644
  
  test:
  	./grabcartoons.pl $(V) "$(C)" > "$(OUT)"
-diff --git a/grabcartoons.pl b/grabcartoons.pl
-index cdc4152..d732301 100755
 --- a/grabcartoons.pl
 +++ b/grabcartoons.pl
-@@ -38,8 +38,8 @@ $XTRN_CMD="$XTRN_PROG -q -O- $USER_AGENT_CMD";
+@@ -39,8 +39,8 @@
  # Where to load cartoon modules from
  @MODULE_DIRS=("$FindBin::Bin/modules",
                "$FindBin::RealBin/modules",
--	      "$FindBin::Bin/../lib/grabcartoons/modules",
--	      "$FindBin::RealBin/../lib/grabcartoons/modules",
-+	      "$FindBin::Bin/../share/grabcartoons/modules",
-+	      "$FindBin::RealBin/../share/grabcartoons/modules",
- 	      "$HOME/.grabcartoons/modules",
- 	      "$HOME/.grabcartoons",
- 	      @GRABCARTOONS_DIRS,
+-              "$FindBin::Bin/../lib/grabcartoons/modules",
+-              "$FindBin::RealBin/../lib/grabcartoons/modules",
++              "$FindBin::Bin/../share/grabcartoons/modules",
++              "$FindBin::RealBin/../share/grabcartoons/modules",
+               "$HOME/.grabcartoons/modules",
+               "$HOME/.grabcartoons",
+               @GRABCARTOONS_DIRS,
