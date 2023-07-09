@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 inherit autotools python-single-r1 xdg-utils
 
 DESCRIPTION="A library for manipulating block devices"
@@ -17,11 +17,11 @@ if [[ "${PV}" == *9999 ]] ; then
 else
 	MY_PV="${PV}-1"
 	SRC_URI="https://github.com/storaged-project/${PN}/releases/download/${MY_PV}/${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86"
 fi
 LICENSE="LGPL-2+"
-SLOT="0/2"	# subslot is SOVERSION
-IUSE="bcache +cryptsetup device-mapper dmraid escrow gtk-doc introspection lvm kbd test +tools vdo"
+SLOT="0/3"	# subslot is SOVERSION
+IUSE="+cryptsetup device-mapper escrow gtk-doc introspection lvm +nvme test +tools"
 # Tests require root. In a future release, we may be able to run a smaller
 # subset with new run_tests.py arguments.
 RESTRICT="!test? ( test ) test"
@@ -29,6 +29,7 @@ RESTRICT="!test? ( test ) test"
 RDEPEND="
 	>=dev-libs/glib-2.42.2
 	dev-libs/libbytesize
+	sys-apps/gptfdisk
 	>=sys-apps/kmod-19
 	>=sys-apps/util-linux-2.27
 	>=sys-block/parted-3.1
@@ -37,18 +38,15 @@ RDEPEND="
 			>=dev-libs/nss-3.18.0
 			dev-libs/volume_key
 		)
-		>=sys-fs/cryptsetup-1.6.7:=
+		>=sys-apps/keyutils-1.5.0:=
+		>=sys-fs/cryptsetup-2.3.0:=
 	)
 	device-mapper? ( sys-fs/lvm2 )
-	dmraid? (
-		sys-fs/dmraid
-		sys-fs/lvm2
-	)
 	lvm? (
 		sys-fs/lvm2
 		virtual/udev
 	)
-	vdo? ( dev-libs/libyaml )
+	nvme? ( sys-libs/libnvme )
 	${PYTHON_DEPS}
 "
 
@@ -56,7 +54,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-# TODO: relax libbytesize condition once it has gained py3.11 support
 BDEPEND+="
 	dev-util/gtk-doc-am
 	gtk-doc? ( dev-util/gtk-doc )
@@ -64,7 +61,7 @@ BDEPEND+="
 	test? (
 		$(python_gen_cond_dep '
 			dev-libs/libbytesize[python,${PYTHON_USEDEP}]
-		' python3_{9..10} )
+		')
 		sys-block/targetcli-fb
 	)
 "
@@ -73,7 +70,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 		escrow? ( cryptsetup )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.28-sh_tests.patch
+	"${FILESDIR}"/${PN}-3.0.1-sh_tests.patch
 )
 
 pkg_setup() {
@@ -99,20 +96,16 @@ src_configure() {
 		--with-python3
 		--without-mpath
 		--without-nvdimm
-		--without-python2
 		$(use_enable introspection)
 		$(use_enable test tests)
-		$(use_with bcache)
 		$(use_with cryptsetup crypto)
 		$(use_with device-mapper dm)
-		$(use_with dmraid)
 		$(use_with escrow)
 		$(use_with gtk-doc)
-		$(use_with kbd)
 		$(use_with lvm lvm)
 		$(use_with lvm lvm-dbus)
+		$(use_with nvme)
 		$(use_with tools)
-		$(use_with vdo)
 	)
 	econf "${myeconfargs[@]}"
 }
