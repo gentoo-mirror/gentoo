@@ -9,20 +9,21 @@ inherit autotools edo flag-o-matic multilib multilib-build
 inherit python-any-r1 toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=7.4.0
+WINE_MONO=8.0.0
+WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/wine-staging/wine-staging.git"
+	EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine-staging.git"
 	WINE_EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
 else
 	(( $(ver_cut 2) )) && WINE_SDIR=$(ver_cut 1).x || WINE_SDIR=$(ver_cut 1).0
 	SRC_URI="
-		https://dl.winehq.org/wine/source/${WINE_SDIR}/wine-${PV}.tar.xz
+		https://dl.winehq.org/wine/source/${WINE_SDIR}/${WINE_P}.tar.xz
 		https://github.com/wine-staging/wine-staging/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
-S="${WORKDIR}/wine-${PV}"
+S="${WORKDIR}/${WINE_P}"
 
 DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
 HOMEPAGE="
@@ -33,9 +34,9 @@ LICENSE="LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
 SLOT="${PV}"
 IUSE="
 	+X +abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups dos
-	llvm-libunwind debug custom-cflags +fontconfig +gecko gphoto2
-	+gstreamer kerberos +mingw +mono netapi nls opencl +opengl osmesa
-	pcap perl pulseaudio samba scanner +sdl selinux smartcard +ssl
+	llvm-libunwind custom-cflags +fontconfig +gecko gphoto2 +gstreamer
+	kerberos +mingw +mono netapi nls opencl +opengl osmesa pcap perl
+	pulseaudio samba scanner +sdl selinux smartcard +ssl +strip
 	+truetype udev udisks +unwind usb v4l +vulkan wayland +xcomposite
 	xinerama"
 REQUIRED_USE="
@@ -179,11 +180,15 @@ src_unpack() {
 		EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
 		git-r3_src_unpack
 
-		EGIT_COMMIT=$(<"${EGIT_CHECKOUT_DIR}"/staging/upstream-commit) || die
-		EGIT_REPO_URI=${WINE_EGIT_REPO_URI}
-		EGIT_CHECKOUT_DIR=${S}
-		einfo "Fetching Wine commit matching the current patchset by default (${EGIT_COMMIT})"
-		git-r3_src_unpack
+		# hack: use subshell to preserve state (including what git-r3 unpack
+		# sets) for smart-live-rebuild as this is not the repo to look at
+		(
+			EGIT_COMMIT=$(<"${EGIT_CHECKOUT_DIR}"/staging/upstream-commit) || die
+			EGIT_REPO_URI=${WINE_EGIT_REPO_URI}
+			EGIT_CHECKOUT_DIR=${S}
+			einfo "Fetching Wine commit matching the current patchset by default (${EGIT_COMMIT})"
+			git-r3_src_unpack
+		)
 	else
 		default
 	fi
@@ -193,7 +198,6 @@ src_prepare() {
 	local patchinstallargs=(
 		--all
 		--no-autoconf
-		-W winemenubuilder-Desktop_Icon_Path #652176
 		${MY_WINE_STAGING_CONF}
 	)
 
@@ -308,8 +312,6 @@ src_configure() {
 
 			# use *FLAGS for mingw, but strip unsupported
 			: "${CROSSCFLAGS:=$(
-				# >=wine-7.21 configure.ac no longer adds -fno-strict by mistake
-				append-cflags '-fno-strict-aliasing'
 				filter-flags '-fstack-protector*' #870136
 				filter-flags '-mfunction-return=thunk*' #878849
 				# -mavx with mingw-gcc has a history of obscure issues and
@@ -360,13 +362,17 @@ src_install() {
 		make_wrapper "${bin##*/}-${P#wine-}" "${bin#"${ED}"}"
 	done
 
-	# don't let portage try to strip PE files with the wrong
-	# strip executable and instead handle it here (saves ~120MB)
 	if use mingw; then
+		# don't let portage try to strip PE files with the wrong
+		# strip executable and instead handle it here (saves ~120MB)
 		dostrip -x ${WINE_PREFIX}/wine/{i386,x86_64}-windows
-		use debug ||
+
+		if use strip; then
+			ebegin "Stripping Windows (PE) binaries"
 			find "${ED}"${WINE_PREFIX}/wine/*-windows -regex '.*\.\(a\|dll\|exe\)' \
-				-exec $(usex abi_x86_64 x86_64 i686)-w64-mingw32-strip --strip-unneeded {} + || die
+				-exec $(usex abi_x86_64 x86_64 i686)-w64-mingw32-strip --strip-unneeded {} +
+			eend ${?} || die
+		fi
 	fi
 
 	dodoc ANNOUNCE AUTHORS README* documentation/README*
