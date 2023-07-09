@@ -15,7 +15,7 @@ SRC_URI="
 # NOTE: To create the vendor tarball, run:
 # `go mod vendor && cd .. && tar -caf ${P}-vendor.tar.xz ${P}/vendor`
 
-LICENSE="Apache-2.0 BSD BSD-2 MIT Unlicense"
+LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="doc +sass test"
@@ -38,8 +38,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch
-	"${FILESDIR}"/${PN}-0.110.0-skip-some-tests.patch
-	"${FILESDIR}"/${PN}-0.99.1-test-timeout.patch
+	"${FILESDIR}"/${PN}-0.115.2-skip-some-tests.patch
 )
 
 src_configure() {
@@ -49,6 +48,13 @@ src_configure() {
 	export CGO_CXXFLAGS="${CXXFLAGS}"
 	export CGO_LDFLAGS="${LDFLAGS}"
 	export MY_BUILD_FLAGS="$(usev sass "-tags extended")"
+
+	default
+}
+
+src_prepare() {
+	# wants to run command that require network access
+	rm testscripts/commands/mod{,_vendor}.txt || die
 
 	default
 }
