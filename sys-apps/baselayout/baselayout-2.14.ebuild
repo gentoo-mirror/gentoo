@@ -12,7 +12,7 @@ if [[ ${PV} = 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://gitweb.gentoo.org/proj/${PN}.git/snapshot/${P}.tar.bz2"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 LICENSE="GPL-2"
@@ -20,10 +20,6 @@ SLOT="0"
 IUSE="build +split-usr"
 
 RDEPEND="!sys-apps/baselayout-prefix"
-
-pkg_setup() {
-	multilib_layout
-}
 
 riscv_compat_symlink() {
 	# Here we apply some special sauce for riscv.
@@ -82,7 +78,7 @@ multilib_layout() {
 						die "Unable to create ${dir} directory"
 				fi
 			done
-			riscv_compat_symlink "${def_libdir}" "${prefix}${def_libdir}/${DEFAULT_ABI}"
+			[[ -d "${prefix}${def_libdir}" ]] && riscv_compat_symlink "${def_libdir}" "${prefix}${def_libdir}/${DEFAULT_ABI}"
 		done
 		return 0
 	fi
@@ -164,7 +160,6 @@ multilib_layout() {
 				# only symlinked the lib dir on systems where we moved it
 				# to "lib32" ...
 				case ${CHOST} in
-				*-gentoo-freebsd*) ;; # We want it the other way on fbsd.
 				i?86*|x86_64*|powerpc*|sparc*|s390*)
 					if [[ -d ${prefix}lib32 && ! -h ${prefix}lib32 ]] ; then
 						rm -f "${prefix}lib32"/.keep || die
@@ -192,24 +187,8 @@ multilib_layout() {
 	fi
 }
 
-pkg_preinst() {
-	# This is written in src_install (so it's in CONTENTS), but punt all
-	# pending updates to avoid user having to do etc-update (and make the
-	# pkg_postinst logic simpler).
-	rm -f "${EROOT}"/etc/._cfg????_gentoo-release || die
-
-	# We need to install directories and maybe some dev nodes when building
-	# stages, but they cannot be in CONTENTS.
-	# Also, we cannot reference $S as binpkg will break so we do this.
+pkg_setup() {
 	multilib_layout
-	if use build ; then
-		if use split-usr ; then
-			emake -C "${ED}/usr/share/${PN}" DESTDIR="${EROOT}" layout
-		else
-			emake -C "${ED}/usr/share/${PN}" DESTDIR="${EROOT}" layout-usrmerge
-		fi
-	fi
-	rm -f "${ED}"/usr/share/${PN}/Makefile || die
 }
 
 src_prepare() {
@@ -226,7 +205,7 @@ src_prepare() {
 
 	if use prefix; then
 		hprefixify -e "/EUID/s,0,${EUID}," -q '"' etc/profile
-		hprefixify etc/shells share.Linux/passwd
+		hprefixify etc/shells share/passwd
 		hprefixify -w '/PATH=/' etc/env.d/50baselayout
 		hprefixify -w 1 etc/env.d/50baselayout
 		echo PATH=/usr/sbin:/sbin:/usr/bin:/bin >> etc/env.d/99host
@@ -257,7 +236,6 @@ src_prepare() {
 
 src_install() {
 	emake \
-		OS=Linux \
 		DESTDIR="${ED}" \
 		install
 
@@ -288,6 +266,31 @@ src_install() {
 	fi
 }
 
+pkg_preinst() {
+	# We need to install directories and maybe some dev nodes when building
+	# stages, but they cannot be in CONTENTS.
+	# Also, we cannot reference $S as binpkg will break so we do this.
+	multilib_layout
+	if use build ; then
+		if use split-usr ; then
+			emake -C "${ED}/usr/share/${PN}" DESTDIR="${EROOT}" layout
+		else
+			emake -C "${ED}/usr/share/${PN}" DESTDIR="${EROOT}" layout-usrmerge
+		fi
+	fi
+	rm -f "${ED}"/usr/share/${PN}/Makefile || die
+
+	# Create symlinks in pkg_preinst to avoid Portage collision check.
+	# Create the symlinks in ${ED} via dosym so that we own it.
+	# Only create the symlinks if it wont cause a conflict in ${EROOT}.
+	if [[ -L ${EROOT}/var/lock || ! -e ${EROOT}/var/lock ]]; then
+		dosym ../run/lock /var/lock
+	fi
+	if [[ -L ${EROOT}/var/run || ! -e ${EROOT}/var/run ]]; then
+		dosym ../run /var/run
+	fi
+}
+
 pkg_postinst() {
 	local x
 
@@ -308,12 +311,6 @@ pkg_postinst() {
 			chmod o-rwx "${EROOT}/etc/${x}" || die
 		fi
 	done
-
-	# Take care of the etc-update for the user
-	if [ -e "${EROOT}"/etc/._cfg0000_gentoo-release ] ; then
-		mv "${EROOT}"/etc/._cfg0000_gentoo-release "${EROOT}"/etc/gentoo-release || die
-	fi
-
 	# whine about users that lack passwords #193541
 	if [[ -e "${EROOT}"/etc/shadow ]] ; then
 		local bad_users=$(sed -n '/^[^:]*::/s|^\([^:]*\)::.*|\1|p' "${EROOT}"/etc/shadow)
