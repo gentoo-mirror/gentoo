@@ -3,17 +3,21 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 inherit python-r1 meson
 
 DESCRIPTION="C Library for NVM Express on Linux"
 HOMEPAGE="https://github.com/linux-nvme/libnvme"
+SRC_URI="https://github.com/linux-nvme/libnvme/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="LGPL-2.1+"
 SLOT="0/1"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="dbus +json keyutils python ssl +uuid"
 
-SRC_URI="https://github.com/linux-nvme/libnvme/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+REQUIRED_USE="
+	python? ( ${PYTHON_REQUIRED_USE} )
+"
 
 DEPEND="
 	json? ( dev-libs/json-c:= )
@@ -27,10 +31,6 @@ RDEPEND="${DEPEND}"
 
 BDEPEND="
 	dev-lang/swig
-"
-
-REQUIRED_USE="
-	python? ( ${PYTHON_REQUIRED_USE} )
 "
 
 src_configure() {
