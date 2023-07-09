@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="A somewhat comprehensive collection of man page translations"
 HOMEPAGE="https://manpages-l10n-team.pages.debian.net/manpages-l10n/"
@@ -10,17 +10,16 @@ S="${WORKDIR}/${P/-}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+# fa and ko omitted because of build failures (patches are welcome!)
 MY_L10N=(cs da de el es fi fr hu id it mk nb nl pl pt-BR ro ru sr sv uk vi)
 IUSE="${MY_L10N[@]/#/l10n_}"
+# require at least one language lest we install an empty package
+# pkgcheck warning: RequiredUseDefaults
 REQUIRED_USE="|| ( ${MY_L10N[@]/#/l10n_} )"
 
 RDEPEND="virtual/man
-	l10n_de? ( !app-i18n/man-pages-de )
-	l10n_fr? ( !app-i18n/man-pages-fr )
 	l10n_it? ( !app-i18n/man-pages-it )
-	l10n_nl? ( !app-i18n/man-pages-nl )
-	l10n_pl? ( !app-i18n/man-pages-pl )
 	l10n_ru? ( !app-i18n/man-pages-ru )"
 
 BDEPEND="app-text/po4a
