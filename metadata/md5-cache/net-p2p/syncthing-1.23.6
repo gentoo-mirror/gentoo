@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm prepare test unpack
+DESCRIPTION=Open Source Continuous File Synchronization
+EAPI=8
+HOMEPAGE=https://syncthing.net
+INHERIT=desktop go-module systemd xdg-utils
+IUSE=selinux tools
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~x86
+LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0 Unlicense
+RDEPEND=acct-group/syncthing acct-user/syncthing tools? ( >=acct-user/stdiscosrv-1 >=acct-user/strelaysrv-1 ) selinux? ( sec-policy/selinux-syncthing )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/syncthing/syncthing/releases/download/v1.23.6/syncthing-source-v1.23.6.tar.gz -> syncthing-1.23.6.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	systemd	5f4bb0758df2e483babf68cd517078ca	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=c8096c0b539b49ce7d5adf4ef4d49ef2
