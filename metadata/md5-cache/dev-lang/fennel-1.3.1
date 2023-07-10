@@ -1,15 +1,15 @@
-DEFINED_PHASES=install setup
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+BDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+DEFINED_PHASES=install prepare setup
 DESCRIPTION=Lisp-like language that compiles to Lua
 EAPI=8
-HOMEPAGE=https://fennel-lang.org/
+HOMEPAGE=https://fennel-lang.org/ https://sr.ht/~technomancy/fennel/
 INHERIT=lua-single
 IUSE=lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=MIT
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4 )
-SLOT=0/1.2.1
-SRC_URI=https://git.sr.ht/~technomancy/fennel/archive/1.2.1.tar.gz -> fennel-1.2.1.tar.gz
+SLOT=0/1.3.1
+SRC_URI=https://git.sr.ht/~technomancy/fennel/archive/1.3.1.tar.gz -> fennel-1.3.1.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
-_md5_=66dbbc7d4782f7198724e022c32e6ff7
+_md5_=c7aa5d6b5434b94b8147096a605b8730
