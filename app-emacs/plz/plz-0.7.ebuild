@@ -20,8 +20,7 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-# Tests require network access.
-PROPERTIES="test_network"
+PROPERTIES="test_network"   # Tests require network access.
 RESTRICT="test"
 
 RDEPEND="net-misc/curl"
@@ -34,5 +33,5 @@ elisp-enable-tests ert tests -l tests/test-plz.el
 src_install() {
 	elisp_src_install
 
-	doinfo plz.info
+	doinfo ${PN}.info
 }
