@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake-multilib
+inherit cmake-multilib flag-o-matic
 
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/gflags/gflags"
 else
@@ -25,6 +25,8 @@ RESTRICT="!test? ( test )"
 DOCS=( ChangeLog.txt README.md )
 
 multilib_src_configure() {
+	append-lfs-flags
+
 	local mycmakeargs=(
 		-DBUILD_STATIC_LIBS=$(usex static-libs)
 		-DBUILD_TESTING=$(usex test)
