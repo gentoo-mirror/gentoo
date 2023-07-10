@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://arma.sourceforge.net
 INHERIT=cmake toolchain-funcs multilib
 IUSE=arpack blas doc examples hdf5 lapack mkl superlu test
-KEYWORDS=~amd64 ~arm ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=Apache-2.0
 PDEPEND=dev-libs/boost arpack? ( sci-libs/arpack ) blas? ( virtual/blas ) lapack? ( virtual/lapack ) superlu? ( >=sci-libs/superlu-5.2 ) hdf5? ( sci-libs/hdf5:= ) mkl? ( sci-libs/mkl )
 RDEPEND=dev-libs/boost arpack? ( sci-libs/arpack ) blas? ( virtual/blas ) lapack? ( virtual/lapack ) superlu? ( >=sci-libs/superlu-5.2 )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=mirror://sourceforge/arma/armadillo-11.4.0.tar.xz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a
-_md5_=5dab4b118f0217cd44a8767b225ad705
+_md5_=7889345d32501df55886a23754be2cc1
