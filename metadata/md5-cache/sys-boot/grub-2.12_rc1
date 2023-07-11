@@ -1,17 +1,16 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 ) >=sys-devel/flex-2.5.35 sys-devel/bison sys-apps/help2man sys-apps/texinfo fonts? ( media-libs/freetype:2 virtual/pkgconfig ) test? ( app-admin/genromfs app-arch/cpio app-arch/lzop app-emulation/qemu dev-libs/libisoburn sys-apps/miscfiles sys-block/parted sys-fs/squashfs-tools ) themes? ( app-arch/unzip media-libs/freetype:2 virtual/pkgconfig ) truetype? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=sys-devel/flex-2.5.35 sys-devel/bison sys-apps/help2man sys-apps/texinfo fonts? ( media-libs/freetype:2 virtual/pkgconfig ) test? ( app-admin/genromfs app-arch/cpio app-arch/lzop app-emulation/qemu dev-libs/libisoburn sys-apps/miscfiles sys-block/parted sys-fs/squashfs-tools ) themes? ( app-arch/unzip media-libs/freetype:2 virtual/pkgconfig ) truetype? ( virtual/pkgconfig )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=app-arch/xz-utils >=sys-libs/ncurses-5.2-r5:0= grub_platforms_emu? ( sdl? ( media-libs/libsdl ) ) device-mapper? ( >=sys-fs/lvm2-2.02.45 ) libzfs? ( sys-fs/zfs:= ) mount? ( sys-fs/fuse:0 ) truetype? ( media-libs/freetype:2= ) ppc? ( >=sys-apps/ibm-powerpc-utils-1.3.5 ) ppc64? ( >=sys-apps/ibm-powerpc-utils-1.3.5 )
 DESCRIPTION=GNU GRUB boot loader
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/grub/
-INHERIT=python-any-r1 autotools bash-completion-r1 flag-o-matic multibuild optfeature toolchain-funcs git-r3
+INHERIT=bash-completion-r1 flag-o-matic multibuild optfeature toolchain-funcs
 IUSE=device-mapper doc efiemu +fonts mount nls sdl test +themes truetype libzfs grub_platforms_coreboot grub_platforms_efi-32 grub_platforms_efi-64 grub_platforms_emu grub_platforms_ieee1275 grub_platforms_loongson grub_platforms_multiboot grub_platforms_qemu grub_platforms_qemu-mips grub_platforms_pc grub_platforms_uboot grub_platforms_xen grub_platforms_xen-32 grub_platforms_xen-pvh
 LICENSE=GPL-3+ BSD MIT fonts? ( GPL-2-with-font-exception ) themes? ( CC-BY-SA-3.0 BitstreamVera )
-PROPERTIES=live
 RDEPEND=app-arch/xz-utils >=sys-libs/ncurses-5.2-r5:0= grub_platforms_emu? ( sdl? ( media-libs/libsdl ) ) device-mapper? ( >=sys-fs/lvm2-2.02.45 ) libzfs? ( sys-fs/zfs:= ) mount? ( sys-fs/fuse:0 ) truetype? ( media-libs/freetype:2= ) ppc? ( >=sys-apps/ibm-powerpc-utils-1.3.5 ) ppc64? ( >=sys-apps/ibm-powerpc-utils-1.3.5 ) kernel_linux? ( grub_platforms_efi-32? ( sys-boot/efibootmgr ) grub_platforms_efi-64? ( sys-boot/efibootmgr ) ) !sys-boot/grub:0 nls? ( sys-devel/gettext )
 REQUIRED_USE=grub_platforms_coreboot? ( fonts ) grub_platforms_qemu? ( fonts ) grub_platforms_ieee1275? ( fonts ) grub_platforms_loongson? ( fonts )
 RESTRICT=!test? ( test ) test? ( userpriv )
-SLOT=2/9999
-SRC_URI=fonts? ( mirror://gnu/unifont/unifont-15.0.06/unifont-15.0.06.pcf.gz ) themes? ( mirror://sourceforge/dejavu/dejavu-sans-ttf-2.37.zip )
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=b3b761e7abb9d2b9b9ccdf99be010fde
+SLOT=2/2.12_rc1
+SRC_URI=https://alpha.gnu.org/gnu/grub/grub-2.12~rc1.tar.xz fonts? ( mirror://gnu/unifont/unifont-15.0.06/unifont-15.0.06.pcf.gz ) themes? ( mirror://sourceforge/dejavu/dejavu-sans-ttf-2.37.zip )
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=0538f5b5178ca3a0dea1c4ebf4cb750e
