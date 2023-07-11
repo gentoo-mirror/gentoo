@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,8 +18,8 @@ S="${WORKDIR}"/teamviewer
 
 LICENSE="TeamViewer MIT"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
-RESTRICT="bindist mirror"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+RESTRICT="bindist mirror strip"
 
 # Unpack will fail without app-arch/xz-utils[extra-filters], bug #798027
 BDEPEND="app-arch/xz-utils[extra-filters]"
@@ -49,11 +49,6 @@ RDEPEND="
 	x11-libs/libXrender
 	x11-libs/libXtst
 	x11-libs/libxcb
-	x11-libs/libxkbcommon[X]
-	x11-libs/xcb-util-image
-	x11-libs/xcb-util-keysyms
-	x11-libs/xcb-util-renderutil
-	x11-libs/xcb-util-wm
 "
 # For consolekit incompatibility see https://forums.gentoo.org/viewtopic-p-8332956.html#8332956
 
