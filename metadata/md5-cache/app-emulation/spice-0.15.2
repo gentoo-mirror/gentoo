@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.spice-space.org/
 INHERIT=meson python-any-r1 readme.gentoo-r1 xdg-utils
 IUSE=gstreamer lz4 sasl smartcard static-libs test
-KEYWORDS=~amd64 arm64 ~loong ppc64 ~riscv x86
+KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-lang/orc[static-libs(+)?] >=dev-libs/glib-2.38:2[static-libs(+)?] dev-libs/openssl:0=[static-libs(+)?] media-libs/opus[static-libs(+)?] media-libs/libjpeg-turbo:0=[static-libs(+)?] sys-libs/zlib[static-libs(+)?] >=x11-libs/pixman-0.17.7[static-libs(+)?] lz4? ( app-arch/lz4:0=[static-libs(+)?] ) smartcard? ( >=app-emulation/libcacard-2.5.1 ) sasl? ( dev-libs/cyrus-sasl[static-libs(+)?] ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.spice-space.org/download/releases/spice-server/spice-0.15.2.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=977d4c1569300728d329dddef674c9d4
+_md5_=9524bb805c6d163beb9e5607a935d643

@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://tomcat.apache.org/native-doc/
 INHERIT=java-pkg-2 java-ant-2
 IUSE=static-libs test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/apr:1= dev-libs/openssl:0= >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/tomcat/tomcat-connectors/native/1.2.37/source/tomcat-native-1.2.37-src.tar.gz
 _eclasses_=java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	java-ant-2	19239227fab7816f57abbc0c7d819396
-_md5_=6fb4c15076e407b89af90cd2588b7e25
+_md5_=6428a1dea360ab01d424557be405a20c

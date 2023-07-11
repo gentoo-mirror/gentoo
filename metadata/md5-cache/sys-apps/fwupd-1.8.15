@@ -7,7 +7,7 @@ HOMEPAGE=https://fwupd.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson python-single-r1 vala udev xdg
 IUSE=amt +archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc +gusb introspection logitech lzma minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
 RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) >=app-arch/gcab-1.0 app-arch/xz-utils >=dev-libs/glib-2.58:2 dev-libs/json-glib dev-libs/libgudev:= >=dev-libs/libjcat-0.1.4[gpg,pkcs7] >=dev-libs/libxmlb-0.1.13:=[introspection?] python_single_target_python3_10? ( dev-python/pygobject:3[cairo,python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[cairo,python_targets_python3_11(-)] ) net-misc/curl archive? ( app-arch/libarchive:= ) cbor? ( dev-libs/libcbor:= ) dell? ( >=app-crypt/tpm2-tss-2.0 >=sys-libs/libsmbios-2.4.0 ) elogind? ( >=sys-auth/elogind-211 ) flashrom? ( >=sys-apps/flashrom-1.2-r3 ) gnutls? ( net-libs/gnutls ) gusb? ( >=dev-libs/libgusb-0.3.5[introspection?] ) logitech? ( dev-libs/protobuf-c:= ) lzma? ( app-arch/xz-utils ) modemmanager? ( net-misc/modemmanager[qmi] ) policykit? ( >=sys-auth/polkit-0.114 ) sqlite? ( dev-db/sqlite ) systemd? ( >=sys-apps/systemd-211 ) tpm? ( app-crypt/tpm2-tss:= ) uefi? ( sys-apps/fwupd-efi sys-boot/efibootmgr sys-fs/udisks sys-libs/efivar ) sys-apps/dbus
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 ) ^^ ( elogind minimal systemd ) dell? ( uefi ) fastboot? ( gusb ) logitech? ( gusb ) minimal? ( !introspection ) modemmanager? ( gusb ) spi? ( lzma ) synaptics? ( gnutls ) test? ( archive gusb ) uefi? ( gnutls )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fwupd/fwupd/releases/download/1.8.15/fwupd-1.8.15.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	ad475baa777c9978fa035216c8264a10	vala	db97951caa799e73a831a5f48e717da8	udev	eec0bbab06977f1cfc5597269c1fa152	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=032b4b4dcebddbd3a39669c19dbe4f50
+_md5_=45d6adc8371fc129dff78ec0c1a16eb8
