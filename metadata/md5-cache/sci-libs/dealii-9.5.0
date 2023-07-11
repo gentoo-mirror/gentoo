@@ -1,15 +1,16 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sci-libs/arborx[mpi=] ) adolc? ( sci-libs/adolc ) arpack? ( sci-libs/arpack[mpi=] ) assimp? ( media-libs/assimp:= ) cgal? ( sci-mathematics/cgal ) cuda? ( dev-util/nvidia-cuda-toolkit ) ginkgo? ( sci-libs/ginkgo ) gmsh? ( sci-libs/gmsh ) gsl? ( sci-libs/gsl:= ) hdf5? ( sci-libs/hdf5[mpi=] ) lapack? ( virtual/lapack ) metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( virtual/mpi[cxx] ) muparser? ( dev-cpp/muParser ) opencascade? ( sci-libs/opencascade:= ) p4est? ( sci-libs/p4est[mpi] ) petsc? ( sci-mathematics/petsc[mpi=] ) scalapack? ( sci-libs/scalapack ) slepc? ( sci-mathematics/slepc[mpi=] ) sparse? ( sci-libs/umfpack ) sundials? ( sci-libs/sundials:= ) symengine? ( >=sci-libs/symengine-0.4:= ) trilinos? ( sci-libs/trilinos ) || ( dev-cpp/kokkos sci-libs/trilinos ) virtual/pkgconfig doc? ( app-doc/doxygen[dot] dev-lang/perl )
 DESCRIPTION=Solving partial differential equations with the finite element method
 EAPI=8
 HOMEPAGE=https://www.dealii.org/
-INHERIT=cmake flag-o-matic git-r3
+INHERIT=cmake flag-o-matic
 IUSE=adolc arborx assimp arpack cgal cpu_flags_x86_avx cpu_flags_x86_avx512f cpu_flags_x86_sse2 cuda +debug doc +examples ginkgo gmsh +gsl hdf5 +lapack metis mpi muparser opencascade p4est petsc scalapack slepc +sparse sundials symengine trilinos
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1+
-PROPERTIES=live
 RDEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sci-libs/arborx[mpi=] ) adolc? ( sci-libs/adolc ) arpack? ( sci-libs/arpack[mpi=] ) assimp? ( media-libs/assimp:= ) cgal? ( sci-mathematics/cgal ) cuda? ( dev-util/nvidia-cuda-toolkit ) ginkgo? ( sci-libs/ginkgo ) gmsh? ( sci-libs/gmsh ) gsl? ( sci-libs/gsl:= ) hdf5? ( sci-libs/hdf5[mpi=] ) lapack? ( virtual/lapack ) metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( virtual/mpi[cxx] ) muparser? ( dev-cpp/muParser ) opencascade? ( sci-libs/opencascade:= ) p4est? ( sci-libs/p4est[mpi] ) petsc? ( sci-mathematics/petsc[mpi=] ) scalapack? ( sci-libs/scalapack ) slepc? ( sci-mathematics/slepc[mpi=] ) sparse? ( sci-libs/umfpack ) sundials? ( sci-libs/sundials:= ) symengine? ( >=sci-libs/symengine-0.4:= ) trilinos? ( sci-libs/trilinos ) || ( dev-cpp/kokkos sci-libs/trilinos )
 REQUIRED_USE=arborx? ( trilinos ) p4est? ( mpi ) slepc? ( petsc ) trilinos? ( mpi )
 SLOT=0
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=e04fd9be255868491af778362c05ed5f
+SRC_URI=https://github.com/dealii/dealii/releases/download/v9.5.0/dealii-9.5.0.tar.gz doc? ( https://github.com/dealii/dealii/releases/download/v9.5.0/dealii-9.5.0-offline_documentation.tar.gz )
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a
+_md5_=a4dd4c50c3f70de9058d7fa41f4ccf54
