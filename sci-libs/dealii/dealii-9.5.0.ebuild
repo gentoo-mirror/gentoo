@@ -127,7 +127,6 @@ src_configure() {
 		-DDEAL_II_WITH_SYMENGINE="$(usex symengine)"
 		-DDEAL_II_WITH_UMFPACK="$(usex sparse)"
 		-DDEAL_II_WITH_TBB=ON
-		-DDEAL_II_WITH_TASKFLOW=OFF
 		-DDEAL_II_WITH_TRILINOS="$(usex trilinos)"
 	)
 
