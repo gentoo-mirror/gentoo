@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit meson python-single-r1 vala udev xdg
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="amt +archive bash-completion bluetooth cbor dell elogind fastboot flashrom gnutls gtk-doc +gusb introspection logitech lzma minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
@@ -48,28 +48,28 @@ BDEPEND="$(vala_depend)
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=app-arch/gcab-1.0
 	app-arch/xz-utils
-	>=dev-libs/glib-2.58:2
-	dev-libs/json-glib
-	dev-libs/libgudev:=
+	>=dev-libs/glib-2.68:2
+	>=dev-libs/json-glib-1.6.0
+	>=dev-libs/libgudev-232:=
 	>=dev-libs/libjcat-0.1.4[gpg,pkcs7]
-	>=dev-libs/libxmlb-0.1.13:=[introspection?]
+	>=dev-libs/libxmlb-0.3.6:=[introspection?]
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
 	')
-	net-misc/curl
+	>=net-misc/curl-7.62.0
 	archive? ( app-arch/libarchive:= )
-	cbor? ( dev-libs/libcbor:= )
+	cbor? ( >=dev-libs/libcbor-0.7.0:= )
 	dell? (
 		>=app-crypt/tpm2-tss-2.0
 		>=sys-libs/libsmbios-2.4.0
 	)
 	elogind? ( >=sys-auth/elogind-211 )
 	flashrom? ( >=sys-apps/flashrom-1.2-r3 )
-	gnutls? ( net-libs/gnutls )
-	gusb? ( >=dev-libs/libgusb-0.3.5[introspection?] )
+	gnutls? ( >=net-libs/gnutls-3.6.0 )
+	gusb? ( >=dev-libs/libgusb-0.3.8[introspection?] )
 	logitech? ( dev-libs/protobuf-c:= )
 	lzma? ( app-arch/xz-utils )
-	modemmanager? ( net-misc/modemmanager[qmi] )
+	modemmanager? ( net-misc/modemmanager[mbim,qmi] )
 	policykit? ( >=sys-auth/polkit-0.114 )
 	sqlite? ( dev-db/sqlite )
 	systemd? ( >=sys-apps/systemd-211 )
@@ -90,10 +90,6 @@ DEPEND="
 	${COMMON_DEPEND}
 	x11-libs/pango[introspection]
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.8.13-installed_tests.patch
-)
 
 src_prepare() {
 	default
@@ -173,12 +169,17 @@ src_install() {
 
 	if ! use minimal ; then
 		newinitd "${FILESDIR}"/${PN}-r2 ${PN}
+	fi
 
-		if ! use systemd ; then
-			# Don't timeout when fwupd is running (#673140)
-			sed '/^IdleTimeout=/s@=[[:digit:]]\+@=0@' \
-				-i "${ED}"/etc/${PN}/daemon.conf || die
-		fi
+	if use test; then
+		# Preventing tests from being installed in the first place is a moving target,
+		# just axe them all afterwards.
+		rm -rf "${ED}"/etc/fwupd/remotes.d/fwupd-tests.conf \
+			"${ED}"/usr/libexec/installed-tests \
+			"${ED}"/usr/share/fwupd/device-tests \
+			"${ED}"/usr/share/fwupd/host-emulate.d/thinkpad-p1-iommu.json.gz \
+			"${ED}"/usr/share/installed-tests \
+		|| die
 	fi
 }
 
