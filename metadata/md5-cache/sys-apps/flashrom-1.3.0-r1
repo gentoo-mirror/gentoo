@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://flashrom.org/Flashrom
 INHERIT=meson
 IUSE=atahpt atapromise +atavia +buspirate-spi +ch341a-spi +dediprog +developerbox-spi +digilent-spi +dirtyjtag-spi +drkaiser +dummy +ft2232-spi +gfxnvidia +internal +it8212 jlink-spi +linux-mtd +linux-spi mediatek-i2c-spi mstarddc-spi +nic3com +nicintel +nicintel-eeprom +nicintel-spi nicnatsemi +nicrealtek +ogp-spi parade-lspcon +pickit2-spi +pony-spi +raiden-debug-spi +rayer-spi realtek-mst-i2c-spi +satamv +satasii +serprog +stlinkv3-spi +usbblaster-spi +internal-dmi test tools
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=atahpt? ( sys-apps/pciutils ) atapromise? ( sys-apps/pciutils ) atavia? ( sys-apps/pciutils ) ch341a-spi? ( virtual/libusb:1 ) dediprog? ( virtual/libusb:1 ) developerbox-spi? ( virtual/libusb:1 ) digilent-spi? ( virtual/libusb:1 ) dirtyjtag-spi? ( virtual/libusb:1 ) drkaiser? ( sys-apps/pciutils ) ft2232-spi? ( dev-embedded/libftdi:1= ) gfxnvidia? ( sys-apps/pciutils ) internal? ( sys-apps/pciutils ) it8212? ( sys-apps/pciutils ) jlink-spi? ( dev-embedded/libjaylink ) nic3com? ( sys-apps/pciutils ) nicintel? ( sys-apps/pciutils ) nicintel-eeprom? ( sys-apps/pciutils ) nicintel-spi? ( sys-apps/pciutils ) nicnatsemi? ( sys-apps/pciutils ) nicrealtek? ( sys-apps/pciutils ) ogp-spi? ( sys-apps/pciutils ) pickit2-spi? ( virtual/libusb:1 ) raiden-debug-spi? ( virtual/libusb:1 ) satamv? ( sys-apps/pciutils ) satasii? ( sys-apps/pciutils ) stlinkv3-spi? ( virtual/libusb:1 ) usbblaster-spi? ( dev-embedded/libftdi:1= ) !internal-dmi? ( sys-apps/dmidecode )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.flashrom.org/releases/flashrom-v1.3.0.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364
-_md5_=855f8d106422401df3be6b305f4bbdf3
+_md5_=1f979f1915c0f556333d2186e6cce75f
