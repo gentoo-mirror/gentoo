@@ -1,12 +1,12 @@
 DEFINED_PHASES=configure install postinst
 DEPEND=dev-libs/libpcre sys-libs/ncurses:= ssl? ( dev-libs/openssl:0= )
-DESCRIPTION=A small, flexible, screen-oriented MUD client (aka TinyFugue)
+DESCRIPTION=Small, flexible, screen-oriented MUD client (aka TinyFugue)
 EAPI=7
-HOMEPAGE=http://tinyfugue.sourceforge.net/
+HOMEPAGE=https://tinyfugue.sourceforge.net/
 IUSE=+atcp doc +gmcp ipv6 +option102 ssl
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/libpcre sys-libs/ncurses:= ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=mirror://sourceforge/tinyfugue/tf-50b8.tar.gz mirror://debian/pool/main/t/tf5/tf5_5.0beta8-8.debian.tar.xz http://homepage.mac.com/mikeride/abelinc/scripts/allrootpatch.txt -> tf-allrootpatch.txt http://homepage.mac.com/mikeride/abelinc/scripts/allsrcpatch.txt -> tf-allsrcpatch.txt doc? ( mirror://sourceforge/tinyfugue/tf-50b8-help.tar.gz )
-_md5_=01db76f7853d7211aa79368bd11da371
+_md5_=42322a6ccbc72b00367ced09d4d47200

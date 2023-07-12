@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
 DEPEND=x11-libs/gtk+:2 portaudio? ( media-libs/libvorbis >=media-libs/portaudio-19_pre1 )
-DESCRIPTION=A retro side-scrolling shoot'em up based on the editor war story
+DESCRIPTION=retro side-scrolling shoot'em up based on the editor war story
 EAPI=7
-HOMEPAGE=http://wordwarvi.sourceforge.net
+HOMEPAGE=https://wordwarvi.sourceforge.net
 INHERIT=desktop toolchain-funcs
 IUSE=portaudio
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-2 CC-BY-2.0 CC-BY-SA-3.0
+LICENSE=GPL-2+ CC-BY-2.0 CC-BY-SA-3.0
 RDEPEND=x11-libs/gtk+:2 portaudio? ( media-libs/libvorbis >=media-libs/portaudio-19_pre1 )
 SLOT=0
 SRC_URI=mirror://sourceforge/wordwarvi/wordwarvi-1.00.tar.gz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=dea18b5ec997dddd4ad10d6b95226e8d
+_md5_=83e5fbdf79e5831fe7fac3c014a0fb8b
