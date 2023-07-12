@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/botan.asc
 inherit edo python-r1 toolchain-funcs verify-sig
 
@@ -179,7 +179,7 @@ src_test() {
 src_install() {
 	default
 
-	if [[ -d "${ED}"/usr/share/doc/${P} ]] ; then
+	if [[ -d "${ED}"/usr/share/doc/${P} && ${P} != ${PF} ]] ; then
 		# --docdir in configure controls the parent directory unfortunately
 		mv "${ED}"/usr/share/doc/${P} "${ED}"/usr/share/doc/${PF} || die
 	fi
