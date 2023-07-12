@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/HTML-Parser-3.0.0 >=virtual/perl-ExtUtils-MakeMaker-6.590.0 dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Extract structure of quoted HTML mail message
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/HTML-Quoted
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/HTML-Parser-3.0.0 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/B/BP/BPS/HTML-Quoted-0.05.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2
+_md5_=7422ff5eef101ed5787b3fcee7bac784
