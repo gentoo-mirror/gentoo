@@ -3,65 +3,66 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=poetry
+PYTHON_COMPAT=( python3_{10..11} )
 
 CRATES="
-	aho-corasick-0.7.19
-	anyhow-1.0.70
-	arc-swap-1.5.1
-	autocfg-1.1.0
-	bitflags-1.3.2
-	blake2-0.10.6
-	block-buffer-0.10.3
-	cfg-if-1.0.0
-	crypto-common-0.1.6
-	digest-0.10.5
-	generic-array-0.14.6
-	hex-0.4.3
-	indoc-1.0.7
-	itoa-1.0.4
-	lazy_static-1.4.0
-	libc-0.2.135
-	lock_api-0.4.9
-	log-0.4.17
-	memchr-2.5.0
-	memoffset-0.6.5
-	once_cell-1.15.0
-	parking_lot-0.12.1
-	parking_lot_core-0.9.3
-	proc-macro2-1.0.52
-	pyo3-0.17.3
-	pyo3-build-config-0.17.3
-	pyo3-ffi-0.17.3
-	pyo3-log-0.8.1
-	pyo3-macros-0.17.3
-	pyo3-macros-backend-0.17.3
-	pythonize-0.17.0
-	quote-1.0.26
-	redox_syscall-0.2.16
-	regex-1.7.3
-	regex-syntax-0.6.29
-	ryu-1.0.11
-	scopeguard-1.1.0
-	serde-1.0.160
-	serde_derive-1.0.160
-	serde_json-1.0.96
-	smallvec-1.10.0
-	subtle-2.4.1
-	syn-1.0.104
-	syn-2.0.10
-	target-lexicon-0.12.4
-	typenum-1.15.0
-	unicode-ident-1.0.5
-	unindent-0.1.10
-	version_check-0.9.4
-	windows-sys-0.36.1
-	windows_aarch64_msvc-0.36.1
-	windows_i686_gnu-0.36.1
-	windows_i686_msvc-0.36.1
-	windows_x86_64_gnu-0.36.1
-	windows_x86_64_msvc-0.36.1
+	aho-corasick@1.0.2
+	anyhow@1.0.71
+	arc-swap@1.5.1
+	autocfg@1.1.0
+	bitflags@1.3.2
+	blake2@0.10.6
+	block-buffer@0.10.3
+	cfg-if@1.0.0
+	crypto-common@0.1.6
+	digest@0.10.5
+	generic-array@0.14.6
+	hex@0.4.3
+	indoc@1.0.7
+	itoa@1.0.4
+	lazy_static@1.4.0
+	libc@0.2.135
+	lock_api@0.4.9
+	log@0.4.19
+	memchr@2.5.0
+	memoffset@0.6.5
+	once_cell@1.15.0
+	parking_lot@0.12.1
+	parking_lot_core@0.9.3
+	proc-macro2@1.0.52
+	pyo3-build-config@0.17.3
+	pyo3-ffi@0.17.3
+	pyo3-log@0.8.2
+	pyo3-macros-backend@0.17.3
+	pyo3-macros@0.17.3
+	pyo3@0.17.3
+	pythonize@0.17.0
+	quote@1.0.26
+	redox_syscall@0.2.16
+	regex-syntax@0.7.2
+	regex@1.8.4
+	ryu@1.0.11
+	scopeguard@1.1.0
+	serde@1.0.164
+	serde_derive@1.0.164
+	serde_json@1.0.99
+	smallvec@1.10.0
+	subtle@2.4.1
+	syn@1.0.104
+	syn@2.0.10
+	target-lexicon@0.12.4
+	typenum@1.15.0
+	unicode-ident@1.0.5
+	unindent@0.1.10
+	version_check@0.9.4
+	windows-sys@0.36.1
+	windows_aarch64_msvc@0.36.1
+	windows_i686_gnu@0.36.1
+	windows_i686_msvc@0.36.1
+	windows_x86_64_gnu@0.36.1
+	windows_x86_64_msvc@0.36.1
 "
 
 inherit cargo distutils-r1 multiprocessing optfeature systemd
@@ -74,7 +75,7 @@ HOMEPAGE="
 SRC_URI="
 	https://github.com/matrix-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
-	$(cargo_crate_uris)
+	${CARGO_CRATE_URIS}
 "
 
 LICENSE="Apache-2.0"
@@ -83,7 +84,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
@@ -91,6 +92,8 @@ DEPEND="
 	acct-user/synapse
 	acct-group/synapse
 "
+# <pillow-10, see bug #909644
+# <pydantic-2, see https://github.com/matrix-org/synapse/issues/15858
 RDEPEND="
 	${DEPEND}
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -107,11 +110,11 @@ RDEPEND="
 	dev-python/netaddr[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/phonenumbers[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP},webp]
+	<dev-python/pillow-10[${PYTHON_USEDEP},webp]
 	dev-python/prometheus-client[${PYTHON_USEDEP}]
 	dev-python/pyasn1-modules[${PYTHON_USEDEP}]
 	dev-python/pyasn1[${PYTHON_USEDEP}]
-	dev-python/pydantic[${PYTHON_USEDEP}]
+	<dev-python/pydantic-2[${PYTHON_USEDEP}]
 	dev-python/pymacaroons[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -128,9 +131,11 @@ RDEPEND="
 BDEPEND="
 	dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	test? (
+		dev-python/hiredis[${PYTHON_USEDEP}]
 		dev-python/idna[${PYTHON_USEDEP}]
 		dev-python/parameterized[${PYTHON_USEDEP}]
 		dev-python/pyicu[${PYTHON_USEDEP}]
+		dev-python/txredisapi[${PYTHON_USEDEP}]
 		postgres? ( dev-db/postgresql[server] )
 	)
 "
@@ -181,6 +186,7 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "Improve user search for international display names" dev-python/pyicu
+	optfeature "Redis support" dev-python/txredisapi
 	optfeature "VoIP relaying on your homeserver with turn" net-im/coturn
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then

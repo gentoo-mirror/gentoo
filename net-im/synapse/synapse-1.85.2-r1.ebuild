@@ -3,8 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=poetry
+PYTHON_COMPAT=( python3_{10..11} )
 
 CRATES="
 	aho-corasick-0.7.19
@@ -24,7 +25,7 @@ CRATES="
 	lazy_static-1.4.0
 	libc-0.2.135
 	lock_api-0.4.9
-	log-0.4.17
+	log-0.4.18
 	memchr-2.5.0
 	memoffset-0.6.5
 	once_cell-1.15.0
@@ -44,8 +45,8 @@ CRATES="
 	regex-syntax-0.6.29
 	ryu-1.0.11
 	scopeguard-1.1.0
-	serde-1.0.160
-	serde_derive-1.0.160
+	serde-1.0.163
+	serde_derive-1.0.163
 	serde_json-1.0.96
 	smallvec-1.10.0
 	subtle-2.4.1
@@ -91,6 +92,8 @@ DEPEND="
 	acct-user/synapse
 	acct-group/synapse
 "
+# <pillow-10, see bug #909644
+# <pydantic-2, see https://github.com/matrix-org/synapse/issues/15858
 RDEPEND="
 	${DEPEND}
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -107,11 +110,11 @@ RDEPEND="
 	dev-python/netaddr[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/phonenumbers[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP},webp]
+	<dev-python/pillow-10[${PYTHON_USEDEP},webp]
 	dev-python/prometheus-client[${PYTHON_USEDEP}]
 	dev-python/pyasn1-modules[${PYTHON_USEDEP}]
 	dev-python/pyasn1[${PYTHON_USEDEP}]
-	dev-python/pydantic[${PYTHON_USEDEP}]
+	<dev-python/pydantic-2[${PYTHON_USEDEP}]
 	dev-python/pymacaroons[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -128,9 +131,11 @@ RDEPEND="
 BDEPEND="
 	dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	test? (
+		dev-python/hiredis[${PYTHON_USEDEP}]
 		dev-python/idna[${PYTHON_USEDEP}]
 		dev-python/parameterized[${PYTHON_USEDEP}]
 		dev-python/pyicu[${PYTHON_USEDEP}]
+		dev-python/txredisapi[${PYTHON_USEDEP}]
 		postgres? ( dev-db/postgresql[server] )
 	)
 "
@@ -181,6 +186,7 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "Improve user search for international display names" dev-python/pyicu
+	optfeature "Redis support" dev-python/txredisapi
 	optfeature "VoIP relaying on your homeserver with turn" net-im/coturn
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
