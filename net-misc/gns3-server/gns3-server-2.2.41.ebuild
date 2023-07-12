@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature systemd
 
 DESCRIPTION="GNS3 server to asynchronously manage emulators"
-HOMEPAGE="https://www.gns3.com/ https://github.com/GNS3/gns3-server"
+HOMEPAGE="https://www.gns3.com https://github.com/GNS3/gns3-server"
 SRC_URI="https://github.com/GNS3/gns3-server/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-python/aiohttp-3.8.4[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/async-timeout-4.0.2[${PYTHON_USEDEP}]
-	>=dev-python/distro-1.7.0[${PYTHON_USEDEP}]
+	>=dev-python/distro-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.1.2[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.9.4[${PYTHON_USEDEP}]
