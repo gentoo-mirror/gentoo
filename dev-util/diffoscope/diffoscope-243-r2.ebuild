@@ -4,25 +4,29 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="ncurses"
-inherit distutils-r1 pypi
+inherit distutils-r1
 
 DESCRIPTION="Will try to get to the bottom of what makes files or directories different"
 HOMEPAGE="https://diffoscope.org/ https://pypi.org/project/diffoscope/"
+# We could use pypi, but upstream provide distribution tarballs, so let's use those.
+# TODO: verify-sig
+SRC_URI="https://diffoscope.org/archive/${P}.tar.bz2"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ia64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc64 ~x86"
 IUSE="acl binutils bzip2 libcaca colord cpio +diff docx dtc e2fsprogs file
 find gettext gif gpg haskell hdf5 hex imagemagick iso java llvm lzma
 mono opendocument pascal pdf postscript R rpm sqlite squashfs
 ssh tar test tcpdump zip zlib zstd"
 RESTRICT="!test? ( test )"
 
+# <libarchive-c-5: https://salsa.debian.org/reproducible-builds/diffoscope/-/issues/344
 RDEPEND="
 	dev-python/python-magic[${PYTHON_USEDEP}]
-	dev-python/libarchive-c[${PYTHON_USEDEP}]
+	<dev-python/libarchive-c-5[${PYTHON_USEDEP}]
 	dev-python/distro[${PYTHON_USEDEP}]
 	dev-python/tlsh[${PYTHON_USEDEP}]
 	acl? ( sys-apps/acl )
