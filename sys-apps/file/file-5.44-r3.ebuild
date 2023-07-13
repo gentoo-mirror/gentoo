@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit distutils-r1 libtool toolchain-funcs multilib-minimal
 
@@ -79,7 +79,7 @@ src_prepare() {
 	mv python/README.md python/README.python.md || die
 
 	# bug #662090
-	sed 's@README.md@README.python.md@' -i python/setup.py || die
+	sed -i 's@README.md@README.python.md@' python/setup.py || die
 }
 
 multilib_src_configure() {
