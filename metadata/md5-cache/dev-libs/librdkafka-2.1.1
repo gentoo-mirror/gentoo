@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/confluentinc/librdkafka
 INHERIT=python-any-r1 toolchain-funcs
 IUSE=lz4 sasl ssl static-libs zstd
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=BSD-2
 RDEPEND=!static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= )
 SLOT=0/1
 SRC_URI=https://github.com/confluentinc/librdkafka/archive/v2.1.1.tar.gz -> librdkafka-2.1.1.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=755fb88fb8a7ec78ae077bf71724661e
+_md5_=c1ce4607663c3307bdbe84aeb78c571c
