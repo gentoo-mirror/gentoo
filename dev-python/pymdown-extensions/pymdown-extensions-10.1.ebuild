@@ -6,21 +6,17 @@ EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Extensions for Python Markdown"
 HOMEPAGE="
 	https://github.com/facelessuser/pymdown-extensions/
 	https://pypi.org/project/pymdown-extensions/
 "
-SRC_URI="
-	https://github.com/facelessuser/pymdown-extensions/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
-"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/markdown-3.2[${PYTHON_USEDEP}]
