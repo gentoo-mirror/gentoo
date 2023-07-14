@@ -6,7 +6,7 @@ inherit linux-info mount-boot savedconfig multiprocessing
 
 # In case this is a real snapshot, fill in commit below.
 # For normal, tagged releases, leave blank
-MY_COMMIT=""
+MY_COMMIT="d3f66064cf43bd7338a79174bd0ff60c4ecbdf6d"
 
 if [[ ${PV} == 99999999* ]]; then
 	inherit git-r3
