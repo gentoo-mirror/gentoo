@@ -1,5 +1,5 @@
-BDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_targets_python3_12? ( >=dev-lang/python-3.12.0_beta3:3.12 ) || ( ( >=dev-lang/python-3.12.0_beta3:3.12 doc? ( dev-python/sphinx[python_targets_python3_12(-)] ) ) ( >=dev-lang/python-3.11.4:3.11 doc? ( dev-python/sphinx[python_targets_python3_11(-)] ) ) ( >=dev-lang/python-3.10.12:3.10 doc? ( dev-python/sphinx[python_targets_python3_10(-)] ) ) ) verify-sig? ( sec-keys/openpgp-keys-botan ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
-DEFINED_PHASES=configure install test unpack
+BDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_targets_python3_12? ( >=dev-lang/python-3.12.0_beta3:3.12 ) || ( ( >=dev-lang/python-3.12.0_beta3:3.12 doc? ( dev-python/sphinx[python_targets_python3_12(-)] ) ) ( >=dev-lang/python-3.11.4:3.11 doc? ( dev-python/sphinx[python_targets_python3_11(-)] ) ) ( >=dev-lang/python-3.10.12:3.10 doc? ( dev-python/sphinx[python_targets_python3_10(-)] ) ) ) || ( >=sys-devel/gcc-11:* >=sys-devel/clang-14:* ) verify-sig? ( sec-keys/openpgp-keys-botan ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install pretend test unpack
 DEPEND=boost? ( dev-libs/boost:= ) bzip2? ( >=app-arch/bzip2-1.0.5:= ) lzma? ( app-arch/xz-utils:= ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_targets_python3_12? ( >=dev-lang/python-3.12.0_beta3:3.12 ) ) sqlite? ( dev-db/sqlite:3= ) zlib? ( >=sys-libs/zlib-1.2.3:= )
 DESCRIPTION=C++ crypto library
 EAPI=8
@@ -12,6 +12,6 @@ RDEPEND=boost? ( dev-libs/boost:= ) bzip2? ( >=app-arch/bzip2-1.0.5:= ) lzma? ( 
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
 RESTRICT=!test? ( test )
 SLOT=3/3.1
-SRC_URI=https://botan.randombit.net/releases/Botan-3.1.0.tar.xz verify-sig? ( https://botan.randombit.net/releases/Botan-3.1.0.tar.xz.asc )
+SRC_URI=https://botan.randombit.net/releases/Botan-3.1.1.tar.xz verify-sig? ( https://botan.randombit.net/releases/Botan-3.1.1.tar.xz.asc )
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-r1	3c6cd0f418ba702c186a9865b85e704d	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
-_md5_=a5eb1af2d49b78d259e77358d1a62c6f
+_md5_=77ac2c588958e9d03cbb68a5284c8632
