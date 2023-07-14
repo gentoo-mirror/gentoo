@@ -5,12 +5,20 @@ EAPI=8
 
 inherit desktop pax-utils xdg optfeature
 
+# Usage: arch_src_uri <gentoo arch> <upstream arch>
+arch_src_uri() {
+	echo "${1}? (
+		https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-${2}-${PV}.tar.gz
+			-> ${P}-${1}.tar.gz
+	)"
+}
+
 DESCRIPTION="A community-driven, freely-licensed binary distribution of Microsoft's VSCode"
 HOMEPAGE="https://vscodium.com/"
 SRC_URI="
-	amd64? ( https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-x64-${PV}.tar.gz -> ${P}-amd64.tar.gz )
-	arm? ( https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-armhf-${PV}.tar.gz -> ${P}-arm.tar.gz )
-	arm64? ( https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-arm64-${PV}.tar.gz -> ${P}-arm64.tar.gz )
+	$(arch_src_uri amd64 x64)
+	$(arch_src_uri arm armhf)
+	$(arch_src_uri arm64 arm64)
 "
 
 RESTRICT="strip bindist"
@@ -46,7 +54,6 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
-	net-print/cups
 	sys-apps/util-linux
 	sys-apps/dbus
 	x11-libs/cairo
@@ -110,5 +117,5 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	elog "When compared to the regular VSCode, VSCodium has a few quirks"
 	elog "More information at: https://github.com/VSCodium/vscodium/blob/master/DOCS.md"
-	optfeature "keyring support inside vscode" "gnome-base/gnome-keyring"
+	optfeature "keyring support inside vscode" "virtual/secret-service"
 }

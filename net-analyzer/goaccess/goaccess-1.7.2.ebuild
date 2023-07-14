@@ -5,17 +5,15 @@
 
 EAPI=8
 
-EGIT_REPO_URI="https://github.com/allinurl/${PN}.git"
-
-inherit autotools git-r3 optfeature systemd tmpfiles
+inherit autotools optfeature systemd tmpfiles
 
 DESCRIPTION="A real-time web log analyzer and interactive viewer in a terminal"
 HOMEPAGE="https://goaccess.io"
-SRC_URI=""
+SRC_URI="https://tar.goaccess.io/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug geoip geoipv2 getline ssl unicode"
 REQUIRED_USE="geoipv2? ( geoip )"
 
