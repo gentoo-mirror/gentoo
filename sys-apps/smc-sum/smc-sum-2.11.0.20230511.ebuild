@@ -13,8 +13,7 @@ MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="Updates the BIOS and IPMI firmware and system settings on Supermicro mainboards"
 HOMEPAGE="https://www.supermicro.com"
-#SRC_URI="${MY_PN}_${MY_PV}_Linux_x86_64_${MY_DATE}.tar.gz"
-SRC_URI="https://www.supermicro.com/Bios/sw_download/527/${MY_PN}_${MY_PV}_Linux_x86_64_${MY_DATE}.tar.gz"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/570/${MY_PN}_${MY_PV}_Linux_x86_64_${MY_DATE}.tar.gz"
 S="${WORKDIR}/${MY_PN}_${MY_PV}_Linux_x86_64"
 
 LICENSE="supermicro"

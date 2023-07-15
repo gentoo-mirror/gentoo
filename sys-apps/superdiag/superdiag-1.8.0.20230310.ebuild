@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="Provides the capability to determine the health of Supermicro servers components"
 HOMEPAGE="https://www.supermicro.com"
-SRC_URI="${MY_PN}_${MY_PV}_${MY_DATE}.zip"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/557/${MY_PN}_${MY_PV}_${MY_DATE}.zip"
 S="${WORKDIR}"
 
 KEYWORDS="-* ~amd64 ~x86"
@@ -19,13 +19,7 @@ IUSE="iso usb"
 
 BDEPEND="app-arch/unzip"
 
-RESTRICT="bindist fetch mirror"
-
-pkg_nofetch() {
-	elog "Please download ${A} from"
-	elog "https://www.supermicro.com/SwDownload/UserInfo.aspx?sw=0&cat=SDO"
-	elog "and place it in your DISTDIR directory."
-}
+RESTRICT="bindist mirror"
 
 src_unpack() {
 	unpack ${A}

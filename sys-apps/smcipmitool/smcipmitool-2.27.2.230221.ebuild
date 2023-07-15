@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="An out-of-band utility for interfacing with SuperBlade and IPMI devices via CLI"
 HOMEPAGE="https://www.supermicro.com/"
-SRC_URI="https://www.supermicro.com/wftp/utility/${MY_PN_SRC_URI}/Linux/${MY_PN}_${MY_PV}_build.${MY_DATE}_bundleJRE_Linux_x64.tar.gz"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/549/${MY_PN}_${MY_PV}_build.${MY_DATE}_bundleJRE_Linux_x64.tar.gz"
 
 LICENSE="supermicro"
 SLOT="0"
