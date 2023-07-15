@@ -1,38 +1,31 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="Utilities to detect broken or counterfeit flash storage"
-HOMEPAGE="http://oss.digirati.com.br/f3/ https://github.com/AltraMayor/f3"
-
-PATCHES=(
-)
+HOMEPAGE="https://github.com/AltraMayor/f3"
 
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/AltraMayor/${PN}.git"
-
-	PATCHES=()
-
 	inherit git-r3
 else
 	SRC_URI="https://github.com/AltraMayor/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-
 IUSE="extra"
 
-DEPEND="extra? (
+RDEPEND="elibc_musl? ( sys-libs/argp-standalone )"
+DEPEND="${RDEPEND}
+	extra? (
 		sys-block/parted
 		virtual/udev
 	)"
-
-RDEPEND=""
 
 DOCS=( changelog README.rst )
 
@@ -43,6 +36,9 @@ src_prepare() {
 		-e 's:-ggdb::' \
 		-e 's:^PREFIX =:PREFIX ?=:' \
 		Makefile || die
+
+	# bug #715518
+	use elibc_musl && append-ldflags -largp
 
 	tc-export CC
 }
