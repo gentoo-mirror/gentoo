@@ -1,5 +1,5 @@
 BDEPEND=dev-ml/findlib doc? ( >=dev-java/antlr-4.7:4 dev-python/antlr4-python3-runtime dev-python/beautifulsoup4 dev-python/pexpect dev-python/sphinx-rtd-theme dev-python/sphinxcontrib-bibtex dev-tex/latexmk dev-texlive/texlive-fontsextra dev-texlive/texlive-latexextra dev-texlive/texlive-xetex media-fonts/freefont ) test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
-DEFINED_PHASES=compile configure install prepare test
+DEFINED_PHASES=compile configure install preinst prepare test
 DEPEND=dev-ml/zarith:= || ( dev-ml/num <dev-lang/ocaml-4.09.0[ocamlopt?] ) gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Proof assistant written in O'Caml
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/8.17.0
 SRC_URI=https://github.com/coq/coq/archive/V8.17.0.tar.gz -> coq-8.17.0.tar.gz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
-_md5_=d504c96ddcde31e697bf46c78bade014
+_md5_=a625eb43493d07f67edfd7c756860a23
