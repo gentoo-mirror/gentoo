@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://anope.org/ https://github.com/anope/anope/
 INHERIT=cmake
 IUSE=gnutls ldap mysql pcre sql sqlite ssl tre
-KEYWORDS=amd64 ~arm arm64 x86
+KEYWORDS=amd64 arm arm64 x86
 LICENSE=GPL-2
 RDEPEND=acct-group/anope acct-user/anope mysql? ( dev-db/mysql-connector-c:= ) ssl? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= dev-libs/libgcrypt:= ) ldap? ( net-nds/openldap:= ) pcre? ( dev-libs/libpcre2 ) sqlite? ( dev-db/sqlite:3 ) tre? ( dev-libs/tre ) virtual/libintl
 REQUIRED_USE=sql? ( || ( mysql sqlite ) )
 SLOT=0
 SRC_URI=https://github.com/anope/anope/archive/2.0.13.tar.gz -> anope-2.0.13.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a
-_md5_=e1d7810bc7adad0da4c6ac3dbaa00b59
+_md5_=855b477764b3f8bd6274b245f041cd46
