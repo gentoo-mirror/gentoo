@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare pretend setup
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ~sci-libs/libsc-2.3.6[lua_single_target_lua5-1(-)?,lua_single_target_lua5-3(-)?,mpi=,openmp=,romio=,threads=] sys-apps/util-linux virtual/blas virtual/lapack mpi? ( virtual/mpi[romio=] )
+DESCRIPTION=Scalable Algorithms for Parallel Adaptive Mesh Refinement on Forests of Octrees
+EAPI=8
+HOMEPAGE=http://www.p4est.org/
+INHERIT=autotools flag-o-matic lua-single toolchain-funcs
+IUSE=debug doc examples mpi openmp romio threads +vtk-binary lua_single_target_lua5-1 lua_single_target_lua5-3
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ~sci-libs/libsc-2.3.6[lua_single_target_lua5-1(-)?,lua_single_target_lua5-3(-)?,mpi=,openmp=,romio=,threads=] sys-apps/util-linux virtual/blas virtual/lapack mpi? ( virtual/mpi[romio=] )
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 ) romio? ( mpi )
+SLOT=0
+SRC_URI=https://github.com/cburstedde/p4est/archive/v2.3.6.tar.gz -> p4est-2.3.6.tar.gz https://github.com/cburstedde/libsc/archive/v2.3.6.tar.gz -> libsc-2.3.6.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	ad475baa777c9978fa035216c8264a10	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
+_md5_=918b8c300e759d9e630c912fcf20b648
