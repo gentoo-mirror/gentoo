@@ -6,14 +6,18 @@ EAPI=8
 inherit flag-o-matic cmake
 
 DESCRIPTION="The Vampire Prover, theorem prover for first-order logic"
-HOMEPAGE="https://vprover.github.io"
+HOMEPAGE="https://vprover.github.io/
+	https://github.com/vprover/vampire/"
 
-if [[ "${PV}" == *9999* ]]; then
+if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/vprover/${PN}.git"
 	EGIT_SUBMODULES=()
 else
-	SRC_URI="https://github.com/vprover/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	# v4.8casc2023 - "This is the 4.8 version submitted to CASC in 2023."
+	SRC_URI="https://github.com/vprover/${PN}/archive/v${PV}casc2023.tar.gz
+		-> ${P}-casc2023.tar.gz"
+	S="${WORKDIR}"/${PN}-${PV}casc2023
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -32,27 +36,23 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-musl.patch )
-
 src_configure() {
 	# -Werror=strict-aliasing warnings, bug #863269
 	filter-lto
 	append-flags -fno-strict-aliasing
 
-	local CMAKE_BUILD_TYPE
-	if use debug; then
-		CMAKE_BUILD_TYPE=Debug
-	else
-		CMAKE_BUILD_TYPE=Release
-	fi
+	local CMAKE_BUILD_TYPE=$(usex debug Debug Release)
 
-	local mycmakeargs=( -DZ3_DIR=$(usex z3 "/usr/$(get_libdir)/cmake/z3/" "") )
+	local -a mycmakeargs=(
+		-DZ3_DIR=$(usex z3 "/usr/$(get_libdir)/cmake/z3/" "")
+	)
 	cmake_src_configure
 }
 
 src_install() {
 	local bin_name=$(find "${BUILD_DIR}"/bin/ -type f -name "${PN}*")
-	dobin "${bin_name}"
+	exeinto /usr/bin
+	doexe "${bin_name}"
 	dosym $(basename "${bin_name}") /usr/bin/${PN}
 
 	einstalldocs
