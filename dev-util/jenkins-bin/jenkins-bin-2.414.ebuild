@@ -8,8 +8,8 @@ inherit systemd
 DESCRIPTION="The leading open source automation server"
 HOMEPAGE="https://jenkins.io/"
 LICENSE="MIT"
-SRC_URI="https://get.jenkins.io/war-stable/${PV}/${PN/-bin/}.war -> ${P}.war"
-SLOT="lts"
+SRC_URI="https://get.jenkins.io/war/${PV}/${PN/-bin/}.war -> ${P}.war"
+SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux"
 IUSE=""
 
@@ -20,7 +20,7 @@ RDEPEND="acct-group/jenkins
 	acct-user/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
-	!dev-util/jenkins-bin:0
+	!dev-util/jenkins-bin:lts
 	|| ( virtual/jre:17 virtual/jre:11 )"
 
 S="${WORKDIR}"
@@ -39,7 +39,7 @@ src_install() {
 	newinitd "${FILESDIR}"/${PN}-r3.init jenkins
 	newconfd "${FILESDIR}"/${PN}-r1.confd jenkins
 
-	systemd_newunit "${FILESDIR}"/${PN}-r4.service jenkins.service
+	systemd_newunit "${FILESDIR}"/${PN}-r5.service jenkins.service
 
 	fowners jenkins:jenkins /var/log/jenkins ${JENKINS_DIR} ${JENKINS_DIR}/home ${JENKINS_DIR}/backup
 }

@@ -39,7 +39,7 @@ src_install() {
 	newinitd "${FILESDIR}"/${PN}-r3.init jenkins
 	newconfd "${FILESDIR}"/${PN}-r1.confd jenkins
 
-	systemd_newunit "${FILESDIR}"/${PN}-r4.service jenkins.service
+	systemd_newunit "${FILESDIR}"/${PN}-r5.service jenkins.service
 
 	fowners jenkins:jenkins /var/log/jenkins ${JENKINS_DIR} ${JENKINS_DIR}/home ${JENKINS_DIR}/backup
 }
