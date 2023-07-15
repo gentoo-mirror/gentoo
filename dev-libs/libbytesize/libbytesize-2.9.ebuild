@@ -10,10 +10,12 @@ inherit autotools python-r1
 DESCRIPTION="Tiny library providing a C \"class\" for working with arbitrary big sizes in bytes"
 HOMEPAGE="https://github.com/storaged-project/libbytesize"
 SRC_URI="https://github.com/storaged-project/libbytesize/releases/download/${PV}/${P}.tar.gz"
+
 LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ~ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc python test tools"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -21,14 +23,12 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	dev-libs/gmp:0=
+	dev-libs/gmp:=
 	dev-libs/mpfr:=
 	dev-libs/libpcre2:=
 	python? ( ${PYTHON_DEPS} )
 "
-
 DEPEND="${RDEPEND}"
-
 BDEPEND="
 	sys-devel/gettext
 	doc? (
@@ -42,8 +42,6 @@ BDEPEND="
 "
 
 DOCS=( README.md )
-
-RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.4-no_Werror.patch"

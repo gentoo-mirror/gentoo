@@ -17,18 +17,17 @@ else
 fi
 
 LICENSE="MIT"
-SLOT="0/1"
+SLOT="0/$(ver_cut 1-2)"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
 	virtual/pkgconfig
+	test? ( dev-cpp/catch:0 )
 "
-
 DEPEND="
 	dev-libs/libfmt
 "
-
 RDEPEND="${DEPEND}"
 
 PATCHES=(
