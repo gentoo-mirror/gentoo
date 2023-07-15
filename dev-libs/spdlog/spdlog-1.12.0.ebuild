@@ -13,7 +13,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/gabime/${PN}"
 else
 	SRC_URI="https://github.com/gabime/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="MIT"
@@ -24,14 +24,15 @@ RESTRICT="!test? ( test )"
 BDEPEND="
 	virtual/pkgconfig
 "
+
 DEPEND="
-	dev-libs/libfmt:0/9.1.0
+	dev-libs/libfmt
 "
+
 RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-force_external_fmt.patch"
-	"${FILESDIR}/${PN}-musl-1.2.4.patch"
 )
 
 src_prepare() {
