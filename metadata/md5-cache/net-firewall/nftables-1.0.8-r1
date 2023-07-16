@@ -1,7 +1,7 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-netfilter ) sys-devel/flex virtual/pkgconfig doc? ( app-text/asciidoc >=app-text/docbook2X-0.8.8-r4 ) python? ( >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.7.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/wheel-0.40.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
 DEPEND=>=net-libs/libmnl-1.0.4:= >=net-libs/libnftnl-1.2.6:= gmp? ( dev-libs/gmp:= ) json? ( dev-libs/jansson:= ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) readline? ( sys-libs/readline:= ) xtables? ( >=net-firewall/iptables-1.6.1:= )
-DESCRIPTION=Linux kernel (3.13+) firewall, NAT and packet mangling tools
+DESCRIPTION=Linux kernel firewall, NAT and packet mangling tools
 EAPI=8
 HOMEPAGE=https://netfilter.org/projects/nftables/
 INHERIT=edo linux-info distutils-r1 systemd verify-sig
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://netfilter.org/projects/nftables/files/nftables-1.0.8.tar.xz verify-sig? ( https://netfilter.org/projects/nftables/files/nftables-1.0.8.tar.xz.sig )
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	1c9a447ab8b90199e719e0e3a9a5cb00	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
-_md5_=417479443cc05157c1babeac34d2b756
+_md5_=7e51ae4e5caa56a7020c72c95401b95c
