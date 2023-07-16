@@ -4,7 +4,7 @@ DEPEND=media-libs/embree dev-cpp/tbb:=
 DESCRIPTION=Intel Open Path Guiding Library
 EAPI=8
 HOMEPAGE=https://github.com/OpenPathGuidingLibrary/openpgl
-INHERIT=cmake
+INHERIT=cmake flag-o-matic
 IUSE=cpu_flags_arm_neon cpu_flags_x86_sse4_2 cpu_flags_x86_avx2 cpu_flags_x86_avx512dq debug
 KEYWORDS=-* ~amd64 ~arm64
 LICENSE=Apache-2.0
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( cpu_flags_arm_neon cpu_flags_x86_sse4_2 cpu_flags_x86_avx2 cpu
 SLOT=0
 SRC_URI=https://github.com/OpenPathGuidingLibrary/openpgl/archive/v0.5.0.tar.gz -> openpgl-0.5.0.tar.gz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a
-_md5_=d115d4e33cda72232d2be861f4b471b1
+_md5_=9bf71a31e6574ef4894dbaa022a16073
