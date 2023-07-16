@@ -19,7 +19,7 @@ else
 	# Update these between major releases.
 	TEST_TARBALL_VERSION="$(ver_cut 1-2).0"
 	#SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-${TEST_TARBALL_VERSION}-tests.tar.xz )"
-	KEYWORDS="amd64 ~arm ~arm64"
+	KEYWORDS="~amd64 ~arm ~arm64"
 fi
 
 SLOT="${PV%.*}"
@@ -281,6 +281,9 @@ src_configure() {
 			-DOPTIX_ROOT_DIR="${EPREFIX}"/opt/optix
 		)
 	fi
+
+	# This is currently needed on arm64 to get the NEON SIMD wrapper to compile the code successfully
+	use arm64 && append-flags -flax-vector-conversions
 
 	append-flags $(usex debug '-DDEBUG' '-DNDEBUG')
 
