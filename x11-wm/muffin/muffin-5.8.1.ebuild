@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit gnome2-utils meson xdg-utils virtualx
+inherit gnome2-utils meson virtualx
 
 DESCRIPTION="Compositing window manager forked from Mutter for use with Cinnamon"
 HOMEPAGE="https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/muffin"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/linuxmint/muffin/archive/${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="BSD GPL-2+ LGPL-2+ LGPL-2.1+ MIT SGI-B-2.0"
 SLOT="0"
 IUSE="input_devices_wacom +introspection screencast sysprof test udev"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 # Dependencies listed in meson order
 COMDEPEND="
@@ -21,11 +21,11 @@ COMDEPEND="
 	>=x11-libs/gtk+-3.19.8:3[X,introspection?]
 	x11-libs/gdk-pixbuf:2[introspection?]
 	>=x11-libs/pango-1.20.0[introspection?]
-	>=x11-libs/cairo-1.10.0:=[X]
+	>=x11-libs/cairo-1.10.0[X]
 	>=dev-libs/fribidi-1.0.0
 	>=dev-libs/glib-2.61.1:2
 	>=dev-libs/json-glib-0.12.0[introspection?]
-	>=gnome-extra/cinnamon-desktop-5.6:0=
+	>=gnome-extra/cinnamon-desktop-5.8:0=
 	>=x11-libs/libXcomposite-0.4
 	x11-libs/libXcursor
 	x11-libs/libXdamage
@@ -48,7 +48,8 @@ COMDEPEND="
 	media-libs/libglvnd[X]
 	media-libs/mesa[X(+),egl(+)]
 	x11-libs/libSM
-	>=x11-libs/startup-notification-0.7:=
+	>=x11-libs/startup-notification-0.7
+	media-libs/fontconfig
 
 	input_devices_wacom? ( >=dev-libs/libwacom-0.13:= )
 	introspection? ( >=dev-libs/gobject-introspection-1.41.3:= )

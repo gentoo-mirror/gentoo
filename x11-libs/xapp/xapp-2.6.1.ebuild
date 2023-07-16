@@ -3,32 +3,37 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 VALA_USE_DEPEND="vapigen"
 
-inherit gnome2-utils vala meson python-r1 xdg-utils
+inherit gnome2-utils vala meson python-r1
 
 DESCRIPTION="Cross-desktop libraries and common resources"
 HOMEPAGE="https://github.com/linuxmint/xapp/"
-LICENSE="LGPL-3+"
+LICENSE="LGPL-3"
 
 SRC_URI="https://github.com/linuxmint/xapp/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 SLOT="0"
-IUSE="gtk-doc introspection static-libs"
+IUSE="gtk-doc introspection mate"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
-	${PYTHON_DEPS}
 	>=dev-libs/glib-2.44.0:2
-	dev-libs/gobject-introspection:0=
 	dev-libs/libdbusmenu[gtk3]
-	gnome-base/libgnomekbd
+	gnome-base/libgnomekbd:=
 	x11-libs/cairo
 	>=x11-libs/gdk-pixbuf-2.22.0:2[introspection?]
 	>=x11-libs/gtk+-3.16.0:3[introspection?]
 	x11-libs/libxkbfile
+	x11-libs/libX11
+	x11-libs/pango
+
+	mate? (
+		${PYTHON_DEPS}
+		dev-python/pygobject:3[${PYTHON_USEDEP}]
+	)
 "
 DEPEND="
 	${RDEPEND}
@@ -39,6 +44,7 @@ BDEPEND="
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
+	sys-apps/dbus
 	sys-devel/gettext
 
 	gtk-doc? ( dev-util/gtk-doc )
@@ -49,11 +55,16 @@ src_prepare() {
 	default
 
 	# don't install distro specific tools
-	sed -i "/subdir('scripts')/d" meson.build || die
+	sed -i "s/subdir('scripts')/#&/" meson.build || die
+
+	# make mate integrations optional
+	if ! use mate; then
+		sed -i "s/subdir('mate')/#&/" status-applets/meson.build || die
+	fi
 
 	# Fix meson helpers
 	python_setup
-	python_fix_shebang meson-scripts
+	python_fix_shebang .
 }
 
 src_configure() {
