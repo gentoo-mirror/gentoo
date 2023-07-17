@@ -191,6 +191,7 @@ esac
 if [[ -z ${_DISTUTILS_R1_ECLASS} ]]; then
 _DISTUTILS_R1_ECLASS=1
 
+inherit flag-o-matic
 inherit multibuild multilib multiprocessing ninja-utils toolchain-funcs
 
 if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
@@ -271,8 +272,7 @@ _distutils_set_globals() {
 				;;
 			setuptools)
 				bdep+='
-					>=dev-python/setuptools-67.7.2[${PYTHON_USEDEP}]
-					>=dev-python/wheel-0.40.0[${PYTHON_USEDEP}]
+					>=dev-python/setuptools-67.8.0-r1[${PYTHON_USEDEP}]
 				'
 				;;
 			sip)
@@ -292,7 +292,7 @@ _distutils_set_globals() {
 			eqawarn "is enabled."
 		fi
 	else
-		local setuptools_dep='>=dev-python/setuptools-67.7.2[${PYTHON_USEDEP}]'
+		local setuptools_dep='>=dev-python/setuptools-67.8.0-r1[${PYTHON_USEDEP}]'
 
 		case ${DISTUTILS_USE_SETUPTOOLS:-bdepend} in
 			no|manual)
@@ -1718,7 +1718,7 @@ distutils-r1_python_install() {
 		# python likes to compile any module it sees, which triggers sandbox
 		# failures if some packages haven't compiled their modules yet.
 		addpredict "${EPREFIX}/usr/lib/${EPYTHON}"
-		addpredict "${EPREFIX}/usr/lib/pypy3.9"
+		addpredict "${EPREFIX}/usr/lib/pypy3.10"
 		addpredict "${EPREFIX}/usr/local" # bug 498232
 
 		if [[ ! ${DISTUTILS_SINGLE_IMPL} ]]; then
@@ -1834,6 +1834,12 @@ distutils-r1_run_phase() {
 		# bug fixes from Cython (this works only when setup.py is using
 		# cythonize() but it's better than nothing)
 		local -x CYTHON_FORCE_REGEN=1
+	fi
+
+	# Rust extensions are incompatible with C/C++ LTO compiler
+	# see e.g. https://bugs.gentoo.org/910220
+	if has cargo ${INHERITED}; then
+		filter-lto
 	fi
 
 	# How to build Python modules in different worlds...
@@ -1974,7 +1980,7 @@ _distutils-r1_post_python_compile() {
 			die "${rscriptdir} should not exist!"
 		if [[ -d ${bindir} ]]; then
 			mkdir -p "${rscriptdir}" || die
-			cp -a --reflink=auto "${bindir}"/. "${rscriptdir}"/ || die
+			cp -a "${bindir}"/. "${rscriptdir}"/ || die
 		fi
 
 		# enable venv magic inside the install tree
