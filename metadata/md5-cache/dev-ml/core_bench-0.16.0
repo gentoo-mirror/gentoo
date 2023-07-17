@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.14 dev-ml/core:0/0.16 dev-ml/core_kernel:0/0.16 dev-ml/core_unix:0/0.16 dev-ml/ppx_compare:0/0.16 dev-ml/ppx_jane:0/0.16 dev-ml/ppx_let:0/0.16 dev-ml/textutils:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Micro-benchmarking library for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/core_bench
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-4.14 dev-ml/core:0/0.16 dev-ml/core_kernel:0/0.16 dev-ml/core_unix:0/0.16 dev-ml/ppx_compare:0/0.16 dev-ml/ppx_jane:0/0.16 dev-ml/ppx_let:0/0.16 dev-ml/textutils:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.16
+SRC_URI=https://github.com/janestreet/core_bench/archive/v0.16.0.tar.gz -> core_bench-0.16.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=758e5810368373cad4a041094d2bfdcc

@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-4.14 dev-ml/ppx_cold:0/0.16 dev-ml/ppx_globalize:0/0.16 dev-ml/ppx_enumerate:0/0.16 dev-ml/ppx_hash:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4.14 dev-ml/ppx_cold:0/0.16 dev-ml/ppx_globalize:0/0.16 dev-ml/ppx_enumerate:0/0.16 dev-ml/ppx_hash:0/0.16 dev-ml/ppx_sexp_conv:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Base set of ppx rewriters
 EAPI=8
 HOMEPAGE=https://github.com/janestreet/ppx_base
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
-RDEPEND=>=dev-lang/ocaml-4.14 dev-ml/ppx_cold:0/0.16 dev-ml/ppx_globalize:0/0.16 dev-ml/ppx_enumerate:0/0.16 dev-ml/ppx_hash:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.14 dev-ml/ppx_cold:0/0.16 dev-ml/ppx_globalize:0/0.16 dev-ml/ppx_enumerate:0/0.16 dev-ml/ppx_hash:0/0.16 dev-ml/ppx_sexp_conv:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.16
 SRC_URI=https://github.com/janestreet/ppx_base/archive/v0.16.0.tar.gz -> ppx_base-0.16.0.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
-_md5_=42d97b47773bad06286dad75ba24fe70
+_md5_=2fe5dfb3d5363467e083ee9a82301153
