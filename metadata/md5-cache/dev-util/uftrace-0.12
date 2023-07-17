@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) unwind? ( sys-libs/libunwind:= )
+DEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) unwind? ( sys-libs/libunwind:= )
 DESCRIPTION=Function (graph) tracer for user-space
 EAPI=8
 HOMEPAGE=https://github.com/namhyung/uftrace
@@ -7,10 +7,10 @@ INHERIT=bash-completion-r1 lua-single python-single-r1 toolchain-funcs
 IUSE=capstone lua python unwind +lua_single_target_luajit python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
-RDEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) unwind? ( sys-libs/libunwind:= )
+RDEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) unwind? ( sys-libs/libunwind:= )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit ) ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/namhyung/uftrace/archive/v0.12.tar.gz -> uftrace-0.12.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=de19d338bc931bc6b3d19d911085428b

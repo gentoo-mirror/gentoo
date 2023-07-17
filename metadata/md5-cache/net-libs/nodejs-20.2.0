@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.4:3.11[threads(+)] >=dev-lang/python-3.10.12:3.10[threads(+)] ) dev-util/ninja sys-apps/coreutils virtual/pkgconfig test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix )
+BDEPEND=|| ( dev-lang/python:3.11[threads(+)] dev-lang/python:3.10[threads(+)] ) dev-util/ninja sys-apps/coreutils virtual/pkgconfig test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix )
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test
 DEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
 DESCRIPTION=A JavaScript runtime built on Chrome's V8 JavaScript engine
@@ -13,5 +13,5 @@ REQUIRED_USE=inspector? ( icu ssl ) npm? ( ssl ) system-icu? ( icu ) system-ssl?
 RESTRICT=!test? ( test )
 SLOT=0/20
 SRC_URI=https://nodejs.org/dist/v20.2.0/node-v20.2.0.tar.xz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	check-reqs	a5f1e025c53d62f98bc24bd63d7d95e1	flag-o-matic	ad475baa777c9978fa035216c8264a10	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	check-reqs	a5f1e025c53d62f98bc24bd63d7d95e1	flag-o-matic	ad475baa777c9978fa035216c8264a10	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=e097c83bcabf7c76a9466e6eb73f53eb

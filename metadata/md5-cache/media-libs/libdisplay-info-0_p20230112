@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 ) virtual/pkgconfig test? ( >=sys-apps/edid-decode-0_pre20230131 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig test? ( >=sys-apps/edid-decode-0_pre20230131 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=sys-apps/hwdata
 DESCRIPTION=Simple framework for writing Vulkan layers
@@ -12,5 +12,5 @@ RDEPEND=sys-apps/hwdata
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/506925a66bfa3607c8de2c37dbe65659ecd1b9fb/libdisplay-info-506925a66bfa3607c8de2c37dbe65659ecd1b9fb.tar.bz2 -> libdisplay-info-0_p20230112.tar.bz2
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
 _md5_=9c06db5a0410eba3c7515fce5c339620

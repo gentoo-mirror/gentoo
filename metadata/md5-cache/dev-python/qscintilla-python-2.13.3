@@ -1,6 +1,6 @@
 BDEPEND=>=dev-python/PyQt-builder-1.10[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/sip-6.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-qt/qtcore:5
 DEFINED_PHASES=compile configure install prepare
-DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) >=dev-python/PyQt5-5.15.5[gui,printsupport,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ~x11-libs/qscintilla-2.13.3:=
+DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/PyQt5-5.15.5[gui,printsupport,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ~x11-libs/qscintilla-2.13.3:=
 DESCRIPTION=Python bindings for QScintilla
 EAPI=8
 HOMEPAGE=https://www.riverbankcomputing.com/software/qscintilla/ https://pypi.org/project/QScintilla/
@@ -8,9 +8,9 @@ INHERIT=python-r1 qmake-utils
 IUSE=debug python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) >=dev-python/PyQt5-5.15.5[gui,printsupport,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ~x11-libs/qscintilla-2.13.3:= >=dev-python/PyQt5-sip-12.9:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/PyQt5-5.15.5[gui,printsupport,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ~x11-libs/qscintilla-2.13.3:= >=dev-python/PyQt5-sip-12.9:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.3/QScintilla_src-2.13.3.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-r1	3c6cd0f418ba702c186a9865b85e704d	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
 _md5_=739aa2ae2564d10ab033d27c7f696f9a

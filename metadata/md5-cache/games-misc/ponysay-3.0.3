@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) doc? ( sys-apps/texinfo )
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) doc? ( sys-apps/texinfo )
 DEFINED_PHASES=compile install setup
 DESCRIPTION=cowsay reimplemention for ponies
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=bash-completion-r1 python-single-r1
 IUSE=doc +non-free bash-completion fish-completion zsh-completion python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~arm ~arm64 ~m68k ~x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) fish-completion? ( app-shells/fish ) zsh-completion? ( app-shells/zsh )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) fish-completion? ( app-shells/fish ) zsh-completion? ( app-shells/zsh )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/erkin/ponysay/archive/3.0.3.tar.gz -> ponysay-3.0.3.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=fd7877ce643426c11c55a0f5f93b72ed

@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 )
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 )
 DEFINED_PHASES=install prepare setup
 DESCRIPTION=Short-term-memory training N-Back game
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=desktop python-single-r1
 IUSE=python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=CC-Sampling-Plus-1.0 GPL-2+
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_single_target_python3_10? ( dev-python/pyglet[python_targets_python3_10(-),sound] ) python_single_target_python3_11? ( dev-python/pyglet[python_targets_python3_11(-),sound] )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pyglet[python_targets_python3_10(-),sound] ) python_single_target_python3_11? ( dev-python/pyglet[python_targets_python3_11(-),sound] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/brain-workshop/brainworkshop/archive/31b125162c63c111358ead73d9c02905363c8c1c.tar.gz -> brainworkshop-5.0.2_p20230115.tar.gz
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=a55f35eda1ec95914472806ea1d1c82e

@@ -8,10 +8,10 @@ INHERIT=python-single-r1 systemd
 IUSE=cron-boot etc-crontab-systemd minutely +runparts setgid test yearly python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86
 LICENSE=MIT
-RDEPEND=>=sys-apps/systemd-217 sys-apps/debianutils !sys-process/cronie[anacron] !etc-crontab-systemd? ( !sys-process/dcron ) python_single_target_pypy3? ( >=dev-python/pypy3-7.3.11_p1:0= ) python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) sys-process/cronbase acct-user/_cron-failure acct-group/_cron-failure
+RDEPEND=>=sys-apps/systemd-217 sys-apps/debianutils !sys-process/cronie[anacron] !etc-crontab-systemd? ( !sys-process/dcron ) python_single_target_pypy3? ( dev-python/pypy3:= ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) sys-process/cronbase acct-user/_cron-failure acct-group/_cron-failure
 REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/systemd-cron/systemd-cron/archive/v1.15.19.tar.gz -> systemd-cron-1.15.19.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=24ddaaa6d294ef232d4b88c9bc3145bf

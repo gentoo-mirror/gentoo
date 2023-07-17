@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 )
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 )
 DEFINED_PHASES=install setup
 DESCRIPTION=Angry, Drunken Dwarves, a falling blocks game similar to Puzzle Fighter
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=desktop python-single-r1
 IUSE=python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_single_target_python3_10? ( dev-python/pygame[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygame[python_targets_python3_11(-)] ) media-libs/sdl2-image[png] media-libs/sdl2-mixer[vorbis]
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pygame[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygame[python_targets_python3_11(-)] ) media-libs/sdl2-image[png] media-libs/sdl2-mixer[vorbis]
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=mirror://gentoo/angrydd-1.0.1.tar.gz mirror://debian/pool/main/a/angrydd/angrydd_1.0.1-13.debian.tar.xz
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=ed63266caafbf6490bfc0faaa09013bc

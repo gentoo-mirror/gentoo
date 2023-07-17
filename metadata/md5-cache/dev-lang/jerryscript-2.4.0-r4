@@ -1,4 +1,4 @@
-BDEPEND=debugger? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=debugger? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Ultra-lightweight JavaScript engine for the Internet of Things
 EAPI=7
@@ -7,10 +7,10 @@ INHERIT=cmake python-single-r1
 IUSE=debugger python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=debugger? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) )
+RDEPEND=debugger? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
 REQUIRED_USE=debugger? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/jerryscript-project/jerryscript/archive/refs/tags/v2.4.0.tar.gz -> jerryscript-2.4.0.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=9257dfbce9838752b6dd2153bf6b5f76

@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-text/texi2html app-text/texlive-core sys-apps/texinfo ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
-DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) dev-libs/libltdl dev-db/sqlite sys-libs/ncurses python_single_target_python3_10? ( dev-python/pygments[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) emacs? ( >=app-editors/emacs-23.1:* )
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/libltdl dev-db/sqlite sys-libs/ncurses python_single_target_python3_10? ( dev-python/pygments[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) emacs? ( >=app-editors/emacs-23.1:* )
 DESCRIPTION=Tag system to find an object location in various sources
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/global/global.html
@@ -8,9 +8,9 @@ INHERIT=autotools elisp-common python-single-r1
 IUSE=doc emacs python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-3+
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) dev-libs/libltdl dev-db/sqlite sys-libs/ncurses python_single_target_python3_10? ( dev-python/pygments[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) emacs? ( >=app-editors/emacs-23.1:* )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/libltdl dev-db/sqlite sys-libs/ncurses python_single_target_python3_10? ( dev-python/pygments[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) emacs? ( >=app-editors/emacs-23.1:* )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=mirror://gnu/global/global-6.6.10.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	elisp-common	b3b15bdbe800c721e93b69b70cce2b67	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	elisp-common	b3b15bdbe800c721e93b69b70cce2b67	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=64039eef9bb9fd3ff660f6b10822ae75

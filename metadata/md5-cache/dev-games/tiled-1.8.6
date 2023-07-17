@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm setup
-DEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) )
+DEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
 DESCRIPTION=A general purpose tile map editor
 EAPI=8
 HOMEPAGE=https://www.mapeditor.org/
@@ -8,9 +8,9 @@ INHERIT=python-single-r1 qmake-utils xdg-utils
 IUSE=examples python python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64
 LICENSE=BSD BSD-2 GPL-2+
-RDEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) )
+RDEPEND=app-arch/zstd:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtdbus-5.15:5 >=dev-qt/qtdeclarative-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtwidgets-5.15:5 sys-libs/zlib python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/bjorn/tiled/archive/v1.8.6/tiled-1.8.6.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=0ce21f2ff51f8c360d2e6f6052aa41bb

@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=dev-libs/libgcrypt:= dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=A fast and low-memory footprint OCI Container Runtime fully written in C
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libgcrypt:= dev-libs/yajl:= sys-kernel/linux-headers caps? ( sy
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/containers/crun/releases/download/1.8.4/crun-1.8.4.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
 _md5_=cd574d1c2ad82b5041d805c434e528f0

@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
-DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11[threads(+)] ) )
+DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) )
 DESCRIPTION=Daemon for exposing legacy ALSA sequencer applications in JACK MIDI system
 EAPI=8
 HOMEPAGE=https://github.com/jackaudio/a2jmidid
@@ -8,8 +8,8 @@ INHERIT=meson python-single-r1 git-r3
 IUSE=dbus python python_single_target_python3_10 python_single_target_python3_11
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10[threads(+)] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11[threads(+)] ) )
+RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	27e13c09a4c7e4c78ac812f74727e676
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=cccc1e2d54f53560391b2c70bee5f4e8

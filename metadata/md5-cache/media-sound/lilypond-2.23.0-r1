@@ -1,6 +1,6 @@
 BDEPEND=dev-texlive/texlive-metapost sys-apps/texinfo sys-devel/bison sys-devel/flex virtual/pkgconfig doc? ( app-text/texi2html ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
-DEPEND=app-text/ghostscript-gpl dev-scheme/guile:12=[deprecated,regex] media-fonts/tex-gyre media-libs/fontconfig media-libs/freetype:2 x11-libs/pango emacs? ( >=app-editors/emacs-23.1:* ) python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) app-text/t1utils dev-lang/perl dev-libs/kpathsea media-gfx/fontforge[png,python] sys-devel/gettext doc? ( dev-texlive/texlive-langcyrillic l10n_cs? ( dev-texlive/texlive-xetex ) l10n_ja? ( dev-texlive/texlive-langjapanese ) l10n_zh? ( dev-texlive/texlive-langchinese ) )
+DEPEND=app-text/ghostscript-gpl dev-scheme/guile:12=[deprecated,regex] media-fonts/tex-gyre media-libs/fontconfig media-libs/freetype:2 x11-libs/pango emacs? ( >=app-editors/emacs-23.1:* ) python_single_target_python3_10? ( dev-lang/python:3.10 ) app-text/t1utils dev-lang/perl dev-libs/kpathsea media-gfx/fontforge[png,python] sys-devel/gettext doc? ( dev-texlive/texlive-langcyrillic l10n_cs? ( dev-texlive/texlive-xetex ) l10n_ja? ( dev-texlive/texlive-langjapanese ) l10n_zh? ( dev-texlive/texlive-langchinese ) )
 DESCRIPTION=GNU Music Typesetter
 EAPI=7
 HOMEPAGE=http://lilypond.org/
@@ -8,10 +8,10 @@ INHERIT=elisp-common autotools python-single-r1 toolchain-funcs xdg-utils
 IUSE=debug doc emacs profile vim-syntax l10n_ca l10n_cs l10n_de l10n_en l10n_fr l10n_hu l10n_it l10n_ja l10n_nl l10n_pt l10n_zh +python_single_target_python3_10
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~x86
 LICENSE=GPL-3 FDL-1.3
-RDEPEND=app-text/ghostscript-gpl dev-scheme/guile:12=[deprecated,regex] media-fonts/tex-gyre media-libs/fontconfig media-libs/freetype:2 x11-libs/pango emacs? ( >=app-editors/emacs-23.1:* ) python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 )
+RDEPEND=app-text/ghostscript-gpl dev-scheme/guile:12=[deprecated,regex] media-fonts/tex-gyre media-libs/fontconfig media-libs/freetype:2 x11-libs/pango emacs? ( >=app-editors/emacs-23.1:* ) python_single_target_python3_10? ( dev-lang/python:3.10 )
 REQUIRED_USE=^^ ( python_single_target_python3_10 )
 RESTRICT=test
 SLOT=0
 SRC_URI=http://lilypond.org/download/sources/v2.23/lilypond-2.23.0.tar.gz
-_eclasses_=elisp-common	b3b15bdbe800c721e93b69b70cce2b67	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=elisp-common	b3b15bdbe800c721e93b69b70cce2b67	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=0e6b5709db8c4c02e6000037cb8f7413

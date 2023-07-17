@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( >=dev-lang/python-3.12.0_beta3:3.12 >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 >=dev-python/pypy3-7.3.11_p1:0 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 dev-python/pypy3 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=acct-user/airdcppd acct-group/airdcppd app-arch/bzip2 dev-cpp/websocketpp dev-libs/boost:= dev-libs/leveldb:= dev-libs/libmaxminddb:= dev-libs/openssl:0=[-bindist(-)] net-libs/miniupnpc:= sys-libs/zlib virtual/libiconv nat-pmp? ( net-libs/libnatpmp:= ) tbb? ( dev-cpp/tbb:= )
 DESCRIPTION=Cross-platform Direct Connect client
@@ -12,5 +12,5 @@ PDEPEND=webui? ( www-apps/airdcpp-webui )
 RDEPEND=acct-user/airdcppd acct-group/airdcppd app-arch/bzip2 dev-cpp/websocketpp dev-libs/boost:= dev-libs/leveldb:= dev-libs/libmaxminddb:= dev-libs/openssl:0=[-bindist(-)] net-libs/miniupnpc:= sys-libs/zlib virtual/libiconv nat-pmp? ( net-libs/libnatpmp:= ) tbb? ( dev-cpp/tbb:= )
 SLOT=0
 SRC_URI=https://github.com/airdcpp-web/airdcpp-webclient/archive/2.12.1.tar.gz -> airdcpp-webclient-2.12.1.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=3e8606b1f439cba7aeaa83f7398c006d

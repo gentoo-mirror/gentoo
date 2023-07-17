@@ -1,6 +1,6 @@
 BDEPEND=qt5? ( dev-qt/linguist-tools:5 ) virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup
-DEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 webengine? ( dev-qt/qtwebengine:5[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 )
+DEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 webengine? ( dev-qt/qtwebengine:5[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 )
 DESCRIPTION=Personal full text search package
 EAPI=8
 HOMEPAGE=https://www.lesbonscomptes.com/recoll/
@@ -8,9 +8,9 @@ INHERIT=linux-info optfeature python-single-r1 qmake-utils systemd
 IUSE=camelcase chm +inotify qt5 session +spell systemd webengine python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 webengine? ( dev-qt/qtwebengine:5[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) app-arch/unzip
+RDEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 webengine? ( dev-qt/qtwebengine:5[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) app-arch/unzip
 REQUIRED_USE=session? ( inotify ) webengine? ( qt5 ) ^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://www.lesbonscomptes.com/recoll/recoll-1.35.0.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=017747569944f792c718764a549e92a4

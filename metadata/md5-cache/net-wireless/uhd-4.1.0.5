@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen ) python_single_target_python3_10? ( dev-python/mako[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/mako[python_targets_python3_11(-)] ) app-arch/unzip app-arch/gzip >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] )
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] )
 DESCRIPTION=Universal Software Radio Peripheral (USRP) Hardware Driver
 EAPI=8
 HOMEPAGE=https://kb.ettus.com
@@ -8,10 +8,10 @@ INHERIT=cmake gnome2-utils python-single-r1 udev
 IUSE=+b100 +b200 doc e300 examples +mpmd octoclock +n230 test +usb +usrp1 +usrp2 +utils +x300 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 ) b100? ( usb ) b200? ( usb ) usrp1? ( usb ) usrp2? ( usb ) || ( b100 b200 e300 mpmd n230 usrp1 usrp2 x300 )
 RESTRICT=!test? ( test )
 SLOT=0/4.1.0
 SRC_URI=https://github.com/EttusResearch/uhd/archive/v4.1.0.5.tar.gz -> EttusResearch-UHD-4.1.0.5.tar.gz https://github.com/EttusResearch/uhd/releases/download/v4.1.0.5/uhd-images_4.1.0.5.tar.xz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=61b49f87e29041f755d529180bc7837f

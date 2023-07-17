@@ -1,6 +1,6 @@
 BDEPEND=dev-util/glib-utils virtual/pkgconfig gtk-doc? ( dev-util/gi-docgen ) vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=>=dev-libs/gobject-introspection-1.54:= >=dev-libs/glib-2.44.0:2 >=dev-libs/libgit2-0.26.0:0=[ssh?] python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
+DEPEND=>=dev-libs/gobject-introspection-1.54:= >=dev-libs/glib-2.44.0:2 >=dev-libs/libgit2-0.26.0:0=[ssh?] python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 DESCRIPTION=Git library for GLib
 EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Projects/Libgit2-glib
@@ -9,9 +9,9 @@ INHERIT=gnome.org meson python-r1 vala xdg
 IUSE=gtk-doc python +ssh +vala python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
-RDEPEND=>=dev-libs/gobject-introspection-1.54:= >=dev-libs/glib-2.44.0:2 >=dev-libs/libgit2-0.26.0:0=[ssh?] python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
+RDEPEND=>=dev-libs/gobject-introspection-1.54:= >=dev-libs/glib-2.44.0:2 >=dev-libs/libgit2-0.26.0:0=[ssh?] python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=mirror://gnome/sources/libgit2-glib/1.1/libgit2-glib-1.1.0.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-r1	3c6cd0f418ba702c186a9865b85e704d	flag-o-matic	ad475baa777c9978fa035216c8264a10	vala	db97951caa799e73a831a5f48e717da8	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	flag-o-matic	ad475baa777c9978fa035216c8264a10	vala	db97951caa799e73a831a5f48e717da8	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=342dfbc8ad32a42fed9883617b5a2d5d

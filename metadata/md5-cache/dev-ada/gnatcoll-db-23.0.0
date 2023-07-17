@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install setup
-DEPEND=dev-ada/gnatcoll-core:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) xref? ( dev-ada/gnatcoll-bindings:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,iconv,shared?,static-libs?,static-pic?] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?]
+DEPEND=dev-ada/gnatcoll-core:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) xref? ( dev-ada/gnatcoll-bindings:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,iconv,shared?,static-libs?,static-pic?] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?]
 DESCRIPTION=GNAT Component Collection
 EAPI=8
 HOMEPAGE=http://libre.adacore.com
@@ -7,9 +7,9 @@ INHERIT=ada multiprocessing python-single-r1
 IUSE=db2ada gnatinspect postgres +shared sql sqlite static-libs static-pic xref ada_target_gnat_2021 ada_target_gcc_12 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-ada/gnatcoll-core:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) xref? ( dev-ada/gnatcoll-bindings:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,iconv,shared?,static-libs?,static-pic?] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 )
+RDEPEND=dev-ada/gnatcoll-core:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared?,static-libs?,static-pic?] sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) xref? ( dev-ada/gnatcoll-bindings:0/23.0.0[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,iconv,shared?,static-libs?,static-pic?] ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 )
 REQUIRED_USE=gnatinspect? ( xref ) xref? ( sqlite ) sqlite? ( sql ) db2ada? ( sql ) postgres? ( sql ) || ( shared static-libs static-pic ) || ( sql sqlite xref postgres gnatinspect db2ada ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ) ^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0/23.0.0
 SRC_URI=https://github.com/AdaCore/gnatcoll-db/archive/v23.0.0.tar.gz -> gnatcoll-db-23.0.0.tar.gz
-_eclasses_=ada	bb78cd39726bbc190344572dd3631ac3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=ada	bb78cd39726bbc190344572dd3631ac3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=a461d2b1d35016f39a56df739a1c614e

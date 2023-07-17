@@ -1,5 +1,5 @@
 DEFINED_PHASES=install
-DEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10[ncurses] )
+DEPEND=python_targets_python3_10? ( dev-lang/python:3.10[ncurses] )
 DESCRIPTION=Ncurses client and real-time monitoring and displaying of HAProxy status
 EAPI=7
 HOMEPAGE=https://github.com/jhunt/hatop
@@ -7,9 +7,9 @@ INHERIT=python-r1
 IUSE=python_targets_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10[ncurses] )
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[ncurses] )
 REQUIRED_USE=|| ( python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/jhunt/hatop/archive/v0.8.1.tar.gz -> hatop-0.8.1.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169
 _md5_=50a5ffac21fb056c34e6e38ca5624149

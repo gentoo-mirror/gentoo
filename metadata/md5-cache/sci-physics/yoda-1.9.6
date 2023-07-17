@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare setup test
-DEPEND=root? ( sci-physics/root:=[python_single_target_python3_10(-)?] ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) )
+DEPEND=root? ( sci-physics/root:=[python_single_target_python3_10(-)?] ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) )
 DESCRIPTION=Yet more Objects for (High Energy Physics) Data Analysis
 EAPI=8
 HOMEPAGE=https://yoda.hepforge.org/
@@ -8,9 +8,9 @@ INHERIT=bash-completion-r1 autotools python-single-r1
 IUSE=root python +python_single_target_python3_10
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=root? ( sci-physics/root:=[python_single_target_python3_10(-)?] ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) )
+RDEPEND=root? ( sci-physics/root:=[python_single_target_python3_10(-)?] ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 ) ) root? ( python )
 SLOT=0/1.9.6
 SRC_URI=https://yoda.hepforge.org/downloads?f=YODA-1.9.6.tar.bz2 -> YODA-1.9.6.tar.bz2
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=e36404099e09b2e155579d49b0f09c9b

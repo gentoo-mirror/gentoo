@@ -8,9 +8,9 @@ INHERIT=meson python-r1
 IUSE=python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
-RDEPEND=>=x11-libs/xapp-2.4.1[introspection] python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+RDEPEND=>=x11-libs/xapp-2.4.1[introspection] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/python3-xapp/archive/2.4.0.tar.gz -> python3-xapp-2.4.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	python-r1	b3f874304c1bda6ffc3450ebb4ae5169
 _md5_=47c907ceda819c2993e03a3e5eb9e51d

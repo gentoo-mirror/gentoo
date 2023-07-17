@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils dev-lang/perl sys-apps/texinfo virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( || ( >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 ) >=dev-perl/HTTP-Daemon-6.60.0 dev-perl/HTTP-Message dev-perl/IO-Socket-SSL ) verify-sig? ( >=sec-keys/openpgp-keys-wget-20230313 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=app-arch/xz-utils dev-lang/perl sys-apps/texinfo virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-perl/HTTP-Daemon-6.60.0 dev-perl/HTTP-Message dev-perl/IO-Socket-SSL ) verify-sig? ( >=sec-keys/openpgp-keys-wget-20230313 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure prepare setup unpack
 DEPEND=!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:= ) metalink? ( app-crypt/gpgme media-libs/libmetalink ) pcre? ( dev-libs/libpcre2 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid? ( sys-apps/util-linux ) zlib? ( sys-libs/zlib ) ) static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:=[static-libs(+)] ) metalink? ( app-crypt/gpgme media-libs/libmetalink ) pcre? ( dev-libs/libpcre2[static-libs(+)] ) ssl? ( gnutls? ( net-libs/gnutls:=[static-libs(+)] ) !gnutls? ( dev-libs/openssl:=[static-libs(+)] ) ) uuid? ( sys-apps/util-linux[static-libs(+)] ) zlib? ( sys-libs/zlib[static-libs(+)] ) )
 DESCRIPTION=Network utility to retrieve files from the WWW
@@ -13,5 +13,5 @@ REQUIRED_USE=ntlm? ( !gnutls ssl ) gnutls? ( ssl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/wget/wget-1.21.3.tar.gz verify-sig? ( mirror://gnu/wget/wget-1.21.3.tar.gz.sig )
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
 _md5_=0434507ccc9b57d658934bbf233ea0f5

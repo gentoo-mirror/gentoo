@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=sys-devel/clang:15 sys-devel/llvm:15 python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) !!sys-devel/llvm:0
+DEPEND=sys-devel/clang:15 sys-devel/llvm:15 python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) !!sys-devel/llvm:0
 DESCRIPTION=Find unused include directives in C/C++ programs
 EAPI=8
 HOMEPAGE=https://include-what-you-use.org/
@@ -8,9 +8,9 @@ INHERIT=cmake llvm python-single-r1
 IUSE=python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=GPL-2
-RDEPEND=sys-devel/clang:15 sys-devel/llvm:15 python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 )
+RDEPEND=sys-devel/clang:15 sys-devel/llvm:15 python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/include-what-you-use/include-what-you-use/archive/0.19.tar.gz -> include-what-you-use-0.19.tar.gz https://github.com/include-what-you-use/include-what-you-use/commit/62e5e2e35380e46ccbff2c2ed118f8bb5c01755b.patch -> include-what-you-use-0.19-test-util-support-EXTRA_IWYU_ARGS.patch
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	llvm	5b4ee8759b4e9eec5cb48b46975ca56c	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	llvm	5b4ee8759b4e9eec5cb48b46975ca56c	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=623aba91b77f1c3d1916f87d3a9fd8ff

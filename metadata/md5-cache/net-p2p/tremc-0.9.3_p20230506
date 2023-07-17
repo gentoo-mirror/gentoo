@@ -6,9 +6,9 @@ INHERIT=bash-completion-r1 optfeature python-single-r1
 IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10[ncurses] ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11[ncurses] ) python_single_target_python3_12? ( >=dev-lang/python-3.12.0_beta3:3.12[ncurses] )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10[ncurses] ) python_single_target_python3_11? ( dev-lang/python:3.11[ncurses] ) python_single_target_python3_12? ( dev-lang/python:3.12[ncurses] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=https://github.com/tremc/tremc/archive/d8deaa5ac25bb45a2ca3a930309d6ecc74836a54.tar.gz -> tremc-0.9.3_p20230506.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=ce4fa208f9b16c22ec75a75965511e4d

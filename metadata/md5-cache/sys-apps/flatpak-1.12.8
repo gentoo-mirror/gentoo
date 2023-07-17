@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/automake-1.13.4 >=sys-devel/gettext-0.18.2 virtual/pkgconfig dev-util/gdbus-codegen sys-devel/bison introspection? ( >=dev-libs/gobject-introspection-1.40 ) doc? ( >=dev-util/gtk-doc-1.20 dev-libs/libxslt ) || ( ( >=dev-lang/python-3.11.4:3.11 dev-python/pyparsing[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.12:3.10 dev-python/pyparsing[python_targets_python3_10(-)] ) )
+BDEPEND=>=sys-devel/automake-1.13.4 >=sys-devel/gettext-0.18.2 virtual/pkgconfig dev-util/gdbus-codegen sys-devel/bison introspection? ( >=dev-libs/gobject-introspection-1.40 ) doc? ( >=dev-util/gtk-doc-1.20 dev-libs/libxslt ) || ( ( dev-lang/python:3.11 dev-python/pyparsing[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pyparsing[python_targets_python3_10(-)] ) )
 DEFINED_PHASES=configure install prepare setup
 DEPEND=acct-group/flatpak acct-user/flatpak >=app-arch/libarchive-2.8:= app-arch/zstd:= >=app-crypt/gpgme-1.1.8:= >=dev-libs/appstream-glib-0.5.10:= >=dev-libs/glib-2.56:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= dev-libs/libassuan:= >=dev-util/ostree-2020.8:=[gpg(+)] || ( dev-util/ostree[curl] dev-util/ostree[soup] ) >=gnome-base/dconf-0.26:= gnome-base/gsettings-desktop-schemas >=net-libs/libsoup-2.4:2.4= >=sys-apps/bubblewrap-0.5.0 sys-apps/dbus >=sys-fs/fuse-2.9.9:0= sys-apps/xdg-dbus-proxy X? ( x11-apps/xauth x11-libs/libXau:= ) x11-libs/gdk-pixbuf:2= policykit? ( >=sys-auth/polkit-0.98:= ) seccomp? ( sys-libs/libseccomp:= ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=Linux application sandboxing and distribution framework
@@ -13,5 +13,5 @@ RDEPEND=acct-group/flatpak acct-user/flatpak >=app-arch/libarchive-2.8:= app-arc
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/flatpak/flatpak/releases/download/1.12.8/flatpak-1.12.8.tar.xz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
 _md5_=8be11cd8abe5128d001b2a967bbe7fef

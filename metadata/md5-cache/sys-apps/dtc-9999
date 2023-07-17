@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig python? ( dev-lang/swig ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) yaml? ( >=dev-libs/libyaml-0.2.3 )
+DEPEND=python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) yaml? ( >=dev-libs/libyaml-0.2.3 )
 DESCRIPTION=Open Firmware device tree compiler
 EAPI=8
 HOMEPAGE=https://devicetree.org/ https://git.kernel.org/cgit/utils/dtc/dtc.git/
@@ -8,9 +8,9 @@ INHERIT=meson python-single-r1 git-r3
 IUSE=python static-libs test yaml python_single_target_python3_10 python_single_target_python3_11
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) yaml? ( >=dev-libs/libyaml-0.2.3 )
+RDEPEND=python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) yaml? ( >=dev-libs/libyaml-0.2.3 )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	27e13c09a4c7e4c78ac812f74727e676
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=df28114474f1f284ad594190d0750e54

@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=app-arch/lz4:0= app-arch/xz-utils dev-libs/capstone:0= dev-libs/libmspack dev-libs/libzip:0= dev-libs/openssl:0= >=dev-libs/tree-sitter-0.19.0 dev-libs/xxhash sys-apps/file sys-libs/zlib:0=
 DESCRIPTION=reverse engineering framework for binary analysis
@@ -12,5 +12,5 @@ RDEPEND=app-arch/lz4:0= app-arch/xz-utils dev-libs/capstone:0= dev-libs/libmspac
 RESTRICT=test? ( fetch ) !test? ( test )
 SLOT=0/0.5.2
 SRC_URI=mirror+https://github.com/rizinorg/rizin/releases/download/v0.5.2/rizin-src-v0.5.2.tar.xz test? ( https://github.com/rizinorg/rizin-testbins/archive/d66f95359fe830514267f446975374752201c3f1.tar.gz -> rizin-testbins-d66f95359fe830514267f446975374752201c3f1.tar.gz )
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
 _md5_=f055c0bbb9fb77d85201001698a401b6

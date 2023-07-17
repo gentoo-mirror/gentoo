@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install prepare setup
-DEPEND=perl? ( dev-lang/perl:= ) php7-4? ( dev-lang/php:7.4[embed] ) php8-0? ( dev-lang/php:8.0[embed] ) php8-1? ( dev-lang/php:8.1[embed] ) php8-2? ( dev-lang/php:8.2[embed] ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) ruby? ( dev-lang/ruby:= dev-ruby/rubygems:= ) ssl? ( dev-libs/openssl:0= ) virtual/libcrypt:0=
+DEPEND=perl? ( dev-lang/perl:= ) php7-4? ( dev-lang/php:7.4[embed] ) php8-0? ( dev-lang/php:8.0[embed] ) php8-1? ( dev-lang/php:8.1[embed] ) php8-2? ( dev-lang/php:8.2[embed] ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) ruby? ( dev-lang/ruby:= dev-ruby/rubygems:= ) ssl? ( dev-libs/openssl:0= ) virtual/libcrypt:0=
 DESCRIPTION=Dynamic web and application server
 EAPI=8
 HOMEPAGE=https://unit.nginx.org
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic python-single-r1 systemd toolchain-funcs
 IUSE=perl python ruby php7-4 php8-0 php8-1 php8-2 perl ssl python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=perl? ( dev-lang/perl:= ) php7-4? ( dev-lang/php:7.4[embed] ) php8-0? ( dev-lang/php:8.0[embed] ) php8-1? ( dev-lang/php:8.1[embed] ) php8-2? ( dev-lang/php:8.2[embed] ) python? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) ruby? ( dev-lang/ruby:= dev-ruby/rubygems:= ) ssl? ( dev-libs/openssl:0= ) virtual/libcrypt:0= acct-user/nginx-unit acct-group/nginx-unit
+RDEPEND=perl? ( dev-lang/perl:= ) php7-4? ( dev-lang/php:7.4[embed] ) php8-0? ( dev-lang/php:8.0[embed] ) php8-1? ( dev-lang/php:8.1[embed] ) php8-2? ( dev-lang/php:8.2[embed] ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) ruby? ( dev-lang/ruby:= dev-ruby/rubygems:= ) ssl? ( dev-libs/openssl:0= ) virtual/libcrypt:0= acct-user/nginx-unit acct-group/nginx-unit
 REQUIRED_USE=|| ( perl python ruby php7-4 php8-0 php8-1 php8-2 perl ssl ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://unit.nginx.org/download/unit-1.30.0.tar.gz -> nginx-unit-1.30.0.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=756cb0e1bd119ad029647e765c70826c

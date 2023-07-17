@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare setup
-DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) app-text/docbook-xsl-stylesheets dev-libs/libxslt >=sys-cluster/cluster-glue-1.0.12-r1 >=sys-cluster/libqb-2.0.0:= sys-cluster/resource-agents sys-cluster/corosync smtp? ( net-libs/libesmtp ) snmp? ( net-analyzer/net-snmp )
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) app-text/docbook-xsl-stylesheets dev-libs/libxslt >=sys-cluster/cluster-glue-1.0.12-r1 >=sys-cluster/libqb-2.0.0:= sys-cluster/resource-agents sys-cluster/corosync smtp? ( net-libs/libesmtp ) snmp? ( net-analyzer/net-snmp )
 DESCRIPTION=Pacemaker CRM
 EAPI=8
 HOMEPAGE=http://www.linux-ha.org/wiki/Pacemaker
@@ -8,9 +8,9 @@ INHERIT=autotools python-single-r1
 IUSE=acl smtp snmp +python_single_target_python3_10
 KEYWORDS=amd64 ~hppa x86
 LICENSE=GPL-2+ LGPL-2.1+ BSD CC-BY-SA-4.0
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) app-text/docbook-xsl-stylesheets dev-libs/libxslt >=sys-cluster/cluster-glue-1.0.12-r1 >=sys-cluster/libqb-2.0.0:= sys-cluster/resource-agents sys-cluster/corosync smtp? ( net-libs/libesmtp ) snmp? ( net-analyzer/net-snmp )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) app-text/docbook-xsl-stylesheets dev-libs/libxslt >=sys-cluster/cluster-glue-1.0.12-r1 >=sys-cluster/libqb-2.0.0:= sys-cluster/resource-agents sys-cluster/corosync smtp? ( net-libs/libesmtp ) snmp? ( net-analyzer/net-snmp )
 REQUIRED_USE=^^ ( python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/ClusterLabs/pacemaker/archive/Pacemaker-2.1.2.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=b112e80f8a5a4986c01b24a91b37574f

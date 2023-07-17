@@ -1,6 +1,6 @@
 BDEPEND=app-arch/zip virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
-DEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-0.7.0:=[static-libs(-)] sys-kernel/linux-headers <sys-devel/clang-18:= <sys-devel/llvm-18:=[llvm_targets_BPF(+)] python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_targets_python3_12? ( >=dev-lang/python-3.12.0_beta3:3.12 ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) test? ( || ( net-misc/iputils[arping] net-analyzer/arping ) net-analyzer/netperf net-misc/iperf:* ) !!sys-devel/llvm:0
+DEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-0.7.0:=[static-libs(-)] sys-kernel/linux-headers <sys-devel/clang-18:= <sys-devel/llvm-18:=[llvm_targets_BPF(+)] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) test? ( || ( net-misc/iputils[arping] net-analyzer/arping ) net-analyzer/netperf net-misc/iperf:* ) !!sys-devel/llvm:0
 DESCRIPTION=Tools for BPF-based Linux IO analysis, networking, monitoring, and more
 EAPI=8
 HOMEPAGE=https://iovisor.github.io/bcc/
@@ -8,10 +8,10 @@ INHERIT=cmake linux-info llvm lua-single python-r1 toolchain-funcs
 IUSE=+lua test +lua_single_target_luajit python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=Apache-2.0
-RDEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-0.7.0:=[static-libs(-)] sys-kernel/linux-headers <sys-devel/clang-18:= <sys-devel/llvm-18:=[llvm_targets_BPF(+)] python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_targets_python3_12? ( >=dev-lang/python-3.12.0_beta3:3.12 ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) )
+RDEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-0.7.0:=[static-libs(-)] sys-kernel/linux-headers <sys-devel/clang-18:= <sys-devel/llvm-18:=[llvm_targets_BPF(+)] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) lua? ( ^^ ( lua_single_target_luajit ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/iovisor/bcc/archive/v0.28.0.tar.gz -> bcc-0.28.0.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	llvm	5b4ee8759b4e9eec5cb48b46975ca56c	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6c921d868d090cc18e142a396f66f74a	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	llvm	5b4ee8759b4e9eec5cb48b46975ca56c	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169
 _md5_=b1bfdeb0479427545938c3ee6c340f1b

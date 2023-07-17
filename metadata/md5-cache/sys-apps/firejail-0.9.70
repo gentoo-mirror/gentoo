@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
+DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) sys-libs/libseccomp test? ( dev-tcltk/expect )
 DESCRIPTION=Security sandbox for any type of processes
 EAPI=7
 HOMEPAGE=https://firejail.wordpress.com/
@@ -7,10 +7,10 @@ INHERIT=toolchain-funcs python-single-r1 linux-info
 IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home test +userns X +python_single_target_python3_10
 KEYWORDS=amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-2
-RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
+RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy )
 REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_10 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/netblue30/firejail/releases/download/0.9.70/firejail-0.9.70.tar.xz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
 _md5_=449444d9e41c03578b65b6e7ce64d3e5

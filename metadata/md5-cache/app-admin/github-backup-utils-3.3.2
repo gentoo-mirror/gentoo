@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install setup test
-DEPEND=test? ( app-misc/jq app-arch/pigz net-misc/rsync sys-apps/moreutils dev-util/checkbashisms || ( >=dev-lang/python-3.10.12:3.10 ) )
+DEPEND=test? ( app-misc/jq app-arch/pigz net-misc/rsync sys-apps/moreutils dev-util/checkbashisms || ( dev-lang/python:3.10 ) )
 DESCRIPTION=Backup and recovery utilities for GitHub Enterprise
 EAPI=7
 HOMEPAGE=https://github.com/github/backup-utils
@@ -11,5 +11,5 @@ RDEPEND=app-misc/jq app-arch/pigz net-misc/rsync sys-apps/moreutils
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/github/backup-utils/archive/v3.3.2.tar.gz -> github-backup-utils-3.3.2.tar.gz
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
 _md5_=133168e419f31f8c21e61e16d3d6feed

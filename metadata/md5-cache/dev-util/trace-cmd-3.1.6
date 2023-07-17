@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig python? ( dev-lang/swig ) doc? ( app-text/asciidoc dev-util/source-highlight )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) !<dev-libs/libtracefs-1.6.1 >=dev-libs/libtracefs-1.6.1-r1 >=dev-libs/libtraceevent-1.6.3 sys-kernel/linux-headers test? ( dev-util/cunit )
+DEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) !<dev-libs/libtracefs-1.6.1 >=dev-libs/libtracefs-1.6.1-r1 >=dev-libs/libtraceevent-1.6.3 sys-kernel/linux-headers test? ( dev-util/cunit )
 DESCRIPTION=User-space front-end for Ftrace
 EAPI=8
 HOMEPAGE=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git
@@ -8,10 +8,10 @@ INHERIT=linux-info bash-completion-r1 python-r1 toolchain-funcs
 IUSE=+audit doc python test udis86 +zstd python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2.1+
-RDEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) !<dev-libs/libtracefs-1.6.1 >=dev-libs/libtracefs-1.6.1-r1 >=dev-libs/libtraceevent-1.6.3
+RDEPEND=audit? ( sys-process/audit ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) ) udis86? ( dev-libs/udis86 ) zstd? ( >=app-arch/zstd-1.4 ) !<dev-libs/libtracefs-1.6.1 >=dev-libs/libtracefs-1.6.1-r1 >=dev-libs/libtraceevent-1.6.3
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
 RESTRICT=!test? ( test ) test
 SLOT=0/3.1.6
 SRC_URI=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/snapshot/trace-cmd-v3.1.6.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169
 _md5_=8b29642501cd7dc373ede0c6fe583645

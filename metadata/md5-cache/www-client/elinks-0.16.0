@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 ) virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( net-dns/libidn ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( net-dns/libidn ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=>=sys-libs/ncurses-5.2:=[unicode(+)] brotli? ( app-arch/brotli:= ) bzip2? ( >=app-arch/bzip2-1.0.2 ) gpm? ( >=sys-libs/gpm-1.20.0-r5 ) guile? ( >=dev-scheme/guile-1.6.4-r1[deprecated] ) idn? ( net-dns/libidn:= ) javascript? ( dev-cpp/libxmlpp:5.0 dev-lang/mujs:= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) lzma? ( app-arch/xz-utils ) perl? ( dev-lang/perl:= ) samba? ( net-fs/samba ) ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= ) ) tre? ( dev-libs/tre ) X? ( x11-libs/libX11 x11-libs/libXt ) xml? ( >=dev-libs/expat-1.95.4 ) zlib? ( >=sys-libs/zlib-1.1.4 ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=Advanced and well-established text-mode web browser
@@ -13,5 +13,5 @@ REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_s
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rkd77/elinks/releases/download/v0.16.0/elinks-0.16.0.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	meson	18d046bdb14e1bdb22cce6e5d953e364	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
 _md5_=48848b270b48cf25bcab0a6f7672ae32

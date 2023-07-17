@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install preinst prepare pretend setup
-DEPEND=java? ( >=virtual/jdk-1.8:* ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DEPEND=java? ( >=virtual/jdk-1.8:* ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Library for Support Vector Machines
 EAPI=7
 HOMEPAGE=https://www.csie.ntu.edu.tw/~cjlin/libsvm/
@@ -7,9 +7,9 @@ INHERIT=flag-o-matic java-pkg-opt-2 python-r1 toolchain-funcs
 IUSE=java openmp python tools java python_targets_python3_10
 KEYWORDS=amd64 ~ppc ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
-RDEPEND=java? ( >=virtual/jre-1.8:* ) python? ( python_targets_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) ) tools? ( sci-visualization/gnuplot ) java? ( >=dev-java/java-config-2.2.0-r3 )
+RDEPEND=java? ( >=virtual/jre-1.8:* ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) ) tools? ( sci-visualization/gnuplot ) java? ( >=dev-java/java-config-2.2.0-r3 )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 ) )
 SLOT=0/2
 SRC_URI=https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.25.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-opt-2	4d26f2efd4c5ec82b66d1e8816f421b2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-r1	3c6cd0f418ba702c186a9865b85e704d
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-opt-2	4d26f2efd4c5ec82b66d1e8816f421b2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169
 _md5_=9eb6a7f984460e6f5773d330b3981b81

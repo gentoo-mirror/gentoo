@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install prepare setup test
-DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtsvg:5 ) qt6? ( dev-qt/qtbase:6[opengl] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 )
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtsvg:5 ) qt6? ( dev-qt/qtbase:6[opengl] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 )
 DESCRIPTION=Asynchronous Python 3 Bindings for Qt
 EAPI=8
 HOMEPAGE=https://github.com/thp/pyotherside https://thp.io/2011/pyotherside/
@@ -7,9 +7,9 @@ INHERIT=qmake-utils python-single-r1
 IUSE=+qt5 qt6 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=ISC
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtsvg:5 ) qt6? ( dev-qt/qtbase:6[opengl] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtsvg:5 ) qt6? ( dev-qt/qtbase:6[opengl] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 ) ^^ ( qt5 qt6 )
 SLOT=0
 SRC_URI=https://github.com/thp/pyotherside/archive/1.6.0.tar.gz -> pyotherside-1.6.0.tar.gz
-_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=12b740785f4e258ed922260416f220bb

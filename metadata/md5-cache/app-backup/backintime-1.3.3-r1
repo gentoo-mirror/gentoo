@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext test? ( python_single_target_python3_10? ( dev-python/pyfakefs[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyfakefs[python_targets_python3_11(-)] ) )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] )
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] )
 DESCRIPTION=Backup system inspired by TimeVault and FlyBack
 EAPI=8
 HOMEPAGE=https://backintime.readthedocs.io/en/latest/ https://github.com/bit-team/backintime/
@@ -9,10 +9,10 @@ INHERIT=python-single-r1 xdg
 IUSE=examples qt5 test python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_10? ( >=dev-lang/python-3.10.12:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.4:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] ) virtual/openssh net-misc/rsync[xattr,acl] qt5? ( dev-python/PyQt5[gui,widgets] )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/keyring[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/keyring[python_targets_python3_11(-)] ) virtual/openssh net-misc/rsync[xattr,acl] qt5? ( dev-python/PyQt5[gui,widgets] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bit-team/backintime/releases/download/v1.3.3/backintime-1.3.3.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=fb8f94c490f754bc7efe9d25462e0711

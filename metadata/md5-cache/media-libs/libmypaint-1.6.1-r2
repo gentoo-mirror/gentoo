@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.4:3.11 >=dev-lang/python-3.10.12:3.10 ) nls? ( dev-util/intltool )
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) nls? ( dev-util/intltool )
 DEFINED_PHASES=configure install pretend setup
 DEPEND=dev-libs/glib:2 dev-libs/json-c:= gegl? ( media-libs/babl[introspection?] >=media-libs/gegl-0.4.14:0.4[introspection?] ) introspection? ( >=dev-libs/gobject-introspection-1.32 ) nls? ( sys-devel/gettext )
 DESCRIPTION=Library for making brushstrokes
@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-libs/glib:2 dev-libs/json-c:= gegl? ( media-libs/babl[introspection?] >=media-libs/gegl-0.4.14:0.4[introspection?] ) introspection? ( >=dev-libs/gobject-introspection-1.32 ) nls? ( sys-devel/gettext ) !<media-gfx/mypaint-1.2.1
 SLOT=0/0.0.0
 SRC_URI=https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.6.1.tar.xz
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a013e16d5d896b3d8be68dd2a0e846ea	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
 _md5_=4b5bb2ff87c3592554d92b270e8ef667
