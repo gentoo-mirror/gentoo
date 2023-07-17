@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://hpjansson.org/chafa/ https://github.com/hpjansson/chafa
 INHERIT=flag-o-matic
 IUSE=+tools webp
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-3+
 RDEPEND=dev-libs/glib:2 media-gfx/imagemagick:0= tools? ( >=media-libs/freetype-2.0.0 ) webp? ( media-libs/libwebp:= )
 SLOT=0
 SRC_URI=https://hpjansson.org/chafa/releases/chafa-1.12.5.tar.xz
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10
-_md5_=3f3d6577cc20845d3e4448507e4307ee
+_md5_=25adfcf3ea7aa029d50d72b41c9e287b
