@@ -43,7 +43,7 @@ LICENSE="Boost-1.0 GPL-2+ MIT Unlicense"
 SLOT="0"
 IUSE="
 	+alsa browser decklink fdk jack lua nvenc pipewire pulseaudio
-	python qt6 speex +ssl truetype v4l vlc wayland websocket
+	python qsv speex +ssl truetype v4l vlc wayland websocket
 "
 REQUIRED_USE="
 	browser? ( || ( alsa pulseaudio ) )
@@ -58,6 +58,8 @@ BDEPEND="
 DEPEND="
 	dev-libs/glib:2
 	dev-libs/jansson:=
+	dev-qt/qtbase:6[network,widgets,xml(+)]
+	dev-qt/qtsvg:6
 	media-libs/libglvnd
 	media-libs/libva
 	media-libs/x264:=
@@ -68,9 +70,10 @@ DEPEND="
 	sys-apps/util-linux
 	sys-libs/zlib:=
 	x11-libs/libX11
+	x11-libs/libxcb:=
 	x11-libs/libXcomposite
 	x11-libs/libXfixes
-	x11-libs/libxcb:=
+	x11-libs/libxkbcommon
 	alsa? ( media-libs/alsa-lib )
 	browser? (
 		|| (
@@ -106,20 +109,7 @@ DEPEND="
 	pipewire? ( media-video/pipewire:= )
 	pulseaudio? ( media-libs/libpulse )
 	python? ( ${PYTHON_DEPS} )
-	qt6? (
-		dev-qt/qtbase:6[network,widgets,xml(+)]
-		dev-qt/qtsvg:6
-		x11-libs/libxkbcommon
-	)
-	!qt6? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5[wayland?]
-		dev-qt/qtnetwork:5
-		dev-qt/qtquickcontrols:5
-		dev-qt/qtsvg:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtxml:5
-	)
+	qsv? ( media-libs/oneVPL )
 	speex? ( media-libs/speexdsp )
 	ssl? ( net-libs/mbedtls:= )
 	truetype? (
@@ -200,6 +190,7 @@ src_configure() {
 		-DENABLE_NEW_MPEGTS_OUTPUT=OFF # Requires librist and libsrt.
 		-DENABLE_PIPEWIRE=$(usex pipewire)
 		-DENABLE_PULSEAUDIO=$(usex pulseaudio)
+		-DENABLE_QSV11=$(usex qsv)
 		-DENABLE_RTMPS=$(usex ssl ON OFF) # Needed for bug 880861
 		-DENABLE_SPEEXDSP=$(usex speex)
 		-DENABLE_V4L2=$(usex v4l)
@@ -209,7 +200,6 @@ src_configure() {
 		-DENABLE_WEBRTC=OFF # Requires libdatachannel.
 		-DENABLE_WEBSOCKET=$(usex websocket)
 		-DOBS_MULTIARCH_SUFFIX=${libdir#lib}
-		-DQT_VERSION=$(usex qt6 6 5)
 		-DUNIX_STRUCTURE=1
 	)
 
