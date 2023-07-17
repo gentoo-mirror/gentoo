@@ -171,6 +171,7 @@ acct-group/ipfs 0-r2: Group for the system-wide net-p2p/go-ipfs-bin server
 acct-group/ipsec 0-r1: ipsec (strongswan) program group
 acct-group/ipsentinel 0-r1: A group for net-misc/ip-sentinel
 acct-group/iroffer 0-r1: System group: iroffer
+acct-group/jackett 0-r1: System group: jackett
 acct-group/jellyfin 0-r1: System group: jellyfin
 acct-group/jenkins 0-r1: Jenkins program group
 acct-group/kafka 0-r2: System group: kafka
@@ -189,6 +190,7 @@ acct-group/kvm 0-r2: System group: kvm
 acct-group/ldap 0-r1: System group: ldap
 acct-group/libreoffice 0-r1: System group: libreoffice
 acct-group/libvirt 0-r2: System group: libvirt
+acct-group/lidarr 0-r1: System group: lidarr
 acct-group/lightdm 0-r2: A group for x11-misc/lightdm
 acct-group/lighttpd 0-r2: System group: lighttpd
 acct-group/litecoin 0-r1: Group for net-p2p/litecoind
@@ -628,6 +630,7 @@ acct-user/ippl 0-r2: user for net-analyzer/ippl
 acct-user/ipsec 0-r1: ipsec (strongswan) program user
 acct-user/ipsentinel 0-r1: A user for net-misc/ip-sentinel
 acct-user/iroffer 0-r1: System user: iroffer
+acct-user/jackett 0-r1: User for jackett
 acct-user/jellyfin 0-r2: System user: jellyfin
 acct-user/jenkins 0-r1: Jenkins program user
 acct-user/kafka 0-r2: User for kafka
@@ -643,6 +646,7 @@ acct-user/kube-controller-manager 0-r2: user for kube-controller-manager
 acct-user/kube-scheduler 0-r2: user for kube-scheduler
 acct-user/ldap 0-r1: A user for ldap
 acct-user/libreoffice 0-r1: A user for the headless LibreOffice server
+acct-user/lidarr 0-r1: User for lidarr
 acct-user/lightdm 0-r1: A user for x11-misc/lightdm
 acct-user/lighttpd 0-r2: A user for lighttpd
 acct-user/litecoin 0-r1: User for net-p2p/litecoind
@@ -4627,7 +4631,7 @@ dev-java/gin 2.1.2-r1: Google Gin (GWT INjection)
 dev-java/glassfish-persistence 1.0-r2: Glassfish implementation of persistence API
 dev-java/gnu-jaf 1.1.2-r1: GNU implementation of the JavaBeans Activation Framework
 dev-java/gnu-regexp 1.1.4-r4: GNU regular expression package for Java
-dev-java/gradle-bin 6.8.3 7.1.1 7.2 7.3.3 7.4.2 7.5.1 7.6.1 8.0.2 8.1.1 8.2: A project automation and build tool with a Groovy based DSL
+dev-java/gradle-bin 6.8.3 7.1.1 7.2 7.3.3 7.4.2 7.5.1 7.6.1 8.0.2 8.1.1 8.2 8.2.1: A project automation and build tool with a Groovy based DSL
 dev-java/greenmail 2.0.0_alpha2: GreenMail - Email Test Servers
 dev-java/gson 2.10.1: Gson JSON library
 dev-java/guava 31.1: A collection of Google's core Java libraries
@@ -4815,7 +4819,7 @@ dev-java/sax 2.2.1-r5: SAX: Simple API for XML in Java
 dev-java/saxon 6.5.5-r3 9.2.0.6-r3: A XSLT and XQuery Processor
 dev-java/sbt 0.13.18-r1: sbt is a build tool for Scala and Java projects that aims to do the basics well
 dev-java/sbt-bin 1.3.10 1.8.0: sbt, a build tool for Scala
-dev-java/scala-cli-bin 0.2.1 1.0.0 1.0.1: CLI to interact with Scala and Java
+dev-java/scala-cli-bin 0.2.1 1.0.0 1.0.1 1.0.2: CLI to interact with Scala and Java
 dev-java/scram 2.1: Java Implementation of the Salted Challenge Response Authentication Mechanism
 dev-java/shrinkwrap-api 1.2.6: Client View of the ShrinkWrap Project
 dev-java/shrinkwrap-impl-base 1.2.6: Common Base for Implementations of the ShrinkWrap Project
@@ -17759,6 +17763,7 @@ www-apps/icingaweb2-module-graphite 1.1.0 1.2.1 9999: Icinga Web 2 plugin for Gr
 www-apps/icingaweb2-module-incubator 0.17.0: Libraries useful for Icinga Web 2
 www-apps/icingaweb2-module-pnp4nagios 1.0.1 9999: Icinga Web 2 plugin for pnp4nagios
 www-apps/ikiwiki 3.20190228-r1 3.20200202.3 3.20200202.3-r1: A wiki compiler
+www-apps/jackett 0.21.481: API Support for your favorite torrent trackers
 www-apps/jekyll 4.3.2 4.3.2-r1: Simple, blog aware, static site generator
 www-apps/jekyll-coffeescript 2.0.0: A CoffeeScript Converter for Jekyll
 www-apps/jekyll-sass-converter 2.2.0: A basic Sass converter for Jekyll
@@ -17768,6 +17773,7 @@ www-apps/jellyfin 10.8.10: Jellyfin puts you in control of managing and streamin
 www-apps/karma-bin 0.90: Alerts dashboard for Prometheus Alertmanager
 www-apps/kibana-bin 7.17.9 7.17.10: Analytics and search dashboard for Elasticsearch
 www-apps/klaus 2.0.2 2.0.3: A simple, easy-to-set-up Git web viewer
+www-apps/lidarr 1.3.1.3371: Looks and smells like Sonarr but made for music
 www-apps/liquid_feedback_core 2.2.6 3.0.4 3.2.2: Internet platforms for proposition development and decision making
 www-apps/liquid_feedback_frontend 3.2.1: Internet platforms for proposition development and decision making
 www-apps/mediawiki 1.39.3 1.39.4 1.40.0: The MediaWiki wiki web application (as used on wikipedia.org)

@@ -1,0 +1,13 @@
+BDEPEND=!amd64? ( !arm64? ( >=virtual/jre-11 ) )
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=CLI to interact with Scala and Java
+EAPI=8
+HOMEPAGE=https://scala-cli.virtuslab.org/
+INHERIT=bash-completion-r1
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-11 sys-libs/zlib
+SLOT=0
+SRC_URI=!amd64? ( !arm64? ( https://github.com/VirtusLab/scala-cli/releases/download/v1.0.2/scala-cli -> scala-cli-non-native-1.0.2 ) ) amd64? ( https://github.com/VirtusLab/scala-cli/releases/download/v1.0.2/scala-cli-x86_64-pc-linux.gz -> scala-cli-amd64-1.0.2.gz ) arm64? ( https://github.com/VirtusLab/scala-cli/releases/download/v1.0.2/scala-cli-aarch64-pc-linux.gz -> scala-cli-arm64-1.0.2.gz )
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=2a42956f8fc0f2d22acfceec82914156
