@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://people.engr.tamu.edu/davis/suitesparse.html
 INHERIT=toolchain-funcs
 IUSE=cuda doc +lapack +matrixops +modify +partition
-KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
 LICENSE=LGPL-2.1+ modify? ( GPL-2+ ) matrixops? ( GPL-2+ )
 RDEPEND=sci-libs/amd sci-libs/colamd cuda? ( dev-util/nvidia-cuda-toolkit x11-drivers/nvidia-drivers ) lapack? ( virtual/lapack ) partition? ( sci-libs/camd sci-libs/ccolamd >=sci-libs/metis-5.1.0 )
 SLOT=0
 SRC_URI=http://202.36.178.9/sage/cholmod-3.0.14.tar.bz2
 _eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=b2f424813aeeaeae3eddf87c0ff67e7d
+_md5_=af1cdf593e18dbe16bebe2486cbda1d1
