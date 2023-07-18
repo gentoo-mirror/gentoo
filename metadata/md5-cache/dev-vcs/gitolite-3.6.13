@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-lang/perl >=dev-vcs/git-1.6.6 virtual/perl-File-Path virtual/perl-File-Temp dev-lang/perl
+DESCRIPTION=Highly flexible server for git directory version tracker
+EAPI=8
+HOMEPAGE=https://github.com/sitaramc/gitolite
+INHERIT=perl-module
+IUSE=selinux tools test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2
+RDEPEND=dev-lang/perl >=dev-vcs/git-1.6.6 virtual/perl-File-Path virtual/perl-File-Temp acct-group/git acct-user/git[gitolite] !app-vim/gitolite-syntax !dev-vcs/gitolite-gentoo selinux? ( sec-policy/selinux-gitosis ) dev-perl/JSON dev-lang/perl:=
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/sitaramc/gitolite/archive/v3.6.13.tar.gz -> gitolite-3.6.13.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2
+_md5_=16941a32469a0ca5a3270269ec15b4d9
