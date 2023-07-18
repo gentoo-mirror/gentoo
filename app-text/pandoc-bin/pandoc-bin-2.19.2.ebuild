@@ -19,7 +19,7 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="-* amd64 arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="+pandoc-symlink"
 
 RDEPEND="pandoc-symlink? ( !${CATEGORY}/${MY_PN} )"
@@ -37,20 +37,16 @@ src_unpack() {
 src_install() {
 	exeinto /usr/bin
 	newexe bin/${MY_PN} ${PN}
-	dosym ${PN} /usr/bin/pandoc-lua-bin
 	dosym ${PN} /usr/bin/pandoc-server-bin
 
-	newman "${WORKDIR}"/${MY_PN}-lua.1 pandoc-lua-bin.1
 	newman "${WORKDIR}"/${MY_PN}-server.1 pandoc-server-bin.1
 	newman "${WORKDIR}"/${MY_PN}.1 ${PN}.1
 
 	if use pandoc-symlink ; then
 		dosym ${PN} /usr/bin/${MY_PN}
-		dosym pandoc-lua-bin /usr/bin/${MY_PN}-lua
 		dosym pandoc-server-bin /usr/bin/${MY_PN}-server
 
 		dosym ${PN}.1 /usr/share/man/man1/${MY_PN}.1
-		dosym pandoc-lua-bin.1 /usr/share/man/man1/${MY_PN}-lua.1
 		dosym pandoc-server-bin.1 /usr/share/man/man1/${MY_PN}-server.1
 	fi
 }
