@@ -1,0 +1,17 @@
+BDEPEND=gtk-doc? ( dev-util/gtk-doc ) dev-libs/libxslt app-text/docbook-xml-dtd:4.3 dev-util/itstool dev-libs/appstream-glib dev-libs/libxml2:2 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig x11-base/xorg-proto test? ( x11-libs/libXtst ) || ( dev-lang/vala:0.56 ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=media-libs/clutter-1.13.2:1.0[introspection?] media-libs/clutter-gst:3.0 >=media-libs/clutter-gtk-0.91.8:1.0 x11-libs/gdk-pixbuf:2[jpeg,introspection?] >=dev-libs/glib-2.39.90:2 >=gnome-base/gnome-desktop-2.91.6:3= >=media-libs/gstreamer-1.4:1.0[introspection?] >=media-libs/gst-plugins-base-1.4:1.0[ogg,pango,theora,vorbis] >=media-libs/gst-plugins-bad-1.4:1.0 >=x11-libs/gtk+-3.13.4:3 >=media-libs/libcanberra-0.26[gtk3] x11-libs/libX11 sys-apps/dbus media-video/gnome-video-effects introspection? ( >=dev-libs/gobject-introspection-1.56:= ) media-libs/cogl:1.0=[introspection?]
+DESCRIPTION=A cheesy program to take pictures and videos from your webcam
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/Cheese
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson vala virtualx xdg
+IUSE=gtk-doc +introspection test test
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=>=media-libs/clutter-1.13.2:1.0[introspection?] media-libs/clutter-gst:3.0 >=media-libs/clutter-gtk-0.91.8:1.0 x11-libs/gdk-pixbuf:2[jpeg,introspection?] >=dev-libs/glib-2.39.90:2 >=gnome-base/gnome-desktop-2.91.6:3= >=media-libs/gstreamer-1.4:1.0[introspection?] >=media-libs/gst-plugins-base-1.4:1.0[ogg,pango,theora,vorbis] >=media-libs/gst-plugins-bad-1.4:1.0 >=x11-libs/gtk+-3.13.4:3 >=media-libs/libcanberra-0.26[gtk3] x11-libs/libX11 sys-apps/dbus media-video/gnome-video-effects introspection? ( >=dev-libs/gobject-introspection-1.56:= ) media-libs/cogl:1.0=[introspection?] >=media-libs/gst-plugins-good-1.4:1.0 >=media-plugins/gst-plugins-jpeg-1.4:1.0 || ( >=media-plugins/gst-plugins-v4l2-1.4:1.0 media-video/pipewire[gstreamer,v4l] ) >=media-plugins/gst-plugins-vpx-1.4:1.0
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0/8
+SRC_URI=mirror://gnome/sources/cheese/44/cheese-44.1.tar.xz
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	08b7183c3f4811568ee93eb0f79a89fe	flag-o-matic	ad475baa777c9978fa035216c8264a10	vala	db97951caa799e73a831a5f48e717da8	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=c3c74fa1b37a8bb3682267d50b87d094
