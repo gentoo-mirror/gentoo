@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -82,7 +82,7 @@ src_install() {
 
 	# CGI needs to be able to read /etc/vpopmail.conf
 	# Which is 0640 root:vpopmail, as it contains passwords
-	cgi=/usr/share/webapps/${PN}/${PV}/hostroot/cgi-bin/qmailadmin
+	cgi="${MY_CGIBINDIR}"/qmailadmin
 	fowners root:vpopmail ${cgi}
 	fperms g+s ${cgi}
 }
