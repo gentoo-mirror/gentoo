@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit meson python-any-r1
 
 COMMIT_HASH="${PV}"
@@ -43,6 +43,10 @@ BDEPEND="
 
 python_check_deps() {
 	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use man && python-any-r1_pkg_setup
 }
 
 src_prepare() {
