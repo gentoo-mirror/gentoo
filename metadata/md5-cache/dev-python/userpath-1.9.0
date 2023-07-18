@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/click[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pytest-7.3.1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-13[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/hatchling-1.17.0[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Cross-platform tool for adding locations to the user PATH
+EAPI=8
+HOMEPAGE=https://github.com/ofek/userpath/ https://pypi.org/project/userpath/
+INHERIT=distutils-r1
+IUSE=test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-python/click[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ofek/userpath/archive/v1.9.0.tar.gz -> userpath-1.9.0.gh.tar.gz
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
+_md5_=f04e3b7adfc1a8cbfae06a9227daf2a5
