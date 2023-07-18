@@ -5,7 +5,7 @@ EAPI=8
 
 JAVA_PKG_IUSE="test"
 
-inherit java-pkg-2 java-ant-2 systemd
+inherit java-pkg-2 java-ant-2 systemd toolchain-funcs
 
 DESCRIPTION="A privacy-centric, anonymous network"
 HOMEPAGE="https://geti2p.net"
@@ -38,11 +38,11 @@ CP_DEPEND="
 	dev-java/minidns-core:1
 	dev-java/zxing-core:3
 	dev-java/zxing-javase:3
-	>=net-libs/nativebiginteger-2.1.0:0
 	sys-devel/gettext:0[java]
-	>=www-servers/tomcat-9.0.73:9
+	www-servers/tomcat:9
 "
 DEPEND="
+	dev-libs/gmp:0=
 	${CP_DEPEND}
 	>=virtual/jdk-1.8:*
 	test? (
@@ -59,6 +59,10 @@ RDEPEND="
 	>=virtual/jre-1.8:*
 "
 
+PATCHES=(
+	"${FILESDIR}/fix-junit-classpath.patch"
+)
+
 EANT_BUILD_TARGET="preppkg-base"
 # no scala as depending on antlib.xml not installed by dev-lang/scala
 EANT_TEST_TARGET="junit.test"
@@ -74,7 +78,7 @@ DOCS=( README.md history.txt )
 pkg_pretend() {
 	# see https://bugs.gentoo.org/831290
 	if [[ "`java-config --show-active-vm`" = *-8 ]] &&
-	   [[ "`java-config --query MERGE_VM --package=ant-core`" != *-8 ]]
+		[[ "`java-config --query MERGE_VM --package=ant-core`" != *-8 ]]
 	then
 		eerror "dev-java/ant-core was emerged with a newer version of the JDK."
 		eerror "It will fail to build with virtual/jdk:1.8 due to #831290."
@@ -87,6 +91,7 @@ pkg_pretend() {
 }
 
 src_prepare() {
+	default # apply PATCHES
 	java-pkg-2_src_prepare
 
 	# add our classpath
@@ -132,7 +137,7 @@ src_prepare() {
 	rm -r core/java/src/net/i2p/apache || die 'unbundle httpcomponents-client'
 	sed -e 's,net\.i2p\.apache,org.apache,' \
 		-i core/java/src/net/i2p/util/{Addresses,I2PSSLSocketFactory}.java \
-		   apps/i2pcontrol/java/net/i2p/i2pcontrol/HostCheckHandler.java ||
+			apps/i2pcontrol/java/net/i2p/i2pcontrol/HostCheckHandler.java ||
 		die 'redirect imports of httpcomponents-client'
 	# identicon, zxing
 	rm -r apps/imagegen/{identicon,zxing} || die 'unbundle identicon & zxing'
@@ -170,6 +175,8 @@ src_prepare() {
 }
 
 src_configure() {
+	java-ant-2_src_configure
+
 	# deamon shouldn't start GUI
 	sed -i 's|\(clientApp.4.startOnLoad\)=true|\1=false|' \
 		installer/resources/clients.config ||
@@ -180,10 +187,40 @@ src_configure() {
 		die 'bragging failed'
 }
 
+src_compile() {
+	java-pkg-2_src_compile
+
+	local compile_lib
+	compile_lib() {
+		local name="${1}"
+		local file="${2}"
+		shift 2
+
+		"$(tc-getCC)" "${@}" ${CFLAGS} $(java-pkg_get-jni-cflags) \
+			${LDFLAGS} -shared -fPIC "-Wl,-soname,lib${name}.so" \
+			"${file}" -o "lib${name}.so"
+	}
+
+	cd "${S}/core/c/jbigi/jbigi" || die "unable to cd to jbigi"
+	compile_lib jbigi src/jbigi.c -Iinclude -lgmp ||
+		die "unable to build jbigi"
+
+	if use amd64 || use x86; then
+		cd "${S}/core/c/jcpuid" || die "unable to cd to jcpuid"
+		compile_lib jcpuid src/jcpuid.c -Iinclude ||
+			die "unable to build jcpuid"
+	fi
+}
+
 src_test() {
 	# avoid rebuilding
 	sed -e '/<delete dir=".\/build" \/>/d' -i core/java/build.xml ||
 		die 'avoid building twice'
+
+	# halt on error
+	find -name build.xml \
+		-execdir sed -e 's/<junit /\0haltonerror="yes" /' -i {} + ||
+		die 'ensure test failures propagate'
 
 	EANT_GENTOO_CLASSPATH+=",hamcrest,junit-4,mockito-4"
 	java-pkg-2_src_test
@@ -195,13 +232,18 @@ src_install() {
 	doman installer/resources/man/eepget.*
 
 	# install main files
+	java-pkg_doso core/c/jbigi/jbigi/libjbigi.so
+	if use amd64 || use x86; then
+		java-pkg_doso core/c/jcpuid/libjcpuid.so
+	fi
 	cd "${S}/pkg-temp" || die 'unable to change dir to built artifacts'
-	# remove merged packages
 	java-pkg_dojar lib/*.jar
-	insinto "/usr/share/i2p"
+	java-pkg_dowar webapps/*.war
+
+	# install shared
+	insinto /usr/share/i2p
 	doins blocklist.txt hosts.txt {clients,i2p*}.config
 	doins -r certificates docs eepsite geoip scripts
-	java-pkg_dowar webapps/*.war
 
 	# install daemons
 	newinitd "${FILESDIR}/i2p.init" i2p
