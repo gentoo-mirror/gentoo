@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gettext qt5? ( dev-qt/linguist-tools:5 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:3.0 doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) qml? ( dev-qt/qtdeclarative:5 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) vala? ( || ( dev-lang/vala:0.56 ) )
+DESCRIPTION=glib library for communicating with snapd
+EAPI=8
+HOMEPAGE=https://snapcraft.io/
+INHERIT=meson vala
+IUSE=doc introspection qml qt5 vala
+KEYWORDS=~amd64
+LICENSE=LGPL-3
+RDEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:3.0 doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) qml? ( dev-qt/qtdeclarative:5 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) vala? ( || ( dev-lang/vala:0.56 ) ) app-containers/snapd
+REQUIRED_USE=qml? ( qt5 ) vala? ( introspection )
+SLOT=0/1
+SRC_URI=https://github.com/snapcore/snapd-glib/releases/download/1.64/snapd-glib-1.64.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	18d046bdb14e1bdb22cce6e5d953e364	flag-o-matic	ad475baa777c9978fa035216c8264a10	vala	db97951caa799e73a831a5f48e717da8
+_md5_=a2e800e9b1ae6cb5bd0f2a86c37267ed
