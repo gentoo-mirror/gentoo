@@ -5,6 +5,9 @@ EAPI=8
 
 inherit go-module systemd
 
+# Get with 'git rev-parse --short HEAD'
+MY_GIT_COMMIT="e234b86a"
+
 DESCRIPTION="Minimalist and opinionated feed reader"
 HOMEPAGE="https://miniflux.app https://github.com/miniflux/v2"
 SRC_URI="https://github.com/${PN}/v2/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -12,7 +15,7 @@ SRC_URI+=" https://dev.gentoo.org/~concord/distfiles/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
-KEYWORDS="amd64 ppc64 ~riscv"
+KEYWORDS="~amd64 ~ppc64 ~riscv"
 
 RESTRICT="test" # requires network access
 
@@ -24,7 +27,12 @@ RDEPEND="${DEPEND}
 S="${WORKDIR}/v2-${PV}"
 
 src_compile() {
-	ego build -ldflags="-s -w -X 'miniflux.app/version.Version=${PV}' " -o miniflux main.go
+	ego build -ldflags="
+		-s -w
+		-X 'miniflux.app/version.Version=${PV}'
+		-X 'miniflux.app/version.Commit=${MY_GIT_COMMIT}'
+		-X 'miniflux.app/version.BuildDate=$(date +%FT%T%z)'
+		" -o miniflux main.go
 }
 
 src_install() {
