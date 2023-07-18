@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=kubectl plugin for Kubernetes OpenID Connect authentication
+EAPI=8
+HOMEPAGE=https://github.com/int128/kubelogin
+INHERIT=bash-completion-r1 go-module
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD BSD-2 ISC MIT
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/int128/kubelogin/archive/v1.28.0.tar.gz -> kubelogin-1.28.0.tar.gz https://dev.gentoo.org/~concord/distfiles/kubelogin-1.28.0-deps.tar.xz
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	8624eede24936fd7666e5298e5332f22
+_md5_=8cce02b41f70beb8812e7a2aaa158759
