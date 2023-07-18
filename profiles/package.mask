@@ -33,6 +33,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Mike Pagano <mpagano@gentoo.org> (2023-07-18)
+# Mask impacted kernels vulnerable to StackRot and
+# ones with a memory corruption bug
+# Bug #909829, #794547.
+=sys-kernel/gentoo-sources-6.4.2
+=sys-kernel/gentoo-sources-6.4.1*
+=sys-kernel/gentoo-sources-6.4.0
+=sys-kernel/gentoo-sources-6.3*
+=sys-kernel/gentoo-sources-6.1.37*
+=sys-kernel/gentoo-sources-6.1.28
+
 # Hans de Graaff <graaff@gentoo.org> (2023-07-18)
 # Obsolete rubu30-only package, previously a dependency of nanoc. No
 # longer maintained upstream. Masked for removal on 2023-08-18.
@@ -521,10 +532,6 @@ x11-drivers/nvidia-drivers:0/390
 # Mask =sys-kernel/gentoo-sources-5.15.99 since it does
 # not include 5.15.99 and is misleading
 =sys-kernel/gentoo-sources-5.15.99
-
-# Mike Pagano <mpagano@gentoo.org> (2023-02-27)
-# Mask =www-servers/nginx-unit-1.29.0-r1 for testing
-=www-servers/nginx-unit-1.29.0-r1
 
 # Torokhov Sergey <torokhov-s-a@yandex.ru> (2023-02-26)
 # The masked version causes GIMP breaking of Cut/Copy/Paste
