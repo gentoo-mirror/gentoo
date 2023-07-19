@@ -1,12 +1,14 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{9,10} )
+EAPI=8
+
+PYTHON_COMPAT=( python3_{9..11} )
 PYTHON_REQ_USE="sqlite"
+DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-DISTUTILS_USE_SETUPTOOLS=no
-inherit distutils-r1 virtualx xdg
+VIRTUALX_REQUIRED=test
+inherit distutils-r1 optfeature virtualx xdg
 
 DESCRIPTION="A desktop wiki"
 HOMEPAGE="
@@ -17,8 +19,7 @@ SRC_URI="https://github.com/${PN}-desktop-wiki/${PN}-desktop-wiki/archive/${PV/_
 
 LICENSE="BSD GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
-RESTRICT="test"
+KEYWORDS="~amd64 ~arm ~x86"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -28,16 +29,13 @@ RDEPEND="
 	x11-libs/gtk+:3[introspection]
 	x11-misc/xdg-utils
 "
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
+
 DOCS=( CHANGELOG.md CONTRIBUTING.md PLUGIN_WRITING.md README.md )
 PATCHES=( "${FILESDIR}"/${PN}-0.60-remove-ubuntu-theme.patch )
 S=${WORKDIR}/${PN}-desktop-wiki-${PV/_/-}
 
 python_prepare_all() {
-	sed -i -e "s/'USER'/'LOGNAME'/g" zim/__init__.py zim/fs.py || die
-
 	if [[ ${LINGUAS} ]]; then
 		local lingua
 		for lingua in translations/*.po; do
@@ -52,22 +50,31 @@ python_prepare_all() {
 	export XDG_RUNTIME_DIR=fakethis
 }
 
-python_install() {
-	distutils-r1_python_install
+python_test() {
+	if has_version dev-vcs/git; then
+		git config --global user.email "git@example.com" || die
+		git config --global user.name "GitExample" || die
+	fi
+
+	virtx ./test.py
+}
+
+src_install() {
+	distutils-r1_src_install
+
+	insinto /usr/share/icons
+	doins -r xdg/hicolor
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	if ! has_version ${CATEGORY}/${PN}; then
-		elog "Please install these packages for additional functionality"
-		elog "    app-text/gtkspell[introspection]"
-		elog "    dev-lang/R"
-		elog "    dev-vcs/bzr"
-		elog "    media-gfx/graphviz"
-		elog "    media-gfx/imagemagick"
-		elog "    media-gfx/scrot"
-		elog "    media-sound/lilypond"
-		elog "    sci-visualization/gnuplot"
-		elog "    virtual/latex-base app-text/dvipng"
-	fi
+
+	optfeature "Spell checker" app-text/gtkspell[introspection]
+	optfeature "GNU R Plot Editor" dev-lang/R
+	optfeature "Version control Bazaar support" dev-vcs/bzr
+	optfeature "Diagram Editor" media-gfx/graphviz
+	optfeature "Insert Screenshot" "media-gfx/imagemagick media-gfx/scrot"
+	optfeature "Score Editor" media-sound/lilypond
+	optfeature "Gnuplot Editor" sci-visualization/gnuplot
+	optfeature "Equation Editor" virtual/latex-base app-text/dvipng
 }
