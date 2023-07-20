@@ -9,7 +9,6 @@ inherit autotools flag-o-matic multilib-minimal verify-sig
 DESCRIPTION="Libraries/utilities to handle ELF objects (drop in replacement for libelf)"
 HOMEPAGE="https://sourceware.org/elfutils/"
 SRC_URI="https://sourceware.org/elfutils/ftp/${PV}/${P}.tar.bz2"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-0.187-patches.tar.xz"
 SRC_URI+=" verify-sig? ( https://sourceware.org/elfutils/ftp/${PV}/${P}.tar.bz2.sig )"
 
 LICENSE="|| ( GPL-2+ LGPL-3+ ) utils? ( GPL-3+ )"
@@ -49,26 +48,17 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${WORKDIR}"/${PN}-0.187-patches/
+	"${FILESDIR}"/${PN}-0.189-PaX-support.patch
+	"${FILESDIR}"/${PN}-0.189-skip-DT_RELR-failing-tests.patch
+	"${FILESDIR}"/${PN}-0.189-tests-run-lfs-symbols.sh-needs-gawk.patch
+	"${FILESDIR}"/${PN}-0.189-musl-aarch64-regs.patch
+	"${FILESDIR}"/${PN}-0.189-musl-macros.patch
 	"${FILESDIR}"/${P}-configure-bashisms.patch
 	"${FILESDIR}"/${P}-clang16-tests.patch
 )
 
-src_unpack() {
-	if use verify-sig ; then
-		# Needed for downloaded patch (which is unsigned, which is fine)
-		verify-sig_verify_detached "${DISTDIR}"/${P}.tar.bz2{,.sig}
-	fi
-
-	default
-}
-
 src_prepare() {
 	default
-
-	if use elibc_musl; then
-		eapply "${WORKDIR}"/${PN}-0.187-patches/musl/
-	fi
 
 	# Only here for ${P}-configure-bashisms.patch, delete on next bump!
 	eautoreconf
