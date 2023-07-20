@@ -1,14 +1,15 @@
-BDEPEND=|| ( ( dev-lang/python:3.11 dev-python/pefile[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pefile[python_targets_python3_10(-)] ) ) virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( ( dev-lang/python:3.11 dev-python/pefile[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pefile[python_targets_python3_10(-)] ) ) virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array secureboot? ( app-crypt/sbsigntools )
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=sys-boot/gnu-efi
 DESCRIPTION=EFI executable for fwupd
 EAPI=8
 HOMEPAGE=https://fwupd.org
-INHERIT=meson python-any-r1 toolchain-funcs
+INHERIT=meson python-any-r1 secureboot toolchain-funcs
+IUSE=secureboot
 KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=LGPL-2.1+
 RDEPEND=!<sys-apps/fwupd-1.6.0
 SLOT=0
 SRC_URI=https://github.com/fwupd/fwupd-efi/releases/download/1.4/fwupd-efi-1.4.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	08b7183c3f4811568ee93eb0f79a89fe	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
-_md5_=98d1c4ed295c594c94f51b738ed229f4
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	08b7183c3f4811568ee93eb0f79a89fe	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	secureboot	f16ffd012ded1947acfc16e42b490ec6
+_md5_=1442ba5188d53389b522e579dbd69088
