@@ -1,12 +1,12 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=unpack
+DEFINED_PHASES=compile install prepare unpack
 DESCRIPTION=Send XMPP (Jabber) messages via command line
 EAPI=8
 HOMEPAGE=https://github.com/flowdalic/sendxmpp
 INHERIT=git-r3
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=dev-lang/ammonite-repl-bin !net-im/sendxmpp
+RDEPEND=dev-lang/ammonite-repl-bin[scala2-13] !net-im/sendxmpp
 SLOT=0
 _eclasses_=git-r3	97f7f638070d17e4c2b6542589bb4575
-_md5_=ee4cfda4f3f848944a4f31957fec5315
+_md5_=316a0ba1561151602f66cf1f2dcf8c78

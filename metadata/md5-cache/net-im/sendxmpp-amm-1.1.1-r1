@@ -1,10 +1,10 @@
-DEFINED_PHASES=install
+DEFINED_PHASES=compile install prepare
 DESCRIPTION=Send XMPP (Jabber) messages via command line
 EAPI=8
 HOMEPAGE=https://github.com/flowdalic/sendxmpp
 KEYWORDS=amd64
 LICENSE=GPL-3+
-RDEPEND=dev-lang/ammonite-repl-bin !net-im/sendxmpp
+RDEPEND=dev-lang/ammonite-repl-bin[scala2-13] !net-im/sendxmpp
 SLOT=0
 SRC_URI=https://github.com/flowdalic/sendxmpp/archive/1.1.1.tar.gz -> sendxmpp-amm-1.1.1.tar.gz
-_md5_=4c1ea0084f555f3661d198705bb2efc9
+_md5_=28ff1525f0a8ddc1a1306ab03217df9e
