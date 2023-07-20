@@ -4,10 +4,11 @@
 EAPI=8
 
 TOOLCHAIN_PATCH_DEV="sam"
-PATCH_GCC_VER="11.4.0"
-PATCH_VER="10"
+TOOLCHAIN_GCC_RC=1
+PATCH_GCC_VER="13.2.0"
+PATCH_VER="3"
 MUSL_VER="2"
-MUSL_GCC_VER="11.4.0"
+MUSL_GCC_VER="13.2.0"
 
 if [[ ${PV} == *.9999 ]] ; then
 	MY_PV_2=$(ver_cut 2)
@@ -60,5 +61,6 @@ src_prepare() {
 
 	toolchain_src_prepare
 
+	eapply "${FILESDIR}"/${PN}-13-fix-cross-fixincludes.patch
 	eapply_user
 }
