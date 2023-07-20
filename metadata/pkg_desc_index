@@ -949,7 +949,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.0-r1 1.14.0-r2 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.27.155 1.27.160 1.27.162 1.27.163 1.27.164 1.27.165 1.28.0 1.28.1 1.29.0 1.29.1 1.29.2 1.29.3 1.29.4 1.29.5: Universal Command Line Environment for AWS
+app-admin/awscli 1.27.155 1.27.160 1.27.162 1.27.163 1.27.164 1.27.165 1.28.0 1.28.1 1.29.0 1.29.1 1.29.2 1.29.3 1.29.4 1.29.5 1.29.6: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.0: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2022.12.0 2023.2.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -7882,7 +7882,7 @@ dev-python/agate-sql 0.5.9: Adds SQL read/write support to agate
 dev-python/aiocache 0.12.0: Asyncio cache manager
 dev-python/aiodns 3.0.0-r1: Simple DNS resolver for asyncio
 dev-python/aiofiles 22.1.0 23.1.0: File support for asyncio
-dev-python/aiohttp 3.8.4: HTTP client/server for asyncio
+dev-python/aiohttp 3.8.4 3.8.5: HTTP client/server for asyncio
 dev-python/aiohttp-cors 0.7.0-r2: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-socks 0.8.0: SOCKS proxy connector for aiohttp
 dev-python/aiopylgtv 0.4.1: Python library to control webOS-based LG TV devices
@@ -7975,8 +7975,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.26.155 1.26.160 1.26.162 1.26.163 1.26.164 1.26.165 1.27.0 1.27.1 1.28.0 1.28.1 1.28.2 1.28.3 1.28.4 1.28.5 9999: The AWS SDK for Python
-dev-python/botocore 1.29.155 1.29.160 1.29.162 1.29.163 1.29.164 1.29.165 1.30.0 1.30.1 1.31.0 1.31.1 1.31.2 1.31.3 1.31.4 1.31.5 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.26.155 1.26.160 1.26.162 1.26.163 1.26.164 1.26.165 1.27.0 1.27.1 1.28.0 1.28.1 1.28.2 1.28.3 1.28.4 1.28.5 1.28.6 9999: The AWS SDK for Python
+dev-python/botocore 1.29.155 1.29.160 1.29.162 1.29.163 1.29.164 1.29.165 1.30.0 1.30.1 1.31.0 1.31.1 1.31.2 1.31.3 1.31.4 1.31.5 1.31.6 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -7994,7 +7994,7 @@ dev-python/cached-property 1.5.2-r1: A cached-property for decorating methods in
 dev-python/cachelib 0.10.2-r1: Collection of cache libraries in the same API interface. Extracted from werkzeug
 dev-python/cachetools 5.3.1: Extensible memoizing collections and decorators
 dev-python/cairocffi 1.5.1 1.6.0: CFFI-based drop-in replacement for Pycairo
-dev-python/caldav 1.2.1-r1: CalDAV (RFC4791) client library for Python
+dev-python/caldav 1.2.1-r1 1.3.5: CalDAV (RFC4791) client library for Python
 dev-python/calver 2022.06.26: Setuptools extension for CalVer package versions
 dev-python/cangjie 1.3-r1: Python wrapper for libcangjie
 dev-python/canonicaljson 1.6.5 2.0.0: Canonical JSON
@@ -8103,7 +8103,6 @@ dev-python/dictpath 0.1.3: Object-oriented dictionary paths
 dev-python/diff-match-patch 20230430: Diff, match and patch algorithms for plain text
 dev-python/dill 0.3.6: Serialize all of Python (almost)
 dev-python/dirty-equals 0.6.0-r2: Doing dirty (but extremely useful) things with equals
-dev-python/discogs-client 2.6 9999: Continuation of the official Python API client for Discogs
 dev-python/diskcache 5.6.1: Disk and file backed cache
 dev-python/dissononce 0.34.3-r3: A python implementation for Noise Protocol Framework
 dev-python/distlib 0.3.6 0.3.7: Low-level components of distutils2/packaging
@@ -8302,9 +8301,9 @@ dev-python/hvac 1.1.0 1.1.1: HashiCorp Vault API client
 dev-python/hypercorn 0.14.3-r1 0.14.4: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.76.0 6.79.0 6.79.1 6.79.2 6.79.3 6.80.0 6.80.1 6.81.1 6.81.2: A library for property based testing
+dev-python/hypothesis 6.76.0 6.79.0 6.79.1 6.79.2 6.79.3 6.80.0 6.80.1 6.81.1 6.81.2 6.82.0: A library for property based testing
 dev-python/icalendar 5.0.7: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.5.24: File identification library for Python
+dev-python/identify 2.5.24 2.5.25: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.2.2: Iterative JSON parser with a Pythonic interface
@@ -8513,7 +8512,7 @@ dev-python/mkdocs-bootswatch 1.1-r2: Bootswatch themes for MkDocs
 dev-python/mkdocs-gen-files 0.5.0: MkDocs plugin to programmatically generate documentation pages during the build
 dev-python/mkdocs-git-authors-plugin 0.7.2: Mkdocs plugin to display git authors of a page
 dev-python/mkdocs-git-revision-date-localized-plugin 1.2.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-htmlproofer-plugin 0.13.1: A MkDocs plugin that validates URLs in rendered HTML files
+dev-python/mkdocs-htmlproofer-plugin 0.13.1 1.0.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.5: MkDocs i18n plugin
 dev-python/mkdocs-material 9.1.15 9.1.16 9.1.17 9.1.18 9.1.19: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.1.1: Extension pack for Python Markdown
@@ -9013,6 +9012,7 @@ dev-python/python-varlink 31.0.0: Python implementation of the Varlink protocol
 dev-python/python-vlc 3.0.18121 3.0.18122: Python ctypes-based bindings for libvlc
 dev-python/python-xlib 0.33: A fully functional X client library for Python, written in Python
 dev-python/python-xmp-toolkit 2.0.1-r2: Library for working with XMP metadata
+dev-python/python3-discogs-client 2.6 2.7 9999: Continuation of the official Python API client for Discogs
 dev-python/python3-lxc 3.0.4 3.0.4-r1: Python bindings for LXC
 dev-python/python3-saml 1.15.0: OneLogin's SAML Python Toolkit
 dev-python/python3-xapp 2.4.0-r1 2.4.1: Python bindings for x11-libs/xapp
@@ -9292,7 +9292,7 @@ dev-python/threadpoolctl 3.1.0 3.2.0: Limit the number of threads used in native
 dev-python/three-merge 0.1.1-r1: Simple Python library to perform a 3-way merge between strings
 dev-python/thrift 0.16.0: Python implementation of Thrift
 dev-python/thriftpy2 0.4.16: Pure python approach of Apache Thrift
-dev-python/tifffile 2023.3.21 2023.4.12 2023.7.4 2023.7.10: Read and write TIFF files
+dev-python/tifffile 2023.3.21 2023.4.12 2023.7.4 2023.7.10 2023.7.18: Read and write TIFF files
 dev-python/tikzplotlib 0.10.1-r1: Convert matplotlib figures into TikZ/PGFPlots
 dev-python/time-machine 2.9.0 2.10.0 2.11.0: Travel through time in your tests
 dev-python/timeout-decorator 0.5.0-r1: Timeout decorator
@@ -9318,7 +9318,7 @@ dev-python/transitions 0.9.0: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.8.6-r1 3.9.1 3.9.2: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.2.0-r1: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 3.22.1 3.22.2 3.22.3 3.22.4: Python library for loading and using triangular meshes
+dev-python/trimesh 3.22.1 3.22.2 3.22.3 3.22.4 3.22.5: Python library for loading and using triangular meshes
 dev-python/trio 0.22.0_p20230530-r1 0.22.1 0.22.2: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.10.3: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2023.5.24 2023.7.6: Canonical source for classifiers on PyPI (pypi.org)
@@ -9357,7 +9357,7 @@ dev-python/uranium 4.13.0-r1: A Python framework for building 3D printing relate
 dev-python/uri_template 1.2.0-r1 1.3.0: URI Template expansion in strict adherence to RFC 6570
 dev-python/uritemplate 4.1.1: Python implementation of RFC6570, URI Template
 dev-python/url-normalize 1.4.3-r1: URL normalization for Python
-dev-python/urllib3 1.26.16 2.0.3: HTTP library with thread-safe connection pooling, file post, and more
+dev-python/urllib3 1.26.16 2.0.3 2.0.4: HTTP library with thread-safe connection pooling, file post, and more
 dev-python/urwid 2.1.2-r1: Curses-based user interface library for Python
 dev-python/urwid_readline 0.13: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r1: Tree widgets for urwid
@@ -9374,7 +9374,7 @@ dev-python/verboselogs 1.7-r1: Verbose logging for Python's logging module
 dev-python/versioneer 0.28 0.29: Easy VCS-based management of project version strings
 dev-python/versioningit 2.2.0: A setuptools plugin for versioning based on git tags
 dev-python/vine 5.0.0-r1: Python Promises
-dev-python/virtualenv 20.23.1 20.24.0: Virtual Python Environment builder
+dev-python/virtualenv 20.23.1 20.24.0 20.24.1: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.7: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 4.8.4-r2 4.8.4_p20230121: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r2: A tiny pythonic visitor implementation
