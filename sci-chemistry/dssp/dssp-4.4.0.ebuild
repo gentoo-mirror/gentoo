@@ -16,10 +16,18 @@ IUSE=""
 BDEPEND="
 	dev-libs/boost:=[zlib]
 	>=dev-libs/libmcfp-1.2.2
-	>=sci-libs/libcifpp-5.0.8
+	>=sci-libs/libcifpp-5.1.0
 "
 DEPEND=""
 RDEPEND="${BDEPEND}"
+
+src_configure() {
+	# gxrio not packaged
+	local mycmakeargs=(
+		-DBUILD_WEBSERVER=OFF
+	)
+	cmake_src_configure
+}
 
 pkg_postinst() {
 	if has_version "<=sci-chemistry/gromacs-2022"; then
