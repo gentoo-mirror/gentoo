@@ -11,20 +11,35 @@ SRC_URI="https://github.com/PDB-REDO/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+# doc disabled as it only generates a PDF from the manpage for now
+# https://github.com/PDB-REDO/dssp/issues/64
+#IUSE="doc"
 
-BDEPEND="
+CDEPEND="
 	dev-libs/boost:=[zlib]
 	>=dev-libs/libmcfp-1.2.2
 	>=sci-libs/libcifpp-5.1.0
 "
+BDEPEND="${CDEPEND}"
+#	doc? (
+#		|| ( app-text/pandoc-bin[pandoc-symlink] app-text/pandoc )
+#		dev-python/weasyprint
+#	)
 DEPEND=""
-RDEPEND="${BDEPEND}"
+RDEPEND="${CDEPEND}"
+
+#src_prepare() {
+#	# wkhtmltopdf is not available on Gentoo
+#	sed -i -e \
+#		's/-t html/-t html --pdf-engine=weasyprint/' \
+#		CMakeLists.txt
+#	cmake_src_prepare
+#}
 
 src_configure() {
-	# gxrio not packaged
 	local mycmakeargs=(
-		-DBUILD_WEBSERVER=OFF
+		#-DGENERATE_DOCUMENTATION=$(usex doc)
+		-DGENERATE_DOCUMENTATION=NO
 	)
 	cmake_src_configure
 }
