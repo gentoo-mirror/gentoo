@@ -1,11 +1,11 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit gnome2-utils optfeature
 
-EGIT_COMMIT="f7cbe060e8d293bfe3b0b759032a85773b542645"
+EGIT_COMMIT=b5acccefcaa653791d25f70a22c0e04f1858d96e
 
 DESCRIPTION="Keyboard-driven layer for GNOME Shell with tiling support"
 HOMEPAGE="https://github.com/pop-os/shell"
@@ -19,9 +19,9 @@ IUSE=""
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
 	>=gnome-base/gnome-shell-40.1
+	sys-apps/fd
 "
 
-DEPEND=""
 BDEPEND="dev-lang/typescript"
 
 S="${WORKDIR}/shell-${EGIT_COMMIT}"
@@ -47,10 +47,10 @@ pkg_postinst() {
 	gnome2_schemas_update
 
 	echo
-	einfo "To configure keybindings run /usr/lib/pop-shell/scripts/configure.sh"
+	elog "To configure keybindings run /usr/lib/pop-shell/scripts/configure.sh as user"
 	echo
 
-	optfeature gnome-extra/gnome-shell-extensions "better tiling via native-window-placement"
+	optfeature "better tiling via native-window-placement" gnome-extra/gnome-shell-extensions
 }
 
 pkg_postrm() {
