@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig test? ( app-arch/unzip ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=sys-apps/dtc sys-libs/zlib acct-group/plugdev virtual/libusb:1 virtual/udev
+DESCRIPTION=A collection of command line tools for ARM devices with Allwinner SoCs
+EAPI=8
+HOMEPAGE=https://linux-sunxi.org/Main_Page
+INHERIT=toolchain-funcs git-r3
+IUSE=test
+LICENSE=GPL-2
+PROPERTIES=test_network live
+RDEPEND=sys-apps/dtc sys-libs/zlib acct-group/plugdev virtual/libusb:1 virtual/udev
+RESTRICT=test
+SLOT=0
+_eclasses_=toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	97f7f638070d17e4c2b6542589bb4575
+_md5_=f54f9f3f8ff2876d0d569163e61d9676
