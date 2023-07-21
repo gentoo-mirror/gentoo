@@ -3,12 +3,12 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="GObject-Introspection C++ binding wrapper generator"
 HOMEPAGE="https://gitlab.com/mnauw/cppgir"
 
-MY_PV="960fe054ffaab7cf55722fea6094c56a8ee8f18e"
+MY_PV="70b0e3d522cec60316d116dcbd919b797e85685a"
 SRC_URI="https://gitlab.com/mnauw/cppgir/-/archive/${MY_PV}/cppgir-${MY_PV}.tar.bz2 -> ${P}.tar.bz2"
 S="${WORKDIR}/${PN}-${MY_PV}"
 
@@ -18,26 +18,32 @@ KEYWORDS="~amd64 ~riscv"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
-DEPEND="
-	dev-cpp/expected-lite
+RDEPEND="
 	dev-libs/boost:=
 	dev-libs/libfmt:=
 "
+DEPEND="${RDEPEND}
+	dev-cpp/expected-lite"
 BDEPEND="
 	doc? ( app-text/ronn-ng )
+	test? ( dev-libs/glib )
 "
 
 PATCHES=(
-	"${FILESDIR}/cppgir-0_p20230606-system-expected-lite.patch"
-	"${FILESDIR}/cppgir-0_p20230606-fix-install-paths.patch"
-	"${FILESDIR}/cppgir-0_p20230606-prevent-automagic.patch"
+	"${FILESDIR}/cppgir-0_p20230625-fix-libcxx-16.patch"
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_DOC=$(usex doc)
 		-DBUILD_TESTING=$(usex test)
+		-DBUILD_EXAMPLES=no
+		-DINTERNAL_EXPECTED=no
 	)
+
+	append-cppflags \
+		-UDEFAULT_GIRPATH \
+		-DDEFAULT_GIRPATH="${EPREFIX}/usr/share:${EPREFIX}/usr/local/share"
 
 	cmake_src_configure
 }
