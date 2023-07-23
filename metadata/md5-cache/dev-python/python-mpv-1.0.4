@@ -1,16 +1,16 @@
-BDEPEND=test? ( dev-python/pyvirtualdisplay[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) test? ( media-video/mpv[libmpv] dev-python/pillow[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=test? ( dev-python/pyvirtualdisplay[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) test? ( media-video/mpv[libmpv] dev-python/pillow[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Python interface to the mpv media player
 EAPI=8
 HOMEPAGE=https://github.com/jaseg/python-mpv/ https://pypi.org/project/python-mpv/
 INHERIT=distutils-r1 virtualx
-IUSE=test python_targets_python3_10 python_targets_python3_11 test
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 test
 KEYWORDS=~amd64
 LICENSE=AGPL-3
-RDEPEND=media-video/mpv[libmpv] dev-python/pillow[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=media-video/mpv[libmpv] dev-python/pillow[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jaseg/python-mpv/archive/v1.0.4.tar.gz -> python-mpv-1.0.4.gh.tar.gz
 _eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228	virtualx	817571665ee28575da44ee08135089e5
-_md5_=ff08439a0dfadf8ab2aa0b40f4021858
+_md5_=b2e83accfe52290a64d089fad4a219a5
