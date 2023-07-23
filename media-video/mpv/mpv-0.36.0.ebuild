@@ -133,6 +133,10 @@ BDEPEND="
 	cli? ( dev-python/docutils )
 	wayland? ( dev-util/wayland-scanner )"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.36.0-tests-odr.patch
+)
+
 pkg_setup() {
 	use lua && lua-single_pkg_setup
 	python-single-r1_pkg_setup
