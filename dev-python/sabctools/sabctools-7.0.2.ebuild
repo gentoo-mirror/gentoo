@@ -5,16 +5,23 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
+MY_PN="sabctools"
+MY_P="${MY_PN}-${PV}"
+
 DESCRIPTION="Module providing raw yEnc encoding/decoding for SABnzbd"
-HOMEPAGE="https://github.com/sabnzbd/sabyenc"
-SRC_URI="
-	https://github.com/sabnzbd/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz
+HOMEPAGE="
+	https://github.com/sabnzbd/sabctools/
+	https://pypi.org/project/sabctools/
 "
+SRC_URI="
+	https://github.com/sabnzbd/${MY_PN}/archive/v${PV}.tar.gz
+		-> ${MY_P}.gh.tar.gz
+"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-3"
 SLOT="0"
@@ -23,6 +30,7 @@ KEYWORDS="amd64 ~x86"
 BDEPEND="
 	test? (
 		dev-python/chardet[${PYTHON_USEDEP}]
+		dev-python/portend[${PYTHON_USEDEP}]
 	)
 "
 
