@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://sphinx-autoapi.readthedocs.io/ https://github.com/readthedocs/sphinx-autoapi/ https://pypi.org/project/sphinx-autoapi/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 x86
 LICENSE=MIT
 RDEPEND=dev-python/anyascii[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/astroid[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/sphinx-6.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/readthedocs/sphinx-autoapi/archive/v2.1.1.tar.gz -> sphinx-autoapi-2.1.1.gh.tar.gz
 _eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
-_md5_=15348d4a7f8e1e1301057dc6759484d2
+_md5_=bf67a64af02b1e9934b60f56de809b81
