@@ -1518,7 +1518,7 @@ app-crypt/scdrand 0.3.5: Feed kernel entropy pool from smartcard's TRNG
 app-crypt/scrypt 1.3.1: A simple password-based encryption utility using scrypt key derivation function
 app-crypt/scute 1.7.0 1.7.0-r1: A PKCS #11 module for OpenPGP smartcards
 app-crypt/seahorse 43.0-r3: Manage your passwords and encryption keys
-app-crypt/sequoia-chameleon-gnupg 0.2.0-r1: Sequoia's reimplementation of the GnuPG interface
+app-crypt/sequoia-chameleon-gnupg 0.2.0-r1 0.3.1: Sequoia's reimplementation of the GnuPG interface
 app-crypt/sequoia-sq 0.30.0-r1 0.30.1 0.31.0: CLI of the Sequoia OpenPGP implementation
 app-crypt/sequoia-sqv 1.1.0-r1: A simple OpenPGP signature verification program
 app-crypt/shash 0.2.6-r4: Generate or check digests or MACs of files
@@ -10484,7 +10484,7 @@ dev-util/dialog 1.3.20220728 1.3.20221229 1.3.20230209: Tool to display dialog b
 dev-util/diff-cover 6.5.0-r1: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/difffilter 0.3.3-r1: Filter files out of unified diffs using POSIX extended regular expressions
-dev-util/diffoscope 242-r2 243-r3 244: Will try to get to the bottom of what makes files or directories different
+dev-util/diffoscope 242-r2 243-r3 244 245: Will try to get to the bottom of what makes files or directories different
 dev-util/diffstat 1.65: Display a histogram of diff changes
 dev-util/difftastic 0.45.0 0.46.0 0.48.0: A structural diff that understands syntax.
 dev-util/diffuse 0.8.2: A graphical tool to compare and merge text files
@@ -15085,7 +15085,7 @@ net-misc/sshpass 1.09-r1: Tool for noninteractively performing password authenti
 net-misc/sshrc 0.6.2: Bring your .bashrc, .vimrc, etc. from your local machine when you ssh
 net-misc/sslh 1.22c 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
 net-misc/sstp-client 1.0.17 1.0.18 1.0.18-r2: Client implementation of Secure Socket Tunneling Protocol (SSTP)
-net-misc/streamlink 5.5.1 9999: CLI for extracting streams from websites to a video player of your choice
+net-misc/streamlink 5.5.1 6.0.0 9999: CLI for extracting streams from websites to a video player of your choice
 net-misc/streamtuner 0.99.99-r5: Stream directory browser for browsing internet radio streams
 net-misc/stunnel 5.64-r2 5.65-r2 5.68: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.15 1.2.16: Open source implementation of the STUN protocol
@@ -15126,7 +15126,7 @@ net-misc/websocketd 0.4.1: Like inetd, but for WebSockets
 net-misc/wget 1.21.3-r1 1.21.4: Network utility to retrieve files from the WWW
 net-misc/wget2 2.0.1 2.0.1-r2 2.0.1-r3 9999: GNU Wget2 is a file and recursive website downloader
 net-misc/whatmask 1.2-r1: Little C program to compute different subnet mask notations
-net-misc/whois 5.5.17 9999: Improved Whois Client
+net-misc/whois 5.5.17 5.5.18 9999: Improved Whois Client
 net-misc/wol 0.7.1-r4: Implements Wake On LAN (Magic Paket) functionality in a small program
 net-misc/wput 0.6.2 0.6.2_p20130413_p11 0.6.2_p20130413_p11-r1: Tiny program like wget, to upload files/whole directories via FTP
 net-misc/x11-ssh-askpass 1.2.4.1-r2: X11-based passphrase dialog for use with OpenSSH
@@ -16731,7 +16731,7 @@ sys-apps/linux-misc-apps 5.8-r1: Misc tools bundled with kernel sources
 sys-apps/lm-sensors 3.6.0-r1: Hardware Monitoring user-space utilities
 sys-apps/lnxhc 1.2-r2: Linux Health Checker
 sys-apps/locale-gen 2.23-r1: Generate locales based upon the config file /etc/locale.gen
-sys-apps/logwatch 7.7 7.8-r1 9999: Analyzes and Reports on system logs
+sys-apps/logwatch 7.7 7.8-r1 7.9 9999: Analyzes and Reports on system logs
 sys-apps/lsadb 0.1.3-r1: Prints out information on all devices attached to the ADB bus
 sys-apps/lsb-release 1.4-r4 3.2: LSB version query program
 sys-apps/lsd 0.23.1: An ls command with a lot of pretty colors and some other stuff.
@@ -17340,9 +17340,9 @@ sys-fs/xfsprogs 6.3.0 6.4.0: XFS filesystem utilities
 sys-fs/xwmfs 0.92: FUSE-based X11 Window-Manager file system
 sys-fs/yaffs2utils 0.2.9: tools for generating YAFFS images
 sys-fs/zerofree 1.1.1-r1: Zeroes out all free space on a filesystem
-sys-fs/zfs 2.1.9 2.1.11 2.1.12 2.2.0_rc1 9999: Userland utilities for ZFS Linux kernel module
+sys-fs/zfs 2.1.9 2.1.11 2.1.12 2.2.0_rc1 2.2.0_rc2 9999: Userland utilities for ZFS Linux kernel module
 sys-fs/zfs-auto-snapshot 1.2.4-r2 1.2.4-r3 9999: ZFS Automatic Snapshot Service for Linux
-sys-fs/zfs-kmod 2.1.9 2.1.11 2.1.11-r1 2.1.12 2.2.0_rc1 9999: Linux ZFS kernel module for sys-fs/zfs
+sys-fs/zfs-kmod 2.1.9 2.1.11 2.1.11-r1 2.1.12 2.2.0_rc1 2.2.0_rc2 9999: Linux ZFS kernel module for sys-fs/zfs
 sys-kernel/bliss-initramfs 9.3.0: Boot your system's rootfs from Encrypted/OpenZFS
 sys-kernel/cryptodev 1.12 1.13-r1 9999: device that allows access to Linux kernel cryptographic drivers
 sys-kernel/dracut 057-r3 059-r2 059-r3 9999: Generic initramfs generation tool
@@ -17419,7 +17419,7 @@ sys-libs/libstdc++-v3 3.3.6-r4: Compatibility package for binaries linked agains
 sys-libs/libtermcap-compat 2.0.8-r4: Compatibility package for old termcap-based programs
 sys-libs/libucontext 1.1-r1 1.2: ucontext implementation featuring glibc-compatible ABI
 sys-libs/libudev-compat 186-r1: Wrapper around libudev.so.1 for packages needing the old libudev.so.0
-sys-libs/libunwind 1.6.2-r1 1.7.0: Portable and efficient API to determine the call-chain of a program
+sys-libs/libunwind 1.6.2-r1 1.7.0 1.7.1: Portable and efficient API to determine the call-chain of a program
 sys-libs/liburing 2.1-r2 2.2 2.3-r4 2.4 9999: Efficient I/O with io_uring
 sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utmp (login) info
 sys-libs/libuuid 1.0.3: Portable uuid C library
@@ -17521,7 +17521,7 @@ sys-process/minit 0.10-r1: a small yet feature-complete init
 sys-process/nmon 16n: Nigel's performance MONitor for CPU, memory, network, disks, etc
 sys-process/numactl 2.0.14 2.0.14-r1 2.0.16 2.0.16-r1 9999: Utilities and libraries for NUMA systems
 sys-process/numad 0.5-r3 0.5-r4 0.5_p20180531-r1 9999: The NUMA daemon that manages application locality
-sys-process/parallel 20230422 20230522 20230622: A shell tool for executing jobs in parallel locally or on remote machines
+sys-process/parallel 20230522 20230622 20230722: A shell tool for executing jobs in parallel locally or on remote machines
 sys-process/pkill-darwin 1.0: pgrep(1) and pkill(1) for Darwin
 sys-process/prll 0.6.4: A utility for parallelizing execution of shell functions
 sys-process/procenv 0.51 0.51-r1: command-line utility to show process environment
