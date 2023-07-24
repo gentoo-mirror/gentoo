@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Template-Toolkit
 INHERIT=perl-module
 IUSE=xml gd mysql postgres latex vim-syntax test test
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=|| ( Artistic GPL-1+ )
 PDEPEND=dev-perl/Text-Autoformat vim-syntax? ( app-vim/tt2-syntax ) xml? ( dev-perl/Template-XML ) gd? ( dev-perl/Template-GD ) mysql? ( dev-perl/Template-DBI ) latex? ( dev-perl/Template-Plugin-Latex ) postgres? ( dev-perl/Template-DBI )
 RDEPEND=dev-perl/Text-Autoformat mysql? ( dev-perl/DBD-mysql ) postgres? ( dev-perl/DBD-Pg ) >=dev-perl/AppConfig-1.560.0 dev-lang/perl:=
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AB/ABW/Template-Toolkit-3.101.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2
-_md5_=35a47a904469660b54a0e0edaf8051b7
+_md5_=ca5be2c3618fa168e8169aa2a25f23cc
