@@ -1,5 +1,5 @@
 BDEPEND=>=dev-lang/go-1.18 test? ( dev-python/docutils dev-ruby/asciidoctor virtual/pandoc ) >=dev-lang/go-1.18 app-arch/unzip
-DEFINED_PHASES=compile configure install test unpack
+DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=>=media-libs/libwebp-1.2.3-r1:= sass? ( dev-libs/libsass:= )
 DESCRIPTION=Fast static HTML and CSS website generator
 EAPI=8
@@ -11,6 +11,6 @@ LICENSE=Apache-2.0 BSD BSD-2 MIT MPL-2.0
 RDEPEND=>=media-libs/libwebp-1.2.3-r1:= sass? ( dev-libs/libsass:= )
 RESTRICT=!test? ( test ) strip
 SLOT=0
-SRC_URI=https://github.com/gohugoio/hugo/archive/v0.111.3.tar.gz -> hugo-0.111.3.tar.gz https://tastytea.de/files/gentoo/hugo-0.111.3-vendor.tar.xz
+SRC_URI=https://github.com/gohugoio/hugo/archive/v0.115.4.tar.gz -> hugo-0.115.4.tar.gz https://tastytea.de/files/gentoo/hugo-0.115.4-vendor.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=f75687e998b817fc3097acd3efe6e4be
+_md5_=f2f6a0a1b9677ff1160e0db661cbdb56
