@@ -97,6 +97,7 @@ DEPEND="${COMMON_DEPEND}
 	addressbook? ( >=kde-apps/akonadi-19.04.3:5 )
 "
 RDEPEND="${COMMON_DEPEND}
+	media-libs/exiftool
 	mysql? ( virtual/mysql[server(+)] )
 	panorama? ( media-gfx/hugin )
 "
@@ -108,7 +109,10 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-cmake.patch"
+	"${FILESDIR}/${P}-fix-config-for-scaling-high-res-icons.patch" # 8.2.0, KDE-bug #457272
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
