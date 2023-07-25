@@ -15,6 +15,8 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
+RESTRICT="test"
+
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -28,4 +30,4 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-RESTRICT="test"
+PATCHES=( "${FILESDIR}/${P}-exiv2-0.28.patch" ) # 23.08

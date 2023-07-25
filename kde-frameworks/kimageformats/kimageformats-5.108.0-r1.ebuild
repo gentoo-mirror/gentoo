@@ -30,6 +30,8 @@ DEPEND="${RDEPEND}
 
 DOCS=( src/imageformats/AUTHORS )
 
+PATCHES=( "${FILESDIR}/${P}-psd-fix-UB-type-punning.patch" ) # 5.109
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIMAGEFORMATS_JXL=$(usex jpegxl)
