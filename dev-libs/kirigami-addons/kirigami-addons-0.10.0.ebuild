@@ -5,9 +5,8 @@ EAPI=8
 
 ECM_QTHELP=true
 ECM_TEST=true
-KFMIN=5.99.0
-QTMIN=5.15.5
-VIRTUALX_REQUIRED=test
+KFMIN=5.106.0
+QTMIN=5.15.9
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -30,6 +29,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 "
