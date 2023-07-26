@@ -55,6 +55,7 @@ BDEPEND="
 	lua? ( dev-lang/swig )
 	python? ( dev-lang/swig )
 "
+# media-video/ffmpeg[opus] required due to bug 909566
 DEPEND="
 	dev-libs/glib:2
 	dev-libs/jansson:=
@@ -63,7 +64,7 @@ DEPEND="
 	media-libs/libglvnd
 	media-libs/libva
 	media-libs/x264:=
-	media-video/ffmpeg:=[nvenc?,x264]
+	media-video/ffmpeg:=[nvenc?,opus,x264]
 	net-misc/curl
 	sys-apps/dbus
 	sys-apps/pciutils
