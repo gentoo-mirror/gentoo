@@ -3,18 +3,24 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit gnome2-utils meson python-single-r1 xdg
 
 DESCRIPTION="Simple game launcher written in Python using GTK4 and Libadwaita"
 HOMEPAGE="https://github.com/kra-mo/cartridges/"
-SRC_URI="https://github.com/kra-mo/${PN}/archive/v${PV}.tar.gz
-	-> ${P}.tar.gz"
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/kra-mo/${PN}.git"
+else
+	SRC_URI="https://github.com/kra-mo/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
