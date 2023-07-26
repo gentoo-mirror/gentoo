@@ -296,7 +296,7 @@ RDEPEND="${RDEPEND}
 "
 
 DEPEND="${RDEPEND}
-	amf? ( media-libs/amf-headers )
+	amf? ( >=media-libs/amf-headers-1.4.28 )
 	ladspa? ( >=media-libs/ladspa-sdk-1.13-r2[${MULTILIB_USEDEP}] )
 	v4l? ( sys-kernel/linux-headers )
 "
@@ -344,6 +344,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-DECLARE_ALIGNED.patch
 	"${FILESDIR}"/${PN}-5.1.2-get_cabac_inline_x86-32-bit.patch
 	"${FILESDIR}"/${P}-wint-conversion-vulkan.patch
+	"${FILESDIR}"/${P}-libplacebo-remove-deprecated-field.patch
 )
 
 MULTILIB_WRAPPED_HEADERS=(
