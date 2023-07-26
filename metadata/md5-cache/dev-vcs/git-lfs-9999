@@ -1,8 +1,8 @@
-BDEPEND=doc? ( app-text/ronn-ng ) >=dev-lang/go-1.18 app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=doc? ( dev-ruby/asciidoctor ) >=dev-lang/go-1.18 app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
 DESCRIPTION=Command line extension and specification for managing large files with git
 EAPI=8
-HOMEPAGE=https://git-lfs.com/
+HOMEPAGE=https://git-lfs.com https://github.com/git-lfs/git-lfs
 INHERIT=go-module git-r3
 IUSE=doc test
 LICENSE=Apache-2.0 BSD BSD-2 BSD-4 ISC MIT
@@ -11,4 +11,4 @@ RDEPEND=dev-vcs/git
 RESTRICT=!test? ( test ) strip
 SLOT=0
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	git-r3	97f7f638070d17e4c2b6542589bb4575
-_md5_=41c8df1275a4f42c5680b1827d6dbb2d
+_md5_=e88ff2a5ceb6a7c4691fda97af7ac48e
