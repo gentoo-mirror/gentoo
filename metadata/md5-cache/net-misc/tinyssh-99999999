@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=sodium? ( dev-libs/libsodium:= )
+DESCRIPTION=A small SSH server with state-of-the-art cryptography
+EAPI=7
+HOMEPAGE=https://tinyssh.org
+INHERIT=systemd toolchain-funcs git-r3
+IUSE=+sodium
+LICENSE=CC0-1.0
+PROPERTIES=live
+RDEPEND=sodium? ( dev-libs/libsodium:= ) sys-apps/ucspi-tcp
+SLOT=0
+_eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=23f36956b2bc7fc233926fa8b5a8a303
