@@ -1,5 +1,6 @@
+BDEPEND=doc? ( sys-apps/texinfo )
 DEFINED_PHASES=compile install test
-DEPEND=!dev-lisp/cl-asdf !<dev-lisp/asdf-2.33-r3 doc? ( virtual/texi2dvi ) test? ( virtual/commonlisp )
+DEPEND=!dev-lisp/cl-asdf !<dev-lisp/asdf-2.33-r3 test? ( virtual/commonlisp )
 DESCRIPTION=ASDF is Another System Definition Facility for Common Lisp
 EAPI=7
 HOMEPAGE=http://common-lisp.net/project/asdf/
@@ -12,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/3.3.5
 SRC_URI=http://common-lisp.net/project/asdf/archives/asdf-3.3.5.tar.gz
 _eclasses_=prefix	eab3c99d77fe00506c109c8a736186f7	common-lisp-3	f0d8da04a3b8f669a8ce9a1d122daf24
-_md5_=e6ea08fa8594586416ba1ce40251d25b
+_md5_=3d1ac1c3758b7a0150448f750a8c715a
