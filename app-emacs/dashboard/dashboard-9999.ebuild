@@ -3,23 +3,28 @@
 
 EAPI=8
 
-COMMIT=69f98f5a89451c0881d0abb34ad57dd71616006a
 NEED_EMACS=26.1
 
 inherit elisp
 
 DESCRIPTION="Extensible Emacs dashboard, with sections like bookmarks, agenda and more"
 HOMEPAGE="https://github.com/emacs-dashboard/emacs-dashboard/"
-SRC_URI="https://github.com/emacs-dashboard/emacs-${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/emacs-${PN}-${COMMIT}
 
-LICENSE="GPL-3"
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/emacs-dashboard/emacs-${PN}.git"
+else
+	SRC_URI="https://github.com/emacs-dashboard/emacs-${PN}/archive/${PV}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}"/emacs-${PN}-${PV}
+	KEYWORDS="~amd64 ~x86"
+fi
+
+LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
-RESTRICT="test"  # tests not in the repository, require "Eask"
 
 DOCS=( CHANGELOG.md README.org etc )
-PATCHES=( "${FILESDIR}"/${PN}-dashboard-widgets.el-banners.patch )
+PATCHES=( "${FILESDIR}"/${PN}-1.8.0-dashboard-widgets.el-banners.patch )
 
 ELISP_REMOVE=( .dir-locals.el )
 SITEFILE="50${PN}-gentoo.el"
@@ -28,6 +33,11 @@ src_prepare() {
 	elisp_src_prepare
 
 	sed "s|@SITEETC@|${EPREFIX}${SITEETC}/${PN}|" -i dashboard-widgets.el || die
+}
+
+src_test() {
+	${EMACS} ${EMACSFLAGS} ${BYTECOMPFLAGS} \
+		-L . -L test -l ${PN}.el -l test/activate.el || die "tests failed"
 }
 
 src_install() {
