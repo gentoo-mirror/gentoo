@@ -21,7 +21,7 @@ S="${WORKDIR}/${P/_*}"
 LICENSE="GPL-2"
 SLOT="0"
 if [[ ${PV} != *beta* ]] ; then
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 IUSE="selinux ibm nls static"
 
@@ -35,7 +35,7 @@ DEPEND="${COMMON_DEPEND}
 # Old OpenRC blocker is for bug #587424
 # Keep for longer than usual given it's cheap and avoid user inconvenience
 RDEPEND="${COMMON_DEPEND}
-	!<app-i18n/man-pages-l10n-4.12.1-r2
+	!<app-i18n/man-pages-l10n-4.18.1-r1
 	!<sys-apps/openrc-0.13
 	selinux? ( sec-policy/selinux-shutdown )"
 # po4a is for man page translations
@@ -47,6 +47,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.86-kexec.patch"
 	# bug #158615
 	"${FILESDIR}/${PN}-2.94_beta-shutdown-single.patch"
+	# bug 911257
+	"${FILESDIR}/sysvinit-3.07-halt.patch"
 )
 
 src_prepare() {

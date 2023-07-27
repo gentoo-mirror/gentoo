@@ -3,8 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-
+PYTHON_COMPAT=( python3_{10..11} )
 inherit bash-completion-r1 python-single-r1 udev
 
 libbtrfs_soname=0
@@ -14,7 +13,7 @@ if [[ ${PV} != 9999 ]]; then
 	SRC_URI="https://www.kernel.org/pub/linux/kernel/people/kdave/${PN}/${PN}-${MY_PV}.tar.xz"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 	fi
 
 	S="${WORKDIR}"/${PN}-${MY_PV}
@@ -26,7 +25,7 @@ else
 fi
 
 DESCRIPTION="Btrfs filesystem utilities"
-HOMEPAGE="https://btrfs.wiki.kernel.org https://btrfs.readthedocs.io/en/latest/"
+HOMEPAGE="https://btrfs.readthedocs.io/en/latest/"
 
 LICENSE="GPL-2"
 SLOT="0/${libbtrfs_soname}"
@@ -52,7 +51,8 @@ RDEPEND="
 	udev? ( virtual/libudev:= )
 	zstd? ( app-arch/zstd:= )
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	>=sys-kernel/linux-headers-5.10
 	convert? ( sys-apps/acl )
 	python? (
@@ -73,18 +73,16 @@ DEPEND="${RDEPEND}
 		zstd? ( app-arch/zstd[static-libs(+)] )
 	)
 "
-BDEPEND="virtual/pkgconfig
-	man? ( dev-python/sphinx )"
+BDEPEND="
+	virtual/pkgconfig
+	man? ( dev-python/sphinx )
+"
 
 if [[ ${PV} == 9999 ]]; then
 	BDEPEND+=" sys-devel/gnuconfig"
 fi
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.2.1-blake2-simd.patch
-)
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -133,20 +131,20 @@ src_compile() {
 }
 
 src_test() {
-	default
+	emake -j1 -C tests V=1 test
 
 	if use python ; then
 		cd libbtrfsutil/python || die
 
 		local -x LD_LIBRARY_PATH="${S}:libbtrfsutil/python:${LD_LIBRARY_PATH}"
-		${EPYTHON} -m unittest tests/test_*.py || die
+		${EPYTHON} -m unittest tests/test_*.py || die "Tests failed with ${EPYTHON}"
 	fi
 }
 
 src_install() {
 	local makeargs=(
-		$(usex python install_python '')
-		$(usex static install-static '')
+		$(usev python install_python)
+		$(usev static install-static)
 	)
 
 	emake V=1 DESTDIR="${D}" install "${makeargs[@]}"
