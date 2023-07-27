@@ -121,8 +121,6 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-prefix.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
-	"${FILESDIR}"/${PN}-8.2.0-basic-auth.patch
-	"${FILESDIR}"/${PN}-8.2.0-http2-eof.patch
 )
 
 src_prepare() {
