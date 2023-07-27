@@ -651,7 +651,7 @@ acct-user/lightdm 0-r1: A user for x11-misc/lightdm
 acct-user/lighttpd 0-r2: A user for lighttpd
 acct-user/litecoin 0-r1: User for net-p2p/litecoind
 acct-user/lldpd 0-r2: User for net-misc/lldpd
-acct-user/logcheck 0-r1: User for app-admin/logcheck
+acct-user/logcheck 0-r2: User for app-admin/logcheck
 acct-user/logstash 0-r2: Logstash program user
 acct-user/logsurfer 0-r1: User for app-admin/logsurfer
 acct-user/lxc 0-r1: User for app-containers/lxc
@@ -1024,6 +1024,7 @@ app-admin/kube-bench 0.6.8: Kubernetes Bench for Security runs the CIS Kubernete
 app-admin/kubectx 0.9.4: Fast way to switch between clusters and namespaces in kubectl
 app-admin/lib_users 0.15: Check for mapped libs and open files that are marked as deleted
 app-admin/lnav 0.11.1-r2 0.11.2: A curses-based tool for viewing and analyzing log files
+app-admin/logcheck 1.4.3: Mails anomalies in the system logfiles to the administrator
 app-admin/logmon 0.4.4-r1: Split-screen terminal/ncurses based log viewer
 app-admin/logrotate 3.19.0 3.20.1-r1 3.21.0: Rotates, compresses, and mails system logs
 app-admin/logsentry 1.1.1-r2: Automatically monitor system logs and mail security violations
@@ -15319,7 +15320,7 @@ net-vpn/riseup-vpn 0.21.11 0.21.11_p20221113: Anonymous encrypted VPN client pow
 net-vpn/strongswan 5.9.8 5.9.9 5.9.10 5.9.11: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.36.2 1.38.4: Tailscale vpn client
 net-vpn/tinc 1.0.36 1.1_pre18: tinc is an easy to configure VPN implementation
-net-vpn/tor 0.4.7.13-r1 9999: Anonymizing overlay network for TCP
+net-vpn/tor 0.4.7.13-r1 0.4.7.14 9999: Anonymizing overlay network for TCP
 net-vpn/vpnc 0.5.3_p20220927-r1 9999: Free client for Cisco VPN routing software
 net-vpn/vpnc-scripts 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
 net-vpn/vpncloud 2.3.0: High performance peer-to-peer mesh VPN
@@ -16319,7 +16320,7 @@ sec-keys/openpgp-keys-teemutoivola 20210426: OpenPGP keys used by Teemu Toivola
 sec-keys/openpgp-keys-tenable 20220718: OpenPGP keys used to sign Tenable Inc. software packages
 sec-keys/openpgp-keys-terminator 20210306: OpenPGP keys used to sign x11-terms/terminator package
 sec-keys/openpgp-keys-thomasdickey 20220428: OpenPGP keys used by Thomas Dickey
-sec-keys/openpgp-keys-tor 20210425 20220216 20221213: OpenPGP keys used by the Tor project
+sec-keys/openpgp-keys-tor 20210425 20220216 20221213 20230727: OpenPGP keys used by the Tor project
 sec-keys/openpgp-keys-unbound 20220316: OpenPGP keys used by unbound
 sec-keys/openpgp-keys-unrealircd 20220407: OpenPGP keys used to sign UnrealIRCd releases
 sec-keys/openpgp-keys-valgrind 20230124: OpenPGP key used to sign Valgrind releases
@@ -17053,7 +17054,7 @@ sys-cluster/classads 1.0.10: Condor's classified advertisement language
 sys-cluster/cluster-glue 1.0.12-r2: Library pack for Heartbeat / Pacemaker
 sys-cluster/corosync 3.1.0: OSI Certified implementation of a complete cluster engine
 sys-cluster/crmsh 4.2.1-r3: Pacemaker command line interface for management and configuration
-sys-cluster/drbd-utils 9.15.1-r2 9.19.1 9.23.1 9.24.0: mirror/replicate block-devices across a network-connection
+sys-cluster/drbd-utils 9.15.1-r2 9.19.1 9.23.1 9.24.0 9.25.0: mirror/replicate block-devices across a network-connection
 sys-cluster/fake 1.1.10: Switch in backup servers on a LAN
 sys-cluster/flux 0.41.2 2.0.1: Flux is a tool for keeping Kubernetes clusters in sync
 sys-cluster/galera 26.4.13-r1: Synchronous multi-master replication engine that provides the wsrep API
