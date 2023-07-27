@@ -5,10 +5,10 @@ HOMEPAGE=https://www.kernel.org/ https://wiki.gentoo.org/wiki/Kernel https://wik
 INHERIT=kernel-2
 IUSE=symlink build
 KEYWORDS=~amd64 ~arm64
-LICENSE=GPL-2 linux-firmware
+LICENSE=GPL-2 linux-fw-redistributable all-rights-reserved
 RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
 SLOT=4.9.327_p197
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v4.x/patch-4.9.327.xz https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.tar.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.327-rt197.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/older/patch-4.9.327-rt197.patch.xz
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	kernel-2	f3fe06845554116f3a63786f864ff07f
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	kernel-2	552a82e0738a2db29ddba6e36373405b
 _md5_=202aa5da9e26e17e9a804c739b2980e7
