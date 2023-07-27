@@ -6,8 +6,8 @@
 EAPI=8
 
 CRATES="
-	aho-corasick-0.7.18
-	ansi_term-0.12.1
+	ahash-0.7.6
+	aho-corasick-0.7.20
 	assert_cmd-2.0.5
 	atty-0.2.14
 	autocfg-1.1.0
@@ -25,7 +25,7 @@ CRATES="
 	crossbeam-deque-0.8.1
 	crossbeam-epoch-0.9.8
 	crossbeam-utils-0.8.8
-	crossterm-0.25.0
+	crossterm-0.26.1
 	crossterm_winapi-0.9.0
 	ctor-0.1.22
 	diff-0.1.12
@@ -36,7 +36,11 @@ CRATES="
 	fixedbitset-0.4.1
 	float-cmp-0.9.0
 	fnv-1.0.7
+	getrandom-0.2.9
+	glob-0.3.1
 	hashbrown-0.11.2
+	hashbrown-0.12.3
+	heck-0.4.1
 	hermit-abi-0.1.19
 	humantime-1.3.0
 	indexmap-1.7.0
@@ -58,26 +62,27 @@ CRATES="
 	once_cell-1.17.1
 	os_str_bytes-6.0.1
 	output_vt100-0.1.3
-	owo-colors-3.4.0
+	owo-colors-3.5.0
 	parking_lot-0.12.1
 	parking_lot_core-0.9.6
 	petgraph-0.6.1
 	predicates-2.1.1
 	predicates-core-1.0.3
 	predicates-tree-1.0.5
-	pretty_assertions-1.2.1
+	pretty_assertions-1.3.0
 	pretty_env_logger-0.4.0
-	proc-macro2-1.0.39
+	proc-macro2-1.0.66
 	quick-error-1.2.3
-	quote-1.0.18
+	quote-1.0.32
 	radix-heap-0.4.2
 	rayon-1.6.1
 	rayon-core-1.10.1
 	redox_syscall-0.2.16
-	regex-1.5.6
+	regex-1.7.3
 	regex-automata-0.1.10
-	regex-syntax-0.6.26
+	regex-syntax-0.6.29
 	rustc-hash-1.1.0
+	rustversion-1.0.12
 	same-file-1.0.6
 	scopeguard-1.1.0
 	signal-hook-0.3.14
@@ -85,7 +90,10 @@ CRATES="
 	signal-hook-registry-1.4.0
 	smallvec-1.10.0
 	strsim-0.10.0
+	strum-0.25.0
+	strum_macros-0.25.1
 	syn-1.0.95
+	syn-2.0.27
 	termcolor-1.1.3
 	terminal_size-0.1.17
 	termtree-0.2.4
@@ -97,7 +105,7 @@ CRATES="
 	unicode-xid-0.2.3
 	version_check-0.9.4
 	wait-timeout-0.2.0
-	walkdir-2.3.2
+	walkdir-2.3.3
 	wasi-0.11.0+wasi-snapshot-preview1
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
@@ -112,6 +120,7 @@ CRATES="
 	windows_x86_64_gnullvm-0.42.1
 	windows_x86_64_msvc-0.42.1
 	wu-diff-0.1.2
+	yansi-0.5.1
 "
 
 TREE_MAGIC_COMMIT="13dd6dda15c7062bd8f7dd5bc9bb5b16ce9ee613"
