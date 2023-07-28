@@ -1,16 +1,16 @@
-BDEPEND=virtual/jre:* virtual/pkgconfig >=virtual/rust-1.70 test? ( media-libs/mesa[llvm] x11-base/xorg-server[-minimal] ) >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl] test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=virtual/jre:* virtual/pkgconfig >=virtual/rust-1.70 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
 DEPEND=dev-libs/glib:2 dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXcursor x11-libs/libXrandr x11-libs/libXrender x11-base/xorg-proto
 DESCRIPTION=Flash Player emulator written in Rust
 EAPI=8
 HOMEPAGE=https://ruffle.rs/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=cargo desktop flag-o-matic git-r3 virtualx xdg
-IUSE=debug test
+INHERIT=cargo desktop flag-o-matic git-r3 xdg
+IUSE=test debug
 LICENSE=|| ( Apache-2.0 MIT ) Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD Boost-1.0 CC0-1.0 ISC UbuntuFontLicense-1.0 MIT MPL-2.0 OFL-1.1 Unicode-DFS-2016 ZLIB curl
 PROPERTIES=live
 RDEPEND=dev-libs/glib:2 dev-libs/openssl:= media-libs/alsa-lib sys-libs/zlib:= x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXcursor x11-libs/libXrandr x11-libs/libXrender
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	8520ae1bed0e6965d027399b471a3595	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	2358a7b20091609e24bd3a83b3ac5991	virtualx	817571665ee28575da44ee08135089e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=acf7861aa79601055fcaf708d5f92f40
+_eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	8520ae1bed0e6965d027399b471a3595	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	2358a7b20091609e24bd3a83b3ac5991	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=5cfb6986d55b32b9f91cd06f04b16238
