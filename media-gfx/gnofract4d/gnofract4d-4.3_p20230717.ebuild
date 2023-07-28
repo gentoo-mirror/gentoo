@@ -3,13 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
+DISTUTILS_EXT=1
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 optfeature virtualx xdg
 
-COMMIT="3858a6f6a857ee8d2204938d72ac4975dafa16e4"
+COMMIT="47d2093e8f6399d1badfba0d1cb0f9867e90b326"
 
 DESCRIPTION="A program for drawing beautiful mathematically-based images known as fractals"
 HOMEPAGE="https://fract4d.github.io/gnofract4d/"
@@ -24,10 +25,9 @@ DEPEND="
 	media-libs/libpng:0="
 RDEPEND="${DEPEND}
 	$(python_gen_cond_dep '
-		dev-python/pycairo[${PYTHON_USEDEP}]
-		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
+		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
-	x11-libs/gtk+:3[introspection]"
+	gui-libs/gtk:4[introspection]"
 BDEPEND="
 	virtual/pkgconfig
 	test? (
@@ -39,6 +39,7 @@ distutils_enable_tests pytest
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_prepare() {
+	sed -i -e "s:VERSION = '4.3':VERSION = '$PV':" fract4d/options.py || die
 	sed -i -e "s:share/doc/gnofract4d/:share/doc/${PF}/:" setup.py || die
 
 	distutils-r1_src_prepare
@@ -49,6 +50,11 @@ python_test() {
 	local EPYTEST_IGNORE=(
 		# test_regress.py does not provide pytest with any tests and inspecting it requires dev-python/pillow
 		test_regress.py
+	)
+	use x86 && local EPYTEST_DESELECT=(
+		# https://bugs.gentoo.org/890796
+		test_fractal.py::Test::testDiagonal
+		test_fractal.py::Test::testRecolor
 	)
 	TMPDIR="${T}" virtx epytest
 }
