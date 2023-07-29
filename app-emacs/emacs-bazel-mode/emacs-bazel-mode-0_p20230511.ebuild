@@ -3,7 +3,6 @@
 
 EAPI=8
 
-[[ ${PV} == *_p20220707 ]] && COMMIT=8f7875998f233d248097006df224a33873bbc4f2
 NEED_EMACS=27.1
 
 inherit elisp
@@ -11,19 +10,26 @@ inherit elisp
 DESCRIPTION="Emacs major modes for the Bazel build system support"
 HOMEPAGE="https://bazel.build/
 	https://github.com/bazelbuild/emacs-bazel-mode/"
-SRC_URI="https://github.com/bazelbuild/${PN}/archive/${COMMIT}.tar.gz
-	-> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${COMMIT}
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/bazelbuild/${PN}.git"
+else
+	[[ ${PV} == *_p20230511 ]] && COMMIT=55cba9bd31c660d9b313a993979f012f35673ba2
+	SRC_URI="https://github.com/bazelbuild/${PN}/archive/${COMMIT}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${COMMIT}
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="Apache-2.0"
-KEYWORDS="amd64 ~x86"
 SLOT="0"
 RESTRICT="test"                 # Tests fail.
 
-PATCHES=( "${FILESDIR}"/${PN}-bazel-test--directory.patch )
-
 DOCS=( CONTRIBUTING.md README.md )
 SITEFILE="50${PN}-gentoo.el"
+
+elisp-enable-tests ert "${S}" -l test.el
 
 src_compile() {
 	elisp-compile bazel.el
@@ -31,8 +37,7 @@ src_compile() {
 }
 
 src_test() {
-	${EMACS} ${EMACSFLAGS} ${BYTECOMPFLAGS} \
-		-l ./test.el -f ert-run-tests-batch-and-exit || die "Testing failed"
+	TEST_SRCDIR="." TEST_WORKSPACE="." elisp_src_test
 }
 
 src_install() {
