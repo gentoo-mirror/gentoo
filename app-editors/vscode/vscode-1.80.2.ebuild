@@ -47,7 +47,6 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
-	net-print/cups
 	sys-apps/util-linux
 	sys-apps/dbus
 	x11-libs/cairo
@@ -118,5 +117,5 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	optfeature "keyring support inside vscode" "gnome-base/gnome-keyring"
+	optfeature "keyring support inside vscode" "virtual/secret-service"
 }

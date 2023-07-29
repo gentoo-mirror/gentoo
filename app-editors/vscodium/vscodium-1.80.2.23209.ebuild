@@ -54,7 +54,6 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
-	net-print/cups
 	sys-apps/util-linux
 	sys-apps/dbus
 	x11-libs/cairo
@@ -96,9 +95,6 @@ src_install() {
 	# Cleanup
 	rm "${S}/resources/app/LICENSE.txt" || die
 
-	# Disable update server
-	sed -i "/updateUrl/d" "${S}"/resources/app/product.json || die
-
 	# Install
 	pax-mark m codium
 	mkdir -p "${ED}/opt/${PN}" || die
@@ -118,5 +114,5 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	elog "When compared to the regular VSCode, VSCodium has a few quirks"
 	elog "More information at: https://github.com/VSCodium/vscodium/blob/master/DOCS.md"
-	optfeature "keyring support inside vscode" "gnome-base/gnome-keyring"
+	optfeature "keyring support inside vscode" "virtual/secret-service"
 }
