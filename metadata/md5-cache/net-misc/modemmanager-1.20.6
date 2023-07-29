@@ -1,0 +1,18 @@
+BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 dev-python/dbus-python[python_targets_python3_12(-)] dev-python/pygobject:3[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/dbus-python[python_targets_python3_11(-)] dev-python/pygobject:3[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/dbus-python[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] ) ) ) vala? ( || ( dev-lang/vala:0.56 ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=>=dev-libs/glib-2.56.0:2 udev? ( >=dev-libs/libgudev-232:= ) introspection? ( >=dev-libs/gobject-introspection-1.38:= ) mbim? ( >=net-libs/libmbim-1.28.0 ) policykit? ( >=sys-auth/polkit-0.106[introspection?] ) qmi? ( >=net-libs/libqmi-1.32.0:=[qrtr?] ) qrtr? ( >=net-libs/libqrtr-glib-1.0.0:= ) elogind? ( sys-auth/elogind ) systemd? ( >=sys-apps/systemd-209 )
+DESCRIPTION=Modem and mobile broadband management libraries
+EAPI=8
+HOMEPAGE=https://www.freedesktop.org/wiki/Software/ModemManager/ https://gitlab.freedesktop.org/mobile-broadband/ModemManager
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=bash-completion-r1 meson python-any-r1 optfeature systemd udev vala xdg
+IUSE=elogind gtk-doc +introspection +mbim policykit +qmi +qrtr selinux systemd test +udev vala
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.56.0:2 udev? ( >=dev-libs/libgudev-232:= ) introspection? ( >=dev-libs/gobject-introspection-1.38:= ) mbim? ( >=net-libs/libmbim-1.28.0 ) policykit? ( >=sys-auth/polkit-0.106[introspection?] ) qmi? ( >=net-libs/libqmi-1.32.0:=[qrtr?] ) qrtr? ( >=net-libs/libqrtr-glib-1.0.0:= ) elogind? ( sys-auth/elogind ) systemd? ( >=sys-apps/systemd-209 ) selinux? ( sec-policy/selinux-modemmanager )
+REQUIRED_USE=?? ( elogind systemd ) qrtr? ( qmi ) vala? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/1.20.6/ModemManager-1.20.6.tar.bz2
+_eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	meson	08b7183c3f4811568ee93eb0f79a89fe	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152	flag-o-matic	ad475baa777c9978fa035216c8264a10	vala	db97951caa799e73a831a5f48e717da8	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=eb90e3972e04c783e55fe76f8ca6083d
