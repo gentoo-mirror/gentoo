@@ -9,7 +9,7 @@ EAPI=8
 : ${LIBUNWIND_DOCS_PREBUILT:=1}
 
 LIBUNWIND_DOCS_PREBUILT_DEV=sam
-LIBUNWIND_DOCS_VERSION=$(ver_cut 1-3)
+LIBUNWIND_DOCS_VERSION=1.7.1
 # Default to generating docs (inc. man pages) if no prebuilt; overridden later
 LIBUNWIND_DOCS_USEFLAG="+doc"
 
@@ -17,15 +17,12 @@ LIBUNWIND_DOCS_USEFLAG="+doc"
 
 inherit multilib-minimal
 
-# Weird MY_P for https://github.com/libunwind/libunwind/issues/535
-MY_P=${PN}-$(ver_rs 2 '')
 DESCRIPTION="Portable and efficient API to determine the call-chain of a program"
 HOMEPAGE="https://savannah.nongnu.org/projects/libunwind"
-SRC_URI="https://github.com/libunwind/libunwind/releases/download/v${PV}/${MY_P}.tar.gz"
+SRC_URI="https://github.com/libunwind/libunwind/releases/download/v${PV}/${P}.tar.gz"
 if [[ ${LIBUNWIND_DOCS_PREBUILT} == 1 ]] ; then
 	SRC_URI+=" !doc? ( https://dev.gentoo.org/~${LIBUNWIND_DOCS_PREBUILT_DEV}/distfiles/${CATEGORY}/${PN}/${PN}-${LIBUNWIND_DOCS_VERSION}-docs.tar.xz )"
 fi
-S="${WORKDIR}"/${MY_P}
 
 LICENSE="MIT"
 SLOT="0/8" # libunwind.so.8

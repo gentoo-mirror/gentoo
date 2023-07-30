@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~riscv x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="examples +native-extensions test"
 RESTRICT="!test? ( test )"
 
@@ -32,10 +32,13 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
-# <cython-3 for bug #911412
 BDEPEND="
-	<dev-python/cython-3[${PYTHON_USEDEP}]
+	dev-python/cython[${PYTHON_USEDEP}]
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-cython3.patch
+)
 
 distutils_enable_sphinx docs
 
