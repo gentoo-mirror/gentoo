@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit prefix
 
@@ -12,21 +12,23 @@ if [[ "${PV}" == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/gentoo-perl/perl-cleaner.git"
 else
-	SRC_URI="mirror://gentoo/${P}.tar.bz2 https://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.bz2"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	SRC_URI="https://dev.gentoo.org/~dilfridge/distfiles/${P}.tar.bz2"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+IUSE="pkgcore"
 
-[[ "${PV}" == "9999" ]] && DEPEND="sys-apps/help2man"
+[[ "${PV}" == "9999" ]] && BDEPEND="sys-apps/help2man"
 
-RDEPEND="app-shells/bash
+RDEPEND="
+	app-shells/bash
 	dev-lang/perl
-	|| (
-		( sys-apps/portage app-portage/portage-utils )
-		sys-apps/pkgcore
+	pkgcore? ( sys-apps/pkgcore )
+	!pkgcore? (
+		app-portage/portage-utils
+		sys-apps/portage
 	)
 "
 
