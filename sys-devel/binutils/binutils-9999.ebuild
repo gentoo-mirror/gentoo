@@ -253,19 +253,12 @@ src_configure() {
 		--enable-obsolete
 		--enable-shared
 		--enable-threads
-		# Newer versions (>=2.27) offer a configure flag now.
 		--enable-relro
-		# Newer versions (>=2.24) make this an explicit option, bug #497268
 		--enable-install-libiberty
-		# Available from 2.35 on
 		--enable-textrel-check=$(usex hardened error warning)
-
 		# Things to think about
 		#--enable-deterministic-archives
-
-		# Works better than vapier's patch, bug #808787
 		--enable-new-dtags
-
 		--disable-jansson
 		--disable-werror
 		--with-bugurl="$(toolchain-binutils_bugurl)"
@@ -275,11 +268,9 @@ src_configure() {
 
 		# Disable modules that are in a combined binutils/gdb tree, bug #490566
 		--disable-{gdb,libdecnumber,readline,sim}
-		# Strip out broken static link flags.
-		# https://gcc.gnu.org/PR56750
+		# Strip out broken static link flags: https://gcc.gnu.org/PR56750
 		--without-stage1-ldflags
-		# Change SONAME to avoid conflict across
-		# {native,cross}/binutils, binutils-libs. bug #666100
+		# Change SONAME to avoid conflict across {native,cross}/binutils, binutils-libs. bug #666100
 		--with-extra-soversion-suffix=gentoo-${CATEGORY}-${PN}-$(usex multitarget mt st)
 
 		$(use_with debuginfod)
@@ -301,28 +292,32 @@ src_configure() {
 		$(use_enable gprofng)
 	)
 
-	if use amd64 || use arm64 || use x86 ; then
-		# These hardening options are available from 2.39+ but
-		# they unconditionally enable the behaviour even on arches
-		# where e.g. execstacks can't be avoided.
-		# See https://sourceware.org/bugzilla/show_bug.cgi?id=29592.
-		#
-		# TODO: Get the logic for this fixed upstream so it doesn't
-		# create impossible broken combinations on some arches, like mips.
-		#
-		# TODO: Get the logic for this fixed upstream so --disable-* works
-		# as expected.
-		myconf+=(
-			--enable-warn-execstack=yes
-			--enable-warn-rwx-segments=yes
-		)
-
-		if use hardened ; then
+	case ${CTARGET} in
+		x86_64-*|aarch64*|arm64*|i[3456]*)
+			# These hardening options are available from 2.39+ but
+			# they unconditionally enable the behaviour even on arches
+			# where e.g. execstacks can't be avoided.
+			# See https://sourceware.org/bugzilla/show_bug.cgi?id=29592.
+			#
+			# TODO: Get the logic for this fixed upstream so it doesn't
+			# create impossible broken combinations on some arches, like mips.
+			#
+			# TODO: Get the logic for this fixed upstream so --disable-* works
+			# as expected.
 			myconf+=(
-				--enable-default-execstack=no
+				--enable-warn-execstack=yes
+				--enable-warn-rwx-segments=yes
 			)
-		fi
-	fi
+
+			if use hardened ; then
+				myconf+=(
+					--enable-default-execstack=no
+				)
+			fi
+			;;
+		*)
+			;;
+	esac
 
 	if use elibc_musl ; then
 		# Override our earlier setting for musl, as textrels don't
