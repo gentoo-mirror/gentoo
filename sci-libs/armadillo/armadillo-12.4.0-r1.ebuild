@@ -1,9 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-CMAKE_IN_SOURCE_BUILD=1
+EAPI=8
 
 inherit cmake toolchain-funcs multilib
 
@@ -19,23 +17,18 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( arpack lapack superlu )"
 
 #	atlas? ( sci-libs/atlas[lapack] )
-
 RDEPEND="
 	dev-libs/boost
 	arpack? ( sci-libs/arpack )
 	blas? ( virtual/blas )
 	lapack? ( virtual/lapack )
+	mkl? ( sci-libs/mkl )
 	superlu? ( >=sci-libs/superlu-5.2 )
 "
-
 DEPEND="${RDEPEND}
 	arpack? ( virtual/pkgconfig )
 	blas? ( virtual/pkgconfig )
 	lapack? ( virtual/pkgconfig )
-	mkl? ( sci-libs/mkl )
-"
-PDEPEND="${RDEPEND}
-	mkl? ( sci-libs/mkl )
 "
 
 PATCHES=(
