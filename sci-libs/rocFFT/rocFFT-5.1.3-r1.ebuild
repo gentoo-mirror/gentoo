@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 ROCM_VERSION=${PV}
 
 inherit cmake check-reqs edo multiprocessing python-r1 rocm
@@ -36,7 +36,7 @@ BDEPEND="
 	test? ( dev-cpp/gtest dev-libs/boost
 	>=sci-libs/fftw-3 sys-libs/libomp )
 	>=dev-util/cmake-3.22
-	dev-util/rocm-cmake:${SLOT}
+	dev-util/rocm-cmake
 "
 
 CHECKREQS_DISK_BUILD="7G"
@@ -80,7 +80,7 @@ pkg_setup() {
 src_prepare() {
 	sed -e "s/PREFIX rocfft//" \
 		-e "/rocm_install_symlink_subdir/d" \
-		-e "/<INSTALL_INTERFACE/s,include,include/rocFFT," \
+		-e "/<INSTALL_INTERFACE/s,include,include/rocfft," \
 		-i library/src/CMakeLists.txt || die
 
 	sed -e "/rocm_install_symlink_subdir/d" \
@@ -107,7 +107,8 @@ src_configure() {
 		-DCMAKE_SKIP_RPATH=On
 		-DAMDGPU_TARGETS="$(get_amdgpu_flags)"
 		-Wno-dev
-		-DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/"
+		-DCMAKE_INSTALL_INCLUDEDIR="include/rocfft/"
+		-DROCM_SYMLINK_LIBS=OFF
 		-DBUILD_CLIENTS_TESTS=$(usex test ON OFF)
 		-DBUILD_CLIENTS_SELFTEST=$(usex test ON OFF)
 		-DPYTHON3_EXE=${EPYTHON}
