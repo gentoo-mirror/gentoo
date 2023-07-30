@@ -5,11 +5,11 @@ DESCRIPTION=Tools necessary to build programs
 EAPI=7
 HOMEPAGE=https://sourceware.org/binutils/
 INHERIT=libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
-IUSE=cet debuginfod doc gold gprofng multitarget +nls pgo +plugins static-libs test vanilla zstd
+IUSE=cet debuginfod doc gold gprofng hardened multitarget +nls pgo +plugins static-libs test vanilla zstd
 LICENSE=GPL-3+
 RDEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= )
 RESTRICT=!test? ( test )
 SLOT=2.41
 SRC_URI=mirror://gnu/binutils/binutils-2.41.tar.xz https://sourceware.org/pub/binutils/releases/binutils-2.41.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.41.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.41-patches-1.tar.xz
 _eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	flag-o-matic	ad475baa777c9978fa035216c8264a10	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
-_md5_=6c688399b7b611cb8606cdb49d80b5a9
+_md5_=8173871c407f0bbb3286f4cbe5e595ef
