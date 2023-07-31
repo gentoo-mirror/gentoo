@@ -8529,6 +8529,8 @@ virtual/cblas:eselect-ldso - Enable runtime library switching by eselect and ld.
 virtual/jdk:headless-awt - Don't install the X backend for AWT, needed by some GUIs
 virtual/lapack:eselect-ldso - Enable runtime library switching by eselect and ld.so.
 virtual/lapacke:eselect-ldso - Enable runtime library switching by eselect and ld.so.
+virtual/libudev:eudev - Depend on sys-fs/eudev
+virtual/libudev:sticky-tags - Enable API support for sticky tags
 virtual/linux-sources:firmware - Install linux kernel firmware
 virtual/mpi:nullmpi - Allow sys-cluster/nullmpi a minimal incomplete MPI implementation as a provider
 virtual/mpi:romio - Enable romio, a high-performance portable MPI-IO
