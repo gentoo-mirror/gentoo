@@ -5,11 +5,11 @@ EAPI=8
 
 PLOCALES="de fr pl pt"
 PLOCALE_BACKUP="en"
-inherit flag-o-matic linux-info toolchain-funcs plocale
+inherit linux-info toolchain-funcs plocale
 
 DESCRIPTION="Pipe Viewer: a tool for monitoring the progress of data through a pipe"
 HOMEPAGE="https://www.ivarch.com/programs/pv.shtml"
-SRC_URI="https://www.ivarch.com/programs/sources/${P}.tar.bz2"
+SRC_URI="https://www.ivarch.com/programs/sources/${P}.tar.gz"
 
 LICENSE="Artistic-2"
 SLOT="0"
@@ -17,10 +17,6 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~
 IUSE="debug nls"
 
 DOCS=( README.md doc/NEWS.md doc/TODO.md )
-
-QA_CONFIG_IMPL_DECL_SKIP=(
-	stat64 # See https://github.com/a-j-wood/pv/issues/69
-)
 
 pkg_setup() {
 	if use kernel_linux; then
@@ -40,8 +36,6 @@ src_prepare() {
 		-e 's:$(LD) $(LDFLAGS) -o:$(AR) rc:' \
 		autoconf/make/modules.mk~ || die
 
-	sed -i -e 's:usleep 200000 || ::g' tests/019-remote-cksum || die
-
 	disable_locale() {
 		local locale=${1}
 		sed -i configure -e "/ALL_LINGUAS=/s:${locale}::g" || die
@@ -54,11 +48,11 @@ src_prepare() {
 src_configure() {
 	tc-export AR
 
-	# Workaround for https://github.com/a-j-wood/pv/issues/69
-	append-lfs-flags
-
 	econf \
-		--enable-lfs \
 		$(use_enable debug debugging) \
 		$(use_enable nls)
+}
+
+src_test() {
+	emake -Onone check
 }
