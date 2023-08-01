@@ -81,6 +81,10 @@ src_prepare() {
 
 	# note: there are consumers in the ::guru overlay
 	use experimental && eapply "${WORKDIR}"/nim-patches-${PATCH_PV}
+
+	# refer: https://github.com/nim-lang/Nim/issues/20886#issuecomment-1511708198
+	# bug: https://bugs.gentoo.org/894410
+	use elibc_musl && eapply "${FILESDIR}"/${PN}-1.6.14-clang16-musl-fix.patch
 }
 
 src_configure() {
@@ -148,28 +152,35 @@ src_test() {
 	# AdditionalCategories from "testament/categories.nim".
 	categories+=( debugger examples lib )
 
-	local tcat checkpoint
+	local test_return=0
+
+	local tcat
+	local checkpoint
 	for tcat in "${categories[@]}"; do
 		# Use checkpoints for less painful testing.
 		checkpoint="${T}/.testament-${tcat}"
+
 		[[ -f "${checkpoint}" ]] && continue
 
 		case ${tcat} in
 			testdata )
 				:
-			;;
+				;;
 			arc | ic | valgrind )
 				einfo "Skipped category '${tcat}'"
 				;;
 			* )
 				einfo "Running tests in category '${tcat}'"
-				edo ./bin/testament "${testament_args[@]}" \
-					category "${tcat}" "${nimflags[@]}"
+				nonfatal edo ./bin/testament "${testament_args[@]}" \
+						 category "${tcat}" "${nimflags[@]}" || test_return=1
 				;;
 		esac
 
 		touch "${checkpoint}" || die
 	done
+
+	[[ "${test_return}" -eq 1 ]] &&
+		die "tests failed, please inspect the failed test categories above"
 }
 
 src_install() {
