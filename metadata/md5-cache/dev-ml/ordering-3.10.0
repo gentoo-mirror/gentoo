@@ -1,0 +1,16 @@
+BDEPEND=>=dev-ml/dune-3.5 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-lang/ocaml-4.08 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Element ordering
+EAPI=8
+HOMEPAGE=https://github.com/ocaml/dune
+INHERIT=dune multiprocessing
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-lang/ocaml-4.08 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/3.10.0
+SRC_URI=https://github.com/ocaml/dune/archive/3.10.0.tar.gz -> dune-3.10.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=7e0204472e648a15dcddf5197c060698
