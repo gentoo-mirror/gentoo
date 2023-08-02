@@ -14,19 +14,17 @@ KEYWORDS=""
 LICENSE="teamspeak5 || ( GPL-2 GPL-3 LGPL-3 )"
 SLOT="5"
 
+IUSE="+alsa pulseaudio"
+REQUIRED_USE="|| ( alsa pulseaudio )"
+
 RDEPEND="
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
-	dev-libs/atk
+	app-accessibility/at-spi2-core
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/fontconfig:1.0
-	media-libs/libpulse
 	net-print/cups
 	sys-power/upower
 	sys-apps/dbus
@@ -45,6 +43,8 @@ RDEPEND="
 	x11-libs/libXScrnSaver
 	x11-libs/libXtst
 	x11-libs/pango
+	alsa? ( media-libs/alsa-lib )
+	pulseaudio? ( media-libs/libpulse )
 "
 
 RESTRICT="bindist mirror"
@@ -58,8 +58,15 @@ QA_PREBUILT="
 	opt/teamspeak5-client/patcher
 	opt/teamspeak5-client/TeamSpeak
 	opt/teamspeak5-client/soundbackends/libalsa_linux_amd64.so
-	opt/teamspeak5-client/soundbackends/libpulseaudio_linux_amd64.so
 "
+
+src_prepare() {
+	default
+
+	if ! use alsa; then
+		rm soundbackends/libalsa_linux_*.so || die
+	fi
+}
 
 src_install() {
 	exeinto /opt/teamspeak5-client
@@ -72,7 +79,9 @@ src_install() {
 	dodir /opt/bin
 	dosym ../teamspeak5-client/TeamSpeak /opt/bin/ts5client
 
-	make_desktop_entry /opt/bin/ts5client "Teamspeak 5 Client" /opt/teamspeak5-client/html/client_ui/images/icons/teamspeak_logo.svg "Audio;AudioVideo;Network"
+	make_desktop_entry \
+		/opt/bin/ts5client "Teamspeak 5 Client" \
+		/opt/teamspeak5-client/html/client_ui/images/icons/teamspeak_logo.svg "Audio;AudioVideo;Network"
 }
 
 pkg_postinst() {
