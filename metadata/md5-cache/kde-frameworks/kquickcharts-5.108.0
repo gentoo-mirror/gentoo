@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://invent.kde.org/frameworks/kquickcharts
 INHERIT=ecm frameworks.kde.org
 IUSE=test debug examples test
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtdeclarative-5.15.9:5 >=dev-qt/qtquickcontrols2-5.15.9:5 examples? ( >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kdeclarative-5.108*:5 =kde-frameworks/kirigami-5.108*:5 ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=5/5.108
 SRC_URI=mirror://kde/stable/frameworks/5.108/kquickcharts-5.108.0.tar.xz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	virtualx	817571665ee28575da44ee08135089e5	ecm	582ef00537aa518e5a8ca3aa66bd9dc0	kde.org	411cb92019a6e2aa174d06896084bf57	frameworks.kde.org	6556398a532490b4d6d03158a82e455a
-_md5_=5b444910ab2877decb3f1d8b6c5da897
+_md5_=1e9eaa0ef7b70a4db6991e56d40efb53

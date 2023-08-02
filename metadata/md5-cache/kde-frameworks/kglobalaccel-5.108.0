@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org
 IUSE=X debug doc test
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 >=dev-qt/qtx11extras-5.15.9:5 X? ( =kde-frameworks/kconfig-5.108*:5 =kde-frameworks/kcoreaddons-5.108*:5 =kde-frameworks/kcrash-5.108*:5 =kde-frameworks/kdbusaddons-5.108*:5 =kde-frameworks/kwindowsystem-5.108*:5[X] x11-libs/libxcb x11-libs/xcb-util-keysyms ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 REQUIRED_USE=test? ( X )
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=5/5.108
 SRC_URI=mirror://kde/stable/frameworks/5.108/kglobalaccel-5.108.0.tar.xz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	virtualx	817571665ee28575da44ee08135089e5	ecm	582ef00537aa518e5a8ca3aa66bd9dc0	kde.org	411cb92019a6e2aa174d06896084bf57	frameworks.kde.org	6556398a532490b4d6d03158a82e455a
-_md5_=ecedd4bd4d193507d3ed523476997de0
+_md5_=b510638c656f48a05ef2186f6760f3ff

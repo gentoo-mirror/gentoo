@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org optfeature python-any-r1
 IUSE=epub exif ffmpeg mobi pdf taglib debug doc test
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtxml-5.15.9:5 =kde-frameworks/karchive-5.108*:5 =kde-frameworks/kcoreaddons-5.108*:5 =kde-frameworks/ki18n-5.108*:5 epub? ( app-text/ebook-tools ) exif? ( media-gfx/exiv2:= ) ffmpeg? ( media-video/ffmpeg:0= ) mobi? ( kde-apps/kdegraphics-mobipocket:5 ) pdf? ( app-text/poppler[qt5] ) taglib? ( media-libs/taglib ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 RESTRICT=test !test? ( test )
 SLOT=5/5.108
 SRC_URI=mirror://kde/stable/frameworks/5.108/kfilemetadata-5.108.0.tar.xz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	virtualx	817571665ee28575da44ee08135089e5	ecm	582ef00537aa518e5a8ca3aa66bd9dc0	kde.org	411cb92019a6e2aa174d06896084bf57	frameworks.kde.org	6556398a532490b4d6d03158a82e455a	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
-_md5_=a7561c3a1f2a1596da8c91254a902dfe
+_md5_=17739a148f0c0de3de9d45b821f7d8e5
