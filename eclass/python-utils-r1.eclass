@@ -338,7 +338,7 @@ _python_export() {
 				debug-print "${FUNCNAME}: EPYTHON = ${EPYTHON}"
 				;;
 			PYTHON)
-				export PYTHON=${BROOT-${EPREFIX}}/usr/bin/${impl}
+				export PYTHON=${BROOT}/usr/bin/${impl}
 				debug-print "${FUNCNAME}: PYTHON = ${PYTHON}"
 				;;
 			PYTHON_SITEDIR)
@@ -1023,8 +1023,6 @@ python_fix_shebang() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${EPYTHON} ]] || die "${FUNCNAME}: EPYTHON unset (pkg_setup not called?)"
-	local PYTHON
-	_python_export "${EPYTHON}" PYTHON
 
 	local force quiet
 	while [[ ${@} ]]; do
@@ -1097,7 +1095,7 @@ python_fix_shebang() {
 			if [[ ! ${error} ]]; then
 				debug-print "${FUNCNAME}: in file ${f#${D%/}}"
 				debug-print "${FUNCNAME}: rewriting shebang: ${shebang}"
-				sed -i -e "1s@${from}@#!${PYTHON}@" "${f}" || die
+				sed -i -e "1s@${from}@#!${EPREFIX}/usr/bin/${EPYTHON}@" "${f}" || die
 				any_fixed=1
 			else
 				eerror "The file has incompatible shebang:"
