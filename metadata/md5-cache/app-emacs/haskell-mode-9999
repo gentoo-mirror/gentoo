@@ -1,0 +1,12 @@
+BDEPEND=sys-apps/texinfo >=app-editors/emacs-25.3:* >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Mode for editing (and running) Haskell programs in Emacs
+EAPI=8
+HOMEPAGE=https://haskell.github.io/haskell-mode/ https://www.haskell.org/haskellwiki/Emacs#Haskell-mode
+INHERIT=elisp git-r3
+LICENSE=GPL-3+ FDL-1.2+
+PROPERTIES=live
+RDEPEND=>=app-editors/emacs-25.3:*
+SLOT=0
+_eclasses_=elisp-common	b3b15bdbe800c721e93b69b70cce2b67	elisp	fbefa95f5e9ab880a34bc69832b7c0d7	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=22b73c37ce9952e48906f49cf924c36b

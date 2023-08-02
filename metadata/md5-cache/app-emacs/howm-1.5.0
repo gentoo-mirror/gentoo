@@ -1,13 +1,13 @@
 BDEPEND=>=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DESCRIPTION=Provides a modifier-free editing experience
+DESCRIPTION=Note-taking tool on Emacs
 EAPI=8
-HOMEPAGE=https://github.com/susam/devil
+HOMEPAGE=https://howm.sourceforge.jp/
 INHERIT=elisp
-KEYWORDS=~amd64 ~x86
-LICENSE=GPL-3+
+KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-1+ GPL-2+
 RDEPEND=>=app-editors/emacs-25.3:*
 SLOT=0
-SRC_URI=https://github.com/susam/devil/archive/0.4.0.tar.gz -> devil-0.4.0.tar.gz
+SRC_URI=http://howm.sourceforge.jp/a/howm-1.5.0.tar.gz
 _eclasses_=elisp-common	b3b15bdbe800c721e93b69b70cce2b67	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=81ec4d27069dee972a231c21f899989b
+_md5_=57db67276eba102fe41fafabec1a8959
