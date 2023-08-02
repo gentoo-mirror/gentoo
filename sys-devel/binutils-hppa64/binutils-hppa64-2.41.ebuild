@@ -3,13 +3,16 @@
 
 EAPI=7
 
-inherit libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
+export CTARGET=hppa64-${CHOST#*-}
+
+inherit libtool flag-o-matic gnuconfig multilib strip-linguas toolchain-funcs
 
 DESCRIPTION="Tools necessary to build programs"
 HOMEPAGE="https://sourceware.org/binutils/"
 
 LICENSE="GPL-3+"
-IUSE="cet debuginfod doc gold gprofng hardened multitarget +nls pgo +plugins static-libs test vanilla zstd"
+IUSE="cet default-gold doc gold gprofng multitarget +nls pgo +plugins static-libs test vanilla"
+REQUIRED_USE="default-gold? ( gold )"
 
 # Variables that can be set here  (ignored for live ebuilds)
 # PATCH_VER          - the patchset version
@@ -28,11 +31,11 @@ if [[ ${PV} == 9999* ]]; then
 else
 	PATCH_BINUTILS_VER=${PATCH_BINUTILS_VER:-${PV}}
 	PATCH_DEV=${PATCH_DEV:-dilfridge}
-	SRC_URI="mirror://gnu/binutils/binutils-${PV}.tar.xz https://sourceware.org/pub/binutils/releases/binutils-${PV}.tar.xz https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PV}.tar.xz"
+	SRC_URI="mirror://gnu/binutils/binutils-${PV}.tar.xz https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PV}.tar.xz"
 	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
 		https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="-* ~hppa"
 fi
 
 #
@@ -52,10 +55,6 @@ is_cross() { [[ ${CHOST} != ${CTARGET} ]] ; }
 RDEPEND="
 	>=sys-devel/binutils-config-3
 	sys-libs/zlib
-	debuginfod? (
-		dev-libs/elfutils[debuginfod(-)]
-	)
-	zstd? ( app-arch/zstd:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -65,25 +64,25 @@ BDEPEND="
 		sys-devel/bc
 	)
 	nls? ( sys-devel/gettext )
-	zstd? ( virtual/pkgconfig )
 	sys-devel/flex
 	app-alternatives/yacc
 "
 
 RESTRICT="!test? ( test )"
 
-MY_BUILDDIR=${WORKDIR}/build
+MY_BUILDDIR="${WORKDIR}"/build
+S="${WORKDIR}"/${P/-hppa64/}
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]] ; then
 		EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/toolchain/binutils-patches.git"
-		EGIT_CHECKOUT_DIR=${WORKDIR}/patches-git
+		EGIT_CHECKOUT_DIR="${WORKDIR}"/patches-git
 		git-r3_src_unpack
 		mv patches-git/9999 patch || die
 
+		S="${WORKDIR}"/binutils
 		EGIT_REPO_URI="https://sourceware.org/git/binutils-gdb.git"
-		S=${WORKDIR}/binutils
-		EGIT_CHECKOUT_DIR=${S}
+		EGIT_CHECKOUT_DIR="${S}"
 		git-r3_src_unpack
 	else
 		unpack ${P/-hppa64/}.tar.xz
@@ -115,10 +114,6 @@ src_prepare() {
 			einfo "Applying binutils patchset ${patchsetname}"
 			eapply "${WORKDIR}/patch"
 			einfo "Done."
-
-			# This is applied conditionally for now just out of caution.
-			# It should be okay on non-prefix systems though. See bug #892549.
-			use prefix && eapply "${FILESDIR}"/binutils-2.40-linker-search-path.patch
 		fi
 	fi
 
@@ -178,15 +173,8 @@ src_configure() {
 
 	# Keep things sane
 	strip-flags
-	use cet && filter-flags -mindirect-branch -mindirect-branch=*
-	use elibc_musl && append-ldflags -Wl,-z,stack-size=2097152
 
-	# ideally we want !tc-ld-is-bfd for best future-proofing, but it needs
-	# https://github.com/gentoo/gentoo/pull/28355
-	# mold needs this too but right now tc-ld-is-mold is also not available
-	if tc-ld-is-lld; then
-		append-ldflags -Wl,--undefined-version
-	fi
+	use elibc_musl && append-ldflags -Wl,-z,stack-size=2097152
 
 	local x
 	echo
@@ -204,6 +192,9 @@ src_configure() {
 	# enable gold (installed as ld.gold) and ld's plugin architecture
 	if use gold ; then
 		myconf+=( --enable-gold )
+		if use default-gold; then
+			myconf+=( --enable-gold=default )
+		fi
 	fi
 
 	if use nls ; then
@@ -253,27 +244,44 @@ src_configure() {
 		--enable-obsolete
 		--enable-shared
 		--enable-threads
+		# Newer versions (>=2.27) offer a configure flag now.
 		--enable-relro
+		# Newer versions (>=2.24) make this an explicit option, bug #497268
 		--enable-install-libiberty
-		--enable-textrel-check=$(usex hardened error warning)
+		# Available from 2.35 on
+		--enable-textrel-check=warning
+
+		# These hardening options are available from 2.39+ but
+		# they unconditionally enable the behaviour even on arches
+		# where e.g. execstacks can't be avoided.
+		# See https://sourceware.org/bugzilla/show_bug.cgi?id=29592.
+		#--enable-warn-execstack
+		#--enable-warn-rwx-segments
+		#--disable-default-execstack (or is it --enable-default-execstack=no? docs are confusing)
+
 		# Things to think about
 		#--enable-deterministic-archives
+
+		# Works better than vapier's patch, bug #808787
 		--enable-new-dtags
+
 		--disable-jansson
 		--disable-werror
 		--with-bugurl="$(toolchain-binutils_bugurl)"
 		--with-pkgversion="$(toolchain-binutils_pkgversion)"
 		$(use_enable static-libs static)
-		$(use_with zstd)
-
 		# Disable modules that are in a combined binutils/gdb tree, bug #490566
 		--disable-{gdb,libdecnumber,readline,sim}
-		# Strip out broken static link flags: https://gcc.gnu.org/PR56750
+		# Strip out broken static link flags.
+		# https://gcc.gnu.org/PR56750
 		--without-stage1-ldflags
-		# Change SONAME to avoid conflict across {native,cross}/binutils, binutils-libs. bug #666100
+		# Change SONAME to avoid conflict across
+		# {native,cross}/binutils, binutils-libs. bug #666100
 		--with-extra-soversion-suffix=gentoo-${CATEGORY}-${PN}-$(usex multitarget mt st)
 
-		$(use_with debuginfod)
+		# Avoid automagic dependency on (currently prefix) systems
+		# systems with debuginfod library, bug #754753
+		--without-debuginfod
 
 		# Avoid automagic dev-libs/msgpack dep, bug #865875
 		--without-msgpack
@@ -292,43 +300,9 @@ src_configure() {
 		$(use_enable gprofng)
 	)
 
-	case ${CTARGET} in
-		x86_64-*|aarch64*|arm64*|i[3456]*)
-			# These hardening options are available from 2.39+ but
-			# they unconditionally enable the behaviour even on arches
-			# where e.g. execstacks can't be avoided.
-			# See https://sourceware.org/bugzilla/show_bug.cgi?id=29592.
-			#
-			# TODO: Get the logic for this fixed upstream so it doesn't
-			# create impossible broken combinations on some arches, like mips.
-			#
-			# TODO: Get the logic for this fixed upstream so --disable-* works
-			# as expected.
-			myconf+=(
-				--enable-warn-execstack=yes
-				--enable-warn-rwx-segments=yes
-			)
-
-			if use hardened ; then
-				myconf+=(
-					--enable-default-execstack=no
-				)
-			fi
-			;;
-		*)
-			;;
-	esac
-
-	if use elibc_musl ; then
-		# Override our earlier setting for musl, as textrels don't
-		# work there at all. See bug #707660.
-		myconf+=(
-			--enable-textrel-check=error
-		)
-	fi
-
 	if ! is_cross ; then
-		myconf+=( $(use_enable pgo pgo-build lto) )
+		# No LTO for HPPA64 right now as we don't build kgcc64 with LTO support.
+		myconf+=( $(use_enable pgo pgo-build) )
 
 		if use pgo ; then
 			export BUILD_CFLAGS="${CFLAGS}"
@@ -398,6 +372,7 @@ src_install() {
 		done
 
 		if [[ -d ${ED}/usr/${CHOST}/${CTARGET} ]] ; then
+			# No die for now, dies on hppa?
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/include "${ED}"/${INCPATH}
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/lib/* "${ED}"/${LIBPATH}/
 			rm -r "${ED}"/usr/${CHOST}/{include,lib}
@@ -417,8 +392,9 @@ src_install() {
 	)
 	doins "${libiberty_headers[@]/#/${S}/include/}"
 	if [[ -d ${ED}/${LIBPATH}/lib ]] ; then
-		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/ || die
-		rm -r "${ED}"/${LIBPATH}/lib || die
+		# TODO: add || die here, fails on hppa?
+		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/
+		rm -r "${ED}"/${LIBPATH}/lib
 	fi
 
 	# Generate an env.d entry for this binutils
@@ -458,10 +434,15 @@ src_install() {
 	fi
 
 	# Remove shared info pages
-	rm -f "${ED}"/${DATAPATH}/info/{dir,configure.info,standards.info}
+	rm -f "${ED}"/${DATAPATH}/info/{dir,configure.info,standards.info} || die
 
 	# Trim all empty dirs
 	find "${ED}" -depth -type d -exec rmdir {} + 2>/dev/null
+
+	# the hppa64 hack; this should go into 9999 as a PN-conditional
+	# tweak the default fake list a little bit
+	cd "${D}"/etc/env.d/binutils
+	sed -i '/FAKE_TARGETS=/s:"$: hppa64-linux":' ${CTARGET}-${PV} || die
 }
 
 pkg_postinst() {
