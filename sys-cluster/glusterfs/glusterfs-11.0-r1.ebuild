@@ -24,6 +24,10 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 # the tests must be run as root
 RESTRICT="test"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-11.0-fix-crash.patch"
+)
+
 # sys-apps/util-linux is required for libuuid
 RDEPEND="
 	acct-group/gluster
