@@ -3,7 +3,7 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-115esr-patches-03.tar.xz"
+FIREFOX_PATCHSET="firefox-115esr-patches-04.tar.xz"
 
 LLVM_MAX_SLOT=16
 
@@ -715,7 +715,6 @@ src_configure() {
 		local version_clang=$(clang --version 2>/dev/null | grep -F -- 'clang version' | awk '{ print $3 }')
 		[[ -n ${version_clang} ]] && version_clang=$(ver_cut 1 "${version_clang}")
 		[[ -z ${version_clang} ]] && die "Failed to read clang version!"
-
 
 		if tc-is-gcc; then
 			have_switched_compiler=yes
