@@ -7,7 +7,7 @@ HOMEPAGE=https://www.falkon.org/ https://apps.kde.org/falkon/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm gear.kde.org python-single-r1
 IUSE=dbus kde python +X debug test python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 arm64 ~ppc64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/openssl:0= >=dev-qt/qtdeclarative-5.15.9:5[widgets] >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtnetwork-5.15.9:5[ssl] >=dev-qt/qtprintsupport-5.15.9:5 >=dev-qt/qtsql-5.15.9:5[sqlite] >=dev-qt/qtwebchannel-5.15.9:5 >=dev-qt/qtwebengine-5.15.9:5=[widgets] >=dev-qt/qtwidgets-5.15.9:5 >=kde-frameworks/karchive-5.106.0:5 virtual/libintl dbus? ( >=dev-qt/qtdbus-5.15.9:5 ) kde? ( >=kde-frameworks/kcoreaddons-5.106.0:5 >=kde-frameworks/kcrash-5.106.0:5 >=kde-frameworks/kio-5.106.0:5 >=kde-frameworks/kwallet-5.106.0:5 >=kde-frameworks/purpose-5.106.0:5 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( >=dev-python/pyside2-5.15.9[designer,gui,webengine,widgets,python_targets_python3_10(-)] >=dev-python/shiboken2-5.15.9[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/pyside2-5.15.9[designer,gui,webengine,widgets,python_targets_python3_11(-)] >=dev-python/shiboken2-5.15.9[python_targets_python3_11(-)] ) ) X? ( >=dev-qt/qtx11extras-5.15.9:5 x11-libs/libxcb:= x11-libs/xcb-util ) >=dev-qt/qtsvg-5.15.9:5 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
@@ -15,4 +15,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=mirror://kde/stable/release-service/23.04.3/src/falkon-23.04.3.tar.xz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e	ecm	582ef00537aa518e5a8ca3aa66bd9dc0	kde.org	411cb92019a6e2aa174d06896084bf57	gear.kde.org	46a3a684cf1499799618bf7194102e69	python-utils-r1	7661dc585f75dd1f81eccefe37bef093	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=9d85341768e02c00ecacdac25b9f5d8d
+_md5_=6a885c5e86f354aebe1777f866e5657b
