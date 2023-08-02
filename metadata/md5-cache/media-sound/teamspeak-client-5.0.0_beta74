@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm prepare
+DESCRIPTION=A client software for quality voice communication via the internet
+EAPI=8
+HOMEPAGE=https://www.teamspeak.com/
+INHERIT=desktop xdg-utils
+IUSE=+alsa pulseaudio
+LICENSE=teamspeak5 || ( GPL-2 GPL-3 LGPL-3 )
+RDEPEND=app-accessibility/at-spi2-core dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/fontconfig:1.0 net-print/cups sys-power/upower sys-apps/dbus x11-libs/cairo[glib] x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst x11-libs/pango alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse )
+REQUIRED_USE=|| ( alsa pulseaudio )
+RESTRICT=bindist mirror
+SLOT=5
+SRC_URI=https://files.teamspeak-services.com/pre_releases/client/5.0.0-beta74/teamspeak-client.tar.gz -> teamspeak-client-5.0.0_beta74.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=543e1b5c588863f5a780b1a18383b239
