@@ -7,11 +7,11 @@ HOMEPAGE=https://www.virtualbox.org/
 IDEPEND=sys-apps/kmod[tools]
 INHERIT=edo linux-mod-r1 systemd toolchain-funcs udev
 IUSE=X +dbus dist-kernel modules-sign +strip
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 PDEPEND=X? ( x11-drivers/xf86-video-vboxvideo )
 RDEPEND=acct-group/vboxguest acct-group/vboxsf acct-user/vboxguest sys-libs/pam sys-libs/zlib dbus? ( sys-apps/dbus ) X? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt ) sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 SLOT=0/6.1
 SRC_URI=https://download.virtualbox.org/virtualbox/6.1.46/VirtualBox-6.1.46.tar.bz2 https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-6.1.36.tar.bz2
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod-r1	3adf4125a2c5f60764f8d3bba0d4111b	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=db6baf9fec576f7c37fbc3a44bb51184
+_md5_=0a59e9cbd1fcbfeb4baecbf8a3e521f7

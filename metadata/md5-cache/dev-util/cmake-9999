@@ -1,6 +1,6 @@
 BDEPEND=doc? ( dev-python/requests dev-python/sphinx ) test? ( app-arch/libarchive[zstd] ) sys-devel/make test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
-DEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) emacs? ( >=app-editors/emacs-23.1:* ) ncurses? ( sys-libs/ncurses:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
+DEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) emacs? ( >=app-editors/emacs-23.1:* ) ncurses? ( sys-libs/ncurses:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
 DESCRIPTION=Cross platform Make
 EAPI=8
 HOMEPAGE=https://cmake.org/
@@ -8,8 +8,8 @@ INHERIT=bash-completion-r1 cmake elisp-common flag-o-matic multiprocessing toolc
 IUSE=+doc dap emacs ncurses qt5 test test
 LICENSE=CMake
 PROPERTIES=live
-RDEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) emacs? ( >=app-editors/emacs-23.1:* ) ncurses? ( sys-libs/ncurses:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
+RDEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) emacs? ( >=app-editors/emacs-23.1:* ) ncurses? ( sys-libs/ncurses:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	elisp-common	b3b15bdbe800c721e93b69b70cce2b67	virtualx	817571665ee28575da44ee08135089e5	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=c1371d9587b4945147054271a0fbe66b
+_md5_=f9ef64ba590a168730572985fc1ce6a3
