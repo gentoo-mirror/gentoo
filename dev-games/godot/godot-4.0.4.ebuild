@@ -74,7 +74,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.0_beta3-headless-header.patch
 	"${FILESDIR}"/${PN}-4.0_rc2-musl.patch
 	"${FILESDIR}"/${PN}-4.0_rc3-scons.patch
-	"${FILESDIR}"/${P}-xkb-no-sowrap.patch
 )
 
 src_prepare() {
