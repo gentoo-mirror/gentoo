@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=sys-devel/libtool-1.4 nls? ( >=sys-devel/gettext-0.11 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst postrm preinst prepare
-DEPEND=>=dev-libs/nettle-3.1:= >=dev-db/sqlite-3.7 >=dev-libs/libfilezilla-0.44.0:= >=dev-libs/pugixml-1.7 >=net-libs/gnutls-3.5.7 x11-libs/wxGTK:3.2-gtk3[X] x11-misc/xdg-utils dbus? ( sys-apps/dbus ) test? ( >=dev-util/cppunit-1.13.0 )
+DEPEND=>=dev-libs/nettle-3.1:= >=dev-db/sqlite-3.7 >=dev-libs/boost-1.76.0:= >=dev-libs/libfilezilla-0.44.0:= >=dev-libs/pugixml-1.7 >=net-libs/gnutls-3.5.7 x11-libs/wxGTK:3.2-gtk3[X] x11-misc/xdg-utils dbus? ( sys-apps/dbus ) test? ( >=dev-util/cppunit-1.13.0 )
 DESCRIPTION=FTP client with lots of useful features and an intuitive interface
 EAPI=8
 HOMEPAGE=https://filezilla-project.org/
@@ -9,9 +9,9 @@ INHERIT=autotools wxwidgets xdg
 IUSE=dbus nls test
 KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-libs/nettle-3.1:= >=dev-db/sqlite-3.7 >=dev-libs/libfilezilla-0.44.0:= >=dev-libs/pugixml-1.7 >=net-libs/gnutls-3.5.7 x11-libs/wxGTK:3.2-gtk3[X] x11-misc/xdg-utils dbus? ( sys-apps/dbus )
+RDEPEND=>=dev-libs/nettle-3.1:= >=dev-db/sqlite-3.7 >=dev-libs/boost-1.76.0:= >=dev-libs/libfilezilla-0.44.0:= >=dev-libs/pugixml-1.7 >=net-libs/gnutls-3.5.7 x11-libs/wxGTK:3.2-gtk3[X] x11-misc/xdg-utils dbus? ( sys-apps/dbus )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.filezilla-project.org/client/FileZilla_3.65.0_src.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	ad475baa777c9978fa035216c8264a10	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=5e2a68c29f9fdcb4b4497c2ab5ab0987
+_md5_=068a66756f5b4a9dd10b180868e31af9
