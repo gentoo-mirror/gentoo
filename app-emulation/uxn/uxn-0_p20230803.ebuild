@@ -12,12 +12,12 @@ HOMEPAGE="https://wiki.xxiivv.com/site/uxn.html
 if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~rabbits/uxn"
-elif [[ ${PV} == *_p20230501 ]] ; then
-	COMMIT=0dcc3b4c2e12bf2a61e682e9168e8bdb469caae0
+elif [[ ${PV} == *_p20230803 ]] ; then
+	COMMIT=2ddc20b1b6acc05a1ce8ab468e407d138ccee581
 	SRC_URI="https://git.sr.ht/~rabbits/uxn/archive/${COMMIT}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}"/${PN}-${COMMIT}
-	KEYWORDS="amd64 ~x86"
+	S="${WORKDIR}"/uxn-${COMMIT}
+	KEYWORDS="~amd64 ~x86"
 else
 	die "wrong package version (PV), given: ${PV}"
 fi
@@ -28,11 +28,11 @@ SLOT="0"
 RDEPEND="media-libs/libsdl2:="
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/uxn-build.sh.patch )
+PATCHES=( "${FILESDIR}"/uxn-0_p20230609-build.sh.patch )
 
 src_compile() {
 	CC="$(tc-getCC)" CFLAGS="${CFLAGS} ${LDFLAGS}" ./build.sh --no-run ||
-		die "build failed"
+		die "building with \"build.sh\" failed"
 
 	local f
 	local f_base

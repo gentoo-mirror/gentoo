@@ -14,7 +14,7 @@ SRC_URI="https://github.com/yhirose/cpp-httplib/archive/v${PV}.tar.gz
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"  # soversion
-KEYWORDS="amd64 ~loong ~x86"
+KEYWORDS="~amd64 ~loong ~x86"
 
 IUSE="brotli ssl test zlib"
 REQUIRED_USE="test? ( brotli ssl zlib )"
@@ -44,7 +44,7 @@ src_configure() {
 }
 
 multilib_src_test() {
-	cp -p -R "${S}/test" ./test || die
+	cp -p -R --reflink=auto "${S}/test" ./test || die
 
-	emake -C test "CXX=$(tc-getCXX)" CXXFLAGS="${CXXFLAGS} -I."
+	GTEST_FILTER='-*.*_Online' emake -C test "CXX=$(tc-getCXX)" CXXFLAGS="${CXXFLAGS} -I."
 }
