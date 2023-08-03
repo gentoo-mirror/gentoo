@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/openzfs/zfs
 INHERIT=autotools dist-kernel-utils flag-o-matic linux-mod toolchain-funcs verify-sig
 IUSE=custom-cflags debug +rootfs dist-kernel verify-sig
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~sparc
+KEYWORDS=amd64 arm64 ppc64 ~riscv ~sparc
 LICENSE=CDDL MIT debug? ( GPL-2+ )
 PDEPEND=dist-kernel? ( ~sys-fs/zfs-2.1.11[dist-kernel] )
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
@@ -14,4 +14,4 @@ RESTRICT=debug? ( strip ) test
 SLOT=0/2.1.11
 SRC_URI=https://github.com/openzfs/zfs/releases/download/zfs-2.1.11/zfs-2.1.11.tar.gz verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-2.1.11/zfs-2.1.11.tar.gz.asc )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	dist-kernel-utils	fd205e63d2f09e517140e6fd10ebcf78	flag-o-matic	ad475baa777c9978fa035216c8264a10	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	65030ccb60b8a236bc29c8caa76e3815	verify-sig	ed3712fa46ee0fdc2dbbad539e20ff26
-_md5_=ad599dcc1c8b0adebe35c220095e884c
+_md5_=09d0b8e753e7c6a4da303bce77098f1a
