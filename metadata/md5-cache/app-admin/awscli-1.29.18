@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/pytest-forked[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pytest-xdist[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) test? ( >=dev-python/botocore-1.31.18[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/colorama[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/docutils[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/rsa[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/s3transfer-0.6.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_11(-)?] !app-admin/awscli-bin >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Universal Command Line Environment for AWS
+EAPI=8
+HOMEPAGE=https://github.com/aws/aws-cli/ https://pypi.org/project/awscli/
+INHERIT=bash-completion-r1 distutils-r1 multiprocessing
+IUSE=test python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-python/botocore-1.31.18[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/colorama[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/docutils[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/rsa[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/s3transfer-0.6.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_11(-)?] !app-admin/awscli-bin python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/aws/aws-cli/archive/1.29.18.tar.gz -> aws-cli-1.29.18.gh.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	7f2c0a7465411e0f3a6db30e966155d6	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
+_md5_=49e74325243b7907e30dd121cb06f7f4

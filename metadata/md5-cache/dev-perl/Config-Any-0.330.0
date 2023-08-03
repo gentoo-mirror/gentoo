@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Config-Any
 INHERIT=perl-module
 IUSE=+conf +ini +json +xml +yaml test
-KEYWORDS=amd64 arm ~ppc x86
+KEYWORDS=amd64 arm ppc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=>=dev-perl/Module-Pluggable-3.600.0 conf? ( >=dev-perl/Config-General-2.480.0 ) !conf? ( !<dev-perl/config-general-2.480.0 !<dev-perl/Config-General-2.480.0 ) ini? ( dev-perl/Config-Tiny ) json? ( || ( dev-perl/Cpanel-JSON-XS dev-perl/JSON-MaybeXS dev-perl/JSON-XS >=virtual/perl-JSON-PP-2 dev-perl/JSON ) ) xml? ( dev-perl/XML-NamespaceSupport dev-perl/XML-Simple ) yaml? ( || ( dev-perl/YAML-LibYAML >=dev-perl/YAML-Syck-0.700.0 dev-perl/YAML ) ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/H/HA/HAARG/Config-Any-0.33.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2
-_md5_=1d6d98b9186549879a95184901aa26e5
+_md5_=ee85ed45d29daffa4ea972bebbcb0930
