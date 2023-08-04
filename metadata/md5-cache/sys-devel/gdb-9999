@@ -1,5 +1,5 @@
 BDEPEND=app-arch/xz-utils sys-apps/texinfo app-alternatives/yacc nls? ( sys-devel/gettext ) source-highlight? ( virtual/pkgconfig ) test? ( dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEFINED_PHASES=configure install postinst prepare setup test unpack
 DEPEND=dev-libs/mpfr:= dev-libs/gmp:= >=sys-libs/ncurses-5.2-r2:= >=sys-libs/readline-7:= sys-libs/zlib elibc_glibc? ( net-libs/libnsl:= ) debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) lzma? ( app-arch/xz-utils ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) guile? ( >=dev-scheme/guile-2.0 ) xml? ( dev-libs/expat ) source-highlight? ( dev-util/source-highlight ) xxhash? ( dev-libs/xxhash ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=GNU debugger
 EAPI=8
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7f2c0a7465411e0f3a6db30e966155d6	python-single-r1	75118e916668a74c660a13b0ecb22562	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=6711265d6f1dd39e1015ad8c4e0f62b7
+_md5_=c9737136e81f7f70c25be3e829f2547d
