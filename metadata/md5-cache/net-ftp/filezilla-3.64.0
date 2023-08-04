@@ -7,11 +7,11 @@ HOMEPAGE=https://filezilla-project.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools wxwidgets xdg
 IUSE=dbus nls test
-KEYWORDS=amd64 ~arm ~arm64 ~ia64 ~ppc ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ia64 ppc ppc64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/nettle-3.1:= >=dev-db/sqlite-3.7 >=dev-libs/libfilezilla-0.42.2:= >=dev-libs/pugixml-1.7 >=net-libs/gnutls-3.5.7 x11-libs/wxGTK:3.2-gtk3[X] x11-misc/xdg-utils dbus? ( sys-apps/dbus )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.filezilla-project.org/client/FileZilla_3.64.0_src.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	ad475baa777c9978fa035216c8264a10	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=1d04c1b7817655af126bbb5f7d083b35
+_md5_=05b279f345de6e4dbd7d6dd7968e7553

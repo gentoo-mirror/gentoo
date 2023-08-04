@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/m2crypto/m2crypto https://pypi.org/project/M2Crypto/
 INHERIT=distutils-r1 toolchain-funcs pypi
 IUSE=test abi_mips_n32 abi_mips_n64 abi_mips_o32 test python_targets_python3_10 python_targets_python3_11 debug
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=MIT
 RDEPEND=dev-libs/openssl:= python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/M/M2Crypto/M2Crypto-0.39.0.tar.gz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	7f2c0a7465411e0f3a6db30e966155d6	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=efaa97535ef3cc8b20a28de6c83dbdc4
+_md5_=8a3c465933a6874e16274eb9509a1041

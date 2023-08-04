@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://flang.dev/ https://github.com/tokiwa-software/fuzion/
 INHERIT=java-pkg-2
 IUSE=test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=>=virtual/jre-17:* dev-libs/boehm-gc >=dev-java/java-config-2.2.0-r3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tokiwa-software/fuzion/archive/v0.083.tar.gz -> fuzion-0.083.tar.gz
 _eclasses_=java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4
-_md5_=f8207a187db1211d4000bc4d68e01099
+_md5_=68c2aee982b538fa59ee3805c0db0d7d
