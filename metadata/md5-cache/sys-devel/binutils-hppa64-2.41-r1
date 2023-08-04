@@ -1,0 +1,17 @@
+BDEPEND=doc? ( sys-apps/texinfo ) test? ( dev-util/dejagnu sys-devel/bc ) nls? ( sys-devel/gettext ) sys-devel/flex app-alternatives/yacc >=app-portage/elt-patches-20170815 sys-devel/gnuconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib
+DESCRIPTION=Tools necessary to build programs
+EAPI=7
+HOMEPAGE=https://sourceware.org/binutils/
+INHERIT=libtool flag-o-matic gnuconfig multilib strip-linguas toolchain-funcs
+IUSE=cet default-gold doc gold gprofng multitarget +nls pgo +plugins static-libs test vanilla
+KEYWORDS=-* ~hppa
+LICENSE=GPL-3+
+RDEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib
+REQUIRED_USE=default-gold? ( gold )
+RESTRICT=!test? ( test )
+SLOT=2.41
+SRC_URI=mirror://gnu/binutils/binutils-2.41.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.41.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.41-patches-2.tar.xz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	flag-o-matic	ad475baa777c9978fa035216c8264a10	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
+_md5_=86385d5921aab84cb508135db053ad2f
