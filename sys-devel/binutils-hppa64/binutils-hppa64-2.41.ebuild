@@ -241,6 +241,11 @@ src_configure() {
 		--libdir="${EPREFIX}"${LIBPATH}
 		--libexecdir="${EPREFIX}"${LIBPATH}
 		--includedir="${EPREFIX}"${INCPATH}
+		# portage's econf() does not detect presence of --d-d-t
+		# because it greps only top-level ./configure. But not
+		# libiberty's or bfd's configure.
+		--disable-dependency-tracking
+		--disable-silent-rules
 		--enable-obsolete
 		--enable-shared
 		--enable-threads
@@ -309,7 +314,7 @@ src_configure() {
 		fi
 	fi
 
-	ECONF_SOURCE="${S}" econf "${myconf[@]}" || die
+	ECONF_SOURCE="${S}" econf "${myconf[@]}"
 
 	# Prevent makeinfo from running if doc is unset.
 	if ! use doc ; then
