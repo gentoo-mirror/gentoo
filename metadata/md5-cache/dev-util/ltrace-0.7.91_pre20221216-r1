@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/cespedes/ltrace
 INHERIT=autotools
 IUSE=debug elfutils selinux test unwind
-KEYWORDS=~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86
+KEYWORDS=~alpha amd64 ~arm ~ia64 ~mips ppc ~ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=virtual/libelf:= elfutils? ( dev-libs/elfutils ) selinux? ( sys-libs/libselinux ) unwind? ( sys-libs/libunwind:= )
 REQUIRED_USE=?? ( elfutils unwind )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/cespedes/ltrace/-/archive/5cffc0d2134f697fbac8627ec5b5f0085cd47c8a.tar.bz2 -> ltrace-0.7.91_pre20221216.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=25d5f6f26d4c2033ef3c130a520f58b4
+_md5_=cb4d7d9b8737dde379f021b465263566
