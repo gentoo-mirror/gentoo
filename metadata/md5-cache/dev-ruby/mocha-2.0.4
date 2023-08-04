@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://mocha.jamesmead.org/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32 doc test test
-KEYWORDS=amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby30? ( >=dev-ruby/ruby2_keywords-0.0.5[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( >=dev-ruby/ruby2_keywords-0.0.5[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/ruby2_keywords-0.0.5[ruby_targets_ruby32(-)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=2
 SRC_URI=https://github.com/freerange/mocha/archive/v2.0.4.tar.gz -> mocha-2.0.4.tar.gz
 _eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	ruby-utils	69e7140043885477733c347fee4a981a	ruby-ng	e7004f981e452d70374b865ccff407aa	ruby-fakegem	5e527fb26c6deaeeda655b48a2017909
-_md5_=b21cfba06f5913705595f39cb8ba511b
+_md5_=aab2847dce19502c427f347ad24841e1

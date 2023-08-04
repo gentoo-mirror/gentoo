@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.git-scm.com/
 INHERIT=toolchain-funcs perl-module bash-completion-r1 optfeature plocale python-single-r1 systemd
 IUSE=+blksha1 +curl cgi doc keyring +gpg highlight +iconv mediawiki +nls +pcre perforce +perl +safe-directory selinux subversion tk +webdav xinetd cvs test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=dev-libs/openssl:= sys-libs/zlib curl? ( net-misc/curl webdav? ( dev-libs/expat ) ) keyring? ( app-crypt/libsecret dev-libs/glib:2 ) iconv? ( virtual/libiconv ) pcre? ( dev-libs/libpcre2:= ) perl? ( dev-lang/perl:=[-build(-)] ) tk? ( dev-lang/tk:= ) gpg? ( app-crypt/gnupg ) perl? ( dev-perl/Error dev-perl/MailTools dev-perl/Authen-SASL >=virtual/perl-libnet-3.110.0-r4[ssl] cgi? ( dev-perl/CGI highlight? ( app-text/highlight ) ) cvs? ( >=dev-vcs/cvsps-2.1:0 dev-perl/DBI dev-perl/DBD-SQLite ) mediawiki? ( dev-perl/DateTime-Format-ISO8601 dev-perl/HTML-Tree dev-perl/MediaWiki-API ) subversion? ( dev-vcs/subversion[-dso(-),perl] dev-perl/libwww-perl dev-perl/TermReadKey ) ) perforce? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) selinux? ( sec-policy/selinux-git )
 REQUIRED_USE=cgi? ( perl ) cvs? ( perl ) mediawiki? ( perl ) perforce? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ) subversion? ( perl ) webdav? ( curl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/software/scm/git/git-2.41.0.tar.xz https://www.kernel.org/pub/software/scm/git/git-manpages-2.41.0.tar.xz doc? ( https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.41.0.tar.xz )
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	plocale	950fbaec7deeba41b5bcc0572cca99b9	python-utils-r1	7f2c0a7465411e0f3a6db30e966155d6	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=0e5ab4b49c0a12c28d9fdd8c2f70eca2
+_md5_=5ecdea31ec760f83306c03fbc67ba057
