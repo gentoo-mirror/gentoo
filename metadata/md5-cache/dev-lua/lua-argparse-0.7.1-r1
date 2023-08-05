@@ -4,7 +4,7 @@ DEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/
 DESCRIPTION=Feature-rich command line parser for Lua
 EAPI=8
 HOMEPAGE=https://github.com/luarocks/argparse
-INHERIT=lua toolchain-funcs
+INHERIT=lua
 IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
 KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86
 LICENSE=MIT
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_t
 SLOT=0
 SRC_URI=https://github.com/luarocks/argparse/archive/0.7.1.tar.gz -> lua-argparse-0.7.1.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua	8f9406bfff123a92ad04e4ace3e7f89b
-_md5_=01014790eff8ffbcea56e06ea236964e
+_md5_=8a85b88c858a60c261bd978334ceb5e8

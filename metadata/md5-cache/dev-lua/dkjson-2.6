@@ -4,7 +4,7 @@ DEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/
 DESCRIPTION=David Kolf's JSON module for Lua
 EAPI=8
 HOMEPAGE=http://dkolf.de/src/dkjson-lua.fsl/
-INHERIT=lua toolchain-funcs
+INHERIT=lua
 IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
 KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~sparc x86
 LICENSE=MIT
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://dkolf.de/src/dkjson-lua.fsl/tarball/dkjson-2.6.tar.gz?uuid=release_2_5 -> dkjson-2.6.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua	8f9406bfff123a92ad04e4ace3e7f89b
-_md5_=0e89a2cba7ae1688ce8c82c88fb69549
+_md5_=f3c677b4b785841234b02c4926e81ca6

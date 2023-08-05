@@ -5,7 +5,7 @@ DESCRIPTION=Tools to ease the validation of DNSSEC related technologies
 EAPI=8
 HOMEPAGE=https://www.dnssec-tools.org/
 INHERIT=autotools
-IUSE=dlv +ipv6 +nsec3 static-libs +threads
+IUSE=dlv +nsec3 static-libs +threads
 KEYWORDS=amd64 arm ~arm64 x86
 LICENSE=BSD
 RDEPEND=>=dev-libs/openssl-1.1.0:0=
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/DNSSEC-Tools/DNSSEC-Tools/archive/dnssec-tools-2.2.3.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=8b3f416bd489359543c905a11273ea10
+_md5_=5fc6d4aeb7bafeff13789ec8f722cd34
