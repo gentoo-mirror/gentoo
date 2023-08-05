@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-ml/ANSITerminal dev-ml/cmdliner ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.08.0:= >=dev-ml/menhir-20211230:= dev-ml/atd:= dev-ml/ppx_deriving:= dev-ml/ppxlib:= dev-ml/re:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Embeddable Lambda Prolog Interpreter in OCaml
+EAPI=8
+HOMEPAGE=https://github.com/LPCIC/elpi/
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-lang/ocaml-4.08.0:= >=dev-ml/menhir-20211230:= dev-ml/atd:= dev-ml/ppx_deriving:= dev-ml/ppxlib:= dev-ml/re:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/1.17.0
+SRC_URI=https://github.com/LPCIC/elpi/archive/v1.17.0.tar.gz -> elpi-1.17.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=60d31eb0a431e41d305f156a1028c241

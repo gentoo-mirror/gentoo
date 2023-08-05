@@ -1383,7 +1383,7 @@ app-containers/docker-credential-helpers 0.6.3: Suite of programs to use native 
 app-containers/docker-proxy 0.8.0_p20230118: Docker container networking
 app-containers/docker-registry 2.8.1 2.8.2: Docker Registry 2.0
 app-containers/docker-swarm 1.2.9: Swarm Classic: a container clustering system
-app-containers/earthly 0.7.14: Build automation tool that executes in containers
+app-containers/earthly 0.7.14 0.7.15: Build automation tool that executes in containers
 app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containers
 app-containers/go-secbench 0.1.0-r1: run and evaluate the docker security benchmark
 app-containers/grype 0.59.1 0.61.0: A vulnerability scanner for container images and filesystems
@@ -2017,7 +2017,7 @@ app-emacs/emacs-el-fetch 3.3.0 9999: Show system information in Neofetch-like st
 app-emacs/emacs-ipython-notebook 0.17.0_p20220419-r1: Jupyter notebook client in Emacs
 app-emacs/emacs-jabber 0.8.92: A Jabber client for Emacs
 app-emacs/emacs-openrc 0.0.0 1.0.0 9999: OpenRC integration for GNU Emacs
-app-emacs/emacs-w3m 1.4.632_pre20181112: emacs-w3m is an interface program of w3m on Emacs
+app-emacs/emacs-w3m 1.4.632_p20230801: emacs-w3m is an interface program of w3m on Emacs
 app-emacs/emacs-websearch 2.0.1 2.1.0 9999: Query search engines from Emacs
 app-emacs/emacs-wget 0.5.0-r1: Wget interface for Emacs
 app-emacs/embark 0.21 0.22.1_p20230630 9999: Conveniently act on minibuffer completions inside GNU Emacs
@@ -2037,7 +2037,7 @@ app-emacs/espuds 0.3.3_p20171111: Common step definitions for Emacs Ecukes
 app-emacs/ess 18.10.2-r1: Emacs Speaks Statistics
 app-emacs/esup 0.7.1_p20220203: Benchmark Emacs Startup time without ever leaving it
 app-emacs/evil 1.14.0 1.14.2: Extensible vi layer for Emacs
-app-emacs/exec-path-from-shell 1.12: Ensure environment variables inside Emacs are the same as in shell
+app-emacs/exec-path-from-shell 1.12 2.1: Ensure environment variables inside Emacs are the same as in shell
 app-emacs/exheres-mode 1.10: Major mode for editing files in exheres format
 app-emacs/expand-region 0.11.0-r1: Emacs extension to increase selected region by semantic units
 app-emacs/external-completion 0.1: Let external tools control completion style in GNU Emacs
@@ -2162,7 +2162,7 @@ app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mod
 app-emacs/osm 0.12 0.13 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 3.1 3.2 4.0.0: Tools for assembling a package archive
-app-emacs/package-lint 0.16-r1 0.17: Linting library for Emacs Lisp package metadata
+app-emacs/package-lint 0.16-r1 0.17 0.18: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.32-r1: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 24 25 26: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
@@ -2204,7 +2204,7 @@ app-emacs/rainbow-mode 1.0.6: Colorize strings that represent colors inside Emac
 app-emacs/raku-mode 0.2.1_p20211121: Major mode for editing Raku code
 app-emacs/reazon 0.4.1: GNU Emacs implementation of miniKanren, logic programming language
 app-emacs/redo+ 1.19: Redo/undo system for Emacs
-app-emacs/reformatter 0.6: Define commands which run reformatters on the Emacs buffers
+app-emacs/reformatter 0.6 0.7: Define commands which run reformatters on the Emacs buffers
 app-emacs/regress 1.5.1: Regression test harness for Emacs Lisp code
 app-emacs/remember 2.0-r1: Simplify writing short notes in emacs
 app-emacs/repology 1.2.3: Repology API access via Emacs Lisp
@@ -4898,7 +4898,7 @@ dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 2.98 3.03 3.24 3.30 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.12.3 1.13.4 1.14.3 1.14.4 1.14.5 1.15.3: Elixir programming language
-dev-lang/elpi 1.16.9 1.16.10: Embeddable Lambda Prolog Interpreter in OCaml
+dev-lang/elpi 1.16.9 1.16.10 1.17.0: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 25.0.4-r1 25.1.1-r1 25.1.2-r1 25.2.2 25.2.3 25.3 26.0: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.512: Combine interpreter of esoteric languages
 dev-lang/execline 2.9.3.0: A non-interactive scripting language
@@ -4935,7 +4935,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.4-r103 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.583 0.584 0.588: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.583 0.584 0.589: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 20.06-r1 20.06.1 22.01 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 20.06 20.06.1 22.01 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -4972,7 +4972,7 @@ dev-lang/rust-bin 1.65.0-r1 1.66.1-r1 1.67.1-r3 1.68.2-r2 1.69.0-r1 1.70.0-r3 1.
 dev-lang/sassc 3.6.2: A libsass command line driver
 dev-lang/scala 2.12.4 2.12.10: The Scala Programming Language
 dev-lang/scala-bin 2.13.9: The Scala Programming Language
-dev-lang/smlnj 110.99.3: Standard ML of New Jersey compiler and libraries
+dev-lang/smlnj 110.99.3 110.99.4: Standard ML of New Jersey compiler and libraries
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
 dev-lang/spark 2021: Software development for high-reliability applications
 dev-lang/spidermonkey 78.15.0 91.13.0-r1 102.6.0 102.10.0 102.11.0 102.12.0 102.13.0: SpiderMonkey is Mozilla's JavaScript engine written in C and C++
@@ -5868,7 +5868,7 @@ dev-ml/typerep 0.14.0 0.15.0 0.16.0: Library for creating runtime representation
 dev-ml/tyxml 4.5.0: A library for building correct HTML and SVG documents
 dev-ml/uchar 0.0.2-r1: Uchar compatibility library
 dev-ml/unidecode 0.4.0: Convert unicode strings into its ASCII representation
-dev-ml/utop 2.9.2 2.11.0-r1 2.12.1: Universal toplevel for OCaml
+dev-ml/utop 2.11.0-r1 2.12.1: Universal toplevel for OCaml
 dev-ml/uucp 13.0.0-r2 14.0.0 15.0.0: Unicode character properties for OCaml
 dev-ml/uuidm 0.9.7 0.9.8: Universally unique identifiers (UUIDs) for OCaml
 dev-ml/uunf 13.0.0-r1 14.0.0 15.0.0: Unicode text normalization
@@ -10215,7 +10215,7 @@ dev-scheme/guile-dbi 2.1.8: An SQL database interface for Guile
 dev-scheme/guile-gcrypt 0.3.0 0.4.0: Guile bindings of libgcrypt
 dev-scheme/guile-gi 0.3.1-r2 0.3.2-r2 9999: Bindings for GObject Introspection and libgirepository for Guile
 dev-scheme/guile-git 0.5.2: Guile bindings of git
-dev-scheme/guile-gnutls 3.7.11-r1 3.7.12: Guile-GnuTLS provides Guile bindings for the GnuTLS library
+dev-scheme/guile-gnutls 3.7.11-r1 3.7.12 3.7.14: Guile-GnuTLS provides Guile bindings for the GnuTLS library
 dev-scheme/guile-hall 0.4.1: Guile tooling to create and publish projects
 dev-scheme/guile-json 4.7.3: JSON module for Guile
 dev-scheme/guile-lib 0.2.7: An accumulation place for pure-scheme Guile modules
@@ -16854,7 +16854,7 @@ sys-apps/stroke 0.1.3-r1: A powerful tool to change file timestamps (including c
 sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the health of Supermicro servers components
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/system-monitoring-center 2.14.0-r1 2.16.1-r1 2.17.2-r1 2.18.3-r1 9999: Multi-featured system monitor GUI written in Python
+sys-apps/system-monitoring-center 2.14.0-r1 2.17.2-r1 2.18.3-r1 2.20.2 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemd 253.3-r1 253.4 253.5 253.5-r1 253.6 253.7 254 254-r1 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-tmpfiles 250: Virtual package to depend on sys-apps/systemd-utils

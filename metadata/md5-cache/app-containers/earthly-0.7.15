@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DESCRIPTION=Build automation tool that executes in containers
+EAPI=8
+HOMEPAGE=https://earthly.dev/ https://github.com/earthly/earthly/
+INHERIT=go-module
+KEYWORDS=~amd64 ~x86
+LICENSE=MPL-2.0
+RDEPEND=|| ( app-containers/docker app-containers/podman )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/earthly/earthly/archive/v0.7.15.tar.gz -> earthly-0.7.15.tar.gz https://dev.gentoo.org/~xgqt/distfiles/deps/earthly-0.7.15-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22
+_md5_=19d4f494f2f29731b71db445db90ff75

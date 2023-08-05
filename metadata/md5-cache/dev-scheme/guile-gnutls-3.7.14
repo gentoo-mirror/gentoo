@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=>=dev-scheme/guile-2.0.0:= net-libs/gnutls:=[-guile(-)]
+DESCRIPTION=Guile-GnuTLS provides Guile bindings for the GnuTLS library
+EAPI=8
+HOMEPAGE=https://gnutls.gitlab.io/guile/manual/ https://gitlab.com/gnutls/guile/
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-scheme/guile-2.0.0:= net-libs/gnutls:=[-guile(-)]
+SLOT=0
+SRC_URI=https://gitlab.com/gnutls/guile/-/archive/v3.7.14/guile-v3.7.14.tar.bz2 -> guile-gnutls-3.7.14.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=05241342e0a7bac324deb8a463337ab0
