@@ -1,29 +1,39 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit elisp autotools readme.gentoo-r1
 
 DESCRIPTION="emacs-w3m is an interface program of w3m on Emacs"
-HOMEPAGE="http://emacs-w3m.namazu.org/"
-SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.tar.xz"
+HOMEPAGE="http://emacs-w3m.namazu.org/
+	https://github.com/emacs-w3m/emacs-w3m/"
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/emacs-w3m/emacs-w3m.git"
+else
+	[[ ${PV} == *_p20230801 ]] &&
+		COMMIT="1388eadc914bed79b0e06a6565388c5e8aff8014"
+	SRC_URI="https://github.com/emacs-w3m/emacs-w3m/archive/${COMMIT}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
+	KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="gzip-el l10n_ja"
 
 RDEPEND="virtual/w3m"
 BDEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${PN}"
 SITEFILE="70${PN}-gentoo.el"
 
 src_prepare() {
-	mv configure.{in,ac} || die
 	sed -i -e '/^configure:/,+2d' Makefile.in || die
-	eapply_user
+
+	default
 	eautoreconf
 }
 
