@@ -10489,7 +10489,7 @@ dev-util/dialog 1.3.20220728 1.3.20221229 1.3.20230209: Tool to display dialog b
 dev-util/diff-cover 6.5.0-r1: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/difffilter 0.3.3-r1: Filter files out of unified diffs using POSIX extended regular expressions
-dev-util/diffoscope 242-r2 245 246: Will try to get to the bottom of what makes files or directories different
+dev-util/diffoscope 242-r2 245 246 247: Will try to get to the bottom of what makes files or directories different
 dev-util/diffstat 1.65: Display a histogram of diff changes
 dev-util/difftastic 0.49.0: A structural diff that understands syntax.
 dev-util/diffuse 0.8.2: A graphical tool to compare and merge text files
@@ -15090,7 +15090,7 @@ net-misc/sshpass 1.09-r1: Tool for noninteractively performing password authenti
 net-misc/sshrc 0.6.2: Bring your .bashrc, .vimrc, etc. from your local machine when you ssh
 net-misc/sslh 1.22c-r1 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
 net-misc/sstp-client 1.0.17 1.0.18 1.0.18-r2: Client implementation of Secure Socket Tunneling Protocol (SSTP)
-net-misc/streamlink 5.5.1 6.0.0 9999: CLI for extracting streams from websites to a video player of your choice
+net-misc/streamlink 5.5.1 6.0.1 9999: CLI for extracting streams from websites to a video player of your choice
 net-misc/streamtuner 0.99.99-r5: Stream directory browser for browsing internet radio streams
 net-misc/stunnel 5.64-r2 5.65-r2 5.68: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.15 1.2.16: Open source implementation of the STUN protocol
@@ -15325,7 +15325,7 @@ net-vpn/riseup-vpn 0.21.11 0.21.11_p20221113: Anonymous encrypted VPN client pow
 net-vpn/strongswan 5.9.8 5.9.9 5.9.10 5.9.11: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.36.2 1.38.4: Tailscale vpn client
 net-vpn/tinc 1.0.36 1.1_pre18: tinc is an easy to configure VPN implementation
-net-vpn/tor 0.4.7.13-r1 0.4.7.14 9999: Anonymizing overlay network for TCP
+net-vpn/tor 0.4.7.13-r1 0.4.7.14 0.4.8.3_rc 9999: Anonymizing overlay network for TCP
 net-vpn/vpnc 0.5.3_p20220927-r1 9999: Free client for Cisco VPN routing software
 net-vpn/vpnc-scripts 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
 net-vpn/vpncloud 2.3.0: High performance peer-to-peer mesh VPN
@@ -16703,7 +16703,7 @@ sys-apps/hotplug2stdout 1.2.1: A tool for reading kernel uevent(s) to stdout
 sys-apps/hponcfg 5.6.0.0 5.6.0.0-r1: HP Lights-Out Online Configuration Utility (HPONCFG)
 sys-apps/hprofile 6.1.3-r1 6.2.1: Utility to manage hardware, network, power or other profiles (fork)
 sys-apps/hw-probe 1.6.5: A tool to probe for hardware, check it's operability and find drivers
-sys-apps/hwdata 0.371 0.372: Hardware identification and configuration data
+sys-apps/hwdata 0.371 0.372 0.373: Hardware identification and configuration data
 sys-apps/hwinfo 22.2 23.1: Hardware detection tool used in SuSE Linux
 sys-apps/hwloc 1.11.13-r1 2.6.0-r1 2.8.0-r1 2.9.0 2.9.1 2.9.2: Displays the hardware topology in convenient formats
 sys-apps/i2c-tools 4.2 4.3: I2C tools for bus probing, chip dumping, EEPROM decoding, and more
@@ -16748,7 +16748,7 @@ sys-apps/lssbus 0.1: Small utility for Linux/SPARC that list devices on SBUS
 sys-apps/lsvpd 1.7.14: Utility to List Device Vital Product Data (VPD)
 sys-apps/makedev 3.23.1-r3: Program used for creating device files in /dev
 sys-apps/man-db 2.11.2 9999: A man replacement that utilizes dbm instead of flat files
-sys-apps/man-pages 6.04 6.05 9999: A somewhat comprehensive collection of Linux man pages
+sys-apps/man-pages 6.04 6.05.01 9999: A somewhat comprehensive collection of Linux man pages
 sys-apps/man-pages-posix 2013a 2017a-r1: POSIX man-pages (0p, 1p, 3p)
 sys-apps/man2html 1.6g 1.6g-r2: Standard commands to read man pages
 sys-apps/mawk 1.3.4_p20230322 1.3.4_p20230404 1.3.4_p20230525: An (often faster than gawk) awk-interpreter
@@ -17435,7 +17435,7 @@ sys-libs/libvpd 2.2.9: Library implementation for listing Vital Product Data
 sys-libs/libxcrypt 4.4.28-r2 4.4.33 4.4.34 4.4.35 4.4.36: Extended crypt library for descrypt, md5crypt, bcrypt, and others
 sys-libs/llvm-libunwind 14.0.6-r1 15.0.7 16.0.6 17.0.0_rc1 17.0.0.9999 18.0.0_pre20230803 18.0.0.9999: C++ runtime stack unwinder from LLVM
 sys-libs/lwp 2.8: Light-weight process library (used by Coda)
-sys-libs/minizip-ng 3.0.10 4.0.0-r1: Fork of the popular zip manipulation library found in the zlib distribution
+sys-libs/minizip-ng 3.0.10 4.0.0-r1 4.0.1: Fork of the popular zip manipulation library found in the zlib distribution
 sys-libs/mtdev 1.1.6: Multitouch Protocol Translation Library
 sys-libs/musl 1.2.3 1.2.3-r7 1.2.3-r8 1.2.4 9999: Light, fast and simple C library focused on standards-conformance and safety
 sys-libs/musl-nscd 1.1.1-r1 9999: musl-nscd is an implementation of the NSCD protocol for the musl libc
