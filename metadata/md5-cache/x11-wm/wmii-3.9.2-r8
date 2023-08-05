@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=media-libs/freetype >=sys-libs/libixp-0.5_p20110208-r3 x11-libs/libXext x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libX11
+DESCRIPTION=A dynamic window manager for X11
+EAPI=8
+HOMEPAGE=https://github.com/0intro/wmii
+INHERIT=flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~hppa ~ppc ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=media-libs/freetype >=sys-libs/libixp-0.5_p20110208-r3 x11-libs/libXext x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libX11 media-fonts/font-misc-misc x11-apps/xmessage x11-apps/xsetroot
+SLOT=0
+SRC_URI=https://dl.suckless.org/wmii/wmii+ixp-3.9.2.tbz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10
+_md5_=8db551435ddeb3f0b595a4e4698777a0
