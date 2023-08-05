@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://ipset.netfilter.org/ https://git.netfilter.org/ipset/
 INHERIT=autotools bash-completion-r1 linux-info linux-mod systemd
 IUSE=dist-kernel modules
-KEYWORDS=amd64 arm ~arm64 ~loong ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 arm ~arm64 ~loong ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=>=net-firewall/iptables-1.4.7 net-libs/libmnl:= modules? ( kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) )
 SLOT=0
 SRC_URI=https://ipset.netfilter.org/ipset-7.17.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	65030ccb60b8a236bc29c8caa76e3815	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=40980d56047559bd6d9b50f05198ce3b
+_md5_=db4e4b25c0a4d036aefd550a16122760
