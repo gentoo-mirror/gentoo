@@ -1,0 +1,16 @@
+BDEPEND=>=sys-devel/binutils-2.30[cet(-)?] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 >=sys-devel/bison-1.875 >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 ) sys-apps/texinfo valgrind? ( dev-util/valgrind ) d? ( || ( sys-devel/gcc[d(-)] <sys-devel/gcc-12[d(-)] ) )
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
+DEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= ) sanitize? ( virtual/libcrypt ) systemtap? ( dev-util/systemtap ) zstd? ( app-arch/zstd:= )
+DESCRIPTION=The GNU Compiler Collection
+EAPI=8
+HOMEPAGE=https://gcc.gnu.org/
+INHERIT=toolchain
+IUSE=test vanilla +nls debug +cxx +nptl +fortran doc hardened multilib objc pgo objc-gc libssp objc++ openmp fixed-point go +sanitize graphite ada vtv jit +pie +ssp +pch systemtap d lto cet zstd valgrind custom-cflags ieee-long-double default-znow default-stack-clash-protection modula2
+LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 ) FDL-1.3+
+PDEPEND=>=sys-devel/gcc-config-2.3
+RDEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= ) zstd? ( app-arch/zstd:= )
+RESTRICT=!test? ( test )
+SLOT=13
+SRC_URI=mirror://gcc/snapshots/13-20230805/gcc-13-20230805.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-patches-5.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-musl-patches-2.tar.xz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain	39ec66ff2b504a5003f6ec3e6c4bf77d
+_md5_=465ecf083ee30047968aa56ce42caeb6
