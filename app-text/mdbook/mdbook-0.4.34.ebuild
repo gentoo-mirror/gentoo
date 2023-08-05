@@ -50,7 +50,6 @@ CRATES="
 	either@1.8.1
 	elasticlunr-rs@3.0.2
 	env_logger@0.10.0
-	equivalent@1.0.1
 	errno-dragonfly@0.1.2
 	errno@0.3.1
 	fastrand@1.9.0
@@ -73,7 +72,6 @@ CRATES="
 	h2@0.3.20
 	handlebars@4.3.7
 	hashbrown@0.12.3
-	hashbrown@0.14.0
 	headers-core@0.2.0
 	headers@0.3.8
 	hermit-abi@0.3.2
@@ -89,7 +87,6 @@ CRATES="
 	idna@0.4.0
 	ignore@0.4.20
 	indexmap@1.9.3
-	indexmap@2.0.0
 	inotify-sys@0.1.5
 	inotify@0.9.6
 	instant@0.1.12
@@ -170,7 +167,6 @@ CRATES="
 	serde@1.0.171
 	serde_derive@1.0.171
 	serde_json@1.0.103
-	serde_spanned@0.6.3
 	serde_urlencoded@0.7.1
 	sha1@0.10.5
 	sha2@0.10.7
@@ -199,9 +195,7 @@ CRATES="
 	tokio-tungstenite@0.18.0
 	tokio-util@0.7.8
 	tokio@1.29.1
-	toml@0.7.6
-	toml_datetime@0.6.3
-	toml_edit@0.19.14
+	toml@0.5.11
 	topological-sort@0.2.2
 	tower-service@0.3.2
 	tracing-core@0.1.31
@@ -251,9 +245,9 @@ CRATES="
 	windows_x86_64_gnu@0.48.0
 	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.48.0
-	winnow@0.5.0
 	xml5ever@0.17.0
-	yansi@0.5.1"
+	yansi@0.5.1
+"
 inherit cargo toolchain-funcs
 
 DESCRIPTION="Create a book from markdown files"
@@ -261,14 +255,16 @@ HOMEPAGE="https://rust-lang.github.io/mdBook/"
 SRC_URI="
 	https://github.com/rust-lang/mdBook/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.tar.gz
-	${CARGO_CRATE_URIS}"
+	${CARGO_CRATE_URIS}
+"
 S="${WORKDIR}/${P/b/B}"
 
 # CC-BY-4.0/OFL-1.1: embeds fonts inside the executable
 LICENSE="MPL-2.0 CC-BY-4.0 OFL-1.1"
 LICENSE+="
 	Apache-2.0 BSD ISC MIT Unicode-DFS-2016
-	|| ( Artistic-2 CC0-1.0 )" # crates
+	|| ( Artistic-2 CC0-1.0 )
+" # crates
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc"
