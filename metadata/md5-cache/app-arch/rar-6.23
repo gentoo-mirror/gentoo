@@ -1,0 +1,15 @@
+BDEPEND=all-sfx? ( app-arch/unrar )
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=RAR compressor/uncompressor
+EAPI=8
+HOMEPAGE=https://www.rarlab.com/
+INHERIT=unpacker
+IUSE=all-sfx
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=BSD BSD-2 RAR
+RDEPEND=sys-libs/glibc
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=all-sfx? ( https://www.rarlab.com/rar/rarlinux-x64-623.tar.gz https://www.rarlab.com/rar/rarlinux-x32-623.tar.gz https://www.rarlab.com/rar/winrar-x64-623.exe ) amd64? ( https://www.rarlab.com/rar/rarlinux-x64-623.tar.gz ) x86? ( https://www.rarlab.com/rar/rarlinux-x32-623.tar.gz )
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	unpacker	aa6a4e924009232d8b78b31e932c30b5
+_md5_=b8d70ac47990527da75f16e7fc38d2e5
