@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( dev-util/desktop-file-utils dev-libs/appstream-glib ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=>=dev-libs/glib-2.76:2 >=gui-libs/gtk-4.10.5:4 >=gui-libs/libadwaita-1.4_alpha:1 >=gui-libs/vte-0.70.0:2.91-gtk4 gnome-base/libgtop:2= >=dev-libs/libpcre2-10.32:0= gnome-base/gsettings-desktop-schemas x11-libs/pango
+DESCRIPTION=A simple user-friendly terminal emulator for the GNOME desktop
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/console
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson xdg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=LGPL-3+
+RDEPEND=>=dev-libs/glib-2.76:2 >=gui-libs/gtk-4.10.5:4 >=gui-libs/libadwaita-1.4_alpha:1 >=gui-libs/vte-0.70.0:2.91-gtk4 gnome-base/libgtop:2= >=dev-libs/libpcre2-10.32:0= gnome-base/gsettings-desktop-schemas x11-libs/pango
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-console/45/gnome-console-45.beta.tar.xz
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	753cb70b9daf5c8c1e373d68dee61efb	meson	08b7183c3f4811568ee93eb0f79a89fe	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=d40aec61be38f90b533517e33915d8fd
