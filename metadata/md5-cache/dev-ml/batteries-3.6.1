@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/ocamlbuild
+DEFINED_PHASES=compile install
+DEPEND=dev-ml/camlp-streams:= dev-ml/num:= >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DESCRIPTION=A community-maintained standard library extension
+EAPI=8
+HOMEPAGE=https://github.com/ocaml-batteries-team/batteries-included/
+INHERIT=findlib
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=dev-ml/camlp-streams:= dev-ml/num:= dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=test
+SLOT=0/3.6.1
+SRC_URI=https://github.com/ocaml-batteries-team/batteries-included/archive/v3.6.1.tar.gz -> batteries-3.6.1.tar.gz
+_eclasses_=findlib	cc1c14904708a0a28bcb256b342a808c
+_md5_=032d46fe7c214651d0c9724a6a8f8248
