@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=http://www.dest-unreach.org/socat/ https://repo.or.cz/socat.git
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=ipv6 readline ssl tcpd
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=GPL-2
 RDEPEND=ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:= ) tcpd? ( sys-apps/tcp-wrappers )
 RESTRICT=test
 SLOT=0
 SRC_URI=http://www.dest-unreach.org/socat/download/socat-1.7.4.4.tar.bz2
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10
-_md5_=ec841465497e541b696838505681c4e3
+_md5_=b8f9c4c42e632c4937deecb938bd9358
