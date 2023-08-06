@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lisp/asdf-3.3:= prefix? ( dev-util/patchelf ) dev-util/strace doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 ) system-bootstrap? ( || ( dev-lisp/clisp dev-lisp/sbcl ) )
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=Steel Bank Common Lisp (SBCL) is an implementation of ANSI Common Lisp
+EAPI=8
+HOMEPAGE=https://www.sbcl.org/ http://sbcl.sourceforge.net/
+INHERIT=flag-o-matic pax-utils toolchain-funcs
+IUSE=system-bootstrap debug doc source +threads +unicode +zstd
+KEYWORDS=-* ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=MIT
+RDEPEND=>=dev-lisp/asdf-3.3:= prefix? ( dev-util/patchelf ) zstd? ( app-arch/zstd ) !prefix? ( elibc_glibc? ( >=sys-libs/glibc-2.6 ) )
+SLOT=0/2.3.7
+SRC_URI=mirror://sourceforge/sbcl/sbcl-2.3.7-source.tar.bz2 https://dev.gentoo.org/~grozin/bsd-sockets-test-2.3.6.patch.gz !system-bootstrap? ( x86? ( mirror://sourceforge/sbcl/sbcl-1.4.3-x86-linux-binary.tar.bz2 ) amd64? ( mirror://sourceforge/sbcl/sbcl-2.3.7-x86-64-linux-binary.tar.bz2 ) ppc? ( mirror://sourceforge/sbcl/sbcl-1.2.7-powerpc-linux-binary.tar.bz2 ) ppc64? ( mirror://sourceforge/sbcl/sbcl-1.5.8-ppc64le-linux-binary.tar.bz2 ) sparc? ( mirror://sourceforge/sbcl/sbcl-1.0.28-sparc-linux-binary.tar.bz2 ) alpha? ( mirror://sourceforge/sbcl/sbcl-1.0.28-alpha-linux-binary.tar.bz2 ) arm? ( mirror://sourceforge/sbcl/sbcl-2.3.3-armhf-linux-binary.tar.bz2 ) arm64? ( mirror://sourceforge/sbcl/sbcl-1.4.2-arm64-linux-binary.tar.bz2 ) x64-macos? ( mirror://sourceforge/sbcl/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2 ) ppc-macos? ( mirror://sourceforge/sbcl/sbcl-1.0.47-powerpc-darwin-binary.tar.bz2 ) x64-solaris? ( mirror://sourceforge/sbcl/sbcl-1.2.7-x86-64-solaris-binary.tar.bz2 ) )
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	pax-utils	91d47e5d20627c717aa878b9167c62a8
+_md5_=4c6a38fc415eb6c23655fb44f73af784
