@@ -1,0 +1,16 @@
+BDEPEND=dev-util/cmake sys-apps/which virtual/pkgconfig virtual/fortran
+DEFINED_PHASES=configure install setup
+DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( dev-lang/python:3.11 dev-lang/python:3.10 dev-python/pypy3 ) virtual/fortran
+DESCRIPTION=Portable, Extensible Toolkit for Scientific Computation
+EAPI=8
+HOMEPAGE=https://www.mcs.anl.gov/petsc
+INHERIT=flag-o-matic fortran-2 python-any-r1 toolchain-funcs
+IUSE=afterimage boost complex-scalars debug +examples fftw fortran hdf5 hypre int64 mpi metis mumps scotch superlu threads X
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) virtual/fortran
+REQUIRED_USE=afterimage? ( X ) complex-scalars? ( !hypre !superlu ) fftw? ( mpi ) hdf5? ( mpi ) hypre? ( mpi !superlu ) mumps? ( mpi scotch ) scotch? ( mpi ) superlu? ( !hypre )
+SLOT=0
+SRC_URI=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.19.4.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	753cb70b9daf5c8c1e373d68dee61efb	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
+_md5_=76e588fb98566c483f969b9be5bf1d8a
