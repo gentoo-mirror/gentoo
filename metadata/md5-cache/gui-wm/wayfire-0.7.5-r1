@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/wayland-protocols virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo[X?,svg(+)] x11-libs/libxkbcommon[X?] x11-libs/pango x11-libs/pixman X? ( x11-base/xwayland x11-libs/libxcb ) system-wfconfig? ( >=gui-libs/wf-config-0.7.1 <gui-libs/wf-config-0.8.0 ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( >=gui-libs/wlroots-0.16.0:0/16[drm(+),libinput(+),x11-backend,X?] ) !system-wlroots? ( !gui-libs/wlroots )
+DESCRIPTION=compiz like 3D wayland compositor
+EAPI=8
+HOMEPAGE=https://github.com/WayfireWM/wayfire
+INHERIT=meson toolchain-funcs
+IUSE=debug +gles +system-wfconfig +system-wlroots X
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo[X?,svg(+)] x11-libs/libxkbcommon[X?] x11-libs/pango x11-libs/pixman X? ( x11-base/xwayland x11-libs/libxcb ) system-wfconfig? ( >=gui-libs/wf-config-0.7.1 <gui-libs/wf-config-0.8.0 ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( >=gui-libs/wlroots-0.16.0:0/16[drm(+),libinput(+),x11-backend,X?] ) !system-wlroots? ( !gui-libs/wlroots ) x11-misc/xkeyboard-config
+SLOT=0
+SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.7.5/wayfire-0.7.5.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	753cb70b9daf5c8c1e373d68dee61efb	meson	08b7183c3f4811568ee93eb0f79a89fe
+_md5_=a66a60dc9345aca3ec73413607405bdc
