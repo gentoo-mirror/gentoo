@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sdl? ( sys-devel/autoconf-archive ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure postinst prepare
+DEPEND=dev-libs/iniparser:4 sci-libs/fftw:3.0= alsa? ( media-libs/alsa-lib ) ncurses? ( sys-libs/ncurses:= ) pipewire? ( media-video/pipewire:= ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libglvnd media-libs/libsdl2[opengl,video] ) sndio? ( media-sound/sndio:= )
+DESCRIPTION=Console-based Audio Visualizer for Alsa
+EAPI=8
+HOMEPAGE=https://github.com/karlstav/cava/
+INHERIT=autotools toolchain-funcs
+IUSE=alsa +ncurses pipewire portaudio pulseaudio sdl sndio
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/iniparser:4 sci-libs/fftw:3.0= alsa? ( media-libs/alsa-lib ) ncurses? ( sys-libs/ncurses:= ) pipewire? ( media-video/pipewire:= ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libglvnd media-libs/libsdl2[opengl,video] ) sndio? ( media-sound/sndio:= )
+SLOT=0
+SRC_URI=https://github.com/karlstav/cava/archive/refs/tags/0.9.0.tar.gz -> cava-0.9.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=8c6b759ef3906f226835cd96441941bb
