@@ -8,7 +8,7 @@ inherit meson toolchain-funcs
 DESCRIPTION="A dynamic tiling Wayland compositor that doesn't sacrifice on its looks"
 HOMEPAGE="https://github.com/hyprwm/Hyprland"
 
-SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${PF}.gh.tar.gz"
+SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-source"
 
 KEYWORDS="~amd64"
@@ -16,45 +16,65 @@ LICENSE="BSD"
 SLOT="0"
 IUSE="X legacy-renderer systemd video_cards_nvidia"
 
-RDEPEND="
-	app-misc/jq
-	dev-libs/glib:2
-	dev-libs/libinput:=
+# bundled wlroots has the following dependency string according to included headers.
+# wlroots[drm,gles2-renderer,libinput,x11-backend?,X?]
+# lets enable x11-backend by default
+WLROOTS_RDEPEND="
+	>=dev-libs/libinput-1.14.0:=
 	dev-libs/libliftoff
-	dev-libs/wayland
-	dev-libs/wayland-protocols
-	dev-util/glslang
-	dev-util/vulkan-headers
-	gui-libs/gtk-layer-shell
+	>=dev-libs/wayland-1.22
 	media-libs/libdisplay-info
-	media-libs/libglvnd[X?]
-	media-libs/mesa[gles2,wayland,X?]
-	media-libs/vulkan-loader
+	media-libs/libglvnd
+	media-libs/mesa[egl(+),gles2]
+	sys-apps/hwdata:=
 	sys-auth/seatd:=
-	x11-base/xcb-proto
+	>=x11-libs/libdrm-2.4.114
+	x11-libs/libxkbcommon
+	>=x11-libs/pixman-0.42.0
+	virtual/libudev:=
+	X? (
+		x11-base/xwayland
+		x11-libs/libxcb:0=
+		x11-libs/xcb-util-renderutil
+		x11-libs/xcb-util-wm
+	)
+"
+WLROOTS_DEPEND="
+	>=dev-libs/wayland-protocols-1.32
+"
+WLROOTS_BDEPEND="
+	dev-util/glslang
+	dev-util/wayland-scanner
+"
+
+RDEPEND="
+	${WLROOTS_RDEPEND}
+	dev-libs/glib:2
+	dev-libs/libinput
+	dev-libs/wayland
+	media-libs/libglvnd
 	x11-libs/cairo
 	x11-libs/libdrm
 	x11-libs/libxkbcommon
 	x11-libs/pango
 	x11-libs/pixman
-	x11-misc/xkeyboard-config
-	virtual/libudev:=
 	X? (
-	   gui-libs/wlroots[x11-backend]
-	   x11-base/xwayland
-	   x11-libs/libxcb:=
-	   x11-libs/xcb-util-image
-	   x11-libs/xcb-util-renderutil
-	   x11-libs/xcb-util-wm
+		x11-libs/libxcb:0=
 	)
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
+DEPEND="
+	${RDEPEND}
+	${WLROOTS_DEPEND}
 	dev-libs/hyprland-protocols
-	>=dev-libs/wayland-1.22.0
+	>=dev-libs/wayland-protocols-1.25
+"
+BDEPEND="
+	${WLROOTS_BDEPEND}
+	app-misc/jq
+	dev-util/cmake
 	dev-util/wayland-scanner
 	dev-vcs/git
-	>=gui-libs/wlroots-0.16.0[X?]
+	virtual/pkgconfig
 "
 
 pkg_setup() {
@@ -75,9 +95,15 @@ pkg_setup() {
 src_prepare() {
 	if use video_cards_nvidia; then
 		cd "${S}/subprojects/wlroots" || die
-		eapply "${FILESDIR}/nvidia-0.25.0.patch"
+		eapply "${S}/nix/patches/wlroots-nvidia.patch"
+		# https://bugs.gentoo.org/911597
+		# https://github.com/hyprwm/Hyprland/pull/2874
+		# https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots.nix#L54
+		sed -i -e 's/glFlush();/glFinish();/' render/gles2/renderer.c || die
 		cd "${S}" || die
 	fi
+
+	eapply "${FILESDIR}/hyprland-0.28.0-no-wlroots-automagic.patch"
 
 	default
 }
