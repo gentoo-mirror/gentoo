@@ -8,17 +8,30 @@ inherit elisp
 DESCRIPTION="Mode for editing (and running) Haskell programs in Emacs"
 HOMEPAGE="https://haskell.github.io/haskell-mode/
 	https://www.haskell.org/haskellwiki/Emacs#Haskell-mode"
-SRC_URI="https://github.com/haskell/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/haskell/${PN}.git"
+else
+	SRC_URI="https://github.com/haskell/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+fi
 
 LICENSE="GPL-3+ FDL-1.2+"
 SLOT="0"
-KEYWORDS="amd64 ppc ~sparc x86"
 
 BDEPEND="sys-apps/texinfo"
 
+ELISP_REMOVE="
+	tests/haskell-cabal-tests.el
+	tests/haskell-customize-tests.el
+	tests/haskell-lexeme-tests.el
+"
+
+DOCS=( NEWS README.md )
+ELISP_TEXINFO="doc/${PN}.texi"
 SITEFILE="50${PN}-gentoo.el"
-ELISP_TEXINFO="doc/haskell-mode.texi"
-DOCS="NEWS README.md"
 
 src_prepare() {
 	# We install the logo in SITEETC, not in SITELISP
@@ -27,7 +40,7 @@ src_prepare() {
 		-e "s:(.*\"\\(.*\\)\".*):\"${SITEETC}/${PN}/\\1\":}" \
 		haskell-process.el || die
 
-	eapply_user
+	elisp_src_prepare
 }
 
 src_compile() {
@@ -41,6 +54,7 @@ src_test() {
 
 src_install() {
 	elisp_src_install
+
 	insinto "${SITEETC}"/${PN}
 	doins logo.svg
 }

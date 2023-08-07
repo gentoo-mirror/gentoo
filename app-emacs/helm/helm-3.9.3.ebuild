@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/emacs-helm/${PN}/archive/v${PV}.tar.gz
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	app-emacs/async
@@ -21,7 +21,7 @@ RDEPEND="
 "
 BDEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-no-autoload-check.patch )
+PATCHES=( "${FILESDIR}"/${PN}-3.8.8-no-autoload-check.patch )
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
