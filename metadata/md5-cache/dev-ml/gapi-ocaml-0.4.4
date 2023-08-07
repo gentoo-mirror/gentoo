@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/ocurl:= >=dev-ml/ocamlnet-4.1.4:= dev-ml/cryptokit:= dev-ml/yojson:= test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DESCRIPTION=A simple OCaml client for Google Services
+EAPI=8
+HOMEPAGE=https://opam.ocaml.org/packages/gapi-ocaml/ https://github.com/astrada/gapi-ocaml
+INHERIT=dune findlib
+IUSE=ocamlopt test +ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/ocurl:= >=dev-ml/ocamlnet-4.1.4:= dev-ml/cryptokit:= dev-ml/yojson:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=!test? ( test )
+SLOT=0/0.4.4
+SRC_URI=https://github.com/astrada/gapi-ocaml/archive/v0.4.4.tar.gz -> gapi-ocaml-0.4.4.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01	findlib	cc1c14904708a0a28bcb256b342a808c
+_md5_=f0359c85bb6a5ca670a86ed586ca1a41
