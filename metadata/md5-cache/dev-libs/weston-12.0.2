@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/wayland-scanner virtual/pkgconfig || ( ( dev-lang/python:3.12 dev-python/setuptools[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/setuptools[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/setuptools[python_targets_python3_10(-)] ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-libs/libinput-1.2.0 >=dev-libs/wayland-1.20.0 media-libs/libpng:0= sys-auth/seatd:= >=x11-libs/cairo-1.11.3 >=x11-libs/libdrm-2.4.108 >=x11-libs/libxkbcommon-0.5.0 >=x11-libs/pixman-0.25.2 x11-misc/xkeyboard-config drm? ( >=media-libs/mesa-17.1[gbm(+)] >=sys-libs/mtdev-1.1.0 >=virtual/udev-136 ) editor? ( x11-libs/pango ) examples? ( x11-libs/pango ) gles2? ( media-libs/mesa[gles2,wayland] ) jpeg? ( media-libs/libjpeg-turbo:0= ) lcms? ( >=media-libs/lcms-2.9:2 ) pipewire? ( >=media-video/pipewire-0.3:= ) rdp? ( >=net-misc/freerdp-2.3.0:=[server] ) remoting? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) systemd? ( sys-apps/systemd ) vnc? ( =dev-libs/aml-0.3* =gui-libs/neatvnc-0.6* sys-libs/pam ) webp? ( media-libs/libwebp:0= ) X? ( >=x11-libs/libxcb-1.9 x11-libs/libX11 ) xwayland? ( x11-base/xwayland x11-libs/cairo[X,xcb(+)] >=x11-libs/libxcb-1.9 x11-libs/libXcursor >=x11-libs/xcb-util-cursor-0.1.4 ) >=dev-libs/wayland-protocols-1.24
 DESCRIPTION=Wayland reference compositor
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/wayland/weston/-/releases/12.0.2/downloads/weston-12.0.2.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	329d5580b47382bb708c5f6777d18087	meson	08b7183c3f4811568ee93eb0f79a89fe	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=dea3dd29bde301168051b8cd32d25b20
+_md5_=8ba71c91a1eacb128bcf18973557a189
