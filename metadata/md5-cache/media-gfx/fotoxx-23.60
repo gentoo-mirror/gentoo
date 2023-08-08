@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=media-libs/clutter media-libs/clutter-gtk media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= media-libs/libchamplain[gtk] x11-libs/gtk+:3
+DESCRIPTION=Program for improving image files made with a digital camera
+EAPI=7
+HOMEPAGE=https://kornelix.net/fotoxx/fotoxx.html
+INHERIT=optfeature xdg-utils
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3+
+RDEPEND=media-libs/clutter media-libs/clutter-gtk media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= media-libs/libchamplain[gtk] x11-libs/gtk+:3 media-gfx/dcraw media-libs/exiftool x11-misc/xdg-utils
+SLOT=0
+SRC_URI=https://kornelix.net/downloads/downloads/fotoxx-23.60-source.tar.gz
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=70123bb4bcc4e2deec54b12a7c031579

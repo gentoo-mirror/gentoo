@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=>=dev-libs/glib-2.16 net-libs/gnutls >=sys-apps/dbus-1.2.24 sys-libs/readline:0= nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) >=sys-kernel/linux-headers-2.6.39
+DESCRIPTION=Provides a daemon for managing internet connections
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/network/connman/connman.git/
+INHERIT=autotools systemd tmpfiles
+IUSE=bluetooth debug doc +ethernet examples iptables iwd l2tp networkmanager +nftables ofono openconnect openvpn policykit pptp tools vpnc +wifi wireguard wispr
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.16 net-libs/gnutls >=sys-apps/dbus-1.2.24 sys-libs/readline:0= nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) bluetooth? ( net-wireless/bluez ) iptables? ( >=net-firewall/iptables-1.4.8 ) l2tp? ( net-dialup/xl2tpd ) ofono? ( net-misc/ofono ) policykit? ( sys-auth/polkit ) wifi? ( !iwd? ( >=net-wireless/wpa_supplicant-0.7.3-r3[dbus] ) iwd? ( net-wireless/iwd ) ) virtual/tmpfiles
+REQUIRED_USE=^^ ( iptables nftables )
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/network/connman/connman.git/snapshot/connman-1.42.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=9ea621987610a2e527128b32e5ab76c1
