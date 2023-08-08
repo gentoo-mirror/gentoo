@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/PDB-REDO/libcifpp"
 # ftp://ftp.wwpdb.org/pub/pdb/data/monomers/components.cif.gz
 SRC_URI="
 	https://github.com/PDB-REDO/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~pacho/${PN}/${P}-components.cif.gz
+	https://dev.gentoo.org/~pacho/${PN}/${P}-components.cif.xz
 "
 
 LICENSE="BSD-2"
@@ -19,13 +19,11 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="dev-libs/boost:="
+DEPEND="
+	dev-cpp/eigen:3
+	dev-libs/boost:=
+"
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	# https://github.com/PDB-REDO/libcifpp/issues/40
-	"${FILESDIR}/${P}-missing-include.patch"
-)
 
 src_configure() {
 	cp "${WORKDIR}"/${P}-components.cif data/components.cif || die
