@@ -1,0 +1,16 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.25 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=!gui-libs/amtk >=dev-libs/glib-2.56:2 >=x11-libs/gtk+-3.22:3 introspection? ( >=dev-libs/gobject-introspection-1.42:= )
+DESCRIPTION=Actions, Menus and Toolbars Kit for GTK applications
+EAPI=8
+HOMEPAGE=https://github.com/gedit-technology/libgedit-amtk
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2 meson
+IUSE=+introspection gtk-doc
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=!gui-libs/amtk >=dev-libs/glib-2.56:2 >=x11-libs/gtk+-3.22:3 introspection? ( >=dev-libs/gobject-introspection-1.42:= )
+SLOT=5/0
+SRC_URI=https://gedit-technology.net/tarballs/libgedit-amtk/libgedit-amtk-5.8.0.tar.xz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	9bd787a54d31405e742ae7537eed650b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	meson	08b7183c3f4811568ee93eb0f79a89fe
+_md5_=85c8d3556ee268689014c7418a22eff1
