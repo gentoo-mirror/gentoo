@@ -1,9 +1,9 @@
-BDEPEND=app-text/po4a dev-lang/perl sys-devel/gettext >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-text/po4a app-text/xmlstarlet dev-lang/perl sys-devel/gettext >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
-DEPEND=dev-games/physfs dev-libs/boost:= media-libs/glew:0 media-libs/libogg media-libs/libpng:0= media-libs/libsdl2:= media-libs/libsndfile:= media-libs/libvorbis:= media-libs/sdl2-image media-libs/sdl2-ttf media-sound/vorbis-tools openal? ( media-libs/openal )
+DEPEND=dev-games/physfs dev-libs/boost:= media-libs/glew:0 media-libs/libogg media-libs/libpng:0= media-libs/libsdl2:= media-libs/libsndfile:= media-libs/libvorbis:= media-libs/sdl2-image media-libs/sdl2-ttf media-sound/vorbis-tools openal? ( media-libs/openal ) test? ( dev-cpp/gtest )
 DESCRIPTION=A real-time strategy game, where you can program your bots
-EAPI=7
-HOMEPAGE=https://colobot.info/
+EAPI=8
+HOMEPAGE=https://colobot.info/ https://github.com/colobot/colobot/
 INHERIT=cmake git-r3 xdg-utils
 IUSE=devbuild doc +openal test tools
 LICENSE=GPL-3+
@@ -12,4 +12,4 @@ RDEPEND=dev-games/physfs dev-libs/boost:= media-libs/glew:0 media-libs/libogg me
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=1e9251ce1ba3a77c606f94d918541e03
+_md5_=39d19eb525666da8ddd03f4c1f1965bc

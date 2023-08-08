@@ -1,0 +1,13 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=Data package for colobot (Colonize with Bots)
+EAPI=8
+HOMEPAGE=https://colobot.info/ https://github.com/colobot/colobot-data/
+INHERIT=cmake python-any-r1
+IUSE=+music
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3+
+SLOT=0
+SRC_URI=https://github.com/colobot/colobot-data/archive/colobot-gold-0.2.1-alpha.tar.gz -> colobot-gold-0.2.1-alpha.data.tar.gz music? ( https://colobot.info/files/music/colobot-music_ogg_0.2.1-alpha.tar.gz )
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	python-utils-r1	329d5580b47382bb708c5f6777d18087	python-any-r1	845fed6b6dfc35679a4fea289272ddc0
+_md5_=ef69b3d5648f629c3ccb4733790d1cbe
