@@ -1,0 +1,16 @@
+BDEPEND=wayland? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-cpp/tbb:= dev-libs/glib:2 dev-libs/libfmt:= dev-libs/openssl:= dev-libs/spdlog:= media-gfx/chafa media-libs/libsixel media-libs/vips:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-image xcb-errors? ( x11-libs/xcb-util-errors ) ) opencv? ( media-libs/opencv:= ) opengl? ( media-libs/libglvnd ) wayland? ( dev-libs/wayland ) !media-gfx/ueberzug dev-cpp/cli11 dev-cpp/ms-gsl dev-cpp/nlohmann_json X? ( x11-base/xorg-proto ) wayland? ( dev-libs/wayland-protocols )
+DESCRIPTION=Drop in replacement for ueberzug written in C++
+EAPI=8
+HOMEPAGE=https://github.com/jstkdng/ueberzugpp/
+INHERIT=cmake
+IUSE=X opencv opengl wayland xcb-errors
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=dev-cpp/tbb:= dev-libs/glib:2 dev-libs/libfmt:= dev-libs/openssl:= dev-libs/spdlog:= media-gfx/chafa media-libs/libsixel media-libs/vips:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-image xcb-errors? ( x11-libs/xcb-util-errors ) ) opencv? ( media-libs/opencv:= ) opengl? ( media-libs/libglvnd ) wayland? ( dev-libs/wayland ) !media-gfx/ueberzug
+REQUIRED_USE=xcb-errors? ( X )
+SLOT=0
+SRC_URI=https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v2.9.0.tar.gz -> ueberzugpp-2.9.0.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692
+_md5_=5ac11dc1f90acbe8ad1aa1aaad871970
