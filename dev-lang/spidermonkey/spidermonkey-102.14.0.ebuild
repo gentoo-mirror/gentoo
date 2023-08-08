@@ -7,9 +7,9 @@ EAPI="8"
 FIREFOX_PATCHSET="firefox-102esr-patches-10j.tar.xz"
 SPIDERMONKEY_PATCHSET="spidermonkey-102-patches-05j.tar.xz"
 
-LLVM_MAX_SLOT=15
+LLVM_MAX_SLOT=16
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="ssl,xml(+)"
 
 WANT_AUTOCONF="2.1"
@@ -61,7 +61,7 @@ SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}.source.tar.xz -> ${MOZ_P_DISTFILES}
 DESCRIPTION="SpiderMonkey is Mozilla's JavaScript engine written in C and C++"
 HOMEPAGE="https://spidermonkey.dev https://firefox-source-docs.mozilla.org/js/index.html "
 
-KEYWORDS="amd64 arm arm64 ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 SLOT="$(ver_cut 1)"
 LICENSE="MPL-2.0"
@@ -72,6 +72,14 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="${PYTHON_DEPS}
 	|| (
+		(
+			sys-devel/llvm:16
+			clang? (
+				sys-devel/clang:16
+				sys-devel/lld:16
+				virtual/rust:0/llvm-16
+			)
+		)
 		(
 			sys-devel/llvm:15
 			clang? (
@@ -138,9 +146,9 @@ python_check_deps() {
 
 pkg_pretend() {
 	if use test ; then
-		CHECKREQS_DISK_BUILD="7000M"
+		CHECKREQS_DISK_BUILD="4000M"
 	else
-		CHECKREQS_DISK_BUILD="6000M"
+		CHECKREQS_DISK_BUILD="3600M"
 	fi
 
 	check-reqs_pkg_pretend
@@ -149,9 +157,9 @@ pkg_pretend() {
 pkg_setup() {
 	if [[ ${MERGE_TYPE} != binary ]] ; then
 		if use test ; then
-			CHECKREQS_DISK_BUILD="7000M"
+			CHECKREQS_DISK_BUILD="4000M"
 		else
-			CHECKREQS_DISK_BUILD="6000M"
+			CHECKREQS_DISK_BUILD="3600M"
 		fi
 
 		check-reqs_pkg_setup
@@ -300,8 +308,10 @@ src_configure() {
 
 	if use debug; then
 		myeconfargs+=( --disable-optimize )
+		myeconfargs+=( --enable-debug-symbols )
 	else
 		myeconfargs+=( --enable-optimize )
+		myeconfargs+=( --disable-debug-symbols )
 	fi
 
 	if ! use x86 && [[ ${CHOST} != armv*h* ]] ; then
@@ -371,11 +381,58 @@ src_test() {
 		echo "test262/built-ins/TypedArray/prototype/set/typedarray-arg-set-values-same-buffer-other-type.js" >> "${T}"/known_failures.list
 	fi
 
-	if use x86; then
-		echo "non262/Date/timeclip.js" >> "${T}"/known_failures.list
-		echo "test262/built-ins/Date/UTC/fp-evaluation-order.js" >> "${T}"/known_failures.list
-		echo "test262/language/types/number/S8.5_A2.1.js" >> "${T}"/known_failures.list
-		echo "test262/language/types/number/S8.5_A2.2.js" >> "${T}"/known_failures.list
+	if use ppc; then
+		echo "non262/Array/fill.js" >> "${T}"/known_failures.list
+		echo "non262/Array/sort_basics.js" >> "${T}"/known_failures.list
+		echo "non262/Symbol/typed-arrays.js" >> "${T}"/known_failures.list
+		echo "non262/Intl/TypedArray/toLocaleString.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/entries.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/fill.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/map-species.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/iterator.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/reverse.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/join.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/sort_comparators.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/forEach.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/slice.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/sort_compare_nan.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/set-toobject.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/sort-non-function.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/includes.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/subarray-species.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/indexOf-never-returns-negative-zero.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/map-and-filter.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/at.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/from_errors.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/values.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/set-wrapped.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/every-and-some.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/from_mapping.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/lastIndexOf-never-returns-negative-zero.js" >> "${T}"/known_failures.list
+		echo "non262/Reflect/preventExtensions.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/sort_sorted.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/of.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/keys.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/from_realms.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/from_iterable.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/filter-species.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/object-defineproperty.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/uint8clamped-constructor.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/indexOf-and-lastIndexOf.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/slice-species.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/set-tointeger.js" >> "${T}"/known_failures.list
+		echo "non262/Reflect/ownKeys.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/seal-and-freeze.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/reduce-and-reduceRight.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/from_basics.js" >> "${T}"/known_failures.list
+		echo "non262/TypedArray/find-and-findIndex.js" >> "${T}"/known_failures.list
+		echo "non262/Reflect/isExtensible.js" >> "${T}"/known_failures.list
+		echo "non262/regress/regress-571014.js" >> "${T}"/known_failures.list
+		echo "non262/extensions/reviver-mutates-holder-object-nonnative.js" >> "${T}"/known_failures.list
+		echo "non262/extensions/typedarray-set-neutering.js" >> "${T}"/known_failures.list
+		echo "non262/extensions/reviver-mutates-holder-array-nonnative.js" >> "${T}"/known_failures.list
+		echo "non262/extensions/typedarray.js" >> "${T}"/known_failures.list
+		echo "non262/Math/fround.js" >> "${T}"/known_failures.list
 	fi
 
 	${EPYTHON} \
