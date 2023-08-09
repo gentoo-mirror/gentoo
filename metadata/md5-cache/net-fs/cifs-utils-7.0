@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://wiki.samba.org/index.php/LinuxCIFS_utils https://git.samba.org/cifs-utils.git/?p=cifs-utils.git
 INHERIT=autotools bash-completion-r1 linux-info pam python-single-r1
 IUSE=+acl +ads +caps creds pam +python systemd python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~x86-linux
 LICENSE=GPL-3
 PDEPEND=acl? ( >=net-fs/samba-4.0.0_alpha1 )
 RDEPEND=ads? ( sys-apps/keyutils:= sys-libs/talloc virtual/krb5 ) caps? ( sys-libs/libcap-ng ) creds? ( sys-apps/keyutils:= ) pam? ( sys-apps/keyutils:= sys-libs/pam ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
@@ -14,4 +14,4 @@ REQUIRED_USE=acl? ( ads ) python? ( ^^ ( python_single_target_python3_10 python_
 SLOT=0
 SRC_URI=https://ftp.samba.org/pub/linux-cifs/cifs-utils/cifs-utils-7.0.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	flag-o-matic	ad475baa777c9978fa035216c8264a10	pam	b56d0c9c20fc5b553f13c8ae165a10a5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=2042dd7a819b0cf87d87f5c768a22cfe
+_md5_=0a91b4e8735d8b4e6aee9bf070a78194

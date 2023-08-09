@@ -7,11 +7,11 @@ HOMEPAGE=https://www.prusa3d.com/prusaslicer/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake wxwidgets xdg
 IUSE=test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=AGPL-3 Boost-1.0 GPL-2 LGPL-3 MIT
 RDEPEND=dev-cpp/eigen:3 dev-cpp/tbb:= dev-libs/boost:=[nls] dev-libs/cereal dev-libs/expat dev-libs/glib:2 dev-libs/gmp:= dev-libs/mpfr:= media-gfx/openvdb:= net-misc/curl[adns] media-libs/glew:0= media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/qhull:= sci-libs/libigl sci-libs/nlopt sci-libs/opencascade:= sci-mathematics/cgal:= sys-apps/dbus sys-libs/zlib:= virtual/opengl x11-libs/gtk+:3 >=x11-libs/wxGTK-3.2.2.1-r3:3.2-gtk3[X,opengl] media-libs/nanosvg:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/prusa3d/PrusaSlicer/archive/refs/tags/version_2.6.0.tar.gz -> prusaslicer-2.6.0.tar.gz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=6aea7e3bde1d2dc05703dd61048363b4
+_md5_=59985d77469389ff293f285c3373151b
