@@ -13,8 +13,13 @@
 		<email>proxy-maint@gentoo.org</email>
 		<name>Proxy Maintainers</name>
 	</maintainer>
+	<use>
+		<flag name="client">Enable the autin client</flag>
+		<flag name="server">Enable the autin server</flag>
+		<flag name="sync">Enable the server-sync feature in the autin client</flag>
+	</use>
 	<upstream>
-		<remote-id type="github">ellie/atuin</remote-id>
-		<bugs-to>https://github.com/ellie/atuin/issues</bugs-to>
+		<remote-id type="github">atuinsh/atuin</remote-id>
+		<bugs-to>https://github.com/atuinsh/atuin/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
