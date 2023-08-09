@@ -5,12 +5,12 @@ DESCRIPTION=Command-line program for btrfs and lvm snapshot management
 EAPI=8
 HOMEPAGE=http://snapper.io/
 INHERIT=autotools systemd
-IUSE=doc lvm pam test systemd xattr
+IUSE=lvm pam test systemd xattr
 KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/boost:= dev-libs/json-c:= dev-libs/libxml2 dev-libs/icu:= sys-apps/acl sys-apps/dbus sys-apps/util-linux >=sys-fs/btrfs-progs-3.17.1 sys-libs/zlib virtual/libintl lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) xattr? ( sys-apps/attr )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/openSUSE/snapper/archive/v0.10.4.tar.gz -> snapper-0.10.4.tar.gz
+SRC_URI=https://github.com/openSUSE/snapper/archive/v0.10.5.tar.gz -> snapper-0.10.5.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=c794b6da0d532bd08e1490c2f88f503d
+_md5_=e316e380a3d53ed03f49e29bdf8dc6f4
