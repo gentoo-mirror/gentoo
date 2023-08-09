@@ -37,6 +37,11 @@ IUSE=""
 # make rules catch it and tests fail
 RESTRICT="test"
 
+PATCHES=(
+	# bug 911929, patch already in upstream, drop in next version bump
+	"${FILESDIR}/${P}-strlcpy.patch"
+)
+
 src_prepare() {
 	default
 
