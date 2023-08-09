@@ -1,8 +1,8 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit go-module
+inherit go-module systemd
 
 DESCRIPTION="A Continuous Delivery platform built on Docker, written in Go"
 HOMEPAGE="https://github.com/drone/drone"
@@ -21,14 +21,16 @@ RESTRICT="test"
 
 src_compile() {
 	ego build -ldflags "-extldflags \"-static\"" \
-		-o drone-server ./cmd/drone-server
+		./cmd/drone-server
 }
 
 src_install() {
 	dobin drone-server
 	dodoc CHANGELOG.md HISTORY.md
+	insinto /etc
+	doins "${FILESDIR}"/drone-server.conf
 	newinitd "${FILESDIR}"/drone-server.initd drone-server
-	newconfd "${FILESDIR}"/drone-server.confd drone-server
+	systemd_dounit "${FILESDIR}"/drone-server.service
 	keepdir /var/log/drone /var/lib/drone
 	fowners -R ${PN}:${PN} /var/log/drone /var/lib/drone
 }
