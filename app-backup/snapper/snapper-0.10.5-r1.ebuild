@@ -12,7 +12,7 @@ SRC_URI="https://github.com/openSUSE/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
-IUSE="doc lvm pam test systemd xattr"
+IUSE="lvm pam test systemd xattr"
 RESTRICT="test"
 
 RDEPEND="dev-libs/boost:=
@@ -60,7 +60,7 @@ src_configure() {
 		--enable-btrfs-quota
 		--disable-ext4
 		--enable-btrfs
-		$(use_enable doc)
+		--enable-doc
 		$(use_enable lvm)
 		$(use_enable pam)
 		$(use_enable test tests)
