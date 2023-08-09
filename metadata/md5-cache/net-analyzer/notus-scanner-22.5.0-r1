@@ -1,10 +1,10 @@
 BDEPEND=test? ( acct-user/gvm dev-libs/paho-mqtt-c dev-python/psutil[python_targets_python3_11(-)?] >=dev-python/python-gnupg-0.5.0[python_targets_python3_11(-)?] <dev-python/packaging-23.2[python_targets_python3_11(-)?] >=dev-python/sentry-sdk-1.22.2[python_targets_python3_11(-)?] >=dev-python/rope-1.8.0[python_targets_python3_11(-)?] >=dev-python/paho-mqtt-1.5.1[python_targets_python3_11(-)?] <dev-python/tomli-3[python_targets_python3_11(-)?] app-misc/mosquitto python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_python3_11(-)?] ) ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_11(-)?] >=dev-python/poetry-core-1.6.1[python_targets_python3_11(-)?] virtual/pkgconfig
-DEFINED_PHASES=compile configure install prepare test
+DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=acct-user/gvm dev-libs/paho-mqtt-c dev-python/psutil[python_targets_python3_11(-)?] >=dev-python/python-gnupg-0.5.0[python_targets_python3_11(-)?] <dev-python/packaging-23.2[python_targets_python3_11(-)?] >=dev-python/sentry-sdk-1.22.2[python_targets_python3_11(-)?] >=dev-python/rope-1.8.0[python_targets_python3_11(-)?] >=dev-python/paho-mqtt-1.5.1[python_targets_python3_11(-)?] <dev-python/tomli-3[python_targets_python3_11(-)?]
 DESCRIPTION=Notus is a vulnerability scanner for creating results from local security checks
 EAPI=8
 HOMEPAGE=https://github.com/greenbone/notus-scanner
-INHERIT=distutils-r1 systemd
+INHERIT=distutils-r1 readme.gentoo-r1 systemd
 IUSE=test python_targets_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3 AGPL-3+
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( python_targets_python3_11 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/greenbone/notus-scanner/archive/refs/tags/v22.5.0.tar.gz -> notus-scanner-22.5.0.tar.gz
-_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=431ee493b512bebb02207e364dade7d1
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=c71232b0a3507aa18058acff8152a8ac
