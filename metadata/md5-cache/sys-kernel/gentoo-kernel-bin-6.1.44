@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/bc sys-devel/flex virtual/libelf app-alternatives/yacc test? ( dev-tcltk/expect sys-apps/coreutils sys-kernel/dracut sys-fs/e2fsprogs amd64? ( app-emulation/qemu[qemu_softmmu_targets_x86_64] ) arm64? ( app-emulation/qemu[qemu_softmmu_targets_aarch64] ) ppc? ( app-emulation/qemu[qemu_softmmu_targets_ppc] ) ppc64? ( app-emulation/qemu[qemu_softmmu_targets_ppc64] ) sparc? ( app-emulation/qemu[qemu_softmmu_targets_sparc,qemu_softmmu_targets_sparc64] ) x86? ( app-emulation/qemu[qemu_softmmu_targets_i386] ) )
+DEFINED_PHASES=config configure install postinst postrm preinst prepare prerm pretend test unpack
+DESCRIPTION=Pre-built Linux kernel with Gentoo patches
+EAPI=8
+HOMEPAGE=https://www.kernel.org/
+IDEPEND=|| ( sys-kernel/installkernel-gentoo sys-kernel/installkernel-systemd-boot ) initramfs? ( >=sys-kernel/dracut-049-r3 )
+INHERIT=kernel-install toolchain-funcs unpacker
+IUSE=+initramfs test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2
+PDEPEND=>=virtual/dist-kernel-6.1.44
+RDEPEND=!sys-kernel/gentoo-kernel:6.1.44 virtual/libelf
+RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
+SLOT=6.1.44
+SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.1-50.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.1-50.extras.tar.xz amd64? ( https://dev.gentoo.org/~mgorny/binpkg/amd64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.44-1.gpkg.tar -> gentoo-kernel-6.1.44-1.amd64.gpkg.tar ) arm64? ( https://dev.gentoo.org/~mgorny/binpkg/arm64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.44-1.gpkg.tar -> gentoo-kernel-6.1.44-1.arm64.gpkg.tar ) ppc64? ( https://dev.gentoo.org/~mgorny/binpkg/ppc64le/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.44-1.gpkg.tar -> gentoo-kernel-6.1.44-1.ppc64le.gpkg.tar ) x86? ( https://dev.gentoo.org/~mgorny/binpkg/x86/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.44-1.gpkg.tar -> gentoo-kernel-6.1.44-1.x86.gpkg.tar )
+_eclasses_=dist-kernel-utils	fd205e63d2f09e517140e6fd10ebcf78	mount-boot	3945d351ee3192381911f938f4ee527a	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	kernel-install	52229b24889f7b6722ed29332a1db67a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	unpacker	aa6a4e924009232d8b78b31e932c30b5
+_md5_=3a8ae6be2f70d60acd9626d82f8147e7
