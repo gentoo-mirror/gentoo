@@ -54,6 +54,7 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
+	net-print/cups
 	sys-apps/util-linux
 	sys-apps/dbus
 	x11-libs/cairo
@@ -94,9 +95,6 @@ S="${WORKDIR}"
 src_install() {
 	# Cleanup
 	rm "${S}/resources/app/LICENSE.txt" || die
-
-	# Disable update server
-	sed -i "/updateUrl/d" "${S}"/resources/app/product.json || die
 
 	# Install
 	pax-mark m codium
