@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-group/headscale acct-user/headscale
+DESCRIPTION=An open source, self-hosted implementation of the Tailscale control server
+EAPI=8
+HOMEPAGE=https://github.com/juanfont/headscale
+INHERIT=go-module systemd
+KEYWORDS=~amd64 ~riscv
+LICENSE=BSD Apache-2.0 MIT
+RDEPEND=acct-group/headscale acct-user/headscale net-firewall/iptables
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/juanfont/headscale/archive/v0.22.3.tar.gz -> headscale-0.22.3.tar.gz https://github.com/antonfischl1980/gentoo-go-deps/releases/download/headscale-0.22.3/headscale-0.22.3-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=1096bbbadc127b30bb071113414d3c07
