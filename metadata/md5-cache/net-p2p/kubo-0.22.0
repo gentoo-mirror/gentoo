@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/go >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst test unpack
+DEPEND=acct-group/ipfs acct-user/ipfs sys-fs/fuse:0
+DESCRIPTION=Main implementation of IPFS
+EAPI=8
+HOMEPAGE=https://ipfs.io/ https://github.com/ipfs/kubo/
+INHERIT=go-module shell-completion systemd
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0
+RDEPEND=acct-group/ipfs acct-user/ipfs sys-fs/fuse:0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/ipfs/kubo/releases/download/v0.22.0/kubo-source.tar.gz -> kubo-0.22.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	bb7eb6bc232cd6c4bf8af739cdd2ee14	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=62357ff74ddc627136d51c96d0f25cbd
