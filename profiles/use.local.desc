@@ -685,6 +685,7 @@ app-emulation/wine-staging:pcap - Support packet capture software (e.g. wireshar
 app-emulation/wine-staging:perl - Install helpers that require perl (winedump/winemaker)
 app-emulation/wine-staging:samba - Pull in net-fs/samba with winbind for NTLM auth support
 app-emulation/wine-staging:sdl - Enable gamepad support using media-libs/libsdl2
+app-emulation/wine-staging:wow64 - Enable running 32bit applications without 32bit ELF multilib by mapping to 64bit calls (experimental, USE=abi_x86_32 is recommended for complete support)
 app-emulation/wine-vanilla:capi - Enable ISDN support using net-libs/libcapi
 app-emulation/wine-vanilla:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/wine-vanilla:dos - Pull in games-emulation/dosbox to run DOS applications
@@ -699,6 +700,7 @@ app-emulation/wine-vanilla:perl - Install helpers that require perl (winedump/wi
 app-emulation/wine-vanilla:samba - Pull in net-fs/samba with winbind for NTLM auth support
 app-emulation/wine-vanilla:sdl - Enable gamepad support using media-libs/libsdl2
 app-emulation/wine-vanilla:vkd3d - Enable DirectX 12 support using app-emulation/vkd3d
+app-emulation/wine-vanilla:wow64 - Enable running 32bit applications without 32bit ELF multilib by mapping to 64bit calls (experimental, USE=abi_x86_32 is recommended for complete support)
 app-emulation/winetricks:rar - Pull in app-arch/unrar for extraction of rar-compressed game files
 app-emulation/x48:readline - Enables support for libreadline
 app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Citrix instead of building app-emulation/xen-tools

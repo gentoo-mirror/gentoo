@@ -5,7 +5,7 @@ DESCRIPTION=Free implementation of Windows(tm) on Unix, with Wine-Staging patchs
 EAPI=8
 HOMEPAGE=https://wiki.winehq.org/Wine-Staging https://gitlab.winehq.org/wine/wine-staging/
 IDEPEND=>=app-eselect/eselect-wine-2
-INHERIT=autotools edo flag-o-matic multilib multilib-build python-any-r1 toolchain-funcs wrapper
+INHERIT=autotools edo flag-o-matic multilib multilib-build prefix python-any-r1 toolchain-funcs wrapper
 IUSE=+X +abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups dos llvm-libunwind custom-cflags +fontconfig +gecko gphoto2 +gstreamer kerberos +mingw +mono netapi nls opencl +opengl osmesa pcap perl pulseaudio samba scanner +sdl selinux smartcard +ssl +strip +truetype udev udisks +unwind usb v4l +vulkan wayland +xcomposite xinerama abi_x86_32 abi_x86_64
 KEYWORDS=-* ~amd64 ~x86
 LICENSE=LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff
@@ -14,5 +14,5 @@ REQUIRED_USE=X? ( truetype ) crossdev-mingw? ( mingw ) || ( abi_x86_32 abi_x86_6
 RESTRICT=test
 SLOT=8.11
 SRC_URI=https://dl.winehq.org/wine/source/8.x/wine-8.11.tar.xz https://github.com/wine-staging/wine-staging/archive/v8.11.tar.gz -> wine-staging-8.11.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multilib-build	e8aed98bd43dbd25694310a660ad562c	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	wrapper	4a1902f969e5718126434fc35f3a0d9c
-_md5_=545b8ec491fd8c9455e3b31036136413
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multilib-build	e8aed98bd43dbd25694310a660ad562c	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	wrapper	4a1902f969e5718126434fc35f3a0d9c
+_md5_=6a616c2eb9644a60e675d0fa41ea94cc
