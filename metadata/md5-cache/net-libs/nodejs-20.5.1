@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.11[threads(+)] dev-lang/python:3.10[threads(+)] ) dev-util/ninja sys-apps/coreutils virtual/pkgconfig test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix )
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test
+DEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib corepack? ( !sys-apps/yarn ) system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
+DESCRIPTION=A JavaScript runtime built on Chrome's V8 JavaScript engine
+EAPI=8
+HOMEPAGE=https://nodejs.org/
+INHERIT=bash-completion-r1 check-reqs flag-o-matic linux-info pax-utils python-any-r1 toolchain-funcs xdg-utils
+IUSE=corepack cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl +system-icu +system-ssl test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x64-macos
+LICENSE=Apache-1.1 Apache-2.0 BSD BSD-2 MIT
+RDEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib corepack? ( !sys-apps/yarn ) system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
+REQUIRED_USE=corepack? ( !npm ) inspector? ( icu ssl ) npm? ( ssl ) system-icu? ( icu ) system-ssl? ( ssl ) x86? ( cpu_flags_x86_sse2 )
+RESTRICT=!test? ( test )
+SLOT=0/20
+SRC_URI=https://nodejs.org/dist/v20.5.1/node-v20.5.1.tar.xz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	check-reqs	a5f1e025c53d62f98bc24bd63d7d95e1	flag-o-matic	ad475baa777c9978fa035216c8264a10	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=03c21251c6a7f1993ac0815c163949b0
