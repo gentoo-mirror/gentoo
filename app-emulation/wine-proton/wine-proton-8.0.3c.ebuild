@@ -60,8 +60,10 @@ WINE_DLOPEN_DEPEND="
 	v4l? ( media-libs/libv4l[${MULTILIB_USEDEP}] )
 	xcomposite? ( x11-libs/libXcomposite[${MULTILIB_USEDEP}] )
 	xinerama? ( x11-libs/libXinerama[${MULTILIB_USEDEP}] )"
+# gcc: for -latomic with clang
 WINE_COMMON_DEPEND="
 	${WINE_DLOPEN_DEPEND}
+	sys-devel/gcc:*
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libXext[${MULTILIB_USEDEP}]
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
@@ -149,6 +151,16 @@ src_prepare() {
 
 	default
 
+	if tc-is-clang; then
+		# -mabi=ms was ignored by <clang:16 then turned error in :17
+		# and it still gets used in install phase despite --with-mingw,
+		# drop as a quick fix for now which hopefully should be safe
+		sed -i '/MSVCRTFLAGS=/s/-mabi=ms//' configure.ac || die
+
+		# needed by Valve's fsync patches if using clang (undef atomic_load_8)
+		sed -i '/^UNIX_LIBS.*=/s/$/ -latomic/' dlls/ntdll/Makefile.in || die
+	fi
+
 	# ensure .desktop calls this variant + slot
 	sed -i "/^Exec=/s/wine /${P} /" loader/wine.desktop || die
 
@@ -218,11 +230,7 @@ src_configure() {
 		$(use_with xinerama)
 	)
 
-	# builds with non-bfd but broken at runtime (bug #867097)
-	# TODO: retest mold and lld, and figure out what's wrong if
-	# still broken given (at least) lld is supposed to work
-	tc-ld-force-bfd
-
+	tc-ld-force-bfd # builds with non-bfd but broken at runtime (bug #867097)
 	filter-lto # build failure
 	use custom-cflags || strip-flags # can break in obscure ways at runtime
 	use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
