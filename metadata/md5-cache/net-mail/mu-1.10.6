@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/texinfo virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-libs/glib:2 dev-libs/gmime:3.0 >=dev-libs/xapian-1.4:= emacs? ( >=app-editors/emacs-25.3:* ) readline? ( sys-libs/readline:= )
+DESCRIPTION=Set of tools to deal with Maildirs, in particular, searching and indexing
+EAPI=8
+HOMEPAGE=https://www.djcbsoftware.nl/code/mu/ https://github.com/djcb/mu
+INHERIT=elisp-common meson
+IUSE=emacs readline
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86 ~x64-macos
+LICENSE=GPL-3+
+RDEPEND=dev-libs/glib:2 dev-libs/gmime:3.0 >=dev-libs/xapian-1.4:= emacs? ( >=app-editors/emacs-25.3:* ) readline? ( sys-libs/readline:= )
+SLOT=0
+SRC_URI=https://github.com/djcb/mu/releases/download/v1.10.6/mu-1.10.6.tar.xz
+_eclasses_=elisp-common	b3b15bdbe800c721e93b69b70cce2b67	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	1f435bc389faf790af695df46b8dcb73	meson	08b7183c3f4811568ee93eb0f79a89fe
+_md5_=a95f2e374972d478eac50b29c2c9e897
