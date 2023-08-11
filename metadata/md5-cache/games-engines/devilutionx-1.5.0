@@ -8,10 +8,10 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
 IUSE=debug +sodium test zerotier
 KEYWORDS=~amd64 ~x86
-LICENSE=Unlicense CC-BY-4.0 GPL-2+ LGPL-2.1+ MIT OFL-1.1 zerotier? ( BSL-1.1 )
+LICENSE=Unlicense CC-BY-4.0 GPL-2+ LGPL-2.1+ MIT OFL-1.1 zerotier? ( BUSL-1.1 )
 RDEPEND=app-arch/bzip2:= dev-libs/libfmt:= media-libs/libsdl2[haptic,joystick,opengl,video] media-libs/sdl2-image[png] sys-libs/zlib:= media-libs/sdl_audiolib sodium? ( dev-libs/libsodium:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/diasurgical/devilutionX/releases/download/1.5.0/devilutionx-src.tar.xz -> devilutionx-1.5.0.tar.xz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=86a35a50c1b726f550a15efdcb62eeb5
+_md5_=7cdcfe1e167038c4c318d675ebce9ed9
