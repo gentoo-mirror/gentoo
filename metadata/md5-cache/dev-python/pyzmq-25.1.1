@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_10? ( dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_11? ( dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_12? ( dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) test? ( dev-python/pytest-asyncio[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pytest-rerunfailures[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/tornado-5.0.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) test? ( >=net-libs/zeromq-4.2.2-r2:=[drafts=] >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=net-libs/zeromq-4.2.2-r2:=[drafts=] python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] )
+DESCRIPTION=Lightweight and super-fast messaging library built on top of the ZeroMQ library
+EAPI=8
+HOMEPAGE=https://zeromq.org/languages/python/ https://pypi.org/project/pyzmq/ https://github.com/zeromq/pyzmq/
+INHERIT=distutils-r1
+IUSE=drafts test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-3
+RDEPEND=>=net-libs/zeromq-4.2.2-r2:=[drafts=] python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/zeromq/pyzmq/archive/v25.1.1.tar.gz -> pyzmq-25.1.1.gh.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
+_md5_=f8c11c3b74ee704da55490e5422ed549
