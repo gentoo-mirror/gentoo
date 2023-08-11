@@ -17352,8 +17352,8 @@ sys-kernel/cryptodev 1.12 1.13-r1 9999: device that allows access to Linux kerne
 sys-kernel/dracut 057-r3 059-r2 059-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.250 5.4.251 5.4.252 5.10.187 5.10.188 5.10.189 5.15.122 5.15.123 5.15.124 5.15.125 6.1.41 6.1.42 6.1.43 6.1.44 6.4.6 6.4.7 6.4.8 6.4.9: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.250 5.4.251 5.4.252 5.10.187 5.10.188 5.10.189 5.15.122 5.15.123 5.15.124 5.15.125 6.1.41 6.1.42 6.1.43 6.1.44 6.4.6 6.4.7 6.4.8 6.4.9: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.250 5.4.251 5.4.252 5.4.253 5.10.187 5.10.188 5.10.189 5.10.190 5.15.122 5.15.123 5.15.124 5.15.125 6.1.41 6.1.42 6.1.43 6.1.44 6.1.45 6.4.6 6.4.7 6.4.8 6.4.9 6.4.10: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.250 5.4.251 5.4.252 5.4.253 5.10.187 5.10.188 5.10.189 5.10.190 5.15.122 5.15.123 5.15.124 5.15.125 6.1.41 6.1.42 6.1.43 6.1.44 6.1.45 6.4.6 6.4.7 6.4.8 6.4.9 6.4.10: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.14.315 4.14.316 4.14.319 4.14.320 4.14.321 4.14.322 4.19.289 4.19.290 4.19.291 5.4.250 5.4.251 5.4.252 5.4.253 5.10.187 5.10.188 5.10.189 5.10.190 5.15.122 5.15.123 5.15.124 5.15.125 5.15.126 6.1.41 6.1.42 6.1.43 6.1.44 6.1.45 6.4.6 6.4.7 6.4.8 6.4.9 6.4.10: Full sources including the Gentoo patchset for the 6.4 kernel tree
 sys-kernel/git-sources 6.5_rc1 6.5_rc2 6.5_rc3 6.5_rc4 6.5_rc5: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 7: Gentoo fork of installkernel script from debianutils
@@ -17369,7 +17369,7 @@ sys-kernel/pf-sources 6.1_p6 6.2_p7: Linux kernel fork that includes the pf-kern
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.318_p150 4.19.284_p125 5.4.242_p81 5.10.184_p90 5.15.113_p64 6.0.5_p14 6.1.33_p11: Full Linux 6.1 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.250 5.4.251 5.4.252 5.4.9999 5.10.187 5.10.188 5.10.189 5.10.9999 5.15.122 5.15.123 5.15.124 5.15.125 5.15.9999 5.19.9999 6.1.41 6.1.42 6.1.43 6.1.44 6.1.9999 6.4.6 6.4.7 6.4.8 6.4.9: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.250 5.4.251 5.4.252 5.4.253 5.4.9999 5.10.187 5.10.188 5.10.189 5.10.190 5.10.9999 5.15.122 5.15.123 5.15.124 5.15.125 5.15.9999 5.19.9999 6.1.41 6.1.42 6.1.43 6.1.44 6.1.45 6.1.9999 6.4.6 6.4.7 6.4.8 6.4.9 6.4.10: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.14.322 4.19.291 5.4.253 5.10.190 5.15.126 6.1.45 6.4.10: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.3.9: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17557,7 +17557,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.250 5.4.251 5.4.252 5.10.187 5.10.188 5.10.189 5.15.122 5.15.123 5.15.124 5.15.125 6.1.41 6.1.42 6.1.43 6.1.44 6.4.6 6.4.7 6.4.8 6.4.9: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.250 5.4.251 5.4.252 5.4.253 5.10.187 5.10.188 5.10.189 5.10.190 5.15.122 5.15.123 5.15.124 5.15.125 6.1.41 6.1.42 6.1.43 6.1.44 6.1.45 6.4.6 6.4.7 6.4.8 6.4.9 6.4.10: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r1 7.0: Virtual for .NET SDK
 virtual/editor 0-r5: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
