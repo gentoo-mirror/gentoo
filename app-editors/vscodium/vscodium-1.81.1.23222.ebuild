@@ -20,6 +20,7 @@ SRC_URI="
 	$(arch_src_uri arm armhf)
 	$(arch_src_uri arm64 arm64)
 "
+S="${WORKDIR}"
 
 RESTRICT="strip bindist"
 
@@ -43,7 +44,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm ~arm64"
-IUSE=""
+IUSE="kerberos"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
@@ -54,6 +55,7 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
+	net-print/cups
 	sys-apps/util-linux
 	sys-apps/dbus
 	x11-libs/cairo
@@ -71,29 +73,18 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libxshmfence
 	x11-libs/pango
+	kerberos? ( app-crypt/mit-krb5 )
 "
 
-QA_PREBUILT="
-	/opt/vscode/bin/code-tunnel
-	/opt/vscodium/chrome_crashpad_handler
-	/opt/vscodium/chrome-sandbox
-	/opt/vscodium/codium
-	/opt/vscodium/libEGL.so
-	/opt/vscodium/libffmpeg.so
-	/opt/vscodium/libGLESv2.so
-	/opt/vscodium/libvk_swiftshader.so
-	/opt/vscodium/libvulkan.so*
-	/opt/vscodium/resources/app/extensions/*
-	/opt/vscodium/resources/app/node_modules.asar.unpacked/*
-	/opt/vscodium/swiftshader/libEGL.so
-	/opt/vscodium/swiftshader/libGLESv2.so
-"
-
-S="${WORKDIR}"
+QA_PREBUILT="*"
 
 src_install() {
 	# Cleanup
 	rm "${S}/resources/app/LICENSE.txt" || die
+
+	if ! use kerberos; then
+		rm -r "${S}/resources/app/node_modules.asar.unpacked/kerberos" || die
+	fi
 
 	# Install
 	pax-mark m codium
