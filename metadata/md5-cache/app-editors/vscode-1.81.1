@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=Multiplatform Visual Studio Code from Microsoft
+EAPI=8
+HOMEPAGE=https://code.visualstudio.com
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop pax-utils xdg optfeature
+IUSE=kerberos
+KEYWORDS=-* ~amd64 ~arm ~arm64
+LICENSE=Apache-2.0 BSD BSD-1 BSD-2 BSD-4 CC-BY-4.0 ISC LGPL-2.1+ Microsoft-vscode MIT MPL-2.0 openssl PYTHON TextMate-bundle Unlicense UoI-NCSA W3C
+RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 app-crypt/libsecret[crypt] dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/mesa sys-apps/util-linux sys-apps/dbus x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libxkbfile x11-libs/libXrandr x11-libs/libxshmfence x11-libs/pango kerberos? ( app-crypt/mit-krb5 )
+RESTRICT=mirror strip bindist
+SLOT=0
+SRC_URI=amd64? ( https://update.code.visualstudio.com/1.81.1/linux-x64/stable -> vscode-1.81.1-amd64.tar.gz ) arm? ( https://update.code.visualstudio.com/1.81.1/linux-armhf/stable -> vscode-1.81.1-arm.tar.gz ) arm64? ( https://update.code.visualstudio.com/1.81.1/linux-arm64/stable -> vscode-1.81.1-arm64.tar.gz )
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	pax-utils	91d47e5d20627c717aa878b9167c62a8	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=cb67cdde80a0638c3ad0279397d7f6ee

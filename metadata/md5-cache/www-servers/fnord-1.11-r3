@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=Yet another small httpd
+EAPI=7
+HOMEPAGE=http://www.fefe.de/fnord/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=auth
+KEYWORDS=~amd64 ~hppa ~ppc ~riscv ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/nofiles acct-user/fnord acct-user/fnordlog sys-apps/ucspi-tcp virtual/daemontools
+SLOT=0
+SRC_URI=http://www.fefe.de/fnord/fnord-1.11.tar.bz2
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10
+_md5_=61ddeb186a7157c7a09560fd2e7bf26c
