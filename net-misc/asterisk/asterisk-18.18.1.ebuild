@@ -5,7 +5,7 @@ EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} )
 
-inherit autotools linux-info lua-single systemd toolchain-funcs tmpfiles
+inherit autotools linux-info lua-single toolchain-funcs
 
 DESCRIPTION="Asterisk: A Modular Open Source PBX System"
 HOMEPAGE="https://www.asterisk.org/"
@@ -94,6 +94,7 @@ DEPEND="acct-user/asterisk
 "
 
 RDEPEND="${DEPEND}
+	net-misc/asterisk-base
 	net-misc/asterisk-core-sounds
 	net-misc/asterisk-extra-sounds
 	net-misc/asterisk-moh-opsound
@@ -312,14 +313,6 @@ src_install() {
 	diropts -m 0750 -o asterisk -g asterisk
 	keepdir /var/log/asterisk/{cdr-csv,cdr-custom}
 
-	newsbin "${FILESDIR}/asterisk_wrapper-18.17.1-20.2.1" asterisk_wrapper
-	newinitd "${FILESDIR}"/initd-18.17.1-20.2.1 asterisk
-	newconfd "${FILESDIR}"/confd-16.26.1-18.12.1 asterisk
-
-	systemd_dounit "${FILESDIR}"/asterisk.service
-	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles-16.22.0-18.8.0.conf asterisk.conf
-	systemd_install_serviced "${FILESDIR}"/asterisk.service.conf
-
 	# Reset diropts else dodoc uses it for doc installations.
 	diropts -m0755
 
@@ -328,11 +321,6 @@ src_install() {
 
 	# install extra documentation
 	use doc && dodoc doc/*.{txt,pdf}
-
-	# install logrotate snippet; bug #329281
-	#
-	insinto /etc/logrotate.d
-	newins "${FILESDIR}/1.6.2/asterisk.logrotate4" asterisk
 
 	# Asterisk installs a few folders that's empty by design,
 	# but still required.  This finds them, and marks them for
@@ -343,8 +331,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	tmpfiles_process asterisk.conf
-
 	if [ -z "${REPLACING_VERSIONS}" ]; then
 		elog "Asterisk Wiki: https://wiki.asterisk.org/wiki/"
 		elog "Gentoo VoIP IRC Channel: #gentoo-voip @ irc.libera.chat"
