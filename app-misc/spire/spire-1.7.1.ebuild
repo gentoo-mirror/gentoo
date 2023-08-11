@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+git_tag=${PV}
+git_hash=1b775d5
 inherit go-module
 
 DESCRIPTION="the spiffe runtime environment"
@@ -20,16 +22,14 @@ RDEPEND="${COMMON_DEPEND}"
 
 RESTRICT="test"
 
-src_prepare() {
-	default
-	sed -i -e 's/build:.*tidy/build:/' Makefile
-	set -- $(go version)
-	x=${3#go}
-	echo ${x} > .go-version
-}
-
 src_compile() {
-	emake build
+	local go_ldflags+="
+		-X github.com/spiffe/spire/pkg/common/version.gittag=${PV}
+		-X github.com/spiffe/spire/pkg/common/version.githash=${git_hash}"
+	ego build -ldflags "${go_ldflags}" \
+		-o bin/spire-agent ./cmd/spire-agent
+	ego build -ldflags "${go_ldflags}" \
+		-o bin/spire-server ./cmd/spire-server
 }
 
 src_test() {
