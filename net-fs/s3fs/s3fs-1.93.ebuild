@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,23 +14,25 @@ SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~riscv x86"
-IUSE="gnutls nettle nss +openssl test"
-REQUIRED_USE="
-	^^ ( gnutls nss openssl )
-	nettle? ( gnutls )"
+KEYWORDS="~amd64 ~riscv ~x86"
+IUSE="gnutls nettle nss"
+REQUIRED_USE="nettle? ( gnutls !nss )"
 
-# Requires active internet connection
+# Requires active internet connection and it tries to download some binaries for later execution
 RESTRICT="test"
 
 DEPEND="
 	dev-libs/libxml2:2
 	net-misc/curl
 	sys-fs/fuse:0
-	gnutls? ( net-libs/gnutls:= )
-	nettle? ( dev-libs/nettle:= )
 	nss? ( dev-libs/nss )
-	openssl? ( dev-libs/openssl:0= )
+	!nss? (
+		gnutls? (
+			net-libs/gnutls:=
+			nettle? ( dev-libs/nettle:= )
+		)
+		!gnutls? ( dev-libs/openssl:0= )
+	)
 "
 
 RDEPEND="${DEPEND}
@@ -43,15 +45,23 @@ S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	default
+
+	sed -i 's/ -D_FORTIFY_SOURCE=3//' configure.ac || die
+
 	eautoreconf
 }
 
 src_configure() {
 	local myeconfargs=(
-		$(use_with gnutls)
 		$(use_with nettle)
-		$(use_with nss)
-		$(use_with openssl)
 	)
+	if use nss; then
+		myeconfargs+=( $(use_with nss) )
+	elif use gnutls; then
+		myeconfargs+=( $(use_with gnutls) )
+	else
+		myeconfargs+=( --with-openssl )
+	fi
+
 	econf "${myeconfargs[@]}"
 }
