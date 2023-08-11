@@ -1,0 +1,15 @@
+BDEPEND=dev-qt/qtdbus:5= >=dev-qt/qtquickcontrols2-5.15.2:5= >=dev-qt/qtwidgets-5.15.2:5= !minimal? ( kde-frameworks/qqc2-desktop-style:5= ) wayland? ( dev-qt/qtwayland:5= ) gnome-base/gsettings-desktop-schemas sys-apps/xdg-desktop-portal x11-libs/gtk+:3 >=x11-themes/adwaita-qt-1.4.2 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtdbus:5= >=dev-qt/qtquickcontrols2-5.15.2:5= >=dev-qt/qtwidgets-5.15.2:5= !minimal? ( kde-frameworks/qqc2-desktop-style:5= ) wayland? ( dev-qt/qtwayland:5= ) gnome-base/gsettings-desktop-schemas sys-apps/xdg-desktop-portal x11-libs/gtk+:3 >=x11-themes/adwaita-qt-1.4.2
+DESCRIPTION=A Qt Platform Theme aimed to accommodate GNOME settings
+EAPI=8
+HOMEPAGE=https://github.com/FedoraQt/QGnomePlatform
+INHERIT=cmake
+IUSE=minimal wayland
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-qt/qtdbus:5= >=dev-qt/qtquickcontrols2-5.15.2:5= >=dev-qt/qtwidgets-5.15.2:5= !minimal? ( kde-frameworks/qqc2-desktop-style:5= ) wayland? ( dev-qt/qtwayland:5= ) gnome-base/gsettings-desktop-schemas sys-apps/xdg-desktop-portal x11-libs/gtk+:3 >=x11-themes/adwaita-qt-1.4.2
+SLOT=0
+SRC_URI=https://github.com/FedoraQt/QGnomePlatform/archive/0.9.2.tar.gz -> QGnomePlatform-0.9.2.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692
+_md5_=7e5736ae569a2d767f43e1e41df33987
