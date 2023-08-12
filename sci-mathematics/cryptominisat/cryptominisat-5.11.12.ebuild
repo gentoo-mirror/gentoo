@@ -7,21 +7,25 @@ inherit cmake
 
 DESCRIPTION="Advanced SAT solver with C++ and command-line interfaces"
 HOMEPAGE="https://github.com/msoos/cryptominisat/"
-SRC_URI="https://github.com/msoos/${PN}/archive/${PV}.tar.gz
-	-> ${P}.tar.gz"
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/msoos/${PN}.git"
+else
+	SRC_URI="https://github.com/msoos/${PN}/archive/${PV}.tar.gz
+		-> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2 MIT"
-RESTRICT="test"  # tests require many convoluted bundled (git) modules
+RESTRICT="test"         # Tests require many git modules.
 
 RDEPEND="
 	dev-libs/boost:=
 	sys-libs/zlib:=
 "
 DEPEND="${RDEPEND}"
-
-PATCHES=( "${FILESDIR}"/${PN}-5.11.4-gcc-13.patch )
 
 src_configure() {
 	local -a mycmakeargs=(
@@ -30,11 +34,4 @@ src_configure() {
 		-DENABLE_TESTING=OFF
 	)
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-
-	dodir /usr/share/man
-	mv "${ED}"/usr/man "${ED}"/usr/share/man || die
 }

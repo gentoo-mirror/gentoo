@@ -21,6 +21,8 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
+PATCHES=( "${FILESDIR}"/${PN}-0.590-cstdint.patch )
+
 DOCS=( CONTRIBUTING.md README.md SECURITY.md )
 
 src_test() {
