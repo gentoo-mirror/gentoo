@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Tool to ensure K8s manifests and Helm charts follow best practices
+EAPI=8
+HOMEPAGE=https://hub.datree.io/ https://github.com/datreeio/datree/
+INHERIT=edo go-module shell-completion
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/datreeio/datree/archive/1.9.19.tar.gz -> datree-1.9.19.tar.gz https://dev.gentoo.org/~xgqt/distfiles/deps/datree-1.9.19-deps.tar.xz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	bb7eb6bc232cd6c4bf8af739cdd2ee14
+_md5_=aab36f2a18eed8488aacc3c7462ae2c3
