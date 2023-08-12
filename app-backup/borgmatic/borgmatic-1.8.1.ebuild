@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -54,20 +54,20 @@ src_install() {
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "To generate a sample configuration file, run:"
-		elog "    generate-borgmatic-config"
+		elog "    ${PN} config generate"
 	else
 		local oldver
 		for oldver in ${REPLACING_VERSIONS}; do
-			if ver_test "${oldver}" -lt 1.7.11; then
-				ewarn "Since version 1.7.11 ${PN} defaults to a different way of selecting archives for multi-archive actions."
+			if ver_test "${oldver}" -lt 1.8.0; then
+				ewarn "Please be warned that ${PN}-1.8.0 has introduced several breaking changes."
 				ewarn "For details, please see"
 				ewarn
-				ewarn "	https://torsion.org/borgmatic/docs/how-to/make-per-application-backups/#archive-naming"
+				ewarn "	https://github.com/borgmatic-collective/borgmatic/releases/tag/1.8.0"
 				ewarn
 				break
 			fi
 		done
 	fi
 	elog
-	elog "Systemd users wishing to periodically run borgmatic can use the provided timer and service units."
+	elog "Systemd users wishing to periodically run ${PN} can use the provided timer and service units."
 }

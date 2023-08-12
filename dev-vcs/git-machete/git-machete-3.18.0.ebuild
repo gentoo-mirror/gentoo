@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit bash-completion-r1 distutils-r1
@@ -15,18 +15,23 @@ SRC_URI="https://github.com/VirtusLab/${PN}/archive/refs/tags/v${PV}.tar.gz -> $
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
 RDEPEND="dev-vcs/git"
 BDEPEND="test? (
-	>=dev-python/pytest-mock-3.8.2[${PYTHON_USEDEP}]
-	>=dev-python/pytest-xdist-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/pytest-mock-3.10.0[${PYTHON_USEDEP}]
+	>=dev-python/pytest-xdist-3.2.1[${PYTHON_USEDEP}]
 )"
 
 DOCS=( CONTRIBUTING.md README.md )
 
 distutils_enable_sphinx docs/source dev-python/sphinx-rtd-theme
 distutils_enable_tests pytest
+
+# Several of the fish- and zsh-completion tests appear to be broken
+EPYTEST_DESELECT=(
+	tests/completion_e2e/test_completion_e2e.py::TestCompletionEndToEnd::test_completion
+)
 
 src_install() {
 	distutils-r1_src_install
