@@ -2,13 +2,13 @@ BDEPEND=>=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=>=app-emacs/apel-10.8
 DESCRIPTION=A library to provide basic features about message representation or encoding
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/wanderlust/flim
 INHERIT=elisp
-KEYWORDS=~alpha amd64 ~ia64 ppc ~ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2+
-RDEPEND=>=app-emacs/apel-10.8 !app-emacs/limit >=app-editors/emacs-25.3:*
+RDEPEND=>=app-emacs/apel-10.8 >=app-editors/emacs-25.3:*
 SLOT=0
-SRC_URI=https://github.com/wanderlust/flim/archive/e4bd54fd7d335215b54f7ef27ed974c8cd68d472.tar.gz -> flim-1.14.9_p20190526.tar.gz
+SRC_URI=https://github.com/wanderlust/flim/archive/80b8121f05a5a0d7fcfe3e54085467a646dd2028.tar.gz -> flim-1.14.9_p20230809.tar.gz
 _eclasses_=elisp-common	b3b15bdbe800c721e93b69b70cce2b67	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=fdf76400efa519b1652371ffc28d2fb9
+_md5_=ea688017a267f21572afcb430bef67ef
