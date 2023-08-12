@@ -345,42 +345,16 @@ dev-util/cucumber-html-formatter:17
 >=x11-themes/gnome-backgrounds-45_alpha
 >=x11-wm/mutter-45_alpha
 
-# Michael Orlitzky <mjo@gentoo.org> (2023-07-05)
-# I suspect I was its only user, and I'm not a user any more. Upstream
-# has deleted its autoloader for the second time, making an update more
-# trouble than removal, so: removal on or after 2023-08-05.
-dev-php/php-redmine-api
-
-# Michał Górny <mgorny@gentoo.org> (2023-07-05)
-# Discontinued in favor of built-in `ast` module on all supported
-# versions of Python.  No revdeps left.
-# Removal on 2023-08-04.
-dev-python/typed-ast
-
 # Sam James <sam@gentoo.org> (2023-07-05)
 # Doesn't install all needed files by e.g. kernelshark.
 # Need to either split into libtracecmd for the libraries or revert to Makefiles.
 # See bug #909439.
 =dev-util/trace-cmd-3.2
 
-# Holger Hoffstätte <holger@applied-asynchrony.com> (2023-07-04)
-# Obsolete package, replaced by dev-util/scap-driver.
-# https://bugs.gentoo.org/907486
-# Masked for removal on 2023-08-04.
-dev-util/sysdig-kmod
-
 # Sam James <sam@gentoo.org> (2023-06-03)
 # Breaks dev-perl/Spreadsheet-ParseExcel, see bug #909564.
 # Please upgrade to >=dev-perl/dev-perl/OLE-StorageLite-0.220.0.
 =dev-perl/OLE-StorageLite-0.210.0
-
-# James Le Cuirot <chewi@gentoo.org> (2023-06-25)
-# Impossible to legally obtain the original native full game now. It freezes on
-# keyboard input, is incompatible with PipeWire, and requires gamescope to work
-# under Wayland. In short, it's a lost cause. Removal in 30 days. Bug #436140.
-# There is a modern SDL2-based port, but it is only available from Steam.
-games-action/descent3
-games-action/descent3-demo
 
 # Sam James <sam@gentoo.org> (2023-06-23)
 # Segfaults with non-bison yacc.
@@ -474,26 +448,6 @@ app-portage/layman
 # Lots of package breakage as usual for new versions. Masked until most/all
 # reverse dependencies are fixed. Tracker bug is bug #906077.
 =dev-libs/libfmt-10*
-
-# Michał Górny <mgorny@gentoo.org> (2023-05-05)
-# The Gentoo packages are severely out of date, and they haven't been
-# ported to Python 3.11.  They are hard to keep working, and there
-# are better alternatives available.  The suggested replacements are:
-# media-gfx/prusaslicer, media-gfx/superslicer and orcaslicer
-# (not packaged).
-# Removal on 2023-08-04.  Bug #905769.
-media-gfx/cura
-acct-group/ultimaker
-acct-user/ultimaker
-dev-libs/libarcus
-dev-libs/clipper
-dev-libs/libcharon
-dev-libs/libnest2d
-dev-libs/libsavitar
-dev-python/pynest2d
-dev-python/uranium
-media-gfx/fdm-materials
-media-gfx/curaengine
 
 # Sam James <sam@gentoo.org> (2023-05-03)
 # Broken pkgconfig file, please upgrade to -r1.
