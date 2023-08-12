@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( virtual/latex-base dev-texlive/texlive-latexextra dev-texlive/texlive-langgreek dev-texlive/texlive-mathscience app-text/ghostscript-gpl ) qt5? ( dev-qt/linguist-tools:5 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=cairo? ( x11-libs/cairo x11-libs/pango ) gd? ( >=media-libs/gd-2.0.35-r3:2=[png] ) ggi? ( media-libs/libggi ) latex? ( virtual/latex-base lua? ( dev-tex/pgf >=dev-texlive/texlive-latexrecommended-2008-r2 ) ) libcaca? ( media-libs/libcaca ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) qt5? ( dev-qt/qtcore:5= dev-qt/qtgui:5= dev-qt/qtnetwork:5= dev-qt/qtprintsupport:5= dev-qt/qtsvg:5= dev-qt/qtwidgets:5= ) readline? ( sys-libs/readline:0= ) libcerf? ( sci-libs/libcerf ) wxwidgets? ( x11-libs/wxGTK:3.2-gtk3[X] x11-libs/cairo x11-libs/pango x11-libs/gtk+:3 ) X? ( x11-libs/libXaw )
+DESCRIPTION=Command-line driven interactive plotting program
+EAPI=8
+HOMEPAGE=http://www.gnuplot.info/
+IDEPEND=latex? ( virtual/latex-base )
+INHERIT=autotools lua-single readme.gentoo-r1 toolchain-funcs wxwidgets
+IUSE=aqua bitmap cairo doc examples +gd ggi latex libcaca libcerf lua qt5 readline regis wxwidgets X lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=gnuplot
+RDEPEND=cairo? ( x11-libs/cairo x11-libs/pango ) gd? ( >=media-libs/gd-2.0.35-r3:2=[png] ) ggi? ( media-libs/libggi ) latex? ( virtual/latex-base lua? ( dev-tex/pgf >=dev-texlive/texlive-latexrecommended-2008-r2 ) ) libcaca? ( media-libs/libcaca ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) qt5? ( dev-qt/qtcore:5= dev-qt/qtgui:5= dev-qt/qtnetwork:5= dev-qt/qtprintsupport:5= dev-qt/qtsvg:5= dev-qt/qtwidgets:5= ) readline? ( sys-libs/readline:0= ) libcerf? ( sci-libs/libcerf ) wxwidgets? ( x11-libs/wxGTK:3.2-gtk3[X] x11-libs/cairo x11-libs/pango x11-libs/gtk+:3 ) X? ( x11-libs/libXaw )
+REQUIRED_USE=doc? ( gd ) lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
+SLOT=0
+SRC_URI=mirror://sourceforge/gnuplot/gnuplot-5.4.8.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	flag-o-matic	ad475baa777c9978fa035216c8264a10	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5
+_md5_=97853d333f7dff60885cc50f6845dec0
