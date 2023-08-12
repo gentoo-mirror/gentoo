@@ -3,10 +3,11 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby30 ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="readme.md"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
+RUBY_FAKEGEM_RECIPE_TEST="sus"
 
 inherit ruby-fakegem
 
@@ -16,16 +17,13 @@ SRC_URI="https://github.com/socketry/console/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE=""
 
-ruby_add_rdepend "dev-ruby/fiber-local"
-
-ruby_add_bdepend "test? ( dev-ruby/sus )"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-tests.patch
-)
+ruby_add_rdepend "
+	dev-ruby/fiber-annotation
+	dev-ruby/fiber-local
+"
 
 all_ruby_prepare() {
 	sed -i -E 's/require_relative "(.+)"/require File.expand_path("\1")/g' "${RUBY_FAKEGEM_GEMSPEC}" || die
@@ -35,8 +33,4 @@ all_ruby_prepare() {
 
 	# Avoid sandbox violation during tests
 	sed -i -e 's:/tmp/:'"${TMPDIR}"'/:' test/console/output.rb || die
-}
-
-each_ruby_test() {
-	${RUBY} -S sus-parallel || die
 }

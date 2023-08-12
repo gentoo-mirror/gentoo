@@ -1,27 +1,27 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit elisp
 
 DESCRIPTION="Yet Another Message Interface on Emacsen"
 HOMEPAGE="https://github.com/wanderlust/wanderlust"
-GITHUB_SHA1="b9a529a54b9e7eafa4ed230ad28efffe0d25a20e"
-SRC_URI="https://github.com/wanderlust/wanderlust/archive/${GITHUB_SHA1}.tar.gz -> ${P}.tar.gz"
+GITHUB_SHA1="8369b2d5170a174652294835dd9a18ed21a38cb2"
+SRC_URI="https://github.com/wanderlust/${PN}/archive/${GITHUB_SHA1}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${GITHUB_SHA1}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~ia64 ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="bbdb ssl l10n_ja"
 
-DEPEND=">=app-emacs/apel-10.8
+RDEPEND=">=app-emacs/apel-10.8
 	>=app-emacs/flim-1.14.9
 	>=app-emacs/semi-1.14.7
 	bbdb? ( app-emacs/bbdb )"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${PN}-${GITHUB_SHA1}"
 SITEFILE="50${PN}-gentoo.el"
 
 src_configure() {
@@ -32,13 +32,13 @@ src_configure() {
 }
 
 src_compile() {
-	emake
-	emake info
+	emake all info PACKAGE_LISPDIR="NONE"
 }
 
 src_install() {
 	emake \
 		LISPDIR="${ED}${SITELISP}" \
+		PACKAGE_LISPDIR="NONE" \
 		PIXMAPDIR="${ED}${SITEETC}/wl/icons" \
 		install
 
@@ -47,11 +47,11 @@ src_install() {
 	insinto "${SITEETC}/wl/samples/en"
 	doins samples/en/*
 	doinfo doc/wl*.info
-	dodoc BUGS ChangeLog INSTALL NEWS README.md
+	dodoc BUGS ChangeLog* INSTALL NEWS README.md
 
 	if use l10n_ja; then
 		insinto "${SITEETC}/wl/samples/ja"
 		doins samples/ja/*
-		dodoc BUGS.ja INSTALL.ja NEWS.ja README.ja
+		dodoc BUGS.ja INSTALL.ja NEWS.ja README.ja.md
 	fi
 }
