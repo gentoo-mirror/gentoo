@@ -1,15 +1,15 @@
 BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
-DESCRIPTION=A flexible DNS proxy, with support for encrypted DNS protocols
+DESCRIPTION=Flexible DNS proxy, with support for encrypted DNS protocols
 EAPI=8
 HOMEPAGE=https://github.com/DNSCrypt/dnscrypt-proxy
 IDEPEND=filecaps? ( sys-libs/libcap )
-INHERIT=fcaps go-module systemd git-r3
-IUSE=+pie +filecaps
+INHERIT=fcaps go-module prefix systemd git-r3
+IUSE=+filecaps
 LICENSE=Apache-2.0 BSD ISC MIT MPL-2.0
 PROPERTIES=live
 RDEPEND=acct-group/dnscrypt-proxy acct-user/dnscrypt-proxy
 RESTRICT=strip
 SLOT=0
-_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=637644a937aa78acca0db692edc78021
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	prefix	eab3c99d77fe00506c109c8a736186f7	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=5dda02497fa9ec2830496f4cf348f505

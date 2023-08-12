@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst test unpack
+DESCRIPTION=Flexible DNS proxy, with support for encrypted DNS protocols
+EAPI=8
+HOMEPAGE=https://github.com/DNSCrypt/dnscrypt-proxy
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module prefix systemd
+IUSE=+filecaps
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0 BSD ISC MIT MPL-2.0
+RDEPEND=acct-group/dnscrypt-proxy acct-user/dnscrypt-proxy
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.1.5.tar.gz -> dnscrypt-proxy-2.1.5.tar.gz
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	prefix	eab3c99d77fe00506c109c8a736186f7	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=5dda02497fa9ec2830496f4cf348f505
