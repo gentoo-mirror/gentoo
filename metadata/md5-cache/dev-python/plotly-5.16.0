@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/ipykernel[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/ipython[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/ipywidgets[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/jupyter[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/jupyterlab[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pandas[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pillow[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/requests[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pytz[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/shapely[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/statsmodels[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/xarray[python_targets_python3_10(-)?,python_targets_python3_11(-)?] sci-libs/scikit-image[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) test? ( dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/tenacity-6.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Browser-based graphing library for Python
+EAPI=8
+HOMEPAGE=https://plotly.com/python/ https://github.com/plotly/plotly.py/ https://pypi.org/project/plotly/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/tenacity-6.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/plotly/plotly.py/archive/refs/tags/v5.16.0.tar.gz -> plotly.py-5.16.0.gh.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
+_md5_=221bc65a92a7258525233e3a4c63fb77
