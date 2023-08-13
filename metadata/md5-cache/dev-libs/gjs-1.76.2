@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Projects/Gjs https://gitlab.gnome.org/GNOME/gjs
 INHERIT=flag-o-matic gnome.org meson virtualx
 IUSE=+cairo examples readline sysprof test test
-KEYWORDS=amd64 arm arm64 ~loong ~ppc ppc64 ~riscv x86
+KEYWORDS=amd64 arm arm64 ~loong ppc ppc64 ~riscv x86
 LICENSE=MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )
 RDEPEND=>=dev-libs/glib-2.66.0:2 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.71.1:= >=dev-lang/spidermonkey-102.2.0:102 cairo? ( x11-libs/cairo[X,glib] ) readline? ( sys-libs/readline:0= )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gjs/1.76/gjs-1.76.2.tar.xz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	meson	08b7183c3f4811568ee93eb0f79a89fe	virtualx	817571665ee28575da44ee08135089e5
-_md5_=261011d6cc4f69b6a2cdef968600d6a7
+_md5_=1142840a9158b425686f1f3da5409b50
