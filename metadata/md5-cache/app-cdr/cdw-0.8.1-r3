@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure prepare
-DEPEND=app-cdr/cdrtools app-cdr/dvd+rw-tools dev-libs/libburn dev-libs/libcdio:=[-minimal] sys-libs/ncurses:=[unicode(+)]
+DEPEND=app-cdr/cdrtools app-cdr/dvd+rw-tools dev-libs/libburn dev-libs/libcdio:=[-minimal] sys-libs/ncurses:=
 DESCRIPTION=An ncurses based console frontend for cdrtools and dvd+rw-tools
-EAPI=7
+EAPI=8
 HOMEPAGE=http://cdw.sourceforge.net
 INHERIT=autotools toolchain-funcs
 KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2+
-RDEPEND=app-cdr/cdrtools app-cdr/dvd+rw-tools dev-libs/libburn dev-libs/libcdio:=[-minimal] sys-libs/ncurses:=[unicode(+)]
+RDEPEND=app-cdr/cdrtools app-cdr/dvd+rw-tools dev-libs/libburn dev-libs/libcdio:=[-minimal] sys-libs/ncurses:=
 SLOT=0
 SRC_URI=mirror://sourceforge/cdw/cdw-0.8.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=0d0ff2aa274a109844d32ff8bafc85a9
+_md5_=0ff9a1825c37593069208731de219b34
