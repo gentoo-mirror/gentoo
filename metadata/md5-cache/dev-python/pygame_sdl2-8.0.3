@@ -1,4 +1,4 @@
-BDEPEND=dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+BDEPEND=<dev-python/cython-3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/libsdl2:=[video] media-libs/sdl2-image:=[png,jpeg] >=media-libs/sdl2-mixer-2.0.2:= media-libs/sdl2-ttf:=
 DESCRIPTION=Reimplementation of portions of the pygame API using SDL2
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://www.renpy.org/dl/8.0.3/pygame_sdl2-2.1.0-for-renpy-8.0.3.tar.gz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
-_md5_=837e5bcd909170ed200279928c780a45
+_md5_=5f51a90c0370dc1a06c13c04fb085790
