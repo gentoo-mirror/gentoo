@@ -1,0 +1,15 @@
+BDEPEND=emacs? ( >=app-editors/emacs-25:* )
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DESCRIPTION=Cryptographic protocol verifier in the formal model
+EAPI=8
+HOMEPAGE=https://bblanche.gitlabpages.inria.fr/proverif/ https://gitlab.inria.fr/bblanche/proverif/
+INHERIT=edo elisp-common findlib
+IUSE=emacs +ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=emacs? ( >=app-editors/emacs-25:* ) dev-lang/ocaml:=[ocamlopt?]
+SLOT=0
+SRC_URI=https://gitlab.inria.fr/bblanche/proverif/-/archive/v2.04/proverif-v2.04.tar.bz2
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	elisp-common	b3b15bdbe800c721e93b69b70cce2b67	findlib	cc1c14904708a0a28bcb256b342a808c
+_md5_=5d8b3e45511fdfc3880f0e1de2393978

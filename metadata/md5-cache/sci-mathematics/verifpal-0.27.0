@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Cryptographic protocol analysis for real-world protocols
+EAPI=8
+HOMEPAGE=https://verifpal.com/ https://source.symbolic.software/verifpal/verifpal/
+INHERIT=go-module
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://source.symbolic.software/verifpal/verifpal/-/archive/v0.27.0/verifpal-v0.27.0.tar.bz2 https://dev.gentoo.org/~xgqt/distfiles/deps/verifpal-0.27.0-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22
+_md5_=7459a5e9c9756601e19606c9190cf485
