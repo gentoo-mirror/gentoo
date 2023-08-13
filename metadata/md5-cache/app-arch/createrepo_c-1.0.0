@@ -1,15 +1,16 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libxml2 dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd sys-libs/zlib:= zstd? ( app-arch/zstd:= )
 DESCRIPTION=C implementation of createrepo
 EAPI=8
 HOMEPAGE=https://github.com/rpm-software-management/createrepo_c
-INHERIT=cmake git-r3
+INHERIT=cmake
 IUSE=legacy test zstd
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk dev-db/sqlite:3 dev-libs/glib:2 dev-libs/libxml2 dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd sys-libs/zlib:= zstd? ( app-arch/zstd:= )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	git-r3	2358a7b20091609e24bd3a83b3ac5991
+SRC_URI=https://github.com/rpm-software-management/createrepo_c/archive/1.0.0.tar.gz -> createrepo_c-1.0.0.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692
 _md5_=b4e1edb02cf9786c2e3744bfd7ef62af

@@ -1,14 +1,15 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 dev-vcs/mercurial
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-bobfriesenhahn ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=dev-libs/libltdl bzip2? ( app-arch/bzip2 ) fpx? ( media-libs/libfpx ) heif? ( media-libs/libheif:= ) imagemagick? ( !media-gfx/imagemagick ) jbig? ( media-libs/jbigkit ) jpeg? ( media-libs/libjpeg-turbo:= ) jpegxl? ( media-libs/libjxl:= ) lcms? ( media-libs/lcms:2 ) lzma? ( app-arch/xz-utils ) perl? ( dev-lang/perl:= ) png? ( media-libs/libpng:= ) postscript? ( app-text/ghostscript-gpl ) svg? ( dev-libs/libxml2 ) tcmalloc? ( dev-util/google-perftools:= ) tiff? ( media-libs/tiff:= ) truetype? ( media-fonts/urw-fonts >=media-libs/freetype-2 ) webp? ( media-libs/libwebp:= ) wmf? ( media-libs/libwmf ) X? ( x11-libs/libSM x11-libs/libX11 x11-libs/libXext ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=Collection of tools and libraries for many image formats
 EAPI=8
 HOMEPAGE=http://www.graphicsmagick.org/ https://hg.osdn.net/view/graphicsmagick/GM
-INHERIT=autotools toolchain-funcs mercurial
-IUSE=bzip2 +cxx debug dynamic-loading fpx heif imagemagick jbig jpeg jpegxl lcms lzma openmp perl png postscript q16 q32 static-libs svg tcmalloc tiff truetype webp wmf X zlib zstd
+INHERIT=autotools toolchain-funcs verify-sig
+IUSE=bzip2 +cxx debug dynamic-loading fpx heif imagemagick jbig jpeg jpegxl lcms lzma openmp perl png postscript q16 q32 static-libs svg tcmalloc tiff truetype webp wmf X zlib zstd verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=dev-libs/libltdl bzip2? ( app-arch/bzip2 ) fpx? ( media-libs/libfpx ) heif? ( media-libs/libheif:= ) imagemagick? ( !media-gfx/imagemagick ) jbig? ( media-libs/jbigkit ) jpeg? ( media-libs/libjpeg-turbo:= ) jpegxl? ( media-libs/libjxl:= ) lcms? ( media-libs/lcms:2 ) lzma? ( app-arch/xz-utils ) perl? ( dev-lang/perl:= ) png? ( media-libs/libpng:= ) postscript? ( app-text/ghostscript-gpl ) svg? ( dev-libs/libxml2 ) tcmalloc? ( dev-util/google-perftools:= ) tiff? ( media-libs/tiff:= ) truetype? ( media-fonts/urw-fonts >=media-libs/freetype-2 ) webp? ( media-libs/libwebp:= ) wmf? ( media-libs/libwmf ) X? ( x11-libs/libSM x11-libs/libX11 x11-libs/libXext ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
-SLOT=0/9999
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	mercurial	e6a56a378cb9241482284b8b897c7a39
+SLOT=0/1.3
+SRC_URI=mirror://sourceforge/graphicsmagick/GraphicsMagick-1.3.41.tar.xz verify-sig? ( mirror://sourceforge/graphicsmagick/GraphicsMagick-1.3.41.tar.xz.asc )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	verify-sig	dd7ea2e5b0bdcb42523e4797bbf4dd6e
 _md5_=ba7c3cc07234d45057ac580289af3cea
