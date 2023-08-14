@@ -1,0 +1,18 @@
+BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=app-text/hunspell:= app-text/poppler[qt5] dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtscript:5[scripttools] dev-qt/qtwidgets:5 sys-libs/zlib lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
+DESCRIPTION=A simple interface for working with TeX documents
+EAPI=8
+HOMEPAGE=http://tug.org/texworks/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=lua-single python-single-r1 cmake virtualx xdg
+IUSE=lua python lua_single_target_lua5-1 lua_single_target_lua5-3 python_single_target_python3_10 python_single_target_python3_11 test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=app-text/hunspell:= app-text/poppler[qt5] dev-qt/designer:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtscript:5[scripttools] dev-qt/qtwidgets:5 sys-libs/zlib lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 ) ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/TeXworks/texworks/archive/release-0.6.7.tar.gz -> texworks-0.6.7.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	ad475baa777c9978fa035216c8264a10	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=1a6f3d836a16fe32642a5b262e92bae3
