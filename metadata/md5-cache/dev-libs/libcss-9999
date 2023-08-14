@@ -2,7 +2,7 @@ BDEPEND=dev-util/netsurf-buildsystem virtual/pkgconfig >=dev-vcs/git-1.8.2.1[cur
 DEFINED_PHASES=compile install prepare test unpack
 DEPEND=dev-libs/libparserutils dev-libs/libwapcaplet test? ( dev-lang/perl )
 DESCRIPTION=CSS parser and selection engine, written in C
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.netsurf-browser.org/projects/libcss/
 INHERIT=git-r3 netsurf
 IUSE=test
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/libparserutils dev-libs/libwapcaplet
 RESTRICT=!test? ( test )
 SLOT=0/9999
-_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	netsurf	22b05643860c8bf01f0de1de8426b570
-_md5_=b996284e47d889c546a7dee6fa394991
+_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	netsurf	3a16932a52467058f19b48ced2e15c4a
+_md5_=f9d4980a0265a03d94acf56d27ff577e
