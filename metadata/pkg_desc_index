@@ -1547,7 +1547,7 @@ app-crypt/xca 2.4.0-r2: A GUI to OpenSSL, RSA public keys, certificates, signing
 app-crypt/xor-analyze 0.5-r1: Program for cryptanalyzing xor 'encryption' with variable key length
 app-crypt/yubihsm-connector 3.0.4: Server to expose YubiHSM 2 to network
 app-crypt/yubihsm-shell 2.4.0: Components used to interact with the YubiHSM 2
-app-crypt/yubikey-manager 5.0.1 5.1.1: Python library and command line tool for configuring a YubiKey
+app-crypt/yubikey-manager 5.1.1: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.2.5: Cross-platform application for configuring any YubiKey over all USB transports
 app-crypt/yubioath-flutter-bin 6.1.0-r2: Yubico Authenticator for TOTP
 app-crypt/zulucrypt 5.5.0_pre20180223: Front end to cryptsetup
@@ -2705,7 +2705,7 @@ app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
 app-misc/evtest 1.33 1.34 1.35: test program for capturing input device events
 app-misc/faq 0.0.7: Format agnostic jQ
-app-misc/fastfetch 0.1.9999 0.2.9999 1.12.2: Fast system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 1.12.2 2.0.0: Fast system information tool
 app-misc/fdupes 2.2.1 9999: Identify/delete duplicate files residing within specified directories
 app-misc/fdutils 5.6_p2: Utilities for configuring and debugging the Linux floppy driver
 app-misc/fhem 6.2: A GPL'd perl server for house automation
@@ -5047,7 +5047,7 @@ dev-libs/cgreen 1.3.0: Unit test and mocking framework for C and C++
 dev-libs/check 0.15.2-r1: A unit test framework for C
 dev-libs/chmlib 0.40-r2: Library for MS CHM (compressed html) file format
 dev-libs/cl 1.2.4-r2: OpenCL bindings for Erlang
-dev-libs/clhpp 2023.02.06 2023.04.17: Khronos OpenCL C++ bindings
+dev-libs/clhpp 2023.04.17: Khronos OpenCL C++ bindings
 dev-libs/collada-dom 2.5.0-r1: COLLADA Document Object Model (DOM) C++ Library
 dev-libs/concurrencykit 0.7.1-r1: A library with concurrency related algorithms and data structures in C
 dev-libs/confuse 3.3 3.3-r1 3.3-r2: a configuration file parser library
@@ -5435,7 +5435,7 @@ dev-libs/olm 3.2.15: Implementation of the Double Ratchet cryptographic ratchet 
 dev-libs/onigmo 6.2.0-r1: Onigmo is a regular expressions library forked from Oniguruma
 dev-libs/oniguruma 6.9.8 9999: Regular expression library for different character encodings
 dev-libs/opencl-clang 14.0.0 15.0.0 16.0.0-r1: OpenCL-oriented thin wrapper library around clang
-dev-libs/opencl-icd-loader 2023.02.06 2023.04.17: Official Khronos OpenCL ICD Loader
+dev-libs/opencl-icd-loader 2023.04.17: Official Khronos OpenCL ICD Loader
 dev-libs/opencryptoki 3.6.1-r1: PKCS#11 provider cryptographic hardware
 dev-libs/openct 0.6.20-r5: library for accessing smart card terminals
 dev-libs/openobex 1.7.2-r3: Implementation of the OBEX protocol used for transferring data to mobile devices
@@ -5583,6 +5583,7 @@ dev-libs/xxhash 0.7.3 0.8.0 0.8.1: Extremely fast non-cryptographic hash algorit
 dev-libs/yajl 2.1.0-r3 2.1.0-r4: Small event-driven (SAX-style) JSON parser
 dev-libs/yascreen 1.86-r1 1.92: Yet Another Screen Library - curses replacement
 dev-libs/yaz 3.0.53 5.32.0: C/C++ toolkit for Z39.50v3 clients and servers
+dev-libs/yyjson 0.7.0: Fast JSON library in C
 dev-libs/zlog 1.2.15: A reliable, thread safe, clear-model, pure C logging library
 dev-libs/zthread 2.3.2-r5: platform-independent multi-threading and synchronization library for C++
 dev-libs/zziplib 0.13.72-r3: Lightweight library for extracting data from files archived in a single zip file
@@ -10586,7 +10587,7 @@ dev-util/local-log4j-vuln-scanner 0.10: simple local log4j vulnerability scanner
 dev-util/lockrun 20120508-r1 20120508-r2: Lockrun - runs cronjobs with overrun protection
 dev-util/log4shelldetect 0.0.7: Check for java programs vulnerable to log4shell
 dev-util/lsuio 0.2.0-r1: List available userspace I/O (UIO) devices
-dev-util/ltrace 0.7.3.6.1 0.7.91_pre20221216-r1: trace library calls made at runtime
+dev-util/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-util/lttng-modules 2.12.5 2.12.6 2.12.8 2.13.3 2.13.7 2.13.10: LTTng Kernel Tracer Modules
 dev-util/lttng-tools 2.12.3 2.12.5 2.12.11 2.13.7 2.13.8 2.13.9: Linux Trace Toolkit - next generation
 dev-util/lttng-ust 2.12.0 2.12.1 2.12.2 2.12.4 2.13.2 2.13.5 2.13.6: Linux Trace Toolkit - UST library
@@ -10615,7 +10616,7 @@ dev-util/nvidia-cuda-toolkit 11.8.0-r4 12.1.1-r1 12.2.0 12.2.1: NVIDIA CUDA Tool
 dev-util/objconv 2.51: object code file converted (COFF, ELF, OMF, MACHO)
 dev-util/omake 0.10.3-r1: Make replacement
 dev-util/open-vcdiff 0.8.4-r1: An encoder/decoder for the VCDIFF (RFC3284) format
-dev-util/opencl-headers 2023.02.06 2023.04.17: Unified C language headers for the OpenCL API
+dev-util/opencl-headers 2023.04.17: Unified C language headers for the OpenCL API
 dev-util/oprofile 1.4.0: A transparent low-overhead system-wide profiler
 dev-util/ostree 2023.1 2023.2 2023.3 2023.3-r1 2023.5: Operating system and container binary deployment and upgrades
 dev-util/packer 1.7.10 1.8.5 1.8.6: A tool to create identical machine images for multiple platforms

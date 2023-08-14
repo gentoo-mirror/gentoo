@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) networkmanager? ( net-misc/networkmanager ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pci? ( sys-apps/pciutils ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
+DEPEND=dev-libs/yyjson sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) networkmanager? ( net-misc/networkmanager ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pci? ( sys-apps/pciutils ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
 DESCRIPTION=Fast system information tool
 EAPI=8
 HOMEPAGE=https://github.com/fastfetch-cli/fastfetch
 INHERIT=cmake flag-o-matic git-r3
-IUSE=X chafa dbus gnome imagemagick networkmanager opencl opengl osmesa pci pulseaudio sqlite vulkan wayland xcb xfce xrandr
+IUSE=X chafa dbus ddcutil gnome imagemagick networkmanager opencl opengl osmesa pci pulseaudio sqlite vulkan wayland xcb xfce xrandr
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) networkmanager? ( net-misc/networkmanager ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pci? ( sys-apps/pciutils ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
+RDEPEND=dev-libs/yyjson sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) networkmanager? ( net-misc/networkmanager ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pci? ( sys-apps/pciutils ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
 REQUIRED_USE=xrandr? ( X ) chafa? ( imagemagick )
 SLOT=0
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=62ae70b0c3b95249bc698eb603add9e8
+_md5_=ba8954623777bf816ef888c05379940b

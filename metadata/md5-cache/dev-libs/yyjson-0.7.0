@@ -1,14 +1,14 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DESCRIPTION=Unified C language headers for the OpenCL API
+DESCRIPTION=Fast JSON library in C
 EAPI=8
-HOMEPAGE=https://github.com/KhronosGroup/OpenCL-Headers
+HOMEPAGE=https://github.com/ibireme/yyjson https://ibireme.github.io/yyjson/doc/doxygen/html/
 INHERIT=cmake
-IUSE=test
-KEYWORDS=amd64 ppc64 ~riscv x86
-LICENSE=Apache-2.0
+IUSE=doc test
+KEYWORDS=~amd64
+LICENSE=MIT test? ( BSD )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2023.02.06.tar.gz -> opencl-headers-2023.02.06.tar.gz
+SRC_URI=https://github.com/ibireme/yyjson/archive/refs/tags/0.7.0.tar.gz -> yyjson-0.7.0.tar.gz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692
-_md5_=20afcb536bcd21cba4bedd8fd74c4e4e
+_md5_=599c0ccdedecfc0cb563879e99380a73
