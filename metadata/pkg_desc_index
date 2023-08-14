@@ -3018,7 +3018,7 @@ app-portage/flaggie 0.2.1-r2 0.99.4 0.99.5 0.99.6: A smart CLI mangler for packa
 app-portage/g-cpan 0.16.9-r1 0.17.0 0.18.0-r1 9999: Autogenerate and install ebuilds for CPAN modules
 app-portage/g-octave 0.4.1-r8: A tool that generates and installs ebuilds for Octave-Forge
 app-portage/g-sorcery 0.2.3: framework for ebuild generators
-app-portage/gemato 20.4 9999: Stand-alone Manifest generation & verification tool
+app-portage/gemato 20.4 20.5 9999: Stand-alone Manifest generation & verification tool
 app-portage/genlop 0.30.10-r2 0.30.11 9999: Nice emerge.log parser
 app-portage/gentle 0.3.1 0.4.0: Gentoo Lazy Entry - a metadata.xml generator
 app-portage/gentoolkit 0.6.1-r3 9999: Collection of administration scripts for Gentoo
@@ -4845,7 +4845,7 @@ dev-java/swingx-ws 1.0_p20110515-r2: Utilities and widgets to integrate Swing GU
 dev-java/swt 3.7.2-r3 4.10-r2 4.28-r1: GTK based SWT Library
 dev-java/system-rules 1.19.0: A collection of JUnit rules for testing code which uses java.lang.System.
 dev-java/testng 6.9.10-r1: Testing framework inspired by JUnit and NUnit with new features
-dev-java/tomcat-native 1.2.37 2.0.4: Allows Tomcat to use certain native resources for better performance
+dev-java/tomcat-native 1.2.37 1.2.38 2.0.4: Allows Tomcat to use certain native resources for better performance
 dev-java/tomcat-servlet-api 4.1.40: Tomcat's Servlet API 2.3/JSP API 1.2 implementation
 dev-java/treelayout 1.0.3-r1: Efficient and customizable TreeLayout Algorithm in Java.
 dev-java/txw2 2.3.8-r1: TXW is a library that allows you to write XML documents
@@ -8128,7 +8128,7 @@ dev-python/django-timezone-field 5.1: A Django app providing database and form f
 dev-python/django_polymorphic 3.1-r1: Seamless Polymorphic Inheritance for Django Models
 dev-python/djangorestframework 3.14.0: Web APIs with django made easy
 dev-python/dkimpy 1.1.4 1.1.5: DKIM and ARC email signing and verification library
-dev-python/dns-lexicon 3.12.0 3.13.0: Manipulate DNS records on various DNS providers in a standardized/agnostic way
+dev-python/dns-lexicon 3.12.0 3.13.0 3.14.1: Manipulate DNS records on various DNS providers in a standardized/agnostic way
 dev-python/dnspython 2.3.0 2.4.0 2.4.1 2.4.2: DNS toolkit for Python
 dev-python/doc8 1.1.1: Style checker for Sphinx (or other) RST documentation
 dev-python/docker 6.1.3: Python client for Docker
@@ -8377,7 +8377,7 @@ dev-python/jsondiff 2.0.0-r1: Diff JSON and JSON-like structures in Python
 dev-python/jsonext 0.4.2-r1: Well-structured helpers for serializing commonly encountered structures to JSON
 dev-python/jsonmerge 1.9.2: Merge a series of JSON documents
 dev-python/jsonpatch 1.33: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
-dev-python/jsonpickle 3.0.1: Python library for serializing any arbitrary object graph into JSON
+dev-python/jsonpickle 3.0.1 3.0.2: Python library for serializing any arbitrary object graph into JSON
 dev-python/jsonpointer 2.4: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 1.1.0: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
@@ -8401,7 +8401,7 @@ dev-python/jupyter-server-proxy 3.2.2: Jupyter notebook server extension to prox
 dev-python/jupyter-server-terminals 0.4.4: A Jupyter Server Extension Providing Terminals
 dev-python/jupyter-server-ydoc 0.8.0: A Jupyter Server Extension Providing Y Documents
 dev-python/jupyter-ydoc 1.0.2: Document structures for collaborative editing using Ypy
-dev-python/jupyterlab 3.6.3 4.0.3 4.0.4: JupyterLab computational environment
+dev-python/jupyterlab 3.6.3 4.0.3 4.0.4 4.0.5: JupyterLab computational environment
 dev-python/jupyterlab-lsp 4.2.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.2.2: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.23.0: Server components for JupyterLab and JupyterLab like applications
@@ -8576,7 +8576,7 @@ dev-python/nptyping 2.3.1 2.5.0: Type hints for Numpy
 dev-python/nspektr 0.4.0 0.5.0: Distribution package dependency inspector
 dev-python/ntplib 0.4.0-r1: Python NTP library
 dev-python/numexpr 2.8.4 2.8.5: Fast numerical array expression evaluator for Python and NumPy
-dev-python/numpy 1.24.0 1.24.2 1.24.4 1.24.4-r1 1.25.1-r3 1.25.2: Fast array and numerical python library
+dev-python/numpy 1.24.0 1.24.2 1.24.4 1.24.4-r1 1.25.1-r3 1.25.2 1.26.0_beta1: Fast array and numerical python library
 dev-python/numpydoc 1.5.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauthlib 3.2.2: Spec-compliant and thorough implementation of the OAuth request-signing logic
 dev-python/objgraph 3.5.0-r1: Draws Python object reference graphs with graphviz
@@ -8829,7 +8829,7 @@ dev-python/pyotp 2.8.0 2.9.0: PyOTP is a Python library for generating and verif
 dev-python/pyparsing 3.0.9 3.1.0 3.1.1: Easy-to-use Python module for text parsing
 dev-python/pyparted 3.12.0: Python bindings for sys-block/parted
 dev-python/pypax 0.9.5-r1 9999: Python module to get or set either PT_PAX and/or XATTR_PAX flags
-dev-python/pypdf 3.12.2 3.13.0 3.14.0 3.15.0: Python library to work with PDF files
+dev-python/pypdf 3.12.2 3.13.0 3.14.0 3.15.0 3.15.1: Python library to work with PDF files
 dev-python/pyperclip 1.8.2-r1: A cross-platform clipboard module for Python
 dev-python/pyphen 0.14.0: Python module for hyphenation using hunspell dictionaries
 dev-python/pypiserver 1.5.1 1.5.2: Minimal PyPI server
@@ -9317,7 +9317,7 @@ dev-python/toolz 0.12.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.3.2-r1 6.3.3: Python web framework and asynchronous networking library
 dev-python/towncrier 23.6.0: Building newsfiles for your project
-dev-python/tox 3.28.0 4.5.1 4.5.2 4.6.0 4.6.1 4.6.2 4.6.3 4.6.4 4.7.0: virtualenv-based automation of test activities
+dev-python/tox 3.28.0 4.5.1 4.5.2 4.6.0 4.6.1 4.6.2 4.6.3 4.6.4 4.7.0 4.8.0: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.1.0: Python bindings for TSS
 dev-python/tqdm 4.65.0 4.65.2 4.66.0 4.66.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.9.0: A configuration system for Python applications

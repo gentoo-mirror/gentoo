@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/cryptography[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pillow-8.0.0[jpeg,jpeg2k,tiff,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) test? ( >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/flit-core-3.9.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=Python library to work with PDF files
+EAPI=8
+HOMEPAGE=https://pypi.org/project/pypdf/ https://github.com/py-pdf/pypdf/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=BSD-2
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/py-pdf/pypdf/archive/3.15.1.tar.gz -> pypdf-3.15.1.gh.tar.gz test? ( https://github.com/py-pdf/sample-files/archive/935652968f76a41b4fa51afd05498e7dd7314c5e.tar.gz -> pypdf-sample-files-935652968f76a41b4fa51afd05498e7dd7314c5e.gh.tar.gz )
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
+_md5_=aa7d8df25ed4ef98fce825b65f0cba8d
