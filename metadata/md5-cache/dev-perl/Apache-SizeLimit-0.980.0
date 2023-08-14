@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Linux-Pid !<www-apache/mod_perl-2.0.5 >=www-apache/mod_perl-2.0.5 test? ( >=dev-perl/Apache-Test-1.360.0 !www-apache/mpm_itk ) dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Graceful exit for large children
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Apache-SizeLimit
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-perl/Linux-Pid !<www-apache/mod_perl-2.0.5 >=www-apache/mod_perl-2.0.5 dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/SH/SHAY/Apache-SizeLimit-0.98.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2
+_md5_=71aa70f3f274bb4dfb293f992afc3669

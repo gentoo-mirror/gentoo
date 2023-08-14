@@ -5906,16 +5906,16 @@ dev-perl/Apache-AuthCookie 3.300.0 3.310.0: Perl Authentication and Authorizatio
 dev-perl/Apache-CGI-Builder 1.300.0-r3: CGI::Builder and Apache2/mod_perl2 integration
 dev-perl/Apache-DBI 1.120.0-r3: Authentication and Authorization via Perl's DBI
 dev-perl/Apache-LogFormat-Compiler 0.360.0: Compile an Apache log format string to perl-code
-dev-perl/Apache-Reload 0.130.0-r2: Automatically reload changed modules without restarting Apache
+dev-perl/Apache-Reload 0.130.0-r2 0.140.0: Automatically reload changed modules without restarting Apache
 dev-perl/Apache-Session 1.940.0: Persistence framework for session data
-dev-perl/Apache-SizeLimit 0.970.0-r2: Graceful exit for large children
+dev-perl/Apache-SizeLimit 0.970.0-r2 0.980.0: Graceful exit for large children
 dev-perl/Apache-Test 1.420.0-r1 1.430.0: Test.pm wrapper with helpers for testing Apache
 dev-perl/Apache2-AuthenNTLM 0.20.0-r3: Perform Microsoft NTLM and Basic User Authentication
 dev-perl/App-CLI 0.520.0: Dispatcher module for command line interface programs
 dev-perl/App-Cmd 0.334.0 0.335.0: Write command line apps with less suffering
 dev-perl/App-FatPacker 0.10.8: Pack your dependencies onto your script file
 dev-perl/App-Nopaste 1.13.0: Easy access to any pastebin
-dev-perl/App-cpanminus 1.704.400-r1 1.704.600 9999: Get, unpack, build and install modules from CPAN
+dev-perl/App-cpanminus 1.704.400-r1 1.704.600 1.704.700 9999: Get, unpack, build and install modules from CPAN
 dev-perl/App-perlbrew 0.920.0-r1 0.970.0: Manage perl installations in your $HOME
 dev-perl/App-pwhich 1.160.0 1.170.0: Perl-only 'which'
 dev-perl/AppConfig 1.710.0-r1: Perl5 module for reading configuration files and parsing command line arguments
@@ -5946,7 +5946,7 @@ dev-perl/Authen-NTLM 1.90.0-r2: An NTLM authentication module
 dev-perl/Authen-OATH 2.0.1: OATH One Time Passwords
 dev-perl/Authen-PAM 0.160.0-r3: Interface to PAM library
 dev-perl/Authen-Radius 0.320.0: Communicate with a Radius server from Perl
-dev-perl/Authen-SASL 2.160.0-r2: A Perl SASL interface
+dev-perl/Authen-SASL 2.160.0-r2 2.170.0: Perl SASL interface
 dev-perl/Authen-SASL-SASLprep 1.100.0-r1: A Stringprep Profile for User Names and Passwords (RFC 4013)
 dev-perl/Authen-SCRAM 0.11.0-r1: Salted Challenge Response Authentication Mechanism (RFC 5802)
 dev-perl/Authen-Simple 0.500.0-r1: Simple Authentication
@@ -5979,7 +5979,7 @@ dev-perl/Browser-Open 0.40.0-r1: Open a browser at a given URL
 dev-perl/Business-FedEx-DirectConnect 1.10.0-r2: Interface to FedEx Ship Manager Direct
 dev-perl/Business-Hours 0.130.0-r1: Calculate business hours in a time period
 dev-perl/Business-ISBN 3.6.0-r1 3.8.0: Work with ISBN as objects
-dev-perl/Business-ISBN-Data 20210112.6.0 20230322.1.0 20230718.1.0 20230719.1.0: Data pack for Business::ISBN
+dev-perl/Business-ISBN-Data 20210112.6.0 20230322.1.0 20230718.1.0 20230719.1.0 20230811.1.0: Data pack for Business::ISBN
 dev-perl/Business-ISMN 1.202.0 1.203.0: International Standard Music Numbers
 dev-perl/Business-ISSN 1.4.0 1.5.0: Object and functions to work with International Standard Serial Numbers
 dev-perl/Business-Tax-VAT-Validation 1.200.0 1.230.0: A class for european VAT numbers validation
@@ -5998,7 +5998,7 @@ dev-perl/CGI-Application-Dispatch 3.120.0-r2: Dispatch requests to CGI::Applicat
 dev-perl/CGI-Application-Plugin-Redirect 1.0.0-r1: Easy external redirects in CGI::Application
 dev-perl/CGI-Application-Server 0.63.0: a simple HTTP server for developing with CGI::Application
 dev-perl/CGI-Builder 1.360.0-r3: Framework to build simple or complex web-apps
-dev-perl/CGI-Compile 0.250.0: Compile .cgi scripts to a code reference like ModPerl::Registry
+dev-perl/CGI-Compile 0.250.0 0.260.0: Compile .cgi scripts to a code reference like ModPerl::Registry
 dev-perl/CGI-Emulate-PSGI 0.230.0-r1: PSGI adapter for CGI
 dev-perl/CGI-Fast 2.150.0 2.160.0: CGI Interface for Fast CGI
 dev-perl/CGI-FastTemplate 1.90.0-r3: High Performance Templates and Variable Interpolation
@@ -6029,7 +6029,7 @@ dev-perl/Cache-Memcached-Fast 0.270.0 0.280.0: Perl client for memcached, in C l
 dev-perl/Cache-Simple-TimedExpiry 0.270.0-r2: Lightweight cache with timed expiration
 dev-perl/Cairo 1.109.0: Perl interface to the cairo library
 dev-perl/Cairo-GObject 1.5.0-r1: Integrate Cairo into the Glib type system
-dev-perl/Calendar-Simple 2.0.1: Perl extension to create simple calendars
+dev-perl/Calendar-Simple 2.0.1 2.0.3: Perl extension to create simple calendars
 dev-perl/Canary-Stability 2013.0.0: Canary to check perl compatibility for schmorp's modules
 dev-perl/Capture-Tiny 0.480.0-r1: Capture STDOUT and STDERR from Perl, XS or external programs
 dev-perl/Carp-Always 0.160.0: Warns and dies noisily with stack backtraces
@@ -6118,7 +6118,7 @@ dev-perl/Const-Fast 0.14.0-r2: Facility for creating read-only scalars, arrays, 
 dev-perl/Context-Preserve 0.30.0: Return chained, modified values from subs, without losing context
 dev-perl/Contextual-Return 0.4.14-r1: Create context-sensitive return values
 dev-perl/Convert-ASCII-Armour 1.400.0-r2: Convert binary octets into ASCII armoured messages
-dev-perl/Convert-ASN1 0.270.0-r1 0.330.0: Standard en/decode of ASN.1 structures
+dev-perl/Convert-ASN1 0.270.0-r1 0.330.0 0.340.0: Standard en/decode of ASN.1 structures
 dev-perl/Convert-BER 1.320.0-r2: Class for encoding/decoding BER messages
 dev-perl/Convert-Base32 0.60.0: Encoding and decoding of base32 strings
 dev-perl/Convert-BinHex 1.125.0-r1: Extract data from Macintosh BinHex files
@@ -6226,7 +6226,7 @@ dev-perl/Data-Page-Pageset 1.20.0-r2: Change long page list to be shorter and we
 dev-perl/Data-Password 1.120.0: Extension for assessing password quality
 dev-perl/Data-Password-passwdqc 0.90.0-r1: Check password strength and generate password using passwdqc
 dev-perl/Data-Perl 0.2.11: Base classes wrapping fundamental Perl data types
-dev-perl/Data-Printer 1.0.4 1.1.0: Colored and full-featured pretty print of Perl data structures and objects
+dev-perl/Data-Printer 1.0.4 1.1.0 1.1.1: Colored and full-featured pretty print of Perl data structures and objects
 dev-perl/Data-Random 0.130.0: Module used to generate random data
 dev-perl/Data-Section 0.200.7-r1 0.200.8: Read multiple hunks of data out of your DATA section
 dev-perl/Data-Serializer 0.650.0: Modules that serialize data structures
@@ -6488,7 +6488,7 @@ dev-perl/Filesys-Notify-Simple 0.140.0: Simple and dumb file system watcher
 dev-perl/Filesys-SmbClient 3.200.0-r4: Provide Perl API for libsmbclient.so
 dev-perl/Filesys-Statvfs 0.820.0-r1: Perl extension for statvfs() and fstatvfs()
 dev-perl/Filter 1.600.0 1.640.0: Interface for creation of Perl Filters
-dev-perl/Finance-Quote 1.490.0 1.510.0 1.550.0 1.560.0 1.570.0: Get stock and mutual fund quotes from various exchanges
+dev-perl/Finance-Quote 1.490.0 1.510.0 1.550.0 1.560.0 1.570.0 1.580.0: Get stock and mutual fund quotes from various exchanges
 dev-perl/Finance-YahooQuote 0.260.0: Get stock quotes from Yahoo! Finance
 dev-perl/Font-AFM 1.200.0-r3: Parse Adobe Font Metric files
 dev-perl/Font-TTF 1.60.0-r1: Module for compiling and altering fonts
@@ -6556,7 +6556,7 @@ dev-perl/HTML-Parser 3.760.0 3.810.0: Parse HTML documents
 dev-perl/HTML-Quoted 0.40.0-r1 0.50.0: Extract structure of quoted HTML mail message
 dev-perl/HTML-RewriteAttributes 0.50.0-r2: Perl module for concise attribute rewriting
 dev-perl/HTML-Scrubber 0.190.0: Perl extension for scrubbing/sanitizing html
-dev-perl/HTML-Selector-XPath 0.250.0 0.260.0: CSS Selector to XPath compiler
+dev-perl/HTML-Selector-XPath 0.250.0 0.260.0 0.280.0: CSS Selector to XPath compiler
 dev-perl/HTML-SimpleParse 0.120.0-r3: Bare-bones HTML parser, similar to HTML::Parser
 dev-perl/HTML-Strip 2.100.0-r1 2.120.0: Extension for stripping HTML markup from text
 dev-perl/HTML-StripScripts 1.60.0-r1: Strip scripting constructs out of HTML
@@ -6829,7 +6829,7 @@ dev-perl/Module-Pluggable 5.200.0-r1: Automatically give your module the ability
 dev-perl/Module-Refresh 0.170.0-r2 0.180.0: Refresh %INC files when updated on disk
 dev-perl/Module-Runtime 0.16.0-r1: Runtime module handling
 dev-perl/Module-Runtime-Conflicts 0.3.0-r1: Provide information on conflicts for Module::Runtime
-dev-perl/Module-ScanDeps 1.310.0 1.320.0: Recursively scan Perl code for dependencies
+dev-perl/Module-ScanDeps 1.310.0 1.320.0 1.330.0: Recursively scan Perl code for dependencies
 dev-perl/Module-Signature 0.870.0 0.880.0: Module signature file manipulation
 dev-perl/Module-Starter 1.770.0-r1: A simple starter kit for any module
 dev-perl/Module-Util 1.90.0-r1: Module name tools and transformations
@@ -6938,7 +6938,7 @@ dev-perl/Net-SNMP 6.0.1-r3: A SNMP Perl Module
 dev-perl/Net-SNPP 1.170.0-r3: libnet SNPP component
 dev-perl/Net-SSH-Any 0.100.0-r1: Use any SSH module
 dev-perl/Net-SSH-AuthorizedKeysFile 0.180.0-r1 0.180.0-r2 0.180.0-r3: Read and modify ssh's authorized_keys files
-dev-perl/Net-SSH-Perl 2.140.0-r1 2.141.0: Perl client Interface to SSH
+dev-perl/Net-SSH-Perl 2.140.0-r1 2.141.0 2.142.0: Perl client Interface to SSH
 dev-perl/Net-SSH2 0.720.0 0.730.0: Support for the SSH 2 protocol via libssh2
 dev-perl/Net-SSLeay 1.900.0 1.920.0 1.920.0-r1: Perl extension for using OpenSSL
 dev-perl/Net-Server 2.10.0 2.14.0: Extensible, general Perl server engine
@@ -7352,9 +7352,9 @@ dev-perl/Text-Aligner 0.160.0: Used to justify strings to various alignment styl
 dev-perl/Text-Aspell 0.90.0-r3: Perl interface to the GNU Aspell Library
 dev-perl/Text-Autoformat 1.750.0: Automatic text wrapping and reformatting
 dev-perl/Text-BibTeX 0.880.0-r1 0.890.0: A Perl library for reading, parsing, and processing BibTeX files
-dev-perl/Text-CSV 2.10.0 2.20.0: Manipulate comma-separated value strings
+dev-perl/Text-CSV 2.10.0 2.20.0 2.30.0: Manipulate comma-separated value strings
 dev-perl/Text-CSV-Simple 1.0.0-r2: Text::CSV::Simple - Simpler parsing of CSV files
-dev-perl/Text-CSV_XS 1.460.0 1.500.0: Comma-separated values manipulation routines
+dev-perl/Text-CSV_XS 1.460.0 1.500.0 1.510.0: Comma-separated values manipulation routines
 dev-perl/Text-CharWidth 0.40.0-r2: Get number of occupied columns of a string on terminal
 dev-perl/Text-Diff 1.450.0-r1: Perform diffs on files and record sets
 dev-perl/Text-FindIndent 0.110.0-r1: Heuristically determine the indent style
@@ -7556,7 +7556,7 @@ dev-perl/XML-XSLT 0.480.0-r2: A Perl module to parse XSL Transformational sheets
 dev-perl/XML-XUpdate-LibXML 0.6.0-r2: Process XUpdate commands over an XML document
 dev-perl/XMLRPC-Lite 0.717.0-r1: client and server implementation of XML-RPC protocol
 dev-perl/XS-Object-Magic 0.50.0: Opaque, extensible XS pointer backed objects using sv_magic
-dev-perl/XS-Parse-Keyword 0.340.0 0.350.0 0.360.0: XS functions to assist in parsing keyword syntax
+dev-perl/XS-Parse-Keyword 0.340.0 0.350.0 0.360.0 0.380.0: XS functions to assist in parsing keyword syntax
 dev-perl/XString 0.5.0: Isolated String helpers from B
 dev-perl/XXX 0.380.0: See Your Data in the Nude
 dev-perl/YAML 1.300.0: YAML Ain't Markup Language (tm)

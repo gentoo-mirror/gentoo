@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Crypt-Curve25519-0.50.0 dev-perl/Crypt-IDEA >=dev-perl/CryptX-0.32.0 virtual/perl-Digest-MD5 dev-perl/File-HomeDir virtual/perl-File-Spec virtual/perl-IO >=dev-perl/Math-GMP-1.40.0 virtual/perl-Scalar-List-Utils >=dev-perl/String-CRC32-1.200.0 !minimal? ( dev-perl/Digest-BubbleBabble dev-perl/Crypt-RSA dev-perl/TermReadKey ) >=virtual/perl-ExtUtils-MakeMaker-6.640.0 test? ( >=virtual/perl-Test-Simple-0.610.0 ) dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Perl client Interface to SSH
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Net-SSH-Perl
+INHERIT=perl-module
+IUSE=minimal test examples
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/Crypt-Curve25519-0.50.0 dev-perl/Crypt-IDEA >=dev-perl/CryptX-0.32.0 virtual/perl-Digest-MD5 dev-perl/File-HomeDir virtual/perl-File-Spec virtual/perl-IO >=dev-perl/Math-GMP-1.40.0 virtual/perl-Scalar-List-Utils >=dev-perl/String-CRC32-1.200.0 !minimal? ( dev-perl/Digest-BubbleBabble dev-perl/Crypt-RSA dev-perl/TermReadKey ) dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/B/BD/BDFOY/Net-SSH-Perl-2.142.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2
+_md5_=e0dc3dd234e11a7759c72675b470019e
