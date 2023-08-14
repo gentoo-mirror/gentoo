@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 designer? ( dev-qt/designer:5 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.106.0:5
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=dev-libs/libnl:3 >=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtdeclarative-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtnetwork-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 >=dev-qt/qtx11extras-5.15.9:5 >=kde-frameworks/kauth-5.106.0:5 >=kde-frameworks/kcompletion-5.106.0:5 >=kde-frameworks/kconfig-5.106.0:5[qml] >=kde-frameworks/kconfigwidgets-5.106.0:5 >=kde-frameworks/kcoreaddons-5.106.0:5 >=kde-frameworks/ki18n-5.106.0:5 >=kde-frameworks/kjobwidgets-5.106.0:5 >=kde-frameworks/knewstuff-5.106.0:5 >=kde-frameworks/kpackage-5.106.0:5 >=kde-frameworks/kwidgetsaddons-5.106.0:5 >=kde-frameworks/kwindowsystem-5.106.0:5[X] net-libs/libpcap sys-apps/lm-sensors:= sys-libs/libcap sys-libs/zlib x11-libs/libX11 x11-libs/libXres webengine? ( >=dev-qt/qtwebchannel-5.15.9:5 >=dev-qt/qtwebengine-5.15.9:5 ) >=kde-frameworks/kiconthemes-5.106.0:5 x11-base/xorg-proto test? ( dev-qt/qttest:5 ) dev-qt/qtcore:5
+DESCRIPTION=Task management and system monitoring library
+EAPI=8
+HOMEPAGE=https://kde.org/plasma-desktop
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm plasma.kde.org
+IUSE=webengine debug designer test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=dev-libs/libnl:3 >=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtdeclarative-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtnetwork-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 >=dev-qt/qtx11extras-5.15.9:5 >=kde-frameworks/kauth-5.106.0:5 >=kde-frameworks/kcompletion-5.106.0:5 >=kde-frameworks/kconfig-5.106.0:5[qml] >=kde-frameworks/kconfigwidgets-5.106.0:5 >=kde-frameworks/kcoreaddons-5.106.0:5 >=kde-frameworks/ki18n-5.106.0:5 >=kde-frameworks/kjobwidgets-5.106.0:5 >=kde-frameworks/knewstuff-5.106.0:5 >=kde-frameworks/kpackage-5.106.0:5 >=kde-frameworks/kwidgetsaddons-5.106.0:5 >=kde-frameworks/kwindowsystem-5.106.0:5[X] net-libs/libpcap sys-apps/lm-sensors:= sys-libs/libcap sys-libs/zlib x11-libs/libX11 x11-libs/libXres webengine? ( >=dev-qt/qtwebchannel-5.15.9:5 >=dev-qt/qtwebengine-5.15.9:5 ) !<kde-plasma/ksysguard-5.21.90:5 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
+RESTRICT=!test? ( test )
+SLOT=5/9
+SRC_URI=mirror://kde/stable/plasma/5.27.7/libksysguard-5.27.7.tar.xz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e	ecm	582ef00537aa518e5a8ca3aa66bd9dc0	kde.org	411cb92019a6e2aa174d06896084bf57	plasma.kde.org	3af4e73854ef6a9ab4fa39400978fb17
+_md5_=bc96baf64437e10ca003c5f2c479a9c1
