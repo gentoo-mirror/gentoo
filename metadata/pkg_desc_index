@@ -949,7 +949,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.0-r1 1.14.0-r2 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.29.15 1.29.20 1.29.25: Universal Command Line Environment for AWS
+app-admin/awscli 1.29.15 1.29.20 1.29.25 1.29.26: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.0: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -5241,7 +5241,7 @@ dev-libs/libgcrypt 1.9.4-r2 1.10.1-r2 1.10.1-r3 1.10.2: General purpose crypto l
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1-r1: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6: GObject-based interfaces and classes for commonly used data structures
-dev-libs/libgit2 1.6.4 1.7.0: A linkable library for Git
+dev-libs/libgit2 1.6.4 1.7.0 1.7.1: A linkable library for Git
 dev-libs/libgit2-glib 1.1.0: Git library for GLib
 dev-libs/libglib-testing 0.1.1: Libglib-testing is a test library providing test harnesses and mock classes
 dev-libs/libgnome-games-support 1.8.2 2.0.0: Library for code common to GNOME games
@@ -7971,8 +7971,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.28.15 1.28.20 1.28.25 9999: The AWS SDK for Python
-dev-python/botocore 1.31.15 1.31.20 1.31.25 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.28.15 1.28.20 1.28.25 1.28.26 9999: The AWS SDK for Python
+dev-python/botocore 1.31.15 1.31.20 1.31.25 1.31.26 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8004,7 +8004,7 @@ dev-python/cerberus 1.3.4-r1 1.3.5: A lightweight and extensible data-validation
 dev-python/certifi 3021.3.16-r3: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.15.1-r3: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1-r1 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.77.10 0.78.1 0.78.2 0.79.1 0.79.3 0.79.4 0.79.5 0.79.6: CloudFormation Linter
+dev-python/cfn-lint 0.77.10 0.78.1 0.78.2 0.79.1 0.79.3 0.79.4 0.79.5 0.79.6 0.79.7: CloudFormation Linter
 dev-python/cftime 1.6.2-r1: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8-r1: Tools and libraries for control groups of Linux
 dev-python/chameleon 4.0.1: Fast HTML/XML template compiler for Python
@@ -8178,7 +8178,7 @@ dev-python/executing 1.2.0: Get information about what a Python frame is current
 dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyeD3 0.9.7: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/fakeredis 2.16.0 2.17.0: Fake implementation of redis API for testing purposes
+dev-python/fakeredis 2.16.0 2.17.0 2.18.0: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.2: Implementation of bencode with optional fast C extensions
 dev-python/fasteners 0.18: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
@@ -8312,7 +8312,7 @@ dev-python/imagesize 1.4.1: Pure Python module for getting image size from png/j
 dev-python/imapclient 2.3.1: easy-to-use, pythonic, and complete IMAP client library
 dev-python/iminuit 2.21.3 2.22.0 2.23.0: Minuit numerical function minimization in Python
 dev-python/immutabledict 2.2.5 3.0.0: An immutable wrapper around dictionaries
-dev-python/immutables 0.19: A high-performance immutable mapping type for Python
+dev-python/immutables 0.19 0.20: A high-performance immutable mapping type for Python
 dev-python/importlib-metadata 6.8.0: Read metadata from Python packages
 dev-python/importlib-resources 5.12.0 6.0.0: Read resources from Python packages
 dev-python/incremental 22.10.0-r1: Incremental is a small library that versions your Python projects
@@ -8661,7 +8661,7 @@ dev-python/picobox 3.0.0: Dependency injection framework designed with Python in
 dev-python/pid 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r2: Exif manipulation with pure Python
 dev-python/pika 1.3.1: Pure-Python implementation of the AMQP
-dev-python/pikepdf 7.2.0 8.1.1 8.2.0 8.2.1 8.2.2 8.2.3 8.3.1 8.3.2: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 7.2.0 8.1.1 8.2.0 8.2.1 8.2.2 8.2.3 8.3.1 8.3.2 8.4.0: Python library to work with pdf files based on qpdf
 dev-python/pillow 9.5.0 10.0.0: Python Imaging Library (fork)
 dev-python/pip 23.1.2 23.2 23.2.1: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 10.2.0 12.1.0: Install packages and run Python with them
@@ -9211,22 +9211,22 @@ dev-python/sphinx_ansible_theme 0.10.2: A reusable Ansible Sphinx theme
 dev-python/sphinx_lv2_theme 1.4.0: Minimal pure-CSS Sphinx theme using the LV2 plugin documentation style
 dev-python/sphinx_selective_exclude 1.0.3-r1: Sphinx selective rendition extensions
 dev-python/sphinxcontrib-apidoc 0.3.0-r1: Sphinx extension for running sphinx-apidoc on each build
-dev-python/sphinxcontrib-applehelp 1.0.4 1.0.6: Sphinx extension which outputs Apple help book
+dev-python/sphinxcontrib-applehelp 1.0.4 1.0.6 1.0.7: Sphinx extension which outputs Apple help book
 dev-python/sphinxcontrib-asyncio 0.3.0-r1: sphinx extension to support coroutines in markup
 dev-python/sphinxcontrib-autoprogram 0.1.8: Documenting CLI programs
 dev-python/sphinxcontrib-bibtex 2.5.0: Sphinx extensions for BibTeX style citations
-dev-python/sphinxcontrib-devhelp 1.0.2-r1 1.0.4: Sphinx extension which outputs Devhelp documents
+dev-python/sphinxcontrib-devhelp 1.0.2-r1 1.0.4 1.0.5: Sphinx extension which outputs Devhelp documents
 dev-python/sphinxcontrib-doxylink 1.12.2: Extension to link to external Doxygen API documentation
 dev-python/sphinxcontrib-github-alt 1.2-r2: Link to GitHub issues, pull requests, commits and users from Sphinx docs
-dev-python/sphinxcontrib-htmlhelp 2.0.1 2.0.3: Sphinx extension which outputs HTML help book
+dev-python/sphinxcontrib-htmlhelp 2.0.1 2.0.3 2.0.4: Sphinx extension which outputs HTML help book
 dev-python/sphinxcontrib-httpdomain 1.8.1: Sphinx domain for documenting HTTP APIs
 dev-python/sphinxcontrib-jquery 4.1: Extension to include jQuery on newer Sphinx releases
 dev-python/sphinxcontrib-jsmath 1.0.1-r3: Sphinx extension which renders display math in HTML via JavaScript
 dev-python/sphinxcontrib-log-cabinet 1.0.1-r1: Organize changelog directives in Sphinx docs
 dev-python/sphinxcontrib-newsfeed 0.1.4-r1: News Feed extension for Sphinx
 dev-python/sphinxcontrib-programoutput 0.17-r1: Extension to sphinx to include program output
-dev-python/sphinxcontrib-qthelp 1.0.3-r2 1.0.5: Sphinx extension which outputs QtHelp documents
-dev-python/sphinxcontrib-serializinghtml 1.1.5-r1 1.1.7: Sphinx extension which outputs outputs serialized HTML files
+dev-python/sphinxcontrib-qthelp 1.0.3-r2 1.0.5 1.0.6: Sphinx extension which outputs QtHelp documents
+dev-python/sphinxcontrib-serializinghtml 1.1.5-r1 1.1.7 1.1.8: Sphinx extension which outputs outputs serialized HTML files
 dev-python/sphinxcontrib-spelling 8.0.0: Sphinx spelling extension
 dev-python/sphinxcontrib-trio 1.1.2-r1: Make Sphinx better at documenting Python functions and methods
 dev-python/sphinxcontrib-websupport 1.2.4-r2 1.2.6: Sphinx websupport extension
@@ -9243,7 +9243,7 @@ dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.49 2.0.18 2.0.19: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 17.10.1 17.10.2 17.11.0 17.12.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 17.10.1 17.10.2 17.11.0 17.12.0 17.14.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.4.4: A non-validating SQL parser module for Python
 dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
@@ -9450,7 +9450,7 @@ dev-python/ytmusicapi 1.1.1: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.0: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.2.1: A modern/fast Python SOAP client based on lxml / requests
-dev-python/zeroconf 0.71.4 0.71.5 0.72.0 0.74.0 0.76.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.71.4 0.71.5 0.72.0 0.74.0 0.76.0 0.79.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.16.2: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 5.0: Zope Configuration Architecture
