@@ -18,7 +18,7 @@ S=${WORKDIR}/${P}-src/native
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="2"
 IUSE="static-libs"
 
 DEPEND="
@@ -62,11 +62,6 @@ src_compile() {
 }
 
 src_test() {
-	# Adjusting "String testFile =" path in TestFile.java:29 to match ${S}
-	sed \
-		-e '/String testFile =/s&test/&../test/&' \
-		-i ../test/org/apache/tomcat/jni/TestFile.java || die
-
 	JAVA_TEST_EXTRA_ARGS=( -Djava.library.path=".libs" )
 	java-pkg-simple_src_test
 }
