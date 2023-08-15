@@ -1,0 +1,16 @@
+BDEPEND=dev-libs/check dev-perl/HTML-Parser dev-util/netsurf-buildsystem virtual/pkgconfig javascript? ( app-editors/vim-core )
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-libs/libcss dev-libs/libnsutils dev-libs/openssl:= dev-libs/libutf8proc dev-libs/libxml2:2 net-misc/curl net-libs/libdom net-libs/libhubbub bmp? ( media-libs/libnsbmp ) fbcon? ( dev-libs/libnsfb truetype? ( media-fonts/dejavu media-libs/freetype ) ) gif? ( media-libs/libnsgif ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 ) javascript? ( dev-libs/nsgenbind dev-lang/duktape:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0= ) psl? ( media-libs/libnspsl ) rosprite? ( media-libs/librosprite ) svg? ( svgtiny? ( media-libs/libsvgtiny ) !svgtiny? ( gnome-base/librsvg:2 ) ) webp? ( media-libs/libwebp )
+DESCRIPTION=A free, open source web browser
+EAPI=8
+HOMEPAGE=https://www.netsurf-browser.org/
+INHERIT=desktop netsurf toolchain-funcs
+IUSE=bmp fbcon truetype +gif +gtk +javascript +jpeg +png +psl rosprite +svg +svgtiny +webp
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2 MIT
+RDEPEND=dev-libs/libcss dev-libs/libnsutils dev-libs/openssl:= dev-libs/libutf8proc dev-libs/libxml2:2 net-misc/curl net-libs/libdom net-libs/libhubbub bmp? ( media-libs/libnsbmp ) fbcon? ( dev-libs/libnsfb truetype? ( media-fonts/dejavu media-libs/freetype ) ) gif? ( media-libs/libnsgif ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 ) javascript? ( dev-libs/nsgenbind dev-lang/duktape:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0= ) psl? ( media-libs/libnspsl ) rosprite? ( media-libs/librosprite ) svg? ( svgtiny? ( media-libs/libsvgtiny ) !svgtiny? ( gnome-base/librsvg:2 ) ) webp? ( media-libs/libwebp )
+REQUIRED_USE=|| ( fbcon gtk )
+SLOT=0
+SRC_URI=http://download.netsurf-browser.org/netsurf/releases/source/netsurf-3.10-src.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	netsurf	3a16932a52467058f19b48ced2e15c4a
+_md5_=2a4f61aa5a9eb2e94c8333b948044424
