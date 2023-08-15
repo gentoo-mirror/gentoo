@@ -30,6 +30,7 @@ IUSE="
 
 RDEPEND="
 	sys-apps/pciutils
+	>=dev-python/cryptography-41.0.3[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.5[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.1.2[${PYTHON_USEDEP}]
 	dev-python/jmespath[${PYTHON_USEDEP}]
@@ -39,9 +40,9 @@ RDEPEND="
 	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pycryptodome-3.9.8[${PYTHON_USEDEP}]
-	dev-python/pyyaml[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-6.0.1[${PYTHON_USEDEP}]
 	>=dev-python/markupsafe-2.1.2[${PYTHON_USEDEP}]
-	>=dev-python/requests-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.31.0[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/tomli[${PYTHON_USEDEP}]
 	dev-python/watchdog[${PYTHON_USEDEP}]
@@ -58,7 +59,7 @@ RDEPEND="
 	)
 	openssl? (
 		dev-libs/openssl:0=[-bindist(-)]
-		dev-python/pyopenssl[${PYTHON_USEDEP}]
+		>=dev-python/pyopenssl-23.2.0[${PYTHON_USEDEP}]
 	)
 	raet? (
 		>=dev-python/libnacl-1.0.0[${PYTHON_USEDEP}]
@@ -90,7 +91,7 @@ BDEPEND="
 		${RDEPEND}
 		dev-python/apache-libcloud[${PYTHON_USEDEP}]
 		>=dev-python/boto-2.32.1[${PYTHON_USEDEP}]
-		>=dev-python/certifi-2022.12.07[${PYTHON_USEDEP}]
+		>=dev-python/certifi-2023.07.22[${PYTHON_USEDEP}]
 		dev-python/cherrypy[${PYTHON_USEDEP}]
 		>=dev-python/jsonschema-3.0[${PYTHON_USEDEP}]
 		dev-python/mako[${PYTHON_USEDEP}]
@@ -101,7 +102,7 @@ BDEPEND="
 		dev-python/pip[${PYTHON_USEDEP}]
 		>=dev-python/pyopenssl-23.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-7.2.0[${PYTHON_USEDEP}]
-		>=dev-python/pytest-salt-factories-1.0.0_rc21[${PYTHON_USEDEP}]
+		>=dev-python/pytest-salt-factories-1.0.0_rc25[${PYTHON_USEDEP}]
 		dev-python/pytest-tempdir[${PYTHON_USEDEP}]
 		dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
@@ -128,6 +129,7 @@ PATCHES=(
 	"${FILESDIR}/salt-3005.1-no-entry-points.patch"
 	"${FILESDIR}/salt-3006-skip-tests-that-oom-machine.patch"
 	"${FILESDIR}/salt-3006-tests.patch"
+	"${FILESDIR}/salt-3006.2-tests.patch"
 )
 
 python_prepare_all() {
@@ -183,31 +185,35 @@ python_install_all() {
 }
 
 python_test() {
-	# testsuite likes lots of files
-	ulimit -n 4096 || die
-
-	local -a disable_tests=(
+	local -a EPYTEST_DESELECT=(
 		# doesn't like the distutils warning
-		batch_retcode
-		multiple_modules_in_batch
+		tests/pytests/integration/cli/test_batch.py::test_batch_retcode
+		tests/pytests/integration/cli/test_batch.py::test_multiple_modules_in_batch
 		# hangs indefinitely
-		master_type_disable
+		tests/pytests/unit/test_minion.py::test_master_type_disable
 		# needs root
-		runas_env_sudo_group
+		tests/pytests/unit/modules/test_cmdmod.py::test_runas_env_sudo_group
 		# don't like sandbox
-		split_multibyte_characters_{shiftjis,unicode}
-		log_sanitize
-		run_with_pre_flight_args
-		compile_template_str_mkstemp_cleanup
-		sync_with_handlers
-		deferred_write_on_flush
-		call_apt_dpkg_lock
-		enforce_nice_config
-		config_validation
+		tests/pytests/functional/cli/test_salt.py::test_versions_report
+		tests/unit/utils/test_vt.py::test_split_multibyte_characters_unicode
+		tests/unit/utils/test_vt.py::test_split_multibyte_characters_shiftjis
+		tests/pytests/unit/utils/test_vt.py::test_log_sanitize
+		tests/pytests/unit/client/ssh/test_single.py::test_run_with_pre_flight_args
+		tests/pytests/unit/modules/test_aptpkg.py::test_call_apt_dpkg_lock
+		tests/pytests/unit/test_template.py::test_compile_template_str_mkstemp_cleanup
+		tests/pytests/unit/_logging/handlers/test_deferred_stream_handler.py::test_deferred_write_on_flush
+		tests/pytests/unit/_logging/handlers/test_deferred_stream_handler.py::test_sync_with_handlers
+		tests/pytests/unit/modules/test_portage_config.py::test_enforce_nice_config
+		tests/unit/utils/test_schema.py::ConfigTestCase::test_anyof_config_validation
+		tests/unit/utils/test_schema.py::ConfigTestCase::test_dict_config_validation
+		tests/unit/utils/test_schema.py::ConfigTestCase::test_hostname_config_validation
+		tests/unit/utils/test_schema.py::ConfigTestCase::test_not_config_validation
+		tests/unit/utils/test_schema.py::ConfigTestCase::test_oneof_config_validation
+		tests/unit/utils/test_schema.py::ConfigTestCase::test_optional_requirements_config_validation
 	)
 
-	local textexpr
-	testexpr=$(printf 'not %s and ' "${disable_tests[@]}")
+	# testsuite likes lots of files
+	ulimit -n 4096 || die
 
 	# ${T} is too long a path for the tests to work
 	local TMPDIR
@@ -221,6 +227,6 @@ python_test() {
 		addwrite "${TMPDIR}"
 
 		USE_SETUPTOOLS=1 NO_INTERNET=1 SHELL="/bin/bash" \
-			epytest  -k "${testexpr%and }" -x
+			epytest
 	)
 }

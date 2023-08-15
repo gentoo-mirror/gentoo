@@ -35,7 +35,6 @@ PATCHES=(
 	# QTBUG-97037, pending upstream:
 	# https://invent.kde.org/qt/qt/qtwayland/-/merge_requests/71
 	"${FILESDIR}/${PN}-5.15.9-fix-mouse-stuck-in-pressed-state-after-DnD.patch"
-	"${FILESDIR}/${P}-send-release-button-event-on-pointer-leave.patch"
 	# bug #910315, pending upstream:
 	# https://invent.kde.org/qt/qt/qtwayland/-/merge_requests/73
 	"${FILESDIR}/${P}-Destroy-frame-queue-before-display.patch"
