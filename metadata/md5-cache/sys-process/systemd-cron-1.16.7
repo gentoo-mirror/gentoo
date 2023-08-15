@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare setup
+DEPEND=sys-process/cronbase test? ( sys-apps/man-db dev-python/pyflakes )
+DESCRIPTION=systemd units to create timers for cron directories and crontab
+EAPI=8
+HOMEPAGE=https://github.com/systemd-cron/systemd-cron/
+INHERIT=python-single-r1 systemd
+IUSE=cron-boot etc-crontab-systemd minutely +runparts setgid test yearly python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=MIT
+RDEPEND=>=sys-apps/systemd-217 sys-apps/debianutils !sys-process/cronie[anacron] !etc-crontab-systemd? ( !sys-process/dcron ) python_single_target_pypy3? ( dev-python/pypy3:= ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) sys-process/cronbase acct-user/_cron-failure acct-group/_cron-failure
+REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/systemd-cron/systemd-cron/archive/v1.16.7.tar.gz -> systemd-cron-1.16.7.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=65122f17987274d32ab870b9508f27ed
