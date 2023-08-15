@@ -3,9 +3,10 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{10..12} )
 MULTILIB_ABIS="amd64 x86" # allow usage on /no-multilib/
 MULTILIB_COMPAT=( abi_x86_{32,64} )
-inherit flag-o-matic meson-multilib
+inherit flag-o-matic meson-multilib python-any-r1
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -13,19 +14,24 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_SUBMODULES=(
 		# picky about headers and is cross-compiled making -I/usr/include troublesome
 		include/{spirv,vulkan}
+		subprojects/libdisplay-info
 	)
 else
 	HASH_SPIRV=0bcc624926a25a2a273d07877fd25a6ff5ba1cfb
 	HASH_VULKAN=98f440ce6868c94f5ec6e198cc1adda4760e8849
+	HASH_DISPLAYINFO=d39344f466caae0495ebac4d49b03a886d83ba3a
 	SRC_URI="
 		https://github.com/doitsujin/dxvk/archive/refs/tags/v${PV}.tar.gz
 			-> ${P}.tar.gz
 		https://github.com/KhronosGroup/SPIRV-Headers/archive/${HASH_SPIRV}.tar.gz
 			-> ${PN}-spirv-headers-${HASH_SPIRV::10}.tar.gz
 		https://github.com/KhronosGroup/Vulkan-Headers/archive/${HASH_VULKAN}.tar.gz
-			-> ${PN}-vulkan-headers-${HASH_VULKAN::10}.tar.gz"
+			-> ${PN}-vulkan-headers-${HASH_VULKAN::10}.tar.gz
+		https://gitlab.freedesktop.org/JoshuaAshton/libdisplay-info/-/archive/${HASH_DISPLAYINFO}/${PN}-libdisplay-info-${HASH_DISPLAYINFO::10}.tar.bz2"
 	KEYWORDS="-* amd64 x86"
 fi
+# setup_dxvk.sh is no longer provided, fetch old until a better solution
+SRC_URI+=" https://raw.githubusercontent.com/doitsujin/dxvk/cd21cd7fa3b0df3e0819e21ca700b7627a838d69/setup_dxvk.sh"
 
 DESCRIPTION="Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine"
 HOMEPAGE="https://github.com/doitsujin/dxvk/"
@@ -36,15 +42,15 @@ IUSE="+abi_x86_32 crossdev-mingw +d3d9 +d3d10 +d3d11 debug +dxgi"
 REQUIRED_USE="
 	|| ( d3d9 d3d10 d3d11 dxgi )
 	d3d10? ( d3d11 )
-	d3d11? ( dxgi )
-	dxgi? ( d3d11 )"
+	d3d11? ( dxgi )"
 
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-util/glslang
 	!crossdev-mingw? ( dev-util/mingw64-toolchain[${MULTILIB_USEDEP}] )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.10.3-gcc13.patch
+	"${FILESDIR}"/${PN}-1.10.3-wow64-setup.patch
 )
 
 pkg_pretend() {
@@ -70,10 +76,12 @@ pkg_pretend() {
 
 src_prepare() {
 	if [[ ${PV} != 9999 ]]; then
-		rmdir include/{spirv,vulkan} || die
+		rmdir include/{spirv,vulkan} subprojects/libdisplay-info || die
 		mv ../SPIRV-Headers-${HASH_SPIRV} include/spirv || die
 		mv ../Vulkan-Headers-${HASH_VULKAN} include/vulkan || die
+		mv ../libdisplay-info-${HASH_DISPLAYINFO} subprojects/libdisplay-info || die
 	fi
+	cp -p -- "${DISTDIR}"/setup_dxvk.sh . || die
 
 	default
 
@@ -148,6 +156,8 @@ pkg_postinst() {
 		elog "	WINEPREFIX=/path/to/prefix setup_dxvk.sh install --symlink"
 		elog
 		elog "See ${EROOT}/usr/share/doc/${PF}/README.md* for details."
+		elog "Note: setup_dxvk.sh is unofficially temporarily provided as it was"
+		elog "removed upstream, handling may change in the future."
 	elif [[ -v DXVK_HAD_OVERLAY ]]; then
 		# temporary warning until this version is more widely used
 		elog "Gentoo's main repo ebuild for ${PN} uses different paths than most overlays."
