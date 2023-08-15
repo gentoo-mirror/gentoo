@@ -1,12 +1,12 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+BDEPEND=virtual/pkgconfig dev-lang/swig >=sys-devel/libtool-2.2 doc? ( app-doc/doxygen dev-util/source-highlight ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND==virtual/libusb-0* dev-libs/libxml2 sys-libs/readline:0= perl? ( dev-lang/perl ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) tcl? ( dev-lang/tcl:0= ) virtual/pkgconfig dev-lang/swig >=sys-devel/libtool-2.2 doc? ( app-doc/doxygen dev-util/source-highlight )
+DEPEND==virtual/libusb-0* dev-libs/libxml2 sys-libs/readline:0= perl? ( dev-lang/perl ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) tcl? ( dev-lang/tcl:0= )
 DESCRIPTION=Ham radio backend rig control libraries
 EAPI=8
 HOMEPAGE=https://www.hamlib.github.io
 INHERIT=autotools python-single-r1
 IUSE=doc perl python tcl python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=amd64 ~arm ~arm64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=LGPL-2+ GPL-2+
 RDEPEND==virtual/libusb-0* dev-libs/libxml2 sys-libs/readline:0= perl? ( dev-lang/perl ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) tcl? ( dev-lang/tcl:0= )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/4.2
 SRC_URI=mirror://sourceforge/hamlib/hamlib-4.5.5.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=15326197d50e59c592dca21e24171c15
+_md5_=f571e23699d2799755ff0880cc33f8c8

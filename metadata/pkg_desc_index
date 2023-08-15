@@ -987,7 +987,7 @@ app-admin/eselect 1.4.25 1.4.26 9999: Gentoo's multi-purpose configuration and m
 app-admin/evtxtools 1.1.1-r2: Read, decode and dump Windows Vista/2008/7 event log file
 app-admin/exo 1.71.2: Command-line tool for everything at Exoscale: compute, storage, dns
 app-admin/fam 2.7.0_p17_p3: FAM, the File Alteration Monitor
-app-admin/fetchlog 1.4-r1 1.4-r2: Displays the last new messages of a logfile
+app-admin/fetchlog 1.4-r2: Displays the last new messages of a logfile
 app-admin/fifo-cronolog 1.1.1-r1: cronolog wrapper for use with dumb daemons like squid, varnish and so on
 app-admin/filebeat 7.17.3 7.17.5: Lightweight log shipper for Logstash and Elasticsearch
 app-admin/filewatcher 2.4.6-r1: File control configuration system and IDS
@@ -1038,7 +1038,7 @@ app-admin/mcelog 194-r1: A tool to log and decode Machine Check Exceptions
 app-admin/mei-amt-check 0_p20170515: AMT status checker
 app-admin/metalog 20220214 20230719: A highly configurable replacement for syslogd/klogd
 app-admin/mkosi 14_p20230313: Build Bespoke OS Images
-app-admin/mktwpol 1.0.1 1.0.1-r1: Bash scripts to install tripwire and generate tripwire policy files
+app-admin/mktwpol 1.0.1-r1: Bash scripts to install tripwire and generate tripwire policy files
 app-admin/mongo-tools 4.2.15 4.2.17 100.4.1 100.5.1: A high-performance, open source, schema-free document-oriented database
 app-admin/mongosh-bin 1.1.9 1.3.1: The MongoDB Shell
 app-admin/monit 5.29.0 5.31.0 5.32.0 5.33.0: Monitoring and managing daemons or similar programs running on a Unix system
@@ -1054,7 +1054,7 @@ app-admin/pass-otp 1.2.0 1.2.0-r1: A pass extension for managing one-time-passwo
 app-admin/passwordsafe 1.15.0 1.16.0 1.17.0: Password manager with wxGTK based frontend
 app-admin/paxtest 0.9.15-r1: PaX regression test suite
 app-admin/perl-cleaner 2.30-r1 2.31 9999: User land tool for cleaning up old perl installs
-app-admin/petrovich 1.0.0-r1 1.0.0-r2: Filesystem Integrity Checker
+app-admin/petrovich 1.0.0-r2: Filesystem Integrity Checker
 app-admin/pprocm 1.0-r2: ncurses-based program to monitor CPU, disk, network and memory usage
 app-admin/procinfo-ng 2.0.304-r2: Completely rewrite of the old system monitoring app procinfo
 app-admin/profile-cleaner 2.37: Vacuum and reindex browser sqlite databases
@@ -1310,7 +1310,7 @@ app-benchmarks/pmbw 0.6.3: Parallel Memory Bandwidth Measurement / Benchmark Too
 app-benchmarks/ramspeed 3.5.0-r2: Benchmarking for memory and cache
 app-benchmarks/siege 4.1.0 4.1.6: A HTTP regression testing and benchmarking utility
 app-benchmarks/stress 1.0.7: A deliberately simple workload generator for POSIX systems
-app-benchmarks/stress-ng 0.16.02: Stress test for a computer system with various selectable ways
+app-benchmarks/stress-ng 0.16.04: Stress test for a computer system with various selectable ways
 app-benchmarks/sysbench 1.0.20-r101: A scriptable multi-threaded benchmark tool based on LuaJIT
 app-benchmarks/tiobench 0.5.0: Portable, robust, fully-threaded I/O benchmark program
 app-benchmarks/wrk 4.2.0: A HTTP benchmarking tool
@@ -2444,16 +2444,16 @@ app-forensics/cmospwd 5.1-r1: CmosPwd decrypts password stored in cmos used to a
 app-forensics/dfxml 20170921-r1 99999999: Digital Forensics XML
 app-forensics/examiner 0.5-r3: Utilizes the objdump command to disassemble and comment foreign binaries
 app-forensics/foremost 1.5.7-r3 1.5.7-r4: Console program to recover files based on their headers and footers
-app-forensics/galleta 20040505_p1 20040505_p1-r1: IE Cookie Parser
+app-forensics/galleta 20040505_p1-r1: IE Cookie Parser
 app-forensics/honggfuzz 2.5-r1: A general purpose fuzzer with feedback support
 app-forensics/libewf 20171104-r2: Implementation of the EWF (SMART and EnCase) image format
 app-forensics/lynis 3.0.9: Security and system auditing tool
 app-forensics/mac-robber 1.02: mac-robber is a digital forensics and incident response tool that collects data
 app-forensics/magicrescue 1.1.10-r4: Find deleted files in block devices
 app-forensics/memdump 1.01-r1: Simple memory dumper for UNIX-Like systems
-app-forensics/pasco 20040505_p1-r1 20040505_p1-r2: IE Activity Parser
+app-forensics/pasco 20040505_p1-r2: IE Activity Parser
 app-forensics/radamsa 0.6: A general purpose fuzzer
-app-forensics/rifiuti 20040505_p1 20040505_p1-r1: Recycle Bin Analyzer
+app-forensics/rifiuti 20040505_p1-r1: Recycle Bin Analyzer
 app-forensics/rkhunter 1.4.6-r1 1.4.6-r2: Rootkit Hunter scans for known and unknown rootkits, backdoors, and sniffers
 app-forensics/scalpel 2.1_pre20210326: A high performance file carver
 app-forensics/sleuthkit 4.11.1-r1 4.12.0: A collection of file system and media management forensic analysis tools
@@ -5132,9 +5132,9 @@ dev-libs/imath 3.1.6 3.1.7: Imath basic math package
 dev-libs/inih 56-r1 57: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1 4.1-r1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 23.17.26241.24 23.22.26516.18: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
-dev-libs/intel-metrics-discovery 1.12.164 1.12.165: A user mode library that provides access to GPU performance data
-dev-libs/intel-metrics-library 0_pre20230417 1.0.133: User mode driver helper library that provides access to GPU performance counters
+dev-libs/intel-compute-runtime 23.22.26516.18: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-metrics-discovery 1.12.165: A user mode library that provides access to GPU performance data
+dev-libs/intel-metrics-library 1.0.133: User mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.12.3: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1: Intelligent Storage Acceleration Library
 dev-libs/isa-l_crypto 2.24.0: Intelligent Storage Acceleration Library - cryptographic components
@@ -5167,7 +5167,7 @@ dev-libs/ktextaddons 1.2.1 1.3.0: Various text handling addons
 dev-libs/kuserfeedback 1.2.0: Framework to collect user feedback for applications via telemetry and surveys
 dev-libs/kweathercore 0.7: Library for retrieval of weather information including forecasts and alerts
 dev-libs/leatherman 1.12.9: A C++ toolkit
-dev-libs/level-zero 1.12.0 1.13.1: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.13.1: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.20 1.23-r5: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5405,7 +5405,7 @@ dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ progr
 dev-libs/marisa 0.2.6 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.7: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/mdns 1.4.2 1.4.3: Public domain mDNS/DNS-SD library in C
-dev-libs/metee 3.1.5 3.2.3: Cross-platform access library for Intel CSME HECI interface
+dev-libs/metee 3.2.3: Cross-platform access library for Intel CSME HECI interface
 dev-libs/mimalloc 2.0.9 2.1.1 2.1.2: A compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniaudio 0.11.11 0.11.15: Single file library for audio playback and capture
@@ -10557,8 +10557,8 @@ dev-util/ignition-cmake 2.16.0: CMake modules to be used by the Ignition project
 dev-util/imediff2 1.1.2.1: An interactive, user friendly 2-way merge tool in text mode
 dev-util/include-what-you-use 0.19 0.20: Find unused include directives in C/C++ programs
 dev-util/indent 2.2.12 2.2.13: Indent program source files
-dev-util/intel-graphics-compiler 1.0.13860.4 1.0.14062.11: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
-dev-util/intel-graphics-system-controller 0.8.7 0.8.9: Intel graphics system controller firmware update library
+dev-util/intel-graphics-compiler 1.0.14062.11: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
+dev-util/intel-graphics-system-controller 0.8.9: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015: Intel's implementation of the OpenCL standard
 dev-util/intltool 0.51.0-r3: Internationalization Tool Collection
 dev-util/its4 1.1.1-r2: ITS4: Software Security Tool
@@ -11485,7 +11485,7 @@ games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic com
 games-rpg/xu4 0.9-r1: A remake of the computer game Ultima IV
 games-rpg/zsdx 1.12.3: Free 2D Zelda fangame
 games-rpg/zsxd 1.12.2: Free 2D Zelda fangame parody
-games-server/bedrock-server 1.20.11.01 1.20.13.01-r1: The official bedrock (non-java) based server for the sandbox video game
+games-server/bedrock-server 1.20.11.01 1.20.13.01-r1 1.20.14.01: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r1: Server for Mednafen emulator
@@ -12663,7 +12663,7 @@ media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
 media-gfx/hp2xx 3.4.4-r3: Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
 media-gfx/hugin 2022.0.0 9999: GUI for the creation & processing of panoramic images
 media-gfx/hydrus 531 534 9999: A booru-like media organizer for the desktop
-media-gfx/icon-slicer 0.3 0.3-r1: Utility for generating icon themes and libXcursor cursor themes
+media-gfx/icon-slicer 0.3-r1: Utility for generating icon themes and libXcursor cursor themes
 media-gfx/icoutils 0.32.3: Tools to extract and convert images in icon and cursor files (.ico, .cur)
 media-gfx/igal 3.1: Static HTML image gallery generator
 media-gfx/imagemagick 6.9.12.84 6.9.12.86 6.9.12.89 6.9.12.89-r1 7.1.1.6 7.1.1.8 7.1.1.11 7.1.1.11-r1 9999: A collection of tools and libraries for many image formats
@@ -12892,7 +12892,7 @@ media-libs/gst-rtsp-server 1.20.3 1.20.4 1.20.5 1.20.6 1.22.3: A GStreamer based
 media-libs/gstreamer 1.20.3 1.20.4 1.20.5 1.20.6 1.22.3: Open source multimedia framework
 media-libs/gstreamer-editing-services 1.20.3 1.20.4 1.20.5 1.20.6 1.22.3: SDK for making video editors and more
 media-libs/gupnp-dlna 0.12.0: Library providing DLNA-related functionality for MediaServers
-media-libs/hamlib 4.5.5: Ham radio backend rig control libraries
+media-libs/hamlib 4.5.5 4.5.5-r1: Ham radio backend rig control libraries
 media-libs/harfbuzz 7.3.0 8.0.0-r1 8.0.1 8.1.1 9999: An OpenType text shaping engine
 media-libs/icc-profiles-basiccolor-printing2009 1.2.0: ICC profiles for printing/offset
 media-libs/icc-profiles-openicc 1.3.1: ICC color profiles by OpenICC
@@ -17891,7 +17891,7 @@ www-servers/lighttpd 1.4.68 1.4.69 1.4.70 1.4.71: Lightweight high-performance w
 www-servers/mongrel2 1.11.0-r2: A language agnostic web server focused on web applications
 www-servers/monkeyd 1.6.9-r2 9999: A small, fast, and scalable web server
 www-servers/moonbridge 1.0.1: Network Server for Lua Applications
-www-servers/nginx 1.24.0-r1 1.25.1-r3: Robust, small and high performance http and reverse proxy server
+www-servers/nginx 1.24.0-r1 1.25.1-r3 1.25.2: Robust, small and high performance http and reverse proxy server
 www-servers/nginx-unit 1.29.1 1.29.1-r1 1.30.0 1.30.0-r1: Dynamic web and application server
 www-servers/pound 3.0.2: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.1 0.4.2: Pretty small HTTP server -- a command-line tool to share files
@@ -18247,7 +18247,7 @@ x11-misc/mygestures 2.0: Mouse gestures for X
 x11-misc/netwmpager 2.05: Pager that works with Openbox and other EWMH compliant window managers
 x11-misc/nitrogen 1.6.1-r2 99999: A background browser and setter for X
 x11-misc/notification-daemon 3.20.0-r1: Notification daemon
-x11-misc/notify-osd 0.9.34-r1 0.9.34-r2: Canonical's on-screen-display notification agent
+x11-misc/notify-osd 0.9.34-r2: Canonical's on-screen-display notification agent
 x11-misc/numlockx 1.2: Changes keyboard's numlock state under X
 x11-misc/obconf 2.0.4_p20150213-r1: Tool for configuring the Openbox window manager
 x11-misc/obconf-qt 0.16.2: Qt GUI Openbox Configuration Tool
