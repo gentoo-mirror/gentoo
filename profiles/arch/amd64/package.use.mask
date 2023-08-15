@@ -17,6 +17,14 @@
 
 #--- END OF EXAMPLES ---
 
+# Matt Jolly <matt.jolly@footclan.ninja> (2023-08-10)
+# 'ssl' USE required for curl's nghttp3/quic support
+net-libs/ngtcp2 -ssl
+
+# Matt Jolly <matt.jolly@footclan.ninja> (2023-08-10)
+# nghttp3 has been tested to work on amd64
+net-misc/curl -nghttp3
+
 # Sam James <sam@gentoo.org> (2023-07-18)
 # dev-cpp/cppdap is not keyworded in most places
 dev-util/cmake -dap
@@ -215,10 +223,6 @@ app-emulation/aranym -jit
 # Thomas Deutschmann <whissi@gentoo.org> (2019-11-11)
 # dev-python/pandas is keyworded for amd64
 sys-block/fio -python -gnuplot
-
-# Craig Andrews <candrews@gentoo.org> (2019-10-08)
-# net-misc/quiche is available on this arch
-net-misc/curl -quiche
 
 # Luke Dashjr <luke-jr+gentoobugs@utopios.org> (2019-09-21)
 # iasl is stable on amd64
