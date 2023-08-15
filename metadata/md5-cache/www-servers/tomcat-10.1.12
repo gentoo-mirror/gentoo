@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( ~sec-keys/openpgp-keys-apache-tomcat-10.1.12:10.1.12 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
+DEPEND=dev-java/eclipse-ecj:4.26 dev-java/jax-rpc-api:0 >=dev-java/jakartaee-migration-1.0.5:0 dev-java/wsdl4j:0 app-admin/pwgen dev-java/ant-core >=virtual/jdk-11:* test? ( dev-java/ant-junit:0 dev-java/easymock:3.2 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
+DESCRIPTION=Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+EAPI=8
+HOMEPAGE=https://tomcat.apache.org/
+INHERIT=java-pkg-2 java-ant-2 prefix verify-sig
+IUSE=extra-webapps doc source test verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~amd64-linux
+LICENSE=Apache-2.0
+RDEPEND=dev-java/eclipse-ecj:4.26 dev-java/jax-rpc-api:0 >=dev-java/jakartaee-migration-1.0.5:0 dev-java/wsdl4j:0 acct-group/tomcat acct-user/tomcat >=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=10.1
+SRC_URI=mirror://apache/tomcat/tomcat-10/v10.1.12/src/apache-tomcat-10.1.12-src.tar.gz https://repo.maven.apache.org/maven2/biz/aQute/bnd/biz.aQute.bnd/6.4.0/biz.aQute.bnd-6.4.0.jar verify-sig? ( https://downloads.apache.org/tomcat/tomcat-10/v10.1.12/src/apache-tomcat-10.1.12-src.tar.gz.asc )
+_eclasses_=java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	java-ant-2	19239227fab7816f57abbc0c7d819396	prefix	eab3c99d77fe00506c109c8a736186f7	verify-sig	dd7ea2e5b0bdcb42523e4797bbf4dd6e
+_md5_=e21920aa39c2735923348a5dc26184ac
