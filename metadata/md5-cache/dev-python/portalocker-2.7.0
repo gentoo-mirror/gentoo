@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/pytest-timeout-2.1.0[python_targets_python3_11(-)?] >=dev-python/sphinx-6.0.0[python_targets_python3_11(-)?] ) test? ( >=dev-python/pytest-7.3.1[python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A library for Python file locking
+EAPI=8
+HOMEPAGE=https://github.com/WoLpH/portalocker https://portalocker.readthedocs.io https://pypi.org/project/portalocker/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_11
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/WoLpH/portalocker/archive/v2.7.0.tar.gz -> portalocker-2.7.0.gh.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
+_md5_=85d0b7a1dbbab5cc5df4ade1591b5b63

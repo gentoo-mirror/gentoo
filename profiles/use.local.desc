@@ -8429,6 +8429,7 @@ sys-libs/timezone-data:zic-slim - Default to 'slim' file format for /usr/share/z
 sys-libs/zlib:minizip - include the minizip library for quick and dirty zip extraction
 sys-libs/zlib-ng:compat - Enable compatibility to sys-libs/zlib
 sys-power/apcupsd:modbus - Enable MODBUS support over USB
+sys-power/autosuspend:mpd - Enable support for the Music Player Daemon
 sys-power/intel-undervolt:elogind - Use elogind hook to apply voltage after system sleep
 sys-power/nut:gpio - Includes all UPS drivers that use GPIO.
 sys-power/nut:i2c - Includes all UPS drivers that use I2C.
@@ -8906,6 +8907,7 @@ x11-misc/xscreensaver:gdm - Use gdmflexiserver from gnome-base/gdm instead of x1
 x11-misc/xscreensaver:gles - Emulate OpenGL 1.3 in terms of OpenGL ES 1.x
 x11-misc/xscreensaver:glx - Use GLX to interface OpenGL and X11 instead of EGL
 x11-misc/xscreensaver:locking - Compile in support for locking the display
+x11-misc/xscreensaver:logind-idle-hint - Send the session idle hint to logind once the screen saver blanks
 x11-misc/xscreensaver:new-login - Enable user switching support using gdmflexiserver (x11-misc/lightdm)
 x11-misc/xsr:cursor - Capture mouse cursor using x11-misc/xdotool, and place them on the screenshots using media-gfx/imagemagick
 x11-misc/yabar:playerctl - Uses media-sound/playerctl to retrieve the name of the currently played song
