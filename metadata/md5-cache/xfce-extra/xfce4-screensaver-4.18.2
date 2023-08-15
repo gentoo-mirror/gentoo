@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/apps/screensaver/start https://gitlab.xfce.org/apps/xfce4-screensaver/
 INHERIT=xdg-utils
 IUSE=elogind +locking opengl pam systemd
-KEYWORDS=~alpha amd64 arm ~arm64 ~loong ~ppc ~ppc64 ~riscv x86
+KEYWORDS=~alpha amd64 arm ~arm64 ~loong ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2+ LGPL-2+
 RDEPEND=>=dev-libs/dbus-glib-0.30 >=dev-libs/glib-2.50.0:2 >=x11-libs/gtk+-3.24.0:3 >=x11-libs/libwnck-3.20:3 x11-libs/libICE:= x11-libs/libX11:= x11-libs/libXScrnSaver:= x11-libs/libXext:= x11-libs/libXxf86vm:= >=x11-libs/libXrandr-1.3:= >=x11-libs/libxklavier-5.2:= >=xfce-base/garcon-0.5.0:= >=xfce-base/libxfce4ui-4.18.4:= >=xfce-base/libxfce4util-4.12.1:= >=xfce-base/xfconf-4.12.1:= elogind? ( sys-auth/elogind ) locking? ( pam? ( sys-libs/pam ) ) opengl? ( virtual/opengl ) systemd? ( sys-apps/systemd:= )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/apps/xfce4-screensaver/4.18/xfce4-screensaver-4.18.2.tar.bz2
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=0971d5da84be0b45c48baf343295caa8
+_md5_=a18cca5711053b02da757b2b76685d45
