@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) dev-libs/libxml2:2 dev-util/gdbus-codegen dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.9 ) virtual/pkgconfig test? ( || ( ( dev-lang/python:3.11 >=dev-python/python-dbusmock-0.26.0[python_targets_python3_11(-)] dev-python/dbus-python[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/python-dbusmock-0.26.0[python_targets_python3_10(-)] dev-python/dbus-python[python_targets_python3_10(-)] ) ) ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst setup test
+DEPEND=>=dev-libs/glib-2.44:2 >=gui-libs/gtk-4.4:4[introspection?] media-libs/gsound >=gui-libs/libadwaita-1.1:1 >=x11-libs/libnotify-0.7.0 virtual/libudev:= >=sys-power/upower-0.99.14:= introspection? ( >=dev-libs/gobject-introspection-1.54:= )
+DESCRIPTION=Bluetooth graphical utilities integrated with GNOME
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Projects/GnomeBluetooth
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org meson python-any-r1 xdg
+IUSE=gtk-doc +introspection sendto test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+ LGPL-2.1+ FDL-1.1+
+RDEPEND=>=dev-libs/glib-2.44:2 >=gui-libs/gtk-4.4:4[introspection?] media-libs/gsound >=gui-libs/libadwaita-1.1:1 >=x11-libs/libnotify-0.7.0 virtual/libudev:= >=sys-power/upower-0.99.14:= introspection? ( >=dev-libs/gobject-introspection-1.54:= ) acct-group/plugdev virtual/udev >=net-wireless/bluez-5 sendto? ( !net-wireless/gnome-bluetooth:2 )
+RESTRICT=!test? ( test )
+SLOT=3/13
+SRC_URI=mirror://gnome/sources/gnome-bluetooth/42/gnome-bluetooth-42.6.tar.xz
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	1f435bc389faf790af695df46b8dcb73	meson	08b7183c3f4811568ee93eb0f79a89fe	python-any-r1	845fed6b6dfc35679a4fea289272ddc0	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=d532584bfacdd9f6a665df47c9a13ad2
