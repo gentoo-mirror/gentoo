@@ -9,9 +9,9 @@ IUSE=7z activerecord cppparser +data examples +file2pagecompiler iodbc +json jwt
 KEYWORDS=amd64 ~arm ~arm64 ppc64 x86
 LICENSE=Boost-1.0
 RDEPEND=>=dev-libs/libpcre2-10.40 activerecord? ( !app-arch/arc ) mysql? ( dev-db/mysql-connector-c:= ) mariadb? ( dev-db/mariadb-connector-c:= ) postgres? ( dev-db/postgresql:= ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib:= )
-REQUIRED_USE=7z? ( xml ) file2pagecompiler? ( pagecompiler ) iodbc? ( odbc ) jwt? ( json ssl ) mongodb? ( data ) mysql? ( data ) odbc? ( data ) postgres? ( data ) pagecompiler? ( json net util xml ) pocodoc? ( cppparser util xml ) sqlite? ( data ) ssl? ( util ) test? ( data? ( sqlite ) json util xml )
+REQUIRED_USE=activerecord? ( util ) 7z? ( xml ) file2pagecompiler? ( pagecompiler ) iodbc? ( odbc ) jwt? ( json ssl ) mongodb? ( data ) mysql? ( data ) odbc? ( data ) postgres? ( data ) pagecompiler? ( json net util xml ) pocodoc? ( cppparser util xml ) sqlite? ( data ) ssl? ( util ) test? ( data? ( sqlite ) json util xml )
 RESTRICT=!test? ( test )
 SLOT=0/94
 SRC_URI=https://github.com/pocoproject/poco/archive/poco-1.12.4-release.tar.gz -> poco-1.12.4.tar.gz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692
-_md5_=5bc76e188e98f3bb4d0d68304b80d54c
+_md5_=7e8f01af64a39a89653357c20030c474
