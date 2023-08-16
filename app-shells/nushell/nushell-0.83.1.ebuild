@@ -487,7 +487,7 @@ CRATES="
 	tower-service@0.3.2
 	tracing-core@0.1.31
 	tracing@0.1.37
-	trash@3.0.5
+	trash@3.0.6
 	try-lock@0.2.4
 	typed-arena@1.7.0
 	typenum@1.16.0
@@ -604,6 +604,10 @@ BDEPEND="
 RESTRICT+=" test"
 
 QA_FLAGS_IGNORED="usr/bin/nu.*"
+
+src_prepare() {
+	default
+}
 
 src_configure() {
 	# high magic to allow system-libs
