@@ -949,7 +949,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.0-r1 1.14.0-r2 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.29.15 1.29.20 1.29.25 1.29.26: Universal Command Line Environment for AWS
+app-admin/awscli 1.29.15 1.29.20 1.29.25 1.29.26 1.29.27: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.0: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -7939,7 +7939,7 @@ dev-python/autopep8 2.0.2 9999: Automatically formats Python code to conform to 
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.72.0 1.73.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.12.0: AWS X-Ray SDK for Python
-dev-python/awxkit 22.5.0 22.6.0: Command line interface for Ansible AWX
+dev-python/awxkit 22.5.0 22.6.0 22.7.0: Command line interface for Ansible AWX
 dev-python/babelfish 0.6.0-r2 9999: Python library to work with countries and languages
 dev-python/backcall 0.2.0-r1: Specifications for callback functions passed in to an API
 dev-python/backoff 2.2.1: Function decoration for backoff and retry
@@ -7971,8 +7971,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.28.15 1.28.20 1.28.25 1.28.26 9999: The AWS SDK for Python
-dev-python/botocore 1.31.15 1.31.20 1.31.25 1.31.26 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.28.15 1.28.20 1.28.25 1.28.26 1.28.27 9999: The AWS SDK for Python
+dev-python/botocore 1.31.15 1.31.20 1.31.25 1.31.26 1.31.27 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8248,7 +8248,7 @@ dev-python/gitdb 4.0.10: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.11.1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.93.0 2.94.0 2.95.0 2.96.0 2.97.0: Google API Client for Python
+dev-python/google-api-python-client 2.95.0 2.96.0 2.97.0: Google API Client for Python
 dev-python/google-auth 2.22.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.0-r3: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.0.0: Google Authentication Library
@@ -9126,7 +9126,7 @@ dev-python/ruamel-std-pathlib 0.12.0: Ruamel enhancements to pathlib and pathlib
 dev-python/ruamel-yaml 0.17.32: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.7: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.13.0 0.13.1: A high performance Python graph library implemented in Rust
-dev-python/s3transfer 0.6.1: An Amazon S3 Transfer Manager
+dev-python/s3transfer 0.6.1 0.6.2: An Amazon S3 Transfer Manager
 dev-python/sabctools 7.0.2 7.1.0: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif_om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
@@ -9244,7 +9244,7 @@ dev-python/spyder-notebook 0.4.1 0.5.1: Jupyter notebook integration with Spyder
 dev-python/spyder-terminal 1.2.2: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the results
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
-dev-python/sqlalchemy 1.4.49 2.0.18 2.0.19: Python SQL toolkit and Object Relational Mapper
+dev-python/sqlalchemy 1.4.49 2.0.18 2.0.19 2.0.20: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
 dev-python/sqlglot 17.10.1 17.10.2 17.11.0 17.12.0 17.14.0 17.14.2: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
@@ -9344,7 +9344,7 @@ dev-python/txaio 23.1.1: Compatibility API between asyncio/Twisted/Trollius
 dev-python/txredisapi 1.4.9 1.4.10: Non-blocking redis client for python
 dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
 dev-python/txtorcon 23.5.0: Twisted-based Tor controller client, with state-tracking abstractions
-dev-python/typeguard 4.0.0 4.0.1 4.1.0: Run-time type checker for Python
+dev-python/typeguard 4.0.0 4.0.1 4.1.0 4.1.1: Run-time type checker for Python
 dev-python/types-docutils 0.20.0.1 0.20.0.2: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.4 12.1.4.5: Typing stubs for gdb
 dev-python/typing-extensions 4.7.1: Backported and Experimental Type Hints for Python 3.7+
@@ -9453,7 +9453,7 @@ dev-python/ytmusicapi 1.1.1: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.0: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.2.1: A modern/fast Python SOAP client based on lxml / requests
-dev-python/zeroconf 0.71.4 0.71.5 0.72.0 0.74.0 0.76.0 0.79.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.71.4 0.71.5 0.72.0 0.74.0 0.76.0 0.79.0 0.80.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.16.2: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 5.0: Zope Configuration Architecture
@@ -14712,7 +14712,7 @@ net-libs/udns 0.4-r2: Async-capable DNS stub resolver library
 net-libs/uhttpmock 0.5.5-r1 0.9.0: HTTP web service mocking library
 net-libs/usrsctp 0.9.5.0: A cross-platform userland SCTP stack
 net-libs/wandio 4.2.3_p1-r1 4.2.3_p1-r2 4.2.4: C library for simple and efficient file IO
-net-libs/webkit-gtk 2.40.3 2.40.3-r410 2.40.3-r600 2.40.4 2.40.4-r410 2.40.4-r600 2.40.5 2.40.5-r410 2.40.5-r600: Open source web browser engine
+net-libs/webkit-gtk 2.40.4 2.40.4-r410 2.40.4-r600 2.40.5 2.40.5-r410 2.40.5-r600: Open source web browser engine
 net-libs/wslay 1.1.1_p20210115: WebSocket library in C
 net-libs/wvstreams 4.6.1_p14-r2: A network programming library in C++
 net-libs/xdp-tools 1.2.8 1.3.1-r3 1.4.0: The libxdp library and various tools for use with XDP
