@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://crystal-lang.org/ https://github.com/crystal-lang/crystal/
 INHERIT=bash-completion-r1 llvm multiprocessing toolchain-funcs
 IUSE=doc debug llvm-libunwind
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/boehm-gc:=[threads] dev-libs/gmp:= dev-libs/libatomic_ops:= dev-libs/libevent:= dev-libs/libpcre:= dev-libs/pcl:= <sys-devel/llvm-16:= llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) dev-libs/libxml2 dev-libs/libyaml
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/crystal-lang/crystal/archive/1.9.0.tar.gz -> crystal-1.9.0.tar.gz amd64? ( https://github.com/crystal-lang/crystal/releases/download/1.9.0/crystal-1.9.0-1-linux-x86_64.tar.gz )
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	llvm	976dc8267d6a5af8b259cb956b52d51f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=fe293193a73508af934fc92231faff23
+_md5_=8456c0ecef1f28d5d9437c3404470043
