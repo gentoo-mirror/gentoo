@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=!dev-cpp/kokkos dev-libs/boost:= sys-libs/binutils-libs:= virtual/blas virtual/lapack virtual/mpi adolc? ( sci-libs/adolc ) arprec? ( sci-libs/arprec ) clp? ( sci-libs/coinor-clp ) cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 ) eigen? ( dev-cpp/eigen:3 ) glpk? ( sci-mathematics/glpk ) gtest? ( dev-cpp/gtest ) hdf5? ( sci-libs/hdf5:=[mpi] ) hypre? ( sci-libs/hypre:= ) hwloc? ( sys-apps/hwloc:= ) matio? ( sci-libs/matio ) mkl? ( sci-libs/mkl ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps ) netcdf? ( sci-libs/netcdf:= ) petsc? ( sci-mathematics/petsc ) qd? ( sci-libs/qd ) scalapack? ( sci-libs/scalapack ) scotch? ( sci-libs/scotch:= ) sparse? ( sci-libs/cxsparse sci-libs/umfpack ) superlu? ( sci-libs/superlu:= ) taucs? ( sci-libs/taucs ) tbb? ( dev-cpp/tbb:= ) tvmet? ( dev-libs/tvmet ) yaml? ( dev-cpp/yaml-cpp:= ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libX11 ) virtual/pkgconfig
+DESCRIPTION=Scientific library collection for large scale problems
+EAPI=8
+HOMEPAGE=http://trilinos.sandia.gov/
+INHERIT=cmake toolchain-funcs
+IUSE=adolc all-packages arprec clp cuda eigen glpk gtest hdf5 hwloc hypre matio metis mkl mumps netcdf openmp petsc qd scalapack scotch sparse superlu taucs tbb test threads tvmet yaml zlib X
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD LGPL-2.1
+RDEPEND=!dev-cpp/kokkos dev-libs/boost:= sys-libs/binutils-libs:= virtual/blas virtual/lapack virtual/mpi adolc? ( sci-libs/adolc ) arprec? ( sci-libs/arprec ) clp? ( sci-libs/coinor-clp ) cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 ) eigen? ( dev-cpp/eigen:3 ) glpk? ( sci-mathematics/glpk ) gtest? ( dev-cpp/gtest ) hdf5? ( sci-libs/hdf5:=[mpi] ) hypre? ( sci-libs/hypre:= ) hwloc? ( sys-apps/hwloc:= ) matio? ( sci-libs/matio ) mkl? ( sci-libs/mkl ) metis? ( sci-libs/metis ) mumps? ( sci-libs/mumps ) netcdf? ( sci-libs/netcdf:= ) petsc? ( sci-mathematics/petsc ) qd? ( sci-libs/qd ) scalapack? ( sci-libs/scalapack ) scotch? ( sci-libs/scotch:= ) sparse? ( sci-libs/cxsparse sci-libs/umfpack ) superlu? ( sci-libs/superlu:= ) taucs? ( sci-libs/taucs ) tbb? ( dev-cpp/tbb:= ) tvmet? ( dev-libs/tvmet ) yaml? ( dev-cpp/yaml-cpp:= ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libX11 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/trilinos/Trilinos/archive/trilinos-release-14-4-0.tar.gz -> trilinos-14.4.0.tar.gz
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692
+_md5_=324a42e3d645602c470a438150b10835
