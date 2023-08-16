@@ -288,11 +288,6 @@ acct-group/gpio
 acct-group/simplevirt
 acct-group/spi
 
-# Matt Turner <mattst88@gentoo.org> (2023-07-16)
-# Last reverse dependency was gnome-base/gnome-vfs, dropped more than a year ago.
-# Removal on 2023-08-16.
-gnome-base/gnome-mime-data
-
 # Hans de Graaff <graaff@gentoo.org> (2023-07-14)
 # Obsolete slots or packages specifically for cucumber 7 which is no
 # longer available. Masked for removal on 2023-08-14
@@ -331,7 +326,10 @@ dev-util/cucumber-html-formatter:17
 >=app-misc/tracker-miners-3.6_alpha
 >=dev-cpp/gtkmm-4.11
 >=dev-libs/gjs-1.77
+>=dev-libs/glib-2.77
 >=dev-libs/libdex-0.3.0
+>=dev-util/gdbus-codegen-2.77
+>=dev-util/glib-utils-2.77
 >=games-puzzle/gnome-sudoku-45_alpha
 >=gnome-base/gnome-settings-daemon-45_alpha
 >=gnome-base/gnome-shell-45_alpha
