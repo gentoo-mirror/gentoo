@@ -7,10 +7,10 @@ HOMEPAGE=https://invent.kde.org/plasma/powerdevil
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm plasma.kde.org
 IUSE=brightness-control caps +wireless debug +handbook
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~riscv x86
 LICENSE=GPL-2
 RDEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 >=dev-qt/qtx11extras-5.15.9:5 >=kde-frameworks/kactivities-5.106.0:5 >=kde-frameworks/kauth-5.106.0:5[policykit] >=kde-frameworks/kcompletion-5.106.0:5 >=kde-frameworks/kconfig-5.106.0:5 >=kde-frameworks/kconfigwidgets-5.106.0:5 >=kde-frameworks/kcoreaddons-5.106.0:5 >=kde-frameworks/kcrash-5.106.0:5 >=kde-frameworks/kdbusaddons-5.106.0:5 >=kde-frameworks/kglobalaccel-5.106.0:5 >=kde-frameworks/ki18n-5.106.0:5 >=kde-frameworks/kidletime-5.106.0:5 >=kde-frameworks/kio-5.106.0:5 >=kde-frameworks/kirigami-5.106.0:5 >=kde-frameworks/knotifications-5.106.0:5 >=kde-frameworks/knotifyconfig-5.106.0:5 >=kde-frameworks/kservice-5.106.0:5 >=kde-frameworks/kwidgetsaddons-5.106.0:5 >=kde-frameworks/kxmlgui-5.106.0:5 >=kde-frameworks/solid-5.106.0:5 >=kde-plasma/libkscreen-5.27.7:5 >=kde-plasma/libkworkspace-5.27.7:5 virtual/libudev:= x11-libs/libxcb brightness-control? ( app-misc/ddcutil:= ) caps? ( sys-libs/libcap ) wireless? ( >=kde-frameworks/bluez-qt-5.106.0:5 >=kde-frameworks/networkmanager-qt-5.106.0:5 ) >=kde-plasma/kde-cli-tools-5.27.7:5 sys-power/power-profiles-daemon >=sys-power/upower-0.9.23 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 SLOT=5
 SRC_URI=mirror://kde/stable/plasma/5.27.7/powerdevil-5.27.7.tar.xz
 _eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	aa1d1fa7be37663d48162ac963b22692	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e	ecm	582ef00537aa518e5a8ca3aa66bd9dc0	kde.org	411cb92019a6e2aa174d06896084bf57	plasma.kde.org	3af4e73854ef6a9ab4fa39400978fb17
-_md5_=c96878cad9c4429ebeb47df97b90536c
+_md5_=d20697b612d8607e407aa3edc5215fe1

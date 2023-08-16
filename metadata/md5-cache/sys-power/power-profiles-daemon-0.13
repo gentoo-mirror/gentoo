@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/hadess/power-profiles-daemon/
 INHERIT=meson python-single-r1 systemd
 IUSE=gtk-doc test python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~riscv x86
 LICENSE=GPL-3+
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) dev-libs/glib:2 >=dev-libs/libgudev-234 >=sys-auth/polkit-0.114 sys-power/upower
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/hadess/power-profiles-daemon/-/archive/0.13/power-profiles-daemon-0.13.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	1f435bc389faf790af695df46b8dcb73	meson	08b7183c3f4811568ee93eb0f79a89fe	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=1119ed170523856d110be176398ddc57
+_md5_=49c37e564d6a845f13cb9a8533fc4005
