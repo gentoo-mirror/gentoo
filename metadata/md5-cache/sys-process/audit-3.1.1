@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://people.redhat.com/sgrubb/audit/
 INHERIT=autotools multilib-minimal toolchain-funcs python-r1 linux-info systemd usr-ldscript
 IUSE=gssapi io-uring ldap python static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 python_targets_python3_10 python_targets_python3_11 split-usr
-KEYWORDS=~alpha amd64 ~arm ~arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 ~arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=sys-libs/libcap-ng gssapi? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://people.redhat.com/sgrubb/audit/audit-3.1.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	5f4bb0758df2e483babf68cd517078ca	usr-ldscript	ff03a5d223e97515fa25b5cae97ebda9
-_md5_=2fb5f03434437078856f37409d8bebf0
+_md5_=86c7f8b3adc8f55cd1d3897065153ee4
