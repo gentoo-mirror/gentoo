@@ -7,7 +7,7 @@
 # @AUTHOR:
 # Authors: NP-Hardass <NP-Hardass@gentoo.org> based upon the gnome2
 # and autotools-utils eclasses
-# @SUPPORTED_EAPIS: 7
+# @SUPPORTED_EAPIS: 7 8
 # @PROVIDES: mate-desktop.org
 # @BLURB: Provides phases for MATE based packages.
 # @DESCRIPTION:
@@ -16,7 +16,7 @@
 # fact that MATE is a GNOME fork. For additional functions, see gnome2-utils.eclass.
 
 case ${EAPI} in
-	7) ;;
+	7|8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
@@ -38,7 +38,7 @@ GNOME2_LA_PUNT="${MATE_LA_PUNT}"
 inherit gnome2 autotools mate-desktop.org
 
 # Autotools requires our MATE m4 files
-DEPEND=">=mate-base/mate-common-${MATE_BRANCH}"
+BDEPEND=">=mate-base/mate-common-${MATE_BRANCH}"
 
 # @FUNCTION: mate_py_cond_func_wrap
 # @DESCRIPTION:
