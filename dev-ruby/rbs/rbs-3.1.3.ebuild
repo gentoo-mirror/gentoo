@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby26 ruby27 ruby30 ruby31"
+USE_RUBY="ruby30 ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 
@@ -17,10 +17,10 @@ inherit ruby-fakegem
 
 DESCRIPTION="The language for type signatures for Ruby and standard library definitions"
 HOMEPAGE="https://github.com/ruby/rbs"
-SRC_URI="https://github.com/ruby/rbs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ruby/rbs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="|| ( Ruby-BSD BSD-2 )"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 SLOT="0"
 IUSE="test"
 
@@ -39,8 +39,12 @@ all_ruby_prepare() {
 	# Avoid setup tests since they require a lot of development dependencies.
 	rm -f test/rbs/test/runtime_test_test.rb || die
 
+	# Avoid subtract tests with additonal unpackaged dependencies
+	sed -i -e '/def test_subtract/aomit "Skipped due to additional dependencies"' test/rbs/cli_test.rb || die
+
 	# Avoid tests requiring a network connection
-	rm -f test/rbs/collection/installer_test.rb test/rbs/collection/collections_test.rb test/rbs/collection/config_test.rb || die
+	rm -f test/rbs/collection/installer_test.rb test/rbs/collection/collections_test.rb \
+		test/rbs/collection/config_test.rb test/rbs/collection/sources/git_test.rb || die
 	sed -i -e '/def test_collection_/aomit "Requires network"' test/rbs/cli_test.rb || die
 	sed -i -e '/def test_loading_from_rbs_collection/aomit "Requires network"' test/rbs/environment_loader_test.rb || die
 
