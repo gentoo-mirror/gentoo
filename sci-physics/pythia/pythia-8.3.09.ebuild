@@ -5,32 +5,36 @@ EAPI=8
 
 inherit toolchain-funcs
 
-MV=$(ver_cut 1)$(ver_cut 2)
+MV=$(ver_cut 1-2)
 MY_P="${PN}${PV//./}"
-LHA_VER="6.1"
+LHA_VER="6.2.1"
 
 DESCRIPTION="Lund Monte Carlo high-energy physics event generator"
 HOMEPAGE="https://pythia.org/"
-SRC_URI="https://pythia.org/download/${PN}${MV}/${MY_P}.tgz
+SRC_URI="https://pythia.org/download/${PN}${MV//./}/${MY_P}.tgz
 	test? ( lhapdf? (
-		https://www.hepforge.org/archive/lhapdf/pdfsets/${LHA_VER}/CT10.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/${LHA_VER}/MRST2007lomod.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/${LHA_VER}/NNPDF23_nlo_as_0119_qed_mc.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/${LHA_VER}/NNPDF23_nnlo_as_0119_qed_mc.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/${LHA_VER}/cteq66.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/${LHA_VER}/cteq6l1.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/${LHA_VER}/unvalidated/MRST2004qed.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/CT10.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/MRST2007lomod.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/NNPDF23_nlo_as_0119_qed_mc.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/NNPDF23_nnlo_as_0119_qed_mc.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/cteq66.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/cteq6l1.tar.gz
+		https://www.hepforge.org/downloads/lhapdf/pdfsets/v6.backup/${LHA_VER}/MRST2004qed.tar.gz
 	) )"
 
 SLOT="8"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="doc examples fastjet +hepmc lhapdf root test zlib"
+KEYWORDS="~amd64 ~x86"
+IUSE="doc examples fastjet +hepmc3 hepmc2 lhapdf root test zlib"
 RESTRICT="!test? ( test )"
+REQUIRED_USE="
+	?? ( hepmc3 hepmc2 )
+"
 
 RDEPEND="
 	fastjet? ( sci-physics/fastjet )
-	hepmc? ( sci-physics/hepmc:2= )
+	hepmc3? ( sci-physics/hepmc:3= )
+	hepmc2? ( sci-physics/hepmc:2= )
 	lhapdf? ( sci-physics/lhapdf:= )
 	zlib? ( sys-libs/zlib )"
 # ROOT is used only when building related tests
@@ -53,7 +57,7 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	PYTHIADIR="/usr/share/pythia8"
+	PYTHIADIR="/usr/share/Pythia8"
 	EPYTHIADIR="${EPREFIX}${PYTHIADIR}"
 
 	default
@@ -91,10 +95,6 @@ src_prepare() {
 	# ask cflags from root
 	sed -i "s|root-config|root-config --cflags|g" examples/Makefile || die
 
-	sed -i \
-		-e '/TARGETS=$(LOCAL_LIB)\/libpythia8\.a/d' \
-		-e 's|libpythia8\.a$|libpythia8$(LIB_SUFFIX)|g' \
-		Makefile || die
 	sed -i 's|libpythia8\.a|libpythia8$(LIB_SUFFIX)|g' \
 		examples/Makefile || die
 }
@@ -108,13 +108,13 @@ src_configure() {
 	./configure \
 		--arch=Linux \
 		--cxx="$(tc-getCXX)" \
-		--enable-shared \
 		--prefix="${EPREFIX}/usr" \
-		--prefix-lib="$(get_libdir)" \
+		--prefix-lib="${EPREFIX}/usr/$(get_libdir)" \
 		--prefix-share="${EPYTHIADIR}" \
 		$(usex fastjet "--with-fastjet3" "") \
 		$(usex zlib "--with-gzip" "") \
-		$(usex hepmc "--with-hepmc2" "") \
+		$(use_with hepmc3) \
+		$(use_with hepmc2) \
 		$(usex lhapdf "--with-lhapdf6
 			--with-lhapdf6-plugin=LHAPDF6.h
 			--with-lhapdf6-lib=${EPREFIX}/usr/$(get_libdir)" "") \
@@ -125,7 +125,7 @@ src_configure() {
 
 	# fix pythia config script
 	sed -i \
-		-e 's|pythia8/examples/Makefile.inc|pythia8/Makefile.inc|' \
+		-e 's|Pythia8/examples/Makefile.inc|Pythia8/Makefile.inc|' \
 		-e 's|LINE%=|LINE%%=|' \
 		bin/pythia8-config || die
 }
@@ -134,11 +134,11 @@ src_test() {
 	cd examples || die
 
 	local tests="$(echo main{{01..32},37,38,61,62,73,80}.out)"
-	use hepmc && tests+=" $(echo main{41,42,85,86}.out)"
-	use hepmc && use lhapdf && tests+=" $(echo main{43,{87..89}}.out)"
+	use hepmc3 && tests+=" $(echo main{41,42,85,86}.out)"
+	use hepmc3 && use lhapdf && tests+=" $(echo main{43,{87..89}}.out)"
 	use lhapdf && tests+=" $(echo main{51..54}.out)"
 	use fastjet && tests+=" $(echo main{71,72}.out)"
-	use fastjet && use hepmc && use lhapdf && tests+=" $(echo main{81..84}).out"
+	use fastjet && use hepmc3 && use lhapdf && tests+=" $(echo main{81..84}).out"
 	use root && tests+=" main91.out"
 	# Disabled tests:
 	# 33	needs PowHEG
@@ -161,7 +161,7 @@ src_install() {
 	dolib.so lib/libpythia8.so
 	use lhapdf && dolib.so lib/libpythia8lhapdf6.so
 	insinto "${PYTHIADIR}"
-	doins -r share/Pythia8/xmldoc examples/Makefile.inc
+	doins -r share/Pythia8/xmldoc share/Pythia8/pdfdata examples/Makefile.inc
 
 	newenvd - 99pythia8 <<- _EOF_
 		PYTHIA8DATA=${EPYTHIADIR}/xmldoc
