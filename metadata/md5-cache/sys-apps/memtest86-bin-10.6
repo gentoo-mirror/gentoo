@@ -1,7 +1,7 @@
 BDEPEND=app-arch/unzip sys-fs/fatcat secureboot? ( app-crypt/sbsigntools )
 DEFINED_PHASES=install postinst postrm preinst prerm pretend setup unpack
 DESCRIPTION=Stand alone memory testing software for x86 EFI hardware
-EAPI=7
+EAPI=8
 HOMEPAGE=http://www.memtest86.com/
 INHERIT=mount-boot secureboot
 IUSE=secureboot
@@ -9,6 +9,6 @@ KEYWORDS=-* ~amd64
 LICENSE=PassMark-EULA
 RESTRICT=mirror bindist
 SLOT=0
-SRC_URI=https://www.memtest86.com/downloads/memtest86-usb.zip -> memtest86-bin-10.5.zip
+SRC_URI=https://www.memtest86.com/downloads/memtest86-usb.zip -> memtest86-bin-10.6.zip
 _eclasses_=mount-boot	3945d351ee3192381911f938f4ee527a	secureboot	f16ffd012ded1947acfc16e42b490ec6
-_md5_=0082f81224ec103452aa258243a2bccf
+_md5_=f4019a5366699e9c6035fee642d660b9
