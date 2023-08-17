@@ -653,8 +653,8 @@ setup_env() {
 	export CXX="${glibc__GLIBC_CXX} ${glibc__abi_CFLAGS} ${CFLAGS}"
 
 	if is_crosscompile; then
-		# Assume worst-case bootstrap: glibc is buil first time
-		# when ${CTARGET}-g++ is not available yet. We avoid
+		# Assume worst-case bootstrap: glibc is built for the first time
+		# with ${CTARGET}-g++ not available yet. We avoid
 		# building auxiliary programs that require C++: bug #683074
 		# It should not affect final result.
 		export libc_cv_cxx_link_ok=no
@@ -1089,7 +1089,7 @@ glibc_do_configure() {
 	# add x32 to it, gcc/glibc don't yet support x32.
 	#
 	if [[ -n ${GCC_BOOTSTRAP_VER} ]] && use multilib-bootstrap ; then
-		echo 'main(){}' > "${T}"/test.c
+		echo 'int main(void){}' > "${T}"/test.c || die
 		if ! $(tc-getCC ${CTARGET}) ${CFLAGS} ${LDFLAGS} "${T}"/test.c -Wl,-emain -lgcc 2>/dev/null ; then
 			sed -i -e '/^CC = /s:$: -B$(objdir)/../'"gcc-multilib-bootstrap-${GCC_BOOTSTRAP_VER}/${ABI}:" config.make || die
 		fi
