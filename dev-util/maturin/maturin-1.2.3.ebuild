@@ -10,9 +10,9 @@ CRATES="
 	anstream@0.3.2
 	anstyle-parse@0.2.1
 	anstyle-query@1.0.0
-	anstyle-wincon@1.0.1
+	anstyle-wincon@1.0.2
 	anstyle@1.0.1
-	anyhow@1.0.72
+	anyhow@1.0.73
 	autocfg@1.1.0
 	base64@0.13.1
 	base64@0.21.2
@@ -34,7 +34,7 @@ CRATES="
 	cargo-zigbuild@0.17.0
 	cargo_metadata@0.17.0
 	cbindgen@0.24.5
-	cc@1.0.81
+	cc@1.0.82
 	cfb@0.7.3
 	cfg-expr@0.15.4
 	cfg-if@1.0.0
@@ -73,11 +73,11 @@ CRATES="
 	encode_unicode@0.3.6
 	encoding_rs@0.8.32
 	errno-dragonfly@0.1.2
-	errno@0.3.1
+	errno@0.3.2
 	fastrand@1.9.0
 	fat-macho@0.4.7
-	filetime@0.2.21
-	flate2@1.0.26
+	filetime@0.2.22
+	flate2@1.0.27
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
@@ -90,7 +90,7 @@ CRATES="
 	goblin@0.7.1
 	hashbrown@0.12.3
 	heck@0.4.1
-	hermit-abi@0.3.1
+	hermit-abi@0.3.2
 	home@0.5.5
 	humantime-serde@1.1.1
 	humantime@2.1.0
@@ -102,7 +102,7 @@ CRATES="
 	instant@0.1.12
 	io-lifetimes@1.0.11
 	is-terminal@0.4.7
-	itertools@0.10.5
+	itertools@0.11.0
 	itoa@1.0.9
 	js-sys@0.3.64
 	keyring@2.0.5
@@ -112,7 +112,7 @@ CRATES="
 	linux-keyutils@0.2.3
 	linux-raw-sys@0.3.8
 	lock_api@0.4.10
-	log@0.4.19
+	log@0.4.20
 	lzxd@0.1.4
 	mailparse@0.14.0
 	matchers@0.1.0
@@ -120,7 +120,7 @@ CRATES="
 	memoffset@0.9.0
 	mime@0.3.17
 	mime_guess@2.0.4
-	minijinja@1.0.5
+	minijinja@1.0.6
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.1
 	msi@0.5.1
@@ -136,8 +136,8 @@ CRATES="
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
 	openssl-src@111.27.0+1.1.1v
-	openssl-sys@0.9.90
-	openssl@0.10.55
+	openssl-sys@0.9.91
+	openssl@0.10.56
 	option-ext@0.2.0
 	os_pipe@1.1.4
 	overload@0.1.1
@@ -148,7 +148,7 @@ CRATES="
 	pep440_rs@0.3.6
 	pep508_rs@0.2.1
 	percent-encoding@2.3.0
-	pin-project-lite@0.2.10
+	pin-project-lite@0.2.12
 	pkg-config@0.3.27
 	plain@0.2.3
 	platform-info@2.0.2
@@ -158,7 +158,7 @@ CRATES="
 	proc-macro2@1.0.66
 	psm@0.1.21
 	pyproject-toml@0.6.1
-	python-pkginfo@0.5.6
+	python-pkginfo@0.6.0
 	quoted_printable@0.4.8
 	quote@1.0.32
 	rand@0.8.5
@@ -190,8 +190,8 @@ CRATES="
 	security-framework-sys@2.9.1
 	security-framework@2.9.2
 	semver@1.0.18
-	serde@1.0.182
-	serde_derive@1.0.182
+	serde@1.0.183
+	serde_derive@1.0.183
 	serde_json@1.0.104
 	serde_spanned@0.6.3
 	sha2@0.10.7
@@ -212,13 +212,13 @@ CRATES="
 	syn@1.0.109
 	syn@2.0.28
 	target-lexicon@0.12.11
-	tar@0.4.39
+	tar@0.4.40
 	tempfile@3.6.0
 	termcolor@1.2.0
 	terminal_size@0.2.6
 	textwrap@0.16.0
-	thiserror-impl@1.0.44
-	thiserror@1.0.44
+	thiserror-impl@1.0.45
+	thiserror@1.0.45
 	thread_local@1.1.7
 	time-core@0.1.0
 	time-macros@0.2.8
@@ -251,7 +251,7 @@ CRATES="
 	uuid@1.4.1
 	valuable@0.1.0
 	vcpkg@0.2.15
-	versions@5.0.0
+	versions@5.0.1
 	version_check@0.9.4
 	wait-timeout@0.2.0
 	walkdir@2.3.3
@@ -272,23 +272,23 @@ CRATES="
 	windows-sys@0.45.0
 	windows-sys@0.48.0
 	windows-targets@0.42.2
-	windows-targets@0.48.1
+	windows-targets@0.48.2
 	windows_aarch64_gnullvm@0.42.2
-	windows_aarch64_gnullvm@0.48.0
+	windows_aarch64_gnullvm@0.48.2
 	windows_aarch64_msvc@0.42.2
-	windows_aarch64_msvc@0.48.0
+	windows_aarch64_msvc@0.48.2
 	windows_i686_gnu@0.42.2
-	windows_i686_gnu@0.48.0
+	windows_i686_gnu@0.48.2
 	windows_i686_msvc@0.42.2
-	windows_i686_msvc@0.48.0
+	windows_i686_msvc@0.48.2
 	windows_x86_64_gnullvm@0.42.2
-	windows_x86_64_gnullvm@0.48.0
+	windows_x86_64_gnullvm@0.48.2
 	windows_x86_64_gnu@0.42.2
-	windows_x86_64_gnu@0.48.0
+	windows_x86_64_gnu@0.48.2
 	windows_x86_64_msvc@0.42.2
-	windows_x86_64_msvc@0.48.0
+	windows_x86_64_msvc@0.48.2
 	winnow@0.4.7
-	xattr@0.2.3
+	xattr@1.0.1
 	xwin@0.2.14
 	yansi@0.5.1
 	zeroize@1.6.0
@@ -297,6 +297,7 @@ CRATES="
 # additional crates used by test-crates/* test packages,
 # `grep test-crates tests/run.rs` to see which are needed
 CRATES_TEST="
+	anyhow@1.0.72
 	askama@0.12.0
 	askama_derive@0.12.1
 	askama_escape@0.10.3
@@ -304,11 +305,13 @@ CRATES_TEST="
 	bincode@1.3.3
 	cargo_metadata@0.15.4
 	cc@1.0.73
+	cc@1.0.81
 	goblin@0.6.1
 	indoc@1.0.7
 	indoc@1.0.9
 	libc@0.2.134
 	lock_api@0.4.9
+	log@0.4.19
 	once_cell@1.15.0
 	parking_lot_core@0.9.3
 	proc-macro2@1.0.46
@@ -328,10 +331,14 @@ CRATES_TEST="
 	python3-dll-a@0.2.9
 	quote@1.0.21
 	scopeguard@1.1.0
+	serde@1.0.182
+	serde_derive@1.0.182
 	siphasher@0.3.10
 	smallvec@1.10.0
 	syn@1.0.102
 	target-lexicon@0.12.7
+	thiserror-impl@1.0.44
+	thiserror@1.0.44
 	unicode-ident@1.0.5
 	uniffi@0.24.3
 	uniffi_bindgen@0.24.3
@@ -345,11 +352,19 @@ CRATES_TEST="
 	unindent@0.1.11
 	weedle2@4.0.0
 	windows-sys@0.36.1
+	windows-targets@0.48.1
+	windows_aarch64_gnullvm@0.48.0
 	windows_aarch64_msvc@0.36.1
+	windows_aarch64_msvc@0.48.0
 	windows_i686_gnu@0.36.1
+	windows_i686_gnu@0.48.0
 	windows_i686_msvc@0.36.1
+	windows_i686_msvc@0.48.0
+	windows_x86_64_gnullvm@0.48.0
 	windows_x86_64_gnu@0.36.1
+	windows_x86_64_gnu@0.48.0
 	windows_x86_64_msvc@0.36.1
+	windows_x86_64_msvc@0.48.0
 "
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{10..12} )
