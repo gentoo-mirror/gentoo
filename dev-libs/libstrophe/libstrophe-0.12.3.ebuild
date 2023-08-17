@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit autotools
-
 DESCRIPTION="A simple, lightweight C library for writing XMPP clients"
 HOMEPAGE="https://strophe.im/libstrophe/"
 SRC_URI="
@@ -29,6 +27,10 @@ BDEPEND="
 "
 
 DOCS=( ChangeLog )
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.12.3-allow-tests-when-static.patch"
+)
 
 src_configure() {
 	# shellcheck disable=SC2207
