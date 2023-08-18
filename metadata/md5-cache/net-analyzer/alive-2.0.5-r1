@@ -1,14 +1,14 @@
 BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=prepare unpack
 DEPEND=dev-scheme/guile
-DESCRIPTION=A periodic ping program
-EAPI=7
+DESCRIPTION=Periodic ping program
+EAPI=8
 HOMEPAGE=https://www.gnu.org/software/alive/
 INHERIT=autotools unpacker
 KEYWORDS=~amd64 ~hppa ~x86
-LICENSE=GPL-3
+LICENSE=GPL-3+
 RDEPEND=dev-scheme/guile dev-scheme/xdgdirs net-misc/iputils
 SLOT=0
 SRC_URI=mirror://gnu/alive/alive-2.0.5.tar.lz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	unpacker	aa6a4e924009232d8b78b31e932c30b5
-_md5_=fad5f2aad90462cd5d2f412b9ca13946
+_md5_=614260117dd11565b4cb0b078dc2177c
