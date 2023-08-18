@@ -4,7 +4,7 @@
 EAPI=8
 CONFIG_CHECK="ACPI_WMI INPUT_SPARSEKMAP"
 
-inherit linux-mod toolchain-funcs
+inherit linux-mod-r1 toolchain-funcs
 
 DESCRIPTION="Kernel Module for Tuxedo Keyboard"
 HOMEPAGE="https://github.com/tuxedocomputers/tuxedo-keyboard"
@@ -14,12 +14,17 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-BUILD_TARGETS="all"
-MODULE_NAMES="clevo_acpi(tuxedo:${S}:src) clevo_wmi(tuxedo:${S}:src) uniwill_wmi(tuxedo:${S}:src) tuxedo_keyboard(tuxedo:${S}:src) tuxedo_io(tuxedo:${S}:src/tuxedo_io)"
+PATCHES=( )
 
-PATCHES=( "${FILESDIR}"/${PN}-${PV}-rm-unused-functions.patch )
+src_compile() {
+	local modlist=(
+		clevo_acpi=tuxedo::src
+		clevo_wmi=tuxedo::src
+		uniwill_wmi=tuxedo::src
+		tuxedo_keyboard=tuxedo::src
+		tuxedo_io=tuxedo::src/tuxedo_io
+	)
+	local modargs="CC=$(tc-getBUILD_CC) KDIR=${KV_DIR} V=1 KBUILD_VERBOSE=1"
 
-pkg_setup() {
-	linux-mod_pkg_setup
-	BUILD_PARAMS="CC=$(tc-getBUILD_CC) KDIR=${KV_DIR} V=1 KBUILD_VERBOSE=1"
+	linux-mod-r1_src_compile
 }
