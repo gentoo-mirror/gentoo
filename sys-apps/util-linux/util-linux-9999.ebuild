@@ -56,7 +56,8 @@ RDEPEND="
 	selinux? ( >=sys-libs/libselinux-2.2.2-r4[${MULTILIB_USEDEP}] )
 	slang? ( sys-libs/slang )
 	!build? ( systemd? ( sys-apps/systemd ) )
-	udev? ( virtual/libudev:= )"
+	udev? ( virtual/libudev:= )
+"
 BDEPEND="
 	virtual/pkgconfig
 	nls? (
@@ -129,11 +130,6 @@ src_prepare() {
 	default
 
 	if use test ; then
-		# Prevent uuidd test failure due to socket path limit, bug #593304
-		sed -i \
-			-e "s|UUIDD_SOCKET=\"\$(mktemp -u \"\${TS_OUTDIR}/uuiddXXXXXXXXXXXXX\")\"|UUIDD_SOCKET=\"\$(mktemp -u \"${T}/uuiddXXXXXXXXXXXXX.sock\")\"|g" \
-			tests/ts/uuid/uuidd || die "Failed to fix uuidd test"
-
 		# Known-failing tests
 		# TODO: investigate these
 		local known_failing_tests=(
@@ -152,7 +148,6 @@ src_prepare() {
 			einfo "Removing known-failing test: ${known_failing_test}"
 			rm tests/ts/${known_failing_test} || die
 		done
-
 	fi
 
 	if [[ ${PV} == 9999 ]] ; then
