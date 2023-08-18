@@ -11,11 +11,11 @@ HOMEPAGE="
 	https://proofingtoolgui.org
 	https://github.com/marcoagpinto/aoo-mozilla-en-dict
 "
-SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1682907652/dict-en-20230501_lo.oxt"
+SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1690875969/dict-en-20230801_lo.oxt"
 
 LICENSE="BSD MIT LGPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 
 PLOCALES=( "en-AU" "en-CA" "en-GB" "en-US" "en-ZA" )
 IUSE+="+l10n_en ${PLOCALES[@]/#/l10n_}"
