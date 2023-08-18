@@ -15,7 +15,7 @@ MY_PV_FULL="${MY_PV}-${MY_PV_REV}"
 
 MY_PN="amf-amdgpu-pro"
 
-PRO_VULKAN_PKG_VER="22.20"
+PRO_VULKAN_PKG_VER="22.20.5"
 UBUNTU_VER="22.04"
 
 DESCRIPTION="AMD's closed source Advanced Media Framework (AMF) driver"

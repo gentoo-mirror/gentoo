@@ -15,13 +15,12 @@ MY_PV_FULL="${MY_PV}-${MY_PV_REV}"
 
 MY_PN="amf-amdgpu-pro"
 
-PRO_VULKAN_PKG_VER="21.50.1"
-
-MY_LINK="https://repo.radeon.com/amdgpu/${PRO_VULKAN_PKG_VER}/ubuntu/pool/proprietary/a/${MY_PN}"
+INTERNAL_VER="5.4.6"
+UBUNTU_VER="22.04"
 
 DESCRIPTION="AMD's closed source Advanced Media Framework (AMF) driver"
 HOMEPAGE="https://www.amd.com/en/support"
-SRC_URI="${MY_LINK}/${MY_PN}_${MY_PV_FULL}_amd64.deb -> ${P}.deb"
+SRC_URI="https://repo.radeon.com/amdgpu/${INTERNAL_VER}/ubuntu/pool/proprietary/a/${MY_PN}/${MY_PN}_${MY_PV_FULL}.${UBUNTU_VER}_amd64.deb -> ${P}.deb"
 
 S="${WORKDIR}"
 
@@ -53,6 +52,5 @@ src_install() {
 
 	# AMF
 	doins "${S}/${PN}-amd64/opt/amdgpu-pro/lib/x86_64-linux-gnu/libamfrt64.so.${MY_PV}"
-	dosym "libamfrt64.so.${MY_PV}" "/usr/$(get_libdir)/libamfrt64.so"
 	dosym "libamfrt64.so.${MY_PV}" "/usr/$(get_libdir)/libamfrt64.so.1"
 }

@@ -10,20 +10,23 @@ MY_PV_MIDDLE=$(ver_cut 2)
 MY_PV_LOW=$(ver_cut 3)
 MY_PV_REV=$(ver_cut 4)
 
-MY_PV="${MY_PV_HIGH}.${MY_PV_MIDDLE}.${MY_PV_LOW}"
-[[ $MY_PV_LOW = "0" ]] && MY_PV="${MY_PV_HIGH}.${MY_PV_MIDDLE}"
+MY_PV="${MY_PV_HIGH}.${MY_PV_MIDDLE}"
+
+INTERNAL_VER="5.4.6"
 
 MY_PV_FULL="${MY_PV}-${MY_PV_REV}"
 
 MY_PN="vulkan-amdgpu-pro"
+# https://repo.radeon.com/amdgpu/5.4.6/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/
+MY_LINK="https://repo.radeon.com/amdgpu/${INTERNAL_VER}/ubuntu/pool/proprietary/v/${MY_PN}"
 
-MY_LINK="https://repo.radeon.com/amdgpu/${MY_PV}/ubuntu/pool/proprietary/v/${MY_PN}"
+UBUNTU_VER="22.04"
 
 DESCRIPTION="AMD's closed source vulkan driver, from Radeon Software for Linux"
 HOMEPAGE="https://www.amd.com/en/support"
 SRC_URI="
-	abi_x86_64? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}_amd64.deb -> ${P}-amd64.deb )
-	abi_x86_32? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}_i386.deb -> ${P}-i386.deb )
+	abi_x86_64? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}.${UBUNTU_VER}_amd64.deb -> ${P}-amd64.deb )
+	abi_x86_32? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}.${UBUNTU_VER}_i386.deb -> ${P}-i386.deb )
 "
 S="${WORKDIR}"
 
