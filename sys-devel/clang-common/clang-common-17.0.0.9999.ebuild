@@ -142,7 +142,8 @@ src_install() {
 
 			# Analogue to GLIBCXX_ASSERTIONS
 			# https://libcxx.llvm.org/UsingLibcxx.html#assertions-mode
-			-D_LIBCPP_ENABLE_ASSERTIONS=1
+			# https://libcxx.llvm.org/Hardening.html#using-hardened-mode
+			-D_LIBCPP_ENABLE_HARDENED_MODE=1
 		EOF
 	fi
 
@@ -168,8 +169,11 @@ src_install() {
 		EOF
 	fi
 
+	# We only install config files for ${CHOST} because unprefixed tools
+	# might be used for crosscompilation where e.g. PIE may not be supported.
+	# See bug #912237 and bug #901247.
 	local tool
-	for tool in clang{,++,-cpp}; do
+	for tool in ${CHOST}-clang{,++,-cpp}; do
 		newins - "${tool}.cfg" <<-EOF
 			# This configuration file is used by ${tool} driver.
 			@gentoo-common.cfg
