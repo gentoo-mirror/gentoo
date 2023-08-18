@@ -147,7 +147,10 @@ _filter-hardened() {
 			# not -fPIC or -fpic, but too many places filter -fPIC without
 			# thinking about -fPIE.
 			-fPIC|-fpic|-fPIE|-fpie|-Wl,pie|-pie)
-				gcc-specs-pie || continue
+				if ! gcc-specs-pie && ! tc-enables-pie ; then
+					continue
+				fi
+
 				if ! is-flagq -nopie && ! is-flagq -no-pie ; then
 					# Support older Gentoo form first (-nopie) before falling
 					# back to the official gcc-6+ form (-no-pie).
@@ -158,15 +161,36 @@ _filter-hardened() {
 					fi
 				fi
 				;;
-			-fstack-protector)
-				gcc-specs-ssp || continue
-				is-flagq -fno-stack-protector || append-flags $(test-flags -fno-stack-protector);;
+
+			-fstack-protector|-fstack-protector-strong)
+				if ! gcc-specs-ssp && ! tc-enables-ssp && ! tc-enables-ssp-strong ; then
+					continue
+				fi
+
+				is-flagq -fno-stack-protector || append-flags $(test-flags -fno-stack-protector)
+				;;
 			-fstack-protector-all)
-				gcc-specs-ssp-to-all || continue
-				is-flagq -fno-stack-protector-all || append-flags $(test-flags -fno-stack-protector-all);;
+				if ! gcc-specs-ssp-to-all && ! tc-enables-ssp-all ; then
+					continue
+				fi
+
+				is-flagq -fno-stack-protector-all || append-flags $(test-flags -fno-stack-protector-all)
+				;;
 			-fno-strict-overflow)
 				gcc-specs-nostrict || continue
-				is-flagq -fstrict-overflow || append-flags $(test-flags -fstrict-overflow);;
+
+				is-flagq -fstrict-overflow || append-flags $(test-flags -fstrict-overflow)
+				;;
+			-D_GLIBCXX_ASSERTIONS|-D_LIBCPP_ENABLE_ASSERTIONS|-D_LIBCPP_ENABLE_HARDENED_MODE)
+				tc-enables-cxx-assertions || continue
+
+				append-cppflags -U_GLIBCXX_ASSERTIONS -U_LIBCPP_ENABLE_ASSERTIONS -U_LIBCPP_ENABLE_HARDENED_MODE
+				;;
+			-D_FORTIFY_SOURCE=*)
+				tc-enables-fortify-source || continue
+
+				append-cppflags -U_FORTIFY_SOURCE
+				;;
 		esac
 	done
 }
