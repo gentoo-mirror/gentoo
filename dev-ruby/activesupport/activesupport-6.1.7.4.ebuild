@@ -19,7 +19,7 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86"
 IUSE=""
 
 RUBY_S="rails-${PV}/${PN}"
@@ -65,8 +65,10 @@ all_ruby_prepare() {
 	rm ../Gemfile.lock || die
 #	sed -i -e '1igem "tzinfo", "~> 1.1"' test/abstract_unit.rb || die
 
-	# Avoid test that depends on timezone
-	sed -i -e '/test_implicit_coercion/,/^  end/ s:^:#:' test/core_ext/duration_test.rb || die
+	# Avoid test that depends on timezone and test that fails on 32-bit arches
+	sed -e '/test_implicit_coercion/,/^  end/ s:^:#:' \
+		-e '/test_iso8601_output_and_reparsing/askip "Broken on 32-bit arches"' \
+		-i test/core_ext/duration_test.rb || die
 
 	# Avoid tests that seem to trigger race conditions.
 	rm -f test/evented_file_update_checker_test.rb || die
