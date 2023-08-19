@@ -130,12 +130,6 @@ multilib_src_compile() {
 	use minizip && emake -C contrib/minizip
 }
 
-sed_macros() {
-	# Clean up namespace a little, bug #383179
-	# We do it here so we only have to tweak 2 files
-	sed -i -r 's:\<(O[FN])\>:_Z_\1:g' "$@" || die
-}
-
 multilib_src_install() {
 	case ${CHOST} in
 		*-mingw*|mingw*)
@@ -158,11 +152,8 @@ multilib_src_install() {
 			;;
 	esac
 
-	sed_macros "${ED}"/usr/include/*.h
-
 	if use minizip ; then
 		emake -C contrib/minizip install DESTDIR="${D}"
-		sed_macros "${ED}"/usr/include/minizip/*.h
 
 		# This might not exist if slibtool is used.
 		# bug #816756
