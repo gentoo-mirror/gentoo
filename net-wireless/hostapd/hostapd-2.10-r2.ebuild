@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic systemd savedconfig toolchain-funcs
 
@@ -23,23 +23,27 @@ else
 	fi
 
 	# Never stabilize snapshot ebuilds please
-	KEYWORDS="amd64 arm arm64 ~mips ppc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~x86"
 fi
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="internal-tls ipv6 netlink sqlite +suiteb +wps +crda"
+IUSE="internal-tls ipv6 netlink selinux sqlite +suiteb +wps"
 
 DEPEND="
 	internal-tls? ( dev-libs/libtommath )
 	!internal-tls? ( dev-libs/openssl:0=[-bindist(-)] )
 	kernel_linux? (
+		net-wireless/wireless-regdb
 		>=dev-libs/libnl-3.2:3
-		crda? ( net-wireless/crda )
 	)
 	netlink? ( net-libs/libnfnetlink )
-	sqlite? ( >=dev-db/sqlite-3 )"
-RDEPEND="${DEPEND}"
+	sqlite? ( dev-db/sqlite:3 )
+"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-hostapd )
+"
 BDEPEND="virtual/pkgconfig"
 
 pkg_pretend() {
@@ -154,6 +158,7 @@ src_configure() {
 	echo "CONFIG_IEEE80211W=y" >> ${CONFIG} || die
 	echo "CONFIG_IEEE80211N=y" >> ${CONFIG} || die
 	echo "CONFIG_IEEE80211AC=y" >> ${CONFIG} || die
+	echo "CONFIG_IEEE80211AX=y" >> ${CONFIG} || die
 	echo "CONFIG_OCV=y" >> ${CONFIG} || die
 	echo "CONFIG_PEERKEY=y" >> ${CONFIG} || die
 	echo "CONFIG_RSN_PREAUTH=y" >> ${CONFIG} || die
