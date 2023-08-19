@@ -7,7 +7,7 @@ PYTHON_COMPAT=( pypy3 python3_{10..12} )
 PYTHON_REQ_USE='bzip2(+),threads(+)'
 TMPFILES_OPTIONAL=1
 
-inherit meson linux-info python-r1 tmpfiles
+inherit meson linux-info multiprocessing python-r1 tmpfiles
 
 DESCRIPTION="The package management and distribution system for Gentoo"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Portage"
@@ -37,7 +37,10 @@ BDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]
 	' python3_12)
-	test? ( dev-vcs/git )
+	test? (
+		dev-vcs/git
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
+	)
 "
 DEPEND="
 	${PYTHON_DEPS}
@@ -152,6 +155,12 @@ src_compile() {
 	python_foreach_impl meson_src_compile
 }
 
+src_test() {
+	local -x PYTEST_ADDOPTS="-vv -ra -l -o console_output_style=count -n $(makeopts_jobs) --dist=worksteal"
+
+	python_foreach_impl meson_src_test --no-rebuild --verbose
+}
+
 src_install() {
 	python_foreach_impl my_src_install
 	dotmpfiles "${FILESDIR}"/portage-{ccache,tmpdir}.conf
@@ -170,10 +179,6 @@ my_src_install() {
 	meson_src_install
 	python_optimize "${pydirs[@]}"
 	python_fix_shebang "${pydirs[@]}"
-}
-
-src_test() {
-	python_foreach_impl meson_src_test --no-rebuild --verbose
 }
 
 pkg_preinst() {
