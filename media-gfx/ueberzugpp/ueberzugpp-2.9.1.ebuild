@@ -7,7 +7,10 @@ inherit cmake
 
 DESCRIPTION="Drop in replacement for ueberzug written in C++"
 HOMEPAGE="https://github.com/jstkdng/ueberzugpp/"
-SRC_URI="https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -32,21 +35,27 @@ RDEPEND="
 	opencv? ( media-libs/opencv:= )
 	opengl? ( media-libs/libglvnd )
 	wayland? ( dev-libs/wayland )
-	!media-gfx/ueberzug"
+	!media-gfx/ueberzug
+"
 DEPEND="
 	${RDEPEND}
 	dev-cpp/cli11
 	dev-cpp/ms-gsl
 	dev-cpp/nlohmann_json
 	X? ( x11-base/xorg-proto )
-	wayland? ( dev-libs/wayland-protocols )"
+	wayland? ( dev-libs/wayland-protocols )
+"
 BDEPEND="
 	wayland? (
 		dev-util/wayland-scanner
 		kde-frameworks/extra-cmake-modules
-	)"
+	)
+"
 
 src_configure() {
+	# TODO?: wayfire plugin is skipped for now (needs wlroots which is
+	# likely to be messier), but could be handled if there is a demand
+
 	local mycmakeargs=(
 		-DENABLE_OPENCV=$(usex opencv)
 		-DENABLE_OPENGL=$(usex opengl)
