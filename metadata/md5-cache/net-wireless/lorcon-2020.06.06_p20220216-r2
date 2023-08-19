@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig python? ( >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
+BDEPEND=virtual/pkgconfig python? ( >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
 DEFINED_PHASES=compile install prepare
-DEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
+DEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
 DESCRIPTION=A generic library for injecting 802.11 frames
 EAPI=8
 HOMEPAGE=https://github.com/kismetwireless/lorcon
 INHERIT=distutils-r1 flag-o-matic
-IUSE=python python_targets_python3_10 python_targets_python3_11
+IUSE=python python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=amd64 arm ~arm64 ppc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
+RDEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
 SLOT=0
 SRC_URI=https://github.com/kismetwireless/lorcon/archive/4a81d6aaa2c6ac7253ecd182ffe97c6c89411196.tar.gz -> lorcon-2020.06.06_p20220216.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	1f435bc389faf790af695df46b8dcb73	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	distutils-r1	b7cd5736a595ec0df9b164d5aec6f228
-_md5_=9cd49b6a7cd0d6f686864acf6986361e
+_md5_=c0e9343d0114fee8f1a7ca9c1975e243
