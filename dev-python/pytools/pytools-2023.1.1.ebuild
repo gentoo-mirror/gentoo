@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE='sqlite'
 
 inherit distutils-r1 pypi
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64 ~riscv"
 
 # NB: numpy is now an "extra" (optional) dep -- we can remove it from
 # RDEPEND If revdeps don't need it
@@ -27,7 +27,7 @@ RDEPEND="
 	>=dev-python/platformdirs-2.2.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/typing-extensions-4.0[${PYTHON_USEDEP}]
-	' 3.8 3.9 3.10)
+	' 3.10)
 "
 
 distutils_enable_tests pytest

@@ -3,7 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+# NOT compatible with python3_11 because it uses the deprecated module "imp"
+PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -17,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64 ~riscv"
 IUSE="examples opengl"
 
 # Running tests on GPUs requires both appropriate hardware and additional permissions
