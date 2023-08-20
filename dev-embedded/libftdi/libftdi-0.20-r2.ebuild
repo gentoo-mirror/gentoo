@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 inherit cmake python-single-r1
 
 if [[ ${PV} == 9999* ]] ; then
@@ -25,6 +25,7 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RDEPEND="
 	virtual/libusb:0
 	cxx? ( dev-libs/boost )
+	doc? ( !dev-embedded/libftdi:1[doc] )
 	python? ( ${PYTHON_DEPS} )
 "
 DEPEND="${RDEPEND}"
