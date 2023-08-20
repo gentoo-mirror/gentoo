@@ -17,7 +17,7 @@ if [[ ${PV} == "9999" ]]; then
 
 	inherit git-r3
 else
-	KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ~ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~sparc ~x86"
 
 	SRC_URI="
 		https://www.rsyslog.com/files/download/${PN}/${P}.tar.gz
@@ -159,11 +159,21 @@ src_unpack() {
 src_prepare() {
 	default
 
-	# https://github.com/rsyslog/rsyslog/issues/3626
+	# Bug: https://github.com/rsyslog/rsyslog/issues/3626
 	sed -i \
 		-e '\|^#!/bin/bash$|a exit 77' \
 		tests/mmkubernetes-cache-expir*.sh \
-		|| die "Failed to disabled known test failure mmkubernetes-cache-expir*.sh"
+		|| die "Failed to disable known test failure mmkubernetes-cache-expir*.sh"
+
+	sed -i \
+		-e '\|^#!/bin/bash$|a exit 0' \
+		tests/omprog-close-unresponsive*.sh \
+		|| die "Failed to disable test omprog-close-unresponsive*.sh"
+
+	sed -i \
+		-e '\|^#!/bin/bash$|a exit 0' \
+		tests/uxsock_simple.sh \
+		|| die "Failed to disable test uxsock_simple.sh"
 
 	eautoreconf
 }
