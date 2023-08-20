@@ -1,7 +1,7 @@
 BDEPEND=sys-devel/gettext doc? ( dev-util/gtk-doc virtual/pkgconfig ) test? ( dev-python/pocketlint[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/polib[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/gmp:= dev-libs/mpfr:= dev-libs/libpcre2:= python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
-DESCRIPTION=Tiny library providing a C "class" for working with arbitrary big sizes in bytes
+DESCRIPTION=Tiny library providing a C "class" for working with arbitrary big byte sizes
 EAPI=8
 HOMEPAGE=https://github.com/storaged-project/libbytesize
 INHERIT=autotools python-r1
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/storaged-project/libbytesize/releases/download/2.9/libbytesize-2.9.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	59e60e9c5cbd3f214d7f1002e798b387	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
-_md5_=4155384af8ee468aebe0c91387d23542
+_md5_=00b596556f3b5cde0051730d9625aef4
