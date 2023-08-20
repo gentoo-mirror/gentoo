@@ -7,7 +7,10 @@ inherit autotools toolchain-funcs
 
 DESCRIPTION="Communication package providing the X, Y, and ZMODEM file transfer protocols"
 HOMEPAGE="https://www.ohse.de/uwe/software/lrzsz.html"
-SRC_URI="https://www.ohse.de/uwe/releases/${P}.tar.gz"
+SRC_URI="
+	https://www.ohse.de/uwe/releases/${P}.tar.gz
+	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-m4-${PV}.tar.bz2
+"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -15,6 +18,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~
 IUSE="nls"
 
 DEPEND="nls? ( virtual/libintl )"
+BDEPEND="nls? ( sys-devel/gettext )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-autotools.patch
@@ -25,6 +29,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-AR.patch
 	"${FILESDIR}"/${P}-configure-clang16.patch
 	"${FILESDIR}"/${P}-gettext-0.22.patch
+	"${FILESDIR}"/${P}-disable-nls.patch
 )
 
 DOCS=( AUTHORS COMPATABILITY ChangeLog NEWS \
@@ -39,6 +44,8 @@ src_prepare() {
 	rm missing || die
 	# Autoheader does not like seeing this file.
 	rm acconfig.h || die
+	# embed default m4 files in case gettext is not installed
+	mv "${WORKDIR}"/m4 . || die
 
 	eautoreconf
 }
