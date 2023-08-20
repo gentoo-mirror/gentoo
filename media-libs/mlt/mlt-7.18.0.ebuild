@@ -12,7 +12,7 @@ SRC_URI="https://github.com/mltframework/${PN}/releases/download/v${PV}/${P}.tar
 
 LICENSE="GPL-3"
 SLOT="0/7"
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="debug ffmpeg frei0r gtk jack libsamplerate opencv opengl python qt5 rtaudio rubberband sdl test vdpau vidstab xine xml"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
@@ -26,7 +26,7 @@ RESTRICT="test"
 DEPEND="
 	>=media-libs/libebur128-1.2.2:=
 	sci-libs/fftw:3.0=
-	ffmpeg? ( media-video/ffmpeg:0=[vdpau?,-flite] )
+	ffmpeg? ( media-video/ffmpeg:0=[vdpau?] )
 	frei0r? ( media-plugins/frei0r-plugins )
 	gtk? (
 		media-libs/libexif
@@ -84,7 +84,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.10.0-swig-underlinking.patch
 	"${FILESDIR}"/${PN}-6.22.1-no_lua_bdepend.patch
 	"${FILESDIR}"/${PN}-7.0.1-cmake-symlink.patch
-	"${FILESDIR}"/${PN}-7.14.0-int-conversion.patch
 )
 
 pkg_setup() {
@@ -104,6 +103,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_SKIP_RPATH=ON
+		-DCLANG_FORMAT=OFF
 		-DGPL=ON
 		-DGPL3=ON
 		-DBUILD_TESTING=$(usex test)
@@ -115,11 +115,11 @@ src_configure() {
 		-DMOD_FREI0R=$(usex frei0r)
 		-DMOD_GDK=$(usex gtk)
 		-DMOD_JACKRACK=$(usex jack)
-		-DMOD_GLAXNIMATE=OFF
 		-DMOD_RESAMPLE=$(usex libsamplerate)
 		-DMOD_OPENCV=$(usex opencv)
 		-DMOD_MOVIT=$(usex opengl)
 		-DMOD_QT=$(usex qt5)
+		-DMOD_GLAXNIMATE=$(usex qt5)
 		-DMOD_RTAUDIO=$(usex rtaudio)
 		-DMOD_RUBBERBAND=$(usex rubberband)
 		-DMOD_VIDSTAB=$(usex vidstab)
