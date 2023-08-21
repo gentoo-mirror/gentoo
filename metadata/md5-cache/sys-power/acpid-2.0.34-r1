@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst pretend setup
+DEPEND=>=sys-kernel/linux-headers-3
+DESCRIPTION=Daemon for Advanced Configuration and Power Interface
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/acpid2/
+INHERIT=linux-info systemd
+IUSE=selinux
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~loong ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=selinux? ( sec-policy/selinux-apm )
+SLOT=0
+SRC_URI=mirror://sourceforge/acpid2/acpid-2.0.34.tar.xz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=1ea4f990af7fda3f8eddb3b3b85d0c82

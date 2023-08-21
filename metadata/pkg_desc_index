@@ -1119,7 +1119,7 @@ app-admin/watchfolder 0.3.3-r2: Watches directories and processes files
 app-admin/webalizer 2.23.08-r1: Webserver log file analyzer
 app-admin/webapp-config 1.55-r2 1.55-r3 9999: Gentoo's installer for web-based applications
 app-admin/whowatch 1.8.6-r2: Displays information about users currently logged on in real time
-app-admin/xkcdpass 1.19.3 1.19.3-r1: Password generator inspired by XKCD 936
+app-admin/xkcdpass 1.19.3 1.19.3-r1 1.19.4: Password generator inspired by XKCD 936
 app-admin/xstow 1.1.0: Replacement for GNU stow with extensions
 app-admin/xtail 2.1_p8: Tail multiple logfiles at once, even if rotated
 app-admin/yadm 3.2.2: Git based tool for managing dotfiles
@@ -2886,7 +2886,7 @@ app-misc/tmux 3.3a 3.3a-r1 9999: Terminal multiplexer
 app-misc/tmux-mem-cpu-load 3.5.1 3.7.0 9999: CPU, RAM memory, and load monitor for use with tmux
 app-misc/tmux-xpanes 4.1.3-r1: tmux-based terminal divider
 app-misc/tmux2html 0.1.11-r1: Render full tmux windows or individual panes as HTML
-app-misc/tmuxp 1.27.0 1.27.1 1.28.1: tmux session manager. built on libtmux
+app-misc/tmuxp 1.27.0 1.27.1 1.28.1 1.29.0: tmux session manager. built on libtmux
 app-misc/todo 2.12.0-r2: A CLI-based TODO list manager
 app-misc/toilet 0.3-r1: The Other Implementations letters. Figlet replacement
 app-misc/tpipe 1.6-r2: Command to duplicate standard input to more than one program
@@ -7897,7 +7897,7 @@ dev-python/aniso8601 9.0.1-r1: A library for parsing ISO 8601 strings
 dev-python/annotated-types 0.5.0: Reusable constraint types to use with typing.Annotated
 dev-python/ansi 0.3.6: ANSI cursor movement and graphics in Python
 dev-python/ansi2html 1.8.0-r1: Convert text with ANSI color codes to HTML
-dev-python/ansible-compat 4.1.2 4.1.5 4.1.6: Contains functions that facilitate working with various versions of Ansible
+dev-python/ansible-compat 4.1.2 4.1.5 4.1.6 4.1.7: Contains functions that facilitate working with various versions of Ansible
 dev-python/ansible-pygments 0.1.1-r1: Pygments lexer and style Ansible snippets
 dev-python/ansible-runner 2.2.1: A tool and python library that helps when interfacing with Ansible
 dev-python/ansicolor 0.3.2-r1 9999: Produce ansi color output and colored highlighting and diffing
@@ -8228,7 +8228,7 @@ dev-python/fonttools 4.42.0 4.42.1: Library for manipulating TrueType, OpenType,
 dev-python/fqdn 1.5.1-r2: RFC-compliant FQDN validation and manipulation for Python
 dev-python/freetype-py 2.4.0-r1: FreeType Python bindings
 dev-python/freezegun 1.2.2: Let your Python tests travel through time
-dev-python/fritzconnection 1.12.2 1.13.0: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
+dev-python/fritzconnection 1.12.2 1.13.0 1.13.1: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
 dev-python/frozendict 2.3.8: A simple immutable mapping for python
 dev-python/frozenlist 1.3.3 1.4.0: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
@@ -8304,7 +8304,7 @@ dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.81.2 6.82.3 6.82.4 6.82.5 6.82.6: A library for property based testing
 dev-python/icalendar 5.0.7: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.5.26: File identification library for Python
+dev-python/identify 2.5.26 2.5.27: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.2.2 3.2.3: Iterative JSON parser with a Pythonic interface
@@ -8438,7 +8438,7 @@ dev-python/liblarch 3.1.0-r1: Library to handle directed acyclic graphs
 dev-python/libnacl 1.8.0 1.9.0 2.0.0 2.1.0: Python ctypes wrapper for libsodium
 dev-python/libpillowfight 0.3.0_p20210816-r1: Small library containing various image processing algorithms
 dev-python/libsass 0.22.0-r1: A straightforward binding of libsass for Python
-dev-python/libtmux 0.21.0 0.22.1: Python API for tmux
+dev-python/libtmux 0.21.0 0.22.1 0.23.0: Python API for tmux
 dev-python/libvirt-python 9.3.0 9.4.0 9.5.0 9.6.0 9999: libvirt Python bindings
 dev-python/license-expression 30.1.1: Parse, compare, simplify and normalize license expressions
 dev-python/line_profiler 4.0.3 4.1.0: Line-by-line profiler
@@ -8972,7 +8972,7 @@ dev-python/python-distutils-extra 2.47: Gettext support, themed icons and scroll
 dev-python/python-dotenv 1.0.0: Manage .env files
 dev-python/python-editor 1.0.4-r2: Programmatically open an editor, capture the result
 dev-python/python-efl 1.26.0: Python bindings for Enlightenment Foundation Libraries
-dev-python/python-engineio 4.5.1: Python implementation of the Engine.IO realtime server
+dev-python/python-engineio 4.5.1 4.6.0: Python implementation of the Engine.IO realtime server
 dev-python/python-evdev 1.6.0: Python library for evdev bindings
 dev-python/python-gammu 3.2.4-r1: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
@@ -9408,7 +9408,7 @@ dev-python/webencodings 0.5.1-r2: Character encoding aliases for legacy web cont
 dev-python/webob 1.8.7-r1: WSGI request and response object
 dev-python/websocket-client 1.6.1: WebSocket client for python with hybi13 support
 dev-python/websockets 11.0.2 11.0.3 11.0.3-r1: Library for building WebSocket servers and clients in Python
-dev-python/websockify 0.10.0-r2: WebSockets support for any application/server
+dev-python/websockify 0.10.0-r2 0.11.0: WebSockets support for any application/server
 dev-python/webtest 3.0.0-r1: Helper to test WSGI applications
 dev-python/werkzeug 2.3.4-r1 2.3.5 2.3.6 2.3.7: Collection of various utilities for WSGI applications
 dev-python/whatever 0.7: Easy anonymous functions by partial application of operators
@@ -14563,7 +14563,7 @@ net-libs/gloox 1.0.24 1.0.24-r1: A portable high-level Jabber/XMPP library for C
 net-libs/gnome-online-accounts 3.48.0: GNOME framework for accessing online accounts
 net-libs/gnutls 3.7.6 3.7.7 3.7.8 3.7.9 3.8.0 3.8.1-r1: A secure communications library implementing the SSL, TLS and DTLS protocols
 net-libs/google-cloud-cpp 0.10.0-r2 1.36.0: Google Cloud Client Library for C++
-net-libs/grpc 1.52.1-r1: Modern open source high performance RPC framework
+net-libs/grpc 1.52.1: Modern open source high performance RPC framework
 net-libs/gsoap 2.8.114-r1: A cross-platform open source C and C++ SDK for SOAP/XML Web services
 net-libs/gssdp 1.4.0.1 1.6.2: GObject-based API for handling resource discovery and announcement over SSDP
 net-libs/gtk-vnc 1.3.1: VNC viewer widget for GTK
@@ -17466,7 +17466,7 @@ sys-libs/zlib-ng 2.0.7 2.1.2-r1 2.1.3: Fork of the zlib data compression library
 sys-power/RyzenAdj 0.12.0 0.13.0: The power management tool for mobile and desktop Ryzen APUs
 sys-power/acpi 1.7-r1: Displays information about ACPI devices
 sys-power/acpi_call 1.2.2-r1 9999: A linux kernel module that enables calls to ACPI
-sys-power/acpid 2.0.34: Daemon for Advanced Configuration and Power Interface
+sys-power/acpid 2.0.34 2.0.34-r1: Daemon for Advanced Configuration and Power Interface
 sys-power/acpilight 1.2-r4: Replacement for xbacklight that uses the ACPI interface to set brightness
 sys-power/acpitool 0.5.1-r2: A replacement for the APM tool
 sys-power/apcupsd 3.14.14-r3: APC UPS daemon with integrated tcp/ip remote shutdown
