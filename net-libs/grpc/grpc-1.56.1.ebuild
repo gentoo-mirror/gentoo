@@ -13,22 +13,22 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 # format is 0/${CORE_SOVERSION//./}.${CPP_SOVERSION//./} , check top level CMakeLists.txt
-SLOT="0/30.152"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+SLOT="0/33.156"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="doc examples test"
 
 # look for submodule versions in third_party dir
 RDEPEND="
-	=dev-cpp/abseil-cpp-20220623.1*:=
+	=dev-cpp/abseil-cpp-20230125.2*:=
 	>=dev-libs/re2-0.2021.11.01:=
 	>=dev-libs/openssl-1.1.1:0=[-bindist(-)]
-	>=dev-libs/protobuf-3.18.1:=
+	>=dev-libs/protobuf-23.3:=
 	dev-libs/xxhash
 	>=net-dns/c-ares-1.15.0:=
 	sys-libs/zlib:=
 "
-
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	test? (
 		dev-cpp/benchmark
 		dev-cpp/gflags
