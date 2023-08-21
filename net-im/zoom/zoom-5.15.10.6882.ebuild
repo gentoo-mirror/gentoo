@@ -73,6 +73,7 @@ RDEPEND="!games-engines/zoom
 		dev-qt/qtsvg:5
 		dev-qt/qtwidgets:5
 		dev-qt/qtx11extras:5
+		dev-qt/qtxml:5
 		wayland? ( dev-qt/qtwayland )
 	)"
 
