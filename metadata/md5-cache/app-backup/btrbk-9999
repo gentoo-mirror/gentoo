@@ -1,6 +1,5 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=doc? ( || ( app-text/asciidoc >=dev-ruby/asciidoctor-1.5.7 ) ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst preinst unpack
-DEPEND=doc? ( >=dev-ruby/asciidoctor-1.5.7 )
 DESCRIPTION=Tool for creating snapshots and remote backups of btrfs subvolumes
 EAPI=8
 HOMEPAGE=https://digint.ch/btrbk/
@@ -8,7 +7,7 @@ INHERIT=systemd git-r3
 IUSE=+mbuffer +doc +lsbtr
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=dev-lang/perl virtual/openssh mbuffer? ( >=sys-block/mbuffer-20180505 ) >=sys-fs/btrfs-progs-4.12
+RDEPEND=dev-lang/perl >=sys-fs/btrfs-progs-4.12 virtual/openssh mbuffer? ( >=sys-block/mbuffer-20180505 )
 SLOT=0
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=fd26bcefff18f454e0b3a044b9ca0f4e
+_md5_=701e62bbc353f7c9a9543e79e8a8dc14
