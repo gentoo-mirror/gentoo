@@ -36,6 +36,10 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-support-asciidoc.patch
+)
+
 src_compile() {
 	emake clean
 	use doc && emake -C doc
