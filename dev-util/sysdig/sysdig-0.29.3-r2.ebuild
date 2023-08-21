@@ -19,7 +19,7 @@ SRC_URI="https://github.com/draios/sysdig/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+modules"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
@@ -45,7 +45,15 @@ DEPEND="${RDEPEND}
 PDEPEND="modules? ( =dev-util/scap-driver-${PV}* )"
 
 src_prepare() {
-	sed -i -e 's:-ggdb::' CMakeLists.txt || die
+	# manually apply patch to falcosecurity-libs dependency
+	pushd "${WORKDIR}" && \
+		eapply -p0 "${FILESDIR}/${PV}-libs-gcc13.patch" && \
+	popd
+
+	# force C++14 standard for libs & main
+	sed -i -e 's:-std=c++0x:-std=c++14:' "${WORKDIR}"/libs-${LIBS_COMMIT}/cmake/modules/CompilerFlags.cmake || die
+	sed -i -e 's:-std=c++0x:-std=c++14:' -e 's:-ggdb::'  CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
