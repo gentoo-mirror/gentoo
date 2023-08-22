@@ -8,16 +8,11 @@ inherit autotools flag-o-matic toolchain-funcs pax-utils
 DESCRIPTION="Fast password cracker"
 HOMEPAGE="http://www.openwall.com/john/"
 
-MY_PN="JohnTheRipper"
-
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="https://github.com/magnumripper/${MY_PN}.git"
+	EGIT_REPO_URI="https://github.com/magnumripper/JohnTheRipper.git"
 	inherit git-r3
 else
-	JUMBO="jumbo-1.1"
-	MY_PV="${PV}-${JUMBO}"
-	MY_P="john-${MY_PV}"
-	HASH_COMMIT="5d0c85f16f96ca7b6dd06640e95a5801081d6e20"
+	HASH_COMMIT="c798c3f39215f6e08c67677eb9b79f65cfe08e40"
 
 	SRC_URI="https://github.com/openwall/john/archive/${HASH_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/john-${HASH_COMMIT}"
