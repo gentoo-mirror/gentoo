@@ -21,17 +21,17 @@ KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc 
 
 RDEPEND="
 	>=dev-python/cachetools-5.3.1[${PYTHON_USEDEP}]
-	>=dev-python/chardet-5.1[${PYTHON_USEDEP}]
+	>=dev-python/chardet-5.2[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.4.6[${PYTHON_USEDEP}]
 	>=dev-python/filelock-3.12.2[${PYTHON_USEDEP}]
 	>=dev-python/packaging-23.1[${PYTHON_USEDEP}]
-	>=dev-python/platformdirs-3.9.1[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-3.10[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1.2[${PYTHON_USEDEP}]
 	>=dev-python/pyproject-api-1.5.3[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	' 3.{9..10})
-	>=dev-python/virtualenv-20.24.1[${PYTHON_USEDEP}]
+	>=dev-python/virtualenv-20.24.3[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-python/hatch-vcs-0.3[${PYTHON_USEDEP}]
@@ -77,4 +77,8 @@ python_test() {
 	)
 
 	epytest
+
+	# tox leaves a *humonogous* tempdir which easily leads to ENOSPC
+	# when running in parallel with other packages
+	rm -r "${T}"/pytest* || die
 }
