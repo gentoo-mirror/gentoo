@@ -3,9 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYPI_NO_NORMALIZE=1
-PYPI_PN=${PN^}
+DISTUTILS_USE_PEP517=flit
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1
@@ -21,7 +19,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	inherit pypi
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="BSD"
@@ -33,7 +31,7 @@ RDEPEND="
 	>=dev-python/click-8.1.3[${PYTHON_USEDEP}]
 	>=dev-python/itsdangerous-2.1.2[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.1.2[${PYTHON_USEDEP}]
-	>=dev-python/werkzeug-2.3.3[${PYTHON_USEDEP}]
+	>=dev-python/werkzeug-2.3.7[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
