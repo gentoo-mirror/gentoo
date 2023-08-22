@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake elisp-common
 
@@ -9,10 +9,9 @@ DESCRIPTION="Graphics Layout Engine"
 HOMEPAGE="http://glx.sourceforge.io/ https://github.com/vlabella/GLE/"
 IUSE="doc emacs"
 LIB_VERSION="d476418f006b001dc7f47dcafb413c0557fa44a7"
-SRC_URI="https://github.com/vlabella/GLE/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/vlabella/GLE/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/vlabella/gle-library/archive/${LIB_VERSION}.tar.gz -> ${PN}-library.tar.gz
-	https://dev.gentoo.org/~grozin/gle-c++17.patch.gz
-	doc? ( https://dev.gentoo.org/~grozin/gle-manual.pdf.gz )
+	doc? ( https://github.com/vlabella/GLE/releases/download/v${PV}/gle-manual.pdf -> ${P}.pdf )
 	emacs? ( https://dev.gentoo.org/~grozin/gle-mode.el.gz )"
 S="${WORKDIR}"/GLE-${PV}/src
 
@@ -40,16 +39,7 @@ DEPEND="app-text/ghostscript-gpl
 RDEPEND="${DEPEND}
 	virtual/latex-base"
 
-PATCHES=( \
-		"${WORKDIR}"/${PN}-c++17.patch \
-		"${FILESDIR}"/cairo-pixman.patch \
-		"${FILESDIR}"/ghostscript.patch \
-		"${FILESDIR}"/link.patch \
-		"${FILESDIR}"/array.patch \
-		"${FILESDIR}"/wayland.patch \
-		"${FILESDIR}"/install.patch \
-		"${FILESDIR}"/lic.patch \
-	)
+PATCHES=( "${FILESDIR}"/license.patch "${FILESDIR}"/tiff.patch )
 SITEFILE="64${PN}-gentoo.el"
 
 src_configure() {
@@ -65,7 +55,7 @@ src_compile() {
 }
 
 src_install() {
-	pushd "${WORKDIR}"/${P}_build > /dev/null || die "pushd failed"
+	pushd "${WORKDIR}"/GLE-${PV}/src_build > /dev/null || die "pushd failed"
 	newbin gle/gle gle.bin
 	dobin gui/qgle
 	insinto /usr/share/${PN}
@@ -78,7 +68,7 @@ src_install() {
 	mv "${WORKDIR}"/gle-library-${LIB_VERSION}/include "${WORKDIR}"/gle-library-${LIB_VERSION}/gleinc || die "mv failed"
 	doins -r "${WORKDIR}"/gle-library-${LIB_VERSION}/gleinc
 	GLE_TOP="${D}"/usr/share/${PN} "${D}"/usr/bin/gle.bin -mkinittex
-	use doc && dodoc "${WORKDIR}"/*.pdf
+	use doc && dodoc "${DISTDIR}"/*.pdf
 	if use emacs; then
 		elisp-install ${PN} "${WORKDIR}"/*.el "${WORKDIR}"/*.elc
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
