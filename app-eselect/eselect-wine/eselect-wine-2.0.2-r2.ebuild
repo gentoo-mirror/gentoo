@@ -15,7 +15,8 @@ IUSE="+xdg"
 # xdg-utils needed for bug #884077
 RDEPEND="
 	app-admin/eselect
-	xdg? ( x11-misc/xdg-utils )"
+	xdg? ( x11-misc/xdg-utils )
+"
 
 src_install() {
 	insinto /usr/share/eselect/modules
@@ -29,13 +30,10 @@ src_install() {
 		XDG_DATA_DIRS=\"${EPREFIX}/etc/eselect/wine/share\"")
 	EOF
 
-	# links for building, e.g. wineasio (bug #657748)
+	# links to help building, e.g. wineasio (bug #657748),
+	# albeit in general these are not particularly important
 	dosym -r /etc/eselect/wine/wine /usr/lib/wine
-	dosym -r /etc/eselect/wine/include /usr/include/wine
-
-	# not required, but useful for e.g. binfmt that's not looking in PATH
-	# (not doing this for everything as it gets troublesome to track)
-	dosym -r /etc/eselect/wine/bin/wine /usr/bin/wine
+	dosym -r /etc/eselect/wine/include/wine /usr/include/wine
 
 	einstalldocs
 }
@@ -73,7 +71,21 @@ pkg_postinst() {
 		elog
 		[[ ${REPLACING_VERSIONS} ]] &&
 			elog "${PN} changed a bit, suggest reviewing 'eselect wine help' (and list)."
-		elog "Please run '. ${EROOT}/etc/profile' to update PATH in current shells."
+		elog "Please run '. ${EROOT}/etc/profile' to update PATH in current shells"
+		elog "(PATH should have ':${EPREFIX}/etc/eselect/wine/bin'). Wine can otherwise"
+		elog "be executed directly from '${EPREFIX}/etc/eselect/wine/bin/wine'."
+	fi
+
+	if [[ ${REPLACING_VERSIONS##* } ]] &&
+		ver_test ${REPLACING_VERSIONS##* } -lt 2.0.2-r1; then
+		elog
+		elog "Be warned that >=${PN}-2.0.2-r1 no longer installs the"
+		elog "'${EPREFIX}/usr/bin/wine' symbolic link. wine(1) can still be found"
+		elog "in PATH but, if using the direct location for scripts and/or binfmt,"
+		elog "then please update these to use: '${EPREFIX}/etc/eselect/wine/bin/wine'"
+		elog
+		elog "If wine is not found in PATH, please ensure that not overriding the"
+		elog "default PATH value that should include ':${EPREFIX}/etc/eselect/wine/bin'"
 	fi
 }
 
