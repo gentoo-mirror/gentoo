@@ -1927,7 +1927,7 @@ app-emacs/circe 2.12: A great IRC client for Emacs
 app-emacs/citar 1.3.1: Emacs package to quickly find and act on bibliographic references
 app-emacs/citeproc-el 0.9.3: CSL 1.0.2 Citation Processor for Emacs
 app-emacs/cldoc 1.16: Show Common Lisp operators and variables information in echo area
-app-emacs/clojure-mode 5.16.1: Major mode for Clojure code
+app-emacs/clojure-mode 5.16.1 5.16.2: Major mode for Clojure code
 app-emacs/cmake-font-lock 0.1.13: Advanced, type aware, highlight support for CMake
 app-emacs/color-browser 0.3-r1: A utility for designing Emacs color themes
 app-emacs/color-moccur 2.73: Major mode for color moccur
@@ -2155,7 +2155,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 0.7 0.8 1.0: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.0: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.3 0.4 0.4.1: Contributed packages to Org
-app-emacs/org-mode 9.4.6 9.5.5 9.6.7 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.4.6 9.5.5 9.6.7 9.6.8 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 0.7 0.9-r1 0.10: Modern style for your GNU Emacs Org buffers
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
@@ -3282,7 +3282,7 @@ app-text/openpaperwork-core 2.1.2: Core part of Paperwork (plugin management)
 app-text/openpaperwork-gtk 2.1.2: Paperwork plugins
 app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2: Conversion between markup formats
-app-text/pandoc-bin 3.1.3 3.1.6 3.1.6.1: Conversion between markup formats (binary package)
+app-text/pandoc-bin 3.1.3 3.1.6 3.1.6.1 3.1.6.2: Conversion between markup formats (binary package)
 app-text/paperwork 2.1.2: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.1.2: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
@@ -3763,7 +3763,7 @@ dev-cpp/cctz 2.3_p20230228: C++ library for dealing with time zones and time con
 dev-cpp/cli11 2.3.2: Command line parser for C++11
 dev-cpp/clucene 2.3.3.4-r9: High-performance, full-featured text search engine based off of lucene in C++
 dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration file format
-dev-cpp/cpp-httplib 0.12.6 0.13.0 0.13.1 0.13.3: C++ HTTP/HTTPS server and client library
+dev-cpp/cpp-httplib 0.12.6 0.13.1 0.13.3 0.14.0: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1: C++ library for the Debug Adapter Protocol
 dev-cpp/cppgir 0_p20230701: GObject-Introspection C++ binding wrapper generator
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
@@ -4898,7 +4898,7 @@ dev-lang/cxprolog 0.98.2: A WAM based Prolog system
 dev-lang/dafny-bin 3.10.0 3.11.0 3.12.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 3.03 3.24 3.30 3.40 9999: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 3.24 3.30 3.40 3.45 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.12.3 1.13.4 1.14.3 1.14.4 1.14.5 1.15.3: Elixir programming language
 dev-lang/elpi 1.16.9 1.16.10 1.17.0: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 25.0.4-r1 25.1.1-r1 25.1.2-r1 25.2.2 25.2.3 25.3 26.0: Erlang programming language, runtime environment and libraries (OTP)
@@ -11598,7 +11598,7 @@ games-util/antimicrox 3.3.3 3.3.4: Graphical program used to map keyboard button
 games-util/atlas 0.6.1_beta_pre20181202: Chart Program to use with Flightgear Flight Simulator
 games-util/basis_universal 1.16.3: Basis Universal GPU Texture Codec
 games-util/biounzip 1.1a: Unpacks BioZip archives
-games-util/cartridges 1.5.6 2.0.4 2.1.1: Simple game launcher written in Python using GTK4 and Libadwaita
+games-util/cartridges 2.0.4 2.1.1 2.2.1: Simple game launcher written in Python using GTK4 and Libadwaita
 games-util/catcodec 1.0.5: Decodes and encodes sample catalogues for OpenTTD
 games-util/datutil 2.46: Converter for dat files for Rom Managers
 games-util/deutex 5.2.2: WAD composer for Doom, Heretic, Hexen, and Strife
@@ -15696,7 +15696,7 @@ sci-electronics/librepcb 0.1.6-r1 0.1.7: Free EDA software to develop printed ci
 sci-electronics/magic 8.3.232-r1 8.3.309-r2 8.3.309-r3 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 36 40: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.9.2 1.10.0 1.10.1: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.10.1 1.10.2: NVC is a VHDL compiler and simulator
 sci-electronics/osqoop 1.2.0_pre20170131: Multi-platform open source software oscilloscope based on Qt
 sci-electronics/pcb 4.2.2 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
