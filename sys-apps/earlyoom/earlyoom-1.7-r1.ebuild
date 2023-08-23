@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ else
 	SRC_URI="https://github.com/rfjakob/earlyoom/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-deps.tar.xz )"
 
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 fi
 
 LICENSE="MIT-with-advertising"
@@ -26,7 +26,10 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	man? ( virtual/pandoc )
-	test? ( dev-lang/go )
+	test? (
+		dev-lang/go
+		dev-util/cppcheck
+	)
 "
 
 src_unpack() {
