@@ -6,7 +6,7 @@ inherit gnome2-utils meson
 
 MY_PN="desktop-icons-ng"
 MY_P="${MY_PN}-${PV}"
-COMMIT="9c2f2bc688e9c95335c64f1b3a6ad0cc2051d7b4"
+COMMIT="3fe71de83a0a6e11d3f14bf5f61aa4e757def461"
 
 DESCRIPTION="Fork from the desktop-icons project, with several enhancements like Drag'n'Drop"
 HOMEPAGE="https://gitlab.com/rastersoft/desktop-icons-ng"
@@ -14,7 +14,7 @@ SRC_URI="https://gitlab.com/rastersoft/desktop-icons-ng/-/archive/${PV}/${P}.tar
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 COMMON_DEPEND="dev-libs/glib:2"
@@ -27,10 +27,6 @@ DEPEND="${COMMON_DEPEND}"
 BDEPEND=""
 
 S="${WORKDIR}/${MY_P}-${COMMIT}"
-
-PATCHES=(
-	"${FILESDIR}/${P}-gnome44.patch"
-)
 
 pkg_preinst() {
 	gnome2_schemas_savelist

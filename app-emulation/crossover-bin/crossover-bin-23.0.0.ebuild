@@ -13,37 +13,11 @@ SRC_URI="https://media.codeweavers.com/pub/crossover/cxlinux/demo/install-crosso
 LICENSE="CROSSOVER-3"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="+capi +cups doc +gphoto2 +gsm +gstreamer +jpeg +lcms ldap +mp3 +nls osmesa +openal +opencl +opengl +pcap +png +scanner +ssl +v4l +vulkan"
+IUSE="+capi +cups doc +gphoto2 +gstreamer +jpeg +lcms ldap +mp3 +nls osmesa +openal +opencl +opengl +pcap +png +scanner +ssl +v4l +vulkan"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RESTRICT="bindist test"
-
-QA_FLAGS_IGNORED="opt/cxoffice/.*"
-QA_PRESTRIPPED="
-	opt/cxoffice/lib/.*
-	opt/cxoffice/lib64/.*
-	opt/cxoffice/bin/cabextract
-	opt/cxoffice/bin/cxburner
-	opt/cxoffice/bin/cxntlm_auth
-	opt/cxoffice/bin/wineserver
-	opt/cxoffice/bin/wineserver32
-	opt/cxoffice/bin/wineserver64
-	opt/cxoffice/bin/wine64-preloader
-	opt/cxoffice/bin/unrar
-	opt/cxoffice/bin/wine-preloader
-	opt/cxoffice/bin/cxdiag
-	opt/cxoffice/bin/cxdiag64
-	opt/cxoffice/bin/cxgettext
-	opt/cxoffice/bin/vkd3d-compiler
-	opt/cxoffice/bin/wineloader
-	opt/cxoffice/bin/wineloader64
-"
-QA_TEXTRELS="
-	opt/cxoffice/bin/wineserver32
-	opt/cxoffice/lib/wine/*
-	opt/cxoffice/lib/libwine.so*
-"
-
+QA_PREBUILT="*"
 S="${WORKDIR}"
 
 DEPEND=""
@@ -64,7 +38,6 @@ RDEPEND="${DEPEND}
 	!prefix? ( sys-libs/glibc )
 	capi? ( net-libs/libcapi[abi_x86_32(-)] )
 	cups? ( net-print/cups[abi_x86_32(-)] )
-	gsm? ( media-sound/gsm[abi_x86_32(-)] )
 	jpeg? ( media-libs/libjpeg-turbo:0[abi_x86_32(-)] )
 	lcms? ( media-libs/lcms:2 )
 	ldap? ( net-nds/openldap[abi_x86_32(-)] )
@@ -90,10 +63,7 @@ RDEPEND="${DEPEND}
 	vulkan? ( media-libs/vulkan-loader[abi_x86_32(-)] )
 	dev-libs/glib:2
 	dev-libs/gobject-introspection
-	|| (
-		dev-libs/openssl-compat:1.1.1
-		=dev-libs/openssl-1.1.1*
-	)
+	dev-libs/openssl-compat:1.1.1
 	dev-util/desktop-file-utils
 	media-libs/alsa-lib[abi_x86_32(-)]
 	media-libs/freetype:2[abi_x86_32(-)]

@@ -7,7 +7,7 @@ inherit cmake
 DESCRIPTION="Code to work with mmCIF and PDB files"
 HOMEPAGE="https://github.com/PDB-REDO/libcifpp"
 # Update components file on every bump
-# ftp://ftp.wwpdb.org/pub/pdb/data/monomers/components.cif.gz
+# http://ftp.wwpdb.org/pub/pdb/data/monomers/components.cif.gz
 SRC_URI="
 	https://github.com/PDB-REDO/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://dev.gentoo.org/~pacho/${PN}/${P}-components.cif.xz
