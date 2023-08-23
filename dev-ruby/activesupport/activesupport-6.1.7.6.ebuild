@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.rdoc"
 
@@ -27,8 +27,9 @@ RUBY_S="rails-${PV}/${PN}"
 ruby_add_rdepend "
 	>=dev-ruby/concurrent-ruby-1.0.2:1
 	>=dev-ruby/i18n-1.6:1
-	dev-ruby/tzinfo:2
 	>=dev-ruby/minitest-5.1
+	dev-ruby/tzinfo:2
+	>=dev-ruby/zeitwerk-2.3:2
 "
 
 # memcache-client, nokogiri, builder, and redis are not strictly needed,
@@ -45,21 +46,29 @@ ruby_add_bdepend "test? (
 	<dev-ruby/minitest-5.16:*
 	)"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-6.1.7.3-ruby-thread-noise.patch
+	"${FILESDIR}"/${PN}-6.1.7.4-bytesplice.patch
+	"${FILESDIR}"/${PN}-6.1.7.4-class_serial.patch
+)
+
 all_ruby_prepare() {
 	# Set the secure permissions that tests expect.
 	chmod 0755 "${HOME}" || die "Failed to fix permissions on home"
 
 	# Remove items from the common Gemfile that we don't need for this
 	# test run. This also requires handling some gemspecs.
-	sed -i -e "/\(system_timer\|pg\|execjs\|jquery-rails\|mysql\|journey\|ruby-prof\|stackprof\|benchmark-ips\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|bcrypt\|uglifier\|minitest\|sprockets\|stackprof\|rack-cache\|sqlite\|websocket-client-simple\|\libxml-ruby\|bootsnap\|aws-sdk\|webmock\|capybara\|sass-rails\|selenium-webdriver\|webpacker\|webrick\|propshaft\|rack-test\|terser\|cgi\)/ s:^:#:" \
-		-e '/stimulus-rails/,/tailwindcss-rails/ s:^:#:' \
-		-e '/group :\(doc\|rubocop\|job\|cable\|storage\|ujs\|test\|view\) do/,/^end/ s:^:#:' \
+	sed -i -e "/\(system_timer\|pg\|execjs\|jquery-rails\|mysql\|journey\|ruby-prof\|stackprof\|benchmark-ips\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|bcrypt\|uglifier\|minitest\|sprockets\|stackprof\|rack-cache\|sqlite\|websocket-client-simple\|\libxml-ruby\|bootsnap\|aws-sdk\|webmock\|capybara\|sass-rails\|selenium-webdriver\|webpacker\|webrick\|rack-test\|net-smtp\|net-imap\|net-pop\|digest\|matrix\)/ s:^:#:" \
+		-e '/group :\(doc\|rubocop\|job\|cable\|storage\|ujs\|test\) do/,/^end/ s:^:#:' \
 		-e 's/gemspec/gemspec path: "activesupport"/' \
 		-e '5igem "builder"; gem "rack"' ../Gemfile || die
 	rm ../Gemfile.lock || die
+#	sed -i -e '1igem "tzinfo", "~> 1.1"' test/abstract_unit.rb || die
 
-	# Avoid test that depends on timezone
-	sed -i -e '/test_implicit_coercion/,/^  end/ s:^:#:' test/core_ext/duration_test.rb || die
+	# Avoid test that depends on timezone and test that fails on 32-bit arches
+	sed -e '/test_implicit_coercion/,/^  end/ s:^:#:' \
+		-e '/test_iso8601_output_and_reparsing/askip "Broken on 32-bit arches"' \
+		-i test/core_ext/duration_test.rb || die
 
 	# Avoid tests that seem to trigger race conditions.
 	rm -f test/evented_file_update_checker_test.rb || die

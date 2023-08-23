@@ -23,7 +23,7 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE=""
 
 RUBY_S="rails-${PV}/${PN}"
@@ -55,8 +55,8 @@ all_ruby_prepare() {
 		-e '/group :doc/,/^end/ s:^:#:' ../Gemfile || die
 	rm ../Gemfile.lock || die
 
-	# Use working minitest version
-	sed -i -e '3igem "minitest", "<5.16"' test/abstract_unit.rb || die
+	sed -e '3igem "railties", "~> 6.1.0"; gem "activerecord", "~> 6.1.0"; gem "minitest", "<5.16"' \
+		-i test/abstract_unit.rb || die
 
 	# Fix loading of activerecord integration tests. This avoids loading
 	# activerecord twice and thus redefining constants leading to

@@ -23,7 +23,7 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE=""
 
 RUBY_S="rails-${PV}/${PN}"
@@ -43,26 +43,20 @@ ruby_add_bdepend "
 	test? (
 		~dev-ruby/railties-${PV}
 		>=dev-ruby/image_processing-1.2:0
+		dev-ruby/test-unit:2
 		=dev-ruby/minitest-5.15*:*
 		dev-ruby/mini_magick
 		dev-ruby/mocha
 		dev-ruby/rake
-		dev-ruby/sprockets-rails
 		dev-ruby/sqlite3
 	)"
 
 all_ruby_prepare() {
 		# Remove items from the common Gemfile that we don't need for this
 		# test run. This also requires handling some gemspecs.
-		sed -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|'mysql'\|journey\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|debugger\|redcarpet\|bcrypt\|uglifier\|aws-sdk-s3\|aws-sdk-sns\|google-cloud-storage\|azure-storage\|blade\|bootsnap\|hiredis\|qunit-selenium\|chromedriver-helper\|redis\|rb-inotify\|stackprof\|websocket-client-simple\|libxml-ruby\|sass-rails\|capybara\|rack-cache\|selenium\|dalli\|listen\|connection_pool\|puma\|mysql2\|webdrivers\|webpacker\|rexml\|webmock\|webrick\|propshaft\|sprockets-export\|rack-test\|terser\|cookiejar\|cgi\)/ s:^:#:" \
-			-e '/stimulus-rails/,/tailwindcss-rails/ s:^:#:' \
+		sed -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|'mysql'\|journey\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|redcarpet\|bcrypt\|uglifier\|aws-sdk-s3\|aws-sdk-sns\|google-cloud-storage\|azure-storage\|blade\|bootsnap\|hiredis\|qunit-selenium\|chromedriver-helper\|redis\|rb-inotify\|sprockets\|stackprof\|websocket-client-simple\|libxml-ruby\|sass-rails\|capybara\|rack-cache\|rack-test\|selenium\|dalli\|listen\|connection_pool\|puma\|mysql2\|webdrivers\|webpacker\|rexml\|webmock\)/ s:^:#:" \
+			-e '/dalli/ s/2.7.7/2.7.9/' \
 			-e '/group :\(doc\|job\|rubocop\|test\)/,/^end/ s:^:#:' \
 			-i ../Gemfile || die
 		rm ../Gemfile.lock || die
-
-		# Use mini_magick since vips is not packaged on Gentoo
-		sed -i -e '/mini_magick/aActiveStorage.variant_processor = :mini_magick' test/test_helper.rb || die
-		# Avoid vips-specific tests
-		sed -e '/\(resized and monochrome variation of JPEG blob\|monochrome with default variant_processor\|disabled variation of JPEG blob\)/askip "No vips support"' \
-			-i test/models/variant_test.rb || die
 }

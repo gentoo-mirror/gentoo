@@ -17,7 +17,7 @@ HOMEPAGE="https://rubyonrails.org"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~riscv"
 
 IUSE=""
 
@@ -35,4 +35,5 @@ ruby_add_rdepend "
 	~dev-ruby/activesupport-${PV}
 	~dev-ruby/railties-${PV}
 	>=dev-ruby/bundler-1.15.0:*
+	>=dev-ruby/sprockets-rails-2.0.0:*
 "

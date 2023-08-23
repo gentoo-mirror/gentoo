@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
 RUBY_FAKEGEM_DOCDIR="doc"
@@ -21,7 +21,7 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE=""
 
 RUBY_S="rails-${PV}/${PN}"
@@ -39,11 +39,10 @@ ruby_add_bdepend "
 	test? (
 		dev-ruby/mocha:0.14
 		dev-ruby/bundler
-		>=dev-ruby/capybara-3.26
+		>=dev-ruby/capybara-2.15
 		~dev-ruby/activemodel-${PV}
 		~dev-ruby/railties-${PV}
 		>=dev-ruby/rack-cache-1.2:1.2
-		dev-ruby/selenium-webdriver:4
 		www-servers/puma
 		<dev-ruby/minitest-5.16:*
 	)"
@@ -58,11 +57,16 @@ all_ruby_prepare() {
 		-e '/group :doc/,/^end/ s:^:#:' ../Gemfile || die
 	rm ../Gemfile.lock || die
 
-	sed -i -e '3igem "rack", "<3"; gem "minitest", "<5.16"' test/abstract_unit.rb || die
+	sed -e '3igem "railties", "~> 6.1.0"; gem "activerecord", "~> 6.1.0"; gem "minitest", "<5.16"' \
+		-i test/abstract_unit.rb || die
 
 	# Use different timezone notation, this changed at some point due to an external dependency changing.
 	sed -e 's/-0000/GMT/' \
 		-i test/dispatch/response_test.rb test/dispatch/cookies_test.rb test/dispatch/session/cookie_store_test.rb || die
+
+	# Avoid tests depending on an unreleased version of selenium-webdriver
+	sed -e '/define extra capabilities/,/^  end/ s:^:#:' \
+		-i test/dispatch/system_testing/driver_test.rb || die
 
 	# Avoid tests that fail with a fixed cgi.rb version
 	sed -e '/test_session_store_with_all_domains/askip "Fails with fixed cgi.rb"' \

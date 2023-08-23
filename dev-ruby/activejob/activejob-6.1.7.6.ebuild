@@ -12,6 +12,7 @@ RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 RUBY_FAKEGEM_BINWRAP=""
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
+RUBY_FAKEGEM_TASK_TEST="MT_NO_PLUGINS=1 test"
 
 inherit ruby-fakegem
 
@@ -34,16 +35,13 @@ ruby_add_rdepend "
 ruby_add_bdepend "
 	test? (
 		dev-ruby/mocha
-		dev-ruby/zeitwerk
 	)"
 
 all_ruby_prepare() {
-	# Set test environment to our hand.
-	sed -i -e '/load_paths/d' test/helper.rb || die "Unable to remove load paths"
+	sed -i -e '2igem "activesupport", "~> 6.1.0"' test/helper.rb || die
 
 	# Remove all currently unpackaged queues.
 	sed -i -e 's/que queue_classic resque sidekiq sneakers sucker_punch backburner//' \
 		-e 's/delayed_job//' Rakefile || die
 	sed -i -e '/SneakersAdapter/ s:^:#:' test/cases/exceptions_test.rb || die
-	rm -f test/cases/delayed_job_adapter_test.rb || die
 }

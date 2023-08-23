@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 # this is not null so that the dependencies will actually be filled
 RUBY_FAKEGEM_TASK_TEST="test"
@@ -27,6 +27,10 @@ IUSE="mysql postgres sqlite"
 
 RUBY_S="rails-${PV}/${PN}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-6.1.7.4-ruby32-keywords.patch
+)
+
 ruby_add_rdepend "~dev-ruby/activesupport-${PV}
 	~dev-ruby/activemodel-${PV}
 	sqlite? ( >=dev-ruby/sqlite3-1.4 )
@@ -35,7 +39,6 @@ ruby_add_rdepend "~dev-ruby/activesupport-${PV}
 
 ruby_add_bdepend "
 	test? (
-		dev-ruby/benchmark-ips
 		dev-ruby/bundler
 		~dev-ruby/actionpack-${PV}
 		~dev-ruby/railties-${PV}
@@ -62,7 +65,8 @@ all_ruby_prepare() {
 	# earlier that implicitly required it.
 	sed -i -e '$agem "json"' ../Gemfile || die
 
-	sed -i -e '3igem "rack", "<3"; gem "minitest", "<5.16"' test/cases/helper.rb || die
+	# Load correct rails version
+	sed -i -e '2igem "activemodel", "~> 6.1.0"; gem "activejob", "~> 6.1.0"; gem "railties", "~> 6.1.0"; gem "minitest", "<5.16"' test/cases/helper.rb || die
 
 	# Avoid single tests using mysql or postgres dependencies.
 	rm test/cases/invalid_connection_test.rb || die
@@ -72,6 +76,10 @@ all_ruby_prepare() {
 	# Avoid failing test that makes bad assumptions on database state.
 	sed -i -e '/test_do_not_call_callbacks_for_delete_all/,/^  end/ s:^:#:' \
 		test/cases/associations/has_many_associations_test.rb
+
+	# Avoid tests that no longer work with newer sqlite versions
+	rm -f test/cases/adapters/sqlite3/explain_test.rb || die
+	sed -i -e '/test_references_stays_as_integer_column/askip "Fails on case difference"' test/cases/migration/compatibility_test.rb || die
 
 	# Avoid test failing to bind limit length in favor of security release
 	sed -i -e '/test_too_many_binds/askip "Fails on Gentoo"' test/cases/bind_parameter_test.rb || die

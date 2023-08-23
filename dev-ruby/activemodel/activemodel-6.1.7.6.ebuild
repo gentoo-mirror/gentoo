@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.rdoc"
 
@@ -23,6 +23,10 @@ KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE=""
 
 RUBY_S="rails-${PV}/${PN}"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-6.1.7.4-ruby32-keywords.patch
+)
 
 ruby_add_rdepend "
 	~dev-ruby/activesupport-${PV}:*
