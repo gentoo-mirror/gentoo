@@ -9,16 +9,12 @@ DESCRIPTION="Small utility to modify the dynamic linker and RPATH of ELF executa
 HOMEPAGE="https://github.com/NixOS/patchelf"
 SRC_URI="https://github.com/NixOS/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 hppa ~ia64 ~loong ppc ppc64 ~riscv ~s390 x86 ~amd64-linux ~riscv-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 sparc ~x86 ~amd64-linux ~riscv-linux ~x86-linux"
 LICENSE="GPL-3"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-glibc-dt-mips-xhash.patch
-)
-
 src_prepare() {
-	rm src/elf.h || die
 	default
+	rm src/elf.h || die
 
 	sed -i \
 		-e 's:-Werror::g' \
