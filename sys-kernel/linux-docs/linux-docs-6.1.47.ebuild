@@ -22,7 +22,7 @@ IUSE="graphviz"
 DEPEND=""
 RDEPEND="graphviz? ( >=media-gfx/graphviz-5.0.0 )"
 BDEPEND="${PYTHON_DEPS}
-	>=dev-python/sphinx-7
+	>=dev-python/sphinx-7.2.3
 	dev-python/sphinx-rtd-theme
 	media-libs/fontconfig"
 
