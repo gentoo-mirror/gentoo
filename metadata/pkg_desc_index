@@ -949,7 +949,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.0-r1 1.14.0-r2 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r1: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.29.15 1.29.20 1.29.25 1.29.26 1.29.27 1.29.28 1.29.29 1.29.30 1.29.31 1.29.32 1.29.33: Universal Command Line Environment for AWS
+app-admin/awscli 1.29.15 1.29.20 1.29.25 1.29.26 1.29.27 1.29.28 1.29.29 1.29.30 1.29.31 1.29.32 1.29.33 1.29.34: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -1781,7 +1781,7 @@ app-doc/phrack-all 70: Hacker magazine by the community, for the community (all 
 app-doc/pms 7_p20180430-r2 8_p20210613-r1 9999: Gentoo Package Manager Specification (draft)
 app-doc/pms-bin 7_p20180430 8_p20210613-r1: Gentoo Package Manager Specification
 app-doc/psmark 2.1: Prints watermark-like text on any PostScript document
-app-doc/python-docs 2.7.18 3.8.17 3.9.17 3.10.12 3.10.13 3.11.4: HTML documentation for Python
+app-doc/python-docs 2.7.18 3.8.17 3.8.18 3.9.17 3.9.18 3.10.12 3.10.13 3.11.4 3.11.5: HTML documentation for Python
 app-doc/selflinux 0.13.0-r1: A german-language hypertext tutorial about Linux
 app-doc/single-unix-specification 4_p2 4_p2018: The Single UNIX Specification, Version 4, 2018 Edition
 app-doc/tldp-howto 20120707: The Linux Documentation Project HOWTOs
@@ -4964,7 +4964,7 @@ dev-lang/perl 5.36.0-r2 5.36.1-r3 5.38.0-r1: Larry Wall's Practical Extraction a
 dev-lang/php 7.4.33-r4 7.4.33-r5 7.4.33-r6 8.0.25 8.0.28 8.0.29 8.0.30 8.1.12 8.1.16 8.1.20-r1 8.1.21 8.2.9: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p16-r1 3.8.17 3.9.17 3.10.12 3.10.13 3.11.4 3.12.0_beta3 3.12.0_beta4 3.12.0_beta4_p1 3.12.0_beta4_p2 3.12.0_rc1 3.12.0_rc1_p1 3.12.0_rc1_p3: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p16-r1 3.8.17 3.8.18 3.9.17 3.9.18 3.10.12 3.10.13 3.11.4 3.11.5 3.12.0_beta3 3.12.0_beta4 3.12.0_beta4_p1 3.12.0_beta4_p2 3.12.0_rc1 3.12.0_rc1_p1 3.12.0_rc1_p3 3.12.0_rc1_p4: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qu-prolog 10.6 10.7: Extended Prolog supporting quantifiers, object-variables and substitutions
@@ -7976,8 +7976,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.28.15 1.28.20 1.28.25 1.28.26 1.28.27 1.28.28 1.28.29 1.28.30 1.28.31 1.28.32 1.28.33 9999: The AWS SDK for Python
-dev-python/botocore 1.31.15 1.31.20 1.31.25 1.31.26 1.31.27 1.31.28 1.31.29 1.31.30 1.31.31 1.31.32 1.31.33 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.28.15 1.28.20 1.28.25 1.28.26 1.28.27 1.28.28 1.28.29 1.28.30 1.28.31 1.28.32 1.28.33 1.28.34 9999: The AWS SDK for Python
+dev-python/botocore 1.31.15 1.31.20 1.31.25 1.31.26 1.31.27 1.31.28 1.31.29 1.31.30 1.31.31 1.31.32 1.31.33 1.31.34 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8265,7 +8265,7 @@ dev-python/graph-tool 2.57 9999: An efficient python module for manipulation and
 dev-python/graphviz 0.20.1: Simple Python interface for Graphviz
 dev-python/greenlet 2.0.2: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.0.2: Python 3 client for the beanstalkd work queue
-dev-python/griffe 0.34.0: Signature generator for Python programs
+dev-python/griffe 0.34.0 0.35.0: Signature generator for Python programs
 dev-python/grpcio 1.51.0: High-performance RPC framework (python libraries)
 dev-python/grpcio-testing 1.51.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.51.0: Protobuf code generator for gRPC
@@ -8508,7 +8508,7 @@ dev-python/minify-html 0.11.1: Extremely fast and smart HTML + JS + CSS minifier
 dev-python/minikanren 1.0.3-r1: Relational programming in Python
 dev-python/minimock 1.3.0-r1: The simplest possible mock library
 dev-python/miniupnpc 2.2.4 2.2.5: Python bindings for UPnP client library
-dev-python/mistletoe 1.1.0 1.2.0: A fast, extensible Markdown parser in pure Python
+dev-python/mistletoe 1.1.0 1.2.0 1.2.1: A fast, extensible Markdown parser in pure Python
 dev-python/mistune 3.0.1: The fastest markdown parser in pure Python
 dev-python/mitmproxy_wireguard 0.1.20: WireGuard frontend for mitmproxy
 dev-python/mkautodoc 0.2.0: Auto documentation for MkDocs
@@ -8529,7 +8529,7 @@ dev-python/mkdocs-monorepo-plugin 1.0.5: Build multiple documentation folders in
 dev-python/mkdocs-pymdownx-material-extras 2.4.3 2.5 2.5.1: Custom alterations based on Mkdocs-Material
 dev-python/mkdocs-redirects 1.2.1: Plugin for Mkdocs page redirects
 dev-python/mkdocstrings 0.22.0: Automatic documentation from sources, for MkDocs
-dev-python/mkdocstrings-python 1.5.0: Python handler for dev-python/mkdocstrings
+dev-python/mkdocstrings-python 1.5.0 1.5.1: Python handler for dev-python/mkdocstrings
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.8.1: Python scrapper to access ModDB mods, games and more as objects
@@ -8908,7 +8908,7 @@ dev-python/pytest-datadir 1.4.1: Pytest plugin for manipulating test data direct
 dev-python/pytest-datafiles 3.0.0: Create a 'tmp_path' containing predefined files/directories
 dev-python/pytest-describe 2.1.0: Describe-style plugin for pytest
 dev-python/pytest-django 4.5.2-r1: A Django plugin for py.test
-dev-python/pytest-env 0.8.2 1.0.0: pytest plugin that allows you to add environment variables
+dev-python/pytest-env 0.8.2 1.0.0 1.0.1: pytest plugin that allows you to add environment variables
 dev-python/pytest-expect 1.1.0-r2: pytest plugin that stores test expectations by saving the set of failing tests
 dev-python/pytest-faulthandler 2.0.1-r1: Pytest plugin that activates the fault handler module for tests
 dev-python/pytest-fixture-config 1.7.0-r2: Virtualenv fixture for py.test
@@ -9255,7 +9255,7 @@ dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.49 2.0.19 2.0.20: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 17.10.1 17.10.2 17.11.0 17.12.0 17.14.0 17.14.2 17.15.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 17.10.1 17.10.2 17.11.0 17.12.0 17.14.0 17.14.2 17.15.0 17.15.1: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.4.4: A non-validating SQL parser module for Python
 dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
