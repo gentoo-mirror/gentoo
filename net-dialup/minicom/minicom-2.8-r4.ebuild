@@ -32,6 +32,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.8-gentoo-runscript.patch
 	"${FILESDIR}"/${PN}-2.8-lockdir.patch
+	"${FILESDIR}"/${PN}-2.8-enable-large-file.patch
 )
 
 src_prepare() {
