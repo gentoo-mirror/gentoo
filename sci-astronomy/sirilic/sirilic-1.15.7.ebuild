@@ -9,12 +9,15 @@ inherit distutils-r1
 
 DESCRIPTION="Preparing acquisition files for processing with the SiriL software"
 HOMEPAGE="https://gitlab.com/free-astro/sirilic"
-SRC_URI="https://gitlab.com/free-astro/sirilic/-/archive/V${PV//./_}/${PN}-V${PV//./_}.tar.bz2"
-S="${WORKDIR}/${PN}-V${PV//./_}"
+SRC_URI="https://gitlab.com/free-astro/sirilic/-/archive/V${PV}/${PN}-V${PV}.tar.bz2"
+S="${WORKDIR}/${PN}-V${PV}"
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
-DEPEND=">=dev-python/wxpython-4.2:4.0[${PYTHON_USEDEP}]"
+DEPEND="
+	dev-python/requests[${PYTHON_USEDEP}]
+	>=dev-python/wxpython-4.2:4.0[${PYTHON_USEDEP}]
+"
 RDEPEND="${DEPEND}"
