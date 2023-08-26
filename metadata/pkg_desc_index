@@ -4965,7 +4965,7 @@ dev-lang/perl 5.36.0-r2 5.36.1-r3 5.38.0-r1: Larry Wall's Practical Extraction a
 dev-lang/php 7.4.33-r4 7.4.33-r5 7.4.33-r6 8.0.25 8.0.28 8.0.29 8.0.30 8.1.12 8.1.16 8.1.20-r1 8.1.21 8.2.9: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p16-r1 3.8.18 3.9.18 3.10.13 3.11.5 3.12.0_beta4_p2 3.12.0_rc1_p5: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p16-r1 3.8.18 3.9.18 3.10.13 3.11.5 3.12.0_beta4_p2 3.12.0_rc1_p5 3.12.0_rc1_p6: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qu-prolog 10.6 10.7: Extended Prolog supporting quantifiers, object-variables and substitutions
@@ -5263,7 +5263,7 @@ dev-libs/libical 3.0.16: Implementation of basic iCAL protocols
 dev-libs/libiconv 1.17: GNU charset conversion library for libc which doesn't implement it
 dev-libs/libindicate 12.10.1-r4: Library to raise flags on DBus for other components of the desktop
 dev-libs/libindicator 12.10.1-r201 12.10.1-r301: A set of symbols and convience functions that all indicators would like to use
-dev-libs/libinput 1.23.0: Library to handle input devices in Wayland
+dev-libs/libinput 1.23.0 1.24.0: Library to handle input devices in Wayland
 dev-libs/libintl 0.21.1 0.22-r1: the GNU international library (split out of gettext)
 dev-libs/libisoburn 1.5.4 1.5.6: Creation/expansion of ISO-9660 filesystems on CD/DVD media supported by libburn
 dev-libs/libisofs 1.5.4 1.5.6 1.5.6_p1: Open-source library for reading, mastering and writing optical discs
@@ -7613,7 +7613,7 @@ dev-perl/strictures 2.0.6: Turn on strict and make most warnings fatal
 dev-perl/syntax 0.4.0-r2: Activate syntax extensions
 dev-perl/tkispell 0.200.0: Perl/Tk user interface for ispell
 dev-perl/txt2html 2.530.0: Convert a plain text file to HTML
-dev-php/File_Iterator 1.4.2 2.0.2-r1 3.0.6: FilterIterator implementation that filters files based on criteria
+dev-php/File_Iterator 3.0.6: FilterIterator implementation that filters files based on criteria
 dev-php/PEAR-Archive_Tar 1.4.14: Tar file management class
 dev-php/PEAR-Auth_SASL 1.1.0: Abstraction of various SASL mechanism responses
 dev-php/PEAR-Cache 1.5.6-r2: Framework for caching of arbitrary data
@@ -7720,15 +7720,15 @@ dev-php/YAML 1.0.6-r3: The Symfony YAML Component
 dev-php/adodb 5.22.2: Database abstraction layer for PHP
 dev-php/awl 0.61 0.62 0.63: Andrew McMillan's Web Libraries
 dev-php/ca-bundle 1.1.3 1.2.11 1.3.1: Find the system CA bundle or fall back to the Mozilla one
-dev-php/cli-prompt 1.0.0 1.0.3: Allows you to prompt for user input on the command line
+dev-php/cli-prompt 1.0.3: Allows you to prompt for user input on the command line
 dev-php/composer 2.1.12: Dependency Manager for PHP
 dev-php/cphplib 0.51-r1: Cute PHP Library (cphplib)
-dev-php/doctrine 2.6.1 2.6.4: An object relational mapper for PHP
-dev-php/doctrine-instantiator 1.0.5 1.1.0 1.3.0 1.3.1 1.4.0: Utility to instantiate objects in PHP without invoking their constructors
+dev-php/doctrine 2.6.4: An object relational mapper for PHP
+dev-php/doctrine-instantiator 1.4.0: Utility to instantiate objects in PHP without invoking their constructors
 dev-php/fedora-autoloader 1.0.1: Fedora's Static PSR-4, PSR-0, and classmap autoloader
 dev-php/geos-php 1.0.0_p20220909: A PHP interface to GEOS - Geometry Engine, Open Source
 dev-php/igbinary 3.2.7 3.2.9: A fast drop-in replacement for the standard PHP serialize
-dev-php/jpgraph 4.0.2 4.2.0 4.3.5: Object-oriented graphing library for PHP
+dev-php/jpgraph 4.3.5: Object-oriented graphing library for PHP
 dev-php/json-schema 5.2.10 5.2.11: PHP implementation of JSON schema
 dev-php/jsonlint 1.8.2 1.8.3-r1: JSON Lint for PHP
 dev-php/libchart 1.3: Easy-to-use chart creation library for PHP
@@ -7737,7 +7737,7 @@ dev-php/maxmind-db-reader 1.11.0: PHP reader for the MaxMind database format
 dev-php/metadata-minifier 1.0.0: Small utility library that handles metadata minification and expansion
 dev-php/mmslib 0.97: library for encoding, decoding, and sending MMSes
 dev-php/mockery 0.9.0-r1: Simple yet flexible PHP mock object framework for use in unit testing
-dev-php/myclabs-deepcopy 1.6.0 1.6.1 1.9.4 1.10.2: Create deep copies (clones) of your objects
+dev-php/myclabs-deepcopy 1.10.2: Create deep copies (clones) of your objects
 dev-php/nikic-php-parser 4.13.2: PHP 5.2 to PHP 8.0 parser written in PHP
 dev-php/onphp 1.0.11_pre20141124: onPHP is the LGPL'ed multi-purpose object-oriented PHP framework
 dev-php/pear 1.10.3: PEAR - PHP Extension and Application Repository
@@ -7821,8 +7821,8 @@ dev-php/swoole 4.8.7: Event-driven asynchronous & concurrent & coroutine network
 dev-php/swoole-async 4.4.16-r1: An extension of Swoole, including the async callback style API
 dev-php/symfony-config 2.8.20: Symfony Config Component
 dev-php/symfony-console 2.8.52: Subtree split of the Symfony Console Component
-dev-php/symfony-dependency-injection 2.8.20 2.8.50: Symfony DependencyInjection Component
-dev-php/symfony-event-dispatcher 2.1.0-r1 2.8.50: Symfony EventDispatcher Component
+dev-php/symfony-dependency-injection 2.8.50: Symfony DependencyInjection Component
+dev-php/symfony-event-dispatcher 2.8.50: Symfony EventDispatcher Component
 dev-php/symfony-filesystem 3.4.28 3.4.36: Symfony Filesystem Component
 dev-php/symfony-finder 3.4.38: Symfony Finder Component
 dev-php/symfony-process 3.4.29 3.4.38: Symfony Process Component
@@ -7832,7 +7832,7 @@ dev-php/theseer-Autoload 1.26.0-r2 1.26.3-r1: PHP Autoload Builder
 dev-php/theseer-DirectoryScanner 1.3.2 1.3.3: A recursive directory scanner and filter
 dev-php/theseer-tokenizer 1.2.0 1.2.1: Convert tokenized PHP source code into XML and other formats
 dev-php/twig 1.44.7: PHP templating engine with syntax similar to Django
-dev-php/webmozart-assert 1.2.0 1.4.0 1.10.0: Assertions to validate method input/output with nice error messages
+dev-php/webmozart-assert 1.10.0: Assertions to validate method input/output with nice error messages
 dev-php/xdebug 3.1.1 3.1.3 3.1.5: A PHP debugging and profiling extension
 dev-php/xdebug-client 2.9.6 2.9.8: Xdebug client for the Common Debugger Protocol (DBGP)
 dev-php/xdebug-handler 2.0.1: Restart a CLI process without loading the xdebug extension
@@ -12902,7 +12902,7 @@ media-libs/glm 0.9.9.8-r1: OpenGL Mathematics
 media-libs/glpng 1.46-r1: OpenGL PNG image library
 media-libs/glu 9.0.2 9.0.3 9999: The OpenGL Utility Library
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
-media-libs/gmmlib 22.3.5 22.3.7 22.3.9 9999: Intel Graphics Memory Management Library
+media-libs/gmmlib 22.3.5 22.3.7 22.3.9 22.3.10 9999: Intel Graphics Memory Management Library
 media-libs/gnonlin 1.4.0-r1: Set of GStreamer elements to ease the creation of non-linear multimedia editors
 media-libs/graphene 1.10.8: A thin layer of types for graphic libraries
 media-libs/grilo 0.3.16: A framework for easy media discovery and browsing
@@ -13098,7 +13098,7 @@ media-libs/libv4l 1.22.1 1.24.1: Separate libraries ebuild from upstream v4l-uti
 media-libs/libva 2.18.0-r1 2.19.0 9999: Video Acceleration (VA) API for Linux
 media-libs/libva-compat 1.8.3-r2: Video Acceleration (VA) API for Linux
 media-libs/libva-intel-driver 2.4.1-r4 9999: HW video decode support for Intel integrated graphics
-media-libs/libva-intel-media-driver 23.2.4 23.3.0 9999: Intel Media Driver for VA-API (iHD)
+media-libs/libva-intel-media-driver 23.2.4 23.3.0 23.3.1 9999: Intel Media Driver for VA-API (iHD)
 media-libs/libvisio 0.1.7 9999: Library parsing the file format of MS Visio documents
 media-libs/libvisual 0.4.1 0.4.2-r1: Abstraction library between applications and audio visualisation plugins
 media-libs/libvmaf 2.3.0-r2: C libary for Netflix's Perceptual video quality assessment
@@ -18027,7 +18027,7 @@ x11-drivers/nvidia-drivers 390.157 470.199.02 525.125.06 535.43.08 535.98 535.10
 x11-drivers/xf86-input-elographics 1.4.3: Elographics input driver
 x11-drivers/xf86-input-evdev 2.10.6: Generic Linux input driver
 x11-drivers/xf86-input-joystick 1.6.4: X.Org driver for joystick input devices
-x11-drivers/xf86-input-libinput 1.3.0: X.org input driver based on libinput
+x11-drivers/xf86-input-libinput 1.3.0 1.4.0: X.org input driver based on libinput
 x11-drivers/xf86-input-mtrack 0.5.0-r1: Xorg Driver for Multitouch Trackpads
 x11-drivers/xf86-input-synaptics 1.9.2: Driver for Synaptics touchpads
 x11-drivers/xf86-input-vmmouse 13.2.0 9999: VMWare mouse input driver
@@ -18106,7 +18106,7 @@ x11-libs/libXxf86vm 1.1.5: X.Org Xxf86vm library
 x11-libs/libclxclient 3.9.2: C++ wrapper library around the X Window System API
 x11-libs/libdlo 0.1.2-r2: A fully open source driver which supports all DisplayLink devices
 x11-libs/libdockapp 0.7.3: Window Maker Dock Applet Library
-x11-libs/libdrm 2.4.115 9999: X.Org libdrm library
+x11-libs/libdrm 2.4.115 2.4.116 9999: X.Org libdrm library
 x11-libs/libfakeXinerama 0.1.0: Fake library to override default libXinerama and expose custom screen dimensions
 x11-libs/libfakekey 0.3-r1: Helper library for the x11-misc/matchbox-keyboard package
 x11-libs/libfm 1.3.2: Library for file management
