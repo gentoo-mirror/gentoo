@@ -3,17 +3,16 @@
 
 EAPI=8
 
-inherit cmake-multilib git-r3 multibuild
+inherit cmake-multilib
 
 DESCRIPTION="A JSON implementation in C"
 HOMEPAGE="https://github.com/json-c/json-c/wiki"
-EGIT_REPO_URI="https://github.com/json-c/json-c.git"
+SRC_URI="https://s3.amazonaws.com/json-c_releases/releases/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/5"
-IUSE="cpu_flags_x86_rdrand doc static-libs threads"
-
-BDEPEND="doc? ( >=app-doc/doxygen-1.8.13 )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="cpu_flags_x86_rdrand static-libs threads"
 
 MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/json-c/config.h
@@ -34,20 +33,11 @@ multilib_src_configure() {
 	cmake_src_configure
 }
 
-multilib_src_compile() {
-	cmake_src_compile
-	if use doc && multilib_is_native_abi; then
-		cmake_build doc
-	fi
-}
-
 multilib_src_test() {
 	multilib_is_native_abi && cmake_src_test
 }
 
-multilib_src_install() {
-	if multilib_is_native_abi; then
-		use doc && HTML_DOCS=( "${BUILD_DIR}"/doc/html/. )
-		einstalldocs
-	fi
+multilib_src_install_all() {
+	HTML_DOCS=( "${S}"/doc/html/. )
+	einstalldocs
 }
