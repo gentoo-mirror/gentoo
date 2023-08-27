@@ -9,7 +9,7 @@ inherit autotools python-single-r1
 
 DESCRIPTION="Standalone clippy tool built from FRR sources"
 HOMEPAGE="https://frrouting.org/"
-SRC_URI="https://github.com/FRRouting/frr/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/FRRouting/frr/archive/${MY_P}.tar.gz"
 S="${WORKDIR}/frr-${MY_P}"
 
 LICENSE="GPL-2"
@@ -30,6 +30,11 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 "
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	mallinfo	# check in configure is fallback is needed
+	mallinfo2	# check in configure is fallback is needed
+)
 
 src_prepare() {
 	default

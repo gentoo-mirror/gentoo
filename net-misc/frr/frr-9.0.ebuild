@@ -23,7 +23,9 @@ COMMON_DEPEND="
 	${PYTHON_DEPS}
 	acct-user/frr
 	dev-libs/json-c:0=
+	dev-libs/protobuf-c:0=
 	>=net-libs/libyang-2.0.0
+	<net-libs/libyang-2.1.111
 	sys-libs/libcap
 	sys-libs/readline:0=
 	virtual/libcrypt:=
@@ -53,7 +55,6 @@ RDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.5-ipctl-forwarding.patch
 	"${FILESDIR}"/${PN}-8.4.1-logrotate.patch
-	"${FILESDIR}"/${PN}-8.4.2-musl-gcc12.patch
 )
 
 src_prepare() {
