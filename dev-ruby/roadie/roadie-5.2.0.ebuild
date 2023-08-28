@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="README.md"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -22,7 +22,7 @@ SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64"
 IUSE=""
 
-ruby_add_rdepend ">=dev-ruby/nokogiri-1.8:0
+ruby_add_rdepend ">=dev-ruby/nokogiri-1.15:0
 	>=dev-ruby/css_parser-1.4.5 =dev-ruby/css_parser-1*"
 ruby_add_bdepend "test? ( dev-ruby/rspec-collection_matchers dev-ruby/webmock )"
 
