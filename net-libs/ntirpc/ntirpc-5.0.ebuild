@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,10 +22,12 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}"/${P}-include-assert.h.patch )
+
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_GSS="$(usex gssapi)"
-		-DUSE_RPC_RDMA="$(usex rdma)"
+		-DUSE_GSS=$(usex gssapi)
+		-DUSE_RPC_RDMA=$(usex rdma)
 	)
 	cmake_src_configure
 }
