@@ -25,7 +25,7 @@ S=${WORKDIR}/${P/_/}
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
 IUSE="doc full-support minimal test X"
 RESTRICT="!test? ( test )"
 
@@ -211,6 +211,15 @@ python_test() {
 		'pandas/tests/tseries/offsets/test_common.py::test_apply_out_of_range[tzlocal()-LastWeekOfMonth]'
 		'pandas/tests/tseries/offsets/test_common.py::test_apply_out_of_range[tzlocal()-WeekOfMonth]'
 		'pandas/tests/tseries/offsets/test_common.py::test_apply_out_of_range[tzlocal()-Week]'
+
+		# alignment issues: bug #911660 (fixed upstream but not yet in a release)
+		# https://github.com/pandas-dev/pandas/issues/54391
+		pandas/tests/io/sas/test_byteswap.py::test_float_byteswap
+
+		# hdf / pytables have alignment problems: bug #911660
+		# https://github.com/pandas-dev/pandas/issues/54396
+		pandas/tests/io/pytables/test_append.py::test_append_frame_column_oriented
+		pandas/tests/io/pytables/test_store.py::test_select_filter_corner
 	)
 
 	local -x LC_ALL=C.UTF-8
