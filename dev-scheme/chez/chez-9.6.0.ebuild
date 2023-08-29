@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,15 +7,16 @@ inherit toolchain-funcs
 
 DESCRIPTION="A programming language based on R6RS"
 HOMEPAGE="https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme"
-SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/csv${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/csv${PV}
+SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/csv${PV//a}.tar.gz
+	-> ${P}.tar.gz"
+S="${WORKDIR}"/csv${PV//a}
 
 # Chez Scheme itself is Apache 2.0, but it vendors Nanopass and stex
 # which are both MIT licensed.
 LICENSE="Apache-2.0 MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~x86"
-IUSE="X examples ncurses threads"
+KEYWORDS="~amd64 ~x86"
+IUSE="X ncurses threads"
 
 BDEPEND="virtual/pkgconfig"
 RDEPEND="
@@ -67,10 +68,8 @@ src_configure() {
 src_install() {
 	# TempRoot == DESTDIR
 	emake TempRoot="${D}" install
-
-	if ! use examples; then
-		rm -r "${D}/usr/$(get_libdir)/csv${PV}/examples" || die
-	fi
-
 	einstalldocs
+
+	find "${ED}"/usr/$(get_libdir)/csv${PV//a}/examples \
+		 \( -name "*.md" -o -name "*.so" \)  -delete || die
 }
