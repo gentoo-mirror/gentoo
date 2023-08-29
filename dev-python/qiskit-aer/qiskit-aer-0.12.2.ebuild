@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..11} )
 
@@ -30,6 +31,7 @@ SLOT="0"
 # with the option to switch between reference/openblas implementation runtime (eselect-ldso).
 DEPEND="
 	>=dev-python/numpy-1.16.3[${PYTHON_USEDEP}]
+	<dev-cpp/nlohmann_json-3.10.3
 	>=dev-cpp/nlohmann_json-3.1.1
 	>=dev-libs/spdlog-1.9.2:=
 	>=dev-cpp/muParserX-4.0.8
@@ -86,7 +88,7 @@ pkg_setup() {
 python_prepare_all() {
 	export DISABLE_CONAN="ON"
 	export DISABLE_DEPENDENCY_INSTALL="ON"
-	#export SKBUILD_CONFIGURE_OPTIONS=""
+	export SKBUILD_CONFIGURE_OPTIONS="-DTEST_JSON=1"
 
 	distutils-r1_python_prepare_all
 }
