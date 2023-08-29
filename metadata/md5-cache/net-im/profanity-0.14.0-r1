@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile configure install setup
+DEPEND=>=app-accessibility/at-spi2-core-2.46.0 dev-db/sqlite:3 dev-libs/glib:2 >=dev-libs/libstrophe-0.12.3:= media-libs/harfbuzz:= net-misc/curl sys-libs/ncurses:=[unicode(+)] sys-libs/readline:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango x11-misc/shared-mime-info gpg? ( app-crypt/gpgme:= ) libnotify? ( x11-libs/libnotify ) omemo? ( dev-libs/libgcrypt:= net-libs/libsignal-protocol-c ) omemo-qrcode? ( media-gfx/qrencode:= ) otr? ( net-libs/libotr ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) xscreensaver? ( x11-libs/libXScrnSaver x11-libs/libX11 ) test? ( dev-util/cmocka ) python? ( python_single_target_python3_10? ( dev-python/cython[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/cython[python_targets_python3_11(-)] ) )
+DESCRIPTION=A console based XMPP client inspired by Irssi
+EAPI=8
+HOMEPAGE=https://profanity-im.github.io
+INHERIT=python-single-r1
+IUSE=libnotify omemo omemo-qrcode otr gpg test xscreensaver python python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3
+RDEPEND=>=app-accessibility/at-spi2-core-2.46.0 dev-db/sqlite:3 dev-libs/glib:2 >=dev-libs/libstrophe-0.12.3:= media-libs/harfbuzz:= net-misc/curl sys-libs/ncurses:=[unicode(+)] sys-libs/readline:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango x11-misc/shared-mime-info gpg? ( app-crypt/gpgme:= ) libnotify? ( x11-libs/libnotify ) omemo? ( dev-libs/libgcrypt:= net-libs/libsignal-protocol-c ) omemo-qrcode? ( media-gfx/qrencode:= ) otr? ( net-libs/libotr ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) xscreensaver? ( x11-libs/libXScrnSaver x11-libs/libX11 )
+REQUIRED_USE=omemo-qrcode? ( omemo ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/profanity-im/profanity/releases/download/0.14.0/profanity-0.14.0.tar.gz https://github.com/profanity-im/profanity/commit/122434a.patch -> profanity-0.14.0-ox-carbons.patch https://github.com/profanity-im/profanity/commit/2ed6211c.patch -> profanity-0.14.0-xscreensaver.patch
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	59e60e9c5cbd3f214d7f1002e798b387	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=387ba1aa16d2af261ed06ab8c27390f0
