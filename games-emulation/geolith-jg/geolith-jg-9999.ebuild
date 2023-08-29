@@ -3,30 +3,33 @@
 
 EAPI=8
 
-inherit toolchain-funcs xdg
+inherit toolchain-funcs
 
-DESCRIPTION="The Jolly Good Reference Frontend"
-HOMEPAGE="https://jgemu.gitlab.io/jgrf.html"
+MY_PN=${PN%-*}
+MY_P=${MY_PN}-${PV}
+DESCRIPTION="Jolly Good Neo Geo AES/MVS Emulator"
+HOMEPAGE="https://gitlab.com/jgemu/geolith"
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.com/jgemu/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/jgemu/${MY_PN}.git"
 else
-	SRC_URI="https://gitlab.com/jgemu/${PN}/-/archive/${PV}/${P}.tar.bz2"
+	SRC_URI="https://gitlab.com/jgemu/${MY_PN}/-/archive/${PV}/${MY_P}.tar.bz2"
+	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="BSD CC0-1.0 MIT ZLIB"
+LICENSE="BSD MIT"
 SLOT="1"
 
 DEPEND="
 	dev-libs/miniz
-	dev-libs/openssl:0=
 	media-libs/jg:1=
-	media-libs/libepoxy[egl]
-	media-libs/libsdl2[opengl,sound,video]
 	media-libs/speexdsp
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	games-emulation/jgrf
+"
 BDEPEND="
 	virtual/pkgconfig
 "
@@ -35,9 +38,6 @@ src_compile() {
 	emake \
 		CC="$(tc-getCC)" \
 		PKG_CONFIG="$(tc-getPKG_CONFIG)" \
-		PREFIX="${EPREFIX}"/usr \
-		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
-		USE_EXTERNAL_MD5=1 \
 		USE_EXTERNAL_MINIZ=1
 }
 
@@ -46,6 +46,6 @@ src_install() {
 		DESTDIR="${D}" \
 		PREFIX="${EPREFIX}"/usr \
 		DOCDIR="${EPREFIX}"/usr/share/doc/${PF} \
-		USE_EXTERNAL_MD5=1 \
+		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
 		USE_EXTERNAL_MINIZ=1
 }
