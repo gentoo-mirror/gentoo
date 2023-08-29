@@ -1,16 +1,16 @@
-BDEPEND=test? ( >=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] app-alternatives/awk sys-apps/gentoo-functions ) python_targets_pypy3? ( dev-python/pypy3:=[xml(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+),threads(+)] ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( >=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] app-alternatives/awk sys-apps/gentoo-functions ) python_targets_pypy3? ( dev-python/pypy3:=[xml(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+),threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+),threads(+)] ) >=dev-python/setuptools-67.8.0-r1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=>=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEPEND=>=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DESCRIPTION=Collection of administration scripts for Gentoo
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Portage-Tools
 INHERIT=distutils-r1 tmpfiles git-r3
-IUSE=test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11
+IUSE=test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] app-alternatives/awk sys-apps/gentoo-functions python_targets_pypy3? ( dev-python/pypy3:=[xml(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+),threads(+)] ) virtual/tmpfiles
-REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=>=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] app-alternatives/awk sys-apps/gentoo-functions python_targets_pypy3? ( dev-python/pypy3:=[xml(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+),threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+),threads(+)] ) virtual/tmpfiles
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	59e60e9c5cbd3f214d7f1002e798b387	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	a93df67775ff86e107e56c6a6e68cf4e	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=a25fd647fc6da8ba4f4ff8caf02eeb23
+_md5_=ab7f275709778918103d8d872a227e65
