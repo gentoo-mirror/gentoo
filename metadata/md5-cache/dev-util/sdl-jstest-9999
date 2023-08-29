@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-libs/appstream-glib ) dev-util/tinycmmc virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=sdl1? ( media-libs/libsdl[joystick] ) sdl? ( media-libs/libsdl2[haptic,joystick] ) sys-libs/ncurses:=
+DESCRIPTION=Simple SDL joystick test application for the console
+EAPI=8
+HOMEPAGE=https://github.com/Grumbel/sdl-jstest
+INHERIT=cmake git-r3
+IUSE=+sdl sdl1 test
+LICENSE=GPL-3+ ZLIB
+PROPERTIES=live
+RDEPEND=sdl1? ( media-libs/libsdl[joystick] ) sdl? ( media-libs/libsdl2[haptic,joystick] ) sys-libs/ncurses:=
+REQUIRED_USE=|| ( sdl sdl1 )
+RESTRICT=!test? ( test )
+SLOT=0
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	ea305d3be967deed8faa5c9e94f9aee4	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=730ed1e017d058e0b46c8bb1a1d6910f
