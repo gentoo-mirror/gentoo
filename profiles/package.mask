@@ -32,6 +32,23 @@
 ## app-misc/some-package
 
 #--- END OF EXAMPLES ---
+# Hans de Graaff <graaff@gentoo.org> (2023-08-29)
+# Use the newer slot instead.  Masked for removal on 2023-09-29.
+dev-ruby/twitter:7
+
+# Sam James <sam@gentoo.org> (2023-08-29)
+# Obsolete as of September 2021 when legacy Tor hidden services stopped
+# working. Now fails to build with latest protobuf too. No upstream activity
+# since 2017. Alternatives (unvetted) are 'cwtch' and 'ricochet-refreshed' but
+# neither are packaged.
+# Removal on 2023-09-28.  Bug #830477, bug #913004.
+net-im/ricochet
+
+# Sam James <sam@gentoo.org> (2023-08-29)
+# Fails to build with new protobuf. Deprecated by upstream which recommend
+# sci-biology/kallisto as a replacement.
+# Removal on 2023-09-28.  Bug #912828.
+sci-biology/express
 
 # Michał Górny <mgorny@gentoo.org> (2023-08-28)
 # A shim that is no longer needed.  No reverse dependencies.
