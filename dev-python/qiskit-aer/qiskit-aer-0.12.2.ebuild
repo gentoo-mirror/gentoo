@@ -40,7 +40,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	>=dev-python/qiskit-terra-0.21.0[${PYTHON_USEDEP}]
+	>=dev-python/qiskit-terra-0.25.1-r1[${PYTHON_USEDEP}]
 	>=dev-python/scipy-1.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -96,15 +96,14 @@ python_prepare_all() {
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
-		test/terra/states/test_aer_statevector.py::TestAerStatevector::test_drawings
 		test/terra/states/test_aer_state.py::TestAerState::test_appply_diagonal
-		test/terra/states/test_aer_state.py::TestAerState::test_appply_measure
 		test/terra/states/test_aer_state.py::TestAerState::test_appply_reset
 
-		# TODO: GLIBCXX_ASSERTIONS, bug #897758
-		test/terra/backends/aer_simulator/test_algorithms.py::TestAlgorithms::test_extended_stabilizer_sparse_output_probs
-		test/terra/backends/aer_simulator/test_options.py::TestOptions::test_mps_options
-		test/terra/backends/aer_simulator/test_fusion.py::TestGateFusion::test_parallel_fusion_diagonal
+		# requires qiskit_qasm3_import
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_1___automatic____CPU__
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_2___statevector____CPU__
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_3___matrix_product_state____CPU__
+		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_4___extended_stabilizer____CPU__
 	)
 
 	# From tox.ini/tests.yml in CI

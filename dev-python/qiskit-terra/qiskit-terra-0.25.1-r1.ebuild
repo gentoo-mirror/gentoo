@@ -154,13 +154,18 @@ QA_FLAGS_IGNORED="
 
 distutils_enable_tests pytest
 
+src_prepare() {
+	# strip forcing -Werror from tests that also leaks to other packages
+	sed -i -e '/filterwarnings.*error/d' qiskit/test/base.py || die
+	distutils-r1_src_prepare
+}
+
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
 		test/python/circuit/test_equivalence.py::TestEquivalenceLibraryVisualization::test_equivalence_draw
 		test/python/primitives/test_backend_estimator.py::TestBackendEstimator::test_bound_pass_manager
 		test/python/primitives/test_backend_sampler.py::TestBackendSampler::test_bound_pass_manager
-		test/python/pulse/test_block.py::TestBlockOperation::test_execute_block
 		test/python/transpiler/test_unitary_synthesis_plugin.py::TestUnitarySynthesisPlugin
 		test/python/visualization/test_dag_drawer.py::TestDagDrawer::test_dag_drawer_no_register
 	)
