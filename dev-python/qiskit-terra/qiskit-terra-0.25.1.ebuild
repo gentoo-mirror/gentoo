@@ -13,86 +13,89 @@ CRATES="
 	autocfg@1.1.0
 	bitflags@1.3.2
 	cfg-if@1.0.0
-	crossbeam-channel@0.5.7
+	crossbeam-channel@0.5.8
 	crossbeam-deque@0.8.3
 	crossbeam-epoch@0.9.14
 	crossbeam-utils@0.8.15
 	either@1.8.1
 	fixedbitset@0.4.2
-	getrandom@0.2.8
-	hashbrown@0.11.2
+	getrandom@0.2.9
 	hashbrown@0.12.3
-	hashbrown@0.13.2
 	hermit-abi@0.2.6
 	indexmap@1.9.3
 	indoc@1.0.9
-	libc@0.2.140
-	libm@0.2.6
+	itertools@0.10.5
+	libc@0.2.144
+	libm@0.2.7
 	lock_api@0.4.9
-	matrixmultiply@0.3.2
+	matrixmultiply@0.3.7
 	memoffset@0.8.0
+	memoffset@0.9.0
 	ndarray@0.15.6
 	num-bigint@0.4.3
 	num-complex@0.4.3
 	num-integer@0.1.45
 	num-traits@0.2.15
 	num_cpus@1.15.0
-	numpy@0.18.0
-	once_cell@1.17.1
+	numpy@0.19.0
+	once_cell@1.17.2
 	parking_lot@0.12.1
 	parking_lot_core@0.9.7
 	petgraph@0.6.3
 	ppv-lite86@0.2.17
 	priority-queue@1.3.1
-	proc-macro2@1.0.51
-	pyo3-build-config@0.18.3
-	pyo3-ffi@0.18.3
-	pyo3-macros-backend@0.18.3
-	pyo3-macros@0.18.3
-	pyo3@0.18.3
-	quote@1.0.23
+	proc-macro2@1.0.59
+	pyo3-build-config@0.19.2
+	pyo3-ffi@0.19.2
+	pyo3-macros-backend@0.19.2
+	pyo3-macros@0.19.2
+	pyo3@0.19.2
+	quote@1.0.28
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_distr@0.4.3
 	rand_pcg@0.3.1
 	rawpointer@0.2.1
+	rayon-cond@0.2.0
 	rayon-core@1.11.0
 	rayon@1.7.0
 	redox_syscall@0.2.16
 	rustc-hash@1.1.0
-	rustworkx-core@0.12.1
+	rustworkx-core@0.13.1
 	scopeguard@1.1.0
 	smallvec@1.10.0
 	syn@1.0.109
-	target-lexicon@0.12.6
-	unicode-ident@1.0.8
+	target-lexicon@0.12.7
+	unicode-ident@1.0.9
 	unindent@0.1.11
 	version_check@0.9.4
 	wasi@0.11.0+wasi-snapshot-preview1
 	windows-sys@0.45.0
-	windows-targets@0.42.1
-	windows_aarch64_gnullvm@0.42.1
-	windows_aarch64_msvc@0.42.1
-	windows_i686_gnu@0.42.1
-	windows_i686_msvc@0.42.1
-	windows_x86_64_gnu@0.42.1
-	windows_x86_64_gnullvm@0.42.1
-	windows_x86_64_msvc@0.42.1
+	windows-targets@0.42.2
+	windows_aarch64_gnullvm@0.42.2
+	windows_aarch64_msvc@0.42.2
+	windows_i686_gnu@0.42.2
+	windows_i686_msvc@0.42.2
+	windows_x86_64_gnu@0.42.2
+	windows_x86_64_gnullvm@0.42.2
+	windows_x86_64_msvc@0.42.2
 "
 
 inherit cargo distutils-r1 multiprocessing optfeature
 
+MY_P=qiskit-${PV}
 DESCRIPTION="Terra is the foundation on which Qiskit is built"
 HOMEPAGE="
-	https://github.com/Qiskit/qiskit-terra/
+	https://github.com/Qiskit/qiskit/
 	https://pypi.org/project/qiskit-terra/
 "
 SRC_URI="
-	https://github.com/Qiskit/qiskit-terra/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
+	https://github.com/Qiskit/qiskit/archive/${PV}.tar.gz
+		-> ${MY_P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
 "
+S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 # Dependent crate licenses
@@ -106,7 +109,7 @@ IUSE="+visualization"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/rustworkx-0.12.0[${PYTHON_USEDEP}]
+	>=dev-python/rustworkx-0.13.0[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.17[${PYTHON_USEDEP}]
 	>=dev-python/ply-3.10[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5[${PYTHON_USEDEP}]
@@ -117,6 +120,9 @@ RDEPEND="
 	>=dev-python/python-dateutil-2.8.0[${PYTHON_USEDEP}]
 	>=dev-python/stevedore-3.0.0[${PYTHON_USEDEP}]
 	<dev-python/symengine-0.10[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/typing-extensions[${PYTHON_USEDEP}]
+	' 3.10)
 	visualization? (
 		>=dev-python/matplotlib-3.3[${PYTHON_USEDEP}]
 		>=dev-python/ipywidgets-7.3.0[${PYTHON_USEDEP}]
@@ -151,39 +157,15 @@ distutils_enable_tests pytest
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
-		test/python/transpiler/test_unitary_synthesis_plugin.py::TestUnitarySynthesisPlugin
-		test/python/transpiler/test_unitary_synthesis.py::TestUnitarySynthesis::test_two_qubit_synthesis_not_pulse_optimal
-
-		# TestOptions::test_copy - TypeError: argument of type 'Options' is not iterable
-		test/python/providers/test_options.py::TestOptions::test_copy
-
-		# DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
-		test/python/test_version.py::TestVersion::test_qiskit_version
-		# DeprecationWarning: It is deprecated to return a value that is not None from a test case
-		# (<bound method BackendTestCase.test_configuration of <test.python.basicaer.test_statevector_simulator.StatevectorS...
-		test/python/basicaer/test_statevector_simulator.py::StatevectorSimulatorTest::test_configuration
-
-		# AssertionError: DeprecationWarning not triggered
-		test/python/pulse/test_block.py::TestBlockOperation::test_execute_block
-
-		# AssertionError: Lists differ: [] != ['INFO:LocalLogger:bound_pass_manager', 'INFO:LocalLogger:bound_pass_manager']
+		test/python/circuit/test_equivalence.py::TestEquivalenceLibraryVisualization::test_equivalence_draw
 		test/python/primitives/test_backend_estimator.py::TestBackendEstimator::test_bound_pass_manager
 		test/python/primitives/test_backend_sampler.py::TestBackendSampler::test_bound_pass_manager
-
-		# AssertionError: False is not true : The images are different by 8.795342588446031% which is more than the allowed 4.0%
-		test/python/circuit/test_equivalence.py::TestEquivalenceLibraryVisualization::test_equivalence_draw
-		# ValueError: images do not match
+		test/python/pulse/test_block.py::TestBlockOperation::test_execute_block
+		test/python/transpiler/test_unitary_synthesis_plugin.py::TestUnitarySynthesisPlugin
 		test/python/visualization/test_dag_drawer.py::TestDagDrawer::test_dag_drawer_no_register
-
-		# Hangs
-		# Broken by https://github.com/Qiskit/qiskit-terra/pull/8952?
-		test/python/compiler/test_transpiler.py::TestTranspileParallel::test_parallel_dispatch_4_3
-		test/python/compiler/test_transpiler.py::TestTranspileParallel::test_parallel_with_target_4_3
 	)
 
 	local EPYTEST_IGNORE=(
-		# TODO, also apparently slow
-		test/randomized/test_transpiler_equivalence.py
 		# Breaks xdist
 		test/python/qasm2/test_parse_errors.py
 	)
