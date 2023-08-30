@@ -44,8 +44,17 @@ src_prepare() {
 }
 
 src_compile() {
-	if use test; then
+	# This actually enables line tracing, so it fits USE=debug more.
+	if use debug; then
 		export INDEXED_GZIP_TESTING=1
+	fi
+	# Fix implicit dependency on numpy that is used to build test
+	# extensions.
+	if ! use test; then
+		local -x PYTHONPATH="${T}:${PYTHONPATH}"
+		cat >> "${T}"/numpy.py <<-EOF || die
+			raise ImportError("I am not here!")
+		EOF
 	fi
 	distutils-r1_src_compile
 }
@@ -53,4 +62,7 @@ src_compile() {
 python_test() {
 	cd "${BUILD_DIR}/install$(python_get_sitedir)/indexed_gzip/tests" || die
 	epytest -n "$(makeopts_jobs)" --dist=worksteal
+	# temporary files and test extensions
+	# (to achieve equivalence with USE=-test)
+	rm ctest*.{c,gz,so,tmp} || die
 }
