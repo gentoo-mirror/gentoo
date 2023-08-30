@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-cpp/gtest )
+DESCRIPTION=ELF reader/producer header-only C++ library
+EAPI=8
+HOMEPAGE=https://github.com/serge1/ELFIO
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/serge1/elfio/archive/Release_3.12.tar.gz -> elfio-3.12.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	ea305d3be967deed8faa5c9e94f9aee4
+_md5_=8220f51fa7fdeaaaba0634107f938ea3
