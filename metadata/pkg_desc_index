@@ -1259,7 +1259,7 @@ app-backup/cpdup 1.18: A comprehensive filesystem mirroring program
 app-backup/dar 2.7.10 2.7.11: A full featured backup tool, aimed for disks
 app-backup/deja-dup 44.2: Simple backup tool using duplicity back-end
 app-backup/dirvish 1.2.1-r1: Dirvish is a fast, disk based, rotating network backup system
-app-backup/duplicity 1.0.1-r1 1.2.2 1.2.3: Secure backup system using gnupg to encrypt data
+app-backup/duplicity 1.0.1-r1 1.2.2 1.2.3 2.1.0: Secure backup system using gnupg to encrypt data
 app-backup/duply 2.3.1: A shell frontend for duplicity
 app-backup/flexbackup 1.2.1-r13: Flexible backup script using perl
 app-backup/fsarchiver 0.8.6-r1 0.8.7: Flexible filesystem archiver for backup and deployment tool
@@ -10201,7 +10201,7 @@ dev-scheme/akku 1.1.0: Language package manager for Scheme
 dev-scheme/bigloo 4.4c_p4-r5: Practical Scheme Compiler with many extensions
 dev-scheme/bytestructures 1.0.10 2.0.1: Structured access to bytevector contents
 dev-scheme/c-wrapper 0.6.1-r2: Foreign function interface for C and Objective-C libraries
-dev-scheme/chez 9.5.8a-r1 9.6.0: A programming language based on R6RS
+dev-scheme/chez 9.5.8a-r1 9.6.2: A programming language based on R6RS
 dev-scheme/chez-minikanren 2018.04.11: Canonical miniKanren implementation (on Chez Scheme)
 dev-scheme/chibi 0.10.0 9999: Minimal Scheme implementation for use as an extension language
 dev-scheme/chicken 5.3.0: Scheme interpreter and native Scheme to C compiler
@@ -17376,8 +17376,8 @@ sys-kernel/cryptodev 1.12 1.13-r1 9999: device that allows access to Linux kerne
 sys-kernel/dracut 057-r3 059-r2 059-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.4.254 5.10.191 5.15.127 5.15.128 6.1.46 6.1.47 6.1.48 6.1.49 6.4.11 6.4.12: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.4.254 5.10.191 5.15.127 5.15.128 6.1.46 6.1.47 6.1.48 6.1.49 6.4.11 6.4.12: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.4.254 5.4.255 5.10.191 5.10.193 5.15.127 5.15.128 5.15.129 6.1.46 6.1.47 6.1.48 6.1.49 6.1.50 6.4.11 6.4.12 6.4.13: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.4.254 5.4.255 5.10.191 5.10.193 5.15.127 5.15.128 5.15.129 6.1.46 6.1.47 6.1.48 6.1.49 6.1.50 6.4.11 6.4.12 6.4.13: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 4.14.315 4.14.323 4.14.324 4.19.289 4.19.291 4.19.292 4.19.293 5.4.250 5.4.253 5.4.254 5.4.255 5.10.187 5.10.190 5.10.191 5.10.192 5.10.193 5.15.122 5.15.126 5.15.127 5.15.128 5.15.129 6.1.41 6.1.45 6.1.46 6.1.47 6.1.48 6.1.49 6.1.50 6.4.10 6.4.11 6.4.12 6.4.13 6.5.0: Full sources including the Gentoo patchset for the 6.5 kernel tree
 sys-kernel/git-sources 6.5_rc1 6.5_rc2 6.5_rc3 6.5_rc4 6.5_rc5 6.5_rc6 6.5_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 7: Gentoo fork of installkernel script from debianutils
@@ -17393,7 +17393,7 @@ sys-kernel/pf-sources 6.1_p6 6.2_p7: Linux kernel fork that includes the pf-kern
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.318_p150 4.19.284_p125 5.4.242_p81 5.10.184_p90 5.15.113_p64 6.0.5_p14 6.1.33_p11: Full Linux 6.1 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.4.254 5.4.9999 5.10.191 5.10.9999 5.15.127 5.15.128 5.15.9999 5.19.9999 6.1.46 6.1.47 6.1.48 6.1.49 6.1.9999 6.4.11 6.4.12: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.4.254 5.4.255 5.4.9999 5.10.191 5.10.193 5.10.9999 5.15.127 5.15.128 5.15.129 5.15.9999 5.19.9999 6.1.46 6.1.47 6.1.48 6.1.49 6.1.50 6.1.9999 6.4.11 6.4.12 6.4.13: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.14.324 4.19.293 5.4.255 5.10.193 5.15.129 6.1.50 6.4.13 6.5.0: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.3.9: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17582,7 +17582,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.4.254 5.10.191 5.15.127 5.15.128 6.1.46 6.1.47 6.1.48 6.1.49 6.4.11 6.4.12: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.4.254 5.4.255 5.10.191 5.10.193 5.15.127 5.15.128 5.15.129 6.1.46 6.1.47 6.1.48 6.1.49 6.1.50 6.4.11 6.4.12 6.4.13: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r1 7.0: Virtual for .NET SDK
 virtual/editor 0-r5: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
