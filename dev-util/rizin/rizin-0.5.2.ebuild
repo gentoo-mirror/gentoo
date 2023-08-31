@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 # This is the commit that the CI for the release commit used
 BINS_COMMIT="d66f95359fe830514267f446975374752201c3f1"
@@ -24,6 +24,7 @@ IUSE="test"
 # Need to audit licenses of the binaries used for testing
 RESTRICT="test? ( fetch ) !test? ( test )"
 
+# TODO: unbundle dev-libs/blake3
 RDEPEND="
 	app-arch/lz4:0=
 	app-arch/xz-utils
@@ -41,6 +42,7 @@ BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.4.0-never-rebuild-parser.patch"
+	"${FILESDIR}/${PN}-0.5.2-find-tree-sitter-parser.patch"
 )
 
 S="${WORKDIR}/${PN}-v${PV}"
