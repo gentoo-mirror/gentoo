@@ -1,0 +1,17 @@
+BDEPEND=test? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( >=dev-python/jedi-0.19[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/jedi-0.19[python_targets_python3_11(-)] ) || ( app-editors/vim[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] app-editors/gvim[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] ) app-vim/vspec )
+DEFINED_PHASES=compile install postinst postrm prepare setup test
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: binding to the autocompletion library jedi
+EAPI=8
+HOMEPAGE=https://github.com/davidhalter/jedi-vim
+INHERIT=edo vim-plugin python-single-r1
+IUSE=test python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( >=dev-python/jedi-0.19[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/jedi-0.19[python_targets_python3_11(-)] ) || ( app-editors/vim[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] app-editors/gvim[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/davidhalter/jedi-vim/archive/v0.11.2.tar.gz -> jedi-vim-0.11.2.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	92ea4186891b666b0970fa1d713d64fa	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	59e60e9c5cbd3f214d7f1002e798b387	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=417da00265c2aa78f8bf3c85cc5af1c3
