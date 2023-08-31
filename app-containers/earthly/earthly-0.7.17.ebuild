@@ -32,8 +32,8 @@ src_compile() {
 
 	# Git SHA is needed at runtime by earthly to pull and bootstrap images.
 	local git_sha
-	if [[ ${PV} == 0.7.14 ]] ; then
-		git_sha=e665c11fdfbe594cc23a1df09e2d6249e4c02241
+	if [[ ${PV} == 0.7.17 ]] ; then
+		git_sha=7b7d8f4abbc7a35034fcd29cfada52d3d25fcff2
 	else
 		die 'Could not detect "git_sha", please update the ebuild.'
 	fi
