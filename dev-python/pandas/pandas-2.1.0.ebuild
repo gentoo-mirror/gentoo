@@ -112,12 +112,12 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# test for rounding errors, fails if we have better precision
 		# e.g. on amd64 with FMA or on arm64
-		# https://github.com/pandas-dev/issues/38921
+		# https://github.com/pandas-dev/pandas/issues/38921
 		tests/window/test_rolling.py::test_rolling_var_numerical_issues
 
 		# TODO; unhappy about DISPLAY?
 		tests/test_downstream.py::test_seaborn
-		
+
 		# OOMs
 		tests/io/parser/test_c_parser_only.py::test_bytes_exceed_2gb
 
@@ -164,12 +164,8 @@ python_test() {
 		'tests/tseries/offsets/test_common.py::test_apply_out_of_range[tzlocal()-WeekOfMonth]'
 		'tests/tseries/offsets/test_common.py::test_apply_out_of_range[tzlocal()-Week]'
 
-		# alignment issues: bug #911660 (fixed upstream but not yet in a release)
-		# https://github.com/pandas-dev/issues/54391
-		tests/io/sas/test_byteswap.py::test_float_byteswap
-
 		# hdf / pytables have alignment problems: bug #911660
-		# https://github.com/pandas-dev/issues/54396
+		# https://github.com/pandas-dev/pandas/issues/54396
 		tests/io/pytables/test_append.py::test_append_frame_column_oriented
 		tests/io/pytables/test_store.py::test_select_filter_corner
 	)
@@ -179,6 +175,7 @@ python_test() {
 	"${EPYTHON}" -c "import pandas; pandas.show_versions()" || die
 	# --no-strict-data-files is necessary since upstream prevents data
 	# files from even being included in GitHub archives, sigh
+	# https://github.com/pandas-dev/pandas/issues/54907
 	epytest pandas/tests \
 		--no-strict-data-files \
 		--maxfail=32 \
