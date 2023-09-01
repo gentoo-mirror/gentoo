@@ -75,14 +75,10 @@ DEPEND="${RDEPEND}
 	test? ( dev-cpp/catch:0 )
 "
 
-PATCHES=(
-	"${FILESDIR}/waybar-0.9.17-wireplumber.patch"
-	"${FILESDIR}/waybar-0.9.17-gcc13.patch"
-)
-
 src_configure() {
 	local emesonargs=(
 		-Dman-pages=enabled
+		-Dcava=disabled
 		$(meson_feature evdev libevdev)
 		$(meson_feature jack)
 		$(meson_feature libinput)
