@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
 inherit cmake
 
@@ -15,7 +15,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 RDEPEND="app-arch/zstd
@@ -34,7 +34,7 @@ PATCHES=(
 
 src_prepare() {
 	# respect user cflags; do not expand ${CMAKE_C_FLAGS} (!)
-	sed -i -e 's|-O3 -g -Werror|${CMAKE_C_FLAGS}|' CMakeLists.txt || die
+	sed -i -e 's|-g -Werror|${CMAKE_C_FLAGS}|' CMakeLists.txt || die
 
 	# fix doc install path
 	sed -i -e "s|share/doc/mydumper|share/doc/${PF}|" docs/CMakeLists.txt || die
