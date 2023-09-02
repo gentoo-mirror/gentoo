@@ -7,29 +7,33 @@ inherit cmake
 
 DESCRIPTION="Blocking, shuffling and lossless compression library"
 HOMEPAGE="
-	https://www.blosc.org/c-blosc2/c-blosc2.html
-	https://github.com/Blosc/c-blosc2/
+	https://www.blosc.org/
+	https://github.com/Blosc/c-blosc/
 "
 SRC_URI="
-	https://github.com/Blosc/c-blosc2/archive/v${PV}.tar.gz
+	https://github.com/Blosc/c-blosc/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
 
 LICENSE="BSD"
 SLOT="0/1"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="test zlib zstd"
-REQUIRED_USE="test? ( zlib zstd )"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="+lz4 +snappy test zlib zstd"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=app-arch/lz4-1.7.5:=
+	lz4? ( >=app-arch/lz4-1.7.5:= )
+	snappy? ( app-arch/snappy:= )
 	zlib? ( sys-libs/zlib:= )
 	zstd? ( app-arch/zstd:= )
 "
 RDEPEND="
 	${DEPEND}
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.21.4-no-unaligned.patch
+)
 
 src_configure() {
 	# remove bundled libs (just in case)
@@ -39,22 +43,15 @@ src_configure() {
 		-DBUILD_STATIC=OFF
 		-DBUILD_TESTS=$(usex test)
 		-DBUILD_BENCHMARKS=OFF
-		-DBUILD_EXAMPLES=OFF
 		-DBUILD_FUZZERS=OFF
+		-DDEACTIVATE_LZ4=$(usex !lz4)
+		-DDEACTIVATE_SNAPPY=$(usex !snappy)
 		-DDEACTIVATE_ZLIB=$(usex !zlib)
 		-DDEACTIVATE_ZSTD=$(usex !zstd)
 		-DPREFER_EXTERNAL_LZ4=ON
+		# snappy is always external
 		-DPREFER_EXTERNAL_ZLIB=ON
 		-DPREFER_EXTERNAL_ZSTD=ON
-
-		# upstream overrides CMAKE_C_FLAGS, preventing ${CFLAGS} defaults
-		# from applying, https://github.com/Blosc/c-blosc2/issues/433
-		-DCMAKE_C_FLAGS="${CFLAGS}"
 	)
 	cmake_src_configure
-}
-
-src_test() {
-	# Tests fail in parallel, https://github.com/Blosc/c-blosc2/issues/432
-	MAKEOPTS=-j1 cmake_src_test
 }
