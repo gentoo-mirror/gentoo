@@ -60,7 +60,11 @@ PATCHES=(
 	"${FILESDIR}/${P}-sddm.pam-use-substack.patch" # bug 728550
 	"${FILESDIR}/${P}-disable-etc-debian-check.patch"
 	"${FILESDIR}/${P}-no-default-pam_systemd-module.patch" # bug 669980
-	"${FILESDIR}/${P}-fix-use-development-sessions.patch" # git master
+	# git master
+	"${FILESDIR}/${P}-fix-use-development-sessions.patch"
+	"${FILESDIR}/${P}-greeter-platform-detection.patch"
+	"${FILESDIR}/${P}-no-qtvirtualkeyboard-on-wayland.patch"
+	"${FILESDIR}/${P}-dbus-policy-in-usr.patch"
 )
 
 pkg_setup() {
