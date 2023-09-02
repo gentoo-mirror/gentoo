@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=GLib integration for Lwt
+EAPI=7
+HOMEPAGE=http://ocsigen.org/lwt_ssl
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~ppc
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=dev-ml/base >=dev-ml/lwt-3.1:= >=dev-ml/ocaml-ssl-0.5.13:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/1.2.0
+SRC_URI=https://github.com/ocsigen/lwt_ssl/archive/1.2.0.tar.gz -> lwt_ssl-1.2.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=7b102cb87aa6e527869c01f5558e9326
