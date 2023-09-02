@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=masquerade? ( net-libs/libnetfilter_conntrack )
+DESCRIPTION=Another (RFC1413 compliant) ident daemon
+EAPI=8
+HOMEPAGE=https://oidentd.janikrabe.com/
+INHERIT=systemd
+IUSE=debug masquerade selinux
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=BSD-2 GPL-2 LGPL-2+
+RDEPEND=masquerade? ( net-libs/libnetfilter_conntrack ) acct-user/oidentd acct-group/oidentd selinux? ( sec-policy/selinux-oident )
+SLOT=0
+SRC_URI=https://files.janikrabe.com/pub/oidentd/releases/3.1.0/oidentd-3.1.0.tar.xz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=d3abac0cf8c96bf5f093409397e7b8a7
