@@ -19,11 +19,11 @@ else
 fi
 
 DESCRIPTION="Free implementation of the Remote Desktop Protocol"
-HOMEPAGE="http://www.freerdp.com/"
+HOMEPAGE="https://www.freerdp.com/"
 
 LICENSE="Apache-2.0"
 SLOT="0/2"
-IUSE="alsa cpu_flags_arm_neon cups debug doc +ffmpeg gstreamer jpeg kerberos openh264 pulseaudio server smartcard systemd test usb valgrind wayland X xinerama xv"
+IUSE="alsa cpu_flags_arm_neon cups debug doc +ffmpeg gstreamer icu jpeg kerberos openh264 pulseaudio server smartcard systemd test usb valgrind wayland X xinerama xv"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -54,6 +54,7 @@ RDEPEND="
 		media-libs/gst-plugins-base:1.0
 		x11-libs/libXrandr
 	)
+	icu? ( dev-libs/icu:0= )
 	jpeg? ( media-libs/libjpeg-turbo:0= )
 	kerberos? ( virtual/krb5 )
 	openh264? ( media-libs/openh264:0= )
@@ -97,6 +98,7 @@ src_configure() {
 	filter-lto
 
 	local mycmakeargs=(
+		-Wno-dev
 		-DBUILD_TESTING=$(usex test ON OFF)
 		-DCHANNEL_URBDRC=$(usex usb ON OFF)
 		-DWITH_ALSA=$(usex alsa ON OFF)
@@ -109,10 +111,12 @@ src_configure() {
 		-DWITH_CAIRO=$(usex ffmpeg OFF ON)
 		-DWITH_DSP_FFMPEG=$(usex ffmpeg ON OFF)
 		-DWITH_GSTREAMER_1_0=$(usex gstreamer ON OFF)
+		-DWITH_ICU=$(usex icu ON OFF)
 		-DWITH_JPEG=$(usex jpeg ON OFF)
 		-DWITH_GSSAPI=$(usex kerberos ON OFF)
 		-DWITH_NEON=$(usex cpu_flags_arm_neon ON OFF)
 		-DWITH_OPENH264=$(usex openh264 ON OFF)
+		-DWITH_OSS=OFF
 		-DWITH_PULSE=$(usex pulseaudio ON OFF)
 		-DWITH_SERVER=$(usex server ON OFF)
 		-DWITH_PCSC=$(usex smartcard ON OFF)
