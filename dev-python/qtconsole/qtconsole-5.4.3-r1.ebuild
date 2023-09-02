@@ -7,7 +7,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="threads(+)"
 
-inherit distutils-r1 pypi
+inherit distutils-r1 pypi virtualx
 
 DESCRIPTION="Qt-based console for Jupyter with support for rich media output"
 HOMEPAGE="
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/ipykernel-4.1[${PYTHON_USEDEP}]
@@ -33,12 +33,11 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		dev-python/flaky[${PYTHON_USEDEP}]
+		dev-python/pytest-qt[${PYTHON_USEDEP}]
 		dev-python/QtPy[${PYTHON_USEDEP},svg,testlib]
 	)
 "
-# required by the tests that are removed:
-#		dev-python/flaky[${PYTHON_USEDEP}]
-#		dev-python/pytest-qt[${PYTHON_USEDEP}]
 
 PDEPEND="
 	dev-python/ipython[${PYTHON_USEDEP}]
@@ -47,19 +46,22 @@ PDEPEND="
 distutils_enable_sphinx docs/source dev-python/sphinx-rtd-theme
 distutils_enable_tests pytest
 
+src_test() {
+	virtx distutils-r1_src_test
+}
+
 python_test() {
-	# TODO: these tests require virtx; however, running under virtx
-	# causes pytest to segv on exit (even though tests pass)
-	local EPYTEST_IGNORE=(
-		qtconsole/tests/test_00_console_widget.py
-		qtconsole/tests/test_jupyter_widget.py
+	local EPYTEST_DESELECT=(
+		# TODO; expects exact HTML, so perhaps fragile
+		qtconsole/tests/test_jupyter_widget.py::TestJupyterWidget::test_other_output
 	)
 	local -x QT_API
 	for QT_API in pyqt5 pyqt6 pyside2 pyside6; do
 		if has_version "dev-python/QtPy[${QT_API}]"; then
 			local -x PYTEST_QT_API=${QT_API}
 			einfo "Testing with ${QT_API}"
-			epytest
+			nonfatal epytest ||
+				die "Tests failed with ${EPYTHON} / ${QT_API}"
 		fi
 	done
 }
