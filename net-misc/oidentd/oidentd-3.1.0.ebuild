@@ -1,43 +1,45 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools systemd
+inherit systemd
 
 DESCRIPTION="Another (RFC1413 compliant) ident daemon"
 HOMEPAGE="https://oidentd.janikrabe.com/"
 SRC_URI="https://files.janikrabe.com/pub/${PN}/releases/${PV}/${P}.tar.xz"
 
-LICENSE="BSD-2 GPL-2 LGPL-2+ MIT"
+LICENSE="BSD-2 GPL-2 LGPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 ~s390 ~sparc x86"
-IUSE="debug ipv6 masquerade selinux"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
+IUSE="debug masquerade selinux"
 
 DEPEND="masquerade? ( net-libs/libnetfilter_conntrack )"
 
 RDEPEND="
+	${DEPEND}
 	acct-user/oidentd
 	acct-group/oidentd
 	selinux? ( sec-policy/selinux-oident )
-	${DEPEND}"
+"
 
-PATCHES=( "${FILESDIR}/${P}-respect-ar.patch" )
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
+"
 
 src_prepare() {
 	sed -i '/ExecStart/ s|$| -u oidentd -g oidentd|' contrib/systemd/*.service || die
 
 	default
-
-	eautoreconf
 }
 
 src_configure() {
 	local myconf=(
 		$(use_enable debug)
-		$(use_enable ipv6)
 		$(use_enable masquerade libnfct)
 		$(use_enable masquerade nat)
+		--enable-ipv6
 		--enable-xdgbdir
 	)
 	econf "${myconf[@]}"
