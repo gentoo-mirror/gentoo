@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare setup
+DEPEND=virtual/libusb:1 dev-libs/libxml2 net-print/cups
+DESCRIPTION=IJ Printer Driver
+EAPI=7
+HOMEPAGE=https://www.usa.canon.com/support/p/pixma-g4270#idReference%3Dsoftware-drivers
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=Canon-IJ
+RDEPEND=virtual/libusb:1 dev-libs/libxml2 net-print/cups
+SLOT=0
+SRC_URI=https://pdisp01.c-wss.com/gdl/WWUFORedirectTarget.do?id=MDEwMDAxMTc1MzAx -> cnijfilter2-source-6.60-1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=cacc98cb75ac4c596b0c5b773443b67c
