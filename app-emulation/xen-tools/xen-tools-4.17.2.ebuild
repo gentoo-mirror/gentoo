@@ -208,10 +208,6 @@ QA_PREBUILT="
 
 RESTRICT="test"
 
-PATCHES=(
-	"${FILESDIR}/xen-tools-m4-ptyfuncs.m4-tools-configure-add-linux-headers-for.patch"
-)
-
 pkg_setup() {
 	python_setup
 	export "CONFIG_LOMOUNT=y"
