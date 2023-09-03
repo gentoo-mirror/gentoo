@@ -3,34 +3,41 @@
 
 EAPI=8
 
-inherit linux-info meson systemd
-
-MY_COMMIT="f10f38e3adcaf6175e6c4c1846cad72ae9ab2cf2"
+inherit linux-info meson
 
 DESCRIPTION="Userspace KSM helper daemon"
 HOMEPAGE="https://codeberg.org/pf-kernel/uksmd"
-SRC_URI="https://codeberg.org/pf-kernel/uksmd/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://codeberg.org/pf-kernel/uksmd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/${PN}
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="systemd"
 
-# <procps-4 for bug #913523
 DEPEND="
 	sys-libs/libcap-ng
-	<sys-process/procps-4:=
+	>=sys-process/procps-4:=
+	systemd? ( sys-apps/systemd:= )
 "
 RDEPEND="${DEPEND}"
 
 CONFIG_CHECK="~KSM"
 
-S="${WORKDIR}/uksmd"
+PATCHES=(
+	"${FILESDIR}"/${PN}-6.4.1-systemd-automagic.patch
+)
 
-PATCHES=( "${FILESDIR}"/uksmd-0-remove-systemd-dep.patch )
+src_configure() {
+	local emesonargs=(
+		$(meson_feature systemd)
+	)
+
+	meson_src_configure
+}
 
 src_install() {
 	meson_src_install
 
 	newinitd "${FILESDIR}/uksmd.init" uksmd
-	systemd_dounit uksmd.service
 }
