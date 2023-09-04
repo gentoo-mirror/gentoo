@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://proofingtoolgui.org
 	https://github.com/marcoagpinto/aoo-mozilla-en-dict
 "
-SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1690875969/dict-en-20230801_lo.oxt"
+SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1693549382/dict-en-20230901_lo.oxt"
 
 LICENSE="BSD MIT LGPL-3+"
 SLOT="0"
