@@ -1,16 +1,16 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare test
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-dealii ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sci-libs/arborx[mpi=] ) adolc? ( sci-libs/adolc ) arpack? ( sci-libs/arpack[mpi=] ) assimp? ( media-libs/assimp:= ) cgal? ( sci-mathematics/cgal ) cuda? ( dev-util/nvidia-cuda-toolkit ) ginkgo? ( sci-libs/ginkgo ) gmsh? ( sci-libs/gmsh ) gsl? ( sci-libs/gsl:= ) hdf5? ( sci-libs/hdf5[mpi=] ) lapack? ( virtual/lapack ) metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( virtual/mpi[cxx] ) muparser? ( dev-cpp/muParser ) opencascade? ( sci-libs/opencascade:= ) p4est? ( sci-libs/p4est[mpi] ) petsc? ( sci-mathematics/petsc[mpi=] ) scalapack? ( sci-libs/scalapack ) slepc? ( sci-mathematics/slepc[mpi=] ) sparse? ( sci-libs/umfpack ) sundials? ( sci-libs/sundials:= ) symengine? ( >=sci-libs/symengine-0.4:= ) trilinos? ( sci-libs/trilinos ) || ( dev-cpp/kokkos sci-libs/trilinos ) virtual/pkgconfig doc? ( app-doc/doxygen[dot] dev-lang/perl )
 DESCRIPTION=Solving partial differential equations with the finite element method
 EAPI=8
 HOMEPAGE=https://www.dealii.org/
-INHERIT=cmake flag-o-matic
-IUSE=adolc arborx assimp arpack cgal cpu_flags_x86_avx cpu_flags_x86_avx512f cpu_flags_x86_sse2 cuda +debug doc +examples ginkgo gmsh +gsl hdf5 +lapack metis mpi muparser opencascade p4est petsc scalapack slepc +sparse sundials symengine trilinos
+INHERIT=cmake flag-o-matic verify-sig
+IUSE=adolc arborx assimp arpack cgal cpu_flags_x86_avx cpu_flags_x86_avx512f cpu_flags_x86_sse2 cuda +debug doc +examples ginkgo gmsh +gsl hdf5 +lapack metis mpi muparser opencascade p4est petsc scalapack slepc +sparse sundials symengine trilinos verify-sig
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1+
 RDEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sci-libs/arborx[mpi=] ) adolc? ( sci-libs/adolc ) arpack? ( sci-libs/arpack[mpi=] ) assimp? ( media-libs/assimp:= ) cgal? ( sci-mathematics/cgal ) cuda? ( dev-util/nvidia-cuda-toolkit ) ginkgo? ( sci-libs/ginkgo ) gmsh? ( sci-libs/gmsh ) gsl? ( sci-libs/gsl:= ) hdf5? ( sci-libs/hdf5[mpi=] ) lapack? ( virtual/lapack ) metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( virtual/mpi[cxx] ) muparser? ( dev-cpp/muParser ) opencascade? ( sci-libs/opencascade:= ) p4est? ( sci-libs/p4est[mpi] ) petsc? ( sci-mathematics/petsc[mpi=] ) scalapack? ( sci-libs/scalapack ) slepc? ( sci-mathematics/slepc[mpi=] ) sparse? ( sci-libs/umfpack ) sundials? ( sci-libs/sundials:= ) symengine? ( >=sci-libs/symengine-0.4:= ) trilinos? ( sci-libs/trilinos ) || ( dev-cpp/kokkos sci-libs/trilinos )
 REQUIRED_USE=arborx? ( trilinos ) p4est? ( mpi ) slepc? ( petsc ) trilinos? ( mpi )
 SLOT=0
-SRC_URI=https://github.com/dealii/dealii/releases/download/v9.5.0/dealii-9.5.0.tar.gz doc? ( https://github.com/dealii/dealii/releases/download/v9.5.0/dealii-9.5.0-offline_documentation.tar.gz )
-_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	ea305d3be967deed8faa5c9e94f9aee4
-_md5_=a4dd4c50c3f70de9058d7fa41f4ccf54
+SRC_URI=https://github.com/dealii/dealii/releases/download/v9.5.1/dealii-9.5.1.tar.gz verify-sig? ( https://github.com/dealii/dealii/releases/download/v9.5.1/dealii-9.5.1.tar.gz.asc ) doc? ( https://github.com/dealii/dealii/releases/download/v9.5.0/dealii-9.5.0-offline_documentation.tar.gz verify-sig? ( https://github.com/dealii/dealii/releases/download/v9.5.0/dealii-9.5.0-offline_documentation.tar.gz.asc ) )
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	ea305d3be967deed8faa5c9e94f9aee4	verify-sig	dd7ea2e5b0bdcb42523e4797bbf4dd6e
+_md5_=1ee42bfb6a30cf4fe66d9a9cc625e47a
