@@ -4,7 +4,7 @@
 EAPI=8
 
 # Python is required for tests and some build tasks.
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake-multilib python-any-r1
 
@@ -38,13 +38,6 @@ pkg_setup() {
 	use test && python-any-r1_pkg_setup
 }
 
-src_prepare() {
-	cmake_src_prepare
-
-	sed -i -e '/set(cxx_base_flags /s:-Werror::' \
-		googletest/cmake/internal_utils.cmake || die "sed failed!"
-}
-
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DBUILD_GMOCK=ON
@@ -53,8 +46,9 @@ multilib_src_configure() {
 		# tests
 		-Dgmock_build_tests=$(usex test)
 		-Dgtest_build_tests=$(usex test)
-		-DPYTHON_EXECUTABLE="${PYTHON}"
 	)
+	use test && mycmakeargs+=( -DPython3_EXECUTABLE="${PYTHON}" )
+
 	cmake_src_configure
 }
 
