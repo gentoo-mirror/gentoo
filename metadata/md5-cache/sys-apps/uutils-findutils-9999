@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=dev-libs/oniguruma:= !!sys-devel/llvm:0
 DESCRIPTION=GNU findutils rewritten in Rust
 EAPI=8
-HOMEPAGE=https://github.com/uutils/findutils
+HOMEPAGE=https://uutils.github.io/findutils/ https://github.com/uutils/findutils
 INHERIT=cargo llvm git-r3
 IUSE=debug
 LICENSE=MIT Apache-2.0 BSD-2 BSD ISC MIT Unicode-DFS-2016
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=dev-libs/oniguruma:=
 SLOT=0
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	8520ae1bed0e6965d027399b471a3595	llvm	976dc8267d6a5af8b259cb956b52d51f	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=cccb96201e84d375a7f6fffa8c558d2c
+_md5_=991ec133c2ce9f898a7f51c9d00ceb70
