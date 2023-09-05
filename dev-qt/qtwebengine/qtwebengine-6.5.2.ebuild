@@ -3,12 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
-CHROMIUM_VER="108.0.5359.181"
-CHROMIUM_PATCHES_VER="114.0.5735.133"
-
-inherit check-reqs estack flag-o-matic multiprocessing python-any-r1 qt6-build
+inherit check-reqs estack flag-o-matic multiprocessing
+inherit prefix python-any-r1 qt6-build toolchain-funcs
 
 DESCRIPTION="Library for rendering dynamic web content in Qt6 C++ and QML applications"
 
@@ -17,20 +15,11 @@ if [[ ${QT6_BUILD_TYPE} == release ]]; then
 fi
 
 IUSE="
-	alsa bindist designer geolocation +jumbo-build kerberos pulseaudio screencast
-	+system-icu widgets
+	alsa bindist designer geolocation +jumbo-build kerberos
+	pulseaudio screencast +system-icu widgets
 "
 REQUIRED_USE="designer? ( widgets )"
 
-BDEPEND="
-	$(python_gen_any_dep 'dev-python/html5lib[${PYTHON_USEDEP}]')
-	dev-util/gperf
-	dev-util/ninja
-	dev-util/re2c
-	net-libs/nodejs[ssl]
-	sys-devel/bison
-	sys-devel/flex
-"
 RDEPEND="
 	app-arch/snappy:=
 	dev-libs/glib:2
@@ -41,8 +30,8 @@ RDEPEND="
 	dev-libs/libxml2[icu]
 	dev-libs/libxslt
 	dev-libs/re2:=
-	=dev-qt/qtdeclarative-${PV}*
-	=dev-qt/qtwebchannel-${PV}*
+	~dev-qt/qtdeclarative-${PV}:6
+	~dev-qt/qtwebchannel-${PV}:6
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/harfbuzz:=
@@ -74,17 +63,27 @@ RDEPEND="
 	x11-libs/libxshmfence:=
 	x11-libs/libXtst
 	alsa? ( media-libs/alsa-lib )
-	geolocation? ( =dev-qt/qtpositioning-${PV}* )
+	geolocation? ( ~dev-qt/qtpositioning-${PV}:6 )
 	kerberos? ( virtual/krb5 )
 	pulseaudio? ( media-libs/libpulse:= )
 	screencast? ( media-video/pipewire:= )
 	system-icu? ( >=dev-libs/icu-69.1:= )
 	widgets? (
-		=dev-qt/qtbase-${PV}*[widgets]
+		~dev-qt/qtbase-${PV}:6[widgets]
 	)
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	media-libs/libglvnd
+"
+BDEPEND="
+	$(python_gen_any_dep 'dev-python/html5lib[${PYTHON_USEDEP}]')
+	dev-util/gperf
+	dev-util/ninja
+	dev-util/re2c
+	net-libs/nodejs[ssl]
+	sys-devel/bison
+	sys-devel/flex
 "
 
 PATCHES=(
@@ -96,6 +95,8 @@ python_check_deps() {
 }
 
 qtwebengine_check-reqs() {
+	[[ ${MERGE_TYPE} == binary ]] && return
+
 	# bug #307861
 	eshopts_push -s extglob
 	if is-flagq '-g?(gdb)?([1-9])'; then
@@ -104,8 +105,6 @@ qtwebengine_check-reqs() {
 		ewarn "If compilation fails, please try removing -g/-ggdb before reporting a bug."
 	fi
 	eshopts_pop
-
-	[[ ${MERGE_TYPE} == binary ]] && return
 
 	# (check-reqs added for bug #570534)
 	#
@@ -139,36 +138,9 @@ pkg_setup() {
 	python-any-r1_pkg_setup
 }
 
-pkg_preinst() {
-	elog "This version of Qt WebEngine is based on Chromium version ${CHROMIUM_VER}, with"
-	elog "additional security fixes up to ${CHROMIUM_PATCHES_VER}. Extensive as it is, the"
-	elog "list of backports is impossible to evaluate, but always bound to be behind"
-	elog "Chromium's release schedule."
-	elog "In addition, various online services may deny service based on an outdated"
-	elog "user agent version (and/or other checks). Google is already known to do so."
-	elog
-	elog "tldr: Your web browsing experience will be compromised."
-}
-
-src_unpack() {
-	# bug 307861
-	eshopts_push -s extglob
-	if is-flagq '-g?(gdb)?([1-9])'; then
-		ewarn
-		ewarn "You have enabled debug info (probably have -g or -ggdb in your CFLAGS/CXXFLAGS)."
-		ewarn "You may experience really long compilation times and/or increased memory usage."
-		ewarn "If compilation fails, please try removing -g/-ggdb before reporting a bug."
-		ewarn
-	fi
-	eshopts_pop
-
-	case ${QT6_BUILD_TYPE} in
-		live)    git-r3_src_unpack ;&
-		release) default ;;
-	esac
-}
-
 src_prepare() {
+	qt6-build_src_prepare
+
 	# bug 620444 - ensure local headers are used
 	find . -type f -name "*.pr[fio]" -exec \
 		sed -i -e 's|INCLUDEPATH += |&$${QTWEBENGINE_ROOT}_build/include $${QTWEBENGINE_ROOT}/include |' {} + || die
@@ -183,15 +155,27 @@ src_prepare() {
 		local file
 		while read file; do
 			echo "#error This file should not be used!" > "${file}" || die
-		done < <(find src/3rdparty/chromium/third_party/icu -type f "(" -name "*.c" -o -name "*.cpp" -o -name "*.h" ")" 2>/dev/null)
+		done < <(
+			find src/3rdparty/chromium/third_party/icu -type f \
+				\( -name '*.c' -o -name '*.cpp' -o -name '*.h' \) 2>/dev/null
+		)
 	fi
 
-	qt6-build_src_prepare
+	# for www-plugins/chrome-binary-plugins (widevine) search paths on prefix
+	hprefixify -w /Gentoo/ src/core/content_client_qt.cpp
+
+	# store chromium versions, only used in postinst for a warning
+	local chromium
+	mapfile -t chromium < CHROMIUM_VERSION || die
+	[[ ${chromium[1]} =~ ^Based.*:[^0-9]+([0-9.]+$) ]] &&
+		QT6_CHROMIUM_VER=${BASH_REMATCH[1]} || die
+	[[ ${chromium[2]} =~ ^Patched.+:[^0-9]+([0-9.]+$) ]] &&
+		QT6_CHROMIUM_PATCHES_VER=${BASH_REMATCH[1]} || die
 }
 
 src_configure() {
-	export NINJA_PATH="${BROOT}"/usr/bin/ninja
-	export NINJAFLAGS="${NINJAFLAGS:--j$(makeopts_jobs) -l$(makeopts_loadavg "${MAKEOPTS}" 0) -v}"
+	export NINJA_PATH=${BROOT}/usr/bin/ninja
+	export NINJAFLAGS=${NINJAFLAGS:--j$(makeopts_jobs) -l$(makeopts_loadavg "${MAKEOPTS}" 0) -v}
 
 	local mycmakeargs=(
 		#-DQT_FEATURE_accessibility=off
@@ -242,7 +226,50 @@ src_configure() {
 		-DQT_FEATURE_webengine_webrtc=on
 		-DQT_FEATURE_webengine_webrtc_pipewire=$(usex screencast on off)
 		#-DQT_FEATURE_xcb=off
+
+		# TODO: fix gn cross build or split + depend on dev-qt/qtwebengine-gn
+		-DINSTALL_GN=off
 	)
 
 	qt6-build_src_configure
+}
+
+src_test() {
+	if [[ ${EUID} == 0 ]]; then
+		# almost every tests fail, so skip entirely
+		ewarn "Skipping tests due to running as root (chromium refuses this configuration)."
+		return
+	fi
+
+	local CMAKE_SKIP_TESTS=(
+		# fails with network sandbox
+		tst_loadsignals
+		tst_qquickwebengineview
+		tst_qwebengineview
+		# certs verfication seems flaky and gives expiration warnings
+		tst_qwebengineclientcertificatestore
+	)
+
+	# prevent using the system's qtwebengine
+	# (use glob to avoid unnecessary complications with arch dir)
+	local resources=( "${BUILD_DIR}/src/core/${CMAKE_BUILD_TYPE}/"* )
+	[[ -d ${resources[0]} ]] || die "invalid resources path: ${resources[0]}"
+	local -x QTWEBENGINEPROCESS_PATH=${BUILD_DIR}${QT6_LIBEXECDIR#"${QT6_PREFIX}"}/QtWebEngineProcess
+	local -x QTWEBENGINE_LOCALES_PATH=${resources[0]}/qtwebengine_locales
+	local -x QTWEBENGINE_RESOURCES_PATH=${resources[0]}
+
+	# random failures in several tests without -j1
+	qt6-build_src_test -j1
+}
+
+pkg_postinst() {
+	elog "This version of Qt WebEngine is based on Chromium version ${QT6_CHROMIUM_VER}, with"
+	elog "additional security fixes up to ${QT6_CHROMIUM_PATCHES_VER}. Extensive as it is, the"
+	elog "list of backports is impossible to evaluate, but always bound to be behind"
+	elog "Chromium's release schedule."
+	elog
+	elog "In addition, various online services may deny service based on an outdated"
+	elog "user agent version (and/or other checks). Google is already known to do so."
+	elog
+	elog "tl;dr your web browsing experience will be compromised."
 }
