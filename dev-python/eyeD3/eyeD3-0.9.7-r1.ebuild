@@ -51,6 +51,11 @@ EPYTEST_IGNORE=(
 	tests/test_factory.py
 )
 
+EPYTEST_DESELECT=(
+	# broken by formatting / line wrapping
+	tests/test_jsonyaml_plugin.py::testYamlPlugin
+)
+
 src_prepare() {
 	if use test; then
 		mv "${WORKDIR}"/eyeD3-test-data tests/data || die
@@ -58,6 +63,8 @@ src_prepare() {
 
 	# don't install everything to site-packages
 	sed -i -e '/^include = /,/\]/d' pyproject.toml || die
+	# optional without putting it in extra group == non-optional, sigh
+	sed -i -e '/coverage/d' pyproject.toml || die
 
 	distutils-r1_src_prepare
 }
