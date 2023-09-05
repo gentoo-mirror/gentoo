@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/ant-core:0 dev-java/bcel:0 dev-java/commons-compress:0 dev-java/commons-io:1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-11:* dev-java/ant-core:0 dev-java/bcel:0 dev-java/commons-compress:0 dev-java/commons-io:1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Apache Tomcat tool for migration from Java EE 8 to Jakarta EE 9
 EAPI=8
 HOMEPAGE=https://tomcat.apache.org
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/tomcat/jakartaee-migration/v1.0.7/source/jakartaee-migration-1.0.7-src.tar.gz -> jakartaee-migration-1.0.7-sources.tar.gz
 _eclasses_=java-utils-2	8c72ea36a4935f626b13a30141d0d39c	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	1c8a695f6cae6a50261276f4b3da9914
-_md5_=b9d51697b103f30a80399dd5665ce8ec
+_md5_=7d2fa94a88e5a0391b0471e8362e067c
