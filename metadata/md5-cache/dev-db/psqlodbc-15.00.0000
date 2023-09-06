@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DEPEND=dev-db/postgresql:*[ssl?] !iodbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc )
+DESCRIPTION=Official ODBC driver for PostgreSQL
+EAPI=7
+HOMEPAGE=https://odbc.postgresql.org/
+IUSE=doc iodbc ssl threads
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2
+RDEPEND=dev-db/postgresql:*[ssl?] !iodbc? ( dev-db/unixODBC ) iodbc? ( dev-db/libiodbc )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-15.00.0000.tar.gz
+_md5_=c94b77962a5006f9eeeabf6405cb2f2f
