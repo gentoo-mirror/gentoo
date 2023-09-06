@@ -25,7 +25,7 @@ SLOT="0"
 # net-libs/stem-1.8.0_p20211118 was an incompatible git-snapshot
 # simply depend on net-libs/stem in the future
 RDEPEND="
-	|| ( <net-libs/stem-1.8.0_p20211118[${PYTHON_USEDEP}] ~net-libs/stem-1.8.1[${PYTHON_USEDEP}] )
+	net-libs/stem[${PYTHON_USEDEP}]
 	net-vpn/tor"
 
 distutils_enable_tests unittest
