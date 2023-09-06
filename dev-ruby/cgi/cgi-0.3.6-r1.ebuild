@@ -20,7 +20,9 @@ SLOT="0"
 IUSE="test"
 
 all_ruby_prepare() {
-	sed -i -e "/spec.version/ s/= version/= '${PV}'/" ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -e "/spec.version/ s/= version/= '${PV}'/" \
+		-e "/spec.name/ s/= name/= '${PN}'/" \
+		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 }
 
 each_ruby_test() {

@@ -24,6 +24,4 @@ ruby_add_rdepend ">=dev-ruby/activesupport-6.1:*"
 
 all_ruby_prepare() {
 	rm -f Gemfile.lock || die
-
-#	sed -i -e '2irequire "forwardable"' test/helper.rb || die
 }
