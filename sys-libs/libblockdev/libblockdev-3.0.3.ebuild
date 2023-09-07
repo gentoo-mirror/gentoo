@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
-inherit autotools python-single-r1 xdg-utils
+inherit autotools python-single-r1 toolchain-funcs xdg-utils
 
 DESCRIPTION="A library for manipulating block devices"
 HOMEPAGE="https://github.com/storaged-project/libblockdev"
@@ -17,7 +17,7 @@ if [[ "${PV}" == *9999 ]] ; then
 else
 	MY_PV="${PV}-1"
 	SRC_URI="https://github.com/storaged-project/${PN}/releases/download/${MY_PV}/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86"
 fi
 LICENSE="LGPL-2+"
 SLOT="0/3"	# subslot is SOVERSION
@@ -48,11 +48,12 @@ RDEPEND="
 	)
 	nvme? ( sys-libs/libnvme )
 	${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		dev-python/pygobject:3[${PYTHON_USEDEP}]
+	')
 "
 
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 
 BDEPEND+="
 	dev-util/gtk-doc-am
@@ -85,6 +86,11 @@ src_prepare() {
 }
 
 src_configure() {
+	# Bug #910487
+	if tc-ld-is-lld; then
+		tc-ld-force-bfd
+	fi
+
 	local myeconfargs=(
 		--with-btrfs
 		--with-fs
