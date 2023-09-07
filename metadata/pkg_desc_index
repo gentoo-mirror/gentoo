@@ -9034,7 +9034,7 @@ dev-python/python3-lxc 3.0.4-r1: Python bindings for LXC
 dev-python/python3-saml 1.15.0: OneLogin's SAML Python Toolkit
 dev-python/python3-xapp 2.4.1: Python bindings for x11-libs/xapp
 dev-python/pythondialog 3.5.3: A Python module for making simple text/console-mode user interfaces
-dev-python/pythran 0.12.2 0.13.1: Ahead of Time compiler for numeric kernels
+dev-python/pythran 0.12.2 0.13.1 0.14.0: Ahead of Time compiler for numeric kernels
 dev-python/pytidylib 0.3.2-r2: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8-r1: A small Python module to parse various kinds of time expressions
 dev-python/pytoolconfig 1.2.5: Python tool configuration
@@ -13152,6 +13152,7 @@ media-libs/opencore-amr 0.1.6: Implementation of Adaptive Multi Rate Narrowband 
 media-libs/openctm 1.0.3-r1: OpenCTM - the Open Compressed Triangle Mesh
 media-libs/opencv 4.6.0-r4 4.7.0 4.7.0-r1 4.8.0 4.8.0-r1: A collection of algorithms and sample code for various computer vision problems
 media-libs/openexr 3.1.5-r1 3.1.7: ILM's OpenEXR high dynamic-range image file format libraries
+media-libs/openfec 1.4.2.9: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.3.1-r1 2.3.1-r3: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
 media-libs/openimageio 2.4.6.0-r1 2.4.12.0 2.4.13.0: A library for reading and writing images
@@ -13184,6 +13185,7 @@ media-libs/raspberrypi-userland-bin 1.20201201: Raspberry Pi userspace tools and
 media-libs/resid 0.16_p2-r2: C++ library to emulate the C64 SID chip
 media-libs/rlottie 0.2_p20210405: A platform independent standalone library that plays Lottie Animations
 media-libs/rnnoise 0.4.1_p20210122-r1: Recurrent neural network for audio noise reduction
+media-libs/roc-toolkit 0.2.5: Real-time audio streaming over the network
 media-libs/rtaudio 5.2.0: A set of cross-platform C++ classes for realtime audio I/O
 media-libs/rtmidi 5.0.0 6.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
 media-libs/rubberband 3.3.0: An audio time-stretching and pitch-shifting library and utility program
@@ -14005,7 +14007,7 @@ media-video/oxine 0.7.1-r6: OSD frontend for Xine
 media-video/parole 4.18.0: A simple Xfce4 media player using GStreamer
 media-video/peek 1.5.1-r1: Simple animated Gif screen recorder
 media-video/pgmfindclip 1.13: automatically find a clipping border for a sequence of pgm images
-media-video/pipewire 0.3.75-r3 0.3.77-r2 0.3.78-r1 0.3.79-r1 9999: Multimedia processing graphs
+media-video/pipewire 0.3.75-r3 0.3.77-r2 0.3.78-r1 0.3.79-r1 0.3.79-r2 9999: Multimedia processing graphs
 media-video/pitivi 2023.03-r1: A non-linear video editor using the GStreamer multimedia framework
 media-video/popcorntime-bin 0.4.8 0.4.9: BitTorrent client that includes an integrated media player
 media-video/projectx 0.91.0.10-r4: Converts, splits and demuxes DVB and other MPEG recordings
@@ -17107,14 +17109,14 @@ sys-cluster/keepalived 2.2.7 2.2.8: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.23.2: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23 1.25: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.24.14 1.24.15 1.24.17 1.25.11 1.25.12 1.25.13 1.26.6 1.26.7 1.26.8 1.27.3 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes API server
-sys-cluster/kube-controller-manager 1.24.14 1.24.15 1.24.17 1.25.11 1.25.12 1.25.13 1.26.6 1.26.7 1.26.8 1.27.3 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.24.14 1.24.15 1.24.17 1.25.11 1.25.12 1.25.13 1.26.6 1.26.7 1.26.8 1.27.3 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.24.15 1.24.17 1.25.12 1.25.13 1.26.7 1.26.8 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes API server
+sys-cluster/kube-controller-manager 1.24.15 1.24.17 1.25.12 1.25.13 1.26.7 1.26.8 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.24.15 1.24.17 1.25.12 1.25.13 1.26.7 1.26.8 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0 1.6.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.24.14 1.24.15 1.24.17 1.25.11 1.25.12 1.25.13 1.26.6 1.26.7 1.26.8 1.27.3 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Scheduler
-sys-cluster/kubeadm 1.24.14 1.24.15 1.24.17 1.25.11 1.25.12 1.25.13 1.26.6 1.26.7 1.26.8 1.27.3 1.27.4 1.27.5 1.28.0 1.28.1: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.24.14 1.24.15 1.24.17 1.25.11 1.25.12 1.25.13 1.26.6 1.26.7 1.26.8 1.27.3 1.27.4 1.27.5 1.28.0 1.28.1: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.24.14 1.24.15 1.24.17 1.25.11 1.25.12 1.25.13 1.26.6 1.26.7 1.26.8 1.27.3 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.24.15 1.24.17 1.25.12 1.25.13 1.26.7 1.26.8 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Scheduler
+sys-cluster/kubeadm 1.24.15 1.24.17 1.25.12 1.25.13 1.26.7 1.26.8 1.27.4 1.27.5 1.28.0 1.28.1: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.24.15 1.24.17 1.25.12 1.25.13 1.26.7 1.26.8 1.27.4 1.27.5 1.28.0 1.28.1: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.24.15 1.24.17 1.25.12 1.25.13 1.26.7 1.26.8 1.27.4 1.27.5 1.28.0 1.28.1: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.6: A client for kubelet
 sys-cluster/kubelogin 1.27.0 1.28.0: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.21.0 0.23.0: Client-side utility for one-way encrypted secrets in kubernetes
