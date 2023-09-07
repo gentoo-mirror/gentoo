@@ -51,7 +51,9 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.1.6-pep517_setup.patch
 )
 
-DISTUTILS_ARGS="--no-compress-manpages"
+DISTUTILS_ARGS=(
+	--no-compress-manpages
+)
 
 distutils_enable_tests pytest
 
@@ -67,6 +69,13 @@ src_prepare() {
 	sed -e "s:_tip:tip:g" data/tips.xml.in > data/tips.xml || die
 
 	default
+}
+
+python_install() {
+	distutils-r1_python_install
+
+	# setup.py option --resourcepath appears to have problems at the moment
+	echo -n "/usr/share" > "${ED}"$(python_get_sitedir)/${PN}/gen/utils/resource-path || die
 }
 
 pkg_postinst() {
