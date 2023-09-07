@@ -21,17 +21,17 @@ LICENSE="LGPL-3"
 SLOT="0"
 
 IUSE="avdevice +audiofilters +alsa cdio cuvid extensions gme inputs libass
-	modplug notifications opengl pipewire portaudio pulseaudio +qt5 qt6 sid
+	modplug notifications opengl pipewire portaudio pulseaudio qt6 sid
 	shaders +taglib vaapi vdpau videofilters visualizations vulkan xv"
 
 REQUIRED_USE="
 	audiofilters? ( || ( alsa pipewire portaudio pulseaudio ) )
 	shaders? ( vulkan )
-	^^ ( qt5 qt6 )
 "
 
 RDEPEND="
-	qt5? (
+	media-video/ffmpeg:=[vaapi?,vdpau?]
+	!qt6? (
 		dev-qt/qtcore:5
 		dev-qt/qtdbus:5
 		dev-qt/qtgui:5[X(-),vulkan?]
@@ -47,7 +47,6 @@ RDEPEND="
 		dev-qt/qtsvg:6
 		extensions? ( dev-qt/qtdeclarative:6 )
 	)
-	media-video/ffmpeg:=[vaapi?,vdpau?]
 	alsa? ( media-libs/alsa-lib )
 	cdio? ( dev-libs/libcdio[cddb] )
 	gme? ( media-libs/game-music-emu )
@@ -65,7 +64,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	qt5? ( dev-qt/linguist-tools:5 )
+	!qt6? ( dev-qt/linguist-tools:5 )
 	qt6? ( dev-qt/qttools:6[linguist] )
 "
 
