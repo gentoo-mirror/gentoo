@@ -98,7 +98,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 RE="\bamd64\b"; [[ ${KEYWORDS} =~ ${RE} ]] && SRC_URI+=" amd64? ( ${VIVALDI_BASE_URI}amd64.deb )"
@@ -182,6 +182,10 @@ src_prepare() {
 
 	if ! use qt5; then
 		rm ${VIVALDI_HOME}/libqt5_shim.so || die
+	fi
+
+	if ! false; then # use qt6; then (TODO)
+		rm ${VIVALDI_HOME}/libqt6_shim.so || die
 	fi
 
 	eapply_user
