@@ -1,0 +1,17 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-user/http acct-group/http
+DESCRIPTION=Fast, cross-platform HTTP/2 web server with automatic HTTPS
+EAPI=8
+HOMEPAGE=https://caddyserver.com
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module systemd
+IUSE=+filecaps
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=Apache-2.0 BSD ECL-2.0 MIT
+RDEPEND=acct-user/http acct-group/http
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/caddyserver/caddy/archive/v2.7.4.tar.gz -> caddy-2.7.4.tar.gz https://dev.gentoo.org/~williamh/dist/caddy-2.7.4-deps.tar.xz
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=a41457b90138c6b1a493ae8981e24244
