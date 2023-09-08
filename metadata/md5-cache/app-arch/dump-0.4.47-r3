@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://dump.sourceforge.io/
 INHERIT=readme.gentoo-r1
 IUSE=bzip2 debug ermt lzo readline selinux sqlite ssl static test uuid zlib
-KEYWORDS=~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=BSD
 RDEPEND=>=sys-fs/e2fsprogs-1.27:= sys-apps/util-linux bzip2? ( app-arch/bzip2:= static? ( app-arch/bzip2[static-libs] ) ) zlib? ( >=sys-libs/zlib-1.1.4:= ) lzo? ( dev-libs/lzo:2= static? ( dev-libs/lzo:2[static-libs] ) ) sqlite? ( dev-db/sqlite:3= ) ermt? ( dev-libs/openssl:0= ) ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:0= sys-libs/ncurses:= static? ( sys-libs/ncurses:=[static-libs] ) )
 REQUIRED_USE=ermt? ( ssl ) ssl? ( zlib ) test? ( sqlite? ( uuid ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/dump/dump-0.4b47.tar.gz
 _eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
-_md5_=aeea64a6735aef6ff5d8c698a83931c9
+_md5_=301a2cc3a81606b786612481fa40067e
