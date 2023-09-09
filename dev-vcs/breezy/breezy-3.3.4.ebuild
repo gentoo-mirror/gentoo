@@ -6,45 +6,47 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 CRATES="
-	aho-corasick@1.0.2
+	aho-corasick@1.0.5
 	autocfg@1.1.0
 	bitflags@1.3.2
 	cfg-if@1.0.0
-	indoc@0.3.6
-	indoc-impl@0.3.6
-	instant@0.1.12
+	indoc@1.0.9
 	lazy_static@1.4.0
 	libc@0.2.147
 	lock_api@0.4.10
-	memchr@2.5.0
+	memchr@2.6.3
+	memoffset@0.9.0
 	once_cell@1.18.0
-	parking_lot@0.11.2
-	parking_lot_core@0.8.6
-	paste@0.1.18
-	paste-impl@0.1.18
-	pkg-version@1.0.0
-	pkg-version-impl@0.1.1
-	proc-macro-hack@0.5.20+deprecated
-	proc-macro2@1.0.63
-	pyo3@0.15.2
-	pyo3-build-config@0.15.2
-	pyo3-macros@0.15.2
-	pyo3-macros-backend@0.15.2
-	quote@1.0.28
-	redox_syscall@0.2.16
-	regex@1.8.4
-	regex-syntax@0.7.2
-	scopeguard@1.1.0
-	smallvec@1.10.0
+	parking_lot@0.12.1
+	parking_lot_core@0.9.8
+	proc-macro2@1.0.66
+	pyo3-build-config@0.19.2
+	pyo3-ffi@0.19.2
+	pyo3-macros-backend@0.19.2
+	pyo3-macros@0.19.2
+	pyo3@0.19.2
+	quote@1.0.33
+	redox_syscall@0.3.5
+	regex-automata@0.3.8
+	regex-syntax@0.7.5
+	regex@1.9.5
+	scopeguard@1.2.0
+	smallvec@1.11.0
 	syn@1.0.109
-	unicode-ident@1.0.9
+	target-lexicon@0.12.11
+	unicode-ident@1.0.11
 	unindent@0.1.11
-	winapi@0.3.9
-	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-x86_64-pc-windows-gnu@0.4.0
+	windows-targets@0.48.5
+	windows_aarch64_gnullvm@0.48.5
+	windows_aarch64_msvc@0.48.5
+	windows_i686_gnu@0.48.5
+	windows_i686_msvc@0.48.5
+	windows_x86_64_gnu@0.48.5
+	windows_x86_64_gnullvm@0.48.5
+	windows_x86_64_msvc@0.48.5
 "
 
 inherit cargo distutils-r1 optfeature
@@ -55,8 +57,12 @@ SRC_URI="https://launchpad.net/brz/$(ver_cut 1-2)/${PV}/+download/${P}.tar.gz
 		${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-2+"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT Unicode-DFS-2016
+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 # I've got tired of all the test failures. It definitely mostly works.
 # We have ~29000 tests successfully passing from ~30000 tests.
@@ -75,9 +81,9 @@ RDEPEND="
 	!dev-vcs/bzr
 "
 BDEPEND="
-	sys-devel/gettext
 	$(python_gen_cond_dep '
 		dev-python/cython[${PYTHON_USEDEP}]
+		dev-python/setuptools-gettext[${PYTHON_USEDEP}]
 		dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	')
 "
