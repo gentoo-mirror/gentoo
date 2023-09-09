@@ -11,6 +11,6 @@ LICENSE=GPL-2
 RDEPEND=acct-group/nagios acct-user/nagios virtual/mailx dev-lang/perl:= dev-libs/libltdl:0 web? ( media-libs/gd[jpeg,png] lighttpd? ( www-servers/lighttpd[php] ) apache2? ( || ( www-servers/apache[apache2_modules_alias,apache2_modules_cgi] www-servers/apache[apache2_modules_alias,apache2_modules_cgid] ( www-servers/apache[apache2_modules_alias] www-apache/mod_fcgid ) ) || ( dev-lang/php:*[apache2] dev-lang/php:*[cgi] dev-lang/php:*[fpm] ) ) ) vim-syntax? ( app-vim/nagios-syntax )
 REQUIRED_USE=apache2? ( !lighttpd )
 SLOT=0
-SRC_URI=mirror://sourceforge/nagios/nagios-4.4.13.tar.gz web? ( https://dev.gentoo.org/~mjo/distfiles/nagios-core-gentoo-icons-20141125.tar )
+SRC_URI=mirror://sourceforge/nagios/nagios-4.4.14.tar.gz web? ( https://dev.gentoo.org/~mjo/distfiles/nagios-core-gentoo-icons-20141125.tar )
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=020c1aca27181e9d0d9c1b1625a00558
