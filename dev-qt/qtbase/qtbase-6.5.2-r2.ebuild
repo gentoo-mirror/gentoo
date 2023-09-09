@@ -13,7 +13,7 @@ fi
 
 declare -A QT6_IUSE=(
 	[global]="+ssl +udev zstd"
-	[core]="icu systemd"
+	[core]="icu"
 	[modules]="+concurrent +dbus +gui +network +sql +xml"
 
 	[gui]="
@@ -24,7 +24,7 @@ declare -A QT6_IUSE=(
 	[sql]="mysql oci8 odbc postgres +sqlite"
 	[widgets]="cups gtk"
 
-	[optfeature]="wayland" #864509
+	[optfeature]="nls wayland" #810802,864509
 )
 IUSE="${QT6_IUSE[*]}"
 REQUIRED_USE="
@@ -60,7 +60,6 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/libpcre2:=[pcre16,unicode(+)]
 	icu? ( dev-libs/icu:= )
-	systemd? ( sys-apps/systemd:= )
 
 	dbus? ( sys-apps/dbus )
 	gui? (
@@ -124,7 +123,10 @@ DEPEND="
 	)
 "
 BDEPEND="zstd? ( app-arch/libarchive[zstd] )" #910392
-PDEPEND="wayland? ( ~dev-qt/qtwayland-${PV}:6 )"
+PDEPEND="
+	nls? ( ~dev-qt/qttranslations-${PV}:6 )
+	wayland? ( ~dev-qt/qtwayland-${PV}:6 )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-CVE-2023-38197.patch
@@ -165,7 +167,6 @@ src_configure() {
 
 		# qtcore
 		$(qt_feature icu)
-		$(qt_feature systemd journald)
 
 		# tools
 		-DQT_FEATURE_androiddeployqt=OFF
