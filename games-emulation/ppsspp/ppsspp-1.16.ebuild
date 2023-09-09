@@ -3,18 +3,24 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit python-any-r1 xdg cmake
 
 DESCRIPTION="A PSP emulator written in C++"
 HOMEPAGE="https://www.ppsspp.org/
 	https://github.com/hrydgard/ppsspp/"
-SRC_URI="https://github.com/hrydgard/${PN}/releases/download/v${PV}/${P}.tar.xz"
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/hrydgard/${PN}.git"
+else
+	SRC_URI="https://github.com/hrydgard/${PN}/releases/download/v${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="Apache-2.0 BSD BSD-2 GPL-2 JSON MIT"
 SLOT="0"
-KEYWORDS="amd64"
 IUSE="discord qt5"
 RESTRICT="test"
 
@@ -37,10 +43,15 @@ RDEPEND="
 	)
 	!qt5? ( media-libs/libsdl2[X,opengl,sound,video] )
 "
-DEPEND="${RDEPEND}"
-BDEPEND="${PYTHON_DEPS}"
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	${PYTHON_DEPS}
+"
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-1.16-MIPSTables-fix-includes.patch
 	"${FILESDIR}"/${PN}-CMakeLists-flags.patch
 	"${FILESDIR}"/${PN}-disable-ccache-autodetection.patch
 )

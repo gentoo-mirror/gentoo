@@ -34,6 +34,7 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		--disable-optimization
+		--disable-test	# Only installs test programs, #913709.
 		--enable-ese
 		--enable-nfctype1
 		--enable-nfctype2
@@ -43,7 +44,6 @@ src_configure() {
 		--enable-p2p
 		--enable-pie
 		$(use_enable systemd)
-		$(use_enable test)
 		$(use_enable tools)
 	)
 	econf "${myeconfargs[@]}"
@@ -55,9 +55,6 @@ src_install() {
 	# Patch for this has been sent upstream.  Do it manually
 	# to avoid having to rebuild autotools. #580876
 	mv "${ED}/usr/include/version.h" "${ED}/usr/include/near/" || die
-
-	insinto "/etc/dbus-1/system.d/"
-	doins "se/org.neard.se.conf"
 
 	newinitd "${FILESDIR}/neard.rc" neard
 	newconfd "${FILESDIR}/neard.confd" neard
