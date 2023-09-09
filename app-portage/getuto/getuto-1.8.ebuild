@@ -29,6 +29,7 @@ RDEPEND="
 	app-crypt/gnupg
 	dev-libs/openssl
 	sec-keys/openpgp-keys-gentoo-release
+	sys-apps/gentoo-functions
 "
 
 src_unpack() {
