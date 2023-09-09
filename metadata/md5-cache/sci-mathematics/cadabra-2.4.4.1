@@ -1,0 +1,17 @@
+BDEPEND=python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pybind11[python_targets_python3_11(-)] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) app-text/dvipng dev-cpp/glibmm:2 dev-db/sqlite:3= dev-libs/boost:= dev-libs/gmp:=[cxx] dev-libs/jsoncpp:= dev-libs/libsigc++:2 dev-texlive/texlive-basic python_single_target_python3_10? ( dev-python/gmpy:2[python_targets_python3_10(-)] dev-python/matplotlib[python_targets_python3_10(-)] dev-python/sympy[python_targets_python3_10(-)] jupyter? ( dev-python/jupyter[python_targets_python3_10(-)] ) ) python_single_target_python3_11? ( dev-python/gmpy:2[python_targets_python3_11(-)] dev-python/matplotlib[python_targets_python3_11(-)] dev-python/sympy[python_targets_python3_11(-)] jupyter? ( dev-python/jupyter[python_targets_python3_11(-)] ) ) gui? ( dev-cpp/gtkmm:3.0 )
+DESCRIPTION=Field-theory motivated approach to computer algebra
+EAPI=8
+HOMEPAGE=https://cadabra.science/ https://github.com/kpeeters/cadabra2/
+INHERIT=xdg-utils python-single-r1 cmake
+IUSE=gui +jupyter test python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) app-text/dvipng dev-cpp/glibmm:2 dev-db/sqlite:3= dev-libs/boost:= dev-libs/gmp:=[cxx] dev-libs/jsoncpp:= dev-libs/libsigc++:2 dev-texlive/texlive-basic python_single_target_python3_10? ( dev-python/gmpy:2[python_targets_python3_10(-)] dev-python/matplotlib[python_targets_python3_10(-)] dev-python/sympy[python_targets_python3_10(-)] jupyter? ( dev-python/jupyter[python_targets_python3_10(-)] ) ) python_single_target_python3_11? ( dev-python/gmpy:2[python_targets_python3_11(-)] dev-python/matplotlib[python_targets_python3_11(-)] dev-python/sympy[python_targets_python3_11(-)] jupyter? ( dev-python/jupyter[python_targets_python3_11(-)] ) ) gui? ( dev-cpp/gtkmm:3.0 )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0/2
+SRC_URI=https://github.com/kpeeters/cadabra2/archive/2.4.4.1.tar.gz -> cadabra-2.4.4.1.tar.gz
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	59e60e9c5cbd3f214d7f1002e798b387	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	cmake	ea305d3be967deed8faa5c9e94f9aee4
+_md5_=b7260ae13de1fdf5f756f6d36c7ab6e3
