@@ -63,6 +63,36 @@ pkg_pretend() {
 	fi
 }
 
+doclang_cfg() {
+	local triple="${1}"
+
+	local tool
+	for tool in ${triple}-clang{,++}; do
+		newins - "${tool}.cfg" <<-EOF
+			# This configuration file is used by ${tool} driver.
+			@gentoo-common.cfg
+			@gentoo-common-ld.cfg
+		EOF
+	done
+
+	newins - "${triple}-clang-cpp.cfg" <<-EOF
+		# This configuration file is used by the ${triple}-clang-cpp driver.
+		@gentoo-common.cfg
+	EOF
+
+	# Install symlinks for triples with other vendor strings since some
+	# programs insist on mangling the triple.
+	local vendor
+	for vendor in gentoo pc unknown; do
+		local vendor_triple="${triple%%-*}-${vendor}-${triple#*-*-}"
+		for tool in clang{,++,-cpp}; do
+			if [[ ! -f "${ED}/etc/clang/${vendor_triple}-${tool}.cfg" ]]; then
+				dosym "${triple}-${tool}.cfg" "/etc/clang/${vendor_triple}-${tool}.cfg"
+			fi
+		done
+	done
+}
+
 src_install() {
 	newbashcomp bash-autocomplete.sh clang
 
@@ -91,6 +121,13 @@ src_install() {
 		-include "${EPREFIX}/usr/include/gentoo/maybe-stddefs.h"
 	EOF
 
+	# clang-cpp does not like link args being passed to it when directly
+	# invoked, so use a separate configuration file.
+	newins - gentoo-common-ld.cfg <<-EOF
+		# This file contains flags common to clang and clang++
+		@gentoo-hardened-ld.cfg
+	EOF
+
 	# Baseline hardening (bug #851111)
 	newins - gentoo-hardened.cfg <<-EOF
 		# Some of these options are added unconditionally, regardless of
@@ -99,7 +136,11 @@ src_install() {
 		-fstack-protector-strong
 		-fPIE
 		-include "${EPREFIX}/usr/include/gentoo/fortify.h"
+	EOF
 
+	newins - gentoo-hardened-ld.cfg <<-EOF
+		# Some of these options are added unconditionally, regardless of
+		# USE=hardened, for parity with sys-devel/gcc.
 		-Wl,-z,relro
 	EOF
 
@@ -146,7 +187,10 @@ src_install() {
 			# https://libcxx.llvm.org/UsingLibcxx.html#assertions-mode
 			# https://libcxx.llvm.org/Hardening.html#using-hardened-mode
 			-D_LIBCPP_ENABLE_HARDENED_MODE=1
+		EOF
 
+		cat >> "${ED}/etc/clang/gentoo-hardened-ld.cfg" <<-EOF || die
+			# Options below are conditional on USE=hardened.
 			-Wl,-z,now
 		EOF
 	fi
@@ -176,18 +220,13 @@ src_install() {
 	# We only install config files for supported ABIs because unprefixed tools
 	# might be used for crosscompilation where e.g. PIE may not be supported.
 	# See bug #912237 and bug #901247.
+	doclang_cfg "${CHOST}"
+
 	# Just ${CHOST} won't do due to bug #912685.
 	local abi
 	for abi in $(get_all_abis); do
 		local abi_chost=$(get_abi_CHOST "${abi}")
-
-		local tool
-		for tool in ${abi_chost}-clang{,++,-cpp}; do
-			newins - "${tool}.cfg" <<-EOF
-				# This configuration file is used by ${tool} driver.
-				@gentoo-common.cfg
-			EOF
-		done
+		doclang_cfg "${abi_chost}"
 	done
 }
 
