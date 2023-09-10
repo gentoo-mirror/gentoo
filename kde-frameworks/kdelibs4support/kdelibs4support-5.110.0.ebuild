@@ -4,6 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="true"
+ECM_HANDBOOK_DIR="docs"
 ECM_QTHELP="false"
 PVCUT=$(ver_cut 1-2)
 QTMIN=5.15.9
@@ -13,7 +14,7 @@ DESCRIPTION="Framework easing the development transition from KDELibs 4 to KF 5"
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="X"
+IUSE="networkmanager X"
 
 RESTRICT="test"
 
@@ -55,6 +56,7 @@ COMMON_DEPEND="
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
 	=kde-frameworks/solid-${PVCUT}*:5
 	virtual/libintl
+	networkmanager? ( net-misc/networkmanager )
 	X? (
 		>=dev-qt/qtx11extras-${QTMIN}:5
 		x11-libs/libICE
@@ -97,6 +99,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=$(usex X)
+		$(cmake_use_find_package networkmanager NetworkManager)
 	)
 
 	ecm_src_configure
