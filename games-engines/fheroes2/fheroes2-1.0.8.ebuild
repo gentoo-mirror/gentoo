@@ -44,7 +44,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_IMAGE=ON
 		-DENABLE_TOOLS=$(usex tools)
-		-DUSE_SYSTEM_LIBSMACKER=NO
 	)
 	cmake_src_configure
 }
