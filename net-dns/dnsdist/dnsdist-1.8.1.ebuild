@@ -5,7 +5,7 @@ EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit lua-single
+inherit flag-o-matic lua-single
 
 DESCRIPTION="A highly DNS-, DoS- and abuse-aware loadbalancer"
 HOMEPAGE="https://dnsdist.org"
@@ -27,11 +27,11 @@ RDEPEND="acct-group/dnsdist
 	dev-libs/boost:=
 	dev-libs/libedit:=
 	dev-libs/libsodium:=
+	>=dev-libs/protobuf-3:=
 	dnstap? ( dev-libs/fstrm:= )
 	doh? ( www-servers/h2o:=[libh2o] )
 	lmdb? ( dev-db/lmdb:= )
 	regex? ( dev-libs/re2:= )
-	remote-logging? ( >=dev-libs/protobuf-3:= )
 	snmp? ( net-analyzer/net-snmp:= )
 	ssl? (
 		gnutls? ( net-libs/gnutls:= )
@@ -39,16 +39,16 @@ RDEPEND="acct-group/dnsdist
 	)
 	systemd? ( sys-apps/systemd:0= )
 	${LUA_DEPS}
+	net-libs/nghttp2
 "
 
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-src_prepare() {
-	default
-}
-
 src_configure() {
+	# bug #822855
+	append-lfs-flags
+
 	econf \
 		--sysconfdir=/etc/dnsdist \
 		--with-lua="${ELUA}" \
@@ -57,7 +57,6 @@ src_configure() {
 		$(use_enable dnstap) \
 		$(use_with lmdb ) \
 		$(use_with regex re2) \
-		$(use_with remote-logging protobuf) \
 		$(use_with snmp net-snmp) \
 		$(use ssl && { echo "--enable-dns-over-tls" && use_with gnutls && use_with !gnutls libssl;} || echo "--without-gnutls --without-libssl") \
 		$(use_enable systemd) \
