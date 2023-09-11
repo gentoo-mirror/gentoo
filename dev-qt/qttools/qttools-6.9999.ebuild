@@ -42,7 +42,12 @@ RDEPEND="
 	qtdiag? ( ~dev-qt/qtbase-${PV}:6[gles2-only=,vulkan=] )
 	widgets? ( ~dev-qt/qtbase-${PV}:6[opengl=] )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	qtdiag? (
+		vulkan? ( dev-util/vulkan-headers )
+	)
+"
 
 pkg_setup() {
 	use clang && llvm_pkg_setup
@@ -63,6 +68,11 @@ src_configure() {
 		$(qt_feature qtattributionsscanner)
 		$(qt_feature qtdiag)
 		$(qt_feature qtplugininfo)
+
+		# TODO?: package litehtml, but support for latest releases seem
+		# to lag behind and bundled may work out better for now
+		# https://github.com/litehtml/litehtml/issues/266
+		$(usev assistant -DCMAKE_DISABLE_FIND_PACKAGE_litehtml=ON)
 	)
 
 	qt6-build_src_configure
@@ -71,5 +81,5 @@ src_configure() {
 pkg_postinst() {
 	use assistant &&
 		optfeature "Qt documentation viewable in assistant" \
-			dev-qt/qt-docs:6 #602296
+			'dev-qt/qt-docs:6[qch]' #602296
 }
