@@ -55,8 +55,8 @@ CRATES="
 	clap_derive@4.4.0
 	clap_lex@0.5.1
 	clearscreen@2.0.1
-	codspeed-criterion-compat@2.1.0
-	codspeed@2.1.0
+	codspeed-criterion-compat@2.2.0
+	codspeed@2.2.0
 	colorchoice@1.0.0
 	colored@2.0.4
 	configparser@3.0.2
@@ -128,6 +128,7 @@ CRATES="
 	indoc@2.0.3
 	inotify-sys@0.1.5
 	inotify@0.9.6
+	insta-cmd@0.4.0
 	insta@1.31.0
 	instant@0.1.12
 	is-macro@0.2.2
@@ -144,6 +145,8 @@ CRATES="
 	lexical-parse-integer@0.8.6
 	lexical-util@0.8.5
 	libc@0.2.147
+	libcst@0.1.0
+	libcst_derive@0.1.0
 	libmimalloc-sys@0.1.34
 	linked-hash-map@0.5.6
 	linux-raw-sys@0.4.5
@@ -193,9 +196,6 @@ CRATES="
 	phf_shared@0.10.0
 	phf_shared@0.11.2
 	pin-project-lite@0.2.13
-	plotters-backend@0.3.5
-	plotters-svg@0.3.5
-	plotters@0.3.5
 	pmutil@0.5.3
 	portable-atomic@1.4.3
 	ppv-lite86@0.2.17
@@ -300,9 +300,7 @@ CRATES="
 	unic-char-property@0.9.0
 	unic-char-range@0.9.0
 	unic-common@0.9.0
-	unic-emoji-char@0.9.0
 	unic-ucd-category@0.9.0
-	unic-ucd-ident@0.9.0
 	unic-ucd-version@0.9.0
 	unicode-bidi@0.3.13
 	unicode-ident@1.0.11
@@ -367,8 +365,6 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[libcst]='https://github.com/Instagram/LibCST;3cacca1a1029f05707e50703b49fe3dd860aa839;LibCST-%commit%/native/libcst'
-	[libcst_derive]='https://github.com/Instagram/LibCST;3cacca1a1029f05707e50703b49fe3dd860aa839;LibCST-%commit%/native/libcst_derive'
 	[unicode_names2]='https://github.com/youknowone/unicode_names2;4ce16aa85cbcdd9cc830410f1a72ef9a235f2fde;unicode_names2-%commit%'
 )
 
@@ -379,7 +375,6 @@ HOMEPAGE="
 	https://beta.ruff.rs/docs
 	https://github.com/charliermarsh/ruff
 "
-
 SRC_URI="
 	${CARGO_CRATE_URIS}
 	https://github.com/charliermarsh/ruff/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
@@ -393,6 +388,7 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
 # syn-ext
 LICENSE+="
 	BSD-2
