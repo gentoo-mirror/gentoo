@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{9..12} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit pypi distutils-r1
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -36,7 +36,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/yq-2.13.0-tests.patch"
+	"${FILESDIR}/yq-3.1.2-test.patch"
 )
 
 python_prepare_all() {
