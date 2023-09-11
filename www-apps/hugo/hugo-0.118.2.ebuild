@@ -38,7 +38,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch
-	"${FILESDIR}"/${PN}-0.115.2-skip-some-tests.patch
+	"${FILESDIR}"/${PN}-0.118.2-skip-some-tests.patch
 )
 
 src_configure() {
@@ -54,7 +54,7 @@ src_configure() {
 
 src_prepare() {
 	# wants to run command that require network access
-	rm testscripts/commands/mod{,_vendor}.txt || die
+	rm testscripts/commands/mod{,_vendor,__disable}.txt || die
 
 	default
 }
