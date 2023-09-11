@@ -2491,7 +2491,7 @@ dev-qt/qt-creator:ctfvisualizer - Build the Chrome Trace Format visualizer plugi
 dev-qt/qt-creator:designer - Enable designer for QtWidgets-based UIs
 dev-qt/qt-creator:docker - Build plugin for Docker support
 dev-qt/qt-creator:glsl - Build the GLSL editor plugin
-dev-qt/qt-creator:help - Enable the integrated documentation viewer
+dev-qt/qt-creator:help - Enable the integrated dev-qt/qt-docs viewer (also needed for examples)
 dev-qt/qt-creator:imageviewer - Build plugin to open and view image files
 dev-qt/qt-creator:incredibuild - Enable integration with Incredibuild
 dev-qt/qt-creator:lsp - Add support for the Language Server Protocol (LSP)
@@ -2506,6 +2506,7 @@ dev-qt/qt-creator:python - Build plugin for Python language support
 dev-qt/qt-creator:qbs - Build plugin for Qbs-based projects
 dev-qt/qt-creator:qmake - Build plugin for qmake-based projects
 dev-qt/qt-creator:qml - Build plugins for QML-based development (designer, editor, project manager)
+dev-qt/qt-creator:qmldesigner - Build QmlDesigner and related plugins (Insight, StudioWelcome)
 dev-qt/qt-creator:qmlprofiler - Build the QML profiler plugin
 dev-qt/qt-creator:qnx - Build plugin for QNX devices
 dev-qt/qt-creator:remotelinux - Build plugin for deployment and execution on a remote Linux host
@@ -2513,9 +2514,10 @@ dev-qt/qt-creator:scxml - Build the graphical SCXML editor plugin
 dev-qt/qt-creator:serialterminal - Build the serial terminal plugin
 dev-qt/qt-creator:silversearcher - Enable integration with sys-apps/the_silver_searcher
 dev-qt/qt-creator:systemd - Add support for retrieving application output from journald
+dev-qt/qt-creator:tracing - Build plugins requiring tracing capabilities (CtfVisualizer, PerfProfiler, QmlProfiler)
 dev-qt/qt-creator:valgrind - Enable integration with dev-util/valgrind
 dev-qt/qt-creator:webassembly - Build WebAssembly plugin
-dev-qt/qt-creator:webengine - Use dev-qt/qtwebengine to view documentation
+dev-qt/qt-creator:webengine - Use dev-qt/qtwebengine with the help USE rather than bundled litehtml
 dev-qt/qt-docs:3d - Install documentation for dev-qt/qt3d
 dev-qt/qt-docs:activeqt - Install documentation for ActiveQt (unpackaged, Windows-only)
 dev-qt/qt-docs:assistant - Install documentation for dev-qt/assistant
