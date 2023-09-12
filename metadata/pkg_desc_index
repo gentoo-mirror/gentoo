@@ -8016,7 +8016,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3021.3.16-r3: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.15.1-r3: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.3.1-r1 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.78.2 0.79.7 0.79.8 0.79.9: CloudFormation Linter
+dev-python/cfn-lint 0.78.2 0.79.7 0.79.8 0.79.9 0.79.10: CloudFormation Linter
 dev-python/cftime 1.6.2-r1: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8-r1: Tools and libraries for control groups of Linux
 dev-python/chameleon 4.0.1 4.1.0: Fast HTML/XML template compiler for Python
@@ -8225,7 +8225,7 @@ dev-python/flask-nav 0.6-r5: Easily create navigation for Flask applications
 dev-python/flask-paginate 2022.1.8-r1: Pagination support for flask
 dev-python/flask-paranoid 0.3.0: Simple user session protection extension for Flask
 dev-python/flask-sphinx-themes 1.0.2-r1: Sphinx Themes for Flask related projects and Flask itself
-dev-python/flask-sqlalchemy 2.5.1 3.0.5: SQLAlchemy support for Flask applications
+dev-python/flask-sqlalchemy 2.5.1 3.0.5 3.1.1: SQLAlchemy support for Flask applications
 dev-python/flatbuffers 23.5.26: RFC 7049 - Concise Binary Object Representation
 dev-python/flatdict 4.0.1: Python module for interacting with nested dicts
 dev-python/fleep 1.0.1-r1 9999: File format determination library for Python
@@ -8261,9 +8261,9 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.11.1: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.97.0 2.98.0: Google API Client for Python
-dev-python/google-auth 2.22.0: Google Authentication Library
-dev-python/google-auth-httplib2 0.1.0-r3: httplib2 Transport for Google Auth
-dev-python/google-auth-oauthlib 1.0.0: Google Authentication Library
+dev-python/google-auth 2.22.0 2.23.0: Google Authentication Library
+dev-python/google-auth-httplib2 0.1.0-r3 0.1.1: httplib2 Transport for Google Auth
+dev-python/google-auth-oauthlib 1.0.0 1.1.0: Google Authentication Library
 dev-python/google-i18n-address 3.1.0: Google's i18n address metadata repository
 dev-python/google-pasta 0.2.0-r2: AST-based Python refactoring library
 dev-python/googleapis-common-protos 1.60.0: Python classes generated from the common protos in the googleapis repository
@@ -8303,7 +8303,7 @@ dev-python/httpbin 0.7.0-r5 0.10.0 0.10.1: HTTP Request and Response Service
 dev-python/httpcore 0.17.3 0.18.0: A minimal low-level HTTP client
 dev-python/httplib2 0.22.0: A comprehensive HTTP client library
 dev-python/httpretty 1.1.4-r1: HTTP client mock for Python
-dev-python/httpx 0.24.1: Fully-featured HTTP client which provides sync and async APIs
+dev-python/httpx 0.24.1 0.25.0: Fully-featured HTTP client which provides sync and async APIs
 dev-python/httpx-socks 0.7.7: Proxy (HTTP, SOCKS) transports for httpx
 dev-python/huawei-lte-api 1.7.3: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r1: Human friendly output for text interfaces using Python
@@ -8314,7 +8314,7 @@ dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.83.1 6.84.3: A library for property based testing
 dev-python/icalendar 5.0.7: Package used for parsing and generating iCalendar files (RFC 2445)
-dev-python/identify 2.5.26 2.5.27: File identification library for Python
+dev-python/identify 2.5.26 2.5.27 2.5.28: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.2.3: Iterative JSON parser with a Pythonic interface
@@ -8506,7 +8506,7 @@ dev-python/mergedeep 1.3.4-r1: A deep merge tool for Python
 dev-python/mergedict 1.0.0-r1: A Python 'dict' with a merge() method
 dev-python/meshio 5.3.4: Input/output for many mesh formats
 dev-python/meson-python 0.13.2-r1 0.14.0: Meson PEP 517 Python build backend
-dev-python/metakernel 0.29.5 0.30.0: Metakernel for Jupyter
+dev-python/metakernel 0.29.5 0.30.0 0.30.1: Metakernel for Jupyter
 dev-python/micawber 0.5.5: A small library for extracting rich content from urls
 dev-python/mido 1.3.0: MIDI Objects, a library for working with MIDI messages and ports
 dev-python/mimerender 0.6.0-r1: RESTful HTTP Content Negotiation for Flask, Bottle, web.py and webapp2
@@ -8529,14 +8529,14 @@ dev-python/mkdocs-git-authors-plugin 0.7.2: Mkdocs plugin to display git authors
 dev-python/mkdocs-git-revision-date-localized-plugin 1.2.0: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.0.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.5: MkDocs i18n plugin
-dev-python/mkdocs-material 9.1.19 9.1.20 9.1.21 9.2.3 9.2.5 9.2.6 9.2.7 9.2.8: A Material Design theme for MkDocs
+dev-python/mkdocs-material 9.1.19 9.1.20 9.1.21 9.2.3 9.2.5 9.2.6 9.2.7 9.2.8 9.3.1: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.1.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.6.4 0.7.0 0.7.1: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.0.5: Build multiple documentation folders in a single Mkdocs
 dev-python/mkdocs-pymdownx-material-extras 2.5.1: Custom alterations based on Mkdocs-Material
 dev-python/mkdocs-redirects 1.2.1: Plugin for Mkdocs page redirects
 dev-python/mkdocstrings 0.22.0 0.23.0: Automatic documentation from sources, for MkDocs
-dev-python/mkdocstrings-python 1.5.0 1.5.1 1.5.2 1.6.0 1.6.1 1.6.2: Python handler for dev-python/mkdocstrings
+dev-python/mkdocstrings-python 1.5.0 1.5.1 1.5.2 1.6.0 1.6.1 1.6.2 1.6.3: Python handler for dev-python/mkdocstrings
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.8.1 0.9.0: Python scrapper to access ModDB mods, games and more as objects
@@ -8711,7 +8711,7 @@ dev-python/portend 3.2.0: TCP port monitoring utilities
 dev-python/poyo 0.5.0-r1: A lightweight YAML Parser for Python
 dev-python/precis-i18n 1.0.5: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r2: A library for stubbing in Python
-dev-python/prettytable 3.8.0: Easily displaying tabular data in a visually appealing ASCII table format
+dev-python/prettytable 3.8.0 3.9.0: Easily displaying tabular data in a visually appealing ASCII table format
 dev-python/priority 1.3.0-r1 2.0.0-r1: A pure-Python implementation of the HTTP/2 priority tree
 dev-python/process-tests 2.1.2-r1: Tools for testing processes
 dev-python/progress 1.6-r1: Easy to use progress bars
@@ -8927,7 +8927,7 @@ dev-python/pytest-golden 0.2.2-r1: Plugin for pytest that offloads expected outp
 dev-python/pytest-helpers-namespace 2021.12.29-r1: Provides a helpers pytest namespace
 dev-python/pytest-httpbin 2.0.0: Easily test your HTTP library against a local copy of httpbin
 dev-python/pytest-httpserver 1.0.8: HTTP server for pytest to test HTTP clients
-dev-python/pytest-httpx 0.23.1 0.24.0: Send responses to HTTPX using pytest
+dev-python/pytest-httpx 0.23.1 0.24.0 0.25.0: Send responses to HTTPX using pytest
 dev-python/pytest-jupyter 0.7.0: Pytest plugin for testing Jupyter libraries and extensions
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.1.4: A PyTest plugin which provides an FTP fixture for your tests
