@@ -9,8 +9,9 @@ MY_P="${P/_/-}"
 
 DESCRIPTION="A lossy image compression format"
 HOMEPAGE="https://developers.google.com/speed/webp/download"
-SRC_URI="https://storage.googleapis.com/downloads.webmproject.org/releases/webp/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+MY_COMMIT=902bc9190331343b2017211debcec8d2ab87e17a
+SRC_URI="https://github.com/webmproject/libwebp/archive/${MY_COMMIT}.tar.gz -> ${MY_P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 LICENSE="BSD"
 SLOT="0/7" # subslot = libwebp soname version

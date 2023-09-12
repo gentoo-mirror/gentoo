@@ -19,9 +19,8 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PATCHSET="2"
-PATCHSET_NAME="chromium-115-patchset-${PATCHSET}"
-PATCHSET_PPC64="115.0.5790.102-1raptor0~deb11u2"
-# ^ = https://quickbuild.io/~raptor-engineering-public/+archive/ubuntu/chromium
+PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
+PATCHSET_PPC64="116.0.5845.140-1raptor0~deb12u1"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
 	ppc64? (
@@ -32,7 +31,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="amd64 ~arm64 ~ppc64"
 IUSE="+X component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo pic +proprietary-codecs pulseaudio qt5 qt6 screencast selinux +suid +system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-png vaapi wayland widevine"
 REQUIRED_USE="
 	component-build? ( !suid !libcxx )
@@ -59,7 +58,6 @@ COMMON_SNAPSHOT_DEPEND="
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
 	dev-libs/nspr:=
 	>=dev-libs/nss-3.26:=
-	!libcxx? ( >=dev-libs/re2-0.2019.08.01:= )
 	dev-libs/libxslt:=
 	media-libs/fontconfig:=
 	>=media-libs/freetype-2.11.0-r1:=
@@ -339,7 +337,6 @@ src_prepare() {
 		"${FILESDIR}/chromium-108-EnumTable-crash.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
-		"${FILESDIR}/chromium-114-gcc12.patch"
 		"${FILESDIR}/chromium-114-remove-evdev-dep.patch"
 		"${FILESDIR}/chromium-115-binutils-2.41.patch"
 	)
@@ -422,6 +419,7 @@ src_prepare() {
 		third_party/crashpad/crashpad/third_party/zlib
 		third_party/crc32c
 		third_party/cros_system_api
+		third_party/d3
 		third_party/dawn
 		third_party/dawn/third_party/gn/webgpu-cts
 		third_party/dawn/third_party/khronos
@@ -539,6 +537,7 @@ src_prepare() {
 		third_party/pyjson5
 		third_party/pyyaml
 		third_party/qcms
+		third_party/re2
 		third_party/rnnoise
 		third_party/s2cellid
 		third_party/securemessage
@@ -622,9 +621,6 @@ src_prepare() {
 	fi
 	if ! use system-harfbuzz; then
 		keeplibs+=( third_party/harfbuzz-ng )
-	fi
-	if use libcxx; then
-		keeplibs+=( third_party/re2 )
 	fi
 	if use arm64 || use ppc64 ; then
 		keeplibs+=( third_party/swiftshader/third_party/llvm-10.0 )
@@ -773,17 +769,10 @@ chromium_configure() {
 	if use system-av1; then
 		gn_system_libraries+=( dav1d libaom )
 	fi
-	# re2 library interface relies on std::string and std::vector
-	if ! use libcxx; then
-		gn_system_libraries+=( re2 )
-	fi
 	build/linux/unbundle/replace_gn_files.py --system-libraries "${gn_system_libraries[@]}" || die
 
 	# See dependency logic in third_party/BUILD.gn
 	myconf_gn+=" use_system_harfbuzz=$(usex system-harfbuzz true false)"
-
-	# Disable deprecated libgnome-keyring dependency, bug #713012
-	myconf_gn+=" use_gnome_keyring=false"
 
 	# Optional dependencies.
 	myconf_gn+=" enable_hangout_services_extension=$(usex hangouts true false)"
@@ -856,6 +845,8 @@ chromium_configure() {
 		if tc-is-gcc; then
 			# https://bugs.gentoo.org/904455
 			append-cxxflags "$(test-flags-CXX -fno-tree-vectorize)"
+			# https://bugs.gentoo.org/912381
+			filter-lto
 		fi
 	fi
 
