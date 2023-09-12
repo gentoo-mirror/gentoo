@@ -23,6 +23,7 @@ RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/platformdirs[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
+	dev-python/truststore[${PYTHON_USEDEP}]
 	dev-python/virtualenv[${PYTHON_USEDEP}]
 	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
 	dev-python/requests-toolbelt[${PYTHON_USEDEP}]
@@ -40,6 +41,7 @@ BDEPEND="
 	${RDEPEND}
 	test? (
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
+		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
 	)
 "
 
@@ -61,6 +63,10 @@ python_test() {
 		tests/cli/test_others.py::test_info_command_json
 		# why does it try to use python 2.7?!
 		tests/cli/test_run.py::test_import_another_sitecustomize
+	)
+	[[ ${EPYTHON} != python3.10 ]] && EPYTEST_DESELECT+=(
+		# test seems hardcoded to 3.10
+		tests/test_project.py::test_project_packages_path
 	)
 
 	epytest -m "not network and not integration and not path"
