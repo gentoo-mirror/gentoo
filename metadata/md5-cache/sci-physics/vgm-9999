@@ -1,6 +1,6 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=doc? ( app-doc/doxygen[dot] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sci-physics/clhep:= geant4? ( sci-physics/geant:=[c++17] ) root? ( sci-physics/root:=[c++17] ) doc? ( app-doc/doxygen[dot] ) test? ( sci-physics/geant:=[gdml] sci-physics/geant4_vmc[g4root] )
+DEPEND=sci-physics/clhep:= geant4? ( sci-physics/geant:=[c++17] ) root? ( sci-physics/root:=[c++17] ) test? ( sci-physics/geant:=[gdml] sci-physics/geant4_vmc[g4root] )
 DESCRIPTION=Virtual Geometry Model for High Energy Physics Experiments
 EAPI=8
 HOMEPAGE=https://github.com/vmc-project/vgm/
@@ -12,4 +12,4 @@ RDEPEND=sci-physics/clhep:= geant4? ( sci-physics/geant:=[c++17] ) root? ( sci-p
 RESTRICT=!geant4? ( test ) !root? ( test ) !test? ( test ) !examples? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=1ad0232cff5c2c2ad4ce8ba1c3e634cd
+_md5_=6b8bd308d4c94de3c56971ce12eb34eb
