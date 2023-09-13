@@ -5,23 +5,24 @@ EAPI=8
 
 inherit qt6-build
 
-DESCRIPTION="Qt WebChannel"
+DESCRIPTION="Chart component library for the Qt6 framework"
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64"
 fi
 
-IUSE="qml"
+IUSE="gles2-only qml"
 
 RDEPEND="
-	~dev-qt/qtbase-${PV}:6[concurrent]
+	~dev-qt/qtbase-${PV}:6[gles2-only=,gui,opengl,widgets]
 	qml? ( ~dev-qt/qtdeclarative-${PV}:6 )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	has_version ">=dev-qt/qtdeclarative-${PV}:6" && #913692
-		local mycmakeargs=( $(cmake_use_find_package qml Qt6Qml) )
+	local mycmakeargs=(
+		$(cmake_use_find_package qml Qt6Qml)
+	)
 
 	qt6-build_src_configure
 }
