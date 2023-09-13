@@ -15,7 +15,7 @@ else
 		https://code.videolan.org/videolan/libplacebo/-/archive/v${PV}/libplacebo-v${PV}.tar.bz2
 		opengl? (
 			https://github.com/Dav1dde/glad/archive/refs/tags/v${GLAD_PV}.tar.gz
-				-> ${PN}-glad-${GLAD_PV}.tar.gz
+				-> glad-${GLAD_PV}.tar.gz
 		)
 	"
 	S="${WORKDIR}/${PN}-v${PV}"
@@ -23,7 +23,10 @@ else
 fi
 
 DESCRIPTION="Reusable library for GPU-accelerated image processing primitives"
-HOMEPAGE="https://code.videolan.org/videolan/libplacebo/"
+HOMEPAGE="
+	https://libplacebo.org/
+	https://code.videolan.org/videolan/libplacebo/
+"
 
 LICENSE="LGPL-2.1+ opengl? ( MIT )"
 SLOT="0/$(ver_cut 2 ${PV}.9999)" # soname
