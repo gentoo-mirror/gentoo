@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig dev-lang/perl verify-sig? ( sec-keys/openpgp-keys-yorhel ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=unpack
+DEPEND=sys-libs/ncurses:=[unicode(+)]
+DESCRIPTION=NCurses Disk Usage
+EAPI=8
+HOMEPAGE=https://dev.yorhel.nl/ncdu
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=MIT
+RDEPEND=sys-libs/ncurses:=[unicode(+)]
+SLOT=0
+SRC_URI=https://dev.yorhel.nl/download/ncdu-1.19.tar.gz verify-sig? ( https://dev.yorhel.nl/download/ncdu-1.19.tar.gz.asc )
+_eclasses_=verify-sig	dd7ea2e5b0bdcb42523e4797bbf4dd6e
+_md5_=beda5f9c90fa5e8c4d750e77e1c2e784
