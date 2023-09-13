@@ -1,14 +1,15 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install postinst unpack
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst
 DEPEND=acct-group/icingaweb2 acct-user/icingadirector
 DESCRIPTION=Icinga Web 2 plugin for configuration
 EAPI=8
 HOMEPAGE=https://github.com/Icinga/icingaweb2-module-director/
-INHERIT=systemd git-r3
+INHERIT=systemd
 IUSE=php_targets_php8-1
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=php_targets_php8-1? ( dev-lang/php:8.1[curl,iconv,pcntl,posix,sockets] ) acct-group/icingaweb2 acct-user/icingadirector >=www-apps/icingaweb2-module-incubator-0.18.0 >=dev-libs/icinga-php-library-0.5.0 >=dev-libs/icinga-php-thirdparty-0.9.0 >=www-apps/icingaweb2-2.9.0
 SLOT=0
-_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca	git-r3	2358a7b20091609e24bd3a83b3ac5991
+SRC_URI=https://codeload.github.com/Icinga/icingaweb2-module-director/tar.gz/v1.10.2 -> icingaweb2-module-director-1.10.2.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=cb0d961da29796bc1502a48f2f8c437f
