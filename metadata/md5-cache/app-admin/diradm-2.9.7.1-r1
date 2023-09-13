@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-perl/Crypt-SmbHash dev-util/dejagnu >=net-fs/samba-3.0.6 net-nds/openldap[-minimal] )
+DEFINED_PHASES=configure install postinst test
+DEPEND=app-shells/bash:* dev-lang/perl >=net-nds/openldap-2.3 sys-apps/coreutils sys-apps/gawk sys-apps/grep sys-apps/sed virtual/perl-MIME-Base64 samba? ( dev-perl/Crypt-SmbHash >=net-fs/samba-3.0.6 )
+DESCRIPTION=A nearly complete nss/shadow suite for managing POSIX users/groups/data in LDAP
+EAPI=8
+HOMEPAGE=http://orbis-terrarum.net/~robbat2/
+IUSE=automount irixpasswd samba test
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-shells/bash:* dev-lang/perl >=net-nds/openldap-2.3 sys-apps/coreutils sys-apps/gawk sys-apps/grep sys-apps/sed virtual/perl-MIME-Base64 samba? ( dev-perl/Crypt-SmbHash >=net-fs/samba-3.0.6 )
+REQUIRED_USE=test? ( automount irixpasswd samba )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://orbis-terrarum.net/~robbat2/diradm-2.9.7.1.tar.bz2
+_md5_=7457bcb191d441050995f2576f66aeeb
