@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: CSS 3 omni complete function
+EAPI=8
+HOMEPAGE=https://github.com/othree/csscomplete.vim
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=vim.org
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/othree/csscomplete.vim/archive/1.0.tar.gz -> csscomplete-1.0.tar.gz
+_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	92ea4186891b666b0970fa1d713d64fa
+_md5_=64330fb9b8546b3e295ba492f77c190e
