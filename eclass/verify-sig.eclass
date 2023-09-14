@@ -55,8 +55,8 @@ IUSE="verify-sig"
 # @DESCRIPTION:
 # Signature verification method to use.  The allowed value are:
 #
-# - openpgp -- verify PGP signatures using app-crypt/gnupg (the default)
-# - signify -- verify signatures with Ed25519 public key using app-crypt/signify
+#  - openpgp -- verify PGP signatures using app-crypt/gnupg (the default)
+#  - signify -- verify signatures with Ed25519 public key using app-crypt/signify
 : "${VERIFY_SIG_METHOD:=openpgp}"
 
 case ${VERIFY_SIG_METHOD} in
@@ -214,12 +214,15 @@ verify-sig_verify_message() {
 }
 
 # @FUNCTION: verify-sig_verify_unsigned_checksums
-# @USAGE: <checksum-file> <algo> <files>
+# @USAGE: <checksum-file> <format> <files>
 # @DESCRIPTION:
 # Verify the checksums for all files listed in the space-separated list
-# <files> (akin to ${A}) using a <checksum-file>.  <algo> specifies
-# the checksum algorithm (e.g. sha256).  <checksum-file> can be "-"
-# for stdin.
+# <files> (akin to ${A}) using a <checksum-file>.  <format> specifies
+# the checksum file format.  <checksum-file> can be "-" for stdin.
+#
+# The following formats are supported:
+#  - sha256 -- sha256sum (<hash> <filename>)
+#  - openssl-dgst -- openssl dgst (<algo>(<filename>)=<hash>)
 #
 # The function dies if one of the files does not match checksums or
 # is missing from the checksum file.
@@ -231,36 +234,52 @@ verify-sig_verify_message() {
 # verify-sig_verify_signed_checksums instead.
 verify-sig_verify_unsigned_checksums() {
 	local checksum_file=${1}
-	local algo=${2}
+	local format=${2}
 	local files=()
 	read -r -d '' -a files <<<"${3}"
-	local chksum_prog chksum_len
+	local chksum_prog chksum_len algo=${format}
 
-	case ${algo} in
+	case ${format} in
 		sha256)
-			chksum_prog=sha256sum
 			chksum_len=64
 			;;
+		openssl-dgst)
+			;;
 		*)
-			die "${FUNCNAME}: unknown checksum algo ${algo}"
+			die "${FUNCNAME}: unknown checksum format ${format}"
 			;;
 	esac
 
 	[[ ${checksum_file} == - ]] && checksum_file=/dev/stdin
-	local checksum filename junk ret=0 count=0
-	while read -r checksum filename junk; do
-		if [[ ${checksum} == "-----BEGIN" ]]; then
+	local line checksum filename junk ret=0 count=0
+	local -A verified
+	while read -r line; do
+		if [[ ${line} == "-----BEGIN"* ]]; then
 			die "${FUNCNAME}: PGP armor found, use verify-sig_verify_signed_checksums instead"
 		fi
 
-		[[ ${#checksum} -eq ${chksum_len} ]] || continue
-		[[ -z ${checksum//[0-9a-f]} ]] || continue
-		has "${filename}" "${files[@]}" || continue
-		[[ -z ${junk} ]] || continue
+		case ${format} in
+			sha256)
+				read -r checksum filename junk <<<"${line}"
+				[[ ${#checksum} -ne ${chksum_len} ]] && continue
+				[[ -n ${checksum//[0-9a-f]} ]] && continue
+				[[ -n ${junk} ]] && continue
+				;;
+			openssl-dgst)
+				[[ ${line} != *"("*")="* ]] && continue
+				checksum=${line##*)=}
+				algo=${line%%(*}
+				filename=${line#*(}
+				filename=${filename%)=*}
+				;;
+		esac
 
-		"${chksum_prog}" -c --strict - <<<"${checksum} ${filename}"
-		if [[ ${?} -eq 0 ]]; then
-			(( count++ ))
+		if ! has "${filename}" "${files[@]}"; then
+			continue
+		fi
+
+		if "${algo,,}sum" -c --strict - <<<"${checksum} ${filename}"; then
+			verified["${filename}"]=1
 		else
 			ret=1
 		fi
@@ -268,7 +287,7 @@ verify-sig_verify_unsigned_checksums() {
 
 	[[ ${ret} -eq 0 ]] ||
 		die "${FUNCNAME}: at least one file did not verify successfully"
-	[[ ${count} -eq ${#files[@]} ]] ||
+	[[ ${#verified[@]} -eq ${#files[@]} ]] ||
 		die "${FUNCNAME}: checksums for some of the specified files were missing"
 }
 
