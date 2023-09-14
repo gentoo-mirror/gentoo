@@ -1,20 +1,22 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
+
 JAVA_PKG_IUSE="doc source"
 
 inherit desktop java-pkg-2 java-ant-2
 
 DESCRIPTION="A java based flashcard program"
-HOMEPAGE="http://pauker.sourceforge.net/"
-SRC_URI="mirror://sourceforge/pauker/${P}.src.jar"
+HOMEPAGE="https://pauker.sourceforge.net/"
+SRC_URI="mirror://sourceforge/project/pauker/pauker/${PV}/${P}.src.jar"
+S="${WORKDIR}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
+BDEPEND="app-arch/unzip"
 COMMON_DEP="
 	dev-java/browserlauncher2:1.0
 	dev-java/javahelp
@@ -22,20 +24,19 @@ COMMON_DEP="
 	dev-java/swing-layout:1
 "
 RDEPEND="${COMMON_DEP}
-	>=virtual/jre-1.8:*
-"
+	>=virtual/jre-1.8:*"
 DEPEND="${COMMON_DEP}
-	>=virtual/jdk-1.8:*
-	app-arch/unzip
-"
+	>=virtual/jdk-1.8:*"
+BDEPEND="app-arch/unzip"
 
-S="${WORKDIR}"
+PATCHES=(
+	"${FILESDIR}/${PN}_bundledjars.patch"
+	"${FILESDIR}/pauker-1.8-r3-project.properties.patch"
+)
 
 src_prepare() {
 	default
-	find . -iname '*.jar' -delete
-
-	eapply "${FILESDIR}/${PN}_bundledjars.patch"
+	find . -iname '*.jar' -delete || die
 
 	java-pkg_jar-from --into libs browserlauncher2-1.0 browserlauncher2.jar BrowserLauncher2-1_3.jar
 	java-pkg_jar-from --into libs javahelp jhall.jar
@@ -46,7 +47,7 @@ src_prepare() {
 src_compile() {
 	eant -Dfile.reference.BrowserLauncher2-1_3.jar="libs/BrowserLauncher2-1_3.jar" \
 		-Dlibs.swing-layout.classpath="libs/swing-layout.jar" \
-		-Dplatforms.JDK_1.5.home="${JAVA_HOME}" jar $(use_doc javadoc)
+		-Dplatforms.JDK_1.8.home="${JAVA_HOME}" jar $(use_doc javadoc)
 }
 
 #test depend on jemmy, a netbeans module.  so unless it is packaged separately
