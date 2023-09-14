@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/ibireme/yyjson https://ibireme.github.io/yyjson/doc
 SRC_URI="https://github.com/ibireme/yyjson/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT test? ( BSD )"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
 IUSE="doc test"
@@ -21,7 +21,6 @@ BDEPEND="doc? ( app-doc/doxygen )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.7.0-disable-werror.patch
-	"${FILESDIR}"/${PN}-0.7.0-fix-clang-16-valgrind.patch
 )
 
 src_configure() {
