@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DOCS_BUILDER="doxygen"
 # File is hardcoded to be run from ../ so we use this instead of DOCS_DIR
 DOCS_CONFIG_NAME="doc/Doxyfile"
@@ -76,6 +76,7 @@ src_configure() {
 		--enable-dxf
 		--enable-json
 		--disable-gcov
+		--disable-werror
 		$(use_enable !debug release)
 		$(use_enable debug trace)
 		$(use_enable debug)
