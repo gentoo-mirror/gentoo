@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install postinst prepare
+DESCRIPTION=A suite of automated docking tools
+EAPI=8
+HOMEPAGE=https://autodock.scripps.edu/
+INHERIT=autotools readme.gentoo-r1
+IUSE=examples openmp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RESTRICT=test
+SLOT=0
+SRC_URI=https://autodock.scripps.edu/downloads/autodock-registration/tars/dist426/autodocksuite-4.2.6-src.tar.gz https://dev.gentoo.org/~andrewammerlaan/autodock-4.2.6-drop-register-keyword.patch
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
+_md5_=933bacc9d6fe5c084e6ffbde3e590156
