@@ -7,8 +7,8 @@ INHERIT=webapp
 IUSE=gd vhosts
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~riscv ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-lang/php-7.4[xml] virtual/httpd-php:* gd? ( || ( dev-lang/php[gd] media-gfx/imagemagick ) ) app-admin/webapp-config
-SLOT=20230404a
+RDEPEND=>=dev-lang/php-8.0[xml] virtual/httpd-php:* gd? ( || ( dev-lang/php[gd] media-gfx/imagemagick ) ) app-admin/webapp-config
+SLOT=20230404a-r1
 SRC_URI=https://download.dokuwiki.org/src/dokuwiki/dokuwiki-2023-04-04a.tgz
 _eclasses_=webapp	1aad5c010cfdf11d0376c80467b0de4c
-_md5_=b273be010bce3d522a94c35fcaf0c692
+_md5_=6cc7b07cb6d256182d691038534eee1f
