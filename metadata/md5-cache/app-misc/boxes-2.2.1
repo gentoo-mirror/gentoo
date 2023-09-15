@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/bison sys-devel/flex test? ( app-editors/vim-core )
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/libpcre2[pcre32] dev-libs/libunistring:=
+DESCRIPTION=Draw any kind of boxes around your text
+EAPI=8
+HOMEPAGE=https://boxes.thomasjensen.com/ https://github.com/ascii-boxes/boxes
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/libpcre2[pcre32] dev-libs/libunistring:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ascii-boxes/boxes/archive/refs/tags/v2.2.1.tar.gz -> boxes-2.2.1.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=93b26a531ea674526a233c6620a17ff7
