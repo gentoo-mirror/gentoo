@@ -1,0 +1,14 @@
+BDEPEND=nls? ( sys-devel/gettext )
+DEFINED_PHASES=compile configure install
+DESCRIPTION=Rotix allows you to generate rotational obfuscations
+EAPI=8
+HOMEPAGE=https://github.com/shemminga/rotix
+INHERIT=toolchain-funcs
+IUSE=nls
+KEYWORDS=~amd64 ~ia64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=nls? ( virtual/libintl )
+SLOT=0
+SRC_URI=https://github.com/shemminga/rotix/releases/download/0.83/rotix_0.83.tar.gz -> rotix-0.83.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=e0554669c5cc7046c120e4b6c017263e
