@@ -4,7 +4,6 @@
 EAPI=8
 
 KFMIN=5.106.0
-PLASMA_MINIMAL=5.16.5
 QTMIN=5.15.9
 inherit ecm gear.kde.org
 
@@ -35,7 +34,7 @@ DEPEND="
 	>=kde-frameworks/kdoctools-${KFMIN}:5
 	>=kde-frameworks/khtml-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5[handbook]
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
@@ -43,7 +42,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
-	>=kde-plasma/kde-cli-tools-${PLASMA_MINIMAL}:5
+	kde-plasma/kde-cli-tools:5
 "
 
 src_prepare() {

@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/graphics/"
 LICENSE="metapackage"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="color-management scanner"
+IUSE="color-management scanner +screencast"
 
 RDEPEND="
 	>=kde-apps/gwenview-${PV}:${SLOT}
@@ -21,7 +21,6 @@ RDEPEND="
 	>=kde-apps/libkdcraw-${PV}:${SLOT}
 	>=kde-apps/libkexiv2-${PV}:${SLOT}
 	>=kde-apps/okular-${PV}:${SLOT}
-	>=kde-apps/spectacle-${PV}:${SLOT}
 	>=kde-apps/svgpart-${PV}:${SLOT}
 	>=kde-apps/thumbnailers-${PV}:${SLOT}
 	color-management? ( >=kde-misc/colord-kde-${PV}:${SLOT} )
@@ -30,4 +29,5 @@ RDEPEND="
 		>=kde-misc/skanlite-${PV}:${SLOT}
 		>=media-gfx/skanpage-${PV}:${SLOT}
 	)
+	screencast? ( >=kde-apps/spectacle-${PV}:${SLOT} )
 "

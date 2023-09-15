@@ -16,11 +16,14 @@ IUSE=""
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	media-video/ffmpeg:0=
 "
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	virtual/pkgconfig
+"
+
+PATCHES=( "${FILESDIR}/${P}-cmake.patch" )

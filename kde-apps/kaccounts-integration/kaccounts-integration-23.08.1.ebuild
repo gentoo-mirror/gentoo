@@ -17,28 +17,29 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
+# bug #549444
+RESTRICT="test"
+
 COMMON_DEPEND="
-	dev-libs/qcoro5
-	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
+	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwallet-${KFMIN}:5
-	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	net-libs/accounts-qt
-	>=net-libs/libaccounts-glib-1.21:=
 	net-libs/signond
 "
 DEPEND="${COMMON_DEPEND}
+	dev-libs/qcoro5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	kde-plasma/kde-cli-tools:5
 "
+# KAccountsMacros.cmake needs intltool
 RDEPEND="${COMMON_DEPEND}
 	dev-util/intltool
 "
@@ -46,6 +47,3 @@ BDEPEND="
 	>=kde-frameworks/kpackage-${KFMIN}:5
 	sys-devel/gettext
 "
-
-# bug #549444
-RESTRICT="test"

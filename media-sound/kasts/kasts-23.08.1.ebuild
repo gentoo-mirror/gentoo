@@ -57,8 +57,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLE_PLAYER=OFF
 		-DBUILD_GSTREAMER_BACKEND=$(usex gstreamer)
-		$(cmake_use_find_package networkmanager NetworkManagerQt)
-		$(cmake_use_find_package vlc NetworkManagerQt)
+		$(cmake_use_find_package networkmanager KF5NetworkManagerQt)
+		$(cmake_use_find_package vlc LIBVLC)
 	)
 	ecm_src_configure
 }

@@ -29,12 +29,14 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kitemviews-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	audit? ( sys-process/audit )
-	systemd? ( sys-apps/systemd )
+	systemd? (
+		>=dev-qt/qtnetwork-${QTMIN}:5
+		sys-apps/systemd:=
+	)
 "
 RDEPEND="${DEPEND}
 	kdesu? ( kde-plasma/kde-cli-tools[kdesu] )
@@ -46,6 +48,7 @@ src_prepare() {
 		sed -e "/^X-KDE-SubstituteUID/s:true:false:" \
 			-i src/org.kde.ksystemlog.desktop || die
 	fi
+	use systemd || ecm_punt_qt_module Network
 }
 
 src_configure() {

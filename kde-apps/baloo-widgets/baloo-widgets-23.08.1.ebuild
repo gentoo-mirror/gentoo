@@ -15,7 +15,9 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
-DEPEND="
+RESTRICT="test"
+
+RDEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/baloo-${KFMIN}:5
@@ -26,6 +28,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
-
-RESTRICT="test"
+DEPEND="${RDEPEND}
+	>=kde-frameworks/kservice-${KFMIN}:5
+"
