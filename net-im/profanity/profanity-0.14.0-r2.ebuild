@@ -14,6 +14,8 @@ SRC_URI="
 		-> ${PN}-0.14.0-ox-carbons.patch
 	https://github.com/profanity-im/profanity/commit/2ed6211c.patch
 		-> ${PN}-0.14.0-xscreensaver.patch
+	https://github.com/profanity-im/profanity/commit/b8817470.patch
+		-> ${PN}-0.14.0-plugins-install.patch
 "
 
 LICENSE="GPL-3"
@@ -64,6 +66,7 @@ DEPEND="
 PATCHES=(
 	"${DISTDIR}/${PN}-0.14.0-ox-carbons.patch"
 	"${DISTDIR}/${PN}-0.14.0-xscreensaver.patch"
+	"${DISTDIR}/${PN}-0.14.0-plugins-install.patch"
 )
 
 pkg_setup() {
