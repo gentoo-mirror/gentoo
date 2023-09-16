@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby30 ruby31 ruby32"
 RUBY_FAKEGEM_GEMSPEC="facter.gemspec"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_RECIPE_DOC="yard"
 
-inherit ruby-ng ruby-fakegem
+inherit ruby-fakegem
 
 DESCRIPTION="A cross-platform ruby library for retrieving facts from operating systems"
 HOMEPAGE="http://www.puppetlabs.com/puppet/related-projects/facter/"
