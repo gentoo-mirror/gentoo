@@ -1,13 +1,13 @@
-BDEPEND=verify-sig? ( app-crypt/minisign ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+BDEPEND=verify-sig? ( sec-keys/minisig-keys-libsodium ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/minisign )
 DEFINED_PHASES=compile configure install prepare test unpack
-DESCRIPTION=A portable fork of NaCl, a higher-level cryptographic library
+DESCRIPTION=Portable fork of NaCl, a higher-level cryptographic library
 EAPI=8
 HOMEPAGE=https://libsodium.org
-INHERIT=autotools multilib-minimal
-IUSE=+asm minimal static-libs +urandom cpu_flags_x86_aes cpu_flags_x86_sse4_1 verify-sig abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+INHERIT=autotools multilib-minimal verify-sig
+IUSE=+asm minimal static-libs +urandom cpu_flags_x86_aes cpu_flags_x86_sse4_1 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~arm64-macos ~x64-macos
 LICENSE=ISC
 SLOT=0/23
 SRC_URI=https://dev.gentoo.org/~sam/distfiles/dev-libs/libsodium/libsodium-1.0.18-stable-20220618.tar.gz -> libsodium-1.0.18_p20220618.tar.gz verify-sig? ( https://dev.gentoo.org/~sam/distfiles/dev-libs/libsodium/libsodium-1.0.18-stable-20220618.tar.gz.minisig -> libsodium-1.0.18_p20220618.tar.gz.minisig )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b
-_md5_=684b8f818b4b577d02ca41102274ea48
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
+_md5_=cb4615c1fe69481ccf545ba505eb0b6f
