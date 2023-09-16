@@ -988,7 +988,7 @@ app-admin/exo 1.72.1: Command-line tool for everything at Exoscale: compute, sto
 app-admin/fam 2.7.0_p17_p3: FAM, the File Alteration Monitor
 app-admin/fetchlog 1.4-r2: Displays the last new messages of a logfile
 app-admin/fifo-cronolog 1.1.1-r1 1.1.1-r2: cronolog wrapper for use with dumb daemons like squid, varnish and so on
-app-admin/filebeat 7.17.3 7.17.5: Lightweight log shipper for Logstash and Elasticsearch
+app-admin/filebeat 7.17.5: Lightweight log shipper for Logstash and Elasticsearch
 app-admin/filewatcher 2.4.6-r1: File control configuration system and IDS
 app-admin/fluentd 1.14.4: data collector and unified logging layer (project under CNCF)
 app-admin/fsvs 1.2.5-r2: Backup/restore for subversion backends
@@ -1028,7 +1028,7 @@ app-admin/logmon 0.4.4-r1: Split-screen terminal/ncurses based log viewer
 app-admin/logrotate 3.19.0 3.20.1-r1 3.21.0: Rotates, compresses, and mails system logs
 app-admin/logsentry 1.1.1-r2 1.1.1-r3: Automatically monitor system logs and mail security violations
 app-admin/logstalgia 1.1.2: Replays or streams an access_log as a retro arcade game-like simulation
-app-admin/logstash-bin 7.17.9 7.17.10: Tool for managing events and logs
+app-admin/logstash-bin 7.17.9 7.17.10 7.17.12: Tool for managing events and logs
 app-admin/logsurfer+ 1.8-r5: Real Time Log Monitoring and Alerting
 app-admin/longrun 0.9-r4 0.9-r5: A utility to control Transmeta's Crusoe and Efficeon processors
 app-admin/lsyncd 2.2.3: Live Syncing (Mirror) Daemon
@@ -2426,6 +2426,7 @@ app-eselect/eselect-package-manager 20110108-r2: Manages PACKAGE_MANAGER environ
 app-eselect/eselect-php 0.9.8 0.9.9 9999: PHP eselect module
 app-eselect/eselect-pinentry 0.7.2 0.7.2-r1: Manage /usr/bin/pinentry symlink
 app-eselect/eselect-postgresql 2.4-r1: Utility to select the default PostgreSQL slot
+app-eselect/eselect-pwsh 0.1.1: Eselect module for management of multiple pwsh versions
 app-eselect/eselect-python 20200719: Eselect module for management of multiple Python versions
 app-eselect/eselect-rails 0.26: Manages Ruby on Rails symlinks
 app-eselect/eselect-repository 13: Manage repos.conf via eselect
@@ -2707,7 +2708,7 @@ app-misc/dvorakng 0.6.0-r1: Dvorak typing tutor
 app-misc/dvtm 0.15-r6 9999: Dynamic virtual terminal manager
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
-app-misc/elasticsearch 7.17.9 7.17.10 8.7.1: Free and Open, Distributed, RESTful Search Engine
+app-misc/elasticsearch 7.17.9 7.17.10 7.17.12 8.7.1: Free and Open, Distributed, RESTful Search Engine
 app-misc/empty 0.6.21b 0.6.23c: Small shell utility, similar to expect(1)
 app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
@@ -3100,7 +3101,8 @@ app-shells/posh 0.14.1: Reimplementation of Bourne shell based on pdksh
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh-bin 7.3.1 7.3.2 7.3.3: PowerShell - binary precompiled for glibc
+app-shells/pwsh 7.3.6: Cross-platform automation and configuration tool
+app-shells/pwsh-bin 7.3.1-r1 7.3.6: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r2: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -5338,6 +5340,7 @@ dev-libs/libplatform 2.1.0.1-r2 9999: Platform support library used by libCEC an
 dev-libs/libpo6 0.8.0: Hyperdex libpo6 support library
 dev-libs/libportal 0.6 0.7.1: Flatpak portal library
 dev-libs/libpqxx 7.7.5: Standard front-end for writing C++ programs that use PostgreSQL
+dev-libs/libpsl-native 7.3.2: Functionality missing from .NET Core via system calls
 dev-libs/libpthread-stubs 0.4-r1 0.5: Pthread functions stubs for platforms missing them
 dev-libs/libptytty 2.0-r1: A library for mostly OS-independent handling of pty/tty/utmp/wtmp/lastlog
 dev-libs/libpwquality 1.4.5: Library for password quality checking and generating random passwords
@@ -8673,7 +8676,7 @@ dev-python/pikepdf 7.2.0 8.1.1-r1 8.2.0-r1 8.2.1-r1 8.2.2-r1 8.2.3-r1 8.3.1-r1 8
 dev-python/pillow 10.0.0 10.0.1: Python Imaging Library (fork)
 dev-python/pip 23.2.1: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 10.2.0 12.1.0 12.2.0 12.2.2: Install packages and run Python with them
-dev-python/pipenv 2023.4.29-r1 2023.7.11: Python Development Workflow for Humans
+dev-python/pipenv 2023.4.29-r1 2023.7.11 2023.7.11-r1: Python Development Workflow for Humans
 dev-python/pipx 1.2.0: Install and Run Python Applications in Isolated Environments
 dev-python/pivy 0.6.8: Coin3D bindings for Python
 dev-python/pkgconfig 1.5.5-r1: Interface Python with pkg-config
@@ -10678,7 +10681,7 @@ dev-util/pwndbg 20221219-r2 20230319 99999999: A GDB plug-in that makes debuggin
 dev-util/pwntools 4.9.0-r2 4.10.0 4.11.0_beta0 9999: CTF framework and exploit development library
 dev-util/py-spy 0.3.14: Sampling profiler for Python programs
 dev-util/pycharm-community 2023.1.1 2023.1.4 2023.2.1: Intelligent Python IDE with unique code assistance and analysis
-dev-util/pycharm-professional 2021.1.2-r1 2021.3.2-r1 2021.3.3-r1 2022.1-r1: Intelligent Python IDE with unique code assistance and analysis
+dev-util/pycharm-professional 2021.1.2-r1 2021.3.2-r1 2021.3.3-r1 2022.1-r1 2023.2: Intelligent Python IDE with unique code assistance and analysis
 dev-util/qbs 1.19.1: Modern build tool for software projects
 dev-util/qdevicemonitor 1.0.1-r2 9999: Crossplatform log viewer for Android, iOS and text files
 dev-util/qstlink2 1.2.3: GUI and CLI ST-Link V2(Debugger/Programmer) client
@@ -10857,7 +10860,7 @@ dev-vcs/svneverever 1.7.1-r3 1.7.2: Tool collecting path entries across SVN hist
 dev-vcs/tig 2.5.8 9999: text mode interface for git
 dev-vcs/tkcvs 9.3.2: Tcl/Tk-based graphical interface to CVS with Subversion support
 dev-vcs/topgit 0.19.13: A different patch queue manager
-dev-vcs/tortoisehg 6.2.3 6.3.2 6.4.2 6.4.5 9999: Set of graphical tools for Mercurial
+dev-vcs/tortoisehg 6.2.3 6.3.2 6.4.2 6.4.5 6.5.1 9999: Set of graphical tools for Mercurial
 dev-vcs/vcsh 1.20190621.4 2.0.4: Manage config files in /tmp via fake bare git repositories
 games-action/0verkill 0.16-r4: A bloody 2D action deathmatch-like game in ASCII-ART
 games-action/a-story-about-my-uncle 5188: First person platforming adventure about a boy who searches for his lost uncle
@@ -12299,7 +12302,7 @@ mail-client/neomutt 20220415 20230407 20230407-r1 20230512 20230517 99999999: A 
 mail-client/roundcube 1.5.2 1.6.1 1.6.2 1.6.3 9999: A browser-based multilingual IMAP client with an application-like user interface
 mail-client/s-nail 14.9.24: Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
 mail-client/thunderbird 102.15.0 102.15.1 115.2.2: Thunderbird Mail Client
-mail-client/thunderbird-bin 102.15.1: Thunderbird Mail Client
+mail-client/thunderbird-bin 102.15.1 115.2.2: Thunderbird Mail Client
 mail-filter/MailScanner 4.84.5.2: Free Anti-Virus and Anti-Spam Filter
 mail-filter/afew 3.0.1: Initial tagging script for Notmuch
 mail-filter/amavisd-milter 1.7.0-r1 1.7.1 1.7.2 1.7.2-r1: sendmail milter for amavisd-new
@@ -17104,7 +17107,7 @@ sys-cluster/gasnet 1.32.0: Networking middleware for partitioned global address 
 sys-cluster/glusterfs 10.4 11.0-r1 11.0-r2: GlusterFS is a powerful network/cluster filesystem
 sys-cluster/gmqtt 0.4.1: MQTT broker library with cluster support that implements MQTT V5.0 and V3.1.1
 sys-cluster/hpl 2.0-r4 2.3: Portable Implementation of the Linpack Benchmark for Distributed-Memory Clusters
-sys-cluster/hpx 1.9.0 9999: C++ runtime system for parallel and distributed applications
+sys-cluster/hpx 1.9.1 9999: C++ runtime system for parallel and distributed applications
 sys-cluster/hubble 0.10.0: Network, Service & Security Observability for Kubernetes using eBPF
 sys-cluster/ipvsadm 1.31-r1: utility to administer the IP virtual server services
 sys-cluster/k3s 1.25.4_p1: Lightweight Kubernetes
@@ -17738,6 +17741,7 @@ virtual/perl-version 0.992.900-r1: Virtual for version
 virtual/perl6 0: Convenience virtual for perl6
 virtual/pkgconfig 2-r1: Virtual for the pkg-config implementation
 virtual/podofo-build 0.9.8: Virtual package for building against PoDoFo
+virtual/pwsh 7.3: Virtual for PowerShell
 virtual/python-cffi 1: A virtual for the Python cffi package
 virtual/python-greenlet 1.0-r2: A virtual for Python greenlet module
 virtual/qmail 1.03-r1: Virtual for qmail
@@ -17824,7 +17828,7 @@ www-apps/jekyll-sitemap 1.4.0-r1: Automatically generate a sitemap.xml for your 
 www-apps/jekyll-watch 2.2.1-r1: Rebuild your Jekyll site when a file changes with the --watch switch
 www-apps/jellyfin 10.8.10: Jellyfin puts you in control of managing and streaming your media
 www-apps/karma-bin 0.90: Alerts dashboard for Prometheus Alertmanager
-www-apps/kibana-bin 7.17.9 7.17.10: Analytics and search dashboard for Elasticsearch
+www-apps/kibana-bin 7.17.9 7.17.10 7.17.12: Analytics and search dashboard for Elasticsearch
 www-apps/klaus 2.0.2 2.0.3: A simple, easy-to-set-up Git web viewer
 www-apps/lidarr 1.4.2.3576: Looks and smells like Sonarr but made for music
 www-apps/liquid_feedback_core 2.2.6 3.0.4 3.2.2: Internet platforms for proposition development and decision making

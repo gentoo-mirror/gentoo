@@ -1,0 +1,15 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=install postinst prepare
+DESCRIPTION=Intelligent Python IDE with unique code assistance and analysis
+EAPI=8
+HOMEPAGE=https://www.jetbrains.com/pycharm/
+INHERIT=desktop readme.gentoo-r1 wrapper xdg-utils
+IUSE=+bundled-jdk
+KEYWORDS=~amd64 ~x86
+LICENSE=PyCharm_Academic PyCharm_Classroom PyCharm PyCharm_OpenSource PyCharm_Preview
+RDEPEND=!bundled-jdk? ( >=virtual/jre-1.8 ) app-accessibility/at-spi2-core:2 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-python/pip media-fonts/dejavu media-libs/alsa-lib media-libs/freetype:2= media-libs/mesa net-print/cups sys-apps/dbus sys-libs/zlib x11-libs/libX11 x11-libs/libxcb x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/pango x11-libs/cairo x11-libs/libdrm x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXxf86vm
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://download.jetbrains.com/python/pycharm-professional-2023.2.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=7cb80fb370757cbef762d4f2ce864afa
