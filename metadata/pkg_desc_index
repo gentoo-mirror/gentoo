@@ -1144,7 +1144,7 @@ app-arch/atool 0.39.0-r1: Script for managing file archives of various types
 app-arch/brotli 1.0.9-r3 1.0.9-r5 1.0.9-r6 1.1.0 9999: Generic-purpose lossless compression algorithm
 app-arch/bsdsfv 1.18-r3: all-in-one SFV checksum utility
 app-arch/bzip2 1.0.8-r4 9999: A high-quality data compressor used extensively by Gentoo Linux
-app-arch/bzip3 1.3.1 1.3.2: A better and stronger spiritual successor to BZip2
+app-arch/bzip3 1.3.2: A better and stronger spiritual successor to BZip2
 app-arch/cabextract 1.9.1 1.11 9999: Extracts files from Microsoft cabinet archive files
 app-arch/cfv 3.0.0: Command-line File Verify - versatile file checksum creator and verifier
 app-arch/cksfv 1.3.15: SFV checksum utility (simple file verification)
@@ -2374,7 +2374,7 @@ app-emulation/spice-protocol 0.14.1 0.14.3 0.14.4 9999: Headers defining the SPI
 app-emulation/spice-vdagent 0.22.1: SPICE VD Linux Guest Agent
 app-emulation/spim 8.0-r3: MIPS Simulator
 app-emulation/uade 2.13-r2: Unix Amiga Delitracker Emulator - plays old Amiga tunes through UAE emulation
-app-emulation/uxn 0_p20230609 0_p20230803 9999: An assembler and emulator for the Uxn stack-machine, written in ANSI C
+app-emulation/uxn 0_p20230803 9999: An assembler and emulator for the Uxn stack-machine, written in ANSI C
 app-emulation/vagrant 2.3.7: A tool for building and distributing development environments
 app-emulation/vendor-reset 0.1.1_pre20221205 0.1.1_pre20221205-r1 9999: Linux kernel vendor specific hardware reset module
 app-emulation/vice 3.7.1: Versatile Commodore Emulator
@@ -3776,7 +3776,7 @@ dev-cpp/cctz 2.3_p20230228: C++ library for dealing with time zones and time con
 dev-cpp/cli11 2.3.2: Command line parser for C++11
 dev-cpp/clucene 2.3.3.4-r9: High-performance, full-featured text search engine based off of lucene in C++
 dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration file format
-dev-cpp/cpp-httplib 0.12.6 0.13.1 0.13.3 0.14.0: C++ HTTP/HTTPS server and client library
+dev-cpp/cpp-httplib 0.13.3 0.14.0: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1: C++ library for the Debug Adapter Protocol
 dev-cpp/cppgir 0_p20230701: GObject-Introspection C++ binding wrapper generator
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
@@ -3868,6 +3868,7 @@ dev-db/libdbi-drivers 0.9.0-r1: The libdbi-drivers project maintains drivers for
 dev-db/libiodbc 3.52.15-r1: ODBC Interface for Linux
 dev-db/libodbc++ 0.2.5-r3: Provides a subset of the well-known JDBC 2.0(tm) and runs on top of ODBC
 dev-db/libzdb 3.2.3: A thread safe high level multi-database connection pool library
+dev-db/litedb 5.0.17: .NET NoSQL Document Store in a single data file
 dev-db/lmdb 0.9.30 0.9.31: An ultra-fast, ultra-compact key-value embedded data store
 dev-db/lmdb++ 0.9.14.0 1.0.0 1.0.0-r1: C++11 wrapper for the LMDB database library
 dev-db/m17n-db 1.8.0: Database for the m17n library
@@ -3938,12 +3939,13 @@ dev-db/tora 3.2-r2: SQL IDE for Oracle, MySQL and PostgreSQL dbs
 dev-db/unixODBC 2.3.11 2.3.12: Complete ODBC driver manager
 dev-db/vsqlite++ 0.3.13-r1: VSQLite++ - A well designed and portable SQLite3 Wrapper for C++
 dev-db/wxsqlite3 3.2.1-r1: C++ wrapper around the public domain SQLite 3.x database
+dev-dotnet/coco 2014.12.24: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 0.1.0: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.5.7 0.9.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.5: A command line C# REPL with syntax highlighting
 dev-dotnet/dotnet-runtime-nugets 3.1.32 6.0.12 6.0.16 7.0.5: .NET runtime nugets
 dev-dotnet/dotnet-sdk 7.0.105: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.404 6.0.404-r1 7.0.200 7.0.203: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.404 6.0.404-r1 7.0.203 7.0.401: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/libgdiplus 6.0.2-r4: Library for using System.Drawing with Mono
 dev-dotnet/monocalendar 0.7.2: iCal clone for .NET
 dev-dotnet/ndesk-dbus 0.6.1a: Managed D-Bus Implementation for .NET
@@ -4903,7 +4905,7 @@ dev-lang/ammonite-repl-bin 2.5.8 2.5.9: Scala language-based scripting and REPL
 dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/bas 2.4: An interpreter for the classic dialect of the programming language BASIC
 dev-lang/bff 1.0.7: A brainfuck interpreter
-dev-lang/boogie 2.16.0 3.0.4: SMT-based program verifier
+dev-lang/boogie 3.0.4: SMT-based program verifier
 dev-lang/c-intercal 31.0: C-INTERCAL - INTERCAL to binary (via C) compiler
 dev-lang/cfortran 4.4-r4 20110621 20210827: Header file allowing to call Fortran routines from C and C++
 dev-lang/clips 6.40: Tool for building Expert Systems (native version)
@@ -4914,17 +4916,17 @@ dev-lang/closure-compiler-bin 20211107: JavaScript optimizing compiler
 dev-lang/coffee-script 2.5.1: A little language that compiles into javascript
 dev-lang/crystal 1.9.0-r1 1.9.2-r1: The Crystal Programming Language
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
-dev-lang/dafny-bin 3.10.0 3.11.0 3.12.0: Verification-aware programming language
+dev-lang/dafny-bin 3.10.0 3.12.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 3.30 3.40 3.45 3.50 9999: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 3.40 3.45 3.50 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.13.4-r1 1.14.3-r1 1.14.5-r1 1.15.5: Elixir programming language
 dev-lang/elpi 1.16.9 1.16.10 1.17.0: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 25.0.4-r1 25.1.1-r1 25.1.2-r1 25.2.2 25.2.3 25.3 26.0: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.512: Combine interpreter of esoteric languages
 dev-lang/execline 2.9.3.0: A non-interactive scripting language
 dev-lang/f2c 20100827-r1: Fortran to C converter
-dev-lang/fennel 1.3.0 1.3.1: Lisp-like language that compiles to Lua
+dev-lang/fennel 1.3.1: Lisp-like language that compiles to Lua
 dev-lang/ferite 1.1.17-r1: A clean, lightweight, object oriented scripting language
 dev-lang/fpc 3.2.2: Free Pascal Compiler
 dev-lang/fuzion 0.083: A language with a focus on simplicity, safety and correctness
@@ -4946,6 +4948,7 @@ dev-lang/ispc 1.18.0 1.19.0: Intel SPMD Program Compiler
 dev-lang/janet 1.22.0: A dynamic Lisp dialect and bytecode vm
 dev-lang/jerryscript 2.4.0-r4: Ultra-lightweight JavaScript engine for the Internet of Things
 dev-lang/jimtcl 0.78-r2 0.81: Small footprint implementation of Tcl programming language
+dev-lang/jint 3.0.0_beta2051: Javascript Interpreter for .NET
 dev-lang/jsonnet 0.19.0-r1 0.19.1 0.20.0: A data templating language for app and tool developers
 dev-lang/julia 1.8.3-r4 1.8.5-r1 1.9.0: High-performance programming language for technical computing
 dev-lang/julia-bin 1.6.7 1.7.3 1.8.3 1.9.0 9999: High-performance programming language for technical computing
@@ -4956,7 +4959,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.4-r103 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.583 0.589 0.591 0.592 0.593: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.589 0.591 0.592 0.593 0.595: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 20.06-r1 20.06.1 22.01 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 20.06 20.06.1 22.01 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -11621,7 +11624,7 @@ games-util/antimicrox 3.3.4: Graphical program used to map keyboard buttons and 
 games-util/atlas 0.6.1_beta_pre20181202: Chart Program to use with Flightgear Flight Simulator
 games-util/basis_universal 1.16.3: Basis Universal GPU Texture Codec
 games-util/biounzip 1.1a: Unpacks BioZip archives
-games-util/cartridges 2.0.4 2.1.1 2.2.1: Simple game launcher written in Python using GTK4 and Libadwaita
+games-util/cartridges 2.1.1 2.2.1 2.3 9999: Simple game launcher written in Python using GTK4 and Libadwaita
 games-util/catcodec 1.0.5: Decodes and encodes sample catalogues for OpenTTD
 games-util/datutil 2.46: Converter for dat files for Rom Managers
 games-util/deutex 5.2.2: WAD composer for Doom, Heretic, Hexen, and Strife
@@ -16893,7 +16896,7 @@ sys-apps/stroke 0.1.3-r1: A powerful tool to change file timestamps (including c
 sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the health of Supermicro servers components
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/system-monitoring-center 2.18.3-r1 2.20.2 2.21.1 2.21.2 9999: Multi-featured system monitor GUI written in Python
+sys-apps/system-monitoring-center 2.21.1 2.21.2 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemd 253.3-r1 253.4 253.5 253.5-r1 253.6 253.7 253.8 253.10 254.1-r2 254.3 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-tmpfiles 250: Virtual package to depend on sys-apps/systemd-utils
@@ -17603,7 +17606,7 @@ virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
 virtual/dist-kernel 5.4.254 5.4.256 5.10.191 5.10.194 5.15.127 5.15.131 6.1.53 6.1.53-r2 6.4.16 6.5.3 6.5.3-r2: Virtual to depend on any Distribution Kernel
-virtual/dotnet-sdk 6.0-r1 6.0-r2 7.0 7.0-r1: Virtual for .NET SDK
+virtual/dotnet-sdk 6.0-r1 6.0-r2 7.0-r1: Virtual for .NET SDK
 virtual/editor 0-r6: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
 virtual/fortran 0-r1: Virtual for Fortran Compiler
