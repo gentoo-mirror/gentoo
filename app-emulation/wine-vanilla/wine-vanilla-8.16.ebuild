@@ -4,6 +4,7 @@
 EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_{32,64} )
+# note: multilib+wrapper are not unused, currently a pkgcheck false positive
 inherit autotools flag-o-matic multilib multilib-build
 inherit prefix toolchain-funcs wrapper
 
@@ -32,11 +33,14 @@ IUSE="
 	llvm-libunwind custom-cflags +fontconfig +gecko gphoto2 +gstreamer
 	kerberos +mingw +mono netapi nls odbc opencl +opengl osmesa pcap
 	perl pulseaudio samba scanner +sdl selinux smartcard +ssl +strip
-	+truetype udev udisks +unwind usb v4l +vulkan wayland +xcomposite
-	xinerama"
+	+truetype udev udisks +unwind usb v4l +vulkan wayland wow64
+	+xcomposite xinerama"
+# bug #551124 for truetype
+# TODO: wow64 can be done without mingw if using clang (needs bug #912237)
 REQUIRED_USE="
 	X? ( truetype )
-	crossdev-mingw? ( mingw )" # bug #551124 for truetype
+	crossdev-mingw? ( mingw )
+	wow64? ( abi_x86_64 !abi_x86_32 mingw )"
 
 # tests are non-trivial to run, can hang easily, don't play well with
 # sandbox, and several need real opengl/vulkan or network access
@@ -104,7 +108,10 @@ RDEPEND="
 			games-emulation/dosbox-staging
 		)
 	)
-	gecko? ( app-emulation/wine-gecko:${WINE_GECKO}[${MULTILIB_USEDEP}] )
+	gecko? (
+		app-emulation/wine-gecko:${WINE_GECKO}[${MULTILIB_USEDEP}]
+		wow64? ( app-emulation/wine-gecko[abi_x86_32] )
+	)
 	gstreamer? ( media-plugins/gst-plugins-meta:1.0[${MULTILIB_USEDEP}] )
 	mono? ( app-emulation/wine-mono:${WINE_MONO} )
 	perl? (
@@ -119,13 +126,17 @@ DEPEND="
 	sys-kernel/linux-headers
 	X? ( x11-base/xorg-proto )"
 BDEPEND="
+	|| (
+		sys-devel/binutils
+		sys-devel/lld
+	)
 	dev-lang/perl
-	sys-devel/binutils
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
 	mingw? ( !crossdev-mingw? (
 		>=dev-util/mingw64-toolchain-10.0.0_p1-r2[${MULTILIB_USEDEP}]
+		wow64? ( dev-util/mingw64-toolchain[abi_x86_32] )
 	) )
 	nls? ( sys-devel/gettext )
 	wayland? ( dev-util/wayland-scanner )"
@@ -140,6 +151,7 @@ QA_TEXTRELS="usr/lib/*/wine/i386-unix/*.so" # uses -fno-PIC -Wl,-z,notext
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.0-noexecstack.patch
 	"${FILESDIR}"/${PN}-7.20-unwind.patch
+	"${FILESDIR}"/${PN}-8.13-rpath.patch
 )
 
 pkg_pretend() {
@@ -147,7 +159,8 @@ pkg_pretend() {
 
 	if use crossdev-mingw && [[ ! -v MINGW_BYPASS ]]; then
 		local mingw=-w64-mingw32
-		for mingw in $(usev abi_x86_64 x86_64${mingw}) $(usev abi_x86_32 i686${mingw}); do
+		for mingw in $(usev abi_x86_64 x86_64${mingw}) \
+			$(use abi_x86_32 || use wow64 && echo i686${mingw}); do
 			if ! type -P ${mingw}-gcc >/dev/null; then
 				eerror "With USE=crossdev-mingw, you must prepare the MinGW toolchain"
 				eerror "yourself by installing sys-devel/crossdev then running:"
@@ -180,8 +193,12 @@ src_prepare() {
 			# phase despite USE=mingw, drop as a quick fix for now
 			sed -i '/MSVCRTFLAGS=/s/-mabi=ms//' configure.ac || die
 		else
-			# ./configure will fail, abort early
-			die "building ${PN} with clang is only supported with USE=mingw"
+			# fails in ./configure unless --enable-archs is passed, allow to
+			# bypass with EXTRA_ECONF but is currently considered unsupported
+			# (by Gentoo) as additional work is needed for (proper) support
+			# note: also fails w/ :17, but unsure if safe to drop w/o mingw
+			[[ ${EXTRA_ECONF} == *--enable-archs* ]] ||
+				die "building ${PN} with clang is only supported with USE=mingw"
 		fi
 	fi
 
@@ -206,9 +223,13 @@ src_configure() {
 		--includedir="${EPREFIX}"/usr/include/${P}
 		--libdir="${EPREFIX}"${WINE_PREFIX}
 		--mandir="${EPREFIX}"${WINE_DATADIR}/man
+
+		$(usev wow64 --enable-archs=x86_64,i386)
+
 		$(use_enable gecko mshtml)
 		$(use_enable mono mscoree)
 		--disable-tests
+
 		$(use_with X x)
 		$(use_with alsa)
 		$(use_with capi)
@@ -244,49 +265,35 @@ src_configure() {
 		$(usev !odbc ac_cv_lib_soname_odbc=)
 	)
 
-	tc-ld-force-bfd # builds with non-bfd but broken at runtime (bug #867097)
 	filter-lto # build failure
-	use mingw || filter-flags -fno-plt # build failure
 	use custom-cflags || strip-flags # can break in obscure ways at runtime
-	use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
 
-	# temporary workaround for tc-ld-force-bfd not yet enforcing with mold
-	# https://github.com/gentoo/gentoo/pull/28355
-	[[ $($(tc-getCC) ${LDFLAGS} -Wl,--version 2>/dev/null) == mold* ]] &&
-		append-ldflags -fuse-ld=bfd
+	# wine uses linker tricks unlikely to work with non-bfd/lld (bug #867097)
+	# (do self test until https://github.com/gentoo/gentoo/pull/28355)
+	if [[ $(LC_ALL=C $(tc-getCC) ${LDFLAGS} -Wl,--version 2>/dev/null) != @(LLD|GNU\ ld)* ]]
+	then
+		has_version -b sys-devel/binutils &&
+			append-ldflags -fuse-ld=bfd ||
+			append-ldflags -fuse-ld=lld
+		strip-unsupported-flags
+	fi
 
-	# build using upstream's way (--with-wine64)
-	# order matters: configure+compile 64->32, install 32->64
-	local -i bits
-	for bits in $(usev abi_x86_64 64) $(usev abi_x86_32 32); do
-	(
-		einfo "Configuring ${PN} for ${bits}bits in ${WORKDIR}/build${bits} ..."
+	if use mingw; then
+		use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
 
-		mkdir ../build${bits} || die
-		cd ../build${bits} || die
+		filter-flags -fno-plt # build failure
 
-		pe_arch=i386
-		if (( bits == 64 )); then
-			pe_arch=x86_64
-			: "${CROSSCC:=${CROSSCC_amd64:-x86_64-w64-mingw32-gcc}}"
-			conf+=( --enable-win64 )
-		elif use amd64; then
-			conf+=(
-				$(usev abi_x86_64 --with-wine64=../build64)
-				TARGETFLAGS=-m32 # for widl
-			)
-			# _setup is optional, but use over Wine's auto-detect (+#472038)
-			multilib_toolchain_setup x86
-		fi
-		: "${CROSSCC:=${CROSSCC_x86:-i686-w64-mingw32-gcc}}"
+		# CROSSCC was formerly recognized by wine, thus been using similar
+		# variables (subject to change, esp. if ever make a mingw.eclass).
+		local mingwcc_amd64=${CROSSCC:-${CROSSCC_amd64:-x86_64-w64-mingw32-gcc}}
+		local mingwcc_x86=${CROSSCC:-${CROSSCC_x86:-i686-w64-mingw32-gcc}}
+		local -n mingwcc=mingwcc_$(usex abi_x86_64 amd64 x86)
 
-		if use mingw; then
-			# CROSSCC is no longer recognized by Wine, but still use for now
-			# (future handling for CROSS* variables is subject to changes)
-			conf+=( ac_cv_prog_${pe_arch}_CC="${CROSSCC}" )
+		conf+=(
+			ac_cv_prog_x86_64_CC="${mingwcc_amd64}"
+			ac_cv_prog_i386_CC="${mingwcc_x86}"
 
-			# use *FLAGS for mingw, but strip unsupported
-			: "${CROSSCFLAGS:=$(
+			CROSSCFLAGS="${CROSSCFLAGS:-$(
 				filter-flags '-fstack-protector*' #870136
 				filter-flags '-mfunction-return=thunk*' #878849
 
@@ -296,11 +303,35 @@ src_configure() {
 				# znver4: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=110273
 				append-cflags -mno-avx #912268
 
-				CC=${CROSSCC} test-flags-CC ${CFLAGS:--O2})}"
-			: "${CROSSLDFLAGS:=$(
+				CC=${mingwcc} test-flags-CC ${CFLAGS:--O2}
+			)}"
+
+			CROSSLDFLAGS="${CROSSLDFLAGS:-$(
 				filter-flags '-fuse-ld=*'
-				CC=${CROSSCC} test-flags-CCLD ${LDFLAGS})}"
-			export CROSS{C,LD}FLAGS
+
+				CC=${mingwcc} test-flags-CCLD ${LDFLAGS}
+			)}"
+		)
+	fi
+
+	# order matters with multilib: configure+compile 64->32, install 32->64
+	local -i bits
+	for bits in $(usev abi_x86_64 64) $(usev abi_x86_32 32); do
+	(
+		einfo "Configuring ${PN} for ${bits}bits in ${WORKDIR}/build${bits} ..."
+
+		mkdir ../build${bits} || die
+		cd ../build${bits} || die
+
+		if (( bits == 64 )); then
+			conf+=( --enable-win64 )
+		elif use amd64; then
+			conf+=(
+				$(usev abi_x86_64 --with-wine64=../build64)
+				TARGETFLAGS=-m32 # for widl
+			)
+			# _setup is optional, but use over Wine's auto-detect (+#472038)
+			multilib_toolchain_setup x86
 		fi
 
 		ECONF_SOURCE=${S} econf "${conf[@]}"
@@ -317,17 +348,27 @@ src_install() {
 	use abi_x86_32 && emake DESTDIR="${D}" -C ../build32 install
 	use abi_x86_64 && emake DESTDIR="${D}" -C ../build64 install # do last
 
-	# symlink for plain 'wine' and install its man pages if 64bit-only #404331
-	if use abi_x86_64 && use !abi_x86_32; then
-		dosym wine64 ${WINE_PREFIX}/bin/wine
-		dosym wine64-preloader ${WINE_PREFIX}/bin/wine-preloader
-		local man
-		for man in ../build64/loader/wine.*man; do
-			: "${man##*/wine}"
-			: "${_%.*}"
-			insinto ${WINE_DATADIR}/man/${_:+${_#.}/}man1
-			newins ${man} wine.1
-		done
+	# Ensure both wine64 and wine are available if USE=abi_x86_64 (wow64,
+	# -abi_x86_32, and/or EXTRA_ECONF could cause varying scenarios where
+	# one or the other could be missing and that is unexpected for users
+	# and some tools like winetricks)
+	if use abi_x86_64; then
+		if [[ -e ${ED}${WINE_PREFIX}/bin/wine64 && ! -e ${ED}${WINE_PREFIX}/bin/wine ]]; then
+			dosym wine64 ${WINE_PREFIX}/bin/wine
+			dosym wine64-preloader ${WINE_PREFIX}/bin/wine-preloader
+
+			# also install wine(1) man pages (incl. translations)
+			local man
+			for man in ../build64/loader/wine.*man; do
+				: "${man##*/wine}"
+				: "${_%.*}"
+				insinto ${WINE_DATADIR}/man/${_:+${_#.}/}man1
+				newins ${man} wine.1
+			done
+		elif [[ ! -e ${ED}${WINE_PREFIX}/bin/wine64 && -e ${ED}${WINE_PREFIX}/bin/wine ]]; then
+			dosym wine ${WINE_PREFIX}/bin/wine64
+			dosym wine-preloader ${WINE_PREFIX}/bin/wine64-preloader
+		fi
 	fi
 
 	use perl || rm "${ED}"${WINE_DATADIR}/man/man1/wine{dump,maker}.1 \
@@ -356,7 +397,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	if use abi_x86_32 && { use opengl || use vulkan; } &&
+	if use !abi_x86_32 && use !wow64; then
+		ewarn "32bit support is disabled. While 64bit applications themselves will"
+		ewarn "work, be warned that it is not unusual that installers or other helpers"
+		ewarn "will attempt to use 32bit and fail. If do not want full USE=abi_x86_32,"
+		ewarn "note the experimental/WIP USE=wow64 can allow 32bit without multilib."
+	elif use abi_x86_32 && { use opengl || use vulkan; } &&
 		has_version 'x11-drivers/nvidia-drivers[-abi_x86_32]'
 	then
 		ewarn "x11-drivers/nvidia-drivers is installed but is built without"
