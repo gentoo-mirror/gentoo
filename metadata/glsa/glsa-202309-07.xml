@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-07">
+    <title>Binwalk: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Binwalk, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">binwalk</product>
+    <announced>2023-09-17</announced>
+    <revised count="1">2023-09-17</revised>
+    <bug>820614</bug>
+    <bug>903652</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-misc/binwalk" auto="yes" arch="*">
+            <unaffected range="ge">2.3.4</unaffected>
+            <vulnerable range="lt">2.3.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Binwalk is a tool for identifying files embedded inside firmware images.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Binwalk. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Binwalk users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-misc/binwalk-2.3.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4510">CVE-2022-4510</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-17T06:32:11.831863Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-17T06:32:11.834505Z">sam</metadata>
+</glsa>
