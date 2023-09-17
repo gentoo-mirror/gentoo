@@ -8,15 +8,16 @@
     <revised count="1">2023-09-17</revised>
     <bug>843611</bug>
     <bug>849686</bug>
+    <bug>912652</bug>
     <access>remote</access>
     <affected>
         <package name="app-arch/rar" auto="yes" arch="*">
-            <unaffected range="ge">6.12</unaffected>
-            <vulnerable range="lt">6.12</vulnerable>
+            <unaffected range="ge">6.23</unaffected>
+            <vulnerable range="lt">6.23</vulnerable>
         </package>
         <package name="app-arch/unrar" auto="yes" arch="*">
-            <unaffected range="ge">6.1.7</unaffected>
-            <vulnerable range="lt">6.1.7</vulnerable>
+            <unaffected range="ge">6.2.10</unaffected>
+            <vulnerable range="lt">6.2.10</vulnerable>
         </package>
     </affected>
     <background>
@@ -48,6 +49,7 @@
     </resolution>
     <references>
         <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30333">CVE-2022-30333</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40477">CVE-2023-40477</uri>
     </references>
     <metadata tag="requester" timestamp="2023-09-17T05:24:38.613653Z">ajak</metadata>
     <metadata tag="submitter" timestamp="2023-09-17T05:24:38.615853Z">sam</metadata>
