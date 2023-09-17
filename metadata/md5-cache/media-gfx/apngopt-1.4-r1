@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=configure install prepare
+DEPEND=app-arch/zopfli:= media-libs/libpng:= sys-libs/zlib
+DESCRIPTION=Optimize APNG images
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/apng/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1 ZLIB
+RDEPEND=app-arch/zopfli:= media-libs/libpng:= sys-libs/zlib
+SLOT=0
+SRC_URI=mirror://sourceforge/apng/apngopt-1.4-src.zip
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=06c987e00902e35e61ac196faa1a0544
