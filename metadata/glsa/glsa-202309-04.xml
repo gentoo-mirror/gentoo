@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-04">
+    <title>RAR, UnRAR: Arbitrary File Overwrite</title>
+    <synopsis>An arbitrary file overwrite vulnerability has been discovered in RAR and UnRAR, potentially resulting in arbitrary code execution.</synopsis>
+    <product type="ebuild">rar,unrar</product>
+    <announced>2023-09-17</announced>
+    <revised count="1">2023-09-17</revised>
+    <bug>843611</bug>
+    <bug>849686</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-arch/rar" auto="yes" arch="*">
+            <unaffected range="ge">6.12</unaffected>
+            <vulnerable range="lt">6.12</vulnerable>
+        </package>
+        <package name="app-arch/unrar" auto="yes" arch="*">
+            <unaffected range="ge">6.1.7</unaffected>
+            <vulnerable range="lt">6.1.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>RAR and UnRAR provide command line interfaces for compressing and decompressing RAR files.</p>
+    </background>
+    <description>
+        <p>Due to an error in the validation of symbolic links within archives, RAR and UnRAR can potentially write files to a directory which is outside of the intended unpack directory.</p>
+    </description>
+    <impact type="normal">
+        <p>If the user running RAR or UnRAR extracts a malicious archive, the archive could overwrite a file such as the user&#39;s shell initialization scripts, potentially resulting in arbitrary code execution in the context of that user.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All RAR users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/rar-6.12"
+        </code>
+        
+        <p>All UnRAR users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/unrar-6.1.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30333">CVE-2022-30333</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-17T05:24:38.613653Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-17T05:24:38.615853Z">sam</metadata>
+</glsa>

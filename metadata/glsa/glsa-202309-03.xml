@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-03">
+    <title>GPL Ghostscript: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GPL Ghostscript, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">ghostscript-gpl</product>
+    <announced>2023-09-17</announced>
+    <revised count="1">2023-09-17</revised>
+    <bug>904245</bug>
+    <bug>910294</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-text/ghostscript-gpl" auto="yes" arch="*">
+            <unaffected range="ge">10.01.2</unaffected>
+            <vulnerable range="lt">10.01.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ghostscript is an interpreter for the PostScript language and for PDF.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GPL Ghostscript. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GPL Ghostscript users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/ghostscript-gpl-10.01.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2085">CVE-2022-2085</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28879">CVE-2023-28879</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36664">CVE-2023-36664</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-17T05:24:21.503128Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-17T05:24:21.506324Z">sam</metadata>
+</glsa>
