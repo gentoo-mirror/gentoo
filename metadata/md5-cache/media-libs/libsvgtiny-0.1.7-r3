@@ -1,13 +1,14 @@
+BDEPEND=>=dev-util/netsurf-buildsystem-1.9-r2 virtual/pkgconfig
 DEFINED_PHASES=compile install
-DEPEND=>=net-libs/libdom-0.1.2-r1[xml] >=dev-libs/libwapcaplet-0.2.2-r1 dev-util/gperf dev-util/netsurf-buildsystem virtual/pkgconfig
-DESCRIPTION=framebuffer abstraction library, written in C
-EAPI=7
+DEPEND=net-libs/libdom[xml] dev-libs/libwapcaplet dev-util/gperf
+DESCRIPTION=Small and portable C library to parse SVG
+EAPI=8
 HOMEPAGE=https://www.netsurf-browser.org/projects/libsvgtiny/
 INHERIT=netsurf
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT
-RDEPEND=>=net-libs/libdom-0.1.2-r1[xml] >=dev-libs/libwapcaplet-0.2.2-r1
+RDEPEND=net-libs/libdom[xml] dev-libs/libwapcaplet
 SLOT=0/0.1.7
 SRC_URI=https://download.netsurf-browser.org/libs/releases/libsvgtiny-0.1.7-src.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	netsurf	3a16932a52467058f19b48ced2e15c4a
-_md5_=df03d01a3373239bd63cc38f25508efd
+_md5_=bbc04d775b59ff3f03adb1f2d280b332
