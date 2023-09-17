@@ -1,15 +1,15 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 JAVA_PKG_OPT_USE=gasgano
 
 inherit autotools java-pkg-opt-2
 
 DESCRIPTION="ESO common pipeline library for astronomical data reduction"
-HOMEPAGE="http://www.eso.org/sci/software/cpl/"
-SRC_URI="ftp://ftp.eso.org/pub/dfs/pipelines/libraries/${PN}/${P}.tar.gz"
+HOMEPAGE="https://www.eso.org/sci/software/cpl/"
+SRC_URI="https://ftp.eso.org/pub/dfs/pipelines/libraries/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0/26"
@@ -26,18 +26,11 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.6.1-use-system-ltdl.patch
-)
-
 src_prepare() {
 	default
 	# remove cpu chcking
 	sed -e '/CPL_CHECK_CPU/d' \
 		-i configure.ac libcext/configure.ac || die
-	# search for shared libs, not static
-	sed -e 's/\.a/\.so/g' \
-		-i m4/cpl.m4 || die
 	eautoreconf
 }
 
