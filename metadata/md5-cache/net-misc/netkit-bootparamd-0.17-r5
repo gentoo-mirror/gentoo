@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=!<=net-misc/netkit-bootpd-0.17-r2 libtirpc? ( net-libs/rpcsvc-proto net-libs/libtirpc ) !libtirpc? ( sys-libs/glibc[rpc(-)] )
+DESCRIPTION=Netkit - bootparamd: Net-boot support daemon
+EAPI=8
+HOMEPAGE=https://wiki.linuxfoundation.org/networking/netkit
+INHERIT=toolchain-funcs flag-o-matic
+IUSE=+libtirpc
+KEYWORDS=~amd64 ~hppa ~mips ~ppc ~sparc ~x86
+LICENSE=BSD GPL-2
+RDEPEND=!<=net-misc/netkit-bootpd-0.17-r2 libtirpc? ( net-libs/rpcsvc-proto net-libs/libtirpc ) !libtirpc? ( sys-libs/glibc[rpc(-)] )
+SLOT=0
+SRC_URI=mirror://debian/pool/main/n/netkit-bootparamd/netkit-bootparamd_0.17.orig.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2
+_md5_=1b14d01e8701e14c76693c7dd64e02ee

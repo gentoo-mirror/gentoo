@@ -1,0 +1,16 @@
+BDEPEND=>=gnustep-base/gnustep-make-2.0
+DEFINED_PHASES=compile configure install postinst preinst prepare setup
+DEPEND=>=gnustep-libs/performance-0.3.2 mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) sqlite? ( >=dev-db/sqlite-3 ) java? ( >=dev-java/java-config-2.2.0-r3 ) virtual/gnustep-back
+DESCRIPTION=GNUstep lightweight database abstraction layer
+EAPI=8
+HOMEPAGE=http://wiki.gnustep.org/index.php/SQLClient
+INHERIT=java-pkg-opt-2 gnustep-2
+IUSE=java mysql postgres +sqlite java debug doc
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=LGPL-3
+RDEPEND=>=gnustep-libs/performance-0.3.2 mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) sqlite? ( >=dev-db/sqlite-3 ) java? ( >=dev-java/java-config-2.2.0-r3 ) virtual/gnustep-back
+REQUIRED_USE=|| ( java mysql postgres sqlite )
+SLOT=0
+SRC_URI=ftp://ftp.gnustep.org/pub/gnustep/libs/SQLClient-1.8.1.tar.gz
+_eclasses_=java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-opt-2	4d26f2efd4c5ec82b66d1e8816f421b2	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	gnustep-base	923cb81765be4cd65f6419d3f9019af5	gnustep-2	191cacca9e01ae0fe9b898b09e4555b8
+_md5_=c7783cf31ebfdff32bd1b5038e520cad
