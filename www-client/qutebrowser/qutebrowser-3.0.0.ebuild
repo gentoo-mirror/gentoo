@@ -81,6 +81,10 @@ fi
 
 distutils_enable_tests pytest
 
+PATCHES=(
+	"${FILESDIR}"/${P}-tests-qt653.patch
+)
+
 src_prepare() {
 	distutils-r1_src_prepare
 
@@ -142,6 +146,8 @@ python_test() {
 		# needs _WRAPPER_OVERRIDE = None, but we have changed it
 		tests/unit/test_qt_machinery.py::TestSelectWrapper::test_autoselect_by_default
 		tests/unit/test_qt_machinery.py::TestInit::test_none_available_{implicit,explicit}
+		# fails if chromium version is unrecognized (aka newer qtwebengine)
+		tests/unit/utils/test_version.py::TestWebEngineVersions::test_real_chromium_version
 	)
 
 	# tests known failing with Qt5 which is considered a 2nd class citizen
