@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-08">
+    <title>Requests: Information Leak</title>
+    <synopsis>A vulnerability has been discovered in Requests which could result in the disclosure of plaintext secrets.</synopsis>
+    <product type="ebuild">requests</product>
+    <announced>2023-09-17</announced>
+    <revised count="1">2023-09-17</revised>
+    <bug>906970</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/requests" auto="yes" arch="*">
+            <unaffected range="ge">2.31.0</unaffected>
+            <vulnerable range="lt">2.31.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Requests is an HTTP library for human beings.</p>
+    </background>
+    <description>
+        <p>Requests is vulnerable to potentially leaking Proxy-Authorization headers to destination servers, specifically during redirects to an HTTPS origin with authentication credentials encoded into the URL.</p>
+    </description>
+    <impact type="low">
+        <p>Users&#39; proxy authentication secrets could be disclosed to parties beyond the used HTTP proxy server.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Requests users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/requests-2.31.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32681">CVE-2023-32681</uri>
+        <uri>GHSA-j8r2-6x86-q33q</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-17T06:32:25.550438Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-17T06:32:25.553604Z">sam</metadata>
+</glsa>
