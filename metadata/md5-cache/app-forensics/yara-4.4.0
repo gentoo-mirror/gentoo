@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare test
+DEPEND=dev-libs/openssl:= cuckoo? ( dev-libs/jansson:= ) magic? ( sys-apps/file:= )
+DESCRIPTION=A malware identification and classification tool
+EAPI=8
+HOMEPAGE=https://virustotal.github.io/yara/
+INHERIT=autotools
+IUSE=+dex +dotnet +cuckoo +macho +magic profiling python test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=Apache-2.0
+PDEPEND=python? ( =dev-python/yara-python-4* )
+RDEPEND=dev-libs/openssl:= cuckoo? ( dev-libs/jansson:= ) magic? ( sys-apps/file:= )
+RESTRICT=!test? ( test )
+SLOT=0/8
+SRC_URI=https://github.com/virustotal/yara/archive/v4.4.0.tar.gz -> yara-4.4.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=dd345d9ca7542c7ba92c320a6a7c838f

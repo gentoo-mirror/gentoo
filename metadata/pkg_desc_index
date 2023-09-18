@@ -2466,8 +2466,8 @@ app-forensics/rkhunter 1.4.6-r2: Rootkit Hunter scans for known and unknown root
 app-forensics/scalpel 2.1_pre20210326: A high performance file carver
 app-forensics/sleuthkit 4.11.1-r1 4.12.0: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20210124: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
-app-forensics/volatility3 2.0.1 2.4.0-r1 2.4.1-r1: Framework for analyzing volatile memory
-app-forensics/yara 4.3.1 4.3.2 9999: A malware identification and classification tool
+app-forensics/volatility3 2.4.1-r1: Framework for analyzing volatile memory
+app-forensics/yara 4.3.1 4.3.2 4.4.0 9999: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -2708,7 +2708,7 @@ app-misc/dvorakng 0.6.0-r1: Dvorak typing tutor
 app-misc/dvtm 0.15-r6 9999: Dynamic virtual terminal manager
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
-app-misc/elasticsearch 7.17.9 7.17.10 7.17.12 8.7.1: Free and Open, Distributed, RESTful Search Engine
+app-misc/elasticsearch 7.17.9 7.17.10 7.17.12 8.9.1: Free and Open, Distributed, RESTful Search Engine
 app-misc/empty 0.6.21b 0.6.23c: Small shell utility, similar to expect(1)
 app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
@@ -8440,7 +8440,7 @@ dev-python/latexcodec 2.0.1-r1: Lexer and codec to work with LaTeX code in Pytho
 dev-python/lazy-object-proxy 1.9.0: A fast and thorough lazy object proxy
 dev-python/ldap3 2.9.1: A strictly RFC 4511 conforming LDAP V3 pure Python client
 dev-python/leather 0.3.4-r1: Python charting for 80% of humans
-dev-python/leechcorepyc 2.14.3: Python binding for LeechCore Physical Memory Acquisition Library
+dev-python/leechcorepyc 2.14.3 2.15.0: Python binding for LeechCore Physical Memory Acquisition Library
 dev-python/lesscpy 0.15.1: A compiler written in Python for the LESS language
 dev-python/libarchive-c 5.0: A Python interface to libarchive
 dev-python/liblarch 3.1.0-r1: Library to handle directed acyclic graphs
@@ -9015,7 +9015,7 @@ dev-python/python-novaclient 18.3.0 18.4.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 6.2.0 6.3.0: A client for the OpenStack APIs
 dev-python/python-pam 2.0.2-r2: Python PAM module
 dev-python/python-poppler-qt5 21.3.0: Python binding for libpoppler-qt5
-dev-python/python-ptrace 0.9.8 9999: A Python binding of ptrace library
+dev-python/python-ptrace 0.9.8 0.9.8-r1 9999: A Python binding of ptrace library
 dev-python/python-redmine 2.4.0: Python interface to the Redmine REST API
 dev-python/python-rtmidi 1.5.5: Python bindings for media-libs/rtmidi implemented using Cython
 dev-python/python-sense-hat 2.4.0: Raspberry Pi Sense HAT python library
@@ -9460,7 +9460,7 @@ dev-python/yamlpath 3.8.0: Command-line processors for YAML/JSON/Compatible data
 dev-python/yapf 0.40.1: A formatter for Python files
 dev-python/yappi 1.4.0: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r1: A fat-free DIY Python plugin management toolkit
-dev-python/yara-python 4.3.1 9999: Python interface for a malware identification and classification tool
+dev-python/yara-python 4.3.1 4.4.0 9999: Python interface for a malware identification and classification tool
 dev-python/yarl 1.9.2: Yet another URL library
 dev-python/yaswfp 0.9.3-r2: Yet Another SWF Parser
 dev-python/yattag 1.15.1: Python library to generate HTML or XML in a readable, concise and pythonic way
@@ -10382,7 +10382,7 @@ dev-texlive/texlive-xetex 2021-r1: TeXLive XeTeX and packages
 dev-util/0xtools 1.2.4 9999: Always-on profiling for production systems
 dev-util/App-SVN-Bisect 1.1-r2: Binary search through svn revisions
 dev-util/FlameGraph 1.0 1.0_p20210830 1.0_p20220918 9999: Visualization of hierarchical data, especially profiled stack traces
-dev-util/ROPgadget 7.2-r1 7.3-r1 7.4 9999: Search for gadgets in binaries to facilitate your ROP exploitation
+dev-util/ROPgadget 7.3-r1 7.4 9999: Search for gadgets in binaries to facilitate your ROP exploitation
 dev-util/Tensile 5.1.3-r3 5.4.2-r2: Stretching GPU performance for GEMMs and tensor contractions
 dev-util/abi-compliance-checker 2.3-r1 9999: A tool for checking backward compatibility of a C/C++ library
 dev-util/abi-dumper 1.2-r1: Dump ABI of an ELF object containing DWARF debug info
@@ -10680,8 +10680,8 @@ dev-util/premake 4.3-r2 5.0.0_beta2: A makefile generation tool
 dev-util/pretrace 0.4-r2: start dynamically linked applications under debugging environment
 dev-util/promu 0.13.0 0.14.0: Prometheus Utility Tool
 dev-util/pscan 20000721-r1: A limited problem scanner for C source files
-dev-util/pwndbg 20221219-r2 20230319 99999999: A GDB plug-in that makes debugging with GDB suck less
-dev-util/pwntools 4.9.0-r2 4.10.0 4.11.0_beta0 9999: CTF framework and exploit development library
+dev-util/pwndbg 20230319 20230717 99999999: A GDB plug-in that makes debugging with GDB suck less
+dev-util/pwntools 4.10.0 4.11.0_beta0 4.11.0 9999: CTF framework and exploit development library
 dev-util/py-spy 0.3.14: Sampling profiler for Python programs
 dev-util/pycharm-community 2023.1.1 2023.1.4 2023.2.1: Intelligent Python IDE with unique code assistance and analysis
 dev-util/pycharm-professional 2021.1.2-r1 2021.3.2-r1 2021.3.3-r1 2022.1-r1 2023.2: Intelligent Python IDE with unique code assistance and analysis
@@ -12500,6 +12500,7 @@ media-fonts/ibm-plex 5.1.3: The package of IBM's typeface
 media-fonts/inconsolata 20140821: Sans-serif monotype font for code listings
 media-fonts/inconsolata-hellenic 1.19-r1: Hellenisation of the wonderful, monospace, open/free font Inconsolata
 media-fonts/inconsolata-lgc 1.3.0: Modified version of Inconsolata Hellenic adding the Cyrillic alphabet
+media-fonts/intel-one-mono 1.3.0: Intel One Mono font family
 media-fonts/intlfonts 1.4.1: International X11 fixed fonts
 media-fonts/iosevka 25.0.1 25.1.1 26.0.1 26.2.1 26.3.2 27.0.1: Slender typeface for code, from code
 media-fonts/ipaex 004.01: Japanese IPA extended TrueType fonts
@@ -15488,7 +15489,7 @@ sci-astronomy/pyephem 4.1.1 4.1.3: Astronomical routines for the Python programm
 sci-astronomy/pysiril 0.0.12 0.0.15: Python library to interface Python to a SiriL script
 sci-astronomy/scamp 2.0.4: Astrometric and photometric solutions for astronomical images
 sci-astronomy/sextractor 2.19.5-r1: Extract catalogs of sources from astronomical FITS images
-sci-astronomy/siril 1.0.6-r2 1.2.0_rc1-r1 9999: A free astronomical image processing software
+sci-astronomy/siril 1.0.6-r2 1.2.0_rc1-r1 1.2.0 9999: A free astronomical image processing software
 sci-astronomy/sirilic 1.14.3-r1 1.15.2 1.15.7: Preparing acquisition files for processing with the SiriL software
 sci-astronomy/skymaker 3.10.5: Program that simulates astronomical images
 sci-astronomy/sofa_c 20170420: Library for algorithms for models in fundamental astronomy
