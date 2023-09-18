@@ -19,22 +19,21 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PATCHSET="2"
-PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
-PATCHSET_PPC64="116.0.5845.110-2raptor0~deb11u1"
-# ^ = https://quickbuild.io/~raptor-engineering-public/+archive/ubuntu/chromium
+PATCHSET_NAME="chromium-116-patchset-${PATCHSET}"
+PATCHSET_PPC64="116.0.5845.140-1raptor0~deb12u1"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
-	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
+	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PV}/chromium-patches-${PV}.tar.bz2
 	ppc64? (
 		https://quickbuild.io/~raptor-engineering-public/+archive/ubuntu/chromium/+files/chromium_${PATCHSET_PPC64}.debian.tar.xz
 		https://deps.gentoo.zip/chromium-ppc64le-gentoo-patches-1.tar.xz
-		https://raw.githubusercontent.com/darkbasic/gentoo-files/master/chromium-116-0001-Add-PPC64-support-for-boringssl.patch.gz
 	)
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="amd64 arm64 ~ppc64"
-IUSE="+X component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo pic +proprietary-codecs pulseaudio qt5 qt6 screencast selinux +suid +system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-png vaapi wayland widevine"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
+IUSE_SYSTEM_LIBS="+system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-png +system-zstd"
+IUSE="+X ${IUSE_SYSTEM_LIBS} component-build cups cpu_flags_arm_neon debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo pic +proprietary-codecs pulseaudio qt5 qt6 screencast selinux +suid vaapi wayland widevine"
 REQUIRED_USE="
 	component-build? ( !suid !libcxx )
 	screencast? ( wayland )
@@ -66,6 +65,7 @@ COMMON_SNAPSHOT_DEPEND="
 	system-harfbuzz? ( >=media-libs/harfbuzz-3:0=[icu(-)] )
 	media-libs/libjpeg-turbo:=
 	system-png? ( media-libs/libpng:=[-apng(-)] )
+	system-zstd? ( >=app-arch/zstd-1.5.5:= )
 	>=media-libs/libwebp-0.4.0:=
 	media-libs/mesa:=[gbm(+)]
 	>=media-libs/openh264-1.6.0:=
@@ -331,28 +331,22 @@ src_prepare() {
 		"chrome/browser/media/router/media_router_feature.cc" || die
 
 	local PATCHES=(
-		"${WORKDIR}/patches"
+		"${WORKDIR}/chromium-patches-${PV}"
 		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
-		"${FILESDIR}/chromium-qt6.patch"
-		"${FILESDIR}/chromium-98-gtk4-build.patch"
 		"${FILESDIR}/chromium-108-EnumTable-crash.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
-		"${FILESDIR}/chromium-114-remove-evdev-dep.patch"
-		"${FILESDIR}/chromium-115-binutils-2.41.patch"
 	)
 
 	if use ppc64 ; then
 		local p
 		for p in $(grep -v "^#" "${WORKDIR}"/debian/patches/series | grep "^ppc64le" || die); do
-			# Revert to Raptor's bundled 0001-Add-PPC64-support-for-boringssl.patch starting from 117
-			if [[ ! ($p =~ "fix-breakpad-compile.patch" || $p =~ "Add-PPC64-support-for-boringssl.patch") ]]; then
+			if [[ ! $p =~ "fix-breakpad-compile.patch" ]]; then
 				eapply "${WORKDIR}/debian/patches/${p}"
 			fi
 		done
 		PATCHES+=( "${WORKDIR}/ppc64le" )
-		PATCHES+=( "${WORKDIR}/chromium-116-0001-Add-PPC64-support-for-boringssl.patch" )
 	fi
 
 	default
@@ -388,7 +382,6 @@ src_prepare() {
 		third_party/angle/src/common/third_party/xxhash
 		third_party/angle/src/third_party/ceval
 		third_party/angle/src/third_party/libXNVCtrl
-		third_party/angle/src/third_party/systeminfo
 		third_party/angle/src/third_party/volk
 		third_party/apple_apsl
 		third_party/axe-core
@@ -444,6 +437,7 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/marked
 		third_party/devtools-frontend/src/front_end/third_party/puppeteer
 		third_party/devtools-frontend/src/front_end/third_party/puppeteer/package/lib/esm/third_party/mitt
+		third_party/devtools-frontend/src/front_end/third_party/puppeteer/package/lib/esm/third_party/rxjs
 		third_party/devtools-frontend/src/front_end/third_party/vscode.web-custom-data
 		third_party/devtools-frontend/src/front_end/third_party/wasmparser
 		third_party/devtools-frontend/src/test/unittests/front_end/third_party/i18n
@@ -527,7 +521,6 @@ src_prepare() {
 		third_party/pdfium/third_party/lcms
 		third_party/pdfium/third_party/libopenjpeg
 		third_party/pdfium/third_party/libtiff
-		third_party/pdfium/third_party/skia_shared
 		third_party/perfetto
 		third_party/perfetto/protos/third_party/chromium
 		third_party/pffft
@@ -604,15 +597,8 @@ src_prepare() {
 		third_party/usb_ids
 		third_party/xdg-utils
 	)
-	if ! use system-ffmpeg; then
-		keeplibs+=( third_party/ffmpeg third_party/opus )
-	fi
-	if ! use system-icu; then
-		keeplibs+=( third_party/icu )
-	fi
-	if ! use system-png; then
-		keeplibs+=( third_party/libpng )
-	fi
+
+	# USE=system-*
 	if ! use system-av1; then
 		keeplibs+=(
 			third_party/dav1d
@@ -623,9 +609,28 @@ src_prepare() {
 			third_party/libaom/source/libaom/third_party/x86inc
 		)
 	fi
+
+	if ! use system-ffmpeg; then
+		keeplibs+=( third_party/ffmpeg third_party/opus )
+	fi
+
 	if ! use system-harfbuzz; then
 		keeplibs+=( third_party/harfbuzz-ng )
 	fi
+
+	if ! use system-icu; then
+		keeplibs+=( third_party/icu )
+	fi
+
+	if ! use system-png; then
+		keeplibs+=( third_party/libpng )
+	fi
+
+	if ! use system-zstd; then
+		keeplibs+=( third_party/zstd )
+	fi
+
+	# Arch-specific
 	if use arm64 || use ppc64 ; then
 		keeplibs+=( third_party/swiftshader/third_party/llvm-10.0 )
 	fi
@@ -646,6 +651,7 @@ src_prepare() {
 		popd >/dev/null || die
 	fi
 
+	einfo "Unbundling third-party libraries..."
 	# Remove most bundled libraries. Some are still needed.
 	build/linux/unbundle/remove_bundled_libraries.py "${keeplibs[@]}" --do-remove || die
 
@@ -773,6 +779,10 @@ chromium_configure() {
 	if use system-av1; then
 		gn_system_libraries+=( dav1d libaom )
 	fi
+	if use system-zstd; then
+		gn_system_libraries+=( zstd )
+	fi
+
 	build/linux/unbundle/replace_gn_files.py --system-libraries "${gn_system_libraries[@]}" || die
 
 	# See dependency logic in third_party/BUILD.gn
