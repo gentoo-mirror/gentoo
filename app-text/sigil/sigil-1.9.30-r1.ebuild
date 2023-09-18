@@ -4,7 +4,6 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
-PYTHON_REQ_USE="tk"
 
 inherit xdg cmake python-single-r1
 
@@ -25,6 +24,7 @@ RDEPEND="
 	dev-libs/libpcre2:=[pcre16]
 	$(python_gen_cond_dep '
 		dev-python/css-parser[${PYTHON_USEDEP}]
+		dev-python/dulwich[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]')
 	dev-qt/qtconcurrent:5
@@ -37,10 +37,12 @@ RDEPEND="
 	plugins? ( $(python_gen_cond_dep '
 		dev-python/chardet[${PYTHON_USEDEP}]
 		dev-python/cssselect[${PYTHON_USEDEP}]
-		dev-python/dulwich[${PYTHON_USEDEP}]
 		dev-python/html5lib[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
-		dev-python/regex[${PYTHON_USEDEP}]') )
+		dev-python/PyQt5[${PYTHON_USEDEP}]
+		dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
+		dev-python/regex[${PYTHON_USEDEP}]')
+		$(python_gen_impl_dep 'tk') )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
