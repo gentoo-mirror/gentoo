@@ -1,6 +1,6 @@
 BDEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=dev-db/postgresql test? ( >=dev-db/postgresql-9.4[server(+),threads] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DEPEND=dev-db/postgresql test? ( >=dev-db/postgresql-9.4[server(+),threads(+)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 DESCRIPTION=Ruby extension library providing an API to PostgreSQL
 EAPI=8
 HOMEPAGE=https://github.com/ged/ruby-pg
@@ -12,6 +12,6 @@ RDEPEND=dev-db/postgresql:* ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targ
 REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=1
-SRC_URI=https://github.com/ged/ruby-pg/archive/v1.5.3.tar.gz -> pg-1.5.3.tar.gz
+SRC_URI=https://github.com/ged/ruby-pg/archive/v1.5.4.tar.gz -> pg-1.5.4.tar.gz
 _eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca	ruby-utils	69e7140043885477733c347fee4a981a	ruby-ng	e7004f981e452d70374b865ccff407aa	ruby-fakegem	5f7dd7ffeaf00a781713582bd507f80b
-_md5_=f8b0571d941c9ea5f8b964efaeb176e9
+_md5_=8b6f6145553799aea7173c559848dc72

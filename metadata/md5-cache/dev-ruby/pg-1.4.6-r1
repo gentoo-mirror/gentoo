@@ -1,6 +1,6 @@
 BDEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby30? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=dev-db/postgresql test? ( >=dev-db/postgresql-9.4[server(+),threads] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DEPEND=dev-db/postgresql test? ( >=dev-db/postgresql-9.4[server(+),threads(+)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 DESCRIPTION=Ruby extension library providing an API to PostgreSQL
 EAPI=8
 HOMEPAGE=https://github.com/ged/ruby-pg
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=1
 SRC_URI=https://github.com/ged/ruby-pg/archive/v1.4.6.tar.gz -> pg-1.4.6.tar.gz
 _eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca	ruby-utils	69e7140043885477733c347fee4a981a	ruby-ng	e7004f981e452d70374b865ccff407aa	ruby-fakegem	5f7dd7ffeaf00a781713582bd507f80b
-_md5_=3172232358db3ff5731f76daeca2d84a
+_md5_=15dc352cf113be016d5352b465f76077
