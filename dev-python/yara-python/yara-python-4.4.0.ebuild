@@ -27,6 +27,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-python3_12.patch"
+)
+
 distutils_enable_tests unittest
 
 python_configure_all() {

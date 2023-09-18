@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
@@ -13,7 +14,7 @@ HOMEPAGE="https://github.com/ufrisk/LeechCore"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 # leechcorepyc ships with a bundled version of the LeechCore library. So we
 # don't depend on the library here. But we must be aware this module doesn't
@@ -24,8 +25,14 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.14.0-respect-CC.patch"
-	"${FILESDIR}/${PN}-2.14.0-cflags.patch"
 )
+
+src_prepare() {
+	default
+
+	# Avoid redefining _FORTIFY_SOURCE. See #893824, #906715.
+	sed -i -e 's/ -D_FORTIFY_SOURCE=2 / /g' leechcore/Makefile || die
+}
 
 src_configure() {
 	tc-export CC
