@@ -3,47 +3,42 @@
 
 EAPI=8
 
-ECM_TEST="forceoptional"
+ECM_HANDBOOK="forceoptional"
 KFMIN=5.106.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=5.15.9
 inherit ecm plasma.kde.org
 
-DESCRIPTION="KDE Plasma screen management"
-HOMEPAGE="https://invent.kde.org/plasma/kscreen"
+DESCRIPTION="Bluetooth stack for KDE Plasma"
+HOMEPAGE="https://invent.kde.org/plasma/bluedevil"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
-# bug #580440, last checked 5.6.3
-RESTRICT="test"
-
+# kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
-	>=dev-qt/qtdeclarative-${QTMIN}:5[widgets]
+	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtsensors-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=kde-frameworks/kcmutils-${KFMIN}:5
+	>=kde-frameworks/bluez-qt-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
-	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
-	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
-	>=kde-frameworks/kiconthemes-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
+	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
-	>=kde-frameworks/kxmlgui-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
 	>=kde-frameworks/plasma-${KFMIN}:5
-	>=kde-plasma/layer-shell-qt-${PVCUT}:5
-	>=kde-plasma/libkscreen-${PVCUT}:5
-	x11-libs/libX11
 "
 RDEPEND="${DEPEND}
-	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"

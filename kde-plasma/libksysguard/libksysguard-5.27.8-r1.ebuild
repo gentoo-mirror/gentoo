@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="webengine"
 
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
-COMMON_DEPEND="
+RDEPEND="
 	dev-libs/libnl:3
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -26,19 +26,21 @@ COMMON_DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kauth-${KFMIN}:5
-	>=kde-frameworks/kcompletion-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5[qml]
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
+	>=kde-frameworks/kglobalaccel-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5[X]
+	>=kde-frameworks/solid-${KFMIN}:5
 	net-libs/libpcap
 	sys-apps/lm-sensors:=
-	sys-libs/libcap
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXres
@@ -47,16 +49,16 @@ COMMON_DEPEND="
 		>=dev-qt/qtwebengine-${QTMIN}:5
 	)
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	>=kde-frameworks/kiconthemes-${KFMIN}:5
 	x11-base/xorg-proto
 "
-RDEPEND="${COMMON_DEPEND}
-	!<kde-plasma/ksysguard-5.21.90:5
-"
+BDEPEND="sys-libs/libcap"
 
-# downstream patch
-PATCHES=( "${FILESDIR}/${PN}-5.22.80-no-detailed-mem-message.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-5.22.80-no-detailed-mem-message.patch" # downstream patch
+	"${FILESDIR}/${P}-cmake.patch" # bug 914145
+)
 
 src_configure() {
 	local mycmakeargs=(

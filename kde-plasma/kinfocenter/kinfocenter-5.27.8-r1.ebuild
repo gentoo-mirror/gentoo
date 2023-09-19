@@ -23,6 +23,7 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5[gles2-only=]
 	>=dev-qt/qtwidgets-${QTMIN}:5
+	>=kde-frameworks/kauth-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:5

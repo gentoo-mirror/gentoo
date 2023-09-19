@@ -17,7 +17,6 @@ KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="
-	dev-cpp/glibmm:2
 	dev-libs/glib:2
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -28,16 +27,15 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-plasma/kdecoration-${PVCUT}:5
-	x11-libs/gtk+:3
+	x11-libs/gtk+:3[X]
 "
 RDEPEND="${DEPEND}
 	>=kde-plasma/kde-cli-tools-${PVCUT}:5
 	x11-misc/xsettingsd
 "
-BDEPEND="
-	dev-lang/sassc
-"
+BDEPEND="dev-lang/sassc"
 
 src_configure() {
 	local mycmakeargs=(

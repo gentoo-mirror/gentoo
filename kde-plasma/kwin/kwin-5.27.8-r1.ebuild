@@ -20,13 +20,12 @@ IUSE="accessibility caps gles2-only lock multimedia plasma screencast"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=dev-libs/libinput-1.19
+	>=dev-libs/libinput-1.19:=
 	>=dev-libs/wayland-1.21.0
-	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5=[egl,gles2-only=,libinput]
-	>=dev-qt/qtwayland-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
 	>=kde-frameworks/kactivities-${KFMIN}:5
@@ -41,7 +40,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kglobalaccel-${KFMIN}:5=[X]
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kidletime-${KFMIN}:5=
-	>=kde-frameworks/kitemviews-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
@@ -63,15 +61,13 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-libs/libXi
 	>=x11-libs/libdrm-2.4.112
-	>=x11-libs/libxcb-1.10
+	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxcvt-0.1.1
 	>=x11-libs/libxkbcommon-1.5.0
 	x11-libs/xcb-util-cursor
-	x11-libs/xcb-util-image
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:5 )
-	caps? ( sys-libs/libcap )
 	gles2-only? ( media-libs/mesa[gles2] )
 	lock? ( >=kde-plasma/kscreenlocker-${PVCUT}:5 )
 	plasma? ( >=kde-frameworks/krunner-${KFMIN}:5 )
@@ -81,7 +77,6 @@ RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kwayland-server
 	>=dev-qt/qtquickcontrols-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtvirtualkeyboard-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	sys-apps/hwdata
@@ -93,7 +88,10 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-libs/wayland-protocols-1.31
 	>=dev-qt/designer-${QTMIN}:5
 	>=dev-qt/qtconcurrent-${QTMIN}:5
+	>=dev-qt/qtwayland-${QTMIN}:5
 	x11-base/xorg-proto
+	x11-libs/xcb-util-image
+	caps? ( sys-libs/libcap )
 "
 BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
