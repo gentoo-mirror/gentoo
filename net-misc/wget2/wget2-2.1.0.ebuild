@@ -45,10 +45,6 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-fix-build-issues-with-clang-16.patch
-)
-
 src_configure() {
 	local myeconfargs=(
 		--disable-static
