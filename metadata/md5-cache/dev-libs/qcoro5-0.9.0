@@ -9,9 +9,9 @@ IUSE=dbus examples +network qml test testlib websockets
 KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=MIT
 RDEPEND=dev-qt/qtcore:5 dbus? ( dev-qt/qtdbus:5 ) network? ( dev-qt/qtnetwork:5 ) qml? ( dev-qt/qtdeclarative:5= ) testlib? ( dev-qt/qttest:5 ) websockets? ( dev-qt/qtwebsockets:5 )
-REQUIRED_USE=test? ( testlib )
+REQUIRED_USE=examples? ( network ) test? ( testlib )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/danvratil/qcoro/archive/refs/tags/v0.9.0.tar.gz -> qcoro5-0.9.0.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80
-_md5_=6f8112a7b4b74c1f52df0760abf16752
+_md5_=3e78f78b95890d6216c97792b40824bd
