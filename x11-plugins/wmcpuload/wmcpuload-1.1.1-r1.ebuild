@@ -3,15 +3,16 @@
 
 EAPI=8
 
-DESCRIPTION="Dockapp to monitor LongRun on a Transmeta Crusoe processor"
-HOMEPAGE="https://www.dockapps.net/wmlongrun"
+DESCRIPTION="Dockapp for monitoring CPU usage with a LCD display"
+HOMEPAGE="https://www.dockapps.net/wmcpuload"
 SRC_URI="https://www.dockapps.net/download/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="-* ~x86"
+KEYWORDS="~alpha ~amd64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 
 RDEPEND="x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXpm"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	x11-libs/libICE"
