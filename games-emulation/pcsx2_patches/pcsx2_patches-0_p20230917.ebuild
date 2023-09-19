@@ -10,7 +10,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PCSX2/pcsx2_patches.git"
 else
-	HASH_PCSX2_PATCHES=
+	HASH_PCSX2_PATCHES=b270bd4298e8fa998eb28d8a5fb784a4820075e9
 	SRC_URI="
 		https://github.com/PCSX2/pcsx2_patches/archive/${HASH_PCSX2_PATCHES}.tar.gz
 			-> ${P}.tar.gz"
