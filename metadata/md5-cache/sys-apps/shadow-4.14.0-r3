@@ -1,10 +1,10 @@
-BDEPEND=app-arch/xz-utils sys-devel/gettext verify-sig? ( sec-keys/openpgp-keys-sergehallyn ) >=app-portage/elt-patches-20170815 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=app-arch/xz-utils sys-devel/gettext verify-sig? ( sec-keys/openpgp-keys-sergehallyn ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install postinst preinst prepare unpack
 DEPEND=dev-libs/libbsd virtual/libcrypt:= acl? ( sys-apps/acl:= ) audit? ( >=sys-process/audit-2.6:= ) cracklib? ( >=sys-libs/cracklib-2.7-r3:= ) nls? ( virtual/libintl ) pam? ( sys-libs/pam:= ) skey? ( sys-auth/skey:= ) selinux? ( >=sys-libs/libselinux-1.28:= sys-libs/libsemanage:= ) systemd? ( sys-apps/systemd:= ) xattr? ( sys-apps/attr:= ) >=sys-kernel/linux-headers-4.14
 DESCRIPTION=Utilities to deal with user accounts
 EAPI=8
 HOMEPAGE=https://github.com/shadow-maint/shadow
-INHERIT=libtool pam verify-sig
+INHERIT=autotools libtool pam verify-sig
 IUSE=acl audit cracklib nls pam selinux skey split-usr su systemd xattr verify-sig
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=BSD GPL-2
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libbsd virtual/libcrypt:= acl? ( sys-apps/acl:= ) audit? ( >=sy
 REQUIRED_USE=?? ( cracklib pam )
 SLOT=0/4
 SRC_URI=https://github.com/shadow-maint/shadow/releases/download/4.14.0/shadow-4.14.0.tar.xz verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/4.14.0/shadow-4.14.0.tar.xz.asc )
-_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	pam	b56d0c9c20fc5b553f13c8ae165a10a5	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
-_md5_=d0d7126efc3d25c8f347b53c42bfc635
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	pam	b56d0c9c20fc5b553f13c8ae165a10a5	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
+_md5_=dc6c0fd87272e2bbe7119785a80363aa
