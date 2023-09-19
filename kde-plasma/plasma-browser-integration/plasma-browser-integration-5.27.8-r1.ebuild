@@ -16,7 +16,7 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -30,11 +30,13 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/krunner-${KFMIN}:5
+	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
 	>=kde-plasma/plasma-workspace-${PVCUT}:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	>=kde-frameworks/krunner-${KFMIN}:5
+"
 
 src_configure() {
 	local mycmakeargs=(
