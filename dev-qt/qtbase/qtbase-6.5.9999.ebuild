@@ -130,6 +130,7 @@ PDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-6.5.2-hppa-forkfd-grow-stack.patch
 	"${FILESDIR}"/${PN}-6.5.2-no-symlink-check.patch
 )
 
@@ -294,9 +295,13 @@ src_test() {
 		tst_qglyphrun
 		tst_qvectornd
 		tst_rcc
-		# similarly, but on armv7 (bug #914028)
+		# similarly, but on armv7 and potentially others (bug #914028)
 		tst_qlineedit
 		tst_qpainter
+		# likewise, known failing at least on BE arches (bug #914033,914371)
+		tst_qimagereader
+		tst_qimagewriter
+		tst_qpluginloader
 		# partially broken on llvm-musl, needs looking into but skip to have
 		# a baseline for regressions (like above, rest of dev-qt is fine)
 		$(usev elibc_musl '
@@ -304,6 +309,11 @@ src_test() {
 			tst_qicoimageformat
 			tst_qimagereader
 			tst_qimage
+		')
+		# fails due to hppa's NaN handling, needs looking into (bug #914371)
+		$(usev hppa '
+			tst_qcborvalue
+			tst_qnumeric
 		')
 		# note: for linux, upstream only really runs+maintains tests for amd64
 		# https://doc.qt.io/qt-6/supported-platforms.html
