@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=gnustep-base/gnustep-make-2.0
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=>=sys-apps/dbus-1.2.1 virtual/gnustep-back
+DESCRIPTION=Framework that interfaces Objective-C applications with the D-Bus IPC service
+EAPI=8
+HOMEPAGE=https://github.com/gnustep/libs-dbuskit
+INHERIT=autotools gnustep-2
+IUSE=debug doc
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=sys-apps/dbus-1.2.1 virtual/gnustep-back
+SLOT=0
+SRC_URI=https://github.com/gnustep/libs-dbuskit/archive/0.1.1.tar.gz -> dbuskit-0.1.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	gnustep-base	923cb81765be4cd65f6419d3f9019af5	gnustep-2	191cacca9e01ae0fe9b898b09e4555b8
+_md5_=c3aed58aebaae350dc89a0f7a455407a
