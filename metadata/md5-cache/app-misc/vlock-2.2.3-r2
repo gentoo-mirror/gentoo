@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install
-DEPEND=!sys-apps/kbd[pam] pam? ( sys-libs/pam ) test? ( dev-util/cunit )
+DEPEND=virtual/libcrypt:= !sys-apps/kbd[pam] pam? ( sys-libs/pam ) test? ( dev-util/cunit )
 DESCRIPTION=Allows to lock one or all of the sessions of your console display
 EAPI=7
 HOMEPAGE=https://github.com/WorMzy/vlock
@@ -7,9 +7,9 @@ INHERIT=pam toolchain-funcs
 IUSE=pam selinux test
 KEYWORDS=~alpha amd64 ~arm ~hppa ~ia64 ~mips ppc ppc64 sparc x86
 LICENSE=GPL-2
-RDEPEND=!sys-apps/kbd[pam] pam? ( sys-libs/pam ) acct-group/vlock selinux? ( sec-policy/selinux-vlock )
+RDEPEND=virtual/libcrypt:= !sys-apps/kbd[pam] pam? ( sys-libs/pam ) acct-group/vlock selinux? ( sec-policy/selinux-vlock )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/WorMzy/vlock/archive/3542ef58a2b838cc8294fe82c341fb671c38611b.tar.gz -> vlock-2.2.3.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	pam	b56d0c9c20fc5b553f13c8ae165a10a5
-_md5_=c9fb41cae3c9ac6946df7e52096b925b
+_md5_=59818c8918eb85416d6cc1b9cde04a24
