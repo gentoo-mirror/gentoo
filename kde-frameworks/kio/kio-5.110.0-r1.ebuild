@@ -69,6 +69,8 @@ DEPEND="${RDEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
+PATCHES=( "${FILESDIR}/${P}-crash.patch" ) # KDE-bug 474451
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON
