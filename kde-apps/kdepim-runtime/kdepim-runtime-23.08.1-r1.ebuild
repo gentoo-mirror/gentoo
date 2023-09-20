@@ -12,6 +12,7 @@ inherit ecm gear.kde.org
 
 DESCRIPTION="Runtime plugin collection to extend the functionality of KDE PIM"
 HOMEPAGE="https://apps.kde.org/kontact/"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-gdrive-fix.tar.xz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="5"
@@ -77,6 +78,10 @@ DEPEND="${RDEPEND}
 		>=kde-apps/kimap-${PVCUT}:5[test]
 	)
 "
+
+PATCHES=(
+	"${WORKDIR}/${P}-gdrive-fix" # KDE-bug 470820
+)
 
 src_configure() {
 	local mycmakeargs=(

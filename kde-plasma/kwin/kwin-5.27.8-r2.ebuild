@@ -100,7 +100,10 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" ) # bug 914143
+PATCHES=(
+	"${FILESDIR}/${P}-cmake.patch" # bug 914143
+	"${FILESDIR}/${P}-crashfix.patch" # KDE-bug 471562
+)
 
 src_prepare() {
 	ecm_src_prepare
