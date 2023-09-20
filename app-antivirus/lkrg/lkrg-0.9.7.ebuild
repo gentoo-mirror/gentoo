@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-mod systemd verify-sig
+inherit linux-mod-r1 systemd verify-sig
 
 DESCRIPTION="Linux Kernel Runtime Guard"
 HOMEPAGE="https://lkrg.org"
@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-openwall )"
 
-MODULE_NAMES="lkrg(misc:${S}:${S})"
+# MODULE_NAMES="lkrg(misc:${S}:${S})"
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/openwall.asc"
 
 PATCHES=( "${FILESDIR}/${PN}-0.9.4-gentoo-paths.patch" )
@@ -24,11 +24,7 @@ PATCHES=( "${FILESDIR}/${PN}-0.9.4-gentoo-paths.patch" )
 pkg_setup() {
 	CONFIG_CHECK="HAVE_KRETPROBES KALLSYMS_ALL KPROBES JUMP_LABEL"
 	CONFIG_CHECK+=" MODULE_UNLOAD !PREEMPT_RT ~STACKTRACE"
-	linux-mod_pkg_setup
-
-	# compile against selected (not running) target
-	BUILD_PARAMS="P_KVER=${KV_FULL} P_KERNEL=${KERNEL_DIR}"
-	BUILD_TARGETS="all"
+	linux-mod-r1_pkg_setup
 }
 
 src_unpack() {
@@ -39,8 +35,17 @@ src_unpack() {
 	default
 }
 
+src_compile() {
+	local modlist=( lkrg )
+	local modargs=(
+		P_KVER="${KV_FULL}"
+		P_KERNEL="${KERNEL_DIR}"
+	)
+	linux-mod-r1_src_compile
+}
+
 src_install() {
-	linux-mod_src_install
+	linux-mod-r1_src_install
 
 	systemd_dounit scripts/bootup/systemd/lkrg.service
 	newinitd scripts/bootup/openrc/lkrg lkrg.initd
