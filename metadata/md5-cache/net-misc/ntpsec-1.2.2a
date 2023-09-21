@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.ntpsec.org/
 INHERIT=distutils-r1 flag-o-matic waf-utils systemd verify-sig
 IUSE=rclock_oncore rclock_trimble rclock_truetime rclock_gpsd rclock_jjy rclock_generic rclock_spectracom rclock_shm rclock_pps rclock_hpgps rclock_zyfer rclock_arbiter rclock_nmea rclock_modem rclock_local debug doc early gdb heat libbsd nist ntpviz samba seccomp smear python_targets_python3_10 python_targets_python3_11 debug verify-sig
-KEYWORDS=amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 arm ~arm64 ~riscv ~x86
 LICENSE=HPND MIT BSD-2 BSD CC-BY-SA-4.0
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) dev-libs/openssl:= dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?] sys-libs/libcap libbsd? ( dev-libs/libbsd:0= ) seccomp? ( sys-libs/libseccomp ) rclock_oncore? ( net-misc/pps-tools ) rclock_pps? ( net-misc/pps-tools ) !net-misc/ntp !net-misc/openntpd acct-group/ntp acct-user/ntp ntpviz? ( media-fonts/liberation-fonts sci-visualization/gnuplot ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 ) nist? ( rclock_local ) || ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://ftp.ntpsec.org/pub/releases/ntpsec-1.2.2a.tar.gz verify-sig? ( https://ftp.ntpsec.org/pub/releases/ntpsec-1.2.2a.tar.gz.asc )
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce	waf-utils	be1df8dc616c09387b18633b4155fcb5	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
-_md5_=725af20b12d3c9182b9fdf2a44cbefcf
+_md5_=397f275e3df091bc0f0fd650bfb0ef6c

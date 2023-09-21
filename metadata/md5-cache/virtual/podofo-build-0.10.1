@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual package for building against PoDoFo
+EAPI=8
+IUSE=fontconfig idn jpeg png test tiff +tools
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+RDEPEND=app-text/podofo:0/0.10.1[fontconfig=,idn=,jpeg=,png=,test=,tiff=,tools=]
+RESTRICT=!test? ( test )
+SLOT=0/0.10.1
+_md5_=9b01f6a69164872b48fef892c1d601f6
