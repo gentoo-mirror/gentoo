@@ -11,8 +11,8 @@ SRC_URI="https://github.com/PurpleI2P/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="cpu_flags_x86_aes cpu_flags_x86_avx i2p-hardening +upnp"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+IUSE="cpu_flags_x86_aes i2p-hardening +upnp"
 
 RDEPEND="
 	acct-user/i2pd
