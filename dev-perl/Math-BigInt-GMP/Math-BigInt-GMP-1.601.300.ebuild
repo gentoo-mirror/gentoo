@@ -4,17 +4,17 @@
 EAPI=8
 
 DIST_AUTHOR=PJACKLAM
-DIST_VERSION=1.6012
+DIST_VERSION=1.6013
 inherit perl-module
 
 DESCRIPTION="Use the GMP library for Math::BigInt routines"
 
 SLOT="0"
-#KEYWORDS="~alpha ~amd64 ~hppa ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~hppa ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 
 RDEPEND="
 	>=virtual/perl-Carp-1.220.0
-	>=virtual/perl-Math-BigInt-1.999.838
+	>=virtual/perl-Math-BigInt-1.999.840
 	>=virtual/perl-XSLoader-0.20.0
 	>=dev-libs/gmp-4.0.0:0
 "
