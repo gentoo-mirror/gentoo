@@ -7,11 +7,11 @@ inherit webapp
 
 MY_PV=${PV:0:3}.0
 MY_P=${P/_/-}
-S="${WORKDIR}/${MY_P}"
 
 DESCRIPTION="PHP-based open-source platform and content management system"
 HOMEPAGE="https://www.drupal.org/"
 SRC_URI="https://ftp.drupal.org/files/projects/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
