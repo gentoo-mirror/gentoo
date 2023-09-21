@@ -5,14 +5,14 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit flag-o-matic python-r1 toolchain-funcs udev
+inherit flag-o-matic python-r1 toolchain-funcs udev vcs-snapshot
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/colyli/bcache-tools.git https://kernel.googlesource.com/pub/scm/linux/kernel/git/colyli/bcache-tools.git"
 else
-	SRC_URI="https://git.kernel.org/pub/scm/linux/kernel/git/colyli/${PN}.git/snapshot/${P}.tar.gz"
-	KEYWORDS="amd64 arm64 ~loong ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+	SRC_URI="https://git.kernel.org/pub/scm/linux/kernel/git/colyli/${PN}.git/snapshot/a5e3753516bd39c431def86c8dfec8a9cea1ddd4.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 DESCRIPTION="Tools for bcache"
@@ -47,7 +47,7 @@ src_install() {
 	dosbin bcache make-bcache bcache-super-show
 
 	exeinto $(get_udevdir)
-	doexe bcache-register probe-bcache bcache-export-cached
+	doexe bcache-register probe-bcache
 
 	python_foreach_impl python_doscript bcache-status
 
