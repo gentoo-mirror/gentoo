@@ -16,9 +16,9 @@ SRC_URI="https://github.com/podofo/podofo/archive/refs/tags/${PV}.tar.gz -> ${P}
 "
 
 LICENSE="LGPL-2+ tools? ( GPL-2+ )"
-SLOT="0/${PV}"
+SLOT="0/2"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
-IUSE="fontconfig idn jpeg png tiff test +tools"
+IUSE="idn jpeg tiff png fontconfig test tools"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -39,15 +39,6 @@ src_prepare() {
 	if use test; then
 		rmdir extern/resources || die
 		mv "${WORKDIR}"/podofo-resources-4afe5c3fdb543a4347681b2e52252f1b10f12f24 extern/resources || die
-
-		sed -i -e 's|TEST_CASE("testLoadEncrypedFilePdfParser")|void testLoadEncrypedFilePdfParser()|' \
-			-e 's|TEST_CASE("testLoadEncrypedFilePdfMemDocument")|void testLoadEncrypedFilePdfMemDocument()|' \
-			test/unit/EncryptTest.cpp || die
-		sed -i -e 's|TEST_CASE("testCyclicTree")|void testCyclicTree()|' \
-			-e 's|TEST_CASE("testEmptyKidsTree")|void testEmptyKidsTree()|' \
-			-e 's|TEST_CASE("testNestedArrayTree")|void testNestedArrayTree()|' \
-			-e 's|TEST_CASE("testCreateDelete")|void testCreateDelete()|' \
-			test/unit/PageTreeTest.cpp || die
 	fi
 }
 
