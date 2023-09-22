@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..12} )
 PYTHON_REQ_USE="ssl"
 inherit distutils-r1
 
@@ -16,7 +16,7 @@ S="${WORKDIR}/getmail6-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 python_prepare_all() {
 	# Use gentoo version number (including revision) for doc dir and remove COPYING file
