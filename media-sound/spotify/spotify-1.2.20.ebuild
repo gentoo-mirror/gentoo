@@ -8,7 +8,7 @@ inherit desktop optfeature pax-utils unpacker xdg
 DESCRIPTION="Spotify is a social music platform"
 HOMEPAGE="https://www.spotify.com/download/linux/"
 SRC_BASE="http://repository.spotify.com/pool/non-free/s/${PN}-client/"
-BUILD_ID_AMD64="661.ga588f749"
+BUILD_ID_AMD64="1210.g2a8a8a57"
 SRC_URI="${SRC_BASE}${PN}-client_${PV}.${BUILD_ID_AMD64}_amd64.deb"
 
 LICENSE="Spotify"
@@ -55,7 +55,7 @@ RDEPEND="
 	!gnome-extra/gnome-integration-spotify
 	libnotify? ( x11-libs/libnotify )
 	local-playback? ( media-video/ffmpeg:0/56.58.58 )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	!pulseaudio? ( media-sound/apulse )
 "
 	#gnome-integration-spotify causes spotify to fail to launch
