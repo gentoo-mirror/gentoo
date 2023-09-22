@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools xdg
+inherit autotools flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="A set of open source instruments and effects for digital audio workstations"
 HOMEPAGE="https://calf-studio-gear.org/"
@@ -26,7 +26,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 DEPEND="
-	dev-libs/atk
+	>=app-accessibility/at-spi2-core-2.46.0
 	dev-libs/expat
 	dev-libs/glib:2
 	media-sound/fluidsynth:=
@@ -46,6 +46,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.90.1-no-automagic.patch"
 	"${FILESDIR}/${PN}-0.90.1-htmldir.patch"
 	"${FILESDIR}/${PN}-0.90.1-desktop.patch"
+	"${FILESDIR}/${PN}-0.90.3-fix-build-with-lld.patch"
+	"${FILESDIR}/${PN}-0.90.3-replace-std-bind2nd.patch"
+	"${FILESDIR}/${PN}-0.90.3-clang-lerp_table_lookup_float_mask.patch"
 )
 
 src_prepare() {
@@ -53,7 +56,13 @@ src_prepare() {
 	eautoreconf
 }
 
-src_configure() {
+src_configure()  {
+	# Upstream append -ffast-math by default, however since libtool links C++
+	# shared libs with -nostdlib, this causes symbol resolution error for
+	# __powidn2 when using compiler-rt. Disable fast math on compiler-rt until
+	# a better fix is found.
+	[[ $(tc-get-c-rtlib) = "compiler-rt" ]] && append-cxxflags "-fno-fast-math"
+
 	local myeconfargs=(
 		--prefix="${EPREFIX}"/usr
 		--without-obsolete-check
