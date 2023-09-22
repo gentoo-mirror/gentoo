@@ -7,11 +7,11 @@ HOMEPAGE=https://wiki.gnome.org/Apps/Evince
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson systemd xdg
 IUSE=cups djvu dvi gstreamer gnome keyring gtk-doc +introspection nautilus postscript spell tiff xps
-KEYWORDS=~alpha amd64 ~arm arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~x64-solaris
+KEYWORDS=~alpha amd64 ~arm arm64 ~loong ~mips ~ppc ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~x64-solaris
 LICENSE=GPL-2+ CC-BY-SA-3.0
 RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 >=dev-libs/glib-2.44.0:2 >=gui-libs/libhandy-1.5.0:1 >=dev-libs/libxml2-2.5:2 sys-libs/zlib:= >=x11-libs/gdk-pixbuf-2.40:2 >=x11-libs/gtk+-3.22.0:3[cups?,introspection?] gnome-base/gsettings-desktop-schemas >=x11-libs/cairo-1.10 >=app-text/poppler-22.02.0:=[cairo] >=app-arch/libarchive-3.6.0:= djvu? ( >=app-text/djvu-3.5.22:= ) dvi? ( >=app-text/libspectre-0.2:= dev-libs/kpathsea:= ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0 ) gnome? ( gnome-base/gnome-desktop:3= ) keyring? ( >=app-crypt/libsecret-0.5 ) introspection? ( >=dev-libs/gobject-introspection-1:= ) nautilus? ( >=gnome-base/nautilus-3.28.0 <gnome-base/nautilus-42.20 ) postscript? ( >=app-text/libspectre-0.2:= ) spell? ( >=app-text/gspell-1.6.0:= ) tiff? ( >=media-libs/tiff-4.0:= ) xps? ( >=app-text/libgxps-0.2.1:= ) gnome-base/gvfs gnome-base/librsvg || ( >=x11-themes/adwaita-icon-theme-2.17.1 >=x11-themes/hicolor-icon-theme-0.10 )
 REQUIRED_USE=gtk-doc? ( introspection )
 SLOT=0/evd3.4-evv3.3
 SRC_URI=mirror://gnome/sources/evince/44/evince-44.3.tar.xz
 _eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	08b7183c3f4811568ee93eb0f79a89fe	systemd	5f4bb0758df2e483babf68cd517078ca	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=e2712edfd2d87d35b0a9c0cd4319b596
+_md5_=c154c9ebda60c6c216883a820a933157
