@@ -1,6 +1,6 @@
-BDEPEND=dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] dev-python/python-dbusmock[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] dev-python/python-dbusmock[python_targets_python3_10(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=dev-util/gdbus-codegen sys-devel/gettext virtual/pkgconfig test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-libs/libportal || ( ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] dev-python/python-dbusmock[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] dev-python/pytest-xdist[python_targets_python3_10(-)] dev-python/python-dbusmock[python_targets_python3_10(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
-DEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib dev-python/docutils >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd ) test? ( dev-libs/libportal )
+DEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib dev-python/docutils >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd )
 DESCRIPTION=Desktop integration portal
 EAPI=8
 HOMEPAGE=https://flatpak.org/ https://github.com/flatpak/xdg-desktop-portal
@@ -8,9 +8,10 @@ INHERIT=meson python-any-r1 systemd
 IUSE=geolocation flatpak seccomp systemd test
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1
-RDEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib dev-python/docutils >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd ) test? ( dev-libs/libportal ) sys-apps/dbus
+RDEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib dev-python/docutils >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd ) sys-apps/dbus
+REQUIRED_USE=flatpak? ( seccomp )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/flatpak/xdg-desktop-portal/releases/download/1.18.0/xdg-desktop-portal-1.18.0.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	08b7183c3f4811568ee93eb0f79a89fe	python-any-r1	f5169813d1619761b459800587005fd2	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=c68dc0fd031ea241839abbcec2e55692
+_md5_=17fa65bd95dd0588b32bd4730b9fb24f
