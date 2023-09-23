@@ -1,16 +1,16 @@
-BDEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 )
+BDEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 )
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 )
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 )
 DESCRIPTION=vim plugin: fast file navigation for vim
 EAPI=7
 HOMEPAGE=https://vim.sourceforge.io/scripts/script.php?script_id=3025 https://github.com/wincent/command-t
 INHERIT=vim-plugin ruby-ng
-IUSE=ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32
+IUSE=ruby_targets_ruby31 ruby_targets_ruby32
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
-RDEPEND=|| ( app-editors/vim[ruby] app-editors/gvim[ruby] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 )
-REQUIRED_USE=|| ( ruby_targets_ruby30 ruby_targets_ruby31 ruby_targets_ruby32 )
+RDEPEND=|| ( app-editors/vim[ruby] app-editors/gvim[ruby] ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 )
+REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
 SLOT=0
 SRC_URI=https://github.com/wincent/command-t/archive/5.0.3.tar.gz -> command-t-5.0.3.tar.gz
-_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	92ea4186891b666b0970fa1d713d64fa	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca	ruby-utils	69e7140043885477733c347fee4a981a	ruby-ng	e7004f981e452d70374b865ccff407aa
+_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	92ea4186891b666b0970fa1d713d64fa	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca	ruby-utils	6c200c98361f47219e106ddc67c43a1e	ruby-ng	4ef520a992dc54fdd8f49d875c1ab2c0
 _md5_=12c94594854f6e2e72cf5ad061d941ed
