@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Internet connection measurement by Ookla
+EAPI=8
+HOMEPAGE=https://www.speedtest.net/apps/cli
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~x86
+LICENSE=Ookla
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=amd64? ( https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tgz ) arm? ( https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-armhf.tgz ) arm64? ( https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-aarch64.tgz ) x86? ( https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-i386.tgz )
+_md5_=8142b0b9721e642c65e1b064bb032bf8
