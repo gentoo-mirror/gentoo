@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/go >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+BDEPEND=<dev-lang/go-1.21 >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
 DEFINED_PHASES=compile install postinst test unpack
 DEPEND=acct-group/ipfs acct-user/ipfs sys-fs/fuse:0
 DESCRIPTION=Main implementation of IPFS
@@ -12,4 +12,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/ipfs/kubo/releases/download/v0.20.0/kubo-source.tar.gz -> kubo-0.20.0.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	8624eede24936fd7666e5298e5332f22	systemd	5f4bb0758df2e483babf68cd517078ca
-_md5_=68c01f8baaccaca1c9208acf33240f50
+_md5_=b0ef6a358303597ec45d8034ccf794b1
