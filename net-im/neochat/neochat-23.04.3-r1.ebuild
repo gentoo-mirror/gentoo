@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/neochat/"
 
 LICENSE="GPL-3+ handbook? ( CC-BY-SA-4.0 )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 x86"
 
 DEPEND="
 	app-text/cmark:=
@@ -41,14 +41,13 @@ DEPEND="
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5[qml]
 	media-libs/kquickimageeditor:5
-	>=net-libs/libquotient-0.6:=
+	<net-libs/libquotient-0.8:=
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
-	>=dev-qt/qtlocation-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
-	>=dev-qt/qtpositioning-${QTMIN}:5[qml]
-	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-frameworks/purpose-${KFMIN}:5
 "
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=( "${FILESDIR}"/${P}-libquotient-0.8-{1,2}.patch )
