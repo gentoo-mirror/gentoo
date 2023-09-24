@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison sys-devel/flex || ( dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] dev-lang/python:3.10[xml(+)] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/spdlog:= media-libs/libpng:= virtual/libiconv clang? ( <sys-devel/clang-18:= ) dot? ( media-gfx/graphviz media-libs/freetype ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) !!sys-devel/llvm:0
+DEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/libfmt:= dev-libs/spdlog:= media-libs/libpng:= virtual/libiconv clang? ( <sys-devel/clang-18:= ) dot? ( media-gfx/graphviz media-libs/freetype ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) !!sys-devel/llvm:0
 DESCRIPTION=Documentation system for most programming languages
 EAPI=8
 HOMEPAGE=https://www.doxygen.nl/
@@ -8,10 +8,10 @@ INHERIT=cmake flag-o-matic llvm python-any-r1
 IUSE=clang debug doc dot doxysearch gui sqlite test
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2
-RDEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/spdlog:= media-libs/libpng:= virtual/libiconv clang? ( <sys-devel/clang-18:= ) dot? ( media-gfx/graphviz media-libs/freetype ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 )
+RDEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/libfmt:= dev-libs/spdlog:= media-libs/libpng:= virtual/libiconv clang? ( <sys-devel/clang-18:= ) dot? ( media-gfx/graphviz media-libs/freetype ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 )
 REQUIRED_USE=test? ( doc )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://doxygen.nl/files/doxygen-1.9.8.src.tar.gz mirror://sourceforge/doxygen/rel-1.9.8/doxygen-1.9.8.src.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	llvm	976dc8267d6a5af8b259cb956b52d51f	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=5c7223fe95be3e2b3171e4b482ce6b84
+_md5_=5ab14ca51ea07cc62f58013a303bd554
