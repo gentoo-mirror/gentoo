@@ -3387,7 +3387,7 @@ app-text/wscr 1.2-r2: A Lightweight and Fast Anagram Solver
 app-text/wv 1.2.9-r3: Tool for conversion of MSWord doc and rtf files to something readable
 app-text/wv2 0.4.2-r3: Excellent MS Word filter lib, used in most Office suites
 app-text/xapers 0.9.0: Personal document indexing system
-app-text/xapian-omega 1.4.22: An application built on Xapian, consisting of indexers and a CGI search frontend
+app-text/xapian-omega 1.4.22 1.4.23: An application built on Xapian, consisting of indexers and a CGI search frontend
 app-text/xchm 1.35 1.36: Utility for viewing Compiled HTML Help (CHM) files
 app-text/xdvik 22.87.06-r1: DVI viewer for X Window System
 app-text/xhtml1 20020801-r6: DTDs for the eXtensible HyperText Markup Language 1.0
@@ -5609,8 +5609,8 @@ dev-libs/wayland 1.22.0 9999: Wayland protocol libraries
 dev-libs/wayland-protocols 1.32 9999: Wayland protocol files
 dev-libs/weston 11.0.1 12.0.1-r1 12.0.2 9999: Wayland reference compositor
 dev-libs/xalan-c 1.12-r2 9999: XSLT processor for transforming XML into HTML, text, or other XML types
-dev-libs/xapian 1.4.22: Xapian Probabilistic Information Retrieval library
-dev-libs/xapian-bindings 1.4.22: SWIG and JNI bindings for Xapian
+dev-libs/xapian 1.4.22 1.4.23: Xapian Probabilistic Information Retrieval library
+dev-libs/xapian-bindings 1.4.22 1.4.23: SWIG and JNI bindings for Xapian
 dev-libs/xbyak 5.73: JIT assembler for x86(IA-32)/x64(AMD64, x86-64)
 dev-libs/xerces-c 3.2.4-r2 9999: A validating XML parser written in a portable subset of C++
 dev-libs/xmlrpc-c 1.54.05-r2 1.54.06: A lightweight RPC library based on XML and HTTP
@@ -7452,7 +7452,7 @@ dev-perl/Time-Stopwatch 1.0.0-r1: Use tied scalars as timers
 dev-perl/Time-TAI64 2.110.0-r3: Time manipulation in the TAI64* formats
 dev-perl/Time-TZOffset 0.40.0-r1: Show timezone offset strings like +0900
 dev-perl/TimeDate 2.330.0-r1: A Date/Time Parsing Perl Module
-dev-perl/Tk 804.36.0 804.36.0-r1: A Perl Module for Tk
+dev-perl/Tk 804.36.0 804.36.0-r1 804.36.0-r2: A Perl Module for Tk
 dev-perl/Tk-CursorControl 0.400.0-r4: Manipulate the mouse cursor programmatically
 dev-perl/Tk-JPEG-Lite 2.15.0-r1: lite JPEG loader for Tk::Photo
 dev-perl/Tk-TableMatrix 1.260.0 1.290.0: Create and manipulate tables in Perl + Tk
@@ -15102,7 +15102,7 @@ net-misc/rwbs 0.27-r2: Roger Wilco base station
 net-misc/rwhoisd 1.5.9.6-r2: ARIN rwhois daemon
 net-misc/rygel 0.42.4: Rygel is an open source UPnP/DLNA MediaServer
 net-misc/s3cmd 2.2.0 2.3.0: Command line client for Amazon S3
-net-misc/s4cmd 2.1.0 2.1.0-r1: Super S3 command line tool
+net-misc/s4cmd 2.1.0-r2: Super S3 command line tool
 net-misc/s6-networking 2.5.1.3: Suite of small networking utilities for Unix systems
 net-misc/samplicator 1.3.6-r1 1.3.8_rc1-r1: UDP packets forwarder and duplicator
 net-misc/scponly 4.8-r8: A tiny pseudoshell which only permits scp and sftp
@@ -15368,7 +15368,7 @@ net-vpn/riseup-vpn 0.21.11 0.21.11_p20221113 0.21.11_p20230412: Anonymous encryp
 net-vpn/strongswan 5.9.8 5.9.9 5.9.10 5.9.11: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.36.2 1.38.4 1.46.1: Tailscale vpn client
 net-vpn/tinc 1.0.36 1.1_pre18: tinc is an easy to configure VPN implementation
-net-vpn/tor 0.4.7.13-r1 0.4.7.14 0.4.8.4 0.4.8.5 0.4.8.6 9999: Anonymizing overlay network for TCP
+net-vpn/tor 0.4.7.13-r1 0.4.7.14 0.4.7.15 0.4.8.6 9999: Anonymizing overlay network for TCP
 net-vpn/vpnc 0.5.3_p20220927-r1 9999: Free client for Cisco VPN routing software
 net-vpn/vpnc-scripts 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
 net-vpn/vpncloud 2.3.0: High performance peer-to-peer mesh VPN
@@ -16775,8 +16775,8 @@ sys-apps/inxi 3.3.27.1 3.3.28.1 3.3.29.1: The CLI inxi collects and prints hardw
 sys-apps/iotools 1.5: Simple commands to access hardware device registers
 sys-apps/ipmi-fan-control 0.4.0 9999: SuperMicro IPMI fan control daemon
 sys-apps/ipmicfg 1.34.2.230224: An in-band utility for configuring Supermicro IPMI devices
-sys-apps/ipmitool 1.8.19: Utility for controlling IPMI enabled devices
-sys-apps/ipmiutil 3.1.8 3.1.9: IPMI Management Utilities
+sys-apps/ipmitool 1.8.19 1.8.19-r1: Utility for controlling IPMI enabled devices
+sys-apps/ipmiutil 3.1.9: IPMI Management Utilities
 sys-apps/iproute2 6.4.0 6.4.0-r1 6.5.0 9999: kernel routing and traffic control utilities
 sys-apps/irqbalance 1.9.2: Distribute hardware interrupts across processors on a multiprocessor system
 sys-apps/isapnptools 1.27: Tools for configuring ISA PnP devices
@@ -17202,7 +17202,7 @@ sys-devel/distcc 3.4-r1 3.4-r2: Distribute compilation of C code across several 
 sys-devel/dwz 0.14 0.15-r1: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r5 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r1 9.5.0 10.4.1_p20230426-r1 10.4.1_p20230621 10.5.0 11.3.1_p20230427 11.4.0 11.4.1_p20230622 11.4.1_p20230824 11.4.1_p20230914 11.4.1_p20230921 11.5.9999 12.2.1_p20230428-r1 12.3.1_p20230526 12.3.1_p20230623 12.3.1_p20230825 12.3.1_p20230915 12.3.1_p20230922 12.4.9999 13.1.1_p20230527 13.2.0 13.2.1_p20230826 13.2.1_p20230916 13.3.9999 14.0.0_pre20230917 14.0.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r1 9.5.0 10.4.1_p20230426-r1 10.4.1_p20230621 10.5.0 11.3.1_p20230427 11.4.0 11.4.1_p20230622 11.4.1_p20230824 11.4.1_p20230914 11.4.1_p20230921 11.5.9999 12.2.1_p20230428-r1 12.3.1_p20230526 12.3.1_p20230623 12.3.1_p20230825 12.3.1_p20230915 12.3.1_p20230922 12.4.9999 13.1.1_p20230527 13.2.0 13.2.1_p20230826 13.2.1_p20230916 13.2.1_p20230923 13.3.9999 14.0.0_pre20230917 14.0.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 9999: Utility to manage compilers
 sys-devel/gdb 13.2 13.2-r1 13.2-r2 9999: GNU debugger
@@ -17597,7 +17597,7 @@ sys-process/rtirq 20220923: Modify realtime scheduling policy and priority of IR
 sys-process/runit 2.1.2-r1: A UNIX init scheme with service supervision
 sys-process/schedtool 1.3.0-r1: A tool to query or alter a process' scheduling policy
 sys-process/supervise-scripts 4.0-r1 4.0-r2: Starting and stopping daemontools managed services
-sys-process/systemd-cron 1.15.19-r1 1.15.20 1.16.7-r1 2.1.3: systemd units to create timers for cron directories and crontab
+sys-process/systemd-cron 1.15.19-r1 1.15.20 1.16.7-r1 2.1.3-r1: systemd units to create timers for cron directories and crontab
 sys-process/time 1.9-r1: Displays info about resources used by a program
 sys-process/tini 0.19.0-r1: A tiny but valid init for containers
 sys-process/tiptop 2.3.1_p4 2.3.1_p4_p20221211: top for performance counters
