@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools systemd
+inherit autotools flag-o-matic systemd
 
 DESCRIPTION="Utility for controlling IPMI enabled devices"
 HOMEPAGE="https://codeberg.org/IPMITool/ipmitool"
@@ -25,7 +25,7 @@ SRC_URI+="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm64 hppa ~ia64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="openbmc openipmi static"
 
 RDEPEND="
@@ -71,6 +71,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #863587
+	filter-lto
+	append-flags -fno-strict-aliasing
+
 	# - LIPMI and BMC are the Solaris libs
 	# - OpenIPMI is unconditionally enabled in the configure as there is compat
 	# code that is used if the library itself is not available
