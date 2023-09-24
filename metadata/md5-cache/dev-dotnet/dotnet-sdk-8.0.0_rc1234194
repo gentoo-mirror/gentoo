@@ -1,0 +1,15 @@
+BDEPEND=dev-util/cmake dev-vcs/git sys-devel/clang
+DEFINED_PHASES=compile install postinst postrm prepare pretend setup
+DESCRIPTION=.NET is a free, cross-platform, open-source developer platform
+EAPI=8
+HOMEPAGE=https://dotnet.microsoft.com/ https://github.com/dotnet/dotnet/
+IDEPEND=app-eselect/eselect-dotnet
+INHERIT=check-reqs
+KEYWORDS=~amd64
+LICENSE=MIT
+PDEPEND=~dev-dotnet/dotnet-runtime-nugets-8.0.0_rc1234194 ~dev-dotnet/dotnet-runtime-nugets-3.1.32 ~dev-dotnet/dotnet-runtime-nugets-6.0.22 ~dev-dotnet/dotnet-runtime-nugets-7.0.11
+RDEPEND=app-crypt/mit-krb5:0/0 dev-libs/icu dev-libs/openssl:= dev-util/lttng-ust:0/2.12 sys-libs/zlib:0/1
+SLOT=8.0/8.0.0_rc1234194
+SRC_URI=amd64? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/dotnet-sdk-8.0.0_rc1234194-prepared-gentoo-amd64.tar.xz )
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc
+_md5_=7370b7c8e711e994c8103d17bd8270b5
