@@ -5962,7 +5962,7 @@ dev-perl/Archive-Extract 0.880.0: Generic archive extracting mechanism
 dev-perl/Archive-Tar-Stream 0.30.0-r1: Pure perl IO-friendly tar file management
 dev-perl/Archive-Tar-Wrapper 0.380.0: API wrapper around the 'tar' utility
 dev-perl/Archive-Zip 1.680.0: A wrapper that lets you read Zip archive members as if they were files
-dev-perl/Array-Compare 3.0.8: Perl extension for comparing arrays
+dev-perl/Array-Compare 3.0.8 4.0.0: Perl extension for comparing arrays
 dev-perl/Array-Diff 0.90.0: Find the differences between two arrays
 dev-perl/Array-RefElem 1.0.0-r3: Set up array elements as aliases
 dev-perl/Array-Window 1.20.0-r2: Calculate windows/subsets/pages of arrays
@@ -6467,6 +6467,7 @@ dev-perl/FCGI-ProcManager 0.280.0-r1: A FastCGI process manager
 dev-perl/FFI-CheckLib 0.310.0: Check that a library is available for FFI
 dev-perl/FLV-AudioExtractor 0.10.0-r1: Extract audio from Flash Videos
 dev-perl/Fatal-Exception 0.50.0-r3: Succeed or throw exception
+dev-perl/Feature-Compat-Class 0.60.0: Make class syntax available
 dev-perl/Feed-Find 0.70.0-r3 0.120.0 0.130.0: Syndication feed auto-discovery
 dev-perl/Festival-Client-Async 0.30.300-r3: Non-blocking interface to a Festival server
 dev-perl/File-BOM 0.180.0: Utilities for handling Byte Order Marks
@@ -6866,7 +6867,7 @@ dev-perl/Module-Pluggable 5.200.0-r1: Automatically give your module the ability
 dev-perl/Module-Refresh 0.170.0-r2 0.180.0: Refresh %INC files when updated on disk
 dev-perl/Module-Runtime 0.16.0-r1: Runtime module handling
 dev-perl/Module-Runtime-Conflicts 0.3.0-r1: Provide information on conflicts for Module::Runtime
-dev-perl/Module-ScanDeps 1.310.0 1.320.0 1.330.0: Recursively scan Perl code for dependencies
+dev-perl/Module-ScanDeps 1.310.0 1.320.0 1.330.0 1.340.0: Recursively scan Perl code for dependencies
 dev-perl/Module-Signature 0.870.0 0.880.0: Module signature file manipulation
 dev-perl/Module-Starter 1.770.0-r1: A simple starter kit for any module
 dev-perl/Module-Util 1.90.0-r1: Module name tools and transformations
@@ -7007,6 +7008,7 @@ dev-perl/ORLite-Migrate 1.100.0-r2: Extremely light weight SQLite-specific schem
 dev-perl/Object-Enum 0.75.0-r1: Replacement for if ($foo eq 'bar')
 dev-perl/Object-Event 1.230.0-r1: A class that provides an event callback interface
 dev-perl/Object-MultiType 0.50.0-r1: Perl Objects as Hash, Array, Scalar, Code and Glob at the same time
+dev-perl/Object-Pad 0.803.0: Simple syntax for lexical field-based objects
 dev-perl/Object-Realize-Later 0.210.0: Delayed creation of objects
 dev-perl/Ogg-Vorbis-Header 0.110.0: An object-oriented interface to Ogg Vorbis information and comment fields
 dev-perl/Ogg-Vorbis-Header-PurePerl 1.50.0: Object-oriented interface to Ogg Vorbis information and comment fields
@@ -7594,6 +7596,7 @@ dev-perl/XML-XUpdate-LibXML 0.6.0-r2: Process XUpdate commands over an XML docum
 dev-perl/XMLRPC-Lite 0.717.0-r1: client and server implementation of XML-RPC protocol
 dev-perl/XS-Object-Magic 0.50.0: Opaque, extensible XS pointer backed objects using sv_magic
 dev-perl/XS-Parse-Keyword 0.340.0 0.350.0 0.360.0 0.380.0: XS functions to assist in parsing keyword syntax
+dev-perl/XS-Parse-Sublike 0.200.0: XS functions to assist in parsing sub-like syntax
 dev-perl/XString 0.5.0: Isolated String helpers from B
 dev-perl/XXX 0.380.0: See Your Data in the Nude
 dev-perl/YAML 1.300.0: YAML Ain't Markup Language (tm)
@@ -12212,7 +12215,7 @@ kde-plasma/breeze 5.27.7 5.27.8-r1: Breeze visual style for the Plasma desktop
 kde-plasma/breeze-grub 5.27.7 5.27.8: Breeze theme for GRUB
 kde-plasma/breeze-gtk 5.27.7 5.27.8: Official GTK+ port of Plasma's Breeze widget style
 kde-plasma/breeze-plymouth 5.27.7 5.27.8: Breeze theme for Plymouth
-kde-plasma/discover 5.27.7 5.27.8: KDE Plasma resources management GUI
+kde-plasma/discover 5.27.7 5.27.8 5.27.8-r1: KDE Plasma resources management GUI
 kde-plasma/drkonqi 5.27.7 5.27.8-r1: Plasma crash handler, gives the user feedback if a program crashed
 kde-plasma/flatpak-kcm 5.27.7 5.27.8: Flatpak Permissions Management KCM
 kde-plasma/kactivitymanagerd 5.27.7 5.27.8: System service to manage user's activities, track the usage patterns etc.
@@ -12225,7 +12228,7 @@ kde-plasma/khotkeys 5.27.7 5.27.8: KDE Plasma workspace hotkey module
 kde-plasma/kinfocenter 5.27.7 5.27.8-r1: Utility providing information about the computer hardware
 kde-plasma/kmenuedit 5.27.7 5.27.8: KDE Plasma menu editor
 kde-plasma/kpipewire 5.27.7 5.27.8: Components relating to Flatpak pipewire use in Plasma
-kde-plasma/kscreen 5.27.7 5.27.8-r1: KDE Plasma screen management
+kde-plasma/kscreen 5.27.7 5.27.8-r1 5.27.8-r2: KDE Plasma screen management
 kde-plasma/kscreenlocker 5.27.7 5.27.8: Library and components for secure lock screen architecture
 kde-plasma/ksshaskpass 5.27.7 5.27.8: Implementation of ssh-askpass with KDE Wallet integration
 kde-plasma/ksysguard 5.22.0-r1: Network-enabled resource usage monitor
@@ -12254,7 +12257,7 @@ kde-plasma/plasma-systemmonitor 5.27.7 5.27.8: Monitor system sensors, process i
 kde-plasma/plasma-thunderbolt 5.27.7 5.27.8: Plasma integration for controlling Thunderbolt devices
 kde-plasma/plasma-vault 5.27.7 5.27.8: Plasma applet and services for creating encrypted vaults
 kde-plasma/plasma-welcome 5.27.7 5.27.8: A friendly onboarding wizard for Plasma
-kde-plasma/plasma-workspace 5.27.7-r1 5.27.8: KDE Plasma workspace
+kde-plasma/plasma-workspace 5.27.7-r1 5.27.8 5.27.8-r1: KDE Plasma workspace
 kde-plasma/plasma-workspace-wallpapers 5.27.7 5.27.8: Wallpapers for the Plasma workspace
 kde-plasma/plymouth-kcm 5.27.7 5.27.8: KDE Plasma control module for Plymouth
 kde-plasma/polkit-kde-agent 5.27.7 5.27.8: PolKit agent module for KDE Plasma
@@ -12976,7 +12979,7 @@ media-libs/lib3mf 2.2.0: Implementation of the 3D Manufacturing Format file stan
 media-libs/libaacs 0.11.1-r1: Open implementation of the Advanced Access Content System (AACS) specification
 media-libs/libafterimage 1.20-r6: Afterstep's standalone generic image manipulation library
 media-libs/libao 1.2.2-r3: The Audio Output library
-media-libs/libaom 3.4.0 3.5.0 3.6.0 3.6.1 9999: Alliance for Open Media AV1 Codec SDK
+media-libs/libaom 3.4.0 3.5.0 3.6.0 3.6.1 3.7.0 9999: Alliance for Open Media AV1 Codec SDK
 media-libs/libart_lgpl 2.3.21-r3: A LGPL version of libart
 media-libs/libass 0.16.0 0.17.1: Library for SSA/ASS subtitles rendering
 media-libs/libavif 0.10.1 0.11.1 9999: Library for encoding and decoding .avif files
@@ -17892,7 +17895,7 @@ www-apps/wiliki 0.6.1-r1: WiLiKi is a lightweight Wiki engine written in and run
 www-apps/wordpress 6.3.1: Wordpress PHP and MySQL based content management system (CMS)
 www-apps/xpra-html5 6.1 8.1: HTML5 client to connect to any xpra server
 www-apps/zeppelin-bin 0.10.1: Web-based interactive data analytics notebook launcher
-www-client/chromium 116.0.5845.140 116.0.5845.187 117.0.5938.88: Open-source version of Google Chrome web browser
+www-client/chromium 116.0.5845.140 116.0.5845.187 117.0.5938.88 117.0.5938.92: Open-source version of Google Chrome web browser
 www-client/elinks 0.16.0 0.16.1.1-r1 0.16.1.1-r2 9999: Advanced and well-established text-mode web browser
 www-client/epiphany 44.6: GNOME webbrowser based on Webkit
 www-client/falkon 23.04.3 23.08.1: Cross-platform web browser using QtWebEngine
