@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/libnl:=
+DESCRIPTION=nl80211 configuration utility for wireless devices using the mac80211 stack
+EAPI=8
+HOMEPAGE=https://wireless.wiki.kernel.org/en/users/Documentation/iw
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=ISC
+RDEPEND=dev-libs/libnl:= net-wireless/wireless-regdb
+SLOT=0
+SRC_URI=https://mirrors.edge.kernel.org/pub/software/network/iw/iw-5.19.tar.xz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=6573becc225748c962b21d2ebb09a164

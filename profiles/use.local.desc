@@ -8134,6 +8134,12 @@ sys-devel/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) su
 sys-devel/clang-toolchain-symlinks:gcc-symlinks - Install symlinks for 'gcc' and 'g++' for extra compatibility.
 sys-devel/clang-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 sys-devel/clang-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'cc' and 'c++', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/gcc-config but they can be helpful for GCC-free setups.
+sys-devel/crosstool-ng:dtc - Require sys-apps/dtc
+sys-devel/crosstool-ng:lzip - Require app-arch/lzip
+sys-devel/crosstool-ng:meson - Require dev-util/meson
+sys-devel/crosstool-ng:ninja - Require dev-util/ninja
+sys-devel/crosstool-ng:rsync - Require net-misc/rsync
+sys-devel/crosstool-ng:wget - Require net-misc/wget
 sys-devel/distcc:gssapi - Enable support for net-libs/libgssglue
 sys-devel/gcc:ada - Build the ADA language (GNAT) frontend
 sys-devel/gcc:cet - Enable support for Intel Control Flow Enforcement Technology (CET). Only effective on amd64/x86. Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either. When combined with USE=hardened, GCC will set -fcf-protection by default when building software. The effect is minimal on systems which do not support it, other than a possible small increase in codesize for the NOPs. The generated code is therefore compatible with i686 at the earliest.

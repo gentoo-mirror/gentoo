@@ -1190,7 +1190,7 @@ app-arch/p7zip 16.02-r8 17.05-r1: Port of 7-Zip archiver for Unix
 app-arch/pack 0.0.0.1: Haskell implementation of pack compression from the early 1980s
 app-arch/par2cmdline 0.8.1-r1 0.8.1-r2: A PAR-2.0 file verification and repair tool
 app-arch/par2cmdline-turbo 1.1.0 9999: par2cmdline × ParPar: speed focused par2cmdline fork
-app-arch/patool 1.12: Portable archive file manager
+app-arch/patool 1.12 1.12_p20230424: Portable archive file manager
 app-arch/pax 20201030: pax (Portable Archive eXchange) is the POSIX standard archive tool
 app-arch/pbzip2 1.1.13: Parallel bzip2 (de)compressor using libbz2
 app-arch/pdlzip 1.12: Public-domain version of lzip compressor
@@ -1419,7 +1419,7 @@ app-crypt/age 1.0.0 1.1.1: A simple, modern and secure encryption tool (and Go l
 app-crypt/argon2 20190702-r1: Password hashing software that won the Password Hashing Competition (PHC)
 app-crypt/asedriveiiie-serial 3.5: ASEDriveIIIe Serial Card Reader
 app-crypt/asedriveiiie-usb 3.5: ASEDriveIIIe USB Card Reader
-app-crypt/asekey 3.7: ASEKey USB SIM Card Reader
+app-crypt/asekey 3.7 3.7-r1: ASEKey USB SIM Card Reader
 app-crypt/bcwipe 1.9.13: Secure file removal utility
 app-crypt/bsign 0.4.5-r1: embed secure hashes (SHA1) and digital signatures (GNU Privacy Guard) into files
 app-crypt/ccid 1.5.1: CCID free software driver
@@ -3947,7 +3947,7 @@ dev-dotnet/csharp-gentoodotnetinfo 0.1.0: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.9.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.5: A command line C# REPL with syntax highlighting
 dev-dotnet/dotnet-runtime-nugets 3.1.32 6.0.12 6.0.16 6.0.22 7.0.5 7.0.11 8.0.0_rc1234194: .NET runtime nugets
-dev-dotnet/dotnet-sdk 7.0.105 8.0.0_rc1234194: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk 7.0.105-r1 8.0.0_rc1234194-r1: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/dotnet-sdk-bin 6.0.404-r1 7.0.203 7.0.401-r1: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/libgdiplus 6.0.2-r4: Library for using System.Drawing with Mono
 dev-dotnet/monocalendar 0.7.2: iCal clone for .NET
@@ -5226,7 +5226,7 @@ dev-libs/libcdada 0.4.0: Basic data structures in C
 dev-libs/libcdio 2.1.0-r1: A library to encapsulate CD-ROM reading and control
 dev-libs/libcdio-paranoia 2.0.1: an advanced CDDA reader with error correction
 dev-libs/libcec 6.0.2-r1: Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor
-dev-libs/libcgroup 0.41-r6 2.0 3.0.0: Tools and libraries to configure and manage kernel control groups
+dev-libs/libcgroup 0.41-r6 2.0 3.0.0 3.0.0-r1 3.1.0: Tools and libraries to configure and manage kernel control groups
 dev-libs/libchdr 0_p20230230: Standalone library for reading MAME's CHDv1-v5 formats
 dev-libs/libclc 14.0.6 15.0.7 16.0.6 17.0.0_rc4 17.0.1 17.0.1.9999 18.0.0_pre20230906 18.0.0.9999: OpenCL C library
 dev-libs/libclthreads 2.4.2: POSIX threads C++ access library
@@ -8173,7 +8173,7 @@ dev-python/ecdsa 0.18.0: ECDSA cryptographic signature library in pure Python
 dev-python/editables 0.5: A Python library for creating 'editable wheels'
 dev-python/editorconfig-core-py 0.12.3-r1: Clone of EditorConfig core written in Python
 dev-python/elastic-transport 8.4.0: Transport classes and utilities shared among Python Elastic client libraries
-dev-python/elasticsearch 8.8.2 8.9.0: Official Elasticsearch client library for Python
+dev-python/elasticsearch 8.8.2 8.9.0 8.10.0: Official Elasticsearch client library for Python
 dev-python/elementpath 4.1.5: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/email-validator 2.0.0_p2: A robust email syntax and deliverability validation library
 dev-python/emcee 3.1.4: Python ensemble sampling toolkit for affine-invariant MCMC
@@ -11873,6 +11873,7 @@ gui-libs/wlroots 0.14.0-r2 0.14.1-r1 0.15.1 0.15.1-r1 0.16.2 0.16.2-r1 9999: Plu
 gui-libs/wpebackend-fdo 1.14.2: WPE backend designed for Linux desktop systems
 gui-libs/xdg-desktop-portal-lxqt 0.4.0: Backend implementation for xdg-desktop-portal using Qt/KF5/libfm-qt
 gui-libs/xdg-desktop-portal-wlr 0.5.0 0.6.0 0.7.0 9999: xdg-desktop-portal backend for wlroots
+gui-wm/dwl 0.4 9999 9999-r1: dwm for Wayland
 gui-wm/gamescope 3.12.5: Efficient micro-compositor for running games
 gui-wm/hikari 2.3.3: Wayland compositor inspired by CWM
 gui-wm/hyprland 0.28.0-r1 0.29.1: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
@@ -15413,7 +15414,7 @@ net-wireless/horst 5.1 9999: Small 802.11 wireless LAN analyzer
 net-wireless/hostap-utils 0.4.7-r1: Utilities for Intersil Prism2/2.5/3 based IEEE 802.11b wireless LAN products
 net-wireless/hostapd 2.10-r1 2.10-r2 9999: IEEE 802.11 wireless LAN Host AP daemon
 net-wireless/inspectrum 0.2.3 9999: Tool for analysing captured signals from software-defined radio receivers
-net-wireless/iw 5.9 5.19: nl80211 configuration utility for wireless devices using the mac80211 stack
+net-wireless/iw 5.9 5.19 5.19-r1: nl80211 configuration utility for wireless devices using the mac80211 stack
 net-wireless/iwd 2.3 2.4 2.5 2.6 2.7 2.8 2.8-r1 9999: Wireless daemon for linux
 net-wireless/iwgtk 0.9: Lightweight, graphical wifi management utility for Linux
 net-wireless/kismet 2022.08.1-r2 2023.07.1 9999: IEEE 802.11 wireless LAN sniffer
@@ -17200,7 +17201,7 @@ sys-devel/clang-toolchain-symlinks 14-r2 15-r2 16-r2 17 18: Symlinks to use Clan
 sys-devel/cons 2.3.0-r1: Extensible perl-based build utility
 sys-devel/cproc 0_pre20220805 9999: C11 compiler using QBE as backend
 sys-devel/crossdev 20230321 20230616 20230831 20230923 99999999: Gentoo Cross-toolchain generator
-sys-devel/ct-ng 1.24.0-r1: crosstool-ng is a tool to build cross-compiling toolchains
+sys-devel/crosstool-ng 1.24.0-r1 1.24.0-r2 1.25.0 1.26.0_rc1 1.26.0_rc2 9999: A versatile (cross-)toolchain generator.
 sys-devel/dev86 0.16.21-r3: Bruce's C compiler - Simple C compiler to generate 8086 code
 sys-devel/distcc 3.4-r1 3.4-r2: Distribute compilation of C code across several machines on a network
 sys-devel/dwz 0.14 0.15-r1: DWARF optimization and duplicate removal tool

@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/bison sys-devel/flex sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare setup test
+DEPEND=elibc_musl? ( sys-libs/fts-standalone ) pam? ( sys-libs/pam )
+DESCRIPTION=Tools and libraries to configure and manage kernel control groups
+EAPI=8
+HOMEPAGE=https://github.com/libcgroup/libcgroup
+INHERIT=autotools flag-o-matic linux-info pam systemd
+IUSE=+daemon pam static-libs test +tools
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=elibc_musl? ( sys-libs/fts-standalone ) pam? ( sys-libs/pam )
+REQUIRED_USE=daemon? ( tools )
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://github.com/libcgroup/libcgroup/releases/download/v3.0.0/libcgroup-3.0.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=f7b2a179666e795692b5f3e9f1798e97
