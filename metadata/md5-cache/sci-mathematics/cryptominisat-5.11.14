@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/boost:= sys-libs/zlib:=
+DESCRIPTION=Advanced SAT solver with C++ and command-line interfaces
+EAPI=8
+HOMEPAGE=https://github.com/msoos/cryptominisat/
+INHERIT=cmake
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 MIT
+RDEPEND=dev-libs/boost:= sys-libs/zlib:=
+RESTRICT=test
+SLOT=0/5.11.14
+SRC_URI=https://github.com/msoos/cryptominisat/archive/5.11.14.tar.gz -> cryptominisat-5.11.14.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80
+_md5_=63d6a2225f434629f74421471788b63b
