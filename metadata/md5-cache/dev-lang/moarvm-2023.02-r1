@@ -1,15 +1,15 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure unpack
+DEFINED_PHASES=configure
 DEPEND=app-arch/zstd:= dev-libs/libatomic_ops >=dev-libs/libuv-1.26:= dev-libs/libffi:= dev-lang/perl clang? ( >=sys-devel/clang-3.1 )
 DESCRIPTION=A 6model-based VM for NQP and Raku
 EAPI=8
 HOMEPAGE=http://moarvm.org
-INHERIT=edo git-r3
+INHERIT=edo
 IUSE=asan clang debug doc +jit optimize static-libs ubsan
+KEYWORDS=~amd64 ~x86
 LICENSE=Artistic-2
-PROPERTIES=live
 RDEPEND=app-arch/zstd:= dev-libs/libatomic_ops >=dev-libs/libuv-1.26:= dev-libs/libffi:=
 RESTRICT=test
 SLOT=0
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=55e5d236f8f6d36f351b5c258cf72ada
+SRC_URI=http://moarvm.org/releases/MoarVM-2023.02.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3
+_md5_=dafc956e2a7a283ded0edb11d6cf0ecb
