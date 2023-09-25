@@ -3,18 +3,17 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit autotools python-single-r1 systemd
 
-MY_PV_MM=$(ver_cut 1-2)
 DESCRIPTION="syslog replacement with advanced filtering features"
 HOMEPAGE="https://www.syslog-ng.com/products/open-source-log-management/"
 SRC_URI="https://github.com/balabit/syslog-ng/releases/download/${P}/${P}.tar.gz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE="amqp caps dbi geoip2 http ipv6 json kafka mongodb pacct python redis smtp snmp test spoof-source systemd tcpd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="amqp caps dbi geoip2 http json kafka mongodb pacct python redis smtp snmp test spoof-source systemd tcpd"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 	test? ( python )"
 RESTRICT="!test? ( test )"
@@ -22,7 +21,8 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-libs/glib-2.10.1:2
 	>=dev-libs/ivykis-0.42.4
-	>=dev-libs/libpcre-6.1:=
+	>=dev-libs/libpcre-6.1
+	dev-libs/openssl:0=
 	!dev-libs/eventlog
 	amqp? ( >=net-libs/rabbitmq-c-0.8.0:=[ssl] )
 	caps? ( sys-libs/libcap )
@@ -32,14 +32,18 @@ RDEPEND="
 	json? ( >=dev-libs/json-c-0.9:= )
 	kafka? ( >=dev-libs/librdkafka-1.0.0:= )
 	mongodb? ( >=dev-libs/mongo-c-driver-1.2.0 )
-	python? ( ${PYTHON_DEPS} )
+	python? (
+		${PYTHON_DEPS}
+		$(python_gen_cond_dep '
+			dev-python/setuptools[${PYTHON_USEDEP}]
+		')
+	)
 	redis? ( >=dev-libs/hiredis-0.11.0:= )
 	smtp? ( net-libs/libesmtp:= )
 	snmp? ( net-analyzer/net-snmp:0= )
-	spoof-source? ( net-libs/libnet:1.1= )
+	spoof-source? ( net-libs/libnet:1.1 )
 	systemd? ( sys-apps/systemd:= )
-	tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
-	dev-libs/openssl:0="
+	tcpd? ( >=sys-apps/tcp-wrappers-7.6 )"
 DEPEND="${RDEPEND}
 	test? ( dev-libs/criterion )"
 BDEPEND="
@@ -60,6 +64,10 @@ pkg_setup() {
 
 src_prepare() {
 	local f
+
+	# disable python-modules test as it requires additional python modules not
+	# packaged in Gentoo
+	sed -i '/MAKE/s/.*/exit 0/g' modules/python-modules/test_pymodules.sh || die
 
 	use python && python_fix_shebang .
 
@@ -89,9 +97,9 @@ src_prepare() {
 			"${FILESDIR}/${f}" > "${T}/${f/.in/}" || die
 	done
 
-	for f in syslog-ng.conf.gentoo.hardened.in \
-			syslog-ng.conf.gentoo.in; do
-		sed -e "s/@SYSLOGNG_VERSION@/${MY_PV_MM}/g" "${FILESDIR}/${f}" > "${T}/${f/.in/}" || die
+	for f in syslog-ng.conf.gentoo.hardened.in-r1 \
+			syslog-ng.conf.gentoo.in-r1; do
+		sed -e "s/@SYSLOGNG_VERSION@/$(ver_cut 1-2)/g" "${FILESDIR}/${f}" > "${T}/${f/.in-r1/}" || die
 	done
 
 	default
@@ -99,11 +107,15 @@ src_prepare() {
 }
 
 src_configure() {
+	# Needs bison/flex.
+	unset YACC LEX
+
 	local myconf=(
 		--disable-docs
 		--disable-java
 		--disable-java-modules
 		--disable-riemann
+		--enable-ipv6
 		--enable-manpages
 		--localstatedir=/var/lib/syslog-ng
 		--sysconfdir=/etc/syslog-ng
@@ -111,6 +123,7 @@ src_configure() {
 		--with-ivykis=system
 		--with-module-dir=/usr/$(get_libdir)/syslog-ng
 		--with-pidfile-dir=/var/run
+		--with-python-packages=none
 		--with-systemdsystemunitdir="$(systemd_get_systemunitdir)"
 		$(use_enable amqp)
 		$(usex amqp --with-librabbitmq-client=system --without-librabbitmq-client)
@@ -118,7 +131,6 @@ src_configure() {
 		$(use_enable dbi sql)
 		$(use_enable geoip2)
 		$(use_enable http)
-		$(use_enable ipv6)
 		$(use_enable json)
 		$(use_enable kafka)
 		$(use_enable mongodb)
@@ -161,7 +173,7 @@ pkg_postinst() {
 	# bug #355257
 	if ! has_version app-admin/logrotate ; then
 		elog "It is highly recommended that app-admin/logrotate be emerged to"
-		elog "manage the log files.  ${PN} installs a file in /etc/logrotate.d"
+		elog "manage the log files. ${PN} installs a file in /etc/logrotate.d"
 		elog "for logrotate to use."
 	fi
 
