@@ -1,31 +1,31 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-EGIT_COMMIT="34e8f3933242f2e566bbbbf343cf69b7d506c1cf"
+EAPI=8
+EGIT_COMMIT="75e3c12579d391b81d871fd1cded6cf0d043550a"
 
-inherit bash-completion-r1 flag-o-matic go-module tmpfiles
+inherit shell-completion flag-o-matic go-module tmpfiles
 
 DESCRIPTION="Library and podman tool for running OCI-based containers in Pods"
-HOMEPAGE="https://github.com/containers/podman/"
+HOMEPAGE="https://github.com/containers/podman/ https://podman.io/"
 MY_PN=podman
 MY_P=${MY_PN}-${PV}
 SRC_URI="https://github.com/containers/podman/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 LICENSE="Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0"
 SLOT="0"
 
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
+KEYWORDS="~amd64"
 IUSE="apparmor btrfs cgroup-hybrid +fuse +init +rootless selinux"
-RESTRICT+=" test"
+RESTRICT="test"
 
 COMMON_DEPEND="
 	app-crypt/gpgme:=
+	>=app-containers/containers-common-0.56.0
 	>=app-containers/conmon-2.0.0
 	cgroup-hybrid? ( >=app-containers/runc-1.0.0_rc6  )
 	!cgroup-hybrid? ( app-containers/crun )
 	dev-libs/libassuan:=
 	dev-libs/libgpg-error:=
-	>=app-containers/cni-plugins-0.8.6
 	sys-apps/shadow:=
 	sys-fs/lvm2
 	sys-libs/libseccomp:=
@@ -110,12 +110,8 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 
-	insinto /etc/containers
-	newins test/registries.conf registries.conf.example
-	newins test/policy.json policy.json.example
-
-	insinto /usr/share/containers
-	doins vendor/github.com/containers/common/pkg/seccomp/seccomp.json
+	insinto /etc/cni/net.d
+	doins cni/87-podman-bridge.conflist
 
 	newconfd "${FILESDIR}"/podman.confd podman
 	newinitd "${FILESDIR}"/podman.initd podman
@@ -124,12 +120,8 @@ src_install() {
 	newins "${FILESDIR}/podman.logrotated" podman
 
 	dobashcomp completions/bash/*
-
-	insinto /usr/share/zsh/site-functions
-	doins completions/zsh/*
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins completions/fish/*
+	dozshcomp completions/zsh/*
+	dofishcomp completions/fish/*
 
 	keepdir /var/lib/containers
 }
@@ -145,15 +137,6 @@ pkg_postinst() {
 	tmpfiles_process podman.conf
 
 	local want_newline=false
-	if [[ ! ( -e ${EROOT%/*}/etc/containers/policy.json && -e ${EROOT%/*}/etc/containers/registries.conf ) ]]; then
-		elog "You need to create the following config files:"
-		elog "/etc/containers/registries.conf"
-		elog "/etc/containers/policy.json"
-		elog "To copy over default examples, use:"
-		elog "cp /etc/containers/registries.conf{.example,}"
-		elog "cp /etc/containers/policy.json{.example,}"
-		want_newline=true
-	fi
 	if [[ ${PODMAN_ROOTLESS_UPGRADE} == true ]] ; then
 		${want_newline} && elog ""
 		elog "For rootless operation, you need to configure subuid/subgid"
