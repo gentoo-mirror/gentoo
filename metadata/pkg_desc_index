@@ -2430,7 +2430,7 @@ app-eselect/eselect-postgresql 2.4-r1: Utility to select the default PostgreSQL 
 app-eselect/eselect-pwsh 0.1.1: Eselect module for management of multiple pwsh versions
 app-eselect/eselect-python 20200719: Eselect module for management of multiple Python versions
 app-eselect/eselect-rails 0.26: Manages Ruby on Rails symlinks
-app-eselect/eselect-repository 13: Manage repos.conf via eselect
+app-eselect/eselect-repository 13 14: Manage repos.conf via eselect
 app-eselect/eselect-ruby 20220313 20221225 20230616: Manages multiple Ruby versions
 app-eselect/eselect-rust 20210703: Eselect module for management of multiple Rust versions
 app-eselect/eselect-scala 0.1.1-r1: Manages multiple Scala versions
@@ -5226,7 +5226,7 @@ dev-libs/libcdada 0.4.0: Basic data structures in C
 dev-libs/libcdio 2.1.0-r1: A library to encapsulate CD-ROM reading and control
 dev-libs/libcdio-paranoia 2.0.1: an advanced CDDA reader with error correction
 dev-libs/libcec 6.0.2-r1: Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor
-dev-libs/libcgroup 0.41-r6 2.0 3.0.0 3.0.0-r1 3.1.0: Tools and libraries to configure and manage kernel control groups
+dev-libs/libcgroup 0.41-r6 3.0.0 3.0.0-r1 3.1.0: Tools and libraries to configure and manage kernel control groups
 dev-libs/libchdr 0_p20230230: Standalone library for reading MAME's CHDv1-v5 formats
 dev-libs/libclc 14.0.6 15.0.7 16.0.6 17.0.0_rc4 17.0.1 17.0.1.9999 18.0.0_pre20230906 18.0.0.9999: OpenCL C library
 dev-libs/libclthreads 2.4.2: POSIX threads C++ access library
@@ -8322,7 +8322,7 @@ dev-python/hvac 1.1.1 1.2.0 1.2.1: HashiCorp Vault API client
 dev-python/hypercorn 0.14.4: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.83.1 6.84.3 6.85.1 6.86.1 6.86.2: A library for property based testing
+dev-python/hypothesis 6.83.1 6.84.3 6.85.1 6.86.1 6.86.2 6.87.0: A library for property based testing
 dev-python/icalendar 5.0.7 5.0.8 5.0.9: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.26 2.5.27 2.5.28 2.5.29: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
@@ -8803,7 +8803,7 @@ dev-python/pygame 2.5.0-r2 2.5.1: Python bindings for SDL multimedia library
 dev-python/pygame_sdl2 8.0.3: Reimplementation of portions of the pygame API using SDL2
 dev-python/pygccxml 2.2.1-r1 2.3.0: A specialized XML reader to navigate C++ declarations
 dev-python/pyghmi 1.5.61 1.5.62 1.5.63: A pure python implementation of IPMI protocol
-dev-python/pygit2 1.12.2: Python bindings for libgit2
+dev-python/pygit2 1.12.2 1.13.1: Python bindings for libgit2
 dev-python/pyglet 2.0.9: Cross-platform windowing and multimedia library for Python
 dev-python/pygments 2.16.1: Pygments is a syntax highlighting package written in Python
 dev-python/pygments-ansi-color 0.3.0: ANSI color-code highlighting for Pygments
@@ -8854,7 +8854,7 @@ dev-python/pyotp 2.8.0 2.9.0: PyOTP is a Python library for generating and verif
 dev-python/pyparsing 3.0.9 3.1.0 3.1.1: Easy-to-use Python module for text parsing
 dev-python/pyparted 3.12.0: Python bindings for sys-block/parted
 dev-python/pypax 0.9.5-r1 9999: Python module to get or set either PT_PAX and/or XATTR_PAX flags
-dev-python/pypdf 3.15.1 3.15.2 3.15.3 3.15.4 3.15.5 3.16.0 3.16.1: Python library to work with PDF files
+dev-python/pypdf 3.15.1 3.15.2 3.15.3 3.15.4 3.15.5 3.16.0 3.16.1 3.16.2: Python library to work with PDF files
 dev-python/pyperclip 1.8.2-r1: A cross-platform clipboard module for Python
 dev-python/pyphen 0.14.0: Python module for hyphenation using hunspell dictionaries
 dev-python/pypiserver 1.5.2: Minimal PyPI server
@@ -9036,7 +9036,7 @@ dev-python/python-sshpubkeys 3.3.1: OpenSSH public key parser for Python
 dev-python/python-stdnum 1.18 1.19: A module to handle standardized numbers and codes
 dev-python/python-swiftclient 4.3.0 4.4.0: Python bindings to the OpenStack Object Storage API
 dev-python/python-systemd 235: Python module for native access to the systemd facilities
-dev-python/python-utils 3.7.0: Collection of small Python functions & classes
+dev-python/python-utils 3.7.0 3.8.0: Collection of small Python functions & classes
 dev-python/python-varlink 31.0.0: Python implementation of the Varlink protocol
 dev-python/python-vlc 3.0.18122: Python ctypes-based bindings for libvlc
 dev-python/python-xlib 0.33: A fully functional X client library for Python, written in Python
@@ -9088,7 +9088,7 @@ dev-python/quantities 0.14.1: Support for physical quantities with units, based 
 dev-python/radon 6.0.1: Code Metrics in Python
 dev-python/raet 0.6.8-r5: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.1-r2: Python-2.7 random module ported to python-3
-dev-python/rapidfuzz 3.1.1 3.1.2 3.2.0 3.3.0: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 3.1.1 3.1.2 3.2.0 3.3.0 3.3.1: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rapidfuzz-capi 1.0.5: C-API of RapidFuzz, which can be used to extend RapidFuzz
 dev-python/rarfile 4.0-r2 4.1: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
@@ -9457,7 +9457,7 @@ dev-python/xcffib 1.3.0-r1 1.4.0 1.5.0: A drop in replacement for xpyb, an XCB p
 dev-python/xdoctest 1.1.1: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 0.8: Python bindings for libxkbcommon using cffi
 dev-python/xlrd 2.0.1-r1: Library to extract data from Microsoft Excel spreadsheets
-dev-python/xlsxwriter 3.1.2 3.1.3 3.1.4: Python module for creating Excel XLSX files
+dev-python/xlsxwriter 3.1.2 3.1.3 3.1.4 3.1.5: Python module for creating Excel XLSX files
 dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible with Excel
 dev-python/xmlschema 2.3.1 2.5.0: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.12-r2: Python bindings for the XML Security Library
@@ -18894,7 +18894,7 @@ xfce-extra/xfce4-mount-plugin 1.1.6: An mount plug-in for the Xfce panel
 xfce-extra/xfce4-mpc-plugin 0.5.3: Music Player Daemon (mpd) panel plugin
 xfce-extra/xfce4-netload-plugin 1.4.1: A network load plug-in for the Xfce panel
 xfce-extra/xfce4-notes-plugin 1.10.0: Xfce4 panel sticky notes plugin
-xfce-extra/xfce4-notifyd 0.8.2 0.9.1: Notification daemon for the Xfce desktop environment
+xfce-extra/xfce4-notifyd 0.8.2 0.9.1 0.9.2: Notification daemon for the Xfce desktop environment
 xfce-extra/xfce4-panel-profiles 1.0.13 1.0.14: Simple application to manage Xfce panel layouts
 xfce-extra/xfce4-places-plugin 1.8.3: A panel plug-in to provide quick access to files, folders and removable media
 xfce-extra/xfce4-pulseaudio-plugin 0.4.5 0.4.6 0.4.7-r1: A panel plug-in for PulseAudio volume control

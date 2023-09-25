@@ -1,0 +1,16 @@
+BDEPEND=test? ( python_single_target_python3_10? ( dev-python/pytest[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pytest[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] ) )
+DEFINED_PHASES=compile install setup test
+DESCRIPTION=Manage repos.conf via eselect
+EAPI=8
+HOMEPAGE=https://github.com/projg2/eselect-repository/
+INHERIT=python-single-r1
+IUSE=test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos
+LICENSE=BSD-2
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) app-admin/eselect python_single_target_python3_10? ( dev-python/lxml[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/lxml[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/lxml[python_targets_python3_12(-)] ) net-misc/wget
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/projg2/eselect-repository/archive/v14.tar.gz -> eselect-repository-14.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=b3567573a85d4d8448ba82382364ad2b
