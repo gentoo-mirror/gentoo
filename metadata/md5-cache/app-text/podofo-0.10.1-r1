@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=virtual/pkgconfig test? ( fontconfig? ( media-fonts/liberation-fonts ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=idn? ( net-dns/libidn:= ) dev-libs/openssl:= fontconfig? ( media-libs/fontconfig:= ) media-libs/freetype:2= jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) dev-libs/libxml2 tiff? ( media-libs/tiff:= ) sys-libs/zlib:=
 DESCRIPTION=PoDoFo is a C++ library to work with the PDF file format
 EAPI=8
 HOMEPAGE=https://github.com/podofo/podofo
-INHERIT=cmake
+INHERIT=cmake flag-o-matic
 IUSE=idn jpeg tiff png fontconfig test tools
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=LGPL-2+ tools? ( GPL-2+ )
 RDEPEND=idn? ( net-dns/libidn:= ) dev-libs/openssl:= fontconfig? ( media-libs/fontconfig:= ) media-libs/freetype:2= jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) dev-libs/libxml2 tiff? ( media-libs/tiff:= ) sys-libs/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://github.com/podofo/podofo/archive/refs/tags/0.10.1.tar.gz -> podofo-0.10.1.tar.gz test? ( https://github.com/podofo/podofo-resources/archive/4afe5c3fdb543a4347681b2e52252f1b10f12f24.tar.gz -> podofo-0.10.1-test-resources.tar.gz )
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80
-_md5_=a82edb3cb162d2488717ae6bf5074a83
+_md5_=856d726e29b789c5f74cc731b1587aae
