@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.16.12 dev-go/go-md2man virtual/pkgconfig virtual/pkgconfig virtual/pkgconfig >=dev-lang/go-1.10
+DEFINED_PHASES=compile install postinst postrm setup unpack
+DEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) device-mapper? ( >=sys-fs/lvm2-2.02.89[thin] ) seccomp? ( >=sys-libs/libseccomp-2.2.1 )
+DESCRIPTION=The core functions you need to create Docker images and run Docker containers
+EAPI=7
+HOMEPAGE=https://www.docker.com/
+INHERIT=linux-info systemd udev golang-vcs-snapshot
+IUSE=apparmor btrfs +container-init device-mapper overlay seccomp selinux
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) device-mapper? ( >=sys-fs/lvm2-2.02.89[thin] ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) >=net-firewall/iptables-1.4 sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9 dev-libs/libltdl >=app-containers/containerd-1.7.3[apparmor?,btrfs?,device-mapper?,seccomp?] >=app-containers/runc-1.1.9[apparmor?,seccomp?] !app-containers/docker-proxy container-init? ( >=sys-process/tini-0.19.0[static] ) selinux? ( sec-policy/selinux-docker )
+RESTRICT=installsources strip test
+SLOT=0
+SRC_URI=https://github.com/moby/moby/archive/v24.0.6.tar.gz -> docker-24.0.6.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152	golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	80659643e60eb07e6df6ff936b7d5f66
+_md5_=8dface580e77269784c6d10f54255760
