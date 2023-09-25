@@ -37,6 +37,10 @@ DEPEND="${RDEPEND}
 
 DOCS=( CREDITS README.markdown )
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2023.02-fix-build-clang16.patch
+)
+
 src_configure() {
 	MAKEOPTS+=" NOISY=1"
 	use doc && DOCS+=( docs/* )
