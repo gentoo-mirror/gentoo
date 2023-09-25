@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DEPEND=sys-fs/fuse:0
+DESCRIPTION=A backup program that is fast, efficient and secure
+EAPI=8
+HOMEPAGE=https://restic.github.io/
+INHERIT=go-module shell-completion
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0 BSD BSD-2 LGPL-3-with-linking-exception MIT
+RDEPEND=sys-fs/fuse:0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/restic/restic/archive/v0.16.0.tar.gz -> restic-0.16.0.tar.gz https://gentoo.kropotkin.rocks/go-pkgs/restic-0.16.0-vendor.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	bb7eb6bc232cd6c4bf8af739cdd2ee14
+_md5_=df0c05b3ae15b3bb5465c94efceb0a97
