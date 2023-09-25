@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="PoDoFo is a C++ library to work with the PDF file format"
 HOMEPAGE="https://github.com/podofo/podofo"
@@ -17,7 +17,7 @@ SRC_URI="https://github.com/podofo/podofo/archive/refs/tags/${PV}.tar.gz -> ${P}
 
 LICENSE="LGPL-2+ tools? ( GPL-2+ )"
 SLOT="0/2"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="idn jpeg tiff png fontconfig test tools"
 RESTRICT="!test? ( test )"
 
@@ -32,7 +32,10 @@ RDEPEND="
 	tiff? ( media-libs/tiff:= )
 	sys-libs/zlib:="
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	test? ( fontconfig? ( media-fonts/liberation-fonts ) )
+"
 
 src_prepare() {
 	cmake_src_prepare
@@ -52,5 +55,22 @@ src_configure() {
 		$(cmake_use_find_package png PNG)
 		$(cmake_use_find_package fontconfig Fontconfig)
 	)
+
+	# some optimizations cause testsuite failures which may indicate
+	# unsoundness with contraction. Be cautious for now. Reported
+	# upstream as https://github.com/podofo/podofo/issues/103
+	append-cxxflags $(test-flags-CXX -ffp-contract=off)
+
 	cmake_src_configure
+}
+
+src_test() {
+	local CMAKE_SKIP_TESTS=(
+		$(usev !png 'TestImage3')
+		$(usev !jpeg 'TestImage2 TestImage4 TestImage5')
+		# relies on finding arial font
+		$(usev !fontconfig 'testLoadEncrypedFilePdfMemDocument testLoadEncrypedFilePdfParser testCyclicTree testNestedArrayTree testEmptyKidsTree testNestedArrayTree testCreateDelete')
+	)
+
+	cmake_src_test
 }
