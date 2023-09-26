@@ -1,0 +1,15 @@
+BDEPEND=dev-go/go-md2man >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=dev-libs/glib:= seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
+DESCRIPTION=An OCI container runtime monitor
+EAPI=8
+HOMEPAGE=https://github.com/containers/conmon
+INHERIT=toolchain-funcs git-r3
+IUSE=+seccomp systemd
+LICENSE=Apache-2.0
+PROPERTIES=live
+RDEPEND=dev-libs/glib:= seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
+RESTRICT=test
+SLOT=0
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=148bea29363c2d4cedd454dec308194c
