@@ -5,10 +5,10 @@ EAPI=7
 HOMEPAGE=https://gnustep.github.io
 INHERIT=gnustep-base prefix toolchain-funcs
 IUSE=libobjc2 native-exceptions debug doc
-KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=sys-devel/make-3.75 libobjc2? ( gnustep-base/libobjc2 sys-devel/clang:* ) !libobjc2? ( !!gnustep-base/libobjc2 || ( sys-devel/gcc:*[objc] sys-devel/clang:* ) )
 SLOT=0
 SRC_URI=ftp://ftp.gnustep.org/pub/gnustep/core/gnustep-make-2.9.0.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	gnustep-base	923cb81765be4cd65f6419d3f9019af5	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=9d03a34c44e179fd74211502193c76cd
+_md5_=bae3f9956a9d2c214d17792cd5d7a768

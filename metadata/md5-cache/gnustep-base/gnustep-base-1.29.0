@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://gnustep.github.io
 INHERIT=gnustep-base toolchain-funcs
 IUSE=+gnutls +iconv +icu +libffi zeroconf debug doc
-KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2 LGPL-2.1
 RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=gnustep-base/gnustep-make-2.6.0 gnutls? ( net-libs/gnutls:= ) iconv? ( virtual/libiconv ) icu? ( >=dev-libs/icu-49.0:= ) libffi? ( dev-libs/libffi:= ) !libffi? ( dev-libs/ffcall gnustep-base/gnustep-make[-native-exceptions] ) >=dev-libs/libxml2-2.6 >=dev-libs/libxslt-1.1 >=dev-libs/gmp-4.1:= >=sys-libs/zlib-1.2 zeroconf? ( net-dns/avahi )
 SLOT=0/1.29
 SRC_URI=https://github.com/gnustep/libs-base/releases/download/base-1_29_0/gnustep-base-1.29.0.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	gnustep-base	923cb81765be4cd65f6419d3f9019af5
-_md5_=da3a9493fb073a065bbc41d840f86156
+_md5_=3945bc5b80b893991aba15763373f17c
