@@ -4,7 +4,9 @@
 EAPI=8
 
 DOTNET_PKG_COMPAT=7.0
-unset NUGET_PACKAGES
+NUGETS="
+system.commandline@2.0.0-beta4.22272.1
+"
 
 inherit dotnet-pkg
 
@@ -17,14 +19,17 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://gitlab.gentoo.org/dotnet/${PN}.git"
 else
 	SRC_URI="https://gitlab.gentoo.org/dotnet/${PN}/-/archive/${PV}/${P}.tar.bz2"
+
 	KEYWORDS="~amd64 ~arm ~arm64"
 fi
+
+SRC_URI+=" ${NUGET_URIS} "
 
 LICENSE="GPL-2+"
 SLOT="0"
 
 DOTNET_PKG_PROJECTS=(
-	"${S}/Source/gentoodotnetinfo/GentooDotnetInfo/GentooDotnetInfo.csproj"
+	Source/v1/gentoo-dotnet-info-app/GentooDotnetInfo/GentooDotnetInfo.csproj
 )
 
 src_unpack() {
@@ -36,9 +41,10 @@ src_unpack() {
 }
 
 src_install() {
+	local launcher_dll="/usr/share/${P}/GentooDotnetInfo.dll"
+
 	dotnet-pkg-base_install
-	dotnet-pkg-base_dolauncher_portable \
-		"/usr/share/${P}/GentooDotnetInfo.dll" gentoo-dotnet-info
+	dotnet-pkg-base_dolauncher_portable "${launcher_dll}" gentoo-dotnet-info
 
 	einstalldocs
 }
