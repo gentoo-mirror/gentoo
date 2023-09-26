@@ -8,7 +8,7 @@ inherit cmake desktop flag-o-matic python-any-r1 xdg verify-sig virtualx
 
 DESCRIPTION="3D photo-realistic skies in real time"
 HOMEPAGE="https://stellarium.org/ https://github.com/Stellarium/stellarium"
-MY_DSO_VERSION="3.19"
+MY_DSO_VERSION="3.20"
 SRC_URI="
 	https://github.com/Stellarium/stellarium/releases/download/v${PV}/${P}.tar.xz
 	verify-sig? ( https://github.com/Stellarium/stellarium/releases/download/v${PV}/${P}.tar.xz.asc )
@@ -101,7 +101,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/stellarium-0.20.3-unbundle-zlib.patch"
-	"${FILESDIR}/stellarium-0.22.2-ccache.patch"
+	"${FILESDIR}/stellarium-0.23.3-ccache.patch"
 )
 
 VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/stellarium.asc
