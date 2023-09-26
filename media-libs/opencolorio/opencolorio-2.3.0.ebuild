@@ -28,7 +28,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	dev-cpp/pystring
-	<dev-cpp/yaml-cpp-0.8.0:=
+	>=dev-cpp/yaml-cpp-0.7.0:=
 	dev-libs/expat
 	>=dev-libs/imath-3.1.5:=
 	sys-libs/minizip-ng
@@ -81,7 +81,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.2.1-adjust-python-installation.patch"
-	"${FILESDIR}/${PN}-2.2.1-support-minizip-ng-4.patch"
+	"${FILESDIR}/${PN}-2.3.0-support-yaml-cpp-0.8.0.patch"
 )
 
 pkg_setup() {
@@ -105,22 +105,22 @@ src_configure() {
 	#	ocioconvert (USE opengl)
 	# - OpenGL, GLUT and GLEW is required for building ociodisplay (USE opengl)
 	local mycmakeargs=(
-		-DBUILD_SHARED_LIBS=$(usex !static-libs)
-		-DOCIO_BUILD_APPS=$(usex apps)
-		-DOCIO_BUILD_DOCS=$(usex doc)
-		-DOCIO_BUILD_FROZEN_DOCS=$(usex doc)
-		-DOCIO_BUILD_GPU_TESTS=$(usex test)
-		-DOCIO_BUILD_JAVA=OFF
-		-DOCIO_BUILD_PYTHON=$(usex python)
-		-DOCIO_BUILD_TESTS=$(usex test)
-		-DOCIO_INSTALL_EXT_PACKAGES=NONE
-		-DOCIO_USE_OIIO_CMAKE_CONFIG=ON
-		-DOCIO_USE_SSE=$(usex cpu_flags_x86_sse2)
+		"-DBUILD_SHARED_LIBS=$(usex !static-libs)"
+		"-DOCIO_BUILD_APPS=$(usex apps)"
+		"-DOCIO_BUILD_DOCS=$(usex doc)"
+		"-DOCIO_BUILD_FROZEN_DOCS=$(usex doc)"
+		"-DOCIO_BUILD_GPU_TESTS=$(usex test)"
+		"-DOCIO_BUILD_JAVA=OFF"
+		"-DOCIO_BUILD_PYTHON=$(usex python)"
+		"-DOCIO_BUILD_TESTS=$(usex test)"
+		"-DOCIO_INSTALL_EXT_PACKAGES=NONE"
+		"-DOCIO_USE_OIIO_CMAKE_CONFIG=ON"
+		"-DOCIO_USE_SSE=$(usex cpu_flags_x86_sse2)"
 	)
 	use python && mycmakeargs+=(
-		-DOCIO_PYTHON_VERSION="${EPYTHON/python/}"
-		-DPython_EXECUTABLE="${PYTHON}"
-		-DPYTHON_VARIANT_PATH=$(python_get_sitedir)
+		"-DOCIO_PYTHON_VERSION=${EPYTHON/python/}"
+		"-DPython_EXECUTABLE=${PYTHON}"
+		"-DPYTHON_VARIANT_PATH=$(python_get_sitedir)"
 	)
 
 	cmake_src_configure
