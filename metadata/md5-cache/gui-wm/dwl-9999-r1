@@ -1,6 +1,6 @@
 BDEPEND=>=dev-libs/wayland-protocols-1.32 dev-util/wayland-scanner virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare unpack
-DEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/wlroots:0/9999[X(-)?] x11-libs/libxkbcommon X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm ) sys-kernel/linux-headers
+DEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/wlroots:0/9999[libinput,session,X?] x11-libs/libxkbcommon X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm ) sys-kernel/linux-headers
 DESCRIPTION=dwm for Wayland
 EAPI=8
 HOMEPAGE=https://github.com/djpohly/dwl
@@ -8,7 +8,7 @@ INHERIT=savedconfig toolchain-funcs git-r3
 IUSE=X savedconfig
 LICENSE=CC0-1.0 GPL-3+ MIT
 PROPERTIES=live
-RDEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/wlroots:0/9999[X(-)?] x11-libs/libxkbcommon X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm )
+RDEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/wlroots:0/9999[libinput,session,X?] x11-libs/libxkbcommon X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm )
 SLOT=0
 _eclasses_=portability	a74d533f258f1f435be71312558c12f9	savedconfig	8b5f9d995a970e49cd427c55d5840285	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=2ee1639e70f4ec537985c88ac2379b1f
+_md5_=4f5afe6aa98101a60f4f2fb6e5046885
