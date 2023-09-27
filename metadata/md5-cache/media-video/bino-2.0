@@ -1,15 +1,15 @@
 BDEPEND=dev-qt/qttools:6[linguist] virtual/pandoc >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-qt/qtbase:6[gui,opengl,widgets] dev-qt/qtmultimedia:6
+DEPEND=dev-qt/qtbase:6[gui,opengl,widgets] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6
 DESCRIPTION=Stereoscopic and multi-display media player
 EAPI=8
 HOMEPAGE=https://bino3d.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-3
-RDEPEND=dev-qt/qtbase:6[gui,opengl,widgets] dev-qt/qtmultimedia:6
+RDEPEND=dev-qt/qtbase:6[gui,opengl,widgets] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6
 SLOT=0
 SRC_URI=https://bino3d.org/releases/bino-2.0.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=99d43c41d572dc670df4e0ce79fc61d7
+_md5_=a85117ccbb8d48a9442d1a86bc0f61c3

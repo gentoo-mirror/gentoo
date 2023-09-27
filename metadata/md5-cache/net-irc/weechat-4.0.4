@@ -7,7 +7,7 @@ HOMEPAGE=https://weechat.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake lua-single python-single-r1 xdg verify-sig
 IUSE=doc enchant man nls selinux test guile lua +perl +python ruby tcl +alias +buflist +charset +exec +fifo +fset +logger +relay +scripts +spell +trigger +typing +xfer +irc lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 verify-sig
-KEYWORDS=~amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos
+KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos
 LICENSE=GPL-3
 RDEPEND=app-arch/zstd:= dev-libs/libgcrypt:0= net-libs/gnutls:= sys-libs/ncurses:0= sys-libs/zlib:= net-misc/curl[ssl] charset? ( virtual/libiconv ) guile? ( >=dev-scheme/guile-2.0:12= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) nls? ( virtual/libintl ) perl? ( dev-lang/perl:= virtual/libcrypt:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) ruby? ( || ( dev-lang/ruby:3.1 dev-lang/ruby:3.0 ) ) selinux? ( sec-policy/selinux-irc ) spell? ( enchant? ( app-text/enchant:* ) !enchant? ( app-text/aspell ) ) tcl? ( >=dev-lang/tcl-8.4.15:0= )
 REQUIRED_USE=enchant? ( spell ) lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ) test? ( nls )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0/4.0.4
 SRC_URI=https://weechat.org/files/src/weechat-4.0.4.tar.xz verify-sig? ( https://weechat.org/files/src/weechat-4.0.4.tar.xz.asc )
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	4a14c5c24f121e7da66e5aab4a168c6e	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
-_md5_=45584866dc47331ac42ea9cf59d0a8b4
+_md5_=7030a19a885c3430b14c66665441808f
