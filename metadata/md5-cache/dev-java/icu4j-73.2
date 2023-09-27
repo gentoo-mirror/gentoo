@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/junitparams:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=A set of Java libraries providing Unicode and Globalization support
+EAPI=8
+HOMEPAGE=https://icu.unicode.org
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=icu
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=70
+SRC_URI=https://github.com/unicode-org/icu/archive/release-73-2.tar.gz -> icu-73.2.tar.gz
+_eclasses_=java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	32813b3fb0bbb9e49918f690bc58fdd5
+_md5_=c78119a0b6e1b589d3176c50ea476a2e
