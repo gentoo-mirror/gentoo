@@ -1,7 +1,7 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 MY_PV="${PV/_p/+}"
 SLOT="${MY_PV%%[.+]*}"
@@ -30,14 +30,14 @@ KEYWORDS="-* ~amd64 ~ppc64"
 IUSE="cpu_flags_x86_sse2 debug doc source +media"
 
 RDEPEND="
+	app-accessibility/at-spi2-core
 	dev-java/swt:4.10[cairo,opengl]
-	dev-libs/atk
 	dev-libs/glib:2
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 	media-libs/freetype:2
 	media-libs/fontconfig:1.0
-	media-video/ffmpeg:0=
+	media-libs/libjpeg-turbo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:2
 	x11-libs/gtk+:3
@@ -46,7 +46,6 @@ RDEPEND="
 	x11-libs/libXtst
 	x11-libs/libXxf86vm
 	x11-libs/pango
-	virtual/jpeg
 	virtual/opengl
 	doc? ( dev-java/openjdk:${SLOT}[doc] )
 	!doc? (
@@ -74,12 +73,13 @@ REQUIRED_USE="amd64? ( cpu_flags_x86_sse2 )"
 PATCHES=(
 	"${FILESDIR}"/11/disable-buildSrc-tests.patch
 	"${FILESDIR}"/11/glibc-compatibility.patch
-	"${FILESDIR}"/11/respect-user-cflags-11.0.11.patch
+	"${FILESDIR}"/11/respect-user-cflags.patch
 	"${FILESDIR}"/11/use-system-swt-jar.patch
-	"${FILESDIR}"/11/wno-error-11.0.11.patch
-	"${FILESDIR}"/11/don-t-force-msse-11.0.11.patch
+	"${FILESDIR}"/11/wno-error.patch
+	"${FILESDIR}"/11/don-t-force-msse.patch
 	"${FILESDIR}"/11/disable-architecture-verification.patch
-	"${FILESDIR}"/11/gstreamer-CVE-2021-3522.patch
+	"${FILESDIR}"/11/ffmpeg5.patch
+	"${FILESDIR}/11/${PV}-version.patch"
 )
 
 S="${WORKDIR}/rt-${MY_PV}"
