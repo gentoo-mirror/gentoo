@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Data-Dump dev-perl/Mouse dev-perl/MouseX-NativeTraits dev-perl/Try-Tiny dev-perl/XML-Descent dev-perl/XML-Simple >=virtual/perl-XSLoader-0.20.0 >=x11-libs/libxcb-1.2 x11-libs/xcb-util x11-libs/xcb-util-wm x11-base/xcb-proto >=virtual/perl-Devel-PPPort-3.190.0 dev-perl/ExtUtils-Depends >=virtual/perl-ExtUtils-MakeMaker-6.590.0 >=virtual/perl-ExtUtils-ParseXS-3.180.0 dev-perl/ExtUtils-PkgConfig dev-perl/XS-Object-Magic test? ( dev-perl/Test-Deep dev-perl/Test-Exception virtual/perl-Test-Simple ) dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=x11-libs/libxcb-1.2 x11-libs/xcb-util x11-libs/xcb-util-wm x11-base/xcb-proto dev-lang/perl
+DESCRIPTION=Perl bindings for libxcb
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/X11-XCB
+INHERIT=perl-module virtualx
+IUSE=test test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Data-Dump dev-perl/Mouse dev-perl/MouseX-NativeTraits dev-perl/Try-Tiny dev-perl/XML-Descent dev-perl/XML-Simple >=virtual/perl-XSLoader-0.20.0 >=x11-libs/libxcb-1.2 x11-libs/xcb-util x11-libs/xcb-util-wm dev-lang/perl:=
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/Z/ZH/ZHMYLOVE/X11-XCB-0.20.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	ae23357e7a745d6af2265a5a6bed3a5c	virtualx	817571665ee28575da44ee08135089e5
+_md5_=dde0ac391f279dc37ca1e1f29b7b4762
