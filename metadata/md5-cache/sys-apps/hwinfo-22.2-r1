@@ -1,14 +1,14 @@
 BDEPEND=app-arch/rpm2targz
 DEFINED_PHASES=compile install prepare unpack
-DEPEND=amd64? ( dev-libs/libx86emu ) x86? ( dev-libs/libx86emu ) sys-devel/flex >=sys-kernel/linux-headers-2.6.17
+DEPEND=amd64? ( dev-libs/libx86emu:= ) x86? ( dev-libs/libx86emu:= ) sys-devel/flex >=sys-kernel/linux-headers-2.6.17
 DESCRIPTION=Hardware detection tool used in SuSE Linux
 EAPI=7
 HOMEPAGE=https://github.com/openSUSE/hwinfo/
 INHERIT=rpm toolchain-funcs
 KEYWORDS=amd64 ~arm ~arm64 ppc ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=amd64? ( dev-libs/libx86emu ) x86? ( dev-libs/libx86emu )
+RDEPEND=amd64? ( dev-libs/libx86emu:= ) x86? ( dev-libs/libx86emu:= )
 SLOT=0
 SRC_URI=http://download.opensuse.org/tumbleweed/repo/src-oss/src/hwinfo-22.2-1.2.src.rpm
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	745ef34afb8c31915d9d42a6aca23a35	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=e6947e2a719e8ee483c01d0ececb88ee
+_md5_=cef10928b839e34b5ec54050aaa6b2a9
