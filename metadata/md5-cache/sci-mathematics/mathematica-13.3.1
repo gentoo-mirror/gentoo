@@ -1,0 +1,17 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=install nofetch postinst postrm preinst pretend setup unpack
+DEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[eglfs,wayland] dev-qt/qtsvg:6 dev-qt/qtwayland:6[compositor] media-libs/freetype virtual/libcrypt cuda? ( >=dev-util/nvidia-cuda-toolkit-11 <dev-util/nvidia-cuda-toolkit-13 ) ffmpeg? ( || ( media-video/ffmpeg:0/56.58.58 media-video/ffmpeg:0/58.60.60 ) ) R? ( dev-lang/R )
+DESCRIPTION=Wolfram Mathematica
+EAPI=8
+HOMEPAGE=https://www.wolfram.com/mathematica/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=check-reqs desktop unpacker xdg
+IUSE=cuda doc ffmpeg R
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[eglfs,wayland] dev-qt/qtsvg:6 dev-qt/qtwayland:6[compositor] media-libs/freetype virtual/libcrypt cuda? ( >=dev-util/nvidia-cuda-toolkit-11 <dev-util/nvidia-cuda-toolkit-13 ) ffmpeg? ( || ( media-video/ffmpeg:0/56.58.58 media-video/ffmpeg:0/58.60.60 ) ) R? ( dev-lang/R )
+RESTRICT=strip mirror bindist fetch
+SLOT=0
+SRC_URI=Mathematica_13.3.1_BNDL_LINUX.sh
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	unpacker	aa6a4e924009232d8b78b31e932c30b5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=fee4f1207a60d70ef961ba1bd6c50d14
