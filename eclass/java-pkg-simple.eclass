@@ -501,6 +501,9 @@ java-pkg-simple_src_test() {
 		return
 	fi
 
+	# https://bugs.gentoo.org/906311
+	rm -rf ${classes} || die
+
 	# create the target directory
 	mkdir -p ${classes} || die "Could not create target directory for testing"
 
@@ -518,7 +521,6 @@ java-pkg-simple_src_test() {
 	else
 		find "${JAVA_TEST_SRC_DIR[@]}" -name \*.java > ${test_sources}
 	fi
-
 
 	# compile
 	if [[ -s ${test_sources} ]]; then
@@ -555,21 +557,19 @@ java-pkg-simple_src_test() {
 	if [[ -n ${JAVA_TEST_RUN_ONLY} ]]; then
 		tests_to_run="${JAVA_TEST_RUN_ONLY[@]}"
 	else
-		pushd "${JAVA_TEST_SRC_DIR}" > /dev/null || die
-			tests_to_run=$(find * -type f\
-				\( -name "*Test.java"\
-				-o -name "Test*.java"\
-				-o -name "*Tests.java"\
-				-o -name "*TestCase.java" \)\
-				! -name "*Abstract*"\
-				! -name "*BaseTest*"\
-				! -name "*TestTypes*"\
-				! -name "*TestUtils*"\
-				! -name "*\$*")
-			tests_to_run=${tests_to_run//"${classes}"\/}
-			tests_to_run=${tests_to_run//.java}
-			tests_to_run=${tests_to_run//\//.}
-		popd > /dev/null || die
+		tests_to_run=$(find "${classes}" -type f\
+			\( -name "*Test.class"\
+			-o -name "Test*.class"\
+			-o -name "*Tests.class"\
+			-o -name "*TestCase.class" \)\
+			! -name "*Abstract*"\
+			! -name "*BaseTest*"\
+			! -name "*TestTypes*"\
+			! -name "*TestUtils*"\
+			! -name "*\$*")
+		tests_to_run=${tests_to_run//"${classes}"\/}
+		tests_to_run=${tests_to_run//.class}
+		tests_to_run=${tests_to_run//\//.}
 
 		# exclude extra test classes, usually corner cases
 		# that the code above cannot handle
