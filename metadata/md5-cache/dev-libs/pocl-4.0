@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://portablecl.org https://github.com/pocl/pocl
 INHERIT=cmake llvm
 IUSE=accel +conformance cuda debug examples float-conversion hardening +hwloc memmanager lto test
-KEYWORDS=~amd64 ppc64
+KEYWORDS=amd64 ppc64
 LICENSE=GPL-2
 RDEPEND=dev-libs/libltdl <sys-devel/llvm-17:* virtual/opencl !cuda? ( <sys-devel/clang-17:= ) cuda? ( <sys-devel/clang-17:=[llvm_targets_NVPTX] ) debug? ( dev-util/lttng-ust:= ) hwloc? ( sys-apps/hwloc:=[cuda?] )
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/pocl/pocl/archive/v4.0.tar.gz -> pocl-4.0.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	llvm	2e1701c714b75feb512bffdecd3fe7d0
-_md5_=8e2f23ee748f688f0eb25f855c6ef632
+_md5_=0099414a0b509597401615b10c5d2843
