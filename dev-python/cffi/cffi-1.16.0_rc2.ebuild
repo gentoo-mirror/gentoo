@@ -18,11 +18,10 @@ HOMEPAGE="
 	https://cffi.readthedocs.io/
 	https://pypi.org/project/cffi/
 "
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-drop-deprecated-py.patch.xz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 
 # Needs recent libffi for HPPA fixes
 DEPEND="
@@ -47,10 +46,6 @@ distutils_enable_tests pytest
 
 PATCHES=(
 	"${FILESDIR}"/cffi-1.14.0-darwin-no-brew.patch
-	"${FILESDIR}"/${P}-hppa.patch
-	"${FILESDIR}"/${P}-python3.11-tests.patch
-	"${WORKDIR}"/${P}-drop-deprecated-py.patch
-	"${FILESDIR}"/${P}-py312.patch
 )
 
 src_prepare() {
@@ -70,15 +65,8 @@ python_test() {
 		# these tests call pip
 		testing/cffi0/test_zintegration.py
 	)
-	local EPYTEST_DESELECT=()
-	if [[ ${EPYTHON} == python3.12 ]]; then
-		EPYTEST_DESELECT+=(
-			# TODO: these tests hang
-			testing/embedding
-		)
-	fi
 
 	"${EPYTHON}" -c "import _cffi_backend as backend" || die
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest c testing
+	epytest src/c testing
 }
