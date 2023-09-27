@@ -4,7 +4,7 @@
 EAPI=8
 
 DIST_AUTHOR=BDFOY
-DIST_VERSION=20230718.001
+DIST_VERSION=20230926.001
 inherit perl-module
 
 DESCRIPTION="Data pack for Business::ISBN"
@@ -17,7 +17,7 @@ RDEPEND="
 	virtual/perl-Carp
 	virtual/perl-File-Spec
 "
-DEPEND="
+BDEPEND="
 	${RDEPEND}
 	>=virtual/perl-ExtUtils-MakeMaker-6.640.0
 	test? (
