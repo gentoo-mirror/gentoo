@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/ipython-4.0.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) doc? ( || ( ( dev-lang/python:3.11 >=dev-python/sphinx-5.3.0[python_targets_python3_11(-)] dev-python/myst-parser[python_targets_python3_11(-)] dev-python/sphinx-autodoc-typehints[python_targets_python3_11(-)] dev-python/sphinxcontrib-github-alt[python_targets_python3_11(-)] dev-python/sphinxcontrib-spelling[python_targets_python3_11(-)] dev-python/traitlets[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] dev-python/myst-parser[python_targets_python3_10(-)] dev-python/sphinx-autodoc-typehints[python_targets_python3_10(-)] dev-python/sphinxcontrib-github-alt[python_targets_python3_10(-)] dev-python/sphinxcontrib-spelling[python_targets_python3_10(-)] dev-python/traitlets[python_targets_python3_10(-)] ) ) ) test? ( >=dev-python/platformdirs-2.5[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/traitlets-5.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/hatchling-1.17.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Core common functionality of Jupyter projects
+EAPI=8
+HOMEPAGE=https://jupyter.org/ https://github.com/jupyter/jupyter_core/ https://pypi.org/project/jupyter-core/
+INHERIT=distutils-r1 pypi
+IUSE=doc test python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos
+LICENSE=BSD
+RDEPEND=>=dev-python/platformdirs-2.5[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/traitlets-5.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/j/jupyter-core/jupyter_core-5.3.2.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce	pypi	2eecb475512bc76e5ea9192a681b9e6b
+_md5_=04230f1b12fddd4da79ccacbdb8b7984
