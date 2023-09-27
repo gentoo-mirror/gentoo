@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://yash.osdn.jp/
 INHERIT=flag-o-matic plocale toolchain-funcs
 IUSE=nls test
-KEYWORDS=~amd64 ~mips ~x86
+KEYWORDS=amd64 ~mips x86
 LICENSE=GPL-2+
 RDEPEND=sys-libs/ncurses:= nls? ( virtual/libintl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge.jp/yash/79124/yash-2.55.tar.xz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	plocale	950fbaec7deeba41b5bcc0572cca99b9
-_md5_=8b627193d36e95dd80f2b2433daa8850
+_md5_=d9b683ad1768df4089fd9545ac0d2b54
