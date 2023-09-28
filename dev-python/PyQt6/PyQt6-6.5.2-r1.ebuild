@@ -17,14 +17,14 @@ HOMEPAGE="https://www.riverbankcomputing.com/software/pyqt/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 # defaults match what is provided with qtbase by default (except testlib),
 # reduces the need to set flags but does increase build time a fair amount
 IUSE="
 	bluetooth +dbus debug designer examples gles2-only +gui help
-	multimedia +network nfc opengl positioning +printsupport qml
-	quick quick3d serialport sensors spatialaudio speech +sql +ssl
-	svg testlib webchannel websockets +widgets +xml
+	multimedia +network nfc opengl pdfium positioning +printsupport
+	qml quick quick3d serialport sensors spatialaudio speech +sql
+	+ssl svg testlib webchannel websockets +widgets +xml
 "
 # see `grep -r "%Import " sip` and `grep qmake_QT project.py`
 REQUIRED_USE="
@@ -32,6 +32,7 @@ REQUIRED_USE="
 	help? ( gui widgets )
 	multimedia? ( gui network )
 	opengl? ( gui )
+	pdfium? ( gui )
 	printsupport? ( gui widgets )
 	qml? ( network )
 	quick3d? ( gui qml )
@@ -59,6 +60,7 @@ DEPEND="
 	opengl? (
 		gles2-only? ( media-libs/libglvnd )
 	)
+	pdfium? ( >=dev-qt/qtwebengine-${QT_PV}[pdfium(-),widgets?] )
 	positioning? ( >=dev-qt/qtpositioning-${QT_PV} )
 	qml? ( >=dev-qt/qtdeclarative-${QT_PV}[widgets?] )
 	quick3d? ( >=dev-qt/qtquick3d-${QT_PV} )
@@ -123,7 +125,8 @@ python_configure_all() {
 		$(pyqt_use_enable nfc QtNfc)
 		$(pyqt_use_enable opengl QtOpenGL \
 			$(usev widgets QtOpenGLWidgets))
-		--disable=QtPdf #+QtPdfWidgets (QtPdf is disabled in qtwebengine:6)
+		$(pyqt_use_enable pdfium QtPdf \
+			$(usev widgets QtPdfWidgets))
 		$(pyqt_use_enable positioning QtPositioning)
 		$(pyqt_use_enable printsupport QtPrintSupport)
 		$(pyqt_use_enable qml QtQml)
