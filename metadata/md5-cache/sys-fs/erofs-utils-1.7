@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git
 INHERIT=autotools
 IUSE=fuse +lz4 +lzma selinux +uuid +zlib
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~loong
 LICENSE=GPL-2+
 RDEPEND=fuse? ( sys-fs/fuse:0 ) lz4? ( app-arch/lz4:0= ) lzma? ( >=app-arch/xz-utils-5.4.0:0= ) selinux? ( sys-libs/libselinux:0= ) uuid? ( sys-apps/util-linux ) zlib? ( sys-libs/zlib:0= )
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.7.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=649e965e9d7587f885ffb5f71c293e17
+_md5_=53095c5f85507b8a84495cc82c888652
