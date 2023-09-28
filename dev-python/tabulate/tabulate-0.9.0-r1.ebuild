@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1
 
@@ -28,6 +28,7 @@ RDEPEND="
 	dev-python/wcwidth[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		$(python_gen_impl_dep 'sqlite')
 		dev-python/colorclass[${PYTHON_USEDEP}]
