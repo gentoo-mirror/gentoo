@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://www.dosbox.com/
 INHERIT=autotools desktop flag-o-matic
 IUSE=alsa +core-inline debug glide hardened opengl X
-KEYWORDS=amd64 ~arm ~ppc ppc64 ~x86
+KEYWORDS=amd64 ~arm ~ppc ppc64 x86
 LICENSE=GPL-2
 RDEPEND=alsa? ( media-libs/alsa-lib ) glide? ( media-libs/openglide ) opengl? ( virtual/glu virtual/opengl ) debug? ( sys-libs/ncurses:0= ) X? ( x11-libs/libX11 ) media-libs/libpng:0= media-libs/libsdl[joystick,opengl?,video,X?] media-libs/sdl-net media-libs/sdl-sound sys-libs/zlib
 SLOT=0
 SRC_URI=https://sourceforge.net/code-snapshots/svn/d/do/dosbox/code-0/dosbox-code-0-r4302-dosbox-trunk.zip glide? ( https://raw.githubusercontent.com/voyageur/openglide/841e1071597b64ead14dd08c25a03206b2d1d1b6/platform/dosbox/dosbox_glide.diff -> dosbox_glide-841e1071597b64ead14dd08c25a03206b2d1d1b6.diff )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	desktop	021728fdc1b03b36357dbc89489e0f0d	flag-o-matic	be27a904c614cb93ae037762dc69bcc2
-_md5_=b1f45f11c8bf533a7b40f91b206263e4
+_md5_=3a64ac1d158915b2e4fd69b77843f30b
