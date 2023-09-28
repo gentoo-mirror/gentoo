@@ -1,0 +1,17 @@
+BDEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install preinst prepare setup test unpack
+DEPEND=>=virtual/jdk-1.8 hardened? ( sys-apps/paxctl ) >=dev-java/java-config-2.2.0-r3 ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DESCRIPTION=Rjb is a Ruby-Java software bridge
+EAPI=8
+HOMEPAGE=https://github.com/arton/rjb
+INHERIT=java-pkg-2 ruby-fakegem
+IUSE=examples hardened ruby_targets_ruby31 ruby_targets_ruby32 doc test
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://rubygems.org/gems/rjb-1.6.8.gem
+_eclasses_=java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca	ruby-utils	6c200c98361f47219e106ddc67c43a1e	ruby-ng	4ef520a992dc54fdd8f49d875c1ab2c0	ruby-fakegem	5f7dd7ffeaf00a781713582bd507f80b
+_md5_=a7e28eb305d0bdbeb4937ca2bb17b39c

@@ -1,0 +1,17 @@
+BDEPEND=ruby_targets_ruby31? ( test? ( dev-ruby/bundler[ruby_targets_ruby31(-)] dev-ruby/rdoc[ruby_targets_ruby31(-)] dev-ruby/test-unit[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/bundler[ruby_targets_ruby32(-)] dev-ruby/rdoc[ruby_targets_ruby32(-)] dev-ruby/test-unit[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DESCRIPTION=The language for type signatures for Ruby and standard library definitions
+EAPI=8
+HOMEPAGE=https://github.com/ruby/rbs
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 doc test test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=|| ( Ruby-BSD BSD-2 )
+RDEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ruby/rbs/archive/refs/tags/v3.2.2.tar.gz -> rbs-3.2.2.tar.gz
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca	ruby-utils	6c200c98361f47219e106ddc67c43a1e	ruby-ng	4ef520a992dc54fdd8f49d875c1ab2c0	ruby-fakegem	5f7dd7ffeaf00a781713582bd507f80b
+_md5_=77e1ecf14a7492019ec2d727d2a35164

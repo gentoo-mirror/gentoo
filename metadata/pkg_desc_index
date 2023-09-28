@@ -897,7 +897,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r2: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.29.49 1.29.53 1.29.54 1.29.55: Universal Command Line Environment for AWS
+app-admin/awscli 1.29.49 1.29.53 1.29.54 1.29.55 1.29.56: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -5016,7 +5016,7 @@ dev-libs/botan 2.19.3-r2 3.1.1: C++ crypto library
 dev-libs/boxfort 0.1.1 0.1.4: Convenient & cross-platform sandboxing C library
 dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in HyperDex
 dev-libs/c-blosc 1.21.4 1.21.4-r1 1.21.5: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.9.3-r1 2.10.2-r1 2.10.3: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.9.3-r1 2.10.2-r1 2.10.3 2.10.4: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/cJSON 1.7.15 1.7.16: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1: RPC/Serialization system with capabilities support
@@ -7846,7 +7846,7 @@ dev-python/aesara 2.9.1 2.9.2: Library for operating on mathematical expressions
 dev-python/agate 1.7.1: A Python data analysis library that is optimized for humans instead of machines
 dev-python/agate-dbf 0.2.2-r2: Adds read support for DBF files to agate
 dev-python/agate-excel 0.2.5-r2: Adds read support for Excel files (xls and xlsx) to agate
-dev-python/agate-sql 0.5.9 0.5.9-r1: Adds SQL read/write support to agate
+dev-python/agate-sql 0.5.9 0.5.9-r1 0.6.0: Adds SQL read/write support to agate
 dev-python/aiocache 0.12.0 0.12.2: Asyncio cache manager
 dev-python/aiodns 3.0.0-r1: Simple DNS resolver for asyncio
 dev-python/aiofiles 22.1.0 23.1.0 23.2.1: File support for asyncio
@@ -7901,7 +7901,7 @@ dev-python/asyncstdlib 3.10.8: The missing async toolbox
 dev-python/atomicwrites 1.4.1: Atomic file writes
 dev-python/atpublic 4.0: A decorator to populate __all__ and the module globals
 dev-python/attrs 23.1.0: Attributes without boilerplate
-dev-python/audioread 3.0.0: Wrapper for audio file decoding using FFmpeg or GStreamer
+dev-python/audioread 3.0.0 3.0.1: Wrapper for audio file decoding using FFmpeg or GStreamer
 dev-python/authres 1.2.0-r1: Parse and generate Authentication-Results headers
 dev-python/autobahn 23.6.2: WebSocket and WAMP for Twisted and Asyncio
 dev-python/autocommand 2.2.2: Library to create a command-line program from a function
@@ -7943,8 +7943,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.28.49 1.28.53 1.28.54 1.28.55 9999: The AWS SDK for Python
-dev-python/botocore 1.31.49 1.31.53 1.31.54 1.31.55 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.28.49 1.28.53 1.28.54 1.28.55 1.28.56 9999: The AWS SDK for Python
+dev-python/botocore 1.31.49 1.31.53 1.31.54 1.31.55 1.31.56 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8235,7 +8235,7 @@ dev-python/griffe 0.34.0 0.35.0 0.35.1 0.35.2 0.36.0 0.36.1 0.36.2: Signature ge
 dev-python/grpcio 1.51.0: High-performance RPC framework (python libraries)
 dev-python/grpcio-testing 1.51.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.51.0: Protobuf code generator for gRPC
-dev-python/gsd 3.0.1 3.1.0 3.1.1: GSD - file format specification and a library to read and write it
+dev-python/gsd 3.0.1 3.1.0 3.1.1 3.2.0: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.8.2-r1 1.8.3 1.8.3-r1: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.20.3 1.20.4 1.20.5 1.20.6 1.22.3: A Python Interface to GStreamer
 dev-python/guessit 3.7.1: Python library for guessing information from video filenames
@@ -8658,7 +8658,7 @@ dev-python/pmw 2.0.1-r3: Toolkit for building high-level compound Python widgets
 dev-python/pocketlint 0.24: Shared code for running pylint against rhinstaller projects
 dev-python/pockets 0.9.1-r3: Collection of helpful Python tools
 dev-python/podcastparser 0.6.10: Podcast parser for the gpodder client
-dev-python/podman 4.5.0 4.6.0: A library to interact with a Podman server
+dev-python/podman 4.5.0 4.6.0 4.7.0: A library to interact with a Podman server
 dev-python/poetry 1.5.1-r2 1.6.0 1.6.1 1.6.1-r1: A frontend for poetry - a python dependency management and packaging tool
 dev-python/poetry-core 1.7.0: Poetry PEP 517 Build Backend
 dev-python/poetry-plugin-export 1.4.0 1.5.0: A plugin that allows the export of locked packages to various formats
@@ -8728,7 +8728,7 @@ dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
 dev-python/pycurl 7.45.2: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.7: Set of facilities to extend Python with C++
-dev-python/pydantic 1.10.12 2.3.0 2.4.0 2.4.1: Data parsing and validation using Python type hints
+dev-python/pydantic 1.10.12 1.10.13 2.3.0 2.4.0 2.4.1: Data parsing and validation using Python type hints
 dev-python/pydantic-core 2.6.3 2.9.0 2.10.0 2.10.1: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.13.3-r1 0.14.0 0.14.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
@@ -9083,7 +9083,7 @@ dev-python/rfc3986-validator 0.1.1-r1: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r2: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
 dev-python/rich 13.4.2 13.5.2 13.5.3: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/roman 4.1: An Integer to Roman numerals converter
-dev-python/rope 1.9.0: Python refactoring library
+dev-python/rope 1.9.0 1.10.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
 dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
 dev-python/rpds-py 0.9.2 0.10.0 0.10.2 0.10.3: Python bindings to Rust's persistent data structures (rpds)
@@ -9249,7 +9249,7 @@ dev-python/swagger_spec_validator 3.0.3: Validate Swagger specs against Swagger 
 dev-python/sybil 5.0.3: Automated testing for the examples in your documentation
 dev-python/symengine 0.9.2-r3 0.10.0: Python wrappers to the symengine C++ library
 dev-python/sympy 1.12: Computer Algebra System in pure Python
-dev-python/tabulate 0.9.0: Pretty-print tabular data
+dev-python/tabulate 0.9.0-r1: Pretty-print tabular data
 dev-python/tagpy 2022.1: Python Bindings for TagLib
 dev-python/tappy 3.1-r1: Test Anything Protocol (TAP) tools
 dev-python/tasklib 2.5.1: A Python library for interacting with taskwarrior databases
@@ -9710,7 +9710,7 @@ dev-ruby/googleapis-common-protos-types 1.8.0: Common protocol buffer types used
 dev-ruby/gpgme 2.0.22 2.0.23: Ruby language binding for GnuPG Made Easy
 dev-ruby/grpc 1.54.0: Send RPCs from Ruby using GRPC
 dev-ruby/gruff 0.22.0 0.23.0: Beautiful graphs for one or multiple datasets
-dev-ruby/haml 5.2.2 6.1.1-r1 6.1.2: A ruby web page templating engine
+dev-ruby/haml 5.2.2 6.1.1-r1 6.1.2 6.1.4: A ruby web page templating engine
 dev-ruby/haml-rails 2.1.0: Provides Haml generators for Rails 4
 dev-ruby/hashdiff 1.0.1: Simple Hash extension to make working with nested hashes easier
 dev-ruby/hashery 2.1.2-r1: The Hashery is a tight collection of Hash-like classes
@@ -9929,7 +9929,7 @@ dev-ruby/rb-readline 0.5.5-r1: Ruby implementation of the GNU readline C library
 dev-ruby/rbnacl 7.1.1-r1: Provides a high-level toolkit for building cryptographic systems and protocols
 dev-ruby/rbpdf 1.21.2 1.21.3: Ruby on Rails RBPDF plugin
 dev-ruby/rbpdf-font 1.19.1-r1 1.19.1-r2: Font files for the Ruby on Rails RBPDF plugin
-dev-ruby/rbs 2.8.4 3.0.4 3.1.3 3.2.0 3.2.1: The language for type signatures for Ruby and standard library definitions
+dev-ruby/rbs 2.8.4 3.0.4 3.1.3 3.2.0 3.2.1 3.2.2: The language for type signatures for Ruby and standard library definitions
 dev-ruby/rbst 0.6.5-r1: A simple Ruby wrapper for processing rST via docutils
 dev-ruby/rbtree 0.4.6: A sorted associative collection that is implemented with a Red-Black Tree
 dev-ruby/rcairo 1.17.8 1.17.12: Ruby bindings for cairo
@@ -9953,7 +9953,7 @@ dev-ruby/rexml 3.2.5-r1 3.2.6: An XML toolkit for Ruby
 dev-ruby/rgl 0.6.6: RGL is a framework for graph data structures and algorithms
 dev-ruby/rinku 2.0.6-r1: A Ruby library that does autolinking
 dev-ruby/ritex 1.0.1-r1: Converts expressions from WebTeX into MathML
-dev-ruby/rjb 1.6.7: Rjb is a Ruby-Java software bridge
+dev-ruby/rjb 1.6.7 1.6.8: Rjb is a Ruby-Java software bridge
 dev-ruby/rkelly-remix 0.0.7-r1: RKelly Remix is a fork of the RKelly JavaScript parser
 dev-ruby/rmagick 4.3.0 5.2.0 5.3.0: An interface between Ruby and the ImageMagick(TM) image processing library
 dev-ruby/roadie 5.1.0 5.2.0: Making HTML emails comfortable for the Rails rockstars
