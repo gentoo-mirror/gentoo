@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit llvm meson-multilib python-any-r1 linux-info
 
@@ -20,7 +20,7 @@ else
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris"
 fi
 
-LICENSE="MIT"
+LICENSE="MIT SGI-B-2.0"
 SLOT="0"
 RESTRICT="!test? ( test )"
 
@@ -104,6 +104,7 @@ RDEPEND="
 		>=x11-libs/libXxf86vm-1.1.3[${MULTILIB_USEDEP}]
 		>=x11-libs/libxcb-1.13:=[${MULTILIB_USEDEP}]
 		x11-libs/libXfixes[${MULTILIB_USEDEP}]
+		x11-libs/xcb-util-keysyms[${MULTILIB_USEDEP}]
 	)
 	zink? ( media-libs/vulkan-loader:=[${MULTILIB_USEDEP}] )
 	zstd? ( app-arch/zstd:=[${MULTILIB_USEDEP}] )
@@ -150,7 +151,7 @@ RDEPEND="${RDEPEND}
 unset LLVM_MIN_SLOT {LLVM,PER_SLOT}_DEPSTR
 
 DEPEND="${RDEPEND}
-	video_cards_d3d12? ( dev-util/directx-headers[${MULTILIB_USEDEP}] )
+	video_cards_d3d12? ( >=dev-util/directx-headers-1.610.0[${MULTILIB_USEDEP}] )
 	valgrind? ( dev-util/valgrind )
 	wayland? ( >=dev-libs/wayland-protocols-1.24 )
 	X? (
@@ -192,6 +193,11 @@ x86? (
 	usr/lib/libGLX_mesa.so.0.0.0
 )"
 
+PATCHES=(
+	# Workaround the CMake dependency lookup returning a different LLVM to llvm-config, bug #907965
+	"${FILESDIR}/clang_config_tool.patch"
+)
+
 llvm_check_deps() {
 	if use opencl; then
 		has_version "sys-devel/clang:${LLVM_SLOT}[${LLVM_USE_DEPS}]" || return 1
@@ -201,11 +207,6 @@ llvm_check_deps() {
 	fi
 	has_version "sys-devel/llvm:${LLVM_SLOT}[${LLVM_USE_DEPS}]"
 }
-
-PATCHES=(
-	# Temporary rusticl workaround: https://gitlab.freedesktop.org/mesa/mesa/-/issues/7717#note_1832122
-	"${FILESDIR}/clang_resource_dir.patch"
-)
 
 pkg_pretend() {
 	if use vulkan; then
@@ -286,6 +287,12 @@ pkg_setup() {
 		llvm_pkg_setup
 	fi
 	python-any-r1_pkg_setup
+}
+
+src_prepare() {
+	default
+	sed -i -e "/^PLATFORM_SYMBOLS/a '__gentoo_check_ldflags__'," \
+		bin/symbols-check.py || die # bug #830728
 }
 
 multilib_src_configure() {
