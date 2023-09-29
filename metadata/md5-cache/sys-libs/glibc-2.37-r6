@@ -12,6 +12,6 @@ PDEPEND=!vanilla? ( sys-libs/timezone-data )
 RDEPEND=gd? ( media-libs/gd:2= ) nscd? ( selinux? ( audit? ( sys-process/audit ) caps? ( sys-libs/libcap ) ) ) suid? ( caps? ( sys-libs/libcap ) ) selinux? ( sys-libs/libselinux ) systemtap? ( dev-util/systemtap ) !<app-misc/pax-utils-1.3.3 perl? ( dev-lang/perl ) >=net-dns/libidn2-2.3.0 vanilla? ( !sys-libs/timezone-data )
 RESTRICT=!test? ( test )
 SLOT=2.2
-SRC_URI=mirror://gnu/glibc/glibc-2.37.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/glibc-2.37-patches-8.tar.xz multilib-bootstrap? ( https://dev.gentoo.org/~dilfridge/distfiles/gcc-multilib-bootstrap-20201208.tar.xz ) systemd? ( https://gitweb.gentoo.org/proj/toolchain/glibc-systemd.git/snapshot/glibc-systemd-20210729.tar.gz )
+SRC_URI=mirror://gnu/glibc/glibc-2.37.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/glibc-2.37-patches-9.tar.xz multilib-bootstrap? ( https://dev.gentoo.org/~dilfridge/distfiles/gcc-multilib-bootstrap-20201208.tar.xz ) systemd? ( https://gitweb.gentoo.org/proj/toolchain/glibc-systemd.git/snapshot/glibc-systemd-20210729.tar.gz )
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-any-r1	f5169813d1619761b459800587005fd2	prefix	eab3c99d77fe00506c109c8a736186f7	preserve-libs	21162ec96c87041004a75348d97342dd	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=1bbc234a5b7e5e84a607710d3d0ccf29
+_md5_=f237de64d96e8d466f099b2bd5a4184a
