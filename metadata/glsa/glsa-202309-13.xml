@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-13">
+    <title>GMP: Buffer Overflow Vulnerability</title>
+    <synopsis>A buffer overflow vulnerability has been found in GMP which could result in denial of service.</synopsis>
+    <product type="ebuild">gmp</product>
+    <announced>2023-09-29</announced>
+    <revised count="1">2023-09-29</revised>
+    <bug>823804</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/gmp" auto="yes" arch="*">
+            <unaffected range="ge">6.2.1-r2</unaffected>
+            <vulnerable range="lt">6.2.1-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNU Multiple Precision Arithmetic Library is a library forarbitrary-precision arithmetic on different types of numbers.</p>
+    </background>
+    <description>
+        <p>There is an integer overflow leading to a buffer overflow when processing untrusted input via GMP&#39;s mpz_inp_raw function.</p>
+    </description>
+    <impact type="normal">
+        <p>Untrusted input can cause a denial of service via segmentation fault.</p>
+    </impact>
+    <workaround>
+        <p>Users can ensure no untrusted input is passed into GMP&#39;s mpz_inp_raw function.</p>
+    </workaround>
+    <resolution>
+        <p>All GMP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/gmp-6.2.1-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43618">CVE-2021-43618</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-29T13:02:07.835979Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-29T13:02:07.839044Z">graaff</metadata>
+</glsa>
