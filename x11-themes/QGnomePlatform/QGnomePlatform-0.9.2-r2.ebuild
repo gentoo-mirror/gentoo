@@ -34,3 +34,10 @@ src_configure() {
 	)
 	cmake_src_configure
 }
+
+src_install() {
+	cmake_src_install
+
+	# https://github.com/FedoraQt/QGnomePlatform/pull/150#issuecomment-1689693729
+	newenvd - 98qgnomeplatform <<< 'QT_QPA_PLATFORMTHEME=qgnomeplatform'
+}
