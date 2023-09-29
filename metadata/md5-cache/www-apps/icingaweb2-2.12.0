@@ -1,5 +1,5 @@
 DEFINED_PHASES=config install postinst setup
-DEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:8.0[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.1[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) >=dev-libs/icinga-php-library-0.8.1 >=dev-libs/icinga-php-thirdparty-0.11.0 acct-group/icingacmd acct-group/icingaweb2 apache2? ( =www-servers/apache-2* )
+DEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:8.1[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.2[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) >=dev-libs/icinga-php-library-0.13.0 >=dev-libs/icinga-php-thirdparty-0.12.0 acct-group/icingacmd acct-group/icingaweb2 apache2? ( =www-servers/apache-2* )
 DESCRIPTION=Icinga Web 2 - Frontend for icinga2
 EAPI=7
 HOMEPAGE=http://www.icinga.org/
@@ -7,9 +7,9 @@ INHERIT=depend.apache multilib
 IUSE=apache2 apache2-server fpm ldap mysql nginx pdf postgres apache2
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:8.0[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.1[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) >=dev-libs/icinga-php-library-0.8.1 >=dev-libs/icinga-php-thirdparty-0.11.0 acct-group/icingacmd acct-group/icingaweb2 apache2? ( =www-servers/apache-2* )
+RDEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:8.1[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.2[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) >=dev-libs/icinga-php-library-0.13.0 >=dev-libs/icinga-php-thirdparty-0.12.0 acct-group/icingacmd acct-group/icingaweb2 apache2? ( =www-servers/apache-2* )
 REQUIRED_USE=( ^^ ( apache2-server nginx ) ) apache2? ( apache2-server )
 SLOT=0
 SRC_URI=https://codeload.github.com/Icinga/icingaweb2/tar.gz/v2.12.0 -> icingaweb2-2.12.0.tar.gz
 _eclasses_=depend.apache	6420dce9fae406df14eceb29fff90bab	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca
-_md5_=ef416fc8e6cc6ef5e6a2daa213a0623c
+_md5_=119dbfd423d3d014a907e033d3849f24
