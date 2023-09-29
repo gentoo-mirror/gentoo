@@ -1,0 +1,15 @@
+BDEPEND=dev-util/intltool sys-devel/gettext
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=dev-libs/glib:2
+DESCRIPTION=An icon taskbar for the Gnome Shell
+EAPI=8
+HOMEPAGE=https://github.com/home-sweet-gnome/dash-to-panel
+INHERIT=gnome2-utils
+IUSE=branding
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-45
+SLOT=0
+SRC_URI=https://github.com/home-sweet-gnome/dash-to-panel/archive/v59.tar.gz -> gnome-shell-extension-dash-to-panel-59.tar.gz branding? ( https://www.mail-archive.com/tango-artists@lists.freedesktop.org/msg00043/tango-gentoo-v1.1.tar.gz )
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116
+_md5_=fcc02034a4293c6e94110455d8b0fc36
