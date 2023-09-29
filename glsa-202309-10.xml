@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-10">
+    <title>Fish: User-assisted execution of arbitrary code</title>
+    <synopsis>A vulnerability was discovered in Fish when handling git repository configuration that may lead to execution of arbitrary code</synopsis>
+    <product type="ebuild">fish</product>
+    <announced>2023-09-29</announced>
+    <revised count="1">2023-09-29</revised>
+    <bug>835337</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-shells/fish" auto="yes" arch="*">
+            <unaffected range="ge">3.4.0</unaffected>
+            <vulnerable range="lt">3.4.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Smart and user-friendly command line shell for macOS, Linux, and the rest of the family. It includes features like syntax highlighting, autosuggest-as-you-type, and fancy tab completions that just work, with no configuration required.</p>
+    </background>
+    <description>
+        <p>A vulnerability have been discovered in Fish. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A user may be enticed to cd into a git repository under control by an attacker (e.g. on a shared filesystem or by unpacking an archive) and execute arbitrary commands.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All fish users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-shells/fish-3.4.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20001">CVE-2022-20001</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-29T10:53:27.976806Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-09-29T10:53:27.979954Z">graaff</metadata>
+</glsa>
