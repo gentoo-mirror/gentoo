@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=app-text/ghostscript-gpl-9.56.1-r3 media-fonts/ahem ) test? ( >=dev-python/cffi-0.6:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/cssselect2-0.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/fonttools-4.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/html5lib-1.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pillow-4.0.0[jpeg,jpeg2k,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pydyf-0.8.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyphen-0.9.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/tinycss2-1.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] media-fonts/dejavu x11-libs/pango >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/flit-core-3.9.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Visual rendering engine for HTML and CSS that can export to PDF
+EAPI=8
+HOMEPAGE=https://weasyprint.org/ https://github.com/Kozea/WeasyPrint/ https://pypi.org/project/weasyprint/
+INHERIT=distutils-r1 pypi
+IUSE=test python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=>=dev-python/cffi-0.6:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/cssselect2-0.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/fonttools-4.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/html5lib-1.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pillow-4.0.0[jpeg,jpeg2k,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pydyf-0.8.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyphen-0.9.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/tinycss2-1.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] media-fonts/dejavu x11-libs/pango python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/w/weasyprint/weasyprint-60.1.tar.gz
+_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce	pypi	2eecb475512bc76e5ea9192a681b9e6b
+_md5_=c0f2692d8e4444e8d6ed905650ca0279
