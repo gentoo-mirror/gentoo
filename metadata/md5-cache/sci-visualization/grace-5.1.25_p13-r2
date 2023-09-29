@@ -1,0 +1,16 @@
+BDEPEND=fortran? ( virtual/fortran )
+DEFINED_PHASES=configure install postinst postrm preinst prepare setup
+DEPEND=media-libs/t1lib media-libs/tiff:= sys-libs/zlib >=x11-libs/motif-2.3:0 x11-libs/xbae fftw? ( sci-libs/fftw:3.0= ) jpeg? ( media-libs/libjpeg-turbo:= ) netcdf? ( sci-libs/netcdf:= ) png? ( media-libs/libpng:0= ) fortran? ( virtual/fortran )
+DESCRIPTION=Motif based XY-plotting tool
+EAPI=8
+HOMEPAGE=https://plasma-gate.weizmann.ac.il/Grace/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop fortran-2 toolchain-funcs xdg
+IUSE=fftw fortran jpeg netcdf png
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2 LGPL-2
+RDEPEND=media-libs/t1lib media-libs/tiff:= sys-libs/zlib >=x11-libs/motif-2.3:0 x11-libs/xbae fftw? ( sci-libs/fftw:3.0= ) jpeg? ( media-libs/libjpeg-turbo:= ) netcdf? ( sci-libs/netcdf:= ) png? ( media-libs/libpng:0= ) x11-misc/xdg-utils fortran? ( virtual/fortran )
+SLOT=0
+SRC_URI=ftp://plasma-gate.weizmann.ac.il/pub/grace/src/stable/grace-5.1.25.tar.gz mirror://debian/pool/main/g/grace/grace_5.1.25-13.debian.tar.xz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=29fb080916e075a64186ec1f2ba9ae95
