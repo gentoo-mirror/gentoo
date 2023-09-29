@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-09">
+    <title>Pacemaker: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Pacemaker, the worst of which could result in root privilege escalation.</synopsis>
+    <product type="ebuild">pacemaker</product>
+    <announced>2023-09-29</announced>
+    <revised count="1">2023-09-29</revised>
+    <bug>711674</bug>
+    <bug>751430</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-cluster/pacemaker" auto="yes" arch="*">
+            <unaffected range="ge">2.0.5_rc2</unaffected>
+            <vulnerable range="lt">2.0.5_rc2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Pacemaker is an Open Source, High Availability resource manager suitable for both small and large clusters.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Pacemaker. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Pacemaker users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-cluster/pacemaker-2.0.5_rc2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-16877">CVE-2018-16877</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-16878">CVE-2018-16878</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-3885">CVE-2019-3885</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25654">CVE-2020-25654</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-29T08:35:00.564267Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-29T08:35:00.566732Z">graaff</metadata>
+</glsa>
