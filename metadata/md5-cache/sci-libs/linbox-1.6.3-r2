@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://linalg.org/
 INHERIT=toolchain-funcs
 IUSE=doc opencl openmp static-libs cpu_flags_x86_fma3 cpu_flags_x86_fma4 cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.1* =sci-libs/fflas-ffpack-2.4* virtual/cblas virtual/lapack opencl? ( virtual/opencl ) dev-libs/ntl:= sci-libs/iml dev-libs/mpfr:= sci-mathematics/flint doc? ( >=dev-libs/mathjax-3 )
 SLOT=0
 SRC_URI=https://github.com/linbox-team/linbox/releases/download/v1.6.3/linbox-1.6.3.tar.gz
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=307bbf65769db956cb03cce5a611bf90
+_md5_=7a49e408182318c17adc53df9234c56a
