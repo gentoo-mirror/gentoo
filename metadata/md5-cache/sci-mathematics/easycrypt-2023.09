@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=sci-mathematics/why3-1.6:= <sci-mathematics/why3-1.7:= dev-ml/batteries:= dev-ml/camlp-streams:= dev-ml/camlzip:= dev-ml/dune-build-info:= dev-ml/dune-site:= dev-ml/ocaml-inifiles:= dev-ml/pcre-ocaml:= dev-ml/yojson:= dev-ml/zarith:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Computer-Aided Cryptographic Proofs
+EAPI=8
+HOMEPAGE=https://github.com/EasyCrypt/easycrypt/
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=sci-mathematics/why3-1.6:= <sci-mathematics/why3-1.7:= dev-ml/batteries:= dev-ml/camlp-streams:= dev-ml/camlzip:= dev-ml/dune-build-info:= dev-ml/dune-site:= dev-ml/ocaml-inifiles:= dev-ml/pcre-ocaml:= dev-ml/yojson:= dev-ml/zarith:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/2023.09
+SRC_URI=https://github.com/EasyCrypt/easycrypt/archive/r2023.09.tar.gz -> easycrypt-2023.09.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=5146c4d699ca3f0b0f29cfc4c0a5b639
