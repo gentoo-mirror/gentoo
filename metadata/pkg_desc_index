@@ -936,7 +936,7 @@ app-admin/evtxtools 1.1.1-r2: Read, decode and dump Windows Vista/2008/7 event l
 app-admin/exo 1.72.1: Command-line tool for everything at Exoscale: compute, storage, dns
 app-admin/fam 2.7.0_p17_p3: FAM, the File Alteration Monitor
 app-admin/fetchlog 1.4-r2: Displays the last new messages of a logfile
-app-admin/fifo-cronolog 1.1.1-r1 1.1.1-r2: cronolog wrapper for use with dumb daemons like squid, varnish and so on
+app-admin/fifo-cronolog 1.1.1-r2: cronolog wrapper for use with dumb daemons like squid, varnish and so on
 app-admin/filebeat 7.17.5: Lightweight log shipper for Logstash and Elasticsearch
 app-admin/filewatcher 2.4.6-r1: File control configuration system and IDS
 app-admin/fluentd 1.14.4: data collector and unified logging layer (project under CNCF)
@@ -1000,10 +1000,10 @@ app-admin/openrc-settingsd 1.4.0: System settings D-Bus service for OpenRC
 app-admin/pass 1.7.3-r2 1.7.4-r2 9999: Stores, retrieves, generates, and synchronizes passwords securely
 app-admin/pass-otp 1.2.0 1.2.0-r1: A pass extension for managing one-time-password (OTP) tokens
 app-admin/passwordsafe 1.15.0 1.16.0 1.17.0: Password manager with wxGTK based frontend
-app-admin/paxtest 0.9.15-r1 0.9.15-r2: PaX regression test suite
+app-admin/paxtest 0.9.15-r2: PaX regression test suite
 app-admin/perl-cleaner 2.30-r1 2.31 9999: User land tool for cleaning up old perl installs
 app-admin/petrovich 1.0.0-r2: Filesystem Integrity Checker
-app-admin/pprocm 1.0-r2 1.0-r3: ncurses-based program to monitor CPU, disk, network and memory usage
+app-admin/pprocm 1.0-r3: ncurses-based program to monitor CPU, disk, network and memory usage
 app-admin/procinfo-ng 2.0.304-r2: Completely rewrite of the old system monitoring app procinfo
 app-admin/profile-cleaner 2.37: Vacuum and reindex browser sqlite databases
 app-admin/ps_mem 3.14-r1: A utility to report core memory usage per program
@@ -5137,7 +5137,7 @@ dev-libs/kasync 0.3.0: C++ library for controlling asynchronous tasks
 dev-libs/kdiagram 2.8.0: Powerful libraries (KChart, KGantt) for creating business diagrams
 dev-libs/keybinder 0.3.2-r300: A library for registering global keyboard shortcuts
 dev-libs/keystone 0.9.2-r2 9999: assembly/assembler framework + bindings
-dev-libs/kirigami-addons 0.10.0 0.11.0: Visual end user components for Kirigami-based applications
+dev-libs/kirigami-addons 0.11.0: Visual end user components for Kirigami-based applications
 dev-libs/kopeninghours 23.04.3 23.08.1: Library for parsing and evaluating OSM opening hours expressions
 dev-libs/kosmindoormap 23.04.3 23.08.1: Data Model and Extraction System for Travel Reservation information
 dev-libs/kpathsea 6.3.3_p20210325-r1: Path searching library for TeX-related files
@@ -9461,14 +9461,14 @@ dev-qt/qtcharts 5.15.10 6.5.2-r1 6.5.3 6.6.0_rc 6.6.9999 6.9999: Chart component
 dev-qt/qtchooser 66-r2: Tool to quickly switch between multiple Qt installations
 dev-qt/qtconcurrent 5.15.10: Multi-threading concurrence support library for the Qt5 framework
 dev-qt/qtconnectivity 6.5.2 6.5.3 6.6.0_rc 6.6.9999 6.9999: Bluetooth and NFC support library for the Qt6 framework
-dev-qt/qtcore 5.15.10-r1 5.15.10-r2: Cross-platform application development framework
+dev-qt/qtcore 5.15.10-r2: Cross-platform application development framework
 dev-qt/qtdatavis3d 5.15.10: 3D data visualization library for the Qt5 framework
 dev-qt/qtdbus 5.15.10: Qt5 module for inter-process communication over the D-Bus protocol
-dev-qt/qtdeclarative 5.15.10-r2 5.15.10-r3 6.5.2-r1 6.5.3 6.6.0_rc 6.6.9999 6.9999: Qt Declarative (Quick 2)
+dev-qt/qtdeclarative 5.15.10-r3 6.5.2-r1 6.5.3 6.6.0_rc 6.6.9999 6.9999: Qt Declarative (Quick 2)
 dev-qt/qtdiag 5.15.10: Tool for reporting diagnostic information about Qt and its environment
 dev-qt/qtgamepad 5.15.10: Qt module to support gamepad hardware
 dev-qt/qtgraphicaleffects 5.15.10: Set of QML types for adding visual effects to user interfaces
-dev-qt/qtgui 5.15.10-r1 5.15.10-r2: The GUI module and platform plugins for the Qt5 framework
+dev-qt/qtgui 5.15.10-r2: The GUI module and platform plugins for the Qt5 framework
 dev-qt/qthelp 5.15.10: Qt5 module for integrating online documentation into applications
 dev-qt/qtimageformats 5.15.10 6.5.2 6.5.3 6.6.0_rc 6.6.9999 6.9999: Additional format plugins for the Qt image I/O system
 dev-qt/qtlocation 5.15.10 5.15.10-r1 6.5.2-r1 6.5.3 6.6.0_rc 6.6.9999 6.9999: Location (places, maps, navigation) library for the Qt6 framework
@@ -9500,15 +9500,15 @@ dev-qt/qttest 5.15.10: Unit testing library for the Qt5 framework
 dev-qt/qttools 6.5.2-r2 6.5.3 6.6.0_rc-r1 6.6.9999 6.9999: Qt Tools Collection
 dev-qt/qttranslations 5.15.10 6.5.2 6.5.3 6.6.0_rc 6.6.9999 6.9999: Translation files for the Qt6 framework
 dev-qt/qtvirtualkeyboard 5.15.10 6.5.2 6.5.3 6.6.0_rc 6.6.9999 6.9999: Customizable input framework and virtual keyboard for Qt
-dev-qt/qtwayland 5.15.10-r4 5.15.10-r5 6.5.2-r3 6.5.3 6.6.0_rc 6.6.9999 6.9999: Wayland platform plugin for Qt
+dev-qt/qtwayland 5.15.10-r5 5.15.10-r6 6.5.2-r3 6.5.3 6.6.0_rc 6.6.9999 6.9999: Wayland platform plugin for Qt
 dev-qt/qtwaylandscanner 5.15.10: Tool that generates certain boilerplate C++ code from Wayland protocol xml spec
 dev-qt/qtwebchannel 5.15.10 6.5.2-r2 6.5.3 6.6.0_rc 6.6.9999 6.9999: Qt WebChannel
 dev-qt/qtwebengine 5.15.10_p20230623 5.15.10_p20230815 6.5.2-r1 6.5.3 6.6.0_rc 6.6.9999 6.9999: Library for rendering dynamic web content in Qt6 C++ and QML applications
 dev-qt/qtwebsockets 5.15.10 6.5.2-r1 6.5.3 6.6.0_rc 6.6.9999 6.9999: Implementation of the WebSocket protocol for the Qt6 framework
 dev-qt/qtwebview 5.15.10: Module for displaying web content in a QML application using the Qt5 framework
-dev-qt/qtwidgets 5.15.10-r2 5.15.10-r3: Set of components for creating classic desktop-style UIs for the Qt5 framework
+dev-qt/qtwidgets 5.15.10-r3: Set of components for creating classic desktop-style UIs for the Qt5 framework
 dev-qt/qtx11extras 5.15.10: Linux/X11-specific support library for the Qt5 framework
-dev-qt/qtxml 5.15.10 5.15.10-r1: Implementation of SAX and DOM for the Qt5 framework
+dev-qt/qtxml 5.15.10-r1: Implementation of SAX and DOM for the Qt5 framework
 dev-qt/qtxmlpatterns 5.15.10: XPath, XQuery, XSLT, and XML Schema validation library for the Qt5 framework
 dev-ruby/GeoRuby 2.5.2-r2: Ruby data holder for OGC Simple Features
 dev-ruby/abstract 1.0.0-r5: Library which enable you to define abstract method in Ruby
@@ -12163,7 +12163,7 @@ kde-plasma/breeze 5.27.8-r1: Breeze visual style for the Plasma desktop
 kde-plasma/breeze-grub 5.27.8: Breeze theme for GRUB
 kde-plasma/breeze-gtk 5.27.8: Official GTK+ port of Plasma's Breeze widget style
 kde-plasma/breeze-plymouth 5.27.8: Breeze theme for Plymouth
-kde-plasma/discover 5.27.8 5.27.8-r1: KDE Plasma resources management GUI
+kde-plasma/discover 5.27.8-r1: KDE Plasma resources management GUI
 kde-plasma/drkonqi 5.27.8-r1: Plasma crash handler, gives the user feedback if a program crashed
 kde-plasma/flatpak-kcm 5.27.8: Flatpak Permissions Management KCM
 kde-plasma/kactivitymanagerd 5.27.8: System service to manage user's activities, track the usage patterns etc.
@@ -12176,14 +12176,14 @@ kde-plasma/khotkeys 5.27.8: KDE Plasma workspace hotkey module
 kde-plasma/kinfocenter 5.27.8-r1: Utility providing information about the computer hardware
 kde-plasma/kmenuedit 5.27.8: KDE Plasma menu editor
 kde-plasma/kpipewire 5.27.8: Components relating to Flatpak pipewire use in Plasma
-kde-plasma/kscreen 5.27.8-r1 5.27.8-r2: KDE Plasma screen management
-kde-plasma/kscreenlocker 5.27.8: Library and components for secure lock screen architecture
+kde-plasma/kscreen 5.27.8-r2: KDE Plasma screen management
+kde-plasma/kscreenlocker 5.27.8 5.27.8-r1: Library and components for secure lock screen architecture
 kde-plasma/ksshaskpass 5.27.8: Implementation of ssh-askpass with KDE Wallet integration
 kde-plasma/ksysguard 5.22.0-r1: Network-enabled resource usage monitor
 kde-plasma/ksystemstats 5.27.8: Plugin-based system monitoring daemon
 kde-plasma/kwallet-pam 5.27.8: PAM module to not enter KWallet password again after login
 kde-plasma/kwayland-integration 5.27.8: Provides KWindowSystem integration plugin for Wayland
-kde-plasma/kwin 5.27.8-r1 5.27.8-r2: Flexible, composited Window Manager for windowing systems on Linux
+kde-plasma/kwin 5.27.8-r2 5.27.8-r3: Flexible, composited Window Manager for windowing systems on Linux
 kde-plasma/kwrited 5.27.8: KDE Plasma daemon listening for wall and write messages
 kde-plasma/layer-shell-qt 5.27.8: Qt component to allow applications make use of Wayland wl-layer-shell protocol
 kde-plasma/libkscreen 5.27.8-r1: Plasma screen management library
@@ -12205,7 +12205,7 @@ kde-plasma/plasma-systemmonitor 5.27.8: Monitor system sensors, process informat
 kde-plasma/plasma-thunderbolt 5.27.8: Plasma integration for controlling Thunderbolt devices
 kde-plasma/plasma-vault 5.27.8: Plasma applet and services for creating encrypted vaults
 kde-plasma/plasma-welcome 5.27.8: A friendly onboarding wizard for Plasma
-kde-plasma/plasma-workspace 5.27.8 5.27.8-r1: KDE Plasma workspace
+kde-plasma/plasma-workspace 5.27.8-r1: KDE Plasma workspace
 kde-plasma/plasma-workspace-wallpapers 5.27.8: Wallpapers for the Plasma workspace
 kde-plasma/plymouth-kcm 5.27.8: KDE Plasma control module for Plymouth
 kde-plasma/polkit-kde-agent 5.27.8: PolKit agent module for KDE Plasma
@@ -13098,7 +13098,7 @@ media-libs/lv2 1.18.10: A simple but extensible successor of LADSPA
 media-libs/lvtk 1.2.0-r2: A set of C++ wrappers around the LV2 C API
 media-libs/mesa 23.1.8 23.2.1 9999: OpenGL-like graphic library for Linux
 media-libs/mesa-amber 21.3.9-r1: OpenGL-like graphic library for Linux
-media-libs/mlt 7.16.0-r1 7.18.0: Open source multimedia framework for television broadcasting
+media-libs/mlt 7.18.0: Open source multimedia framework for television broadcasting
 media-libs/munt-mt32emu 2.7.0: Library for emulating the Roland MT-32, CM-32L, CM-64 and LAPC-I
 media-libs/musicbrainz 5.1.0: Client Library for accessing the latest XML based MusicBrainz web service
 media-libs/mutagen 1.46.0 1.47.0: Audio metadata tag reader and writer implemented in pure Python
