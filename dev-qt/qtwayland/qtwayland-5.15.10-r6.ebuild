@@ -4,8 +4,8 @@
 EAPI=8
 
 if [[ ${PV} != *9999* ]]; then
-	QT5_KDEPATCHSET_REV=3
-	KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
+	QT5_KDEPATCHSET_REV=4
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 inherit qt5-build
@@ -30,17 +30,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/wayland-scanner"
-
-src_prepare() {
-	# new patchset for FILESDIR cleanup, drop past -r4 rev patches
-	pushd "${WORKDIR}/${P}-gentoo-kde-${QT5_KDEPATCHSET_REV}" > /dev/null || die
-		rm 0055-Replace-scale-with-devicePixelRatio-for-non-integer-.patch \
-			0056-Client-Fix-buffer-damage.patch \
-			0057-client-Fix-infinite-recursion-with-text-input-v2.patch || die
-	popd > /dev/null || die
-
-	qt5-build_src_prepare
-}
 
 src_configure() {
 	local myqmakeargs=(

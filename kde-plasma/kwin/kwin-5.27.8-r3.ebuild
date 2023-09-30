@@ -100,7 +100,11 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" ) # bug 914143
+PATCHES=(
+	"${FILESDIR}/${P}-cmake.patch" # bug 914143
+	"${FILESDIR}/${P}-crashfix.patch" # KDE-bug 471562
+	"${FILESDIR}/${P}-fix-segfalt-in-EglGbmBackend.patch"
+)
 
 src_prepare() {
 	ecm_src_prepare
