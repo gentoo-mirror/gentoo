@@ -5,9 +5,9 @@ EAPI=8
 
 inherit go-module
 
-DESCRIPTION="A pager designed to do the right thing without any configuration"
+DESCRIPTION="Pager designed to do the right thing without any configuration"
 HOMEPAGE="https://github.com/walles/moar"
-SRC_URI=" https://github.com/walles/moar/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/walles/moar/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-deps.tar.xz"
 
 LICENSE="BSD-2 BSD MIT"
