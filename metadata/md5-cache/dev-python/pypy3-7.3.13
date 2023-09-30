@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=A fast, compliant alternative implementation of the Python (3.10) language
+EAPI=8
+HOMEPAGE=https://www.pypy.org/ https://foss.heptapod.net/pypy/pypy/
+IUSE=+gdbm ncurses sqlite tk
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND==dev-python/pypy3_10-7.3.13*:0/pypy310-pp73-384[gdbm?,ncurses?,sqlite?,tk?]
+SLOT=0/pypy310-pp73-384
+_md5_=43c75f44cb6bc53369b1051f794e7931
