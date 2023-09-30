@@ -44,6 +44,10 @@ RDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.2.1-python-path.patch
+)
+
 python_prepare_all() {
 	local disable_unittests=(
 		# ASAN and sandbox both want control over LD_PRELOAD
