@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/parseclj test? ( app-emacs/ert-runner ) >=app-editors/emacs-26:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=EDN parser for Emacs Lisp
+EAPI=8
+HOMEPAGE=https://github.com/clojure-emacs/parseedn/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/parseclj >=app-editors/emacs-26:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/clojure-emacs/parseedn/archive/v1.2.0.tar.gz -> parseedn-1.2.0.tar.gz
+_eclasses_=elisp-common	dc179f98b2b4d9a4473fd3bdc154bbb6	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_md5_=bbb0a5ee55b575c736ed0edcc9421304

@@ -1335,7 +1335,7 @@ app-containers/docker-credential-helpers 0.6.3: Suite of programs to use native 
 app-containers/docker-proxy 0.8.0_p20230118: Docker container networking
 app-containers/docker-registry 2.8.1 2.8.2: Docker Registry 2.0
 app-containers/docker-swarm 1.2.9: Swarm Classic: a container clustering system
-app-containers/earthly 0.7.15 0.7.17: Build automation tool that executes in containers
+app-containers/earthly 0.7.15 0.7.17 0.7.19: Build automation tool that executes in containers
 app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containers
 app-containers/go-secbench 0.1.0-r1: run and evaluate the docker security benchmark
 app-containers/grype 0.59.1 0.61.0: A vulnerability scanner for container images and filesystems
@@ -1857,7 +1857,7 @@ app-emacs/bind-chord 2.4.4: Key-chord binding helper for use-package-chords
 app-emacs/bind-key 2.4.4: Simple way to manage personal keybindings
 app-emacs/bison-mode 0.3-r1: Emacs major mode for Bison, Yacc and Lex grammars
 app-emacs/blogmax 20170321: Blogging in Emacs
-app-emacs/bm 201905: Visible bookmarks in buffer
+app-emacs/bm 201905 202309: Visible bookmarks in buffer
 app-emacs/bnf-mode 0.4.5: GNU Emacs major mode for editing BNF grammars
 app-emacs/bongo 1.1: Buffer-oriented media player for Emacs
 app-emacs/boogie-friends 0.1_p20220922: Emacs tools for interacting with Boogie, Dafny and Z3 (SMT2)
@@ -2125,7 +2125,7 @@ app-emacs/paredit 26: Minor mode for performing structured editing of S-expressi
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
 app-emacs/parsebib 4.3: Emacs Lisp library for reading .bib files
 app-emacs/parseclj 1.1.0: Clojure Parser for Emacs Lisp
-app-emacs/parseedn 1.1.0: EDN parser for Emacs Lisp
+app-emacs/parseedn 1.1.0 1.2.0: EDN parser for Emacs Lisp
 app-emacs/pdf-tools 1.0.0 1.1.0: Emacs Lisp support library for PDF documents
 app-emacs/pfuture 1.10.3: Simple wrapper around asynchronous processes
 app-emacs/php-mode 1.24.3 1.25.0 9999: GNU Emacs major mode for editing PHP code
@@ -2257,7 +2257,7 @@ app-emacs/xclip 1.11-r1: Emacs Interface to XClip
 app-emacs/xelb 0.18: X protocol Emacs Lisp Binding
 app-emacs/xrdb-mode 3.0-r1: An Emacs major mode for editing X resource database files
 app-emacs/xslide 0.2.2-r1: An Emacs major mode for editing XSL stylesheets and running XSL processes
-app-emacs/yaml 0.5.2 0.5.3: YAML parser in Emacs Lisp
+app-emacs/yaml 0.5.2 0.5.3 0.5.4: YAML parser in Emacs Lisp
 app-emacs/yaml-mode 0.0.14 0.0.15: A major mode for GNU Emacs for editing YAML files
 app-emacs/yasnippet 0.14.0: Yet another snippet extension for Emacs
 app-emacs/yasnippet-snippets 1.0-r2: A collection of yasnippet snippets for many languages
@@ -4871,8 +4871,8 @@ dev-lang/closure-compiler-bin 20211107: JavaScript optimizing compiler
 dev-lang/coffee-script 2.5.1: A little language that compiles into javascript
 dev-lang/crystal 1.9.0-r1 1.9.2-r1: The Crystal Programming Language
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
-dev-lang/dafny 4.2.0: Dafny is a verification-aware programming language
-dev-lang/dafny-bin 3.10.0 3.12.0 4.2.0: Verification-aware programming language
+dev-lang/dafny 4.2.0 4.3.0: Dafny is a verification-aware programming language
+dev-lang/dafny-bin 3.12.0 4.2.0 4.3.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 3.40 3.45 3.50 9999: Interpreter and compiler compatible with the ISLisp standard
@@ -5716,6 +5716,7 @@ dev-ml/lwt_log 1.1.1-r1 1.1.2: Cooperative light-weight thread library for OCaml
 dev-ml/lwt_ssl 1.1.3 1.2.0: GLib integration for Lwt
 dev-ml/markup 1.0.0-r1 1.0.2-r1 1.0.3: Error-recovering streaming HTML5 and XML parsers
 dev-ml/mccs 1.1.13 1.1.14: Multi Criteria CUDF Solver
+dev-ml/memtrace 0.2.3: Streaming client for OCaml's Memprof
 dev-ml/menhir 20220210 20230608: LR(1) parser generator for the OCaml language
 dev-ml/merlin 4.7-r1 4.9 4.10: Context sensitive completion for OCaml in Vim and Emacs
 dev-ml/merlin-extend 0.6-r1 0.6.1: SDK to extend Merlin
@@ -5742,7 +5743,7 @@ dev-ml/ocaml-migrate-parsetree 1.8.0-r1 2.1.0 2.2.0 2.3.0 2.4.0: Convert OCaml p
 dev-ml/ocaml-process 0.2.1-r1: Easy process control for OCaml
 dev-ml/ocaml-sha 1.15.1 1.15.2 1.15.4: Binding to the SHA cryptographic functions
 dev-ml/ocaml-sqlite3 5.0.2: SQLite3 bindings for OCaml
-dev-ml/ocaml-ssl 0.5.9 0.5.10 0.5.12 0.5.13: OCaml bindings for OpenSSL
+dev-ml/ocaml-ssl 0.5.13 0.7.0: OCaml bindings for OpenSSL
 dev-ml/ocaml-stdint 0.7.0 0.7.2: Signed and unsigned integer types having specified widths
 dev-ml/ocaml_intrinsics 0.15.1 0.15.2 0.16.0: Invoke amd64 instructions (such as clz, popcnt, rdtsc, rdpmc)
 dev-ml/ocamlbuild 0.11.0 0.14.0-r1 0.14.1 0.14.2: Generic build tool with built-in rules for building OCaml library and programs
@@ -5846,7 +5847,7 @@ dev-ml/tiny_httpd 0.12-r1: Minimal HTTP server with a small request router
 dev-ml/topkg 1.0.3 1.0.5 1.0.6 1.0.7: The transitory OCaml software packager
 dev-ml/trie 1.0.0: Strict impure trie tree
 dev-ml/typerep 0.14.0 0.15.0 0.16.0: Library for creating runtime representation of OCaml types
-dev-ml/tyxml 4.5.0: A library for building correct HTML and SVG documents
+dev-ml/tyxml 4.5.0 4.6.0: A library for building correct HTML and SVG documents
 dev-ml/uchar 0.0.2-r1: Uchar compatibility library
 dev-ml/unidecode 0.4.0: Convert unicode strings into its ASCII representation
 dev-ml/utop 2.12.1: Universal toplevel for OCaml
@@ -16863,7 +16864,7 @@ sys-apps/stroke 0.1.3-r1: A powerful tool to change file timestamps (including c
 sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the health of Supermicro servers components
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/system-monitoring-center 2.21.1 2.21.2 2.22.1 2.22.2 9999: Multi-featured system monitor GUI written in Python
+sys-apps/system-monitoring-center 2.21.1 2.21.2 2.22.1 2.23.0 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemd 253.3-r1 253.6 253.11 253.12 254.3 254.4 254.5 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-utils 252.9 253.6 253.11 253.12 254.3 254.4 254.5: Utilities split out from systemd for OpenRC users
