@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-16">
+    <title>wpa_supplicant, hostapd: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in wpa_supplicant and hostapd, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">hostapd,wpa_supplicant</product>
+    <announced>2023-09-30</announced>
+    <revised count="1">2023-09-30</revised>
+    <bug>768759</bug>
+    <bug>780135</bug>
+    <bug>780138</bug>
+    <bug>831332</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-wireless/hostapd" auto="yes" arch="*">
+            <unaffected range="ge">2.10</unaffected>
+            <vulnerable range="lt">2.10</vulnerable>
+        </package>
+        <package name="net-wireless/wpa_supplicant" auto="yes" arch="*">
+            <unaffected range="ge">2.10</unaffected>
+            <vulnerable range="lt">2.10</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>wpa_supplicant is a WPA Supplicant with support for WPA and WPA2 (IEEE 802.11i / RSN). hostapd is a user space daemon for access point and authentication servers.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in hostapd and wpa_supplicant. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All wpa_supplicant users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-wireless/wpa_supplicant-2.10"
+        </code>
+        
+        <p>All hostapd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-wireless/hostapd-2.10"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30004">CVE-2021-30004</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23303">CVE-2022-23303</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23304">CVE-2022-23304</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-30T08:38:51.888205Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-30T08:38:51.891195Z">graaff</metadata>
+</glsa>
