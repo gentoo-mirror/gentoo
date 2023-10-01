@@ -12,5 +12,5 @@ RDEPEND=curl? ( net-misc/curl ) gnutls? ( net-libs/gnutls:0= ) java? ( >=virtual
 REQUIRED_USE=|| ( agent frontend proxy server ) ?? ( gnutls mbedtls openssl ) proxy? ( ^^ ( mysql oracle postgres sqlite ) ) server? ( ^^ ( mysql oracle postgres ) !sqlite ) static? ( !oracle !snmp )
 SLOT=0/4.0
 SRC_URI=https://cdn.zabbix.com/zabbix/sources/stable/4.0/zabbix-4.0.49.tar.gz
-_eclasses_=webapp	1aad5c010cfdf11d0376c80467b0de4c	java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-opt-2	3816f3fc28ed2b067845e2802eb954b2	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	user-info	9951b1a0e4f026d16c33a001fd2d5cdf
+_eclasses_=webapp	1aad5c010cfdf11d0376c80467b0de4c	java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-opt-2	3816f3fc28ed2b067845e2802eb954b2	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	user-info	9951b1a0e4f026d16c33a001fd2d5cdf
 _md5_=dc18229cdca9d1312377797840ac7a1d

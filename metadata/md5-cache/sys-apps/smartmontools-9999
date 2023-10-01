@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=caps? ( static? ( sys-libs/libcap-ng:=[static-libs] ) !static? ( sys-libs/libcap-ng:= ) ) selinux? ( sys-libs/libselinux:= ) daemon? ( virtual/mailx ) selinux? ( sec-policy/selinux-smartmon ) systemd? ( sys-apps/systemd ) update-drivedb? ( app-crypt/gnupg || ( net-misc/curl net-misc/wget www-client/lynx dev-vcs/subversion ) )
 REQUIRED_USE=( caps? ( daemon ) static? ( !systemd ) )
 SLOT=0
-_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	systemd	5f4bb0758df2e483babf68cd517078ca	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	systemd	c8b03e8df84486aa991d4396686e8942	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
 _md5_=adc7d2e89f4a057950530bfa87932edf
