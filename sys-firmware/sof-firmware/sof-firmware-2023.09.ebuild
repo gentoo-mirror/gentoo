@@ -5,12 +5,12 @@ EAPI=8
 
 DESCRIPTION="Sound Open Firmware (SOF) binary files"
 HOMEPAGE="https://www.sofproject.org https://github.com/thesofproject/sof https://github.com/thesofproject/sof-bin"
-SRC_URI="https://github.com/thesofproject/sof-bin/releases/download/v${PV}/sof-bin-v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/sof-bin-v${PV}
+SRC_URI="https://github.com/thesofproject/sof-bin/releases/download/v${PV}/sof-bin-${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/sof-bin-${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 # Needed for sof-ctl
 RDEPEND="media-libs/alsa-lib"
@@ -22,7 +22,7 @@ QA_PREBUILT="usr/bin/sof-ctl
 src_install() {
 	dodir /lib/firmware/intel
 	dodir /usr/bin
-	FW_DEST="${D}/lib/firmware/intel" TOOLS_DEST="${D}/usr/bin" "${S}/install.sh" v${PV} || die
+	FW_DEST="${D}/lib/firmware/intel" TOOLS_DEST="${D}/usr/bin" "${S}/install.sh" || die
 }
 
 pkg_preinst() {
