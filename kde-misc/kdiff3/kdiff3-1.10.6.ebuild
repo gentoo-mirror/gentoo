@@ -10,8 +10,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/kdiff3/ https://userbase.kde.org/KDiff3"
-SRC_URI="https://invent.kde.org/sdk/${PN}/-/archive/${PV/_pre0/}/${P/_pre0/}.tar.bz2"
-S="${WORKDIR}/${P/_pre0/}"
+SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="5"
