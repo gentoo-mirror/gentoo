@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare setup
+DEPEND=sys-libs/ncurses:= !sys-process/iotop
+DESCRIPTION=top utility for IO (C port)
+EAPI=8
+HOMEPAGE=https://github.com/Tomas-M/iotop
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps linux-info toolchain-funcs
+IUSE=+filecaps
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~x86
+LICENSE=GPL-2+
+RDEPEND=sys-libs/ncurses:= !sys-process/iotop
+SLOT=0
+SRC_URI=https://github.com/Tomas-M/iotop/archive/v1.24.tar.gz -> iotop-c-1.24.tar.gz
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_md5_=f458fdc750723abc928dd471162a640a
