@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) acct-group/haproxy acct-user/haproxy
 REQUIRED_USE=pcre-jit? ( pcre ) lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) ?? ( slz zlib )
 SLOT=0/2.9
-_eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	systemd	5f4bb0758df2e483babf68cd517078ca	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	systemd	5f4bb0758df2e483babf68cd517078ca	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	git-r3	2358a7b20091609e24bd3a83b3ac5991
 _md5_=96d608e407d4f550721710edf8d2c375
