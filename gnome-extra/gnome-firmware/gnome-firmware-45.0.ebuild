@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,15 +11,15 @@ SRC_URI="https://people.freedesktop.org/~hughsient/releases/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="+man elogind systemd"
 
 RDEPEND="
 	>=gui-libs/gtk-4.2:4
-	dev-libs/glib:2
-	>=sys-apps/fwupd-1.7.5[elogind?,systemd?]
+	>=dev-libs/glib-2.74.0:2
+	>=sys-apps/fwupd-1.8.11[elogind?,systemd?]
 	>=dev-libs/libxmlb-0.1.7:=
-	>=gui-libs/libadwaita-1.0.0:1
+	>=gui-libs/libadwaita-1.4:1
 	elogind? ( sys-auth/elogind )
 	systemd? ( sys-apps/systemd )
 "
@@ -31,11 +31,6 @@ BDEPEND="
 "
 
 DOCS=( README.md )
-
-PATCHES=(
-	# https://gitlab.gnome.org/World/gnome-firmware/-/issues/47
-	"${FILESDIR}/${P}-build-failure.patch"
-)
 
 src_configure() {
 	local emesonargs=(

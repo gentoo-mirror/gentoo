@@ -1,19 +1,23 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-EGIT_REPO_URI="https://github.com/Tomas-M/iotop"
-inherit fcaps git-r3 linux-info toolchain-funcs
+inherit fcaps linux-info toolchain-funcs
 
 DESCRIPTION="top utility for IO (C port)"
 HOMEPAGE="https://github.com/Tomas-M/iotop"
+SRC_URI="https://github.com/Tomas-M/iotop/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/iotop-${PV}"
 
 LICENSE="GPL-2+"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~x86"
 
-RDEPEND="sys-libs/ncurses:=
-	!sys-process/iotop"
+RDEPEND="
+	sys-libs/ncurses:=
+	!sys-process/iotop
+"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
