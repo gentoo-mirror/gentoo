@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare pretend setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/osgi-core:0 app-arch/snappy dev-libs/bitshuffle test? ( dev-java/ant-junit4:0 dev-java/commons-io:1 dev-java/commons-lang:2.1 dev-java/plexus-classworlds:0 dev-java/xerial-core:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-1.8:* dev-java/osgi-core:0 app-arch/snappy dev-libs/bitshuffle test? ( dev-java/ant-junit4:0 dev-java/commons-io:1 dev-java/commons-lang:3.6 dev-java/plexus-classworlds:0 dev-java/xerial-core:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Snappy compressor/decompressor for Java
 EAPI=8
 HOMEPAGE=https://github.com/xerial/snappy-java/
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=1.1
 SRC_URI=https://github.com/xerial/snappy-java/archive/v1.1.10.1.tar.gz -> snappy-1.1.10.1.tar.gz test? ( https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/3.3.5/hadoop-common-3.3.5.jar )
 _eclasses_=java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	52d47d4db4f2c870e1d8f23700ee5e0a	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc
-_md5_=36eb9c77c859170f1a796806bc0b8851
+_md5_=1b115ca2294387443a8d8baf4274eb66
