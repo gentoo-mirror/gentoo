@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://pecl.php.net/package/imagick https://github.com/Imagick/imagick
 INHERIT=php-ext-pecl-r3
 IUSE=examples test php_targets_php8-0 php_targets_php8-1 php_targets_php8-2
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 x86
 LICENSE=PHP-3.01
 RDEPEND=media-gfx/imagemagick:=[-openmp] php_targets_php8-0? ( dev-lang/php:8.0[-debug] ) php_targets_php8-1? ( dev-lang/php:8.1[-debug] ) php_targets_php8-2? ( dev-lang/php:8.2[-debug] )
 REQUIRED_USE=|| ( php_targets_php8-0 php_targets_php8-1 php_targets_php8-2 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://pecl.php.net/get/imagick-3.7.0.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	php-ext-source-r3	3a4893beb5327f4519ae3278ef151fa7	php-ext-pecl-r3	4ca93611caa4190394eb13cc22aedbd0
-_md5_=b9080a6f240af889f05d02db3e970e06
+_md5_=5f838c0ea85d4e76c96b68193346dcec
