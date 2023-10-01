@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit desktop java-pkg-2
 
@@ -11,19 +11,17 @@ MY_URI_PV_1="${PV/rc/}"
 MY_URI_PV="${MY_URI_PV_1//_/%20}"
 
 DESCRIPTION="Java GUI for managing BibTeX and other bibliographies"
-HOMEPAGE="http://www.jabref.org/"
+HOMEPAGE="https://www.jabref.org/"
 # SRC_URI="mirror://sourceforge/jabref/JabRef-${MY_PV}.jar"
 SRC_URI="https://github.com/JabRef/jabref/releases/download/v${PV}/JabRef-${MY_PV}.jar"
+S="${WORKDIR}"
 
 LICENSE="MIT JSON"
 SLOT="0"
-KEYWORDS="amd64 x86"
-
-DEPEND="app-arch/unzip"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="virtual/jre:1.8"
-
-S="${WORKDIR}"
+BDEPEND="app-arch/unzip"
 
 src_unpack() {
 	cp -v "${DISTDIR}/${A}" . || die
