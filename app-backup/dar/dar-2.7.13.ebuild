@@ -34,7 +34,10 @@ RDEPEND="
 		dev-libs/libgcrypt:0=
 		dev-libs/libgpg-error
 	)
-	gpg? ( app-crypt/gpgme:= )
+	gpg? (
+		app-crypt/gpgme:=
+		dev-libs/libassuan
+	)
 	lz4? ( app-arch/lz4:= )
 	lzo? ( dev-libs/lzo:2 )
 	nls? ( virtual/libintl )
