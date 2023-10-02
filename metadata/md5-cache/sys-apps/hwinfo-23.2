@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/flex
+DEFINED_PHASES=compile install prepare
+DEPEND=amd64? ( dev-libs/libx86emu ) x86? ( dev-libs/libx86emu ) >=sys-kernel/linux-headers-2.6.17
+DESCRIPTION=Hardware detection tool used in SuSE Linux
+EAPI=8
+HOMEPAGE=https://github.com/openSUSE/hwinfo/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=amd64? ( dev-libs/libx86emu ) x86? ( dev-libs/libx86emu )
+SLOT=0
+SRC_URI=https://github.com/openSUSE/hwinfo/archive/23.2.tar.gz -> hwinfo-23.2.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=0982ef5aaa5255dd3972d8c9f0f60980
