@@ -1,0 +1,16 @@
+BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) test? ( sys-devel/clang:18 )
+DEFINED_PHASES=install prepare test unpack
+DEPEND=>=sys-devel/clang-18.0.0_pre20231002:* !sys-devel/llvm:0[clang(-),python(-)] !sys-devel/clang:0[python(-)]
+DESCRIPTION=Python bindings for sys-devel/clang
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=llvm.org python-r1
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+RDEPEND=>=sys-devel/clang-18.0.0_pre20231002:* !sys-devel/llvm:0[clang(-),python(-)] !sys-devel/clang:0[python(-)] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/archive/39fec5457c0925bd39f67f63fe17391584e08258.tar.gz -> llvm-project-39fec5457c0925bd39f67f63fe17391584e08258.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	llvm.org	a4facbfeb752ceabbd4cf41b720f18e5	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_md5_=d756831b3d11ced76df3063b053f3e77
