@@ -11,7 +11,7 @@ MY_P="${PN^}-v${PV}"
 
 DESCRIPTION="A GTK+ RDP, SPICE, VNC and SSH client"
 HOMEPAGE="https://remmina.org/"
-SRC_URI="https://gitlab.com/Remmina/Remmina/-/archive/v${PV}/${MY_P}.tar.bz2"
+SRC_URI="https://gitlab.com/Remmina/Remmina/-/archive/v.${PV}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2+-with-openssl-exception"
 SLOT="0"
@@ -64,14 +64,14 @@ RDEPEND="
 
 DOCS=( AUTHORS CHANGELOG.md README.md THANKS.md )
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN^}-v.${PV}-2c4e1479433e51418ecb6089f35182bfebc5b57e"
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
 
 src_prepare() {
-	PATCHES+=( "${FILESDIR}"/${P}-REM-2981.patch ) #914851
+	PATCHES+=( "${FILESDIR}"/${PN}-1.4.32-REM-2981.patch ) #914851
 	xdg_environment_reset
 	cmake_src_prepare
 }
