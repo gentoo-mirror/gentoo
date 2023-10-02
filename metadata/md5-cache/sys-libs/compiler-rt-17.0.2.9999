@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/cmake-3.16 clang? ( sys-devel/clang ) test? ( || ( ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ) =sys-devel/clang-17.0.1*:17 ) !test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-util/cmake-3.16 clang? ( sys-devel/clang ) test? ( || ( ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ) =sys-devel/clang-17.0.2*:17 ) !test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=sys-devel/llvm:17 !!sys-devel/llvm:0
 DESCRIPTION=Compiler runtime library for clang (built-in part)
