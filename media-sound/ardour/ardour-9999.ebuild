@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 PYTHON_REQ_USE='threads(+)'
 PLOCALES="ca cs de el en_GB es eu fr it ja ko nn pl pt pt_PT ru sv zh"
 inherit toolchain-funcs flag-o-matic plocale python-any-r1 waf-utils desktop xdg
@@ -35,7 +35,6 @@ RDEPEND="
 	media-libs/aubio
 	media-libs/flac:=
 	media-libs/freetype:2
-	media-libs/libart_lgpl
 	media-libs/liblo
 	media-libs/liblrdf
 	media-libs/libsamplerate
