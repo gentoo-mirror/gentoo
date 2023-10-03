@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/glib-2.6.0 dev-libs/openssl:= sys-libs/ncurses:= otr? ( >=dev-libs/libgcrypt-1.2.0:= >=net-libs/libotr-4.1.0 ) perl? ( dev-lang/perl:= )
+DESCRIPTION=A modular textUI IRC client with IPv6 support
+EAPI=8
+HOMEPAGE=https://irssi.org/
+INHERIT=perl-module meson
+IUSE=otr +perl selinux +proxy
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.6.0 dev-libs/openssl:= sys-libs/ncurses:= otr? ( >=dev-libs/libgcrypt-1.2.0:= >=net-libs/libotr-4.1.0 ) perl? ( dev-lang/perl:= ) selinux? ( sec-policy/selinux-irc )
+SLOT=0
+SRC_URI=https://github.com/irssi/irssi/releases/download/1.4.5/irssi-1.4.5.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	aa997145fb9941f14e9be1c3ed7238b8	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	08b7183c3f4811568ee93eb0f79a89fe
+_md5_=39ec5bbca443eb9fac82b037d82088b2

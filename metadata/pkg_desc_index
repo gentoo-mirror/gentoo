@@ -5450,7 +5450,7 @@ dev-libs/psimd 2020.05.17: P(ortable) SIMD
 dev-libs/pslib 0.4.6: pslib is a C-library to create PostScript files on the fly
 dev-libs/ptexenc 1.3.9_p20210325-r1: Library for Japanese pTeX providing a better way of handling character encodings
 dev-libs/pthreadpool 2022.05.09-r1: Portable and efficient thread pool implementation
-dev-libs/pugixml 1.13 9999: Light-weight, simple, and fast XML parser for C++ with XPath support
+dev-libs/pugixml 1.13 1.14 9999: Light-weight, simple, and fast XML parser for C++ with XPath support
 dev-libs/qcoro5 0.9.0: C++ Coroutine Library for Qt5
 dev-libs/qcustomplot 2.0.1: Qt C++ widget for plotting and data visualization
 dev-libs/qhotkey 1.5.0: A global shortcut/hotkey library for desktop Qt applications
@@ -10664,7 +10664,7 @@ dev-util/rocprofiler 5.1.3-r1 5.3.3: Callback/Activity Library for Performance t
 dev-util/roctracer 5.1.3-r1 5.3.3-r1: Callback/Activity Library for Performance tracing AMD GPU's
 dev-util/ropper 1.13.8 9999: Use to display information about binary files in different file formats
 dev-util/rpmdevtools 9.5: Collection of rpm packaging related utilities
-dev-util/rr 5.6.0-r2 5.6.0-r4: Record and Replay Framework
+dev-util/rr 5.6.0-r2 5.6.0-r4 5.7.0: Record and Replay Framework
 dev-util/rt-tests 2.5: A collection of latency testing tools for the linux(-rt) kernel
 dev-util/ruff 0.0.292: An extremely fast Python linter, written in Rust
 dev-util/rustup 1.25.2 9999: Rust toolchain installer
@@ -14376,7 +14376,7 @@ net-firewall/conntrack-tools 1.4.7-r1: Connection tracking userspace tools
 net-firewall/ebtables 2.0.11-r3: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
 net-firewall/ferm 2.6 2.7: Command line util for managing firewall rules
 net-firewall/firehol 3.1.6-r3 3.1.7-r2: iptables firewall generator
-net-firewall/firewalld 1.3.2 1.3.3 2.0.0: A firewall daemon with D-Bus interface providing a dynamic firewall
+net-firewall/firewalld 1.3.2 1.3.3 2.0.0 2.0.1: A firewall daemon with D-Bus interface providing a dynamic firewall
 net-firewall/fwbuilder 6.0.0_rc1: A firewall management GUI for iptables, PF, Cisco routers and more
 net-firewall/fwknop 2.6.10-r3: Single Packet Authorization and Port Knocking application
 net-firewall/ipkungfu 0.6.1-r1: A nice iptables firewall script
@@ -14503,7 +14503,7 @@ net-irc/ircmap 0.99-r1: Scripts to treate diagrams of IRC networks using the LIN
 net-irc/ircstats 1.2: IRCStats is a Linux log analyzer
 net-irc/irker 2.23: Submission tools for IRC notifications
 net-irc/iroffer-dinoex 3.32-r2: IRC fileserver using DCC
-net-irc/irssi 1.4.4 1.4.4-r1 9999: A modular textUI IRC client with IPv6 support
+net-irc/irssi 1.4.4 1.4.4-r1 1.4.5 9999: A modular textUI IRC client with IPv6 support
 net-irc/irssi-xmpp 0.54 0.54-r1: Irssi plugin providing Jabber/XMPP support
 net-irc/irssistats 0.75-r1: Generates HTML IRC stats based on irssi logs
 net-irc/konversation 23.04.3 23.08.1: User friendly IRC Client
@@ -15082,7 +15082,7 @@ net-misc/sshpass 1.09-r1: Tool for noninteractively performing password authenti
 net-misc/sshrc 0.6.2: Bring your .bashrc, .vimrc, etc. from your local machine when you ssh
 net-misc/sslh 1.22c-r1 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
 net-misc/sstp-client 1.0.17 1.0.18 1.0.18-r2: Client implementation of Secure Socket Tunneling Protocol (SSTP)
-net-misc/streamlink 5.5.1 6.0.1 6.1.0 6.2.0 9999: CLI for extracting streams from websites to a video player of your choice
+net-misc/streamlink 5.5.1 6.0.1 6.1.0 6.2.0 6.2.1 9999: CLI for extracting streams from websites to a video player of your choice
 net-misc/streamtuner 0.99.99-r5: Stream directory browser for browsing internet radio streams
 net-misc/stunnel 5.64-r2 5.65-r2 5.68: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.15 1.2.16: Open source implementation of the STUN protocol
@@ -16670,7 +16670,7 @@ sys-apps/etckeeper 1.18.18 1.18.20: A collection of tools to let /etc be stored 
 sys-apps/ethq 0.5.0 0.6.1 9999: Ethernet NIC Queue stats viewer
 sys-apps/ethtool 5.15 5.19 6.1 6.2 6.3 6.4 6.5: Utility for examining and tuning ethernet-based network interfaces
 sys-apps/exa 0.10.1: A modern replacement for 'ls' written in Rust
-sys-apps/eza 0.11.0 0.11.1-r1 0.12.0 0.13.0 0.13.1: A modern, maintained replacement for ls
+sys-apps/eza 0.11.0 0.11.1-r1 0.12.0 0.13.0 0.13.1 0.14.0: A modern, maintained replacement for ls
 sys-apps/fakechroot 2.20.1_p2: Provide a faked chroot environment without requiring root privileges
 sys-apps/fakeroot 1.31 1.32.1: A fake root environment by means of LD_PRELOAD and SysV IPC (or TCP) trickery
 sys-apps/fbset 2.1: A utility to set the framebuffer videomode
@@ -18594,7 +18594,7 @@ x11-plugins/wmwifi 0.6-r1: wireless network interface monitor dockapp
 x11-plugins/wmwork 0.2.5-r1: a dockapp that lets you easily track time spent on different projects
 x11-plugins/wmxkb 1.2.2-r1: Dockable keyboard layout switcher for Window Maker
 x11-plugins/wmxres 1.2-r1 1.4: Dock application to select your display mode among those possible
-x11-terms/alacritty 0.10.1 0.12.1 0.12.2 9999: GPU-accelerated terminal emulator
+x11-terms/alacritty 0.10.1 0.12.1 0.12.2 0.12.3 9999: GPU-accelerated terminal emulator
 x11-terms/aterm 1.0.1-r6: rxvt compatible terminal emulator with transparency support
 x11-terms/cool-retro-term 1.1.1-r2 1.2.0: Terminal emulator with an old school look and feel
 x11-terms/gnome-terminal 3.44.1 3.48.2: A terminal emulator for GNOME

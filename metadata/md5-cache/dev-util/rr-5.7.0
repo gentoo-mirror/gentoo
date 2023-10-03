@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/capnproto:= sys-libs/zlib:= test? ( python_single_target_python3_10? ( dev-python/pexpect[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pexpect[python_targets_python3_11(-)] ) sys-devel/gdb[xml] )
+DESCRIPTION=Record and Replay Framework
+EAPI=8
+HOMEPAGE=https://rr-project.org/
+INHERIT=cmake linux-info python-single-r1
+IUSE=multilib test python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT BSD-2
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/capnproto:= sys-libs/zlib:= sys-devel/gdb[xml]
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/rr-debugger/rr/archive/5.7.0.tar.gz -> mozilla-rr-5.7.0.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=858d5f8d15df47dc62061cc92b8d74b5
