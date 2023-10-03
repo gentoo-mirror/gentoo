@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/glib:2 x11-libs/gtk+:2 media-libs/libsdl2 media-libs/libpng:0 ftdi? ( dev-embedded/libftdi:1 ) elibc_musl? ( sys-libs/libunwind )
+DESCRIPTION=Platform abstraction code for tucnak package
+EAPI=8
+HOMEPAGE=http://tucnak.nagano.cz
+INHERIT=autotools flag-o-matic
+IUSE=ftdi
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 x11-libs/gtk+:2 media-libs/libsdl2 media-libs/libpng:0 ftdi? ( dev-embedded/libftdi:1 ) elibc_musl? ( sys-libs/libunwind )
+SLOT=0
+SRC_URI=http://tucnak.nagano.cz/libzia-4.46.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	be27a904c614cb93ae037762dc69bcc2
+_md5_=e3531943779ba95a3a4fe3e821a98a2e
