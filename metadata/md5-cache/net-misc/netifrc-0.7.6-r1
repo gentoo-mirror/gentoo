@@ -1,14 +1,14 @@
 BDEPEND=kernel_linux? ( virtual/pkgconfig ) virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=compile install postinst prepare
+DEFINED_PHASES=compile install postinst postrm prepare
 DESCRIPTION=Gentoo Network Interface Management Scripts
-EAPI=7
+EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Netifrc
 INHERIT=systemd udev
 IUSE=+dhcp
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=BSD-2 GPL-2
-RDEPEND=sys-apps/gentoo-functions >=sys-apps/openrc-0.15 dhcp? ( || ( net-misc/dhcpcd net-misc/dhcp[client] ) )
+RDEPEND=sys-apps/gentoo-functions >=sys-apps/openrc-0.15 dhcp? ( || ( net-misc/dhcpcd net-misc/dhcp[client] sys-apps/busybox ) )
 SLOT=0
-SRC_URI=https://gitweb.gentoo.org/proj/netifrc.git/snapshot/netifrc-0.7.5.tar.gz
+SRC_URI=https://gitweb.gentoo.org/proj/netifrc.git/snapshot/netifrc-0.7.6.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=90660e47c03d87b335faff261af8e411
+_md5_=cfbd36fde485499aecdcf85b18f48d9c
