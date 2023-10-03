@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://rakshasa.github.io/rtorrent/
 INHERIT=autotools linux-info systemd
 IUSE=debug selinux test xmlrpc
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=~net-libs/libtorrent-0.13.8 >=net-misc/curl-7.19.1 sys-libs/ncurses:0= xmlrpc? ( dev-libs/xmlrpc-c:= ) selinux? ( sec-policy/selinux-rtorrent )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://rtorrent.net/downloads/rtorrent-0.9.8.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=f1effde969ce46f3e2aec91adb77827b
+_md5_=96df1f5a14438b1bfc9331eb887dc3df
