@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install setup
-DEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-25.0[ssl] <dev-lang/erlang-25.2 app-arch/zip app-arch/unzip app-text/docbook-xml-dtd:4.5 app-text/xmlto >=dev-lang/elixir-1.13.4 <dev-lang/elixir-1.15.0 dev-libs/libxslt || ( ( dev-lang/python:3.11[xml(+)] dev-python/simplejson[python_targets_python3_11(-)] ) ( dev-lang/python:3.10[xml(+)] dev-python/simplejson[python_targets_python3_10(-)] ) )
+DEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-25.0[ssl] <dev-lang/erlang-25.4 app-arch/zip app-arch/unzip app-text/docbook-xml-dtd:4.5 app-text/xmlto >=dev-lang/elixir-1.13.4 <dev-lang/elixir-1.15.0 dev-libs/libxslt || ( ( dev-lang/python:3.11[xml(+)] dev-python/simplejson[python_targets_python3_11(-)] ) ( dev-lang/python:3.10[xml(+)] dev-python/simplejson[python_targets_python3_10(-)] ) )
 DESCRIPTION=RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
 EAPI=8
 HOMEPAGE=https://www.rabbitmq.com/
 INHERIT=python-any-r1 systemd
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=MPL-2.0
-RDEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-25.0[ssl] <dev-lang/erlang-25.2
+RDEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-25.0[ssl] <dev-lang/erlang-25.4
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.11.2/rabbitmq-server-3.11.2.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=655edb826b1d482d060b60029e495583
+_md5_=4e45473976facf5a86418206a288fee8
