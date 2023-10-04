@@ -1,0 +1,18 @@
+BDEPEND=>=dev-lang/go-1.9 dev-python/docutils sys-devel/gettext sys-fs/xfsprogs sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEPEND=sys-libs/libseccomp:= apparmor? ( sec-policy/apparmor-profiles sys-apps/apparmor:= ) dev-libs/glib virtual/libudev systemd? ( sys-apps/systemd ) sys-libs/libcap:= sys-fs/squashfs-tools[lzma,lzo]
+DESCRIPTION=Service and tools for management of snap packages
+EAPI=8
+HOMEPAGE=http://snapcraft.io/
+INHERIT=autotools bash-completion-r1 flag-o-matic go-module linux-info readme.gentoo-r1 systemd tmpfiles xdg-utils
+IUSE=apparmor +forced-devmode gtk kde systemd
+KEYWORDS=~amd64
+LICENSE=GPL-3 Apache-2.0 BSD BSD-2 LGPL-3-with-linking-exception MIT
+PDEPEND=sys-auth/polkit[gtk?,kde?]
+RDEPEND=sys-libs/libseccomp:= apparmor? ( sec-policy/apparmor-profiles sys-apps/apparmor:= ) dev-libs/glib virtual/libudev systemd? ( sys-apps/systemd ) sys-libs/libcap:= sys-fs/squashfs-tools[lzma,lzo] virtual/tmpfiles
+REQUIRED_USE=!forced-devmode? ( apparmor ) systemd
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/snapcore/snapd/releases/download/2.60.4/snapd_2.60.4.vendor.tar.xz -> snapd-2.60.4.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	8624eede24936fd7666e5298e5332f22	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=499a69dfbc3290a7f3064f6a5966696b
