@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-control-center
 INHERIT=meson gnome2-utils python-any-r1 xdg virtualx
 IUSE=+colord input_devices_wacom +networkmanager +modemmanager gnome-online-accounts systemd test test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2+ LGPL-2.1+ MIT
 RDEPEND=app-accessibility/at-spi2-core:2 >=dev-libs/glib-2.44.0:2 >=gnome-base/libgnomekbd-3.0.0:0= >=gnome-extra/cinnamon-desktop-5.8:0= >=gnome-extra/cinnamon-menus-5.8 media-libs/fontconfig >=sys-auth/polkit-0.103 >=sys-power/upower-0.99.8:= >=x11-libs/gdk-pixbuf-2.23.0:2 >=x11-libs/gtk+-3.16.0:3 >=dev-libs/libgudev-232 >=x11-libs/libnotify-0.7.3 x11-libs/cairo x11-libs/libX11 >=x11-libs/libxklavier-5.1:= x11-libs/pango colord? ( >=x11-misc/colord-0.1.14:0= ) input_devices_wacom? ( >=dev-libs/libwacom-0.7:= >=x11-libs/libXi-1.2 ) networkmanager? ( >=gnome-extra/nm-applet-1.2.0 >=net-libs/libnma-1.8.34 >=net-misc/networkmanager-1.2.0[modemmanager?] modemmanager? ( >=net-misc/modemmanager-0.7:= ) ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.18.0:= ) x11-themes/adwaita-icon-theme colord? ( >=gnome-extra/gnome-color-manager-3 ) input_devices_wacom? ( gnome-extra/cinnamon-settings-daemon[input_devices_wacom] ) systemd? ( >=sys-apps/systemd-31 ) !systemd? ( app-admin/openrc-settingsd )
 REQUIRED_USE=modemmanager? ( networkmanager )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-control-center/archive/5.8.2.tar.gz -> cinnamon-control-center-5.8.2.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	08b7183c3f4811568ee93eb0f79a89fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	python-any-r1	f5169813d1619761b459800587005fd2	xdg	4a14c5c24f121e7da66e5aab4a168c6e	virtualx	817571665ee28575da44ee08135089e5
-_md5_=0d70948597f5fe57d0424bb01f264754
+_md5_=269795aadd79bd133bb0057e7eaa21b6
