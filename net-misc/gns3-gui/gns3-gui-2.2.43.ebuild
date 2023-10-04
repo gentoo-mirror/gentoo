@@ -20,8 +20,8 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	>=dev-python/distro-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.9.4[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.17.0[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.5[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.31.0[${PYTHON_USEDEP}]
 	~net-misc/gns3-server-${PV}[${PYTHON_USEDEP}]
 	dev-python/PyQt5[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
 "
