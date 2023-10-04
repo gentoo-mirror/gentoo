@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-llvm-16.0.4 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=install prepare unpack
+DESCRIPTION=Common files shared between multiple slots of LLVM
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=llvm.org
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+RDEPEND=!sys-devel/llvm:0
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/llvm-project-17.0.2.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/llvm-project-17.0.2.src.tar.xz.sig )
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a	llvm.org	a4facbfeb752ceabbd4cf41b720f18e5
+_md5_=4b406f98226318955c090ac02aec5138

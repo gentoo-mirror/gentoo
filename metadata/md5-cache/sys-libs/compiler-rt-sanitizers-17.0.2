@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/cmake-3.16 clang? ( sys-devel/clang ) elibc_glibc? ( net-libs/libtirpc ) test? ( || ( ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ) =sys-devel/clang-17.0.2*:17 sys-libs/compiler-rt:17 ) !test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-16.0.4 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=sys-devel/llvm:17 virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?] !!sys-devel/llvm:0
+DESCRIPTION=Compiler runtime libraries for clang (sanitizers & xray)
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=check-reqs cmake flag-o-matic llvm llvm.org python-any-r1
+IUSE=+abi_x86_32 abi_x86_64 +clang debug test +libfuzzer +memprof +orc +profile +xray +asan +dfsan +lsan +msan +hwasan +tsan +ubsan +safestack +cfi +scudo +shadowcallstack +gwp-asan test verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+REQUIRED_USE=|| ( asan dfsan lsan msan hwasan tsan ubsan safestack cfi scudo shadowcallstack gwp-asan libfuzzer orc profile xray ) test? ( cfi? ( ubsan ) gwp-asan? ( scudo ) )
+RESTRICT=!clang? ( test ) !test? ( test ) !test? ( test )
+SLOT=17
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/llvm-project-17.0.2.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/llvm-project-17.0.2.src.tar.xz.sig )
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	llvm	2e1701c714b75feb512bffdecd3fe7d0	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a	llvm.org	a4facbfeb752ceabbd4cf41b720f18e5	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=808233441874787d95190415ca28db2b
