@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-04">
+    <title>libvpx: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libvpx, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">libvpx</product>
+    <announced>2023-10-04</announced>
+    <revised count="1">2023-10-04</revised>
+    <bug>914875</bug>
+    <bug>914987</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libvpx" auto="yes" arch="*">
+            <unaffected range="ge">1.13.1</unaffected>
+            <vulnerable range="lt">1.13.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libvpx is the VP8 codec SDK used to encode and decode video streams, typically within a WebM format media file.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libvpx. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libvpx users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libvpx-1.13.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5217">CVE-2023-5217</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-44488">CVE-2023-44488</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-04T10:49:17.755721Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2023-10-04T10:49:17.758091Z">sam</metadata>
+</glsa>
