@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/pytest-aiohttp[python_targets_python3_11(-)?] ) test? ( acct-group/gns3 acct-user/gns3 app-emulation/dynamips >=dev-python/aiofiles-23.2.1[python_targets_python3_11(-)?] >=dev-python/aiohttp-3.8.5[python_targets_python3_11(-)?] >=dev-python/aiohttp-cors-0.7.0[python_targets_python3_11(-)?] >=dev-python/async-timeout-4.0.2[python_targets_python3_11(-)?] >=dev-python/distro-1.8.0[python_targets_python3_11(-)?] >=dev-python/jinja-3.1.2[python_targets_python3_11(-)?] >=dev-python/jsonschema-4.17.3[python_targets_python3_11(-)?] >=dev-python/psutil-5.9.5[python_targets_python3_11(-)?] >=dev-python/py-cpuinfo-9.0.0[python_targets_python3_11(-)?] >=dev-python/sentry-sdk-1.31.0[python_targets_python3_11(-)?] net-misc/ubridge sys-apps/busybox[static] >=dev-python/pytest-7.3.1[python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-13[python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_11(-)?] virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DESCRIPTION=GNS3 server to asynchronously manage emulators
+EAPI=8
+HOMEPAGE=https://www.gns3.com https://github.com/GNS3/gns3-server
+INHERIT=distutils-r1 optfeature systemd
+IUSE=test python_targets_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=acct-group/gns3 acct-user/gns3 app-emulation/dynamips >=dev-python/aiofiles-23.2.1[python_targets_python3_11(-)?] >=dev-python/aiohttp-3.8.5[python_targets_python3_11(-)?] >=dev-python/aiohttp-cors-0.7.0[python_targets_python3_11(-)?] >=dev-python/async-timeout-4.0.2[python_targets_python3_11(-)?] >=dev-python/distro-1.8.0[python_targets_python3_11(-)?] >=dev-python/jinja-3.1.2[python_targets_python3_11(-)?] >=dev-python/jsonschema-4.17.3[python_targets_python3_11(-)?] >=dev-python/psutil-5.9.5[python_targets_python3_11(-)?] >=dev-python/py-cpuinfo-9.0.0[python_targets_python3_11(-)?] >=dev-python/sentry-sdk-1.31.0[python_targets_python3_11(-)?] net-misc/ubridge sys-apps/busybox[static] python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/GNS3/gns3-server/archive/v2.2.43.tar.gz -> gns3-server-2.2.43.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=c462cbd49109e5e883da4b7a561c8a46
