@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.strongswan.org/
 INHERIT=linux-info systemd
 IUSE=+caps curl +constraints debug dhcp eap farp gcrypt +gmp ldap mysql networkmanager +non-root +openssl selinux sqlite systemd pam pkcs11 +strongswan_plugins_gcm +strongswan_plugins_led +strongswan_plugins_lookip +strongswan_plugins_systime-fix +strongswan_plugins_unity +strongswan_plugins_vici strongswan_plugins_kdf strongswan_plugins_addrblock strongswan_plugins_aesni strongswan_plugins_blowfish strongswan_plugins_bypass-lan strongswan_plugins_ccm strongswan_plugins_chapoly strongswan_plugins_ctr strongswan_plugins_error-notify strongswan_plugins_forecast strongswan_plugins_ha strongswan_plugins_ipseckey strongswan_plugins_newhope strongswan_plugins_ntru strongswan_plugins_padlock strongswan_plugins_rdrand strongswan_plugins_save-keys strongswan_plugins_unbound strongswan_plugins_whitelist strongswan_plugins_xauth-noauth
-KEYWORDS=amd64 arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm ~arm64 ~ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2 RSA DES
 RDEPEND=non-root? ( acct-user/ipsec acct-group/ipsec ) dev-libs/glib:2 gmp? ( >=dev-libs/gmp-4.1.5:= ) gcrypt? ( dev-libs/libgcrypt:= ) caps? ( sys-libs/libcap ) curl? ( net-misc/curl ) ldap? ( net-nds/openldap:= ) openssl? ( >=dev-libs/openssl-0.9.8:=[-bindist(-)] ) mysql? ( dev-db/mysql-connector-c:= ) sqlite? ( >=dev-db/sqlite-3.3.1:3 ) systemd? ( sys-apps/systemd ) networkmanager? ( net-misc/networkmanager ) pam? ( sys-libs/pam ) strongswan_plugins_unbound? ( net-dns/unbound:= net-libs/ldns:= ) virtual/logger sys-apps/iproute2 !net-vpn/libreswan selinux? ( sec-policy/selinux-ipsec )
 SLOT=0
 SRC_URI=https://download.strongswan.org/strongswan-5.9.11.tar.bz2
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=c6b974d395dbe8f4fcc3142eecb5a059
+_md5_=5c56fb7038426d859cb9386e78fa448e
