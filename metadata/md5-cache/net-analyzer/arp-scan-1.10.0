@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/autoconf-archive sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=prepare
+DEPEND=net-libs/libpcap sys-libs/libcap
+DESCRIPTION=ARP scanning and fingerprinting tool
+EAPI=8
+HOMEPAGE=https://github.com/royhills/arp-scan
+INHERIT=autotools
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=net-libs/libpcap sys-libs/libcap dev-lang/perl
+SLOT=0
+SRC_URI=https://github.com/royhills/arp-scan/archive/1.10.0.tar.gz -> arp-scan-1.10.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=0c3b0a18ed23d3aa3dfe2f983ea9f45d

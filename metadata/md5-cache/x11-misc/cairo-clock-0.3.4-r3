@@ -1,0 +1,14 @@
+BDEPEND=dev-util/intltool sys-devel/autoconf-archive sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install prepare
+DEPEND=>=dev-libs/glib-2.8 >=gnome-base/libglade-2.6 >=gnome-base/librsvg-2.14 >=x11-libs/cairo-1.2 >=x11-libs/gtk+-2.10:2 >=x11-libs/pango-1.10
+DESCRIPTION=An analog clock displaying the system-time
+EAPI=8
+HOMEPAGE=https://launchpad.net/cairo-clock
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.8 >=gnome-base/libglade-2.6 >=gnome-base/librsvg-2.14 >=x11-libs/cairo-1.2 >=x11-libs/gtk+-2.10:2 >=x11-libs/pango-1.10
+SLOT=0
+SRC_URI=http://macslow.thepimp.net/projects/cairo-clock/cairo-clock-0.3.4.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=f3ea8b4d68e4edebdee436cd767319af
