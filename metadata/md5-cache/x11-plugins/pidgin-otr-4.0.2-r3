@@ -1,0 +1,14 @@
+BDEPEND=dev-util/intltool sys-devel/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install prepare
+DEPEND=dev-libs/libgcrypt:0 net-im/pidgin[gtk] >=net-libs/libotr-4.0.0 x11-libs/gtk+:2
+DESCRIPTION=(OTR) Messaging allows you to have private conversations over instant messaging
+EAPI=8
+HOMEPAGE=http://www.cypherpunks.ca/otr/
+INHERIT=autotools
+KEYWORDS=~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/libgcrypt:0 net-im/pidgin[gtk] >=net-libs/libotr-4.0.0 x11-libs/gtk+:2
+SLOT=0
+SRC_URI=http://www.cypherpunks.ca/otr/pidgin-otr-4.0.2.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=70765fc931b3016ba57435c7ec9bb483
