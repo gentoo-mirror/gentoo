@@ -1,0 +1,17 @@
+BDEPEND=test? ( >=dev-python/requests-2.11.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10[sqlite,ssl,xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite,ssl,xml(+)] ) >=dev-python/gpep517-13[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install postinst prepare test
+DESCRIPTION=Download image galleries and collections from several image hosting sites
+EAPI=8
+HOMEPAGE=https://github.com/mikf/gallery-dl
+INHERIT=distutils-r1 optfeature
+IUSE=test python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+PROPERTIES=test_network
+RDEPEND=>=dev-python/requests-2.11.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10[sqlite,ssl,xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite,ssl,xml(+)] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/mikf/gallery-dl/archive/v1.26.0.tar.gz -> gallery-dl-1.26.0.gh.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=4ddc0908b87453ce95bb9c0a9a11a09d
