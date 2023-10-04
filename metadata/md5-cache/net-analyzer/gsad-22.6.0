@@ -1,6 +1,6 @@
 BDEPEND=dev-python/polib virtual/pkgconfig doc? ( app-doc/doxygen[dot] app-doc/xmltoman app-text/htmldoc sys-devel/gettext ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=acct-user/gvm dev-libs/glib:2 dev-libs/libgcrypt:0= dev-libs/libxml2 dev-libs/libxslt >=net-analyzer/gvm-libs-22.5.1 net-libs/gnutls:= net-libs/libmicrohttpd:=
+DEPEND=acct-user/gvm dev-libs/glib:2 dev-libs/libgcrypt:0= dev-libs/libxml2 dev-libs/libxslt >=net-analyzer/gvm-libs-22.6.0 net-libs/gnutls:= net-libs/libmicrohttpd:=
 DESCRIPTION=Greenbone Security Assistant
 EAPI=8
 HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/gsad
@@ -8,8 +8,8 @@ INHERIT=cmake systemd toolchain-funcs
 IUSE=doc
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3+
-RDEPEND=acct-user/gvm dev-libs/glib:2 dev-libs/libgcrypt:0= dev-libs/libxml2 dev-libs/libxslt >=net-analyzer/gvm-libs-22.5.1 net-libs/gnutls:= net-libs/libmicrohttpd:= >=net-analyzer/gvmd-22.4 >=net-analyzer/gsa-22.4 net-analyzer/ospd-openvas
+RDEPEND=acct-user/gvm dev-libs/glib:2 dev-libs/libgcrypt:0= dev-libs/libxml2 dev-libs/libxslt >=net-analyzer/gvm-libs-22.6.0 net-libs/gnutls:= net-libs/libmicrohttpd:= >=net-analyzer/gvmd-22.4 >=net-analyzer/gsa-22.4 net-analyzer/ospd-openvas
 SLOT=0
-SRC_URI=https://github.com/greenbone/gsad/archive/v22.5.1.tar.gz -> gsad-22.5.1.tar.gz
+SRC_URI=https://github.com/greenbone/gsad/archive/v22.6.0.tar.gz -> gsad-22.6.0.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=68003ab221d6bb21154ac90ccbbdc522
+_md5_=48ed742f4f0d6792eb160727d5a580a7
