@@ -1,0 +1,16 @@
+BDEPEND=ncurses? ( virtual/pkgconfig )
+DEFINED_PHASES=compile configure install prepare
+DEPEND=fftw? ( sci-libs/fftw:3.0 ) ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0= )
+DESCRIPTION=http protocol ping-like program
+EAPI=8
+HOMEPAGE=https://www.vanheusden.com/httping/
+INHERIT=toolchain-funcs flag-o-matic
+IUSE=debug fftw l10n_nl ncurses ssl +tfo
+KEYWORDS=~amd64 ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-3
+RDEPEND=fftw? ( sci-libs/fftw:3.0 ) ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/folkertvanheusden/HTTPing/archive/refs/tags/v2.9.tar.gz -> httping-2.9.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	be27a904c614cb93ae037762dc69bcc2
+_md5_=40211fa17e5898074233953a59f7c79d

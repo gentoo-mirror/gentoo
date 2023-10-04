@@ -1426,7 +1426,7 @@ app-crypt/kstart 4.3: Modified versions of kinit for refreshing kerberos tickets
 app-crypt/libb2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp
 app-crypt/libmd 1.0.4 1.1.0: Message Digest functions from BSD systems
 app-crypt/libnitrokey 3.8 9999: Support library for the Nitrokey
-app-crypt/libscrypt 1.22: Shared library to impliment the scrypt algorithm
+app-crypt/libscrypt 1.22 1.22-r1: Shared library to implement the scrypt algorithm
 app-crypt/libsecret 0.20.5-r3 0.21.1: GObject library for accessing the freedesktop.org Secret Service API
 app-crypt/libu2f-host 1.1.10-r1: Yubico Universal 2nd Factor (U2F) Host C Library
 app-crypt/libu2f-server 1.1.0-r2: Yubico Universal 2nd Factor (U2F) server C Library
@@ -1453,7 +1453,7 @@ app-crypt/osslsigncode 2.0 2.5: Platform-independent tool for Authenticode signi
 app-crypt/p11-kit 0.25.0-r1: Provides a standard configuration setup for installing PKCS#11
 app-crypt/paperkey 1.6: OpenPGP key archiver
 app-crypt/pdfcrack 0.20: Tool for recovering passwords and content from PDF-files
-app-crypt/pesign 114: Tools for manipulating signed PE-COFF binaries
+app-crypt/pesign 114 116: Tools for manipulating signed PE-COFF binaries
 app-crypt/pgpdump 0.35: A PGP packet visualizer
 app-crypt/pinentry 1.2.1-r3: Simple passphrase entry dialogs which utilize the Assuan protocol
 app-crypt/pius 3.0.0-r1: A tool for signing and email all UIDs on a set of PGP keys
@@ -2263,7 +2263,7 @@ app-emacs/yasnippet-snippets 1.0-r2: A collection of yasnippet snippets for many
 app-emacs/yatex 1.82: Yet Another TeX mode for Emacs
 app-emacs/zenburn 20110907-r1: Zenburn color theme for Emacs
 app-emacs/zenirc 2.112-r1: A full-featured scriptable IRC client for the Emacs text editor
-app-emulation/86Box 3.11: Emulator of x86-based machines based on PCem
+app-emulation/86Box 3.11 4.0: Emulator of x86-based machines based on PCem
 app-emulation/aranym 1.1.0-r1: Atari Running on Any Machine, VM running Atari ST/TT/Falcon OS and TOS/GEM apps
 app-emulation/bochs 2.6.10 2.7 9999: LGPL-ed pc emulator
 app-emulation/cloud-hypervisor 31.0 9999: Open source Virtual Machine Monitor (VMM) that runs on top of KVM
@@ -14098,9 +14098,9 @@ net-analyzer/gvm-tools 21.10.0-r1 23.4.0: Remote control for Greenbone Vulnerabi
 net-analyzer/gvmd 21.4.5-r5 22.5.5 22.6.0-r1: Greenbone vulnerability manager, previously named openvas-manager
 net-analyzer/hexinject 1.6-r2: Network packet sniffer and injector
 net-analyzer/hping 3_pre20141226: A ping-like TCP/IP packet assembler/analyzer
-net-analyzer/httping 2.5: http protocol ping-like program
+net-analyzer/httping 2.5 2.9: http protocol ping-like program
 net-analyzer/hunt 1.5_p6_p1: Tool for checking well known weaknesses in the TCP/IP protocol
-net-analyzer/hydra 9.4: Parallelized network login hacker
+net-analyzer/hydra 9.4 9.5: Parallelized network login hacker
 net-analyzer/ibmonitor 1.4-r1: Interactive bandwidth monitor
 net-analyzer/icinga2 2.13.8 2.14.0 9999: Distributed, general purpose, network monitoring engine
 net-analyzer/ifmetric 0.3-r3: Set metrics of all IPv4 routes attached to a given network interface at once
@@ -14192,7 +14192,7 @@ net-analyzer/nstats 0.4-r3: Displays statistics about ethernet traffic including
 net-analyzer/ntopng 5.2.1-r1 5.6-r2: Network traffic analyzer with web interface
 net-analyzer/nttcp 1.47-r3: Tool to test TCP and UDP throughput
 net-analyzer/nuttcp 8.1.4: Network performance measurement tool
-net-analyzer/odhcploc 20111021-r1: Open DHCP Locator
+net-analyzer/odhcploc 20111021-r1 20111021-r2: Open DHCP Locator
 net-analyzer/oinkmaster 2.0: Rule management for SNORT
 net-analyzer/ookla-speedtest 1.2.0: Internet connection measurement by Ookla
 net-analyzer/openbsd-netcat 1.218_p5 1.219_p1: The OpenBSD network swiss army knife
@@ -16789,7 +16789,7 @@ sys-apps/openrazer 3.6.1-r2: Drivers and user-space daemon to control Razer devi
 sys-apps/openrc 0.48 0.49 0.50 0.50-r1 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/opentmpfiles 0.2-r1: A standalone utility to process systemd-style tmpfiles.d files
 sys-apps/osinfo-db 20230719: osinfo database files
-sys-apps/osinfo-db-tools 1.10.0-r1: Tools for managing the osinfo database
+sys-apps/osinfo-db-tools 1.10.0-r1 1.10.0-r2: Tools for managing the osinfo database
 sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32, Elf64, binaries
 sys-apps/paxctld 1.2.3 1.2.5: PaX flags maintenance daemon
 sys-apps/pciutils 3.8.0-r1 3.9.0 3.10.0: Various utilities dealing with the PCI bus
@@ -16879,7 +16879,7 @@ sys-apps/udevil 0.4.4-r4: mount and unmount removable devices without a password
 sys-apps/unscd 0.54-r1: simple & stable nscd replacement
 sys-apps/usb_modeswitch 2.6.1: Tool for controlling 'flip flop' (multiple devices) USB gear like UMTS sticks
 sys-apps/usbguard 1.1.2: Daemon protecting your computer against BadUSB
-sys-apps/usbmon 6.1: Userland for USB monitoring framework
+sys-apps/usbmon 6.1 6.1-r1: Userland for USB monitoring framework
 sys-apps/usbredir 0.13.0 0.13.0-r1: TCP daemon and set of libraries for usbredir protocol (redirecting USB traffic)
 sys-apps/usbutils 015: USB enumeration utilities
 sys-apps/usermode-utilities 20070815-r4 20070815-r5: Tools for use with Usermode Linux virtual machines
