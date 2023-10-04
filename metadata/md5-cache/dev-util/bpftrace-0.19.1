@@ -1,0 +1,16 @@
+BDEPEND=app-arch/xz-utils sys-devel/flex sys-devel/bison virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-libs/cereal:= test? ( dev-cpp/gtest ) !!sys-devel/llvm:0
+DESCRIPTION=High-level tracing language for eBPF
+EAPI=8
+HOMEPAGE=https://github.com/iovisor/bpftrace
+INHERIT=llvm linux-info cmake
+IUSE=fuzzing test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-libs/libbpf-1.1:= >=dev-util/bcc-0.25.0:= >=sys-devel/llvm-10[llvm_targets_BPF(+)] >=sys-devel/clang-10 <sys-devel/clang-18:= <sys-devel/llvm-18:=[llvm_targets_BPF(+)] sys-libs/binutils-libs:= virtual/libelf:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/iovisor/bpftrace/archive/v0.19.1.tar.gz -> bpftrace-0.19.1.gh.tar.gz
+_eclasses_=llvm	2e1701c714b75feb512bffdecd3fe7d0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80
+_md5_=49362704668312e3c1c7390959191454
