@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 ssl? ( dev-libs/openssl:0 ) virtual/pkgconfig
+BDEPEND=sys-devel/autoconf-archive test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 ssl? ( dev-libs/openssl:0 ) virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=dev-libs/openssl:= tcpd? ( sys-apps/tcp-wrappers ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=TLS/SSL - Port Wrapper
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.stunnel.org/downloads/stunnel-5.71.tar.gz ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.71.tar.gz http://www.usenix.org.uk/mirrors/stunnel/archive/5.x/stunnel-5.71.tar.gz http://ftp.nluug.nl/pub/networking/stunnel/archive/5.x/stunnel-5.71.tar.gz http://www.namesdir.com/mirrors/stunnel/archive/5.x/stunnel-5.71.tar.gz http://stunnel.cybermirror.org/archive/5.x/stunnel-5.71.tar.gz http://mirrors.zerg.biz/stunnel/archive/5.x/stunnel-5.71.tar.gz ftp://mirrors.go-parts.com/stunnel/archive/5.x/stunnel-5.71.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-any-r1	f5169813d1619761b459800587005fd2	ssl-cert	33f6c352c602e87ceda767a86f3b7131	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=ae51cd617f4a19424966b2863c9215fe
+_md5_=cf1ed5be8eb48668b1708ef559513a0e
