@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=!app-editors/yudit dev-libs/libevent:0= >=dev-libs/libgcrypt-1.2.3:0= sys-apps/coreutils >=sys-libs/db-4.2.52:= sys-libs/tdb virtual/libcrypt:= acl? ( sys-apps/attr sys-apps/acl ) cracklib? ( sys-libs/cracklib ) dbus? ( sys-apps/dbus dev-libs/dbus-glib ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0= ) tcpd? ( sys-apps/tcp-wrappers ) tracker? ( app-misc/tracker:3= ) zeroconf? ( net-dns/avahi[dbus] ) app-alternatives/yacc sys-devel/flex
+DESCRIPTION=Open Source AFP server
+EAPI=7
+HOMEPAGE=https://netatalk.sourceforge.net/
+INHERIT=autotools flag-o-matic pam systemd
+IUSE=acl cracklib dbus debug kerberos ldap pam pgp quota +shadow ssl tracker tcpd zeroconf
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86
+LICENSE=GPL-2 BSD
+RDEPEND=!app-editors/yudit dev-libs/libevent:0= >=dev-libs/libgcrypt-1.2.3:0= sys-apps/coreutils >=sys-libs/db-4.2.52:= sys-libs/tdb virtual/libcrypt:= acl? ( sys-apps/attr sys-apps/acl ) cracklib? ( sys-libs/cracklib ) dbus? ( sys-apps/dbus dev-libs/dbus-glib ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0= ) tcpd? ( sys-apps/tcp-wrappers ) tracker? ( app-misc/tracker:3= ) zeroconf? ( net-dns/avahi[dbus] )
+REQUIRED_USE=ldap? ( acl ) tracker? ( dbus )
+RESTRICT=test
+SLOT=0/18.0
+SRC_URI=https://github.com/Netatalk/netatalk/releases/download/netatalk-3-1-17/netatalk-3.1.17.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	be27a904c614cb93ae037762dc69bcc2	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=7db166c129723f4d0daa3f6b6b689a56
