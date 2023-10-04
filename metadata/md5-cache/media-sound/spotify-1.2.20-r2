@@ -8,9 +8,9 @@ INHERIT=desktop optfeature pax-utils unpacker xdg
 IUSE=libnotify local-playback pax-kernel pulseaudio
 KEYWORDS=amd64
 LICENSE=Spotify
-RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/openssl:0= dev-python/dbus-python media-libs/alsa-lib media-libs/fontconfig media-libs/harfbuzz media-libs/mesa[X(+)] net-misc/curl[ssl] net-print/cups[ssl] sys-apps/dbus sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libdrm x11-libs/libxcb x11-libs/libxkbcommon x11-libs/pango !gnome-extra/gnome-integration-spotify libnotify? ( x11-libs/libnotify ) dev-libs/libayatana-appindicator local-playback? ( media-video/ffmpeg:0/56.58.58 ) pulseaudio? ( media-libs/libpulse ) !pulseaudio? ( media-sound/apulse )
+RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/openssl:0= dev-python/dbus-python media-libs/alsa-lib media-libs/fontconfig media-libs/harfbuzz media-libs/mesa[X(+)] net-misc/curl[ssl] net-print/cups[ssl(+)] sys-apps/dbus sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libdrm x11-libs/libxcb x11-libs/libxkbcommon x11-libs/pango !gnome-extra/gnome-integration-spotify libnotify? ( x11-libs/libnotify ) dev-libs/libayatana-appindicator local-playback? ( media-video/ffmpeg:0/56.58.58 ) pulseaudio? ( media-libs/libpulse ) !pulseaudio? ( media-sound/apulse )
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.20.1210.g2a8a8a57_amd64.deb
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	unpacker	aa6a4e924009232d8b78b31e932c30b5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=debfeebf4b970b626bf7f2d9943417f6
+_md5_=dfe32a77e6f14f965267d782b100a8a2
