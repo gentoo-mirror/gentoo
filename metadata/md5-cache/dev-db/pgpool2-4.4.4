@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:0= ) sys-devel/bison virtual/pkgconfig
+DESCRIPTION=Connection pool server for PostgreSQL
+EAPI=7
+HOMEPAGE=https://www.pgpool.net/
+INHERIT=autotools postgres-multi
+IUSE=doc memcached pam ssl static-libs postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:0= )
+SLOT=0
+SRC_URI=https://www.pgpool.net/download.php?f=pgpool-II-4.4.4.tar.gz -> pgpool-II-4.4.4.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_md5_=3f6c3bcc4e6a7f552a7bf31f2ff3a57a
