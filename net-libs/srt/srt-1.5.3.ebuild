@@ -1,7 +1,7 @@
-# Copyright 2018-2022 Gentoo Authors
+# Copyright 2018-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake-multilib
 
@@ -13,12 +13,13 @@ if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/Haivision/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv -sparc x86 ~ppc-macos ~x64-macos"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv -sparc ~x86 ~ppc-macos ~x64-macos"
 fi
 
 LICENSE="MPL-2.0"
-SLOT="0/1.4.3"
-IUSE="gnutls"
+SLOT="0/$(ver_cut 1-2)"
+IUSE="gnutls test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	gnutls? (
@@ -30,18 +31,24 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
-
-PATCHES=(
-	"${FILESDIR}/${PV}-always-GNUInstallDirs.patch"
-)
+BDEPEND="virtual/pkgconfig
+	test? ( >=dev-cpp/gtest-1.10[${MULTILIB_USEDEP}] )"
 
 src_configure() {
 	local mycmakeargs=(
+		-DUSE_CXX_STD=c++14 # Required for gtest
 		-DENABLE_STATIC=OFF
+		# Bonding is experimental in 1.5, but works good and doesn't affect anything when not enabled with API calls
+		-DENABLE_BONDING=ON
+		-DENABLE_UNITTESTS=$(usex test)
+		-DENABLE_TESTING=OFF # Not installed developer/testing tools
 		-DUSE_GNUTLS=$(usex gnutls)
 	)
 	cmake-multilib_src_configure
+}
+
+multilib_src_test() {
+	cmake_src_test -j1
 }
 
 multilib_src_install() {
