@@ -3,14 +3,14 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="Shell integration scripts for kitty, a GPU-based terminal emulator"
 HOMEPAGE="https://sw.kovidgoyal.net/kitty/"
-EGIT_REPO_URI="https://github.com/kovidgoyal/kitty.git"
+SRC_URI="https://github.com/kovidgoyal/kitty/releases/download/v${PV}/kitty-${PV}.tar.xz"
+S="${WORKDIR}/kitty-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 RESTRICT="test" # intended to be ran on the full kitty package
 
 PATCHES=(
