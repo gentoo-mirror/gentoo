@@ -61,6 +61,7 @@ _setup-allowed-flags() {
 		-mindirect-branch-register
 		'-mfunction-return=*'
 		-mretpoline
+		'-mbranch-protection=*'
 
 		# Misc
 		-fno-unit-at-a-time -fno-strict-overflow
@@ -95,6 +96,7 @@ _setup-allowed-flags() {
 		'-fno-stack-protector*' '-fabi-version=*'
 		-fno-strict-aliasing -fno-bounds-check -fno-bounds-checking -fstrict-overflow
 		-fno-omit-frame-pointer '-fno-builtin*'
+		-mno-omit-leaf-frame-pointer
 	)
 	ALLOWED_FLAGS+=(
 		'-mregparm=*' -mno-app-regs -mapp-regs -mno-mmx -mno-sse
@@ -131,6 +133,12 @@ _setup-allowed-flags() {
 		# Allow explicit stack realignment to run non-conformant
 		# binaries: bug #677852
 		-mstackrealign
+	)
+	ALLOWED_FLAGS+=(
+		# Clang-only
+		'--unwindlib=*'
+		'--rtlib=*'
+		'--stdlib=*'
 	)
 }
 
