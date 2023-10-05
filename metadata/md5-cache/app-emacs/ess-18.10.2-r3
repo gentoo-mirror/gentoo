@@ -1,0 +1,14 @@
+BDEPEND=app-text/texi2html virtual/latex-base >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs Speaks Statistics
+EAPI=8
+HOMEPAGE=https://ess.r-project.org/
+INHERIT=elisp readme.gentoo-r1
+KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+ GPL-3+ Texinfo-manual
+RDEPEND=>=app-editors/emacs-25.3:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://ess.r-project.org/downloads/ess/ess-18.10.2.tgz
+_eclasses_=elisp-common	dc179f98b2b4d9a4473fd3bdc154bbb6	elisp	fbefa95f5e9ab880a34bc69832b7c0d7	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
+_md5_=c05b40dc1b8e81d64faf8269aa64cf9f
