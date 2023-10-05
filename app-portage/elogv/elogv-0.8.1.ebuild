@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10} pypy3 )
+PYTHON_COMPAT=( python3_{9..11} pypy3 )
 PYTHON_REQ_USE="ncurses"
-DISTUTILS_USE_SETUPTOOLS=no
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
