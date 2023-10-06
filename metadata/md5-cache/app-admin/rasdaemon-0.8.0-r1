@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-db/sqlite dev-libs/libtraceevent elibc_musl? ( sys-libs/argp-standalone )
+DESCRIPTION=Reliability, Availability and Serviceability logging tool
+EAPI=8
+HOMEPAGE=https://github.com/mchehab/rasdaemon
+INHERIT=autotools flag-o-matic linux-info systemd
+IUSE=selinux
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-db/sqlite dev-libs/libtraceevent elibc_musl? ( sys-libs/argp-standalone ) dev-perl/DBI dev-perl/DBD-SQLite sys-apps/dmidecode selinux? ( sec-policy/selinux-rasdaemon )
+SLOT=0
+SRC_URI=https://github.com/mchehab/rasdaemon/releases/download/refs%2Fheads%2Fmaster/rasdaemon-0.8.0.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=f31ab503e3a653ee9516557bad5b2fef
