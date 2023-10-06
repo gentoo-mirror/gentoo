@@ -6,7 +6,7 @@ HOMEPAGE=https://jupyter.org/ https://github.com/jupyterlab/jupyterlab/ https://
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=distutils-r1 pypi xdg
 IUSE=test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 arm ~arm64 ~loong ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm ~arm64 ~loong ppc64 ~riscv x86
 LICENSE=BSD MIT GPL-3 Apache-2.0
 RDEPEND=dev-python/async-lru[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/ipykernel[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/jinja-3.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/jupyter-core[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/jupyter-lsp-2.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/jupyter-server-2.4.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] <dev-python/jupyter-server-3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/jupyterlab-server-2.19[python_targets_python3_10(-)?,python_targets_python3_11(-)?] <dev-python/jupyterlab-server-3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/notebook-shim-0.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/tomli[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/tornado-6.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/traitlets[python_targets_python3_10(-)?,python_targets_python3_11(-)?] net-libs/nodejs python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/j/jupyterlab/jupyterlab-4.0.6.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce	pypi	2eecb475512bc76e5ea9192a681b9e6b	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=9965b0076fbefaeafd80991fd1439429
+_md5_=70884423defa9607e9f8902d354790a8
