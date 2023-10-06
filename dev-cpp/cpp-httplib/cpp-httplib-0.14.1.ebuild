@@ -9,12 +9,18 @@ inherit cmake-multilib python-any-r1 toolchain-funcs
 
 DESCRIPTION="C++ HTTP/HTTPS server and client library"
 HOMEPAGE="https://github.com/yhirose/cpp-httplib/"
-SRC_URI="https://github.com/yhirose/cpp-httplib/archive/v${PV}.tar.gz
-	-> ${P}.tar.gz"
+
+if [[ ${PV} == *9999* ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/yhirose/${PN}.git"
+else
+	SRC_URI="https://github.com/yhirose/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~loong ~x86"
+fi
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"  # soversion
-KEYWORDS="amd64 ~loong ~x86"
 
 IUSE="brotli ssl test zlib"
 REQUIRED_USE="test? ( brotli ssl zlib )"

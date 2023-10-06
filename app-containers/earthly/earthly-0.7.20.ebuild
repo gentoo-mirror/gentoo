@@ -3,6 +3,13 @@
 
 EAPI=8
 
+# Git commit SHA is needed at runtime by earthly to pull and bootstrap images.
+if [[ "${PV}" == 0.7.20 ]] ; then
+	GIT_COMMIT_SHA="9600f376026c11d23eb43fc68ad716d6ae4cca2e"
+else
+	die 'Could not detect "GIT_COMMIT_SHA", please update the ebuild.'
+fi
+
 inherit go-module
 
 DESCRIPTION="Build automation tool that executes in containers"
@@ -30,18 +37,10 @@ DOCS=( CHANGELOG.md CONTRIBUTING.md README.md )
 src_compile() {
 	mkdir -p bin || die
 
-	# Git SHA is needed at runtime by earthly to pull and bootstrap images.
-	local git_sha
-	if [[ ${PV} == 0.7.15 ]] ; then
-		git_sha=ae8f65528ad37a278985de2e234deb42b91e308f
-	else
-		die 'Could not detect "git_sha", please update the ebuild.'
-	fi
-
 	local go_tags="dfrunmount,dfrunsecurity,dfsecrets,dfssh,dfrunnetwork,dfheredoc,forceposix"
 	local go_ldflags="
 		-X main.DefaultBuildkitdImage=docker.io/earthly/buildkitd:v${PV}
-		-X main.GitSha=${git_sha}
+		-X main.GitSha=${GIT_COMMIT_SHA}
 		-X main.Version=v${PV}
 	"
 	local -a go_buildargs=(
