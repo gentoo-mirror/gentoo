@@ -1772,7 +1772,6 @@ dev-lang/qu-prolog:pedro - Pedro subscription/notification communications system
 dev-lang/rakudo:clang - Use Clang to compile the MoarVM backend
 dev-lang/rakudo:moar - Use the MoarVM as backend
 dev-lang/ruby:rdoc - Install dev-ruby/rdoc after installing Ruby.
-dev-lang/ruby:rubytests - Install ruby tests that can only be run after ruby is installed
 dev-lang/ruby:systemtap - Enable SystemTAP/DTrace tracing
 dev-lang/rust:clippy - Install clippy, Rust code linter
 dev-lang/rust:dist - Install dist tarballs (used for bootstrapping)
@@ -4822,7 +4821,7 @@ media-tv/kodi:dav1d - Enables AV1 decoding via media-libs/dav1d
 media-tv/kodi:eventclients - Install full set of Kodi python evenclients and evenclients examples
 media-tv/kodi:gbm - Use the Graphics Buffer Manager for EGL on KMS.
 media-tv/kodi:gles - Use simplified OpenGLES instead of full-scale OpenGL
-media-tv/kodi:libusb - Use virtual/libusb for usb device hotplug support. This flag should only be enabled if you're running a non-Linux kernel or you don't want to use sys-fs/udev.
+media-tv/kodi:libusb - Use virtual/libusb for usb device hotplug support. This flag should only be enabled if you're running a non-Linux kernel or you don't want to use udev.
 media-tv/kodi:lirc - Enable support for IR remote controls using app-misc/lirc
 media-tv/kodi:mariadb - Enable support store of media library metadata on local or remote MariaDB
 media-tv/kodi:mysql - Enable support store of media library metadata on local or remote MySQL
@@ -4832,7 +4831,7 @@ media-tv/kodi:pipewire - Enable pipewire support
 media-tv/kodi:power-control - Enable control of shutdown, reboot, suspend, and hibernate
 media-tv/kodi:raspberry-pi - Enable support for the Raspberry Pi
 media-tv/kodi:system-ffmpeg - Use system ffmpeg instead of the bundled one
-media-tv/kodi:udev - Use sys-fs/udev rules to handle devices' permissions and hotplug support. Unless you know what you're doing do not disable this flag on Linux kernels. This is provided as an option for completeness.
+media-tv/kodi:udev - Use udev rules to handle devices' permissions and hotplug support. Unless you know what you're doing do not disable this flag on Linux kernels. This is provided as an option for completeness.
 media-tv/kodi:udf - Enable UDF support. Required for playing blurays.
 media-tv/kodi:upower - Use sys-power/upower to get battery level and active power source
 media-tv/kodi:webserver - Enable internal webserver
@@ -7803,7 +7802,7 @@ sys-apps/pciutils:kmod - Enable sys-apps/kmod support for the -k switch in lspci
 sys-apps/pciutils:zlib - Support compressed pci.ids database
 sys-apps/pcmciautils:staticsocket - Add support for static sockets
 sys-apps/pcsc-lite:embedded - limit RAM and CPU ressources by disabling features
-sys-apps/pcsc-lite:libusb - Use dev-libs/libusb detection to hotplug new smartcard readers. This flag should only be enabled if you're running a non-Linux kernel or you don't want to use sys-fs/udev.
+sys-apps/pcsc-lite:libusb - Use dev-libs/libusb detection to hotplug new smartcard readers. This flag should only be enabled if you're running a non-Linux kernel or you don't want to use udev.
 sys-apps/pcsc-lite:policykit - Uses sys-auth/polkit to restrict access to smartcard readers or smartcards to given users.
 sys-apps/pcsc-lite:udev - Use virtual/libudev rules to handle devices' permissions and hotplug support. Unless you know what you're doing do not disable this flag on Linux kernels. This is provided as an option for completeness.
 sys-apps/pcsc-tools:network-cron - Install a monthly cronjob to update the update-smartcard_list script
@@ -8262,7 +8261,7 @@ sys-fs/ecryptfs-utils:tpm - Enable support for Trusted Platform Module (TPM) usi
 sys-fs/erofs-utils:fuse - Builds erofsfuse (requires sys-fs/fuse).
 sys-fs/erofs-utils:uuid - Enables UUID support via sys-apps/util-linux.
 sys-fs/eudev:kmod - enable module loading through libkmod
-sys-fs/eudev:rule-generator - install legacy rule generator rules and support scripts - note that the functionality within was dropped from sys-fs/udev as it is not stable in all cases; use at your own risk
+sys-fs/eudev:rule-generator - install legacy rule generator rules and support scripts - note that the functionality within was dropped from sys-apps/systemd-utils as it is not stable in all cases; use at your own risk
 sys-fs/ext4magic:expert-mode - Builds ext4magic with expert mode. Highly useful in recovering data from a corrupted filesystem
 sys-fs/ext4magic:file-attr - Enable the recovery of file attributes (append, immutable, nodump etc)
 sys-fs/lessfs:filelog - Enable the ability to log to a file instead of syslog
