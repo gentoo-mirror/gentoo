@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/apps/catfish/start
 INHERIT=distutils-r1 xdg-utils
 IUSE=python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~ppc x86
+KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.42 dev-libs/gobject-introspection dev-python/dbus-python[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pexpect[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] x11-libs/gdk-pixbuf[introspection] >=x11-libs/gtk+-3.22:3[introspection] x11-libs/pango[introspection] >=xfce-base/xfconf-4.14[introspection] virtual/freedesktop-icon-theme python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/apps/catfish/4.18/catfish-4.18.0.tar.bz2
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=3cd3ccb94158a187ef36b202f966da86
+_md5_=1fd05896ce277b36555b08c15a79f76b

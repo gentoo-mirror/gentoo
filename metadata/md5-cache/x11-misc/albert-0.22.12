@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=app-arch/libarchive:= dev-cpp/muParser dev-libs/qhotkey[qt6] dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,network,sql,sqlite,widgets] dev-qt/qtscxml:6 dev-qt/qtsvg:6 sci-libs/libqalculate:= python? ( python_single_target_python3_10? ( dev-python/urllib3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/urllib3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/urllib3[python_targets_python3_12(-)] ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) dev-qt/qtdeclarative:6 python? ( python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pybind11[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pybind11[python_targets_python3_12(-)] ) ) x11-base/xorg-proto
+DESCRIPTION=A fast and flexible keyboard launcher
+EAPI=8
+HOMEPAGE=https://albertlauncher.github.io/
+INHERIT=cmake python-single-r1 xdg-utils
+IUSE=debug +python +python-extensions python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64
+LICENSE=all-rights-reserved
+RDEPEND=app-arch/libarchive:= dev-cpp/muParser dev-libs/qhotkey[qt6] dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,network,sql,sqlite,widgets] dev-qt/qtscxml:6 dev-qt/qtsvg:6 sci-libs/libqalculate:= python? ( python_single_target_python3_10? ( dev-python/urllib3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/urllib3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/urllib3[python_targets_python3_12(-)] ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) )
+REQUIRED_USE=python-extensions? ( python ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/albertlauncher/albert/archive/v0.22.12.tar.gz -> albert-0.22.12.tar.gz https://github.com/albertlauncher/plugins/archive/1cff4d010745e7cb34fdab0f1459175099e3359a.tar.gz -> albert-plugins-1cff4d010745e7cb34fdab0f1459175099e3359a.tar.gz python-extensions? ( https://github.com/albertlauncher/python/archive/f1e3cf96b263df519b9d30984eb99b4850fc1976.tar.gz -> albert-python-extensions-f1e3cf96b263df519b9d30984eb99b4850fc1976.tar.gz )
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=824db90d644537eb007c39f9687daebc
