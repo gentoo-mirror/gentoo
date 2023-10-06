@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=acct-group/epmd acct-user/epmd sys-libs/ncurses:0 sys-libs/zlib emacs? ( >=app-editors/emacs-23.1:* ) java? ( >=virtual/jdk-1.8:* ) odbc? ( dev-db/unixODBC ) sctp? ( net-misc/lksctp-tools ) ssl? ( >=dev-libs/openssl-0.9.7d:0= ) systemd? ( sys-apps/systemd ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X,opengl] ) dev-lang/perl java? ( >=dev-java/java-config-2.2.0-r3 )
+DEPEND=acct-group/epmd acct-user/epmd sys-libs/ncurses:0 sys-libs/zlib emacs? ( >=app-editors/emacs-23.1:* ) java? ( >=virtual/jdk-1.8:* ) odbc? ( dev-db/unixODBC ) sctp? ( net-misc/lksctp-tools ) ssl? ( >=dev-libs/openssl-0.9.7d:0= ) systemd? ( sys-apps/systemd ) wxwidgets? ( x11-libs/wxGTK:3.0-gtk3[X,opengl] ) dev-lang/perl !!dev-libs/libei java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Erlang programming language, runtime environment and libraries (OTP)
 EAPI=7
 HOMEPAGE=https://www.erlang.org/
@@ -12,4 +12,4 @@ RDEPEND=acct-group/epmd acct-user/epmd sys-libs/ncurses:0 sys-libs/zlib emacs? (
 SLOT=0/26.0
 SRC_URI=https://github.com/erlang/otp/archive/OTP-26.0.tar.gz -> erlang-26.0.tar.gz https://github.com/erlang/otp/releases/download/OTP-26.0/otp_doc_man_26.0.tar.gz -> erlang_doc_man_26.0.tar.gz doc? ( https://github.com/erlang/otp/releases/download/OTP-26.0/otp_doc_html_26.0.tar.gz -> erlang_doc_html_26.0.tar.gz )
 _eclasses_=elisp-common	dc179f98b2b4d9a4473fd3bdc154bbb6	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-opt-2	3816f3fc28ed2b067845e2802eb954b2	systemd	c8b03e8df84486aa991d4396686e8942	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5
-_md5_=037bb6ac963b7d857f5d4862aa18747a
+_md5_=071cbc9347d80f03e922f66f19d6ec4c
