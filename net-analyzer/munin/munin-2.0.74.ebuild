@@ -32,6 +32,7 @@ DEPEND_COM="
 	acct-group/munin
 	dev-lang/perl:=[berkdb]
 	dev-perl/DBI
+	dev-perl/Date-Manip
 	dev-perl/File-Copy-Recursive
 	dev-perl/List-MoreUtils
 	dev-perl/Log-Log4perl
@@ -172,6 +173,8 @@ src_test() {
 }
 
 src_install() {
+	local cgiuser=$(usex apache2 apache munin)
+
 	local dirs="
 		/var/log/munin
 		/var/lib/munin/plugin-state
@@ -188,9 +191,9 @@ src_install() {
 	# run in parallel for now (because it uses internal loops).
 	emake -j1 CHOWN=true DESTDIR="${D}" $(usex minimal "install-minimal install-man" install)
 
-	# we remove /run from the install, as it's not the package's to deal
-	# with.
-	rm -rf "${D}"/run || die
+	# we remove /run and /var/cache from the install, as it's not the
+	# package's to deal with.
+	rm -rf "${D}"/run "${D}"/var/cache || die
 
 	# remove the plugins for non-Gentoo package managers; use -f so that
 	# it doesn't fail when installing on non-Linux platforms.
@@ -199,13 +202,14 @@ src_install() {
 	insinto /etc/munin/plugin-conf.d/
 	newins "${FILESDIR}"/${PN}-1.3.2-plugins.conf munin-node
 
-	newinitd "${FILESDIR}"/munin-node_init.d_2.0.19 munin-node
+	newinitd "${FILESDIR}"/munin-node_init.d_2.0.73 munin-node
 	newconfd "${FILESDIR}"/munin-node_conf.d_1.4.6-r2 munin-node
 
 	newinitd "${FILESDIR}"/munin-asyncd.init.2 munin-asyncd
 
 	newtmpfiles - ${CATEGORY}:${PN}:${SLOT}.conf <<-EOF || die
 	d /run/munin 0700 munin munin - -
+	d /var/cache/munin-cgi 0755 ${cgiuser} munin - -
 	EOF
 
 	systemd_dounit "${FILESDIR}"/munin-async.service
@@ -266,8 +270,7 @@ src_install() {
 
 			if use apache2; then
 				insinto /etc/apache2/vhosts.d
-				newins "${FILESDIR}"/munin.apache.include munin.include
-				newins "${FILESDIR}"/munin.apache.include-2.4 munin-2.4.include
+				newins "${FILESDIR}"/munin.apache.include-2.4-r1 munin-2.4.include
 			fi
 		else
 			sed \
@@ -394,8 +397,8 @@ pkg_postinst() {
 			"${ROOT}"/var/log/munin/munin-cgi-{graph,html}.log
 
 		if use apache2; then
-			elog "To use Munin with CGI you should include /etc/apache2/vhosts.d/munin.include"
-			elog "or /etc/apache2/vhosts.d/munin-2.4.include (for Apache 2.4) from the virtual"
+			elog "To use Munin with CGI you should include"
+			elog "/etc/apache2/vhosts.d/munin-2.4.include from the virtual"
 			elog "host you want it to be served."
 			elog "If you want to enable CGI-based HTML as well, you have to add to"
 			elog "/etc/conf.d/apache2 the option -D MUNIN_HTML_CGI."

@@ -22,7 +22,7 @@ SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND+=" >=dev-util/selenium-manager-${PV}"
+RDEPEND+=" >=dev-util/selenium-manager-$(ver_cut 1-2)"
 
 ruby_add_rdepend "
 	>=dev-ruby/rexml-3.2.5:3
@@ -30,7 +30,7 @@ ruby_add_rdepend "
 	dev-ruby/websocket:0
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.11.0-selenium-manager.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.13.1-selenium-manager.patch" )
 
 all_ruby_prepare() {
 	# Remove the pre-compiled selenium-manager executables

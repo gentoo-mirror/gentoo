@@ -161,6 +161,7 @@ CRATES="
 	rustls-pemfile@1.0.2
 	rustls-webpki@0.101.4
 	ryu@1.0.13
+	same-file@1.0.6
 	sct@0.7.0
 	semver@1.0.17
 	serde@1.0.185
@@ -212,6 +213,7 @@ CRATES="
 	uuid@1.3.0
 	version_check@0.9.4
 	wait-timeout@0.2.0
+	walkdir@2.4.0
 	want@0.3.0
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasm-bindgen@0.2.84
@@ -290,7 +292,7 @@ src_prepare() {
 	# Avoid tests requiring a specific browser to be installed to keep
 	# the dependency tree manageable.
 	rm -f tests/{cli,iexplorer,output,safari,stable_browser}_tests.rs || die
-	sed -i -e '/case.*\(chrome\|edge\|iexplorer\)/ s:^://:' tests/{browser,exec_driver}_tests.rs || die
+	sed -i -e '/case.*\(chrome\|edge\|iexplorer\)/ s:^://:' tests/{browser,config,exec_driver}_tests.rs || die
 	sed -i -e '/browser_version_test/,/^}/ s:^://:' tests/browser_tests.rs || die
 }
 
