@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
+DEFINED_PHASES=compile install postinst postrm prepare unpack
+DEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999
+DESCRIPTION=SELinux policy for powerprofiles
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
+INHERIT=selinux-policy-2
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999
+SLOT=0
+_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991	selinux-policy-2	834ee4d0adb51cceff7b63cfa1f00054
+_md5_=566c5ae942e8d935ae092d4777ee11b1

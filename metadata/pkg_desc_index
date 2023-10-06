@@ -2717,7 +2717,7 @@ app-misc/interceptty 0.6-r3: a program that can sit between a serial port and an
 app-misc/irtrans-irclient 6.01.05-r1: ASCII Client for the IRTrans Server
 app-misc/irtrans-irserver 6.09.04-r1: Server software for IRTrans
 app-misc/jail 2.0-r4: Builds a chroot and configures all the required files, directories and libraries
-app-misc/jaq 1.0.0_pre1: Just another JSON query tool
+app-misc/jaq 1.0.0: Just another JSON query tool
 app-misc/jdupes 1.26.1 9999: Identify duplicate files on the filesystem
 app-misc/jf 0.6.2-r1: A small utility to safely format and print JSON objects in the commandline
 app-misc/jo 1.9: JSON output from a shell
@@ -10419,7 +10419,7 @@ dev-util/clinfo 3.0.23.01.25 9999: A tool to display info about the system's Ope
 dev-util/clion 2022.3.2 2023.1.4: A complete toolset for C and C++ development
 dev-util/clippy 8.5 8.5.2 9.0: Standalone clippy tool built from FRR sources
 dev-util/cloc 1.88 1.90 1.96: Count Lines of Code
-dev-util/cmake 3.26.4-r3 3.26.5-r2 3.27.6 3.27.6-r1 9999: Cross platform Make
+dev-util/cmake 3.26.4-r3 3.26.5-r2 3.27.6 3.27.6-r1 3.27.7 9999: Cross platform Make
 dev-util/cmake-fedora 2.9.3: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-util/cmocka 1.1.5-r1: Unit testing framework for C
 dev-util/coccigrep 1.20: A semantic grep for the C language
@@ -16348,260 +16348,264 @@ sec-keys/openpgp-keys-yorhel 20221110: OpenPGP keys used by Yoran Heling
 sec-keys/openpgp-keys-yubico 20230825: OpenPGP keys used by Yubico's developers
 sec-keys/signify-keys-signify 30: Signify keys used to sign signify portable releases
 sec-policy/apparmor-profiles 3.0.8 3.0.10 3.1.4 9999: A collection of profiles for the AppArmor application security system
-sec-policy/selinux-accountsd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for accountsd
-sec-policy/selinux-acct 2.20221101-r3 2.20221101-r4 9999: SELinux policy for acct
-sec-policy/selinux-afs 2.20221101-r3 2.20221101-r4 9999: SELinux policy for afs
-sec-policy/selinux-aide 2.20221101-r3 2.20221101-r4 9999: SELinux policy for aide
-sec-policy/selinux-alsa 2.20221101-r3 2.20221101-r4 9999: SELinux policy for alsa
-sec-policy/selinux-amanda 2.20221101-r3 2.20221101-r4 9999: SELinux policy for amanda
-sec-policy/selinux-amavis 2.20221101-r3 2.20221101-r4 9999: SELinux policy for amavis
-sec-policy/selinux-android 2.20221101-r3 2.20221101-r4 9999: SELinux policy for android
-sec-policy/selinux-apache 2.20221101-r3 2.20221101-r4 9999: SELinux policy for apache
-sec-policy/selinux-apcupsd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for apcupsd
-sec-policy/selinux-apm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for acpi
-sec-policy/selinux-arpwatch 2.20221101-r3 2.20221101-r4 9999: SELinux policy for arpwatch
-sec-policy/selinux-asterisk 2.20221101-r3 2.20221101-r4 9999: SELinux policy for asterisk
-sec-policy/selinux-at 2.20221101-r3 2.20221101-r4 9999: SELinux policy for at
-sec-policy/selinux-automount 2.20221101-r3 2.20221101-r4 9999: SELinux policy for automount
-sec-policy/selinux-avahi 2.20221101-r3 2.20221101-r4 9999: SELinux policy for avahi
-sec-policy/selinux-awstats 2.20221101-r3 2.20221101-r4 9999: SELinux policy for awstats
-sec-policy/selinux-backup 2.20221101-r3 2.20221101-r4 9999: SELinux policy for generic backup apps
-sec-policy/selinux-bacula 2.20221101-r3 2.20221101-r4 9999: SELinux policy for bacula
-sec-policy/selinux-base 2.20221101-r3 2.20221101-r4 9999: Gentoo base policy for SELinux
-sec-policy/selinux-base-policy 2.20221101-r3 2.20221101-r4 9999: SELinux policy for core modules
-sec-policy/selinux-bind 2.20221101-r3 2.20221101-r4 9999: SELinux policy for bind
-sec-policy/selinux-bitcoin 2.20221101-r3 2.20221101-r4 9999: SELinux policy for bitcoin
-sec-policy/selinux-bitlbee 2.20221101-r3 2.20221101-r4 9999: SELinux policy for bitlbee
-sec-policy/selinux-bluetooth 2.20221101-r3 2.20221101-r4 9999: SELinux policy for bluetooth
-sec-policy/selinux-brctl 2.20221101-r3 2.20221101-r4 9999: SELinux policy for brctl
-sec-policy/selinux-cachefilesd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cachefilesd
-sec-policy/selinux-calamaris 2.20221101-r3 2.20221101-r4 9999: SELinux policy for calamaris
-sec-policy/selinux-canna 2.20221101-r3 2.20221101-r4 9999: SELinux policy for canna
-sec-policy/selinux-cdrecord 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cdrecord
-sec-policy/selinux-ceph 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ceph
-sec-policy/selinux-certbot 2.20221101-r3 2.20221101-r4 9999: SELinux policy for certbot
-sec-policy/selinux-cgmanager 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cgmanager
-sec-policy/selinux-cgroup 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cgroup
-sec-policy/selinux-chromium 2.20221101-r3 2.20221101-r4 9999: SELinux policy for chromium
-sec-policy/selinux-chronyd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for chronyd
-sec-policy/selinux-clamav 2.20221101-r3 2.20221101-r4 9999: SELinux policy for clamav
-sec-policy/selinux-cloudinit 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cloudinit
-sec-policy/selinux-collectd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for collectd
-sec-policy/selinux-colord 2.20221101-r3 2.20221101-r4 9999: SELinux policy for colord
-sec-policy/selinux-container 2.20221101-r3 2.20221101-r4 9999: SELinux policy for container
-sec-policy/selinux-corosync 2.20221101-r3 2.20221101-r4 9999: SELinux policy for corosync
-sec-policy/selinux-couchdb 2.20221101-r3 2.20221101-r4 9999: SELinux policy for couchdb
-sec-policy/selinux-courier 2.20221101-r3 2.20221101-r4 9999: SELinux policy for courier
-sec-policy/selinux-cpucontrol 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cpucontrol
-sec-policy/selinux-cpufreqselector 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cpufreqselector
-sec-policy/selinux-crio 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cri-o
-sec-policy/selinux-cups 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cups
-sec-policy/selinux-cvs 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cvs
-sec-policy/selinux-cyphesis 2.20221101-r3 2.20221101-r4 9999: SELinux policy for cyphesis
-sec-policy/selinux-daemontools 2.20221101-r3 2.20221101-r4 9999: SELinux policy for daemontools
-sec-policy/selinux-dante 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dante
-sec-policy/selinux-dbadm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dbadm
-sec-policy/selinux-dbskk 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dbskk
-sec-policy/selinux-dbus 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dbus
-sec-policy/selinux-ddclient 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ddclient
-sec-policy/selinux-devicekit 2.20221101-r3 2.20221101-r4 9999: SELinux policy for devicekit
-sec-policy/selinux-dhcp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dhcp
-sec-policy/selinux-dictd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dictd
-sec-policy/selinux-dirmngr 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dirmngr
-sec-policy/selinux-dirsrv 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dirsrv
-sec-policy/selinux-distcc 2.20221101-r3 2.20221101-r4 9999: SELinux policy for distcc
-sec-policy/selinux-djbdns 2.20221101-r3 2.20221101-r4 9999: SELinux policy for djbdns
-sec-policy/selinux-dkim 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dkim
-sec-policy/selinux-dmidecode 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dmidecode
-sec-policy/selinux-dnsmasq 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dnsmasq
-sec-policy/selinux-docker 2.20221101-r3 2.20221101-r4 9999: SELinux policy for docker
-sec-policy/selinux-dovecot 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dovecot
-sec-policy/selinux-dpkg 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dpkg
-sec-policy/selinux-dracut 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dracut
-sec-policy/selinux-dropbox 2.20221101-r3 2.20221101-r4 9999: SELinux policy for dropbox
-sec-policy/selinux-entropyd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for entropyd
-sec-policy/selinux-evolution 2.20221101-r3 2.20221101-r4 9999: SELinux policy for evolution
-sec-policy/selinux-exim 2.20221101-r3 2.20221101-r4 9999: SELinux policy for exim
-sec-policy/selinux-fail2ban 2.20221101-r3 2.20221101-r4 9999: SELinux policy for fail2ban
-sec-policy/selinux-fetchmail 2.20221101-r3 2.20221101-r4 9999: SELinux policy for fetchmail
-sec-policy/selinux-finger 2.20221101-r3 2.20221101-r4 9999: SELinux policy for finger
-sec-policy/selinux-flash 2.20221101-r3 2.20221101-r4 9999: SELinux policy for flash
-sec-policy/selinux-fprintd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for fprintd
-sec-policy/selinux-ftp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ftp
-sec-policy/selinux-games 2.20221101-r3 2.20221101-r4 9999: SELinux policy for games
-sec-policy/selinux-gatekeeper 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gatekeeper
-sec-policy/selinux-git 2.20221101-r3 2.20221101-r4 9999: SELinux policy for git
-sec-policy/selinux-gitosis 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gitosis
-sec-policy/selinux-glusterfs 2.20221101-r3 2.20221101-r4 9999: SELinux policy for glusterfs
-sec-policy/selinux-gnome 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gnome
-sec-policy/selinux-googletalk 2.20221101-r3 2.20221101-r4 9999: SELinux policy for googletalk
-sec-policy/selinux-gorg 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gorg
-sec-policy/selinux-gpg 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gpg
-sec-policy/selinux-gpm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gpm
-sec-policy/selinux-gpsd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gpsd
-sec-policy/selinux-gssproxy 2.20221101-r3 2.20221101-r4 9999: SELinux policy for gssproxy
-sec-policy/selinux-hddtemp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for hddtemp
-sec-policy/selinux-hostapd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for hostapd
-sec-policy/selinux-icecast 2.20221101-r3 2.20221101-r4 9999: SELinux policy for icecast
-sec-policy/selinux-ifplugd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ifplugd
-sec-policy/selinux-inetd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for inetd
-sec-policy/selinux-inn 2.20221101-r3 2.20221101-r4 9999: SELinux policy for inn
-sec-policy/selinux-ipsec 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ipsec
-sec-policy/selinux-irc 2.20221101-r3 2.20221101-r4 9999: SELinux policy for irc
-sec-policy/selinux-ircd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ircd
-sec-policy/selinux-irqbalance 2.20221101-r3 2.20221101-r4 9999: SELinux policy for irqbalance
-sec-policy/selinux-jabber 2.20221101-r3 2.20221101-r4 9999: SELinux policy for jabber
-sec-policy/selinux-java 2.20221101-r3 2.20221101-r4 9999: SELinux policy for java
-sec-policy/selinux-kdeconnect 2.20221101-r3 2.20221101-r4 9999: SELinux policy for kdeconnect
-sec-policy/selinux-kdump 2.20221101-r3 2.20221101-r4 9999: SELinux policy for kdump
-sec-policy/selinux-kerberos 2.20221101-r3 2.20221101-r4 9999: SELinux policy for kerberos
-sec-policy/selinux-kerneloops 2.20221101-r3 2.20221101-r4 9999: SELinux policy for kerneloops
-sec-policy/selinux-kismet 2.20221101-r3 2.20221101-r4 9999: SELinux policy for kismet
-sec-policy/selinux-ksmtuned 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ksmtuned
-sec-policy/selinux-kubernetes 2.20221101-r3 2.20221101-r4 9999: SELinux policy for kubernetes
-sec-policy/selinux-ldap 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ldap
-sec-policy/selinux-links 2.20221101-r3 2.20221101-r4 9999: SELinux policy for links
-sec-policy/selinux-lircd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for lircd
-sec-policy/selinux-loadkeys 2.20221101-r3 2.20221101-r4 9999: SELinux policy for loadkeys
-sec-policy/selinux-logrotate 2.20221101-r3 2.20221101-r4 9999: SELinux policy for logrotate
-sec-policy/selinux-logsentry 2.20221101-r3 2.20221101-r4 9999: SELinux policy for logsentry
-sec-policy/selinux-logwatch 2.20221101-r3 2.20221101-r4 9999: SELinux policy for logwatch
-sec-policy/selinux-lpd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for lpd
-sec-policy/selinux-makewhatis 2.20221101-r3 2.20221101-r4 9999: SELinux policy for makewhatis
-sec-policy/selinux-mandb 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mandb
-sec-policy/selinux-matrixd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for matrixd
-sec-policy/selinux-mcelog 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mcelog
-sec-policy/selinux-memcached 2.20221101-r3 2.20221101-r4 9999: SELinux policy for memcached
-sec-policy/selinux-milter 2.20221101-r3 2.20221101-r4 9999: SELinux policy for milter
-sec-policy/selinux-modemmanager 2.20221101-r3 2.20221101-r4 9999: SELinux policy for modemmanager
-sec-policy/selinux-mono 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mono
-sec-policy/selinux-mozilla 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mozilla
-sec-policy/selinux-mpd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mpd
-sec-policy/selinux-mplayer 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mplayer
-sec-policy/selinux-mrtg 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mrtg
-sec-policy/selinux-munin 2.20221101-r3 2.20221101-r4 9999: SELinux policy for munin
-sec-policy/selinux-mutt 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mutt
-sec-policy/selinux-mysql 2.20221101-r3 2.20221101-r4 9999: SELinux policy for mysql
-sec-policy/selinux-nagios 2.20221101-r3 2.20221101-r4 9999: SELinux policy for nagios
-sec-policy/selinux-ncftool 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ncftool
-sec-policy/selinux-networkmanager 2.20221101-r3 2.20221101-r4 9999: SELinux policy for networkmanager
-sec-policy/selinux-nginx 2.20221101-r3 2.20221101-r4 9999: SELinux policy for nginx
-sec-policy/selinux-node_exporter 2.20221101-r3 2.20221101-r4 9999: SELinux policy for node_exporter
-sec-policy/selinux-nslcd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for nslcd
-sec-policy/selinux-ntop 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ntop
-sec-policy/selinux-ntp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ntp
-sec-policy/selinux-nut 2.20221101-r3 2.20221101-r4 9999: SELinux policy for nut
-sec-policy/selinux-nx 2.20221101-r3 2.20221101-r4 9999: SELinux policy for nx
-sec-policy/selinux-obfs4proxy 2.20221101-r3 2.20221101-r4 9999: SELinux policy for obfs4proxy
-sec-policy/selinux-oddjob 2.20221101-r3 2.20221101-r4 9999: SELinux policy for oddjob
-sec-policy/selinux-oident 2.20221101-r3 2.20221101-r4 9999: SELinux policy for oident
-sec-policy/selinux-openct 2.20221101-r3 2.20221101-r4 9999: SELinux policy for openct
-sec-policy/selinux-openrc 2.20221101-r3 2.20221101-r4 9999: SELinux policy for openrc
-sec-policy/selinux-opensm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for opensm
-sec-policy/selinux-openvpn 2.20221101-r3 2.20221101-r4 9999: SELinux policy for openvpn
-sec-policy/selinux-pan 2.20221101-r3 2.20221101-r4 9999: SELinux policy for pan
-sec-policy/selinux-pcscd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for pcscd
-sec-policy/selinux-phpfpm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for phpfpm
-sec-policy/selinux-plymouthd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for plymouthd
-sec-policy/selinux-podman 2.20221101-r3 2.20221101-r4 9999: SELinux policy for podman
-sec-policy/selinux-policykit 2.20221101-r3 2.20221101-r4 9999: SELinux policy for policykit
-sec-policy/selinux-portmap 2.20221101-r3 2.20221101-r4 9999: SELinux policy for portmap
-sec-policy/selinux-postfix 2.20221101-r3 2.20221101-r4 9999: SELinux policy for postfix
-sec-policy/selinux-postgresql 2.20221101-r3 2.20221101-r4 9999: SELinux policy for postgresql
-sec-policy/selinux-postgrey 2.20221101-r3 2.20221101-r4 9999: SELinux policy for postgrey
-sec-policy/selinux-ppp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ppp
-sec-policy/selinux-privoxy 2.20221101-r3 2.20221101-r4 9999: SELinux policy for privoxy
-sec-policy/selinux-procmail 2.20221101-r3 2.20221101-r4 9999: SELinux policy for procmail
-sec-policy/selinux-psad 2.20221101-r3 2.20221101-r4 9999: SELinux policy for psad
-sec-policy/selinux-publicfile 2.20221101-r3 2.20221101-r4 9999: SELinux policy for publicfile
-sec-policy/selinux-pulseaudio 2.20221101-r3 2.20221101-r4 9999: SELinux policy for pulseaudio
-sec-policy/selinux-puppet 2.20221101-r3 2.20221101-r4 9999: SELinux policy for puppet
-sec-policy/selinux-pyzor 2.20221101-r3 2.20221101-r4 9999: SELinux policy for pyzor
-sec-policy/selinux-qemu 2.20221101-r3 2.20221101-r4 9999: SELinux policy for qemu
-sec-policy/selinux-qmail 2.20221101-r3 2.20221101-r4 9999: SELinux policy for qmail
-sec-policy/selinux-quota 2.20221101-r3 2.20221101-r4 9999: SELinux policy for quota
-sec-policy/selinux-radius 2.20221101-r3 2.20221101-r4 9999: SELinux policy for radius
-sec-policy/selinux-radvd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for radvd
-sec-policy/selinux-razor 2.20221101-r3 2.20221101-r4 9999: SELinux policy for razor
-sec-policy/selinux-redis 2.20221101-r3 2.20221101-r4 9999: SELinux policy for redis
-sec-policy/selinux-remotelogin 2.20221101-r3 2.20221101-r4 9999: SELinux policy for remotelogin
-sec-policy/selinux-resolvconf 2.20221101-r3 2.20221101-r4 9999: SELinux policy for resolvconf
-sec-policy/selinux-rngd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rngd
-sec-policy/selinux-rootlesskit 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rootlesskit
-sec-policy/selinux-rpc 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rpc
-sec-policy/selinux-rpcbind 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rpcbind
-sec-policy/selinux-rpm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rpm
-sec-policy/selinux-rssh 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rssh
-sec-policy/selinux-rtkit 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rtkit
-sec-policy/selinux-rtorrent 2.20221101-r3 2.20221101-r4 9999: SELinux policy for rtorrent
-sec-policy/selinux-salt 2.20221101-r3 2.20221101-r4 9999: SELinux policy for salt
-sec-policy/selinux-samba 2.20221101-r3 2.20221101-r4 9999: SELinux policy for samba
-sec-policy/selinux-sasl 2.20221101-r3 2.20221101-r4 9999: SELinux policy for sasl
-sec-policy/selinux-screen 2.20221101-r3 2.20221101-r4 9999: SELinux policy for screen
-sec-policy/selinux-secadm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for secadm
-sec-policy/selinux-sendmail 2.20221101-r3 2.20221101-r4 9999: SELinux policy for sendmail
-sec-policy/selinux-sensord 2.20221101-r3 2.20221101-r4 9999: SELinux policy for sensord
-sec-policy/selinux-shorewall 2.20221101-r3 2.20221101-r4 9999: SELinux policy for shorewall
-sec-policy/selinux-shutdown 2.20221101-r3 2.20221101-r4 9999: SELinux policy for shutdown
-sec-policy/selinux-skype 2.20221101-r3 2.20221101-r4 9999: SELinux policy for skype
-sec-policy/selinux-slocate 2.20221101-r3 2.20221101-r4 9999: SELinux policy for slocate
-sec-policy/selinux-slrnpull 2.20221101-r3 2.20221101-r4 9999: SELinux policy for slrnpull
-sec-policy/selinux-smartmon 2.20221101-r3 2.20221101-r4 9999: SELinux policy for smartmon
-sec-policy/selinux-smokeping 2.20221101-r3 2.20221101-r4 9999: SELinux policy for smokeping
-sec-policy/selinux-snmp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for snmp
-sec-policy/selinux-snort 2.20221101-r3 2.20221101-r4 9999: SELinux policy for snort
-sec-policy/selinux-soundserver 2.20221101-r3 2.20221101-r4 9999: SELinux policy for soundserver
-sec-policy/selinux-spamassassin 2.20221101-r3 2.20221101-r4 9999: SELinux policy for spamassassin
-sec-policy/selinux-squid 2.20221101-r3 2.20221101-r4 9999: SELinux policy for squid
-sec-policy/selinux-sssd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for sssd
-sec-policy/selinux-stunnel 2.20221101-r3 2.20221101-r4 9999: SELinux policy for stunnel
-sec-policy/selinux-subsonic 2.20221101-r3 2.20221101-r4 9999: SELinux policy for subsonic
-sec-policy/selinux-sudo 2.20221101-r3 2.20221101-r4 9999: SELinux policy for sudo
-sec-policy/selinux-sxid 2.20221101-r3 2.20221101-r4 9999: SELinux policy for sxid
-sec-policy/selinux-syncthing 2.20221101-r3 2.20221101-r4 9999: SELinux policy for syncthing
-sec-policy/selinux-sysstat 2.20221101-r3 2.20221101-r4 9999: SELinux policy for sysstat
-sec-policy/selinux-tboot 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tboot
-sec-policy/selinux-tcpd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tcpd
-sec-policy/selinux-tcsd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tcsd
-sec-policy/selinux-telnet 2.20221101-r3 2.20221101-r4 9999: SELinux policy for telnet
-sec-policy/selinux-tftp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tftp
-sec-policy/selinux-tgtd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tgtd
-sec-policy/selinux-thunderbird 2.20221101-r3 2.20221101-r4 9999: SELinux policy for thunderbird
-sec-policy/selinux-timidity 2.20221101-r3 2.20221101-r4 9999: SELinux policy for timidity
-sec-policy/selinux-tmpreaper 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tmpreaper
-sec-policy/selinux-tor 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tor
-sec-policy/selinux-tripwire 2.20221101-r3 2.20221101-r4 9999: SELinux policy for tripwire
-sec-policy/selinux-ucspitcp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ucspitcp
-sec-policy/selinux-ulogd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for ulogd
-sec-policy/selinux-uml 2.20221101-r3 2.20221101-r4 9999: SELinux policy for uml
-sec-policy/selinux-unconfined 2.20221101-r3 2.20221101-r4 9999: SELinux policy for unconfined
-sec-policy/selinux-uptime 2.20221101-r3 2.20221101-r4 9999: SELinux policy for uptime
-sec-policy/selinux-usbguard 2.20221101-r3 2.20221101-r4 9999: SELinux policy for usbguard
-sec-policy/selinux-usbmuxd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for usbmuxd
-sec-policy/selinux-uucp 2.20221101-r3 2.20221101-r4 9999: SELinux policy for uucp
-sec-policy/selinux-uwimap 2.20221101-r3 2.20221101-r4 9999: SELinux policy for uwimap
-sec-policy/selinux-uwsgi 2.20221101-r3 2.20221101-r4 9999: SELinux policy for uWSGI
-sec-policy/selinux-varnishd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for varnishd
-sec-policy/selinux-vbetool 2.20221101-r3 2.20221101-r4 9999: SELinux policy for vbetool
-sec-policy/selinux-vdagent 2.20221101-r3 2.20221101-r4 9999: SELinux policy for vdagent
-sec-policy/selinux-vde 2.20221101-r3 2.20221101-r4 9999: SELinux policy for vde
-sec-policy/selinux-virt 2.20221101-r3 2.20221101-r4 9999: SELinux policy for virt
-sec-policy/selinux-vlock 2.20221101-r3 2.20221101-r4 9999: SELinux policy for vlock
-sec-policy/selinux-vmware 2.20221101-r3 2.20221101-r4 9999: SELinux policy for vmware
-sec-policy/selinux-vnstatd 2.20221101-r3 2.20221101-r4 9999: SELinux policy for vnstatd
-sec-policy/selinux-vpn 2.20221101-r3 2.20221101-r4 9999: SELinux policy for vpn
-sec-policy/selinux-watchdog 2.20221101-r3 2.20221101-r4 9999: SELinux policy for watchdog
-sec-policy/selinux-webalizer 2.20221101-r3 2.20221101-r4 9999: SELinux policy for webalizer
-sec-policy/selinux-wine 2.20221101-r3 2.20221101-r4 9999: SELinux policy for wine
-sec-policy/selinux-wireguard 2.20221101-r3 2.20221101-r4 9999: SELinux policy for wireguard
-sec-policy/selinux-wireshark 2.20221101-r3 2.20221101-r4 9999: SELinux policy for wireshark
-sec-policy/selinux-wm 2.20221101-r3 2.20221101-r4 9999: SELinux policy for wm
-sec-policy/selinux-xen 2.20221101-r3 2.20221101-r4 9999: SELinux policy for xen
-sec-policy/selinux-xfs 2.20221101-r3 2.20221101-r4 9999: SELinux policy for xfs
-sec-policy/selinux-xscreensaver 2.20221101-r3 2.20221101-r4 9999: SELinux policy for xscreensaver
-sec-policy/selinux-xserver 2.20221101-r3 2.20221101-r4 9999: SELinux policy for xserver
-sec-policy/selinux-zabbix 2.20221101-r3 2.20221101-r4 9999: SELinux policy for zabbix
-sec-policy/selinux-zfs 2.20221101-r3 2.20221101-r4 9999: SELinux policy for zfs
+sec-policy/selinux-accountsd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for accountsd
+sec-policy/selinux-acct 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for acct
+sec-policy/selinux-afs 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for afs
+sec-policy/selinux-aide 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for aide
+sec-policy/selinux-alsa 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for alsa
+sec-policy/selinux-amanda 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for amanda
+sec-policy/selinux-amavis 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for amavis
+sec-policy/selinux-android 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for android
+sec-policy/selinux-apache 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for apache
+sec-policy/selinux-apcupsd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for apcupsd
+sec-policy/selinux-apm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for acpi
+sec-policy/selinux-arpwatch 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for arpwatch
+sec-policy/selinux-asterisk 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for asterisk
+sec-policy/selinux-at 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for at
+sec-policy/selinux-automount 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for automount
+sec-policy/selinux-avahi 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for avahi
+sec-policy/selinux-awstats 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for awstats
+sec-policy/selinux-backup 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for generic backup apps
+sec-policy/selinux-bacula 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for bacula
+sec-policy/selinux-base 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: Gentoo base policy for SELinux
+sec-policy/selinux-base-policy 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for core modules
+sec-policy/selinux-bind 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for bind
+sec-policy/selinux-bitcoin 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for bitcoin
+sec-policy/selinux-bitlbee 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for bitlbee
+sec-policy/selinux-bluetooth 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for bluetooth
+sec-policy/selinux-brctl 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for brctl
+sec-policy/selinux-cachefilesd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cachefilesd
+sec-policy/selinux-calamaris 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for calamaris
+sec-policy/selinux-canna 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for canna
+sec-policy/selinux-cdrecord 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cdrecord
+sec-policy/selinux-ceph 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ceph
+sec-policy/selinux-certbot 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for certbot
+sec-policy/selinux-cgmanager 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cgmanager
+sec-policy/selinux-cgroup 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cgroup
+sec-policy/selinux-chromium 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for chromium
+sec-policy/selinux-chronyd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for chronyd
+sec-policy/selinux-clamav 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for clamav
+sec-policy/selinux-cloudinit 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cloudinit
+sec-policy/selinux-collectd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for collectd
+sec-policy/selinux-colord 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for colord
+sec-policy/selinux-container 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for container
+sec-policy/selinux-corosync 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for corosync
+sec-policy/selinux-couchdb 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for couchdb
+sec-policy/selinux-courier 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for courier
+sec-policy/selinux-cpucontrol 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cpucontrol
+sec-policy/selinux-cpufreqselector 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cpufreqselector
+sec-policy/selinux-crio 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cri-o
+sec-policy/selinux-cups 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cups
+sec-policy/selinux-cvs 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cvs
+sec-policy/selinux-cyphesis 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for cyphesis
+sec-policy/selinux-daemontools 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for daemontools
+sec-policy/selinux-dante 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dante
+sec-policy/selinux-dbadm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dbadm
+sec-policy/selinux-dbskk 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dbskk
+sec-policy/selinux-dbus 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dbus
+sec-policy/selinux-ddclient 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ddclient
+sec-policy/selinux-devicekit 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for devicekit
+sec-policy/selinux-dhcp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dhcp
+sec-policy/selinux-dictd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dictd
+sec-policy/selinux-dirmngr 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dirmngr
+sec-policy/selinux-dirsrv 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dirsrv
+sec-policy/selinux-distcc 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for distcc
+sec-policy/selinux-djbdns 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for djbdns
+sec-policy/selinux-dkim 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dkim
+sec-policy/selinux-dmidecode 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dmidecode
+sec-policy/selinux-dnsmasq 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dnsmasq
+sec-policy/selinux-docker 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for docker
+sec-policy/selinux-dovecot 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dovecot
+sec-policy/selinux-dpkg 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dpkg
+sec-policy/selinux-dracut 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dracut
+sec-policy/selinux-dropbox 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for dropbox
+sec-policy/selinux-entropyd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for entropyd
+sec-policy/selinux-evolution 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for evolution
+sec-policy/selinux-exim 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for exim
+sec-policy/selinux-fail2ban 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for fail2ban
+sec-policy/selinux-fetchmail 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for fetchmail
+sec-policy/selinux-finger 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for finger
+sec-policy/selinux-flash 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for flash
+sec-policy/selinux-fprintd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for fprintd
+sec-policy/selinux-ftp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ftp
+sec-policy/selinux-games 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for games
+sec-policy/selinux-gatekeeper 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gatekeeper
+sec-policy/selinux-git 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for git
+sec-policy/selinux-gitosis 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gitosis
+sec-policy/selinux-glusterfs 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for glusterfs
+sec-policy/selinux-gnome 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gnome
+sec-policy/selinux-googletalk 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for googletalk
+sec-policy/selinux-gorg 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gorg
+sec-policy/selinux-gpg 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gpg
+sec-policy/selinux-gpm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gpm
+sec-policy/selinux-gpsd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gpsd
+sec-policy/selinux-gssproxy 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for gssproxy
+sec-policy/selinux-hddtemp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for hddtemp
+sec-policy/selinux-hostapd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for hostapd
+sec-policy/selinux-icecast 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for icecast
+sec-policy/selinux-ifplugd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ifplugd
+sec-policy/selinux-inetd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for inetd
+sec-policy/selinux-inn 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for inn
+sec-policy/selinux-ipsec 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ipsec
+sec-policy/selinux-irc 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for irc
+sec-policy/selinux-ircd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ircd
+sec-policy/selinux-irqbalance 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for irqbalance
+sec-policy/selinux-jabber 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for jabber
+sec-policy/selinux-java 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for java
+sec-policy/selinux-kdeconnect 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for kdeconnect
+sec-policy/selinux-kdump 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for kdump
+sec-policy/selinux-kerberos 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for kerberos
+sec-policy/selinux-kerneloops 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for kerneloops
+sec-policy/selinux-kismet 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for kismet
+sec-policy/selinux-ksmtuned 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ksmtuned
+sec-policy/selinux-kubernetes 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for kubernetes
+sec-policy/selinux-ldap 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ldap
+sec-policy/selinux-links 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for links
+sec-policy/selinux-lircd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for lircd
+sec-policy/selinux-loadkeys 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for loadkeys
+sec-policy/selinux-logrotate 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for logrotate
+sec-policy/selinux-logsentry 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for logsentry
+sec-policy/selinux-logwatch 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for logwatch
+sec-policy/selinux-lpd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for lpd
+sec-policy/selinux-makewhatis 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for makewhatis
+sec-policy/selinux-mandb 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mandb
+sec-policy/selinux-matrixd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for matrixd
+sec-policy/selinux-mcelog 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mcelog
+sec-policy/selinux-memcached 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for memcached
+sec-policy/selinux-milter 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for milter
+sec-policy/selinux-modemmanager 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for modemmanager
+sec-policy/selinux-mono 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mono
+sec-policy/selinux-mozilla 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mozilla
+sec-policy/selinux-mpd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mpd
+sec-policy/selinux-mplayer 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mplayer
+sec-policy/selinux-mrtg 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mrtg
+sec-policy/selinux-munin 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for munin
+sec-policy/selinux-mutt 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mutt
+sec-policy/selinux-mysql 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for mysql
+sec-policy/selinux-nagios 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for nagios
+sec-policy/selinux-ncftool 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ncftool
+sec-policy/selinux-networkmanager 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for networkmanager
+sec-policy/selinux-nginx 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for nginx
+sec-policy/selinux-node_exporter 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for node_exporter
+sec-policy/selinux-nslcd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for nslcd
+sec-policy/selinux-ntop 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ntop
+sec-policy/selinux-ntp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ntp
+sec-policy/selinux-nut 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for nut
+sec-policy/selinux-nx 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for nx
+sec-policy/selinux-obfs4proxy 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for obfs4proxy
+sec-policy/selinux-oddjob 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for oddjob
+sec-policy/selinux-oident 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for oident
+sec-policy/selinux-openct 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for openct
+sec-policy/selinux-openrc 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for openrc
+sec-policy/selinux-opensm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for opensm
+sec-policy/selinux-openvpn 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for openvpn
+sec-policy/selinux-pan 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for pan
+sec-policy/selinux-pcscd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for pcscd
+sec-policy/selinux-phpfpm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for phpfpm
+sec-policy/selinux-plymouthd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for plymouthd
+sec-policy/selinux-podman 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for podman
+sec-policy/selinux-policykit 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for policykit
+sec-policy/selinux-portmap 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for portmap
+sec-policy/selinux-postfix 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for postfix
+sec-policy/selinux-postgresql 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for postgresql
+sec-policy/selinux-postgrey 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for postgrey
+sec-policy/selinux-powerprofiles 2.20231002-r1 9999: SELinux policy for powerprofiles
+sec-policy/selinux-ppp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ppp
+sec-policy/selinux-privoxy 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for privoxy
+sec-policy/selinux-procmail 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for procmail
+sec-policy/selinux-psad 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for psad
+sec-policy/selinux-publicfile 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for publicfile
+sec-policy/selinux-pulseaudio 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for pulseaudio
+sec-policy/selinux-puppet 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for puppet
+sec-policy/selinux-pyzor 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for pyzor
+sec-policy/selinux-qemu 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for qemu
+sec-policy/selinux-qmail 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for qmail
+sec-policy/selinux-quota 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for quota
+sec-policy/selinux-radius 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for radius
+sec-policy/selinux-radvd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for radvd
+sec-policy/selinux-rasdaemon 2.20231002-r1 9999: SELinux policy for rasdaemon
+sec-policy/selinux-razor 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for razor
+sec-policy/selinux-redis 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for redis
+sec-policy/selinux-remotelogin 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for remotelogin
+sec-policy/selinux-resolvconf 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for resolvconf
+sec-policy/selinux-rngd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rngd
+sec-policy/selinux-rootlesskit 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rootlesskit
+sec-policy/selinux-rpc 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rpc
+sec-policy/selinux-rpcbind 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rpcbind
+sec-policy/selinux-rpm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rpm
+sec-policy/selinux-rssh 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rssh
+sec-policy/selinux-rtkit 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rtkit
+sec-policy/selinux-rtorrent 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for rtorrent
+sec-policy/selinux-salt 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for salt
+sec-policy/selinux-samba 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for samba
+sec-policy/selinux-sasl 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for sasl
+sec-policy/selinux-screen 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for screen
+sec-policy/selinux-secadm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for secadm
+sec-policy/selinux-sendmail 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for sendmail
+sec-policy/selinux-sensord 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for sensord
+sec-policy/selinux-shorewall 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for shorewall
+sec-policy/selinux-shutdown 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for shutdown
+sec-policy/selinux-skype 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for skype
+sec-policy/selinux-slocate 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for slocate
+sec-policy/selinux-slrnpull 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for slrnpull
+sec-policy/selinux-smartmon 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for smartmon
+sec-policy/selinux-smokeping 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for smokeping
+sec-policy/selinux-snmp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for snmp
+sec-policy/selinux-snort 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for snort
+sec-policy/selinux-soundserver 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for soundserver
+sec-policy/selinux-spamassassin 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for spamassassin
+sec-policy/selinux-squid 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for squid
+sec-policy/selinux-sssd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for sssd
+sec-policy/selinux-stunnel 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for stunnel
+sec-policy/selinux-subsonic 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for subsonic
+sec-policy/selinux-sudo 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for sudo
+sec-policy/selinux-switcheroo 2.20231002-r1 9999: SELinux policy for switcheroo
+sec-policy/selinux-sxid 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for sxid
+sec-policy/selinux-syncthing 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for syncthing
+sec-policy/selinux-sysstat 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for sysstat
+sec-policy/selinux-tboot 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tboot
+sec-policy/selinux-tcpd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tcpd
+sec-policy/selinux-tcsd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tcsd
+sec-policy/selinux-telnet 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for telnet
+sec-policy/selinux-tftp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tftp
+sec-policy/selinux-tgtd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tgtd
+sec-policy/selinux-thunderbird 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for thunderbird
+sec-policy/selinux-thunderbolt 2.20231002-r1 9999: SELinux policy for thunderbolt
+sec-policy/selinux-timidity 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for timidity
+sec-policy/selinux-tmpreaper 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tmpreaper
+sec-policy/selinux-tor 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tor
+sec-policy/selinux-tripwire 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for tripwire
+sec-policy/selinux-ucspitcp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ucspitcp
+sec-policy/selinux-ulogd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for ulogd
+sec-policy/selinux-uml 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for uml
+sec-policy/selinux-unconfined 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for unconfined
+sec-policy/selinux-uptime 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for uptime
+sec-policy/selinux-usbguard 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for usbguard
+sec-policy/selinux-usbmuxd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for usbmuxd
+sec-policy/selinux-uucp 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for uucp
+sec-policy/selinux-uwimap 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for uwimap
+sec-policy/selinux-uwsgi 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for uWSGI
+sec-policy/selinux-varnishd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for varnishd
+sec-policy/selinux-vbetool 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for vbetool
+sec-policy/selinux-vdagent 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for vdagent
+sec-policy/selinux-vde 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for vde
+sec-policy/selinux-virt 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for virt
+sec-policy/selinux-vlock 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for vlock
+sec-policy/selinux-vmware 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for vmware
+sec-policy/selinux-vnstatd 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for vnstatd
+sec-policy/selinux-vpn 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for vpn
+sec-policy/selinux-watchdog 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for watchdog
+sec-policy/selinux-webalizer 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for webalizer
+sec-policy/selinux-wine 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for wine
+sec-policy/selinux-wireguard 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for wireguard
+sec-policy/selinux-wireshark 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for wireshark
+sec-policy/selinux-wm 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for wm
+sec-policy/selinux-xen 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for xen
+sec-policy/selinux-xfs 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for xfs
+sec-policy/selinux-xscreensaver 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for xscreensaver
+sec-policy/selinux-xserver 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for xserver
+sec-policy/selinux-zabbix 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for zabbix
+sec-policy/selinux-zfs 2.20221101-r3 2.20221101-r4 2.20231002-r1 9999: SELinux policy for zfs
 sys-apps/accountsservice 23.13.9: D-Bus interfaces for querying and manipulating user account information
 sys-apps/ack 3.6.0 3.7.0: ack is a tool like grep, optimized for programmers
 sys-apps/acl 2.3.1 2.3.1-r1 2.3.1-r2: Access control list utilities, libraries, and headers
