@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/nasm embed-models? ( app-editors/vim-core ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=C libary for Netflix's Perceptual video quality assessment
+EAPI=8
+HOMEPAGE=https://github.com/Netflix/vmaf
+INHERIT=meson-multilib flag-o-matic
+IUSE=+embed-models test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~amd64 ~loong ~riscv ~x86
+LICENSE=BSD-2-with-patent
+RDEPEND=dev-lang/nasm embed-models? ( app-editors/vim-core )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/Netflix/vmaf/archive/v2.3.1.tar.gz -> libvmaf-2.3.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	08b7183c3f4811568ee93eb0f79a89fe	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	8989922d980e5e870cc3de949d1b2586	flag-o-matic	e5cc383ea8420f92fe3737be790021dc
+_md5_=bc2464b49e64c6f0b6daebd2df19d6fa
