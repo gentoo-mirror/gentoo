@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig test? ( dev-libs/check ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+BDEPEND=sys-devel/autoconf-archive virtual/pkgconfig test? ( dev-libs/check ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare
 DEPEND=app-alternatives/gzip pam? ( !app-misc/vlock sys-libs/pam )
 DESCRIPTION=Keyboard and console utilities
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/utils/kbd/kbd-2.6.3.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=c1a9d3568e11b8d0d395f73a011605d3
+_md5_=6f2828c5a62b19202a6547c702efe590
