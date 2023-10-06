@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/translate/translate/ https://pypi.org/project/translate-toolkit/
 INHERIT=distutils-r1
 IUSE=+html +ical +ini +subtitles +yaml test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 arm64 x86
 LICENSE=GPL-2
 RDEPEND=app-text/iso-codes >=dev-python/chardet-3.0.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/cheroot[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/Levenshtein-0.12.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/lxml-4.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/mistletoe-1.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyparsing-3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/ruamel-yaml[python_targets_python3_10(-)?,python_targets_python3_11(-)?] sys-devel/gettext html? ( dev-python/utidylib[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ical? ( dev-python/vobject[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ini? ( >=dev-python/iniparse-0.5[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) subtitles? ( media-video/gaupol[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) yaml? ( dev-python/pyyaml[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10[sqlite] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite] )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/translate/translate/archive/3.10.1.tar.gz -> translate-3.10.1.gh.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	24344aec2be39c69d9f279b5415298ce
-_md5_=ae9e72c4ec2895de809fd7bddca98990
+_md5_=81551bc5a1be3103536ec6992b578b0d
