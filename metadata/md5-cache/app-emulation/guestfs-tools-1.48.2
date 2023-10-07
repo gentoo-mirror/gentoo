@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://libguestfs.org/
 INHERIT=flag-o-matic linux-info perl-functions strip-linguas toolchain-funcs
 IUSE=doc +ocaml +perl test
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2 LGPL-2
 RDEPEND=!<app-emulation/libguestfs-1.46.0-r1 app-arch/cpio app-arch/lzma app-arch/unzip[natspec] app-arch/xz-utils app-crypt/gnupg >=app-emulation/libguestfs-1.48:=[ocaml?,perl?] app-emulation/libvirt:= >=app-emulation/qemu-2.0[qemu_softmmu_targets_x86_64,filecaps] dev-lang/perl:= dev-libs/libpcre2:= dev-libs/libxml2:2 dev-libs/jansson:= >=sys-apps/fakechroot-2.8 sys-fs/squashfs-tools:* sys-libs/ncurses:= sys-libs/libxcrypt:= virtual/libcrypt:= ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] ) perl? ( virtual/perl-Data-Dumper virtual/perl-Getopt-Long dev-perl/Module-Build dev-perl/libintl-perl virtual/perl-ExtUtils-MakeMaker >=dev-perl/Sys-Virt-0.2.4 dev-perl/String-ShellQuote test? ( virtual/perl-Test-Simple ) ) app-emulation/libguestfs-appliance
 RESTRICT=!test? ( test )
 SLOT=0/1.48
 SRC_URI=https://download.libguestfs.org/guestfs-tools/1.48-stable/guestfs-tools-1.48.2.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	perl-functions	c3fca037246e877693badea0df3b0ef8	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
-_md5_=44370d3fd8c791cc858a95033bc22ad6
+_md5_=c0e11eb330a00aa01d33d2d215bce144
