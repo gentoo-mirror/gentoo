@@ -20,7 +20,7 @@ SRC_URI="https://download.libguestfs.org/${MY_PV_1}-${SD}/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0/${MY_PV_1}"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE="doc erlang +fuse gtk inspect-icons introspection libvirt lua +ocaml +perl python ruby selinux static-libs systemtap test"
 RESTRICT="!test? ( test )"
 
@@ -114,6 +114,7 @@ RDEPEND="${COMMON_DEPEND}
 # Upstream build scripts compile and install Lua bindings for the ABI version
 # obtained by running 'lua' on the build host
 BDEPEND="
+	app-alternatives/yacc
 	virtual/pkgconfig
 	lua? ( ${LUA_DEPS} )
 "
