@@ -1324,6 +1324,7 @@ app-containers/cosign 2.0.0 2.0.1 2.2.0: container signing utility
 app-containers/cri-o 1.26.0: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.1 1.8.4: A fast and low-memory footprint OCI Container Runtime fully written in C
+app-containers/devcontainer 0.52.0: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.5.0.2 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1: System container image builder for LXC and LXD
 app-containers/docker 24.0.5 24.0.6: The core functions you need to create Docker images and run Docker containers
@@ -1889,7 +1890,7 @@ app-emacs/commenter 0.5.2: Set both single and multi line comment variables in E
 app-emacs/company-coq 1.0.1_p20220314: Collection of extensions for Proof General's Coq mode
 app-emacs/company-ebuild 0.1.3 0.1.4 9999: Company backend for editing Ebuild files
 app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols and latex tags
-app-emacs/company-mode 0.9.13_p20230306 0.10.0: In-buffer completion front-end
+app-emacs/company-mode 0.9.13_p20230306 0.10.0 0.10.1: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 29.1.4.2: Compatibility libraries for Emacs
 app-emacs/consult 0.32 0.34 0.35 9999: Consulting complete-read for GNU Emacs
@@ -1994,7 +1995,7 @@ app-emacs/exec-path-from-shell 1.12 2.1: Ensure environment variables inside Ema
 app-emacs/exheres-mode 1.10: Major mode for editing files in exheres format
 app-emacs/expand-region 0.11.0-r1: Emacs extension to increase selected region by semantic units
 app-emacs/external-completion 0.1: Let external tools control completion style in GNU Emacs
-app-emacs/exwm 0.26 0.27: Emacs X Window Manager
+app-emacs/exwm 0.27 0.28: Emacs X Window Manager
 app-emacs/f 0.20.0-r1: Modern API for working with files and directories in Emacs
 app-emacs/fennel-mode 0.5.0: Emacs support for the Fennel programming language
 app-emacs/fff 20050517: Fast file finder for Emacs
@@ -2900,6 +2901,7 @@ app-office/auto-multiple-choice 1.6.0: Create and manage multiple choice questio
 app-office/calcurse 4.8.0-r1 4.8.1: A text-based calendar and scheduling application
 app-office/calligra 3.2.1-r8: KDE Office Suite
 app-office/calligraplan 3.3.0: Project management application
+app-office/denaro 2023.9.2: A personal finance manager
 app-office/dia 0.97.3-r1: Diagram/flowchart creation program
 app-office/dia2code 1.0.0: Convert UML diagrams produced with Dia to various source code flavours
 app-office/endeavour 43.0 9999: Personal task manager
@@ -3047,6 +3049,9 @@ app-shells/pdmenu 1.3.6: A simple console menu program
 app-shells/pdsh 2.34-r2: A high-performance, parallel remote shell utility
 app-shells/peco 0.5.8 0.5.10 9999: Simplistic interactive filtering tool
 app-shells/posh 0.14.1: Reimplementation of Bourne shell based on pdksh
+app-shells/posh-dotnet 1.2.3: PowerShell tab completion and tooltip support for the dotnet CLI
+app-shells/posh-git 1.1.0: A PowerShell environment for Git
+app-shells/posh-z 1.1.12_p20230811: Quickly navigate the file system based on your cd history
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
@@ -4914,7 +4919,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.4-r103 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.593 0.595 0.596 0.597: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.593 0.595 0.596 0.597 0.598: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 20.06-r1 20.06.1 22.01 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 20.06 20.06.1 22.01 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -16051,7 +16056,7 @@ sci-mathematics/bertini 1.4 1.6: Software for Numerical Algebraic Geometry
 sci-mathematics/boolector 3.2.2_p20220110: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
 sci-mathematics/btor2tools 1.0.0_pre20220518-r1: Generic parser and tools for the BTOR2 format
 sci-mathematics/cadabra 2.4.3.2-r1 2.4.4.1: Field-theory motivated approach to computer algebra
-sci-mathematics/cadical 1.5.2-r1 1.5.3-r1: Simplified Satisfiability Solver
+sci-mathematics/cadical 1.5.3-r1: Simplified Satisfiability Solver
 sci-mathematics/calc 2.13.0.1: Arbitrary precision C-like arithmetic system
 sci-mathematics/cgal 5.5 5.5.2: C++ library for geometric algorithms and data structures
 sci-mathematics/cliquer 1.22: C routines for finding cliques in an arbitrary weighted graph
@@ -16096,7 +16101,7 @@ sci-mathematics/jags 4.3.0 4.3.1: Just Another Gibbs Sampler for Bayesian MCMC s
 sci-mathematics/kind2 1.9.0: Multi-engine SMT-based automatic model checker
 sci-mathematics/kissat 3.0.0 3.1.0: Keep-it-simple and clean bare metal SAT solver written in C
 sci-mathematics/lcalc 2.0.5-r2: Command-line utility and library for L-function computations
-sci-mathematics/lean 3.49.0 3.50.3 3.51.0 3.51.1 3.9999: The Lean Theorem Prover
+sci-mathematics/lean 3.51.1 3.9999: The Lean Theorem Prover
 sci-mathematics/libpoly 0.1.11: C library for manipulating polynomials
 sci-mathematics/lpsolve 5.5.2.11-r2: Mixed Integer Linear Programming (MILP) solver
 sci-mathematics/lrcalc 1.2 2.1: Littlewood-Richardson Calculator
