@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit bash-completion-r1 distutils-r1 optfeature wrapper
 
 DESCRIPTION="youtube-dl fork with additional features and fixes"
@@ -14,11 +14,12 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~hppa ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
-	!net-misc/youtube-dl[-yt-dlp(-)]"
+	!net-misc/youtube-dl[-yt-dlp(-)]
+"
 
 distutils_enable_tests pytest
 
