@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig X? ( x11-base/xorg-proto ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-cpp/abseil-cpp-20220623.1:= dev-libs/openssl:= dev-libs/protobuf:= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.10.0:= media-libs/openh264:= media-libs/opus media-video/ffmpeg:= dev-libs/crc32c screencast? ( dev-libs/glib:2 media-video/pipewire:= ) X? ( x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst ) screencast? ( media-libs/libglvnd media-libs/mesa x11-libs/libdrm )
+DESCRIPTION=WebRTC build for Telegram
+EAPI=8
+HOMEPAGE=https://github.com/desktop-app/tg_owt
+INHERIT=cmake flag-o-matic
+IUSE=screencast +X
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=BSD
+RDEPEND=>=dev-cpp/abseil-cpp-20220623.1:= dev-libs/openssl:= dev-libs/protobuf:= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.10.0:= media-libs/openh264:= media-libs/opus media-video/ffmpeg:= dev-libs/crc32c screencast? ( dev-libs/glib:2 media-video/pipewire:= ) X? ( x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst )
+SLOT=0/20230921
+SRC_URI=https://github.com/desktop-app/tg_owt/archive/592b14d13bf9103226e90a83571e24c49f6bfdcd.tar.gz -> tg_owt-0_pre20230921.tar.gz https://gitlab.com/chromiumsrc/libyuv/-/archive/04821d1e7d60845525e8db55c7bcd41ef5be9406/libyuv-04821d1e7d60845525e8db55c7bcd41ef5be9406.tar.bz2 https://github.com/cisco/libsrtp/archive/a566a9cfcd619e8327784aa7cff4a1276dc1e895.tar.gz -> libsrtp-a566a9cfcd619e8327784aa7cff4a1276dc1e895.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80
+_md5_=957046e3dc3a880f23b4aa44fbbae486
