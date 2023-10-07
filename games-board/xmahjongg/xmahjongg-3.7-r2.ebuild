@@ -1,13 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop
 
-DESCRIPTION="friendly GUI version of xmahjongg"
-HOMEPAGE="http://www.lcdf.org/xmahjongg/"
-SRC_URI="http://www.lcdf.org/xmahjongg/${P}.tar.gz"
+DESCRIPTION="Friendly GUI version of xmahjongg"
+HOMEPAGE="https://www.lcdf.org/xmahjongg/"
+SRC_URI="https://www.lcdf.org/xmahjongg/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,7 +17,10 @@ RDEPEND="x11-libs/libX11"
 DEPEND="${RDEPEND}
 	x11-libs/libXt"
 
-PATCHES=( "${FILESDIR}"/${P}-autotools.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-autotools.patch
+	"${FILESDIR}"/${P}-drop-register-keyword.patch
+)
 
 src_prepare() {
 	default
