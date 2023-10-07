@@ -2080,7 +2080,7 @@ app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 1.2 1.3: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.5-r1 2.6: Major mode for editing Markdown-formatted text files
-app-emacs/mastodon 1.0.0: Emacs client for Mastodon, federated microblogging social network
+app-emacs/mastodon 1.0.0 1.0.6: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
 app-emacs/matlab 3.3.6_pre20191010-r1: Major modes for MATLAB .m and .tlc files
 app-emacs/mediawiki 2.2.9-r1 2.3.1: MediaWiki client for Emacs
@@ -2127,6 +2127,7 @@ app-emacs/parsebib 4.3: Emacs Lisp library for reading .bib files
 app-emacs/parseclj 1.1.0: Clojure Parser for Emacs Lisp
 app-emacs/parseedn 1.1.0 1.2.0: EDN parser for Emacs Lisp
 app-emacs/pdf-tools 1.0.0 1.1.0: Emacs Lisp support library for PDF documents
+app-emacs/persist 0.5: Persist variables between Emacs sessions
 app-emacs/pfuture 1.10.3: Simple wrapper around asynchronous processes
 app-emacs/php-mode 1.24.3 1.25.0 9999: GNU Emacs major mode for editing PHP code
 app-emacs/pkg-info 0.6: Provide information about Emacs packages
@@ -3823,7 +3824,7 @@ dev-db/libdbi-drivers 0.9.0-r1: The libdbi-drivers project maintains drivers for
 dev-db/libiodbc 3.52.15-r1: ODBC Interface for Linux
 dev-db/libodbc++ 0.2.5-r3: Provides a subset of the well-known JDBC 2.0(tm) and runs on top of ODBC
 dev-db/libzdb 3.2.3: A thread safe high level multi-database connection pool library
-dev-db/litedb 5.0.17: .NET NoSQL Document Store in a single data file
+dev-db/litedb 5.0.17-r1: .NET NoSQL Document Store in a single data file
 dev-db/lmdb 0.9.30 0.9.31: An ultra-fast, ultra-compact key-value embedded data store
 dev-db/lmdb++ 0.9.14.0 1.0.0 1.0.0-r1: C++11 wrapper for the LMDB database library
 dev-db/m17n-db 1.8.0: Database for the m17n library
@@ -3896,7 +3897,7 @@ dev-db/vsqlite++ 0.3.13-r1: VSQLite++ - A well designed and portable SQLite3 Wra
 dev-db/wxsqlite3 3.2.1-r1: C++ wrapper around the public domain SQLite 3.x database
 dev-dotnet/avalonia-ilspy 7.2_rc: Avalonia-based .NET Decompiler, port of ILSpy
 dev-dotnet/cake 3.1.0-r1: Cake (C# Make) is a cross platform build automation system
-dev-dotnet/coco 2014.12.24-r1: The compiler generator Coco/R for C#
+dev-dotnet/coco 2014.12.24-r2: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 1.0.0 1.1.1: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.9.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.5: A command line C# REPL with syntax highlighting
@@ -4928,7 +4929,7 @@ dev-lang/micropython 1.17: Python implementation for microcontrollers
 dev-lang/mlton 20180207: Standard ML optimizing compiler and libraries
 dev-lang/mmix 20160804-r1: Donald Knuth's MMIX Assembler and Simulator
 dev-lang/moarvm 2023.02 2023.02-r1 9999: A 6model-based VM for NQP and Raku
-dev-lang/mond 0.9.4: Mond is a scripting language for .NET Core
+dev-lang/mond 0.9.4-r1: Mond is a scripting language for .NET Core
 dev-lang/mono 6.12.0.122 6.12.0.182 6.12.0.199: Mono runtime and class libraries, a C# compiler/interpreter
 dev-lang/mono-basic 4.8: Visual Basic Compiler and Runtime
 dev-lang/mozart 2.0.1: Advanced development platform for intelligent, distributed applications
@@ -16058,7 +16059,7 @@ sci-mathematics/bertini 1.4 1.6: Software for Numerical Algebraic Geometry
 sci-mathematics/boolector 3.2.2_p20220110: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
 sci-mathematics/btor2tools 1.0.0_pre20220518-r1: Generic parser and tools for the BTOR2 format
 sci-mathematics/cadabra 2.4.3.2-r1 2.4.4.1: Field-theory motivated approach to computer algebra
-sci-mathematics/cadical 1.5.3-r1: Simplified Satisfiability Solver
+sci-mathematics/cadical 1.5.3-r1 1.8.0: Simplified Satisfiability Solver
 sci-mathematics/calc 2.13.0.1: Arbitrary precision C-like arithmetic system
 sci-mathematics/cgal 5.5 5.5.2: C++ library for geometric algorithms and data structures
 sci-mathematics/cliquer 1.22: C routines for finding cliques in an arbitrary weighted graph
@@ -17163,7 +17164,7 @@ sys-devel/distcc 3.4-r1 3.4-r2 3.4-r3: Distribute compilation of C code across s
 sys-devel/dwz 0.14 0.15-r1: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r5 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r1 9.5.0 10.4.1_p20230426-r1 10.5.0 11.3.1_p20230427 11.4.1_p20230622 11.4.1_p20230824 11.4.1_p20230921 11.4.1_p20230928 11.4.1_p20231005 11.5.9999 12.3.1_p20230526 12.3.1_p20230825 12.3.1_p20230922 12.3.1_p20230929 12.3.1_p20231006 12.4.9999 13.2.1_p20230826 13.2.1_p20230923 13.2.1_p20230930 13.3.9999 14.0.0_pre20230917 14.0.0_pre20230924 14.0.0_pre20231001 14.0.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r1 9.5.0 10.4.1_p20230426-r1 10.5.0 11.3.1_p20230427 11.4.1_p20230622 11.4.1_p20230824 11.4.1_p20230921 11.4.1_p20230928 11.4.1_p20231005 11.5.9999 12.3.1_p20230526 12.3.1_p20230825 12.3.1_p20230922 12.3.1_p20230929 12.3.1_p20231006 12.4.9999 13.2.1_p20230826 13.2.1_p20230923 13.2.1_p20230930 13.2.1_p20231007 13.3.9999 14.0.0_pre20230917 14.0.0_pre20230924 14.0.0_pre20231001 14.0.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 9999: Utility to manage compilers
 sys-devel/gdb 13.2 13.2-r1 13.2-r2 9999: GNU debugger
@@ -18321,7 +18322,7 @@ x11-misc/screenkey 1.5_p20230109 9999: A screencast tool to display your keys in
 x11-misc/sct 0.5-r1: Set color temperature of the screen
 x11-misc/sddm 0.18.1-r8 0.20.0-r1: Simple Desktop Display Manager
 x11-misc/seetxt 0.72-r1: Clever, lightweight GUI text file and manual page viewer for X windows
-x11-misc/sent 1-r1 9999: Simple plaintext presentation tool
+x11-misc/sent 1-r1: Simple plaintext presentation tool
 x11-misc/set_opacity 1.0 9999: Tool for set real compositing for windows through window's id, process' pid etc.
 x11-misc/shared-mime-info 2.1 2.2: The Shared MIME-info Database specification
 x11-misc/shutter 0.99.4-r1: Feature-rich screenshot program
