@@ -60,6 +60,10 @@ MULTILIB_CHOST_TOOLS=(
 	/usr/bin/xml2-config
 )
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.11.5-CVE-2023-45322.patch
+)
+
 src_unpack() {
 	if [[ ${PV} == 9999 ]] ; then
 		git-r3_src_unpack
