@@ -1,16 +1,16 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake python-any-r1 xdg
 
 DESCRIPTION="A hierarchical note taking application (C++ version)"
 HOMEPAGE="https://www.giuspen.com/cherrytree/"
 
-SRC_URI="https://github.com/giuspen/cherrytree/releases/download/${PV}/${P/-/_}.tar.xz"
+SRC_URI="https://github.com/giuspen/${PN}/releases/download/v$PV/${P/-/_}.tar.xz"
 S="${WORKDIR}"/${P/-/_}
 
 KEYWORDS="~amd64 ~x86"
