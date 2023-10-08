@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install postinst prepare
+DEPEND=dev-libs/apr-util dev-libs/libpcre dev-util/ctags dev-vcs/subversion sys-libs/db:* sys-libs/gdbm
+DESCRIPTION=Backup/restore for subversion backends
+EAPI=8
+HOMEPAGE=https://github.com/phmarek/fsvs
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/apr-util dev-libs/libpcre dev-util/ctags dev-vcs/subversion sys-libs/db:* sys-libs/gdbm
+SLOT=0
+SRC_URI=https://github.com/phmarek/fsvs/archive/refs/tags/fsvs-1.2.11.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=2a62cfc597986970371a35a8c6a6e411
