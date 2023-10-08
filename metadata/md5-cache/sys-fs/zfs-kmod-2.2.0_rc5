@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/awk dev-lang/perl verify-sig? ( sec-keys/openpgp-keys-openzfs ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install postinst prepare pretend setup unpack
+DEPEND=virtual/linux-sources
+DESCRIPTION=Linux ZFS kernel module for sys-fs/zfs
+EAPI=8
+HOMEPAGE=https://github.com/openzfs/zfs
+IDEPEND=sys-apps/kmod[tools]
+INHERIT=autotools dist-kernel-utils flag-o-matic linux-mod-r1 multiprocessing verify-sig
+IUSE=custom-cflags debug +rootfs +dist-kernel-cap dist-kernel modules-sign +strip verify-sig
+LICENSE=CDDL MIT debug? ( GPL-2+ )
+PDEPEND=dist-kernel? ( ~sys-fs/zfs-2.2.0_rc5[dist-kernel] )
+RDEPEND=dist-kernel-cap? ( dist-kernel? ( <virtual/dist-kernel-6.6 ) ) sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+RESTRICT=test
+SLOT=0/2.2.0_rc5
+SRC_URI=https://github.com/openzfs/zfs/releases/download/zfs-2.2.0-rc5/zfs-2.2.0-rc5.tar.gz verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-2.2.0-rc5/zfs-2.2.0-rc5.tar.gz.asc )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	dist-kernel-utils	15e54b1d796d6778a24649aa1dccb582	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod-r1	3adf4125a2c5f60764f8d3bba0d4111b	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
+_md5_=1d4ae51de5fd52bee72496786956e285
