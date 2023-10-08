@@ -1,0 +1,16 @@
+BDEPEND=virtual/perl-Carp dev-perl/Clone dev-perl/Date-Calc dev-perl/DateTime dev-perl/DateTime-HiRes dev-perl/DateTime-TimeZone virtual/perl-Exporter virtual/perl-Getopt-Long dev-perl/List-MoreUtils >=dev-perl/Params-Validate-1.150.0 virtual/perl-Scalar-List-Utils virtual/perl-Storable virtual/perl-Term-ReadLine dev-perl/boolean >=dev-perl/Module-Build-0.420.0 test? ( dev-perl/Module-Util dev-perl/Test-MockTime-HiRes virtual/perl-Test-Simple ) dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl
+DESCRIPTION=Parse informal natural language date/time strings
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/DateTime-Format-Natural
+INHERIT=perl-module
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-Carp dev-perl/Clone dev-perl/Date-Calc dev-perl/DateTime dev-perl/DateTime-HiRes dev-perl/DateTime-TimeZone virtual/perl-Exporter virtual/perl-Getopt-Long dev-perl/List-MoreUtils >=dev-perl/Params-Validate-1.150.0 virtual/perl-Scalar-List-Utils virtual/perl-Storable virtual/perl-Term-ReadLine dev-perl/boolean dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/SC/SCHUBIGER/DateTime-Format-Natural-1.18.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	aa997145fb9941f14e9be1c3ed7238b8
+_md5_=dd8da536ffbc52799ac4021aadb34ce8
