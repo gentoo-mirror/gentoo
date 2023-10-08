@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install prepare setup
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+DESCRIPTION=ConnMan User Interface written with EFL & python
+EAPI=8
+HOMEPAGE=https://phab.enlightenment.org/w/projects/econnman/ https://www.enlightenment.org/
+INHERIT=autotools python-single-r1
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=LGPL-3
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-libs/efl[X,connman] python_single_target_python3_10? ( dev-python/python-efl[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-efl[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/python-efl[python_targets_python3_12(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~juippis/distfiles/econnman-1.1_p20160305.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=3e424730977bbbb0fec395fe98cae559
