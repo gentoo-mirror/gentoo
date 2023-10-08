@@ -4,7 +4,7 @@
 # @ECLASS: depend.apache.eclass
 # @MAINTAINER:
 # apache-bugs@gentoo.org
-# @SUPPORTED_EAPIS: 6 7
+# @SUPPORTED_EAPIS: 6 7 8
 # @BLURB: Functions to allow ebuilds to depend on apache
 # @DESCRIPTION:
 # This eclass handles depending on apache in a sane way and provides information
@@ -41,7 +41,7 @@
 # @CODE
 
 case ${EAPI:-0} in
-	6|7)
+	6|7|8)
 		;;
 	*)
 		die "EAPI=${EAPI} is not supported by depend.apache.eclass"
@@ -109,7 +109,7 @@ APACHE2_DEPEND="=www-servers/apache-2*"
 
 # @ECLASS_VARIABLE: APACHE2_2_DEPEND
 # @DESCRIPTION:
-# Dependencies for Apache 2.2.x
+# Dependencies for Apache 2.2.x. Deprecated and removed in EAPI 8.
 APACHE2_2_DEPEND="=www-servers/apache-2.2*"
 
 # @ECLASS_VARIABLE: APACHE2_4_DEPEND
@@ -215,10 +215,17 @@ want_apache2() {
 want_apache2_2() {
 	debug-print-function $FUNCNAME $*
 
-	local myiuse=${1:-apache2}
-	IUSE="${IUSE} ${myiuse}"
-	DEPEND="${DEPEND} ${myiuse}? ( ${APACHE2_2_DEPEND} )"
-	RDEPEND="${RDEPEND} ${myiuse}? ( ${APACHE2_2_DEPEND} )"
+	case ${EAPI:-0} in
+		6|7)
+			local myiuse=${1:-apache2}
+			IUSE="${IUSE} ${myiuse}"
+			DEPEND="${DEPEND} ${myiuse}? ( ${APACHE2_2_DEPEND} )"
+			RDEPEND="${RDEPEND} ${myiuse}? ( ${APACHE2_2_DEPEND} )"
+			;;
+		*)
+			errror "want-apache2_2 is no longer supported in EAPI 8"
+			;;
+	esac
 }
 
 # @FUNCTION: want_apache2_4
@@ -263,9 +270,16 @@ need_apache2() {
 need_apache2_2() {
 	debug-print-function $FUNCNAME $*
 
-	DEPEND="${DEPEND} ${APACHE2_2_DEPEND}"
-	RDEPEND="${RDEPEND} ${APACHE2_2_DEPEND}"
-	_init_apache2
+	case ${EAPI:-0} in
+		6|7)
+			DEPEND="${DEPEND} ${APACHE2_2_DEPEND}"
+			RDEPEND="${RDEPEND} ${APACHE2_2_DEPEND}"
+			_init_apache2
+			;;
+		*)
+			error "need_apache2-2 is no longer supported in EAPI 8"
+			;;
+	esac
 }
 
 # @FUNCTION: need_apache2_4
