@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig python? ( >=dev-lang/swig-2.0 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=>=media-libs/libebur128-1.2.2:= sci-libs/fftw:3.0= ffmpeg? ( media-video/ffmpeg:0=[vdpau?] ) frei0r? ( media-plugins/frei0r-plugins ) gtk? ( media-libs/libexif x11-libs/pango ) jack? ( >=dev-libs/libxml2-2.5 media-libs/ladspa-sdk virtual/jack ) libsamplerate? ( >=media-libs/libsamplerate-0.1.2 ) opencv? ( >=media-libs/opencv-4.5.1:=[contrib] ) opengl? ( media-libs/libglvnd media-video/movit ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/libexif x11-libs/libX11 ) rtaudio? ( >=media-libs/rtaudio-4.1.2 kernel_linux? ( media-libs/alsa-lib ) ) rubberband? ( media-libs/rubberband ) sdl? ( media-libs/libsdl2[X,opengl,video] media-libs/sdl2-image ) vidstab? ( media-libs/vidstab ) xine? ( >=media-libs/xine-lib-1.1.2_pre20060328-r7 ) xml? ( >=dev-libs/libxml2-2.5 )
+DESCRIPTION=Open source multimedia framework for television broadcasting
+EAPI=8
+HOMEPAGE=https://www.mltframework.org/
+INHERIT=python-single-r1 cmake
+IUSE=debug ffmpeg frei0r gtk jack libsamplerate opencv opengl python qt5 rtaudio rubberband sdl test vdpau vidstab xine xml python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3
+RDEPEND=>=media-libs/libebur128-1.2.2:= sci-libs/fftw:3.0= ffmpeg? ( media-video/ffmpeg:0=[vdpau?] ) frei0r? ( media-plugins/frei0r-plugins ) gtk? ( media-libs/libexif x11-libs/pango ) jack? ( >=dev-libs/libxml2-2.5 media-libs/ladspa-sdk virtual/jack ) libsamplerate? ( >=media-libs/libsamplerate-0.1.2 ) opencv? ( >=media-libs/opencv-4.5.1:=[contrib] ) opengl? ( media-libs/libglvnd media-video/movit ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/libexif x11-libs/libX11 ) rtaudio? ( >=media-libs/rtaudio-4.1.2 kernel_linux? ( media-libs/alsa-lib ) ) rubberband? ( media-libs/rubberband ) sdl? ( media-libs/libsdl2[X,opengl,video] media-libs/sdl2-image ) vidstab? ( media-libs/vidstab ) xine? ( >=media-libs/xine-lib-1.1.2_pre20060328-r7 ) xml? ( >=dev-libs/libxml2-2.5 )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+RESTRICT=test
+SLOT=0/7
+SRC_URI=https://github.com/mltframework/mlt/releases/download/v7.20.0/mlt-7.20.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80
+_md5_=0a77406107f0219918115755a06108e2
