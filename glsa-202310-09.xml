@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-09">
+    <title>c-ares: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in c-ares the worst of which could result in Denial of Service.</synopsis>
+    <product type="ebuild">c-ares</product>
+    <announced>2023-10-08</announced>
+    <revised count="1">2023-10-08</revised>
+    <bug>906964</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-dns/c-ares" auto="yes" arch="*">
+            <unaffected range="ge">1.19.1</unaffected>
+            <vulnerable range="lt">1.19.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>c-ares is a C library for asynchronous DNS requests (including name resolves).</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in c-ares. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All c-ares users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-dns/c-ares-1.19.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-31124">CVE-2023-31124</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-31130">CVE-2023-31130</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-31147">CVE-2023-31147</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32067">CVE-2023-32067</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-08T07:28:06.690774Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-08T07:28:06.694172Z">graaff</metadata>
+</glsa>
