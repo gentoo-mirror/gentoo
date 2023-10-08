@@ -1,38 +1,33 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit flag-o-matic toolchain-funcs
+inherit autotools
 
 DESCRIPTION="Backup/restore for subversion backends"
-HOMEPAGE="http://fsvs.tigris.org/"
-SRC_URI="http://download.fsvs-software.org/${P}.tar.bz2"
+HOMEPAGE="https://github.com/phmarek/fsvs"
+SRC_URI="https://github.com/phmarek/fsvs/archive/refs/tags/${P}.tar.gz"
+S="${WORKDIR}/fsvs-${P}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-vcs/subversion
-	dev-libs/libpcre
-	sys-libs/gdbm
+RDEPEND="
 	dev-libs/apr-util
-	dev-util/ctags"
+	dev-libs/libpcre
+	dev-util/ctags
+	dev-vcs/subversion
+	sys-libs/db:*
+	sys-libs/gdbm"
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-as-needed.patch"
-)
+PATCHES=( "${FILESDIR}"/${P}-makefile.patch )
 
 src_prepare() {
-	# fix #570596 by restoring pre-GCC5 inline semantics
-	append-cflags -std=gnu89
 	default
-}
-
-src_compile() {
-	# respect compiler
-	emake CC="$(tc-getCC)"
+	eautoreconf
 }
 
 src_install() {
