@@ -9,10 +9,10 @@ CRATES="
 	android_system_properties@0.1.5
 	anes@0.1.6
 	ansiterm@0.12.2
-	anstream@0.5.0
+	anstream@0.6.4
 	anstyle-parse@0.2.1
 	anstyle-query@1.0.0
-	anstyle-wincon@2.1.0
+	anstyle-wincon@3.0.1
 	anstyle@1.0.3
 	autocfg@1.1.0
 	bitflags@1.3.2
@@ -22,7 +22,7 @@ CRATES="
 	cast@0.3.0
 	cc@1.0.79
 	cfg-if@1.0.0
-	chrono@0.4.30
+	chrono@0.4.31
 	ciborium-io@0.2.1
 	ciborium-ll@0.2.1
 	ciborium@0.2.1
@@ -47,8 +47,7 @@ CRATES="
 	fastrand@2.0.0
 	filetime@0.2.22
 	form_urlencoded@1.0.1
-	gethostname@0.4.3
-	git2@0.18.0
+	git2@0.18.1
 	glob@0.3.1
 	half@1.8.2
 	hashbrown@0.14.0
@@ -59,17 +58,15 @@ CRATES="
 	iana-time-zone@0.1.57
 	idna@0.2.3
 	indexmap@2.0.0
-	io-lifetimes@1.0.11
 	is-terminal@0.4.9
 	itertools@0.10.5
 	itoa@1.0.9
 	jobserver@0.1.22
 	js-sys@0.3.64
 	lazy_static@1.4.0
-	libc@0.2.147
+	libc@0.2.148
 	libgit2-sys@0.16.1+1.7.1
 	libz-sys@1.1.2
-	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.7
 	locale@0.2.2
 	log@0.4.20
@@ -87,7 +84,7 @@ CRATES="
 	openssl-sys@0.9.61
 	os_pipe@1.1.4
 	partition-identity@0.3.0
-	percent-encoding@2.1.0
+	percent-encoding@2.3.0
 	phf@0.11.2
 	phf_generator@0.11.2
 	phf_macros@0.11.2
@@ -108,7 +105,6 @@ CRATES="
 	regex-automata@0.3.8
 	regex-syntax@0.7.5
 	regex@1.9.5
-	rustix@0.37.23
 	rustix@0.38.13
 	ryu@1.0.15
 	same-file@1.0.6
@@ -121,27 +117,26 @@ CRATES="
 	shlex@1.2.0
 	similar@2.2.1
 	siphasher@0.3.11
-	snapbox-macros@0.3.5
-	snapbox@0.4.12
+	snapbox-macros@0.3.6
+	snapbox@0.4.14
 	syn@2.0.29
 	tempfile@3.8.0
 	term_grid@0.1.7
-	terminal_size@0.2.6
+	terminal_size@0.3.0
 	thiserror-impl@1.0.48
 	thiserror@1.0.48
-	timeago@0.4.1
+	timeago@0.4.2
 	tinytemplate@1.2.1
 	tinyvec@1.2.0
 	tinyvec_macros@0.1.0
 	toml_datetime@0.6.3
-	toml_edit@0.19.15
-	trycmd@0.14.17
+	toml_edit@0.20.1
+	trycmd@0.14.19
 	unicode-bidi@0.3.5
 	unicode-ident@1.0.11
 	unicode-normalization@0.1.17
-	unicode-width@0.1.10
+	unicode-width@0.1.11
 	url@2.2.1
-	urlencoding@2.1.3
 	utf8parse@0.2.1
 	uzers@0.11.3
 	vcpkg@0.2.12
@@ -183,7 +178,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 MIT Unicode-DFS-2016"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+git man"
 
 DEPEND="git? ( dev-libs/libgit2:= )"
@@ -216,6 +211,7 @@ src_prepare() {
 	rm tests/cmd/{icons,basic}_all.toml || die
 	rm tests/cmd/only_dir_{,recursive_}unix.toml || die
 	rm tests/cmd/recursive_unix.toml || die
+	rm tests/cmd/only_file_unix.toml || die
 
 	sed -i -e 's/^strip = true$/strip = false/g' Cargo.toml || die "failed to disable stripping"
 }
@@ -242,9 +238,10 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [[ -n ${REPLACING_VERSIONS} ]] \
-			&& [[ $(ver_cut 2 ${REPLACING_VERSIONS}) -lt 13 ]]; then
-		elog "Starting with 0.13.0 \$EXA_COLORS using style codes nh and uh"
-		elog "will need to be updated to use nt and ut"
-	fi
+	for v in ${REPLACING_VERSIONS}; do
+		if ver_test "${v}" -lt "0.13.0"; then
+			elog "Starting with 0.13.0 \$EXA_COLORS using style codes nh and uh"
+			elog "will need to be updated to use nt and ut"
+		fi
+	done
 }
