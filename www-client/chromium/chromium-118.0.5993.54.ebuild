@@ -613,10 +613,6 @@ src_prepare() {
 		keeplibs+=( third_party/libc++ )
 	fi
 
-	if use libcxx; then
-		keeplibs+=( third_party/libc++ )
-	fi
-
 	# Arch-specific
 	if use arm64 || use ppc64 ; then
 		keeplibs+=( third_party/swiftshader/third_party/llvm-10.0 )
