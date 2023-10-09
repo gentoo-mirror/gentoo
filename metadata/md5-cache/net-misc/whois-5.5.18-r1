@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/rfc1036/whois
 INHERIT=bash-completion-r1 toolchain-funcs
 IUSE=iconv idn nls xcrypt
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) xcrypt? ( >=sys-libs/libxcrypt-4.1:= ) !xcrypt? ( virtual/libcrypt:= )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/w/whois/whois_5.5.18.tar.xz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=5cc93a352bfee5ecd1dffc994b534bae
+_md5_=627bf559a6841e3b0890285d676ec1bb

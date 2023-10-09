@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://syncthing.net
 INHERIT=desktop go-module systemd xdg-utils
 IUSE=selinux tools
-KEYWORDS=~amd64 arm arm64 ~loong ppc64 x86
+KEYWORDS=amd64 arm arm64 ~loong ppc64 x86
 LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0 Unlicense
 RDEPEND=acct-group/syncthing acct-user/syncthing tools? ( >=acct-user/stdiscosrv-1 >=acct-user/strelaysrv-1 ) selinux? ( sec-policy/selinux-syncthing )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/syncthing/syncthing/releases/download/v1.24.0/syncthing-source-v1.24.0.tar.gz -> syncthing-1.24.0.tar.gz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	systemd	c8b03e8df84486aa991d4396686e8942	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=5cd9d2668ef204bd919a66b21f24da6d
+_md5_=d7c3e188599c053e0751315561c59ba0
