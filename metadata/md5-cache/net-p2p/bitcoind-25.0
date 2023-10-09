@@ -1,0 +1,11 @@
+DEFINED_PHASES=-
+DESCRIPTION=Transitional package for net-p2p/bitcoin-core[daemon]
+EAPI=7
+HOMEPAGE=https://bitcoincore.org/
+IUSE=+asm +berkdb examples +external-signer nat-pmp +sqlite systemtap test upnp +wallet zeromq
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=~net-p2p/bitcoin-core-25.0[daemon,asm=,berkdb=,examples=,external-signer=,nat-pmp=,sqlite=,systemtap=,test=,upnp=,zeromq=] wallet? ( || ( ~net-p2p/bitcoin-core-25.0[berkdb] ~net-p2p/bitcoin-core-25.0[sqlite] ) )
+RESTRICT=!test? ( test )
+SLOT=0
+_md5_=13c0bfca5525ed81e4c1d60b5759fca3

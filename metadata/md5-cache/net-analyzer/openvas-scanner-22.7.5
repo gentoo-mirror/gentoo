@@ -1,0 +1,16 @@
+BDEPEND=>=sys-devel/bison-2.5 sys-devel/flex virtual/pkgconfig doc? ( app-doc/doxygen[dot] app-doc/xmltoman app-text/htmldoc dev-perl/CGI dev-perl/SQL-Translator virtual/pandoc ) test? ( dev-libs/cgreen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=acct-user/gvm >=dev-db/redis-5.0.3 >=dev-libs/glib-2.42:2 >=dev-libs/json-glib-1.4.4 >=net-libs/gnutls-3.2.15:= >=net-analyzer/gvm-libs-22.4 net-libs/libpcap app-crypt/gpgme:= >=dev-libs/libgcrypt-1.6:= dev-libs/libgpg-error >=dev-libs/libksba-1.0.7 >=net-libs/libssh-0.6.0:= dev-libs/libbsd snmp? ( net-analyzer/net-snmp:= )
+DESCRIPTION=Open Vulnerability Assessment Scanner
+EAPI=8
+HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/openvas-scanner/
+INHERIT=cmake systemd tmpfiles toolchain-funcs readme.gentoo-r1 optfeature
+IUSE=doc snmp test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 GPL-2+
+RDEPEND=acct-user/gvm >=dev-db/redis-5.0.3 >=dev-libs/glib-2.42:2 >=dev-libs/json-glib-1.4.4 >=net-libs/gnutls-3.2.15:= >=net-analyzer/gvm-libs-22.4 net-libs/libpcap app-crypt/gpgme:= >=dev-libs/libgcrypt-1.6:= dev-libs/libgpg-error >=dev-libs/libksba-1.0.7 >=net-libs/libssh-0.6.0:= dev-libs/libbsd snmp? ( net-analyzer/net-snmp:= ) virtual/tmpfiles
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/greenbone/openvas-scanner/archive/v22.7.5.tar.gz -> openvas-scanner-22.7.5.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=5da15b76fa4a01799fdf0924ce929154
