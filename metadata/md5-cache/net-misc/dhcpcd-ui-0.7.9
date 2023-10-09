@@ -1,0 +1,17 @@
+BDEPEND=media-gfx/cairosvg virtual/libintl virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst
+DEPEND=gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 ) libnotify? ( x11-libs/libnotify ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/mesa )
+DESCRIPTION=Desktop notification and configuration for dhcpcd
+EAPI=8
+HOMEPAGE=https://github.com/NetworkConfiguration/dhcpcd-ui https://roy.marples.name/projects/dhcpcd-ui/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=qmake-utils systemd toolchain-funcs xdg
+IUSE=debug gtk libnotify ncurses qt5
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 ) libnotify? ( x11-libs/libnotify ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/mesa ) >=net-misc/dhcpcd-6.4.4
+REQUIRED_USE=libnotify? ( gtk )
+SLOT=0
+SRC_URI=https://github.com/NetworkConfiguration/dhcpcd-ui/releases/download/v0.7.9/dhcpcd-ui-0.7.9.tar.xz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	c8b03e8df84486aa991d4396686e8942	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=6d32af61941d0913c5b5ab329ab3dcf3
