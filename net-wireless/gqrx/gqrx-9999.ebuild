@@ -18,17 +18,23 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="gr-audio portaudio pulseaudio"
+IUSE="gr-audio portaudio pulseaudio qt6"
 REQUIRED_USE="^^ ( pulseaudio portaudio gr-audio )"
 
 RDEPEND="
 	>=net-wireless/gnuradio-3.10:0=[audio,analog,filter,network]
 	>=net-wireless/gr-osmosdr-0.1.0:=
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
+	qt6? (
+		dev-qt/qtbase:6
+		dev-qt/qtsvg:6
+	)
+	!qt6? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtsvg:5
+		dev-qt/qtwidgets:5
+	)
 	sci-libs/volk:=
 	pulseaudio? ( media-libs/libpulse )
 	portaudio? ( media-libs/portaudio:= )"
@@ -48,6 +54,8 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
+		-DFORCE_QT6="$(usex qt6)"
+		-DFORCE_QT5="$(usex !qt6)"
 		"-DLINUX_AUDIO_BACKEND=${LINUX_AUDIO_BACKEND}"
 	)
 	cmake_src_configure
