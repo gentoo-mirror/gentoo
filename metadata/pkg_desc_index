@@ -1200,7 +1200,7 @@ app-backup/borgbackup 1.2.6: Deduplicating backup program with compression and a
 app-backup/borgmatic 1.7.15 1.8.2: Automatically create, prune and verify backups with borgbackup
 app-backup/btrbk 0.32.6-r1 0.32.6-r2 9999: Tool for creating snapshots and remote backups of btrfs subvolumes
 app-backup/burp 3.1.4: Network backup and restore client and server for Unix and Windows
-app-backup/ccollect 0.8-r1: Pseudo incremental backup with different exclude lists using hardlinks and rsync
+app-backup/ccollect 0.8-r1 0.8-r2: Pseudo incremental backup with different exclude lists using hardlinks and rsync
 app-backup/cdbackup 0.7.1-r2: Allows streaming backup utilities to dump/restore from CD-R(W)s or DVD(+/-RW)s
 app-backup/cdbkup 1.0-r5: Performs full/incremental backups of local/remote filesystems onto CD-R(W)s
 app-backup/consul-backinator 1.6.6: consul backup and restore utility
@@ -1217,20 +1217,20 @@ app-backup/kup 0.9.1: Backup scheduler for the Plasma desktop
 app-backup/luckybackup 0.5.0: Powerful and flexible backup (and syncing) tool, using RSync and Qt
 app-backup/mirdir 2.1-r3: Synchronize two directory trees in a fast way
 app-backup/mkstage4 0.4 0.4.2 0.4.3 9999: Bash Utility for Creating Stage 4 Tarballs
-app-backup/mylvmbackup 0.14 0.16: Tool for creating backups of MySQL server's data files using LVM snapshots
+app-backup/mylvmbackup 0.14 0.16 0.16-r1: Tool for creating backups of MySQL server's data files using LVM snapshots
 app-backup/pdumpfs 1.3-r3: A daily backup system similar to Plan9's dumpfs
 app-backup/rdedup 1.0.2: data deduplication with compression and public key encryption
 app-backup/rdiff-backup 2.0.5-r1 2.2.5 2.2.6: Local/remote mirroring+incremental backup
 app-backup/rdumpfs 0.1: a rsync-based dump file system backup tool
-app-backup/rdup 1.1.15: Generate a file list suitable for full or incremental backups
+app-backup/rdup 1.1.15 1.1.15-r1: Generate a file list suitable for full or incremental backups
 app-backup/rear 2.6 2.7: Relax-and-Recover is a setup-and-forget bare metal disaster recovery solution
 app-backup/reoback 1.0_p3-r1: Reoback Backup Solution
 app-backup/restic 0.15.2 0.16.0: A backup program that is fast, efficient and secure
 app-backup/rsnapshot 1.4.4-r1 1.4.5-r1: A filesystem backup utility based on rsync
-app-backup/sarab 1.0.0: SaraB is a powerful and automated backup scheduling system based on DAR
-app-backup/simplebackup 1.8.1-r1: Cross-platform backup program
+app-backup/sarab 1.0.0 1.0.0-r1: SaraB is a powerful and automated backup scheduling system based on DAR
+app-backup/simplebackup 1.8.1-r1 1.8.1-r2: Cross-platform backup program
 app-backup/snapper 0.10.3 0.10.5-r1 0.10.6: Command-line program for btrfs and lvm snapshot management
-app-backup/spideroak-bin 7.5.0-r2: Secure free online backup, storage, and sharing system
+app-backup/spideroak-bin 7.5.0-r2 7.5.0-r3: Secure free online backup, storage, and sharing system
 app-backup/synology-cloud-station-backup 4469: Back up your files from multiple client computers to a centralized Synology NAS
 app-backup/tarsnap 1.0.39-r1 1.0.40 1.0.40-r2: Online backups for the truly paranoid
 app-backup/tsm 8.1.17.2: IBM Spectrum Protect (former Tivoli Storage Manager) Backup/Archive Client, API
@@ -1242,7 +1242,7 @@ app-benchmarks/bonnie++ 2.00a: Hard drive bottleneck testing benchmark suite
 app-benchmarks/bootchart2 0.14.9-r1: Performance analysis and visualization of the system boot process
 app-benchmarks/cpuburn 1.4a-r5: CPU testing utilities in optimized assembler for maximum loading
 app-benchmarks/dbench 4.0: Popular filesystem benchmark
-app-benchmarks/filebench 1.4.9.1-r1: Filebench - A Model Based File System Workload Generator
+app-benchmarks/filebench 1.4.9.1-r1 1.4.9.1-r2: Filebench - A Model Based File System Workload Generator
 app-benchmarks/forkbomb 1.4-r1: Controlled fork() bomber for testing heavy system load
 app-benchmarks/geekbench 2.4.2-r1 2.4.3-r1 3.4.4 4.4.4 5.5.1 6.1.0 6.2.1: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
 app-benchmarks/hey 0.1.2: HTTP load generator, ApacheBench (ab) replacement, formerly known as rakyll/boom
@@ -7898,7 +7898,7 @@ dev-python/asgiref 3.7.2: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.5.1: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 0.9.31: Evaluator of Python expression using ast module
 dev-python/astor 0.8.1-r1: Read/rewrite/write Python ASTs
-dev-python/astroid 2.15.6 2.15.7 2.15.8 3.0.0: Abstract Syntax Tree for logilab packages
+dev-python/astroid 2.15.6 2.15.7 2.15.8 2.15.8-r1 3.0.0 3.0.0-r1: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.4.0: Annotate Python AST trees with source text and token information
 dev-python/astunparse 1.6.3-r1: Astun parser for python
 dev-python/async-lru 2.0.4: Simple lru_cache for asyncio
@@ -7980,7 +7980,7 @@ dev-python/cattrs 23.1.2: Composable complex class support for attrs and datacla
 dev-python/cbor2 5.4.6: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cchardet 2.1.7-r1 2.1.19: High speed universal character encoding detector
 dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library for Python
-dev-python/certifi 3021.3.16-r3: A certifi hack to use system trust store on Linux/FreeBSD
+dev-python/certifi 3021.3.16-r3 3021.3.16-r4: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.15.1-r3 1.16.0_rc2 1.16.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
 dev-python/cfn-lint 0.80.3 0.80.4 0.81.0: CloudFormation Linter

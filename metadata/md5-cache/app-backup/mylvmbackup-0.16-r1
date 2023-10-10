@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Tool for creating backups of MySQL server's data files using LVM snapshots
+EAPI=8
+HOMEPAGE=https://lenzg.net/mylvmbackup/
+INHERIT=tmpfiles
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-perl/Config-IniFiles dev-perl/DBD-mysql dev-perl/TimeDate sys-fs/lvm2 virtual/mysql virtual/tmpfiles
+SLOT=0
+SRC_URI=https://lenzg.net/mylvmbackup/mylvmbackup-0.16.tar.gz
+_eclasses_=tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=23b19768e8b94b2b235c9a427903602b
