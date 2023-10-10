@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-11">
+    <title>less: Denial of service</title>
+    <synopsis>A filtering bypass in less may allow denial of service.</synopsis>
+    <product type="ebuild">less</product>
+    <announced>2023-10-10</announced>
+    <revised count="1">2023-10-10</revised>
+    <bug>893530</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-apps/less" auto="yes" arch="*">
+            <unaffected range="ge">608-r2</unaffected>
+            <vulnerable range="lt">608-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>less is a pager and text file viewer.</p>
+    </background>
+    <description>
+        <p>less suffered from a flaw in its terminal escape sequence handling which made its filtering incomplete.</p>
+    </description>
+    <impact type="normal">
+        <p>Malicious input could clear the terminal output or otherwise manipulate it with faked interactions.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All less users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/less-608-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46663">CVE-2022-46663</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-10T06:27:21.953151Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2023-10-10T06:27:21.958103Z">sam</metadata>
+</glsa>
