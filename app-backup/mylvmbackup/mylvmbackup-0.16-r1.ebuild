@@ -3,11 +3,13 @@
 
 EAPI=8
 
+inherit tmpfiles
+
 DESCRIPTION="Tool for creating backups of MySQL server's data files using LVM snapshots"
 HOMEPAGE="https://lenzg.net/mylvmbackup/"
 SRC_URI="https://lenzg.net/${PN}/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
@@ -27,6 +29,9 @@ PATCHES=(
 src_install() {
 	default
 
-	keepdir /var/tmp/${PN}/{backup,mnt}
-	fperms 0700 /var/tmp/${PN}/
+	dotmpfiles "${FILESDIR}/${PN}.conf"
+}
+
+pkg_postinst() {
+	tmpfiles_process "${PN}.conf"
 }
