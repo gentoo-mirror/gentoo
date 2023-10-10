@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bmake
+BDEPEND=|| ( x11-misc/makedepend sys-devel/pmake ) sys-devel/bmake
 DEFINED_PHASES=compile configure install test
 DESCRIPTION=Lightweight replacement for GNU autotools
 EAPI=8
@@ -6,9 +6,9 @@ HOMEPAGE=https://sourceforge.net/projects/mk-configure/
 INHERIT=multiprocessing toolchain-funcs
 KEYWORDS=~amd64
 LICENSE=BSD BSD-2 GPL-2+ MIT
-RDEPEND=sys-devel/bmake
+RDEPEND=|| ( x11-misc/makedepend sys-devel/pmake ) sys-devel/bmake
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/mk-configure/mk-configure/mk-configure-0.38.2.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=18250133db21054e1c79c17cee7ab4e2
+_md5_=e6ba0324968fbe3e292fc637c521a151
