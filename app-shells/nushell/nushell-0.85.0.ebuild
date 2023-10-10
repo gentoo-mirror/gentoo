@@ -8,8 +8,8 @@ EAPI=8
 CRATES="
 	Inflector@0.11.4
 	addr2line@0.20.0
+	adler32@1.2.0
 	adler@1.0.2
-	ahash@0.7.6
 	ahash@0.8.3
 	aho-corasick@1.0.2
 	alloc-no-stdlib@2.0.4
@@ -21,13 +21,17 @@ CRATES="
 	anes@0.1.6
 	ansi-str@0.8.0
 	ansitok@0.2.0
+	anstream@0.3.2
+	anstyle-parse@0.2.1
+	anstyle-query@1.0.0
+	anstyle-wincon@1.0.2
 	anstyle@1.0.1
 	argminmax@0.6.1
 	array-init-cursor@0.2.0
 	arrayvec@0.5.2
 	arrayvec@0.7.4
 	arrow-format@0.8.1
-	arrow2@0.17.2
+	arrow2@0.17.4
 	assert-json-diff@2.0.2
 	assert_cmd@2.0.11
 	async-stream-impl@0.3.5
@@ -36,6 +40,7 @@ CRATES="
 	atoi@2.0.0
 	atomic-polyfill@0.1.11
 	autocfg@1.1.0
+	avro-schema@0.3.0
 	backtrace@0.3.68
 	base64@0.21.2
 	bincode@1.3.3
@@ -45,7 +50,7 @@ CRATES="
 	bitflags@1.3.2
 	bitflags@2.3.3
 	block-buffer@0.10.4
-	bracoxide@0.1.1
+	bracoxide@0.1.2
 	brotli-decompressor@2.3.4
 	brotli@3.3.4
 	brownstone@3.0.0
@@ -58,17 +63,18 @@ CRATES="
 	bytemuck_derive@1.4.1
 	byteorder@1.4.3
 	bytes@1.4.0
-	bytesize@1.2.0
-	calamine@0.21.2
+	bytesize@1.3.0
+	calamine@0.22.0
 	cassowary@0.3.0
 	cast@0.3.0
 	cc@1.0.79
 	cexpr@0.6.0
 	cfg-if@1.0.0
-	chrono-humanize@0.2.2
+	chardetng@0.1.17
+	chrono-humanize@0.2.3
 	chrono-tz-build@0.2.0
 	chrono-tz@0.8.3
-	chrono@0.4.26
+	chrono@0.4.31
 	ciborium-io@0.2.1
 	ciborium-ll@0.2.1
 	ciborium@0.2.1
@@ -77,7 +83,8 @@ CRATES="
 	clap_builder@4.3.11
 	clap_lex@0.5.0
 	codepage@0.1.1
-	comfy-table@6.2.0
+	colorchoice@1.0.0
+	comfy-table@7.0.1
 	console@0.15.7
 	const-random-macro@0.1.15
 	const-random@0.1.15
@@ -86,7 +93,9 @@ CRATES="
 	core-foundation-sys@0.8.4
 	core-foundation@0.9.3
 	cpufeatures@0.2.9
+	crc-catalog@1.1.1
 	crc32fast@1.3.2
+	crc@2.1.0
 	criterion-plot@0.5.0
 	criterion@0.5.1
 	critical-section@1.1.1
@@ -95,6 +104,7 @@ CRATES="
 	crossbeam-epoch@0.9.15
 	crossbeam-utils@0.8.16
 	crossterm@0.26.1
+	crossterm@0.27.0
 	crossterm_winapi@0.9.1
 	crunchy@0.2.2
 	crypto-common@0.1.6
@@ -115,7 +125,8 @@ CRATES="
 	doc-comment@0.3.3
 	dtoa-short@0.3.4
 	dtoa@1.0.8
-	dtparse@1.5.0
+	dtparse@2.0.0
+	dunce@1.0.4
 	dyn-clone@1.0.11
 	ego-tree@0.6.2
 	either@1.8.1
@@ -135,9 +146,9 @@ CRATES="
 	fast-float@0.2.0
 	fastrand@2.0.0
 	fd-lock@3.0.13
-	file-id@0.1.0
+	file-id@0.2.1
 	filesize@0.2.0
-	filetime@0.2.21
+	filetime@0.2.22
 	flate2@1.0.26
 	float-cmp@0.9.0
 	fnv@1.0.7
@@ -155,6 +166,7 @@ CRATES="
 	futures-macro@0.3.28
 	futures-sink@0.3.28
 	futures-task@0.3.28
+	futures-timer@3.0.2
 	futures-util@0.3.28
 	futures@0.3.28
 	fuzzy-matcher@0.3.7
@@ -162,7 +174,7 @@ CRATES="
 	generic-array@0.14.7
 	getrandom@0.2.10
 	gimli@0.27.3
-	git2@0.17.2
+	git2@0.18.0
 	gjson@0.8.1
 	glob@0.3.1
 	h2@0.3.20
@@ -195,6 +207,7 @@ CRATES="
 	indexmap@1.9.3
 	indexmap@2.0.0
 	indicatif@0.17.5
+	indoc@2.0.3
 	inotify-sys@0.1.5
 	inotify@0.9.6
 	instant@0.1.12
@@ -207,6 +220,7 @@ CRATES="
 	is_debug@1.0.1
 	is_executable@1.0.1
 	itertools@0.10.5
+	itertools@0.11.0
 	itoa@1.0.8
 	jobserver@0.1.26
 	joinery@2.1.0
@@ -223,7 +237,9 @@ CRATES="
 	lexical-write-integer@0.8.5
 	lexical@6.1.1
 	libc@0.2.147
-	libgit2-sys@0.15.2+1.6.4
+	libflate@1.4.0
+	libflate_lz77@1.2.0
+	libgit2-sys@0.16.1+1.7.1
 	libloading@0.7.4
 	libm@0.2.7
 	libmimalloc-sys@0.1.33
@@ -247,7 +263,7 @@ CRATES="
 	markup5ever@0.11.0
 	md-5@0.10.5
 	memchr@2.5.0
-	memmap2@0.5.10
+	memmap2@0.7.1
 	memoffset@0.9.0
 	miette-derive@5.10.0
 	miette@5.10.0
@@ -257,16 +273,17 @@ CRATES="
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.1
 	mio@0.8.8
-	mockito@1.1.0
-	multiversion-macros@0.7.2
-	multiversion@0.7.2
+	mockito@1.2.0
+	multiversion-macros@0.7.3
+	multiversion@0.7.3
 	native-tls@0.2.11
 	new_debug_unreachable@1.0.4
 	nix@0.26.2
+	nix@0.27.0
 	nom-supreme@0.8.0
 	nom@7.1.3
-	notify-debouncer-full@0.2.0
-	notify@6.0.1
+	notify-debouncer-full@0.3.1
+	notify@6.1.1
 	now@0.1.3
 	ntapi@0.4.1
 	nu-ansi-term@0.49.0
@@ -297,12 +314,11 @@ CRATES="
 	openssl-sys@0.9.90
 	openssl@0.10.55
 	ordered-multimap@0.6.0
+	os_display@0.1.3
 	os_pipe@1.1.4
 	owo-colors@3.5.0
-	papergrid@0.9.1
-	parking_lot@0.11.2
+	papergrid@0.10.0
 	parking_lot@0.12.1
-	parking_lot_core@0.8.6
 	parking_lot_core@0.9.8
 	parquet-format-safe@0.2.4
 	parquet2@0.17.2
@@ -328,20 +344,20 @@ CRATES="
 	plotters-backend@0.3.5
 	plotters-svg@0.3.5
 	plotters@0.3.5
-	polars-arrow@0.30.0
-	polars-core@0.30.0
-	polars-error@0.30.0
-	polars-io@0.30.0
-	polars-json@0.30.0
-	polars-lazy@0.30.0
-	polars-ops@0.30.0
-	polars-pipe@0.30.0
-	polars-plan@0.30.0
-	polars-row@0.30.0
-	polars-sql@0.30.0
-	polars-time@0.30.0
-	polars-utils@0.30.0
-	polars@0.30.0
+	polars-arrow@0.32.1
+	polars-core@0.32.1
+	polars-error@0.32.1
+	polars-io@0.32.1
+	polars-json@0.32.1
+	polars-lazy@0.32.1
+	polars-ops@0.32.1
+	polars-pipe@0.32.1
+	polars-plan@0.32.1
+	polars-row@0.32.1
+	polars-sql@0.32.1
+	polars-time@0.32.1
+	polars-utils@0.32.1
+	polars@0.32.1
 	pori@0.0.0
 	portable-atomic@1.3.3
 	powierza-coefficient@1.0.2
@@ -355,11 +371,11 @@ CRATES="
 	proc-macro-hack@0.5.20+deprecated
 	proc-macro2@1.0.63
 	procfs@0.15.1
-	pure-rust-locales@0.5.6
+	pure-rust-locales@0.7.0
 	pwd@1.4.0
 	quick-error@1.2.3
-	quick-xml@0.28.2
-	quick-xml@0.29.0
+	quick-error@2.0.1
+	quick-xml@0.30.0
 	quickcheck@1.0.3
 	quickcheck_macros@1.0.0
 	quote@1.0.29
@@ -367,27 +383,29 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_distr@0.4.3
-	ratatui@0.20.1
+	ratatui@0.23.0
 	rayon-core@1.11.0
 	rayon@1.7.0
 	redox_syscall@0.2.16
 	redox_syscall@0.3.5
 	redox_users@0.4.3
-	reedline@0.22.0
+	reedline@0.24.0
 	regex-automata@0.1.10
 	regex-automata@0.3.0
 	regex-syntax@0.6.29
 	regex-syntax@0.7.3
 	regex@1.9.0
+	relative-path@1.8.0
+	rle-decode-fast@1.0.3
 	rmp-serde@1.1.1
 	rmp@0.8.11
 	roxmltree@0.18.0
-	rstest@0.17.0
-	rstest_macros@0.17.0
+	rstest@0.18.1
+	rstest_macros@0.18.1
 	rusqlite@0.29.0
-	rust-embed-impl@6.8.1
-	rust-embed-utils@7.8.1
-	rust-embed@6.8.1
+	rust-embed-impl@8.0.0
+	rust-embed-utils@8.0.0
+	rust-embed@8.0.0
 	rust-ini@0.19.0
 	rust_decimal@1.30.0
 	rustc-demangle@0.1.23
@@ -422,7 +440,7 @@ CRATES="
 	shlex@1.1.0
 	signal-hook-mio@0.2.3
 	signal-hook-registry@1.4.1
-	signal-hook@0.3.15
+	signal-hook@0.3.17
 	simd-json@0.10.3
 	simdutf8@0.1.4
 	similar@2.2.1
@@ -435,7 +453,7 @@ CRATES="
 	snap@1.1.0
 	socket2@0.4.9
 	spin@0.9.8
-	sqlparser@0.34.0
+	sqlparser@0.36.1
 	stable_deref_trait@1.2.0
 	static_assertions@1.1.0
 	streaming-decompression@0.1.2
@@ -443,7 +461,8 @@ CRATES="
 	strength_reduce@0.2.4
 	string_cache@0.8.7
 	string_cache_codegen@0.5.2
-	strip-ansi-escapes@0.1.1
+	strip-ansi-escapes@0.2.0
+	strsim@0.10.0
 	strum@0.24.1
 	strum@0.25.0
 	strum_macros@0.24.3
@@ -457,13 +476,14 @@ CRATES="
 	syn@2.0.23
 	sys-locale@0.3.0
 	sysinfo@0.29.4
-	tabled@0.12.2
+	tabled@0.14.0
 	target-features@0.1.4
-	tempfile@3.7.0
+	tempfile@3.8.0
 	tendril@0.4.3
 	termcolor@1.1.3
 	terminal_size@0.1.17
 	terminal_size@0.2.6
+	terminal_size@0.3.0
 	termtree@0.4.1
 	textwrap@0.15.2
 	thiserror-impl@1.0.41
@@ -471,7 +491,6 @@ CRATES="
 	thread_local@1.1.7
 	time-core@0.1.1
 	time-macros@0.2.9
-	time@0.1.45
 	time@0.3.22
 	tiny-keccak@2.0.2
 	tinytemplate@1.2.1
@@ -481,9 +500,11 @@ CRATES="
 	tokio-macros@2.1.0
 	tokio-util@0.7.8
 	tokio@1.29.1
-	toml@0.7.6
+	toml@0.7.8
+	toml@0.8.0
 	toml_datetime@0.6.3
-	toml_edit@0.19.12
+	toml_edit@0.19.15
+	toml_edit@0.20.0
 	tower-service@0.3.2
 	tracing-core@0.1.31
 	tracing@0.1.37
@@ -497,7 +518,7 @@ CRATES="
 	unicase@2.6.0
 	unicode-bidi@0.3.13
 	unicode-ident@1.0.10
-	unicode-linebreak@0.1.4
+	unicode-linebreak@0.1.5
 	unicode-normalization@0.1.22
 	unicode-segmentation@1.10.1
 	unicode-width@0.1.10
@@ -508,27 +529,30 @@ CRATES="
 	utf-8@0.7.6
 	utf8-width@0.1.6
 	utf8parse@0.2.1
+	uu_cp@0.0.21
+	uucore@0.0.21
+	uucore_procs@0.0.21
+	uuhelp_parser@0.0.21
 	uuid@1.4.0
 	value-trait@0.6.1
 	vcpkg@0.2.15
 	version_check@0.9.4
 	vte@0.10.1
+	vte@0.11.1
 	vte_generate_state_changes@0.1.1
 	wait-timeout@0.2.0
 	walkdir@2.3.3
 	want@0.3.1
-	wasi@0.10.0+wasi-snapshot-preview1
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasm-bindgen-backend@0.2.87
-	wasm-bindgen-futures@0.4.37
 	wasm-bindgen-macro-support@0.2.87
 	wasm-bindgen-macro@0.2.87
 	wasm-bindgen-shared@0.2.87
 	wasm-bindgen@0.2.87
-	wasm-timer@0.2.5
 	wax@0.5.0
 	web-sys@0.3.64
 	which@4.4.0
+	wild@2.1.0
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.5
 	winapi-x86_64-pc-windows-gnu@0.4.0
@@ -553,9 +577,10 @@ CRATES="
 	windows_x86_64_gnullvm@0.48.0
 	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.48.0
-	winnow@0.4.7
-	winreg@0.50.0
+	winnow@0.5.15
+	winreg@0.51.0
 	winresource@0.1.15
+	xattr@1.0.1
 	xmlparser@0.13.5
 	xxhash-rust@0.8.6
 	yansi@0.5.1
@@ -571,7 +596,7 @@ DESCRIPTION="A new type of shell, written in Rust"
 HOMEPAGE="https://www.nushell.sh"
 SRC_URI="
 	https://github.com/nushell/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris)
+	${CARGO_CRATE_URIS}
 "
 
 LICENSE="MIT"
