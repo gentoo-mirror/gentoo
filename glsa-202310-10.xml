@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-10">
+    <title>libcue: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in libcue which could allow for arbitrary code execution.</synopsis>
+    <product type="ebuild">libcue</product>
+    <announced>2023-10-10</announced>
+    <revised count="1">2023-10-10</revised>
+    <bug>915500</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libcue" auto="yes" arch="*">
+            <unaffected range="ge">2.2.1-r1</unaffected>
+            <vulnerable range="lt">2.2.1-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libcue is a CUE Sheet Parser Library.</p>
+    </background>
+    <description>
+        <p>libcue does not check bounds in a loop and suffers from an integer overflow flaw which can be exploited to take over the program.</p>
+    </description>
+    <impact type="high">
+        <p>Untrusted CUE sheet files can lead to arbitrary code execution.
+
+app-misc/tracker-miners[cue] uses libcue to index CUE Sheet files in directories. It is possible that downloading a malicious CUE Sheet file into a directory indexed by tracker-miners could lead to remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libcue users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libcue-2.2.1-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-43641">CVE-2023-43641</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-10T06:13:45.982909Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2023-10-10T06:13:45.985293Z">sam</metadata>
+</glsa>
