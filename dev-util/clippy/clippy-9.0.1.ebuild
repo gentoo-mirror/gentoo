@@ -9,12 +9,12 @@ inherit autotools python-single-r1
 
 DESCRIPTION="Standalone clippy tool built from FRR sources"
 HOMEPAGE="https://frrouting.org/"
-SRC_URI="https://github.com/FRRouting/frr/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/FRRouting/frr/archive/${MY_P}.tar.gz"
 S="${WORKDIR}/frr-${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # standalone clippy does not have any tests
