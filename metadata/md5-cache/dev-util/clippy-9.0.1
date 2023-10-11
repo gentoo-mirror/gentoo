@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://frrouting.org/
 INHERIT=autotools python-single-r1
 IUSE=python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) virtual/libelf:=
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/FRRouting/frr/archive/frr-8.5.tar.gz -> clippy-8.5.tar.gz
+SRC_URI=https://github.com/FRRouting/frr/archive/frr-9.0.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=564430251d50feb831670f2ea9274f33
+_md5_=e23d2e477a053e868cca3999feac6b74
