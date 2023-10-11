@@ -241,26 +241,6 @@ dev-python/abydos
 # Removal on 2023-10-11.
 sys-fs/eudev
 
-# Leonardo Hernández Hernández <leohdz172@proton.me> (2023-09-10)
-# Upstream has marked this packaged as unmaintained[0] and recommends usage of
-# the active fork eza[1] available as sys-apps/eza
-# Please transition to the new package.
-# Removal: 2023-10-10.  Bug #913737.
-# [0]: https://github.com/ogham/exa/commit/fb05c421ae98e076989eb6e8b1bcf42c07c1d0fe
-# [1]: https://github.com/eza-community/eza
-sys-apps/exa
-
-# Hans de Graaff <graaff@gentoo.org> (2023-09-10)
-# Obsolete slot that no longer has any reverse dependencies. Not
-# compatible with openssl 3. Use the newer slot instead. Masked for
-# removal on 2023-10-10.
-dev-ruby/net-ssh:6
-
-# Hans de Graaff <graaff@gentoo.org> (2023-09-10)
-# Obsolete slot that no longer has any reverse dependencies. Use the
-# newer slot instead. Masked for removal on 2023-10-10.
-dev-ruby/mail:2.7
-
 # Sam James <sam@gentoo.org> (2023-09-09)
 # OpenSSL 1.1.x is EOL on 2023-09-11. Please upgrade immediately to >= OpenSSL 3.
 # https://www.openssl.org/blog/blog/2023/03/28/1.1.1-EOL/
@@ -269,22 +249,6 @@ dev-ruby/mail:2.7
 # for old PHP or Ruby references.
 <dev-libs/openssl-3
 <app-crypt/xca-2.4.0_p20230526
-
-# David Seifert <soap@gentoo.org> (2023-09-09)
-# EOL upstream in 2 months, causes major headaches for OpenSSL 1.1
-# masking. Removal on 2023-10-09.
-dev-lang/php:8.0
-virtual/httpd-php:8.0
-
-# David Seifert <soap@gentoo.org> (2023-09-09)
-# Depends on PHP 8.0. Removal on 2023-10-09.
-~www-apps/tt-rss-20220218
-
-# David Seifert <soap@gentoo.org> (2023-09-09)
-# Depends on PHP 8.0, which in turn depends on OpenSSL 1.1, which in
-# turn is to be masked and removed soon. Removal on 2023-10-09.
-www-apps/moodle:3.11.16
-www-apps/moodle:4.0.10
 
 # Sam James <sam@gentoo.org> (2023-08-04)
 # Stricter behavior which causes some packages to fail, see bug #911721.
