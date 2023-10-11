@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_TASK_DOC="faq"
 RUBY_FAKEGEM_DOCDIR="doc faq"
@@ -17,21 +18,25 @@ DESCRIPTION="An extension library to access a SQLite database from Ruby"
 HOMEPAGE="https://github.com/sparklemotion/sqlite3-ruby"
 LICENSE="BSD"
 
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 SLOT="0"
 IUSE=""
 
-RDEPEND+=" >=dev-db/sqlite-3.39.4:3"
-DEPEND+=" >=dev-db/sqlite-3.39.4:3"
+# We track the bundled sqlite version here
+RDEPEND+=" >=dev-db/sqlite-3.43.2:3"
+DEPEND+=" >=dev-db/sqlite-3.43.2:3"
 
-# TODO: drop the mini_portile2 dep after 1.6.1
 ruby_add_bdepend "
-	dev-ruby/mini_portile2:2.8
 	doc? ( dev-ruby/rdoc dev-ruby/redcloth )
-	test? ( dev-ruby/minitest:5 )"
+	test? ( dev-ruby/minitest:5 )
+"
 
 all_ruby_prepare() {
 	sed -i -e 's/enable_config("system-libraries")/true/' ext/sqlite3/extconf.rb || die
+
+	# Remove the runtime dependency on mini_portile2. We build without
+	# it and it is not a runtime dependency for us.
+	sed -i -e '/^dependencies:/,/force_ruby_platform/d' ../metadata || die
 }
 
 all_ruby_compile() {
