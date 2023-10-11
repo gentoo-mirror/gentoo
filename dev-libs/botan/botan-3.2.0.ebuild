@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/botan.asc
-inherit edo flag-o-matic multiprocessing ninja-utils python-r1 toolchain-funcs verify-sig
+inherit edo flag-o-matic multiprocessing python-r1 toolchain-funcs verify-sig
 
 MY_P="Botan-${PV}"
 DESCRIPTION="C++ crypto library"
@@ -22,7 +22,7 @@ IUSE="doc boost bzip2 lzma python static-libs sqlite test tools zlib"
 RESTRICT="!test? ( test )"
 
 CPU_USE=(
-	cpu_flags_arm_{aes,neon}
+	cpu_flags_arm_{aes,neon,sha1,sha2}
 	cpu_flags_ppc_altivec
 	cpu_flags_x86_{aes,avx2,popcnt,rdrand,sha,sse2,ssse3,sse4_1,sse4_2}
 )
@@ -46,7 +46,6 @@ RDEPEND="
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	${NINJA_DEPEND}
 	$(python_gen_any_dep '
 		doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	')
@@ -126,6 +125,8 @@ src_configure() {
 		# TODO: POWER Crypto (new CPU_FLAGS_PPC?)
 		$(usev !cpu_flags_arm_aes '--disable-armv8crypto')
 		$(usev !cpu_flags_arm_neon '--disable-neon')
+		$(usev !cpu_flags_arm_sha1 '--disable-armv8crypto')
+		$(usev !cpu_flags_arm_sha2 '--disable-armv8crypto')
 		$(usev !cpu_flags_ppc_altivec '--disable-altivec')
 		$(usev !cpu_flags_x86_aes '--disable-aes-ni')
 		$(usev !cpu_flags_x86_avx2 '--disable-avx2')
@@ -149,7 +150,8 @@ src_configure() {
 		$(use_with sqlite sqlite3)
 		$(use_with zlib)
 
-		--build-tool=ninja
+		# Broken in 3.2.0, bug #915544
+		#--build-tool=ninja
 		--cpu=${chostarch}
 		--docdir=share/doc
 		--disable-modules=$(IFS=","; echo "${disable_modules[*]}")
@@ -201,16 +203,12 @@ src_configure() {
 	edo ${EPYTHON} configure.py --verbose "${myargs[@]}"
 }
 
-src_compile() {
-	eninja
-}
-
 src_test() {
 	LD_LIBRARY_PATH="${S}" edo ./botan-test$(ver_cut 1) --test-threads="$(makeopts_jobs)"
 }
 
 src_install() {
-	DESTDIR="${D}" eninja install
+	default
 
 	if [[ -d "${ED}"/usr/share/doc/${P} && ${P} != ${PF} ]] ; then
 		# --docdir in configure controls the parent directory unfortunately
