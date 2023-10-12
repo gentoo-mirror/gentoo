@@ -6,12 +6,12 @@ EAPI=8
 # Note: if bumping pax-utils because of syscall changes in glibc, please
 # revbump glibc and update the dependency in its ebuild for the affected
 # versions.
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit meson python-single-r1
 
 DESCRIPTION="ELF utils that can check files for security relevant properties"
-HOMEPAGE="https://wiki.gentoo.org/index.php?title=Project:Hardened/PaX_Utilities"
+HOMEPAGE="https://wiki.gentoo.org/wiki/Hardened/PaX_Utilities"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/pax-utils.git"
