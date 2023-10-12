@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio sys-apps/util-linux readline? ( sys-libs/readline:= ) sanlock? ( sys-cluster/sanlock ) systemd? ( sys-apps/systemd:= ) ) static? ( lvm? ( dev-libs/libaio[static-libs] sys-apps/util-linux[static-libs] readline? ( sys-libs/readline[static-libs] ) ) selinux? ( sys-libs/libselinux[static-libs] ) ) valgrind? ( >=dev-util/valgrind-3.6 )
+DEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio sys-apps/util-linux readline? ( sys-libs/readline:= ) sanlock? ( sys-cluster/sanlock ) systemd? ( sys-apps/systemd:= ) ) static? ( sys-apps/util-linux[static-libs] lvm? ( dev-libs/libaio[static-libs] readline? ( sys-libs/readline[static-libs] ) ) selinux? ( sys-libs/libselinux[static-libs] ) ) valgrind? ( >=dev-util/valgrind-3.6 )
 DESCRIPTION=User-land utilities for LVM2 (device-mapper) software
 EAPI=8
 HOMEPAGE=https://sourceware.org/lvm2/
@@ -13,4 +13,4 @@ REQUIRED_USE=static? ( !systemd !udev ) static-libs? ( static !udev ) systemd? (
 SLOT=0
 SRC_URI=https://sourceware.org/ftp/lvm2/LVM2.2.03.22.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	eec0bbab06977f1cfc5597269c1fa152	flag-o-matic	e5cc383ea8420f92fe3737be790021dc
-_md5_=bb9907c6d1073612e1d68ad43cf5148b
+_md5_=979d1ae6199b034ec74b74c067db1531
