@@ -60,10 +60,9 @@ BDEPEND+=" ${DOTNET_PKG_BDEPS} "
 # "dotnet-pkg-base_build" will fail when pointed to a solution or a directory
 # containing a solution file.
 #
-# It is up to the maintainer if this variable is set before inheriting
-# "dotnet-pkg-base" eclass, but it is advised that it is set after
-# the variable "${S}" is set, it should also integrate with it
-# (see the example below).
+# This variable should be set after inheriting "dotnet-pkg.eclass",
+# it is also advised that it is set after the variable "${S}" is set.
+# "DOTNET_PKG_PROJECTS" can integrate with "S" (see the example below).
 #
 # Example:
 # @CODE
@@ -87,8 +86,8 @@ BDEPEND+=" ${DOTNET_PKG_BDEPS} "
 # This is passed only when restoring the specified "DOTNET_PROJECT".
 # Other project restorers do not use this variable.
 #
-# It is up to the maintainer if this variable is set before inheriting
-# "dotnet-pkg.eclass", but it is advised that it is set after the variable
+# This variable should be set after inheriting "dotnet-pkg.eclass",
+# it is also advised that it is set after the variable
 # "DOTNET_PROJECT" (from "dotnet-pkg-base" eclass) is set.
 #
 # Default value is an empty array.
@@ -103,8 +102,8 @@ DOTNET_PKG_RESTORE_EXTRA_ARGS=()
 # This is passed only when building the specified "DOTNET_PROJECT".
 # Other project builds do not use this variable.
 #
-# It is up to the maintainer if this variable is set before inheriting
-# "dotnet-pkg.eclass", but it is advised that it is set after the variable
+# This variable should be set after inheriting "dotnet-pkg.eclass",
+# it is also advised that it is set after the variable
 # "DOTNET_PROJECT" (from "dotnet-pkg-base" eclass) is set.
 #
 # Default value is an empty array.
@@ -116,6 +115,28 @@ DOTNET_PKG_RESTORE_EXTRA_ARGS=()
 #
 # For more info see the "DOTNET_PROJECT" variable and "dotnet-pkg_src_compile".
 DOTNET_PKG_BUILD_EXTRA_ARGS=()
+
+# @ECLASS_VARIABLE: DOTNET_PKG_TEST_EXTRA_ARGS
+# @DESCRIPTION:
+# Extra arguments to pass to the package test, in the "src_test" phase.
+#
+# This is passed only when testing found ".sln" solution files
+# (see also "dotnet-pkg-base_foreach-solution").
+# Other project builds do not use this variable.
+#
+# This variable should be set after inheriting "dotnet-pkg.eclass",
+# it is also advised that it is set after the variable
+# "DOTNET_PROJECT" (from "dotnet-pkg-base" eclass) is set.
+#
+# Default value is an empty array.
+#
+# Example:
+# @CODE
+# DOTNET_PKG_TEST_EXTRA_ARGS=( -p:RollForward=Major )
+# @CODE
+#
+# For more info see the "DOTNET_PROJECT" variable and "dotnet-pkg_src_test".
+DOTNET_PKG_TEST_EXTRA_ARGS=()
 
 # @FUNCTION: dotnet-pkg_pkg_setup
 # @DESCRIPTION:
@@ -136,18 +157,8 @@ dotnet-pkg_pkg_setup() {
 # copied into the "NUGET_PACKAGES" directory.
 dotnet-pkg_src_unpack() {
 	nuget_link-system-nugets
-
-	local archive
-	for archive in ${A} ; do
-		case "${archive}" in
-			*.nupkg )
-				nuget_link "${DISTDIR}/${archive}"
-				;;
-			* )
-				unpack "${archive}"
-				;;
-		esac
-	done
+	nuget_link-nuget-archives
+	nuget_unpack-non-nuget-archives
 }
 
 # @FUNCTION: dotnet-pkg_src_prepare
@@ -194,7 +205,9 @@ dotnet-pkg_src_configure() {
 	dotnet-pkg_foreach-project \
 		dotnet-pkg-base_restore "${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}"
 
-	dotnet-pkg-base_foreach-solution dotnet-pkg-base_restore "$(pwd)"
+	dotnet-pkg-base_foreach-solution \
+		"$(pwd)" \
+		dotnet-pkg-base_restore "${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}"
 }
 
 # @FUNCTION: dotnet-pkg_src_compile
@@ -223,7 +236,9 @@ dotnet-pkg_src_compile() {
 # will execute wrong or incomplete test suite. Maintainers should inspect if
 # any and/or correct tests are ran.
 dotnet-pkg_src_test() {
-	dotnet-pkg-base_foreach-solution dotnet-pkg-base_test "$(pwd)"
+	dotnet-pkg-base_foreach-solution \
+		"$(pwd)" \
+		dotnet-pkg-base_test "${DOTNET_PKG_TEST_EXTRA_ARGS[@]}"
 }
 
 # @FUNCTION: dotnet-pkg_src_install
