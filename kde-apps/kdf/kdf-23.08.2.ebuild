@@ -35,5 +35,3 @@ DEPEND="${RDEPEND}
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:5"
-
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )

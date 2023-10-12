@@ -51,8 +51,6 @@ BDEPEND="
 	elibc_glibc? ( test? ( amd64? ( app-arch/rar ) x86? ( app-arch/rar ) ) )
 "
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package zip LibZip)

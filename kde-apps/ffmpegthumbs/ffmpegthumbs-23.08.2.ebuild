@@ -25,5 +25,3 @@ BDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	virtual/pkgconfig
 "
-
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )

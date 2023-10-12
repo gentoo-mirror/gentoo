@@ -71,9 +71,6 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="sys-devel/gettext"
 
-# TODO: https://invent.kde.org/network/ktorrent/-/merge_requests/76
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_BWSCHEDULER_PLUGIN=$(usex bwscheduler)
