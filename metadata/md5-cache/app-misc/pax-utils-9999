@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) )
 DESCRIPTION=ELF utils that can check files for security relevant properties
 EAPI=8
-HOMEPAGE=https://wiki.gentoo.org/index.php?title=Project:Hardened/PaX_Utilities
+HOMEPAGE=https://wiki.gentoo.org/wiki/Hardened/PaX_Utilities
 INHERIT=meson python-single-r1 git-r3
 IUSE=caps +man python seccomp test python_single_target_python3_10 python_single_target_python3_11
 LICENSE=GPL-2
@@ -13,4 +13,4 @@ REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	af1ca7ad21fdd31fcc4fa91d8abca977	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=29feb8943061598bffa489d92a6958d5
+_md5_=2bdac1fcd458e575d2bd2ce94c8b676c
