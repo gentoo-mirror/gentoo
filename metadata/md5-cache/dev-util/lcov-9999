@@ -1,12 +1,14 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst prepare unpack
+BDEPEND=test? ( dev-lang/perl dev-perl/Capture-Tiny dev-perl/DateTime || ( dev-perl/JSON-XS dev-perl/Cpanel-JSON-XS virtual/perl-JSON-PP dev-perl/JSON ) dev-perl/PerlIO-gzip dev-perl/GD || ( ( dev-lang/python:3.12 dev-python/xlsxwriter[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/xlsxwriter[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/xlsxwriter[python_targets_python3_10(-)] ) ) ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst prepare setup test unpack
 DESCRIPTION=A graphical front-end for GCC's coverage testing tool gcov
-EAPI=7
-HOMEPAGE=http://ltp.sourceforge.net/coverage/lcov.php
-INHERIT=git-r3 optfeature prefix
+EAPI=8
+HOMEPAGE=https://github.com/linux-test-project/lcov
+INHERIT=optfeature prefix python-any-r1 git-r3
+IUSE=test
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=dev-lang/perl dev-perl/JSON dev-perl/PerlIO-gzip
+RDEPEND=dev-lang/perl dev-perl/Capture-Tiny dev-perl/DateTime || ( dev-perl/JSON-XS dev-perl/Cpanel-JSON-XS virtual/perl-JSON-PP dev-perl/JSON ) dev-perl/PerlIO-gzip
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=e4b2a0cb05e2b7c48352d3bf9d749c40
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-any-r1	f5169813d1619761b459800587005fd2	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_md5_=7d970c87ebf823c868c8571d8451a617
