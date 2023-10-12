@@ -14,7 +14,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
+KEYWORDS="amd64 arm ~arm64 ~hppa ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
@@ -33,6 +33,11 @@ src_prepare() {
 }
 
 python_test() {
+	local EPYTEST_DESELECT=(
+		# fails with FEATURES=distcc, bug #915614
+		test/test_networking.py::TestYoutubeDLNetworking::test_proxy\[None-expected2\]
+	)
+
 	epytest -m 'not download'
 }
 
