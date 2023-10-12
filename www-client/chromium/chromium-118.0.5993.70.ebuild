@@ -18,9 +18,10 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="117.0.5938.62-1raptor0~deb12u1"
+PATCHSET_PPC64="118.0.5993.70-1raptor0~deb11u1"
+PATCH_V="${PV%%\.*}-1"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
-	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PV%%\.*}/chromium-patches-${PV%%\.*}.tar.bz2
+	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 	ppc64? (
 		https://quickbuild.io/~raptor-engineering-public/+archive/ubuntu/chromium/+files/chromium_${PATCHSET_PPC64}.debian.tar.xz
 		https://deps.gentoo.zip/chromium-ppc64le-gentoo-patches-1.tar.xz
@@ -28,8 +29,8 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/beta"
-KEYWORDS="~amd64 ~arm64"
+SLOT="0/stable"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio qt5 qt6 screencast selinux vaapi wayland widevine"
 REQUIRED_USE="
@@ -317,7 +318,7 @@ src_prepare() {
 		"chrome/browser/media/router/media_router_feature.cc" || die
 
 	local PATCHES=(
-		"${WORKDIR}/chromium-patches-${PV%%.*}"
+		"${WORKDIR}/chromium-patches-${PATCH_V}"
 		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-108-EnumTable-crash.patch"
