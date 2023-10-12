@@ -5,20 +5,21 @@ EAPI=8
 inherit elisp-common
 
 DESCRIPTION="FriCAS is a fork of Axiom computer algebra system"
-HOMEPAGE="http://fricas.sourceforge.net/
+HOMEPAGE="https://fricas.sourceforge.net/
 	https://github.com/fricas/fricas
 	https://fricas.github.io/"
-SRC_URI="mirror://sourceforge/${PN}/${P}-full.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${PV}/${P}-full.tar.bz2"
+
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 # Supported lisps, number 0 is the default
-LISPS=( sbcl cmucl gcl ecl clisp clozurecl )
+LISPS=( sbcl                   cmucl gcl ecl clisp clozurecl )
 # Version restrictions, . means no restrictions
-REST=(  .    .     .   .   .     . )
+REST=(  '<dev-lisp/sbcl-2.3.9' .     .   .   .     . )
 # command name: . means just ${LISP}
-COMS=(  .    lisp  .   .   .     ccl )
+COMS=(  .                      lisp  .   .   .     ccl )
 
 IUSE="${LISPS[*]} X emacs gmp"
 RDEPEND="X? ( x11-libs/libXpm x11-libs/libICE )
@@ -51,8 +52,6 @@ DEPEND="${RDEPEND}"
 
 # necessary for clisp and gcl
 RESTRICT="strip"
-
-PATCHES=( "${FILESDIR}"/${PN}-sbcl-2.3.2.patch )
 
 src_configure() {
 	local LISP n GMP
