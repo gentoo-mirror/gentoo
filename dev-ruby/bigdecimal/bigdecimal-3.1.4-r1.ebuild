@@ -23,6 +23,7 @@ IUSE="test"
 all_ruby_prepare() {
 	sed -e '/^source_version/,/^end/ s:^:#:' \
 		-e "/s.version/ s/= source_version/= '${PV}'/" \
+		-e "/s.name/ s/= name/= 'bigdecimal'/" \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 }
 
