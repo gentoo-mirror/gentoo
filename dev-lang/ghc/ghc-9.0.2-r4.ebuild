@@ -13,7 +13,7 @@ if [[ ${CTARGET} = ${CHOST} ]] ; then
 	fi
 fi
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 inherit python-any-r1
 inherit autotools bash-completion-r1 flag-o-matic ghc-package
 inherit multiprocessing pax-utils toolchain-funcs prefix
@@ -122,7 +122,7 @@ BUMP_LIBRARIES=(
 LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="big-endian +doc elfutils ghcbootstrap ghcmakebinary +gmp llvm numa profile test unregisterised"
+IUSE="big-endian doc elfutils ghcbootstrap ghcmakebinary +gmp llvm numa profile test unregisterised"
 IUSE+=" binary"
 RESTRICT="!test? ( test )"
 
@@ -165,6 +165,7 @@ BDEPEND="
 		app-text/docbook-xml-dtd:4.5
 		app-text/docbook-xsl-stylesheets
 		dev-python/sphinx
+		dev-python/sphinx-rtd-theme
 		>=dev-libs/libxslt-1.1.2 )
 	!ghcbootstrap? ( ${PREBUILT_BINARY_DEPENDS} )
 	test? ( ${PYTHON_DEPS} )
@@ -439,7 +440,7 @@ pkg_setup() {
 	else
 		if ! yet_binary; then
 			eerror "Please try emerging with USE=ghcbootstrap and report build"
-			eerror "sucess or failure to the haskell team (haskell@gentoo.org)"
+			eerror "success or failure to the haskell team (haskell@gentoo.org)"
 			die "No binary available for '${ARCH}' arch yet, USE=ghcbootstrap"
 		fi
 	fi
@@ -597,6 +598,22 @@ src_prepare() {
 		eapply "${FILESDIR}"/${PN}-9.0.2-fptools.patch # clang-16 workaround
 		eapply "${FILESDIR}"/${PN}-9.0.2-sphinx-6.patch
 
+		# FIXME: A hack that allows dev-python/sphinx-7 to build the docs
+		#
+		# GHC has updated the bundled version here:
+		# <https://gitlab.haskell.org/ghc/ghc/-/commit/70526f5bd8886126f49833ef20604a2c6477780a>
+		# However, the patch is difficult to apply and our versions of GHC don't
+		# have the update, so we symlink to the system version instead.
+		if use doc; then
+			local python_str="import sphinx_rtd_theme; print(sphinx_rtd_theme.__file__)"
+			local rtd_theme_dir="$(dirname $("${EPYTHON}" -c "$python_str"))"
+			local orig_rtd_theme_dir="${S}/docs/users_guide/rtd-theme"
+
+			einfo "Replacing bundled rtd-theme with dev-python/sphinx-rtd-theme"
+			rm -r "${orig_rtd_theme_dir}" || die
+			ln -s "${rtd_theme_dir}" "${orig_rtd_theme_dir}" || die
+		fi
+
 		# mingw32 target
 		pushd "${S}/libraries/Win32"
 			eapply "${FILESDIR}"/${PN}-8.2.1_rc1-win32-cross-2-hack.patch # bad workaround
@@ -721,7 +738,7 @@ src_configure() {
 		fi
 
 		if use ghcmakebinary; then
-			# When building booting libary we are trying to
+			# When building booting library we are trying to
 			# bundle or restrict most of external depends
 			# with unstable ABI:
 			#  - embed libffi (default GHC behaviour)
@@ -839,7 +856,7 @@ src_install() {
 	PKGCACHE="${package_confdir}"/package.cache
 	# copy the package.conf.d, including timestamp, save it so we can help
 	# users that have a broken package.conf.d
-	cp -pR "${package_confdir}"{,.initial} || die "failed to backup intial package.conf.d"
+	cp -pR "${package_confdir}"{,.initial} || die "failed to backup initial package.conf.d"
 
 	# copy the package.conf, including timestamp, save it so we later can put it
 	# back before uninstalling, or when upgrading.
