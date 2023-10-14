@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-3 )
+LUA_COMPAT=( lua5-4 )
 PYTHON_COMPAT=( python{3_9,3_10,3_11} )
 
 inherit cmake linux-info lua-single python-any-r1 readme.gentoo-r1 xdg
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/brndnmtthws/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="GPL-3 BSD LGPL-2.1 MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="apcupsd bundled-toluapp cmus curl doc extras hddtemp ical iconv imlib
 	intel-backlight iostats irc lua-cairo lua-imlib lua-rsvg math moc mpd
 	mysql ncurses nvidia +portmon pulseaudio rss systemd thinkpad truetype
@@ -33,9 +33,16 @@ COMMON_DEPEND="
 	ncurses? ( sys-libs/ncurses:= )
 	nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
 	pulseaudio? ( media-libs/libpulse )
-	rss? ( dev-libs/libxml2 net-misc/curl dev-libs/glib:2 )
+	rss? (
+		dev-libs/libxml2
+		net-misc/curl
+		dev-libs/glib:2
+	)
 	systemd? ( sys-apps/systemd )
-	truetype? ( x11-libs/libXft >=media-libs/freetype-2 )
+	truetype? (
+		x11-libs/libXft
+		>=media-libs/freetype-2
+	)
 	wayland? (
 		dev-libs/wayland
 		x11-libs/pango
@@ -60,8 +67,11 @@ RDEPEND="
 	moc? ( media-sound/moc )
 	extras? (
 		app-editors/nano
-		|| ( app-editors/vim app-editors/gvim )
+		|| (
+			app-editors/vim
+			app-editors/gvim
 		)
+	)
 "
 DEPEND="
 	${COMMON_DEPEND}
@@ -123,6 +133,10 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# pin lua 5.4
+	sed -i -e 's|Lua "5.3" REQUIRED|Lua "5.4" EXACT|g' \
+		cmake/ConkyPlatformChecks.cmake || die "ConkyPlatformChecks.cmake"
+
 	cmake_src_prepare
 	xdg_environment_reset
 }
