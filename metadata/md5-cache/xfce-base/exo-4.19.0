@@ -1,0 +1,14 @@
+BDEPEND=dev-util/gtk-doc-am >=dev-util/xfce4-dev-tools-4.16.0 sys-devel/gettext virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm
+DEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)] >=xfce-base/libxfce4util-4.17.2:=
+DESCRIPTION=Extensions, widgets and framework library with session support for Xfce
+EAPI=8
+HOMEPAGE=https://docs.xfce.org/xfce/exo/start https://gitlab.xfce.org/xfce/exo/
+INHERIT=xdg-utils
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)] >=xfce-base/libxfce4util-4.17.2:=
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/xfce/exo/4.19/exo-4.19.0.tar.bz2
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=a6bf3022c002bcf2f331652c95aa1fac
