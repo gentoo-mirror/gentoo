@@ -102,6 +102,11 @@ BDEPEND="
 
 DOCS=( AUTHORS ChangeLog README.md )
 
+PATCHES=(
+	"${FILESDIR}/${P}-cxxflags.patch"
+	"${FILESDIR}/${P}-fix-desktop-application-name.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_CCACHE=OFF
