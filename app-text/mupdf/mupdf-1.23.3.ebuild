@@ -15,8 +15,8 @@ S="${WORKDIR}"/${P}-source
 
 LICENSE="AGPL-3"
 SLOT="0/${PV}"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="+drm +javascript opengl ssl X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="+javascript opengl ssl X"
 REQUIRED_USE="opengl? ( javascript )"
 
 # Although we use the bundled, patched version of freeglut in mupdf (because of
@@ -30,41 +30,38 @@ RDEPEND="
 	media-libs/libpng:0=
 	>=media-libs/openjpeg-2.1:2=
 	>=media-libs/libjpeg-turbo-1.5.3-r2:0=
+	net-misc/curl
 	javascript? ( >=dev-lang/mujs-1.2.0:= )
 	opengl? ( >=media-libs/freeglut-3.0.0 )
 	ssl? ( >=dev-libs/openssl-1.1:0= )
 	sys-libs/zlib
 	X? (
+		media-libs/libglvnd[X]
 		x11-libs/libX11
 		x11-libs/libXext
+		x11-libs/libXrandr
 	)
 "
-DEPEND="${RDEPEND}"
-BDEPEND="X? ( x11-base/xorg-proto )
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}
+	X? ( x11-base/xorg-proto )"
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.15-CFLAGS.patch
 	"${FILESDIR}"/${PN}-1.19.0-Makefile.patch
 	"${FILESDIR}"/${PN}-1.21.0-add-desktop-pc-files.patch
-	"${FILESDIR}"/${PN}-1.19.0-darwin.patch
+	"${FILESDIR}"/${P}-darwin.patch
 	# See bugs #662352
-	"${FILESDIR}"/${PN}-1.15-openssl-x11.patch
+	"${FILESDIR}"/${P}-openssl-x11.patch
 	# General cross fixes from Debian (refreshed)
-	"${FILESDIR}"/${PN}-1.19.0-cross-fixes.patch
-	"${FILESDIR}"/${P}-no-drm.patch
-	"${FILESDIR}"/${P}-fix-aliasing-violation.patch
-	# See bug 893604
-	# Fixed in upcoming release
-	"${FILESDIR}"/${P}-fix-url-processing.patch
+	"${FILESDIR}"/${P}-cross-fixes.patch
+	"${FILESDIR}"/${PN}-1.21.1-fix-aliasing-violation.patch
 )
 
 src_prepare() {
 	default
 
 	use hppa && append-cflags -ffunction-sections
-
-	use drm && append-cflags -DGENTOO_MUPDF_DRM
 
 	append-cflags "-DFZ_ENABLE_JS=$(usex javascript 1 0)"
 
