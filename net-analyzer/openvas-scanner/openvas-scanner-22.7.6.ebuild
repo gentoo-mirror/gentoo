@@ -53,8 +53,6 @@ BDEPEND="
 
 src_prepare() {
 	cmake_src_prepare
-	# QA-Fix | Correct FHS/Gentoo policy paths for 7.0.0
-	sed -i -e "s*/doc/openvas-scanner/*/doc/openvas-scanner-${PV}/*g" "${S}"/src/CMakeLists.txt || die
 	# QA-Fix | Remove -Werror compiler flag
 	sed -i -e "s/-Werror//" "${S}"/CMakeLists.txt || die #909560
 	# QA-Fix | Remove !CLANG doxygen warnings for 7.0.0
@@ -133,9 +131,12 @@ src_install() {
 
 	insinto /etc/gvm
 	doins config/redis-openvas.conf
-	use prefix || fowners -R gvm:gvm /etc/gvm /etc/gvm/redis-openvas.conf
+	if ! use prefix; then
+		fowners -R gvm:gvm /etc/gvm /etc/gvm/redis-openvas.conf
+	fi
+
 	fperms 0750 /etc/gvm
-	fperms 0644 /etc/gvm/redis-openvas.conf
+	fperms 0640 /etc/gvm/redis-openvas.conf
 
 	newconfd "${FILESDIR}/redis-openvas.confd" redis-openvas
 	newinitd "${FILESDIR}/redis-openvas.initd" redis-openvas
