@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/TheTumultuousUnicornOfDarkness/${MY_PN}/archive/v${P
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="-* ~amd64"
-IUSE="+cpu force-libstatgrab +gpu +gui +ncurses +nls opencl +pci test"
+IUSE="+cpu force-libstatgrab +gpu gui +ncurses +nls opencl +pci test vulkan"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
@@ -30,10 +30,12 @@ COMMON_DEPEND="
 	pci? ( sys-apps/pciutils )
 	ncurses? ( sys-libs/ncurses:=[tinfo] )
 	opencl? ( virtual/opencl )
+	vulkan? ( media-libs/vulkan-loader )
 "
 
 DEPEND="
 	test? (
+		sys-apps/grep[pcre]
 		sys-apps/mawk
 		sys-apps/nawk
 	)
@@ -61,6 +63,7 @@ src_configure() {
 		-DWITH_LIBSTATGRAB=OFF
 		-DWITH_NCURSES=$(usex ncurses)
 		-DWITH_OPENCL=$(usex opencl)
+		-DWITH_VULKAN=$(usex vulkan)
 	)
 	use gui && mycmakeargs+=( -DGSETTINGS_COMPILE=OFF )
 
