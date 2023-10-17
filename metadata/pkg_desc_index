@@ -1028,7 +1028,7 @@ app-admin/rasdaemon 0.6.8-r2 0.7.0 0.8.0 0.8.0-r1: Reliability, Availability and
 app-admin/rcm 1.3.5 1.3.6: rc file (dotfile) management
 app-admin/restart-services 0.17.0 0.17.0-r1: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.14.3 9999: (R)?ex, the friendly automation framework
-app-admin/rsyslog 8.2304.0 8.2306.0 8.2308.0: An enhanced multi-threaded syslogd with database support and more
+app-admin/rsyslog 8.2304.0 8.2306.0 8.2308.0 8.2310.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/ryzen_monitor 1.0.4-r1 1.0.5: Monitor power information of Ryzen processors via the PM table of the SMU
 app-admin/ryzen_smu 0.1.2 0.1.2_p20210627 0.1.2_p20211205 0.1.2_p20211205-r1: Kernel driver for AMD Ryzen's System Management Unit
 app-admin/sagan 2.0.1-r6: Sagan is a multi-threaded, real time system and event log monitoring system
@@ -1327,7 +1327,7 @@ app-containers/cosign 2.0.0 2.0.1 2.2.0: container signing utility
 app-containers/cri-o 1.26.0: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.1 1.8.4: A fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.52.0: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.52.0 0.52.1: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.5.0.2 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1: System container image builder for LXC and LXD
 app-containers/docker 24.0.5 24.0.6: The core functions you need to create Docker images and run Docker containers
@@ -1878,7 +1878,7 @@ app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
 app-emacs/cfrs 1.6.0-r1: Child Frame Read String, alternative to read-string
 app-emacs/chess 2.0.5: A chess client and library for Emacs
-app-emacs/cider 1.7.0 1.8.0: Clojure Interactive Development Environment for GNU Emacs
+app-emacs/cider 1.7.0 1.8.2: Clojure Interactive Development Environment for GNU Emacs
 app-emacs/circe 2.12: A great IRC client for Emacs
 app-emacs/citar 1.3.1: Emacs package to quickly find and act on bibliographic references
 app-emacs/citeproc-el 0.9.3: CSL 1.0.2 Citation Processor for Emacs
@@ -2021,6 +2021,7 @@ app-emacs/geiser-guile 0.28.1: Guile's implementation of the Geiser protocols
 app-emacs/geiser-mit 0.15: MIT/GNU Scheme's implementation of the Geiser protocols
 app-emacs/ghub 3.6.0: Minuscule client library for the Git forge APIs
 app-emacs/git-modes 1.4.1 9999: Emacs major modes for editing Git configuration files
+app-emacs/git-timemachine 4.13 9999: Step through historic versions of git controlled files in GNU Emacs
 app-emacs/gnuplot-mode 0.8.0 0.8.1: Gnuplot mode for Emacs
 app-emacs/gnuserv 3.12.8-r5 3.12.8-r8: Attach to an already running Emacs
 app-emacs/go-mode 1.6.0: An improved Go mode for emacs
@@ -2083,7 +2084,7 @@ app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 1.2 1.3: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.5-r1 2.6: Major mode for editing Markdown-formatted text files
-app-emacs/mastodon 1.0.0 1.0.6 1.0.9: Emacs client for Mastodon, federated microblogging social network
+app-emacs/mastodon 1.0.0 1.0.12: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
 app-emacs/matlab 3.3.6_pre20191010-r1: Major modes for MATLAB .m and .tlc files
 app-emacs/mediawiki 2.2.9-r1 2.3.1: MediaWiki client for Emacs
@@ -2119,7 +2120,7 @@ app-emacs/org-mode 9.4.6 9.5.5 9.6.9 9.6.10 9999: An Emacs mode for notes and pr
 app-emacs/org-modern 0.7 0.9-r1 0.10: Modern style for your GNU Emacs Org buffers
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
-app-emacs/osm 0.13 9999: OpenStreetMap tile-based viewer for GNU Emacs
+app-emacs/osm 0.13 0.14 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
 app-emacs/package-lint 0.17 0.18 0.19: Linting library for Emacs Lisp package metadata
@@ -4865,7 +4866,7 @@ dev-java/zxing-core 3.5.1: Core barcode encoding/decoding library
 dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.3.1: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
-dev-lang/algol68g 3.3.24 3.4.1: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.3.24 3.4.2: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.8 2.5.9: Scala language-based scripting and REPL
 dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/bas 2.4: An interpreter for the classic dialect of the programming language BASIC
@@ -4879,7 +4880,7 @@ dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.11.1: General-purpose programming language with an emphasis on functional programming
 dev-lang/closure-compiler-bin 20211107: JavaScript optimizing compiler
 dev-lang/coffee-script 2.5.1: A little language that compiles into javascript
-dev-lang/crystal 1.9.2-r1 1.10.0: The Crystal Programming Language
+dev-lang/crystal 1.9.2-r1 1.10.0 1.10.1: The Crystal Programming Language
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
 dev-lang/dafny 4.3.0: Dafny is a verification-aware programming language
 dev-lang/dafny-bin 3.12.0 4.2.0 4.3.0: Verification-aware programming language
@@ -4925,7 +4926,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.4-r103 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.593 0.595 0.596 0.597 0.598: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.593 0.595 0.596 0.598 0.599: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 20.06-r1 20.06.1 22.01 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 20.06 20.06.1 22.01 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -10186,7 +10187,7 @@ dev-scheme/akku 1.1.0: Language package manager for Scheme
 dev-scheme/bigloo 4.4c_p4-r5: Practical Scheme Compiler with many extensions
 dev-scheme/bytestructures 1.0.10 2.0.1: Structured access to bytevector contents
 dev-scheme/c-wrapper 0.6.1-r2: Foreign function interface for C and Objective-C libraries
-dev-scheme/chez 9.5.8a-r1 9.6.2: A programming language based on R6RS
+dev-scheme/chez 9.6.2 9.6.4: A programming language based on R6RS
 dev-scheme/chez-minikanren 2018.04.11: Canonical miniKanren implementation (on Chez Scheme)
 dev-scheme/chibi 0.10.0 9999: Minimal Scheme implementation for use as an extension language
 dev-scheme/chicken 5.3.0: Scheme interpreter and native Scheme to C compiler
@@ -15701,7 +15702,7 @@ sci-electronics/librepcb 0.1.6-r1 0.1.7: Free EDA software to develop printed ci
 sci-electronics/magic 8.3.232-r1 8.3.309-r2 8.3.309-r3 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 36 40: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.10.1-r2 1.10.2-r2 1.10.3-r1: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.10.3-r1 1.10.4: NVC is a VHDL compiler and simulator
 sci-electronics/osqoop 1.2.0_pre20170131: Multi-platform open source software oscilloscope based on Qt
 sci-electronics/pcb 4.2.2 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
@@ -16880,7 +16881,7 @@ sys-apps/stroke 0.1.3-r1: A powerful tool to change file timestamps (including c
 sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the health of Supermicro servers components
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/system-monitoring-center 2.21.2-r1 2.23.0-r1 2.24.0-r1 9999: Multi-featured system monitor GUI written in Python
+sys-apps/system-monitoring-center 2.21.2-r1 2.23.0-r1 2.24.0-r1 2.25.1 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemd 253.3-r1 253.6 253.11 253.12 254.3 254.4 254.5 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-utils 253.11-r1 253.12-r1 254.5-r1: Utilities split out from systemd for OpenRC users
