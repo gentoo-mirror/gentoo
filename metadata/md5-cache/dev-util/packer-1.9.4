@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=A tool to create identical machine images for multiple platforms
+EAPI=8
+HOMEPAGE=https://www.packer.io
+INHERIT=go-module
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=Apache-2.0 BSD-2 BSD-4 MIT MPL-2.0 unicode
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/hashicorp/packer/archive/v1.9.4.tar.gz -> packer-1.9.4.tar.gz https://gentoo.neutroniak.com/packer-1.9.4-deps.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22
+_md5_=0f60e69f7233153302fe5ac71de8430c
