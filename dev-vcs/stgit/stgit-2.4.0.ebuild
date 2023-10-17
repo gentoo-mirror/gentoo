@@ -7,165 +7,140 @@ EAPI=8
 
 CRATES="
 	adler-1.0.2
-	ahash-0.8.3
-	anstream-0.3.2
-	anstyle-1.0.1
-	anstyle-parse-0.2.1
+	anstream-0.6.4
+	anstyle-1.0.4
+	anstyle-parse-0.2.2
 	anstyle-query-1.0.0
-	anstyle-wincon-1.0.2
+	anstyle-wincon-3.0.1
 	anyhow-1.0.75
 	arc-swap-1.6.0
 	autocfg-1.1.0
 	bitflags-1.3.2
 	bitflags-2.4.0
-	bstr-1.6.0
+	bstr-1.6.2
 	btoi-0.4.3
 	bzip2-rs-0.1.2
-	cc-1.0.82
+	cc-1.0.83
 	cfg-if-1.0.0
-	clap-4.3.23
-	clap_builder-4.3.23
-	clap_lex-0.5.0
+	clap-4.4.6
+	clap_builder-4.4.6
+	clap_lex-0.5.1
 	clru-0.6.1
 	colorchoice-1.0.0
 	crc32fast-1.3.2
-	ctrlc-3.4.0
+	ctrlc-3.4.1
 	curl-0.4.44
-	curl-sys-0.4.65+curl-8.2.1
-	deranged-0.3.7
+	curl-sys-0.4.66+curl-8.3.0
+	deranged-0.3.8
 	dunce-1.0.4
-	encoding_rs-0.8.32
+	encoding_rs-0.8.33
 	equivalent-1.0.1
-	errno-0.3.2
-	errno-dragonfly-0.1.2
-	fastrand-2.0.0
+	errno-0.3.5
+	faster-hex-0.8.1
+	fastrand-2.0.1
 	filetime-0.2.22
 	flate2-1.0.27
 	form_urlencoded-1.2.0
-	getrandom-0.2.10
-	gix-0.51.0
-	gix-actor-0.24.2
-	gix-attributes-0.16.0
-	gix-bitmap-0.2.6
+	gix-0.54.1
+	gix-actor-0.27.0
+	gix-bitmap-0.2.7
 	gix-chunk-0.4.4
-	gix-command-0.2.8
-	gix-commitgraph-0.18.2
-	gix-config-0.26.2
-	gix-config-value-0.12.5
-	gix-credentials-0.17.1
-	gix-date-0.7.2
-	gix-diff-0.33.1
-	gix-discover-0.22.1
-	gix-features-0.32.1
-	gix-filter-0.2.0
-	gix-fs-0.4.1
-	gix-glob-0.10.2
-	gix-hash-0.11.4
-	gix-hashtable-0.2.4
-	gix-ignore-0.5.1
-	gix-index-0.21.1
-	gix-lock-7.0.2
-	gix-mailmap-0.16.1
-	gix-negotiate-0.5.1
-	gix-object-0.33.2
-	gix-odb-0.50.2
-	gix-pack-0.40.2
-	gix-packetline-blocking-0.16.4
-	gix-path-0.8.4
-	gix-prompt-0.5.5
-	gix-quote-0.4.6
-	gix-ref-0.33.3
-	gix-refspec-0.14.1
-	gix-revision-0.18.1
-	gix-revwalk-0.4.1
-	gix-sec-0.8.4
-	gix-tempfile-7.0.2
+	gix-commitgraph-0.21.0
+	gix-config-0.30.0
+	gix-config-value-0.14.0
+	gix-date-0.8.0
+	gix-diff-0.36.0
+	gix-discover-0.25.0
+	gix-features-0.35.0
+	gix-fs-0.7.0
+	gix-glob-0.13.0
+	gix-hash-0.13.0
+	gix-hashtable-0.4.0
+	gix-index-0.25.0
+	gix-lock-10.0.0
+	gix-macros-0.1.0
+	gix-object-0.37.0
+	gix-odb-0.53.0
+	gix-pack-0.43.0
+	gix-path-0.10.0
+	gix-quote-0.4.7
+	gix-ref-0.37.0
+	gix-refspec-0.18.0
+	gix-revision-0.22.0
+	gix-revwalk-0.8.0
+	gix-sec-0.10.0
+	gix-tempfile-10.0.0
 	gix-trace-0.1.3
-	gix-traverse-0.30.1
-	gix-url-0.21.1
+	gix-traverse-0.33.0
+	gix-url-0.24.0
 	gix-utils-0.1.5
-	gix-validate-0.7.7
-	gix-worktree-0.23.1
-	hashbrown-0.12.3
-	hashbrown-0.14.0
-	hermit-abi-0.3.2
-	hex-0.4.3
+	gix-validate-0.8.0
+	hashbrown-0.14.1
+	hermit-abi-0.3.3
 	home-0.5.5
 	idna-0.4.0
-	imara-diff-0.1.5
-	indexmap-2.0.0
-	io-close-0.3.7
-	io-lifetimes-1.0.11
+	indexmap-2.0.2
 	is-terminal-0.4.9
 	itoa-1.0.9
-	kstring-2.0.0
-	libc-0.2.147
+	libc-0.2.149
 	libz-sys-1.1.12
-	linux-raw-sys-0.3.8
-	linux-raw-sys-0.4.5
+	linux-raw-sys-0.4.9
 	lock_api-0.4.10
-	log-0.4.20
-	memchr-2.5.0
+	memchr-2.6.4
 	memmap2-0.7.1
 	minimal-lexical-0.2.1
 	miniz_oxide-0.7.1
-	nix-0.26.2
+	nix-0.27.1
 	nom-7.1.3
-	num-traits-0.2.16
+	num-traits-0.2.17
 	num_threads-0.1.6
 	once_cell-1.18.0
 	openssl-probe-0.1.5
-	openssl-sys-0.9.91
+	openssl-sys-0.9.93
 	parking_lot-0.12.1
 	parking_lot_core-0.9.8
 	percent-encoding-2.3.0
 	pkg-config-0.3.27
-	proc-macro2-1.0.66
-	prodash-25.0.1
+	proc-macro2-1.0.68
+	prodash-26.2.2
 	quote-1.0.33
 	redox_syscall-0.3.5
-	regex-automata-0.3.6
-	rustix-0.37.23
-	rustix-0.38.8
+	regex-automata-0.3.9
+	rustix-0.38.17
 	ryu-1.0.15
 	same-file-1.0.6
 	schannel-0.1.22
 	scopeguard-1.2.0
-	serde-1.0.171
-	serde_derive-1.0.171
-	serde_json-1.0.105
+	serde-1.0.188
+	serde_derive-1.0.188
+	serde_json-1.0.107
 	sha1_smol-1.0.0
-	signal-hook-0.3.17
-	signal-hook-registry-1.4.1
-	smallvec-1.11.0
+	smallvec-1.11.1
 	socket2-0.4.9
-	static_assertions-1.1.0
 	strsim-0.10.0
-	syn-2.0.29
+	syn-2.0.38
 	tar-0.4.40
 	tempfile-3.8.0
-	termcolor-1.2.0
-	terminal_size-0.2.6
-	thiserror-1.0.47
-	thiserror-impl-1.0.47
-	time-0.3.26
-	time-core-0.1.1
-	time-macros-0.2.12
+	termcolor-1.3.0
+	terminal_size-0.3.0
+	thiserror-1.0.49
+	thiserror-impl-1.0.49
+	time-0.3.29
+	time-core-0.1.2
+	time-macros-0.2.15
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.1
 	unicode-bidi-0.3.13
 	unicode-bom-2.0.2
-	unicode-ident-1.0.11
+	unicode-ident-1.0.12
 	unicode-normalization-0.1.22
-	url-2.4.0
+	url-2.4.1
 	utf8parse-0.2.1
 	vcpkg-0.2.15
-	version_check-0.9.4
-	walkdir-2.3.3
-	wasi-0.11.0+wasi-snapshot-preview1
+	walkdir-2.4.0
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
-	winapi-util-0.1.5
+	winapi-util-0.1.6
 	winapi-x86_64-pc-windows-gnu-0.4.0
 	windows-0.48.0
 	windows-sys-0.48.0
@@ -177,7 +152,7 @@ CRATES="
 	windows_x86_64_gnu-0.48.5
 	windows_x86_64_gnullvm-0.48.5
 	windows_x86_64_msvc-0.48.5
-	winnow-0.5.14
+	winnow-0.5.16
 	xattr-1.0.1
 "
 
@@ -185,7 +160,7 @@ inherit cargo flag-o-matic
 
 DESCRIPTION="Stack-based patch management for Git"
 HOMEPAGE="https://stacked-git.github.io/"
-SRC_URI="${CARGO_CRATE_URIS}"
+SRC_URI="$(cargo_crate_uris)"
 SRC_URI+=" https://github.com/stacked-git/stgit/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
