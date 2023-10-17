@@ -3,10 +3,10 @@
 
 EAPI=8
 
-LLVM_MAX_SLOT=15
+LLVM_MAX_SLOT=16
 inherit cmake llvm
 
-MY_COMMIT="3078cb57ccfa43736aa93720a72f1074034cb37d"
+MY_COMMIT="040e6c0af132e9b315960178d9afdd9d4daaf345"
 
 DESCRIPTION="Clang-based FFI wrapper generator for Common Lisp"
 HOMEPAGE="https://github.com/rpav/c2ffi"
