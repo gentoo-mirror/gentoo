@@ -9,7 +9,7 @@ if [[ ${PV} = 9999* ]]; then
 	EXPERIMENTAL="true"
 fi
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 inherit meson python-any-r1 readme.gentoo-r1 xdg-utils ${GIT_ECLASS}
 
 DESCRIPTION="Wayland reference compositor"
@@ -40,7 +40,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	>=dev-libs/libinput-1.2.0
-	>=dev-libs/wayland-1.20.0
+	>=dev-libs/wayland-1.22.0
 	media-libs/libpng:0=
 	sys-auth/seatd:=
 	>=x11-libs/cairo-1.11.3
@@ -67,7 +67,7 @@ RDEPEND="
 	systemd? ( sys-apps/systemd )
 	vnc? (
 		=dev-libs/aml-0.3*
-		=gui-libs/neatvnc-0.6*
+		=gui-libs/neatvnc-0.7*
 		sys-libs/pam
 	)
 	webp? ( media-libs/libwebp:0= )
@@ -90,11 +90,12 @@ BDEPEND="
 	${PYTHON_DEPS}
 	dev-util/wayland-scanner
 	virtual/pkgconfig
+	$(python_gen_any_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 "
 
-PATCHES=(
-	"${FILESDIR}/weston-12.0.1-issue757.patch"
-)
+python_check_deps() {
+	python_has_version "dev-python/setuptools[${PYTHON_USEDEP}]"
+}
 
 src_configure() {
 	local emesonargs=(
@@ -110,7 +111,6 @@ src_configure() {
 		-Dbackend-default=auto
 		$(meson_use gles2 renderer-gl)
 		$(meson_use xwayland)
-		-Dlauncher-libseat=true
 		$(meson_use systemd)
 		$(meson_use remoting)
 		$(meson_use pipewire)
