@@ -1886,13 +1886,17 @@ ejunit4() {
 # @CODE
 # $1 - -cp or -classpath
 # $2 - the classpath passed to it
-# $@ - test classes for testng to run.
+# $@ - test classes or testng.xml for testng to run.
 # @CODE
 etestng() {
 	debug-print-function ${FUNCNAME} $*
 
 	local runner=org.testng.TestNG
-	local cp=$(java-pkg_getjars --with-dependencies testng)
+	if [[ ${PN} != testng ]]; then
+		local cp=$(java-pkg_getjars --with-dependencies testng)
+	else
+		local cp=testng.jar
+	fi
 	local tests
 
 	if [[ ${1} = -cp || ${1} = -classpath ]]; then
@@ -1910,6 +1914,7 @@ etestng() {
 		-cp ${cp}
 		-Djava.io.tmpdir="${T}"
 		-Djava.awt.headless=true
+		-Dtest.resources.dir="${JAVA_TEST_RESOURCE_DIRS}"
 		${JAVA_TEST_EXTRA_ARGS[@]}
 		${runner}
 		${JAVA_TEST_RUNNER_EXTRA_ARGS[@]}
@@ -1922,7 +1927,11 @@ etestng() {
 		)
 	fi
 
-	args+=( -testclass ${tests} )
+	if [[ "${test%.xml}" == "${test}" ]]; then
+		args+=( -testclass ${tests} )
+	else
+		args+=( ${tests%,} )
+	fi
 
 	debug-print "java ${args[@]}"
 	java ${args[@]} || die "Running TestNG failed."
