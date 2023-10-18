@@ -1,14 +1,14 @@
 BDEPEND=dev-util/wayland-scanner >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
-DEFINED_PHASES=compile configure install postinst test
-DEPEND=dev-libs/wayland !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)] dev-libs/wayland-protocols gui-libs/eglexternalplatform media-libs/libglvnd x11-libs/libdrm
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/wayland x11-libs/libdrm !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)] dev-libs/wayland-protocols gui-libs/eglexternalplatform media-libs/libglvnd
 DESCRIPTION=EGLStream-based Wayland external platform
 EAPI=8
 HOMEPAGE=https://github.com/NVIDIA/egl-wayland/
 INHERIT=meson
-KEYWORDS=amd64 ~arm64
+KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
-RDEPEND=dev-libs/wayland !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)]
+RDEPEND=dev-libs/wayland x11-libs/libdrm !<x11-drivers/nvidia-drivers-470.57.02[wayland(-)]
 SLOT=0
-SRC_URI=https://github.com/NVIDIA/egl-wayland/archive/refs/tags/1.1.12.tar.gz -> egl-wayland-1.1.12.tar.gz
+SRC_URI=https://github.com/NVIDIA/egl-wayland/archive/refs/tags/1.1.13.tar.gz -> egl-wayland-1.1.13.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	af1ca7ad21fdd31fcc4fa91d8abca977
-_md5_=a97c97fbad069e389c8fdba9720d5722
+_md5_=e86f9d17b3f469ec816862eaf3a83b38
