@@ -2323,7 +2323,9 @@ dev-python/QtPy:pyside2 - Use dev-python/pyside2 as Qt for Python implementation
 dev-python/QtPy:pyside6 - Use dev-python/pyside6 as Qt for Python implementation
 dev-python/QtPy:qml - Build bindings for the QtQml
 dev-python/QtPy:quick - Build bindings for the QtQuick
+dev-python/QtPy:sensors - Pull in bindings for the QtSensors module
 dev-python/QtPy:serialport - Pull in bindings for the QtSerialPort module
+dev-python/QtPy:speech - Pull in bindings for the QtTextToSpeech module
 dev-python/QtPy:sql - Pull in bindings for the QtSql module
 dev-python/QtPy:svg - Pull in bindings for the QtSvg module
 dev-python/QtPy:testlib - Pull in bindings for the QtTest module
@@ -2396,8 +2398,6 @@ dev-python/pyside2:positioning - Build QtPositioning module
 dev-python/pyside2:printsupport - Build QtPrintSupport module
 dev-python/pyside2:qml - Build QtQml module
 dev-python/pyside2:quick - Build QtQuick and QtQuickWidgets modules
-dev-python/pyside2:script - Build QtScript module
-dev-python/pyside2:scripttools - Build QtScriptTools module
 dev-python/pyside2:scxml - Build QtScxml module
 dev-python/pyside2:sensors - Build QtSensors module
 dev-python/pyside2:speech - Build QtTextToSpeech module
@@ -2411,21 +2411,30 @@ dev-python/pyside2:widgets - Build QtWidgets module
 dev-python/pyside2:x11extras - Build QtX11Extras module
 dev-python/pyside2:xml - Build QtXml module
 dev-python/pyside2:xmlpatterns - Build QtXmlPatterns module
+dev-python/pyside6:3d - Build Qt3DCore, Qt3DAnimation, Qt3DExtras, Qt3DInput, Qt3DLogic, and Qt3DRender modules
+dev-python/pyside6:bluetooth - Build QtBluetooth module
 dev-python/pyside6:charts - Build QtCharts module
 dev-python/pyside6:concurrent - Build QtConcurrent module
 dev-python/pyside6:designer - Build QtDesigner and QtUiTools modules
 dev-python/pyside6:gles2-only - Build QtGui "QOpenGL*" classes
 dev-python/pyside6:gui - Build QtGui module
 dev-python/pyside6:help - Build QtHelp module
+dev-python/pyside6:location - Build QtLocation module
 dev-python/pyside6:multimedia - Build QtMultimedia and QtMultimediaWidgets modules
 dev-python/pyside6:network - Build QtNetwork module
 dev-python/pyside6:network-auth - Build QtNetworkAuth module
+dev-python/pyside6:nfc - Build QtNfc module
+dev-python/pyside6:pdfium - Build QtPdf module
 dev-python/pyside6:positioning - Build QtPositioning module
 dev-python/pyside6:printsupport - Build QtPrintSupport module
 dev-python/pyside6:qml - Build QtQml module
 dev-python/pyside6:quick - Build QtQuick and QtQuickWidgets modules
 dev-python/pyside6:quick3d - Build QtQuick3D and QtQuickWidgets modules
+dev-python/pyside6:scxml - Build QtScxml module
+dev-python/pyside6:sensors - Build QtSensors module
 dev-python/pyside6:serialport - Build QtSerialPort modules
+dev-python/pyside6:spatialaudio - Build QtSpatialAudio module
+dev-python/pyside6:speech - Build QtTextToSpeech module
 dev-python/pyside6:sql - Build QtSql module
 dev-python/pyside6:svg - Build QtSvg module
 dev-python/pyside6:testlib - Build QtTest module
@@ -7102,6 +7111,7 @@ sci-electronics/gtkwave:packed - Enables '#pragma pack' for data arrays (saves m
 sci-electronics/kicad:ngspice - Enable circuit simulation
 sci-electronics/kicad-meta:minimal - Do not install extra data like 3D packages and templates.
 sci-electronics/ktechlab:gpsim - Enable support for Microchip PIC microcontrollers similation using dev-embedded/gpsim
+sci-electronics/librepcb:opencascade - Build with sci-libs/opencascadethe 3D features (e.g. reading/writing STEP files)
 sci-electronics/ngspice:deprecated - Build old and deprecated apps
 sci-electronics/ngspice:shared - Build ngspice as a shared library
 sci-electronics/nvc:jit - Enable experimental JIT complilation with LLVM
