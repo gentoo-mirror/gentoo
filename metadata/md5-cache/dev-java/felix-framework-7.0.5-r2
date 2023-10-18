@@ -1,6 +1,6 @@
-BDEPEND=verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-felix ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
-DEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-felix ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=dev-java/animal-sniffer-annotations:0 dev-java/felix-resolver:0 dev-java/osgi-annotation:0 >=virtual/jdk-11:* test? ( dev-java/asm:9 dev-java/easymock:2.5 dev-java/mockito:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Implementation of the OSGi R8 core framework specification
 EAPI=8
 HOMEPAGE=https://felix.apache.org/documentation/subprojects/apache-felix-framework.html
@@ -8,9 +8,9 @@ INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source test verify-sig
 KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
-RDEPEND=>=virtual/jre-1.8:* dev-java/animal-sniffer-annotations:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=dev-java/animal-sniffer-annotations:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/felix/org.apache.felix.framework-7.0.5-source-release.tar.gz verify-sig? ( https://downloads.apache.org/felix/org.apache.felix.framework-7.0.5-source-release.tar.gz.asc )
 _eclasses_=java-utils-2	d051ecd608488854eb9252d64d396140	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	52d47d4db4f2c870e1d8f23700ee5e0a	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
-_md5_=99d6968528e901760a5535510945af10
+_md5_=f72bc72dee427f1a1a48e3eaa5957e73
