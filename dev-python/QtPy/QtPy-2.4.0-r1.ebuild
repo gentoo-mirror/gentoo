@@ -17,11 +17,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 
 _IUSE_QT_MODULES="
 	designer +gui help multimedia +network opengl positioning
-	printsupport qml quick serialport +sql svg testlib
+	printsupport qml quick sensors serialport speech +sql svg testlib
 	webchannel webengine websockets +widgets +xml
 "
 IUSE="+pyqt5 pyqt6 pyside2 pyside6 ${_IUSE_QT_MODULES}"
@@ -29,25 +29,27 @@ unset _IUSE_QT_MODULES
 
 REQUIRED_USE="
 	|| ( pyqt5 pyqt6 pyside2 pyside6 )
-	python_targets_python3_12? ( !pyside2 !pyside6 )
+	python_targets_python3_12? ( !pyside2 )
 "
 
 # These flags are currently *not* common to the PySide2/6 and PyQt5/6 ebuilds
 # Disable them for now, please check periodically if this is still up to date.
-# 	bluetooth? ( pyqt5 only )
-# 	dbus? ( pyqt5 only )
+# 	bluetooth? ( pyqt5/6 and pyside6 only )
+# 	dbus? ( pyqt5/6 and pyside6 only )
 #
-# 	3d? ( pyside2 only )
+# 	3d? ( pyside2/6 only )
 # 	charts? ( pyside2 only )
 # 	concurrent? ( pyside2 only )
 # 	datavis? ( pyside2 only )
-# 	scxml? ( pyside2 only )
+# 	scxml? ( pyside2/6 only )
 #
-#	location? ( pyside2 and pyqt5 only )
-#	sensors? ( pyside2 and pyqt5 only )
-#	speech? ( pyside2 and pyqt5 only )
 #	x11extras? ( pyside2 and pyqt5 only )
 #	xmlpatterns? ( pyside2 and pyqt5 only )
+#
+# location? ( pyside2/6 and pyqt5 only)
+# nfc? ( pyqt6 and pyside6 only)
+# spatialaudio? ( pyqt6 and pyside6 only)
+# pdfium? ( pyqt6 and pyside6 only)
 
 # WARNING: the obvious solution of using || for PyQt5/pyside2 is not going
 # to work. The package only checks whether PyQt5/pyside2 is installed, it does
@@ -71,7 +73,7 @@ RDEPEND="
 	pyqt5? (
 		dev-python/PyQt5[${PYTHON_USEDEP}]
 		dev-python/PyQt5[designer?,gui?,help?,multimedia?,network?,opengl?]
-		dev-python/PyQt5[positioning?,printsupport?,serialport?,sql?,svg?]
+		dev-python/PyQt5[positioning?,printsupport?,sensors?,serialport?,speech?,sql?,svg?]
 		dev-python/PyQt5[testlib?,webchannel?,websockets?,widgets?,xml(+)?]
 		qml? ( dev-python/PyQt5[declarative] )
 		quick? ( dev-python/PyQt5[declarative] )
@@ -80,8 +82,8 @@ RDEPEND="
 	pyqt6? (
 		dev-python/PyQt6[${PYTHON_USEDEP}]
 		dev-python/PyQt6[designer?,gui?,help?,multimedia?,network?,opengl?]
-		dev-python/PyQt6[positioning?,printsupport?,qml?,quick?,serialport?,sql?]
-		dev-python/PyQt6[svg?,testlib?,webchannel?,websockets?,widgets?,xml?]
+		dev-python/PyQt6[positioning?,printsupport?,qml?,quick?,sensors?,serialport?,sql?]
+		dev-python/PyQt6[speech?,svg?,testlib?,webchannel?,websockets?,widgets?,xml?]
 		webengine? ( dev-python/PyQt6-WebEngine[${PYTHON_USEDEP},widgets?,quick?] )
 
 	)
@@ -89,19 +91,17 @@ RDEPEND="
 		$(python_gen_cond_dep '
 			dev-python/pyside2[${PYTHON_USEDEP}]
 			dev-python/pyside2[designer?,gui?,help?,multimedia?,network?,opengl(+)?]
-			dev-python/pyside2[positioning?,printsupport?,qml?,quick?,serialport(+)?]
-			dev-python/pyside2[sql?,svg?,testlib?,webchannel?,webengine?,websockets?]
+			dev-python/pyside2[positioning?,printsupport?,qml?,quick?,sensors?,serialport(+)?]
+			dev-python/pyside2[speech?,sql?,svg?,testlib?,webchannel?,webengine?,websockets?]
 			dev-python/pyside2[widgets?,xml?]
 		' python3_{10..11})
 	)
 	pyside6? (
-		$(python_gen_cond_dep '
-			dev-python/pyside6[${PYTHON_USEDEP}]
-			dev-python/pyside6[designer?,gui?,help?,multimedia?,network?,opengl?]
-			dev-python/pyside6[positioning?,printsupport?,qml?,quick?,serialport?]
-			dev-python/pyside6[sql?,svg?,testlib?,webchannel?,webengine?,websockets?]
-			dev-python/pyside6[widgets?,xml?]
-		' python3_{10..11})
+		dev-python/pyside6[${PYTHON_USEDEP}]
+		dev-python/pyside6[designer?,gui?,help?,multimedia?,network?,opengl?]
+		dev-python/pyside6[positioning?,printsupport?,qml?,quick?,sensors(-)?,serialport?]
+		dev-python/pyside6[speech(-)?,sql?,svg?,testlib?,webchannel?,webengine?,websockets?]
+		dev-python/pyside6[widgets?,xml?]
 	)
 "
 
@@ -111,6 +111,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/pytest-qt[${PYTHON_USEDEP}]
 		pyqt5? (
 			dev-python/PyQt5[${PYTHON_USEDEP}]
 			dev-python/PyQt5[bluetooth,dbus,declarative,designer,gui,help,location]
@@ -121,30 +122,30 @@ BDEPEND="
 		)
 		pyqt6? (
 			dev-python/PyQt6[${PYTHON_USEDEP}]
-			dev-python/PyQt6[dbus,designer,gui,help,multimedia,network,opengl]
-			dev-python/PyQt6[positioning,printsupport,qml,quick,quick3d,serialport]
-			dev-python/PyQt6[sql,ssl,svg,testlib,webchannel,websockets,widgets,xml]
+			dev-python/PyQt6[dbus,designer,gui,help,multimedia,network,nfc,opengl]
+			dev-python/PyQt6[pdfium(-),positioning,printsupport,qml,quick,quick3d,serialport]
+			dev-python/PyQt6[sensors(-),spatialaudio(-),speech(-),sql,ssl,svg,testlib,webchannel]
+			dev-python/PyQt6[websockets,widgets,xml]
 			dev-python/PyQt6-WebEngine[${PYTHON_USEDEP},widgets,quick]
 		)
 		pyside2? (
 			$(python_gen_cond_dep '
 				dev-python/pyside2[${PYTHON_USEDEP}]
 				dev-python/pyside2[3d,charts,concurrent,datavis,designer,gui,help]
-				dev-python/pyside2[location,multimedia,network,opengl(+),positioning]
-				dev-python/pyside2[printsupport,qml,quick,scxml]
+				dev-python/pyside2[location,multimedia,network,opengl(+)]
+				dev-python/pyside2[positioning,printsupport,qml,quick,scxml]
 				dev-python/pyside2[sensors,serialport(+),speech,sql,svg,testlib]
 				dev-python/pyside2[webchannel,webengine,websockets,widgets,x11extras]
 				dev-python/pyside2[xml,xmlpatterns]
 			' python3_{10..11})
 		)
 		pyside6? (
-			$(python_gen_cond_dep '
-				dev-python/pyside6[${PYTHON_USEDEP}]
-				dev-python/pyside6[concurrent,dbus,designer,gui,help,multimedia]
-				dev-python/pyside6[network,opengl,positioning,printsupport,qml]
-				dev-python/pyside6[quick,quick3d,serialport,sql,svg,testlib]
-				dev-python/pyside6[webchannel,webengine,websockets,widgets,xml]
-			' python3_{10..11})
+			dev-python/pyside6[${PYTHON_USEDEP}]
+			dev-python/pyside6[3d(-),bluetooth(-),concurrent,dbus,designer,gui,help]
+			dev-python/pyside6[location(-),multimedia,network,nfc(-),opengl,positioning,pdfium(-)]
+			dev-python/pyside6[printsupport,qml,quick,quick3d,scxml(-),sensors(-)]
+			dev-python/pyside6[serialport,spatialaudio(-),speech(-),sql,svg,testlib,webchannel]
+			dev-python/pyside6[webengine,websockets,widgets,xml]
 		)
 	)
 "
@@ -156,10 +157,10 @@ src_prepare() {
 	sed -i -e 's:--cov=qtpy --cov-report=term-missing::' pytest.ini || die
 	# Disable Qt for Python implementations that are not selected
 	if ! use pyqt5; then
-		sed -i -e "s/from PyQt5.QtCore import/raise ImportError #/" qtpy/__init__.py || die
+		sed -i -e '/from PyQt5.QtCore import/,/)/c\ \ \ \ \ \ \ \ raise ImportError #/' qtpy/__init__.py || die
 	fi
 	if ! use pyqt6; then
-		sed -i -e "s/from PyQt6.QtCore import/raise ImportError #/" qtpy/__init__.py || die
+		sed -i -e '/from PyQt6.QtCore import/,/)/c\ \ \ \ \ \ \ \ raise ImportError #/' qtpy/__init__.py || die
 	fi
 	if ! use pyside2; then
 		sed -i -e "s/from PySide2 import/raise ImportError #/" qtpy/__init__.py || die
