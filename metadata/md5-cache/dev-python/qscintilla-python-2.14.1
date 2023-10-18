@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.riverbankcomputing.com/software/qscintilla/ https://pypi.org/project/QScintilla/
 INHERIT=out-of-source-utils python-r1 qmake-utils
 IUSE=debug python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=GPL-3
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/PyQt5-5.15.5[gui,printsupport,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 ~x11-libs/qscintilla-2.14.1:= >=dev-python/PyQt5-sip-12.12:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.14.1/QScintilla_src-2.14.1.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=8b7b02858584747e239396380a3d2e10
+_md5_=75cee65ba8e313e2cbc33543fa179b7d
