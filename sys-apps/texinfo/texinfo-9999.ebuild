@@ -38,8 +38,12 @@ RDEPEND="
 	>=sys-libs/ncurses-5.2-r2:=
 	virtual/perl-Data-Dumper
 	virtual/perl-Encode
+	virtual/perl-Unicode-Collate
 	standalone? ( >=dev-lang/perl-5.8.1 )
-	!standalone?  ( >=dev-lang/perl-5.8.1:= )
+	!standalone?  (
+		>=dev-lang/perl-5.8.1:=
+		dev-libs/libunistring:=
+	)
 	nls? ( virtual/libintl )
 "
 DEPEND="${RDEPEND}"
@@ -72,6 +76,12 @@ src_configure() {
 
 	use static && append-ldflags -static
 
+	# TODO:
+	# --with-external-Unicode-EastAsianWidth
+	# --with-external-Text-Unidecode
+	#
+	# Also, 7.0.91 seemed to introduce a included-libunistring w/ USE=-standalone
+	# but it doesn't seem to do anything?
 	local myeconfargs=(
 		--cache-file="${S}"/config.cache
 		$(use_enable nls)
