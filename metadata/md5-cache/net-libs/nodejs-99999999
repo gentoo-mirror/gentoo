@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.11[threads(+)] dev-lang/python:3.10[threads(+)] ) dev-util/ninja sys-apps/coreutils virtual/pkgconfig test? ( net-misc/curl ) pax-kernel? ( sys-apps/elfix ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
-DEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib corepack? ( !sys-apps/yarn ) system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
+DEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib corepack? ( !sys-apps/yarn ) system-icu? ( >=dev-libs/icu-71:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
 DESCRIPTION=A JavaScript runtime built on Chrome's V8 JavaScript engine
 EAPI=8
 HOMEPAGE=https://nodejs.org/
@@ -8,9 +8,9 @@ INHERIT=bash-completion-r1 check-reqs flag-o-matic linux-info pax-utils python-a
 IUSE=corepack cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl +system-icu +system-ssl test
 LICENSE=Apache-1.1 Apache-2.0 BSD BSD-2 MIT
 PROPERTIES=live
-RDEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib corepack? ( !sys-apps/yarn ) system-icu? ( >=dev-libs/icu-67:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
+RDEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.44.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= sys-libs/zlib corepack? ( !sys-apps/yarn ) system-icu? ( >=dev-libs/icu-71:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
 REQUIRED_USE=corepack? ( !npm ) inspector? ( icu ssl ) npm? ( ssl ) system-icu? ( icu ) system-ssl? ( ssl ) x86? ( cpu_flags_x86_sse2 )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-any-r1	f5169813d1619761b459800587005fd2	xdg-utils	baea6080dd821f5562d715887954c9d3	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=2799f3d0431bae0b52e67a4565e9e6d3
+_md5_=2a85992e105ec42167067b089d335519
