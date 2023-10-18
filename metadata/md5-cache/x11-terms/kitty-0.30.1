@@ -7,7 +7,7 @@ HOMEPAGE=https://sw.kovidgoyal.net/kitty/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=edo optfeature multiprocessing python-single-r1 toolchain-funcs xdg verify-sig
 IUSE=+X test wayland python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 verify-sig
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-3 ZLIB Apache-2.0 BSD BSD-2 MIT MPL-2.0
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-libs/openssl:= dev-libs/xxhash media-libs/fontconfig media-libs/harfbuzz:=[truetype] media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus sys-libs/zlib:= x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-0.30.1 ~x11-terms/kitty-terminfo-0.30.1 X? ( x11-libs/libX11 ) wayland? ( dev-libs/wayland ) !sci-mathematics/kissat
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) || ( X wayland ) test? ( X wayland )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.30.1/kitty-0.30.1.tar.xz https://dev.gentoo.org/~ionen/distfiles/kitty-0.30.1-vendor.tar.xz verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v0.30.1/kitty-0.30.1.tar.xz.sig )
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
-_md5_=490d4cd3b59e4db5af964e71bb9d3bc5
+_md5_=66821f28efc521cba34988c42b70d576
