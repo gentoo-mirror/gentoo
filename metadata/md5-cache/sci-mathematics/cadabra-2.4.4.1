@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://cadabra.science/ https://github.com/kpeeters/cadabra2/
 INHERIT=xdg-utils python-single-r1 cmake
 IUSE=gui +jupyter test python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) app-text/dvipng dev-cpp/glibmm:2 dev-db/sqlite:3= dev-libs/boost:= dev-libs/gmp:=[cxx] dev-libs/jsoncpp:= dev-libs/libsigc++:2 dev-texlive/texlive-basic python_single_target_python3_10? ( dev-python/gmpy:2[python_targets_python3_10(-)] dev-python/matplotlib[python_targets_python3_10(-)] dev-python/sympy[python_targets_python3_10(-)] jupyter? ( dev-python/jupyter[python_targets_python3_10(-)] ) ) python_single_target_python3_11? ( dev-python/gmpy:2[python_targets_python3_11(-)] dev-python/matplotlib[python_targets_python3_11(-)] dev-python/sympy[python_targets_python3_11(-)] jupyter? ( dev-python/jupyter[python_targets_python3_11(-)] ) ) gui? ( dev-cpp/gtkmm:3.0 )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://github.com/kpeeters/cadabra2/archive/2.4.4.1.tar.gz -> cadabra-2.4.4.1.tar.gz
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	cmake	fc2f89084f590ac95c004ea95b0d2f80
-_md5_=b7260ae13de1fdf5f756f6d36c7ab6e3
+_md5_=e99a9b8a430fb0e4c8f49f2b5865778a
