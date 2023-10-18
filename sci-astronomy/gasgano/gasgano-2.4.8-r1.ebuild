@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,9 +8,9 @@ inherit desktop java-pkg-2
 PDOC=VLT-PRO-ESO-19000-1932-V4
 
 DESCRIPTION="ESO astronomical data file organizer"
-HOMEPAGE="http://www.eso.org/sci/software/gasgano/"
+HOMEPAGE="https://www.eso.org/sci/software/gasgano.html"
 SRC_URI="ftp://ftp.eso.org/pub/dfs/${PN}/${P}.tar.gz
-	doc? ( http://www.eso.org/sci/software/gasgano/${PDOC}.pdf )"
+	doc? ( https://www.eso.org/sci/software/gasgano/${PDOC}.pdf )"
 
 LICENSE="Apache-1.1"
 SLOT="0"
@@ -20,9 +20,9 @@ IUSE="doc"
 DEPEND=">=virtual/jdk-1.8:*"
 RDEPEND="
 	>=virtual/jre-1.8:*
-	dev-java/gnu-regexp
-	dev-java/junit
-	dev-java/jal"
+	dev-java/gnu-regexp:1
+	dev-java/junit:0
+	dev-java/jal:0"
 
 src_prepare() {
 	default
