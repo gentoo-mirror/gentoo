@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm prepare
+DEPEND=dev-libs/gmp:= emacs? ( >=app-editors/emacs-25.3:* )
+DESCRIPTION=Functional programming language with dependent types
+EAPI=8
+HOMEPAGE=https://www.cs.bu.edu/~hwxi/atslangweb/ https://sourceforge.net/projects/ats2-lang/
+INHERIT=elisp-common toolchain-funcs
+IUSE=emacs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/gmp:= emacs? ( >=app-editors/emacs-25.3:* )
+SLOT=0/0.4.2
+SRC_URI=http://downloads.sourceforge.net/sourceforge/ats2-lang/ATS2-Postiats-gmp-0.4.2.tgz
+_eclasses_=elisp-common	dc179f98b2b4d9a4473fd3bdc154bbb6	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=136325a2b0103f9dcd3990485590f9d9
