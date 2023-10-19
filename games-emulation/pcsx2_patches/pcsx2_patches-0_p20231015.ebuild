@@ -10,10 +10,11 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PCSX2/pcsx2_patches.git"
 else
-	HASH_PCSX2_PATCHES=39769eef1c17a0b1743d5e6b61ec392a19ee08cf
+	HASH_PCSX2_PATCHES=4a843d2fb7d9e44532e496b8968bbcf28673b99a
 	SRC_URI="
 		https://github.com/PCSX2/pcsx2_patches/archive/${HASH_PCSX2_PATCHES}.tar.gz
-			-> ${P}.tar.gz"
+			-> ${P}.tar.gz
+	"
 	S=${WORKDIR}/${PN}-${HASH_PCSX2_PATCHES}
 	KEYWORDS="~amd64"
 fi
@@ -47,7 +48,7 @@ src_compile() {
 }
 
 src_install() {
-	insinto /usr/share/pcsx2/resources
+	insinto /usr/lib/pcsx2/resources
 	doins patches.zip
 
 	einstalldocs
