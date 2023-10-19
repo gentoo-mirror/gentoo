@@ -14,40 +14,18 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# Supported lisps, number 0 is the default
-LISPS=( sbcl cmucl gcl ecl clisp clozurecl )
-# Version restrictions, . means no restrictions
-REST=(  .    .     .   .   .     . )
-# command name: . means just ${LISP}
-COMS=(  .    lisp  .   .   .     ccl )
-
-IUSE="${LISPS[*]} X emacs gmp"
-RDEPEND="X? ( x11-libs/libXpm x11-libs/libICE )
+IUSE="+sbcl cmucl gcl ecl clisp clozurecl X emacs gmp"
+REQUIRED_USE="^^ ( sbcl cmucl gcl ecl clisp clozurecl )
+	gmp? ( ^^ ( sbcl clozurecl ) )"
+RDEPEND="sbcl? ( dev-lisp/sbcl:= )
+	cmucl? ( dev-lisp/cmucl:= )
+	gcl? ( dev-lisp/gcl:= )
+	ecl? ( dev-lisp/ecl:= )
+	clisp? ( dev-lisp/clisp:= )
+	clozurecl? ( dev-lisp/clozurecl:= )
+	X? ( x11-libs/libXpm x11-libs/libICE )
 	emacs? ( >=app-editors/emacs-23.1:* )
 	gmp? ( dev-libs/gmp:= )"
-
-# Generating lisp deps
-n=${#LISPS[*]}
-for ((n--; n > 0; n--)); do
-	LISP=${LISPS[$n]}
-	if [ "${REST[$n]}" = "." ]; then
-		DEP="dev-lisp/${LISP}"
-	else
-		DEP="${REST[$n]}"
-	fi
-	RDEPEND="${RDEPEND} ${LISP}? ( ${DEP}:= ) !${LISP}? ("
-done
-if [ "${REST[0]}" = "." ]; then
-	DEP="dev-lisp/${LISPS[0]}"
-else
-	DEP="${REST[0]}"
-fi
-RDEPEND="${RDEPEND} ${DEP}:="
-n=${#LISPS[*]}
-for ((n--; n > 0; n--)); do
-	RDEPEND="${RDEPEND} )"
-done
-
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}"/${PN}-sbcl-2.3.9.patch )
@@ -56,21 +34,15 @@ PATCHES=( "${FILESDIR}"/${PN}-sbcl-2.3.9.patch )
 RESTRICT="strip"
 
 src_configure() {
-	local LISP n GMP
-	LISP=sbcl
-	n=${#LISPS[*]}
-	for ((n--; n > 0; n--)); do
-		if use ${LISPS[$n]}; then
-			LISP=${COMS[$n]}
-			if [ "${LISP}" = "." ]; then
-				LISP=${LISPS[$n]}
-			fi
-		fi
-	done
-	einfo "Using lisp: ${LISP}"
+	local LISP GMP
+	use sbcl && LISP=sbcl
+	use cmucl && LISP=lisp
+	use gcl && LISP=gcl
+	use ecl && LISP=ecl
+	use clisp && LISP=clisp
+	use clozurecl && LISP=ccl
 
-	# bug #650788
-	if [[ ${LISP} = sbcl || ${LISP} = ccl ]]
+	if use sbcl || use clozurecl
 	then GMP=$(use_with gmp)
 	else GMP=''
 	fi
