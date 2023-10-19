@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=app-arch/lzma app-arch/unrar sys-libs/zlib[minizip] brain? ( dev-libs/xxhash ) video_cards_nvidia? ( >x11-drivers/nvidia-drivers-440.64 || ( dev-util/nvidia-cuda-toolkit virtual/opencl ) ) !video_cards_nvidia? ( virtual/opencl dev-util/opencl-headers )
+DESCRIPTION=World's fastest and most advanced password recovery utility
+EAPI=8
+HOMEPAGE=https://github.com/hashcat/hashcat
+INHERIT=pax-utils toolchain-funcs
+IUSE=brain video_cards_nvidia
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-arch/lzma app-arch/unrar sys-libs/zlib[minizip] brain? ( dev-libs/xxhash ) video_cards_nvidia? ( >x11-drivers/nvidia-drivers-440.64 || ( dev-util/nvidia-cuda-toolkit virtual/opencl ) ) !video_cards_nvidia? ( virtual/opencl dev-util/opencl-headers )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/hashcat/hashcat/archive/v6.2.6.tar.gz -> hashcat-6.2.6.tar.gz
+_eclasses_=pax-utils	91d47e5d20627c717aa878b9167c62a8	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=5d15d58ba8dc33a763ad96f4a7a319e4

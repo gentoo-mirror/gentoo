@@ -1,13 +1,14 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DESCRIPTION=Radeon Open Compute CMake Modules
-EAPI=7
-HOMEPAGE=https://github.com/RadeonOpenCompute/rocm-cmake
+DESCRIPTION=Radeon Open Compute hipcc
+EAPI=8
+HOMEPAGE=https://github.com/ROCm-Developer-Tools/hipcc
 INHERIT=cmake
+IUSE=debug test
 KEYWORDS=~amd64
-LICENSE=MIT
-RESTRICT=test
+LICENSE=Apache-2.0 MIT
+RESTRICT=!test? ( test )
 SLOT=0/5.7
-SRC_URI=https://github.com/RadeonOpenCompute/rocm-cmake/archive/rocm-5.7.0.tar.gz -> rocm-cmake-5.7.0.tar.gz
+SRC_URI=https://github.com/ROCm-Developer-Tools/hipcc/archive/refs/tags/rocm-5.7.1.tar.gz -> hipcc-5.7.1.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	fc2f89084f590ac95c004ea95b0d2f80
-_md5_=4eca66872ec3bb2fe9d6c3f8f260e9cd
+_md5_=e5b51c406ae9ae785097e9c557e30d86
