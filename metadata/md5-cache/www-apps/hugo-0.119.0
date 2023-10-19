@@ -4,13 +4,13 @@ DEPEND=>=media-libs/libwebp-1.2.3-r1:= sass? ( dev-libs/libsass:= )
 DESCRIPTION=Fast static HTML and CSS website generator
 EAPI=8
 HOMEPAGE=https://gohugo.io https://github.com/gohugoio/hugo
-INHERIT=go-module bash-completion-r1
+INHERIT=bash-completion-r1 go-module
 IUSE=doc +sass test
 KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
 LICENSE=Apache-2.0 BSD BSD-2 MIT MPL-2.0
 RDEPEND=>=media-libs/libwebp-1.2.3-r1:= sass? ( dev-libs/libsass:= )
 RESTRICT=!test? ( test ) strip
 SLOT=0
-SRC_URI=https://github.com/gohugoio/hugo/archive/v0.115.4.tar.gz -> hugo-0.115.4.tar.gz https://tastytea.de/files/gentoo/hugo-0.115.4-vendor.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=f2f6a0a1b9677ff1160e0db661cbdb56
+SRC_URI=https://github.com/gohugoio/hugo/archive/v0.119.0.tar.gz -> hugo-0.119.0.tar.gz https://tastytea.de/files/gentoo/hugo-0.119.0-vendor.tar.xz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	go-module	8624eede24936fd7666e5298e5332f22
+_md5_=f7a2651507a69231bccd86eb78b34e6c
