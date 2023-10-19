@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=app-editors/emacs-25.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEPEND=sqlite? ( dev-db/sqlite:3 )
+DESCRIPTION=A high-level Emacs Lisp RDBMS front-end
+EAPI=8
+HOMEPAGE=https://github.com/magit/emacsql
+INHERIT=edo elisp toolchain-funcs
+IUSE=+sqlite postgres mysql
+KEYWORDS=~amd64
+LICENSE=Unlicense
+RDEPEND=sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql ) mysql? ( virtual/mysql ) >=app-editors/emacs-25.1:*
+SLOT=0
+SRC_URI=https://github.com/magit/emacsql/archive/refs/tags/3.1.1.tar.gz -> emacsql-3.1.1.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	elisp-common	dc179f98b2b4d9a4473fd3bdc154bbb6	elisp	fbefa95f5e9ab880a34bc69832b7c0d7	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=aa2adc74653cf50bb0941cebbeaf803d
