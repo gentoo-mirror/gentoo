@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ if [[ ${PV} != 9999 ]]; then
 fi
 
 DESCRIPTION="Caja Actions"
-HOMEPAGE="https://github.com/infirit/caja-admin"
+HOMEPAGE="https://github.com/mate-desktop/caja-actions"
 
 LICENSE="GPL-2+"
 SLOT="0"

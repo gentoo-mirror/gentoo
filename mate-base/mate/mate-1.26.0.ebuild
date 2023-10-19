@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -79,5 +79,4 @@ pkg_postinst() {
 	elog "		mate-extra/caja-dropbox"
 	elog "		mate-extra/mate-user-share"
 	elog "		mate-extra/caja-admin"
-	elog "		mate-extra/caja-hide"
 }

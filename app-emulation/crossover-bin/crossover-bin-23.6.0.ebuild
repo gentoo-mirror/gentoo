@@ -13,7 +13,7 @@ SRC_URI="https://media.codeweavers.com/pub/crossover/cxlinux/demo/install-crosso
 LICENSE="CROSSOVER-3"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="+capi +cups doc +gphoto2 +gstreamer +jpeg +lcms ldap +mp3 +nls osmesa +openal +opencl +opengl +pcap +png +scanner +ssl +v4l +vulkan"
+IUSE="+capi +cups doc +gphoto2 +gstreamer +jpeg +lcms +mp3 +nls osmesa +openal +opencl +opengl +pcap +png +scanner +ssl +v4l +vulkan"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RESTRICT="bindist test"
@@ -40,7 +40,6 @@ RDEPEND="${DEPEND}
 	cups? ( net-print/cups[abi_x86_32(-)] )
 	jpeg? ( media-libs/libjpeg-turbo:0[abi_x86_32(-)] )
 	lcms? ( media-libs/lcms:2 )
-	ldap? ( net-nds/openldap[abi_x86_32(-)] )
 	gphoto2? ( media-libs/libgphoto2[abi_x86_32(-)] )
 	gstreamer? (
 		media-libs/gstreamer:1.0[abi_x86_32(-)]
@@ -176,11 +175,6 @@ src_install() {
 		bbe -e 's/libpcap.so.0.8/libpcap.so.1.9.1/' "${ED}/opt/cxoffice/lib/wine/x86_64-unix/wpcap.so" >tmp64 || die
 		mv tmp "${ED}/opt/cxoffice/lib/wine/i386-unix/wpcap.so" || die
 		mv tmp64 "${ED}/opt/cxoffice/lib/wine/x86_64-unix/wpcap.so" || die
-	fi
-
-	# Remove libs that link to openldap
-	if ! use ldap; then
-		rm "${ED}"/opt/cxoffice/lib/wine/{i386,x86_64}-unix/wldap32.so
 	fi
 
 	# Remove libs that link to opencl
