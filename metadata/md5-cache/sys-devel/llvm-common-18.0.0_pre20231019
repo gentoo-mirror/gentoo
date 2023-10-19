@@ -1,0 +1,13 @@
+BDEPEND=emacs? ( >=app-editors/emacs-23.1:* )
+DEFINED_PHASES=compile install postinst postrm prepare unpack
+DESCRIPTION=Common files shared between multiple slots of LLVM
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=elisp-common llvm.org
+IUSE=emacs
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+RDEPEND=!sys-devel/llvm:0
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/archive/e6e90840708099425b7b69dd053634ff25d4907f.tar.gz -> llvm-project-e6e90840708099425b7b69dd053634ff25d4907f.tar.gz
+_eclasses_=elisp-common	dc179f98b2b4d9a4473fd3bdc154bbb6	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	llvm.org	5c5f78faef228aaa7265a1f88b26bcce
+_md5_=4e56df1b08c8dd351154186d004f140d
