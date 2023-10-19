@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/Gallopsled/pwntools
 INHERIT=distutils-r1
 IUSE=python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~riscv x86
 LICENSE=MIT GPL-2+ BSD-2
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-libs/capstone-3.0.5[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-util/ROPgadget-5.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-util/unicorn-1.0.2[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/colored-traceback[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/intervaltree-3.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/mako-1.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/paramiko-1.15.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/psutil-3.3.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyelftools-0.24[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pygments-2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyserial-2.7[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/PySocks[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/python-dateutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/requests-2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/rpyc[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/six-1.12.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/sortedcontainers[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/Gallopsled/pwntools/archive/4.11.0.tar.gz -> pwntools-4.11.0.gh.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	d05609532b134be7c4ae2514f4c7d06e
-_md5_=a602e429926b689ca733f12c9207bfbd
+_md5_=a8c7981e1048f451e700351ea94ac841
