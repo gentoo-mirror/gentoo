@@ -295,6 +295,7 @@ acct-group/puppet 0-r2: System group: puppet
 acct-group/puppetdb 0-r2: System group: puppetdb
 acct-group/pushgateway 0-r1: A group for app-metrics/pushgateway
 acct-group/pvpgn 0-r1: Group for pvpgn (gaming server for Battle.Net compatible clients)
+acct-group/qbittorrent 0: Group for the system-wide net-p2p/qbittorrent server
 acct-group/qemu 0-r2: System group: qemu
 acct-group/qmail 0-r2: System group: qmail
 acct-group/quassel 0-r2: System group: quassel
@@ -724,6 +725,7 @@ acct-user/puppet 0-r2: user for puppet services
 acct-user/puppetdb 0-r2: User for the puppetdb service
 acct-user/pushgateway 0-r1: A user for app-metrics/pushgateway
 acct-user/pvpgn 0-r1: User for pvpgn (gaming server for Battle.Net compatible clients)
+acct-user/qbittorrent 0: User for the system wide net-p2p/qbittorrent server
 acct-user/qemu 0-r2: System user: qemu
 acct-user/qmaild 0-r2: user for qmail-smtpd
 acct-user/qmaill 0-r2: user for qmail logging
@@ -15223,7 +15225,7 @@ net-p2p/mktorrent 1.1_p20180912 1.1_p20210130: Simple command line utility to cr
 net-p2p/mldonkey 3.1.7-r3 3.1.7-r4: Multi-network P2P application written in Ocaml, with Gtk, web & telnet interface
 net-p2p/ncdc 1.23.1: Lightweight direct connect client with a friendly ncurses interface
 net-p2p/nicotine+ 3.2.8 3.2.9 3.2.9-r1: A fork of nicotine, a Soulseek client in Python
-net-p2p/qbittorrent 4.5.2-r1 4.5.4 9999: BitTorrent client in C++ and Qt
+net-p2p/qbittorrent 4.5.2-r1 4.5.4 4.5.5 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.7.2.1375 2.7.3.1381 9999: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.6-r1: P2P private sharing application
 net-p2p/rtorrent 0.9.8-r1 0.9.8-r2: BitTorrent Client using libtorrent
@@ -17766,7 +17768,7 @@ www-apache/mod_dnssd 0.6-r2: mod_dnssd is an Apache module which adds Zeroconf s
 www-apache/mod_fastcgi_handler 0.6-r3: A simple FastCGI handler module
 www-apache/mod_fcgid 2.3.9-r2: Binary-compatible alternative to mod_fastcgi with better process management
 www-apache/mod_gnutls 0.12.0-r1: mod_gnutls uses GnuTLS for SSL/TLS encryption in Apache2 (compare to mod_ssl)
-www-apache/mod_h2 2.0.24 9999: HTTP/2 module for Apache
+www-apache/mod_h2 2.0.25 9999: HTTP/2 module for Apache
 www-apache/mod_jk 1.2.48-r1 1.2.49: Provides an AJP Apache2-JK-connector for the Tomcat servlet engine
 www-apache/mod_limitipconn 0.24-r4: Limit the number of simultaneous apache connections
 www-apache/mod_log_rotate 1.02: Log rotation support for mod_log_config based on strftime(3)
