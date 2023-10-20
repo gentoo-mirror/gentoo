@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.11 dev-python/python-libevdev[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-libevdev[python_targets_python3_10(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=test? ( || ( ( dev-lang/python:3.11 dev-python/libevdev[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/libevdev[python_targets_python3_10(-)] ) ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DESCRIPTION=X.Org combined protocol headers
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2023.2.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	af1ca7ad21fdd31fcc4fa91d8abca977	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=0771bb7004f80d080e19937392b0eb2d
+_md5_=f6b128638c451d2bc86ba1e74f0530ae
