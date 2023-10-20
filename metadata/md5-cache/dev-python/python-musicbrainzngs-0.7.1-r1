@@ -1,16 +1,16 @@
-BDEPEND=doc? ( || ( ( dev-lang/python:3.11 >=dev-python/sphinx-5.3.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] ) ( dev-python/pypy3 >=dev-python/sphinx-5.3.0[python_targets_pypy3(-)] ) ) ) test? ( python_targets_pypy3? ( dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-15[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+BDEPEND=doc? ( || ( ( dev-lang/python:3.12 >=dev-python/sphinx-5.3.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/sphinx-5.3.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] ) ( dev-python/pypy3 >=dev-python/sphinx-5.3.0[python_targets_pypy3(-)] ) ) ) test? ( python_targets_pypy3? ( dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Python bindings for the MusicBrainz NGS and the Cover Art Archive webservices
 EAPI=8
 HOMEPAGE=https://github.com/alastair/python-musicbrainzngs/ https://pypi.org/project/musicbrainzngs/
 INHERIT=distutils-r1
-IUSE=examples doc test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11
+IUSE=examples doc test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=amd64 ~x86
 LICENSE=BSD-2 ISC
-RDEPEND=python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
-REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/alastair/python-musicbrainzngs/archive/v0.7.1.tar.gz -> python-musicbrainzngs-0.7.1.gh.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	d05609532b134be7c4ae2514f4c7d06e
-_md5_=3b3fada6d87b79eaf42f2e9e01a6d291
+_md5_=e916bd4fe3f9de523ce97daf40eebcaa
