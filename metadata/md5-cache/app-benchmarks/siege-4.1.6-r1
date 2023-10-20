@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=sys-libs/zlib ssl? ( dev-libs/openssl:0= )
+DESCRIPTION=A HTTP regression testing and benchmarking utility
+EAPI=8
+HOMEPAGE=https://www.joedog.org/siege-home https://github.com/JoeDog/siege
+INHERIT=autotools bash-completion-r1
+IUSE=ssl
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~x86 ~x64-macos
+LICENSE=GPL-3
+RDEPEND=sys-libs/zlib ssl? ( dev-libs/openssl:0= )
+SLOT=0
+SRC_URI=http://download.joedog.org/siege/siege-4.1.6.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=0f3a1253988cdfe848002b005f95c3a8
