@@ -27,10 +27,6 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="compat? ( !sys-libs/zlib )"
 
-PATCHES=(
-	"${FILESDIR}"/zlib-ng-2.1.2-cmake.patch
-)
-
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DZLIB_COMPAT=$(usex compat)
