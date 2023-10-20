@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=Changes your wallpaper daily to the bing.com background image
+EAPI=8
+HOMEPAGE=https://github.com/neffo/bing-wallpaper-gnome-extension
+INHERIT=gnome2-utils
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=gnome-base/gnome-shell-3.36 net-libs/libsoup:2.4
+SLOT=0
+SRC_URI=https://github.com/neffo/bing-wallpaper-gnome-extension/archive/v45.tar.gz -> gnome-shell-extension-bing-wallpaper-45.tar.gz https://patch-diff.githubusercontent.com/raw/neffo/bing-wallpaper-gnome-extension/pull/215.patch -> gnome-shell-extension-bing-wallpaper-45-gnome45.patch
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116
+_md5_=8181a3561c4cf286cbb494ff3ca8805d
