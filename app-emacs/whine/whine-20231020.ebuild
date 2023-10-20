@@ -7,11 +7,10 @@ inherit elisp
 
 DESCRIPTION="Complaint generator for GNU Emacs"
 HOMEPAGE="https://www.emacswiki.org/emacs/Whine"
-SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.tar.bz2"
+SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.el.xz"
 
-LICENSE="public-domain"
+LICENSE="CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 SITEFILE="50${PN}-gentoo.el"
-DOCS="README.orig"
