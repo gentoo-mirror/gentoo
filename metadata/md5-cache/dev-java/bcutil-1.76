@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.bouncycastle.org/java.html
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 arm64 ~ppc64 ~x86
+KEYWORDS=amd64 arm64 ~ppc64 x86
 LICENSE=BSD
 RDEPEND=~dev-java/bcprov-1.76:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bcgit/bc-java/archive/r1rv76.tar.gz -> bc-java-r1rv76.tar.gz
 _eclasses_=java-utils-2	30b5d143e64d691346fcdd85eef1c614	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
-_md5_=2c4a2601a4dd1239466d2c85421f3d44
+_md5_=d12952da8b01e91c3ea54e64749a8a3e
