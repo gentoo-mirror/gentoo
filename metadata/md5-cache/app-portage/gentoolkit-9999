@@ -1,6 +1,6 @@
 BDEPEND=python_targets_pypy3? ( dev-python/pypy3:=[xml(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+),threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+),threads(+)] ) >=dev-util/meson-1.2.1-r1 python_targets_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)?] ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=>=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEPEND=>=sys-apps/portage-3.0.53[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DESCRIPTION=Collection of administration scripts for Gentoo
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Portage-Tools
@@ -8,8 +8,8 @@ INHERIT=meson python-r1 tmpfiles git-r3
 IUSE=python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=sys-apps/portage-3.0.52[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_pypy3? ( dev-python/pypy3:=[xml(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+),threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+),threads(+)] ) app-alternatives/awk sys-apps/gentoo-functions virtual/tmpfiles
+RDEPEND=>=sys-apps/portage-3.0.53[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_pypy3? ( dev-python/pypy3:=[xml(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+),threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+),threads(+)] ) app-alternatives/awk sys-apps/gentoo-functions virtual/tmpfiles
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	af1ca7ad21fdd31fcc4fa91d8abca977	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	2358a7b20091609e24bd3a83b3ac5991
-_md5_=ef60466e180ce20fce7844775f76e316
+_md5_=af4eb89d897cdc8d48cea820125b55a8

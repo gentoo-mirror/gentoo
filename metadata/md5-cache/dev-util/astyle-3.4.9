@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-andresimon ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install preinst prepare setup unpack
+DEPEND=app-arch/xz-utils java? ( >=virtual/jdk-1.6:= ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DESCRIPTION=Artistic Style is a re-indenter and reformatter for C++, C and Java source code
+EAPI=8
+HOMEPAGE=https://astyle.sourceforge.net/ https://gitlab.com/saalen/astyle
+INHERIT=toolchain-funcs java-pkg-opt-2 verify-sig
+IUSE=examples java static-libs java verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=MIT
+RDEPEND=app-arch/xz-utils java? ( >=virtual/jdk-1.6:= ) java? ( >=dev-java/java-config-2.2.0-r3 )
+SLOT=0/3.2
+SRC_URI=mirror://sourceforge/astyle/astyle-3.4.9.tar.bz2 http://www.andre-simon.de/zip/astyle-3.4.9.tar.bz2 verify-sig? ( http://www.andre-simon.de/zip/astyle-3.4.9.tar.bz2.asc )
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	java-utils-2	30b5d143e64d691346fcdd85eef1c614	java-pkg-opt-2	3816f3fc28ed2b067845e2802eb954b2	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
+_md5_=7c9453a94d1038f73b80802443c32509
