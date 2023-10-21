@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/xerial/snappy-java/
 INHERIT=java-pkg-2 java-pkg-simple toolchain-funcs check-reqs
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* dev-java/osgi-core:0 app-arch/snappy dev-libs/bitshuffle >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=1.1
 SRC_URI=https://github.com/xerial/snappy-java/archive/v1.1.10.1.tar.gz -> snappy-1.1.10.1.tar.gz test? ( https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/3.3.5/hadoop-common-3.3.5.jar )
 _eclasses_=java-utils-2	30b5d143e64d691346fcdd85eef1c614	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc
-_md5_=1b115ca2294387443a8d8baf4274eb66
+_md5_=72c13d70ea6696ce11acb1668bfe6cc7
