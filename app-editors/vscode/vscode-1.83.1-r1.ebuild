@@ -5,24 +5,16 @@ EAPI=8
 
 inherit desktop pax-utils xdg optfeature
 
-# Usage: arch_src_uri <gentoo arch> <upstream arch>
-arch_src_uri() {
-	echo "${1}? (
-		https://github.com/VSCodium/${PN}/releases/download/${PV}/VSCodium-linux-${2}-${PV}.tar.gz
-			-> ${P}-${1}.tar.gz
-	)"
-}
-
-DESCRIPTION="A community-driven, freely-licensed binary distribution of Microsoft's VSCode"
-HOMEPAGE="https://vscodium.com/"
+DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
+HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	$(arch_src_uri amd64 x64)
-	$(arch_src_uri arm armhf)
-	$(arch_src_uri arm64 arm64)
+	amd64? ( https://update.code.visualstudio.com/${PV}/linux-x64/stable -> ${P}-amd64.tar.gz )
+	arm? ( https://update.code.visualstudio.com/${PV}/linux-armhf/stable -> ${P}-arm.tar.gz )
+	arm64? ( https://update.code.visualstudio.com/${PV}/linux-arm64/stable -> ${P}-arm64.tar.gz )
 "
 S="${WORKDIR}"
 
-RESTRICT="strip bindist"
+RESTRICT="mirror strip bindist"
 
 LICENSE="
 	Apache-2.0
@@ -33,6 +25,7 @@ LICENSE="
 	CC-BY-4.0
 	ISC
 	LGPL-2.1+
+	Microsoft-vscode
 	MIT
 	MPL-2.0
 	openssl
@@ -43,13 +36,12 @@ LICENSE="
 	W3C
 "
 SLOT="0"
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* amd64 ~arm ~arm64"
 IUSE="kerberos"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	app-crypt/libsecret[crypt]
-	app-i18n/ibus
 	app-misc/ca-certificates
 	dev-libs/expat
 	dev-libs/glib:2
@@ -60,6 +52,7 @@ RDEPEND="
 	media-libs/libglvnd
 	media-libs/mesa
 	net-misc/curl
+	sys-apps/dbus
 	sys-libs/zlib
 	sys-process/lsof
 	x11-libs/cairo
@@ -84,31 +77,42 @@ RDEPEND="
 QA_PREBUILT="*"
 
 src_install() {
+	if use amd64; then
+		cd "${WORKDIR}/VSCode-linux-x64" || die
+	elif use arm; then
+		cd "${WORKDIR}/VSCode-linux-armhf" || die
+	elif use arm64; then
+		cd "${WORKDIR}/VSCode-linux-arm64" || die
+	else
+		die "Visual Studio Code only supports amd64, arm and arm64"
+	fi
+
 	# Cleanup
-	rm "${S}/resources/app/LICENSE.txt" || die
+	rm -r ./resources/app/ThirdPartyNotices.txt || die
+
+	# Disable update server
+	sed -e "/updateUrl/d" -i ./resources/app/product.json || die
 
 	if ! use kerberos; then
-		rm -r "${S}/resources/app/node_modules.asar.unpacked/kerberos" || die
+		rm -r ./resources/app/node_modules.asar.unpacked/kerberos || die
 	fi
 
 	# Install
-	pax-mark m codium
+	pax-mark m code
 	mkdir -p "${ED}/opt/${PN}" || die
 	cp -r . "${ED}/opt/${PN}" || die
 	fperms 4711 /opt/${PN}/chrome-sandbox
 
-	dosym -r "/opt/${PN}/bin/codium" "usr/bin/vscodium"
-	dosym -r "/opt/${PN}/bin/codium" "usr/bin/codium"
-	domenu "${FILESDIR}/vscodium.desktop"
-	domenu "${FILESDIR}/vscodium-url-handler.desktop"
-	domenu "${FILESDIR}/vscodium-wayland.desktop"
-	domenu "${FILESDIR}/vscodium-url-handler-wayland.desktop"
-	newicon "resources/app/resources/linux/code.png" "vscodium.png"
+	dosym -r "/opt/${PN}/bin/code" "usr/bin/vscode"
+	dosym -r "/opt/${PN}/bin/code" "usr/bin/code"
+	domenu "${FILESDIR}/vscode.desktop"
+	domenu "${FILESDIR}/vscode-url-handler.desktop"
+	domenu "${FILESDIR}/vscode-wayland.desktop"
+	domenu "${FILESDIR}/vscode-url-handler-wayland.desktop"
+	newicon "resources/app/resources/linux/code.png" "vscode.png"
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	elog "When compared to the regular VSCode, VSCodium has a few quirks"
-	elog "More information at: https://github.com/VSCodium/vscodium/blob/master/DOCS.md"
 	optfeature "keyring support inside vscode" "virtual/secret-service"
 }
