@@ -199,4 +199,7 @@ src_install() {
 	default
 
 	find "${ED}" -name '*.la' -delete || die
+
+	# if compressed, help doesn't work
+	docompress -x /usr/share/doc/${PF}
 }
