@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=lz4? ( app-arch/lz4:= ) lzo? ( dev-libs/lzo:2 ) sys-apps/util-linux selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone )
+DESCRIPTION=Tools for Flash-Friendly File System (F2FS)
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/about/
+INHERIT=autotools
+IUSE=lz4 lzo selinux
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=lz4? ( app-arch/lz4:= ) lzo? ( dev-libs/lzo:2 ) sys-apps/util-linux selinux? ( sys-libs/libselinux ) elibc_musl? ( sys-libs/queue-standalone )
+SLOT=0/10
+SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/f2fs-tools-1.16.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=7b5f312f88bb35518defe3878b867f25
