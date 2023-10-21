@@ -1,0 +1,16 @@
+BDEPEND=dev-python/hatch-vcs[python_targets_python3_10(-)?,python_targets_python3_11(-)?] test? ( dev-python/build[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/cattrs-22.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pybind11[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pytest-subprocess-1.5[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/virtualenv[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/wheel[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) test? ( >=dev-python/packaging-20.9[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pathspec-0.10.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyproject-metadata-0.5[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-python/exceptiongroup[python_targets_python3_10(-)?] >=dev-python/tomli-1.1[python_targets_python3_10(-)?] ) >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/hatchling-1.17.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Build backend for CMake based projects
+EAPI=8
+HOMEPAGE=https://github.com/scikit-build/scikit-build-core/ https://pypi.org/project/scikit-build-core/
+INHERIT=distutils-r1 pypi
+IUSE=test python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-python/packaging-20.9[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pathspec-0.10.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pyproject-metadata-0.5[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-python/exceptiongroup[python_targets_python3_10(-)?] >=dev-python/tomli-1.1[python_targets_python3_10(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/s/scikit-build-core/scikit_build_core-0.6.0.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e5cc383ea8420f92fe3737be790021dc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	d05609532b134be7c4ae2514f4c7d06e	pypi	2eecb475512bc76e5ea9192a681b9e6b
+_md5_=95ce6e9cad7b64459701dca4ec615784
