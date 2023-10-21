@@ -1,0 +1,17 @@
+BDEPEND=gtk-doc? ( >=dev-util/gi-docgen-2021.1 ) vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.68.0:2 >=x11-libs/cairo-1.4 >=dev-db/sqlite-1.12:3 >=gui-libs/gtk-4:4 >=net-libs/libsoup-3.0:3.0 introspection? ( >=dev-libs/gobject-introspection-0.6.3:= ) sysprof? ( dev-util/sysprof-capture:4 )
+DESCRIPTION=Shumate is a GTK toolkit providing widgets for embedded maps
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Projects/libshumate https://gitlab.gnome.org/GNOME/libshumate
+INHERIT=gnome.org meson vala virtualx
+IUSE=gtk-doc +introspection sysprof vala test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~sparc ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-libs/glib-2.68.0:2 >=x11-libs/cairo-1.4 >=dev-db/sqlite-1.12:3 >=gui-libs/gtk-4:4 >=net-libs/libsoup-3.0:3.0 introspection? ( >=dev-libs/gobject-introspection-0.6.3:= )
+REQUIRED_USE=gtk-doc? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=1.0/1
+SRC_URI=mirror://gnome/sources/libshumate/1.1/libshumate-1.1.1.tar.xz
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	meson	af1ca7ad21fdd31fcc4fa91d8abca977	flag-o-matic	5ae516d405b6ae5636e487ea4350a8a2	vala	db97951caa799e73a831a5f48e717da8	virtualx	817571665ee28575da44ee08135089e5
+_md5_=28392e37f796a783d0c73efc83c49ae7
