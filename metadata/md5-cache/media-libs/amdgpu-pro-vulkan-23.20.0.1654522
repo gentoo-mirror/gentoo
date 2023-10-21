@@ -1,0 +1,15 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=install postinst prepare unpack
+DESCRIPTION=AMD's closed source vulkan driver, from Radeon Software for Linux
+EAPI=8
+HOMEPAGE=https://www.amd.com/en/support
+INHERIT=unpacker
+IUSE=abi_x86_32 abi_x86_64 video_cards_amdgpu
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=AMD-GPU-PRO-EULA
+REQUIRED_USE=video_cards_amdgpu
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=abi_x86_64? ( https://repo.radeon.com/amdgpu/5.7/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/vulkan-amdgpu-pro_23.20-1654522.22.04_amd64.deb -> amdgpu-pro-vulkan-23.20.0.1654522-amd64.deb ) abi_x86_32? ( https://repo.radeon.com/amdgpu/5.7/ubuntu/pool/proprietary/v/vulkan-amdgpu-pro/vulkan-amdgpu-pro_23.20-1654522.22.04_i386.deb -> amdgpu-pro-vulkan-23.20.0.1654522-i386.deb )
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	unpacker	aa6a4e924009232d8b78b31e932c30b5
+_md5_=c25ffdaf162f62a9dae37752d0cad59f
