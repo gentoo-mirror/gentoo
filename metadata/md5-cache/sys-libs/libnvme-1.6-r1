@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/swig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=json? ( dev-libs/json-c:= ) keyutils? ( sys-apps/keyutils:= ) dbus? ( sys-apps/dbus:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
+DESCRIPTION=C Library for NVM Express on Linux
+EAPI=8
+HOMEPAGE=https://github.com/linux-nvme/libnvme
+INHERIT=python-r1 meson
+IUSE=dbus +json keyutils python ssl test +uuid python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=json? ( dev-libs/json-c:= ) keyutils? ( sys-apps/keyutils:= ) dbus? ( sys-apps/dbus:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) ssl? ( >=dev-libs/openssl-1.1:= ) uuid? ( sys-apps/util-linux:= )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/linux-nvme/libnvme/archive/refs/tags/v1.6.tar.gz -> libnvme-1.6.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	12aa0037eb004139215ff04894d52b28	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	meson	af1ca7ad21fdd31fcc4fa91d8abca977
+_md5_=6ea899b1fb5dd95d14c6c5bda5993c54
