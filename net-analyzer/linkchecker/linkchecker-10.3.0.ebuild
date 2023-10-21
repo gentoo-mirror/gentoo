@@ -3,20 +3,22 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE="sqlite?"
 DISTUTILS_USE_PEP517=hatchling
 DISTUTILS_SINGLE_IMPL=1
 
 inherit bash-completion-r1 distutils-r1 multiprocessing optfeature
 
+MY_P=LinkChecker-${PV}
 DESCRIPTION="Check websites for broken links"
 HOMEPAGE="https://github.com/linkchecker/linkchecker"
-SRC_URI="https://github.com/linkchecker/linkchecker/releases/download/v${PV}/LinkChecker-${PV}.tar.gz"
-KEYWORDS="amd64 x86"
+SRC_URI="https://github.com/linkchecker/linkchecker/releases/download/v${PV}/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="sqlite"
 
 RDEPEND="
@@ -49,10 +51,8 @@ DOCS=(
 )
 
 python_test() {
-	# Telnet test uses miniboa which is not available in Gentoo
-	rm -f tests/checker/test_telnet.py
 	# Multiple warnings about unclosed test sockets with epytest
-	pytest -vra -n "$(makeopts_jobs)"|| die
+	pytest -vra -n "$(makeopts_jobs)" || die
 }
 
 python_install_all() {
