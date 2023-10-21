@@ -1,33 +1,33 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit qmake-utils udev virtualx xdg
+inherit qmake-utils udev xdg
 
-DESCRIPTION="A software to control DMX or analog lighting systems"
+DESCRIPTION="Software to control DMX or analog lighting systems"
 HOMEPAGE="https://www.qlcplus.org/"
 SRC_URI="https://github.com/mcallegari/${PN}/archive/QLC+_${PV}.tar.gz"
 S="${WORKDIR}/qlcplus-QLC-_${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-BDEPEND="
-	dev-qt/linguist-tools:5
-"
 RDEPEND="
 	dev-embedded/libftdi:=
 	dev-libs/glib:2
+	dev-qt/qt3d:5[qml]
 	dev-qt/qtcore:5
+	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
-	dev-qt/qtmultimedia:5[widgets]
+	dev-qt/qtmultimedia:5[widgets,qml]
 	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	media-libs/alsa-lib
 	media-libs/libmad
@@ -37,12 +37,11 @@ RDEPEND="
 	virtual/libusb:1
 	virtual/udev
 "
-IDEPEND="
-	dev-util/desktop-file-utils
-"
 DEPEND="${RDEPEND}
 	dev-qt/qttest:5
 "
+BDEPEND="dev-qt/linguist-tools:5"
+IDEPEND="dev-util/desktop-file-utils"
 
 src_prepare() {
 	default
@@ -56,7 +55,12 @@ src_prepare() {
 }
 
 src_configure() {
-	eqmake5
+	eqmake5 CONFIG+=qmlui
+}
+
+src_test() {
+	local -x QT_QPA_PLATFORM=offscreen
+	emake check
 }
 
 src_install() {
@@ -68,10 +72,13 @@ pkg_postinst() {
 
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
-}
 
-src_test() {
-	virtx emake check
+	elog "Some configurations of KDE Plasma break the layout of"
+	elog "QLC+ 5's QML UI."
+	elog "As a workaround, try those environment variables:"
+	elog "	export XDG_CURRENT_DESKTOP=GNOME"
+	elog "OR"
+	elog "	export QT_QPA_PLATFORMTHEME=gtk3"
 }
 
 pkg_postrm() {
