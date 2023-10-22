@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_NAME="${PN/ruby-/}"
 RUBY_FAKEGEM_VERSION="${PV%_*}"
@@ -20,7 +20,7 @@ inherit ruby-fakegem
 DESCRIPTION="Native Language Support Library and Tools modeled after GNU gettext package"
 HOMEPAGE="https://ruby-gettext.github.io/"
 
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc test"
 SLOT="0"
 LICENSE="|| ( GPL-2 Ruby-BSD LGPL-3+ )"
@@ -29,6 +29,7 @@ ruby_add_rdepend "
 	dev-ruby/erubi
 	>=dev-ruby/locale-2.0.5
 	dev-ruby/prime
+	dev-ruby/racc
 	>=dev-ruby/text-1.3.0
 "
 
