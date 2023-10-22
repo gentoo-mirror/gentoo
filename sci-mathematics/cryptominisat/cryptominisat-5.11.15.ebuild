@@ -8,12 +8,14 @@ inherit cmake
 DESCRIPTION="Advanced SAT solver with C++ and command-line interfaces"
 HOMEPAGE="https://github.com/msoos/cryptominisat/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/msoos/${PN}.git"
 else
 	SRC_URI="https://github.com/msoos/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
+
 	KEYWORDS="~amd64 ~x86"
 fi
 
