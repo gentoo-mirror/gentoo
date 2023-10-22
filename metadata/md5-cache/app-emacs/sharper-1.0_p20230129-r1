@@ -1,4 +1,4 @@
-BDEPEND=>=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/transient >=app-editors/emacs-27.1:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=.NET SDK CLI wrapper for GNU Emacs using Transient
 EAPI=8
@@ -6,8 +6,8 @@ HOMEPAGE=https://github.com/sebasmonia/sharper/
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=>=app-editors/emacs-25.3:*
+RDEPEND=app-emacs/transient >=app-editors/emacs-27.1:*
 SLOT=0
 SRC_URI=https://github.com/sebasmonia/sharper/archive/496e90e337cb09329d85a6d171c0953a85e918fe.tar.gz -> sharper-1.0_p20230129.tar.gz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=5c8fe45ae0b8e00b3f87b629a33550b6
+_md5_=e94ee9074713ca7cd69d519cbf680a10
