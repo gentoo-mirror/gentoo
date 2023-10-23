@@ -2,14 +2,14 @@ BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=>=dev-haskell/alsa-core-0.5:=[profile?] <dev-haskell/alsa-core-0.6:=[profile?] >=dev-lang/ghc-7.6.1:= media-libs/alsa-lib dev-haskell/c2hs >=dev-haskell/cabal-1.16.0 hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Bindings to the ALSA simple mixer API
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/ttuegel/alsa-mixer
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-haskell/alsa-core-0.5:=[profile?] <dev-haskell/alsa-core-0.6:=[profile?] >=dev-lang/ghc-7.6.1:= media-libs/alsa-lib
+RDEPEND=>=dev-haskell/alsa-core-0.5:=[profile?] <dev-haskell/alsa-core-0.6:=[profile?] >=dev-lang/ghc-7.6.1:= media-libs/alsa-lib dev-lang/ghc:=[profile?]
 SLOT=0/0.3.0
 SRC_URI=https://hackage.haskell.org/package/alsa-mixer-0.3.0/alsa-mixer-0.3.0.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	13a2f21e4152733139de87f74c2f99dd
-_md5_=c394f13926c95dc9dd0cbd03b6726c43
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=da4a2b662fd0737d9ebaff023937af91

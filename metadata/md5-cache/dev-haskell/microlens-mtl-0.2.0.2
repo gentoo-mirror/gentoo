@@ -1,0 +1,15 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/microlens-0.4:=[profile?] <dev-haskell/microlens-0.5:=[profile?] >=dev-haskell/transformers-compat-0.4:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=microlens support for Reader/Writer/State from mtl
+EAPI=8
+HOMEPAGE=https://github.com/monadfix/microlens
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/microlens-0.4:=[profile?] <dev-haskell/microlens-0.5:=[profile?] >=dev-haskell/transformers-compat-0.4:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+SLOT=0/0.2.0.2
+SRC_URI=https://hackage.haskell.org/package/microlens-mtl-0.2.0.2/microlens-mtl-0.2.0.2.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=220b4deb281f048e7ad09969bffe82cf

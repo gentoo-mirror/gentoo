@@ -8,9 +8,9 @@ INHERIT=haskell-cabal
 IUSE=executable server doc hscolour profile test
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-haskell/pandoc-types-1.20:=[profile?] <dev-haskell/pandoc-types-1.23:=[profile?] dev-haskell/split:=[profile?] >=dev-haskell/syb-0.4.2:=[profile?] <dev-haskell/syb-0.8:=[profile?] dev-haskell/xml:=[profile?] >=dev-lang/ghc-8.4.3:= executable? ( dev-haskell/aeson:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] dev-haskell/pretty-show:=[profile?] ) !executable? ( server? ( dev-haskell/aeson:=[profile?] ) ) server? ( dev-haskell/optparse-applicative:=[profile?] dev-haskell/safe:=[profile?] dev-haskell/servant-server:=[profile?] dev-haskell/wai:=[profile?] dev-haskell/wai-logger:=[profile?] dev-haskell/warp:=[profile?] )
+RDEPEND=>=dev-haskell/pandoc-types-1.20:=[profile?] <dev-haskell/pandoc-types-1.23:=[profile?] dev-haskell/split:=[profile?] >=dev-haskell/syb-0.4.2:=[profile?] <dev-haskell/syb-0.8:=[profile?] dev-haskell/xml:=[profile?] >=dev-lang/ghc-8.4.3:= executable? ( dev-haskell/aeson:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] dev-haskell/pretty-show:=[profile?] ) !executable? ( server? ( dev-haskell/aeson:=[profile?] ) ) server? ( dev-haskell/optparse-applicative:=[profile?] dev-haskell/safe:=[profile?] dev-haskell/servant-server:=[profile?] dev-haskell/wai:=[profile?] dev-haskell/wai-logger:=[profile?] dev-haskell/warp:=[profile?] ) dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.12.5.1
 SRC_URI=https://hackage.haskell.org/package/texmath-0.12.5.1/texmath-0.12.5.1.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	13a2f21e4152733139de87f74c2f99dd
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
 _md5_=dd886be7d9ca51a27f55ab5f894fec9b

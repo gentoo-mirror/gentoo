@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/basement-0.0.6:=[profile?] >=dev-haskell/memory-0.14.18:=[profile?] >=dev-lang/ghc-8.8.1:= virtual/libc >=dev-haskell/cabal-3.0.0.0 test? ( dev-haskell/tasty dev-haskell/tasty-hunit dev-haskell/tasty-kat dev-haskell/tasty-quickcheck ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Cryptography Primitives sink
+EAPI=8
+HOMEPAGE=https://github.com/kazu-yamamoto/crypton
+INHERIT=haskell-cabal
+IUSE=check-alignment +integer-gmp old-toolchain-inliner +support-aesni +support-deepseq +support-pclmuldq +support-rdrand support-sse +target-attributes doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/basement-0.0.6:=[profile?] >=dev-haskell/memory-0.14.18:=[profile?] >=dev-lang/ghc-8.8.1:= virtual/libc dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.32
+SRC_URI=https://hackage.haskell.org/package/crypton-0.32/crypton-0.32.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=fe1f828132b7b83e9141adc247a05e41

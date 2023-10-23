@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test
+DEPEND=>=dev-haskell/scientific-0.3.1:=[profile?] <dev-haskell/scientific-0.4:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( >=dev-haskell/quickcheck-2.13.2 <dev-haskell/quickcheck-2.15 dev-haskell/quickcheck-unicode >=dev-haskell/tasty-0.11 >=dev-haskell/tasty-quickcheck-0.8 dev-haskell/vector ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Fast combinator parsing for bytestrings and text
+EAPI=8
+HOMEPAGE=https://github.com/bgamari/attoparsec
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/scientific-0.3.1:=[profile?] <dev-haskell/scientific-0.4:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.14.4
+SRC_URI=https://hackage.haskell.org/package/attoparsec-0.14.4/attoparsec-0.14.4.tar.gz https://hackage.haskell.org/package/attoparsec-0.14.4/revision/4.cabal -> attoparsec-0.14.4-rev4.cabal
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=cd9f221b5d739b92b7382084152c2119

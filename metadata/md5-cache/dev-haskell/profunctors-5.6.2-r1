@@ -1,0 +1,15 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/base-orphans-0.8.4:=[profile?] <dev-haskell/base-orphans-0.10:=[profile?] >=dev-haskell/bifunctors-5.5.9:=[profile?] <dev-haskell/bifunctors-6:=[profile?] >=dev-haskell/comonad-5.0.8:=[profile?] <dev-haskell/comonad-6:=[profile?] >=dev-haskell/contravariant-1.5.3:=[profile?] <dev-haskell/contravariant-2:=[profile?] >=dev-haskell/distributive-0.5.2:=[profile?] <dev-haskell/distributive-1:=[profile?] >=dev-haskell/tagged-0.8.6.1:=[profile?] <dev-haskell/tagged-1:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/cabal-3.0.0.0 hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=The Profunctors package, authored by Edward Kmett
+EAPI=8
+HOMEPAGE=https://github.com/ekmett/profunctors/
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/base-orphans-0.8.4:=[profile?] <dev-haskell/base-orphans-0.10:=[profile?] >=dev-haskell/bifunctors-5.5.9:=[profile?] <dev-haskell/bifunctors-6:=[profile?] >=dev-haskell/comonad-5.0.8:=[profile?] <dev-haskell/comonad-6:=[profile?] >=dev-haskell/contravariant-1.5.3:=[profile?] <dev-haskell/contravariant-2:=[profile?] >=dev-haskell/distributive-0.5.2:=[profile?] <dev-haskell/distributive-1:=[profile?] >=dev-haskell/tagged-0.8.6.1:=[profile?] <dev-haskell/tagged-1:=[profile?] >=dev-lang/ghc-8.8.1:= dev-lang/ghc:=[profile?]
+SLOT=0/5.6.2
+SRC_URI=https://hackage.haskell.org/package/profunctors-5.6.2/profunctors-5.6.2.tar.gz https://hackage.haskell.org/package/profunctors-5.6.2/revision/3.cabal -> profunctors-5.6.2-rev3.cabal
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=5d49d7ed0470c9ac151055c5a00e8a71

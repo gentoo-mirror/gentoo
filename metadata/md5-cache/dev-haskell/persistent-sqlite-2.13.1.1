@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-db/sqlite-3.0 >=dev-haskell/aeson-1.0:=[profile?] >=dev-haskell/conduit-1.2.12:=[profile?] >=dev-haskell/microlens-th-0.4.1.1:=[profile?] >=dev-haskell/monad-logger-0.3.25:=[profile?] >=dev-haskell/persistent-2.13.3:=[profile?] <dev-haskell/persistent-3:=[profile?] dev-haskell/resource-pool:=[profile?] >=dev-haskell/resourcet-1.1.9:=[profile?] >=dev-haskell/text-1.2:=[profile?] dev-haskell/unliftio-core:=[profile?] dev-haskell/unordered-containers:=[profile?] >=dev-lang/ghc-8.8.1:= virtual/libc >=dev-haskell/cabal-3.0.0.0 test? ( dev-haskell/exceptions dev-haskell/fast-logger >=dev-haskell/hspec-2.4 dev-haskell/hunit dev-haskell/microlens dev-haskell/persistent-test dev-haskell/quickcheck dev-haskell/system-fileio dev-haskell/system-filepath dev-haskell/temporary ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Backend for the persistent library using sqlite3
+EAPI=8
+HOMEPAGE=https://www.yesodweb.com/book/persistent
+INHERIT=haskell-cabal
+IUSE=build-sanity-exe doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=>=dev-db/sqlite-3.0 >=dev-haskell/aeson-1.0:=[profile?] >=dev-haskell/conduit-1.2.12:=[profile?] >=dev-haskell/microlens-th-0.4.1.1:=[profile?] >=dev-haskell/monad-logger-0.3.25:=[profile?] >=dev-haskell/persistent-2.13.3:=[profile?] <dev-haskell/persistent-3:=[profile?] dev-haskell/resource-pool:=[profile?] >=dev-haskell/resourcet-1.1.9:=[profile?] >=dev-haskell/text-1.2:=[profile?] dev-haskell/unliftio-core:=[profile?] dev-haskell/unordered-containers:=[profile?] >=dev-lang/ghc-8.8.1:= virtual/libc dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/2.13.1.1
+SRC_URI=https://hackage.haskell.org/package/persistent-sqlite-2.13.1.1/persistent-sqlite-2.13.1.1.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=ceb26b30a283bc933672fa468deca9f7

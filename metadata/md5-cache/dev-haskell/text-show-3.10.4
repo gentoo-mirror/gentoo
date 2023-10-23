@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/base-compat-batteries-0.11:=[profile?] <dev-haskell/base-compat-batteries-0.14:=[profile?] >=dev-haskell/bifunctors-5.1:=[profile?] <dev-haskell/bifunctors-6:=[profile?] dev-haskell/bytestring-builder:=[profile?] >=dev-haskell/generic-deriving-1.14.1:=[profile?] <dev-haskell/generic-deriving-2:=[profile?] >=dev-haskell/text-0.11.1:=[profile?] <dev-haskell/text-2.1:=[profile?] >=dev-haskell/th-abstraction-0.4:=[profile?] <dev-haskell/th-abstraction-0.7:=[profile?] >=dev-haskell/th-lift-0.7.6:=[profile?] <dev-haskell/th-lift-1:=[profile?] >=dev-haskell/transformers-compat-0.5:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/cabal-3.0.0.0 test? ( >=dev-haskell/base-orphans-0.8.5 <dev-haskell/base-orphans-0.10 >=dev-haskell/deriving-compat-0.6.5 <dev-haskell/deriving-compat-1 >=dev-haskell/hspec-2 <dev-haskell/hspec-3 >=dev-haskell/quickcheck-2.14.3 <dev-haskell/quickcheck-2.15 >=dev-haskell/quickcheck-instances-0.3.28 <dev-haskell/quickcheck-instances-0.4 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Efficient conversion of values into Text
+EAPI=8
+HOMEPAGE=https://github.com/RyanGlScott/text-show
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/base-compat-batteries-0.11:=[profile?] <dev-haskell/base-compat-batteries-0.14:=[profile?] >=dev-haskell/bifunctors-5.1:=[profile?] <dev-haskell/bifunctors-6:=[profile?] dev-haskell/bytestring-builder:=[profile?] >=dev-haskell/generic-deriving-1.14.1:=[profile?] <dev-haskell/generic-deriving-2:=[profile?] >=dev-haskell/text-0.11.1:=[profile?] <dev-haskell/text-2.1:=[profile?] >=dev-haskell/th-abstraction-0.4:=[profile?] <dev-haskell/th-abstraction-0.7:=[profile?] >=dev-haskell/th-lift-0.7.6:=[profile?] <dev-haskell/th-lift-1:=[profile?] >=dev-haskell/transformers-compat-0.5:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-lang/ghc-8.8.1:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/3.10.4
+SRC_URI=https://hackage.haskell.org/package/text-show-3.10.4/text-show-3.10.4.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=fa4b78674abb0056aca80cacf521fe9b

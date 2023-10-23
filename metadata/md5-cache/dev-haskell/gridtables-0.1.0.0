@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=dev-haskell/doclayout:=[profile?] >=dev-haskell/parsec-3.1:=[profile?] <dev-haskell/parsec-3.2:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/text-1.1.1.0:=[profile?] <dev-haskell/text-2.1:=[profile?] >=dev-haskell/cabal-3.0.0.0 test? ( >=dev-haskell/tasty-0.11 >=dev-haskell/tasty-hunit-0.9 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Parser for reStructuredText-style grid tables
+EAPI=8
+HOMEPAGE=https://github.com/tarleb/gridtables
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-haskell/doclayout:=[profile?] >=dev-haskell/parsec-3.1:=[profile?] <dev-haskell/parsec-3.2:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/text-1.1.1.0:=[profile?] <dev-haskell/text-2.1:=[profile?] dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.1.0.0
+SRC_URI=https://hackage.haskell.org/package/gridtables-0.1.0.0/gridtables-0.1.0.0.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=75b38668c8c2af38820b57049ce6a131

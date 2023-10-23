@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=dev-haskell/gtk2hs-buildtools-0.13.2.0 <dev-haskell/gtk2hs-buildtools-0.14 app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/cairo-0.13.0.0:=[profile?] <dev-haskell/cairo-0.14:=[profile?] >=dev-haskell/glib-0.13.0.0:=[profile?] <dev-haskell/glib-0.14:=[profile?] >=dev-haskell/text-0.11.0.6:=[profile?] <dev-haskell/text-2.1:=[profile?] >=dev-lang/ghc-8.8.1:= x11-libs/cairo x11-libs/pango >=dev-haskell/cabal-3.0.0.0 <dev-haskell/cabal-3.11 hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Binding to the Pango text rendering engine
+EAPI=8
+HOMEPAGE=https://projects.haskell.org/gtk2hs/
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=>=dev-haskell/cairo-0.13.0.0:=[profile?] <dev-haskell/cairo-0.14:=[profile?] >=dev-haskell/glib-0.13.0.0:=[profile?] <dev-haskell/glib-0.14:=[profile?] >=dev-haskell/text-0.11.0.6:=[profile?] <dev-haskell/text-2.1:=[profile?] >=dev-lang/ghc-8.8.1:= x11-libs/cairo x11-libs/pango dev-lang/ghc:=[profile?]
+SLOT=0/0.13.10.0
+SRC_URI=https://hackage.haskell.org/package/pango-0.13.10.0/pango-0.13.10.0.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=0ec93237c81cd9d091bf87970fd26f52

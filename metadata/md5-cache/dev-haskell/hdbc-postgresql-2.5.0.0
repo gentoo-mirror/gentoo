@@ -2,14 +2,14 @@ BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=>=dev-db/postgresql-7:* dev-haskell/convertible:=[profile?] >=dev-haskell/hdbc-2.2.0:2=[profile?] dev-haskell/mtl:=[profile?] dev-haskell/old-locale:=[profile?] dev-haskell/old-time:=[profile?] dev-haskell/parsec:=[profile?] dev-haskell/utf8-string:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=PostgreSQL driver for HDBC
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/hdbc/hdbc-postgresql
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-db/postgresql-7:* dev-haskell/convertible:=[profile?] >=dev-haskell/hdbc-2.2.0:2=[profile?] dev-haskell/mtl:=[profile?] dev-haskell/old-locale:=[profile?] dev-haskell/old-time:=[profile?] dev-haskell/parsec:=[profile?] dev-haskell/utf8-string:=[profile?] >=dev-lang/ghc-8.4.3:=
+RDEPEND=>=dev-db/postgresql-7:* dev-haskell/convertible:=[profile?] >=dev-haskell/hdbc-2.2.0:2=[profile?] dev-haskell/mtl:=[profile?] dev-haskell/old-locale:=[profile?] dev-haskell/old-time:=[profile?] dev-haskell/parsec:=[profile?] dev-haskell/utf8-string:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
 SLOT=2/2.5.0.0
 SRC_URI=https://hackage.haskell.org/package/HDBC-postgresql-2.5.0.0/HDBC-postgresql-2.5.0.0.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	13a2f21e4152733139de87f74c2f99dd
-_md5_=c64d325ad3ff1dea564e02d6dcd14233
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=98c9d712a491f1e7fa5b26c864c83cd7

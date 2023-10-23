@@ -1058,6 +1058,7 @@ app-portage/gemato:gpg - Install dependencies needed for OpenPGP signature verif
 app-portage/gemato:pretty-log - Pull dev-python/rich to enable pretty logs
 app-portage/gemato:tools - Install additional utilities (benchmarks, hash testing tools, fast Manifest generators) to /usr/share/gemato.
 app-portage/grs:server - Install all the tools building systems
+app-portage/hackport:profile - Enable profiling flags
 app-portage/kuroneko:scraper - Include the dependencies necessary for Bugzilla scraping.
 app-portage/nattka:depgraph-order - Process packages in depgraph order whenever possible.
 app-portage/pfl:network-cron - Adds a cron job which does a weekly submit of the package database
@@ -1163,6 +1164,9 @@ app-text/mupdf:drm - Enable support for Digital rights management (DRM)
 app-text/pandoc:embed-data-files - Embed data files in binary for relocatable executable.
 app-text/pandoc:trypandoc - Build trypandoc cgi executable.
 app-text/pandoc-bin:pandoc-symlink - Install pandoc symlink that points to pandoc-bin
+app-text/pandoc-cli:lua - Support custom modifications and conversions with the pandoc Lua scripting engine.
+app-text/pandoc-cli:nightly - Add '-nightly-COMPILEDATE' to the output of '--version'.
+app-text/pandoc-cli:server - Include support for running pandoc as an HTTP server.
 app-text/pdfgrep:unac - Removing accents and ligatures before search
 app-text/pdfpc:gstreamer - Compile support for movie playback (media-libs/gstreamer)
 app-text/pdfpc:soup - Compile support for REST server (net-libs/libsoup)
@@ -1489,93 +1493,131 @@ dev-games/simgear:subversion - Enable terrasync scenery downloader
 dev-haskell/abstract-deque:usecas - Enable the reference implementation to use hardware compare-and-swap.
 dev-haskell/aeson:cffi - Controls whether to include c-ffi bits or pure haskell. Default to False for security.
 dev-haskell/aeson:ordered-keymap - Use ordered @Data.Map.Strict@ for KeyMap implementation.
+dev-haskell/aeson-pretty:executable - build/install the command-line tool as well as the library
 dev-haskell/aeson-pretty:lib-only - don't build 'aeson-pretty' executable.
-dev-haskell/ansi-terminal:example - Build the example application.
+dev-haskell/ansi-terminal:example - Build the example application
+dev-haskell/assoc:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/atomic-primops:debug - Enable extra internal checks.
 dev-haskell/bifunctors:semigroups - You can disable the use of the `semigroups` package using `-f-semigroups`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/bifunctors:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/c2hs:regression - run regression tests
+dev-haskell/bitvec:gmp - Link against the GMP library for the ultimate performance of `zipBits`, `invertBits` and `countBits`. Users are strongly encouraged to enable this flag whenever possible.
+dev-haskell/boring:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
+dev-haskell/c2hs:regression - Enable regression suite build.
 dev-haskell/cabal-install:lukko - Use @lukko@ for file-locking
 dev-haskell/cabal-install:native-dns - Enable use of the [resolv](https://hackage.haskell.org/package/resolv) & [windns](https://hackage.haskell.org/package/windns) packages for performing DNS lookups
+dev-haskell/cairo:svg - Build the Scalable Vector Graphics (SVG) backend of Cairo.
 dev-haskell/chell:color-output - use colors in program output
 dev-haskell/citeproc:executable - Build citeproc executable
 dev-haskell/citeproc:icu - Use Haskell bindings to the ICU library
-dev-haskell/cmdargs:quotation - Build quote module
+dev-haskell/cmdargs:examples - Build the cmdargs-demo program
+dev-haskell/cmdargs:quotation - Build the Quote module
 dev-haskell/cmdargs:testprog - Build the test program
 dev-haskell/comonad:indexed-traversable - You can disable the use of the `indexed-traversable` package using `-f-indexed-traversable`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users. If disabled we will not supply instances of `FunctorWithIndex`
 dev-haskell/contravariant:semigroups - You can disable the use of the `semigroups` package using `-f-semigroups`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/contravariant:statevar - You can disable the use of the `StateVar` package using `-f-StateVar`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/contravariant:tagged - You can disable the use of the `tagged` package on older versons of GHC using `-f-tagged`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/criterion:embed-data-files - Embed the data files in the binary for a relocatable executable
+dev-haskell/criterion:embed-data-files - Embed the data files in the binary for a relocatable executable. (Warning: This will increase the executabl size significantly.)
 dev-haskell/crypto-api:all-cpolys - Build all the CMAC polynomes up to 10000 bits instead of just the usual ones
+dev-haskell/cryptohash-sha256:executable - Build the cryptohash-sha256sum executable
+dev-haskell/crypton:check-alignment - extra check on alignment in C layers, which cause lowlevel assert errors. for debugging only.
+dev-haskell/crypton:integer-gmp - Whether or not to use GMP for some functions
+dev-haskell/crypton:old-toolchain-inliner - use -fgnu89-inline to workaround an old compiler / linker / glibc issue.
+dev-haskell/crypton:support-aesni - allow compilation with AESNI on system and architecture that supports it
+dev-haskell/crypton:support-deepseq - add deepseq instances for cryptographic types
+dev-haskell/crypton:support-pclmuldq - Allow compilation with pclmuldq on architecture that supports it
+dev-haskell/crypton:support-rdrand - allow compilation with RDRAND on system and architecture that supports it
+dev-haskell/crypton:support-sse - Use SSE optimized version of (BLAKE2, ARGON2)
+dev-haskell/crypton:target-attributes - use GCC / clang function attributes instead of global target options.
 dev-haskell/cryptonite:integer-gmp - Whether or not to use GMP for some functions
 dev-haskell/cryptonite:target-attributes - use GCC / clang function attributes instead of global target options.
 dev-haskell/dlist:werror - Enable -Werror
+dev-haskell/doctest-driver-gen:executable - Build the doctest-driver-gen executable
+dev-haskell/entropy:donotgetentropy - Avoid use of the getentropy() *nix function. By default getentropy will be used if detected during compilation (this plays poorly with cross compilation).
 dev-haskell/entropy:halvm - Build for the HaLVM.
-dev-haskell/foundation:experimental - enable building experimental features, known as highly unstable or without good support cross-platform
+dev-haskell/foldable1-classes-compat:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
+dev-haskell/foundation:experimental - Enable building experimental features, known as highly unstable or without good support cross-platform
+dev-haskell/glib:closure-signals - Use the the GClosure-based signals implementation.
+dev-haskell/gtk2hs-buildtools:closuresignals - Use the the GClosure-based signals implementation.
 dev-haskell/hackage-security:lukko - Use @lukko@ for file-locking, otherwise use @GHC.IO.Handle.Lock@
 dev-haskell/hashable:random-initial-seed - Randomly initialize the seed on every executable invocation. This is not a security feature and is intended only for testing (it can affect legitimate use cases).
+dev-haskell/hashtables:bounds-checking - if on, use bounds-checking array accesses
+dev-haskell/hashtables:detailed-profiling - add detailed profiling information to profiled build-depends
 dev-haskell/haskeline:terminfo - Use the terminfo package for POSIX consoles.
 dev-haskell/hdbc-sqlite3:splitbase - Choose the new smaller, split-up package.
-dev-haskell/http-api-data:text-show - Use text-show library for efficient ToHttpApiData implementation.
+dev-haskell/hslua-cli:executable - Compile `hslua` standalone executable.
+dev-haskell/hslua-repl:executable - Compile `luarepl` standalone executable.
+dev-haskell/hsyaml:exe - Enable @exe:yaml-test@ component
+dev-haskell/http-api-data:text-show - Use text-show library for efficient ToHttpApiData implementations.
 dev-haskell/httpd-shed:buildexamples - Build example executables.
-dev-haskell/libyaml:no-unicode - Don't enable unicode output. Instead, unicode characters will be escaped.
+dev-haskell/juicypixels:mmap - Enable the file loading via mmap (memory map)
 dev-haskell/libyaml:system-libyaml - Use the system-wide libyaml instead of the bundled copy
+dev-haskell/libyaml:unicode - Enable unicode output. Otherwise, unicode characters will be escaped.
 dev-haskell/lpeg:rely-on-shared-lpeg-library - Do not build lpeg from source, but trust that lpeg is made available in other ways, e.g., through a system-wide installation. The loader will be replaced with a placeholder function that only emits a message.
 dev-haskell/lua:system-lua - Use @pkg-config@ to discover library and include paths. Setting this flag implies `pkg-config`.
-dev-haskell/monad-logger:template-haskell - Enable Template Haskell support.
+dev-haskell/markdown-unlit:executable - Build executable
+dev-haskell/monad-logger:template-haskell - Enable Template Haskell support
 dev-haskell/monad-par:chaselev - Use Chase-Lev Deques for higher-perf work-stealing.
 dev-haskell/nats:binary - enable binary instances
 dev-haskell/nats:hashable - enable hashable instances
 dev-haskell/nats:template-haskell - enable template_haskell
 dev-haskell/network:devel - using tests for developers
+dev-haskell/nothunks:bytestring - Provide instances for bytestring
+dev-haskell/nothunks:text - Provide instances for text
+dev-haskell/nothunks:vector - Provide instances for vector
+dev-haskell/pandoc:embed-data-files - Embed data files in binary for relocatable executable.
 dev-haskell/parsec-numbers:parsec1 - use dev-haskell/parsec1 instead of dev-haskell/parsec
-dev-haskell/parsers:attoparsec - Enable the use of the `attoparsec` package
+dev-haskell/parsers:attoparsec - You can disable the use of the `attoparsec` package using `-f-attoparsec`.
 dev-haskell/parsers:binary - You can disable the use of the `binary` package using `-f-binary`.
-dev-haskell/parsers:parsec - Enable the use of the `parsec` package
-dev-haskell/persistent-sqlite:build-sanity-exe - Build a sanity check test executable.
-dev-haskell/quickcheck:template-haskell - Enable additional test modules requiring Template Haskell support.
-dev-haskell/quickcheck-classes:aeson - Enable the use of the `aeson` package. This may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/quickcheck-classes:binary-laws - Include infrastructure for testing class laws of binary type constructors. Disabling `unary-laws` while keeping `binary-laws` enabled is an unsupported configuration.
-dev-haskell/quickcheck-classes:semigroupoids - Enable the use of the `semigroupoids` package. This may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/quickcheck-classes:semirings - Enable the use of the `semirings` package. This may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/quickcheck-classes:unary-laws - Include infrastructure for testing class laws of unary type constructors.
-dev-haskell/quickcheck-classes:vector - Enable the use of the `vector` package. This may be useful for accelerating builds in sandboxes for expert users.
+dev-haskell/parsers:parsec - You can disable the use of the `parsec` package using `-f-parsec`.
+dev-haskell/persistent-sqlite:build-sanity-exe - Build a sanity check test executable
+dev-haskell/prettyprinter:buildreadme - Build the readme generator
+dev-haskell/prettyprinter:text - While it's a core value of @prettyprinter@ to use @Text@, there are rare circumstances (mostly when @prettyprinter@ arises as a dependency of test suites of packages like @bytestring@ or @text@ themselves) when this is inconvenient. In this case one can disable this flag, so that @prettyprinter@ fallbacks to @String@.
+dev-haskell/quickcheck:template-haskell - Build Test.QuickCheck.All, which uses Template Haskell.
+dev-haskell/quickcheck-classes:aeson - You can disable the use of the `aeson` package using `-f-aeson`. This may be useful for accelerating builds in sandboxes for expert users.
+dev-haskell/quickcheck-classes:binary-laws - Include infrastructure for testing class laws of binary type constructors. It is required that this flag match the value that the `unary-laws` flag was given when building `quickcheck-classes-base`. Disabling `unary-laws` while keeping `binary-laws` enabled is an unsupported configuration.
+dev-haskell/quickcheck-classes:semigroupoids - You can disable the use of the `semigroupoids` package using `-f-semigroupoids`. This may be useful for accelerating builds in sandboxes for expert users.
+dev-haskell/quickcheck-classes:semirings - You can disable the use of the `semirings` package using `-f-semirings`. This may be useful for accelerating builds in sandboxes for expert users.
+dev-haskell/quickcheck-classes:unary-laws - Include infrastructure for testing class laws of unary type constructors. It is required that this flag match the value that the `unary-laws` flag was given when building `quickcheck-classes-base`.
+dev-haskell/quickcheck-classes:vector - You can disable the use of the `vector` package using `-f-vector`. This may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/quickcheck-classes-base:binary-laws - Include infrastructure for testing class laws of binary type constructors. Disabling `unary-laws` while keeping `binary-laws` enabled is an unsupported configuration.
 dev-haskell/quickcheck-classes-base:unary-laws - Include infrastructure for testing class laws of unary type constructors.
+dev-haskell/random-bytestring:pcg - compile with support for PCG from pcg-random
 dev-haskell/sandi:conduit - Build with conduit
+dev-haskell/semialign:semigroupoids - Build with semigroupoids dependency
 dev-haskell/sha:exe - Build a sha1 and a sha384 executable similar to 'md5sum'.
 dev-haskell/shelly:lifted - run the tests against Shelly.Lifted
 dev-haskell/simple-sendfile:allow-bsd - Allow use of BSD sendfile (disable on GNU/kFreeBSD)
 dev-haskell/skein:big-endian - When manually selecting the endianness, use big-endian (default is little-endian).
 dev-haskell/skein:force-endianness - Use a manually selected endian when compiling (see flag 'big-endian').
 dev-haskell/skein:reference - Use the reference implementation instead of the optimized one.
-dev-haskell/skylighting:executable - Build the skylighting executable.
-dev-haskell/skylighting-core:executable - Build the skylighting executable.
+dev-haskell/skylighting:executable - Whether to build the skylighting program
+dev-haskell/skylighting-core:executable - Build skylighting-extract tool
+dev-haskell/some:newtype-unsafe - Use implementation using @newtype@ and unsafe @Any@, instead of GADT
 dev-haskell/splitmix:optimised-mixer - Use JavaScript for mix32
+dev-haskell/tasty:clock - Depend on the clock package for more accurate time measurement
 dev-haskell/texmath:executable - Compile test executable.
 dev-haskell/texmath:server - Compile webserver.
-dev-haskell/text-short:asserts - Enable runtime-checks via 'assert'
-dev-haskell/tls:compat - Accept SSLv2 compatible handshake.
-dev-haskell/tls:network - Use the base network library.
+dev-haskell/text-short:debug - Enable runtime-checks via 'assert'
+dev-haskell/tls:compat - Accept SSLv2 client hello for beginning SSLv3 / TLS handshake
+dev-haskell/tls:network - Use the base network library
 dev-haskell/transformers-base:orphaninstances - Build instances for orphan datatypes.
+dev-haskell/typst:executable - Compile executable to be used in testing and development.
 dev-haskell/unicode-collation:doctests - Run doctests as part of test suite. Use with: @--write-ghc-environment-files=always@.
 dev-haskell/unicode-collation:executable - Build the unicode-collate executable.
 dev-haskell/unix-compat:old-time - build against old-time package
 dev-haskell/vector:boundschecks - Enable bounds checking
 dev-haskell/vector:internalchecks - Enable internal consistency checks at the cost of a significant performance penalty
 dev-haskell/vector:unsafechecks - Enable bounds checking in unsafe operations at the cost of a significant performance penalty
-dev-haskell/vector-algorithms:bench - Build a benchmarking program.
-dev-haskell/vector-algorithms:boundschecks - Enable bounds checking.
+dev-haskell/vector-algorithms:bench - Build a benchmarking program to test vector-algorithms performance
+dev-haskell/vector-algorithms:boundschecks - Enable bounds checking
 dev-haskell/vector-algorithms:internalchecks - Enable internal consistency checks at the cost of a significant performance penalty.
-dev-haskell/vector-algorithms:properties - Enable quickcheck tests.
+dev-haskell/vector-algorithms:properties - Enable the quickcheck tests
 dev-haskell/vector-algorithms:unsafechecks - Enable bounds checking in unsafe operations at the cost of a significant performance penalty.
 dev-haskell/void:safe - dissable effective but unsafe coersions
 dev-haskell/wai-app-static:print - print debug info.
 dev-haskell/warp:allow-sendfilefd - Allow use of sendfileFd (not available on GNU/kFreeBSD)
 dev-haskell/warp:x509 - Adds a dependency on the x509 library to enable getting TLS client certificates.
 dev-haskell/wcwidth:cli - Enable command line tool
-dev-haskell/yaml:examples - Install the haskell-yaml-examples executable
 dev-haskell/yaml:executable - Install the yaml2json and json2yaml executables
 dev-haskell/yesod-form:network-uri - Get Network.URI from the network-uri package
 dev-haskell/zip-archive:executable - Build the Zip executable.
@@ -2859,6 +2901,7 @@ dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without reco
 dev-util/vulkan-tools:cube - Build the cube/cubepp demos
 dev-util/watchman:python - Install pywatchman bindings and the watchman-{wait,make} utils
 dev-vcs/cvs:server - Enable server support
+dev-vcs/darcs:curl - Use libcurl for HTTP support.
 dev-vcs/darcs:terminfo - Use the terminfo package for enhanced console support.
 dev-vcs/darcs:threaded - Use threading and SMP support.
 dev-vcs/fossil:fusefs - Enable the Fuse Filesystem
@@ -8916,6 +8959,7 @@ x11-misc/xkbset:tk - Install the dev-perl/Tk based xkbset-gui utility
 x11-misc/xlockmore:vtlock - Enables support for virtual terminal locking
 x11-misc/xlockmore:xlockrc - Enables xlockrc for people without PAM
 x11-misc/xmobar:alsa - Use alsa-mixer to get the volume from soundcards.
+x11-misc/xmobar:datezone - Enables localized date support.
 x11-misc/xmobar:dbus - Publish a service on the session bus for controlling xmobar.
 x11-misc/xmobar:mpd - MPD support. Needs libmpd installed.
 x11-misc/xmobar:mpris - MPRIS v1, v2 support.
@@ -8926,6 +8970,7 @@ x11-misc/xmobar:weather - Enable weather plugin.
 x11-misc/xmobar:wifi - Wireless info support via nl80211. Required for the Wireless plugin on systems running Linux, the kernel.
 x11-misc/xmobar:xft - Use Xft to render text. UTF-8 support included.
 x11-misc/xmobar:xpm - Enable usage of xpm for icons.
+x11-misc/xmobar:xrender - Use XRender for alpha background pseudo-transparency.
 x11-misc/xscreensaver:fonts - Install the fonts shipped with XScreenSaver that have clear licensing
 x11-misc/xscreensaver:gdk-pixbuf - Include support for the x11-libs/gdk-pixbuf library in some demos, which will make it possible for them to read GIF, JPEG, and PNG files as well
 x11-misc/xscreensaver:gdm - Use gdmflexiserver from gnome-base/gdm instead of x11-misc/lightdm

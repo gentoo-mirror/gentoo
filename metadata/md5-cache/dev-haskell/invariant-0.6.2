@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/bifunctors-5.2:=[profile?] <dev-haskell/bifunctors-6:=[profile?] >=dev-haskell/comonad-5:=[profile?] <dev-haskell/comonad-6:=[profile?] >=dev-haskell/contravariant-0.5:=[profile?] <dev-haskell/contravariant-2:=[profile?] >=dev-haskell/profunctors-5.2.1:=[profile?] <dev-haskell/profunctors-6:=[profile?] >=dev-haskell/statevar-1.1:=[profile?] <dev-haskell/statevar-2:=[profile?] >=dev-haskell/tagged-0.7.3:=[profile?] <dev-haskell/tagged-1:=[profile?] >=dev-haskell/th-abstraction-0.4:=[profile?] <dev-haskell/th-abstraction-0.7:=[profile?] >=dev-haskell/transformers-compat-0.3:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-haskell/unordered-containers-0.2.4:=[profile?] <dev-haskell/unordered-containers-0.3:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/cabal-3.0.0.0 test? ( >=dev-haskell/hspec-1.8 >=dev-haskell/quickcheck-2.11 <dev-haskell/quickcheck-3 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Haskell98 invariant functors
+EAPI=8
+HOMEPAGE=https://github.com/nfrisby/invariant-functors
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD-2
+RDEPEND=>=dev-haskell/bifunctors-5.2:=[profile?] <dev-haskell/bifunctors-6:=[profile?] >=dev-haskell/comonad-5:=[profile?] <dev-haskell/comonad-6:=[profile?] >=dev-haskell/contravariant-0.5:=[profile?] <dev-haskell/contravariant-2:=[profile?] >=dev-haskell/profunctors-5.2.1:=[profile?] <dev-haskell/profunctors-6:=[profile?] >=dev-haskell/statevar-1.1:=[profile?] <dev-haskell/statevar-2:=[profile?] >=dev-haskell/tagged-0.7.3:=[profile?] <dev-haskell/tagged-1:=[profile?] >=dev-haskell/th-abstraction-0.4:=[profile?] <dev-haskell/th-abstraction-0.7:=[profile?] >=dev-haskell/transformers-compat-0.3:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-haskell/unordered-containers-0.2.4:=[profile?] <dev-haskell/unordered-containers-0.3:=[profile?] >=dev-lang/ghc-8.8.1:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.6.2
+SRC_URI=https://hackage.haskell.org/package/invariant-0.6.2/invariant-0.6.2.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=e23dca2c3f690c91fe899fc71978ec3b

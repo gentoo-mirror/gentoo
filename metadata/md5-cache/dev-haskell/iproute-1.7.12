@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=dev-haskell/appar:=[profile?] dev-haskell/byteorder:=[profile?] dev-haskell/network:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( >=dev-haskell/doctest-0.9.3 dev-haskell/hspec dev-haskell/quickcheck dev-haskell/safe ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=IP Routing Table
+EAPI=8
+HOMEPAGE=https://www.mew.org/~kazu/proj/iproute/
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=dev-haskell/appar:=[profile?] dev-haskell/byteorder:=[profile?] dev-haskell/network:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/1.7.12
+SRC_URI=https://hackage.haskell.org/package/iproute-1.7.12/iproute-1.7.12.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=a00ca87e99456f45cf873b40a0076923

@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-lang/ghc-8.4.3:= sys-libs/zlib >=dev-haskell/cabal-2.2.0.1 virtual/pkgconfig test? ( >=dev-haskell/quickcheck-2 <dev-haskell/quickcheck-3 >=dev-haskell/tasty-0.8 <dev-haskell/tasty-1.5 >=dev-haskell/tasty-quickcheck-0.8 <dev-haskell/tasty-quickcheck-0.11 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Compression and decompression in the gzip and zlib formats
+EAPI=8
+HOMEPAGE=https://hackage.haskell.org/package/zlib
+INHERIT=haskell-cabal
+IUSE=bundled-c-zlib non-blocking-ffi doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~ppc-macos
+LICENSE=BSD
+RDEPEND=>=dev-lang/ghc-8.4.3:= sys-libs/zlib dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.6.3.0
+SRC_URI=https://hackage.haskell.org/package/zlib-0.6.3.0/zlib-0.6.3.0.tar.gz https://hackage.haskell.org/package/zlib-0.6.3.0/revision/2.cabal -> zlib-0.6.3.0-rev2.cabal
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=978d0823fd8e8008838601e0cff76987

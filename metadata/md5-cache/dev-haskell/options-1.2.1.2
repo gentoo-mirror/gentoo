@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/monads-tf-0.3:=[profile?] <dev-haskell/monads-tf-0.4:=[profile?] >=dev-lang/ghc-8.10.6:= >=dev-haskell/cabal-3.2.1.0 test? ( >=dev-haskell/hspec-2.9.7 <dev-haskell/hspec-2.12 >=dev-haskell/patience-0.3 <dev-haskell/patience-0.4 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Powerful and easy command-line option parser
+EAPI=8
+HOMEPAGE=https://github.com/typeclasses/options/
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=>=dev-haskell/monads-tf-0.3:=[profile?] <dev-haskell/monads-tf-0.4:=[profile?] >=dev-lang/ghc-8.10.6:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/1.2.1.2
+SRC_URI=https://hackage.haskell.org/package/options-1.2.1.2/options-1.2.1.2.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=aadbe436a4ca351ad74b043967126a06

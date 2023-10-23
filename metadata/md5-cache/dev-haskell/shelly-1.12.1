@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/async-2.2.3:=[profile?] >=dev-haskell/enclosed-exceptions-1.0.1:=[profile?] >=dev-haskell/lifted-async-0.10.2:=[profile?] >=dev-haskell/lifted-base-0.2.3.2:=[profile?] >=dev-haskell/monad-control-0.3.2:=[profile?] <dev-haskell/monad-control-1.1:=[profile?] >=dev-haskell/text-1.2.3.1:=[profile?] >=dev-haskell/transformers-base-0.4.5:=[profile?] >=dev-haskell/unix-compat-0.4.1.1:=[profile?] <dev-haskell/unix-compat-0.8:=[profile?] >=dev-lang/ghc-8.10.6:= >=dev-haskell/cabal-3.2.1.0 test? ( >=dev-haskell/hspec-2.2.2 dev-haskell/hspec-contrib >=dev-haskell/hunit-1.2.5.2 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=shell-like (systems) programming in Haskell
+EAPI=8
+HOMEPAGE=https://github.com/gregwebs/Shelly.hs
+INHERIT=haskell-cabal
+IUSE=examples lifted doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/async-2.2.3:=[profile?] >=dev-haskell/enclosed-exceptions-1.0.1:=[profile?] >=dev-haskell/lifted-async-0.10.2:=[profile?] >=dev-haskell/lifted-base-0.2.3.2:=[profile?] >=dev-haskell/monad-control-0.3.2:=[profile?] <dev-haskell/monad-control-1.1:=[profile?] >=dev-haskell/text-1.2.3.1:=[profile?] >=dev-haskell/transformers-base-0.4.5:=[profile?] >=dev-haskell/unix-compat-0.4.1.1:=[profile?] <dev-haskell/unix-compat-0.8:=[profile?] >=dev-lang/ghc-8.10.6:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/1.12.1
+SRC_URI=https://hackage.haskell.org/package/shelly-1.12.1/shelly-1.12.1.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=06b65ca3b866b9543f11c6783e6ad46a

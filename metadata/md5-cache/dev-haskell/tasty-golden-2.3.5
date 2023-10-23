@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=dev-haskell/async:=[profile?] >=dev-haskell/optparse-applicative-0.3.1:=[profile?] dev-haskell/tagged:=[profile?] >=dev-haskell/tasty-1.3:=[profile?] dev-haskell/temporary:=[profile?] dev-haskell/typed-process:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( dev-haskell/tasty-hunit ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Golden tests support for tasty
+EAPI=8
+HOMEPAGE=https://github.com/UnkindPartition/tasty-golden
+INHERIT=haskell-cabal
+IUSE=examples doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-haskell/async:=[profile?] >=dev-haskell/optparse-applicative-0.3.1:=[profile?] dev-haskell/tagged:=[profile?] >=dev-haskell/tasty-1.3:=[profile?] dev-haskell/temporary:=[profile?] dev-haskell/typed-process:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/2.3.5
+SRC_URI=https://hackage.haskell.org/package/tasty-golden-2.3.5/tasty-golden-2.3.5.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=d6f5bce10bf91bfbdc906fc88f9bf5b6

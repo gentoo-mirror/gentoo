@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/data-default-class-0.1.2.0:=[profile?] dev-haskell/primitive:=[profile?] >=dev-haskell/vector-0.11:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( dev-haskell/erf >=dev-haskell/quickcheck-2.7 >=dev-haskell/tasty-1.2 >=dev-haskell/tasty-hunit-0.10 >=dev-haskell/tasty-quickcheck-0.10 dev-haskell/vector-th-unbox ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Collection of tools for numeric computations
+EAPI=8
+HOMEPAGE=https://github.com/bos/math-functions
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD-2
+RDEPEND=>=dev-haskell/data-default-class-0.1.2.0:=[profile?] dev-haskell/primitive:=[profile?] >=dev-haskell/vector-0.11:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.3.4.2
+SRC_URI=https://hackage.haskell.org/package/math-functions-0.3.4.2/math-functions-0.3.4.2.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=1f4aa2f6bbe194eca013896628efb39a

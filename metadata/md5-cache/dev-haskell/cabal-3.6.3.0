@@ -1,0 +1,15 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-lang/ghc-9.2.4:= hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=A framework for packaging Haskell software
+EAPI=8
+HOMEPAGE=https://www.haskell.org/cabal/
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD
+RDEPEND=>=dev-lang/ghc-9.2.4:= dev-lang/ghc:=[profile?]
+SLOT=0/3.6.3.0
+SRC_URI=https://hackage.haskell.org/package/Cabal-3.6.3.0/Cabal-3.6.3.0.tar.gz -> cabal-3.6.3.0.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=47c0044258bce3f5fc196fedb5f09b1f

@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-lang/ghc-8.8.1:= >=dev-haskell/cabal-3.0.0.0 doc? ( dev-python/sphinx dev-python/sphinx-rtd-theme )
+DESCRIPTION=Alex is a tool for generating lexical analysers in Haskell
+EAPI=8
+HOMEPAGE=https://www.haskell.org/alex/
+INHERIT=haskell-cabal
+IUSE=doc test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-lang/ghc-8.8.1:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://hackage.haskell.org/package/alex-3.2.7.2/alex-3.2.7.2.tar.gz doc? ( https://github.com/haskell/alex/archive/13732056ff8d287f2ee0c4ecb968efe04516c890.tar.gz -> alex-13732056ff8d287f2ee0c4ecb968efe04516c890.tar.gz )
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=3d8c1cb915832bdf50432a0b326089d9

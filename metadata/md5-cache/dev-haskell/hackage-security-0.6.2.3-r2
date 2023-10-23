@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/base16-bytestring-0.1.1:=[profile?] <dev-haskell/base16-bytestring-1.1:=[profile?] >=dev-haskell/base64-bytestring-1.0:=[profile?] <dev-haskell/base64-bytestring-1.3:=[profile?] >=dev-haskell/cryptohash-sha256-0.11:=[profile?] <dev-haskell/cryptohash-sha256-0.12:=[profile?] >=dev-haskell/ed25519-0.0:=[profile?] <dev-haskell/ed25519-0.1:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] <dev-haskell/network-uri-2.7:=[profile?] >=dev-haskell/parsec-3.1:=[profile?] <dev-haskell/parsec-3.2:=[profile?] >=dev-haskell/tar-0.5:=[profile?] <dev-haskell/tar-0.6:=[profile?] >=dev-haskell/zlib-0.5:=[profile?] <dev-haskell/zlib-0.7:=[profile?] >=dev-lang/ghc-8.8.1:= || ( ( >=dev-haskell/network-2.6 <dev-haskell/network-2.9 ) ( >=dev-haskell/network-3.0 <dev-haskell/network-3.2 ) ) dev-haskell/network:=[profile?] lukko? ( >=dev-haskell/lukko-0.1:=[profile?] <dev-haskell/lukko-0.2:=[profile?] ) >=dev-haskell/cabal-3.0.0.0 hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Hackage security library
+EAPI=8
+HOMEPAGE=https://github.com/haskell/hackage-security
+INHERIT=haskell-cabal
+IUSE=+lukko doc hscolour profile
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/base16-bytestring-0.1.1:=[profile?] <dev-haskell/base16-bytestring-1.1:=[profile?] >=dev-haskell/base64-bytestring-1.0:=[profile?] <dev-haskell/base64-bytestring-1.3:=[profile?] >=dev-haskell/cryptohash-sha256-0.11:=[profile?] <dev-haskell/cryptohash-sha256-0.12:=[profile?] >=dev-haskell/ed25519-0.0:=[profile?] <dev-haskell/ed25519-0.1:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] <dev-haskell/network-uri-2.7:=[profile?] >=dev-haskell/parsec-3.1:=[profile?] <dev-haskell/parsec-3.2:=[profile?] >=dev-haskell/tar-0.5:=[profile?] <dev-haskell/tar-0.6:=[profile?] >=dev-haskell/zlib-0.5:=[profile?] <dev-haskell/zlib-0.7:=[profile?] >=dev-lang/ghc-8.8.1:= || ( ( >=dev-haskell/network-2.6 <dev-haskell/network-2.9 ) ( >=dev-haskell/network-3.0 <dev-haskell/network-3.2 ) ) dev-haskell/network:=[profile?] lukko? ( >=dev-haskell/lukko-0.1:=[profile?] <dev-haskell/lukko-0.2:=[profile?] ) dev-lang/ghc:=[profile?]
+RESTRICT=test
+SLOT=0/0.6.2.3
+SRC_URI=https://hackage.haskell.org/package/hackage-security-0.6.2.3/hackage-security-0.6.2.3.tar.gz https://hackage.haskell.org/package/hackage-security-0.6.2.3/revision/3.cabal -> hackage-security-0.6.2.3-rev3.cabal
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=a442a37f79b6e5a9a197d5d4c9763216

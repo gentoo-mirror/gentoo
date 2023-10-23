@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test
+DEPEND=>=dev-haskell/hashable-1.2.7.0:=[profile?] <dev-haskell/hashable-1.5:=[profile?] >=dev-haskell/integer-logarithms-1.0.3.1:=[profile?] <dev-haskell/integer-logarithms-1.1:=[profile?] >=dev-haskell/primitive-0.7.1.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( >=dev-haskell/quickcheck-2.14.2 >=dev-haskell/smallcheck-1.0 >=dev-haskell/tasty-1.4.0.1 >=dev-haskell/tasty-hunit-0.8 >=dev-haskell/tasty-quickcheck-0.8 >=dev-haskell/tasty-smallcheck-0.2 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Numbers represented using scientific notation
+EAPI=8
+HOMEPAGE=https://github.com/basvandijk/scientific
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/hashable-1.2.7.0:=[profile?] <dev-haskell/hashable-1.5:=[profile?] >=dev-haskell/integer-logarithms-1.0.3.1:=[profile?] <dev-haskell/integer-logarithms-1.1:=[profile?] >=dev-haskell/primitive-0.7.1.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.3.7.0
+SRC_URI=https://hackage.haskell.org/package/scientific-0.3.7.0/scientific-0.3.7.0.tar.gz https://hackage.haskell.org/package/scientific-0.3.7.0/revision/5.cabal -> scientific-0.3.7.0-rev5.cabal
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=3bc4d6cce9ce45a9eb29fc7db859b46b

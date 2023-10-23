@@ -2,14 +2,14 @@ BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=dev-haskell/text:=[profile?] >=dev-lang/ghc-7.4.1:= >=dev-haskell/cabal-1.10 hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Basic types for representing XML
-EAPI=7
+EAPI=8
 HOMEPAGE=https://git.singpolyma.net/xml-types-haskell
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=MIT
-RDEPEND=dev-haskell/text:=[profile?] >=dev-lang/ghc-7.4.1:=
+RDEPEND=dev-haskell/text:=[profile?] >=dev-lang/ghc-7.4.1:= dev-lang/ghc:=[profile?]
 SLOT=0/0.3.8
 SRC_URI=https://hackage.haskell.org/package/xml-types-0.3.8/xml-types-0.3.8.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	dbe1a8d17cacb390a3df7bbba6617679	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	13a2f21e4152733139de87f74c2f99dd
-_md5_=f55618f0c486e931342069e9afcc4f93
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=7629ba2e5712d0dde84f9124d6ed2abf

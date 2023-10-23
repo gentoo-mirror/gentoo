@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/mtl-2.2.1:= >=dev-lang/ghc-7.4.1:= >=dev-haskell/cabal-1.10 doc? ( ~app-text/docbook-xml-dtd-4.2 app-text/docbook-xsl-stylesheets )
+DESCRIPTION=Happy is a parser generator for Haskell
+EAPI=8
+HOMEPAGE=https://www.haskell.org/happy/
+INHERIT=haskell-cabal autotools
+IUSE=doc test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD-2
+RDEPEND=>=dev-haskell/mtl-2.2.1:= >=dev-lang/ghc-7.4.1:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://hackage.haskell.org/package/happy-1.20.1.1/happy-1.20.1.1.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=f0d077e21e464b49c0a56a70f85352dc

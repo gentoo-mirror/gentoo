@@ -1,0 +1,15 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/base-compat-0.9:=[profile?] >=dev-haskell/scientific-0.3:=[profile?] >=dev-haskell/text-0.11:=[profile?] >=dev-haskell/unordered-containers-0.2.14.0:=[profile?] >=dev-haskell/vector-0.9:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/aeson-1.1:=[profile?] <dev-haskell/aeson-2.3:=[profile?] executable? ( >=dev-haskell/aeson-0.6:=[profile?] >=dev-haskell/attoparsec-0.10:=[profile?] dev-haskell/attoparsec-aeson:=[profile?] >=dev-haskell/cmdargs-0.7:=[profile?] ) >=dev-haskell/cabal-3.0.0.0 hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=JSON pretty-printing library and command-line tool
+EAPI=8
+HOMEPAGE=https://github.com/informatikr/aeson-pretty
+INHERIT=haskell-cabal
+IUSE=+executable doc hscolour profile
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/base-compat-0.9:=[profile?] >=dev-haskell/scientific-0.3:=[profile?] >=dev-haskell/text-0.11:=[profile?] >=dev-haskell/unordered-containers-0.2.14.0:=[profile?] >=dev-haskell/vector-0.9:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/aeson-1.1:=[profile?] <dev-haskell/aeson-2.3:=[profile?] executable? ( >=dev-haskell/aeson-0.6:=[profile?] >=dev-haskell/attoparsec-0.10:=[profile?] dev-haskell/attoparsec-aeson:=[profile?] >=dev-haskell/cmdargs-0.7:=[profile?] ) dev-lang/ghc:=[profile?]
+SLOT=0/0.8.10
+SRC_URI=https://hackage.haskell.org/package/aeson-pretty-0.8.10/aeson-pretty-0.8.10.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=3d8bd59ee2f517e12509e9e5154b7ef9

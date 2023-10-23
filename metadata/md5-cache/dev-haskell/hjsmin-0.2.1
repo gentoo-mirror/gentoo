@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/language-javascript-0.6:=[profile?] <dev-haskell/language-javascript-0.8:=[profile?] >=dev-haskell/optparse-applicative-0.7:=[profile?] >=dev-haskell/text-1.2.5.0:=[profile?] >=dev-lang/ghc-9.2.4:= >=dev-haskell/cabal-3.6.3.0 test? ( dev-haskell/extra ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Haskell implementation of a javascript minifier
+EAPI=8
+HOMEPAGE=https://github.com/erikd/hjsmin
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/language-javascript-0.6:=[profile?] <dev-haskell/language-javascript-0.8:=[profile?] >=dev-haskell/optparse-applicative-0.7:=[profile?] >=dev-haskell/text-1.2.5.0:=[profile?] >=dev-lang/ghc-9.2.4:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/0.2.1
+SRC_URI=https://hackage.haskell.org/package/hjsmin-0.2.1/hjsmin-0.2.1.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	0430a2d3b0629a95e0c5d64dbde450b3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
+_md5_=aa2b4a19ee117e06b3d6e44fc786fbcf
