@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CABAL_FEATURES="lib profile haddock hoogle hscolour test-suite"
 inherit haskell-cabal
@@ -34,13 +34,10 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-src_prepare() {
-	default
-
-	cabal_chdeps \
-		'base         >=4.5   && <4.14' 'base         >=4.5' \
-		'containers   >=0.4.2 && <0.7' 'containers   >=0.4.2' \
-		'QuickCheck == 2.13.*' 'QuickCheck >= 2.13' \
-		'tasty == 1.2.*' 'tasty >= 1.2' \
-		'tasty-quickcheck == 0.10.*' 'tasty-quickcheck >= 0.10'
-}
+CABAL_CHDEPS=(
+	'base         >=4.5   && <4.14' 'base         >=4.5'
+	'containers   >=0.4.2 && <0.7' 'containers   >=0.4.2'
+	'QuickCheck == 2.13.*' 'QuickCheck >= 2.13'
+	'tasty == 1.2.*' 'tasty >= 1.2'
+	'tasty-quickcheck == 0.10.*' 'tasty-quickcheck >= 0.10'
+)
