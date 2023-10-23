@@ -15,11 +15,13 @@ if [[ ${PV} == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/Roblox/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MIT"
 SLOT="0"
+
+PATCHES=( "${FILESDIR}/${PN}-0.600-cstdint.patch" )
 
 DOCS=( CONTRIBUTING.md README.md SECURITY.md )
 
