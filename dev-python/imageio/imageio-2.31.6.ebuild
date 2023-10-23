@@ -35,6 +35,7 @@ RESTRICT="test"
 
 RDEPEND="
 	>=dev-python/numpy-1.20.0[${PYTHON_USEDEP}]
+	<dev-python/pillow-10.1[${PYTHON_USEDEP}]
 	>=dev-python/pillow-8.3.2[${PYTHON_USEDEP}]
 	media-libs/freeimage
 "
