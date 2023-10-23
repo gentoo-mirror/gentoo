@@ -18,7 +18,7 @@ PYPI_PN="molecule"
 inherit distutils-r1 docs optfeature pypi
 
 DESCRIPTION="A toolkit designed to aid in the development and testing of Ansible roles"
-HOMEPAGE="https://pypi.org/project/molecule/ https://github.com/ansible-community/molecule/"
+HOMEPAGE="https://pypi.org/project/molecule/ https://github.com/ansible/molecule/"
 
 LICENSE="MIT"
 SLOT="0"
@@ -42,7 +42,7 @@ RDEPEND="$(python_gen_cond_dep '
 	selinux? ( sys-libs/libselinux[python,${PYTHON_USEDEP}] )
 ')"
 BDEPEND="$(python_gen_cond_dep '
-	>=dev-python/setuptools-scm-7.0.0[${PYTHON_USEDEP}]
+	<dev-python/setuptools-scm-8[${PYTHON_USEDEP}]
 	doc? (
 		dev-python/pillow[truetype,${PYTHON_USEDEP}]
 		media-fonts/roboto
