@@ -14,9 +14,7 @@ inherit ${GIT_ECLASS} python-any-r1 meson-multilib
 
 DESCRIPTION="X.Org libdrm library"
 HOMEPAGE="https://dri.freedesktop.org/ https://gitlab.freedesktop.org/mesa/drm"
-if [[ ${PV} = 9999* ]]; then
-	SRC_URI=""
-else
+if [[ ${PV} != 9999* ]]; then
 	SRC_URI="https://dri.freedesktop.org/libdrm/${P}.tar.xz"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 fi
