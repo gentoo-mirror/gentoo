@@ -3,17 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..12} )
-PYTHON_REQ_USE='threads(+)'
-inherit meson-multilib python-any-r1
+inherit meson-multilib
 
-DESCRIPTION="Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax"
-HOMEPAGE="https://drobilla.net/software/sratom.html"
 SRC_URI="https://download.drobilla.net/${P}.tar.xz"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+DESCRIPTION="Lightweight C library of portability wrappers and data structures"
+HOMEPAGE="https://drobilla.net/software/zix.html"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
@@ -23,23 +21,15 @@ BDEPEND="
 		app-doc/doxygen
 		dev-python/sphinx
 		dev-python/sphinx-lv2-theme
-)
-"
-# Take care on bumps to check minimum versions!
-RDEPEND="
-	>=dev-libs/serd-0.30.10
-	>=dev-libs/sord-0.16.10
-	>=media-libs/lv2-1.18.4
-"
-DEPEND="${RDEPEND}
-	${PYTHON_DEPS}
+		dev-python/sphinxygen
+	)
 "
 
 src_prepare() {
 	default
 
 	# fix doc installation path
-	sed -iE "s%install_dir: docdir / 'sratom-0',%install_dir: docdir / '${PF}',%g" doc/c/meson.build || die
+	sed -i "s/versioned_name/'${PF}'/g" doc/html/meson.build doc/singlehtml/meson.build || die
 }
 
 multilib_src_configure() {

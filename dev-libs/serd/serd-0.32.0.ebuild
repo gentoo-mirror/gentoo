@@ -5,44 +5,30 @@ EAPI=8
 
 inherit meson-multilib
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/drobilla/sord.git"
-else
-	SRC_URI="https://download.drobilla.net/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
-fi
-
-DESCRIPTION="Library for storing RDF data in memory"
-HOMEPAGE="https://drobilla.net/software/sord.html"
+DESCRIPTION="Library for RDF syntax which supports reading and writing Turtle and NTriples"
+HOMEPAGE="https://drobilla.net/software/serd.html"
+SRC_URI="https://download.drobilla.net/${P}.tar.xz"
 
 LICENSE="ISC"
 SLOT="0"
-IUSE="doc test tools"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="doc test +tools"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
-	virtual/pkgconfig
 	doc? (
 		app-doc/doxygen
 		dev-python/sphinx
 		dev-python/sphinx-lv2-theme
 		dev-python/sphinxygen
-	)
+)
 "
-# Take care on bumps to check minimum versions!
-RDEPEND="
-	dev-libs/libpcre
-	dev-libs/serd
-	dev-libs/zix
-"
-DEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
 
 	# fix doc installation path
-	sed -i "s/versioned_name/'${PF}'/g" doc/meson.build || die
+	sed -i "s/versioned_name/'${PF}'/g" doc/man/meson.build doc/html/meson.build doc/singlehtml/meson.build || die
 }
 
 multilib_src_configure() {
