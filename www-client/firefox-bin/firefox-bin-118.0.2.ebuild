@@ -50,11 +50,13 @@ BDEPEND="app-arch/unzip
 		)
 	)"
 
-DEPEND="alsa? (
+COMMON_DEPEND="alsa? (
 		!pulseaudio? (
 			media-sound/apulse
 		)
 	)"
+
+DEPEND="${COMMON_DEPEND}"
 
 RDEPEND="${COMMON_DEPEND}
 	!www-client/firefox-bin:0
