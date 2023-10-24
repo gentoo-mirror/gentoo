@@ -1,34 +1,34 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby31 ruby32"
 
 inherit ruby-single toolchain-funcs
 
 DESCRIPTION="A clean C Library for processing UTF-8 Unicode data"
 HOMEPAGE="https://github.com/JuliaStrings/utf8proc"
-SRC_URI="https://github.com/JuliaStrings/${PN#lib}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	cjk? ( https://dev.gentoo.org/~hattya/distfiles/${PN}-EastAsianWidth-14.0.0.xz )"
+SRC_URI="https://github.com/JuliaStrings/${PN#lib}/releases/download/v${PV}/${P#lib}.tar.gz -> ${P}.tar.gz
+	cjk? ( https://dev.gentoo.org/~hattya/distfiles/${PN}-EastAsianWidth-15.1.0.xz )"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="cjk static-libs test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="test? (
-		=app-i18n/unicode-data-14.0*
+		=app-i18n/unicode-data-15.1*
 		${RUBY_DEPS}
 	)"
 S="${WORKDIR}/${P#lib}"
 
-QA_PKGCONFIG_VERSION="$(ver_cut 1).5.0"
+QA_PKGCONFIG_VERSION="3.0.0"
 
 src_prepare() {
 	if use cjk; then
 		einfo "Modifying East Asian Ambiguous (A) as wide ..."
-		cp "${WORKDIR}"/${PN}-EastAsianWidth-14.0.0 ${PN#lib}_data.c || die
+		cp "${WORKDIR}"/${PN}-EastAsianWidth-15.1.0 ${PN#lib}_data.c || die
 	fi
 
 	sed -i "/^libdir/s:/lib:/$(get_libdir):" Makefile
