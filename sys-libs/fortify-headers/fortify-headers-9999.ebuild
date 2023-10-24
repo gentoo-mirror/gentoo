@@ -1,13 +1,21 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-EGIT_REPO_URI="https://github.com/jvoisin/fortify-headers"
-inherit git-r3
+inherit toolchain-funcs
 
-DESCRIPTION="A standalone implementation of fortify source"
+DESCRIPTION="Standalone implementation of fortify source"
 HOMEPAGE="https://github.com/jvoisin/fortify-headers"
+
+if [[ ${PV} == *9999* ]] ; then
+	EGIT_REPO_URI="https://github.com/jvoisin/fortify-headers"
+	inherit git-r3
+else
+	FORTIFY_COMMIT=""
+	SRC_URI="https://github.com/jvoisin/fortify-headers/archive/${FORTIFY_COMMIT}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~mips ~ppc ~x86"
+fi
 
 LICENSE="ISC"
 SLOT="0"
@@ -22,6 +30,10 @@ src_compile() {
 	# the catch-all rule and try to install here where we don't have access
 	# to ${ED}
 	:;
+}
+
+src_test() {
+	emake -C tests CC="$(tc-getCC)"
 }
 
 src_install() {
