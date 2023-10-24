@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/lz4-java:0 dev-java/owasp-java-encoder:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=JDK Mission Control
+EAPI=8
+HOMEPAGE=https://openjdk.org/projects/jmc/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source
+KEYWORDS=~amd64
+LICENSE=UPL-1.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://github.com/openjdk/jmc/archive/8.3.0-ga.tar.gz -> jmc-8.3.0.ga.tar.gz
+_eclasses_=java-utils-2	30b5d143e64d691346fcdd85eef1c614	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
+_md5_=f033c3422939c04820da5178ff3ba063
