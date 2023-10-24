@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit xdg-utils
+inherit tmpfiles xdg-utils
 
 DESCRIPTION="Agent and tools for managing OpenID Connect tokens on the command line"
 HOMEPAGE="https://github.com/indigo-dc/oidc-agent"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/indigo-dc/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 IUSE="test"
 
 DEPEND="app-crypt/libsecret
@@ -28,8 +28,8 @@ BDEPEND="test? ( dev-libs/check )"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.4.0_install-perms.patch
-	"${FILESDIR}"/${PN}-4.5.0_webkit41.patch
+	"${FILESDIR}"/${PN}-5.0.1_install-perms.patch
+	"${FILESDIR}"/${PN}-5.0.1_webkit41.patch
 )
 
 src_prepare() {
@@ -68,6 +68,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	tmpfiles_process ${PN}.conf
+
 	xdg_desktop_database_update
 
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
@@ -78,12 +80,15 @@ pkg_postinst() {
 		elog "    https://indigo-dc.gitbooks.io/oidc-agent/"
 		elog
 	else
-		local new_major_ver old_ver
-		new_major_ver=$(ver_cut 1)
+		local old_ver
 		for old_ver in ${REPLACING_VERSIONS}; do
-			if [[ $(ver_cut 1 ${old_ver}) != ${new_major_ver} ]]; then
+			if [[ $(ver_cut 1 ${old_ver}) != 5 ]]; then
+				ewarn "${PN} 5 is a major release with quite some usability improvements but unfortunately also some breaking changes."
+				ewarn "Please consult"
+				ewarn "    https://indigo-dc.gitbook.io/oidc-agent/oidc-agent5"
+				ewarn "for instructions on how to upgrade your configuration to this version"
 				ewarn
-				ewarn "You are upgrading from a different major version. Please restart any running instances of ${PN}"
+				ewarn "Furthermore, please restart any running instances of ${PN}"
 				ewarn "to make sure they are compatible with the updated clients."
 				ewarn
 				break
