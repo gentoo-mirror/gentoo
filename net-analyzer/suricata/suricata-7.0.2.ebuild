@@ -4,7 +4,7 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit autotools flag-o-matic linux-info lua-single python-single-r1 systemd tmpfiles verify-sig
 
@@ -14,14 +14,15 @@ SRC_URI="https://www.openinfosecfoundation.org/download/${P}.tar.gz
 	verify-sig? ( https://www.openinfosecfoundation.org/download/${P}.tar.gz.sig )"
 
 LICENSE="GPL-2"
-SLOT="0/6"
+SLOT="0/7"
 KEYWORDS="~amd64 ~riscv ~x86"
-IUSE="+af-packet bpf control-socket cuda debug +detection geoip hardened hyperscan lua lz4 nflog +nfqueue redis systemd test"
+IUSE="+af-packet af-xdp bpf control-socket cuda debug +detection geoip hardened hyperscan lua lz4 nflog +nfqueue redis systemd test"
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/openinfosecfoundation.org.asc"
 
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
+	af-xdp? ( bpf )
 	bpf? ( af-packet )
 	lua? ( ${LUA_REQUIRED_USE} )"
 
@@ -29,7 +30,7 @@ RDEPEND="${PYTHON_DEPS}
 	acct-group/suricata
 	acct-user/suricata
 	dev-libs/jansson:=
-	dev-libs/libpcre
+	dev-libs/libpcre2
 	dev-libs/libyaml
 	net-libs/libnet:*
 	net-libs/libnfnetlink
@@ -38,11 +39,12 @@ RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	')
-	>=net-libs/libhtp-0.5.44
+	>=net-libs/libhtp-0.5.45
 	net-libs/libpcap
 	sys-apps/file
 	sys-libs/libcap-ng
-	bpf?        ( <dev-libs/libbpf-1.0.0 )
+	af-xdp?		( net-libs/xdp-tools )
+	bpf?        ( dev-libs/libbpf )
 	cuda?       ( dev-util/nvidia-cuda-toolkit )
 	geoip?      ( dev-libs/libmaxminddb:= )
 	hyperscan?  ( dev-libs/hyperscan )
@@ -58,12 +60,18 @@ BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-oisf-20200807 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.0.1_configure-no-lz4-automagic.patch"
-	"${FILESDIR}/${PN}-5.0.6_configure-no-sphinx-pdflatex-automagic.patch"
 	"${FILESDIR}/${PN}-5.0.7_configure-no-hyperscan-automagic.patch"
 	"${FILESDIR}/${PN}-6.0.0_default-config.patch"
+	"${FILESDIR}/${PN}-7.0.2_configure-no-sphinx-pdflatex-automagic.patch"
 )
 
 pkg_pretend() {
+	if use af-xdp && use kernel_linux; then
+		if kernel_is -lt 4 18; then
+			ewarn "Kernel 4.18 or newer is required for AF_XDP"
+		fi
+	fi
+
 	if use bpf && use kernel_linux; then
 		if kernel_is -lt 4 15; then
 			ewarn "Kernel 4.15 or newer is necessary to use all XDP features like the CPU redirect map"
@@ -93,6 +101,7 @@ src_configure() {
 		"--enable-gccmarch-native=no" \
 		"--enable-python" \
 		$(use_enable af-packet) \
+		$(use_enable af-xdp) \
 		$(use_enable bpf ebpf) \
 		$(use_enable control-socket unix-socket) \
 		$(use_enable cuda) \

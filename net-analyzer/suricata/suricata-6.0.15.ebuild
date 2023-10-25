@@ -14,15 +14,14 @@ SRC_URI="https://www.openinfosecfoundation.org/download/${P}.tar.gz
 	verify-sig? ( https://www.openinfosecfoundation.org/download/${P}.tar.gz.sig )"
 
 LICENSE="GPL-2"
-SLOT="0/7"
+SLOT="0/6"
 KEYWORDS="~amd64 ~riscv ~x86"
-IUSE="+af-packet af-xdp bpf control-socket cuda debug +detection geoip hardened hyperscan lua lz4 nflog +nfqueue redis systemd test"
+IUSE="+af-packet bpf control-socket cuda debug +detection geoip hardened hyperscan lua lz4 nflog +nfqueue redis systemd test"
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/openinfosecfoundation.org.asc"
 
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
-	af-xdp? ( bpf )
 	bpf? ( af-packet )
 	lua? ( ${LUA_REQUIRED_USE} )"
 
@@ -30,7 +29,7 @@ RDEPEND="${PYTHON_DEPS}
 	acct-group/suricata
 	acct-user/suricata
 	dev-libs/jansson:=
-	dev-libs/libpcre2
+	dev-libs/libpcre
 	dev-libs/libyaml
 	net-libs/libnet:*
 	net-libs/libnfnetlink
@@ -43,8 +42,7 @@ RDEPEND="${PYTHON_DEPS}
 	net-libs/libpcap
 	sys-apps/file
 	sys-libs/libcap-ng
-	af-xdp?		( net-libs/xdp-tools )
-	bpf?        ( dev-libs/libbpf )
+	bpf?        ( <dev-libs/libbpf-1.0.0 )
 	cuda?       ( dev-util/nvidia-cuda-toolkit )
 	geoip?      ( dev-libs/libmaxminddb:= )
 	hyperscan?  ( dev-libs/hyperscan )
@@ -66,12 +64,6 @@ PATCHES=(
 )
 
 pkg_pretend() {
-	if use af-xdp && use kernel_linux; then
-		if kernel_is -lt 4 18; then
-			ewarn "Kernel 4.18 or newer is required for AF_XDP"
-		fi
-	fi
-
 	if use bpf && use kernel_linux; then
 		if kernel_is -lt 4 15; then
 			ewarn "Kernel 4.15 or newer is necessary to use all XDP features like the CPU redirect map"
@@ -101,7 +93,6 @@ src_configure() {
 		"--enable-gccmarch-native=no" \
 		"--enable-python" \
 		$(use_enable af-packet) \
-		$(use_enable af-xdp) \
 		$(use_enable bpf ebpf) \
 		$(use_enable control-socket unix-socket) \
 		$(use_enable cuda) \
