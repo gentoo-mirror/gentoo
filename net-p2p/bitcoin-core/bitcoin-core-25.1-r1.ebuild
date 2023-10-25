@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit autotools bash-completion-r1 db-use desktop python-any-r1 systemd xdg-utils
+inherit autotools bash-completion-r1 check-reqs db-use desktop edo multiprocessing python-any-r1 systemd xdg-utils
 
 DESCRIPTION="Reference implementation of the Bitcoin cryptocurrency"
 HOMEPAGE="https://bitcoincore.org/"
@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
 # IUSE="+cli" doesn't work due to https://bugs.gentoo.org/831045#c3
-IUSE="+asm +berkdb +bitcoin-cli +daemon dbus examples +external-signer kde libs +man nat-pmp +qrcode gui +sqlite system-leveldb +system-libsecp256k1 systemtap test upnp zeromq"
+IUSE="+asm +berkdb +bitcoin-cli +daemon dbus examples +external-signer gui kde libs +man nat-pmp +qrcode +sqlite system-leveldb +system-libsecp256k1 systemtap test upnp zeromq"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -39,9 +39,6 @@ RDEPEND="
 		acct-group/bitcoin
 		acct-user/bitcoin
 	)
-	libs? ( !<net-libs/libbitcoinconsensus-25.0 )
-	nat-pmp? ( >=net-libs/libnatpmp-20220705:= )
-	qrcode? ( >=media-gfx/qrencode-4.1.1:= )
 	gui? (
 		!<net-p2p/bitcoin-qt-25.0
 		>=dev-qt/qtcore-5.15.5:5
@@ -50,6 +47,9 @@ RDEPEND="
 		>=dev-qt/qtwidgets-5.15.5:5
 		dbus? ( >=dev-qt/qtdbus-5.15.5:5 )
 	)
+	libs? ( !<net-libs/libbitcoinconsensus-25.0 )
+	nat-pmp? ( >=net-libs/libnatpmp-20220705:= )
+	qrcode? ( >=media-gfx/qrencode-4.1.1:= )
 	sqlite? ( >=dev-db/sqlite-3.38.5:= )
 	system-leveldb? ( virtual/bitcoin-leveldb )
 	system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.3.1:=[recovery,schnorr] )
@@ -95,8 +95,45 @@ PATCHES=(
 	"${FILESDIR}/init.patch"
 )
 
+efmt() {
+	: ${1:?} ; local l ; while read -r l ; do "${!#}" "${l}" ; done < <(fmt "${@:1:$#-1}")
+}
+
+pkg_pretend() {
+	if ! use daemon && ! use gui && ! has_version "${CATEGORY}/${PN}[-daemon,-gui(-),-qt5(-)]" ; then
+		efmt ewarn <<-EOF
+			You are enabling neither USE="daemon" nor USE="gui". This is a valid
+			configuration, but you will be unable to run a Bitcoin node using this
+			installation.
+		EOF
+	fi
+	if use daemon && ! use bitcoin-cli && ! has_version "${CATEGORY}/${PN}[daemon,-bitcoin-cli]" ; then
+		efmt ewarn <<-EOF
+			You are enabling USE="daemon" but not USE="bitcoin-cli". This is a valid
+			configuration, but you will be unable to interact with your bitcoind node
+			via the command line using this installation.
+		EOF
+	fi
+	if ! use berkdb && ! use sqlite &&
+		{ { use daemon && ! has_version "${CATEGORY}/${PN}[daemon,-berkdb,-sqlite]" ; } ||
+		  { use gui && ! has_version "${CATEGORY}/${PN}[gui,-berkdb,-sqlite]" ; } ; }
+	then
+		efmt ewarn <<-EOF
+			You are enabling neither USE="berkdb" nor USE="sqlite". This is a valid
+			configuration, but your Bitcoin node will be unable to open any wallets.
+		EOF
+	fi
+
+	# test/functional/feature_pruning.py requires 4 GB disk space
+	# test/functional/wallet_pruning.py requires 1.3 GB disk space
+	use test && CHECKREQS_DISK_BUILD="6G" check-reqs_pkg_pretend
+}
+
 pkg_setup() {
-	use test && python-any-r1_pkg_setup
+	if use test ; then
+		CHECKREQS_DISK_BUILD="6G" check-reqs_pkg_setup
+		python-any-r1_pkg_setup
+	fi
 }
 
 src_prepare() {
@@ -144,14 +181,24 @@ src_configure() {
 		--enable-util-tx
 		--${wallet}-util-wallet
 		--disable-util-util
+		# syscall sandbox is missing faccessat2 and pselect6, causing bitcoind to crash during tests;
+		# removed upstream for 26.0 in https://github.com/bitcoin/bitcoin/commit/32e2ffc39374f61bb2435da507f285459985df9e
+		--without-seccomp
 		$(use_with libs)
 		$(use_with daemon)
-		$(use_with gui)
+		$(use_with gui gui qt5)
 		$(use_with dbus qtdbus)
 		$(use_with system-leveldb)
 		$(use_with system-libsecp256k1)
 	)
 	econf "${myeconfargs[@]}"
+}
+
+src_test() {
+	emake check
+
+	use daemon && edo "${PYTHON}" test/functional/test_runner.py \
+			--ansi --extended --jobs="$(get_makeopts_jobs)" --timeout-factor="${TIMEOUT_FACTOR:-15}"
 }
 
 src_install() {
@@ -160,6 +207,12 @@ src_install() {
 	use libs && DOCS+=( doc/shared-libraries.md )
 	use systemtap && DOCS+=( doc/tracing.md )
 	use zeromq && DOCS+=( doc/zmq.md )
+
+	if use daemon ; then
+		# https://bugs.gentoo.org/757102
+		DOCS+=( share/rpcauth/rpcauth.py )
+		docompress -x "/usr/share/doc/${PF}/rpcauth.py"
+	fi
 
 	default
 
@@ -209,10 +262,6 @@ src_install() {
 	fi
 }
 
-efmt() {
-	: ${1:?} ; local l ; while read -r l ; do "${!#}" "${l}" ; done < <(fmt "${@:1:$#-1}")
-}
-
 pkg_preinst() {
 	if use daemon && [[ -d "${EROOT}/var/lib/bitcoin/.bitcoin" ]] ; then
 		if [[ -h "${EROOT}/var/lib/bitcoin/.bitcoin" ]] ; then
@@ -253,6 +302,14 @@ pkg_postinst() {
 			- Using an init script: add the 'bitcoin' user to the 'tor' user group.
 			- Running bitcoind directly: add that user to the 'tor' user group.
 			EOF
+	fi
+
+	if use bitcoin-cli && use daemon ; then
+		efmt -su elog <<-EOF
+			To use bitcoin-cli with the /etc/init.d/bitcoind service:
+			 - Add your user(s) to the 'bitcoin' group.
+			 - Symlink ~/.bitcoin to /var/lib/bitcoind.
+		EOF
 	fi
 }
 
