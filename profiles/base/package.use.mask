@@ -6,6 +6,10 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Marek Szuba <marecki@gentoo.org> (2023-10-26)
+# media-gfx/gmic has been masked for removal, see Bug #916289.
+media-gfx/darktable gmic
+
 # hololeap <hololeap@protonmail.com> (2023-10-15)
 # Enabling these flags will create cycles in the dependency graph.
 # Maintainers may want to temporarily unmask these in order to run
@@ -376,11 +380,6 @@ net-libs/ngtcp2 openssl
 # Sam James <sam@gentoo.org> (2022-03-02)
 # Needs masked version of ogre (>=1.12), bug #825330
 >=dev-games/mygui-3.4.1 ogre
-
-# Marek Szuba <marecki@gentoo.org> (2022-02-07)
-# Deprecated back-end with known stability and data-corruption issues,
-# likely to be removed in gramps-5.2.0.
-app-misc/gramps berkdb
 
 # Jason A. Donenfeld <zx2c4@gentoo.org> (2022-02-04)
 # We're still ironing out some kinks and writing documentation for
