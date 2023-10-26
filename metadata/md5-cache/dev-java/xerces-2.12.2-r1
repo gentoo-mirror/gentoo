@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://xerces.apache.org/xerces2-j/index.html
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source verify-sig
-KEYWORDS=amd64 ~arm arm64 ~ppc64 x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=dev-java/xml-commons-external:1.4 dev-java/xml-commons-resolver:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=2
 SRC_URI=mirror://apache/xerces/j/source/Xerces-J-src.2.12.2.tar.gz verify-sig? ( https://downloads.apache.org/xerces/j/source/Xerces-J-src.2.12.2.tar.gz.asc )
 _eclasses_=java-utils-2	30b5d143e64d691346fcdd85eef1c614	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7	verify-sig	06b4d23e3bacdf7164b1e7f9e059492a
-_md5_=6156ee1a1074882553162eff9e49830f
+_md5_=3f4dff4eccab858f44c3f54128b71afa
