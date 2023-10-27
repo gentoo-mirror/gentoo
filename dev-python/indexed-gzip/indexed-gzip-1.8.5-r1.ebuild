@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 multiprocessing pypi
 
@@ -34,14 +34,6 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	# strip custom "clean" command that doesn't support "-a"
-	# https://bugs.gentoo.org/838955
-	# TODO: this can be removed once distutils-r1 stops using clean
-	sed -e '/cmdclass/d' -i setup.py || die
-	distutils-r1_src_prepare
-}
 
 src_compile() {
 	# This actually enables line tracing, so it fits USE=debug more.
