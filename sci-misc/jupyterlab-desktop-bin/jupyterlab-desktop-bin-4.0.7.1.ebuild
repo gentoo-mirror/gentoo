@@ -73,9 +73,8 @@ src_configure() {
 }
 
 src_install() {
-	for size in {16,32,48,64,128,256,512}; do
-		doicon -s ${size} "usr/share/icons/hicolor/${size}x${size}/apps/jupyterlab-desktop.png"
-	done
+	local size=512
+	doicon -s ${size} "usr/share/icons/hicolor/${size}x${size}/apps/jupyterlab-desktop.png"
 
 	domenu usr/share/applications/jupyterlab-desktop.desktop
 
