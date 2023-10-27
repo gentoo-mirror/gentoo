@@ -1145,7 +1145,7 @@ app-arch/p7zip 16.02-r8 17.05-r1: Port of 7-Zip archiver for Unix
 app-arch/pack 0.0.0.1: Haskell implementation of pack compression from the early 1980s
 app-arch/par2cmdline 0.8.1-r1 0.8.1-r2: A PAR-2.0 file verification and repair tool
 app-arch/par2cmdline-turbo 1.1.0 9999: par2cmdline × ParPar: speed focused par2cmdline fork
-app-arch/patool 1.12 1.12_p20230424: Portable archive file manager
+app-arch/patool 1.12 1.12_p20230424 1.14.1: Portable archive file manager
 app-arch/pax 20201030: pax (Portable Archive eXchange) is the POSIX standard archive tool
 app-arch/pbzip2 1.1.13: Parallel bzip2 (de)compressor using libbz2
 app-arch/pdlzip 1.12: Public-domain version of lzip compressor
@@ -5058,14 +5058,13 @@ dev-lang/whitespace 0.4: Whitespace, an esoteric programming language
 dev-lang/xsb 3.8.0 4.0.0: XSB is a logic programming and deductive database system
 dev-lang/yap 7.0.1 7.1.0: YAP is a high-performance Prolog compiler
 dev-lang/yasm 1.3.0-r1: An assembler for x86 and x86_64 instruction sets
-dev-lang/zig 0.10.1-r3 0.11.0 9999: A robust, optimal, and maintainable programming language
-dev-lang/zig-bin 0.10.1-r3 0.11.0: A robust, optimal, and maintainable programming language
+dev-lang/zig 0.11.0-r1 9999: A robust, optimal, and maintainable programming language
+dev-lang/zig-bin 0.10.1-r3 0.11.0-r1: A robust, optimal, and maintainable programming language
 dev-libs/9libs 1.0-r5: Plan 9 compatibility libraries
 dev-libs/FBGEMM 2023.02.10: Facebook GEneral Matrix Multiplication
 dev-libs/FP16 2021.03.20-r3: conversion to/from half-precision floating point formats
 dev-libs/FXdiv 2020.12.09-r1: Division via fixed-point multiplication by inverse
 dev-libs/Ice 3.7.8-r2: ICE middleware C++ library and generator tools
-dev-libs/Imath 3.1.6 3.1.9: Imath basic math package
 dev-libs/OpenNI 1.5.7.10-r3 9999: OpenNI SDK
 dev-libs/OpenNI2 2.2_beta2-r1 9999: OpenNI2 SDK
 dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for AMD GPUs
@@ -5197,6 +5196,7 @@ dev-libs/icu-layoutex 73.2: External layout part of International Components for
 dev-libs/icu-le-hb 1.2.3: ICU Layout Engine API on top of HarfBuzz shaping library
 dev-libs/igraph 0.10.4 0.10.4-r1: Creating and manipulating undirected and directed graphs
 dev-libs/iksemel 1.4-r2: eXtensible Markup Language parser library designed for Jabber applications
+dev-libs/imath 3.1.6 3.1.7: Imath basic math package
 dev-libs/inih 56-r1 57: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1 4.1-r1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
@@ -10600,8 +10600,8 @@ dev-util/ftnchek 3.3.1-r2: Static analyzer a la 'lint' for Fortran 77
 dev-util/fuzz 0.6-r3: Stress-tests programs by giving them random input
 dev-util/gcovr 5.1 5.2 6.0: A Python script for summarizing gcov data
 dev-util/gdbus-codegen 2.76.4 2.78.0: GDBus code and documentation generator
-dev-util/geany 1.38 9999: GTK+ based fast and lightweight IDE
-dev-util/geany-plugins 1.38-r5 1.38-r410: A collection of different plugins for Geany
+dev-util/geany 1.38 2.0: GTK+ based fast and lightweight IDE
+dev-util/geany-plugins 1.38-r410 2.0: A collection of different plugins for Geany
 dev-util/gef 2023.08 9999: A GDB Enhanced Features for exploit devs & reversers
 dev-util/gengetopt 2.23 2.23-r1: Tool to write command line option parsing code for C programs
 dev-util/gertty 1.6.0-r1 9999: Gertty is a console-based interface to the Gerrit Code Review system
@@ -11885,7 +11885,7 @@ gui-apps/swaylock 1.7 1.7.2 9999: Screen locker for Wayland
 gui-apps/tuigreet 0.7.2 0.8.0-r1 9999: TUI greeter for greetd login manager
 gui-apps/waybar 0.9.19 0.9.22 9999: Highly customizable Wayland bar for Sway and Wlroots based compositors
 gui-apps/wayland-logout 1.4 9999: general logout scripts for wayland compositors
-gui-apps/waypipe 0.8.0-r2 9999: Transparent network proxy for Wayland compositors
+gui-apps/waypipe 0.8.0-r2 0.8.6 9999: Transparent network proxy for Wayland compositors
 gui-apps/wayvnc 0.6.2 9999: VNC server for wlroots based Wayland compositors
 gui-apps/wcm 0.7.0 0.7.5 9999: Wayfire Config Manager
 gui-apps/wf-recorder 0.3.0-r2 9999: Screen recorder for wlroots-based compositors
@@ -12693,7 +12693,7 @@ media-gfx/arss 0.2.3-r1: Analysis & Resynthesis Sound Spectrograph
 media-gfx/asymptote 2.85-r1 2.86: A vector graphics language that provides a framework for technical drawing
 media-gfx/autopano-sift-C 2.5.1-r1: SIFT algorithm for automatic panorama creation in C
 media-gfx/aview 1.3.0_rc1-r3: ASCII Image Viewer
-media-gfx/blender 3.3.6-r1 3.3.8 3.4.1-r3 3.5.1-r1 3.6.0 3.6.5 9999: 3D Creation/Animation/Publishing System
+media-gfx/blender 3.3.6-r1 3.3.8 3.4.1-r3 3.5.1-r1 3.6.0 9999: 3D Creation/Animation/Publishing System
 media-gfx/brscan4 0.4.11.1-r1: Brother scanner driver
 media-gfx/cairosvg 2.7.0 2.7.1: CLI and library to export SVG to PDF, PostScript, and PNG
 media-gfx/cellwriter 1.3.6: Grid-entry natural handwriting input panel
@@ -12907,9 +12907,6 @@ media-gfx/yafaray 3.5.1-r4: A free open-source montecarlo raytracing engine
 media-gfx/zbar 0.23.92: Library and tools for reading barcodes from images or video
 media-gfx/zgv 5.9-r1: A svgalib console image viewer
 media-libs/Field3D 1.7.2-r3: A library for storing voxel data
-media-libs/OpenColorIO 2.1.3 2.2.1 2.3.0: A color management framework for visual effects and animation
-media-libs/OpenImageIO 2.4.6.0-r1 2.4.12.0 2.4.13.0 2.4.14.0 2.4.15.0 2.4.16.0 2.5.4.0: A library for reading and writing images
-media-libs/OpenShadingLanguage 1.12.7.0 1.12.11.0 1.12.13.0: Advanced shading language for production GI renderers
 media-libs/SoQt 1.6.0: GUI binding for using Coin/Open Inventor with Qt
 media-libs/SoXt 1.4.0: GUI binding for using Coin/Open Inventor with Xt/Motif
 media-libs/a52dec 0.7.4-r8: Library for decoding ATSC A/52 streams used in DVD
@@ -13147,7 +13144,7 @@ media-libs/libpng 1.6.39 1.6.40 1.6.40-r1: Portable Network Graphics library
 media-libs/libpng-compat 1.2.59-r1 1.5.30-r1: Portable Network Graphics library
 media-libs/libpqstego 0.0.1-r1: Library for Perturbed Quantization Steganography
 media-libs/libprojectm 3.1.12 9999: A graphical music visualization plugin similar to milkdrop
-media-libs/libpulse 16.1-r1 16.1-r2 16.1-r4: Libraries for PulseAudio clients
+media-libs/libpulse 16.1-r1 16.1-r2 16.1-r4 16.99.1: Libraries for PulseAudio clients
 media-libs/libqaccessibilityclient 0.4.1: Library for writing accessibility clients such as screen readers
 media-libs/libquicktime 1.2.4-r4: An enhanced version of the quicktime4linux library
 media-libs/libquvi 0.9.4-r100 0.9.4-r101: Library for parsing video download links
@@ -13218,18 +13215,21 @@ media-libs/oneVPL-cpu 2023.2.0: oneAPI Video Processing Library CPU implementati
 media-libs/oneVPL-intel-gpu 23.3.2 23.3.4: oneAPI Video Processing Library Intel GPU implementation
 media-libs/openal 1.23.1-r1: A software implementation of the OpenAL 3D audio API
 media-libs/opencollada 1.6.68: Stream based read/write library for COLLADA files
+media-libs/opencolorio 2.1.3 2.2.1 2.3.0: A color management framework for visual effects and animation
 media-libs/opencore-amr 0.1.6: Implementation of Adaptive Multi Rate Narrowband and Wideband speech codec
 media-libs/openctm 1.0.3-r1: OpenCTM - the Open Compressed Triangle Mesh
 media-libs/opencv 4.6.0-r4 4.7.0 4.7.0-r1 4.8.0 4.8.0-r1: A collection of algorithms and sample code for various computer vision problems
-media-libs/openexr 3.1.5-r1 3.1.7 3.1.11: ILM's OpenEXR high dynamic-range image file format libraries
+media-libs/openexr 3.1.5-r1 3.1.7: ILM's OpenEXR high dynamic-range image file format libraries
 media-libs/openfec 1.4.2.9: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.3.1-r1 2.3.1-r3: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
+media-libs/openimageio 2.4.6.0-r1 2.4.12.0 2.4.13.0: A library for reading and writing images
 media-libs/openjpeg 2.5.0-r5 2.5.0-r6: Open-source JPEG 2000 library
 media-libs/openpgl 0.5.0: Intel Open Path Guiding Library
 media-libs/opensubdiv 3.4.4-r3 3.5.0: An Open-Source subdivision surface library
 media-libs/opus 1.3.1-r4 1.4: Open codec for interactive speech and music transmission over the Internet
 media-libs/opusfile 0.12-r1: A high-level decoding and seeking API for .opus files
+media-libs/osl 1.12.7.0 1.12.11.0 1.12.13.0: Advanced shading language for production GI renderers
 media-libs/partio 1.14.6: Library for particle IO and manipulation
 media-libs/pcaudiolib 1.2-r2: Portable C Audio Library
 media-libs/phat 0.4.1-r2: PHAT is a collection of GTK+ widgets geared toward pro-audio apps
@@ -13313,7 +13313,7 @@ media-libs/volpack 1.0_p7-r2: Volume rendering library
 media-libs/vulkan-layers 1.3.261 9999: Vulkan Validation Layers
 media-libs/vulkan-loader 1.3.261 9999: Vulkan Installable Client Driver (ICD) Loader
 media-libs/waffle 1.7.2 1.7.3 1.8.0 9999: Library that allows selection of GL API and of window system at runtime
-media-libs/webrtc-audio-processing 0.3.1 0.3.1-r1 1.0: AudioProcessing library from the webrtc.org codebase
+media-libs/webrtc-audio-processing 0.3.1 0.3.1-r1 1.3: AudioProcessing library from the webrtc.org codebase
 media-libs/woff2 1.0.2-r5: Encode/decode WOFF2 font format
 media-libs/wxsvg 1.5.11-r1 1.5.23: C++ library to create, manipulate and render SVG files
 media-libs/x264 0.0.20220222 9999: A free library for encoding X264/AVC streams
@@ -13853,7 +13853,7 @@ media-sound/ptabtools 0.5.0: Utilities for PowerTab Guitar files (.ptb)
 media-sound/puddletag 2.2.0-r1: Audio tag editor
 media-sound/pulseaudio 16.1: A meta package for PulseAudio (networked sound server)
 media-sound/pulseaudio-ctl 1.70-r1: CLI utility to control PulseAudio volume
-media-sound/pulseaudio-daemon 16.1-r3 16.1-r6 16.1-r7 16.1-r8: Daemon component of PulseAudio (networked sound server)
+media-sound/pulseaudio-daemon 16.1-r3 16.1-r6 16.1-r7 16.1-r8 16.99.1: Daemon component of PulseAudio (networked sound server)
 media-sound/pulseeffects 4.8.7: Limiter, compressor, reverberation, equalizer auto volume effects for Pulseaudio
 media-sound/pulsemixer 1.5.1-r2 9999: CLI and curses mixer for PulseAudio
 media-sound/pwavecat 0.4.5: Concatenates any number of audio files to stdout
@@ -14573,7 +14573,7 @@ net-im/skypeforlinux 8.100.0.203 8.102.0.211 8.103.0.208 8.105.0.208: Instant me
 net-im/slack 4.34.121 4.35.121: Team collaboration tool
 net-im/spectrum2 2.2.1: An open source instant messaging transport
 net-im/swift 4.0.2-r102 4.0.3-r1: An elegant, secure, adaptable and intuitive XMPP Client
-net-im/synapse 1.90.0 1.92.2 1.93.0: Reference implementation of Matrix homeserver
+net-im/synapse 1.93.0 1.95.0: Reference implementation of Matrix homeserver
 net-im/telegram-desktop 4.8.1-r3 4.8.4-r1 4.8.4-r2 4.10.3-r1: Official desktop client for Telegram
 net-im/telegram-desktop-bin 4.10.3: Official desktop client for Telegram (binary package)
 net-im/telepathy-connection-managers 2-r2: Meta-package for Telepathy Connection Managers
@@ -14822,7 +14822,7 @@ net-libs/wandio 4.2.3_p1-r1 4.2.3_p1-r2 4.2.4: C library for simple and efficien
 net-libs/webkit-gtk 2.40.5 2.40.5-r410 2.40.5-r600 2.42.1 2.42.1-r410 2.42.1-r600: Open source web browser engine
 net-libs/wslay 1.1.1_p20210115: WebSocket library in C
 net-libs/wvstreams 4.6.1_p14-r2: A network programming library in C++
-net-libs/xdp-tools 1.2.8 1.3.1-r3 1.4.0: The libxdp library and various tools for use with XDP
+net-libs/xdp-tools 1.4.0 1.4.1: The libxdp library and various tools for use with XDP
 net-libs/xrootd 5.5.4-r1 5.5.5-r1 5.6.1 5.6.2: Extended ROOT remote file server
 net-libs/xrootd-ceph 5.5.4 5.5.5: xrootd OSS plug-in for interfacing with Ceph storage platform
 net-libs/zeromq 4.3.3-r1 4.3.4-r1 4.3.4-r2: A brokerless kernel
@@ -15238,7 +15238,7 @@ net-misc/youtube-viewer 3.10.1 9999: A command line utility for viewing youtube-
 net-misc/yt-dlp 2023.10.13 9999: youtube-dl fork with additional features and fixes
 net-misc/ytfzf 2.6.1: Posix script to find and watch youtube videos from the terminal
 net-misc/ytmdl 2023.7.27: Simple app to get songs from youtube in mp3 format
-net-misc/zerotier 1.10.1 1.10.6: A software-based managed Ethernet switch for planet Earth
+net-misc/zerotier 1.10.1 1.10.6 1.12.2: A software-based managed Ethernet switch for planet Earth
 net-misc/zssh 1.5c-r2: SSH wrapper enabling zmodem up/download in ssh
 net-misc/zsync 0.6.2-r2 0.6.2-r3: Partial/differential file download client over HTTP using the rsync algorithm
 net-nds/389-ds-base 1.4.4.19-r4 2.1.0-r4 2.3.2: 389 Directory Server (core libraries and daemons)
@@ -17259,7 +17259,7 @@ sys-devel/distcc 3.4-r1 3.4-r2 3.4-r3: Distribute compilation of C code across s
 sys-devel/dwz 0.14 0.15-r1: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r5 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r1 9.5.0 10.4.1_p20230426-r1 10.5.0 11.3.1_p20230427 11.4.1_p20230622 11.4.1_p20230824 11.4.1_p20231012 11.4.1_p20231019 11.5.9999 12.3.1_p20230526 12.3.1_p20230825 12.3.1_p20231006 12.3.1_p20231013 12.3.1_p20231020 12.4.9999 13.2.1_p20230826 13.2.1_p20231014 13.2.1_p20231021 13.3.9999 14.0.0_pre20231015 14.0.0_pre20231015-r1 14.0.0_pre20231022 14.0.0_pre20231022-r1 14.0.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r1 9.5.0 10.4.1_p20230426-r1 10.5.0 11.3.1_p20230427 11.4.1_p20230622 11.4.1_p20230824 11.4.1_p20231012 11.4.1_p20231019 11.4.1_p20231026 11.5.9999 12.3.1_p20230526 12.3.1_p20230825 12.3.1_p20231006 12.3.1_p20231013 12.3.1_p20231020 12.4.9999 13.2.1_p20230826 13.2.1_p20231014 13.2.1_p20231021 13.3.9999 14.0.0_pre20231015 14.0.0_pre20231015-r1 14.0.0_pre20231022 14.0.0_pre20231022-r1 14.0.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 9999: Utility to manage compilers
 sys-devel/gdb 13.2 13.2-r1 13.2-r2 14.0.91 9999: GNU debugger
@@ -17660,7 +17660,7 @@ sys-process/time 1.9-r1: Displays info about resources used by a program
 sys-process/tini 0.19.0-r1: A tiny but valid init for containers
 sys-process/tiptop 2.3.1_p4 2.3.1_p4_p20221211: top for performance counters
 sys-process/top-apple 73: Apple's top from Mac OS X Lion 10.7
-sys-process/uksmd 6.4.1: Userspace KSM helper daemon
+sys-process/uksmd 6.5.1: Userspace KSM helper daemon
 sys-process/unixtop 3.8_beta1-r3: top for UNIX systems
 sys-process/usbtop 1.0_p20220419: utility that shows an estimated instantaneous bandwidth on USB buses and devices
 sys-process/wait_on_pid 0.0.2-r2: Small utility to wait for an arbitrary process to exit

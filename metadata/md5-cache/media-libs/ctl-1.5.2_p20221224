@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/Imath:= >=media-libs/openexr-3:=[threads] media-libs/tiff:= !media-libs/openexr_ctl
+DEPEND=dev-libs/imath:= >=media-libs/openexr-3:=[threads] media-libs/tiff:= !media-libs/openexr_ctl
 DESCRIPTION=AMPAS' Color Transformation Language
 EAPI=8
 HOMEPAGE=https://github.com/ampas/CTL
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test
 KEYWORDS=amd64 ~ia64 ~ppc64 x86
 LICENSE=AMPAS
-RDEPEND=dev-libs/Imath:= >=media-libs/openexr-3:=[threads] media-libs/tiff:= !media-libs/openexr_ctl
+RDEPEND=dev-libs/imath:= >=media-libs/openexr-3:=[threads] media-libs/tiff:= !media-libs/openexr_ctl
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ampas/CTL/archive/3fc4ae7a8af35d380654e573d895216fd5ba407e.tar.gz -> ctl-1.5.2_p20221224.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
-_md5_=a3d7d83680dcf0bd93431b72dcc967ff
+_md5_=ff05a87f578daa58059bacb1b83f7c94
