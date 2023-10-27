@@ -232,7 +232,6 @@ app-arch/cabextract:extras - Install experimental extra tools: wince_info and wi
 app-arch/createrepo_c:legacy - Build with support for legacy weakdeps and hashes (not recommended!)
 app-arch/dpkg:libmd - Use app-crypt/libmd library for message digest functions
 app-arch/dpkg:update-alternatives - Install update-alternatives
-app-arch/drpm:lzip - Enable app-arch/lzip decompression support via app-arch/lzlib
 app-arch/dump:ermt - encrypted rmt support
 app-arch/dump:uuid - Enable UUID support
 app-arch/engrampa:caja - Enable engrampa to integrate with mate-base/caja by providing entries in its context menu
@@ -1275,7 +1274,6 @@ dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
 dev-cpp/abseil-cpp:cxx17 - Build with -DCMAKE_CXX_STANDARD=17 (required by some revdeps)
 dev-cpp/benchmark:lto - Optimize the build using Link Time Optimization (LTO)
-dev-cpp/cpp-httplib:brotli - Enable app-arch/brotli support
 dev-cpp/eigen:cuda - Build with cuda support
 dev-cpp/glog:gflags - Use dev-cpp/gflags for flag parsing
 dev-cpp/glog:libunwind - Use libunwind library (sys-libs/libunwind or sys-libs/llvm-libunwind) instead of built-in fallback implementation for stack unwinding
@@ -1770,7 +1768,6 @@ dev-lang/perl:ithreads - Enable Perl threads, has some compatibility problems
 dev-lang/perl:quadmath - Enable 128bit floating point arithmetic via libquadmath
 dev-lang/php:apparmor - Support FPM application confinement through sys-libs/libapparmor
 dev-lang/php:argon2 - Enable password hashing algorithm from app-crypt/argon2
-dev-lang/php:avif - Enable AVIF support in bundled libgd
 dev-lang/php:bcmath - Enable the BCMath Arbitrary Precision Mathematics extension
 dev-lang/php:cli - Enable the Command-Line Interface (CLI) SAPI
 dev-lang/php:coverage - Include gcov symbols for test coverage and lcov reports. Only useful for extension developers, and requires GCC.
@@ -1800,7 +1797,6 @@ dev-lang/php:sodium - Enable support for crypto through dev-libs/libsodium
 dev-lang/php:sysvipc - Enable the PHP System-V semaphore, shared memory and IPC extension
 dev-lang/php:tokenizer - Add support for the PHP file parser
 dev-lang/php:tokyocabinet - Enable support for dev-db/tokyocabinet db backend
-dev-lang/php:webp - Enable webp support for GD in php-7.x
 dev-lang/php:xmlreader - Enable the XMLReader extension
 dev-lang/php:xmlwriter - Enable the XMLWriter extension
 dev-lang/php:xslt - Build the XSL extension
@@ -1851,7 +1847,6 @@ dev-lang/yap:R - Enable support for connecting R to Prolog
 dev-lang/yap:raptor - Enable support for Raptor RDF syntax libarary
 dev-libs/aml:examples - Build and install examples
 dev-libs/antlr-c:debugger - Compiles debug info into the library
-dev-libs/apache-arrow:brotli - Enable brotli compression support
 dev-libs/apache-arrow:compute - Build the Arrow Compute Modules
 dev-libs/apache-arrow:dataset - Build the Arrow Dataset Modules
 dev-libs/apache-arrow:json - Enables read/write json format
@@ -1890,7 +1885,6 @@ dev-libs/dbus-c++:ecore - Use Ecore integration
 dev-libs/dbus-c++:glib - Use glib integration
 dev-libs/eekboard:libcanberra - Enable support for media-libs/libcanberra
 dev-libs/eekboard:xtest - Enable support for x11-libs/libXtst
-dev-libs/efl:avif - Enable AVIF image loader
 dev-libs/efl:bmp - Enable WBMP image loader
 dev-libs/efl:dds - Enable DDS image loader
 dev-libs/efl:drm - Enable DRM engine
@@ -2525,7 +2519,6 @@ dev-python/translate-toolkit:yaml - Support YAML format
 dev-python/twisted:conch - include Twisted SSHv2 implementation
 dev-python/twisted:http2 - include http2 support
 dev-python/twisted:serial - include serial port support
-dev-python/urllib3:brotli - Enable support for brotli compression
 dev-python/websockets:native-extensions - Compiles native C extensions
 dev-python/zeep:async - Add async support
 dev-qt/designer:declarative - Build the qdeclarativeview plugin
@@ -2598,7 +2591,6 @@ dev-qt/qt3d:gamepad - Add support for gamepad hardware via dev-qt/qtgamepad
 dev-qt/qt3d:qml - Build QML/QtQuick bindings
 dev-qt/qt5compat:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtbase:X - Build the XCB platform plugin and enable X11 integration
-dev-qt/qtbase:brotli - Enable support for Brotli decompression
 dev-qt/qtbase:concurrent - Build Qt6Concurrent module
 dev-qt/qtbase:dbus - Build Qt6DBus module
 dev-qt/qtbase:eglfs - Build the EGL Full Screen/Single Surface platform plugin
@@ -3567,9 +3559,7 @@ kde-frameworks/kfilemetadata:epub - Enable support for reading EPUB ebook metada
 kde-frameworks/kfilemetadata:mobi - Enable mobipocket support via kde-apps/kdegraphics-mobipocket
 kde-frameworks/kglobalaccel:X - Build the kglobalacceld runtime needed for X
 kde-frameworks/kiconthemes:designer - Build plugins for dev-qt/designer
-kde-frameworks/kimageformats:avif - Support the AVIF image file format
 kde-frameworks/kimageformats:eps - Support the EPS graphics file format
-kde-frameworks/kimageformats:jpegxl - Support for JPEG XL image format
 kde-frameworks/kinit:caps - Capabilities support for improved security and better OOM handling
 kde-frameworks/kio:designer - Build plugins for dev-qt/designer
 kde-frameworks/kio:kwallet - Enable permanent storage of passwords for kpasswdserver with kde-frameworks/kwallet
@@ -3984,12 +3974,10 @@ media-gfx/blender:potrace - Add support for converting bitmaps into Grease penci
 media-gfx/blender:pugixml - Enable PugiXML support (Used for OpenImageIO, Grease Pencil SVG export)
 media-gfx/blender:tbb - Use threading building blocks library from dev-cpp/tbb.
 media-gfx/chafa:tools - Build command-line tools
-media-gfx/darktable:avif - Support importing and exporting AVIF images
 media-gfx/darktable:flickr - Add support for uploading photos to flickr
 media-gfx/darktable:gamepad - Support using game controllers as input devices
 media-gfx/darktable:geolocation - Enable geotagging support
 media-gfx/darktable:gmic - Use the G'MIC image-processing framework (media-gfx/gmic), e.g. to support Colour LUTs compressed using their compression scheme
-media-gfx/darktable:jpegxl - Enable support for JPEG XL image format
 media-gfx/darktable:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 media-gfx/darktable:lto - Enable link-time optimisations in the RawSpeed library
 media-gfx/darktable:midi - Support using MIDI input devices such as Behringer X-Touch Mini, Arturia Beatstep or Korg nanoKONTROL2, as input devices
@@ -4034,15 +4022,12 @@ media-gfx/freecad:surface - Build the surface module and workbench
 media-gfx/freecad:techdraw - Build the techdraw module and workbench, a more advanced and feature-rich successor of the drawing workbench
 media-gfx/freecad:tux - Build the Tux module
 media-gfx/geeqie:ffmpegthumbnailer - Enable video thumbnail support with media-video/ffmpegthumbnailer
-media-gfx/geeqie:jpegxl - Enable support for JPEG XL image format
 media-gfx/geeqie:map - Enable items GPS map display
-media-gfx/gimp:jpegxl - Enable support for JPEG XL image format
 media-gfx/gimp:vector-icons - Enable support for vector icons (experimental)
 media-gfx/gmic:cli - Build CLI interface
 media-gfx/gmic:opencv - Enable support for webcams using the OpenCV library
 media-gfx/graphicsmagick:dynamic-loading - Compile graphicsmagick with dynamically loadable modules
 media-gfx/graphicsmagick:fpx - Enable FlashPix support with media-libs/libfpx
-media-gfx/graphicsmagick:jpegxl - Enable support for JPEG XL image format
 media-gfx/graphicsmagick:q16 - Set storage quantum size to 16 (~2*memory)
 media-gfx/graphicsmagick:q32 - Set storage quantum size to 32 (~5*memory)
 media-gfx/graphviz:X - Builds dotty, lneato, unflatten, vimdot, builds plugin -Txlib, and enables support for x11 in various other modules (needs cairo)
@@ -4050,13 +4035,11 @@ media-gfx/graphviz:devil - Enables DevIL output plugin -Tdevil
 media-gfx/graphviz:gtk2 - Enables gtk+ output plugin -Tgtk (needs cairo)
 media-gfx/graphviz:gts - Enables support for GNU Triangulated Surface Library (required for sfdp to work)
 media-gfx/graphviz:lasi - Enables PostScript output via media-libs/lasi, for plugin -Tlasi (needs cairo)
-media-gfx/gthumb:jpegxl - Support for JPEG XL image format
 media-gfx/gthumb:slideshow - Enable slideshow plugin
 media-gfx/hugin:sift - automatically align images with media-gfx/autopano-sift-C
 media-gfx/imagemagick:corefonts - Use media-fonts/corefonts which is required by some commands
 media-gfx/imagemagick:fpx - Enable media-libs/libfpx support
 media-gfx/imagemagick:hdri - Enable High Dynamic Range Images formats
-media-gfx/imagemagick:jpegxl - Enable support for JPEG XL image format
 media-gfx/imagemagick:lqr - Enable experimental liquid rescale support using media-libs/liblqr
 media-gfx/imagemagick:opencl - Enable OpenCL support
 media-gfx/imagemagick:pango - Enable Pango support using x11-libs/pango
@@ -4076,7 +4059,6 @@ media-gfx/kphotoalbum:phonon - Enable media-libs/phonon video backend (known to 
 media-gfx/kphotoalbum:share - Enable support for a share menu using kde-frameworks/purpose
 media-gfx/kphotoalbum:vlc - Enable media-video/vlc video backend (recommended for X11)
 media-gfx/krita:color-management - Enable color management via media-libs/opencolorio
-media-gfx/krita:jpegxl - Support for JPEG XL image format
 media-gfx/krita:mypaint-brush-engine - Enable MyPaint brush engine support media-libs/libmypaint
 media-gfx/krita:qtmedia - Enable sound support for animations via dev-qt/qtmultimedia
 media-gfx/librecad:tools - Build additional tool programs: tff2lff
@@ -4175,7 +4157,6 @@ media-libs/fcft:harfbuzz - Use media-libs/harfbuzz for grapheme and run shaping
 media-libs/fcft:libutf8proc - Use media-libs/harfbuzz and dev-libs/libutf8proc for run shaping
 media-libs/flickcurl:raptor - Use media-libs/raptor for proper RDF serializing
 media-libs/freetype:adobe-cff - Use Adobe CFF as default font-renderer
-media-libs/freetype:brotli - Enable brotli decompression support via app-arch/brotli
 media-libs/freetype:bzip2 - Support bzip2 compressed PCF fonts.
 media-libs/freetype:cleartype-hinting - Bytecode hinting mode for TrueType fonts that activates subpixel hinting (a.k.a. ClearType hinting) by default
 media-libs/freetype:fontforge - Install internal headers required for TrueType debugger in media-gfx/fontforge (built with USE=truetype-debugger)
@@ -4185,8 +4166,6 @@ media-libs/freetype:utils - Install utilities and examples from ft2demos
 media-libs/freeverb3:forcefpu - Disable assembly code
 media-libs/freeverb3:plugdouble - Build plugins in double precision mode (default is float)
 media-libs/ganv:fdgl - Use experimental force-directed graph layout
-media-libs/gd:avif - Enable support for the avif format via media-libs/libavif
-media-libs/gd:webp - Enable support for the webp format
 media-libs/gegl:lensfun - Enable support for media-libs/lensfun.
 media-libs/gegl:sdl2 - Add support for Simple Direct Layer 2.0 (media-libs/libsdl2)
 media-libs/gegl:umfpack - Enable sparse solving via sci-libs/umfpack.
@@ -4418,8 +4397,6 @@ media-libs/sdl-mixer:mod - basic support for MOD files
 media-libs/sdl-mixer:playtools - Install playwave and playmus tools (useful for testing)
 media-libs/sdl-mixer:smpeg - Use media-libs/smpeg for MP3 support
 media-libs/sdl-mixer:wav - support WAVE files
-media-libs/sdl2-image:avif - Enable support for AVIF image format
-media-libs/sdl2-image:jpegxl - Enable support for JPEG XL image format
 media-libs/sdl2-mixer:fluidsynth - Use media-sound/fluidsynth for MIDI support
 media-libs/sdl2-mixer:midi - basic support for MIDI files
 media-libs/sdl2-mixer:mod - basic support for MOD files
@@ -4444,7 +4421,6 @@ media-libs/vips:deprecated - Enable deprecated components
 media-libs/vips:fits - Enable support for the Flexible Image Transport System data format using sci-libs/cfitsio
 media-libs/vips:gsf - Enable support for structured files using gnome-extra/libgsf
 media-libs/vips:imagequant - Enable support for Image Quantization using media-gfx/libimagequant
-media-libs/vips:jpegxl - Enable support for the JPEG-XL image format using media-libs/libjxl
 media-libs/vips:matio - Enable support for matlab files using sci-libs/matio
 media-libs/vips:pango - Enable support for text rendering using x11-libs/pango
 media-libs/vulkan-loader:layers - Include the vulkan layers
@@ -4995,7 +4971,6 @@ media-video/ffmpeg:gme - Enables support for media-libs/game-music-emu for playi
 media-video/ffmpeg:gpl - Build GPL code. Should be enabled unless you require LGPL binaries.
 media-video/ffmpeg:hardcoded-tables - Use pre-calculated tables rather than calculating them on the fly. It results in an increase of approximately 15% in the size of libavcodec, the main library impacted by this change. It enables savings in table generation time, done once at codec initialization, since by hardcoding the tables, they do not need to be computed at runtime. However, the savings are often negligible (~100k cycles is a typical number) especially when amortized over the entire encoding/decoding operation. Improvements are being made to the runtime initialization, and so over time, this option will have an impact on fewer and fewer codecs.
 media-video/ffmpeg:iec61883 - Support for FireWire DV/HDV input device using media-libs/libiec61883.
-media-video/ffmpeg:jpegxl - Enable JPEG XL de/encoding via media-libs/libjxl.
 media-video/ffmpeg:kvazaar - Enables media-libs/kvazaar based HEVC encoder.
 media-video/ffmpeg:lcms - Enable ICC profile support via media-libs/lcms.
 media-video/ffmpeg:libaom - Enables media-libs/libaom based AV1 codec support.
@@ -5461,7 +5436,6 @@ net-analyzer/tracebox:curl - Build the curl component for uploading capture file
 net-analyzer/tracebox:sniffer - Build the sniffer component using net-libs/libnetfilter_queue
 net-analyzer/wireshark:androiddump - Install androiddump, an extcap interface to capture from Android devices
 net-analyzer/wireshark:bcg729 - Use media-libs/bcg729 for G.729 codec support in RTP Player
-net-analyzer/wireshark:brotli - Use app-arch/brotli for compression/decompression
 net-analyzer/wireshark:capinfos - Install capinfos, to print information about capture files
 net-analyzer/wireshark:captype - Install captype, to print the file types of capture files
 net-analyzer/wireshark:ciscodump - Install ciscodump, extcap interface to capture from a remote Cisco router
@@ -5978,7 +5952,6 @@ net-libs/freaklabs-chibiarduino:promisc - Enable promisc in the config file for 
 net-libs/glib-networking:gnome - Extract HTTP/HTTPS/SOCKS proxy configuration stored using GSettings
 net-libs/glib-networking:libproxy - Use net-libs/libproxy for getting the HTTP/HTTPS/SOCKS proxy configuration
 net-libs/gnome-online-accounts:gnome - Use gnome-base/gnome-control-center to set GNOME online accounts preferences
-net-libs/gnutls:brotli - Enable brotli decompression support via app-arch/brotli
 net-libs/gnutls:dane - Build libgnutls-dane, implementing DNS-based Authentication of Named Entities. Requires net-dns/unbound
 net-libs/gnutls:openssl - Build openssl compatibility libraries
 net-libs/gnutls:pkcs11 - Add support for PKCS#11 through app-crypt/p11-kit
@@ -6022,7 +5995,6 @@ net-libs/libproxy:gnome - Enable support for reading proxy settings from GNOME
 net-libs/libproxy:kde - Enable support for reading proxy settings from KDE
 net-libs/libqmi:mbim - Support QMI over Mobile Broadband Interface Model (MBIM)
 net-libs/libqmi:qrtr - Support QMI over IPC Router bus (QRTR)
-net-libs/libsoup:brotli - Enable brotli decompression support
 net-libs/libsoup:gssapi - Enable GSSAPI support
 net-libs/libsoup:samba - Use net-fs/samba for NTLM Single Sign-On
 net-libs/libsoup:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
@@ -6116,10 +6088,8 @@ net-libs/tox:log-trace - Log level: 5
 net-libs/tox:log-warn - Log level: 2
 net-libs/udns:tools - Build and install dnsget, ex-rdns and rblcheck tools
 net-libs/wandio:http - Build support for reading files over HTTP using net-misc/curl
-net-libs/webkit-gtk:avif - Enable support for AVIF images via media-libs/libavif
 net-libs/webkit-gtk:examples - Install the MiniBrowser example application
 net-libs/webkit-gtk:gamepad - Enable gamepad input support via dev-libs/libmanette
-net-libs/webkit-gtk:jpegxl - Enable support for JPEG-XL images
 net-libs/webkit-gtk:jumbo-build - Combine source files to speed up build process
 net-libs/wvstreams:boost - Use dev-libs/boost to provide TR1-compatible functional interface. This USE flag is only needed with GCC earlier than version 4.1, or with other compilares not providing said interface.
 net-libs/xdp-tools:tools - Install various helper tools rather than just libxdp.
@@ -6152,7 +6122,6 @@ net-mail/dovecot:sieve - Add sieve support
 net-mail/dovecot:solr - Add solr full text search (FTS) support
 net-mail/dovecot:stemmer - Add libstemmer support (for FTS)
 net-mail/dovecot:textcat - Add libtextcat language guessing support for full text search (FTS)
-net-mail/dovecot:zstd - Add support for zstd (de)compression
 net-mail/fetchmail:socks - Enable support for socks proxy
 net-mail/fetchmail:tk - Enable support for Tk GUI toolkit, in particular it installs fetchmailconf
 net-mail/gnubiff:password - Enable save passwords to connect mail servers in user space
@@ -6330,7 +6299,6 @@ net-misc/connman:wireguard - Enable WireGuard VPN support.
 net-misc/connman:wispr - Enable support for WISPr hotspot logins.
 net-misc/connman-gtk:openconnect - Support easier authentication to AnyConnect VPNs
 net-misc/curl:alt-svc - Enable alt-svc support
-net-misc/curl:brotli - Enable brotli compression support
 net-misc/curl:ftp - Enable FTP support
 net-misc/curl:gnutls - Enable gnutls ssl backend
 net-misc/curl:gopher - Enable Gopher protocol support
@@ -6352,7 +6320,6 @@ net-misc/curl:sslv3 - Support for the old/insecure SSLv3 protocol
 net-misc/curl:telnet - Enable Telnet protocol support
 net-misc/curl:tftp - Enable TFTP support
 net-misc/curl:websockets - Enable websockets support
-net-misc/curl:zstd - Enable zstd compression
 net-misc/dahdi:flash - Support (short) flash on FXS
 net-misc/dahdi:oslec - Enable OSLEC (software) echo canceller (require ECHO in kernel)
 net-misc/dahdi-tools:ppp - Enables PPP/DAHDIRAS support
@@ -6648,10 +6615,8 @@ net-misc/wget:cookie-check - Enable cookie checks via net-libs/libpsl
 net-misc/wget:metalink - Enable support for media-libs/libmetalink
 net-misc/wget:ntlm - Enable support for NTLM (Windows-based) authorization
 net-misc/wget:uuid - Generate UUIDs for the WARC (Web ARChive file format) using libuuid; otherwise use a simple RNG (random number generator)
-net-misc/wget2:brotli - Enable support for brotli compression
 net-misc/wget2:gpgme - Build app-crypt/gpgme backend
 net-misc/wget2:http2 - Enable HTTP/2.0 support via net-libs/nghttp2
-net-misc/wget2:lzip - Enable app-arch/lzip support via app-arch/lzlib
 net-misc/wget2:openssl - Enable crypto support via dev-libs/openssl
 net-misc/wget2:psl - Use public suffix list via net-libs/libpsl
 net-misc/whois:xcrypt - Enable crypt through sys-libs/libxcrypt package
@@ -7741,7 +7706,6 @@ sys-apps/elfix:ptpax - Enable PT_PAX_FLAGS support.
 sys-apps/elfix:xtpax - Enable XATTR_PAX_FLAGS support.
 sys-apps/etckeeper:cron - Install cron script
 sys-apps/ethtool:netlink - Enable netlink interface via net-libs/libmnl
-sys-apps/file:lzip - Enable app-arch/lzip decompression support via app-arch/lzlib
 sys-apps/firejail:X - Enable X11 sandboxing
 sys-apps/firejail:apparmor - Enable support for custom AppArmor profiles
 sys-apps/firejail:chroot - Enable chrooting to custom directory
@@ -8303,7 +8267,6 @@ sys-firmware/sigrok-firmware-fx2lafw:binary - Use official upstream pre-built bi
 sys-firmware/vgabios:binary - Use official upstream pre-built binaries (only default and cirrus images)
 sys-fs/android-file-transfer-linux:fuse - Add FUSE mount helper
 sys-fs/android-file-transfer-linux:zune - Enable support for Microsoft Zune
-sys-fs/avfs:lzip - Enable app-arch/lzip support via app-arch/lzlib
 sys-fs/avfs:webdav - Allow mounting WebDAV shares via net-libs/neon
 sys-fs/bcachefs-tools:fuse - Enable bcachefs FUSE support (experimental!)
 sys-fs/btrfs-progs:convert - Build ext2 conversion utility (btrfs-convert)
@@ -8477,7 +8440,6 @@ sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alte
 sys-libs/llvm-libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/minizip-ng:compat - Enable compatibility with sys-libs/zlib's USE=minizip
 sys-libs/minizip-ng:openssl - Use dev-libs/openssl for further encryption capabilities
-sys-libs/minizip-ng:zstd - Add Zstandard compression support via app-arch/zstd
 sys-libs/musl-nscd:minimal - Only installs the header files
 sys-libs/ncurses:ada - Add bindings for the ADA programming language
 sys-libs/ncurses:stack-realign - Realign the stack in the 32-bit build for compatibility with older binaries at some performance cost. Avoids crashes in older 32-bit binaries. Only affects x86/32-bit multilib builds on amd64.
@@ -8666,7 +8628,6 @@ www-client/chromium:system-png - Use system media-libs/libpng instead of the bun
 www-client/chromium:system-zstd - Use system app-arch/zstd instead of the bundled one.
 www-client/chromium:widevine - Unsupported closed-source DRM capability (required by Netflix VOD)
 www-client/elinks:bittorrent - Enable support for the BitTorrent protocol
-www-client/elinks:brotli - Enable support for brotli compression
 www-client/elinks:finger - Enable support for the finger protocol
 www-client/elinks:gopher - Enable support for the gopher protocol
 www-client/elinks:mouse - Make elinks to grab all mouse events
@@ -8698,12 +8659,8 @@ www-client/firefox-bin:alsa - When pulseaudio isn't set, this prefers apulse
 www-client/firefox-bin:gmp-autoupdate - Allow Gecko Media Plugins (binary blobs) to be automatically downloaded and kept up-to-date in user profiles
 www-client/jd:migemo - Enable migemo support for Japanese
 www-client/jd:oniguruma - Use dev-libs/oniguruma for regular expression
-www-client/links:avif - Enable media-libs/libavif support
-www-client/links:brotli - Enable app-arch/brotli support
 www-client/links:freetype - Enable media-libs/freetype support
 www-client/links:libevent - Enable dev-libs/libevent support
-www-client/links:lzip - Enable lzip support via app-arch/lzlib
-www-client/lynx:brotli - Enable support for Brotli decompression
 www-client/lynx:gnutls - Use gnutls library for HTTPS support (openssl is the default library for HTTPS support).
 www-client/lynx:ssl - Enable HTTPS support.
 www-client/microsoft-edge:mip - Install Microsoft Information Protection plugin.
@@ -9120,7 +9077,6 @@ x11-wm/windowmaker:xrandr - Enable XRandR window extension support
 x11-wm/wmfs:imlib2 - Enable image support through media-libs/imlib2
 x11-wm/xmonad:no-autorepeat-keys - Allow ignoring of keyboard autorepeat.
 x11-wm/xmonad-contrib:xft - Use Xft to render text
-x11-wm/xpra:brotli - Enable brotli compression support
 x11-wm/xpra:client - Build client-side code
 x11-wm/xpra:clipboard - Enable clipboard support
 x11-wm/xpra:csc - Enable csc softscaler support
