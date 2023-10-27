@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 
 inherit cmake python-any-r1
 
@@ -13,8 +13,8 @@ SRC_URI="https://github.com/cern-fts/${PN}/releases/download/R_${PV//./_}/${P}.t
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="doc ipv6 test tools"
+KEYWORDS="~amd64 ~x86"
+IUSE="doc test tools"
 RESTRICT="!test? ( test )"
 
 CDEPEND="
@@ -39,10 +39,6 @@ RDEPEND="${CDEPEND}"
 
 REQUIRED_USE="test? ( tools )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.8.3-enable-ctest.patch
-)
-
 src_prepare() {
 	cmake_src_prepare
 
@@ -60,7 +56,7 @@ src_configure() {
 		-DEMBEDDED_LIBCURL=OFF
 		-DLIBCURL_BACKEND_BY_DEFAULT=OFF
 		-DENABLE_HTML_DOCS=$(usex doc)
-		-DENABLE_IPV6=$(usex ipv6)
+		-DENABLE_IPV6=TRUE
 		-DENABLE_TCP_NODELAY=TRUE
 		-DENABLE_THIRD_PARTY_COPY=TRUE
 		-DENABLE_TOOLS=$(usex tools)
@@ -84,5 +80,6 @@ src_install() {
 	cmake_src_install
 	if use test; then
 		rm "${ED}/usr/bin/davix-unit-tests" || die
+		rm "${ED}/usr/bin/davix-tester" || die
 	fi
 }
