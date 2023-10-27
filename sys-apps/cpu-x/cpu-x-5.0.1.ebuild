@@ -30,7 +30,8 @@ COMMON_DEPEND="
 	pci? ( sys-apps/pciutils )
 	ncurses? ( sys-libs/ncurses:=[tinfo] )
 	opencl? ( virtual/opencl )
-	vulkan? ( media-libs/vulkan-loader )
+	vulkan? ( media-libs/vulkan-loader
+		>=dev-util/vulkan-headers-1.3.151 )
 "
 
 DEPEND="
