@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+DESCRIPTION=Library to parse proxy auto-config files
+EAPI=8
+HOMEPAGE=http://pacparser.manugarg.com/
+INHERIT=python-r1 toolchain-funcs
+IUSE=doc python python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-3
+RDEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
+SLOT=0/1
+SRC_URI=https://github.com/manugarg/pacparser/archive/v1.4.2/pacparser-1.4.2.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_md5_=42b20819da76822107288983df8011b6

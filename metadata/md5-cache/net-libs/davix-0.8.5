@@ -1,17 +1,17 @@
-BDEPEND=doc? ( app-doc/doxygen[dot] dev-python/sphinx ) virtual/pkgconfig || ( dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen[dot] dev-python/sphinx ) virtual/pkgconfig || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/libxml2:2= dev-libs/openssl:0= net-libs/gsoap[ssl,-gnutls] net-misc/curl:0= kernel_linux? ( sys-apps/util-linux )
 DESCRIPTION=High-performance file management over WebDAV/HTTP
 EAPI=8
 HOMEPAGE=https://github.com/cern-fts/davix
 INHERIT=cmake python-any-r1
-IUSE=doc ipv6 test tools
-KEYWORDS=amd64 x86
+IUSE=doc test tools
+KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/libxml2:2= dev-libs/openssl:0= net-libs/gsoap[ssl,-gnutls] net-misc/curl:0= kernel_linux? ( sys-apps/util-linux )
 REQUIRED_USE=test? ( tools )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/cern-fts/davix/releases/download/R_0_8_3/davix-0.8.3.tar.gz
+SRC_URI=https://github.com/cern-fts/davix/releases/download/R_0_8_5/davix-0.8.5.tar.gz
 _eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=7971215a36f340d6ec204737086b08b5
+_md5_=3db7c69b71781493419e1aa1959fab9d
