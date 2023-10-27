@@ -5,7 +5,7 @@ EAPI=8
 
 WX_GTK_VER="3.2-gtk3"
 
-inherit autotools wxwidgets xdg
+inherit autotools flag-o-matic wxwidgets xdg
 
 MY_PV="${PV/_/-}"
 MY_P="FileZilla_${MY_PV}"
@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86"
-IUSE="dbus nls test"
+IUSE="cpu_flags_x86_sse2 dbus nls test"
 RESTRICT="!test? ( test )"
 
 # pugixml 1.7 minimal dependency is for c++11 proper configuration
@@ -53,6 +53,9 @@ src_prepare() {
 }
 
 src_configure() {
+	if use x86 && ! use cpu_flags_x86_sse2; then
+		append-cppflags -D_FORCE_SOFTWARE_SHA
+	fi
 	setup-wxwidgets
 
 	local myeconfargs=(
