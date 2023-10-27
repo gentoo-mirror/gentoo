@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sci-libs/hdf5[mpi?] doc? ( app-doc/doxygen[dot] ) test? ( >=dev-cpp/catch-3.4.0:0 dev-libs/boost dev-cpp/eigen media-libs/opencv )
+DESCRIPTION=Header-only C++ interface for libhdf5
+EAPI=8
+HOMEPAGE=https://github.com/BlueBrain/HighFive
+INHERIT=cmake docs
+IUSE=mpi test doc
+KEYWORDS=~amd64 ~x86
+LICENSE=Boost-1.0
+RDEPEND=sci-libs/hdf5[mpi?] doc? ( app-doc/doxygen[dot] )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/BlueBrain/HighFive/archive/refs/tags/v2.7.1.tar.gz -> HighFive-2.7.1.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	docs	74475974eae5130ba3e19b31b8ae46b8
+_md5_=bb504804ee96bb014ac32d1d41ede3c1

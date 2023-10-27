@@ -901,7 +901,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r2: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.29.62 1.29.63 1.29.68 1.29.69 1.29.70 1.29.71: Universal Command Line Environment for AWS
+app-admin/awscli 1.29.62 1.29.63 1.29.68 1.29.69 1.29.70 1.29.71 1.29.72: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -5065,6 +5065,7 @@ dev-libs/FBGEMM 2023.02.10: Facebook GEneral Matrix Multiplication
 dev-libs/FP16 2021.03.20-r3: conversion to/from half-precision floating point formats
 dev-libs/FXdiv 2020.12.09-r1: Division via fixed-point multiplication by inverse
 dev-libs/Ice 3.7.8-r2: ICE middleware C++ library and generator tools
+dev-libs/Imath 3.1.6 3.1.9: Imath basic math package
 dev-libs/OpenNI 1.5.7.10-r3 9999: OpenNI SDK
 dev-libs/OpenNI2 2.2_beta2-r1 9999: OpenNI2 SDK
 dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for AMD GPUs
@@ -5196,7 +5197,6 @@ dev-libs/icu-layoutex 73.2: External layout part of International Components for
 dev-libs/icu-le-hb 1.2.3: ICU Layout Engine API on top of HarfBuzz shaping library
 dev-libs/igraph 0.10.4 0.10.4-r1: Creating and manipulating undirected and directed graphs
 dev-libs/iksemel 1.4-r2: eXtensible Markup Language parser library designed for Jabber applications
-dev-libs/imath 3.1.6 3.1.7: Imath basic math package
 dev-libs/inih 56-r1 57: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1 4.1-r1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
@@ -7946,7 +7946,7 @@ dev-python/aiosqlite 0.19.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiostream 0.4.5 0.5.0 0.5.1 0.5.2: Generator-based operators for asynchronous iteration
 dev-python/ajsonrpc 1.2.0: Async JSON-RPC 2.0 protocol + server powered by asyncio
 dev-python/alabaster 0.7.13: A configurable sidebar-enabled Sphinx theme
-dev-python/alembic 1.12.0: Database migrations tool, written by the author of SQLAlchemy
+dev-python/alembic 1.12.0 1.12.1: Database migrations tool, written by the author of SQLAlchemy
 dev-python/allpairspy 2.5.1: Pairwise test combinations generator
 dev-python/amodem 1.15.4: Transmit data between two computers using audio
 dev-python/aniso8601 9.0.1-r1: A library for parsing ISO 8601 strings
@@ -8028,8 +8028,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.28.62 1.28.63 1.28.68 1.28.69 1.28.70 1.28.71 9999: The AWS SDK for Python
-dev-python/botocore 1.31.62 1.31.63 1.31.68 1.31.69 1.31.70 1.31.71 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.28.62 1.28.63 1.28.68 1.28.69 1.28.70 1.28.71 1.28.72 9999: The AWS SDK for Python
+dev-python/botocore 1.31.62 1.31.63 1.31.68 1.31.69 1.31.70 1.31.71 1.31.72 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8314,10 +8314,10 @@ dev-python/google-pasta 0.2.0-r2: AST-based Python refactoring library
 dev-python/googleapis-common-protos 1.60.0 1.61.0: Python classes generated from the common protos in the googleapis repository
 dev-python/gpep517 15: A backend script to aid installing Python packages in Gentoo
 dev-python/graph-tool 2.58 9999: An efficient python module for manipulation and statistical analysis of graphs
-dev-python/graphviz 0.20.1: Simple Python interface for Graphviz
+dev-python/graphviz 0.20.1 0.20.1-r1: Simple Python interface for Graphviz
 dev-python/greenlet 2.0.2 3.0.0 3.0.1: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.0.2: Python 3 client for the beanstalkd work queue
-dev-python/griffe 0.36.4 0.36.8: Signature generator for Python programs
+dev-python/griffe 0.36.4 0.36.8 0.36.9: Signature generator for Python programs
 dev-python/grpcio 1.51.0: High-performance RPC framework (python libraries)
 dev-python/grpcio-testing 1.51.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.51.0: Protobuf code generator for gRPC
@@ -8566,7 +8566,7 @@ dev-python/mistletoe 1.2.1: A fast, extensible Markdown parser in pure Python
 dev-python/mistune 3.0.1 3.0.2: The fastest markdown parser in pure Python
 dev-python/mitmproxy_wireguard 0.1.20: WireGuard frontend for mitmproxy
 dev-python/mkautodoc 0.2.0: Auto documentation for MkDocs
-dev-python/mkdocs 1.5.3: Project documentation with Markdown
+dev-python/mkdocs 1.5.3 1.5.3-r1: Project documentation with Markdown
 dev-python/mkdocs-ansible 0.1.6-r1 0.2.0: Ansible theme for MkDocs
 dev-python/mkdocs-autorefs 0.5.0: Automatically link across pages in MkDoc
 dev-python/mkdocs-bootstrap 1.1.1: Bootstrap theme for MkDocs
@@ -8653,7 +8653,7 @@ dev-python/openapi-spec-validator 0.6.0 0.7.1: OpenAPI 2.0 (aka Swagger) and Ope
 dev-python/openpyxl 3.1.2: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 1.1.0 2.3.0: Python client for OpenSearch
 dev-python/openstackdocstheme 3.2.0: Theme and extension support for Sphinx documentation
-dev-python/openstacksdk 1.5.0 2.0.0: A collection of libraries for building applications to work with OpenStack
+dev-python/openstacksdk 1.5.0 1.5.0-r1 2.0.0 2.0.0-r1: A collection of libraries for building applications to work with OpenStack
 dev-python/opt-einsum 3.3.0-r1: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.1.0: A mutable set that remembers the order of its entries
 dev-python/orjson 3.9.7 3.9.8 3.9.9 3.9.10: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
@@ -8661,7 +8661,7 @@ dev-python/os-client-config 2.1.0-r2: OpenStack Client Configuation Library
 dev-python/os-service-types 1.7.0-r2: A library to handle official service types for OpenStack and it's aliases
 dev-python/osc-lib 2.8.1: A package of common support modules for writing OSC plugins
 dev-python/oslo-concurrency 5.2.0: Oslo Concurrency library
-dev-python/oslo-config 9.2.0: Oslo Configuration API
+dev-python/oslo-config 9.2.0 9.2.0-r1: Oslo Configuration API
 dev-python/oslo-context 5.2.0: Helpers to maintain useful information about a request context
 dev-python/oslo-i18n 6.1.0: Oslo i18n library
 dev-python/oslo-log 5.3.0: OpenStack logging config library, configuration for all openstack projects
@@ -9278,7 +9278,7 @@ dev-python/sphinxcontrib-apidoc 0.3.0-r1 0.4.0: Sphinx extension for running sph
 dev-python/sphinxcontrib-applehelp 1.0.7: Sphinx extension which outputs Apple help book
 dev-python/sphinxcontrib-asyncio 0.3.0-r1: sphinx extension to support coroutines in markup
 dev-python/sphinxcontrib-autoprogram 0.1.8: Documenting CLI programs
-dev-python/sphinxcontrib-bibtex 2.5.0 2.6.0 2.6.1: Sphinx extensions for BibTeX style citations
+dev-python/sphinxcontrib-bibtex 2.5.0 2.6.0 2.6.1 2.6.1-r1: Sphinx extensions for BibTeX style citations
 dev-python/sphinxcontrib-devhelp 1.0.5: Sphinx extension which outputs Devhelp documents
 dev-python/sphinxcontrib-doxylink 1.12.2 1.12.3: Extension to link to external Doxygen API documentation
 dev-python/sphinxcontrib-github-alt 1.2-r2: Link to GitHub issues, pull requests, commits and users from Sphinx docs
@@ -12693,7 +12693,7 @@ media-gfx/arss 0.2.3-r1: Analysis & Resynthesis Sound Spectrograph
 media-gfx/asymptote 2.85-r1 2.86: A vector graphics language that provides a framework for technical drawing
 media-gfx/autopano-sift-C 2.5.1-r1: SIFT algorithm for automatic panorama creation in C
 media-gfx/aview 1.3.0_rc1-r3: ASCII Image Viewer
-media-gfx/blender 3.3.6-r1 3.3.8 3.4.1-r3 3.5.1-r1 3.6.0 9999: 3D Creation/Animation/Publishing System
+media-gfx/blender 3.3.6-r1 3.3.8 3.4.1-r3 3.5.1-r1 3.6.0 3.6.5 9999: 3D Creation/Animation/Publishing System
 media-gfx/brscan4 0.4.11.1-r1: Brother scanner driver
 media-gfx/cairosvg 2.7.0 2.7.1: CLI and library to export SVG to PDF, PostScript, and PNG
 media-gfx/cellwriter 1.3.6: Grid-entry natural handwriting input panel
@@ -12907,6 +12907,9 @@ media-gfx/yafaray 3.5.1-r4: A free open-source montecarlo raytracing engine
 media-gfx/zbar 0.23.92: Library and tools for reading barcodes from images or video
 media-gfx/zgv 5.9-r1: A svgalib console image viewer
 media-libs/Field3D 1.7.2-r3: A library for storing voxel data
+media-libs/OpenColorIO 2.1.3 2.2.1 2.3.0: A color management framework for visual effects and animation
+media-libs/OpenImageIO 2.4.6.0-r1 2.4.12.0 2.4.13.0 2.4.14.0 2.4.15.0 2.4.16.0 2.5.4.0: A library for reading and writing images
+media-libs/OpenShadingLanguage 1.12.7.0 1.12.11.0 1.12.13.0: Advanced shading language for production GI renderers
 media-libs/SoQt 1.6.0: GUI binding for using Coin/Open Inventor with Qt
 media-libs/SoXt 1.4.0: GUI binding for using Coin/Open Inventor with Xt/Motif
 media-libs/a52dec 0.7.4-r8: Library for decoding ATSC A/52 streams used in DVD
@@ -13215,21 +13218,18 @@ media-libs/oneVPL-cpu 2023.2.0: oneAPI Video Processing Library CPU implementati
 media-libs/oneVPL-intel-gpu 23.3.2 23.3.4: oneAPI Video Processing Library Intel GPU implementation
 media-libs/openal 1.23.1-r1: A software implementation of the OpenAL 3D audio API
 media-libs/opencollada 1.6.68: Stream based read/write library for COLLADA files
-media-libs/opencolorio 2.1.3 2.2.1 2.3.0: A color management framework for visual effects and animation
 media-libs/opencore-amr 0.1.6: Implementation of Adaptive Multi Rate Narrowband and Wideband speech codec
 media-libs/openctm 1.0.3-r1: OpenCTM - the Open Compressed Triangle Mesh
 media-libs/opencv 4.6.0-r4 4.7.0 4.7.0-r1 4.8.0 4.8.0-r1: A collection of algorithms and sample code for various computer vision problems
-media-libs/openexr 3.1.5-r1 3.1.7: ILM's OpenEXR high dynamic-range image file format libraries
+media-libs/openexr 3.1.5-r1 3.1.7 3.1.11: ILM's OpenEXR high dynamic-range image file format libraries
 media-libs/openfec 1.4.2.9: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.3.1-r1 2.3.1-r3: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
-media-libs/openimageio 2.4.6.0-r1 2.4.12.0 2.4.13.0: A library for reading and writing images
 media-libs/openjpeg 2.5.0-r5 2.5.0-r6: Open-source JPEG 2000 library
 media-libs/openpgl 0.5.0: Intel Open Path Guiding Library
 media-libs/opensubdiv 3.4.4-r3 3.5.0: An Open-Source subdivision surface library
 media-libs/opus 1.3.1-r4 1.4: Open codec for interactive speech and music transmission over the Internet
 media-libs/opusfile 0.12-r1: A high-level decoding and seeking API for .opus files
-media-libs/osl 1.12.7.0 1.12.11.0 1.12.13.0: Advanced shading language for production GI renderers
 media-libs/partio 1.14.6: Library for particle IO and manipulation
 media-libs/pcaudiolib 1.2-r2: Portable C Audio Library
 media-libs/phat 0.4.1-r2: PHAT is a collection of GTK+ widgets geared toward pro-audio apps
@@ -15869,6 +15869,7 @@ sci-geosciences/routino 3.3.3-r4 3.4.1: Routing application based on openstreetm
 sci-geosciences/tcd-utils 20120115-r2: Utilities for working with Tidal Constituent Databases
 sci-geosciences/viking 1.10: GPS data editor and analyzer
 sci-geosciences/xtide 2.15.5: XTide provides tide and current predictions in a wide variety of formats
+sci-libs/HighFive 2.7.1: Header-only C++ interface for libhdf5
 sci-libs/NNPACK 2020.12.22-r1: acceleration package for neural network computations
 sci-libs/QNNPACK 2019.08.28: Quantized Neural Networks PACKage
 sci-libs/ViSP 3.5.0: Visual Servoing Platform: visual tracking and visual servoing library
@@ -15891,7 +15892,7 @@ sci-libs/btf 1.2.6 2.0.3: Algorithm for matrix permutation into block triangular
 sci-libs/buddy 2.4-r1: Binary Decision Diagram Package
 sci-libs/caffe2 1.13.1-r6 2.0.0-r5 2.0.1-r4: A deep learning framework
 sci-libs/camd 2.4.6-r1 3.0.3: Library to order a sparse matrix prior to Cholesky factorization
-sci-libs/cantera 2.6.0-r2: Object-oriented tool suite for chemical kinetics, thermodynamics, and transport
+sci-libs/cantera 2.6.0-r2 3.0.0: Object-oriented tool suite for chemical kinetics, thermodynamics, and transport
 sci-libs/cartopy 0.21.1 0.21.1-r1: Python package for geospatial data processing and analysis
 sci-libs/ccfits 2.5: C++ interface for cfitsio
 sci-libs/ccolamd 2.9.6 3.0.3: Constrained Column approximate minimum degree ordering algorithm

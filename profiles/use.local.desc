@@ -1849,6 +1849,7 @@ dev-lang/vala:valadoc - Installs valadoc documentation generation tool
 dev-lang/xsb:mariadb - Enable support for the mariadb database backend
 dev-lang/yap:R - Enable support for connecting R to Prolog
 dev-lang/yap:raptor - Enable support for Raptor RDF syntax libarary
+dev-libs/Imath:large-stack - Enables code to take advantage of large stack support
 dev-libs/aml:examples - Build and install examples
 dev-libs/antlr-c:debugger - Compiles debug info into the library
 dev-libs/apache-arrow:brotli - Enable brotli compression support
@@ -1938,7 +1939,6 @@ dev-libs/gmp:cpudetection - Enables runtime CPU detection (useful for binpkgs, c
 dev-libs/gmp:pic - Force static libraries to be built as PIC to avoid TEXTRELs.
 dev-libs/gobject-introspection:doctool - Install g-ir-doc-tool for generating documentation from introspected data
 dev-libs/hidapi:fox - Build a x11-libs/fox GUI
-dev-libs/imath:large-stack - Enables code to take advantage of large stack support
 dev-libs/input-pad:eekboard - Enable support for dev-libs/eekboard
 dev-libs/input-pad:xtest - Enable support for x11-libs/libXtst
 dev-libs/intel-compute-runtime:l0 - Install the oneAPI Level Zero driver alongside the OpenCL one
@@ -3456,7 +3456,7 @@ kde-apps/kdecore-meta:share - Install kde-frameworks/purpose for share file cont
 kde-apps/kdecore-meta:thumbnail - Install kde-apps/ffmpegthumbs and kde-apps/thumbnailers for thumbnail generation in kde-apps/dolphin
 kde-apps/kdecore-meta:webengine - Enable www-client/falkon which depends on dev-qt/qtwebengine
 kde-apps/kdeedu-meta:webengine - Enable packages requiring dev-qt/qtwebengine
-kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/opencolorio
+kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/OpenColorIO
 kde-apps/kdemultimedia-meta:cdrom - Include packages for optical discs
 kde-apps/kdenetwork-meta:bittorrent - Pull in net-p2p/ktorrent for BitTorrent protocol support
 kde-apps/kdenetwork-meta:dropbox - Enable support for Dropbox in kde-apps/dolphin via kde-apps/dolphin-plugins-dropbox
@@ -3963,9 +3963,9 @@ media-gfx/asymptote:sigsegv - Enables using dev-libs/libsigsegv
 media-gfx/blender:alembic - Add support for Alembic through media-gfx/alembic.
 media-gfx/blender:bullet - Enable Bullet (Physics Engine).
 media-gfx/blender:collada - Add support for Collada interchange format through media-libs/opencollada.
-media-gfx/blender:color-management - Enable color management via media-libs/opencolorio.
+media-gfx/blender:color-management - Enable color management via media-libs/OpenColorIO.
 media-gfx/blender:cuda - Build cycles renderer with nVidia CUDA support.
-media-gfx/blender:cycles - Build cycles renderer (requires media-libs/openimageio and dev-libs/boost).
+media-gfx/blender:cycles - Build cycles renderer (requires media-libs/OpenImageIO and dev-libs/boost).
 media-gfx/blender:cycles-bin-kernels - Precompile the cycles render kernels for the CUDA/HIP/OneAPI backends, if they are enabled, at compile time. This makes it so that the user doesn't have to wait for the kernels to compile when they are used for the first time in Blender. If this option is not on, they will be built as needed at runtime.
 media-gfx/blender:dds - Adds DDS textures support to Blender.
 media-gfx/blender:embree - Use embree to accelerate certain areas of the Cycles render engine.
@@ -4075,7 +4075,7 @@ media-gfx/kphotoalbum:map - Enable map display support using kde-apps/marble
 media-gfx/kphotoalbum:phonon - Enable media-libs/phonon video backend (known to crash on some video formats)
 media-gfx/kphotoalbum:share - Enable support for a share menu using kde-frameworks/purpose
 media-gfx/kphotoalbum:vlc - Enable media-video/vlc video backend (recommended for X11)
-media-gfx/krita:color-management - Enable color management via media-libs/opencolorio
+media-gfx/krita:color-management - Enable color management via media-libs/OpenColorIO
 media-gfx/krita:jpegxl - Support for JPEG XL image format
 media-gfx/krita:mypaint-brush-engine - Enable MyPaint brush engine support media-libs/libmypaint
 media-gfx/krita:qtmedia - Enable sound support for animations via dev-qt/qtmultimedia
@@ -4128,6 +4128,16 @@ media-gfx/xsane:ocr - Enable support for Optical Character Recognition reader
 media-gfx/yafaray:fastmath - Enable mathematic approximations to make code faster
 media-gfx/yafaray:fasttrig - Enable trigonometric approximations to make code faster
 media-gfx/yafaray:opencv - Add support for media-libs/opencv image processing.
+media-libs/OpenColorIO:apps - Build the OCIO command line apps
+media-libs/OpenImageIO:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
+media-libs/OpenImageIO:opencv - Enable OpenCV support via media-libs/opencv
+media-libs/OpenImageIO:openvdb - Enable OpenVDB support via media-gfx/openvdb
+media-libs/OpenImageIO:ptex - Enable Ptex texture mapping system file support via media-libs/ptex
+media-libs/OpenImageIO:qt5 - Build iv with Qt5
+media-libs/OpenImageIO:qt6 - Build iv with Qt6
+media-libs/OpenImageIO:tools - Build the command-line tools
+media-libs/OpenShadingLanguage:partio - Use media-libs/partio
+media-libs/OpenShadingLanguage:qt5 - Build the osltoy binary
 media-libs/a52dec:djbfft - Prefer D.J. Bernstein's library for fourier transforms
 media-libs/allegro:dumb - Enable media-libs/dumb module library support
 media-libs/allegro:physfs - Enable physfs support
@@ -4353,7 +4363,6 @@ media-libs/oneVPL-cpu:experimental - Enable experimental API
 media-libs/oneVPL-cpu:openh264 - Use media-libs/openh264 instead of media-libs/x264
 media-libs/openal:pipewire - Enable support for the media-video/pipewire audio backend
 media-libs/openal:sndio - Enable support for the media-sound/sndio backend
-media-libs/opencolorio:apps - Build the OCIO command line apps
 media-libs/opencv:contrib - Install user contributed scripts from opencv_contrib (Experimental!)
 media-libs/opencv:contribcvv - CVV module requires Qt5
 media-libs/opencv:contribdnn - DNN module contrib requires tiny dnn
@@ -4381,13 +4390,6 @@ media-libs/openexr:large-stack - Enables code to take advantage of large stack s
 media-libs/openexr:utils - Build several binary tools for verifying and manipulating EXR files.
 media-libs/openh264:plugin - Install the Gecko Media Plugin (GMP) for use with Mozilla packages
 media-libs/openh264:utils - Install the CLI encoder and decoder utilities
-media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
-media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
-media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
-media-libs/openimageio:ptex - Enable Ptex texture mapping system file support via media-libs/ptex
-media-libs/openimageio:qt5 - Build iv with Qt5
-media-libs/openimageio:qt6 - Build iv with Qt6
-media-libs/openimageio:tools - Build the command-line tools
 media-libs/opensubdiv:cuda - Enable NVIDIA CUDA Toolkit support through dev-util/nvidia-cuda-toolkit
 media-libs/opensubdiv:opencl - Enable OpenCL support through virtual/opencl
 media-libs/opensubdiv:ptex - Adds support for faster per-face texture mapping through media-libs/ptex
@@ -4397,8 +4399,6 @@ media-libs/opus:custom-modes - Enable non-Opus modes, e.g. 44.1 kHz and 2^n fram
 media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
 media-libs/opusfile:http - Enable http connections
-media-libs/osl:partio - Use media-libs/partio
-media-libs/osl:qt5 - Build the osltoy binary
 media-libs/phonon:designer - Install plugin for dev-qt/designer
 media-libs/phonon:vlc - Install VLC Phonon backend
 media-libs/phonon-gstreamer:network - Enable network streaming support via libsoup
@@ -7249,7 +7249,9 @@ sci-libs/caffe2:openmp - Use OpenMP for parallel code
 sci-libs/caffe2:qnnpack - Use QNNPACK
 sci-libs/caffe2:tensorpipe - Use tensorpipe
 sci-libs/caffe2:xnnpack - Use XNNPACK
-sci-libs/cantera:cti - Install CTI tools (ck2cti, ck2yaml, ctml_writer) for conversion of Chemkin files to Cantera format
+sci-libs/cantera:cti - Install conversion tools (ck2cti, ck2yaml, ctml_writer) from Chemkin to Cantera format
+sci-libs/cantera:hdf5 - Add HDF5 container files support
+sci-libs/cantera:python - Install Python bindings and conversion tools from Chemkin to Cantera format
 sci-libs/cddlib:tools - Add a few executables and tests for cddlib
 sci-libs/ceres-solver:cxsparse - Enable simple support for sparse matrix algebra from sci-libs/cxsparse with no LAPACK dependencies
 sci-libs/ceres-solver:gflags - Use dev-cpp/gflags for flag parsing
