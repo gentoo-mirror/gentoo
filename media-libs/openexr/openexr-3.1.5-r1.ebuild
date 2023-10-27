@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 MY_PN=OpenEXR
 
 DESCRIPTION="ILM's OpenEXR high dynamic-range image file format libraries"
-HOMEPAGE="https://openexr.com/"
+HOMEPAGE="https://www.openexr.com/"
 SRC_URI="https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
@@ -19,8 +19,10 @@ IUSE="cpu_flags_x86_avx doc examples large-stack utils test threads"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/Imath-${PV}:=
+	>=dev-libs/imath-${PV}:=
 	sys-libs/zlib
+	!media-libs/openexr:3
+	!media-libs/ilmbase
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

@@ -45,7 +45,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 # Library versions for official builds can be found in the blender source directory in:
 # build_files/build_environment/install_deps.sh
 #
-# <OpenColorIO-2.3.0 for https://projects.blender.org/blender/blender/issues/112917.
+# <opencolorio-2.3.0 for https://projects.blender.org/blender/blender/issues/112917.
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=[nls?]
 	dev-libs/lzo:2=
@@ -66,7 +66,7 @@ RDEPEND="${PYTHON_DEPS}
 	virtual/opengl
 	alembic? ( >=media-gfx/alembic-1.8.3-r2[boost(+),hdf(+)] )
 	collada? ( >=media-libs/opencollada-1.6.68 )
-	color-management? ( <media-libs/OpenColorIO-2.3.0:= )
+	color-management? ( <media-libs/opencolorio-2.3.0:= )
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	embree? ( >=media-libs/embree-3.10.0[raymask] )
 	ffmpeg? ( media-video/ffmpeg:=[x264,mp3,encode,theora,jpeg2k?,vpx,vorbis,opus,xvid] )
@@ -87,9 +87,9 @@ RDEPEND="${PYTHON_DEPS}
 	nls? ( virtual/libiconv )
 	openal? ( media-libs/openal )
 	oidn? ( >=media-libs/oidn-1.4.1 )
-	openimageio? ( >=media-libs/OpenImageIO-2.3.12.0-r3:= )
+	openimageio? ( >=media-libs/openimageio-2.3.12.0-r3:= )
 	openexr? (
-		>=dev-libs/Imath-3.1.4-r2:=
+		>=dev-libs/imath-3.1.4-r2:=
 		>=media-libs/openexr-3:0=
 	)
 	opensubdiv? ( >=media-libs/opensubdiv-3.4.0 )
@@ -98,7 +98,7 @@ RDEPEND="${PYTHON_DEPS}
 		dev-libs/c-blosc:=
 	)
 	optix? ( <dev-libs/optix-7.5.0 )
-	osl? ( >=media-libs/OpenShadingLanguage-1.11.16.0-r3:= )
+	osl? ( >=media-libs/osl-1.11.16.0-r3:= )
 	pdf? ( media-libs/libharu )
 	potrace? ( media-gfx/potrace )
 	pugixml? ( dev-libs/pugixml )
@@ -129,11 +129,11 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-3.2.2-support-building-with-musl-libc.patch"
-	"${FILESDIR}/${PN}-3.2.2-Cycles-add-option-to-specify-OptiX-runtime-root-dire.patch"
-	"${FILESDIR}/${PN}-3.2.2-Fix-T100845-wrong-Cycles-OptiX-runtime-compilation-i.patch"
-	"${FILESDIR}/${PN}-3.3.0-fix-build-with-boost-1.81.patch"
-	"${FILESDIR}/${PN}-3.3.6-cycles-gcc13.patch"
+	"${FILESDIR}"/${PN}-3.2.2-support-building-with-musl-libc.patch
+	"${FILESDIR}"/${PN}-3.2.2-Cycles-add-option-to-specify-OptiX-runtime-root-dire.patch
+	"${FILESDIR}"/${PN}-3.2.2-Fix-T100845-wrong-Cycles-OptiX-runtime-compilation-i.patch
+	"${FILESDIR}"/${PN}-3.3.0-fix-build-with-boost-1.81.patch
+	"${FILESDIR}"/${PN}-3.3.6-cycles-gcc13.patch
 )
 
 blender_check_requirements() {

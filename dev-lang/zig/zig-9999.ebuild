@@ -108,6 +108,10 @@ pkg_setup() {
 }
 
 src_configure() {
+	# Useful for debugging and a little bit more deterministic.
+	export ZIG_LOCAL_CACHE_DIR="${T}/zig-local-cache"
+	export ZIG_GLOBAL_CACHE_DIR="${T}/zig-global-cache"
+
 	local mycmakeargs=(
 		-DZIG_USE_CCACHE=OFF
 		-DZIG_SHARED_LLVM=ON
@@ -123,6 +127,8 @@ src_configure() {
 
 src_compile() {
 	cmake_src_compile
+
+	"${BUILD_DIR}/stage3/bin/zig" env || die "Zig compilation failed"
 
 	if use doc; then
 		cd "${BUILD_DIR}" || die
