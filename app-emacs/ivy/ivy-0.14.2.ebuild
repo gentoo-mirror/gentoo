@@ -8,21 +8,17 @@ inherit elisp
 DESCRIPTION="Generic completion mechanism for Emacs"
 HOMEPAGE="https://github.com/abo-abo/swiper/"
 SRC_URI="https://github.com/abo-abo/swiper/archive/${PV}.tar.gz
-			-> swiper-${PV}.tar.gz"
+	-> swiper-${PV}.tar.gz"
 S="${WORKDIR}"/swiper-${PV}
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="sys-apps/texinfo"
 
 DOCS=( CONTRIBUTING.org README.md doc/{Changelog,ivy-help,ivy}.org )
 SITEFILE="50${PN}-gentoo.el"
-
-# Some tests are broken (but fixed on master as of 2022--04-10),
-# tests depending on Avy and Wgrep we force to skip.
-PATCHES=( "${FILESDIR}"/${P}-ivy-test.el-skip.patch )
 
 # Main Ivy sources. Swiper, Counsel and Ivy extensions have their own packages.
 IVY_SOURCES=( colir.el ivy{,-overlay,-faces}.el )
