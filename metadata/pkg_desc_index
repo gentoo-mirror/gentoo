@@ -1882,7 +1882,7 @@ app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
 app-emacs/cfrs 1.6.0-r1: Child Frame Read String, alternative to read-string
 app-emacs/chess 2.0.5: A chess client and library for Emacs
-app-emacs/cider 1.7.0 1.8.3: Clojure Interactive Development Environment for GNU Emacs
+app-emacs/cider 1.7.0 1.8.3 1.9.0: Clojure Interactive Development Environment for GNU Emacs
 app-emacs/circe 2.12: A great IRC client for Emacs
 app-emacs/citar 1.3.1 1.4.0: Emacs package to quickly find and act on bibliographic references
 app-emacs/citeproc-el 0.9.3: CSL 1.0.2 Citation Processor for Emacs
@@ -1903,7 +1903,7 @@ app-emacs/compat 29.1.4.2: Compatibility libraries for Emacs
 app-emacs/consult 0.32 0.34 0.35 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 0.8-r1 0.9-r2: Consult integration for Flycheck
 app-emacs/corfu 0.37 0.38 9999: Completion Overlay Region FUnction
-app-emacs/counsel 0.13.4 0.14.0: Versions of common Emacs commands customized to make the best use of ivy
+app-emacs/counsel 0.14.0 0.14.2: Versions of common Emacs commands customized to make the best use of ivy
 app-emacs/crontab-mode 1.20: Mode for editing crontab files
 app-emacs/crux 0.4.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
 app-emacs/csharp-mode 2.0.0: A derived Emacs mode implementing most of the C# rules
@@ -2055,7 +2055,7 @@ app-emacs/indent-bars 0.2: Fast, configurable indentation guide-bars for Emacs
 app-emacs/inf-clojure 3.1.0 3.2.0 3.2.1: Major mode for Clojure code
 app-emacs/inform-mode 1.6.2: A major mode for editing Inform programs
 app-emacs/initsplit 1.8_pre20160919: Split customizations into different files
-app-emacs/ivy 0.13.4 0.14.0: Generic completion mechanism for Emacs
+app-emacs/ivy 0.14.0 0.14.2: Generic completion mechanism for Emacs
 app-emacs/ivy-rich 0.1.6_p20210409 0.1.7: More friendly interface for ivy
 app-emacs/jam-mode 0.3: An Emacs major mode for editing Jam files
 app-emacs/jasmin 1.2-r2: An Emacs major mode for editing Jasmin Java bytecode assembler files
@@ -2218,7 +2218,7 @@ app-emacs/sumibi 0.7.4: Statistical Japanese input method using the Internet as 
 app-emacs/sunrise-commander 6_p20210927: Twin-pane file manager for Emacs inspired by Midnight Commander
 app-emacs/svg-lib 0.2.6 0.2.7: SVG tags, progress bars & icons
 app-emacs/swift-mode 9.0.0 9.1.0: Emacs support for Apple's Swift programming language
-app-emacs/swiper 0.13.4 0.14.0: Alternative to isearch that uses ivy to show overview of all matches
+app-emacs/swiper 0.14.0 0.14.2: Alternative to isearch that uses ivy to show overview of all matches
 app-emacs/switch-window 1.6.2_p20210808: Offer a customizable visual way to choose a window to switch to
 app-emacs/system-packages 1.1.0: Manage your installed packages with Emacs
 app-emacs/systemd-mode 1.6: Major mode for editing systemd units in GNU Emacs
@@ -3070,8 +3070,8 @@ app-shells/posh-z 1.1.12_p20230811: Quickly navigate the file system based on yo
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh 7.3.6-r1 7.3.7-r1: Cross-platform automation and configuration tool
-app-shells/pwsh-bin 7.3.6-r1 7.3.7-r1 7.3.8: Cross-platform automation and configuration tool (binary package)
+app-shells/pwsh 7.3.6-r1 7.3.7-r1 7.3.9: Cross-platform automation and configuration tool
+app-shells/pwsh-bin 7.3.6-r1 7.3.7-r1 7.3.8 7.3.9: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r2: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -3264,7 +3264,7 @@ app-text/openpaperwork-core 2.1.2: Core part of Paperwork (plugin management)
 app-text/openpaperwork-gtk 2.1.2: Paperwork plugins
 app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
-app-text/pandoc-bin 3.1.8-r1: Conversion between markup formats (binary package)
+app-text/pandoc-bin 3.1.8-r1 3.1.9: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
 app-text/paper-clip 3.2-r1 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/paperwork 2.1.2: a personal document manager for scanned documents (and PDFs)
@@ -3916,9 +3916,9 @@ dev-dotnet/coco 2014.12.24-r2: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 1.0.0 1.1.1: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.9.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.5: A command line C# REPL with syntax highlighting
-dev-dotnet/dotnet-runtime-nugets 3.1.32 6.0.12 6.0.16 6.0.22 6.0.23 7.0.5 7.0.11 7.0.12 8.0.0_rc1234194: .NET runtime nugets
+dev-dotnet/dotnet-runtime-nugets 3.1.32 6.0.12 6.0.16 6.0.22 6.0.23 6.0.24 7.0.5 7.0.11 7.0.12 7.0.13 8.0.0_rc1234194: .NET runtime nugets
 dev-dotnet/dotnet-sdk 7.0.105-r1 8.0.0_rc1234194-r1: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.404-r1 7.0.401-r1 7.0.402: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.404-r1 7.0.401-r1 7.0.402 7.0.403: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/libgdiplus 6.0.2-r4: Library for using System.Drawing with Mono
 dev-dotnet/monocalendar 0.7.2: iCal clone for .NET
 dev-dotnet/nake 3.0.0: C# scripting build automation task runner
@@ -11686,7 +11686,7 @@ games-util/antimicrox 3.3.4: Graphical program used to map keyboard buttons and 
 games-util/atlas 0.6.1_beta_pre20181202: Chart Program to use with Flightgear Flight Simulator
 games-util/basis_universal 1.16.3-r1 1.16.4: Basis Universal GPU Texture Codec
 games-util/biounzip 1.1a: Unpacks BioZip archives
-games-util/cartridges 2.3 9999: Simple game launcher written in Python using GTK4 and Libadwaita
+games-util/cartridges 2.3 2.6.1 9999: Simple game launcher written in Python using GTK4 and Libadwaita
 games-util/catcodec 1.0.5: Decodes and encodes sample catalogues for OpenTTD
 games-util/datutil 2.46: Converter for dat files for Rom Managers
 games-util/deutex 5.2.2: WAD composer for Doom, Heretic, Hexen, and Strife
