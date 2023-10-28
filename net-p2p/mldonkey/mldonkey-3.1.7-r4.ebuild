@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ygrek/mldonkey/releases/download/release-${PV//./-}-
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 
 IUSE="bittorrent doc fasttrack gd gnutella magic +ocamlopt upnp"
 
@@ -32,12 +32,8 @@ RDEPEND="dev-lang/perl
 # https://github.com/ygrek/mldonkey/issues/46
 DEPEND="${RDEPEND}
 	<dev-lang/ocaml-4.10:=[ocamlopt?]
-	bittorrent? (
-		|| (
-			<dev-lang/ocaml-4.06[ocamlopt?]
-			dev-ml/num
-		)
-	)"
+	bittorrent? ( dev-ml/num )
+"
 
 RESTRICT="!ocamlopt? ( strip )"
 
