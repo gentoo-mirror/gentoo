@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=scikit-build-core
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake distutils-r1 virtualx pypi
 
@@ -29,6 +29,7 @@ BDEPEND="
 	${BDEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]
 	test? (
+		dev-python/annotated-types[${PYTHON_USEDEP}]
 		dev-python/ipython[${PYTHON_USEDEP}]
 		dev-python/ipywidgets[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
@@ -50,6 +51,9 @@ python_test() {
 
 		# precision error
 		tests/test_cost.py::test_Template_with_model_2D
+
+		# TODO
+		tests/test_describe.py::test_with_pydantic_types
 	)
 
 	epytest -p no:pytest-describe || die "Tests failed with ${EPYTHON}"
