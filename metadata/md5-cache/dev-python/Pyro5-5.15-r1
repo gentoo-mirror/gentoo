@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/serpent-1.40[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pytest-7.3.1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) doc? ( || ( ( dev-lang/python:3.12[sqlite] >=dev-python/sphinx-5.3.0[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11[sqlite] >=dev-python/sphinx-5.3.0[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ( dev-lang/python:3.10[sqlite] >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] dev-python/sphinx-rtd-theme[python_targets_python3_10(-)] ) ( dev-python/pypy3[sqlite] >=dev-python/sphinx-5.3.0[python_targets_pypy3(-)] dev-python/sphinx-rtd-theme[python_targets_pypy3(-)] ) ) ) python_targets_pypy3? ( dev-python/pypy3:=[sqlite] ) python_targets_python3_10? ( dev-lang/python:3.10[sqlite] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite] ) python_targets_python3_12? ( dev-lang/python:3.12[sqlite] ) >=dev-python/gpep517-15[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Distributed object middleware for Python (RPC)
+EAPI=8
+HOMEPAGE=https://pyro5.readthedocs.io https://pypi.org/project/Pyro5/ https://github.com/irmen/Pyro5
+INHERIT=distutils-r1 pypi
+IUSE=test doc python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-python/serpent-1.40[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_pypy3? ( dev-python/pypy3:=[sqlite] ) python_targets_python3_10? ( dev-lang/python:3.10[sqlite] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite] ) python_targets_python3_12? ( dev-lang/python:3.12[sqlite] )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/P/Pyro5/Pyro5-5.15.tar.gz
+_eclasses_=toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	d05609532b134be7c4ae2514f4c7d06e	pypi	2eecb475512bc76e5ea9192a681b9e6b
+_md5_=c0882f94841a3907203ef8f286b21ab6
