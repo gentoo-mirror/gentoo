@@ -82,6 +82,7 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}/${PN}-2.2.1-adjust-python-installation.patch"
 	"${FILESDIR}/${PN}-2.2.1-support-minizip-ng-4.patch"
+	"${FILESDIR}/${PN}-${PV}-support-doxygen-1.9.7.patch"
 )
 
 pkg_setup() {
@@ -123,6 +124,14 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	# there are already files in ${ED}/usr/share/doc/${PF}
+	mv "${ED}/usr/share/doc/OpenColorIO/"* "${ED}/usr/share/doc/${PF}" || die
+	rmdir "${ED}/usr/share/doc/OpenColorIO" || die
 }
 
 src_test() {
