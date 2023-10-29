@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare pretend setup
-DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?] x11-libs/cairo[X] ) dev-cpp/sparsehash
+DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] ) dev-cpp/sparsehash
 DESCRIPTION=An efficient python module for manipulation and statistical analysis of graphs
 EAPI=8
 HOMEPAGE=https://graph-tool.skewed.de/
 INHERIT=check-reqs python-r1 toolchain-funcs
-IUSE=+cairo openmp python_targets_python3_10 python_targets_python3_11
+IUSE=+cairo openmp python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?] x11-libs/cairo[X] )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://downloads.skewed.de/graph-tool/graph-tool-2.58.tar.bz2
 _eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
-_md5_=dd5630214d1ea1a9baf45be11291f563
+_md5_=6ffd9f0d6ff61b38d8b83722f42b1e68
