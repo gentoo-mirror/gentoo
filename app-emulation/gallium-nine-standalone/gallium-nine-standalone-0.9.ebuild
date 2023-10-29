@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson-multilib toolchain-funcs
 
@@ -32,15 +32,17 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
-	virtual/pkgconfig
 	virtual/wine[${MULTILIB_USEDEP}]
-	>=dev-util/meson-0.50.1
+"
+
+BDEPEND="
+	dev-util/meson-format-array
+	virtual/pkgconfig
 "
 
 PATCHES=(
-	"${FILESDIR}"/0.7-no-libwine.patch
-	"${FILESDIR}"/0.7-cross-files.patch
-	"${FILESDIR}"/0.3-nine-dll-path.patch
+	"${FILESDIR}"/0.8-cross-files.patch
+	"${FILESDIR}"/0.9-nine-dll-path.patch
 )
 
 bits() {
@@ -66,8 +68,8 @@ src_prepare() {
 
 		sed \
 			-e "s!@PKG_CONFIG@!$(tc-getPKG_CONFIG)!" \
-			-e "s!@CFLAGS@!$(_meson_env_array "${CFLAGS} '-DG9DLL=${g9dll}'")!" \
-			-e "s!@LDFLAGS@!$(_meson_env_array "${LDFLAGS}")!" \
+			-e "s!@CFLAGS@!$(meson-format-array "${CFLAGS} '-DG9DLL=${g9dll}'")!" \
+			-e "s!@LDFLAGS@!$(meson-format-array "${LDFLAGS}")!" \
 			-e "s!@PKG_CONFIG_LIBDIR@!${PKG_CONFIG_LIBDIR:-${ESYSROOT}/usr/$(get_libdir)/pkgconfig}!" \
 			${file}.in > ${file} || die
 	}
@@ -85,19 +87,4 @@ multilib_src_configure() {
 		-Ddri2=false
 	)
 	meson_src_configure
-}
-
-pkg_postinst() {
-	local bits=$(bits)
-
-	einfo "Don't remove the Z: drive from your WINEPREFIX as this relies on it."
-	einfo
-	einfo "To set up the ${bits}-bit library, launch your preferred Wine as follows:"
-	einfo "  wine${bits/32} ${EPREFIX}/usr/$(get_libdir)/ninewinecfg.exe.so"
-
-	if use abi_x86_64 && use abi_x86_32; then
-		einfo
-		einfo "To set up the 32-bit library, launch your preferred Wine as follows:"
-		einfo "  wine ${EPREFIX}/usr/$(ABI=x86 get_libdir)/ninewinecfg.exe.so"
-	fi
 }
