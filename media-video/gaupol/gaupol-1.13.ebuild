@@ -3,17 +3,18 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 virtualx xdg-utils
 
 DESCRIPTION="A subtitle editor for text-based subtitles"
-HOMEPAGE="https://otsaloma.io/gaupol/"
+HOMEPAGE="https://otsaloma.io/gaupol/ https://github.com/otsaloma/gaupol/"
 SRC_URI="https://github.com/otsaloma/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="spell"
 
 RDEPEND="
@@ -35,6 +36,10 @@ BDEPEND="
 distutils_enable_tests pytest
 
 DOCS=( AUTHORS.md NEWS.md README.md README.aeidon.md )
+
+PATCHES=(
+	"${FILESDIR}/${PN}-1.12-fix-prefix.patch"
+)
 
 python_test() {
 	virtx epytest
