@@ -4,33 +4,31 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
-inherit distutils-r1
+PYTHON_COMPAT=( python3_{10..12} )
 
-CommitId=14f43ddd74099520ddcda29fac557c27a28190e6
+inherit distutils-r1 pypi
 
 DESCRIPTION="Detect confusable usage of unicode homoglyphs, prevent homograph attacks"
 HOMEPAGE="
 	https://github.com/vhf/confusable_homoglyphs/
 	https://pypi.org/project/confusable_homoglyphs/
 "
-SRC_URI="https://github.com/vhf/${PN}/archive/${CommitId}.tar.gz
-	-> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/click[${PYTHON_USEDEP}]"
-
-S="${WORKDIR}"/${PN}-${CommitId}
+RDEPEND="
+	dev-python/click[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	dev-python/versioneer[${PYTHON_USEDEP}]
+"
 
 distutils_enable_tests pytest
 
-python_prepare_all() {
-	sed -i \
-		-e "s:versioneer.get_version():\"${PV}\":" \
-		setup.py \
-		|| die
-	distutils-r1_python_prepare_all
+src_prepare() {
+	# removed outdated bundled version (for py3.12 compat)
+	rm versioneer.py || die
+	distutils-r1_src_prepare
 }
