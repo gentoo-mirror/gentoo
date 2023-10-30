@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen media-gfx/graphviz )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-util/hipcc >=dev-util/rocminfo-5 sys-devel/clang:17 dev-libs/rocm-comgr:0/5.7 virtual/opengl !!sys-devel/llvm:0
+DEPEND=dev-util/hipcc >=dev-util/rocminfo-5 sys-devel/clang:17 dev-libs/rocm-comgr:0/5.7 x11-base/xorg-proto virtual/opengl !!sys-devel/llvm:0
 DESCRIPTION=C++ Heterogeneous-Compute Interface for Portability
 EAPI=8
 HOMEPAGE=https://github.com/ROCm-Developer-Tools/hipamd
@@ -8,8 +8,8 @@ INHERIT=cmake docs llvm
 IUSE=debug doc
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-util/hipcc >=dev-util/rocminfo-5 sys-devel/clang:17 dev-libs/rocm-comgr:0/5.7 virtual/opengl dev-perl/URI-Encode sys-devel/clang-runtime:= >=dev-libs/roct-thunk-interface-5
+RDEPEND=dev-util/hipcc >=dev-util/rocminfo-5 sys-devel/clang:17 dev-libs/rocm-comgr:0/5.7 x11-base/xorg-proto virtual/opengl dev-perl/URI-Encode sys-devel/clang-runtime:= >=dev-libs/roct-thunk-interface-5
 SLOT=0/5.7
 SRC_URI=https://github.com/ROCm-Developer-Tools/clr/archive/refs/tags/rocm-5.7.1.tar.gz -> rocm-clr-5.7.1.tar.gz https://github.com/ROCm-Developer-Tools/HIP/archive/refs/tags/rocm-5.7.1.tar.gz -> hip-5.7.1.tar.gz
 _eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	docs	74475974eae5130ba3e19b31b8ae46b8	llvm	2e1701c714b75feb512bffdecd3fe7d0
-_md5_=745642b7b053e900b3cb12db295c8125
+_md5_=8a5889c786a73b89595427dbe9b1f84e
