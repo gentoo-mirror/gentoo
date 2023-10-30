@@ -23,7 +23,6 @@ elif [[ ${PV} == *.*.* ]] ; then
 	SRC_URI="https://www.kernel.org/pub/linux/kernel/v${LINUX_V}/${LINUX_PATCH}"
 else
 	LINUX_VER=${PV}
-	SRC_URI=""
 fi
 
 LINUX_SOURCES="linux-${LINUX_VER}.tar.xz"
@@ -32,10 +31,9 @@ SRC_URI+=" https://www.kernel.org/pub/linux/kernel/v${LINUX_V}/${LINUX_SOURCES}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
-IUSE="audit babeltrace bpf caps clang crypt debug +doc gtk java libpfm libtraceevent libtracefs lzma numa perl python slang systemtap tcmalloc unwind zstd"
+IUSE="audit babeltrace bpf caps crypt debug +doc gtk java libpfm +libtraceevent +libtracefs lzma numa perl python slang systemtap tcmalloc unwind zstd"
 
 REQUIRED_USE="
-	bpf? ( clang )
 	${PYTHON_REQUIRED_USE}
 "
 
@@ -65,7 +63,7 @@ RDEPEND="
 		dev-util/pahole
 	)
 	caps? ( sys-libs/libcap )
-	clang? (
+	bpf? (
 		sys-devel/clang:=
 		sys-devel/llvm:=
 	)
@@ -125,7 +123,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	use clang && llvm_pkg_setup
+	use bpf && llvm_pkg_setup
 	# We enable python unconditionally as libbpf always generates
 	# API headers using python script
 	python_setup
@@ -177,8 +175,6 @@ src_prepare() {
 	fi
 
 	pushd "${S_K}" >/dev/null || die
-	eapply "${FILESDIR}"/perf-6.0-clang.patch
-	eapply "${FILESDIR}"/perf-6.0-c++17.patch
 	eapply "${FILESDIR}"/perf-6.4-libtracefs.patch
 	popd || die
 
@@ -229,7 +225,6 @@ perf_make() {
 		JDIR="${java_dir}"
 		CORESIGHT=
 		GTK2=$(usex gtk 1 "")
-		LIBCLANGLLVM=$(usex clang 1 "")
 		feature-gtk2-infobar=$(usex gtk 1 "")
 		NO_AUXTRACE=
 		NO_BACKTRACE=
@@ -268,10 +263,6 @@ perf_make() {
 src_compile() {
 	filter-lto
 
-	# test-clang.bin not build with g++
-	if use clang; then
-		make -C "${S_K}/tools/build/feature" V=1 CXX=${CHOST}-clang++ test-clang.bin || die
-	fi
 	perf_make -f Makefile.perf
 	use doc && perf_make -C Documentation man
 }
