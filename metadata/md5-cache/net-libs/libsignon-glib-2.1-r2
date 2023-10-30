@@ -1,4 +1,4 @@
-BDEPEND=|| ( ( dev-lang/python:3.11 ) ( dev-lang/python:3.10 ) ) || ( dev-lang/vala:0.56 ) dev-util/gdbus-codegen dev-util/glib-utils doc? ( dev-util/gtk-doc ) test? ( dev-libs/check ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( ( dev-lang/python:3.11 ) ( dev-lang/python:3.10 ) ) || ( dev-lang/vala:0.56 ) dev-util/gdbus-codegen dev-util/glib-utils doc? ( dev-util/gtk-doc ) test? ( dev-libs/check ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/glib:2 net-libs/signond introspection? ( dev-libs/gobject-introspection:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 DESCRIPTION=GLib binding for the D-Bus API provided by signond
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/libsignon-glib/-/archive/VERSION_2.1/libsignon-glib-VERSION_2.1.tar.gz -> libsignon-glib-2.1.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	af1ca7ad21fdd31fcc4fa91d8abca977	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	flag-o-matic	baa4d385108ac87993edac956a916a36	vala	db97951caa799e73a831a5f48e717da8
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	1be925a1f585b2f19a8e45737f09016c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	flag-o-matic	baa4d385108ac87993edac956a916a36	vala	db97951caa799e73a831a5f48e717da8
 _md5_=c1218ad9e08767c98796ab1dad0d756d

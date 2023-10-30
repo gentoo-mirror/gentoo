@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst test
 DEPEND=>=dev-libs/glib-2.30:2 sys-apps/dbus sys-auth/polkit dev-libs/libdaemon:0= sys-apps/openrc
 DESCRIPTION=System settings D-Bus service for OpenRC
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.30:2 sys-apps/dbus sys-auth/polkit dev-libs/libdaemon:0= sys-apps/openrc systemd? ( >=sys-apps/systemd-197 ) !systemd? ( sys-auth/nss-myhostname !sys-apps/systemd )
 SLOT=0
 SRC_URI=https://gitlab.com/postmarketOS/openrc-settingsd/-/archive/v1.4.0/openrc-settingsd-v1.4.0.tar.bz2
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	af1ca7ad21fdd31fcc4fa91d8abca977
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	1be925a1f585b2f19a8e45737f09016c
 _md5_=a45392236d05683f3bd4937b32fbbded

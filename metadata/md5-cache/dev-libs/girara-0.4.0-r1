@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) test? ( dev-libs/check x11-libs/gtk+:3[X] ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) test? ( dev-libs/check x11-libs/gtk+:3[X] ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install test
 DEPEND=app-accessibility/at-spi2-core dev-libs/glib:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.20:3 x11-libs/pango libnotify? ( x11-libs/libnotify )
 DESCRIPTION=UI library that focuses on simplicity and minimalism
@@ -12,5 +12,5 @@ RDEPEND=app-accessibility/at-spi2-core dev-libs/glib:2 dev-libs/json-glib:= medi
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://pwmt.org/projects/girara/download/girara-0.4.0.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	af1ca7ad21fdd31fcc4fa91d8abca977	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	1be925a1f585b2f19a8e45737f09016c	virtualx	817571665ee28575da44ee08135089e5
 _md5_=2a78ae2a038d30cb05f9ab5625f06261

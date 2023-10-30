@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
 DEPEND==dev-libs/aml-0.3* sys-libs/zlib x11-libs/pixman gbm? ( media-libs/mesa ) h264? ( media-video/ffmpeg:= x11-libs/libdrm ) jpeg? ( media-libs/libjpeg-turbo:= ) ssl? ( net-libs/gnutls:= ) tracing? ( dev-util/systemtap ) websockets? ( dev-libs/gmp:= dev-libs/nettle:=[gmp] ) x11-libs/libdrm
 DESCRIPTION=Liberally licensed VNC server library with a clean interface
@@ -12,5 +12,5 @@ RDEPEND==dev-libs/aml-0.3* sys-libs/zlib x11-libs/pixman gbm? ( media-libs/mesa 
 REQUIRED_USE=h264? ( gbm )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	af1ca7ad21fdd31fcc4fa91d8abca977	git-r3	2358a7b20091609e24bd3a83b3ac5991
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	1be925a1f585b2f19a8e45737f09016c	git-r3	2358a7b20091609e24bd3a83b3ac5991
 _md5_=0b114781296f837868f9faa59adf0c68

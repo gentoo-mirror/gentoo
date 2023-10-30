@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/luajit virtual/pkgconfig doc? ( virtual/latex-base ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array doc? ( || ( ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ) )
+BDEPEND=dev-lang/luajit virtual/pkgconfig doc? ( virtual/latex-base ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array doc? ( || ( ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ) )
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=sci-libs/gsl-1.14:= virtual/blas[eselect-ldso] >=x11-libs/agg-2.5[X] >=media-libs/freetype-2.4.10 sys-libs/readline:0= || ( media-fonts/ubuntu-font-family media-fonts/freefont media-fonts/dejavu ) x11-libs/fox:1.7 x11-libs/libX11
 DESCRIPTION=Lua interactive shell for sci-libs/gsl
@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=>=sci-libs/gsl-1.14:= virtual/blas[eselect-ldso] >=x11-libs/agg-2.5[X] >=media-libs/freetype-2.4.10 sys-libs/readline:0= || ( media-fonts/ubuntu-font-family media-fonts/freefont media-fonts/dejavu ) x11-libs/fox:1.7 x11-libs/libX11
 SLOT=0
 SRC_URI=https://github.com/franko/gsl-shell/archive/refs/tags/v2.3.5.tar.gz -> gsl-shell-2.3.5.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	af1ca7ad21fdd31fcc4fa91d8abca977	python-any-r1	f5169813d1619761b459800587005fd2	docs	74475974eae5130ba3e19b31b8ae46b8
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	1be925a1f585b2f19a8e45737f09016c	python-any-r1	f5169813d1619761b459800587005fd2	docs	74475974eae5130ba3e19b31b8ae46b8
 _md5_=fea048eaf7a2e98d3cb6f280058575cb

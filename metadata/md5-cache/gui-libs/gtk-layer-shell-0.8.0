@@ -1,4 +1,4 @@
-BDEPEND=dev-util/wayland-scanner virtual/pkgconfig x11-base/xorg-proto gtk-doc? ( dev-util/gtk-doc ) test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-util/wayland-scanner virtual/pkgconfig x11-base/xorg-proto gtk-doc? ( dev-util/gtk-doc ) test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=>=x11-libs/gtk+-3.24.26:3[introspection?,wayland] >=dev-libs/wayland-1.10.0 >=dev-libs/wayland-protocols-1.16
 DESCRIPTION=Library to create desktop components for Wayland using the Layer Shell protocol
@@ -13,5 +13,5 @@ REQUIRED_USE=vala? ( introspection )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/wmww/gtk-layer-shell/archive/refs/tags/v0.8.0.tar.gz -> gtk-layer-shell-0.8.0.tar.gz
-_eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	vala	db97951caa799e73a831a5f48e717da8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	af1ca7ad21fdd31fcc4fa91d8abca977	python-any-r1	f5169813d1619761b459800587005fd2
+_eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	vala	db97951caa799e73a831a5f48e717da8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	1be925a1f585b2f19a8e45737f09016c	python-any-r1	f5169813d1619761b459800587005fd2
 _md5_=6fe9ff069353dcff480b73f65438dd1c
