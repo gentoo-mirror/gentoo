@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=app-text/ghostscript-gpl <media-libs/tiff-4.6:=[jbig?] media-libs/libjpeg-turbo:= >=sys-libs/zlib-1.1.4 app-alternatives/awk virtual/libcrypt:= virtual/mta jbig? ( media-libs/jbigkit ) lcms? ( media-libs/lcms ) ldap? ( net-nds/openldap:= ) mgetty? ( net-dialup/mgetty[-fax] ) pam? ( sys-libs/pam )
+DESCRIPTION=Enterprise client-server fax package for class 1 and 2 fax modems
+EAPI=7
+HOMEPAGE=https://hylafax.sourceforge.io/
+INHERIT=edo pam toolchain-funcs
+IUSE=html jbig lcms ldap mgetty pam
+KEYWORDS=amd64 x86
+LICENSE=hylafaxplus
+RDEPEND=app-text/ghostscript-gpl <media-libs/tiff-4.6:=[jbig?] media-libs/libjpeg-turbo:= >=sys-libs/zlib-1.1.4 app-alternatives/awk virtual/libcrypt:= virtual/mta jbig? ( media-libs/jbigkit ) lcms? ( media-libs/lcms ) ldap? ( net-nds/openldap:= ) mgetty? ( net-dialup/mgetty[-fax] ) pam? ( sys-libs/pam ) !net-dialup/mgetty[fax] !net-dialup/sendpage
+SLOT=0
+SRC_URI=mirror://sourceforge/hylafax/hylafax-7.0.6.tar.gz https://dev.gentoo.org/~sam/distfiles/net-misc/hylafaxplus/hylafaxplus-7.0.6-tiff-4.5.0.patch.xz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	pam	b56d0c9c20fc5b553f13c8ae165a10a5
+_md5_=3249170e77d8d4931d4e4a5872a536a8
