@@ -3,7 +3,7 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 12 13 14 15 )
+POSTGRES_COMPAT=( 13 14 15 )
 POSTGRES_USEDEP="ssl"
 
 inherit postgres-multi cmake
