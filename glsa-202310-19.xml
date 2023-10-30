@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-19">
+    <title>Dovecot: Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in Dovecot that can lead to a privilege escalation when master and non-master passdbs are used.</synopsis>
+    <product type="ebuild">dovecot</product>
+    <announced>2023-10-30</announced>
+    <revised count="1">2023-10-30</revised>
+    <bug>856733</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="net-mail/dovecot" auto="yes" arch="*">
+            <unaffected range="ge">2.3.19.1-r1</unaffected>
+            <vulnerable range="lt">2.3.19.1-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Dovecot is an open source IMAP and POP3 email server.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Dovecot. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>When two passdb configuration entries exist in Dovecot configuration, which have the same driver and args settings, the incorrect username_filter and mechanism settings can be applied to passdb definitions. These incorrectly applied settings can lead to an unintended security configuration and can permit privilege escalation with certain configurations involving master user authentication.
+
+Dovecot documentation does not advise against the use of passdb definitions which have the same driver and args settings. One such configuration would be where an administrator wishes to use the same pam configuration or passwd file for both normal and master users but use the username_filter setting to restrict which of the users is able to be a master user.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Dovecot users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-mail/dovecot-2.3.19.1-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30550">CVE-2022-30550</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-30T09:51:47.939912Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-30T09:51:47.942574Z">graaff</metadata>
+</glsa>
