@@ -1,0 +1,16 @@
+BDEPEND=>=dev-python/PyQt-builder-1.15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-qt/qtbase-6.6:6 python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/sip-6.7.9[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-python/PyQt6-6.6.0[gui,ssl,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-qt/qtbase-6.6:6[gui,widgets?] >=dev-qt/qtwebengine-6.6:6[widgets] quick? ( dev-python/PyQt6[qml] >=dev-qt/qtwebengine-6.6:6[qml(+)] ) widgets? ( dev-python/PyQt6[network,printsupport,webchannel,widgets] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+DESCRIPTION=Python bindings for QtWebEngine
+EAPI=8
+HOMEPAGE=https://www.riverbankcomputing.com/software/pyqtwebengine/
+INHERIT=distutils-r1 flag-o-matic multiprocessing pypi qmake-utils
+IUSE=debug quick +widgets python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-python/PyQt6-6.6.0[gui,ssl,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-qt/qtbase-6.6:6[gui,widgets?] >=dev-qt/qtwebengine-6.6:6[widgets] quick? ( dev-python/PyQt6[qml] >=dev-qt/qtwebengine-6.6:6[qml(+)] ) widgets? ( dev-python/PyQt6[network,printsupport,webchannel,widgets] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/P/PyQt6_WebEngine/PyQt6_WebEngine-6.6.0.tar.gz
+_eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	d05609532b134be7c4ae2514f4c7d06e	pypi	2eecb475512bc76e5ea9192a681b9e6b	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=9f4f7fba146b8d01929895e2d214baf2
