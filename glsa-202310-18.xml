@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-18">
+    <title>Rack: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Rack, the worst of which can lead to sequence injection in logging compontents.</synopsis>
+    <product type="ebuild">rack</product>
+    <announced>2023-10-30</announced>
+    <revised count="1">2023-10-30</revised>
+    <bug>884795</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-ruby/rack" auto="yes" arch="*">
+            <unaffected range="ge">2.2.3.1</unaffected>
+            <vulnerable range="lt">2.2.3.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Rack is a modular Ruby web server interface.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Rack. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A possible denial of service vulnerability was found in the multipart parsing component of Rack.
+
+A sequence injection vulnerability was found which could allow a possible shell escape in the Lint and CommonLogger components of Rack.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Rack users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/rack-2.2.3.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30122">CVE-2022-30122</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30123">CVE-2022-30123</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-30T09:36:59.521630Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-30T09:36:59.526118Z">graaff</metadata>
+</glsa>
