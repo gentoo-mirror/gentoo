@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs toolchain-funcs unpacker
 
-DRIVER_PV="535.86.10"
+DRIVER_PV="545.23.06"
 
 DESCRIPTION="NVIDIA CUDA Toolkit (compiler and friends)"
 HOMEPAGE="https://developer.nvidia.com/cuda-zone"
@@ -191,6 +191,7 @@ src_install() {
 			${nsys_dir}/target-linux-x64/nsys-launcher
 			${nsys_dir}/target-linux-x64/sqlite3
 			${nsys_dir}/target-linux-x64/python/bin/python
+			${nsys_dir}/target-linux-x64/CudaGpuInfoDumper
 		)
 
 		# remove rdma libs (unless USE=rdma)
@@ -198,7 +199,7 @@ src_install() {
 			rm -r "${ED}"/${cudadir}/${nsys_dir}/target-linux-x64/CollectX || die
 		fi
 
-		dobin builds/integration/nsight-systems/{nsight-sys,nsys,nsys-exporter,nsys-ui}
+		dobin builds/integration/nsight-systems/{nsight-sys,nsys,nsys-ui}
 		eend $?
 
 		# nsight scripts and binaries need to have their executable bit set, #691284
@@ -207,8 +208,8 @@ src_install() {
 		done
 
 		# fix broken RPATHs
-		patchelf --set-rpath '$ORIGIN' "${ED}"/${cudadir}/${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/libarrow.so || die
-		patchelf --set-rpath '$ORIGIN' "${ED}"/${cudadir}/${nsys_dir}/host-linux-x64/libarrow.so || die
+		patchelf --set-rpath '$ORIGIN' "${ED}"/${cudadir}/${ncu_dir}/host/linux-desktop-glibc_2_11_3-x64/{libarrow.so,libparquet.so.500.0.0} || die
+		patchelf --set-rpath '$ORIGIN' "${ED}"/${cudadir}/${nsys_dir}/host-linux-x64/{libarrow.so,libparquet.so.500.0.0} || die
 
 		# remove foreign archs (triggers SONAME warning, #749903)
 		rm -r "${ED}"/${cudadir}/${ncu_dir}/target/linux-desktop-glibc_2_19_0-ppc64le || die
