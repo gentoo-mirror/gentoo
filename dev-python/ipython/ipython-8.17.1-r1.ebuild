@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE='readline,sqlite,threads(+)'
 
 inherit distutils-r1 optfeature pypi virtualx
@@ -23,17 +23,13 @@ IUSE="doc examples notebook nbconvert qt5 +smp test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-python/backcall[${PYTHON_USEDEP}]
 	dev-python/decorator[${PYTHON_USEDEP}]
 	>=dev-python/jedi-0.16[${PYTHON_USEDEP}]
-	dev-python/matplotlib[${PYTHON_USEDEP}]
 	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.3[${PYTHON_USEDEP}]
-	dev-python/pickleshare[${PYTHON_USEDEP}]
 	>=dev-python/prompt-toolkit-3.0.38[${PYTHON_USEDEP}]
 	<dev-python/prompt-toolkit-3.1[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.4.0[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/stack-data[${PYTHON_USEDEP}]
 	>=dev-python/traitlets-5.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
@@ -45,9 +41,11 @@ BDEPEND="
 	test? (
 		app-text/dvipng[truetype]
 		>=dev-python/ipykernel-5.1.0[${PYTHON_USEDEP}]
+		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 		dev-python/nbformat[${PYTHON_USEDEP}]
-		>=dev-python/numpy-1.21[${PYTHON_USEDEP}]
+		>=dev-python/numpy-1.22[${PYTHON_USEDEP}]
+		dev-python/pickleshare[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/testpath[${PYTHON_USEDEP}]
 	)
@@ -147,6 +145,7 @@ pkg_postinst() {
 	optfeature "sympyprinting" dev-python/sympy
 	optfeature "cythonmagic" dev-python/cython
 	optfeature "%lprun magic command" dev-python/line-profiler
+	optfeature "%matplotlib magic command" dev-python/matplotlib-inline
 	optfeature "%mprun magic command" dev-python/memory-profiler
 
 	if use nbconvert; then
