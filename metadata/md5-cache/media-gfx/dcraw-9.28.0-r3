@@ -1,0 +1,15 @@
+BDEPEND=nls? ( sys-devel/gettext ) gimp? ( virtual/pkgconfig )
+DEFINED_PHASES=compile install prepare
+DEPEND=jpeg? ( media-libs/libjpeg-turbo:0 ) lcms? ( media-libs/lcms:2 ) gimp? ( dev-libs/atk media-gfx/gimp:0/2 media-libs/harfbuzz x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/pango )
+DESCRIPTION=Command-line decoder for raw digital photos
+EAPI=8
+HOMEPAGE=https://www.dechifro.org/dcraw/
+INHERIT=readme.gentoo-r1 toolchain-funcs
+IUSE=nls gimp jpeg lcms
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=jpeg? ( media-libs/libjpeg-turbo:0 ) lcms? ( media-libs/lcms:2 ) gimp? ( dev-libs/atk media-gfx/gimp:0/2 media-libs/harfbuzz x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/pango ) media-libs/netpbm
+SLOT=0
+SRC_URI=https://www.cybercom.net/~dcoffin/dcraw/archive/dcraw-9.28.0.tar.gz mirror://gentoo/parse-1.73.tar.bz2 gimp? ( mirror://gentoo/rawphoto-1.32.tar.bz2 )
+_eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=b8f5c856e9b9cc851d22c42dcc74a2e5
