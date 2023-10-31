@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-23">
+    <title>libxslt: Multiple Vulnerabilities</title>
+    <synopsis>Several use-after-free vulnerabilities have been found in libxslt.</synopsis>
+    <product type="ebuild">libxslt</product>
+    <announced>2023-10-31</announced>
+    <revised count="1">2023-10-31</revised>
+    <bug>820722</bug>
+    <bug>833508</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libxslt" auto="yes" arch="*">
+            <unaffected range="ge">1.1.35</unaffected>
+            <vulnerable range="lt">1.1.35</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libxslt is the XSLT C library developed for the GNOME project. XSLT itself is an XML language to define transformations for XML.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libxslt. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libxslt users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libxslt-1.1.35"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30560">CVE-2021-30560</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-31T12:53:57.599608Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-31T12:53:57.603095Z">graaff</metadata>
+</glsa>
