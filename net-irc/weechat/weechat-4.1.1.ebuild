@@ -4,9 +4,9 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} )
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
-inherit cmake lua-single python-single-r1 xdg-utils
+inherit cmake lua-single python-single-r1 xdg
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
@@ -32,7 +32,7 @@ PLUGINS="+alias +buflist +charset +exec +fifo +fset +logger +relay +scripts +spe
 # dev-lang/php eclass support is lacking, php plugins don't work. bug #705702
 SCRIPT_LANGS="guile lua +perl +python ruby tcl"
 LANGS=" cs de es fr it ja pl ru"
-IUSE="doc enchant man nls selinux test ${SCRIPT_LANGS} ${PLUGINS} ${INTERFACES} ${NETWORKS}"
+IUSE="doc enchant man nls selinux test +zstd ${SCRIPT_LANGS} ${PLUGINS} ${INTERFACES} ${NETWORKS}"
 
 REQUIRED_USE="
 	enchant? ( spell )
@@ -42,7 +42,6 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	app-arch/zstd:=
 	dev-libs/libgcrypt:0=
 	net-libs/gnutls:=
 	sys-libs/ncurses:0=
@@ -52,12 +51,15 @@ RDEPEND="
 	guile? ( >=dev-scheme/guile-2.0:12= )
 	lua? ( ${LUA_DEPS} )
 	nls? ( virtual/libintl )
-	perl? ( dev-lang/perl:= )
+	perl? (
+		dev-lang/perl:=
+		virtual/libcrypt:=
+	)
 	python? ( ${PYTHON_DEPS} )
 	ruby? (
 		|| (
+			dev-lang/ruby:3.2
 			dev-lang/ruby:3.1
-			dev-lang/ruby:3.0
 		)
 	)
 	selinux? ( sec-policy/selinux-irc )
@@ -66,6 +68,7 @@ RDEPEND="
 		!enchant? ( app-text/aspell )
 	)
 	tcl? ( >=dev-lang/tcl-8.4.15:0= )
+	zstd? ( app-arch/zstd:= )
 "
 
 DEPEND="${RDEPEND}
@@ -169,6 +172,7 @@ src_configure() {
 		-DENABLE_TRIGGER=$(usex trigger)
 		-DENABLE_TYPING=$(usex typing)
 		-DENABLE_XFER=$(usex xfer)
+		-DENABLE_ZSTD=$(usex zstd)
 	)
 	cmake_src_configure
 }
@@ -180,16 +184,4 @@ src_test() {
 		eerror "en_US.UTF-8 locale is required to run ${PN}'s ${FUNCNAME}"
 		die "required locale missing"
 	fi
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-	xdg_mimeinfo_database_update
 }
