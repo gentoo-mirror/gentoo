@@ -1,0 +1,17 @@
+BDEPEND=python? ( >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/protobuf-python[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) dev-libs/protobuf:=
+DESCRIPTION=Open Neural Network Exchange (ONNX)
+EAPI=8
+HOMEPAGE=https://github.com/onnx/onnx
+INHERIT=distutils-r1 cmake
+IUSE=python python_targets_python3_10 python_targets_python3_11 debug
+KEYWORDS=~amd64 ~riscv
+LICENSE=Apache-2.0
+RDEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/protobuf-python[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) dev-libs/protobuf:=
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/onnx/onnx/archive/refs/tags/v1.14.0.tar.gz -> onnx-1.14.0.tar.gz
+_eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	d05609532b134be7c4ae2514f4c7d06e	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_md5_=b6f14d43c400a1dfb7635b3e16e12958
