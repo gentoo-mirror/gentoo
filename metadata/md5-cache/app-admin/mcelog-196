@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare pretend setup
+DEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 )
+DESCRIPTION=A tool to log and decode Machine Check Exceptions
+EAPI=8
+HOMEPAGE=http://mcelog.org/
+INHERIT=linux-info python-any-r1 systemd toolchain-funcs
+IUSE=selinux
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=selinux? ( sec-policy/selinux-mcelog )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/andikleen/mcelog/archive/v196.tar.gz -> mcelog-196.tar.gz
+_eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=37159846b767636ec20c67a1b8465fd2
