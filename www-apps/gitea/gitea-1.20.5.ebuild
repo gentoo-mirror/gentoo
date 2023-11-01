@@ -6,7 +6,7 @@ EAPI=8
 inherit fcaps go-module tmpfiles systemd flag-o-matic
 
 DESCRIPTION="A painless self-hosted Git service"
-HOMEPAGE="https://gitea.io https://github.com/go-gitea/gitea"
+HOMEPAGE="https://gitea.com https://github.com/go-gitea/gitea"
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
