@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit autotools optfeature python-single-r1
 
@@ -39,6 +39,8 @@ DEPEND="
 			dev-python/lark[${PYTHON_USEDEP}]
 			dev-python/requests[${PYTHON_USEDEP}]
 		')
+		dev-vcs/git
+		net-misc/rsync
 	)
 	doc? (
 		$(python_gen_cond_dep '
@@ -54,8 +56,7 @@ src_prepare() {
 }
 
 src_configure() {
-	local econf_args=()
-	econf_args+=(
+	local econf_args=(
 		$(use_enable doc html)
 		$(use_enable ch-image)
 		# Libdir is used as a libexec-style destination.
