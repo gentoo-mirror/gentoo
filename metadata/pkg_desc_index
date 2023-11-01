@@ -1882,7 +1882,7 @@ app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
 app-emacs/cfrs 1.6.0-r1: Child Frame Read String, alternative to read-string
 app-emacs/chess 2.0.5: A chess client and library for Emacs
-app-emacs/cider 1.7.0 1.8.3 1.9.0: Clojure Interactive Development Environment for GNU Emacs
+app-emacs/cider 1.7.0 1.8.3 1.9.0 1.10.0: Clojure Interactive Development Environment for GNU Emacs
 app-emacs/circe 2.12: A great IRC client for Emacs
 app-emacs/citar 1.3.1 1.4.0: Emacs package to quickly find and act on bibliographic references
 app-emacs/citeproc-el 0.9.3: CSL 1.0.2 Citation Processor for Emacs
@@ -1952,11 +1952,11 @@ app-emacs/edit-indirect 0.1.10: Edit regions in separate Emacs buffers
 app-emacs/edit-list 0.3: Edit a single list
 app-emacs/edit-server 1.15 1.16: Service edit requests from a web browser for editing of textareas
 app-emacs/editorconfig-emacs 0.10.1: EditorConfig plugin for emacs
-app-emacs/ef-themes 1.3.0 9999: Colourful and legible themes for GNU Emacs
+app-emacs/ef-themes 1.3.0 1.4.0 9999: Colourful and legible themes for GNU Emacs
 app-emacs/eglot 1.15-r1: A minimal Emacs LSP client for GNU Emacs
 app-emacs/eimp 1.4.0-r1: Emacs Image Manipulation Package
 app-emacs/el-mock 1.25.1: Mocking library for Emacs
-app-emacs/eldev 1.6 9999: Emacs Lisp Development Tool
+app-emacs/eldev 1.6 1.7 9999: Emacs Lisp Development Tool
 app-emacs/elfeed 3.4.1_p20210822: Emacs web feeds client
 app-emacs/elfeed-protocol 0.9.0 0.9.1: Provide extra news client subscription protocols for elfeed
 app-emacs/elixir-mode 2.4.1 2.5.0: Emacs major mode for editing Elixir files
@@ -2090,7 +2090,7 @@ app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 1.2 1.3: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.5-r1 2.6: Major mode for editing Markdown-formatted text files
-app-emacs/mastodon 1.0.0 1.0.12: Emacs client for Mastodon, federated microblogging social network
+app-emacs/mastodon 1.0.0 1.0.12 1.0.13: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
 app-emacs/matlab 3.3.6_pre20191010-r1: Major modes for MATLAB .m and .tlc files
 app-emacs/mediawiki 2.2.9-r1 2.3.1: MediaWiki client for Emacs
@@ -2122,7 +2122,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 0.7 0.8 1.0: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.0: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.4.1 0.4.2: Contributed packages to Org
-app-emacs/org-mode 9.4.6 9.5.5 9.6.9 9.6.10 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.4.6 9.5.5 9.6.9 9.6.10 9.6.11 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 0.7 0.9-r1 0.10: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
@@ -4939,7 +4939,7 @@ dev-java/zxing-core 3.5.1: Core barcode encoding/decoding library
 dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.3.1: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
-dev-lang/algol68g 3.3.24 3.4.2 3.4.3: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.3.24 3.4.2 3.4.3 3.4.4: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.8 2.5.9 2.5.11: Scala language-based scripting and REPL
 dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2: Functional programming language with dependent types
@@ -4970,7 +4970,7 @@ dev-lang/f2c 20100827-r1: Fortran to C converter
 dev-lang/fennel 1.3.1: Lisp-like language that compiles to Lua
 dev-lang/ferite 1.1.17-r1: A clean, lightweight, object oriented scripting language
 dev-lang/fpc 3.2.2: Free Pascal Compiler
-dev-lang/fuzion 0.083 0.084: A language with a focus on simplicity, safety and correctness
+dev-lang/fuzion 0.083 0.084 0.085: A language with a focus on simplicity, safety and correctness
 dev-lang/gdl 1.0.1-r2: GNU Data Language
 dev-lang/gforth 0.7.3-r2: GNU Forth is a fast and portable implementation of the ANSI Forth language
 dev-lang/ghc 9.0.2-r4 9.2.8: The Glasgow Haskell Compiler
@@ -5000,7 +5000,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.4-r103 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.595 0.596 0.598 0.599 0.600: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.596 0.598 0.599 0.600 0.601: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 20.06-r1 20.06.1 22.01 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 20.06 20.06.1 22.01 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -16976,7 +16976,7 @@ sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the heal
 sys-apps/syd 3.2.0 3.2.1: practical userspace application sandbox
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/system-monitoring-center 2.21.2-r1 2.23.0-r1 2.24.0-r1 2.25.1 9999: Multi-featured system monitor GUI written in Python
+sys-apps/system-monitoring-center 2.21.2-r1 2.23.0-r1 2.24.0-r1 2.25.1 2.26.0 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemd 253.3-r1 253.6 253.11 253.12 254.3 254.4 254.5 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-utils 253.11-r1 253.12-r1 254.5-r1: Utilities split out from systemd for OpenRC users
