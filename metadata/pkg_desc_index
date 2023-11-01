@@ -3798,7 +3798,7 @@ dev-cpp/prometheus-cpp 1.1.0: Prometheus Client Library for Modern C++
 dev-cpp/pystring 1.1.3-r1: C++ functions matching the interface and behavior of python string methods
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.12.0: Range library for C++14/17/20, basis for C++20's std::ranges
-dev-cpp/rapidfuzz-cpp 2.0.0 2.1.1 2.2.0: Rapid fuzzy string matching in C++
+dev-cpp/rapidfuzz-cpp 2.0.0 2.1.1 2.2.0 2.2.2: Rapid fuzzy string matching in C++
 dev-cpp/rapidyaml 0.5.0: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-hood-hashing 3.11.5-r1: Fast & memory efficient hashtable based on robin hood hashing for C++11/14/17/20
 dev-cpp/robin-map 0.6.3 9999: C++ fast hash map and hash set using robin hood hashing
@@ -8427,7 +8427,7 @@ dev-python/jinja2-time 0.2.0-r1: Jinja2 Extension for Dates and Times
 dev-python/jinja2_pluralize 0.3.0-r1: Jinja2 pluralize filters
 dev-python/jmespath 1.0.1: JSON Matching Expressions
 dev-python/joblib 1.3.2: Tools to provide lightweight pipelining in Python
-dev-python/josepy 1.13.0: JOSE protocol implementation in Python
+dev-python/josepy 1.13.0 1.14.0: JOSE protocol implementation in Python
 dev-python/jq 1.6.0-r1: Python bindings for jq
 dev-python/js2py 0.74: JavaScript to Python Translator & JavaScript interpreter in Python
 dev-python/jschema-to-python 1.2.3-r1: Generate source code for Python classes from a JSON schema
@@ -9131,7 +9131,7 @@ dev-python/quantities 0.14.1: Support for physical quantities with units, based 
 dev-python/radon 6.0.1: Code Metrics in Python
 dev-python/raet 0.6.8-r5: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.1-r2: Python-2.7 random module ported to python-3
-dev-python/rapidfuzz 3.1.1 3.1.2 3.2.0 3.3.0 3.3.1 3.4.0: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 3.1.1 3.1.2 3.2.0 3.3.0 3.3.1 3.4.0 3.5.1: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rapidfuzz-capi 1.0.5: C-API of RapidFuzz, which can be used to extend RapidFuzz
 dev-python/rarfile 4.1: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
@@ -9205,7 +9205,7 @@ dev-python/scrypt 0.8.20: Bindings for the scrypt key derivation function librar
 dev-python/seaborn 0.12.2 0.13.0: Statistical data visualization
 dev-python/secretstorage 3.3.3: Python bindings to FreeDesktop.org Secret Service API
 dev-python/seedir 0.4.2: Package for creating, editing, and reading folder tree diagrams
-dev-python/selenium 4.13.0 4.14.0: Python language binding for Selenium Remote Control
+dev-python/selenium 4.13.0 4.14.0 4.15.0: Python language binding for Selenium Remote Control
 dev-python/semantic-version 2.10.0: Python library providing a few tools handling SemVer in Python
 dev-python/semver 3.0.1 3.0.2: A Python module for semantic versioning
 dev-python/send2trash 1.8.2: Sends files to the Trash (or Recycle Bin)
@@ -9332,7 +9332,7 @@ dev-python/stevedore 5.1.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.0: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
 dev-python/stripe 6.7.0 7.0.0 7.1.0 7.2.0: Stripe python bindings
-dev-python/structlog 23.1.0 23.2.0: Structured Logging for Python
+dev-python/structlog 23.2.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.1: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.3: A streaming protocol for test results
 dev-python/suds-community 1.1.2: Lightweight SOAP client
@@ -9497,7 +9497,7 @@ dev-python/wsaccel 0.6.6: Accelerator for ws4py, autobahn and tornado
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.2.0: WebSockets state-machine based protocol implementation
 dev-python/wstools 0.4.10-r1: WSDL parsing services package for Web Services for Python
-dev-python/wtforms 3.0.1-r1 3.1.0: Flexible forms validation and rendering library for python web development
+dev-python/wtforms 3.0.1-r1 3.1.0 3.1.1: Flexible forms validation and rendering library for python web development
 dev-python/wurlitzer 3.0.3: Capture C-level stdout/stderr in Python
 dev-python/wxpython 4.2.0 4.2.1: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 0.0.5: Convert calendars using X-WR-TIMEZONE to standard ones
@@ -9541,7 +9541,7 @@ dev-python/zope-i18nmessageid 6.0.1 6.1.0: Zope support for i18nmessageid (taggi
 dev-python/zope-interface 6.0 6.1: Interfaces for Python
 dev-python/zope-schema 7.0.1: Zope schema Architecture
 dev-python/zope-testing 5.0.1: Zope testing helpers
-dev-python/zstandard 0.21.0: Zstandard Bindings for Python
+dev-python/zstandard 0.21.0 0.22.0: Zstandard Bindings for Python
 dev-python/zstd 1.5.5.1: Simple python bindings to Yann Collet ZSTD compression library
 dev-qt/assistant 5.15.10 5.15.11: Tool for viewing on-line documentation in Qt help file format
 dev-qt/designer 5.15.10 5.15.11: WYSIWYG tool for designing and building graphical user interfaces with QtWidgets
@@ -15269,7 +15269,7 @@ net-news/canto-curses 0.9.9: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
 net-news/liferea 1.14.5-r1 1.15.3-r1: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.21-r1 2.23-r1 2.28 2.29 2.30.1: An RSS/Atom feed reader for text terminals
-net-news/rssguard 4.5.0 4.5.1: Simple (yet powerful) news feed reader
+net-news/rssguard 4.5.0 4.5.1 4.5.2: Simple (yet powerful) news feed reader
 net-news/rsstail 2.1 2.1_p20200310: A tail-like RSS-reader
 net-news/rsstool 1.0.1_rc2: cmdline tool to read, parse, merge, and write RSS (and Atom) feeds
 net-news/sfeed 1.6 1.8 1.9: Simple RSS and Atom parser
