@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-01">
+    <title>GitPython: Code Execution via Crafted Input</title>
+    <synopsis>A vulnerability has been discovered in GitPython where crafted input to Repo.clone_from can lead to code execution</synopsis>
+    <product type="ebuild">GitPython</product>
+    <announced>2023-11-01</announced>
+    <revised count="1">2023-11-01</revised>
+    <bug>884623</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-python/GitPython" auto="yes" arch="*">
+            <unaffected range="ge">3.1.30</unaffected>
+            <vulnerable range="lt">3.1.30</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GitPython is a Python library used to interact with Git repositories.</p>
+    </background>
+    <description>
+        <p>Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker may be able to trigger Remote Code Execution (RCE) due to improper user input validation, which makes it possible to inject a maliciously crafted remote URL into the clone command. Exploiting this vulnerability is possible because the library makes external calls to git without sufficient sanitization of input arguments.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GitPython users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/GitPython-3.1.30"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24439">CVE-2022-24439</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-01T12:20:26.255981Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-01T12:20:26.259121Z">graaff</metadata>
+</glsa>
