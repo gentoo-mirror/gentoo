@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic
 
-DESCRIPTION="Fast system information tool"
+DESCRIPTION="Fast neofetch-like system information tool"
 HOMEPAGE="https://github.com/fastfetch-cli/fastfetch"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -20,7 +20,8 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X chafa dbus ddcutil gnome imagemagick networkmanager opencl opengl osmesa pci pulseaudio sqlite vulkan wayland xcb xfce xrandr"
+IUSE="X chafa dbus ddcutil gnome imagemagick networkmanager opencl opengl osmesa pci pulseaudio sqlite test vulkan wayland xcb xfce xrandr"
+RESTRICT="!test? ( test )"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
 # make sure to crank yyjson minimum version to match bundled version
@@ -92,6 +93,7 @@ src_configure() {
 		-DENABLE_XCB_RANDR=$(usex xcb)
 		-DENABLE_XFCONF=$(usex xfce)
 		-DENABLE_XRANDR=$(usex xrandr)
+		-DBUILD_TESTS=$(usex test)
 	)
 
 	append-cppflags -DNDEBUG
