@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
 PYTHON_REQ_USE="threads(+)"
 
@@ -17,34 +17,20 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
-	>=dev-python/pbr-0.11[${PYTHON_USEDEP}]
-	>=dev-python/six-1.4.0[${PYTHON_USEDEP}]
-"
 BDEPEND="
+	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/fixtures-2.0.0[${PYTHON_USEDEP}]
 		dev-python/testscenarios[${PYTHON_USEDEP}]
 		dev-python/testresources[${PYTHON_USEDEP}]
 	)
 "
-PDEPEND="
-	>=dev-python/fixtures-2.0.0[${PYTHON_USEDEP}]
-"
 
 distutils_enable_sphinx doc
-
-src_prepare() {
-	# very fragile to formatting changes (broken on py3.10 & pypy3)
-	sed -i -e 's:test_syntax_error(:_&:' \
-		testtools/tests/test_testresult.py || die
-
-	distutils-r1_src_prepare
-}
 
 python_test() {
 	"${PYTHON}" -m testtools.run testtools.tests.test_suite ||
