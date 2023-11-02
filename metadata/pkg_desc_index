@@ -2025,7 +2025,7 @@ app-emacs/geiser-gambit 0.18.1: Gambit Scheme's implementation of the Geiser pro
 app-emacs/geiser-guile 0.28.1: Guile's implementation of the Geiser protocols
 app-emacs/geiser-mit 0.15: MIT/GNU Scheme's implementation of the Geiser protocols
 app-emacs/ghub 3.6.0: Minuscule client library for the Git forge APIs
-app-emacs/git-modes 1.4.1 9999: Emacs major modes for editing Git configuration files
+app-emacs/git-modes 1.4.1 1.4.2 9999: Emacs major modes for editing Git configuration files
 app-emacs/git-timemachine 4.13 9999: Step through historic versions of git controlled files in GNU Emacs
 app-emacs/gnuplot-mode 0.8.0 0.8.1: Gnuplot mode for Emacs
 app-emacs/gnuserv 3.12.8-r5 3.12.8-r8: Attach to an already running Emacs
@@ -2233,7 +2233,7 @@ app-emacs/transient 0.4.1 0.4.3 9999: Transient commands abstraction for GNU Ema
 app-emacs/treemacs 3.1: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.1: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.1 0.1.1-r1 0.1.2: Generic tree traversing tools for Emacs Lisp
-app-emacs/treesit-auto 0.6.3 0.6.4: Automatic installation, usage, fallback for tree-sitter modes in Emacs 29
+app-emacs/treesit-auto 0.6.3 0.6.4 0.6.5: Automatic installation, usage, fallback for tree-sitter modes in Emacs 29
 app-emacs/ts 0.3: Emacs timestamp and date-time library
 app-emacs/tuareg-mode 2.2.0 3.0.1: An Objective Caml/Camllight mode for Emacs
 app-emacs/twittering-mode 3.0.0-r1 9999: Emacs major mode for Twitter
@@ -5387,7 +5387,7 @@ dev-libs/libplatform 2.1.0.1-r2 9999: Platform support library used by libCEC an
 dev-libs/libpo6 0.8.0: Hyperdex libpo6 support library
 dev-libs/libportal 0.6 0.7.1: Flatpak portal library
 dev-libs/libpqxx 7.7.5: Standard front-end for writing C++ programs that use PostgreSQL
-dev-libs/libpsl-native 7.3.2: Functionality missing from .NET Core via system calls
+dev-libs/libpsl-native 7.3.2 7.4.0: Functionality missing from .NET Core via system calls
 dev-libs/libpthread-stubs 0.4-r1 0.5: Pthread functions stubs for platforms missing them
 dev-libs/libptytty 2.0-r1: A library for mostly OS-independent handling of pty/tty/utmp/wtmp/lastlog
 dev-libs/libpwquality 1.4.5: Library for password quality checking and generating random passwords
@@ -5728,7 +5728,7 @@ dev-ml/async_extra 0.14.0 0.15.0: Jane Street Capital's asynchronous execution l
 dev-ml/async_kernel 0.14.0 0.15.0 0.16.0: Jane Street Capital's asynchronous execution library (core)
 dev-ml/async_rpc_kernel 0.14.0-r1 0.15.0 0.16.0: Platform-independent core of Async RPC library
 dev-ml/async_unix 0.14.0 0.15.0 0.16.0: Jane Street Capital's asynchronous execution library (unix)
-dev-ml/atd 2.10.0 2.11.0 2.12.0: Static types for JSON APIs
+dev-ml/atd 2.12.0 2.15.0: Static types for JSON APIs
 dev-ml/base 0.14.0-r1 0.14.1-r1 0.14.3-r1 0.15.0-r3 0.15.1-r1 0.16.1-r1 0.16.2 0.16.3: Standard library for OCaml
 dev-ml/base_bigstring 0.14.0 0.15.0-r1 0.16.0: String type based on Bigarray, for use in I/O and C-bindings
 dev-ml/base_quickcheck 0.14.0-r1 0.14.1-r2 0.15.0-r2 0.16.0: Randomized testing framework, designed for compatibility with Base
@@ -5776,10 +5776,10 @@ dev-ml/extlib 1.7.7 1.7.7-r1 1.7.8 1.7.9: Standard library extensions for O'Caml
 dev-ml/facile 1.1.3-r1 1.1.4: OCaml constraint programming library on integer & integer set finite domains
 dev-ml/fieldslib 0.14.0 0.15.0 0.16.0: Folding over record fields
 dev-ml/findlib 1.8.1-r2 1.9.3 1.9.5 1.9.6-r1: OCaml tool to find/use non-standard packages
-dev-ml/fix 20211125 20220121: Facilities for memoization and fixed points
+dev-ml/fix 20220121 20230505: Facilities for memoization and fixed points
 dev-ml/fmt 0.8.9-r1 0.9.0: Combinators to devise OCaml Format pretty-printing functions
 dev-ml/fpath 0.7.3: File system paths for OCaml
-dev-ml/gapi-ocaml 0.4.2-r1 0.4.3 0.4.4: A simple OCaml client for Google Services
+dev-ml/gapi-ocaml 0.4.4: A simple OCaml client for Google Services
 dev-ml/gen 0.5.3-r1 1.0-r2 1.1: Iterators for OCaml, both restartable and consumable
 dev-ml/graphics 5.1.1-r1 5.1.2: The OCaml graphics library
 dev-ml/gsl-ocaml 1.24.3-r1: OCaml bindings for the GSL library (successor of dev-ml/ocamlgsl)
@@ -5854,7 +5854,7 @@ dev-ml/opam-repository 2.0.9 2.0.10 2.1.2 2.1.3: opam repository libraries
 dev-ml/opam-solver 2.0.9 2.0.10 2.1.2 2.1.3: opam solver
 dev-ml/opam-state 2.0.9 2.0.10 2.1.2 2.1.3: opam state libraries
 dev-ml/ordering 3.0.3 3.2.0 3.6.1 3.6.2 3.7.0 3.7.1 3.8.0 3.9.0 3.9.1 3.10.0: Element ordering
-dev-ml/ounit2 2.2.3 2.2.4 2.2.6: Unit testing framework for OCaml
+dev-ml/ounit2 2.2.6 2.2.7: Unit testing framework for OCaml
 dev-ml/parmap 1.2 1.2.1 1.2.3 1.2.4-r1 1.2.5: Library to exploit multicore architectures for OCaml programs
 dev-ml/parsexp 0.14.0 0.14.1 0.15.0 0.16.0: S-expression parsing library
 dev-ml/patience_diff 0.14.0 0.15.0: Tool and library implementing patience diff
@@ -5944,7 +5944,7 @@ dev-ml/uuseg 15.0.0: Unicode text segmentation for OCaml
 dev-ml/uutf 1.0.1 1.0.2 1.0.3: Non-blocking streaming Unicode codec for OCaml
 dev-ml/variantslib 0.14.0 0.15.0 0.16.0: OCaml variants as first class values
 dev-ml/xml-light 2.2-r3: Minimal Xml parser and printer for OCaml
-dev-ml/yojson 1.7.0 2.0.2-r3 2.1.0: JSON parsing and pretty-printing library for OCaml
+dev-ml/yojson 2.1.0 2.1.1: JSON parsing and pretty-printing library for OCaml
 dev-ml/zarith 1.12 1.13: Arithmetic and logic operations over arbitrary-precision integers
 dev-ml/zed 3.2.2-r1 3.2.3: Abstract engine for text edition in OCaml
 dev-ml/zmq 5.2.1: OCaml bindings for ZeroMQ 4.x
@@ -16159,7 +16159,7 @@ sci-mathematics/alectryon 1.4.0-r1: Toolkit for literate programming in Coq
 sci-mathematics/alt-ergo 2.4.3 9999: Automatic theorem prover
 sci-mathematics/arb 2.23.0: C library for arbitrary-precision interval arithmetic
 sci-mathematics/bertini 1.4 1.6: Software for Numerical Algebraic Geometry
-sci-mathematics/boolector 3.2.2_p20220110: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
+sci-mathematics/boolector 3.2.2_p20220110 3.2.3: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
 sci-mathematics/btor2tools 1.0.0_pre20220518-r1: Generic parser and tools for the BTOR2 format
 sci-mathematics/cadabra 2.4.3.2-r1 2.4.4.1: Field-theory motivated approach to computer algebra
 sci-mathematics/cadical 1.5.3-r1 1.8.0: Simplified Satisfiability Solver
@@ -16238,7 +16238,7 @@ sci-mathematics/primecount 7.6: Highly optimized CLI and library to count primes
 sci-mathematics/primesieve 11.0: CLI and library for quickly generating prime numbers
 sci-mathematics/prng 3.0.2-r3: Pseudo-Random Number Generator library
 sci-mathematics/prover9 2009.11a: Automated theorem prover for first-order and equational logic
-sci-mathematics/proverif 2.04 9999: Cryptographic protocol verifier in the formal model
+sci-mathematics/proverif 2.04-r1 9999: Cryptographic protocol verifier in the formal model
 sci-mathematics/psmt2-frontend 0.2 0.4.0: Library to parse and type-check an extension of the SMT-LIB 2 standard
 sci-mathematics/pspp 1.6.2-r2: Program for statistical analysis of sampled data
 sci-mathematics/rkward 0.7.5: IDE for the R-project
@@ -16904,7 +16904,7 @@ sys-apps/nosig 2: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 2.2.1 2.3 2.4-r2 2.5 2.6: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
-sys-apps/openrazer 3.6.1-r2: Drivers and user-space daemon to control Razer devices on GNU/Linux
+sys-apps/openrazer 3.6.1-r2 3.7.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.48 0.49 0.50 0.50-r1 0.51 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/osinfo-db 20230719: osinfo database files
 sys-apps/osinfo-db-tools 1.10.0-r1 1.10.0-r2: Tools for managing the osinfo database

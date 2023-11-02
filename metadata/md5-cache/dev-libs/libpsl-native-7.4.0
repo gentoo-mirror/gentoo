@@ -1,13 +1,12 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=dev-cpp/gtest >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DESCRIPTION=Generic parser and tools for the BTOR2 format
+DESCRIPTION=Functionality missing from .NET Core via system calls
 EAPI=8
-HOMEPAGE=https://github.com/Boolector/btor2tools/
+HOMEPAGE=https://github.com/PowerShell/PowerShell-Native/
 INHERIT=cmake
-IUSE=examples
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=MIT
-SLOT=0
-SRC_URI=https://github.com/Boolector/btor2tools/archive/b8456dda4780789e882f5791eb486f295ade4da4.tar.gz -> btor2tools-1.0.0_pre20220518.tar.gz
+SLOT=0/7.4
+SRC_URI=https://github.com/PowerShell/PowerShell-Native/archive/v7.4.0.tar.gz -> libpsl-native-7.4.0.tar.gz
 _eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
-_md5_=c06b31273fb972eaf396c38e9b2c0a6f
+_md5_=c19e27e0ed22460938eb0a2cc298bfe6
