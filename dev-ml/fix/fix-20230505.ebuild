@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit dune
 
@@ -13,4 +13,4 @@ LICENSE="LGPL-2"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
 IUSE="+ocamlopt"
-RESTRICT="test"  # regenerate & qcheck not yet packaged
+RESTRICT="test"  # regenerate not yet packaged
