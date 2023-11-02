@@ -3,27 +3,30 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 inherit bash-completion-r1 desktop python-any-r1 scons-utils toolchain-funcs xdg
 
 DESCRIPTION="Multi-platform 2D and 3D game engine with a feature-rich editor"
 HOMEPAGE="https://godotengine.org/"
 SRC_URI="
 	https://downloads.tuxfamily.org/godotengine/${PV}/${P}-stable.tar.xz
-	https://github.com/godotengine/godot/releases/download/${PV}-stable/${P}-stable.tar.xz"
-S="${WORKDIR}/${P}-stable"
+	https://github.com/godotengine/godot/releases/download/${PV}-stable/${P}-stable.tar.xz
+"
+S=${WORKDIR}/${P}-stable
 
 LICENSE="
 	MIT
 	Apache-2.0 BSD Boost-1.0 CC0-1.0 Unlicense ZLIB
-	gui? ( CC-BY-4.0 ) tools? ( OFL-1.1 )"
+	gui? ( CC-BY-4.0 ) tools? ( OFL-1.1 )
+"
 SLOT="4"
 KEYWORDS="~amd64"
 # Enable roughly same as upstream by default so it works as expected,
 # except raycast (tools-only heavy dependency), and deprecated.
 IUSE="
 	alsa +dbus debug deprecated +fontconfig +gui pulseaudio raycast
-	+runner speech test +theora +tools +udev +upnp +vulkan +webp"
+	+runner speech test +theora +tools +udev +upnp +vulkan +webp
+"
 # TODO: tests still need more figuring out
 RESTRICT="test"
 
@@ -64,11 +67,13 @@ RDEPEND="
 	tools? ( app-misc/ca-certificates )
 	udev? ( virtual/udev )
 	upnp? ( net-libs/miniupnpc:= )
-	webp? ( media-libs/libwebp:= )"
+	webp? ( media-libs/libwebp:= )
+"
 DEPEND="
 	${RDEPEND}
 	gui? ( x11-base/xorg-proto )
-	tools? ( test? ( dev-cpp/doctest ) )"
+	tools? ( test? ( dev-cpp/doctest ) )
+"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
@@ -144,6 +149,7 @@ src_compile() {
 		builtin_mbedtls=no
 		builtin_miniupnpc=$(usex !upnp)
 		builtin_msdfgen=yes # not wired for unbundling nor packaged
+		builtin_openxr=yes # not packaged
 		builtin_pcre2=no
 		builtin_recastnavigation=no
 		builtin_rvo2=yes # bundled copy has godot-specific changes
