@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-tor-20230727 ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install prepare setup test unpack
+DEPEND=>=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) test? ( >=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) )
+DESCRIPTION=Anonymizing overlay network for TCP
+EAPI=8
+HOMEPAGE=https://www.torproject.org/ https://gitlab.torproject.org/tpo/core/tor/
+INHERIT=edo python-any-r1 readme.gentoo-r1 systemd verify-sig
+IUSE=caps doc lzma +man scrypt seccomp selinux +server systemd tor-hardening test zstd verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~ppc-macos
+LICENSE=BSD GPL-2 GPL-3
+RDEPEND=acct-user/tor acct-group/tor >=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) selinux? ( sec-policy/selinux-tor )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.torproject.org/dist/tor-0.4.8.8.tar.gz https://archive.torproject.org/tor-package-archive/tor-0.4.8.8.tar.gz verify-sig? ( https://dist.torproject.org/tor-0.4.8.8.tar.gz.sha256sum https://dist.torproject.org/tor-0.4.8.8.tar.gz.sha256sum.asc )
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-any-r1	f5169813d1619761b459800587005fd2	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	798e0173d334021f14ba78a786c37059
+_md5_=8c56eea439b2eb5214b50dfbf79650bc
