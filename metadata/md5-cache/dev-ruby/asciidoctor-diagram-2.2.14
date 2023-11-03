@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby31? ( >=dev-ruby/asciidoctor-1.5.7[ruby_targets_ruby31(-)] <dev-ruby/asciidoctor-3[ruby_targets_ruby31(-)] dev-ruby/rexml[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/asciidoctor-1.5.7[ruby_targets_ruby32(-)] <dev-ruby/asciidoctor-3[ruby_targets_ruby32(-)] dev-ruby/rexml[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=test? ( dev-ruby/rqrcode dev-ruby/barby media-gfx/ditaa sci-visualization/gnuplot media-gfx/graphviz media-sound/lilypond media-gfx/imagemagick[png] media-gfx/mscgen[png] media-gfx/plantuml dev-tex/pgf ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DESCRIPTION=A set of Asciidoctor extensions that enable you to add diagrams
+EAPI=8
+HOMEPAGE=https://github.com/asciidoctor/asciidoctor-diagram
+INHERIT=ruby-fakegem
+IUSE=barcode ditaa gnuplot graphviz lilypond meme mscgen plantuml tikz test ruby_targets_ruby31 ruby_targets_ruby32 doc test test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=barcode? ( dev-ruby/rqrcode dev-ruby/barby ) ditaa? ( media-gfx/ditaa ) gnuplot? ( sci-visualization/gnuplot ) graphviz? ( media-gfx/graphviz ) lilypond? ( media-sound/lilypond ) meme? ( media-gfx/imagemagick[png] ) mscgen? ( media-gfx/mscgen[png] ) plantuml? ( media-gfx/plantuml ) tikz? ( dev-tex/pgf ) ruby_targets_ruby31? ( >=dev-ruby/asciidoctor-1.5.7[ruby_targets_ruby31(-)] <dev-ruby/asciidoctor-3[ruby_targets_ruby31(-)] dev-ruby/rexml[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/asciidoctor-1.5.7[ruby_targets_ruby32(-)] <dev-ruby/asciidoctor-3[ruby_targets_ruby32(-)] dev-ruby/rexml[ruby_targets_ruby32(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/asciidoctor/asciidoctor-diagram/archive/v2.2.14.tar.gz -> asciidoctor-diagram-2.2.14.tar.gz
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	ruby-utils	6c200c98361f47219e106ddc67c43a1e	ruby-ng	4ef520a992dc54fdd8f49d875c1ab2c0	ruby-fakegem	5f7dd7ffeaf00a781713582bd507f80b
+_md5_=304dfaff94c7eeaac86180b2f21b9fef
