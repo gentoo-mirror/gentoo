@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/flex virtual/pkgconfig app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=>=dev-embedded/gputils-0.12 dev-libs/glib:2 dev-libs/popt sys-libs/readline:0=
+DESCRIPTION=A simulator for the Microchip PIC microcontrollers
+EAPI=8
+HOMEPAGE=https://gpsim.sourceforge.net
+INHERIT=autotools
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-embedded/gputils-0.12 dev-libs/glib:2 dev-libs/popt sys-libs/readline:0=
+SLOT=0
+SRC_URI=mirror://sourceforge/gpsim/gpsim-0.32.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=67d9912cb41ea6d1f85c1e2fb4761f22
