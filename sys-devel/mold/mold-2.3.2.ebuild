@@ -31,6 +31,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.3.0-no-pch.patch
+)
+
 pkg_pretend() {
 	# Requires a c++20 compiler, see #831473
 	if [[ ${MERGE_TYPE} != binary ]]; then
@@ -65,8 +69,10 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON
 		-DMOLD_ENABLE_QEMU_TESTS=OFF
 		-DMOLD_LTO=OFF # Should be up to the user to decide this with CXXFLAGS.
+		-DMOLD_USE_MIMALLOC=$(usex !kernel_Darwin)
 		-DMOLD_USE_SYSTEM_MIMALLOC=ON
 		-DMOLD_USE_SYSTEM_TBB=ON
 	)
