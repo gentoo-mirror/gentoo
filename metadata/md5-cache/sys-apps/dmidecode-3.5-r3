@@ -4,10 +4,10 @@ EAPI=8
 HOMEPAGE=https://www.nongnu.org/dmidecode/
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=selinux
-KEYWORDS=-* ~alpha amd64 arm arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv x86
+KEYWORDS=-* ~alpha amd64 arm arm64 ~ia64 ~loong ~mips ~ppc ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=selinux? ( sec-policy/selinux-dmidecode )
 SLOT=0
 SRC_URI=https://savannah.nongnu.org/download/dmidecode/dmidecode-3.5.tar.xz https://git.savannah.gnu.org/cgit/dmidecode.git/patch/?id=c76ddda0ba0aa99a55945e3290095c2ec493c892 -> dmidecode-3.5-c76ddda0ba0aa99a55945e3290095c2ec493c892.patch https://git.savannah.gnu.org/cgit/dmidecode.git/patch/?id=80de376231e903d2cbea95e51ffea31860502159 -> dmidecode-3.5-80de376231e903d2cbea95e51ffea31860502159.patch
 _eclasses_=toolchain-funcs	70ec42843fec87d20fd94c67e77cdbff	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36
-_md5_=f8fccbebe9e25686ba9129109f7aceeb
+_md5_=7cc66edfcc6d984a70a5ba5b194eae0d
