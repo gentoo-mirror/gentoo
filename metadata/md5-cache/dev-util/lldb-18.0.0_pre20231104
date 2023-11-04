@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) >=dev-util/cmake-3.16 python? ( >=dev-lang/swig-3.0.11 ) test? ( python_single_target_python3_10? ( ~dev-python/lit-18.0.0_pre20231104[python_targets_python3_10(-)] dev-python/psutil[python_targets_python3_10(-)] ) python_single_target_python3_11? ( ~dev-python/lit-18.0.0_pre20231104[python_targets_python3_11(-)] dev-python/psutil[python_targets_python3_11(-)] ) python_single_target_python3_12? ( ~dev-python/lit-18.0.0_pre20231104[python_targets_python3_12(-)] dev-python/psutil[python_targets_python3_12(-)] ) sys-devel/lld ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=libedit? ( dev-libs/libedit:0= ) lzma? ( app-arch/xz-utils:= ) ncurses? ( >=sys-libs/ncurses-5.9-r3:0= ) xml? ( dev-libs/libxml2:= ) ~sys-devel/clang-18.0.0_pre20231104 ~sys-devel/llvm-18.0.0_pre20231104 !!sys-devel/llvm:0
+DESCRIPTION=The LLVM debugger
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=cmake llvm llvm.org python-single-r1
+IUSE=+debug +libedit lzma ncurses +python test +xml test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+RDEPEND=libedit? ( dev-libs/libedit:0= ) lzma? ( app-arch/xz-utils:= ) ncurses? ( >=sys-libs/ncurses-5.9-r3:0= ) xml? ( dev-libs/libxml2:= ) ~sys-devel/clang-18.0.0_pre20231104 ~sys-devel/llvm-18.0.0_pre20231104 python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RESTRICT=test !test? ( test )
+SLOT=0/18.0.0_pre20231104
+SRC_URI=https://github.com/llvm/llvm-project/archive/83888a5404d46667647fe36d6fa510d075ed57ea.tar.gz -> llvm-project-83888a5404d46667647fe36d6fa510d075ed57ea.tar.gz
+_eclasses_=toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	llvm	2e1701c714b75feb512bffdecd3fe7d0	llvm.org	5f1be90d81ab050ac4cd2aad5fe66d67	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=c2379b2bcf13f3758b68b8c02c2210e9
