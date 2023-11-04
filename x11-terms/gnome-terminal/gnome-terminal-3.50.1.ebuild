@@ -10,19 +10,20 @@ HOMEPAGE="https://wiki.gnome.org/Apps/Terminal"
 
 LICENSE="GPL-3+ GPL-3 CC-BY-SA-3.0 FDL-1.3"
 SLOT="0"
-IUSE="debug +gnome-shell +nautilus vanilla"
+IUSE="debug gnome-shell nautilus vanilla"
 
 # Upstream is hostile and refuses to upload tarballs.
 SRC_URI="https://gitlab.gnome.org/GNOME/${PN}/-/archive/${PV}/${P}.tar.bz2"
 SRC_URI+=" !vanilla? ( https://dev.gentoo.org/~mattst88/distfiles/${PN}-3.48.1-cntr-ntfy-autottl-ts.patch.xz )"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 # FIXME: automagic dependency on gtk+[X], just transitive but needs proper control, bug 624960
 RDEPEND="
 	>=dev-libs/glib-2.52:2
 	>=x11-libs/gtk+-3.22.27:3
-	>=x11-libs/vte-0.72.2:2.91[!vanilla?]
+	>=gui-libs/libhandy-1.6.0:1
+	>=x11-libs/vte-0.74.0:2.91[!vanilla?]
 	>=dev-libs/libpcre2-10
 	>=gnome-base/gsettings-desktop-schemas-0.1.0
 	sys-apps/util-linux
