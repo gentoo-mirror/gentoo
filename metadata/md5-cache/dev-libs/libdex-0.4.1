@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/libdex
 INHERIT=gnome.org meson vala
 IUSE=gtk-doc +introspection sysprof test vala
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.68:2 >=sys-libs/liburing-0.7:= introspection? ( dev-libs/gobject-introspection:= ) sysprof? ( dev-util/sysprof-capture:4 )
 REQUIRED_USE=gtk-doc? ( introspection ) vala? ( introspection )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=mirror://gnome/sources/libdex/0.4/libdex-0.4.1.tar.xz
 _eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	meson	1be925a1f585b2f19a8e45737f09016c	flag-o-matic	baa4d385108ac87993edac956a916a36	vala	db97951caa799e73a831a5f48e717da8
-_md5_=3adc1eec283c02683169871c5b1b3498
+_md5_=96b84684214e27f5c1271d8dadceb6ed
