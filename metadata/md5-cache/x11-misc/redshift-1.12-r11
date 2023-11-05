@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm appindicator? ( dev-libs/libayatana-appindicator ) geoclue? ( app-misc/geoclue:2.0 dev-libs/glib:2 ) gtk? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) >=dev-util/intltool-0.50 nls? ( sys-devel/gettext )
+DESCRIPTION=A screen color temperature adjusting software
+EAPI=8
+HOMEPAGE=http://jonls.dk/redshift/
+INHERIT=autotools flag-o-matic systemd xdg-utils python-r1
+IUSE=appindicator geoclue gtk nls python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm appindicator? ( dev-libs/libayatana-appindicator ) geoclue? ( app-misc/geoclue:2.0 dev-libs/glib:2 ) gtk? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) gtk? ( dev-python/pygobject[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/gtk+:3[introspection] dev-python/pyxdg[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+REQUIRED_USE=gtk? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
+SLOT=0
+SRC_URI=https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	baa4d385108ac87993edac956a916a36	systemd	c8b03e8df84486aa991d4396686e8942	xdg-utils	baea6080dd821f5562d715887954c9d3	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	f6221c2f55e5e832be9919fe1711f33b	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_md5_=51d98fefcad27b9cf095e9f4abc820e1
