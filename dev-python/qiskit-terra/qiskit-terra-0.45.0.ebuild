@@ -8,49 +8,48 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..11} )
 
 CRATES="
-	ahash@0.7.6
 	ahash@0.8.3
+	allocator-api2@0.2.16
 	autocfg@1.1.0
 	bitflags@1.3.2
 	cfg-if@1.0.0
-	crossbeam-channel@0.5.8
 	crossbeam-deque@0.8.3
-	crossbeam-epoch@0.9.14
-	crossbeam-utils@0.8.15
-	either@1.8.1
+	crossbeam-epoch@0.9.15
+	crossbeam-utils@0.8.16
+	either@1.9.0
+	equivalent@1.0.1
 	fixedbitset@0.4.2
-	getrandom@0.2.9
+	getrandom@0.2.10
 	hashbrown@0.12.3
-	hermit-abi@0.2.6
+	hashbrown@0.14.0
 	indexmap@1.9.3
+	indexmap@2.0.1
 	indoc@1.0.9
 	itertools@0.10.5
-	libc@0.2.144
+	libc@0.2.147
 	libm@0.2.7
-	lock_api@0.4.9
+	lock_api@0.4.10
 	matrixmultiply@0.3.7
-	memoffset@0.8.0
 	memoffset@0.9.0
 	ndarray@0.15.6
-	num-bigint@0.4.3
-	num-complex@0.4.3
+	num-bigint@0.4.4
+	num-complex@0.4.4
 	num-integer@0.1.45
-	num-traits@0.2.15
-	num_cpus@1.15.0
+	num-traits@0.2.16
 	numpy@0.19.0
-	once_cell@1.17.2
+	once_cell@1.18.0
 	parking_lot@0.12.1
-	parking_lot_core@0.9.7
+	parking_lot_core@0.9.8
 	petgraph@0.6.3
 	ppv-lite86@0.2.17
-	priority-queue@1.3.1
-	proc-macro2@1.0.59
+	priority-queue@1.3.2
+	proc-macro2@1.0.66
 	pyo3-build-config@0.19.2
 	pyo3-ffi@0.19.2
 	pyo3-macros-backend@0.19.2
 	pyo3-macros@0.19.2
 	pyo3@0.19.2
-	quote@1.0.28
+	quote@1.0.32
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
@@ -58,28 +57,27 @@ CRATES="
 	rand_pcg@0.3.1
 	rawpointer@0.2.1
 	rayon-cond@0.2.0
-	rayon-core@1.11.0
-	rayon@1.7.0
-	redox_syscall@0.2.16
+	rayon-core@1.12.0
+	rayon@1.8.0
+	redox_syscall@0.3.5
 	rustc-hash@1.1.0
-	rustworkx-core@0.13.1
-	scopeguard@1.1.0
-	smallvec@1.10.0
+	rustworkx-core@0.13.2
+	scopeguard@1.2.0
+	smallvec@1.11.1
 	syn@1.0.109
-	target-lexicon@0.12.7
-	unicode-ident@1.0.9
+	target-lexicon@0.12.11
+	unicode-ident@1.0.11
 	unindent@0.1.11
 	version_check@0.9.4
 	wasi@0.11.0+wasi-snapshot-preview1
-	windows-sys@0.45.0
-	windows-targets@0.42.2
-	windows_aarch64_gnullvm@0.42.2
-	windows_aarch64_msvc@0.42.2
-	windows_i686_gnu@0.42.2
-	windows_i686_msvc@0.42.2
-	windows_x86_64_gnu@0.42.2
-	windows_x86_64_gnullvm@0.42.2
-	windows_x86_64_msvc@0.42.2
+	windows-targets@0.48.2
+	windows_aarch64_gnullvm@0.48.2
+	windows_aarch64_msvc@0.48.2
+	windows_i686_gnu@0.48.2
+	windows_i686_msvc@0.48.2
+	windows_x86_64_gnu@0.48.2
+	windows_x86_64_gnullvm@0.48.2
+	windows_x86_64_msvc@0.48.2
 "
 
 inherit cargo distutils-r1 multiprocessing optfeature
@@ -166,6 +164,7 @@ python_test() {
 		test/python/circuit/test_equivalence.py::TestEquivalenceLibraryVisualization::test_equivalence_draw
 		test/python/primitives/test_backend_estimator.py::TestBackendEstimator::test_bound_pass_manager
 		test/python/primitives/test_backend_sampler.py::TestBackendSampler::test_bound_pass_manager
+		test/python/transpiler/aqc/test_aqc.py::TestAqc::test_aqc_deprecation
 		test/python/transpiler/test_unitary_synthesis_plugin.py::TestUnitarySynthesisPlugin
 		test/python/visualization/test_dag_drawer.py::TestDagDrawer::test_dag_drawer_no_register
 	)
