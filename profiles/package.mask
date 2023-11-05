@@ -34,6 +34,11 @@
 #--- END OF EXAMPLES ---
 
 # Mart Raudsepp <leio@gentoo.org> (2023-11-04)
+# gst-transcoder was merged into gst-plugins-bad and can be installed via
+# media-libs/gst-plugins-bad instead. Removal on 2023-12-04. Bug #916871.
+media-plugins/gst-transcoder
+
+# Mart Raudsepp <leio@gentoo.org> (2023-11-04)
 # Legacy GStreamer non-linear multimedia editing elements, superseded by
 # media-libs/gstreamer-editing-services long ago.
 # Removal on 2023-12-04. Bug #916870.
@@ -301,11 +306,6 @@ sys-fs/dmg2img
 media-video/jubler
 dev-java/appenh
 dev-java/loadlib
-
-# Mart Raudsepp <leio@gentoo.org> (2023-10-04)
-# GStreamer plugin removed upstream. The database used by this music fingerprint
-# plugin has been defunct for a while. Removal on 2023-11-04. Bug #915189.
-media-plugins/gst-plugins-ofa
 
 # Michał Górny <mgorny@gentoo.org> (2023-10-04)
 # The project was abandoned upstream.  The test suite is broken
