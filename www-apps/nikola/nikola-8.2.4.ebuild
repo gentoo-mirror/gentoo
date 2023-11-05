@@ -5,7 +5,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9,10,11} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 optfeature pypi
+inherit bash-completion-r1 distutils-r1 optfeature pypi
 
 DESCRIPTION="A static website and blog generator"
 HOMEPAGE="https://getnikola.com/"
@@ -14,7 +14,7 @@ S="${WORKDIR}/${P^}"
 
 LICENSE="MIT Apache-2.0 CC0-1.0 public-domain"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 RESTRICT="test" # needs coveralls
 
 BDEPEND=">=dev-python/docutils-0.13[${PYTHON_USEDEP}]" # needs rst2man to build manpage
@@ -37,6 +37,11 @@ RDEPEND="${BDEPEND}
 	dev-python/pillow[jpeg,${PYTHON_USEDEP}]
 	dev-python/cloudpickle[${PYTHON_USEDEP}]"
 
+python_compile_all() {
+	nikola tabcompletion --shell=bash > ${PN}.bashcomp || die
+	nikola tabcompletion --shell=zsh > ${PN}.zshcomp || die
+}
+
 src_install() {
 	distutils-r1_src_install
 
@@ -45,6 +50,10 @@ src_install() {
 
 	dodoc AUTHORS.txt CHANGES.txt README.rst docs/*.rst
 	gunzip "${ED}/usr/share/man/man1/${PN}.1.gz" || die
+
+	newbashcomp ${PN}.bashcomp ${PN}
+	insinto /usr/share/zsh/site-functions
+	newins ${PN}.zshcomp _${PN}
 }
 
 pkg_postinst() {
