@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 PYTHON_REQ_USE="tk"  # for site-packages/Xlib/ext/randr.py
 DISTUTILS_USE_PEP517=setuptools
 
@@ -15,11 +15,6 @@ HOMEPAGE="https://github.com/slgobinath/SafeEyes"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv ~x86"
-IUSE=""
-
-PATCHES=(
-	"${FILESDIR}"/${P}-python-3.11.patch
-)
 
 RDEPEND="
 	dev-libs/libayatana-appindicator
