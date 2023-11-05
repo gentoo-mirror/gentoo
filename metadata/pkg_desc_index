@@ -5102,7 +5102,7 @@ dev-libs/botan 2.19.3-r2 3.1.1 3.2.0-r1: C++ crypto library
 dev-libs/boxfort 0.1.1 0.1.4: Convenient & cross-platform sandboxing C library
 dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in HyperDex
 dev-libs/c-blosc 1.21.5: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.9.3-r1 2.10.2-r1 2.10.3 2.10.4 2.10.5: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.9.3-r1 2.10.2-r1 2.10.3 2.10.4 2.10.5 2.11.0: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/cJSON 1.7.16: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1: RPC/Serialization system with capabilities support
@@ -7969,7 +7969,7 @@ dev-python/apispec 6.3.0: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r3: Module for determining appropriate platform-specific dirs
 dev-python/apsw 3.42.0.1 3.43.0.0 3.43.1.0 3.43.1.1 3.43.2.0: APSW - Another Python SQLite Wrapper
 dev-python/argcomplete 3.1.2 3.1.4: Bash tab completion for argparse
-dev-python/argh 0.29.4 0.30.0 0.30.1 0.30.2 0.30.3: A simple argparse wrapper
+dev-python/argh 0.29.4 0.30.0 0.30.1 0.30.2 0.30.3 0.30.4: A simple argparse wrapper
 dev-python/argon2-cffi 23.1.0: CFFI bindings to the Argon2 password hashing library
 dev-python/argon2-cffi-bindings 21.2.0-r1: Low-level CFFI bindings for the Argon2 password hashing library
 dev-python/argparse-manpage 4.3 4.4 4.5: Automatically build man-pages for your Python project
@@ -8362,7 +8362,7 @@ dev-python/hvac 1.1.1 1.2.0 1.2.1 2.0.0: HashiCorp Vault API client
 dev-python/hypercorn 0.14.4 0.15.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.84.3 6.87.1 6.87.2 6.87.3 6.87.4 6.88.0 6.88.1: A library for property based testing
+dev-python/hypothesis 6.84.3 6.87.1 6.87.2 6.87.3 6.87.4 6.88.0 6.88.1 6.88.3: A library for property based testing
 dev-python/icalendar 5.0.10 5.0.11: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.31: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
@@ -8410,7 +8410,7 @@ dev-python/jaraco-collections 4.3.0: Models and classes to supplement the stdlib
 dev-python/jaraco-context 4.3.0: Context managers by jaraco
 dev-python/jaraco-env 1.0.0: Facilities for environment variables
 dev-python/jaraco-envs 2.4.0 2.6.0: Classes for orchestrating Python (virtual) environments
-dev-python/jaraco-functools 3.9.0: Additional functions used by other projects by developer jaraco
+dev-python/jaraco-functools 3.9.0 4.0.0: Additional functions used by other projects by developer jaraco
 dev-python/jaraco-itertools 6.4.1: Tools for working with iterables. Complements itertools and more_itertools
 dev-python/jaraco-logging 3.2.0: Additional facilities to supplement Python's stdlib logging module
 dev-python/jaraco-path 3.7.0: Miscellaneous path functions
@@ -9323,7 +9323,7 @@ dev-python/sshtunnel 0.3.1: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
 dev-python/stack-data 0.6.3: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20220330-r3 1.0.0_p20220330-r4: Suite of tools for PDF files manipulation written in Python
-dev-python/starlette 0.31.1: The little ASGI framework that shines
+dev-python/starlette 0.31.1 0.32.0: The little ASGI framework that shines
 dev-python/statsd 4.0.1: A simple statsd client
 dev-python/statsmodels 0.13.2 0.13.5 0.14.0: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1-r1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -9449,7 +9449,7 @@ dev-python/urwid_readline 0.13-r1: Text input widget for urwid that supports rea
 dev-python/urwidtrees 1.0.3-r1: Tree widgets for urwid
 dev-python/userpath 1.9.0 1.9.1: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.9: TidyLib Python wrapper
-dev-python/uvicorn 0.23.2: Lightning-fast ASGI server implementation
+dev-python/uvicorn 0.23.2 0.24.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.17.0 0.18.0 0.19.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.22.0: Python Data Validation for Humans
 dev-python/varlink 31.0.0: Python implementation of the Varlink protocol
@@ -9492,7 +9492,7 @@ dev-python/whichcraft 0.6.1-r1: Cross-platform cross-python shutil.which functio
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
 dev-python/widgetsnbextension 4.0.9: IPython HTML widgets for Jupyter
-dev-python/wrapt 1.15.0: Module for decorators, wrappers and monkey patching
+dev-python/wrapt 1.15.0 1.16.0_rc2: Module for decorators, wrappers and monkey patching
 dev-python/wsaccel 0.6.6: Accelerator for ws4py, autobahn and tornado
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.2.0: WebSockets state-machine based protocol implementation
@@ -9529,7 +9529,7 @@ dev-python/ytmusicapi 1.2.1-r1 1.3.0-r1 1.3.1: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.0: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.2.1: A modern/fast Python SOAP client based on lxml / requests
-dev-python/zeroconf 0.115.2 0.118.0 0.119.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.115.2 0.118.0 0.119.0 0.120.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.17.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 5.0: Zope Configuration Architecture
