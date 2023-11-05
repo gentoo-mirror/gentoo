@@ -9,30 +9,25 @@ PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1
 
+MY_P=${P/_}
 DESCRIPTION="Module for decorators, wrappers and monkey patching"
 HOMEPAGE="
 	https://github.com/GrahamDumpleton/wrapt/
 	https://pypi.org/project/wrapt/
 "
 SRC_URI="
-	https://github.com/GrahamDumpleton/wrapt/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
+	https://github.com/GrahamDumpleton/wrapt/archive/${PV/_}.tar.gz
+		-> ${MY_P}.gh.tar.gz
 "
+S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="+native-extensions"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
-
-src_prepare() {
-	# pypy3.9+ change, upstream commented this out
-	# in 59680c8bb998defa3be522fef6e49fd276bebe58
-	sed -i -e 's:if is_pypy:if False:' tests/test_object_proxy.py || die
-	distutils-r1_src_prepare
-}
 
 python_compile() {
 	local -x WRAPT_INSTALL_EXTENSIONS=$(usex native-extensions true false)
