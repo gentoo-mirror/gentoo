@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://thrift.apache.org/lib/cpp.html
 INHERIT=cmake
 IUSE=libevent lua +ssl test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~ppc64
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/boost:=[nls] dev-libs/openssl:= sys-libs/zlib:= libevent? ( dev-libs/libevent:= )
 REQUIRED_USE=test? ( ssl libevent )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0
 SRC_URI=mirror://apache/thrift/0.18.1/thrift-0.18.1.tar.gz
 _eclasses_=toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
-_md5_=b80469468f8cc7beb77c932f39e2c1fe
+_md5_=9e9d69476cc0caa4da2684a84f15918e
