@@ -7952,6 +7952,7 @@ dev-python/alabaster 0.7.13: A configurable sidebar-enabled Sphinx theme
 dev-python/alembic 1.12.0 1.12.1: Database migrations tool, written by the author of SQLAlchemy
 dev-python/allpairspy 2.5.1: Pairwise test combinations generator
 dev-python/amodem 1.15.4: Transmit data between two computers using audio
+dev-python/amqp 5.1.1-r1 5.2.0: Low-level AMQP client for Python (fork of amqplib)
 dev-python/aniso8601 9.0.1-r1: A library for parsing ISO 8601 strings
 dev-python/annotated-types 0.5.0 0.6.0: Reusable constraint types to use with typing.Annotated
 dev-python/ansi 0.3.6: ANSI cursor movement and graphics in Python
@@ -8369,7 +8370,7 @@ dev-python/identify 2.5.31: File identification library for Python
 dev-python/idna 3.4: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.2.3: Iterative JSON parser with a Pythonic interface
-dev-python/imageio 2.31.6: Python library for reading and writing image data
+dev-python/imageio 2.31.6 2.32.0: Python library for reading and writing image data
 dev-python/imageio-ffmpeg 0.4.8 0.4.9: FFMPEG wrapper for Python
 dev-python/imagesize 1.4.1: Pure Python module for getting image size from png/jpeg/jpeg2000/gif files
 dev-python/imapclient 2.3.1 3.0.0: easy-to-use, pythonic, and complete IMAP client library
@@ -8484,7 +8485,7 @@ dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.1.1: Python function spy support for unit tests
 dev-python/kiwisolver 1.4.4-r1 1.4.5: An efficient C++ implementation of the Cassowary constraint solving algorithm
 dev-python/klein 23.5.0: Micro-framework for developing production-ready web services with Python
-dev-python/kombu 5.3.1 5.3.2: AMQP Messaging Framework for Python
+dev-python/kombu 5.3.2: AMQP Messaging Framework for Python
 dev-python/krb5 0.5.1: Kerberos API bindings for Python
 dev-python/lark 1.1.7 1.1.8: Python module to propose a modern general-purpose parsing library for Python
 dev-python/latexcodec 2.0.1-r1: Lexer and codec to work with LaTeX code in Python
@@ -8582,7 +8583,7 @@ dev-python/mkdocs-git-authors-plugin 0.7.2: Mkdocs plugin to display git authors
 dev-python/mkdocs-git-revision-date-localized-plugin 1.2.0 1.2.1: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.0.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.5 0.4.6: MkDocs i18n plugin
-dev-python/mkdocs-material 9.4.2 9.4.4 9.4.5 9.4.6 9.4.7: A Material Design theme for MkDocs
+dev-python/mkdocs-material 9.4.7 9.4.8: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.2 1.3: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.6.4 0.7.0 0.7.1: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.0.5: Build multiple documentation folders in a single Mkdocs
@@ -8789,7 +8790,6 @@ dev-python/pure_eval 0.2.2: Safely evaluate AST nodes without side effects
 dev-python/puremagic 1.15: Pure python implementation of magic file detection
 dev-python/pushbullet-py 0.12.0-r1: A simple python client for pushbullet.com
 dev-python/py 1.11.0-r1: library with cross-python path, ini-parsing, io, code, log facilities
-dev-python/py-amqp 5.1.1-r1: Low-level AMQP client for Python (fork of amqplib)
 dev-python/py-cpuinfo 9.0.0: Get CPU info with pure Python 2 & 3
 dev-python/py-ubjson 0.16.1-r1: Universal Binary JSON encoder/decoder
 dev-python/py-zabbix 1.1.7: Zabbix module for Python
@@ -9125,7 +9125,7 @@ dev-python/qrcode 7.4.2: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.13.3 2.14.1: Python bindings for QScintilla
 dev-python/qstylizer 0.2.2: Stylesheet Generator for PyQt5/PySide2
 dev-python/qtawesome 1.2.3: Enables iconic fonts such as Font Awesome in PyQt
-dev-python/qtconsole 5.4.3 5.4.3-r1 5.4.4: Qt-based console for Jupyter with support for rich media output
+dev-python/qtconsole 5.4.3 5.4.3-r1 5.4.4 5.5.0: Qt-based console for Jupyter with support for rich media output
 dev-python/qtsass 0.4.0: Compile SASS files to Qt stylesheets
 dev-python/quantities 0.14.1: Support for physical quantities with units, based on numpy
 dev-python/radon 6.0.1: Code Metrics in Python
@@ -9177,7 +9177,7 @@ dev-python/rfc3986-validator 0.1.1-r1: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r2: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
 dev-python/rich 13.4.2 13.5.2 13.5.3 13.6.0: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/roman 4.1: An Integer to Roman numerals converter
-dev-python/rope 1.10.0: Python refactoring library
+dev-python/rope 1.10.0 1.11.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
 dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
 dev-python/rpds-py 0.10.3 0.10.4 0.10.6 0.12.0: Python bindings to Rust's persistent data structures (rpds)
@@ -9237,7 +9237,7 @@ dev-python/simpleeval 0.9.13: A simple, safe single expression evaluator library
 dev-python/simplegeneric 0.8.1-r2: Simple generic functions for Python
 dev-python/simplejson 3.19.1 3.19.2: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
-dev-python/simpy 4.0.2: Object-oriented, process-based discrete-event simulation language
+dev-python/simpy 4.0.2 4.1.0: Object-oriented, process-based discrete-event simulation language
 dev-python/sip 6.7.11 6.7.12 6.8.0_pre2310230931: Python bindings generator for C/C++ libraries
 dev-python/six 1.16.0-r1: Python 2 and 3 compatibility library
 dev-python/slixmpp 1.8.4 9999: Python 3 library for XMPP
@@ -9354,7 +9354,7 @@ dev-python/tavalidate 0.0.6-r1: Utities to validate Tavern responses
 dev-python/tavern 2.3.0 2.5.0: A tool, library, and Pytest plugin for testing RESTful APIs
 dev-python/tblib 2.0.0 3.0.0: Traceback fiddling library for Python
 dev-python/tcolorpy 0.1.3 0.1.4: tcolorpy is a Python library to apply true color for terminal text
-dev-python/tekore 5.1.0 5.1.1: Spotify Web API client
+dev-python/tekore 5.1.0 5.1.1 5.2.0: Spotify Web API client
 dev-python/tempest 36.0.0: OpenStack Integration Testing
 dev-python/tempora 5.5.0: Objects and routines pertaining to date and time
 dev-python/tenacity 8.2.3: General-purpose retrying library
@@ -9375,10 +9375,10 @@ dev-python/threadpoolctl 3.2.0: Limit the number of threads used in native libs 
 dev-python/three-merge 0.1.1-r1: Simple Python library to perform a 3-way merge between strings
 dev-python/thrift 0.16.0: Python implementation of Thrift
 dev-python/thriftpy2 0.4.16 0.4.16-r1 0.4.17: Pure python approach of Apache Thrift
-dev-python/tifffile 2023.7.18 2023.8.12 2023.8.25 2023.8.30 2023.9.18 2023.9.26: Read and write TIFF files
+dev-python/tifffile 2023.9.26: Read and write TIFF files
 dev-python/time-machine 2.12.0 2.13.0: Travel through time in your tests
 dev-python/timeout-decorator 0.5.0-r1: Timeout decorator
-dev-python/tiny-proxy 0.2.0: Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP tunnel)
+dev-python/tiny-proxy 0.2.0 0.2.1: Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP tunnel)
 dev-python/tinycss 0.4-r1: A complete yet simple CSS parser for Python
 dev-python/tinycss2 1.2.1: A complete yet simple CSS parser for Python
 dev-python/tld 0.13: Extract the top level domain (TLD) from the URL given
