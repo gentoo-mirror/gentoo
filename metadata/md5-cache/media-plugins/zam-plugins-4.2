@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=media-libs/ladspa-sdk media-libs/liblo media-libs/libsamplerate media-libs/libsndfile media-libs/lv2 media-libs/zita-convolver sci-libs/fftw:3.0 x11-libs/libX11 jack? ( virtual/jack ) opengl? ( media-libs/libglvnd[X] x11-libs/cairo[X] )
+DESCRIPTION=Collection of LV2/LADSPA/VST/JACK audio plugins for high quality processing
+EAPI=8
+HOMEPAGE=https://www.zamaudio.com/ https://github.com/zamaudio/zam-plugins
+IUSE=jack opengl
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=media-libs/ladspa-sdk media-libs/liblo media-libs/libsamplerate media-libs/libsndfile media-libs/lv2 media-libs/zita-convolver sci-libs/fftw:3.0 x11-libs/libX11 jack? ( virtual/jack ) opengl? ( media-libs/libglvnd[X] x11-libs/cairo[X] )
+SLOT=0
+SRC_URI=https://github.com/zamaudio/zam-plugins/archive/refs/tags/4.2.tar.gz -> zam-plugins-4.2.tar.gz https://github.com/DISTRHO/DPF/archive/63dfb7610bc37dee69f4a303f3e3362529d95f24.tar.gz -> DPF-63dfb7610bc37dee69f4a303f3e3362529d95f24.tar.gz https://github.com/DISTRHO/pugl/archive/844528e197c51603f6cef3238b4a48d23bf60eb7.tar.gz -> pugl-844528e197c51603f6cef3238b4a48d23bf60eb7.tar.gz
+_md5_=97b364cc20cd5111b51a29e89381dab8
