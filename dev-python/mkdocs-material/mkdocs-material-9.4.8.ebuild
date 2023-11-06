@@ -48,7 +48,9 @@ RDEPEND="
 		>=media-gfx/cairosvg-2.5[${PYTHON_USEDEP}]
 	)
 "
-
+BDEPEND="
+	>=dev-python/trove-classifiers-2023.10.18[${PYTHON_USEDEP}]
+"
 # mkdocs-material-extensions depends on mkdocs-material creating a circular dep
 PDEPEND="
 	>=dev-python/mkdocs-material-extensions-1.2[${PYTHON_USEDEP}]
