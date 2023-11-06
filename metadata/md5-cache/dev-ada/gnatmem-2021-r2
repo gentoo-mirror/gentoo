@@ -1,16 +1,16 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile install prepare setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] sys-libs/binutils-libs:=
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] sys-libs/binutils-libs:=
 DESCRIPTION=Monitors dynamic allocation and deallocation activity in a program
 EAPI=8
 HOMEPAGE=http://libre.adacore.com/
 INHERIT=ada multiprocessing autotools
-IUSE=ada_target_gnat_2021 ada_target_gcc_12
+IUSE=ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] )
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/3ddb98c0c8854dc7631bebd673ac7bc53038d4b7?filename=gnatmem-2021-20210518-19F7B-src.tar.gz -> gnatmem-2021-20210518-19F7B-src.tar.gz
-_eclasses_=ada	bb78cd39726bbc190344572dd3631ac3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_eclasses_=ada	825cf3c59de8fefe1dde148596e006f5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
 _md5_=c42f48996768b300ba7d95ea59d00e8d

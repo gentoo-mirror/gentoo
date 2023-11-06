@@ -1,17 +1,17 @@
-BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] test? ( dev-ada/e3-testsuite )
+BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] test? ( dev-ada/e3-testsuite )
 DEFINED_PHASES=compile install prepare setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] sys-fs/fswatch:= dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared] dev-ada/gnatdoc[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] dev-ada/gpr-unit-provider[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] >=dev-ada/libadalang-tools-23[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] sys-fs/fswatch:= dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-),shared] dev-ada/gnatdoc[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] dev-ada/gpr-unit-provider[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] >=dev-ada/libadalang-tools-23[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-),shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-),shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)]
 DESCRIPTION=an implementation of the Microsoft Language Server Protocol for Ada/SPARK
 EAPI=8
 HOMEPAGE=https://github.com/AdaCore/ada_language_server
 INHERIT=ada multiprocessing toolchain-funcs
-IUSE=test ada_target_gnat_2021 ada_target_gcc_12
+IUSE=test ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] sys-fs/fswatch:= dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared] dev-ada/gnatdoc[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] dev-ada/gpr-unit-provider[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?] >=dev-ada/libadalang-tools-23[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?]
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) dev-ada/ada_libfswatch[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] sys-fs/fswatch:= dev-ada/gnatcoll-core[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-),shared] dev-ada/gnatdoc[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] dev-ada/gpr-unit-provider[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] dev-ada/libadalang[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)] >=dev-ada/libadalang-tools-23[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-),shared] dev-ada/spawn[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-),shared,glib] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)]
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AdaCore/ada_language_server/archive/refs/tags/23.0.10.tar.gz -> ada_language_server-23.0.10.tar.gz
-_eclasses_=ada	bb78cd39726bbc190344572dd3631ac3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_eclasses_=ada	825cf3c59de8fefe1dde148596e006f5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0
 _md5_=b9bd614fb03abb55061397600d295234
