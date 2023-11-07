@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=app-accessibility/at-spi2-core x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3 alsa? ( media-libs/alsa-lib )
+DESCRIPTION=An Enhanced HP-42S Calculator Simulator
+EAPI=8
+HOMEPAGE=https://thomasokken.com/plus42/
+INHERIT=toolchain-funcs
+IUSE=+alsa
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-accessibility/at-spi2-core x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3 alsa? ( media-libs/alsa-lib )
+SLOT=0
+SRC_URI=https://thomasokken.com/plus42/upstream/plus42-upstream-1.0.21.tgz
+_eclasses_=toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=362523d1e879104b8d9feaf3784381bc
