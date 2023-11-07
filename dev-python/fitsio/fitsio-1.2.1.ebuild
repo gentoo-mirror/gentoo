@@ -33,12 +33,7 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
-src_configure() {
-	cat >> setup.cfg <<-EOF || die
-		[build_ext]
-		use_system_fitsio = True
-	EOF
-}
+export FITSIO_USE_SYSTEM_FITSIO=1
 
 python_test() {
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
