@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 optfeature
 
@@ -26,7 +26,8 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
-	>=dev-python/importlib-metadata-4[${PYTHON_USEDEP}]
+	>=dev-python/dnspython-2[${PYTHON_USEDEP}]
+	>=dev-python/pyotp-2[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/tldextract[${PYTHON_USEDEP}]
@@ -34,12 +35,12 @@ RDEPEND="
 BDEPEND="
 	test? (
 		>=dev-python/boto3-1.25[${PYTHON_USEDEP}]
-		dev-python/dnspython[${PYTHON_USEDEP}]
 		dev-python/zeep[${PYTHON_USEDEP}]
 		dev-python/vcrpy[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 EPYTEST_IGNORE=(
