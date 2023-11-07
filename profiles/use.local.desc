@@ -2170,6 +2170,7 @@ dev-libs/totem-pl-parser:uchardet - Enable charset discovery via app-i18n/uchard
 dev-libs/tre:agrep - Build agrep tool
 dev-libs/tre:alloca - Enable if you want TRE to use alloca() instead of malloc() when allocating memory needed for regexec operations
 dev-libs/tre:approx - Enable the approximate matching functionality
+dev-libs/uriparser:unicode - Add support for functions working with character type wchar_t (e.g. uriParseSingleUriW with trailing "W") which increases compile time and resulting binary file size by roughly factor 2.
 dev-libs/weston:desktop - Enable the desktop shell
 dev-libs/weston:drm - Enable drm compositor support
 dev-libs/weston:editor - Install wayland-editor example application
