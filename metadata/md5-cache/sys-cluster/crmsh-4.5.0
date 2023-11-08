@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=install prepare setup
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) >=sys-cluster/pacemaker-2.1.2
+DESCRIPTION=Pacemaker command line interface for management and configuration
+EAPI=8
+HOMEPAGE=https://crmsh.github.io/
+INHERIT=autotools python-single-r1
+IUSE=python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~hppa ~x86
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) >=sys-cluster/pacemaker-2.1.2 python_single_target_python3_10? ( dev-python/lxml[python_targets_python3_10(-)] dev-python/parallax[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/lxml[python_targets_python3_11(-)] dev-python/parallax[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/crmsh/crmsh/archive/4.5.0.tar.gz -> crmsh-4.5.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	30999b80ec1fe0b4af340ae819375346	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=39068c3acc3c3f2e3add692cca4b6c8e
