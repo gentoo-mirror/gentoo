@@ -28,8 +28,12 @@ else
 fi
 
 # ppc64 patchset based on https://github.com/chromium-ppc64le releases
+# ppc64 ffmpeg patchset backported from chromium 98 on https://ppa.quickbuild.io/raptor-engineering-public/chromium/ubuntu/pool/main/c/chromium/
 SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz
-	ppc64? ( https://dev.gentoo.org/~gyakovlev/distfiles/${PN}-5.15.2-r1-chromium87-ppc64le.tar.xz )"
+	ppc64? (
+		https://dev.gentoo.org/~gyakovlev/distfiles/${PN}-5.15.2-r1-chromium87-ppc64le.tar.xz
+		https://dev.gentoo.org/~asturm/distfiles/${PN}-5.15-ffmpeg-ppc64le.tar.xz
+	)"
 
 IUSE="alsa bindist designer geolocation +jumbo-build kerberos pulseaudio screencast +system-icu widgets"
 REQUIRED_USE="designer? ( widgets )"
@@ -204,15 +208,20 @@ src_prepare() {
 
 	qt_use_disable_mod widgets widgets src/src.pro
 
-	qt5-build_src_prepare
-
-	# we need to generate ppc64 stuff because upstream does not ship it yet
 	if use ppc64; then
 		einfo "Patching for ppc64le and generating build files"
 		eapply "${FILESDIR}/qtwebengine-5.15.2-enable-ppc64.patch"
 		pushd src/3rdparty/chromium > /dev/null || die
 		eapply -p0 "${WORKDIR}/${PN}-ppc64le"
+		eapply -p1 "${WORKDIR}/${PN}-ffmpeg-ppc64le"
 		popd > /dev/null || die
+	fi
+
+	qt5-build_src_prepare
+
+	# we need to generate ppc64 stuff because upstream does not ship it yet
+	if use ppc64; then
+		einfo "Generating ppc64le build files"
 		pushd src/3rdparty/chromium/third_party/libvpx > /dev/null || die
 		mkdir -vp source/config/linux/ppc64 || die
 		mkdir -p source/libvpx/test || die
