@@ -5,14 +5,10 @@ EAPI=8
 
 inherit autotools xdg flag-o-matic toolchain-funcs plocale
 
-MY_PV=${PV/_/-}
-DL_PV=$(ver_cut 1-2)
-
 DESCRIPTION="DeaDBeeF is a modular audio player similar to foobar2000"
 HOMEPAGE="https://deadbeef.sourceforge.io/"
-SRC_URI="https://sourceforge.net/projects/${PN}/files/travis/linux/${DL_PV}/deadbeef-${MY_PV}.tar.bz2/download
+SRC_URI="https://sourceforge.net/projects/${PN}/files/travis/linux/${PV}/deadbeef-${PV}.tar.bz2/download
 	-> ${P}.tar.bz2"
-S="${WORKDIR}"/${PN}-${MY_PV}
 
 LICENSE="
 	GPL-2
@@ -20,6 +16,7 @@ LICENSE="
 	wavpack? ( BSD )
 "
 SLOT="0"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="aac alsa cdda converter cover dts ffmpeg flac +hotkeys lastfm libretro libsamplerate mp3 musepack nls notify +nullout opus oss pulseaudio pipewire sc68 shellexec +supereq vorbis wavpack"
 
 REQUIRED_USE="
