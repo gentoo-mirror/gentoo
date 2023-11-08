@@ -3252,7 +3252,7 @@ app-text/mupdf 1.22.0 1.23.3: A lightweight PDF viewer and toolkit written in po
 app-text/mythes 1.2.5: Simple thesaurus for LibreOffice
 app-text/namazu 2.0.21 2.0.22_pre8: Namazu is a full-text search engine
 app-text/nfoview 1.28.1-r1: Simple viewer for NFO files, which are ASCII art in the CP437 codepage
-app-text/nuspell 5.1.3: Spell checker library and CLI for complex natural languages
+app-text/nuspell 5.1.3 5.1.4: Spell checker library and CLI for complex natural languages
 app-text/o3read 0.0.4: Converts OpenOffice formats to text or HTML
 app-text/ocrad 0.27: GNU Ocrad is an OCR (Optical Character Recognition) program
 app-text/odt2txt 0.5-r1: A simple converter from OpenDocument Text to plain text
@@ -8013,7 +8013,7 @@ dev-python/bibtexparser 1.4.0 1.4.1: A BibTeX parser written in Python
 dev-python/binaryornot 0.4.4-r3: Ultra-lightweight pure Python package to guess whether a file is binary or text
 dev-python/bitarray 2.8.2: Efficient arrays of booleans -- C extension
 dev-python/bitstring 4.1.1: A pure Python module for creation and analysis of binary data
-dev-python/black 23.9.1 23.10.1: The uncompromising Python code formatter
+dev-python/black 23.9.1 23.10.1 23.11.0: The uncompromising Python code formatter
 dev-python/blake3-py 0.3.3-r1: Python bindings for the BLAKE3 cryptographic hash function
 dev-python/blake3-py-c 0.3.3: Python bindings for the BLAKE3 cryptographic hash function
 dev-python/bleach 6.0.0 6.1.0: An easy whitelist-based HTML-sanitizing tool
@@ -8462,7 +8462,7 @@ dev-python/jupyter-ydoc 1.0.2: Document structures for collaborative editing usi
 dev-python/jupyterlab 4.0.6 4.0.7 4.0.8: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.0.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.2.2: Pygments theme making use of JupyterLab CSS variables
-dev-python/jupyterlab-server 2.25.0: Server components for JupyterLab and JupyterLab like applications
+dev-python/jupyterlab-server 2.25.0 2.25.1: Server components for JupyterLab and JupyterLab like applications
 dev-python/jwcrypto 1.5.0: Implements JWK,JWS,JWE specifications using python-cryptography
 dev-python/k5test 0.10.3: Library for testing Python applications in Kerberos 5 environments
 dev-python/kafka-python 2.0.2-r1: Kafka protocol support in Python
@@ -8501,7 +8501,7 @@ dev-python/line-profiler 4.1.0 4.1.1 4.1.2: Line-by-line profiler
 dev-python/linkify-it-py 2.0.2: Links recognition library with full unicode support
 dev-python/lit 14.0.6 15.0.7 16.0.6 17.0.3 17.0.4 17.0.4.9999 18.0.0_pre20231013 18.0.0_pre20231019 18.0.0_pre20231025 18.0.0_pre20231104 18.0.0.9999: A stand-alone install of the LLVM suite testing tool
 dev-python/littleutils 0.2.2-r1: Small personal collection of Python utility functions
-dev-python/livereload 2.6.3: Python LiveReload is an awesome tool for web developers
+dev-python/livereload 2.6.3 2.6.3-r1: livereload server in Python
 dev-python/llfuse 1.5.0: Python bindings for the low-level FUSE API
 dev-python/lmdb 1.4.1: Python bindings for the Lightning Database
 dev-python/lmfit 1.2.2: Non-Linear Least-Squares Minimization and Curve-Fitting for Python
@@ -8704,7 +8704,7 @@ dev-python/patsy 0.5.3-r1: Python module to describe statistical models and desi
 dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 5.11.1 6.0.0: Inject some useful and sensible default behaviors into setuptools
 dev-python/pdfrw 0.4_p1 0.4_p1-r1: PDF file reader/writer library
-dev-python/pdm 2.8.2 2.9.1 2.9.2 2.9.3 2.10.0 2.10.1: Python package and dependency manager supporting the latest PEP standards
+dev-python/pdm 2.10.1: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.1.4 2.1.5 2.1.6 2.1.7: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdm-pep517 1.1.4: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdoc3 0.10.0-r1: Auto-generate API documentation for Python projects
@@ -8962,7 +8962,7 @@ dev-python/pytest-custom-exit-code 0.3.0: Exit pytest test session with custom e
 dev-python/pytest-datadir 1.5.0: Pytest plugin for manipulating test data directories and files
 dev-python/pytest-datafiles 3.0.0: Create a 'tmp_path' containing predefined files/directories
 dev-python/pytest-describe 2.1.0: Describe-style plugin for pytest
-dev-python/pytest-django 4.5.2-r1 4.6.0: A Django plugin for pytest
+dev-python/pytest-django 4.5.2-r1 4.6.0 4.7.0: A Django plugin for pytest
 dev-python/pytest-env 1.0.1 1.1.0 1.1.1: pytest plugin that allows you to add environment variables
 dev-python/pytest-expect 1.1.0-r2: pytest plugin that stores test expectations by saving the set of failing tests
 dev-python/pytest-faulthandler 2.0.1-r1: Pytest plugin that activates the fault handler module for tests
@@ -9142,7 +9142,7 @@ dev-python/reflink 0.2.1-r3: Python wrapper around the reflink system calls
 dev-python/regex 2023.6.3 2023.8.8 2023.10.3: Alternative regular expression module to replace re
 dev-python/rencode 1.0.6-r3: similar to bencode from the BitTorrent project
 dev-python/reno 4.0.0: Release notes manager, storing release notes in a git repo and building docs
-dev-python/reportlab 4.0.6: Tools for generating printable PDF documents from any data source
+dev-python/reportlab 4.0.6 4.0.7: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r3: A tiny LRU cache implementation and decorator
 dev-python/requests 2.31.0: HTTP library for human beings
 dev-python/requests-cache 1.1.0: Persistent cache for requests library
@@ -9383,13 +9383,13 @@ dev-python/tomlkit 0.12.1 0.12.2: Style preserving TOML library
 dev-python/toolz 0.12.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.3.3: Python web framework and asynchronous networking library
-dev-python/towncrier 23.6.0: Building newsfiles for your project
+dev-python/towncrier 23.6.0 23.11.0: Building newsfiles for your project
 dev-python/tox 3.28.0 4.11.3: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.1.0-r1: Python bindings for TSS
 dev-python/tqdm 4.66.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.11.2 5.12.0 5.13.0: A configuration system for Python applications
 dev-python/transitions 0.9.0: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.10.1-r1: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.10.1-r1 3.11.0: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.1-r1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.2.0-r1 23.11.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 3.23.5 4.0.0 4.0.1 4.0.2 4.0.3: Python library for loading and using triangular meshes
@@ -9521,7 +9521,7 @@ dev-python/ytmusicapi 1.2.1-r1 1.3.0-r1 1.3.1: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.0: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.2.1: A modern/fast Python SOAP client based on lxml / requests
-dev-python/zeroconf 0.119.0 0.120.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.119.0 0.120.0 0.121.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.17.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 5.0: Zope Configuration Architecture
