@@ -280,90 +280,9 @@ app-text/coolreader
 # Removal on 2023-11-09.
 dev-libs/libchdr
 
-# David Seifert <soap@gentoo.org> (2023-10-08)
-# Upstream long gone, unmaintained, EAPI 6, only Gentoo still packages
-# this. Removal on 2023-11-07. Bug #905187.
-app-misc/dvorakng
-
-# David Seifert <soap@gentoo.org> (2023-10-08)
-# Unmaintained, EAPI 6, tons of patches we have to carry, last release
-# 20 years ago, all major distros have removed this.
-# Removal on 2023-11-07. Bug #602382.
-app-backup/flexbackup
-
-# David Seifert <soap@gentoo.org> (2023-10-08)
-# Unmaintained, last release over 23 years(!) ago, multiple QA issues,
-# no other major distro carries this anymore. Removal on 2023-11-07.
-# Bug #425872, #452982, #520968, #605450, #878621, #905945.
-app-admin/qpage
-
-# David Seifert <soap@gentoo.org> (2023-10-08)
-# Upstream gone, kept on life support by Debian, most distros don't
-# carry this anymore, Transmeta CPUs are long obsolete at this point.
-# Removal on 2023-11-07. Bug #541694, #905186.
-app-admin/longrun
-
-# David Seifert <soap@gentoo.org> (2023-10-08)
-# Unmaintained, typical broken suckless build system, no upstream
-# activity, only Fedora still carries it.
-# Removal on 2023-11-06. Bug #732422, #914638.
-x11-misc/sselp
-
-# David Seifert <soap@gentoo.org> (2023-10-08)
-# Unmaintained, last release over 5 years ago, lots of QA issues, no
-# other distro carries this.
-# Removal on 2023-11-06. Bug #742782, #742809, #771858, #811393,
-# #898314, #898322, #898324, #898326.
-dev-libs/libtubo
-x11-libs/librfm
-x11-misc/rodent
-
-# Hans de Graaff <graaff@gentoo.org> (2023-10-07)
-# Unresolved security issues since two years, bug #792336. Original
-# upstream inactive since 2019. Substitute upstream inactive since
-# 2020. No reverse dependencies. Masked for removal on 2023-11-07.
-sys-fs/dmg2img
-
 # Sam James <sam@gentoo.org> (2023-10-06)
 # Breaks building scipy: https://github.com/cython/cython/issues/5748
 =dev-python/cython-3.0.3
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-10-04)
-# Incompatible with newer media-video/ffmpeg, bug #914499.
-# Deps appenh and loadlib not used by anything else.
-# Removal on 2023-11-04.
-media-video/jubler
-dev-java/appenh
-dev-java/loadlib
-
-# Michał Górny <mgorny@gentoo.org> (2023-10-04)
-# The project was abandoned upstream.  The test suite is broken
-# with python3.12.  It was used only as an optional test dep
-# for dev-python/Arpeggio.
-# Removal on 2023-11-03.  Bug #915162.
-dev-python/memory-profiler
-
-# Michał Górny <mgorny@gentoo.org> (2023-09-29)
-# The project is no longer maintained upstream.  We haven't handled
-# the version bump from a year ago yet.  No reverse dependencies.
-# Removal on 2023-10-29.  Bug #894592.
-dev-python/django-mptt
-
-# Hans de Graaff <graaff@gentoo.org> (2023-09-23)
-# ruby31-only package. No reverse dependencies. Archived by
-# upstream. Last release in 2012. Removal on 2023-10-23.
-dev-ruby/kirbybase
-
-# Hans de Graaff <graaff@gentoo.org> (2023-09-23)
-# ruby31-only package. No reverse dependencies. Discontinued by
-# upstream who recommends using dev-ruby/bunny instead. Removal on
-# 2023-10-23.
-dev-ruby/amqp
-
-# Hans de Graaff <graaff@gentoo.org> (2023-09-23)
-# ruby30-only package. Upstream HOMEPAGE and SRC_URI are gone. Last
-# release at least 8 years ago. Bug #909023. Removal on 2024-10-23.
-app-dicts/prime-dict
 
 # Michał Górny <mgorny@gentoo.org> (2023-09-22)
 # =dev-python/setuptools-scm-8.0.1 broke compatibility hard but reverted
