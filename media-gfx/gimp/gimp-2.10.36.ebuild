@@ -12,13 +12,13 @@ HOMEPAGE="https://www.gimp.org/"
 SRC_URI="mirror://gimp/v$(ver_cut 1-2)/${P}.tar.bz2"
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0/2"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 IUSE="aalib alsa aqua debug doc gnome heif jpeg2k jpegxl mng openexr postscript udev unwind vector-icons webp wmf xpm cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse"
 
 RESTRICT="!test? ( test )"
 
-COMMON_DEPEND="
+DEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0
 	>=app-text/poppler-0.50[cairo]
 	>=app-text/poppler-data-0.4.7
@@ -28,10 +28,10 @@ COMMON_DEPEND="
 	dev-libs/libxslt
 	>=gnome-base/librsvg-2.40.6:2
 	>=media-gfx/mypaint-brushes-2.0.2:=
-	>=media-libs/babl-0.1.90
+	>=media-libs/babl-0.1.98
 	>=media-libs/fontconfig-2.12.4
 	>=media-libs/freetype-2.1.7
-	>=media-libs/gegl-0.4.36:0.4[cairo]
+	>=media-libs/gegl-0.4.40:0.4[cairo]
 	>=media-libs/gexiv2-0.10.6
 	>=media-libs/harfbuzz-0.9.19:=
 	>=media-libs/lcms-2.8:2
@@ -51,7 +51,7 @@ COMMON_DEPEND="
 	aqua? ( >=x11-libs/gtk-mac-integration-2.0.0 )
 	heif? ( >=media-libs/libheif-1.9.1:= )
 	jpeg2k? ( >=media-libs/openjpeg-2.1.0:2= )
-	jpegxl? ( >=media-libs/libjxl-0.6.1:= )
+	jpegxl? ( >=media-libs/libjxl-0.7.0:= )
 	mng? ( media-libs/libmng:= )
 	openexr? ( >=media-libs/openexr-1.6.1:= )
 	postscript? ( app-text/ghostscript-gpl:= )
@@ -63,18 +63,18 @@ COMMON_DEPEND="
 "
 
 RDEPEND="
-	${COMMON_DEPEND}
+	${DEPEND}
 	x11-themes/hicolor-icon-theme
 	gnome? ( gnome-base/gvfs )
 "
 
-DEPEND="
-	${COMMON_DEPEND}
+BDEPEND="
 	>=dev-lang/perl-5.10.0
 	dev-libs/appstream-glib
+	>=dev-util/gtk-doc-am-1
 	dev-util/gtk-update-icon-cache
 	>=dev-util/intltool-0.40.1
-	>=sys-devel/gettext-0.19
+	>=sys-devel/gettext-0.19.8
 	>=sys-devel/libtool-2.2
 	virtual/pkgconfig
 "
@@ -83,18 +83,19 @@ DOCS=( "AUTHORS" "ChangeLog" "HACKING" "NEWS" "README" "README.i18n" )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.10_fix_test-appdata.patch" # Bugs 685210 (and duplicate 691070)
-	"${FILESDIR}/${PN}-2.10_fix_file-dicom-return-value.patch" # Bug 875413 (duplicates 886481, 887587)
+	"${FILESDIR}/${PN}-2.10_fix_musl_backtrace_backend_switch.patch" #900148
+	"${FILESDIR}/${PN}-2.10_fix_configure_GCC13_implicit_function_declarations.patch" #899796
 )
 
 src_prepare() {
 	sed -i -e 's/mypaint-brushes-1.0/mypaint-brushes-2.0/' configure.ac || die #737794
 
 	sed -i -e 's/== "xquartz"/= "xquartz"/' configure.ac || die #494864
-	sed 's:-DGIMP_DISABLE_DEPRECATED:-DGIMP_protect_DISABLE_DEPRECATED:g' -i configure.ac || die #615144
+	sed 's/-DGIMP_DISABLE_DEPRECATED/-DGIMP_protect_DISABLE_DEPRECATED/g' -i configure.ac || die #615144
 
 	gnome2_src_prepare  # calls eautoreconf
 
-	sed 's:-DGIMP_protect_DISABLE_DEPRECATED:-DGIMP_DISABLE_DEPRECATED:g' -i configure || die #615144
+	sed 's/-DGIMP_protect_DISABLE_DEPRECATED/-DGIMP_DISABLE_DEPRECATED/g' -i configure || die #615144
 	grep -F -q GIMP_DISABLE_DEPRECATED configure || die #615144, self-test
 
 	export CC_FOR_BUILD="$(tc-getBUILD_CC)"
