@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit db-use toolchain-funcs pam systemd
+inherit db-use flag-o-matic toolchain-funcs pam systemd
 
 IUSE="arc berkdb +dane dcc +dkim dlfunc dmarc +dnsdb doc dovecot-sasl
 dsn gdbm gnutls idn ipv6 ldap lmtp maildir mbx
@@ -35,7 +35,6 @@ COMM_URI="https://downloads.exim.org/exim4${SDIR}"
 GPV="r0"
 DESCRIPTION="A highly configurable, drop-in replacement for sendmail"
 SRC_URI="${COMM_URI}/${P//_rc/-RC}.tar.xz
-	https://dev.gentoo.org/~grobian/distfiles/${PN}-4.96-gentoo-patches-${GPV}.tar.xz
 	mirror://gentoo/system_filter.exim.gz
 	doc? ( ${COMM_URI}/${PN}-pdf-${PV//_rc/-RC}.tar.xz )"
 HOMEPAGE="https://www.exim.org/"
@@ -112,27 +111,11 @@ src_prepare() {
 	# Legacy patches which need a respin for -p1
 	eapply -p0 "${FILESDIR}"/exim-4.14-tail.patch
 	eapply -p0 "${FILESDIR}"/exim-4.74-radius-db-ENV-clash.patch # 287426
-	eapply     "${FILESDIR}"/exim-4.93-as-needed-ldflags.patch # 352265, 391279
+	eapply     "${FILESDIR}"/exim-4.97-as-needed-ldflags.patch # 352265, 391279
 	eapply -p0 "${FILESDIR}"/exim-4.76-crosscompile.patch # 266591
 	eapply     "${FILESDIR}"/exim-4.69-r1.27021.patch
-	eapply     "${FILESDIR}"/exim-4.95-localscan_dlopen.patch
-
-	# Upstream post-release fixes :(
-	local GPVDIR=${WORKDIR}/${PN}-4.96-gentoo-patches-${GPV}
-	eapply     "${GPVDIR}"/exim-4.96-rewrite-malformed-addr-fix.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-spf-memory-error-fix.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-regex-use-after-free.patch # upstr
-	eapply -p2 "${GPVDIR}"/exim-4.96-dmarc_use_after_free.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-deamon-startup-fix.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-openssl-verify-ocsp.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-openssl-double-expansion.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-recursion-dns_again.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-openssl-tls_eccurve-setting.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-openssl-tls_eccurve-lt-3.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-openssl-bad-alpn.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-dane-dns_again.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-expansion-crash.patch # upstr
-	eapply     "${GPVDIR}"/exim-4.96-transport-crash.patch # upstr
+	eapply     "${FILESDIR}"/exim-4.97-localscan_dlopen.patch
+	eapply     "${FILESDIR}"/exim-4.97-no-exim_id_update.patch
 
 	# oddity, they disable berkdb as hack, and then throw an error when
 	# berkdb isn't enabled
@@ -140,11 +123,6 @@ src_prepare() {
 		-e 's/_DB_/_DONTMESS_/' \
 		-e 's/define DB void/define DONTMESS void/' \
 		src/auths/call_radius.c || die
-
-	# API changed from 1.3 to 1.4, upstream doesn't think 1.4 should be
-	# used, but 1.3 has a CVE and Gentoo (like most downstreams) only
-	# has 1.4 available
-	eapply "${FILESDIR}"/exim-4.94-opendmarc-1.4.patch
 
 	if use maildir ; then
 		eapply "${FILESDIR}"/exim-4.94-maildir.patch
@@ -175,6 +153,7 @@ src_configure() {
 
 	if use elibc_musl; then
 		sed -i -e 's/^LIBS = -lnsl/LIBS =/g' OS/Makefile-Linux || die
+		append-cflags -DNO_EXECINFO
 	fi
 
 	local conffile="${EPREFIX}/etc/exim/exim.conf"
