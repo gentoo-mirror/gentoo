@@ -3,14 +3,14 @@
 
 EAPI=8
 
-inherit bash-completion-r1 linux-info optfeature systemd toolchain-funcs
+inherit bash-completion-r1 optfeature systemd toolchain-funcs
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/dracutdevs/dracut"
 else
 	if [[ "${PV}" != *_rc* ]]; then
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+		KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
 	fi
 	SRC_URI="https://github.com/dracutdevs/dracut/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 fi
@@ -64,7 +64,11 @@ QA_MULTILIB_PATHS="usr/lib/dracut/.*"
 PATCHES=(
 	"${FILESDIR}"/gentoo-ldconfig-paths-r1.patch
 	"${FILESDIR}"/gentoo-network-r1.patch
+	"${FILESDIR}"/059-kernel-install-uki.patch
 	"${FILESDIR}"/059-uefi-split-usr.patch
+	"${FILESDIR}"/059-uki-systemd-254.patch
+	"${FILESDIR}"/059-gawk.patch
+	"${FILESDIR}"/dracut-059-dmsquash-live.patch
 )
 
 src_configure() {
@@ -115,33 +119,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	if linux-info_get_any_version && linux_config_exists; then
-		ewarn ""
-		ewarn "If the following test report contains a missing kernel"
-		ewarn "configuration option, you should reconfigure and rebuild your"
-		ewarn "kernel before booting image generated with this Dracut version."
-		ewarn ""
-
-		local CONFIG_CHECK="~BLK_DEV_INITRD ~DEVTMPFS"
-
-		# Kernel configuration options descriptions:
-		local ERROR_DEVTMPFS='CONFIG_DEVTMPFS: "Maintain a devtmpfs filesystem to mount at /dev" '
-		ERROR_DEVTMPFS+='is missing and REQUIRED'
-		local ERROR_BLK_DEV_INITRD='CONFIG_BLK_DEV_INITRD: "Initial RAM filesystem and RAM disk '
-		ERROR_BLK_DEV_INITRD+='(initramfs/initrd) support" is missing and REQUIRED'
-
-		check_extra_config
-		echo
-	else
-		ewarn ""
-		ewarn "Your kernel configuration couldn't be checked."
-		ewarn "Please check manually if following options are enabled:"
-		ewarn ""
-		ewarn "  CONFIG_BLK_DEV_INITRD"
-		ewarn "  CONFIG_DEVTMPFS"
-		ewarn ""
-	fi
-
 	optfeature "Networking support" net-misc/networkmanager
 	optfeature "Legacy networking support" net-misc/curl "net-misc/dhcp[client]" \
 		sys-apps/iproute2 "net-misc/iputils[arping]"
