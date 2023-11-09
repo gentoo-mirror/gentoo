@@ -7910,6 +7910,7 @@ sys-apps/systemd:homed - Enable portable home directories
 sys-apps/systemd:http - Enable embedded HTTP server in journald
 sys-apps/systemd:importd - Enable import daemon
 sys-apps/systemd:iptables - Use libiptc from net-firewall/iptables for NAT support in systemd-networkd; this is used only if the running kernel does not support nftables
+sys-apps/systemd:kernel-install - Enable kernel-install
 sys-apps/systemd:kmod - Enable kernel module loading via sys-apps/kmod
 sys-apps/systemd:lz4 - Enable lz4 compression for the journal
 sys-apps/systemd:openssl - Enable use of dev-libs/openssl for various features
@@ -7919,13 +7920,16 @@ sys-apps/systemd:qrcode - Enable qrcode output support in journal
 sys-apps/systemd:resolvconf - Install resolvconf symlink for systemd-resolve
 sys-apps/systemd:sysv-utils - Install sysvinit compatibility symlinks and manpages for init, telinit, halt, poweroff, reboot, runlevel, and shutdown
 sys-apps/systemd:tpm - Enable TPM support
+sys-apps/systemd:ukify - Enable systemd-ukify
 sys-apps/systemd:vanilla - Disable Gentoo-specific behavior and compatibility quirks
 sys-apps/systemd:xkb - Depend on x11-libs/libxkbcommon to allow logind to control the X11 keymap
 sys-apps/systemd-utils:boot - Enable systemd-boot (UEFI boot manager)
+sys-apps/systemd-utils:kernel-install - Enable kernel-install
 sys-apps/systemd-utils:kmod - Enable kernel module loading via sys-apps/kmod
 sys-apps/systemd-utils:sysusers - Enable systemd-sysusers
 sys-apps/systemd-utils:tmpfiles - Enable systemd-tmpfiles
 sys-apps/systemd-utils:udev - Enable systemd-udev (userspace device manager)
+sys-apps/systemd-utils:ukify - Enable systemd-ukify
 sys-apps/tcp-wrappers:netgroups - Support matching NIS (host) netgroup names via the @netgroup syntax (if you don't know what this means, you most likely do not need it)
 sys-apps/texinfo:standalone - Build standalone version that survives all Portage bugs
 sys-apps/usbguard:umockdev - Enables support for dev-util/umockdev
