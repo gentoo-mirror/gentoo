@@ -1318,7 +1318,7 @@ app-containers/cadvisor 0.36.0: Analyzes resource usage and performance characte
 app-containers/catatonit 0.1.7 0.1.7-r1 0.2.0 9999: A container init that is so simple it's effectively brain-dead
 app-containers/cni-plugins 0.9.1 1.1.1 1.1.1-r1 1.2.0 1.3.0: Standard networking plugins for container networking
 app-containers/conmon 2.1.6 2.1.7 2.1.8 9999: An OCI container runtime monitor
-app-containers/containerd 1.7.1-r1 1.7.2 1.7.6: A daemon to control runC
+app-containers/containerd 1.7.1-r1 1.7.2 1.7.6 1.7.8: A daemon to control runC
 app-containers/containers-common 0.56.0-r1 9999: Common config files and docs for Containers eco-system
 app-containers/containers-image 5.28.0 9999: Default config and docs related to Containers' images
 app-containers/containers-shortnames 2023.02.20 9999: Configures default shortnames (aliases) for Containers
@@ -1330,10 +1330,10 @@ app-containers/crun 1.8.1 1.8.4: A fast and low-memory footprint OCI Container R
 app-containers/devcontainer 0.52.0 0.52.1: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.5.0.2 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1: System container image builder for LXC and LXD
-app-containers/docker 24.0.5 24.0.6: The core functions you need to create Docker images and run Docker containers
+app-containers/docker 24.0.5 24.0.6 24.0.7: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.3.3: Test for best practices around deploying docker containers
 app-containers/docker-buildx 0.10.4-r1 0.11.2 9999: Docker CLI plugin for extended build capabilities with BuildKit
-app-containers/docker-cli 24.0.5 24.0.6: the command line binary for docker
+app-containers/docker-cli 24.0.5 24.0.6 24.0.7: the command line binary for docker
 app-containers/docker-compose 1.29.2-r3 1.29.2-r4 2.17.2 2.20.3 2.23.0: Multi-container orchestration for Docker
 app-containers/docker-credential-helpers 0.6.3: Suite of programs to use native stores to keep Docker credentials safe
 app-containers/docker-proxy 0.8.0_p20230118: Docker container networking
@@ -10612,7 +10612,7 @@ dev-util/gitlab-runner 16.3.3 16.4.2 16.5.0: The official GitLab Runner, written
 dev-util/glade 3.40.0-r1: A user interface designer for GTK+ and GNOME
 dev-util/glib-utils 2.76.4 2.78.0 2.78.1: Build utilities for GLib using projects
 dev-util/global 6.6.4 6.6.10: Tag system to find an object location in various sources
-dev-util/glslang 1.3.250 1.3.261 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
+dev-util/glslang 1.3.250 1.3.261 1.3.268 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
 dev-util/gn 0.2049 0.2077 0.2088 0.2114 0.2122 9999: GN is a meta-build system that generates build files for Ninja
 dev-util/gnome-builder 44.2-r1: An IDE for writing GNOME-based software
 dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME desktop environment
@@ -10791,9 +10791,9 @@ dev-util/shunit2 2.1.8: Unit-test framework for Bourne-based shell scripts
 dev-util/smem 1.5-r2: A tool that can give numerous reports on memory usage on Linux systems
 dev-util/snakeviz 2.1.1 2.2.0: A web-based viewer for Python profiler output
 dev-util/source-highlight 3.1.9-r1: Generate highlighted source code as an (x)html document
-dev-util/spirv-headers 1.3.261 99999999: Machine-readable files for the SPIR-V Registry
+dev-util/spirv-headers 1.3.261 1.3.268 99999999: Machine-readable files for the SPIR-V Registry
 dev-util/spirv-llvm-translator 14.0.0-r1 15.0.0-r1 16.0.0-r1 17.0.0: Bi-directional translator between SPIR-V and LLVM IR
-dev-util/spirv-tools 1.3.261 99999999: Provides an API and commands for processing SPIR-V modules
+dev-util/spirv-tools 1.3.261 1.3.268 99999999: Provides an API and commands for processing SPIR-V modules
 dev-util/splint 3.1.2-r2: Check C programs for vulnerabilities and programming mistakes
 dev-util/squashdelta 0.1.1 0.1.2 9999: Efficient (partially uncompressed) SquashFS binary delta tool
 dev-util/squashmerge 0.1 9999: dev-util/squashdelta delta merge tool
@@ -10831,8 +10831,9 @@ dev-util/visual-regexp 3.0-r1 3.1: Type the regexp and visualize it on a sample 
 dev-util/visualvm 2.1.6 2.1.7 2.1.7-r1: Integrates commandline JDK tools and profiling capabilities
 dev-util/vmtouch 1.3.1: Virtual Memory Toucher, portable file system cache diagnostics and control
 dev-util/vtable-dumper 1.2-r1: A tool to list content of virtual tables in a shared library
-dev-util/vulkan-headers 1.3.261 9999: Vulkan Header files and API registry
-dev-util/vulkan-tools 1.3.261-r1 9999: Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS
+dev-util/vulkan-headers 1.3.261 1.3.268 9999: Vulkan Header files and API registry
+dev-util/vulkan-tools 1.3.261-r1 1.3.268 9999: Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS
+dev-util/vulkan-utility-libraries 1.3.268 9999: Share code across various Vulkan repositories
 dev-util/wachy 0.1.0_alpha6: A dynamic tracing profiler for Linux
 dev-util/wasmer 0.11.0: universal web assembly runtime
 dev-util/watchman 2023.02.06.00 2023.05.22.00 2023.06.19.00: A file watching service
@@ -13274,7 +13275,7 @@ media-libs/sdl2-ttf 2.20.0 2.20.2: Library that allows you to use TrueType fonts
 media-libs/sdl_audiolib 0_p20220622-r1 9999: Audio decoding, resampling and mixing library for SDL
 media-libs/sg 1.5: Socket Graphics tool for displaying polygons
 media-libs/sge 030809: Graphics extensions library for SDL
-media-libs/shaderc 2023.4 2023.6: Collection of tools, libraries and tests for shader compilation
+media-libs/shaderc 2023.4 2023.6 2023.7: Collection of tools, libraries and tests for shader compilation
 media-libs/simage 1.8.1-r3 9999: Image and video texturing library
 media-libs/smpeg 0.4.4-r11 0.4.4-r12: SDL MPEG Player Library
 media-libs/smpeg2 2.0.0-r4: SDL MPEG Player Library
@@ -13310,8 +13311,8 @@ media-libs/vkroots 0_p20221205-r1 0_p20230103-r1: Simple framework for writing V
 media-libs/vo-aacenc 0.1.3 9999: VisualOn AAC encoder library
 media-libs/vo-amrwbenc 0.1.3 9999: VisualOn AMR-WB encoder library
 media-libs/volpack 1.0_p7-r2: Volume rendering library
-media-libs/vulkan-layers 1.3.261 9999: Vulkan Validation Layers
-media-libs/vulkan-loader 1.3.261 9999: Vulkan Installable Client Driver (ICD) Loader
+media-libs/vulkan-layers 1.3.261 1.3.268 9999: Vulkan Validation Layers
+media-libs/vulkan-loader 1.3.261 1.3.268 9999: Vulkan Installable Client Driver (ICD) Loader
 media-libs/waffle 1.7.2 1.7.3 1.8.0 9999: Library that allows selection of GL API and of window system at runtime
 media-libs/webrtc-audio-processing 0.3.1 0.3.1-r1 1.3-r1: AudioProcessing library from the webrtc.org codebase
 media-libs/woff2 1.0.2-r5: Encode/decode WOFF2 font format
