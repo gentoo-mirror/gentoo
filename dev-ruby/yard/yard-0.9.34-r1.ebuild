@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_TASK_DOC="yard"
@@ -11,7 +11,7 @@ RUBY_FAKEGEM_TASK_DOC="yard"
 RUBY_FAKEGEM_EXTRADOC="README.md"
 RUBY_FAKEGEM_DOCDIR="doc docs"
 
-RUBY_FAKEGEM_EXTRAINSTALL="templates"
+RUBY_FAKEGEM_EXTRAINSTALL="templates .yardopts"
 
 RUBY_FAKEGEM_GEMSPEC="yard.gemspec"
 
@@ -25,8 +25,10 @@ SRC_URI="https://github.com/lsegal/yard/archive/v${PV}.tar.gz -> ${P}-git.tgz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE=""
+
+PATCHES=( "${FILESDIR}/${P}-beginless-range.patch" )
 
 ruby_add_bdepend "doc? ( || ( dev-ruby/maruku dev-ruby/rdiscount dev-ruby/kramdown ) )"
 
