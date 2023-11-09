@@ -23,7 +23,7 @@ HOMEPAGE="https://github.com/dracutdevs/dracut/wiki"
 
 LICENSE="GPL-2"
 SLOT="0"
-if [[ ${PV} != 9999 && ${PV} != *_rc* ]]; then
+if [[ "${PV}" != *_rc* ]]; then
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 IUSE="selinux test"
@@ -68,6 +68,7 @@ QA_MULTILIB_PATHS="usr/lib/dracut/.*"
 
 PATCHES=(
 	"${FILESDIR}"/gentoo-ldconfig-paths-r1.patch
+	"${FILESDIR}"/dracut-060-fix-resume-hostonly.patch
 )
 
 src_configure() {
