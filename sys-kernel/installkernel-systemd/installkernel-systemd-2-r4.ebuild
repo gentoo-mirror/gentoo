@@ -16,7 +16,9 @@ RDEPEND="
 	|| (
 		sys-apps/systemd[gnuefi(-)]
 		sys-apps/systemd[boot(-)]
+		sys-apps/systemd[kernel-install(-)]
 		sys-apps/systemd-utils[boot]
+		sys-apps/systemd-utils[kernel-install(-)]
 	)
 "
 
@@ -26,7 +28,7 @@ src_install() {
 	into /
 	newsbin - installkernel <<-EOF
 		#!/usr/bin/env sh
-		exec kernel-install add "\${1}" "\${2}"
+		exec kernel-install add "\${1}" "\${2}" --verbose
 	EOF
 
 	exeinto /usr/lib/kernel/install.d/
