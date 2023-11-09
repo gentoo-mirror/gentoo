@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/fldigi/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="nls"
 
 DOCS=(AUTHORS ChangeLog README)
@@ -23,8 +23,7 @@ RDEPEND="x11-libs/libX11
 DEPEND="${RDEPEND}
 	sys-devel/gettext"
 
-PATCHES=( "${FILESDIR}/${PN}-1.4.4-musl.patch"
-		  "${FILESDIR}/${P}-uint8.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.4.4-musl.patch" )
 
 src_prepare() {
 	eapply ${PATCHES[@]}
