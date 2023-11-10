@@ -4,10 +4,9 @@
 EAPI=8
 inherit gnome2-utils
 
-DESCRIPTION="Changes your wallpaper daily to the bing.com background image"
+DESCRIPTION="Change your wallpaper daily to the bing.com background image"
 HOMEPAGE="https://github.com/neffo/bing-wallpaper-gnome-extension"
-SRC_URI="https://github.com/neffo/bing-wallpaper-gnome-extension/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://patch-diff.githubusercontent.com/raw/neffo/bing-wallpaper-gnome-extension/pull/215.patch -> ${P}-gnome45.patch"
+SRC_URI="https://github.com/neffo/bing-wallpaper-gnome-extension/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,8 +16,8 @@ IUSE=""
 RDEPEND="
 	dev-libs/glib:2
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-3.36
-	net-libs/libsoup:2.4
+	>=gnome-base/gnome-shell-45
+	net-libs/libsoup:3.0
 "
 DEPEND=""
 BDEPEND=""
@@ -29,8 +28,6 @@ extension_uuid="BingWallpaper@ineffable-gmail.com"
 PATCHES=(
 	# https://github.com/neffo/bing-wallpaper-gnome-extension/issues/113
 	"${FILESDIR}/${PN}-44-unlock-screen.patch"
-	# https://github.com/neffo/bing-wallpaper-gnome-extension/pull/215
-	"${DISTDIR}/${P}-gnome45.patch"
 )
 
 src_install() {
