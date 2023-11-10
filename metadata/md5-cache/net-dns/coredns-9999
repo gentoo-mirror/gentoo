@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst prepare test unpack
+DESCRIPTION=CoreDNS is a DNS server that chains plugins
+EAPI=8
+HOMEPAGE=https://github.com/coredns/coredns
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module multiprocessing systemd tmpfiles toolchain-funcs git-r3
+IUSE=test +filecaps
+LICENSE=Apache-2.0 MIT BSD ISC MPL-2.0 BSD-2
+PROPERTIES=live
+RDEPEND=acct-user/coredns acct-group/coredns virtual/tmpfiles
+RESTRICT=test strip
+SLOT=0
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-module	8624eede24936fd7666e5298e5332f22	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	5133e393e8717a3a093660f990801dc1
+_md5_=827ce351b4dc0d85f8f57a551ed1e253
