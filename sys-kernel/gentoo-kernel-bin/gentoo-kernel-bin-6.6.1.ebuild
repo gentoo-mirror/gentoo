@@ -3,11 +3,13 @@
 
 EAPI=8
 
+KERNEL_EFI_ZBOOT=1
+KERNEL_IUSE_SECUREBOOT=1
 inherit kernel-install toolchain-funcs unpacker
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 10 ))
-BINPKG=${P/-bin}-1
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 1 ))
+BINPKG=${PF/-bin}-1
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="https://www.kernel.org/"
@@ -35,7 +37,7 @@ SRC_URI+="
 S=${WORKDIR}
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	!sys-kernel/gentoo-kernel:${SLOT}
@@ -86,7 +88,7 @@ src_configure() {
 		LD="${LD}"
 		AR="$(tc-getAR)"
 		NM="$(tc-getNM)"
-		STRIP=":"
+		STRIP="$(tc-getSTRIP)"
 		OBJCOPY="$(tc-getOBJCOPY)"
 		OBJDUMP="$(tc-getOBJDUMP)"
 
@@ -124,4 +126,7 @@ src_install() {
 		')' -delete || die
 	rm modprep/source || die
 	cp -p -R modprep/. "${ED}/usr/src/linux-${KPV}"/ || die
+
+	# Modules were already stripped before signing
+	dostrip -x /lib/modules
 }
