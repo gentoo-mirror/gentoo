@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/pydata/pydata-sphinx-theme/ https://pypi.org/project/pydata-sphinx-theme/
 INHERIT=distutils-r1 pypi
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=BSD-with-disclosure
 RDEPEND=dev-python/accessible-pygments[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/Babel[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/beautifulsoup4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/docutils[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pygments[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/sphinx-5[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/typing-extensions[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pydata/pydata-sphinx-theme/archive/v0.14.3.tar.gz -> pydata-sphinx-theme-0.14.3.gh.tar.gz https://files.pythonhosted.org/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-0.14.3-py3-none-any.whl
 _eclasses_=toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	30999b80ec1fe0b4af340ae819375346	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	e77a62f5bbafca793544392d5e41affb	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=717468eb8898ca931224167f186ba9fa
+_md5_=a6f30a52d9d8253a2b5c7c25fa242ee6
