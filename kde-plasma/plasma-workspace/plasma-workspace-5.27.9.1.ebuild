@@ -163,6 +163,9 @@ PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
 PATCHES=(
 	"${FILESDIR}/${PN}-5.24.80-split-libkworkspace.patch" # downstream
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
+	"${FILESDIR}/${PN}-5.27.9-fix-GLIBC_LOCALE-check.patch"
+	"${FILESDIR}/${PN}-5.27.9-fix-nightcolor-autolocation.patch"
+	"${FILESDIR}/${PN}-5.27.9-reset-KSMClient-state.patch" # KDE-bug 469730
 )
 
 src_prepare() {
