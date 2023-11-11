@@ -24,7 +24,7 @@ COMMON_DEPEND="
 	>=dev-libs/wayland-1.21.0
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
-	>=dev-qt/qtgui-${QTMIN}:5=[egl,gles2-only=,libinput]
+	>=dev-qt/qtgui-${QTMIN}:5=[accessibility,egl,gles2-only=,libinput]
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtx11extras-${QTMIN}:5
@@ -99,6 +99,8 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:5"
+
+PATCHES=( "${FILESDIR}/${P}-xdgshellwindow-enforce-min-size.patch" ) # KDE-bug 469237
 
 src_prepare() {
 	ecm_src_prepare
