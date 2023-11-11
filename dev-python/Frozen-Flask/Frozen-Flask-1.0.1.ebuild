@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 pypi
 
@@ -25,8 +25,3 @@ RDEPEND="
 distutils_enable_sphinx docs \
 	dev-python/flask-sphinx-themes
 distutils_enable_tests pytest
-
-PATCHES=(
-	# https://github.com/Frozen-Flask/Frozen-Flask/commit/d3ef9a7315c1742b1d86c32444f5f07e50fa5fbf
-	"${FILESDIR}/${P}-test-install.patch"
-)
