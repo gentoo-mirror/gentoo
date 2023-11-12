@@ -29,7 +29,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
+		>=dev-python/jsonschema-4.17[${PYTHON_USEDEP}]
 		>=dev-python/pytest-xdist-2.4[${PYTHON_USEDEP}]
 	)
 "
