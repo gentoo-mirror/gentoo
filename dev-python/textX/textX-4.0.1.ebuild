@@ -35,10 +35,6 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-PATCHES=(
-	"${FILESDIR}/${P}-flit.patch"
-)
-
 python_test() {
 	cp -a "${BUILD_DIR}"/{install,test} || die
 	local -x PATH=${BUILD_DIR}/test/usr/bin:${PATH}
