@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGES README.md"
 
@@ -20,15 +20,16 @@ HOMEPAGE="https://slim-template.github.io/"
 
 LICENSE="MIT"
 SLOT="4"
-KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc"
 
 ruby_add_rdepend "
 	!dev-ruby/slim:5
-	>=dev-ruby/tilt-2.0.6:*
-	>=dev-ruby/temple-0.7.6:0.7
+	>=dev-ruby/tilt-2.1.0:*
+	>=dev-ruby/temple-0.10.0:0.7
 "
-# sass tests are currently disabled: https://github.com/slim-template/slim/commit/bd9d4601cd8142aa9fdbc0d87c9f9132a9a56cda
+# sass tests are currently disabled:
+# https://github.com/slim-template/slim/commit/bd9d4601cd8142aa9fdbc0d87c9f9132a9a56cda
 ruby_add_bdepend "
 	doc? (
 		dev-ruby/yard
@@ -38,6 +39,7 @@ ruby_add_bdepend "
 		dev-ruby/minitest:5
 		dev-ruby/kramdown:2
 		dev-ruby/redcarpet
+		dev-ruby/sassc
 		>=dev-ruby/test-unit-3.5
 	)
 "
@@ -47,9 +49,6 @@ all_ruby_prepare() {
 
 	# This sinatra code expects tests to be installed but we strip those.
 	sed -i -e "s/require 'sinatra'/require 'bogussinatra'/" Rakefile || die
-
-	# Add missing include, bug 816573
-	sed -i -e "1irequire 'ostruct'" test/core/test_code_evaluation.rb || die
 
 	# Avoid tests for things we don't have. The builder test does not pass with tilt 2.x
 	sed -i -e '/test_wip_render_with_asciidoc/,/^  end/ s:^:#:' \
