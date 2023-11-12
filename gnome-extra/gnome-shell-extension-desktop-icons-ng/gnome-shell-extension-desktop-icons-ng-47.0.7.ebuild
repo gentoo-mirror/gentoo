@@ -6,21 +6,21 @@ inherit gnome2-utils meson
 
 MY_PN="desktop-icons-ng"
 MY_P="${MY_PN}-${PV}"
-COMMIT="0769c60a86651c8f08c7549a87a4dcbcbde86794"
+COMMIT="d447154f7a1a9b0871539a55df5617385307642f"
 
-DESCRIPTION="Fork from the desktop-icons project, with several enhancements like Drag'n'Drop"
+DESCRIPTION="Desktop icon support for GNOME Shell"
 HOMEPAGE="https://gitlab.com/rastersoft/desktop-icons-ng"
 SRC_URI="https://gitlab.com/rastersoft/desktop-icons-ng/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 COMMON_DEPEND="dev-libs/glib:2"
 RDEPEND="${COMMON_DEPEND}
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-3.38
+	>=gnome-base/gnome-shell-45
 	>=gnome-base/nautilus-3.38
 "
 DEPEND="${COMMON_DEPEND}"
