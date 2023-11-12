@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare test unpack
-DEPEND=dev-libs/gmp:= dev-libs/jansson:= >=net-misc/curl-7.15[ssl] dev-libs/openssl:0=
+DEPEND=dev-libs/gmp:= dev-libs/jansson:= >=net-misc/curl-7.15[ssl]
 DESCRIPTION=Optimized multi algo CPU miner
 EAPI=8
 HOMEPAGE=https://github.com/JayDDee/cpuminer-opt
@@ -8,8 +8,8 @@ INHERIT=autotools flag-o-matic systemd git-r3
 IUSE=cpu_flags_x86_sse2 curl
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-libs/gmp:= dev-libs/jansson:= >=net-misc/curl-7.15[ssl] dev-libs/openssl:0=
+RDEPEND=dev-libs/gmp:= dev-libs/jansson:= >=net-misc/curl-7.15[ssl]
 REQUIRED_USE=cpu_flags_x86_sse2
 SLOT=0
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	baa4d385108ac87993edac956a916a36	systemd	c8b03e8df84486aa991d4396686e8942	git-r3	5133e393e8717a3a093660f990801dc1
-_md5_=6c11a74efd0400bc52045ad4deb985e4
+_md5_=c68db853afd5184613935c613bb6217c
