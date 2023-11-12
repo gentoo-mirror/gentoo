@@ -11,7 +11,7 @@ SRC_URI="https://github.com/zlin/wgetpaste/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="+ssl"
 
 PROPERTIES="test_network"
@@ -23,10 +23,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.33-tests.patch
 	"${FILESDIR}"/${PN}-2.33-disable-sprunge.patch
 	"${FILESDIR}"/${PN}-2.33-add-paste-gentoo-zip.patch
-	"${FILESDIR}"/${PN}-2.33-change-arg-parsing-priority.patch
-	"${FILESDIR}"/${PN}-2.33-add-A-ansi.patch
-	"${FILESDIR}"/${PN}-2.33-test_ansi-add-A-to-the-tests.patch
-	"${FILESDIR}"/${PN}-2.33-added-quiet-flag.patch
 )
 
 src_prepare() {
