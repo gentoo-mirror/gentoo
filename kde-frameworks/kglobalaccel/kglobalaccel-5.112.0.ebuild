@@ -43,6 +43,7 @@ BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_RUNTIME=$(usex X)
+		-DKF6_COMPAT_BUILD=OFF # TODO: switch for KF6 compat
 	)
 	ecm_src_configure
 }
