@@ -15,7 +15,6 @@ DEPEND="
 	dev-libs/gmp:=
 	dev-libs/jansson:=
 	>=net-misc/curl-7.15[ssl]
-	dev-libs/openssl:0=
 "
 RDEPEND="${DEPEND}"
 if [[ ${PV} == "9999" ]] ; then
@@ -41,7 +40,7 @@ src_install() {
 	default
 	systemd_dounit "${FILESDIR}"/${PN}.service
 	insinto "/etc/${PN}"
-	doins cpuminer-conf.json
+	newins config-template.json cpuminer-conf.json
 }
 
 src_test() {
