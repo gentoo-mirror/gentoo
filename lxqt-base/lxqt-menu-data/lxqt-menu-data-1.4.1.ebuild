@@ -21,4 +21,12 @@ fi
 LICENSE="LGPL-2.1"
 SLOT="0"
 
-BDEPEND=">=dev-util/lxqt-build-tools-0.13.0"
+BDEPEND="
+	>=dev-util/lxqt-build-tools-0.13.0
+	>=dev-qt/linguist-tools-5.15:5
+"
+RDEPEND="
+	!<lxqt-base/lxqt-config-1.4.0
+	!<lxqt-base/lxqt-panel-1.4.0
+	!<x11-misc/pcmanfm-qt-1.4.0
+"
