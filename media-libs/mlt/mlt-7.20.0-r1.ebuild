@@ -137,7 +137,10 @@ src_configure() {
 	# see also https://www.mltframework.org/twiki/bin/view/MLT/ExtremeMakeover
 
 	if use python; then
-		mycmakeargs+=( -DSWIG_PYTHON=ON )
+		mycmakeargs+=(
+			-DSWIG_PYTHON=ON
+			-DPython3_EXECUTABLE="${PYTHON}"
+		)
 	fi
 
 	cmake_src_configure
