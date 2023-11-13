@@ -28,7 +28,7 @@ BDEPEND="
 		app-arch/lcab
 		app-arch/lha
 		app-arch/libarchive
-		app-arch/lrzip
+		app-arch/lz4
 		app-arch/lzip
 		app-arch/lzop
 		app-arch/ncompress
@@ -36,7 +36,9 @@ BDEPEND="
 		app-arch/pbzip2
 		app-arch/pdlzip
 		app-arch/pigz
+		app-arch/plzip
 		app-arch/rpm
+		app-arch/rzip
 		app-arch/sharutils
 		app-arch/tar
 		app-arch/unace
@@ -55,7 +57,11 @@ BDEPEND="
 		sys-apps/file
 		sys-apps/grep
 		!elibc_musl? ( app-arch/rar )
-		!x86? ( app-arch/clzip )
+		!x86? (
+			app-arch/clzip
+			app-arch/lrzip
+			app-arch/unar
+		)
 	)
 "
 # Test dependencies which are packaged but can't be tested for various reasons.
@@ -66,6 +72,8 @@ BDEPEND="
 
 # app-arch/rar is masked on musl
 # app-arch/clzip is unkeyworded on x86
+# app-arch/lrzip bug #916317 on x86
+# app-arch/unar is unkeyworded on x86
 
 # Unpackaged testable dependencies
 # archmage
@@ -113,7 +121,7 @@ python_test() {
 		EPYTEST_IGNORE+=(
 			"tests/archives/test_clzip.py"
 			# bug #916317
-			"tests/archives/test_lrzip.py"
+			"tests/archives/test_lrzip.py::TestLrzip::test_lrzip"
 		)
 	fi
 
