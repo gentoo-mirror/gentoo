@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/lxqt-build-tools-0.13.0 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=>=dev-util/lxqt-build-tools-0.13.0 >=dev-qt/linguist-tools-5.15:5 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=LXQt Menu Files and Translations for Menu Categories
 EAPI=8
@@ -6,7 +6,8 @@ HOMEPAGE=https://lxqt-project.org/
 INHERIT=cmake
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1
+RDEPEND=!<lxqt-base/lxqt-config-1.4.0 !<lxqt-base/lxqt-panel-1.4.0 !<x11-misc/pcmanfm-qt-1.4.0
 SLOT=0
-SRC_URI=https://github.com/lxqt/lxqt-menu-data/releases/download/1.4.0/lxqt-menu-data-1.4.0.tar.xz
+SRC_URI=https://github.com/lxqt/lxqt-menu-data/releases/download/1.4.1/lxqt-menu-data-1.4.1.tar.xz
 _eclasses_=toolchain-funcs	edeef89edaf21d30225d31702ab117ac	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
-_md5_=728104157890197a1b43dcf960e2d57c
+_md5_=54911870228e141da4c21afa2a755d51
