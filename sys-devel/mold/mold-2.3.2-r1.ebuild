@@ -12,24 +12,29 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/rui314/mold/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 fi
 
-# mold (AGPL-3)
+# mold (MIT)
 #  - xxhash (BSD-2)
-LICENSE="AGPL-3 BSD-2"
+LICENSE="MIT BSD-2"
 SLOT="0"
 
 RDEPEND="
 	app-arch/zstd:=
 	>=dev-cpp/tbb-2021.7.0-r1:=
+	dev-libs/blake3:=
 	sys-libs/zlib
 	!kernel_Darwin? (
 		>=dev-libs/mimalloc-2:=
-		dev-libs/openssl:=
 	)
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.3.0-no-pch.patch
+	"${FILESDIR}"/${P}-mimalloc-visibility-interposition.patch
+)
 
 pkg_pretend() {
 	# Requires a c++20 compiler, see #831473
@@ -65,8 +70,10 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON
 		-DMOLD_ENABLE_QEMU_TESTS=OFF
 		-DMOLD_LTO=OFF # Should be up to the user to decide this with CXXFLAGS.
+		-DMOLD_USE_MIMALLOC=$(usex !kernel_Darwin)
 		-DMOLD_USE_SYSTEM_MIMALLOC=ON
 		-DMOLD_USE_SYSTEM_TBB=ON
 	)
