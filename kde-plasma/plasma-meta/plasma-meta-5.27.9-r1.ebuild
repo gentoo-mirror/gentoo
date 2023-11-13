@@ -10,8 +10,8 @@ LICENSE="metapackage"
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
-+desktop-portal discover +display-manager +elogind +firewall flatpak grub gtk
-+handbook +kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm
+cups +desktop-portal discover +display-manager +elogind +firewall flatpak grub
+gtk +handbook +kwallet +legacy-systray +networkmanager plymouth pulseaudio +sddm
 sdk +smart systemd thunderbolt +wallpapers"
 
 REQUIRED_USE="^^ ( elogind systemd )"
@@ -55,6 +55,7 @@ RDEPEND="
 	colord? ( x11-misc/colord )
 	crash-handler? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
+	cups? ( kde-plasma/print-manager:${SLOT} )
 	desktop-portal? ( >=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT} )
 	discover? ( >=kde-plasma/discover-${PV}:${SLOT} )
 	display-manager? (
