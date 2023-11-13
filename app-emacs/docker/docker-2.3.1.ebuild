@@ -3,25 +3,31 @@
 
 EAPI=8
 
-COMMIT=3173403a2d51a2af36f7fdb0b7d2bec9e202e772
 NEED_EMACS=26.1
 
 inherit elisp
 
 DESCRIPTION="Emacs integration for Docker"
 HOMEPAGE="https://github.com/Silex/docker.el/"
-SRC_URI="https://github.com/Silex/${PN}.el/archive/${COMMIT}.tar.gz
-	-> ${PN}.el-${PV}.tar.gz"
-S="${WORKDIR}"/${PN}.el-${COMMIT}
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/Silex/${PN}.el.git"
+else
+	SRC_URI="https://github.com/Silex/${PN}.el/archive/${PV}.tar.gz
+		-> ${PN}.el-${PV}.tar.gz"
+	S="${WORKDIR}/${PN}.el-${PV}"
+
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
 
 RDEPEND="
-	>=app-emacs/transient-0.3.7_p20220918
+	>=app-emacs/transient-0.4.3
 	app-emacs/dash
-	app-emacs/docker-tramp
 	app-emacs/emacs-aio
 	app-emacs/s
 	app-emacs/tablist
