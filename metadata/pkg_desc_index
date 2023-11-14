@@ -376,7 +376,6 @@ acct-group/svxlink 0-r1: A group for the svxlink server
 acct-group/synapse 0-r1: A group for net-im/synapse
 acct-group/syncthing 0-r2: Group for the system-wide net-p2p/syncthing server
 acct-group/systemd-coredump 0-r2: System group: systemd-coredump
-acct-group/systemd-hostname 0-r2: System group: systemd-hostname
 acct-group/systemd-journal 0-r2: System group: systemd-journal
 acct-group/systemd-journal-remote 0-r2: System group: systemd-journal-remote
 acct-group/systemd-network 0-r2: System group: systemd-network
@@ -392,7 +391,6 @@ acct-group/tinyproxy 0-r1: gid for net-proxy/tinyproxy
 acct-group/tomcat 0-r1: Group for Apache Tomcat
 acct-group/tor 0-r2: group for tor daemon
 acct-group/tox 0-r2: Group management for package net-libs/tox
-acct-group/tpm 0-r1: System group: tpm
 acct-group/transmission 0-r2: System group: transmission
 acct-group/trickster 0-r1: A group for www-apps/trickster
 acct-group/trojan 0-r1: System group: trojan
@@ -403,7 +401,6 @@ acct-group/tty 0-r2: System group: tty
 acct-group/turnserver 0-r2: A group for a turn server like coturn
 acct-group/ubridge 0-r2: Group for net-misc/ubridge
 acct-group/ulogd 0-r1: Group for ulogd
-acct-group/ultimaker 0-r2: Group for ultimaker
 acct-group/unbound 0-r2: unbound program group
 acct-group/unbound-telemetry 0-r1: System group: unbound-telemetry
 acct-group/unifi 0-r2: A group for the UniFi controller
@@ -819,7 +816,6 @@ acct-user/tinyproxy 0-r1: uid for net-proxy/tinyproxy
 acct-user/tomcat 0-r1: User for Apache Tomcat
 acct-user/tor 0-r2: user for tor daemon
 acct-user/tox 0-r2: User for package net-libs/tox
-acct-user/tpm 0-r1: System user: tpm
 acct-user/transmission 1-r2: System user: transmission
 acct-user/trickster 0-r1: A user for www-apps/trickster
 acct-user/trojan 0-r1: User for net-proxy/trojan
@@ -828,7 +824,6 @@ acct-user/ttrssd 0-r1: User for www-apps/tt-rss
 acct-user/turnserver 0-r2: A user for a turn server like coturn
 acct-user/tvheadend 0-r2: User for tvheadend
 acct-user/ulogd 0-r1: User for ulogd
-acct-user/ultimaker 0-r2: User for ultimaker
 acct-user/unbound 0-r2: unbound program user
 acct-user/unbound-telemetry 1-r1: user for unbound-telemetry
 acct-user/unifi 0-r2: A user for the UniFi Controller
@@ -1028,7 +1023,7 @@ app-admin/radmind 1.15.4-r1: Command-line tools and server to remotely administe
 app-admin/ranpwd 1.2: Generate random passwords using the in-kernel cryptographically
 app-admin/rasdaemon 0.6.8-r2 0.7.0 0.8.0 0.8.0-r1: Reliability, Availability and Serviceability logging tool
 app-admin/rcm 1.3.5 1.3.6: rc file (dotfile) management
-app-admin/restart-services 0.17.0 0.17.0-r1: Tool to manage OpenRC and systemd services that need to be restarted
+app-admin/restart-services 0.17.0-r1: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.14.3 9999: (R)?ex, the friendly automation framework
 app-admin/rsyslog 8.2304.0 8.2306.0 8.2308.0 8.2310.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/ryzen_monitor 1.0.4-r1 1.0.5: Monitor power information of Ryzen processors via the PM table of the SMU
@@ -1227,7 +1222,7 @@ app-backup/pdumpfs 1.3-r3: A daily backup system similar to Plan9's dumpfs
 app-backup/rdedup 1.0.2: data deduplication with compression and public key encryption
 app-backup/rdiff-backup 2.0.5-r1 2.2.5 2.2.6: Local/remote mirroring+incremental backup
 app-backup/rdumpfs 0.1: a rsync-based dump file system backup tool
-app-backup/rdup 1.1.15 1.1.15-r1: Generate a file list suitable for full or incremental backups
+app-backup/rdup 1.1.15-r1: Generate a file list suitable for full or incremental backups
 app-backup/rear 2.6 2.7: Relax-and-Recover is a setup-and-forget bare metal disaster recovery solution
 app-backup/reoback 1.0_p3-r1: Reoback Backup Solution
 app-backup/restic 0.15.2 0.16.2: A backup program that is fast, efficient and secure
@@ -1247,7 +1242,7 @@ app-benchmarks/bonnie++ 2.00a: Hard drive bottleneck testing benchmark suite
 app-benchmarks/bootchart2 0.14.9-r1: Performance analysis and visualization of the system boot process
 app-benchmarks/cpuburn 1.4a-r5: CPU testing utilities in optimized assembler for maximum loading
 app-benchmarks/dbench 4.0: Popular filesystem benchmark
-app-benchmarks/filebench 1.4.9.1-r1 1.4.9.1-r2: Filebench - A Model Based File System Workload Generator
+app-benchmarks/filebench 1.4.9.1-r2: Filebench - A Model Based File System Workload Generator
 app-benchmarks/forkbomb 1.4-r1: Controlled fork() bomber for testing heavy system load
 app-benchmarks/geekbench 2.4.2-r1 2.4.3-r1 3.4.4 4.4.4 5.5.1 6.2.1: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
 app-benchmarks/hey 0.1.2: HTTP load generator, ApacheBench (ab) replacement, formerly known as rakyll/boom
@@ -10651,7 +10646,7 @@ dev-util/indent 2.2.12 2.2.13: Indent program source files
 dev-util/intel-graphics-compiler 1.0.15368.3: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
 dev-util/intel-graphics-system-controller 0.8.13-r1: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015: Intel's implementation of the OpenCL standard
-dev-util/intel_clc 23.3.0_rc3 9999: intel_clc tool used for building OpenCL C to SPIR-V
+dev-util/intel_clc 23.3.0_rc3-r1 9999: intel_clc tool used for building OpenCL C to SPIR-V
 dev-util/intltool 0.51.0-r3: Internationalization Tool Collection
 dev-util/its4 1.1.1-r2: ITS4: Software Security Tool
 dev-util/itstool 2.0.7: Translation tool for XML documents that uses gettext files and ITS rules
@@ -13378,7 +13373,6 @@ media-plugins/gst-plugins-lame 1.20.5 1.20.6 1.22.3: MP3 encoder plugin for GStr
 media-plugins/gst-plugins-ldac 1.20.5 1.20.6 1.22.3: LDAC plugin for GStreamer
 media-plugins/gst-plugins-libav 1.20.5 1.20.6 1.22.3: FFmpeg based gstreamer plugin
 media-plugins/gst-plugins-libde265 1.20.5 1.20.6 1.22.3: H.265 decoder plugin for GStreamer
-media-plugins/gst-plugins-libmms 1.18.6: Microsoft Multi Media Server source plugin for GStreamer
 media-plugins/gst-plugins-libnice 0.1.19 0.1.21: GStreamer plugin for ICE (RFC 5245) support
 media-plugins/gst-plugins-libpng 1.20.5 1.20.6 1.22.3: PNG image encoder/decoder plugin for GStreamer
 media-plugins/gst-plugins-libvisual 1.20.5 1.20.6 1.22.3: Visualization elements for GStreamer
