@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-libs/boost:= sys-libs/zlib:= pic14? ( >=dev-embedded/gputils-0.13.7 ) pic16? ( >=dev-embedded/gputils-0.13.7 ) boehm-gc? ( dev-libs/boehm-gc:= ) sdcdb? ( sys-libs/readline:0= ) ucsim? ( sys-libs/ncurses:= ) dev-util/gperf
+DESCRIPTION=Small device C compiler (for various microprocessors)
+EAPI=8
+HOMEPAGE=https://sdcc.sourceforge.net/
+INHERIT=autotools
+IUSE=mcs51 z80 z180 r2k r2ka r3ka sm83 tlcs90 ez80-z80 z80n ds390 ds400 pic14 pic16 hc08 s08 stm8 pdk13 pdk14 pdk15 pdk16 mos6502 mos65c02 +boehm-gc device-lib doc non-free packihx sdcdb +sdcpp ucsim
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 ZLIB non-free? ( MicroChip-SDCC ) packihx? ( public-domain )
+RDEPEND=dev-libs/boost:= sys-libs/zlib:= pic14? ( >=dev-embedded/gputils-0.13.7 ) pic16? ( >=dev-embedded/gputils-0.13.7 ) boehm-gc? ( dev-libs/boehm-gc:= ) sdcdb? ( sys-libs/readline:0= ) ucsim? ( sys-libs/ncurses:= )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/sdcc/sdcc/4.3.0/sdcc-src-4.3.0.tar.bz2 doc? ( https://downloads.sourceforge.net/project/sdcc/sdcc-doc/4.3.0/sdcc-doc-4.3.0.tar.bz2 )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=fc1738d55c27fdcb265c1275f0d30b69
