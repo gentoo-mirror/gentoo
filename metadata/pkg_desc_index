@@ -1453,7 +1453,7 @@ app-crypt/onak 0.5.0 0.5.0-r1: onak is an OpenPGP keyserver
 app-crypt/ophcrack 3.8.0-r1: A time-memory-trade-off-cracker
 app-crypt/ophcrack-tables 1.0-r2: Tables available for ophcrack
 app-crypt/osslsigncode 2.0 2.5: Platform-independent tool for Authenticode signing of EXE/CAB files
-app-crypt/p11-kit 0.25.0-r1 0.25.1-r1: Provides a standard configuration setup for installing PKCS#11
+app-crypt/p11-kit 0.25.0-r1 0.25.1-r1 0.25.3: Provides a standard configuration setup for installing PKCS#11
 app-crypt/paperkey 1.6: OpenPGP key archiver
 app-crypt/pdfcrack 0.20: Tool for recovering passwords and content from PDF-files
 app-crypt/pesign 114 116: Tools for manipulating signed PE-COFF binaries
@@ -5294,7 +5294,7 @@ dev-libs/libg15 1.2.7-r1 3.0.7 9999: The libg15 library gives low-level access t
 dev-libs/libg15render 1.2-r2 3.0.4 9999: Small library for display text and graphics on a Logitech G15 keyboard
 dev-libs/libgamin 0.1.10-r6: Library providing the FAM File Alteration Monitor API
 dev-libs/libgaminggear 0.15.1: Provides functionality for gaming input devices
-dev-libs/libgcrypt 1.9.4-r2 1.10.1-r2 1.10.1-r3 1.10.2: General purpose crypto library based on the code used in GnuPG
+dev-libs/libgcrypt 1.9.4-r2 1.10.1-r2 1.10.1-r3 1.10.2 1.10.3: General purpose crypto library based on the code used in GnuPG
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1-r1: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6: GObject-based interfaces and classes for commonly used data structures
@@ -7982,11 +7982,11 @@ dev-python/authres 1.2.0-r1: Parse and generate Authentication-Results headers
 dev-python/autobahn 23.6.2: WebSocket and WAMP for Twisted and Asyncio
 dev-python/autocommand 2.2.2: Library to create a command-line program from a function
 dev-python/automat 22.10.0: Self-service finite-state machines for the programmer on the go
-dev-python/autopage 0.5.1 0.5.2: A library to provide automatic paging for console output
+dev-python/autopage 0.5.2: A library to provide automatic paging for console output
 dev-python/autopep8 2.0.4 2.0.4_p20231027 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.79.0: A library that transform SAM templates into AWS CloudFormation templates
-dev-python/aws-xray-sdk 2.12.0 2.12.1: AWS X-Ray SDK for Python
+dev-python/aws-xray-sdk 2.12.1: AWS X-Ray SDK for Python
 dev-python/awxkit 23.4.0: Command line interface for Ansible AWX
 dev-python/babelfish 0.6.0-r2 9999: Python library to work with countries and languages
 dev-python/backcall 0.2.0-r1: Specifications for callback functions passed in to an API
@@ -8116,7 +8116,7 @@ dev-python/css-parser 1.0.9 1.0.10: A CSS Cascading Style Sheets library (fork o
 dev-python/csscompressor 0.9.5-r2: A python port of YUI CSS Compressor
 dev-python/cssselect 1.2.0: Parse CSS3 Selectors and translate them to XPath 1.0
 dev-python/cssselect2 0.7.0: Parses CSS3 Selectors and translates them to XPath 1.0
-dev-python/cssutils 2.7.1 2.9.0: A CSS Cascading Style Sheets library
+dev-python/cssutils 2.9.0: A CSS Cascading Style Sheets library
 dev-python/cstruct 5.2: C-style structs for Python
 dev-python/csvkit 1.1.1 1.2.0 1.3.0: A suite of utilities for converting to and working with CSV
 dev-python/curtsies 0.4.2: Curses-like terminal wrapper, with colored strings
@@ -8128,7 +8128,7 @@ dev-python/cysignals 1.11.4: Interrupt and signal handling for Cython
 dev-python/cython 0.29.36 3.0.2-r1 3.0.3 3.0.4 3.0.5: A Python to C compiler
 dev-python/cython-test-exception-raiser 1.0.2-r1: A trivial extension that just raises an exception (for testing)
 dev-python/daemonize 2.5.0-r1: Library for writing system daemons in Python
-dev-python/dask 2023.9.3 2023.10.0 2023.10.1 2023.11.0: Task scheduling and blocked algorithms for parallel processing
+dev-python/dask 2023.10.1 2023.11.0: Task scheduling and blocked algorithms for parallel processing
 dev-python/dbfread 2.0.7-r1: Read DBF Files with Python
 dev-python/dbus-next 0.2.3-r1: The next great DBus library for Python with asyncio support
 dev-python/dbus-python 1.3.2: Python bindings for the D-Bus messagebus
@@ -8305,7 +8305,7 @@ dev-python/google-auth-httplib2 0.1.1: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.0.0 1.1.0: Google Authentication Library
 dev-python/google-i18n-address 3.1.0: Google's i18n address metadata repository
 dev-python/google-pasta 0.2.0-r2: AST-based Python refactoring library
-dev-python/googleapis-common-protos 1.60.0 1.61.0: Python classes generated from the common protos in the googleapis repository
+dev-python/googleapis-common-protos 1.61.0: Python classes generated from the common protos in the googleapis repository
 dev-python/gpep517 15: A backend script to aid installing Python packages in Gentoo
 dev-python/graph-tool 2.58 9999: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/graphviz 0.20.1 0.20.1-r1: Simple Python interface for Graphviz
@@ -8442,11 +8442,11 @@ dev-python/jupyter 1.0.0-r4: Jupyter metapackage. Install all the Jupyter compon
 dev-python/jupyter-client 8.5.0 8.6.0: Jupyter protocol implementation and client libraries
 dev-python/jupyter-console 6.6.3: A terminal-based console frontend for Jupyter kernels
 dev-python/jupyter-core 5.4.0 5.5.0: Core common functionality of Jupyter projects
-dev-python/jupyter-events 0.7.0 0.8.0 0.9.0: Jupyter Event System library
+dev-python/jupyter-events 0.8.0 0.9.0: Jupyter Event System library
 dev-python/jupyter-kernel-test 0.6.0: A tool for testing Jupyter kernels
 dev-python/jupyter-lsp 2.2.0: Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab
 dev-python/jupyter-packaging 0.12.3: Tools to help build and install Jupyter Python packages
-dev-python/jupyter-server 2.7.3 2.8.0 2.9.0 2.9.1 2.10.0 2.10.0-r1 2.10.1: Core services, APIs, and REST endpoints to Jupyter web applications
+dev-python/jupyter-server 2.9.1 2.10.1: Core services, APIs, and REST endpoints to Jupyter web applications
 dev-python/jupyter-server-fileid 0.9.0: An extension that maintains file IDs for documents in a running Jupyter Server
 dev-python/jupyter-server-mathjax 0.2.6: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 3.2.2: Jupyter notebook server extension to proxy web services
@@ -8625,7 +8625,7 @@ dev-python/nodeenv 1.8.0: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33.
 dev-python/nose 1.3.7_p20221026: Unittest extension with automatic test suite discovery and easy test authoring
 dev-python/nose2 0.14.0: Unittest with plugins
-dev-python/notebook 7.0.4 7.0.5 7.0.6: Jupyter Interactive Notebook
+dev-python/notebook 7.0.6: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.3: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2023.04.22: Flexible test automation for Python
@@ -8803,7 +8803,7 @@ dev-python/pychm 0.8.6-r1: Python bindings for the chmlib library
 dev-python/pychromecast 13.0.7: Python module to talk to Google Chromecast
 dev-python/pychroot 0.10.4 9999: a python library and cli tool that simplify chroot handling
 dev-python/pyclipper 1.3.0_p4 1.3.0_p5: Cython wrapper for the C++ translation of the Angus Johnson's Clipper library
-dev-python/pycodestyle 2.11.0 2.11.1: Python style guide checker (fka pep8)
+dev-python/pycodestyle 2.11.1: Python style guide checker (fka pep8)
 dev-python/pycollada 0.7.2 0.7.2-r1: Python library for reading and writing COLLADA documents
 dev-python/pycountry 22.3.5: Database of countries, subdivisions, languages, currencies and script
 dev-python/pycparser 2.21-r2: C parser and AST generator written in Python
@@ -8971,7 +8971,7 @@ dev-python/pytest-httpserver 1.0.8: HTTP server for pytest to test HTTP clients
 dev-python/pytest-httpx 0.26.0 0.27.0: Send responses to HTTPX using pytest
 dev-python/pytest-jupyter 0.7.0: Pytest plugin for testing Jupyter libraries and extensions
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
-dev-python/pytest-localftpserver 1.1.4 1.2.0: A PyTest plugin which provides an FTP fixture for your tests
+dev-python/pytest-localftpserver 1.2.0: A PyTest plugin which provides an FTP fixture for your tests
 dev-python/pytest-localserver 0.8.1: Pytest plugin to test server connections locally
 dev-python/pytest-markdown 1.0.2-r1: Run tests in your markdown
 dev-python/pytest-metadata 3.0.0: A plugin for pytest that provides access to test session metadata
@@ -9078,7 +9078,7 @@ dev-python/pythonfinder 2.0.5 2.0.6: PythonFinder: Cross Platform Search Tool fo
 dev-python/pythran 0.13.1 0.14.0: Ahead of Time compiler for numeric kernels
 dev-python/pytidylib 0.3.2-r2: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8-r1: A small Python module to parse various kinds of time expressions
-dev-python/pytoolconfig 1.2.5 1.2.6: Python tool configuration
+dev-python/pytoolconfig 1.2.6: Python tool configuration
 dev-python/pytools 2023.1.1: Collection of tools missing from the Python standard library
 dev-python/pytrie 0.4.0-r1: A pure Python implementation of the trie data structure
 dev-python/pytz 2023.3_p1: World timezone definitions for Python
@@ -9387,7 +9387,7 @@ dev-python/transitions 0.9.0: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.10.1-r1 3.11.0: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.1-r1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 22.2.0-r1 23.11.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 3.23.5 4.0.0 4.0.1 4.0.2 4.0.3 4.0.4: Python library for loading and using triangular meshes
+dev-python/trimesh 4.0.2 4.0.4: Python library for loading and using triangular meshes
 dev-python/trio 0.22.2 0.23.0 0.23.1: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.11.1: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2023.10.18 2023.11.7 2023.11.9 2023.11.13 2023.11.14: Canonical source for classifiers on PyPI (pypi.org)
@@ -9493,7 +9493,7 @@ dev-python/xcffib 1.3.0-r1 1.4.0 1.5.0: A drop in replacement for xpyb, an XCB p
 dev-python/xdoctest 1.1.1 1.1.2: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 0.8: Python bindings for libxkbcommon using cffi
 dev-python/xlrd 2.0.1-r1: Library to extract data from Microsoft Excel spreadsheets
-dev-python/xlsxwriter 3.1.7 3.1.8 3.1.9: Python module for creating Excel XLSX files
+dev-python/xlsxwriter 3.1.9: Python module for creating Excel XLSX files
 dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible with Excel
 dev-python/xmlschema 2.5.0: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.12-r2: Python bindings for the XML Security Library
@@ -15171,7 +15171,7 @@ net-misc/smb4k 3.2.3 3.2.4: Advanced network neighborhood browser
 net-misc/smbc 1.2.2-r3: Text mode (ncurses) SMB network commander. Features: resume and UTF-8
 net-misc/snarf 7.0-r4 7.0-r5: Small and fast CLI resource grabber for http, gopher, finger, ftp
 net-misc/sntpd 3.1-r1: A NTP (RFC-1305 and RFC-4330) client and server for unix-alike systems
-net-misc/socat 1.7.4.3 1.7.4.4 1.7.4.4-r1: Multipurpose relay (SOcket CAT)
+net-misc/socat 1.7.4.3 1.7.4.4 1.7.4.4-r1 1.8.0.0: Multipurpose relay (SOcket CAT)
 net-misc/sock 1.1-r2: A shell interface to network sockets
 net-misc/socket 1.5: Shell-level interface to TCP sockets
 net-misc/socket-burst-dampener 1.3.1-r1: A daemon that spawns one command per connection, and dampens connection bursts
@@ -16965,7 +16965,7 @@ sys-apps/sparc-utils 1.9-r7: Various sparc utilities from Debian GNU/Linux
 sys-apps/spu-tools 2.3.0.136: CELL spu ps and top alike utilities
 sys-apps/stroke 0.1.3-r1: A powerful tool to change file timestamps (including ctimes)
 sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the health of Supermicro servers components
-sys-apps/syd 3.3.0 3.3.1: practical userspace application sandbox
+sys-apps/syd 3.3.1 3.3.2: practical userspace application sandbox
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
 sys-apps/system-monitoring-center 2.21.2-r1 2.23.0-r1 2.24.0-r1 2.25.1 2.26.0 9999: Multi-featured system monitor GUI written in Python
@@ -17344,7 +17344,7 @@ sys-fs/bcache-tools 1.1-r1 1.1_p20230217-r1 9999: Tools for bcache
 sys-fs/bcachefs-tools 1.2_p20230813-r1 9999: Tools for bcachefs
 sys-fs/bees 0.9.3 0.10 9999: Best-Effort Extent-Same, a btrfs dedup agent
 sys-fs/bindfs 1.17.3 1.17.4 1.17.5 1.17.6: FUSE filesystem for bind mounting with altered permissions
-sys-fs/btrfs-progs 6.3.3 6.5.1 6.5.2 6.5.3 6.6.1 9999: Btrfs filesystem utilities
+sys-fs/btrfs-progs 6.3.3 6.5.1 6.5.2 6.5.3 6.6.1 6.6.2 9999: Btrfs filesystem utilities
 sys-fs/btrfsmaintenance 0.4.2 0.5: Scripts for btrfs maintenance tasks like periodic scrub, balance, trim or defrag
 sys-fs/cachefilesd 0.10.10-r1: Provides a caching directory on an already mounted filesystem
 sys-fs/clamfs 1.2.0: A FUSE-based user-space file system with on-access anti-virus file scanning
