@@ -33,6 +33,8 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-qt/qtconcurrent-${QTMIN}:5 )
 "
 
+PATCHES=( "${FILESDIR}/${P}-desktop-file-no-warning-about-exec.patch" ) # in 5.113
+
 src_configure() {
 	local mycmakeargs=(
 		-DAPPLICATIONS_MENU_NAME=kf5-applications.menu
