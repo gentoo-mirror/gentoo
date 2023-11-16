@@ -146,7 +146,7 @@ src_install() {
 				plugins/platforms/libqeglfs.so \
 				plugins/platforms/libqlinuxfb.so \
 				plugins/platformthemes/libqgtk3.so \
-				qml/Qt/labs/lottieqt qml/QtQml/RemoteObjects \
+				qml/QtQml/RemoteObjects \
 				qml/QtQuick/LocalStorage qml/QtQuick/Particles.2 \
 				qml/QtQuick/Scene2D qml/QtQuick/Scene3D \
 				qml/QtQuick/XmlListModel || die
