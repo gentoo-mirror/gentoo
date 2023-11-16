@@ -7,7 +7,7 @@ inherit toolchain-funcs
 
 # sslscan builds against a static openssl library to allow weak ciphers
 # to be enabled so that they can be tested.
-OPENSSL_RELEASE_TAG="openssl-3.0.10"
+OPENSSL_RELEASE_TAG="openssl-3.0.12"
 
 DESCRIPTION="Fast SSL configuration scanner"
 HOMEPAGE="https://github.com/rbsec/sslscan"
