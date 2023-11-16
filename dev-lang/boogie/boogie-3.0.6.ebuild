@@ -262,6 +262,7 @@ src_prepare() {
 		test15/CaptureInlineUnroll.bpl
 		test15/CaptureState.bpl
 		test15/CommonVariablesPruning.bpl
+		test21/InterestingExamples4.bpl
 	)
 	local bad_test
 	for bad_test in "${bad_tests[@]}" ; do
