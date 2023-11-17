@@ -27,27 +27,27 @@ CRATES="
 	lock_api@0.4.9
 	log@0.4.20
 	memchr@2.6.3
-	memoffset@0.6.5
+	memoffset@0.9.0
 	once_cell@1.15.0
 	parking_lot@0.12.1
 	parking_lot_core@0.9.3
 	proc-macro2@1.0.64
-	pyo3-build-config@0.17.3
-	pyo3-ffi@0.17.3
-	pyo3-log@0.8.3
-	pyo3-macros-backend@0.17.3
-	pyo3-macros@0.17.3
-	pyo3@0.17.3
-	pythonize@0.17.0
+	pyo3-build-config@0.19.2
+	pyo3-ffi@0.19.2
+	pyo3-log@0.8.4
+	pyo3-macros-backend@0.19.2
+	pyo3-macros@0.19.2
+	pyo3@0.19.2
+	pythonize@0.19.0
 	quote@1.0.29
 	redox_syscall@0.2.16
-	regex-automata@0.3.8
+	regex-automata@0.3.9
 	regex-syntax@0.7.5
-	regex@1.9.5
+	regex@1.9.6
 	ryu@1.0.11
 	scopeguard@1.1.0
-	serde@1.0.188
-	serde_derive@1.0.188
+	serde@1.0.189
+	serde_derive@1.0.189
 	serde_json@1.0.107
 	smallvec@1.10.0
 	subtle@2.4.1
@@ -85,7 +85,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
@@ -93,7 +93,7 @@ DEPEND="
 	acct-user/synapse
 	acct-group/synapse
 "
-# <pydantic-2, see https://github.com/matrix-org/synapse/issues/15858
+# >twisted-23.8 breaks tests, see https://github.com/matrix-org/synapse/pull/16528
 RDEPEND="
 	${DEPEND}
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -114,7 +114,7 @@ RDEPEND="
 	dev-python/prometheus-client[${PYTHON_USEDEP}]
 	dev-python/pyasn1-modules[${PYTHON_USEDEP}]
 	dev-python/pyasn1[${PYTHON_USEDEP}]
-	<dev-python/pydantic-2[${PYTHON_USEDEP}]
+	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/pymacaroons[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -122,7 +122,7 @@ RDEPEND="
 	dev-python/signedjson[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 	dev-python/treq[${PYTHON_USEDEP}]
-	dev-python/twisted[${PYTHON_USEDEP}]
+	<dev-python/twisted-23.8.1[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )

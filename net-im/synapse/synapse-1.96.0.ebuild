@@ -46,8 +46,8 @@ CRATES="
 	regex@1.9.6
 	ryu@1.0.11
 	scopeguard@1.1.0
-	serde@1.0.189
-	serde_derive@1.0.189
+	serde@1.0.190
+	serde_derive@1.0.190
 	serde_json@1.0.107
 	smallvec@1.10.0
 	subtle@2.4.1
@@ -93,6 +93,7 @@ DEPEND="
 	acct-user/synapse
 	acct-group/synapse
 "
+# >twisted-23.8 breaks tests, see https://github.com/matrix-org/synapse/pull/16528
 RDEPEND="
 	${DEPEND}
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -121,7 +122,7 @@ RDEPEND="
 	dev-python/signedjson[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 	dev-python/treq[${PYTHON_USEDEP}]
-	dev-python/twisted[${PYTHON_USEDEP}]
+	<dev-python/twisted-23.8.1[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )

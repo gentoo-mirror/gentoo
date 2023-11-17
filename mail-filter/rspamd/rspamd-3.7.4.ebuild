@@ -3,10 +3,7 @@
 
 EAPI=8
 
-# lua5-{3,4} were dropped due to bug #903577. This issue has been resolved
-# upstream, see https://github.com/rspamd/rspamd/issues/4455. They will be
-# restored with the next version bump.
-LUA_COMPAT=( lua5-1 luajit )
+LUA_COMPAT=( lua5-{1..4} luajit )
 
 inherit cmake lua-single pax-utils systemd tmpfiles
 
@@ -15,7 +12,7 @@ if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/rspamd/rspamd/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Rapid spam filtering system"
@@ -33,8 +30,8 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}
 	test? ( lua_single_target_luajit )"
 
-# for <dev-libs/libfmt-10 see https://github.com/rspamd/rspamd/issues/4482
-RDEPEND="${LUA_DEPS}
+RDEPEND="
+	${LUA_DEPS}
 	$(lua_gen_cond_dep '
 		dev-lua/LuaBitOp[${LUA_USEDEP}]
 		dev-lua/lua-argparse[${LUA_USEDEP}]
@@ -45,14 +42,10 @@ RDEPEND="${LUA_DEPS}
 	dev-db/sqlite:3
 	dev-libs/glib:2
 	dev-libs/icu:=
-	dev-libs/libev
-	<dev-libs/libfmt-10:=
 	dev-libs/libpcre2:=[jit=]
 	dev-libs/libsodium:=
 	dev-libs/openssl:0=[-bindist(-)]
 	dev-libs/snowball-stemmer:=
-	>=dev-libs/xxhash-0.8.0
-	sys-apps/file
 	sys-libs/zlib
 	blas? (
 		virtual/blas
@@ -62,8 +55,11 @@ RDEPEND="${LUA_DEPS}
 	jemalloc? ( dev-libs/jemalloc:= )
 	selinux? ( sec-policy/selinux-spamassassin )
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	dev-cpp/doctest
+	dev-libs/libfmt:=
+	>=dev-libs/xxhash-0.8.0
 "
 BDEPEND="
 	dev-lang/perl
@@ -72,9 +68,9 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/rspamd-3.0-cmake-lua-version.patch"
-	"${FILESDIR}/rspamd-3.2-unbundle-lua.patch"
-	"${FILESDIR}/rspamd-2.5-unbundle-snowball.patch"
+	"${FILESDIR}/rspamd-3.6-cmake-lua-version.patch"
+	"${FILESDIR}/rspamd-3.6-unbundle-lua.patch"
+	"${FILESDIR}/rspamd-3.6-unbundle-snowball.patch"
 )
 
 src_prepare() {
@@ -101,6 +97,9 @@ src_configure() {
 		-DSYSTEM_FMT=ON
 		-DSYSTEM_XXHASH=ON
 		-DSYSTEM_ZSTD=ON
+
+		# For bundled https://github.com/bombela/backward-cpp
+		-DSTACK_DETAILS_AUTO_DETECT=OFF
 
 		-DENABLE_BLAS=$(usex blas ON OFF)
 		-DENABLE_HYPERSCAN=$(usex cpu_flags_x86_ssse3 ON OFF)
