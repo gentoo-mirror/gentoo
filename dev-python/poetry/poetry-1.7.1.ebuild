@@ -12,37 +12,37 @@ DESCRIPTION="A frontend for poetry - a python dependency management and packagin
 HOMEPAGE="
 	https://python-poetry.org/
 	https://github.com/python-poetry/poetry
-	https://pypi.org/project/poetry/"
+	https://pypi.org/project/poetry/
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# dev-python/build: 1.0 breaks backward compatibility
+# https://github.com/python-poetry/poetry/issues/8434
 RDEPEND="
-	>=dev-python/poetry-core-1.6.1[${PYTHON_USEDEP}]
-	>=dev-python/poetry-plugin-export-1.4.0[${PYTHON_USEDEP}]
-	>=dev-python/build-0.10.0[${PYTHON_USEDEP}]
-	>=dev-python/cachecontrol-0.12.9[${PYTHON_USEDEP}]
-	>=dev-python/cleo-2.0.0[${PYTHON_USEDEP}]
+	>=dev-python/poetry-core-1.8.1[${PYTHON_USEDEP}]
+	>=dev-python/poetry-plugin-export-1.6.0[${PYTHON_USEDEP}]
+	>=dev-python/build-1.0.3[${PYTHON_USEDEP}]
+	>=dev-python/cachecontrol-0.13.0[${PYTHON_USEDEP}]
+	>=dev-python/cleo-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/crashtest-0.4.1[${PYTHON_USEDEP}]
 	>=dev-python/dulwich-0.21.2[${PYTHON_USEDEP}]
-	>=dev-python/filelock-3.8.0[${PYTHON_USEDEP}]
-	>=dev-python/html5lib-1.0[${PYTHON_USEDEP}]
+	>=dev-python/fastjsonschema-2.18.0[${PYTHON_USEDEP}]
 	>=dev-python/installer-0.7.0[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-4.10.0[${PYTHON_USEDEP}]
-	>=dev-python/keyring-23.9.0[${PYTHON_USEDEP}]
-	>=dev-python/lockfile-0.12.2[${PYTHON_USEDEP}]
-	>=dev-python/packaging-20.4[${PYTHON_USEDEP}]
+	>=dev-python/keyring-24.0.0[${PYTHON_USEDEP}]
+	>=dev-python/packaging-20.5[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.7.0[${PYTHON_USEDEP}]
 	>=dev-python/pkginfo-1.9.4[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.0.0[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.18[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.26[${PYTHON_USEDEP}]
 	>=dev-python/requests-toolbelt-0.10.1[${PYTHON_USEDEP}]
 	>=dev-python/shellingham-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.11.6[${PYTHON_USEDEP}]
 	>=dev-python/trove-classifiers-2022.5.19[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-1.26.0[${PYTHON_USEDEP}]
-	>=dev-python/virtualenv-20.22.0[${PYTHON_USEDEP}]
+	>=dev-python/virtualenv-20.23.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	' 3.10)
@@ -58,38 +58,25 @@ BDEPEND="
 "
 
 src_prepare() {
-	# Dependency on abandoned package cachy has been removed from poetry https://github.com/python-poetry/poetry/pull/5868
-	# and remains in tests only for time being, so we can skip them.
-	# removal of tests upstream https://github.com/python-poetry/poetry/pull/7437
-	sed -e "s/from cachy import CacheManager/from unittest import mock; CacheManager = mock.Mock # Gentoo ebuild patched/g" \
-		-i tests/console/commands/cache/conftest.py \
-		-i tests/utils/test_cache.py || die
-	sed -e 's:"cachy_file_cache", ::g' \
-		-i tests/utils/test_cache.py || die
-
 	# unpin
-	sed -i -e 's:\^:>=:' pyproject.toml || die
+	sed -e 's:\^:>=:' \
+		-e '/poetry-core/s:":">=:' \
+		-e 's:,<[0-9.]*::' \
+		-i pyproject.toml || die
 
 	distutils-r1_src_prepare
 }
 
 EPYTEST_DESELECT=(
-	# Dependency on abandoned package cachy has been removed from poetry https://github.com/python-poetry/poetry/pull/5868
-	# and remains in tests only for time being, so we can skip them.
-	# removal of tests upstream https://github.com/python-poetry/poetry/pull/7437
-	tests/console/commands/cache/test_clear.py::test_cache_clear_all
-	tests/console/commands/cache/test_clear.py::test_cache_clear_all_no
-	tests/console/commands/cache/test_clear.py::test_cache_clear_pkg
-	tests/console/commands/cache/test_clear.py::test_cache_clear_pkg_no
-	tests/utils/test_cache.py::test_cachy_compatibility
-
 	# Tests require network (they run `pip install ...`)
+	tests/installation/test_chef.py::test_isolated_env_install_success
 	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_directories
 	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_git
 	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_git_with_subdirectories
-	tests/installation/test_pip_installer.py::test_uninstall_git_package_nspkg_pth_cleanup
 	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_non_wheel_files
 	tests/installation/test_installer.py::test_installer_with_pypi_repository
+	tests/installation/test_pip_installer.py::test_uninstall_git_package_nspkg_pth_cleanup
+	tests/masonry/builders/test_editable_builder.py::test_builder_setup_generation_runs_with_pip_editable
 
 	# Works with network, but otherwise: Backend 'poetry.core.masonry.api' is not available.
 	tests/installation/test_chef.py::test_prepare_sdist
