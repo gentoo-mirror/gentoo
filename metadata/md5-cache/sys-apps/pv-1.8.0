@@ -1,5 +1,5 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-pv ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
-DEFINED_PHASES=configure setup test unpack
+DEFINED_PHASES=configure prepare setup test unpack
 DESCRIPTION=Pipe Viewer: a tool for monitoring the progress of data through a pipe
 EAPI=8
 HOMEPAGE=https://www.ivarch.com/programs/pv.shtml https://codeberg.org/a-j-wood/pv
@@ -10,4 +10,4 @@ LICENSE=GPL-3+
 SLOT=0
 SRC_URI=https://www.ivarch.com/programs/sources/pv-1.8.0.tar.gz verify-sig? ( https://www.ivarch.com/programs/sources/pv-1.8.0.tar.gz.txt -> pv-1.8.0.tar.gz.asc )
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	verify-sig	798e0173d334021f14ba78a786c37059
-_md5_=adc68df69a4ae5ac57beffd3fbbd6e18
+_md5_=64c230cf6e8e0bdc98e781ffb69386c7
