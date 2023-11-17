@@ -5,10 +5,10 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..12} )
 PYTHON_REQ_USE="xml(+)"
 
-inherit distutils-r1 multiprocessing virtualx
+inherit distutils-r1 virtualx
 
 DESCRIPTION="Library for manipulating TrueType, OpenType, AFM and Type1 fonts"
 HOMEPAGE="
@@ -23,20 +23,24 @@ SRC_URI="
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
+IUSE="+native-extensions"
 
 RDEPEND="
 	>=dev-python/fs-2.4.9[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/cython[${PYTHON_USEDEP}]
+	native-extensions? (
+		$(python_gen_cond_dep '
+			dev-python/cython[${PYTHON_USEDEP}]
+		' 'python*')
+	)
 	test? (
-		app-arch/brotli[python,${PYTHON_USEDEP}]
+		dev-python/brotlicffi[${PYTHON_USEDEP}]
 		app-arch/zopfli
-		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_prepare_all() {
@@ -55,8 +59,10 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 }
 
-src_configure() {
-	export FONTTOOLS_WITH_CYTHON=1
+python_compile() {
+	local -x FONTTOOLS_WITH_CYTHON=$(usex native-extensions)
+	[[ ${EPYTHON} == pypy3 ]] && FONTTOOLS_WITH_CYTHON=0
+	distutils-r1_python_compile
 }
 
 src_test() {
@@ -65,9 +71,17 @@ src_test() {
 }
 
 python_test() {
+	local EPYTEST_DESELECT=()
+	if [[ ${EPYTHON} == pypy3 ]] &&
+		has_version "dev-python/pyxattr[${PYTHON_USEDEP}]"
+	then
+		EPYTEST_DESELECT+=(
+			# affected by a bug in PyPy/pyxattr
+			# https://github.com/iustin/pyxattr/issues/41
+			Tests/t1Lib/t1Lib_test.py::ReadWriteTest::test_read_with_path
+		)
+	fi
+
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest Tests fontTools \
-		-p rerunfailures --reruns=5 \
-		-p xdist -n "$(makeopts_jobs)" --dist=worksteal ||
-		die "Tests failed with ${EPYTHON}"
+	nonfatal epytest Tests fontTools || die -n "Tests failed with ${EPYTHON}"
 }
