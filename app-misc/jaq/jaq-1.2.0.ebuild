@@ -83,7 +83,6 @@ inherit cargo
 
 DESCRIPTION="Just another JSON query tool"
 HOMEPAGE="https://github.com/01mf02/jaq"
-
 SRC_URI="
 	https://github.com/01mf02/jaq/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
