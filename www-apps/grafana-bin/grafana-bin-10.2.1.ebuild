@@ -7,7 +7,7 @@ inherit systemd
 
 MY_PN=${PN/-bin/}
 MY_PV=${PV/_beta/-beta}
-S=${WORKDIR}/${MY_PN}-${MY_PV}
+S=${WORKDIR}/${MY_PN}-v${MY_PV}
 
 DESCRIPTION="Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB"
 HOMEPAGE="https://grafana.org"
