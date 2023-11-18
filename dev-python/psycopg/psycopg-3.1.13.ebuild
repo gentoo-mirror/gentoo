@@ -22,7 +22,7 @@ S=${WORKDIR}/${P}/psycopg
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 
 DEPEND="
 	>=dev-db/postgresql-8.1:*
@@ -34,7 +34,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		>=dev-db/postgresql-8.1[server]
-		dev-python/anyio[${PYTHON_USEDEP}]
+		<dev-python/anyio-4[${PYTHON_USEDEP}]
 		dev-python/dnspython[${PYTHON_USEDEP}]
 	)
 "
@@ -68,10 +68,9 @@ python_test() {
 		tests/crdb/test_typing.py
 		# TODO, relying on undefined ordering in Python?
 		tests/test_dns_srv.py::test_srv
-		# timing test, fragile to load
-		tests/test_concurrency_async.py::test_ctrl_c
 	)
 
-	# leak tests seem to be brittle
-	epytest -p no:django -k "not leak"
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	# leak and timing tests are fragile whereas slow tests are slow
+	epytest -p anyio -k "not leak" -m "not timing and not slow"
 }
