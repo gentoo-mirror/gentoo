@@ -4,21 +4,20 @@
 # Build the tarball:
 #   - "$" - shell command,
 #   - ">" - manual action.
-# $  git clone --depth 1  \
-#        -b v8.0.0-rc.1.23419.4  \
-#        https://github.com/dotnet/dotnet  \
-#	     dotnet-sdk-8.0.0_rc1234194
-# $  cd dotnet-sdk-8.0.0_rc1234194
+# $  git clone --depth 1 -b v8.0.0 https://github.com/dotnet/dotnet  \
+#	     dotnet-sdk-8.0.0
+# $  cd dotnet-sdk-8.0.0
 # >  Note the checkout tag hash.
 # $  ./prep.sh
 # $  rm -fr .git
 # $  cd ..
 # $  tar --create --auto-compress --file  \
-#        dotnet-sdk-8.0.0_rc1234194-prepared-gentoo-amd64.tar.xz  \
-#        dotnet-sdk-8.0.0_rc1234194
+#        dotnet-sdk-8.0.100-prepared-gentoo-amd64.tar.xz dotnet-sdk-8.0.0
 # >  Upload dotnet-sdk-8.0.0_rc1234194-prepared-gentoo-amd64.tar.xz
 
 EAPI=8
+
+COMMIT=113d797bc90104bb4f1cc51e1a462cf3d4ef18fc
 
 LLVM_MAX_SLOT=16
 PYTHON_COMPAT=( python3_{10..12} )
@@ -33,8 +32,12 @@ SRC_URI="
 "
 
 SDK_SLOT="$(ver_cut 1-2)"
-RUNTIME_SLOT="${SDK_SLOT}.0_rc1234194"
+RUNTIME_SLOT="${SDK_SLOT}.0"
 SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
+
+# SDK reports it is version "8.0.100" but the tag .NET SDK team had given
+# it is "8.0.100". I feel that the pattern is to tag based on "RUNTIME_SLOT".
+S="${WORKDIR}/${PN}-${RUNTIME_SLOT}"
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
@@ -44,8 +47,8 @@ CURRENT_NUGETS_DEPEND="
 "
 EXTRA_NUGETS_DEPEND="
 	~dev-dotnet/dotnet-runtime-nugets-3.1.32
-	~dev-dotnet/dotnet-runtime-nugets-6.0.22
-	~dev-dotnet/dotnet-runtime-nugets-7.0.11
+	~dev-dotnet/dotnet-runtime-nugets-6.0.25
+	~dev-dotnet/dotnet-runtime-nugets-7.0.14
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}
@@ -88,6 +91,7 @@ src_prepare() {
 	unset NUGET_PACKAGES
 
 	export DOTNET_CLI_TELEMETRY_OPTOUT=1
+	export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 	export MSBUILDDISABLENODEREUSE=1
 	export UseSharedCompilation=false
 
@@ -110,14 +114,12 @@ src_compile() {
 
 	# The "source_repository" should always be the same.
 	local source_repository="https://github.com/dotnet/dotnet"
-	# The "source_version" is dependent on the checkout tag commit.
-	local source_version="113d797bc90104bb4f1cc51e1a462cf3d4ef18fc"
 
 	ebegin "Building the .NET SDK ${SDK_SLOT}"
 	bash ./build.sh									\
 		--clean-while-building						\
 		--source-repository "${source_repository}"	\
-		--source-version "${source_version}"
+		--source-version "${COMMIT}"
 	eend ${?} || die "build failed"
 }
 

@@ -3,7 +3,6 @@
 
 EAPI=8
 
-COMMIT=0e243a78f435038dda31953c5b48cbddf2a89e27
 NEED_EMACS=26.1
 
 inherit elisp
@@ -11,9 +10,8 @@ inherit elisp
 DESCRIPTION="BibTeX database manager for Emacs"
 HOMEPAGE="https://joostkremers.github.io/ebib/
 	https://github.com/joostkremers/ebib/"
-SRC_URI="https://github.com/joostkremers/${PN}/archive/${COMMIT}.tar.gz
+SRC_URI="https://github.com/joostkremers/${PN}/archive/${PV}.tar.gz
 			-> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${COMMIT}
 
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
