@@ -4,17 +4,20 @@
 EAPI=8
 
 DESCRIPTION="Multi-target universal programming language"
-HOMEPAGE="https://haxe.org/"
+HOMEPAGE="https://haxe.org/
+	https://github.com/HaxeFoundation/haxe/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/HaxeFoundation/haxe.git"
 else
 	# Haxe-debian already contains correct git modules
 	SRC_URI="https://github.com/HaxeFoundation/haxe-debian/archive/upstream/${PV}.tar.gz
 		-> ${P}.tar.gz"
+	S="${WORKDIR}/haxe-debian-upstream-${PV}"
+
 	KEYWORDS="~amd64"
-	S="${WORKDIR}"/haxe-debian-upstream-${PV}
 fi
 
 LICENSE="GPL-2+ MIT"
@@ -22,10 +25,9 @@ SLOT="0/${PV}"
 IUSE="+ocamlopt"
 RESTRICT="strip"
 
-# NOTICE: Does not compile with >=dev-ml/luv-0.5.12, but it's fixed on master.
 RDEPEND="
 	>=dev-lang/ocaml-4:=[ocamlopt?]
-	<dev-ml/luv-0.5.12:=
+	>=dev-ml/luv-0.5.12:=
 	dev-ml/extlib:=
 	dev-ml/ocaml-sha:=
 	dev-ml/ptmap:=
@@ -38,7 +40,9 @@ RDEPEND="
 	net-libs/mbedtls:=
 	sys-libs/zlib:=
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+"
 BDEPEND="
 	dev-ml/camlp5
 	dev-ml/dune
@@ -49,11 +53,7 @@ QA_FLAGS_IGNORED="usr/bin/haxelib"
 QA_PRESTRIPPED="usr/bin/haxelib"
 
 src_configure() {
-	if use ocamlopt ; then
-		export OCAMLOPT=ocamlopt.opt
-	else
-		export OCAMLOPT=ocamlopt
-	fi
+	export OCAMLOPT="$(usex ocamlopt ocamlopt.opt ocamlopt)"
 }
 
 src_compile() {
