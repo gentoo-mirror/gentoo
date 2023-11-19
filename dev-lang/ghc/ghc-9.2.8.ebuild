@@ -170,19 +170,28 @@ RDEPEND+="binary? ( ${PREBUILT_BINARY_RDEPENDS} )"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( app-text/docbook-xml-dtd:4.2
+	doc? (
+		$(python_gen_any_dep '
+			dev-python/sphinx[${PYTHON_USEDEP}]
+			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
+		')
+		app-text/docbook-xml-dtd:4.2
 		app-text/docbook-xml-dtd:4.5
 		app-text/docbook-xsl-stylesheets
-		dev-python/sphinx
-		dev-python/sphinx-rtd-theme
-		>=dev-libs/libxslt-1.1.2 )
-	!ghcbootstrap? ( ${PREBUILT_BINARY_DEPENDS} )
-	test? ( ${PYTHON_DEPS} )
+		>=dev-libs/libxslt-1.1.2
+	)
+	!ghcbootstrap? (
+		${PREBUILT_BINARY_DEPENDS}
+	)
+	test? (
+		${PYTHON_DEPS}
+	)
 "
 
 needs_python() {
 	# test driver is written in python
 	use test && return 0
+	use doc && return 0
 	return 1
 }
 
@@ -195,6 +204,13 @@ REQUIRED_USE="
 
 # haskell libraries built with cabal in configure mode, #515354
 QA_CONFIGURE_OPTIONS+=" --with-compiler --with-gcc"
+
+python_check_deps() {
+	if use doc; then
+		python_has_version "dev-python/sphinx[${PYTHON_USEDEP}]" &&
+		python_has_version "dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]"
+	fi
+}
 
 is_crosscompile() {
 	[[ ${CHOST} != ${CTARGET} ]]
@@ -563,9 +579,6 @@ src_prepare() {
 				# UPDATE ME for ghc-7
 				mkdir "${WORKDIR}"/ghc-bin-installer || die
 				pushd "${WORKDIR}"/ghc-bin-installer > /dev/null || die
-				use sparc-solaris && unpack ghc-6.10.4-sparc-sun-solaris2.tar.bz2
-				use x86-solaris && unpack ghc-7.0.3-i386-unknown-solaris2.tar.bz2
-				use x86-macos && unpack ghc-7.4.1-i386-apple-darwin.tar.bz2
 				use x64-macos && unpack ghc-7.4.1-x86_64-apple-darwin.tar.bz2
 				popd > /dev/null
 
@@ -656,13 +669,13 @@ src_prepare() {
 		# However, the patch is difficult to apply and our versions of GHC don't
 		# have the update, so we symlink to the system version instead.
 		if use doc; then
-			local rtd_theme_dir="$(dirname $(python -c "import sphinx_rtd_theme; print(sphinx_rtd_theme.__file__)"))"
+			local python_str="import sphinx_rtd_theme; print(sphinx_rtd_theme.__file__)"
+			local rtd_theme_dir="$(dirname $("${EPYTHON}" -c "$python_str"))"
 			local orig_rtd_theme_dir="${S}/docs/users_guide/rtd-theme"
 
-			ebegin "Replacing bundled rtd-theme with dev-python/sphinx-rtd-theme"
+			einfo "Replacing bundled rtd-theme with dev-python/sphinx-rtd-theme"
 			rm -r "${orig_rtd_theme_dir}" || die
 			ln -s "${rtd_theme_dir}" "${orig_rtd_theme_dir}" || die
-			eend 0
 		fi
 
 		# mingw32 target
@@ -680,6 +693,10 @@ src_prepare() {
 
 src_configure() {
 	if ! use binary; then
+		# No upstream LTO support. bug #855596
+		filter-lto
+		append-flags -fno-strict-aliasing
+
 		# initialize build.mk
 		echo '# Gentoo changes' > mk/build.mk
 
