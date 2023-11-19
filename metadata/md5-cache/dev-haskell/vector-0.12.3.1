@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-haskell/primitive-0.6.4.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 dev-haskell/cabal-doctest test? ( >=dev-haskell/base-orphans-0.6 dev-haskell/base-compat >=dev-haskell/doctest-0.15 dev-haskell/hunit >=dev-haskell/quickcheck-2.9 <dev-haskell/quickcheck-2.15 dev-haskell/random dev-haskell/tasty dev-haskell/tasty-hunit dev-haskell/tasty-quickcheck ) hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-haskell/primitive-0.6.4.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-lang/ghc-8.4.3:= test? ( <dev-lang/ghc-9.1 ) >=dev-haskell/cabal-2.2.0.1 dev-haskell/cabal-doctest test? ( >=dev-haskell/base-orphans-0.6 dev-haskell/base-compat >=dev-haskell/doctest-0.15 dev-haskell/hunit >=dev-haskell/quickcheck-2.9 <dev-haskell/quickcheck-2.15 dev-haskell/random dev-haskell/tasty dev-haskell/tasty-hunit dev-haskell/tasty-quickcheck ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Efficient Arrays
 EAPI=8
 HOMEPAGE=https://github.com/haskell/vector
@@ -8,9 +8,9 @@ INHERIT=haskell-cabal
 IUSE=+boundschecks internalchecks unsafechecks doc hscolour profile test
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-haskell/primitive-0.6.4.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-haskell/primitive-0.6.4.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-lang/ghc-8.4.3:= test? ( <dev-lang/ghc-9.1 ) dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.12.3.1
 SRC_URI=https://hackage.haskell.org/package/vector-0.12.3.1/vector-0.12.3.1.tar.gz https://hackage.haskell.org/package/vector-0.12.3.1/revision/1.cabal -> vector-0.12.3.1-rev1.cabal
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
-_md5_=9e7f1bf281639fd7466559a770e02c54
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	4a13a9aa96b5a22d6f3d90429b00e406
+_md5_=037d55825a34a64ef10c172efd1ae9d4

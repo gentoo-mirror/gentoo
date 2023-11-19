@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-lang/ghc-7.10.1:= >=dev-haskell/cabal-1.22.2.0 hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-lang/ghc-7.10.1:= <dev-lang/ghc-9.1 >=dev-haskell/cabal-1.22.2.0 hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=A platform independent entropy source
 EAPI=8
 HOMEPAGE=https://github.com/TomMD/entropy
@@ -8,8 +8,8 @@ INHERIT=haskell-cabal
 IUSE=halvm doc hscolour profile
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-lang/ghc-7.10.1:= dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-lang/ghc-7.10.1:= <dev-lang/ghc-9.1 dev-lang/ghc:=[profile?]
 SLOT=0/0.4.1.6
 SRC_URI=https://hackage.haskell.org/package/entropy-0.4.1.6/entropy-0.4.1.6.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
-_md5_=e16c07907647ba3db0801dd529b1e63a
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	4a13a9aa96b5a22d6f3d90429b00e406
+_md5_=0d9ee674e1f252d6a9278408cba50d5a

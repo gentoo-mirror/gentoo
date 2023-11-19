@@ -2,7 +2,7 @@ BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=>=dev-haskell/transformers-compat-0.5:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-lang/ghc-7.8.2:= hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Haskell 98 phantom types to avoid unsafely passing dummy arguments
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/ekmett/tagged
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile
@@ -10,6 +10,6 @@ KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=>=dev-haskell/transformers-compat-0.5:=[profile?] <dev-haskell/transformers-compat-1:=[profile?] >=dev-lang/ghc-7.8.2:= dev-lang/ghc:=[profile?]
 SLOT=0/0.8.6.1
-SRC_URI=https://hackage.haskell.org/package/tagged-0.8.6.1/tagged-0.8.6.1.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
-_md5_=806f5ca47b399c6dc68ce12e3ca4389d
+SRC_URI=https://hackage.haskell.org/package/tagged-0.8.6.1/tagged-0.8.6.1.tar.gz https://hackage.haskell.org/package/tagged-0.8.6.1/revision/3.cabal -> tagged-0.8.6.1-rev3.cabal
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	4a13a9aa96b5a22d6f3d90429b00e406
+_md5_=c63665c8e1c8574776922a39725270bc

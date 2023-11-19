@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-haskell/basement-0.0.6:=[profile?] >=dev-haskell/memory-0.14.18:=[profile?] >=dev-lang/ghc-8.4.3:= virtual/libc >=dev-haskell/cabal-2.2.0.1 test? ( dev-haskell/tasty dev-haskell/tasty-hunit dev-haskell/tasty-kat dev-haskell/tasty-quickcheck ) hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-haskell/basement-0.0.6:=[profile?] >=dev-haskell/memory-0.14.18:=[profile?] >=dev-lang/ghc-8.4.3:= <dev-lang/ghc-9.1 virtual/libc >=dev-haskell/cabal-2.2.0.1 test? ( dev-haskell/tasty dev-haskell/tasty-hunit dev-haskell/tasty-kat dev-haskell/tasty-quickcheck ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Cryptography Primitives sink
 EAPI=8
 HOMEPAGE=https://github.com/haskell-crypto/cryptonite
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic haskell-cabal
 IUSE=cpu_flags_x86_rdrand cpu_flags_x86_aes cpu_flags_x86_sse cpu_flags_x86_sse4_1 +integer-gmp +target-attributes doc hscolour profile test
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-haskell/basement-0.0.6:=[profile?] >=dev-haskell/memory-0.14.18:=[profile?] >=dev-lang/ghc-8.4.3:= virtual/libc dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-haskell/basement-0.0.6:=[profile?] >=dev-haskell/memory-0.14.18:=[profile?] >=dev-lang/ghc-8.4.3:= <dev-lang/ghc-9.1 virtual/libc dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.28
 SRC_URI=https://hackage.haskell.org/package/cryptonite-0.28/cryptonite-0.28.tar.gz https://github.com/haskell-crypto/cryptonite/pull/338.patch -> cryptonite-338.patch
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	haskell-cabal	5c1519ca191c23e5bc535c33b8cf988b
-_md5_=1331958a98193cd470805d56c2263717
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	baa4d385108ac87993edac956a916a36	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	haskell-cabal	4a13a9aa96b5a22d6f3d90429b00e406
+_md5_=76e69f5947c0a67b83ad4291063e4506
