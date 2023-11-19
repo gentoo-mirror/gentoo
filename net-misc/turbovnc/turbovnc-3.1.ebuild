@@ -6,17 +6,16 @@ EAPI=8
 JAVA_PKG_OPT_USE=viewer
 inherit cmake desktop java-pkg-opt-2 verify-sig
 
-MY_PV="3.0.91%20%283.1%20beta2%29"
-
 DESCRIPTION="A fast replacement for TigerVNC"
 HOMEPAGE="https://www.turbovnc.org/"
 SRC_URI="
-	https://sourceforge.net/projects/turbovnc/files/${MY_PV}/${P}.tar.gz/download -> ${P}.tar.gz
-	verify-sig? ( https://sourceforge.net/projects/turbovnc/files/${MY_PV}/${P}.tar.gz.sig/download -> ${P}.tar.gz.sig )
+	https://sourceforge.net/projects/turbovnc/files/${PV}/${P}.tar.gz/download -> ${P}.tar.gz
+	verify-sig? ( https://sourceforge.net/projects/turbovnc/files/${PV}/${P}.tar.gz.sig/download -> ${P}.tar.gz.sig )
 "
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="+server +ssl +viewer"
 REQUIRED_USE="|| ( server viewer )"
 
