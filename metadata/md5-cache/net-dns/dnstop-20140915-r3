@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=sys-libs/ncurses:0 net-libs/libpcap
+DESCRIPTION=Displays various tables of DNS traffic on your network
+EAPI=8
+HOMEPAGE=https://github.com/measurement-factory/dnstop
+INHERIT=autotools flag-o-matic
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~x86
+LICENSE=BSD
+RDEPEND=sys-libs/ncurses:0 net-libs/libpcap
+SLOT=0
+SRC_URI=http://dns.measurement-factory.com/tools/dnstop/src/dnstop-20140915.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	baa4d385108ac87993edac956a916a36
+_md5_=466f93140caf2fef0cda8fa566883c7e
