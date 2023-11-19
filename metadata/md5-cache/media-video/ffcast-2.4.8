@@ -1,13 +1,13 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=prepare
-DEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DESCRIPTION=Record screencasts using ffmpeg
-EAPI=6
-HOMEPAGE=https://github.com/lolilolicon/ffcast
+EAPI=8
+HOMEPAGE=https://github.com/ropery/ffcast
 INHERIT=autotools
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-3
+LICENSE=GPL-3+
 RDEPEND=x11-apps/xdpyinfo x11-apps/xprop x11-apps/xwininfo x11-apps/xrectsel media-video/ffmpeg >=app-shells/bash-4.3
 SLOT=0
-SRC_URI=https://github.com/lolilolicon/ffcast/archive/2.4.8.tar.gz -> ffcast-2.4.8.tar.gz
-_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
-_md5_=00fd8389fbed3295f96099e6af0b2f4d
+SRC_URI=https://github.com/ropery/ffcast/archive/2.4.8.tar.gz -> ffcast-2.4.8.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=9daf86dbd5b2f9226aa409e6e5cf406d
