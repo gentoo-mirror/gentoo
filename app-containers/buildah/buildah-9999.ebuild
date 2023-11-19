@@ -62,7 +62,7 @@ src_prepare() {
 		[[ -f "${file}" ]] || die
 	done
 
-	sed -i -e "s|/usr/local|${EPREFIX}/usr|g" Makefile docs/Makefile || die
+	sed -i -e "s|/usr/local|/usr|g" Makefile docs/Makefile || die
 	echo -e '#!/usr/bin/env bash\necho libsubid' > hack/libsubid_tag.sh || die
 
 	cat <<-EOF > hack/apparmor_tag.sh || die
@@ -118,7 +118,7 @@ src_test() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install install.completions
+	emake DESTDIR="${ED}" install install.completions
 	einstalldocs
 	use doc && dodoc -r "${EXTRA_DOCS[@]}"
 }

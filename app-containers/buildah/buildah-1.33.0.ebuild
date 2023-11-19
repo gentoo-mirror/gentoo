@@ -36,15 +36,13 @@ RDEPEND="
 	btrfs? ( sys-fs/btrfs-progs )
 	seccomp? ( sys-libs/libseccomp:= )
 	apparmor? ( sys-libs/libapparmor:= )
+	app-containers/containers-common
 	app-crypt/gpgme:=
 	dev-libs/libgpg-error:=
 	dev-libs/libassuan:=
 	sys-apps/shadow:=
 "
 DEPEND="${RDEPEND}"
-
-export COMMIT_NO=bfd436d159059b45d770a0fc62386c9e0b9bdbb1
-export GIT_COMMIT=${COMMIT_NO}
 
 pkg_pretend() {
 	local CONFIG_CHECK=""
@@ -64,7 +62,7 @@ src_prepare() {
 		[[ -f "${file}" ]] || die
 	done
 
-	sed -i -e "s|/usr/local|${EPREFIX}/usr|g" Makefile docs/Makefile || die
+	sed -i -e "s|/usr/local|/usr|g" Makefile docs/Makefile || die
 	echo -e '#!/usr/bin/env bash\necho libsubid' > hack/libsubid_tag.sh || die
 
 	cat <<-EOF > hack/apparmor_tag.sh || die
@@ -107,12 +105,20 @@ src_prepare() {
 
 }
 
+src_compile() {
+	# For non-live versions, prevent git operations which causes sandbox violations
+	# https://github.com/gentoo/gentoo/pull/33531#issuecomment-1786107493
+	[[ ${PV} != 9999* ]] && export COMMIT_NO="" GIT_COMMIT=""
+
+	default
+}
+
 src_test() {
 	emake test-unit
 }
 
 src_install() {
-	emake DESTDIR="${D}" install install.completions
+	emake DESTDIR="${ED}" install install.completions
 	einstalldocs
 	use doc && dodoc -r "${EXTRA_DOCS[@]}"
 }
