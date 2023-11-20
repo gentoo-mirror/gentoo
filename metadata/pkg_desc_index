@@ -1325,7 +1325,7 @@ app-containers/cri-o 1.26.0: OCI-based implementation of Kubernetes Container Ru
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.1 1.8.4 1.11.2: A fast and low-memory footprint OCI Container Runtime fully written in C
 app-containers/devcontainer 0.52.1 0.53.0: Reference implementation of the Development Containers specification
-app-containers/distrobox 1.5.0.2 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
+app-containers/distrobox 1.5.0.2 1.6.0 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0: System container image builder for LXC and incus
 app-containers/docker 24.0.5 24.0.6 24.0.7: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.3.3: Test for best practices around deploying docker containers
@@ -7887,7 +7887,7 @@ dev-python/BitVector 3.5.0-r1: A pure-Python memory-efficient packed representat
 dev-python/ConfigArgParse 1.7: Drop-in replacement for argparse supporting config files and env variables
 dev-python/CppHeaderParser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/DBUtils 3.0.3: Database connections for multi-threaded environments
-dev-python/Faker 19.11.0 19.12.1 19.13.0 20.0.0 20.0.3: A Python package that generates fake data for you
+dev-python/Faker 19.11.0 19.12.1 19.13.0 20.0.0 20.0.3 20.1.0: A Python package that generates fake data for you
 dev-python/Frozen-Flask 0.18-r1 1.0.1: Freezes a Flask application into a set of static files
 dev-python/GitPython 3.1.37 3.1.38 3.1.40: Library used to interact with Git repositories
 dev-python/GridDataFormats 1.0.2: Reading and writing of data on regular grids in Python
@@ -7929,7 +7929,7 @@ dev-python/aiohttp-cors 0.7.0-r2: Implements CORS support for aiohttp asyncio-po
 dev-python/aiohttp-oauthlib 0.1.0: This project provides first-class OAuth library support for aiohttp
 dev-python/aiohttp-socks 0.8.4: SOCKS proxy connector for aiohttp
 dev-python/aiopylgtv 0.4.1: Python library to control webOS-based LG TV devices
-dev-python/aioresponses 0.7.4 0.7.5: Helper to mock/fake web requests in Python's aiohttp package
+dev-python/aioresponses 0.7.4 0.7.5 0.7.6: Helper to mock/fake web requests in Python's aiohttp package
 dev-python/aiorpcX 0.22.1-r1: Generic async RPC implementation, including JSON-RPC
 dev-python/aiosignal 1.3.1: A list of registered asynchronous callbacks
 dev-python/aiosqlite 0.19.0: asyncio bridge to the standard sqlite3 module
@@ -8209,7 +8209,7 @@ dev-python/emoji 2.6.0 2.7.0 2.8.0: Emoji for Python
 dev-python/empy 3.3.4-r1: A powerful and robust templating system for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 23.2.1 23.3 23.3.1: Shared pip wheel for ensurepip Python module
-dev-python/ensurepip-setuptools 68.2.2: Shared setuptools wheel for ensurepip Python module
+dev-python/ensurepip-setuptools 68.2.2 69.0.0: Shared setuptools wheel for ensurepip Python module
 dev-python/ensurepip-wheel 0.41.2 0.41.3: Shared wheel wheel for use in pip tests
 dev-python/ensurepip-wheels 100: Shared wheels for ensurepip Python module
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
@@ -8273,7 +8273,7 @@ dev-python/flit 3.8.0: Simplified packaging of Python modules
 dev-python/flit-core 3.9.0: Simplified packaging of Python modules (core module)
 dev-python/flit_scm 1.7.0: A PEP 518 build backend combining flit with setuptools_scm
 dev-python/flufl-lock 8.0.2: NFS-safe file locking with timeouts for POSIX systems
-dev-python/fonttools 4.43.1 4.44.0 4.44.1 4.44.3: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
+dev-python/fonttools 4.43.1 4.44.0 4.44.1 4.44.3 4.45.0: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/fpylll 0.6.0-r1: Python bindings for sci-libs/fplll
 dev-python/fqdn 1.5.1-r2: RFC-compliant FQDN validation and manipulation for Python
 dev-python/freetype-py 2.4.0-r1: FreeType Python bindings
@@ -8468,7 +8468,7 @@ dev-python/keep 2.10.1-r2: Personal shell command keeper and snippets manager
 dev-python/kerberos 1.3.1-r2: A high-level Python wrapper for Kerberos/GSSAPI operations
 dev-python/keyring 24.2.0 24.3.0: Provides access to the system keyring service
 dev-python/keyrings-alt 5.0.0: Alternate keyring implementations
-dev-python/keystoneauth1 5.3.0: This package contains tools for authenticating to an OpenStack-based cloud
+dev-python/keystoneauth1 5.3.0 5.4.0: This package contains tools for authenticating to an OpenStack-based cloud
 dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.1.1: Python function spy support for unit tests
 dev-python/kiwisolver 1.4.4-r1 1.4.5: An efficient C++ implementation of the Cassowary constraint solving algorithm
@@ -9128,7 +9128,7 @@ dev-python/readthedocs-sphinx-ext 2.2.3: Code specific for Read the Docs and Sph
 dev-python/readtime 3.0.0: Calculates the time some text takes the average human to read
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
-dev-python/recurring-ical-events 2.0.2 2.1.0: Repeat ICalendar events by RRULE, RDATE and EXDATE
+dev-python/recurring-ical-events 2.0.2 2.1.0 2.1.1: Repeat ICalendar events by RRULE, RDATE and EXDATE
 dev-python/redis 5.0.1: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r1 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.30.2 0.31.0: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
@@ -9166,7 +9166,7 @@ dev-python/roman 4.1: An Integer to Roman numerals converter
 dev-python/rope 1.10.0 1.11.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
 dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
-dev-python/rpds-py 0.10.3 0.10.4 0.10.6 0.12.0 0.13.0: Python bindings to Rust's persistent data structures (rpds)
+dev-python/rpds-py 0.10.3 0.10.4 0.10.6 0.12.0 0.13.0 0.13.1: Python bindings to Rust's persistent data structures (rpds)
 dev-python/rply 0.7.8-r1: Pure python parser generator that also works with RPython
 dev-python/rpy 3.5.8 3.5.14: Python interface to the R language
 dev-python/rpyc 5.3.1 5.3.1-r1: Remote Python Call (RPyC), a transparent and symmetric RPC library
@@ -9201,7 +9201,7 @@ dev-python/serpent 1.41: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1-r1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service-identity 23.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.3.3: Allow customization of the process title
-dev-python/setuptools 68.2.2: Collection of extensions to Distutils
+dev-python/setuptools 68.2.2 69.0.0: Collection of extensions to Distutils
 dev-python/setuptools-gettext 0.1.3: setuptools plugin for building mo files
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.6.0 1.7.0 1.8.0 1.8.1: A plugin for setuptools to build Rust Python extensions
@@ -9402,7 +9402,7 @@ dev-python/txAMQP 0.8.2-r1: Python library for communicating with AMQP peers usi
 dev-python/txaio 23.1.1: Compatibility API between asyncio/Twisted/Trollius
 dev-python/txredisapi 1.4.10: Non-blocking redis client for python
 dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
-dev-python/txtorcon 23.5.0: Twisted-based Tor controller client, with state-tracking abstractions
+dev-python/txtorcon 23.5.0 23.11.0: Twisted-based Tor controller client, with state-tracking abstractions
 dev-python/typeguard 4.1.5: Run-time type checker for Python
 dev-python/types-docutils 0.20.0.1 0.20.0.2 0.20.0.3: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.4 12.1.4.5: Typing stubs for gdb
@@ -12832,7 +12832,7 @@ media-gfx/pencil 0.6.6-r1: 2D animation and drawing program based on Qt5
 media-gfx/photopc 3.07: Utility to control digital cameras based on Sierra Imaging firmware
 media-gfx/photoqt 3.2: Simple but powerful Qt-based image viewer
 media-gfx/phototonic 2.1: Image viewer and organizer
-media-gfx/pinta 2.1.1: Pinta is a free, open source program for drawing and image editing
+media-gfx/pinta 2.1.1-r1: Pinta is a free, open source program for drawing and image editing
 media-gfx/pixels2pgf 0.1 9999: Convert pixel images (e.g. QRCode) to PGF/Tikz rectangles
 media-gfx/plantuml 1.2022.7: Draw UML diagrams using a simple and human readable text description
 media-gfx/png2ico 2002.12.08: PNG to icon converter
@@ -16916,7 +16916,7 @@ sys-apps/plocate 1.1.19: Posting locate is a much faster locate
 sys-apps/pmount 0.9.99_alpha-r7: Policy based mounter that gives the ability to mount removable devices as a user
 sys-apps/pnputils 0.1-r1: Plug and Play BIOS utilities
 sys-apps/policycoreutils 3.5 9999: SELinux core utilities
-sys-apps/polychromatic 0.8.1 0.8.2 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
+sys-apps/polychromatic 0.8.1 0.8.2 0.8.3 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
 sys-apps/portage 3.0.45.3-r2 3.0.46 3.0.49-r2 3.0.50 3.0.51 3.0.52 3.0.53 3.0.54-r1 3.0.55 9999: The package management and distribution system for Gentoo
 sys-apps/powerpc-utils 1.1.3.18-r4: PowerPC utilities and additional OldWorld apps
 sys-apps/ppc64-diag 2.7.9: Diagnostic tools for PowerLinux
