@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-gnupg ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=configure install postinst postrm prepare unpack
+DEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-error-1.17 efl? ( dev-libs/efl[X] ) keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 wayland? ( kde-frameworks/kwayland:5 ) X? ( dev-qt/qtx11extras:5 x11-libs/libX11 ) )
+DESCRIPTION=Simple passphrase entry dialogs which utilize the Assuan protocol
+EAPI=8
+HOMEPAGE=https://gnupg.org/aegypten2/
+IDEPEND=>=app-eselect/eselect-pinentry-0.7.2
+INHERIT=autotools qmake-utils verify-sig
+IUSE=caps efl emacs gtk keyring ncurses qt5 wayland X verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=GPL-2
+PDEPEND=emacs? ( app-emacs/pinentry )
+RDEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-error-1.17 efl? ( dev-libs/efl[X] ) keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 wayland? ( kde-frameworks/kwayland:5 ) X? ( dev-qt/qtx11extras:5 x11-libs/libX11 ) ) gtk? ( app-crypt/gcr:0[gtk] )
+SLOT=0
+SRC_URI=mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2 verify-sig? ( mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2.sig )
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	verify-sig	798e0173d334021f14ba78a786c37059
+_md5_=024b93d6baef8523081531fd4f62451c
