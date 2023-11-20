@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -12,24 +12,16 @@ SRC_URI="http://www.catb.org/~esr/${PN}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+RESTRICT=test # upstream does not ship some tests in tarball
 
 BDEPEND="app-text/asciidoc"
 
-RESTRICT=test # upstream does not ship some tests in tarball
+PATCHES=( "${FILESDIR}/${P}-Makefile.patch" )
 
 src_prepare() {
 	default
-
 	tc-export CC
 	export prefix="${EPREFIX}"/usr
-
-	# respect CC, CFLAGS and LDFLAGS
-	sed \
-		-e 's/cc /$(CC) $(LDFLAGS) /' \
-		-e 's/^CFLAGS += -O/#&/' \
-		-e 's/CFLAGS=/CFLAGS+=/' \
-		-i Makefile || die
 }
 
 src_compile() {
@@ -42,5 +34,5 @@ src_compile() {
 
 src_install() {
 	default
-	dodoc README.adoc
+	dodoc {NEWS,README,TODO,hacking,reporting-bugs}.adoc
 }
