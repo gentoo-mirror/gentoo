@@ -7,15 +7,15 @@ JAVA_PKG_IUSE="doc source"
 
 inherit java-pkg-2 java-pkg-simple prefix
 
-DMF="R-${PV}-202211231800"
+DMF="R-${PV}-202309031000"
 
 DESCRIPTION="Ant Compiler Adapter for Eclipse Java Compiler"
 HOMEPAGE="https://www.eclipse.org/"
-SRC_URI="https://archive.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${PV}.jar"
+SRC_URI="https://download.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${PV}.jar"
 
 LICENSE="EPL-1.0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux"
-SLOT="4.26"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+SLOT="4.29"
 IUSE=""
 
 CDEPEND="~dev-java/eclipse-ecj-${PV}:${SLOT}
@@ -32,12 +32,10 @@ BDEPEND="app-arch/unzip"
 JAVA_GENTOO_CLASSPATH="ant-core,eclipse-ecj-${SLOT}"
 
 src_prepare() {
-	default
+	java-pkg-2_src_prepare
 
 	# Remove everything but the Ant component.
 	find org -type f ! -path "org/eclipse/jdt/internal/antadapter/*" ! -name "JDTCompilerAdapter.java" -delete || die
-
-	rm build.xml || die
 }
 
 src_compile() {
