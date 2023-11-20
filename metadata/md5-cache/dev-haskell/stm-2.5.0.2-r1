@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://wiki.haskell.org/Software_transactional_memory
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=>=dev-lang/ghc-9.2.4:= dev-lang/ghc:=[profile?]
 SLOT=0/2.5.0.2
 SRC_URI=https://hackage.haskell.org/package/stm-2.5.0.2/stm-2.5.0.2.tar.gz https://hackage.haskell.org/package/stm-2.5.0.2/revision/1.cabal -> stm-2.5.0.2-rev1.cabal
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	631fe867aec883d7c7caf617c36aba72	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	4a13a9aa96b5a22d6f3d90429b00e406
-_md5_=8ee10c2e150a137c0d4079c14412052f
+_md5_=9010d0271c71962c13a1d4bbc8acb8a8
