@@ -52,6 +52,9 @@ BDEPEND="
 
 DOCS=( README.md doc/ChangeLog doc/cmd.txt )
 
+# https://github.com/Exiv2/exiv2/pull/2832
+PATCHES=( "${FILESDIR}/${P}-exiv2lib.patch" ) # bug 917483
+
 pkg_setup() {
 	if use doc || use test ; then
 		python-any-r1_pkg_setup

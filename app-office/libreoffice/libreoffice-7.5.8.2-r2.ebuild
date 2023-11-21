@@ -126,7 +126,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=app-text/libwps-0.4
 	app-text/mythes
 	>=dev-cpp/clucene-2.3.3.4-r2
-	>=dev-cpp/libcmis-0.5.2-r2
+	>=dev-cpp/libcmis-0.5.2-r2:=
 	dev-db/unixODBC
 	dev-lang/perl
 	dev-libs/boost:=[nls]
@@ -298,6 +298,9 @@ PATCHES=(
 	# maybe upstreamable
 	"${FILESDIR}/libreoffice-7.5.8.2-icu-74-compatibility.patch"
 
+	# 7.5.9.1
+	"${FILESDIR}/${P}-curl-8.3.0-mitigation.patch" # bug 891903(?)
+
 	# git master
 	"${WORKDIR}/${PN}-7.5.2.2-loong-buildsys-fix.patch"
 	"${FILESDIR}/${PN}-7.5.6.2-gcc-14.patch"
@@ -351,6 +354,10 @@ src_unpack() {
 }
 
 src_prepare() {
+	if has_version '>=dev-cpp/libcmis-0.6.1'; then
+		PATCHES+=( "${FILESDIR}/${P}-libcmis-0.6.patch" ) # from 7.5.9.1
+	fi
+
 	default
 
 	# sandbox violations on many systems, we don't need it. Bug #646406
