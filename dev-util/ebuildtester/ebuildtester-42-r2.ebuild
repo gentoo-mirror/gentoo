@@ -19,6 +19,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-containers/docker
+	app-containers/docker-cli
 	sys-fs/fuse
 "
 
