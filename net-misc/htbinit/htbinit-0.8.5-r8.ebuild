@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit linux-info
 
@@ -12,8 +12,8 @@ S="${WORKDIR}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
-IUSE="esfq ipv6"
+KEYWORDS="~amd64 ~ppc ~x86"
+IUSE="esfq"
 
 DEPEND="sys-apps/iproute2"
 RDEPEND="${DEPEND}"
@@ -23,6 +23,7 @@ PATCHES=(
 	"${FILESDIR}"/prio_rule.patch
 	"${FILESDIR}"/timecheck_fix.patch
 	"${FILESDIR}"/htb.init_find_fix.patch
+	"${FILESDIR}"/htb_0.8.5_ipv6.patch
 )
 
 pkg_setup() {
@@ -45,7 +46,6 @@ src_prepare() {
 	sed -i 's|/etc/sysconfig/htb|/etc/htb|g' "${S}"/htb.init || die
 
 	use esfq && eapply "${FILESDIR}"/htb_0.8.5_esfq.patch
-	use ipv6 && eapply "${FILESDIR}"/htb_0.8.5_ipv6.patch
 
 	# bug #474700
 	sed -i -e 's:/sbin/ip:/bin/ip:g' "${S}"/htb.init || die
