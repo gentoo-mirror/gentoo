@@ -7,11 +7,11 @@ HOMEPAGE=http://maxima.sourceforge.net/
 INHERIT=autotools elisp-common flag-o-matic python-single-r1 xdg-utils
 IUSE=clisp clozurecl clozurecl64 cmucl ecl emacs gcl gui nls +sbcl vtk X test l10n_de l10n_es l10n_pt l10n_pt-BR python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
-LICENSE=GPL-2 GPL-2+
+LICENSE=GPL-2 GPL-2+ LLGPL-2.1
 RDEPEND=clisp? ( dev-lisp/clisp:= ) clozurecl? ( dev-lisp/clozurecl app-misc/rlwrap ) clozurecl64? ( dev-lisp/clozurecl app-misc/rlwrap ) cmucl? ( dev-lisp/cmucl app-misc/rlwrap ) ecl? ( dev-lisp/ecl:= app-misc/rlwrap ) gcl? ( >=dev-lisp/gcl-2.6.14[ansi,readline] ) sbcl? ( dev-lisp/sbcl:= app-misc/rlwrap ) virtual/libcrypt:= emacs? ( >=app-editors/emacs-26:* ) gui? ( dev-lang/tk:0 ) X? ( x11-misc/xdg-utils sci-visualization/gnuplot[gd] vtk? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) sci-libs/vtk[python,rendering,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] ) ) emacs? ( virtual/latex-base app-emacs/auctex app-text/ghostscript-gpl dev-texlive/texlive-latexrecommended )
 REQUIRED_USE=vtk? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) ) || ( clisp clozurecl clozurecl64 cmucl ecl gcl sbcl ) gui? ( X )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/maxima/maxima-5.47.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	elisp-common	2a0fa407d2e6363c663ccb299503b25c	flag-o-matic	6b3c606c5de2531072ffd36eca06a5a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=c9f0229a0dc2282d617d246f3b6fe8ca
+_md5_=41f1efe747735c0a6058aa154710556f
