@@ -1,28 +1,20 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 
 inherit python-any-r1
 
 if [[ ${PV} == 9999 ]] ; then
-	EGIT_REPO_URI="https://git.savannah.gnu.org/r/${PN}.git"
+	EGIT_REPO_URI="https://git.savannah.gnu.org/r/${MY_PN}.git"
 	inherit git-r3
 else
-	if [[ ${PV/_beta} == ${PV} ]]; then
-		MY_P="${P}"
-		SRC_URI="mirror://gnu/${PN}/${P}.tar.xz
-			https://alpha.gnu.org/pub/gnu/${PN}/${MY_P}.tar.xz"
-		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
-	else
-		MY_PV="$(ver_cut 1).$(($(ver_cut 2)-1))b"
-		MY_P="${PN}-${MY_PV}"
+	MY_PN=${PN/-vanilla}
+	MY_P=${MY_PN}-${PV}
 
-		# Alpha/beta releases are not distributed on the usual mirrors.
-		SRC_URI="https://alpha.gnu.org/pub/gnu/${PN}/${MY_P}.tar.xz"
-	fi
+	SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
 
 	S="${WORKDIR}/${MY_P}"
 fi
@@ -75,18 +67,21 @@ src_prepare() {
 src_configure() {
 	use test && python_setup
 	# Also used in install.
-	infopath="${EPREFIX}/usr/share/automake-${PV}/info"
-	econf --infodir="${infopath}"
+	MY_INFODIR="${EPREFIX}/usr/share/${P}/info"
+	econf \
+		--datadir="${EPREFIX}"/usr/share/automake-vanilla-${PV} \
+		--program-suffix="-vanilla" \
+		--infodir="${MY_INFODIR}"
 }
 
 src_install() {
 	default
 
-	rm "${ED}"/usr/share/aclocal/README || die
-	rmdir "${ED}"/usr/share/aclocal || die
+	#rm "${ED}"/usr/share/aclocal/README || die
+	#rmdir "${ED}"/usr/share/aclocal || die
 	rm \
-		"${ED}"/usr/bin/{aclocal,automake} \
-		"${ED}"/usr/share/man/man1/{aclocal,automake}.1 || die
+		"${ED}"/usr/bin/{aclocal,automake}-vanilla \
+		"${ED}"/usr/share/man/man1/{aclocal,automake}-vanilla.1 || die
 
 	# remove all config.guess and config.sub files replacing them
 	# w/a symlink to a specific gnuconfig version
@@ -97,27 +92,22 @@ src_install() {
 	done
 
 	# Avoid QA message about pre-compressed file in docs
-	local tarfile="${ED}/usr/share/doc/${PF}/amhello-1.0.tar.gz"
+	local tarfile="${ED}/usr/share/doc/automake-vanilla-${PVR}/amhello-1.0.tar.gz"
 	if [[ -f "${tarfile}" ]] ; then
 		gunzip "${tarfile}" || die
 	fi
 
-	pushd "${D}/${infopath}" >/dev/null || die
+	pushd "${D}/${MY_INFODIR}" >/dev/null || die
 	for f in *.info*; do
 		# Install convenience aliases for versioned Automake pages.
-		ln -s "$f" "${f/./-${PV}.}" || die
+		ln -s "$f" "${f/./-vanilla-${PV}.}" || die
 	done
 	popd >/dev/null || die
 
-	if [[ ${PV} == 9999 ]]; then
-		local major="89"
-		local minor="999"
-	else
-		local major="$(ver_cut 1)"
-		local minor="$(ver_cut 2)"
-	fi
+	local major="$(ver_cut 1)"
+	local minor="$(ver_cut 2)"
 	local idx="$((99999-(major*1000+minor)))"
-	newenvd - "06automake${idx}" <<-EOF
-	INFOPATH="${infopath}"
+	newenvd - "07automake${idx}" <<-EOF
+	INFOPATH="${MY_INFODIR}"
 	EOF
 }
