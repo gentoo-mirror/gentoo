@@ -2,13 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 
 RUBY_FAKEGEM_EXTRADOC="README.md"
 
 RUBY_FAKEGEM_BINWRAP="puppet-lint"
+RUBY_FAKEGEM_NAME="puppetlabs-puppet-lint"
 
 inherit ruby-fakegem
 
