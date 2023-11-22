@@ -1,17 +1,16 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools linux-info toolchain-funcs
+inherit autotools git-r3 linux-info toolchain-funcs
 
 DESCRIPTION="Interface bandwidth monitor"
 HOMEPAGE="https://github.com/tgraf/bmon/"
-SRC_URI="https://codeload.github.com/tgraf/${PN}/tar.gz/v${PV} -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/tgraf/bmon/"
 
 LICENSE="BSD-2 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~hppa ~ppc ppc64 ~riscv ~sparc x86"
 
 RDEPEND="
 	>=sys-libs/ncurses-5.3-r2:0=
@@ -21,14 +20,13 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-DOCS=( ChangeLog )
+DOCS=( ChangeLog NEWS README )
 
 CONFIG_CHECK="~NET_SCHED"
 ERROR_NET_SCHED="
 	CONFIG_NET_SCHED is not set when it should be.
 	Run ${PN} -i proc to use the deprecated proc interface instead.
 "
-
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.6-docdir-examples.patch
 )
