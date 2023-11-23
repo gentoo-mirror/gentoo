@@ -37,3 +37,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${P}-no-session-mgmt.patch"
+	"${FILESDIR}/${P}-skip-switcher.patch" # KDE-bug 477025
+)
