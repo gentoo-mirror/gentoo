@@ -48,8 +48,4 @@ distutils_enable_tests pytest
 EPYTEST_DESELECT=(
 	# Internet
 	tests/auth/expiring.py::TestCredentialsOnline::test_bad_arguments_raises_error
-	# these tests use calls specific to pydantic-2
-	# TODO: reselect when we can depend on >=pydantic-2
-	tests/model.py::TestModel::test_enum_in_model
-	tests/model.py::TestModel::test_unknown_attribute_ignored
 )
