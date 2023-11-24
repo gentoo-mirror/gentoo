@@ -1,13 +1,13 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit flag-o-matic toolchain-funcs
+inherit autotools flag-o-matic toolchain-funcs
 
 DESCRIPTION="libmelf is a library interface for manipulating ELF object files"
-HOMEPAGE="http://www.hick.org/code/skape/libmelf/"
-SRC_URI="http://www.hick.org/code/skape/${PN}/${P}.tar.gz"
+HOMEPAGE="https://www.hick.org/code/skape/libmelf/"
+SRC_URI="https://www.hick.org/code/skape/${PN}/${P}.tar.gz"
 
 LICENSE="Artistic"
 SLOT="0"
@@ -19,14 +19,13 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.4.1-unfinal-release.patch
 	# Cleanup stuff
 	"${FILESDIR}"/${PN}-0.4.0-r1-gcc-makefile-cleanup.patch
+	# Respect LDFLAGS when linking, set SONAME
+	"${FILESDIR}"/${PN}-0.4.0-r2-ldflags-soname.patch
 )
 
 src_prepare() {
 	default
-
-	# * QA Notice: The following shared libraries lack a SONAME
-	# * /usr/lib64/libmelf.so
-	sed 's/\(-shared -fPIC\)/\1 -Wl,-soname,libmelf.so/' -i configure || die
+	eautoreconf
 }
 
 src_configure() {
