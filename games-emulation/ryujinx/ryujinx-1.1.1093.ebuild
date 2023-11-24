@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT=7.0
+DOTNET_PKG_COMPAT=8.0
 NUGETS="
 avalonia.angle.windows.natives@2.1.0.2023020321
 avalonia.buildservices@0.0.29
@@ -56,28 +56,28 @@ microsoft.codeanalysis.csharp.scripting@3.8.0
 microsoft.codeanalysis.csharp@3.8.0
 microsoft.codeanalysis.csharp@4.7.0
 microsoft.codeanalysis.scripting.common@3.8.0
-microsoft.codecoverage@17.7.2
+microsoft.codecoverage@17.8.0
 microsoft.csharp@4.3.0
 microsoft.csharp@4.7.0
 microsoft.dotnet.platformabstractions@3.1.6
 microsoft.extensions.dependencymodel@6.0.0
-microsoft.identitymodel.abstractions@7.0.0
-microsoft.identitymodel.jsonwebtokens@7.0.0
-microsoft.identitymodel.logging@7.0.0
-microsoft.identitymodel.tokens@7.0.0
+microsoft.identitymodel.abstractions@7.0.3
+microsoft.identitymodel.jsonwebtokens@7.0.3
+microsoft.identitymodel.logging@7.0.3
+microsoft.identitymodel.tokens@7.0.3
 microsoft.io.recyclablememorystream@2.3.2
-microsoft.net.test.sdk@17.7.2
+microsoft.net.test.sdk@17.8.0
 microsoft.netcore.platforms@1.0.1
 microsoft.netcore.platforms@1.1.0
 microsoft.netcore.platforms@2.0.0
 microsoft.netcore.platforms@2.1.2
 microsoft.netcore.targets@1.0.1
 microsoft.netcore.targets@1.1.0
-microsoft.testplatform.objectmodel@17.7.2
-microsoft.testplatform.testhost@17.7.2
+microsoft.testplatform.objectmodel@17.8.0
+microsoft.testplatform.testhost@17.8.0
 microsoft.win32.primitives@4.0.1
 microsoft.win32.registry@4.5.0
-microsoft.win32.systemevents@7.0.0
+microsoft.win32.systemevents@8.0.0
 msgpack.cli@1.0.1
 netcoreserver@7.0.0
 netstandard.library@1.6.0
@@ -85,14 +85,14 @@ netstandard.library@2.0.0
 netstandard.library@2.0.3
 newtonsoft.json@13.0.1
 nuget.frameworks@6.5.0
-nunit@3.13.3
 nunit3testadapter@4.1.0
-opentk.core@4.7.7
-opentk.graphics@4.7.7
-opentk.mathematics@4.7.7
-opentk.openal@4.7.7
-opentk.redist.glfw@3.3.8.30
-opentk.windowing.graphicslibraryframework@4.7.7
+nunit@3.13.3
+opentk.audio.openal@4.8.1
+opentk.core@4.8.1
+opentk.graphics@4.8.1
+opentk.mathematics@4.8.1
+opentk.redist.glfw@3.3.8.39
+opentk.windowing.graphicslibraryframework@4.8.1
 runtime.any.system.collections@4.3.0
 runtime.any.system.diagnostics.tools@4.3.0
 runtime.any.system.diagnostics.tracing@4.3.0
@@ -177,7 +177,7 @@ system.buffers@4.0.0
 system.buffers@4.3.0
 system.buffers@4.5.1
 system.codedom@4.4.0
-system.codedom@7.0.0
+system.codedom@8.0.0
 system.collections.concurrent@4.0.12
 system.collections.immutable@5.0.0
 system.collections.immutable@7.0.0
@@ -190,18 +190,18 @@ system.diagnostics.debug@4.3.0
 system.diagnostics.diagnosticsource@4.0.0
 system.diagnostics.tools@4.0.1
 system.diagnostics.tracing@4.1.0
-system.drawing.common@7.0.0
+system.drawing.common@8.0.0
 system.dynamic.runtime@4.3.0
 system.globalization.calendars@4.0.1
 system.globalization.extensions@4.0.1
 system.globalization@4.0.11
 system.globalization@4.3.0
-system.identitymodel.tokens.jwt@7.0.0
+system.identitymodel.tokens.jwt@7.0.3
 system.io.compression.zipfile@4.0.1
 system.io.compression@4.1.0
 system.io.filesystem.primitives@4.0.1
 system.io.filesystem@4.0.1
-system.io.hashing@7.0.0
+system.io.hashing@8.0.0
 system.io.pipelines@6.0.0
 system.io@4.1.0
 system.io@4.3.0
@@ -209,7 +209,7 @@ system.linq.expressions@4.1.0
 system.linq.expressions@4.3.0
 system.linq@4.1.0
 system.linq@4.3.0
-system.management@7.0.2
+system.management@8.0.0
 system.memory@4.5.4
 system.memory@4.5.5
 system.net.http@4.1.0
@@ -276,6 +276,7 @@ system.text.encoding@4.3.0
 system.text.encodings.web@6.0.0
 system.text.json@6.0.0
 system.text.regularexpressions@4.1.0
+system.threading.overlapped@4.3.0
 system.threading.tasks.extensions@4.0.0
 system.threading.tasks.extensions@4.5.4
 system.threading.tasks@4.0.11
@@ -328,21 +329,21 @@ RDEPEND="
 	media-libs/libsdl2
 	x11-libs/gtk+:3
 "
-BDEPEND="
-	>=dev-dotnet/dotnet-sdk-bin-7.0.401:${DOTNET_PKG_COMPAT}
-"
 
 CHECKREQS_DISK_BUILD="3G"
 DOTNET_PKG_PROJECTS=( "src/${PN^}/${PN^}.csproj" )
+
+PATCHES=(
+	"${FILESDIR}/${PN}-1.1.1093-better-defaults.patch"
+	"${FILESDIR}/${PN}-1.1.1093-disable-updates.patch"
+	"${FILESDIR}/${PN}-1.1.1093-logs-path.patch"
+)
 
 DOCS=( README.md distribution/legal/THIRDPARTY.md )
 
 pkg_setup() {
 	check-reqs_pkg_setup
 	dotnet-pkg_pkg_setup
-
-	# HACK: Currently from-source .NET SDK has too old C# Compiler (CSC).
-	DOTNET_PKG_EXECUTABLE="dotnet-bin-7.0"
 }
 
 src_unpack() {
@@ -351,6 +352,11 @@ src_unpack() {
 	if [[ -n "${EGIT_REPO_URI}" ]] ; then
 		git-r3_src_unpack
 	fi
+}
+
+src_prepare() {
+	sed "s|1.0.0-dirty|${PV}|g" -i src/*/*.csproj || die
+	dotnet-pkg_src_prepare
 }
 
 src_test() {
@@ -373,11 +379,4 @@ src_install() {
 
 	# CONSIDER: Why is this being created?
 	rm -r "${ED}/usr/share/${P}/share" || die
-
-	# Create Ryujinx log files directory.
-	# CONSIDER: Patch Ryujinx to sue user's home?
-	# "~/.config/Ryujinx" is already used so maybe this is intended?
-	diropts -m0777
-	dodir "/usr/share/${P}/Logs"
-	keepdir "/usr/share/${P}/Logs"
 }
