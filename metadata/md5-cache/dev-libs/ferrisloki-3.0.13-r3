@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=>=dev-libs/libsigc++-2.6:2
+DESCRIPTION=Loki C++ library from Modern C++ Design
+EAPI=8
+HOMEPAGE=https://data-room-software.org/libferris/
+INHERIT=flag-o-matic autotools
+KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/libsigc++-2.6:2
+SLOT=0
+SRC_URI=mirror://sourceforge/witme/ferrisloki-3.0.13.tar.bz2
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	6b3c606c5de2531072ffd36eca06a5a9	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=02497804a622f0feb9e3fcac0e7c0d04
