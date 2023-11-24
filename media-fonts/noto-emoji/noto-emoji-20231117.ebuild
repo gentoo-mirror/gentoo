@@ -5,19 +5,22 @@ EAPI=8
 inherit font
 
 DESCRIPTION="Google Noto Emoji fonts"
-HOMEPAGE="https://www.google.com/get/noto/ https://github.com/googlefonts/noto-emoji"
+HOMEPAGE="https://fonts.google.com/noto/specimen/Noto+Color+Emoji https://github.com/googlefonts/noto-emoji"
 
-COMMIT="e8073ab740292f8d5f19b5de144087ac58044d06"
+COMMIT="144e84dbc2b49f164279bfce230569116ac98bfd"
 SRC_URI="https://github.com/googlefonts/noto-emoji/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="icons"
 
 RESTRICT="binchecks strip"
 
 S="${WORKDIR}/${PN}-${COMMIT}"
+
+# https://github.com/gentoo/gentoo/pull/32203
+FONT_CONF=( "${FILESDIR}"/75-noto-emoji-fallback.conf )
 
 src_prepare() {
 	default
