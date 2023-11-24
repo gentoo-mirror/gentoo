@@ -19,6 +19,8 @@ inherit toolchain-funcs
 # @FUNCTION: go-env_set_compile_environment
 # @DESCRIPTION:
 # Set up basic compile environment: CC, CXX, and GOARCH.
+# Necessary platform-specific settings such as GOARM or GO386 are also set
+# according to the Portage configuration when building for those architectures.
 # Also carry over CFLAGS, LDFLAGS and friends.
 # Required for cross-compiling with crossdev.
 # If not set, host defaults will be used and the resulting binaries are host arch.
@@ -28,6 +30,9 @@ go-env_set_compile_environment() {
 	tc-export CC CXX
 
 	export GOARCH="$(go-env_goarch)"
+	use arm && export GOARM=$(go-env_goarm)
+	use x86 && export GO386=$(go-env_go386)
+
 	export CGO_CFLAGS="${CGO_CFLAGS:-$CFLAGS}"
 	export CGO_CPPFLAGS="${CGO_CPPFLAGS:-$CPPFLAGS}"
 	export CGO_CXXFLAGS="${CGO_CXXFLAGS:-$CXXFLAGS}"
@@ -54,6 +59,43 @@ go-env_goarch() {
 		riscv) echo riscv64 ;;
 		s390) echo s390x ;;
 		*)		echo "${tc_arch}";;
+	esac
+}
+
+# @FUNCTION: go-env_go386
+# @DESCRIPTION:
+# Returns the appropriate GO386 setting for the CFLAGS in use.
+go-env_go386() {
+	# Piggy-back off any existing CPU_FLAGS_X86 usage in the ebuild if
+	# it's there.
+	if in_iuse cpu_flags_x86_sse2 && use cpu_flags_x86_sse2 ; then
+		echo 'sse2'
+		return
+	fi
+
+	if tc-cpp-is-true "defined(__SSE2__)" ${CFLAGS} ${CXXFLAGS} ; then
+		echo 'sse2'
+		return
+	fi
+
+	# Go 1.16 dropped explicit support for 386 FP and relies on software
+	# emulation instead in the absence of SSE2.
+	echo 'softfloat'
+}
+
+# @FUNCTION: go-env_goarm
+# @USAGE: [CHOST-value]
+# @DESCRIPTION:
+# Returns the appropriate GOARM setting for the CHOST given, or the default
+# CHOST.
+go-env_goarm() {
+	case "${1:-${CHOST}}" in
+		armv5*)	echo 5;;
+		armv6*)	echo 6;;
+		armv7*)	echo 7;;
+		*)
+			die "unknown GOARM for ${1:-${CHOST}}"
+			;;
 	esac
 }
 
