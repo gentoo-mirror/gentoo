@@ -10,13 +10,13 @@ HOMEPAGE="https://wiki.gnome.org/Projects/Zenity"
 LICENSE="LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
-IUSE="webkit"
+IUSE="man webkit"
 
 # TODO: X11 dependency is automagically enabled
 RDEPEND="
 	>=gui-libs/libadwaita-1.2:1
 	webkit? ( >=net-libs/webkit-gtk-2.40.1:6 )
-
+	man? ( sys-apps/help2man )
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango
 "
@@ -30,6 +30,7 @@ BDEPEND="
 src_configure() {
 	local emesonargs=(
 		$(meson_use webkit webkitgtk)
+		$(meson_use man manpage)
 	)
 	meson_src_configure
 }
