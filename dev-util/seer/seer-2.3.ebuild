@@ -13,8 +13,7 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	SRC_URI="https://github.com/epasveer/seer/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-	# Unkeyworded until tested a bit more
-	#KEYWORDS="~amd64 ~arm64 ~ppc64"
+	KEYWORDS="~amd64"
 fi
 
 S="${WORKDIR}"/${P}/src
@@ -25,11 +24,9 @@ LICENSE="GPL-3+ CC-BY-3.0 CC-BY-4.0"
 SLOT="0"
 
 DEPEND="
-	dev-qt/qtcharts:5
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
+	dev-qt/qtbase:6[gui,widgets]
+	dev-qt/qtcharts:6
+	dev-qt/qtsvg:6
 "
 RDEPEND="
 	${DEPEND}
@@ -38,9 +35,9 @@ RDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		# TODO: Support Qt 6 once it's unmasked
-		# Note that >= 2.0 barely supports Qt 5, see https://github.com/epasveer/seer/wiki/Building-Seer---Qt5.
-		-DQTVERSION=QT5
+		# Upstream don't really support Qt 5 for >= 2.0:
+		# https://github.com/epasveer/seer/wiki/Building-Seer---Qt5.
+		-DQTVERSION=QT6
 	)
 
 	cmake_src_configure
