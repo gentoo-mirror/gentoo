@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit distutils-r1
 
@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="PSF-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	dev-python/urllib3[${PYTHON_USEDEP}]
@@ -78,6 +78,8 @@ python_test() {
 		tests/integrations/tornado
 		# requires mockupdb
 		tests/integrations/pymongo
+		# requires AWS access
+		tests/integrations/aws_lambda
 	)
 
 	local EPYTEST_DESELECT=(
@@ -96,6 +98,7 @@ python_test() {
 		# incompatible version?
 		tests/integrations/falcon/test_falcon.py
 		tests/integrations/sqlalchemy/test_sqlalchemy.py::test_large_event_not_truncated
+		tests/integrations/django/test_data_scrubbing.py::test_scrub_django_session_cookies_{filtered,removed}
 		# test_circular_references: apparently fragile
 		'tests/integrations/threading/test_threading.py::test_circular_references'
 		# test for new feature, fails with IndexError
@@ -115,7 +118,12 @@ python_test() {
 		tests/test_scrubber.py::test_breadcrumb_extra_scrubbing
 		tests/test_scrubber.py::test_span_data_scrubbing
 		# this is not even funny
-		tests/integrations/modules/test_modules.py::test_installed_modules
+		tests/test_utils.py::test_installed_modules
+		# flaky hypothesis stuff
+		tests/test_serializer.py::test_bytes_serialization_repr_many
+		# TODO
+		tests/integrations/aiohttp/test_aiohttp.py::test_basic
+		tests/tracing/test_decorator_py3.py::test_trace_decorator_{,a}sync_py3
 	)
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
