@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-13">
+    <title>Apptainer: Privilege Escalation</title>
+    <synopsis>A privilege escalation vulnerability has been discoverd in Apptainer.</synopsis>
+    <product type="ebuild">apptainer</product>
+    <announced>2023-11-25</announced>
+    <revised count="1">2023-11-25</revised>
+    <bug>905091</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-containers/apptainer" auto="yes" arch="*">
+            <unaffected range="ge">1.1.8</unaffected>
+            <vulnerable range="lt">1.1.8</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apptainer is the container system for secure high-performance computing.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Apptainer. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>There is an ext4 use-after-free flaw that is exploitable in vulnerable versions.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apptainer users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/apptainer-1.1.8"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-30549">CVE-2023-30549</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T10:47:30.694976Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T10:47:30.697686Z">graaff</metadata>
+</glsa>
