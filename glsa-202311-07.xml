@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-07">
+    <title>AIDE: Root Privilege Escalation</title>
+    <synopsis>A vulnerability has been found in AIDE which can lead to root privilege escalation.</synopsis>
+    <product type="ebuild">aide</product>
+    <announced>2023-11-25</announced>
+    <revised count="1">2023-11-25</revised>
+    <bug>831658</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-forensics/aide" auto="yes" arch="*">
+            <unaffected range="ge">0.17.4</unaffected>
+            <vulnerable range="lt">0.17.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>AIDE (Advanced Intrusion Detection Environment) is a file and directory integrity checker.
+
+It creates a database from the regular expression rules that it finds from the config file(s). Once this database is initialized it can be used to verify the integrity of the files. It has several message digest algorithms (see below) that are used to check the integrity of the file. All of the usual file attributes can also be checked for inconsistencies.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in AIDE. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>AIDE before 0.17.4 allows local users to obtain root privileges via crafted file metadata (such as XFS extended attributes or tmpfs ACLs), because of a heap-based buffer overflow.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All AIDE users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-forensics/aide-0.17.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45417">CVE-2021-45417</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T08:24:47.076936Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T08:24:47.079410Z">graaff</metadata>
+</glsa>
