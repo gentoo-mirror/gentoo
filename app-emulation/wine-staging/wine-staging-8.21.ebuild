@@ -9,7 +9,7 @@ inherit autotools edo flag-o-matic multilib multilib-build
 inherit prefix python-any-r1 toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=8.0.0
+WINE_MONO=8.1.0
 WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == *9999 ]]; then
@@ -101,7 +101,10 @@ WINE_COMMON_DEPEND="
 		!llvm-libunwind? ( sys-libs/libunwind:=[${MULTILIB_USEDEP}] )
 	)
 	usb? ( dev-libs/libusb:1[${MULTILIB_USEDEP}] )
-	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )"
+	wayland? (
+		dev-libs/wayland[${MULTILIB_USEDEP}]
+		x11-libs/libxkbcommon[${MULTILIB_USEDEP}]
+	)"
 RDEPEND="
 	${WINE_COMMON_DEPEND}
 	app-emulation/wine-desktop-common
