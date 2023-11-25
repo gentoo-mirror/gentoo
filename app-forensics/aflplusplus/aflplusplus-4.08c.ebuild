@@ -3,22 +3,21 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
-LLVM_MAX_SLOT=16
+PYTHON_COMPAT=( python3_{10..12} )
+LLVM_MAX_SLOT=17
 inherit toolchain-funcs llvm optfeature python-single-r1
 
-AFL_PATCHSET="${PN}-4.06c-patches"
-DESCRIPTION="A fork of AFL, the popular compile-time instrumentation fuzzer"
+AFL_PATCHSET="${PN}-4.07c-patches"
+DESCRIPTION="Fork of AFL, the popular compile-time instrumentation fuzzer"
 HOMEPAGE="https://github.com/AFLplusplus/AFLplusplus"
-SRC_URI="https://github.com/AFLplusplus/AFLplusplus/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/AFLplusplus/AFLplusplus/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${AFL_PATCHSET}.tar.xz"
 S="${WORKDIR}"/AFLplusplus-${PV}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="test"
-
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Tests involve heavy use of LD_PRELOAD in some cases
@@ -33,13 +32,17 @@ RDEPEND="
 		sys-devel/clang:15
 		sys-devel/clang:${LLVM_MAX_SLOT}
 	)
-	!app-forensics/afl"
+	!app-forensics/afl
+"
 DEPEND="
 	${RDEPEND}
 	test? ( dev-util/cmocka )
 "
 
-QA_FLAGS_IGNORED="afl-gcc-cmplog-pass.so afl-gcc-cmptrs-pass.so"
+QA_FLAGS_IGNORED="
+	usr/lib.*/afl/afl-gcc-cmplog-pass.so
+	usr/lib.*/afl/afl-gcc-cmptrs-pass.so
+"
 QA_PREBUILT="usr/share/afl/testcases/others/elf/small_exec.elf"
 
 PATCHES=(
