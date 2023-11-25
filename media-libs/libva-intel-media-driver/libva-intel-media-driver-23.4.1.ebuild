@@ -29,14 +29,14 @@ IUSE="+redistributable test X"
 
 RESTRICT="!test? ( test )"
 
-DEPEND=">=media-libs/gmmlib-22.3.9:=[${MULTILIB_USEDEP}]
-	>=media-libs/libva-2.19.0[X?,${MULTILIB_USEDEP}]
+DEPEND=">=media-libs/gmmlib-22.3.14:=[${MULTILIB_USEDEP}]
+	>=media-libs/libva-2.20.0[X?,${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-21.4.2-Remove-unwanted-CFLAGS.patch
-	"${FILESDIR}"/${PN}-20.4.5_testing_in_src_test.patch
+	"${FILESDIR}"/${PN}-23.3.4-Remove-unwanted-CFLAGS.patch
+	"${FILESDIR}"/${PN}-23.3.4_testing_in_src_test.patch
 )
 
 multilib_src_configure() {
