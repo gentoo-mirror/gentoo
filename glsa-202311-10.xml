@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-10">
+    <title>RenderDoc: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in RenderDoc, the worst of which leads to remote code execution.</synopsis>
+    <product type="ebuild">renderdoc</product>
+    <announced>2023-11-25</announced>
+    <revised count="1">2023-11-25</revised>
+    <bug>908031</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/renderdoc" auto="yes" arch="*">
+            <unaffected range="ge">1.27</unaffected>
+            <vulnerable range="lt">1.27</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>RenderDoc is a free MIT licensed stand-alone graphics debugger that allows quick and easy single-frame capture and detailed introspection of any application using Vulkan, D3D11, OpenGL &amp; OpenGL ES or D3D12 across Windows, Linux, Android, or Nintendo Switch™.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GRUB. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All RenderDoc users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/renderdoc-1.27"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-33863">CVE-2023-33863</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-33864">CVE-2023-33864</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-33865">CVE-2023-33865</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T09:36:29.923016Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T09:36:29.925676Z">graaff</metadata>
+</glsa>
