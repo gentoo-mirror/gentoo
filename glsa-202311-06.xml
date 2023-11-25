@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-06">
+    <title>multipath-tools: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in multipath-tools, the worst of which can lead to root privilege escalation.</synopsis>
+    <product type="ebuild">multipath-tools</product>
+    <announced>2023-11-25</announced>
+    <revised count="1">2023-11-25</revised>
+    <bug>878763</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-fs/multipath-tools" auto="yes" arch="*">
+            <unaffected range="ge">0.9.3</unaffected>
+            <vulnerable range="lt">0.9.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>multipath-tools are used to drive the Device Mapper multipathing driver.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in multipath-tools. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All multipath-tools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-fs/multipath-tools-0.9.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41973">CVE-2022-41973</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41974">CVE-2022-41974</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T08:13:29.146678Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T08:13:29.148791Z">graaff</metadata>
+</glsa>
