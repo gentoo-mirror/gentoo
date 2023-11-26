@@ -5,14 +5,13 @@
     <synopsis>Multiple vulnerabilities have been discoverd in GRUB, which may lead to secure boot circumvention or code execution.</synopsis>
     <product type="ebuild">grub</product>
     <announced>2023-11-25</announced>
-    <revised count="1">2023-11-25</revised>
+    <revised count="2">2023-11-26</revised>
     <bug>881413</bug>
-    <bug>915187</bug>
     <access>remote</access>
     <affected>
         <package name="sys-boot/grub" auto="yes" arch="*">
-            <unaffected range="ge">2.06-r9</unaffected>
-            <vulnerable range="lt">2.06-r9</vulnerable>
+            <unaffected range="ge">2.06-r4</unaffected>
+            <vulnerable range="lt">2.06-r4</vulnerable>
         </package>
     </affected>
     <background>
@@ -32,14 +31,12 @@
         
         <code>
           # emerge --sync
-          # emerge --ask --oneshot --verbose ">=sys-boot/grub-2.06-r9"
+          # emerge --ask --oneshot --verbose ">=sys-boot/grub-2.06-r4"
         </code>
     </resolution>
     <references>
         <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2601">CVE-2022-2601</uri>
         <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3775">CVE-2022-3775</uri>
-        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4692">CVE-2023-4692</uri>
-        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4693">CVE-2023-4693</uri>
     </references>
     <metadata tag="requester" timestamp="2023-11-25T11:18:39.731078Z">graaff</metadata>
     <metadata tag="submitter" timestamp="2023-11-25T11:18:39.734177Z">graaff</metadata>
