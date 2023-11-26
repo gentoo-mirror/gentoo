@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-16">
+    <title>Open vSwitch: Multiple Vulnerabilities</title>
+    <synopsis>Multiple denial of service vulnerabilites have been found in Open vSwitch.</synopsis>
+    <product type="ebuild">openvswitch</product>
+    <announced>2023-11-26</announced>
+    <revised count="1">2023-11-26</revised>
+    <bug>765346</bug>
+    <bug>769995</bug>
+    <bug>803107</bug>
+    <bug>887561</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/openvswitch" auto="yes" arch="*">
+            <unaffected range="ge">2.17.6</unaffected>
+            <vulnerable range="lt">2.17.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Open vSwitch is a production quality multilayer virtual switch.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Open vSwitch. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Open vSwitch users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/openvswitch-2.17.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27827">CVE-2020-27827</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35498">CVE-2020-35498</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3905">CVE-2021-3905</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-36980">CVE-2021-36980</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4337">CVE-2022-4337</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4338">CVE-2022-4338</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1668">CVE-2023-1668</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-26T10:06:58.054779Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-11-26T10:06:58.056946Z">graaff</metadata>
+</glsa>
