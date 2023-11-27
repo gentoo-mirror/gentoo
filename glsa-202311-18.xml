@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-18">
+    <title>GLib: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GLib.</synopsis>
+    <product type="ebuild">glib</product>
+    <announced>2023-11-27</announced>
+    <revised count="1">2023-11-27</revised>
+    <bug>886197</bug>
+    <bug>887807</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/glib" auto="yes" arch="*">
+            <unaffected range="ge">2.74.4</unaffected>
+            <vulnerable range="lt">2.74.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GLib is a library providing a number of GNOME&#39;s core objects and functions.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GLib. Please review the referenced CVEs for details.</p>
+    </description>
+    <impact type="high">
+        <p>GVariant deserialization is vulnerable to an exponential blowup issue where a crafted GVariant can cause excessive processing, leading to denial of service.
+
+GVariant deserialization fails to validate that the input conforms to the expected format, leading to denial of service.
+
+GVariant deserialization is vulnerable to a slowdown issue where a crafted GVariant can cause excessive processing, leading to denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GLib users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/glib-2.74.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29499">CVE-2023-29499</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32611">CVE-2023-32611</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32665">CVE-2023-32665</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-27T12:24:33.325998Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-27T12:24:33.328076Z">graaff</metadata>
+</glsa>
