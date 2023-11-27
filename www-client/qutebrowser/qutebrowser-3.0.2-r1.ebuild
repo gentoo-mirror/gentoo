@@ -41,7 +41,7 @@ RDEPEND="
 			dev-qt/qtbase:6[icu,sqlite]
 			dev-python/PyQt6[${PYTHON_USEDEP},dbus,gui,network,opengl,printsupport,qml,sql,widgets]
 			dev-python/PyQt6-WebEngine[${PYTHON_USEDEP},widgets]
-			pdf? ( www-plugins/pdfjs )
+			pdf? ( <www-plugins/pdfjs-4 )
 		)
 		!qt6? (
 			dev-qt/qtcore:5[icu]
@@ -80,10 +80,6 @@ else
 fi
 
 distutils_enable_tests pytest
-
-PATCHES=(
-	"${FILESDIR}"/${P}-tests-qt653.patch
-)
 
 src_prepare() {
 	distutils-r1_src_prepare
