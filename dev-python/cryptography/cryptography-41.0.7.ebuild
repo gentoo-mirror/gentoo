@@ -17,6 +17,7 @@ CRATES="
 	autocfg@1.1.0
 	base64@0.13.1
 	bitflags@1.3.2
+	bitflags@2.4.1
 	cc@1.0.79
 	cfg-if@1.0.0
 	foreign-types-shared@0.1.1
@@ -27,8 +28,8 @@ CRATES="
 	memoffset@0.8.0
 	once_cell@1.17.2
 	openssl-macros@0.1.1
-	openssl-sys@0.9.88
-	openssl@0.10.54
+	openssl-sys@0.9.96
+	openssl@0.10.60
 	ouroboros@0.15.6
 	ouroboros_macro@0.15.6
 	parking_lot@0.12.1
@@ -87,7 +88,7 @@ LICENSE+="
 	Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-libs/openssl-1.0.2o-r6:0=
