@@ -5,10 +5,13 @@ EAPI=8
 
 inherit elisp readme.gentoo-r1
 
+COMMIT="a6441224da04656370e993e2616185cc31afaff9"
 DESCRIPTION="GnuPG Pinentry server implementation for Emacs"
-HOMEPAGE="https://www.emacswiki.org/emacs/EasyPG"
-# taken from lisp/net/pinentry.el in GNU Emacs repo (commit bc511a64f6da)
-SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.el.xz"
+HOMEPAGE="https://github.com/ueno/pinentry-el
+	https://www.emacswiki.org/emacs/EasyPG"
+SRC_URI="https://github.com/ueno/${PN}-el/archive/${COMMIT}.tar.gz
+	-> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-el-${COMMIT}"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -16,5 +19,4 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc 
 
 RDEPEND="app-crypt/pinentry[emacs]"
 
-PATCHES=( "${FILESDIR}"/${PN}-emacs-29.patch )
 SITEFILE="50${PN}-gentoo.el"
