@@ -42,7 +42,10 @@ DEPEND="
 	ncurses? ( sys-libs/ncurses:0= )
 	pcm? ( media-libs/alsa-lib )
 	policykit? ( sys-auth/polkit )
-	python? ( ${PYTHON_DEPS} )
+	python? (
+		${PYTHON_DEPS}
+		dev-python/setuptools[${PYTHON_USEDEP}]
+	)
 	speech? (
 		app-accessibility/espeak-ng
 		app-accessibility/flite
@@ -65,6 +68,7 @@ RDEPEND="${DEPEND}
 	java? ( >=virtual/jre-1.8:* )
 "
 BDEPEND="
+	>=dev-lang/tcl-8.6.13-r1
 	virtual/pkgconfig
 	java? ( >=virtual/jdk-1.8:* )
 	nls? ( virtual/libintl )
@@ -135,7 +139,6 @@ src_configure() {
 		$(use_enable ocaml ocaml-bindings)
 		$(use_with pcm pcm-package)
 		$(use_enable policykit polkit)
-		$(use_enable python python-bindings)
 		$(use_enable speech speech-support)
 		$(use_with systemd service-package)
 		$(use_enable tcl tcl-bindings)
