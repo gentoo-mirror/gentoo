@@ -101,8 +101,8 @@ RESTRICT="!test? ( test )"
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
 
-[[ ${MY_PV} == *9999* ]] || \
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
+# [[ ${MY_PV} == *9999* ]] || \
+# KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-arch/unzip
@@ -298,10 +298,6 @@ PATCHES=(
 	# maybe upstreamable
 	"${FILESDIR}/libreoffice-7.5.8.2-icu-74-compatibility.patch"
 
-	# 7.5.9.1
-	"${FILESDIR}/${P}-libcmis-0.6.patch" # prerequisite for below
-	"${FILESDIR}/${P}-curl-8.3.0-mitigation.patch" # bug 891903(?)
-
 	# git master
 	"${WORKDIR}/${PN}-7.5.2.2-loong-buildsys-fix.patch"
 	"${FILESDIR}/${PN}-7.5.6.2-gcc-14.patch"
@@ -415,9 +411,6 @@ src_configure() {
 		RANLIB=llvm-ranlib
 		LDFLAGS+=" -fuse-ld=lld"
 
-		# Workaround for bug #907905
-		filter-lto
-
 		# Workaround for bug #915067
 		append-ldflags -Wl,--undefined-version
 
@@ -443,6 +436,9 @@ src_configure() {
 	else
 		strip-flags
 	fi
+
+	# Workaround for bug #907905
+	filter-lto
 
 	export LO_CLANG_CC=${CC}
 	export LO_CLANG_CXX=${CXX}
