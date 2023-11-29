@@ -6,7 +6,7 @@ EAPI=8
 inherit savedconfig toolchain-funcs
 
 MY_P="${PN}-v${PV}"
-WLROOTS_SLOT="0/16"
+WLROOTS_SLOT="0/18"
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/djpohly/dwl"
 	inherit git-r3
@@ -23,7 +23,7 @@ if [[ ${PV} == *9999* ]]; then
 			;;
 	esac
 else
-	SRC_URI="https://github.com/djpohly/${PN}/releases/download/v${PV}/${MY_P}.tar.gz -> ${P}.gh.tar.gz"
+	SRC_URI="https://codeberg.org/${PN}/${PN}/releases/download/v${PV}/${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -70,7 +70,7 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
-	dodoc README.md
+	dodoc CHANGELOG.md README.md
 
 	save_config config.h
 }
