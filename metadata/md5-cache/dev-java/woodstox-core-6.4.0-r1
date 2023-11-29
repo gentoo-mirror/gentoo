@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=dev-java/msv:0 dev-java/relaxng-datatype:0 dev-java/stax2-api:0 dev-java/xsdlib:0 >=virtual/jdk-11:* dev-java/aqute-bnd-annotation:0 dev-java/osgi-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=dev-java/msv:0 dev-java/relaxng-datatype:0 dev-java/stax2-api:0 dev-java/xsdlib:0 >=virtual/jdk-11:* dev-java/bnd-annotation:0 dev-java/osgi-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=An XML processor that implements Stax (JSR-173), SAX2 and Stax2 APIs
 EAPI=8
 HOMEPAGE=https://github.com/FasterXML/woodstox
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/FasterXML/woodstox/archive/woodstox-core-6.4.0.tar.gz
 _eclasses_=java-utils-2	c04e82b700f977924b211c7cdbc2f096	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
-_md5_=950d670ebe48986ff8af948e4eb973ea
+_md5_=a5beeccc3b7f3c654dff45f743865b05
