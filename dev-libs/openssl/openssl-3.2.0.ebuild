@@ -129,6 +129,7 @@ src_configure() {
 	# code. This has been in the ebuild for > 10 years but even in 2022,
 	# it's still relevant:
 	# - https://github.com/llvm/llvm-project/issues/55255
+	# - https://github.com/openssl/openssl/issues/12247
 	# - https://github.com/openssl/openssl/issues/18225
 	# - https://github.com/openssl/openssl/issues/18663#issuecomment-1181478057
 	# Don't remove the no strict aliasing bits below!
@@ -229,6 +230,8 @@ multilib_src_test() {
 	# -j1 here for https://github.com/openssl/openssl/issues/21999, but it
 	# shouldn't matter as tests were already built earlier, and HARNESS_JOBS
 	# controls running the tests.
+	#
+	# test_symbol_presence: https://github.com/openssl/openssl/issues/22837
 	emake -Onone -j1 HARNESS_JOBS="$(makeopts_jobs)" VFP=1 TESTS='-test_symbol_presence' test
 }
 
