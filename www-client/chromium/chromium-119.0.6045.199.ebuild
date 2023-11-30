@@ -6,9 +6,17 @@ EAPI=8
 # Can't do 12 yet: heavy use of imp, among other things (bug #915001, bug #915062)
 PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
+
+# These variables let us easily bound supported compiler versions in one place.
+# The bundled Clang is updated by Google every ~two weeks, so we can't
+# just assume that anything other than the latest version in ::gentoo
+# will work (and even that will probably break occasionally)
 LLVM_MAX_SLOT=17
+LLVM_MIN_SLOT=16
+MIN_GCC_VER=12
+GN_MIN_VER=0.2122
+
 VIRTUALX_REQUIRED="pgo"
-GN_MIN_VER="0.2114"
 
 CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
 	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr
@@ -19,8 +27,8 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="118.0.5993.70-1raptor0~deb11u1"
-PATCH_V="${PV%%\.*}-2"
+PATCHSET_PPC64="119.0.6045.159-1raptor0~deb12u1"
+PATCH_V="${PV%%\.*}-3"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 	ppc64? (
@@ -31,7 +39,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="amd64 arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio qt5 qt6 screencast selinux vaapi wayland widevine"
 REQUIRED_USE="
@@ -139,18 +147,25 @@ depend_clang_llvm_version() {
 	echo "=sys-devel/lld-$1*"
 }
 
+# When passed multiple arguments we assume that
+# we want a range of versions, inclusive.
 depend_clang_llvm_versions() {
 	local _v
-	if [[ $# -gt 1 ]]; then
+	if [[ $# -eq 1 ]]; then
+		depend_clang_llvm_version "$1"
+	elif [[ $# -eq 2 ]]; then
+		if [[ $1 -eq $2 ]]; then
+			depend_clang_llvm_version "$1"
+		fi
 		echo "|| ("
-		for _v in "$@"; do
+		for ((i=$1; i<=$2; i++)); do
 			echo "("
-			depend_clang_llvm_version "${_v}"
+			depend_clang_llvm_version "${i}"
 			echo ")"
 		done
 		echo ")"
-	elif [[ $# -eq 1 ]]; then
-		depend_clang_llvm_version "$1"
+	else
+		die "depend_clang_llvm_versions() requires 1 or 2 arguments"
 	fi
 }
 
@@ -165,12 +180,12 @@ BDEPEND="
 		qt5? ( dev-qt/qtcore:5 )
 		qt6? ( dev-qt/qtbase:6 )
 	)
-	libcxx? ( >=sys-devel/clang-17 )
-	lto? ( $(depend_clang_llvm_versions 17) )
+	libcxx? ( >=sys-devel/clang-${LLVM_MIN_SLOT} )
+	lto? ( $(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT}) )
 	pgo? (
 		>=dev-python/selenium-3.141.0
 		>=dev-util/web_page_replay_go-20220314
-		$(depend_clang_llvm_versions 17)
+		$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
 	)
 	dev-lang/perl
 	>=dev-util/gn-${GN_MIN_VER}
@@ -187,7 +202,7 @@ BDEPEND="
 : ${CHROMIUM_FORCE_CLANG=no}
 
 if [[ ${CHROMIUM_FORCE_CLANG} == yes ]]; then
-	BDEPEND+=" >=sys-devel/clang-17"
+	BDEPEND+=" >=sys-devel/clang-${LLVM_MIN_SLOT}"
 fi
 
 if ! has chromium_pkg_die ${EBUILD_DEATH_HOOKS}; then
@@ -288,8 +303,8 @@ pkg_setup() {
 
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		local -x CPP="$(tc-getCXX) -E"
-		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge 12; then
-			die "At least gcc 12 is required"
+		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${MIN_GCC_VER}; then
+			die "At least gcc ${MIN_GCC_VER} is required"
 		fi
 		if use pgo && tc-is-cross-compiler; then
 			die "The pgo USE flag cannot be used when cross-compiling"
@@ -300,10 +315,11 @@ pkg_setup() {
 			else
 				CPP="${CHOST}-clang++ -E"
 			fi
-			if ver_test "$(clang-major-version)" -lt 17; then
-				die "At least clang 17 is required"
+			if ver_test "$(clang-major-version)" -lt ${LLVM_MIN_SLOT}; then
+				die "At least Clang ${LLVM_MIN_SLOT} is required"
 			fi
 		fi
+		# Users should never hit this, it's purely a development convenience
 		if ver_test $(gn --version || die) -lt ${GN_MIN_VER}; then
 				die "dev-util/gn >= ${GN_MIN_VER} is required to build this Chromium"
 		fi
@@ -340,6 +356,10 @@ src_prepare() {
 		PATCHES+=( "${WORKDIR}/ppc64le" )
 	fi
 
+	if has_version ">=dev-libs/icu-74.1" && use system-icu ; then
+		PATCHES+=( "${FILESDIR}/chromium-119.0.6045.159-icu-74.patch" )
+	fi
+
 	default
 
 	mkdir -p third_party/node/linux/node-linux-x64/bin || die
@@ -347,7 +367,6 @@ src_prepare() {
 
 	# adjust python interpreter version
 	sed -i -e "s|\(^script_executable = \).*|\1\"${EPYTHON}\"|g" .gn || die
-	sed -i -e "s|vpython3|${EPYTHON}|g" testing/xvfb.py || die
 
 	local keeplibs=(
 		base/third_party/cityhash
@@ -374,6 +393,7 @@ src_prepare() {
 		third_party/angle/src/third_party/ceval
 		third_party/angle/src/third_party/libXNVCtrl
 		third_party/angle/src/third_party/volk
+		third_party/anonymous_tokens
 		third_party/apple_apsl
 		third_party/axe-core
 		third_party/blink
@@ -408,10 +428,10 @@ src_prepare() {
 		third_party/crc32c
 		third_party/cros_system_api
 		third_party/d3
+		third_party/dav1d
 		third_party/dawn
 		third_party/dawn/third_party/gn/webgpu-cts
 		third_party/dawn/third_party/khronos
-		third_party/dav1d
 		third_party/depot_tools
 		third_party/devscripts
 		third_party/devtools-frontend
@@ -440,8 +460,8 @@ src_prepare() {
 		third_party/emoji-segmenter
 		third_party/farmhash
 		third_party/fdlibm
-		third_party/fft2d
 		third_party/ffmpeg
+		third_party/fft2d
 		third_party/flatbuffers
 		third_party/fp16
 		third_party/freetype
@@ -508,7 +528,7 @@ src_prepare() {
 		third_party/omnibox_proto
 		third_party/one_euro_filter
 		third_party/openscreen
-		third_party/openscreen/src/third_party/mozilla
+		third_party/openscreen/src/third_party/
 		third_party/openscreen/src/third_party/tinycbor/src/src
 		third_party/opus
 		third_party/ots
@@ -558,6 +578,7 @@ src_prepare() {
 		third_party/tflite
 		third_party/tflite/src/third_party/eigen3
 		third_party/tflite/src/third_party/fft2d
+		third_party/tflite/src/third_party/xla/third_party/tsl
 		third_party/ruy
 		third_party/six
 		third_party/ukey2
@@ -677,7 +698,7 @@ chromium_configure() {
 		myconf_gn+=" is_clang=false"
 	fi
 
-	# Force lld for lto builds only, otherwise disable, bug 641556
+	# Force lld for lto and pgo builds, otherwise disable, bug 641556
 	if use lto || use pgo; then
 		myconf_gn+=" use_lld=true"
 	else
@@ -838,7 +859,16 @@ chromium_configure() {
 
 		if tc-is-gcc; then
 			# https://bugs.gentoo.org/904455
-			append-cxxflags "$(test-flags-CXX -fno-tree-vectorize)"
+			local -x CPP="$(tc-getCXX) -E"
+			local gcc_version="$(gcc-version)"
+			local need_gcc_fix=false
+			# Drop this complexity as gcc versions age out of ::gentoo
+			if ver_test "${gcc_version}" -lt 12.3; then
+				need_gcc_fix=true
+			elif ver_test "${gcc_version}" -ge 13 && ver_test "${gcc_version}" -lt 13.2; then
+				need_gcc_fix=true
+			fi
+			[[ ${need_gcc_fix} = true ]] && append-cxxflags "$(test-flags-CXX -fno-tree-vectorize)"
 			# https://bugs.gentoo.org/912381
 			filter-lto
 		fi
@@ -896,6 +926,9 @@ chromium_configure() {
 	if use system-icu || use headless; then
 		myconf_gn+=" icu_use_data_file=false"
 	fi
+
+	# Don't need nocompile checks and GN crashes with our config
+	myconf_gn+=" enable_nocompile_tests=false enable_nocompile_tests_new=false"
 
 	# Enable ozone wayland and/or headless support
 	myconf_gn+=" use_ozone=true ozone_auto_platforms=false"
