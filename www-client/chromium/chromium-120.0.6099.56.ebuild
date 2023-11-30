@@ -19,8 +19,9 @@ GN_MIN_VER=0.2122
 # This variable is set to yes when building with GCC is broken.
 # https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
 : ${CHROMIUM_FORCE_CLANG=yes}
-# This variable is set to yes when we need to force libcxx. Since we'll always be forcing clang, too, we can ignore complex depends.
-# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101227 - Chromium 120 - webrtc -  no matching member function for call to 'emplace'
+# This variable is set to yes when we need to force libcxx. Since we'll always force clang, too, we can avoid depends.
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101227 - Chromium 120:
+#    webrtc -  no matching member function for call to 'emplace'
 : ${CHROMIUM_FORCE_LIBCXX=yes}
 
 VIRTUALX_REQUIRED="pgo"
