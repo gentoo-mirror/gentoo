@@ -85,6 +85,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.13.1-tensorpipe.patch
 	"${FILESDIR}"/${PN}-2.0.0-gcc13.patch
 	"${FILESDIR}"/${PN}-2.0.0-cudnn_include_fix.patch
+	"${FILESDIR}"/${P}-cudaExtra.patch
 )
 
 src_prepare() {
@@ -196,8 +197,6 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	use cuda && dolib.so "${BUILD_DIR}"/lib/libnvfuser_codegen.so
-
 	insinto "/var/lib/${PN}"
 	doins "${BUILD_DIR}"/CMakeCache.txt
 
@@ -206,7 +205,6 @@ src_install() {
 	mv "${ED}"/usr/lib/python*/site-packages/caffe2 python/ || die
 	mv "${ED}"/usr/include/torch python/torch/include || die
 	cp torch/version.py python/torch/ || die
-	rm -rf "${ED}"/var/tmp || die
 	python_domodule python/caffe2
 	python_domodule python/torch
 }
