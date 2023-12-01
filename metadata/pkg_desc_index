@@ -898,7 +898,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r2: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.29.84 1.30.3 1.30.6 1.31.0 1.31.1 1.31.2 1.31.4: Universal Command Line Environment for AWS
+app-admin/awscli 1.29.84 1.30.3 1.30.6 1.31.0 1.31.1 1.31.2 1.31.4 1.31.5: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -5099,7 +5099,7 @@ dev-libs/botan 2.19.3-r2 3.1.1 3.2.0-r1: C++ crypto library
 dev-libs/boxfort 0.1.1 0.1.4: Convenient & cross-platform sandboxing C library
 dev-libs/busybee 0.7.0: A messaging abstraction on top of TCP sockets used in HyperDex
 dev-libs/c-blosc 1.21.5: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.10.5 2.11.2: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.10.5 2.11.2 2.11.3: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/cJSON 1.7.16: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1: RPC/Serialization system with capabilities support
@@ -8029,8 +8029,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.28.84 1.29.3 1.29.6 1.33.0 1.33.1 1.33.2 1.33.4 9999: The AWS SDK for Python
-dev-python/botocore 1.31.84 1.32.3 1.32.6 1.33.0 1.33.1 1.33.2 1.33.4 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.28.84 1.29.3 1.29.6 1.33.0 1.33.1 1.33.2 1.33.4 1.33.5 9999: The AWS SDK for Python
+dev-python/botocore 1.31.84 1.32.3 1.32.6 1.33.0 1.33.1 1.33.2 1.33.4 1.33.5 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8055,7 +8055,7 @@ dev-python/canonicaljson 2.0.0: Canonical JSON
 dev-python/capturer 3.0-r1: Easily capture stdout/stderr of the current process and subprocesses
 dev-python/carbon 1.1.10: Backend data caching and persistence daemon for Graphite
 dev-python/casttube 0.2.1-r1: casttube provides a way to interact with the Youtube Chromecast api
-dev-python/cattrs 23.1.2 23.2.1 23.2.2: Composable complex class support for attrs and dataclasses
+dev-python/cattrs 23.1.2 23.2.1 23.2.2 23.2.3: Composable complex class support for attrs and dataclasses
 dev-python/cbor2 5.5.1: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cchardet 2.1.19: High speed universal character encoding detector
 dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library for Python
@@ -8312,7 +8312,7 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5 2.1.5-r2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.14.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.108.0 2.109.0: Google API Client for Python
-dev-python/google-auth 2.23.4: Google Authentication Library
+dev-python/google-auth 2.23.4 2.24.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.1: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.0.0 1.1.0: Google Authentication Library
 dev-python/google-i18n-address 3.1.0: Google's i18n address metadata repository
@@ -8447,7 +8447,7 @@ dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (
 dev-python/jsonschema 4.17.3 4.20.0: An implementation of JSON-Schema validation for Python
 dev-python/jsonschema-path 0.3.1 0.3.2: JSONSchema Spec with object-oriented paths
 dev-python/jsonschema-spec 0.2.4: JSONSchema Spec with object-oriented paths
-dev-python/jsonschema-specifications 2023.11.1: The JSON Schema meta-schemas and vocabularies, exposed as a Registry
+dev-python/jsonschema-specifications 2023.11.1 2023.11.2: The JSON Schema meta-schemas and vocabularies, exposed as a Registry
 dev-python/jsonxs 0.6-r1: Get/set values in JSON and Python datastructures
 dev-python/junit-xml 1.9-r1: Create JUnit XML test result documents
 dev-python/jupyter 1.0.0-r4: Jupyter metapackage. Install all the Jupyter components in one go
@@ -8706,7 +8706,7 @@ dev-python/pathlib2 2.3.7_p1-r1: Backport of pathlib aiming to support the full 
 dev-python/pathspec 0.11.2: Utility library for gitignore style pattern matching of file paths
 dev-python/pathvalidate 3.1.0 3.2.0: A Python library to sanitize/validate a string such as filenames/file-paths/etc
 dev-python/patiencediff 0.2.13 0.2.14: Python implementation of the patiencediff algorithm
-dev-python/patsy 0.5.3-r1: Python module to describe statistical models and design matrices
+dev-python/patsy 0.5.3-r1 0.5.4: Python module to describe statistical models and design matrices
 dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.0.0: Inject some useful and sensible default behaviors into setuptools
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
@@ -8840,7 +8840,7 @@ dev-python/pydyf 0.8.0: A low-level PDF generator
 dev-python/pyeclib 1.6.1: Messaging API for RPC and notifications over different messaging transports
 dev-python/pyelftools 0.30: pure-Python library for analyzing ELF files and DWARF debugging information
 dev-python/pyenchant 3.2.2-r1: Python bindings for the Enchant spellchecking system
-dev-python/pyfakefs 5.3.0 5.3.1: A fake file system that mocks the Python file system modules
+dev-python/pyfakefs 5.3.0 5.3.1 5.3.2: A fake file system that mocks the Python file system modules
 dev-python/pyflakes 3.1.0: Passive checker for Python programs
 dev-python/pyformance 0.4-r2: Performance metrics, based on Coda Hale's Yammer metrics
 dev-python/pyftpdlib 1.5.9: Python FTP server library
@@ -9177,7 +9177,7 @@ dev-python/roman 4.1: An Integer to Roman numerals converter
 dev-python/rope 1.11.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
 dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
-dev-python/rpds-py 0.10.3 0.10.4 0.10.6 0.12.0 0.13.0 0.13.1 0.13.2: Python bindings to Rust's persistent data structures (rpds)
+dev-python/rpds-py 0.10.6 0.13.1 0.13.2: Python bindings to Rust's persistent data structures (rpds)
 dev-python/rply 0.7.8-r1: Pure python parser generator that also works with RPython
 dev-python/rpy 3.5.8 3.5.14: Python interface to the R language
 dev-python/rpyc 5.3.1-r1: Remote Python Call (RPyC), a transparent and symmetric RPC library
@@ -9195,7 +9195,7 @@ dev-python/sabctools 7.0.2 7.1.1 7.1.2 8.0.0: Module providing raw yEnc encoding
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
 dev-python/scikit-build 0.17.6: Improved build system generator for Python C/C++/Fortran/Cython extensions
-dev-python/scikit-build-core 0.6.1: Build backend for CMake based projects
+dev-python/scikit-build-core 0.6.1 0.7.0: Build backend for CMake based projects
 dev-python/scipy 1.10.1 1.11.0-r1 1.11.1 1.11.2 1.11.3 1.11.3-r1 1.11.4: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r2: A very small text templating language
 dev-python/scrypt 0.8.20: Bindings for the scrypt key derivation function library
@@ -9330,7 +9330,7 @@ dev-python/stestr 4.1.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.1.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.0: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 7.4.0 7.6.0: Stripe python bindings
+dev-python/stripe 7.4.0 7.6.0 7.7.0: Stripe python bindings
 dev-python/structlog 23.2.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.1: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.3 1.4.4: A streaming protocol for test results
@@ -14085,7 +14085,7 @@ media-video/obs-studio 29.1.3-r1 29.1.3-r2 30.0.0 9999: Software for Recording a
 media-video/obs-v4l2sink 0.1.0_p20181012-r2: obs studio output plugin for Video4Linux2 device
 media-video/openshot 2.6.1 3.1.1: Award-winning free and open-source video editor
 media-video/oxine 0.7.1-r6: OSD frontend for Xine
-media-video/parole 4.18.0: A simple Xfce4 media player using GStreamer
+media-video/parole 4.18.0 4.18.1: A simple Xfce4 media player using GStreamer
 media-video/peek 1.5.1-r1: Simple animated Gif screen recorder
 media-video/pgmfindclip 1.13: automatically find a clipping border for a sequence of pgm images
 media-video/pipewire 0.3.77-r2 0.3.80 0.3.85 1.0.0 9999: Multimedia processing graphs
