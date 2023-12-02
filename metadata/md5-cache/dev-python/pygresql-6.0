@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://pygresql.github.io/ https://github.com/PyGreSQL/PyGreSQL/ https://pypi.org/project/PyGreSQL/
 INHERIT=distutils-r1 postgres pypi
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11
-KEYWORDS=~alpha amd64 ~hppa ~ia64 ~ppc ~sparc x86
+KEYWORDS=~alpha amd64 ~hppa ~ia64 ppc ~sparc x86
 LICENSE=POSTGRESQL
 RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/P/PyGreSQL/PyGreSQL-6.0.tar.gz
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	6b3c606c5de2531072ffd36eca06a5a9	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	ae136dc2e1c0006e9480d44a6c1886d9	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=228f106a3f39d8e2d11d141077728d5f
+_md5_=60cee3a74a711ca7335875c6c1ff7b57
