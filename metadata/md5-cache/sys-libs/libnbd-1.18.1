@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/nbdkit/libnbd
 INHERIT=bash-completion-r1 python-single-r1
 IUSE=fuse gnutls go ocaml python test python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~sparc ~x86
+KEYWORDS=~amd64 ~ppc64 ~sparc ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=dev-libs/libxml2 fuse? ( sys-fs/fuse:3 ) gnutls? ( net-libs/gnutls:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.libguestfs.org/libnbd/1.18-stable/libnbd-1.18.1.tar.gz
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=dac6b55c6c3938c2f15200a467c64465
+_md5_=6676e6a7b3d874c17aaa84cb901ad8fa
