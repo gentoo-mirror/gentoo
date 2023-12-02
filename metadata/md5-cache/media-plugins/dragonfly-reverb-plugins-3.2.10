@@ -1,11 +1,11 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXrandr media-libs/libglvnd virtual/jack
+DEPEND=media-libs/libglvnd virtual/jack x11-libs/cairo x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext x11-libs/libXext x11-libs/libXrandr
 DESCRIPTION=A set of free reverb effects
 EAPI=8
 HOMEPAGE=https://michaelwillis.github.io/dragonfly-reverb/
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXrandr media-libs/libglvnd virtual/jack
+RDEPEND=media-libs/libglvnd virtual/jack x11-libs/cairo x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext x11-libs/libXext x11-libs/libXrandr
 SLOT=0
 SRC_URI=https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-src.tar.xz
-_md5_=3af86f74e4ee19feb90e864956ddc06e
+_md5_=0f84aa7aa0f33327b4a0872d348d5035
