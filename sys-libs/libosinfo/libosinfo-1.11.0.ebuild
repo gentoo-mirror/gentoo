@@ -16,7 +16,7 @@ IUSE="gtk-doc +introspection +vala test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="vala? ( introspection )"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 # Unsure about osinfo-db-tools rdep, but at least fedora does it too
 RDEPEND="
@@ -44,8 +44,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PV}-build-Add-option-to-disable-libsoup3.patch
-	"${FILESDIR}"/1.11.0-osinfo-Make-xmlError-struct-constant-in-propagate_li.patch
+	"${FILESDIR}"/${PV}-osinfo-Make-xmlError-struct-constant-in-propagate_li.patch
 )
 
 src_prepare() {
@@ -60,7 +59,7 @@ src_configure() {
 		$(meson_feature introspection enable-introspection)
 		$(meson_use test enable-tests)
 		$(meson_feature vala enable-vala)
-		-Dlibsoup3=enabled
+		-Dlibsoup-abi=3.0
 		-Dwith-pci-ids-path="${EPREFIX}"/usr/share/hwdata/pci.ids
 		-Dwith-usb-ids-path="${EPREFIX}"/usr/share/hwdata/usb.ids
 	)

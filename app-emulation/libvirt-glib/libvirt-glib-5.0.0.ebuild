@@ -10,14 +10,14 @@ HOMEPAGE="https://libvirt.org/ https://gitlab.com/libvirt/libvirt-glib/"
 SRC_URI="https://libvirt.org/sources/glib/${P}.tar.xz"
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="gtk-doc +introspection test +vala"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="vala? ( introspection )"
 
 RDEPEND="
 	>=dev-libs/libxml2-2.9.1
-	>=app-emulation/libvirt-1.2.8:=
+	>=app-emulation/libvirt-2.3.0:=
 	>=dev-libs/glib-2.48.0:2
 	introspection? ( >=dev-libs/gobject-introspection-1.48.0:= )
 "
@@ -30,11 +30,6 @@ BDEPEND="
 		app-text/docbook-xml-dtd:4.3 )
 	vala? ( $(vala_depend) )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.0.0-Make-xmlError-structs-constant.patch
-	"${FILESDIR}"/${PN}-4.0.0-libvirt-gconfig-Add-more-libxml-includes.patch
-)
 
 src_prepare() {
 	default
