@@ -89,12 +89,14 @@ index 927e95fb9..5908be6de 100644
      3rdparty/stb/stb_image.h
      3rdparty/stb/stb_image_write.h
      3rdparty/stb/stb_image_resize.h
-@@ -580,7 +534,7 @@ endif()
+@@ -580,9 +534,9 @@ endif()
  add_library(renderdoc SHARED ${renderdoc_objects})
  target_compile_definitions(renderdoc ${RDOC_DEFINITIONS})
  target_include_directories(renderdoc ${RDOC_INCLUDES})
 -target_link_libraries(renderdoc ${RDOC_LIBRARIES} glslang glslang-default-resource-limits SPIRV)
 +target_link_libraries(renderdoc ${RDOC_LIBRARIES} glslang glslang-default-resource-limits miniz::miniz PkgConfig::lz4 PkgConfig::zstd SPIRV)
+ # Newer versions of glslang require C++17 for std::variant
+ set_target_properties(renderdoc PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
  
  add_dependencies(renderdoc renderdoc_libentry)
  

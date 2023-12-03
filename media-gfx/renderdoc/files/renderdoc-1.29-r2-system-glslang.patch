@@ -5,6 +5,15 @@ Subject: [PATCH] system glslang
 
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
+@@ -383,7 +383,7 @@
+ endif()
+
+ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-strict-aliasing")
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-strict-aliasing")
+     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden")
+     if(ENABLE_GGP)
+         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -gline-tables-only -fno-omit-frame-pointer")
 @@ -469,6 +469,17 @@ elseif(UNIX)
      endif()
  endif()
@@ -25,12 +34,14 @@ Subject: [PATCH] system glslang
  # these variables are handled within the CMakeLists.txt in qrenderdoc,
 --- a/renderdoc/CMakeLists.txt
 +++ b/renderdoc/CMakeLists.txt
-@@ -604,7 +604,7 @@ endif()
+@@ -604,7 +604,9 @@ endif()
  add_library(renderdoc SHARED ${renderdoc_objects})
  target_compile_definitions(renderdoc ${RDOC_DEFINITIONS})
  target_include_directories(renderdoc ${RDOC_INCLUDES})
 -target_link_libraries(renderdoc ${RDOC_LIBRARIES})
 +target_link_libraries(renderdoc ${RDOC_LIBRARIES} glslang glslang-default-resource-limits SPIRV)
++# Newer versions of glslang require C++17 for std::variant
++set_target_properties(renderdoc PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
  
  add_dependencies(renderdoc renderdoc_libentry)
  
@@ -232,6 +243,26 @@ Subject: [PATCH] system glslang
  
  rdcstr rdcspv::Compile(const rdcspv::CompilationSettings &settings, const rdcarray<rdcstr> &sources,
                         rdcarray<uint32_t> &spirv)
+--- a/qrenderdoc/Code/pyrenderdoc/CMakeLists.txt
++++ b/qrenderdoc/Code/pyrenderdoc/CMakeLists.txt
+@@ -1,11 +1,3 @@
+-# Build as C++14 for the python bindings template-fu
+-if (CMAKE_VERSION VERSION_LESS "3.1")
+-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+-else ()
+-    set (CMAKE_CXX_STANDARD 14)
+-    set (CMAKE_CXX_STANDARD_REQUIRED ON)
+-endif ()
+-
+ # include paths for qrenderdoc, the internal renderdoc API, and Python
+ set(MODULE_INCLUDES
+     PRIVATE ${CMAKE_SOURCE_DIR}/qrenderdoc
+@@ -82,3 +74,5 @@
+ # Make sure we build after the wrappers are generated
+ add_dependencies(_renderdoc swig-bindings)
+ add_dependencies(_qrenderdoc swig-bindings)
++
++set_target_properties(_renderdoc _qrenderdoc PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED ON)
 -- 
 2.42.0
 

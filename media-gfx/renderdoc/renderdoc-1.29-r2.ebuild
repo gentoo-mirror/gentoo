@@ -47,7 +47,7 @@ RDEPEND="
 	app-arch/lz4:=
 	app-arch/zstd:=
 	dev-libs/miniz:=
-	>=dev-util/glslang-1.3.231:= <dev-util/glslang-1.3.268
+	>=dev-util/glslang-1.3.231:=
 	x11-libs/libX11
 	x11-libs/libxcb:=
 	x11-libs/xcb-util-keysyms
@@ -99,8 +99,8 @@ PATCHES=(
 	# Needed to prevent sandbox violations during build.
 	"${FILESDIR}"/${PN}-1.27-env-home.patch
 
-	"${FILESDIR}"/${PN}-1.29-system-glslang.patch
-	"${FILESDIR}"/${PN}-1.29-system-compress.patch
+	"${FILESDIR}"/${PN}-1.29-r2-system-glslang.patch
+	"${FILESDIR}"/${PN}-1.29-r2-system-compress.patch
 )
 
 DOCS=( util/LINUX_DIST_README )
