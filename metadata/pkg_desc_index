@@ -2311,7 +2311,7 @@ app-emulation/libguestfs 1.48.6: Tools for accessing, inspecting, and modifying 
 app-emulation/libguestfs-appliance 1.46.0: VM appliance disk image used in libguestfs package
 app-emulation/libspectrum 1.5.0: Spectrum emulation library
 app-emulation/libvirt 9.3.0-r1 9.4.0-r4 9.5.0-r1 9.6.0 9.8.0 9.9.0 9999: C toolkit to manipulate virtual machines
-app-emulation/libvirt-glib 4.0.0: GLib and GObject mappings for libvirt
+app-emulation/libvirt-glib 4.0.0 5.0.0: GLib and GObject mappings for libvirt
 app-emulation/nemu 3.0.0 3.1.0: ncurses interface for QEMU
 app-emulation/open-vm-tools 12.2.0 12.2.5: Tools for VMware guests
 app-emulation/pcem 17-r2: A PC emulator that specializes in running old operating systems and software
@@ -16923,8 +16923,8 @@ sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator call
 sys-apps/opal-utils 7.0: OPAL firmware utilities
 sys-apps/openrazer 3.6.1-r2 3.7.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.48 0.49 0.50 0.50-r1 0.51 0.52.1 9999: OpenRC manages the services, startup and shutdown of a host
-sys-apps/osinfo-db 20230719: osinfo database files
-sys-apps/osinfo-db-tools 1.10.0-r1 1.10.0-r2: Tools for managing the osinfo database
+sys-apps/osinfo-db 20230719 20231027: osinfo database files
+sys-apps/osinfo-db-tools 1.10.0-r1 1.10.0-r2 1.11.0: Tools for managing the osinfo database
 sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32, Elf64, binaries
 sys-apps/paxctld 1.2.3 1.2.5: PaX flags maintenance daemon
 sys-apps/pciutils 3.8.0-r1 3.9.0 3.10.0: Various utilities dealing with the PCI bus
@@ -17292,7 +17292,7 @@ sys-devel/flex 2.6.4-r5 2.6.4-r6: The Fast Lexical Analyzer
 sys-devel/gcc 8.5.0-r1 9.5.0 10.5.0 11.4.1_p20230622 11.4.1_p20230824 11.4.1_p20231116 11.4.1_p20231123 11.4.1_p20231130 11.5.9999 12.3.1_p20230825 12.3.1_p20231117 12.3.1_p20231124 12.3.1_p20231201 12.4.9999 13.2.1_p20230826 13.2.1_p20231014 13.2.1_p20231118 13.2.1_p20231125 13.2.1_p20231202 13.3.9999 14.0.0_pre20231119 14.0.0_pre20231126 14.0.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 9999: Utility to manage compilers
-sys-devel/gdb 13.2-r1 13.2-r2 14.0.91 9999: GNU debugger
+sys-devel/gdb 13.2-r1 13.2-r2 14.1 9999: GNU debugger
 sys-devel/gdb-apple 1752: Apple branch of the GNU Debugger, Developer Tools 4.3
 sys-devel/gettext 0.21.1 0.22-r1 0.22.2 0.22.3 0.22.4: GNU locale utilities
 sys-devel/gnuconfig 20221007 20230121 20230731 99999999: Updated config.sub and config.guess file from GNU
@@ -17554,7 +17554,7 @@ sys-libs/libmodulemd 2.15.0 9999: C Library for manipulating Fedora Modularity m
 sys-libs/libnbd 1.14.1 1.16.1-r1 1.18.1: NBD client library in userspace
 sys-libs/libnvme 1.2-r1 1.3-r1 1.4 1.5-r2 1.6 1.6-r1: C Library for NVM Express on Linux
 sys-libs/libomp 14.0.6-r1 15.0.7-r2 15.0.7-r6 16.0.6 17.0.5 17.0.6 18.0.0_pre20231119 18.0.0_pre20231129 18.0.0.9999: OpenMP runtime library for LLVM/clang compiler
-sys-libs/libosinfo 1.10.0-r1: GObject library for managing information about real and virtual OSes
+sys-libs/libosinfo 1.10.0-r1 1.11.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
 sys-libs/libseccomp 2.5.4 2.5.4-r1 9999: high level interface to Linux seccomp filter
