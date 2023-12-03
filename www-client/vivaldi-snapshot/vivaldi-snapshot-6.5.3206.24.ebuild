@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="114"
+CHROMIUM_VERSION="117"
 CHROMIUM_LANGS="
 	af
 	am
@@ -113,10 +113,7 @@ IUSE="gtk proprietary-codecs qt5 widevine"
 RESTRICT="bindist mirror"
 
 RDEPEND="
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
