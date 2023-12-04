@@ -4,22 +4,22 @@
 EAPI=8
 
 JAVA_PKG_IUSE="doc source"
-# 3.35.0 according to
-# https://github.com/eclipse-jdt/eclipse.jdt.core/blob/R4_29/org.eclipse.jdt.core.compiler.batch/pom.xml#L20
-MAVEN_ID="org.eclipse.jdt:org.eclipse.jdt.core.compiler.batch:3.35.0"
+# 3.36.0 according to
+# https://github.com/eclipse-jdt/eclipse.jdt.core/blob/R4_30/org.eclipse.jdt.core.compiler.batch/pom.xml#L20
+MAVEN_ID="org.eclipse.jdt:org.eclipse.jdt.core.compiler.batch:3.36.0"
 
 inherit java-pkg-2 java-pkg-simple prefix
 
-DMF="R-${PV}-202309031000"
+DMF="R-${PV/_rc/RC}-202312010110"
 
 DESCRIPTION="Eclipse Compiler for Java"
 HOMEPAGE="https://www.eclipse.org/"
-SRC_URI="https://download.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${PV}.jar"
+SRC_URI="https://download.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${PV/_rc/RC}.jar"
 S="${WORKDIR}"
 
 LICENSE="EPL-1.0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-SLOT="4.29"
+SLOT="4.30"
 
 BDEPEND="
 	app-arch/unzip
