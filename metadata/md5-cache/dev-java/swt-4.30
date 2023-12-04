@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install preinst prepare setup test unpack
+DEPEND=app-accessibility/at-spi2-core:2 dev-libs/glib x11-libs/gtk+:3 x11-libs/libXtst cairo? ( x11-libs/cairo ) opengl? ( virtual/glu virtual/opengl ) webkit? ( net-libs/webkit-gtk:4.1 ) >=virtual/jdk-17:*[-headless-awt] x11-base/xorg-proto x11-libs/libX11 x11-libs/libXrender x11-libs/libXt x11-libs/libXtst >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=GTK based SWT Library
+EAPI=8
+HOMEPAGE=https://www.eclipse.org/swt/
+INHERIT=flag-o-matic java-pkg-2 java-pkg-simple toolchain-funcs
+IUSE=cairo opengl webkit doc source
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=CPL-1.0 LGPL-2.1 MPL-1.1
+RDEPEND=app-accessibility/at-spi2-core:2 dev-libs/glib x11-libs/gtk+:3 x11-libs/libXtst cairo? ( x11-libs/cairo ) opengl? ( virtual/glu virtual/opengl ) webkit? ( net-libs/webkit-gtk:4.1 ) >=virtual/jre-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=4.27
+SRC_URI=amd64? ( https://download.eclipse.org/eclipse/downloads/drops4/R-4.30-202312010110/swt-4.30-gtk-linux-x86_64.zip ) arm64? ( https://download.eclipse.org/eclipse/downloads/drops4/R-4.30-202312010110/swt-4.30-gtk-linux-aarch64.zip ) ppc64? ( https://download.eclipse.org/eclipse/downloads/drops4/R-4.30-202312010110/swt-4.30-gtk-linux-ppc64le.zip )
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	6b3c606c5de2531072ffd36eca06a5a9	java-utils-2	c04e82b700f977924b211c7cdbc2f096	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
+_md5_=e816a0d19166cfcd142d9e7dcd05afab
