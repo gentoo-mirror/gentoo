@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/osgi-annotation:0 dev-java/osgi-core:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=OSGi Companion Code for org.osgi.service.subsystem
+EAPI=8
+HOMEPAGE=https://www.osgi.org/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-java/osgi-annotation:0 dev-java/osgi-core:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://repo1.maven.org/maven2/org/osgi/org.osgi.service.subsystem/1.1.0/org.osgi.service.subsystem-1.1.0-sources.jar -> osgi-service-subsystem-1.1.0-sources.jar
+_eclasses_=java-utils-2	c04e82b700f977924b211c7cdbc2f096	java-pkg-2	1794573de2f5124d88b64ee5dc9aabb4	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
+_md5_=2b10f4003031b200eae184c26e9fe37f
