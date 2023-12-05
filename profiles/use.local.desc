@@ -8383,7 +8383,10 @@ sys-kernel/gentoo-kernel:hardened - Use selection of hardening options recommend
 sys-kernel/gentoo-kernel:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-kernel-bin:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
+sys-kernel/installkernel-gentoo:dracut - Generate an initrd or UKI on each kernel installation
 sys-kernel/installkernel-gentoo:grub - Re-generate grub.cfg on each kernel installation
+sys-kernel/installkernel-gentoo:uki - Install UKIs to ESP/EFI/Linux for EFI stub booting and/or bootloaders with support for auto-discovering UKIs
+sys-kernel/installkernel-gentoo:ukify - Build an UKI with systemd's ukify on each kernel installation
 sys-kernel/kpatch:contrib - Enable contrib kpatch services files.
 sys-kernel/kpatch:kmod - Enable a kernel module (.ko file) which provides an interface for the patch modules to register new functions for replacement.
 sys-kernel/kpatch:kpatch - Enable a command-line tool which allows a user to manage a collection of patch modules.
