@@ -3019,7 +3019,7 @@ app-portage/no-distcc-env 9999: package.env files to disable distcc on a per-pac
 app-portage/overlint 0.5.3-r4: Simple tool for static analysis of overlays
 app-portage/pfl 3.2.1: Searchable online file/package database for Gentoo
 app-portage/pgo 0.0.2 0.0.3 9999: A command line interface for packages.gentoo.org
-app-portage/pkg-testing-tools 0.1.0 0.1.2: Packages testing tools for Gentoo
+app-portage/pkg-testing-tools 0.1.0 0.1.2 0.2.0: Packages testing tools for Gentoo
 app-portage/portage-utils 0.95-r1 0.96-r1 0.96.1 9999: Small and fast Portage helper tools written in C
 app-portage/porticron 0.7.1-r1: cron script to sync portage and send update mails to root
 app-portage/portpeek 3.2.3 3.2.3-r1 3.2.4: A helper program for maintaining the package.keyword and package.unmask files
@@ -8174,7 +8174,7 @@ dev-python/distro 1.8.0: Reliable machine-readable Linux distribution informatio
 dev-python/dj-database-url 2.1.0: Use Database URLs in your Django Application
 dev-python/dj-email-url 1.0.6: Use an URL to configure email backend settings in your Django Application
 dev-python/dj-search-url 0.1-r1: Use Search URLs in your Django Haystack Application
-dev-python/django 3.2.22 4.1.12 4.2.6 4.2.8: High-level Python web framework
+dev-python/django 3.2.22 4.1.12 4.2.6 4.2.8 5.0: High-level Python web framework
 dev-python/django-auth-ldap 4.4.0 4.5.0 4.6.0: Django LDAP authentication backend
 dev-python/django-cache-url 3.4.4 3.4.5: Use Cache URLs in your Django application
 dev-python/django-cacheops 7.0.1 7.0.2: ORM cache with automatic granular event-driven invalidation for Django
@@ -8182,14 +8182,14 @@ dev-python/django-configurations 2.5: A helper for organizing Django settings
 dev-python/django-cors-headers 4.2.0 4.3.0 4.3.1: Django App that adds CORS (Cross-Origin Resource Sharing) headers to responses
 dev-python/django-crispy-forms 2.0-r1 2.1: DRY Django forms
 dev-python/django-debug-toolbar 4.1 4.2.0: A configurable set of panels that display various debug information
-dev-python/django-filter 23.3 23.4: Django app allowing declarative dynamic QuerySet filtering from URL parameters
+dev-python/django-filter 23.3 23.4 23.5: Django app allowing declarative dynamic QuerySet filtering from URL parameters
 dev-python/django-js-asset 2.1.0: Script tag with additional attributes for django.forms.Media
 dev-python/django-otp 1.2.2 1.2.3 1.2.4 1.3.0: Django framework adding two-factor authentication using one-time passwords
 dev-python/django-prometheus 2.3.1: Library to export Django metrics for Prometheus
 dev-python/django-redis 5.3.0 5.4.0: Full featured redis cache backend for Django
 dev-python/django-registration 3.3-r1 3.4: user-registration application for Django
 dev-python/django-sortedm2m 3.1.1-r1: Drop-in replacement for django's many to many field with sorted relations
-dev-python/django-tables2 2.6.0: Table/data-grid framework for Django
+dev-python/django-tables2 2.6.0 2.7.0: Table/data-grid framework for Django
 dev-python/django-taggit 3.1.0: Simple tagging for Django
 dev-python/django-timezone-field 6.0.1 6.1.0: A Django app providing database and form fields for timezone objects
 dev-python/django_polymorphic 3.1-r1: Seamless Polymorphic Inheritance for Django Models
@@ -8746,7 +8746,7 @@ dev-python/pip 23.3.1: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 12.4.0: Install packages and run Python with them
 dev-python/pipdeptree 2.13.0 2.13.1: Utility for displaying installed packages in a dependency tree
 dev-python/pipenv 2023.7.11 2023.7.11-r1 2023.9.8: Python Development Workflow for Humans
-dev-python/pipx 1.2.1 1.3.1 1.3.2: Install and Run Python Applications in Isolated Environments
+dev-python/pipx 1.2.1 1.3.1 1.3.2 1.3.3: Install and Run Python Applications in Isolated Environments
 dev-python/pivy 0.6.8: Coin3D bindings for Python
 dev-python/pkgconfig 1.5.5-r1: Interface Python with pkg-config
 dev-python/pkgcraft 0.0.6 0.0.7 0.0.8 9999: Python bindings for pkgcraft
@@ -9116,7 +9116,7 @@ dev-python/pyvirtualdisplay 3.0: Python wrapper for Xvfb, Xephyr and Xvnc
 dev-python/pywavelets 1.4.1 1.5.0: Discrete Wavelet Transforms in Python
 dev-python/pywayland 0.4.17: Python bindings for the libwayland library
 dev-python/pywinrm 0.4.3: Python client for the Windows Remote Management (WinRM) service
-dev-python/pywlroots 0.15.24-r2 0.16.6-r1: Python binding to the wlroots library using cffi
+dev-python/pywlroots 0.15.24-r2 0.16.6-r2: Python binding to the wlroots library using cffi
 dev-python/pyx 0.16 0.16-r1: Python package for the generation of encapsulated PostScript figures
 dev-python/pyxDamerauLevenshtein 1.7.1: Implements the Damerau-Levenshtein edit distance algorithm for Python in Cython
 dev-python/pyxattr 0.8.1: Python interface to xattr
@@ -9124,7 +9124,7 @@ dev-python/pyxdg 0.28-r1: A Python module to deal with freedesktop.org specifica
 dev-python/pyyaml 6.0.1-r1: YAML parser and emitter for Python
 dev-python/pyyaml_env_tag 0.1-r1: A custom YAML tag for referencing environment variables in YAML files
 dev-python/pyzbar 0.1.9: Read one-dimensional barcodes and QR codes from Python
-dev-python/pyzmq 25.1.1: Lightweight and super-fast messaging library built on top of the ZeroMQ library
+dev-python/pyzmq 25.1.1 25.1.2: Lightweight and super-fast messaging library built on top of the ZeroMQ library
 dev-python/pyzotero 1.5.9 1.5.10 1.5.15 1.5.16 1.5.17 1.5.18: A Python client for the Zotero API
 dev-python/qdarkstyle 3.1 3.2.1 3.2.2 3.2.3: A dark style sheet for QtWidgets application
 dev-python/qiskit-aer 0.11.2-r1 0.12.2 0.13.0-r1 0.13.1: High performance simulator for quantum circuits that includes noise models
@@ -16285,7 +16285,7 @@ sci-mathematics/wxmaxima 23.04.1 23.07.0 23.08.0 23.10.0: Graphical frontend to 
 sci-mathematics/yacas 1.9.1-r1: General purpose computer algebra system
 sci-mathematics/yafu 1.34.3-r1: Yet another factoring utility
 sci-mathematics/yices2 2.6.4-r1: SMT Solver supporting SMT-LIB and Yices specification language
-sci-mathematics/z3 4.12.2: An efficient theorem prover
+sci-mathematics/z3 4.12.2 4.12.3: An efficient theorem prover
 sci-misc/ViSP-images 3.3.0 3.5.0: ViSP images data set
 sci-misc/apertium 3.2.0 3.8.3: Shallow-transfer machine Translation engine and toolbox
 sci-misc/boinc 7.22.0-r1 7.24.1-r1 9999: The Berkeley Open Infrastructure for Network Computing
