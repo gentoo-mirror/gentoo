@@ -3,9 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-
-inherit cmake python-single-r1
+inherit cmake
 
 MY_P=${PN}$(ver_cut 1)-v$(ver_cut 2-4)
 
@@ -26,16 +24,14 @@ HOMEPAGE="https://geant4.web.cern.ch/"
 SRC_URI="https://geant4-data.web.cern.ch/geant4-data/releases/${MY_P}.tar.gz"
 
 LICENSE="geant4"
-SLOT="4"
+SLOT="4/$(ver_cut 1-4)"
 KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="+c++17 c++20 +data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl
-	python qt5 raytracerx static-libs tbb threads trajectories vtk"
+IUSE="+data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl
+	qt5 raytracerx static-libs tbb threads trajectories vtk"
 
 REQUIRED_USE="
-	^^ ( c++17 c++20 )
 	inventor? ( opengl )
 	motif? ( opengl )
-	python? ( ${PYTHON_REQUIRED_USE} )
 	qt5? ( opengl )
 	tbb? ( threads )
 	vtk? ( qt5 )
@@ -43,20 +39,14 @@ REQUIRED_USE="
 
 RDEPEND="
 	dev-libs/expat
-	>=sci-physics/clhep-2.4.5.1:2=[threads?]
-	data? ( ~sci-physics/geant-data-4.11.0.0 )
+	>=sci-physics/clhep-2.4.6.2:2=[threads?]
+	data? ( ~sci-physics/geant-data-4.11.1.0 )
 	doc? ( app-doc/geant-docs )
 	gdml? ( dev-libs/xerces-c )
 	hdf5? ( sci-libs/hdf5[threads?] )
 	inventor? ( media-libs/SoXt )
 	motif? ( x11-libs/motif:0 )
 	opengl? ( virtual/opengl )
-	python? (
-		${PYTHON_DEPS}
-		$(python_gen_cond_dep '
-			dev-libs/boost:=[python,${PYTHON_USEDEP}]
-		')
-	)
 	qt5? (
 		dev-qt/qt3d:5
 		dev-qt/qtcore:5
@@ -82,7 +72,6 @@ PATCHES=(
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_DATADIR="${EPREFIX}/usr/share/geant4"
-		-DCMAKE_CXX_STANDARD=$( (usev c++17 || usev c++20) | cut -c4-)
 		-DGEANT4_BUILD_BUILTIN_BACKTRACE=$(usex debug)
 		-DGEANT4_BUILD_MULTITHREADED=$(usex threads)
 		-DGEANT4_BUILD_STORE_TRAJECTORY=$(usex trajectories)
@@ -98,7 +87,6 @@ src_configure() {
 		-DGEANT4_USE_HDF5=$(usex hdf5)
 		-DGEANT4_USE_INVENTOR=$(usex inventor)
 		-DGEANT4_USE_OPENGL_X11=$(usex opengl)
-		-DGEANT4_USE_PYTHON=$(usex python)
 		-DGEANT4_USE_QT=$(usex qt5)
 		-DGEANT4_USE_RAYTRACER_X11=$(usex raytracerx)
 		-DGEANT4_USE_SYSTEM_CLHEP=ON
@@ -110,13 +98,6 @@ src_configure() {
 		-DBUILD_STATIC_LIBS=$(usex static-libs)
 	)
 
-	if use python; then
-		mycmakeargs+=(
-			-DPYTHON_EXECUTABLE="${EPREFIX}/usr/bin/${EPYTHON}"
-			-DCMAKE_INSTALL_PYTHONDIR="${EPREFIX}/usr/lib/${EPYTHON}/site-packages"
-		)
-	fi
-
 	cmake_src_configure
 }
 
@@ -125,7 +106,6 @@ src_install() {
 	# binmake.gmk is only useful for legacy build systems
 	sed -i -e 's/-lG4clhep/-lCLHEP/' config/binmake.gmk || die
 	cmake_src_install
-	use python && python_optimize
 	rm "${ED}"/usr/bin/*.{sh,csh} || die "failed to remove obsolete shell scripts"
 	einstalldocs
 }

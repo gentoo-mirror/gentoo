@@ -24,12 +24,12 @@ IUSE="doc examples geant3 +g4root vgm test"
 
 RDEPEND="
 	sci-physics/clhep:=
-	>=sci-physics/geant-4.11[c++17,opengl,geant3?]
-	sci-physics/root:=[c++17,-vmc(-)]
-	>=sci-physics/vmc-2.0:=[c++17]
-	vgm? ( <=sci-physics/vgm-5.0:= )"
+	>=sci-physics/geant-4.11.1:=[opengl,geant3?]
+	sci-physics/root:=
+	>=sci-physics/vmc-2.0:=
+	vgm? ( >=sci-physics/vgm-5.1:= )"
 DEPEND="${RDEPEND}
-	test? ( >=sci-physics/geant-4.11[gdml] )"
+	test? ( >=sci-physics/geant-4.11.1:=[gdml] )"
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
 RESTRICT="
 	!examples? ( test )
@@ -68,7 +68,6 @@ src_compile() {
 }
 
 src_test() {
-	export QT_DEBUG_PLUGINS=1
 	cd examples || die
 	virtx ./test_suite.sh --debug --g3=off --garfield=off --builddir="${BUILD_DIR}" || die
 	virtx ./test_suite_exe.sh --g3=off --garfield=off --garfield=off --builddir="${BUILD_DIR}" || die
