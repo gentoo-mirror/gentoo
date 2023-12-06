@@ -898,7 +898,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r2: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.30.3 1.30.6 1.31.6 1.31.7: Universal Command Line Environment for AWS
+app-admin/awscli 1.30.3 1.30.6 1.31.6 1.31.7 1.31.8: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -1142,7 +1142,7 @@ app-arch/ncompress 5.0 5.0-r1: Classic compress & uncompress programs for .Z (LZ
 app-arch/p7zip 16.02-r8 17.05-r1: Port of 7-Zip archiver for Unix
 app-arch/pack 0.0.0.1: Haskell implementation of pack compression from the early 1980s
 app-arch/par2cmdline 0.8.1-r1 0.8.1-r2: A PAR-2.0 file verification and repair tool
-app-arch/par2cmdline-turbo 1.1.0 9999: par2cmdline × ParPar: speed focused par2cmdline fork
+app-arch/par2cmdline-turbo 1.1.0 1.1.1 9999: par2cmdline × ParPar: speed focused par2cmdline fork
 app-arch/patool 1.12_p20230424 1.14.1 1.15.0 2.0.0: Portable archive file manager
 app-arch/pax 20201030: pax (Portable Archive eXchange) is the POSIX standard archive tool
 app-arch/pbzip2 1.1.13: Parallel bzip2 (de)compressor using libbz2
@@ -2683,7 +2683,7 @@ app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
 app-misc/evtest 1.33 1.34 1.35: test program for capturing input device events
 app-misc/faq 0.0.7: Format agnostic jQ
-app-misc/fastfetch 0.1.9999 0.2.9999 1.12.2 2.2.3 2.3.1: Fast neofetch-like system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 1.12.2 2.2.3 2.3.2: Fast neofetch-like system information tool
 app-misc/fdupes 2.2.1 9999: Identify/delete duplicate files residing within specified directories
 app-misc/fdutils 5.6_p2: Utilities for configuring and debugging the Linux floppy driver
 app-misc/fhem 6.2: A GPL'd perl server for house automation
@@ -8008,9 +8008,9 @@ dev-python/automat 22.10.0: Self-service finite-state machines for the programme
 dev-python/autopage 0.5.2: A library to provide automatic paging for console output
 dev-python/autopep8 2.0.4_p20231027 9999: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
-dev-python/aws-sam-translator 1.80.0 1.81.0: A library that transform SAM templates into AWS CloudFormation templates
+dev-python/aws-sam-translator 1.80.0 1.81.0 1.82.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.12.1: AWS X-Ray SDK for Python
-dev-python/awxkit 23.4.0 23.5.0: Command line interface for Ansible AWX
+dev-python/awxkit 23.4.0 23.5.0 23.5.1: Command line interface for Ansible AWX
 dev-python/babelfish 0.6.0-r2 9999: Python library to work with countries and languages
 dev-python/backcall 0.2.0-r1: Specifications for callback functions passed in to an API
 dev-python/backoff 2.2.1: Function decoration for backoff and retry
@@ -8042,8 +8042,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.29.3 1.29.6 1.33.6 1.33.7 9999: The AWS SDK for Python
-dev-python/botocore 1.32.3 1.32.6 1.33.6 1.33.7 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.29.3 1.29.6 1.33.6 1.33.7 1.33.8 9999: The AWS SDK for Python
+dev-python/botocore 1.32.3 1.32.6 1.33.6 1.33.7 1.33.8 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8217,7 +8217,7 @@ dev-python/dominate 2.8.0 2.9.0: Library for creating and manipulating HTML docu
 dev-python/doublex 1.9.6.1: Python test doubles
 dev-python/doublex-expects 0.7.1-r1: Expects matchers for Doublex test doubles assertions
 dev-python/dparse 0.6.3-r1: A parser for Python dependency files
-dev-python/dulwich 0.21.6-r1: Pure-Python implementation of the Git file formats and protocols
+dev-python/dulwich 0.21.6-r1 0.21.7: Pure-Python implementation of the Git file formats and protocols
 dev-python/easy-thumbnails 2.8.5: Easy thumbnails for Django
 dev-python/easyprocess 1.1-r1: Easy to use Python subprocess interface
 dev-python/ecdsa 0.18.0: ECDSA cryptographic signature library in pure Python
@@ -8228,7 +8228,7 @@ dev-python/elasticsearch 8.11.0: Official Elasticsearch client library for Pytho
 dev-python/elementpath 4.1.5: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/email-validator 2.1.0_p1: A robust email syntax and deliverability validation library
 dev-python/emcee 3.1.4: Python ensemble sampling toolkit for affine-invariant MCMC
-dev-python/emoji 2.6.0 2.7.0 2.8.0: Emoji for Python
+dev-python/emoji 2.6.0 2.7.0 2.8.0 2.9.0: Emoji for Python
 dev-python/empy 3.3.4-r1: A powerful and robust templating system for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 23.3.1: Shared pip wheel for ensurepip Python module
@@ -8306,7 +8306,7 @@ dev-python/fritzconnection 1.12.2 1.13.0 1.13.1 1.13.2 1.13.2-r1: Lib/tool to co
 dev-python/frozendict 2.3.8 2.3.9: A simple immutable mapping for python
 dev-python/frozenlist 1.3.3 1.4.0: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
-dev-python/fsspec 2023.10.0 2023.12.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2023.10.0 2023.12.0 2023.12.1: A specification that python filesystems should adhere to
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
 dev-python/funcy 2.0: A collection of fancy functional tools focused on practicality
 dev-python/furo 2023.9.10: Clean customisable Sphinx documentation theme
@@ -8326,7 +8326,7 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5 2.1.5-r2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.14.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.108.0 2.109.0: Google API Client for Python
-dev-python/google-auth 2.23.4 2.24.0: Google Authentication Library
+dev-python/google-auth 2.23.4 2.24.0 2.25.1: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.1: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.0.0 1.1.0: Google Authentication Library
 dev-python/google-i18n-address 3.1.0: Google's i18n address metadata repository
@@ -8472,7 +8472,7 @@ dev-python/jupyter-events 0.9.0: Jupyter Event System library
 dev-python/jupyter-kernel-test 0.6.0: A tool for testing Jupyter kernels
 dev-python/jupyter-lsp 2.2.0 2.2.1: Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab
 dev-python/jupyter-packaging 0.12.3: Tools to help build and install Jupyter Python packages
-dev-python/jupyter-server 2.9.1 2.10.1 2.11.0 2.11.1 2.11.2: Core services, APIs, and REST endpoints to Jupyter web applications
+dev-python/jupyter-server 2.9.1 2.10.1 2.11.0 2.11.1 2.11.2 2.12.0: Core services, APIs, and REST endpoints to Jupyter web applications
 dev-python/jupyter-server-fileid 0.9.0: An extension that maintains file IDs for documents in a running Jupyter Server
 dev-python/jupyter-server-mathjax 0.2.6: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 3.2.2: Jupyter notebook server extension to proxy web services
@@ -8999,7 +8999,7 @@ dev-python/pytest-helpers-namespace 2021.12.29-r1: Provides a helpers pytest nam
 dev-python/pytest-httpbin 2.0.0: Easily test your HTTP library against a local copy of httpbin
 dev-python/pytest-httpserver 1.0.8: HTTP server for pytest to test HTTP clients
 dev-python/pytest-httpx 0.26.0 0.27.0: Send responses to HTTPX using pytest
-dev-python/pytest-jupyter 0.7.0: Pytest plugin for testing Jupyter libraries and extensions
+dev-python/pytest-jupyter 0.7.0 0.8.0: Pytest plugin for testing Jupyter libraries and extensions
 dev-python/pytest-lazy-fixture 0.6.3: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.2.0: A PyTest plugin which provides an FTP fixture for your tests
 dev-python/pytest-localserver 0.8.1: Pytest plugin to test server connections locally
@@ -9332,7 +9332,7 @@ dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.49 1.4.50 2.0.22 2.0.23: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 19.4.0 19.5.0 19.5.1 19.6.0 19.7.0 19.8.2 19.8.3: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 19.8.3 19.9.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.4.4: A non-validating SQL parser module for Python
 dev-python/sshpubkeys 3.3.1-r1: OpenSSH public key parser for Python
@@ -9461,7 +9461,7 @@ dev-python/uritemplate 4.1.1: Python implementation of RFC6570, URI Template
 dev-python/uritools 4.0.1 4.0.2: RFC 3986-compliant URI parsing, classification and composition
 dev-python/url-normalize 1.4.3-r1: URL normalization for Python
 dev-python/urllib3 1.26.18 2.0.7 2.1.0: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 2.2.3: Curses-based user interface library for Python
+dev-python/urwid 2.2.3 2.3.4: Curses-based user interface library for Python
 dev-python/urwid_readline 0.13-r1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r1: Tree widgets for urwid
 dev-python/userpath 1.9.0 1.9.1: Cross-platform tool for adding locations to the user PATH
@@ -10470,7 +10470,7 @@ dev-util/android-ndk 11c 11c-r1 13b 14b 16b 18: Open Handset Alliance's Android 
 dev-util/android-sdk-update-manager 24.4.1-r1: Open Handset Alliance's Android SDK
 dev-util/android-studio 2023.1.1.22: Android development environment based on IntelliJ IDEA
 dev-util/android-tools 33.0.3-r1 34.0.0 34.0.1: Android platform tools (adb, fastboot, and mkbootimg)
-dev-util/android-udev-rules 20230614 20231104: Android udev rules list aimed to be the most comprehensive on the net
+dev-util/android-udev-rules 20230614 20231104 20231124: Android udev rules list aimed to be the most comprehensive on the net
 dev-util/anjuta 3.34.0-r2: Base library of defunct IDE for GNOME to run applications
 dev-util/apitrace 9.0-r4: Tool for tracing, analyzing, and debugging graphics APIs
 dev-util/archdiff 1.1.6-r1: Utility to view the differences between two source code archives
@@ -11913,7 +11913,7 @@ gui-apps/swaybg 1.2.0 9999: A wallpaper utility for Wayland
 gui-apps/swayidle 1.8.0 9999: Idle management daemon for Wayland
 gui-apps/swaylock 1.7 1.7.2 9999: Screen locker for Wayland
 gui-apps/tuigreet 0.7.2 0.8.0-r1 9999: TUI greeter for greetd login manager
-gui-apps/waybar 0.9.19 0.9.22 9999: Highly customizable Wayland bar for Sway and Wlroots based compositors
+gui-apps/waybar 0.9.22 0.9.24 9999: Highly customizable Wayland bar for Sway and Wlroots based compositors
 gui-apps/wayland-logout 1.4 9999: general logout scripts for wayland compositors
 gui-apps/waypipe 0.8.0-r2 0.8.6 9999: Transparent network proxy for Wayland compositors
 gui-apps/wayvnc 0.6.2 9999: VNC server for wlroots based Wayland compositors
