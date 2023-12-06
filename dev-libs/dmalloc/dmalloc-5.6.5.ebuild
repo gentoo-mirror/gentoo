@@ -1,36 +1,29 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools git-r3 toolchain-funcs
+inherit autotools toolchain-funcs
 
 DESCRIPTION="A Debug Malloc Library"
 HOMEPAGE="https://dmalloc.com"
-EGIT_REPO_URI="https://github.com/j256/dmalloc"
+SRC_URI="https://dmalloc.com/releases/${P}.tgz"
 
-LICENSE="ISC"
+LICENSE="CC-BY-SA-3.0"
 SLOT="0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="threads"
 
-BDEPEND="
-	app-text/texi2html
-	sys-apps/texinfo
-"
-
-DOCS=(
-	ChangeLog.txt README.md TODO dmalloc.html
-)
+BDEPEND="sys-apps/texinfo"
 
 PATCHES=(
 	# - Build objects twice, once -fPIC for shared.
 	# - Use DESTDIR.
 	# - Fix SONAME and NEEDED.
-	"${FILESDIR}"/${PN}-5.5.2-Makefile.in.patch
+	"${FILESDIR}"/${PN}-5.6.5-Makefile.in.patch
 	# - Broken test, always returns false.
 	"${FILESDIR}"/${PN}-5.5.2-cxx.patch
-	"${FILESDIR}"/${PN}-5.5.2-ar.patch
-	"${FILESDIR}"/${PN}-999999-texi2html.patch
+	"${FILESDIR}"/${PN}-5.6.5-configure-c99.patch
 )
 
 src_prepare() {
@@ -51,16 +44,11 @@ src_prepare() {
 
 src_configure() {
 	tc-export AR
+
 	econf \
 		--enable-cxx \
 		--enable-shlib \
 		$(use_enable threads)
-}
-
-src_compile() {
-	default
-
-	#makeinfo dmalloc.texi || die
 }
 
 src_test() {
@@ -70,16 +58,15 @@ src_test() {
 src_install() {
 	default
 
-	doinfo dmalloc.info
-
 	# add missing symlinks, lazy
-	dosym lib${PN}.so.5.5.2 /usr/$(get_libdir)/lib${PN}.so
-	dosym lib${PN}.so.5.5.2 /usr/$(get_libdir)/lib${PN}.so.5
+	dosym lib${PN}.so.${PV} /usr/$(get_libdir)/lib${PN}.so
+	dosym lib${PN}.so.${PV} /usr/$(get_libdir)/lib${PN}.so.${PV%%.*}
 
+	local lib
 	for lib in cxx th thcxx; do
-		dosym lib${PN}${lib}.so.5.5.2 /usr/$(get_libdir)/lib${PN}${lib}.so
-		dosym lib${PN}${lib}.so.5.5.2 \
-			/usr/$(get_libdir)/lib${PN}${lib}.so.5
+		dosym lib${PN}${lib}.so.${PV} /usr/$(get_libdir)/lib${PN}${lib}.so
+		dosym lib${PN}${lib}.so.${PV} \
+			/usr/$(get_libdir)/lib${PN}${lib}.so.${PV%%.*}
 	done
 
 	rm "${ED}"/usr/$(get_libdir)/lib${PN}*.a || die
