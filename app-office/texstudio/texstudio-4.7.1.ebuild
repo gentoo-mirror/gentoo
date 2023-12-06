@@ -47,7 +47,7 @@ RDEPEND="
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${P}-quazip.patch" # TODO: upstream
+	"${FILESDIR}/${PN}-4.7.0-quazip.patch" # TODO: upstream
 )
 
 src_prepare() {
