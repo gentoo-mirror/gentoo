@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic shell-completion
+inherit cmake flag-o-matic
 
 DESCRIPTION="Fast neofetch-like system information tool"
 HOMEPAGE="https://github.com/fastfetch-cli/fastfetch"
@@ -105,7 +105,6 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	newfishcomp completions/fish fastfetch
 
 	rm -r "${ED}"/usr/share/licenses || die
 }
