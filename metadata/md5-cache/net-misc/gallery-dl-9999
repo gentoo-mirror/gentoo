@@ -1,15 +1,15 @@
-BDEPEND=test? ( >=dev-python/requests-2.11.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10[sqlite,ssl,xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite,ssl,xml(+)] ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( >=dev-python/requests-2.11.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10[sqlite,ssl,xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite,ssl,xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[sqlite,ssl,xml(+)] ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DESCRIPTION=Download image galleries and collections from several image hosting sites
 EAPI=8
-HOMEPAGE=https://github.com/mikf/gallery-dl
+HOMEPAGE=https://github.com/mikf/gallery-dl/
 INHERIT=distutils-r1 optfeature git-r3
-IUSE=test python_targets_python3_10 python_targets_python3_11
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 LICENSE=GPL-2
 PROPERTIES=test_network live
-RDEPEND=>=dev-python/requests-2.11.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10[sqlite,ssl,xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite,ssl,xml(+)] )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=>=dev-python/requests-2.11.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10[sqlite,ssl,xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[sqlite,ssl,xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[sqlite,ssl,xml(+)] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=test !test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	6b3c606c5de2531072ffd36eca06a5a9	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	ae136dc2e1c0006e9480d44a6c1886d9	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	5133e393e8717a3a093660f990801dc1
-_md5_=4ddc0908b87453ce95bb9c0a9a11a09d
+_md5_=e1d580b2ab43dc1e7399e053557cb5a9
