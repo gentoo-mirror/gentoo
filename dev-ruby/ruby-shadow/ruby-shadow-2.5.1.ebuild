@@ -14,11 +14,19 @@ RUBY_FAKEGEM_EXTENSIONS=(./extconf.rb)
 inherit ruby-fakegem
 
 DESCRIPTION="ruby shadow bindings"
-HOMEPAGE="https://github.com/apalmblad/ruby-shadow http://ttsky.net"
+HOMEPAGE="https://github.com/apalmblad/ruby-shadow"
 
 LICENSE="|| ( public-domain Unlicense )"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 ~hppa ppc ~ppc64 ~riscv ~sparc x86"
 IUSE=""
 
-PATCHES=( "${FILESDIR}/${P}-ruby32.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-ruby32.patch"
+	"${FILESDIR}/${P}-ruby32-taint.patch"
+)
+
+all_ruby_prepare() {
+	sed -e '16i$CFLAGS += ENV["CFLAGS"]' \
+		-i extconf.rb || die
+}
