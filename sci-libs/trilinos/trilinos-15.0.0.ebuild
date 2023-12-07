@@ -1,17 +1,16 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR=emake
-inherit cmake toolchain-funcs
+inherit cmake flag-o-matic toolchain-funcs
 
 DESCRIPTION="Scientific library collection for large scale problems"
 HOMEPAGE="http://trilinos.sandia.gov/"
 MY_PV="${PV//\./-}"
 PATCHSET="r0"
-SRC_URI="https://github.com/${PN}/Trilinos/archive/${PN}-release-${MY_PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~tamiko/distfiles/${PN}-13.4.0-patches-${PATCHSET}.tar.xz"
+SRC_URI="https://github.com/${PN}/Trilinos/archive/${PN}-release-${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="BSD LGPL-2.1"
@@ -66,7 +65,6 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/Trilinos-${PN}-release-${MY_PV}"
 
 PATCHES=(
-	"${WORKDIR}"/patches
 )
 
 pkg_pretend() {
@@ -94,32 +92,23 @@ trilinos_conf() {
 	[[ -n ${dirs} ]] && mycmakeargs+=( "-D${2}_INCLUDE_DIRS=${dirs:1}" )
 }
 
-#
-# The following packages are currently disabled:
-#  - Adelus/Zadelus due to underlinkage.
-#  - Moertel due to underlinkage
-#  - SEACAS is incompatible with netcdf, see
-#    https://github.com/trilinos/Trilinos/tree/master/packages/seacas#netcdf
-#
-
 src_configure() {
+	# Trilinos is a massive C++ project. Fixing all of the lto warnings and
+	# making safe for lto compilation/linking will be a massive
+	# undertaking. Thus, simply filter lto flags. bug #862987
+	filter-lto
+
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}"
+		-DCMAKE_SKIP_RPATH=ON
 		-DCMAKE_SKIP_INSTALL_RPATH=ON
-		-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=OFF
-		-DTrilinos_INSTALL_CONFIG_DIR="${EPREFIX}/usr/$(get_libdir)/cmake"
 		-DTrilinos_INSTALL_INCLUDE_DIR="${EPREFIX}/usr/include/trilinos"
 		-DTrilinos_INSTALL_LIB_DIR="${EPREFIX}/usr/$(get_libdir)/trilinos"
 		-DTrilinos_ENABLE_ALL_PACKAGES="$(usex all-packages)"
-		-DTrilinos_ENABLE_Adelus=OFF
-		-DTrilinos_ENABLE_Moertel=OFF
 		-DTrilinos_ENABLE_PyTrilinos=OFF
-		-DTrilinos_ENABLE_SEACAS=OFF
 		-DTrilinos_ENABLE_Amesos=ON
 		-DTrilinos_ENABLE_AztecOO=ON
-		-DTrilinos_ENABLE_COMPLEX_DOUBLE=ON
-		-DTrilinos_ENABLE_COMPLEX_FLOAT=ON
 		-DTrilinos_ENABLE_EpetraExt=ON
 		-DTrilinos_ENABLE_Epetra=ON
 		-DTrilinos_ENABLE_Ifpack=ON
@@ -236,14 +225,23 @@ src_install() {
 	cmake_src_install
 
 	# Clean up the mess:
+
+	# Let us move the bin directory out of the way to avoid potential
+	# clashes due to very generically named binaries such as
+	# »nvcc_wrapper«, etc.
 	mv "${ED}"/bin "${ED}/usr/$(get_libdir)"/trilinos || die "mv failed"
+
+	# Move the cmake directory to the right location:
+	mkdir -p "${ED}/usr/$(get_libdir)"/cmake
 	mv "${ED}/usr/$(get_libdir)"/trilinos/cmake/* "${ED}/usr/$(get_libdir)"/cmake || die "mv failed"
+	# Fix up include paths:
+	sed -i -e 's#external_packages#trilinos/external_packages#g' \
+		"${ED}/usr/$(get_libdir)"/cmake/**/*.cmake || die "sed failed"
 	rmdir "${ED}/usr/$(get_libdir)/trilinos/cmake" || die "rmdir failed"
 
-	#
-	# register $(get_libdir)/trilinos in LDPATH so that the dynamic linker
-	# has a chance to pick up the libraries...
-	#
+	# Register $(get_libdir)/trilinos in LDPATH so that the dynamic linker
+	# has a chance to pick up the libraries, also add Trilinos' binaries ot
+	# the PATH environment variable.
 	cat >> "${T}"/99trilinos <<- EOF
 	LDPATH="${EPREFIX}/usr/$(get_libdir)/trilinos"
 	PATH="${EPREFIX}/usr/$(get_libdir)/trilinos/bin"
