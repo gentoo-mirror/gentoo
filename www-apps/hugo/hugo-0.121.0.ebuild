@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module bash-completion-r1
+inherit go-module shell-completion
 
 DESCRIPTION="Fast static HTML and CSS website generator"
 HOMEPAGE="https://gohugo.io https://github.com/gohugoio/hugo"
@@ -18,7 +18,7 @@ SRC_URI="
 LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
-IUSE="doc +sass test"
+IUSE="doc +extended test"
 
 BDEPEND="
 	>=dev-lang/go-1.18
@@ -29,15 +29,17 @@ BDEPEND="
 	)
 "
 RDEPEND="
-	>=media-libs/libwebp-1.2.3-r1:=
-	sass? ( dev-libs/libsass:= )
+	extended? (
+		dev-libs/libsass:=
+		>=media-libs/libwebp-1.3.2:=
+	)
 "
 DEPEND="${RDEPEND}"
 
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.96.0-unbundle-libwebp-and-libsass.patch
+	"${FILESDIR}"/${PN}-0.121.0-unbundle-libwebp-and-libsass.patch
 	"${FILESDIR}"/${PN}-0.118.2-skip-some-tests.patch
 )
 
@@ -47,14 +49,14 @@ src_configure() {
 	export CGO_CPPFLAGS="${CPPFLAGS}"
 	export CGO_CXXFLAGS="${CXXFLAGS}"
 	export CGO_LDFLAGS="${LDFLAGS}"
-	export MY_BUILD_FLAGS="$(usev sass "-tags extended")"
+	export MY_BUILD_FLAGS="$(usev extended "-tags extended")"
 
 	default
 }
 
 src_prepare() {
 	# wants to run command that require network access
-	rm testscripts/commands/mod{,_vendor,__disable}.txt || die
+	rm testscripts/commands/mod{,_vendor,__disable,_get,_get_u}.txt || die
 
 	default
 }
@@ -85,14 +87,15 @@ src_install() {
 	doman man/*
 
 	dobashcomp completions/${PN}
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins completions/${PN}.fish
-
-	insinto /usr/share/zsh/site-functions
-	doins completions/_${PN}
+	dofishcomp completions/${PN}.fish
+	dozshcomp completions/_${PN}
 
 	if use doc ; then
 		dodoc -r doc/*
 	fi
+}
+
+pkg_postinst() {
+	elog "the sass USE-flag was renamed to extended. the functionality is the" \
+		"same, except it also toggles the dependency on libwebp (for encoding)"
 }
