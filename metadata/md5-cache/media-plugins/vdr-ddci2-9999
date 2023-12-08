@@ -1,12 +1,13 @@
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=>=media-video/vdr-2.1.7 media-tv/gentoo-vdr-scripts virtual/linuxtv-dvb-headers virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEPEND=>=media-video/vdr-2.1.7 media-tv/gentoo-vdr-scripts virtual/linuxtv-dvb-headers
 DESCRIPTION=VDR plugin: DDCI2 - Digital Devices CI support
-EAPI=6
+EAPI=8
 HOMEPAGE=https://github.com/jasmin-j/vdr-plugin-ddci2
 INHERIT=vdr-plugin-2 git-r3
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=>=media-video/vdr-2.1.7 media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
 SLOT=0
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	c61c368a76fdf3a82fdf8dbaebea3804	epatch	2b02655f061dfa25067b543539110259	eqawarn	c9847c43b3253a276ae2eabddedab3d7	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	ltprune	97143780d341cc8d8f1d4c6187a36d29	preserve-libs	21162ec96c87041004a75348d97342dd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	d318efeb438bbec051fa5aaf28d0d42c	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	aa6a4e924009232d8b78b31e932c30b5	vdr-plugin-2	1460873f84280120ddfeecbc2459b6db	git-r3	5133e393e8717a3a093660f990801dc1
-_md5_=053eee2b0d77291590ef1e55e41d9ace
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	aa6a4e924009232d8b78b31e932c30b5	vdr-plugin-2	1460873f84280120ddfeecbc2459b6db	git-r3	5133e393e8717a3a093660f990801dc1
+_md5_=608c7029bac6660bae2ba15463190232
