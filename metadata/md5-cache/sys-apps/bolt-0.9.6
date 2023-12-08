@@ -1,0 +1,16 @@
+BDEPEND=app-text/asciidoc dev-util/glib-utils virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm setup test
+DEPEND=>=dev-libs/glib-2.56.0:2 virtual/libudev:= virtual/udev sys-auth/polkit[introspection] selinux? ( sec-policy/selinux-thunderbolt ) test? ( dev-util/umockdev )
+DESCRIPTION=Userspace system daemon to enable security levels for Thunderbolt 3
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/bolt/bolt
+INHERIT=linux-info meson udev
+IUSE=selinux test
+KEYWORDS=~amd64 ~loong ~riscv ~x86
+LICENSE=LGPL-2.1 GPL-2+
+RDEPEND=>=dev-libs/glib-2.56.0:2 virtual/libudev:= virtual/udev sys-auth/polkit[introspection] selinux? ( sec-policy/selinux-thunderbolt )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/bolt/bolt/-/archive/0.9.6/bolt-0.9.6.tar.bz2
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	meson	576e6bbef90e9753368f8b4ad0bd5383	udev	eec0bbab06977f1cfc5597269c1fa152
+_md5_=657531c15a86ea8381cd1b727327548c
