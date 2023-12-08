@@ -1344,12 +1344,12 @@ app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containe
 app-containers/go-secbench 0.1.0-r1: run and evaluate the docker security benchmark
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
-app-containers/incus 0.2-r1 0.3: Modern, secure and powerful system container and virtual machine manager
+app-containers/incus 0.3: Modern, secure and powerful system container and virtual machine manager
 app-containers/k3d 5.4.2 5.4.4 5.4.6 5.4.9: k3d creates k3s clusters in docker
 app-containers/kompose 1.26.1: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 5.0.3: A userspace interface for the Linux kernel containment features
 app-containers/lxc-templates 3.0.4: Old style template scripts for LXC
-app-containers/lxd 4.0.9-r4 5.0.2-r3 5.18 5.19: Modern, secure and powerful system container and virtual machine manager
+app-containers/lxd 4.0.9-r4 5.0.2-r3 5.19: Modern, secure and powerful system container and virtual machine manager
 app-containers/nerdctl 0.22.2 0.23.0 1.0.0 1.1.0 1.3.1 1.4.0: Docker-compatible CLI for containerd, with support for Compose
 app-containers/netavark 1.6.0 1.8.0 1.9.0 9999: A container network stack
 app-containers/podman 4.5.0 4.5.0-r1 4.7.2 4.8.0 4.8.1 9999: A tool for managing OCI containers and pods with Docker-compatible CLI
@@ -9961,7 +9961,7 @@ dev-ruby/naught 1.1.0-r1: A toolkit for building Null Objects in Ruby
 dev-ruby/necromancer 0.7.0-r1: Conversion from one object type to another with a bit of black magic
 dev-ruby/nenv 0.3.0-r1: Convenient wrapper for Ruby's ENV
 dev-ruby/neovim-ruby-client 0.9.0 0.9.1: Ruby bindings for Neovim
-dev-ruby/net-ftp 0.2.0: Support for the File Transfer Protocol
+dev-ruby/net-ftp 0.2.0 0.3.0: Support for the File Transfer Protocol
 dev-ruby/net-http-digest_auth 1.4.1-r2: An implementation of RFC 2617 - Digest Access Authentication
 dev-ruby/net-http-persistent 4.0.2: Manages persistent connections using Net::HTTP plus a speed fix for Ruby 1.8
 dev-ruby/net-http-pipeline 1.0.1-r1: An HTTP/1.1 pipelining implementation atop Net::HTTP
@@ -10030,7 +10030,7 @@ dev-ruby/qed 2.9.2-r1: QED (Quality Ensured Demonstrations) is a TDD/BDD framewo
 dev-ruby/racc 1.6.2 1.7.0 1.7.1: A LALR(1) parser generator for Ruby
 dev-ruby/rack 2.2.6.4 2.2.7 2.2.7-r1 2.2.8 3.0.7 3.0.8: A modular Ruby webserver interface
 dev-ruby/rack-attack 6.6.1 6.7.0: A DSL for blocking & throttling abusive clients
-dev-ruby/rack-cache 1.13.0-r1 1.14.0: Enable HTTP caching for Rack-based applications that produce freshness info
+dev-ruby/rack-cache 1.14.0: Enable HTTP caching for Rack-based applications that produce freshness info
 dev-ruby/rack-openid 1.4.2-r1: Provides a more HTTPish API around the ruby-openid library
 dev-ruby/rack-protection 3.0.5 3.0.6 3.1.0: This gem protects against typical web attacks
 dev-ruby/rack-session 1.0.1 2.0.0: A session implementation for Rack
@@ -10526,7 +10526,7 @@ dev-util/cargo-nextest 0.9.59: Next-generation test runner for Rust
 dev-util/cargo-tarpaulin 0.27.1: Cargo-Tarpaulin is a tool to determine code coverage achieved via tests
 dev-util/catalyst 3.0.21-r1 3.0.22-r1 3.0.22-r3 9999: Release metatool used for creating releases based on Gentoo Linux
 dev-util/catfish 4.18.0: A frontend for find, (s)locate, doodle, tracker, beagle, strigi and pinot
-dev-util/cbindgen 0.25.0 0.26.0: A tool for generating C bindings to Rust code
+dev-util/cbindgen 0.26.0: A tool for generating C bindings to Rust code
 dev-util/ccache 4.7.4 4.8.2 4.8.3: Fast compiler cache
 dev-util/cccc 3.1.6-r1: Source metrics (line counts, complexity, etc) for Java and C++
 dev-util/ccls 0.20230717 0.20230717-r1 9999: C/C++/ObjC language server
@@ -13243,7 +13243,7 @@ media-libs/nas 1.9.5: Network Audio System
 media-libs/netpbm 11.2.4 11.2.5 11.2.6 11.4.5: A set of utilities for converting to/from the netpbm (and related) formats
 media-libs/noise-suppression-for-voice 1.03 9999: A real-time noise suppression plugin for voice
 media-libs/nv-codec-headers 11.1.5.2 12.1.14.0: FFmpeg version of headers required to interface with Nvidias codec APIs
-media-libs/nvidia-vaapi-driver 0.0.10 0.0.11: A VA-API implemention using NVIDIA's NVDEC
+media-libs/nvidia-vaapi-driver 0.0.11: A VA-API implemention using NVIDIA's NVDEC
 media-libs/oidn 1.4.2 1.4.3: Intel(R) Open Image Denoise library
 media-libs/oneVPL 2023.3.1 2023.4.0: oneAPI Video Processing Library, dispatcher, tools, and examples
 media-libs/oneVPL-cpu 2023.2.0: oneAPI Video Processing Library CPU implementation
@@ -13257,7 +13257,7 @@ media-libs/opencv 4.6.0-r4 4.7.0 4.7.0-r1 4.8.0 4.8.0-r1 4.8.1: A collection of 
 media-libs/openexr 3.1.5-r1 3.1.7 3.1.11: ILM's OpenEXR high dynamic-range image file format libraries
 media-libs/openfec 1.4.2.9: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
-media-libs/openh264 2.3.1-r1 2.3.1-r3 2.4.0: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
+media-libs/openh264 2.3.1-r3 2.4.0: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
 media-libs/openimageio 2.4.6.0-r1 2.4.12.0 2.4.13.0 2.4.14.0 2.4.15.0 2.4.16.0 2.5.4.0: A library for reading and writing images
 media-libs/openjpeg 2.5.0-r5 2.5.0-r6: Open-source JPEG 2000 library
 media-libs/openpgl 0.5.0: Intel Open Path Guiding Library
@@ -16820,7 +16820,7 @@ sys-apps/epoch 1.3.0 9999: Init system, /sbin/init replacement; designed for sim
 sys-apps/etckeeper 1.18.18 1.18.20 1.18.21: A collection of tools to let /etc be stored in a repository
 sys-apps/ethq 0.5.0 0.6.1 9999: Ethernet NIC Queue stats viewer
 sys-apps/ethtool 6.5 6.6: Utility for examining and tuning ethernet-based network interfaces
-sys-apps/eza 0.11.1-r1 0.13.1 0.14.0 0.14.2 0.15.0 0.15.1 0.15.3: A modern, maintained replacement for ls
+sys-apps/eza 0.11.1-r1 0.13.1 0.14.2 0.15.1 0.15.3 0.16.3: A modern, maintained replacement for ls
 sys-apps/fakechroot 2.20.1_p2: Provide a faked chroot environment without requiring root privileges
 sys-apps/fakeroot 1.31 1.32.1 1.32.2: A fake root environment by means of LD_PRELOAD and SysV IPC (or TCP) trickery
 sys-apps/fbset 2.1: A utility to set the framebuffer videomode
