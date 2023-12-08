@@ -11,7 +11,7 @@ SRC_URI+=" https://github.com/alfredfo/${PN}-deps/raw/master/${P}-deps.tar.xz"
 
 LICENSE="AGPL-3 Apache-2.0 MIT BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 IUSE="moderncsqlite +sqlite pam"
 REQUIRED_USE="?? ( moderncsqlite sqlite )"
 
@@ -26,13 +26,22 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_compile() {
+	# musl removed legacy LFS64 interfaces in version 1.2.4 temporarily
+	# reenabled using _LARGEFILE64_SOURCE until this is resolved
+	# upstream https://github.com/mattn/go-sqlite3/issues/1164
+	CGO_CFLAGS="${CGO_CFLAGS}"
 	if use sqlite; then
 		GOFLAGS+=" -tags=libsqlite3"
+		CGO_CFLAGS="-D_LARGEFILE64_SOURCE"
 	elif use moderncsqlite; then
 		GOFLAGS+=" -tags=moderncsqlite"
+		CGO_CFLAGS="-D_LARGEFILE64_SOURCE"
 	else
 		GOFLAGS+=" -tags=nosqlite"
 	fi
+	# Only way to pass CFLAGS to CGO at the
+	# moment. https://github.com/gentoo/gentoo/pull/33539/
+	export CGO_CFLAGS
 	use pam && GOFLAGS+=" -tags=pam"
 
 	ego build ${GOFLAGS} ./cmd/soju
