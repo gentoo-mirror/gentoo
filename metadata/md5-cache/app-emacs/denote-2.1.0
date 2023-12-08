@@ -1,0 +1,14 @@
+BDEPEND=>=app-editors/emacs-28.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Simple notes for Emacs with an efficient file-naming scheme
+EAPI=8
+HOMEPAGE=https://protesilaos.com/emacs/denote/ https://github.com/protesilaos/denote/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-28.1:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/protesilaos/denote/archive/2.1.0.tar.gz -> denote-2.1.0.tar.gz
+_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_md5_=2d5202d9f3733484e120a9fd8946f876
