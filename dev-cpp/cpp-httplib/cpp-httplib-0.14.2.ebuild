@@ -10,13 +10,15 @@ inherit cmake-multilib python-any-r1 toolchain-funcs
 DESCRIPTION="C++ HTTP/HTTPS server and client library"
 HOMEPAGE="https://github.com/yhirose/cpp-httplib/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/yhirose/${PN}.git"
 else
 	SRC_URI="https://github.com/yhirose/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~loong ~x86"
+
+	KEYWORDS="~amd64 ~loong ~x86"
 fi
 
 LICENSE="MIT"
@@ -31,8 +33,12 @@ RDEPEND="
 	ssl? ( dev-libs/openssl:=[${MULTILIB_USEDEP}] )
 	zlib? ( sys-libs/zlib[${MULTILIB_USEDEP}] )
 "
-DEPEND="${RDEPEND}"
-BDEPEND="${PYTHON_DEPS}"
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	${PYTHON_DEPS}
+"
 
 src_configure() {
 	local -a mycmakeargs=(
@@ -52,5 +58,6 @@ src_configure() {
 multilib_src_test() {
 	cp -p -R --reflink=auto "${S}/test" ./test || die
 
-	GTEST_FILTER='-*.*_Online' emake -C test "CXX=$(tc-getCXX)" CXXFLAGS="${CXXFLAGS} -I."
+	GTEST_FILTER='-*.*_Online' emake -C test \
+		CXX="$(tc-getCXX)" CXXFLAGS="${CXXFLAGS} -I."
 }
