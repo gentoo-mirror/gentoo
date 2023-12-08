@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/kovidgoyal/html5-parser/ https://pypi.org/project/html5-parser/
 INHERIT=distutils-r1 pypi toolchain-funcs
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
-KEYWORDS=amd64 ~arm x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/libxml2:= dev-python/chardet[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/lxml-3.8.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/h/html5-parser/html5-parser-0.4.11.tar.gz
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	ae136dc2e1c0006e9480d44a6c1886d9	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=a86d64e222ac0ea765a0a9de5f0a6239
+_md5_=293712c4a318b2637e8891f5cdf35075
