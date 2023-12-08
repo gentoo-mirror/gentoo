@@ -5,19 +5,22 @@ EAPI=8
 
 inherit multiprocessing toolchain-funcs
 
-DESCRIPTION="Library with low-level data structures which are helpful for writing compilers"
-HOMEPAGE="http://www.dict.org/"
-SRC_URI="mirror://sourceforge/dict/${P}.tar.gz"
+DESCRIPTION="Lightweight replacement for GNU autotools"
+HOMEPAGE="https://sourceforge.net/projects/mk-configure/"
+SRC_URI="mirror://sourceforge/${PN}/${PN}/${P}.tar.gz"
 
-LICENSE="MIT"
-SLOT="0/4"
-KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+LICENSE="BSD BSD-2 GPL-2+ MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~arm64"
 
-BDEPEND="dev-util/mk-configure"
+# TODO: investigate
+RESTRICT="test"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.4.7-makefile-respect-flags.patch
-)
+RDEPEND="
+	|| ( x11-misc/makedepend sys-devel/pmake )
+	sys-devel/bmake
+"
+BDEPEND="${RDEPEND}"
 
 src_configure() {
 	local jobs="$(makeopts_jobs)"
@@ -25,7 +28,9 @@ src_configure() {
 
 	export MAKEOPTS="-j${jobs}"
 	export MAKE=bmake
+}
 
+src_compile() {
 	MAKEARGS=(
 		AR="$(tc-getAR)"
 		CC="$(tc-getCC)"
@@ -56,7 +61,7 @@ src_configure() {
 		INSTALL="${INSTALL:-${BROOT}/usr/bin/install}"
 
 		# Don't calcify compiler settings in installed files
-		MKCOMPILERSETTINGS=yes
+		MKCOMPILERSETTINGS=force
 
 		PREFIX="${EPREFIX}/usr"
 		DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
@@ -69,24 +74,16 @@ src_configure() {
 		FEATURESDIR="${BROOT}/usr/share/mk-configure/feature"
 	)
 
-	mkcmake "${MAKEARGS[@]}" -j1 configure || die
-}
-
-src_compile() {
-	mkcmake "${MAKEARGS[@]}" all || die
+	emake cleandir-presentation "${MAKEARGS[@]}"
+	emake "${MAKEARGS[@]}"
 }
 
 src_test() {
-	mkcmake "${MAKEARGS[@]}" test || die
+	emake "${MAKEARGS[@]}" test
 }
 
 src_install() {
-	mkcmake "${MAKEARGS[@]}" DESTDIR="${ED}" install
+	emake "${MAKEARGS[@]}" DESTDIR="${ED}" install
 
 	rm "${ED}"/usr/share/doc/${PF}/LICENSE || die
-
-	dodoc doc/libmaa.600dpi.ps
-
-	# don't want static or libtool archives, #401935
-	find "${D}" \( -name '*.a' -o -name '*.la' \) -delete || die
 }
