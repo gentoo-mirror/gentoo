@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,11 +17,11 @@ else
 	MY_PV="${MY_PV/_rc/rc}"
 	MY_P="${PN}-${MY_PV}"
 
-	if [[ ${PV} != *_beta* ]] && [[ ${PV} != *_rc* ]] ; then
+	if [[ ${PV} != *_beta* && ${PV} != *_rc* ]] ; then
 		SRC_URI="https://www.nlnetlabs.nl/downloads/${PN}/${MY_P}.tar.gz"
 		S="${WORKDIR}"/${MY_P}
 
-		KEYWORDS="amd64 x86"
+		KEYWORDS="~amd64 ~x86"
 	fi
 fi
 
@@ -51,7 +51,6 @@ BDEPEND="
 PATCHES=(
 	# Fix the paths in the munin plugin to match our install
 	"${FILESDIR}"/nsd_munin_.patch
-	"${FILESDIR}"/${P}-incompatible-ptr-types.patch
 )
 
 src_prepare() {
