@@ -898,7 +898,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/aws-elb-tools 1.0.15.1-r2: Serves as the client interface to the Elastic Load Balancing web service
-app-admin/awscli 1.30.3 1.30.6 1.31.6 1.31.7 1.31.8 1.31.9 1.31.10: Universal Command Line Environment for AWS
+app-admin/awscli 1.30.3 1.30.6 1.31.6 1.31.7 1.31.8 1.31.9 1.31.10 1.31.11: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -8021,7 +8021,7 @@ dev-python/babelfish 0.6.0-r2 9999: Python library to work with countries and la
 dev-python/backcall 0.2.0-r1: Specifications for callback functions passed in to an API
 dev-python/backoff 2.2.1: Function decoration for backoff and retry
 dev-python/backrefs 5.6_p1: Wrapper around re or regex that adds additional back references
-dev-python/bandit 1.7.5-r1: A security linter from OpenStack Security
+dev-python/bandit 1.7.5-r1 1.7.6: A security linter from OpenStack Security
 dev-python/bareos 22.1.2: python bindings for bareos network backup suite
 dev-python/bashate 2.1.1: A pep8 equivalent for bash scripts
 dev-python/basho-erlastic 2.1.1-r1: Erlang binary term codec and port interface
@@ -8048,8 +8048,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.29.3 1.29.6 1.33.6 1.33.7 1.33.8 1.33.9 1.33.10 9999: The AWS SDK for Python
-dev-python/botocore 1.32.3 1.32.6 1.33.6 1.33.7 1.33.8 1.33.9 1.33.10 9999: Low-level, data-driven core of boto 3
+dev-python/boto3 1.29.3 1.29.6 1.33.6 1.33.7 1.33.8 1.33.9 1.33.10 1.33.11 9999: The AWS SDK for Python
+dev-python/botocore 1.32.3 1.32.6 1.33.6 1.33.7 1.33.8 1.33.9 1.33.10 1.33.11 9999: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8210,7 +8210,7 @@ dev-python/dkimpy 1.1.5: DKIM and ARC email signing and verification library
 dev-python/dns-lexicon 3.16.1 3.17.0: Manipulate DNS records on various DNS providers in a standardized/agnostic way
 dev-python/dnspython 2.4.2: DNS toolkit for Python
 dev-python/doc8 1.1.1: Style checker for Sphinx (or other) RST documentation
-dev-python/docker 6.1.3: Python client for Docker
+dev-python/docker 6.1.3 7.0.0: Python client for Docker
 dev-python/dockerpty 0.4.1-r2: Python library to use the pseudo-tty of a docker container
 dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
 dev-python/docstring-to-markdown 0.13: On the fly conversion of Python docstrings to markdown
@@ -8230,7 +8230,7 @@ dev-python/ecdsa 0.18.0: ECDSA cryptographic signature library in pure Python
 dev-python/editables 0.5: A Python library for creating 'editable wheels'
 dev-python/editorconfig-core-py 0.12.3-r1: Clone of EditorConfig core written in Python
 dev-python/elastic-transport 8.10.0: Transport classes and utilities shared among Python Elastic client libraries
-dev-python/elasticsearch 8.11.0: Official Elasticsearch client library for Python
+dev-python/elasticsearch 8.11.0 8.11.1: Official Elasticsearch client library for Python
 dev-python/elementpath 4.1.5: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/email-validator 2.1.0_p1: A robust email syntax and deliverability validation library
 dev-python/emcee 3.1.4: Python ensemble sampling toolkit for affine-invariant MCMC
@@ -8332,7 +8332,7 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5-r2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.14.0 2.15.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.108.0 2.109.0 2.110.0: Google API Client for Python
-dev-python/google-auth 2.23.4 2.24.0 2.25.1: Google Authentication Library
+dev-python/google-auth 2.23.4 2.24.0 2.25.1 2.25.2: Google Authentication Library
 dev-python/google-auth-httplib2 0.1.1: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.0.0 1.1.0: Google Authentication Library
 dev-python/google-i18n-address 3.1.0: Google's i18n address metadata repository
@@ -8341,7 +8341,7 @@ dev-python/googleapis-common-protos 1.61.0 1.62.0: Python classes generated from
 dev-python/gpep517 15: A backend script to aid installing Python packages in Gentoo
 dev-python/graph-tool 2.58 9999: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/graphviz 0.20.1 0.20.1-r1: Simple Python interface for Graphviz
-dev-python/greenlet 2.0.2 3.0.0 3.0.1: Lightweight in-process concurrent programming
+dev-python/greenlet 2.0.2 3.0.0 3.0.1 3.0.2: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.0.2: Python 3 client for the beanstalkd work queue
 dev-python/griffe 0.36.9 0.37.0 0.38.0 0.38.1: Signature generator for Python programs
 dev-python/grpcio 1.51.0 1.51.0-r1: High-performance RPC framework (python libraries)
@@ -8602,7 +8602,7 @@ dev-python/mkdocs-git-authors-plugin 0.7.2: Mkdocs plugin to display git authors
 dev-python/mkdocs-git-revision-date-localized-plugin 1.2.0 1.2.1: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.0.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
-dev-python/mkdocs-material 9.4.14 9.5.0: A Material Design theme for MkDocs
+dev-python/mkdocs-material 9.4.14 9.5.0 9.5.1: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.3.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.7.1: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.0.5: Build multiple documentation folders in a single Mkdocs
@@ -9097,7 +9097,7 @@ dev-python/python-rtmidi 1.5.7: Python bindings for media-libs/rtmidi implemente
 dev-python/python-sense-hat 2.4.0: Raspberry Pi Sense HAT python library
 dev-python/python-slugify 8.0.1: A Python Slugify application that handles Unicode
 dev-python/python-snappy 0.6.1: Python library for the snappy compression library from Google
-dev-python/python-socks 2.4.3: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
+dev-python/python-socks 2.4.3 2.4.4: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
 dev-python/python-stdnum 1.19: A module to handle standardized numbers and codes
 dev-python/python-swiftclient 4.4.0: Python bindings to the OpenStack Object Storage API
 dev-python/python-systemd 235: Python module for native access to the systemd facilities
@@ -9148,7 +9148,7 @@ dev-python/qstylizer 0.2.2: Stylesheet Generator for PyQt5/PySide2
 dev-python/qtawesome 1.2.3-r1: Enables iconic fonts such as Font Awesome in PyQt
 dev-python/qtconsole 5.4.3 5.4.3-r1 5.4.4 5.5.0 5.5.1: Qt-based console for Jupyter with support for rich media output
 dev-python/qtsass 0.4.0: Compile SASS files to Qt stylesheets
-dev-python/quantities 0.14.1: Support for physical quantities with units, based on numpy
+dev-python/quantities 0.14.1 0.15.0: Support for physical quantities with units, based on numpy
 dev-python/radon 6.0.1: Code Metrics in Python
 dev-python/raet 0.6.8-r5: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.1-r2: Python-2.7 random module ported to python-3
@@ -9354,7 +9354,7 @@ dev-python/stestr 4.1.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.1.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.0: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 7.4.0 7.6.0 7.7.0 7.8.0: Stripe python bindings
+dev-python/stripe 7.4.0 7.6.0 7.7.0 7.8.0 7.8.1: Stripe python bindings
 dev-python/structlog 23.2.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.1: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.3 1.4.4: A streaming protocol for test results
@@ -9524,7 +9524,7 @@ dev-python/wtforms 3.1.1: Flexible forms validation and rendering library for py
 dev-python/wurlitzer 3.0.3: Capture C-level stdout/stderr in Python
 dev-python/wxpython 4.2.0 4.2.1: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 0.0.5 0.0.6: Convert calendars using X-WR-TIMEZONE to standard ones
-dev-python/xarray 2023.9.0 2023.10.1 2023.10.1-r1 2023.11.0: N-D labeled arrays and datasets in Python
+dev-python/xarray 2023.9.0 2023.10.1 2023.10.1-r1 2023.11.0 2023.12.0: N-D labeled arrays and datasets in Python
 dev-python/xcffib 1.3.0-r1 1.5.0: A drop in replacement for xpyb, an XCB python binding
 dev-python/xdoctest 1.1.1 1.1.2: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 0.8: Python bindings for libxkbcommon using cffi
@@ -15301,7 +15301,7 @@ net-news/canto-curses 0.9.9: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
 net-news/liferea 1.14.5-r1 1.15.3-r1: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.21-r1 2.23-r1 2.28 2.29 2.30.1: An RSS/Atom feed reader for text terminals
-net-news/rssguard 4.5.5 4.6.1: Simple (yet powerful) news feed reader
+net-news/rssguard 4.5.5 4.6.1 4.6.2: Simple (yet powerful) news feed reader
 net-news/rsstail 2.1 2.1_p20200310: A tail-like RSS-reader
 net-news/rsstool 1.0.1_rc2: cmdline tool to read, parse, merge, and write RSS (and Atom) feeds
 net-news/sfeed 1.6 1.8 1.9: Simple RSS and Atom parser
