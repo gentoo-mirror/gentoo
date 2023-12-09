@@ -6,7 +6,7 @@ HOMEPAGE=https://www.kernel.org/
 IDEPEND=!initramfs? ( || ( sys-kernel/installkernel-gentoo sys-kernel/installkernel-systemd ) ) initramfs? ( >=sys-kernel/dracut-059-r4 || ( <=sys-kernel/installkernel-gentoo-7 >=sys-kernel/installkernel-gentoo-8[dracut(-)] sys-kernel/installkernel-systemd ) )
 INHERIT=kernel-install toolchain-funcs unpacker
 IUSE=+initramfs test
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 arm64 ppc64 x86
 LICENSE=GPL-2
 PDEPEND=>=virtual/dist-kernel-6.1.66
 RDEPEND=!sys-kernel/gentoo-kernel:6.1.66 virtual/libelf
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
 SLOT=6.1.66
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.1-74.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.1-74.extras.tar.xz amd64? ( https://dev.gentoo.org/~mgorny/binpkg/amd64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.66-1.gpkg.tar -> gentoo-kernel-6.1.66-1.amd64.gpkg.tar ) arm64? ( https://dev.gentoo.org/~mgorny/binpkg/arm64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.66-1.gpkg.tar -> gentoo-kernel-6.1.66-1.arm64.gpkg.tar ) ppc64? ( https://dev.gentoo.org/~mgorny/binpkg/ppc64le/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.66-1.gpkg.tar -> gentoo-kernel-6.1.66-1.ppc64le.gpkg.tar ) x86? ( https://dev.gentoo.org/~mgorny/binpkg/x86/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.66-1.gpkg.tar -> gentoo-kernel-6.1.66-1.x86.gpkg.tar )
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	236f8d06385861720a23b42655ea244e	mount-boot	3945d351ee3192381911f938f4ee527a	kernel-install	c84a8e51ea0a8a16077e2a81258fc730	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	aa6a4e924009232d8b78b31e932c30b5
-_md5_=bc6ddde5448acf6c1eafbf49c059adfa
+_md5_=e0f096b49bb34b9abf31531beafb1347
