@@ -8745,7 +8745,8 @@ www-client/uget:openssl - Use dev-libs/openssl instead of net-libs/gnutls
 www-client/uget:rss - Enable uGet feed messages
 www-client/vivaldi:proprietary-codecs - Use system media-video/ffmpeg to support patent-encumbered media codecs
 www-client/vivaldi:widevine - Unsupported closed-source DRM capability (required by Netflix VOD)
-www-client/vivaldi-snapshot:proprietary-codecs - Use system media-video/ffmpeg to support patent-encumbered media codecs
+www-client/vivaldi-snapshot:ffmpeg-chromium - Use Chromium FFmpeg fork (media-video/ffmpeg-chromium) rather than mainline FFmpeg (media-video/ffmpeg)
+www-client/vivaldi-snapshot:proprietary-codecs - Use system FFmpeg library to support patent-encumbered media codecs
 www-client/vivaldi-snapshot:widevine - Unsupported closed-source DRM capability (required by Netflix VOD)
 www-client/w3m:gdk-pixbuf - Enable support for x11-libs/gdk-pixbuf
 www-client/w3m:lynxkeymap - If you prefer Lynx-like key binding

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://pwmt.org/projects/girara/
 INHERIT=meson virtualx
 IUSE=doc libnotify test test
-KEYWORDS=~amd64 ~arm ~riscv ~x86
+KEYWORDS=amd64 arm ~riscv ~x86
 LICENSE=ZLIB
 RDEPEND=app-accessibility/at-spi2-core dev-libs/glib:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.20:3 x11-libs/pango libnotify? ( x11-libs/libnotify )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://pwmt.org/projects/girara/download/girara-0.4.0.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	meson	576e6bbef90e9753368f8b4ad0bd5383	virtualx	817571665ee28575da44ee08135089e5
-_md5_=2a78ae2a038d30cb05f9ab5625f06261
+_md5_=859acc1cb46b65790b22090988f443a4
