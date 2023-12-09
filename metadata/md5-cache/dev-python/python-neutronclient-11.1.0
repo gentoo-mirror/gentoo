@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://opendev.org/openstack/python-neutronclient/ https://github.com/openstack/python-neutronclient/ https://pypi.org/project/python-neutronclient/
 INHERIT=distutils-r1 pypi
 IUSE=test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~riscv x86
 LICENSE=Apache-2.0
 RDEPEND=>dev-python/pbr-2.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/cliff-3.4.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/debtcollector-1.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/iso8601-0.1.11[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/netaddr-0.7.18[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/openstacksdk-1.5.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/osc-lib-1.8.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/oslo-i18n-3.15.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/oslo-log-3.36.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >dev-python/oslo-serialization-2.19.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/os-client-config-1.28.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/keystoneauth1-3.8.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/python-keystoneclient-3.8.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/requests-2.14.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/p/python-neutronclient/python-neutronclient-11.1.0.tar.gz
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	ae136dc2e1c0006e9480d44a6c1886d9	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=4f312be2654dbaf18e129d83e9cda227
+_md5_=cfc444773b506f76e221cacdc223d35d
