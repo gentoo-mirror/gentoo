@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://pear.php.net/package/Crypt_CHAP
 INHERIT=php-pear-r2
 IUSE=test
-KEYWORDS=amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
+KEYWORDS=amd64 ~arm ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86
 LICENSE=BSD
 RDEPEND=|| ( ( dev-php/pecl-mcrypt >=dev-lang/php-7.2:*[hash(+)] ) <dev-lang/php-7.2:*[crypt,hash] ) >=dev-php/pear-1.8.1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://pear.php.net/get/Crypt_CHAP-1.5.0.tgz
 _eclasses_=php-pear-r2	920a4ee643aaaeef0f8b358fbf2255ab
-_md5_=efbbe8edfda6f3009bc420d3de084e43
+_md5_=a0f1ad903408fd342f406d8e5955fa1a
