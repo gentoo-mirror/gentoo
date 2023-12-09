@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/flex app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=virtual/libcrypt:=
+DESCRIPTION=ARIN rwhois daemon
+EAPI=8
+HOMEPAGE=https://projects.arin.net/rwhois/
+INHERIT=autotools flag-o-matic
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libcrypt:= acct-group/rwhoisd acct-user/rwhoisd
+SLOT=0
+SRC_URI=https://github.com/arineng/rwhoisd/archive/1.5.9.6.tar.gz -> rwhoisd-1.5.9.6.tar.gz https://dev.gentoo.org/~sam/distfiles/net-misc/rwhoisd/rwhoisd-1.5.9.6-fix-build-for-clang16.patch.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb
+_md5_=c49289e86bd271aaea836e217cb24986
