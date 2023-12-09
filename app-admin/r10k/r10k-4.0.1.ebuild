@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -25,14 +25,13 @@ IUSE="+git"
 ruby_add_rdepend "
 	~dev-ruby/colored2-3.1.2
 	>=dev-ruby/cri-2.15.10:0
-	>=dev-ruby/gettext-setup-0.24:0
-	|| ( dev-ruby/fast_gettext:2 >=dev-ruby/fast_gettext-1.1:0 )
-	>=dev-ruby/jwt-2.2.3:2
+	dev-ruby/gettext-setup:1
+	>=dev-ruby/jwt-2.2.3:2 <dev-ruby/jwt-2.8.0:2
 	>=dev-ruby/ruby-gettext-3.0.2:0
 	~dev-ruby/log4r-1.1.10
 	>=dev-ruby/minitar-0.9:0
 	>=dev-ruby/multi_json-1.10:0
-	=dev-ruby/puppet_forge-3*
+	dev-ruby/puppet_forge:5
 "
 
 ruby_add_bdepend "test? (
@@ -43,9 +42,6 @@ RDEPEND="${RDEPEND} git? ( >=dev-vcs/git-1.6.6 )"
 
 all_ruby_prepare() {
 	sed -e '/s.files/d' \
-		-e '/fast_gettext/ s/1.1.0/1.1/' \
-		-e "/gettext/ s/'< 3.3.0'//" \
-		-e '/jwt/ s/~>/>=/' \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	# Avoid specs for unpackaged rugget git provider
