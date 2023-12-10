@@ -19,8 +19,11 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="+msgpack test"
+REQUIRED_USE="test? ( msgpack )"
+
+PATCHES=( "${FILESDIR}/${PN}-7.1.1-backport-pr50097.patch" )
 
 RUBY_S="rails-${PV}/${PN}"
 
@@ -33,6 +36,7 @@ ruby_add_rdepend "
 	>=dev-ruby/i18n-1.6:1
 	>=dev-ruby/minitest-5.1
 	dev-ruby/tzinfo:2
+	msgpack? ( >=dev-ruby/msgpack-1.7.0 )
 "
 
 # memcache-client, nokogiri, builder, and redis are not strictly needed,
@@ -54,7 +58,7 @@ all_ruby_prepare() {
 
 	# Remove items from the common Gemfile that we don't need for this
 	# test run. This also requires handling some gemspecs.
-	sed -i -e "/\(system_timer\|execjs\|jquery-rails\|journey\|ruby-prof\|stackprof\|benchmark-ips\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|bcrypt\|uglifier\|minitest\|sprockets\|stackprof\|rack-cache\|sqlite\|websocket-client-simple\|\libxml-ruby\|bootsnap\|aws-sdk\|webmock\|capybara\|sass-rails\|selenium-webdriver\|webpacker\|webrick\|propshaft\|rack-test\|terser\|cgi\|net-smtp\|net-imap\|net-pop\|digest\|matrix\|web-console\|error_highlight\)/ s:^:#:" \
+	sed -i -e "/\(system_timer\|execjs\|jquery-rails\|journey\|ruby-prof\|stackprof\|benchmark-ips\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|bcrypt\|uglifier\|minitest\|sprockets\|stackprof\|rack-cache\|sqlite\|websocket-client-simple\|\libxml-ruby\|bootsnap\|aws-sdk\|webmock\|capybara\|sass-rails\|selenium-webdriver\|webpacker\|webrick\|propshaft\|rack-test\|terser\|cgi\|net-smtp\|net-imap\|net-pop\|digest\|matrix\|web-console\|error_highlight\|jbuilder\)/ s:^:#:" \
 		-e '/stimulus-rails/,/tailwindcss-rails/ s:^:#:' \
 		-e '/^group :test/,/^end/ s:^:#:' \
 		-e '/^\s*group :\(db\|doc\|rubocop\|job\|cable\|lint\|storage\|ujs\|test\|view\) do/,/^\s*end/ s:^:#:' \
