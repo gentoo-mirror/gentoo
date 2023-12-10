@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.freedesktop.org/wiki/Software/udisks
 INHERIT=autotools bash-completion-r1 linux-info systemd tmpfiles udev xdg-utils
 IUSE=acl +daemon debug elogind +introspection lvm nls selinux systemd
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc64 ~riscv ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2+ GPL-2+
 RDEPEND=>=sys-auth/polkit-0.114[daemon] >=sys-libs/libblockdev-3.0:=[cryptsetup,lvm?,nvme] virtual/udev acl? ( virtual/acl ) daemon? ( >=dev-libs/glib-2.68:2 >=dev-libs/libatasmart-0.19 >=dev-libs/libgudev-165:= ) elogind? ( >=sys-auth/elogind-219 ) introspection? ( >=dev-libs/gobject-introspection-1.30:= ) lvm? ( sys-fs/lvm2 ) systemd? ( >=sys-apps/systemd-209 ) >=sys-block/parted-3 >=sys-apps/util-linux-2.30 selinux? ( sec-policy/selinux-devicekit ) virtual/tmpfiles
 REQUIRED_USE=?? ( elogind systemd ) elogind? ( daemon ) systemd? ( daemon )
 SLOT=2
 SRC_URI=https://github.com/storaged-project/udisks/releases/download/udisks-2.10.1/udisks-2.10.1.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	eec0bbab06977f1cfc5597269c1fa152	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=06e4b83e2cd4aad868baced291054637
+_md5_=14665de1a28761151caef6399091ad62
