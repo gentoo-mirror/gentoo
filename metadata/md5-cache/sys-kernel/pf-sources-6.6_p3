@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
+EAPI=8
+HOMEPAGE=https://pfkernel.natalenko.name/ https://dev.gentoo.org/~mpagano/genpatches/
+INHERIT=kernel-2 optfeature
+IUSE=symlink build
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=6.6_p3
+SRC_URI=https://codeberg.org/pf-kernel/linux/archive/v6.6-pf3.tar.gz -> linux-6.6-pf3.tar.gz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-6.6-7.base.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-6.6-7.extras.tar.xz
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	kernel-2	5f1a05e8ec7196f00c7754b57f927f06	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=91c58cac099a2200e927272af800aa1b
