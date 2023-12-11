@@ -2297,7 +2297,7 @@ app-emulation/dosemu 1.4.1_pre20130107-r5: DOS Emulator
 app-emulation/dxvk 1.10.3-r1 2.2-r1 2.3 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
 app-emulation/faudio 23.02: Accuracy-focused XAudio reimplementation for open platforms
-app-emulation/firecracker-bin 1.4.0 1.4.1: Secure and fast microVMs for serverless computing (static build)
+app-emulation/firecracker-bin 1.4.0 1.4.1 1.5.1: Secure and fast microVMs for serverless computing (static build)
 app-emulation/free42 2.5.24 3.0.19 3.0.21: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.66: Integrates the most accurate Amiga emulation code available from WinUAE
 app-emulation/fs-uae-launcher 3.1.68: PyQt5-based launcher for FS-UAE
@@ -2443,14 +2443,16 @@ app-i18n/cstools 3.44: A charset conversion tool cstocs and two Perl modules for
 app-i18n/dbskkd-cdb 3.00-r1: SKK dictionary server based on cdb
 app-i18n/enca 1.19-r3: Detect and convert encoding of text files
 app-i18n/fbterm 1.7_p20190503: Fast terminal emulator for the Linux framebuffer
-app-i18n/fcitx 4.2.9.8 4.9999: Fcitx (Flexible Context-aware Input Tool with eXtension) input method framework
+app-i18n/fcitx 4.2.9.8 4.9999 5.1.5: Fcitx 5 is a generic input method framework
 app-i18n/fcitx-anthy 0.2.3 4.9999: Japanese Anthy input methods for Fcitx
 app-i18n/fcitx-chewing 0.2.3 4.9999: Chinese Chewing input method for Fcitx
 app-i18n/fcitx-cloudpinyin 0.3.6 4.9999: Internet look-up support for Chinese Pinyin input methods for Fcitx
-app-i18n/fcitx-configtool 0.4.10 4.9999: GTK+ GUI configuration tool for Fcitx
+app-i18n/fcitx-configtool 0.4.10 4.9999 5.1.2: Configuration module for Fcitx
+app-i18n/fcitx-gtk 5.1.0: Gtk im module for fcitx5 and glib based dbus client library
 app-i18n/fcitx-hangul 0.3.1 4.9999: Korean Hangul input method for Fcitx
 app-i18n/fcitx-libpinyin 0.5.3 0.5.4 4.9999: Chinese LibPinyin input methods for Fcitx
 app-i18n/fcitx-m17n 0.2.4 4.9999: m17n-provided input methods for Fcitx
+app-i18n/fcitx-qt 5.1.3: Qt library and IM module for fcitx5
 app-i18n/fcitx-qt5 1.2.5 4.9999: Fcitx input method module for Qt 5
 app-i18n/fcitx-rime 0.3.2 4.9999: Chinese RIME input methods for Fcitx
 app-i18n/fcitx-sayura 0.1.2 4.9999: Sinhala Sayura input method for Fcitx
@@ -4976,7 +4978,7 @@ dev-lang/dafny-bin 4.3.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 3.60 9999: Interpreter and compiler compatible with the ISLisp standard
-dev-lang/elixir 1.13.4-r1 1.14.3-r1 1.14.5-r1 1.15.5: Elixir programming language
+dev-lang/elixir 1.13.4-r1 1.14.3-r1 1.14.5-r1 1.15.5 1.15.6: Elixir programming language
 dev-lang/elpi 1.16.9 1.16.10 1.17.0: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 25.3 26.0 26.1.2: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.513: Combine interpreter of esoteric languages
@@ -12854,7 +12856,7 @@ media-gfx/netgen 6.2.2301 6.2.2302: Automatic 3d tetrahedral mesh generator
 media-gfx/nomacs 3.16.224-r5 3.16.224-r6: Qt-based image viewer
 media-gfx/nvidia-cg-toolkit 3.1.0013-r6: NVIDIA's C graphics compiler toolkit
 media-gfx/openclipart 0.20: Open Clip Art Library (openclipart.org)
-media-gfx/opencsg 1.5.1-r1: The Constructive Solid Geometry rendering library
+media-gfx/opencsg 1.5.1-r1 1.6.0: The Constructive Solid Geometry rendering library
 media-gfx/openmesh 7.1-r1: A generic data structure to represent and manipulate polygonal meshes
 media-gfx/openscad 2021.01-r4 9999: The Programmers Solid 3D CAD Modeller
 media-gfx/opentoonz 1.6.0: An open-source full-featured 2D animation creation software
@@ -14459,7 +14461,7 @@ net-dialup/ppp-scripts 0: Common set of scripts for various PPP implementations
 net-dialup/pppconfig 2.3.25: A text menu based utility for configuring ppp
 net-dialup/pptpclient 1.10.0: Linux client for PPTP
 net-dialup/radiusclient-ng 0.5.6-r2: RadiusClient NextGeneration - library for RADIUS clients
-net-dialup/rp-l2tp 0.4-r4: User-space implementation of L2TP for Linux and other UNIX systems
+net-dialup/rp-l2tp 0.4-r4 0.4-r5: User-space implementation of L2TP for Linux and other UNIX systems
 net-dialup/rp-pppoe 3.15-r2 4.0 9999: A user-mode PPPoE client and server suite for Linux
 net-dialup/sendpage 1.1.0-r4: Dialup alphapaging software
 net-dialup/sercd 3.0.0-r2: RFC2217-compliant serial port redirector
@@ -18298,6 +18300,7 @@ x11-libs/vte 0.68.0 0.72.2 0.74.0 0.74.1: Library providing a virtual terminal e
 x11-libs/wxGTK 3.0.4-r5 3.0.5.1-r1 3.2.1 3.2.2.1-r1 3.2.2.1-r2 3.2.2.1-r3: GTK version of wxWidgets, a cross-platform C++ GUI toolkit
 x11-libs/xapp 2.4.3 2.6.1: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4: Motif-based widget to display a grid of cells as a spreadsheet
+x11-libs/xcb-imdkit 1.0.5: Input method development support for xcb
 x11-libs/xcb-util 0.4.1: X C-language Bindings sample implementations
 x11-libs/xcb-util-cursor 0.1.4 0.1.5: X C-language Bindings sample implementations
 x11-libs/xcb-util-errors 1.0.1: Library that gives human readable names to XCB error, event, & request codes

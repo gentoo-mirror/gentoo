@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install pretend setup
+DESCRIPTION=Secure and fast microVMs for serverless computing (static build)
+EAPI=8
+HOMEPAGE=https://firecracker-microvm.github.io https://github.com/firecracker-microvm/firecracker
+INHERIT=linux-info
+KEYWORDS=~amd64 ~arm64
+LICENSE=|| ( Apache-2.0 MIT Apache-2.0-with-LLVM-exceptions ) MPL-2.0
+RDEPEND=acct-group/kvm
+RESTRICT=test strip
+SLOT=0
+SRC_URI=amd64? ( https://github.com/firecracker-microvm/firecracker/releases/download/v1.5.1/firecracker-v1.5.1-x86_64.tgz ) arm64? ( https://github.com/firecracker-microvm/firecracker/releases/download/v1.5.1/firecracker-v1.5.1-aarch64.tgz )
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_md5_=9efc23776ca7e34a28739f85d74dd9d1

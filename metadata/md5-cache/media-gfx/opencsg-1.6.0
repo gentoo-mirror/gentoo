@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install
+DEPEND=virtual/opengl dev-qt/qtcore:5 dev-qt/qtgui:5
+DESCRIPTION=The Constructive Solid Geometry rendering library
+EAPI=8
+HOMEPAGE=https://www.opencsg.org
+INHERIT=qmake-utils
+IUSE=doc
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=virtual/opengl
+RESTRICT=test
+SLOT=0/1.6
+SRC_URI=https://www.opencsg.org/OpenCSG-1.6.0.tar.gz
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=befda4ba09b1fba65ff4d7d05fcdf7a5
