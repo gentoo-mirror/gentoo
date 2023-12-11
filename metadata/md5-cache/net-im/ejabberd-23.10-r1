@@ -12,6 +12,6 @@ RDEPEND=>=dev-lang/erlang-20[odbc?,ssl] >=dev-erlang/cache_tab-1.0.30 >=dev-erla
 REQUIRED_USE=mssql? ( odbc )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/processone/ejabberd/archive/refs/tags/23.10.tar.gz -> ejabberd-23.10.tar.gz
+SRC_URI=https://github.com/processone/ejabberd/archive/refs/tags/23.10.tar.gz -> ejabberd-23.10.tar.gz https://github.com/processone/ejabberd/commit/841d5c029905d5feabe07ab5a4db3aacfeedefb6.patch -> ejabberd-23.10-fix-ejabberdctl.patch https://github.com/processone/ejabberd/commit/4ea46c57653b3d9ea9c1386d1cc3dd07163d74d6.patch -> ejabberd-23.10-set-ejabberd-opts.patch
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb	pam	b56d0c9c20fc5b553f13c8ae165a10a5	rebar	ee6e83452f154c8ce7b91144005c5faf	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=6b3bc5f4aaa0f11143004b26094f4309
+_md5_=7a5f52d78a660b95b378a5c27d65972c
