@@ -23,7 +23,7 @@ case ${PV}  in
 	case ${PV} in
 	*_beta*|*_rc*) ;;
 	*)
-		KEYWORDS="-* amd64 arm arm64 ~loong ~mips ppc64 ~riscv ~s390 x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
+		KEYWORDS="-* ~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 		;;
 	esac
 esac
@@ -121,10 +121,6 @@ go_cross_compile() {
 	[[ $(go_tuple ${CBUILD}) != $(go_tuple) ]]
 }
 
-PATCHES=(
-	"${FILESDIR}"/go-never-download-newer-toolchains.patch
-)
-
 src_compile() {
 	if has_version -b ">=dev-lang/go-${GO_BOOTSTRAP_MIN}"; then
 		export GOROOT_BOOTSTRAP="${BROOT}/usr/lib/go"
@@ -161,20 +157,24 @@ src_test() {
 	cd src
 
 	# https://github.com/golang/go/issues/42005
-	rm cmd/link/internal/ld/fallocate_test.go || die
+	rm cmd/link/internal/ld/fallocate_test.go || true
 
 	PATH="${GOBIN}:${PATH}" \
-	./run.bash -no-rebuild -k || die "tests failed"
+	./run.bash -no-rebuild || die "tests failed"
+	cd ..
+	rm -fr pkg/*_race || die
+	rm -fr pkg/obj/go-build || die
 }
 
 src_install() {
-	dodir /usr/lib/go
+	# There is a known issue which requires the source tree to be installed [1].
+	# Once this is fixed, we can consider using the doc use flag to control
+	# installing the doc and src directories.
 	# The use of cp is deliberate in order to retain permissions
+	# [1] https://golang.org/issue/2775
+	dodir /usr/lib/go
 	cp -R api bin doc lib pkg misc src test "${ED}"/usr/lib/go
 	einstalldocs
-
-	insinto /usr/lib/go
-	doins go.env VERSION
 
 	# testdata directories are not needed on the installed system
 	rm -fr $(find "${ED}"/usr/lib/go -iname testdata -type d -print)
