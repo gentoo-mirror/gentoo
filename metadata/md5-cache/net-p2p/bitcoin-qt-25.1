@@ -3,9 +3,9 @@ DESCRIPTION=Transitional package for net-p2p/bitcoin-core[gui]
 EAPI=8
 HOMEPAGE=https://bitcoincore.org/
 IUSE=+asm +berkdb dbus +external-signer kde nat-pmp +qrcode +sqlite systemtap test upnp +wallet zeromq
-KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=~net-p2p/bitcoin-core-25.1[gui,asm=,berkdb=,dbus=,external-signer=,kde=,nat-pmp=,qrcode=,sqlite=,systemtap=,test=,upnp=,zeromq=] wallet? ( || ( ~net-p2p/bitcoin-core-25.1[berkdb] ~net-p2p/bitcoin-core-25.1[sqlite] ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_md5_=b0a48d29f6d3abc99d81f007f369e838
+_md5_=2108e06744428605cdf91a174a472d28
