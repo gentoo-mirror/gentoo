@@ -3,10 +3,13 @@
 
 EAPI=8
 
-inherit desktop toolchain-funcs
+inherit autotools desktop toolchain-funcs
 
 DESCRIPTION="Scrolling, platform-jumping, key-collecting, ancient pyramid exploring game"
-HOMEPAGE="https://abe.sourceforge.net/"
+HOMEPAGE="
+	https://abe.sourceforge.net/
+	https://github.com/OSSGames/GAME-SDL-ADVENTURE-Abe-s_Amazing_Adventure
+"
 SRC_URI="
 	mirror://sourceforge/abe/${P}.tar.gz
 	https://dev.gentoo.org/~ionen/distfiles/${PN}.png"
@@ -18,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	media-libs/libsdl[sound,video]
 	media-libs/sdl-mixer[vorbis]
-	x11-libs/libXi"
+"
 DEPEND="${RDEPEND}"
 
 PATCHES=(
@@ -26,12 +29,17 @@ PATCHES=(
 	"${FILESDIR}"/${P}-doublefree.patch
 	"${FILESDIR}"/${P}-format.patch
 	"${FILESDIR}"/${P}-format-security.patch
+	"${FILESDIR}"/${P}-no-x-check.patch
 )
 
 src_prepare() {
 	default
 
-	sed -i '/^TR_CFLAGS/d;/^TR_CXXFLAGS/d' configure || die
+	sed -i '/^TR_CFLAGS/d;/^TR_CXXFLAGS/d' configure.in || die
+
+	# original configure contains problematic detections with modern compilers
+	# see #883287, #898794
+	eautoreconf
 }
 
 src_configure() {
