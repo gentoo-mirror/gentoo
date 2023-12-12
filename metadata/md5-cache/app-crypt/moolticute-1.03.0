@@ -1,0 +1,14 @@
+BDEPEND=>=dev-libs/libusb-1.0.20 dev-qt/qtdbus:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qttest:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 systemd? ( sys-apps/systemd ) !systemd? ( sys-apps/systemd-utils ) dev-qt/linguist-tools:5 virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm prepare
+DESCRIPTION=Mooltipass crossplatform daemon/tools
+EAPI=8
+HOMEPAGE=https://github.com/mooltipass/moolticute
+INHERIT=qmake-utils systemd udev xdg-utils
+IUSE=systemd
+KEYWORDS=~amd64 ~arm
+LICENSE=GPL-3
+RDEPEND=>=dev-libs/libusb-1.0.20 dev-qt/qtdbus:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qttest:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 systemd? ( sys-apps/systemd ) !systemd? ( sys-apps/systemd-utils )
+SLOT=0
+SRC_URI=https://github.com/mooltipass/moolticute/archive/refs/tags/v1.03.0.tar.gz -> moolticute-1.03.0.tar.gz
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=c2d6d9ca020b24917ddb699e7ee24567
