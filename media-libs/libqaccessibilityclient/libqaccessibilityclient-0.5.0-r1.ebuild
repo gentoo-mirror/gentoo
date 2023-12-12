@@ -31,3 +31,5 @@ DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-memleak.patch" )
