@@ -7,7 +7,7 @@ HOMEPAGE=https://www.audacityteam.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake wxwidgets xdg
 IUSE=alsa audiocom ffmpeg +flac id3tag +ladspa +lv2 mad mpg123 ogg opus +portmixer sbsms twolame vamp +vorbis wavpack
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ GPL-3 audiocom? ( ZLIB )
 RDEPEND=dev-db/sqlite:3 dev-libs/expat dev-libs/glib:2 media-libs/libsndfile media-libs/libsoundtouch:= media-libs/portaudio[alsa?] media-libs/portmidi media-libs/portsmf:= media-libs/soxr media-sound/lame x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/wxGTK:3.2-gtk3[X] sys-apps/util-linux alsa? ( media-libs/alsa-lib ) audiocom? ( dev-libs/rapidjson net-misc/curl ) ffmpeg? ( media-video/ffmpeg ) flac? ( media-libs/flac:=[cxx] ) id3tag? ( media-libs/libid3tag:= ) lv2? ( dev-libs/serd dev-libs/sord media-libs/lilv media-libs/lv2 media-libs/sratom media-libs/suil ) mad? ( media-libs/libmad ) mpg123? ( media-sound/mpg123 ) ogg? ( media-libs/libogg ) opus? ( media-libs/opus ) sbsms? ( media-libs/libsbsms ) twolame? ( media-sound/twolame ) vamp? ( media-libs/vamp-plugin-sdk ) vorbis? ( media-libs/libvorbis ) wavpack? ( media-sound/wavpack )
 REQUIRED_USE=mad? ( !mpg123 )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/audacity/audacity/archive/Audacity-3.3.3.tar.gz audiocom? ( https://raw.githubusercontent.com/progschj/ThreadPool/9a42ec1329f259a5f4881a291db1dcb8f2ad9040/ThreadPool.h -> progschj-ThreadPool-20140926.h )
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=f474d903123a8f2bffa8ef627f39ca0b
+_md5_=806642878d185ed1ed00c37e5b7d2b28

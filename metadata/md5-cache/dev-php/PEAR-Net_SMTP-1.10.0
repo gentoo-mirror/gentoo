@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://pear.php.net/package/Net_SMTP
 INHERIT=php-pear-r2
 IUSE=examples sasl test
-KEYWORDS=~alpha amd64 arm ~hppa ppc ppc64 ~s390 sparc x86
+KEYWORDS=amd64 arm ~hppa ppc ppc64 ~s390 sparc x86
 LICENSE=BSD-2
 RDEPEND=dev-lang/php:* dev-php/PEAR-Net_Socket dev-php/PEAR-PEAR sasl? ( dev-php/PEAR-Auth_SASL ) >=dev-php/pear-1.8.1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://pear.php.net/get/Net_SMTP-1.10.0.tgz
 _eclasses_=php-pear-r2	920a4ee643aaaeef0f8b358fbf2255ab
-_md5_=580a229dd34bac36bf046efe2b30860b
+_md5_=f39a7e5177c26ecc2c5467efc7f91ab9
