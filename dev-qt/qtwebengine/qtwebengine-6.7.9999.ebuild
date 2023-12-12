@@ -3,7 +3,7 @@
 
 EAPI=8
 
-# 3.12 waiting after QTBUG-117979 (see also QTBUG-115512)
+# 3.12 needs QTBUG-117979 (see also QTBUG-115512)
 PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
 inherit check-reqs flag-o-matic multiprocessing optfeature
@@ -11,7 +11,7 @@ inherit prefix python-any-r1 qt6-build toolchain-funcs
 
 DESCRIPTION="Library for rendering dynamic web content in Qt6 C++ and QML applications"
 SRC_URI+="
-	https://dev.gentoo.org/~ionen/distfiles/${PN}-6.6-patchset-3.tar.xz
+	https://dev.gentoo.org/~ionen/distfiles/${PN}-6.7-patchset-1.tar.xz
 "
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
@@ -111,8 +111,6 @@ PATCHES=( "${WORKDIR}"/patches/${PN} )
 
 PATCHES+=(
 	# add extras as needed here, may merge in set if carries across versions
-	"${FILESDIR}"/${PN}-6.5.3-icu74.patch
-	"${FILESDIR}"/${PN}-6.5.3-libxml2-2.12.patch
 )
 
 python_check_deps() {
@@ -174,6 +172,7 @@ src_configure() {
 		$(qt_feature pdfium qtpdf_build)
 		$(qt_feature qml qtpdf_quick_build)
 		$(qt_feature widgets qtpdf_widgets_build)
+		$(usev pdfium -DQT_FEATURE_pdf_v8=ON)
 
 		-DQT_FEATURE_qtwebengine_build=ON
 		$(qt_feature qml qtwebengine_quick_build)
@@ -213,9 +212,9 @@ src_configure() {
 
 		# not necessary to pass these (default), but in case detection fails
 		$(printf -- '-DQT_FEATURE_webengine_system_%s=ON ' \
-			freetype glib harfbuzz lcms2 libevent libjpeg \
-			libopenjpeg2 libpci libpng libtiff libwebp \
-			libxml minizip opus poppler snappy zlib)
+			freetype gbm glib harfbuzz lcms2 libevent libjpeg \
+			libopenjpeg2 libpci libpng libtiff libwebp libxml \
+			minizip opus poppler snappy zlib)
 
 		# TODO: fixup gn cross, or package dev-qt/qtwebengine-gn with =ON
 		-DINSTALL_GN=OFF

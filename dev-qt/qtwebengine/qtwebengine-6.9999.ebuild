@@ -11,7 +11,7 @@ inherit prefix python-any-r1 qt6-build toolchain-funcs
 
 DESCRIPTION="Library for rendering dynamic web content in Qt6 C++ and QML applications"
 SRC_URI+="
-	https://dev.gentoo.org/~ionen/distfiles/${PN}-6.6-patchset-5.tar.xz
+	https://dev.gentoo.org/~ionen/distfiles/${PN}-6.7-patchset-1.tar.xz
 "
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
@@ -212,9 +212,9 @@ src_configure() {
 
 		# not necessary to pass these (default), but in case detection fails
 		$(printf -- '-DQT_FEATURE_webengine_system_%s=ON ' \
-			freetype glib harfbuzz lcms2 libevent libjpeg \
-			libopenjpeg2 libpci libpng libtiff libwebp \
-			libxml minizip opus poppler snappy zlib)
+			freetype gbm glib harfbuzz lcms2 libevent libjpeg \
+			libopenjpeg2 libpci libpng libtiff libwebp libxml \
+			minizip opus poppler snappy zlib)
 
 		# TODO: fixup gn cross, or package dev-qt/qtwebengine-gn with =ON
 		-DINSTALL_GN=OFF

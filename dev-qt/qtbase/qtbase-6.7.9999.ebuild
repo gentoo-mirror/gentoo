@@ -18,13 +18,13 @@ declare -A QT6_IUSE=(
 
 	[gui]="
 		+X accessibility eglfs evdev gles2-only +libinput
-		opengl tslib vulkan +widgets
+		opengl renderdoc tslib vulkan wayland +widgets
 	"
 	[network]="brotli gssapi libproxy sctp"
 	[sql]="mysql oci8 odbc postgres +sqlite"
 	[widgets]="cups gtk"
 
-	[optfeature]="nls wayland" #810802,864509
+	[optfeature]="nls" #810802
 )
 IUSE="${QT6_IUSE[*]}"
 REQUIRED_USE="
@@ -34,7 +34,7 @@ REQUIRED_USE="
 		printf '%s? ( sql ) ' ${QT6_IUSE[sql]//+/}
 		printf '%s? ( gui widgets ) ' ${QT6_IUSE[widgets]//+/}
 	)
-	accessibility? ( X dbus )
+	accessibility? ( dbus )
 	eglfs? ( opengl )
 	gles2-only? ( opengl )
 	gui? ( || ( X eglfs wayland ) )
@@ -50,6 +50,7 @@ REQUIRED_USE="
 # - qtnetwork (src/network/configure.cmake)
 # - qtprintsupport (src/printsupport/configure.cmake) [gui+widgets]
 # - qtsql (src/plugins/sqldrivers/configure.cmake)
+# dlopen: renderdoc
 RDEPEND="
 	sys-libs/zlib:=
 	ssl? ( dev-libs/openssl:= )
@@ -90,6 +91,7 @@ RDEPEND="
 			gles2-only? ( media-libs/libglvnd )
 			!gles2-only? ( media-libs/libglvnd[X?] )
 		)
+		renderdoc? ( media-gfx/renderdoc )
 		tslib? ( x11-libs/tslib )
 		widgets? (
 			cups? ( net-print/cups )
@@ -134,10 +136,8 @@ PDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.5.2-hppa-forkfd-grow-stack.patch
-	"${FILESDIR}"/${PN}-6.5.2-no-glx.patch
 	"${FILESDIR}"/${PN}-6.5.2-no-symlink-check.patch
-	"${FILESDIR}"/${PN}-6.5.3-xkbcommon160.patch
-	"${FILESDIR}"/${PN}-6.5.3-forkfd-childstack-size.patch
+	"${FILESDIR}"/${PN}-6.6.1-forkfd-childstack-size.patch
 )
 
 src_prepare() {
@@ -199,8 +199,10 @@ src_configure() {
 		$(qt_feature evdev)
 		$(qt_feature evdev mtdev)
 		$(qt_feature libinput)
+		$(qt_feature renderdoc graphicsframecapture)
 		$(qt_feature tslib)
 		$(qt_feature vulkan)
+		$(qt_feature wayland)
 		$(qt_feature widgets)
 		-DINPUT_opengl=$(usex opengl $(usex gles2-only es2 desktop) no)
 		-DQT_FEATURE_system_textmarkdownreader=OFF # TODO?: package md4c
@@ -310,10 +312,11 @@ src_test() {
 		# similarly, but on armv7 and potentially others (bug #914028)
 		tst_qlineedit
 		tst_qpainter
-		# likewise, known failing at least on BE arches (bug #914033,914371)
+		# likewise, known failing on BE arches (bug #914033,914371,918878)
 		tst_qimagereader
 		tst_qimagewriter
 		tst_qpluginloader
+		tst_quuid
 		# partially broken on llvm-musl, needs looking into but skip to have
 		# a baseline for regressions (rest of dev-qt still passes with musl)
 		$(usev elibc_musl '
@@ -325,6 +328,12 @@ src_test() {
 		$(usev hppa '
 			tst_qcborvalue
 			tst_qnumeric
+		')
+		# bug #914033
+		$(usev sparc '
+			tst_qbuffer
+			tst_qprocess
+			tst_qtconcurrentiteratekernel
 		')
 		# note: for linux, upstream only really runs+maintains tests for amd64
 		# https://doc.qt.io/qt-6/supported-platforms.html
