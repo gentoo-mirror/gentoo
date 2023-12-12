@@ -81,7 +81,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-11.0.2-musl-no-execinfo.patch
-	"${FILESDIR}"/${PN}-11.0.2-musl-no-malloc-trim.patch
+	"${FILESDIR}"/${PN}-12.0.0-musl-no-malloc-trim.patch
 )
 
 llvm_check_deps() {
@@ -139,10 +139,7 @@ src_configure() {
 		# TODO?: package litehtml, but support for latest releases seem
 		# to lag behind and bundled may work out better for now
 		# https://bugreports.qt.io/browse/QTCREATORBUG-29169
-		$(use help && usev !webengine '
-			-DCMAKE_DISABLE_FIND_PACKAGE_litehtml=yes
-			-DEXTERNAL_XXD=no
-		')
+		$(use help && usev !webengine -DCMAKE_DISABLE_FIND_PACKAGE_litehtml=yes)
 
 		-DBUILD_PLUGIN_SERIALTERMINAL=$(usex serialterminal)
 
@@ -164,12 +161,6 @@ src_test() {
 	local -x QT_QPA_PLATFORM=offscreen
 
 	local CMAKE_SKIP_TESTS=(
-		# unknown why these fails, but seems fixed in live
-		tst_tracing_timelineitemsrenderpass
-		tst_tracing_timelinenotesrenderpass
-		tst_tracing_timelineselectionrenderpass
-		# fails when built with clang, but also seems fixed in live
-		tst_process
 		# skipping same tests+label as upstream's CI by default
 		# `grep ctest .github/workflows/build_cmake.yml`
 		tst_perfdata
@@ -243,6 +234,7 @@ Utilities:
 - Conan (dev-util/conan)
 - Docker (app-containers/docker)
 - Haskell (dev-lang/ghc)
+- ScreenRecorder (media-video/ffmpeg)
 - SerialTerminal (USE=serialterminal)
 - SilverSearcher (sys-apps/the_silver_searcher)
 - StudioWelcome (USE=qmldesigner)
