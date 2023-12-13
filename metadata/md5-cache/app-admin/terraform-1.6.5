@@ -1,0 +1,13 @@
+BDEPEND=dev-go/gox >=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DESCRIPTION=A tool for building, changing, and combining infrastructure safely
+EAPI=8
+HOMEPAGE=https://www.terraform.io/
+INHERIT=go-module
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=BUSL-1.1
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/hashicorp/terraform/archive/v1.6.5.tar.gz -> terraform-1.6.5.tar.gz https://dev.gentoo.org/~williamh/dist/terraform-1.6.5-deps.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	9e5a8f7b134fd3ed3785755097fe8ef0
+_md5_=c2d1d6b739ad5a793a206d4b9a5c16d2
