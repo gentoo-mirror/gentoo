@@ -1029,7 +1029,7 @@ app-admin/rcm 1.3.5 1.3.6: rc file (dotfile) management
 app-admin/restart-services 0.17.0-r1 1.0: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.14.3 9999: (R)?ex, the friendly automation framework
 app-admin/rsyslog 8.2308.0 8.2310.0 8.2312.0: An enhanced multi-threaded syslogd with database support and more
-app-admin/ryzen_monitor 1.0.4-r1 1.0.5: Monitor power information of Ryzen processors via the PM table of the SMU
+app-admin/ryzen_monitor 1.0.4-r1 1.0.5 1.0.5-r1 1.0.6_pre20220901: Monitor power information of Ryzen processors via the PM table of the SMU
 app-admin/ryzen_smu 0.1.2 0.1.2_p20210627 0.1.2_p20211205 0.1.2_p20211205-r1 0.1.5: Kernel driver for AMD Ryzen's System Management Unit
 app-admin/sagan 2.0.1-r6: Sagan is a multi-threaded, real time system and event log monitoring system
 app-admin/sagan-rules 20210208 99999999: Rules for Sagan log analyzer
@@ -1345,7 +1345,7 @@ app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containe
 app-containers/go-secbench 0.1.0-r1: run and evaluate the docker security benchmark
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
-app-containers/incus 0.3: Modern, secure and powerful system container and virtual machine manager
+app-containers/incus 0.3 0.3-r1: Modern, secure and powerful system container and virtual machine manager
 app-containers/k3d 5.4.9 5.6.0: k3d creates k3s clusters in docker
 app-containers/kompose 1.26.1: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 5.0.3: A userspace interface for the Linux kernel containment features
@@ -2632,7 +2632,7 @@ app-misc/blink1 1.98-r2: blink(1) USB RGB LED status light control suite
 app-misc/bottlerocket 0.04c-r2: CLI interface to the X-10 Firecracker Kit
 app-misc/boxes 2.2.0 2.2.1: Draw any kind of boxes around your text
 app-misc/brewtarget 2.3.1-r1: Application to create and manage beer recipes
-app-misc/broot 1.26.1 1.29.0: A new way to see and navigate directory trees
+app-misc/broot 1.26.1 1.29.0 1.30.0: A new way to see and navigate directory trees
 app-misc/btail 0.3-r1: Bayesian logfile filter
 app-misc/byobu 5.133: A set of profiles for the GNU Screen console window manager (app-misc/screen)
 app-misc/c_rehash 1.7-r1: c_rehash script from OpenSSL
@@ -2734,7 +2734,7 @@ app-misc/hexcompare 1.0.4: ncurses-based visual comparison of binary files
 app-misc/hilite 1.5-r1: Utility which highlights stderr text in red
 app-misc/hivex 1.3.23-r1: Library for reading and writing Windows Registry 'hive' binary files
 app-misc/hodie 1.5: a Latin date(1)
-app-misc/hyfetch 1.4.10 9999: Neofetch with LGBTQ+ pride flags!
+app-misc/hyfetch 1.4.10 1.4.11 9999: Neofetch with LGBTQ+ pride flags!
 app-misc/i2bits 0.1.0-r1: Utility to convert hex or dec to binary format
 app-misc/icdiff 2.0.6 2.0.7: Colourized diff that supports side-by-side diffing
 app-misc/imgurbash2 3.1 3.2 9999: Bash script that uploads/deletes images to/from imgur
@@ -14619,7 +14619,7 @@ net-im/skypeforlinux 8.108.0.205: Instant messaging client, with support for aud
 net-im/slack 4.35.131 4.36.134: Team collaboration tool
 net-im/spectrum2 2.2.1: An open source instant messaging transport
 net-im/swift 4.0.3-r1: An elegant, secure, adaptable and intuitive XMPP Client
-net-im/synapse 1.96.0 1.97.0 1.98.0: Reference implementation of Matrix homeserver
+net-im/synapse 1.96.0 1.97.0 1.98.0-r1: Reference implementation of Matrix homeserver
 net-im/telegram-desktop 4.11.7-r1 4.12.2: Official desktop client for Telegram
 net-im/telegram-desktop-bin 4.11.7: Official desktop client for Telegram (binary package)
 net-im/telepathy-connection-managers 2-r2: Meta-package for Telepathy Connection Managers
@@ -14676,7 +14676,7 @@ net-irc/sic 1.2-r1: An extremely simple IRC client
 net-irc/soju 0.6.2 0.7.0: soju is a user-friendly IRC bouncer
 net-irc/telepathy-idle 0.2.2: Full-featured IRC connection manager for Telepathy
 net-irc/unrealircd 5.2.4-r1 6.0.4.2: An advanced Internet Relay Chat daemon
-net-irc/weechat 3.8 4.0.4 4.0.5 4.0.6 4.1.0 4.1.1 9999: Portable and multi-interface IRC client
+net-irc/weechat 3.8 4.0.4 4.0.5 4.0.6 4.0.7 4.1.0 4.1.1 4.1.2 9999: Portable and multi-interface IRC client
 net-irc/znc 1.8.2-r2 9999: An advanced IRC Bouncer
 net-irc/znc-clientbuffer 1.0.48 1.0.48-r1: A ZNC module which provides client specific buffers
 net-irc/znc-igloo-push 20200520: A ZNC module which provides push notifications for Igloo client
@@ -15571,7 +15571,7 @@ perl-core/Test-Simple 1.302.183 1.302.195 1.302.196: Basic utilities for writing
 perl-core/Text-Tabs+Wrap 2013.52.300-r2 2023.51.100: Expand/unexpand tabs per unix expand and line wrapping
 perl-core/Unicode-Collate 1.290.0 1.310.0: Unicode Collate Algorithm
 sci-astronomy/aatm 0.6: Atmospheric Modelling for ALMA Observatory
-sci-astronomy/calcmysky 0.3.0 0.3.1: Simulator of light scattering by planetary atmospheres
+sci-astronomy/calcmysky 0.3.1: Simulator of light scattering by planetary atmospheres
 sci-astronomy/casa-data 20170703: Data and tables for the CASA software
 sci-astronomy/cdsclient 3.8.4-r1: Collection of scripts to access the CDS databases
 sci-astronomy/celestia 1.7.0_pre20221215: OpenGL 3D space simulator
@@ -15601,7 +15601,7 @@ sci-astronomy/siril 1.2.0 9999: A free astronomical image processing software
 sci-astronomy/sirilic 1.15.7 1.15.8: Preparing acquisition files for processing with the SiriL software
 sci-astronomy/skymaker 3.10.5: Program that simulates astronomical images
 sci-astronomy/sofa_c 20170420: Library for algorithms for models in fundamental astronomy
-sci-astronomy/stellarium 23.1 23.2-r1 23.3: 3D photo-realistic skies in real time
+sci-astronomy/stellarium 23.3: 3D photo-realistic skies in real time
 sci-astronomy/stiff 2.4.0-r1: Converts astronomical FITS images to the TIFF format
 sci-astronomy/stuff 1.26.0: Tool for automatic generation of astronomical catalogs
 sci-astronomy/swarp 2.41.5: Resample and coadd astronomical FITS images
