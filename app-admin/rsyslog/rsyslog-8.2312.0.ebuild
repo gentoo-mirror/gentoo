@@ -3,26 +3,25 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit autotools linux-info python-any-r1 systemd
 
 DESCRIPTION="An enhanced multi-threaded syslogd with database support and more"
 HOMEPAGE="https://www.rsyslog.com/"
 
-if [[ ${PV} == "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/rsyslog/${PN}.git"
-
 	DOC_REPO_URI="https://github.com/rsyslog/${PN}-doc.git"
 
 	inherit git-r3
 else
-	KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ~ppc64 ~riscv ~sparc x86"
-
 	SRC_URI="
 		https://www.rsyslog.com/files/download/${PN}/${P}.tar.gz
 		doc? ( https://www.rsyslog.com/files/download/${PN}/${PN}-doc-${PV}.tar.gz )
 	"
+
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 LICENSE="GPL-3 LGPL-3 Apache-2.0"
@@ -107,7 +106,7 @@ DEPEND="
 	elibc_musl? ( sys-libs/queue-standalone )
 "
 
-if [[ ${PV} == "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	BDEPEND+=" doc? ( >=dev-python/sphinx-1.1.3-r7 )"
 	BDEPEND+=" >=sys-devel/flex-2.5.39-r1"
 	BDEPEND+=" >=sys-devel/bison-2.4.3"
@@ -117,26 +116,27 @@ fi
 CONFIG_CHECK="~INOTIFY_USER"
 WARNING_INOTIFY_USER="CONFIG_INOTIFY_USER isn't set. Imfile module on this system will only support polling mode!"
 
-PATCHES=( "${FILESDIR}"/${PN}-8.2112.0-pr5024-configure.patch )
+PATCHES=( "${FILESDIR}/${PN}-8.2112.0-pr5024-configure.patch" )
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
 }
 
 src_unpack() {
-	if [[ ${PV} == "9999" ]]; then
+	if [[ "${PV}" == "9999" ]]; then
 		git-r3_fetch
 		git-r3_checkout
 	else
-		unpack ${P}.tar.gz
+		unpack "${P}.tar.gz"
 	fi
 
 	if use doc; then
-		if [[ ${PV} == "9999" ]]; then
+		if [[ "${PV}" == "9999" ]]; then
 			local _EGIT_BRANCH=
 			if [[ -n "${EGIT_BRANCH}" ]]; then
 				# Cannot use rsyslog commits/branches for documentation repository
-				_EGIT_BRANCH=${EGIT_BRANCH}
+				_EGIT_BRANCH="${EGIT_BRANCH}"
+
 				unset EGIT_BRANCH
 			fi
 
@@ -151,6 +151,7 @@ src_unpack() {
 			cd "${S}" || die "Cannot change dir into '${S}'"
 			mkdir docs || die "Failed to create docs directory"
 			cd docs || die "Failed to change dir into '${S}/docs'"
+
 			unpack ${PN}-doc-${PV}.tar.gz
 		fi
 	fi
