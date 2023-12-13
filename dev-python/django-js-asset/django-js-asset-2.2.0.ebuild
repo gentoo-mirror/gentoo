@@ -29,11 +29,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	# https://github.com/matthiask/django-js-asset/pull/12
-	"${FILESDIR}/${P}-hatchling.patch"
-)
-
 python_test() {
 	cd tests || die
 	local -x DJANGO_SETTINGS_MODULE=testapp.settings
