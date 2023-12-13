@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm prepare
+DESCRIPTION=Android udev rules list aimed to be the most comprehensive on the net
+EAPI=8
+HOMEPAGE=https://github.com/M0Rf30/android-udev-rules
+INHERIT=udev
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=acct-group/android virtual/udev
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/M0Rf30/android-udev-rules/archive/refs/tags/20231207.tar.gz -> android-udev-rules-20231207.tar.gz
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	udev	eec0bbab06977f1cfc5597269c1fa152
+_md5_=172285c553e2203611cd8d3afe50fccd
