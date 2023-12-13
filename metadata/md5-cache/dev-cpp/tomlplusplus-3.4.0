@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=TOML config file parser and serializer
+EAPI=8
+HOMEPAGE=https://marzer.github.io/tomlplusplus/ https://github.com/marzer/tomlplusplus
+INHERIT=meson
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.4.0.tar.gz -> tomlplusplus-3.4.0.gh.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	meson	576e6bbef90e9753368f8b4ad0bd5383
+_md5_=bd7f40763fe57b008630cabf96143161
