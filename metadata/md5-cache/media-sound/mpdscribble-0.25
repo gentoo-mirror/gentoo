@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/boost dev-libs/libgcrypt:= media-libs/libmpdclient net-misc/curl
+DESCRIPTION=An MPD client that submits information to Audioscrobbler
+EAPI=8
+HOMEPAGE=https://www.musicpd.org/clients/mpdscribble/ https://github.com/MusicPlayerDaemon/mpdscribble
+INHERIT=meson systemd
+IUSE=test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/boost dev-libs/libgcrypt:= media-libs/libmpdclient net-misc/curl
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://www.musicpd.org/download/mpdscribble/0.25/mpdscribble-0.25.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	e989dbdcbb647bd8655857c1f95be244	meson	576e6bbef90e9753368f8b4ad0bd5383	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=98599533510df78df6220d5948b8e4ef
