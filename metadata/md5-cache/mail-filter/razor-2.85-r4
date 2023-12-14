@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://razor.sourceforge.net/
 INHERIT=perl-module readme.gentoo-r1
 IUSE=selinux test
-KEYWORDS=~alpha amd64 ~hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~arm64 ~hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=Artistic
 RDEPEND=dev-perl/URI dev-perl/Net-DNS virtual/perl-Net-Ping virtual/perl-Time-HiRes dev-perl/Digest-Nilsimsa || ( virtual/perl-Digest-SHA dev-perl/Digest-SHA1 ) selinux? ( sec-policy/selinux-razor ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/razor/razor-agents-2.85.tar.bz2
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676
-_md5_=837d7653a0e4d5c2b6beb8f943c57439
+_md5_=7bc133531549c3cce10a4e96df48d242

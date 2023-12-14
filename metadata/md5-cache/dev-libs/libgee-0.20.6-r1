@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=>=dev-libs/glib-2.36:2 introspection? ( >=dev-libs/gobject-introspection-0.9.6:= )
+DEPEND=>=dev-libs/glib-2.36:2 introspection? ( >=dev-libs/gobject-introspection-0.9.6:= ) || ( dev-lang/vala:0.56 )
 DESCRIPTION=GObject-based interfaces and classes for commonly used data structures
 EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Projects/Libgee
@@ -13,4 +13,4 @@ RDEPEND=>=dev-libs/glib-2.36:2 introspection? ( >=dev-libs/gobject-introspection
 SLOT=0.8/2
 SRC_URI=mirror://gnome/sources/libgee/0.20/libgee-0.20.6.tar.xz
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	9bd787a54d31405e742ae7537eed650b	flag-o-matic	b97a0a7215b2f463a485ff0599ab30bb	vala	e477903dbe0105930c51f170a592dc16
-_md5_=9fafe7cd6ff3bec80bcb9a572935236b
+_md5_=581d2c2d6821711c29ac3b0e52850790

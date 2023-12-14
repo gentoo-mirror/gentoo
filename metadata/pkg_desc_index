@@ -16967,7 +16967,7 @@ sys-apps/pmount 0.9.99_alpha-r7: Policy based mounter that gives the ability to 
 sys-apps/pnputils 0.1-r1: Plug and Play BIOS utilities
 sys-apps/policycoreutils 3.5 9999: SELinux core utilities
 sys-apps/polychromatic 0.8.1 0.8.2 0.8.3 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
-sys-apps/portage 3.0.49-r2 3.0.51 3.0.56-r1 3.0.57 9999: The package management and distribution system for Gentoo
+sys-apps/portage 3.0.49-r2 3.0.51 3.0.56-r1 3.0.57 3.0.58 9999: The package management and distribution system for Gentoo
 sys-apps/powerpc-utils 1.1.3.18-r4: PowerPC utilities and additional OldWorld apps
 sys-apps/ppc64-diag 2.7.9: Diagnostic tools for PowerLinux
 sys-apps/prctl 1.6-r1: Tool to query and modify process behavior
@@ -17524,8 +17524,8 @@ sys-kernel/dkms 3.0.12: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r5 059-r6 059_p20231027 060_pre20231030-r1 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.203 5.15.142 6.1.66 6.1.67 6.6.5 6.6.6: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.203 5.15.142 6.1.66 6.1.67 6.6.5 6.6.6: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.203 5.10.204 5.15.142 5.15.143 6.1.66 6.1.67 6.1.68 6.6.5 6.6.6 6.6.7: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.203 5.10.204 5.15.142 5.15.143 6.1.66 6.1.67 6.1.68 6.6.5 6.6.6 6.6.7: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.203 5.10.204 5.15.142 5.15.143 6.1.57 6.1.66 6.1.67 6.1.68 6.6.4 6.6.6 6.6.7: Full sources including the Gentoo patchset for the 6.6 kernel tree
 sys-kernel/git-sources 6.7_rc1 6.7_rc2 6.7_rc3 6.7_rc4 6.7_rc5: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 7 10: Gentoo fork of installkernel script from debianutils
@@ -17541,7 +17541,7 @@ sys-kernel/pf-sources 6.5_p5 6.5_p6 6.6_p1 6.6_p2 6.6_p3 6.6_p4: Linux kernel fo
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.330_p157 4.19.295_p129 5.4.257_p87 5.10.201_p98 5.15.137_p71 6.0.5_p14 6.1.64_p17 6.5.2_p8: Full Linux 6.5 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.10.203 5.10.9999 5.15.142 5.15.9999 6.1.66 6.1.67 6.1.9999 6.6.5 6.6.6: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.203 5.10.204 5.10.9999 5.15.142 5.15.143 5.15.9999 6.1.66 6.1.67 6.1.68 6.1.9999 6.6.5 6.6.6 6.6.7: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.14.333 4.19.302 5.4.264 5.10.204 5.15.143 6.1.68 6.6.7: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.5.9 6.6.3: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17733,7 +17733,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.203 5.15.142 6.1.66 6.1.67 6.6.5 6.6.6: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.203 5.10.204 5.15.142 5.15.143 6.1.66 6.1.67 6.1.68 6.6.5 6.6.6 6.6.7: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18177,7 +18177,7 @@ x11-base/xorg-apps 3: X11 Applications (meta package)
 x11-base/xorg-drivers 21.1-r2 9999: Meta package containing deps on all xorg drivers
 x11-base/xorg-fonts 3: X11 fonts (meta package)
 x11-base/xorg-proto 2023.2 9999: X.Org combined protocol headers
-x11-base/xorg-server 21.1.9 21.1.10 9999: X.Org X servers
+x11-base/xorg-server 21.1.9 21.1.10 21.1.10-r1 9999: X.Org X servers
 x11-base/xorg-sgml-doctools 1.12: SGML entities and XML/CSS stylesheets used in X.Org docs
 x11-base/xwayland 23.2.2 23.2.3 9999: Standalone X server running under Wayland
 x11-drivers/nvidia-drivers 390.157 470.223.02 525.147.05 535.43.20 535.129.03 535.146.02 545.29.06: NVIDIA Accelerated Graphics Driver
