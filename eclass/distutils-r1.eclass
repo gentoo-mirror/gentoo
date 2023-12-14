@@ -50,6 +50,7 @@ case ${EAPI} in
 esac
 
 # @ECLASS_VARIABLE: DISTUTILS_EXT
+# @PRE_INHERIT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Set this variable to a non-null value if the package (possibly
@@ -1806,6 +1807,11 @@ distutils-r1_run_phase() {
 	tc-export AR CC CPP CXX
 
 	if [[ ${DISTUTILS_EXT} ]]; then
+		if [[ ${BDEPEND} == *dev-python/cython* ]] ; then
+			# Workaround for https://github.com/cython/cython/issues/2747 (bug #918983)
+			local -x CFLAGS="${CFLAGS} $(test-flags-CC -Wno-error=incompatible-pointer-types)"
+		fi
+
 		local -x CPPFLAGS="${CPPFLAGS} $(usex debug '-UNDEBUG' '-DNDEBUG')"
 		# always generate .c files from .pyx files to ensure we get latest
 		# bug fixes from Cython (this works only when setup.py is using

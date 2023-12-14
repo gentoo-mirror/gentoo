@@ -153,17 +153,6 @@ _python_set_impls() {
 		done
 	fi
 
-	if [[ -n ${obsolete[@]} && ${EBUILD_PHASE} == setup ]]; then
-		# complain if people don't clean up old impls while touching
-		# the ebuilds recently.  use the copyright year to infer last
-		# modification
-		# NB: this check doesn't have to work reliably
-		if [[ $(head -n 1 "${EBUILD}" 2>/dev/null) == *2022* ]]; then
-			eqawarn "Please clean PYTHON_COMPAT of obsolete implementations:"
-			eqawarn "  ${obsolete[*]}"
-		fi
-	fi
-
 	local supp=() unsupp=()
 
 	for i in "${_PYTHON_ALL_IMPLS[@]}"; do
@@ -1336,15 +1325,8 @@ epytest() {
 	_python_check_EPYTHON
 	_python_check_occluded_packages
 
-	local color
-	case ${NOCOLOR} in
-		true|yes)
-			color=no
-			;;
-		*)
-			color=yes
-			;;
-	esac
+	local color=yes
+	[[ ${NO_COLOR} ]] && color=no
 
 	local args=(
 		# verbose progress reporting and tracebacks
@@ -1389,6 +1371,8 @@ epytest() {
 			-p no:pytest-describe
 			-p no:plus
 			-p no:tavern
+			# does something to logging
+			-p no:salt-factories
 		)
 	fi
 
