@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile configure install setup
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?] shared? ( dev-ada/xmlada[static-pic] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?]
+DESCRIPTION=A template engine
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/templates-parser
+INHERIT=ada multiprocessing
+IUSE=+shared static-libs ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) dev-ada/xmlada[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?] shared? ( dev-ada/xmlada[static-pic] )
+REQUIRED_USE=|| ( shared static-libs ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/AdaCore/templates-parser/archive/refs/tags/v23.0.0.tar.gz -> templates-parser-23.0.0.tar.gz
+_eclasses_=ada	825cf3c59de8fefe1dde148596e006f5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
+_md5_=61e63508c9866c88483d2b3a99675534
