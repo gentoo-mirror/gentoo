@@ -4,10 +4,12 @@ DESCRIPTION=Emacs modes for Racket: edit, REPL, check-syntax, debug, profile, an
 EAPI=8
 HOMEPAGE=https://www.racket-mode.com/ https://github.com/greghendershott/racket-mode/
 INHERIT=elisp
-KEYWORDS=amd64 ~x86
-LICENSE=GPL-2+
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
 RDEPEND=dev-scheme/racket:=[-minimal] >=app-editors/emacs-25.3:*
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/greghendershott/racket-mode/archive/c2fe266c18bb6e55a13c7ba795b0a5f7372b6c13.tar.gz -> racket-mode-1_p20230506.tar.gz
+SRC_URI=https://github.com/greghendershott/racket-mode/archive/e6c2906316861e151fac9f7c0fa4ce443a1ba1fa.tar.gz -> racket-mode-1_p20231214.tar.gz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=9c7e04adfd15cc13bb6d519e0a1903f6
+_md5_=7ff225106a503e5f7a475746c7ce77e3
