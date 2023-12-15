@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://rizin.re/
 INHERIT=meson python-any-r1
 IUSE=test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=Apache-2.0 BSD LGPL-3 MIT
 RDEPEND=app-arch/lz4:0= app-arch/xz-utils >=dev-libs/capstone-5:0= dev-libs/libmspack dev-libs/libzip:0= dev-libs/openssl:0= >=dev-libs/tree-sitter-0.19.0 dev-libs/xxhash sys-apps/file sys-libs/zlib:0=
 RESTRICT=test? ( fetch ) !test? ( test )
 SLOT=0/0.6.3
 SRC_URI=mirror+https://github.com/rizinorg/rizin/releases/download/v0.6.3/rizin-src-v0.6.3.tar.xz test? ( https://github.com/rizinorg/rizin-testbins/archive/903588ed69d7717069955322b31dad5e666b338a.tar.gz -> rizin-testbins-903588ed69d7717069955322b31dad5e666b338a.tar.gz )
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=48a488ef8789aba419aee5ef5c396c1d
+_md5_=29a7c7c7336ed810138f96ac09036607
