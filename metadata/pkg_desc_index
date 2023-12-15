@@ -1777,7 +1777,7 @@ app-editors/ghostwriter 23.04.3 23.08.3 23.08.4: Cross-platform, aesthetic, dist
 app-editors/gnome-latex 3.46.0: Integrated LaTeX environment for GNOME
 app-editors/gnome-text-editor 44.0 45.0 45.1: A simple text editor for the GNOME desktop
 app-editors/gummi 0.8.3: Simple LaTeX editor for GTK+ users
-app-editors/gvim 9.0.1403 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9999: GUI version of the Vim text editor
+app-editors/gvim 9.0.1403 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9.0.2167 9999: GUI version of the Vim text editor
 app-editors/helix 23.05 23.10-r2: A post-modern text editor
 app-editors/hexcurse 1.60.0: ncurses based hex editor
 app-editors/hexedit 1.6: View and edit files in hex or ASCII
@@ -1825,8 +1825,8 @@ app-editors/ted 2.23-r3: X-based rich text editor
 app-editors/texworks 0.6.8: Simple interface for working with TeX documents
 app-editors/uemacs-pk 4.0.15_p20180719: uEmacs/PK is an enhanced version of MicroEMACS
 app-editors/vile 9.8w-r1 9.8x 9.8y: VI Like Emacs -- yet another full-featured vi clone
-app-editors/vim 9.0.1403 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9999: Vim, an improved vi-style text editor
-app-editors/vim-core 9.0.1403 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9999: vim and gvim shared files
+app-editors/vim 9.0.1403 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9.0.2167 9999: Vim, an improved vi-style text editor
+app-editors/vim-core 9.0.1403 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9.0.2167 9999: vim and gvim shared files
 app-editors/vis 0.8 0.8-r1 9999: modern, legacy free, simple yet efficient vim-like editor
 app-editors/vscode 1.85.0 1.85.1: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium 1.84.2.23319: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
@@ -3929,9 +3929,12 @@ dev-dotnet/coco 2014.12.24-r2: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 1.1.1: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.9.0 0.10.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.5: A command line C# REPL with syntax highlighting
+dev-dotnet/dotnet-outdated 4.6.0: Display and update outdated NuGet packages in a project
 dev-dotnet/dotnet-runtime-nugets 6.0.24 6.0.25 7.0.13 7.0.14 8.0.0: .NET runtime nugets
+dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.100-r1: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/dotnet-sdk-bin 6.0.417-r1 7.0.404-r1 8.0.100-r1: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/fantomas 6.2.3: FSharp source code formatter
 dev-dotnet/libgdiplus 6.0.2-r4: Library for using System.Drawing with Mono
 dev-dotnet/monocalendar 0.7.2: iCal clone for .NET
 dev-dotnet/nake 3.0.0-r1: C# scripting build automation task runner
@@ -5052,7 +5055,7 @@ dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
 dev-lang/python 2.7.18_p16-r1 3.8.18 3.9.18 3.10.13 3.11.6 3.11.7 3.12.1 3.13.0_alpha2: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
-dev-lang/qore 1.19.0 1.19.1: Qore, the embeddable multithreaded scripting language
+dev-lang/qore 1.19.1: Qore, the embeddable multithreaded scripting language
 dev-lang/qu-prolog 10.6 10.7: Extended Prolog supporting quantifiers, object-variables and substitutions
 dev-lang/rakudo 2023.02 2023.10: A compiler for the Raku programming language
 dev-lang/rapydscript-ng 0.7.22 9999: Pythonic JavaScript that doesn't suck
@@ -8033,7 +8036,7 @@ dev-python/bandit 1.7.5-r1 1.7.6: A security linter from OpenStack Security
 dev-python/bareos 22.1.2: python bindings for bareos network backup suite
 dev-python/bashate 2.1.1: A pep8 equivalent for bash scripts
 dev-python/basho-erlastic 2.1.1-r1: Erlang binary term codec and port interface
-dev-python/bcrypt 4.0.1 4.1.0 4.1.1: Modern password hashing for software and servers
+dev-python/bcrypt 4.0.1 4.1.0 4.1.1 4.1.2: Modern password hashing for software and servers
 dev-python/beagle 0.3.0-r1: Command line client for Hound, the code search tool
 dev-python/beartype 0.15.0 0.16.1 0.16.2 0.16.3 0.16.4: Unbearably fast runtime type checking in pure Python
 dev-python/beautifulsoup4 4.12.2: Pythonic idioms for iterating, searching, and modifying an HTML/XML parse tree
@@ -8321,7 +8324,7 @@ dev-python/freetype-py 2.4.0-r1: FreeType Python bindings
 dev-python/freezegun 1.2.2 1.3.0 1.3.1: Let your Python tests travel through time
 dev-python/fritzconnection 1.12.2 1.13.0 1.13.1 1.13.2 1.13.2-r1: Lib/tool to communicate with AVM FRITZ! devices using TR-064 protocol over UPnP
 dev-python/frozendict 2.3.8 2.3.9: A simple immutable mapping for python
-dev-python/frozenlist 1.3.3 1.4.0: A list-like structure which implements collections.abc.MutableSequence
+dev-python/frozenlist 1.3.3 1.4.0 1.4.1: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
 dev-python/fsspec 2023.10.0 2023.12.0 2023.12.1 2023.12.2: A specification that python filesystems should adhere to
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
@@ -8519,7 +8522,7 @@ dev-python/kombu 5.3.2 5.3.3 5.3.4: AMQP Messaging Framework for Python
 dev-python/krb5 0.5.1: Kerberos API bindings for Python
 dev-python/lark 1.1.8: Python module to propose a modern general-purpose parsing library for Python
 dev-python/latexcodec 2.0.1-r1: Lexer and codec to work with LaTeX code in Python
-dev-python/lazy-object-proxy 1.9.0: A fast and thorough lazy object proxy
+dev-python/lazy-object-proxy 1.9.0 1.10.0: A fast and thorough lazy object proxy
 dev-python/lazy_loader 0.3: Populate library namespace without incurring immediate import costs
 dev-python/ldap3 2.9.1: A strictly RFC 4511 conforming LDAP V3 pure Python client
 dev-python/leather 0.3.4-r1: Python charting for 80% of humans
@@ -15314,7 +15317,7 @@ net-news/canto-curses 0.9.9: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
 net-news/liferea 1.14.5-r1 1.15.3-r1: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.21-r1 2.23-r1 2.28 2.29 2.30.1: An RSS/Atom feed reader for text terminals
-net-news/rssguard 4.5.5 4.6.1 4.6.2: Simple (yet powerful) news feed reader
+net-news/rssguard 4.5.5 4.6.1 4.6.2 4.6.3: Simple (yet powerful) news feed reader
 net-news/rsstail 2.1 2.1_p20200310: A tail-like RSS-reader
 net-news/rsstool 1.0.1_rc2: cmdline tool to read, parse, merge, and write RSS (and Atom) feeds
 net-news/sfeed 1.6 1.8 1.9: Simple RSS and Atom parser
