@@ -10,9 +10,10 @@
 		<name>Proxy Maintainers</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">rpm-software-management/rpm</remote-id>
+		<remote-id type="github">rpm-software-management/rpm-sequoia</remote-id>
 	</upstream>
 	<use>
-		<flag name="sequoia">Use <pkg>app-crypt/rpm-sequoia</pkg> instead of the deprecated internal parser</flag>
+		<flag name="nettle">Use <pkg>dev-libs/nettle</pkg> as a crypto backend</flag>
+		<flag name="openssl">Use <pkg>dev-libs/openssl</pkg> as a crypto backend</flag>
 	</use>
 </pkgmetadata>
