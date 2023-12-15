@@ -1,0 +1,15 @@
+BDEPEND=net-libs/rpcsvc-proto sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
+DEPEND=net-libs/rpcsvc-proto
+DESCRIPTION=A collection of tools for network auditing and penetration testing
+EAPI=7
+HOMEPAGE=https://monkey.org/~dugsong/dsniff/
+INHERIT=autotools toolchain-funcs
+IUSE=X
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=net-libs/libpcap >=net-libs/libnet-1.1.2.1-r1 >=net-libs/libnids-1.21 net-libs/libnsl:= net-libs/libtirpc:= dev-libs/openssl:= >=sys-libs/db-4:= X? ( x11-libs/libXmu )
+SLOT=0
+SRC_URI=mirror://debian/pool/main/d/dsniff/dsniff_2.4b1+debian.orig.tar.gz mirror://debian/pool/main/d/dsniff/dsniff_2.4b1+debian-31.debian.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde
+_md5_=9f137af4725b6b182fd1cd618cb95a3b
