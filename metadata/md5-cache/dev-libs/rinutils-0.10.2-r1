@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-perl/Env-Path dev-perl/Path-Tiny dev-perl/Inline dev-perl/Inline-C dev-perl/Test-TrailingSpace dev-perl/Test-Differences dev-perl/IO-All dev-perl/Perl-Critic dev-perl/Perl-Tidy dev-perl/Test-Pod dev-perl/Test-Pod-Coverage dev-perl/Test-Trap dev-util/cmocka ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=test? ( dev-perl/Env-Path dev-perl/Path-Tiny dev-perl/Inline dev-perl/Inline-C dev-perl/Test-TrailingSpace dev-perl/Test-Differences dev-perl/IO-All dev-perl/Perl-Critic dev-perl/Perl-Tidy dev-perl/Test-Pod dev-perl/Test-Pod-Coverage dev-perl/Test-Trap dev-util/cmocka ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Set of C headers containing macros and static functions
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=MIT
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/shlomif/rinutils/releases/download/0.10.2/rinutils-0.10.2.tar.xz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=ce251ebb0b64daa9cf5a917a53f4395f

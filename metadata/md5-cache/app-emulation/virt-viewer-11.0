@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) dev-lang/perl virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) dev-lang/perl virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=dev-libs/glib:2 >=dev-libs/libxml2-2.6 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango libvirt? ( >=app-emulation/libvirt-0.10.0:=[sasl?] app-emulation/libvirt-glib ) spice? ( >=net-misc/spice-gtk-0.35[sasl?,gtk3] ) vte? ( x11-libs/vte:2.91 ) vnc? ( >=net-libs/gtk-vnc-0.5.0[sasl?,gtk3(+)] ) spice? ( >=app-emulation/spice-protocol-0.12.10 )
 DESCRIPTION=Graphical console client for connecting to virtual machines
@@ -13,5 +13,5 @@ RDEPEND=dev-libs/glib:2 >=dev-libs/libxml2-2.6 x11-libs/gdk-pixbuf:2 x11-libs/gt
 REQUIRED_USE=|| ( spice vnc )
 SLOT=0
 SRC_URI=https://virt-manager.org/download/sources/virt-viewer/virt-viewer-11.0.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=4704150d947c81254d841a443ff1e4b6

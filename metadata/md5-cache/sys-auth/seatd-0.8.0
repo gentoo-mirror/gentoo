@@ -1,4 +1,4 @@
-BDEPEND=>=app-text/scdoc-1.9.7 >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=>=app-text/scdoc-1.9.7 >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install test
 DEPEND=elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=Minimal seat management daemon and universal library
@@ -12,5 +12,5 @@ RDEPEND=elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd:= ) server? ( 
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0/1
 SRC_URI=https://git.sr.ht/~kennylevinsen/seatd/archive/0.8.0.tar.gz -> seatd-0.8.0.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=b14234b3412b98930cf35073aa227af5

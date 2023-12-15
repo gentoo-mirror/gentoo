@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( gtk? ( sys-devel/gettext ) ) qt5? ( dev-qt/linguist-tools:5 ) qt6? ( dev-qt/qttools:6[linguist] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig nls? ( gtk? ( sys-devel/gettext ) ) qt5? ( dev-qt/linguist-tools:5 ) qt6? ( dev-qt/qttools:6[linguist] ) app-alternatives/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=>=dev-libs/libevent-2.1.0:=[threads(+)] !mbedtls? ( dev-libs/openssl:0= ) mbedtls? ( net-libs/mbedtls:0= ) net-libs/libnatpmp >=net-libs/libpsl-0.21.1 >=net-libs/miniupnpc-1.7:= >=net-misc/curl-7.28.0[ssl] sys-libs/zlib:= nls? ( virtual/libintl ) gtk? ( >=dev-cpp/gtkmm-3.24.0:4.0 >=dev-cpp/glibmm-2.60.0:2.68 appindicator? ( dev-libs/libayatana-appindicator ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[dbus,gui,network,widgets] dev-qt/qtsvg:6 ) systemd? ( >=sys-apps/systemd-209:= ) nls? ( virtual/libintl )
 DESCRIPTION=A fast, easy, and free BitTorrent client
@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( qt5 qt6 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/transmission/transmission/releases/download/4.0.4/transmission-4.0.4.tar.xz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=3d64c2bfcf8ad44f233be952637c7258

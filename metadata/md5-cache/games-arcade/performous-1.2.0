@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/help2man sys-devel/gettext songs? ( app-arch/unzip ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=sys-apps/help2man sys-devel/gettext songs? ( app-arch/unzip ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-cpp/libxmlpp:5.0 dev-libs/boost:=[nls] dev-libs/glib:2 dev-libs/icu:= gnome-base/librsvg:2 media-libs/aubio:=[fftw] media-libs/fontconfig:1.0 media-libs/glm media-libs/libepoxy media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] media-libs/portaudio media-video/ffmpeg:= virtual/libintl x11-libs/cairo x11-libs/pango midi? ( media-libs/portmidi ) webcam? ( media-libs/opencv:= )
 DESCRIPTION=SingStar GPL clone
@@ -11,5 +11,5 @@ LICENSE=GPL-2 Apache-2.0 OFL-1.1 songs? ( CC-BY-NC-SA-2.5 CC-BY-NC-ND-2.5 )
 RDEPEND=dev-cpp/libxmlpp:5.0 dev-libs/boost:=[nls] dev-libs/glib:2 dev-libs/icu:= gnome-base/librsvg:2 media-libs/aubio:=[fftw] media-libs/fontconfig:1.0 media-libs/glm media-libs/libepoxy media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] media-libs/portaudio media-video/ffmpeg:= virtual/libintl x11-libs/cairo x11-libs/pango midi? ( media-libs/portmidi ) webcam? ( media-libs/opencv:= )
 SLOT=0
 SRC_URI=https://github.com/performous/performous/archive/refs/tags/1.2.0.tar.gz -> performous-1.2.0.tar.gz https://github.com/performous/compact_enc_det/archive/9ca1351fe0b1e85992a407b0fc54a63e9b3adc6e.tar.gz -> performous-ced-9ca1351fe0b1e85992a407b0fc54a63e9b3adc6e.tar.gz songs? ( mirror://sourceforge/performous/ultrastar-songs-jc-1.zip mirror://sourceforge/performous/ultrastar-songs-libre-3.zip mirror://sourceforge/performous/ultrastar-songs-restricted-3.zip mirror://sourceforge/performous/ultrastar-songs-shearer-1.zip )
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=1cd55716efe72b15ec5eccd4f510b804

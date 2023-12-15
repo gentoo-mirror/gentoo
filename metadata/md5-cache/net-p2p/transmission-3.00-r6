@@ -1,4 +1,4 @@
-BDEPEND=acct-group/transmission acct-user/transmission virtual/pkgconfig nls? ( gtk? ( sys-devel/gettext ) qt5? ( dev-qt/linguist-tools:5 ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=acct-group/transmission acct-user/transmission virtual/pkgconfig nls? ( gtk? ( sys-devel/gettext ) qt5? ( dev-qt/linguist-tools:5 ) ) app-alternatives/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=>=dev-libs/libevent-2.0.10:= !mbedtls? ( dev-libs/openssl:0= ) mbedtls? ( net-libs/mbedtls:0= ) net-libs/libnatpmp >=net-libs/miniupnpc-1.7:= >=net-misc/curl-7.16.3[ssl] sys-libs/zlib:= nls? ( virtual/libintl ) gtk? ( >=dev-libs/glib-2.32:2 >=x11-libs/gtk+-3.4:3 appindicator? ( >=dev-libs/libappindicator-0.4.30:3 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtnetwork:5 dev-qt/qtdbus:5 ) systemd? ( >=sys-apps/systemd-209:= ) nls? ( virtual/libintl )
 DESCRIPTION=A fast, easy, and free BitTorrent client
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/libevent-2.0.10:= !mbedtls? ( dev-libs/openssl:0= ) mbedtls? 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~floppym/dist/transmission-3.00.tar.xz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=fe9a4b8f6d6258ba460b77ebf8e22282

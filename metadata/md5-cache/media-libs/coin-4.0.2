@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=app-arch/bzip2 dev-libs/expat media-libs/fontconfig media-libs/freetype:2 media-libs/simage sys-libs/zlib virtual/opengl virtual/glu x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext javascript? ( dev-lang/spidermonkey:60 ) openal? ( media-libs/openal ) dev-libs/boost:0 x11-base/xorg-proto doc? ( qthelp? ( dev-qt/qthelp:5 ) )
 DESCRIPTION=A high-level 3D graphics toolkit, fully compatible with SGI Open Inventor 2.1
@@ -13,5 +13,5 @@ REQUIRED_USE=man? ( doc ) qthelp? ( doc )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/coin3d/coin/releases/download/v4.0.2/coin-4.0.2-src.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=79994e7e0e8c03671089fb50cd5b2993

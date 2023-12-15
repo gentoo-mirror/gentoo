@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( || ( ( dev-lang/python:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] ) ) ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( || ( ( dev-lang/python:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] ) ) ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-libs/glib-2.63.5:2 sys-auth/polkit virtual/libcrypt:= elogind? ( >=sys-auth/elogind-229.4 ) introspection? ( >=dev-libs/gobject-introspection-0.9.12:= ) systemd? ( >=sys-apps/systemd-186:0= ) sys-apps/dbus
 DESCRIPTION=D-Bus interfaces for querying and manipulating user account information
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( elogind systemd )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.freedesktop.org/software/accountsservice/accountsservice-23.13.9.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=80795f355cd512f5d9f5dd3a299f446d

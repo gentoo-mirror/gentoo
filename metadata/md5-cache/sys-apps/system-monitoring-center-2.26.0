@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=>=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DESCRIPTION=Multi-featured system monitor GUI written in Python
 EAPI=8
@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=https://github.com/hakandundar34coding/system-monitoring-center/archive/v2.26.0.tar.gz -> system-monitoring-center-2.26.0.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=ebaf6cca40300bdf2b308b6163b28dbd

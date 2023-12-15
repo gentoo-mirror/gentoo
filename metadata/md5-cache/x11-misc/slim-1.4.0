@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=media-libs/libjpeg-turbo:= media-libs/libpng:0= virtual/libcrypt:= x11-apps/sessreg x11-libs/libX11 x11-libs/libXft x11-libs/libXmu x11-libs/libXpm x11-libs/libXrandr pam? ( sys-libs/pam x11-libs/libXext ) x11-base/xorg-proto
 DESCRIPTION=Simple Login Manager resurrected
@@ -12,5 +12,5 @@ PDEPEND=branding? ( >=x11-themes/slim-themes-1.2.3a-r3 )
 RDEPEND=media-libs/libjpeg-turbo:= media-libs/libpng:0= virtual/libcrypt:= x11-apps/sessreg x11-libs/libX11 x11-libs/libXft x11-libs/libXmu x11-libs/libXpm x11-libs/libXrandr pam? ( sys-libs/pam x11-libs/libXext )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/slim-fork/slim-1.4.0.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	pam	b56d0c9c20fc5b553f13c8ae165a10a5	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	pam	b56d0c9c20fc5b553f13c8ae165a10a5	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=872e070ec931f6a4abed9a28721a15ff

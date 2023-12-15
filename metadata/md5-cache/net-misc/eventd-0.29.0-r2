@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install setup test
 DEPEND=dev-libs/glib:2 sys-apps/util-linux x11-libs/libxkbcommon introspection? ( dev-libs/gobject-introspection ) libcanberra? ( media-libs/libcanberra ) libnotify? ( x11-libs/gdk-pixbuf:2 ) notification? ( gnome-base/librsvg x11-libs/cairo x11-libs/pango x11-libs/gdk-pixbuf:2 X? ( x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:=[xkb(+)] x11-libs/xcb-util x11-libs/xcb-util-wm ) ) pulseaudio? ( media-libs/libpulse media-libs/libsndfile ) purple? ( net-im/pidgin ) speech? ( app-accessibility/speech-dispatcher ) systemd? ( sys-apps/systemd:= ) upnp? ( net-libs/gssdp:1.6= ) webhook? ( net-libs/libsoup:3.0 ) websocket? ( net-libs/libsoup:3.0 ) zeroconf? ( net-dns/avahi[dbus] ) fbcon? ( virtual/os-headers )
 DESCRIPTION=A small daemon to act on remote or local events
@@ -13,5 +13,5 @@ REQUIRED_USE=X? ( notification ) fbcon? ( notification ) notification? ( || ( X 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.eventd.org/download/eventd/eventd-0.29.0.tar.xz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=02a4b3669d40348f8e1927924b31b0c9

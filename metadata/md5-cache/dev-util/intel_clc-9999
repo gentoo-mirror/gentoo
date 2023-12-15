@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.11 >=dev-python/mako-0.8.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/mako-0.8.0[python_targets_python3_10(-)] ) ) virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.11 >=dev-python/mako-0.8.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/mako-0.8.0[python_targets_python3_10(-)] ) ) virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=dev-libs/libclc dev-util/spirv-tools >=sys-libs/zlib-1.2.8:= x11-libs/libdrm dev-libs/expat !!sys-devel/llvm:0
 DESCRIPTION=intel_clc tool used for building OpenCL C to SPIR-V
@@ -10,5 +10,5 @@ LICENSE=MIT SGI-B-2.0
 PROPERTIES=live
 RDEPEND=dev-libs/libclc dev-util/spirv-tools >=sys-libs/zlib-1.2.8:= x11-libs/libdrm || ( ( dev-util/spirv-llvm-translator:17 sys-devel/clang:17 sys-devel/llvm:17 ) ( dev-util/spirv-llvm-translator:16 sys-devel/clang:16 sys-devel/llvm:16 ) ( dev-util/spirv-llvm-translator:15 sys-devel/clang:15 sys-devel/llvm:15 ) ) <sys-devel/clang-18:= <sys-devel/llvm-18:=
 SLOT=0
-_eclasses_=llvm	dcfb437a52b5672e5f39deaae6f789c3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	git-r3	5133e393e8717a3a093660f990801dc1
+_eclasses_=llvm	dcfb437a52b5672e5f39deaae6f789c3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	git-r3	5133e393e8717a3a093660f990801dc1
 _md5_=bba04388f20c86be1ebb9d954e2cc4e7

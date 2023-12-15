@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst preinst prepare test unpack
 DEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) virtual/os-headers
 DESCRIPTION=Network monitoring tools including ping and ping6
@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	plocale	950fbaec7deeba41b5bcc0572cca99b9	systemd	c8b03e8df84486aa991d4396686e8942	git-r3	5133e393e8717a3a093660f990801dc1
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	plocale	950fbaec7deeba41b5bcc0572cca99b9	systemd	c8b03e8df84486aa991d4396686e8942	git-r3	5133e393e8717a3a093660f990801dc1
 _md5_=3214a0749ffbbdbd8a3628ba5eff48b9

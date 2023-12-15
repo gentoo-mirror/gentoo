@@ -1,4 +1,4 @@
-BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.25 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.25 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install test
 DEPEND=>=dev-libs/glib-2.74:2 >=x11-libs/gtk+-3.22:3 >=gui-libs/libgedit-gtksourceview-299.0.4:300 >=gui-libs/libgedit-amtk-5.0:5=[introspection] dev-libs/icu:= gnome-base/gsettings-desktop-schemas dev-libs/gobject-introspection:=
 DESCRIPTION=GtkSourceView-based text editors and IDE helper library
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/glib-2.74:2 >=x11-libs/gtk+-3.22:3 >=gui-libs/libgedit-gtksou
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=6/4
 SRC_URI=mirror://gnome/sources/tepl/6.8/tepl-6.8.0.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	virtualx	817571665ee28575da44ee08135089e5
 _md5_=60f8afd744b979e7fe102ed4460e058c

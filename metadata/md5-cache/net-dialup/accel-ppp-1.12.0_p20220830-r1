@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=!libtomcrypt? ( dev-libs/openssl:0= ) libtomcrypt? ( dev-libs/libtomcrypt:0= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) postgres? ( dev-db/postgresql:* ) snmp? ( net-analyzer/net-snmp ) dev-libs/libpcre valgrind? ( dev-util/valgrind ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) kernel_linux? ( virtual/linux-sources virtual/libelf )
 DESCRIPTION=High performance PPTP, PPPoE and L2TP server
@@ -13,5 +13,5 @@ RDEPEND=!libtomcrypt? ( dev-libs/openssl:0= ) libtomcrypt? ( dev-libs/libtomcryp
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 ) ) valgrind? ( debug )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~pinkbyte/distfiles/snapshots/accel-ppp-1.12.0_p20220830.tar.bz2
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	linux-mod	65030ccb60b8a236bc29c8caa76e3815	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	linux-mod	65030ccb60b8a236bc29c8caa76e3815	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
 _md5_=9eaa3206d345cee15b3569d531f00299

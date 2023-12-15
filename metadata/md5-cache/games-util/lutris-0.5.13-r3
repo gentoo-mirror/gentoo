@@ -1,4 +1,4 @@
-BDEPEND=test? ( python_single_target_python3_10? ( dev-python/pytest[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pytest[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] ) ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=test? ( python_single_target_python3_10? ( dev-python/pytest[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pytest[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] ) ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst setup test
 DESCRIPTION=An open source gaming platform for GNU/Linux
 EAPI=8
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://lutris.net/releases/lutris_0.5.13.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-single-r1	75118e916668a74c660a13b0ecb22562	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	virtualx	817571665ee28575da44ee08135089e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-single-r1	75118e916668a74c660a13b0ecb22562	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	virtualx	817571665ee28575da44ee08135089e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=038e342dc985ab4efd4b7326624f66a8

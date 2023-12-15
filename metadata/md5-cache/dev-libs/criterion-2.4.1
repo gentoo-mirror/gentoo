@@ -1,4 +1,4 @@
-BDEPEND=dev-util/cmake virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-util/cmake virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/nanomsg:= dev-libs/libgit2:= dev-libs/libffi:= >=dev-libs/boxfort-0.1.4 test? ( || ( ( dev-lang/python:3.11 dev-util/cram[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-util/cram[python_targets_python3_10(-)] ) ) )
 DESCRIPTION=Cross platform unit testing framework for C and C++
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/nanomsg:= dev-libs/libgit2:= dev-libs/libffi:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Snaipe/Criterion/archive/refs/tags/v2.4.1.tar.gz -> criterion-2.4.1.tar.gz https://github.com/scottt/debugbreak/archive/6b79ec8d8f8d4603111f580a0537f8f31c484c32.tar.gz -> debugbreak-6b79ec8d8f8d4603111f580a0537f8f31c484c32.tar.gz https://github.com/attractivechaos/klib/archive/cdb7e9236dc47abf8da7ebd702cc6f7f21f0c502.tar.gz -> klib-cdb7e9236dc47abf8da7ebd702cc6f7f21f0c502.tar.gz https://github.com/nanopb/nanopb/archive/c9124132a604047d0ef97a09c0e99cd9bed2c818.tar.gz -> nanopb-c9124132a604047d0ef97a09c0e99cd9bed2c818.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
 _md5_=b4f4f3baf2ca16451dbba45cbe448bb9

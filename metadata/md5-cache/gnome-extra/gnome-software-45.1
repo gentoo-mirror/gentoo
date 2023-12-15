@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxml2:2 dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) app-arch/xz-utils >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=dev-libs/libxml2:2 dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) app-arch/xz-utils >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=>=dev-libs/appstream-0.14.0:0= >=x11-libs/gdk-pixbuf-2.32.0:2 >=dev-libs/libxmlb-0.1.7:= >=gui-libs/gtk-4.10.0:4 >=dev-libs/glib-2.70.0:2 >=dev-libs/json-glib-1.6.0 >=net-libs/libsoup-3.0:3.0 >=gui-libs/libadwaita-1.3_rc:1 sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) gnome? ( >=gnome-base/gsettings-desktop-schemas-3.18.0 ) sys-auth/polkit firmware? ( >=sys-apps/fwupd-1.5.6 ) flatpak? ( >=sys-apps/flatpak-1.14.0-r1 dev-util/ostree ) udev? ( dev-libs/libgudev ) >=gnome-base/gsettings-desktop-schemas-3.11.5 test? ( dev-libs/libglib-testing )
 DESCRIPTION=Gnome install & update software
@@ -13,5 +13,5 @@ RDEPEND=>=dev-libs/appstream-0.14.0:0= >=x11-libs/gdk-pixbuf-2.32.0:2 >=dev-libs
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-software/45/gnome-software-45.1.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=2ad3efa8e657f8bbdee7e4f0e71c6724

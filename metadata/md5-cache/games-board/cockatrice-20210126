@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/linguist-tools:5 client? ( dev-libs/protobuf ) server? ( dev-libs/protobuf ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=dev-qt/linguist-tools:5 client? ( dev-libs/protobuf ) server? ( dev-libs/protobuf ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtprintsupport:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 client? ( dev-libs/protobuf:= dev-qt/qtmultimedia:5 dev-qt/qtsvg:5 ) oracle? ( sys-libs/zlib ) server? ( dev-libs/protobuf:= dev-qt/qtsql:5 ) test? ( dev-cpp/gtest ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Open-source multiplatform software for playing card games over a network
@@ -12,5 +12,5 @@ RDEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Cockatrice/Cockatrice/archive/2021-01-26-Release-2.8.0.tar.gz -> cockatrice-20210126.tar.gz
-_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=88eaa246c4d6645fa127991b2d27dff1

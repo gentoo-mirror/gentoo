@@ -1,4 +1,4 @@
-BDEPEND=>=dev-libs/wayland-protocols-1.24 >=dev-util/meson-0.60.0 dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=>=dev-libs/wayland-protocols-1.24 >=dev-util/meson-0.60.0 dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst test
 DEPEND=>=dev-libs/libinput-1.14.0:0= >=dev-libs/wayland-1.20.0 >=dev-libs/wayland-protocols-1.24 media-libs/mesa[egl(+),gles2,gbm(+)] sys-auth/seatd:= virtual/libudev vulkan? ( dev-util/glslang:0= dev-util/vulkan-headers:0= media-libs/vulkan-loader:0= ) >=x11-libs/libdrm-2.4.109:0= x11-libs/libxkbcommon x11-libs/pixman x11-backend? ( x11-libs/libxcb:0= ) X? ( x11-base/xwayland x11-libs/libxcb:0= x11-libs/xcb-util-image x11-libs/xcb-util-wm )
 DESCRIPTION=Pluggable, composable, unopinionated modules for building a Wayland compositor
@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=>=dev-libs/libinput-1.14.0:0= >=dev-libs/wayland-1.20.0 >=dev-libs/wayland-protocols-1.24 media-libs/mesa[egl(+),gles2,gbm(+)] sys-auth/seatd:= virtual/libudev vulkan? ( dev-util/glslang:0= dev-util/vulkan-headers:0= media-libs/vulkan-loader:0= ) >=x11-libs/libdrm-2.4.109:0= x11-libs/libxkbcommon x11-libs/pixman x11-backend? ( x11-libs/libxcb:0= ) X? ( x11-base/xwayland x11-libs/libxcb:0= x11-libs/xcb-util-image x11-libs/xcb-util-wm )
 SLOT=0/15
 SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.15.1/wlroots-0.15.1.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383
 _md5_=9ca8c70d7220ebe93fddd763acba6354

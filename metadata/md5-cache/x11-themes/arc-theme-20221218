@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/meson-0.56.0 cinnamon? ( dev-lang/sassc gnome-extra/cinnamon ) gnome-shell? ( dev-libs/glib dev-lang/sassc >=gnome-base/gnome-shell-3.28 ) gtk3? ( dev-libs/glib dev-lang/sassc ) gtk4? ( dev-libs/glib dev-lang/sassc ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/meson-0.56.0 cinnamon? ( dev-lang/sassc gnome-extra/cinnamon ) gnome-shell? ( dev-libs/glib dev-lang/sassc >=gnome-base/gnome-shell-3.28 ) gtk3? ( dev-libs/glib dev-lang/sassc ) gtk4? ( dev-libs/glib dev-lang/sassc ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DESCRIPTION=A flat theme with transparent elements for GTK 2/3/4 and GNOME Shell
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=gtk2? ( x11-themes/gnome-themes-standard x11-themes/gtk-engines-murrine )
 SLOT=0
 SRC_URI=https://github.com/jnsh/arc-theme/releases/download/20221218/arc-theme-20221218.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
 _md5_=5433436e3e1e524481661835df8b7eeb

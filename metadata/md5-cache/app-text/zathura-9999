@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-libs/appstream-glib dev-libs/check x11-base/xorg-server[xvfb] ) virtual/pkgconfig >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-libs/appstream-glib dev-libs/check x11-base/xorg-server[xvfb] ) virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
 DEPEND=>=dev-libs/girara-0.3.7 >=dev-libs/glib-2.50:2 sys-apps/file >=sys-devel/gettext-0.19.8 x11-libs/cairo >=x11-libs/gtk+-3.22:3 seccomp? ( sys-libs/libseccomp ) sqlite? ( >=dev-db/sqlite-3.5.9:3 ) synctex? ( app-text/texlive-core )
 DESCRIPTION=A highly customizable and functional document viewer
@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=>=dev-libs/girara-0.3.7 >=dev-libs/glib-2.50:2 sys-apps/file >=sys-devel/gettext-0.19.8 x11-libs/cairo >=x11-libs/gtk+-3.22:3 seccomp? ( sys-libs/libseccomp ) sqlite? ( >=dev-db/sqlite-3.5.9:3 ) synctex? ( app-text/texlive-core )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0/9999
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	virtualx	817571665ee28575da44ee08135089e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	git-r3	5133e393e8717a3a093660f990801dc1
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	virtualx	817571665ee28575da44ee08135089e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	git-r3	5133e393e8717a3a093660f990801dc1
 _md5_=2fd6e1f464e5175332558265f6005c13

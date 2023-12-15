@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=test? ( dev-cpp/gtest )
 DESCRIPTION=Library to parse and emit YAML, and do it fast
@@ -11,5 +11,5 @@ LICENSE=MIT Boost-1.0 BSD
 RESTRICT=!test? ( test )
 SLOT=0/0.5.0
 SRC_URI=https://github.com/biojppm/rapidyaml/releases/download/v0.5.0/rapidyaml-0.5.0-src.tgz test? ( https://github.com/biojppm/c4fs/archive/0130061b804ae2af0d6cd5919275d552eb1f2414.tar.gz -> rapidyaml-c4fs-0130061b804ae2af0d6cd5919275d552eb1f2414.tar.gz https://github.com/biojppm/c4log/archive/00066ad7f624556f066f3d60766a2c33aeb3c6f0.tar.gz -> rapidyaml-c4log-00066ad7f624556f066f3d60766a2c33aeb3c6f0.tar.gz https://github.com/yaml/yaml-test-suite/archive/6e6c296ae9c9d2d5c4134b4b64d01b29ac19ff6f.tar.gz -> rapidyaml-yaml-test-suite-6e6c296ae9c9d2d5c4134b4b64d01b29ac19ff6f.tar.gz )
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=43043dc78038435c9234811e786c3bc9

@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
 DEPEND=>=dev-libs/efl-1.26.1[eet,fontconfig,X] virtual/udev x11-libs/libXext x11-libs/libxcb x11-libs/xcb-util-keysyms x11-misc/xkeyboard-config acpi? ( sys-power/acpid ) bluetooth? ( net-wireless/bluez ) connman? ( dev-libs/efl[connman] ) exif? ( media-libs/libexif ) geolocation? ( app-misc/geoclue:2.0 ) pam? ( sys-libs/pam ) policykit? ( sys-auth/polkit ) systemd? ( sys-apps/systemd ) udisks? ( sys-fs/udisks:2 ) wayland? ( || ( dev-libs/efl[systemd] dev-libs/efl[elogind] ) dev-libs/efl[drm,wayland] dev-libs/wayland x11-libs/libxkbcommon x11-libs/pixman ) xwayland? ( dev-libs/efl[X,wayland] x11-base/xwayland )
 DESCRIPTION=Enlightenment window manager
@@ -13,5 +13,5 @@ RDEPEND=>=dev-libs/efl-1.26.1[eet,fontconfig,X] virtual/udev x11-libs/libXext x1
 REQUIRED_USE=xwayland? ( wayland )
 SLOT=0.17/0.25.4
 SRC_URI=https://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.25.4.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=cb630b34bbed865f5b0c60975f03a028

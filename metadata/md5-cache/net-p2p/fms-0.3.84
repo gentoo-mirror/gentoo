@@ -1,4 +1,4 @@
-BDEPEND=acct-group/freenet acct-user/freenet app-arch/unzip virtual/libiconv >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=acct-group/freenet acct-user/freenet app-arch/unzip virtual/libiconv app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=acct-group/freenet acct-user/freenet dev-db/sqlite:3= dev-libs/poco frost? ( net-libs/mbedtls:0= ) ssl? ( net-libs/mbedtls:0= )
 DESCRIPTION=Spam-resistant message board application for Freenet
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=acct-group/freenet acct-user/freenet dev-db/sqlite:3= dev-libs/poco frost? ( net-libs/mbedtls:0= ) ssl? ( net-libs/mbedtls:0= )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~tommy/distfiles/fms-src-0.3.84.zip
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=b27abc5db6d633fa91f8cb0365508648

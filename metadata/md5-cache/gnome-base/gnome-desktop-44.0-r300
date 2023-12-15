@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xml-dtd:4.1.2 dev-util/gdbus-codegen dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=app-text/docbook-xml-dtd:4.1.2 dev-util/gdbus-codegen dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=>=x11-libs/gdk-pixbuf-2.36.5:2[introspection?] >=x11-libs/gtk+-3.3.6:3[introspection?] >=dev-libs/glib-2.53.0:2 >=gnome-base/gsettings-desktop-schemas-3.27.0[introspection?] x11-misc/xkeyboard-config x11-libs/libxkbcommon app-text/iso-codes systemd? ( sys-apps/systemd:= ) udev? ( virtual/libudev:= ) seccomp? ( sys-libs/libseccomp ) x11-libs/cairo introspection? ( >=dev-libs/gobject-introspection-1.54:= ) media-libs/fontconfig
 DESCRIPTION=Library with common API for various GNOME modules
@@ -12,5 +12,5 @@ LICENSE=GPL-2+ LGPL-2+ FDL-1.1+
 RDEPEND=>=x11-libs/gdk-pixbuf-2.36.5:2[introspection?] >=x11-libs/gtk+-3.3.6:3[introspection?] >=dev-libs/glib-2.53.0:2 >=gnome-base/gsettings-desktop-schemas-3.27.0[introspection?] x11-misc/xkeyboard-config x11-libs/libxkbcommon app-text/iso-codes systemd? ( sys-apps/systemd:= ) udev? ( virtual/libudev:= ) seccomp? ( sys-libs/libseccomp ) x11-libs/cairo introspection? ( >=dev-libs/gobject-introspection-1.54:= ) seccomp? ( sys-apps/bubblewrap ) !<gnome-base/gnome-desktop-44.0:4
 SLOT=3/20
 SRC_URI=mirror://gnome/sources/gnome-desktop/44/gnome-desktop-44.0.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=ffe73f6e36dfaf85c41a5519d7bda98a

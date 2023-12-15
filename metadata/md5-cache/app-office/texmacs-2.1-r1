@@ -1,4 +1,4 @@
-BDEPEND=x11-base/xorg-proto >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=x11-base/xorg-proto app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=app-text/ghostscript-gpl <dev-scheme/guile-1.9[debug?,deprecated] media-libs/freetype x11-apps/xmodmap x11-libs/libXext virtual/latex-base >=dev-qt/qtcore-5.9.1:5 >=dev-qt/qtgui-5.9.1:5 >=dev-qt/qtwidgets-5.9.1:5 >=dev-qt/qtprintsupport-5.9.1:5 sqlite? ( dev-db/sqlite ) jpeg? ( virtual/imagemagick-tools[jpeg] ) netpbm? ( media-libs/netpbm ) spell? ( app-text/aspell ) svg? ( || ( media-gfx/inkscape gnome-base/librsvg:2 ) )
 DESCRIPTION=Wysiwyg text processor with high-quality maths
@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=app-text/ghostscript-gpl <dev-scheme/guile-1.9[debug?,deprecated] media-libs/freetype x11-apps/xmodmap x11-libs/libXext virtual/latex-base >=dev-qt/qtcore-5.9.1:5 >=dev-qt/qtgui-5.9.1:5 >=dev-qt/qtwidgets-5.9.1:5 >=dev-qt/qtprintsupport-5.9.1:5 sqlite? ( dev-db/sqlite ) jpeg? ( virtual/imagemagick-tools[jpeg] ) netpbm? ( media-libs/netpbm ) spell? ( app-text/aspell ) svg? ( || ( media-gfx/inkscape gnome-base/librsvg:2 ) )
 SLOT=0
 SRC_URI=https://www.texmacs.org/Download/ftp/tmftp/source/TeXmacs-2.1-src.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=52651ebdc2f06c7c678c9580a5470f34

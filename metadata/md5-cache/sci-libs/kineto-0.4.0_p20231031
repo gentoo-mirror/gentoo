@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-cpp/gtest ) || ( dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=test? ( dev-cpp/gtest ) || ( dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/libfmt dev-libs/dynolog
 DESCRIPTION=part of the PyTorch Profiler
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libfmt dev-libs/dynolog
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pytorch/kineto/archive/a30ca3f9509c2cfd28561abbca51328f0bdf9014.tar.gz -> kineto-0.4.0_p20231031.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-any-r1	f5169813d1619761b459800587005fd2	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	prefix	eab3c99d77fe00506c109c8a736186f7
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-any-r1	f5169813d1619761b459800587005fd2	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	prefix	eab3c99d77fe00506c109c8a736186f7
 _md5_=a45e9464ad4d7987a4d6f102f1aa70aa

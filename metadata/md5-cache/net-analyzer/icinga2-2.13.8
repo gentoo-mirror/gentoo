@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison >=sys-devel/flex-2.5.35 >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=sys-devel/bison >=sys-devel/flex-2.5.35 app-alternatives/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=dev-libs/openssl:0= dev-libs/boost:=[context] console? ( dev-libs/libedit ) mariadb? ( dev-db/mariadb-connector-c:= ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) dev-libs/yajl:= acct-user/icinga acct-group/icinga acct-group/icingacmd
 DESCRIPTION=Distributed, general purpose, network monitoring engine
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/openssl:0= dev-libs/boost:=[context] console? ( dev-libs/libedi
 REQUIRED_USE=!minimal? ( || ( mariadb mysql postgres ) )
 SLOT=0
 SRC_URI=https://github.com/Icinga/icinga2/archive/v2.13.8.tar.gz -> icinga2-2.13.8.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=864d481ae9eba544b67edb70e44860ec

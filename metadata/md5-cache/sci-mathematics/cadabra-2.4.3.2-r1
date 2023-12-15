@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pybind11[python_targets_python3_11(-)] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pybind11[python_targets_python3_11(-)] ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) app-text/dvipng dev-cpp/glibmm:2 dev-db/sqlite:3= dev-libs/boost:= dev-libs/gmp:=[cxx] dev-libs/jsoncpp:= dev-libs/libsigc++:2 dev-texlive/texlive-basic python_single_target_python3_10? ( dev-python/gmpy:2[python_targets_python3_10(-)] dev-python/matplotlib[python_targets_python3_10(-)] dev-python/sympy[python_targets_python3_10(-)] jupyter? ( dev-python/jupyter[python_targets_python3_10(-)] ) ) python_single_target_python3_11? ( dev-python/gmpy:2[python_targets_python3_11(-)] dev-python/matplotlib[python_targets_python3_11(-)] dev-python/sympy[python_targets_python3_11(-)] jupyter? ( dev-python/jupyter[python_targets_python3_11(-)] ) ) gui? ( dev-cpp/gtkmm:3.0 )
 DESCRIPTION=Field-theory motivated approach to computer algebra
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://github.com/kpeeters/cadabra2/archive/2.4.3.2.tar.gz -> cadabra-2.4.3.2.tar.gz
-_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=e99a9b8a430fb0e4c8f49f2b5865778a

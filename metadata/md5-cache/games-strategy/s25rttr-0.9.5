@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=sys-devel/gettext virtual/pkgconfig app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) app-arch/bzip2 dev-libs/boost:=[nls] >=media-libs/libsamplerate-0.1.9 >=media-libs/libsdl2-2.0.10-r2[opengl,sound,video] media-libs/libsndfile media-libs/sdl2-mixer[vorbis,wav] net-libs/miniupnpc virtual/opengl test? ( >=sys-devel/clang-5 )
 DESCRIPTION=Open source remake of The Settlers II: Gold Edition (needs original data files)
@@ -14,5 +14,5 @@ REQUIRED_USE=^^ ( lua_single_target_lua5-3 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Return-To-The-Roots/s25client/releases/download/v0.9.5/s25client_src_v0.9.5.tar.gz
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=4bd77057c3f25ad326075f772ae37ca8

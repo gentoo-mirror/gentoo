@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=dev-libs/boost:= dev-libs/openssl:0= mysql? ( dev-db/mysql-connector-c:= ) acct-group/trojan acct-user/trojan test? ( net-misc/curl || ( dev-lang/python:3.11 dev-lang/python:3.10 ) )
 DESCRIPTION=An unidentifiable mechanism that helps you bypass GFW
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/boost:= dev-libs/openssl:0= mysql? ( dev-db/mysql-connector-c:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/trojan-gfw/trojan/archive/v1.16.0.tar.gz -> trojan-1.16.0.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
 _md5_=b5abcfd63a13e57811a6d6d553dd3bf5

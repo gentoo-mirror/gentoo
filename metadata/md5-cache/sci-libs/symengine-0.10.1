@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen[dot] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen[dot] ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=dev-libs/gmp:= sys-libs/binutils-libs:= arb? ( sci-mathematics/arb:= ) boost? ( dev-libs/boost:= ) ecm? ( sci-mathematics/gmp-ecm ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) mpfr? ( dev-libs/mpfr:= ) llvm? ( <sys-devel/llvm-17:= ) tcmalloc? ( dev-util/google-perftools ) dev-libs/cereal !!sys-devel/llvm:0
 DESCRIPTION=Fast symbolic manipulation library, written in C++
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/gmp:= sys-libs/binutils-libs:= arb? ( sci-mathematics/arb:= ) b
 RESTRICT=!test? ( test )
 SLOT=0/0.10
 SRC_URI=https://github.com/symengine/symengine/archive/v0.10.1.tar.gz -> symengine-0.10.1.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	llvm	dcfb437a52b5672e5f39deaae6f789c3
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	llvm	dcfb437a52b5672e5f39deaae6f789c3
 _md5_=84f077c2c43c28ad10941bd293e0c63d

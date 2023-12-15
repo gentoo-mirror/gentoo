@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-db/qt5-sqlcipher >=dev-libs/libsodium-1.0.18:= >=dev-qt/qtcore-5.7.1:5= >=dev-qt/qtgui-5.7.1:5= >=dev-qt/qtmultimedia-5.7.1:5=[widgets] >=dev-qt/qtnetwork-5.7.1:5=[ssl] >=dev-qt/qtsql-5.7.1:5=[sqlite] >=dev-qt/qtwidgets-5.7.1:5= >=media-gfx/qrencode-3.4.4-r1:= test? ( >=dev-cpp/gtest-1.8.0 )
 DESCRIPTION=Open source chat client for Threema-style end-to-end encrypted chat networks
@@ -12,5 +12,5 @@ RDEPEND=dev-db/qt5-sqlcipher >=dev-libs/libsodium-1.0.18:= >=dev-qt/qtcore-5.7.1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~ulm/distfiles/openmittsu-0.10.0.0.tar.xz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	desktop	021728fdc1b03b36357dbc89489e0f0d
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	desktop	021728fdc1b03b36357dbc89489e0f0d
 _md5_=28b69f8847e038f9d8d5608c349880fe

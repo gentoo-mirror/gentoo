@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) dev-libs/libxml2:2 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) dev-libs/libxml2:2 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=|| ( >=gui-libs/gtk-4.0.1:4 >=x11-libs/gtk+-3.24.22:3 ) >=x11-libs/cairo-1.0 >=dev-libs/fribidi-1.0.0 >=dev-libs/glib-2.60:2 >=x11-libs/pango-1.22.0 >=dev-libs/libpcre2-10.21 systemd? ( >=sys-apps/systemd-220:= ) sys-libs/zlib x11-libs/pango
 DESCRIPTION=Library providing a virtual terminal emulator widget
@@ -11,5 +11,5 @@ LICENSE=LGPL-3+ GPL-3+
 RDEPEND=!<x11-libs/vte-0.70.0:2.91
 SLOT=2.91
 SRC_URI=https://gitlab.gnome.org/GNOME/vte/-/archive/0.74.0/vte-0.74.0.tar.bz2
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
 _md5_=2debba8884e8d9af878c16214f041055

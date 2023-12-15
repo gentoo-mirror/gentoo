@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils sys-devel/flex sys-devel/bison virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=app-arch/xz-utils sys-devel/flex sys-devel/bison virtual/pkgconfig app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=dev-libs/cereal:= test? ( dev-cpp/gtest ) !!sys-devel/llvm:0
 DESCRIPTION=High-level tracing language for eBPF
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/libbpf-1.1:= >=dev-util/bcc-0.25.0:= >=sys-devel/llvm-10[llvm
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/iovisor/bpftrace/archive/v0.18.0.tar.gz -> bpftrace-0.18.0.gh.tar.gz
-_eclasses_=llvm	dcfb437a52b5672e5f39deaae6f789c3	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=llvm	dcfb437a52b5672e5f39deaae6f789c3	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=100da251470e318cbc191194c57409f5

@@ -1,4 +1,4 @@
-BDEPEND=wayland? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=wayland? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-cpp/tbb:= dev-libs/glib:2 dev-libs/libfmt:= dev-libs/openssl:= dev-libs/spdlog:= media-gfx/chafa media-libs/libsixel media-libs/vips:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-image xcb-errors? ( x11-libs/xcb-util-errors ) ) opencv? ( media-libs/opencv:= ) opengl? ( media-libs/libglvnd ) wayland? ( dev-libs/wayland ) !media-gfx/ueberzug dev-cpp/cli11 dev-cpp/ms-gsl dev-cpp/nlohmann_json X? ( x11-base/xorg-proto ) wayland? ( dev-libs/wayland-protocols )
 DESCRIPTION=Drop in replacement for ueberzug written in C++
@@ -12,5 +12,5 @@ RDEPEND=dev-cpp/tbb:= dev-libs/glib:2 dev-libs/libfmt:= dev-libs/openssl:= dev-l
 REQUIRED_USE=xcb-errors? ( X )
 SLOT=0
 SRC_URI=https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v2.9.2.tar.gz -> ueberzugpp-2.9.2.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=5ac11dc1f90acbe8ad1aa1aaad871970

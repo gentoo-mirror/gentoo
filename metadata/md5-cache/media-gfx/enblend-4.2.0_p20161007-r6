@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/help2man virtual/pkgconfig doc? ( app-text/ghostscript-gpl app-text/texlive dev-lang/perl dev-perl/Readonly dev-tex/hevea gnome-base/librsvg media-gfx/graphviz >=media-gfx/fig2dev-3.2.9-r1 sci-visualization/gnuplot[cairo,gd] virtual/imagemagick-tools[tiff] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=sys-apps/help2man virtual/pkgconfig doc? ( app-text/ghostscript-gpl app-text/texlive dev-lang/perl dev-perl/Readonly dev-tex/hevea gnome-base/librsvg media-gfx/graphviz >=media-gfx/fig2dev-3.2.9-r1 sci-visualization/gnuplot[cairo,gd] virtual/imagemagick-tools[tiff] ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=media-libs/lcms:2 media-libs/tiff:= media-libs/vigra[openexr] sci-libs/gsl:= debug? ( dev-libs/dmalloc[threads] ) tcmalloc? ( dev-util/google-perftools ) dev-libs/boost media-libs/libpng:0 media-libs/libjpeg-turbo:=
 DESCRIPTION=Image Blending with Multiresolution Splines
@@ -12,5 +12,5 @@ RDEPEND=media-libs/lcms:2 media-libs/tiff:= media-libs/vigra[openexr] sci-libs/g
 REQUIRED_USE=tcmalloc? ( !debug )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~soap/distfiles/enblend-4.2.0_p20161007.tar.xz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
 _md5_=f0562e1623a404df7eeda76de77ca50d

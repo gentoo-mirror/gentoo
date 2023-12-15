@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl >=dev-util/ninja-1.8.2
+BDEPEND=dev-lang/perl app-alternatives/ninja
 DEFINED_PHASES=compile configure install postinst test
 DEPEND=libpolymake? ( dev-lang/perl ) dev-libs/boost:= dev-libs/gmp:= dev-libs/libxml2:2= dev-libs/libxslt:= dev-libs/mpfr:= sys-libs/readline:= bliss? ( sci-libs/bliss:=[gmp] ) cdd? ( sci-libs/cddlib:= ) flint? ( sci-mathematics/flint:= ) lrs? ( >=sci-libs/lrslib-051:=[gmp] ) nauty? ( sci-mathematics/nauty:= ) normaliz? ( >=sci-mathematics/normaliz-3.8:= ) ppl? ( dev-libs/ppl:= ) singular? ( sci-mathematics/singular:= )
 DESCRIPTION=Tool for polyhedral geometry and combinatorics
@@ -12,5 +12,5 @@ RDEPEND=libpolymake? ( dev-lang/perl ) dev-libs/boost:= dev-libs/gmp:= dev-libs/
 REQUIRED_USE=^^ ( bliss nauty )
 SLOT=0
 SRC_URI=https://polymake.org/lib/exe/fetch.php/download/polymake-4.11-minimal.tar.bz2
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c
 _md5_=f0e2895645afa83f780ca11210df0532

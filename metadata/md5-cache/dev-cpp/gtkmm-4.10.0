@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig gtk-doc? ( app-doc/doxygen[dot] dev-lang/perl dev-libs/libxslt ) || ( dev-lang/python:3.11 dev-lang/python:3.10 ) app-arch/xz-utils >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=virtual/pkgconfig gtk-doc? ( app-doc/doxygen[dot] dev-lang/perl dev-libs/libxslt ) || ( dev-lang/python:3.11 dev-lang/python:3.10 ) app-arch/xz-utils >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-cpp/glibmm-2.68.0:2.68[gtk-doc?] >=gui-libs/gtk-4.10.0:4 >=dev-cpp/cairomm-1.15.4:1.16[gtk-doc?] >=dev-cpp/pangomm-2.50.0:2.48[gtk-doc?] >=x11-libs/gdk-pixbuf-2.35.5:2 >=media-libs/libepoxy-1.2 gtk-doc? ( dev-libs/libsigc++:3 )
 DESCRIPTION=C++ interface for GTK+
@@ -12,5 +12,5 @@ RDEPEND=>=dev-cpp/glibmm-2.68.0:2.68[gtk-doc?] >=gui-libs/gtk-4.10.0:4 >=dev-cpp
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=4.0
 SRC_URI=mirror://gnome/sources/gtkmm/4.10/gtkmm-4.10.0.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2	virtualx	817571665ee28575da44ee08135089e5
 _md5_=724924051bc74cdf198b565c54da8e07

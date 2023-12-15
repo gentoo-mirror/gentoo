@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig doc? ( app-text/xmlto app-text/docbook-xml-dtd:4.1.2 ) app-arch/xz-utils >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen >=sys-devel/gettext-0.19.8 virtual/pkgconfig doc? ( app-text/xmlto app-text/docbook-xml-dtd:4.1.2 ) app-arch/xz-utils >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=>=dev-libs/glib-2.46.0:2 >=x11-libs/gtk+-3.22.0:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 >=gnome-base/gnome-desktop-3.34.2:3= >=dev-libs/json-glib-0.10 media-libs/libglvnd[X] media-libs/libepoxy x11-libs/libXcomposite systemd? ( >=sys-apps/systemd-242:0= ) elogind? ( >=sys-auth/elogind-239.4 ) x11-libs/xtrans
 DESCRIPTION=Gnome session manager
@@ -13,5 +13,5 @@ RDEPEND=>=dev-libs/glib-2.46.0:2 >=x11-libs/gtk+-3.22.0:3 x11-libs/libICE x11-li
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-session/45/gnome-session-45.0.tar.xz
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	systemd	c8b03e8df84486aa991d4396686e8942	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	systemd	c8b03e8df84486aa991d4396686e8942	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=8c607588184c13482d68a463c1f819f3

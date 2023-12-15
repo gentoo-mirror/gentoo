@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/elfutils dev-libs/glib:2 sys-apps/kmod:= sys-libs/zlib:= sys-process/procps:= virtual/libudev:= >=x11-libs/cairo-1.12.0[X?] >=x11-libs/libdrm-2.4.82[video_cards_amdgpu?,video_cards_intel?,video_cards_nouveau?] >=x11-libs/libpciaccess-0.10 x11-libs/pixman chamelium? ( dev-libs/xmlrpc-c:=[curl] sci-libs/gsl:= media-libs/alsa-lib:= ) overlay? ( >=x11-libs/libXrandr-1.3 xv? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXv ) ) runner? ( dev-libs/json-c:= ) unwind? ( sys-libs/libunwind:= ) valgrind? ( dev-util/valgrind ) doc? ( >=dev-util/gtk-doc-1.25-r1 ) man? ( dev-python/docutils ) overlay? ( >=dev-util/peg-0.1.18 x11-base/xorg-proto ) video_cards_intel? ( sys-devel/bison sys-devel/flex )
 DESCRIPTION=Intel GPU userland tools
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( video_cards_amdgpu video_cards_intel video_cards_nouveau ) ove
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.x.org/releases/individual/app/igt-gpu-tools-1.27.1.tar.xz https://dev.gentoo.org/~sam/distfiles/x11-apps/igt-gpu-tools/igt-gpu-tools-1.27.1-patches.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
 _md5_=b11fde9209f9edbd63524b409bc2bcc0

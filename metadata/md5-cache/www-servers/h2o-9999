@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv ) mruby? ( || ( ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) || ( dev-libs/onigmo dev-libs/oniguruma ) sys-devel/bison )
 DESCRIPTION=H2O - the optimized HTTP/1, HTTP/2 server
@@ -10,5 +10,5 @@ LICENSE=MIT
 PROPERTIES=live
 RDEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv )
 SLOT=0
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	git-r3	5133e393e8717a3a093660f990801dc1	ruby-utils	6c200c98361f47219e106ddc67c43a1e	ruby-single	e045ee439d34b230e588900a87a11904	ssl-cert	33f6c352c602e87ceda767a86f3b7131	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	git-r3	5133e393e8717a3a093660f990801dc1	ruby-utils	6c200c98361f47219e106ddc67c43a1e	ruby-single	e045ee439d34b230e588900a87a11904	ssl-cert	33f6c352c602e87ceda767a86f3b7131	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=e8074192dfb54edc2cce8e5e9f9480da

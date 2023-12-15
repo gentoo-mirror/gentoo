@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl] dev-lang/perl virtual/pkgconfig
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl] dev-lang/perl virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=~dev-qt/qtbase-6.7.9999:6[concurrent,gui,opengl=,vulkan=,widgets] ~dev-qt/qtdeclarative-6.7.9999:6 ~dev-qt/qtquicktimeline-6.7.9999:6 ~dev-qt/qtshadertools-6.7.9999:6 media-libs/assimp:= sys-libs/zlib:= test? ( ~dev-qt/qtbase-6.7.9999:6[network] ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=Qt module and API for defining 3D content in Qt QuickTools
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=~dev-qt/qtbase-6.7.9999:6[concurrent,gui,opengl=,vulkan=,widgets] ~dev-qt/qtdeclarative-6.7.9999:6 ~dev-qt/qtquicktimeline-6.7.9999:6 ~dev-qt/qtshadertools-6.7.9999:6 media-libs/assimp:= sys-libs/zlib:=
 RESTRICT=!test? ( test )
 SLOT=6/6.7.9999
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	git-r3	5133e393e8717a3a093660f990801dc1	qt6-build	d0a23873552962a761c59b4aa1f3052b
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	git-r3	5133e393e8717a3a093660f990801dc1	qt6-build	d0a23873552962a761c59b4aa1f3052b
 _md5_=597f5dc24047d084a584fde0c3e00ca4

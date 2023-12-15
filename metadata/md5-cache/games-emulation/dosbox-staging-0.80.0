@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-cpp/gtest ) >=dev-util/meson-1.2.1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=test? ( dev-cpp/gtest ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=alsa? ( media-libs/alsa-lib ) debug? ( sys-libs/ncurses:0= ) fluidsynth? ( media-sound/fluid-soundfont media-sound/fluidsynth ) mt-32? ( media-libs/munt-mt32emu ) network? ( media-libs/sdl2-net ) opengl? ( virtual/opengl ) screenshot? ( media-libs/sdl2-image ) slirp? ( net-libs/libslirp ) media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[joystick,opengl?,video,X] media-libs/opusfile media-libs/speexdsp sys-libs/zlib !games-emulation/dosbox
 DESCRIPTION=Modernized DOSBox soft-fork
@@ -13,5 +13,5 @@ RDEPEND=alsa? ( media-libs/alsa-lib ) debug? ( sys-libs/ncurses:0= ) fluidsynth?
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dosbox-staging/dosbox-staging/archive/v0.80.0.tar.gz -> dosbox-staging-0.80.0.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=303c4c012c18456235a05147f64886d6

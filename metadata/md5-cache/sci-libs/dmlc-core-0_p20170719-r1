@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen dev-texlive/texlive-fontutils ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen dev-texlive/texlive-fontutils ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=net-misc/curl[ssl] test? ( dev-cpp/gtest )
 DESCRIPTION=Common bricks library for building distributed machine learning
@@ -12,5 +12,5 @@ RDEPEND=net-misc/curl[ssl]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dmlc/dmlc-core/archive/54db57d5d1b2a7b93319053011802888b827a539.tar.gz -> dmlc-core-0_p20170719.tar.gz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
 _md5_=b0f56d611962575b9035e011e5682377
