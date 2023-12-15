@@ -260,12 +260,6 @@ games-strategy/defcon-demo
 dev-lang/ferite
 
 # Michał Górny <mgorny@gentoo.org> (2023-10-26)
-# Obsolete package for GRUB 1.x.  No updates since 2009, multiple bugs
-# reported.
-# Removal on 2023-11-25.  Bug #912684.
-media-gfx/grub-splashes
-
-# Michał Górny <mgorny@gentoo.org> (2023-10-26)
 # Dead (and discouraged prior to death).  No revdeps.
 # Removal on 2023-11-25.  Bug #912879.
 dev-php/securimage
@@ -284,22 +278,6 @@ dev-libs/libe
 dev-libs/libpo6
 dev-libs/libtreadstone
 
-# Michał Górny <mgorny@gentoo.org> (2023-10-26)
-# Fails to compile with modern C++ compilers.  Last release in 2011.
-# No revdeps.
-# Removal on 2023-11-25.  Bug #722006.
-sci-electronics/freehdl
-
-# Marek Szuba <marecki@gentoo.org> (2023-10-26)
-# Upstream uses a massive home-made Makefile which has since the beginning
-# required massive amounts of patching to make it behave reasonably
-# (as well as to fix the problems which ostensibly led upstream to
-# abandoning CMake, and which they immediately re-introduced in their NIH
-# solution) and which if anything have only got worse since then. One,
-# optional, reverse dependency in the tree.
-# Removal on 2023-11-26. Bug #916289.
-media-gfx/gmic
-
 # Volkmar W. Pogatzki <gentoo@pogatzki.net> (2023-10-23)
 # Java libraries. No reverse dependencies.
 # Removal on 2023-11-23.
@@ -315,11 +293,6 @@ dev-java/apache-rat-tasks
 # date and incompatible with Perl 5.38. No reverse dependencies.
 # Removal on 2023-11-15.
 dev-perl/PathTools
-
-# Mart Raudsepp <leio@gentoo.org> (2023-10-14)
-# The database used by this music fingerprint library has been defunct for
-# a while. Removal on 2023-11-13. Bug #915190.
-media-libs/libofa
 
 # Michał Górny <mgorny@gentoo.org> (2023-10-14)
 # media-video/transcode is dead for many years.  We already piled up
