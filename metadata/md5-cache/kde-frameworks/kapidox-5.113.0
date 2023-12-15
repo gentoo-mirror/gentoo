@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( >=dev-python/gpep517-15[python_targets_python3_10(-)] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/gpep517-15[python_targets_python3_11(-)] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/gpep517-15[python_targets_python3_12(-)] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_12(-)] )
+DEFINED_PHASES=compile configure install nofetch prepare setup test unpack
+DESCRIPTION=Framework for building KDE API documentation in a standard format and style
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=frameworks.kde.org distutils-r1
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=BSD-2
+RDEPEND=app-doc/doxygen python_single_target_python3_10? ( dev-python/jinja[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/jinja[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/jinja[python_targets_python3_12(-)] dev-python/pyyaml[python_targets_python3_12(-)] ) media-gfx/graphviz[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=5/5.113
+SRC_URI=mirror://kde/stable/frameworks/5.113/kapidox-5.113.0.tar.xz
+_eclasses_=kde.org	60fcb935e4206806bf9f38e3537521a2	frameworks.kde.org	3212423ef0b2011d6c4507d59a345d27	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-single-r1	75118e916668a74c660a13b0ecb22562	distutils-r1	2329ddf7eec9f8177aec51648249d790
+_md5_=5f21b1ee9c2f756cbf11b55b376fcd8b

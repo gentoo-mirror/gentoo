@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.113:*
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtdeclarative-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtnetwork-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kconfig-5.113*:5 =kde-frameworks/kcoreaddons-5.113*:5 =kde-frameworks/ki18n-5.113*:5 =kde-frameworks/kio-5.113*:5 =kde-frameworks/kirigami-5.113*:5 =kde-frameworks/knotifications-5.113*:5 =kde-frameworks/kservice-5.113*:5 =kde-frameworks/prison-5.113*:5 kaccounts? ( >=kde-apps/kaccounts-integration-19.04.3:5 net-libs/accounts-qt ) test? ( dev-qt/qttest:5 ) dev-qt/qtcore:5
+DESCRIPTION=Library for providing abstractions to get the developer's purposes fulfilled
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm frameworks.kde.org optfeature xdg-utils
+IUSE=bluetooth +kaccounts kf6compat debug test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtdeclarative-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtnetwork-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kconfig-5.113*:5 =kde-frameworks/kcoreaddons-5.113*:5 =kde-frameworks/ki18n-5.113*:5 =kde-frameworks/kio-5.113*:5 =kde-frameworks/kirigami-5.113*:5 =kde-frameworks/knotifications-5.113*:5 =kde-frameworks/kservice-5.113*:5 =kde-frameworks/prison-5.113*:5 kaccounts? ( >=kde-apps/kaccounts-integration-19.04.3:5 net-libs/accounts-qt ) kf6compat? ( kde-frameworks/purpose:6 ) >=dev-qt/qtquickcontrols-5.15.9:5 >=dev-qt/qtquickcontrols2-5.15.9:5 >=kde-frameworks/kdeclarative-5.113:5 bluetooth? ( =kde-frameworks/bluez-qt-5.113*:5 ) kaccounts? ( net-libs/accounts-qml ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
+RESTRICT=test !test? ( test )
+SLOT=5/5.113
+SRC_URI=mirror://kde/stable/frameworks/5.113/purpose-5.113.0.tar.xz
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	virtualx	817571665ee28575da44ee08135089e5	ecm	fec7e533f288cce18b03f8d79d9fce0e	kde.org	60fcb935e4206806bf9f38e3537521a2	frameworks.kde.org	3212423ef0b2011d6c4507d59a345d27	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=80c1659bc514cbed005a20e7232c937a
