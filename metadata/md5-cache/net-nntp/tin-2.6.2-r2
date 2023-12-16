@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/yacc virtual/pkgconfig nls? ( sys-devel/gettext )
+DEFINED_PHASES=compile configure install postinst
+DEPEND=dev-libs/icu:= dev-libs/libpcre2:= dev-libs/uulib sys-libs/ncurses:= virtual/libiconv cancel-locks? ( >=net-libs/canlock-3.0:= ) gpg? ( app-crypt/gnupg ) nls? ( virtual/libintl ) sasl? ( net-misc/gsasl[client] ) socks5? ( net-proxy/dante ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( libtls? ( dev-libs/libretls:= ) !libtls? ( dev-libs/openssl:= ) ) )
+DESCRIPTION=A threaded NNTP and spool based UseNet newsreader
+EAPI=8
+HOMEPAGE=http://www.tin.org/
+INHERIT=optfeature toolchain-funcs
+IUSE=cancel-locks debug gnutls gpg libtls nls sasl socks5 ssl
+KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=BSD
+RDEPEND=dev-libs/icu:= dev-libs/libpcre2:= dev-libs/uulib sys-libs/ncurses:= virtual/libiconv cancel-locks? ( >=net-libs/canlock-3.0:= ) gpg? ( app-crypt/gnupg ) nls? ( virtual/libintl ) sasl? ( net-misc/gsasl[client] ) socks5? ( net-proxy/dante ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( libtls? ( dev-libs/libretls:= ) !libtls? ( dev-libs/openssl:= ) ) )
+SLOT=0
+SRC_URI=ftp://ftp.tin.org/pub/news/clients/tin/stable/tin-2.6.2.tar.xz
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=9c617835afe24c1157292a9902a18f9c
