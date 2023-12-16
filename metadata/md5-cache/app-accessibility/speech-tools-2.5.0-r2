@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.cstr.ed.ac.uk/projects/speech_tools/
 INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=nas openmp X
-KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 sparc ~x86
 LICENSE=FESTIVAL HPND BSD rc regexp-UofT
 RDEPEND=media-libs/alsa-lib sys-libs/ncurses:= nas? ( media-libs/nas ) X? ( x11-libs/libX11 x11-libs/libXt )
 SLOT=0
 SRC_URI=http://www.festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz https://dev.gentoo.org/~neurogeek/speech-tools/speech_tools-2.1-r3-patches.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98
-_md5_=68c636db0163886203a83de8e366f24f
+_md5_=530553ed970e6741e0b944f5bb8cfd9c
