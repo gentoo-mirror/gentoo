@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/olm dev-libs/openssl:= qt5? ( dev-libs/qtkeychain:=[qt5(+)] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5 ) qt6? ( >=dev-libs/qtkeychain-0.14.1-r1:=[qt6] dev-qt/qtbase:6[gui,network,sql,ssl] dev-qt/qtmultimedia:6 ) test? ( qt5? ( dev-qt/qtconcurrent:5 dev-qt/qttest:5 ) qt6? ( dev-qt/qtbase:6[concurrent,test] ) )
+DESCRIPTION=Qt-based SDK to develop applications for Matrix
+EAPI=8
+HOMEPAGE=https://github.com/quotient-im/libQuotient
+INHERIT=cmake multibuild
+IUSE=+qt5 qt6 test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=LGPL-2+
+RDEPEND=dev-libs/olm dev-libs/openssl:= qt5? ( dev-libs/qtkeychain:=[qt5(+)] dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5 ) qt6? ( >=dev-libs/qtkeychain-0.14.1-r1:=[qt6] dev-qt/qtbase:6[gui,network,sql,ssl] dev-qt/qtmultimedia:6 )
+RESTRICT=!test? ( test )
+SLOT=0/0.8.1.2
+SRC_URI=https://github.com/quotient-im/libQuotient/archive/0.8.1.2.tar.gz -> libquotient-0.8.1.2.tar.gz
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489
+_md5_=3305a3524c26a674ce7dacd6869dcecc
