@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst preinst prepare
+DEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam ) static? ( virtual/libcrypt[static-libs] selinux? ( sys-libs/libselinux[static-libs(+)] ) ) sys-kernel/linux-headers
+DESCRIPTION=Utilities for rescue and embedded systems
+EAPI=8
+HOMEPAGE=https://www.busybox.net/
+INHERIT=flag-o-matic readme.gentoo-r1 savedconfig toolchain-funcs
+IUSE=debug livecd make-symlinks math mdev pam selinux sep-usr static syslog systemd savedconfig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam )
+REQUIRED_USE=pam? ( !static )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://www.busybox.net/downloads/busybox-1.36.1.tar.bz2
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	portability	a74d533f258f1f435be71312558c12f9	savedconfig	8b5f9d995a970e49cd427c55d5840285
+_md5_=a631d4821269c431309e045be5ce2b94
