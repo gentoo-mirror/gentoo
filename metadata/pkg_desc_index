@@ -1326,7 +1326,7 @@ app-containers/cosign 2.0.0 2.0.1 2.2.0 2.2.1: container signing utility
 app-containers/cri-o 1.26.0: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.1 1.8.4 1.11.2: A fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.53.0 0.54.1 0.54.2: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.54.2: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.5.0.2 1.6.0.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0: System container image builder for LXC and incus
 app-containers/docker 24.0.5 24.0.6 24.0.7: The core functions you need to create Docker images and run Docker containers
@@ -2798,7 +2798,7 @@ app-misc/nut 20.1: Record what you eat and analyze your nutrient levels
 app-misc/ola 0.10.9-r1: Open Lighting Architecture, a framework for lighting control information
 app-misc/ondir 0.2.4: Automatically execute scripts as you traverse directories
 app-misc/oneko 1.2_p6_p14-r1: A cat, dog and others which chase the mouse or windows around the screen
-app-misc/openrgb 0.8-r1 0.9 9999: Open source RGB lighting control
+app-misc/openrgb 0.9 9999: Open source RGB lighting control
 app-misc/openrgb-plugin-effects 0.8 0.9: Plugin for OpenRGB with various Effects that can be synced across devices
 app-misc/openrgb-plugin-skin 0.8 0.9: Plugin for OpenRGB that allows you to customize the look and feel of OpenRGB
 app-misc/openrgb-plugin-visualmap 0.8 0.9: Plugin for OpenRGB to create virtual devices out of multiple real ones
@@ -3082,7 +3082,7 @@ app-shells/posh-z 1.1.12_p20230811: Quickly navigate the file system based on yo
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh 7.3.7-r1 7.3.9 7.4.0: Cross-platform automation and configuration tool
+app-shells/pwsh 7.3.9 7.4.0: Cross-platform automation and configuration tool
 app-shells/pwsh-bin 7.3.9 7.4.0: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r2: A reimplementation of the Plan 9 shell
@@ -3275,9 +3275,9 @@ app-text/openpaperwork-core 2.1.2 2.2.1: Core part of Paperwork (plugin manageme
 app-text/openpaperwork-gtk 2.1.2 2.2.1: Paperwork plugins
 app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
-app-text/pandoc-bin 3.1.9 3.1.10: Conversion between markup formats (binary package)
+app-text/pandoc-bin 3.1.9 3.1.10 3.1.11: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
-app-text/paper-clip 3.2-r1 9999: Edit the title, author, keywords and more details of PDF documents
+app-text/paper-clip 3.2-r1 3.6 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/paperwork 2.1.2 2.2.1: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.1.2 2.2.1: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
@@ -3923,10 +3923,10 @@ dev-db/unixODBC 2.3.11 2.3.12: Complete ODBC driver manager
 dev-db/vsqlite++ 0.3.13-r1: VSQLite++ - A well designed and portable SQLite3 Wrapper for C++
 dev-db/wxsqlite3 3.2.1-r1: C++ wrapper around the public domain SQLite 3.x database
 dev-dotnet/avalonia-ilspy 7.2_rc-r1: Avalonia-based .NET Decompiler, port of ILSpy
-dev-dotnet/cake 3.1.0-r1 4.0.0: Cake (C# Make) is a cross platform build automation system
+dev-dotnet/cake 4.0.0: Cake (C# Make) is a cross platform build automation system
 dev-dotnet/coco 2014.12.24-r2: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 1.1.1: .NET information tool for Gentoo
-dev-dotnet/csharp-language-server 0.9.0 0.10.0: Roslyn-based LSP language server for C#
+dev-dotnet/csharp-language-server 0.10.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.5: A command line C# REPL with syntax highlighting
 dev-dotnet/dotnet-outdated 4.6.0: Display and update outdated NuGet packages in a project
 dev-dotnet/dotnet-runtime-nugets 6.0.24 6.0.25 7.0.13 7.0.14 8.0.0: .NET runtime nugets
@@ -4975,7 +4975,7 @@ dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.11.1: General-purpose programming language with an emphasis on functional programming
 dev-lang/closure-compiler-bin 20211107: JavaScript optimizing compiler
 dev-lang/coffee-script 2.5.1: A little language that compiles into javascript
-dev-lang/crystal 1.9.2-r2 1.10.0-r1 1.10.1-r1: The Crystal Programming Language
+dev-lang/crystal 1.9.2-r2 1.10.1-r1: The Crystal Programming Language
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
 dev-lang/dafny 4.3.0-r1 4.4.0-r1: Dafny is a verification-aware programming language
 dev-lang/dafny-bin 4.3.0 4.4.0: Verification-aware programming language
@@ -4991,7 +4991,7 @@ dev-lang/f2c 20100827-r1: Fortran to C converter
 dev-lang/fennel 1.3.1 1.4.0: Lisp-like language that compiles to Lua
 dev-lang/ferite 1.1.17-r1: A clean, lightweight, object oriented scripting language
 dev-lang/fpc 3.2.2: Free Pascal Compiler
-dev-lang/fuzion 0.083 0.084 0.085-r1: A language with a focus on simplicity, safety and correctness
+dev-lang/fuzion 0.084 0.085-r1: A language with a focus on simplicity, safety and correctness
 dev-lang/gdl 1.0.1-r2: GNU Data Language
 dev-lang/gforth 0.7.3-r2: GNU Forth is a fast and portable implementation of the ANSI Forth language
 dev-lang/ghc 9.0.2-r4 9.2.8: The Glasgow Haskell Compiler
@@ -15804,7 +15804,7 @@ sci-electronics/librepcb 0.1.7 1.0.0-r1: Free EDA software to develop printed ci
 sci-electronics/magic 8.3.232-r1 8.3.309-r2 8.3.309-r3 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 36 40: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.10.3-r1 1.10.4 1.11.0: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.11.0: NVC is a VHDL compiler and simulator
 sci-electronics/osqoop 1.2.0_pre20170131: Multi-platform open source software oscilloscope based on Qt
 sci-electronics/pcb 4.2.2 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
@@ -16919,7 +16919,7 @@ sys-apps/nosig 2: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 2.2.1 2.3 2.4-r2 2.5 2.6: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
-sys-apps/openrazer 3.6.1-r2 3.7.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
+sys-apps/openrazer 3.7.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.48 0.49 0.50 0.50-r1 0.51 0.52.1 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/osinfo-db 20230719 20231027: osinfo database files
 sys-apps/osinfo-db-tools 1.10.0-r1 1.10.0-r2 1.11.0: Tools for managing the osinfo database
@@ -16937,7 +16937,7 @@ sys-apps/plocate 1.1.19: Posting locate is a much faster locate
 sys-apps/pmount 0.9.99_alpha-r7: Policy based mounter that gives the ability to mount removable devices as a user
 sys-apps/pnputils 0.1-r1: Plug and Play BIOS utilities
 sys-apps/policycoreutils 3.5 9999: SELinux core utilities
-sys-apps/polychromatic 0.8.1 0.8.2 0.8.3 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
+sys-apps/polychromatic 0.8.2 0.8.3 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
 sys-apps/portage 3.0.49-r2 3.0.51 3.0.56-r1 3.0.57 3.0.58 9999: The package management and distribution system for Gentoo
 sys-apps/powerpc-utils 1.1.3.18-r4: PowerPC utilities and additional OldWorld apps
 sys-apps/ppc64-diag 2.7.9: Diagnostic tools for PowerLinux
@@ -16992,7 +16992,7 @@ sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the heal
 sys-apps/syd 3.8.6 3.8.7: practical userspace application sandbox
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
-sys-apps/system-monitoring-center 2.25.1 2.26.0 9999: Multi-featured system monitor GUI written in Python
+sys-apps/system-monitoring-center 2.26.0 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemd 253.3-r1 253.6 253.11 253.12 253.13 254.3 254.4 254.5-r1 254.6 254.7 255 255-r1 255.1 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-utils 253.11-r1 253.12-r1 253.13 254.5-r2 254.6 254.7: Utilities split out from systemd for OpenRC users
