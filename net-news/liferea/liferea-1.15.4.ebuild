@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit autotools gnome2-utils optfeature python-single-r1 xdg
 
@@ -14,7 +14,6 @@ SRC_URI="https://github.com/lwindolf/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE=""
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
@@ -62,7 +61,8 @@ pkg_postinst() {
 	gnome2_schemas_update
 
 	optfeature "Libsecret Support plugin" app-crypt/libsecret[introspection]
-	optfeature "Tray Icon (GNOME Classic) plugin" "dev-python/pycairo x11-libs/gdk-pixbuf[introspection]"
+	optfeature "Tray Icon (AppIndicator and GNOME Classic) plugin" \
+		"dev-libs/libayatana-appindicator dev-python/pycairo x11-libs/gdk-pixbuf[introspection]"
 	optfeature "Media Player plugin" media-libs/gstreamer[introspection]
 	optfeature "monitoring network status" net-misc/networkmanager
 	optfeature "Popup Notifications plugin" x11-libs/libnotify[introspection]

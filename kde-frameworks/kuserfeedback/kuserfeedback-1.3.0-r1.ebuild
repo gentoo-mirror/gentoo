@@ -15,24 +15,28 @@ SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 LICENSE="MIT"
 SLOT="5"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="doc"
+IUSE="doc kf6compat"
 
 DEPEND="
-	>=dev-qt/qtcharts-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
-	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtsql-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
-	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kguiaddons-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
+	kf6compat? (
+		>=dev-qt/qtcharts-${QTMIN}:5
+		>=dev-qt/qtprintsupport-${QTMIN}:5
+		>=dev-qt/qtwidgets-${QTMIN}:5
+	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kf6compat? ( kde-frameworks/kuserfeedback:6 )
+"
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
@@ -49,6 +53,8 @@ src_configure() {
 		-DENABLE_PHP_UNIT=NO
 		-DENABLE_SURVEY_TARGET_EXPRESSIONS=YES
 		-DENABLE_DOCS=$(usex doc)
+		-DENABLE_CLI=$(usex !kf6compat)
+		-DENABLE_CONSOLE=$(usex !kf6compat)
 	)
 
 	ecm_src_configure
