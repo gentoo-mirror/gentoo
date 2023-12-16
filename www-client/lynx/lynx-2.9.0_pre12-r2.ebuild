@@ -4,7 +4,7 @@
 EAPI=8
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/thomasdickey.asc
-inherit verify-sig
+inherit verify-sig flag-o-matic
 
 case ${PV} in
 	*_pre*) MY_P="${PN}${PV/_pre/dev.}" ;;
@@ -20,7 +20,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="brotli bzip2 cjk gnutls idn nls ssl"
 
 RDEPEND="
@@ -28,7 +28,7 @@ RDEPEND="
 	sys-libs/zlib
 	brotli? ( app-arch/brotli:= )
 	bzip2? ( app-arch/bzip2 )
-	idn? ( net-dns/libidn:= )
+	idn? ( net-dns/libidn2:= )
 	nls? ( virtual/libintl )
 	ssl? (
 		!gnutls? (
@@ -52,6 +52,11 @@ PATCHES=(
 )
 
 src_configure() {
+	# Temporary fix for bug #918985; seems to be fixed in git but no
+	# development release has yet been made >lynx-2.9.0_pre12. Test if we can
+	# remove this on a newer release.
+	append-cppflags -D_GNU_SOURCE
+
 	local myconf=(
 		--enable-cgi-links
 		--enable-color-style
