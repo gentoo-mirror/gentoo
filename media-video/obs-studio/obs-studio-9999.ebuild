@@ -11,8 +11,8 @@ inherit cmake lua-single optfeature python-single-r1 xdg
 
 CEF_DIR="cef_binary_5060_linux_x86_64"
 CEF_REVISION="_v3"
-OBS_BROWSER_COMMIT="2ba72dbdfed60acd38fa1ac7a52cbc6617ae8fd1"
-OBS_WEBSOCKET_COMMIT="4ff109b62bc221192943541010d055be9ae5dbba"
+OBS_BROWSER_COMMIT="211f851bb3f203483a1f7571dd40fa66d0dfceb8"
+OBS_WEBSOCKET_COMMIT="ede66a68cbc043a6fc7c8af683ae0924d4068941"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
