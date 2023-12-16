@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.nongnu.org/lzip/plzip.html
 INHERIT=toolchain-funcs verify-sig
 IUSE=verify-sig
-KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=GPL-3
 RDEPEND=app-arch/lzlib:0=
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.10.tar.gz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.10.tar.gz.sig )
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	verify-sig	798e0173d334021f14ba78a786c37059
-_md5_=927f146d8177e4df12f7d433ae5424fb
+_md5_=1c97e98e2d79c1b9ee73c85f7f63900c
