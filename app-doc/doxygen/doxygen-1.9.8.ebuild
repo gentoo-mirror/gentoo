@@ -98,18 +98,16 @@ src_prepare() {
 		doc/maintainers.txt || die
 
 	if is-flagq "-O3" ; then
-		ewarn
+		# TODO: Investigate this and report a bug accordingly...
 		ewarn "Compiling with -O3 is known to produce incorrectly"
-		ewarn "optimized code which breaks doxygen."
-		ewarn
-		elog
-		elog "Continuing with -O2 instead ..."
-		elog
+		ewarn "optimized code which breaks doxygen. Using -O2 instead."
 		replace-flags "-O3" "-O2"
 	fi
 }
 
 src_configure() {
+	# Very slow to compile, bug #920092
+	filter-flags -fipa-pta
 	# -Wodr warnings, see bug #854357 and https://github.com/doxygen/doxygen/issues/9287
 	filter-lto
 
