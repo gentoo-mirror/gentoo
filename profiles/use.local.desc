@@ -1437,13 +1437,6 @@ dev-embedded/sdcc:z80n - Add support for Zilog Z80N
 dev-embedded/u-boot-tools:envtools - Build only the target-side environment tools
 dev-embedded/urjtag:ftd2xx - Enable support for USB FTDI chips via dev-embedded/libftd2xx
 dev-embedded/urjtag:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
-dev-games/cegui:devil - Build the DevIL based ImageCodec module
-dev-games/cegui:freeimage - Build the FreeImage based ImageCodec module
-dev-games/cegui:irrlicht - Enable the Irrlicht renderer
-dev-games/cegui:ogre - Enable the OGRE renderer
-dev-games/cegui:tinyxml - Enable the Tiny XML parser module
-dev-games/cegui:xerces-c - Enable the Xerces-C++ XML parser module
-dev-games/cegui:zip - Enable the Minizip resource provider
 dev-games/godot:bullet - Enable the sci-physics/bullet module
 dev-games/godot:deprecated - Enable support for deprecated features
 dev-games/godot:raycast - Enable the raycast Editor module using media-libs/embree
@@ -3235,7 +3228,6 @@ games-rpg/kqlives:cheats - Enable cheating mode
 games-rpg/manaplus:mumble - Enable support for voice chat
 games-rpg/manaplus:pugixml - Use dev-libs/pugixml for XML parsing isntead of dev-libs/libxml2
 games-rpg/manaplus:sdl2 - Use libsdl2 instead of libsdl
-games-rpg/sumwars:tools - Builds editor tools
 games-rpg/the-longest-journey:hd - Install high definition backgrounds and sprites
 games-rpg/the-longest-journey:hd-fmv - Install upscaled full motion videos
 games-rpg/to-the-moon:bundled-libs - Use bundled libraries
@@ -4546,7 +4538,6 @@ media-plugins/gst-plugins-vaapi:egl - Enable EGL support
 media-plugins/gst-plugins-vaapi:gles2 - Enable GLESv2 and GLESv3 support
 media-plugins/imlib2_loaders:xcf - Enable XCF image loader
 media-plugins/ir_lv2:tools - Build convert4chan tool
-media-plugins/vdr-burn:dvdarchive - DMH DVD - Archive
 media-plugins/vdr-cdplayer:cdparanoia - Enable cdparanoia (audio CD ripper) support
 media-plugins/vdr-dvbapi:dvbcsa - use media-libs/libdvbcsa free implementation of the DVB Common Scrambling Algorithm
 media-plugins/vdr-epgsearch:conflictcheckonly - install the "conflictcheckonly" vdr-plugin
@@ -4997,11 +4988,8 @@ media-video/aravis:gstreamer - Build the GStreamer plugin.
 media-video/aravis:packet-socket - Enable packet socket support.
 media-video/aravis:viewer - Build the GTK+-based video viewer.
 media-video/bluray_info:mpv - Build bluray_player, powered by media-video/mpv
-media-video/chaplin:transcode - Enable DVD ripping and transcoding
 media-video/droidcam:gtk - Build the dev-cpp/gtkmm:3.0 client.
 media-video/dvd_info:libmpv - Build DVD player using libmpv
-media-video/dvdrip:fping - Enables fping support for cluster rendering
-media-video/dvdrip:subtitles - Enables support for subtitle ripping
 media-video/ffdiaporama:openclipart - Support openclipart database
 media-video/ffmpeg:amf - Enables support for AMD's Advanced Media Framework (AMF)
 media-video/ffmpeg:amr - Enables Adaptive Multi-Rate Audio support
@@ -5202,10 +5190,6 @@ media-video/rtmpdump:tools - Enable installation of various binary tools in addi
 media-video/simplescreenrecorder:asm - Enable x86 assembly optimisation.
 media-video/simplescreenrecorder:vpx - Enable VP8 codec support via media-libs/libvpx.
 media-video/totem:python - Build dev-lang/python using plugins (dbusservice for notifications and MPRIS control, interactive python console and opensubtitles lookup)
-media-video/transcode:mjpeg - Enables mjpegtools support
-media-video/transcode:nuv - NuppelVideo container format demuxing
-media-video/transcode:pic - disable optimized assembly code that is not PIC friendly
-media-video/transcode:postproc - Build with ffmpeg libpostproc support
 media-video/vdr:alternatechannel - Use alternate channel on record
 media-video/vdr:bidi - fribidi support, for languages, written from right to left
 media-video/vdr:demoplugins - Install demo and example plugins coming with vanilla vdr
