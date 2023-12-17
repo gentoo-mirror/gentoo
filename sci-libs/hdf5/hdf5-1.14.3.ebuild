@@ -19,7 +19,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="NCSA-HDF"
 SLOT="0/${PV%%_p*}"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
 IUSE="cxx debug examples fortran +hl mpi szip test threads unsupported zlib"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
@@ -90,22 +90,26 @@ src_configure() {
 	# bug #686620
 	use sparc && tc-is-gcc && append-flags -fno-tree-ccp
 
-	econf \
-		--disable-static \
-		--enable-deprecated-symbols \
-		--enable-build-mode=$(usex debug debug production) \
-		--with-default-plugindir="${EPREFIX}/usr/$(get_libdir)/${PN}/plugin" \
-		$(use_enable cxx) \
-		$(use_enable debug codestack) \
-		$(use_enable fortran) \
-		$(use_enable hl) \
-		$(use_enable mpi parallel) \
-		$(use_enable test tests) \
-		$(use_enable threads threadsafe) \
-		$(use_enable unsupported) \
-		$(use_with szip szlib) \
-		$(use_with threads pthread) \
+	local myeconfargs=(
+		--disable-static
+		--disable-doxygen-errors
+		--enable-deprecated-symbols
+		--enable-build-mode=$(usex debug debug production)
+		--with-default-plugindir="${EPREFIX}/usr/$(get_libdir)/${PN}/plugin"
+		$(use_enable cxx)
+		$(use_enable debug codestack)
+		$(use_enable fortran)
+		$(use_enable hl)
+		$(use_enable mpi parallel)
+		$(use_enable test tests)
+		$(use_enable threads threadsafe)
+		$(use_enable unsupported)
+		$(use_with szip szlib)
+		$(use_with threads pthread)
 		$(use_with zlib)
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
