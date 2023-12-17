@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,-ada_target_gcc_13(-)]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?]
 DESCRIPTION=A complete Ada graphical toolkit
 EAPI=8
 HOMEPAGE=http://libre.adacore.com//tools/gtkada/
@@ -8,9 +8,9 @@ INHERIT=ada autotools multiprocessing
 IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
-REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 )
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
+REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
 SLOT=0/23.0.0
 SRC_URI=https://github.com/AdaCore/gtkada/archive/refs/tags/v23.0.0.tar.gz -> gtkada-23.0.0.tar.gz
 _eclasses_=ada	825cf3c59de8fefe1dde148596e006f5	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
-_md5_=649d3244be2ab78f991e4e3ab5d7f897
+_md5_=2be8960949f4831b78c7f8d4992922c0
