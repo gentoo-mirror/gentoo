@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/cmake virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare pretend setup unpack
+DEPEND=>=dev-libs/libutf8proc-2.6.1:0=[-cjk] >=dev-util/patchelf-0.13 >=net-libs/mbedtls-2.2 >=sci-mathematics/dsfmt-2.2.4 >=sys-libs/libunwind-1.1:0= >=virtual/blas-3.6 app-arch/p7zip app-misc/ca-certificates dev-libs/gmp:0= dev-libs/libgit2:0 dev-libs/mpfr:0= net-misc/curl[http2,ssh] sci-libs/amd:0= sci-libs/arpack:0= sci-libs/camd:0= sci-libs/ccolamd:0= sci-libs/cholmod:0= sci-libs/colamd:0= sci-libs/fftw:3.0=[threads] sci-libs/openlibm:0= sci-libs/openblas:0= sci-libs/spqr:0= sci-libs/umfpack:0= sys-libs/zlib:0= virtual/lapack
+DESCRIPTION=High-performance programming language for technical computing
+EAPI=8
+HOMEPAGE=https://julialang.org/ https://github.com/JuliaLang/julia/
+INHERIT=check-reqs flag-o-matic optfeature pax-utils python-any-r1 toolchain-funcs
+LICENSE=MIT
+PROPERTIES=test_network
+RDEPEND=>=dev-libs/libutf8proc-2.6.1:0=[-cjk] >=dev-util/patchelf-0.13 >=net-libs/mbedtls-2.2 >=sci-mathematics/dsfmt-2.2.4 >=sys-libs/libunwind-1.1:0= >=virtual/blas-3.6 app-arch/p7zip app-misc/ca-certificates dev-libs/gmp:0= dev-libs/libgit2:0 dev-libs/mpfr:0= net-misc/curl[http2,ssh] sci-libs/amd:0= sci-libs/arpack:0= sci-libs/camd:0= sci-libs/ccolamd:0= sci-libs/cholmod:0= sci-libs/colamd:0= sci-libs/fftw:3.0=[threads] sci-libs/openlibm:0= sci-libs/openblas:0= sci-libs/spqr:0= sci-libs/umfpack:0= sys-libs/zlib:0= virtual/lapack
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/JuliaLang/julia/releases/download/v1.9.4/julia-1.9.4-full.tar.gz
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=a7882dd8ce643747a71e1e94883584dc
