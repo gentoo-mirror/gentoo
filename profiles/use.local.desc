@@ -2160,6 +2160,10 @@ dev-libs/poco:util - Several utility classes (like logger, timer, config file pa
 dev-libs/poco:zip - Add support for the zip & gz archive formats
 dev-libs/ppl:cdd - Build the ppl_lcdd program for vertex/facet enumeration accepting the same input format as the programs shipped with sci-libs/cddlib and sci-libs/lrslib
 dev-libs/ppl:lpsol - Build the ppl_lpsol linear program solver that uses sci-mathematics/glpk for its input routines
+dev-libs/qcoro:network - Build dev-qt/qtbase network support
+dev-libs/qcoro:qml - Enable QML/QtQuick support via dev-qt/qtdeclarative
+dev-libs/qcoro:testlib - Install coroutine-friendly versions of dev-qt/qtbase test macros
+dev-libs/qcoro:websockets - Build dev-qt/qtwebsockets support
 dev-libs/qcoro5:network - Build dev-qt/qtnetwork support
 dev-libs/qcoro5:qml - Enable QML/QtQuick support via dev-qt/qtdeclarative
 dev-libs/qcoro5:testlib - Install coroutine-friendly versions of dev-qt/qttest macros
@@ -3522,6 +3526,14 @@ kde-apps/kio-extras:nfs - Enable NFS support using net-libs/libtirpc
 kde-apps/kio-extras:phonon - Enable file audio preview plugin using media-libs/phonon
 kde-apps/kio-extras:sftp - Enable SFTP protocol support using net-libs/libssh
 kde-apps/kio-extras:taglib - Enable audio thumbnails via media-libs/taglib
+kde-apps/kio-extras-kf5:X - Enable support for XCursor thumbnails via x11-libs/libX11
+kde-apps/kio-extras-kf5:ios - Enable AFC (Apple File Conduit) KIO worker for iOS devices support
+kde-apps/kio-extras-kf5:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
+kde-apps/kio-extras-kf5:man - Enable manpages KIO worker
+kde-apps/kio-extras-kf5:nfs - Enable NFS support using net-libs/libtirpc
+kde-apps/kio-extras-kf5:phonon - Enable file audio preview plugin using media-libs/phonon
+kde-apps/kio-extras-kf5:sftp - Enable SFTP protocol support using net-libs/libssh
+kde-apps/kio-extras-kf5:taglib - Enable audio thumbnails via media-libs/taglib
 kde-apps/kleopatra:pim - Enable WKS publishing support using kde-apps/kmail
 kde-apps/kmag:keyboardfocus - Enable keyboard focus tracking
 kde-apps/kmail:speech - Enable text-to-speech support

@@ -1,6 +1,6 @@
 BDEPEND=>=dev-qt/linguist-tools-5.15.9:5 app-alternatives/ninja >=dev-util/cmake-3.20.5 doc? ( >=app-doc/doxygen-1.8.13-r1 ) doc? ( dev-qt/qthelp:5 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.112:*
 DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
-DEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kconfig-5.112*:5 =kde-frameworks/kcoreaddons-5.112*:5 =kde-frameworks/kwindowsystem-5.112*:5[X?] dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] ) !phonon? ( media-libs/libcanberra ) phonon? ( >=media-libs/phonon-4.11.0 ) qml? ( >=dev-qt/qtdeclarative-5.15.9:5 ) speech? ( >=dev-qt/qtspeech-5.15.9:5 ) X? ( >=dev-qt/qtx11extras-5.15.9:5 x11-libs/libX11 x11-libs/libXtst ) X? ( x11-base/xorg-proto ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+DEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kconfig-5.112*:5 =kde-frameworks/kcoreaddons-5.112*:5 =kde-frameworks/kwindowsystem-5.112*:5[X?] dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] ) !phonon? ( media-libs/libcanberra ) phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] ) qml? ( >=dev-qt/qtdeclarative-5.15.9:5 ) speech? ( >=dev-qt/qtspeech-5.15.9:5 ) X? ( >=dev-qt/qtx11extras-5.15.9:5 x11-libs/libX11 x11-libs/libXtst ) X? ( x11-base/xorg-proto ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 DESCRIPTION=Framework for notifying the user of an event
 EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
@@ -8,8 +8,8 @@ INHERIT=ecm frameworks.kde.org
 IUSE=dbus phonon qml speech X debug doc
 KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
-RDEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kconfig-5.112*:5 =kde-frameworks/kcoreaddons-5.112*:5 =kde-frameworks/kwindowsystem-5.112*:5[X?] dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] ) !phonon? ( media-libs/libcanberra ) phonon? ( >=media-libs/phonon-4.11.0 ) qml? ( >=dev-qt/qtdeclarative-5.15.9:5 ) speech? ( >=dev-qt/qtspeech-5.15.9:5 ) X? ( >=dev-qt/qtx11extras-5.15.9:5 x11-libs/libX11 x11-libs/libXtst ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+RDEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kconfig-5.112*:5 =kde-frameworks/kcoreaddons-5.112*:5 =kde-frameworks/kwindowsystem-5.112*:5[X?] dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] ) !phonon? ( media-libs/libcanberra ) phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] ) qml? ( >=dev-qt/qtdeclarative-5.15.9:5 ) speech? ( >=dev-qt/qtspeech-5.15.9:5 ) X? ( >=dev-qt/qtx11extras-5.15.9:5 x11-libs/libX11 x11-libs/libXtst ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 SLOT=5/5.112
 SRC_URI=mirror://kde/stable/frameworks/5.112/knotifications-5.112.0.tar.xz
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	virtualx	817571665ee28575da44ee08135089e5	ecm	fec7e533f288cce18b03f8d79d9fce0e	kde.org	60fcb935e4206806bf9f38e3537521a2	frameworks.kde.org	3212423ef0b2011d6c4507d59a345d27
-_md5_=00d94f6a38c46d092cc104430c1f62b8
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	virtualx	817571665ee28575da44ee08135089e5	ecm	fec7e533f288cce18b03f8d79d9fce0e	kde.org	60fcb935e4206806bf9f38e3537521a2	frameworks.kde.org	50e5e124e8a083f031e4122130830388
+_md5_=1d7e3e664582ea14c5c1b588542ab4f3

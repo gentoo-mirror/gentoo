@@ -1,0 +1,18 @@
+BDEPEND=qt5? ( dev-qt/linguist-tools:5 ) qt6? ( dev-qt/qttools:6[linguist] ) virtual/pkgconfig app-alternatives/ninja >=dev-util/cmake-3.20.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.106.0:*
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=pulseaudio? ( dev-libs/glib:2 media-libs/libpulse[glib] ) qt5? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 designer? ( dev-qt/designer:5 ) ) qt6? ( dev-qt/qt5compat:6 dev-qt/qtbase:6[gui,widgets] designer? ( dev-qt/qttools:6[designer] ) ) dev-qt/qtcore:5
+DESCRIPTION=KDE multimedia abstraction library
+EAPI=8
+HOMEPAGE=https://community.kde.org/Phonon
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop ecm kde.org
+IUSE=designer pulseaudio +qt5 qt6 +vlc debug
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=|| ( LGPL-2.1 LGPL-3 ) !pulseaudio? ( || ( GPL-2 GPL-3 ) )
+PDEPEND=vlc? ( >=media-libs/phonon-vlc-0.12.0[qt5?,qt6?] )
+RDEPEND=pulseaudio? ( dev-libs/glib:2 media-libs/libpulse[glib] ) qt5? ( dev-qt/qtgui:5 dev-qt/qtwidgets:5 designer? ( dev-qt/designer:5 ) ) qt6? ( dev-qt/qt5compat:6 dev-qt/qtbase:6[gui,widgets] designer? ( dev-qt/qttools:6[designer] ) ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
+REQUIRED_USE=|| ( qt5 qt6 )
+SLOT=0
+SRC_URI=mirror://kde/stable/phonon/4.12.0/phonon-4.12.0.tar.xz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	virtualx	817571665ee28575da44ee08135089e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e	ecm	fec7e533f288cce18b03f8d79d9fce0e	kde.org	60fcb935e4206806bf9f38e3537521a2
+_md5_=793bf0308111a65d93c80294a9a6c959
