@@ -1,6 +1,6 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile configure install preinst prepare setup
-DEPEND=dev-java/xom:0 dev-java/jdom:0 dev-java/dom4j:1 dev-java/ant-core >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
+DEPEND=dev-java/ant-core:0 dev-java/dom4j:1 dev-java/jdom:0 dev-java/xom:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
 DESCRIPTION=A XSLT and XQuery Processor
 EAPI=8
 HOMEPAGE=https://www.saxonica.com/index.html https://saxon.sourceforge.net/
@@ -8,8 +8,8 @@ INHERIT=java-pkg-2 java-ant-2
 IUSE=doc source
 KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=MPL-1.0
-RDEPEND=dev-java/xom:0 dev-java/jdom:0 dev-java/dom4j:1 dev-java/ant-core >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=dev-java/ant-core:0 dev-java/dom4j:1 dev-java/jdom:0 dev-java/xom:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=9
 SRC_URI=mirror://sourceforge/project/saxon/Saxon-HE/9.2/saxonhe9-2-0-6source.zip
 _eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	java-ant-2	53b9c110af009f9f4548f5b129ae6fe6
-_md5_=c6b9a7103295ef25d0f707a85eaac589
+_md5_=492c373b39e55881c0c316c96e9a9551
