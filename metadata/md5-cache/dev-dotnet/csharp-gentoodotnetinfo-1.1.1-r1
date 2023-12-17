@@ -1,4 +1,4 @@
-BDEPEND=virtual/dotnet-sdk:7.0
+BDEPEND=virtual/dotnet-sdk:8.0
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=.NET information tool for Gentoo
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=dotnet-pkg
 IUSE=debug
 KEYWORDS=amd64 ~arm ~arm64
 LICENSE=GPL-2+
-RDEPEND=virtual/dotnet-sdk:7.0
+RDEPEND=virtual/dotnet-sdk:8.0
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://gitlab.gentoo.org/dotnet/csharp-gentoodotnetinfo/-/archive/1.1.1/csharp-gentoodotnetinfo-1.1.1.tar.bz2 https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.platformabstractions/3.1.6/microsoft.dotnet.platformabstractions.3.1.6.nupkg https://api.nuget.org/v3-flatcontainer/system.commandline/2.0.0-beta4.22272.1/system.commandline.2.0.0-beta4.22272.1.nupkg
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	nuget	97fd2c5f9e9770fc8c4d2d7a52ddce5a	dotnet-pkg-base	c588e6a66feabd5fa4229c4eb10226ad	dotnet-pkg	a18b301da1d7f09dae8bdf84321f43a8
-_md5_=2d13e0a44e4bd955686309083260635e
+_md5_=5072baaa93ddda0aa2ce00964161393d
