@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/stefanberger/swtpm
 INHERIT=autotools python-any-r1
 IUSE=fuse seccomp test
-KEYWORDS=~amd64 arm arm64 ~loong ~ppc ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~loong ~ppc ppc64 ~riscv x86
 LICENSE=BSD
 RDEPEND=fuse? ( dev-libs/glib:2 sys-fs/fuse:0 ) seccomp? ( sys-libs/libseccomp ) acct-group/tss acct-user/tss dev-libs/openssl:0= dev-libs/json-glib dev-libs/libtpms dev-libs/libtasn1:= net-libs/gnutls[pkcs11,tools]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/stefanberger/swtpm/archive/v0.8.1.tar.gz -> swtpm-0.8.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=fc0c60cf723d4730f4689c0dc044849e
+_md5_=0156237e28b7576fefd3e2adbcc73db1
