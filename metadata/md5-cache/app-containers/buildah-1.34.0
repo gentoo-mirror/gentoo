@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install prepare pretend setup test unpack
+DEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) apparmor? ( sys-libs/libapparmor:= ) app-containers/containers-common app-crypt/gpgme:= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:=
+DESCRIPTION=A tool that facilitates building OCI images
+EAPI=8
+HOMEPAGE=https://github.com/containers/buildah
+INHERIT=go-module linux-info
+IUSE=apparmor btrfs +seccomp systemd doc test
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0
+RDEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) apparmor? ( sys-libs/libapparmor:= ) app-containers/containers-common app-crypt/gpgme:= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:=
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/containers/buildah/archive/v1.34.0.tar.gz -> buildah-1.34.0.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	9e5a8f7b134fd3ed3785755097fe8ef0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_md5_=8c03d3b149dadeae050924e70d7a1fbf
