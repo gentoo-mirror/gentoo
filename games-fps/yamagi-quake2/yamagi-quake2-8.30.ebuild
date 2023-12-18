@@ -1,14 +1,14 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop toolchain-funcs wrapper
 
-CTF_V="1.08"
-ROGUE_V="2.09"
-XATRIX_V="2.10"
-REF_VK_V="1.0.2"
+CTF_V="1.10"
+ROGUE_V="2.11"
+XATRIX_V="2.12"
+REF_VK_V="1.0.7"
 
 DESCRIPTION="Quake 2 engine focused on single player"
 HOMEPAGE="https://www.yamagi.org/quake2/"
