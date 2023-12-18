@@ -16,22 +16,24 @@ KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
 # Note to developers:
 # This is a wrapper for the core libraries used by GNOME
 RDEPEND="
-	>=dev-libs/glib-2.70.2:2
-	>=x11-libs/gdk-pixbuf-2.42.6:2
-	>=x11-libs/pango-1.48.10
-	>=x11-libs/gtk+-3.24.31:3[cups?]
-	>=dev-libs/atk-2.36.0
-	>=gnome-base/librsvg-2.52.5
-	>=gnome-base/gnome-desktop-${PV}:3
+	>=dev-libs/glib-2.76.4:2
+	>=x11-libs/gdk-pixbuf-2.42.10:2
+	>=x11-libs/pango-1.50.14
+	>=x11-libs/gtk+-3.24.38:3[cups?]
+	>=gui-libs/gtk-4.10.5:4[cups?]
+	>=gui-libs/libadwaita-1.3.4:1
+	>=app-accessibility/at-spi2-core-2.48.3:2
+	>=gnome-base/librsvg-2.56.3
+	>=gnome-base/gnome-desktop-44.0:4
 
-	>=gnome-base/gvfs-1.48.1
+	>=gnome-base/gvfs-1.50.6
 	>=gnome-base/dconf-0.40.0
 
-	>=media-libs/gstreamer-1.16.2:1.0
-	>=media-libs/gst-plugins-base-1.16.2:1.0
-	>=media-libs/gst-plugins-good-1.16.2:1.0
+	>=media-libs/gstreamer-1.20.6:1.0
+	>=media-libs/gst-plugins-base-1.20.6:1.0
+	>=media-libs/gst-plugins-good-1.20.6:1.0
 
-	python? ( >=dev-python/pygobject-3.42.0:3 )
+	python? ( >=dev-python/pygobject-3.44.1:3 )
 "
 DEPEND=""
 BDEPEND=""

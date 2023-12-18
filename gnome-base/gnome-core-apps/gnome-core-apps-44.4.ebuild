@@ -17,36 +17,41 @@ KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
 RDEPEND="
 	>=gnome-base/gnome-core-libs-${PV}[cups?]
 
-	>=gnome-base/gnome-session-40.1.1
-	>=gnome-base/gnome-settings-daemon-41.0[cups?]
-	>=gnome-base/gnome-control-center-41.2[cups?]
+	>=gnome-base/gnome-session-44.0
+	>=gnome-base/gnome-settings-daemon-44.1[cups?]
+	>=gnome-base/gnome-control-center-44.3[cups?]
 	>=gnome-extra/gnome-color-manager-3.36.0
 
-	>=app-crypt/gcr-3.40.0
-	>=gnome-base/nautilus-41.1
-	>=gnome-base/gnome-keyring-40.0
-	>=gnome-extra/evolution-data-server-3.42.3
+	>=app-crypt/gcr-3.41.1:0
+	>=app-crypt/gcr-4.1.0:4
+	>=gnome-base/nautilus-44.2.1
+	>=gnome-base/gnome-keyring-42.1
+	>=gnome-extra/evolution-data-server-3.48.4
 
-	>=app-crypt/seahorse-41.0
-	>=app-editors/gedit-41
-	>=app-text/evince-41.3
-	>=gnome-extra/gnome-contacts-41.0
-	>=media-gfx/eog-41.1
-	>=media-video/totem-3.38.2
-	>=x11-terms/gnome-terminal-3.42.2
+	|| (
+		>=app-editors/gnome-text-editor-44.0
+		>=app-editors/gedit-44
+	)
+	>=app-text/evince-44.3
+	>=gnome-extra/gnome-contacts-44.0
+	>=media-gfx/eog-44.3
+	>=media-video/totem-43.0
+	|| (
+		>=x11-terms/gnome-terminal-3.48.2
+		>=gui-apps/gnome-console-44.4
+	)
 
-	>=gnome-extra/gnome-user-docs-41.1
-	>=gnome-extra/yelp-41.2
+	>=gnome-extra/gnome-user-docs-44.3
+	>=gnome-extra/yelp-42.2
 
-	>=x11-themes/adwaita-icon-theme-41.0
+	>=x11-themes/adwaita-icon-theme-44.0
 
-	bluetooth? ( >=net-wireless/gnome-bluetooth-3.34.5 )
+	bluetooth? ( >=net-wireless/gnome-bluetooth-42.5 )
 "
 DEPEND=""
 BDEPEND=""
 
 # cdr? ( >=app-cdr/brasero-3.12.2 ) # not part of gnome releng release anymore
 # >=gnome-base/gnome-menus-3.13.3:3  # not used by core gnome anymore, just gnome-classic extensions
-# >=net-im/empathy-3.12.12 # not part of gnome releng core or apps suite anymore
 
 S="${WORKDIR}"

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-P_RELEASE="$(ver_cut 1-2)"
+P_RELEASE="$(ver_cut 1).0"
 
 DESCRIPTION="Meta package for GNOME-Light, merge this package to install"
 HOMEPAGE="https://www.gnome.org/"
@@ -21,27 +21,29 @@ KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
 RDEPEND="
 	>=gnome-base/gnome-core-libs-${PV}[cups?]
 
-	>=gnome-base/gnome-session-40.0
-	>=gnome-base/gnome-settings-daemon-40.0[cups?]
-	>=gnome-base/gnome-control-center-40.0[cups?]
+	>=gnome-base/gnome-session-44.0
+	>=gnome-base/gnome-settings-daemon-44.1[cups?]
+	>=gnome-base/gnome-control-center-44.3[cups?]
 
-	>=gnome-base/nautilus-40.0
+	>=gnome-base/nautilus-44.2.1
 
 	gnome-shell? (
-		>=x11-wm/mutter-${PV}
-		>=dev-libs/gjs-1.68.0
-		>=gnome-base/gnome-shell-${PV}
-		>=media-fonts/cantarell-0.301
+		>=x11-wm/mutter-44.3
+		>=dev-libs/gjs-1.76.2
+		>=gnome-base/gnome-shell-44.3
+		>=media-fonts/cantarell-0.303.1
 	)
 
-	>=x11-themes/adwaita-icon-theme-40.0
-	>=x11-themes/gnome-themes-standard-3.28
+	>=x11-themes/adwaita-icon-theme-${P_RELEASE}
 	>=x11-themes/gnome-backgrounds-${P_RELEASE}
 
-	>=x11-terms/gnome-terminal-3.40.0
+	|| (
+		>=x11-terms/gnome-terminal-3.48.2
+		>=gui-apps/gnome-console-44.4
+	)
 "
 DEPEND=""
-PDEPEND=">=gnome-base/gvfs-1.48.0"
+PDEPEND=">=gnome-base/gvfs-1.50.6"
 BDEPEND=""
 S="${WORKDIR}"
 
