@@ -7,7 +7,7 @@ inherit elisp
 
 DESCRIPTION="A library to provide basic features about message representation or encoding"
 HOMEPAGE="https://github.com/wanderlust/flim"
-GITHUB_SHA1="c430c5498ad5843f40ef758685e29431f167478c"
+GITHUB_SHA1="abdd2315006eb31476249223569808adb1c0f7b2"
 SRC_URI="https://github.com/wanderlust/${PN}/archive/${GITHUB_SHA1}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${GITHUB_SHA1}"
 
