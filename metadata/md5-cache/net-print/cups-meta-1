@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Metapackage for a fully configured cups printer setup
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+IUSE=+browsed +foomatic pdf +postscript +poppler zeroconf
+KEYWORDS=~amd64
+LICENSE=metapackage
+RDEPEND=net-print/cups[zeroconf?] net-print/libppd[postscript?,poppler?] net-print/libcupsfilters[pdf?,poppler?] net-print/cups-filters[foomatic?] browsed? ( net-print/cups-browsed ) pdf? ( app-text/mupdf ) postscript? ( >=app-text/ghostscript-gpl-9.09[cups] )
+SLOT=0
+_md5_=61c81c6818276dbaade2cd2d3f5a2f8a

@@ -6797,6 +6797,9 @@ net-p2p/transmission-remote-gtk:libproxy - Use net-libs/libproxy for getting the
 net-print/cups:openssl - Use dev-libs/openssl instead of net-libs/gnutls for TLS support
 net-print/cups-filters:foomatic - Build the included foomatic-rip printer driver. Strongly recommended.
 net-print/cups-filters:pclm - Enable PCLm support
+net-print/cups-meta:browsed - Include support for the cups-browsed daemon.
+net-print/cups-meta:foomatic - Include support for the foomatic-rip printer driver. Strongly recommended.
+net-print/cups-meta:poppler - Include support for the app-text/poppler filters.
 net-print/dymo-cups-drivers:usb-modeswitch - Include usb_modeswitch for some hardware (bug #601242)
 net-print/fax4cups:efax - Install net-misc/efax backend
 net-print/fax4cups:hylafax - Install net-misc/hylafax backend
@@ -6814,6 +6817,8 @@ net-print/hplip:snmp - Add support for net-analyzer/net-snmp which enables this 
 net-print/hplip:static-ppds - Use statically-generated PPDs instead of Dynamic PPDs. Although this is deprecated some printers may still need it to work properly. Use this flag if hp-setup fails to find/create a valid PPD file
 net-print/hplip-plugin:orblite - Install the ORBlite scanner plugin
 net-print/kyocera-1x2x-mfp-driver:rastertokpsl-fix - Use custom wrapper script to sanitize arguments before passing to 'rastertokpsl' filter program
+net-print/libcupsfilters:poppler - Build the pdftoraster filter
+net-print/libppd:poppler - Use the app-text/poppler pdftops filter
 net-proxy/haproxy:51degrees - Device Detection using 51 Degrees
 net-proxy/haproxy:net_ns - Enable network namespace support (CONFIG_NET_NS)
 net-proxy/haproxy:pcre-jit - Use JIT support for PCRE
