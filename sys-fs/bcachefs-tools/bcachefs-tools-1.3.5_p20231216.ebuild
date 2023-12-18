@@ -118,8 +118,10 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://evilpiepirate.org/git/bcachefs-tools.git"
 else
-	SRC_URI="https://github.com/koverstreet/bcachefs-tools/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	MY_COMMIT=d8e7f3671db406b587a420cae420ec14a189399e
+	SRC_URI="https://github.com/koverstreet/bcachefs-tools/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz
 		${CARGO_CRATE_URIS}"
+	S="${WORKDIR}/${PN}-${MY_COMMIT}"
 	KEYWORDS="~amd64"
 fi
 
