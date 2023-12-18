@@ -17,6 +17,7 @@ alsa - Add support for media-libs/alsa-lib (Advanced Linux Sound Architecture)
 ao - Use libao audio output library for sound playback
 apache2 - Add Apache2 support
 aqua - Include support for the Mac OS X Aqua (Carbon/Cocoa) GUI
+asm - Enable using assembly for optimization
 atm - Enable Asynchronous Transfer Mode protocol support
 apparmor - Enable support for the AppArmor application security system
 appindicator - Build in support for notifications using the libindicate or libappindicator plugin
@@ -72,6 +73,7 @@ dvb - Add support for DVB (Digital Video Broadcasting)
 dvd - Add support for DVDs
 dvdr - Add support for DVD writer hardware (e.g. in xcdroast)
 eds - Enable support for Evolution-Data-Server (EDS)
+egl - Enable EGL (Embedded-System Graphics Library, interfacing between windowing system and OpenGL/GLES) support
 elogind - Enable session tracking via sys-auth/elogind
 emacs - Add support for GNU Emacs
 emboss - Add support for the European Molecular Biology Open Software Suite
@@ -101,7 +103,8 @@ ggi - Add support for media-libs/libggi (non-X video api/drivers)
 gif - Add GIF image support
 gimp - Build a plugin for the GIMP
 git - Enable git (version control system) support
-gles2-only - Use GLES 2.0 or later instead of full OpenGL
+gles2 - Enable GLES 2.0 (OpenGL for Embedded Systems) support (independently of full OpenGL, see also: gles2-only)
+gles2-only - Use GLES 2.0 (OpenGL for Embedded Systems) or later instead of full OpenGL (see also: gles2)
 glut - Build an OpenGL plugin using the GLUT library
 gmp - Add support for dev-libs/gmp (GNU MP library)
 gnome - Add GNOME support
@@ -174,6 +177,7 @@ lirc - Add support for lirc (Linux's Infra-Red Remote Control)
 livecd - !!internal use only!! DO NOT SET THIS FLAG YOURSELF!, used during livecd building
 llvm-libunwind - Use sys-libs/llvm-libunwind instead of sys-libs/libunwind
 lm-sensors - Add linux lm-sensors (hardware sensors) support
+lto - Enable Link-Time Optimization (LTO) to optimize the build
 lua - Enable Lua scripting support
 lz4 - Enable support for lz4 compression (as implemented in app-arch/lz4)
 lzip - Enable support for lzip compression
@@ -232,6 +236,7 @@ offensive - Enable potentially offensive items in packages
 ofx - Enable support for importing (and exporting) OFX (Open Financial eXchange) data files
 ogg - Add support for the Ogg container format (commonly used by Vorbis, Theora and flac)
 openal - Add support for the Open Audio Library
+opencl - Enable OpenCL support (computation on GPU)
 openexr - Support for the OpenEXR graphics file format
 opengl - Add support for OpenGL (3D graphics)
 openmp - Build support for the OpenMP (support parallel computing), requires >=sys-devel/gcc-4.2 built with USE="openmp"
@@ -241,6 +246,7 @@ oracle - Enable Oracle Database support
 orc - Use dev-lang/orc for just-in-time optimization of array operations
 osc - Enable support for Open Sound Control
 oss - Add support for OSS (Open Sound System)
+otf - Install OpenType font versions
 pam - Add support for PAM (Pluggable Authentication Modules) - DANGEROUS to arbitrarily flip
 pch - Enable precompiled header support for faster compilation at the expense of disk space and memory (>=sys-devel/gcc-3.4 only)
 pcmcia - Add support for PCMCIA slots/devices found on laptop computers
@@ -287,6 +293,7 @@ secureboot - Automatically sign efi executables using user specified key
 selinux - !!internal use only!! Security Enhanced Linux support, this must be set by the selinux profile or breakage will occur
 semantic-desktop - Cross-KDE support for semantic search and information retrieval
 session - Add persistent session support
+sid - Enable SID (Commodore 64 audio) file support
 skey - Enable S/Key (Single use password) authentication support
 slang - Add support for the slang text display library (it's like ncurses, but different)
 smartcard - Enable smartcard support
@@ -300,6 +307,7 @@ socks5 - Add support for the socks5 proxy
 sound - Enable sound support
 source - Zip the sources and install them
 sox - Add support for Sound eXchange (SoX)
+speech - Enable text-to-speech support
 speex - Add support for the speex audio codec (used for speech)
 spell - Add dictionary support
 split-usr - Enable behavior to support maintaining /bin, /lib*, /sbin and /usr/sbin  separately from /usr/bin and /usr/lib*
@@ -331,6 +339,7 @@ tiff - Add support for the TIFF image format
 timidity - Build with Timidity++ (MIDI sequencer) support
 tk - Add support for Tk GUI toolkit
 truetype - Add support for FreeType and/or FreeType2 fonts
+ttf - Install TrueType font versions
 udev - Enable virtual/udev integration (device discovery, power and storage device support, etc)
 udisks - Enable storage management support (automounting, volume monitoring, etc)
 uefi - Enable support for the Unified Extensible Firmware Interface
