@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Transitional package to be superseded by media-libs/libv4l[utils]
+EAPI=8
+HOMEPAGE=https://git.linuxtv.org/v4l-utils.git
+IUSE=+bpf dvb qt5
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=>=media-libs/libv4l-1.26[utils,bpf?,dvb?,qt5?]
+SLOT=0
+_md5_=fbac9e7efd1aca4f5cb5e6b0aeef6537
