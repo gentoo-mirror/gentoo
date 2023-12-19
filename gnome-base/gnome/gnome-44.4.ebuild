@@ -22,25 +22,24 @@ RDEPEND="
 	>=gnome-base/gnome-core-libs-${PV}[cups?]
 	>=gnome-base/gnome-core-apps-${PV}[cups?,bluetooth?]
 
-	>=gnome-base/gdm-40.0
+	>=gnome-base/gdm-44.1
 
-	>=x11-wm/mutter-${PV}
-	>=gnome-base/gnome-shell-${PV}
-	>=media-fonts/cantarell-0.301
+	>=x11-wm/mutter-44.3
+	>=gnome-base/gnome-shell-44.3
+	>=media-fonts/cantarell-0.303.1
 
-	>=x11-themes/gnome-backgrounds-40.0
+	>=x11-themes/gnome-backgrounds-44.0
 	x11-themes/sound-theme-freedesktop
 
 	accessibility? (
-		>=app-accessibility/at-spi2-atk-2.38.0
-		>=app-accessibility/at-spi2-core-2.40.0
-		>=app-accessibility/orca-40.0
+		>=app-accessibility/at-spi2-core-2.48.3
+		>=app-accessibility/orca-44.1
 		>=gnome-extra/mousetweaks-3.32.0
 	)
-	classic? ( >=gnome-extra/gnome-shell-extensions-40.0 )
+	classic? ( >=gnome-extra/gnome-shell-extensions-44.0 )
 	extras? ( >=gnome-base/gnome-extra-apps-${PV} )
 "
-PDEPEND=">=gnome-base/gvfs-1.48.0[udisks]"
+PDEPEND=">=gnome-base/gvfs-1.50.6[udisks]"
 
 DEPEND=""
 BDEPEND=""
