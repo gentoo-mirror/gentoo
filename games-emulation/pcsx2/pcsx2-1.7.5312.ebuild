@@ -9,9 +9,8 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PCSX2/pcsx2.git"
 else
-	# formerly was attempting to unbundle most, but upstream dropped every
-	# checks for alternatively using system's and keeping this up has become
-	# unmaintainable, and to simplify now also using tarballs with submodules
+	# unbundling on this package has become unmaintainable and, rather than
+	# handle submodules separately, using a tarball that includes them
 	SRC_URI="https://dev.gentoo.org/~ionen/distfiles/${P}.tar.xz"
 	KEYWORDS="-* ~amd64"
 fi
@@ -32,8 +31,8 @@ RESTRICT="!test? ( test )"
 COMMON_DEPEND="
 	app-arch/xz-utils
 	dev-libs/libaio
-	>=dev-qt/qtbase-6.5.3:6[gui,network,widgets]
-	>=dev-qt/qtsvg-6.5.3:6
+	>=dev-qt/qtbase-6.6.0:6[gui,widgets]
+	>=dev-qt/qtsvg-6.6.0:6
 	media-libs/libglvnd
 	media-libs/libpng:=
 	>=media-libs/libsdl2-2.28.4[haptic,joystick]
@@ -62,7 +61,7 @@ DEPEND="
 	x11-base/xorg-proto
 "
 BDEPEND="
-	>=dev-qt/qttools-6.5.3:6[linguist]
+	>=dev-qt/qttools-6.6.0:6[linguist]
 	wayland? (
 		dev-util/wayland-scanner
 		kde-frameworks/extra-cmake-modules
@@ -70,16 +69,16 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.7.3468-cubeb-automagic.patch
 	"${FILESDIR}"/${PN}-1.7.3773-lto.patch
 	"${FILESDIR}"/${PN}-1.7.4667-flags.patch
+	"${FILESDIR}"/${PN}-1.7.5232-cubeb-automagic.patch
 )
 
 src_prepare() {
 	cmake_src_prepare
 
 	if [[ ${PV} != 9999 ]]; then
-		sed -e '/set(PCSX2_GIT_TAG "")/s/""/"v'${PV}-gentoo'"/' \
+		sed -e '/set(PCSX2_GIT_TAG "")/s/""/"v'${PV}'"/' \
 			-i cmake/Pcsx2Utils.cmake || die
 	fi
 }
