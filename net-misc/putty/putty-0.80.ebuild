@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,22 +12,22 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://git.tartarus.org/simon/putty.git"
 else
 	SRC_URI+=" https://the.earth.li/~sgtatham/${PN}/${PV}/${P}.tar.gz"
-	KEYWORDS="~alpha amd64 ~arm64 ~hppa ppc ppc64 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 fi
 LICENSE="MIT"
 
 SLOT="0"
-IUSE="debug doc +gtk gtk2 gssapi"
+IUSE="debug doc +gtk gssapi"
 
 RDEPEND="
 	!net-misc/pssh
 	gtk? (
 		dev-libs/glib:2
-		x11-libs/gdk-pixbuf
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf:2
+		x11-libs/gtk+:3[X]
 		x11-libs/libX11
 		x11-libs/pango
-		gtk2? ( x11-libs/gtk+:2 )
-		!gtk2? ( x11-libs/gtk+:3[X] )
 	)
 	gssapi? ( virtual/krb5 )
 "
@@ -40,10 +40,6 @@ BDEPEND="
 	doc? ( app-doc/halibut )
 "
 
-REQUIRED_USE="
-	gtk2? ( gtk )
-"
-
 src_unpack() {
 	[[ ${PV} == *9999 ]] && git-r3_src_unpack
 	default
@@ -54,7 +50,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DPUTTY_DEBUG="$(usex debug)"
 		-DPUTTY_GSSAPI="$(usex gssapi DYNAMIC OFF)"
-		-DPUTTY_GTK_VERSION=$(usex gtk $(usex gtk2 2 3 ) '')
+		-DPUTTY_GTK_VERSION=$(usex gtk 3 '')
 		-DPUTTY_IPV6=yes
 	)
 	cmake_src_configure
