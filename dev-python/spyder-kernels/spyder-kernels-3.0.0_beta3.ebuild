@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..12} )
 
 inherit distutils-r1 pypi
 
@@ -22,9 +22,9 @@ KEYWORDS=""
 RDEPEND="
 	dev-python/cloudpickle[${PYTHON_USEDEP}]
 	<dev-python/ipykernel-7[${PYTHON_USEDEP}]
-	>=dev-python/ipykernel-6.16.1[${PYTHON_USEDEP}]
+	>=dev-python/ipykernel-6.23.2[${PYTHON_USEDEP}]
 	<dev-python/ipython-9[${PYTHON_USEDEP}]
-	>dev-python/ipython-8.12.1[${PYTHON_USEDEP}]
+	>dev-python/ipython-8.13.0[${PYTHON_USEDEP}]
 	<dev-python/jupyter-client-9[${PYTHON_USEDEP}]
 	>=dev-python/jupyter-client-7.4.9[${PYTHON_USEDEP}]
 	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
@@ -38,14 +38,16 @@ BDEPEND="
 		dev-python/cython[${PYTHON_USEDEP}]
 		dev-python/django[${PYTHON_USEDEP}]
 		dev-python/flaky[${PYTHON_USEDEP}]
-		dev-python/h5py[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/pandas[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
-		dev-python/xarray[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep '
+			dev-python/h5py[${PYTHON_USEDEP}]
+			dev-python/pandas[${PYTHON_USEDEP}]
+			dev-python/xarray[${PYTHON_USEDEP}]
+		' 'python*')
 	)
 "
 
@@ -68,3 +70,18 @@ EPYTEST_DESELECT=(
 	# pydicom only packaged in ::sci at the moment
 	spyder_kernels/utils/tests/test_iofuncs.py::test_load_dicom_files
 )
+
+python_test() {
+	if [[ ${EPYTHON} == pypy3 ]]; then
+		EPYTEST_IGNORE=(
+			# requires pandas
+			spyder_kernels/utils/tests/test_nsview.py
+		)
+		EPYTEST_DESELECT+=(
+			# requires hdf5
+			spyder_kernels/utils/tests/test_iofuncs.py::test_save_load_hdf5_files
+			spyder_kernels/utils/tests/test_dochelpers.py
+		)
+	fi
+	distutils-r1_python_test
+}

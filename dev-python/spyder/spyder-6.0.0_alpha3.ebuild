@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature virtualx xdg
 
 # Commit of documentation to fetch
-DOCS_PV="cfa8e009264cb5e79beeead6a012e521db2c73dc"
+DOCS_PV="0aa81d44ec6490c155be1bb1acca0a27328b12e0"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -46,19 +46,19 @@ RDEPEND="
 	>=dev-python/python-lsp-black-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/pyls-spyder-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pyuca-1.2[${PYTHON_USEDEP}]
-	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-22.1.0[${PYTHON_USEDEP}]
-	>=dev-python/qdarkstyle-3.0.2[${PYTHON_USEDEP}]
-	<dev-python/qdarkstyle-3.2.0[${PYTHON_USEDEP}]
+	>=dev-python/qdarkstyle-3.2.0[${PYTHON_USEDEP}]
+	<dev-python/qdarkstyle-3.3.0[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.2.2[${PYTHON_USEDEP}]
-	>=dev-python/qtawesome-1.2.1[${PYTHON_USEDEP}]
-	>=dev-python/qtconsole-5.4.2[${PYTHON_USEDEP}]
-	<dev-python/qtconsole-5.5.0[${PYTHON_USEDEP}]
-	>=dev-python/QtPy-2.1.0[${PYTHON_USEDEP},svg,webengine]
+	>=dev-python/qtawesome-1.3.0[${PYTHON_USEDEP}]
+	>=dev-python/qtconsole-5.5.0[${PYTHON_USEDEP}]
+	<dev-python/qtconsole-5.6.0[${PYTHON_USEDEP}]
+	>=dev-python/QtPy-2.4.0[${PYTHON_USEDEP},svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-3.0.0_beta2[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-3.0.0_beta3[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-3.0.0_beta3[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-3.0.0_beta4[${PYTHON_USEDEP}]
+	>=dev-python/superqt-0.6.1[${PYTHON_USEDEP}]
+	<dev-python/superqt-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
@@ -151,9 +151,6 @@ python_prepare_all() {
 	# do not check deps, fails because we removed dependencies above
 	sed -i -e 's:test_dependencies_for_spyder_setup_install_requires_in_sync:_&:' \
 		spyder/tests/test_dependencies_in_sync.py || die
-
-	# can't check for update, need network
-	rm spyder/workers/tests/test_update.py || die
 
 	# skip online test
 	rm spyder/widgets/github/tests/test_github_backend.py || die
