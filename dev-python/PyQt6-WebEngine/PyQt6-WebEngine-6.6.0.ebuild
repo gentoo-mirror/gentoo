@@ -17,7 +17,7 @@ HOMEPAGE="https://www.riverbankcomputing.com/software/pyqtwebengine/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="debug quick +widgets"
 
 RDEPEND="
@@ -26,7 +26,7 @@ RDEPEND="
 	>=dev-qt/qtwebengine-${QT_PV}[widgets]
 	quick? (
 		dev-python/PyQt6[qml]
-		>=dev-qt/qtwebengine-${QT_PV}[qml(+)]
+		>=dev-qt/qtwebengine-${QT_PV}[qml]
 	)
 	widgets? ( dev-python/PyQt6[network,printsupport,webchannel,widgets] )
 "
