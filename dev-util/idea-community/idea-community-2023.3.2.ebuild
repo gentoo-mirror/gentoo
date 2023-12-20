@@ -19,8 +19,8 @@ KEYWORDS="~amd64 ~arm64"
 
 DEPEND="
 	|| (
-		>=dev-java/openjdk-17.0.6_p10:17
-		>=dev-java/openjdk-bin-17.0.6_p10:17
+		>=dev-java/openjdk-17.0.8.1_p1:17
+		>=dev-java/openjdk-bin-17.0.8.1_p1:17
 	)"
 
 RDEPEND="${DEPEND}
