@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_DOCDIR="doc"
 RUBY_FAKEGEM_EXTRADOC="CHANGES.txt README.md THANKS.txt"
@@ -19,11 +19,16 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> net-ssh-git-${P
 
 LICENSE="GPL-2"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 x86"
-IUSE="ed25519 test"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="chacha20 ed25519 test"
 RESTRICT="!test? ( test )"
 
-ruby_add_rdepend "virtual/ruby-ssl ed25519? ( >=dev-ruby/ed25519-1.2:1 dev-ruby/x25519 dev-ruby/bcrypt_pbkdf:1 )"
+ruby_add_rdepend "
+	virtual/ruby-ssl
+	chacha20? ( dev-ruby/rbnacl )
+	ed25519? ( >=dev-ruby/ed25519-1.2:1 dev-ruby/x25519 dev-ruby/bcrypt_pbkdf:1 )
+"
+
 ruby_add_bdepend "test? ( dev-ruby/test-unit:2 >=dev-ruby/mocha-0.13 )"
 
 all_ruby_prepare() {
