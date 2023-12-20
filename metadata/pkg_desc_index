@@ -3847,7 +3847,7 @@ dev-db/innotop 1.13.0: A text-mode MySQL and InnoDB monitor like mytop, but with
 dev-db/kdb 3.2.0-r2: Database connectivity and creation framework for various vendors
 dev-db/kyotocabinet 1.2.77 1.2.79-r1 1.2.79-r2: A straightforward implementation of DBM
 dev-db/libdbi 0.9.0: A database-independent abstraction layer in C
-dev-db/libdbi-drivers 0.9.0-r1: The libdbi-drivers project maintains drivers for libdbi
+dev-db/libdbi-drivers 0.9.0-r1 0.9.0-r2: The libdbi-drivers project maintains drivers for libdbi
 dev-db/libiodbc 3.52.15-r1: ODBC Interface for Linux
 dev-db/libodbc++ 0.2.5-r3: Provides a subset of the well-known JDBC 2.0(tm) and runs on top of ODBC
 dev-db/libzdb 3.2.3: A thread safe high level multi-database connection pool library
@@ -8228,7 +8228,7 @@ dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
 dev-python/docstring-to-markdown 0.13: On the fly conversion of Python docstrings to markdown
 dev-python/docutils 0.19 0.20.1-r1: Python Documentation Utilities (reference reStructuredText impl.)
 dev-python/docutils-glep 1.5: Gentoo GLEP support for docutils
-dev-python/dogpile-cache 1.2.2: A locking API for expiring values while a single thread generates a new value
+dev-python/dogpile-cache 1.2.2 1.3.0: A locking API for expiring values while a single thread generates a new value
 dev-python/doit 0.36.0-r1: Automation tool
 dev-python/doit-py 0.5.0-r1: doit tasks for python stuff
 dev-python/dominate 2.9.0: Library for creating and manipulating HTML documents using an elegant DOM API
@@ -8384,7 +8384,7 @@ dev-python/httpbin 0.10.1-r3: HTTP Request and Response Service
 dev-python/httpcore 1.0.2: A minimal low-level HTTP client
 dev-python/httplib2 0.22.0: A comprehensive HTTP client library
 dev-python/httpretty 1.1.4-r1: HTTP client mock for Python
-dev-python/httpx 0.25.2: Fully-featured HTTP client which provides sync and async APIs
+dev-python/httpx 0.25.2 0.26.0: Fully-featured HTTP client which provides sync and async APIs
 dev-python/httpx-socks 0.8.0: Proxy (HTTP, SOCKS) transports for httpx
 dev-python/huawei-lte-api 1.7.3: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r1: Human friendly output for text interfaces using Python
@@ -8752,7 +8752,7 @@ dev-python/pendulum 2.1.2-r2 3.0.0: Drop-in replacement for the standard datetim
 dev-python/pexpect 4.9.0: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 2.1.1: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1-r2: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 8.13.26: Python port of Google's libphonenumber
+dev-python/phonenumbers 8.13.26 8.13.27: Python port of Google's libphonenumber
 dev-python/phply 1.2.6: Lexer and parser for PHP source implemented using PLY
 dev-python/pickleshare 0.7.5-r1: A small 'shelve' like datastore with concurrency support
 dev-python/picobox 3.0.0 4.0.0: Dependency injection framework designed with Python in mind
@@ -9216,7 +9216,7 @@ dev-python/ruamel-yaml 0.17.40 0.18.5: YAML parser/emitter that supports roundtr
 dev-python/ruamel-yaml-clib 0.2.8: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.13.2: A high performance Python graph library implemented in Rust
 dev-python/s3transfer 0.8.2 0.9.0: An Amazon S3 Transfer Manager
-dev-python/sabctools 7.0.2 7.1.1 7.1.2 8.0.0 8.0.1: Module providing raw yEnc encoding/decoding for SABnzbd
+dev-python/sabctools 7.0.2 7.1.1 7.1.2 8.0.0 8.0.1 8.1.0: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
 dev-python/scikit-build 0.17.6: Improved build system generator for Python C/C++/Fortran/Cython extensions
@@ -14559,7 +14559,7 @@ net-ftp/gftp 2.9.1b: a free multithreaded file transfer client
 net-ftp/lftp 4.9.2-r1 9999: A sophisticated ftp/sftp/http/https/torrent client and file transfer program
 net-ftp/linksys-tftp 1.2.1-r3: TFTP client suitable for uploading to the Linksys WRT54G Wireless Router
 net-ftp/ncftp 3.2.6-r5: An extremely configurable ftp client
-net-ftp/proftpd 1.3.8 1.3.8-r1 1.3.8a 1.3.8a-r1: An advanced and very configurable FTP server
+net-ftp/proftpd 1.3.8 1.3.8-r1 1.3.8a 1.3.8a-r1 1.3.8b: An advanced and very configurable FTP server
 net-ftp/pure-ftpd 1.0.51-r2 9999: Fast, production-quality, standard-conformant FTP server
 net-ftp/pureadmin 0.4-r3: GUI tool used to make the management of Pure-FTPd a little easier
 net-ftp/tftp-hpa 5.2-r3: Port of the OpenBSD TFTP server
@@ -14996,7 +14996,7 @@ net-misc/datapipe 1.0-r2: Bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
 net-misc/dhcdrop 0.5-r1: Effectively suppresses illegal DHCP servers on the LAN
 net-misc/dhcp 4.4.3_p1-r3 4.4.3_p1-r4: ISC Dynamic Host Configuration Protocol (DHCP) client/server
-net-misc/dhcpcd 9.5.1 10.0.3 10.0.4 10.0.5 10.0.5-r1 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
+net-misc/dhcpcd 9.5.1 10.0.3 10.0.4 10.0.5 10.0.5-r1 10.0.6 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
 net-misc/dhcpcd-ui 0.7.8 0.7.9: Desktop notification and configuration for dhcpcd
 net-misc/dhcping 1.2-r1: Utility to send DHCP requests to DHCP servers to see if responding
 net-misc/dibbler 1.0.1-r3 1.0.1-r4: Portable DHCPv6 implementation (server, client and relay)
@@ -17530,7 +17530,7 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.330_p157 4.19.299_p130 5.4.257_p87 5.10.201_p98 5.15.141_p72 6.0.5_p14 6.1.67_p20 6.5.2_p8: Full Linux 6.5 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/vanilla-kernel 5.10.203 5.10.204 5.10.9999 5.15.142 5.15.143 5.15.9999 6.1.66 6.1.67 6.1.68 6.1.9999 6.6.5 6.6.6 6.6.7: Linux kernel built from vanilla upstream sources
-sys-kernel/vanilla-sources 4.14.333 4.19.302 5.4.264 5.10.204 5.15.143 6.1.68 6.6.7: Full sources for the Linux kernel
+sys-kernel/vanilla-sources 4.14.334 4.19.303 5.4.265 5.10.205 5.15.144 6.1.68 6.6.7: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.5.9 6.6.3: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1 0.2.1: The sd-bus library, extracted from systemd
