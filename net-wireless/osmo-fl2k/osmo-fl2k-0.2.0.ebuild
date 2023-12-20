@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,11 +10,11 @@ HOMEPAGE="https://osmocom.org/projects/osmo-fl2k/wiki"
 
 if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://git.osmocom.org/osmo-fl2k"
+	EGIT_REPO_URI="https://gitea.osmocom.org/sdr/osmo-fl2k"
 else
 	KEYWORDS="~amd64"
-	SRC_URI="https://git.osmocom.org/osmo-fl2k/snapshot/v${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/v${PV}"
+	SRC_URI="https://gitea.osmocom.org/sdr/osmo-fl2k/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}"
 fi
 
 LICENSE="GPL-2+"
@@ -51,4 +51,12 @@ src_install() {
 	# https://bugs.gentoo.org/727984
 	# No obvious way to prevent build
 	find "${ED}" -name libosmo-fl2k.a -delete
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
