@@ -9,7 +9,6 @@ inherit cmake frameworks.kde.org python-any-r1
 
 DESCRIPTION="Extra modules and scripts for CMake"
 HOMEPAGE="https://invent.kde.org/frameworks/extra-cmake-modules"
-SRC_URI="mirror://kde/unstable/frameworks/5.246.0/${P}.tar.xz"
 
 LICENSE="BSD"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86"

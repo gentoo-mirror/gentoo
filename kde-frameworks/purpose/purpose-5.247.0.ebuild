@@ -30,16 +30,11 @@ DEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:6
 	=kde-frameworks/prison-${PVCUT}*:6
 "
-# 	kaccounts? (
-# 		>=kde-apps/kaccounts-integration-19.04.3:6
-# 		net-libs/accounts-qt
-# 	)
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 	>=kde-frameworks/kdeclarative-${PVCUT}:6
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:6 )
 "
-# 	kaccounts? ( net-libs/accounts-qml )
 
 src_prepare() {
 	ecm_src_prepare
@@ -48,13 +43,13 @@ src_prepare() {
 		cmake_run_in src/plugins cmake_comment_add_subdirectory bluetooth
 }
 
-# src_configure() {
-# 	local mycmakeargs=(
-# 		$(cmake_use_find_package kaccounts KAccounts)
-# 	)
-# 
-# 	ecm_src_configure
-# }
+src_configure() {
+	local mycmakeargs=(
+		-DCMAKE_DISABLE_FIND_PACKAGE_KAccounts6=$(usex kaccounts)
+	)
+
+	ecm_src_configure
+}
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
