@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/libevent:= sys-apps/hwloc:= sys-cluster/ucx sys-libs/zlib:= munge? ( sys-auth/munge ) pmi? ( !sys-cluster/slurm )
+DESCRIPTION=The Process Management Interface (PMI) Exascale
+EAPI=8
+HOMEPAGE=https://openpmix.github.io/
+IUSE=debug +munge pmi
+KEYWORDS=~amd64 -x86 ~amd64-linux
+LICENSE=BSD
+RDEPEND=dev-libs/libevent:= sys-apps/hwloc:= sys-cluster/ucx sys-libs/zlib:= munge? ( sys-auth/munge ) pmi? ( !sys-cluster/slurm )
+SLOT=0
+SRC_URI=https://github.com/openpmix/openpmix/releases/download/v4.2.8/pmix-4.2.8.tar.bz2
+_md5_=d567cdff6c43695424825b1a3fbb4001
