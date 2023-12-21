@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=kdegraphics - merge this to pull in all kdegraphics-derived packages
+EAPI=8
+HOMEPAGE=https://apps.kde.org/graphics/
+IUSE=color-management scanner +screencast
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=metapackage
+RDEPEND=>=kde-apps/gwenview-23.08.4:5 >=kde-apps/kamera-23.08.4:5 >=kde-apps/kcolorchooser-23.08.4:5 >=kde-apps/kdegraphics-mobipocket-23.08.4:5 >=kde-apps/kolourpaint-23.08.4:5 >=kde-apps/kruler-23.08.4:5 >=kde-apps/libkdcraw-23.08.4:5 >=kde-apps/libkexiv2-23.08.4:5 >=kde-apps/okular-23.08.4:5 >=kde-apps/svgpart-23.08.4:5 >=kde-apps/thumbnailers-23.08.4:5 color-management? ( >=kde-misc/colord-kde-23.08.4:5 ) scanner? ( >=kde-apps/libksane-23.08.4:5 >=kde-misc/skanlite-23.08.4:5 >=media-gfx/skanpage-23.08.4:5 ) screencast? ( >=kde-apps/spectacle-23.08.4:* )
+SLOT=5
+_md5_=3f5d58516d04c2597d05d9582da0379f
