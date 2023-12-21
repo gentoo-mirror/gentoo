@@ -293,7 +293,7 @@ wasm-bindgen-macro@0.2.87
 wasm-bindgen-macro-support@0.2.87
 wasm-bindgen-shared@0.2.87
 web-sys@0.3.64
-webpki@0.22.0
+webpki@0.22.4
 webpki-roots@0.22.6
 webpki-roots@0.24.0
 webpki-roots@0.25.2
@@ -324,7 +324,7 @@ DESCRIPTION="Push daemon for Nextcloud clients"
 HOMEPAGE="https://github.com/nextcloud/notify_push"
 SRC_URI="https://github.com/nextcloud/notify_push/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
-LICENSE="MIT Apache-2.0 BSD GPL-3 ISC MPL-2.0"
+LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 GPL-3 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
@@ -345,9 +345,27 @@ src_install() {
 
 	newconfd "${FILESDIR}/${PN}-r1.confd" "${PN}"
 	newinitd "${FILESDIR}/${PN}-r1.init" "${PN}"
-	systemd_newunit "${FILESDIR}/${PN}.service" "${PN}.service"
+	systemd_newunit "${FILESDIR}/${PN}.service-r1" "${PN}.service"
+	systemd_install_serviced "${FILESDIR}/${PN}.service.conf" "${PN}"
 
 	# restrict access because conf.d entry could contain
 	# database credentials
 	fperms 0640 "/etc/conf.d/${PN}"
+}
+
+pkg_postinst() {
+	# According to PMS this can be a space-separated list of version
+	# numbers, even though in practice it is typically just one.
+	local oldver
+	for oldver in ${REPLACING_VERSIONS}; do
+		if ver_test "${oldver}" -lt "0.6.6"; then
+			ewarn "You are upgrading from $oldver to ${PVR}"
+			ewarn "The systemd unit file for nextcloud-notify_push no longer sources ${EPREFIX}/etc/conf.d/nextcloud-notify_push ."
+			ewarn "Configuration is still done via ${EPREFIX}/etc/conf.d/nextcloud-notify_push for OpenRC systems"
+			ewarn "while for systemd systems, a systemd drop-in file located at"
+			ewarn "${EPREFIX}/etc/systemd/system/nextcloud-notify_push.d/00gentoo.conf"
+			ewarn "is used for configuration."
+			break
+		fi
+	done
 }

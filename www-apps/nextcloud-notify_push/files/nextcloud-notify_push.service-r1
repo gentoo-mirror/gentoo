@@ -6,7 +6,7 @@ After=redis.service
 [Service]
 Type=simple
 Environment=NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE=
-EnvironmentFile=-/etc/conf.d/nextcloud-notify_push
+EnvironmentFile=-/etc/systemd/system/nextcloud-notify_push.d/00gentoo.conf
 ExecStart=/usr/bin/nextcloud-notify_push $NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE
 Restart=on-failure
 
