@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
@@ -12,7 +13,7 @@ CRATES="
 	bitflags@1.3.2
 	cfg-if@1.0.0
 	heck@0.4.1
-	indoc@1.0.9
+	indoc@2.0.4
 	libc@0.2.150
 	lock_api@0.4.11
 	memoffset@0.9.0
@@ -20,23 +21,19 @@ CRATES="
 	parking_lot@0.12.1
 	parking_lot_core@0.9.9
 	proc-macro2@1.0.70
-	pyo3-build-config@0.19.2
-	pyo3-ffi@0.19.2
-	pyo3-macros-backend@0.19.2
-	pyo3-macros@0.19.2
-	pyo3@0.19.2
+	pyo3-build-config@0.20.0
+	pyo3-ffi@0.20.0
+	pyo3-macros-backend@0.20.0
+	pyo3-macros@0.20.0
+	pyo3@0.20.0
 	quote@1.0.33
 	redox_syscall@0.4.1
-	rustversion@1.0.14
 	scopeguard@1.2.0
 	smallvec@1.11.2
-	strum@0.25.0
-	strum_macros@0.25.3
-	syn@1.0.109
 	syn@2.0.41
 	target-lexicon@0.12.12
 	unicode-ident@1.0.12
-	unindent@0.1.11
+	unindent@0.2.3
 	windows-targets@0.48.5
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_msvc@0.48.5
@@ -62,6 +59,10 @@ SRC_URI+="
 "
 
 LICENSE="MIT"
+LICENSE+=" native-extensions? ("
+# Dependent crate licenses
+LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-DFS-2016"
+LICENSE+=" )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+native-extensions"
@@ -91,8 +92,6 @@ python_compile() {
 	distutils-r1_python_compile
 
 	if use native-extensions; then
-		emake gen-rs-token-type
-
 		local DISTUTILS_USE_PEP517=maturin
 		cd sqlglotrs || die
 		distutils-r1_python_compile
