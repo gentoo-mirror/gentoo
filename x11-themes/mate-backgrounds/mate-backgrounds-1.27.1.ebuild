@@ -5,9 +5,14 @@ EAPI=8
 
 inherit mate
 
-if [[ ${PV} != 9999 ]]; then
+MINOR=$((ver_cut 2) % 2)
+if [[ ${MINOR} -eq 0 ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
+else
+	KEYWORDS=""
 fi
+
+KEYWORDS=""
 
 DESCRIPTION="A set of backgrounds packaged with the MATE desktop"
 LICENSE="CC-BY-SA-4.0 GPL-2+"
