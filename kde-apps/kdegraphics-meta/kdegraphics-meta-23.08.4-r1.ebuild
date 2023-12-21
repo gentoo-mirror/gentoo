@@ -29,5 +29,5 @@ RDEPEND="
 		>=kde-misc/skanlite-${PV}:${SLOT}
 		>=media-gfx/skanpage-${PV}:${SLOT}
 	)
-	screencast? ( >=kde-apps/spectacle-${PV}:${SLOT} )
+	screencast? ( >=kde-apps/spectacle-${PV}:* )
 "

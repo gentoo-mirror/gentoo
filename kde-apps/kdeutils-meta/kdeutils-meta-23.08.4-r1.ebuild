@@ -31,7 +31,10 @@ RDEPEND="
 	>=kde-misc/markdownpart-${PV}:${SLOT}
 	>=sys-block/partitionmanager-${PV}:${SLOT}
 	>=sys-libs/kpmcore-${PV}:${SLOT}
-	cups? ( >=kde-plasma/print-manager-${PV}:${SLOT} )
+	cups? ( || (
+		kde-plasma/print-manager:6
+		>=kde-plasma/print-manager-${PV}:5
+	) )
 	gpg? ( >=kde-apps/kgpg-${PV}:${SLOT} )
 	plasma? ( >=kde-misc/kclock-${PV} )
 	webengine? (
