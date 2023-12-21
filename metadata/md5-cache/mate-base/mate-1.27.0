@@ -3,9 +3,8 @@ DESCRIPTION=Meta ebuild for MATE, a traditional desktop environment
 EAPI=7
 HOMEPAGE=https://mate-desktop.org
 IUSE=+base bluetooth help +notification +themes +extras
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
 LICENSE=metapackage
 PDEPEND=notification? ( =x11-misc/mate-notification-daemon-1.27* ) virtual/notification-daemon:0
 RDEPEND==mate-base/mate-desktop-1.27* =mate-base/mate-menus-1.27* =mate-base/mate-panel-1.27* =mate-base/mate-session-manager-1.27* =mate-base/mate-settings-daemon-1.27* =x11-wm/marco-1.27* base? ( =mate-base/caja-1.27* =mate-base/mate-applets-meta-1.27* =mate-base/mate-control-center-1.27* =mate-extra/mate-media-1.27* =x11-misc/mozo-1.27* =x11-terms/mate-terminal-1.27* ) bluetooth? ( net-wireless/blueman ) themes? ( =x11-themes/mate-backgrounds-1.27* =x11-themes/mate-icon-theme-1.27* ) extras? ( =app-arch/engrampa-1.27* =app-editors/pluma-1.27* =app-text/atril-1.27* =mate-extra/caja-extensions-1.27* =mate-extra/mate-calc-1.27* =mate-extra/mate-netbook-1.27* =mate-extra/mate-power-manager-1.27* =mate-extra/mate-screensaver-1.27* =mate-extra/mate-system-monitor-1.27* =mate-extra/mate-utils-1.27* =media-gfx/eom-1.27* ) help? ( gnome-extra/yelp =mate-extra/mate-user-guide-1.27* )
 SLOT=0
-_md5_=c726652cff22a1863a284d5e9824e631
+_md5_=865c4a51d047e55f770ce21f799f7897
