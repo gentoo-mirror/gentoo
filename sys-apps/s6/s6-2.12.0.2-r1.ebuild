@@ -3,23 +3,20 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit optfeature toolchain-funcs
 
-DESCRIPTION="Suite of small networking utilities for Unix systems"
-HOMEPAGE="https://www.skarnet.org/software/s6-networking/"
+DESCRIPTION="skarnet.org's small and secure supervision software suite"
+HOMEPAGE="https://www.skarnet.org/software/s6/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~x86"
-IUSE="ssl"
+KEYWORDS="~alpha amd64 ~arm ~mips ~riscv x86"
+IUSE="+execline"
 
 RDEPEND="
-	dev-lang/execline:=
-	>=dev-libs/skalibs-2.13.0.0:=
-	net-dns/s6-dns:=
-	sys-apps/s6:=[execline]
-	ssl? ( dev-libs/libretls )
+	=dev-libs/skalibs-2.14.0*:=
+	execline? ( dev-lang/execline:= )
 "
 DEPEND="${RDEPEND}"
 
@@ -41,17 +38,21 @@ src_configure() {
 		--bindir=/bin
 		--dynlibdir="/$(get_libdir)"
 		--libdir="/usr/$(get_libdir)/${PN}"
+		--libexecdir=/lib/s6
 		--with-dynlib="/$(get_libdir)"
-		--with-lib="/usr/$(get_libdir)/s6"
-		--with-lib="/usr/$(get_libdir)/s6-dns"
+		--with-lib="/usr/$(get_libdir)/execline"
 		--with-lib="/usr/$(get_libdir)/skalibs"
 		--with-sysdeps="/usr/$(get_libdir)/skalibs"
 		--enable-shared
 		--disable-allstatic
 		--disable-static
 		--disable-static-libc
-		$(use_enable ssl ssl libtls)
+		$(use_enable execline)
 	)
 
 	econf "${myconf[@]}"
+}
+
+pkg_postinst() {
+	optfeature "man pages" app-doc/s6-man-pages
 }

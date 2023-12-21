@@ -5,20 +5,13 @@ EAPI=8
 
 inherit toolchain-funcs
 
-DESCRIPTION="skarnet.org's small and secure supervision software suite"
-HOMEPAGE="https://www.skarnet.org/software/s6/"
+DESCRIPTION="General-purpose libraries from skarnet.org"
+HOMEPAGE="https://www.skarnet.org/software/skalibs/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha ~amd64 ~arm ~riscv ~x86"
-IUSE="+execline"
-
-RDEPEND="
-	>=dev-libs/skalibs-2.14.0.0:=
-	execline? ( dev-lang/execline:= )
-"
-DEPEND="${RDEPEND}"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~mips ~riscv ~x86"
 
 HTML_DOCS=( doc/. )
 
@@ -35,19 +28,15 @@ src_configure() {
 	tc-export AR CC RANLIB
 
 	local myconf=(
-		--bindir=/bin
 		--dynlibdir="/$(get_libdir)"
 		--libdir="/usr/$(get_libdir)/${PN}"
-		--libexecdir=/lib/s6
-		--with-dynlib="/$(get_libdir)"
-		--with-lib="/usr/$(get_libdir)/execline"
-		--with-lib="/usr/$(get_libdir)/skalibs"
-		--with-sysdeps="/usr/$(get_libdir)/skalibs"
-		--enable-shared
-		--disable-allstatic
+		--sysdepdir="/usr/$(get_libdir)/${PN}"
+		--sysconfdir=/etc
+
 		--disable-static
-		--disable-static-libc
-		$(use_enable execline)
+		--enable-clock
+		--enable-ipv6
+		--enable-shared
 	)
 
 	econf "${myconf[@]}"
