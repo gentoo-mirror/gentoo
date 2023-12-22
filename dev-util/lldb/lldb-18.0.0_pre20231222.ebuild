@@ -3,16 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit cmake llvm llvm.org python-single-r1
 
 DESCRIPTION="The LLVM debugger"
 HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
-SLOT="0"
-KEYWORDS="amd64 arm arm64 x86"
-IUSE="debug +libedit lzma ncurses +python test +xml"
+SLOT="0/${LLVM_SOABI}"
+IUSE="+debug +libedit lzma ncurses +python test +xml"
 RESTRICT="test"
 REQUIRED_USE=${PYTHON_REQUIRED_USE}
 
@@ -27,9 +26,6 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	python? (
-		$(python_gen_cond_dep '
-			dev-python/six[${PYTHON_USEDEP}]
-		')
 		${PYTHON_DEPS}
 	)
 "
@@ -38,9 +34,6 @@ BDEPEND="
 	>=dev-util/cmake-3.16
 	python? (
 		>=dev-lang/swig-3.0.11
-		$(python_gen_cond_dep '
-			dev-python/six[${PYTHON_USEDEP}]
-		')
 	)
 	test? (
 		$(python_gen_cond_dep "
@@ -51,13 +44,22 @@ BDEPEND="
 	)
 "
 
-LLVM_COMPONENTS=( lldb )
-LLVM_TEST_COMPONENTS=( llvm/lib/Testing/Support llvm/utils/unittest )
+LLVM_COMPONENTS=( lldb cmake llvm/utils )
+LLVM_TEST_COMPONENTS=( llvm/lib/Testing/Support third-party )
 llvm.org_set_globals
 
 pkg_setup() {
-	LLVM_MAX_SLOT=${PV%%.*} llvm_pkg_setup
+	LLVM_MAX_SLOT=${LLVM_MAJOR} llvm_pkg_setup
 	python-single-r1_pkg_setup
+}
+
+src_prepare() {
+	# broken in standalone build
+	# https://github.com/llvm/llvm-project/pull/70996#issuecomment-1843275813
+	sed -e '/Debuginfod/d' \
+		-i source/Plugins/SymbolLocator/CMakeLists.txt || die
+
+	llvm.org_src_prepare
 }
 
 src_configure() {
@@ -68,9 +70,9 @@ src_configure() {
 		-DLLDB_ENABLE_CURSES=$(usex ncurses)
 		-DLLDB_ENABLE_LIBEDIT=$(usex libedit)
 		-DLLDB_ENABLE_PYTHON=$(usex python)
+		-DLLDB_ENABLE_LUA=OFF
 		-DLLDB_ENABLE_LZMA=$(usex lzma)
 		-DLLDB_ENABLE_LIBXML2=$(usex xml)
-		-DLLDB_USE_SYSTEM_SIX=1
 		-DLLVM_ENABLE_TERMINFO=$(usex ncurses)
 
 		-DLLDB_INCLUDE_TESTS=$(usex test)
@@ -86,13 +88,12 @@ src_configure() {
 		# of -ltinfo)
 		-DCURSES_NEED_NCURSES=ON
 
-		-DLLDB_EXTERNAL_CLANG_RESOURCE_DIR="${BROOT}/usr/lib/clang/${PV%_*}"
+		-DCLANG_RESOURCE_DIR="../../../clang/${LLVM_MAJOR}"
 
+		-DLLVM_MAIN_SRC_DIR="${WORKDIR}/llvm"
 		-DPython3_EXECUTABLE="${PYTHON}"
 	)
 	use test && mycmakeargs+=(
-		-DLLVM_BUILD_TESTS=$(usex test)
-		-DLLVM_MAIN_SRC_DIR="${WORKDIR}/llvm"
 		-DLLVM_EXTERNAL_LIT="${EPREFIX}/usr/bin/lit"
 		-DLLVM_LIT_ARGS="$(get_lit_flags)"
 	)
