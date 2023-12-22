@@ -13,7 +13,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
-IUSE="bundled-libjpeg-turbo +bundled-qt opencl pulseaudio wayland"
+IUSE="+bundled-qt opencl pulseaudio wayland"
 RESTRICT="mirror bindist strip"
 
 RDEPEND="!games-engines/zoom
@@ -57,7 +57,6 @@ RDEPEND="!games-engines/zoom
 	opencl? ( virtual/opencl )
 	pulseaudio? ( media-libs/libpulse )
 	wayland? ( dev-libs/wayland )
-	!bundled-libjpeg-turbo? ( >=media-libs/libjpeg-turbo-2.0.5 )
 	!bundled-qt? (
 		dev-libs/icu
 		dev-qt/qtcore:5
@@ -77,8 +76,7 @@ RDEPEND="!games-engines/zoom
 		wayland? ( dev-qt/qtwayland )
 	)"
 
-BDEPEND="dev-util/bbe
-	bundled-libjpeg-turbo? ( dev-util/patchelf )"
+BDEPEND="dev-util/bbe"
 
 CONFIG_CHECK="~USER_NS ~PID_NS ~NET_NS ~SECCOMP_FILTER"
 QA_PREBUILT="opt/zoom/*"
@@ -97,11 +95,6 @@ src_prepare() {
 		# is installed. So, force zoom to ignore libpulse.
 		bbe -e 's/libpulse.so/IgNoRePuLsE/' zoom >zoom.tmp || die
 		mv zoom.tmp zoom || die
-	fi
-
-	if use bundled-libjpeg-turbo; then
-		# Remove insecure RPATH from bundled lib
-		patchelf --remove-rpath libturbojpeg.so || die
 	fi
 }
 
@@ -122,12 +115,6 @@ src_install() {
 	if use opencl; then
 		doexe libclDNN64.so
 		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libOpenCL.so.1
-	fi
-
-	if use bundled-libjpeg-turbo; then
-		doexe libturbojpeg.so
-	else
-		dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libturbojpeg.so
 	fi
 
 	if ! use wayland; then
