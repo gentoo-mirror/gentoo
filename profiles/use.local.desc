@@ -2885,7 +2885,6 @@ dev-util/schroot:lvm - Enable support for chroots using LVM snapshots
 dev-util/schroot:zfs - Enable support for chroots using ZFS shapshots/clones
 dev-util/sdl-jstest:sdl - Enable media-libs/libsdl2 based input test
 dev-util/sdl-jstest:sdl1 - Enable media-libs/libsdl based input test
-dev-util/spirv-llvm-translator:tools - Install the command-line translator llvm-spirv
 dev-util/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/O operations
 dev-util/strace:elfutils - Enable stack backtraces (-k flag) via dev-libs/elfutils
 dev-util/strace:unwind - Enable stack backtraces (-k flag) via sys-libs/libunwind
@@ -8103,9 +8102,6 @@ sys-devel/binutils-hppa64:gprofng - Enable the next-generation gprofng profiler
 sys-devel/binutils-hppa64:multitarget - Adds support to binutils for cross compiling (does not work with gas)
 sys-devel/binutils-hppa64:pgo - Build binutils with Profile Guided Optimization (PGO) and LTO
 sys-devel/binutils-hppa64:plugins - Enable plugin support in tools
-sys-devel/clang:default-compiler-rt - Use compiler-rt instead of libgcc as the default rtlib for clang
-sys-devel/clang:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
-sys-devel/clang:default-lld - Use lld as the default linker for clang
 sys-devel/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
 sys-devel/clang:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
 sys-devel/clang:static-analyzer - Install the Clang static analyzer
@@ -8362,16 +8358,13 @@ sys-libs/libblockdev:vdo - Enable Virtual Data Optimizer support.
 sys-libs/libcap:tools - Install captree, which requires dev-lang/go
 sys-libs/libcxx:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/libcxx:libcxxabi - Build on top of sys-libs/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
-sys-libs/libcxx:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependence on gcc.
 sys-libs/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
-sys-libs/libcxxabi:libunwind - Use libunwind instead of libgcc_s for stack unwinding, thus avoiding dependency on gcc
 sys-libs/libnbd:fuse - Install the sys-fs/fuse powered nbdfuse.
 sys-libs/libnbd:go - Build bindings for dev-lang/go
 sys-libs/libnbd:uri-support - Enable nbd:// URI support via dev-libs/libxml2.
 sys-libs/libnvme:json - Support JSON output via dev-libs/json-c
 sys-libs/libnvme:keyutils - Add support for sys-apps/keyutils
 sys-libs/libnvme:uuid - UUID support via sys-apps/util-linux
-sys-libs/libomp:cuda - Build CUDA offloading plugin (only with USE=offload)
 sys-libs/libomp:gdb-plugin - Build OMPD GDB plugin
 sys-libs/libomp:hwloc - Enable CPU affinity support via hwloc
 sys-libs/libomp:offload - Support offloading OpenMP using libomptarget
