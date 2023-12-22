@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-08">
+    <title>LibRaw: Heap Buffer Overflow</title>
+    <synopsis>A vulnerability has been found in LibRaw where a heap buffer overflow may lead to an application crash.</synopsis>
+    <product type="ebuild">libraw</product>
+    <announced>2023-12-22</announced>
+    <revised count="1">2023-12-22</revised>
+    <bug>908041</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libraw" auto="yes" arch="*">
+            <unaffected range="ge">0.21.1-r1</unaffected>
+            <vulnerable range="lt">0.21.1-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>LibRaw is a library for reading RAW files obtained from digital photo cameras.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in LibRaw. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A heap-buffer-overflow in raw2image_ex() caused by a maliciously crafted file may lead to an application crash.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All LibRaw users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libraw-0.21.1-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1729">CVE-2023-1729</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-22T11:43:10.877313Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-22T11:43:10.880686Z">graaff</metadata>
+</glsa>
