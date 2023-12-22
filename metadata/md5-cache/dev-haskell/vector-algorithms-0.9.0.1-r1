@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-haskell/bitvec-1.0:=[profile?] <dev-haskell/bitvec-1.2:=[profile?] >=dev-haskell/primitive-0.6.2.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-haskell/vector-0.6:=[profile?] <dev-haskell/vector-0.14:=[profile?] >=dev-lang/ghc-8.4.3:= >=dev-haskell/cabal-2.2.0.1 test? ( properties? ( >dev-haskell/quickcheck-2.9 <dev-haskell/quickcheck-2.15 ) ) hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-haskell/bitvec-1.0:=[profile?] <dev-haskell/bitvec-1.2:=[profile?] >=dev-haskell/primitive-0.6.2.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-haskell/vector-0.6:=[profile?] <dev-haskell/vector-0.14:=[profile?] >=dev-lang/ghc-8.4.3:= || ( dev-haskell/bitvec[gmp] dev-lang/ghc[gmp] ) >=dev-haskell/cabal-2.2.0.1 test? ( properties? ( >dev-haskell/quickcheck-2.9 <dev-haskell/quickcheck-2.15 ) ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Efficient algorithms for vector arrays
 EAPI=8
 HOMEPAGE=https://github.com/erikd/vector-algorithms/
@@ -8,9 +8,9 @@ INHERIT=haskell-cabal
 IUSE=+bench +boundschecks internalchecks +properties unsafechecks doc hscolour profile test
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-haskell/bitvec-1.0:=[profile?] <dev-haskell/bitvec-1.2:=[profile?] >=dev-haskell/primitive-0.6.2.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-haskell/vector-0.6:=[profile?] <dev-haskell/vector-0.14:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-haskell/bitvec-1.0:=[profile?] <dev-haskell/bitvec-1.2:=[profile?] >=dev-haskell/primitive-0.6.2.0:=[profile?] <dev-haskell/primitive-0.8:=[profile?] >=dev-haskell/vector-0.6:=[profile?] <dev-haskell/vector-0.14:=[profile?] >=dev-lang/ghc-8.4.3:= || ( dev-haskell/bitvec[gmp] dev-lang/ghc[gmp] ) dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.9.0.1
 SRC_URI=https://hackage.haskell.org/package/vector-algorithms-0.9.0.1/vector-algorithms-0.9.0.1.tar.gz https://hackage.haskell.org/package/vector-algorithms-0.9.0.1/revision/1.cabal -> vector-algorithms-0.9.0.1-rev1.cabal
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=d655a06c4a7db7318fb15015c8384bb3
+_md5_=5e2b61d3627c5cb6d42b64a224cc092f
