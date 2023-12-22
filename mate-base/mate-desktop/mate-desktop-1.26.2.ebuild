@@ -1,14 +1,15 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MATE_LA_PUNT="yes"
 
 inherit mate
 
-if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv x86"
+MINOR=$(($(ver_cut 2) % 2))
+if [[ ${MINOR} -eq 0 ]]; then
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 fi
 
 DESCRIPTION="Libraries for the MATE desktop that are not part of the UI"
