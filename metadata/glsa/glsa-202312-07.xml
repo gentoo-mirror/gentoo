@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-07">
+    <title>QtWebEngine: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilitiies have been discovered in QtWebEngine, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">qtwebengine</product>
+    <announced>2023-12-22</announced>
+    <revised count="1">2023-12-22</revised>
+    <bug>913050</bug>
+    <bug>915465</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-qt/qtwebengine" auto="yes" arch="*">
+            <unaffected range="ge">5.15.11_p20231120</unaffected>
+            <vulnerable range="lt">5.15.11_p20231120</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>QtWebEngine is a library for rendering dynamic web content in Qt5 and Qt6 C++ and QML applications.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in QtWebEngine. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All QtWebEngine users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtwebengine-5.15.11_p20231120"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4068">CVE-2023-4068</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4069">CVE-2023-4069</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4070">CVE-2023-4070</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4071">CVE-2023-4071</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4072">CVE-2023-4072</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4073">CVE-2023-4073</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4074">CVE-2023-4074</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4075">CVE-2023-4075</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4076">CVE-2023-4076</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4077">CVE-2023-4077</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4078">CVE-2023-4078</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4761">CVE-2023-4761</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4762">CVE-2023-4762</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4763">CVE-2023-4763</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4764">CVE-2023-4764</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5218">CVE-2023-5218</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5473">CVE-2023-5473</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5474">CVE-2023-5474</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5475">CVE-2023-5475</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5476">CVE-2023-5476</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5477">CVE-2023-5477</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5478">CVE-2023-5478</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5479">CVE-2023-5479</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5480">CVE-2023-5480</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5481">CVE-2023-5481</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5482">CVE-2023-5482</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5483">CVE-2023-5483</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5484">CVE-2023-5484</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5485">CVE-2023-5485</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5486">CVE-2023-5486</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5487">CVE-2023-5487</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5849">CVE-2023-5849</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5850">CVE-2023-5850</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5851">CVE-2023-5851</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5852">CVE-2023-5852</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5853">CVE-2023-5853</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5854">CVE-2023-5854</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5855">CVE-2023-5855</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5856">CVE-2023-5856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5857">CVE-2023-5857</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5858">CVE-2023-5858</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5859">CVE-2023-5859</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5996">CVE-2023-5996</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5997">CVE-2023-5997</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6112">CVE-2023-6112</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-22T10:51:22.348762Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-22T10:51:22.351823Z">graaff</metadata>
+</glsa>
