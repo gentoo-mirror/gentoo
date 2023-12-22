@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-04">
+    <title>Arduino: Remote Code Execution</title>
+    <synopsis>A vulnerability has been found in Arduino which bundled a vulnerable version of log4j.</synopsis>
+    <product type="ebuild">arduino</product>
+    <announced>2023-12-22</announced>
+    <revised count="1">2023-12-22</revised>
+    <bug>830716</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-embedded/arduino" auto="yes" arch="*">
+            <unaffected range="ge">1.8.19</unaffected>
+            <vulnerable range="lt">1.8.19</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Arduino is an open-source AVR electronics prototyping platform.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Arduino. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Arduino bundles a vulnerable version of log4j that may lead to remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Arduino users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-embedded/arduino-1.8.19"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4104">CVE-2021-4104</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-22T08:21:08.710033Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-22T08:21:08.712552Z">graaff</metadata>
+</glsa>
