@@ -16,6 +16,14 @@ LLVM_MIN_SLOT=16
 MIN_GCC_VER=12
 GN_MIN_VER=0.2122
 
+# This variable is set to yes when building with GCC is broken.
+# https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
+: ${CHROMIUM_FORCE_CLANG=yes}
+# This variable is set to yes when we need to force libcxx. Since we'll always force clang, too, we can avoid depends.
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101227 - Chromium 120:
+#    webrtc -  no matching member function for call to 'emplace'
+: ${CHROMIUM_FORCE_LIBCXX=yes}
+
 VIRTUALX_REQUIRED="pgo"
 
 CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
@@ -27,8 +35,8 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="119.0.6045.159-1raptor0~deb12u1"
-PATCH_V="${PV%%\.*}-3"
+PATCHSET_PPC64="120.0.6099.109-1raptor0~deb12u1"
+PATCH_V="${PV%%\.*}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 	ppc64? (
@@ -39,7 +47,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="amd64 arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio qt5 qt6 screencast selinux vaapi wayland widevine"
 REQUIRED_USE="
@@ -198,9 +206,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-# These are intended for ebuild maintainer use to force clang if GCC is broken.
-: ${CHROMIUM_FORCE_CLANG=no}
-
 if [[ ${CHROMIUM_FORCE_CLANG} == yes ]]; then
 	BDEPEND+=" >=sys-devel/clang-${LLVM_MIN_SLOT}"
 fi
@@ -334,7 +339,7 @@ src_prepare() {
 
 	# disable global media controls, crashes with libstdc++
 	sed -i -e \
-		"/\"GlobalMediaControlsCastStartStop\",/{n;s/ENABLED/DISABLED/;}" \
+		"/\"GlobalMediaControlsCastStartStop\"/,+4{s/ENABLED/DISABLED/;}" \
 		"chrome/browser/media/router/media_router_feature.cc" || die
 
 	local PATCHES=(
@@ -440,6 +445,7 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/axe-core
 		third_party/devtools-frontend/src/front_end/third_party/chromium
 		third_party/devtools-frontend/src/front_end/third_party/codemirror
+		third_party/devtools-frontend/src/front_end/third_party/csp_evaluator
 		third_party/devtools-frontend/src/front_end/third_party/diff
 		third_party/devtools-frontend/src/front_end/third_party/i18n
 		third_party/devtools-frontend/src/front_end/third_party/intl-messageformat
@@ -635,7 +641,7 @@ src_prepare() {
 		keeplibs+=( third_party/zstd )
 	fi
 
-	if use libcxx; then
+	if use libcxx || [[ ${CHROMIUM_FORCE_LIBCXX} == yes ]]; then
 		keeplibs+=( third_party/libc++ )
 	fi
 
@@ -818,7 +824,12 @@ chromium_configure() {
 	# Do not use bundled clang.
 	# Trying to use gold results in linker crash.
 	myconf_gn+=" use_gold=false use_sysroot=false"
-	myconf_gn+=" use_custom_libcxx=$(usex libcxx true false)"
+
+	if use libcxx || [[ ${CHROMIUM_FORCE_LIBCXX} == yes ]]; then
+		myconf_gn+=" use_custom_libcxx=true"
+	else
+		myconf_gn+=" use_custom_libcxx=false"
+	fi
 
 	# Disable pseudolocales, only used for testing
 	myconf_gn+=" enable_pseudolocales=false"
