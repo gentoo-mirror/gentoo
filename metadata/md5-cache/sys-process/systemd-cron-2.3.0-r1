@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=configure install postinst prepare pretend test
-DEPEND=sys-process/cronbase test? ( sys-apps/man-db || ( dev-util/shellcheck dev-util/shellcheck-bin ) )
+DEFINED_PHASES=configure install postinst prepare pretend
+DEPEND=sys-process/cronbase
 DESCRIPTION=systemd units to create timers for cron directories and crontab
 EAPI=8
 HOMEPAGE=https://github.com/systemd-cron/systemd-cron/
 INHERIT=systemd toolchain-funcs
-IUSE=cron-boot etc-crontab-systemd minutely +runparts setgid test yearly
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+IUSE=cron-boot etc-crontab-systemd minutely +runparts setgid yearly
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT
 RDEPEND=>=sys-apps/systemd-253 dev-libs/openssl runparts? ( sys-apps/debianutils ) !sys-process/cronie[anacron] !etc-crontab-systemd? ( !sys-process/dcron ) sys-process/cronbase acct-user/_cron-failure acct-group/_cron-failure
-RESTRICT=!test? ( test )
+RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/systemd-cron/systemd-cron/archive/v2.2.0.tar.gz -> systemd-cron-2.2.0.tar.gz
+SRC_URI=https://github.com/systemd-cron/systemd-cron/archive/v2.3.0.tar.gz -> systemd-cron-2.3.0.tar.gz
 _eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=0b2d7e1538b957b5b06301d9a6b10b99
+_md5_=c25704795fbf4f0dfa38273a8309ab29
