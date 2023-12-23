@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/rocm-cmake-5.3 media-libs/glew test? ( >=x11-apps/mesa-progs-8.5.0[X] ) app-alternatives/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-libs/rocr-runtime-6.0 >=dev-libs/rocm-comgr-6.0 >=dev-libs/rocm-device-libs-6.0 >=virtual/opencl-3 media-libs/mesa[-opencl]
+DESCRIPTION=Radeon Open Compute OpenCL Compatible Runtime
+EAPI=8
+HOMEPAGE=https://github.com/ROCm-Developer-Tools/clr
+INHERIT=cmake edo flag-o-matic rocm
+IUSE=debug test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 MIT
+RDEPEND=>=dev-libs/rocr-runtime-6.0 >=dev-libs/rocm-comgr-6.0 >=dev-libs/rocm-device-libs-6.0 >=virtual/opencl-3 media-libs/mesa[-opencl]
+RESTRICT=!test? ( test )
+SLOT=0/6.0
+SRC_URI=https://github.com/ROCm-Developer-Tools/clr/archive/refs/tags/rocm-6.0.0.tar.gz -> rocm-clr-6.0.0.tar.gz
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	rocm	32cae3278ec0889923baf0e5a632e562
+_md5_=caedec7b43d2b3634077f5bcbed82837
