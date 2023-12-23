@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-10">
+    <title>Ceph: Root Privilege Escalation</title>
+    <synopsis>A vulnerability has been found in Ceph which can lead to root privilege escalation.</synopsis>
+    <product type="ebuild">ceph</product>
+    <announced>2023-12-23</announced>
+    <revised count="1">2023-12-23</revised>
+    <bug>878277</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-cluster/ceph" auto="yes" arch="*">
+            <unaffected range="ge">17.2.6</unaffected>
+            <vulnerable range="lt">17.2.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ceph is a distributed network file system designed to provide excellent performance, reliability, and scalability.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Ceph. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>The ceph-crash.service runs the ceph-crash Python script as root. The script is operating in the directory /var/lib/ceph/crash which is controlled by the unprivileged ceph user (ceph:ceph mode 0750). The script periodically scans for new crash directories and forwards the content via `ceph crash post`.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Ceph users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-cluster/ceph-17.2.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3650">CVE-2022-3650</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-23T08:04:29.237847Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-23T08:04:29.240199Z">graaff</metadata>
+</glsa>
