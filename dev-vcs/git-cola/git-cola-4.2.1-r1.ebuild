@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_SINGLE_IMPL=true
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 readme.gentoo-r1 virtualx xdg
+inherit distutils-r1 readme.gentoo-r1 virtualx xdg-utils
 
 DESCRIPTION="The highly caffeinated git GUI"
 HOMEPAGE="https://git-cola.github.io/"
@@ -14,7 +14,10 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
+IUSE="test"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -26,8 +29,10 @@ RDEPEND="
 	')
 	dev-vcs/git
 "
-BDEPEND="sys-devel/gettext
+BDEPEND="
+	sys-devel/gettext
 	$(python_gen_cond_dep "
+		dev-python/setuptools-scm[\${PYTHON_USEDEP}]
 		test? (
 			${VIRTUALX_DEPEND}
 			dev-python/pytest[\${PYTHON_USEDEP}]
@@ -35,6 +40,8 @@ BDEPEND="sys-devel/gettext
 		)
 	")
 "
+# https://bugs.gentoo.org/920534
+PATCHES=( "${FILESDIR}/${P}-fix-setuptools.patch" )
 
 distutils_enable_sphinx docs \
 	'dev-python/rst-linker'
@@ -42,8 +49,6 @@ distutils_enable_tests pytest
 
 src_prepare() {
 	sed -i "s|doc/git-cola =|doc/${PF} =|" setup.cfg || die
-	# https://github.com/git-cola/git-cola/pull/1336
-	sed -E -i 's|root \+ os.sep|str\(root\)|' extras/sphinxtogithub/sphinxtogithub.py || die
 	distutils-r1_src_prepare
 }
 
@@ -64,4 +69,12 @@ src_compile() {
 src_install() {
 	distutils-r1_src_install
 	readme.gentoo_create_doc
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
