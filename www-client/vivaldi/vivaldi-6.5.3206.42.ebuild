@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="114"
+CHROMIUM_VERSION="120"
 CHROMIUM_LANGS="
 	af
 	am
@@ -98,7 +98,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 SRC_URI="
@@ -109,14 +109,12 @@ SRC_URI="
 
 LICENSE="Vivaldi"
 SLOT="0"
-IUSE="gtk proprietary-codecs qt5 widevine"
+IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 widevine"
 RESTRICT="bindist mirror"
+#REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
 
 RDEPEND="
-	|| (
-		>=app-accessibility/at-spi2-core-2.46.0:2
-		( app-accessibility/at-spi2-atk dev-libs/atk )
-	)
+	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
@@ -137,7 +135,10 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/pango[X]
 	gtk? ( gui-libs/gtk:4 x11-libs/gtk+:3 )
-	proprietary-codecs? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
+	proprietary-codecs? (
+		!ffmpeg-chromium? ( >=media-video/ffmpeg-6.1-r1:0/58.60.60[chromium] )
+		ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
+	)
 	qt5? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
@@ -205,7 +206,7 @@ src_install() {
 	done
 
 	if use proprietary-codecs; then
-		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so.${CHROMIUM_VERSION} \
+		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so$(usex ffmpeg-chromium .${CHROMIUM_VERSION} "") \
 			  /${VIVALDI_HOME}/libffmpeg.so.$(ver_cut 1-2)
 	fi
 

@@ -98,7 +98,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 SRC_URI="
@@ -111,7 +111,7 @@ LICENSE="Vivaldi"
 SLOT="0"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 widevine"
 RESTRICT="bindist mirror"
-REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
+#REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
