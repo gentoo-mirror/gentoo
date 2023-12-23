@@ -4,11 +4,11 @@ DESCRIPTION=A complete Spatial DBMS in a nutshell built upon sqlite
 EAPI=8
 HOMEPAGE=https://www.gaia-gis.it/gaia-sins/
 IUSE=+geos iconv +proj rttopo test +xls +xml
-KEYWORDS=amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~riscv x86
 LICENSE=MPL-1.1
 RDEPEND=>=dev-db/sqlite-3.7.5:3[extensions(+)] sys-libs/zlib[minizip] geos? ( >=sci-libs/geos-3.4 ) proj? ( sci-libs/proj:= ) xls? ( dev-libs/freexl ) xml? ( dev-libs/libxml2 ) rttopo? ( sci-geosciences/librttopo )
 REQUIRED_USE=test? ( iconv )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.1.tar.gz
-_md5_=f5c05aae48443815f53f02374253364e
+_md5_=579cefed80cf78116926de3dd608796b
