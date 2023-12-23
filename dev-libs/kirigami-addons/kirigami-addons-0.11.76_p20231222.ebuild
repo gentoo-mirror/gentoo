@@ -5,13 +5,14 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
+KDE_ORG_COMMIT="39f4ef9fdd75152e50cfcb82d24ba436d3fb9344"
 KFMIN=5.245.0
 QTMIN=6.6.0
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+# 	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Visual end user components for Kirigami-based applications"
