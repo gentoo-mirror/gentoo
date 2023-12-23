@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+layershell +man"
+IUSE="+layershell man"
 
 DEPEND="
 	dev-libs/json-c:=
@@ -39,7 +39,7 @@ PATCHES=( "${FILESDIR}"/${PN}-0.6-r1-werror.patch )
 src_configure() {
 	local emesonargs=(
 		$(meson_feature man man-pages)
-		$(meson_use layershell)
+		$(meson_feature layershell)
 	)
 	meson_src_configure
 }
