@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-14">
+    <title>FFmpeg: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilitiies have been discovered in FFmpeg, the worst of which could lead to code execution</synopsis>
+    <product type="ebuild">ffmpeg</product>
+    <announced>2023-12-23</announced>
+    <revised count="1">2023-12-23</revised>
+    <bug>795696</bug>
+    <bug>842267</bug>
+    <bug>881523</bug>
+    <bug>903805</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-video/ffmpeg" auto="yes" arch="*">
+            <unaffected range="ge">6.0</unaffected>
+            <unaffected range="ge">4.4.3</unaffected>
+            <vulnerable range="lt">6.0</vulnerable>
+            <vulnerable range="lt">4.4.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FFmpeg is a complete solution to record, convert and stream audio and video.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FFmpeg. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FFmpeg 4 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-video/ffmpeg-4.4.3"
+        </code>
+        
+        <p>All FFmpeg 6 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-video/ffmpeg-6.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33815">CVE-2021-33815</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38171">CVE-2021-38171</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38291">CVE-2021-38291</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1475">CVE-2022-1475</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3964">CVE-2022-3964</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3965">CVE-2022-3965</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-48434">CVE-2022-48434</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-23T11:07:01.789201Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-23T11:07:01.791705Z">graaff</metadata>
+</glsa>
