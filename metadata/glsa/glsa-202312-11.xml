@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-11">
+    <title>SABnzbd: Remote Code Execution</title>
+    <synopsis>A vulnerability has been found in SABnzbd which allows for remote code execution.</synopsis>
+    <product type="ebuild">sabnzbd</product>
+    <announced>2023-12-23</announced>
+    <revised count="1">2023-12-23</revised>
+    <bug>908032</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-nntp/sabnzbd" auto="yes" arch="*">
+            <unaffected range="ge">4.0.2</unaffected>
+            <vulnerable range="lt">4.0.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Free and easy binary newsreader with web interface.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in SABnzbd. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A design flaw was discovered in SABnzbd that could allow remote code execution. Manipulating the Parameters setting in the Notification Script functionality allows code execution with the privileges of the SABnzbd process. Exploiting the vulnerabilities requires access to the web interface. Remote exploitation is possible if users exposed their setup to the internet or other untrusted networks without setting a username/password. By default SABnzbd is only accessible from `localhost`, with no authentication required for the web interface.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All SABnzbd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-nntp/sabnzbd-4.0.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34237">CVE-2023-34237</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-23T08:21:16.397965Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-23T08:21:16.402529Z">graaff</metadata>
+</glsa>
