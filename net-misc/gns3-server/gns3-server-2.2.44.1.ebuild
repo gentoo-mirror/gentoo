@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 optfeature systemd
@@ -20,16 +20,16 @@ RDEPEND="
 	acct-group/gns3
 	acct-user/gns3
 	app-emulation/dynamips
-	>=dev-python/aiofiles-23.1.0[${PYTHON_USEDEP}]
-	>=dev-python/aiohttp-3.8.4[${PYTHON_USEDEP}]
+	>=dev-python/aiofiles-23.2.1[${PYTHON_USEDEP}]
+	>=dev-python/aiohttp-3.8.5[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/async-timeout-4.0.2[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.1.2[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.9.5[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.6[${PYTHON_USEDEP}]
 	>=dev-python/py-cpuinfo-9.0.0[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.29.2[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.34.0[${PYTHON_USEDEP}]
 	net-misc/ubridge
 	sys-apps/busybox[static]
 "

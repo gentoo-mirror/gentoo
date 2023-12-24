@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11..12} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 virtualx xdg
@@ -20,8 +20,8 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	>=dev-python/distro-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.9.5[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.29.2[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.6[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-1.34.0[${PYTHON_USEDEP}]
 	~net-misc/gns3-server-${PV}[${PYTHON_USEDEP}]
 	dev-python/PyQt5[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
 "
