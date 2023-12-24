@@ -57,6 +57,8 @@ PDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/43.0-optional-gstreamer.patch # Allow controlling audio-video-properties build
+	"${FILESDIR}"/${PV}-fix-av-props-crash.patch # Fix crash opening audio/video properties, upstream #3160
+	"${FILESDIR}"/${PV}-better-icon-lookup-fallback.patch # Upstream #2796 from gnome-45 branch
 )
 
 src_prepare() {
