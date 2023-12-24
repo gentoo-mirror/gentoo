@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Scheme implementation designed to be embeddable extension to C/C++ applications"
-HOMEPAGE="http://sam.zoy.org/elk"
+HOMEPAGE="http://sam.zoy.org/elk/"
 SRC_URI="http://sam.zoy.org/elk/${P}.tar.bz2"
 
 LICENSE="GPL-2"
@@ -13,6 +13,7 @@ KEYWORDS="~amd64"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-implicit-int-incompat-ptr.patch
+	"${FILESDIR}"/${P}-implicit-function.patch
 )
 
 src_configure() {
