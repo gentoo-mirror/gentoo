@@ -1,17 +1,17 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure postinst prepare
 DEPEND=net-libs/libpcap net-libs/libnet:1.1 sys-libs/libcap seccomp? ( sys-libs/libseccomp ) !net-misc/iputils[arping(+)] test? ( dev-libs/check dev-python/subunit )
-DESCRIPTION=A utility to see if a specific IP is taken and what MAC owns it
+DESCRIPTION=Utility to see if a specific IP is taken and what MAC owns it
 EAPI=8
-HOMEPAGE=http://www.habets.pp.se/synscan/programs.php?prog=arping
+HOMEPAGE=https://www.habets.pp.se/synscan/programs.php?prog=arping
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=autotools fcaps
 IUSE=+seccomp test +filecaps
 KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 sparc ~x86 ~amd64-linux ~x86-linux
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=net-libs/libpcap net-libs/libnet:1.1 sys-libs/libcap seccomp? ( sys-libs/libseccomp ) !net-misc/iputils[arping(+)]
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://github.com/ThomasHabets/arping/archive/arping-2.23.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	fcaps	c0a086b957a1b183a8d136eabf02f191
-_md5_=f8777fdf3db84a9b23bd4c8846ef68a9
+_md5_=b23a356f24ca2b866292cef72547c3d6

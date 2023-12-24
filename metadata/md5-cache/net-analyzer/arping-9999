@@ -1,16 +1,16 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure postinst prepare unpack
 DEPEND=net-libs/libpcap net-libs/libnet:1.1 sys-libs/libcap seccomp? ( sys-libs/libseccomp ) !net-misc/iputils[arping(+)] test? ( dev-libs/check dev-python/subunit )
-DESCRIPTION=A utility to see if a specific IP is taken and what MAC owns it
+DESCRIPTION=Utility to see if a specific IP is taken and what MAC owns it
 EAPI=8
-HOMEPAGE=http://www.habets.pp.se/synscan/programs.php?prog=arping
+HOMEPAGE=https://www.habets.pp.se/synscan/programs.php?prog=arping
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=autotools fcaps git-r3
 IUSE=+seccomp test +filecaps
-LICENSE=GPL-2
+LICENSE=GPL-2+
 PROPERTIES=live
 RDEPEND=net-libs/libpcap net-libs/libnet:1.1 sys-libs/libcap seccomp? ( sys-libs/libseccomp ) !net-misc/iputils[arping(+)]
 RESTRICT=!test? ( test )
 SLOT=2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	fcaps	c0a086b957a1b183a8d136eabf02f191	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=c52a5c01bcdfeee6165ad35cf694936e
+_md5_=5184627c546e6cfbca89bb37bfed7f09
