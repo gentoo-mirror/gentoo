@@ -283,9 +283,18 @@ kernel-build_src_install() {
 	# Modules were already stripped by the kernel build system
 	dostrip -x /lib/modules
 
+	local compress=()
+	if [[ ${KERNEL_IUSE_GENERIC_UKI} ]] && ! use module-compress; then
+		compress+=(
+			# force installing uncompressed modules even if compression
+			# is enabled via config
+			suffix-y=
+		)
+	fi
+
 	emake O="${WORKDIR}"/build "${MAKEARGS[@]}" \
 		INSTALL_MOD_PATH="${ED}" INSTALL_MOD_STRIP="${strip_args}" \
-		INSTALL_PATH="${ED}/boot" "${targets[@]}"
+		INSTALL_PATH="${ED}/boot" "${compress[@]}" "${targets[@]}"
 
 	# note: we're using mv rather than doins to save space and time
 	# install main and arch-specific headers first, and scripts
@@ -386,10 +395,10 @@ kernel-build_src_install() {
 
 			local dracut_modules=(
 				base bash btrfs cifs crypt crypt-gpg crypt-loop dbus dbus-daemon
-				dm dmraid drm dracut-systemd fido2 i18n fs-lib kernel-modules
+				dm dmraid dracut-systemd fido2 i18n fs-lib kernel-modules
 				kernel-network-modules kernel-modules-extra lunmask lvm nbd
 				mdraid modsign network network-manager nfs nvdimm nvmf pcsc
-				pkcs11 plymouth qemu qemu-net resume rngd rootfs-block shutdown
+				pkcs11 qemu qemu-net resume rngd rootfs-block shutdown
 				systemd systemd-ac-power systemd-ask-password systemd-initrd
 				systemd-integritysetup systemd-pcrphase systemd-sysusers
 				systemd-udevd systemd-veritysetup terminfo tpm2-tss udev-rules
@@ -414,6 +423,8 @@ kernel-build_src_install() {
 				--reproducible
 				--ro-mnt
 				--modules "${dracut_modules[*]}"
+				# Pulls in huge firmware files
+				--omit-drivers "nfp"
 			)
 
 			# Tries to update ld cache
@@ -424,7 +435,7 @@ kernel-build_src_install() {
 			local ukify_args=(
 				--linux="${image}"
 				--initrd="${image%/*}/initrd"
-				--cmdline="root=/dev/gpt-auto-root ro quiet splash"
+				--cmdline="root=/dev/gpt-auto-root ro"
 				--uname="${dir_ver}"
 				--output="${image%/*}/uki.efi"
 			)
@@ -545,6 +556,17 @@ kernel-build_merge_configs() {
 			fi
 			merge_configs+=( "${WORKDIR}/modules-sign.config" )
 		fi
+	fi
+
+	# Only semi-related but let's use that to avoid changing stable ebuilds.
+	if [[ ${KERNEL_IUSE_GENERIC_UKI} ]]; then
+		# NB: we enable this even with USE=-module-compress, in order
+		# to support both uncompressed and compressed modules in prebuilt
+		# kernels
+		cat <<-EOF > "${WORKDIR}/module-compress.config" || die
+			CONFIG_MODULE_COMPRESS_XZ=y
+		EOF
+		merge_configs+=( "${WORKDIR}/module-compress.config" )
 	fi
 
 	if [[ ${#user_configs[@]} -gt 0 ]]; then
