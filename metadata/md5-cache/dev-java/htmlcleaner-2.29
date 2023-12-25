@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://htmlcleaner.sourceforge.net/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=BSD
 RDEPEND=dev-java/jdom:2 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/htmlcleaner/htmlcleaner/htmlcleaner%20v2.29/htmlcleaner-src-2.29.zip
 _eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
-_md5_=72319058a09c431f66083c4a54f159f6
+_md5_=272a23c969732e9866aeaed6de6b6b2f
