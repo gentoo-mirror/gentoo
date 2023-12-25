@@ -1,4 +1,4 @@
-# Copyright 2017-2022 Gentoo Authors
+# Copyright 2017-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/bus1/dbus-broker.git"
 else
 	SRC_URI="https://github.com/bus1/${PN}/releases/download/v${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 arm64 ppc64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 fi
 
 DESCRIPTION="Linux D-Bus Message Broker"
@@ -40,10 +40,6 @@ BDEPEND="
 	doc? ( dev-python/docutils )
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}/dbus-broker-32-apparmor-libaudit.patch"
-)
 
 if [[ ${PV} == 9999 ]]; then
 src_unpack() {
