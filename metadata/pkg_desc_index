@@ -5102,7 +5102,7 @@ dev-libs/aml 0.3.0 9999: Event timer executor loop
 dev-libs/angelscript 2.36.0 2.36.1: A flexible, cross-platform scripting library
 dev-libs/antlr-c 3.5.2-r2: The ANTLR3 C Runtime
 dev-libs/apache-arrow 11.0.0-r2 12.0.0 12.0.1-r1 14.0.1: A cross-language development platform for in-memory data.
-dev-libs/appstream 0.15.6 0.16.4 1.0.0: Cross-distro effort for providing metadata for software in the Linux ecosystem
+dev-libs/appstream 0.15.6 0.16.4 1.0.1: Cross-distro effort for providing metadata for software in the Linux ecosystem
 dev-libs/appstream-glib 0.8.2: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.7.2 1.7.2-r1 1.7.3 1.7.4 1.7.4-r1: Apache Portable Runtime Library
 dev-libs/apr-util 1.6.3: Apache Portable Runtime Utility Library
@@ -5347,7 +5347,7 @@ dev-libs/libgudev 238-r1: GObject bindings for libudev
 dev-libs/libgusb 0.4.6 0.4.7: GObject wrapper for libusb
 dev-libs/libgweather 4.2.0 4.4.0: Location and timezone database and weather-lookup library
 dev-libs/libhid 0.2.17-r1: Provides a generic and flexible way to access and interact with USB HID devices
-dev-libs/libical 3.0.16 3.0.17: Implementation of basic iCAL protocols
+dev-libs/libical 3.0.17: Implementation of basic iCAL protocols
 dev-libs/libiconv 1.17: GNU charset conversion library for libc which doesn't implement it
 dev-libs/libindicate 12.10.1-r4: Library to raise flags on DBus for other components of the desktop
 dev-libs/libindicator 12.10.1-r201 12.10.1-r301: A set of symbols and convience functions that all indicators would like to use
@@ -5560,13 +5560,13 @@ dev-libs/ptexenc 1.3.9_p20210325-r1: Library for Japanese pTeX providing a bette
 dev-libs/pthreadpool 2022.05.09-r1: Portable and efficient thread pool implementation
 dev-libs/pugixml 1.13 1.14 9999: Light-weight, simple, and fast XML parser for C++ with XPath support
 dev-libs/qcoro 0.10.0: C++ Coroutine Library for Qt
-dev-libs/qcoro5 0.9.0: C++ Coroutine Library for Qt5
+dev-libs/qcoro5 0.9.0 0.10.0: C++ Coroutine Library for Qt5
 dev-libs/qcustomplot 2.0.1: Qt C++ widget for plotting and data visualization
 dev-libs/qhotkey 1.5.0: A global shortcut/hotkey library for desktop Qt applications
 dev-libs/qoauth 2.0.1_pre20160315-r3: Qt-based library for OAuth support
 dev-libs/qqwing 1.3.4-r1: Sudoku puzzle generator and solver
 dev-libs/qr-code-generator 1.8.0: QR Code Generator Library in Multiple Languages
-dev-libs/qtkeychain 0.14.1-r1: Qt API for storing passwords securely
+dev-libs/qtkeychain 0.14.1-r1 0.14.2: Qt API for storing passwords securely
 dev-libs/quazip 1.2 1.3-r2 1.3-r3 1.4 1.4-r1: Simple C++ wrapper over Gilles Vollant's ZIP/UNZIP package
 dev-libs/qxlsx 1.4.5 1.4.6: Excel file(*.xlsx) reader/writer library using Qt
 dev-libs/raft 0.18.0 0.18.2 0.18.3: C implementation of the Raft consensus protocol
@@ -11498,7 +11498,6 @@ games-puzzle/hangman 0.9.2-r1: The classic word guessing game
 games-puzzle/hexalate 1.1.6: A color matching game
 games-puzzle/hitori 44.0: Logic puzzle game for GNOME
 games-puzzle/icebreaker 1.9.6-r1: Trap and capture penguins on Antarctica
-games-puzzle/ksokoban 0.5.0_pre20210905 9999: The Japanese warehouse keeper game
 games-puzzle/lightsoff 40.0.1: Turn off all the lights
 games-puzzle/lmarbles 1.0.8-r2: Puzzle game inspired by Atomix and written in SDL
 games-puzzle/lpairs 1.0.5: Classic memory game
@@ -11526,6 +11525,7 @@ games-puzzle/scramble 0.9.5-r1: Create as many words as you can before the time 
 games-puzzle/sdl-jewels 1.1.1-r1: Swap and match 3 or more jewels in a line in order to score points
 games-puzzle/seatris 0.0.14-r2: A color ncurses tetris clone
 games-puzzle/sgt-puzzles 20190415: Simon Tatham's Portable Puzzle Collection
+games-puzzle/skladnik 0.5.0_pre20210905 0.5.0 9999: The Japanese warehouse keeper sokoban game
 games-puzzle/splice 20121120-r2: Experimental and artistic puzzler set in a microbial world
 games-puzzle/swell-foop 41.1: Clear the screen by removing groups of colored and shaped tiles
 games-puzzle/syzygy 1.0.2: Narrative meta-puzzle game
@@ -13242,6 +13242,7 @@ media-libs/lvtk 1.2.0-r2: A set of C++ wrappers around the LV2 C API
 media-libs/mesa 23.1.8 23.1.9 23.2.1 23.3.0_rc5-r1 23.3.0 23.3.1 9999: OpenGL-like graphic library for Linux
 media-libs/mesa-amber 21.3.9-r1: OpenGL-like graphic library for Linux
 media-libs/mlt 7.20.0-r1 7.22.0: Open source multimedia framework for television broadcasting
+media-libs/mpvqt 1.0.0: libmpv wrapper for QtQuick2 and QML
 media-libs/munt-mt32emu 2.7.0: Library for emulating the Roland MT-32, CM-32L, CM-64 and LAPC-I
 media-libs/musicbrainz 5.1.0: Client Library for accessing the latest XML based MusicBrainz web service
 media-libs/mutagen 1.47.0: Audio metadata tag reader and writer implemented in pure Python
@@ -13368,7 +13369,7 @@ media-libs/zita-convolver 4.0.3: C++ library implementing a real-time convolutio
 media-libs/zita-resampler 1.8.0 1.10.1: C++ library for real-time resampling of audio signals
 media-libs/zmusic 1.1.4: GZDoom's music system as a standalone library
 media-libs/zvbi 0.2.35-r2: VBI Decoding Library for Zapping
-media-libs/zxing-cpp 2.1.0: C++ Multi-format 1D/2D barcode image processing library
+media-libs/zxing-cpp 2.1.0 2.2.1: C++ Multi-format 1D/2D barcode image processing library
 media-plugins/alsa-plugins 1.2.7.1-r1: ALSA extra plugins
 media-plugins/alsaequal 0.7.1: A real-time adjustable equalizer plugin for ALSA
 media-plugins/amb-plugins 0.8.1-r1: AMB-plugins ladspa plugin package. Filters by Fons Adriaensen
@@ -14136,7 +14137,7 @@ media-video/subcheck 0.78.2-r1: Subcheck checks srt subtitle files for errors
 media-video/subliminal 2.1.0-r2 9999: Python library to search and download subtitles
 media-video/submux-dvd 0.5.2-r1: A subtitle multiplexer, muxes subtitles into .vob
 media-video/subsync 0.0.1: subsync is an program that synchronizes srt subtitle files
-media-video/subtitlecomposer 0.7.1-r3 0.8.0: Text-based subtitles editor
+media-video/subtitlecomposer 0.8.0: Text-based subtitles editor
 media-video/subtitleeditor 0.54.0_p5: GTK+3 subtitle editing tool
 media-video/subtitler-yuv 0.6.5: for mjpegtools for adding subtitles, pictures & effects embedded in the picture
 media-video/subtitleripper 0.3.4-r4: DVD Subtitle Ripper for Linux
@@ -15579,7 +15580,7 @@ sci-astronomy/galaxy 2.2-r1: Stellar simulation program
 sci-astronomy/gasgano 2.4.8-r1: ESO astronomical data file organizer
 sci-astronomy/gnuastro 0.16-r1: GNU Astronomy Utilities
 sci-astronomy/idlastro 20161220 99999999: Astronomical user routines for IDL
-sci-astronomy/kstars 3.6.6 3.6.7: Desktop Planetarium
+sci-astronomy/kstars 3.6.7: Desktop Planetarium
 sci-astronomy/missfits 2.8.0: Performs basic maintenance and packaging tasks on FITS files
 sci-astronomy/montage 5.0: Toolkit for assembling FITS images into mosaics
 sci-astronomy/pal 0.9.8 0.9.8-r1: Positional Astronomy Library
@@ -16031,7 +16032,7 @@ sci-libs/ignition-fuel-tools 4.4.0: Classes and tools for interacting with Ignit
 sci-libs/ignition-math 6.14.0: A small, fast, and high performance math library for robot applications
 sci-libs/iml 1.0.5: Integer Matrix Library
 sci-libs/inchi 1.04-r1 1.06-r1: Program and library for generating standard and non-standard InChI and InChIKeys
-sci-libs/indilib 2.0.3 2.0.4: INDI Astronomical Control Protocol library
+sci-libs/indilib 2.0.4 2.0.5: INDI Astronomical Control Protocol library
 sci-libs/ipopt 3.14.4: Interior-Point Optimizer for large-scale nonlinear optimization
 sci-libs/itpp 4.3.1-r2: C++ library of mathematical, signal processing and communication
 sci-libs/jama 1.2.5: Java-like matrix C++ templates
@@ -18929,7 +18930,7 @@ x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager
 x11-wm/metacity 3.46.1 3.50.0: GNOME Flashback window manager
 x11-wm/muffin 5.6.4 5.8.1: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 44.3 44.4 45.1 45.2 9999: GNOME compositing window manager based on Clutter
+x11-wm/mutter 44.3 44.4 45.1 45.2 45.2-r1 9999: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r5 3.6.1-r8 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
