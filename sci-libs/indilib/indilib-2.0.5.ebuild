@@ -12,12 +12,13 @@ S="${WORKDIR}/${P/lib/}"
 
 LICENSE="BSD GPL-2+ LGPL-2+ LGPL-2.1+"
 SLOT="0/1"
-KEYWORDS="amd64 ~ppc ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="ogg rtlsdr test websocket"
 
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-cpp/cpp-httplib:=
 	dev-libs/libev
 	media-libs/libjpeg-turbo:=
 	net-misc/curl
@@ -40,8 +41,11 @@ DEPEND="${RDEPEND}
 	websocket? ( dev-cpp/websocketpp )
 "
 
+PATCHES=( "${FILESDIR}/${P}-link-system-httplib.patch" )
+
 src_configure() {
 	local mycmakeargs=(
+		-DINDI_SYSTEM_HTTPLIB=ON
 		-DINDI_BUILD_QT5_CLIENT=OFF
 		-DINDI_BUILD_SHARED=ON
 		-DINDI_BUILD_STATIC=OFF
