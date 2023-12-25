@@ -4,7 +4,7 @@
 EAPI=8
 
 EGIT_REPO_URI="https://gitlab.freedesktop.org/mesa/drm.git"
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 if [[ ${PV} = 9999* ]]; then
 	GIT_ECLASS="git-r3"
@@ -24,8 +24,8 @@ for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
 
-IUSE="${IUSE_VIDEO_CARDS} udev valgrind"
-RESTRICT="test" # see bug #236845
+IUSE="${IUSE_VIDEO_CARDS} test tools udev valgrind"
+RESTRICT="!test? ( test )"
 LICENSE="MIT"
 SLOT="0"
 
@@ -34,6 +34,10 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	valgrind? ( dev-util/valgrind )"
 RDEPEND="${COMMON_DEPEND}
+	video_cards_amdgpu? (
+		tools? ( >=dev-util/cunit-2.1 )
+		test?  ( >=dev-util/cunit-2.1 )
+	)
 	udev? ( virtual/udev )"
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/docutils[${PYTHON_USEDEP}]')"
@@ -59,7 +63,13 @@ multilib_src_configure() {
 		$(meson_feature video_cards_vmware vmwgfx)
 		# valgrind installs its .pc file to the pkgconfig for the primary arch
 		-Dvalgrind=$(usex valgrind auto disabled)
-		-Dtests=false # Tests are restricted
+		$(meson_native_use_bool tools install-test-programs)
 	)
+
+	if use test || { multilib_is_native_abi && use tools; }; then
+		emesonargs+=( -Dtests=true  )
+	else
+		emesonargs+=( -Dtests=false )
+	fi
 	meson_src_configure
 }
