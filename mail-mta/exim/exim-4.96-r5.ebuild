@@ -1,11 +1,14 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
 inherit db-use toolchain-funcs pam systemd
 
-IUSE="arc +dane dcc +dkim dlfunc dmarc +dnsdb doc dovecot-sasl dsn exiscan-acl gnutls idn ipv6 ldap lmtp maildir mbx mysql nis pam perl pkcs11 postgres +prdr proxy radius redis sasl selinux spf sqlite srs +srs-alt srs-native +ssl syslog tcpd +tpda X"
+IUSE="arc berkdb +dane dcc +dkim dlfunc dmarc +dnsdb doc dovecot-sasl
+dsn gdbm gnutls idn ipv6 ldap lmtp maildir mbx
+mysql nis pam perl pkcs11 postgres +prdr proxy radius redis sasl selinux
+socks5 spf sqlite srs +ssl syslog tdb tcpd +tpda X"
 REQUIRED_USE="
 	arc? ( dkim spf )
 	dane? ( ssl !gnutls )
@@ -13,11 +16,7 @@ REQUIRED_USE="
 	dkim? ( ssl !gnutls )
 	gnutls? ( ssl )
 	pkcs11? ( ssl )
-	spf? ( exiscan-acl )
-	srs? (
-		exiscan-acl
-		^^ ( srs-alt srs-native )
-	)
+	|| ( berkdb gdbm tdb )
 "
 # NOTE on USE="gnutls dane", gnutls[dane] is masked in base, unmasked
 # for x86 and amd64 only, due to this, repoman won't allow depending on
@@ -26,24 +25,30 @@ REQUIRED_USE="
 # have left is to a) ignore the dependency (but that results in bug
 # #661164) or b) mask the usage of USE=dane with USE=gnutls.  Both are
 # incorrect, but b) is the only "correct" view from repoman.
+# We cannot express a required use for berkdb/gdbm/tdb correctly because
+# berkdb and gdbm are both enabled in base profile
 
 SDIR=$([[ ${PV} == *_rc* ]]   && echo /test
 	 [[ ${PV} == *.*.*.* ]] && echo /fixes)
 COMM_URI="https://downloads.exim.org/exim4${SDIR}"
 
+GPV="r0"
 DESCRIPTION="A highly configurable, drop-in replacement for sendmail"
 SRC_URI="${COMM_URI}/${P//_rc/-RC}.tar.xz
+	https://dev.gentoo.org/~grobian/distfiles/${P}-gentoo-patches-${GPV}.tar.xz
 	mirror://gentoo/system_filter.exim.gz
 	doc? ( ${COMM_URI}/${PN}-pdf-${PV//_rc/-RC}.tar.xz )"
 HOMEPAGE="https://www.exim.org/"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="sparc"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 
 COMMON_DEPEND=">=sys-apps/sed-4.0.5
-	( >=sys-libs/db-3.2:= <sys-libs/db-6:= )
-	dev-libs/libpcre
+	dev-libs/libpcre2:=
+	tdb? ( sys-libs/tdb:= )
+	!tdb? ( berkdb? ( >=sys-libs/db-3.2:= <sys-libs/db-6:= ) )
+	!tdb? ( !berkdb? ( sys-libs/gdbm:= ) )
 	idn? ( net-dns/libidn:= net-dns/libidn2:= )
 	perl? ( dev-lang/perl:= )
 	pam? ( sys-libs/pam )
@@ -58,8 +63,9 @@ COMMON_DEPEND=">=sys-apps/sed-4.0.5
 		)
 	)
 	ldap? ( >=net-nds/openldap-2.0.7:= )
-	nis? (
-		elibc_glibc? (
+	elibc_glibc? (
+		net-libs/libnsl:=
+		nis? (
 			net-libs/libtirpc:=
 			>=net-libs/libnsl-1:=
 		)
@@ -70,7 +76,6 @@ COMMON_DEPEND=">=sys-apps/sed-4.0.5
 	redis? ( dev-libs/hiredis:= )
 	spf? ( >=mail-filter/libspf2-1.2.5-r1 )
 	dmarc? ( mail-filter/opendmarc:= )
-	srs? ( srs-alt? ( mail-filter/libsrs_alt ) )
 	X? (
 		x11-libs/libX11
 		x11-libs/libXmu
@@ -81,7 +86,6 @@ COMMON_DEPEND=">=sys-apps/sed-4.0.5
 	radius? ( net-dialup/freeradius-client )
 	virtual/libcrypt:=
 	virtual/libiconv
-	elibc_glibc? ( net-libs/libnsl )
 	"
 	# added X check for #57206
 BDEPEND="virtual/pkgconfig"
@@ -111,13 +115,38 @@ src_prepare() {
 	eapply     "${FILESDIR}"/exim-4.93-as-needed-ldflags.patch # 352265, 391279
 	eapply -p0 "${FILESDIR}"/exim-4.76-crosscompile.patch # 266591
 	eapply     "${FILESDIR}"/exim-4.69-r1.27021.patch
-	eapply     "${FILESDIR}"/exim-4.94-localscan_dlopen.patch
+	eapply     "${FILESDIR}"/exim-4.95-localscan_dlopen.patch
 
-	# for this reason we have a := dep on opendmarc, they changed their
-	# API in a minor release
-	if use dmarc && has_version ">=mail-filter/opendmarc-1.4" ; then
-		eapply "${FILESDIR}"/exim-4.94-opendmarc-1.4.patch
-	fi
+	# Upstream post-release fixes :(
+	local GPVDIR=${WORKDIR}/${P}-gentoo-patches-${GPV}
+	eapply     "${GPVDIR}"/exim-4.96-rewrite-malformed-addr-fix.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-spf-memory-error-fix.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-regex-use-after-free.patch # upstr
+	eapply -p2 "${GPVDIR}"/exim-4.96-dmarc_use_after_free.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-deamon-startup-fix.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-openssl-verify-ocsp.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-openssl-double-expansion.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-recursion-dns_again.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-openssl-tls_eccurve-setting.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-openssl-tls_eccurve-lt-3.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-openssl-bad-alpn.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-dane-dns_again.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-expansion-crash.patch # upstr
+	eapply     "${GPVDIR}"/exim-4.96-transport-crash.patch # upstr
+
+	eapply -p2 "${FILESDIR}"/exim-4.97-CVE-2023-51766.patch # 3063
+
+	# oddity, they disable berkdb as hack, and then throw an error when
+	# berkdb isn't enabled
+	sed -i \
+		-e 's/_DB_/_DONTMESS_/' \
+		-e 's/define DB void/define DONTMESS void/' \
+		src/auths/call_radius.c || die
+
+	# API changed from 1.3 to 1.4, upstream doesn't think 1.4 should be
+	# used, but 1.3 has a CVE and Gentoo (like most downstreams) only
+	# has 1.4 available
+	eapply "${FILESDIR}"/exim-4.94-opendmarc-1.4.patch
 
 	if use maildir ; then
 		eapply "${FILESDIR}"/exim-4.94-maildir.patch
@@ -167,7 +196,39 @@ src_configure() {
 		PID_FILE_PATH=${EPREFIX}/run/exim.pid
 		SPOOL_DIRECTORY=${EPREFIX}/var/spool/exim
 		HAVE_ICONV=yes
+		WITH_CONTENT_SCAN=yes
 	EOC
+
+	# configure db implementation, Exim always needs one for its hints
+	# database, we prefer tdb and gdbm, since bdb is kind of getting
+	# less and less support
+	if use tdb ; then
+		cat >> Makefile <<- EOC
+			USE_TDB=yes
+			DBMLIB = -ltdb
+		EOC
+		sed -i -e 's:^USE_DB=yes:# USE_DB=yes:' Makefile || die
+		sed -i -e 's:^USE_GDBM=yes:# USE_GDBM=yes:' Makefile || die
+	elif use gdbm ; then
+		cat >> Makefile <<- EOC
+			USE_GDBM=yes
+			DBMLIB = -lgdbm
+		EOC
+		sed -i -e 's:^USE_DB=yes:# USE_DB=yes:' Makefile || die
+		sed -i -e 's:^USE_TDB=yes:# USE_TDB=yes:' Makefile || die
+	else # must be berkdb via required_use
+		# use the "native" interfaces to the DBM and CDB libraries, support
+		# passwd and directory lookups by default
+		local DB_VERS="5.3 5.1 4.8 4.7 4.6 4.5 4.4 4.3 4.2 3.2"
+		cat >> Makefile <<- EOC
+			USE_DB=yes
+			# keep include in CFLAGS because exim.h -> dbstuff.h -> db.h
+			CFLAGS += -I$(db_includedir ${DB_VERS})
+			DBMLIB = -l$(db_libname ${DB_VERS})
+		EOC
+		sed -i -e 's:^USE_GDBM=yes:# USE_GDBM=yes:' Makefile || die
+		sed -i -e 's:^USE_TDB=yes:# USE_TDB=yes:' Makefile || die
+	fi
 
 	# if we use libiconv, now is the time to tell so
 	if use !elibc_glibc && use !elibc_musl ; then
@@ -217,18 +278,13 @@ src_configure() {
 
 	#
 	# lookup methods
+	#
 
-	# use the "native" interfaces to the DBM and CDB libraries, support
-	# passwd and directory lookups by default
-	local DB_VERS="5.3 5.1 4.8 4.7 4.6 4.5 4.4 4.3 4.2 3.2"
+	# support passwd and directory lookups by default
 	cat >> Makefile <<- EOC
-		USE_DB=yes
 		LOOKUP_CDB=yes
 		LOOKUP_PASSWD=yes
 		LOOKUP_DSEARCH=yes
-		# keep include in CFLAGS because exim.h -> dbstuff.h -> db.h
-		CFLAGS += -I$(db_includedir ${DB_VERS})
-		DBMLIB = -l$(db_libname ${DB_VERS})
 	EOC
 
 	if ! use dnsdb; then
@@ -300,13 +356,6 @@ src_configure() {
 	#
 	# features
 	#
-
-	# content scanning support
-	if use exiscan-acl; then
-		cat >> Makefile <<- EOC
-			WITH_CONTENT_SCAN=yes
-		EOC
-	fi
 
 	# DomainKeys Identified Mail, RFC4871
 	if ! use dkim; then
@@ -400,6 +449,13 @@ src_configure() {
 		EOC
 	fi
 
+	# SOCKS5 (outbound) proxy support
+	if use socks5; then
+		cat >> Makefile <<- EOC
+			SUPPORT_SOCKS=yes
+		EOC
+	fi
+
 	# DANE
 	if use !dane; then
 		# DANE is enabled by default
@@ -438,23 +494,11 @@ src_configure() {
 
 	# Sender Rewriting Scheme
 	if use srs; then
-		# NOTE: we currently USE-default to srs-alt, because this is
-		# what USE=srs used to be.  Eventually we want to rid ourselves
-		# of this external implementation.
-		if use srs-alt; then
-			# historical default, from 4.95 this becomes
-			# EXPERIMENTAL_SRS_ALT
-			cat >> Makefile <<- EOC
-				EXPERIMENTAL_SRS=yes
-				EXTRALIBS_EXIM += -lsrs_alt
-			EOC
-		fi
-		if use srs-native; then
-			# this one becomes SUPPORT_SRS in 4.95
-			cat >> Makefile <<- EOC
-				EXPERIMENTAL_SRS_NATIVE=yes
-			EOC
-		fi
+		# this one is the default/supported variant since 4.95, and the
+		# only variant available since 4.96
+		cat >> Makefile <<- EOC
+			SUPPORT_SRS=yes
+		EOC
 	fi
 
 	# Delivery Sender Notifications extra information in fail message
@@ -545,9 +589,6 @@ src_install() {
 	# conf files
 	insinto /etc/exim
 	newins "${S}"/src/configure.default exim.conf.dist
-	if use exiscan-acl; then
-		newins "${S}"/src/configure.default exim.conf.exiscan-acl
-	fi
 	doins "${WORKDIR}"/system_filter.exim
 	doins "${FILESDIR}"/auth_conf.sub
 
@@ -590,6 +631,9 @@ pkg_postinst() {
 		einfo "Please create ${EROOT}/etc/exim/exim.conf from"
 		einfo "  ${EROOT}/etc/exim/exim.conf.dist."
 	fi
+	if use berkdb && ( use gdbm || use tdb ) ; then
+		ewarn "USE=berkdb is ignored because USE=gdbm or USE=tdb is enabled!"
+	fi
 	if use dmarc ; then
 		einfo "DMARC support requires ${EROOT}/etc/exim/opendmarc.tlds"
 		einfo "you can populate this file with the contents downloaded from"
@@ -600,14 +644,9 @@ pkg_postinst() {
 		einfo "documentation at the bottom of this prerelease message:"
 		einfo "  http://article.gmane.org/gmane.mail.exim.devel/3579"
 	fi
-	if use srs ; then
-		einfo "SRS support is experimental in this release of Exim"
-		if use srs-alt; then
-			elog "You are using libsrs_alt to implement SRS support."
-			elog "In future release of Exim, the native SRS implementation"
-			elog "(USE=srs-native) will become the default.  Please prepare"
-			elog "your package.use or switch to USE=srs-native now."
-		fi
+	if use srs; then
+		einfo "SRS support using libsrs_alt was dropped in this"
+		einfo "release of Exim, you are now using the native SRS implementation"
 	fi
 	use dsn && einfo "extra information in fail DSN message is experimental"
 	einfo
