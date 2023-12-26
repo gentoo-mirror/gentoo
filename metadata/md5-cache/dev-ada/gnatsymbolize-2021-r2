@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] )
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] )
 DESCRIPTION=Translates addresses into filename, line number, and function names
 EAPI=8
 HOMEPAGE=http://libre.adacore.com/
@@ -7,9 +7,9 @@ INHERIT=ada
 IUSE=ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] )
-REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 )
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] )
+REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/884f3b229457c995ddebb46a16a7cc50ed837c90?filename=gnatsymbolize-2021-20210518-19D3B-src.tar.gz -> gnatsymbolize-2021-20210518-19D3B-src.tar.gz
 _eclasses_=ada	825cf3c59de8fefe1dde148596e006f5
-_md5_=209302c00c5b14cc3dae9078e8dc6b71
+_md5_=e6e59db8b7d902b2ec813ea91303dfb7
