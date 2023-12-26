@@ -1289,7 +1289,6 @@ dev-ada/spawn:static-pic - Build static library with pic code
 dev-ada/templates-parser:shared - Build shared library
 dev-ada/xmlada:shared - Build shared library
 dev-ada/xmlada:static-pic - Build static library with pic code
-dev-cpp/eigen:cuda - Build with cuda support
 dev-cpp/glog:gflags - Use dev-cpp/gflags for flag parsing
 dev-cpp/glog:libunwind - Use libunwind library (sys-libs/libunwind or sys-libs/llvm-libunwind) instead of built-in fallback implementation for stack unwinding
 dev-cpp/jwt-cpp:picojson - Enable use of dev-cpp/picojson
@@ -1961,7 +1960,6 @@ dev-libs/libclc:spirv - Build SPIRV targets
 dev-libs/libdbusmenu:gtk - Enable support for GTK+2
 dev-libs/libdbusmenu:gtk3 - Enable support for GTK+3
 dev-libs/libdex:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
-dev-libs/libdynd:cuda - Enable NVIDIA CUDA toolkit support
 dev-libs/libevent:clock-gettime - Disable use of clock_gettime even if it is available
 dev-libs/libevent:debug - Support for running in debug mode
 dev-libs/libevent:malloc-replacement - Support for replacing the memory management functions
@@ -2107,7 +2105,6 @@ dev-libs/optix:headers-only - Download and install only the header files
 dev-libs/pkcs11-helper:nss - Enable NSS crypto engine
 dev-libs/pocl:accel - Enable the generic hardware accelerator device driver
 dev-libs/pocl:conformance - Ensures that certain build options which would result in non-conformant pocl build stay disabled. Note that this does not quarantee a fully conformant build of pocl.
-dev-libs/pocl:cuda - Enable the CUDA backend for NVIDIA GPUs
 dev-libs/pocl:float-conversion - When enabled, OpenCL printf() call's f/e/g formatters are handled by pocl. When disabled, these are handled by system C library.
 dev-libs/pocl:hardening - Enable hardening against various attacks. May worsen performance
 dev-libs/pocl:hwloc - Enable hwloc support
@@ -2153,7 +2150,6 @@ dev-libs/simdjson:tools - Build and install extra command line tools
 dev-libs/softhsm:gost - Enable gost algorithm
 dev-libs/softhsm:migration-tool - Build db migration tool
 dev-libs/sord:tools - Build command line utilities
-dev-libs/starpu:cuda - Enable NVIDIA CUDA toolkit support
 dev-libs/starpu:gcc-plugin - Enable GCC extension plugin (experimental)
 dev-libs/starpu:spinlock-check - Enable spinlock check
 dev-libs/thrift:libevent - Build support for dev-libs/libevent
@@ -4352,7 +4348,6 @@ media-libs/openimageio:ptex - Enable Ptex texture mapping system file support vi
 media-libs/openimageio:qt5 - Build iv with Qt5
 media-libs/openimageio:qt6 - Build iv with Qt6
 media-libs/openimageio:tools - Build the command-line tools
-media-libs/opensubdiv:cuda - Enable NVIDIA CUDA Toolkit support through dev-util/nvidia-cuda-toolkit
 media-libs/opensubdiv:ptex - Adds support for faster per-face texture mapping through media-libs/ptex
 media-libs/opensubdiv:tbb - Enable multithreading with the Intel Threads Building Blocks through dev-cpp/tbb
 media-libs/opensubdiv:tutorials - Install the tutorials
@@ -5380,7 +5375,6 @@ net-analyzer/suricata:af-packet - Enable AF_PACKET support
 net-analyzer/suricata:af-xdp - Enable AF_XDP support
 net-analyzer/suricata:bpf - Enable support for eBPF (as well as XDP if supported by the kernel and the NIC driver) for low-level, high-speed packet processing
 net-analyzer/suricata:control-socket - Enable unix socket
-net-analyzer/suricata:cuda - Enable NVIDIA Cuda computations support
 net-analyzer/suricata:detection - Enable detection modules
 net-analyzer/suricata:hyperscan - Enable high-performance regex matching with Hyperscan
 net-analyzer/suricata:lz4 - Enable support for compressed pcap logging using the LZ4 algorithm
@@ -7052,7 +7046,6 @@ sci-chemistry/openbabel:inchi - Build support for IUPAC International Chemical I
 sci-chemistry/openbabel:json - Build support for JSON formats (ChemDoodle, PubChem, etc...)
 sci-chemistry/pymol:web - Install Pymodule needed for web app support
 sci-chemistry/raster3d:gd - libgd support for PNG and JPEG output
-sci-chemistry/vmd:cuda - Use nvidia cuda toolkit for speeding up computations
 sci-chemistry/vmd:gromacs - Add support for TNG file format
 sci-chemistry/vmd:msms - Add support for MSMS SES calcualtion tool
 sci-chemistry/vmd:povray - Add support for povray raytracer for HQ images
@@ -7150,7 +7143,6 @@ sci-libs/blis:eselect-ldso - Enable runtime library switching by eselect and ld.
 sci-libs/blis:openmp - Use openmp threadding model
 sci-libs/blis:pthread - Use pthread threadding model
 sci-libs/blis:serial - Use no threadding model
-sci-libs/caffe2:cuda - Add support for CUDA processing
 sci-libs/caffe2:distributed - Support distributed applications
 sci-libs/caffe2:fbgemm - Use FBGEMM
 sci-libs/caffe2:ffmpeg - Add support for video processing operators
@@ -7176,7 +7168,6 @@ sci-libs/cgnslib:legacy - Enable or disable building legacy code (3.0 compatible
 sci-libs/cgnslib:scoping - Enable scoping of enumeration values
 sci-libs/cgnslib:tools - A number of utility programs: cgnscheck, cgnscompress, cgnsdiff, cgnslist, cgnsnames, cgnsupdate, cgnsconvert, adf2hdf, hdf2adf.
 sci-libs/cholmod:cholesky - Enable sparse Cholesky factorisation
-sci-libs/cholmod:cuda - Use nvidia cuda toolkit for speeding up computations
 sci-libs/cholmod:matrixops - Support basic sparse and dense matrix operations (add, multiply, scale, et cetera)
 sci-libs/cholmod:modify - Enable Cholesky-modification routines like update, downdate, row-add, and row-delete
 sci-libs/cholmod:partition - Enable graph partitioning and graph-partition-based orderings through sci-libs/metis (using a bundled fork in 4.0.0+) or sci-libs/parmetis
@@ -7200,7 +7191,6 @@ sci-libs/dealii:arborx - Adds support for ARBORX (sci-libs/arborx)
 sci-libs/dealii:arpack - Adds support for ARPACK (sci-libs/arpack)
 sci-libs/dealii:assimp - Add support for assimp (media-libs/assimp)
 sci-libs/dealii:cgal - Adds support for CGAL (sci-mathematics/cgal)
-sci-libs/dealii:cuda - Add support for cuda (dev-util/nvidia-cuda-toolkit)
 sci-libs/dealii:ginkgo - Add support for ginkgo (sci-libs/ginkgo)
 sci-libs/dealii:gmsh - Add support for gmsh (sci-libs/gmsh)
 sci-libs/dealii:metis - Add support for metis (sci-libs/metis)
@@ -7225,7 +7215,6 @@ sci-libs/eccodes:memfs - Enable memory based access to definition/sample files (
 sci-libs/fcl:octomap - OctoMap library support
 sci-libs/fcl:profiling - Enable profiling
 sci-libs/fftw:zbus - Adds support for ZBus cycle-counter of mips
-sci-libs/flann:cuda - Enable support for nVidia CUDA
 sci-libs/flann:octave - Add bindings for sci-mathematics/octave
 sci-libs/fplll:qd - Use sci-libs/qd for quad-double datatype
 sci-libs/gdal:armadillo - Use sci-libs/armadillo for faster TPS transform computation
@@ -7237,7 +7226,6 @@ sci-libs/gdal:spatialite - Enable Spatial DBMS over sqlite dev-db/spatialite
 sci-libs/gdal:xls - Add the dev-libs/freexl library for xls import support
 sci-libs/ginkgo:cuda - Add support for cuda assimp (dev-util/nvidia-cuda-toolkit)
 sci-libs/ginkgo:hwloc - Add support for hwloc (sys-apps/hwloc)
-sci-libs/gloo:cuda - Enable CUDA support
 sci-libs/gloo:libuv - Enable libuv support
 sci-libs/gloo:redis - Enable Redis backend for storage via dev-libs/hiredis
 sci-libs/gmsh:alglib - Enable alglib support for mesh optimizers
@@ -7271,7 +7259,6 @@ sci-libs/lapack:lapacke - Build LAPACKE
 sci-libs/lemon:coin - Enable the sci-libs/coinor-clp and sci-libs/coinor-cbc graph algorithms
 sci-libs/lemon:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
 sci-libs/libccd:double-precision - More precise calculations at the expense of speed
-sci-libs/libgeodecomp:cuda - Enables plugins for NVIDIA GPUs
 sci-libs/libgeodecomp:hpx - Enables HPX backend
 sci-libs/libgeodecomp:opencv - Enables OpenCV related code
 sci-libs/libgeodecomp:silo - Enables SILO related code
@@ -7317,13 +7304,11 @@ sci-libs/opencascade:vtk - Enable Visualization Toolkit support via sci-libs/vtk
 sci-libs/orocos_kdl:models - Build models for some well known robots.
 sci-libs/p4est:romio - Build with support for the ROMIO MPI-IO component
 sci-libs/p4est:vtk-binary - Enable binary vtk output. If disabled vtk files will be written in ASCII text format.
-sci-libs/pastix:cuda - Enable GPU support using CUDA kernels
 sci-libs/pastix:fortran - Install the Fortran interface
 sci-libs/pastix:int64 - Use 64- rather than 32-bit integer representation
 sci-libs/pastix:metis - Enable matrix ordering with sci-libs/metis
 sci-libs/pastix:scotch - Enable matrix ordering with sci-libs/scotch
 sci-libs/pastix:starpu - Enable support for ther dev-libs/starpu runtime
-sci-libs/pcl:cuda - Adds support for NVIDIA CUDA.
 sci-libs/pcl:openni - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI.
 sci-libs/pcl:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2 (should be preferred over openni).
 sci-libs/pcl:pcap - Adds pcap file capabilities in some drivers.
@@ -7352,7 +7337,6 @@ sci-libs/silo:silex - Build silex data browser
 sci-libs/spqr:partition - Use the partition module of sci-libs/cholmod for partitioning
 sci-libs/spqr:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
 sci-libs/spr:root - Add sci-physics/root graphics and i/o support
-sci-libs/suitesparse:cuda - Enable nvidia cuda toolkit for speeding up computations
 sci-libs/suitesparse:partition - Enable graph partitioning and graph-partition-based orderings through sci-libs/metis or sci-libs/parmetis
 sci-libs/suitesparse:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
 sci-libs/sundials:hypre - Build with sci-libs/hypre conditioners
@@ -7368,14 +7352,11 @@ sci-libs/symengine:flint - Add support for (sci-mathematics/flint)
 sci-libs/symengine:llvm - Build with LLVM
 sci-libs/symengine:mpc - Add support for multiprecision complex arithmetic(dev-libs/mpc)
 sci-libs/symengine:mpfr - Add support for multiprecision floating point rouding(dev-libs/mpfr)
-sci-libs/tensorflow:cuda - Enable support for nVidia CUDA
 sci-libs/tensorflow:xla - XLA (Accelerated Linear Algebra) Optimizing Compiler for TensorFlow
-sci-libs/tensorpipe:cuda - Add support for CUDA processing
 sci-libs/trilinos:adolc - Add support for adolc (sci-libs/adolc)
 sci-libs/trilinos:all-packages - Enable all supported Trilinos packages (per default only a subset is built)
 sci-libs/trilinos:arprec - Add support for arprec (sci-libs/arprec)
 sci-libs/trilinos:clp - Add support for clp (sci-libs/coinor-clp)
-sci-libs/trilinos:cuda - Add support for cuda (dev-util/nvidia-cuda-toolkit)
 sci-libs/trilinos:eigen - Add support for eigen (dev-cpp/eigen)
 sci-libs/trilinos:glpk - Add support for glpk (sci-mathematics/glpk)
 sci-libs/trilinos:gtest - Add support for gtest (dev-cpp/gtest)
@@ -7400,7 +7381,6 @@ sci-libs/trilinos:yaml - Add support for yaml (dev-cpp/yaml-cpp)
 sci-libs/umfpack:cholmod - Use sci-libs/cholmod for matrix ordering
 sci-libs/vtk:all-modules - Build all modules
 sci-libs/vtk:boost - Add support for boost
-sci-libs/vtk:cuda - Add support for CUDA
 sci-libs/vtk:freetype - Build support for font rendering
 sci-libs/vtk:gdal - Support for gdal formated data
 sci-libs/vtk:imaging - Building Imaging modules
@@ -7450,7 +7430,6 @@ sci-mathematics/lcalc:pari - Use sci-mathematics/pari for elliptic curve L-funct
 sci-mathematics/lcalc:quad-double - Use sci-libs/qdfor quad-double precision
 sci-mathematics/mathematica:R - Enable dev-lang/R backend support
 sci-mathematics/mathematica:bundle - Install from Wolfram's bundle file or from Mathematica only
-sci-mathematics/mathematica:cuda - Install with cuda support
 sci-mathematics/mathematica:ffmpeg - Enable media-video/ffmpeg backend support
 sci-mathematics/maxima:clisp - Compile maxima with GNU CLISP (dev-lisp/clisp)
 sci-mathematics/maxima:clozurecl - Compile maxima with 32-bit Clozure Common Lisp (dev-lisp/clozurecl)
@@ -7519,7 +7498,6 @@ sci-mathematics/wxmaxima:webkit - Use net-libs/webkit-gtk to show help (for maxi
 sci-mathematics/yacas:jupyter - Add support for jupyter notebook
 sci-mathematics/yices2:mcsat - Enable support for MCSAT
 sci-mathematics/z3:isabelle - Add integration support for the Isabelle/HOL theorem prover.
-sci-misc/boinc:cuda - Use nvidia cuda toolkit for speeding up computations. NOTE: works only for subset of nvidia graphic cards so make sure your card is supported before opening a bug about it.
 sci-misc/h5utils:hdf - Build hdf to hdf5 (and vice-versa) converter
 sci-misc/h5utils:octave - Build Octave plugins
 sci-misc/nco:dap - Support for remote data access with the NETCDF DAP client
@@ -7528,7 +7506,6 @@ sci-misc/nco:udunits - Add sci-libs/udunits files support
 sci-physics/bullet:double-precision - Build libraries in double precision
 sci-physics/bullet:extras - Build the extras
 sci-physics/bullet:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
-sci-physics/espresso:cuda - Enable cuda support
 sci-physics/espresso:examples - Installs the examples
 sci-physics/fastjet:cgal - Use sci-mathematics/cgal instead of bundled algorithms
 sci-physics/fastjet:plugins - Build all standard and C++ plugins
@@ -7547,7 +7524,6 @@ sci-physics/geant4_vmc:vgm - Enable the Virtual Geometry Model (sci-physics/vgm)
 sci-physics/hepmc:cm - Build with cm instead of default mm for length units
 sci-physics/hepmc:gev - Build with GeV instead of default MeV for momentum units
 sci-physics/hepmc:root - Build with ROOTIO enabled
-sci-physics/lammps:cuda - Enable cuda gpu computing support
 sci-physics/lammps:hip - Enable hip gpu computing support
 sci-physics/lammps:lammps-memalign - Enables the use of the posix_memalign() call instead of malloc() when large chunks or memory are allocated by LAMMPS. Aliengnment is on 16 byte boundaries.
 sci-physics/pythia:fastjet - Build jets using the sci-physics/fastjet package
@@ -7558,7 +7534,6 @@ sci-physics/pythia:lhapdf - Support the use of external PDF sets via sci-physics
 sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples only)
 sci-physics/root:R - Enable support for dev-lang/R
 sci-physics/root:asimage - Enable support for media-libs/libafterimage
-sci-physics/root:cuda - Enable support for nVidia CUDA
 sci-physics/root:cudnn - Enable support for nVidia cuDNN library
 sci-physics/root:davix - Enable support for DAVIX Data Management Client (https://cern.ch/davix)
 sci-physics/root:fits - Enable support for images and data from FITS files with sci-libs/cfitsio
@@ -7933,7 +7908,6 @@ sys-block/fio:rdma - Enable infiniband support via sys-cluster/rdma-core
 sys-block/fio:tcmalloc - Link against dev-util/google-perftools by default which will speed up USE=rbd up to 20%
 sys-block/fio:zbc - Enable ZBC & ZAC disks via sys-block/libzbc.
 sys-block/gparted:wayland - Enable interim workaround to allow running GParted under Wayland by granting permission to the X11 display using x11-apps/xhost
-sys-block/libfabric:cuda - Enable for CUDA provider
 sys-block/libfabric:efa - Enable Amazon EC2 Elastic Fabric Adapter provider
 sys-block/libfabric:rocr - Enable Radeon Open Compute provider
 sys-block/libfabric:usnic - Enable Cisco VIC (virtualized NIC) hardware on Cisco UCS server provider
@@ -8054,7 +8028,6 @@ sys-cluster/mpich:mpi-threads - Enable MPI_THREAD_MULTIPLE
 sys-cluster/mpich:romio - Build the ROMIO MPI-IO component
 sys-cluster/nomad:ui - do not embed the ui in the binary
 sys-cluster/openmpi:cma - Enable the CMA (Cross Memory Attach) MCA
-sys-cluster/openmpi:cuda - Add GPU direct support
 sys-cluster/openmpi:libompitrace - Enable support for contributed package libompitrace
 sys-cluster/openmpi:peruse - Enable PERUSE interface
 sys-cluster/openmpi:romio - Build the ROMIO MPI-IO component
