@@ -1,8 +1,8 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit autotools readme.gentoo-r1 systemd
+EAPI=8
+inherit readme.gentoo-r1 systemd
 
 DESCRIPTION="An IMAP daemon designed specifically for maildirs"
 HOMEPAGE="https://www.courier-mta.org/imap/"
@@ -20,27 +20,26 @@ CDEPEND="
 	!gnutls? (
 		dev-libs/openssl:0=
 	)
-	>=net-libs/courier-authlib-0.71
-	>=net-libs/courier-unicode-2:=
-	>=net-mail/mailbase-0.00-r8
+	net-libs/courier-authlib
+	net-libs/courier-unicode
+	net-mail/mailbase
 	net-dns/libidn:=
-	net-mail/courier-makedat[berkdb?,gdbm?]
 	berkdb? ( sys-libs/db:= )
-	gdbm? ( >=sys-libs/gdbm-1.8.0:= )
+	gdbm? ( sys-libs/gdbm:= )
+	!mail-mta/courier
 "
 DEPEND="${CDEPEND}
 	dev-lang/perl
-	!mail-mta/courier
 	sys-process/procps
 "
 RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-courier )
 "
 
-# get rid of old style virtual - bug 350792
 RDEPEND="${RDEPEND}
-	!mail-mta/courier
 	!net-mail/cyrus-imapd
+	!net-mail/courier-common
+	!net-mail/courier-makedat
 "
 
 RC_VER="4.0.6-r1"
@@ -65,21 +64,7 @@ and rerun mkdhparams if needed. Location has changed
 PATCHES=(
 	"${FILESDIR}/${PN}-5.1.8-aclocal-fix.patch"
 	"${FILESDIR}/${PN}-5.0.8-ar-fix.patch"
-	"${FILESDIR}/${P}-makedat.patch"
 )
-
-src_prepare() {
-	default
-
-	# These patches should fix problems detecting BerkeleyDB.
-	# We now can compile with db4 support.
-	if use berkdb ; then
-		eapply "${FILESDIR}/${PN}-4.17-db4-bdbobj_configure.ac.patch"
-		eapply "${FILESDIR}/${PN}-4.17-db4-configure.ac.patch"
-	fi
-
-	eautoreconf
-}
 
 src_configure() {
 	local myconf=""
@@ -98,8 +83,6 @@ src_configure() {
 		myconf="${myconf} --with-trashquota"
 	fi
 
-	use debug && myconf="${myconf} debug=true"
-
 	econf \
 		--with-notice=unicode \
 		--disable-root-check \
@@ -107,7 +90,6 @@ src_configure() {
 		--sysconfdir="/etc/${PN}" \
 		--libexecdir="/usr/$(get_libdir)/${PN}" \
 		--localstatedir="/var/lib/${PN}" \
-		--with-authdaemonvar="/var/lib/${PN}/authdaemon" \
 		--enable-workarounds-for-imap-client-bugs \
 		--with-mailuser=mail \
 		--with-mailgroup=mail \
@@ -214,6 +196,8 @@ src_install() {
 		|| die "failed to rename maildirmake to courier-maildirmake"
 	mv "${D}/usr/share/man/man1/"{,courier-}maildirmake.1 \
 		|| die "failed to rename maildirmake.1 to courier-maildirmake.1"
+
+	rm -rf "${D}"/usr/sbin/doc
 
 	dodoc AUTHORS INSTALL NEWS README ChangeLog
 	readme.gentoo_create_doc
