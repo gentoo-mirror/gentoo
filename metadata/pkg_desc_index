@@ -2066,7 +2066,7 @@ app-emacs/jasmin 1.2-r2: An Emacs major mode for editing Jasmin Java bytecode as
 app-emacs/jinx 0.7 0.8-r1 0.9 1.0: Enchanted Spell Checker for GNU Emacs
 app-emacs/jq-mode 0.5.0_p20220610: Emacs major mode for editing jq queries
 app-emacs/js-comint 1.2.0: Run a JavaScript interpreter in an Emacs inferior process window
-app-emacs/js2-mode 20220710 20230408: Improved JavaScript editing mode for GNU Emacs
+app-emacs/js2-mode 20230408 20231224: Improved JavaScript editing mode for GNU Emacs
 app-emacs/julia-mode 0.4_p20211023: Emacs major mode for the Julia programming language
 app-emacs/julia-repl 1.3.0_p20220225: Run an inferior Julia REPL in a terminal inside Emacs
 app-emacs/kaolin-themes 1.6.9: Set of eye pleasing themes for GNU Emacs
@@ -2132,7 +2132,7 @@ app-emacs/org-modern 0.10 1.1: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
-app-emacs/osm 0.14 1.0 9999: OpenStreetMap tile-based viewer for GNU Emacs
+app-emacs/osm 0.14 1.0 1.1 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
 app-emacs/package-lint 0.21-r1: Linting library for Emacs Lisp package metadata
@@ -4990,7 +4990,7 @@ dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 3.60 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.13.4-r1 1.14.3-r1 1.14.5-r1 1.15.5 1.15.6: Elixir programming language
-dev-lang/elpi 1.16.9 1.16.10 1.17.0: Embeddable Lambda Prolog Interpreter in OCaml
+dev-lang/elpi 1.17.0 1.17.4: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 25.3 26.0 26.1.2 26.2 26.2.1: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.513: Combine interpreter of esoteric languages
 dev-lang/execline 2.9.3.0-r1 2.9.4.0: A non-interactive scripting language
@@ -5009,7 +5009,7 @@ dev-lang/go-bootstrap 1.18.6 1.19.1: Bootstrap package for dev-lang/go
 dev-lang/gprolog 1.4.5 1.5.0: A native Prolog compiler with constraint solving over finite domains (FD)
 dev-lang/haxe 4.3.1 4.3.3: Multi-target universal programming language
 dev-lang/icon 9.5.20i 9.5.21b 9.5.22e: Very high level language
-dev-lang/idris2 0.6.0: Purely functional programming language with first class types
+dev-lang/idris2 0.6.0 0.7.0: Purely functional programming language with first class types
 dev-lang/inform 6.33.1_p2 6.35_p4: Design system for interactive fiction
 dev-lang/interprolog 2.1.2: InterProlog is a Java front-end and enhancement for Prolog
 dev-lang/ispc 1.19.0: Intel SPMD Program Compiler
@@ -5027,7 +5027,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.4-r103 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.601 0.603 0.605 0.606: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.603 0.605 0.606 0.607: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 20.06-r1 20.06.1 22.01 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 20.06 20.06.1 22.01 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -5932,7 +5932,7 @@ dev-ml/ptime 1.0.0 1.1.0: POSIX time for OCaml
 dev-ml/ptmap 2.0.5-r2: Maps of integers implemented as Patricia trees
 dev-ml/qcheck 0.18 0.20: QuickCheck inspired property-based testing for OCaml
 dev-ml/qtest 2.11.2: Inline (Unit) Tests for OCaml
-dev-ml/re 1.9.0 1.10.3 1.10.4-r2: Regular expression library for OCaml
+dev-ml/re 1.10.4-r2 1.11.0: Regular expression library for OCaml
 dev-ml/react 1.2.1-r1 1.2.2-r1: OCaml module for functional reactive programming
 dev-ml/reactiveData 0.2.1: Functional reactive programming with incremental changes in data structures
 dev-ml/reason 3.9.0-r1 3.10.0: Simple, fast & type safe language that leverages JavaScript and OCaml
@@ -10333,7 +10333,7 @@ dev-scheme/guile-ncurses 3.1: Guile FFI to ncurses library for text-based consol
 dev-scheme/guile-nyacc 1.06.7: Guile modules for generating parsers and lexical analyzers
 dev-scheme/guile-reader 0.6.3-r2: Simple framework for building readers for GNU Guile
 dev-scheme/guile-sqlite3 0.1.3: Guile bindings of sqlite3
-dev-scheme/guile-ssh 0.16.3: Library providing access to the SSH protocol for GNU Guile
+dev-scheme/guile-ssh 0.16.3 0.16.4: Library providing access to the SSH protocol for GNU Guile
 dev-scheme/guile-zlib 0.1.0-r1: GNU Guile library providing bindings to zlib
 dev-scheme/guile-zstd 0.1.1-r1: GNU Guile bindings to the zstd compression library
 dev-scheme/jscheme 7.2-r2: A Scheme dialect with a simple Java interface called Javadot notation
@@ -10815,7 +10815,7 @@ dev-util/selenium-manager 4.14.0 4.15.0: CLI tool that manages the browser/drive
 dev-util/serialtalk 1.2-r1 9999: simple command-line tool to talk to serial devices
 dev-util/sh 3.7.0 9999: A shell parser, formatter, and interpreter with bash support
 dev-util/shadowman 3: Unified compiler shadow link directory updater
-dev-util/shards 0.17.3: Dependency manager for the Crystal language
+dev-util/shards 0.17.3 0.17.4: Dependency manager for the Crystal language
 dev-util/shc 3.9.6 4.0.3: A (shell-) script compiler/scrambler
 dev-util/shellcheck 0.9.0-r2: Shell script analysis tool
 dev-util/shellcheck-bin 0.8.0 0.9.0: Shell script analysis tool (binary package)
@@ -11719,7 +11719,7 @@ games-util/antimicrox 3.3.4: Graphical program used to map keyboard buttons and 
 games-util/atlas 0.6.1_beta_pre20181202: Chart Program to use with Flightgear Flight Simulator
 games-util/basis_universal 1.16.3-r1 1.16.4: Basis Universal GPU Texture Codec
 games-util/biounzip 1.1a: Unpacks BioZip archives
-games-util/cartridges 2.3 2.6.1 2.6.2 9999: Simple game launcher written in Python using GTK4 and Libadwaita
+games-util/cartridges 2.3 2.6.1 2.6.2 2.7.1 9999: Simple game launcher written in Python using GTK4 and Libadwaita
 games-util/catcodec 1.0.5: Decodes and encodes sample catalogues for OpenTTD
 games-util/datutil 2.46: Converter for dat files for Rom Managers
 games-util/deutex 5.2.2: WAD composer for Doom, Heretic, Hexen, and Strife
@@ -11734,7 +11734,7 @@ games-util/gamepick 0.35-r2: Launch opengl games with custom graphic settings
 games-util/glbsp 2.24: Node builder specially designed for OpenGL ports of the DOOM game engine
 games-util/grfcodec 6.0.6_p20210310-r1 6.0.6_p20230811-r1: A suite of programs to modify openttd/Transport Tycoon Deluxe's GRF files
 games-util/gslist 0.8.11a-r1: A GameSpy server browser
-games-util/heroic-bin 2.10.0 2.11.0: GOG and Epic Games Launcher for Linux
+games-util/heroic-bin 2.11.0: GOG and Epic Games Launcher for Linux
 games-util/joycond 0.1.0_p20220720-r1: Daemon that uses hid-nintendo evdev devices to implement joycon pairing
 games-util/joystick 1.8.1: Joystick testing utilities
 games-util/lgogdownloader 3.12 9999: Unofficial GOG.com downloader for Linux
@@ -15031,7 +15031,7 @@ net-misc/fatrat 1.2.0_beta2_p20161204: Qt5-based download/upload manager
 net-misc/felix 3.1.3: Calico's per-host agent, responsible for programming routes and security policy
 net-misc/freerdp 2.11.1 2.11.2 2.9999 3.0.0_beta3 3.0.0 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 9.0 9.0.1: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.26.2 1.26.3 1.26.4 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.26.2 1.26.3 1.26.4 1.26.5 9999: Download image galleries and collections from several image hosting sites
 net-misc/geoipupdate 4.9.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geomyidae 0.34-r1 0.69: A daemon to serve the gopher protocol
 net-misc/gerbera 1.12.1-r1 9999: UPnP Media Server
