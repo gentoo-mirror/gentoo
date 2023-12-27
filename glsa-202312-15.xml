@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-15">
+    <title>Git: Multiple Vulnerabilities</title>
+    <synopsis>Several vulnerabilities have been found in Git, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">git</product>
+    <announced>2023-12-27</announced>
+    <revised count="1">2023-12-27</revised>
+    <bug>838127</bug>
+    <bug>857831</bug>
+    <bug>877565</bug>
+    <bug>891221</bug>
+    <bug>894472</bug>
+    <bug>905088</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-vcs/git" auto="yes" arch="*">
+            <unaffected range="ge">2.39.3</unaffected>
+            <vulnerable range="lt">2.39.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Git. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Git users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-vcs/git-2.39.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23521">CVE-2022-23521</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24765">CVE-2022-24765</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29187">CVE-2022-29187</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39253">CVE-2022-39253</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39260">CVE-2022-39260</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41903">CVE-2022-41903</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22490">CVE-2023-22490</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23946">CVE-2023-23946</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25652">CVE-2023-25652</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25815">CVE-2023-25815</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29007">CVE-2023-29007</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-27T07:49:08.497466Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-27T07:49:08.502279Z">graaff</metadata>
+</glsa>
