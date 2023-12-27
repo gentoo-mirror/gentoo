@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) sys-process/numactl
+DESCRIPTION=A collection of latency testing tools for the linux(-rt) kernel
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git/
+INHERIT=python-single-r1 toolchain-funcs
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2 GPL-2+ LGPL-2.1+
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) sys-process/numactl
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=0
+SRC_URI=https://kernel.org/pub/linux/utils/rt-tests/rt-tests-2.6.tar.xz https://kernel.org/pub/linux/utils/rt-tests/older/rt-tests-2.6.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=adf2b3f87364e0b0efda43f52f40ece0
