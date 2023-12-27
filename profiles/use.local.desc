@@ -6118,6 +6118,7 @@ net-misc/aria2:ssh - Enable SFTP support.
 net-misc/asterisk:blocks - Utlize -fblocks (only supported by, and required when using, clang/LLVM)
 net-misc/asterisk:cluster - Enable high-availability support through the Corosync Cluster Engine
 net-misc/asterisk:codec2 - Enable Codec2 support in asterisk
+net-misc/asterisk:dahdi - Support Digium compatible hardware (formerly known as Zaptel)
 net-misc/asterisk:deprecated - Enable deprecated features (eg, app_macro)
 net-misc/asterisk:gtalk - Enable support for Google Talk services
 net-misc/asterisk:http - Enable embedded web server
@@ -6272,6 +6273,9 @@ net-misc/curl:sslv3 - Support for the old/insecure SSLv3 protocol
 net-misc/curl:telnet - Enable Telnet protocol support
 net-misc/curl:tftp - Enable TFTP support
 net-misc/curl:websockets - Enable websockets support
+net-misc/dahdi:flash - Support (short) flash on FXS
+net-misc/dahdi:oslec - Enable OSLEC (software) echo canceller (require ECHO in kernel)
+net-misc/dahdi-tools:ppp - Enables PPP/DAHDIRAS support
 net-misc/dhcp:client - Install the dhclient program
 net-misc/dhcp:server - Install the dhcpd and dhcrelay programs
 net-misc/dhcpcd:embedded - Embed the definitions of dhcp options in the dhcpcd executable
@@ -6777,6 +6781,7 @@ net-voip/telepathy-gabble:plugins - Enable plugin loader
 net-voip/umurmur:mbedtls - Use net-libs/mbedtls as TLS provider
 net-voip/umurmur:shm - Enable shared memory support
 net-voip/yate:amrnb - use AMR-NB
+net-voip/yate:dahdi - Enable Dahdi driver
 net-voip/yate:gsm - use GSM codec
 net-voip/yate:ilbc - Enable iLBC codec
 net-voip/yate:ilbc-webrtc - Enable iLBC webrtc codec
