@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://practical-scheme.net/gauche/
 INHERIT=autotools
 IUSE=ipv6 +mbedtls test
-KEYWORDS=~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=sys-libs/gdbm virtual/libcrypt:= mbedtls? ( net-libs/mbedtls:= )
 RESTRICT=!test? ( test )
 SLOT=0/0.98
 SRC_URI=https://github.com/shirok/Gauche/releases/download/release0_9_13/Gauche-0.9.13.tgz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=eeb16cb4ed205615af1637126fd5f05d
+_md5_=ce2926dc294e73a2aad1761480dda165
