@@ -1,0 +1,44 @@
+Title: LXD to lose access for its image server
+Author: Joonas Niilola <juippis@gentoo.org>
+Posted: 2023-12-28
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: app-containers/lxd
+
+Earlier this year Canonical took their LXD project away from the
+community-run LinuxContainers and brought it under their own
+administration.
+While doing so, they removed management access from non-Canonical
+employees, along with other things. This caused LXD to be forked and so
+Incus was born. Incus would pull updates from upstream LXD to stay
+compatible.
+
+Recently LXD was re-licensed so Incus can't benefit from its code
+anymore. Therefore Incus will become a truly independent project.
+
+However it is LinuxContainers community that still hosts most LXD
+images for free, for Incus and LXD. With them unable to benefit or use
+LXD anymore, LinuxContainers have decided to stop building and hosting
+LXD images. Realistically they can't support LXD given these
+restrictions.
+
+They will start limiting access immediately in 2024 for non-LTS users
+which is LXD >=5.18, or "unstable" in Gentoo. LTS LXD, or "stable"
+(5.0) in Gentoo will be allowed to pull images until May (an estimate),
+or until Incus LTS will be released. Times are subject to change.
+
+What can you do?
+================
+
+1: Switch to Incus. 
+2: Deploy your own image server.
+3: Wait and see what Canonical does.
+
+For unstable users the matter is rather critical, while stable users
+have the luxury of waiting. Note that a downgrade from unstable to
+stable is not possible due to database schemas.
+
+Please follow or take a look at Gentoo bug #920527 with more
+information about this situation, and updates e.g. for timetables.
+
+Bug: https://bugs.gentoo.org/920527
