@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-17">
+    <title>OpenSSH: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in OpenSSH, the worst of which could lead to code execution.</synopsis>
+    <product type="ebuild">openssh</product>
+    <announced>2023-12-28</announced>
+    <revised count="1">2023-12-28</revised>
+    <bug>920292</bug>
+    <bug>920722</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/openssh" auto="yes" arch="*">
+            <unaffected range="ge">9.6_p1</unaffected>
+            <vulnerable range="lt">9.6_p1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenSSH is a free application suite consisting of server and clients that replace tools like telnet, rlogin, rcp and ftp with more secure versions offering additional functionality.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenSSH. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenSSH users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/openssh-9.6_p1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-48795">CVE-2023-48795</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-51385">CVE-2023-51385</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-51385,CVE-2023-48795">CVE-2023-51385,CVE-2023-48795</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-28T02:21:28.668404Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2023-12-28T02:21:28.672567Z">sam</metadata>
+</glsa>
