@@ -1,8 +1,8 @@
-DEFINED_PHASES=configure postinst postrm
+DEFINED_PHASES=configure postinst postrm prepare
 DEPEND=>=dev-libs/glib-2.32:= >=dev-libs/libburn-0.4.2:= >=dev-libs/libisofs-0.6.2:= >=x11-libs/gtk+-3.20:3= >=xfce-base/exo-0.11:= >=xfce-base/libxfce4ui-4.12:= gstreamer? ( media-libs/gstreamer:1.0= media-libs/gst-plugins-base:1.0= ) udev? ( dev-libs/libgudev:= ) dev-util/intltool sys-devel/gettext virtual/pkgconfig
 DESCRIPTION=GTK+ based CD and DVD burning application
 EAPI=7
-HOMEPAGE=https://goodies.xfce.org/projects/applications/xfburn
+HOMEPAGE=https://docs.xfce.org/apps/xfburn/start
 INHERIT=xdg-utils
 IUSE=gstreamer +udev
 KEYWORDS=amd64 arm ~ppc x86
@@ -11,4 +11,4 @@ RDEPEND=>=dev-libs/glib-2.32:= >=dev-libs/libburn-0.4.2:= >=dev-libs/libisofs-0.
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/apps/xfburn/0.6/xfburn-0.6.2.tar.bz2
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=5b3a8d8262fec56f60b1298bbd5a2fb7
+_md5_=d679653229f10fec0667b960cc931d8d
