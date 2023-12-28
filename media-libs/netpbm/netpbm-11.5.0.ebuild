@@ -18,7 +18,7 @@ HOMEPAGE="https://netpbm.sourceforge.net/"
 SRC_URI="https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}.tar.xz"
 
 LICENSE="Artistic BSD GPL-2 IJG LGPL-2.1 MIT public-domain"
-SLOT="0/advanced.104"
+SLOT="0/advanced"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="jbig jpeg png postscript rle cpu_flags_x86_sse2 static-libs svga tiff X xml"
 
@@ -160,6 +160,9 @@ src_prepare() {
 			-e 's:pbmtext-iso88591.*::' \
 			-i test/Test-Order || die
 	fi
+
+	# typo
+	sed 's/^q#!/#!/' -i test/ppmforge.test || die
 }
 
 src_configure() {
