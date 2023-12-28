@@ -10,7 +10,7 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://www.kernel.org/pub/linux/utils/net/${PN}/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 DESCRIPTION="kernel routing and traffic control utilities"
@@ -18,7 +18,7 @@ HOMEPAGE="https://wiki.linuxfoundation.org/networking/iproute2"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="atm berkdb bpf caps elf +iptables libbsd minimal nfs selinux split-usr"
+IUSE="atm berkdb bpf caps elf +iptables minimal nfs selinux split-usr"
 # Needs root
 RESTRICT="test"
 
@@ -32,7 +32,6 @@ RDEPEND="
 	caps? ( sys-libs/libcap )
 	elf? ( virtual/libelf:= )
 	iptables? ( >=net-firewall/iptables-1.4.20:= )
-	libbsd? ( dev-libs/libbsd )
 	nfs? ( net-libs/libtirpc:= )
 	selinux? ( sys-libs/libselinux )
 "
@@ -49,10 +48,13 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.1.0-mtu.patch # bug #291907
-	"${FILESDIR}"/${PN}-5.12.0-configure-nomagic.patch # bug #643722
+	"${FILESDIR}"/${PN}-6.5.0-mtu.patch # bug #291907
+	"${FILESDIR}"/${PN}-6.5.0-configure-nomagic-nolibbsd.patch # bug #643722 & #911727
 	"${FILESDIR}"/${PN}-5.7.0-mix-signal.h-include.patch
-	"${FILESDIR}"/${PN}-6.4.0-add-missing-limits.h-include.patch
+	"${FILESDIR}"/${PN}-6.4.0-disable-libbsd-fallback.patch # bug #911727
+	"${FILESDIR}"/${PN}-6.6.0-configure-Add-_GNU_SOURCE-to-strlcpy-configure-test.patch
+	"${FILESDIR}"/${PN}-6.6.0-revert-CONF_USR_DIR.patch
+	"${FILESDIR}"/${PN}-6.6.0-makefile-use-usr-share-config.patch
 )
 
 src_prepare() {
@@ -62,12 +64,12 @@ src_prepare() {
 	local versionfile="include/version.h"
 	if [[ ${PV} != 9999 ]] && ! grep -Fq "${PV}" ${versionfile} ; then
 		einfo "Fixing version string"
-		sed "s@\"[[:digit:]\.]\+\"@\"${PV}\"@" \
-			-i ${versionfile} || die
+		sed -i "s@\"[[:digit:]\.]\+\"@\"${PV}\"@" \
+			${versionfile} || die
 	fi
 
 	# echo -n is not POSIX compliant
-	sed 's@echo -n@printf@' -i configure || die
+	sed -i 's@echo -n@printf@' configure || die
 
 	sed -i \
 		-e '/^CC :\?=/d' \
@@ -138,10 +140,6 @@ src_configure() {
 		sed -i -e '/HAVE_SELINUX/d' config.mk || die
 	fi
 
-	if ! use libbsd ; then
-		sed -i -e '/HAVE_LIBBSD/d' config.mk || die
-	fi
-
 	# ...Now switch on/off requested features via USE flags
 	# this is only useful if the test did not set other things, per bug #643722
 	# Keep in sync with ifs above, or refactor to be unified.
@@ -160,7 +158,6 @@ src_configure() {
 	IP_CONFIG_SETNS := ${setns}
 	# Use correct iptables dir, bug #144265, bug #293709
 	IPT_LIB_DIR   := $(use iptables && ${PKG_CONFIG} xtables --variable=xtlibdir)
-	HAVE_LIBBSD   := $(usex libbsd y n)
 	EOF
 }
 
