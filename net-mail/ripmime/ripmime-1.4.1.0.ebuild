@@ -1,21 +1,28 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
 DESCRIPTION="extract attachment files out of a MIME-encoded email pack"
-HOMEPAGE="https://pldaniels.com/ripmime/"
-SRC_URI="https://www.pldaniels.com/ripmime/${P}.tar.gz"
+HOMEPAGE="
+	https://github.com/inflex/ripMIME
+	https://pldaniels.com/ripmime/
+"
+SRC_URI="
+	https://github.com/inflex/ripMIME/archive/refs/tags/${PV}.tar.gz
+		-> ${P}.tar.gz
+"
+S="${WORKDIR}/ripMIME-${PV}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ppc sparc x86"
+KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.4.0.9-makefile.patch"
-	"${FILESDIR}/${PN}-1.4.0.9-buffer-overflow.patch"
+	"${FILESDIR}/${P}-buffer-overflow.patch"
 )
 
 src_compile() {
