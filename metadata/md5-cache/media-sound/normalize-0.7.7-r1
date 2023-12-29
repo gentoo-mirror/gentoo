@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://normalize.nongnu.org/
 INHERIT=autotools
 IUSE=audiofile mad nls
-KEYWORDS=amd64 ppc ppc64 ~riscv sparc x86
+KEYWORDS=amd64 ~arm64 ppc ppc64 ~riscv sparc x86
 LICENSE=GPL-2
 RDEPEND=audiofile? ( media-libs/audiofile:= ) mad? ( media-libs/libmad:= )
 SLOT=0
 SRC_URI=https://savannah.nongnu.org/download/normalize/normalize-0.7.7.tar.bz2 https://dev.gentoo.org/~radhermit/distfiles/normalize-0.7.7-m4.patch.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=c546de80a081e1b5df2eb98a4b86b329
+_md5_=bc4e026522462dffeedeaf6368ac7579
