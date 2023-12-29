@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND==dev-ml/sexplib0-0.16*:= dev-ml/base:0/0.16 dev-ml/num:= dev-ml/parsexp:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND==dev-ml/sexplib0-0.16*:=[ocamlopt?] dev-ml/base:0/0.16[ocamlopt?] dev-ml/num:=[ocamlopt?] dev-ml/parsexp:0/0.16[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Library for automated conversion of OCaml-values to and from S-expressions
 EAPI=8
 HOMEPAGE=https://github.com/janestreet/sexplib
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
-RDEPEND==dev-ml/sexplib0-0.16*:= dev-ml/base:0/0.16 dev-ml/num:= dev-ml/parsexp:0/0.16 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND==dev-ml/sexplib0-0.16*:=[ocamlopt?] dev-ml/base:0/0.16[ocamlopt?] dev-ml/num:=[ocamlopt?] dev-ml/parsexp:0/0.16[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.16
 SRC_URI=https://github.com/janestreet/sexplib/archive/v0.16.0.tar.gz -> sexplib-0.16.0.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	beddc7cde467b2e48afc78a87d042c01
-_md5_=acb8517cc932c9b6794060092481dd9b
+_md5_=1278b0bb8fb5a9e1d2649e79ff68d42e
