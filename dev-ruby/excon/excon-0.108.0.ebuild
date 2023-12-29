@@ -40,7 +40,7 @@ all_ruby_prepare() {
 	rm -f spec/excon/test/server_spec.rb || die
 
 	# test that wrongly assumes 127.0.0.1 won't run a DNS server
-	rm -f spec/requests/dns_timeout_spec.rb || die
+	rm -f spec/requests/{dns_timeout,resolv_resolver}_spec.rb || die
 
 	# tests that depend on eventmachine which is broken and no longer maintained
 	rm -f tests/{bad,error,pipeline,response,request}_tests.rb \
