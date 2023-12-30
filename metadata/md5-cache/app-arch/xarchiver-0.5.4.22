@@ -1,0 +1,15 @@
+BDEPEND=dev-util/intltool sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd app-text/docbook-xsl-stylesheets dev-libs/libxml2 dev-libs/libxslt )
+DEFINED_PHASES=configure postinst postrm
+DEPEND=>=dev-libs/glib-2:= x11-libs/gtk+:3=
+DESCRIPTION=A GTK+ archive manager that can be used with Thunar
+EAPI=8
+HOMEPAGE=https://github.com/ib/xarchiver/
+INHERIT=xdg-utils
+IUSE=doc
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2:= x11-libs/gtk+:3=
+SLOT=0
+SRC_URI=https://github.com/ib/xarchiver/archive/0.5.4.22.tar.gz -> xarchiver-0.5.4.22.tar.gz
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=6e7b66e98ff11796f61b0d273dd94d2d

@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=encode-mp3? ( media-sound/lame ) sdl? ( >=media-libs/libsdl-1.2.0[joystick,opengl?,sound?,video] ) !sdl? ( sys-libs/ncurses:= ) readline? ( sys-libs/readline:= sys-libs/ncurses:= ) media-libs/libpng:= sys-libs/zlib
+DESCRIPTION=Emulator of Atari 8-bit computer systems and 5200 game console
+EAPI=8
+HOMEPAGE=https://atari800.github.io/ https://github.com/atari800/atari800/
+INHERIT=autotools desktop
+IUSE=encode-mp3 opengl readline +sdl +sound
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=encode-mp3? ( media-sound/lame ) sdl? ( >=media-libs/libsdl-1.2.0[joystick,opengl?,sound?,video] ) !sdl? ( sys-libs/ncurses:= ) readline? ( sys-libs/readline:= sys-libs/ncurses:= ) media-libs/libpng:= sys-libs/zlib
+REQUIRED_USE=encode-mp3? ( sound ) opengl? ( sdl )
+SLOT=0
+SRC_URI=https://github.com/atari800/atari800/releases/download/ATARI800_5_2_0/atari800-5.2.0-src.tgz https://sourceforge.net/projects/atari800/files/ROM/Original%20XL%20ROM/xf25.zip
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=1611ac1edb64c8a5695e0223657899c6
