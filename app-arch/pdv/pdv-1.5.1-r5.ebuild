@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit autotools toolchain-funcs
 
 DESCRIPTION="build a self-extracting and self-installing binary package"
-HOMEPAGE="https://sourceforge.net/projects/pdv"
+HOMEPAGE="https://sourceforge.net/projects/pdv/"
 SRC_URI="mirror://sourceforge/pdv/${P}.tar.gz"
 
 LICENSE="MIT"
@@ -34,13 +34,15 @@ PATCHES=(
 	"${FILESDIR}"/${P}-default-args.patch
 	# prevent pre-stripped binaries
 	"${FILESDIR}"/${P}-no-strip.patch
+	# missing function prototype, see bug #882157
+	"${FILESDIR}"/${P}-missing-prototype.patch
 )
 
 src_prepare() {
 	default
 
 	# re-build configure script since patch was applied to configure.in
-	cd X11 || die
+	# and to refresh old compiler checks, see bugs #880351 and #906002
 	eautoreconf
 }
 
