@@ -3,8 +3,8 @@ DESCRIPTION=Metapackage for a fully configured cups printer setup
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
 IUSE=+browsed +foomatic pdf +postscript +poppler zeroconf
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~sparc ~x86
 LICENSE=metapackage
 RDEPEND=net-print/cups[zeroconf?] net-print/libppd[postscript?,poppler?] net-print/libcupsfilters[pdf?,poppler?] net-print/cups-filters[foomatic?] browsed? ( net-print/cups-browsed ) pdf? ( app-text/mupdf ) postscript? ( >=app-text/ghostscript-gpl-9.09[cups] )
 SLOT=0
-_md5_=3a8d1af145c60eee90c99ac33324256b
+_md5_=7461efb9713fa87efd63e5fc9b9bd3bb
