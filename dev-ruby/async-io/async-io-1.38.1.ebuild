@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_EXTRA_DOC="README.md"
@@ -17,8 +17,8 @@ SRC_URI="https://github.com/socketry/async-io/archive/v${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE=""
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="test"
 
 ruby_add_rdepend "dev-ruby/async"
 
@@ -27,10 +27,6 @@ ruby_add_bdepend "test? (
 	>=dev-ruby/async-rspec-1.10:1
 	dev-ruby/rack-test
 )"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-tests.patch
-)
 
 all_ruby_prepare() {
 	sed -i -E 's/require_relative "(.+)"/require File.expand_path("\1")/g' "${RUBY_FAKEGEM_GEMSPEC}" || die
