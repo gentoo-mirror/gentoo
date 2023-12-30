@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://github.com/openzfs/zfs
 IDEPEND=sys-apps/kmod[tools]
 INHERIT=autotools dist-kernel-utils flag-o-matic linux-mod-r1 multiprocessing git-r3
-IUSE=custom-cflags debug +rootfs dist-kernel modules-sign +strip
+IUSE=custom-cflags debug +rootfs dist-kernel modules-compress modules-sign +strip
 LICENSE=CDDL MIT debug? ( GPL-2+ )
 PDEPEND=dist-kernel? ( ~sys-fs/zfs-9999[dist-kernel] )
 PROPERTIES=live
 RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 RESTRICT=test
 SLOT=0/9999
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	dist-kernel-utils	2c590a2491591181c0c0e514c9556a8e	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	83ac6aceea31be7f1360bae95231505c	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	dist-kernel-utils	428c53bd5b52820c8c9b387ba171b308	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	68bedce8af327ac36931a9a280d7d3f6	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
 _md5_=cfa59377ea9afedd59cb2c4513ae3cf2
