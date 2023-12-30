@@ -109,9 +109,9 @@ esac
 if [[ ! ${_LINUX_MOD_R1_ECLASS} ]]; then
 _LINUX_MOD_R1_ECLASS=1
 
-inherit edo linux-info multiprocessing toolchain-funcs
+inherit dist-kernel-utils edo linux-info multiprocessing toolchain-funcs
 
-IUSE="dist-kernel modules-sign +strip ${MODULES_OPTIONAL_IUSE}"
+IUSE="dist-kernel modules-compress modules-sign +strip ${MODULES_OPTIONAL_IUSE}"
 
 RDEPEND="
 	sys-apps/kmod[tools]
@@ -468,6 +468,7 @@ linux-mod-r1_pkg_postinst() {
 	debug-print-function ${FUNCNAME[0]} "${@}"
 	_modules_check_function ${#} 0 0 || return 0
 
+	dist-kernel_compressed_module_cleanup "${EROOT}/lib/modules/${KV_FULL}"
 	_modules_update_depmod
 
 	# post_process ensures modules were installed and that the eclass' USE
@@ -835,6 +836,8 @@ _modules_prepare_toolchain() {
 # If enabled in the kernel configuration, this compresses the given
 # modules using the same format.
 _modules_process_compress() {
+	use modules-compress || return
+
 	local -a compress
 	if linux_chkconfig_present MODULE_COMPRESS_XZ; then
 		compress=(
@@ -853,13 +856,13 @@ _modules_process_compress() {
 		fi
 	elif linux_chkconfig_present MODULE_COMPRESS_ZSTD; then
 		compress=(zstd -qT"$(makeopts_jobs)" --rm)
+	else
+		die "USE=modules-compress enabled but no MODULE_COMPRESS* configured"
 	fi
 
-	if [[ -v compress ]]; then
-		# could fail, assumes have commands that were needed for the kernel
-		einfo "Compressing modules (matching the kernel configuration) ..."
-		edob "${compress[@]}" -- "${@}"
-	fi
+	# could fail, assumes have commands that were needed for the kernel
+	einfo "Compressing modules (matching the kernel configuration) ..."
+	edob "${compress[@]}" -- "${@}"
 }
 
 # @FUNCTION: _modules_process_depmod.d
