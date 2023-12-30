@@ -160,9 +160,6 @@ src_prepare() {
 			-e 's:pbmtext-iso88591.*::' \
 			-i test/Test-Order || die
 	fi
-
-	# typo
-	sed 's/^q#!/#!/' -i test/ppmforge.test || die
 }
 
 src_configure() {
