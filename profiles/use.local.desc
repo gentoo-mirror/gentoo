@@ -6933,6 +6933,7 @@ net-wireless/kismet:pcre - Build with pcre support
 net-wireless/kismet:rtlsdr - Enable rtlsdr based kismet capture sources
 net-wireless/kismet:suid - Install a setuid root helper binary with limited functionality; this allows running kismet as a normal user, significantly reducing security risks
 net-wireless/kismet:ubertooth - Enable capture source for ubertooth to sniff bluetooth low energy
+net-wireless/kismet:wext - Enable building kismet with support for the deprecated Linux Wireless Extensions. This is required for some out of tree and staging drivers, and kismet has not been well tested with it disabled, so it defaults to on.
 net-wireless/libxtrxll:usb3380 - support xtrx usb model
 net-wireless/neard:tools - Build and install 'nfctool' for further NFC debugging
 net-wireless/rtl-sdr:zerocopy - may cause a bus error on some ARM systems
