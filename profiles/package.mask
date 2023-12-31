@@ -34,6 +34,46 @@
 #--- END OF EXAMPLES ---
 
 # Michał Górny <mgorny@gentoo.org> (2023-12-31)
+# Apparently broken on kernels > 5.15, with data loss potential.
+# Last release in 2010.  sys-apps/hd-idle is a good replacement.
+# Removal on 2024-01-30.  Bug #849077.
+sys-block/noflushd
+
+# Michał Górny <mgorny@gentoo.org> (2023-12-31)
+# Buggy code that carries local patches already.  Last release in 2011.
+# Removal on 2024-01-30.  Bug #878629.
+net-proxy/tayga
+
+# Michał Górny <mgorny@gentoo.org> (2023-12-31)
+# Buggy code that carries local patches already.  The ebuild installs
+# junk files.  No upstream activity since 2009.
+# Removal on 2024-01-30.  Bug #874087.
+app-admin/newsyslog
+
+# Michał Górny <mgorny@gentoo.org> (2023-12-31)
+# Unresolved vulnerability.  The current version is from 2022-03,
+# and the bump is non-trivial.
+# Removal on 2024-01-30.  Bug #879181.
+acct-group/fluentd
+acct-user/fluentd
+app-admin/fluentd
+
+# Michał Górny <mgorny@gentoo.org> (2023-12-31)
+# Buggy code with a number of local patches already.  Last release
+# in 2003.  media-sound/jack2 should be a good alternative.
+# Removal on 2024-01-30.  Bug #875152.
+media-sound/daudio
+
+# Michał Górny <mgorny@gentoo.org> (2023-12-31)
+# dev-python/pydocstyle does not work on Python 3.12 and it has been
+# archived in 2023-11.  dev-python/pylama is its only reverse
+# dependency, and did not have any activity since 2022-08.
+# It has no reverse dependencies.
+# Removal on 2024-01-30.  Bug #917008.
+dev-python/pydocstyle
+dev-python/pylama
+
+# Michał Górny <mgorny@gentoo.org> (2023-12-31)
 # Homepage gone.  Last updated in 2005.  There are many alternatives
 # available in net-firewall/*.
 # Removal on 2024-01-30.  Bug #920658.
