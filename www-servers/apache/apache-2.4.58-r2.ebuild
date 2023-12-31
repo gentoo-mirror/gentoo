@@ -4,9 +4,9 @@
 EAPI=7
 
 # latest gentoo apache files
-GENTOO_PATCHSTAMP="20230903"
+GENTOO_PATCHSTAMP="20231019"
 GENTOO_DEVELOPER="graaff"
-GENTOO_PATCHNAME="gentoo-apache-2.4.57-r2"
+GENTOO_PATCHNAME="gentoo-apache-2.4.58"
 
 # IUSE/USE_EXPAND magic
 IUSE_MPMS_FORK="prefork"
@@ -111,12 +111,14 @@ MODULE_DEFINES="
 	proxy_ajp:PROXY
 	proxy_balancer:PROXY
 	proxy_connect:PROXY
+	proxy_fcgi:PROXY
 	proxy_ftp:PROXY
+	proxy_hcheck:PROXY
 	proxy_html:PROXY
 	proxy_http:PROXY
-	proxy_hcheck:PROXY
-	proxy_fcgi:PROXY
+	proxy_http2:PROXY
 	proxy_scgi:PROXY
+	proxy_uwsgi:PROXY
 	proxy_wstunnel:PROXY
 	socache_shmcb:SSL
 	socache_memcache:CACHE
@@ -145,12 +147,6 @@ HOMEPAGE="https://httpd.apache.org/"
 LICENSE="Apache-2.0 Apache-1.1"
 SLOT="2"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x64-macos ~x64-solaris"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.4.54-no-which.patch # bug #844868
-	"${FILESDIR}"/${PN}-2.4.54-libtool.patch # bug #858836
-	"${FILESDIR}"/${P}-rustls-ffi-0.10.0.patch # bug #906523
-)
 
 pkg_setup() {
 	# dependent critical modules which are not allowed in global scope due
@@ -194,11 +190,7 @@ src_install() {
 		rm "${ED}"/${i} || die "Failed to prune apache-tools bits"
 	done
 
-	# install apxs in /usr/bin (bug #502384) and put a symlink into the
-	# old location until all ebuilds and eclasses have been modified to
-	# use the new location.
 	dobin support/apxs
-	use split-usr && dosym ../bin/apxs /usr/sbin/apxs
 
 	# Note: wait for mod_systemd to be included in some forthcoming release,
 	# Then apache2.4.service can be used and systemd support controlled
