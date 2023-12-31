@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..12} )
 LLVM_MAX_SLOT=17
 
-inherit cmake multiprocessing python-any-r1 llvm
+inherit cmake llvm multiprocessing python-any-r1 toolchain-funcs
 
 DESCRIPTION="Intel SPMD Program Compiler"
 HOMEPAGE="
@@ -21,13 +21,14 @@ SRC_URI="
 LICENSE="BSD BSD-2 UoI-NCSA"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="examples test"
+IUSE="examples gpu openmp test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	dev-cpp/tbb:=
 	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
 	sys-libs/ncurses:=
+	gpu? ( dev-libs/level-zero:= )
+	!openmp? ( dev-cpp/tbb:= )
 "
 RDEPEND="
 	${DEPEND}
@@ -38,7 +39,12 @@ BDEPEND="
 	${PYTHON_DEPS}
 "
 
+pkg_pretend() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
+
 pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 	llvm_pkg_setup
 	python-any-r1_pkg_setup
 }
@@ -52,6 +58,14 @@ src_prepare() {
 		sed -i -e 's:set(target_arch "i686"):return():' cmake/GenerateBuiltins.cmake || die
 	fi
 
+	# do not require bundled gtest
+	mkdir -p ispcrt/tests/vendor/google/googletest || die
+	cat > ispcrt/tests/vendor/google/googletest/CMakeLists.txt <<-EOF || die
+		find_package(GTest)
+	EOF
+	# remove hacks that break unbundling
+	sed -i -e '/gmock/d' -e '/install/,$d' ispcrt/tests/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
@@ -62,6 +76,8 @@ src_configure() {
 		-DISPC_INCLUDE_EXAMPLES=OFF
 		-DISPC_INCLUDE_TESTS=$(usex test)
 		-DISPC_INCLUDE_UTILS=OFF
+		-DISPCRT_BUILD_GPU=$(usex gpu)
+		-DISPCRT_BUILD_TASK_MODEL=$(usex openmp OpenMP TBB)
 	)
 	cmake_src_configure
 }
