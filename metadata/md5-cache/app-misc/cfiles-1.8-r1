@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=sys-libs/ncurses:= app-text/poppler[utils]
+DESCRIPTION=Ncurses file manager written in C with vim like keybindings
+EAPI=8
+HOMEPAGE=https://github.com/mananapr/cfiles
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=sys-libs/ncurses:= app-text/poppler[utils]
+SLOT=0
+SRC_URI=https://github.com/mananapr/cfiles/archive/v1.8.tar.gz -> cfiles-1.8.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=ada6e3d35e6fd63f5165eaa9492c1fa5
