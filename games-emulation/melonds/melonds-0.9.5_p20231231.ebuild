@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,29 +6,32 @@ EAPI=8
 MY_PN="melonDS"
 MY_P="${MY_PN}-${PV}"
 
+[[ "${PV}" == *_p20231231 ]] && COMMIT=8bfc6df8de216eff0be4be1dbe37b19a741bed51
+
 inherit cmake flag-o-matic readme.gentoo-r1 toolchain-funcs xdg
 
 DESCRIPTION="Nintendo DS emulator, sorta"
 HOMEPAGE="http://melonds.kuribo64.net
 	https://github.com/Arisotura/melonDS"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/Arisotura/${MY_PN}.git"
 else
-	SRC_URI="https://github.com/Arisotura/${MY_PN}/archive/${PV}.tar.gz
+	SRC_URI="https://github.com/Arisotura/${MY_PN}/archive/${COMMIT}.tar.gz
 		-> ${MY_P}.tar.gz"
-	S="${WORKDIR}"/${MY_P}
-	KEYWORDS="amd64"
+	S="${WORKDIR}/${MY_PN}-${COMMIT}"
+
+	KEYWORDS="~amd64"
 fi
 
-IUSE="+jit +opengl"
+IUSE="+jit +opengl wayland"
 LICENSE="BSD-2 GPL-2 GPL-3 Unlicense"
 SLOT="0"
 
 RDEPEND="
 	app-arch/libarchive
-	dev-libs/wayland
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtmultimedia:5
@@ -37,18 +40,10 @@ RDEPEND="
 	media-libs/libsdl2[sound,video]
 	net-libs/libpcap
 	net-libs/libslirp
+	wayland? ( dev-libs/wayland )
 "
-DEPEND="
-	${RDEPEND}
-"
-BDEPEND="
-	kde-frameworks/extra-cmake-modules:0
-"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-0.9.5-DSi_Camera-algorithm.patch"
-	"${FILESDIR}/${PN}-0.9.5-no-ccache-detection.patch"
-)
+DEPEND="${RDEPEND}"
+BDEPEND="wayland? ( kde-frameworks/extra-cmake-modules:0 )"
 
 # used for JIT recompiler
 QA_EXECSTACK="usr/bin/melonDS"
@@ -60,7 +55,7 @@ DOC_CONTENTS="You need the following files in order to run melonDS:
 - firmware.bin
 - romlist.bin
 Place them in ~/.config/melonDS
-Those files can be found somewhere on the Internet ;-)"
+Those files can be extracted from devices or found somewhere on the Internet ;-)"
 
 src_prepare() {
 	filter-lto
@@ -70,10 +65,11 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs=(
+	local -a mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
 		-DENABLE_JIT=$(usex jit)
 		-DENABLE_OGLRENDERER=$(usex opengl)
+		-DENABLE_WAYLAND=$(usex wayland)
 	)
 	cmake_src_configure
 }

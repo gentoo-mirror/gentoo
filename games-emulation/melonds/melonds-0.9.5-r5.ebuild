@@ -21,15 +21,16 @@ else
 		-> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
 
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64"
 fi
 
-IUSE="+jit +opengl wayland"
+IUSE="+jit +opengl"
 LICENSE="BSD-2 GPL-2 GPL-3 Unlicense"
 SLOT="0"
 
 RDEPEND="
 	app-arch/libarchive
+	dev-libs/wayland
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtmultimedia:5
@@ -38,10 +39,18 @@ RDEPEND="
 	media-libs/libsdl2[sound,video]
 	net-libs/libpcap
 	net-libs/libslirp
-	wayland? ( dev-libs/wayland )
 "
-DEPEND="${RDEPEND}"
-BDEPEND="wayland? ( kde-frameworks/extra-cmake-modules:0 )"
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	kde-frameworks/extra-cmake-modules:0
+"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-0.9.5-DSi_Camera-algorithm.patch"
+	"${FILESDIR}/${PN}-0.9.5-no-ccache-detection.patch"
+)
 
 # used for JIT recompiler
 QA_EXECSTACK="usr/bin/melonDS"
@@ -67,7 +76,6 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=OFF
 		-DENABLE_JIT=$(usex jit)
 		-DENABLE_OGLRENDERER=$(usex opengl)
-		-DENABLE_WAYLAND=$(usex wayland)
 	)
 	cmake_src_configure
 }
