@@ -5,11 +5,11 @@ DESCRIPTION=kernel routing and traffic control utilities
 EAPI=8
 HOMEPAGE=https://wiki.linuxfoundation.org/networking/iproute2
 INHERIT=edo toolchain-funcs git-r3
-IUSE=atm berkdb bpf caps elf +iptables minimal nfs selinux split-usr
+IUSE=atm berkdb bpf caps elf +iptables minimal nfs selinux
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-atm ) berkdb? ( sys-libs/db:= ) bpf? ( dev-libs/libbpf:= ) caps? ( sys-libs/libcap ) elf? ( virtual/libelf:= ) iptables? ( >=net-firewall/iptables-1.4.20:= ) nfs? ( net-libs/libtirpc:= ) selinux? ( sys-libs/libselinux )
 RESTRICT=test
 SLOT=0
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=f1f76b68b922f0e54aa02461c35c2194
+_md5_=f90dd4023f3a9062e77003e19396a136
