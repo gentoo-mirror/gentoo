@@ -5,13 +5,13 @@ DESCRIPTION=Fast neofetch-like system information tool
 EAPI=8
 HOMEPAGE=https://github.com/fastfetch-cli/fastfetch
 INHERIT=cmake flag-o-matic
-IUSE=X chafa dbus ddcutil drm gnome imagemagick networkmanager opencl opengl osmesa pci pulseaudio sqlite test vulkan wayland xcb xfce xrandr
+IUSE=X chafa dbus ddcutil drm gnome imagemagick networkmanager nvidia-gpu opencl opengl osmesa pci pulseaudio sqlite test vulkan wayland xcb xfce xrandr
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
-LICENSE=MIT
+LICENSE=MIT nvidia-gpu? ( NVIDIA-NVLM )
 RDEPEND=>=dev-libs/yyjson-0.8.0:= sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) networkmanager? ( net-misc/networkmanager ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pci? ( sys-apps/pciutils ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
 REQUIRED_USE=xrandr? ( X ) chafa? ( imagemagick )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.4.0.tar.gz -> fastfetch-2.4.0.tar.gz
+SRC_URI=https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.5.0.tar.gz -> fastfetch-2.5.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
-_md5_=76acf04014f079d131dafdde4d90f18a
+_md5_=4ac5d69c7f34e6df75bc3b9b3fdde4f4
