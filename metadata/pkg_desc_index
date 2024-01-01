@@ -2933,6 +2933,7 @@ app-office/calligraplan 3.3.0: Project management application
 app-office/denaro 2023.11.0: A personal finance manager
 app-office/dia 0.97.3-r1: Diagram/flowchart creation program
 app-office/dia2code 1.0.0: Convert UML diagrams produced with Dia to various source code flavours
+app-office/drawio-desktop-bin 22.1.16: draw.io diagramming and whiteboarding desktop app
 app-office/endeavour 43.0-r1 9999: Personal task manager
 app-office/glabels 3.4.1: Program for creating labels and business cards
 app-office/gnucash 4.13 5.1 5.3 5.4-r1: A personal finance manager
@@ -3047,7 +3048,7 @@ app-portage/smart-live-rebuild 1.4.1 9999: Check live packages for updates and e
 app-portage/tatt 0.10 0.11 9999: Arch testing tool
 app-portage/ufed 0.96 9999: Gentoo Linux USE flags editor
 app-portage/unsymlink-lib 20: Convert your system to SYMLINK_LIB=no
-app-shells/atuin 15.0.0 16.0.0 17.0.0: Shell history manager supporting encrypted synchronisation
+app-shells/atuin 17.0.0 17.1.0: Shell history manager supporting encrypted synchronisation
 app-shells/autojump 22.5.3-r2: change directory command that learns
 app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r2 5.1_p16-r6 5.1_p16-r7 5.2_p21-r1 9999: The standard GNU Bourne again shell
 app-shells/bash-completion 2.11 9999: Programmable Completion for bash
@@ -8366,7 +8367,7 @@ dev-python/h11 0.14.0: A pure-Python implementation of HTTP/1.1 inspired by hype
 dev-python/h2 4.1.0-r1: HTTP/2 State-Machine based protocol implementation
 dev-python/h5py 3.10.0-r1: Simple Python interface to HDF5 files
 dev-python/happybase 1.2.0-r1: A developer-friendly Python library to interact with Apache HBase
-dev-python/hatch-fancy-pypi-readme 23.1.0 23.2.0: Fancy PyPI READMEs with Hatch
+dev-python/hatch-fancy-pypi-readme 23.1.0 23.2.0 24.1.0: Fancy PyPI READMEs with Hatch
 dev-python/hatch-jupyter-builder 0.8.3: A hatch plugin to help build Jupyter packages
 dev-python/hatch-vcs 0.4.0: Hatch plugin for versioning with your preferred VCS
 dev-python/hatchling 1.20.0 1.21.0: Modern, extensible Python build backend
@@ -8390,7 +8391,7 @@ dev-python/huawei-lte-api 1.7.3: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r1: Human friendly output for text interfaces using Python
 dev-python/humanize 4.9.0: Common humanization utilities
 dev-python/hvac 2.0.0: HashiCorp Vault API client
-dev-python/hypercorn 0.14.4 0.15.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
+dev-python/hypercorn 0.14.4 0.15.0 0.16.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.92.0 6.92.2: A library for property based testing
@@ -8759,7 +8760,7 @@ dev-python/picobox 3.0.0 4.0.0: Dependency injection framework designed with Pyt
 dev-python/pid 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r2: Exif manipulation with pure Python
 dev-python/pika 1.3.2: Pure-Python implementation of the AMQP
-dev-python/pikepdf 8.4.1 8.7.1 8.8.0 8.9.0 8.10.0 8.10.1 8.11.1: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 8.4.1 8.7.1 8.8.0 8.9.0 8.10.0 8.10.1 8.11.1 8.11.2: Python library to work with pdf files based on qpdf
 dev-python/pillow 10.0.1 10.1.0-r1: Python Imaging Library (fork)
 dev-python/pip 23.3.1 23.3.2: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 12.4.0: Install packages and run Python with them
@@ -8984,7 +8985,7 @@ dev-python/pyte 0.8.2: Simple VTXXX-compatible terminal emulator
 dev-python/pytesseract 0.3.12: Optical character recognition (OCR) tool
 dev-python/pytest 7.4.2 7.4.3 7.4.4: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.0.5: pytest plugin for aiohttp support
-dev-python/pytest-asyncio 0.23.2: Library for testing asyncio code with pytest
+dev-python/pytest-asyncio 0.23.2 0.23.3: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 7.0.0 7.0.1: BDD library for the pytest runner
 dev-python/pytest-check 2.2.2 2.2.3: pytest plugin that allows multiple failures per test
 dev-python/pytest-codeblocks 0.17.0: Extract code blocks from markdown
@@ -17532,7 +17533,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.203 5.10.204 5.10.205 5.15.142 5.15.143 5.15.144 5.15.145 6.1.66 6.1.67 6.1.68 6.1.69 6.6.5 6.6.6 6.6.7 6.6.8: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.203 5.10.204 5.10.205 5.15.142 5.15.143 5.15.144 5.15.145 6.1.66 6.1.67 6.1.68 6.1.69 6.6.5 6.6.6 6.6.7 6.6.8: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.203 5.10.204 5.10.205 5.15.142 5.15.143 5.15.144 5.15.145 6.1.67 6.1.68 6.1.69 6.6.6 6.6.7 6.6.8: Full sources including the Gentoo patchset for the 6.6 kernel tree
+sys-kernel/gentoo-sources 5.10.203 5.10.204 5.10.205 5.15.142 5.15.143 5.15.144 5.15.145 6.1.67 6.1.68 6.1.69 6.1.70 6.6.6 6.6.7 6.6.8 6.6.9: Full sources including the Gentoo patchset for the 6.6 kernel tree
 sys-kernel/git-sources 6.7_rc1 6.7_rc2 6.7_rc3 6.7_rc4 6.7_rc5 6.7_rc6 6.7_rc7 6.7_rc8: The very latest -git version of the Linux kernel
 sys-kernel/installkernel-gentoo 7 10: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd 2-r4 2-r5 3: Wrap kernel-install from systemd as installkernel
