@@ -1,4 +1,5 @@
-DEFINED_PHASES=install postinst
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=install postinst prepare
 DESCRIPTION=A Cross-Platform ML workloads Benchmark
 EAPI=8
 HOMEPAGE=https://www.geekbench.com/
@@ -7,4 +8,4 @@ LICENSE=geekbench
 RESTRICT=bindist mirror
 SLOT=6
 SRC_URI=amd64? ( https://cdn.geekbench.com/GeekbenchML-0.6.0-Linux.tar.gz )
-_md5_=a5f717b8d0ba95505596dab4c3423bc4
+_md5_=b71092c4392a0ab8d331639694abc02c
