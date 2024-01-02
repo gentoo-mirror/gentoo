@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,16 +7,16 @@ inherit systemd
 
 SRC_URI="
 	amd64? (
-		elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-x64.tar.gz )
-		elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-musl-core-x64.tar.gz )
+		elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-x64.tar.gz )
+		elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-musl-core-x64.tar.gz )
 	)
 	arm? (
-		elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-arm.tar.gz )
-		elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-musl-core-arm.tar.gz )
+		elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-arm.tar.gz )
+		elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-musl-core-arm.tar.gz )
 	)
 	arm64? (
-		elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-arm64.tar.gz )
-		elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-musl-core-arm64.tar.gz )
+		elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-arm64.tar.gz )
+		elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-musl-core-arm64.tar.gz )
 	)
 "
 
