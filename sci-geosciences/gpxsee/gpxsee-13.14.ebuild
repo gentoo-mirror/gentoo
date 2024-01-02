@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ MY_PN="GPXSee"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="A viewer and analyzer that supports gpx, tcx, kml, fit, igc and nmea files"
-HOMEPAGE="https://www.gpxsee.org/"
+HOMEPAGE="https://www.gpxsee.org/ https://github.com/tumic0/GPXSee"
 SRC_URI="https://github.com/tumic0/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
