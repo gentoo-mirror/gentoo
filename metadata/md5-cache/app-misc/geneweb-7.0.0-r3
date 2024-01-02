@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prepare
-DEPEND=dev-lang/ocaml[ocamlopt?] <dev-ml/camlp5-8:=[ocamlopt?] acct-user/geneweb acct-group/geneweb dev-ml/jingoo:= dev-ml/uunf:= >=dev-ml/markup-1.0.0:= dev-ml/unidecode:= dev-ml/calendars:= dev-ml/zarith:= dev-ml/cppo test? ( dev-ml/ounit2 )
+DEPEND=dev-lang/ocaml[ocamlopt?] <dev-ml/camlp5-8:=[ocamlopt?] acct-user/geneweb acct-group/geneweb dev-ml/jingoo:= dev-ml/uunf:= >=dev-ml/markup-1.0.0:= dev-ml/unidecode:= dev-ml/calendars:= dev-ml/zarith:= dev-ml/cppo <dev-ml/dune-3 test? ( dev-ml/ounit2 )
 DESCRIPTION=Genealogy software program with a Web interface
 EAPI=7
 HOMEPAGE=https://github.com/geneweb/geneweb
@@ -10,4 +10,4 @@ RDEPEND=dev-lang/ocaml[ocamlopt?] <dev-ml/camlp5-8:=[ocamlopt?] acct-user/genewe
 RESTRICT=strip !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/geneweb/geneweb/archive/v7.0.0.tar.gz -> geneweb-7.0.0.tar.gz
-_md5_=69190b70d3808235aa0360916face6d9
+_md5_=5b9e0f7a44fa540f4764353af0c5de1c
