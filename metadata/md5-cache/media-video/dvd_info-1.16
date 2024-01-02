@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=media-libs/libdvdread libmpv? ( media-video/mpv[libmpv,dvd] )
+DESCRIPTION=DVD utilities to print information, copy tracks, backup, etc
+EAPI=8
+HOMEPAGE=https://github.com/beandog/dvd_info
+IUSE=+libmpv
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libdvdread libmpv? ( media-video/mpv[libmpv,dvd] )
+SLOT=0
+SRC_URI=https://github.com/beandog/dvd_info/archive/1.16.tar.gz -> dvd_info-1.16.tar.gz
+_md5_=69de703d99cf2a1bf6148c300c6e0f85
