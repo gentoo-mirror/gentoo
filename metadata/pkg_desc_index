@@ -1471,7 +1471,7 @@ app-crypt/princeprocessor 0.22: Standalone password candidate generator using th
 app-crypt/qca 2.3.7: Qt Cryptographic Architecture (QCA)
 app-crypt/quickcrypt 0.9.2b-r1: gives you a quick MD5 Password from any string
 app-crypt/rainbowcrack 1.8: Hash cracker that precomputes plaintext - ciphertext pairs in advance
-app-crypt/rhash 1.4.3 1.4.4: Console utility and library for computing and verifying file hash sums
+app-crypt/rhash 1.4.3 1.4.4 1.4.4-r1: Console utility and library for computing and verifying file hash sums
 app-crypt/rotix 0.83-r1 0.83-r3: Rotix allows you to generate rotational obfuscations
 app-crypt/rpm-sequoia 1.5.0: Implementation of the RPM PGP interface using Sequoia
 app-crypt/sbctl 0.11 0.12 0.13: Secure Boot key manager
@@ -5337,7 +5337,7 @@ dev-libs/libg15 1.2.7-r1 3.0.7 9999: The libg15 library gives low-level access t
 dev-libs/libg15render 1.2-r2 3.0.4 9999: Small library for display text and graphics on a Logitech G15 keyboard
 dev-libs/libgamin 0.1.10-r6: Library providing the FAM File Alteration Monitor API
 dev-libs/libgaminggear 0.15.1: Provides functionality for gaming input devices
-dev-libs/libgcrypt 1.9.4-r2 1.10.1-r2 1.10.1-r3 1.10.2 1.10.3: General purpose crypto library based on the code used in GnuPG
+dev-libs/libgcrypt 1.9.4-r2 1.10.1-r2 1.10.1-r3 1.10.2 1.10.3 1.10.3-r1: General purpose crypto library based on the code used in GnuPG
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1-r1: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6 0.20.6-r1: GObject-based interfaces and classes for commonly used data structures
@@ -5521,7 +5521,7 @@ dev-libs/ncnn 20231027 20240102: High-performance neural network inference frame
 dev-libs/nettle 3.8.1 3.9 3.9.1: Low-level cryptographic library
 dev-libs/newt 0.52.23 0.52.23-r1 0.52.24: Redhat's Newt windowing toolkit development files
 dev-libs/nmeap 0.3-r2: Extensible NMEA-0183 (GPS) data parser in standard C
-dev-libs/npth 1.6-r1: New GNU Portable Threads Library
+dev-libs/npth 1.6-r1 1.6-r2: New GNU Portable Threads Library
 dev-libs/nsgenbind 0.8-r1: Generate Javascript-to-DOM bindings from w3c webidl files
 dev-libs/nspr 4.35-r2: Netscape Portable Runtime
 dev-libs/nss 3.79.4 3.91 3.92 3.95 3.96.1: Mozilla's Network Security Services library that implements PKI support
@@ -5556,7 +5556,7 @@ dev-libs/pmdk 1.9.2 1.12.1: Persistent Memory Development Kit
 dev-libs/pocketfft 2021.11.23: PocketFFT for C++
 dev-libs/pocl 4.0: Portable Computing Language (an implementation of OpenCL)
 dev-libs/poco 1.11.2-r1 1.12.2-r2 1.12.4: C++ libraries for building network-based applications
-dev-libs/popt 1.18 1.19: Parse Options - Command line parser
+dev-libs/popt 1.18 1.19 1.19-r1: Parse Options - Command line parser
 dev-libs/ppl 1.2-r5: The Parma Polyhedra Library for numerical analysis of complex systems
 dev-libs/protobuf 21.9 21.12 23.3-r2: Google's Protocol Buffers - Extensible mechanism for serializing structured data
 dev-libs/protobuf-c 1.4.1 1.4.1-r1: Protocol Buffers implementation in C
@@ -13195,7 +13195,7 @@ media-libs/libpng 1.6.40-r1: Portable Network Graphics library
 media-libs/libpng-compat 1.2.59-r1 1.5.30-r1: Portable Network Graphics library
 media-libs/libpqstego 0.0.1-r1: Library for Perturbed Quantization Steganography
 media-libs/libprojectm 3.1.12 9999: A graphical music visualization plugin similar to milkdrop
-media-libs/libpulse 16.1-r2 16.1-r4 16.99.1: Libraries for PulseAudio clients
+media-libs/libpulse 16.1-r2 16.1-r4 16.1-r5 16.99.1 16.99.1-r1: Libraries for PulseAudio clients
 media-libs/libqaccessibilityclient 0.5.0-r1 0.6.0: Library for writing accessibility clients such as screen readers
 media-libs/libquicktime 1.2.4-r4: An enhanced version of the quicktime4linux library
 media-libs/libquvi 0.9.4-r100 0.9.4-r101: Library for parsing video download links
@@ -14499,7 +14499,7 @@ net-dns/inadyn 2.12.0: Dynamic DNS client with multiple SSL/TLS library support
 net-dns/knot 3.1.5 3.1.9 3.2.2 3.2.9: High-performance authoritative-only DNS server
 net-dns/knot-resolver 5.7.0: A scaleable caching DNS resolver
 net-dns/libidn 1.41: Internationalized Domain Names (IDN) implementation
-net-dns/libidn2 2.3.4-r1: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
+net-dns/libidn2 2.3.4-r1 2.3.4-r2: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
 net-dns/maradns 3.5.0022: A security-aware DNS server
 net-dns/mdns-repeater 1.11: Multicast DNS repeater
 net-dns/mydns 1.2.8.31-r2: A DNS-Server which gets its data from a MySQL/PostgreSQL-database
@@ -14810,7 +14810,7 @@ net-libs/libsrtp 1.6.0-r1 2.4.2: Open-source implementation of the Secure Real-t
 net-libs/libssh 0.10.5 0.10.6 9999: Access a working SSH implementation by means of a library
 net-libs/libssh2 1.11.0-r2 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r1 9999: Simple RFC-compliant TELNET implementation as a C library
-net-libs/libtirpc 1.3.3 1.3.4: Transport Independent RPC library (SunRPC replacement)
+net-libs/libtirpc 1.3.3 1.3.4 1.3.4-r1: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtorrent 0.13.8-r3: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 1.2.18-r1 1.2.19 2.0.8 2.0.9: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.18_p1 4.0.19_p1 4.0.20 4.0.21 4.0.22: A library and tools for trace processing
@@ -17609,7 +17609,7 @@ sys-libs/liburing 2.1-r2 2.2 2.3-r4 2.4 2.5 2.5-r1 2.5-r2 9999: Efficient I/O wi
 sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utmp (login) info
 sys-libs/libuuid 1.0.3: Portable uuid C library
 sys-libs/libvpd 2.2.9: Library implementation for listing Vital Product Data
-sys-libs/libxcrypt 4.4.28-r2 4.4.33 4.4.36: Extended crypt library for descrypt, md5crypt, bcrypt, and others
+sys-libs/libxcrypt 4.4.28-r2 4.4.33 4.4.36 4.4.36-r1: Extended crypt library for descrypt, md5crypt, bcrypt, and others
 sys-libs/llvm-libunwind 15.0.7 16.0.6-r1 17.0.6 18.0.0_pre20231215 18.0.0_pre20231222 18.0.0_pre20231228 18.0.0.9999: C++ runtime stack unwinder from LLVM
 sys-libs/lwp 2.8: Light-weight process library (used by Coda)
 sys-libs/minizip-ng 4.0.3 4.0.4: Fork of the popular zip manipulation library found in the zlib distribution
@@ -17638,7 +17638,7 @@ sys-libs/tdb 1.4.7-r1 1.4.8 1.4.9: Simple database API
 sys-libs/tevent 0.12.1 0.13.0 0.14.0 0.14.1 0.15.0: Samba tevent library
 sys-libs/timezone-data 2022g 2023a 2023c-r1 2023d: Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)
 sys-libs/uid_wrapper 1.2.9 1.3.0: Wrapper to fake privilege separation
-sys-libs/zlib 1.2.13-r1 1.2.13-r2 1.3-r1 1.3-r2: Standard (de)compression library
+sys-libs/zlib 1.2.13-r1 1.2.13-r2 1.3-r1 1.3-r2 1.3-r3: Standard (de)compression library
 sys-libs/zlib-ng 2.1.3 2.1.4 2.1.5: Fork of the zlib data compression library
 sys-power/RyzenAdj 0.12.0 0.13.0: The power management tool for mobile and desktop Ryzen APUs
 sys-power/acpi 1.7-r1: Displays information about ACPI devices
