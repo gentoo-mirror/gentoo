@@ -7,7 +7,7 @@ HOMEPAGE=https://github.com/google/mozc
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop edo elisp-common multiprocessing python-any-r1 savedconfig toolchain-funcs xdg
 IUSE=debug emacs fcitx4 +gui ibus renderer test savedconfig
-KEYWORDS=amd64 ~arm64 ~ppc64 x86
+KEYWORDS=amd64 ~arm64 ppc64 x86
 LICENSE=BSD BSD-2 ipadic public-domain unicode
 RDEPEND=>=dev-cpp/abseil-cpp-20211102.0-r2:=[cxx17(+)] >=dev-libs/protobuf-3.0.0:= emacs? ( app-editors/emacs:* ) fcitx4? ( app-i18n/fcitx:4 virtual/libintl ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) ibus? ( >=app-i18n/ibus-1.4.1 dev-libs/glib:2 x11-libs/libxcb ) renderer? ( dev-libs/glib:2 x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango )
 REQUIRED_USE=|| ( emacs fcitx4 ibus )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/google/mozc/archive/305e9a7374254148474d067c46d55a4ee6081837.tar.gz -> mozc-2.28.5029.102-2.28.5029.102.tar.gz https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/a4a66772e33746b91e99caceecced9a28507e925.tar.gz -> japanese-usage-dictionary-20180701040110.tar.gz https://dev.gentoo.org/~sam/distfiles/app-i18n/mozc/mozc-2.28.5029.102-patches.tar.xz fcitx4? ( https://github.com/fcitx/mozc/archive/242b4f703cba27d4ff4dc123c713a478f964e001.tar.gz -> fcitx-mozc-2.28.5029.102-2.28.5029.102.tar.gz )
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	elisp-common	2a0fa407d2e6363c663ccb299503b25c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	python-any-r1	f5169813d1619761b459800587005fd2	portability	a74d533f258f1f435be71312558c12f9	savedconfig	8b5f9d995a970e49cd427c55d5840285	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=2586f982bef5f94c48255a2a00450907
+_md5_=44ee6b760fed891248efb309f0cda233
