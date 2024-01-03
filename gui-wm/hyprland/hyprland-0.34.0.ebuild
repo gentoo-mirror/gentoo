@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,14 +8,30 @@ inherit meson toolchain-funcs
 DESCRIPTION="A dynamic tiling Wayland compositor that doesn't sacrifice on its looks"
 HOMEPAGE="https://github.com/hyprwm/Hyprland"
 
-SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/${PN}-source"
+if [[ "${PV}" = *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/hyprwm/${PN^}.git"
+else
+	SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${P}.gh.tar.gz"
+	S="${WORKDIR}/${PN}-source"
 
-KEYWORDS="amd64"
+	KEYWORDS="~amd64"
+fi
+
 LICENSE="BSD"
 SLOT="0"
-IUSE="X legacy-renderer systemd video_cards_nvidia"
+IUSE="X legacy-renderer systemd"
 
+# hyprpm (hyprland plugin manager) requires the dependencies at runtime
+# so that it can clone, compile and install plugins.
+HYPRPM_RDEPEND="
+	dev-util/cmake
+	dev-util/meson
+	dev-util/ninja
+	dev-vcs/git
+	sys-auth/polkit
+	virtual/pkgconfig
+"
 # bundled wlroots has the following dependency string according to included headers.
 # wlroots[drm,gles2-renderer,libinput,x11-backend?,X?]
 # enable x11-backend with X and vice versa
@@ -28,7 +44,7 @@ WLROOTS_RDEPEND="
 	media-libs/mesa[egl(+),gles2]
 	sys-apps/hwdata:=
 	sys-auth/seatd:=
-	>=x11-libs/libdrm-2.4.114
+	>=x11-libs/libdrm-2.4.118
 	x11-libs/libxkbcommon
 	>=x11-libs/pixman-0.42.0
 	virtual/libudev:=
@@ -46,9 +62,10 @@ WLROOTS_BDEPEND="
 	dev-util/glslang
 	dev-util/wayland-scanner
 "
-
 RDEPEND="
+	${HYPRPM_RDEPEND}
 	${WLROOTS_RDEPEND}
+	dev-cpp/tomlplusplus
 	dev-libs/glib:2
 	dev-libs/libinput
 	dev-libs/wayland
@@ -78,7 +95,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/hyprland-0.31.0-fix-log-headers.patch"
+	"${FILESDIR}/gcc14.patch"
 )
 
 pkg_setup() {
@@ -93,16 +110,6 @@ pkg_setup() {
 		eerror "Please upgrade Clang: emerge -v1 sys-devel/clang"
 		die "Clang version is too old to compile Hyprland!"
 	fi
-}
-
-src_prepare() {
-	if use video_cards_nvidia; then
-		cd "${S}/subprojects/wlroots" || die
-		eapply "${S}/nix/patches/wlroots-nvidia.patch"
-		cd "${S}" || die
-	fi
-
-	default
 }
 
 src_configure() {
