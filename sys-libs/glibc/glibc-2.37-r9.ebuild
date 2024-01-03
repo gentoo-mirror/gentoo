@@ -6,7 +6,7 @@ EAPI=8
 # Bumping notes: https://wiki.gentoo.org/wiki/Project:Toolchain/sys-libs/glibc
 # Please read & adapt the page as necessary if obsolete.
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{9..11} )
 TMPFILES_OPTIONAL=1
 
 inherit python-any-r1 prefix preserve-libs toolchain-funcs flag-o-matic gnuconfig \
@@ -20,7 +20,7 @@ SLOT="2.2"
 EMULTILIB_PKG="true"
 
 # Gentoo patchset (ignored for live ebuilds)
-PATCH_VER=1
+PATCH_VER=11
 PATCH_DEV=dilfridge
 
 # gcc mulitilib bootstrap files version
@@ -39,7 +39,7 @@ MIN_PAX_UTILS_VER="1.3.3"
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 else
-	#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 	SRC_URI="mirror://gnu/glibc/${P}.tar.xz"
 	SRC_URI+=" https://dev.gentoo.org/~${PATCH_DEV}/distfiles/${P}-patches-${PATCH_VER}.tar.xz"
 fi
@@ -170,8 +170,6 @@ XFAIL_TEST_LIST=(
 	tst-system
 	tst-strerror
 	tst-strsignal
-	# Fails with certain PORTAGE_NICENESS/PORTAGE_SCHEDULING_POLICY
-	tst-sched1
 )
 
 XFAIL_NSPAWN_TEST_LIST=(
@@ -194,6 +192,7 @@ XFAIL_NSPAWN_TEST_LIST=(
 
 	# These fail if --suppress-sync and/or low priority is set
 	tst-sync_file_range
+	tst-sched1
 	test-errno
 )
 
@@ -450,10 +449,6 @@ setup_flags() {
 	# https://sourceware.org/PR27837
 	filter-ldflags '-Wl,--relax'
 
-	# Flag added for cross-prefix, but causes ldconfig to segfault. Not needed
-	# anyway because glibc already handles this by itself.
-	filter-ldflags '-Wl,--dynamic-linker=*'
-
 	# some weird software relies on sysv hashes in glibc, bug 863863, bug 864100
 	# we have to do that here already so mips can filter it out again :P
 	if use hash-sysv-compat ; then
@@ -660,8 +655,8 @@ setup_env() {
 	export CXX="${glibc__GLIBC_CXX} ${glibc__abi_CFLAGS} ${CFLAGS}"
 
 	if is_crosscompile; then
-		# Assume worst-case bootstrap: glibc is built for the first time
-		# with ${CTARGET}-g++ not available yet. We avoid
+		# Assume worst-case bootstrap: glibc is buil first time
+		# when ${CTARGET}-g++ is not available yet. We avoid
 		# building auxiliary programs that require C++: bug #683074
 		# It should not affect final result.
 		export libc_cv_cxx_link_ok=no
@@ -1023,7 +1018,6 @@ glibc_do_configure() {
 	myconf+=(
 		--disable-werror
 		--enable-bind-now
-		--enable-fortify-source
 		--build=${CBUILD_OPT:-${CBUILD}}
 		--host=${CTARGET_OPT:-${CTARGET}}
 		$(use_enable profile)
@@ -1055,10 +1049,15 @@ glibc_do_configure() {
 		# https://bugs.gentoo.org/753740
 		libc_cv_complocaledir='${exec_prefix}/lib/locale'
 
-		# On aarch64 there is no way to override -mcpu=native, and if
-		# the current cpu does not support SVE configure fails.
-		# Let's boldly assume our toolchain can always build SVE instructions.
-		libc_cv_aarch64_sve_asm=yes
+		# -march= option tricks build system to infer too
+		# high ISA level: https://sourceware.org/PR27318
+		libc_cv_include_x86_isa_level=no
+
+		# Explicit override of https://sourceware.org/PR27991
+		# exposes a bug in glibc's configure:
+		# https://sourceware.org/PR27991
+		libc_cv_have_x86_lahf_sahf=no
+		libc_cv_have_x86_movbe=no
 
 		${EXTRA_ECONF}
 	)
@@ -1098,7 +1097,7 @@ glibc_do_configure() {
 	# add x32 to it, gcc/glibc don't yet support x32.
 	#
 	if [[ -n ${GCC_BOOTSTRAP_VER} ]] && use multilib-bootstrap ; then
-		echo 'int main(void){}' > "${T}"/test.c || die
+		echo 'main(){}' > "${T}"/test.c
 		if ! $(tc-getCC ${CTARGET}) ${CFLAGS} ${LDFLAGS} "${T}"/test.c -Wl,-emain -lgcc 2>/dev/null ; then
 			sed -i -e '/^CC = /s:$: -B$(objdir)/../'"gcc-multilib-bootstrap-${GCC_BOOTSTRAP_VER}/${ABI}:" config.make || die
 		fi
@@ -1168,15 +1167,7 @@ glibc_headers_configure() {
 		popd >/dev/null
 	fi
 
-	local myconf=()
-
 	case ${CTARGET} in
-	aarch64*)
-		# The configure checks fail during cross-build, so disable here
-		# for headers-only
-		myconf+=(
-			--disable-mathvec
-		) ;;
 	riscv*)
 		# RISC-V interrogates the compiler to determine which target to
 		# build.  If building the headers then we don't strictly need a
@@ -1195,6 +1186,7 @@ glibc_headers_configure() {
 		) ;;
 	esac
 
+	local myconf=()
 	myconf+=(
 		--disable-sanity-checks
 		--enable-hacker-mode
@@ -1650,21 +1642,6 @@ pkg_preinst() {
 	fi
 }
 
-glibc_refresh_ldconfig() {
-	if [[ ${MERGE_TYPE} == buildonly ]]; then
-		return
-	fi
-
-	# Version check could be added to avoid unnecessary work, but ldconfig
-	# should finish quickly enough to not matter.
-	ebegin "Refreshing ld.so.cache"
-	ldconfig -i
-	if ! eend $?; then
-		ewarn "Failed to refresh the ld.so.cache for you. Some programs may be broken"
-		ewarn "before you manually do so (ldconfig -i)."
-	fi
-}
-
 pkg_postinst() {
 	# nothing to do if just installing headers
 	just_headers && return
@@ -1675,17 +1652,6 @@ pkg_postinst() {
 	fi
 
 	if ! is_crosscompile && [[ -z ${ROOT} ]] ; then
-		# glibc-2.38+ on loong has ldconfig support added, but the ELF e_flags
-		# handling has changed as well, which means stale ldconfig auxiliary
-		# cache entries and failure to lookup libgcc_s / libstdc++ (breaking
-		# every C++ application) / libgomp etc., among other breakages.
-		#
-		# To fix this, simply refresh the ld.so.cache without using the
-		# auxiliary cache if we're natively installing on loong. This should
-		# be done relatively soon because we want to minimize the breakage
-		# window for the affected programs.
-		use loong && glibc_refresh_ldconfig
-
 		use compile-locales || run_locale_gen "${EROOT}/"
 	fi
 

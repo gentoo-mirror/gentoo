@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="accessibility caps gles2-only lock multimedia plasma screencast"
 
 RESTRICT="test"
@@ -81,7 +81,10 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	sys-apps/hwdata
 	x11-base/xwayland
-	multimedia? ( >=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml] )
+	multimedia? (
+		>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
+		media-plugins/gst-plugins-soup:1.0
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.9
@@ -99,6 +102,11 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
+
+PATCHES=(
+	"${FILESDIR}/${P}-xdgshellwindow-enforce-minSize.patch" # KDE-bug 478269
+	"${FILESDIR}/${P}-backends-drm-commit-m_next-state.patch" # KDE-bug 477451
+)
 
 src_prepare() {
 	ecm_src_prepare
