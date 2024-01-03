@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -65,7 +65,14 @@ BDEPEND="
 		media-gfx/sane-frontends
 	)"
 
-PERL_RM_FILES=( t/{90_MANIFEST,91_critic,99_pod,169_import_scan}.t )
+PATCHES=(
+	"${FILESDIR}/${P}-min_max.patch"
+	"${FILESDIR}/${P}-tiff2ps.patch"
+	"${FILESDIR}/${P}-t131.patch"
+	"${FILESDIR}/${P}-t1161.patch"
+)
+
+PERL_RM_FILES=( t/{90_MANIFEST,91_critic,99_pod,135_save_tiff_as_ps_with_space,169_import_scan,0601_Dialog_Scan,1171_prepend_pdf,1172_append_pdf,1173_prepend_pdf_with_space,1174_prepend_pdf_with_inverted_comma,1175_append_with_timestamp,1621_import_pdf,1622_import_multipage_PDF,1623_import_multipage_PDF2,1624_import_multipage_PDF3,1625_import_pdf_bw,1626_import_PDF_with_error,1627_import_encrypted_pdf,1628_import_pdf_metadata}.t )
 
 mydoc="History"
 
