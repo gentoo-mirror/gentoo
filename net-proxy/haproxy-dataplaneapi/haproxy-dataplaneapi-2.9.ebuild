@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ DESCRIPTION="haproxy dataplane api / sidecar"
 HOMEPAGE="https://github.com/haproxytech/dataplaneapi https://www.haproxy.com/documentation/dataplaneapi/latest/"
 
 SRC_URI="https://github.com/haproxytech/dataplaneapi/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	http://gentooexperimental.org/~patrick/${P}-deps.tar.xz"
+	http://gentooexperimental.org/~patrick/${P}-vendor.tar.xz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -18,7 +18,7 @@ IUSE=""
 S="${WORKDIR}/dataplaneapi-${PV}"
 
 src_compile() {
-	GOBIN="${S}/bin" emake build
+	ego build -o ./build/dataplaneapi ./cmd/dataplaneapi/
 }
 
 src_install() {
