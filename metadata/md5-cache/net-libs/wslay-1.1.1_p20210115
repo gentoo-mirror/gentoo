@@ -1,5 +1,5 @@
 BDEPEND=doc? ( dev-python/sphinx ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
-DEFINED_PHASES=configure install prepare
+DEFINED_PHASES=compile configure install prepare
 DEPEND=test? ( dev-util/cunit )
 DESCRIPTION=WebSocket library in C
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tatsuhiro-t/wslay/archive/45d22583b488f79d5a4e598cc7675c191c5ab53f.tar.gz -> wslay-1.1.1_p20210115.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=e6ddb31bc24465db36d05127c0d1fe26
+_md5_=9a61360667db088e279be94b228a3f90
