@@ -2,7 +2,7 @@ BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext )
 DEFINED_PHASES=configure install
 DEPEND=dev-libs/expat dev-libs/libxml2 curl? ( net-misc/curl[ssl] ) doc? ( app-text/docbook-xsl-stylesheets dev-libs/libxslt ) openssl? ( dev-libs/openssl:= ) !openssl? ( app-crypt/gnupg app-crypt/gpgme:= dev-libs/libgcrypt:= ) test? ( net-libs/gnutls )
 DESCRIPTION=Client library for accessing ISDS SOAP services
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.datovka.cz/cs/pages/libdatovka.html
 IUSE=+curl debug doc nls openssl test
 KEYWORDS=~amd64 ~x86
@@ -10,5 +10,5 @@ LICENSE=LGPL-3
 RDEPEND=dev-libs/expat dev-libs/libxml2 curl? ( net-misc/curl[ssl] ) doc? ( app-text/docbook-xsl-stylesheets dev-libs/libxslt ) openssl? ( dev-libs/openssl:= ) !openssl? ( app-crypt/gnupg app-crypt/gpgme:= dev-libs/libgcrypt:= )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://secure.nic.cz/files/datove_schranky/libdatovka/libdatovka-0.2.1.tar.xz
-_md5_=58deb126cbc5a1f46818584231c95fe3
+SRC_URI=https://secure.nic.cz/files/datove_schranky/libdatovka/libdatovka-0.6.0.tar.xz
+_md5_=cd9f4cd04cb3b69041f3ccadcca81417
