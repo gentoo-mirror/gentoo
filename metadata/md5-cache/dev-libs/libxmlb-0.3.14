@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/hughsie/libxmlb
 INHERIT=meson python-any-r1
 IUSE=doc introspection stemmer test +zstd
-KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv x86
 LICENSE=LGPL-2.1+
 RDEPEND=app-arch/xz-utils dev-libs/glib:2 sys-apps/util-linux stemmer? ( dev-libs/snowball-stemmer:= ) zstd? ( app-arch/zstd:= )
 RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://github.com/hughsie/libxmlb/archive/0.3.14.tar.gz -> libxmlb-0.3.14.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	474cb53a7d1b62721a91809a1d702661	meson	576e6bbef90e9753368f8b4ad0bd5383	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=8c4f02148b3c425dc071f2b89b117933
+_md5_=42620c5375841c986be7b44a4ad15c99
