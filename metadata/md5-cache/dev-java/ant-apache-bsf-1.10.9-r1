@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst preinst prepare setup unpack
-DEPEND=>=dev-java/bsf-2.4.0-r1:2.3[python?,javascript?,tcl?] >=dev-java/java-config-2.2.0-r3 dev-java/javatoolkit ~dev-java/ant-core-1.10.9:0 >=virtual/jdk-1.8
+DEPEND=>=dev-java/bsf-2.4.0-r1:2.3[javascript?,tcl?] >=dev-java/java-config-2.2.0-r3 dev-java/javatoolkit ~dev-java/ant-core-1.10.9:0 >=virtual/jdk-1.8
 DESCRIPTION=Apache Ant's optional tasks depending on bsf-2.3
 EAPI=7
 HOMEPAGE=https://ant.apache.org/
@@ -7,9 +7,9 @@ INHERIT=ant-tasks
 IUSE=python javascript tcl
 KEYWORDS=amd64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=Apache-2.0
-RDEPEND=>=dev-java/bsf-2.4.0-r1:2.3[python?,javascript?,tcl?] >=dev-java/java-config-2.2.0-r3 ~dev-java/ant-core-1.10.9:0 >=virtual/jre-1.8
+RDEPEND=>=dev-java/bsf-2.4.0-r1:2.3[javascript?,tcl?] >=dev-java/java-config-2.2.0-r3 ~dev-java/ant-core-1.10.9:0 >=virtual/jre-1.8
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://apache/ant/source/apache-ant-1.10.9-src.tar.bz2 https://dev.gentoo.org/~fordfrog/distfiles/ant-1.10.9-gentoo.tar.bz2
 _eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	java-ant-2	53b9c110af009f9f4548f5b129ae6fe6	ant-tasks	f4cef80c43613a641f3f0f22d74883f0
-_md5_=17ef357fd6ee6b9f679ec4d597b38bc5
+_md5_=aaeb7a056c47e4a8f4243b83dbeefa27
