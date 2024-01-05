@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure
+DEPEND=dev-libs/libltdl:= sys-libs/ncurses:= virtual/libelf debug? ( sys-libs/binutils-libs:= ) motif? ( x11-libs/motif:= ) dev-util/gperf
+DESCRIPTION=ia64 instruction set simulator
+EAPI=8
+HOMEPAGE=https://github.com/trofi/ski http://ski.sourceforge.net/
+INHERIT=flag-o-matic
+IUSE=debug motif
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/libltdl:= sys-libs/ncurses:= virtual/libelf debug? ( sys-libs/binutils-libs:= ) motif? ( x11-libs/motif:= ) !games-sports/ski
+SLOT=0
+SRC_URI=https://github.com/trofi/ski/releases/download/v1.4.0/ski-1.4.0.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
+_md5_=a5a6bd61f2a9022cd42b6284e2bc28d7
