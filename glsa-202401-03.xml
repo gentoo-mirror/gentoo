@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-03">
+    <title>BlueZ: Privilege Escalation</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Bluez, the worst of which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">bluez</product>
+    <announced>2024-01-05</announced>
+    <revised count="1">2024-01-05</revised>
+    <bug>919383</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-wireless/bluez" auto="yes" arch="*">
+            <unaffected range="ge">5.70-r1</unaffected>
+            <vulnerable range="lt">5.70-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>BlueZ is the canonical bluetooth tools and system daemons package for Linux.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in BlueZ. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker may inject unauthenticated keystrokes via Bluetooth, leading to privilege escalation or denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All BlueZ users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-wireless/bluez-5.70-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45866">CVE-2023-45866</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-05T12:09:52.619298Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-05T12:09:52.622390Z">graaff</metadata>
+</glsa>
