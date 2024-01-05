@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-05">
+    <title>RDoc: Command Injection</title>
+    <synopsis>A vulnerability has been found in RDoc which allows for command injection.</synopsis>
+    <product type="ebuild">rdoc</product>
+    <announced>2024-01-05</announced>
+    <revised count="1">2024-01-05</revised>
+    <bug>801301</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-ruby/rdoc" auto="yes" arch="*">
+            <unaffected range="ge">6.3.2</unaffected>
+            <vulnerable range="lt">6.3.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>RDoc produces HTML and command-line documentation for Ruby projects.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in RDoc. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>RDoc used to call Kernel#open to open a local file. If a Ruby project has a file whose name starts with | and ends with tags, the command following the pipe character is executed. A malicious Ruby project could exploit it to run an arbitrary command execution against a user who attempts to run the rdoc command.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All RDoc users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/rdoc-6.3.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31799">CVE-2021-31799</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-05T13:34:12.712050Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-05T13:34:12.715693Z">graaff</metadata>
+</glsa>
