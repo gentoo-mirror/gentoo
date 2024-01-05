@@ -5,9 +5,10 @@ DESCRIPTION=Jolly Good Port of Mednafen
 EAPI=8
 HOMEPAGE=https://gitlab.com/jgemu/mednafen
 INHERIT=autotools toolchain-funcs git-r3
+IUSE=cpu_flags_x86_avx
 LICENSE=BSD GPL-2 GPL-2+ LGPL-2.1+ ZLIB
 PROPERTIES=live
 RDEPEND=app-arch/zstd dev-libs/lzo:2 >=dev-libs/trio-1.17 media-libs/flac media-libs/jg:1= sys-libs/zlib:=[minizip] games-emulation/jgrf
 SLOT=1
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=0431fd29d16b61668931951fd0a71a14
+_md5_=3b4898161ffdb706efc085a8c7e7348c
