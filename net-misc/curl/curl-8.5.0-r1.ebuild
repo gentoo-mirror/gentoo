@@ -123,14 +123,12 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	IoctlSocket
 	mach_absolute_time
 	setmode
-	_fseeki64
 )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-prefix.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
 	"${FILESDIR}"/${P}-ipv6-configure-c99.patch
-	"${FILESDIR}"/${P}-mpd-stream-http-adjust_pollset.patch
 )
 
 src_prepare() {
@@ -347,7 +345,8 @@ multilib_src_test() {
 	# this ends up breaking when nproc is huge (like -j80).
 	# The network sandbox causes tests 241 and 1083 to fail; these are typically skipped
 	# as most gentoo users don't have an 'ip6-localhost'
-	multilib_is_native_abi && emake test TFLAGS="-n -v -a -k -am -p -j$((2*$(makeopts_jobs))) !241 !1083"
+	# Required deps for 1477 are not included in the release tarball for 8.5.0
+	multilib_is_native_abi && emake test TFLAGS="-n -v -a -k -am -p -j$((2*$(makeopts_jobs))) !241 !1083 !1477"
 }
 
 multilib_src_install() {
