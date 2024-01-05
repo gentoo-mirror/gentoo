@@ -1,0 +1,46 @@
+Title: Separate /usr now requires an initramfs
+Author: Eli Schwartz <eschwartz93@gmail.com>
+Posted: 2024-01-05
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/baselayout[split-usr]
+
+Systems which have /usr and / on separate filesystems have always required a
+dedicated initramfs to bring up both partitions. Systems where both /usr and /
+are on the same filesystem may use an initramfs if they wish, or choose not
+to.
+
+Historically, Gentoo has tried to make the separate filesystems use case work
+anyway. Despite all our efforts, it is broken and continues to get more broken
+under various configurations. The only workable solution is to support
+separate /usr but only when an initramfs is present. For more details on why
+this is broken, see:
+
+- https://bugs.gentoo.org/868306#c10
+- https://bugs.gentoo.org/902829
+- http://freedesktop.org/wiki/Software/systemd/separate-usr-is-broken
+- https://bugs.gentoo.org/915379
+- https://github.com/trofi/nix-guix-gentoo/commit/43d84cc00af530ef912d9c98448b64d6b5282907
+- https://github.com/trofi/nix-guix-gentoo/commit/8f194519982fbfabb6b3ca84c0806b1a379b5d06
+- https://bugs.gentoo.org/825078
+
+In 2013, Gentoo policy determined that separate /usr without an initramfs was
+officially no longer supported:
+
+- https://projects.gentoo.org/qa/policy-guide/filesystem.html#pg0202
+- https://gitweb.gentoo.org/data/gentoo-news.git/tree/2013/2013-09-27-initramfs-required/2013-09-27-initramfs-required.en.txt?id=a79dd69b0cca439bc0c483c9193c79e0554819d0
+
+11 years later, the support is being withdrawn. On 2024-02-05, we plan to
+begin work on decommissioning existing workarounds and will not accept any
+more.
+
+User Action Required
+====================
+
+If you have separate /usr and are not currently using an initramfs, you have
+until 2024-02-05 to set up an initramfs. If you do not, then at some point on
+or after this date, routine system upgrades will leave your system unbootable.
+
+For details on setting up an initramfs, see:
+
+https://wiki.gentoo.org/wiki/Initramfs/Guide
