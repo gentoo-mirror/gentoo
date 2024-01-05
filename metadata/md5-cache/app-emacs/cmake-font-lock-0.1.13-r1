@@ -1,4 +1,4 @@
-BDEPEND=dev-util/cmake[emacs] >=app-editors/emacs-26:*
+BDEPEND=|| ( app-emacs/cmake-mode dev-util/cmake[emacs(-)] ) >=app-editors/emacs-26:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Advanced, type aware, highlight support for CMake
 EAPI=8
@@ -6,8 +6,8 @@ HOMEPAGE=https://github.com/Lindydancer/cmake-font-lock
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-util/cmake[emacs] >=app-editors/emacs-26:*
+RDEPEND=|| ( app-emacs/cmake-mode dev-util/cmake[emacs(-)] ) >=app-editors/emacs-26:*
 SLOT=0
 SRC_URI=https://github.com/Lindydancer/cmake-font-lock/archive/0.1.13.tar.gz -> cmake-font-lock-0.1.13.tar.gz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=a5c647f088c68405cf2cbff6c8d104df
+_md5_=1adda2e6a405be9f9dc958eb52df56d2
