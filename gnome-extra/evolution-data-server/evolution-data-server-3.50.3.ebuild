@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,9 +12,10 @@ HOMEPAGE="https://wiki.gnome.org/Apps/Evolution https://gitlab.gnome.org/GNOME/e
 LICENSE="|| ( LGPL-2 LGPL-3 ) BSD Sleepycat"
 SLOT="0/64-11-21-4-2-27-2-27-4-0" # subslot = libcamel-1.2/libebackend-1.2/libebook-1.2/libebook-contacts-1.2/libecal-2.0/libedata-book-1.2/libedata-cal-2.0/libedataserver-1.2/libedataserverui-1.2/libedataserverui4-1.0 soname version
 
-IUSE="berkdb +gnome-online-accounts +gtk gtk-doc +introspection ldap kerberos oauth vala +weather"
+IUSE="berkdb +gnome-online-accounts +gtk gtk-doc +introspection ldap kerberos oauth-gtk3 oauth-gtk4 vala +weather"
 REQUIRED_USE="
-	oauth? ( gtk )
+	oauth-gtk3? ( gtk )
+	oauth-gtk4? ( gtk )
 	vala? ( introspection )
 "
 
@@ -43,10 +44,8 @@ RDEPEND="
 		>=gui-libs/gtk-4.4:4
 		>=media-libs/libcanberra-0.25[gtk3]
 
-		oauth? (
-			>=net-libs/webkit-gtk-2.34.0:4.1
-			>=net-libs/webkit-gtk-2.39.90:6
-		)
+		oauth-gtk3? ( >=net-libs/webkit-gtk-2.34.0:4.1 )
+		oauth-gtk4? ( >=net-libs/webkit-gtk-2.39.90:6 )
 	)
 	gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.8:= )
 	introspection? ( >=dev-libs/gobject-introspection-0.9.12:= )
@@ -79,6 +78,17 @@ BDEPEND="
 # It looks like a nightmare to disable those for now.
 RESTRICT="!test? ( test )"
 
+pkg_pretend() {
+	if has_version "gnome-extra/evolution-data-server[oauth(-)]" &&
+		! use oauth-gtk3 && ! use oauth-gtk4
+	then
+		ewarn "The previous installed version of gnome-extra/evolution-data-server"
+		ewarn "had USE=oauth enabled that is now split into USE=oauth-gtk3"
+		ewarn "and USE=oauth-gtk4.  Please consider enabling either (or both)"
+		ewarn "of these flags to preserve OAuth2 support."
+	fi
+}
+
 # global scope PATCHES or DOCS array mustn't be used due to double default_src_prepare call
 src_prepare() {
 	use vala && vala_setup
@@ -86,6 +96,7 @@ src_prepare() {
 	gnome2_src_prepare
 
 	eapply "${FILESDIR}"/3.36.5-gtk-doc-1.32-compat.patch
+	eapply "${FILESDIR}"/3.50.2-c99.patch
 
 	# Make CMakeLists versioned vala enabled
 	sed -e "s;\(find_program(VALAC\) valac);\1 ${VALAC});" \
@@ -115,8 +126,8 @@ src_configure() {
 		-DENABLE_GTK=$(usex gtk)
 		-DENABLE_GTK4=$(usex gtk)
 		-DENABLE_CANBERRA=$(usex gtk)
-		-DENABLE_OAUTH2_WEBKITGTK=$(usex oauth)
-		-DENABLE_OAUTH2_WEBKITGTK4=$(usex oauth)
+		-DENABLE_OAUTH2_WEBKITGTK=$(usex oauth-gtk3)
+		-DENABLE_OAUTH2_WEBKITGTK4=$(usex oauth-gtk4)
 		-DENABLE_EXAMPLES=OFF
 		-DENABLE_GOA=$(usex gnome-online-accounts)
 		-DWITH_LIBDB=$(usex berkdb "${EPREFIX}"/usr OFF)
