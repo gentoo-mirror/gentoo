@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/google/gson
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm arm64 ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=2.6
 SRC_URI=https://github.com/google/gson/archive/b17b1a0e98dcaf4b61823e1f0c29dda44c0ea3d5.tar.gz -> gson-2.10.2_pre20231128.tar.gz test? ( https://repo1.maven.org/maven2/com/google/truth/truth/1.1.3/truth-1.1.3.jar )
 _eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
-_md5_=a341cd979ce365845b9ac4e36b36f66a
+_md5_=5a32b8a2f2cd3f7be68bb39eb5b2e680
