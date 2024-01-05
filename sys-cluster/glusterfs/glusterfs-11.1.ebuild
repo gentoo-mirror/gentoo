@@ -13,7 +13,7 @@ SRC_URI="https://download.gluster.org/pub/gluster/${PN}/$(ver_cut 1)/${PV}/${P}.
 
 LICENSE="|| ( GPL-2 LGPL-3+ )"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 IUSE="debug emacs +fuse georeplication ipv6 +libtirpc rsyslog selinux static-libs tcmalloc test +uring xml"
 
@@ -25,7 +25,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 RESTRICT="test"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-11.0-fix-crash.patch"
+	"${FILESDIR}/${PN}-11.0-extras-defer-invoking-of-gluster-volume-set-help-as-.patch"
 )
 
 # sys-apps/util-linux is required for libuuid
@@ -69,8 +69,6 @@ BDEPEND="
 	sys-devel/flex
 	virtual/pkgconfig
 "
-
-SITEFILE="50${PN}-mode-gentoo.el"
 
 DOCS=( AUTHORS ChangeLog NEWS README.md THANKS )
 
@@ -130,8 +128,8 @@ src_install() {
 	default
 
 	# Path changes based on whether app-shells/bash-completion is installed, bug #911523
-	rm -rf "${ED}"/etc/bash_completion.d || die
-	newbashcomp extras/command-completion/gluster.bash ${PN}
+	rm -rf "${ED}"/etc/bash_completion.d "${D}$(get_bashcompdir)" || die
+	newbashcomp extras/command-completion/gluster.bash gluster
 
 	rm \
 		"${ED}"/etc/glusterfs/glusterfs-{georep-,}logrotate \
@@ -148,7 +146,7 @@ src_install() {
 
 	if use emacs ; then
 		elisp-install ${PN} extras/glusterfs-mode.el*
-		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
+		elisp-site-file-install "${FILESDIR}/50glusterfs-mode-gentoo.el"
 	fi
 
 	insinto /usr/share/vim/vimfiles/ftdetect; doins "${FILESDIR}"/${PN}.vim
@@ -180,7 +178,8 @@ src_install() {
 		find "${D}" -type f -name '*.la' -delete || die
 	fi
 
-	python_optimize "${ED}"
+	python_fix_shebang "${ED}"
+	python_optimize
 }
 
 pkg_postinst() {
