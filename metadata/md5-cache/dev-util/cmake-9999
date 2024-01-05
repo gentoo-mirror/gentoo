@@ -1,15 +1,15 @@
 BDEPEND=doc? ( dev-python/requests dev-python/sphinx ) test? ( app-arch/libarchive[zstd] ) sys-devel/make test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
-DEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) emacs? ( >=app-editors/emacs-23.1:* ) gui? ( !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) ) ncurses? ( sys-libs/ncurses:= )
+DEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) gui? ( !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) ) ncurses? ( sys-libs/ncurses:= )
 DESCRIPTION=Cross platform Make
 EAPI=8
 HOMEPAGE=https://cmake.org/
-INHERIT=bash-completion-r1 cmake elisp-common flag-o-matic multiprocessing toolchain-funcs virtualx xdg-utils git-r3
-IUSE=+doc dap emacs gui ncurses qt6 test test
+INHERIT=bash-completion-r1 cmake flag-o-matic multiprocessing toolchain-funcs virtualx xdg-utils git-r3
+IUSE=+doc dap gui ncurses qt6 test test
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) emacs? ( >=app-editors/emacs-23.1:* ) gui? ( !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) ) ncurses? ( sys-libs/ncurses:= )
+RDEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) gui? ( !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) ) ncurses? ( sys-libs/ncurses:= )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	elisp-common	2a0fa407d2e6363c663ccb299503b25c	virtualx	817571665ee28575da44ee08135089e5	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=315735cb3781d2e674e074e18ce26ed8
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	virtualx	817571665ee28575da44ee08135089e5	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_md5_=423cdd1032425fdf6fab23f0ada63ba7
