@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-06">
+    <title>CUPS filters: Remote Code Execution</title>
+    <synopsis>A vulnerability has been found in CUPS filters where remote code execution is possible via the beh filter.</synopsis>
+    <product type="ebuild">cups-filters</product>
+    <announced>2024-01-05</announced>
+    <revised count="1">2024-01-05</revised>
+    <bug>906944</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-print/cups-filters" auto="yes" arch="*">
+            <unaffected range="ge">1.28.17-r2</unaffected>
+            <vulnerable range="lt">1.28.17-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>CUPS filters provides backends, filters, and other software that was once part of the core CUPS distribution.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in cups-filters. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>If you use beh to create an accessible network printer, this security vulnerability can cause remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All cups-filters users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-print/cups-filters-1.28.17-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24805">CVE-2023-24805</uri>
+        <uri>GHSA-gpxc-v2m8-fr3x</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-05T14:26:44.306186Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-05T14:26:44.308150Z">graaff</metadata>
+</glsa>
