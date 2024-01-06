@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ MY_P="signal-cli-${PV}"
 DESCRIPTION="Send and receive messages of Signal Messenger over a command line interface"
 HOMEPAGE="https://github.com/AsamK/signal-cli/wiki"
 SRC_URI="
-	https://github.com/AsamK/signal-cli/releases/download/v${PV}/${MY_P}-Linux.tar.gz -> ${P}.tar.gz
+	https://github.com/AsamK/signal-cli/releases/download/v${PV}/${MY_P}.tar.gz -> ${P}.gh.tar.gz
 	https://github.com/AsamK/signal-cli/raw/v${PV}/README.md -> ${P}.README.md
 	https://github.com/AsamK/signal-cli/raw/v${PV}/man/signal-cli.1.adoc -> ${P}.signal-cli.1.adoc
 "
@@ -26,7 +26,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-use-working-java-version.patch"
+	"${FILESDIR}/${PN}-0.11.3-use-working-java-version.patch"
 )
 
 src_unpack() {
