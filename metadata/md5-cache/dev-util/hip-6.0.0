@@ -4,7 +4,7 @@ DEPEND=dev-util/hipcc >=dev-util/rocminfo-5 sys-devel/clang:17 dev-libs/rocm-com
 DESCRIPTION=C++ Heterogeneous-Compute Interface for Portability
 EAPI=8
 HOMEPAGE=https://github.com/ROCm-Developer-Tools/hipamd
-INHERIT=cmake docs llvm rocm
+INHERIT=cmake docs flag-o-matic llvm rocm
 IUSE=debug test doc
 KEYWORDS=~amd64
 LICENSE=MIT
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/6.0
 SRC_URI=https://github.com/ROCm-Developer-Tools/clr/archive/refs/tags/rocm-6.0.0.tar.gz -> rocm-clr-6.0.0.tar.gz https://github.com/ROCm-Developer-Tools/HIP/archive/refs/tags/rocm-6.0.0.tar.gz -> hip-6.0.0.tar.gz test? ( https://github.com/ROCm-Developer-Tools/hip-tests/archive/refs/tags/rocm-5.7.0.tar.gz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	docs	74475974eae5130ba3e19b31b8ae46b8	llvm	dcfb437a52b5672e5f39deaae6f789c3	rocm	32cae3278ec0889923baf0e5a632e562
-_md5_=8c713a1bc1edd7157389bdabe5474108
+_md5_=6201bf59fa535f68cdce8570c7ec475a
