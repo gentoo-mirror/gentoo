@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ DOCS_BUILDER="doxygen"
 DOCS_DEPEND="media-gfx/graphviz"
 ROCM_SKIP_GLOBALS=1
 
-inherit cmake docs llvm rocm
+inherit cmake docs flag-o-matic llvm rocm
 
 LLVM_MAX_SLOT=17
 
@@ -80,6 +80,10 @@ src_prepare() {
 
 src_configure() {
 	use debug && CMAKE_BUILD_TYPE="Debug"
+
+	# Fix ld.lld linker error: https://github.com/ROCm/HIP/issues/3382
+	# See also: https://github.com/gentoo/gentoo/pull/29097
+	append-ldflags $(tc-flags-CCLD -Wl,--undefined-version)
 
 	local mycmakeargs=(
 		-DCMAKE_PREFIX_PATH="$(get_llvm_prefix "${LLVM_MAX_SLOT}")"
