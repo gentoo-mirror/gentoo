@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-07">
+    <title>R: Directory Traversal</title>
+    <synopsis>A vulnerability was found in R which could allow for remote code execution.</synopsis>
+    <product type="ebuild">R</product>
+    <announced>2024-01-06</announced>
+    <revised count="1">2024-01-06</revised>
+    <bug>765361</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/R" auto="yes" arch="*">
+            <unaffected range="ge">4.0.4</unaffected>
+            <vulnerable range="lt">4.0.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>R is a language and environment for statistical computing and graphics.</p>
+    </background>
+    <description>
+        <p>The native R package installation mechanisms do not sufficiently validate installed source packages for path traversal.</p>
+    </description>
+    <impact type="normal">
+        <p>Installation of a malicious R package could result in an arbitrary file overwrite which could result in arbitrary code execution, as might be seen with the overwrite of an authorized_keys file.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All R users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/R-4.0.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27637">CVE-2020-27637</uri>
+        <uri>-fno-common</uri>
+        <uri>gcc-10</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-06T09:03:55.341282Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-06T09:03:55.343880Z">graaff</metadata>
+</glsa>
