@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,10 +16,13 @@ PYTHON_EXTENSIONS_COMMIT="f1e3cf96b263df519b9d30984eb99b4850fc1976"
 SRC_URI="
 	https://github.com/albertlauncher/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/albertlauncher/plugins/archive/${PLUGINS_HASH}.tar.gz -> ${PN}-plugins-${PLUGINS_HASH}.tar.gz
-	python-extensions? ( https://github.com/albertlauncher/python/archive/${PYTHON_EXTENSIONS_COMMIT}.tar.gz -> ${PN}-python-extensions-${PYTHON_EXTENSIONS_COMMIT}.tar.gz )
+	python-extensions? (
+		https://github.com/albertlauncher/python/archive/${PYTHON_EXTENSIONS_COMMIT}.tar.gz ->
+			${PN}-python-extensions-${PYTHON_EXTENSIONS_COMMIT}.tar.gz
+	)
 "
 
-LICENSE="all-rights-reserved"	# unclear licensing #766129
+LICENSE="Albert-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug +python +python-extensions"
@@ -28,7 +31,7 @@ REQUIRED_USE="
 	python-extensions? ( python )
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
-RESTRICT="mirror"
+RESTRICT="mirror bindist"
 
 RDEPEND="
 	app-arch/libarchive:=
