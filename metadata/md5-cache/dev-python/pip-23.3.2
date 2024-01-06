@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://pip.pypa.io/en/stable/ https://pypi.org/project/pip/ https://github.com/pypa/pip/
 INHERIT=bash-completion-r1 distutils-r1 multiprocessing
 IUSE=test-rust test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=MIT Apache-2.0 BSD BSD-2 ISC LGPL-2.1+ MPL-2.0 PSF-2
 RDEPEND=>=dev-python/setuptools-39.2.0[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_pypy3? ( dev-python/pypy3:=[ssl(+),threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[ssl(+),threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[ssl(+),threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[ssl(+),threads(+)] )
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pypa/pip/archive/23.3.2.tar.gz -> pip-23.3.2.gh.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	b9318b5e40104e608d7e4582121fb561
-_md5_=f0d00f845b1419dc55e1e890a7103ca4
+_md5_=062ad10ad2513c27628d988de3f0fc5f
