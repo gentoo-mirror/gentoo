@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,7 +10,7 @@ DESCRIPTION="\"Go please\" is the official Go language server"
 HOMEPAGE="https://github.com/golang/tools/blob/master/gopls/README.md"
 SLOT="0"
 LICENSE="BSD"
-BDEPEND=">=dev-lang/go-1.18"
+BDEPEND=">=dev-lang/go-1.20"
 SRC_URI="
 	${ARCHIVE_URI}
 	https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz
@@ -26,8 +26,7 @@ src_prepare() {
 }
 
 src_compile() {
-	GOBIN="${S}/bin" CGO_ENABLED=0 go install ./...
-	[[ -x bin/${PN} ]] || die "${PN} build failed"
+	ego build
 }
 
 src_test() {
@@ -35,6 +34,6 @@ src_test() {
 }
 
 src_install() {
-	dobin bin/${PN}
+	dobin gopls
 	dodoc -r doc README.md
 }
