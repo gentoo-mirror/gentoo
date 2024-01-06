@@ -1345,7 +1345,7 @@ app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containe
 app-containers/go-secbench 0.1.0-r1: run and evaluate the docker security benchmark
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
-app-containers/incus 0.3 0.3-r1 0.4-r1: Modern, secure and powerful system container and virtual machine manager
+app-containers/incus 0.3-r1 0.4-r1: Modern, secure and powerful system container and virtual machine manager
 app-containers/k3d 5.4.9 5.6.0: k3d creates k3s clusters in docker
 app-containers/kompose 1.26.1: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 5.0.3: A userspace interface for the Linux kernel containment features
@@ -5082,7 +5082,7 @@ dev-lang/smlnj 110.99.3 110.99.4: Standard ML of New Jersey compiler and librari
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
 dev-lang/souffle 2.4.1: Datalog compiler, synthesizes C++ program from logic specification
 dev-lang/spark 2021: Software development for high-reliability applications
-dev-lang/spidermonkey 91.13.0-r1 102.6.0 102.10.0 102.15.0 115.3.1: SpiderMonkey is Mozilla's JavaScript engine written in C and C++
+dev-lang/spidermonkey 91.13.0-r1 102.10.0 102.15.0 115.3.1: SpiderMonkey is Mozilla's JavaScript engine written in C and C++
 dev-lang/squirrel 3.2: A interpreted language mainly used for games
 dev-lang/srf 1.0-r2: The Simple Recursive Functions programming language
 dev-lang/starlark-rust 0.8.0: A Rust implementation of the Starlark language
@@ -5529,7 +5529,7 @@ dev-libs/nmeap 0.3-r2: Extensible NMEA-0183 (GPS) data parser in standard C
 dev-libs/npth 1.6-r1 1.6-r2: New GNU Portable Threads Library
 dev-libs/nsgenbind 0.8-r1: Generate Javascript-to-DOM bindings from w3c webidl files
 dev-libs/nspr 4.35-r2: Netscape Portable Runtime
-dev-libs/nss 3.79.4 3.91 3.92 3.95 3.96.1: Mozilla's Network Security Services library that implements PKI support
+dev-libs/nss 3.91 3.92 3.96.1: Mozilla's Network Security Services library that implements PKI support
 dev-libs/nss-pem 1.1.0: PEM file reader for Network Security Services (NSS)
 dev-libs/nsync 1.24.0-r1 1.25.0: C library that exports various synchronization primitives, such as mutexes
 dev-libs/ntl 11.5.1-r4: High-performance and portable C++ number theory library
@@ -5580,7 +5580,7 @@ dev-libs/qr-code-generator 1.8.0: QR Code Generator Library in Multiple Language
 dev-libs/qtkeychain 0.14.1-r1 0.14.2: Qt API for storing passwords securely
 dev-libs/quazip 1.2 1.3-r2 1.3-r3 1.4 1.4-r1: Simple C++ wrapper over Gilles Vollant's ZIP/UNZIP package
 dev-libs/qxlsx 1.4.5 1.4.6: Excel file(*.xlsx) reader/writer library using Qt
-dev-libs/raft 0.18.0 0.18.2 0.18.3: C implementation of the Raft consensus protocol
+dev-libs/raft 0.18.2 0.18.3: C implementation of the Raft consensus protocol
 dev-libs/rapidjson 1.1.0-r4 9999: A fast JSON parser/generator for C++ with both SAX/DOM style API
 dev-libs/rasqal 0.9.33-r1 0.9.33-r2: Library that handles Resource Description Framework (RDF)
 dev-libs/rccl 5.1.3: ROCm Communication Collectives Library (RCCL)
@@ -12423,7 +12423,7 @@ mail-client/neomutt 20220415 20231023 20231023-r1 20231103 20231221 99999999: A 
 mail-client/roundcube 1.5.2 1.5.4 1.5.5 1.5.6 1.6.1 1.6.2 1.6.3 1.6.4 1.6.5 9999: A browser-based multilingual IMAP client with an application-like user interface
 mail-client/s-nail 14.9.24: Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
 mail-client/thunderbird 115.6.0: Thunderbird Mail Client
-mail-client/thunderbird-bin 115.5.2 115.6.0: Thunderbird Mail Client
+mail-client/thunderbird-bin 115.6.0: Thunderbird Mail Client
 mail-filter/MailScanner 4.84.5.2: Free Anti-Virus and Anti-Spam Filter
 mail-filter/afew 3.0.1: Initial tagging script for Notmuch
 mail-filter/amavisd-milter 1.7.0-r1 1.7.1 1.7.2 1.7.2-r1: sendmail milter for amavisd-new
@@ -13878,7 +13878,7 @@ media-sound/music-file-organizer 1.0.3: Organizes audio files into directories b
 media-sound/musique 1.5-r1: Qt music player
 media-sound/ncmpc 0.49: Ncurses client for the Music Player Daemon (MPD)
 media-sound/ncmpcpp 0.9.2-r2 0.9.2-r3 9999: featureful ncurses based MPD client inspired by ncmpc
-media-sound/ncspot 0.13.4: ncurses Spotify client written in Rust using librespot
+media-sound/ncspot 0.13.4 1.0.0: ncurses Spotify client written in Rust using librespot
 media-sound/nickvision-tagger 2022.11.2: An easy-to-use music tag (metadata) editor
 media-sound/normalize 0.7.7-r1: Audio file volume normalizer
 media-sound/ogg2mp3 0.6.1-r1: Perl script to convert Ogg Vorbis files to MP3 files
@@ -14187,7 +14187,7 @@ media-video/x264-encoder 0.0.20220222 0.0.20231114 9999: A free commandline enco
 media-video/xine-ui 0.99.13 0.99.13-r1: Xine movie player
 media-video/xvattr 1.3-r3: X11 XVideo Querying/Setting Tool from Ogle project
 media-video/xvid4conf 1.12: GTK2-configuration dialog for xvid4
-media-video/yle-dl 20230611 20231120 20231214: Download media files from Yle Areena
+media-video/yle-dl 20231214: Download media files from Yle Areena
 net-analyzer/2ping 4.5.1-r1: A bi-directional ping utility
 net-analyzer/alive 2.0.5-r1: Periodic ping program
 net-analyzer/apinger 0.6.1: Alarm Pinger
@@ -18031,8 +18031,8 @@ www-client/elinks 0.16.1.1-r2 9999: Advanced and well-established text-mode web 
 www-client/epiphany 44.6: GNOME webbrowser based on Webkit
 www-client/falkon 23.08.3 23.08.4: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
-www-client/firefox 115.4.0 115.5.0 115.6.0 120.0.1 121.0: Firefox Web Browser
-www-client/firefox-bin 115.5.0 115.6.0 120.0.1 121.0: Firefox Web Browser
+www-client/firefox 115.6.0 121.0: Firefox Web Browser
+www-client/firefox-bin 115.6.0 121.0: Firefox Web Browser
 www-client/google-chrome 120.0.6099.199: The web browser from Google
 www-client/google-chrome-beta 121.0.6167.16: The web browser from Google
 www-client/google-chrome-unstable 122.0.6182.0: The web browser from Google
