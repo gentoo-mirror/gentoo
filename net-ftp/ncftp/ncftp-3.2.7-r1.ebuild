@@ -25,6 +25,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.2.7-fix-clang.patch # 875458
+	"${FILESDIR}"/${PN}-3.2.7-fix-gcc14.patch # 921487
 )
 
 src_prepare() {
