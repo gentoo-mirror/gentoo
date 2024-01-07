@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-10">
+    <title>Mozilla Firefox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Mozilla Firefox, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">firefox,firefox-bin</product>
+    <announced>2024-01-07</announced>
+    <revised count="1">2024-01-07</revised>
+    <bug>908245</bug>
+    <bug>914073</bug>
+    <bug>918433</bug>
+    <bug>920507</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/firefox" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">121.0</unaffected>
+            <unaffected range="ge" slot="esr">115.6.0</unaffected>
+            <vulnerable range="lt" slot="rapid">121.0</vulnerable>
+            <vulnerable range="lt" slot="esr">115.6.0</vulnerable>
+        </package>
+        <package name="www-client/firefox-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">121.0</unaffected>
+            <unaffected range="ge" slot="esr">115.6.0</unaffected>
+            <vulnerable range="lt" slot="rapid">121.0</vulnerable>
+            <vulnerable range="lt" slot="esr">115.6.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Firefox is a popular open-source web browser from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Firefox ESR binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-115.6.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox ESR users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-115.6.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-121.0:rapid"
+        </code>
+        
+        <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-121.0:rapid"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-3482">CVE-2023-3482</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4058">CVE-2023-4058</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4579">CVE-2023-4579</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-4863">CVE-2023-4863</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5129">CVE-2023-5129</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5170">CVE-2023-5170</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5172">CVE-2023-5172</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5173">CVE-2023-5173</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5175">CVE-2023-5175</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5722">CVE-2023-5722</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5723">CVE-2023-5723</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5729">CVE-2023-5729</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5731">CVE-2023-5731</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5758">CVE-2023-5758</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6135">CVE-2023-6135</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6210">CVE-2023-6210</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6211">CVE-2023-6211</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6213">CVE-2023-6213</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6856">CVE-2023-6856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6857">CVE-2023-6857</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6858">CVE-2023-6858</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6859">CVE-2023-6859</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6860">CVE-2023-6860</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6861">CVE-2023-6861</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6862">CVE-2023-6862</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6863">CVE-2023-6863</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6864">CVE-2023-6864</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6865">CVE-2023-6865</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6866">CVE-2023-6866</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6867">CVE-2023-6867</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6868">CVE-2023-6868</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6869">CVE-2023-6869</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6870">CVE-2023-6870</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6871">CVE-2023-6871</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6872">CVE-2023-6872</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6873">CVE-2023-6873</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32205">CVE-2023-32205</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32206">CVE-2023-32206</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32207">CVE-2023-32207</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32208">CVE-2023-32208</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32209">CVE-2023-32209</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32210">CVE-2023-32210</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32211">CVE-2023-32211</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32212">CVE-2023-32212</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32213">CVE-2023-32213</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32214">CVE-2023-32214</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32215">CVE-2023-32215</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32216">CVE-2023-32216</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34414">CVE-2023-34414</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34415">CVE-2023-34415</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34416">CVE-2023-34416</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34417">CVE-2023-34417</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37203">CVE-2023-37203</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37204">CVE-2023-37204</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37205">CVE-2023-37205</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37206">CVE-2023-37206</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37209">CVE-2023-37209</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37210">CVE-2023-37210</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37212">CVE-2023-37212</uri>
+        <uri>MFSA-2023-40</uri>
+        <uri>MFSA-TMP-2023-0002</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-07T09:38:31.185976Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-07T09:38:31.188129Z">graaff</metadata>
+</glsa>
