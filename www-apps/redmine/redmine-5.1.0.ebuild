@@ -1,9 +1,9 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-USE_RUBY="ruby30 ruby31"
+USE_RUBY="ruby31 ruby32"
 inherit depend.apache ruby-ng
 
 DESCRIPTION="Flexible project management web application using the Ruby on Rails framework"
@@ -13,38 +13,38 @@ SRC_URI="https://www.redmine.org/releases/${P}.tar.gz"
 KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="fastcgi imagemagick ldap markdown +minimagick mysql passenger pdf postgres +standalone sqlite"
+IUSE="fastcgi imagemagick ldap +minimagick mysql passenger pdf postgres +standalone sqlite"
 
 ruby_add_bdepend "
 	fastcgi? ( dev-ruby/fcgi )
 	ldap? ( >=dev-ruby/ruby-net-ldap-0.17.0 )
-	minimagick? ( >=dev-ruby/mini_magick-4.11.0 )
-	markdown? ( >=dev-ruby/redcarpet-3.5.1 )
+	minimagick? ( >=dev-ruby/mini_magick-4.12.0 )
 	mysql? ( >=dev-ruby/mysql2-0.5.0:0.5 )
 	passenger? ( www-apache/passenger )
-	postgres? ( >=dev-ruby/pg-1.2.2:1 )
-	sqlite? ( >=dev-ruby/sqlite3-1.4.0 )
+	postgres? ( >=dev-ruby/pg-1.5.3:1 )
+	sqlite? ( >=dev-ruby/sqlite3-1.6.0 )
 	dev-ruby/actionpack-xml_parser:2
 	dev-ruby/addressable
 	>=dev-ruby/commonmarker-0.23.8
-	dev-ruby/csv:3
+	>=dev-ruby/csv-3.2.6:3
 	>=dev-ruby/deckar01-task_list-2.3.2
 	>=dev-ruby/html-pipeline-2.13.2
-	>=dev-ruby/i18n-1.10.0:1
-	>=dev-ruby/mail-2.7.1
+	>=dev-ruby/i18n-1.14.1:1
+	>=dev-ruby/mail-2.8.1
 	dev-ruby/marcel
 	>=dev-ruby/mini_mime-1.1.0
-	>=dev-ruby/net-imap-0.2.2
-	>=dev-ruby/net-pop-0.1.1
-	>=dev-ruby/net-smtp-0.3.0
-	>=dev-ruby/nokogiri-1.13.10
-	>=dev-ruby/rails-6.1.7.2:6.1
-	>=dev-ruby/rbpdf-1.21.0
+	>=dev-ruby/net-imap-0.3.4
+	>=dev-ruby/net-pop-0.1.2
+	>=dev-ruby/net-smtp-0.3.3
+	>=dev-ruby/nokogiri-1.15.2
+	>=dev-ruby/rails-6.1.7.6:6.1
+	>=dev-ruby/rbpdf-1.21.3
+	>=dev-ruby/redcarpet-3.6.0
 	>=dev-ruby/request_store-1.5.0:0
 	dev-ruby/rexml
-	>=dev-ruby/roadie-rails-3.0.0:3
+	>=dev-ruby/roadie-rails-3.1.0:3
 	>=dev-ruby/rotp-5.0.0
-	>=dev-ruby/rouge-3.28.0
+	>=dev-ruby/rouge-4.2.0
 	dev-ruby/rqrcode
 	>=dev-ruby/rubyzip-2.3.0:2
 	>=dev-ruby/sanitize-6.0:6
@@ -82,21 +82,18 @@ all_ruby_prepare() {
 	sed -i -e "s/gem 'rails',.*/gem 'rails', '~>6.1.6'/" Gemfile || die
 
 	# Commonmark
-	sed -i -e "s/'0.23.4'/'>=0.23.4'/" -e "s/'2.3.2'/'>=2.3.2'/" Gemfile
+	sed -i -e "s/'2.3.2'/'>=2.3.2'/" Gemfile || die
 
-	sed -i -e "/group :development do/,/end$/d" Gemfile || die
-	sed -i -e "/group :test do/,/end$/d" Gemfile || die
+	sed -i -e "/group :development do/,/^end$/d" Gemfile || die
+	sed -i -e "/group :test do/,/^end$/d" Gemfile || die
 
 	if ! use imagemagick ; then
-		sed -i -e "/group :minimagick do/,/end$/d" Gemfile || die
+		sed -i -e "/group :minimagick do/,/^end$/d" Gemfile || die
 	fi
 	if ! use ldap ; then
 		# remove ldap stuff module if disabled to avoid #413779
 		use ldap || rm app/models/auth_source_ldap.rb || die
-		sed -i -e "/group :ldap do/,/end$/d" Gemfile || die
-	fi
-	if ! use markdown ; then
-		sed -i -e "/group :markdown do/,/end$/d" Gemfile || die
+		sed -i -e "/group :ldap do/,/^end$/d" Gemfile || die
 	fi
 	# Additional dependency for Gemfile (#657156)
 	if use fastcgi; then

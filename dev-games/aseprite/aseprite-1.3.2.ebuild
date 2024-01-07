@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..12} )
 
-inherit cmake desktop ninja-utils python-any-r1 toolchain-funcs xdg-utils
+inherit cmake desktop python-any-r1 toolchain-funcs xdg-utils
 
 SKIA_VER="m102"
 # Last commit in ${SKIA_VER} feature branch
@@ -20,15 +20,15 @@ SRC_URI="https://github.com/aseprite/aseprite/releases/download/v${PV}/Aseprite-
 # See https://github.com/aseprite/aseprite#license
 LICENSE="Aseprite-EULA"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="kde test webp"
 RESTRICT="bindist mirror !test? ( test )"
 
-RDEPEND="
+CDEPEND="
 	app-arch/libarchive:=
 	app-text/cmark:=
-	dev-cpp/json11
+	dev-libs/libfmt:=
 	dev-libs/tinyxml
 	media-libs/freetype
 	media-libs/giflib:=
@@ -48,8 +48,12 @@ RDEPEND="
 		kde-frameworks/kio:5
 	)
 	webp? ( media-libs/libwebp:= )"
+RDEPEND="
+	${CDEPEND}
+	gnome-extra/zenity
+"
 DEPEND="
-	${RDEPEND}
+	${CDEPEND}
 	x11-base/xorg-proto"
 BDEPEND="
 	${PYTHON_DEPS}
@@ -69,18 +73,14 @@ S="${WORKDIR}"
 PATCHES=(
 	"${FILESDIR}/skia-${SKIA_VER}_remove_angle2.patch"
 	"${FILESDIR}/${PN}-1.2.40_shared_libarchive.patch"
-	"${FILESDIR}/${PN}-1.2.40_shared_json11.patch"
-	"${FILESDIR}/${PN}-1.2.40_shared_webp.patch"
+	"${FILESDIR}/${PN}-1.3.2_shared_json11.patch"
+	"${FILESDIR}/${PN}-1.3.2_shared_webp.patch"
 	"${FILESDIR}/${PN}-1.2.35_laf_fixes.patch"
-	"${FILESDIR}/${PN}-1.2.40_musl_pthreads.patch"
-	"${FILESDIR}/${PN}-1.2.40_ixwebsocket-gcc13.patch"
-	"${FILESDIR}/${PN}-1.2.40_laf-gcc13.patch"
+	"${FILESDIR}/${PN}-1.3.2_shared_fmt.patch"
+	"${FILESDIR}/${PN}-1.3.2_strict-aliasing.patch"
 )
 
 src_prepare() {
-	# Remove extra \r on ends, #895504
-	sed -i -e 's/\r$//' \
-		third_party/IXWebSocket/ixwebsocket/IXWebSocketSendData.h || die
 	cmake_src_prepare
 	# Skia: remove custom optimizations
 	sed -i -e 's:"\/\/gn\/skia\:optimize",::g' \
@@ -175,11 +175,12 @@ src_configure() {
 		-DSKSHAPER_LIBRARY="${WORKDIR}/skia-${SKIA_REV}/out/Static/libskshaper.a"
 		-DUSE_SHARED_CMARK=ON
 		-DUSE_SHARED_CURL=ON
+		-DUSE_SHARED_FMT=ON
 		-DUSE_SHARED_FREETYPE=ON
 		-DUSE_SHARED_GIFLIB=ON
 		-DUSE_SHARED_HARFBUZZ=ON
 		-DUSE_SHARED_JPEGLIB=ON
-		-DUSE_SHARED_JSON11=ON
+		-DUSE_SHARED_JSON11=OFF		# Custom methods added to bundled version
 		-DUSE_SHARED_LIBARCHIVE=ON
 		-DUSE_SHARED_LIBPNG=ON
 		-DUSE_SHARED_PIXMAN=ON

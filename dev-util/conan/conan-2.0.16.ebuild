@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1
@@ -30,7 +30,7 @@ RDEPEND="
 	>=dev-python/pluginbase-0.5[${PYTHON_USEDEP}]
 	>=dev-python/pyjwt-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.8.0[${PYTHON_USEDEP}]
-	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.25[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-1.26.6[${PYTHON_USEDEP}]
 "
