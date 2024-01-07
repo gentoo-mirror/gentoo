@@ -901,7 +901,7 @@ app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
 app-admin/awscli 1.32.7 1.32.11 1.32.14: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
-app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1: Bitwarden password manager desktop client
+app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1 2023.12.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
 app-admin/cancd 0.1.0-r6: CA NetConsole Daemon receives output from the Linux netconsole driver
 app-admin/ccze 0.2.1-r5: A flexible and fast logfile colorizer
@@ -922,7 +922,7 @@ app-admin/consul-template 0.29.5: Generic template rendering and notifications w
 app-admin/coreboot-utils 4.18-r2: A selection from coreboot/utils useful in general
 app-admin/cpulimit 2.8: Limits the CPU usage of a process
 app-admin/cronlocker 0.5.0: synchronize a cron job across multiple hosts using the consul lock feature
-app-admin/cronolog 1.6.2-r6: Log rotation software
+app-admin/cronolog 1.6.2-r6 1.6.2-r7: Log rotation software
 app-admin/dio 1.5.2-r3: A device I/O monitoring tool
 app-admin/diradm 2.9.7.1-r1: A nearly complete nss/shadow suite for managing POSIX users/groups/data in LDAP
 app-admin/djbdns-logparse 0.0.2-r1: Make tinydns and dnscache logs human-readable
@@ -1133,7 +1133,7 @@ app-arch/lz4 1.9.4: Extremely Fast Compression algorithm
 app-arch/lz5 2.0-r1: An efficient compressor with very fast decompression
 app-arch/lzip 1.23: Lossless data compressor based on the LZMA algorithm
 app-arch/lziprecover 1.23: Lziprecover is a data recovery tool and decompressor for lzip compressed files
-app-arch/lzlib 1.13-r1: Library for lzip compression
+app-arch/lzlib 1.13-r1 1.13-r2: Library for lzip compression
 app-arch/lzma 19.00: LZMA Stream Compressor from the SDK
 app-arch/lzop 1.04-r1: Utility for fast (even real-time) compression/decompression
 app-arch/makeself 2.4.5 2.5.0: Shell script that generates a self-extractible tar.gz
@@ -1179,8 +1179,8 @@ app-arch/unrar 6.2.8 6.2.9 6.2.10 6.2.12 6.2.12-r1: Uncompress rar files
 app-arch/unrpa 2.3.0-r1: Ren'Py's RPA data file extractor
 app-arch/unshield 1.5.1: InstallShield CAB file extractor
 app-arch/unzip 6.0_p27-r1: unzipper for pkzip-compressed files
-app-arch/upx 4.0.2 4.1.0: Ultimate Packer for eXecutables (free version using UCL compression and not NRV)
-app-arch/upx-bin 4.0.2 4.1.0: Ultimate Packer for eXecutables, binary version with proprietary NRV compression
+app-arch/upx 4.1.0 4.2.1: Ultimate Packer for eXecutables (free version using UCL compression and not NRV)
+app-arch/upx-bin 4.1.0 4.2.1: Ultimate Packer for eXecutables, binary version with proprietary NRV compression
 app-arch/vimball 0.5.1 0.5.1-r1 9999: A command-line vimball archive extractor
 app-arch/wimlib 1.13.4-r1 1.14.1: The open source Windows Imaging (WIM) library
 app-arch/xar 1.8.0.0.487.100.1: An easily extensible archive format
@@ -1433,7 +1433,7 @@ app-crypt/kstart 4.3: Modified versions of kinit for refreshing kerberos tickets
 app-crypt/libb2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp
 app-crypt/libmd 1.0.4 1.1.0: Message Digest functions from BSD systems
 app-crypt/libnitrokey 3.8 9999: Support library for the Nitrokey
-app-crypt/libscrypt 1.22 1.22-r1: Shared library to implement the scrypt algorithm
+app-crypt/libscrypt 1.22 1.22-r1 1.22-r2: Shared library to implement the scrypt algorithm
 app-crypt/libsecret 0.20.5-r3 0.21.1: GObject library for accessing the freedesktop.org Secret Service API
 app-crypt/libu2f-host 1.1.10-r1: Yubico Universal 2nd Factor (U2F) Host C Library
 app-crypt/libu2f-server 1.1.0-r2: Yubico Universal 2nd Factor (U2F) server C Library
@@ -3104,7 +3104,7 @@ app-shells/sash 3.8: A small (static) UNIX Shell
 app-shells/shish 0.7_pre3-r1: The diet shell
 app-shells/smrsh 8.15.2: Sendmail restricted shell, for use with MTAs other than Sendmail
 app-shells/soapbox 0.3.1-r2: A preload (sandbox) library to restrict filesystem writes
-app-shells/squirrelsh 1.2.7 1.2.7-r1: Cross-platform object-oriented scripting shell using the squirrel language
+app-shells/squirrelsh 1.2.7-r1: Cross-platform object-oriented scripting shell using the squirrel language
 app-shells/starship 1.15.0 1.16.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell
 app-shells/tcsh 6.24.00 6.24.01 6.24.01-r1: Enhanced version of the Berkeley C shell (csh)
 app-shells/thefuck 3.32 3.32-r1: Magnificent app which corrects your previous console command
@@ -3237,7 +3237,7 @@ app-text/kjots 5.1.1: Note taking utility by KDE
 app-text/kramdown-rfc 1.6.36 1.6.39: An XML2RFC (RFC799x) backend for Thomas Leitner's kramdown markdown parser
 app-text/krop 0.6.0-r2: A tool to crop PDF files
 app-text/languagetool 5.4-r2: A proof-reading tool for many languages
-app-text/lcdf-typetools 2.108-r1: Font utilities for eg manipulating OTF
+app-text/lcdf-typetools 2.108-r1 2.110: Font utilities for eg manipulating OTF
 app-text/lesspipe 2.10 2.11: Preprocessor for less
 app-text/letterize 1.4: Generate English-plausible alphabetic mnemonics for a phone number
 app-text/libabw 0.1.3: Library parsing abiword documents
@@ -4044,7 +4044,7 @@ dev-erlang/stun 1.0.47 1.2.2 1.2.6 1.2.7 1.2.10: STUN and TURN library for Erlan
 dev-erlang/xmpp 1.5.8 1.6.0 1.6.1 1.6.2 1.7.0: XMPP parsing and serialization library on top of Fast XML
 dev-erlang/yconf 1.0.13 1.0.14 1.0.15: YAML configuration processor
 dev-games/KXL 1.1.7_p17: Development Library for making games for X
-dev-games/aseprite 1.2.40: Animated sprite editor & pixel art tool
+dev-games/aseprite 1.2.40 1.3.2: Animated sprite editor & pixel art tool
 dev-games/clanlib 0.8.1-r2 2.3.7-r3 4.1.0: Multi-platform game development library
 dev-games/flatzebra 0.1.7-r1: Generic game engine for 2D double-buffering animation
 dev-games/freecell-solver 6.8.0: C library for automatically solving Freecell and some other solitaire variants
@@ -5322,7 +5322,7 @@ dev-libs/libebml 1.4.4: Extensible binary format library (kinda like XML)
 dev-libs/libedit 20221030.3.1: BSD replacement for libreadline
 dev-libs/libee 0.4.1: An Event Expression Library inspired by CEE
 dev-libs/libei 1.1.0 1.2.0: Library for Emulated Input, primarily aimed at the Wayland stack
-dev-libs/libelf 0.8.13-r3: A ELF object file access library
+dev-libs/libelf 0.8.13-r3 0.8.13-r4: ELF object file access library
 dev-libs/liberasurecode 1.6.3: Erasure Code API library written in C with pluggable Erasure Code backends
 dev-libs/libestr 0.1.11-r1: Library for some string essentials
 dev-libs/libev 4.33: A high-performance event loop/event model with lots of feature
@@ -10569,7 +10569,7 @@ dev-util/codespell 2.2.4 2.2.5 2.2.6: Check text files for common misspellings
 dev-util/colm 0.13.0.7 0.14.7 0.14.7-r1 0.14.7-r2 0.14.7-r3: COmputer Language Manipulation
 dev-util/colorgcc 1.3.2-r7: Perl script to colorise the gcc output
 dev-util/complexity 1.10-r1: a tool designed for analyzing the complexity of C program functions
-dev-util/conan 2.0.4: Distributed C/C++ package manager
+dev-util/conan 2.0.16: Distributed C/C++ package manager
 dev-util/conf2struct 1.0-r1 1.3-r1 1.5 9999: Create C parsers for libconfig and command-line
 dev-util/cookiecutter 2.1.1 2.3.1 2.4.0 2.5.0: Command-line utility to create projects from cookiecutters (project templates)
 dev-util/cppcheck 2.9 2.13.0: Static analyzer of C/C++ code
@@ -10864,7 +10864,7 @@ dev-util/tkdiff 5.1 5.2.1 5.5.2: Graphical front end to the diff program
 dev-util/tmake 2.12-r2: A Cross platform Makefile tool
 dev-util/trace-cmd 3.1.4-r2 3.1.5-r2 3.1.6 3.2: User-space front-end for Ftrace
 dev-util/tree-sitter-cli 0.20.6 0.20.7 0.20.8: Command-line tool for creating and testing tree-sitter grammars
-dev-util/treecc 0.3.10-r1: Compiler-compiler tool for aspect-oriented programming
+dev-util/treecc 0.3.10-r1 0.3.10-r2: Compiler-compiler tool for aspect-oriented programming
 dev-util/tup 0.7.10 0.7.11 9999: File-based build system
 dev-util/txt2regex 0.8-r3: A Regular Expression wizard that converts human sentences to regexs
 dev-util/uftrace 0.13.1 0.14: Function (graph) tracer for user-space
@@ -15094,7 +15094,7 @@ net-misc/ipsvd 1.0.0-r3: Set of internet protocol service daemons for Unix
 net-misc/iputils 20211215 20221126-r1 20231222 99999999: Network monitoring tools including ping and ping6
 net-misc/ipv6calc 2.2.0 3.1.1 3.2.0 4.0.0 4.0.1 4.0.1-r1: IPv6 address calculator
 net-misc/jlj 2.12-r1: Simple console LiveJournal entry system
-net-misc/jwhois 4.0-r1: Advanced Internet Whois client capable of recursive queries
+net-misc/jwhois 4.0-r1 4.0-r2: Advanced Internet Whois client capable of recursive queries
 net-misc/kafka-bin 3.4.1 3.5.1 3.6.0 3.6.1: A high-throughput distributed messaging system
 net-misc/kafkacat 1.7.1: Generic command line non-JVM Apache Kafka producer and consumer
 net-misc/kea 2.0.2 2.2.0 2.4.0 9999: High-performance production grade DHCPv4 & DHCPv6 server
@@ -15267,7 +15267,7 @@ net-misc/ubridge 0.9.18: Bridge for UDP tunnels, Ethernet, TAP and VMnet interfa
 net-misc/ucarp 1.5.2-r7: Portable userland implementation of Common Address Redundancy Protocol (CARP)
 net-misc/udpcast 20211207 20211207-r1: Multicast file transfer tool
 net-misc/udpxy 1.0.23.7-r2: Small daemon to relay multicast UDP traffic to client's TCP (HTTP) connection
-net-misc/uftp 5.0.1: Encrypted UDP based FTP with multicast
+net-misc/uftp 5.0.3: Encrypted UDP based FTP with multicast
 net-misc/unison 2.51.5: Two-way cross-platform file synchronizer
 net-misc/unix2tcp 0.8.2-r2: Connection forwarder that converts Unix sockets into TCP sockets
 net-misc/usbip 5.15: Userspace utilities for a general USB device sharing system over IP networks
@@ -18011,7 +18011,7 @@ www-apps/prowlarr 1.11.4.4173: An indexer manager/proxy to integrate with your v
 www-apps/radarr 5.2.6.8376: A fork of Sonarr to work with movies a la Couchpotato
 www-apps/radicale 3.1.8: A simple CalDAV calendar server
 www-apps/readarr 0.3.14.2348: An ebook and audiobook collection manager for Usenet and BitTorrent users
-www-apps/redmine 5.0.5: Flexible project management web application using the Ruby on Rails framework
+www-apps/redmine 5.0.6 5.1.0: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.2.0: Issue-tracking system with command-line, web, and e-mail interfaces
 www-apps/rt 4.4.4-r3: RT is an enterprise-grade ticketing system
 www-apps/rutorrent 4.2.9 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
