@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://waffle.github.io/waffle/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ppc64
+KEYWORDS=amd64 ppc64 x86
 LICENSE=MIT
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Waffle/waffle/archive/waffle-parent-3.3.0.tar.gz
 _eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7
-_md5_=de6459c8bc2eac2c5ad963fd33562871
+_md5_=efbaa76b80d90d437d76b339eaf20b22
