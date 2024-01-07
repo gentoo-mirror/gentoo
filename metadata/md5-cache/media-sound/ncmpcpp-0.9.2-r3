@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install postinst prepare
 DEPEND=>=media-libs/libmpdclient-2.1 dev-libs/boost:=[icu,nls] dev-libs/icu:= net-misc/curl sys-libs/ncurses:=[unicode(+)] sys-libs/readline:= taglib? ( media-libs/taglib ) visualizer? ( sci-libs/fftw:3.0= )
 DESCRIPTION=featureful ncurses based MPD client inspired by ncmpc
 EAPI=7
-HOMEPAGE=https://ncmpcpp.rybczak.net/ https://github.com/ncmpcpp/ncmpcpp
+HOMEPAGE=https://rybczak.net/ncmpcpp/ https://github.com/ncmpcpp/ncmpcpp/
 INHERIT=autotools flag-o-matic
 IUSE=clock lto outputs taglib visualizer
 KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc x86
@@ -12,4 +12,4 @@ RDEPEND=>=media-libs/libmpdclient-2.1 dev-libs/boost:=[icu,nls] dev-libs/icu:= n
 SLOT=0
 SRC_URI=https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
-_md5_=23cee12854d7aac2d97af42aa23dd8e7
+_md5_=5115b37fd860a326e16e3e1f8641051a
