@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: kernel-build.eclass
@@ -30,9 +30,6 @@ _KERNEL_BUILD_ECLASS=1
 
 PYTHON_COMPAT=( python3_{10..12} )
 if [[ ${KERNEL_IUSE_MODULES_SIGN} ]]; then
-	# If we have enabled module signing IUSE
-	# then we can also enable secureboot IUSE
-	KERNEL_IUSE_SECUREBOOT=1
 	inherit secureboot
 fi
 
@@ -56,10 +53,10 @@ IUSE="+strip"
 # @PRE_INHERIT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# If set to a non-null value, adds IUSE=modules-sign and required
-# logic to manipulate the kernel config while respecting the
-# MODULES_SIGN_HASH, MODULES_SIGN_CERT, and MODULES_SIGN_KEY  user
-# variables.
+# If set to a non-null value, inherits secureboot.eclass, adds
+# IUSE=modules-sign and required logic to manipulate the kernel
+# config while respecting the MODULES_SIGN_HASH, MODULES_SIGN_CERT,
+# and MODULES_SIGN_KEY  user variables.
 
 # @ECLASS_VARIABLE: MODULES_SIGN_HASH
 # @USER_VARIABLE
@@ -98,6 +95,14 @@ IUSE="+strip"
 # Used with USE=modules-sign.  Can be set to the path of the public
 # key in PEM format to use. Must be specified if MODULES_SIGN_KEY
 # is set to a path of a file that only contains the private key.
+
+# @ECLASS_VARIABLE: KERNEL_GENERIC_UKI_CMDLINE
+# @USER_VARIABLE
+# @DESCRIPTION:
+# If KERNEL_IUSE_GENERIC_UKI is set, this variable allows setting the
+# built-in kernel command line for the UKI. If unset, the default is
+# root=/dev/gpt-auto-root ro
+: "${KERNEL_GENERIC_UKI_CMDLINE:="root=/dev/gpt-auto-root ro"}"
 
 if [[ ${KERNEL_IUSE_MODULES_SIGN} ]]; then
 	IUSE+=" modules-sign"
@@ -381,7 +386,7 @@ kernel-build_src_install() {
 	dosym "../../../${kernel_dir}" "/lib/modules/${module_ver}/build"
 	dosym "../../../${kernel_dir}" "/lib/modules/${module_ver}/source"
 
-	if [[ ${KERNEL_IUSE_SECUREBOOT} ]]; then
+	if [[ ${KERNEL_IUSE_MODULES_SIGN} ]]; then
 		secureboot_sign_efi_file "${image}"
 	fi
 
@@ -435,7 +440,7 @@ kernel-build_src_install() {
 			local ukify_args=(
 				--linux="${image}"
 				--initrd="${image%/*}/initrd"
-				--cmdline="root=/dev/gpt-auto-root ro"
+				--cmdline="${KERNEL_GENERIC_UKI_CMDLINE}"
 				--uname="${dir_ver}"
 				--output="${image%/*}/uki.efi"
 			)
