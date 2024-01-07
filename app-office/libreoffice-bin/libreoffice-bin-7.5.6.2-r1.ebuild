@@ -101,7 +101,7 @@ COMMON_DEPEND="
 	>=app-text/libwps-0.4
 	app-text/mythes
 	>=dev-cpp/clucene-2.3.3.4-r2
-	>=dev-cpp/libcmis-0.5.2-r2
+	>=dev-cpp/libcmis-0.5.2-r2:0.5
 	dev-db/unixODBC
 	>=games-engines/box2d-2.4.1:0
 	dev-lang/perl
