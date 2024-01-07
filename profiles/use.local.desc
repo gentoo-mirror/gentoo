@@ -703,8 +703,8 @@ app-emulation/winetricks:rar - Pull in app-arch/unrar for extraction of rar-comp
 app-emulation/x48:readline - Enables support for libreadline
 app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Citrix instead of building app-emulation/xen-tools
 app-emulation/xen:boot-symlinks - Symlink xen.gz variants in /boot, disable on fat filesystems
-app-emulation/xen:efi - Adds efi boot support, requires LDFLAG -melf_x86_64 for amd64
 app-emulation/xen:flask - Enable the Flask XSM module from NSA
+app-emulation/xen:uefi - Adds UEFI boot support, requires LDFLAG -melf_x86_64 for amd64
 app-emulation/xen-tools:api - Build the C libxenapi bindings
 app-emulation/xen-tools:hvm - Enable support for hardware based virtualization (VT-x,AMD-v)
 app-emulation/xen-tools:ipxe - Enable ipxe support
@@ -7754,10 +7754,10 @@ sys-apps/memtest86:serial - Compile with serial console support
 sys-apps/memtest86+:bios32 - Compile a BIOS-bootable 32bit memtest image
 sys-apps/memtest86+:bios64 - Compile a BIOS-bootable 64bit memtest image
 sys-apps/memtest86+:boot - Install to /boot in addition to /usr/share/memtest86+/
-sys-apps/memtest86+:efi32 - Compile a EFI32-bootable 32bit memtest image
-sys-apps/memtest86+:efi64 - Compile a UEFI-bootable 64bit memtest image
 sys-apps/memtest86+:iso32 - Compile a 32bit ISO image
 sys-apps/memtest86+:iso64 - Compile a 64bit ISO image
+sys-apps/memtest86+:uefi32 - Compile a EFI32-bootable 32bit memtest image
+sys-apps/memtest86+:uefi64 - Compile a UEFI-bootable 64bit memtest image
 sys-apps/moreutils:perl - Install scripts written in Perl
 sys-apps/net-tools:arp - build the arp and rarp tools (for manipulating the ARP cache)
 sys-apps/net-tools:hostname - build the hostname and dnsdomainname tools
@@ -7937,10 +7937,10 @@ sys-block/open-iscsi:tcp - Support iSCSI over TCP
 sys-block/parted:debug - Enable debugging as encouraged by upstream: [The default configuration] includes --enable-debug (by default), which contains many assertions. Obviously, these "waste" space, but in the past, they have caught potentially dangerous bugs before they would have done damage, so we think it's worth it. Also, it means we get more bug reports ;)
 sys-block/parted:device-mapper - Enable device-mapper support from sys-fs/lvm2 in parted
 sys-block/partimage:nologin - Do not include login support when connecting partimaged
-sys-block/perccli:efi - Install EFI variant as well
-sys-block/sas2ircu:efi - Install EFI variant as well
-sys-block/sas3flash:efi - Install EFI variant as well
-sys-block/sas3ircu:efi - Install EFI variant as well
+sys-block/perccli:uefi - Install UEFI variant as well
+sys-block/sas2ircu:uefi - Install UEFI variant as well
+sys-block/sas3flash:uefi - Install UEFI variant as well
+sys-block/sas3ircu:uefi - Install EFI variant as well
 sys-block/tgt:rbd - Add support for ceph block devices
 sys-block/thin-provisioning-tools:io-uring - Enable experimental support for io-uring.
 sys-boot/grub:device-mapper - Enable support for device-mapper from sys-fs/lvm2
@@ -7965,7 +7965,7 @@ sys-boot/refind:ntfs - Builds the EFI binary ntfs filesystem driver
 sys-boot/refind:reiserfs - Builds the EFI binary reiserfs filesystem driver
 sys-boot/silo:tilo-only - Install only the tilo netboot tool
 sys-boot/syslinux:bios - Enable BIOS support
-sys-boot/syslinux:efi - Enable EFI support
+sys-boot/syslinux:uefi - Enable UEFI support
 sys-boot/vboot-utils:libzip - Use dev-libs/libzip.
 sys-cluster/ceph:babeltrace - Add support for LTTng babeltrace
 sys-cluster/ceph:cephfs - Build support for cephfs, a POSIX compatible filesystem built on top of ceph
@@ -8179,11 +8179,11 @@ sys-firmware/intel-microcode:initramfs - Install a small initramfs for use with 
 sys-firmware/intel-microcode:split-ucode - Install the split binary ucode files (used by the kernel directly)
 sys-firmware/intel-microcode:vanilla - Only install microcode updates from Intel's official microcode tarball
 sys-firmware/ipxe:binary - Use pre-built binaries
-sys-firmware/ipxe:efi - Build a 32bit EFI program for using PXE
-sys-firmware/ipxe:efi64 - Build a 64bit EFI program for using PXE
 sys-firmware/ipxe:iso - Build a bootable ISO for using PXE
 sys-firmware/ipxe:lkrn - Build a linux kernel bootable file for using with grub/etc...
 sys-firmware/ipxe:qemu - Build the required PXE ROM images for app-emulation/qemu
+sys-firmware/ipxe:uefi32 - Build a 32bit UEFI program for using PXE
+sys-firmware/ipxe:uefi64 - Build a 64bit UEFI program for using PXE
 sys-firmware/ipxe:undi - Build a Universal Network Device Interface driver chainloading your existing PXE NIC into iPXE
 sys-firmware/ipxe:usb - Build a bootable USB image for using PXE
 sys-firmware/ipxe:vmware - Build the PXE ROM images that VMWare uses

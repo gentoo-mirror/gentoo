@@ -4,11 +4,11 @@ DESCRIPTION=LINUX PERCCLI Utility For All Dell HBA/PERC Controllers
 EAPI=7
 HOMEPAGE=https://www.dell.com/support/home/us/en/19/drivers/driversdetails?driverId=NF8G9
 INHERIT=mount-boot rpm secureboot
-IUSE=doc efi secureboot
+IUSE=doc uefi secureboot
 KEYWORDS=-* ~amd64 ~x86
 LICENSE=Avago BSD
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://downloads.dell.com/FOLDER05235308M/1/perccli_linux_NF8G9_A07_7.529.00.tar.gz doc? ( https://topics-cdn.dell.com/pdf/dell-sas-hba-12gbps_reference-guide_en-us.pdf )
 _eclasses_=mount-boot	3945d351ee3192381911f938f4ee527a	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	528663355249513309c74d7775936940	secureboot	4911adb593665638c76fbd4e70d451ac
-_md5_=f723031c455c9d0a334acea3c22f227e
+_md5_=767cc0fa802b7a0d3c31d1a9136fd9ea
