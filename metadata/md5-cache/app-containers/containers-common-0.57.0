@@ -3,10 +3,10 @@ DEFINED_PHASES=compile install prepare
 DESCRIPTION=Common config files and docs for Containers stack
 EAPI=8
 HOMEPAGE=https://github.com/containers/common
-KEYWORDS=~amd64 ~arm64 ~riscv
+KEYWORDS=~amd64 arm64 ~riscv
 LICENSE=Apache-2.0
 RDEPEND=app-containers/containers-image app-containers/containers-storage app-containers/containers-shortnames !<app-containers/podman-4.5.0-r1 net-firewall/nftables net-firewall/iptables[nftables] || ( app-containers/crun app-containers/runc ) || ( ( >=app-containers/netavark-1.6.0 >=app-containers/aardvark-dns-1.6.0 ) >=app-containers/cni-plugins-0.9.1 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/containers/common/archive/v0.57.0.tar.gz -> containers-common-0.57.0.tar.gz
-_md5_=f0ea07c56b0c9745765059858896b6d7
+_md5_=8cb70e22d644bc54c66b45af125703c7
