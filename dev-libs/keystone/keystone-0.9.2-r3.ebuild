@@ -18,7 +18,7 @@ if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/keystone-engine/keystone/archive/${PV/_rc/-rc}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 S="${WORKDIR}"/${P/_rc/-rc}
 
@@ -48,6 +48,10 @@ REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-strict-prototypes.patch"
+)
+
 # Upstream doesn't flag patch releases (bug 858395)
 QA_PKGCONFIG_VERSION="$(ver_cut 1-2)"
 
@@ -64,8 +68,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	default
-
 	sed -i '/NOT uppercase_CMAKE_BUILD_TYPE MATCHES/ s/DEBUG/GENTOO|DEBUG/' \
 		llvm/CMakeLists.txt || die
 	cmake_src_prepare
