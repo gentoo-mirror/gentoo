@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/automake-1.13.4 >=sys-devel/gettext-0.18.2 virtual/pkgconfig dev-util/gdbus-codegen sys-devel/bison || ( ( dev-lang/python:3.11 dev-python/pyparsing[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pyparsing[python_targets_python3_10(-)] ) ) introspection? ( >=dev-libs/gobject-introspection-1.40 ) doc? ( app-text/xmlto dev-libs/libxslt ) virtual/pkgconfig
+BDEPEND=>=sys-devel/automake-1.13.4 >=sys-devel/gettext-0.18.2 virtual/pkgconfig dev-util/gdbus-codegen app-alternatives/yacc || ( ( dev-lang/python:3.11 dev-python/pyparsing[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pyparsing[python_targets_python3_10(-)] ) ) introspection? ( >=dev-libs/gobject-introspection-1.40 ) doc? ( app-text/xmlto dev-libs/libxslt ) virtual/pkgconfig
 DEFINED_PHASES=configure install prepare setup
 DEPEND=acct-group/flatpak acct-user/flatpak >=app-arch/libarchive-2.8:= app-arch/zstd:= >=app-crypt/gpgme-1.1.8:= >=dev-libs/appstream-0.12:= >=dev-libs/appstream-glib-0.5.10:= >=dev-libs/glib-2.56:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= dev-libs/libassuan:= >=dev-util/ostree-2020.8:=[gpg(+)] dev-util/ostree[curl] >=gnome-base/dconf-0.26:= gnome-base/gsettings-desktop-schemas net-misc/curl:= >=sys-apps/bubblewrap-0.5.0 sys-apps/dbus >=sys-fs/fuse-3.1.1:3= sys-apps/xdg-dbus-proxy X? ( x11-apps/xauth x11-libs/libXau:= ) x11-libs/gdk-pixbuf:2= policykit? ( >=sys-auth/polkit-0.98:= ) seccomp? ( sys-libs/libseccomp:= ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=Linux application sandboxing and distribution framework
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/flatpak/flatpak/releases/download/1.14.4/flatpak-1.14.4.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=aec73124b21dfcf8a3df67d10da9a53d
+_md5_=59e01444b968fe82d4234ce33434d324

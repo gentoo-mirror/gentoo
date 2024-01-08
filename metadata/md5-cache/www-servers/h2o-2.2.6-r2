@@ -1,4 +1,4 @@
-BDEPEND=libh2o? ( virtual/pkgconfig ) mruby? ( sys-devel/bison virtual/pkgconfig ) sys-devel/make >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=libh2o? ( virtual/pkgconfig ) mruby? ( app-alternatives/yacc virtual/pkgconfig ) sys-devel/make >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/zlib libh2o? ( dev-libs/libuv ) mruby? ( || ( ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) || ( dev-libs/onigmo dev-libs/oniguruma ) )
 DESCRIPTION=H2O - the optimized HTTP/1, HTTP/2 server
@@ -12,4 +12,4 @@ RDEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs
 SLOT=0
 SRC_URI=https://github.com/h2o/h2o/archive/v2.2.6.tar.gz -> h2o-2.2.6.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	ruby-utils	820207a5d3f0e2e31c28080f131f2037	ruby-single	e045ee439d34b230e588900a87a11904	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=1390219dec7670ad1deaf92814a81ff7
+_md5_=097475f04e6d9a17d93d395a6f5fa0ae

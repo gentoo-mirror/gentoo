@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison app-alternatives/lex virtual/pkgconfig
+BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=sys-libs/zlib:= virtual/libcrypt:= pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Monitoring and managing daemons or similar programs running on a Unix system
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/zlib:= virtual/libcrypt:= pam? ( sys-libs/pam ) ssl? ( dev-libs
 SLOT=0
 SRC_URI=http://mmonit.com/monit/dist/monit-5.29.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=60cb958fd10bb4b6364872d113fe9471
+_md5_=138966f2312f3166dfe9f1b1c35d5388

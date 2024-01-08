@@ -1,6 +1,6 @@
 BDEPEND=>=app-portage/elt-patches-20170815
 DEFINED_PHASES=compile configure install prepare
-DEPEND=sys-libs/zlib sys-devel/bison
+DEPEND=sys-libs/zlib app-alternatives/yacc
 DESCRIPTION=Compatibility package for binaries linked against a pre gcc 3.4 libstdc++
 EAPI=8
 HOMEPAGE=https://gcc.gnu.org/libstdc++/
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/zlib
 SLOT=5
 SRC_URI=ftp://gcc.gnu.org/pub/gcc/releases/gcc-3.3.6/gcc-3.3.6.tar.bz2 https://dev.gentoo.org/~sam/distfiles/gcc-3.3.6-patches-4.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	libtool	9d3a9a889a6fa62ae794f817c156491b
-_md5_=4ac23b4b112a40c1d3ef92e47b8c2ee0
+_md5_=271672d2aeef1f739d349556cf317a06

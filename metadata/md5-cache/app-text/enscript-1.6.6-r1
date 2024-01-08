@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/lex sys-devel/bison nls? ( sys-devel/gettext )
+BDEPEND=app-alternatives/lex app-alternatives/yacc nls? ( sys-devel/gettext )
 DEFINED_PHASES=compile configure install prepare
 DEPEND=nls? ( virtual/libintl )
 DESCRIPTION=Powerful text-to-postscript converter
@@ -12,4 +12,4 @@ RDEPEND=nls? ( virtual/libintl )
 SLOT=0
 SRC_URI=mirror://gnu/enscript/enscript-1.6.6.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=d17e832ca0e4f92429b0eefcc04292a9
+_md5_=313d586ac646cd5593bb38bf4e06caf2

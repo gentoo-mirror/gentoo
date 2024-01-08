@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison app-alternatives/lex virtual/pkgconfig doc? ( app-doc/doxygen[dot] app-doc/xmltoman app-text/htmldoc dev-libs/libxslt ) test? ( dev-libs/cgreen ) app-alternatives/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig doc? ( app-doc/doxygen[dot] app-doc/xmltoman app-text/htmldoc dev-libs/libxslt ) test? ( dev-libs/cgreen ) app-alternatives/ninja >=dev-util/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=acct-user/gvm app-crypt/gpgme:1= dev-libs/libbsd >=dev-db/postgresql-9.6:=[uuid] >=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.7 >=net-libs/gnutls-3.2.15:=[tools]
 DESCRIPTION=Greenbone vulnerability manager, previously named openvas-manager
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/greenbone/gvmd/archive/v23.1.0.tar.gz -> gvmd-23.1.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=4133f516b1767748f84bda393ed7896e
+_md5_=c95af456048a28c8c244435fd7649ee7

@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 virtual/pkgconfig
 DEFINED_PHASES=configure install prepare
-DEPEND=sys-apps/shadow virtual/libcrypt:= kerberos? ( virtual/krb5 ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) upnp? ( net-libs/miniupnpc:= ) sys-devel/bison app-alternatives/lex
+DEPEND=sys-apps/shadow virtual/libcrypt:= kerberos? ( virtual/krb5 ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) upnp? ( net-libs/miniupnpc:= ) app-alternatives/yacc app-alternatives/lex
 DESCRIPTION=A free socks4,5 and msproxy implementation
 EAPI=7
 HOMEPAGE=https://www.inet.no/dante/
@@ -12,4 +12,4 @@ RDEPEND=sys-apps/shadow virtual/libcrypt:= kerberos? ( virtual/krb5 ) pam? ( sys
 SLOT=0
 SRC_URI=https://www.inet.no/dante/files/dante-1.4.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=9a5d28ff43679708de5ff29b9ffa16f1
+_md5_=0cc95e288a89a7caba51a20308449e62
