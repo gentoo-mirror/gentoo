@@ -303,8 +303,8 @@ if tc_has_feature graphite ; then
 fi
 
 BDEPEND="
-	>=sys-devel/bison-1.875
-	>=app-alternatives/lex-2.5.4
+	app-alternatives/yacc
+	app-alternatives/lex
 	nls? ( sys-devel/gettext )
 	test? (
 		>=dev-util/dejagnu-1.4.4
