@@ -97,11 +97,11 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="${PYTHON_DEPS}
 	dev-util/gperf
-	dev-util/ninja
+	app-alternatives/ninja
 	dev-util/re2c
 	net-libs/nodejs[ssl]
 	sys-devel/bison
-	sys-devel/flex
+	app-alternatives/lex
 	ppc64? ( >=dev-util/gn-0.1807 )
 "
 

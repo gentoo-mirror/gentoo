@@ -201,11 +201,11 @@ BDEPEND="
 	dev-lang/perl
 	>=dev-util/gn-${GN_MIN_VER}
 	>=dev-util/gperf-3.0.3
-	>=dev-util/ninja-1.7.2
+	app-alternatives/ninja
 	dev-vcs/git
 	>=net-libs/nodejs-7.6.0[inspector]
 	>=sys-devel/bison-2.4.3
-	sys-devel/flex
+	app-alternatives/lex
 	virtual/pkgconfig
 "
 

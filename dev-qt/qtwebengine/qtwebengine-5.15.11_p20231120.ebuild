@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -97,11 +97,11 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="${PYTHON_DEPS}
 	dev-util/gperf
-	dev-util/ninja
+	app-alternatives/ninja
 	dev-util/re2c
 	net-libs/nodejs[ssl]
 	sys-devel/bison
-	sys-devel/flex
+	app-alternatives/lex
 	ppc64? ( >=dev-util/gn-0.1807 )
 "
 

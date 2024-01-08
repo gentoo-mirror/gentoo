@@ -111,7 +111,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # things.
 DEPEND=""
 RDEPEND="${PYTHON_DEPS}
-	app-arch/cpio
+	app-alternatives/cpio
 	>=app-misc/pax-utils-1.2.2
 	app-portage/elt-patches
 	app-portage/portage-utils
@@ -122,7 +122,7 @@ RDEPEND="${PYTHON_DEPS}
 	sys-devel/automake
 	app-alternatives/bc
 	sys-devel/bison
-	sys-devel/flex
+	app-alternatives/lex
 	sys-devel/libtool
 	virtual/pkgconfig
 	elibc_glibc? ( sys-libs/glibc[static-libs(+)] )
