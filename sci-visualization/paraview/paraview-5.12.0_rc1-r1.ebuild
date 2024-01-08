@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -77,6 +77,7 @@ RDEPEND="
 	)
 	qt5? (
 		dev-qt/designer:5
+		dev-qt/qtdeclarative:5
 		dev-qt/qtgui:5[-gles2-only]
 		dev-qt/qthelp:5
 		dev-qt/qtopengl:5[-gles2-only]
@@ -104,6 +105,12 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.5.0-allow_custom_build_type.patch
+)
+
+# false positive when checking for available HDF5 interface, bug #904731
+QA_CONFIG_IMPL_DECL_SKIP=(
+	H5Pset_coll_metadata_write
+	H5Pset_all_coll_metadata_ops
 )
 
 pkg_pretend() {
@@ -179,6 +186,8 @@ src_configure() {
 
 		# qt5
 		-DPARAVIEW_USE_QT="$(usex qt5)"
+		-DPARAVIEW_QT_VERSION="5"
+		-DVTK_QT_VERSION="5"
 		-DModule_pqPython="$(usex qt5 "$(usex python)" "off")"
 		-DVTK_USE_NVCONTROL="$(usex nvcontrol)"
 		-DVTK_GROUP_ENABLE_Qt="$(usex qt5 YES NO)"
