@@ -1,10 +1,10 @@
-BDEPEND=virtual/pkgconfig >=sys-devel/autoconf-2.71 verify-sig? ( sec-keys/openpgp-keys-voikko ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=virtual/pkgconfig >=sys-devel/autoconf-2.71 verify-sig? ( sec-keys/openpgp-keys-voikko ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install unpack
 DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) hfst? ( >=dev-util/hfstospell-0.5.0 )
 DESCRIPTION=Spell checking, hyphenation and morphological analysis tool for Finnish language
 EAPI=8
 HOMEPAGE=https://voikko.puimula.org/
-INHERIT=autotools python-r1 verify-sig
+INHERIT=python-r1 verify-sig
 IUSE=+expvfst +hfst verify-sig python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 verify-sig
 KEYWORDS=amd64 ~loong ~riscv x86
 LICENSE=GPL-2+
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_tar
 RESTRICT=test
 SLOT=0/1.16.2
 SRC_URI=https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.2.tar.gz verify-sig? ( https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.2.tar.gz.asc )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	verify-sig	798e0173d334021f14ba78a786c37059
-_md5_=80889c327450faaec0a0e818b493093f
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	verify-sig	798e0173d334021f14ba78a786c37059
+_md5_=642aca15ba7ceb222ed5a739c0bb6493

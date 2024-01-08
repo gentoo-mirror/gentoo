@@ -1,10 +1,10 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install
 DEPEND=sys-libs/ncurses:= virtual/libcrypt:= gmp? ( dev-libs/gmp:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) )
 DESCRIPTION=Advanced IRC client based on ircII
 EAPI=8
 HOMEPAGE=https://www.scrollz.info/
-INHERIT=autotools flag-o-matic toolchain-funcs
+INHERIT=flag-o-matic toolchain-funcs
 IUSE=gmp gnutls ipv6 ssl
 KEYWORDS=amd64 ppc ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=BSD
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/ncurses:= virtual/libcrypt:= gmp? ( dev-libs/gmp:= ) ssl? ( gnu
 REQUIRED_USE=gnutls? ( ssl )
 SLOT=0
 SRC_URI=https://www.scrollz.info/download/ScrollZ-2.3.1.tar.gz https://dev.gentoo.org/~sam/distfiles/net-irc/scrollz/scrollz-2.3.1-patches.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
-_md5_=6e6206a02df2384ba4ea1583cfc23a8a
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
+_md5_=dee96de0b9930243461bda845df4c6e6

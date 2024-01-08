@@ -1,4 +1,4 @@
-BDEPEND=doc? ( sys-apps/texinfo ) test? ( dev-util/dejagnu sys-devel/bc ) nls? ( sys-devel/gettext ) sys-devel/flex app-alternatives/yacc >=app-portage/elt-patches-20170815 sys-devel/gnuconfig
+BDEPEND=doc? ( sys-apps/texinfo ) test? ( dev-util/dejagnu app-alternatives/bc ) nls? ( sys-devel/gettext ) sys-devel/flex app-alternatives/yacc >=app-portage/elt-patches-20170815 sys-devel/gnuconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib
 DESCRIPTION=Tools necessary to build programs
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=2.41
 SRC_URI=mirror://gnu/binutils/binutils-2.41.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.41.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.41-patches-4.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
-_md5_=d7733747fc942734e9584fbb3f2fd5e6
+_md5_=13a93ca242bf2b338a7a92a06005da7d
