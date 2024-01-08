@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,6 +17,7 @@ IUSE="ftdi"
 RDEPEND="dev-libs/glib:2
 	x11-libs/gtk+:2
 	media-libs/libsdl2
+	media-libs/sdl2-ttf
 	media-libs/libpng:0
 	ftdi? ( dev-embedded/libftdi:1 )
 	elibc_musl? ( sys-libs/libunwind )"
@@ -29,9 +30,6 @@ src_prepare() {
 	eapply_user
 	sed -i -e "s/docsdir/#docsdir/g" \
 		-e "s/docs_/#docs_/g" Makefile.am || die
-
-	# Fix QA-Warning "QA Notice: pkg-config files with wrong LDFLAGS detected"
-	sed -i -e 's/@LDFLAGS@//' libzia.pc.in || die
 
 	# fix build for MUSL (bug #832235)
 	if use elibc_musl ; then
