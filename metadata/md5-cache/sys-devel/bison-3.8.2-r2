@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/flex test? ( dev-lang/perl ) verify-sig? ( sec-keys/openpgp-keys-bison ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=app-alternatives/lex test? ( dev-lang/perl ) verify-sig? ( sec-keys/openpgp-keys-bison ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=>=sys-devel/m4-1.4.16 >=sys-devel/gettext-0.21
 DESCRIPTION=A general-purpose (yacc-compatible) parser generator
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/bison/bison-3.8.2.tar.xz verify-sig? ( mirror://gnu/bison/bison-3.8.2.tar.xz.sig )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	verify-sig	798e0173d334021f14ba78a786c37059
-_md5_=5fa60f28d76e7266ef3a3c9f8c630f95
+_md5_=36c09f12e2d30cf1ddc21e6da266f2a6

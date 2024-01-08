@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare setup
-DEPEND=sys-apps/kmod[tools] app-alternatives/yacc sys-devel/flex
+DEPEND=sys-apps/kmod[tools] app-alternatives/yacc app-alternatives/lex
 DESCRIPTION=PCMCIA userspace utilities for Linux
 EAPI=7
 HOMEPAGE=https://packages.qa.debian.org/pcmciautils
@@ -12,4 +12,4 @@ RDEPEND=sys-apps/kmod[tools]
 SLOT=0
 SRC_URI=mirror://debian/pool/main/p/pcmciautils/pcmciautils_018.orig.tar.gz mirror://debian/pool/main/p/pcmciautils/pcmciautils_018-14.debian.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=7513bea39f81f43ebc24801935a52f61
+_md5_=4c091cd6a08aeb99355895e4ceb6ac56

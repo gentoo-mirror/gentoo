@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=app-arch/cpio
+DEPEND=app-alternatives/cpio
 DESCRIPTION=R6RS-compliant Scheme implementation for real-time applications
 EAPI=7
 HOMEPAGE=http://www.littlewingpinball.com/doc/en/ypsilon
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic toolchain-funcs
 IUSE=examples
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=app-arch/cpio
+RDEPEND=app-alternatives/cpio
 SLOT=0
 SRC_URI=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ypsilon/ypsilon-0.9.6.update3.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
-_md5_=658f3c58d8c2b008cd214766ff3609dc
+_md5_=5e6a5a94cbb8931bc151a5c608ce7ccd

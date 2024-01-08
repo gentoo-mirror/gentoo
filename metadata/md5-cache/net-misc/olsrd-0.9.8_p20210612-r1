@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/yacc sys-devel/flex virtual/pkgconfig
+BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare
 DEPEND=gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) pud? ( sci-geosciences/gpsd ) x11-base/xorg-proto
 DESCRIPTION=An implementation of the Optimized Link State Routing protocol
@@ -12,4 +12,4 @@ RDEPEND=gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 ) pud? ( sc
 SLOT=0
 SRC_URI=https://github.com/OLSR/olsrd/archive/4973feb538b5b98b9d8ac2f8f474202f6d73de78.tar.gz -> olsrd-0.9.8_p20210612.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=5f671dd04b349254533762e0eae93987
+_md5_=6d26f7e6801041c5bfe08cef708d2107

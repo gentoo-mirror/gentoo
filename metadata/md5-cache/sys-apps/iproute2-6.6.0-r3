@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils >=sys-devel/bison-2.4 sys-devel/flex virtual/pkgconfig
+BDEPEND=app-arch/xz-utils >=sys-devel/bison-2.4 app-alternatives/lex virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-atm ) berkdb? ( sys-libs/db:= ) bpf? ( dev-libs/libbpf:= ) caps? ( sys-libs/libcap ) elf? ( virtual/libelf:= ) iptables? ( >=net-firewall/iptables-1.4.20:= ) nfs? ( net-libs/libtirpc:= ) selinux? ( sys-libs/libselinux ) >=sys-kernel/linux-headers-3.16
 DESCRIPTION=kernel routing and traffic control utilities
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.6.0.tar.xz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=1e453273d7a8e4eb883105c1751a80c3
+_md5_=0e1a00ed0e8b45975254a4198070238c

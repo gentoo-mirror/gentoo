@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) verify-sig? ( sec-keys/openpgp-keys-netfilter ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=sys-devel/bison app-alternatives/lex virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) verify-sig? ( sec-keys/openpgp-keys-netfilter ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install prepare setup unpack
 DEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.9 >=net-libs/libnetfilter_queue-1.0.2 >=net-libs/libnfnetlink-1.0.1 net-libs/libtirpc cthelper? ( >=net-libs/libnetfilter_cthelper-1.0.0 ) cttimeout? ( >=net-libs/libnetfilter_cttimeout-1.0.0 ) systemd? ( >=sys-apps/systemd-227 )
 DESCRIPTION=Connection tracking userspace tools
@@ -12,4 +12,4 @@ RDEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.9 >=net-li
 SLOT=0
 SRC_URI=https://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-1.4.7.tar.bz2 verify-sig? ( https://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-1.4.7.tar.bz2.sig )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	798e0173d334021f14ba78a786c37059
-_md5_=34619bb9c1b2cb8866c907d4ff78e6c2
+_md5_=07b9a186f3f8e509bf8c7a6e23e6e639

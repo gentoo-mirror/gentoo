@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig python? ( dev-lang/swig ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/bison app-alternatives/lex virtual/pkgconfig python? ( dev-lang/swig ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) yaml? ( >=dev-libs/libyaml-0.2.3 )
 DESCRIPTION=Open Firmware device tree compiler
@@ -12,5 +12,5 @@ RDEPEND=python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) pyth
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	0e160eeba59c15ec333bd675cecdfdc9	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=4612fe6cf9c11303bd0b7eaba5c3863b
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	0e160eeba59c15ec333bd675cecdfdc9	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_md5_=bcddf9eda67e632354feaf2899cb95d3

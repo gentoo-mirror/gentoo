@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex app-alternatives/ninja >=dev-util/cmake-3.20.5
+BDEPEND=sys-devel/bison app-alternatives/lex app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/hidapi virtual/libelf:= virtual/libusb:0 virtual/libusb:1 ftdi? ( dev-embedded/libftdi:1= ) readline? ( sys-libs/readline:0= )
 DESCRIPTION=AVR Downloader/UploaDEr
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=dev-libs/hidapi virtual/libelf:= virtual/libusb:0 virtual/libusb:1 ftdi? ( dev-embedded/libftdi:1= ) readline? ( sys-libs/readline:0= )
 SLOT=0
 SRC_URI=https://github.com/avrdudes/avrdude/archive/refs/tags/v7.0.tar.gz -> avrdude-7.0.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
-_md5_=f0a8463b5176111a7abcb69339cf8774
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271
+_md5_=be91c5b97bb9220ac9061ccebc27fbe2

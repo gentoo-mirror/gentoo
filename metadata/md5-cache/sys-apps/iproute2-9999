@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils >=sys-devel/bison-2.4 sys-devel/flex virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-arch/xz-utils >=sys-devel/bison-2.4 app-alternatives/lex virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-atm ) berkdb? ( sys-libs/db:= ) bpf? ( dev-libs/libbpf:= ) caps? ( sys-libs/libcap ) elf? ( virtual/libelf:= ) iptables? ( >=net-firewall/iptables-1.4.20:= ) nfs? ( net-libs/libtirpc:= ) selinux? ( sys-libs/libselinux ) >=sys-kernel/linux-headers-3.16
 DESCRIPTION=kernel routing and traffic control utilities
@@ -12,4 +12,4 @@ RDEPEND=!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-a
 RESTRICT=test
 SLOT=0
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=f90dd4023f3a9062e77003e19396a136
+_md5_=b67f7cf8924bedd44061cb998ed3184b

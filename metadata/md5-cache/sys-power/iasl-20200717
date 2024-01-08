@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex
+BDEPEND=sys-devel/bison app-alternatives/lex
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Intel ACPI Source Language (ASL) compiler
 EAPI=7
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://www.acpica.org/sites/acpica/files/acpica-unix-20200717.tar.gz test? ( http://www.acpica.org/sites/acpica/files/acpitests-unix-20200717.tar.gz )
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=f4284e4f153992a49351129bba5d5bfa
+_md5_=7001214c21fe258279f793afa38c3f37

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/flex app-alternatives/yacc
+BDEPEND=app-alternatives/lex app-alternatives/yacc
 DEFINED_PHASES=compile install postinst
 DEPEND=virtual/libcrypt:=
 DESCRIPTION=ARIN rwhois daemon
@@ -11,4 +11,4 @@ RDEPEND=virtual/libcrypt:= acct-group/rwhoisd acct-user/rwhoisd
 SLOT=0
 SRC_URI=https://github.com/arineng/rwhoisd/archive/1.5.9.6.tar.gz -> rwhoisd-1.5.9.6.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
-_md5_=3e0e75bebfa9289848a7ef228e560715
+_md5_=1d45c01591725b0db4addb44305eca3d

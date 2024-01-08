@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/bison-3 >=sys-devel/flex-2.5.36 virtual/pkgconfig test? ( dev-perl/XML-DOM ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=>=sys-devel/bison-3 app-alternatives/lex virtual/pkgconfig test? ( dev-perl/XML-DOM ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare
 DEPEND=>=media-libs/raptor-2.0.15 crypt? ( !mhash? ( dev-libs/libgcrypt:0 ) mhash? ( app-crypt/mhash ) ) !gmp? ( dev-libs/mpfr:= ) gmp? ( dev-libs/gmp:= ) kernel_linux? ( >=sys-apps/util-linux-2.19 ) pcre? ( dev-libs/libpcre ) xml? ( dev-libs/libxml2 )
 DESCRIPTION=Library that handles Resource Description Framework (RDF)
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.librdf.org/source/rasqal-0.9.33.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=d8220c334c64cc2cb1075b6e851581c8
+_md5_=eddb5569e1612bb9f649d9bc4eb00c47

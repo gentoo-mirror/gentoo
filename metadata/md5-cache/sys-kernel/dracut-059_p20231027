@@ -8,9 +8,9 @@ INHERIT=bash-completion-r1 edo linux-info optfeature systemd toolchain-funcs
 IUSE=selinux test
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=app-arch/cpio >=app-shells/bash-4.0:0 sys-apps/coreutils[xattr(-)] >=sys-apps/kmod-23[tools] || ( >=sys-apps/sysvinit-2.87-r3 sys-apps/openrc[sysv-utils(-),selinux?] sys-apps/systemd[sysv-utils] sys-apps/s6-linux-init[sysv-utils(-)] ) >=sys-apps/util-linux-2.21 virtual/pkgconfig virtual/udev elibc_musl? ( sys-libs/fts-standalone ) selinux? ( sec-policy/selinux-dracut sys-libs/libselinux sys-libs/libsepol )
+RDEPEND=app-alternatives/cpio >=app-shells/bash-4.0:0 sys-apps/coreutils[xattr(-)] >=sys-apps/kmod-23[tools] || ( >=sys-apps/sysvinit-2.87-r3 sys-apps/openrc[sysv-utils(-),selinux?] sys-apps/systemd[sysv-utils] sys-apps/s6-linux-init[sysv-utils(-)] ) >=sys-apps/util-linux-2.21 virtual/pkgconfig virtual/udev elibc_musl? ( sys-libs/fts-standalone ) selinux? ( sec-policy/selinux-dracut sys-libs/libselinux sys-libs/libsepol )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dracutdevs/dracut/archive/b2af8c8bcfc72802e02e2c0adc2eed9279101624.tar.gz -> dracut-059_p20231027.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=01d58176c7a56c321ead950957e165d0
+_md5_=0e07a97ca09c3f6868d3b63b60c79644

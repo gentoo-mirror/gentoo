@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-util/dejagnu ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare setup
-DEPEND=python_single_target_pypy3? ( dev-python/pypy3:= ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/boost:= >=dev-libs/elfutils-0.142 dev-libs/json-c:= sys-libs/ncurses:= sys-libs/readline:= libvirt? ( >=app-emulation/libvirt-1.0.2 ) selinux? ( sys-libs/libselinux ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/nspr dev-libs/nss ) zeroconf? ( net-dns/avahi ) app-arch/cpio app-text/xmlto python_single_target_pypy3? ( dev-python/setuptools[python_targets_pypy3(-)] ) python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) >=sys-devel/gettext-0.18.2 libvirt? ( dev-libs/libxml2 )
+DEPEND=python_single_target_pypy3? ( dev-python/pypy3:= ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/boost:= >=dev-libs/elfutils-0.142 dev-libs/json-c:= sys-libs/ncurses:= sys-libs/readline:= libvirt? ( >=app-emulation/libvirt-1.0.2 ) selinux? ( sys-libs/libselinux ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/nspr dev-libs/nss ) zeroconf? ( net-dns/avahi ) app-alternatives/cpio app-text/xmlto python_single_target_pypy3? ( dev-python/setuptools[python_targets_pypy3(-)] ) python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) >=sys-devel/gettext-0.18.2 libvirt? ( dev-libs/libxml2 )
 DESCRIPTION=A linux trace/probe tool
 EAPI=8
 HOMEPAGE=https://www.sourceware.org/systemtap
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.sourceware.org/ftp/systemtap/releases/systemtap-4.8.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=75ee0c4f86acfb97d5c425abae546827
+_md5_=bf2fd89fad0f2bc50cfccd7bb157b990

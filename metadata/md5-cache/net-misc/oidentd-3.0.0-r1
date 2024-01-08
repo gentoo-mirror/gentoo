@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex virtual/pkgconfig
+BDEPEND=sys-devel/bison app-alternatives/lex virtual/pkgconfig
 DEFINED_PHASES=configure install prepare
 DEPEND=masquerade? ( net-libs/libnetfilter_conntrack )
 DESCRIPTION=Another (RFC1413 compliant) ident daemon
@@ -12,4 +12,4 @@ RDEPEND=masquerade? ( net-libs/libnetfilter_conntrack ) acct-user/oidentd acct-g
 SLOT=0
 SRC_URI=https://files.janikrabe.com/pub/oidentd/releases/3.0.0/oidentd-3.0.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=b1feb3e1b92b5a53abfa43ddc4cd1e2c
+_md5_=22da04aa1210030bf744807e559b734a

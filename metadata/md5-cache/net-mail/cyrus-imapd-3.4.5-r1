@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/flex virtual/pkgconfig app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 ssl? ( dev-libs/openssl )
+BDEPEND=app-alternatives/lex virtual/pkgconfig app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 ssl? ( dev-libs/openssl )
 DEFINED_PHASES=configure install postinst preinst prepare
 DEPEND=dev-libs/libpcre:3 >=dev-libs/cyrus-sasl-2.1.13:2 dev-libs/jansson:= dev-libs/icu:= sys-apps/util-linux sys-fs/e2fsprogs:= sys-libs/zlib:= afs? ( net-fs/openafs ) calalarm? ( dev-libs/libical:= ) caps? ( sys-libs/libcap ) clamav? ( app-antivirus/clamav ) http? ( app-arch/brotli:= app-arch/zstd:= dev-libs/libxml2 dev-libs/libical:= net-libs/nghttp2:= sci-libs/shapelib:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) mysql? ( dev-db/mysql-connector-c:= ) nntp? ( !net-nntp/leafnode ) pam? ( >=net-mail/mailbase-1 sys-libs/pam ) perl? ( dev-lang/perl:= virtual/perl-Term-ReadLine ) postgres? ( dev-db/postgresql:* ) ssl? ( >=dev-libs/openssl-1.0.1e:=[-bindist(-)] ) sqlite? ( dev-db/sqlite:3 ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) xapian? ( >=dev-libs/xapian-1.4.0:= ) test? ( dev-util/cunit )
 DESCRIPTION=The Cyrus IMAP Server
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cyrusimap/cyrus-imapd/releases/download/cyrus-imapd-3.4.5/cyrus-imapd-3.4.5.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	pam	b56d0c9c20fc5b553f13c8ae165a10a5	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26
-_md5_=a56cb1435bdb8feea244c1c648e57141
+_md5_=9eab40f7700d27a33aeb4cbe45266533
