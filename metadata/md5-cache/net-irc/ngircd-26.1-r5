@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-tcltk/expect net-misc/netkit-telnetd ) verify-sig? ( sec-keys/openpgp-keys-alexbarton ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=test? ( dev-tcltk/expect net-misc/netkit-telnetd ) verify-sig? ( sec-keys/openpgp-keys-alexbarton ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib )
 DESCRIPTION=An IRC server written from scratch
@@ -12,5 +12,5 @@ RDEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libide
 RESTRICT=test
 SLOT=0
 SRC_URI=https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.xz verify-sig? ( https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.xz.sig )
-_eclasses_=tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=3444d42ac876326952731b12f6821cc9

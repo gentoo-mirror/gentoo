@@ -1,4 +1,4 @@
-BDEPEND=dev-java/xalan:0 verify-sig? ( sec-keys/openpgp-keys-apache-xmlgraphics-fop ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=dev-java/xalan:0 verify-sig? ( sec-keys/openpgp-keys-apache-xmlgraphics-fop ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
 DEPEND=dev-java/batik:1.16 dev-java/commons-io:1 dev-java/commons-logging:0 dev-java/fontbox:0 dev-java/qdox:1.12 dev-java/xmlgraphics-commons:2 >=virtual/jdk-1.8:* dev-java/ant-core:0 dev-java/javax-servlet-api:2.2 dev-java/sun-jai-bin:0 test? ( dev-java/mockito:2 dev-java/pdfbox:0 dev-java/xmlunit:1 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=XML Graphics Format Object Processor All-In-One
@@ -12,5 +12,5 @@ RDEPEND=dev-java/batik:1.16 dev-java/commons-io:1 dev-java/commons-logging:0 dev
 RESTRICT=!test? ( test )
 SLOT=2.8
 SRC_URI=mirror://apache/xmlgraphics/fop/source/fop-2.8-src.tar.gz https://dev.gentoo.org/~flow/distfiles/fop/fop-2.7-jars.tar.xz verify-sig? ( https://www.apache.org/dist/xmlgraphics/fop/source/fop-2.8-src.tar.gz.asc ) test? ( https://repo1.maven.org/maven2/net/sf/offo/fop-hyph/2.0/fop-hyph-2.0.jar )
-_eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7	verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=5b95aa1a5e62fbdd962e811518f29ebe

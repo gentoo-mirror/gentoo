@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-voikko ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-voikko ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install postinst prerm unpack
 DEPEND=|| ( app-office/libreoffice[odk] >=app-office/libreoffice-bin-6.4.7.2_p1 ) dev-libs/voikko-fi
 DESCRIPTION=Free Finnish spell checking and hyphenation for LibreOffice
@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=|| ( app-office/libreoffice[odk] >=app-office/libreoffice-bin-6.4.7.2_p1 ) dev-libs/voikko-fi dev-libs/libvoikko
 SLOT=0
 SRC_URI=https://www.puimula.org/voikko-sources/libreoffice-voikko/libreoffice-voikko-5.0.tar.gz verify-sig? ( https://www.puimula.org/voikko-sources/libreoffice-voikko/libreoffice-voikko-5.0.tar.gz.asc )
-_eclasses_=verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=4c55c52d535b44b97392b7694e0d09da

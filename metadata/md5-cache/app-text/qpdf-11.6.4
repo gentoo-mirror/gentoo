@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl doc? ( app-arch/unzip ) verify-sig? ( sec-keys/openpgp-keys-jberkenbilt ) app-alternatives/ninja >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=dev-lang/perl doc? ( app-arch/unzip ) verify-sig? ( sec-keys/openpgp-keys-jberkenbilt ) app-alternatives/ninja >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=media-libs/libjpeg-turbo:= sys-libs/zlib gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) test? ( app-text/ghostscript-gpl[tiff(+)] media-libs/tiff sys-apps/diffutils )
 DESCRIPTION=Command-line tool for structural, content-preserving transformation of PDF files
@@ -12,5 +12,5 @@ RDEPEND=media-libs/libjpeg-turbo:= sys-libs/zlib gnutls? ( net-libs/gnutls:= ) !
 RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=https://github.com/qpdf/qpdf/releases/download/v11.6.4/qpdf-11.6.4.tar.gz verify-sig? ( https://github.com/qpdf/qpdf/releases/download/v11.6.4/qpdf-11.6.4.tar.gz.asc ) doc? ( https://github.com/qpdf/qpdf/releases/download/v11.6.4/qpdf-11.6.4-doc.zip )
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=e96f9c75ffe10614df99c1a0122cdce4

@@ -1,4 +1,4 @@
-BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-make ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-make ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=guile? ( >=dev-scheme/guile-1.8:= )
 DESCRIPTION=Standard tool to compile source trees
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=guile? ( >=dev-scheme/guile-1.8:= ) nls? ( virtual/libintl )
 SLOT=0
 SRC_URI=mirror://gnu/make/make-4.4.1.tar.gz verify-sig? ( mirror://gnu/make/make-4.4.1.tar.gz.sig )
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=e404bc7e36981cb7aadc584ea0c7e14e

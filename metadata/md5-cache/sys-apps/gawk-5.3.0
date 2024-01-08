@@ -1,4 +1,4 @@
-BDEPEND=>=sys-apps/texinfo-7.1 >=sys-devel/bison-3.5.4 nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-gawk ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=>=sys-apps/texinfo-7.1 >=sys-devel/bison-3.5.4 nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-gawk ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst postrm prepare unpack
 DEPEND=mpfr? ( dev-libs/gmp:= dev-libs/mpfr:= ) readline? ( sys-libs/readline:= )
 DESCRIPTION=GNU awk pattern-matching language
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=mpfr? ( dev-libs/gmp:= dev-libs/mpfr:= ) readline? ( sys-libs/readline:= )
 SLOT=0
 SRC_URI=mirror://gnu/gawk/gawk-5.3.0.tar.xz verify-sig? ( mirror://gnu/gawk/gawk-5.3.0.tar.xz.sig )
-_eclasses_=verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=5af547c82581b1cf5a2615cb7b4bb2fc

@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/lex virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=app-alternatives/lex virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install unpack
 DEPEND=~app-editors/vile-9.8w virtual/libcrypt:= >=x11-libs/libX11-1.0.0 >=x11-libs/libXt-1.0.0 >=x11-libs/libICE-1.0.0 >=x11-libs/libSM-1.0.0 >=x11-libs/libXaw-1.0.1 >=x11-libs/libXpm-3.5.4.2 perl? ( dev-lang/perl:= ) x11-base/xorg-proto
 DESCRIPTION=VI Like Emacs -- yet another full-featured vi clone
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=~app-editors/vile-9.8w virtual/libcrypt:= >=x11-libs/libX11-1.0.0 >=x11-libs/libXt-1.0.0 >=x11-libs/libICE-1.0.0 >=x11-libs/libSM-1.0.0 >=x11-libs/libXaw-1.0.1 >=x11-libs/libXpm-3.5.4.2 perl? ( dev-lang/perl:= )
 SLOT=0
 SRC_URI=https://invisible-island.net/archives/vile/current/vile-9.8w.tgz verify-sig? ( https://invisible-island.net/archives/vile/current/vile-9.8w.tgz.asc )
-_eclasses_=verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=32bbd36362fd866a5c280bae145ab0b7

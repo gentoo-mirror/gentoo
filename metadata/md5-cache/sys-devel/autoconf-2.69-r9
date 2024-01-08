@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-m4 ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.6 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-m4 ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.6 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare unpack
 DESCRIPTION=Used to create autoconfiguration files
 EAPI=7
@@ -11,5 +11,5 @@ PDEPEND=emacs? ( app-emacs/autoconf-mode )
 RDEPEND=verify-sig? ( sec-keys/openpgp-keys-m4 ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.6 >=sys-devel/autoconf-wrapper-13 !~sys-devel/autoconf-2.69:2.5
 SLOT=2.69
 SRC_URI=mirror://gnu/autoconf/autoconf-2.69.tar.xz ftp://alpha.gnu.org/pub/gnu/autoconf/autoconf-2.69.tar.xz https://dev.gentoo.org/~polynomial-c/dist/autoconf-2.69-runstatedir_patches.tar.xz verify-sig? ( mirror://gnu/autoconf/autoconf-2.69.tar.xz.sig )
-_eclasses_=verify-sig	798e0173d334021f14ba78a786c37059	toolchain-autoconf	46179d03e1037748a23a60153bd99c53
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150	toolchain-autoconf	46179d03e1037748a23a60153bd99c53
 _md5_=11b53883ee1bc367f4b6358e5b00729c

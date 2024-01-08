@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-logging ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-logging ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
 DEPEND=>=virtual/jdk-1.8:* dev-java/osgi-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=The Apache Log4j API
@@ -12,5 +12,5 @@ RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/z
 RESTRICT=test !test? ( test )
 SLOT=2
 SRC_URI=mirror://apache/logging/log4j/2.19.0/apache-log4j-2.19.0-src.tar.gz verify-sig? ( https://www.apache.org/dist/logging/log4j/2.19.0/apache-log4j-2.19.0-src.tar.gz.asc )
-_eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7	verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=java-utils-2	7c4c66a18e7b619373f3a3bcff542907	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	4ab397252045e0aeb290efb05ea956c7	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=e41fc7ff0d9775d12bfdaae3085a0e11

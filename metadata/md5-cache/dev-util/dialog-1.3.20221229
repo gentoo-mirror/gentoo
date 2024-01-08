@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig !minimal? ( sys-devel/libtool ) verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=virtual/pkgconfig !minimal? ( sys-devel/libtool ) verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=>=sys-libs/ncurses-5.2-r5:=[unicode(+)?] nls? ( sys-devel/gettext )
 DESCRIPTION=Tool to display dialog boxes from a shell
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=>=sys-libs/ncurses-5.2-r5:=[unicode(+)?]
 SLOT=0/15
 SRC_URI=https://invisible-island.net/archives/dialog/dialog-1.3-20221229.tgz verify-sig? ( https://invisible-island.net/archives/dialog/dialog-1.3-20221229.tgz.asc )
-_eclasses_=verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=d2d891bd287470fbfe5d646d262b0f66

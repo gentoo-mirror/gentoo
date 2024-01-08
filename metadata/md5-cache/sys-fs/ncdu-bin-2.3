@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-yorhel ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-yorhel ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=install unpack
 DESCRIPTION=NCurses Disk Usage
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=-* ~amd64 ~arm ~arm64 ~x86
 LICENSE=MIT
 SLOT=0
 SRC_URI=amd64? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-x86_64.tar.gz ) arm? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-arm.tar.gz ) arm64? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-aarch64.tar.gz ) x86? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-x86.tar.gz ) verify-sig? ( amd64? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-x86_64.tar.gz.asc ) arm? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-arm.tar.gz.asc ) arm64? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-aarch64.tar.gz.asc ) x86? ( https://dev.yorhel.nl/download/ncdu-2.3-linux-x86.tar.gz.asc ) )
-_eclasses_=verify-sig	798e0173d334021f14ba78a786c37059
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=35291e3b9593bc21d8fd889c140e5183

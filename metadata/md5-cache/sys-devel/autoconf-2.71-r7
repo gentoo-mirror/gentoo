@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-zackweinberg ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.8 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-zackweinberg ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.8 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare test unpack
 DESCRIPTION=Used to create autoconfiguration files
 EAPI=7
@@ -11,5 +11,5 @@ PDEPEND=emacs? ( app-emacs/autoconf-mode )
 RDEPEND=verify-sig? ( sec-keys/openpgp-keys-zackweinberg ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.8 >=sys-devel/autoconf-wrapper-15 sys-devel/gnuconfig !~sys-devel/autoconf-2.71:2.5
 SLOT=2.71
 SRC_URI=mirror://gnu/autoconf/autoconf-2.71.tar.xz https://alpha.gnu.org/pub/gnu/autoconf/autoconf-2.71.tar.xz verify-sig? ( mirror://gnu/autoconf/autoconf-2.71.tar.xz.sig )
-_eclasses_=verify-sig	798e0173d334021f14ba78a786c37059	toolchain-autoconf	46179d03e1037748a23a60153bd99c53
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150	toolchain-autoconf	46179d03e1037748a23a60153bd99c53
 _md5_=9b790b9533fd65266fc81284e1989c5a
