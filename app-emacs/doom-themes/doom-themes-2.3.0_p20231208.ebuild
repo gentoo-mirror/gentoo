@@ -1,19 +1,28 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT=e9bdd137116fa2037ed60037b8421cf68c64888d
+COMMIT=ff26f26ea3d761375f5fc4070438fbd0f3473d33
 
 inherit elisp
 
 DESCRIPTION="Opinionated megapack of modern color-themes for GNU Emacs"
 HOMEPAGE="https://github.com/doomemacs/themes/"
-SRC_URI="https://github.com/doomemacs/themes/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/themes-${COMMIT}
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/doomemacs/themes.git"
+else
+	SRC_URI="https://github.com/doomemacs/themes/archive/${COMMIT}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}/themes-${COMMIT}"
+
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="MIT"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DOCS=( README.md )
