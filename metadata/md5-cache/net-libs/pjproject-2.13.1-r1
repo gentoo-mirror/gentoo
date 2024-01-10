@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare
+DEPEND=alsa? ( media-libs/alsa-lib ) amr? ( media-libs/opencore-amr ) ffmpeg? ( media-video/ffmpeg:= ) g729? ( media-libs/bcg729 ) gsm? ( media-sound/gsm ) ilbc? ( media-libs/libilbc ) openh264? ( media-libs/openh264 ) opus? ( media-libs/opus ) portaudio? ( media-libs/portaudio ) resample? ( media-libs/libsamplerate ) sdl? ( media-libs/libsdl2 ) speex? ( media-libs/speex media-libs/speexdsp ) srtp? ( >=net-libs/libsrtp-2.3.0:= ) ssl? ( dev-libs/openssl:0= )
+DESCRIPTION=Open source SIP, Media, and NAT Traversal Library
+EAPI=8
+HOMEPAGE=https://github.com/pjsip/pjproject https://www.pjsip.org/
+INHERIT=autotools flag-o-matic toolchain-funcs
+IUSE=amr debug epoll examples opus resample silk srtp ssl static-libs webrtc g711 g722 g7221 gsm ilbc speex l16 g729 sdl ffmpeg v4l2 openh264 libyuv vpx alsa portaudio
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=alsa? ( media-libs/alsa-lib ) amr? ( media-libs/opencore-amr ) ffmpeg? ( media-video/ffmpeg:= ) g729? ( media-libs/bcg729 ) gsm? ( media-sound/gsm ) ilbc? ( media-libs/libilbc ) openh264? ( media-libs/openh264 ) opus? ( media-libs/opus ) portaudio? ( media-libs/portaudio ) resample? ( media-libs/libsamplerate ) sdl? ( media-libs/libsdl2 ) speex? ( media-libs/speex media-libs/speexdsp ) srtp? ( >=net-libs/libsrtp-2.3.0:= ) ssl? ( dev-libs/openssl:0= )
+SLOT=0/2.13.1
+SRC_URI=https://github.com/pjsip/pjproject/archive/refs/tags/2.13.1.tar.gz -> pjproject-2.13.1.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
+_md5_=a9de656de63e0a3aabba11d5d987ce2f
