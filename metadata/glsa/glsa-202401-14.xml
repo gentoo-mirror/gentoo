@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-14">
+    <title>RedCloth: ReDoS Vulnerability</title>
+    <synopsis>A denial of service vulnerability has been found in RedCloth.</synopsis>
+    <product type="ebuild">redcloth</product>
+    <announced>2024-01-10</announced>
+    <revised count="1">2024-01-10</revised>
+    <bug>908035</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-ruby/redcloth" auto="yes" arch="*">
+            <unaffected range="ge">4.3.2-r5</unaffected>
+            <vulnerable range="lt">4.3.2-r5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>RedCloth is a module for using Textile in Ruby</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in RedCloth. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>RedCloth is vulnerable to a regular expression denial of service (&#34;ReDoS&#34;) attack via the sanitize_html function.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All RedCloth users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/redcloth-4.3.2-r5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-31606">CVE-2023-31606</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-10T13:10:26.781895Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-10T13:10:26.785113Z">graaff</metadata>
+</glsa>
