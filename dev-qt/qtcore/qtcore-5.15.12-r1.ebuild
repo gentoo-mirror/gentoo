@@ -24,7 +24,50 @@ DEPEND="
 	icu? ( dev-libs/icu:= )
 	!icu? ( virtual/libiconv )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<dev-qt/designer-${QT5_PV}:5
+	!<dev-qt/qt3d-${QT5_PV}:5
+	!<dev-qt/qtbluetooth-${QT5_PV}:5
+	!<dev-qt/qtcharts-${QT5_PV}:5
+	!<dev-qt/qtconcurrent-${QT5_PV}:5
+	!<dev-qt/qtdatavis3d-${QT5_PV}:5
+	!<dev-qt/qtdbus-${QT5_PV}:5
+	!<dev-qt/qtdeclarative-${QT5_PV}:5
+	!<dev-qt/qtgamepad-${QT5_PV}:5
+	!<dev-qt/qtgraphicaleffects-${QT5_PV}:5
+	!<dev-qt/qtgui-${QT5_PV}:5
+	!<dev-qt/qthelp-${QT5_PV}:5
+	!<dev-qt/qtimageformats-${QT5_PV}:5
+	!<dev-qt/qtlocation-${QT5_PV}:5
+	!<dev-qt/qtmultimedia-${QT5_PV}:5
+	!<dev-qt/qtnetwork-${QT5_PV}:5
+	!<dev-qt/qtnetworkauth-${QT5_PV}:5
+	!<dev-qt/qtopengl-${QT5_PV}:5
+	!<dev-qt/qtpositioning-${QT5_PV}:5
+	!<dev-qt/qtprintsupport-${QT5_PV}:5
+	!<dev-qt/qtquickcontrols-${QT5_PV}:5
+	!<dev-qt/qtquickcontrols2-${QT5_PV}:5
+	!<dev-qt/qtquicktimeline-${QT5_PV}:5
+	!<dev-qt/qtscript-${QT5_PV}:5
+	!<dev-qt/qtscxml-${QT5_PV}:5
+	!<dev-qt/qtsensors-${QT5_PV}:5
+	!<dev-qt/qtserialbus-${QT5_PV}:5
+	!<dev-qt/qtserialport-${QT5_PV}:5
+	!<dev-qt/qtspeech-${QT5_PV}:5
+	!<dev-qt/qtsql-${QT5_PV}:5
+	!<dev-qt/qtsvg-${QT5_PV}:5
+	!<dev-qt/qttest-${QT5_PV}:5
+	!<dev-qt/qtvirtualkeyboard-${QT5_PV}:5
+	!<dev-qt/qtwayland-${QT5_PV}:5
+	!<dev-qt/qtwebchannel-${QT5_PV}:5
+	!<dev-qt/qtwebengine-${QT5_PV}:5
+	!<dev-qt/qtwebsockets-${QT5_PV}:5
+	!<dev-qt/qtwebview-${QT5_PV}:5
+	!<dev-qt/qtwidgets-${QT5_PV}:5
+	!<dev-qt/qtx11extras-${QT5_PV}:5
+	!<dev-qt/qtxml-${QT5_PV}:5
+	!<dev-qt/qtxmlpatterns-${QT5_PV}:5
+"
 
 QT5_TARGET_SUBDIRS=(
 	src/tools/bootstrap
