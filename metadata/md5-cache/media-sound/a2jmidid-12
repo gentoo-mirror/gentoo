@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[threads(+)] ) )
+DESCRIPTION=Daemon for exposing ALSA sequencer applications in JACK MIDI system
+EAPI=8
+HOMEPAGE=https://a2jmidid.ladish.org
+INHERIT=meson python-single-r1
+IUSE=dbus python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=amd64 ~arm x86
+LICENSE=GPL-2
+RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[threads(+)] ) )
+REQUIRED_USE=dbus? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+SLOT=0
+SRC_URI=https://dl.ladish.org/a2jmidid/a2jmidid-12.tar.bz2
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	0e160eeba59c15ec333bd675cecdfdc9	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=2dee3705bcfb061005da29f9c049f4ba
