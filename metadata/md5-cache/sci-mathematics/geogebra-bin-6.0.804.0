@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip media-libs/libpng
+DEFINED_PHASES=install postinst postrm preinst test unpack
+DEPEND=x11-libs/libxshmfence dev-libs/nss app-accessibility/at-spi2-core x11-libs/libdrm >=x11-libs/gtk+-3 media-libs/alsa-lib net-print/cups
+DESCRIPTION=Mathematics software for geometry
+EAPI=8
+HOMEPAGE=https://www.geogebra.org
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop xdg
+KEYWORDS=~amd64 -*
+LICENSE=Geogebra CC-BY-NC-SA-3.0 GPL-3 Apache-2.0 BSD-2 BSD BSD-4 colt EPL-1.0 icu LGPL-2.1 LGPL-2.1+ MIT W3C || ( GPL-2 CDDL )
+RDEPEND=x11-libs/libxshmfence dev-libs/nss app-accessibility/at-spi2-core x11-libs/libdrm >=x11-libs/gtk+-3 media-libs/alsa-lib net-print/cups
+RESTRICT=test
+SLOT=0
+SRC_URI=https://download.geogebra.org/installers/6.0/GeoGebra-Linux64-Portable-6-0-804-0.zip https://dev.gentoo.org/~gyakovlev/distfiles/Geogebra.svg
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=098b8eec972dd21f9edce0d5d687f27a
