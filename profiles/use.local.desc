@@ -4322,26 +4322,30 @@ media-libs/openal:pipewire - Enable support for the media-video/pipewire audio b
 media-libs/openal:sndio - Enable support for the media-sound/sndio backend
 media-libs/opencolorio:apps - Build the OCIO command line apps
 media-libs/opencv:contrib - Install user contributed scripts from opencv_contrib (Experimental!)
-media-libs/opencv:contribcvv - CVV module requires Qt5
-media-libs/opencv:contribdnn - DNN module contrib requires tiny dnn
-media-libs/opencv:contribfreetype - Enable Drawing UTF-8 strings with freetype/harfbuzz
-media-libs/opencv:contribhdf - HDF module requires sci-libs/hdf5
-media-libs/opencv:contribovis - Enable Ogre vision module support
-media-libs/opencv:contribsfm - SFM module requires eigen, gflags, and glog
+media-libs/opencv:contribcvv - Enable CVV in contrib (requires Qt5)
+media-libs/opencv:contribdnn - Enable DNN module contrib (requires tinydnn)
+media-libs/opencv:contribfreetype - Enable Drawing UTF-8 strings with media-libs/freetype&media-libs/harfbuzz
+media-libs/opencv:contribhdf - Enable HDF module (requires sci-libs/hdf5)
+media-libs/opencv:contribovis - Enable OGRE vision module support (dev-games/ogre)
+media-libs/opencv:contribsfm - Enable SFM module (requires USE="eigen gflags glog")
 media-libs/opencv:contribxfeatures2d - Enables xfeatures2d and autodownload of samples in contrib
 media-libs/opencv:cuda - Enable NVIDIA Cuda computations support (Experimental!)
-media-libs/opencv:dnnsamples - Download dnn caffeemodel samples
+media-libs/opencv:cudnn - Enable support for nVidia cuDNN library
+media-libs/opencv:dnnsamples - Enable dnn caffeemodel samples
 media-libs/opencv:download - Enable download during cmake configure
 media-libs/opencv:eigen - Enable usage of dev-cpp/eigen for computations
 media-libs/opencv:features2d - Enable features2d module
 media-libs/opencv:gdal - Enable support for sci-libs/gdal library
-media-libs/opencv:gflags - Use Google's C++ argument parsing library
-media-libs/opencv:glog - Use Google's C++ loggin library
+media-libs/opencv:gflags - Use Google's C++ argument parsing library (dev-cpp/gflags)
+media-libs/opencv:glog - Use Google's C++ logging library (dev-cpp/glog)
 media-libs/opencv:gtk3 - Enable x11-libs/gtk+:3 support
 media-libs/opencv:lto - Build using Link Time Optimizations (LTO)
+media-libs/opencv:non-free - Enable non-free components
 media-libs/opencv:opencvapps - Enable compilation with opencvapps
+media-libs/opencv:tbb - Enable multithreading with the Intel Threads Building Block (dev-cpp/tbb)
 media-libs/opencv:tesseract - Use Google's OCR Engine
 media-libs/opencv:testprograms - Build and install programs for testing OpenCV (performance)
+media-libs/opencv:video_cards_intel - Enable Video Acceleration API for hardware decoding for Intel cards
 media-libs/opencv:vtk - Build new 3D visualization module viz based on sci-libs/vtk
 media-libs/openexr:large-stack - Enables code to take advantage of large stack support.
 media-libs/openexr:utils - Build several binary tools for verifying and manipulating EXR files.
@@ -4362,8 +4366,9 @@ media-libs/opus:custom-modes - Enable non-Opus modes, e.g. 44.1 kHz and 2^n fram
 media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
 media-libs/opusfile:http - Enable http connections
+media-libs/osl:gui - Build the osltoy binary (with Qt5)
 media-libs/osl:partio - Use media-libs/partio
-media-libs/osl:qt5 - Build the osltoy binary
+media-libs/osl:qt6 - Build the osltoy binary (with Qt6)
 media-libs/phonon:designer - Install plugin for dev-qt/designer
 media-libs/phonon:vlc - Install VLC Phonon backend
 media-libs/phonon-gstreamer:network - Enable network streaming support via libsoup
@@ -7405,6 +7410,7 @@ sci-libs/vtk:gdal - Support for gdal formated data
 sci-libs/vtk:imaging - Building Imaging modules
 sci-libs/vtk:las - Build support for LiDAR files
 sci-libs/vtk:logging - Build the logging module
+sci-libs/vtk:opencascade - Enable OpenCASCADE support
 sci-libs/vtk:openvdb - Build support to handle VDB data files
 sci-libs/vtk:pdal - Build support to handle point cloud data files
 sci-libs/vtk:qt6 - Use Qt6 packages instead of Qt5

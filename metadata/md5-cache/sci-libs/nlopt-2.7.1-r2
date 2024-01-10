@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/stevengj/nlopt
 INHERIT=python-r1 cmake fortran-2
 IUSE=cxx guile octave python test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=amd64 ~arm64 ~ppc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1 MIT
 RDEPEND=guile? ( dev-scheme/guile:* ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/stevengj/nlopt/archive/v2.7.1.tar.gz -> nlopt-2.7.1.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6ce0fba8085ef5b349c3a2e185305098	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
-_md5_=e844ce199223eb1a03b33f1a79779a8a
+_md5_=59eeb1d0ec923b80de6a5b2b053185bb
