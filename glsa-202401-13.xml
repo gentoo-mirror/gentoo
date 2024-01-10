@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-13">
+    <title>FAAD2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple denial of service vulnerabilities have been found in FAAD2.</synopsis>
+    <product type="ebuild">faad2</product>
+    <announced>2024-01-10</announced>
+    <revised count="1">2024-01-10</revised>
+    <bug>918558</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/faad2" auto="yes" arch="*">
+            <unaffected range="ge">2.11.0</unaffected>
+            <vulnerable range="lt">2.11.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FAAD2 is an open source MPEG-4 and MPEG-2 AAC decoder.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FAAD2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FAAD2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/faad2-2.11.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38857">CVE-2023-38857</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38858">CVE-2023-38858</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-10T11:43:50.951508Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-10T11:43:50.953718Z">graaff</metadata>
+</glsa>
