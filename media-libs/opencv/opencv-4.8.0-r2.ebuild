@@ -21,8 +21,8 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}" # subslot = libopencv* soname version
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
-IUSE="contrib contribcvv contribdnn contribfreetype contribhdf contribovis contribsfm contribxfeatures2d cuda debug dnnsamples download +eigen examples +features2d ffmpeg gdal gflags glog gphoto2 gstreamer gtk3 ieee1394 jpeg jpeg2k lapack lto opencl openexr opengl openmp opencvapps png +python qt5 qt6 tesseract testprograms threads tiff vaapi v4l vtk webp xine"
+KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+IUSE="contrib contribcvv contribdnn contribfreetype contribhdf contribovis contribsfm contribxfeatures2d cuda debug dnnsamples download +eigen examples +features2d ffmpeg gdal gflags glog gphoto2 gstreamer gtk3 ieee1394 jpeg jpeg2k lapack lto opencl openexr opengl openmp opencvapps png +python qt5 tesseract testprograms threads tiff vaapi v4l vtk webp xine"
 
 # The following lines are shamelessly stolen from ffmpeg-9999.ebuild with modifications
 ARM_CPU_FEATURES=(
@@ -67,7 +67,7 @@ REQUIRED_USE="
 	dnnsamples? ( examples )
 	gflags? ( contrib )
 	glog? ( contrib )
-	contribcvv? ( contrib || ( qt5 qt6 ) )
+	contribcvv? ( contrib qt5 )
 	contribdnn? ( contrib )
 	contribfreetype? ( contrib )
 	contribhdf? ( contrib )
@@ -76,10 +76,10 @@ REQUIRED_USE="
 	contribxfeatures2d? ( contrib download )
 	examples? ( contribdnn )
 	java? ( python )
-	opengl? ( || ( qt5 qt6 ) )
+	opengl? ( qt5 )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	tesseract? ( contrib )
-	?? ( gtk3 || ( qt5 qt6 ) )"
+	?? ( gtk3 qt5 )"
 
 # The following logic is intrinsic in the build system, but we do not enforce
 # it on the useflags since this just blocks emerging pointlessly:
@@ -87,7 +87,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	app-arch/bzip2[${MULTILIB_USEDEP}]
-	dev-libs/protobuf:=[${MULTILIB_USEDEP}]
+	<dev-libs/protobuf-23:=[${MULTILIB_USEDEP}]
 	sys-libs/zlib[${MULTILIB_USEDEP}]
 	cuda? ( dev-util/nvidia-cuda-toolkit:0= )
 	contribdnn? ( dev-libs/flatbuffers:= )
@@ -141,11 +141,6 @@ RDEPEND="
 		dev-qt/qttest:5=
 		dev-qt/qtconcurrent:5=
 		opengl? ( dev-qt/qtopengl:5= )
-	)
-	!qt5? (
-		qt6? (
-			dev-qt/qtbase:6=[gui,widgets,concurrent,opengl?]
-		)
 	)
 	tesseract? ( app-text/tesseract[opencl=,${MULTILIB_USEDEP}] )
 	threads? ( dev-cpp/tbb:=[${MULTILIB_USEDEP}] )
@@ -297,7 +292,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.1.2-opencl-license.patch
 	"${FILESDIR}"/${PN}-4.4.0-disable-native-cpuflag-detect.patch
 	"${FILESDIR}"/${PN}-4.5.0-link-with-cblas-for-lapack.patch
-	"${FILESDIR}"/${PN}-4.8.0-fix-protobuf.patch
 	"${FILESDIR}"/${PN}-4.8.0-fix-flatbuffer.patch
 	"${FILESDIR}"/${PN}-4.8.0-arm64-fp16.patch
 	"${FILESDIR}"/${PN}-4.8.0-fix-cuda-12.2.0.patch
@@ -386,6 +380,7 @@ multilib_src_configure() {
 		-DWITH_PVAPI=OFF
 		-DWITH_GIGEAPI=OFF
 		-DWITH_ARAVIS=OFF
+		-DWITH_QT=$(multilib_native_usex qt5 5 OFF)
 		-DWITH_WIN32UI=OFF		# Windows only
 	#	-DWITH_QUICKTIME=OFF
 	#	-DWITH_QTKIT=OFF
@@ -492,24 +487,6 @@ multilib_src_configure() {
 		-DOPENCV_DOC_INSTALL_PATH=
 		-DBUILD_opencv_features2d=$(usex features2d ON OFF)
 	)
-
-	if use qt5; then
-		GLOBALCMAKEARGS+=(
-			-DWITH_QT=$(multilib_native_usex qt5 ON OFF)
-			-DCMAKE_DISABLE_FIND_PACKAGE_Qt6=ON
-		)
-	elif use qt6; then
-		GLOBALCMAKEARGS+=(
-			-DWITH_QT=$(multilib_native_usex qt6 ON OFF)
-			-DCMAKE_DISABLE_FIND_PACKAGE_Qt5=ON
-		)
-	else
-		GLOBALCMAKEARGS+=(
-			-DWITH_QT=OFF
-			-DCMAKE_DISABLE_FIND_PACKAGE_Qt5=ON
-			-DCMAKE_DISABLE_FIND_PACKAGE_Qt6=ON
-		)
-	fi
 
 	# ==================================================
 	# cpu flags, should solve 633900
