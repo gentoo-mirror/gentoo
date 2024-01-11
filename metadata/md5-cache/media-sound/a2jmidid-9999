@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
-DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) )
-DESCRIPTION=Daemon for exposing legacy ALSA sequencer applications in JACK MIDI system
+DEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[threads(+)] ) )
+DESCRIPTION=Daemon for exposing ALSA sequencer applications in JACK MIDI system
 EAPI=8
-HOMEPAGE=https://github.com/jackaudio/a2jmidid
+HOMEPAGE=https://a2jmidid.ladish.org
 INHERIT=meson python-single-r1 git-r3
-IUSE=dbus python python_single_target_python3_10 python_single_target_python3_11
+IUSE=dbus python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
+RDEPEND=media-libs/alsa-lib virtual/jack dbus? ( sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_single_target_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[threads(+)] ) )
+REQUIRED_USE=dbus? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
 SLOT=0
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	0e160eeba59c15ec333bd675cecdfdc9	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=cccc1e2d54f53560391b2c70bee5f4e8
+_md5_=59a9f678f7e3fcb4d6f09c4b83566240
