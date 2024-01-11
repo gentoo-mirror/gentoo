@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Convert CD images from nrg (Nero) to iso
+EAPI=8
+HOMEPAGE=http://gregory.kokanosky.free.fr/v4/linux/nrg2iso.en.html
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=GPL-2+
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://gregory.kokanosky.free.fr/v4/linux/nrg2iso-0.4.1.tar.gz test? ( https://yegortimoshenko.s3.amazonaws.com/nrg2iso-test.iso https://yegortimoshenko.s3.amazonaws.com/nrg2iso-test.nrg )
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=929cd6445e0afb325b4a29dbfdad17cf

@@ -2,10 +2,10 @@ DEFINED_PHASES=install
 DESCRIPTION=Bleeding edge Icinga Web 2 libraries
 EAPI=8
 HOMEPAGE=https://github.com/Icinga/icingaweb2-module-incubator/
-IUSE=php_targets_php8-1
+IUSE=php_targets_php8-1 php_targets_php8-2
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=php_targets_php8-1? ( dev-lang/php:8.1[curl] ) >=www-apps/icingaweb2-2.9.0 >=dev-libs/icinga-php-thirdparty-0.8.0 >=dev-libs/icinga-php-library-0.5.0
+RDEPEND=php_targets_php8-1? ( dev-lang/php:8.1[curl] ) php_targets_php8-2? ( dev-lang/php:8.2[curl] ) >=www-apps/icingaweb2-2.9.0 >=dev-libs/icinga-php-thirdparty-0.8.0 >=dev-libs/icinga-php-library-0.5.0
 SLOT=0
 SRC_URI=https://codeload.github.com/Icinga/icingaweb2-module-incubator/tar.gz/v0.20.0 -> icingaweb2-module-incubator-0.20.0.tar.gz
-_md5_=78c041b42ea8587f070307362eef3a74
+_md5_=73c0fe8339cd817676d6b2719d6390de

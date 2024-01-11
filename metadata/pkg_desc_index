@@ -1306,7 +1306,7 @@ app-cdr/mirage2iso 0.4.2-r1 9999: CD/DVD image converter using libmirage
 app-cdr/mkcdtoc 1.0-r1: command-line utility to create toc-files for cdrdao
 app-cdr/mp3burn 0.4.2: Burn mp3s without filling up your disk with .wav files
 app-cdr/multicd 1.7.5-r2: Tool for making direct copies of your files to multiple cd's
-app-cdr/nrg2iso 0.4-r3: Convert CD images from nrg (Nero) to iso
+app-cdr/nrg2iso 0.4-r3 0.4.1: Convert CD images from nrg (Nero) to iso
 app-cdr/plextor-tool 0.5.0: Tool to change the parameters of a Plextor CD-ROM drive
 app-cdr/tkdvd 4.0.9-r1: A Tcl/Tk GUI for writing DVDs and CDs
 app-cdr/uif2iso 0.1.7c-r2: Convert CD images from uif (MagicISO) to iso
@@ -3764,7 +3764,7 @@ dev-cpp/asio 1.28.0 1.28.1: Asynchronous Network Library
 dev-cpp/atkmm 2.28.3: C++ interface for the ATK library
 dev-cpp/benchmark 1.8.2 1.8.3: A microbenchmark support library
 dev-cpp/cairomm 1.14.4 1.16.2 1.18.0: C++ bindings for the Cairo vector graphics library
-dev-cpp/catch 1.12.2-r2 1.9999 2.13.8 3.4.0 9999: Modern C++ header-only framework for unit-tests
+dev-cpp/catch 1.12.2-r2 1.9999 2.13.8 3.4.0 3.5.1 9999: Modern C++ header-only framework for unit-tests
 dev-cpp/cctz 2.3_p20230228: C++ library for dealing with time zones and time conversion
 dev-cpp/clhpp 2023.04.17 2023.12.14: Khronos OpenCL C++ bindings
 dev-cpp/cli11 2.3.2: Command line parser for C++11
@@ -5515,7 +5515,7 @@ dev-libs/miniaudio 0.11.11 0.11.15: Single file library for audio playback and c
 dev-libs/miniz 2.2.0-r1 3.0.1: A lossless, high performance data compression library
 dev-libs/mm 1.4.2-r2: Shared Memory Abstraction Library
 dev-libs/mmtf-cpp 1.0.0-r1 1.1.0-r1: The pure C++ implementation of the MMTF API, decoder and encoder
-dev-libs/modsecurity 3.0.9 3.0.10 3.0.10-r1: Application firewall and intrusion detection
+dev-libs/modsecurity 3.0.10 3.0.10-r1: Application firewall and intrusion detection
 dev-libs/mongo-c-driver 1.18.0-r1 1.24.4: Client library written in C for MongoDB
 dev-libs/mpc 1.3.1: A library for multiprecision complex arithmetic with exact rounding
 dev-libs/mpfr 4.2.0_p12 4.2.1: Library for multiple-precision floating-point computations with exact rounding
@@ -5544,7 +5544,7 @@ dev-libs/opencryptoki 3.6.1-r1: PKCS#11 provider cryptographic hardware
 dev-libs/openct 0.6.20-r5: library for accessing smart card terminals
 dev-libs/openobex 1.7.2-r3: Implementation of the OBEX protocol used for transferring data to mobile devices
 dev-libs/openpace 1.1.3: Cryptographic library for EAC version 2
-dev-libs/opensc 0.23.0-r2 0.23.0-r3 9999: Libraries and applications to access smartcards
+dev-libs/opensc 0.23.0-r3 0.24.0 9999: Libraries and applications to access smartcards
 dev-libs/openspecfun 0.5.3 0.5.5: A collection of special mathematical functions
 dev-libs/openssl 1.0.2u-r1 1.1.1u 1.1.1w 3.0.11 3.0.12 3.1.4 3.2.0: Robust, full-featured Open Source Toolkit for the Transport Layer Security (TLS)
 dev-libs/openssl-compat 1.0.2u-r2 1.1.1u: Full-strength general purpose cryptography library (including SSL and TLS)
@@ -10498,7 +10498,7 @@ dev-util/astyle 3.1-r2 3.4.8 3.4.9: Artistic Style is a re-indenter and reformat
 dev-util/autodia 2.140.0-r2: Parses source code, XML or data and produces an XML document in Dia format
 dev-util/autoproject 0.20_p5: Start a programming project using autotools and a command line parser generator
 dev-util/azuredatastudio 1.47.0: Data management and development tool from Microsoft
-dev-util/b2 4.10.1: A system for large project software construction, simple to use and powerful
+dev-util/b2 4.10.1 5.0.0: A system for large project software construction, simple to use and powerful
 dev-util/babeltrace 1.5.8 2.0.5: A command-line tool and library to read and convert trace files
 dev-util/bats 1.10.0: Bats-core: Bash Automated Testing System
 dev-util/bazel 3.7.2-r1 4.2.2 5.0.0 5.1.1 5.3.0 6.2.0: Fast and correct automated build system
@@ -10820,7 +10820,7 @@ dev-util/rustup 1.25.2 9999: Rust toolchain installer
 dev-util/samurai 1.2-r2 9999: ninja-compatible build tool written in C
 dev-util/sasm 3.10.1: Simple crossplatform IDE for NASM assembly language
 dev-util/scanmem 0.17: Locate and modify variables in executing processes
-dev-util/scap-driver 0.29.3 0.29.3-r4: Kernel module for dev-util/sysdig
+dev-util/scap-driver 0.29.3-r4 0.29.3-r5: Kernel module for dev-util/sysdig
 dev-util/sccache 0.5.4 9999: ccache/distcc like tool with support for rust and cloud storage
 dev-util/schroot 1.6.13_p2-r1: Utility to execute commands in a chroot environment
 dev-util/scons 4.5.2 4.6.0-r1: Extensible Python-based build utility
@@ -14852,7 +14852,7 @@ net-libs/pjproject 2.13-r2 2.13.1 2.13.1-r1: Open source SIP, Media, and NAT Tra
 net-libs/ppp-defs 0: Shim header for net/ppp_defs.h on musl
 net-libs/quiche 0.20.0 9999: Implementation of the QUIC transport protocol and HTTP/3
 net-libs/qxmpp 1.5.5: A cross-platform C++ XMPP client library based on the Qt framework
-net-libs/rabbitmq-c 0.11.0: RabbitMQ C client
+net-libs/rabbitmq-c 0.11.0 0.13.0: RabbitMQ C client
 net-libs/rest 0.9.1-r1: Helper library for RESTful services
 net-libs/rpc2 2.14-r1: Remote procedure call package for IP/UDP (used by Coda)
 net-libs/rpcsvc-proto 0-r1 1.4.4: rpcsvc protocol definitions from glibc
@@ -15570,7 +15570,7 @@ net-wireless/ubertooth 2020.12.1-r1 9999: open source wireless development platf
 net-wireless/uhd 4.4.0.0: Universal Software Radio Peripheral (USRP) Hardware Driver
 net-wireless/unifi 6.5.55-r2 7.5.187 8.0.7 8.0.24 8.0.26: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.9.4 2.9.5 9999: Universal Radio Hacker: investigate wireless protocols like a boss
-net-wireless/wavemon 0.9.3-r1 0.9.4: Ncurses based monitor for IEEE 802.11 wireless LAN cards
+net-wireless/wavemon 0.9.3-r1 0.9.4 0.9.5: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r6: WLAN tool for breaking 802.11 WEP keys
 net-wireless/wepdecrypt 0.8-r2: Enhanced version of WepAttack a tool for breaking 802.11 WEP keys
 net-wireless/wireless-regdb 20220606 20230503-r2: Wireless Regulatory database for Linux
@@ -17939,13 +17939,13 @@ www-apache/mod_nss 1.0.18: SSL/TLS module for the Apache HTTP server
 www-apache/mod_perl 2.0.11-r1 2.0.12 2.0.13: An embedded Perl interpreter for Apache2
 www-apache/mod_qos 11.66 11.72 11.74 11.74-r1: A QOS module for the apache webserver
 www-apache/mod_rpaf 0.8.4: Reverse proxy add forward module
-www-apache/mod_security 2.9.6 2.9.7: Application firewall and intrusion detection for Apache
+www-apache/mod_security 2.9.7: Application firewall and intrusion detection for Apache
 www-apache/mod_vdbh 1.0.3-r2: An Apache2 module for mass virtual hosting using a MySQL database
 www-apache/mod_whatkilledus 2.01-r1: Debug segmentation faults in Apache threads
 www-apache/mod_wsgi 4.9.0 4.9.4-r1: An Apache2 module for running Python WSGI applications
 www-apache/mod_xsendfile 1.0_beta1-r2 1.0_beta1-r3: Apache module that processes X-SENDFILE headers registered by the output handler
 www-apache/modsec-flameeyes 20130216 99999999: Flameeyes's Ruleset for ModSecurity
-www-apache/modsecurity-crs 3.3.4 3.3.5: OWASP ModSecurity Core Rule Set
+www-apache/modsecurity-crs 3.3.5 4.0.0_rc2: OWASP ModSecurity Core Rule Set
 www-apache/mpm_itk 2.4.7_p4-r2: Run virtual hosts under separate users/groups
 www-apache/passenger 6.0.18 6.0.19: Passenger makes deployment of Ruby on Rails applications a breeze
 www-apache/pwauth 2.3.10-r2: A Unix Web Authenticator
@@ -17970,7 +17970,7 @@ www-apps/grafana-bin 9.5.3 9.5.13 9.5.14 10.1.4 10.1.5 10.2.0 10.2.1: Gorgeous m
 www-apps/hugo 0.119.0 0.121.0: Fast static HTML and CSS website generator
 www-apps/icingadb-web 1.0.1-r1 1.0.2-r1 1.1.0: UI for Icinga DB
 www-apps/icingaweb2 2.11.4-r1 2.12.0 2.12.1 9999: Icinga Web 2 - Frontend for icinga2
-www-apps/icingaweb2-module-director 1.10.2 9999: Icinga Web 2 plugin for configuration
+www-apps/icingaweb2-module-director 1.11.0 9999: Icinga Web 2 plugin for configuration
 www-apps/icingaweb2-module-graphite 1.1.0 1.2.1 9999: Icinga Web 2 plugin for Graphite
 www-apps/icingaweb2-module-incubator 0.20.0: Bleeding edge Icinga Web 2 libraries
 www-apps/icingaweb2-module-pnp4nagios 1.0.1 9999: Icinga Web 2 plugin for pnp4nagios

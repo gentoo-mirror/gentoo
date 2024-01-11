@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=compile configure install prepare pretend setup
+DEPEND=dev-libs/libnl:3[utils] sys-libs/ncurses:0= caps? ( sys-libs/libcap ) virtual/pkgconfig
+DESCRIPTION=Ncurses based monitor for IEEE 802.11 wireless LAN cards
+EAPI=8
+HOMEPAGE=https://github.com/uoaerg/wavemon/
+INHERIT=autotools linux-info
+IUSE=caps
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~sparc ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/libnl:3[utils] sys-libs/ncurses:0= caps? ( sys-libs/libcap )
+SLOT=0
+SRC_URI=https://github.com/uoaerg/wavemon/archive/v0.9.5.tar.gz -> wavemon-0.9.5.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_md5_=b01f72f80dec22619d73cc555ea8d413
