@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake linux-mod
+inherit cmake linux-mod-r1
 
 DESCRIPTION="Kernel module for dev-util/sysdig"
 HOMEPAGE="https://sysdig.com/"
@@ -18,13 +18,19 @@ S="${WORKDIR}/libs-${LIBS_COMMIT}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="!<dev-util/sysdig-${PV}[modules]"
 
 CONFIG_CHECK="HAVE_SYSCALL_TRACEPOINTS ~TRACEPOINTS"
 
-PATCHES=( "${FILESDIR}"/${PV}-fix-kmod-build-on-5.18+.patch )
+PATCHES=(
+	"${FILESDIR}"/${PV}-fix-kmod-build-on-5.18+.patch
+	"${FILESDIR}"/${PV}-fix-kmod-build-on-6.2+.patch
+	"${FILESDIR}"/${PV}-fix-kmod-build-on-6.3+.patch
+	"${FILESDIR}"/${PV}-fix-kmod-build-on-6.4+.patch
+	"${FILESDIR}"/${PV}-fix-kmod-build-on-6.7+.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
@@ -36,21 +42,11 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
 
-	# setup linux-mod ugliness
-	MODULE_NAMES="scap(extra:${BUILD_DIR}/driver/src:)"
-	BUILD_PARAMS='KERNELDIR="${KERNEL_DIR}"'
-	# work with clang-built kernels (#816024)
-	if linux_chkconfig_present CC_IS_CLANG; then
-		BUILD_PARAMS+=' CC=${CHOST}-clang'
-		if linux_chkconfig_present LD_IS_LLD; then
-			BUILD_PARAMS+=' LD=ld.lld'
-			if linux_chkconfig_present LTO_CLANG_THIN; then
-				# kernel enables cache by default leading to sandbox violations
-				BUILD_PARAMS+=' ldflags-y=--thinlto-cache-dir= LDFLAGS_MODULE=--thinlto-cache-dir='
-			fi
-		fi
-	fi
+src_compile() {
+	local modlist=( scap=:"${BUILD_DIR}"/driver/src )
+	local modargs=( KERNELDIR="${KV_OUT_DIR}" )
 
-	BUILD_TARGETS="all"
+	linux-mod-r1_src_compile
 }
