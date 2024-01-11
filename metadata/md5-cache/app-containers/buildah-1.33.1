@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile install prepare pretend setup test unpack
 DEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) apparmor? ( sys-libs/libapparmor:= ) app-containers/containers-common app-crypt/gpgme:= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:=
 DESCRIPTION=A tool that facilitates building OCI images
@@ -12,5 +12,5 @@ RDEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( s
 RESTRICT=test strip
 SLOT=0
 SRC_URI=https://github.com/containers/buildah/archive/v1.33.1.tar.gz -> buildah-1.33.1.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	9e5a8f7b134fd3ed3785755097fe8ef0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
 _md5_=36b78e5c18804ec6a0ee6dcb8415dd61

@@ -1,4 +1,4 @@
-BDEPEND=dev-go/go-bindata >=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=dev-go/go-bindata >=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile install unpack
 DEPEND=acct-group/docker_auth acct-user/docker_auth
 DESCRIPTION=Docker Registry 2 authentication server
@@ -11,5 +11,5 @@ RDEPEND=acct-group/docker_auth acct-user/docker_auth
 RESTRICT=test strip
 SLOT=0
 SRC_URI=https://github.com/cesanta/docker_auth/archive/1.9.0.tar.gz -> docker_auth-1.9.0.tar.gz https://dev.gentoo.org/~williamh/dist/docker_auth-1.9.0-deps.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	9e5a8f7b134fd3ed3785755097fe8ef0
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097
 _md5_=60d75075496bd640c43f2ef97ae29103

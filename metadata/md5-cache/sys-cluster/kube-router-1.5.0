@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile install test unpack
 DESCRIPTION=A turnkey solution for Kubernetes networking
 EAPI=8
@@ -10,5 +10,5 @@ RDEPEND=net-firewall/iptables[conntrack] net-firewall/ipset sys-cluster/ipvsadm
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/cloudnativelabs/kube-router/archive/v1.5.0.tar.gz -> kube-router-1.5.0.tar.gz https://dev.gentoo.org/~williamh/dist/kube-router-1.5.0-deps.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	9e5a8f7b134fd3ed3785755097fe8ef0
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097
 _md5_=314245426211f398e85403d19ed25da4
