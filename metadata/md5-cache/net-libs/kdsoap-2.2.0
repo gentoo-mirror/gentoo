@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtxml:5 ) qt6? ( dev-qt/qtbase:6[network,xml] ) dev-libs/boost
+DESCRIPTION=Qt-based client-side and server-side SOAP component
+EAPI=8
+HOMEPAGE=https://www.kdab.com/development-resources/qt-tools/kd-soap/
+INHERIT=cmake multibuild
+IUSE=+qt5 qt6
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-3 AGPL-3
+RDEPEND=qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtxml:5 ) qt6? ( dev-qt/qtbase:6[network,xml] )
+REQUIRED_USE=|| ( qt5 qt6 )
+SLOT=0/2
+SRC_URI=https://github.com/KDAB/KDSoap/releases/download/kdsoap-2.2.0/kdsoap-2.2.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6ce0fba8085ef5b349c3a2e185305098	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489
+_md5_=9517e5f01b8ac602ec903dca8ffb2e2d
