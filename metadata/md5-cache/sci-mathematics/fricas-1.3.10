@@ -1,0 +1,16 @@
+DEFINED_PHASES=configure install postinst postrm test
+DEPEND=sbcl? ( dev-lisp/sbcl:= ) cmucl? ( dev-lisp/cmucl:= ) gcl? ( dev-lisp/gcl:= ) ecl? ( dev-lisp/ecl:= ) clisp? ( dev-lisp/clisp:= ) clozurecl? ( dev-lisp/clozurecl:= ) X? ( x11-libs/libXpm x11-libs/libICE ) emacs? ( >=app-editors/emacs-23.1:* ) gmp? ( dev-libs/gmp:= )
+DESCRIPTION=FriCAS is a fork of Axiom computer algebra system
+EAPI=8
+HOMEPAGE=https://fricas.sourceforge.net/ https://github.com/fricas/fricas https://fricas.github.io/
+INHERIT=elisp-common
+IUSE=+sbcl cmucl gcl ecl clisp clozurecl X emacs gmp
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=sbcl? ( dev-lisp/sbcl:= ) cmucl? ( dev-lisp/cmucl:= ) gcl? ( dev-lisp/gcl:= ) ecl? ( dev-lisp/ecl:= ) clisp? ( dev-lisp/clisp:= ) clozurecl? ( dev-lisp/clozurecl:= ) X? ( x11-libs/libXpm x11-libs/libICE ) emacs? ( >=app-editors/emacs-23.1:* ) gmp? ( dev-libs/gmp:= )
+REQUIRED_USE=^^ ( sbcl cmucl gcl ecl clisp clozurecl ) gmp? ( ^^ ( sbcl clozurecl ) )
+RESTRICT=strip
+SLOT=0
+SRC_URI=mirror://sourceforge/fricas/1.3.10/fricas-1.3.10-full.tar.bz2
+_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c
+_md5_=01cb24fe346b6dc52d7b5aa29f482074
