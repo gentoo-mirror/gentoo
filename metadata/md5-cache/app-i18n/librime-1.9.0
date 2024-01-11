@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-cpp/glog:= >=dev-libs/boost-1.74:= app-i18n/opencc:0= dev-cpp/yaml-cpp:0= dev-libs/leveldb:0= dev-libs/marisa:0= test? ( dev-cpp/gtest )
+DESCRIPTION=RIME (Rime Input Method Engine) core library
+EAPI=8
+HOMEPAGE=https://rime.im/ https://github.com/rime/librime
+INHERIT=cmake multiprocessing
+IUSE=debug test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD BSD-2 Boost-1.0 MIT
+RDEPEND=dev-cpp/glog:= >=dev-libs/boost-1.74:= app-i18n/opencc:0= dev-cpp/yaml-cpp:0= dev-libs/leveldb:0= dev-libs/marisa:0=
+RESTRICT=!test? ( test )
+SLOT=0/1-1.9.0
+SRC_URI=https://github.com/rime/librime/archive/refs/tags/1.9.0.tar.gz -> librime-1.9.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6ce0fba8085ef5b349c3a2e185305098
+_md5_=81889030bca5e4562ecd5a3448104043
