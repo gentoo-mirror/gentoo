@@ -14,16 +14,14 @@ SRC_URI="https://download.fcitx-im.org/fcitx5/${MY_PN}/${MY_PN}-${PV}.tar.xz -> 
 LICENSE="BSD LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~loong ~x86"
-IUSE="+qt5 onlyplugin staticplugin qt6 wayland"
+IUSE="+qt5 onlyplugin staticplugin qt6 +X wayland"
 REQUIRED_USE="
 	|| ( qt5 qt6 )
+	qt5? ( X )
 	staticplugin? ( onlyplugin )
 "
 
 RDEPEND="
-	x11-libs/libX11
-	x11-libs/libxcb
-	x11-libs/libxkbcommon
 	!onlyplugin? (
 		>=app-i18n/fcitx-5.1.5:5
 		qt5? ( dev-qt/qtconcurrent:5 )
@@ -33,10 +31,16 @@ RDEPEND="
 		dev-qt/qtdbus:5
 		dev-qt/qtgui:5=
 		dev-qt/qtwidgets:5
+		wayland? ( dev-qt/qtwayland:5 )
 	)
 	qt6? (
 		dev-qt/qtbase:6[dbus,gui,widgets,wayland?]
 		wayland? ( dev-qt/qtwayland:6 )
+	)
+	X? (
+		x11-libs/libX11
+		x11-libs/libxcb
+		x11-libs/libxkbcommon
 	)
 "
 DEPEND="${RDEPEND}"
@@ -48,14 +52,12 @@ BDEPEND="
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-PATCHES="${FILESDIR}/${P}-make-qwayland-workaround-optional.patch"
-
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_QT4=no
 		-DENABLE_QT5=$(usex qt5)
 		-DENABLE_QT6=$(usex qt6)
-		-DENABLE_QT6_WAYLAND_WORKAROUND=$(usex wayland)
+		-DENABLE_QT6_WAYLAND_WORKAROUND=$(usex qt6 $(usex wayland))
 		-DBUILD_ONLY_PLUGIN=$(usex onlyplugin)
 		-DBUILD_STATIC_PLUGIN=$(usex staticplugin)
 	)

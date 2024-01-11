@@ -12,7 +12,7 @@ SRC_URI="https://download.fcitx-im.org/fcitx5/libime/libime-${PV}_dict.tar.xz"
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~loong ~x86"
-IUSE="doc test"
+IUSE="+data doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -30,13 +30,9 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-use-c++11-for-kenlm.patch"
-	"${FILESDIR}/${P}-fix-the-nanf-value-issue-on-musl.patch"
-)
-
 src_configure() {
 	local mycmakeargs=(
+		-DENABLE_DATA=$(usex data)
 		-DENABLE_DOC=$(usex doc)
 		-DENABLE_TEST=$(usex test)
 	)

@@ -18,13 +18,14 @@ IUSE="kcm +config-qt test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=app-i18n/fcitx-5.1.5:5
-	>=app-i18n/fcitx-qt-5.1.3:5[qt5,-onlyplugin]
+	>=app-i18n/fcitx-5.1.6:5
+	>=app-i18n/fcitx-qt-5.1.4:5[qt5,-onlyplugin]
 	app-text/iso-codes
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
+	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	kde-frameworks/kwidgetsaddons:5
@@ -63,6 +64,8 @@ src_configure() {
 		-DENABLE_KCM=$(usex kcm)
 		-DENABLE_CONFIG_QT=$(usex config-qt)
 		-DENABLE_TEST=$(usex test)
+		# kde-frameworks/kitemviews:6 is not ready.
+		-DUSE_QT6=no
 	)
 
 	cmake_src_configure
