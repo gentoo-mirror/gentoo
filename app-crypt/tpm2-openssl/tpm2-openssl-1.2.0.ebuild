@@ -29,8 +29,7 @@ BDEPEND="
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${P}-tests-include-base-provider-required-to-load-ecparam.patch"
-	"${FILESDIR}/${P}-build-Fix-undefined-references-when-using-slibtool.patch"
+	"${FILESDIR}/${PN}-1.1.1-build-Fix-undefined-references-when-using-slibtool.patch"
 )
 
 src_prepare() {

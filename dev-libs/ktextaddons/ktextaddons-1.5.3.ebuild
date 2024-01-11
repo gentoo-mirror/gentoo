@@ -6,7 +6,6 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
-KDE_ORG_COMMIT="8291d343a147fba5953240bac2054e1a462c23e9"
 KFMIN=5.245.0
 QTMIN=6.6.0
 inherit ecm kde.org
@@ -14,9 +13,13 @@ inherit ecm kde.org
 DESCRIPTION="Various text handling addons"
 HOMEPAGE="https://invent.kde.org/libraries/ktextaddons"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 LICENSE="LGPL-2+"
 SLOT="6"
-KEYWORDS="~amd64"
 IUSE="speech"
 
 RESTRICT="test"
