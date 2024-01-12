@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-16">
+    <title>FreeRDP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in FreeRDP, the worst of which could result in code execution.</synopsis>
+    <product type="ebuild">freerdp</product>
+    <announced>2024-01-12</announced>
+    <revised count="1">2024-01-12</revised>
+    <bug>881525</bug>
+    <bug>918546</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/freerdp" auto="yes" arch="*">
+            <unaffected range="ge">2.11.0</unaffected>
+            <vulnerable range="lt">2.11.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FreeRDP is a free implementation of the remote desktop protocol.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FreeRDP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FreeRDP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/freerdp-2.11.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39316">CVE-2022-39316</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39317">CVE-2022-39317</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39318">CVE-2022-39318</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39319">CVE-2022-39319</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39320">CVE-2022-39320</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39347">CVE-2022-39347</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41877">CVE-2022-41877</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39350">CVE-2023-39350</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39351">CVE-2023-39351</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39352">CVE-2023-39352</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39353">CVE-2023-39353</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39354">CVE-2023-39354</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39355">CVE-2023-39355</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39356">CVE-2023-39356</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40181">CVE-2023-40181</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40186">CVE-2023-40186</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40187">CVE-2023-40187</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40188">CVE-2023-40188</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40567">CVE-2023-40567</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40569">CVE-2023-40569</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40574">CVE-2023-40574</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40575">CVE-2023-40575</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40576">CVE-2023-40576</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40589">CVE-2023-40589</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-12T11:46:37.421757Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-12T11:46:37.424087Z">graaff</metadata>
+</glsa>
