@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) app-alternatives/ninja >=dev-util/cmake-3.20.5
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DEPEND=dev-games/ois dev-libs/pugixml dev-libs/zziplib media-libs/freetype:2 x11-libs/libX11 x11-libs/libXaw x11-libs/libXrandr x11-libs/libXt assimp? ( media-libs/assimp:= ) cg? ( media-gfx/nvidia-cg-toolkit ) egl? ( media-libs/mesa[egl(+)] ) freeimage? ( media-libs/freeimage ) json? ( dev-libs/rapidjson ) opengl? ( virtual/glu virtual/opengl ) tools? ( dev-libs/tinyxml[stl] ) x11-base/xorg-proto
 DESCRIPTION=Object-oriented Graphics Rendering Engine
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/1.12
 SRC_URI=https://github.com/OGRECave/ogre/archive/v1.12.9.tar.gz -> ogre-1.12.9.tar.gz https://github.com/ocornut/imgui/archive/v1.77.tar.gz -> imgui-1.77.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6ce0fba8085ef5b349c3a2e185305098
-_md5_=5a9198e58c76facff062b8981bb76d03
+_md5_=a92ef37dd038e7c51d6a5638792a0852

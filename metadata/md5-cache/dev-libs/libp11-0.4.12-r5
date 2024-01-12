@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) test? ( >=dev-libs/opensc-0.23.0-r2 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) test? ( >=dev-libs/opensc-0.23.0-r2 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/openssl:=[bindist(+)] || ( ( >=dev-libs/openssl-3.1.0 <dev-libs/openssl-3.1.4 ) ( >=dev-libs/openssl-3.0.0 <dev-libs/openssl-3.0.12 ) ) test? ( dev-libs/softhsm )
 DESCRIPTION=Abstraction layer to simplify PKCS#11 API
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/OpenSC/libp11/releases/download/libp11-0.4.12/libp11-0.4.12.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=2effbced4b8ba79a7f3f1ee35e55443f
+_md5_=43e0da31fd7e5dd6734ee10d7598f89b

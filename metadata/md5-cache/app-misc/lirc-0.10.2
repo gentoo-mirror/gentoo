@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install postinst preinst prepare setup
-DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) audio? ( >media-libs/portaudio-18 media-libs/alsa-lib ) python_single_target_python3_10? ( dev-python/pyyaml[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyyaml[python_targets_python3_11(-)] ) ftdi? ( dev-embedded/libftdi:0 ) systemd? ( sys-apps/systemd ) usb? ( virtual/libusb:0 ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) dev-libs/libxslt python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) doc? ( app-doc/doxygen ) sys-apps/kmod sys-kernel/linux-headers
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) audio? ( >media-libs/portaudio-18 media-libs/alsa-lib ) python_single_target_python3_10? ( dev-python/pyyaml[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyyaml[python_targets_python3_11(-)] ) ftdi? ( dev-embedded/libftdi:0 ) systemd? ( sys-apps/systemd ) usb? ( virtual/libusb:0 ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) dev-libs/libxslt python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) doc? ( app-text/doxygen ) sys-apps/kmod sys-kernel/linux-headers
 DESCRIPTION=decode and send infra-red signals of many commonly used remote controls
 EAPI=8
 HOMEPAGE=https://www.lirc.org/
@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 SLOT=0
 SRC_URI=mirror://sourceforge/lirc/lirc-0.10.2.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=cebd069d41a7a2b355a6b03850b7d220
+_md5_=2ec980b8829df2af3c7f3584213c7655

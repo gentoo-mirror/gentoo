@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen )
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen )
 DEFINED_PHASES=compile configure install
 DEPEND=pcsc-lite? ( sys-apps/pcsc-lite ) readline? ( sys-libs/readline:= ) usb? ( virtual/libusb:0 )
 DESCRIPTION=Near Field Communications (NFC) library
@@ -10,4 +10,4 @@ LICENSE=LGPL-3
 RDEPEND=pcsc-lite? ( sys-apps/pcsc-lite ) readline? ( sys-libs/readline:= ) usb? ( virtual/libusb:0 )
 SLOT=0
 SRC_URI=https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.8.0/libnfc-1.8.0.tar.bz2
-_md5_=f7a6af4f4a8c62d50d9bf2b54c070d2b
+_md5_=e15d7694742e3d5b8fe02110e64379bf

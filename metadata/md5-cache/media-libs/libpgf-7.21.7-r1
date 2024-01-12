@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip doc? ( app-doc/doxygen dev-texlive/texlive-fontutils ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=app-arch/unzip doc? ( app-text/doxygen dev-texlive/texlive-fontutils ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=install prepare
 DESCRIPTION=Library to load, handle and manipulate images in the PGF format
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=LGPL-2.1
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/libpgf/libpgf/7.21.7/libpgf.zip -> libpgf-7.21.7.zip
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	edos2unix	33e347e171066657f91f8b0c72ec8773
-_md5_=12cbc2a91bcc9fa76298ab8461d3787c
+_md5_=75e7708b72de18bf23bd1979f8d44165

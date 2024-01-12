@@ -1,4 +1,4 @@
-BDEPEND=doc? ( >=sys-cluster/libqb-2.0.0 app-doc/doxygen[dot] )
+BDEPEND=doc? ( >=sys-cluster/libqb-2.0.0 app-text/doxygen[dot] )
 DEFINED_PHASES=configure
 DEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 sys-libs/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
 DESCRIPTION=Network abstraction layer designed for High Availability use cases
@@ -11,4 +11,4 @@ RDEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 sys-libs/zlib:= app-arch/bz
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://kronosnet.org/releases/kronosnet-1.23.tar.xz
-_md5_=d8d76b1230ee45a59a204cd0062bdba9
+_md5_=d2f18312ab0fc0b7dd84040ced568263

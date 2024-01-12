@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sci-libs/arborx[mpi=] ) adolc? ( sci-libs/adolc ) arpack? ( sci-libs/arpack[mpi=] ) assimp? ( media-libs/assimp:= ) cgal? ( sci-mathematics/cgal ) cuda? ( dev-util/nvidia-cuda-toolkit ) ginkgo? ( sci-libs/ginkgo ) gmsh? ( sci-libs/gmsh ) gsl? ( sci-libs/gsl:= ) hdf5? ( sci-libs/hdf5[mpi=] ) lapack? ( virtual/lapack ) metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( virtual/mpi[cxx] ) muparser? ( dev-cpp/muParser ) opencascade? ( sci-libs/opencascade:= ) p4est? ( sci-libs/p4est[mpi] ) petsc? ( sci-mathematics/petsc[mpi=] ) scalapack? ( sci-libs/scalapack ) slepc? ( sci-mathematics/slepc[mpi=] ) sparse? ( sci-libs/umfpack ) sundials? ( sci-libs/sundials:= ) symengine? ( >=sci-libs/symengine-0.4:= ) trilinos? ( sci-libs/trilinos ) || ( dev-cpp/kokkos sci-libs/trilinos ) virtual/pkgconfig doc? ( app-doc/doxygen[dot] dev-lang/perl )
+DEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sci-libs/arborx[mpi=] ) adolc? ( sci-libs/adolc ) arpack? ( sci-libs/arpack[mpi=] ) assimp? ( media-libs/assimp:= ) cgal? ( sci-mathematics/cgal ) cuda? ( dev-util/nvidia-cuda-toolkit ) ginkgo? ( sci-libs/ginkgo ) gmsh? ( sci-libs/gmsh ) gsl? ( sci-libs/gsl:= ) hdf5? ( sci-libs/hdf5[mpi=] ) lapack? ( virtual/lapack ) metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( virtual/mpi[cxx] ) muparser? ( dev-cpp/muParser ) opencascade? ( sci-libs/opencascade:= ) p4est? ( sci-libs/p4est[mpi] ) petsc? ( sci-mathematics/petsc[mpi=] ) scalapack? ( sci-libs/scalapack ) slepc? ( sci-mathematics/slepc[mpi=] ) sparse? ( sci-libs/umfpack ) sundials? ( sci-libs/sundials:= ) symengine? ( >=sci-libs/symengine-0.4:= ) trilinos? ( sci-libs/trilinos ) || ( dev-cpp/kokkos sci-libs/trilinos ) virtual/pkgconfig doc? ( app-text/doxygen[dot] dev-lang/perl )
 DESCRIPTION=Solving partial differential equations with the finite element method
 EAPI=8
 HOMEPAGE=https://www.dealii.org/
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sc
 REQUIRED_USE=arborx? ( trilinos ) p4est? ( mpi ) slepc? ( petsc ) trilinos? ( mpi )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6ce0fba8085ef5b349c3a2e185305098	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=e04fd9be255868491af778362c05ed5f
+_md5_=3eee25425ad0d1c543436434138da951

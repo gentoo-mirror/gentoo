@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen virtual/latex-base ) test? ( gcc-plugin? ( dev-scheme/guile ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 fortran? ( virtual/fortran )
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen virtual/latex-base ) test? ( gcc-plugin? ( dev-scheme/guile ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7 fortran? ( virtual/fortran )
 DEFINED_PHASES=configure install prepare setup test
 DEPEND=sci-mathematics/glpk:0= sys-apps/hwloc:0= blas? ( virtual/blas ) cuda? ( dev-util/nvidia-cuda-toolkit x11-drivers/nvidia-drivers ) fftw? ( sci-libs/fftw:3.0= ) mpi? ( virtual/mpi ) opencl? ( virtual/opencl ) opengl? ( media-libs/freeglut:0= ) valgrind? ( dev-util/valgrind ) fortran? ( virtual/fortran )
 DESCRIPTION=Unified runtime system for heterogeneous multicore architectures
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://gforge.inria.fr/frs/download.php/file/37744/starpu-1.2.6.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	cuda	283d0f298f6c196c755a0f8d50daca85	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
-_md5_=2921ddcefc2a71ea63bb42fe0ef3ff5e
+_md5_=28b1380e56e261f135d2d87b9ef4a194

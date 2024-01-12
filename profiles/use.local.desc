@@ -406,9 +406,6 @@ app-dicts/gwaei:mecab - Enable app-text/mecab support
 app-dicts/myspell-pt:preao - Use the pre ortographic agreement version of the dictionary
 app-doc/csound-manual:html - Install HTML documentation
 app-doc/devmanual:offline - Use alternative minimal stylesheet instead of Tyrian theme
-app-doc/doxygen:clang - support for sys-devel/clang assisted parsing
-app-doc/doxygen:dot - allow to create dot graphs using media-gfx/graphviz
-app-doc/doxygen:doxysearch - build doxyindexer and doxysearch.cgi
 app-doc/kicad-doc:html - Generate documentation in HTML format
 app-doc/kicad-doc:pdf - Generate documentation in PDF format
 app-doc/linuxfromscratch:htmlsingle - Install all-on-one-page HTML version.
@@ -1137,6 +1134,9 @@ app-text/dictd:minimal - Don't build server but dict client, dictzip and dictfmt
 app-text/docbook-sgml-utils:jadetex - Add support for processing tex files produced by the TeX backend of Jade
 app-text/docbook-xsl-ns-stylesheets:ruby - Install the Ruby-based dbtoepub script; requires an interpreter compatible with app-eselect/eselect-ruby.
 app-text/docbook-xsl-stylesheets:ruby - Install the Ruby-based dbtoepub script; requires an interpreter compatible with app-eselect/eselect-ruby.
+app-text/doxygen:clang - support for sys-devel/clang assisted parsing
+app-text/doxygen:dot - allow to create dot graphs using media-gfx/graphviz
+app-text/doxygen:doxysearch - build doxyindexer and doxysearch.cgi
 app-text/ebook-tools:lit2epub - Install lit2epub script
 app-text/editorconfig-core-c:cli - Install command line interface.
 app-text/enchant:aspell - Adds support for app-text/aspell spell checker
@@ -5635,7 +5635,7 @@ net-fs/nfs-utils:nfsidmap - Enable support for newer nfsidmap helper
 net-fs/nfs-utils:nfsv4 - Enable support for NFSv4
 net-fs/nfs-utils:nfsv41 - Enable support for NFSv4.1
 net-fs/nfs-utils:uuid - Support UUID lookups in rpc.mountd
-net-fs/openafs:apidoc - Build API documentation using app-doc/doxygen. May take a *long* time to build.
+net-fs/openafs:apidoc - Build API documentation using app-text/doxygen. May take a *long* time to build.
 net-fs/openafs:bitmap-later - Enable fast startup of file server by not reading bitmap till needed.
 net-fs/openafs:fuse - Build fuse client.
 net-fs/openafs:kauth - Install the DEPRECATED kauth server, PAM modules, and utilities

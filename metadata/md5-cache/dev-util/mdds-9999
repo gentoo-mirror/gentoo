@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen dev-python/sphinx ) test? ( dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=doc? ( app-text/doxygen dev-python/sphinx ) test? ( dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure prepare pretend setup test unpack
 DEPEND=dev-libs/boost:=
 DESCRIPTION=Collection of multi-dimensional data structure and indexing algorithm
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/boost:=
 RESTRICT=!test? ( test )
 SLOT=1/2.1
 _eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=4684c3ddb33db5ba2b4f1f0ef53af359
+_md5_=9cdc1bdabbd70bc389ad6a718eafdbf0

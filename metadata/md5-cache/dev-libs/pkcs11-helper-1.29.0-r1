@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( >=app-doc/doxygen-1.4.7 )
+BDEPEND=virtual/pkgconfig doc? ( >=app-text/doxygen-1.4.7 )
 DEFINED_PHASES=configure install
 DEPEND=>=dev-libs/openssl-0.9.7:= gnutls? ( >=net-libs/gnutls-1.4.4:= ) nss? ( dev-libs/nss )
 DESCRIPTION=PKCS#11 helper library
@@ -11,4 +11,4 @@ RDEPEND=>=dev-libs/openssl-0.9.7:= gnutls? ( >=net-libs/gnutls-1.4.4:= ) nss? ( 
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.29.0/pkcs11-helper-1.29.0.tar.bz2
-_md5_=fe0091627d4ba498948e7474d97e8d57
+_md5_=572d2b92c08e9ad2590e2a5a39d02a60

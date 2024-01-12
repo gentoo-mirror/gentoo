@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/ruby:* virtual/pkgconfig doc? ( app-doc/doxygen ) app-alternatives/ninja >=dev-util/cmake-3.20.5
+BDEPEND=dev-lang/ruby:* virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/mxml media-libs/liblo sci-libs/fftw:3.0 sys-libs/zlib alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio )
 DESCRIPTION=Software synthesizer capable of making a countless number of instruments
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( alsa jack portaudio )
 SLOT=0
 SRC_URI=mirror://sourceforge/zynaddsubfx/zynaddsubfx-3.0.6.tar.bz2 mirror://sourceforge/zynaddsubfx/zyn-fusion-ui-src-3.0.6.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6ce0fba8085ef5b349c3a2e185305098
-_md5_=2f4fee94eef58a74ec75c5fd6a2648d0
+_md5_=0034704f4218f8859d9fb7c8b515d235

@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen media-gfx/graphviz media-fonts/freefont )
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen media-gfx/graphviz media-fonts/freefont )
 DEFINED_PHASES=compile configure install
 DEPEND=curl? ( net-misc/curl ) nss? ( dev-libs/nss curl? ( || ( net-misc/curl[ssl,curl_ssl_nss(-)] net-misc/curl[-ssl] ) ) ) !nss? ( >=dev-libs/openssl-3:= curl? ( || ( net-misc/curl[ssl,curl_ssl_openssl] net-misc/curl[-ssl] ) ) )
 DESCRIPTION=C library implementing the OAuth secure authentication protocol
@@ -11,4 +11,4 @@ RDEPEND=curl? ( net-misc/curl ) nss? ( dev-libs/nss curl? ( || ( net-misc/curl[s
 REQUIRED_USE=bindist? ( nss )
 SLOT=0
 SRC_URI=mirror://sourceforge/project/liboauth/liboauth-1.0.3.tar.gz
-_md5_=aaebd2dc9f07c0b47c8121699b387697
+_md5_=2e6a0710ca60c5c2ac40f203666b2dec

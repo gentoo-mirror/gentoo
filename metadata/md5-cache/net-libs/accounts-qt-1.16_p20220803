@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen[dot] || ( dev-qt/qttools:6[assistant] dev-qt/qthelp:5 ) )
+BDEPEND=doc? ( app-text/doxygen[dot] || ( dev-qt/qttools:6[assistant] dev-qt/qthelp:5 ) )
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=dev-libs/glib:2 qt5? ( dev-qt/qtcore:5 dev-qt/qtxml:5 ) qt6? ( dev-qt/qtbase:6[xml] ) >=net-libs/libaccounts-glib-1.23:= test? ( qt5? ( dev-qt/qttest:5 ) )
 DESCRIPTION=Qt bindings for libaccounts-glib
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/libaccounts-qt/-/archive/c86db79be389601bf6798f815ca5b8f78a524156/libaccounts-qt-c86db79be389601bf6798f815ca5b8f78a524156.tar.bz2 -> accounts-qt-1.16_p20220803.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489
-_md5_=e5064556d55e0ebcb4a25ac6e47c0ab2
+_md5_=2ec044701352a08446c3aaf481fff206

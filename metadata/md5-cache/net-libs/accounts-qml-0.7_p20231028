@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen || ( ( dev-qt/qttools:6[assistant,qdoc] ) ( dev-qt/qdoc:5 dev-qt/qthelp:5 ) ) )
+BDEPEND=doc? ( app-text/doxygen || ( ( dev-qt/qttools:6[assistant,qdoc] ) ( dev-qt/qdoc:5 dev-qt/qthelp:5 ) ) )
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qtdeclarative:6 ) >=net-libs/accounts-qt-1.16_p20220803[qt5?,qt6?] >=net-libs/signond-8.61-r100[qt5?,qt6?] test? ( qt5? ( dev-qt/qtgui:5 dev-qt/qttest:5 ) qt6? ( dev-qt/qtbase:6[gui] ) )
 DESCRIPTION=QML bindings for accounts-qt and signond
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/accounts-qml-module/-/archive/05e79ebbbf3784a87f72b7be571070125c10dfe3/accounts-qml-module-05e79ebbbf3784a87f72b7be571070125c10dfe3.tar.bz2 -> accounts-qml-0.7_p20231028.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489
-_md5_=aa7ceb7a53557d6e4420926f8af3feea
+_md5_=3070546c87ccb860608d27588e8d1d96

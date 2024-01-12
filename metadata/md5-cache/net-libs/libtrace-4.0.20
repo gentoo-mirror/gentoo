@@ -1,4 +1,4 @@
-BDEPEND=app-doc/doxygen[dot] sys-devel/flex virtual/os-headers virtual/pkgconfig app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=app-text/doxygen[dot] sys-devel/flex virtual/os-headers virtual/pkgconfig app-alternatives/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/libyaml dev-libs/openssl:= >=net-libs/libpcap-0.8 net-libs/wandio ncurses? ( sys-libs/ncurses:= ) numa? ( sys-process/numactl )
 DESCRIPTION=A library and tools for trace processing
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/libyaml dev-libs/openssl:= >=net-libs/libpcap-0.8 net-libs/wand
 SLOT=0
 SRC_URI=https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.20-1.tar.gz -> libtrace-4.0.20.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=5f4665dae61fd4930179d4cb5f933289
+_md5_=3a307fb6bacc293394af23ff31080d8f

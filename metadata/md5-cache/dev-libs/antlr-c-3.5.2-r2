@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen[dot] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=doc? ( app-text/doxygen[dot] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare
 DESCRIPTION=The ANTLR3 C Runtime
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=BSD
 SLOT=0
 SRC_URI=https://github.com/antlr/antlr3/archive/3.5.2.tar.gz -> antlr-3.5.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=0ffe4d1bdff5349c0fbd2e3d771e2277
+_md5_=9bdb3ba2bdf66fd3c573c14b3d1cc842

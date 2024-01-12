@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/lex app-alternatives/yacc doc? ( app-doc/doxygen media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=app-alternatives/lex app-alternatives/yacc doc? ( app-text/doxygen media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare
 DEPEND=app-arch/bzip2 sys-libs/zlib elibc_musl? ( sys-libs/fts-standalone ) ftconv? ( net-analyzer/flow-tools ) nfpcapd? ( net-libs/libpcap ) nfprofile? ( net-analyzer/rrdtool ) nftrack? ( net-analyzer/rrdtool ) readpcap? ( net-libs/libpcap )
 DESCRIPTION=A set of tools to collect and process netflow data
@@ -13,4 +13,4 @@ REQUIRED_USE=?? ( jnat nsel )
 SLOT=0/1.7.2
 SRC_URI=https://github.com/phaag/nfdump/archive/v1.7.2.tar.gz -> nfdump-1.7.2.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
-_md5_=a8bc1b51a6473c4729320d9ce97515a4
+_md5_=101717ec6bb97b73d14375968c5c12ff

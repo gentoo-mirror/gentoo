@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen )
+BDEPEND=doc? ( app-text/doxygen )
 DEFINED_PHASES=configure install prepare
 DEPEND=app-crypt/qca:2[debug?,qt5(+)] dev-qt/qtnetwork:5 test? ( dev-qt/qttest:5 )
 DESCRIPTION=Qt-based library for OAuth support
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://dev.gentoo.org/~johu/distfiles/qoauth-2.0.1_pre20160315.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=1257e20ff605a90b67ebc0901833b37e
+_md5_=63d3aea439383578253922a79b7d00d9

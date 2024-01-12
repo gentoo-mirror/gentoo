@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-doc/doxygen )
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen )
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/librevenge sys-libs/zlib dev-libs/boost dev-libs/icu dev-util/gperf media-libs/lcms sys-devel/libtool test? ( dev-util/cppunit )
 DESCRIPTION=Library for import of FreeHand drawings
@@ -11,4 +11,4 @@ RDEPEND=dev-libs/librevenge sys-libs/zlib
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz
-_md5_=b91a8c87a11b5ab0ee237527718221cc
+_md5_=328508fac7065765eae90960373933a7

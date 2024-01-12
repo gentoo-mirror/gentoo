@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
+BDEPEND=doc? ( app-text/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) || ( >=sys-devel/autoconf-2.72-r1:2.72 >=sys-devel/autoconf-2.71-r6:2.71 ) >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst prepare
 DEPEND=dev-libs/glib alsa? ( media-libs/alsa-lib ) macbook? ( sys-apps/pciutils sys-libs/libsmbios )
 DESCRIPTION=Handles power management and special keys on laptops
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/glib alsa? ( media-libs/alsa-lib ) macbook? ( sys-apps/pciutils
 SLOT=0
 SRC_URI=mirror://sourceforge/pbbuttons/pbbuttonsd-0.8.1a.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
-_md5_=504bae33b9312e4ae8b8f4dca8ee4a00
+_md5_=88852edc99d145a478d0da5d432ca85a
