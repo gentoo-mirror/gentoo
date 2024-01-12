@@ -7,13 +7,15 @@ inherit systemd
 
 SRC_URI="
 	amd64? (
-		https://download.sonarr.tv/v4/main/${PV}/Sonarr.main.${PV}.linux-x64.tar.gz
+		elibc_glibc? ( https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-x64.tar.gz )
+		elibc_musl? ( https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-musl-x64.tar.gz )
 	)
 	arm? (
-		https://download.sonarr.tv/v4/main/${PV}/Sonarr.main.${PV}.linux-arm.tar.gz
+		elibc_glibc? ( https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-arm.tar.gz )
 	)
 	arm64? (
-		https://download.sonarr.tv/v4/main/${PV}/Sonarr.main.${PV}.linux-arm64.tar.gz
+		elibc_glibc? ( https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-arm64.tar.gz )
+		elibc_musl? ( https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-musl-arm64.tar.gz )
 	)
 "
 
