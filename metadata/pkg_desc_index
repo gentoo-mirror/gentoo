@@ -17267,14 +17267,14 @@ sys-cluster/keepalived 2.2.7 2.2.8: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.23.2: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23 1.25: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5: Kubernetes API server
-sys-cluster/kube-controller-manager 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5 1.29.0: Kubernetes API server
+sys-cluster/kube-controller-manager 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5 1.29.0: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5 1.29.0: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0 1.6.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5: Kubernetes Scheduler
-sys-cluster/kubeadm 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5 1.29.0: Kubernetes Scheduler
+sys-cluster/kubeadm 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5 1.29.0: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5 1.29.0: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.25.14 1.26.9 1.26.10 1.26.12 1.27.6 1.27.7 1.27.9 1.28.2 1.28.3 1.28.5 1.29.0: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.6: A client for kubelet
 sys-cluster/kubelogin 1.27.0 1.28.0: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.23.0 0.24.5: Client-side utility for one-way encrypted secrets in kubernetes
@@ -17339,7 +17339,7 @@ sys-devel/distcc 3.4-r1 3.4-r2 3.4-r3: Distribute compilation of C code across s
 sys-devel/dwz 0.14 0.15-r1: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r5 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r1 9.5.0 10.5.0 11.4.1_p20230622 11.4.1_p20231214 11.4.1_p20231221 11.4.1_p20231228 11.4.1_p20240104 11.4.1_p20240111 11.5.9999 12.3.1_p20230825 12.3.1_p20231215 12.3.1_p20231222 12.3.1_p20231229 12.3.1_p20240105 12.4.9999 13.2.1_p20230826 13.2.1_p20231216 13.2.1_p20231223 13.2.1_p20231230 13.2.1_p20240106 13.3.9999 14.0.0_pre20231217 14.0.0_pre20231224 14.0.0_pre20231224-r1 14.0.0_pre20231231 14.0.0_pre20240107 14.0.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r1 9.5.0 10.5.0 11.4.1_p20230622 11.4.1_p20231214 11.4.1_p20231221 11.4.1_p20231228 11.4.1_p20240104 11.4.1_p20240111 11.5.9999 12.3.1_p20230825 12.3.1_p20231215 12.3.1_p20231222 12.3.1_p20231229 12.3.1_p20240105 12.4.9999 13.2.1_p20230826 13.2.1_p20231216 13.2.1_p20231223 13.2.1_p20231230 13.2.1_p20240106 13.3.9999 14.0.0_pre20231217 14.0.0_pre20231224 14.0.0_pre20231224-r1 14.0.0_pre20231231 14.0.0_pre20240107 14.0.1.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 9999: Utility to manage compilers
 sys-devel/gdb 13.2-r2 14.1 9999: GNU debugger
@@ -17694,7 +17694,7 @@ sys-process/atop 2.9.0-r1: Resource-specific view of processes
 sys-process/audit 3.0.9-r1 3.1.1 3.1.2: Userspace utilities for storing and processing auditing records
 sys-process/bashtop 0.9.25: Resource monitor that shows usage and stats
 sys-process/bcron 0.11: A new cron system designed with secure operations in mind by Bruce Guenter
-sys-process/below 0.7.0: An interactive tool to view and record historical system data
+sys-process/below 0.7.0 0.7.1: An interactive tool to view and record historical system data
 sys-process/bottom 0.9.6: A graphical process/system monitor with a customizable interface
 sys-process/bpytop 1.0.68-r1: Linux/OSX/FreeBSD resource monitor
 sys-process/btop 1.2.13-r2 1.3.0: A monitor of resources
