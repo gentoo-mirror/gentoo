@@ -1,15 +1,16 @@
-BDEPEND=app-emacs/commenter app-emacs/epc >=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/commenter app-emacs/epc test? ( app-emacs/buttercup ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs major mode for the Nim programming language support
 EAPI=8
 HOMEPAGE=https://github.com/nim-lang/nim-mode/
 INHERIT=elisp
+IUSE=test
 KEYWORDS=~amd64
 LICENSE=GPL-3+
 PDEPEND=app-emacs/flycheck-nimsuggest
 RDEPEND=app-emacs/commenter app-emacs/epc >=app-editors/emacs-25.3:*
-RESTRICT=test
+RESTRICT=test !test? ( test )
 SLOT=0
-SRC_URI=https://github.com/nim-lang/nim-mode/archive/744e076f0bea1c5ddc49f92397d9aa98ffa7eff8.tar.gz -> nim-mode-0.4.2_p20211102.tar.gz
+SRC_URI=https://github.com/nim-lang/nim-mode/archive/1338e5b0d5e111ad932efb77d3cad680cc3b86c9.tar.gz -> nim-mode-0.4.2_p20231101.tar.gz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=5cff4e0172a492750e14a04d5c03e034
+_md5_=3733bb9dd892d4c78d67f8b8260f5d5f
