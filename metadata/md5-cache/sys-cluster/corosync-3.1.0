@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.corosync.org/
 INHERIT=linux-info autotools
 IUSE=augeas dbus doc selinux snmp systemd watchdog xml
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ppc64 ~sparc x86
 LICENSE=BSD-2 public-domain
 RDEPEND=dev-libs/nss >=sys-cluster/libqb-2.0.0:= sys-cluster/kronosnet:= augeas? ( app-admin/augeas ) dbus? ( sys-apps/dbus ) snmp? ( net-analyzer/net-snmp ) systemd? ( sys-apps/systemd:= ) watchdog? ( sys-kernel/linux-headers ) selinux? ( sec-policy/selinux-corosync )
 SLOT=0
 SRC_URI=https://github.com/corosync/corosync/archive/v3.1.0.tar.gz -> corosync-3.1.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5
-_md5_=c738f836962fb92d150a38be7093c62f
+_md5_=af4534025ed49a8a6ba6daa0d233a3bc
