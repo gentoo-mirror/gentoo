@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=dev-libs/yyjson-0.8.0:= sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) networkmanager? ( net-misc/networkmanager ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pci? ( sys-apps/pciutils ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
+DEPEND=>=dev-libs/yyjson-0.8.0:= sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) networkmanager? ( net-misc/networkmanager ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pci? ( sys-apps/pciutils ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=Fast neofetch-like system information tool
 EAPI=8
 HOMEPAGE=https://github.com/fastfetch-cli/fastfetch
@@ -13,4 +13,4 @@ REQUIRED_USE=xrandr? ( X ) chafa? ( imagemagick )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	6ce0fba8085ef5b349c3a2e185305098	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=92c857866a7c1a8dd7781bdb62b175ff
+_md5_=2d0274dd3224a1c2b7cb82ef714d3337
