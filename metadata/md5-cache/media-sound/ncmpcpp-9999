@@ -4,11 +4,11 @@ DEPEND=>=media-libs/libmpdclient-2.1 dev-libs/boost:=[icu,nls] dev-libs/icu:= ne
 DESCRIPTION=featureful ncurses based MPD client inspired by ncmpc
 EAPI=7
 HOMEPAGE=https://rybczak.net/ncmpcpp/ https://github.com/ncmpcpp/ncmpcpp/
-INHERIT=autotools flag-o-matic git-r3
-IUSE=clock lto outputs taglib visualizer
+INHERIT=autotools git-r3
+IUSE=clock outputs taglib visualizer
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=>=media-libs/libmpdclient-2.1 dev-libs/boost:=[icu,nls] dev-libs/icu:= net-misc/curl sys-libs/ncurses:=[unicode(+)] sys-libs/readline:= taglib? ( media-libs/taglib ) visualizer? ( sci-libs/fftw:3.0= )
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=ec2e9f5bc48441ab9b38f00d9cf705c0
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	5f729b9cb10d5eda573cd604c93c6dc5	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_md5_=59377631204ed3d5d3b25cc17ad8e122
