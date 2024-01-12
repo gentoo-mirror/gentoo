@@ -5,7 +5,7 @@ DESCRIPTION=The GNU Compiler Collection
 EAPI=8
 HOMEPAGE=https://gcc.gnu.org/
 INHERIT=toolchain
-IUSE=test vanilla +nls debug +cxx +nptl +fortran doc hardened multilib objc pgo objc-gc libssp objc++ openmp fixed-point go +sanitize graphite ada vtv jit +pie +ssp +pch systemtap d lto cet zstd valgrind custom-cflags ieee-long-double default-znow default-stack-clash-protection modula2
+IUSE=test vanilla +nls debug +cxx +fortran doc hardened multilib objc pgo objc-gc libssp objc++ openmp fixed-point go +sanitize graphite ada vtv jit +pie +ssp +pch systemtap d lto cet zstd valgrind custom-cflags ieee-long-double default-znow default-stack-clash-protection modula2
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 ) FDL-1.3+
 PDEPEND=>=sys-devel/gcc-config-2.3
@@ -13,5 +13,5 @@ RDEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) sys-libs/zlib virtual/libiconv 
 RESTRICT=!test? ( test )
 SLOT=13
 SRC_URI=mirror://gcc/snapshots/13-20231216/gcc-13-20231216.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-patches-11.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-musl-patches-2.tar.xz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain	92b10c42a45168c09de12931c89d8ee3
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain	3d0fc61bf7c98ea6145dab59e9e2708e
 _md5_=0ecccd67070e3558410ede359ac94c3d
