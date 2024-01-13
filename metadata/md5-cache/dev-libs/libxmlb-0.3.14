@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/meson-0.47.0 virtual/pkgconfig introspection? ( || ( ( dev-lang/python:3.12 dev-python/setuptools[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/setuptools[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/setuptools[python_targets_python3_10(-)] ) ) ) >=dev-util/meson-1.2.1 app-alternatives/ninja dev-util/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-build/meson-0.47.0 virtual/pkgconfig introspection? ( || ( ( dev-lang/python:3.12 dev-python/setuptools[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/setuptools[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/setuptools[python_targets_python3_10(-)] ) ) ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=app-arch/xz-utils dev-libs/glib:2 sys-apps/util-linux stemmer? ( dev-libs/snowball-stemmer:= ) zstd? ( app-arch/zstd:= ) doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection )
 DESCRIPTION=Library to help create and query binary XML blobs
@@ -12,5 +12,5 @@ RDEPEND=app-arch/xz-utils dev-libs/glib:2 sys-apps/util-linux stemmer? ( dev-lib
 RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://github.com/hughsie/libxmlb/archive/0.3.14.tar.gz -> libxmlb-0.3.14.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	0e160eeba59c15ec333bd675cecdfdc9	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=42620c5375841c986be7b44a4ad15c99
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=9eb621a5c8fd02a3215e8d938ae272f4
