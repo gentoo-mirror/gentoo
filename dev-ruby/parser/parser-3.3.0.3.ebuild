@@ -1,8 +1,8 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_RECIPE_DOC="yard"
 RUBY_FAKEGEM_TASK_TEST="test"
@@ -21,17 +21,14 @@ SRC_URI="https://github.com/whitequark/parser/archive/v${PV}.tar.gz -> ${P}.tar.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~sparc"
-IUSE=""
 
 DEPEND+=" =dev-util/ragel-6*"
 
 ruby_add_bdepend "
-	test? (
-		dev-ruby/minitest:5
-		dev-ruby/racc )
+	test? ( dev-ruby/minitest:5 )
 	dev-ruby/cliver
 "
-ruby_add_rdepend "=dev-ruby/ast-2.4* >=dev-ruby/ast-2.4.1"
+ruby_add_rdepend "=dev-ruby/ast-2.4* >=dev-ruby/ast-2.4.1 dev-ruby/racc"
 
 all_ruby_prepare() {
 	sed -i -e "/[Bb]undler/d" Rakefile || die
