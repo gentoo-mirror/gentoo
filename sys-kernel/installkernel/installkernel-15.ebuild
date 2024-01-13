@@ -18,6 +18,7 @@ RDEPEND="
 	!<=sys-kernel/installkernel-systemd-3
 	>=sys-apps/debianutils-4.9-r1
 	dracut? ( >=sys-kernel/dracut-059-r4 )
+	grub? ( sys-boot/grub )
 	systemd? (
 		|| (
 			sys-apps/systemd[kernel-install(-)]
@@ -88,10 +89,8 @@ src_install() {
 		fi
 	fi
 
-	if [[ -s "${T}/install.conf" ]]; then
-		insinto /etc/kernel
-		doins "${T}/install.conf"
-	fi
+	insinto /etc/kernel
+	doins "${T}/install.conf"
 
 	exeinto /usr/lib/kernel/install.d
 	doexe hooks/systemd/*.install
@@ -99,4 +98,16 @@ src_install() {
 	into /
 	dosbin installkernel
 	doman installkernel.8
+}
+
+pkg_postinst() {
+	elog "Version 14 and up of ${PN} effectively merges"
+	elog "${PN}-gentoo and ${PN}-systemd."
+	elog "Switching between the traditional installkernel and systemd's"
+	elog "kernel-install is controlled with the systemd USE flag or the"
+	elog "SYSTEMD_KERNEL_INSTALL environment variable."
+	elog
+	elog "See the installkernel wiki page[1] for more details."
+	elog
+	elog "https://wiki.gentoo.org/wiki/Installkernel"
 }
