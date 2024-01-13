@@ -1386,6 +1386,16 @@ dev-db/sqlitestudio:cli - Build CLI interface
 dev-db/timescaledb:proprietary-extensions - Enable proprietary features/extensions licensed under the TimeScale License
 dev-db/unixODBC:minimal - Disable bundled drivers and extra libraries (most users don't need these)
 dev-db/unixODBC:odbcmanual - Administrator, Internal Structure, Programmer and User documentation
+dev-debug/gdb:cet - Enable Intel Control-flow Enforcement Technology.
+dev-debug/gdb:debuginfod - Enable debuginfod support via dev-libs/elfutils libdebuginfod
+dev-debug/gdb:lzma - Support lzma compression in ELF debug info
+dev-debug/gdb:multitarget - Support all known targets in one gdb binary
+dev-debug/gdb:python - Enable support for the new internal scripting language, as well as extended pretty printers
+dev-debug/gdb:server - Install the "gdbserver" program (useful for embedded/remote targets)
+dev-debug/gdb:sim - Build gdb's simulators for various hardware platforms. See https://sourceware.org/gdb/wiki/Sim.
+dev-debug/gdb:source-highlight - Enable listing highlighting via dev-util/source-highlight
+dev-debug/gdb:xml - Support parsing XML data files needed (at least) for cpu features, memory maps, and syscall tracing
+dev-debug/gdb:xxhash - Use dev-libs/xxhash to speed up internal hashing.
 dev-embedded/avrdude:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
 dev-embedded/libftdi:tools - build ftdi_eeprom helper tool
 dev-embedded/openocd:capstone - Use dev-libs/capstone for disassembly support
@@ -2496,7 +2506,7 @@ dev-python/qiskit-terra:visualization - Enable visualization modules
 dev-python/rarfile:compressed - Enables the module to support compressed v3 archives by calling the app-arch/unrar.
 dev-python/reedsolo:native-extensions - Compile native C extensions.
 dev-python/rfc3986:idna - enable support for the IDNA specification (RFC 5891)
-dev-python/rpyc:gdb - Run tests depending on sys-devel/gdb
+dev-python/rpyc:gdb - Run tests depending on dev-debug/gdb
 dev-python/rpyc:numpy - Run tests depending on dev-python/numpy, dev-python/pandas
 dev-python/shiboken2:docstrings - Expose documentation as Python docstrings (recommended)
 dev-python/shiboken2:numpy - Implicitly convert passed NumPy arrays to Qt lists
@@ -2805,7 +2815,7 @@ dev-util/edi:clang - Provide integration with sys-devel/clang and dev-util/bear 
 dev-util/flatpak-builder:yaml - Use libyaml for yaml support
 dev-util/geany:vte - Enable Terminal support (x11-libs/vte)
 dev-util/geany-plugins:ctags - Enable ctags plugin
-dev-util/geany-plugins:debugger - Enable the debugger plugin which interfaces with sys-devel/gdb
+dev-util/geany-plugins:debugger - Enable the debugger plugin which interfaces with dev-debug/gdb
 dev-util/geany-plugins:enchant - Enable spell checking using enchant
 dev-util/geany-plugins:gpg - Enable geanypg plugin which integrates GPG using app-crypt/gpgme
 dev-util/geany-plugins:gtkspell - Use gtkspell for dictionary support in GeanyVC
@@ -8153,16 +8163,6 @@ sys-devel/gcc-apple:objc - Build support for the Objective C code language
 sys-devel/gcc-apple:objc++ - Build support for the Objective C++ language
 sys-devel/gcc-config:cc-wrappers - Install and manage 'cc' and 'f77' wrappers in /usr/bin. Otherwise ignore them.
 sys-devel/gcc-config:native-symlinks - Install native symlinks like 'gcc' or 'g++' to /usr/bin. Otherwise keep only ${CTARGET}-gcc and friends.
-sys-devel/gdb:cet - Enable Intel Control-flow Enforcement Technology.
-sys-devel/gdb:debuginfod - Enable debuginfod support via dev-libs/elfutils libdebuginfod
-sys-devel/gdb:lzma - Support lzma compression in ELF debug info
-sys-devel/gdb:multitarget - Support all known targets in one gdb binary
-sys-devel/gdb:python - Enable support for the new internal scripting language, as well as extended pretty printers
-sys-devel/gdb:server - Install the "gdbserver" program (useful for embedded/remote targets)
-sys-devel/gdb:sim - Build gdb's simulators for various hardware platforms. See https://sourceware.org/gdb/wiki/Sim.
-sys-devel/gdb:source-highlight - Enable listing highlighting via dev-util/source-highlight
-sys-devel/gdb:xml - Support parsing XML data files needed (at least) for cpu features, memory maps, and syscall tracing
-sys-devel/gdb:xxhash - Use dev-libs/xxhash to speed up internal hashing.
 sys-devel/gettext:git - When running `autopoint`, use git to store the internal development files; this requires git at runtime, but will be faster/smaller than raw archives
 sys-devel/lld-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 sys-devel/lld-toolchain-symlinks:native-symlinks - Install generic 'ld' symlink, as well as ${CTARGET}-ld. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.

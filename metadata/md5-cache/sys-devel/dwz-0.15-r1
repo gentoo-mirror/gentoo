@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-libs/elfutils[utils] dev-util/dejagnu sys-devel/gdb )
+BDEPEND=test? ( dev-libs/elfutils[utils] dev-util/dejagnu dev-debug/gdb )
 DEFINED_PHASES=compile install prepare test
 DEPEND=dev-libs/elfutils dev-libs/xxhash
 DESCRIPTION=DWARF optimization and duplicate removal tool
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://sourceware.org/ftp/dwz/releases/dwz-0.15.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=c9ad9c2c6672395a6ac2e911eb6025e8
+_md5_=31123eb66206965f3710882aa82c1381
