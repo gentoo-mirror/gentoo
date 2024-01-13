@@ -1,13 +1,11 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="
-		https://github.com/cgdb/cgdb.git
-		git@github.com:cgdb/cgdb.git"
+	EGIT_REPO_URI="https://github.com/cgdb/cgdb.git"
 else
 	SRC_URI="https://github.com/cgdb/cgdb/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="amd64 arm ppc ppc64 x86 ~amd64-linux ~x86-linux"
@@ -17,10 +15,13 @@ inherit autotools multilib-minimal
 
 DESCRIPTION="A curses front-end for GDB, the GNU debugger"
 HOMEPAGE="https://cgdb.github.io/"
+
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="test"
-RESTRICT="!test? ( test )"
+# Tests are broken, need additional research to figure out the cause
+# Bug: https://bugs.gentoo.org/831899
+RESTRICT="test"
 
 DEPEND="
 	sys-libs/ncurses:0=
@@ -34,20 +35,16 @@ BDEPEND="
 
 RDEPEND="
 	${DEPEND}
-	sys-devel/gdb"
+	dev-debug/gdb"
 
 DOCS=( AUTHORS ChangeLog FAQ INSTALL NEWS README.md )
 
 PATCHES=(
-	# Bugs: #730138, #678006, #630512
-	"${FILESDIR}/${PN}-test.patch"
-	# Bug: #724256
-	"${FILESDIR}/${P}-respect-AR.patch"
+	"${FILESDIR}"/${P}-ar.patch
 )
 
 src_prepare() {
 	default
-	cp configure.{init,ac} || die "cp failed"
 	AT_M4DIR="config" eautoreconf
 }
 

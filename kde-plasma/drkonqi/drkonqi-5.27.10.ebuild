@@ -49,8 +49,8 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5[qml]
 	|| (
-		sys-devel/gdb
-		dev-util/lldb
+		dev-debug/gdb
+		dev-debug/lldb
 	)
 "
 
