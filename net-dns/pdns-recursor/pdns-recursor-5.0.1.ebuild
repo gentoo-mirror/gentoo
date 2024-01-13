@@ -5,15 +5,48 @@ EAPI="8"
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit flag-o-matic lua-single
+CRATES="
+	cc@1.0.84
+	codespan-reporting@0.11.1
+	cxx-build@1.0.110
+	cxx@1.0.110
+	cxxbridge-flags@1.0.110
+	cxxbridge-macro@1.0.110
+	equivalent@1.0.1
+	hashbrown@0.14.2
+	indexmap@2.1.0
+	ipnet@2.9.0
+	itoa@1.0.9
+	libc@0.2.150
+	link-cplusplus@1.0.9
+	once_cell@1.18.0
+	proc-macro2@1.0.69
+	quote@1.0.33
+	ryu@1.0.15
+	scratch@1.0.7
+	serde@1.0.192
+	serde_derive@1.0.192
+	serde_yaml@0.9.27
+	syn@2.0.39
+	termcolor@1.4.0
+	unicode-ident@1.0.12
+	unicode-width@0.1.11
+	unsafe-libyaml@0.2.9
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.6
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
+"
+
+inherit cargo flag-o-matic lua-single
 
 DESCRIPTION="The PowerDNS Recursor"
 HOMEPAGE="https://www.powerdns.com/"
-SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2"
+SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2 ${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="debug dnstap snmp sodium systemd test valgrind"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
@@ -62,6 +95,10 @@ src_configure() {
 		$(use_with snmp net-snmp)
 }
 
+src_compile() {
+	default
+}
+
 src_install() {
 	default
 
@@ -75,6 +112,10 @@ src_install() {
 		"${D}"/etc/powerdns/recursor.conf
 
 	newinitd "${FILESDIR}"/pdns-recursor-r2 pdns-recursor
+}
+
+src_test() {
+	default
 }
 
 pkg_postinst() {
