@@ -6,9 +6,9 @@ HOMEPAGE=https://developer.android.com/ndk/
 INHERIT=check-reqs
 KEYWORDS=~amd64
 LICENSE=android
-RDEPEND=>=dev-util/android-sdk-update-manager-10 >=sys-devel/make-3.81 || ( sys-libs/ncurses:0/5[tinfo] sys-libs/ncurses-compat:5[tinfo] ) virtual/libcrypt
+RDEPEND=>=dev-util/android-sdk-update-manager-10 >=dev-build/make-3.81 || ( sys-libs/ncurses:0/5[tinfo] sys-libs/ncurses-compat:5[tinfo] ) virtual/libcrypt
 RESTRICT=mirror strip installsources test
 SLOT=0
 SRC_URI=https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip
 _eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc
-_md5_=551e003e342d186e57f518f0219bcd64
+_md5_=553ddb6faff58c542499570718037ca3
