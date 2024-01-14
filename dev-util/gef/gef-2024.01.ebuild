@@ -32,8 +32,8 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-debug/gdb[python,${PYTHON_SINGLE_USEDEP}]
 	dev-util/ropper[${PYTHON_SINGLE_USEDEP}]
+	dev-debug/gdb[python,${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-libs/capstone[python,${PYTHON_USEDEP}]
 		dev-libs/keystone[python,${PYTHON_USEDEP}]
