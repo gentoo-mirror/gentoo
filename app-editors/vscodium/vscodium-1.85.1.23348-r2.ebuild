@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -42,7 +42,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="-* amd64 ~arm ~arm64"
-IUSE="kerberos"
+IUSE="egl kerberos wayland"
 RESTRICT="strip bindist"
 
 RDEPEND="
@@ -99,10 +99,25 @@ src_install() {
 
 	dosym -r "/opt/${PN}/bin/codium" "usr/bin/vscodium"
 	dosym -r "/opt/${PN}/bin/codium" "usr/bin/codium"
-	domenu "${FILESDIR}/vscodium.desktop"
-	domenu "${FILESDIR}/vscodium-url-handler.desktop"
-	domenu "${FILESDIR}/vscodium-wayland.desktop"
-	domenu "${FILESDIR}/vscodium-url-handler-wayland.desktop"
+
+	local EXEC_EXTRA_FLAGS=()
+	if use wayland; then
+		EXEC_EXTRA_FLAGS+=( "--ozone-platform-hint=auto" )
+	fi
+	if use egl; then
+		EXEC_EXTRA_FLAGS+=( "--use-gl=egl" )
+	fi
+
+	sed "s|@exec_extra_flags@|${EXEC_EXTRA_FLAGS[*]}|g" \
+		"${FILESDIR}/vscodium-url-handler.desktop" \
+		> "${T}/vscodium-url-handler.desktop" || die
+
+	sed "s|@exec_extra_flags@|${EXEC_EXTRA_FLAGS[*]}|g" \
+		"${FILESDIR}/vscodium.desktop" \
+		> "${T}/vscodium.desktop" || die
+
+	domenu "${T}/vscodium.desktop"
+	domenu "${T}/vscodium-url-handler.desktop"
 	newicon "resources/app/resources/linux/code.png" "vscodium.png"
 }
 
