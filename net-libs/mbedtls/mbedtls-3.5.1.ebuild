@@ -3,26 +3,23 @@
 
 EAPI=8
 
-inherit cmake multilib-minimal
+PYTHON_COMPAT=( python3_{10..12} )
+
+inherit cmake multilib-minimal python-any-r1
 
 DESCRIPTION="Cryptographic library for embedded systems"
 HOMEPAGE="https://www.trustedfirmware.org/projects/mbed-tls/"
 SRC_URI="https://github.com/Mbed-TLS/mbedtls/archive/${P}.tar.gz"
 S="${WORKDIR}"/${PN}-${P}
 
-LICENSE="Apache-2.0"
+LICENSE="|| ( Apache-2.0 GPL-2+ )"
 SLOT="0/15.20.6" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cpu_flags_x86_sse2 doc programs static-libs test threads"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
-	programs? (
-		dev-libs/openssl:=
-	)
-"
-DEPEND="${RDEPEND}"
 BDEPEND="
+	${PYTHON_DEPS}
 	doc? (
 		app-text/doxygen
 		media-gfx/graphviz
@@ -49,12 +46,13 @@ src_prepare() {
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_PROGRAMS=$(multilib_native_usex programs)
-		-DUSE_STATIC_MBEDTLS_LIBRARY=$(usex static-libs)
 		-DENABLE_TESTING=$(usex test)
-		-DUSE_SHARED_MBEDTLS_LIBRARY=ON
 		-DINSTALL_MBEDTLS_HEADERS=ON
 		-DLIB_INSTALL_DIR="${EPREFIX}/usr/$(get_libdir)"
+		-DLINK_WITH_PTHREAD=$(usex threads)
 		-DMBEDTLS_FATAL_WARNINGS=OFF # Don't use -Werror, #744946
+		-DUSE_SHARED_MBEDTLS_LIBRARY=ON
+		-DUSE_STATIC_MBEDTLS_LIBRARY=$(usex static-libs)
 	)
 
 	cmake_src_configure
@@ -66,15 +64,10 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
-	# psa isn't ready yet, even in 3.0.0.
-	# bug #718390
-	CMAKE_SKIP_TESTS=(
-		psa_crypto
-		psa_its-suite
-	)
-
+	# Disable parallel run, bug #718390
+	# https://github.com/Mbed-TLS/mbedtls/issues/4980
 	LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${BUILD_DIR}/library" \
-		cmake_src_test
+		cmake_src_test -j1
 }
 
 multilib_src_install() {

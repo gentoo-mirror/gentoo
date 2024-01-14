@@ -7,6 +7,8 @@ EAPI=8
 # backport fixes there which haven't yet made it into a release. Keep an eye
 # on it for fixes we should cherry-pick too:
 # https://src.fedoraproject.org/rpms/valgrind/tree/rawhide
+#
+# Also check the ${PV}_STABLE branch upstream for backports.
 
 inherit autotools flag-o-matic toolchain-funcs multilib pax-utils
 
@@ -44,6 +46,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.7.0-respect-flags.patch
 	"${FILESDIR}"/${PN}-3.15.0-Build-ldst_multiple-test-with-fno-pie.patch
 	"${FILESDIR}"/${PN}-3.21.0-glibc-2.34-suppressions.patch
+	# From stable branch
 )
 
 src_prepare() {
@@ -64,7 +67,6 @@ src_prepare() {
 
 	default
 
-	# Regenerate autotools files
 	eautoreconf
 }
 

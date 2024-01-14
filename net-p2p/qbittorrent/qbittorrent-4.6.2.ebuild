@@ -19,17 +19,24 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+dbus +gui qt6 test webui systemd"
+IUSE="+dbus +gui qt6 systemd test webui"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="|| ( gui webui )"
 
 RDEPEND="
+	acct-group/qbittorrent
+	acct-user/qbittorrent
 	>=dev-libs/openssl-1.1.1:=
 	>=net-libs/libtorrent-rasterbar-1.2.19:=
 	>=sys-libs/zlib-1.2.11
-	virtual/libiconv
+	qt6? ( >=dev-qt/qtbase-6.2:6[network,ssl,sql,sqlite,xml] )
+	!qt6? (
+		dev-qt/qtcore:5
+		dev-qt/qtnetwork:5[ssl]
+		dev-qt/qtsql:5[sqlite]
+		dev-qt/qtxml:5
+	)
 	gui? (
-		dev-libs/geoip
 		!qt6? (
 			dev-qt/qtgui:5
 			dev-qt/qtsvg:5
@@ -37,28 +44,19 @@ RDEPEND="
 			dbus? ( dev-qt/qtdbus:5 )
 		)
 		qt6? (
-			dev-qt/qtbase:6[dbus?,gui,widgets]
-			dev-qt/qtsvg:6
+			>=dev-qt/qtbase-6.2:6[dbus?,gui,widgets]
+			>=dev-qt/qtsvg-6.2:6
 		)
-	)
-	qt6? ( dev-qt/qtbase:6[network,ssl,sql,sqlite,xml(+)] )
-	!qt6? (
-		dev-qt/qtcore:5
-		dev-qt/qtnetwork:5[ssl]
-		dev-qt/qtsql:5[sqlite]
-		dev-qt/qtxml:5
-	)
-	acct-group/qbittorrent
-	acct-user/qbittorrent"
+	)"
 DEPEND="
 	${RDEPEND}
-	dev-libs/boost
+	>=dev-libs/boost-1.71
 	test? (
 		!qt6? ( dev-qt/qttest:5 )
 	)"
 BDEPEND="
 	!qt6? ( dev-qt/linguist-tools:5 )
-	qt6? ( dev-qt/qttools:6[linguist] )
+	qt6? ( >=dev-qt/qttools-6.2:6[linguist] )
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS Changelog CONTRIBUTING.md README.md )
@@ -76,14 +74,10 @@ src_configure() {
 		local mycmakeargs=(
 			# musl lacks execinfo.h
 			-DSTACKTRACE=$(usex !elibc_musl)
-
 			# More verbose build logs are preferable for bug reports
 			-DVERBOSE_CONFIGURE=ON
-
 			-DQT6=$(usex qt6)
-
 			-DWEBUI=$(usex webui)
-
 			-DTESTING=$(usex test)
 		)
 

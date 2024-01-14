@@ -3,37 +3,47 @@
 
 EAPI=8
 
-inherit cmake multilib-minimal
+PYTHON_COMPAT=( python3_{10..12} )
+
+inherit cmake multilib-minimal python-any-r1
 
 DESCRIPTION="Cryptographic library for embedded systems"
 HOMEPAGE="https://www.trustedfirmware.org/projects/mbed-tls/"
 SRC_URI="https://github.com/Mbed-TLS/mbedtls/archive/${P}.tar.gz"
-S=${WORKDIR}/${PN}-${P}
+S="${WORKDIR}"/${PN}-${P}
 
-LICENSE="Apache-2.0"
-SLOT="0/12.18.4" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="cpu_flags_x86_sse2 doc programs static-libs test threads"
+LICENSE="|| ( Apache-2.0 GPL-2+ )"
+SLOT="0/7.14.1" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="cmac cpu_flags_x86_sse2 doc havege programs static-libs test threads zlib"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	programs? (
-		dev-libs/openssl:0=
-	)"
-DEPEND="${RDEPEND}
-	doc? ( app-text/doxygen media-gfx/graphviz )
-	test? ( dev-lang/perl )"
+	zlib? ( >=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}] )
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	${PYTHON_DEPS}
+	doc? (
+		app-text/doxygen
+		media-gfx/graphviz
+	)
+	test? ( dev-lang/perl )
+"
 
 enable_mbedtls_option() {
 	local myopt="$@"
 	# check that config.h syntax is the same at version bump
 	sed -i \
 		-e "s://#define ${myopt}:#define ${myopt}:" \
-		include/mbedtls/mbedtls_config.h || die
+		include/mbedtls/config.h || die
 }
 
 src_prepare() {
+	use cmac && enable_mbedtls_option MBEDTLS_CMAC_C
 	use cpu_flags_x86_sse2 && enable_mbedtls_option MBEDTLS_HAVE_SSE2
+	use zlib && enable_mbedtls_option MBEDTLS_ZLIB_SUPPORT
+	use havege && enable_mbedtls_option MBEDTLS_HAVEGE_C
 	use threads && enable_mbedtls_option MBEDTLS_THREADING_C
 	use threads && enable_mbedtls_option MBEDTLS_THREADING_PTHREAD
 
@@ -43,12 +53,14 @@ src_prepare() {
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_PROGRAMS=$(multilib_native_usex programs)
-		-DUSE_STATIC_MBEDTLS_LIBRARY=$(usex static-libs)
 		-DENABLE_TESTING=$(usex test)
-		-DUSE_SHARED_MBEDTLS_LIBRARY=ON
+		-DENABLE_ZLIB_SUPPORT=$(usex zlib)
 		-DINSTALL_MBEDTLS_HEADERS=ON
 		-DLIB_INSTALL_DIR="${EPREFIX}/usr/$(get_libdir)"
+		-DLINK_WITH_PTHREAD=$(usex threads)
 		-DMBEDTLS_FATAL_WARNINGS=OFF # Don't use -Werror, #744946
+		-DUSE_SHARED_MBEDTLS_LIBRARY=ON
+		-DUSE_STATIC_MBEDTLS_LIBRARY=$(usex static-libs)
 	)
 
 	cmake_src_configure
@@ -56,18 +68,14 @@ multilib_src_configure() {
 
 multilib_src_compile() {
 	cmake_src_compile
-	use doc && multilib_is_native_abi && cd "${S}" && emake apidoc
+	use doc && multilib_is_native_abi && emake -C "${S}" apidoc
 }
 
 multilib_src_test() {
-	# psa isn't ready yet, even in 3.0.0.
-	# bug #718390
-	local myctestargs=(
-		-E "(psa_crypto|psa_its-suite)"
-	)
-
+	# Disable parallel run, bug #718390
+	# https://github.com/Mbed-TLS/mbedtls/issues/4980
 	LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${BUILD_DIR}/library" \
-		cmake_src_test
+		cmake_src_test -j1
 }
 
 multilib_src_install() {
