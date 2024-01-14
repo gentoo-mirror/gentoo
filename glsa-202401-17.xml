@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-17">
+    <title>libgit2: Privilege Escalation Vulnerability</title>
+    <synopsis>A vulnerability has been found in libgit2 which could result in privilege escalation.</synopsis>
+    <product type="ebuild">libgit2</product>
+    <announced>2024-01-14</announced>
+    <revised count="1">2024-01-14</revised>
+    <bug>857792</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-libs/libgit2" auto="yes" arch="*">
+            <unaffected range="ge">1.4.4</unaffected>
+            <vulnerable range="lt">1.4.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libgit2 is a portable, pure C implementation of the Git core methods provided as a re-entrant linkable library with a solid API.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in libgit2. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Usages of a malicious crafted Git repository could allow the creator of the repository to elevate privileges to those of the user accessing the repository.</p>
+    </impact>
+    <workaround>
+        <p>Administrators can ensure that their usages of libgit2 only interact with repositories which have only been modified by trusted users.</p>
+    </workaround>
+    <resolution>
+        <p>All libgit2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libgit2-1.4.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29187">CVE-2022-29187</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-14T09:13:55.679015Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-14T09:13:55.681859Z">graaff</metadata>
+</glsa>
