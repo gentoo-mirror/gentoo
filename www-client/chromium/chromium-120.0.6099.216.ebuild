@@ -23,6 +23,9 @@ GN_MIN_VER=0.2122
 # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101227 - Chromium 120:
 #    webrtc -  no matching member function for call to 'emplace'
 : ${CHROMIUM_FORCE_LIBCXX=yes}
+# This variable is set to yes when building with bfd is broken.
+# See bug #918897 for arm64 where bfd can't handle the size.
+: ${CHROMIUM_FORCE_LLD=no}
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -35,7 +38,7 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="119.0.6045.159-1raptor0~deb12u1"
+PATCHSET_PPC64="120.0.6099.109-1raptor0~deb12u1"
 PATCH_V="${PV%%\.*}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
@@ -47,7 +50,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio qt5 qt6 screencast selinux vaapi wayland widevine"
 REQUIRED_USE="
@@ -152,7 +155,7 @@ DEPEND="${COMMON_DEPEND}
 depend_clang_llvm_version() {
 	echo "sys-devel/clang:$1"
 	echo "sys-devel/llvm:$1"
-	echo "=sys-devel/lld-$1*"
+	echo "sys-devel/lld:$1"
 }
 
 # When passed multiple arguments we assume that
@@ -210,6 +213,13 @@ if [[ ${CHROMIUM_FORCE_CLANG} == yes ]]; then
 	BDEPEND+=" >=sys-devel/clang-${LLVM_MIN_SLOT}"
 fi
 
+if [[ ${CHROMIUM_FORCE_LLD} == yes ]]; then
+	BDEPEND+=" >=sys-devel/lld-${LLVM_MIN_SLOT}"
+else
+	# XXX: Hack for arm64 for bug #918897
+	BDEPEND+=" arm64? ( >=sys-devel/lld-${LLVM_MIN_SLOT} )"
+fi
+
 if ! has chromium_pkg_die ${EBUILD_DEATH_HOOKS}; then
 	EBUILD_DEATH_HOOKS+=" chromium_pkg_die";
 fi
@@ -247,6 +257,11 @@ python_check_deps() {
 	python_has_version "dev-python/setuptools[${PYTHON_USEDEP}]"
 }
 
+needs_lld() {
+	# XXX: Temporary hack w/ use arm64 for bug #918897
+	[[ ${CHROMIUM_FORCE_LLD} == yes ]] || use arm64
+}
+
 needs_clang() {
 	[[ ${CHROMIUM_FORCE_CLANG} == yes ]] || use libcxx || use lto || use pgo
 }
@@ -257,8 +272,8 @@ llvm_check_deps() {
 		return 1
 	fi
 
-	if ( use lto || use pgo ) && ! has_version -b "=sys-devel/lld-${LLVM_SLOT}*" ; then
-		einfo "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
+	if ( use lto || use pgo ) && ! has_version -b "sys-devel/lld:${LLVM_SLOT}" ; then
+		einfo "sys-devel/lld:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
 		return 1
 	fi
 
@@ -705,7 +720,9 @@ chromium_configure() {
 	fi
 
 	# Force lld for lto and pgo builds, otherwise disable, bug 641556
-	if use lto || use pgo; then
+	if needs_lld || use lto || use pgo; then
+		# https://bugs.gentoo.org/918897#c32
+		append-ldflags -Wl,--undefined-version
 		myconf_gn+=" use_lld=true"
 	else
 		myconf_gn+=" use_lld=false"
