@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prepare setup
-DEPEND=dev-util/cmake monkeyd_plugins_tls? ( net-libs/mbedtls:= )
+DEPEND=dev-build/cmake monkeyd_plugins_tls? ( net-libs/mbedtls:= )
 DESCRIPTION=A small, fast, and scalable web server
 EAPI=7
 HOMEPAGE=http://www.monkey-project.com/
@@ -12,4 +12,4 @@ REQUIRED_USE=monkeyd_plugins_tls? ( !static-plugins ) cgi? ( php )
 SLOT=0
 SRC_URI=http://monkey-project.com/releases/1.6/monkey-1.6.9.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a
-_md5_=bfd0f8bc0c4c93d5ac00131f339167be
+_md5_=0f39d99c581a7bdef88ef748c48db902

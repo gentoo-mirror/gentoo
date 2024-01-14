@@ -1,6 +1,6 @@
-BDEPEND=dev-util/rocm-cmake >=dev-util/cmake-3.22 app-alternatives/ninja >=dev-util/cmake-3.20.5
+BDEPEND=dev-build/rocm-cmake >=dev-build/cmake-3.22 app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-util/hip dev-util/rocm-cmake benchmark? ( dev-cpp/benchmark ) test? ( dev-cpp/gtest )
+DEPEND=dev-util/hip dev-build/rocm-cmake benchmark? ( dev-cpp/benchmark ) test? ( dev-cpp/gtest )
 DESCRIPTION=Generate pseudo-random and quasi-random numbers
 EAPI=8
 HOMEPAGE=https://github.com/ROCmSoftwarePlatform/rocRAND
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( amdgpu_targets_gfx906 amdgpu_targets_gfx908 amdgpu_targets_gfx
 RESTRICT=!test? ( test )
 SLOT=0/5.7
 SRC_URI=https://github.com/ROCmSoftwarePlatform/rocRAND/archive/rocm-5.7.1.tar.gz -> rocRAND-5.7.1.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	b7ccad6f1800c4ea58dbbdafb0b1b5e0	rocm	32cae3278ec0889923baf0e5a632e562
-_md5_=2defb2156b77ca8bea3c3c7fb954087b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	rocm	32cae3278ec0889923baf0e5a632e562
+_md5_=881f6a8fc4d1844f18e02990e721be08

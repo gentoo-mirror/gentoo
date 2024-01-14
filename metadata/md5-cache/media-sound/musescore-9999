@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig app-alternatives/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
 DEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtnetworkauth:5 dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 >=dev-qt/qtsingleapplication-2.6.1_p20171024[X] dev-qt/qtsvg:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 >=media-libs/freetype-2.5.2 media-libs/libsndfile sys-libs/zlib:= alsa? ( >=media-libs/alsa-lib-1.0.0 ) jack? ( virtual/jack ) mp3? ( media-sound/lame ) omr? ( app-text/poppler ) portaudio? ( media-libs/portaudio ) portmidi? ( media-libs/portmidi ) pulseaudio? ( media-libs/libpulse ) sf3? ( media-libs/libvorbis ) webengine? ( dev-qt/qtwebengine:5[widgets] )
 DESCRIPTION=WYSIWYG Music Score Typesetter
@@ -14,5 +14,5 @@ REQUIRED_USE=portmidi? ( portaudio )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~fordfrog/distfiles/MuseScore_General-0.2.0.tar.bz2
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	b7ccad6f1800c4ea58dbbdafb0b1b5e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg	4a14c5c24f121e7da66e5aab4a168c6e	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg	4a14c5c24f121e7da66e5aab4a168c6e	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
 _md5_=c4626a82ed2571c21cdfa98b141bffb8

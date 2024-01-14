@@ -1,4 +1,4 @@
-BDEPEND=dev-build/make >=dev-util/cmake-3.20.5
+BDEPEND=dev-build/make >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile config configure install postinst prepare pretend setup test unpack
 DEPEND=>=app-arch/lz4-0_p131:= app-arch/zstd:= sys-libs/ncurses:0= >=sys-libs/zlib-1.2.3:0= >=dev-libs/openssl-1.0.0:0= server? ( dev-libs/icu:= dev-libs/libevent:=[ssl,threads(+)] >=dev-libs/protobuf-3.8:= net-libs/libtirpc:= net-misc/curl:= cjk? ( app-text/mecab:= ) ldap? ( dev-libs/cyrus-sasl <net-nds/openldap-2.6:= ) jemalloc? ( dev-libs/jemalloc:0= ) kernel_linux? ( dev-libs/libaio:0= sys-process/procps:0= ) numa? ( sys-process/numactl ) pam? ( sys-libs/pam:0= ) tcmalloc? ( dev-util/google-perftools:0= ) ) || ( >=sys-devel/gcc-3.4.6 >=sys-devel/gcc-apple-4.0 ) app-alternatives/yacc server? ( net-libs/rpcsvc-proto ) test? ( acct-group/mysql acct-user/mysql dev-perl/JSON )
 DESCRIPTION=Fully compatible, enhanced and open source drop-in replacement for MySQL
@@ -14,5 +14,5 @@ REQUIRED_USE=?? ( tcmalloc jemalloc ) cjk? ( server ) jemalloc? ( server ) numa?
 RESTRICT=!test? ( test )
 SLOT=8.0
 SRC_URI=https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.26-16/source/tarball/percona-server-8.0.26-16.tar.gz https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2 https://dev.gentoo.org/~whissi/dist/percona-server/percona-server-8.0.26.16-patches-01.tar.xz
-_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	b7ccad6f1800c4ea58dbbdafb0b1b5e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	prefix	eab3c99d77fe00506c109c8a736186f7
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	prefix	eab3c99d77fe00506c109c8a736186f7
 _md5_=a7d72c9e92b818c0ae132e0816bddf16
