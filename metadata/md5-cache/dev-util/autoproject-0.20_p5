@@ -1,13 +1,13 @@
 DEFINED_PHASES=-
-DEPEND=sys-devel/autoconf:* sys-devel/automake:* test? ( sys-apps/texinfo )
+DEPEND=dev-build/autoconf:* dev-build/automake:* test? ( sys-apps/texinfo )
 DESCRIPTION=Start a programming project using autotools and a command line parser generator
 EAPI=7
 HOMEPAGE=https://packages.debian.org/unstable/devel/autoproject
 IUSE=test
 KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
-RDEPEND=sys-devel/autoconf:* sys-devel/automake:*
+RDEPEND=dev-build/autoconf:* dev-build/automake:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/a/autoproject/autoproject_0.20.orig.tar.gz mirror://debian/pool/main/a/autoproject/autoproject_0.20-5.diff.gz
-_md5_=57ccd2734d7f3220fd1863db38b3047f
+_md5_=053aced7fe1971cbace4ff4032cfb861
