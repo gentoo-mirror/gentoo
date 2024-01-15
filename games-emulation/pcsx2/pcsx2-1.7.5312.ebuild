@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ else
 	# unbundling on this package has become unmaintainable and, rather than
 	# handle submodules separately, using a tarball that includes them
 	SRC_URI="https://dev.gentoo.org/~ionen/distfiles/${P}.tar.xz"
-	KEYWORDS="-* ~amd64"
+	KEYWORDS="-* amd64"
 fi
 
 DESCRIPTION="PlayStation 2 emulator"
@@ -31,11 +31,11 @@ RESTRICT="!test? ( test )"
 COMMON_DEPEND="
 	app-arch/xz-utils
 	dev-libs/libaio
-	>=dev-qt/qtbase-6.6.0:6[gui,widgets]
-	>=dev-qt/qtsvg-6.6.0:6
+	dev-qt/qtbase:6[gui,widgets]
+	dev-qt/qtsvg:6
 	media-libs/libglvnd
 	media-libs/libpng:=
-	>=media-libs/libsdl2-2.28.4[haptic,joystick]
+	media-libs/libsdl2[haptic,joystick]
 	media-video/ffmpeg:=
 	net-libs/libpcap
 	net-misc/curl
@@ -61,7 +61,7 @@ DEPEND="
 	x11-base/xorg-proto
 "
 BDEPEND="
-	>=dev-qt/qttools-6.6.0:6[linguist]
+	dev-qt/qttools:6[linguist]
 	wayland? (
 		dev-util/wayland-scanner
 		kde-frameworks/extra-cmake-modules
@@ -81,16 +81,17 @@ src_prepare() {
 		sed -e '/set(PCSX2_GIT_TAG "")/s/""/"v'${PV}'"/' \
 			-i cmake/Pcsx2Utils.cmake || die
 	fi
+
+	# relax Qt6 and SDL2 version requirements which often get restricted
+	# without a specific need, please report a bug to Gentoo (not upstream)
+	# if a still-available older version is really causing issues
+	sed -e '/find_package(\(Qt6\|SDL2\)/s/ [0-9.]*//' \
+		-i cmake/SearchForStuff.cmake || die
 }
 
 src_configure() {
-	if use vulkan; then
-		# for bundled glslang (bug #858374)
-		append-flags -fno-strict-aliasing
-
-		# odr violations in pcsx2's vulkan code, disabling as a safety for now
-		filter-lto
-	fi
+	# for bundled old glslang (bug #858374)
+	use vulkan && append-flags -fno-strict-aliasing
 
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=no
