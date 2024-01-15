@@ -119,13 +119,13 @@ RDEPEND="${PYTHON_DEPS}
 	app-portage/portage-utils
 	dev-util/gperf
 	sys-apps/sandbox
-	sys-devel/autoconf
-	sys-devel/autoconf-archive
-	sys-devel/automake
+	dev-build/autoconf
+	dev-build/autoconf-archive
+	dev-build/automake
 	app-alternatives/bc
 	app-alternatives/yacc
 	app-alternatives/lex
-	sys-devel/libtool
+	dev-build/libtool
 	virtual/pkgconfig
 	elibc_glibc? ( sys-libs/glibc[static-libs(+)] )
 	firmware? ( sys-kernel/linux-firmware )"
