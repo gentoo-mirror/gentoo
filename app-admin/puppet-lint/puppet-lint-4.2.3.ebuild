@@ -9,7 +9,6 @@ RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_EXTRADOC="README.md"
 
 RUBY_FAKEGEM_BINWRAP="puppet-lint"
-RUBY_FAKEGEM_NAME="puppetlabs-puppet-lint"
 
 inherit ruby-fakegem
 
@@ -18,8 +17,14 @@ HOMEPAGE="https://github.com/puppetlabs/puppet-lint"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE=""
 KEYWORDS="~amd64 ~x86"
+
+PATCH_NAME="${PN}-4.2.3-pr181-fix-warnings.patch"
+SRC_URI+=" https://github.com/puppetlabs/puppet-lint/pull/181.patch -> ${PATCH_NAME} "
+
+PATCHES=(
+	"${DISTDIR}/${PATCH_NAME}"
+)
 
 ruby_add_bdepend "test? (
 	dev-ruby/rspec-its:1
