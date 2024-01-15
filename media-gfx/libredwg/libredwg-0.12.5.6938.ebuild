@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ inherit autotools docs python-single-r1 perl-functions
 JSMN_COMMIT="85695f3d5903b1cd5b4030efe50db3b4f5f3c928"
 
 DESCRIPTION="C library to handle DWG files"
-HOMEPAGE="https://www.gnu.org/software/libredwg/"
+HOMEPAGE="https://www.gnu.org/software/libredwg/ https://github.com/LibreDWG/libredwg"
 SRC_URI="
 	https://github.com/LibreDWG/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/zserge/jsmn/archive/${JSMN_COMMIT}.tar.gz -> ${PN}-${JSMN_COMMIT}.tar.gz
@@ -76,6 +76,7 @@ src_configure() {
 		--enable-dxf
 		--enable-json
 		--disable-gcov
+		--disable-werror
 		$(use_enable !debug release)
 		$(use_enable debug trace)
 		$(use_enable debug)
