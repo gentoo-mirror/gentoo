@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ LICENSE="PHP-3.01
 	unicode? ( BSD-2 LGPL-2.1 )"
 
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 
 # We can build the following SAPIs in the given order
 SAPIS="embed cli cgi fpm apache2 phpdbg"
@@ -31,7 +31,7 @@ IUSE="${IUSE}
 	threads"
 
 IUSE="${IUSE} acl apparmor argon2 avif bcmath berkdb bzip2 calendar
-	cdb cjk coverage +ctype curl debug
+	cdb cjk +ctype curl debug
 	enchant exif ffi +fileinfo +filter firebird
 	+flatfile ftp gd gdbm gmp +iconv imap inifile
 	intl iodbc ipv6 +jit kerberos ldap ldap-sasl libedit lmdb
@@ -39,8 +39,8 @@ IUSE="${IUSE} acl apparmor argon2 avif bcmath berkdb bzip2 calendar
 	oci8-instant-client odbc +opcache pcntl pdo +phar +posix postgres qdbm
 	readline selinux +session session-mm sharedmem
 	+simplexml snmp soap sockets sodium spell sqlite ssl
-	sysvipc systemd test tidy +tokenizer tokyocabinet truetype unicode webp
-	+xml xmlreader xmlwriter xpm xslt zip zlib"
+	sysvipc systemd test tidy +tokenizer tokyocabinet truetype unicode
+	valgrind webp +xml xmlreader xmlwriter xpm xslt zip zlib"
 
 # Without USE=readline or libedit, the interactive "php -a" CLI will hang.
 # The Oracle instant client provides its own incompatible ldap library.
@@ -67,6 +67,7 @@ REQUIRED_USE="
 	mysql? ( || ( mysqli pdo ) )
 	firebird? ( pdo )
 	mssql? ( pdo )
+	test? ( cli )
 "
 
 RESTRICT="!test? ( test )"
@@ -78,14 +79,13 @@ COMMON_DEPEND="
 	>=app-eselect/eselect-php-0.9.7[apache2?,fpm?]
 	>=dev-libs/libpcre2-10.30[jit?,unicode]
 	virtual/libcrypt:=
-	fpm? ( acl? ( sys-apps/acl ) apparmor? ( sys-libs/libapparmor ) )
+	fpm? ( acl? ( sys-apps/acl ) apparmor? ( sys-libs/libapparmor ) selinux? ( sys-libs/libselinux ) )
 	apache2? ( www-servers/apache[apache2_modules_unixd(+),threads=] )
 	argon2? ( app-crypt/argon2:= )
 	avif? ( media-libs/libavif:= )
 	berkdb? ( || (	sys-libs/db:5.3 sys-libs/db:4.8 ) )
 	bzip2? ( app-arch/bzip2:0= )
 	cdb? ( || ( dev-db/cdb dev-db/tinycdb ) )
-	coverage? ( dev-util/lcov )
 	curl? ( >=net-misc/curl-7.29.0 )
 	enchant? ( app-text/enchant:2 )
 	ffi? ( >=dev-libs/libffi-3.0.11:= )
@@ -110,7 +110,7 @@ COMMON_DEPEND="
 	readline? ( sys-libs/readline:0= )
 	session-mm? ( dev-libs/mm )
 	snmp? ( >=net-analyzer/net-snmp-5.2 )
-	sodium? ( dev-libs/libsodium:=[-minimal] )
+	sodium? ( dev-libs/libsodium:=[-minimal(-)] )
 	spell? ( >=app-text/aspell-0.50 )
 	sqlite? ( >=dev-db/sqlite-3.7.6.3 )
 	ssl? ( >=dev-libs/openssl-1.0.2:0= )
@@ -118,6 +118,7 @@ COMMON_DEPEND="
 	tokyocabinet? ( dev-db/tokyocabinet )
 	truetype? ( =media-libs/freetype-2* )
 	unicode? ( dev-libs/oniguruma:= )
+	valgrind? ( dev-debug/valgrind )
 	webp? ( media-libs/libwebp:0= )
 	xml? ( >=dev-libs/libxml2-2.9.0 )
 	xpm? ( x11-libs/libXpm )
@@ -148,6 +149,7 @@ PHP_MV="$(ver_cut 1)"
 PATCHES=(
 	"${FILESDIR}/php-iodbc-header-location.patch"
 	"${FILESDIR}/php-capstone-optional.patch"
+	"${FILESDIR}/php-8.2.8-openssl-tests.patch"
 )
 
 php_install_ini() {
@@ -224,26 +226,103 @@ src_prepare() {
 	eautoconf --force
 	eautoheader
 
-	# Remove false positive test failures
-	# stream_isatty fails due to portage redirects
-	# curl tests here fail for network sandbox issues
-	# session tests here fail because we set the session directory to $T
-	rm tests/output/stream_isatty_err.phpt \
-	   tests/output/stream_isatty_out-err.phpt \
-	   tests/output/stream_isatty_out.phpt \
-	   ext/curl/tests/bug76675.phpt \
-	   ext/curl/tests/bug77535.phpt \
-	   ext/curl/tests/curl_error_basic.phpt \
-	   ext/session/tests/bug74514.phpt \
-	   ext/session/tests/bug74936.phpt || die
+	# missing skipif; fixed upstream already
+	rm sapi/cgi/tests/005.phpt || die
 
+	# These three get BORKED on no-ipv6 systems,
+	#
+	#   https://github.com/php/php-src/pull/11651
+	#
+	rm ext/sockets/tests/mcast_ipv6_recv.phpt \
+	   ext/sockets/tests/mcast_ipv6_recv_limited.phpt \
+	   ext/sockets/tests/mcast_ipv6_send.phpt \
+	   || die
+
+	# fails in a network sandbox,
+	#
+	#   https://github.com/php/php-src/issues/11662
+	#
+	rm ext/sockets/tests/bug63000.phpt || die
+
+	# expected output needs to be updated,
+	#
+	#   https://github.com/php/php-src/pull/11648
+	#
+	rm ext/dba/tests/dba_tcadb.phpt || die
+
+	# Two IMAP tests missing SKIPIFs,
+	#
+	#   https://github.com/php/php-src/pull/11654
+	#
+	rm ext/imap/tests/imap_mutf7_to_utf8.phpt \
+	   ext/imap/tests/imap_utf8_to_mutf7_basic.phpt \
+	   || die
+
+	# broken upstream with icu-73.x,
+	#
+	#   https://github.com/php/php-src/issues/11128
+	#
+	rm ext/intl/tests/calendar_clear_variation1.phpt || die
+
+	# overly sensitive to INI values; fixes sent upstream:
+	#
+	#  https://github.com/php/php-src/pull/11631
+	#
+	rm ext/session/tests/{bug74514,bug74936,gh7787}.phpt || die
+
+	# This is sensitive to the current "nice" level:
+	#
+	#   https://github.com/php/php-src/issues/11630
+	#
+	rm ext/standard/tests/general_functions/proc_nice_basic.phpt || die
+
+	# Tests ignoring the "-n" flag we pass to run-tests.php,
+	#
+	#   https://github.com/php/php-src/pull/11669
+	#
+	rm ext/standard/tests/file/bug60120.phpt \
+	   ext/standard/tests/general_functions/proc_open_null.phpt \
+	   ext/standard/tests/general_functions/proc_open_redirect.phpt \
+	   ext/standard/tests/general_functions/proc_open_sockets1.phpt \
+	   ext/standard/tests/general_functions/proc_open_sockets2.phpt \
+	   ext/standard/tests/general_functions/proc_open_sockets3.phpt \
+	   ext/standard/tests/ini_info/php_ini_loaded_file.phpt \
+	   sapi/cli/tests/016.phpt \
+	   sapi/cli/tests/023.phpt \
+	   sapi/cli/tests/bug65275.phpt \
+	   sapi/cli/tests/bug74600.phpt \
+	   sapi/cli/tests/bug78323.phpt \
+	   || die
+
+	# Same TEST_PHP_EXTRA_ARGS (-n) issue with this one, but it's
+	# already been fixed upstream.
+	rm sapi/cli/tests/017.phpt || die
+
+	# Most Oracle tests are borked,
+	#
+	#  * https://github.com/php/php-src/issues/11804
+	#  * https://github.com/php/php-src/pull/11820
+	#  * https://github.com/php/php-src/issues/11819
+	#
+	rm ext/oci8/tests/*.phpt || die
+
+	# https://github.com/php/php-src/issues/12801
+	rm ext/pcre/tests/gh11374.phpt || die
 }
 
 src_configure() {
 	addpredict /usr/share/snmp/mibs/.index #nowarn
 	addpredict /var/lib/net-snmp/mib_indexes #nowarn
 
+	# https://bugs.gentoo.org/866683, https://bugs.gentoo.org/913527
+	filter-lto
+
 	PHP_DESTDIR="${EPREFIX}/usr/$(get_libdir)/php${SLOT}"
+
+	# Don't allow ./configure to detect and use an existing version
+	# of PHP; this can lead to all sorts of weird unpredictability
+	# as in bug 900210.
+	export ac_cv_prog_PHP=""
 
 	# The php-fpm config file wants localstatedir to be ${EPREFIX}/var
 	# and not the Gentoo default ${EPREFIX}/var/lib. See bug 572002.
@@ -256,6 +335,7 @@ src_configure() {
 		--localstatedir="${EPREFIX}/var"
 		--without-pear
 		--without-valgrind
+		--with-external-libcrypt
 		$(use_enable threads zts)
 	)
 
@@ -266,7 +346,6 @@ src_configure() {
 		$(use_enable bcmath)
 		$(use_with bzip2 bz2 "${EPREFIX}/usr")
 		$(use_enable calendar)
-		$(use_enable coverage gcov)
 		$(use_enable ctype)
 		$(use_with curl)
 		$(use_enable xml dom)
@@ -293,6 +372,7 @@ src_configure() {
 		$(use_enable opcache)
 		$(use_with postgres pgsql "${EPREFIX}/usr")
 		$(use_enable posix)
+		$(use_with selinux fpm-selinux)
 		$(use_with spell pspell "${EPREFIX}/usr")
 		$(use_enable simplexml)
 		$(use_enable sharedmem shmop)
@@ -313,6 +393,7 @@ src_configure() {
 		$(use_with zip)
 		$(use_with zlib zlib "${EPREFIX}/usr")
 		$(use_enable debug)
+		$(use_with valgrind)
 	)
 
 	# DBA support
@@ -361,7 +442,7 @@ src_configure() {
 	fi
 
 	# MySQL support
-	our_conf+=( $(use_with mysqli mysqli "mysqlnd") )
+	our_conf+=( $(use_with mysqli) )
 
 	local mysqlsock="${EPREFIX}/var/run/mysqld/mysqld.sock"
 	if use mysql || use mysqli ; then
@@ -441,9 +522,16 @@ src_configure() {
 	# Support the Apache2 extras, they must be set globally for all
 	# SAPIs to work correctly, especially for external PHP extensions
 
+	# Create separate build trees for each enabled SAPI. The upstream
+	# build system doesn't do this, but we have to do it to use a
+	# different php.ini for each SAPI (see --with-config-file-path and
+	# --with-config-file-scan-dir below). The path winds up define'd
+	# in main/build-defs.h which is included in main/php.h which is
+	# included by basically everything; so, avoiding a rebuild after
+	# changing it is not an easy job.
 	local one_sapi
 	local sapi
-	mkdir -p "${WORKDIR}/sapis-build" || die
+	mkdir "${WORKDIR}/sapis-build" || die
 	for one_sapi in $SAPIS ; do
 		use "${one_sapi}" || continue
 		php_set_ini_dir "${one_sapi}"
@@ -453,7 +541,6 @@ src_configure() {
 		# based on the autotools-utils eclass.
 		BUILD_DIR="${WORKDIR}/sapis-build/${one_sapi}"
 		cp -a "${S}" "${BUILD_DIR}" || die
-		cd "${BUILD_DIR}" || die
 
 		local sapi_conf=(
 			--with-config-file-path="${PHP_INI_DIR}"
@@ -492,6 +579,7 @@ src_configure() {
 		myeconfargs+=( "${sapi_conf[@]}" )
 
 		pushd "${BUILD_DIR}" > /dev/null || die
+		einfo "Running econf in ${BUILD_DIR}"
 		econf "${myeconfargs[@]}"
 		popd > /dev/null || die
 	done
@@ -502,13 +590,20 @@ src_compile() {
 	addpredict /usr/share/snmp/mibs/.index #nowarn
 	addpredict /var/lib/net-snmp/mib_indexes #nowarn
 
+	if use oci8-instant-client && use kerberos && use imap && use phar; then
+		# A conspiracy takes place when the first three of these flags
+		# are set together, causing the newly-built "php" to open
+		# /dev/urandom with mode rw when it starts. That's not actually
+		# a problem... unless you also have USE=phar, which runs that
+		# "php" to build some phar thingy in src_compile(). Later in
+		# src_test(), portage (at least) sets "addpredict /" so the
+		# problem does not repeat.
+		addpredict /dev/urandom #nowarn
+	fi
+
 	local sapi
 	for sapi in ${SAPIS} ; do
-		if use "${sapi}"; then
-			cd "${WORKDIR}/sapis-build/$sapi" || \
-				die "Failed to change dir to ${WORKDIR}/sapis-build/$1"
-			emake
-		fi
+		use "${sapi}" && emake -C "${WORKDIR}/sapis-build/${sapi}"
 	done
 }
 
@@ -631,14 +726,13 @@ src_install() {
 }
 
 src_test() {
-	echo ">>> Test phase [test]: ${CATEGORY}/${PF}"
-	PHP_BIN="${WORKDIR}/sapis-build/cli/sapi/cli/php"
-	if [[ ! -x "${PHP_BIN}" ]] ; then
-		ewarn "Test phase requires USE=cli, skipping"
-		return
-	else
-		export TEST_PHP_EXECUTABLE="${PHP_BIN}"
-	fi
+	export TEST_PHP_EXECUTABLE="${WORKDIR}/sapis-build/cli/sapi/cli/php"
+
+	# Sometimes when the sub-php launches a sub-sub-php, it uses these.
+	# Without an "-n" in all instances, the *live* php.ini can be loaded,
+	# pulling in *live* zend extensions. And those can be incompatible
+	# with the thing we just built.
+	export TEST_PHP_EXTRA_ARGS="-n"
 
 	if [[ -x "${WORKDIR}/sapis-build/cgi/sapi/cgi/php-cgi" ]] ; then
 		export TEST_PHP_CGI_EXECUTABLE="${WORKDIR}/sapis-build/cgi/sapi/cgi/php-cgi"
@@ -648,40 +742,22 @@ src_test() {
 		export TEST_PHPDBG_EXECUTABLE="${WORKDIR}/sapis-build/phpdbg/sapi/phpdbg/phpdbg"
 	fi
 
-	SKIP_ONLINE_TESTS=1 REPORT_EXIT_STATUS=1 "${TEST_PHP_EXECUTABLE}" -n  -d \
-					  "session.save_path=${T}" \
-					  "${WORKDIR}/sapis-build/cli/run-tests.php" -n -q -d \
-					  "session.save_path=${T}"
-
-	for name in ${EXPECTED_TEST_FAILURES}; do
-		mv "${name}.out" "${name}.out.orig" 2>/dev/null || die
-	done
-
-	local failed="$(find -name '*.out')"
-	if [[ ${failed} != "" ]] ; then
-		ewarn "The following test cases failed unexpectedly:"
-		for name in ${failed}; do
-			ewarn "  ${name/.out/}"
-		done
-	else
-		einfo "No unexpected test failures, all fine"
-	fi
-
-	if [[ ${PHP_SHOW_UNEXPECTED_TEST_PASS} == "1" ]] ; then
-		local passed=""
-		for name in ${EXPECTED_TEST_FAILURES}; do
-			[[ -f "${name}.diff" ]] && continue
-			passed="${passed} ${name}"
-		done
-		if [[ ${passed} != "" ]] ; then
-			einfo "The following test cases passed unexpectedly:"
-			for name in ${passed}; do
-				ewarn "  ${passed}"
-			done
-		else
-			einfo "None of the known-to-fail tests passed, all fine"
-		fi
-	fi
+	# The sendmail override prevents ext/imap/tests/bug77020.phpt from
+	# actually trying to send mail, and will be fixed upstream soon:
+	#
+	#   https://github.com/php/php-src/issues/11629
+	#
+	# The IO capture tests need to be disabled because they fail when
+	# std{in,out,err} are redirected (as they are within portage).
+	#
+	# One -n applies to the top-level "php", while the other applies
+	# to any sub-php that get invoked by the test runner.
+	SKIP_IO_CAPTURE_TESTS=1 SKIP_PERF_SENSITIVE=1 REPORT_EXIT_STATUS=1 \
+		"${TEST_PHP_EXECUTABLE}" -n \
+		"${WORKDIR}/sapis-build/cli/run-tests.php" --offline -n -q \
+		-d "session.save_path=${T}" \
+		-d "sendmail_path=echo >/dev/null" \
+		|| die "tests failed"
 }
 
 pkg_postinst() {
