@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-24">
+    <title>Nettle: Denial of Service</title>
+    <synopsis>Multiple denial of service vulnerabilities have been discovered in Nettle.</synopsis>
+    <product type="ebuild">nettle</product>
+    <announced>2024-01-16</announced>
+    <revised count="1">2024-01-16</revised>
+    <bug>806839</bug>
+    <bug>907673</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/nettle" auto="yes" arch="*">
+            <unaffected range="ge">3.9.1</unaffected>
+            <vulnerable range="lt">3.9.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Nettle is a cryptographic library that is designed to fit easily in almost any context: In cryptographic toolkits for object-oriented languages, such as C++, Python, or Pike, in applications like lsh or GnuPG, or even in kernel space.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Nettle. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A flaw was found in the way nettle&#39;s RSA decryption functions handled specially crafted ciphertext. An attacker could use this flaw to provide a manipulated ciphertext leading to application crash and denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Nettle users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/nettle-3.9.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3580">CVE-2021-3580</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36660">CVE-2023-36660</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-16T13:42:42.515739Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-16T13:42:42.518143Z">graaff</metadata>
+</glsa>
