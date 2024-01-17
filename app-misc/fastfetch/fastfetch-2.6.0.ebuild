@@ -65,11 +65,6 @@ REQUIRED_USE="
 	chafa? ( imagemagick )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-nvidia.patch
-	"${FILESDIR}"/${P}-nvidia2.patch
-)
-
 src_configure() {
 	local fastfetch_enable_imagemagick7=no
 	local fastfetch_enable_imagemagick6=no
@@ -95,7 +90,7 @@ src_configure() {
 		-DENABLE_IMAGEMAGICK7=${fastfetch_enable_imagemagick7}
 		-DENABLE_LIBNM=$(usex networkmanager)
 		-DENABLE_LIBPCI=$(usex pci)
-		-DENABLE_NVIDIA_GPU=$(usex nvidia-gpu)
+		-DENABLE_PROPRIETARY_GPU_DRIVER_API=$(usex nvidia-gpu)
 		-DENABLE_OPENCL=$(usex opencl)
 		-DENABLE_OSMESA=$(usex osmesa)
 		-DENABLE_PULSE=$(usex pulseaudio)
