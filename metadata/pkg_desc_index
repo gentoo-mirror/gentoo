@@ -3765,8 +3765,10 @@ dev-build/automake 1.11.6-r4 1.16.5-r1 9999: Used to generate Makefile.in from M
 dev-build/automake-vanilla 1.11.6 1.15.1 1.16.5 9999: Used to generate Makefile.in from Makefile.am
 dev-build/automake-wrapper 20221207 99999999: Wrapper for automake to manage multiple automake versions
 dev-build/bmake 20230909 20231210: NetBSD's portable make
+dev-build/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
 dev-build/cmake 3.26.5-r2 3.27.7 3.27.9 3.28.1 3.28.1-r1 9999: Cross platform Make
 dev-build/cmake-fedora 2.9.3: Provides cmake helper macros and targets for linux, especially fedora developers
+dev-build/gtk-doc-am 1.33.2: Automake files from gtk-doc
 dev-build/ignition-cmake 2.17.0: CMake modules to be used by the Ignition projects
 dev-build/libtool 2.4.7-r1 2.4.7-r2 9999: A shared library tool for developers
 dev-build/mage 1.11.0 1.13.0 1.15.0: make/rake like tool using go
@@ -3781,6 +3783,7 @@ dev-build/rocm-cmake 5.4.3 5.7.1: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r2 9999: ninja-compatible build tool written in C
 dev-build/slibtool 0.5.34 0.5.35 9999: A skinny libtool implementation, written in C
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
+dev-build/xfce4-dev-tools 4.18.1 4.19.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
 dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r1 20230802.0: Abseil Common Libraries (C++), LTS Branch
 dev-cpp/aixlog 1.5.0 9999: Header-only C++ logging library
@@ -10705,7 +10708,6 @@ dev-util/gpp 2.27: A generic preprocessor
 dev-util/gprof2dot 2022.7.29 2022.7.29-r1: Converts profiling output to dot graphs
 dev-util/gtk-builder-convert 2.24.33: Converts Glade files to GtkBuilder XML format
 dev-util/gtk-doc 1.33.2-r1: GTK+ Documentation Generator
-dev-util/gtk-doc-am 1.33.2: Automake files from gtk-doc
 dev-util/gtk-update-icon-cache 3.24.31 3.24.38 3.24.39: GTK update icon cache
 dev-util/gyp 20200512145953 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-util/heaptrack 1.5.0 9999: Fast heap memory profiler
@@ -10917,7 +10919,6 @@ dev-util/weka 3.8.0-r1: A Java data mining package
 dev-util/wiggle 1.0 1.2: Tool for applying patches that patch cannot apply because of conflicting changes
 dev-util/woke 0.19.0: check source code for non-inclusive language
 dev-util/xdelta 1.1.4-r3 3.0.11-r1: Computes changes between binary or text files and creates deltas
-dev-util/xfce4-dev-tools 4.18.1 4.19.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-util/xmlindent 0.2.17-r2: XML stream reformatter for ASCII text, but not UTF-8, written in ANSI C
 dev-util/xxdi 1.0.0: Simple alternative to vim's 'xxd -i' mode
 dev-util/xxdiff 4.0.1_p20170622-r1: A graphical file and directories comparator and merge tool
@@ -17336,7 +17337,6 @@ sys-devel/binutils-apple 3.2.6-r1 8.2.1-r2 8.2.1-r103: Darwin Xtools matching Xc
 sys-devel/binutils-config 5.5 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r5 2.40-r7 2.41-r1 2.41-r3: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
-sys-devel/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
 sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.0.0_pre20240106 18.0.0_pre20240113 18.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 15.0.7-r7 16.0.6-r2 17.0.6-r1 18.0.0_pre20240106 18.0.0_pre20240113 18.0.0.9999: Common files shared between multiple slots of clang
 sys-devel/clang-crossdev-wrappers 16 17 18: Symlinks to a Clang crosscompiler
@@ -17936,7 +17936,7 @@ www-apache/mod_dnssd 0.6-r2: mod_dnssd is an Apache module which adds Zeroconf s
 www-apache/mod_fastcgi_handler 0.6-r3: A simple FastCGI handler module
 www-apache/mod_fcgid 2.3.9-r2: Binary-compatible alternative to mod_fastcgi with better process management
 www-apache/mod_gnutls 0.12.0-r1: mod_gnutls uses GnuTLS for SSL/TLS encryption in Apache2 (compare to mod_ssl)
-www-apache/mod_h2 2.0.25 9999: HTTP/2 module for Apache
+www-apache/mod_h2 2.0.26 9999: HTTP/2 module for Apache
 www-apache/mod_jk 1.2.48-r1 1.2.49: Provides an AJP Apache2-JK-connector for the Tomcat servlet engine
 www-apache/mod_limitipconn 0.24-r4: Limit the number of simultaneous apache connections
 www-apache/mod_log_rotate 1.02: Log rotation support for mod_log_config based on strftime(3)
