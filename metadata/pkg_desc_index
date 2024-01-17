@@ -2458,7 +2458,7 @@ app-i18n/fcitx-lua 5.0.12: Lua support for fcitx
 app-i18n/fcitx-m17n 0.2.4 4.9999 5.1.0: m17n-provided input methods for Fcitx5
 app-i18n/fcitx-qt 5.1.4: Qt library and IM module for fcitx5
 app-i18n/fcitx-qt5 1.2.5 4.9999: Fcitx input method module for Qt 5
-app-i18n/fcitx-rime 0.3.2 4.9999 5.1.4: Chinese RIME input methods for Fcitx
+app-i18n/fcitx-rime 0.3.2-r1 4.9999 5.1.4: Chinese RIME input methods for Fcitx
 app-i18n/fcitx-sayura 0.1.2 4.9999: Sinhala Sayura input method for Fcitx
 app-i18n/fcitx-table-extra 0.3.8 4.9999 5.1.1: Provides extra table for Fcitx, including Boshiamy, Zhengma, Cangjie, and Quick
 app-i18n/fcitx-table-other 5.1.0: Provides some other tables for Fcitx, fork from ibus-table-others, scim-tables
@@ -3764,11 +3764,16 @@ dev-build/autoconf-wrapper 20221207-r1 20231224 99999999: Wrapper for autoconf t
 dev-build/automake 1.11.6-r4 1.16.5-r1 9999: Used to generate Makefile.in from Makefile.am
 dev-build/automake-vanilla 1.11.6 1.15.1 1.16.5 9999: Used to generate Makefile.in from Makefile.am
 dev-build/automake-wrapper 20221207 99999999: Wrapper for automake to manage multiple automake versions
+dev-build/b2 4.10.1 5.0.0: A system for large project software construction, simple to use and powerful
+dev-build/bazel 3.7.2-r1 4.2.2 5.0.0 5.1.1 5.3.0 6.2.0: Fast and correct automated build system
 dev-build/bmake 20230909 20231210: NetBSD's portable make
 dev-build/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
 dev-build/cmake 3.26.5-r2 3.27.7 3.27.9 3.28.1 3.28.1-r1 9999: Cross platform Make
 dev-build/cmake-fedora 2.9.3: Provides cmake helper macros and targets for linux, especially fedora developers
+dev-build/cons 2.3.0-r1: Extensible perl-based build utility
+dev-build/gn 0.2049 0.2077 0.2088 0.2114 0.2122 9999: GN is a meta-build system that generates build files for Ninja
 dev-build/gtk-doc-am 1.33.2: Automake files from gtk-doc
+dev-build/gyp 20200512145953 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-build/ignition-cmake 2.17.0: CMake modules to be used by the Ignition projects
 dev-build/libtool 2.4.7-r1 2.4.7-r2 9999: A shared library tool for developers
 dev-build/mage 1.11.0 1.13.0 1.15.0: make/rake like tool using go
@@ -3776,13 +3781,17 @@ dev-build/make 4.3-r1 4.4.1-r1 9999: Standard tool to compile source trees
 dev-build/meson 1.1.1 1.2.1-r1 1.2.1-r2 1.2.2 1.2.2-r1 1.2.3 1.3.0-r1 1.3.0-r2 1.3.1 9999: Open source build system
 dev-build/meson-format-array 0: Format shell expressions into a meson array
 dev-build/muon 0.2.0-r1: A meson-compatible build system
+dev-build/netsurf-buildsystem 1.9-r2: Build system used for netsurf and its libs
 dev-build/ninja 1.11.1-r2 1.11.1-r3 1.11.1-r4 9999: A small build system similar to make
 dev-build/pmake 1.111.3.3-r1: BSD build tool to create programs in parallel. Debian's version of NetBSD's make
+dev-build/qconf 2.5: ./configure like generator for qmake-based projects
 dev-build/remake 4.3.1.1.5: Patched version of GNU Make with improved error reporting, tracing and debugging
 dev-build/rocm-cmake 5.4.3 5.7.1: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r2 9999: ninja-compatible build tool written in C
+dev-build/scons 4.5.2 4.6.0-r1: Extensible Python-based build utility
 dev-build/slibtool 0.5.34 0.5.35 9999: A skinny libtool implementation, written in C
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
+dev-build/tup 0.7.10 0.7.11 9999: File-based build system
 dev-build/xfce4-dev-tools 4.18.1 4.19.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
 dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r1 20230802.0: Abseil Common Libraries (C++), LTS Branch
@@ -5102,7 +5111,7 @@ dev-lang/perl 5.36.0-r2 5.36.1-r3 5.38.0-r1 5.38.2-r1: Larry Wall's Practical Ex
 dev-lang/php 8.1.20-r2 8.1.26-r1 8.2.13-r2 8.3.0-r2: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p16-r1 3.8.18 3.9.18 3.10.13 3.11.7 3.12.1 3.12.1_p1 3.13.0_alpha2: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p16-r1 3.8.18 3.9.18 3.10.13 3.11.7 3.12.1 3.12.1_p1 3.13.0_alpha2 3.13.0_alpha3: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.1: Qore, the embeddable multithreaded scripting language
@@ -5400,7 +5409,7 @@ dev-libs/libical 3.0.17: Implementation of basic iCAL protocols
 dev-libs/libiconv 1.17: GNU charset conversion library for libc which doesn't implement it
 dev-libs/libindicate 12.10.1-r4: Library to raise flags on DBus for other components of the desktop
 dev-libs/libindicator 12.10.1-r201 12.10.1-r301: A set of symbols and convience functions that all indicators would like to use
-dev-libs/libinput 1.24.0: Library to handle input devices in Wayland
+dev-libs/libinput 1.24.0 1.25.0: Library to handle input devices in Wayland
 dev-libs/libintl 0.21.1 0.22.4: the GNU international library (split out of gettext)
 dev-libs/libisoburn 1.5.6 1.5.6-r1: Creation/expansion of ISO-9660 filesystems on CD/DVD media supported by libburn
 dev-libs/libisofs 1.5.6_p1: Open-source library for reading, mastering and writing optical discs
@@ -8810,7 +8819,7 @@ dev-python/piexif 1.1.3-r2: Exif manipulation with pure Python
 dev-python/pika 1.3.2: Pure-Python implementation of the AMQP
 dev-python/pikepdf 8.4.1 8.8.0 8.10.1 8.11.2: Python library to work with pdf files based on qpdf
 dev-python/pillow 10.0.1 10.1.0-r1 10.2.0: Python Imaging Library (fork)
-dev-python/pip 23.3.2: The PyPA recommended tool for installing Python packages
+dev-python/pip 23.3.2-r1: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 12.4.0: Install packages and run Python with them
 dev-python/pipdeptree 2.13.1: Utility for displaying installed packages in a dependency tree
 dev-python/pipenv 2023.7.11 2023.11.15: Python Development Workflow for Humans
@@ -10536,10 +10545,8 @@ dev-util/astyle 3.1-r2 3.4.8 3.4.9: Artistic Style is a re-indenter and reformat
 dev-util/autodia 2.140.0-r2: Parses source code, XML or data and produces an XML document in Dia format
 dev-util/autoproject 0.20_p5: Start a programming project using autotools and a command line parser generator
 dev-util/azuredatastudio 1.47.0 1.47.1: Data management and development tool from Microsoft
-dev-util/b2 4.10.1 5.0.0: A system for large project software construction, simple to use and powerful
 dev-util/babeltrace 1.5.8 2.0.5: A command-line tool and library to read and convert trace files
 dev-util/bats 1.10.0: Bats-core: Bash Automated Testing System
-dev-util/bazel 3.7.2-r1 4.2.2 5.0.0 5.1.1 5.3.0 6.2.0: Fast and correct automated build system
 dev-util/bbe 0.2.2-r1: Sed-like editor for binary files
 dev-util/bcc 0.28.0-r1 0.29.1-r1: Tools for BPF-based Linux IO analysis, networking, monitoring, and more
 dev-util/bcpp 20221002 20230130 20240111: Indents C/C++ source code
@@ -10696,7 +10703,6 @@ dev-util/glade 3.40.0-r1: A user interface designer for GTK+ and GNOME
 dev-util/glib-utils 2.76.4 2.78.3: Build utilities for GLib using projects
 dev-util/global 6.6.4 6.6.10: Tag system to find an object location in various sources
 dev-util/glslang 1.3.250 1.3.261 1.3.268-r2 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
-dev-util/gn 0.2049 0.2077 0.2088 0.2114 0.2122 9999: GN is a meta-build system that generates build files for Ninja
 dev-util/gnome-builder 44.2-r1: An IDE for writing GNOME-based software
 dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME desktop environment
 dev-util/gob 2.0.20-r1: Preprocessor for making GTK+ objects with inline C code
@@ -10709,7 +10715,6 @@ dev-util/gprof2dot 2022.7.29 2022.7.29-r1: Converts profiling output to dot grap
 dev-util/gtk-builder-convert 2.24.33: Converts Glade files to GtkBuilder XML format
 dev-util/gtk-doc 1.33.2-r1: GTK+ Documentation Generator
 dev-util/gtk-update-icon-cache 3.24.31 3.24.38 3.24.39: GTK update icon cache
-dev-util/gyp 20200512145953 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-util/heaptrack 1.5.0 9999: Fast heap memory profiler
 dev-util/herdtools7 7.51: The Herd toolsuite to deal with .cat memory models
 dev-util/hermes 2.8_p20180315 2.9 9999: Lua based testing manager
@@ -10779,7 +10784,6 @@ dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
 dev-util/mingw64-runtime 11.0.0: Free Win64 runtime and import library definitions
 dev-util/mingw64-toolchain 11.0.0_p2: All-in-one mingw64 toolchain intended for building Wine without crossdev
 dev-util/mk-configure 0.38.2-r1 0.38.3: Lightweight replacement for GNU autotools
-dev-util/netsurf-buildsystem 1.9-r2: Build system used for netsurf and its libs
 dev-util/ninka 2.0_pre1_p20220619: A license identification tool for source code
 dev-util/numdiff 5.9.0: File comparision, ignoring small numeric differences and formats
 dev-util/nvidia-cuda-toolkit 11.8.0-r4 12.3.1 12.3.2: NVIDIA CUDA Toolkit (compiler and friends)
@@ -10848,7 +10852,6 @@ dev-util/scanmem 0.17: Locate and modify variables in executing processes
 dev-util/scap-driver 0.29.3-r4 0.29.3-r5: Kernel module for dev-util/sysdig
 dev-util/sccache 0.5.4 9999: ccache/distcc like tool with support for rust and cloud storage
 dev-util/schroot 1.6.13_p2-r1: Utility to execute commands in a chroot environment
-dev-util/scons 4.5.2 4.6.0-r1: Extensible Python-based build utility
 dev-util/sdl-jstest 0.2.2 9999: Simple SDL joystick test application for the console
 dev-util/seer 1.17 2.3 9999: A GUI frontend to gdb
 dev-util/sel 0.08.4-r2: A filemanager for shell scripts
@@ -10891,7 +10894,6 @@ dev-util/tmake 2.12-r2: A Cross platform Makefile tool
 dev-util/trace-cmd 3.1.4-r2 3.1.5-r2 3.1.6 3.2: User-space front-end for Ftrace
 dev-util/tree-sitter-cli 0.20.6 0.20.7 0.20.8: Command-line tool for creating and testing tree-sitter grammars
 dev-util/treecc 0.3.10-r1 0.3.10-r2: Compiler-compiler tool for aspect-oriented programming
-dev-util/tup 0.7.10 0.7.11 9999: File-based build system
 dev-util/txt2regex 0.8-r3: A Regular Expression wizard that converts human sentences to regexs
 dev-util/uftrace 0.13.1 0.14: Function (graph) tracer for user-space
 dev-util/uglifyjs 3.16.1 3.17.3 3.17.4: JavaScript parser, minifier, compressor and beautifier toolkit
@@ -17342,7 +17344,6 @@ sys-devel/clang-common 15.0.7-r7 16.0.6-r2 17.0.6-r1 18.0.0_pre20240106 18.0.0_p
 sys-devel/clang-crossdev-wrappers 16 17 18: Symlinks to a Clang crosscompiler
 sys-devel/clang-runtime 15.0.7 16.0.6 17.0.6 18.0.0_pre20240106 18.0.0_pre20240113 18.0.0.9999: Meta-ebuild for clang runtime libraries
 sys-devel/clang-toolchain-symlinks 15-r2 16-r2 17 18: Symlinks to use Clang on GCC-free system
-sys-devel/cons 2.3.0-r1: Extensible perl-based build utility
 sys-devel/cproc 0_pre20220805 9999: C11 compiler using QBE as backend
 sys-devel/crossdev 20230923 20240117 99999999: Gentoo Cross-toolchain generator
 sys-devel/crosstool-ng 1.24.0-r3 1.25.0-r1 1.26.0 9999: Versatile (cross-)toolchain generator
@@ -17371,7 +17372,6 @@ sys-devel/native-cctools 5-r1: Host OS native assembler as and static linker ld
 sys-devel/nvptx-tools 0_pre20230122 9999: Collection of tools for use with nvptx-none GCC toolchains
 sys-devel/patch 2.7.6-r4 2.7.6-r5: Utility to apply diffs to files
 sys-devel/qbe 1.0 1.1 1.1-r1 9999: Pure-C embeddable compiler backend
-sys-devel/qconf 2.5: ./configure like generator for qmake-based projects
 sys-devel/reflex 20230523: This is a variant of the flex fast lexical scanner
 sys-devel/rust-std 1.68.2 1.71.1 1.72.0 1.73.0 1.74.1: Rust standard library, standalone (for crossdev)
 sys-devel/smatch 1.72 9999: Static analysis tool for C

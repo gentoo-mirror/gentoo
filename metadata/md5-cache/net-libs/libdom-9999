@@ -1,4 +1,4 @@
-BDEPEND=dev-util/netsurf-buildsystem virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-build/netsurf-buildsystem virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install test unpack
 DEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2 ) ) test? ( dev-perl/XML-XPath dev-perl/libxml-perl dev-perl/Switch )
 DESCRIPTION=implementation of the W3C DOM, written in C
@@ -13,4 +13,4 @@ REQUIRED_USE=test? ( xml )
 RESTRICT=!test? ( test )
 SLOT=0/9999
 _eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	netsurf	3a16932a52467058f19b48ced2e15c4a
-_md5_=a643261d3257648ce84e10407624568d
+_md5_=4f483fad66f5d94f6fb3e6f82652ea88
