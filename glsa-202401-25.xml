@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-25">
+    <title>OpenJDK: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in OpenJDK, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">openjdk,openjdk-bin,openjdk-jre-bin</product>
+    <announced>2024-01-17</announced>
+    <revised count="1">2024-01-17</revised>
+    <bug>859376</bug>
+    <bug>859400</bug>
+    <bug>877597</bug>
+    <bug>891323</bug>
+    <bug>908243</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/openjdk" auto="yes" arch="*">
+            <unaffected range="ge" slot="8">8.372_p07</unaffected>
+            <unaffected range="ge" slot="11">11.0.19_p7</unaffected>
+            <unaffected range="ge" slot="17">17.0.7_p7</unaffected>
+            <vulnerable range="lt" slot="8">8.372_p07</vulnerable>
+            <vulnerable range="lt" slot="11">11.0.19_p7</vulnerable>
+            <vulnerable range="lt" slot="17">17.0.7_p7</vulnerable>
+        </package>
+        <package name="dev-java/openjdk-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="8">8.372_p07</unaffected>
+            <unaffected range="ge" slot="11">11.0.19_p7</unaffected>
+            <unaffected range="ge" slot="17">17.0.7_p7</unaffected>
+            <vulnerable range="lt" slot="8">8.372_p07</vulnerable>
+            <vulnerable range="lt" slot="11">11.0.19_p7</vulnerable>
+            <vulnerable range="lt" slot="17">17.0.7_p7</vulnerable>
+        </package>
+        <package name="dev-java/openjdk-jre-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="8">8.372_p07</unaffected>
+            <unaffected range="ge" slot="11">11.0.19_p7</unaffected>
+            <unaffected range="ge" slot="17">17.0.7_p7</unaffected>
+            <vulnerable range="lt" slot="8">8.372_p07</vulnerable>
+            <vulnerable range="lt" slot="11">11.0.19_p7</vulnerable>
+            <vulnerable range="lt" slot="17">17.0.7_p7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenJDK is an open source implementation of the Java programming language.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenJDK. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenJDK users should upgrade to the latest versions:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-8.372_p07"
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-11.0.19_p7"
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-17.0.7_p7"
+        </code>
+        
+        <p>All OpenJDK JRE binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-jre-bin-8.372_p07"
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-jre-bin-11.0.19_p7"
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-jre-bin-17.0.7_p7"
+        </code>
+        
+        <p>All OpenJDK binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-bin-8.372_p07"
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-bin-11.0.19_p7"
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-bin-17.0.7_p7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21540">CVE-2022-21540</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21541">CVE-2022-21541</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21549">CVE-2022-21549</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21618">CVE-2022-21618</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21619">CVE-2022-21619</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21624">CVE-2022-21624</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21626">CVE-2022-21626</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21628">CVE-2022-21628</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34169">CVE-2022-34169</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39399">CVE-2022-39399</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42920">CVE-2022-42920</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21830">CVE-2023-21830</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21835">CVE-2023-21835</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21843">CVE-2023-21843</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-17T13:45:06.792804Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-17T13:45:06.795516Z">graaff</metadata>
+</glsa>
