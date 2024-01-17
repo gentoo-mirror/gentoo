@@ -3773,6 +3773,7 @@ dev-build/mage 1.11.0 1.13.0 1.15.0: make/rake like tool using go
 dev-build/make 4.3-r1 4.4.1-r1 9999: Standard tool to compile source trees
 dev-build/meson 1.1.1 1.2.1-r1 1.2.1-r2 1.2.2 1.2.2-r1 1.2.3 1.3.0-r1 1.3.0-r2 1.3.1 9999: Open source build system
 dev-build/meson-format-array 0: Format shell expressions into a meson array
+dev-build/muon 0.2.0-r1: A meson-compatible build system
 dev-build/ninja 1.11.1-r2 1.11.1-r3 1.11.1-r4 9999: A small build system similar to make
 dev-build/pmake 1.111.3.3-r1: BSD build tool to create programs in parallel. Debian's version of NetBSD's make
 dev-build/remake 4.3.1.1.5: Patched version of GNU Make with improved error reporting, tracing and debugging
@@ -5348,7 +5349,7 @@ dev-libs/libdex 0.2.0 0.4.0 0.4.1: Deferred Execution library for GNOME and GTK
 dev-libs/libdispatch 5.7.1 5.7.3 5.8: A library for concurrent code execution on multicore hardware
 dev-libs/libdivecomputer 0.6.0-r1 9999: Library for communication with dive computers from various manufacturers
 dev-libs/libdivsufsort 2.0.1-r2: Suffix-sorting library (for BWT)
-dev-libs/libdnet 1.14-r2 1.16.1 1.16.2 1.16.4 1.17.0: Simplified, portable interface to several low-level networking routines
+dev-libs/libdnet 1.16.2 1.16.4 1.17.0: Simplified, portable interface to several low-level networking routines
 dev-libs/libdnsres 0.1a-r3: A non-blocking DNS resolver library
 dev-libs/libdshconfig 0.20.13: Library for parsing dsh.style configuration files
 dev-libs/libdynd 0.7.2-r1: C++ dynamic multi-dimensionnal array library with Python exposure
@@ -5463,7 +5464,7 @@ dev-libs/libpy 0.2.5-r2: Utilities for writing C++ extension modules
 dev-libs/libqt5pas 1.2.9: Free Pascal Qt5 bindings library updated by lazarus IDE.
 dev-libs/libqtxdg 3.11.0 3.12.0: Qt Implementation of XDG Standards
 dev-libs/libratbag 0.15 0.16 0.17: Library to configure gaming mice
-dev-libs/librdkafka 1.8.2 2.1.1 2.2.0: Apache Kafka C/C++ client library
+dev-libs/librdkafka 1.8.2 2.1.1 2.2.0 2.2.0-r1: Apache Kafka C/C++ client library
 dev-libs/librelp 1.10.0-r1 1.11.0: An easy to use library for the RELP protocol
 dev-libs/libretls 3.8.1: Port of libtls from LibreSSL to OpenSSL
 dev-libs/librevenge 0.0.5 9999: Helper library for REVerse ENGineered formats filters
@@ -5645,7 +5646,7 @@ dev-libs/sleef 3.5.1-r1: Implements vectorized versions of C standard math funct
 dev-libs/snowball-stemmer 2.1.0-r1 2.2.0: Snowball compiler and stemming algorithms
 dev-libs/softhsm 2.6.1-r2: A software PKCS#11 implementation
 dev-libs/sord 0.16.16-r1 9999: Library for storing RDF data in memory
-dev-libs/spdlog 1.11.0-r3 1.12.0-r2 9999: Fast C++ logging library
+dev-libs/spdlog 1.11.0-r3 1.12.0-r2 1.13.0 9999: Fast C++ logging library
 dev-libs/spsdeclib 5.1-r2: Kryoflux SPS Decoder Library
 dev-libs/squareball 0.2.0 9999: A general-purpose library for C99
 dev-libs/starpu 1.2.6-r1 1.3.9: Unified runtime system for heterogeneous multicore architectures
@@ -8669,7 +8670,7 @@ dev-python/moddb 0.10.0: Python scrapper to access ModDB mods, games and more as
 dev-python/more-itertools 10.1.0 10.2.0: More routines for operating on iterables, beyond itertools
 dev-python/moto 4.2.6 4.2.7 4.2.8 4.2.9 4.2.10 4.2.11 4.2.12 4.2.13: Mock library for boto
 dev-python/mpdlcd 0.5.2-r2: A small tool to display the MPD status on a LCDproc server
-dev-python/mpi4py 3.1.4: Message Passing Interface for Python
+dev-python/mpi4py 3.1.4 3.1.5: Message Passing Interface for Python
 dev-python/mpmath 1.3.0-r1: Python library for arbitrary-precision floating-point arithmetic
 dev-python/mrcfile 1.4.3 1.5.0: MRC2014 file format I/O library
 dev-python/msgpack 1.0.5-r1 1.0.7: MessagePack (de)serializer for Python
@@ -10677,7 +10678,7 @@ dev-util/fuzz 0.6-r3: Stress-tests programs by giving them random input
 dev-util/gcovr 5.1 5.2 6.0: A Python script for summarizing gcov data
 dev-util/gdbus-codegen 2.76.4 2.78.3: GDBus code and documentation generator
 dev-util/geany 1.38 2.0: GTK+ based fast and lightweight IDE
-dev-util/geany-plugins 1.38-r410 2.0: A collection of different plugins for Geany
+dev-util/geany-plugins 1.38-r410 2.0 2.0-r1: A collection of different plugins for Geany
 dev-util/gef 2023.08 2024.01 9999: GDB Enhanced Features for exploit devs & reversers
 dev-util/gengetopt 2.23 2.23-r1: Tool to write command line option parsing code for C programs
 dev-util/gertty 1.6.0-r1 9999: Gertty is a console-based interface to the Gerrit Code Review system
@@ -10776,7 +10777,6 @@ dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
 dev-util/mingw64-runtime 11.0.0: Free Win64 runtime and import library definitions
 dev-util/mingw64-toolchain 11.0.0_p2: All-in-one mingw64 toolchain intended for building Wine without crossdev
 dev-util/mk-configure 0.38.2-r1 0.38.3: Lightweight replacement for GNU autotools
-dev-util/muon 0.2.0-r1: A meson-compatible build system
 dev-util/netsurf-buildsystem 1.9-r2: Build system used for netsurf and its libs
 dev-util/ninka 2.0_pre1_p20220619: A license identification tool for source code
 dev-util/numdiff 5.9.0: File comparision, ignoring small numeric differences and formats
@@ -13286,7 +13286,7 @@ media-libs/musicbrainz 5.1.0: Client Library for accessing the latest XML based 
 media-libs/mutagen 1.47.0: Audio metadata tag reader and writer implemented in pure Python
 media-libs/nanosvg 20221222: NanoSVG is a simple stupid single-header-file SVG parse.
 media-libs/nas 1.9.5: Network Audio System
-media-libs/netpbm 11.2.4 11.2.5 11.2.7 11.5.1: A set of utilities for converting to/from the netpbm (and related) formats
+media-libs/netpbm 11.2.5 11.2.7 11.5.1: A set of utilities for converting to/from the netpbm (and related) formats
 media-libs/noise-suppression-for-voice 1.03 9999: A real-time noise suppression plugin for voice
 media-libs/nv-codec-headers 11.1.5.2 12.1.14.0: FFmpeg version of headers required to interface with Nvidias codec APIs
 media-libs/nvidia-vaapi-driver 0.0.11: A VA-API implemention using NVIDIA's NVDEC
@@ -17426,7 +17426,7 @@ sys-fs/bcache-tools 1.1-r1 1.1_p20230217-r1 9999: Tools for bcache
 sys-fs/bcachefs-tools 1.3.5_p20231216 1.4.0 9999: Tools for bcachefs
 sys-fs/bees 0.10 9999: Best-Effort Extent-Same, a btrfs dedup agent
 sys-fs/bindfs 1.17.3 1.17.4 1.17.5 1.17.6: FUSE filesystem for bind mounting with altered permissions
-sys-fs/btrfs-progs 6.3.3 6.5.2 6.6.2 6.6.3 9999: Btrfs filesystem utilities
+sys-fs/btrfs-progs 6.6.2 6.6.3 9999: Btrfs filesystem utilities
 sys-fs/btrfsmaintenance 0.4.2 0.5: Scripts for btrfs maintenance tasks like periodic scrub, balance, trim or defrag
 sys-fs/cachefilesd 0.10.10-r1: Provides a caching directory on an already mounted filesystem
 sys-fs/clamfs 1.2.0: A FUSE-based user-space file system with on-access anti-virus file scanning
