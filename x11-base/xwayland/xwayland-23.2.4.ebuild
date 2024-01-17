@@ -10,13 +10,13 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://xorg.freedesktop.org/archive/individual/xserver/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 fi
 
 DESCRIPTION="Standalone X server running under Wayland"
 HOMEPAGE="https://wayland.freedesktop.org/xserver.html"
 
-IUSE="libei selinux video_cards_nvidia unwind xcsecurity"
+IUSE="libei selinux systemd video_cards_nvidia unwind xcsecurity"
 
 LICENSE="MIT"
 SLOT="0"
@@ -41,6 +41,7 @@ COMMON_DEPEND="
 	>=x11-misc/xkeyboard-config-2.4.1-r3
 
 	libei? ( dev-libs/libei )
+	systemd? ( sys-apps/systemd )
 	unwind? ( sys-libs/libunwind )
 	video_cards_nvidia? ( gui-libs/egl-wayland )
 "
@@ -52,7 +53,6 @@ DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	x11-apps/xkbcomp
-	!<=x11-base/xorg-server-1.20.11
 
 	libei? ( >=sys-apps/xdg-desktop-portal-1.18.0 )
 	selinux? ( sec-policy/selinux-xserver )
@@ -64,11 +64,13 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/xwayland-drop-redundantly-installed-files.patch
+	"${FILESDIR}"/xwayland-23.2.3-systemd-automagic.patch
 )
 
 src_configure() {
 	local emesonargs=(
 		$(meson_use selinux xselinux)
+		$(meson_use systemd)
 		$(meson_use unwind libunwind)
 		$(meson_use xcsecurity)
 		$(meson_use video_cards_nvidia xwayland_eglstream)
