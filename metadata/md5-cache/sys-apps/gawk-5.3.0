@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/gawk/gawk.html
 INHERIT=verify-sig
 IUSE=mpfr pma nls readline verify-sig
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ~ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 RDEPEND=mpfr? ( dev-libs/gmp:= dev-libs/mpfr:= ) readline? ( sys-libs/readline:= )
 SLOT=0
 SRC_URI=mirror://gnu/gawk/gawk-5.3.0.tar.xz verify-sig? ( mirror://gnu/gawk/gawk-5.3.0.tar.xz.sig )
 _eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=5af547c82581b1cf5a2615cb7b4bb2fc
+_md5_=0de2fd9e954cee073227b6c7a7bf3335
