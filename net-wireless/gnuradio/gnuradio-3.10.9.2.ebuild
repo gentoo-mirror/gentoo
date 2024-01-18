@@ -87,11 +87,11 @@ RDEPEND="${PYTHON_DEPS}
 		$(python_gen_cond_dep 'dev-python/PyQt5[opengl,${PYTHON_USEDEP}]')
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
-		x11-libs/qwt:6[qt5(+)]
+		x11-libs/qwt:6=[qt5(+)]
 		dev-qt/qtwidgets:5
 	)
 	soapy? (
-		$(python_gen_cond_dep 'net-wireless/soapysdr[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'net-wireless/soapysdr:=[${PYTHON_USEDEP}]')
 	)
 	sdl? ( >=media-libs/libsdl-1.2.0 )
 	trellis? ( dev-python/scipy )
@@ -130,10 +130,6 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-util/cppunit-1.9.14 )
 	zeromq? ( net-libs/cppzmq )
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-3.10.3.0-fix-fmt-v9.patch" #858659
-)
 
 src_prepare() {
 	xdg_environment_reset #534582
