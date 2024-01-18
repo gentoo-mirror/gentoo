@@ -1,14 +1,14 @@
 BDEPEND=sys-apps/help2man sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare unpack
+DEFINED_PHASES=configure install prepare test unpack
 DEPEND=sys-devel/gnuconfig >=dev-build/autoconf-2.69:* >=dev-build/automake-1.13:*
 DESCRIPTION=A shared library tool for developers
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/libtool/
-INHERIT=autotools prefix git-r3
+INHERIT=autotools prefix multiprocessing git-r3
 IUSE=vanilla
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=sys-devel/gnuconfig >=dev-build/autoconf-2.69:* >=dev-build/automake-1.13:*
 SLOT=2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	prefix	eab3c99d77fe00506c109c8a736186f7	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=582417cce1259e07e044855e6003974d
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_md5_=8eabc7c8cc300e2994b3e5777b688a5a
