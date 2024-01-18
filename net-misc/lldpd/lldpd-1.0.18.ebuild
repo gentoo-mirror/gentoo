@@ -11,9 +11,9 @@ SRC_URI="https://github.com/lldpd/lldpd/releases/download/${PV}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/4.9.1"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="cdp doc +dot1 +dot3 edp fdp graph +lldpmed old-kernel sanitizers
-	seccomp sonmp snmp static-libs test readline xml"
+	seccomp sonmp snmp static-libs test readline valgrind xml"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -28,6 +28,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? ( dev-libs/check )
+	valgrind? ( dev-debug/valgrind )
 "
 BDEPEND="virtual/pkgconfig
 	doc? (
@@ -51,7 +52,10 @@ src_prepare() {
 }
 
 src_configure() {
+	export ac_cv_header_valgrind_valgrind_h=$(usex valgrind)
+
 	econf \
+		--cache-file="${S}"/config.cache \
 		--without-embedded-libevent \
 		--with-privsep-user=${PN} \
 		--with-privsep-group=${PN} \
@@ -59,6 +63,7 @@ src_configure() {
 		--with-lldpd-ctl-socket=/run/${PN}.socket \
 		--with-lldpd-pid-file=/run/${PN}.pid \
 		$(use_enable cdp) \
+		$(use_enable doc doxygen-doc) \
 		$(use_enable doc doxygen-man) \
 		$(use_enable doc doxygen-pdf) \
 		$(use_enable doc doxygen-html) \
