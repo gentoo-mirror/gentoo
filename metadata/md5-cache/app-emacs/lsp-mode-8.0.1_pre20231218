@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://emacs-lsp.github.io/lsp-mode/
 INHERIT=elisp
 IUSE=test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=GPL-3+
 RDEPEND=>=app-emacs/dash-2.18.0 >=app-emacs/f-0.20.0 app-emacs/ht app-emacs/lv app-emacs/markdown-mode app-emacs/spinner >=app-editors/emacs-27.1:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/emacs-lsp/lsp-mode/archive/5b2f3741bb797371bba2932653ca829167f9745a.tar.gz -> lsp-mode-8.0.1_pre20231218.tar.gz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=052079249a21dc072cf54bb3ac33476d
+_md5_=85024ab3435cae61560adf7363dbd377
