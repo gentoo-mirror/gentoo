@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,13 +10,15 @@ HOMEPAGE="https://sr.ht/~exec64/imv/"
 SRC_URI="https://git.sr.ht/~exec64/imv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-v${PV}"
 
-LICENSE="MIT-with-advertising"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+X +freeimage gif heif icu jpeg png svg test tiff wayland"
 REQUIRED_USE="|| ( X wayland )"
 RESTRICT="!test? ( test )"
 
+# bug #922496 wrt nsgif, kept for now but USE can be masked if old nsgif
+# removal is wanted (freeimage[gif] still allows non-animated gif display)
 RDEPEND="
 	dev-libs/glib:2
 	dev-libs/inih
@@ -29,7 +31,7 @@ RDEPEND="
 		x11-libs/libxcb:=
 	)
 	freeimage? ( media-libs/freeimage )
-	gif? ( media-libs/libnsgif )
+	gif? ( <media-libs/libnsgif-1:= )
 	heif? ( media-libs/libheif:= )
 	icu? ( dev-libs/icu:= )
 	!icu? ( >=dev-libs/libgrapheme-2:= )
