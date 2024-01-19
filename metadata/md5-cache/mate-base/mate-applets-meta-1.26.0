@@ -2,9 +2,9 @@ DEFINED_PHASES=-
 DESCRIPTION=Meta package for MATE panel applets
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
-IUSE=appindicator sensors
+IUSE=appindicator networkmanager sensors
 KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv x86
 LICENSE=metapackage
-RDEPEND==mate-base/mate-applets-1.26* appindicator? ( =mate-extra/mate-indicator-applet-1.26* ) sensors? ( =mate-extra/mate-sensors-applet-1.26* )
+RDEPEND==mate-base/mate-applets-1.26* appindicator? ( =mate-extra/mate-indicator-applet-1.26* ) networkmanager? ( gnome-extra/nm-applet ) sensors? ( =mate-extra/mate-sensors-applet-1.26* )
 SLOT=0
-_md5_=550648ef2af98090c77169b1bbdaa983
+_md5_=76fdbe7c2ef10637c44cc11319d8309e

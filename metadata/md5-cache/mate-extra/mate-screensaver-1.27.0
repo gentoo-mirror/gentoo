@@ -8,9 +8,9 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=mate readme.gentoo-r1
 IUSE=X debug elogind libnotify opengl pam systemd
 LICENSE=GPL-2+ HPND LGPL-2+
-RDEPEND=>=dev-libs/dbus-glib-0.71:0 >=dev-libs/glib-2.58:2 gnome-base/dconf >=mate-base/libmatekbd-1.17.0 >=mate-base/mate-desktop-1.17.0 >=mate-base/mate-menus-1.21.0 >=sys-apps/dbus-0.30 >=x11-libs/gdk-pixbuf-2.14:2 >=x11-libs/libX11-1 x11-libs/cairo >=x11-libs/gtk+-3.22:3 x11-libs/libXext x11-libs/libXrandr x11-libs/libXScrnSaver x11-libs/libXxf86vm x11-libs/libxklavier x11-libs/pango libnotify? ( >=x11-libs/libnotify-0.7:0 ) opengl? ( virtual/opengl ) pam? ( gnome-base/gnome-keyring sys-libs/pam ) !pam? ( kernel_linux? ( sys-apps/shadow ) ) elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd:= ) >=mate-base/mate-session-manager-1.6 virtual/libintl !!<gnome-extra/gnome-screensaver-3 mate-base/mate-panel
+RDEPEND=>=dev-libs/dbus-glib-0.71:0 >=dev-libs/glib-2.58:2 gnome-base/dconf >=mate-base/libmatekbd-1.17.0 >=mate-base/mate-desktop-1.17.0 >=mate-base/mate-menus-1.21.0 >=sys-apps/dbus-0.30 >=x11-libs/gdk-pixbuf-2.14:2 >=x11-libs/libX11-1 x11-libs/cairo >=x11-libs/gtk+-3.22:3 x11-libs/libXext x11-libs/libXrandr x11-libs/libXScrnSaver x11-libs/libXxf86vm x11-libs/libxklavier x11-libs/pango libnotify? ( >=x11-libs/libnotify-0.7:0 ) opengl? ( virtual/opengl ) pam? ( gnome-base/gnome-keyring sys-libs/pam ) !pam? ( kernel_linux? ( sys-apps/shadow ) ) elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd:= ) >=mate-base/mate-session-manager-1.6 virtual/libintl mate-base/mate-panel
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0
 SRC_URI=https://pub.mate-desktop.org/releases/1.27/mate-screensaver-1.27.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	a75a1807753f5996e53291942e7b85d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	autotools	e4cf390b19033d5ca443765bc8537b81	mate-desktop.org	cce6a61620b2b79811e4c3c30f0e5c83	mate	0637ce2e7478ea114b5fd1ae437bcb69	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
-_md5_=8b720f41ead19fc74fb6c64470ea6279
+_md5_=d1c84544d552d5b28ee3cfbcf786cc68
