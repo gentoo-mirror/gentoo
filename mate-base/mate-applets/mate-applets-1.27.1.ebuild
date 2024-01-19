@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,8 +8,6 @@ inherit mate
 MINOR=$(($(ver_cut 2) % 2))
 if [[ ${MINOR} -eq 0 ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
-else
-	KEYWORDS=""
 fi
 
 DESCRIPTION="Applets for the MATE Desktop and Panel"
@@ -58,7 +56,6 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
 	app-text/rarian
-	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools
 	dev-libs/libxslt
 	>=sys-devel/gettext-0.19.8
