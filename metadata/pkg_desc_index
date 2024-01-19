@@ -5137,7 +5137,7 @@ dev-lang/qore 1.19.1: Qore, the embeddable multithreaded scripting language
 dev-lang/qu-prolog 10.6 10.7: Extended Prolog supporting quantifiers, object-variables and substitutions
 dev-lang/rakudo 2023.02 2023.10 2023.12: A compiler for the Raku programming language
 dev-lang/rapydscript-ng 0.7.22 9999: Pythonic JavaScript that doesn't suck
-dev-lang/ruby 3.1.4-r3 3.1.4-r4 3.1.4-r5 3.2.2-r3 3.2.2-r4 3.2.2-r5 3.3.0: An object-oriented scripting language
+dev-lang/ruby 3.1.4-r3 3.1.4-r4 3.1.4-r5 3.2.2-r3 3.2.2-r4 3.2.2-r5 3.2.3 3.3.0 3.3.0-r1: An object-oriented scripting language
 dev-lang/rust 1.65.0 1.66.1 1.67.1-r1 1.68.2 1.69.0-r1 1.70.0 1.71.0 1.71.1 1.72.0-r1 1.73.0 1.74.1: Systems programming language from Mozilla
 dev-lang/rust-bin 1.65.0-r1 1.66.1-r1 1.67.1-r3 1.68.2-r2 1.69.0-r1 1.70.0-r3 1.71.0 1.71.1 1.72.0 1.73.0 1.74.1: Systems programming language from Mozilla
 dev-lang/sassc 3.6.2: A libsass command line driver
@@ -9708,7 +9708,7 @@ dev-qt/qtxmlpatterns 5.15.11 5.15.12: XPath, XQuery, XSLT, and XML Schema valida
 dev-ruby/GeoRuby 2.5.2-r2: Ruby data holder for OGC Simple Features
 dev-ruby/abbrev 0.1.2: Calculates a set of unique abbreviations for a given set of strings
 dev-ruby/abstract 1.0.0-r5: Library which enable you to define abstract method in Ruby
-dev-ruby/acme-client 2.0.14 2.0.15: A Ruby client for the letsencrypt's ACME protocol
+dev-ruby/acme-client 2.0.14 2.0.15 2.0.16: A Ruby client for the letsencrypt's ACME protocol
 dev-ruby/actioncable 6.1.7.4 6.1.7.6 7.0.8 7.1.1 7.1.2: Integrated WebSockets for Rails
 dev-ruby/actionmailbox 6.1.7.4 6.1.7.6 7.0.8 7.1.1 7.1.2: Framework for designing email-service layers
 dev-ruby/actionmailer 6.1.7.4 6.1.7.6 7.0.8 7.1.1 7.1.2: Framework for designing email-service layers
@@ -9800,7 +9800,7 @@ dev-ruby/colored 1.2-r1: Console coloring
 dev-ruby/colored2 3.1.2-r1: Console coloring
 dev-ruby/colorize 1.1.0: Adds methods to set color, background color and text effect on console easier
 dev-ruby/columnize 0.9.0-r2: Sorts an array in column order
-dev-ruby/combustion 1.3.7-r2: Elegant Rails Engine Testing
+dev-ruby/combustion 1.3.7-r2 1.4.0: Elegant Rails Engine Testing
 dev-ruby/commander 4.6.0: The complete solution for Ruby command-line executables
 dev-ruby/commonmarker 0.23.10: A fast, safe, extensible parser for CommonMark, wrapping the libcmark library
 dev-ruby/concurrent-ruby 1.1.10 1.2.2: Modern concurrency tools including agents, futures, promises, thread pools, more
@@ -9867,11 +9867,11 @@ dev-ruby/facter 3.14.24 4.4.1 4.4.3-r1 4.5.0 4.5.1 4.5.2: A cross-platform ruby 
 dev-ruby/fake_ftp 0.3.0: Testing FTP? Use this!
 dev-ruby/fakefs 1.9.0 2.5.0: A fake filesystem. Use it in your tests
 dev-ruby/faker 2.23.0-r1 3.2.0 3.2.1 3.2.2: A library for generating fake data such as names, addresses, and phone numbers
-dev-ruby/faraday 1.3.1 1.4.3-r1 1.5.1 1.6.0 1.9.3 1.10.3 2.7.6 2.7.10 2.7.11 2.7.12 2.8.0 2.8.1: HTTP/REST API client library with pluggable components
+dev-ruby/faraday 1.3.1 1.4.3-r1 1.5.1 1.6.0 1.9.3 1.10.3 2.7.6 2.7.10 2.7.11 2.7.12 2.8.0 2.8.1 2.9.0: HTTP/REST API client library with pluggable components
 dev-ruby/faraday-follow_redirects 0.3.0: Perform multipart-post requests using Faraday
 dev-ruby/faraday-httpclient 1.0.1: Faraday adapter for HTTPClient
 dev-ruby/faraday-multipart 1.0.4: Perform multipart-post requests using Faraday
-dev-ruby/faraday-net_http 1.0.1 2.1.0 3.0.2: Faraday adapter for Net::HTTP
+dev-ruby/faraday-net_http 1.0.1 2.1.0 3.0.2 3.1.0: Faraday adapter for Net::HTTP
 dev-ruby/faraday-net_http_persistent 1.2.0 2.1.0: Faraday adapter for NetHttpPersistent
 dev-ruby/faraday-patron 1.0.0: Faraday adapter for Patron
 dev-ruby/faraday-rack 1.0.0: Faraday adapter for Rack
@@ -10247,7 +10247,7 @@ dev-ruby/serialport 1.3.2-r1: a library for serial port (rs232) access in ruby
 dev-ruby/serverengine 2.3.2: A framework to implement robust multiprocess servers
 dev-ruby/set 1.0.3 1.1.0-r1: Provides a class to deal with collections of unordered, unique values
 dev-ruby/settingslogic 2.0.9-r2: A simple configuration / settings solution that uses an ERB enabled YAML file
-dev-ruby/sexp_processor 4.16.1 4.17.0: Processor for s-expressions created as part of the ParseTree project
+dev-ruby/sexp_processor 4.16.1 4.17.0 4.17.1: Processor for s-expressions created as part of the ParseTree project
 dev-ruby/shoulda 3.6.0-r2 3.6.0-r3 4.0.0: Making tests easy on the fingers and eyes
 dev-ruby/shoulda-context 1.2.2-r1 2.0.0 2.0.0-r1: Context framework extracted from Shoulda
 dev-ruby/shoulda-matchers 3.1.3-r2 4.5.1-r1 5.3.0 6.0.0: Making tests easy on the fingers and eyes
