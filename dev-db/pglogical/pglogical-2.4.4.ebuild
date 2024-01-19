@@ -3,7 +3,9 @@
 
 EAPI="7"
 
-POSTGRES_COMPAT=( 9.6 {10..14} )
+POSTGRES_COMPAT=( {12..16} )
+
+RESTRICT="test" # connects to :5432 by default, not good
 
 inherit postgres-multi
 
@@ -12,7 +14,7 @@ MY_P="${PN}-${MY_PV}"
 S="${WORKDIR}/${PN}-REL${MY_PV}"
 
 DESCRIPTION="Logical replication for PostgreSQL"
-HOMEPAGE="https://www.2ndquadrant.com/en/resources/pglogical/"
+HOMEPAGE="https://github.com/2ndQuadrant/pglogical"
 SRC_URI="https://github.com/2ndQuadrant/pglogical/archive/REL${MY_PV}.tar.gz"
 
 LICENSE="POSTGRESQL"
