@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= )
+DESCRIPTION=Logical replication for PostgreSQL
+EAPI=7
+HOMEPAGE=https://github.com/2ndQuadrant/pglogical
+INHERIT=postgres-multi
+IUSE=postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
+KEYWORDS=~amd64
+LICENSE=POSTGRESQL
+RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/2ndQuadrant/pglogical/archive/REL2_4_4.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_md5_=48e1ab57642306d8a152215efe586303
