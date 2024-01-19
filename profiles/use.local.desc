@@ -555,9 +555,9 @@ app-emulation/libguestfs:erlang - Build Erlang bindings
 app-emulation/libguestfs:fuse - Enable image mount support via sys-fs/fuse
 app-emulation/libguestfs:inspect-icons - Use media-gfx/icoutils for accessing/inspecting icon file within images
 app-emulation/libguestfs:libvirt - Use app-emulation/libvirt to manipulate VMs
-app-emulation/libguestfs:systemtap - Use dev-util/systemtap to inspect VM via "probes"
+app-emulation/libguestfs:systemtap - Use dev-debug/systemtap to inspect VM via "probes"
 app-emulation/libspectrum:gcrypt - Use dev-libs/libgcrypt for low-level crypto of some features, including logfiles.
-app-emulation/libvirt:dtrace - Enable dtrace support via dev-util/systemtap
+app-emulation/libvirt:dtrace - Enable dtrace support via dev-debug/systemtap
 app-emulation/libvirt:firewalld - DBus interface to iptables/ebtables allowing for better runtime management of your firewall.
 app-emulation/libvirt:fuse - Allow LXC to use sys-fs/fuse for mountpoints
 app-emulation/libvirt:glusterfs - Enable GlusterFS support via sys-cluster/glusterfs
@@ -1348,7 +1348,7 @@ dev-db/mariadb:server - Build the server program
 dev-db/mariadb:sphinx - Add suport for the sphinx full-text search engine
 dev-db/mariadb:sst-mariabackup - Add tools needed to support the mariabackup SST method
 dev-db/mariadb:sst-rsync - Add tools needed to support the rsync SST method
-dev-db/mariadb:systemtap - Build support for profiling and tracing using dev-util/systemtap
+dev-db/mariadb:systemtap - Build support for profiling and tracing using dev-debug/systemtap
 dev-db/mariadb:test - Install upstream testsuites for end use.
 dev-db/mariadb:yassl - Enable SSL connections and crypto functions using the bundled yaSSL
 dev-db/mongodb:mongosh - Install the MongoDB shell from app-admin/mongosh-bin
@@ -1362,7 +1362,7 @@ dev-db/mysql:numa - Enable NUMA support using sys-process/numactl (NUMA kernel s
 dev-db/mysql:profiling - Add support for statement profiling (requires USE=community).
 dev-db/mysql:router - Build the MySQL router program
 dev-db/mysql:server - Build the server program
-dev-db/mysql:systemtap - Build support for profiling and tracing using dev-util/systemtap
+dev-db/mysql:systemtap - Build support for profiling and tracing using dev-debug/systemtap
 dev-db/mysql:test - Install upstream testsuites for end use.
 dev-db/mysql-connector-c++:legacy - Build the legacy 1.x API as well as the DevX API
 dev-db/oracle-instantclient:jdbc - Support for XA, Internationalization, and RowSet operations under JDBC
@@ -1403,6 +1403,7 @@ dev-db/sqlitestudio:cli - Build CLI interface
 dev-db/timescaledb:proprietary-extensions - Enable proprietary features/extensions licensed under the TimeScale License
 dev-db/unixODBC:minimal - Disable bundled drivers and extra libraries (most users don't need these)
 dev-db/unixODBC:odbcmanual - Administrator, Internal Structure, Programmer and User documentation
+dev-debug/bpftrace:fuzzing - Build bpftrace for fuzzing
 dev-debug/gdb:cet - Enable Intel Control-flow Enforcement Technology.
 dev-debug/gdb:debuginfod - Enable debuginfod support via dev-libs/elfutils libdebuginfod
 dev-debug/gdb:lzma - Support lzma compression in ELF debug info
@@ -1413,6 +1414,13 @@ dev-debug/gdb:sim - Build gdb's simulators for various hardware platforms. See h
 dev-debug/gdb:source-highlight - Enable listing highlighting via dev-util/source-highlight
 dev-debug/gdb:xml - Support parsing XML data files needed (at least) for cpu features, memory maps, and syscall tracing
 dev-debug/gdb:xxhash - Use dev-libs/xxhash to speed up internal hashing.
+dev-debug/ltrace:elfutils - Use libdwfl from dev-libs/elfutils for frame unwinding support
+dev-debug/ltrace:unwind - Use sys-libs/libunwind for frame unwinding support
+dev-debug/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/O operations
+dev-debug/strace:elfutils - Enable stack backtraces (-k flag) via dev-libs/elfutils
+dev-debug/strace:unwind - Enable stack backtraces (-k flag) via sys-libs/libunwind
+dev-debug/sysdig:modules - Build kernel modules needed for tracing local events. Disable this only if you intend to use sysdig purely to work with dumpfiles.
+dev-debug/systemtap:libvirt - Support probing of libvirt domains.
 dev-embedded/avrdude:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
 dev-embedded/libftdi:tools - build ftdi_eeprom helper tool
 dev-embedded/openocd:capstone - Use dev-libs/capstone for disassembly support
@@ -1959,7 +1967,7 @@ dev-libs/glib:dbus - Enable dependencies required by glib libraries using dbus s
 dev-libs/glib:elf - Enable support for listing and extracting from ELF resource files with gresource tool
 dev-libs/glib:mime - Pull in shared MIME database that many glib-based applications require at runtime to detect or open files. Warning: do not disable this flag unless installing on a headless server.
 dev-libs/glib:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
-dev-libs/glib:systemtap - Build support for profiling and tracing using dev-util/systemtap
+dev-libs/glib:systemtap - Build support for profiling and tracing using dev-debug/systemtap
 dev-libs/glib:utils - Install gtester-report utility to generate test report files for your software; build gresource utility with ELF support.
 dev-libs/gmime:smime - Enable experimental S/MIME support
 dev-libs/gmp:cpudetection - Enables runtime CPU detection (useful for binpkgs, compatibility on other CPUs). This only works on amd64/x86 at present. If this flag is enabled, GMP will work on a variety of amd64/x86 CPUs and load accelerated routines for use at runtime depending on the CPU in use. This makes it suitable for binary packages (binpkgs). If this flag is disabled, GMP will be tuned for the CPU being used at build-time and may not be usable on other machines.
@@ -2782,7 +2790,6 @@ dev-util/Tensile:client - Build and install tensile_client executable to run ben
 dev-util/babeltrace:elfutils - Build the dev-util/lttng-ust debug information filter component class
 dev-util/babeltrace:plugins - Build support for Babeltrace 2 Python plugins
 dev-util/bpftool:caps - Use sys-libs/libcap to enable unprivileged run support
-dev-util/bpftrace:fuzzing - Build bpftrace for fuzzing
 dev-util/buildbot:docker - Add support for worker docker command steps
 dev-util/buildbot:irc - Add support for status delivery through an ircbot.
 dev-util/cargo-audit:fix - Add support for 'fix' subcommand (experimental)
@@ -2844,7 +2851,7 @@ dev-util/glade:gjs - Build catalog support for dev-libs/gjs widgets.
 dev-util/glade:webkit - Build catalog support for net-libs/webkit-gtk:4 widgets.
 dev-util/global:vim - Integrate the GNU GLOBAL source code tag system with Vim
 dev-util/gnome-builder:clang - Provide integration with sys-devel/clang for best possible C/C++ autocompletion, semantic highlighting, symbol resolving, and diagnostics support
-dev-util/gnome-builder:d-spy - Provide D-Bus debugging functionality via dev-util/d-spy
+dev-util/gnome-builder:d-spy - Provide D-Bus debugging functionality via dev-debug/d-spy
 dev-util/gnome-builder:flatpak - Enable support for flatpak applications using sys-apps/flatpak
 dev-util/gnome-builder:git - Provide support for the Git version control system via dev-libs/libgit2-glib (such as setup of Git for New Project, direct cloning for Open Project and changed lines indicators in the editor gutter)
 dev-util/gnome-builder:sysprof - Provide an integrated profiler via dev-util/sysprof
@@ -2866,8 +2873,6 @@ dev-util/kernelshark:custom-optimization - Build with user-specified compiler op
 dev-util/kup:gitolite - Enable support for dev-vcs/gitolite in kup-server
 dev-util/libabigail:btf - Handle reading kernel debug files in BTF format via dev-libs/libbpf
 dev-util/librnp:botan - Use Botan crypto backend instead of OpenSSL
-dev-util/ltrace:elfutils - Use libdwfl from dev-libs/elfutils for frame unwinding support
-dev-util/ltrace:unwind - Use sys-libs/libunwind for frame unwinding support
 dev-util/lttng-tools:ust - Support LTTng-UST (Userspace Tracing)
 dev-util/lttng-ust:numa - Enable numa support
 dev-util/massif-visualizer:callgraph - Enable detailed snapshot analysis using media-gfx/kgraphviewer
@@ -2922,12 +2927,7 @@ dev-util/schroot:lvm - Enable support for chroots using LVM snapshots
 dev-util/schroot:zfs - Enable support for chroots using ZFS shapshots/clones
 dev-util/sdl-jstest:sdl - Enable media-libs/libsdl2 based input test
 dev-util/sdl-jstest:sdl1 - Enable media-libs/libsdl based input test
-dev-util/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/O operations
-dev-util/strace:elfutils - Enable stack backtraces (-k flag) via dev-libs/elfutils
-dev-util/strace:unwind - Enable stack backtraces (-k flag) via sys-libs/libunwind
-dev-util/sysdig:modules - Build kernel modules needed for tracing local events. Disable this only if you intend to use sysdig purely to work with dumpfiles.
 dev-util/sysprof:unwind - Use sys-libs/libunwind to unwind the stack
-dev-util/systemtap:libvirt - Support probing of libvirt domains.
 dev-util/trace-cmd:udis86 - Enable support for dev-libs/udis86 disassembler library
 dev-util/uftrace:capstone - Use capstone to provide dynamic tracing without recompilation
 dev-util/vulkan-tools:cube - Build the cube/cubepp demos

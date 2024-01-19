@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst preinst prepare pretend test unpack
-DEPEND=nscd? ( selinux? ( audit? ( sys-process/audit ) caps? ( sys-libs/libcap ) ) ) suid? ( caps? ( sys-libs/libcap ) ) selinux? ( sys-libs/libselinux ) systemtap? ( dev-util/systemtap ) >=app-misc/pax-utils-0.1.10 doc? ( sys-apps/texinfo ) >=sys-devel/binutils-2.24 >=sys-devel/gcc-4.9 virtual/os-headers sys-devel/gnuconfig virtual/pkgconfig
+DEPEND=nscd? ( selinux? ( audit? ( sys-process/audit ) caps? ( sys-libs/libcap ) ) ) suid? ( caps? ( sys-libs/libcap ) ) selinux? ( sys-libs/libselinux ) systemtap? ( dev-debug/systemtap ) >=app-misc/pax-utils-0.1.10 doc? ( sys-apps/texinfo ) >=sys-devel/binutils-2.24 >=sys-devel/gcc-4.9 virtual/os-headers sys-devel/gnuconfig virtual/pkgconfig
 DESCRIPTION=GNU libc C library
 EAPI=6
 HOMEPAGE=https://www.gnu.org/software/libc/
@@ -8,9 +8,9 @@ IUSE=audit caps compile-locales debug doc gd headers-only multilib nscd profile 
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1+ BSD HPND ISC inner-net rc PCRE
 PDEPEND=!vanilla? ( sys-libs/timezone-data )
-RDEPEND=nscd? ( selinux? ( audit? ( sys-process/audit ) caps? ( sys-libs/libcap ) ) ) suid? ( caps? ( sys-libs/libcap ) ) selinux? ( sys-libs/libselinux ) systemtap? ( dev-util/systemtap ) sys-apps/gentoo-functions vanilla? ( !sys-libs/timezone-data )
+RDEPEND=nscd? ( selinux? ( audit? ( sys-process/audit ) caps? ( sys-libs/libcap ) ) ) suid? ( caps? ( sys-libs/libcap ) ) selinux? ( sys-libs/libselinux ) systemtap? ( dev-debug/systemtap ) sys-apps/gentoo-functions vanilla? ( !sys-libs/timezone-data )
 RESTRICT=strip
 SLOT=2.2
 SRC_URI=mirror://gnu/glibc/glibc-2.19.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/glibc-2.19-patches-9.tar.bz2 multilib? ( https://dev.gentoo.org/~dilfridge/distfiles/gcc-4.7.3-r1-multilib-bootstrap.tar.bz2 )
 _eclasses_=prefix	eab3c99d77fe00506c109c8a736186f7	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	eqawarn	c9847c43b3253a276ae2eabddedab3d7	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	systemd	c8b03e8df84486aa991d4396686e8942	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=a338d69a1cf107af5c57deae16b91604
+_md5_=400b5faa62122a3640a442312886ecbf
