@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= )
+DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= )
 DESCRIPTION=Logical replication for PostgreSQL
 EAPI=7
 HOMEPAGE=https://www.2ndquadrant.com/en/resources/pglogical/
 INHERIT=postgres-multi
-IUSE=postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11
+IUSE=postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
 KEYWORDS=~amd64
 LICENSE=POSTGRESQL
-RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= )
+RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= )
 SLOT=0
 SRC_URI=https://github.com/2ndQuadrant/pglogical/archive/REL2_4_1.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
 _md5_=99444f77cecc48d6c01b8b72c12645bb

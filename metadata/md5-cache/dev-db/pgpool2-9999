@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:= ) sys-devel/bison virtual/pkgconfig doc? ( app-text/openjade dev-libs/libxml2 dev-libs/libxslt )
+DEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:= ) sys-devel/bison virtual/pkgconfig doc? ( app-text/openjade dev-libs/libxml2 dev-libs/libxslt )
 DESCRIPTION=Connection pool server for PostgreSQL
 EAPI=7
 HOMEPAGE=https://www.pgpool.net/
 INHERIT=autotools git-r3 postgres-multi
-IUSE=doc memcached pam ssl static-libs postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11
+IUSE=doc memcached pam ssl static-libs postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) postgres_targets_postgres11? ( dev-db/postgresql:11= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:= )
+RDEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) postgres_targets_postgres12? ( dev-db/postgresql:12= ) acct-group/postgres acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:= )
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
 _md5_=33e2e3cd3e9d142a315ef4c0229974ad
