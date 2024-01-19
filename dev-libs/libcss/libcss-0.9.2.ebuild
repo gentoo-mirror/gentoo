@@ -1,12 +1,12 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit netsurf
 
 DESCRIPTION="CSS parser and selection engine, written in C"
-HOMEPAGE="http://www.netsurf-browser.org/projects/libcss/"
+HOMEPAGE="https://www.netsurf-browser.org/projects/libcss/"
 SRC_URI="https://download.netsurf-browser.org/libs/releases/${P}-src.tar.gz"
 
 LICENSE="MIT"
@@ -22,16 +22,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? ( dev-lang/perl )"
 BDEPEND="
-	>=dev-build/netsurf-buildsystem-1.7-r1
+	dev-build/netsurf-buildsystem
 	virtual/pkgconfig"
-
-src_prepare() {
-	default
-	sed -e '1i#pragma GCC diagnostic ignored "-Wimplicit-fallthrough"' \
-		-i src/parse/parse.c src/select/arena_hash.h || die
-	sed -e '1i#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"' \
-		-i src/parse/parse.c src/select/computed.c || die
-}
 
 _emake() {
 	netsurf_define_makeconf

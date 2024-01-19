@@ -3,30 +3,24 @@
 
 EAPI=8
 
-inherit git-r3 netsurf
+inherit netsurf
 
-DESCRIPTION="CSS parser and selection engine, written in C"
-HOMEPAGE="https://www.netsurf-browser.org/projects/libcss/"
+DESCRIPTION="Small and portable C library to parse SVG"
+HOMEPAGE="https://www.netsurf-browser.org/projects/libsvgtiny/"
+SRC_URI="https://download.netsurf-browser.org/libs/releases/${P}-src.tar.gz"
 
-EGIT_REPO_URI="https://git.netsurf-browser.org/${PN}.git"
 LICENSE="MIT"
 SLOT="0/${PV}"
-IUSE="test"
-
-RESTRICT="!test? ( test )"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 
 RDEPEND="
-	dev-libs/libparserutils
+	net-libs/libdom[xml]
 	dev-libs/libwapcaplet"
 DEPEND="${RDEPEND}
-	test? ( dev-lang/perl )"
+	dev-util/gperf"
 BDEPEND="
 	dev-build/netsurf-buildsystem
 	virtual/pkgconfig"
-
-src_prepare() {
-	default
-}
 
 _emake() {
 	netsurf_define_makeconf
@@ -35,10 +29,6 @@ _emake() {
 
 src_compile() {
 	_emake
-}
-
-src_test() {
-	_emake test
 }
 
 src_install() {
