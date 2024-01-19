@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ RESTRICT="test"
 DEPEND="
 	dev-cpp/gtkmm:3.0[wayland]
 	dev-libs/gobject-introspection
-	dev-libs/libdbusmenu
+	dev-libs/libdbusmenu[gtk3]
 	>=gui-libs/gtk-layer-shell-0.6
 	dev-libs/wayland
 	gui-libs/wf-config:${SLOT}

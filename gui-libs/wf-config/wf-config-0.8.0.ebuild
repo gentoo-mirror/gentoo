@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,6 +33,10 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( dev-cpp/doctest )
 "
+
+PATCHES=(
+	"${FILESDIR}/wf-config-0.8.0-gcc14.patch"
+)
 
 src_configure() {
 	local emesonargs=(
