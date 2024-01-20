@@ -48,6 +48,9 @@ OB		git-r3_checkout
 }
 
 src_configure() {
+	# Fix ld.lld linker error: https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/issues/155
+	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+
 	# Reported upstream: https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/issues/120
 	append-cflags -fcommon
 
