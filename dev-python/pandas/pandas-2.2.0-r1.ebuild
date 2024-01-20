@@ -21,7 +21,7 @@ HOMEPAGE="
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64"
 IUSE="full-support minimal test X"
 RESTRICT="!test? ( test )"
 
@@ -80,14 +80,15 @@ BDEPEND="
 		${VIRTUALX_DEPEND}
 		${RECOMMENDED_DEPEND}
 		${OPTIONAL_DEPEND}
+		dev-libs/apache-arrow[brotli,parquet,snappy]
 		>=dev-python/beautifulsoup4-4.11.1[${PYTHON_USEDEP}]
 		>=dev-python/hypothesis-6.46.1[${PYTHON_USEDEP}]
 		>=dev-python/openpyxl-3.0.10[${PYTHON_USEDEP}]
+		dev-python/pyarrow[parquet,${PYTHON_USEDEP}]
 		>=dev-python/pymysql-1.0.2[${PYTHON_USEDEP}]
 		>=dev-python/xlsxwriter-3.0.3[${PYTHON_USEDEP}]
 		x11-misc/xclip
 		x11-misc/xsel
-		!!dev-python/pyarrow
 	)
 "
 RDEPEND="
@@ -172,10 +173,6 @@ python_test() {
 		# requires -Werror
 		tests/tslibs/test_to_offset.py::test_to_offset_lowercase_frequency_deprecated
 		tests/tslibs/test_to_offset.py::test_to_offset_uppercase_frequency_deprecated
-
-		# requires pyarrow (which is really broken)
-		tests/io/formats/style/test_bar.py::test_style_bar_with_pyarrow_NA_values
-		tests/series/test_api.py::TestSeriesMisc::test_inspect_getmembers
 	)
 
 	local -x LC_ALL=C.UTF-8
