@@ -8789,7 +8789,7 @@ dev-python/packaging 23.2: Core utilities for Python packages
 dev-python/paginate 0.5.6: Divides large result sets into pages for easier browsing
 dev-python/paho-mqtt 1.6.1-r1: A client class with support for MQTT v5.0, v3.1.1, and v3.1
 dev-python/pallets-sphinx-themes 2.1.1: Sphinx themes for Pallets and related projects
-dev-python/pandas 1.5.3 2.1.1 2.1.3 2.1.4 2.2.0: Powerful data structures for data analysis and statistics
+dev-python/pandas 1.5.3 2.1.1 2.1.3 2.1.4 2.2.0 2.2.0-r1: Powerful data structures for data analysis and statistics
 dev-python/pandocfilters 1.5.0 1.5.1: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.8: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.9.0: Parameterized testing with any Python test framework
@@ -17550,8 +17550,8 @@ sys-kernel/dkms 3.0.12: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 4.3.10 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.205 5.10.206 5.10.207 5.10.208 5.15.145 5.15.146 5.15.147 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.6.9 6.6.10 6.6.11 6.6.12: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.205 5.10.206 5.10.207 5.10.208 5.15.145 5.15.146 5.15.147 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.6.9 6.6.10 6.6.11 6.6.12: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.205 5.10.206 5.10.207 5.10.208 5.15.145 5.15.146 5.15.147 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.1.74 6.6.9 6.6.10 6.6.11 6.6.12 6.6.13: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.205 5.10.206 5.10.207 5.10.208 5.15.145 5.15.146 5.15.147 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.1.74 6.6.9 6.6.10 6.6.11 6.6.12 6.6.13: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.203 5.10.206 5.10.207 5.10.208 5.15.142 5.15.145 5.15.146 5.15.147 6.1.67 6.1.70 6.1.71 6.1.72 6.1.73 6.1.74 6.6.10 6.6.11 6.6.12 6.6.13 6.7.0 6.7.1: Full sources including the Gentoo patchset for the 6.7 kernel tree
 sys-kernel/git-sources 6.7_rc1 6.7_rc2 6.7_rc3 6.7_rc4 6.7_rc5 6.7_rc6 6.7_rc7 6.7_rc8: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 12 15-r1 17 18: Gentoo fork of installkernel script from debianutils
@@ -17567,7 +17567,7 @@ sys-kernel/pf-sources 6.6_p1 6.6_p2 6.6_p3 6.6_p4 6.6_p5 6.6_p6 6.7_p1: Linux ke
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.333_p158 4.19.302_p131 5.4.264_p88 5.10.204_p100 5.15.145_p73 6.0.5_p14 6.1.70_p21 6.5.2_p8 6.6.10_p19: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.10.205 5.10.206 5.10.207 5.10.208 5.10.9999 5.15.145 5.15.146 5.15.147 5.15.9999 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.1.9999 6.6.9 6.6.10 6.6.11 6.6.12: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.205 5.10.206 5.10.207 5.10.208 5.10.9999 5.15.145 5.15.146 5.15.147 5.15.9999 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.1.74 6.1.9999 6.6.9 6.6.10 6.6.11 6.6.12 6.6.13: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.14.336 4.19.305 5.4.267 5.10.208 5.15.147 6.1.74 6.6.13 6.7.1: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.6.8: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17759,7 +17759,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.205 5.10.206 5.10.207 5.10.208 5.15.145 5.15.146 5.15.147 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.6.9 6.6.10 6.6.11 6.6.12: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.205 5.10.206 5.10.207 5.10.208 5.15.145 5.15.146 5.15.147 6.1.69 6.1.70 6.1.71 6.1.72 6.1.73 6.1.74 6.6.9 6.6.10 6.6.11 6.6.12 6.6.13: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
