@@ -939,9 +939,9 @@ app-admin/exo 1.75.0: Command-line tool for everything at Exoscale: compute, sto
 app-admin/fam 2.7.0_p17_p3: FAM, the File Alteration Monitor
 app-admin/fetchlog 1.4-r2: Displays the last new messages of a logfile
 app-admin/fifo-cronolog 1.1.1-r2: cronolog wrapper for use with dumb daemons like squid, varnish and so on
-app-admin/filebeat 7.17.5: Lightweight log shipper for Logstash and Elasticsearch
+app-admin/filebeat 7.17.5 7.17.16: Lightweight log shipper for Logstash and Elasticsearch
 app-admin/filewatcher 2.4.6-r1: File control configuration system and IDS
-app-admin/fluentd 1.14.4 1.14.6 1.16.3: data collector and unified logging layer (project under CNCF)
+app-admin/fluentd 1.16.3: data collector and unified logging layer (project under CNCF)
 app-admin/fsvs 1.2.11: Backup/restore for subversion backends
 app-admin/gam-server 0.1.10-r3: Library providing the FAM File Alteration Monitor API
 app-admin/gamin 0.1.10-r1: Meta package providing the File Alteration Monitor API & Server
@@ -981,7 +981,7 @@ app-admin/logmon 0.4.4-r1: Split-screen terminal/ncurses based log viewer
 app-admin/logrotate 3.19.0 3.20.1-r1 3.21.0: Rotates, compresses, and mails system logs
 app-admin/logsentry 1.1.1-r3: Automatically monitor system logs and mail security violations
 app-admin/logstalgia 1.1.2: Replays or streams an access_log as a retro arcade game-like simulation
-app-admin/logstash-bin 7.17.9 7.17.10 7.17.12: Tool for managing events and logs
+app-admin/logstash-bin 7.17.16: Tool for managing events and logs
 app-admin/logsurfer+ 1.8-r5: Real Time Log Monitoring and Alerting
 app-admin/lsyncd 2.2.3: Live Syncing (Mirror) Daemon
 app-admin/makepasswd 1.10-r1: Random password generator
@@ -1498,7 +1498,7 @@ app-crypt/tpm-tools 1.3.9.2-r1: TrouSerS' support tools for the Trusted Platform
 app-crypt/tpm2-abrmd 3.0.0-r2: TPM2 Access Broker & Resource Manager
 app-crypt/tpm2-openssl 1.2.0: OpenSSL Provider for TPM2 integration
 app-crypt/tpm2-pkcs11 1.9.0: A PKCS#11 interface for TPM2 hardware
-app-crypt/tpm2-tools 5.5: Tools for the TPM 2.0 TSS
+app-crypt/tpm2-tools 5.5 5.6: Tools for the TPM 2.0 TSS
 app-crypt/tpm2-totp 0.3.0-r1: Attest the trustworthiness of a device against a human using time-based OTP
 app-crypt/tpm2-tss 4.0.1: TCG Trusted Platform Module 2.0 Software Stack
 app-crypt/trousers 0.3.15 0.3.15-r1: An open-source TCG Software Stack (TSS) v1.1 implementation
@@ -1633,7 +1633,7 @@ app-dicts/myspell-da 2.6: Danish dictionaries for myspell/hunspell
 app-dicts/myspell-de 2017.01.12-r1: German (AT,CH,DE) dictionaries for myspell/hunspell
 app-dicts/myspell-de_1901 20170622: German (traditional orthography) dictionaries for myspell/hunspell
 app-dicts/myspell-el 0.9: Greek dictionaries for myspell/hunspell
-app-dicts/myspell-en 20230701 20230901: English dictionaries for myspell/hunspell
+app-dicts/myspell-en 20230701 20230901 20240101: English dictionaries for myspell/hunspell
 app-dicts/myspell-eo 1.01: Esperanto dictionaries for myspell/hunspell
 app-dicts/myspell-es 2.6: Spanish dictionaries for myspell/hunspell
 app-dicts/myspell-et 20030606: Estonian dictionaries for myspell/hunspell
@@ -2688,7 +2688,7 @@ app-misc/dvtm 0.15-r6 9999: Dynamic virtual terminal manager
 app-misc/ebusd 23.3-r1: Daemon for communication with eBUS heating systems
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
-app-misc/elasticsearch 7.17.9-r1 7.17.10-r1 7.17.12-r1 8.11.1 8.11.3: Free and Open, Distributed, RESTful Search Engine
+app-misc/elasticsearch 7.17.16 8.11.1 8.11.3: Free and Open, Distributed, RESTful Search Engine
 app-misc/empty 0.6.23c: Small shell utility, similar to expect(1)
 app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
@@ -2911,7 +2911,7 @@ app-misc/worker 4.6.1-r100: Worker Filemanager: Amiga Directory Opus 4 clone
 app-misc/xmind 3.7.6_p201801311814: Brainstorming and mind mapping software tool
 app-misc/yq 3.2.2 3.2.3: Command-line YAML processor - jq wrapper for YAML documents
 app-misc/ytree 2.02 2.04 2.05: A curses-based file manager
-app-misc/zellij 0.39.0 0.39.1: A terminal workspace with batteries included
+app-misc/zellij 0.39.0 0.39.1 0.39.2: A terminal workspace with batteries included
 app-misc/zisofs-tools 1.0.8-r1: User utilities for zisofs
 app-mobilephone/adebar 2.4.1: Android DEvice Backup And Report, using Bash and ADB
 app-mobilephone/anyremote 6.5: Bluetooth, infrared or cable remote control service
@@ -10826,7 +10826,7 @@ dev-util/radare2 5.8.6 5.8.8 5.8.8-r1: unix-like reverse engineering framework a
 dev-util/ragel 6.10 7.0.0.12 7.0.4 7.0.4-r1 7.0.4-r2 7.0.4-r3: Compiles finite state machines from regular languages into executable code
 dev-util/rats 2.4-r2: RATS - Rough Auditing Tool for Security
 dev-util/rbtools 4.0-r1 4.0-r2 4.1: Command line tools for use with Review Board
-dev-util/re2c 2.1.1-r1 2.2: Tool for generating C-based recognizers from regular expressions
+dev-util/re2c 2.1.1-r1 2.2 3.1: Tool for generating C-based recognizers from regular expressions
 dev-util/rebar 2.6.4-r1 3.19.0 3.20.0 3.20.0-r1 3.21.0 3.22.1 3.22.1-r1: A sophisticated build-tool for Erlang projects that follows OTP principles
 dev-util/redo 0.42d: Smaller, easier, more powerful, and more reliable than make
 dev-util/regexxer 0.10-r2: An interactive tool for performing search and replace operations
@@ -12856,7 +12856,7 @@ media-gfx/imageworsener 1.3.3 1.3.4 1.3.5: Utility for image scaling and process
 media-gfx/img2pdf 0.4.4-r1: Losslessly convert raster images to PDF
 media-gfx/imv 4.4.0-r1: Minimal image viewer designed for tiling window manager users
 media-gfx/inkscape 1.2.2 1.2.2-r4 1.3 1.3.2 9999: SVG based generic vector-drawing program
-media-gfx/iscan 2.30.4.2-r3 3.65.0-r1: EPSON Image Scan v3 for Linux
+media-gfx/iscan 2.30.4.2-r3 3.65.0-r2: EPSON Image Scan v3 for Linux
 media-gfx/iscan-data 1.39.0.1: Image Scan! for Linux data files
 media-gfx/iscan-plugin-esdip 1.0.0.5-r1: Plugin for 'epkowa' backend for image manipulation
 media-gfx/iscan-plugin-gt-f500 1.0.0.1-r1: Epson Perfection 2480/2580 PHOTO scanner plugin for SANE 'epkowa' backend
@@ -14691,7 +14691,7 @@ net-irc/irssi 1.4.4-r1 1.4.5 9999: A modular textUI IRC client with IPv6 support
 net-irc/irssi-xmpp 0.54 0.54-r1: Irssi plugin providing Jabber/XMPP support
 net-irc/irssistats 0.75-r1: Generates HTML IRC stats based on irssi logs
 net-irc/konversation 23.08.4: User friendly IRC Client
-net-irc/kvirc 5.2_pre20220629000000 9999: Advanced IRC Client
+net-irc/kvirc 5.2_pre20220629000000 5.2.0 9999: Advanced IRC Client
 net-irc/limnoria 20220814 20220927 20221116 20221116-r1 99999999: Python based extensible IRC infobot and channel bot
 net-irc/limnoria-plugins-chantracker 1.6_p20220429 1.6_p20220803 1.6_p20221109: supybot ban management and channel flood/spam/repeat protections plugin
 net-irc/limnoria-plugins-jlu5 20210801 20220201 20220201_p20221108: A collection of plugins for the Limnoria IRC bot
@@ -17986,7 +17986,7 @@ www-apps/jekyll-sitemap 1.4.0-r1: Automatically generate a sitemap.xml for your 
 www-apps/jekyll-watch 2.2.1-r1: Rebuild your Jekyll site when a file changes with the --watch switch
 www-apps/jellyfin 10.8.13: Jellyfin puts you in control of managing and streaming your media
 www-apps/karma-bin 0.90: Alerts dashboard for Prometheus Alertmanager
-www-apps/kibana-bin 7.17.9 7.17.10 7.17.12: Analytics and search dashboard for Elasticsearch
+www-apps/kibana-bin 7.17.16: Analytics and search dashboard for Elasticsearch
 www-apps/klaus 2.0.2 2.0.3: A simple, easy-to-set-up Git web viewer
 www-apps/lidarr 2.1.3.3927: Looks and smells like Sonarr but made for music
 www-apps/liquid_feedback_core 2.2.6 3.0.4 3.2.2: Internet platforms for proposition development and decision making
