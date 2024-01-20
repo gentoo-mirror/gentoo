@@ -12,13 +12,13 @@ SRC_URI="https://mujs.com/downloads/${P}.tar.gz"
 LICENSE="ISC"
 # The subslot matches the SONAME
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
 
 RDEPEND="sys-libs/readline:="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.1.1-flags.patch
+	"${FILESDIR}"/${PN}-1.3.3-flags.patch
 )
 
 src_prepare() {
@@ -42,9 +42,9 @@ src_compile() {
 	emake \
 		VERSION=${PV} \
 		XCFLAGS="${CFLAGS}" \
-		XCPPFLAGS="${CPPFLAGS}" \
+		XLDFLAGS="${LDFLAGS}" \
 		prefix=/usr \
-		shell shared
+		release
 }
 
 src_install() {
@@ -55,7 +55,9 @@ src_install() {
 		prefix=/usr \
 		install-shared
 
-	mv -v "${ED}"/usr/$(get_libdir)/lib${PN}$(get_libname) "${ED}"/usr/$(get_libdir)/lib${PN}$(get_libname ${PV}) || die "Failed adding version suffix to mujs shared library"
+	mv -v "${ED}"/usr/$(get_libdir)/lib${PN}$(get_libname) \
+		"${ED}"/usr/$(get_libdir)/lib${PN}$(get_libname ${PV}) \
+		|| die "Failed adding version suffix to mujs shared library"
 	dosym lib${PN}$(get_libname ${PV}) /usr/$(get_libdir)/lib${PN}$(get_libname)
 	dosym lib${PN}$(get_libname ${PV}) /usr/$(get_libdir)/lib${PN}$(get_libname ${PV:0:1})
 }
