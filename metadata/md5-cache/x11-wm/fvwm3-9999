@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig app-arch/unzip go? ( >=dev-lang/go-1.14 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig app-arch/unzip go? ( >=dev-lang/go-1.14 ) dev-libs/libxslt dev-ruby/asciidoctor sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare setup unpack
 DEPEND=x11-base/xorg-proto
 DESCRIPTION=A multiple large virtual desktop window manager derived from fvwm
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 RESTRICT=strip
 SLOT=0
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	desktop	021728fdc1b03b36357dbc89489e0f0d	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=ef48942f57acf30bf03f0a899051d98e
+_md5_=bd8f51e3794ab9483bb397f86a585c3a
