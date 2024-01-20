@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,17 +12,16 @@ SRC_URI="https://github.com/Faster3ck/Converseen/archive/v${PV}.tar.gz -> ${P}.t
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="debug"
+KEYWORDS="~amd64 ~x86"
+IUSE="graphicsmagick debug"
 
-# FIXME: graphicsmagick dependency does not work properly, failures when compiling
-#	|| ( media-gfx/imagemagick[cxx] media-gfx/graphicsmagick[cxx,imagemagick] )
 RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
-	media-gfx/imagemagick:=[cxx]
+	graphicsmagick? ( media-gfx/graphicsmagick:=[cxx,imagemagick] )
+	!graphicsmagick? ( media-gfx/imagemagick:=[cxx] )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -34,7 +33,24 @@ S="${WORKDIR}/${P^}"
 PATCHES=(
 	"${FILESDIR}/${PN}-0.9.9.0-appdata-path.patch"
 	"${FILESDIR}/${PN}-0.9.9.0-no-update.patch"
+	"${FILESDIR}/${P}-graphicsmagick-support.patch"
 )
+
+src_prepare() {
+	cmake_src_prepare
+
+	if use graphicsmagick; then
+		# Replace variables in CMakeLists.txt
+		sed -i -e "s/GENTOO_LIB/\/usr\/$(get_libdir)/g" \
+				-e "s/GENTOO_INCLUDE/\/usr\/include/g" \
+				"${S}/CMakeLists.txt" ||
+			die "Failed to sed graphicsmagick patch"
+
+		# Replace MagickCore in globals.cpp
+		sed -i -e "s/MagickCore/MagickLib/" "${S}/src/globals.cpp" ||
+			die "Failed to sed globals.cpp"
+	fi
+}
 
 pkg_postinst() {
 	elog "Please note that due to security policy restrictions"
