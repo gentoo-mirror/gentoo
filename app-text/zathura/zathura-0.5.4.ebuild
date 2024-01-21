@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson virtualx xdg
 
@@ -17,34 +17,40 @@ else
 		https://github.com/pwmt/zathura/archive/${PV}.tar.gz -> ${P}.tar.gz
 		https://cdn.turret.cyou/~turret/distfiles/${PN}/${P}-manpages.tar.xz
 	"
-	KEYWORDS="amd64 arm ~riscv x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="ZLIB"
-SLOT="0/$(ver_cut 1-2)"
+SLOT="0/5.6"
 IUSE="seccomp sqlite synctex test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND=">=dev-libs/girara-0.3.7
+RDEPEND="
+	>=dev-libs/girara-0.4.1
 	>=dev-libs/glib-2.50:2
-	>=sys-devel/gettext-0.19.8
+	dev-libs/json-glib
+	sys-apps/file
 	x11-libs/cairo
 	>=x11-libs/gtk+-3.22:3
-	sys-apps/file
 	seccomp? ( sys-libs/libseccomp )
-	sqlite? ( >=dev-db/sqlite-3.5.9:3 )
-	synctex? ( app-text/texlive-core )"
-
-RDEPEND="${DEPEND}"
-
+	sqlite? ( >=dev-db/sqlite-3.6.23:3 )
+	synctex? ( app-text/texlive-core )
+"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-libs/check
+		x11-libs/gtk+[X]
+	)
+"
 BDEPEND="
-	test? ( dev-libs/appstream-glib
-		dev-libs/check )
-	virtual/pkgconfig"
+	>=sys-devel/gettext-0.19.8
+	virtual/pkgconfig
+"
 
 PATCHES=(
-	"${FILESDIR}"/zathura-disable-seccomp-tests.patch
+	"${FILESDIR}"/${P}-disable-seccomp-tests.patch
 )
 
 src_configure() {
@@ -58,11 +64,11 @@ src_configure() {
 	meson_src_configure
 }
 
-src_install() {
-	meson_src_install
-	doman "${WORKDIR}"/man/zathura*
-}
-
 src_test() {
 	virtx meson_src_test
+}
+
+src_install() {
+	meson_src_install
+	[[ ${PV} != *9999 ]] && doman "${WORKDIR}"/man/zathura*
 }
