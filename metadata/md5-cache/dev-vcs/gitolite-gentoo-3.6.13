@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://cgit.gentoo.org/fork/gitolite-gentoo.git/
 INHERIT=perl-module
 IUSE=selinux tools vim-syntax
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/perl >=dev-vcs/git-1.6.6 virtual/perl-File-Path virtual/perl-File-Temp acct-group/git acct-user/git[gitolite] >=dev-perl/Net-SSH-AuthorizedKeysFile-0.17 dev-perl/JSON !dev-vcs/gitolite vim-syntax? ( app-vim/gitolite-syntax ) selinux? ( sec-policy/selinux-gitosis ) dev-lang/perl:=
 SLOT=0
-SRC_URI=mirror://gentoo/gitolite-gentoo-3.6.6.1.tar.bz2 https://github.com/sitaramc/gitolite/commit/5df2b817255ee919991da6c310239e08c8fcc1ae.patch
+SRC_URI=http://dev.gentoo.org/~robbat2/distfiles/gitolite-gentoo-3.6.13.tar.bz2
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676
-_md5_=164421692403b56ab204252bc9a0ed0d
+_md5_=39dfd832d3c1f8d96ceed468e043e900
