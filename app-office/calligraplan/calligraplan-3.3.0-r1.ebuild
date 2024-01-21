@@ -1,12 +1,12 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=5.74.0
-QTMIN=5.15.2
+KFMIN=5.106.0
+QTMIN=5.15.9
 inherit ecm kde.org
 
 DESCRIPTION="Project management application"
@@ -20,6 +20,8 @@ fi
 LICENSE="GPL-2"
 SLOT="5"
 IUSE="activities +holidays kwallet X"
+
+RESTRICT="test"
 
 # FIXME: Disabled by upstream for good reason
 # Crashes (https://bugs.kde.org/show_bug.cgi?id=311940)
@@ -61,7 +63,7 @@ DEPEND="
 	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:5 )
 	kwallet? (
-		>=app-crypt/qca-2.3.0:2
+		>=app-crypt/qca-2.3.0:2[qt5(+)]
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
 	X? (
@@ -74,7 +76,7 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:5
 "
 
-RESTRICT="test"
+PATCHES=( "${FILESDIR}/${P}-no-kinit.patch" ) # bug 922506
 
 src_configure() {
 	local mycmakeargs=(
