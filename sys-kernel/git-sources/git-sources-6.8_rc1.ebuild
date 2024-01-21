@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -7,7 +7,7 @@ K_NOUSENAME="yes"
 K_NOSETEXTRAVERSION="yes"
 K_NOUSEPR="yes"
 K_SECURITY_UNSUPPORTED="1"
-K_BASE_VER="6.6"
+K_BASE_VER="6.7"
 K_EXP_GENPATCHES_NOUSE="1"
 K_FROM_GIT="yes"
 K_NODRYRUN="yes"
