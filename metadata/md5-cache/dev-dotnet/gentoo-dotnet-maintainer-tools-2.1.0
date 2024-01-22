@@ -1,0 +1,15 @@
+BDEPEND=virtual/dotnet-sdk:8.0 dev-dotnet/csharp-gentoodotnetinfo
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=Gentoo tools for .NET packages maintenance
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Dotnet https://gitlab.gentoo.org/dotnet/gentoo-dotnet-maintainer-tools/
+INHERIT=dotnet-pkg
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=virtual/dotnet-sdk:8.0
+RESTRICT=strip
+SLOT=0/2
+SRC_URI=https://gitlab.gentoo.org/dotnet/gentoo-dotnet-maintainer-tools/-/archive/2.1.0/gentoo-dotnet-maintainer-tools-2.1.0.tar.bz2 https://api.nuget.org/v3-flatcontainer/fsharp.core/8.0.100/fsharp.core.8.0.100.nupkg https://api.nuget.org/v3-flatcontainer/libgit2sharp.nativebinaries/2.0.321/libgit2sharp.nativebinaries.2.0.321.nupkg https://api.nuget.org/v3-flatcontainer/libgit2sharp/0.29.0/libgit2sharp.0.29.0.nupkg https://api.nuget.org/v3-flatcontainer/system.commandline/2.0.0-beta4.22272.1/system.commandline.2.0.0-beta4.22272.1.nupkg
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	nuget	97fd2c5f9e9770fc8c4d2d7a52ddce5a	dotnet-pkg-base	c588e6a66feabd5fa4229c4eb10226ad	dotnet-pkg	a18b301da1d7f09dae8bdf84321f43a8
+_md5_=41c6feb5aebcf300a3288f5c8f734564
