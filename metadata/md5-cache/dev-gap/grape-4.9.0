@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp bliss? ( sci-libs/bliss ) !bliss? ( sci-mathematics/nauty ) )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=GRaph Algorithms using PErmutation groups
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/grape.html
+INHERIT=gap-pkg prefix
+IUSE=bliss test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 GPL-2+
+RDEPEND=bliss? ( sci-libs/bliss ) !bliss? ( sci-mathematics/nauty ) sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/grape/releases/download/v4.9.0/grape-4.9.0.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47	prefix	eab3c99d77fe00506c109c8a736186f7
+_md5_=0e9fc22bc9380ce7683df7f7a3adb6b5

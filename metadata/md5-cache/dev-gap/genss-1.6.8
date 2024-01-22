@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/io dev-gap/orb )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=GAP implementation of the randomized Schreier-Sims algorithm
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/genss.html
+INHERIT=gap-pkg
+IUSE=examples test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=dev-gap/io dev-gap/orb sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/genss/releases/download/v1.6.8/genss-1.6.8.tar.bz2
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=08a9fd2724d08e02ddfbf4427ec3f097

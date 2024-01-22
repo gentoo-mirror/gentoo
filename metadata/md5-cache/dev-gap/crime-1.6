@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=GAP Package to calculate group cohomology and Massey products
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/crime.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/crime/releases/download/v1.6/crime-1.6.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=1bcf75c839b60ec97711bcde75238382

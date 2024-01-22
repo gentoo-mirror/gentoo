@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-gap/gapdoc ) test? ( sci-mathematics/gap )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=GAP transitive groups library
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/transgrp.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3 Artistic-2
+RDEPEND=sci-mathematics/gap
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.math.colostate.edu/~hulpke/transgrp/transgrp3.6.4.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=40f22b3a50e95b840fe54e07eb139954

@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/aclib dev-gap/cryst dev-gap/hap dev-gap/polycyclic dev-gap/polymaking )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=A HAP extension for crytallographic groups
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/hapcryst.html
+INHERIT=gap-pkg
+IUSE=examples test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-gap/aclib dev-gap/cryst dev-gap/hap dev-gap/polycyclic dev-gap/polymaking sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/hapcryst/archive/v0.1.15.tar.gz -> hapcryst-0.1.15.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=33bd73c11d8ec2cf2fcc983cb79704b6

@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=GAP Primitive Permutation Groups Library
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/primgrp.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-gap/gapdoc sci-mathematics/gap
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/primgrp/releases/download/v3.4.4/primgrp-3.4.4.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=fdc153180d98a470e529eb05054f186a

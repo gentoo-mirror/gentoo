@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/polycyclic )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Almost-crystallographic group library and algorithms for GAP
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/aclib.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-gap/polycyclic sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/aclib/releases/download/v1.3.2/aclib-1.3.2.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=084cd5ad3842a5e1e9c3ebe599119908

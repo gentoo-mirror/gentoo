@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Congruence subgroups of SL(2,ZZ) for GAP
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/congruence.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/congruence/releases/download/v1.2.5/congruence-1.2.5.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=1cbefd5fdb841e647e8cd50b4d202085

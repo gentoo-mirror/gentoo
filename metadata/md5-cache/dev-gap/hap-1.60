@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-gap/congruence dev-gap/edim dev-gap/hapcryst dev-gap/laguna dev-gap/polymaking dev-gap/singular media-gfx/imagemagick[png] ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/aclib dev-gap/crystcat dev-gap/fga dev-gap/nq dev-gap/polycyclic )
+DEFINED_PHASES=compile configure install postinst test
+DESCRIPTION=Homological Algebra Programming (HAP) in GAP
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/hap.html
+INHERIT=gap-pkg
+IUSE=test test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-gap/aclib dev-gap/crystcat dev-gap/fga dev-gap/nq dev-gap/polycyclic sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/hap/releases/download/v1.60/hap-1.60.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=1eea47c60d9a3750996a796b8583ed26

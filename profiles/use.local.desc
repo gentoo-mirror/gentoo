@@ -1550,6 +1550,7 @@ dev-games/physfs:wad - Enable Doom WAD archive support
 dev-games/simgear:dns - Enable DNS resolver via net-libs/udns
 dev-games/simgear:gdal - Enable alternative terrain engine based on pagedLOD via sci-libs/gdal
 dev-games/simgear:subversion - Enable terrasync scenery downloader
+dev-gap/grape:bliss - Use sci-libs/bliss instead of sci-mathematics/nauty as the backend.
 dev-haskell/abstract-deque:usecas - Enable the reference implementation to use hardware compare-and-swap.
 dev-haskell/aeson:cffi - Controls whether to include c-ffi bits or pure haskell. Default to False for security.
 dev-haskell/aeson:ordered-keymap - Use ordered @Data.Map.Strict@ for KeyMap implementation.
@@ -7481,6 +7482,8 @@ sci-mathematics/fricas:cmucl - Add support for CMU Common Lisp (dev-lisp/cmucl)
 sci-mathematics/fricas:ecl - Add support for Embeddable Common Lisp (dev-lisp/ecl)
 sci-mathematics/fricas:gcl - Add support for GNU Common Lisp (dev-lisp/gcl)
 sci-mathematics/fricas:sbcl - Add support for Steel Bank Common Lisp (dev-lisp/sbcl)
+sci-mathematics/gap:memcheck - Enable memory checking
+sci-mathematics/gap:minimal - Install only the GAP packages that are strictly required for GAP to run. GAP will complain about the others unless you either start it with the "-A" flag or set "AutoloadPackages" in your gap.ini.
 sci-mathematics/geomview:motionaveraging - Enable experimental motion averaging technique
 sci-mathematics/giac:ecm - Enable the use of sci-mathematics/gmp-ecm
 sci-mathematics/giac:gc - Enable garbage collection support via dev-libs/boehm-gc

@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-gap/io ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Generate documentation from GAP source code
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/autodoc.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/autodoc/releases/download/v2022.10.20/autodoc-2022.10.20.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=92a722be8d4e241a323218d8275af170

@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp sci-mathematics/gap:= sci-libs/libsemigroups:= dev-gap/orb dev-gap/io dev-gap/images dev-gap/datastructures dev-gap/digraphs dev-gap/genss )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sci-mathematics/gap:= sci-libs/libsemigroups:=
+DESCRIPTION=GAP package for semigroups and monoids
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/semigroups.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=sci-mathematics/gap:= sci-libs/libsemigroups:= dev-gap/orb dev-gap/io dev-gap/images dev-gap/datastructures dev-gap/digraphs dev-gap/genss sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/semigroups/Semigroups/releases/download/v5.3.2/semigroups-5.3.2.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=93fb4b3f814b87c80ed8695f7bae7788

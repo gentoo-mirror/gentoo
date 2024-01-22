@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/quagroup )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=GAP package for simple Lie algebra computations
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/sla.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-gap/quagroup sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/sla/releases/download/v1.5.3/sla-1.5.3.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=0ffa8bbacc888b75b46278c9bcbfb735

@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-gap/tomlib ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/io dev-gap/utils )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=GAP Interface to the Atlas of Group Representations
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/atlasrep.html
+INHERIT=gap-pkg
+IUSE=test test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=dev-gap/io dev-gap/utils sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://www.math.rwth-aachen.de/~Thomas.Breuer/atlasrep/atlasrep-2.1.7.tar.gz https://www.math.rwth-aachen.de/homes/Thomas.Breuer/atlasrep/atlasrepdata.tar.gz https://dev.gentoo.org/~mjo/distfiles/atlasrep-2.1.7-testdata.tar.xz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=ba07a9cca30e8c8eae8a36f20fbebec8

@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/io dev-gap/orb )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Compact vectors over finite fields in GAP
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/cvec.html
+INHERIT=gap-pkg
+IUSE=examples test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-gap/io dev-gap/orb sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/cvec/releases/download/v2.8.1/cvec-2.8.1.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=c3205b4b026cdeefd9c9094f84ad7d7a

@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-gap/atlasrep dev-gap/io ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Find minimal and canonical images in permutation groups
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/images.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MPL-2.0
+RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/images/releases/download/v1.3.1/images-1.3.1.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=749bd6b4e7549f0984303933909e07a4

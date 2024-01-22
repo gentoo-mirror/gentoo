@@ -1,0 +1,16 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+DEFINED_PHASES=compile configure install test
+DEPEND=sci-mathematics/gap
+DESCRIPTION=Cohomology groups of finite groups on finite modules
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/cohomolo.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/cohomolo/releases/download/v1.6.11/cohomolo-1.6.11.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=bf6c3c5ed6b36bc313fb3308168e0056

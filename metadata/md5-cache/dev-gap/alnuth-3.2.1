@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-gap/radiroot ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/polycyclic sci-mathematics/pari )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Algebraic number theory and an interface to PARI/GP
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/alnuth.html
+INHERIT=gap-pkg
+IUSE=test test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-gap/polycyclic sci-mathematics/pari sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/alnuth/releases/download/v3.2.1/alnuth-3.2.1.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	2425a6ca84914e74dd87082468e32e47
+_md5_=c756056166e4fe8aeb1897f19dba405d
