@@ -8,14 +8,6 @@ MAJOR="$(ver_cut 1)"
 DOTNET_PKG_COMPAT=8.0
 NUGETS="
 fsharp.core@8.0.100
-fsharp.data.csv.core@6.3.0
-fsharp.data.html.core@6.3.0
-fsharp.data.http@6.3.0
-fsharp.data.json.core@6.3.0
-fsharp.data.runtime.utilities@6.3.0
-fsharp.data.worldbank.core@6.3.0
-fsharp.data.xml.core@6.3.0
-fsharp.data@6.3.0
 libgit2sharp.nativebinaries@2.0.321
 libgit2sharp@0.29.0
 system.commandline@2.0.0-beta4.22272.1
