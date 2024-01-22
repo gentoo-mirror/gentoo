@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-26">
+    <title>Apache XML-RPC: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Apache XML-RPC, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">xmlrpc</product>
+    <announced>2024-01-22</announced>
+    <revised count="1">2024-01-22</revised>
+    <bug>713098</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/xmlrpc" auto="yes" arch="*">
+            <vulnerable range="le">3.1.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apache XML-RPC (previously known as Helma XML-RPC) is a Java implementation of XML-RPC, a popular protocol that uses XML over HTTP to implement remote procedure calls.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Apache XML-RPC. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for Apache XML-RPC. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "dev-java/xmlrpc"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2016-5002">CVE-2016-5002</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2016-5003">CVE-2016-5003</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-17570">CVE-2019-17570</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-22T14:37:11.898800Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-22T14:37:11.903161Z">graaff</metadata>
+</glsa>
