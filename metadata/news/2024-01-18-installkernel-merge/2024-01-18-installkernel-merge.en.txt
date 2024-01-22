@@ -1,0 +1,70 @@
+Title: Merging of installkernel-gentoo and installkernel-systemd
+Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
+Posted: 2024-01-18
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-kernel/installkernel
+Display-If-Installed: sys-kernel/installkernel-gentoo
+Display-If-Installed: sys-kernel/installkernel-systemd
+Display-If-Installed: sys-kernel/installkernel-systemd-boot
+
+The functionalities of sys-kernel/installkernel-gentoo and
+sys-kernel/installkernel-systemd have been merged into sys-kernel/installkernel.
+
+sys-kernel/installkernel now provides the systemd USE flag to switch between
+the traditional installkernel (formerly sys-kernel/installkernel-gentoo) and
+systemd's kernel-install (formerly sys-kernel/installkernel-systemd(-boot)).
+
+Additionally, the new sys-kernel/installkernel with the systemd flag enabled
+now provides a default install.conf configuration file which ensures that it
+will work out-of-the-box with no configuration (other then USE flag
+configuration) required for most setups.
+
+Details on configuration and customization can be found on the installkernel
+wiki page [1]. Below we provide the most important migration notes.
+
+
+User Action Required (GRUB users)
+====================
+
+Previously sys-kernel/installkernel-gentoo provided kernel installation
+automation for users of GRUB via USE=grub. The new sys-kernel/installkernel
+provides the same functionality, which now works with both the traditional
+installkernel and systemd's kernel-install. In principle no user action is
+required unless users wish to explicitly choose either the traditional
+installkernel or systemd's kernel-install, in which case they may do so
+via USE=-/+systemd.
+
+sys-kernel/installkernel is renamed from sys-kernel/installkernel-gentoo,
+therefore no user action is required to upgrade.
+
+
+User Action Required (systemd-boot users)
+====================
+
+Previously sys-kernel/installkernel-systemd provided kernel installation
+automation for users of systemd-boot. sys-kernel/installkernel provides
+the same functionality but only via systemd's kernel-install. Users
+of systemd-boot should therefore ensure that the systemd USE flag is enabled
+when upgrading to >=sys-kernel/installkernel-14.
+
+This upgrade path is enforced by sys-kernel/installkernel-systemd-4, which is
+just a wrapper pulling in >=sys-kernel/installkernel-14 with the systemd flag
+enabled. sys-kernel/installkernel-systemd may be removed after installing
+>=sys-kernel/installkernel-14.
+
+emerge --noreplace sys-kernel/installkernel
+emerge --depclean sys-kernel/installkernel-systemd
+
+
+User Action Required (users of other bootloaders and custom scripts)
+====================
+
+Users who have previously relied on custom installkernel or kernel-install
+plugins should either ensure that the same kernel installation method will be
+used after upgrading to >=sys-kernel/installkernel-14 (via USE=+/-systemd) or
+migrate these custom plugins (details are on the wiki [1]).
+
+
+[1] https://wiki.gentoo.org/wiki/Installkernel
+
