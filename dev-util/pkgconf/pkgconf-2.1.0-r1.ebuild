@@ -1,4 +1,4 @@
-# Copyright 2012-2023 Gentoo Authors
+# Copyright 2012-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,6 +29,12 @@ BDEPEND="
 	)
 "
 RDEPEND="!dev-util/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.1.0-fix-modversion.patch
+	"${FILESDIR}"/${PN}-2.1.0-digraph-test.patch
+	"${FILESDIR}"/${PN}-2.1.0-traverse-only-once.patch
+)
 
 src_prepare() {
 	default
