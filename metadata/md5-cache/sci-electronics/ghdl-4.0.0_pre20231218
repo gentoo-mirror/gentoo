@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://ghdl.github.io/ghdl/ https://github.com/ghdl/ghdl/
 INHERIT=ada edo llvm toolchain-funcs
 IUSE=llvm ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) llvm? ( <sys-devel/llvm-18:= )
 REQUIRED_USE=ada_target_gnat_2021
 SLOT=0
 SRC_URI=https://github.com/ghdl/ghdl/archive/2135cbf1458bd1b8b8f42bda81222ab57bd66de6.tar.gz -> ghdl-4.0.0_pre20231218.tar.gz
 _eclasses_=ada	825cf3c59de8fefe1dde148596e006f5	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	llvm	dcfb437a52b5672e5f39deaae6f789c3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=f02c61ecbb61104da98c0a738923bc66
+_md5_=1747b312a70216cd22589f6c466535b2
