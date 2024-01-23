@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,25 +6,35 @@ EAPI=8
 inherit elisp
 
 DESCRIPTION="SLIME, the Superior Lisp Interaction Mode (Extended)"
-HOMEPAGE="https://slime.common-lisp.dev/"
+HOMEPAGE="https://slime.common-lisp.dev/
+	https://github.com/slime/slime/"
 SRC_URI="https://github.com/slime/slime/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="public-domain GPL-2+ GPL-3+ LLGPL-2.1 ZLIB xref? ( xref.lisp )"
 SLOT="0"
-KEYWORDS="amd64 ppc ~sparc x86"
+KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 IUSE="doc xref"
 RESTRICT="test" # tests fail to contact sbcl
 
-RDEPEND="virtual/commonlisp
-	dev-lisp/asdf"
-DEPEND="${RDEPEND}"
-BDEPEND=">=sys-apps/texinfo-5.1
-	doc? ( virtual/texi2dvi )"
+RDEPEND="
+	virtual/commonlisp
+	dev-lisp/asdf
+"
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	>=sys-apps/texinfo-5.1
+	doc? (
+		virtual/texi2dvi
+	)
+"
 
 SITEFILE="70${PN}-gentoo.el"
 
 src_prepare() {
 	default
+
 	# Remove xref.lisp (which is non-free) unless USE flag is set
 	use xref || rm xref.lisp || die
 }
