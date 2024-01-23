@@ -37,9 +37,9 @@ RDEPEND="
 # Tests are run under virtx
 DEPEND="
 	${RDEPEND}
-	x11-base/xorg-proto
 	test? (
 		dev-libs/check
+		x11-base/xorg-proto
 		x11-libs/gtk+:3[X]
 	)
 "
