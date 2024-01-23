@@ -1330,7 +1330,7 @@ app-containers/cosign 2.0.0 2.0.1 2.2.0 2.2.1: container signing utility
 app-containers/cri-o 1.26.0 1.29.0: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.1 1.8.4 1.11.2: A fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.54.2 0.55.0 0.56.0: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.55.0 0.56.0 0.56.1: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.5.0.2 1.6.0.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0: System container image builder for LXC and incus
 app-containers/docker 24.0.5 24.0.6 24.0.7: The core functions you need to create Docker images and run Docker containers
@@ -1876,7 +1876,7 @@ app-emacs/bui 1.2.1_p20210108: Buffer interface library for Emacs
 app-emacs/burly 0.2 0.3: Save and restore frames and windows with their buffers in Emacs
 app-emacs/buttercup 1.31 1.32 1.33: Behaviour-driven Elisp testing
 app-emacs/calfw 1.6: A calendar framework for Emacs
-app-emacs/cape 0.16 0.17-r1 1.0 1.1 9999: Completion At Point Extensions
+app-emacs/cape 1.1 1.2 9999: Completion At Point Extensions
 app-emacs/cask 0.8.8: Project management for Emacs package development
 app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
@@ -1901,9 +1901,9 @@ app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols 
 app-emacs/company-mode 0.9.13_p20230306 0.10.0 0.10.1: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 29.1.4.4: Compatibility libraries for Emacs
-app-emacs/consult 0.35 1.0 1.1 9999: Consulting complete-read for GNU Emacs
+app-emacs/consult 1.0 1.1 1.2 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 0.9-r2 1.0: Consult integration for Flycheck
-app-emacs/corfu 1.0 1.1 9999: Completion Overlay Region FUnction
+app-emacs/corfu 1.1 1.2 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.14.0 0.14.2: Versions of common Emacs commands customized to make the best use of ivy
 app-emacs/crontab-mode 1.20: Mode for editing crontab files
 app-emacs/crux 0.4.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
@@ -1938,7 +1938,7 @@ app-emacs/docker 2.2.0_p20230605 2.3.1: Emacs integration for Docker
 app-emacs/docker-tramp 0.1.1: Emacs TRAMP integration for docker containers
 app-emacs/dockerfile-mode 1.8-r1: GNU Emacs mode for handling Dockerfiles
 app-emacs/doctest-mode 0.4: An Emacs major mode for editing Python source
-app-emacs/doom-modeline 3.4.0 4.0.1: Fancy and fast mode-line for Emacs inspired by minimalism design
+app-emacs/doom-modeline 4.0.1 4.1.0: Fancy and fast mode-line for Emacs inspired by minimalism design
 app-emacs/doom-themes 2.3.0 2.3.0_p20231208 9999: Opinionated megapack of modern color-themes for GNU Emacs
 app-emacs/doxymacs 1.8.0-r5: Doxygen editing minor mode
 app-emacs/dropdown-list 20120329: Drop-down menu interface
@@ -1974,7 +1974,7 @@ app-emacs/emacs-ccls 0_pre20220510-r1 0_pre20230311: Emacs client for ccls, a C/
 app-emacs/emacs-common 1.8 1.9: Common files needed by all GNU Emacs versions
 app-emacs/emacs-crystal-mode 0.1.0_p20221008: GNU Emacs major mode for editing Crystal programming language files
 app-emacs/emacs-daemon 0.22-r1: Gentoo support for Emacs running as a server in the background
-app-emacs/emacs-eat 0.9.2 0.9.4: Emulate A Terminal, in a region, in a buffer and in Eshell
+app-emacs/emacs-eat 0.9.4: Emulate A Terminal, in a region, in a buffer and in Eshell
 app-emacs/emacs-ebuild-snippets 2.2.0 9999: Yasnippets for editing ebuilds and eclasses
 app-emacs/emacs-eix 0.0.0 9999: Eix integration for GNU Emacs
 app-emacs/emacs-el-fetch 3.3.0 9999: Show system information in Neofetch-like style inside Emacs
@@ -2128,12 +2128,12 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 0.7 0.8 1.0: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.0: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.4.1 0.4.2: Contributed packages to Org
-app-emacs/org-mode 9.5.5 9.6.12 9.6.13 9.6.14 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.5.5 9.6.13 9.6.14 9.6.17 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 0.10 1.1: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r1 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
-app-emacs/osm 0.14 1.0 1.2 9999: OpenStreetMap tile-based viewer for GNU Emacs
+app-emacs/osm 1.0 1.2 1.3 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
 app-emacs/package-lint 0.21-r1: Linting library for Emacs Lisp package metadata
@@ -2150,7 +2150,7 @@ app-emacs/php-mode 1.25.0 1.25.1 9999: GNU Emacs major mode for editing PHP code
 app-emacs/pinentry 0.1_p20231126: GnuPG Pinentry server implementation for Emacs
 app-emacs/pkg-info 0.6: Provide information about Emacs packages
 app-emacs/planner 3.42-r1: Maintain a local Wiki using Emacs-friendly markup
-app-emacs/plz 0.6 0.7 0.7.1: HTTP library with curl backend for GNU Emacs
+app-emacs/plz 0.6 0.7 0.7.1 0.7.2: HTTP library with curl backend for GNU Emacs
 app-emacs/po-mode 0.20.1 0.21.1 0.22: Major mode for GNU gettext PO files
 app-emacs/poke 3.0 3.2: Emacs meets GNU poke!
 app-emacs/poke-mode 3.0: Major mode for editing Poke programs
@@ -2211,7 +2211,7 @@ app-emacs/sharper 1.0_p20230129-r1: .NET SDK CLI wrapper for GNU Emacs using Tra
 app-emacs/shell-split-string 0.1: Split Strings Using Shell-Like Syntax
 app-emacs/shrink-path 0.3.1: Fish-style path truncation for GNU Emacs
 app-emacs/shut-up 0.3.3: Reduce Emacs output of messages
-app-emacs/slime 2.27 2.28: SLIME, the Superior Lisp Interaction Mode (Extended)
+app-emacs/slime 2.28 2.29: SLIME, the Superior Lisp Interaction Mode (Extended)
 app-emacs/sly 1.0.43: Sylvester the Cat's Common Lisp IDE for GNU Emacs
 app-emacs/sml-mode 6.12: Emacs major mode for editing Standard ML
 app-emacs/sokoban 1.4.8 1.4.9: Implementation of Sokoban for Emacs
@@ -2252,7 +2252,7 @@ app-emacs/undo-tree 0.8.2-r1: Undo trees and visualization
 app-emacs/uptimes 3.7 3.8: Track and display emacs session uptimes
 app-emacs/use-package 2.4.5: Declaration macro for simplifying your Emacs configuration
 app-emacs/uxntal-mode 0.2: GNU Emacs major mode for the uxntal assembly language
-app-emacs/vertico 1.4 1.5 1.6 9999: Vertical interactive completion
+app-emacs/vertico 1.6 1.7 9999: Vertical interactive completion
 app-emacs/vhdl-mode 3.39.2 3.39.3: VHDL-mode for Emacs
 app-emacs/visual-basic-mode 1.5: A mode for editing Visual Basic programs
 app-emacs/vm 8.2.0_beta-r1: The VM mail reader for Emacs
@@ -3092,7 +3092,7 @@ app-shells/posh-z 1.1.12_p20230811: Quickly navigate the file system based on yo
 app-shells/powerline 2.7-r2 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh 7.3.9 7.4.0: Cross-platform automation and configuration tool
+app-shells/pwsh 7.4.0 7.4.1: Cross-platform automation and configuration tool
 app-shells/pwsh-bin 7.3.9 7.4.0 7.4.1: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r2: A reimplementation of the Plan 9 shell
@@ -4011,7 +4011,7 @@ dev-dotnet/dotnet-outdated 4.6.0: Display and update outdated NuGet packages in 
 dev-dotnet/dotnet-runtime-nugets 6.0.24 6.0.25 6.0.26 7.0.13 7.0.14 7.0.15 8.0.0 8.0.1: .NET runtime nugets
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.100-r1: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r1 7.0.404-r1 8.0.100-r1 8.0.101: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.417-r2 7.0.404-r2 8.0.100-r2 8.0.101-r1: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.9.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 6.2.3: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.68.0 0.69.0: F# language server using the Language Server Protocol
@@ -5184,6 +5184,7 @@ dev-lang/mozart-stdlib 2.0.1: The Mozart Standard Library
 dev-lang/mujs 1.3.3 1.3.4: An embeddable JavaScript interpreter written in C
 dev-lang/nasm 2.16.01-r1: groovy little assembler
 dev-lang/neko 2.3.0-r2: Neko is a high-level dynamically typed programming language
+dev-lang/nelua 9999 20240113: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 1.6.14-r1: Compiled, garbage-collected systems programming language
 dev-lang/nprolog 1.94: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2023.02 2023.10 2023.12 9999: Not Quite Perl, a Raku bootstrapping compiler

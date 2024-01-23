@@ -1,13 +1,13 @@
-BDEPEND=app-emacs/all-the-icons app-emacs/compat app-emacs/shrink-path >=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/compat app-emacs/nerd-icons app-emacs/shrink-path >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Fancy and fast mode-line for Emacs inspired by minimalism design
 EAPI=8
 HOMEPAGE=https://seagle0128.github.io/doom-modeline/ https://github.com/seagle0128/doom-modeline/
 INHERIT=elisp
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-emacs/all-the-icons app-emacs/compat app-emacs/shrink-path >=app-editors/emacs-25.3:*
+RDEPEND=app-emacs/compat app-emacs/nerd-icons app-emacs/shrink-path >=app-editors/emacs-25.3:*
 SLOT=0
-SRC_URI=https://github.com/seagle0128/doom-modeline/archive/v3.4.0.tar.gz -> doom-modeline-3.4.0.tar.gz
+SRC_URI=https://github.com/seagle0128/doom-modeline/archive/v4.1.0.tar.gz -> doom-modeline-4.1.0.tar.gz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=9501fd19bbdb9a4adf38a4ea4e7fbcf3
+_md5_=32193f5812f5d81568745d5b6716d51f
