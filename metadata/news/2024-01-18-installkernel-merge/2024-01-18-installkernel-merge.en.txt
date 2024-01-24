@@ -1,7 +1,7 @@
 Title: Merging of installkernel-gentoo and installkernel-systemd
 Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Posted: 2024-01-18
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: sys-kernel/installkernel
 Display-If-Installed: sys-kernel/installkernel-gentoo
@@ -45,11 +45,15 @@ User Action Required (systemd-boot users)
 Previously sys-kernel/installkernel-systemd provided kernel installation
 automation for users of systemd-boot. sys-kernel/installkernel provides
 the same functionality but only via systemd's kernel-install. Users
-of systemd-boot should therefore ensure that the systemd USE flag is enabled
+of systemd-boot should therefore ensure that the "systemd" USE flag is enabled
 when upgrading to >=sys-kernel/installkernel-14.
 
-This upgrade path is enforced by sys-kernel/installkernel-systemd-4, which is
-just a wrapper pulling in >=sys-kernel/installkernel-14 with the systemd flag
+Users who are using the distribution kernels (i.e. gentoo-kernel(-bin)) should
+enable the "dracut" USE flag on installkernel as well to pull in and enable
+the dracut initramfs generator. This is enforced by portage.
+
+The upgrade path is enforced by sys-kernel/installkernel-systemd-4, which is
+just a wrapper pulling in >=sys-kernel/installkernel-14 with the "systemd" flag
 enabled. sys-kernel/installkernel-systemd may be removed after installing
 >=sys-kernel/installkernel-14.
 
