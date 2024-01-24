@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-28">
+    <title>GOCR: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GOCR, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">gocr</product>
+    <announced>2024-01-24</announced>
+    <revised count="1">2024-01-24</revised>
+    <bug>824290</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-text/gocr" auto="yes" arch="*">
+            <vulnerable range="le">0.52-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GOCR is an OCR (Optical Character Recognition) program, developed under the GNU Public License. It converts scanned images of text back to text files.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GOCR. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for GOCR. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "app-text/gocr"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33479">CVE-2021-33479</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33480">CVE-2021-33480</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33481">CVE-2021-33481</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-24T04:04:56.645847Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-24T04:04:56.650159Z">ajak</metadata>
+</glsa>
