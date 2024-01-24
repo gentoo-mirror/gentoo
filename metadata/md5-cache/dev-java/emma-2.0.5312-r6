@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=dev-java/ant-1.10.14:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Free Java code coverage tool
+EAPI=8
+HOMEPAGE=https://emma.sourceforge.net/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=+launcher doc source
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=CPL-1.0
+RDEPEND=>=dev-java/ant-1.10.14:0 >=virtual/jre-1.8:* launcher? ( !sci-biology/emboss:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=mirror://sourceforge/project/emma/emma-release/2.0.5312/emma-2.0.5312-src.zip
+_eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
+_md5_=e022c0d8ba3b457dbc01ffca827d1e02
