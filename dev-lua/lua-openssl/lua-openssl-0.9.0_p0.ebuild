@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ MY_PN_COMPAT="lua-compat-5.3"
 MY_PV="${PV//_p/-}"
 MY_PV_COMPAT="0.10"
 
-inherit lua toolchain-funcs
+inherit flag-o-matic lua toolchain-funcs
 
 DESCRIPTION="OpenSSL binding for Lua"
 HOMEPAGE="https://github.com/zhaozg/lua-openssl"
@@ -40,8 +40,6 @@ BDEPEND="
 	test? ( ${RDEPEND} )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-0.8.3-clang16.patch" )
-
 src_prepare() {
 	default
 
@@ -62,6 +60,10 @@ src_prepare() {
 
 lua_src_compile() {
 	pushd "${BUILD_DIR}" || die
+
+	# See https://bugs.gentoo.org/920643
+	# See https://github.com/zhaozg/lua-openssl/issues/305
+	append-cflags -Wno-error=incompatible-pointer-types
 
 	local myemakeargs=(
 		"AR=$(tc-getAR)"
