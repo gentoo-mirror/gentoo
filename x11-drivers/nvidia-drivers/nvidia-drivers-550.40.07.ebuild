@@ -4,35 +4,33 @@
 EAPI=8
 
 MODULES_OPTIONAL_IUSE=+modules
-inherit desktop flag-o-matic linux-mod-r1 multilib readme.gentoo-r1
+inherit desktop flag-o-matic linux-mod-r1 readme.gentoo-r1
 inherit systemd toolchain-funcs unpacker user-info
 
 MODULES_KERNEL_MAX=6.7
-NV_PIN=535.146.02
+NV_URI="https://download.nvidia.com/XFree86/"
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
-HOMEPAGE="https://developer.nvidia.com/vulkan-driver"
+HOMEPAGE="https://www.nvidia.com/download/index.aspx"
 SRC_URI="
-	https://developer.nvidia.com/downloads/vulkan-beta-${PV//.}-linux
-		-> NVIDIA-Linux-x86_64-${PV}.run
-	$(printf "https://download.nvidia.com/XFree86/%s/%s-${NV_PIN}.tar.bz2 " \
+	amd64? ( ${NV_URI}Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
+	arm64? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
+	$(printf "${NV_URI}%s/%s-${PV}.tar.bz2 " \
 		nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})
-	https://github.com/NVIDIA/open-gpu-kernel-modules/archive/refs/tags/${PV}.tar.gz
-		-> open-gpu-kernel-modules-${PV}.tar.gz
+	${NV_URI}NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-${PV}.tar.xz
 "
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S=${WORKDIR}
 
 LICENSE="NVIDIA-r2 Apache-2.0 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
-SLOT="0/vulkan"
-KEYWORDS="-* ~amd64"
+SLOT="0/${PV%%.*}"
+# not keywording betas
+#KEYWORDS="-* ~amd64 ~arm64"
 IUSE="+X abi_x86_32 abi_x86_64 kernel-open persistenced +static-libs +tools wayland"
 REQUIRED_USE="kernel-open? ( modules )"
 
 COMMON_DEPEND="
 	acct-group/video
-	sys-libs/glibc
-	dev-libs/openssl:0/3
 	X? ( x11-libs/libpciaccess )
 	persistenced? (
 		acct-user/nvpd
@@ -64,7 +62,6 @@ RDEPEND="
 	wayland? (
 		gui-libs/egl-gbm
 		>=gui-libs/egl-wayland-1.1.10
-		media-libs/libglvnd
 	)
 "
 DEPEND="
@@ -91,10 +88,7 @@ BDEPEND="
 QA_PREBUILT="lib/firmware/* opt/bin/* usr/lib*"
 
 PATCHES=(
-	"${FILESDIR}"/nvidia-drivers-525.147.05-gcc14.patch
-	"${FILESDIR}"/nvidia-kernel-module-source-515.86.01-raw-ldflags.patch
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
-	"${FILESDIR}"/nvidia-settings-390.144-raw-ldflags.patch
 	"${FILESDIR}"/nvidia-settings-530.30.02-desktop.patch
 )
 
@@ -134,16 +128,13 @@ pkg_setup() {
 
 src_prepare() {
 	# make patches usable across versions
-	rm nvidia-modprobe && mv nvidia-modprobe{-${NV_PIN},} || die
-	rm nvidia-persistenced && mv nvidia-persistenced{-${NV_PIN},} || die
-	rm nvidia-settings && mv nvidia-settings{-${NV_PIN},} || die
-	rm nvidia-xconfig && mv nvidia-xconfig{-${NV_PIN},} || die
-	mv open-gpu-kernel-modules-${PV} kernel-module-source || die
+	rm nvidia-modprobe && mv nvidia-modprobe{-${PV},} || die
+	rm nvidia-persistenced && mv nvidia-persistenced{-${PV},} || die
+	rm nvidia-settings && mv nvidia-settings{-${PV},} || die
+	rm nvidia-xconfig && mv nvidia-xconfig{-${PV},} || die
+	mv NVIDIA-kernel-module-source-${PV} kernel-module-source || die
 
 	default
-
-	kernel_is -ge 6 7 &&
-		eapply "${FILESDIR}"/nvidia-drivers-535.43.22-kernel-6.7.patch
 
 	# prevent detection of incomplete kernel DRM support (bug #603818)
 	sed 's/defined(CONFIG_DRM/defined(CONFIG_DRM_KMS_HELPER/g' \
@@ -159,24 +150,16 @@ src_prepare() {
 	use X || sed -i 's/"libGLX/"libEGL/' nvidia_{layers,icd}.json || die
 
 	# enable nvidia-drm.modeset=1 by default with USE=wayland
-	cp "${FILESDIR}"/nvidia-470.conf "${T}"/nvidia.conf || die
+	cp "${FILESDIR}"/nvidia-545.conf "${T}"/nvidia.conf || die
 	use !wayland || sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
 
 	# makefile attempts to install wayland library even if not built
 	use wayland || sed -i 's/ WAYLAND_LIB_install$//' \
 		nvidia-settings/src/Makefile || die
-
-	# temporary option, nvidia will remove in the future
-	use !kernel-open ||
-		sed -i '/blacklist/a\
-\
-# Enable using kernel-open with workstation GPUs (experimental)\
-options nvidia NVreg_OpenRmEnableUnsupportedGpus=1' "${T}"/nvidia.conf || die
 }
 
 src_compile() {
 	tc-export AR CC CXX LD OBJCOPY OBJDUMP PKG_CONFIG
-	local -x RAW_LDFLAGS="$(get_abi_LDFLAGS) $(raw-ldflags)" # raw-ldflags.patch
 
 	local xnvflags=-fPIC #840389
 	# lto static libraries tend to cause problems without fat objects
@@ -259,7 +242,6 @@ src_install() {
 
 	local skip_files=(
 		$(usev !X "libGLX_nvidia libglxserver_nvidia")
-		$(usev !wayland libnvidia-vulkan-producer)
 		libGLX_indirect # non-glvnd unused fallback
 		libnvidia-{gtk,wayland-client} nvidia-{settings,xconfig} # from source
 		libnvidia-egl-gbm 15_nvidia_gbm # gui-libs/egl-gbm
@@ -414,12 +396,9 @@ documentation that is installed alongside this README."
 	dobin nvidia-bug-report.sh
 
 	# MODULE:powerd extras
-	if use amd64; then
-		systemd_dounit systemd/system/nvidia-powerd.service
-
-		insinto /usr/share/dbus-1/system.d
-		doins nvidia-dbus.conf
-	fi
+	insinto /usr/share/dbus-1/system.d
+	doins nvidia-dbus.conf
+	systemd_dounit systemd/system/nvidia-powerd.service
 
 	# symlink non-versioned so nvidia-settings can use it even if misdetected
 	dosym nvidia-application-profiles-${PV}-key-documentation \
@@ -428,15 +407,16 @@ documentation that is installed alongside this README."
 	# don't attempt to strip firmware files (silences errors)
 	dostrip -x ${paths[FIRMWARE]}
 
-	# sandbox issues with /dev/nvidiactl (and /dev/char wrt bug #904292)
+	# sandbox issues with /dev/nvidiactl others (bug #904292,#921578)
 	# are widespread and sometime affect revdeps of packages built with
 	# USE=opencl/cuda making it hard to manage in ebuilds (minimal set,
 	# ebuilds should handle manually if need others or addwrite)
 	insinto /etc/sandbox.d
-	newins - 20nvidia <<<'SANDBOX_PREDICT="/dev/nvidiactl:/dev/char"'
+	newins - 20nvidia <<<'SANDBOX_PREDICT="/dev/nvidiactl:/dev/nvidia-caps:/dev/char"'
 }
 
 pkg_preinst() {
+	has_version "${CATEGORY}/${PN}[kernel-open]" && NV_HAD_KERNEL_OPEN=
 	has_version "${CATEGORY}/${PN}[wayland]" && NV_HAD_WAYLAND=
 
 	use modules || return
@@ -501,7 +481,7 @@ pkg_postinst() {
 		ewarn "[2] https://wiki.gentoo.org/wiki/Nouveau"
 	fi
 
-	if use kernel-open; then
+	if use kernel-open && [[ ! -v NV_HAD_KERNEL_OPEN ]]; then
 		ewarn
 		ewarn "Open source variant of ${PN} was selected, be warned it is experimental"
 		ewarn "and only for modern GPUs (e.g. GTX 1650+). Try to disable if run into issues."
