@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-27">
+    <title>Ruby: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Ruby, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">ruby</product>
+    <announced>2024-01-24</announced>
+    <revised count="1">2024-01-24</revised>
+    <bug>747007</bug>
+    <bug>801061</bug>
+    <bug>827251</bug>
+    <bug>838073</bug>
+    <bug>882893</bug>
+    <bug>903630</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-lang/ruby" auto="yes" arch="*">
+            <unaffected range="ge" slot="3.1">3.1.4</unaffected>
+            <unaffected range="ge" slot="3.2">3.2.2</unaffected>
+            <vulnerable range="lt" slot="2.5">2.5.9</vulnerable>
+            <vulnerable range="lt" slot="2.6">2.6.10</vulnerable>
+            <vulnerable range="lt" slot="2.7">2.7.8</vulnerable>
+            <vulnerable range="lt" slot="3.0">3.0.6</vulnerable>
+            <vulnerable range="lt" slot="3.1">3.1.4</vulnerable>
+            <vulnerable range="lt" slot="3.2">3.2.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ruby is an interpreted scripting language for quick and easy object-oriented programming. It comes bundled with a HTTP server (&#34;WEBrick&#34;).</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Ruby. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Ruby users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --depclean ruby:2.5 ruby:2.6 ruby:2.7 ruby:3.0
+          # emerge --ask --oneshot --verbose ">=dev-lang/ruby-3.1.4:3.1"
+          # emerge --ask --oneshot --verbose ">=dev-lang/ruby-3.2.2:3.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25613">CVE-2020-25613</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31810">CVE-2021-31810</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32066">CVE-2021-32066</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33621">CVE-2021-33621</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41816">CVE-2021-41816</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41817">CVE-2021-41817</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41819">CVE-2021-41819</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28738">CVE-2022-28738</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28739">CVE-2022-28739</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28755">CVE-2023-28755</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28756">CVE-2023-28756</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-24T04:04:06.335865Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-24T04:04:06.338696Z">ajak</metadata>
+</glsa>
