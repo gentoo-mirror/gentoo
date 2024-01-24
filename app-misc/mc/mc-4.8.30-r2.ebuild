@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit autotools flag-o-matic
 
 MY_P="${P/_/-}"
 SRC_URI="http://ftp.midnight-commander.org/${MY_P}.tar.xz"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
 
 DESCRIPTION="GNU Midnight Commander is a text based file manager"
 HOMEPAGE="https://midnight-commander.org"
@@ -50,12 +50,18 @@ S="${WORKDIR}/${MY_P}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.8.26-ncurses-mouse.patch
 	"${FILESDIR}"/${PN}-4.8.29-gentoo-tools.patch
-	"${FILESDIR}"/${PN}-4.8.29-autoconf-c99.patch
+	"${FILESDIR}"/${PN}-4.8.30-mcdiff-segfault.patch
 )
 
 src_prepare() {
 	default
-	# patch touches configure.ac
+
+	# Bug #906194
+	use elibc_musl && eapply "${FILESDIR}"/${PN}-4.8.30-musl-tests.patch
+
+	# Bug #916528
+	use unicode && eapply "${FILESDIR}"/${PN}-4.8.30-fish_fix_broken_national_characters.patch
+
 	eautoreconf
 }
 
