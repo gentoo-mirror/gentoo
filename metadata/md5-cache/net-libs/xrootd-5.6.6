@@ -1,0 +1,17 @@
+BDEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( >=dev-python/pytest-7.1.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) ) test? ( dev-cpp/gtest dev-util/cppunit ) app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( app-text/doxygen media-gfx/graphviz virtual/latex-base python? ( dev-python/sphinx ) ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=acct-group/xrootd acct-user/xrootd dev-libs/openssl:0= sys-libs/zlib virtual/libcrypt:= ceph? ( sys-cluster/ceph ) fuse? ( sys-fs/fuse:0= ) http? ( net-misc/curl:= net-libs/davix ) kerberos? ( virtual/krb5 ) libxml2? ( dev-libs/libxml2:2= ) macaroons? ( dev-libs/libmacaroons ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) readline? ( sys-libs/readline:0= ) scitokens? ( dev-cpp/scitokens-cpp ) systemd? ( sys-apps/systemd:= ) xrdec? ( dev-libs/isa-l )
+DESCRIPTION=Extended ROOT remote file server
+EAPI=8
+HOMEPAGE=https://xrootd.slac.stanford.edu/
+INHERIT=cmake docs distutils-r1 systemd
+IUSE=ceph examples fuse http kerberos +libxml2 macaroons python readline scitokens +server systemd test xrdec doc python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-3+
+RDEPEND=acct-group/xrootd acct-user/xrootd dev-libs/openssl:0= sys-libs/zlib virtual/libcrypt:= ceph? ( sys-cluster/ceph ) fuse? ( sys-fs/fuse:0= ) http? ( net-misc/curl:= net-libs/davix ) kerberos? ( virtual/krb5 ) libxml2? ( dev-libs/libxml2:2= ) macaroons? ( dev-libs/libmacaroons ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) readline? ( sys-libs/readline:0= ) scitokens? ( dev-cpp/scitokens-cpp ) systemd? ( sys-apps/systemd:= ) xrdec? ( dev-libs/isa-l ) dev-lang/perl
+REQUIRED_USE=http? ( kerberos ) macaroons? ( server http ) python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) ) scitokens? ( server ) test? ( server )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://xrootd.slac.stanford.edu/download/v5.6.6/xrootd-5.6.6.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	78cf3cc2d5572fddf5e5e10c70f7c81a	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	docs	7f3c0d47338743498c69f1887a139f57	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	b9318b5e40104e608d7e4582121fb561	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=3cd7ecdb56e38cecc52d1b8d9e5cc76c
