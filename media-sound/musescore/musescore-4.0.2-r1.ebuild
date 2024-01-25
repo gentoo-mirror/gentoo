@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,7 +36,6 @@ BDEPEND="
 "
 RDEPEND="
 	dev-libs/tinyxml2:=
-	dev-qt/designer:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
@@ -47,7 +46,7 @@ RDEPEND="
 	dev-qt/qtopengl:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtquickcontrols:5
-	dev-qt/qtquickcontrols2:5
+	dev-qt/qtquickcontrols2:5[widgets]
 	>=dev-qt/qtsingleapplication-2.6.1_p20171024[X]
 	dev-qt/qtsvg:5
 	dev-qt/qtx11extras:5

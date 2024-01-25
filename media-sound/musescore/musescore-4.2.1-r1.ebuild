@@ -35,7 +35,6 @@ BDEPEND="
 "
 RDEPEND="
 	dev-libs/tinyxml2:=
-	dev-qt/designer:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
@@ -47,7 +46,7 @@ RDEPEND="
 	dev-qt/qtopengl:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtquickcontrols:5
-	dev-qt/qtquickcontrols2:5
+	dev-qt/qtquickcontrols2:5[widgets]
 	>=dev-qt/qtsingleapplication-2.6.1_p20171024[X]
 	dev-qt/qtsvg:5
 	dev-qt/qtx11extras:5
