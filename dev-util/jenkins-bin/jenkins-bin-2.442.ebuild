@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,8 +8,8 @@ inherit systemd
 DESCRIPTION="The leading open source automation server"
 HOMEPAGE="https://jenkins.io/"
 LICENSE="MIT"
-SRC_URI="https://get.jenkins.io/war-stable/${PV}/${PN/-bin/}.war -> ${P}.war"
-SLOT="lts"
+SRC_URI="https://get.jenkins.io/war/${PV}/${PN/-bin/}.war -> ${P}.war"
+SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux"
 IUSE=""
 
@@ -20,7 +20,7 @@ RDEPEND="acct-group/jenkins
 	acct-user/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
-	!dev-util/jenkins-bin:0
+	!dev-util/jenkins-bin:lts
 	|| ( virtual/jre:17 virtual/jre:11 )"
 
 S="${WORKDIR}"
