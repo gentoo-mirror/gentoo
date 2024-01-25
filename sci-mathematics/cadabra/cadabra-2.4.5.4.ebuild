@@ -1,12 +1,12 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-MAJOR=$(ver_cut 1)
-CADABRA=${PN}${MAJOR}
+MAJOR="$(ver_cut 1)"
+CADABRA="${PN}${MAJOR}"
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit xdg-utils python-single-r1 cmake
 
@@ -20,8 +20,9 @@ if [[ "${PV}" == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/kpeeters/${CADABRA}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}"/${CADABRA}-${PV}
-	KEYWORDS="amd64 ~x86"
+	S="${WORKDIR}/${CADABRA}-${PV}"
+
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
@@ -46,12 +47,18 @@ RDEPEND="
 		dev-python/sympy[${PYTHON_USEDEP}]
 		jupyter? ( dev-python/jupyter[${PYTHON_USEDEP}] )
 	')
-	gui? ( dev-cpp/gtkmm:3.0 )
+	gui? (
+		dev-cpp/gtkmm:3.0
+	)
 "
-DEPEND="${RDEPEND}"
-BDEPEND="$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')"
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')
+"
 
-PATCHES=( "${FILESDIR}"/${CADABRA}-CMake.patch )
+PATCHES=( "${FILESDIR}/${CADABRA}-CMake.patch" )
 
 DOCS=( CODE_OF_CONDUCT.md CONTRIBUTING.md JUPYTER.rst README.rst )
 
@@ -65,11 +72,11 @@ xdg_update() {
 
 src_prepare() {
 	# Clean postinst script which calls libtool and icon-cache update
-	echo '#!/bin/sh' > "${S}"/config/postinst.in || die
+	echo '#!/bin/sh' > "${S}/config/postinst.in" || die
 
 	# Fix "PYTHON_EXECUTABLE" in Jupyter kernel
 	sed -i "s|@PYTHON_EXECUTABLE@|${EPYTHON}|"  \
-		"${S}"/jupyterkernel/kernelspec/kernel.json.in || die
+		"${S}/jupyterkernel/kernelspec/kernel.json.in" || die
 
 	cmake_src_prepare
 }
@@ -83,9 +90,9 @@ src_configure() {
 		-DENABLE_JUPYTER=OFF  # special Xeus Jupyter kernel (uses xtl)
 		-DENABLE_MATHEMATICA=OFF
 		-DINSTALL_TARGETS_ONLY=OFF
-		-DBUILD_TESTS=$(usex test)
-		-DENABLE_FRONTEND=$(usex gui)
-		-DENABLE_PY_JUPYTER=$(usex jupyter)
+		-DBUILD_TESTS="$(usex test)"
+		-DENABLE_FRONTEND="$(usex gui)"
+		-DENABLE_PY_JUPYTER="$(usex jupyter)"
 	)
 	cmake_src_configure
 }
