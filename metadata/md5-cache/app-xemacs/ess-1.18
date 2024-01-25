@@ -1,0 +1,13 @@
+DEFINED_PHASES=install unpack
+DEPEND=app-xemacs/xemacs-base app-xemacs/mail-lib app-xemacs/fsf-compat app-xemacs/edit-utils app-xemacs/speedbar app-xemacs/sh-script app-xemacs/xemacs-eterm
+DESCRIPTION=ESS: Emacs Speaks Statistics
+EAPI=8
+HOMEPAGE=http://xemacs.org/
+INHERIT=xemacs-packages
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=app-editors/xemacs
+SLOT=0
+SRC_URI=http://ftp.xemacs.org/pub/xemacs/beta/experimental/packages/ess-1.18-pkg.tar.gz
+_eclasses_=xemacs-packages	2dd9abfafe67a3baec07d3972df93ec8
+_md5_=19c6402913832c8d6f8d345ddf58e2ae
