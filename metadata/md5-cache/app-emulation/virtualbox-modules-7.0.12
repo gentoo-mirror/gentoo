@@ -7,10 +7,10 @@ HOMEPAGE=https://www.virtualbox.org/
 IDEPEND=sys-apps/kmod[tools]
 INHERIT=linux-mod-r1
 IUSE=dist-kernel modules-compress modules-sign +strip
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-3
 RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 SLOT=0/7.0
 SRC_URI=https://dev.gentoo.org/~ceamac/app-emulation/virtualbox-modules/vbox-kernel-module-src-7.0.12.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	68bedce8af327ac36931a9a280d7d3f6
-_md5_=0fb79576a03c8892507f721f2178ce6f
+_md5_=4029e02a78ac93bb8c3ef21d14d55e9b
