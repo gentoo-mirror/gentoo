@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/findlib doc? ( >=dev-java/antlr-4.7:4 dev-python/antlr4-python3-runtime dev-python/beautifulsoup4 dev-python/pexpect dev-python/sphinx-rtd-theme dev-python/sphinxcontrib-bibtex dev-tex/latexmk dev-texlive/texlive-fontsextra dev-texlive/texlive-latexextra dev-texlive/texlive-xetex media-fonts/freefont ) test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-ml/num:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Proof assistant written in O'Caml
+EAPI=8
+HOMEPAGE=http://coq.inria.fr/ https://github.com/coq/coq/
+INHERIT=check-reqs desktop dune edo
+IUSE=debug doc gui +ocamlopt test
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-ml/num:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/8.19.0
+SRC_URI=https://github.com/coq/coq/archive/V8.19.0.tar.gz -> coq-8.19.0.tar.gz
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	desktop	021728fdc1b03b36357dbc89489e0f0d	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	beddc7cde467b2e48afc78a87d042c01
+_md5_=99086e6ff19a76199c9aa6d0564ada66
