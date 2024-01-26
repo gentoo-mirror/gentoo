@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=meson-python
 DISTUTILS_EXT=1
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 optfeature pypi
 
@@ -19,7 +19,6 @@ HOMEPAGE="
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-
 PROPERTIES="test_network"
 RESTRICT="test"
 
@@ -44,10 +43,14 @@ distutils_enable_tests pytest
 # There is a programmable error in your configuration file:
 #distutils_enable_sphinx doc/source dev-python/numpydoc dev-python/myst-parser
 
+PATCHES=(
+	# https://github.com/scikit-image/scikit-image/pull/7307
+	"${FILESDIR}/${P}-no-numpydoc.patch"
+)
+
 python_test() {
-	# This needs to be run in the install dir
-	cd "${WORKDIR}/${PN//-/_}-${PV}-${EPYTHON//./_}/install/usr/lib/${EPYTHON}/site-packages/skimage" || die
-	distutils-r1_python_test
+	rm -rf skimage || die
+	epytest --pyargs skimage
 }
 
 pkg_postinst() {
