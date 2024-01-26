@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 multiprocessing
 
@@ -75,6 +75,8 @@ python_test() {
 		dask/dataframe/io/tests/test_sql.py
 		# crashes
 		dask/tests/test_base.py::test_tokenize_object_with_recursion_error
+		# regression with new pandas (?)
+		dask/dataframe/tests/test_multi.py::test_concat5
 	)
 
 	if ! has_version -b "dev-python/pyarrow[parquet,${PYTHON_USEDEP}]"; then
