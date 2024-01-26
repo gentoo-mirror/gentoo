@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake-multilib systemd toolchain-funcs
+inherit cmake-multilib multibuild systemd toolchain-funcs
 
 DESCRIPTION="Software real-time synthesizer based on the Soundfont 2 specifications"
 HOMEPAGE="https://www.fluidsynth.org"
@@ -12,10 +12,14 @@ SRC_URI="https://github.com/FluidSynth/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="LGPL-2.1+"
 SLOT="0/3"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv sparc x86"
-IUSE="alsa dbus debug examples ipv6 jack ladspa lash network oss pipewire portaudio pulseaudio +readline sdl +sndfile systemd threads"
+IUSE="alsa dbus debug doc ipv6 jack ladspa lash network oss pipewire portaudio pulseaudio +readline sdl +sndfile systemd threads"
 
 BDEPEND="
 	virtual/pkgconfig
+	doc? (
+		app-text/doxygen
+		dev-libs/libxslt
+	)
 "
 DEPEND="
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
@@ -42,9 +46,15 @@ RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS ChangeLog README.md THANKS TODO doc/fluidsynth-v20-devdoc.txt )
 
+src_prepare() {
+	# https://bugs.gentoo.org/833979#c17
+	sed -i "/CONFIGURE_COMMAND/{n;s/$/ -DCMAKE_C_COMPILER=$(tc-getBUILD_CC)/}" \
+		src/CMakeLists.txt || die
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_C_COMPILER="$(tc-getCC)"
 		-Denable-alsa=$(usex alsa)
 		-Denable-aufile=ON
 		-Denable-dbus=$(usex dbus)
@@ -73,6 +83,7 @@ src_configure() {
 		-Denable-ubsan=OFF # compile and link against UBSan (for debugging fluidsynth internals)
 		-Denable-waveout=OFF # Windows
 		-Denable-winmidi=OFF # Windows
+		$(cmake_use_find_package doc Doxygen)
 	)
 
 	if use alsa; then
@@ -86,6 +97,22 @@ src_configure() {
 	fi
 
 	cmake-multilib_src_configure
+}
+
+compile_doxygen_doc() {
+	multilib_is_native_abi && cmake_build doxygen
+}
+
+src_compile() {
+	cmake-multilib_src_compile
+	use doc && multilib_foreach_abi compile_doxygen_doc
+}
+
+install_doxygen_doc() {
+	if multilib_is_native_abi; then
+		docinto .
+		dodoc -r "${BUILD_DIR}/doc/api/html"
+	fi
 }
 
 install_systemd_files() {
@@ -106,11 +133,12 @@ src_install() {
 	docinto pdf
 	dodoc doc/*.pdf
 
-	if use examples; then
-		docinto examples
-		dodoc doc/examples/*.c
-	fi
+	docinto examples
+	dodoc doc/examples/*.c
 
+	if use doc; then
+		multilib_foreach_abi install_doxygen_doc
+	fi
 	if use systemd; then
 		multilib_foreach_abi install_systemd_files
 
