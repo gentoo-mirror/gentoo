@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -104,7 +104,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://gitlab.com/virtio-fs/virtiofsd/-/archive/v${PV}/virtiofsd-v${PV}.tar.bz2"
 	SRC_URI+=" ${CARGO_CRATE_URIS}"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~ppc64"
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
