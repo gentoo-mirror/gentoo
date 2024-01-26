@@ -1,15 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 virtual/pkgconfig
 DEFINED_PHASES=configure install prepare
-DEPEND=reports? ( dev-perl/DBI ) || ( mail-filter/libmilter mail-mta/sendmail )
+DEPEND=mail-filter/libmilter:= reports? ( dev-perl/DBI )
 DESCRIPTION=Open source DMARC implementation
 EAPI=7
 HOMEPAGE=http://www.trusteddomain.org/opendmarc/
 INHERIT=autotools systemd
 IUSE=spf +reports
-KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ppc ppc64 sparc x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=BSD
-RDEPEND=reports? ( dev-perl/DBI ) || ( mail-filter/libmilter mail-mta/sendmail ) acct-user/opendmarc reports? ( dev-perl/DBD-mysql dev-perl/HTTP-Message dev-perl/Switch ) spf? ( mail-filter/libspf2 )
+RDEPEND=mail-filter/libmilter:= reports? ( dev-perl/DBI ) acct-user/opendmarc reports? ( dev-perl/DBD-mysql dev-perl/HTTP-Message dev-perl/Switch ) spf? ( mail-filter/libspf2 )
 SLOT=0/3
 SRC_URI=https://github.com/trusteddomainproject/OpenDMARC/archive/rel-opendmarc-1-4-1-1.tar.gz -> opendmarc-1.4.1.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=3b9dbf1859c1c53ef2ab97810b7d8aa1
+_md5_=0561416ce0df3b2b270de34e98d59753
