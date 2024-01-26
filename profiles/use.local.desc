@@ -577,6 +577,7 @@ app-emulation/libvirt:pcap - Support auto learning IP addreses for routing
 app-emulation/libvirt:qemu - Support management of QEMU virtualisation (app-emulation/qemu)
 app-emulation/libvirt:rbd - Enable rados block device support via sys-cluster/ceph
 app-emulation/libvirt:virt-network - Enable virtual networking (NAT) support for guests. Includes all the dependencies for NATed network mode. Effectively any network setup that relies on libvirt to setup and configure network interfaces on your host. This can include bridged and routed networks ONLY if you are allowing libvirt to create and manage the underlying devices for you. In some cases this requires enabling the 'netcf' USE flag (currently unavailable).
+app-emulation/libvirt:virtiofsd - Drag in virtiofsd dependency app-emulation/virtiofsd
 app-emulation/libvirt:virtualbox - Support management of VirtualBox virtualisation (app-emulation/virtualbox)
 app-emulation/libvirt:wireshark-plugins - Build the net-analyzer/wireshark plugin for the Libvirt RPC protocol
 app-emulation/libvirt:xen - Support management of Xen virtualisation (app-emulation/xen)
