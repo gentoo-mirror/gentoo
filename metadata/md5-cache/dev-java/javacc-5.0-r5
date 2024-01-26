@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://javacc.github.io/javacc/
 INHERIT=java-pkg-2 java-ant-2
 IUSE=doc examples source test
-KEYWORDS=~amd64 ~arm ~arm64
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD
 RDEPEND=dev-java/junit:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://java.net/projects/javacc/downloads/download/javacc-5.0src.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	java-ant-2	53b9c110af009f9f4548f5b129ae6fe6
-_md5_=ff3a1ef8a5c20dbe236a8be07ba05fd9
+_md5_=10edc29926530c22e3a7fdfe56d0511a
