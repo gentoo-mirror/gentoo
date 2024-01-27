@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 inherit toolchain-funcs
 
@@ -11,7 +11,7 @@ SRC_URI="https://www.corpit.ru/mjt/${PN}/${P}.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~hppa ~ia64 ~mips ppc ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ia64 ~mips ~ppc ~riscv ~x86"
 IUSE="static-libs"
 RESTRICT="test"
 
