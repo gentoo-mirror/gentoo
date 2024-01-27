@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
-inherit distutils-r1 optfeature xdg
+PYTHON_COMPAT=( python3_{9..12} )
+inherit desktop distutils-r1 optfeature xdg
 
 DESCRIPTION="GTK image viewer for comic book archives"
 HOMEPAGE="https://mcomix.sourceforge.net"
@@ -13,8 +13,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
-IUSE=""
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${DEPEND}
@@ -31,8 +30,23 @@ src_prepare() {
 	default
 
 	# Uncompress man page
-	gunzip mcomix.1.gz || die
-	sed -e "s/mcomix.1.gz/mcomix.1/" -i setup.py || die
+	gunzip share/man/man1/mcomix.1.gz || die
+}
+
+src_install() {
+	distutils-r1_src_install
+
+	# Application meta files are not installed automatically anymore
+	domenu share/applications/*.desktop
+	local x
+	for x in 16 22 24 32 48 256 scalable; do
+		doicon -s ${x} share/icons/hicolor/${x}*/*
+	done
+	doman share/man/man1/mcomix.1
+	insinto /usr/share/metainfo
+	doins share/metainfo/*.xml
+	insinto /usr/share/mime/packages
+	doins share/mime/packages/*.xml
 }
 
 pkg_postinst() {
