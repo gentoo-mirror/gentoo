@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -38,8 +38,7 @@ DESCRIPTION="Linux kernel fork that includes the pf-kernel patchset and Gentoo's
 HOMEPAGE="https://pfkernel.natalenko.name/
 	https://dev.gentoo.org/~mpagano/genpatches/"
 SRC_URI="https://codeberg.org/pf-kernel/linux/archive/v${PFPV}.tar.gz -> linux-${PFPV}.tar.gz
-	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.base.tar.xz
-	https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-${SHPV}-${K_GENPATCHES_VER}.extras.tar.xz"
+	${GENPATCHES_URI}"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
