@@ -3,14 +3,13 @@
 
 EAPI=8
 
-inherit autotools subversion
-
 DESCRIPTION="C++ library for loading Gigasampler and DLS level 1/2 files"
 HOMEPAGE="https://www.linuxsampler.org/libgig/"
-ESVN_REPO_URI="https://svn.linuxsampler.org/svn/libgig/trunk"
+SRC_URI="https://download.linuxsampler.org/packages/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="doc"
 
 RDEPEND="
@@ -20,13 +19,6 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	doc? ( app-text/doxygen )"
-
-src_prepare() {
-	default
-
-	emake -f Makefile.svn
-	eautoreconf
-}
 
 src_compile() {
 	emake
