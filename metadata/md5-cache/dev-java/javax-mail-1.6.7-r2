@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-11:* dev-java/jakarta-activation:1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=dev-java/jakarta-activation:1 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Jakarta Mail API
 EAPI=8
 HOMEPAGE=https://jakartaee.github.io/mail-api/
@@ -7,9 +7,9 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
 KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=EPL-1.0 EPL-2.0 GPL-2-with-classpath-exception
-RDEPEND=>=virtual/jre-1.8:* dev-java/jakarta-activation:1 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/jakartaee/mail-api/archive/refs/tags/1.6.7.tar.gz -> javax-mail-1.6.7.tar.gz
+SRC_URI=https://github.com/jakartaee/mail-api/archive/1.6.7.tar.gz -> javax-mail-1.6.7.tar.gz https://github.com/jakartaee/mail-api/commit/86ee859eb1.patch -> javax-mail-1.6.7-java21.patch
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
-_md5_=7be93e237da31f10de11870ff7ec07e5
+_md5_=2c327b1bef5bbb4822be8333f980ee67
