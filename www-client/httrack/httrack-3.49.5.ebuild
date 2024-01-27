@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -7,13 +7,13 @@ inherit autotools xdg-utils
 
 # TODO unbundle coucal, upstream ticket https://github.com/xroche/httrack/issues/247
 COUCAL_COMMIT=73ada075553b7607d083037a87cb9c73b3683bfc
+
 DESCRIPTION="HTTrack Website Copier, Open Source Offline Browser"
 HOMEPAGE="https://www.httrack.com/"
 SRC_URI="https://github.com/xroche/httrack/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
 	https://github.com/xroche/coucal/archive/${COUCAL_COMMIT}.tar.gz -> coucal-${COUCAL_COMMIT}.gh.tar.gz"
 
-COUCAL_LICENSE="BSD public-domain"
-LICENSE="GPL-3 ${COUCAL_LICENSE}"
+LICENSE="BSD GPL-3 public-domain"  # BSD and public-domain is from bundled Coucal
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="static-libs"
