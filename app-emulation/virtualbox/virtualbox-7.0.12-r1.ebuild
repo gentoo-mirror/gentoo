@@ -34,17 +34,18 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl +udev vboxwebsrv vde vnc"
 
 unset WATCOM #856769
 
+# <libxml2-2.12.0: bug #922445
 COMMON_DEPEND="
 	${PYTHON_DEPS}
 	acct-group/vboxusers
 	~app-emulation/virtualbox-modules-${PV}
 	dev-libs/libtpms
-	dev-libs/libxml2
+	<dev-libs/libxml2-2.12.0
 	dev-libs/openssl:0=
 	media-libs/libpng:0=
 	media-libs/libvpx:0=
@@ -269,9 +270,6 @@ src_prepare() {
 			>> LocalConfig.kmk || die
 	fi
 
-	# bug #916002, #488176
-	tc-ld-force-bfd
-
 	# Respect LDFLAGS
 	sed -e "s@_LDFLAGS\.${ARCH}*.*=@& ${LDFLAGS}@g" \
 		-i Config.kmk src/libs/xpcom18a4/Config.kmk || die
@@ -363,6 +361,8 @@ src_prepare() {
 }
 
 src_configure() {
+	tc-ld-disable-gold # bug #488176
+
 	tc-export AR CC CXX LD RANLIB
 	export HOST_CC="$(tc-getBUILD_CC)"
 

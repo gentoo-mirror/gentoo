@@ -1,4 +1,4 @@
-# Copyright 2009-2024 Gentoo Authors
+# Copyright 2009-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,25 +7,43 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
 
-# These variables let us easily bound supported compiler versions in one place.
-# The bundled Clang is updated by Google every ~two weeks, so we can't
-# just assume that anything other than the latest version in ::gentoo
-# will work (and even that will probably break occasionally)
+# PACKAGING NOTES:
+# Google roll their bundled Clang every two weeks, and the bundled Rust
+# is rolled regularly and depends on that. While we do our best to build
+# with system Clang, we will eventually hit the point where we need to use
+# the bundled Clang due to the use of prerelease features. We've been lucky
+# enough so far that this hasn't been an issue.
+
+# We try and avoid forcing the use of libcxx, but sometimes it is unavoidable.
+# Remember to force the use of Clang when this is forced.
+
+# GCC is _not_ supported upstream, though patches are welcome. We do our
+# best to enable builds with GCC but reserve the right to force Clang
+# builds if we can't keep up with upstream's changes. Please comment
+# when forcing Clang builds so we can track the need for it.
+
+# GN is bundled with Chromium, but we always use the system version. Remember to
+# check for upstream changes to GN and update ebuild (and version below) as required.
+
+# These variables let us easily bound supported major dependency versions in one place.
+GCC_MIN_VER=12
+GN_MIN_VER=0.2122
 LLVM_MAX_SLOT=17
 LLVM_MIN_SLOT=16
-MIN_GCC_VER=12
-GN_MIN_VER=0.2122
+RUST_MIN_VER=1.72.0
 
-# This variable is set to yes when building with GCC is broken.
 # https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
 : ${CHROMIUM_FORCE_CLANG=yes}
-# This variable is set to yes when we need to force libcxx. Since we'll always force clang, too, we can avoid depends.
 # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101227 - Chromium 120:
 #    webrtc -  no matching member function for call to 'emplace'
 : ${CHROMIUM_FORCE_LIBCXX=yes}
-# This variable is set to yes when building with bfd is broken.
-# See bug #918897 for arm64 where bfd can't handle the size.
-: ${CHROMIUM_FORCE_LLD=no}
+# 121's 'gcc_link_wrapper.py' currently fails if not using lld due to the addition of rust
+: ${CHROMIUM_FORCE_LLD=yes}
+
+# As of 121 we're working on enabling users to select (and ebuild maintainers to force...) the bundled toolchain
+# This probably does not work yet, but it's a start.
+: ${CHROMIUM_FORCE_BUNDLED_CLANG=no}
+: ${CHROMIUM_FORCE_BUNDLED_RUST=no}
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -38,7 +56,7 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="120.0.6099.109-1raptor0~deb12u1"
+PATCHSET_PPC64="119.0.6045.159-1raptor0~deb12u1"
 PATCH_V="${PV%%\.*}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
@@ -50,9 +68,10 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="amd64 arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
-IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio qt5 qt6 screencast selinux vaapi wayland widevine"
+IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
+IUSE+=" qt5 qt6 screencast selinux +system-toolchain vaapi wayland widevine"
 REQUIRED_USE="
 	screencast? ( wayland )
 	!headless? ( || ( X wayland ) )
@@ -74,7 +93,7 @@ COMMON_X_DEPEND="
 
 COMMON_SNAPSHOT_DEPEND="
 	system-icu? ( >=dev-libs/icu-71.1:= )
-	<dev-libs/libxml2-2.12.0:=[icu]
+	>=dev-libs/libxml2-2.12.4:=[icu]
 	dev-libs/nspr:=
 	>=dev-libs/nss-3.26:=
 	dev-libs/libxslt:=
@@ -155,7 +174,7 @@ DEPEND="${COMMON_DEPEND}
 depend_clang_llvm_version() {
 	echo "sys-devel/clang:$1"
 	echo "sys-devel/llvm:$1"
-	echo "sys-devel/lld:$1"
+	echo "=sys-devel/lld-$1*"
 }
 
 # When passed multiple arguments we assume that
@@ -198,16 +217,18 @@ BDEPEND="
 		>=dev-util/web_page_replay_go-20220314
 		$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
 	)
-	>=dev-build/gn-${GN_MIN_VER}
+	>=dev-build/ninja-1.7.2
 	dev-lang/perl
+	>=dev-build/gn-${GN_MIN_VER}
 	>=dev-util/gperf-3.0.3
-	app-alternatives/ninja
 	dev-vcs/git
 	>=net-libs/nodejs-7.6.0[inspector]
 	>=sys-devel/bison-2.4.3
-	app-alternatives/lex
+	sys-devel/flex
 	virtual/pkgconfig
+	dev-lang/rust[profiler]
 "
+# TODO: virtual-rust w/ USE=profiler would be better
 
 if [[ ${CHROMIUM_FORCE_CLANG} == yes ]]; then
 	BDEPEND+=" >=sys-devel/clang-${LLVM_MIN_SLOT}"
@@ -216,7 +237,7 @@ fi
 if [[ ${CHROMIUM_FORCE_LLD} == yes ]]; then
 	BDEPEND+=" >=sys-devel/lld-${LLVM_MIN_SLOT}"
 else
-	# XXX: Hack for arm64 for bug #918897
+	# #918897: Hack for arm64
 	BDEPEND+=" arm64? ( >=sys-devel/lld-${LLVM_MIN_SLOT} )"
 fi
 
@@ -257,13 +278,13 @@ python_check_deps() {
 	python_has_version "dev-python/setuptools[${PYTHON_USEDEP}]"
 }
 
-needs_lld() {
-	# XXX: Temporary hack w/ use arm64 for bug #918897
-	[[ ${CHROMIUM_FORCE_LLD} == yes ]] || use arm64
-}
-
 needs_clang() {
 	[[ ${CHROMIUM_FORCE_CLANG} == yes ]] || use libcxx || use lto || use pgo
+}
+
+needs_lld() {
+	# #918897: Temporary hack w/ use arm64
+	[[ ${CHROMIUM_FORCE_LLD} == yes ]] || use arm64
 }
 
 llvm_check_deps() {
@@ -272,8 +293,8 @@ llvm_check_deps() {
 		return 1
 	fi
 
-	if ( use lto || use pgo ) && ! has_version -b "sys-devel/lld:${LLVM_SLOT}" ; then
-		einfo "sys-devel/lld:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
+	if ( use lto || use pgo ) && ! has_version -b "=sys-devel/lld-${LLVM_SLOT}*" ; then
+		einfo "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
 		return 1
 	fi
 
@@ -323,8 +344,8 @@ pkg_setup() {
 
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		local -x CPP="$(tc-getCXX) -E"
-		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${MIN_GCC_VER}; then
-			die "At least gcc ${MIN_GCC_VER} is required"
+		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${GCC_MIN_VER}; then
+			die "At least gcc ${GCC_MIN_VER} is required"
 		fi
 		if use pgo && tc-is-cross-compiler; then
 			die "The pgo USE flag cannot be used when cross-compiling"
@@ -341,7 +362,7 @@ pkg_setup() {
 		fi
 		# Users should never hit this, it's purely a development convenience
 		if ver_test $(gn --version || die) -lt ${GN_MIN_VER}; then
-				die "dev-build/gn >= ${GN_MIN_VER} is required to build this Chromium"
+				die "dev-util/gn >= ${GN_MIN_VER} is required to build this Chromium"
 		fi
 	fi
 
@@ -365,6 +386,12 @@ src_prepare() {
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
 	)
+
+	# TODO: Patch this properly when we decide on a permanent solution.
+	# We can't use the bundled compiler builtins
+	sed -i -e \
+		"/if (is_clang && toolchain_has_rust) {/,+2d" \
+		build/config/compiler/BUILD.gn || die
 
 	if use ppc64 ; then
 		local p
@@ -397,7 +424,6 @@ src_prepare() {
 		base/third_party/superfasthash
 		base/third_party/symbolize
 		base/third_party/valgrind
-		base/third_party/xdg_mime
 		base/third_party/xdg_user_dirs
 		buildtools/third_party/libc++
 		buildtools/third_party/libc++abi
@@ -528,7 +554,6 @@ src_prepare() {
 		third_party/libxcb-keysyms
 		third_party/libxml/chromium
 		third_party/libyuv
-		third_party/llvm
 		third_party/lottie
 		third_party/lss
 		third_party/lzma_sdk
@@ -576,6 +601,7 @@ src_prepare() {
 		third_party/qcms
 		third_party/re2
 		third_party/rnnoise
+		third_party/rust
 		third_party/s2cellid
 		third_party/securemessage
 		third_party/selenium-atoms
@@ -660,6 +686,10 @@ src_prepare() {
 		keeplibs+=( third_party/libc++ )
 	fi
 
+	if ! use system-toolchain || [[ ${CHROMIUM_FORCE_BUNDLED_CLANG} == yes ]]; then
+			keeplibs+=( third_party/llvm )
+	fi
+
 	# Arch-specific
 	if use arm64 || use ppc64 ; then
 		keeplibs+=( third_party/swiftshader/third_party/llvm-10.0 )
@@ -688,6 +718,17 @@ src_prepare() {
 	# bundled eu-strip is for amd64 only and we don't want to pre-stripped binaries
 	mkdir -p buildtools/third_party/eu-strip/bin || die
 	ln -s "${EPREFIX}"/bin/true buildtools/third_party/eu-strip/bin/eu-strip || die
+}
+
+chromium_rust_version_check() {
+	[[ ${MERGE_TYPE} == binary ]] && return
+	local rustc_version=( $(eselect --brief rust show 2>/dev/null) )
+	rustc_version=${rustc_version[0]#rust-bin-}
+	rustc_version=${rustc_version#rust-}
+
+	[[ -z "${rustc_version}" ]] && die "Failed to determine rust version, check 'eselect rust' output"
+
+	echo $rustc_version
 }
 
 chromium_configure() {
@@ -719,12 +760,13 @@ chromium_configure() {
 		myconf_gn+=" is_clang=false"
 	fi
 
-	# Force lld for lto and pgo builds, otherwise disable, bug 641556
+	# 641556: Force lld for lto and pgo builds, otherwise disable
 	if needs_lld || use lto || use pgo; then
 		# https://bugs.gentoo.org/918897#c32
 		append-ldflags -Wl,--undefined-version
 		myconf_gn+=" use_lld=true"
 	else
+		# This doesn't prevent lld from being used, but rather prevents gn from forcing it
 		myconf_gn+=" use_lld=false"
 	fi
 
@@ -738,7 +780,9 @@ chromium_configure() {
 	fi
 
 	# Define a custom toolchain for GN
-	myconf_gn+=" custom_toolchain=\"//build/toolchain/linux/unbundle:default\""
+	if use system-toolchain; then
+		myconf_gn+=" custom_toolchain=\"//build/toolchain/linux/unbundle:default\""
+	fi
 
 	if tc-is-cross-compiler; then
 		tc-export BUILD_{AR,CC,CXX,NM}
@@ -757,11 +801,28 @@ chromium_configure() {
 		# Don't inherit PKG_CONFIG_PATH from environment
 		local -x PKG_CONFIG_PATH=
 	else
-		myconf_gn+=" host_toolchain=\"//build/toolchain/linux/unbundle:default\""
+		if use system-toolchain; then
+			myconf_gn+=" host_toolchain=\"//build/toolchain/linux/unbundle:default\""
+		fi
 	fi
 
-	# Disable rust for now; it's only used for testing and we don't need the additional bdep
-	myconf_gn+=" enable_rust=false"
+	# As of 121 rust is required to build chromium components
+	# Forcing the bundled toolchain probably doesn't work right now,
+	# we'll also need to force the use of the bundled Clang/llvm; TODO!
+	# Theoretically the system llvm and system rust _should_ play fine together.
+	if [[ ${CHROMIUM_FORCE_BUNDLED_RUST} == no ]]; then
+		local rustc_ver
+		rustc_ver=$(chromium_rust_version_check)
+		if ver_test "${rustc_ver}" -lt "${RUST_MIN_VER}"; then
+			eerror "Rust >=${RUST_MIN_VER} is required"
+			eerror "please run 'eselect rust' and select the correct rust version"
+			die "selected rust version is too old"
+		else
+			einfo "Using rust ${rustc_ver} to build"
+		fi
+		myconf_gn+=" rust_sysroot_absolute=\"${EPREFIX}/usr/lib/rust/${rustc_ver}/\""
+		myconf_gn+=" rustc_version=\"${rustc_ver}\""
+	fi
 
 	# GN needs explicit config for Debug/Release as opposed to inferring it from build directory.
 	myconf_gn+=" is_debug=false"
@@ -837,11 +898,15 @@ chromium_configure() {
 
 	myconf_gn+=" disable_fieldtrial_testing_config=true"
 
-	# Never use bundled gold binary. Disable gold linker flags for now.
-	# Do not use bundled clang.
-	# Trying to use gold results in linker crash.
-	myconf_gn+=" use_gold=false use_sysroot=false"
+	if use system-toolchain; then
+		# Never use bundled gold binary. Disable gold linker flags for now.
+		# Do not use bundled clang.
+		# Trying to use gold results in linker crash.
+		myconf_gn+=" use_gold=false use_sysroot=false"
+	fi
+	# The defaults _should_ be fine if using the bundled toolchain?
 
+	# This determines whether or not GN uses the bundled libcxx
 	if use libcxx || [[ ${CHROMIUM_FORCE_LIBCXX} == yes ]]; then
 		myconf_gn+=" use_custom_libcxx=true"
 	else
@@ -888,15 +953,6 @@ chromium_configure() {
 		if tc-is-gcc; then
 			# https://bugs.gentoo.org/904455
 			local -x CPP="$(tc-getCXX) -E"
-			local gcc_version="$(gcc-version)"
-			local need_gcc_fix=false
-			# Drop this complexity as gcc versions age out of ::gentoo
-			if ver_test "${gcc_version}" -lt 12.3; then
-				need_gcc_fix=true
-			elif ver_test "${gcc_version}" -ge 13 && ver_test "${gcc_version}" -lt 13.2; then
-				need_gcc_fix=true
-			fi
-			[[ ${need_gcc_fix} = true ]] && append-cxxflags "$(test-flags-CXX -fno-tree-vectorize)"
 			# https://bugs.gentoo.org/912381
 			filter-lto
 		fi
