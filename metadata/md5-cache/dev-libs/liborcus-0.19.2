@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-libs/boost:=[zlib(+)] sys-libs/zlib python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) spreadsheet-model? ( dev-libs/libixion:0/0.18 ) dev-util/mdds:1/2.1
+DESCRIPTION=Standalone file import filter library for spreadsheet documents
+EAPI=8
+HOMEPAGE=https://gitlab.com/orcus/orcus/blob/master/README.md
+INHERIT=autotools python-single-r1
+IUSE=python +spreadsheet-model test tools python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/boost:=[zlib(+)] sys-libs/zlib python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) spreadsheet-model? ( dev-libs/libixion:0/0.18 )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+RESTRICT=!test? ( test )
+SLOT=0/0.18
+SRC_URI=https://kohei.us/files/orcus/src/liborcus-0.19.2.tar.xz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=0eadf6fb37812d338094727228e1eb39
