@@ -93,9 +93,6 @@ MULTILIB_CHOST_TOOLS=(
 )
 
 PATCHES=(
-	# Upstream gtk-3-24 branch regression fixes and tests compile compat for modern C
-	"${FILESDIR}"/${PV}-gdkscreen-x11-fixes.patch
-	"${FILESDIR}"/${PV}-test-casts-gcc14.patch
 	# gtk-update-icon-cache is installed by dev-util/gtk-update-icon-cache
 	"${FILESDIR}"/${PN}-3.24.36-update-icon-cache.patch
 )
