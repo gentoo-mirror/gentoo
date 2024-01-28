@@ -7,11 +7,11 @@ HOMEPAGE=https://vice-emu.sourceforge.io/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=multibuild toolchain-funcs xdg
 IUSE=alsa curl debug doc ethernet flac gif +gtk headless lame mpg123 ogg openmp oss parport pci png portaudio pulseaudio sdl
-KEYWORDS=amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=GPL-2+
 RDEPEND=sys-libs/zlib:= virtual/libintl alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) ethernet? ( net-libs/libpcap sys-libs/libcap ) flac? ( media-libs/flac:= ) gif? ( media-libs/giflib:= ) gtk? ( >=app-accessibility/at-spi2-core-2.46:2 dev-libs/glib:2 media-libs/fontconfig:1.0 media-libs/glew:0=[-egl-only(-)] media-libs/libglvnd[X] x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/pango ) lame? ( media-sound/lame ) mpg123? ( media-sound/mpg123 ) ogg? ( media-libs/libogg media-libs/libvorbis ) parport? ( sys-libs/libieee1284 ) pci? ( sys-apps/pciutils ) png? ( media-libs/libpng:= ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libsdl2[video] media-libs/sdl2-image )
 REQUIRED_USE=|| ( gtk headless sdl )
 SLOT=0
 SRC_URI=mirror://sourceforge/vice-emu/releases/vice-3.8.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=4a04c7bae2a89219c4c3031781abbeb5
+_md5_=471cea3d07b91dda3e57939f611949df
