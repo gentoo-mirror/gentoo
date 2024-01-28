@@ -1,15 +1,15 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=zlib? ( sys-libs/zlib ) bzip2? ( app-arch/bzip2 ) app-alternatives/lex app-alternatives/yacc
+DEPEND=dev-libs/openssl:= zlib? ( sys-libs/zlib ) bzip2? ( app-arch/bzip2 ) app-alternatives/lex app-alternatives/yacc
 DESCRIPTION=Indexes and searches Maildir/MH folders
-EAPI=6
+EAPI=8
 HOMEPAGE=http://www.rpcurnow.force9.co.uk/mairix/
 INHERIT=toolchain-funcs
 IUSE=zlib bzip2
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
-RDEPEND=zlib? ( sys-libs/zlib ) bzip2? ( app-arch/bzip2 )
+RDEPEND=dev-libs/openssl:= zlib? ( sys-libs/zlib ) bzip2? ( app-arch/bzip2 )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://sourceforge/mairix/mairix-0.24.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=11df6600ce8aa7524fb80ece5c0f486a
+_md5_=091dab8654120de95bddbfe03eaa7e45

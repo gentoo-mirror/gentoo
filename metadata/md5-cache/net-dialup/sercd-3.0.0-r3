@@ -1,11 +1,11 @@
-DEFINED_PHASES=install prepare
+DEFINED_PHASES=install
 DESCRIPTION=RFC2217-compliant serial port redirector
-EAPI=6
-HOMEPAGE=https://sourceforge.net/projects/sercd
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/sercd/
 IUSE=xinetd
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=xinetd? ( virtual/inetd )
 SLOT=0
 SRC_URI=mirror://sourceforge/sercd/sercd-3.0.0.tar.gz
-_md5_=0b11f04b92d926476884736678c80ee1
+_md5_=98d42514a933085509a88dc7ba62391e
