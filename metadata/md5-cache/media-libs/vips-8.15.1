@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://libvips.github.io/libvips/
 INHERIT=flag-o-matic meson python-single-r1 toolchain-funcs vala
 IUSE=archive deprecated doc exif fftw fits fontconfig graphicsmagick gtk-doc heif +highway imagemagick imagequant +introspection +jpeg jpeg2k jpegxl lcms matio openexr orc pango pdf +png python svg test tiff vala webp python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=LGPL-2.1+ MIT
 RDEPEND=dev-libs/glib:2 dev-libs/expat virtual/libintl archive? ( app-arch/libarchive:= ) exif? ( media-libs/libexif ) fftw? ( sci-libs/fftw:3.0= ) fits? ( sci-libs/cfitsio:= ) fontconfig? ( media-libs/fontconfig ) heif? ( media-libs/libheif:= ) highway? ( >=dev-cpp/highway-1.0.5 ) !highway? ( orc? ( dev-lang/orc ) ) imagemagick? ( graphicsmagick? ( media-gfx/graphicsmagick:= ) !graphicsmagick? ( media-gfx/imagemagick:= ) ) imagequant? ( media-gfx/libimagequant ) introspection? ( dev-libs/gobject-introspection ) jpeg? ( media-libs/libjpeg-turbo:= ) jpeg2k? ( media-libs/openjpeg:= ) jpegxl? ( media-libs/libjxl:= ) lcms? ( media-libs/lcms:2 ) matio? ( sci-libs/matio:= ) openexr? ( media-libs/openexr:= ) pango? ( x11-libs/cairo x11-libs/pango ) pdf? ( app-text/poppler[cairo] x11-libs/cairo ) png? ( media-libs/libpng:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pycairo[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pycairo[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pycairo[python_targets_python3_12(-)] ) ) svg? ( gnome-base/librsvg:2 sys-libs/zlib:= x11-libs/cairo ) tiff? ( media-libs/tiff:= ) webp? ( media-libs/libwebp:= )
 REQUIRED_USE=fontconfig? ( pango ) graphicsmagick? ( imagemagick ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ) test? ( jpeg png webp ) vala? ( introspection )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/42
 SRC_URI=https://github.com/libvips/libvips/releases/download/v8.15.1/vips-8.15.1.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b2b07efa51009704f88173b2c7feab47	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8	python-single-r1	75118e916668a74c660a13b0ecb22562	vala	e477903dbe0105930c51f170a592dc16
-_md5_=c62b16684d6b210227c51234a983b2e0
+_md5_=3876f961ab335d4b5bcd24120530ec00
