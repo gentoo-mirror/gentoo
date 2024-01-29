@@ -1,7 +1,7 @@
 Title: Merging of installkernel-gentoo and installkernel-systemd
 Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Posted: 2024-01-18
-Revision: 4
+Revision: 5
 News-Item-Format: 2.0
 Display-If-Installed: sys-kernel/installkernel
 Display-If-Installed: sys-kernel/installkernel-gentoo
@@ -62,6 +62,11 @@ when upgrading to >=sys-kernel/installkernel-14.
 Users who are using the distribution kernels (i.e. gentoo-kernel(-bin)) should
 enable the "dracut" USE flag on installkernel as well to pull in and enable
 the dracut initramfs generator. This is enforced by portage.
+
+Note that the automagic behaviour of the dracut kernel-install plugin is
+removed in sys-kernel/installkernel. Users who rely on the dracut plugin
+automatically generating an initramfs when installing the kernel must
+enable the "dracut" USE flag to retain this behaviour.
 
 The upgrade path is enforced by sys-kernel/installkernel-systemd-4, which is
 just a wrapper pulling in >=sys-kernel/installkernel-14 with the "systemd" flag
