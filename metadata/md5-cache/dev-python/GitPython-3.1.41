@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/gitpython-developers/GitPython/ https://pypi.org/project/GitPython/
 INHERIT=distutils-r1 pypi
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ppc ~riscv ~s390 ~sparc
+KEYWORDS=~alpha ~amd64 arm ~arm64 ~hppa ~loong ppc ~riscv ~s390 ~sparc
 LICENSE=BSD
 RDEPEND=dev-vcs/git >=dev-python/gitdb-4.0.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/G/GitPython/GitPython-3.1.41.tar.gz test? ( https://dev.gentoo.org/~mgorny/dist/GitPython-3.1.41.gitbundle https://dev.gentoo.org/~mgorny/dist/gitdb-4.0.11.gitbundle https://dev.gentoo.org/~mgorny/dist/smmap-5.0.1.gitbundle )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b2b07efa51009704f88173b2c7feab47	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	b9318b5e40104e608d7e4582121fb561	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=b813a0278ce99c6153fef0bcdf2f7654
+_md5_=cf30af309438c96994634d71eb7d4a5b
