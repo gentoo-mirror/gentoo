@@ -1,7 +1,7 @@
 Title: Merging of installkernel-gentoo and installkernel-systemd
 Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Posted: 2024-01-18
-Revision: 3
+Revision: 4
 News-Item-Format: 2.0
 Display-If-Installed: sys-kernel/installkernel
 Display-If-Installed: sys-kernel/installkernel-gentoo
@@ -33,9 +33,12 @@ User Action Required (GRUB users)
 Previously sys-kernel/installkernel-gentoo provided kernel installation
 automation for users of GRUB via USE=grub. The new sys-kernel/installkernel
 provides the same functionality, which now works with both the traditional
-installkernel and systemd's kernel-install. Users of GRUB should check that
-the "grub" USE flag is enabled to ensure that systemd's kernel-install uses
-the correct layout that grub-mkconfig understands.
+installkernel and systemd's kernel-install.
+
+Users of GRUB should therefore:
+- check that the "grub" USE flag is enabled
+to ensure that systemd's kernel-install uses the correct layout that
+grub-mkconfig understands.
 
 Users of GRUB may wish to explicitly choose either the traditional
 installkernel or systemd's kernel-install, in which case they may do so
@@ -50,8 +53,10 @@ User Action Required (systemd-boot users)
 
 Previously sys-kernel/installkernel-systemd provided kernel installation
 automation for users of systemd-boot. sys-kernel/installkernel provides
-the same functionality but only via systemd's kernel-install. Users
-of systemd-boot should therefore ensure that the "systemd" USE flag is enabled
+the same functionality but only via systemd's kernel-install.
+
+Users of systemd-boot should therefore:
+- ensure that the "systemd" USE flag is enabled
 when upgrading to >=sys-kernel/installkernel-14.
 
 Users who are using the distribution kernels (i.e. gentoo-kernel(-bin)) should
@@ -75,7 +80,7 @@ plugins should either ensure that the same kernel installation method will be
 used after upgrading to >=sys-kernel/installkernel-14 (via USE=+/-systemd) or
 migrate these custom plugins (details are on the wiki [1]).
 
-Users of bootloaders other then GRUB or systemd-boot may want to retain the
+Users of bootloaders other than GRUB or systemd-boot may want to retain the
 traditional /boot layout. They may do so by either:
 - disabling the "systemd" USE flag, or
 - when the "systemd" USE flag is enabled, enabling the "grub" USE flag as well.
