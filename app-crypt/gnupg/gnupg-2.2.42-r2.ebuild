@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -46,10 +46,12 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	app-crypt/pinentry
 	nls? ( virtual/libintl )
 	selinux? ( sec-policy/selinux-gpg )
 	wks-server? ( virtual/mta )
+"
+PDEPEND="
+	app-crypt/pinentry
 "
 BDEPEND="
 	virtual/pkgconfig
@@ -65,6 +67,7 @@ DOCS=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.1.20-gpgscm-Use-shorter-socket-path-lengts-to-improve-tes.patch
+	"${FILESDIR}"/${PN}-2.2.42-bug923248-insecure-backup.patch
 )
 
 src_prepare() {
