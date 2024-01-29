@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/reflections:0 ) >=dev-libs/libffi-3.4:= x11-libs/libXt >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-1.8:* x11-base/xorg-proto:0 test? ( dev-java/reflections:0 ) >=dev-libs/libffi-3.4:= x11-libs/libXt >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Java Native Access
 EAPI=8
 HOMEPAGE=https://github.com/java-native-access/jna
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=4
 SRC_URI=https://github.com/java-native-access/jna/archive/5.14.0.tar.gz -> jna-5.14.0.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=2325dd52ecc38b20062040848f22fa03
+_md5_=653e1fc132c71470e52a93f6efe5f868
