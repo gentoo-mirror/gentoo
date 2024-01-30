@@ -5,12 +5,12 @@ EAPI=8
 HOMEPAGE=https://github.com/namhyung/uftrace
 INHERIT=bash-completion-r1 lua-single python-single-r1 toolchain-funcs
 IUSE=capstone lua python unwind +lua_single_target_luajit python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=amd64 ~arm64
+KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:= virtual/libelf:= capstone? ( dev-libs/capstone:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) unwind? ( sys-libs/libunwind:= )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit ) ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/namhyung/uftrace/archive/v0.14.tar.gz -> uftrace-0.14.tar.gz
+SRC_URI=https://github.com/namhyung/uftrace/archive/v0.15.2.tar.gz -> uftrace-0.15.2.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=ca89490ef34f7a3712087af942249732
+_md5_=be1bc3b6a8d6069162500315c36eca5d
