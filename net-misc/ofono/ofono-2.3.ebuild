@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="https://mirrors.edge.kernel.org/pub/linux/network/${PN}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="+atmodem bluetooth +cdmamodem +datafiles doc dundee examples +isimodem +phonesim +provision +qmimodem tools +udev upower"
+IUSE="+atmodem bluetooth +datafiles doc dundee examples +isimodem +phonesim +provision +qmimodem tools +udev upower"
 
 REQUIRED_USE="dundee? ( bluetooth )"
 
@@ -33,7 +33,6 @@ src_configure() {
 		$(use_enable udev) \
 		$(use_enable isimodem) \
 		$(use_enable atmodem) \
-		$(use_enable cdmamodem) \
 		$(use_enable datafiles) \
 		$(use_enable dundee) \
 		$(use_enable bluetooth) \
