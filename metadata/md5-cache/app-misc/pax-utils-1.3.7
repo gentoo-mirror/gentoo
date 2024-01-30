@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Hardened/PaX_Utilities
 INHERIT=meson python-single-r1
 IUSE=caps man python seccomp test python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~alpha ~amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) ) test? ( python )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~sam/distfiles/app-misc/pax-utils/pax-utils-1.3.7.tar.xz https://dev.gentoo.org/~vapier/dist/pax-utils-1.3.7.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=98974f7447a7de9ab564f5a33db17070
+_md5_=2546d7e244c54ecf25d100bc36e8b91e

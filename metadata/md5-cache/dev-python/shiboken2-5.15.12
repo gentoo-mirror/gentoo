@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://wiki.qt.io/PySide2
 INHERIT=cmake llvm python-r1 toolchain-funcs
 IUSE=+docstrings numpy test vulkan python_targets_python3_10 python_targets_python3_11
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=|| ( GPL-2 GPL-3+ LGPL-3 ) GPL-3
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) =dev-qt/qtcore-5.15.12*:5 <sys-devel/clang-16:= <sys-devel/clang-runtime-16:= docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 =dev-qt/qtxml-5.15.12*:5 =dev-qt/qtxmlpatterns-5.15.12*:5 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.12-src/pyside-setup-opensource-src-5.15.12.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b2b07efa51009704f88173b2c7feab47	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	llvm	203003e590307acca60eba586555388b	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
-_md5_=8278215c33a653856515a2bdfa47d9be
+_md5_=432047f15cae478265e6b8ff0bbd4f1f
