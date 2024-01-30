@@ -6,22 +6,20 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Portable archive file manager"
 HOMEPAGE="https://wummel.github.io/patool/"
-COMMIT="ab64562c8cdac34dfd69fcb6e30c8c0014282d11"
-SRC_URI="https://github.com/wummel/patool/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	test? (
 		app-arch/arj
 		app-arch/bzip2
+		app-arch/bzip3
 		app-arch/cabextract
 		app-alternatives/cpio
 		app-arch/dpkg
@@ -30,7 +28,7 @@ BDEPEND="
 		app-arch/lcab
 		app-arch/lha
 		app-arch/libarchive
-		app-arch/lrzip
+		app-arch/lz4
 		app-arch/lzip
 		app-arch/lzop
 		app-arch/ncompress
@@ -38,7 +36,9 @@ BDEPEND="
 		app-arch/pbzip2
 		app-arch/pdlzip
 		app-arch/pigz
+		app-arch/plzip
 		app-arch/rpm
+		app-arch/rzip
 		app-arch/sharutils
 		app-arch/tar
 		app-arch/unace
@@ -47,6 +47,7 @@ BDEPEND="
 		app-arch/xdms
 		app-arch/xz-utils
 		app-arch/zip
+		app-arch/zopfli
 		app-arch/zpaq
 		app-arch/zstd
 		app-cdr/cdrtools
@@ -57,17 +58,22 @@ BDEPEND="
 		sys-apps/file
 		sys-apps/grep
 		!elibc_musl? ( app-arch/rar )
-		!x86? ( app-arch/clzip )
+		!x86? (
+			app-arch/clzip
+			app-arch/lrzip
+			app-arch/unar
+		)
 	)
 "
 # Test dependencies which are packaged but can't be tested for various reasons.
 # app-arch/arc
 # app-arch/zoo
-# app-arch/zopfli
 # media-sound/mac
 
 # app-arch/rar is masked on musl
 # app-arch/clzip is unkeyworded on x86
+# app-arch/lrzip bug #916317 on x86
+# app-arch/unar is unkeyworded on x86
 
 # Unpackaged testable dependencies
 # archmage
@@ -81,11 +87,7 @@ BDEPEND="
 # star
 # unalz
 # uncompress.real
-
-PATCHES=(
-	"${FILESDIR}/patool-1.12_p20230424-disable-file-sandbox.patch"
-	"${FILESDIR}/patool-1.12_p20230424-map-vnd.android.package-archive.patch"
-)
+# 7zz ( app-arch/7zip:guru )
 
 distutils_enable_tests pytest
 
@@ -106,8 +108,6 @@ python_test() {
 		"tests/archives/test_arc.py"
 		# Error: 1002 (invalid input file)
 		"tests/archives/test_mac.py"
-		# AttributeError: module 'patoolib.programs.zopfli' has no attribute 'extract_gzip'
-		"tests/archives/test_zopfli.py"
 	)
 
 	if use elibc_musl; then
@@ -120,7 +120,7 @@ python_test() {
 		EPYTEST_IGNORE+=(
 			"tests/archives/test_clzip.py"
 			# bug #916317
-			"tests/archives/test_lrzip.py"
+			"tests/archives/test_lrzip.py::TestLrzip::test_lrzip"
 		)
 	fi
 
