@@ -4,12 +4,12 @@ DEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/
 DESCRIPTION=compiz like 3D wayland compositor
 EAPI=8
 HOMEPAGE=https://github.com/WayfireWM/wayfire
-INHERIT=meson toolchain-funcs
-IUSE=debug +gles +system-wfconfig +system-wlroots X
+INHERIT=meson
+IUSE=+gles +system-wfconfig +system-wlroots X
 KEYWORDS=amd64 ~arm64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/gtk-layer-shell media-libs/glm media-libs/mesa:=[gles2,wayland,X?] media-libs/libglvnd[X?] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/freetype:=[X?] x11-libs/libdrm x11-libs/gtk+:3=[wayland,X?] x11-libs/cairo[X?,svg(+)] x11-libs/libxkbcommon[X?] x11-libs/pango x11-libs/pixman X? ( x11-base/xwayland x11-libs/libxcb ) system-wfconfig? ( >=gui-libs/wf-config-0.7.1 <gui-libs/wf-config-0.8.0 ) !system-wfconfig? ( !gui-libs/wf-config ) system-wlroots? ( >=gui-libs/wlroots-0.16.0:0/16[drm(+),libinput(+),x11-backend,X?] ) !system-wlroots? ( !gui-libs/wlroots ) x11-misc/xkeyboard-config
 SLOT=0
 SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.7.5/wayfire-0.7.5.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8
-_md5_=1cb8499be78729ee103d47547ba2f072
+_md5_=dc82c43558b813139d9d539f7543ecf1
