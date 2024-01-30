@@ -9,6 +9,7 @@ inherit distutils-r1
 DESCRIPTION="Quickly rewrite git repository history (filter-branch replacement)"
 HOMEPAGE="https://github.com/newren/git-filter-repo/"
 SRC_URI="https://github.com/newren/git-filter-repo/releases/download/v${PV}/${P}.tar.xz"
+S="${S}/release"
 
 LICENSE="MIT"
 SLOT="0"
@@ -16,11 +17,11 @@ KEYWORDS="~amd64 ~arm64 ~loong ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
-	${PYTHON_DEPS}
 	>=dev-vcs/git-$(ver_cut 1-2)
 "
-
-S="${S}/release"
+BDEPEND="
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
+"
 
 python_prepare_all() {
 	cat > PKG-INFO <<-EOF || die
