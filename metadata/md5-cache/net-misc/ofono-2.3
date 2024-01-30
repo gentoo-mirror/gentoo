@@ -5,12 +5,12 @@ DESCRIPTION=Open Source mobile telephony (GSM/UMTS) daemon
 EAPI=8
 HOMEPAGE=https://git.kernel.org/pub/scm/network/ofono/ofono.git
 INHERIT=systemd
-IUSE=+atmodem bluetooth +cdmamodem +datafiles doc dundee examples +isimodem +phonesim +provision +qmimodem tools +udev upower
+IUSE=+atmodem bluetooth +datafiles doc dundee examples +isimodem +phonesim +provision +qmimodem tools +udev upower
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=>=sys-apps/dbus-1.6 >=dev-libs/glib-2.68 net-misc/mobile-broadband-provider-info bluetooth? ( >=net-wireless/bluez-4.99 ) udev? ( virtual/udev ) examples? ( dev-python/dbus-python ) tools? ( virtual/libusb:1 )
 REQUIRED_USE=dundee? ( bluetooth )
 SLOT=0
-SRC_URI=https://www.kernel.org/pub/linux/network/ofono/ofono-1.34.tar.xz
+SRC_URI=https://mirrors.edge.kernel.org/pub/linux/network/ofono/ofono-2.3.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=4bb96e3101d7f6249be3362a568bbe1d
+_md5_=71683d981b4afd3d9839768ac2fd1bae
