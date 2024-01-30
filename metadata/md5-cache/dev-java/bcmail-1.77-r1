@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=~dev-java/bcpkix-1.77:0 ~dev-java/bcprov-1.77:0 ~dev-java/bcutil-1.77:0 dev-java/javax-mail:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=~dev-java/bcpkix-1.77:0 ~dev-java/bcprov-1.77:0 ~dev-java/bcutil-1.77:0 dev-java/javax-mail:0 dev-java/jakarta-activation:1 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=The Bouncy Castle Java S/MIME APIs for handling S/MIME protocols
 EAPI=8
 HOMEPAGE=https://www.bouncycastle.org/java.html
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bcgit/bc-java/archive/r1rv77.tar.gz -> bc-java-r1rv77.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
-_md5_=0132fedbe79b7dbf5088af5e4a2554c6
+_md5_=645f49e2fe428dd1be62b2ba9dad3b27
