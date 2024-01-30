@@ -1,0 +1,16 @@
+BDEPEND=>=app-text/xmlto-0.0.28-r3[text(+)] app-alternatives/awk sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+DEFINED_PHASES=configure install postinst prepare
+DESCRIPTION=Portland utils for cross-platform/cross-toolkit/cross-desktop interoperability
+EAPI=8
+HOMEPAGE=https://www.freedesktop.org/wiki/Software/xdg-utils/
+INHERIT=autotools
+IUSE=dbus doc gnome
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=dev-util/desktop-file-utils dev-perl/File-MimeInfo dbus? ( sys-apps/dbus gnome? ( dev-perl/Net-DBus dev-perl/X11-Protocol ) ) x11-misc/shared-mime-info x11-apps/xprop x11-apps/xset
+REQUIRED_USE=gnome? ( dbus )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v1.2.0/xdg-utils-v1.2.0.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
+_md5_=b6778bcd0135f0e2f9eaa0e179930afc
