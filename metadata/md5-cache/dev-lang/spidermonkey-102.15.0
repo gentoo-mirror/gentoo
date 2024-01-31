@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://spidermonkey.dev https://firefox-source-docs.mozilla.org/js/index.html
 INHERIT=autotools check-reqs flag-o-matic llvm multiprocessing prefix python-any-r1 toolchain-funcs
 IUSE=clang cpu_flags_arm_neon debug +jit lto test
-KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86
+KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv x86
 LICENSE=MPL-2.0
 RDEPEND=>=dev-libs/icu-71.1:= dev-libs/nspr sys-libs/readline:0= sys-libs/zlib
 RESTRICT=!test? ( test )
 SLOT=102
 SRC_URI=https://archive.mozilla.org/pub/firefox/releases/102.15.0esr/source/firefox-102.15.0esr.source.tar.xz -> firefox-102.15.0esr.source.tar.xz https://dev.gentoo.org/~juippis/mozilla/patchsets/firefox-102esr-patches-13.tar.xz https://dev.gentoo.org/~whissi/mozilla/patchsets/firefox-102esr-patches-13.tar.xz https://dev.gentoo.org/~juippis/mozilla/patchsets/spidermonkey-102-patches-05j.tar.xz https://dev.gentoo.org/~whissi/mozilla/patchsets/spidermonkey-102-patches-05j.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	flag-o-matic	b2b07efa51009704f88173b2c7feab47	llvm	203003e590307acca60eba586555388b	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	prefix	eab3c99d77fe00506c109c8a736186f7	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=a59d2eb582b83bb1167ee33660f1ad5e
+_md5_=b983154ee1d2a19516f7a06e70ede106
