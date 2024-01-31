@@ -11,15 +11,15 @@ SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0/1"
-KEYWORDS="amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc ~x86"
-IUSE="cpu_flags_x86_sse2 tools"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="cpu_flags_arm_neon cpu_flags_x86_sse2 tools"
 
 RDEPEND="tools? ( media-libs/libsndfile )"
 DEPEND="${RDEPEND}"
 
 HTML_DOCS="docs/."
 
-PATCHES=( "${FILESDIR}"/${PN}-1.10.1-makefile.patch )
+PATCHES=( "${FILESDIR}"/${PN}-1.11.2-makefile.patch )
 
 src_compile() {
 	tc-export CXX
@@ -31,6 +31,13 @@ src_compile() {
 			ewarn "SSE2 support has been disabled automatically because the"
 			ewarn "compiler does not support corresponding intrinsics"
 		fi
+	elif use cpu_flags_arm_neon ; then
+		if tc-cpp-is-true "defined(__ARM_NEON__)" ${CFLAGS} ${CXXFLAGS} ; then
+			append-cppflags "-DENABLE_NEON"
+		else
+			ewarn "NEON support has been disabled automatically because the"
+			ewarn "compiler does not support corresponding intrinsics"
+		fi
 	fi
 
 	emake -C source
@@ -40,9 +47,14 @@ src_compile() {
 }
 
 src_install() {
-	emake -C source DESTDIR="${D}" PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}"/usr/$(get_libdir) install
+	local myemakeargs=(
+		DESTDIR="${D}"
+		PREFIX="${EPREFIX}/usr"
+		LIBDIR="${EPREFIX}"/usr/$(get_libdir)
+	)
+	emake -C source "${myemakeargs[@]}" install
 	if use tools; then
-		emake -C apps DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+		emake -C apps "${myemakeargs[@]}" install
 	fi
 
 	einstalldocs
