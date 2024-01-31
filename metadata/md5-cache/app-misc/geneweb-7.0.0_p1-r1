@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/geneweb/geneweb
 INHERIT=dune
 IUSE=+ocamlopt test
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-ml/re:= dev-ml/uutf:= dev-ml/uunf:= dev-ml/uucp:= dev-ml/unidecode:= dev-ml/calendars:= dev-ml/zarith:= dev-ml/markup:= dev-ml/jingoo:= >=dev-ml/camlp5-8:=[ocamlopt?] dev-ml/ppx_import:= dev-ml/ppx_blob:= acct-user/geneweb acct-group/geneweb >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=strip !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/geneweb/geneweb/archive/refs/tags/Geneweb-1eaac340.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	beddc7cde467b2e48afc78a87d042c01
-_md5_=f244e2485a20ec527af15b9e22600a20
+_md5_=49935c115b235cc83d20df3b57afaa9f
