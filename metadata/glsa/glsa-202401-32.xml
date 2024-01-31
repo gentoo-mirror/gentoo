@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-32">
+    <title>libaom: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libaom, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">libaom</product>
+    <announced>2024-01-31</announced>
+    <revised count="1">2024-01-31</revised>
+    <bug>793932</bug>
+    <bug>798126</bug>
+    <bug>828112</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-libs/libaom" auto="yes" arch="*">
+            <unaffected range="ge">3.2.0</unaffected>
+            <vulnerable range="lt">3.2.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libaom is the Alliance for Open Media&#39;s AV1 Codec SDK.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libaom. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libaom users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libaom-3.2.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36129">CVE-2020-36129</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36130">CVE-2020-36130</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36131">CVE-2020-36131</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36133">CVE-2020-36133</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36134">CVE-2020-36134</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36135">CVE-2020-36135</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30473">CVE-2021-30473</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30474">CVE-2021-30474</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30475">CVE-2021-30475</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-31T13:58:08.024856Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-31T13:58:08.028645Z">graaff</metadata>
+</glsa>
