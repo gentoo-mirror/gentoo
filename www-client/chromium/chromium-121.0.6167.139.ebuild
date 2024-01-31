@@ -31,6 +31,10 @@ GN_MIN_VER=0.2143
 LLVM_MAX_SLOT=17
 LLVM_MIN_SLOT=16
 RUST_MIN_VER=1.72.0
+# grep 'CLANG_REVISION = ' ${S}/tools/clang/scripts/update.py -A1 | cut -c 18-
+GOOGLE_CLANG_VER="llvmorg-18-init-12938-geb1d5065-1"
+# grep 'RUST_REVISION = ' ${S}/tools/rust/update_rust.py -A1 | cut -c 17-
+GOOGLE_RUST_VER="df0295f07175acc7325ce3ca4152eb05752af1f2-1"
 
 # https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
 : ${CHROMIUM_FORCE_CLANG=yes}
@@ -40,10 +44,7 @@ RUST_MIN_VER=1.72.0
 # 121's 'gcc_link_wrapper.py' currently fails if not using lld due to the addition of rust
 : ${CHROMIUM_FORCE_LLD=yes}
 
-# As of 121 we're working on enabling users to select (and ebuild maintainers to force...) the bundled toolchain
-# This probably does not work yet, but it's a start.
-: ${CHROMIUM_FORCE_BUNDLED_CLANG=no}
-: ${CHROMIUM_FORCE_BUNDLED_RUST=no}
+: ${CHROMIUM_FORCE_GOOGLE_TOOLCHAIN=no}
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -56,10 +57,18 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="119.0.6045.159-1raptor0~deb12u1"
-PATCH_V="${PV%%\.*}"
+PATCHSET_PPC64="121.0.6167.85-1raptor0~deb12u1"
+PATCH_V="${PV%%\.*}-1"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
-	https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
+	system-toolchain? (
+		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
+	)
+	!system-toolchain? (
+		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/clang-${GOOGLE_CLANG_VER}.tar.xz
+			-> ${P}-clang.tar.xz
+		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${GOOGLE_RUST_VER}-${GOOGLE_CLANG_VER%??}.tar.xz
+			-> ${P}-rust.tar.xz
+	)
 	ppc64? (
 		https://quickbuild.io/~raptor-engineering-public/+archive/ubuntu/chromium/+files/chromium_${PATCHSET_PPC64}.debian.tar.xz
 		https://deps.gentoo.zip/chromium-ppc64le-gentoo-patches-1.tar.xz
@@ -68,15 +77,16 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0/beta"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
 IUSE+=" qt5 qt6 screencast selinux +system-toolchain vaapi wayland widevine"
 REQUIRED_USE="
-	screencast? ( wayland )
 	!headless? ( || ( X wayland ) )
 	pgo? ( X !wayland )
 	qt6? ( qt5 )
+	screencast? ( wayland )
+	!system-toolchain? ( libcxx )
 "
 
 COMMON_X_DEPEND="
@@ -123,6 +133,7 @@ COMMON_SNAPSHOT_DEPEND="
 		x11-libs/libxkbcommon:=
 		wayland? (
 			dev-libs/libffi:=
+			dev-libs/wayland:=
 			screencast? ( media-video/pipewire:= )
 		)
 	)
@@ -199,6 +210,7 @@ depend_clang_llvm_versions() {
 	fi
 }
 
+# #923010 - add `profiler` USE to rust-bin
 BDEPEND="
 	${COMMON_SNAPSHOT_DEPEND}
 	${PYTHON_DEPS}
@@ -210,32 +222,33 @@ BDEPEND="
 		qt5? ( dev-qt/qtcore:5 )
 		qt6? ( dev-qt/qtbase:6 )
 	)
-	libcxx? ( >=sys-devel/clang-${LLVM_MIN_SLOT} )
-	lto? ( $(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT}) )
-	pgo? (
-		>=dev-python/selenium-3.141.0
-		>=dev-util/web_page_replay_go-20220314
-		$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
+	system-toolchain? (
+		libcxx? ( >=sys-devel/clang-${LLVM_MIN_SLOT} )
+		lto? ( $(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT}) )
+		pgo? (
+			>=dev-python/selenium-3.141.0
+			>=dev-util/web_page_replay_go-20220314
+			$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
+		)
+		>=dev-lang/rust-${RUST_MIN_VER}[profiler]
+		>=dev-build/gn-${GN_MIN_VER}
 	)
-	>=dev-build/ninja-1.7.2
 	dev-lang/perl
-	>=dev-build/gn-${GN_MIN_VER}
+	>=dev-build/ninja-1.7.2
 	>=dev-util/gperf-3.0.3
 	dev-vcs/git
 	>=net-libs/nodejs-7.6.0[inspector]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	virtual/pkgconfig
-	dev-lang/rust[profiler]
 "
-# TODO: virtual-rust w/ USE=profiler would be better
 
 if [[ ${CHROMIUM_FORCE_CLANG} == yes ]]; then
-	BDEPEND+=" >=sys-devel/clang-${LLVM_MIN_SLOT}"
+	BDEPEND+="system-toolchain? ( >=sys-devel/clang-${LLVM_MIN_SLOT} ) "
 fi
 
 if [[ ${CHROMIUM_FORCE_LLD} == yes ]]; then
-	BDEPEND+=" >=sys-devel/lld-${LLVM_MIN_SLOT}"
+	BDEPEND+="system-toolchain? ( >=sys-devel/lld-${LLVM_MIN_SLOT} ) "
 else
 	# #918897: Hack for arm64
 	BDEPEND+=" arm64? ( >=sys-devel/lld-${LLVM_MIN_SLOT} )"
@@ -337,13 +350,13 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	if use lto || use pgo; then
+	if use system-toolchain && needs_clang; then
 		llvm_pkg_setup
 	fi
 
 	pre_build_checks
 
-	if [[ ${MERGE_TYPE} != binary ]]; then
+	if [[ ${MERGE_TYPE} != binary ]] && use system-toolchain; then
 		local -x CPP="$(tc-getCXX) -E"
 		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${GCC_MIN_VER}; then
 			die "At least gcc ${GCC_MIN_VER} is required"
@@ -380,19 +393,31 @@ src_prepare() {
 		"chrome/browser/media/router/media_router_feature.cc" || die
 
 	local PATCHES=(
-		"${WORKDIR}/chromium-patches-${PATCH_V}"
 		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-108-EnumTable-crash.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
+		"${FILESDIR}/chromium-117-system-zstd.patch"
+		"${FILESDIR}/chromium-119-minizip-cast.patch"
 	)
 
 	if use system-toolchain; then
-	# We can't use the bundled compiler builtins
+		# The patchset is really only required if we're not using the system-toolchain
+		PATCHES+=( "${WORKDIR}/chromium-patches-${PATCH_V}" )
+		# We can't use the bundled compiler builtins
 		sed -i -e \
 			"/if (is_clang && toolchain_has_rust) {/,+2d" \
 			build/config/compiler/BUILD.gn || die "Failed to disable bundled compiler builtins"
+	else
+		mkdir -p third_party/llvm-build/Release+Asserts || die "Failed to bundle llvm"
+		ln -s "${WORKDIR}"/bin third_party/llvm-build/Release+Asserts/bin || die "Failed to symlink llvm bin"
+		ln -s "${WORKDIR}"/lib third_party/llvm-build/Release+Asserts/lib || die "Failed to symlink llvm lib"
+		echo "${GOOGLE_CLANG_VER}" > third_party/llvm-build/Release+Asserts/cr_build_revision || \
+			die "Failed to set clang version"
+		ln -s "${WORKDIR}"/rust-toolchain third_party/rust-toolchain || die "Failed to bundle rust"
+		cp "${WORKDIR}"/rust-toolchain/VERSION \
+			"${WORKDIR}"/rust-toolchain/INSTALLED_VERSION || die "Failed to set rust version"
 	fi
 
 	if use ppc64 ; then
@@ -689,7 +714,7 @@ src_prepare() {
 		keeplibs+=( third_party/libc++ )
 	fi
 
-	if ! use system-toolchain || [[ ${CHROMIUM_FORCE_BUNDLED_CLANG} == yes ]]; then
+	if ! use system-toolchain || [[ ${CHROMIUM_FORCE_GOOGLE_TOOLCHAIN} == yes ]]; then
 			keeplibs+=( third_party/llvm )
 	fi
 
@@ -740,7 +765,7 @@ chromium_configure() {
 
 	local myconf_gn=""
 
-	if use system-toolchain; then
+	if use system-toolchain && [[ ${CHROMIUM_FORCE_GOOGLE_TOOLCHAIN} == no ]]; then
 		# Make sure the build system will use the right tools, bug #340795.
 		tc-export AR CC CXX NM
 
@@ -763,29 +788,25 @@ chromium_configure() {
 		else
 			myconf_gn+=" is_clang=false"
 		fi
-	fi
 
-	# https://bugs.gentoo.org/918897#c32
-	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
-
-	if needs_lld ; then
-		myconf_gn+=" use_lld=true"
-	else
-		# This doesn't prevent lld from being used, but rather prevents gn from forcing it
-		myconf_gn+=" use_lld=false"
-	fi
-
-	if use lto; then
-		AR=llvm-ar
-		NM=llvm-nm
-		if tc-is-cross-compiler; then
-			BUILD_AR=llvm-ar
-			BUILD_NM=llvm-nm
+		if needs_lld ; then
+			# https://bugs.gentoo.org/918897#c32
+			append-ldflags -Wl,--undefined-version
+			myconf_gn+=" use_lld=true"
+		else
+			# This doesn't prevent lld from being used, but rather prevents gn from forcing it
+			myconf_gn+=" use_lld=false"
 		fi
-	fi
 
-	# Define a custom toolchain for GN
-	if use system-toolchain; then
+		if use lto; then
+			AR=llvm-ar
+			NM=llvm-nm
+			if tc-is-cross-compiler; then
+				BUILD_AR=llvm-ar
+				BUILD_NM=llvm-nm
+			fi
+		fi
+
 		myconf_gn+=" custom_toolchain=\"//build/toolchain/linux/unbundle:default\""
 
 		if tc-is-cross-compiler; then
@@ -807,13 +828,7 @@ chromium_configure() {
 		else
 			myconf_gn+=" host_toolchain=\"//build/toolchain/linux/unbundle:default\""
 		fi
-	fi
 
-	# As of 121 rust is required to build chromium components
-	# Forcing the bundled toolchain probably doesn't work right now,
-	# we'll also need to force the use of the bundled Clang/llvm; TODO!
-	# Theoretically the system llvm and system rust _should_ play fine together.
-	if [[ ${CHROMIUM_FORCE_BUNDLED_RUST} == no ]]; then
 		local rustc_ver
 		rustc_ver=$(chromium_rust_version_check)
 		if ver_test "${rustc_ver}" -lt "${RUST_MIN_VER}"; then
@@ -904,17 +919,19 @@ chromium_configure() {
 		myconf_gn+=" link_pulseaudio=true"
 	fi
 
+	# Non-developer builds of Chromium (for example, non-Chrome browsers, or
+	# Chromium builds provided by Linux distros) should disable the testing config
 	myconf_gn+=" disable_fieldtrial_testing_config=true"
 
 	if use system-toolchain; then
-		# Never use bundled gold binary. Disable gold linker flags for now.
-		# Do not use bundled clang.
-		# Trying to use gold results in linker crash.
-		myconf_gn+=" use_gold=false use_sysroot=false"
+		myconf_gn+=" use_gold=false"
 	fi
-	# The defaults _should_ be fine if using the bundled toolchain?
 
-	# This determines whether or not GN uses the bundled libcxx
+	# The sysroot is the oldest debian image that chromium supports, we don't need it
+	myconf_gn+=" use_sysroot=false"
+
+	# This determines whether or not GN uses the bundled
+	# default: true
 	if use libcxx || [[ ${CHROMIUM_FORCE_LIBCXX} == yes ]]; then
 		myconf_gn+=" use_custom_libcxx=true"
 	else
