@@ -1,6 +1,5 @@
-BDEPEND=app-alternatives/gzip sys-apps/help2man test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-alternatives/gzip sys-apps/help2man dev-build/autoconf-wrapper dev-build/autoconf test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare setup unpack
-DEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-11 >=dev-build/autoconf-2.69:* sys-devel/gnuconfig
 DESCRIPTION=Used to generate Makefile.in from Makefile.am
 EAPI=7
 HOMEPAGE=https://www.gnu.org/software/automake/
@@ -12,4 +11,4 @@ RDEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-11 >=dev-build/autoconf
 RESTRICT=!test? ( test )
 SLOT=9999
 _eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=de203e1c1cfead43f19dc8a10ea3e102
+_md5_=500428b2f7a974c13942cd9645541156
