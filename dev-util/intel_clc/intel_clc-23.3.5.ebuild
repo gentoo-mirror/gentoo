@@ -47,9 +47,9 @@ BDEPEND="
 #
 # How to use it:
 # 1. Specify LLVM_MAX_SLOT (inclusive), e.g. 17.
-# 2. Specify LLVM_MIN_SLOT (inclusive), e.g. 16.
+# 2. Specify LLVM_MIN_SLOT (inclusive), e.g. 15.
 LLVM_MAX_SLOT="17"
-LLVM_MIN_SLOT="16"
+LLVM_MIN_SLOT="15"
 PER_SLOT_DEPSTR="
 	(
 		dev-util/spirv-llvm-translator:@SLOT@
