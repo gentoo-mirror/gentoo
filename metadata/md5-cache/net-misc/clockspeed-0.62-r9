@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure install
+DEPEND=sys-apps/groff
+DESCRIPTION=Simple Network Time Protocol (NTP) client
+EAPI=8
+HOMEPAGE=https://cr.yp.to/clockspeed.html
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=static selinux
+KEYWORDS=~amd64 ~mips ~x86
+LICENSE=public-domain
+RDEPEND=net-dns/djbdns
+RESTRICT=mirror bindist test
+SLOT=0
+SRC_URI=https://cr.yp.to/clockspeed/clockspeed-0.62.tar.gz https://dev.gentoo.org/~pacho/maintainer-needed/leapsecs.dat.20081114
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b2b07efa51009704f88173b2c7feab47
+_md5_=551728dddbfbfb9b23cce8076228f408
