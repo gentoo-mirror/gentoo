@@ -57,7 +57,7 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="119.0.6045.159-1raptor0~deb12u1"
+PATCHSET_PPC64="121.0.6167.85-1raptor0~deb12u1"
 PATCH_V="${PV%%\.*}-2"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	system-toolchain? (
@@ -65,9 +65,9 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	)
 	!system-toolchain? (
 		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/clang-${GOOGLE_CLANG_VER}.tar.xz
-			-> ${P}-clang.tar.xz
+			-> chromium-${PV%%\.*}-clang.tar.xz
 		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${GOOGLE_RUST_VER}-${GOOGLE_CLANG_VER%??}.tar.xz
-			-> ${P}-rust.tar.xz
+			-> chromium-${PV%%\.*}-rust.tar.xz
 	)
 	ppc64? (
 		https://quickbuild.io/~raptor-engineering-public/+archive/ubuntu/chromium/+files/chromium_${PATCHSET_PPC64}.debian.tar.xz
@@ -231,8 +231,8 @@ BDEPEND="
 			$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
 		)
 		>=dev-lang/rust-${RUST_MIN_VER}[profiler]
-		>=dev-build/gn-${GN_MIN_VER}
 	)
+	>=dev-build/gn-${GN_MIN_VER}
 	dev-lang/perl
 	>=dev-build/ninja-1.7.2
 	>=dev-util/gperf-3.0.3
@@ -1162,6 +1162,22 @@ chromium_compile() {
 	eninja -C out/Release chrome chromedriver chrome_sandbox
 
 	pax-mark m out/Release/chrome
+
+	if ! use system-toolchain; then
+		QA_FLAGS_IGNORED="
+			usr/lib64/chromium-browser/chrome
+			usr/lib64/chromium-browser/chrome-sandbox
+			usr/lib64/chromium-browser/chromedriver
+			usr/lib64/chromium-browser/chrome_crashpad_handler
+			usr/lib64/chromium-browser/libEGL.so
+			usr/lib64/chromium-browser/libGLESv2.so
+			usr/lib64/chromium-browser/libVkICD_mock_icd.so
+			usr/lib64/chromium-browser/libVkLayer_khronos_validation.so
+			usr/lib64/chromium-browser/libqt5_shim.so
+			usr/lib64/chromium-browser/libvk_swiftshader.so
+			usr/lib64/chromium-browser/libvulkan.so.1
+		"
+	fi
 }
 
 # This function is called from virtx, and must always return so that Xvfb
