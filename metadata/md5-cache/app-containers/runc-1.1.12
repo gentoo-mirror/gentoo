@@ -1,0 +1,16 @@
+BDEPEND=dev-go/go-md2man test? ( seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc apparmor? ( sys-libs/libapparmor ) selinux? ( sec-policy/selinux-container ) ) >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install setup test unpack
+DEPEND=seccomp? ( sys-libs/libseccomp )
+DESCRIPTION=runc container cli tools
+EAPI=8
+HOMEPAGE=http://github.com/opencontainers/runc/
+INHERIT=go-module linux-info
+IUSE=apparmor hardened +kmem +seccomp selinux test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0 BSD-2 BSD MIT
+RDEPEND=seccomp? ( sys-libs/libseccomp ) !app-emulation/docker-runc apparmor? ( sys-libs/libapparmor ) selinux? ( sec-policy/selinux-container )
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/opencontainers/runc/archive/v1.1.12.tar.gz -> runc-1.1.12.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_md5_=7c2b19ca0215f8ad9cedfd5f6e412688
