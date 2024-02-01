@@ -1,0 +1,14 @@
+BDEPEND=acct-group/cron
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=acct-group/cron sys-process/cronbase
+DESCRIPTION=A periodic command scheduler
+EAPI=8
+HOMEPAGE=https://anacron.sourceforge.net/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~ppc ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=acct-group/cron sys-process/cronbase virtual/mta
+SLOT=0
+SRC_URI=mirror://sourceforge/anacron/anacron-2.3.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=e489930543311a08f1ba0193f5a78f3b
