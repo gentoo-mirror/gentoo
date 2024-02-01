@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+DEFINED_PHASES=configure install prepare
+DEPEND=selinux? ( >=sys-libs/libselinux-2.2.2-r4 ) virtual/os-headers
+DESCRIPTION=Loop-AES losetup utility
+EAPI=8
+HOMEPAGE=https://www.kernel.org/pub/linux/utils/util-linux/ https://github.com/util-linux/util-linux
+INHERIT=toolchain-funcs libtool flag-o-matic
+IUSE=nls selinux static
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~sparc ~x86
+LICENSE=GPL-2 LGPL-2.1 BSD-4 MIT public-domain
+RDEPEND=selinux? ( >=sys-libs/libselinux-2.2.2-r4 )
+SLOT=0
+SRC_URI=https://www.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.2.tar.xz http://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.8b.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	flag-o-matic	b2b07efa51009704f88173b2c7feab47
+_md5_=6a360a6ca19d464d4bcbce4110546533
