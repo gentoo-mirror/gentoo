@@ -2333,7 +2333,7 @@ app-emulation/plus42 1.0.21 1.1.2 1.1.3: An Enhanced HP-42S Calculator Simulator
 app-emulation/protontricks 1.10.5: app-emulation/winetricks wrapper for Proton (Steam Play) games
 app-emulation/punes 0.110: Nintendo Entertainment System (NES) emulator
 app-emulation/q4wine 1.3.13: Qt GUI configuration tool for Wine
-app-emulation/qemu 7.2.4 7.2.6 7.2.7 7.2.8 7.2.9 8.0.4 8.0.5 8.1.2 8.1.3 8.1.4 8.1.5 8.2.0 8.2.1 9999: QEMU + Kernel-based Virtual Machine userland tools
+app-emulation/qemu 7.2.4 7.2.8 7.2.9 8.0.4 8.0.5 8.1.4 8.1.5 8.2.0 8.2.1 9999: QEMU + Kernel-based Virtual Machine userland tools
 app-emulation/qemu-guest-agent 6.0.0 7.1.0 8.0.0 8.0.2 8.0.3: QEMU Guest Agent (qemu-ga) for use when running inside a VM
 app-emulation/qemu-init-scripts 0.3.0-r1: Kvm and qemu init scripts
 app-emulation/ruffle 0_p20231216 0_p20240117 9999: Flash Player emulator written in Rust
@@ -2348,7 +2348,7 @@ app-emulation/spice-vdagent 0.22.1: SPICE VD Linux Guest Agent
 app-emulation/spim 8.0-r3: MIPS Simulator
 app-emulation/uade 2.13-r2: Unix Amiga Delitracker Emulator - plays old Amiga tunes through UAE emulation
 app-emulation/uxn 0_p20230803 9999: An assembler and emulator for the Uxn stack-machine, written in ANSI C
-app-emulation/vagrant 2.3.7 2.4.0: A tool for building and distributing development environments
+app-emulation/vagrant 2.3.7 2.4.0-r1: A tool for building and distributing development environments
 app-emulation/vendor-reset 0.1.1_pre20221205 0.1.1_pre20221205-r1 9999: Linux kernel vendor specific hardware reset module
 app-emulation/vice 3.7.1 3.8-r1: Versatile Commodore Emulator
 app-emulation/virt-manager 4.1.0 4.1.0-r1 9999: A graphical tool for administering virtual machines
@@ -3067,7 +3067,7 @@ app-shells/dsh 0.25.10-r1: Distributed Shell
 app-shells/esh 0.8.5-r3: A UNIX Shell with a simplified Scheme syntax
 app-shells/fish 3.4.0 3.6.1 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816: F# Shell with integrated F# scripting
-app-shells/fzf 0.44.0 0.45.0 0.46.1: General-purpose command-line fuzzy finder, written in Golang
+app-shells/fzf 0.44.0 0.46.1: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0: POSIX-compatible shell written in Guile Scheme
 app-shells/gentoo-bashcomp 20190211-r1 20230313: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20220112 20230117 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
@@ -3255,7 +3255,7 @@ app-text/libmspub 0.1.4 9999: Library parsing Microsoft Publisher documents
 app-text/libmwaw 0.3.22 9999: Library parsing many pre-OSX MAC text formats
 app-text/libnumbertext 1.0.11: Number to number name and money text conversion libraries
 app-text/libodfgen 0.1.8 9999: Library to generate ODF documents from libwpd and libwpg
-app-text/libpaper 1.1.28 2.0.4 2.0.10 2.0.12 2.1.0 2.1.1 2.1.2: Library for handling paper characteristics
+app-text/libpaper 1.1.28 2.1.2 2.1.3: Library for handling paper characteristics
 app-text/libqxp 0.0.2: Library parsing QuarkXpress documents
 app-text/libspectre 0.2.11 0.2.12: Library for rendering Postscript documents
 app-text/libstaroffice 0.0.7 9999: Import filter for old StarOffice documents
@@ -4003,7 +4003,7 @@ dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-debug/pwndbg 20230717-r1 99999999: A GDB plug-in that makes debugging with GDB suck less
 dev-debug/scap-driver 0.29.3-r4 0.29.3-r5: Kernel module for dev-debug/sysdig
-dev-debug/strace 6.2 6.3 6.4-r1 6.6 6.7 9999: Useful diagnostic, instructional, and debugging tool
+dev-debug/strace 6.6 6.7 9999: Useful diagnostic, instructional, and debugging tool
 dev-debug/sysdig 0.29.3-r1 0.29.3-r2: A system exploration and troubleshooting tool
 dev-debug/systemtap 4.8 4.9 5.0: A linux trace/probe tool
 dev-debug/valgrind 3.20.0-r2 3.21.0-r1 3.21.0-r2 3.22.0 3.22.0-r1 3.22.0-r2 9999: An open-source memory debugger for GNU/Linux
@@ -10748,7 +10748,7 @@ dev-util/dialog 1.3.20220728 1.3.20221229 1.3.20230209 1.3.20231002 1.3.20240101
 dev-util/diff-cover 6.5.0-r1: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/difffilter 0.3.3-r1: Filter files out of unified diffs using POSIX extended regular expressions
-dev-util/diffoscope 247 253-r1: Will try to get to the bottom of what makes files or directories different
+dev-util/diffoscope 247 253-r1 255: Will try to get to the bottom of what makes files or directories different
 dev-util/diffstat 1.65 1.66: Display a histogram of diff changes
 dev-util/difftastic 0.52.0 0.54.0: A structural diff that understands syntax.
 dev-util/diffuse 0.8.2: A graphical tool to compare and merge text files
@@ -13253,7 +13253,7 @@ media-libs/libilbc 3.0.4: Packaged version of iLBC codec from the WebRTC project
 media-libs/libinsane 1.0.9 1.0.10: Crossplatform access to image scanners
 media-libs/libiptcdata 1.0.5: Library for International Press Telecommunications Council (IPTC) metadata
 media-libs/libirman 0.4.5: library for Irman control of Unix software
-media-libs/libjpeg-turbo 2.1.3 2.1.4 2.1.5.1 3.0.0 3.0.1: MMX, SSE, and SSE2 SIMD accelerated JPEG library
+media-libs/libjpeg-turbo 2.1.5.1 3.0.0 3.0.1 3.0.2: MMX, SSE, and SSE2 SIMD accelerated JPEG library
 media-libs/libjsw 1.5.8: provide a uniform API and user configuration for joysticks and game controllers
 media-libs/libjxl 0.8.1 0.8.2-r1 0.9.1 9999: JPEG XL image format reference implementation
 media-libs/libkate 0.4.1-r4: Codec for karaoke and text encapsulation for Ogg
@@ -17066,7 +17066,7 @@ sys-apps/minised 1.16: a smaller, cheaper and faster sed implementation
 sys-apps/miscfiles 1.5-r4: Miscellaneous files
 sys-apps/mlocate 0.26-r3: Merging locate is an utility to index and quickly search for files
 sys-apps/mlxup-bin 4.13.0: Mellanox Update and Query Utility
-sys-apps/moar 1.21.0 1.22.3 1.23.1 1.23.4: Pager designed to do the right thing without any configuration
+sys-apps/moar 1.22.3 1.23.4: Pager designed to do the right thing without any configuration
 sys-apps/moreutils 0.67-r1 0.68: Collection of tools that nobody thought to write when Unix was young
 sys-apps/most 5.1.0 5.2.0: Paging program that displays, one windowful at a time, the contents of a file
 sys-apps/mount-gtk 1.4.5.1: GTK+ based UDisks2 frontend
@@ -17183,7 +17183,7 @@ sys-apps/usbutils 016 017: USB enumeration utilities
 sys-apps/usermode-utilities 20070815-r4 20070815-r5: Tools for use with Usermode Linux virtual machines
 sys-apps/utempter 0.5.5.6-r1: App that allows non-privileged apps to write utmp (login) info
 sys-apps/util-linux 2.38.1-r3 2.39.2-r1 2.39.3-r1 9999: Various useful Linux utilities
-sys-apps/uutils-coreutils 0.0.23 9999: GNU coreutils rewritten in Rust
+sys-apps/uutils-coreutils 0.0.23 0.0.24 9999: GNU coreutils rewritten in Rust
 sys-apps/uutils-findutils 0.4.2-r1 9999: GNU findutils rewritten in Rust
 sys-apps/vbetool 1.2.2: Run real-mode video BIOS code to alter hw state (i.e. reinitialize video card)
 sys-apps/watchdog 5.16 5.16-r1: A software watchdog and /dev/watchdog daemon
