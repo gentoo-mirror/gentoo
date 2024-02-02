@@ -2,24 +2,22 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # Build the tarball:
-#   - "$" - shell command,
-#   - ">" - manual action.
-# $  git clone --depth 1 -b v8.0.0 https://github.com/dotnet/dotnet  \
-#		 dotnet-sdk-8.0.0
-# $  cd dotnet-sdk-8.0.0
-# >  Note the checkout tag hash.
-# $  ./prep.sh
-# $  rm -fr .git
-# $  cd ..
-# $  tar --create --auto-compress --file  \
-#        dotnet-sdk-8.0.100-prepared-gentoo-amd64.tar.xz dotnet-sdk-8.0.0
-# >  Upload dotnet-sdk-8.0.0_rc1234194-prepared-gentoo-amd64.tar.xz
+#  git clone --depth 1 -b v8.0.1 https://github.com/dotnet/dotnet dotnet-sdk-8.0.1
+#  cd dotnet-sdk-8.0.1
+#  git rev-parse HEAD
+#  ./prep.sh
+#  rm -fr .git
+#  cd ..
+#  tar -acf dotnet-sdk-8.0.101-prepared-gentoo-amd64.tar.xz dotnet-sdk-8.0.1
+# Upload dotnet-sdk-8.0.101-prepared-gentoo-amd64.tar.xz
 
 EAPI=8
 
-COMMIT=113d797bc90104bb4f1cc51e1a462cf3d4ef18fc
+COMMIT=b27976e5a6850466ee5b4ce24f91ee93bef645f7
+SDK_SLOT="$(ver_cut 1-2)"
+RUNTIME_SLOT="${SDK_SLOT}.1"
 
-LLVM_MAX_SLOT=16
+LLVM_MAX_SLOT=17
 PYTHON_COMPAT=( python3_{10..12} )
 
 inherit check-reqs flag-o-matic llvm python-any-r1
@@ -29,20 +27,15 @@ HOMEPAGE="https://dotnet.microsoft.com/
 	https://github.com/dotnet/dotnet/"
 SRC_URI="
 amd64? (
-	https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz
+	elibc_glibc? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz )
+	elibc_musl? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-musl-amd64.tar.xz )
 )
 "
-
-SDK_SLOT="$(ver_cut 1-2)"
-RUNTIME_SLOT="${SDK_SLOT}.0"
-SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
-
-# SDK reports it is version "8.0.100" but the tag .NET SDK team had given
-# it is "8.0.0". I feel that the pattern is to tag based on "RUNTIME_SLOT".
 S="${WORKDIR}/${PN}-${RUNTIME_SLOT}"
 
 LICENSE="MIT"
-KEYWORDS="amd64"
+SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
+KEYWORDS="~amd64"
 
 # STRIP="llvm-strip" corrupts some executables when using the patchelf hack.
 # Be safe and restrict it for source-built too, bug https://bugs.gentoo.org/923430
@@ -52,8 +45,8 @@ CURRENT_NUGETS_DEPEND="
 	~dev-dotnet/dotnet-runtime-nugets-${RUNTIME_SLOT}
 "
 EXTRA_NUGETS_DEPEND="
-	~dev-dotnet/dotnet-runtime-nugets-6.0.25
-	~dev-dotnet/dotnet-runtime-nugets-7.0.14
+	~dev-dotnet/dotnet-runtime-nugets-6.0.26
+	~dev-dotnet/dotnet-runtime-nugets-7.0.15
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}
@@ -80,6 +73,9 @@ PDEPEND="
 "
 
 CHECKREQS_DISK_BUILD="20G"
+PATCHES=(
+	"${FILESDIR}/${PN}-8.0.101-runtime-64.patch"
+)
 
 # QA_PREBUILT="*"  # TODO: Which binaries are created by dotnet itself?
 
