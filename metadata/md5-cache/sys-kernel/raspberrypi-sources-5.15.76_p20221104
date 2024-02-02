@@ -6,9 +6,9 @@ INHERIT=kernel-2 linux-info
 IUSE=symlink build
 KEYWORDS=arm arm64
 LICENSE=GPL-2
-RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc app-alternatives/yacc app-alternatives/lex dev-build/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc dev-build/make sys-devel/bison sys-devel/flex >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
 SLOT=5.15.76_p20221104
 SRC_URI=https://github.com/raspberrypi/linux/archive/1.20221104.tar.gz -> linux-5.15.76_p20221104-raspberrypi.tar.gz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.15-22.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.15-22.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-5.15-22.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.15-22.extras.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	kernel-2	1c6b8977e581e4db92fc0f6ee99babd9	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	kernel-2	fac498f715fc10dee6883af672f0366f	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91
 _md5_=e2cb36ec8842f598f6a621111199814b
