@@ -1,0 +1,33 @@
+Title: installkernel new USE flag systemd-boot
+Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
+Posted: 2024-01-30
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-kernel/installkernel[systemd]
+Display-If-Installed: sys-apps/systemd[boot]
+Display-If-Installed: sys-apps/systemd-utils[boot]
+
+/sbin/installkernel is a script called by the kernels 'make install' as well
+as by the distribution kernels post install phase. sys-kernel/installkernel
+provides two paths for installing the kernel:
+- the traditional installkernel, or
+- systemd's kernel-install
+
+In sys-kernel/installkernel versions lower then 20, systemd's kernel-install
+would default to the layout used for systemd-boot (layout=bls). To improve
+backwards compatibility with the traditional installkernel this is no longer
+the case in versions 20 and up. Instead the default layout setting when no other
+USE flags are enabled is a compatibility layout similar to the traditional
+installkernel (layout=compat).
+
+
+User Action Required (systemd-boot users)
+====================
+
+Users of systemd-boot should:
+- enable the "systemd-boot" USE flag
+when upgrading to >=sys-kernel/installkernel-20.
+
+
+See also: https://wiki.gentoo.org/wiki/Installkernel
+
