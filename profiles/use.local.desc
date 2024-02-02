@@ -8305,7 +8305,8 @@ sys-kernel/gentoo-kernel-bin:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
 sys-kernel/installkernel:dracut - Generate an initrd or UKI on each kernel installation
 sys-kernel/installkernel:grub - Re-generate grub.cfg on each kernel installation
-sys-kernel/installkernel:systemd - Use systemd's kernel-install to install kernels'
+sys-kernel/installkernel:systemd - Use systemd's kernel-install to install kernels
+sys-kernel/installkernel:systemd-boot - Use systemd-boot's native layout by default
 sys-kernel/installkernel:uki - Install UKIs to ESP/EFI/Linux for EFI stub booting and/or bootloaders with support for auto-discovering UKIs
 sys-kernel/installkernel:ukify - Build an UKI with systemd's ukify on each kernel installation
 sys-kernel/kpatch:contrib - Enable contrib kpatch services files.
