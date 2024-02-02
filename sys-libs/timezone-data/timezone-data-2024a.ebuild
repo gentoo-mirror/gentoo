@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SRC_URI="https://www.iana.org/time-zones/repository/releases/tzdata${MY_DATA_VER
 
 LICENSE="BSD public-domain"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="nls leaps-timezone zic-slim"
 
 DEPEND="nls? ( virtual/libintl )"
@@ -61,7 +61,7 @@ src_configure() {
 	if use nls ; then
 		# See if an external libintl is available. bug #154181, bug #578424
 		local c="${T}/test"
-		echo 'main(){}' > "${c}.c" || die
+		echo 'int main(){}' > "${c}.c" || die
 		if $(tc-getCC) ${CPPFLAGS} ${CFLAGS} ${LDFLAGS} "${c}.c" -o "${c}" -lintl 2>/dev/null ; then
 			LDLIBS+=" -lintl"
 		fi
@@ -77,10 +77,9 @@ _emake() {
 }
 
 src_compile() {
+	tc-export AR CC RANLIB
+
 	_emake \
-		AR="$(tc-getAR)" \
-		cc="$(tc-getCC)" \
-		RANLIB="$(tc-getRANLIB)" \
 		CFLAGS="${CFLAGS} -std=gnu99 ${CPPFLAGS}" \
 		LDFLAGS="${LDFLAGS}" \
 		LDLIBS="${LDLIBS}"
@@ -88,7 +87,7 @@ src_compile() {
 	if tc-is-cross-compiler ; then
 		_emake -C "${S}"-native \
 			AR="$(tc-getBUILD_AR)" \
-			cc="$(tc-getBUILD_CC)" \
+			CC="$(tc-getBUILD_CC)" \
 			RANLIB="$(tc-getBUILD_RANLIB)" \
 			CFLAGS="${BUILD_CFLAGS} ${BUILD_CPPFLAGS}" \
 			LDFLAGS="${BUILD_LDFLAGS}" \
