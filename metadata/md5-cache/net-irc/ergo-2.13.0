@@ -1,0 +1,15 @@
+BDEPEND=test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare setup unpack
+DESCRIPTION=A modern IRC server written in Go
+EAPI=8
+HOMEPAGE=https://ergo.chat/ https://github.com/ergochat/ergo
+INHERIT=go-module python-any-r1 systemd
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0
+RDEPEND=acct-user/oragono acct-group/oragono
+RESTRICT=!test? ( test ) strip
+SLOT=0
+SRC_URI=https://github.com/ergochat/ergo/archive/v2.13.0.tar.gz -> ergo-2.13.0.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=607d89777367633c5cc7a93bf72f01f8
