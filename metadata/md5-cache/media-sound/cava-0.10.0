@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/karlstav/cava/
 INHERIT=autotools toolchain-funcs
 IUSE=alsa jack +ncurses pipewire portaudio pulseaudio sdl sndio
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=MIT Unlicense
 RDEPEND=dev-libs/iniparser:4 sci-libs/fftw:3.0= alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) ncurses? ( sys-libs/ncurses:= ) pipewire? ( media-video/pipewire:= ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libglvnd media-libs/libsdl2[opengl,video] ) sndio? ( media-sound/sndio:= )
 SLOT=0
 SRC_URI=https://github.com/karlstav/cava/archive/refs/tags/0.10.0.tar.gz -> cava-0.10.0.tar.gz https://dev.gentoo.org/~ionen/distfiles/cava-0.10.0-jack-support.patch.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
-_md5_=c0b6b0ce19568108a25b75b235c4128b
+_md5_=bbff9f6a0fc5d2285e1599c100aed69b

@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=http://ant-contrib.sourceforge.net/
 INHERIT=java-pkg-2 java-ant-2
 IUSE=doc examples source test
-KEYWORDS=~amd64 ~arm ~arm64
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/ant-1.10.14:0 dev-java/xerces:2 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/ant-contrib/ant-contrib/cpptasks-1.0-beta5/cpptasks-1.0b5.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	java-ant-2	53b9c110af009f9f4548f5b129ae6fe6
-_md5_=28e6b075838b9bd336f20d76d84ef9e5
+_md5_=428601e18f4a00b716f7d8f1eb2459ef

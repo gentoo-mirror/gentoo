@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/xmlunit/ https://www.xmlunit.org
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=BSD
 RDEPEND=dev-java/junit:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=1
 SRC_URI=mirror://sourceforge/project/xmlunit/xmlunit%20for%20Java/XMLUnit%20for%20Java%201.6/xmlunit-1.6-src.zip
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
-_md5_=0008397b0707267b99c174c45646e4ef
+_md5_=00981333b84fb8dadea2f7af505f0911
