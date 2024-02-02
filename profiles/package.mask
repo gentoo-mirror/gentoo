@@ -120,12 +120,6 @@ dev-java/osgi-enterprise-api
 dev-java/osgi-compendium
 dev-java/osgi-foundation
 
-# Michał Górny <mgorny@gentoo.org> (2024-01-12)
-# Breaks data collection for a lot of packages, by attempting to import
-# all modules (not just test files), and therefore failing if they have
-# optional runtime dependencies.
-=dev-python/pytest-asyncio-0.23.3
-
 # Michał Górny <mgorny@gentoo.org> (2024-01-11)
 # These plugins are no longer maintained.  At least
 # dev-python/pytest-virtualenv is broken.  They have no revdeps left.
@@ -134,10 +128,6 @@ dev-python/pytest-fixture-config
 dev-python/pytest-shutil
 dev-python/pytest-verbose-parametrize
 dev-python/pytest-virtualenv
-
-# Michał Górny <mgorny@gentoo.org> (2024-01-11)
-# Breaks random test suites using pytest-xdist.
-=dev-python/pytest-asyncio-0.23.4_alpha1
 
 # Viorel Munteanu <ceamac@gentoo.org> (2024-01-08)
 # Masked for removal due to licensing issues and possible GPL infringement.
@@ -165,78 +155,9 @@ net-nds/tac_plus
 # Removal on 2024-02-03.  Bug #877311
 x11-libs/snorenotify
 
-# Alfredo Tupone <tupone@gentoo.org> (2024-02-02)
-# No more used by any package (bug #921167)
-# remove in 30 days
-net-mail/courier-makedat
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-31)
-# Unmaintained.  A number of serious bugs reported.  Homepage gone.
-# No release since at least 2010.
-# Removal on 2024-01-30.  Bug #915827.
-app-misc/utimer
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-31)
-# Apparently broken on kernels > 5.15, with data loss potential.
-# Last release in 2010.  sys-apps/hd-idle is a good replacement.
-# Removal on 2024-01-30.  Bug #849077.
-sys-block/noflushd
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-31)
-# Buggy code that carries local patches already.  The ebuild installs
-# junk files.  No upstream activity since 2009.
-# Removal on 2024-01-30.  Bug #874087.
-app-admin/newsyslog
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-31)
-# Buggy code with a number of local patches already.  Last release
-# in 2003.  media-sound/jack2 should be a good alternative.
-# Removal on 2024-01-30.  Bug #875152.
-media-sound/daudio
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-31)
-# dev-python/pydocstyle does not work on Python 3.12 and it has been
-# archived in 2023-11.  dev-python/pylama is its only reverse
-# dependency, and did not have any activity since 2022-08.
-# It has no reverse dependencies.
-# Removal on 2024-01-30.  Bug #917008.
-dev-python/pydocstyle
-dev-python/pylama
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-31)
-# Homepage gone.  Last updated in 2005.  There are many alternatives
-# available in net-firewall/*.
-# Removal on 2024-01-30.  Bug #920658.
-net-misc/monmotha
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-31)
-# Discontinued fork of net-firewall/firehol.  Last updated in 2013.
-# Unmaintained in Gentoo since 2015.  Use the original package instead.
-# Removal on 2024-01-30.  Bug #920659.
-net-firewall/sanewall
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-27)
-# Broken with all versions of dev-python/snakeoil.  Archived upstream.
-# No revdeps.
-# Removal on 2024-01-26.  Bug #920763.
-dev-python/pychroot
-
-# Hans de Graaff <graaff@gentoo.org> (2023-12-27)
-# Obsolete slot that no longer has any reverse dependencies. Use the
-# newer slot instead. Masked for removal on 2024-01-27.
-dev-ruby/rubyzip:1
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2023-12-25)
 # Masked until KF6 is unmasked.
 ~media-libs/mpvqt-1.0.0
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-25)
-# libtinynotify-systemwide is not ported to procps-4.  It is only
-# used to implement sw-notify-send which is used as an optional RDEP
-# in sys-apps/uam to send notifications on mount.
-# Removal on 2024-01-24.  Bug #913525.
-x11-libs/libtinynotify-systemwide
-x11-misc/sw-notify-send
 
 # Patrick Lauer <patrick@gentoo.org> (2023-12-23)
 # ROCm-6 builds but has runtime issues for me
@@ -248,51 +169,6 @@ x11-misc/sw-notify-send
 >=dev-util/hipcc-6.0.0
 >=dev-util/hip-6.0.0
 >=dev-util/rocminfo-6.0.0
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Unmaintained.  Last release in 2001.  media-gfx/xfig
-# (that is still maintained) is recommended instead.
-# Removal on 2024-01-21.  Bug #899790.
-media-gfx/figurine
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Broken on Python 3.11+.  No revdeps.
-# Removal on 2024-01-21.  Bug #896752.
-dev-python/awxkit
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Crashes.  Discontinued upstream.  No revdeps.
-# Removal on 2024-01-21.  Bug #907758.
-media-sound/guayadeque
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Abandoned and archived upstream.  Known broken.  No revdeps.
-# dev-go/lichen is the recommended replacement.
-# Removal on 2024-01-21.  Bug #913755.
-dev-go/golicense
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Unmaintained tool with NIH libraries that (optionally) depend
-# on vulnerable media-gfx/transfig.  Homepage gone.  No other revdeps.
-# Removal on 2024-01-21.  Bug #917248.
-dev-libs/liblist
-dev-libs/libstrl
-dev-util/difffilter
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Ancient.  The website is gone.  No revdeps.
-# Removal on 2024-01-21.  Bug #918622.
-net-analyzer/lilac
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Unmaintained.  Unfetchable and mirror-restricted.  No revdeps.
-# Removal on 2024-01-21.  Bug #918905.
-sys-block/hpacucli
-
-# Michał Górny <mgorny@gentoo.org> (2023-12-22)
-# Unmaintained.  EAPI 6.  Last commit in 2017.  No revdeps.
-# Removal on 2024-01-21.  Bug #919050.
-app-containers/go-secbench
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-01-31)
 # KDE Plasma 6 RC2 (5.93) and Frameworks 6 RC2 (5.249) mask
