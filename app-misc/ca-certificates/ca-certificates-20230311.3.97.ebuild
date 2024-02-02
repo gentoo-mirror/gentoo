@@ -53,31 +53,26 @@ else
 	"
 fi
 
+S="${WORKDIR}"
+
 LICENSE="MPL-1.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 ${PRECOMPILED} || IUSE+=" cacert"
 
-# c_rehash: we run `c_rehash`
-# debianutils: we run `run-parts`
-CDEPEND="
-	sys-apps/debianutils"
-
-BDEPEND="${CDEPEND}"
+BDEPEND="${COMMON_DEPEND}"
 if ! ${PRECOMPILED} ; then
 	BDEPEND+=" ${PYTHON_DEPS}"
 fi
 
-DEPEND=""
 if ${PRECOMPILED} ; then
 	DEPEND+=" !<sys-apps/portage-2.1.10.41"
 fi
 
-RDEPEND="${CDEPEND}
-	${DEPEND}"
-
-S="${WORKDIR}"
+RDEPEND="
+	${COMMON_DEPEND}
+	${DEPEND}
+"
 
 pkg_setup() {
 	# For the conversion to having it in CONFIG_PROTECT_MASK,
@@ -126,6 +121,7 @@ src_prepare() {
 
 	default
 	eapply -p2 "${FILESDIR}"/${PN}-20150426-root.patch
+	eapply -p2 "${FILESDIR}"/0001-update-ca-certificates-drop-pointless-dependency-on-.patch
 
 	pushd "${S}/${PN}" >/dev/null || die
 	# We patch out the dep on cryptography as it's not particularly useful
