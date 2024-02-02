@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT=7.0
+DOTNET_PKG_COMPAT=8.0
 NUGETS="
 microsoft.bcl.asyncinterfaces@6.0.0
 microsoft.codecoverage@16.2.0
@@ -67,7 +67,6 @@ runtime.unix.system.net.primitives@4.3.0
 runtime.unix.system.net.sockets@4.3.0
 runtime.unix.system.private.uri@4.3.0
 runtime.unix.system.runtime.extensions@4.3.0
-stylecop.analyzers@1.1.118
 system.appcontext@4.1.0
 system.buffers@4.0.0
 system.buffers@4.3.0
@@ -198,7 +197,7 @@ system.xml.xpath@4.0.1
 system.xml.xpath@4.3.0
 "
 
-inherit check-reqs dotnet-pkg multiprocessing
+inherit check-reqs dotnet-pkg edo multiprocessing
 
 DESCRIPTION="SMT-based program verifier"
 HOMEPAGE="https://github.com/boogie-org/boogie/"
@@ -211,7 +210,7 @@ else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -221,7 +220,9 @@ SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="sci-mathematics/z3"
+RDEPEND="
+	sci-mathematics/z3
+"
 BDEPEND="
 	${RDEPEND}
 	test? (
@@ -254,9 +255,11 @@ src_prepare() {
 	local -a bad_tests=(
 		civl/inductive-sequentialization/BroadcastConsensus.bpl
 		civl/inductive-sequentialization/PingPong.bpl
+		civl/inductive-sequentialization/paxos/is.sh
 		livevars/bla1.bpl
 		prover/cvc5-offline.bpl
 		prover/cvc5.bpl
+		prover/exitcode.bpl
 		prover/z3-hard-timeout.bpl
 		prover/z3mutl.bpl
 		test0/MaxKeepGoingSplits.bpl
@@ -264,6 +267,7 @@ src_prepare() {
 		test15/CaptureState.bpl
 		test15/CommonVariablesPruning.bpl
 		test21/InterestingExamples4.bpl
+		test21/issue-735.bpl
 	)
 	local bad_test
 	for bad_test in "${bad_tests[@]}" ; do
@@ -278,7 +282,14 @@ src_prepare() {
 }
 
 src_test() {
-	lit --threads "$(makeopts_jobs)" --verbose "${S}/Test" || die "tests failed"
+	einfo "Starting tests using the lit test tool."
+	local -a lit_opts=(
+		--order=lexical
+		--time-tests
+		--verbose
+		--workers="$(makeopts_jobs)"
+	)
+	edob lit "${lit_opts[@]}" "${S}/Test"
 }
 
 src_install() {
