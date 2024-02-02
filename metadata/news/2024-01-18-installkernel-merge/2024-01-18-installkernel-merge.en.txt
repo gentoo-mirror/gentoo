@@ -1,7 +1,7 @@
 Title: Merging of installkernel-gentoo and installkernel-systemd
 Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Posted: 2024-01-18
-Revision: 5
+Revision: 6
 News-Item-Format: 2.0
 Display-If-Installed: sys-kernel/installkernel
 Display-If-Installed: sys-kernel/installkernel-gentoo
@@ -56,7 +56,7 @@ automation for users of systemd-boot. sys-kernel/installkernel provides
 the same functionality but only via systemd's kernel-install.
 
 Users of systemd-boot should therefore:
-- ensure that the "systemd" USE flag is enabled
+- ensure that the "systemd" and "systemd-boot" USE flags are enabled
 when upgrading to >=sys-kernel/installkernel-14.
 
 Users who are using the distribution kernels (i.e. gentoo-kernel(-bin)) should
