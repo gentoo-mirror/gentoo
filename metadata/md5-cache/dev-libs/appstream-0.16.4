@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.freedesktop.org/wiki/Distributions/AppStream/
 INHERIT=meson xdg-utils
 IUSE=apt doc +introspection qt5 systemd test
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv x86
 LICENSE=LGPL-2.1+ GPL-2+
 RDEPEND=>=dev-libs/glib-2.62:2 dev-libs/libxml2:2 >=dev-libs/libxmlb-0.3.14:= dev-libs/libyaml dev-libs/snowball-stemmer:= >=net-misc/curl-7.62 introspection? ( >=dev-libs/gobject-introspection-1.56:= ) qt5? ( dev-qt/qtcore:5 ) systemd? ( sys-apps/systemd:= )
 RESTRICT=test
 SLOT=0/4
 SRC_URI=https://www.freedesktop.org/software/appstream/releases/AppStream-0.16.4.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=1c991f6d9e6f966a25d2e4a3933569e4
+_md5_=daf31708b807986a6b8b35c3ae829fce
