@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -47,12 +47,12 @@ microsoft.win32.primitives@4.3.0
 microsoft.win32.systemevents@8.0.0
 netstandard.library@1.6.1
 newtonsoft.json@13.0.1
-nickvision.aura@2023.11.3
+nickvision.aura@2023.11.4
 nuget.frameworks@6.5.0
 octokit@9.0.0
 ofxsharp.netstandard@1.0.0
 pdfsharpcore@1.3.62
-questpdf@2023.10.2
+questpdf@2023.12.2
 readsharp.ports.sgmlreader.core@1.0.0
 runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl@4.3.0
 runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl@4.3.0
@@ -72,16 +72,20 @@ runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl@4.3
 runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl@4.3.0
 sharpziplib@1.3.3
 sixlabors.fonts@1.0.0-beta17
-sixlabors.imagesharp@3.0.2
+sixlabors.imagesharp@3.1.2
 skiasharp.harfbuzz@2.88.6
 skiasharp.nativeassets.linux@2.88.6
 skiasharp.nativeassets.macos@2.88.6
 skiasharp.nativeassets.win32@2.88.6
 skiasharp@2.88.6
 sqlitepclraw.bundle_e_sqlcipher@2.1.6
+sqlitepclraw.bundle_e_sqlcipher@2.1.7
 sqlitepclraw.core@2.1.6
+sqlitepclraw.core@2.1.7
 sqlitepclraw.lib.e_sqlcipher@2.1.6
+sqlitepclraw.lib.e_sqlcipher@2.1.7
 sqlitepclraw.provider.e_sqlcipher@2.1.6
+sqlitepclraw.provider.e_sqlcipher@2.1.7
 system.appcontext@4.3.0
 system.buffers@4.3.0
 system.collections.concurrent@4.3.0
@@ -145,13 +149,13 @@ system.xml.xdocument@4.3.0
 tmds.dbus.protocol@0.15.0
 tmds.dbus@0.15.0
 xunit.abstractions@2.0.3
-xunit.analyzers@1.4.0
-xunit.assert@2.6.1
-xunit.core@2.6.1
-xunit.extensibility.core@2.6.1
-xunit.extensibility.execution@2.6.1
-xunit.runner.visualstudio@2.5.3
-xunit@2.6.1
+xunit.analyzers@1.8.0
+xunit.assert@2.6.4
+xunit.core@2.6.4
+xunit.extensibility.core@2.6.4
+xunit.extensibility.execution@2.6.4
+xunit.runner.visualstudio@2.5.6
+xunit@2.6.4
 "
 
 inherit check-reqs desktop dotnet-pkg gnome2-utils python-any-r1 xdg
@@ -190,7 +194,7 @@ BDEPEND="
 	dev-util/blueprint-compiler
 "
 
-CHECKREQS_DISK_BUILD="1G"
+CHECKREQS_DISK_BUILD="1200M"
 DOTNET_PKG_PROJECTS=( NickvisionMoney.GNOME/NickvisionMoney.GNOME.csproj )
 DOTNET_PKG_BUILD_EXTRA_ARGS=( -p:WarningLevel=0 )
 

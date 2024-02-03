@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-APP_NAME=${P/-bin/}
+APP_NAME="${P/-bin/}"
 APP_URI="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher"
 APP_RESOURCES_COMMIT=6dfb2758e531af693f0baffa15240f152aadd68b
 
@@ -29,7 +29,7 @@ SRC_URI="
 	${APP_URI}/raw/${APP_RESOURCES_COMMIT}/flatpak/com.heroicgameslauncher.hgl.png
 		-> com.heroicgameslauncher.hgl.png-${APP_RESOURCES_COMMIT}
 "
-S="${WORKDIR}"/${APP_NAME}
+S="${WORKDIR}/${APP_NAME}"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -93,7 +93,7 @@ RDEPEND="
 QA_PREBUILT=".*"
 
 src_unpack() {
-	unpack ${P}.tar.xz
+	unpack "${P}.tar.xz"
 }
 
 src_configure() {
@@ -118,11 +118,6 @@ src_install() {
 
 	dodir "${app_root%/*}"
 	cp -r "${S}" "${app_dest}" || die
-
-	# Chrome-sandbox requires the setuid bit to be specifically set.
-	# see https://github.com/electron/electron/issues/17972
-	fowners root "${app_root}"/chrome-sandbox
-	fperms 4711 "${app_root}"/chrome-sandbox
 
 	dosym -r "${PYTHON}"	\
 		  "${app_root}"/resources/app.asar.unpacked/node_modules/register-scheme/build/node_gyp_bins/python3
