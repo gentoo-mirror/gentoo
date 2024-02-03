@@ -1,0 +1,14 @@
+BDEPEND=app-text/asciidoc >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=!<dev-util/trace-cmd-3.2 dev-libs/libtraceevent dev-libs/libtracefs sys-kernel/linux-headers
+DESCRIPTION=Linux kernel tracecmd library
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/libs/trace-cmd/trace-cmd.git/
+INHERIT=meson
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=!<dev-util/trace-cmd-3.2 dev-libs/libtraceevent dev-libs/libtracefs
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/snapshot/trace-cmd-libtracecmd-1.5.1.tar.gz -> libtracecmd-1.5.1.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8
+_md5_=4ae9d9568231d30cca3ccacf6d9cf456
