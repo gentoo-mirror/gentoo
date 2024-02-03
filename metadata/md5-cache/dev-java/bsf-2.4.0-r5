@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-bsf/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=javascript tcl doc source verify-sig
-KEYWORDS=~amd64 ~arm arm64 ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=Apache-2.0
 RDEPEND=dev-java/commons-logging:0 dev-java/xalan:0 javascript? ( dev-java/rhino:1.6 ) tcl? ( dev-java/jacl:0 ) >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=2.3
 SRC_URI=mirror://apache/commons/bsf/source/bsf-src-2.4.0.tar.gz verify-sig? ( https://downloads.apache.org/commons/bsf/source/bsf-src-2.4.0.tar.gz.asc )
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=abea77cb565990a63675053dbf1735f1
+_md5_=53d886c400a44ac87adef35693431e4e
