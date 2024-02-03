@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
+DEFINED_PHASES=install prepare
+DESCRIPTION=TensorFlow's Visualization Toolkit
+EAPI=8
+HOMEPAGE=https://www.tensorflow.org/
+INHERIT=python-r1 pypi
+IUSE=python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+PDEPEND==sci-libs/tensorflow-2.15*[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) dev-python/bleach[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/google-auth-1.6.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/google-auth-oauthlib-0.4.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/grpcio[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/html5lib[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/markdown[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/protobuf-python[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/six[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-41[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/werkzeug[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/wheel[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/scipy-1.4.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/py3/t/tensorboard/tensorboard-2.15.1-py3-none-any.whl -> tensorboard-2.15.1-py3-none-any.whl.zip
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	pypi	2eecb475512bc76e5ea9192a681b9e6b
+_md5_=3a7a0d2b16c737312c4f6f00dda73c12
