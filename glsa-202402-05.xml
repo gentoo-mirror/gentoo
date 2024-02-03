@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-05">
+    <title>Microsoft Edge: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Microsoft Edge, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">microsoft-edge</product>
+    <announced>2024-02-03</announced>
+    <revised count="1">2024-02-03</revised>
+    <bug>907817</bug>
+    <bug>908518</bug>
+    <bug>918586</bug>
+    <bug>919495</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/microsoft-edge" auto="yes" arch="*">
+            <unaffected range="ge">120.0.2210.61</unaffected>
+            <vulnerable range="lt">120.0.2210.61</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Microsoft Edge is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Microsoft Edge. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Microsoft Edge users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/microsoft-edge-120.0.2210.61"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29345">CVE-2023-29345</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-33143">CVE-2023-33143</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-33145">CVE-2023-33145</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-35618">CVE-2023-35618</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36022">CVE-2023-36022</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36029">CVE-2023-36029</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36034">CVE-2023-36034</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36409">CVE-2023-36409</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36559">CVE-2023-36559</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36562">CVE-2023-36562</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36727">CVE-2023-36727</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36735">CVE-2023-36735</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36741">CVE-2023-36741</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36787">CVE-2023-36787</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36880">CVE-2023-36880</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38174">CVE-2023-38174</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-03T08:00:41.979777Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-03T08:00:41.982534Z">graaff</metadata>
+</glsa>
