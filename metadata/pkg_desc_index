@@ -1341,7 +1341,7 @@ app-containers/docker-credential-helpers 0.6.3: Suite of programs to use native 
 app-containers/docker-proxy 0.8.0_p20230118: Docker container networking
 app-containers/docker-registry 2.8.1 2.8.2: Docker Registry 2.0
 app-containers/docker-swarm 1.2.9: Swarm Classic: a container clustering system
-app-containers/earthly 0.7.23 0.8.0: Build automation tool that executes in containers
+app-containers/earthly 0.7.23 0.8.0 0.8.3: Build automation tool that executes in containers
 app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containers
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
@@ -1880,14 +1880,14 @@ app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
 app-emacs/cfrs 1.6.0-r1: Child Frame Read String, alternative to read-string
 app-emacs/chess 2.0.5: A chess client and library for Emacs
-app-emacs/cider 1.11.1 1.12.0 1.13.0: Clojure Interactive Development Environment for GNU Emacs
+app-emacs/cider 1.12.0 1.13.0 1.13.1: Clojure Interactive Development Environment for GNU Emacs
 app-emacs/circe 2.12: A great IRC client for Emacs
 app-emacs/citar 1.4.0: Emacs package to quickly find and act on bibliographic references
 app-emacs/citeproc-el 0.9.3 0.9.4-r1: CSL 1.0.2 Citation Processor for Emacs
 app-emacs/cldoc 1.16: Show Common Lisp operators and variables information in echo area
 app-emacs/clojure-mode 5.18.0 5.18.1: Major mode for Clojure code
 app-emacs/cmake-font-lock 0.1.13-r1: Advanced, type aware, highlight support for CMake
-app-emacs/cmake-mode 3.28.1: GNU Emacs mode for handling CMake build files
+app-emacs/cmake-mode 3.28.1 3.28.2: GNU Emacs mode for handling CMake build files
 app-emacs/color-browser 0.3-r1: A utility for designing Emacs color themes
 app-emacs/color-moccur 2.73: Major mode for color moccur
 app-emacs/color-theme 6.6.0-r3: Install color themes (includes many themes)
@@ -1908,7 +1908,7 @@ app-emacs/crux 0.4.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
 app-emacs/csharp-mode 2.0.0: A derived Emacs mode implementing most of the C# rules
 app-emacs/css-mode 0.11-r2: A major mode for editing Cascading Style Sheets (CSS)
 app-emacs/css-sort-buffer 0.2: Sort CSS buffer
-app-emacs/csv-mode 1.22: A major mode for editing comma-separated value files
+app-emacs/csv-mode 1.22 1.23: A major mode for editing comma-separated value files
 app-emacs/ctable 0.1.3: Table Component for Emacs Lisp
 app-emacs/cycle-buffer 2.16-r1: Select buffer by cycling through
 app-emacs/d-mode 2.0.10 2.0.11 2.0.12: Emacs major mode for editing D code
@@ -1950,7 +1950,7 @@ app-emacs/ebuild-run-mode 20210713 20221116: Major mode for Emacs buffers where 
 app-emacs/ecb 2.50_pre20170728: Source code browser for Emacs
 app-emacs/ecukes 0.6.18-r1: Cucumber for Emacs
 app-emacs/edb 1.34: EDB, The Emacs Database
-app-emacs/edit-indirect 0.1.10 0.1.11: Edit regions in separate Emacs buffers
+app-emacs/edit-indirect 0.1.10 0.1.11 0.1.13: Edit regions in separate Emacs buffers
 app-emacs/edit-list 0.3: Edit a single list
 app-emacs/edit-server 1.15 1.16: Service edit requests from a web browser for editing of textareas
 app-emacs/editorconfig-emacs 0.10.1: EditorConfig plugin for emacs
@@ -1998,7 +1998,7 @@ app-emacs/ert-async 0.1.2_p20200105: Async support for ERT
 app-emacs/ert-runner 0.8.0: Opinionated Emacs Ert testing workflow
 app-emacs/eselect-mode 1.4.26 1.4.27 9999: Emacs major mode for editing eselect files
 app-emacs/espuds 0.3.3_p20171111: Common step definitions for Emacs Ecukes
-app-emacs/ess 18.10.2-r2 18.10.2-r3: Emacs Speaks Statistics
+app-emacs/ess 18.10.2-r3: Emacs Speaks Statistics
 app-emacs/esup 0.7.1_p20220203: Benchmark Emacs Startup time without ever leaving it
 app-emacs/evil 1.14.0 1.14.2: Extensible vi layer for Emacs
 app-emacs/exec-path-from-shell 1.12 2.1: Ensure environment variables inside Emacs are the same as in shell
@@ -2093,7 +2093,7 @@ app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 1.3 1.4 1.5: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.5-r1 2.6: Major mode for editing Markdown-formatted text files
-app-emacs/mastodon 1.0.0 1.0.12 1.0.13: Emacs client for Mastodon, federated microblogging social network
+app-emacs/mastodon 1.0.13 1.0.14: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
 app-emacs/matlab 3.3.6_pre20191010-r1: Major modes for MATLAB .m and .tlc files
 app-emacs/mediawiki 2.2.9-r1 2.3.1: MediaWiki client for Emacs
@@ -2183,7 +2183,7 @@ app-emacs/redo+ 1.19: Redo/undo system for Emacs
 app-emacs/reformatter 0.6 0.7: Define commands which run reformatters on the Emacs buffers
 app-emacs/regress 1.5.1: Regression test harness for Emacs Lisp code
 app-emacs/remember 2.0-r1: Simplify writing short notes in emacs
-app-emacs/repology 1.2.3: Repology API access via Emacs Lisp
+app-emacs/repology 1.2.3 1.2.4: Repology API access via Emacs Lisp
 app-emacs/request 0.3.2 0.3.3_p20220318: Compatible layer for URL request
 app-emacs/rescript-mode 0.1.0_p20220613: Emacs major mode for ReScript
 app-emacs/restclient 0_p20220426: HTTP REST client tool for GNU Emacs
@@ -2932,7 +2932,7 @@ app-office/auto-multiple-choice 1.6.0: Create and manage multiple choice questio
 app-office/calcurse 4.8.0-r1 4.8.1: A text-based calendar and scheduling application
 app-office/calligra 3.2.1-r8: KDE Office Suite
 app-office/calligraplan 3.3.0-r1: Project management application
-app-office/denaro 2023.11.0 2024.1.0: A personal finance manager
+app-office/denaro 2024.1.0 2024.2.0: A personal finance manager
 app-office/dia 0.97.3-r1: Diagram/flowchart creation program
 app-office/dia2code 1.0.0: Convert UML diagrams produced with Dia to various source code flavours
 app-office/drawio-desktop-bin 22.1.21: draw.io diagramming and whiteboarding desktop app
@@ -2944,7 +2944,7 @@ app-office/grisbi 2.0.5 3.0.1 3.0.3: Grisbi is a personal accounting application
 app-office/gtg 0.5 0.6-r1: Personal organizer for the GNOME desktop environment
 app-office/homebank 5.6.2 5.6.5 5.7.3: Free, easy, personal accounting for everyone
 app-office/impressive 0.13.1: Stylish way of giving presentations with Python
-app-office/joplin-desktop 2.13.12 2.13.13 2.13.15: Secure note taking and to-do app with synchronization capabilities
+app-office/joplin-desktop 2.13.12 2.13.13 2.13.15 2.14.11: Secure note taking and to-do app with synchronization capabilities
 app-office/kexi 3.2.0-r4: Visual database applications creator
 app-office/kmymoney 5.1.3: Personal finance manager based on KDE Frameworks
 app-office/kraft 1.0: Software to manage quotes and invoices in small enterprises
@@ -3289,7 +3289,7 @@ app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML par
 app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
 app-text/pandoc-bin 3.1.9 3.1.10 3.1.11 3.1.11.1: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
-app-text/paper-clip 3.6 4.0 9999: Edit the title, author, keywords and more details of PDF documents
+app-text/paper-clip 3.6 5.0 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/paperwork 2.1.2 2.2.1: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.1.2 2.2.1: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
@@ -3815,7 +3815,7 @@ dev-cpp/clhpp 2023.04.17 2023.12.14: Khronos OpenCL C++ bindings
 dev-cpp/cli11 2.3.2: Command line parser for C++11
 dev-cpp/clucene 2.3.3.4-r9: High-performance, full-featured text search engine based off of lucene in C++
 dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration file format
-dev-cpp/cpp-httplib 0.14.1-r1 0.14.2 0.14.3: C++ HTTP/HTTPS server and client library
+dev-cpp/cpp-httplib 0.14.1-r1 0.14.2 0.14.3 0.15.2: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1: C++ library for the Debug Adapter Protocol
 dev-cpp/cppgir 0_p20230926 0_p20240110: GObject-Introspection C++ binding wrapper generator
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
@@ -11842,7 +11842,7 @@ games-util/gamepick 0.35-r2: Launch opengl games with custom graphic settings
 games-util/glbsp 2.24: Node builder specially designed for OpenGL ports of the DOOM game engine
 games-util/grfcodec 6.0.6_p20210310-r1 6.0.6_p20230811-r1: A suite of programs to modify openttd/Transport Tycoon Deluxe's GRF files
 games-util/gslist 0.8.11a-r1: A GameSpy server browser
-games-util/heroic-bin 2.11.0 2.12.0: GOG and Epic Games Launcher for Linux
+games-util/heroic-bin 2.12.0 2.12.1: GOG and Epic Games Launcher for Linux
 games-util/joycond 0.1.0_p20220720-r1: Daemon that uses hid-nintendo evdev devices to implement joycon pairing
 games-util/joystick 1.8.1: Joystick testing utilities
 games-util/lgogdownloader 3.12 9999: Unofficial GOG.com downloader for Linux
@@ -16323,7 +16323,7 @@ sci-mathematics/dataplot 20131220: Program for scientific visualization and stat
 sci-mathematics/diagrtb 2.64: Calculation of some eigenvectors of a large real, symmetrical, matrix
 sci-mathematics/dsfmt 2.2.4: Double precision SIMD-oriented Fast Mersenne Twister library
 sci-mathematics/dunshire 0.1.1-r3: Python library to solve linear games over symmetric cones
-sci-mathematics/easycrypt 2022.04_p20230324 2023.09: Computer-Aided Cryptographic Proofs
+sci-mathematics/easycrypt 2023.09 2024.01: Computer-Aided Cryptographic Proofs
 sci-mathematics/eclib 20230424 20231212: Programs for elliptic curves defined over the rational numbers
 sci-mathematics/ent 101202: Random number sequence test and entropy calculation
 sci-mathematics/eprover 3.0_pre008 3.0.03: Automated theorem prover for full first-order logic with equality
