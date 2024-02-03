@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-04">
+    <title>GNAT Ada Suite: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in GNAT Ada Suite which can lead to remote code execution.</synopsis>
+    <product type="ebuild">gnat-suite-bin</product>
+    <announced>2024-02-03</announced>
+    <revised count="1">2024-02-03</revised>
+    <bug>787440</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-ada/gnat-suite-bin" auto="yes" arch="*">
+            <vulnerable range="lt">2019-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNAT Ada Suite is an Ada development environment.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in GNAT Ada Suite. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for GNAT Ada Suite. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "dev-ada/gnat-suite-bin"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27619">CVE-2020-27619</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-03T06:20:11.020220Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-03T06:20:11.022709Z">ajak</metadata>
+</glsa>
