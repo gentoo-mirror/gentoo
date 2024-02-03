@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-06">
+    <title>FreeType: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in FreeType, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">freetype</product>
+    <announced>2024-02-03</announced>
+    <revised count="1">2024-02-03</revised>
+    <bug>840224</bug>
+    <bug>881443</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-libs/freetype" auto="yes" arch="*">
+            <unaffected range="ge">2.13.0</unaffected>
+            <vulnerable range="lt">2.13.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FreeType is a high-quality and portable font engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FreeType. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FreeType users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/freetype-2.13.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27404">CVE-2022-27404</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27405">CVE-2022-27405</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27406">CVE-2022-27406</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2004">CVE-2023-2004</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-03T08:57:48.987312Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-03T08:57:48.989733Z">graaff</metadata>
+</glsa>
