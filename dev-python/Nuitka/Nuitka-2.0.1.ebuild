@@ -11,7 +11,7 @@ inherit distutils-r1 flag-o-matic optfeature pypi
 
 DESCRIPTION="Python to native compiler"
 HOMEPAGE="
-	https://www.nuitka.net/
+	https://nuitka.net/
 	https://github.com/Nuitka/Nuitka/
 	https://pypi.org/project/Nuitka/
 "
@@ -39,7 +39,7 @@ distutils-r1_src_prepare() {
 
 python_install() {
 	distutils-r1_python_install
-	doman doc/nuitka3.1 doc/nuitka3-run.1
+	doman doc/nuitka.1 doc/nuitka-run.1
 }
 
 python_test() {
