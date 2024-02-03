@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=install prepare unpack
+DESCRIPTION=Golang implementation of Graphite/Carbon server
+EAPI=8
+HOMEPAGE=https://github.com/go-graphite/go-carbon
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0
+RDEPEND=acct-group/carbon acct-user/carbon
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/go-graphite/go-carbon/archive/v0.17.3.tar.gz -> go-carbon-0.17.3.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097
+_md5_=65ed749108038c4494bacdb200e1d7a6
