@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://drobilla.net/software/suil.html
 INHERIT=meson
 IUSE=doc gtk gtk2 qt5 test X
-KEYWORDS=amd64 ~arm64 ~loong ppc ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm64 ~loong ~mips ppc ppc64 ~riscv x86
 LICENSE=ISC
 RDEPEND=media-libs/lv2 gtk2? ( >=x11-libs/gtk+-2.18.0:2 dev-libs/glib:2 ) gtk? ( >=x11-libs/gtk+-3.14.0:3 dev-libs/glib:2 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 ) X? ( x11-libs/libX11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.drobilla.net/suil-0.10.20.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8
-_md5_=f3b992d7efee20287e3c8b827ec7b36a
+_md5_=f079e5ade3f2afdf34b4eff4f1f7f67b
