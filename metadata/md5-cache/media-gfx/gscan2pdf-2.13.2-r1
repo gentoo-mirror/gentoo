@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://gscan2pdf.sourceforge.net/
 INHERIT=optfeature perl-module virtualx xdg-utils
 IUSE=test test test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 x86
 LICENSE=GPL-3
 RDEPEND=dev-perl/Config-General dev-perl/Data-UUID dev-perl/Date-Calc dev-perl/Filesys-Df dev-perl/glib-perl dev-perl/GooCanvas2 dev-perl/Gtk3 >=dev-perl/Gtk3-ImageView-10.0.0 dev-perl/Gtk3-SimpleList dev-perl/HTML-Parser dev-perl/Image-Sane dev-perl/List-MoreUtils dev-perl/Locale-Codes dev-perl/Locale-gettext dev-perl/Log-Log4perl >=dev-perl/PDF-Builder-3.23.0 dev-perl/Proc-ProcessTable dev-perl/Readonly dev-perl/Set-IntSpan dev-perl/Try-Tiny virtual/perl-Archive-Tar virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-Getopt-Long virtual/perl-threads virtual/perl-threads-shared media-gfx/imagemagick[png,tiff,perl] media-gfx/sane-backends media-libs/tiff dev-lang/perl:=
 RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/gscan2pdf/gscan2pdf-2.13.2.tar.xz
 _eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676	virtualx	817571665ee28575da44ee08135089e5	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=3ef992ae452eb315002b5ea98de7fc55
+_md5_=7e21aa0b7cdf9ab6e8c46a7e76556cbf
