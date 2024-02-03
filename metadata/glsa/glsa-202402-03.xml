@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-03">
+    <title>QtGui: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in QtGui which can lead to remote code execution.</synopsis>
+    <product type="ebuild">qtgui</product>
+    <announced>2024-02-03</announced>
+    <revised count="1">2024-02-03</revised>
+    <bug>808531</bug>
+    <bug>907119</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-qt/qtgui" auto="yes" arch="*">
+            <unaffected range="ge">5.15.9-r1</unaffected>
+            <vulnerable range="lt">5.15.9-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>QtGui is a module for the Qt toolkit.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in QtGui. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All QtGui users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtgui-5.15.9-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38593">CVE-2021-38593</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32763">CVE-2023-32763</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-03T06:19:26.894264Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-03T06:19:26.896389Z">ajak</metadata>
+</glsa>
