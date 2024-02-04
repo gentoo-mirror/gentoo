@@ -6,8 +6,8 @@ EAPI=8
 # please bump dev-python/ensurepip-pip along with this package!
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_TESTED=( python3_{10..11} )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_12 pypy3 )
+PYTHON_TESTED=( python3_{10..12} )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" pypy3 )
 PYTHON_REQ_USE="ssl(+),threads(+)"
 
 inherit bash-completion-r1 distutils-r1
@@ -58,6 +58,7 @@ distutils_enable_tests pytest
 python_prepare_all() {
 	local PATCHES=(
 		"${FILESDIR}/pip-23.1-no-coverage.patch"
+		# https://github.com/pypa/pip/pull/12415
 		"${FILESDIR}/pip-23.3.1-no-color.patch"
 	)
 
@@ -118,7 +119,6 @@ python_test() {
 			;;
 	esac
 
-	local -x SETUPTOOLS_USE_DISTUTILS=stdlib
 	local -x PIP_DISABLE_PIP_VERSION_CHECK=1
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local EPYTEST_XDIST=1
