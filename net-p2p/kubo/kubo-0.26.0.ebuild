@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit bash-completion-r1 go-module systemd
+inherit go-module shell-completion systemd
 
 DESCRIPTION="Main implementation of IPFS"
 HOMEPAGE="https://ipfs.io/ https://github.com/ipfs/kubo/"
@@ -19,8 +19,6 @@ DEPEND="
 	sys-fs/fuse:0
 "
 RDEPEND="${DEPEND}"
-# <go-1.21 for bug #912149
-BDEPEND="<dev-lang/go-1.21"
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md docs/ )
 
@@ -36,6 +34,8 @@ src_compile() {
 	ego build "${mygoargs[@]}" -o ipfswatch ./cmd/ipfswatch
 
 	IPFS_PATH="" ./ipfs commands completion bash > ipfs-completion.bash || die
+	IPFS_PATH="" ./ipfs commands completion fish > ipfs-completion.fish || die
+	IPFS_PATH="" ./ipfs commands completion zsh > ipfs-completion.zsh || die
 }
 
 src_test() {
@@ -46,6 +46,8 @@ src_install() {
 	dobin ipfs
 	dobin ipfswatch
 	newbashcomp ipfs-completion.bash ipfs
+	newfishcomp ipfs-completion.fish ipfs
+	newzshcomp ipfs-completion.zsh _ipfs
 	einstalldocs
 
 	systemd_dounit "${FILESDIR}/ipfs.service"
