@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-07">
+    <title>Xen: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Xen, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">xen</product>
+    <announced>2024-02-04</announced>
+    <revised count="1">2024-02-04</revised>
+    <bug>754105</bug>
+    <bug>757126</bug>
+    <bug>826998</bug>
+    <bug>837575</bug>
+    <bug>858122</bug>
+    <bug>876790</bug>
+    <bug>879031</bug>
+    <bug>903624</bug>
+    <bug>905389</bug>
+    <bug>915970</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/xen" auto="yes" arch="*">
+            <unaffected range="ge">4.16.6_pre1</unaffected>
+            <vulnerable range="lt">4.16.6_pre1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Xen is a bare-metal hypervisor.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Xen. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Xen users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/xen-4.16.6_pre1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28703">CVE-2021-28703</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28704">CVE-2021-28704</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28705">CVE-2021-28705</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28706">CVE-2021-28706</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28707">CVE-2021-28707</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28708">CVE-2021-28708</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28709">CVE-2021-28709</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23816">CVE-2022-23816</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23824">CVE-2022-23824</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23825">CVE-2022-23825</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26356">CVE-2022-26356</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26357">CVE-2022-26357</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26358">CVE-2022-26358</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26359">CVE-2022-26359</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26360">CVE-2022-26360</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26361">CVE-2022-26361</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27672">CVE-2022-27672</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29900">CVE-2022-29900</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29901">CVE-2022-29901</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-33746">CVE-2022-33746</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-33747">CVE-2022-33747</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-33748">CVE-2022-33748</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-33749">CVE-2022-33749</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42309">CVE-2022-42309</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42310">CVE-2022-42310</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42319">CVE-2022-42319</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42320">CVE-2022-42320</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42321">CVE-2022-42321</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42322">CVE-2022-42322</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42323">CVE-2022-42323</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42324">CVE-2022-42324</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42325">CVE-2022-42325</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42326">CVE-2022-42326</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42327">CVE-2022-42327</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42330">CVE-2022-42330</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42331">CVE-2022-42331</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42332">CVE-2022-42332</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42333">CVE-2022-42333</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42334">CVE-2022-42334</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42335">CVE-2022-42335</uri>
+        <uri>XSA-351</uri>
+        <uri>XSA-355</uri>
+        <uri>XSA-385</uri>
+        <uri>XSA-387</uri>
+        <uri>XSA-388</uri>
+        <uri>XSA-389</uri>
+        <uri>XSA-397</uri>
+        <uri>XSA-399</uri>
+        <uri>XSA-400</uri>
+        <uri>XSA-407</uri>
+        <uri>XSA-412</uri>
+        <uri>XSA-414</uri>
+        <uri>XSA-415</uri>
+        <uri>XSA-416</uri>
+        <uri>XSA-417</uri>
+        <uri>XSA-418</uri>
+        <uri>XSA-419</uri>
+        <uri>XSA-420</uri>
+        <uri>XSA-421</uri>
+        <uri>XSA-422</uri>
+        <uri>XSA-425</uri>
+        <uri>XSA-430</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-04T07:16:20.846105Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-04T07:16:20.848211Z">graaff</metadata>
+</glsa>
