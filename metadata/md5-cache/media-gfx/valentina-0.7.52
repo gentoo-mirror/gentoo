@@ -1,0 +1,15 @@
+BDEPEND=dev-qt/linguist-tools:5
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=app-text/poppler dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5 dev-qt/qttest:5 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Cloth patternmaking software
+EAPI=7
+HOMEPAGE=https://smart-pattern.com.ua/
+INHERIT=qmake-utils xdg
+IUSE=l10n_cs l10n_de l10n_el l10n_en l10n_en l10n_es l10n_fi l10n_fr l10n_he l10n_id l10n_it l10n_nl l10n_pt-BR l10n_ro l10n_ru l10n_uk l10n_zh-CN
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=app-text/poppler dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtopengl:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 dev-qt/qtxmlpatterns:5
+SLOT=0
+SRC_URI=https://gitlab.com/smart-pattern/valentina/-/archive/v0.7.52/valentina-v0.7.52.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=c4bcfdaea226f2b782112e8b7e6d43f2
