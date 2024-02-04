@@ -1,4 +1,4 @@
-BDEPEND=initramfs? ( app-arch/cpio ) compress-xz? ( app-arch/xz-utils ) compress-zstd? ( app-arch/zstd ) deduplicate? ( app-misc/rdfind )
+BDEPEND=initramfs? ( app-alternatives/cpio ) compress-xz? ( app-arch/xz-utils ) compress-zstd? ( app-arch/zstd ) deduplicate? ( app-misc/rdfind )
 DEFINED_PHASES=install postinst postrm preinst prepare prerm pretend setup unpack
 DESCRIPTION=Linux firmware files
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=binchecks strip test unknown-license? ( bindist )
 SLOT=0
 SRC_URI=https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/linux-firmware-20240115.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	mount-boot	3945d351ee3192381911f938f4ee527a	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
-_md5_=6a41701d2dc474cd34d7f22073b82e4c
+_md5_=ce2f7f9c1e6492b43e201e61283a44cf
