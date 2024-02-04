@@ -1433,6 +1433,7 @@ dev-debug/gdb:sim - Build gdb's simulators for various hardware platforms. See h
 dev-debug/gdb:source-highlight - Enable listing highlighting via dev-util/source-highlight
 dev-debug/gdb:xml - Support parsing XML data files needed (at least) for cpu features, memory maps, and syscall tracing
 dev-debug/gdb:xxhash - Use dev-libs/xxhash to speed up internal hashing.
+dev-debug/lldb:debuginfod - Expose the transitive dependencies on net-misc/curl and dev-cpp/cpp-httplib) to match sys-devel/llvm.
 dev-debug/ltrace:elfutils - Use libdwfl from dev-libs/elfutils for frame unwinding support
 dev-debug/ltrace:unwind - Use sys-libs/libunwind for frame unwinding support
 dev-debug/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/O operations
@@ -2352,7 +2353,6 @@ dev-php/pecl-memcached:igbinary - Enable support for the igbinary serializer
 dev-php/pecl-memcached:json - Enable support for json serialization
 dev-php/pecl-redis:igbinary - Enables igbinary serialisation support
 dev-php/pecl-redis:json - Enables json serializer support
-dev-php/swoole:http2 - Add support for HTTP/2 protocol via net-libs/nghttp2
 dev-python/PyQt5:bluetooth - Build bindings for the QtBluetooth module
 dev-python/PyQt5:dbus - Build bindings for the QtDBus module
 dev-python/PyQt5:declarative - Build bindings for the QtQml and QtQuick modules and enable the qmlscene plugin
@@ -2578,9 +2578,7 @@ dev-python/translate-toolkit:ini - Support conversion between po and ini files
 dev-python/translate-toolkit:subtitles - Support conversion between po and sub files
 dev-python/translate-toolkit:yaml - Support YAML format
 dev-python/twisted:conch - include Twisted SSHv2 implementation
-dev-python/twisted:http2 - include http2 support
 dev-python/twisted:serial - include serial port support
-dev-python/urllib3:http2 - Enable HTTP/2.0 support.
 dev-python/websockets:native-extensions - Compiles native C extensions
 dev-python/wrapt:native-extensions - Compiles native C extensions (speedups, instead of using python fallback code).
 dev-python/zeep:async - Add async support
@@ -2913,7 +2911,6 @@ dev-util/ostree:archive - Use libarchive
 dev-util/ostree:dracut - Install dracut module
 dev-util/ostree:gpg - Enable GPG support
 dev-util/ostree:grub - Enable grub configuration generator
-dev-util/ostree:http2 - Use http2
 dev-util/ostree:httpd - Enable ostree trivial-httpd entrypoint
 dev-util/ostree:libmount - Use libmount
 dev-util/ostree:sodium - Use libsodium for ed25519
@@ -5461,7 +5458,6 @@ net-analyzer/wireshark:dftest - Install dftest, to display filter byte-code, for
 net-analyzer/wireshark:dpauxmon - Install dpauxmon, an external capture interface (extcap) that captures DisplayPort AUX channel data from linux kernel drivers
 net-analyzer/wireshark:dumpcap - Install dumpcap, to dump network traffic from inside wireshark
 net-analyzer/wireshark:editcap - Install editcap, to edit and/or translate the format of capture files
-net-analyzer/wireshark:http2 - Use net-libs/nghttp2 for HTTP/2 support
 net-analyzer/wireshark:ilbc - Build with iLBC support in RTP Player using media-libs/libilbc
 net-analyzer/wireshark:libxml2 - Use dev-libs/libxml2 for handling XML configuration in dissectors
 net-analyzer/wireshark:maxminddb - Use dev-libs/libmaxminddb for IP address geolocation
@@ -6037,7 +6033,6 @@ net-libs/libwebsockets:client - The client part of the library and libwebsockets
 net-libs/libwebsockets:extensions - Compile with extensions (permessage-deflate)
 net-libs/libwebsockets:generic-sessions - With the Generic Sessions plugin
 net-libs/libwebsockets:http-proxy - Support for rewriting HTTP proxying
-net-libs/libwebsockets:http2 - Support the HTTP/2 protocol
 net-libs/libwebsockets:lejp - With the Lightweight JSON Parser
 net-libs/libwebsockets:libev - Support event loops via dev-libs/libev
 net-libs/libwebsockets:libevent - Support event loops via dev-libs/libevent
@@ -6315,7 +6310,6 @@ net-misc/curl:ftp - Enable FTP support
 net-misc/curl:gnutls - Enable gnutls ssl backend
 net-misc/curl:gopher - Enable Gopher protocol support
 net-misc/curl:hsts - Enable HTTP Strict Transport Security
-net-misc/curl:http2 - Enable HTTP/2.0 support
 net-misc/curl:imap - Enable Internet Message Access Protocol support
 net-misc/curl:mbedtls - Enable mbedtls ssl backend
 net-misc/curl:nghttp3 - Enable HTTP/3.0 support using net-libs/nghttp3 and net-libs/ngtcp2
@@ -6626,7 +6620,6 @@ net-misc/wget:metalink - Enable support for media-libs/libmetalink
 net-misc/wget:ntlm - Enable support for NTLM (Windows-based) authorization
 net-misc/wget:uuid - Generate UUIDs for the WARC (Web ARChive file format) using libuuid; otherwise use a simple RNG (random number generator)
 net-misc/wget2:gpgme - Build app-crypt/gpgme backend
-net-misc/wget2:http2 - Enable HTTP/2.0 support via net-libs/nghttp2
 net-misc/wget2:openssl - Enable crypto support via dev-libs/openssl
 net-misc/wget2:psl - Use public suffix list via net-libs/libpsl
 net-misc/whois:xcrypt - Enable crypt through sys-libs/libxcrypt package
