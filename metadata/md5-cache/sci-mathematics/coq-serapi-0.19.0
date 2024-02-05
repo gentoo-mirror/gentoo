@@ -1,0 +1,16 @@
+BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) test? ( sci-mathematics/coq-mathcomp ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install postinst postrm test
+DEPEND=>=sci-mathematics/coq-8.19.0:= <sci-mathematics/coq-8.20.0:= >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/cmdliner:= dev-ml/ppx_compare:= dev-ml/ppx_deriving:= dev-ml/ppx_deriving_yojson:= dev-ml/ppx_hash:= dev-ml/ppx_import:= dev-ml/sexplib:= dev-ml/yojson:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Serialization library and protocol for interaction with the Coq proof assistant
+EAPI=8
+HOMEPAGE=https://github.com/ejgallego/coq-serapi/
+INHERIT=dune elisp-common
+IUSE=emacs +ocamlopt test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=>=sci-mathematics/coq-8.19.0:= <sci-mathematics/coq-8.20.0:= >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/cmdliner:= dev-ml/ppx_compare:= dev-ml/ppx_deriving:= dev-ml/ppx_deriving_yojson:= dev-ml/ppx_hash:= dev-ml/ppx_import:= dev-ml/sexplib:= dev-ml/yojson:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.19.0
+SRC_URI=https://github.com/ejgallego/coq-serapi/archive/8.19.0+0.19.0.tar.gz -> coq-serapi-0.19.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	beddc7cde467b2e48afc78a87d042c01	elisp-common	2a0fa407d2e6363c663ccb299503b25c
+_md5_=d7cf623ec5c257dfef0e91398d47601e
