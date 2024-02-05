@@ -3788,7 +3788,7 @@ dev-build/meson 1.1.1 1.2.1-r1 1.2.1-r2 1.2.2 1.2.2-r1 1.2.3 1.3.0-r1 1.3.0-r2 1
 dev-build/meson-format-array 0: Format shell expressions into a meson array
 dev-build/muon 0.2.0-r1: A meson-compatible build system
 dev-build/netsurf-buildsystem 1.9-r2 1.10: Build system used for netsurf and its libraries
-dev-build/ninja 1.11.1-r2 1.11.1-r3 1.11.1-r4 9999: A small build system similar to make
+dev-build/ninja 1.11.1-r2 1.11.1-r3 1.11.1-r4 1.11.1-r5 9999: A small build system similar to make
 dev-build/pmake 1.111.3.3-r1: BSD build tool to create programs in parallel. Debian's version of NetBSD's make
 dev-build/qconf 2.5: ./configure like generator for qmake-based projects
 dev-build/remake 4.3.1.1.5: Patched version of GNU Make with improved error reporting, tracing and debugging
@@ -17363,14 +17363,14 @@ sys-cluster/keepalived 2.2.7 2.2.8: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.23.2: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23 1.25: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.26.12 1.26.13 1.27.9 1.27.10 1.28.6 1.29.1: Kubernetes API server
-sys-cluster/kube-controller-manager 1.26.12 1.26.13 1.27.9 1.27.10 1.28.6 1.29.1: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.26.12 1.26.13 1.27.9 1.27.10 1.28.6 1.29.1: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.26.13 1.27.10 1.28.6 1.29.1: Kubernetes API server
+sys-cluster/kube-controller-manager 1.26.13 1.27.10 1.28.6 1.29.1: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.26.13 1.27.10 1.28.6 1.29.1: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0 1.6.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.26.12 1.26.13 1.27.9 1.27.10 1.28.6 1.29.1: Kubernetes Scheduler
-sys-cluster/kubeadm 1.26.12 1.26.13 1.27.9 1.27.10 1.28.6 1.29.1: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.26.12 1.26.13 1.27.9 1.27.10 1.28.6 1.29.1: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.26.12 1.26.13 1.27.9 1.27.10 1.28.6 1.29.1: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.26.13 1.27.10 1.28.6 1.29.1: Kubernetes Scheduler
+sys-cluster/kubeadm 1.26.13 1.27.10 1.28.6 1.29.1: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.26.13 1.27.10 1.28.6 1.29.1: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.26.13 1.27.10 1.28.6 1.29.1: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.6: A client for kubelet
 sys-cluster/kubelogin 1.27.0 1.28.0: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.23.0 0.24.5: Client-side utility for one-way encrypted secrets in kubernetes
@@ -17610,7 +17610,7 @@ sys-fs/unionfs-fuse 3.4-r1 9999: Self-syncing tree-merging file system based on 
 sys-fs/vhba 20211218-r2 20240202: Virtual (SCSI) Host Bus Adapter kernel module for the CDEmu suite
 sys-fs/vzquota 3.1: OpenVZ VPS disk quota utility
 sys-fs/xfsdump 3.1.12: XFS dump/restore utilities
-sys-fs/xfsprogs 6.3.0 6.4.0 6.5.0: XFS filesystem utilities
+sys-fs/xfsprogs 6.3.0 6.4.0 6.5.0 6.6.0: XFS filesystem utilities
 sys-fs/xwmfs 0.92: FUSE-based X11 Window-Manager file system
 sys-fs/yaffs2utils 0.2.9: tools for generating YAFFS images
 sys-fs/zerofree 1.1.1-r1: Zeroes out all free space on a filesystem
@@ -17625,7 +17625,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh 
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 4.3.10 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.6.13 6.6.14 6.6.15 6.7.1 6.7.2 6.7.2-r1 6.7.3: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.6.13 6.6.14 6.6.15 6.7.1 6.7.2 6.7.2-r1 6.7.3: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.207 5.10.208 5.10.209 5.15.146 5.15.147 5.15.148 6.1.73 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.6.16 6.7.1-r1 6.7.2 6.7.2-r1 6.7.3 6.7.4: Full sources including the Gentoo patchset for the 6.7 kernel tree
+sys-kernel/gentoo-sources 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.6.16 6.7.2-r1 6.7.3 6.7.4: Full sources including the Gentoo patchset for the 6.7 kernel tree
 sys-kernel/git-sources 6.8_rc1 6.8_rc2 6.8_rc3: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 12 24: Gentoo fork of installkernel script from debianutils
 sys-kernel/installkernel-systemd 3 4-r1: Wrap kernel-install from systemd as installkernel
