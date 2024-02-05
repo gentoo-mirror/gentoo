@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,10 +23,12 @@ RESTRICT="test strip"
 
 RDEPEND="acct-group/kvm"
 
-QA_PREBUILT="usr/bin/firecracker
+QA_PREBUILT="usr/bin/cpu-template-helper
+	usr/bin/firecracker
 	usr/bin/jailer
 	usr/bin/rebase-snap
-	usr/bin/seccompiler-bin"
+	usr/bin/seccompiler-bin
+	usr/bin/snapshot-editor"
 
 S="${WORKDIR}"
 
@@ -76,8 +78,10 @@ src_install() {
 	dodoc "release-v${PV}-${my_arch}/firecracker_spec-v${PV}.yaml"
 	dodoc "release-v${PV}-${my_arch}/seccomp-filter-v${PV}-${my_arch}.json"
 
+	newbin "release-v${PV}-${my_arch}/cpu-template-helper-v${PV}-${my_arch}" cpu-template-helper
 	newbin "release-v${PV}-${my_arch}/firecracker-v${PV}-${my_arch}" firecracker
 	newbin "release-v${PV}-${my_arch}/jailer-v${PV}-${my_arch}" jailer
 	newbin "release-v${PV}-${my_arch}/rebase-snap-v${PV}-${my_arch}" rebase-snap
 	newbin "release-v${PV}-${my_arch}/seccompiler-bin-v${PV}-${my_arch}" seccompiler-bin
+	newbin "release-v${PV}-${my_arch}/snapshot-editor-v${PV}-${my_arch}" snapshot-editor
 }
