@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,14 +16,17 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/nickg/nvc.git"
 
-	NVC_SOURCEDIR="${WORKDIR}"/${PN}-${PV}
+	NVC_SOURCEDIR="${WORKDIR}/${PN}-${PV}"
 else
 	SRC_URI="https://github.com/nickg/nvc/archive/r${PV}.tar.gz
 		-> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 
-	NVC_SOURCEDIR="${WORKDIR}"/${PN}-r${PV}
+	NVC_SOURCEDIR="${WORKDIR}/${PN}-r${PV}"
 fi
+
+NVC_BUILDDIR="${NVC_SOURCEDIR}_BuildDir"
+S="${NVC_BUILDDIR}"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -40,7 +43,9 @@ RDEPEND="
 	dev-libs/libxml2:=
 	sys-libs/ncurses:=
 	sys-libs/zlib:=
-	llvm? ( <sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):= )
+	llvm? (
+		<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=
+	)
 "
 DEPEND="
 	${RDEPEND}
@@ -50,9 +55,6 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 "
-
-NVC_BUILDDIR="${NVC_SOURCEDIR}_BuildDir"
-S="${NVC_BUILDDIR}"
 
 PATCHES=( "${FILESDIR}/nvc-1.9.2-jit-code-capstone.patch" )
 
@@ -101,13 +103,12 @@ src_compile() {
 }
 
 src_test() {
-	PATH="${S}/bin:${PATH}" emake check
+	PATH="${S}/bin:${PATH}" emake check-TESTS
 }
 
 src_install() {
 	default
 
 	mv "${D}/$(get_bashcompdir)"/nvc{.bash,} || die
-
 	dostrip -x "/usr/$(get_libdir)/nvc"
 }
