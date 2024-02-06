@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/saslprep:0 dev-java/findbugs-annotations:0 dev-java/jsr305:0 test? ( dev-java/stringprep:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=dev-java/saslprep:0 dev-java/findbugs-annotations:0 dev-java/jsr305:0 >=virtual/jdk-1.8:* test? ( dev-java/stringprep:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Java Implementation of the Salted Challenge Response Authentication Mechanism
 EAPI=8
 HOMEPAGE=https://gitlab.com/ongresinc/scram
@@ -7,9 +7,9 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
 KEYWORDS=amd64 ppc64 x86
 LICENSE=BSD
-RDEPEND=>=virtual/jre-1.8:* dev-java/saslprep:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=dev-java/saslprep:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://gitlab.com/ongresinc/scram/-/archive/2.1/scram-2.1.tar.gz
+SRC_URI=https://gitlab.com/ongresinc/scram/-/archive/2.1/scram-2.1.tar.bz2
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
-_md5_=f03d39f288f35be24e795d74483b0153
+_md5_=d515c8505c886eddc801c5214d141d47
