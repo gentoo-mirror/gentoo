@@ -1,0 +1,40 @@
+Title: GRUB upgrades
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2024-02-01
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-boot/grub
+
+When booting with GRUB, it is important that the core image and modules
+have matching versions. Usually, running grub-install is sufficient to
+ensure this.
+
+On the UEFI platform, grub-install allows the core image to be placed in
+two different locations:
+
+EFI/gentoo/grubx64.efi
+This is the location used by grub-install without options.
+
+EFI/BOOT/BOOTX64.EFI
+This is the location used by grub-install --removable.
+
+On upgrades, it is common for users to mismatch the grub-install options
+they used for the current and previous versions of grub. This will cause
+a stale core image to exist. For example:
+
+/boot/efi/EFI/BOOT/BOOTX64.EFI (grub 2.06 core image)
+/boot/efi/EFI/gentoo/grubx64.efi (grub 2.12 core image)
+/boot/grub/x86_64-pc/*.mod (grub 2.12 modules)
+
+Booting this system using BOOTX64.EFI image would likely fail due to a
+symbol mismatch between the core image and modules. [1]
+
+Re-runing grub-install both with and without the --removable option
+should ensure a working GRUB installation.
+
+However, this will clobber any BOOTX64.EFI image provded by other
+loaders. If dual-booting using another boot loader, users must take care
+not to replace BOOTX64.EFI if it is not provided by GRUB.
+
+References:
+[1] https://bugs.gentoo.org/920708
