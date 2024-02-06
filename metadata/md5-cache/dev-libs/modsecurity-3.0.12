@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/SpiderLabs/ModSecurity
 INHERIT=autotools lua-single
 IUSE=doc fuzzyhash geoip geoip2 json lmdb lua pcre2 lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 arm arm64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 ~riscv x86
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/libpcre:= dev-libs/libxml2 net-misc/curl fuzzyhash? ( app-crypt/ssdeep ) geoip? ( dev-libs/geoip ) geoip2? ( dev-libs/libmaxminddb ) json? ( dev-libs/yajl ) lmdb? ( dev-db/lmdb ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) pcre2? ( dev-libs/libpcre2:= )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
 SLOT=0
 SRC_URI=https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.12/modsecurity-v3.0.12.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-libs/modsecurity/modsecurity-slibtool.patch
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
-_md5_=725cb6b2ae48e7ad3c360cb7ff735e92
+_md5_=545a4e816bb17bbffb617bc924e7cb16
