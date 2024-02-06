@@ -2892,6 +2892,7 @@ app-misc/trash-cli 0.23.2.13.2 0.23.9.23: Python scripts to manipulate trash can
 app-misc/tty-clock 2.3: Displays a simple digital clock on the terminal
 app-misc/ttyload 0.5.3-r1: color-coded graph of load averages over time
 app-misc/ttyrec 1.0.8-r3: ttyrec provides tools to record and replay a terminal session
+app-misc/tzupdate 3.1.0: Set the system timezone based on IP geolocation.
 app-misc/unfoo 1.0.8-r1: Simple bash driven frontend to simplify decompression of files
 app-misc/uptimed 0.4.6-r1: System uptime record daemon that keeps track of your highest uptimes
 app-misc/vcontrold 0.98.11: Daemon for communication with Viessmann Vito heatings
@@ -17212,7 +17213,7 @@ sys-auth/pam_dotfile 0.7-r2: pam module to allow password-storing in $HOME/dotfi
 sys-auth/pam_krb5 4.11: Kerberos V PAM Authentication Module
 sys-auth/pam_ldap 186-r4: PAM LDAP Module
 sys-auth/pam_mktemp 1.1.1: Create per-user private temporary directories during login
-sys-auth/pam_mount 2.18-r1: A PAM module that can mount volumes for a user session
+sys-auth/pam_mount 2.18-r1 2.20: A PAM module that can mount volumes for a user session
 sys-auth/pam_mysql 0.8.2-r1: pam_mysql is a module for pam to authenticate users with mysql
 sys-auth/pam_p11 0.3.1: PAM module for authenticating against PKCS#11 tokens
 sys-auth/pam_require 0.7-r2: Allows you to require a special group or user to access a service
@@ -17626,8 +17627,8 @@ sys-kernel/dkms 3.0.12: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r2 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 4.3.10 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.6.16 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.6.16 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.6.16 6.7.2-r1 6.7.3 6.7.4: Full sources including the Gentoo patchset for the 6.7 kernel tree
 sys-kernel/git-sources 6.8_rc1 6.8_rc2 6.8_rc3: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 12 24: Gentoo fork of installkernel script from debianutils
@@ -17643,7 +17644,7 @@ sys-kernel/pf-sources 6.6_p6 6.7_p1 6.7_p2 6.7_p3: Linux kernel fork that includ
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.333_p158 4.19.302_p131 5.4.264_p88 5.10.204_p100 5.15.145_p73 6.0.5_p14 6.1.70_p21 6.5.2_p8 6.6.10_p19: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.10.208 5.10.209 5.10.9999 5.15.147 5.15.148 5.15.9999 6.1.74 6.1.75 6.1.76 6.1.77 6.1.9999 6.6.13 6.6.14 6.6.15 6.6.9999 6.7.1 6.7.2 6.7.3 6.7.4: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.208 5.10.209 5.10.9999 5.15.147 5.15.148 5.15.9999 6.1.74 6.1.75 6.1.76 6.1.77 6.1.9999 6.6.13 6.6.14 6.6.15 6.6.16 6.6.9999 6.7.1 6.7.2 6.7.3 6.7.4: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.306 5.4.268 5.10.209 5.15.148 6.1.77 6.6.16 6.7.4: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.6.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17835,7 +17836,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.7.1 6.7.2 6.7.3 6.7.4: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.6.13 6.6.14 6.6.15 6.6.16 6.7.1 6.7.2 6.7.3 6.7.4: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
