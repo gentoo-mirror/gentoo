@@ -1097,7 +1097,7 @@ app-arch/arj 3.10.22-r8: Utility for opening arj archives
 app-arch/atool 0.39.0-r1: Script for managing file archives of various types
 app-arch/brotli 1.0.9-r6 1.1.0 9999: Generic-purpose lossless compression algorithm
 app-arch/bsdsfv 1.18-r3: all-in-one SFV checksum utility
-app-arch/bzip2 1.0.8-r4 9999: A high-quality data compressor used extensively by Gentoo Linux
+app-arch/bzip2 1.0.8-r4 1.0.8-r5 9999: A high-quality data compressor used extensively by Gentoo Linux
 app-arch/bzip3 1.3.2 1.4.0: A better and stronger spiritual successor to BZip2
 app-arch/cabextract 1.11 9999: Extracts files from Microsoft cabinet archive files
 app-arch/cfv 3.0.0: Command-line File Verify - versatile file checksum creator and verifier
@@ -1194,7 +1194,7 @@ app-arch/zoo 2.10-r5 2.10-r6: Manipulate archives of files in compressed form
 app-arch/zopfli 1.0.3: Very good, but slow, deflate or zlib compression
 app-arch/zpaq 7.15-r1: Journaling incremental deduplicating archiving compressor
 app-arch/zpaq-extras 3: A set of additional compression profiles for app-arch/zpaq
-app-arch/zstd 1.5.5: zstd fast compression library
+app-arch/zstd 1.5.5 1.5.5-r1: zstd fast compression library
 app-backup/amanda 3.5.1-r5: The Advanced Maryland Automatic Network Disk Archiver
 app-backup/backintime 1.3.2-r1 1.3.3-r1 9999: Backup system inspired by TimeVault and FlyBack
 app-backup/backup-manager 0.7.14-r1: Backup Manager is a command line backup tool for GNU/Linux
@@ -5550,7 +5550,7 @@ dev-libs/libp11 0.4.12-r1 0.4.12-r6: Abstraction layer to simplify PKCS#11 API
 dev-libs/libparserutils 0.2.4-r3 0.2.5: C library for building efficient parsers
 dev-libs/libpcre 8.45-r1 8.45-r2 8.45-r3: Perl-compatible regular expression library
 dev-libs/libpcre-debian 8-r2: libpcre(posix).so.3 symlinks for compatibility with Debian
-dev-libs/libpcre2 10.42-r1 10.43_rc1: Perl-compatible regular expression library
+dev-libs/libpcre2 10.42-r1 10.42-r2 10.43_rc1: Perl-compatible regular expression library
 dev-libs/libpeas 1.36.0: A GObject plugins library
 dev-libs/libpfm 4.11.0 4.12.0: Hardware-based performance monitoring interface for Linux
 dev-libs/libphonenumber 8.12.39: Library for parsing, formatting, and validating international phone numbers
@@ -14638,7 +14638,7 @@ net-firewall/fwknop 2.6.10-r3: Single Packet Authorization and Port Knocking app
 net-firewall/ipkungfu 0.6.1-r1: A nice iptables firewall script
 net-firewall/ipset 7.19-r1 7.20: IPset tool for iptables, successor to ippool
 net-firewall/ipt_netflow 2.6-r1 9999: Netflow iptables module
-net-firewall/iptables 1.8.8-r5 1.8.9 1.8.9-r1 1.8.10: Linux kernel (2.4+) firewall, NAT and packet mangling tools
+net-firewall/iptables 1.8.8-r5 1.8.9 1.8.9-r2 1.8.10: Linux kernel (2.4+) firewall, NAT and packet mangling tools
 net-firewall/itval 1.2_p20121104-r1: Iptables policy testing and validation tool
 net-firewall/lutelwall 0.99-r1: IPTables firewall setup script
 net-firewall/nfacct 1.0.2-r2: Command line tool to create/retrieve/delete accounting objects in NetFilter
@@ -16887,7 +16887,7 @@ sec-policy/selinux-zabbix 2.20231002-r2 9999: SELinux policy for zabbix
 sec-policy/selinux-zfs 2.20231002-r2 9999: SELinux policy for zfs
 sys-apps/accountsservice 23.13.9: D-Bus interfaces for querying and manipulating user account information
 sys-apps/ack 3.6.0 3.7.0: ack is a tool like grep, optimized for programmers
-sys-apps/acl 2.3.1-r2 2.3.2: Access control list utilities, libraries, and headers
+sys-apps/acl 2.3.1-r2 2.3.2-r1: Access control list utilities, libraries, and headers
 sys-apps/agedu 20200617 20200705 20211129: A utility for tracking down wasted disk space
 sys-apps/amdgpu_top 0.5.0: Tool to displays AMDGPU usage.
 sys-apps/apmd 3.2.2_p14-r3: Advanced Power Management Daemon
@@ -16899,7 +16899,7 @@ sys-apps/arrayprobe 2.0-r3: Utility to report status of an HP (Compaq) array con
 sys-apps/asahi-bless 0.3.0: CLI boot disk selector for Apple Silicon Macs
 sys-apps/asahi-nvram 0.2.1: Tool to read and write nvram variables on ARM Macs
 sys-apps/asahi-startup-disk 0.1.3: Interface to choose the startup volume on Apple Silicon systems
-sys-apps/attr 2.5.1-r2 2.5.2 9999: Extended attributes tools
+sys-apps/attr 2.5.1-r2 2.5.2-r1 9999: Extended attributes tools
 sys-apps/audio-entropyd 2.0.3-r1: Audio-entropyd generates entropy-data for the /dev/random device
 sys-apps/baobab 44.0 45.0: Disk usage browser for GNOME
 sys-apps/bar 1.11.1: Console Progress Bar
@@ -17148,7 +17148,7 @@ sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
 sys-apps/system-monitoring-center 2.26.0 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemd 254.5-r2 254.7-r1 254.8-r1 254.9 255.2-r2 255.3 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
-sys-apps/systemd-utils 254.5-r2 254.7 254.8 254.9: Utilities split out from systemd for OpenRC users
+sys-apps/systemd-utils 254.5-r2 254.7 254.8 254.9-r1: Utilities split out from systemd for OpenRC users
 sys-apps/sysvinit 3.07 3.07-r2 3.08: /sbin/init - parent of all processes
 sys-apps/tas 1.7.0.220503-r1: Supermicro Thin-Agent Service for monitoring through the BMC/IPMI
 sys-apps/tcp-wrappers 7.6.31: TCP Wrappers
@@ -17171,7 +17171,7 @@ sys-apps/usbredir 0.13.0 0.13.0-r1: TCP daemon and set of libraries for usbredir
 sys-apps/usbutils 016 017: USB enumeration utilities
 sys-apps/usermode-utilities 20070815-r4 20070815-r5: Tools for use with Usermode Linux virtual machines
 sys-apps/utempter 0.5.5.6-r1: App that allows non-privileged apps to write utmp (login) info
-sys-apps/util-linux 2.38.1-r3 2.39.2-r1 2.39.3-r1 9999: Various useful Linux utilities
+sys-apps/util-linux 2.38.1-r3 2.39.2-r1 2.39.3-r2 9999: Various useful Linux utilities
 sys-apps/uutils-coreutils 0.0.23 0.0.24 9999: GNU coreutils rewritten in Rust
 sys-apps/uutils-findutils 0.4.2-r1 9999: GNU findutils rewritten in Rust
 sys-apps/vbetool 1.2.2: Run real-mode video BIOS code to alter hw state (i.e. reinitialize video card)
