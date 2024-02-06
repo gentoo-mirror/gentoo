@@ -45,10 +45,6 @@ BDEPEND="
 # that block forever
 RESTRICT="test"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-xdg-icon-resource-syntax.patch
-)
-
 src_prepare() {
 	default
 
