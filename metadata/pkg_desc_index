@@ -1049,7 +1049,7 @@ app-admin/superadduser 1.15: Interactive adduser script from Slackware
 app-admin/supervisor 4.2.5: A system for controlling process state under UNIX
 app-admin/sxid 4.2-r3: suid, sgid file and directory checking
 app-admin/sysklogd 2.4.4 2.5.0 2.5.1 2.5.2 9999: Standard log daemons
-app-admin/syslog-ng 4.0.1 4.1.1-r1 4.1.1-r2 4.2.0 4.3.1-r1 4.4.0-r1 4.4.0-r2: syslog replacement with advanced filtering features
+app-admin/syslog-ng 4.2.0 4.3.1-r1 4.4.0-r1 4.4.0-r2 4.6.0: syslog replacement with advanced filtering features
 app-admin/syslog-summary 1.14-r5: Summarizes the contents of a syslog log file
 app-admin/sysrqd 17-r2: Daemon providing access to the kernel sysrq functions via network
 app-admin/sysstat 12.6.2-r1: System performance tools for Linux
@@ -3771,7 +3771,7 @@ dev-build/bazel 3.7.2-r1 4.2.2 5.0.0 5.1.1 5.3.0 6.2.0 6.4.0: Fast and correct a
 dev-build/bazelisk 1.19.0: A user-friendly launcher for Bazel written in Go
 dev-build/bmake 20230909 20231210: NetBSD's portable make
 dev-build/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
-dev-build/cmake 3.26.5-r2 3.27.7 3.27.9 3.28.1 3.28.1-r1 3.28.2 9999: Cross platform Make
+dev-build/cmake 3.26.5-r2 3.27.7 3.27.9 3.28.1 3.28.1-r1 3.28.2 3.28.3 9999: Cross platform Make
 dev-build/cmake-fedora 2.9.3: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-build/cons 2.3.0-r1: Extensible perl-based build utility
 dev-build/dagger 0.9.8: ci/cd as code that runs anywhere
@@ -3968,7 +3968,7 @@ dev-db/spatialite-tools 5.0.1-r1: A collection of CLI tools supporting SpatiaLit
 dev-db/sqlcipher 4.5.1 4.5.5: Full Database Encryption for SQLite
 dev-db/sqlcl-bin 23.2.0.178.1027: Oracle SQLcl is the new SQL*Plus
 dev-db/sqldeveloper 23.1.0.097.1607: Oracle SQL Developer is a graphical tool for database development
-dev-db/sqlite 3.44.2-r1 3.44.2-r2 3.45.1 9999: SQL database engine
+dev-db/sqlite 3.44.2-r1 3.44.2-r2 3.45.1-r1 9999: SQL database engine
 dev-db/sqlitebrowser 3.12.2 3.12.2-r1 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r5: Powerful GUI manager for the Sqlite3 database
 dev-db/sqlitestudio 3.4.4-r1: Powerful cross-platform SQLite database manager
@@ -5651,7 +5651,7 @@ dev-libs/miniaudio 0.11.11 0.11.15: Single file library for audio playback and c
 dev-libs/miniz 2.2.0-r1 3.0.1: A lossless, high performance data compression library
 dev-libs/mm 1.4.2-r2: Shared Memory Abstraction Library
 dev-libs/mmtf-cpp 1.0.0-r1 1.1.0-r1: The pure C++ implementation of the MMTF API, decoder and encoder
-dev-libs/modsecurity 3.0.10 3.0.10-r1: Application firewall and intrusion detection
+dev-libs/modsecurity 3.0.10 3.0.10-r1 3.0.12: Application firewall and intrusion detection
 dev-libs/mongo-c-driver 1.18.0-r1 1.24.4: Client library written in C for MongoDB
 dev-libs/mpc 1.3.1: A library for multiprecision complex arithmetic with exact rounding
 dev-libs/mpfr 4.2.0_p12 4.2.1: Library for multiple-precision floating-point computations with exact rounding
@@ -17618,6 +17618,7 @@ sys-fs/zerofree 1.1.1-r1: Zeroes out all free space on a filesystem
 sys-fs/zfs 2.1.14 2.2.2-r1 9999: Userland utilities for ZFS Linux kernel module
 sys-fs/zfs-auto-snapshot 1.2.4-r2 1.2.4-r3 9999: ZFS Automatic Snapshot Service for Linux
 sys-fs/zfs-kmod 2.1.14 2.2.2 2.2.2-r1 9999: Linux ZFS kernel module for sys-fs/zfs
+sys-kernel/asahi-sources 6.6.0_p15: Asahi Linux kernel sources
 sys-kernel/bliss-initramfs 9.3.0: Boot your system's rootfs from Encrypted/OpenZFS
 sys-kernel/cryptodev 1.12 1.13-r1 9999: device that allows access to Linux kernel cryptographic drivers
 sys-kernel/dkms 3.0.12: Dynamic Kernel Module Support
@@ -17864,7 +17865,7 @@ virtual/libiconv 0-r2: Virtual for the GNU conversion library
 virtual/libintl 0-r2: Virtual for the GNU Internationalization Library
 virtual/libudev 251-r2: Virtual for libudev providers
 virtual/libusb 0-r2 1-r2: Virtual for libusb
-virtual/linux-sources 3-r7: Virtual for Linux kernel sources
+virtual/linux-sources 3-r8: Virtual for Linux kernel sources
 virtual/linuxtv-dvb-headers 5.8: Virtual Package installing the Header files for DVB
 virtual/logger 0-r1: Virtual for system loggers
 virtual/mailx 4: Virtual for mail implementations
@@ -18113,19 +18114,19 @@ www-client/firefox 115.7.0 121.0.1 122.0: Firefox Web Browser
 www-client/firefox-bin 115.7.0 122.0: Firefox Web Browser
 www-client/google-chrome 121.0.6167.139: The web browser from Google
 www-client/google-chrome-beta 122.0.6261.18: The web browser from Google
-www-client/google-chrome-unstable 123.0.6262.5: The web browser from Google
+www-client/google-chrome-unstable 123.0.6272.2: The web browser from Google
 www-client/httrack 3.49.5: HTTrack Website Copier, Open Source Offline Browser
 www-client/jd 2.8.9_p150226-r2: gtk2 based 2ch browser written in C++
 www-client/links 2.29 2.29-r1: A fast and lightweight web browser running in both graphics and text mode
 www-client/luakit 2.3.3-r1: A fast, extensible, and customizable web browser
 www-client/lynx 2.9.0_pre12-r1 2.9.0_pre12-r2 2.9.0: An excellent console-based web browser with ssl support
-www-client/microsoft-edge 121.0.2277.83: The web browser from Microsoft
-www-client/microsoft-edge-beta 121.0.2277.71 121.0.2277.81 121.0.2277.83: The web browser from Microsoft
+www-client/microsoft-edge 121.0.2277.106: The web browser from Microsoft
+www-client/microsoft-edge-beta 121.0.2277.83 122.0.2365.8 122.0.2365.16: The web browser from Microsoft
 www-client/microsoft-edge-dev 122.0.2348.0 122.0.2353.0 122.0.2365.3: The web browser from Microsoft
 www-client/netrik 1.16.1-r3: A text based web browser with no ssl support
 www-client/netsurf 3.11 9999: A free, open source web browser
 www-client/opera 106.0.4998.70: A fast and secure web browser
-www-client/opera-beta 106.0.4998.12 107.0.5045.4 107.0.5045.8: A fast and secure web browser
+www-client/opera-beta 107.0.5045.4 107.0.5045.8 107.0.5045.11: A fast and secure web browser
 www-client/opera-developer 108.0.5047.0 108.0.5054.0 108.0.5063.0: A fast and secure web browser
 www-client/otter 1.0.03 9999: Project aiming to recreate classic Opera (12.x) UI using Qt5
 www-client/pybugz 0.13-r2 9999: Command line interface to (Gentoo) Bugzilla
@@ -18155,7 +18156,7 @@ www-misc/urlwatch 2.25 2.26 2.28: A tool for monitoring webpages for updates
 www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
 www-plugins/browserpass 3.1.0: WebExtension host binary for app-admin/pass, a UNIX password manager
-www-plugins/chrome-binary-plugins 121.0.6167.139 122.0.6261.18_beta 123.0.6262.5_alpha: Binary plugins from Google Chrome for use in Chromium
+www-plugins/chrome-binary-plugins 121.0.6167.139 122.0.6261.18_beta 123.0.6272.2_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/gosuslugi-plugin 3.1.1.0: Crypto-provider browser plugin for russian e-gov site https://gosuslugi.ru/
 www-plugins/lightspark 0.8.6.1 0.8.7: High performance flash player
 www-plugins/passff-host 1.2.3-r1: Host app for the PassFF WebExtension
