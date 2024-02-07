@@ -9,13 +9,15 @@ DESCRIPTION="Gradually typed embeddable scripting language derived from Lua"
 HOMEPAGE="https://luau-lang.org/
 	https://github.com/Roblox/luau/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/Roblox/${PN}.git"
 else
 	SRC_URI="https://github.com/Roblox/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MIT"
@@ -24,8 +26,8 @@ SLOT="0"
 DOCS=( CONTRIBUTING.md README.md SECURITY.md )
 
 src_test() {
-	"${BUILD_DIR}"/Luau.UnitTest || die
-	"${BUILD_DIR}"/Luau.Conformance  || die
+	"${BUILD_DIR}/Luau.UnitTest" || die
+	"${BUILD_DIR}/Luau.Conformance" || die
 }
 
 src_install() {
