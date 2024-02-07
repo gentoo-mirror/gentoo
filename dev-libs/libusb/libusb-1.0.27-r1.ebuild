@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit multilib-minimal usr-ldscript
+inherit libtool multilib-minimal
 
 DESCRIPTION="Userspace access to USB devices"
 HOMEPAGE="https://libusb.info/ https://github.com/libusb/libusb"
@@ -22,6 +22,11 @@ DEPEND="
 	!udev? ( virtual/os-headers )
 "
 BDEPEND="doc? ( app-text/doxygen )"
+
+src_prepare() {
+	default
+	elibtoolize
+}
 
 multilib_src_configure() {
 	local myeconfargs=(
@@ -58,8 +63,6 @@ multilib_src_install() {
 	emake DESTDIR="${D}" install
 
 	if multilib_is_native_abi; then
-		gen_usr_ldscript -a usb-1.0
-
 		use doc && dodoc -r doc/api-1.0
 	fi
 }
