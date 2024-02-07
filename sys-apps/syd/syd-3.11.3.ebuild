@@ -10,7 +10,7 @@ RESTRICT="test" # fails with sandbox
 CRATES="
 	aho-corasick@1.1.2
 	anes@0.1.6
-	anstyle@1.0.4
+	anstyle@1.0.5
 	anyhow@1.0.79
 	argv@0.1.11
 	autocfg@1.1.0
@@ -20,9 +20,9 @@ CRATES="
 	byteorder@1.5.0
 	cast@0.3.0
 	cfg-if@1.0.0
-	ciborium-io@0.2.1
-	ciborium-ll@0.2.1
-	ciborium@0.2.1
+	ciborium-io@0.2.2
+	ciborium-ll@0.2.2
+	ciborium@0.2.2
 	clap@4.4.18
 	clap_builder@4.4.18
 	clap_lex@0.6.0
@@ -30,9 +30,10 @@ CRATES="
 	criterion@0.5.1
 	crossbeam-channel@0.5.11
 	crossbeam-utils@0.8.19
+	crunchy@0.2.2
 	either@1.9.0
 	env_filter@0.1.0
-	env_logger@0.11.0
+	env_logger@0.11.1
 	errno@0.3.8
 	fastrand@2.0.1
 	futures-channel@0.3.30
@@ -42,7 +43,7 @@ CRATES="
 	futures-util@0.3.30
 	getargs@0.5.0
 	globset@0.4.14
-	half@1.8.2
+	half@2.3.1
 	heck@0.4.1
 	hermit-abi@0.3.4
 	hex@0.4.3
@@ -79,7 +80,7 @@ CRATES="
 	procfs@0.15.1
 	quote@1.0.35
 	redox_syscall@0.4.1
-	regex-automata@0.4.4
+	regex-automata@0.4.5
 	regex-syntax@0.8.2
 	regex@1.10.3
 	rustix@0.36.17
@@ -90,13 +91,13 @@ CRATES="
 	same-file@1.0.6
 	scopeguard@1.2.0
 	sendfd@0.4.3
-	serde@1.0.195
-	serde_derive@1.0.195
-	serde_json@1.0.111
+	serde@1.0.196
+	serde_derive@1.0.196
+	serde_json@1.0.113
 	slab@0.4.9
 	smallvec@1.13.1
-	strum@0.25.0
-	strum_macros@0.25.3
+	strum@0.26.1
+	strum_macros@0.26.1
 	syn@2.0.48
 	tempfile@3.9.0
 	tinytemplate@1.2.1
