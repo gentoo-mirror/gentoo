@@ -17,24 +17,21 @@ HPN_PV="8.5_P1"
 HPN_VER="15.2"
 HPN_PATCHES=(
 	openssh-${HPN_PV/./_}-hpn-DynWinNoneSwitch-${HPN_VER}.diff
-	openssh-${HPN_PV/./_}-hpn-AES-CTR-${HPN_VER}.diff
 	openssh-${HPN_PV/./_}-hpn-PeakTput-${HPN_VER}.diff
 )
-HPN_GLUE_PATCH="openssh-9.3_p1-hpn-${HPN_VER}-glue.patch"
+HPN_GLUE_PATCH="openssh-9.6_p1-hpn-${HPN_VER}-glue.patch"
 HPN_PATCH_DIR="HPN-SSH%%20${HPN_VER/./v}%%20${HPN_PV/_P/p}"
 
-SCTP_VER="1.2"
-SCTP_PATCH="${PARCH}-sctp-${SCTP_VER}.patch.xz"
-
-X509_VER="14.1.1"
+X509_VER="14.4.2"
 X509_PATCH="${PARCH}+x509-${X509_VER}.diff.gz"
+X509_PATCH="${X509_PATCH/p2/p1}"
 X509_GLUE_PATCH="openssh-${PV}-X509-glue-${X509_VER}.patch"
-X509_HPN_GLUE_PATCH="openssh-9.3_p1-hpn-${HPN_VER}-X509-${X509_VER}-glue.patch"
+#X509_HPN_GLUE_PATCH="${MY_P}-hpn-${HPN_VER}-X509-${X509_VER}-glue.patch"
+X509_HPN_GLUE_PATCH="${MY_P}-hpn-${HPN_VER}-X509-${X509_VER%.1}-glue.patch"
 
-DESCRIPTION="Port of OpenBSD's free SSH release with HPN/SCTP/X509 patches"
+DESCRIPTION="Port of OpenBSD's free SSH release with HPN/X509 patches"
 HOMEPAGE="https://www.openssh.com/"
 SRC_URI="mirror://openbsd/OpenSSH/portable/${PARCH}.tar.gz
-	${SCTP_PATCH:+sctp? ( https://dev.gentoo.org/~chutzpah/dist/openssh/${SCTP_PATCH} )}
 	${HPN_VER:+hpn? (
 		$(printf "mirror://sourceforge/project/hpnssh/Patches/${HPN_PATCH_DIR}/%s\n" "${HPN_PATCHES[@]}")
 		https://dev.gentoo.org/~chutzpah/dist/openssh/${HPN_GLUE_PATCH}.xz
@@ -51,9 +48,9 @@ S="${WORKDIR}/${PARCH}"
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-#KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 # Probably want to drop ssl defaulting to on in a future version.
-IUSE="abi_mips_n32 audit debug hpn kerberos ldns libedit livecd pam +pie sctp security-key selinux +ssl static test X X509 xmss"
+IUSE="abi_mips_n32 audit debug hpn kerberos ldns libedit livecd pam +pie security-key selinux +ssl static test X X509 xmss"
 
 RESTRICT="!test? ( test )"
 
@@ -62,7 +59,7 @@ REQUIRED_USE="
 	ldns? ( ssl )
 	pie? ( !static )
 	static? ( !kerberos !pam )
-	X509? ( !sctp ssl !xmss )
+	X509? ( ssl !xmss )
 	xmss? ( ssl  )
 	test? ( ssl )
 "
@@ -77,7 +74,6 @@ LIB_DEPEND="
 		net-libs/ldns[ecdsa(+),ssl(+)]
 	)
 	libedit? ( dev-libs/libedit:=[static-libs(+)] )
-	sctp? ( net-misc/lksctp-tools[static-libs(+)] )
 	security-key? ( >=dev-libs/libfido2-1.5.0:=[static-libs(+)] )
 	selinux? ( >=sys-libs/libselinux-1.28[static-libs(+)] )
 	ssl? ( >=dev-libs/openssl-1.1.1l-r1:0=[static-libs(+)] )
@@ -108,9 +104,8 @@ BDEPEND="
 	virtual/pkgconfig
 	|| (
 		>=sys-devel/gcc-config-2.6
-		>=sys-devel/clang-toolchain-symlinks-14-r1:14
-		>=sys-devel/clang-toolchain-symlinks-15-r1:15
 		>=sys-devel/clang-toolchain-symlinks-16-r1:*
+		>=sys-devel/clang-toolchain-symlinks-15-r1:15
 	)
 	verify-sig? ( sec-keys/openpgp-keys-openssh )
 "
@@ -123,9 +118,6 @@ PATCHES=(
 	"${FILESDIR}/openssh-8.0_p1-fix-putty-tests.patch"
 	"${FILESDIR}/openssh-9.3_p1-deny-shmget-shmat-shmdt-in-preauth-privsep-child.patch"
 	"${FILESDIR}/openssh-8.9_p1-allow-ppoll_time64.patch" #834019
-	"${FILESDIR}/openssh-8.9_p1-gss-use-HOST_NAME_MAX.patch" #834044
-	"${FILESDIR}/openssh-9.3_p1-openssl-version-compat-check.patch"
-	"${FILESDIR}/openssh-9.3_p2-zlib-1.3.patch" #912767
 )
 
 pkg_pretend() {
@@ -134,7 +126,6 @@ pkg_pretend() {
 	local missing=()
 	check_feature() { use "${1}" && [[ -z ${!2} ]] && missing+=( "${1}" ); }
 	check_feature hpn HPN_VER
-	check_feature sctp SCTP_PATCH
 	check_feature X509 X509_PATCH
 	if [[ ${#missing[@]} -ne 0 ]] ; then
 		eerror "Sorry, but this version does not yet support features"
@@ -195,21 +186,6 @@ src_prepare() {
 		PATCHSET_VERSION_MACROS+=( 'SSH_X509' )
 	fi
 
-	if use sctp ; then
-		eapply "${WORKDIR}"/${SCTP_PATCH%.*}
-
-		einfo "Patching version.h to expose SCTP patch set ..."
-		sed -i \
-			-e "/^#define SSH_PORTABLE/a #define SSH_SCTP        \"-sctp-${SCTP_VER}\"" \
-			"${S}"/version.h || die "Failed to sed-in SCTP patch version"
-		PATCHSET_VERSION_MACROS+=( 'SSH_SCTP' )
-
-		einfo "Disabling known failing test (cfgparse) caused by SCTP patch ..."
-		sed -i \
-			-e "/\t\tcfgparse \\\/d" \
-			"${S}"/regress/Makefile || die "Failed to disable known failing test (cfgparse) caused by SCTP patch"
-	fi
-
 	if use hpn ; then
 		local hpn_patchdir="${T}/openssh-${PV}-hpn${HPN_VER}"
 		mkdir "${hpn_patchdir}" || die
@@ -217,12 +193,11 @@ src_prepare() {
 		pushd "${hpn_patchdir}" &>/dev/null || die
 		eapply "${WORKDIR}/${HPN_GLUE_PATCH}"
 		use X509 && eapply "${WORKDIR}/${X509_HPN_GLUE_PATCH}"
-		use sctp && eapply "${FILESDIR}"/openssh-8.5_p1-hpn-${HPN_VER}-sctp-glue.patch
 		popd &>/dev/null || die
 
 		eapply "${hpn_patchdir}"
 
-		use X509 || eapply "${FILESDIR}/openssh-8.6_p1-hpn-version.patch"
+		use X509 || eapply "${FILESDIR}/openssh-9.6_p1-hpn-version.patch"
 
 		einfo "Patching Makefile.in for HPN patch set ..."
 		sed -i \
@@ -256,7 +231,7 @@ src_prepare() {
 		fi
 	fi
 
-	if use X509 || use sctp || use hpn ; then
+	if use X509 || use hpn ; then
 		einfo "Patching sshconnect.c to use SSH_RELEASE in send_client_banner() ..."
 		sed -i \
 			-e "s/PROTOCOL_MAJOR_2, PROTOCOL_MINOR_2, SSH_VERSION/PROTOCOL_MAJOR_2, PROTOCOL_MINOR_2, SSH_RELEASE/" \
@@ -324,9 +299,6 @@ src_configure() {
 		--with-hardening
 		$(use_with audit audit linux)
 		$(use_with kerberos kerberos5 "${EPREFIX}"/usr)
-		# We apply the sctp patch conditionally, so can't pass --without-sctp
-		# unconditionally else we get unknown flag warnings.
-		$(use sctp && use_with sctp)
 		$(use_with ldns)
 		$(use_with libedit)
 		$(use_with pam)
