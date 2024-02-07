@@ -148,6 +148,7 @@ PHP_MV="$(ver_cut 1)"
 PATCHES=(
 	"${FILESDIR}/php-iodbc-header-location.patch"
 	"${FILESDIR}/php-capstone-optional.patch"
+	"${FILESDIR}/php-8.1.27-gcc14-libxml.patch"
 )
 
 php_install_ini() {
