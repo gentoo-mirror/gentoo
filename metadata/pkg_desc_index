@@ -1848,7 +1848,7 @@ app-emacs/apheleia 4.0: Reformat GNU Emacs buffers stably without moving point
 app-emacs/assess 0.6: Test support functions for Emacs
 app-emacs/async 1.9.8: Simple library for asynchronous processing in Emacs
 app-emacs/atomic-chrome 2.0.0-r1: Edit text area on Chrome with Emacs using Atomic Chrome
-app-emacs/auctex 13.2: Extensible package for writing and formatting TeX files in Emacs
+app-emacs/auctex 13.2 13.3: Extensible package for writing and formatting TeX files in Emacs
 app-emacs/auto-complete 1.5.1-r2: Auto-complete package
 app-emacs/autoconf-mode 2.71 2.72: Emacs major modes for editing autoconf and autotest input
 app-emacs/autothemer 0.2.18 9999: Conveniently define themes for GNU Emacs
@@ -1998,7 +1998,7 @@ app-emacs/ert-async 0.1.2_p20200105: Async support for ERT
 app-emacs/ert-runner 0.8.0: Opinionated Emacs Ert testing workflow
 app-emacs/eselect-mode 1.4.26 1.4.27 9999: Emacs major mode for editing eselect files
 app-emacs/espuds 0.3.3_p20171111: Common step definitions for Emacs Ecukes
-app-emacs/ess 18.10.2-r3 24.01.0: Emacs Speaks Statistics
+app-emacs/ess 18.10.2-r3 24.01.0 24.01.1: Emacs Speaks Statistics
 app-emacs/esup 0.7.1_p20220203: Benchmark Emacs Startup time without ever leaving it
 app-emacs/evil 1.14.0 1.14.2: Extensible vi layer for Emacs
 app-emacs/exec-path-from-shell 1.12 2.1: Ensure environment variables inside Emacs are the same as in shell
@@ -2012,7 +2012,7 @@ app-emacs/fff 20050517: Fast file finder for Emacs
 app-emacs/filladapt 2.12.2: Filladapt enhances the behavior of Emacs' fill functions
 app-emacs/flashcard 2.3.3: An Emacs Lisp package for drilling on questions and answers
 app-emacs/flim 1.14.9_p20210529 1.14.9_p20231218: A library to provide basic features about message representation or encoding
-app-emacs/flycheck 32_p20230305 32_p20230305-r1: Modern on-the-fly syntax checking extension for GNU Emacs
+app-emacs/flycheck 32_p20230305-r1 33.1: Modern on-the-fly syntax checking extension for GNU Emacs
 app-emacs/flycheck-clang-tidy 0.3.0_p20201116: Flycheck syntax checker using clang-tidy
 app-emacs/flycheck-guile 0.4 0.5: Flycheck checker for the GNU Guile Scheme implementation
 app-emacs/flycheck-inline 0_pre20200808: Display Flycheck errors inline
@@ -2099,7 +2099,7 @@ app-emacs/matlab 3.3.6_pre20191010-r1: Major modes for MATLAB .m and .tlc files
 app-emacs/mediawiki 2.2.9-r1 2.3.1: MediaWiki client for Emacs
 app-emacs/meson-mode 0.3: A GNU Emacs major mode for Meson build-system files
 app-emacs/metamath-mode 0_p20221005: Major GNU Emacs mode for metamath files
-app-emacs/mew 6.8 6.8_p20230203: Great MIME mail reader for Emacs/XEmacs
+app-emacs/mew 6.8_p20230203: Great MIME mail reader for Emacs/XEmacs
 app-emacs/mic-paren 3.15-r1: Advanced highlighting of matching parentheses
 app-emacs/mldonkey 0.0.4b-r2: An Emacs Lisp interface to the MLDonkey core
 app-emacs/mmm-mode 0.5.9 0.5.10: Enables the user to edit different parts of a file in different major modes
@@ -4016,7 +4016,7 @@ dev-dotnet/dotnet-runtime-nugets 6.0.24 6.0.25 6.0.26 7.0.13 7.0.14 7.0.15 8.0.0
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.100-r2 8.0.101: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.100-r4 8.0.101-r3: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/fable 4.9.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
+dev-dotnet/fable 4.9.0 4.11.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 6.2.3: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.68.0 0.69.0: F# language server using the Language Server Protocol
 dev-dotnet/gentoo-dotnet-maintainer-tools 2.0.1 2.2.0 2.9999: Gentoo tools for .NET packages maintenance
@@ -5172,7 +5172,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.36.0 3.47.0: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.606 0.607 0.609: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.607 0.609 0.611: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 20.06-r1 20.06.1 22.01 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 20.06 20.06.1 22.01 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -10448,7 +10448,7 @@ dev-scheme/akku 1.1.0: Language package manager for Scheme
 dev-scheme/bigloo 4.4c_p4-r6: Practical Scheme Compiler with many extensions
 dev-scheme/bytestructures 1.0.10 2.0.1: Structured access to bytevector contents
 dev-scheme/c-wrapper 0.6.1-r2: Foreign function interface for C and Objective-C libraries
-dev-scheme/chez 9.6.2 9.6.4-r1: A programming language based on R6RS
+dev-scheme/chez 9.6.2 9.6.4-r1 10.0.0: A programming language based on R6RS
 dev-scheme/chez-minikanren 2018.04.11: Canonical miniKanren implementation (on Chez Scheme)
 dev-scheme/chibi 0.10.0 9999: Minimal Scheme implementation for use as an extension language
 dev-scheme/chicken 5.3.0: Scheme interpreter and native Scheme to C compiler
