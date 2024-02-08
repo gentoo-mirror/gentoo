@@ -1036,7 +1036,7 @@ chromium_configure() {
 	fi
 
 	# Don't need nocompile checks and GN crashes with our config
-	myconf_gn+=" enable_nocompile_tests=false enable_nocompile_tests_new=false"
+	myconf_gn+=" enable_nocompile_tests=false"
 
 	# Enable ozone wayland and/or headless support
 	myconf_gn+=" use_ozone=true ozone_auto_platforms=false"
