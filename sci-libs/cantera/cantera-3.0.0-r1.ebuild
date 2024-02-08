@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 FORTRAN_NEEDED=fortran
 FORTRAN_STANDARD="77 90"
@@ -16,23 +16,18 @@ SRC_URI="https://github.com/Cantera/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
-IUSE="+cti fortran lapack +python test"
+KEYWORDS="~amd64 ~x86"
+IUSE="fortran hdf5 lapack +python test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
-	python? ( cti )
 	${PYTHON_REQUIRED_USE}
 "
 
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-cpp/yaml-cpp
-	cti? (
-		$(python_gen_cond_dep '
-			dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-		')
-	)
+	hdf5? ( sci-libs/HighFive )
 	!lapack? ( sci-libs/sundials:0= )
 	lapack? (
 		>=sci-libs/sundials-6.5.0:0=[lapack?]
@@ -41,11 +36,11 @@ RDEPEND="
 	python? (
 		$(python_gen_cond_dep '
 			dev-python/numpy[${PYTHON_USEDEP}]
+			dev-python/ruamel-yaml[${PYTHON_USEDEP}]
 		')
 	)
 "
 
-# <cython-3 for bug #913141
 DEPEND="
 	${RDEPEND}
 	dev-cpp/eigen:3
@@ -53,7 +48,7 @@ DEPEND="
 	dev-libs/libfmt
 	python? (
 		$(python_gen_cond_dep '
-			<dev-python/cython-3[${PYTHON_USEDEP}]
+			dev-python/cython[${PYTHON_USEDEP}]
 			dev-python/pip[${PYTHON_USEDEP}]
 		')
 	)
@@ -72,7 +67,7 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${P}_env.patch"
-	"${FILESDIR}/${P}_drop_deprecated_open_U_option.patch"
+	"${FILESDIR}/${P}_enable_python-3.12.patch"
 )
 
 pkg_setup() {
@@ -88,7 +83,7 @@ src_configure() {
 		CC="$(tc-getCC)"
 		CXX="$(tc-getCXX)"
 		cc_flags="${CXXFLAGS}"
-		cxx_flags="-std=c++14"
+		cxx_flags="-std=c++17"
 		debug="no"
 		FORTRAN="$(tc-getFC)"
 		FORTRANFLAGS="${FCFLAGS}"
@@ -100,9 +95,14 @@ src_configure() {
 		system_sundials="y"
 		system_eigen="y"
 		system_yamlcpp="y"
+		hdf_support=$(usex hdf5 y n)
+		system_blas_lapack=$(usex lapack y n)
 		env_vars="all"
 		extra_inc_dirs="/usr/include/eigen3"
+		use_rpath_linkage="yes"
+		extra_lib_dirs="/usr/$(get_libdir)/${PN}"
 	)
+	use hdf5 && scons_vars+=( system_highfive="y" )
 	use lapack && scons_vars+=( blas_lapack_libs="lapack,blas" )
 	use test || scons_vars+=( googletest="none" )
 
@@ -110,9 +110,8 @@ src_configure() {
 		f90_interface=$(usex fortran y n)
 	)
 
-	if use cti ; then
-		local scons_python=$(usex python full minimal)
-		scons_targets+=( python_package="${scons_python}" python_cmd="${EPYTHON}" )
+	if use python ; then
+		scons_targets+=( python_package="full" python_cmd="${EPYTHON}" )
 	else
 		scons_targets+=( python_package="none" )
 	fi
@@ -128,7 +127,7 @@ src_test() {
 
 src_install() {
 	escons install stage_dir="${D}" libdirname="$(get_libdir)"
-	if ! use cti ; then
+	if ! use python ; then
 		rm -r "${D}/usr/share/man" || die "Can't remove man files."
 	else
 		# Run the byte-compile of modules
@@ -140,15 +139,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	if use cti && ! use python ; then
-		elog "Cantera was build without 'python' use-flag therefore the CTI tools 'ck2cti' and 'ck2yaml"
-		elog "will convert Chemkin files to Cantera format without verification of kinetic mechanism."
-	fi
-
 	local post_msg=$(usex fortran "and Fortran " "")
 	elog "C++ ${post_msg}samples are installed to '/usr/share/${PN}/samples/' directory."
-
-	if use python ; then
-		elog "Python examples are installed to '$(python_get_sitedir)/${PN}/examples/' directories."
-	fi
 }
