@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -38,7 +38,9 @@ DEPEND="${RDEPEND}"
 # https://github.com/ocaml/merlin/issues/1500
 BDEPEND="
 	!!<dev-ml/seq-0.3
-	test? ( app-misc/jq )
+	test? (
+		app-misc/jq
+	)
 "
 
 SITEFILE="50${PN}-gentoo.el"
@@ -71,7 +73,7 @@ src_prepare() {
 }
 
 src_compile() {
-	edune build @install
+	edune build --display=short @install
 
 	if use emacs ; then
 		# iedit isn't packaged yet
