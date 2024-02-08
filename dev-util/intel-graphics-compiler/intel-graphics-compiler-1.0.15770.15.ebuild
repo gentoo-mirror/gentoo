@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ CMAKE_BUILD_TYPE="Release"
 LLVM_MAX_SLOT="15"
 MY_PN="igc"
 MY_P="${MY_PN}-${PV}"
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake flag-o-matic llvm python-any-r1
 
@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="debug vc"
 
 DEPEND="
@@ -27,7 +27,7 @@ DEPEND="
 	sys-devel/lld:${LLVM_MAX_SLOT}=
 	sys-devel/llvm:${LLVM_MAX_SLOT}=
 	vc? (
-		>=dev-libs/intel-vc-intrinsics-0.12.1-r1
+		>=dev-libs/intel-vc-intrinsics-0.16.0
 		dev-util/spirv-llvm-translator:${LLVM_MAX_SLOT}=
 	)
 "
@@ -48,7 +48,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.0.9-no_Werror.patch"
 	"${FILESDIR}/${PN}-1.0.8173-opencl-clang_version.patch"
 	"${FILESDIR}/${PN}-1.0.8365-disable-git.patch"
-	"${FILESDIR}/${PN}-1.0.14062.11-vc.patch"
 )
 
 pkg_setup() {
