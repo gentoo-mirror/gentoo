@@ -8,7 +8,7 @@ LLVM_MAX_SLOT=17
 
 inherit flag-o-matic linux-info llvm pam python-single-r1 systemd tmpfiles
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 
 SLOT=$(ver_cut 1)
 
@@ -21,8 +21,9 @@ LICENSE="POSTGRESQL GPL-2"
 DESCRIPTION="PostgreSQL RDBMS"
 HOMEPAGE="https://www.postgresql.org/"
 
-IUSE="debug doc icu kerberos ldap llvm nls pam perl python +readline
-	  selinux +server systemd ssl static-libs tcl uuid xml zlib"
+IUSE="debug doc +icu kerberos ldap llvm +lz4 nls pam perl python
+	  +readline selinux +server systemd ssl static-libs tcl uuid xml
+	  zlib +zstd"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -33,12 +34,13 @@ acct-user/postgres
 sys-apps/less
 virtual/libintl
 icu? ( dev-libs/icu:= )
-kerberos? ( virtual/krb5 )
+kerberos? ( app-crypt/mit-krb5 )
 ldap? ( net-nds/openldap:= )
 llvm? (
 	<sys-devel/llvm-18:=
 	<sys-devel/clang-18:=
 )
+lz4? ( app-arch/lz4 )
 pam? ( sys-libs/pam )
 perl? ( >=dev-lang/perl-5.8:= )
 python? ( ${PYTHON_DEPS} )
@@ -48,6 +50,7 @@ ssl? ( >=dev-libs/openssl-0.9.6-r1:0= )
 tcl? ( >=dev-lang/tcl-8:0= )
 xml? ( dev-libs/libxml2 dev-libs/libxslt )
 zlib? ( sys-libs/zlib )
+zstd? ( app-arch/zstd )
 "
 
 # uuid flags -- depend on sys-apps/util-linux for Linux libcs, or if no
@@ -91,8 +94,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}"/${PN}-13.3-riscv-spinlocks.patch
-
 	# Set proper run directory
 	sed "s|\(PGSOCKET_DIR\s\+\)\"/tmp\"|\1\"${EPREFIX}/run/postgresql\"|" \
 		-i src/include/pg_config_manual.h || die
@@ -102,16 +103,13 @@ src_prepare() {
 	# hardened and non-hardened environments. (Bug #528786)
 	sed 's/@install_bin@/install -c/' -i src/Makefile.global.in || die
 
-	use server || eapply "${FILESDIR}/${PN}-13.8-no-server.patch"
+	use server || eapply "${FILESDIR}/${PN}-15_beta3-no-server.patch"
 
 	if use pam ; then
 		sed "s/\(#define PGSQL_PAM_SERVICE \"postgresql\)/\1-${SLOT}/" \
 			-i src/backend/libpq/auth.c || \
 			die 'PGSQL_PAM_SERVICE rename failed.'
 	fi
-
-	eapply "${FILESDIR}"/postgresql-13-openssl3.2.patch \
-		   "${FILESDIR}"/postgresql-${SLOT}-xml-2.12.patch
 
 	eapply_user
 }
@@ -148,6 +146,7 @@ src_configure() {
 		$(use_with kerberos gssapi) \
 		$(use_with ldap) \
 		$(use_with llvm) \
+		$(use_with lz4) \
 		$(use_with pam) \
 		$(use_with perl) \
 		$(use_with python) \
@@ -159,6 +158,7 @@ src_configure() {
 		$(use_with xml libxml) \
 		$(use_with xml libxslt) \
 		$(use_with zlib) \
+		$(use_with zstd) \
 		$(use_enable nls)"
 	if use alpha; then
 		myconf+=" --disable-spinlocks"

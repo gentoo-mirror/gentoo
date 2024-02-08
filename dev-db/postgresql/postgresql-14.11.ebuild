@@ -21,7 +21,7 @@ LICENSE="POSTGRESQL GPL-2"
 DESCRIPTION="PostgreSQL RDBMS"
 HOMEPAGE="https://www.postgresql.org/"
 
-IUSE="debug doc icu kerberos ldap llvm lz4 nls pam perl python +readline
+IUSE="debug doc icu kerberos ldap llvm +lz4 nls pam perl python +readline
 	  selinux +server systemd ssl static-libs tcl uuid xml zlib"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
@@ -108,9 +108,6 @@ src_prepare() {
 			-i src/backend/libpq/auth.c || \
 			die 'PGSQL_PAM_SERVICE rename failed.'
 	fi
-
-	eapply "${FILESDIR}"/postgresql-14-openssl3.2.patch \
-		   "${FILESDIR}"/postgresql-${SLOT}-xml-2.12.patch
 
 	eapply_user
 }
