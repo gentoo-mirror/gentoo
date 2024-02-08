@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install test
+DEPEND=dev-libs/icu:= dev-libs/libzip:= sys-fs/fuse:0= dev-libs/boost
+DESCRIPTION=FUSE file system for ZIP archives
+EAPI=8
+HOMEPAGE=https://github.com/google/mount-zip
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/icu:= dev-libs/libzip:= sys-fs/fuse:0=
+SLOT=0
+SRC_URI=https://github.com/google/mount-zip/archive/v1.0.12.tar.gz -> mount-zip-1.0.12.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=6426bc2d49fcdcdd65a155eb0ee116ad

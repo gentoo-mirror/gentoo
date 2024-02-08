@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install preinst prepare setup test unpack
-DEPEND=app-arch/unzip >=dev-java/ant-core-1.8.2:0 >=dev-java/antlr-2.7.7-r7:0 dev-java/antlr:3 dev-java/openjdk:8 dev-java/stringtemplate:0 dev-java/swt:4.10[cairo,opengl] app-alternatives/yacc app-alternatives/lex virtual/jdk:1.8 virtual/pkgconfig >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=app-arch/unzip >=dev-java/ant-1.10.14:0 >=dev-java/antlr-2.7.7-r7:0 dev-java/antlr:3 dev-java/openjdk:8 dev-java/stringtemplate:0 dev-java/swt:4.10[cairo,opengl] app-alternatives/yacc app-alternatives/lex virtual/jdk:1.8 virtual/pkgconfig >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Java OpenJFX 8 client application platform
 EAPI=8
 HOMEPAGE=https://openjfx.io
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=8
 SRC_URI=https://hg.openjdk.java.net/openjfx/8u-dev/rt/archive/9f49e3b6147f.tar.bz2 -> openjfx-8.1000.tar.bz2 https://dev.gentoo.org/~gyakovlev/distfiles/openjfx-8.1000-backports.tar.bz2 https://downloads.gradle.org/distributions/gradle-4.10.3-bin.zip
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b2b07efa51009704f88173b2c7feab47	java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
-_md5_=551075b7369e8697ad5945f2279a3a38
+_md5_=eb29dc50f2ff7a0d8006c8158aed3e4b
