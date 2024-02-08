@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -50,13 +50,13 @@ RDEPEND="
 	<dev-python/qdarkstyle-3.3.0[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.2.2[${PYTHON_USEDEP}]
 	>=dev-python/qtawesome-1.3.0[${PYTHON_USEDEP}]
-	>=dev-python/qtconsole-5.5.0[${PYTHON_USEDEP}]
+	>=dev-python/qtconsole-5.5.1[${PYTHON_USEDEP}]
 	<dev-python/qtconsole-5.6.0[${PYTHON_USEDEP}]
 	>=dev-python/QtPy-2.4.0[${PYTHON_USEDEP},svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-3.0.0_beta3[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-3.0.0_beta4[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-3.0.0_beta4[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-3.0.0_beta5[${PYTHON_USEDEP}]
 	>=dev-python/superqt-0.6.1[${PYTHON_USEDEP}]
 	<dev-python/superqt-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
