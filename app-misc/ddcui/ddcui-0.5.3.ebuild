@@ -17,7 +17,7 @@ SLOT="0"
 
 DEPEND="
 	dev-libs/glib
-	>=app-misc/ddcutil-2.1.0:0/5
+	>=app-misc/ddcutil-2.1.3:0/5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
@@ -26,11 +26,20 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.4.2-drop-qthelp-dep.patch"
+	"${FILESDIR}/${PN}-0.5.3-drop-qthelp-dep.patch"
 )
 
 src_prepare() {
 	# move docs to correct dir
 	sed -i -e "s%share/doc/ddcui%share/doc/${PF}%g" CMakeLists.txt || die
 	cmake_src_prepare
+}
+
+src_configure() {
+	local mycmakeargs=(
+		# Not quite there yet, so force off
+		-DUSE_QT6=OFF
+	)
+
+	cmake_src_configure
 }
