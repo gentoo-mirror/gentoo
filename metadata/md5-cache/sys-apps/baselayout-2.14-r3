@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst preinst prepare setup
+DESCRIPTION=Filesystem baselayout and init scripts
+EAPI=7
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+INHERIT=multilib prefix
+IUSE=build +split-usr
+KEYWORDS=~riscv
+LICENSE=GPL-2
+RDEPEND=!sys-apps/baselayout-prefix
+SLOT=0
+SRC_URI=https://gitweb.gentoo.org/proj/baselayout.git/snapshot/baselayout-2.14.tar.bz2
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	prefix	eab3c99d77fe00506c109c8a736186f7
+_md5_=4240b4784bde468a657224b16c31463d
