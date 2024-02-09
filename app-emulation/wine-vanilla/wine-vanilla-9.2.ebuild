@@ -8,7 +8,7 @@ inherit autotools flag-o-matic multilib multilib-build
 inherit prefix toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=8.1.0
+WINE_MONO=9.0.0
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -23,7 +23,8 @@ fi
 DESCRIPTION="Free implementation of Windows(tm) on Unix, without external patchsets"
 HOMEPAGE="
 	https://www.winehq.org/
-	https://gitlab.winehq.org/wine/wine/"
+	https://gitlab.winehq.org/wine/wine/
+"
 
 LICENSE="LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
 SLOT="${PV}"
@@ -35,11 +36,12 @@ IUSE="
 	+truetype udev udisks +unwind usb v4l +vulkan wayland wow64
 	+xcomposite xinerama"
 # bug #551124 for truetype
-# TODO: wow64 can be done without mingw if using clang (needs bug #912237)
+# TODO?: wow64 can be done without mingw if using clang (needs bug #912237)
 REQUIRED_USE="
 	X? ( truetype )
 	crossdev-mingw? ( mingw )
-	wow64? ( abi_x86_64 !abi_x86_32 mingw )"
+	wow64? ( abi_x86_64 !abi_x86_32 mingw )
+"
 
 # tests are non-trivial to run, can hang easily, don't play well with
 # sandbox, and several need real opengl/vulkan or network access
@@ -71,7 +73,8 @@ WINE_DLOPEN_DEPEND="
 	truetype? ( media-libs/freetype[${MULTILIB_USEDEP}] )
 	udisks? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	v4l? ( media-libs/libv4l[${MULTILIB_USEDEP}] )
-	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )"
+	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
+"
 WINE_COMMON_DEPEND="
 	${WINE_DLOPEN_DEPEND}
 	X? (
@@ -100,7 +103,8 @@ WINE_COMMON_DEPEND="
 	wayland? (
 		dev-libs/wayland[${MULTILIB_USEDEP}]
 		x11-libs/libxkbcommon[${MULTILIB_USEDEP}]
-	)"
+	)
+"
 RDEPEND="
 	${WINE_COMMON_DEPEND}
 	app-emulation/wine-desktop-common
@@ -122,11 +126,13 @@ RDEPEND="
 	)
 	samba? ( net-fs/samba[winbind] )
 	selinux? ( sec-policy/selinux-wine )
-	udisks? ( sys-fs/udisks:2 )"
+	udisks? ( sys-fs/udisks:2 )
+"
 DEPEND="
 	${WINE_COMMON_DEPEND}
 	sys-kernel/linux-headers
-	X? ( x11-base/xorg-proto )"
+	X? ( x11-base/xorg-proto )
+"
 BDEPEND="
 	|| (
 		sys-devel/binutils
@@ -141,7 +147,8 @@ BDEPEND="
 		wow64? ( dev-util/mingw64-toolchain[abi_x86_32] )
 	) )
 	nls? ( sys-devel/gettext )
-	wayland? ( dev-util/wayland-scanner )"
+	wayland? ( dev-util/wayland-scanner )
+"
 IDEPEND=">=app-eselect/eselect-wine-2"
 
 QA_CONFIG_IMPL_DECL_SKIP=(
@@ -301,13 +308,6 @@ src_configure() {
 			CROSSCFLAGS="${CROSSCFLAGS:-$(
 				filter-flags '-fstack-protector*' #870136
 				filter-flags '-mfunction-return=thunk*' #878849
-
-				# -mavx with mingw-gcc has a history of obscure issues and
-				# disabling is seen as safer, e.g. `WINEARCH=win32 winecfg`
-				# crashes with -march=skylake >=wine-8.10, similar issues with
-				# znver4: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=110273
-				append-cflags -mno-avx #912268
-
 				CC=${mingwcc} test-flags-CC ${CFLAGS:--O2}
 			)}"
 
@@ -398,7 +398,7 @@ src_install() {
 		fi
 	fi
 
-	dodoc ANNOUNCE AUTHORS README* documentation/README*
+	dodoc ANNOUNCE* AUTHORS README* documentation/README*
 }
 
 pkg_postinst() {
