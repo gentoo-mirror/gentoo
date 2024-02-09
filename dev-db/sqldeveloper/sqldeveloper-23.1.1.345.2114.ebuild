@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,6 +27,8 @@ RDEPEND="
 	sybase? ( dev-java/jtds:1.3 )
 "
 BDEPEND="app-arch/unzip"
+
+S="${WORKDIR}/${PN}"
 
 QA_PREBUILT="
 	opt/${PN}/netbeans/platform/modules/lib/amd64/linux/libjnidispatch-422.so
