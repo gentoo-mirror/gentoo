@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=configure install postinst setup
+DEPEND=acct-group/maradns acct-user/duende acct-user/maradns
+DESCRIPTION=A security-aware DNS server
+EAPI=8
+HOMEPAGE=https://maradns.samiam.org
+INHERIT=python-any-r1 systemd toolchain-funcs
+IUSE=examples
+KEYWORDS=~amd64 ~mips ~ppc ~x86
+LICENSE=BSD-2 GPL-2
+RDEPEND=acct-group/maradns acct-user/duende acct-user/maradns
+SLOT=0
+SRC_URI=https://maradns.samiam.org/download/3.5/3.5.0036/maradns-3.5.0036.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=0c051d404088c02b624e3692e3d5f731
