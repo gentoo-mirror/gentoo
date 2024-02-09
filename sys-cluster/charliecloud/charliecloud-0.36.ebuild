@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -39,6 +39,8 @@ DEPEND="
 			dev-python/lark[${PYTHON_USEDEP}]
 			dev-python/requests[${PYTHON_USEDEP}]
 		')
+		dev-vcs/git
+		net-misc/rsync
 	)
 	doc? (
 		$(python_gen_cond_dep '
@@ -67,6 +69,8 @@ src_configure() {
 		--disable-bundled-lark
 		# Use correct shebang.
 		--with-python="${PYTHON}"
+		# Disable configure checks vor OverlayFS causing sandbox violations.
+		--disable-impolite-checks
 	)
 	econf "${econf_args[@]}"
 }
