@@ -2,7 +2,7 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Full-text search engine with support for MySQL and PostgreSQL
 EAPI=8
-HOMEPAGE=http://www.sphinxsearch.com/
+HOMEPAGE=https://sphinxsearch.com/
 INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=debug +id64 mariadb mysql odbc postgres stemmer syslog xml
 KEYWORDS=amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~ppc-macos ~x64-macos
@@ -10,6 +10,6 @@ LICENSE=GPL-2
 RDEPEND=mysql? ( dev-db/mysql-connector-c:= ) mariadb? ( dev-db/mariadb-connector-c:= ) postgres? ( dev-db/postgresql:* ) odbc? ( dev-db/unixODBC ) stemmer? ( dev-libs/snowball-stemmer:= ) xml? ( dev-libs/expat ) virtual/libiconv
 REQUIRED_USE=mysql? ( !mariadb ) mariadb? ( !mysql )
 SLOT=0
-SRC_URI=http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz
+SRC_URI=https://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	b2b07efa51009704f88173b2c7feab47
-_md5_=542c02c573948fb8da6d32fe016ef8c2
+_md5_=4b2eae88342088e522b355b31bacc378
