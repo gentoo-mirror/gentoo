@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,13 +16,13 @@ if [[ ${PV} == *_rc* ]]; then
 	SRC_URI="https://download.samba.org/pub/samba/rc/${MY_P}.tar.gz"
 else
 	SRC_URI="https://download.samba.org/pub/samba/stable/${MY_P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="acl addc ads ceph client cluster cpu_flags_x86_aes cups debug fam glusterfs gpg"
+IUSE="acl addc ads ceph client cluster cups debug fam glusterfs gpg"
 IUSE+=" iprint json ldap llvm-libunwind pam profiling-data python quota +regedit selinux"
 IUSE+=" snapper spotlight syslog system-heimdal +system-mitkrb5 systemd test unwind winbind"
 IUSE+=" zeroconf"
@@ -55,9 +55,9 @@ MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/samba-4.0/ctdb_version.h
 )
 
-TALLOC_VERSION="2.4.0"
-TDB_VERSION="1.4.8"
-TEVENT_VERSION="0.14.1"
+TALLOC_VERSION="2.4.1"
+TDB_VERSION="1.4.9"
+TEVENT_VERSION="0.15.0"
 
 COMMON_DEPEND="
 	>=app-arch/libarchive-3.1.2:=[${MULTILIB_USEDEP}]
@@ -69,8 +69,8 @@ COMMON_DEPEND="
 	dev-perl/Parse-Yapp
 	>=net-libs/gnutls-3.4.7:=[${MULTILIB_USEDEP}]
 	>=sys-fs/e2fsprogs-1.46.4-r51[${MULTILIB_USEDEP}]
-	>=sys-libs/ldb-2.7.2:=[ldap(+)?,${MULTILIB_USEDEP}]
-	<sys-libs/ldb-2.8.0:=[ldap(+)?,${MULTILIB_USEDEP}]
+	>=sys-libs/ldb-2.8.0:=[ldap(+)?,${MULTILIB_USEDEP}]
+	<sys-libs/ldb-2.9.0:=[ldap(+)?,${MULTILIB_USEDEP}]
 	sys-libs/libcap[${MULTILIB_USEDEP}]
 	sys-libs/liburing:=[${MULTILIB_USEDEP}]
 	sys-libs/ncurses:=
@@ -145,7 +145,6 @@ BDEPEND="${PYTHON_DEPS}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.18.4-pam.patch
-	"${FILESDIR}"/${PN}-4.18.4-bug-15418-windows-update-secure-channel.patch
 	"${FILESDIR}"/ldb-2.5.2-skip-wav-tevent-check.patch
 )
 
@@ -262,7 +261,6 @@ multilib_src_configure() {
 		--nopyc
 		--nopyo
 		--without-winexe
-		--accel-aes=$(usex cpu_flags_x86_aes intelaesni none)
 		$(multilib_native_use_with acl acl-support)
 		$(multilib_native_usex addc '' '--without-ad-dc')
 		$(multilib_native_use_with ads)
