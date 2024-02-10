@@ -899,7 +899,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.23 1.32.29 1.32.34 1.32.35 1.32.36 1.32.37 1.32.38: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.23 1.32.29 1.32.34 1.32.35 1.32.36 1.32.37 1.32.38 1.32.39: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1 2023.12.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -8204,8 +8204,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.34.23 1.34.29 1.34.34 1.34.35 1.34.36 1.34.37 1.34.38: The AWS SDK for Python
-dev-python/botocore 1.34.23 1.34.29 1.34.34 1.34.35 1.34.36 1.34.37 1.34.38: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.23 1.34.29 1.34.34 1.34.35 1.34.36 1.34.37 1.34.38 1.34.39: The AWS SDK for Python
+dev-python/botocore 1.34.23 1.34.29 1.34.34 1.34.35 1.34.36 1.34.37 1.34.38 1.34.39: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8317,7 +8317,7 @@ dev-python/cysignals 1.11.4: Interrupt and signal handling for Cython
 dev-python/cython 0.29.36 0.29.37.1 3.0.2-r1 3.0.5 3.0.6 3.0.8: A Python to C compiler
 dev-python/cython-test-exception-raiser 1.0.2-r1: A trivial extension that just raises an exception (for testing)
 dev-python/daemonize 2.5.0-r1: Library for writing system daemons in Python
-dev-python/dask 2024.1.0 2024.1.1: Task scheduling and blocked algorithms for parallel processing
+dev-python/dask 2024.1.0 2024.1.1 2024.2.0: Task scheduling and blocked algorithms for parallel processing
 dev-python/dbfread 2.0.7-r1: Read DBF Files with Python
 dev-python/dbus-next 0.2.3-r1: The next great DBus library for Python with asyncio support
 dev-python/dbus-python 1.3.2: Python bindings for the D-Bus messagebus
@@ -8550,7 +8550,7 @@ dev-python/imageio 2.33.1: Python library for reading and writing image data
 dev-python/imageio-ffmpeg 0.4.9: FFMPEG wrapper for Python
 dev-python/imagesize 1.4.1: Pure Python module for getting image size from png/jpeg/jpeg2000/gif files
 dev-python/imapclient 3.0.1: easy-to-use, pythonic, and complete IMAP client library
-dev-python/iminuit 2.21.3 2.25.1: Minuit numerical function minimization in Python
+dev-python/iminuit 2.21.3 2.25.1 2.25.2: Minuit numerical function minimization in Python
 dev-python/immutabledict 4.1.0: An immutable wrapper around dictionaries
 dev-python/immutables 0.20: A high-performance immutable mapping type for Python
 dev-python/importlib-metadata 7.0.1: Read metadata from Python packages
@@ -8803,7 +8803,7 @@ dev-python/nbval 0.10.0-r1: A pytest plugin to validate Jupyter notebooks
 dev-python/nbxmpp 4.5.3: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/neovim-remote 2.5.1 9999: A tool that helps control neovim processes
 dev-python/nest-asyncio 1.6.0: Patch asyncio to allow nested event loops
-dev-python/netaddr 0.10.1: Network address representation and manipulation library
+dev-python/netaddr 0.10.1 1.0.0: Network address representation and manipulation library
 dev-python/netcdf4 1.6.5: Python/numpy interface to the netCDF C library
 dev-python/netifaces 0.11.0-r2: Portable network interface information
 dev-python/networkx 3.1 3.2.1: Python tools to manipulate graphs and complex networks
@@ -9231,7 +9231,7 @@ dev-python/python-memcached 1.62: Pure python memcached client
 dev-python/python-mimeparse 1.6.0-r4: Basic functions for handling mime-types in python
 dev-python/python-mpd2 3.1.1: Python MPD client library
 dev-python/python-mpv 1.0.5: Python interface to the mpv media player
-dev-python/python-multipart 0.0.6 0.0.7: A streaming multipart parser for Python
+dev-python/python-multipart 0.0.6 0.0.7 0.0.8: A streaming multipart parser for Python
 dev-python/python-netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/python-neutronclient 11.1.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 18.4.0: A client for the OpenStack Nova API
@@ -9381,7 +9381,7 @@ dev-python/semantic-version 2.10.0: Python library providing a few tools handlin
 dev-python/semver 3.0.2: A Python module for semantic versioning
 dev-python/send2trash 1.8.2: Sends files to the Trash (or Recycle Bin)
 dev-python/sense-hat 2.6.0: Raspberry Pi Sense HAT python library
-dev-python/sentry-sdk 1.39.2 1.40.0 1.40.1 1.40.2: Python client for Sentry
+dev-python/sentry-sdk 1.39.2 1.40.0 1.40.1 1.40.2 1.40.3: Python client for Sentry
 dev-python/serpent 1.41: A simple serialization library based on ast.literal_eval
 dev-python/serverfiles 0.3.1-r1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service-identity 24.1.0: Service identity verification for pyOpenSSL
@@ -9494,7 +9494,7 @@ dev-python/sshtunnel 0.3.1 0.4.0: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
 dev-python/stack-data 0.6.3: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20220330-r4: Suite of tools for PDF files manipulation written in Python
-dev-python/starlette 0.35.1 0.36.1 0.36.2 0.36.3 0.37.0: The little ASGI framework that shines
+dev-python/starlette 0.35.1 0.36.1 0.36.2 0.36.3 0.37.0 0.37.1: The little ASGI framework that shines
 dev-python/statsd 4.0.1: A simple statsd client
 dev-python/statsmodels 0.14.0 0.14.1: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1-r1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -9617,7 +9617,7 @@ dev-python/uritemplate 4.1.1: Python implementation of RFC6570, URI Template
 dev-python/uritools 4.0.1 4.0.2: RFC 3986-compliant URI parsing, classification and composition
 dev-python/url-normalize 1.4.3-r1: URL normalization for Python
 dev-python/urllib3 1.26.18 2.0.7 2.1.0 2.2.0: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 2.4.1 2.4.2 2.4.4 2.4.6 2.5.0 2.5.1: Curses-based user interface library for Python
+dev-python/urwid 2.4.1 2.4.2 2.4.4 2.4.6 2.5.0 2.5.1 2.5.2: Curses-based user interface library for Python
 dev-python/urwid_readline 0.13-r1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r1: Tree widgets for urwid
 dev-python/userpath 1.9.1: Cross-platform tool for adding locations to the user PATH
@@ -14701,7 +14701,7 @@ net-im/discord 0.0.42: All-in-one voice and text chat for gamers
 net-im/ejabberd 22.10 23.01 23.04 23.10-r1: Robust, scalable and extensible XMPP server
 net-im/element-desktop-bin 1.11.54: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
-net-im/fractal 6_rc: Matrix messaging app for GNOME written in Rust
+net-im/fractal 6_rc 6: Matrix messaging app for GNOME written in Rust
 net-im/gajim 1.7.3 1.7.3-r1 1.8.0 1.8.1 1.8.4: Jabber client written in PyGTK
 net-im/gitter-bin 4.1.0-r1 5.0.1 5.0.1-r1: Chat and network platform
 net-im/libcommuni 3.7.0: A cross-platform IRC framework written with Qt
@@ -19061,7 +19061,7 @@ x11-wm/xmonad-contrib 0.17.0 0.17.1: Community-maintained extensions for xmonad
 x11-wm/xpra 4.4.5-r2 4.4.6-r2 9999: X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy
 xfce-base/exo 4.18.0 4.19.0: Extensions, widgets and framework library with session support for Xfce
 xfce-base/garcon 4.18.1 4.18.2 4.19.0 4.19.1: Xfce's freedesktop.org specification compatible menu implementation library
-xfce-base/libxfce4ui 4.18.4 4.18.5 4.19.3 4.19.4: Unified widget and session management libs for Xfce
+xfce-base/libxfce4ui 4.18.4 4.18.5 4.19.3 4.19.4-r1: Unified widget and session management libs for Xfce
 xfce-base/libxfce4util 4.18.1 4.18.2 4.19.2 4.19.3: A basic utility library for the Xfce desktop environment
 xfce-base/libxfce4windowing 4.19.1: Unified widget and session management libs for Xfce
 xfce-base/thunar 4.18.10 4.19.2: File manager for the Xfce desktop environment
@@ -19101,7 +19101,7 @@ xfce-extra/xfce4-mount-plugin 1.1.6: An mount plug-in for the Xfce panel
 xfce-extra/xfce4-mpc-plugin 0.5.3: Music Player Daemon (mpd) panel plugin
 xfce-extra/xfce4-netload-plugin 1.4.1: A network load plug-in for the Xfce panel
 xfce-extra/xfce4-notes-plugin 1.10.0 1.11.0: Xfce4 panel sticky notes plugin
-xfce-extra/xfce4-notifyd 0.9.2: Notification daemon for the Xfce desktop environment
+xfce-extra/xfce4-notifyd 0.9.2 0.9.4: Notification daemon for the Xfce desktop environment
 xfce-extra/xfce4-panel-profiles 1.0.13 1.0.14: Simple application to manage Xfce panel layouts
 xfce-extra/xfce4-places-plugin 1.8.3: A panel plug-in to provide quick access to files, folders and removable media
 xfce-extra/xfce4-pulseaudio-plugin 0.4.8: A panel plug-in for PulseAudio volume control
