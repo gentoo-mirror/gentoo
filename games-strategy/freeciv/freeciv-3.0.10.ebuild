@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,23 +21,29 @@ fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="aimodules auth dedicated +gtk ipv6 mapimg modpack mysql nls qt5 readline sdl +server +sound sqlite +system-lua"
+IUSE="aimodules auth dedicated +gtk mapimg modpack mysql nls qt5 readline sdl +server +sound sqlite +system-lua"
 
-REQUIRED_USE="system-lua? ( ${LUA_REQUIRED_USE} )"
+REQUIRED_USE="
+	system-lua? ( ${LUA_REQUIRED_USE} )
+	dedicated? ( !gtk !mapimg !modpack !nls !qt5 !sdl !sound )
+	!dedicated? ( || ( gtk qt5 sdl ) )
+"
 
 # postgres isn't yet really supported by upstream
 RDEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
-	net-misc/curl
 	dev-libs/icu:=
+	net-misc/curl
 	sys-libs/zlib
 	auth? (
+		app-arch/zstd:=
+		dev-libs/openssl:=
 		!mysql? ( ( !sqlite? ( dev-db/mysql-connector-c:= ) ) )
 		mysql? ( dev-db/mysql-connector-c:= )
 		sqlite? ( dev-db/sqlite:3 )
 	)
-	dedicated? ( aimodules? ( dev-libs/libltdl ) )
+	aimodules? ( dev-libs/libltdl )
 	!dedicated? (
 		media-libs/libpng
 		gtk? ( x11-libs/gtk+:3 )
@@ -86,21 +92,6 @@ pkg_setup() {
 	use system-lua && lua-single_pkg_setup
 }
 
-src_prepare() {
-	default
-
-	# install the .desktop in /usr/share/applications
-	# install the icons in /usr/share/pixmaps
-	sed -i \
-		-e 's:^.*\(desktopfiledir = \).*:\1/usr/share/applications:' \
-		-e 's:^\(icon[0-9]*dir = \)$(prefix)\(.*\):\1/usr\2:' \
-		-e 's:^\(icon[0-9]*dir = \)$(datadir)\(.*\):\1/usr/share\2:' \
-		client/Makefile.in \
-		server/Makefile.in \
-		tools/Makefile.in \
-		data/icons/Makefile.in || die
-}
-
 src_configure() {
 	local myclient=() mydatabase=() myeconfargs=()
 
@@ -129,7 +120,8 @@ src_configure() {
 			myclient=( gtk3 )
 		else
 			use sdl && myclient+=( sdl2 )
-			use gtk && myclient+=( gtk3 )
+			# Since all gtk3 in gentoo is >= 3.22 we can use the better client
+			use gtk && myclient+=( gtk3.22 )
 			if use qt5 ; then
 				local -x MOCCMD=$(qt5_get_bindir)/moc
 				myclient+=( qt )
@@ -146,11 +138,11 @@ src_configure() {
 		--enable-client="${myclient[*]}"
 		--enable-fcdb="${mydatabase[*]}"
 		--enable-fcmp="$(usex modpack "gtk3" "no")"
+		--enable-ipv6
 		# disabling shared libs will break aimodules USE flag
 		--enable-shared
 		--localedir=/usr/share/locale
 		--with-appdatadir="${EPREFIX}"/usr/share/metainfo
-		$(use_enable ipv6)
 		$(use_enable mapimg)
 		$(use_enable nls)
 		$(use_enable sound sdl-mixer)
@@ -163,33 +155,39 @@ src_configure() {
 src_install() {
 	default
 
+	if use server ; then
+		# Create and install the html manual. It can't be done for dedicated
+		# servers, because the 'freeciv-manual' tool is then not built. Also
+		# delete freeciv-manual from the GAMES_BINDIR, because it's useless.
+		# Note: to have it localized, it should be ran from _postinst, or
+		# something like that, but then it's a PITA to avoid orphan files...
+		# freeciv-manual only supports one ruleset argument at a time.
+		elog "Generating html manual..."
+		for RULESET in alien civ1 civ2 civ2civ3 classic experimental multiplayer sandbox
+		do
+			./tools/freeciv-manual -r ${RULESET} || die
+			docinto html/rulesets/${RULESET}
+			dodoc ${RULESET}*.html
+		done
+	fi
+
+	find "${ED}" -name "freeciv-manual*" -delete || die
+
 	if use dedicated ; then
-		rm -rf "${ED}"/usr/share/pixmaps || die
-		rm -f "${ED}"/usr/share/man/man6/freeciv-{client,gtk2,gtk3,modpack,qt,sdl,xaw}* || die
+		elog "Tidying up dedicated server installation..."
+		find "${ED}"/usr/share/man/man6/ \
+			-not \( -name 'freeciv.6' -o -name 'freeciv-ruledit.6' \
+			-o -name 'freeciv-ruleup.6' -o -name 'freeciv-server.6' \) -mindepth 1 -delete || die
 	else
-		if use server ; then
-			# Create and install the html manual. It can't be done for dedicated
-			# servers, because the 'freeciv-manual' tool is then not built. Also
-			# delete freeciv-manual from the GAMES_BINDIR, because it's useless.
-			# Note: to have it localized, it should be ran from _postinst, or
-			# something like that, but then it's a PITA to avoid orphan files...
-			# freeciv-manual only supports one ruleset argument at a time.
-			for RULESET in alien civ1 civ2 civ2civ3 classic experimental multiplayer sandbox
-			do
-				./tools/freeciv-manual -r ${RULESET} || die
-				docinto html/rulesets/${RULESET}
-				dodoc ${RULESET}*.html
-			done
-		fi
+		# sdl client needs some special handling
 		if use sdl ; then
 			make_desktop_entry freeciv-sdl "Freeciv (SDL)" freeciv-client
 		else
-			rm -f "${ED}"/usr/share/man/man6/freeciv-sdl* || die
+			rm "${ED}"/usr/share/man/man6/freeciv-sdl2.6 || die
 		fi
-		rm -f "${ED}"/usr/share/man/man6/freeciv-xaw* || die
-	fi
-	find "${ED}" -name "freeciv-manual*" -delete || die
 
-	rm -f "${ED}/usr/$(get_libdir)"/*.a || die
+		rm -f "${ED}"/usr/share/man/man6/freeciv-xaw.6 || die
+	fi
+
 	find "${ED}" -type f -name "*.la" -delete || die
 }

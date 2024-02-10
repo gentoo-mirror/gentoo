@@ -8,7 +8,7 @@ LUA_COMPAT=( lua5-4 )
 inherit desktop lua-single meson xdg
 
 DESCRIPTION="Multiplayer strategy game (Civilization Clone)"
-HOMEPAGE="https://www.freeciv.org/"
+HOMEPAGE="https://www.freeciv.org/ https://github.com/freeciv/freeciv/"
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
@@ -16,19 +16,22 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	MY_PV="R${PV//./_}"
 	SRC_URI="https://github.com/freeciv/freeciv/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~ppc64 ~x86"
+	if [[ ${PV} != *_beta* ]]; then
+		KEYWORDS="~amd64 ~ppc64 ~x86"
+	fi
 	MY_P="${PN}-${MY_PV}"
 	S="${WORKDIR}/${MY_P}"
 fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="dedicated gtk3 gtk4 json mapimg modpack mysql nls +qt5 qt6 readline rule-editor sdl +sound +system-lua web-server"
+IUSE="dedicated gtk3 gtk4 json mapimg modpack mysql nls +qt5 qt6 readline rule-editor sdl +server +sound +system-lua web-server"
 
 # I'm pretty sure that you can't build both qt flavours at the same time
 REQUIRED_USE="
 	system-lua? ( ${LUA_REQUIRED_USE} )
 	!dedicated? ( || ( gtk3 gtk4 qt5 qt6 sdl ) )
+	dedicated? ( !gtk3 !gtk4 !mapimg !nls !qt5 !qt6 !sdl !sound )
 	qt5?  ( !qt6 )
 	qt6?  ( !qt5 )
 "
@@ -37,10 +40,10 @@ RDEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
 	app-arch/zstd:=
+	dev-build/libtool
 	dev-db/sqlite:3
 	dev-libs/icu:=
 	net-misc/curl
-	dev-build/libtool
 	sys-libs/zlib
 	!dedicated? (
 		media-libs/libpng
@@ -83,25 +86,35 @@ BDEPEND="
 	nls? ( sys-devel/gettext )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-lua-search.patch
-)
-
 pkg_setup() {
 	use system-lua && lua-single_pkg_setup
 }
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.1.0_beta4-fix-manpage-install-location.patch
+)
+
+src_prepare() {
+	# Upstream's meson.build is not very friendly to our needs
+	sed -i -e "s:doc/freeciv:doc/${PF}:" meson.build || die
+	sed -i -e "/custom_target('gzip_ChangeLog/,+6d" meson.build || die
+	default
+}
+
 src_configure() {
+	# Docs here: https://github.com/freeciv/freeciv/blob/main/doc/INSTALL.meson
 	local myclient=() emesonargs=() myfcmp=()
 
 	# Upstream considers meson "experimental" until 3.2.0 according to their roadmap
 	emesonargs+=( -Dack_experimental=true )
 
-	# meson build drops the ability to _not_ build a server in favour
-	# of optionally replacing the server binary the freeciv-web backend
-	emesonargs+=(
-		$(meson_use web-server freeciv-web)
-	)
+	if use dedicated || use server ; then
+		emesonargs+=( -Dserver=enabled )
+	elif use web-server; then
+		emesonargs+=( -Dserver=freeciv-web )
+	else
+		emesonargs+=( -Dserver=disabled )
+	fi
 
 	# Select any client backends that we want enabled; dedicated server shouldn't build a UI
 	# for sanity we'll build the modpack bin with the same UIs as the client.
@@ -160,31 +173,35 @@ src_configure() {
 
 src_install() {
 
-	if use dedicated ; then
-		rm -rf "${ED}"/usr/share/pixmaps || die
-		rm -f "${ED}"/usr/share/man/man6/freeciv-{client,gtk2,gtk3,modpack,qt,sdl,xaw}* || die
-	fi
+	meson_src_install
 	# Create and install the html manual and then cleanup the tool because it's useless.
 	# TODO: for proper localisation this should be run during postinst but
 	# that would require a lot of work to avoid orphan files.
 	# freeciv-manual only supports one ruleset argument at a time.
+	elog "Generating html manual..."
 	for RULESET in alien civ1 civ2 civ2civ3 classic experimental multiplayer sandbox
 	do
 		$(find "${WORKDIR}" -type d -maxdepth 1 -mindepth 1 -iname '*-build')/freeciv-manual -r ${RULESET} || die
 		docinto html/rulesets/${RULESET}
 		dodoc ${RULESET}*.html
 	done
-	if use sdl ; then
-		make_desktop_entry freeciv-sdl "Freeciv (SDL)" freeciv-client
-	else
-		rm -f "${ED}"/usr/share/man/man6/freeciv-sdl* || die
-	fi
-	rm -f "${ED}"/usr/share/man/man6/freeciv-xaw* || die
-	find "${ED}" -name "freeciv-manual*" -delete || die
 
-	rm -f "${ED}/usr/$(get_libdir)"/*.a || die
-	find "${ED}" -type f -name "*.la" -delete || die
-	meson_src_install
+	find "${ED}" -name "freeciv-manual*" -delete || die "Failed to remove freeciv-manual"
+
+	if use dedicated ; then
+		elog "Tidying up dedicated server installation..."
+		find "${ED}"/usr/share/man/man6/ \
+			-not \( -name 'freeciv.6' -o -name 'freeciv-ruledit.6' \
+			-o -name 'freeciv-ruleup.6' -o -name 'freeciv-server.6' \) -mindepth 1 -delete || die
+	else
+		# sdl client needs some special handling
+		if use sdl ; then
+			make_desktop_entry freeciv-sdl "Freeciv (SDL)" freeciv-client
+		else
+			rm "${ED}"/usr/share/man/man6/freeciv-sdl2.6 || die
+		fi
+	fi
+
 }
 
 pkg_postinst() {
