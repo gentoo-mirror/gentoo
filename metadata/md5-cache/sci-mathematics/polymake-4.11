@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://polymake.org/
 INHERIT=flag-o-matic ninja-utils toolchain-funcs
 IUSE=bliss +cdd +flint +normaliz libpolymake lrs nauty ppl singular
-KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD GPL-2 GPL-2+ MIT WTFPL-2
 RDEPEND=libpolymake? ( dev-lang/perl ) dev-libs/boost:= dev-libs/gmp:= dev-libs/libxml2:2= dev-libs/libxslt:= dev-libs/mpfr:= sys-libs/readline:= bliss? ( sci-libs/bliss:=[gmp] ) cdd? ( sci-libs/cddlib:= ) flint? ( sci-mathematics/flint:= ) lrs? ( >=sci-libs/lrslib-051:=[gmp] ) nauty? ( sci-mathematics/nauty:= ) normaliz? ( >=sci-mathematics/normaliz-3.8:= ) ppl? ( dev-libs/ppl:= ) singular? ( sci-mathematics/singular:= ) dev-lang/perl dev-perl/JSON dev-perl/Term-ReadLine-Gnu dev-perl/TermReadKey dev-perl/XML-SAX dev-perl/XML-Writer
 REQUIRED_USE=^^ ( bliss nauty )
 SLOT=0
 SRC_URI=https://polymake.org/lib/exe/fetch.php/download/polymake-4.11-minimal.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	b2b07efa51009704f88173b2c7feab47	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6
-_md5_=f0e2895645afa83f780ca11210df0532
+_md5_=28b16a153a5ea9b613ffed9fae20ea59
