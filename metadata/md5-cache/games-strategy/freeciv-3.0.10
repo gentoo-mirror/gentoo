@@ -1,0 +1,17 @@
+BDEPEND=app-arch/gzip virtual/pkgconfig !dedicated? ( nls? ( sys-devel/gettext ) )
+DEFINED_PHASES=configure install postinst postrm preinst setup
+DEPEND=app-arch/bzip2 app-arch/xz-utils dev-libs/icu:= net-misc/curl sys-libs/zlib auth? ( app-arch/zstd:= dev-libs/openssl:= !mysql? ( ( !sqlite? ( dev-db/mysql-connector-c:= ) ) ) mysql? ( dev-db/mysql-connector-c:= ) sqlite? ( dev-db/sqlite:3 ) ) aimodules? ( dev-libs/libltdl ) !dedicated? ( media-libs/libpng gtk? ( x11-libs/gtk+:3 ) mapimg? ( media-gfx/imagemagick:= ) modpack? ( x11-libs/gtk+:3 ) nls? ( virtual/libintl ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) !sdl? ( !gtk? ( x11-libs/gtk+:3 ) ) sdl? ( media-libs/libsdl2[video] media-libs/sdl2-gfx media-libs/sdl2-image[png] media-libs/sdl2-ttf ) server? ( aimodules? ( dev-build/libtool ) ) sound? ( media-libs/libsdl2[sound] media-libs/sdl2-mixer[vorbis] ) ) readline? ( sys-libs/readline:= ) system-lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) !dedicated? ( x11-base/xorg-proto )
+DESCRIPTION=Multiplayer strategy game (Civilization Clone)
+EAPI=8
+HOMEPAGE=https://www.freeciv.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop lua-single qmake-utils xdg
+IUSE=aimodules auth dedicated +gtk mapimg modpack mysql nls qt5 readline sdl +server +sound sqlite +system-lua +lua_single_target_lua5-3
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-2+
+RDEPEND=app-arch/bzip2 app-arch/xz-utils dev-libs/icu:= net-misc/curl sys-libs/zlib auth? ( app-arch/zstd:= dev-libs/openssl:= !mysql? ( ( !sqlite? ( dev-db/mysql-connector-c:= ) ) ) mysql? ( dev-db/mysql-connector-c:= ) sqlite? ( dev-db/sqlite:3 ) ) aimodules? ( dev-libs/libltdl ) !dedicated? ( media-libs/libpng gtk? ( x11-libs/gtk+:3 ) mapimg? ( media-gfx/imagemagick:= ) modpack? ( x11-libs/gtk+:3 ) nls? ( virtual/libintl ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) !sdl? ( !gtk? ( x11-libs/gtk+:3 ) ) sdl? ( media-libs/libsdl2[video] media-libs/sdl2-gfx media-libs/sdl2-image[png] media-libs/sdl2-ttf ) server? ( aimodules? ( dev-build/libtool ) ) sound? ( media-libs/libsdl2[sound] media-libs/sdl2-mixer[vorbis] ) ) readline? ( sys-libs/readline:= ) system-lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) )
+REQUIRED_USE=system-lua? ( ^^ ( lua_single_target_lua5-3 ) ) dedicated? ( !gtk !mapimg !modpack !nls !qt5 !sdl !sound ) !dedicated? ( || ( gtk qt5 sdl ) )
+SLOT=0
+SRC_URI=mirror://sourceforge/freeciv/freeciv-3.0.10.tar.xz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=071c517c6b574d6a6ea1d238b6c8216c

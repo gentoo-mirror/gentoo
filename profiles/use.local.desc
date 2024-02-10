@@ -5032,6 +5032,7 @@ media-video/ffmpeg:rubberband - Adds time-stretching and pitch-shifting audio fi
 media-video/ffmpeg:shaderc - Use media-libs/shaderc to compile GLSL
 media-video/ffmpeg:snappy - Enable app-arch/snappy support. Required for e.g. Vidvox Hap encoder.
 media-video/ffmpeg:sndio - Enable support for the media-sound/sndio backend
+media-video/ffmpeg:soc - Apply additional patches for efficient playback on some SoCs (e.g. ARM, RISC-V).
 media-video/ffmpeg:srt - Enable support for Secure Reliable Transport (SRT) via net-libs/srt
 media-video/ffmpeg:ssh - Enable SSH/sftp support via net-libs/libssh.
 media-video/ffmpeg:svt-av1 - Enables AV1 encoding support via media-libs/svt-av1.
@@ -6459,7 +6460,6 @@ net-misc/moonlight:cuda - Enable accelerated video rendering on NVIDIA hardware
 net-misc/moonlight:embedded - Optimize UI for fullscreen non-desktop usage
 net-misc/moonlight:glslow - Prefer direct KMS/DRM rendering over EGL/GLES rendering for better performance on some weaker GPUs
 net-misc/moonlight:libdrm - Enable video rendering via x11-libs/libdrm
-net-misc/moonlight:mmal - Enable accelerated video rendering on the Raspberry Pi
 net-misc/moonlight:soundio - Enable sound output via media-libs/libsoundio instead of media-libs/libsdl2
 net-misc/mosh:client - Build network client
 net-misc/mosh:examples - Include example scripts
