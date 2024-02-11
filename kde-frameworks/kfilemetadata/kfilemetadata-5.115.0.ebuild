@@ -27,7 +27,7 @@ RDEPEND="
 	ffmpeg? ( media-video/ffmpeg:0= )
 	mobi? ( kde-apps/kdegraphics-mobipocket:5 )
 	pdf? ( app-text/poppler[qt5] )
-	taglib? ( media-libs/taglib )
+	taglib? ( media-libs/taglib:= )
 "
 DEPEND="${RDEPEND}
 	kernel_linux? ( sys-apps/attr )
