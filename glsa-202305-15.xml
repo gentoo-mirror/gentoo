@@ -5,7 +5,7 @@
     <synopsis>Multiple vulnerabilities have been discovered in systemd, the worst of which could result in denial of service.</synopsis>
     <product type="ebuild">systemd,systemd-tmpfiles,systemd-utils,udev</product>
     <announced>2023-05-03</announced>
-    <revised count="1">2023-05-03</revised>
+    <revised count="2">2024-02-11</revised>
     <bug>880547</bug>
     <bug>830967</bug>
     <access>remote</access>
@@ -15,14 +15,14 @@
             <vulnerable range="lt">251.3</vulnerable>
         </package>
         <package name="sys-apps/systemd-tmpfiles" auto="yes" arch="*">
-            <vulnerable range="lt">250</vulnerable>
+            <vulnerable range="le">250</vulnerable>
         </package>
         <package name="sys-apps/systemd-utils" auto="yes" arch="*">
             <unaffected range="ge">251.3</unaffected>
             <vulnerable range="lt">251.3</vulnerable>
         </package>
         <package name="sys-fs/udev" auto="yes" arch="*">
-            <vulnerable range="lt">250</vulnerable>
+            <vulnerable range="le">250</vulnerable>
         </package>
     </affected>
     <background>
