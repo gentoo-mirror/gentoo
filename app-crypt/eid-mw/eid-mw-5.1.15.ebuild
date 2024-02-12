@@ -76,6 +76,11 @@ src_prepare() {
 		-e 's:uml::' \
 		plugins_tools/eid-viewer/Makefile.am || die
 
+	# See bug #923375
+	sed -i \
+		-e 's:C_Sign(NULL,:C_Sign(NULL_PTR,:' \
+		tests/unit/sign_state.c || die
+
 	eautoreconf
 }
 
