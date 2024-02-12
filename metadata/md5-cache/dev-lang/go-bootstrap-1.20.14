@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Bootstrap package for dev-lang/go
+EAPI=8
+HOMEPAGE=https://golang.org
+IUSE=abi_mips_n64 abi_mips_o32 big-endian
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos ~x64-solaris
+LICENSE=BSD
+RESTRICT=strip
+SLOT=0
+SRC_URI=amd64? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-amd64-bootstrap.tbz ) arm? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-arm-bootstrap.tbz ) arm64? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-arm64-bootstrap.tbz ) loong? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-loong64-bootstrap.tbz ) mips? ( abi_mips_o32? ( big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mips-bootstrap.tbz ) !big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mipsle-bootstrap.tbz ) ) abi_mips_n64? ( big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mips64-bootstrap.tbz ) !big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mips64le-bootstrap.tbz ) ) ) ppc64? ( big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-ppc64-bootstrap.tbz ) !big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-ppc64le-bootstrap.tbz ) ) riscv? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-riscv64-bootstrap.tbz ) s390? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-s390x-bootstrap.tbz ) x86? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-386-bootstrap.tbz ) x64-macos? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-darwin-amd64-bootstrap.tbz ) arm64-macos? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-darwin-arm64-bootstrap.tbz ) x64-solaris? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-solaris-amd64-bootstrap.tbz )
+_md5_=279d8551236821f01ad572601c9f614c
