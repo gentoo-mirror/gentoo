@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake distutils-r1
 
@@ -29,7 +29,6 @@ IUSE="cli test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	!<app-vim/editorconfig-vim-0.3.3-r1
 	cli? ( !app-text/editorconfig-core-c[cli] )
 "
 
@@ -46,10 +45,6 @@ src_prepare() {
 }
 
 python_test() {
-	local mycmakeargs=(
-		-DPYTHON_EXECUTABLE="${PYTHON}"
-	)
-
 	cmake_src_configure
 	cmake_src_compile
 	cmake_src_test

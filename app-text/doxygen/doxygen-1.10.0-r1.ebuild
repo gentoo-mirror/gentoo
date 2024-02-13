@@ -149,5 +149,12 @@ src_compile() {
 src_install() {
 	cmake_src_install
 
-	doman doc/*.1
+	# manpages are only automatically installed when docs are
+	# https://github.com/doxygen/doxygen/pull/10647
+	doman doc/doxygen.1
+	use gui && doman doc/doxywizard.1
+	use doxysearch && {
+		doman doc/doxyindexer.1
+		doman doc/doxysearch.1
+	}
 }
