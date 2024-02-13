@@ -7,7 +7,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
 PYTHON_REQ_USE="sqlite"
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A pure Python netlink and Linux network configuration library"
 HOMEPAGE="
@@ -15,17 +15,12 @@ HOMEPAGE="
 	https://pypi.org/project/pyroute2/
 "
 
-SRC_URI="https://github.com/svinota/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
-
 LICENSE="|| ( GPL-2+ Apache-2.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 # tests need root access
 RESTRICT="test"
 
-RDEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
-"
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 "
