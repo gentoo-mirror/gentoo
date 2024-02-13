@@ -10,7 +10,7 @@ RESTRICT="test" # fails with sandbox
 CRATES="
 	aho-corasick@1.1.2
 	anes@0.1.6
-	anstyle@1.0.5
+	anstyle@1.0.6
 	anyhow@1.0.79
 	argv@0.1.11
 	autocfg@1.1.0
@@ -23,15 +23,15 @@ CRATES="
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.4.18
-	clap_builder@4.4.18
-	clap_lex@0.6.0
+	clap@4.5.0
+	clap_builder@4.5.0
+	clap_lex@0.7.0
 	criterion-plot@0.5.0
 	criterion@0.5.1
 	crossbeam-channel@0.5.11
 	crossbeam-utils@0.8.19
 	crunchy@0.2.2
-	either@1.9.0
+	either@1.10.0
 	env_filter@0.1.0
 	env_logger@0.11.1
 	errno@0.3.8
@@ -45,16 +45,16 @@ CRATES="
 	globset@0.4.14
 	half@2.3.1
 	heck@0.4.1
-	hermit-abi@0.3.4
+	hermit-abi@0.3.5
 	hex@0.4.3
 	io-lifetimes@1.0.11
-	io-uring@0.6.2
+	io-uring@0.6.3
 	ipnetwork@0.20.0
-	is-terminal@0.4.10
+	is-terminal@0.4.12
 	itertools@0.10.5
 	itoa@1.0.10
 	lazy_static@1.4.0
-	libc@0.2.152
+	libc@0.2.153
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
 	linux-raw-sys@0.1.4
@@ -65,7 +65,7 @@ CRATES="
 	memoffset@0.7.1
 	nix@0.26.4
 	nonempty@0.9.0
-	num-traits@0.2.17
+	num-traits@0.2.18
 	num_cpus@1.16.0
 	once_cell@1.19.0
 	oorandom@11.1.3
@@ -84,7 +84,7 @@ CRATES="
 	regex-syntax@0.8.2
 	regex@1.10.3
 	rustix@0.36.17
-	rustix@0.38.30
+	rustix@0.38.31
 	rustversion@1.0.14
 	rusty_pool@0.7.0
 	ryu@1.0.16
@@ -99,7 +99,7 @@ CRATES="
 	strum@0.26.1
 	strum_macros@0.26.1
 	syn@2.0.48
-	tempfile@3.9.0
+	tempfile@3.10.0
 	tinytemplate@1.2.1
 	unicode-ident@1.0.12
 	walkdir@2.4.0
