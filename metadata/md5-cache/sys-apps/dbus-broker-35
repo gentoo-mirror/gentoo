@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/bus1/dbus-broker/wiki
 INHERIT=meson
 IUSE=apparmor audit doc +launcher selinux
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv
 LICENSE=Apache-2.0
 RDEPEND=apparmor? ( >=sys-libs/libapparmor-3.0 ) audit? ( >=sys-process/audit-3.0 >=sys-libs/libcap-ng-0.6 ) launcher? ( >=dev-libs/expat-2.2 >=sys-apps/systemd-230:0= ) selinux? ( >=sys-libs/libselinux-3.2 ) launcher? ( sys-apps/dbus )
 SLOT=0
 SRC_URI=https://github.com/bus1/dbus-broker/releases/download/v35/dbus-broker-35.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8
-_md5_=fddb66440559ef9e80863e22445448e7
+_md5_=07c0e898569476dc9cab8f1b0aa082cf
