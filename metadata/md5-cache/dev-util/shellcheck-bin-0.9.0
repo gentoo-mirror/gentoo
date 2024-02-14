@@ -1,5 +1,4 @@
 DEFINED_PHASES=install
-DEPEND=!dev-util/shellcheck
 DESCRIPTION=Shell script analysis tool (binary package)
 EAPI=8
 HOMEPAGE=https://www.shellcheck.net/
@@ -7,5 +6,5 @@ KEYWORDS=-* amd64 ~arm arm64
 LICENSE=GPL-3+
 RDEPEND=!dev-util/shellcheck
 SLOT=0
-SRC_URI=amd64? ( https://github.com/koalaman/shellcheck/releases/download/v0.9.0/shellcheck-v0.9.0.linux.x86_64.tar.xz ) arm? ( https://github.com/koalaman/shellcheck/releases/download/v0.9.0/shellcheck-v0.9.0.linux.armv6hf.tar.xz ) arm64? ( https://github.com/koalaman/shellcheck/releases/download/v0.9.0/shellcheck-v0.9.0.linux.aarch64.tar.xz )
-_md5_=5fe6e9e3bc6929b6c1f25bd1b4d8763c
+SRC_URI=amd64? ( https://github.com/koalaman/shellcheck/releases/download/v0.9.0/shellcheck-v0.9.0.linux.x86_64.tar.xz ) arm64? ( https://github.com/koalaman/shellcheck/releases/download/v0.9.0/shellcheck-v0.9.0.linux.aarch64.tar.xz ) arm? ( https://github.com/koalaman/shellcheck/releases/download/v0.9.0/shellcheck-v0.9.0.linux.armv6hf.tar.xz )
+_md5_=cd1a86b7e0b3d58084304eed173d2dc5
