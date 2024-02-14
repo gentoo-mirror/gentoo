@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,11 +21,11 @@ CRATES="
 	parking_lot@0.12.1
 	parking_lot_core@0.9.8
 	proc-macro2@1.0.66
-	pyo3-build-config@0.20.0
-	pyo3-ffi@0.20.0
-	pyo3-macros-backend@0.20.0
-	pyo3-macros@0.20.0
-	pyo3@0.20.0
+	pyo3-build-config@0.20.2
+	pyo3-ffi@0.20.2
+	pyo3-macros-backend@0.20.2
+	pyo3-macros@0.20.2
+	pyo3@0.20.2
 	quote@1.0.31
 	redox_syscall@0.3.5
 	rpds@1.1.0
@@ -62,7 +62,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/rpds/rpds.*.so"
 
