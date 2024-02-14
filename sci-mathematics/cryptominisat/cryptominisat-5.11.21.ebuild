@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,20 +19,21 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-SLOT="0/${PV}"
 LICENSE="GPL-2 MIT"
-RESTRICT="test"         # Tests require many git modules.
+SLOT="0/${PV}"
+RESTRICT="test"                               # Tests require some git modules.
 
 RDEPEND="
 	dev-libs/boost:=
 	sys-libs/zlib:=
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+"
 
 src_configure() {
 	local -a mycmakeargs=(
 		-DNOBREAKID=ON
-		-DNOM4RI=ON
 		-DENABLE_TESTING=OFF
 	)
 	cmake_src_configure
