@@ -91,12 +91,13 @@ unset ADDONS_SRC
 LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 
 IUSE="accessibility base bluetooth +branding clang coinmp +cups custom-cflags +dbus debug eds firebird
-googledrive gstreamer +gtk kde ldap +mariadb odk pdfimport postgres qt6 test valgrind vulkan
+googledrive gstreamer +gtk kde ldap +mariadb odk pdfimport postgres qt5 qt6 test valgrind vulkan
 $(printf 'libreoffice_extensions_%s ' ${LO_EXTS})"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	base? ( java )
 	bluetooth? ( dbus )
+	kde? ( || ( qt5 qt6 ) )
 	libreoffice_extensions_nlpsolver? ( java )
 	libreoffice_extensions_scripting-beanshell? ( java )
 	libreoffice_extensions_scripting-javascript? ( java )
@@ -208,11 +209,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		x11-libs/pango
 	)
 	kde? (
-		!qt6? (
-			dev-qt/qtcore:5
-			dev-qt/qtgui:5
-			dev-qt/qtwidgets:5
-			dev-qt/qtx11extras:5
+		qt5? (
 			kde-frameworks/kconfig:5
 			kde-frameworks/kcoreaddons:5
 			kde-frameworks/ki18n:5
@@ -234,6 +231,12 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	!mariadb? ( dev-db/mysql-connector-c:= )
 	pdfimport? ( >=app-text/poppler-22.06:=[cxx] )
 	postgres? ( >=dev-db/postgresql-9.0:*[kerberos] )
+	qt5? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5
+	)
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 "
 # FIXME: cppunit should be moved to test conditional
@@ -313,11 +316,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
 	"${FILESDIR}/${PN}-24.2-qtdetect.patch"
 
-	# not yet upstream, sourced from Mandriva
-	"${FILESDIR}/${PN}-24.2-kf6-buildfix.patch"
-
 	# maybe upstreamable
 	"${FILESDIR}/${PN}-7.5.8.2-icu-74-compatibility.patch"
+
+	# git master, pending 24.2
+	"${FILESDIR}/${PN}-24.2-kf6-configure.patch"
+	"${FILESDIR}/${PN}-24.2-kf6-buildfix.patch"
 
 )
 
@@ -474,12 +478,11 @@ src_configure() {
 	export PYTHON_CFLAGS=$(python_get_CFLAGS)
 	export PYTHON_LIBS=$(python_get_LIBS)
 
+	if use qt5; then
+		export QT5DIR="$(qt5_get_bindir)/.."
+	fi
 	if use qt6; then
 		export QT6DIR="$(qt6_get_bindir)/.."
-	else
-		if use kde; then
-			export QT5DIR="$(qt5_get_bindir)/.."
-		fi
 	fi
 
 	local gentoo_buildid="Gentoo official package"
@@ -508,7 +511,7 @@ src_configure() {
 		--enable-build-opensymbol
 		--enable-cairo-canvas
 		--enable-largefile
-		--enable-mergelibs
+		--enable-mergelibs=more
 		--enable-python=system
 		--enable-randr
 		--enable-release-build
@@ -559,6 +562,8 @@ src_configure() {
 		$(use_enable odk)
 		$(use_enable pdfimport)
 		$(use_enable postgres postgresql-sdbc)
+		$(use_enable qt5)
+		$(use_enable qt6)
 		$(use_enable vulkan skia)
 		$(use_with accessibility lxml)
 		$(use_with coinmp system-coinmp)
@@ -569,19 +574,8 @@ src_configure() {
 		$(use_with valgrind)
 	)
 
-	if use qt6; then
-		myeconfargs+=(
-			--disable-qt5
-			$(use_enable qt6 qt6)
-			$(use_enable kde kf6)
-		)
-	else
-		myeconfargs+=(
-			--disable-qt6
-			$(use_enable kde kf5)
-			$(use_enable kde qt5)
-		)
-	fi
+	use qt5 && myeconfargs+=( $(use_enable kde kf5) )
+	use qt6 && myeconfargs+=( $(use_enable kde kf6) )
 
 	if use eds || use gtk; then
 		myeconfargs+=( --enable-dconf --enable-gio )
