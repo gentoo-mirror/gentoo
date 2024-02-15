@@ -7,7 +7,7 @@ inherit cmake plocale xdg
 
 DESCRIPTION="Cross-platform e-book reader"
 HOMEPAGE="https://gitlab.com/coolreader-ng/crqt-ng"
-SRC_URI="https://dev.gentoo.org/~grozin/${P}.tar.bz2"
+SRC_URI="https://gitlab.com/coolreader-ng/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
 SLOT="0"
