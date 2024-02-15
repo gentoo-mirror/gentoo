@@ -38,12 +38,11 @@ index 6757c6ce..d954230d 100755
          -*)
              if test "$compress" = "cat"; then
                  echo "ERROR: unknown command-line option: $1"
-@@ -85,6 +95,8 @@ fi
-+ echo "destdir is ${destdir}"
+@@ -85,6 +95,7 @@ fi
  # shellcheck disable=SC2162 # file/folder name can include escaped symbols
  grep -E '^(RawFile|File):' WHENCE | sed -E -e 's/^(RawFile|File): */\1 /;s/"//g' | while read k f; do
      test -f "$f" || continue
-+	   if ! echo "${FIRMWARE_LIST}" | grep -q "${f}"; then continue; fi
++	   [ -n "${FIRMWARE_LIST}" ]  && if ! echo "${FIRMWARE_LIST}" | grep -q "${f}"; then continue; fi
      install -d "$destdir/$(dirname "$f")"
      $verbose "copying/compressing file $f$compext"
      if test "$compress" != "cat" && test "$k" = "RawFile"; then
@@ -51,7 +50,7 @@ index 6757c6ce..d954230d 100755
  
  # shellcheck disable=SC2162 # file/folder name can include escaped symbols
  grep -E '^Link:' WHENCE | sed -e 's/^Link: *//g;s/-> //g' | while read f d; do
-+	   if ! echo "${FIRMWARE_LIST}" | grep -q "${f}"; then continue; fi
++	   [ -n "${FIRMWARE_LIST}" ]  && if ! echo "${FIRMWARE_LIST}" | grep -q "${f}"; then continue; fi
      if test -L "$f$compext"; then
          test -f "$destdir/$f$compext" && continue
          $verbose "copying link $f$compext"

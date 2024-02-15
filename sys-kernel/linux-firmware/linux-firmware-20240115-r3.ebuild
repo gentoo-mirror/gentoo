@@ -64,7 +64,7 @@ RDEPEND="!savedconfig? (
 	)"
 
 QA_PREBUILT="*"
-PATCHES=( "${FILESDIR}"/${PN}-copy-firmware-r2.patch )
+PATCHES=( "${FILESDIR}"/${PN}-copy-firmware-r3.patch )
 
 pkg_pretend() {
 	use initramfs && mount-boot_pkg_pretend
