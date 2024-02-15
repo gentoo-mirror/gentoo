@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://www.tvdr.de/
 INHERIT=flag-o-matic strip-linguas toolchain-funcs user-info
 IUSE=bidi debug demoplugins html keyboard mainmenuhooks menuorg naludump permashift pinplugin systemd ttxtsubs verbose
-KEYWORDS=amd64 ~arm ~arm64 ~ppc x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
 LICENSE=GPL-2+
 RDEPEND=acct-group/vdr acct-user/vdr media-libs/fontconfig media-libs/freetype media-libs/libjpeg-turbo:= sys-libs/libcap dev-lang/perl media-tv/gentoo-vdr-scripts media-fonts/corefonts bidi? ( dev-libs/fribidi ) systemd? ( sys-apps/systemd )
 REQUIRED_USE=permashift? ( !naludump !pinplugin )
 SLOT=0
-SRC_URI=http://git.tvdr.de/?p=vdr.git;a=snapshot;h=refs/tags/2.6.3;sf=tbz2 -> vdr-2.6.3.tbz2 menuorg? ( https://github.com/vdr-projects/vdr-plugin-menuorg/raw/master/vdr-patch/vdr-menuorg-2.3.x.diff ) ttxtsubs? ( https://md11.it.cx/download/vdr/vdr-2.6.1_ttxtsubs_v2.patch )
+SRC_URI=http://git.tvdr.de/?p=vdr.git;a=snapshot;h=refs/tags/2.6.6;sf=tbz2 -> vdr-2.6.6.tbz2 menuorg? ( https://github.com/vdr-projects/vdr-plugin-menuorg/raw/master/vdr-patch/vdr-menuorg-2.3.x.diff ) ttxtsubs? ( https://md11.it.cx/download/vdr/vdr-2.6.6_ttxtsubs_v2.patch )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	user-info	9951b1a0e4f026d16c33a001fd2d5cdf
-_md5_=cdfac9930019ec387d4838c468af4d6e
+_md5_=90c077b879622a7e9c11b158ac6dde8d
