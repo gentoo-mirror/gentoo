@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://fuzion-lang.dev/ https://github.com/tokiwa-software/fuzion/
 INHERIT=java-pkg-2
 IUSE=test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=>=virtual/jre-17:* dev-libs/boehm-gc >=dev-java/java-config-2.2.0-r3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tokiwa-software/fuzion/archive/refs/tags/v0.086.tar.gz -> fuzion-0.086.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368
-_md5_=54bcd16b90d7ebc665efa6f2ee03c594
+_md5_=0a10c4f1f06883f4cb8ae90fafd501e5
