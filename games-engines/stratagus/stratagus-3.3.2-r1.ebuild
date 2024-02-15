@@ -55,14 +55,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}"-2.3.0-doc.patch
 )
 
-src_prepare() {
-	sed -i -e 's:-Werror::' CMakeLists.txt || die
-	cmake_src_prepare
-}
-
 src_configure() {
 	# there are in-source switches
-	use debug && CMAKE_BUILD_TYPE=Debug
+	use debug && local -x CPPFLAGS="${CPPFLAGS} -DDEBUG"
 
 	local mycmakeargs=(
 		-DGAMEDIR="${EPREFIX}/usr/bin"
