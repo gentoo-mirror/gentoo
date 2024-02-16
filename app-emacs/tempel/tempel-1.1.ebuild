@@ -7,8 +7,8 @@ NEED_EMACS=27.1
 
 inherit elisp
 
-DESCRIPTION="OpenStreetMap tile-based viewer for GNU Emacs"
-HOMEPAGE="https://github.com/minad/osm/"
+DESCRIPTION="Templates with in-buffer field editing for GNU Emacs"
+HOMEPAGE="https://github.com/minad/tempel/"
 
 if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
@@ -16,20 +16,14 @@ if [[ ${PV} == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
-BDEPEND="
-	>=app-editors/emacs-${NEED_EMACS}:*[jpeg,json,libxml2,png,svg]
-	>=app-emacs/compat-29.1.4.0
-"
-RDEPEND="
-	${BDEPEND}
-	net-misc/curl[ssl]
-"
+RDEPEND=">=app-emacs/compat-29.1.3.4"
+BDEPEND="${RDEPEND}"
 
 DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
