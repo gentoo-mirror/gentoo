@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-util/cargo-nextest ) dev-util/cargo-c sys-devel/clang >=virtual/rust-1.71 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-util/cargo-nextest ) dev-util/cargo-c sys-devel/clang >=virtual/rust-1.74 >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
 DESCRIPTION=C library for pkgcraft
 EAPI=8
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0/9999
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=9eff2d49fe125e1c1ee083a289dcdd63
+_md5_=8c98e25cf218496cbc4954e58f93ce27
