@@ -12,8 +12,12 @@ if [[ ${PV} == *9999 ]] ; then
 		https://github.com/pkgcore/pkgcheck.git"
 	inherit git-r3
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ppc ppc64 ~riscv ~s390 sparc x86 ~x64-macos"
 	inherit pypi
+	SRC_URI+="
+		https://gitlab.gentoo.org/pkgcore/pkgcheck/-/commit/9103513e26f9f2aeade5b563a49697c0e2665e3e.patch
+			-> ${P}-git-2.43.2.patch
+	"
 fi
 
 DESCRIPTION="pkgcore-based QA utility for ebuild repos"
@@ -54,6 +58,10 @@ BDEPEND="${RDEPEND}
 		dev-vcs/git
 	)
 "
+
+PATCHES=(
+	"${DISTDIR}"/${P}-git-2.43.2.patch
+)
 
 SITEFILE="50${PN}-gentoo.el"
 
