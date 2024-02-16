@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://xalan.apache.org/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=Apache-2.0
 RDEPEND=dev-java/bcel:0 dev-java/javacup:0 ~dev-java/xalan-serializer-2.7.3:0 dev-java/xerces:2 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=mirror://apache/xalan/xalan-j/source/xalan-j_2_7_3-src.tar.gz verify-sig? ( https://downloads.apache.org/xalan/xalan-j/source/xalan-j_2_7_3-src.tar.gz.asc )
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=33117d4cd66dee2a794ccef7472d9568
+_md5_=801bcedfcaa74f259eb86e6cb9de5c73
