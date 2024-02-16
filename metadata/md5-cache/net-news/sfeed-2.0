@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://codemadness.org/sfeed-simple-feed-parser.html
 INHERIT=toolchain-funcs savedconfig optfeature
 IUSE=+ncurses +theme-mono theme-mono-highlight theme-newsboat theme-templeos savedconfig
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~riscv ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~riscv ~sparc ~x86
 LICENSE=ISC
 RDEPEND=ncurses? ( sys-libs/ncurses:= )
 REQUIRED_USE=ncurses? ( ^^ ( theme-mono theme-mono-highlight theme-newsboat theme-templeos ) )
 SLOT=0
-SRC_URI=https://codemadness.org/releases/sfeed/sfeed-1.8.tar.gz
+SRC_URI=https://codemadness.org/releases/sfeed/sfeed-2.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=0a83c241bb695df159f32ce73229ab03
+_md5_=22fca670746b3967d4c9441df3aba593
