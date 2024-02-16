@@ -7,31 +7,31 @@ EAPI=8
 
 CRATES="
 	adler-1.0.2
-	anstream-0.6.5
-	anstyle-1.0.4
+	anstream-0.6.11
+	anstyle-1.0.6
 	anstyle-parse-0.2.3
 	anstyle-query-1.0.2
 	anstyle-wincon-3.0.2
-	anyhow-1.0.76
+	anyhow-1.0.79
 	arc-swap-1.6.0
 	autocfg-1.1.0
 	bitflags-1.3.2
-	bitflags-2.4.1
-	bstr-1.8.0
+	bitflags-2.4.2
+	bstr-1.9.0
 	btoi-0.4.3
 	bzip2-rs-0.1.2
 	cc-1.0.83
 	cfg-if-1.0.0
-	clap-4.4.11
-	clap_builder-4.4.11
+	clap-4.4.18
+	clap_builder-4.4.18
 	clap_lex-0.6.0
 	clru-0.6.1
 	colorchoice-1.0.0
 	crc32fast-1.3.2
 	ctrlc-3.4.2
-	curl-0.4.44
-	curl-sys-0.4.70+curl-8.5.0
-	deranged-0.3.10
+	curl-0.4.45
+	curl-sys-0.4.72+curl-8.6.0
+	deranged-0.3.11
 	dunce-1.0.4
 	encoding_rs-0.8.33
 	equivalent-1.0.1
@@ -41,97 +41,100 @@ CRATES="
 	filetime-0.2.23
 	flate2-1.0.28
 	form_urlencoded-1.2.1
-	gix-0.56.0
-	gix-actor-0.28.1
-	gix-bitmap-0.2.8
-	gix-chunk-0.4.5
-	gix-commitgraph-0.22.1
-	gix-config-0.32.1
-	gix-config-value-0.14.1
-	gix-date-0.8.1
-	gix-diff-0.38.0
-	gix-discover-0.27.0
-	gix-features-0.36.1
-	gix-fs-0.8.1
-	gix-glob-0.14.1
-	gix-hash-0.13.3
-	gix-hashtable-0.4.1
-	gix-index-0.27.1
-	gix-lock-11.0.1
-	gix-macros-0.1.1
-	gix-object-0.39.0
-	gix-odb-0.55.0
-	gix-pack-0.45.0
-	gix-path-0.10.1
-	gix-quote-0.4.8
-	gix-ref-0.39.1
-	gix-refspec-0.20.0
-	gix-revision-0.24.0
-	gix-revwalk-0.10.0
-	gix-sec-0.10.1
-	gix-tempfile-11.0.1
-	gix-trace-0.1.4
-	gix-traverse-0.35.0
-	gix-url-0.25.2
-	gix-utils-0.1.6
-	gix-validate-0.8.1
+	gix-0.58.0
+	gix-actor-0.30.0
+	gix-bitmap-0.2.10
+	gix-chunk-0.4.7
+	gix-command-0.3.4
+	gix-commitgraph-0.24.0
+	gix-config-0.34.0
+	gix-config-value-0.14.4
+	gix-date-0.8.3
+	gix-diff-0.40.0
+	gix-discover-0.29.0
+	gix-features-0.38.0
+	gix-fs-0.10.0
+	gix-glob-0.16.0
+	gix-hash-0.14.1
+	gix-hashtable-0.5.1
+	gix-index-0.29.0
+	gix-lock-13.1.0
+	gix-macros-0.1.3
+	gix-object-0.41.0
+	gix-odb-0.57.0
+	gix-pack-0.47.0
+	gix-path-0.10.5
+	gix-quote-0.4.10
+	gix-ref-0.41.0
+	gix-refspec-0.22.0
+	gix-revision-0.26.0
+	gix-revwalk-0.12.0
+	gix-sec-0.10.4
+	gix-tempfile-13.1.0
+	gix-trace-0.1.7
+	gix-traverse-0.37.0
+	gix-url-0.27.0
+	gix-utils-0.1.9
+	gix-validate-0.8.3
 	hashbrown-0.14.3
-	hermit-abi-0.3.3
+	hermit-abi-0.3.5
 	home-0.5.9
 	idna-0.5.0
-	indexmap-2.1.0
-	is-terminal-0.4.9
+	indexmap-2.2.2
+	is-terminal-0.4.12
 	itoa-1.0.10
-	libc-0.2.151
-	libz-sys-1.1.12
-	linux-raw-sys-0.4.12
+	libc-0.2.153
+	libz-sys-1.1.15
+	linux-raw-sys-0.4.13
 	lock_api-0.4.11
-	memchr-2.6.4
-	memmap2-0.9.3
+	memchr-2.7.1
+	memmap2-0.9.4
 	minimal-lexical-0.2.1
-	miniz_oxide-0.7.1
+	miniz_oxide-0.7.2
 	nix-0.27.1
 	nom-7.1.3
-	num-traits-0.2.17
+	num-conv-0.1.0
+	num-traits-0.2.18
 	num_threads-0.1.6
 	once_cell-1.19.0
 	openssl-probe-0.1.5
-	openssl-sys-0.9.98
+	openssl-sys-0.9.99
 	parking_lot-0.12.1
 	parking_lot_core-0.9.9
 	percent-encoding-2.3.1
-	pkg-config-0.3.28
+	pkg-config-0.3.29
 	powerfmt-0.2.0
-	proc-macro2-1.0.71
-	prodash-26.2.2
-	quote-1.0.33
+	proc-macro2-1.0.78
+	prodash-28.0.0
+	quote-1.0.35
 	redox_syscall-0.4.1
-	regex-automata-0.4.3
-	rustix-0.38.28
+	regex-automata-0.4.5
+	rustix-0.38.31
 	ryu-1.0.16
 	same-file-1.0.6
-	schannel-0.1.22
+	schannel-0.1.23
 	scopeguard-1.2.0
-	serde-1.0.193
-	serde_derive-1.0.193
-	serde_json-1.0.108
+	serde-1.0.196
+	serde_derive-1.0.196
+	serde_json-1.0.113
 	sha1_smol-1.0.0
-	smallvec-1.11.2
-	socket2-0.4.10
+	shell-words-1.1.0
+	smallvec-1.13.1
+	socket2-0.5.5
 	strsim-0.10.0
-	syn-2.0.43
+	syn-2.0.48
 	tar-0.4.40
-	tempfile-3.8.1
-	termcolor-1.4.0
+	tempfile-3.10.0
+	termcolor-1.4.1
 	terminal_size-0.3.0
-	thiserror-1.0.52
-	thiserror-impl-1.0.52
-	time-0.3.31
+	thiserror-1.0.57
+	thiserror-impl-1.0.57
+	time-0.3.34
 	time-core-0.1.2
-	time-macros-0.2.16
+	time-macros-0.2.17
 	tinyvec-1.6.0
 	tinyvec_macros-0.1.1
-	unicode-bidi-0.3.14
+	unicode-bidi-0.3.15
 	unicode-bom-2.0.3
 	unicode-ident-1.0.12
 	unicode-normalization-0.1.22
@@ -143,7 +146,6 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.6
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-0.48.0
 	windows-sys-0.48.0
 	windows-sys-0.52.0
 	windows-targets-0.48.5
@@ -162,8 +164,8 @@ CRATES="
 	windows_x86_64_gnullvm-0.52.0
 	windows_x86_64_msvc-0.48.5
 	windows_x86_64_msvc-0.52.0
-	winnow-0.5.30
-	xattr-1.1.3
+	winnow-0.5.39
+	xattr-1.3.1
 "
 
 inherit cargo flag-o-matic
