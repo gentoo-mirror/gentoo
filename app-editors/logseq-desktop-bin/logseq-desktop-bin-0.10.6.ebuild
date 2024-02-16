@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,6 +29,7 @@ RDEPEND="
 	net-misc/curl
 	net-print/cups
 	sys-apps/dbus
+	sys-libs/glibc
 	sys-libs/zlib
 	x11-libs/cairo
 	x11-libs/gtk+:3
