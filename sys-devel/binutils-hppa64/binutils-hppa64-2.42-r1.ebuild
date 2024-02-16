@@ -3,6 +3,8 @@
 
 EAPI=7
 
+export CTARGET=hppa64-${CHOST#*-}
+
 inherit libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
 
 DESCRIPTION="Tools necessary to build programs"
@@ -19,7 +21,7 @@ IUSE="cet debuginfod doc gold gprofng hardened multitarget +nls pgo +plugins sta
 # PATCH_DEV          - Use download URI https://dev.gentoo.org/~{PATCH_DEV}/distfiles/...
 #                      for the patchsets
 
-PATCH_VER=2
+PATCH_VER=3
 PATCH_DEV=dilfridge
 
 if [[ ${PV} == 9999* ]]; then
@@ -32,7 +34,7 @@ else
 	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
 		https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
-	#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	#KEYWORDS="-* ~hppa"
 fi
 
 #
@@ -72,7 +74,8 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
-MY_BUILDDIR=${WORKDIR}/build
+MY_BUILDDIR="${WORKDIR}"/build
+S="${WORKDIR}"/${P/-hppa64/}
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]] ; then
@@ -334,7 +337,8 @@ src_configure() {
 	fi
 
 	if ! is_cross ; then
-		myconf+=( $(use_enable pgo pgo-build lto) )
+		# No LTO for HPPA64 right now as we don't build kgcc64 with LTO support.
+		myconf+=( $(use_enable pgo pgo-build) )
 
 		if use pgo ; then
 			export BUILD_CFLAGS="${CFLAGS}"
@@ -408,6 +412,7 @@ src_install() {
 		done
 
 		if [[ -d ${ED}/usr/${CHOST}/${CTARGET} ]] ; then
+			# No die for now, dies on hppa?
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/include "${ED}"/${INCPATH}
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/lib/* "${ED}"/${LIBPATH}/
 			rm -r "${ED}"/usr/${CHOST}/{include,lib}
@@ -427,8 +432,9 @@ src_install() {
 	)
 	doins "${libiberty_headers[@]/#/${S}/include/}"
 	if [[ -d ${ED}/${LIBPATH}/lib ]] ; then
-		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/ || die
-		rm -r "${ED}"/${LIBPATH}/lib || die
+		# TODO: add || die here, fails on hppa?
+		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/
+		rm -r "${ED}"/${LIBPATH}/lib
 	fi
 
 	# Generate an env.d entry for this binutils
@@ -474,6 +480,11 @@ src_install() {
 
 	# Trim all empty dirs
 	find "${ED}" -depth -type d -exec rmdir {} + 2>/dev/null
+
+	# the hppa64 hack; this should go into 9999 as a PN-conditional
+	# tweak the default fake list a little bit
+	cd "${D}"/etc/env.d/binutils
+	sed -i '/FAKE_TARGETS=/s:"$: hppa64-linux":' ${CTARGET}-${PV} || die
 }
 
 pkg_postinst() {
