@@ -899,7 +899,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.29 1.32.34 1.32.39 1.32.40 1.32.41 1.32.42 1.32.43: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.29 1.32.34 1.32.39 1.32.40 1.32.41 1.32.42 1.32.43 1.32.44: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2023.2.0 2023.7.1 2023.12.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r4: Distribution-independent installer framework
@@ -8206,8 +8206,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.34.29 1.34.34 1.34.39 1.34.40 1.34.41 1.34.42 1.34.43: The AWS SDK for Python
-dev-python/botocore 1.34.29 1.34.34 1.34.39 1.34.40 1.34.41 1.34.42 1.34.43: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.29 1.34.34 1.34.39 1.34.40 1.34.41 1.34.42 1.34.43 1.34.44: The AWS SDK for Python
+dev-python/botocore 1.34.29 1.34.34 1.34.39 1.34.40 1.34.41 1.34.42 1.34.43 1.34.44: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -9130,7 +9130,7 @@ dev-python/pysvg 0.2.2_p3-r1: Python SVG document creation library
 dev-python/pysvn 1.9.18: Object-oriented python bindings for subversion
 dev-python/pyte 0.8.2: Simple VTXXX-compatible terminal emulator
 dev-python/pytesseract 0.3.12: Optical character recognition (OCR) tool
-dev-python/pytest 7.4.4 8.0.0: Simple powerful testing with Python
+dev-python/pytest 7.4.4 8.0.0 8.0.1: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.0.5: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.23.2 0.23.4-r1 0.23.5: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 7.0.1: BDD library for the pytest runner
@@ -9565,7 +9565,7 @@ dev-python/toolz 0.12.1: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.4: Python web framework and asynchronous networking library
 dev-python/towncrier 23.11.0: Building newsfiles for your project
-dev-python/tox 3.28.0 4.12.1 4.12.1-r1: virtualenv-based automation of test activities
+dev-python/tox 3.28.0 4.12.1 4.12.1-r1 4.13.0: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.1.0-r1: Python bindings for TSS
 dev-python/tqdm 4.66.1 4.66.2: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.1: A configuration system for Python applications
@@ -9573,7 +9573,7 @@ dev-python/transitions 0.9.0: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.12.1 3.12.2: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.1-r1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 23.11.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 4.1.0 4.1.3: Python library for loading and using triangular meshes
+dev-python/trimesh 4.1.0 4.1.3 4.1.4: Python library for loading and using triangular meshes
 dev-python/trio 0.24.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.11.1: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2024.1.8 2024.1.31: Canonical source for classifiers on PyPI (pypi.org)
@@ -15118,7 +15118,7 @@ net-misc/datapipe 1.0-r2: Bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
 net-misc/dhcdrop 0.5-r1: Effectively suppresses illegal DHCP servers on the LAN
 net-misc/dhcp 4.4.3_p1-r3 4.4.3_p1-r4: ISC Dynamic Host Configuration Protocol (DHCP) client/server
-net-misc/dhcpcd 9.5.1 10.0.3 10.0.5-r1 10.0.6 10.0.6-r1 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
+net-misc/dhcpcd 9.5.1 10.0.3 10.0.5-r1 10.0.6 10.0.6-r1 10.0.6-r2 9999: A fully featured, yet light weight RFC2131 compliant DHCP client
 net-misc/dhcpcd-ui 0.7.8 0.7.9: Desktop notification and configuration for dhcpcd
 net-misc/dhcping 1.2-r1: Utility to send DHCP requests to DHCP servers to see if responding
 net-misc/dibbler 1.0.1-r3 1.0.1-r4: Portable DHCPv6 implementation (server, client and relay)
@@ -15335,7 +15335,7 @@ net-misc/sshpass 1.09-r1: Tool for noninteractively performing password authenti
 net-misc/sshrc 0.6.2: Bring your .bashrc, .vimrc, etc. from your local machine when you ssh
 net-misc/sslh 1.22c-r1 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
 net-misc/sstp-client 1.0.17 1.0.18 1.0.18-r2: Client implementation of Secure Socket Tunneling Protocol (SSTP)
-net-misc/streamlink 6.5.0 6.5.1 9999: CLI for extracting streams from websites to a video player of your choice
+net-misc/streamlink 6.5.0 6.5.1 6.6.0 9999: CLI for extracting streams from websites to a video player of your choice
 net-misc/streamtuner 0.99.99-r5: Stream directory browser for browsing internet radio streams
 net-misc/stunnel 5.64-r2 5.65-r2 5.68 5.71 5.71-r1: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.15 1.2.16: Open source implementation of the STUN protocol
