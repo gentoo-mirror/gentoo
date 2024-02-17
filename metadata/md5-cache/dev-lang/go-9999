@@ -1,14 +1,15 @@
-BDEPEND=|| ( >=dev-lang/go-1.17.13 >=dev-lang/go-bootstrap-1.17.13 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
 DESCRIPTION=A concurrent garbage collected and typesafe programming language
 EAPI=7
 HOMEPAGE=https://go.dev
 INHERIT=toolchain-funcs git-r3
-IUSE=abi_mips_o32 abi_mips_n64 cpu_flags_x86_sse2
+IUSE=abi_mips_o32 abi_mips_n64 cpu_flags_x86_sse2 big-endian
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=arm? ( sys-devel/binutils[gold] ) arm64? ( sys-devel/binutils[gold] )
 RESTRICT=strip
 SLOT=0/9999
+SRC_URI=amd64? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-amd64-bootstrap.tbz ) arm? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-arm-bootstrap.tbz ) arm64? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-arm64-bootstrap.tbz ) loong? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-loong64-bootstrap.tbz ) mips? ( abi_mips_o32? ( big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mips-bootstrap.tbz ) !big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mipsle-bootstrap.tbz ) ) abi_mips_n64? ( big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mips64-bootstrap.tbz ) !big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-mips64le-bootstrap.tbz ) ) ) ppc64? ( big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-ppc64-bootstrap.tbz ) !big-endian? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-ppc64le-bootstrap.tbz ) ) riscv? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-riscv64-bootstrap.tbz ) s390? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-s390x-bootstrap.tbz ) x86? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-linux-386-bootstrap.tbz ) x64-macos? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-darwin-amd64-bootstrap.tbz ) arm64-macos? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-darwin-arm64-bootstrap.tbz ) x64-solaris? ( https://dev.gentoo.org/~williamh/dist/go-1.20.14-solaris-amd64-bootstrap.tbz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=205108d2b64d4d2b93d582c632c89578
+_md5_=3ffe06f1ba0e4b75a7b48e5244eb6bc0
