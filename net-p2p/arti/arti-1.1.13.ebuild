@@ -40,7 +40,6 @@ CRATES="
 	async-lock@3.2.0
 	async-native-tls@0.5.0
 	async-process@1.8.1
-	async-rustls@0.4.1
 	async-signal@0.2.5
 	async-std@1.12.0
 	async-task@4.7.0
@@ -137,7 +136,6 @@ CRATES="
 	enum-ordinalize@3.1.15
 	env_logger@0.5.13
 	equivalent@1.0.1
-	erased-serde@0.3.31
 	erased-serde@0.4.2
 	errno@0.3.8
 	event-listener-strategy@0.1.0
@@ -163,6 +161,7 @@ CRATES="
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.1
+	fslock-arti-fork@0.2.0
 	fslock@0.2.1
 	funty@2.0.0
 	futures-await-test-macro@0.3.0
@@ -174,6 +173,7 @@ CRATES="
 	futures-lite@1.13.0
 	futures-lite@2.2.0
 	futures-macro@0.3.30
+	futures-rustls@0.25.1
 	futures-sink@0.3.30
 	futures-task@0.3.30
 	futures-util@0.3.30
@@ -198,7 +198,9 @@ CRATES="
 	hkdf@0.12.4
 	hmac@0.12.1
 	hostname-validator@1.1.1
+	http-body-util@0.1.0
 	http-body@0.4.6
+	http-body@1.0.0
 	http@0.2.11
 	http@1.0.0
 	httparse@1.8.0
@@ -206,9 +208,11 @@ CRATES="
 	humantime-serde@1.1.1
 	humantime@1.3.0
 	humantime@2.1.0
+	hyper-util@0.1.2
 	hyper@0.14.28
+	hyper@1.1.0
 	iana-time-zone-haiku@0.1.2
-	iana-time-zone@0.1.59
+	iana-time-zone@0.1.60
 	ident_case@1.0.1
 	idna@0.4.0
 	idna@0.5.0
@@ -346,8 +350,9 @@ CRATES="
 	rustc_version@0.4.0
 	rustix@0.37.27
 	rustix@0.38.28
-	rustls-webpki@0.101.7
-	rustls@0.21.10
+	rustls-pki-types@1.1.0
+	rustls-webpki@0.102.1
+	rustls@0.22.2
 	rustversion@1.0.14
 	ryu@1.0.16
 	safe_arch@0.7.1
@@ -355,7 +360,6 @@ CRATES="
 	sanitize-filename@0.5.0
 	schannel@0.1.23
 	scopeguard@1.2.0
-	sct@0.7.1
 	sec1@0.7.3
 	secmem-proc@0.3.2
 	security-framework-sys@2.9.1
@@ -374,8 +378,8 @@ CRATES="
 	serde_urlencoded@0.7.1
 	serde_with@3.4.0
 	serde_with_macros@3.4.0
-	serial_test@2.0.0
-	serial_test_derive@2.0.0
+	serial_test@3.0.0
+	serial_test_derive@3.0.0
 	sha1-asm@0.5.2
 	sha1@0.10.6
 	sha2@0.10.8
@@ -405,7 +409,9 @@ CRATES="
 	statrs@0.16.0
 	strsim@0.10.0
 	strum@0.25.0
+	strum@0.26.1
 	strum_macros@0.25.3
+	strum_macros@0.26.1
 	subtle@2.5.0
 	syn@1.0.109
 	syn@2.0.48
@@ -430,6 +436,7 @@ CRATES="
 	tls-api-test@0.9.0
 	tls-api@0.9.0
 	tokio-macros@2.2.0
+	tokio-native-tls@0.3.1
 	tokio-socks@0.5.1
 	tokio-stream@0.1.14
 	tokio-util@0.7.10
@@ -568,14 +575,14 @@ src_unpack() {
 
 src_compile() {
 	for crate in crates/*; do
-		pushd crates/arti || die
+		pushd "${crate}" || die
 		cargo_src_compile
 		popd >/dev/null || die
 	done
 }
 
 src_install() {
-	pushd crates/arti >/dev/null || due
+	pushd crates/arti >/dev/null || die
 
 	cargo_src_install
 	newdoc src/arti-example-config.toml arti.toml
