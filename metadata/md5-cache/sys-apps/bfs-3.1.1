@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile test
+DEPEND=acl? ( virtual/acl ) caps? ( sys-libs/libcap ) io-uring? ( sys-libs/liburing:= ) unicode? ( dev-libs/oniguruma:= ) xattr? ( sys-apps/attr )
+DESCRIPTION=Breadth-first version of the UNIX find command
+EAPI=8
+HOMEPAGE=https://tavianator.com/projects/bfs.html
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=acl caps debug io-uring unicode xattr
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=0BSD
+RDEPEND=acl? ( virtual/acl ) caps? ( sys-libs/libcap ) io-uring? ( sys-libs/liburing:= ) unicode? ( dev-libs/oniguruma:= ) xattr? ( sys-apps/attr )
+SLOT=0
+SRC_URI=https://github.com/tavianator/bfs/archive/refs/tags/3.1.1.tar.gz -> bfs-3.1.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=70ae4406c01aa5a7c2baa6e0c8d57cdf
