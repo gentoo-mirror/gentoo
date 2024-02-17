@@ -18,7 +18,7 @@ IUSE="+firmware flatpak snap telemetry webengine"
 
 # libmarkdown (app-text/discount) only used in PackageKitBackend
 DEPEND="
-	>=dev-libs/appstream-0.15.3:=
+	>=dev-libs/appstream-0.15.3:=[qt5(-)]
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
