@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-13">
+    <title>TACACS+: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in TACACS+ which could lead to remote code execution.</synopsis>
+    <product type="ebuild">tac_plus</product>
+    <announced>2024-02-18</announced>
+    <revised count="1">2024-02-18</revised>
+    <bug>918536</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-nds/tac_plus" auto="yes" arch="*">
+            <vulnerable range="le">4.0.4.27a-r3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>An updated version of Cisco&#39;s TACACS+ server.</p>
+    </background>
+    <description>
+        <p>A vulnerabilitiy has been discovered in TACACS+. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A lack of input validation exists in tac_plus which, when pre or post auth commands are enabled, allows an attacker who can control the username, rem-addr, or NAC address sent to tac_plus to inject shell commands and gain remote code execution on the tac_plus server.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for TACACS+. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "net-nds/tac_plus"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45239">CVE-2023-45239</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-18T07:32:10.393499Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-18T07:32:10.395789Z">graaff</metadata>
+</glsa>
