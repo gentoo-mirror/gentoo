@@ -8,14 +8,30 @@ inherit meson toolchain-funcs
 DESCRIPTION="A dynamic tiling Wayland compositor that doesn't sacrifice on its looks"
 HOMEPAGE="https://github.com/hyprwm/Hyprland"
 
-SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/${PN}-source"
+if [[ "${PV}" = *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/hyprwm/${PN^}.git"
+else
+	SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${P}.gh.tar.gz"
+	S="${WORKDIR}/${PN}-source"
 
-KEYWORDS="~amd64 ~riscv"
+	KEYWORDS="~amd64 ~riscv"
+fi
+
 LICENSE="BSD"
 SLOT="0"
 IUSE="X legacy-renderer systemd"
 
+# hyprpm (hyprland plugin manager) requires the dependencies at runtime
+# so that it can clone, compile and install plugins.
+HYPRPM_RDEPEND="
+	app-alternatives/ninja
+	dev-build/cmake
+	dev-build/meson
+	dev-vcs/git
+	sys-auth/polkit
+	virtual/pkgconfig
+"
 # bundled wlroots has the following dependency string according to included headers.
 # wlroots[drm,gles2-renderer,libinput,x11-backend?,X?]
 # enable x11-backend with X and vice versa
@@ -28,7 +44,7 @@ WLROOTS_RDEPEND="
 	media-libs/mesa[egl(+),gles2]
 	sys-apps/hwdata:=
 	sys-auth/seatd:=
-	>=x11-libs/libdrm-2.4.118
+	>=x11-libs/libdrm-2.4.120
 	x11-libs/libxkbcommon
 	>=x11-libs/pixman-0.42.0
 	virtual/libudev:=
@@ -46,9 +62,10 @@ WLROOTS_BDEPEND="
 	dev-util/glslang
 	dev-util/wayland-scanner
 "
-
 RDEPEND="
+	${HYPRPM_RDEPEND}
 	${WLROOTS_RDEPEND}
+	dev-cpp/tomlplusplus
 	dev-libs/glib:2
 	dev-libs/libinput
 	dev-libs/wayland
@@ -66,7 +83,7 @@ DEPEND="
 	${RDEPEND}
 	${WLROOTS_DEPEND}
 	dev-libs/hyprland-protocols
-	>=dev-libs/wayland-protocols-1.25
+	dev-libs/wayland-protocols
 "
 BDEPEND="
 	${WLROOTS_BDEPEND}
@@ -76,10 +93,6 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}/gcc14.patch"
-)
 
 pkg_setup() {
 	[[ ${MERGE_TYPE} == binary ]] && return
