@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit systemd toolchain-funcs flag-o-matic tmpfiles
 
@@ -13,17 +13,17 @@ MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="ISC Dynamic Host Configuration Protocol (DHCP) client/server"
 HOMEPAGE="https://www.isc.org/dhcp"
-SRC_URI="ftp://ftp.isc.org/isc/dhcp/${MY_P}.tar.gz
-	ftp://ftp.isc.org/isc/dhcp/${MY_PV}/${MY_P}.tar.gz"
+SRC_URI="
+	https://downloads.isc.org/isc/dhcp/${MY_P}.tar.gz
+	https://downloads.isc.org/isc/dhcp/${MY_PV}/${MY_P}.tar.gz
+	https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/dhcp-4.4.3-patches.tar.xz
+"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="MPL-2.0 BSD SSLeay GPL-2" # GPL-2 only for init script
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+client ipv6 ldap selinux +server ssl vim-syntax"
-
-BDEPEND="
-	acct-group/dhcp
-	acct-user/dhcp"
 
 DEPEND="
 	sys-libs/zlib:=
@@ -41,43 +41,49 @@ RDEPEND="
 	${BDEPEND}
 	${DEPEND}
 	selinux? ( sec-policy/selinux-dhcp )
-	vim-syntax? ( app-vim/dhcpd-syntax )"
-
-S="${WORKDIR}/${MY_P}"
-
-src_unpack() {
-	unpack ${A}
-	# handle local bind hell
-	cd "${S}"/bind
-	unpack ./bind.tar.gz
-}
+	vim-syntax? ( app-vim/dhcpd-syntax )
+"
+BDEPEND="
+	acct-group/dhcp
+	acct-user/dhcp
+"
 
 PATCHES=(
 	# Gentoo patches - these will probably never be accepted upstream
 	# Fix some permission issues
-	"${FILESDIR}/${PN}-4.4.3-fix-perms.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-fix-perms.patch"
 
 	# Enable dhclient to equery NTP servers
-	"${FILESDIR}/${PN}-4.4.3-dhclient-ntp.patch"
-	"${FILESDIR}/${PN}-4.4.3-dhclient-resolvconf.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-dhclient-ntp.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-dhclient-resolvconf.patch"
 
 	# Enable dhclient to get extra configuration from stdin
-	"${FILESDIR}/${PN}-4.4.3-dhclient-stdin-conf.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-dhclient-stdin-conf.patch"
 	# bug #265531
-	"${FILESDIR}/${PN}-4.4.3-nogateway.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-nogateway.patch"
 	# bug #296921
-	"${FILESDIR}/${PN}-4.4.3-quieter-ping.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-quieter-ping.patch"
 	# bug #437108
-	"${FILESDIR}/${PN}-4.4.3-always-accept-4.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-always-accept-4.patch"
 	# bug #480636
-	"${FILESDIR}/${PN}-4.4.3-iproute2-path.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-iproute2-path.patch"
 	# bug #471142
-	"${FILESDIR}/${PN}-4.4.3-bindtodevice-inet6.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-bindtodevice-inet6.patch"
 	# bug #559832
-	"${FILESDIR}/${PN}-4.4.3-ldap-ipv6-client-id.patch"
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-ldap-ipv6-client-id.patch"
+	# bug #908986
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-infiniband.patch"
 
 	# Possible upstream candidates
+	"${WORKDIR}/dhcp-4.4.3-patches/${PN}-4.4.3-configure-clang16.patch"
 )
+
+src_unpack() {
+	unpack ${A}
+	# handle local bind hell
+	cd "${S}"/bind || die
+	unpack ./bind.tar.gz
+}
 
 src_prepare() {
 	default
@@ -133,7 +139,7 @@ src_prepare() {
 	binddir=${binddir}
 	GMAKE=${MAKE:-gmake}
 	EOF
-	eapply -p2 "${FILESDIR}"/${PN}-4.4.3-bind-disable.patch
+	eapply -p2 "${WORKDIR}"/dhcp-4.4.3-patches/${PN}-4.4.3-bind-disable.patch
 	# Only use the relevant subdirs now that ISC
 	#removed the lib/export structure in bind.
 	sed '/^SUBDIRS/s@=.*$@= isc dns isccfg irs samples@' \
@@ -173,9 +179,7 @@ src_configure() {
 	append-flags -fno-strict-aliasing
 
 	# bug #720806, bug #801592
-	if use ppc || use arm || use hppa || [[ ${CHOST} == i486* ]] ; then
-		append-libs -latomic
-	fi
+	append-atomic-flags
 
 	local myeconfargs=(
 		--enable-paranoia
@@ -205,10 +209,13 @@ src_compile() {
 	emake -C bind/bind-*/lib install
 	# then build standard dhcp code
 	emake AR="$(tc-getAR)"
+	emake -C keama AR="$(tc-getAR)"
 }
 
 src_install() {
 	default
+
+	emake -C keama DESTDIR="${D}" install
 
 	dodoc README RELNOTES doc/{api+protocol,IANA-arp-parameters}
 	docinto html
