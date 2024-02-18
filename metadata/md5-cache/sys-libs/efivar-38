@@ -1,5 +1,5 @@
 BDEPEND=app-text/mandoc test? ( sys-boot/grub:2 )
-DEFINED_PHASES=configure prepare
+DEFINED_PHASES=configure prepare test
 DEPEND=dev-libs/popt >=sys-kernel/linux-headers-3.18 virtual/pkgconfig
 DESCRIPTION=Tools and library to manipulate EFI variables
 EAPI=7
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://github.com/rhinstaller/efivar/releases/download/38/efivar-38.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=512bb11f416e9b1470552c18e93a3593
+_md5_=a1c52917dd995c5caa724122ad6ce51b
