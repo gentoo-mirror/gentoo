@@ -5563,8 +5563,11 @@ net-dns/bind-tools:gssapi - Enable gssapi support
 net-dns/ddclient:examples - Install various example files, like for cron.
 net-dns/dnsdist:dnscrypt - Enable the ability to act as a DNSCrypt server
 net-dns/dnsdist:dnstap - Enable support for dnstap
-net-dns/dnsdist:doh - Enable support for dns over http via www-servers/h2o
+net-dns/dnsdist:doh - Enable support for dns over http via net-libs/nghttp2
+net-dns/dnsdist:doh3 - Enable support for dns over http3 via net-libs/quiche
+net-dns/dnsdist:ipcipher - Enable support for ipcipher via dev-libs/openssl
 net-dns/dnsdist:lmdb - Enable support for lmdb
+net-dns/dnsdist:quic - Enable support for dns over quic via net-libs/quiche
 net-dns/dnsdist:regex - Enable support for regular expression matching via dev-libs/re2
 net-dns/dnsdist:remote-logging - Enable support for remote logging via dev-libs/protobuf
 net-dns/dnsdist:ssl - Enable support for and encrypted client-server communication via dev-libs/libsodium
