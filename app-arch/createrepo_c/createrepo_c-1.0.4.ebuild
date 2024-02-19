@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,8 @@ DEPEND="
 	app-arch/rpm
 	app-arch/xz-utils
 	app-arch/zchunk
-	dev-db/sqlite:3
+	app-arch/zstd:=
+	>=dev-db/sqlite-3.6.18:3
 	dev-libs/glib:2
 	dev-libs/libxml2
 	dev-libs/openssl:=
@@ -35,7 +36,6 @@ DEPEND="
 	sys-apps/file
 	sys-libs/libmodulemd
 	sys-libs/zlib:=
-	zstd? ( app-arch/zstd:= )
 "
 
 RDEPEND="${DEPEND}"
@@ -50,7 +50,6 @@ src_configure() {
 		-DWITH_LEGACY_HASHES=$(usex legacy ON OFF)
 		-DWITH_LIBMODULEMD=ON
 		-DWITH_ZCHUNK=ON
-		-DWITH_ZSTD=$(usex zstd)
 	)
 
 	cmake_src_configure
