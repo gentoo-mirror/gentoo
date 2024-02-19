@@ -5,7 +5,7 @@
     <synopsis>Multiple vulnerabilities have been discovered in the GNU C Library, the worst of which could result in denial of service.</synopsis>
     <product type="ebuild">glibc</product>
     <announced>2022-08-14</announced>
-    <revised count="1">2022-08-14</revised>
+    <revised count="2">2024-02-18</revised>
     <bug>803437</bug>
     <bug>807935</bug>
     <bug>831096</bug>
@@ -13,8 +13,8 @@
     <access>remote</access>
     <affected>
         <package name="sys-libs/glibc" auto="yes" arch="*">
-            <unaffected range="ge">2.34</unaffected>
-            <vulnerable range="lt">2.34</vulnerable>
+            <unaffected range="ge">2.34-r7</unaffected>
+            <vulnerable range="lt">2.34-r7</vulnerable>
         </package>
     </affected>
     <background>
