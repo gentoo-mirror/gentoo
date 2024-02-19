@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-27">
+    <title>Glade: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in Glade which can lead to a denial of service.</synopsis>
+    <product type="ebuild">glade</product>
+    <announced>2024-02-19</announced>
+    <revised count="1">2024-02-19</revised>
+    <bug>747451</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-util/glade" auto="yes" arch="*">
+            <unaffected range="ge">3.38.2</unaffected>
+            <vulnerable range="lt">3.38.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Glade is a RAD tool to enable quick &amp; easy development of user interfaces for the GTK+ toolkit (Version 3 only) and the GNOME desktop environment.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been found in Glade which can lead to a denial of service when working with specific glade files.</p>
+    </description>
+    <impact type="normal">
+        <p>A crafted file may lead to crashes in Glade.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Glade users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-util/glade-3.38.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36774">CVE-2020-36774</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-19T06:02:10.382734Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-19T06:02:10.385523Z">ajak</metadata>
+</glsa>
