@@ -1,13 +1,13 @@
-BDEPEND=dev-go/gox >=dev-lang/go-1.20:= app-arch/unzip
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile install test unpack
 DESCRIPTION=A simple, modern and secure encryption tool (and Go library)
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/FiloSottile/age
 INHERIT=go-module
-KEYWORDS=amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=BSD
 RESTRICT=strip
 SLOT=0
-SRC_URI=https://github.com/FiloSottile/age/archive/v1.0.0.tar.gz -> age-1.0.0.tar.gz https://dev.gentoo.org/~williamh/dist/age-1.0.0-deps.tar.xz
+SRC_URI=https://github.com/FiloSottile/age/archive/v1.1.1.tar.gz -> age-1.1.1.tar.gz https://dev.gentoo.org/~graaff/age/age-1.1.1-deps.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097
-_md5_=9aefd0fed84c33a9b65802531b3a1159
+_md5_=7244e7b3adc6c4acc30be213457a7fb0
