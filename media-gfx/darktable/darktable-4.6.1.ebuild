@@ -1,8 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+CMAKE_BUILD_TYPE="Release"
 LUA_COMPAT=( lua5-4 )
 
 inherit cmake flag-o-matic lua-single toolchain-funcs xdg
@@ -18,7 +19,8 @@ if [[ ${PV} == *9999 ]]; then
 
 	LANGS=" af ca cs da de el es fi fr gl he hu it ja nb nl pl pt-BR pt-PT ro ru sk sl sq sv th uk zh-CN zh-TW"
 else
-	DOC_PV=$(ver_cut 1-2)
+	#DOC_PV=$(ver_cut 1-2)
+	DOC_PV="4.6"
 	MY_PV="${PV/_/}"
 	MY_P="${P/_/.}"
 
@@ -31,11 +33,11 @@ else
 			)
 		)"
 
-	KEYWORDS="amd64 ~arm64 -x86"
-	LANGS=" cs de es fi fr he hu it ja nl pl pt-BR ru sl sq tr uk zh-CN zh-TW"
+	KEYWORDS="~amd64 ~arm64 -x86"
+	LANGS=" cs de es fi fr hu it ja nl pl pt-BR ru sl sq tr uk zh-CN zh-TW"
 fi
 
-IUSE="avif colord cpu_flags_x86_avx cpu_flags_x86_sse3 cups doc flickr gamepad geolocation keyring gphoto2 graphicsmagick heif jpeg2k kwallet lto lua midi nls opencl openmp openexr test tools webp
+IUSE="avif colord cpu_flags_x86_avx cpu_flags_x86_sse3 cups doc gamepad geolocation keyring gphoto2 graphicsmagick heif jpeg2k jpegxl kwallet lto lua midi nls opencl openmp openexr test tools webp
 	${LANGS// / l10n_}"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
@@ -77,7 +79,6 @@ DEPEND="dev-db/sqlite:3
 	avif? ( >=media-libs/libavif-0.8.2:= )
 	colord? ( x11-libs/colord-gtk:= )
 	cups? ( net-print/cups )
-	flickr? ( media-libs/flickcurl )
 	gamepad? ( media-libs/libsdl2 )
 	geolocation? ( >=sci-geosciences/osm-gps-map-1.1.0 )
 	keyring? ( >=app-crypt/libsecret-0.18 )
@@ -85,6 +86,7 @@ DEPEND="dev-db/sqlite:3
 	graphicsmagick? ( media-gfx/graphicsmagick )
 	heif? ( media-libs/libheif:= )
 	jpeg2k? ( media-libs/openjpeg:2= )
+	jpegxl? ( media-libs/libjxl:= )
 	lua? ( ${LUA_DEPS} )
 	midi? ( media-libs/portmidi )
 	opencl? ( virtual/opencl )
@@ -94,12 +96,10 @@ RDEPEND="${DEPEND}
 	kwallet? ( >=kde-frameworks/kwallet-5.34.0-r1 )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.0.2_cmake-march-autodetection.patch
 	"${FILESDIR}"/${PN}-3.4.0_jsonschema-automagic.patch
 	"${FILESDIR}"/${PN}-3.4.1_libxcf-cmake.patch
 	"${FILESDIR}"/${PN}-4.2.1_cmake-musl.patch
-	# patch by ArchLinux
-	"${FILESDIR}"/${P}-exiv2-0.28.patch # bug 906466
+	"${FILESDIR}"/${PN}-4.4.2_fix-has-attribute-musl.patch
 )
 
 S="${WORKDIR}/${P/_/~}"
@@ -147,9 +147,9 @@ src_configure() {
 		-DUSE_AVIF=$(usex avif)
 		-DUSE_CAMERA_SUPPORT=$(usex gphoto2)
 		-DUSE_COLORD=$(usex colord)
-		-DUSE_FLICKR=$(usex flickr)
 		-DUSE_GMIC=OFF
 		-DUSE_GRAPHICSMAGICK=$(usex graphicsmagick)
+		-DUSE_JXL=$(usex jpegxl)
 		-DUSE_KWALLET=$(usex kwallet)
 		-DUSE_LIBSECRET=$(usex keyring)
 		-DUSE_LUA=$(usex lua)
