@@ -1,5 +1,5 @@
 BDEPEND=sys-devel/gettext virtual/pkgconfig
-DEFINED_PHASES=install postinst postrm
+DEFINED_PHASES=install postinst postrm prepare
 DEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)] >=xfce-base/libxfce4util-4.17.2:=
 DESCRIPTION=Extensions, widgets and framework library with session support for Xfce
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/libxfce4ui-4
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/xfce/exo/4.19/exo-4.19.0.tar.bz2
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=0bd5f317565fe7e98ba4b189c496cd0f
+_md5_=8bb7230f45e566a8a058804ab6001529
