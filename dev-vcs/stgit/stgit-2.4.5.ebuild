@@ -8,7 +8,7 @@ EAPI=8
 CRATES="
 	adler-1.0.2
 	anstream-0.6.11
-	anstyle-1.0.5
+	anstyle-1.0.6
 	anstyle-parse-0.2.3
 	anstyle-query-1.0.2
 	anstyle-wincon-3.0.2
@@ -27,10 +27,10 @@ CRATES="
 	clap_lex-0.6.0
 	clru-0.6.1
 	colorchoice-1.0.0
-	crc32fast-1.3.2
+	crc32fast-1.4.0
 	ctrlc-3.4.2
-	curl-0.4.44
-	curl-sys-0.4.71+curl-8.6.0
+	curl-0.4.46
+	curl-sys-0.4.72+curl-8.6.0
 	deranged-0.3.11
 	dunce-1.0.4
 	encoding_rs-0.8.33
@@ -58,7 +58,7 @@ CRATES="
 	gix-hash-0.14.1
 	gix-hashtable-0.5.1
 	gix-index-0.29.0
-	gix-lock-13.0.0
+	gix-lock-13.1.0
 	gix-macros-0.1.3
 	gix-object-0.41.0
 	gix-odb-0.57.0
@@ -70,18 +70,18 @@ CRATES="
 	gix-revision-0.26.0
 	gix-revwalk-0.12.0
 	gix-sec-0.10.4
-	gix-tempfile-13.0.0
+	gix-tempfile-13.1.0
 	gix-trace-0.1.7
 	gix-traverse-0.37.0
 	gix-url-0.27.0
 	gix-utils-0.1.9
 	gix-validate-0.8.3
 	hashbrown-0.14.3
-	hermit-abi-0.3.4
+	hermit-abi-0.3.6
 	home-0.5.9
 	idna-0.5.0
-	indexmap-2.2.2
-	is-terminal-0.4.10
+	indexmap-2.2.3
+	is-terminal-0.4.12
 	itoa-1.0.10
 	libc-0.2.153
 	libz-sys-1.1.15
@@ -94,15 +94,15 @@ CRATES="
 	nix-0.27.1
 	nom-7.1.3
 	num-conv-0.1.0
-	num-traits-0.2.17
-	num_threads-0.1.6
+	num-traits-0.2.18
+	num_threads-0.1.7
 	once_cell-1.19.0
 	openssl-probe-0.1.5
 	openssl-sys-0.9.99
 	parking_lot-0.12.1
 	parking_lot_core-0.9.9
 	percent-encoding-2.3.1
-	pkg-config-0.3.29
+	pkg-config-0.3.30
 	powerfmt-0.2.0
 	proc-macro2-1.0.78
 	prodash-28.0.0
@@ -120,15 +120,15 @@ CRATES="
 	sha1_smol-1.0.0
 	shell-words-1.1.0
 	smallvec-1.13.1
-	socket2-0.4.10
+	socket2-0.5.5
 	strsim-0.10.0
-	syn-2.0.48
+	syn-2.0.49
 	tar-0.4.40
-	tempfile-3.9.0
+	tempfile-3.10.0
 	termcolor-1.4.1
 	terminal_size-0.3.0
-	thiserror-1.0.56
-	thiserror-impl-1.0.56
+	thiserror-1.0.57
+	thiserror-impl-1.0.57
 	time-0.3.34
 	time-core-0.1.2
 	time-macros-0.2.17
@@ -164,7 +164,7 @@ CRATES="
 	windows_x86_64_gnullvm-0.52.0
 	windows_x86_64_msvc-0.48.5
 	windows_x86_64_msvc-0.52.0
-	winnow-0.5.37
+	winnow-0.5.40
 	xattr-1.3.1
 "
 
