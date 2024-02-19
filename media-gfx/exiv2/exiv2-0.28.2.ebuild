@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/Exiv2/exiv2/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris"
 fi
 
 LICENSE="GPL-2"
@@ -26,6 +26,7 @@ IUSE="+bmff doc examples nls +png test webready +xmp"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-libs/inih[${MULTILIB_USEDEP}]
 	>=virtual/libiconv-0-r1[${MULTILIB_USEDEP}]
 	nls? ( >=virtual/libintl-0-r1[${MULTILIB_USEDEP}] )
 	png? ( sys-libs/zlib[${MULTILIB_USEDEP}] )
@@ -34,8 +35,7 @@ RDEPEND="
 	)
 	xmp? ( dev-libs/expat[${MULTILIB_USEDEP}] )
 "
-DEPEND="
-	${DEPEND}
+DEPEND="${DEPEND}
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="
@@ -52,8 +52,7 @@ BDEPEND="
 
 DOCS=( README.md doc/ChangeLog doc/cmd.txt )
 
-# https://github.com/Exiv2/exiv2/pull/2832
-PATCHES=( "${FILESDIR}/${P}-exiv2lib.patch" ) # bug 917483
+PATCHES=( "${FILESDIR}/${P}-errors-localisation.patch" )
 
 pkg_setup() {
 	if use doc || use test ; then
@@ -79,7 +78,7 @@ multilib_src_configure() {
 		-DEXIV2_ENABLE_NLS=$(usex nls)
 		-DEXIV2_ENABLE_PNG=$(usex png)
 		-DEXIV2_ENABLE_CURL=$(usex webready)
-		-DEXIV2_ENABLE_INIH=OFF # multilib/libdir logic is broken
+		-DEXIV2_ENABLE_INIH=ON # must be enabled (bug #921937)
 		-DEXIV2_ENABLE_WEBREADY=$(usex webready)
 		-DEXIV2_ENABLE_XMP=$(usex xmp)
 		-DEXIV2_ENABLE_BMFF=$(usex bmff)
