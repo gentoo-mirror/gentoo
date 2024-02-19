@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/xdp-project/xdp-tools
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=+tools
-KEYWORDS=amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-2 LGPL-2.1 BSD-2
 RDEPEND=dev-libs/libbpf:= dev-util/bpftool net-libs/libpcap sys-libs/zlib virtual/libelf
 SLOT=0
 SRC_URI=https://github.com/xdp-project/xdp-tools/archive/refs/tags/v1.4.1.tar.gz -> xdp-tools-1.4.1.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
-_md5_=3bcb9aaa7a24616a91c436fd6876e136
+_md5_=952f9de2023cd28cf9c1302d2d33b4f6
