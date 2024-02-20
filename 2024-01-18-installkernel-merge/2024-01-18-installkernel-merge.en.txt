@@ -1,7 +1,7 @@
 Title: Merging of installkernel-gentoo and installkernel-systemd
 Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Posted: 2024-01-18
-Revision: 6
+Revision: 7
 News-Item-Format: 2.0
 Display-If-Installed: sys-kernel/installkernel
 Display-If-Installed: sys-kernel/installkernel-gentoo
@@ -77,6 +77,31 @@ emerge --noreplace sys-kernel/installkernel
 emerge --depclean sys-kernel/installkernel-systemd
 
 
+User Action Required (rEFInd users)
+====================
+
+Previously sys-kernel/installkernel-gentoo provided kernel installation
+automation for users of rEFInd. The new sys-kernel/installkernel provides the
+same functionality, which now works with both the traditional installkernel and
+systemd's kernel-install.
+
+Users of rEFInd should:
+- ensure that the "systemd-boot" and "grub" USE flags are NOT enabled when
+upgrading to >=sys-kernel/installkernel-20.
+
+Additionally, users of rEFInd may want to
+- enable the "refind" USE flag to
+install an icon file alongside the installed kernel image which rEFInd will
+pick up at runtime.
+
+Users of rEFInd may wish to explicitly choose either the traditional
+installkernel or systemd's kernel-install, in which case they may do so
+via USE=-/+systemd.
+
+sys-kernel/installkernel is renamed from sys-kernel/installkernel-gentoo,
+therefore no further user action is required to upgrade to the new package.
+
+
 User Action Required (users of other bootloaders and custom scripts)
 ====================
 
@@ -85,16 +110,24 @@ plugins should either ensure that the same kernel installation method will be
 used after upgrading to >=sys-kernel/installkernel-14 (via USE=+/-systemd) or
 migrate these custom plugins (details are on the wiki [1]).
 
-Users of bootloaders other than GRUB or systemd-boot may want to retain the
-traditional /boot layout. They may do so by either:
-- disabling the "systemd" USE flag, or
-- when the "systemd" USE flag is enabled, enabling the "grub" USE flag as well.
-- when the "systemd" USE flag is enabled, setting "layout=grub" in
-/etc/kernel/install.conf
+Users of bootloaders other than GRUB, systemd-boot or refind may want to retain
+the traditional /boot layout. They may do so by:
+- ensuring that the "systemd-boot", "grub" and "refind" USE flags are disabled.
 
-Users who wish to use EFI stub booting may be interested in building an
-Unified Kernel Image[2] by enabling the "ukify" and "uki" USE flags. This will
-automatically install a bootable EFI executable to the EFI system partition.
+
+Optional: Unified Kernel Images (all users)
+====================
+
+Users who wish to use Unified Kernel Images[2] (e.g. for EFI stub booting) may
+do so by
+- enabling the "ukify" and "uki" USE flags.
+Which will automatically install a bootable EFI executable to the EFI system
+partition.
+
+The UEFI firmware, as well as, Systemd-boot, GRUB and rEFInd are capable of
+loading Unified Kernel Images. For more details see the wiki page on Unified
+Kernel Images[2]
+
 
 [1] https://wiki.gentoo.org/wiki/Installkernel
 [2] https://wiki.gentoo.org/wiki/Unified_kernel_image
