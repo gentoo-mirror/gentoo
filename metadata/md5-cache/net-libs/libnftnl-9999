@@ -4,12 +4,12 @@ DEPEND=>=net-libs/libmnl-1.0.4:=
 DESCRIPTION=Netlink API to the in-kernel nf_tables subsystem
 EAPI=8
 HOMEPAGE=https://netfilter.org/projects/nftables/
-INHERIT=linux-info usr-ldscript verify-sig autotools git-r3
-IUSE=examples static-libs test split-usr verify-sig
+INHERIT=linux-info verify-sig autotools git-r3
+IUSE=examples static-libs test verify-sig
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=>=net-libs/libmnl-1.0.4:=
 RESTRICT=!test? ( test )
 SLOT=0/11
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	usr-ldscript	ff03a5d223e97515fa25b5cae97ebda9	verify-sig	a79ba011daaf532d71a219182474d150	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=af47f4bde9199fcb7a16dd9232b8844e
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	verify-sig	a79ba011daaf532d71a219182474d150	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_md5_=26e99122a5ecd32334d3a89389a73d32
