@@ -1,0 +1,15 @@
+BDEPEND=dev-go/gox >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=acct-group/consul acct-user/consul
+DESCRIPTION=A tool for service discovery, monitoring and configuration
+EAPI=8
+HOMEPAGE=https://www.consul.io
+INHERIT=go-module systemd
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MPL-2.0 Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT
+RDEPEND=acct-group/consul acct-user/consul
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/zmedico/consul/archive/v1.15.10-vendor.tar.gz -> consul-1.15.10-vendor.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	09ccb1fdea4f1f3f718e27b756636097	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=a13e728f13a8066d6e94ec526489ff4d
