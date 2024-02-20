@@ -23,8 +23,8 @@ CRATES="
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.0
-	clap_builder@4.5.0
+	clap@4.5.1
+	clap_builder@4.5.1
 	clap_lex@0.7.0
 	criterion-plot@0.5.0
 	criterion@0.5.1
@@ -33,7 +33,7 @@ CRATES="
 	crunchy@0.2.2
 	either@1.10.0
 	env_filter@0.1.0
-	env_logger@0.11.1
+	env_logger@0.11.2
 	errno@0.3.8
 	fastrand@2.0.1
 	futures-channel@0.3.30
@@ -45,7 +45,7 @@ CRATES="
 	globset@0.4.14
 	half@2.3.1
 	heck@0.4.1
-	hermit-abi@0.3.5
+	hermit-abi@0.3.6
 	hex@0.4.3
 	io-lifetimes@1.0.11
 	io-uring@0.6.3
@@ -75,7 +75,7 @@ CRATES="
 	parse-size@1.0.0
 	pin-project-lite@0.2.13
 	pin-utils@0.1.0
-	pkg-config@0.3.29
+	pkg-config@0.3.30
 	proc-macro2@1.0.78
 	procfs@0.15.1
 	quote@1.0.35
@@ -98,7 +98,7 @@ CRATES="
 	smallvec@1.13.1
 	strum@0.26.1
 	strum_macros@0.26.1
-	syn@2.0.48
+	syn@2.0.49
 	tempfile@3.10.0
 	tinytemplate@1.2.1
 	unicode-ident@1.0.12

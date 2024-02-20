@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="OpenPGP keys used by tomcat.apache.org"
-HOMEPAGE="https://tomcat.apache.org/download-90.cgi"
+HOMEPAGE="https://tomcat.apache.org/download-80.cgi"
 SRC_URI="https://downloads.apache.org/tomcat/tomcat-$(ver_cut 1)/v${PV}/KEYS -> ${P}-KEYS.asc"
 
 LICENSE="public-domain"
