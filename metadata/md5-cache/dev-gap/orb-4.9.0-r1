@@ -1,6 +1,6 @@
-BDEPEND=test? ( dev-gap/atlasrep dev-gap/cvec dev-gap/io ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+BDEPEND=test? ( dev-gap/atlasrep dev-gap/cvec dev-gap/io ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp sci-mathematics/gap:= )
 DEFINED_PHASES=compile configure install setup test
-DEPEND=sci-mathematics/gap
+DEPEND=sci-mathematics/gap:=
 DESCRIPTION=GAP methods to enumerate orbits
 EAPI=8
 HOMEPAGE=https://www.gap-system.org/Packages/orb.html
@@ -8,9 +8,9 @@ INHERIT=gap-pkg toolchain-funcs
 IUSE=examples test test
 KEYWORDS=~amd64
 LICENSE=GPL-3+
-RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RDEPEND=sci-mathematics/gap:= sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/gap-packages/orb/releases/download/v4.9.0/orb-4.9.0.tar.gz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	49107a349cfd3e19c01c89922d464e4f	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=3a67ef773aa747e4310107b16f468683
+_md5_=338fce6b5987589b151d1539bc41e418

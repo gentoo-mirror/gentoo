@@ -1,5 +1,6 @@
-BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp sci-mathematics/gap:= )
 DEFINED_PHASES=compile configure install test
+DEPEND=sci-mathematics/gap:=
 DESCRIPTION=Elementary Divisors of Integer Matrices (EDIM) for GAP
 EAPI=8
 HOMEPAGE=https://www.gap-system.org/Packages/edim.html
@@ -7,9 +8,9 @@ INHERIT=gap-pkg
 IUSE=test
 KEYWORDS=~amd64
 LICENSE=GPL-2+
-RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RDEPEND=sci-mathematics/gap:= sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.math.rwth-aachen.de/~Frank.Luebeck/EDIM/EDIM-1.3.7.tar.gz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	49107a349cfd3e19c01c89922d464e4f
-_md5_=8a76e343b43f2c4a9d3dd9eb0b9dae02
+_md5_=35ec70e8410e08c72562cb203926f26e
