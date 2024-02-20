@@ -1,6 +1,6 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-ant ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
-DEPEND=>=virtual/jdk-11:* bcel? ( dev-java/bcel:0 ) bsf? ( dev-java/bsf:2.3 ) commonslogging? ( dev-java/commons-logging:0 ) commonsnet? ( dev-java/commons-net:0 ) jai? ( dev-java/sun-jai-bin:0 ) jakartamail? ( dev-java/jakarta-mail:0 ) javamail? ( dev-java/javax-mail:0 ) jdepend? ( >=dev-java/jdepend-2.10-r1:0 ) jsch? ( dev-java/jsch:0 ) junit4? ( dev-java/junit:4 ) junit? ( dev-java/junit:4 ) junitlauncher? ( dev-java/junit:5[vintage] ) log4j? ( dev-java/log4j-12-api:2 ) oro? ( dev-java/jakarta-oro:2.0 ) regexp? ( dev-java/jakarta-regexp:1.4 ) resolver? ( dev-java/xml-commons-resolver:0 ) test? ( dev-java/antunit:0 dev-java/bsf:2.3[javascript] dev-java/bsh:0 dev-java/hamcrest-library:1.3 dev-java/xerces:2 ) xalan? ( dev-java/xalan:0 dev-java/xalan-serializer:0 ) xz? ( dev-java/xz-java:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-11:* bcel? ( dev-java/bcel:0 ) bsf? ( dev-java/bsf:2.3 ) commonslogging? ( dev-java/commons-logging:0 ) commonsnet? ( dev-java/commons-net:0 ) jai? ( dev-java/sun-jai-bin:0 ) jakartamail? ( dev-java/jakarta-mail:0 ) javamail? ( dev-java/jakarta-activation-api:1 dev-java/javax-mail:0 ) jdepend? ( >=dev-java/jdepend-2.10-r1:0 ) jsch? ( dev-java/jsch:0 ) junit4? ( dev-java/junit:4 ) junit? ( dev-java/junit:4 ) junitlauncher? ( dev-java/junit:5[vintage] ) log4j? ( dev-java/log4j-12-api:2 ) oro? ( dev-java/jakarta-oro:2.0 ) regexp? ( dev-java/jakarta-regexp:1.4 ) resolver? ( dev-java/xml-commons-resolver:0 ) test? ( dev-java/antunit:0 dev-java/bsf:2.3[javascript] dev-java/bsh:0 dev-java/hamcrest-library:1.3 dev-java/xerces:2 ) xalan? ( dev-java/xalan:0 dev-java/xalan-serializer:0 ) xz? ( dev-java/xz-java:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Java-based build tool similar to 'make' that uses XML configuration files
 EAPI=8
 HOMEPAGE=https://ant.apache.org/
@@ -16,4 +16,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/ant/source/apache-ant-1.10.14-src.tar.gz verify-sig? ( https://downloads.apache.org/ant/source/apache-ant-1.10.14-src.tar.gz.asc )
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22	verify-sig	a79ba011daaf532d71a219182474d150	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=d63f3cbd62e356d74d9be3c96f3bdcc8
+_md5_=351b93d8341bd8b7b441f82a86708dc5
