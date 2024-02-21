@@ -1,0 +1,18 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-lua/luafilesystem app-text/doxygen media-gfx/graphviz ) test? ( lua_single_target_luajit? ( dev-lua/luassert[lua_targets_luajit(-)] dev-lua/luacheck[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/luassert[lua_targets_lua5-1(-)] dev-lua/luacheck[lua_targets_lua5-1(-)] ) x11-base/xorg-server[xvfb] )
+DEFINED_PHASES=compile configure install postinst postrm preinst setup test
+DEPEND=dev-db/sqlite:3 dev-libs/glib:2 net-libs/webkit-gtk:4.1= x11-libs/gtk+:3 lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_luajit? ( dev-lua/luafilesystem[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] )
+DESCRIPTION=A fast, extensible, and customizable web browser
+EAPI=8
+HOMEPAGE=https://luakit.github.io/luakit
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=lua-single toolchain-funcs xdg
+IUSE=doc test lua_single_target_luajit lua_single_target_lua5-1
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3+
+RDEPEND=dev-db/sqlite:3 dev-libs/glib:2 net-libs/webkit-gtk:4.1= x11-libs/gtk+:3 lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_luajit? ( dev-lua/luafilesystem[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/luafilesystem[lua_targets_lua5-1(-)] )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/luakit/luakit/archive/2.3.6.tar.gz -> luakit-2.3.6.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=980e67e553b033c9908f5aeddc5d8e0d
