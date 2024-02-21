@@ -5,18 +5,20 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit gnome2-utils meson python-single-r1 xdg
+inherit gnome2-utils python-single-r1 meson xdg
 
 DESCRIPTION="Simple game launcher written in Python using GTK4 and Libadwaita"
 HOMEPAGE="https://github.com/kra-mo/cartridges/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/kra-mo/${PN}.git"
 else
 	SRC_URI="https://github.com/kra-mo/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -26,26 +28,24 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	>=gui-libs/libadwaita-1.4.0:1[introspection]
 	gui-libs/gtk:4[introspection]
-	gui-libs/libadwaita:1[introspection]
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
 "
-DEPEND="${RDEPEND}"
 BDEPEND="
+	${RDEPEND}
 	dev-libs/appstream-glib
 	dev-util/blueprint-compiler
 	dev-util/desktop-file-utils
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-1.5.4-dont-validate-appstream.patch )
-
 src_install() {
 	meson_src_install
 
-	python_fix_shebang "${ED}"/usr/bin
-	python_optimize "${ED}/usr/share/cartridges"
+	python_fix_shebang "${ED}/usr/bin"
+	python_optimize "${ED}/usr"
 }
 
 pkg_postinst() {
