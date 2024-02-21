@@ -17,18 +17,16 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD-2"
 # New major versions are parallel-installable
 SLOT="$(ver_cut 1)/$(ver_cut 1-2)" # soname version
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv ~sparc x86 ~ppc-macos"
+# Unkeyworded because of https://github.com/randombit/botan/issues/3916
+#KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~ppc-macos"
 IUSE="doc boost bzip2 lzma python static-libs sqlite test tools zlib"
-RESTRICT="!test? ( test )"
-
 CPU_USE=(
 	cpu_flags_arm_{aes,neon}
 	cpu_flags_ppc_altivec
 	cpu_flags_x86_{aes,avx2,popcnt,rdrand,sha,sse2,ssse3,sse4_1,sse4_2}
 )
-
 IUSE+=" ${CPU_USE[@]}"
-
+RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 # NOTE: Boost is needed at runtime too for the CLI tool.

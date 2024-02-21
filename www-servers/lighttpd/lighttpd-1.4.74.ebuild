@@ -16,16 +16,12 @@ SRC_URI="
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE="+brotli dbi gnutls kerberos ldap +lua maxminddb mbedtls mmap mysql +nettle nss +pcre php postgres rrdtool sasl selinux ssl sqlite test unwind webdav xattr +zlib zstd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="+brotli dbi gnutls kerberos ldap +lua maxminddb mbedtls +nettle nss +pcre php sasl selinux ssl test unwind webdav xattr +zlib zstd"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
-	mysql? ( dbi )
-	postgres? ( dbi )
-	sqlite? ( dbi )
-	webdav? ( sqlite )
 "
 
 # Match the bundled xxhash version for the minimum version
@@ -37,9 +33,6 @@ COMMON_DEPEND="
 	brotli? ( app-arch/brotli:= )
 	dbi? (
 		dev-db/libdbi
-		mysql? ( dev-db/libdbi-drivers[mysql] )
-		postgres? ( dev-db/libdbi-drivers[postgres] )
-		sqlite? ( dev-db/libdbi-drivers[sqlite] )
 	)
 	gnutls? ( net-libs/gnutls )
 	kerberos? ( virtual/krb5 )
@@ -51,7 +44,6 @@ COMMON_DEPEND="
 	nss? ( dev-libs/nss )
 	pcre? ( dev-libs/libpcre2 )
 	php? ( dev-lang/php:*[cgi] )
-	rrdtool? ( net-analyzer/rrdtool )
 	sasl? ( dev-libs/cyrus-sasl )
 	ssl? ( >=dev-libs/openssl-0.9.7:= )
 	unwind? ( sys-libs/libunwind:= )
@@ -139,9 +131,6 @@ src_configure() {
 		$(meson_feature maxminddb with_maxminddb)
 		$(meson_use mbedtls with_mbedtls)
 
-		# TODO: revisit (was off in autotools ebuild)
-		-Dwith_mysql=disabled
-
 		$(meson_use nettle with_nettle)
 		$(meson_use nss with_nss)
 
@@ -150,15 +139,11 @@ src_configure() {
 
 		$(meson_use pcre with_pcre2)
 
-		# TODO: revisit (was off in autotools ebuild)
-		-Dwith_pgsql=disabled
-
 		$(meson_feature sasl with_sasl)
 		$(meson_use ssl with_openssl)
 
 		-Dwith_xxhash=enabled
 		$(meson_feature webdav with_webdav_props)
-		$(meson_feature webdav with_webdav_locks)
 
 		# Unpackaged in Gentoo
 		-Dwith_wolfssl=false
@@ -227,13 +212,6 @@ pkg_postinst() {
 		elog "Remember to clean your cache directory when using"
 		elog "output compression!"
 		elog "https://wiki.lighttpd.net/Docs_ModDeflate"
-	fi
-
-	if use mysql ; then
-		elog
-		elog "Note that upstream has moved away from using mysql directly"
-		elog "via mod_mysql and is now accessing it through mod_dbi. You"
-		elog "may need to update your configuration"
 	fi
 
 	elog
