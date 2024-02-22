@@ -1,8 +1,8 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_DOCDIR="doc"
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.rdoc SPEC.rdoc"
@@ -17,8 +17,8 @@ SRC_URI="https://github.com/rack/rack/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="test"
 
 ruby_add_rdepend "virtual/ruby-ssl"
 
@@ -41,10 +41,17 @@ all_ruby_prepare() {
 	# Avoid development dependency
 	sed -i -e '/minitest-sprint/ s:^:#:' -e "s:require_relative ':require './:" rack.gemspec || die
 
-	# Avoid test failing due to security version number usage
-	sed -i -e '/support -v option to get version/askip "broken with security version number"' test/spec_server.rb || die
+	# Rename rackup command and force gem version to allow rack 2.x applications to work
+	mv bin/rackup bin/rackup-2 || die
+	sed -i -e '4igem "rack", "~> 2.2.0"' bin/rackup-2
 }
 
 each_ruby_test() {
 	${RUBY} -Ilib:test:. -e "require 'test/gemloader.rb'; Dir['test/spec_*.rb'].each{|f| require f}" || die
+}
+
+all_ruby_install() {
+	all_fakegem_install
+
+	einfo "The rackup command is installed as 'rackup-2' to allow parallel installation with rack 3"
 }
