@@ -25,6 +25,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
+	>=media-fonts/noto-emoji-20231130
 	media-libs/alsa-lib
 	media-libs/mesa[X(+)]
 	net-print/cups
