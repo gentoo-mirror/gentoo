@@ -3,11 +3,15 @@
 
 EAPI=8
 
+KERNEL_EFI_ZBOOT=1
+KERNEL_IUSE_GENERIC_UKI=1
+KERNEL_IUSE_SECUREBOOT=1
+
 inherit kernel-install toolchain-funcs unpacker
 
 MY_P=linux-${PV%.*}
-GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 11 ))
-BINPKG=${P/-bin}-1
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 6 ))
+BINPKG=${PF/-bin}-1
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="https://www.kernel.org/"
@@ -34,8 +38,7 @@ SRC_URI+="
 "
 S=${WORKDIR}
 
-LICENSE="GPL-2"
-KEYWORDS="amd64 arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	!sys-kernel/gentoo-kernel:${SLOT}
@@ -86,7 +89,7 @@ src_configure() {
 		LD="${LD}"
 		AR="$(tc-getAR)"
 		NM="$(tc-getNM)"
-		STRIP=":"
+		STRIP="$(tc-getSTRIP)"
 		OBJCOPY="$(tc-getOBJCOPY)"
 		OBJDUMP="$(tc-getOBJDUMP)"
 
@@ -96,18 +99,41 @@ src_configure() {
 		O="${WORKDIR}"/modprep
 	)
 
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KPV}"
+	local image="${kernel_dir}/$(dist-kernel_get_image_path)"
+	local uki="${image%/*}/uki.efi"
+	if [[ -s ${uki} ]]; then
+		# We need to extract the plain image for the test phase
+		# and USE=-generic-uki.
+		kernel-install_extract_from_uki linux "${uki}" "${image}"
+	fi
+
 	mkdir modprep || die
-	cp "${BINPKG}/image/usr/src/linux-${KPV}/.config" modprep/ || die
+	cp "${kernel_dir}/.config" modprep/ || die
 	emake -C "${MY_P}" "${makeargs[@]}" modules_prepare
 }
 
 src_test() {
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KPV}"
 	kernel-install_test "${KPV}" \
-		"${WORKDIR}/${BINPKG}/image/usr/src/linux-${KPV}/$(dist-kernel_get_image_path)" \
+		"${WORKDIR}/${kernel_dir}/$(dist-kernel_get_image_path)" \
 		"${BINPKG}/image/lib/modules/${KPV}"
 }
 
 src_install() {
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KPV}"
+	local image="${kernel_dir}/$(dist-kernel_get_image_path)"
+	local uki="${image%/*}/uki.efi"
+	if [[ -s ${uki} ]]; then
+		# Keep the kernel image type we don't want out of install tree
+		# Replace back with placeholder
+		if use generic-uki; then
+			> "${image}" || die
+		else
+			> "${uki}" || die
+		fi
+	fi
+
 	mv "${BINPKG}"/image/{lib,usr} "${ED}"/ || die
 
 	# FIXME: requires proper mount-boot
@@ -124,4 +150,12 @@ src_install() {
 		')' -delete || die
 	rm modprep/source || die
 	cp -p -R modprep/. "${ED}/usr/src/linux-${KPV}"/ || die
+
+	# Update timestamps on all modules to ensure cleanup works correctly
+	# when switching USE=modules-compress.
+	find "${ED}/lib" -name '*.ko' -exec touch {} + || die
+
+	# Modules were already stripped before signing
+	dostrip -x /lib/modules
+	kernel-install_compress_modules
 }
