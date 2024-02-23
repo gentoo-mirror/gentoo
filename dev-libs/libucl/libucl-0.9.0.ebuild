@@ -35,6 +35,10 @@ RDEPEND="${DEPEND}"
 
 DOCS=( README.md doc/api.md )
 
+PATCHES=(
+	"${FILESDIR}"/${P}-gchar-compile.patch
+)
+
 pkg_setup() {
 	use lua && lua-single_pkg_setup
 }
