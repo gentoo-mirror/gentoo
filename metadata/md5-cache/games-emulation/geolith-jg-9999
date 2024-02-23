@@ -1,13 +1,13 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
-DEPEND=dev-libs/miniz media-libs/jg:1= media-libs/speexdsp
+DEPEND=dev-libs/miniz:= media-libs/jg:1= media-libs/speexdsp
 DESCRIPTION=Jolly Good Neo Geo AES/MVS Emulator
 EAPI=8
 HOMEPAGE=https://gitlab.com/jgemu/geolith
 INHERIT=toolchain-funcs git-r3
 LICENSE=BSD MIT
 PROPERTIES=live
-RDEPEND=dev-libs/miniz media-libs/jg:1= media-libs/speexdsp games-emulation/jgrf
+RDEPEND=dev-libs/miniz:= media-libs/jg:1= media-libs/speexdsp games-emulation/jgrf
 SLOT=1
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=383d9a7341e591ed1533e25e671ae30b
+_md5_=3dd1d1ed53dffc57fe25d0c13a37263e
