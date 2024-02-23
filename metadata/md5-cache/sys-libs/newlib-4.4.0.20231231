@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install setup
+DESCRIPTION=Newlib is a C library intended for use on embedded systems
+EAPI=8
+HOMEPAGE=https://sourceware.org/newlib/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=nls threads unicode headers-only nano
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=NEWLIB LIBGLOSS GPL-2
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://sourceware.org/pub/newlib/newlib-4.4.0.20231231.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=65474c3c2844d5e5ba4aba7be4e8ec8c

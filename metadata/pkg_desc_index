@@ -17637,8 +17637,8 @@ sys-kernel/dkms 3.0.12-r1: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r2 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 4.3.10 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4 6.7.5: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4 6.7.5: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.208 5.10.209 5.10.210 5.15.147 5.15.148 5.15.149 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.1.79 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.6.18 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4 6.7.5 6.7.6: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.208 5.10.209 5.10.210 5.15.147 5.15.148 5.15.149 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.1.79 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.6.18 6.7.1 6.7.2 6.7.2-r1 6.7.3 6.7.4 6.7.5 6.7.6: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.208 5.10.209 5.10.210 5.15.147 5.15.148 5.15.149 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.1.79 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.6.18 6.7.2-r1 6.7.3 6.7.4 6.7.5 6.7.6: Full sources including the Gentoo patchset for the 6.7 kernel tree
 sys-kernel/git-sources 6.8_rc1 6.8_rc2 6.8_rc3 6.8_rc4 6.8_rc5: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 12 24 25 28: Gentoo fork of installkernel script from debianutils
@@ -17654,7 +17654,7 @@ sys-kernel/pf-sources 6.6_p6 6.7_p1 6.7_p2 6.7_p3 6.7_p5: Linux kernel fork that
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.306_p132 5.4.264_p88 5.10.209_p101 5.15.145_p73 6.0.5_p14 6.1.77_p24 6.5.2_p8 6.6.15_p22: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.10.208 5.10.209 5.10.9999 5.15.147 5.15.148 5.15.9999 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.1.9999 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.6.9999 6.7.1 6.7.2 6.7.3 6.7.4 6.7.5: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.208 5.10.209 5.10.210 5.10.9999 5.15.147 5.15.148 5.15.149 5.15.9999 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.1.79 6.1.9999 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.6.18 6.6.9999 6.7.1 6.7.2 6.7.3 6.7.4 6.7.5 6.7.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.307 5.4.269 5.10.210 5.15.149 6.1.79 6.6.18 6.7.6: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.6.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17723,7 +17723,7 @@ sys-libs/musl-nscd 1.1.1-r1 9999: musl-nscd is an implementation of the NSCD pro
 sys-libs/native-uuid 1.0: .pc file for uuid
 sys-libs/ncurses 6.4_p20230401 6.4_p20230527: Console display library
 sys-libs/ncurses-compat 6.4_p20230401: Console display library (ABI version 5)
-sys-libs/newlib 4.1.0-r2 4.2.0.20211231-r1 4.3.0.20230120-r1 4.3.0.20230120-r2 9999: Newlib is a C library intended for use on embedded systems
+sys-libs/newlib 4.1.0-r2 4.2.0.20211231-r1 4.3.0.20230120-r1 4.3.0.20230120-r2 4.4.0.20231231 9999: Newlib is a C library intended for use on embedded systems
 sys-libs/nss-usrfiles 2.18.1: NSS module to read passwd/group files from CoreOS /usr location
 sys-libs/nss_wrapper 1.1.12 1.1.15: Wrapper for the user, group and hosts NSS API
 sys-libs/obstack-standalone 1.2.3: A standalone library to implement GNU libc's obstack
@@ -17846,7 +17846,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.208 5.10.209 5.15.147 5.15.148 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.7.1 6.7.2 6.7.3 6.7.4 6.7.5: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.208 5.10.209 5.10.210 5.15.147 5.15.148 5.15.149 6.1.74 6.1.75 6.1.76 6.1.77 6.1.78 6.1.79 6.6.13 6.6.14 6.6.15 6.6.16 6.6.17 6.6.18 6.7.1 6.7.2 6.7.3 6.7.4 6.7.5 6.7.6: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18549,7 +18549,7 @@ x11-misc/oroborus-deskmenu 1.4.5-r2: root menu program for Oroborus
 x11-misc/oroborus-keylaunch 1.3.9-r2: utility for binding keys in Oroborus
 x11-misc/parcellite 1.2.1: Lightweight GTK+ based clipboard manager
 x11-misc/pcmanfm 1.3.2-r1: Fast lightweight tabbed filemanager
-x11-misc/pcmanfm-qt 1.4.0 1.4.1-r1: Qt GUI Tabbed Filemanager
+x11-misc/pcmanfm-qt 1.3.0 1.4.0 1.4.1-r1: Qt GUI Tabbed Filemanager
 x11-misc/peksystray 0.4.0-r1: System tray dockapp for window managers supporting docking
 x11-misc/picom 10.2 11 11.1 9999: A lightweight compositor for X11 (previously a compton fork)
 x11-misc/piedock 1.6.9-r1: A little bit like the famous OS X dock but in shape of a pie menu
