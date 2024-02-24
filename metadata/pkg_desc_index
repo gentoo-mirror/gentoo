@@ -3771,13 +3771,11 @@ dev-build/automake 1.11.6-r4 1.16.5-r2 9999: Used to generate Makefile.in from M
 dev-build/automake-vanilla 1.11.6 1.15.1 1.16.5 9999: Used to generate Makefile.in from Makefile.am
 dev-build/automake-wrapper 20221207 99999999: Wrapper for automake to manage multiple automake versions
 dev-build/b2 4.10.1 5.0.0: A system for large project software construction, simple to use and powerful
-dev-build/bazel 3.7.2-r1 4.2.2 5.0.0 5.1.1 5.3.0 6.2.0 6.4.0: Fast and correct automated build system
 dev-build/bazelisk 1.19.0: A user-friendly launcher for Bazel written in Go
 dev-build/bmake 20230909 20240212: NetBSD's portable make
 dev-build/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
 dev-build/cmake 3.26.5-r2 3.27.7 3.27.9 3.28.1 3.28.1-r1 3.28.2 3.28.3 9999: Cross platform Make
 dev-build/cmake-fedora 2.9.3: Provides cmake helper macros and targets for linux, especially fedora developers
-dev-build/cons 2.3.0-r1: Extensible perl-based build utility
 dev-build/dagger 0.9.8: ci/cd as code that runs anywhere
 dev-build/gn 0.2088 0.2114 0.2122 0.2143 9999: GN is a meta-build system that generates build files for Ninja
 dev-build/gtk-doc-am 1.33.2: Automake files from gtk-doc
@@ -3801,7 +3799,6 @@ dev-build/samurai 1.2-r2 9999: ninja-compatible build tool written in C
 dev-build/scons 4.6.0-r1: Extensible Python-based build utility
 dev-build/slibtool 0.5.34 0.5.35 9999: A skinny libtool implementation, written in C
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
-dev-build/tup 0.7.10 0.7.11 9999: File-based build system
 dev-build/xfce4-dev-tools 4.18.1 4.19.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
 dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r1 20230802.0: Abseil Common Libraries (C++), LTS Branch
@@ -4793,7 +4790,6 @@ dev-java/bcpkix 1.77: Java APIs for CMS, PKCS, EAC, TSP, CMP, CRMF, OCSP, and ce
 dev-java/bcprov 1.74 1.77: Java cryptography APIs
 dev-java/bcutil 1.77: Java APIs for ASN.1 extension and utility APIs used to support bcpkix and bctls
 dev-java/bnd-annotation 6.3.1 7.0.0: bnd Annotations Library
-dev-java/bnd-junit 2.1.0-r2: Junit plugin for bndlib, a swiss army knife for OSGi
 dev-java/bnd-util 7.0.0: AQute Bnd Utilities
 dev-java/bndlib 7.0.0: bndlib: A Swiss Army Knife for OSGi
 dev-java/brotli-dec 0.1.2: Brotli decompressor
@@ -4854,7 +4850,6 @@ dev-java/fontbox 2.0.27: An open source Java library for parsing font files
 dev-java/fop 2.9: XML Graphics Format Object Processor All-In-One
 dev-java/freenet-ext 29: Freenet REference Daemon
 dev-java/gin 2.1.2-r1: Google Gin (GWT INjection)
-dev-java/glassfish-persistence 1.0-r2: Glassfish implementation of persistence API
 dev-java/gnu-jaf 1.1.2-r1: GNU implementation of the JavaBeans Activation Framework
 dev-java/gnu-regexp 1.1.4-r4: GNU regular expression package for Java
 dev-java/gradle-bin 8.4 8.5: A project automation and build tool with a Groovy based DSL
@@ -5026,11 +5021,7 @@ dev-java/openjfx 8.1000-r2 11.0.9_p0-r1 11.0.11_p1-r1: Java OpenJFX client appli
 dev-java/opentest4j 1.2.0-r1: Open Test Alliance for the JVM
 dev-java/osgi-annotation 8.1.0: OSGi Annotation Release 8, Annotations for use in compiling bundles
 dev-java/osgi-cmpn 8.0.0-r1: OSGi Service Platform Compendium API (Companion Code)
-dev-java/osgi-compendium 4.3.1-r4: OSGi Service Platform Compendium API (Companion Code)
 dev-java/osgi-core 8.0.0: OSGi Service Platform Core API (Companion Code)
-dev-java/osgi-core-api 5.0.0-r2: OSGi Service Platform Core API (Companion Code)
-dev-java/osgi-enterprise-api 5.0.0-r3: OSGi Enterprise Release 5 Companion Code
-dev-java/osgi-foundation 1.2.0-r2: OSGi R4 Foundation EE by Apache Felix
 dev-java/osgi-service-log 1.3.0: OSGi Companion Code for org.osgi.service.log
 dev-java/osgi-service-subsystem 1.1.0: OSGi Companion Code for org.osgi.service.subsystem
 dev-java/owasp-java-encoder 1.2.3: OWASP Java Encoder
@@ -9066,7 +9057,6 @@ dev-python/pymdown-lexers 0_pre20210902: Additional lexers for use in Pygments
 dev-python/pymdstat 0.4.3: Python library to parse Linux /proc/mdstat
 dev-python/pymediainfo 6.1.0: A wrapper around the mediainfo library
 dev-python/pymetar 1.4-r2: Downloads and decodes to the weather report for a given station ID
-dev-python/pymilter 1.0.5: Python interface to sendmail milter API
 dev-python/pymongo 4.6.1 4.6.2: Python driver for MongoDB
 dev-python/pymountboot 0.2.3-r1: Python extension module to (re)mount /boot
 dev-python/pymysql 1.1.0: Pure-Python MySQL Driver
@@ -15608,7 +15598,6 @@ net-wireless/bluez-tools 0_p20201025: A set of tools to manage bluetooth devices
 net-wireless/broadcom-sta 6.30.223.271-r7: Broadcom's IEEE 802.11a/b/g/n hybrid Linux device driver
 net-wireless/bss 0.8-r2: Bluetooth stack smasher / fuzzer
 net-wireless/crackle 0.1-r1: Crackle cracks BLE Encryption (AKA Bluetooth Smart)
-net-wireless/crda 4.14 4.15-r2: Central Regulatory Domain Agent for wireless networks
 net-wireless/dump1090 4.0 5.0 6.1 9999: simple Mode S decoder for RTLSDR devices
 net-wireless/gnome-bluetooth 42.7 42.8: Bluetooth graphical utilities integrated with GNOME
 net-wireless/gnuradio 3.10.9.2-r1 9999: Toolkit that provides signal processing blocks to implement software radios
@@ -16163,7 +16152,6 @@ sci-libs/ipopt 3.14.4: Interior-Point Optimizer for large-scale nonlinear optimi
 sci-libs/itpp 4.3.1-r2: C++ library of mathematical, signal processing and communication
 sci-libs/jama 1.2.5: Java-like matrix C++ templates
 sci-libs/jiwer 3.0.3: Evaluate an automatic speech recognition system
-sci-libs/keras 2.15.0: Deep Learning for humans
 sci-libs/keras-applications 1.0.8-r2: Keras deep learning library reference implementations of deep learning models
 sci-libs/keras-preprocessing 1.1.2-r1: Easy data preprocessing and data augmentation for deep learning models
 sci-libs/kim-api 2.2.1: Application Programming Interface for atomistic simulations
@@ -16294,8 +16282,6 @@ sci-libs/szip 2.1.1: Extended-Rice lossless compression algorithm implementation
 sci-libs/ta-lib 0.4.0 0.4.0-r1: Technical Analysis Library for analyzing financial markets trends
 sci-libs/tamu_anova 0.2-r1: ANOVA Extensions to the GNU Scientific Library
 sci-libs/taucs 2.2-r1: C library of sparse linear solvers
-sci-libs/tensorflow 2.15.0: Computation framework using data flow graphs for scalable machine learning
-sci-libs/tensorflow-estimator 2.15.0: A high-level TensorFlow API that greatly simplifies machine learning programming
 sci-libs/tensorpipe 2022.05.13-r1: provides a tensor-aware channel
 sci-libs/tnt 3.0.12: Template Numerical Toolkit: C++ headers for array and matrices
 sci-libs/tokenizers 0.14.1-r1: Implementation of today's most used tokenizers
@@ -16484,7 +16470,6 @@ sci-visualization/quickplot 0.10.6-r1 1.0.1_rc: A fast interactive 2D plotter
 sci-visualization/scidavis 2.9.0-r1: Application for Scientific Data Analysis and Visualization
 sci-visualization/spectromatic 1.0-r3: Generates time-frequency analysis images from wav files
 sci-visualization/spyview 2018.12.24 9999: 2D and 3D data visualization and analysis program
-sci-visualization/tensorboard 2.15.1: TensorFlow's Visualization Toolkit
 sci-visualization/veusz 3.5.3 3.6.2: Qt scientific plotting package with good Postscript output
 sci-visualization/xd3d 8.3.1-r2: Scientific visualization tool
 sci-visualization/xgraph 12.1-r5: X11 Plotting Utility
