@@ -1901,7 +1901,7 @@ app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols 
 app-emacs/company-mode 0.10.1: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 29.1.4.4: Compatibility libraries for Emacs
-app-emacs/consult 1.1 1.2 9999: Consulting complete-read for GNU Emacs
+app-emacs/consult 1.1 1.2 1.3 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0: Consult integration for Flycheck
 app-emacs/corfu 1.2 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.14.2: Versions of common Emacs commands customized to make the best use of ivy
@@ -1936,7 +1936,7 @@ app-emacs/dired-sort-menu 1.26: Sort entries in Dired mode
 app-emacs/distel 4.1.1: Distributed Emacs Lisp for Erlang
 app-emacs/docker 2.3.1: Emacs integration for Docker
 app-emacs/docker-tramp 0.1.1: Emacs TRAMP integration for docker containers
-app-emacs/dockerfile-mode 1.8-r1: GNU Emacs mode for handling Dockerfiles
+app-emacs/dockerfile-mode 1.8-r1 1.9: GNU Emacs mode for handling Dockerfiles
 app-emacs/doctest-mode 0.4: An Emacs major mode for editing Python source
 app-emacs/doom-modeline 4.0.1 4.1.0: Fancy and fast mode-line for Emacs inspired by minimalism design
 app-emacs/doom-themes 2.3.0_p20231208 9999: Opinionated megapack of modern color-themes for GNU Emacs
@@ -2095,7 +2095,7 @@ app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 1.5: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.6: Major mode for editing Markdown-formatted text files
-app-emacs/mastodon 1.0.13 1.0.14: Emacs client for Mastodon, federated microblogging social network
+app-emacs/mastodon 1.0.14 1.0.16: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
 app-emacs/matlab 3.3.6_pre20191010-r1: Major modes for MATLAB .m and .tlc files
 app-emacs/mediawiki 2.2.9-r1 2.3.1: MediaWiki client for Emacs
@@ -2119,6 +2119,7 @@ app-emacs/nerd-icons 0.1.0: Emacs Nerd Font Icons Library
 app-emacs/nginx-mode 1.1.9: Emacs editing mode for Nginx config files
 app-emacs/nim-mode 0.4.2_p20231101: Emacs major mode for the Nim programming language support
 app-emacs/ninja-mode 1.11.1-r2: GNU Emacs mode for handling Ninja build files
+app-emacs/nix-mode 1.5.0: GNU Emacs major mode for editing Nix expressions
 app-emacs/no-littering 1.5.0: ELisp library that helps keeping Emacs configuration directory clean
 app-emacs/noflet 0.0.15_p20141102-r1: Dynamic, local advice for Emacs-Lisp code
 app-emacs/nxml-docbook5-schemas 5.1: Add support for DocBook 5 schemas to NXML
@@ -2242,7 +2243,7 @@ app-emacs/transient 0.5.3 9999: Transient commands abstraction for GNU Emacs
 app-emacs/treemacs 3.1-r1: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.1: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.2: Generic tree traversing tools for Emacs Lisp
-app-emacs/treesit-auto 1.0.2 1.0.3: Automatic installation, usage, fallback for tree-sitter modes in Emacs 29
+app-emacs/treesit-auto 1.0.3 1.0.4: Automatic installation, usage, fallback for tree-sitter modes in Emacs 29
 app-emacs/ts 0.3: Emacs timestamp and date-time library
 app-emacs/tuareg-mode 3.0.1: An Objective Caml/Camllight mode for Emacs
 app-emacs/twittering-mode 3.0.0-r1 9999: Emacs major mode for Twitter
@@ -5106,7 +5107,7 @@ dev-java/zxing-core 3.5.1: Core barcode encoding/decoding library
 dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.3.1-r1 4.3.2-r1: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
-dev-lang/algol68g 3.4.6 3.4.7 3.5.0: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.4.6 3.5.1: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.9 2.5.11: Scala language-based scripting and REPL
 dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2: Functional programming language with dependent types
@@ -5135,7 +5136,7 @@ dev-lang/erlang 25.3 26.0 26.1.2 26.2 26.2.1: Erlang programming language, runti
 dev-lang/esco 0.513: Combine interpreter of esoteric languages
 dev-lang/execline 2.9.4.0: A non-interactive scripting language
 dev-lang/f2c 20100827-r1: Fortran to C converter
-dev-lang/fennel 1.4.0-r1: Lisp-like language that compiles to Lua
+dev-lang/fennel 1.4.0-r1 1.4.2: Lisp-like language that compiles to Lua
 dev-lang/fpc 3.2.2: Free Pascal Compiler
 dev-lang/fuzion 0.086: A language with a focus on simplicity, safety and correctness
 dev-lang/gdl 1.0.1-r2: GNU Data Language
@@ -16051,7 +16052,7 @@ sci-libs/branca 0.7.0-r2: spinoff from folium, host the non-map-specific feature
 sci-libs/brial 1.2.12: A C++ library for polynomials over boolean rings
 sci-libs/btf 1.2.6 2.0.3: Algorithm for matrix permutation into block triangular form
 sci-libs/buddy 2.4-r1: Binary Decision Diagram Package
-sci-libs/caffe2 1.13.1-r6 2.0.1-r5 2.1.2-r4: A deep learning framework
+sci-libs/caffe2 1.13.1-r6 2.0.1-r5 2.1.2-r5: A deep learning framework
 sci-libs/camd 2.4.6-r1 3.0.3: Library to order a sparse matrix prior to Cholesky factorization
 sci-libs/cantera 2.6.0-r2 3.0.0 3.0.0-r1: Object-oriented tool suite for chemical kinetics, thermodynamics, and transport
 sci-libs/cartopy 0.21.1 0.21.1-r1: Python package for geospatial data processing and analysis
