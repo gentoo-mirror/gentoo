@@ -102,7 +102,6 @@ HOMEPAGE="https://wiki.gentoo.org/wiki/Genkernel https://gitweb.gentoo.org/proj/
 
 LICENSE="GPL-2"
 SLOT="0"
-RESTRICT=""
 IUSE="ibm +firmware"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -132,7 +131,6 @@ RDEPEND="${PYTHON_DEPS}
 	elibc_glibc? ( sys-libs/glibc[static-libs(+)] )
 	firmware? ( sys-kernel/linux-firmware )
 "
-
 
 PATCHES=(
 )
