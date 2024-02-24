@@ -102,9 +102,3 @@ src_configure() {
 	)
 	cmake_src_configure
 }
-
-pkg_postinst() {
-	xdg_pkg_postinst
-
-	optfeature "encrypted VNC connections" net-libs/libvncserver[gcrypt]
-}
