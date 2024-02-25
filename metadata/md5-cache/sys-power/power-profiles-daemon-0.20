@@ -1,0 +1,17 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( dev-util/gi-docgen dev-util/gtk-doc ) test? ( dev-util/umockdev python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] dev-python/python-dbusmock[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] dev-python/python-dbusmock[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] dev-python/python-dbusmock[python_targets_python3_12(-)] ) ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst setup test
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) dev-libs/glib:2 >=dev-libs/libgudev-234 >=sys-auth/polkit-0.99 sys-power/upower selinux? ( sec-policy/selinux-powerprofiles )
+DESCRIPTION=Makes power profiles handling available over D-Bus
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/upower/power-profiles-daemon/
+INHERIT=meson python-single-r1 systemd
+IUSE=gtk-doc selinux test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) dev-libs/glib:2 >=dev-libs/libgudev-234 >=sys-auth/polkit-0.99 sys-power/upower selinux? ( sec-policy/selinux-powerprofiles )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/upower/power-profiles-daemon/-/archive/0.20/power-profiles-daemon-0.20.tar.bz2
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=e5b875a04732e95cc55dcdf25f70ad0e
