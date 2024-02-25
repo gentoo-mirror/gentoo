@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/djcb/mu/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~riscv x86 ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86 ~x64-macos"
 IUSE="emacs readline"
 
 DEPEND="
@@ -25,6 +25,10 @@ BDEPEND="
 	sys-apps/texinfo
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.12.0-cld2-opt.patch
+)
 
 SITEFILE="70mu-gentoo-autoload.el"
 
@@ -45,6 +49,7 @@ src_prepare() {
 src_configure() {
 	local emesonargs=(
 		$(meson_feature readline)
+		-Dcld2=disabled
 		-Demacs="$(usex emacs "${EMACS}" emacs-not-enabled)"
 		# TODO: revisit this, it's not actually deprecated, just been reworked
 		-Dguile=disabled
@@ -61,9 +66,13 @@ src_install() {
 	docompress -x /usr/share/doc/${PF}/NEWS.org
 	dodoc NEWS.org
 
-	# Same as above.
-	docompress -x /usr/share/doc/${PF}/mu4e-about.org
-	dodoc mu4e/mu4e-about.org
+	if use emacs; then
+		# Same as above.
+		docompress -x /usr/share/doc/${PF}/mu4e-about.org
+		dodoc mu4e/mu4e-about.org
+
+		elisp-site-file-install "${FILESDIR}"/${SITEFILE}
+	fi
 }
 
 pkg_preinst() {
