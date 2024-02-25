@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,8 +11,8 @@ SRC_URI="https://github.com/canonical/lxd/releases/download/${P}/${P}.tar.gz
 	verify-sig? ( https://github.com/canonical/lxd/releases/download/${P}/${P}.tar.gz.asc
 )"
 
-LICENSE="Apache-2.0 AGPL-3+ BSD LGPL-3 MIT"
-SLOT="0/stable"
+LICENSE="Apache-2.0 BSD LGPL-3 MIT"
+SLOT="0/lts"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="apparmor nls"
 
@@ -20,9 +20,8 @@ DEPEND="acct-group/lxd
 	app-arch/xz-utils
 	>=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)]
 	dev-db/sqlite:3
-	>=dev-libs/dqlite-1.13.0:=
+	>=dev-libs/dqlite-1.16.4:=[lz4]
 	dev-libs/lzo
-	>=dev-libs/raft-0.17.1:=[lz4]
 	>=dev-util/xdelta-3.0[lzma(+)]
 	net-dns/dnsmasq[dhcp]
 	sys-libs/libcap
@@ -36,11 +35,11 @@ RDEPEND="${DEPEND}
 			)
 	)
 	sys-apps/iproute2
-	sys-fs/fuse:3
+	sys-fs/fuse:*
 	>=sys-fs/lxcfs-5.0.0
 	sys-fs/squashfs-tools[lzma]
 	virtual/acl"
-BDEPEND=">=dev-lang/go-1.20
+BDEPEND="dev-lang/go
 	nls? ( sys-devel/gettext )
 	verify-sig? ( sec-keys/openpgp-keys-canonical )"
 
@@ -85,6 +84,12 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/canonical.asc
 RESTRICT="test"
 
 GOPATH="${S}/_dist"
+
+PATCHES=(
+	"${FILESDIR}"/lxd-5.0.3-remove-shellcheck-buildsystem-checks.patch
+	"${FILESDIR}"/lxd-5.0.3-pr-12834-dont-stop-parsing-image-info.patch
+	"${FILESDIR}"/lxd-5.0.3-pr-12847-ignore-incus-archives.patch
+)
 
 src_prepare() {
 	export GOPATH="${S}/_dist"
@@ -185,4 +190,26 @@ pkg_postinst() {
 	optfeature "zfs storage backend" sys-fs/zfs
 	elog
 	elog "Be sure to add your local user to the lxd group."
+
+	if [[ ${REPLACING_VERSIONS} ]] &&
+	ver_test ${REPLACING_VERSIONS} -lt 5.0.1 &&
+	has_version app-emulation/qemu[spice,usbredir,virtfs]; then
+		ewarn ""
+		ewarn "You're updating from <5.0.1. Due to incompatible API updates in the lxd-agent"
+		ewarn "product, you'll have to restart any running virtual machines before they work"
+		ewarn "properly."
+		ewarn ""
+		ewarn "Run: 'lxc restart your-vm' after the update for your vm's managed by lxd."
+		ewarn ""
+	fi
+
+	if [[ ${REPLACING_VERSIONS} ]] &&
+	has_version "sys-apps/openrc"; then
+		elog ""
+		elog "The new init.d script will attempt to mount "
+		elog "  /sys/fs/cgroup/systemd"
+		elog "by default, which is needed to run systemd containers with openrc host."
+		elog "See the /etc/init.d/lxd file for requirements."
+		elog ""
+	fi
 }
