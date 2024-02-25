@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.rdoc"
 
@@ -19,8 +19,8 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE=""
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="test"
 
 RUBY_S="rails-${PV}/${PN}"
 
@@ -48,8 +48,8 @@ ruby_add_bdepend "test? (
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.1.7.3-ruby-thread-noise.patch
-	"${FILESDIR}"/${P}-bytesplice.patch
-	"${FILESDIR}"/${P}-class_serial.patch
+	"${FILESDIR}"/${PN}-6.1.7.4-bytesplice.patch
+	"${FILESDIR}"/${PN}-6.1.7.4-class_serial.patch
 )
 
 all_ruby_prepare() {

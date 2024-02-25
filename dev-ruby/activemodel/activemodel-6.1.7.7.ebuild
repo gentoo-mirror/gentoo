@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.rdoc"
 
@@ -19,13 +19,13 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE=""
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="test"
 
 RUBY_S="rails-${PV}/${PN}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-ruby32-keywords.patch
+	"${FILESDIR}"/${PN}-6.1.7.4-ruby32-keywords.patch
 )
 
 ruby_add_rdepend "
@@ -43,5 +43,7 @@ ruby_add_bdepend "
 
 all_ruby_prepare() {
 	# Set test environment to our hand.
-	sed -i -e '/load_paths/d' test/cases/helper.rb || die "Unable to remove load paths"
+	sed -e '/load_paths/d' \
+		-e '2igem "activesupport", "~> 6.1.0"; gem "railties", "~> 6.1.0"' \
+		-i test/cases/helper.rb || die "Unable to remove load paths"
 }

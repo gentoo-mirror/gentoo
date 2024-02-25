@@ -1,8 +1,8 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 # this is not null so that the dependencies will actually be filled
 RUBY_FAKEGEM_TASK_TEST="test"
@@ -22,13 +22,13 @@ SRC_URI="https://github.com/rails/rails/archive/v${PV}.tar.gz -> rails-${PV}.tgz
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="mysql postgres sqlite"
 
 RUBY_S="rails-${PV}/${PN}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-ruby32-keywords.patch
+	"${FILESDIR}"/${PN}-6.1.7.4-ruby32-keywords.patch
 )
 
 ruby_add_rdepend "~dev-ruby/activesupport-${PV}
@@ -66,7 +66,8 @@ all_ruby_prepare() {
 	sed -i -e '$agem "json"' ../Gemfile || die
 
 	# Load correct rails version
-	sed -i -e '2igem "activemodel", "~> 6.1.0"; gem "activejob", "~> 6.1.0"; gem "railties", "~> 6.1.0"; gem "minitest", "<5.16"' test/cases/helper.rb || die
+	sed -e '2igem "activemodel", "~> 6.1.0"; gem "activejob", "~> 6.1.0"; gem "railties", "~> 6.1.0"; gem "minitest", "<5.16"' \
+		-i test/cases/helper.rb || die
 
 	# Avoid single tests using mysql or postgres dependencies.
 	rm test/cases/invalid_connection_test.rb || die
@@ -79,13 +80,16 @@ all_ruby_prepare() {
 
 	# Avoid tests that no longer work with newer sqlite versions
 	rm -f test/cases/adapters/sqlite3/explain_test.rb || die
-	sed -i -e '/test_references_stays_as_integer_column/askip "Fails on case difference"' test/cases/migration/compatibility_test.rb || die
+	sed -e '/test_references_stays_as_integer_column/askip "Fails on case difference"' \
+		-i test/cases/migration/compatibility_test.rb || die
 
 	# Avoid test failing to bind limit length in favor of security release
-	sed -i -e '/test_too_many_binds/askip "Fails on Gentoo"' test/cases/bind_parameter_test.rb || die
+	sed -e '/test_too_many_binds/askip "Fails on Gentoo"' \
+		-i test/cases/bind_parameter_test.rb || die
 
 	# Avoid test failing related to rubygems
-	sed -i -e '/test_generates_absolute_path_with_given_root/askip "rubygems actiovation monitor"' test/cases/tasks/sqlite_rake_test.rb || die
+	sed -e '/test_generates_absolute_path_with_given_root/askip "rubygems activation monitor"' \
+		-i test/cases/tasks/sqlite_rake_test.rb || die
 }
 
 each_ruby_test() {
