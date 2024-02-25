@@ -8,23 +8,40 @@ inherit toolchain-funcs
 DESCRIPTION="Free UCI chess engine, claimed to be the strongest in the world"
 HOMEPAGE="https://stockfishchess.org/"
 
-SRC_URI="https://stockfish.s3.amazonaws.com/${P}-src.zip"
+NNUE_FILES="nn-b1a57edbea57.nnue nn-baff1ede1f90.nnue"
+
+SRC_URI="https://github.com/official-stockfish/Stockfish/archive/sf_${PV}.tar.gz -> ${P}.tar.gz"
+
+for i in $NNUE_FILES; do
+	SRC_URI+=" https://tests.stockfishchess.org/api/nn/${i} -> ${P}-${i}"
+done
+
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="cpu_flags_arm_v7 cpu_flags_x86_avx2 cpu_flags_x86_popcnt cpu_flags_x86_sse debug
-	general-32 general-64 +optimize"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
+IUSE="cpu_flags_arm_v7 cpu_flags_x86_avx2 cpu_flags_x86_popcnt cpu_flags_x86_sse cpu_flags_x86_avx512f
+	cpu_flags_x86_avx512dq debug general-32 general-64 +optimize"
 
 DEPEND="|| ( app-arch/unzip app-arch/zip )"
 
-S="${WORKDIR}/src"
+S="${WORKDIR}/Stockfish-sf_${PV}/src"
 
 src_prepare() {
 	default
 
+	# remove config sanity check that doesn't like our COMPILER settings
+	sed -i -e 's/ config-sanity//g' Makefile || die
+
+	for i in $NNUE_FILES; do
+		cp "${DISTDIR}"/${P}-${i} ${i} || die "copying the nnue file failed"
+	done
+
 	# prevent pre-stripping
 	sed -e 's:-strip $(BINDIR)/$(EXE)::' -i Makefile \
 		|| die 'failed to disable stripping in the Makefile'
+
+	# Makefile is a bit optimistic
+	sed -e 's:-flto=full:-flto:g' -i Makefile || die
 }
 
 src_compile() {
@@ -45,17 +62,20 @@ src_compile() {
 	# both bmi2 and avx2 are part of hni (haswell new instructions)
 	use cpu_flags_x86_avx2 && my_arch=x86-64-bmi2
 
+	# avx512
+	# we currently can't express  'avx512vnni' 'avx512dq' 'avx512f' 'avx512bw' 'avx512vl'
+	# so only enable basic support
+	use cpu_flags_x86_avx512f && use cpu_flags_x86_avx512dq && my_arch=x86-64-avx512
+
 	# other architectures
 	use cpu_flags_arm_v7 && my_arch=armv7
 	use ppc && my_arch=ppc
 	use ppc64 && my_arch=ppc64
 
-	# Skip the "build" target and use "all" instead to avoid the config
-	# sanity check (which would throw a fit about our compiler). There's
-	# a nice hack in the Makefile that overrides the value of CXX with
+	# There's a nice hack in the Makefile that overrides the value of CXX with
 	# COMPILER to support Travis CI and we abuse it to make sure that we
 	# build with our compiler of choice.
-	emake all ARCH="${my_arch}" \
+	emake profile-build ARCH="${my_arch}" \
 		COMP="$(tc-getCXX)" \
 		COMPILER="$(tc-getCXX)" \
 		debug=$(usex debug "yes" "no") \
@@ -64,5 +84,5 @@ src_compile() {
 
 src_install() {
 	dobin "${PN}"
-	dodoc ../AUTHORS ../Readme.md
+	dodoc ../AUTHORS ../README.md
 }
