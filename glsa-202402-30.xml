@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-30">
+    <title>Glances: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been found in Glances which may lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">glances</product>
+    <announced>2024-02-26</announced>
+    <revised count="1">2024-02-26</revised>
+    <bug>791565</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-process/glances" auto="yes" arch="*">
+            <unaffected range="ge">3.1.7</unaffected>
+            <vulnerable range="lt">3.1.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Glances is an open-source system cross-platform monitoring tool. It allows real-time monitoring of various aspects of your system such as CPU, memory, disk, network usage etc.</p>
+    </background>
+    <description>
+        <p>A vulnerability in XML parsing may lead to a variety of XML attacks.</p>
+    </description>
+    <impact type="normal">
+        <p>A vulnerability in XML parsing may lead to a variety of XML attacks.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Glances users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-process/glances-3.1.7"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-26T12:07:09.643689Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-26T12:07:09.650874Z">graaff</metadata>
+</glsa>
