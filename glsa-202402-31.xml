@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-31">
+    <title>GNU Aspell: Heap Buffer Overflow</title>
+    <synopsis>A vulnerability has been discovered in GNU Aspell which leads to a heap buffer overflow.</synopsis>
+    <product type="ebuild">aspell</product>
+    <announced>2024-02-26</announced>
+    <revised count="1">2024-02-26</revised>
+    <bug>803113</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-text/aspell" auto="yes" arch="*">
+            <unaffected range="ge">0.60.8-r3</unaffected>
+            <vulnerable range="lt">0.60.8-r3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU Aspell is a popular spell-checker. Dictionaries are available for many languages.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GNU Aspell. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>GNU Aspell has a heap-based buffer overflow in acommon::ObjStack::dup_top (called from acommon::StringMap::add and acommon::Config::lookup_list)</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All aspell users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/aspell-0.60.8-r3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-25051">CVE-2019-25051</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-26T12:30:16.027845Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-26T12:30:16.031079Z">graaff</metadata>
+</glsa>
