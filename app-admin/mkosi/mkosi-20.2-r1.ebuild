@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{11..12} )
 
 inherit distutils-r1 optfeature
 
@@ -18,8 +18,8 @@ KEYWORDS="~amd64"
 RDEPEND="
 	app-emulation/qemu
 	sys-apps/bubblewrap
-	>=sys-apps/systemd-254
-	sys-firmware/edk2-ovmf"
+	sys-apps/systemd
+	|| ( sys-firmware/edk2-ovmf-bin sys-firmware/edk2-ovmf )"
 BDEPEND="virtual/pandoc"
 
 distutils_enable_tests pytest
