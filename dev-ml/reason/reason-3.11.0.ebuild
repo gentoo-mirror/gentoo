@@ -34,6 +34,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-3.10.0-fake-git-version.patch" )
+
 src_install() {
 	dune-install reason rtop
 
