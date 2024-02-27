@@ -2,7 +2,7 @@ DEFINED_PHASES=compile configure install preinst prepare setup test
 DEPEND=>=virtual/jdk-1.8:* >=dev-java/ant-1.10.14:0 dev-java/xerces:2 test? ( >=dev-java/ant-1.10.14:0[junit] dev-java/junit:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/javatoolkit
 DESCRIPTION=Ant-tasks to compile various source languages and produce executables
 EAPI=8
-HOMEPAGE=http://ant-contrib.sourceforge.net/
+HOMEPAGE=https://ant-contrib.sourceforge.net/
 INHERIT=java-pkg-2 java-ant-2
 IUSE=doc examples source test
 KEYWORDS=amd64 ~arm ~arm64 ppc64 ~x86
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/ant-contrib/ant-contrib/cpptasks-1.0-beta5/cpptasks-1.0b5.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	java-ant-2	53b9c110af009f9f4548f5b129ae6fe6
-_md5_=0d3ed1b99b2cf8bf596ef01b37e571ec
+_md5_=66ac55360c2cb929ebf9f00a399e9203
