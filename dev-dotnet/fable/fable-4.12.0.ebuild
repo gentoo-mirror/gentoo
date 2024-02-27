@@ -5,12 +5,11 @@ EAPI=8
 
 DOTNET_PKG_COMPAT=8.0
 NUGETS="
-altcover@5.3.675
 blackfox.commandline@1.0.0
 buildalyzer.logger@5.0.1
 buildalyzer@5.0.1
 eluciusftw.spectrecoff@0.47.28
-expecto@9.0.4
+expecto@10.1.0
 fable.ast@4.0.0
 fable.browser.blob@1.1.4
 fable.browser.dom@2.4.4
@@ -19,8 +18,7 @@ fable.browser.event@1.4.5
 fable.browser.gamepad@1.0.3
 fable.browser.webstorage@1.0.4
 fable.core@3.1.6
-fable.core@3.7.1
-fable.core@4.0.0-snake-island-alpha-007
+fable.core@4.2.0
 fable.fluentui@0.7.0
 fable.jester@0.33.0
 fable.jsonprovider@1.1.1
@@ -36,46 +34,67 @@ fake.core.trace@6.0.0
 fake.io.filesystem@6.0.0
 feliz.compilerplugins@2.0.0-prerelease-002
 feliz@2.0.0-prerelease-002
-fsharp.analyzers.build@0.2.0
-fsharp.core@4.6.0
+fsharp.analyzers.build@0.3.0
+fsharp.analyzers.sdk@0.24.0
+fsharp.compiler.service@43.8.100
 fsharp.core@4.7.0
 fsharp.core@6.0.2
-fsharp.core@7.0.400
+fsharp.core@7.0.200
 fsharp.core@8.0.100
-fsharp.data.adaptive@1.2.3
+fsharp.core@8.0.101
+fsharp.data.adaptive@1.2.14
 fsharp.systemtextjson@1.2.42
 fsharp.umx@1.1.0
-g-research.fsharp.analyzers@0.4.0
+g-research.fsharp.analyzers@0.8.0
+ionide.analyzers@0.8.0
+mcmaster.netcore.plugins@1.4.0
 microsoft.build.framework@16.9.0
 microsoft.build.tasks.core@16.9.0
-microsoft.build.tasks.git@1.0.0
+microsoft.build.tasks.git@8.0.0
 microsoft.build.utilities.core@16.9.0
 microsoft.build@16.9.0
-microsoft.codecoverage@17.7.2
+microsoft.codecoverage@17.8.0
 microsoft.csharp@4.0.1
 microsoft.dotnet.platformabstractions@2.1.0
+microsoft.dotnet.platformabstractions@3.1.6
 microsoft.extensions.configuration.abstractions@2.1.1
+microsoft.extensions.configuration.abstractions@8.0.0
 microsoft.extensions.configuration.binder@2.1.1
+microsoft.extensions.configuration.binder@8.0.0
 microsoft.extensions.configuration@2.1.1
+microsoft.extensions.configuration@8.0.0
 microsoft.extensions.dependencyinjection.abstractions@2.1.1
+microsoft.extensions.dependencyinjection.abstractions@8.0.0
+microsoft.extensions.dependencyinjection@8.0.0
 microsoft.extensions.dependencymodel@2.1.0
+microsoft.extensions.dependencymodel@5.0.0
 microsoft.extensions.logging.abstractions@2.1.1
+microsoft.extensions.logging.abstractions@6.0.0
+microsoft.extensions.logging.abstractions@8.0.0
+microsoft.extensions.logging.configuration@8.0.0
+microsoft.extensions.logging.console@8.0.0
 microsoft.extensions.logging@2.1.1
+microsoft.extensions.logging@8.0.0
+microsoft.extensions.options.configurationextensions@8.0.0
 microsoft.extensions.options@2.1.1
+microsoft.extensions.options@8.0.0
 microsoft.extensions.primitives@2.1.1
-microsoft.net.test.sdk@17.7.2
+microsoft.extensions.primitives@8.0.0
+microsoft.net.test.sdk@17.8.0
 microsoft.netcore.platforms@1.0.1
 microsoft.netcore.platforms@1.1.0
 microsoft.netcore.platforms@3.1.0
 microsoft.netcore.platforms@5.0.0
 microsoft.netcore.targets@1.0.1
 microsoft.netcore.targets@1.1.0
-microsoft.testplatform.objectmodel@17.7.2
-microsoft.testplatform.testhost@17.7.2
+microsoft.sourcelink.common@8.0.0
+microsoft.sourcelink.github@8.0.0
+microsoft.testplatform.objectmodel@17.8.0
+microsoft.testplatform.testhost@17.8.0
 microsoft.win32.primitives@4.3.0
 microsoft.win32.registry@4.3.0
 microsoft.win32.systemevents@4.7.0
-mono.cecil@0.11.3
+mono.cecil@0.11.4
 msbuild.structuredlogger@2.1.507
 msbuildpipelogger.server@1.1.6
 netstandard.library@1.6.1
@@ -138,15 +157,18 @@ spectre.console@0.47.0
 system.appcontext@4.1.0
 system.appcontext@4.3.0
 system.buffers@4.3.0
+system.buffers@4.5.1
 system.codedom@4.4.0
 system.collections.concurrent@4.3.0
 system.collections.immutable@5.0.0
+system.collections.immutable@7.0.0
 system.collections@4.0.11
 system.collections@4.3.0
 system.console@4.3.0
 system.diagnostics.debug@4.0.11
 system.diagnostics.debug@4.3.0
 system.diagnostics.diagnosticsource@4.3.0
+system.diagnostics.diagnosticsource@7.0.2
 system.diagnostics.tools@4.0.1
 system.diagnostics.tools@4.3.0
 system.diagnostics.tracing@4.3.0
@@ -180,15 +202,16 @@ system.objectmodel@4.3.0
 system.private.uri@4.3.0
 system.reflection.emit.ilgeneration@4.0.1
 system.reflection.emit.ilgeneration@4.3.0
-system.reflection.emit.ilgeneration@4.6.0
 system.reflection.emit.lightweight@4.0.1
 system.reflection.emit.lightweight@4.3.0
 system.reflection.emit.lightweight@4.6.0
 system.reflection.emit@4.0.1
 system.reflection.emit@4.3.0
+system.reflection.emit@4.7.0
 system.reflection.extensions@4.0.1
 system.reflection.extensions@4.3.0
 system.reflection.metadata@1.6.0
+system.reflection.metadata@7.0.0
 system.reflection.primitives@4.0.1
 system.reflection.primitives@4.3.0
 system.reflection.typeextensions@4.3.0
@@ -236,9 +259,11 @@ system.text.encoding.extensions@4.3.0
 system.text.encoding@4.0.11
 system.text.encoding@4.3.0
 system.text.encodings.web@6.0.0
+system.text.encodings.web@8.0.0
 system.text.json@4.7.0
 system.text.json@6.0.0
 system.text.json@6.0.2
+system.text.json@8.0.0
 system.text.regularexpressions@4.1.0
 system.text.regularexpressions@4.3.0
 system.threading.tasks.dataflow@4.9.0
@@ -256,15 +281,14 @@ system.xml.readerwriter@4.3.0
 system.xml.xdocument@4.0.11
 system.xml.xdocument@4.3.0
 thoth.json.net@11.0.0
-thoth.json@6.0.0
 xunit.abstractions@2.0.3
-xunit.analyzers@1.4.0
-xunit.assert@2.5.2
-xunit.core@2.5.2
-xunit.extensibility.core@2.5.2
-xunit.extensibility.execution@2.5.2
-xunit.runner.visualstudio@2.5.3
-xunit@2.5.2
+xunit.analyzers@1.7.0
+xunit.assert@2.6.3
+xunit.core@2.6.3
+xunit.extensibility.core@2.6.3
+xunit.extensibility.execution@2.6.3
+xunit.runner.visualstudio@2.5.5
+xunit@2.6.3
 "
 
 inherit check-reqs dotnet-pkg
@@ -287,7 +311,7 @@ fi
 
 SRC_URI+=" ${NUGET_URIS} "
 
-LICENSE="MIT"
+LICENSE="Apache-2.0 MIT"
 SLOT="0"
 
 CHECKREQS_DISK_BUILD="2G"
@@ -297,9 +321,6 @@ DOTNET_PKG_PROJECTS=(
 DOTNET_PKG_BAD_PROJECTS=(
 	src/quicktest/QuickTest.fsproj
 	tests/Js/Main/Fable.Tests.fsproj
-)
-PATCHES=(
-	"${FILESDIR}/${PN}-4.9.0-no-sourcelink-github.patch"
 )
 
 pkg_setup() {
