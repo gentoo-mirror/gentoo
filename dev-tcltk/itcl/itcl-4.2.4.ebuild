@@ -1,25 +1,34 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-MY_P="${PN}${PV}"
+MYP="${PN}-$(ver_rs 1- '-')"
 
 DESCRIPTION="Object Oriented Enhancements for Tcl/Tk"
 HOMEPAGE="http://incrtcl.sourceforge.net/"
-SRC_URI="mirror://sourceforge/project/incrtcl/%5Bincr%20Tcl_Tk%5D-4-source/itcl%20${PV}/${MY_P}.tar.gz"
+SRC_URI="https://github.com/tcltk/${PN}/archive/refs/tags/${MYP}.tar.gz"
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="~alpha amd64 ~ia64 ppc sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm64 ~ia64 ~ppc ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND=">=dev-lang/tcl-8.6:0="
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${PN}${PV}"
+S="${WORKDIR}/${PN}-${MYP}"
 
 # somehow broken
 #RESTRICT=test
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	stat64 opendir64 rewinddir64 closedir64 # used to test for Large File Support
+)
+
+src_prepare() {
+	default
+	cp -r itclWidget/tclconfig tclconfig || die
+}
 
 src_configure() {
 	econf \
@@ -43,6 +52,8 @@ src_compile() {
 
 src_install() {
 	default
+
+	local MY_P=${PN}${PV}
 
 	sed \
 		-e "/BUILD_LIB_SPEC/s:-L${S}::g" \
