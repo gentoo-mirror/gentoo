@@ -1,15 +1,16 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 dev-python/docutils[python_targets_python3_12(-)] test? ( dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] ) ) ( dev-lang/python:3.11 dev-python/docutils[python_targets_python3_11(-)] test? ( dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] ) ) ( dev-lang/python:3.10 dev-python/docutils[python_targets_python3_10(-)] test? ( dev-python/pytest[python_targets_python3_10(-)] dev-python/pytest-xdist[python_targets_python3_10(-)] ) ) ) <sys-devel/clang-18 virtual/pkgconfig virtual/rust >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 dev-python/docutils[python_targets_python3_12(-)] test? ( dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] ) ) ( dev-lang/python:3.11 dev-python/docutils[python_targets_python3_11(-)] test? ( dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] ) ) ( dev-lang/python:3.10 dev-python/docutils[python_targets_python3_10(-)] test? ( dev-python/pytest[python_targets_python3_10(-)] dev-python/pytest-xdist[python_targets_python3_10(-)] ) ) ) llvm_slot_16? ( sys-devel/clang:16 ) llvm_slot_17? ( sys-devel/clang:17 ) virtual/pkgconfig virtual/rust >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
-DEPEND=fuse? ( >=sys-fs/fuse-3.7.0 ) app-arch/lz4:= dev-libs/libaio dev-libs/libsodium:= dev-libs/userspace-rcu:= sys-apps/keyutils sys-apps/util-linux sys-libs/zlib virtual/udev !!sys-devel/llvm:0
+DEPEND=app-arch/lz4:= app-arch/zstd:= dev-libs/libaio dev-libs/libsodium:= dev-libs/userspace-rcu:= sys-apps/keyutils:= sys-apps/util-linux sys-libs/zlib virtual/udev fuse? ( >=sys-fs/fuse-3.7.0 )
 DESCRIPTION=Tools for bcachefs
 EAPI=8
 HOMEPAGE=https://bcachefs.org/
-INHERIT=cargo flag-o-matic llvm multiprocessing python-any-r1 toolchain-funcs unpacker git-r3
-IUSE=fuse test debug
+INHERIT=cargo flag-o-matic llvm-r1 multiprocessing python-any-r1 toolchain-funcs unpacker git-r3
+IUSE=fuse test debug +llvm_slot_17 llvm_slot_16
 LICENSE=Apache-2.0 BSD GPL-2 MIT
 PROPERTIES=live
-RDEPEND=fuse? ( >=sys-fs/fuse-3.7.0 ) app-arch/lz4:= dev-libs/libaio dev-libs/libsodium:= dev-libs/userspace-rcu:= sys-apps/keyutils sys-apps/util-linux sys-libs/zlib virtual/udev
+RDEPEND=app-arch/lz4:= app-arch/zstd:= dev-libs/libaio dev-libs/libsodium:= dev-libs/userspace-rcu:= sys-apps/keyutils:= sys-apps/util-linux sys-libs/zlib virtual/udev fuse? ( >=sys-fs/fuse-3.7.0 )
+REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	1eea65d11f743b8e256ef279b652a2e6	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=232241bf62a194ba858b027e9aa499e9
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	2e652182b1f239b07688071f959f19e4	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_md5_=7d5470834a01080f6419677431b6b21c
