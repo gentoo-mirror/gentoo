@@ -4,44 +4,36 @@
 EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_{32,64} )
-inherit autotools flag-o-matic multilib multilib-build optfeature
-inherit prefix toolchain-funcs wrapper
+PYTHON_COMPAT=( python3_{10..12} )
+inherit autotools flag-o-matic multilib multilib-build prefix
+inherit python-any-r1 readme.gentoo-r1 toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=8.1.0
+WINE_MONO=9.0.0
+WINE_PV=$(ver_rs 2 -)
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
+	EGIT_REPO_URI="https://github.com/ValveSoftware/wine.git"
+	EGIT_BRANCH="experimental_$(ver_cut 1-2)"
 else
-	(( $(ver_cut 2) )) && WINE_SDIR=$(ver_cut 1).x || WINE_SDIR=$(ver_cut 1).0
-	SRC_URI="https://dl.winehq.org/wine/source/${WINE_SDIR}/wine-${PV}.tar.xz"
-	S="${WORKDIR}/wine-${PV}"
+	SRC_URI="https://github.com/ValveSoftware/wine/archive/refs/tags/proton-wine-${WINE_PV}.tar.gz"
+	S="${WORKDIR}/${PN}-wine-${WINE_PV}"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
 
-DESCRIPTION="Free implementation of Windows(tm) on Unix, without external patchsets"
-HOMEPAGE="
-	https://www.winehq.org/
-	https://gitlab.winehq.org/wine/wine/
-"
+DESCRIPTION="Valve Software's fork of Wine"
+HOMEPAGE="https://github.com/ValveSoftware/wine/"
 
 LICENSE="LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
 SLOT="${PV}"
 IUSE="
-	+X +abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups dos
-	llvm-libunwind custom-cflags +fontconfig +gecko gphoto2 +gstreamer
-	kerberos +mingw +mono netapi nls odbc opencl +opengl osmesa pcap
-	perl pulseaudio samba scanner +sdl selinux smartcard +ssl +strip
-	+truetype udev udisks +unwind usb v4l +vulkan wayland wow64
-	+xcomposite xinerama"
-# bug #551124 for truetype
-# TODO?: wow64 can be done without mingw if using clang (needs bug #912237)
-REQUIRED_USE="
-	X? ( truetype )
-	crossdev-mingw? ( mingw )
-	wow64? ( abi_x86_64 !abi_x86_32 mingw )
+	+abi_x86_32 +abi_x86_64 +alsa crossdev-mingw custom-cflags
+	+fontconfig +gecko +gstreamer llvm-libunwind +mono nls osmesa
+	perl pulseaudio +sdl selinux +ssl +strip udev udisks +unwind
+	usb v4l video_cards_amdgpu wow64 +xcomposite xinerama
 "
+REQUIRED_USE="wow64? ( abi_x86_64 !abi_x86_32 )"
 
 # tests are non-trivial to run, can hang easily, don't play well with
 # sandbox, and several need real opengl/vulkan or network access
@@ -49,71 +41,52 @@ RESTRICT="test"
 
 # `grep WINE_CHECK_SONAME configure.ac` + if not directly linked
 WINE_DLOPEN_DEPEND="
-	X? (
-		x11-libs/libXcursor[${MULTILIB_USEDEP}]
-		x11-libs/libXfixes[${MULTILIB_USEDEP}]
-		x11-libs/libXi[${MULTILIB_USEDEP}]
-		x11-libs/libXrandr[${MULTILIB_USEDEP}]
-		x11-libs/libXrender[${MULTILIB_USEDEP}]
-		x11-libs/libXxf86vm[${MULTILIB_USEDEP}]
-		opengl? (
-			media-libs/libglvnd[X,${MULTILIB_USEDEP}]
-			osmesa? ( media-libs/mesa[osmesa,${MULTILIB_USEDEP}] )
-		)
-		xcomposite? ( x11-libs/libXcomposite[${MULTILIB_USEDEP}] )
-		xinerama? ( x11-libs/libXinerama[${MULTILIB_USEDEP}] )
-	)
-	cups? ( net-print/cups[${MULTILIB_USEDEP}] )
+	dev-libs/libgcrypt:=[${MULTILIB_USEDEP}]
+	media-libs/freetype[${MULTILIB_USEDEP}]
+	media-libs/libglvnd[X,${MULTILIB_USEDEP}]
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
+	x11-libs/libXcursor[${MULTILIB_USEDEP}]
+	x11-libs/libXfixes[${MULTILIB_USEDEP}]
+	x11-libs/libXi[${MULTILIB_USEDEP}]
+	x11-libs/libXrandr[${MULTILIB_USEDEP}]
+	x11-libs/libXrender[${MULTILIB_USEDEP}]
+	x11-libs/libXxf86vm[${MULTILIB_USEDEP}]
 	fontconfig? ( media-libs/fontconfig[${MULTILIB_USEDEP}] )
-	kerberos? ( virtual/krb5[${MULTILIB_USEDEP}] )
-	netapi? ( net-fs/samba[${MULTILIB_USEDEP}] )
-	odbc? ( dev-db/unixODBC[${MULTILIB_USEDEP}] )
+	osmesa? ( media-libs/mesa[osmesa,${MULTILIB_USEDEP}] )
 	sdl? ( media-libs/libsdl2[haptic,joystick,${MULTILIB_USEDEP}] )
-	ssl? ( net-libs/gnutls:=[${MULTILIB_USEDEP}] )
-	truetype? ( media-libs/freetype[${MULTILIB_USEDEP}] )
+	ssl? (
+		dev-libs/gmp:=[${MULTILIB_USEDEP}]
+		net-libs/gnutls:=[${MULTILIB_USEDEP}]
+	)
 	udisks? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	v4l? ( media-libs/libv4l[${MULTILIB_USEDEP}] )
-	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
+	xcomposite? ( x11-libs/libXcomposite[${MULTILIB_USEDEP}] )
+	xinerama? ( x11-libs/libXinerama[${MULTILIB_USEDEP}] )
 "
+# gcc: for -latomic with clang
 WINE_COMMON_DEPEND="
 	${WINE_DLOPEN_DEPEND}
-	X? (
-		x11-libs/libX11[${MULTILIB_USEDEP}]
-		x11-libs/libXext[${MULTILIB_USEDEP}]
-	)
+	sys-devel/gcc:*
+	x11-libs/libX11[${MULTILIB_USEDEP}]
+	x11-libs/libXext[${MULTILIB_USEDEP}]
+	x11-libs/libdrm[video_cards_amdgpu?,${MULTILIB_USEDEP}]
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
-	capi? ( net-libs/libcapi:=[${MULTILIB_USEDEP}] )
-	gphoto2? ( media-libs/libgphoto2:=[${MULTILIB_USEDEP}] )
 	gstreamer? (
 		dev-libs/glib:2[${MULTILIB_USEDEP}]
-		media-libs/gst-plugins-base:1.0[${MULTILIB_USEDEP}]
+		media-libs/gst-plugins-base:1.0[opengl,${MULTILIB_USEDEP}]
 		media-libs/gstreamer:1.0[${MULTILIB_USEDEP}]
 	)
-	opencl? ( virtual/opencl[${MULTILIB_USEDEP}] )
-	pcap? ( net-libs/libpcap[${MULTILIB_USEDEP}] )
 	pulseaudio? ( media-libs/libpulse[${MULTILIB_USEDEP}] )
-	scanner? ( media-gfx/sane-backends[${MULTILIB_USEDEP}] )
-	smartcard? ( sys-apps/pcsc-lite[${MULTILIB_USEDEP}] )
 	udev? ( virtual/libudev:=[${MULTILIB_USEDEP}] )
 	unwind? (
 		llvm-libunwind? ( sys-libs/llvm-libunwind[${MULTILIB_USEDEP}] )
 		!llvm-libunwind? ( sys-libs/libunwind:=[${MULTILIB_USEDEP}] )
 	)
 	usb? ( dev-libs/libusb:1[${MULTILIB_USEDEP}] )
-	wayland? (
-		dev-libs/wayland[${MULTILIB_USEDEP}]
-		x11-libs/libxkbcommon[${MULTILIB_USEDEP}]
-	)
 "
 RDEPEND="
 	${WINE_COMMON_DEPEND}
 	app-emulation/wine-desktop-common
-	dos? (
-		|| (
-			games-emulation/dosbox
-			games-emulation/dosbox-staging
-		)
-	)
 	gecko? (
 		app-emulation/wine-gecko:${WINE_GECKO}[${MULTILIB_USEDEP}]
 		wow64? ( app-emulation/wine-gecko[abi_x86_32] )
@@ -124,16 +97,16 @@ RDEPEND="
 		dev-lang/perl
 		dev-perl/XML-LibXML
 	)
-	samba? ( net-fs/samba[winbind] )
 	selinux? ( sec-policy/selinux-wine )
 	udisks? ( sys-fs/udisks:2 )
 "
 DEPEND="
 	${WINE_COMMON_DEPEND}
 	sys-kernel/linux-headers
-	X? ( x11-base/xorg-proto )
+	x11-base/xorg-proto
 "
 BDEPEND="
+	${PYTHON_DEPS}
 	|| (
 		sys-devel/binutils
 		sys-devel/lld
@@ -142,25 +115,26 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
-	mingw? ( !crossdev-mingw? (
+	nls? ( sys-devel/gettext )
+	!crossdev-mingw? (
 		>=dev-util/mingw64-toolchain-10.0.0_p1-r2[${MULTILIB_USEDEP}]
 		wow64? ( dev-util/mingw64-toolchain[abi_x86_32] )
-	) )
-	nls? ( sys-devel/gettext )
-	wayland? ( dev-util/wayland-scanner )
+	)
 "
 IDEPEND=">=app-eselect/eselect-wine-2"
 
 QA_CONFIG_IMPL_DECL_SKIP=(
-	__clear_cache # unused on amd64+x86 (bug #900338)
+	__clear_cache # unused on amd64+x86 (bug #900332)
 	res_getservers # false positive
 )
 QA_TEXTRELS="usr/lib/*/wine/i386-unix/*.so" # uses -fno-PIC -Wl,-z,notext
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-7.0-noexecstack.patch
-	"${FILESDIR}"/${PN}-7.20-unwind.patch
-	"${FILESDIR}"/${PN}-8.13-rpath.patch
+	"${FILESDIR}"/${PN}-7.0.4-musl.patch
+	"${FILESDIR}"/${PN}-7.0.4-noexecstack.patch
+	"${FILESDIR}"/${PN}-8.0.1c-unwind.patch
+	"${FILESDIR}"/${PN}-8.0.4-restore-menubuilder.patch
+	"${FILESDIR}"/${PN}-9.0-rpath.patch
 )
 
 pkg_pretend() {
@@ -177,6 +151,7 @@ pkg_pretend() {
 				eerror "    crossdev --target ${mingw}"
 				eerror
 				eerror "For more information, please see: https://wiki.gentoo.org/wiki/Mingw"
+				eerror "--> Note that mingw builds are default for ${PN} even without this USE."
 				die "USE=crossdev-mingw is enabled, but ${mingw}-gcc was not found"
 			fi
 		done
@@ -196,23 +171,21 @@ src_prepare() {
 	default
 
 	if tc-is-clang; then
-		if use mingw; then
-			# -mabi=ms was ignored by <clang:16 then turned error in :17
-			# if used without --target *-windows, then gets used in install
-			# phase despite USE=mingw, drop as a quick fix for now
-			sed -i '/MSVCRTFLAGS=/s/-mabi=ms//' configure.ac || die
-		else
-			# fails in ./configure unless --enable-archs is passed, allow to
-			# bypass with EXTRA_ECONF but is currently considered unsupported
-			# (by Gentoo) as additional work is needed for (proper) support
-			# note: also fails w/ :17, but unsure if safe to drop w/o mingw
-			[[ ${EXTRA_ECONF} == *--enable-archs* ]] ||
-				die "building ${PN} with clang is only supported with USE=mingw"
-		fi
+		# -mabi=ms was ignored by <clang:16 then turned error in :17
+		# and it still gets used in install phase despite --with-mingw,
+		# drop as a quick fix for now which hopefully should be safe
+		sed -i '/MSVCRTFLAGS=/s/-mabi=ms//' configure.ac || die
+
+		# needed by Valve's fsync patches if using clang (undef atomic_load_8)
+		sed -e '/^UNIX_LIBS.*=/s/$/ -latomic/' \
+			-i dlls/{ntdll,winevulkan}/Makefile.in || die
 	fi
 
 	# ensure .desktop calls this variant + slot
 	sed -i "/^Exec=/s/wine /${P} /" loader/wine.desktop || die
+
+	# similarly to staging, append to `wine --version` for identification
+	sed -i "s/wine_build[^1]*1/& (Proton-${WINE_PV})/" configure.ac || die
 
 	# datadir is not where wine-mono is installed, so prefixy alternate paths
 	hprefixify -w /get_mono_path/ dlls/mscoree/metahost.c
@@ -220,9 +193,12 @@ src_prepare() {
 	# always update for patches (including user's wrt #432348)
 	eautoreconf
 	tools/make_requests || die # perl
+	# proton variant also needs specfiles and vulkan
+	tools/make_specfiles || die # perl
+	dlls/winevulkan/make_vulkan -x vk.xml || die # python
 	# tip: if need more for user patches, with portage can e.g. do
 	# echo "post_src_prepare() { tools/make_specfiles || die; }" \
-	#     > /etc/portage/env/app-emulation/wine-vanilla
+	#     > /etc/portage/env/app-emulation/wine-proton
 }
 
 src_configure() {
@@ -238,43 +214,58 @@ src_configure() {
 
 		$(usev wow64 --enable-archs=x86_64,i386)
 
+		# upstream (Valve) doesn't really support misc configurations (e.g.
+		# adds vulkan code not always guarded by --with-vulkan), so force
+		# some major options that are typically needed by games either way
+		# TODO?: --without-mingw could make sense *if* using clang, assuming
+		# bug #912237 is resolved (consider when do USE=wow64 in proton-9)
+		--with-freetype
+		--with-mingw # needed by many, notably Blizzard titles
+		--with-opengl
+		--with-vulkan
+		--with-x
+
+		# ...and disable most options unimportant for games and unused by
+		# Proton rather than expose as volatile USEs with little support
+		--without-capi
+		--without-cups
+		--without-gphoto
+		--without-gssapi
+		--without-krb5
+		--without-netapi
+		--without-opencl
+		--without-pcap
+		--without-pcsclite
+		--without-sane
+		ac_cv_lib_soname_odbc=
+
+		# afaik wayland support in 9.0.x currently cannot do opengl/vulkan
+		# yet making it mostly pointless for a gaming-oriented build
+		# (IUSE="X wayland" may be added in wine-proton-10 or 11)
+		--without-wayland
+
 		$(use_enable gecko mshtml)
 		$(use_enable mono mscoree)
+		$(use_enable video_cards_amdgpu amd_ags_x64)
 		--disable-tests
-
-		$(use_with X x)
 		$(use_with alsa)
-		$(use_with capi)
-		$(use_with cups)
 		$(use_with fontconfig)
-		$(use_with gphoto2 gphoto)
 		$(use_with gstreamer)
-		$(use_with kerberos gssapi)
-		$(use_with kerberos krb5)
-		$(use_with mingw)
-		$(use_with netapi)
 		$(use_with nls gettext)
-		$(use_with opencl)
-		$(use_with opengl)
 		$(use_with osmesa)
 		--without-oss # media-sound/oss is not packaged (OSSv4)
-		$(use_with pcap)
 		$(use_with pulseaudio pulse)
-		$(use_with scanner sane)
 		$(use_with sdl)
-		$(use_with smartcard pcsclite)
 		$(use_with ssl gnutls)
-		$(use_with truetype freetype)
 		$(use_with udev)
 		$(use_with udisks dbus) # dbus is only used for udisks
 		$(use_with unwind)
 		$(use_with usb)
 		$(use_with v4l v4l2)
-		$(use_with vulkan)
-		$(use_with wayland)
 		$(use_with xcomposite)
 		$(use_with xinerama)
-		$(usev !odbc ac_cv_lib_soname_odbc=)
+
+		--without-vosk # unpackaged, file a bug if you need this
 	)
 
 	filter-lto # build failure
@@ -290,32 +281,30 @@ src_configure() {
 		strip-unsupported-flags
 	fi
 
-	if use mingw; then
-		use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
+	use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
 
-		# CROSSCC was formerly recognized by wine, thus been using similar
-		# variables (subject to change, esp. if ever make a mingw.eclass).
-		local mingwcc_amd64=${CROSSCC:-${CROSSCC_amd64:-x86_64-w64-mingw32-gcc}}
-		local mingwcc_x86=${CROSSCC:-${CROSSCC_x86:-i686-w64-mingw32-gcc}}
-		local -n mingwcc=mingwcc_$(usex abi_x86_64 amd64 x86)
+	# CROSSCC was formerly recognized by wine, thus been using similar
+	# variables (subject to change, esp. if ever make a mingw.eclass).
+	local mingwcc_amd64=${CROSSCC:-${CROSSCC_amd64:-x86_64-w64-mingw32-gcc}}
+	local mingwcc_x86=${CROSSCC:-${CROSSCC_x86:-i686-w64-mingw32-gcc}}
+	local -n mingwcc=mingwcc_$(usex abi_x86_64 amd64 x86)
 
-		conf+=(
-			ac_cv_prog_x86_64_CC="${mingwcc_amd64}"
-			ac_cv_prog_i386_CC="${mingwcc_x86}"
+	conf+=(
+		ac_cv_prog_x86_64_CC="${mingwcc_amd64}"
+		ac_cv_prog_i386_CC="${mingwcc_x86}"
 
-			CROSSCFLAGS="${CROSSCFLAGS:-$(
-				filter-flags '-fstack-protector*' #870136
-				filter-flags '-mfunction-return=thunk*' #878849
-				CC=${mingwcc} test-flags-CC ${CFLAGS:--O2}
-			)}"
+		CROSSCFLAGS="${CROSSCFLAGS:-$(
+			filter-flags '-fstack-protector*' #870136
+			filter-flags '-mfunction-return=thunk*' #878849
+			CC=${mingwcc} test-flags-CC ${CFLAGS:--O2}
+		)}"
 
-			CROSSLDFLAGS="${CROSSLDFLAGS:-$(
-				filter-flags '-fuse-ld=*'
+		CROSSLDFLAGS="${CROSSLDFLAGS:-$(
+			filter-flags '-fuse-ld=*'
 
-				CC=${mingwcc} test-flags-CCLD ${LDFLAGS}
-			)}"
-		)
-	fi
+			CC=${mingwcc} test-flags-CCLD ${LDFLAGS}
+		)}"
+	)
 
 	# order matters with multilib: configure+compile 64->32, install 32->64
 	local -i bits
@@ -383,38 +372,39 @@ src_install() {
 		make_wrapper "${bin##*/}-${P#wine-}" "${bin#"${ED}"}"
 	done
 
-	if use mingw; then
-		# don't let portage try to strip PE files with the wrong
-		# strip executable and instead handle it here (saves ~120MB)
-		dostrip -x ${WINE_PREFIX}/wine/{i386,x86_64}-windows
+	# don't let portage try to strip PE files with the wrong
+	# strip executable and instead handle it here (saves ~120MB)
+	dostrip -x ${WINE_PREFIX}/wine/{i386,x86_64}-windows
 
-		if use strip; then
-			ebegin "Stripping Windows (PE) binaries"
-			find "${ED}"${WINE_PREFIX}/wine/*-windows -regex '.*\.\(a\|dll\|exe\)' \
-				-exec $(usex abi_x86_64 x86_64 i686)-w64-mingw32-strip --strip-unneeded {} +
-			eend ${?} || die
-		fi
+	if use strip; then
+		ebegin "Stripping Windows (PE) binaries"
+		find "${ED}"${WINE_PREFIX}/wine/*-windows -regex '.*\.\(a\|dll\|exe\)' \
+			-exec $(usex abi_x86_64 x86_64 i686)-w64-mingw32-strip --strip-unneeded {} +
+		eend ${?} || die
 	fi
 
 	dodoc ANNOUNCE* AUTHORS README* documentation/README*
+	readme.gentoo_create_doc
+}
+
+pkg_preinst() {
+	has_version ${CATEGORY}/${PN} && WINE_HAD_ANY_SLOT=
 }
 
 pkg_postinst() {
+	[[ -v WINE_HAD_ANY_SLOT ]] || readme.gentoo_print_elog
+
 	if use !abi_x86_32 && use !wow64; then
 		ewarn "32bit support is disabled. While 64bit applications themselves will"
 		ewarn "work, be warned that it is not unusual that installers or other helpers"
 		ewarn "will attempt to use 32bit and fail. If do not want full USE=abi_x86_32,"
 		ewarn "note the experimental/WIP USE=wow64 can allow 32bit without multilib."
-	elif use abi_x86_32 && { use opengl || use vulkan; } &&
-		has_version 'x11-drivers/nvidia-drivers[-abi_x86_32]'
+	elif use abi_x86_32 && has_version 'x11-drivers/nvidia-drivers[-abi_x86_32]'
 	then
 		ewarn "x11-drivers/nvidia-drivers is installed but is built without"
 		ewarn "USE=abi_x86_32 (ABI_X86=32), hardware acceleration with 32bit"
 		ewarn "applications under ${PN} will likely not be usable."
 	fi
-
-	optfeature "/dev/hidraw* access used for *some* controllers (e.g. DualShock4)" \
-		games-util/game-device-udev-rules
 
 	eselect wine update --if-unset || die
 }
