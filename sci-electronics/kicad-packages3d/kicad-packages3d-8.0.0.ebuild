@@ -15,13 +15,13 @@ else
 	SRC_URI="https://gitlab.com/kicad/libraries/kicad-packages3D/-/archive/${PV}/kicad-packages3D-${PV}.tar.bz2 -> ${P}.tar.bz2"
 	S="${WORKDIR}/${PN/3d/3D}-${PV}"
 
-	KEYWORDS="amd64 ~arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 fi
 
 LICENSE="CC-BY-SA-4.0"
 SLOT="0"
 
-RDEPEND=">=sci-electronics/kicad-7.0.0"
+RDEPEND=">=sci-electronics/kicad-8.0.0"
 
 if [[ ${PV} == 9999 ]] ; then
 	# x11-misc-util/macros only required on live ebuilds
