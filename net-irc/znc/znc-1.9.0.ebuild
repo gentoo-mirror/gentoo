@@ -76,6 +76,8 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.7.1-inttest-dir.patch"
+	# The following patch is a backport, it can be removed during the next bump
+	"${FILESDIR}/${P}-skip-modperl-modpython-tests-cleaner.patch"
 )
 
 pkg_setup() {
