@@ -3,34 +3,64 @@
 
 EAPI=8
 
-# Don't forget to update when bumping. Used in --version output
-EGIT_COMMIT="055b2c31a9cf28321734e5f71613ea080d216cd3"
+inherit fcaps go-module multiprocessing systemd tmpfiles toolchain-funcs
 
-inherit fcaps go-module systemd tmpfiles
-
-ARCHIVE_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI="${ARCHIVE_URI} https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
-
-KEYWORDS="~amd64"
-
-DESCRIPTION="A DNS server that chains middleware"
+DESCRIPTION="CoreDNS is a DNS server that chains plugins"
 HOMEPAGE="https://github.com/coredns/coredns"
 
-LICENSE="Apache-2.0 MIT BSD ISC MPL-2.0 BSD-2"
-SLOT="0"
-RDEPEND="acct-user/coredns
-	acct-group/coredns"
+if [[ ${PV} == 9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/coredns/coredns.git"
+else
+	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI+=" https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
+	KEYWORDS="~amd64"
+fi
 
+# main
+LICENSE="Apache-2.0"
+# deps
+LICENSE+=" MIT BSD ISC MPL-2.0 BSD-2"
+
+SLOT="0"
+IUSE="test"
 # TODO: debug test failure with deps tarball
 RESTRICT="test"
+
+RDEPEND="acct-user/coredns
+	acct-group/coredns"
 
 FILECAPS=(
 	-m 755 'cap_net_bind_service=+ep' usr/bin/${PN}
 )
 
+src_unpack() {
+	if [[ ${PV} == *9999* ]]; then
+		git-r3_src_unpack
+		go-module_live_vendor
+	else
+		go-module_src_unpack
+	fi
+}
+
+src_prepare() {
+	default
+	use test || sed -i -e 's|coredns: $(CHECKS)|coredns:|' Makefile
+}
+
 src_compile() {
-	go build -v -ldflags="-X github.com/coredns/coredns/coremain.GitCommit=${EGIT_COMMIT}" ||
-		die "go build failed"
+	# For non-live versions, prevent git operations which causes sandbox violations
+	# https://github.com/gentoo/gentoo/pull/33531#issuecomment-1786107493
+	[[ ${PV} != 9999* ]] && export GITCOMMIT=''
+
+	# Mimicking go-module.eclass's GOFLAGS
+	if use amd64 || use arm || use arm64 ||
+			( use ppc64 && [[ $(tc-endian) == "little" ]] ) || use s390 || use x86; then
+		local buildmode="-buildmode=pie"
+	fi
+	export BUILDOPTS="-buildvcs=false -modcacherw -v -x -p=$(makeopts_jobs) ${buildmode}"
+
+	default
 }
 
 src_install() {
