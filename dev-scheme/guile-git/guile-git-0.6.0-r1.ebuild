@@ -1,22 +1,26 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-# I extract those manually from https://gitlab.com/guile-git/guile-git/-/releases
-# from 'source tarball' link. Is there a better stable link?
-UPLOAD_PV=0.5.2
-UPLOAD_ID=6450f3991aa524484038cdcea3fb248d
-
-[[ $PV == ${UPLOAD_PV} ]] || die "${CATEGORY}/${P}: update 'UPLOAD_ID' to match ${PV}"
+inherit autotools
 
 DESCRIPTION="Guile bindings of git"
-HOMEPAGE="https://gitlab.com/guile-git/guile-git"
-SRC_URI="https://gitlab.com/guile-git/guile-git/uploads/${UPLOAD_ID}/guile-git-${PV}.tar.gz"
+HOMEPAGE="https://gitlab.com/guile-git/guile-git/"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://gitlab.com/${PN}/${PN}.git"
+else
+	SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
+	S="${WORKDIR}/${PN}-v${PV}"
+
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 
 # Works without sandbox. But under sandbox sshd claims to break the protocol.
 RESTRICT="test"
@@ -24,11 +28,16 @@ RESTRICT="test"
 # older libgit seems to be incompatible with guile-git bindings
 # https://github.com/trofi/nix-guix-gentoo/issues/7
 RDEPEND="
+	>=dev-libs/libgit2-1:=
 	>=dev-scheme/guile-2.0.11:=
 	dev-scheme/bytestructures
-	>=dev-libs/libgit2-1:=
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	virtual/pkgconfig
+"
 
 # guile generates ELF files without use of C or machine code
 # It's a portage's false positive. bug #677600
@@ -36,6 +45,7 @@ QA_PREBUILT='*[.]go'
 
 src_prepare() {
 	default
+	eautoreconf
 
 	# guile is trying to avoid recompilation by checking if file
 	#     /usr/lib64/guile/2.2/site-ccache/<foo>

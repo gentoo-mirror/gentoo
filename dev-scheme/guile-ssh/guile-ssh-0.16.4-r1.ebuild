@@ -5,17 +5,17 @@ EAPI=8
 
 inherit autotools
 
-DESCRIPTION="GNU Guile bindings to the zstd compression library"
-HOMEPAGE="https://notabug.org/guile-zstd/guile-zstd/"
+DESCRIPTION="Library providing access to the SSH protocol for GNU Guile"
+HOMEPAGE="https://memory-heap.org/~avp/projects/guile-ssh/
+	https://github.com/artyom-poptsov/guile-ssh/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://notabug.org/${PN}/${PN}.git"
+	EGIT_REPO_URI="https://github.com/artyom-poptsov/${PN}.git"
 else
-	SRC_URI="https://notabug.org/${PN}/${PN}/archive/v${PV}.tar.gz
+	SRC_URI="https://github.com/artyom-poptsov/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}"
 
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -23,16 +23,21 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-# In zstd-1.5.5-r1 library was moved back from "/lib" to "/usr/lib".
 RDEPEND="
-	>=app-arch/zstd-1.5.5-r1
 	>=dev-scheme/guile-2.0.0:=
+	net-libs/libssh:0=[server,sftp]
 "
 DEPEND="
 	${RDEPEND}
 "
+BDEPEND="
+	virtual/pkgconfig
+"
 
-DOCS=( AUTHORS ChangeLog NEWS README )
+DOCS=( AUTHORS ChangeLog NEWS README THANKS TODO )
+PATCHES=(
+	"${FILESDIR}/${PN}-0.16.2-tests.patch"
+)
 
 # guile generates ELF files without use of C or machine code
 # It's a portage's false positive. bug #677600
@@ -48,6 +53,8 @@ src_prepare() {
 
 src_install() {
 	default
+
+	find "${ED}" -name "*.la" -delete || die
 
 	# Workaround llvm-strip problem of mangling guile ELF debug
 	# sections: https://bugs.gentoo.org/905898

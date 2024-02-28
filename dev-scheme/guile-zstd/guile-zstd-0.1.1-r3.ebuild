@@ -1,12 +1,12 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit autotools
 
-DESCRIPTION="GNU Guile library providing bindings to zlib"
-HOMEPAGE="https://notabug.org/guile-zlib/guile-zlib/"
+DESCRIPTION="GNU Guile bindings to the zstd compression library"
+HOMEPAGE="https://notabug.org/guile-zstd/guile-zstd/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -23,16 +23,19 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
+# In zstd-1.5.5-r1 library was moved back from "/lib" to "/usr/lib".
 RDEPEND="
+	>=app-arch/zstd-1.5.5-r1
 	>=dev-scheme/guile-2.0.0:=
-	>=sys-libs/zlib-1.3-r4
 "
 DEPEND="
 	${RDEPEND}
 "
+BDEPEND="
+	virtual/pkgconfig
+"
 
-DOCS=( AUTHORS ChangeLog HACKING NEWS README.org )
-PATCHES=( "${FILESDIR}/${PN}-0.1.0-gentoo.patch" )
+DOCS=( AUTHORS ChangeLog NEWS README )
 
 # guile generates ELF files without use of C or machine code
 # It's a portage's false positive. bug #677600
@@ -40,11 +43,10 @@ QA_PREBUILT='*[.]go'
 
 src_prepare() {
 	default
+	eautoreconf
 
 	# http://debbugs.gnu.org/cgi/bugreport.cgi?bug=38112
 	find "${S}" -name "*.scm" -exec touch {} + || die
-
-	eautoreconf
 }
 
 src_install() {
