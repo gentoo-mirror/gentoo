@@ -1,9 +1,9 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit desktop gnome2-utils python-single-r1 readme.gentoo-r1
 
 DESCRIPTION="Fully featured markdown editor, supports github markdown dialect"
@@ -14,12 +14,12 @@ S="${WORKDIR}/Remarkable-${GIT_COMMIT}"
 
 LICENSE="BSD-2 GPL-2+ LGPL-2.1+ MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	${PYTHON_DEPS}
-	net-libs/webkit-gtk:4[introspection]
+	net-libs/webkit-gtk:4.1[introspection]
 	x11-libs/gtk+:3[introspection]
 	x11-libs/gtksourceview:3.0[introspection]
 	$(python_gen_cond_dep '
@@ -29,7 +29,11 @@ DEPEND="
 		dev-python/markdown[${PYTHON_USEDEP}]
 	')"
 RDEPEND="${DEPEND}"
-PATCHES=( "${FILESDIR}"/${P}-disable-spellcheck.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-disable-spellcheck.patch
+	"${FILESDIR}"/webkit-version.patch
+	"${FILESDIR}"/fix-custom-css-issue.patch
+)
 
 src_prepare() {
 	default
