@@ -1,0 +1,16 @@
+BDEPEND=dev-util/intltool virtual/pkgconfig nls? ( sys-devel/gettext )
+DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=x11-libs/fox:1.6[png,truetype] media-libs/fontconfig x11-libs/libXrandr x11-libs/libX11 x11-libs/libXft startup-notification? ( x11-libs/libxcb:= x11-libs/startup-notification x11-libs/xcb-util )
+DESCRIPTION=MS-Explorer-like minimalist file manager for X
+EAPI=8
+HOMEPAGE=http://roland65.free.fr/xfe/
+INHERIT=flag-o-matic plocale xdg-utils
+IUSE=debug nls startup-notification
+KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=x11-libs/fox:1.6[png,truetype] media-libs/fontconfig x11-libs/libXrandr x11-libs/libX11 x11-libs/libXft startup-notification? ( x11-libs/libxcb:= x11-libs/startup-notification x11-libs/xcb-util )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://sourceforge/xfe/xfe/1.46/xfe-1.46.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	plocale	950fbaec7deeba41b5bcc0572cca99b9	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=3ea03db0c9ac9700fda3042e49a38412
