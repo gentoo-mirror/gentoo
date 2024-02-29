@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT="cb0bb696bea9846fc63a43056c01ddc1efa4a2a8"
+COMMIT="edf0b29d9e14e0b81d54f9b086ff2f0dd2ed85c5"
 
 inherit qmake-utils xdg-utils
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/laurantino/${PN}/archive/${COMMIT}.tar.gz -> ${P}.ta
 
 LICENSE="GPL-3 CC-BY-3.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="openclipart"
 
 RDEPEND="
@@ -27,7 +27,7 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-gfx/exiv2:=
-	>=media-video/ffmpeg-4:0=[encode]
+	>=media-video/ffmpeg-6:=[encode]
 	openclipart? ( media-gfx/openclipart[svg,-gzip] )"
 DEPEND="${RDEPEND}"
 
