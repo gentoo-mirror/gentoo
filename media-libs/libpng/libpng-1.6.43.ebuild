@@ -28,10 +28,6 @@ DEPEND="${RDEPEND}"
 
 DOCS=( ANNOUNCE CHANGES libpng-manual.txt README TODO )
 
-PATCHES=(
-	"${FILESDIR}"/${P}-png_check_sig-abi.patch
-)
-
 src_prepare() {
 	default
 
