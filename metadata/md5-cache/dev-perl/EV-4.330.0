@@ -4,11 +4,11 @@ DEPEND=dev-lang/perl
 DESCRIPTION=Perl interface to libev, a high performance full-featured event loop
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/EV
-INHERIT=perl-module
+INHERIT=flag-o-matic perl-module
 KEYWORDS=amd64 ~arm ppc ppc64 ~riscv x86
 LICENSE=|| ( Artistic GPL-1+ ) || ( BSD-2 GPL-2+ )
 RDEPEND=dev-perl/common-sense dev-lang/perl:=
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/ML/MLEHMANN/EV-4.33.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676
-_md5_=ecfc2337af9f7997067071ef6c574a09
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	4e37e1004a0a27e41bb7025c0b974676
+_md5_=3441197f4047e1cbaea988d8d3631101
