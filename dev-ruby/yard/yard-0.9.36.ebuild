@@ -21,17 +21,15 @@ DESCRIPTION="Documentation generation tool for the Ruby programming language"
 HOMEPAGE="https://yardoc.org/"
 
 # The gem lacks the gemspec file needed to pass tests.
-SRC_URI="https://github.com/lsegal/yard/archive/v${PV}.tar.gz -> ${P}-git.tgz
-	https://github.com/lsegal/yard/commit/d840ee127dfd79abd208a155f01d66293ae290ca.patch -> ${P}-yield-ruby33.patch"
+SRC_URI="https://github.com/lsegal/yard/archive/v${PV}.tar.gz -> ${P}-git.tgz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE=""
+IUSE="test"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.9.34-beginless-range.patch"
-	"${DISTDIR}/${P}-yield-ruby33.patch"
 )
 
 ruby_add_bdepend "doc? ( || ( dev-ruby/maruku dev-ruby/rdiscount dev-ruby/kramdown ) )"
