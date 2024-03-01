@@ -1,0 +1,15 @@
+BDEPEND=~dev-ada/libgpr-24.0.0:=[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?,static-pic?] dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?] doc? ( dev-python/sphinx dev-tex/latexmk )
+DEFINED_PHASES=compile configure install prepare setup
+DESCRIPTION=GNAT Component Collection Core packages
+EAPI=8
+HOMEPAGE=http://libre.adacore.com
+INHERIT=ada multiprocessing
+IUSE=doc +shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=~dev-ada/libgpr-24.0.0:=[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?,static-pic?]
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
+SLOT=0/24.0.0
+SRC_URI=https://github.com/AdaCore/gnatcoll-core/archive/refs/tags/v24.0.0.tar.gz -> gnatcoll-core-24.0.0.tar.gz
+_eclasses_=ada	825cf3c59de8fefe1dde148596e006f5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
+_md5_=cea0730e6a34e95abb7957b30c35a6bf
