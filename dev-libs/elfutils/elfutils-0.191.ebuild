@@ -4,7 +4,7 @@
 EAPI=8
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/elfutils.gpg
-inherit autotools flag-o-matic multilib-minimal verify-sig
+inherit flag-o-matic multilib-minimal verify-sig
 
 DESCRIPTION="Libraries/utilities to handle ELF objects (drop in replacement for libelf)"
 HOMEPAGE="https://sourceware.org/elfutils/"
@@ -13,7 +13,7 @@ SRC_URI+=" verify-sig? ( https://sourceware.org/elfutils/ftp/${PV}/${P}.tar.bz2.
 
 LICENSE="|| ( GPL-2+ LGPL-3+ ) utils? ( GPL-3+ )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="bzip2 debuginfod lzma nls static-libs test +utils zstd"
 RESTRICT="!test? ( test )"
 
@@ -45,25 +45,16 @@ BDEPEND="
 	sys-devel/m4
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
-	verify-sig? ( sec-keys/openpgp-keys-elfutils )
+	verify-sig? ( >=sec-keys/openpgp-keys-elfutils-20240301 )
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.189-PaX-support.patch
-	"${FILESDIR}"/${PN}-0.189-skip-DT_RELR-failing-tests.patch
 	"${FILESDIR}"/${PN}-0.189-musl-aarch64-regs.patch
 	"${FILESDIR}"/${PN}-0.189-musl-macros.patch
-	"${FILESDIR}"/${P}-configure-bashisms.patch
-	"${FILESDIR}"/${P}-clang16-tests.patch
-	"${FILESDIR}"/${P}-tests-run-lfs-symbols.sh-needs-gawk.patch
-	"${FILESDIR}"/${P}-lld-17.patch
 )
 
 src_prepare() {
 	default
-
-	# Only here for ${P}-configure-bashisms.patch, delete on next bump!
-	eautoreconf
 
 	if ! use static-libs; then
 		sed -i -e '/^lib_LIBRARIES/s:=.*:=:' -e '/^%.os/s:%.o$::' lib{asm,dw,elf}/Makefile.in || die
