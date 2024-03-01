@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="120"
+CHROMIUM_VERSION="121"
 CHROMIUM_LANGS="
 	af
 	am
@@ -98,7 +98,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 SRC_URI="
