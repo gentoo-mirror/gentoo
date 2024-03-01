@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile configure install test
-DEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] !mpir? ( dev-libs/gmp:0= ) mpir? ( sci-libs/mpir:= ) dev-lang/perl >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] dev-libs/gmp:0= dev-lang/perl >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Arithmetic and logic operations over arbitrary-precision integers
 EAPI=7
 HOMEPAGE=https://github.com/ocaml/Zarith
 INHERIT=findlib toolchain-funcs
-IUSE=doc mpir +ocamlopt +ocamlopt
+IUSE=doc +ocamlopt +ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc x86
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] !mpir? ( dev-libs/gmp:0= ) mpir? ( sci-libs/mpir:= ) dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] dev-libs/gmp:0= dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!ocamlopt? ( test )
 SLOT=0/1.13
 SRC_URI=https://github.com/ocaml/Zarith/archive/release-1.13.tar.gz -> zarith-1.13.tar.gz
 _eclasses_=findlib	cc1c14904708a0a28bcb256b342a808c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=5116525207ebd6290fb391abcb163e6a
+_md5_=80b5f5f534c439c2908e2f251010919c
