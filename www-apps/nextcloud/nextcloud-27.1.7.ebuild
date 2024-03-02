@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,11 +10,10 @@ HOMEPAGE="https://nextcloud.com/"
 SRC_URI="https://download.nextcloud.com/server/releases/${P}.tar.bz2"
 LICENSE="AGPL-3"
 
-KEYWORDS="amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+curl +imagemagick mysql postgres +sqlite"
 REQUIRED_USE="|| ( mysql postgres sqlite )"
 
-DEPEND=""
 RDEPEND="dev-lang/php[curl?,filter,gd,hash(+),intl,json(+),mysql?,pdo,posix,postgres?,session,simplexml,sqlite?,truetype,xmlreader,xmlwriter,zip]
 	imagemagick? ( dev-php/pecl-imagick )
 	virtual/httpd-php"
