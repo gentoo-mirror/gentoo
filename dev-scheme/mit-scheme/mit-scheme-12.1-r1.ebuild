@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit wrapper
+inherit toolchain-funcs wrapper
 
 DESCRIPTION="Scheme interpreter, compiler, debugger and runtime library"
 HOMEPAGE="https://www.gnu.org/software/mit-scheme/
@@ -16,7 +16,12 @@ SLOT="0"
 KEYWORDS="amd64"  # Additionally arm64 is officially supported.
 IUSE="blowfish gdbm gui postgres"
 
+BDEPEND="
+	virtual/pkgconfig
+"
+# Use ncurses to avoid ancient emulated termcap from 1980's, bug #871507
 RDEPEND="
+	sys-libs/ncurses
 	blowfish? ( dev-libs/openssl:= )
 	gdbm? ( sys-libs/gdbm:= )
 	gui? ( x11-libs/libX11 )
@@ -25,13 +30,25 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-no-Werror.patch
-	"${FILESDIR}"/${P}-implicit-int.patch
+	"${FILESDIR}"/${PN}-11.2-no-Werror.patch
+	"${FILESDIR}"/${PN}-11.2-implicit-int.patch
 )
 
 src_configure() {
-	local myconf=(
+	local termcap
+
+	# ncurses provides termcap via terminfo which is found in "tinfo" when
+	# installed as ncurses[tinfo] and in "ncurses" when installed as
+	# ncurses[-tinfo].
+	if "$(tc-getPKG_CONFIG)" --exists tinfo ; then
+		termcap=tinfo
+	else
+		termcap=ncurses
+	fi
+
+	local -a myconf=(
 		--disable-mcrypt
+		--with-termcap=${termcap}
 		$(use_enable blowfish)
 		$(use_enable gdbm)
 		$(use_enable gui edwin)
@@ -66,11 +83,11 @@ src_install() {
 	default
 
 	# Create the edwin launcher.
-	use gui && make_wrapper mit-scheme-edwin 'mit-scheme --edit'
+	use gui && make_wrapper mit-scheme-edwin "mit-scheme --edit"
 
 	# Remove "scheme" symlink to not "discriminate" any other implementations.
 	rm "${ED}"/usr/bin/scheme || die
 
 	# Remove libtool files.
-	find "${ED}" -type f -name '*.la' -delete || die
+	find "${ED}" -type f -name "*.la" -delete || die
 }
