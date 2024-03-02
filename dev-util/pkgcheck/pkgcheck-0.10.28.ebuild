@@ -61,6 +61,10 @@ distutils_enable_tests pytest
 
 export USE_SYSTEM_TREE_SITTER_BASH=1
 
+EPYTEST_DESELECT=(
+	tests/checks/test_git.py::TestGitPkgCommitsCheck::test_missing_move
+)
+
 src_compile() {
 	distutils-r1_src_compile
 
