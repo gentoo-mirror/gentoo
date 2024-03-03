@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit gnome.org gnome2-utils meson python-any-r1 xdg
 
 DESCRIPTION="Image viewer and browser for Gnome"
@@ -10,7 +10,7 @@ HOMEPAGE="https://wiki.gnome.org/Apps/Gthumb"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="cdr colord exif keyring gstreamer heif jpegxl lcms raw slideshow svg tiff webkit webp"
 
 # libX11 dep is a workaround. See files/3.12.2-link-with-x11.patch
@@ -41,7 +41,7 @@ RDEPEND="
 	cdr? ( >=app-cdr/brasero-3.2.0 )
 	svg? ( >=gnome-base/librsvg-2.34:2 )
 	webp? ( >=media-libs/libwebp-0.2.0:= )
-	jpegxl? ( >=media-libs/libjxl-0.3.0 )
+	jpegxl? ( >=media-libs/libjxl-0.3.0:= )
 	heif? ( >=media-libs/libheif-1.11:= )
 	lcms? ( >=media-libs/lcms-2.6:2 )
 	colord? (
@@ -66,12 +66,6 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PV}-link-with-x11.patch
-	"${FILESDIR}"/${PV}-libraw-0.21.patch
-	"${FILESDIR}"/${PV}-date-format.patch
-)
 
 src_configure() {
 	local emesonargs=(
