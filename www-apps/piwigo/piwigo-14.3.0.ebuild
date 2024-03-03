@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,12 +7,12 @@ inherit webapp
 DESCRIPTION="a photo gallery software for the web"
 HOMEPAGE="http://piwigo.org/"
 SRC_URI="http://piwigo.org/download/dlcounter.php?code=${PV} -> ${P}.zip"
+S=${WORKDIR}/${PN}
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE="+exif +gd imagemagick"
 
-DEPEND=""
 RDEPEND="
 	imagemagick? ( virtual/imagemagick-tools )
 	dev-lang/php[ctype,exif?,gd?,filter,iconv,json(+),mysqli]
@@ -21,8 +21,6 @@ RDEPEND="
 BDEPEND="app-arch/unzip"
 
 REQUIRED_USE="|| ( gd imagemagick )"
-
-S=${WORKDIR}/${PN}
 
 src_install() {
 	webapp_src_preinst
