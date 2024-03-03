@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -72,7 +72,8 @@ QA_PREBUILT="*"
 src_prepare() {
 	default
 
-	# Allow launching the ONLYOFFICE on ALSA systems via media-sound/apuls
+	# Allow launching the ONLYOFFICE on ALSA systems via
+	# media-sound/apulse
 	sed -i -e 's|\(export LD_LIBRARY_PATH=$DIR$LDLPATH\)|\1:'"${EPREFIX}"'/usr/'$(get_libdir)'/apulse|' \
 		"${S}"/usr/bin/onlyoffice-desktopeditors || die
 }
