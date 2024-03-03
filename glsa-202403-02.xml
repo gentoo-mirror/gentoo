@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202403-02">
+    <title>Blender: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Blender, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">blender</product>
+    <announced>2024-03-03</announced>
+    <revised count="1">2024-03-03</revised>
+    <bug>834011</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/blender" auto="yes" arch="*">
+            <unaffected range="ge">3.1.0</unaffected>
+            <vulnerable range="lt">3.1.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Blender is a 3D Creation/Animation/Publishing System.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Blender. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Blender users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/blender-3.1.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0544">CVE-2022-0544</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0545">CVE-2022-0545</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0546">CVE-2022-0546</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-03-03T10:35:38.708571Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-03-03T10:35:38.710453Z">graaff</metadata>
+</glsa>
