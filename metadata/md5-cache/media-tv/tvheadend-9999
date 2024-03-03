@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) sys-devel/gettext virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup unpack
-DEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) ffmpeg? ( media-video/ffmpeg:=[opus?,vpx?,x264?,x265?] ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) dvb? ( virtual/linuxtv-dvb-headers ) ffmpeg? ( opus? ( media-libs/opus ) vpx? ( media-libs/libvpx ) x264? ( media-libs/x264 ) x265? ( media-libs/x265 ) )
+DEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) ffmpeg? ( media-video/ffmpeg:=[opus?,vpx?,x264?,x265?] ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) dvb? ( sys-kernel/linux-headers ) ffmpeg? ( opus? ( media-libs/opus ) vpx? ( media-libs/libvpx ) x264? ( media-libs/x264 ) x265? ( media-libs/x265 ) )
 DESCRIPTION=Tvheadend is a TV streaming server and digital video recorder
 EAPI=8
 HOMEPAGE=https://tvheadend.org/
@@ -12,4 +12,4 @@ RDEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( m
 REQUIRED_USE=ddci? ( dvb )
 SLOT=0
 _eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=0aa093e66f806520b8df50106f4c10d6
+_md5_=1cab634162f38a805ab3590f60b2fcd4

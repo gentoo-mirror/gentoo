@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) sys-devel/gettext virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup
-DEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) dvben50221? ( media-tv/linuxtv-dvb-apps ) ffmpeg? ( <media-video/ffmpeg-5:= ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) dvb? ( virtual/linuxtv-dvb-headers )
+DEPEND=acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) dvben50221? ( media-tv/linuxtv-dvb-apps ) ffmpeg? ( <media-video/ffmpeg-5:= ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) dvb? ( sys-kernel/linux-headers )
 DESCRIPTION=Tvheadend is a TV streaming server and digital video recorder
 EAPI=8
 HOMEPAGE=https://tvheadend.org/
@@ -13,4 +13,4 @@ REQUIRED_USE=dvbcsa? ( || ( capmt constcw cwc dvben50221 ) )
 SLOT=0
 SRC_URI=https://github.com/tvheadend/tvheadend/archive/v4.2.8.tar.gz -> tvheadend-4.2.8.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	042f4cc53680245bf99a84669b94155a	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=f5696af6264b58a5fa2c16c45c875198
+_md5_=a2fa7c466e70716739d7aa27d8dc7c26
