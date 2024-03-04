@@ -18,8 +18,8 @@ SRC_URI="
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~loong ~riscv ~sparc ~x86"
-IUSE="acl audit caps +berkdb doc dbus nls openmp python selinux +sequoia +sqlite"
+KEYWORDS="~alpha ~amd64 ~loong ~riscv ~x86"
+IUSE="acl audit caps +berkdb doc dbus nls openmp python readline selinux +sequoia +sqlite"
 REQUIRED_USE="
 	${LUA_REQUIRED_USE}
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -29,8 +29,8 @@ RESTRICT="test"
 
 DEPEND="
 	${LUA_DEPS}
-	app-arch/libarchive:=
 	>=app-arch/bzip2-1.0.1
+	app-arch/libarchive:=
 	app-arch/xz-utils
 	app-arch/zstd:=
 	>=app-crypt/gnupg-1.2
@@ -40,16 +40,16 @@ DEPEND="
 	sys-apps/file
 	sys-libs/readline:=
 	>=sys-libs/zlib-1.2.3-r1
-	virtual/libintl
 	acl? ( virtual/acl )
 	audit? ( sys-process/audit )
 	caps? ( >=sys-libs/libcap-2.0 )
 	dbus? ( sys-apps/dbus )
-	sqlite? ( dev-db/sqlite:3 )
-	python? ( ${PYTHON_DEPS} )
 	nls? ( virtual/libintl )
+	python? ( ${PYTHON_DEPS} )
+	readline? ( sys-libs/readline:= )
 	sequoia? ( app-crypt/rpm-sequoia )
 	!sequoia? ( dev-libs/libgcrypt:= )
+	sqlite? ( dev-db/sqlite:3 )
 "
 BDEPEND="
 	virtual/pkgconfig
@@ -62,9 +62,8 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.18.1-musl-nls.patch
 	"${FILESDIR}"/${PN}-4.19.0-libdir.patch
-	"${FILESDIR}"/${PN}-4.19.1-musl-compat.patch
+	"${FILESDIR}"/${P}-musl-compat.patch
 )
 
 pkg_pretend() {
@@ -101,6 +100,7 @@ src_configure() {
 		-DWITH_CAP=$(usex caps)
 		-DWITH_DBUS=$(usex dbus)
 		-DWITH_INTERNAL_OPENPGP=$(usex sequoia OFF ON)
+		-DWITH_READLINE=$(usex readline)
 		$(cmake_use_find_package doc Doxygen)
 	)
 	cmake_src_configure
