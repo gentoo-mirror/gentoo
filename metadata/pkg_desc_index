@@ -1333,7 +1333,7 @@ app-containers/cosign 2.0.0 2.0.1 2.2.0 2.2.1 2.2.3: container signing utility
 app-containers/cri-o 1.26.0 1.29.0: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.4 1.11.2 1.14.3: A fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.55.0 0.56.0 0.56.1 0.56.2: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.56.1 0.56.2 0.57.0: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.6.0.1 1.7.0 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1: System container image builder for LXC and incus
 app-containers/docker 24.0.5 24.0.6 24.0.7 25.0.1: The core functions you need to create Docker images and run Docker containers
@@ -2269,7 +2269,7 @@ app-emacs/w3mnav 0.5-r3: Add Info-like navigation keys to the emacs-w3m web brow
 app-emacs/wanderlust 2.15.9_p20210629 2.15.9_p20230624: Yet Another Message Interface on Emacsen
 app-emacs/web-mode 17.3.13: Web template editing mode for Emacs
 app-emacs/web-server 0.1.2_p20210708-r1: Web server running Emacs Lisp handlers
-app-emacs/webpaste 3.2.2: Paste parts of buffers to several pastebin-like services from Emacs
+app-emacs/webpaste 3.2.2-r1: Paste parts of buffers to several pastebin-like services from Emacs
 app-emacs/websocket 1.14_p20230305 1.15: A websocket implementation in elisp
 app-emacs/wgrep 3.0.0-r1: Writable grep buffer and apply the changes to files
 app-emacs/which-key 3.6.0: Display the key bindings following your currently entered keys
@@ -3778,7 +3778,7 @@ dev-build/automake 1.11.6-r4 1.16.5-r2 9999: Used to generate Makefile.in from M
 dev-build/automake-vanilla 1.11.6 1.15.1 1.16.5 9999: Used to generate Makefile.in from Makefile.am
 dev-build/automake-wrapper 20221207 99999999: Wrapper for automake to manage multiple automake versions
 dev-build/b2 4.10.1 5.0.0: A system for large project software construction, simple to use and powerful
-dev-build/bazelisk 1.19.0: A user-friendly launcher for Bazel written in Go
+dev-build/bazelisk 1.19.0-r1: A user-friendly launcher for Bazel written in Go
 dev-build/bmake 20230909 20240212: NetBSD's portable make
 dev-build/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
 dev-build/cmake 3.27.9 3.28.3 9999: Cross platform Make
@@ -5117,7 +5117,7 @@ dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2: Functional programming language with dependent types
 dev-lang/bas 2.4: An interpreter for the classic dialect of the programming language BASIC
 dev-lang/bff 1.0.7: A brainfuck interpreter
-dev-lang/boogie 3.0.9 3.0.10 3.0.11 3.0.12: SMT-based program verifier
+dev-lang/boogie 3.0.10 3.0.11 3.0.12 3.1.0: SMT-based program verifier
 dev-lang/c-intercal 31.0: C-INTERCAL - INTERCAL to binary (via C) compiler
 dev-lang/cfortran 4.4-r4 20110621 20210827: Header file allowing to call Fortran routines from C and C++
 dev-lang/clips 6.40: Tool for building Expert Systems (native version)
@@ -11421,7 +11421,7 @@ games-engines/box2d 2.4.1: C++ engine for simulating rigid bodies in 2D games
 games-engines/dMagnetic 0.36: A Magnetic Scrolls Interpreter for playing a collection of old text adventures
 games-engines/devilutionx 1.5.2: Diablo engine for modern operating systems
 games-engines/exult 1.8: Ultima 7 game engine that runs on modern operating systems
-games-engines/fheroes2 1.0.11: Recreation of HoMM2 game engine
+games-engines/fheroes2 1.0.12: Recreation of HoMM2 game engine
 games-engines/frobtads 2.0: Curses-based interpreter and dev tools for TADS 2 and TADS 3 text adventures
 games-engines/frotz 2.53-r1: Interpreter for Z-code based text games
 games-engines/gargoyle 2019.1.1: An Interactive Fiction (IF) player supporting all major formats
@@ -16324,13 +16324,13 @@ sci-mathematics/bertini 1.4 1.6: Software for Numerical Algebraic Geometry
 sci-mathematics/boolector 3.2.2_p20220110 3.2.3: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
 sci-mathematics/btor2tools 1.0.0_pre20220518-r1: Generic parser and tools for the BTOR2 format
 sci-mathematics/cadabra 2.4.4.1 2.4.5.4: Field-theory motivated approach to computer algebra
-sci-mathematics/cadical 1.8.0 1.9.4: Simplified Satisfiability Solver
+sci-mathematics/cadical 1.9.4 1.9.5: Simplified Satisfiability Solver
 sci-mathematics/calc 2.13.0.1: Arbitrary precision C-like arithmetic system
 sci-mathematics/cgal 5.6: C++ library for geometric algorithms and data structures
 sci-mathematics/cliquer 1.22: C routines for finding cliques in an arbitrary weighted graph
-sci-mathematics/coq 8.17.1 8.18.0 8.19.0: Proof assistant written in O'Caml
-sci-mathematics/coq-mathcomp 1.17.0 1.19.0: Mathematical Components for the Coq proof assistant
-sci-mathematics/coq-serapi 0.18.1 0.19.0: Serialization library and protocol for interaction with the Coq proof assistant
+sci-mathematics/coq 8.19.0 8.19.1: Proof assistant written in O'Caml
+sci-mathematics/coq-mathcomp 1.19.0: Mathematical Components for the Coq proof assistant
+sci-mathematics/coq-serapi 0.19.0: Serialization library and protocol for interaction with the Coq proof assistant
 sci-mathematics/cryptominisat 5.11.15 5.11.21: Advanced SAT solver with C++ and command-line interfaces
 sci-mathematics/cubicle 1.2.0-r2: Model checker for verifying properties of array-based systems
 sci-mathematics/cudd 3.0.0: Colorado University binary Decision Diagram library
