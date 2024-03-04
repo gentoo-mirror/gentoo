@@ -210,7 +210,7 @@ else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -255,19 +255,14 @@ src_prepare() {
 	local -a bad_tests=(
 		civl/inductive-sequentialization/BroadcastConsensus.bpl
 		civl/inductive-sequentialization/PingPong.bpl
-		civl/inductive-sequentialization/paxos/is.sh
-		livevars/bla1.bpl
 		prover/cvc5-offline.bpl
 		prover/cvc5.bpl
 		prover/exitcode.bpl
 		prover/z3-hard-timeout.bpl
 		prover/z3mutl.bpl
-		test0/MaxKeepGoingSplits.bpl
 		test15/CaptureInlineUnroll.bpl
-		test15/CaptureState.bpl
-		test15/CommonVariablesPruning.bpl
+		test2/Timeouts0.bpl
 		test21/InterestingExamples4.bpl
-		test21/issue-735.bpl
 	)
 	local bad_test
 	for bad_test in "${bad_tests[@]}" ; do
