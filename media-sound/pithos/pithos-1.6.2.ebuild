@@ -1,14 +1,14 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..11} )
-inherit xdg meson gnome2-utils virtualx python-r1
 
-SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+PYTHON_COMPAT=( python3_{10..12} )
+inherit xdg meson gnome2-utils virtualx python-r1
 
 DESCRIPTION="Pandora.com client for the GNOME desktop"
 HOMEPAGE="https://pithos.github.io/"
+SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -27,7 +27,7 @@ RDEPEND="
 	media-plugins/gst-plugins-meta:1.0[aac,http,mp3]
 	x11-libs/gtk+:3[introspection]
 	x11-libs/pango[introspection]
-	x11-themes/gnome-icon-theme-symbolic
+	x11-themes/hicolor-icon-theme
 	appindicator? ( dev-libs/libdbusmenu[gtk3,introspection] )
 	keybinder? ( dev-libs/keybinder:3[introspection] )
 	libnotify? ( x11-libs/libnotify[introspection] )
