@@ -1162,7 +1162,7 @@ app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par 
 app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
 app-arch/rar 6.24: RAR compressor/uncompressor
-app-arch/rpm 4.18.1 4.19.1: The RPM Package Manager
+app-arch/rpm 4.18.1 4.19.1.1: The RPM Package Manager
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
 app-arch/sharutils 4.15.2-r2: Tools to deal with shar archives
@@ -1441,7 +1441,7 @@ app-crypt/libscrypt 1.22 1.22-r1 1.22-r2: Shared library to implement the scrypt
 app-crypt/libsecret 0.20.5-r3 0.21.1: GObject library for accessing the freedesktop.org Secret Service API
 app-crypt/libu2f-host 1.1.10-r1: Yubico Universal 2nd Factor (U2F) Host C Library
 app-crypt/libu2f-server 1.1.0-r2: Yubico Universal 2nd Factor (U2F) server C Library
-app-crypt/loop-aes-losetup 2.35.2 2.39.2: Loop-AES losetup utility
+app-crypt/loop-aes-losetup 2.39.2: Loop-AES losetup utility
 app-crypt/mcrypt 2.6.8-r3: Replacement of the old unix crypt(1)
 app-crypt/md4sum 0.02.03-r2: md4 and edonkey hash algorithm tool
 app-crypt/md5deep 4.4: Expanded md5sum program with recursive and comparison options
@@ -14646,7 +14646,7 @@ net-firewall/ferm 2.6 2.7: Command line util for managing firewall rules
 net-firewall/firehol 3.1.6-r3 3.1.7-r2: iptables firewall generator
 net-firewall/firewalld 2.0.1 2.0.2 2.1.0 2.1.1 2.1.1-r1: Firewall daemon with D-Bus interface providing a dynamic firewall
 net-firewall/fwbuilder 6.0.0_rc1: A firewall management GUI for iptables, PF, Cisco routers and more
-net-firewall/fwknop 2.6.10-r3: Single Packet Authorization and Port Knocking application
+net-firewall/fwknop 2.6.10-r3 2.6.11: Single Packet Authorization and Port Knocking application
 net-firewall/ipkungfu 0.6.1-r1: A nice iptables firewall script
 net-firewall/ipset 7.19-r1 7.20 7.21: IPset tool for iptables, successor to ippool
 net-firewall/ipt_netflow 2.6-r1 9999: Netflow iptables module
@@ -15277,7 +15277,7 @@ net-misc/openrdap 0.9.0_p20191017-r1: RDAP command line client
 net-misc/openrsync 0.5.0_p20220508: BSD-licensed implementation of rsync
 net-misc/openssh 9.6_p1-r1 9.6_p1-r2 9.6_p1-r3: Port of OpenBSD's free SSH release
 net-misc/openssh-contrib 9.5_p1 9.6_p1: Port of OpenBSD's free SSH release with HPN/X509 patches
-net-misc/openvswitch 2.17.6: Production quality, multilayer virtual switch
+net-misc/openvswitch 2.17.6 2.17.8: Production quality, multilayer virtual switch
 net-misc/owncloud-client 4.2.0.11670: Synchronize files from ownCloud Server with your computer
 net-misc/packETH 2.1: Packet generator tool for ethernet
 net-misc/passt 2023.12.04 2023.12.30 9999: User-mode networking daemons for VMs and namespaces, replacement for Slirp
@@ -15536,7 +15536,7 @@ net-proxy/redsocks 0.5-r2 9999: Transparent redirector of any TCP connection to 
 net-proxy/rejik 3.2.11: A squid redirector used for blocking unwanted content
 net-proxy/shadowsocks-libev 3.3.5: A lightweight secured SOCKS5 proxy for embedded devices and low end boxes
 net-proxy/sqtop 2015.02.08: Squid Top - top for Squid
-net-proxy/squid 6.5 6.6: Full-featured web proxy cache
+net-proxy/squid 6.5 6.6 6.7: Full-featured web proxy cache
 net-proxy/squidguard 1.6.0-r1: Combined filter, redirector and access controller plugin for Squid
 net-proxy/squirm 1.26-r1: A redirector for Squid
 net-proxy/sshuttle 1.1.1 1.1.2: Transparent proxy server that works as a poor man's VPN using ssh
@@ -16544,6 +16544,7 @@ sec-keys/openpgp-keys-file 20220611: OpenPGP keys used by Christos Zoulas (to si
 sec-keys/openpgp-keys-findutils 20220407: OpenPGP keys used by GNU findutils
 sec-keys/openpgp-keys-foxboron 20220802: OpenPGP keys used by Morten Linderund
 sec-keys/openpgp-keys-freenet 20230419: OpenPGP keys used by freenetproject.org
+sec-keys/openpgp-keys-fwknop 20240208: OpenPGP key used to sign fwknop releases
 sec-keys/openpgp-keys-gawk 20220407: OpenPGP keys used by GNU Awk
 sec-keys/openpgp-keys-gdbm 20220407: OpenPGP keys used by GNU dbm
 sec-keys/openpgp-keys-gentoo-auth 20230329: Gentoo Authority Keys (GLEP 79)
@@ -17581,7 +17582,7 @@ sys-fs/lde 2.6.1-r2: ext2fs and minix disk editor for linux
 sys-fs/lessfs 1.7.0-r2: A high performance inline data deduplicating filesystem
 sys-fs/libeatmydata 131: LD_PRELOAD hack to convert sync()/msync() and the like to NO-OP
 sys-fs/libfat 0.3a-r1: Support library to access and manipulate FAT12 / FAT16 / FAT32 file systems
-sys-fs/loop-aes 3.7z 3.8a 3.8b: Linux kernel module to encrypt disk partitions with AES cipher
+sys-fs/loop-aes 3.8b: Linux kernel module to encrypt disk partitions with AES cipher
 sys-fs/lsscsi 0.32-r1: SCSI sysfs query tool
 sys-fs/lufis 0.3-r1: Wrapper to use lufs modules with fuse kernel support
 sys-fs/lufs 0.9.7-r4: User-mode filesystem implementation
