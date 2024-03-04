@@ -67,6 +67,9 @@ DOCS=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.1.20-gpgscm-Use-shorter-socket-path-lengts-to-improve-tes.patch
+	"${FILESDIR}"/${P}-bug923248-insecure-backup.patch
+	"${FILESDIR}"/${P}-dirmngr-proxy.patch
+	"${FILESDIR}"/${P}-gpgme-tests.patch
 )
 
 src_prepare() {
