@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install prepare
 DEPEND=idn? ( net-dns/libidn:= ) ldap? ( net-nds/openldap:= ) postgres? ( dev-db/postgresql:* ) ssl? ( gnutls? ( >=net-libs/gnutls-3.3:= ) !gnutls? ( dev-libs/openssl:0= ) ) >=dev-build/libtool-2
 DESCRIPTION=Small program to test performances of remote servers
 EAPI=7
-HOMEPAGE=http://echoping.sourceforge.net/
+HOMEPAGE=https://framagit.org/bortzmeyer/echoping
 INHERIT=autotools
 IUSE=gnutls http icp idn priority smtp ssl tos postgres ldap
 KEYWORDS=amd64 ~hppa x86
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~jsmolic/distfiles/echoping-6.0.2_p434.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
-_md5_=abeb24105b427f6313d4f1ca2355307e
+_md5_=ed77a800c72dcf07275f7d88d0d1bb03

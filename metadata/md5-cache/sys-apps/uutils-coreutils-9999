@@ -4,7 +4,7 @@ DEPEND=dev-libs/oniguruma:= selinux? ( sys-libs/libselinux )
 DESCRIPTION=GNU coreutils rewritten in Rust
 EAPI=8
 HOMEPAGE=https://uutils.github.io/coreutils/ https://github.com/uutils/coreutils
-INHERIT=cargo git-r3
+INHERIT=cargo flag-o-matic git-r3
 IUSE=debug selinux test debug
 LICENSE=MIT Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT Unicode-DFS-2016
 PROPERTIES=live
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/oniguruma:= selinux? ( sys-libs/libselinux )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=001c1d91ccad6abb25d322f374cfc218
+_md5_=1ddf2e090b8fcc7c15c939cba315a153
