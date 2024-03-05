@@ -25,7 +25,7 @@ REQUIRED_USE="
 KIMAGEFORMATS_RDEPEND="
 	media-libs/libavif:=
 	media-libs/libheif:=
-	>=media-libs/libjxl-0.8.0
+	>=media-libs/libjxl-0.8.0:=
 "
 CDEPEND="
 	!net-im/telegram-desktop-bin
@@ -45,7 +45,6 @@ CDEPEND="
 	~media-libs/tg_owt-0_pre20230921:=[screencast=,X=]
 	media-video/ffmpeg:=[opus,vpx]
 	sys-libs/zlib:=[minizip]
-	virtual/opengl
 	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
 	!qt6? (
@@ -83,8 +82,9 @@ RDEPEND="${CDEPEND}
 	webkit? ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 )
 "
 DEPEND="${CDEPEND}
-	>=dev-cpp/cppgir-0_p20230926
+	>=dev-cpp/cppgir-0_p20240110
 	>=dev-cpp/ms-gsl-4
+	dev-cpp/expected-lite
 	dev-cpp/range-v3
 "
 BDEPEND="
@@ -164,6 +164,10 @@ src_configure() {
 	local mycmakeargs=(
 		-DQT_VERSION_MAJOR=${qt}
 
+		# Override new cmake.eclass defaults (https://bugs.gentoo.org/921939)
+		# Upstream never tests this any other way
+		-DCMAKE_DISABLE_PRECOMPILE_HEADERS=OFF
+
 		# Control automagic dependencies on certain packages
 		## Header-only lib, some git version.
 		-DCMAKE_DISABLE_FIND_PACKAGE_tl-expected=ON
@@ -181,9 +185,6 @@ src_configure() {
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
 		## Use system fonts instead of bundled ones
 		-DDESKTOP_APP_USE_PACKAGED_FONTS=$(usex !fonts)
-
-		# TEMP: Override for new cmake.eclass defaults (https://bugs.gentoo.org/921939)
-		-DCMAKE_DISABLE_PRECOMPILE_HEADERS=OFF
 	)
 
 	if [[ -n ${MY_TDESKTOP_API_ID} && -n ${MY_TDESKTOP_API_HASH} ]]; then
