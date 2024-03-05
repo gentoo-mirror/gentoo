@@ -6,11 +6,11 @@ inherit cmake
 
 DESCRIPTION="Cross-platform library designed to implement e-book readers"
 HOMEPAGE="https://gitlab.com/coolreader-ng/crengine-ng"
-SRC_URI="https://dev.gentoo.org/~grozin/${P}.tar.bz2
+SRC_URI="https://gitlab.com/coolreader-ng/${PN}/-/archive/${PV}/${P}.tar.bz2
 	test? ( mirror://gnu/freefont/freefont-otf-20120503.tar.gz )"
 
 LICENSE="GPL-2+"
-SLOT="0/6-beta1"
+SLOT="0/6"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+png +jpeg +gif +svg +chm +harfbuzz +fontconfig +libunibreak +fribidi +zstd +libutf8proc static-libs test"
 
