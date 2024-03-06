@@ -11,8 +11,8 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE="accessibility bluetooth +browser-integration colord +crash-handler crypt
 cups discover +display-manager +elogind +firewall flatpak grub gtk +handbook
-+kwallet +networkmanager plymouth pulseaudio +sddm sdk +smart systemd
-thunderbolt wacom +wallpapers"
++kwallet +networkmanager oxygen-theme plymouth pulseaudio +sddm sdk +smart
+systemd thunderbolt unsupported wacom +wallpapers +xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -27,6 +27,7 @@ RDEPEND="
 	>=kde-plasma/kglobalacceld-${PV}:${SLOT}
 	>=kde-plasma/kinfocenter-${PV}:${SLOT}
 	>=kde-plasma/kmenuedit-${PV}:${SLOT}
+	>=kde-plasma/kpipewire-${PV}:${SLOT}
 	>=kde-plasma/kscreen-${PV}:${SLOT}
 	>=kde-plasma/kscreenlocker-${PV}:${SLOT}
 	>=kde-plasma/ksshaskpass-${PV}:${SLOT}
@@ -41,8 +42,6 @@ RDEPEND="
 	>=kde-plasma/libplasma-${PV}:${SLOT}
 	>=kde-plasma/milou-${PV}:${SLOT}
 	>=kde-plasma/ocean-sound-theme-${PV}:${SLOT}
-	>=kde-plasma/oxygen-${PV}:${SLOT}
-	>=kde-plasma/oxygen-sounds-${PV}:${SLOT}
 	>=kde-plasma/plasma-activities-${PV}:${SLOT}
 	>=kde-plasma/plasma-activities-stats-${PV}:${SLOT}
 	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
@@ -53,6 +52,7 @@ RDEPEND="
 	>=kde-plasma/plasma5support-${PV}:${SLOT}
 	>=kde-plasma/polkit-kde-agent-${PV}:*
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
+	>=kde-plasma/qqc2-breeze-style-${PV}:${SLOT}
 	>=kde-plasma/systemsettings-${PV}:${SLOT}
 	>=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT}
 	sys-apps/dbus[elogind?,systemd?]
@@ -86,6 +86,11 @@ RDEPEND="
 		>=kde-plasma/plasma-nm-${PV}:${SLOT}
 		net-misc/networkmanager[elogind?,systemd?]
 	)
+	oxygen-theme? (
+		>=kde-frameworks/oxygen-icons-6.0.0:*
+		>=kde-plasma/oxygen-${PV}:${SLOT}
+		>=kde-plasma/oxygen-sounds-${PV}:${SLOT}
+	)
 	plymouth? (
 		>=kde-plasma/breeze-plymouth-${PV}:${SLOT}
 		>=kde-plasma/plymouth-kcm-${PV}:${SLOT}
@@ -98,8 +103,13 @@ RDEPEND="
 		firewall? ( >=kde-plasma/plasma-firewall-${PV}:${SLOT} )
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
+	!unsupported? (
+		!gui-apps/qt6ct
+		!sys-apps/xdg-desktop-portal-gnome
+	)
 	wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
+	xwayland? ( >=gui-apps/xwaylandvideobridge-0.4.0 )
 "
 # Optional runtime deps: kde-plasma/plasma-desktop
 RDEPEND="${RDEPEND}
