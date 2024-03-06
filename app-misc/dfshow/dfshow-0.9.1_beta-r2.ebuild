@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools bash-completion-r1 flag-o-matic
 
@@ -35,6 +35,15 @@ src_prepare() {
 	fi
 
 	eautoreconf
+}
+
+src_configure() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/854726
+	# https://github.com/roberthawdon/dfshow/issues/172
+	filter-lto
+
+	default
 }
 
 src_install() {
