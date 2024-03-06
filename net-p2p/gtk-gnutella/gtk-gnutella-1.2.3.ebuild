@@ -1,19 +1,19 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic strip-linguas toolchain-funcs
 
-IUSE="nls dbus ssl +gtk"
-
-DESCRIPTION="A GTK+ Gnutella client"
+DESCRIPTION="GTK+ Gnutella client"
+HOMEPAGE="https://gtk-gnutella.sourceforge.io/"
 SRC_URI="https://github.com/gtk-gnutella/gtk-gnutella/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-HOMEPAGE="http://gtk-gnutella.sourceforge.net/"
 
 SLOT="0"
 LICENSE="CC-BY-SA-4.0 GPL-2"
-KEYWORDS="amd64 ppc ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+
+IUSE="nls dbus ssl +gtk"
 
 RDEPEND="
 	sys-libs/binutils-libs:=
@@ -26,16 +26,18 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${P}-glibc234.patch" )
-
 src_prepare() {
 	filter-lto
 	strip-linguas -i po
 
 	echo "# Gentoo-selected LINGUAS" > po/LINGUAS
+	local ling
 	for ling in ${LINGUAS}; do
 		echo $ling >> po/LINGUAS
 	done
+
+	# bug #738504
+	sed -i -e 's|share/appdata|share/metainfo|g' extra_files/Makefile.SH || die
 
 	default
 }
@@ -77,7 +79,7 @@ src_configure() {
 
 src_compile() {
 	# Build system is not parallel-safe, bug 500760
-	emake -j1
+	emake -j1 AR="$(tc-getAR) rc" NM="$(tc-getNM)"
 }
 
 src_install() {
