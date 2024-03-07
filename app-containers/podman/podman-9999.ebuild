@@ -24,7 +24,7 @@ LICENSE="Apache-2.0"
 # deps
 LICENSE+=" BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0"
 SLOT="0"
-IUSE="apparmor btrfs cgroup-hybrid wrapper +fuse +init +rootless +seccomp selinux systemd"
+IUSE="apparmor btrfs cgroup-hybrid cron wrapper +fuse +init +rootless +seccomp selinux systemd"
 RESTRICT="test"
 
 RDEPEND="
@@ -39,6 +39,7 @@ RDEPEND="
 	btrfs? ( sys-fs/btrfs-progs )
 	cgroup-hybrid? ( >=app-containers/runc-1.0.0_rc6  )
 	!cgroup-hybrid? ( app-containers/crun )
+	cron? ( virtual/cron )
 	wrapper? ( !app-containers/docker-cli )
 	fuse? ( sys-fs/fuse-overlayfs )
 	init? ( app-containers/catatonit )
@@ -109,8 +110,14 @@ src_install() {
 	insinto /etc/cni/net.d
 	doins cni/87-podman-bridge.conflist
 
-	newconfd "${FILESDIR}"/podman.confd podman
-	newinitd "${FILESDIR}"/podman.initd podman
+	newconfd "${FILESDIR}"/podman-5.0.0_rc4.confd podman
+	newinitd "${FILESDIR}"/podman-5.0.0_rc4.initd podman
+
+	newinitd "${FILESDIR}"/podman-restart-5.0.0_rc4.initd podman-restart
+	newconfd "${FILESDIR}"/podman-restart-5.0.0_rc4.confd podman-restart
+
+	use cron && \
+		{ exeinto /etc/cron.daily && newexe "${FILESDIR}"/podman-auto-update-5.0.0_rc4.cron podman-auto-update; }
 
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/podman.logrotated" podman
