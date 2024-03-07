@@ -18,12 +18,18 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-# catch is not needed only for tests: đ926168
-DEPEND="
-	=dev-cpp/catch-2*:0
-	>=dev-libs/boost-1.82
+RDEPEND="
 	>=dev-libs/heatshrink-0.4.1
-	>=dev-python/pybind11-2.11
 	>=sys-libs/zlib-1.0
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/boost
+	test? ( =dev-cpp/catch-2*:0 )
+"
+
+src_configure() {
+	local mycmakeargs=(
+		-DLibBGCode_BUILD_TESTS=$(usex test)
+	)
+	cmake_src_configure
+}
