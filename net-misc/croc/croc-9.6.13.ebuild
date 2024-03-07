@@ -20,10 +20,6 @@ RDEPEND="
 	acct-user/croc
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-disable-network-tests-r1.patch"
-)
-
 DOCS=( README.md )
 
 src_prepare() {
