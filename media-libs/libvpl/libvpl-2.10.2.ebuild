@@ -1,27 +1,26 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit cmake-multilib optfeature
 
-DESCRIPTION="oneAPI Video Processing Library, dispatcher, tools, and examples"
-HOMEPAGE="https://github.com/oneapi-src/oneVPL"
-SRC_URI="https://github.com/oneapi-src/oneVPL/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Intel Video Processing Library, dispatcher, tools, and examples"
+HOMEPAGE="https://github.com/intel/libvpl/"
+SRC_URI="https://github.com/intel/libvpl//archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/libvpl-${PV}"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/2"
 KEYWORDS="~amd64"
 
 IUSE="dri drm examples experimental tools test vaapi wayland X"
 RESTRICT="!test? ( test )"
-# Tools fails to compile on 32-bit
+
 REQUIRED_USE="
 	dri? ( X drm )
 	X? ( vaapi )
 	wayland? ( drm )
-	abi_x86_32? ( !tools )
-	abi_x86_x32? ( !tools )
 "
 
 RDEPEND="
@@ -54,9 +53,10 @@ multilib_src_configure() {
 		-DBUILD_PREVIEW="$(usex experimental)"
 		-DBUILD_DISPATCHER_ONEVPL_EXPERIMENTAL="$(usex experimental)"
 		# Fails to build with experimental tools off if tools on
-		-DBUILD_TOOLS_ONEVPL_EXPERIMENTAL="$(usex tools)"
+		-DBUILD_TOOLS_ONEVPL_EXPERIMENTAL="$(multilib_native_usex tools)"
 		-DBUILD_TESTS="$(usex test)"
-		-DBUILD_TOOLS="$(usex tools)"
+		# Tools fails to compile for 32 bit
+		-DBUILD_TOOLS="$(multilib_native_usex tools)"
 		-DENABLE_WAYLAND="$(usex wayland)"
 		-DENABLE_X11="$(usex X)"
 		-DENABLE_DRI3="$(usex dri)"
