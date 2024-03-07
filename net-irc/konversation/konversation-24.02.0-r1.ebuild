@@ -20,6 +20,7 @@ DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
+	>=dev-qt/qttools-${QTMIN}:6[qdbus]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6
@@ -53,6 +54,8 @@ RDEPEND="${DEPEND}
 	crypt? ( >=app-crypt/qca-2.3.7:2[qt6,ssl] )
 "
 BDEPEND="sys-devel/gettext"
+
+PATCHES=( "${FILESDIR}/${P}-delay-tray-setup.patch" )
 
 src_configure() {
 	local mycmakeargs=(
