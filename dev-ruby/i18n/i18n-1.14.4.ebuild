@@ -1,34 +1,36 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
-
+USE_RUBY="ruby31 ruby32 ruby33"
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
-
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
 inherit ruby-fakegem
 
 DESCRIPTION="Add Internationalization support to your Ruby application"
 HOMEPAGE="http://rails-i18n.org/"
-SRC_URI="https://github.com/svenfuchs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ruby-i18n/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 
-ruby_add_rdepend "dev-ruby/concurrent-ruby:1"
+ruby_add_rdepend "
+	dev-ruby/concurrent-ruby:1
+	>=dev-ruby/racc-1.7:0
+"
 
-# We need mocha:1.0 which corresponds to the Gemfiles used in each_ruby_test
-ruby_add_bdepend "test? (
-	>=dev-ruby/activesupport-5.1
-	dev-ruby/bundler
-	>=dev-ruby/minitest-5.14:5
-	>=dev-ruby/mocha-1.7.0:1.0
-	dev-ruby/test_declarative )"
+ruby_add_bdepend "
+	test? (
+		>=dev-ruby/activesupport-5.1
+		dev-ruby/bundler
+		>=dev-ruby/minitest-5.14:5
+		dev-ruby/mocha:2
+		dev-ruby/test_declarative
+	)
+"
 
 all_ruby_prepare() {
 	rm -f gemfiles/*.lock || die
@@ -37,19 +39,22 @@ all_ruby_prepare() {
 	sed -i -e '/oj/ s:^:#:' gemfiles/* || die
 
 	# Update old test dependencies
-	sed -i -e '/rake/ s/~>/>=/' -e 's/1.7.0/1.7/' -e '3igem "json"' gemfiles/* || die
+	sed -i -e '3igem "json"' -e '4igem "racc"' gemfiles/* || die
+
+	# Use mocha 2 to avoid minitest deprecation issues.
+	sed -i -e 's:mocha/setup:mocha/minitest:' test/test_helper.rb || die
 }
 
 each_ruby_test() {
 	case ${RUBY} in
+		*ruby33)
+			versions="7.0 7.1"
+			;;
+		*ruby32)
+			versions="6.1 7.0 7.1"
+			;;
 		*ruby31)
-			versions="6.1 7.0"
-			;;
-		*ruby30)
-			versions="6.0 6.1 7.0"
-			;;
-		*ruby27)
-			versions="5.2 6.0 6.1 7.0"
+			versions="6.1 7.0 7.1"
 			;;
 	esac
 
