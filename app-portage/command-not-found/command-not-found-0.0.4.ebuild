@@ -31,9 +31,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "command-not-found is automatically setup with bash, to use it with zsh add"
-	elog "    \"source /etc/bash/bashrc.d/command-not-found.sh\""
-	elog "anywhere in your /etc/zsh/zshrc or ~/.zshrc"
+	elog "${PN} is automatically setup for app-shells/bash, see"
+	elog "    /usr/share/doc/${PF}/README.md"
+	elog "for instructions on how to set it up for various other shells."
 	elog
 	optfeature "suggesting snaps providing the missing command" "app-containers/snapd"
 	optfeature "suggesting ebuilds providing the missing command" "app-portage/pfl"
