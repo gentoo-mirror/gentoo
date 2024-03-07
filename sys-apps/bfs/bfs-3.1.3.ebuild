@@ -44,3 +44,7 @@ src_test() {
 	# -n check gets confused so need manual src_test definition?
 	bfsmake check
 }
+
+src_install() {
+	bfsmake DESTDIR="${D}" install
+}
