@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ DOCS_BUILDER="doxygen"
 DOCS_DEPEND="media-gfx/graphviz"
 ROCM_SKIP_GLOBALS=1
 
-inherit cmake docs llvm rocm
+inherit cmake docs llvm rocm flag-o-matic
 
 LLVM_MAX_SLOT=17
 
@@ -47,6 +47,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.7.1-disable-stack-protector.patch"
 	"${FILESDIR}/${PN}-5.7.1-no_asan_doc.patch"
 	"${FILESDIR}/${PN}-5.7.1-extend-isa-compatibility-check.patch"
+	"${FILESDIR}/${PN}-5.7.1-fix-mmap-oom-check.patch"
 )
 
 S="${WORKDIR}/clr-rocm-${PV}/"
@@ -60,9 +61,10 @@ hip_test_wrapper() {
 }
 
 src_prepare() {
-	# hipamd is itself built by cmake, and should never provide a
-	# FindHIP.cmake module.
-	rm -r "${WORKDIR}"/HIP-rocm-${PV}/cmake/FindHIP* || die
+	# Set HIP and HIP Clang paths directly, don't search using heuristics
+	sed -e "s:# Search for HIP installation:set(HIP_ROOT_DIR \"${EPREFIX}/usr\"):" \
+		-e "s:#Set HIP_CLANG_PATH:set(HIP_CLANG_PATH \"$(get_llvm_prefix -d ${LLVM_MAX_SLOT})/bin\"):" \
+	    -i "${WORKDIR}"/HIP-rocm-${PV}/cmake/FindHIP.cmake || die
 
 	# https://github.com/ROCm-Developer-Tools/HIP/commit/405d029422ba8bb6be5a233d5eebedd2ad2e8bd3
 	# https://github.com/ROCm-Developer-Tools/clr/commit/ab6d34ae773f4d151e04170c0f4e46c1135ddf3e
@@ -79,6 +81,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# Workaround for bug #923986
+	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+
 	use debug && CMAKE_BUILD_TYPE="Debug"
 
 	local mycmakeargs=(
@@ -140,6 +145,17 @@ src_test() {
 
 src_install() {
 	cmake_src_install
+
+	# add version file that is required by some libraries
+	mkdir "${ED}"/usr/include/rocm-core || die
+	cat <<EOF > "${ED}"/usr/include/rocm-core/rocm_version.h || die
+#pragma once
+#define ROCM_VERSION_MAJOR $(ver_cut 1)
+#define ROCM_VERSION_MINOR $(ver_cut 2)
+#define ROCM_VERSION_PATCH $(ver_cut 3)
+#define ROCM_BUILD_INFO "$(ver_cut 1-3).0-9999-unknown"
+EOF
+	dosym -r /usr/include/rocm-core/rocm_version.h /usr/include/rocm_version.h
 
 	rm "${ED}/usr/include/hip/hcc_detail" || die
 

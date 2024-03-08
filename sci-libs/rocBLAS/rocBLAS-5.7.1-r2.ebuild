@@ -4,7 +4,7 @@
 EAPI=8
 
 DOCS_BUILDER="doxygen"
-DOCS_DIR="docs"
+DOCS_DIR="docs/.doxygen"
 DOCS_DEPEND="media-gfx/graphviz"
 ROCM_VERSION=${PV}
 inherit cmake docs edo multiprocessing rocm
@@ -30,7 +30,7 @@ BDEPEND="
 
 DEPEND="
 	>=dev-cpp/msgpack-cxx-6.0.0
-	dev-util/hip
+	=dev-util/hip-5*
 	test? (
 		virtual/blas
 		dev-cpp/gtest
@@ -104,4 +104,8 @@ src_install() {
 		dolib.a clients/librocblas_fortran_client.a
 		dobin clients/staging/rocblas-bench
 	fi
+
+	# Stop llvm-strip from removing .strtab section from *.hsaco files,
+	# otherwise rocclr/elf/elf.cpp complains with "failed: null sections(STRTAB)" and crashes
+	dostrip -x /usr/$(get_libdir)/rocblas/library/
 }
