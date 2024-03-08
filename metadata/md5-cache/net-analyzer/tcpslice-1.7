@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-tcpdump-20240308 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=unpack
+DEPEND=net-libs/libpcap
+DESCRIPTION=Extract and concatenate portions of pcap files
+EAPI=8
+HOMEPAGE=http://www.tcpdump.org/ https://github.com/the-tcpdump-group/tcpslice
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=BSD
+RDEPEND=net-libs/libpcap
+SLOT=0
+SRC_URI=https://www.tcpdump.org/release/tcpslice-1.7.tar.xz verify-sig? ( https://www.tcpdump.org/release/tcpslice-1.7.tar.xz.sig )
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=5ca583daa962ba7e7c07f368e4a8929e
