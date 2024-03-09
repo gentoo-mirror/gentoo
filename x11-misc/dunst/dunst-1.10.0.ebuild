@@ -3,15 +3,15 @@
 
 EAPI=8
 
-inherit git-r3 shell-completion systemd toolchain-funcs
-
-EGIT_REPO_URI="https://github.com/dunst-project/dunst"
+inherit shell-completion systemd toolchain-funcs
 
 DESCRIPTION="Lightweight replacement for common notification daemons"
 HOMEPAGE="https://dunst-project.org/ https://github.com/dunst-project/dunst"
+SRC_URI="https://github.com/dunst-project/dunst/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="wayland"
 
 DEPEND="
@@ -44,8 +44,9 @@ src_prepare() {
 	# Respect users CFLAGS
 	sed -e 's/-Os//' -i config.mk || die
 
-	# Use correct path for system unit
+	# Use correct path for dbus and system unit
 	sed -e "s|##PREFIX##|${EPREFIX}/usr|" -i dunst.systemd.service.in || die
+	sed -e "s|##PREFIX##|${EPREFIX}/usr|" -i org.knopwob.dunst.service.in || die
 }
 
 src_configure() {
@@ -74,13 +75,13 @@ src_install() {
 
 	emake "${myemakeargs[@]}" install
 
-	newbashcomp completions/dunst.bashcomp dunst
-	newbashcomp completions/dunstctl.bashcomp dunstctl
-	newfishcomp completions/dunst.fishcomp dunst
-	newfishcomp completions/dunstctl.fishcomp dunstctl
-	newfishcomp completions/dunstify.fishcomp dunstify
-	newzshcomp completions/_dunst.zshcomp _dunst
-	newzshcomp completions/_dunstctl.zshcomp _dunstctl
+	newbashcomp contrib/dunst.bashcomp dunst
+	newbashcomp contrib/dunstctl.bashcomp dunstctl
+	newfishcomp contrib/dunst.fishcomp dunst
+	newfishcomp contrib/dunstctl.fishcomp dunstctl
+	newfishcomp contrib/dunstify.fishcomp dunstify
+	newzshcomp contrib/_dunst.zshcomp _dunst
+	newzshcomp contrib/_dunstctl.zshcomp _dunstctl
 
 	systemd_newuserunit dunst.systemd.service.in dunst.service
 }
