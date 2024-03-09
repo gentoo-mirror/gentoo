@@ -1,14 +1,15 @@
-BDEPEND=dev-lang/perl virtual/pkgconfig wayland? ( dev-libs/wayland-protocols ) >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
-DEFINED_PHASES=compile configure install prepare unpack
+BDEPEND=dev-lang/perl virtual/pkgconfig wayland? ( dev-libs/wayland-protocols ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare
 DEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/cairo[X,glib] x11-libs/gdk-pixbuf:2 x11-libs/libX11 x11-libs/libXext x11-libs/libXScrnSaver x11-libs/libXinerama x11-libs/libXrandr x11-libs/libnotify x11-libs/pango[X] x11-misc/xdg-utils wayland? ( dev-libs/wayland )
 DESCRIPTION=Lightweight replacement for common notification daemons
 EAPI=8
 HOMEPAGE=https://dunst-project.org/ https://github.com/dunst-project/dunst
-INHERIT=git-r3 shell-completion systemd toolchain-funcs
+INHERIT=shell-completion systemd toolchain-funcs
 IUSE=wayland
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=BSD
-PROPERTIES=live
 RDEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/cairo[X,glib] x11-libs/gdk-pixbuf:2 x11-libs/libX11 x11-libs/libXext x11-libs/libXScrnSaver x11-libs/libXinerama x11-libs/libXrandr x11-libs/libnotify x11-libs/pango[X] x11-misc/xdg-utils wayland? ( dev-libs/wayland )
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	bb7eb6bc232cd6c4bf8af739cdd2ee14	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=316408eb6b49d575076bec0545807139
+SRC_URI=https://github.com/dunst-project/dunst/archive/v1.10.0.tar.gz -> dunst-1.10.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	bb7eb6bc232cd6c4bf8af739cdd2ee14	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=e719b5e9186c5e2526e7541d837e9741
