@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pytest-qt[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) test? ( dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pygments-2.4.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/QtPy-1.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/typing-extensions-3.7.4.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/hatchling-1.17.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Missing widgets and components for PyQt/PySide
+EAPI=8
+HOMEPAGE=https://github.com/pyapp-kit/superqt https://pypi.org/project/superqt/
+INHERIT=distutils-r1 pypi virtualx
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 test
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pygments-2.4.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/QtPy-1.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/typing-extensions-3.7.4.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/s/superqt/superqt-0.6.2.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	ecb6da69bf4eb19761b48d6d3889c23a	pypi	2eecb475512bc76e5ea9192a681b9e6b	virtualx	817571665ee28575da44ee08135089e5
+_md5_=fac2da284abb6ddf3e1e697e1b0538f7
