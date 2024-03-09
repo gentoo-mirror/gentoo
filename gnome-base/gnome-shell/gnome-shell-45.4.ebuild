@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ HOMEPAGE="https://wiki.gnome.org/Projects/GnomeShell https://gitlab.gnome.org/GN
 
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
-IUSE="elogind gtk-doc +ibus +networkmanager systemd test"
+IUSE="elogind gtk-doc +ibus +networkmanager pipewire systemd test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	?? ( elogind systemd )"
 RESTRICT="!test? ( test )"
@@ -25,21 +25,21 @@ DEPEND="
 	>=dev-libs/glib-2.68:2
 	>=dev-libs/gobject-introspection-1.49.1:=
 	>=dev-libs/gjs-1.73.1[cairo]
-	>=x11-libs/gtk+-3.15.0:3[introspection]
-	>=x11-wm/mutter-44.0:0/12[introspection,test?]
+	>=gui-libs/gtk-4:4[introspection]
+	>=x11-wm/mutter-45.0:0/13[introspection,test?]
 	>=sys-auth/polkit-0.120_p20220509[introspection]
 	>=gnome-base/gsettings-desktop-schemas-42_beta[introspection]
 	>=x11-libs/startup-notification-0.11
 	>=app-i18n/ibus-1.5.19
-	>=gnome-base/gnome-desktop-40.0:4
+	>=gnome-base/gnome-desktop-40.0:4=
 	networkmanager? (
 		>=net-misc/networkmanager-1.10.4[introspection]
 		net-libs/libnma[introspection]
 		>=app-crypt/libsecret-0.18
-		dev-libs/dbus-glib
 	)
+	pipewire? ( >=media-video/pipewire-0.3.49:= )
 	systemd? (
-		>=sys-apps/systemd-242:=
+		>=sys-apps/systemd-246:=
 		>=gnome-base/gnome-desktop-3.34.2:3=[systemd]
 	)
 	elogind? ( >=sys-auth/elogind-237 )
@@ -85,12 +85,13 @@ DEPEND="
 RDEPEND="${DEPEND}
 	>=sys-apps/accountsservice-0.6.14[introspection]
 	app-accessibility/at-spi2-core:2[introspection]
-	app-misc/geoclue[introspection]
+	app-misc/geoclue:2.0[introspection]
 	media-libs/graphene[introspection]
 	x11-libs/pango[introspection]
 	net-libs/libsoup:3.0[introspection]
 	>=sys-power/upower-0.99:=[introspection]
 	gnome-base/librsvg:2[introspection]
+	gui-libs/libadwaita:1[introspection]
 
 	>=gnome-base/gnome-session-2.91.91
 	>=gnome-base/gnome-settings-daemon-3.8.3
@@ -121,7 +122,10 @@ BDEPEND="
 		app-text/docbook-xml-dtd:4.5 )
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
-	test? ( x11-wm/mutter[test] )
+	test? (
+		sys-apps/dbus
+		x11-wm/mutter[test]
+	)
 "
 # These are not needed from tarballs, unless stylesheets or manpage get patched with patchset:
 # dev-lang/sassc
@@ -141,6 +145,7 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
+		$(meson_use pipewire camera_monitor)
 		-Dextensions_tool=true
 		-Dextensions_app=true
 		$(meson_use gtk-doc gtk_doc)
@@ -150,14 +155,15 @@ src_configure() {
 		$(meson_use systemd) # this controls journald integration and desktop file user services related property only as of 3.34.4
 		# (structured logging and having gnome-shell launched apps use its own identifier instead of gnome-session)
 		# suspend support is runtime optional via /run/systemd/seats presence and org.freedesktop.login1.Manager dbus interface; elogind should provide what's necessary
-		-Dsoup2=false
 	)
 	meson_src_configure
 }
 
 src_test() {
-	gnome2_environment_reset # Avoid dconf that looks at XDG_DATA_DIRS, which can sandbox fail if flatpak is installed
-	virtx meson_src_test
+	# Reset variables to avoid issues from /etc/profile.d/flatpak.sh file modifying XDG_DATA_DIRS
+	gnome2_environment_reset
+	export XDG_DATA_DIRS="${EPREFIX}"/usr/share
+	virtx dbus-run-session meson test -C "${BUILD_DIR}" || die
 }
 
 pkg_postinst() {
