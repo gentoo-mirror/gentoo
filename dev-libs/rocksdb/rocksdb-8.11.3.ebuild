@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -40,10 +40,18 @@ src_configure() {
 	local mycmakeargs=(
 		-DFAIL_ON_WARNINGS=OFF
 		-DPORTABLE=1
+		-DROCKSDB_BUILD_SHARED=$(usex static-libs OFF ON)
+		-DWITH_ALL_TESTS=$(usex test)
+		-DWITH_ASAN=OFF
+		-DWITH_BENCHMARK=OFF
+		-DWITH_BENCHMARK_TOOLS=OFF
 		-DWITH_BZ2=ON
 		-DWITH_CORE_TOOLS=ON
 		-DWITH_DYNAMIC_EXTENSION=ON
+		-DWITH_EXAMPLES=OFF
+		-DWITH_FALLOCATE=ON
 		-DWITH_GFLAGS=ON
+		-DWITH_IOSTATS_CONTEXT=ON
 		-DWITH_JEMALLOC=$(usex jemalloc ON OFF)
 		-DWITH_JNI=OFF
 		-DWITH_LIBURING=ON
@@ -52,9 +60,9 @@ src_configure() {
 		-DWITH_NUMA=$(usex numa)
 		-DWITH_SNAPPY=ON
 		-DWITH_TBB=$(usex tbb)
-		-DWITH_ALL_TESTS=$(usex test)
-		-DWITH_TESTS=$(usex test)
 		-DWITH_TOOLS=ON
+		-DWITH_TRACE_TOOLS=ON
+		-DWITH_TSAN=OFF
 		-DWITH_ZLIB=ON
 		-DWITH_ZSTD=ON
 	)
