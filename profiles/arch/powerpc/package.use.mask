@@ -7,7 +7,7 @@ mail-mta/postfix mongodb
 
 # Anna (navi) Figueiredo Gomes <navi@vlhl.dev> (2024-02-14)
 # Fails to compile, bug #924396
-~dev-lang/rust-1.75.0 lto
+>=dev-lang/rust-1.75.0 lto
 
 # Eray Aslan <eras@gentoo.org> (2024-02-13)
 # tests require dev-db/mongodb which is not keyworded
@@ -265,7 +265,6 @@ app-portage/g-sorcery bson
 
 # Michał Górny <mgorny@gentoo.org> (2017-03-24)
 # libcxx fails to compile on ppc*, #595744.
-sys-devel/clang default-libcxx
 sys-devel/clang-common default-libcxx
 sys-devel/clang-runtime libcxx
 
