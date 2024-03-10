@@ -8,18 +8,16 @@ CMAKE_MAKEFILE_GENERATOR=emake
 FORTRAN_NEEDED="fortran"
 PYTHON_COMPAT=( python3_{9..12} )
 
-inherit cmake cuda fortran-2 python-single-r1 toolchain-funcs
+inherit cmake cuda flag-o-matic fortran-2 python-single-r1 toolchain-funcs
 
 DESCRIPTION="C++ data analysis framework and interpreter from CERN"
 HOMEPAGE="https://root.cern"
+LICENSE="LGPL-2.1 freedist MSttfEULA LGPL-3 libpng UoI-NCSA"
 
 IUSE="+X aqua +asimage cuda cudnn +davix debug +examples fits fftw fortran
-	+gdml graphviz +gsl http jupyter libcxx +minuit mpi mysql odbc +opengl
-	oracle postgres pythia6 pythia8 +python qt5 R +roofit +root7 shadow
+	+gdml graphviz +gsl +http jupyter libcxx +minuit mpi mysql odbc +opengl
+	oracle postgres pythia6 pythia8 +python qt5 qt6 R +roofit +root7 shadow
 	sqlite +ssl +tbb test +tmva +unuran uring vc +xml xrootd"
-
-RESTRICT="test"
-PROPERTIES="test_network"
 
 if [[ ${PV} =~ "9999" ]] ; then
 	inherit git-r3
@@ -36,16 +34,18 @@ else
 	SRC_URI="https://root.cern/download/${PN}_v${PV}.source.tar.gz"
 fi
 
-LICENSE="LGPL-2.1 freedist MSttfEULA LGPL-3 libpng UoI-NCSA"
+RESTRICT="test"
+PROPERTIES="test_network"
 
 REQUIRED_USE="
 	cuda? ( tmva )
 	cudnn? ( cuda )
-	!X? ( !asimage !opengl !qt5 )
+	!X? ( !asimage !opengl !qt5 !qt6 )
 	davix? ( ssl xml )
 	jupyter? ( python )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	qt5? ( root7 )
+	qt5? ( root7 http )
+	qt6? ( root7 http )
 	roofit? ( minuit )
 	tmva? ( gsl python )
 	uring? ( root7 )
@@ -79,8 +79,11 @@ CDEPEND="
 		)
 		qt5? (
 			dev-qt/qtcore:5
-			dev-qt/qtgui:5
 			dev-qt/qtwebengine:5[widgets]
+		)
+		qt6? (
+			dev-qt/qtbase:6
+			dev-qt/qtwebengine:6[widgets]
 		)
 	)
 	asimage? ( media-libs/libafterimage[gif,jpeg,png,tiff] )
@@ -168,6 +171,9 @@ src_prepare() {
 #       with vanilla clang. The patches enable the C++ interpreter to work.
 
 src_configure() {
+
+	filter-lto # https://bugs.gentoo.org/879323
+
 	local mycmakeargs=(
 		-DCMAKE_C_COMPILER="$(tc-getCC)"
 		-DCMAKE_CXX_COMPILER="$(tc-getCXX)"
@@ -276,7 +282,7 @@ src_configure() {
 		-Dpythia6=$(usex pythia6)
 		-Dpythia8=$(usex pythia8)
 		-Dqt5web=$(usex qt5)
-		-Dqt6web=OFF
+		-Dqt6web=$(usex qt6)
 		-Dr=$(usex R)
 		-Droofit=$(usex roofit)
 		-Droofit_multiprocess=OFF
@@ -306,6 +312,7 @@ src_configure() {
 		-Dvdt=OFF
 		-Dveccore=OFF
 		-Dvecgeom=OFF
+		-Dwebgui=$(usex http)
 		-Dx11=$(usex X)
 		-Dxml=$(usex xml)
 		-Dxrootd=$(usex xrootd)
@@ -333,11 +340,4 @@ src_install() {
 	popd
 
 	use python && python_optimize
-}
-
-pkg_postinst() {
-	einfo "Please note that from now on (specifically since sci-physics/root-6.28.00),"
-	einfo "ROOT is more closely following FHS (see https://bugs.gentoo.org/666222)."
-	einfo "Due to this, it will no longer be possible to install multiple concurrent"
-	einfo "versions of ROOT in Gentoo, since that would now cause file collisions."
 }
