@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -46,7 +46,7 @@ DEPEND="
 	${CP_DEPEND}
 	>=virtual/jdk-1.8:*
 	test? (
-		dev-java/ant-junit4:0
+		dev-java/ant:0[junit4]
 		dev-java/hamcrest:0
 		dev-java/junit:4
 		dev-java/mockito:4
@@ -100,7 +100,7 @@ src_prepare() {
 		java-ant_rewrite-classpath "$f"
 	done
 
-	# remove most bundled
+	# remove most bundled, excepted the next ones.
 	# apps/addressbook/java/src/net/metanotion too much code drift
 	# apps/i2psnark/java/src/org/klomp/snark too much code drift
 	# apps/jrobin need rrd4j ebuild
@@ -257,10 +257,35 @@ src_install() {
 	java-pkg_dolauncher i2prouter --main net.i2p.router.Router --jar i2p.jar \
 		--pwd "${EPREFIX}/usr/share/i2p" \
 		--java_args "\
-			-Di2p.dir.app=${EPREFIX}/var/lib/i2p/app \
-			-Di2p.dir.config=${EPREFIX}/var/lib/i2p/config \
-			-Di2p.dir.router=${EPREFIX}/var/lib/i2p/router \
+			-Di2p.dir.config=${EPREFIX}/var/lib/i2p \
 			-Di2p.dir.log=${EPREFIX}/var/log/i2p \
 			-DloggerFilenameOverride=${EPREFIX}/var/log/i2p/router-@"
 	java-pkg_dolauncher eepget --main net.i2p.util.EepGet --jar i2p.jar
+}
+
+pkg_postinst() {
+	local i2pdir="${EPREFIX}/var/lib/i2p"
+
+	[ -d "${i2pdir}/app" -a -d "${i2pdir}/config" -a -d "${i2pdir}/router" ] || return
+
+	elog "Separated user directories is not fully supported by upstream."
+	elog "${i2pdir}/{app,config,router} will be merged"
+	elog "in ${i2pdir} accordingly."
+
+	ebegin "Migrating"
+	rm -fr "${i2pdir}/config/addressbook" # prefer router's addressbook
+	local ret=0
+	mv "${i2pdir}"/{app,config,router}/* "${i2pdir}" || ret=1
+	rmdir "${i2pdir}"/{app,config,router} || ret=1
+	find "${i2pdir}" '(' -name '*.config' -o -name '*.xml' ')' \
+		-execdir sed -E "s,${i2pdir}/(app|config|router),${i2pdir}," -i {} + || ret=1
+
+	if ! eend $ret
+	then
+		ewarn "Unable to merge user directories automatically."
+		ewarn "Please merge them by hand and update all configured paths"
+		ewarn "to point to ${i2pdir} before starting the router."
+		ewarn
+		ewarn "Otherwise, consider starting with a fresh router by removing ${i2pdir}."
+	fi
 }
