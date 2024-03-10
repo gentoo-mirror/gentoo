@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,9 +23,12 @@ DESCRIPTION="Toolkit for simulation of passage of particles through matter"
 HOMEPAGE="https://geant4.web.cern.ch/"
 SRC_URI="https://geant4-data.web.cern.ch/geant4-data/releases/${MY_P}.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="geant4"
 SLOT="4/$(ver_cut 1-4)"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
+
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl
 	qt5 raytracerx static-libs tbb threads trajectories vtk"
 
@@ -39,8 +42,8 @@ REQUIRED_USE="
 
 RDEPEND="
 	dev-libs/expat
-	>=sci-physics/clhep-2.4.6.2:2=[threads?]
-	data? ( ~sci-physics/geant-data-4.11.1.0 )
+	>=sci-physics/clhep-2.4.7.1:2=[threads?]
+	data? ( ~sci-physics/geant-data-4.11.2.0 )
 	doc? ( app-doc/geant-docs )
 	gdml? ( dev-libs/xerces-c )
 	hdf5? ( sci-libs/hdf5[threads?] )
@@ -51,7 +54,6 @@ RDEPEND="
 		dev-qt/qt3d:5
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
-		dev-qt/qtprintsupport:5
 		dev-qt/qtwidgets:5
 		opengl? ( dev-qt/qtopengl:5 )
 	)
@@ -62,8 +64,6 @@ RDEPEND="
 	vtk? (
 		sci-libs/vtk:=[qt5]
 	)"
-
-S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.11.0.2-musl-avoid-execinfo.patch
