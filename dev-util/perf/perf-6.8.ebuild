@@ -28,13 +28,15 @@ fi
 LINUX_SOURCES="linux-${LINUX_VER}.tar.xz"
 SRC_URI+=" https://www.kernel.org/pub/linux/kernel/v${LINUX_V}/${LINUX_SOURCES}"
 
+S_K="${WORKDIR}/linux-${LINUX_VER}"
+S="${S_K}/tools/perf"
+
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
-IUSE="audit babeltrace bpf caps clang crypt debug +doc gtk java libpfm libtraceevent libtracefs lzma numa perl python slang systemtap tcmalloc unwind zstd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 audit babeltrace big-endian bpf caps crypt debug +doc gtk java libpfm +libtraceevent +libtracefs lzma numa perl python slang systemtap tcmalloc unwind zstd"
 
 REQUIRED_USE="
-	bpf? ( clang )
 	${PYTHON_REQUIRED_USE}
 "
 
@@ -57,14 +59,14 @@ BDEPEND="
 
 RDEPEND="
 	audit? ( sys-process/audit )
-	babeltrace? ( dev-util/babeltrace )
+	babeltrace? ( dev-util/babeltrace:0/1 )
 	bpf? (
 		dev-libs/libbpf
 		dev-util/bpftool
 		dev-util/pahole
 	)
 	caps? ( sys-libs/libcap )
-	clang? (
+	bpf? (
 		sys-devel/clang:=
 		sys-devel/llvm:=
 	)
@@ -86,28 +88,12 @@ RDEPEND="
 	dev-libs/elfutils
 	sys-libs/binutils-libs:=
 	sys-libs/zlib
+	virtual/libcrypt
 "
 
 DEPEND="${RDEPEND}
 	>=sys-kernel/linux-headers-5.10
 	java? ( virtual/jdk )
-"
-
-S_K="${WORKDIR}/linux-${LINUX_VER}"
-S="${S_K}/tools/perf"
-
-CONFIG_CHECK="
-	~DEBUG_INFO
-	~FTRACE
-	~FTRACE_SYSCALLS
-	~FUNCTION_TRACER
-	~KALLSYMS
-	~KALLSYMS_ALL
-	~KPROBES
-	~KPROBE_EVENTS
-	~PERF_EVENTS
-	~UPROBES
-	~UPROBE_EVENTS
 "
 
 QA_FLAGS_IGNORED=(
@@ -124,7 +110,21 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	use clang && llvm_pkg_setup
+	local CONFIG_CHECK="
+		~DEBUG_INFO
+		~FTRACE
+		~FTRACE_SYSCALLS
+		~FUNCTION_TRACER
+		~KALLSYMS
+		~KALLSYMS_ALL
+		~KPROBES
+		~KPROBE_EVENTS
+		~PERF_EVENTS
+		~UPROBES
+		~UPROBE_EVENTS
+	"
+
+	use bpf && llvm_pkg_setup
 	# We enable python unconditionally as libbpf always generates
 	# API headers using python script
 	python_setup
@@ -141,7 +141,7 @@ pkg_setup() {
 src_unpack() {
 	local paths=(
 		kernel/bpf tools/{arch,bpf,build,include,lib,perf,scripts}
-		scripts include lib "arch/*/lib"
+		scripts include lib "arch/*/lib" "arch/*/tools"
 	)
 
 	# We expect the tar implementation to support the -j option (both
@@ -176,9 +176,8 @@ src_prepare() {
 	fi
 
 	pushd "${S_K}" >/dev/null || die
-	eapply "${FILESDIR}"/perf-6.0-clang.patch
-	eapply "${FILESDIR}"/perf-6.0-c++17.patch
 	eapply "${FILESDIR}"/perf-6.4-libtracefs.patch
+	eapply "${FILESDIR}"/perf-6.7-expr.patch
 	popd || die
 
 	# Drop some upstream too-developer-oriented flags and fix the
@@ -226,11 +225,29 @@ perf_make() {
 		disable_libdw=1
 	fi
 
+	# perf directly invokes LD for linking without going through CC, on mips
+	# it is required to specify the emulation.  port of below buildroot patch
+	# https://patchwork.ozlabs.org/project/buildroot/patch/20170217105905.32151-1-Vincent.Riera@imgtec.com/
+	local linker="$(tc-getLD)"
+	if use mips
+	then
+		if use big-endian
+		then
+			use abi_mips_n64 && linker+=" -m elf64btsmip"
+			use abi_mips_n32 && linker+=" -m elf32btsmipn32"
+			use abi_mips_o32 && linker+=" -m elf32btsmip"
+		else
+			use abi_mips_n64 && linker+=" -m elf64ltsmip"
+			use abi_mips_n32 && linker+=" -m elf32ltsmipn32"
+			use abi_mips_o32 && linker+=" -m elf32ltsmip"
+		fi
+	fi
+
 	# FIXME: NO_CORESIGHT
 	local emakeargs=(
 		V=1 VF=1
 		HOSTCC="$(tc-getBUILD_CC)" HOSTLD="$(tc-getBUILD_LD)"
-		CC="$(tc-getCC)" CXX="$(tc-getCXX)" AR="$(tc-getAR)" LD="$(tc-getLD)" NM="$(tc-getNM)"
+		CC="$(tc-getCC)" CXX="$(tc-getCXX)" AR="$(tc-getAR)" LD="${linker}" NM="$(tc-getNM)"
 		PKG_CONFIG="$(tc-getPKG_CONFIG)"
 		prefix="${EPREFIX}/usr" bindir_relative="bin"
 		tipdir="share/doc/${PF}"
@@ -242,7 +259,6 @@ perf_make() {
 		JDIR="${java_dir}"
 		CORESIGHT=
 		GTK2=$(usex gtk 1 "")
-		LIBCLANGLLVM=$(usex clang 1 "")
 		feature-gtk2-infobar=$(usex gtk 1 "")
 		NO_AUXTRACE=
 		NO_BACKTRACE=
@@ -281,10 +297,6 @@ perf_make() {
 src_compile() {
 	filter-lto
 
-	# test-clang.bin not build with g++
-	if use clang; then
-		make -C "${S_K}/tools/build/feature" V=1 CXX=${CHOST}-clang++ test-clang.bin || die
-	fi
 	perf_make -f Makefile.perf
 	use doc && perf_make -C Documentation man
 }
