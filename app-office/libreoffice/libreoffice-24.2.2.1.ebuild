@@ -318,11 +318,6 @@ PATCHES=(
 
 	# maybe upstreamable
 	"${FILESDIR}/${PN}-7.5.8.2-icu-74-compatibility.patch"
-
-	# git master, pending 24.2
-	"${FILESDIR}/${PN}-24.2-kf6-configure.patch"
-	"${FILESDIR}/${PN}-24.2-kf6-buildfix.patch"
-
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"
