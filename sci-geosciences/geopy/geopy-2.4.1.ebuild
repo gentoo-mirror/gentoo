@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -17,5 +17,5 @@ KEYWORDS="~amd64"
 # Need geocoding service to test
 RESTRICT="test"
 
-RDEPEND=">=sci-geosciences/GeographicLib-1.51-r1[python(-),${PYTHON_USEDEP}]"
+RDEPEND="dev-python/geographiclib[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"

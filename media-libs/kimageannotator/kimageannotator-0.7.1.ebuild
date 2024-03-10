@@ -23,7 +23,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-qt/qtbase:6[gui,widgets]
 	dev-qt/qtsvg:6
-	>=media-libs/kcolorpicker-0.3.0
+	>=media-libs/kcolorpicker-0.3.1
 	x11-libs/libX11
 "
 DEPEND="${RDEPEND}
@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="dev-qt/qttools:6[linguist]"
 
-PATCHES=( "${FILESDIR}/${P}-fix-qt6-tests.patch" )
+PATCHES=( "${FILESDIR}/${P}-fix_KeyInputHelperTest.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -44,9 +44,6 @@ src_configure() {
 	)
 	cmake_src_configure
 }
-
-# one test is failing KeyInputHelperTest
-# upstream bug https://github.com/ksnip/kImageAnnotator/issues/335
 
 src_test() {
 	local -x QT_QPA_PLATFORM=offscreen
