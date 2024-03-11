@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit gnome2-utils meson python-single-r1 xdg
+inherit gnome2-utils python-single-r1 meson xdg
 
 DESCRIPTION="Simple game launcher written in Python using GTK4 and Libadwaita"
 HOMEPAGE="https://github.com/kra-mo/cartridges/"
@@ -18,7 +18,7 @@ else
 	SRC_URI="https://github.com/kra-mo/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -40,8 +40,6 @@ BDEPEND="
 	dev-util/blueprint-compiler
 	dev-util/desktop-file-utils
 "
-
-PATCHES=( "${FILESDIR}/${PN}-1.5.4-dont-validate-appstream.patch" )
 
 src_install() {
 	meson_src_install
