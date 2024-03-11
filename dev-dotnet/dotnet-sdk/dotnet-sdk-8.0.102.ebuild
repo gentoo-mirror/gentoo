@@ -1,48 +1,47 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Pre-build (and distribution preparation)
 # Build the tarball:
-#   - "$" - shell command,
-#   - ">" - manual action.
-# $  git clone --depth 1 -b v8.0.0 https://github.com/dotnet/dotnet  \
-#		 dotnet-sdk-8.0.0
-# $  cd dotnet-sdk-8.0.0
-# >  Note the checkout tag hash.
-# $  ./prep.sh
-# $  rm -fr .git
-# $  cd ..
-# $  tar --create --auto-compress --file  \
-#        dotnet-sdk-8.0.100-prepared-gentoo-amd64.tar.xz dotnet-sdk-8.0.0
-# >  Upload dotnet-sdk-8.0.0_rc1234194-prepared-gentoo-amd64.tar.xz
+#  git clone --depth 1 -b v8.0.2 https://github.com/dotnet/dotnet dotnet-sdk-8.0.2
+#  cd dotnet-sdk-8.0.2
+#  git rev-parse HEAD
+#  ./prep.sh
+#  rm -fr .git
+#  cd ..
+#  tar -acf dotnet-sdk-8.0.201-prepared-gentoo-amd64.tar.xz dotnet-sdk-8.0.2
+# Upload dotnet-sdk-8.0.201-prepared-gentoo-amd64.tar.xz
+
+# Build ("src_compile")
+# To learn about arguments that are passed to the "build.sh" script see:
+# https://github.com/dotnet/source-build/discussions/4082
+# User variable: GENTOO_DOTNET_BUILD_VERBOSITY - set other verbosity log level.
 
 EAPI=8
 
-COMMIT=113d797bc90104bb4f1cc51e1a462cf3d4ef18fc
+COMMIT=d396b0c4d3e51c2d8d679b2f7233912bc5bfc2fa
+SDK_SLOT="$(ver_cut 1-2)"
+RUNTIME_SLOT="${SDK_SLOT}.2"
 
-LLVM_MAX_SLOT=16
+LLVM_MAX_SLOT=17
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit check-reqs flag-o-matic llvm python-any-r1
+inherit check-reqs flag-o-matic llvm multiprocessing python-any-r1
 
 DESCRIPTION=".NET is a free, cross-platform, open-source developer platform"
 HOMEPAGE="https://dotnet.microsoft.com/
 	https://github.com/dotnet/dotnet/"
 SRC_URI="
 amd64? (
-	https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz
+	elibc_glibc? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz )
+	elibc_musl? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-musl-amd64.tar.xz )
 )
 "
-
-SDK_SLOT="$(ver_cut 1-2)"
-RUNTIME_SLOT="${SDK_SLOT}.0"
-SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
-
-# SDK reports it is version "8.0.100" but the tag .NET SDK team had given
-# it is "8.0.0". I feel that the pattern is to tag based on "RUNTIME_SLOT".
 S="${WORKDIR}/${PN}-${RUNTIME_SLOT}"
 
 LICENSE="MIT"
-KEYWORDS="amd64"
+SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
+KEYWORDS="~amd64"
 
 # STRIP="llvm-strip" corrupts some executables when using the patchelf hack.
 # Be safe and restrict it for source-built too, bug https://bugs.gentoo.org/923430
@@ -52,8 +51,8 @@ CURRENT_NUGETS_DEPEND="
 	~dev-dotnet/dotnet-runtime-nugets-${RUNTIME_SLOT}
 "
 EXTRA_NUGETS_DEPEND="
-	~dev-dotnet/dotnet-runtime-nugets-6.0.25
-	~dev-dotnet/dotnet-runtime-nugets-7.0.14
+	~dev-dotnet/dotnet-runtime-nugets-6.0.27
+	~dev-dotnet/dotnet-runtime-nugets-7.0.16
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}
@@ -81,7 +80,30 @@ PDEPEND="
 
 CHECKREQS_DISK_BUILD="20G"
 
-# QA_PREBUILT="*"  # TODO: Which binaries are created by dotnet itself?
+# Created by dotnet itself:
+QA_PREBUILT="
+usr/lib.*/dotnet-sdk-.*/dotnet
+"
+# .NET runtime, better to not touch it if they want some specific flags.
+QA_FLAGS_IGNORED="
+.*/apphost
+.*/createdump
+.*/libSystem.Globalization.Native.so
+.*/libSystem.IO.Compression.Native.so
+.*/libSystem.Native.so
+.*/libSystem.Net.Security.Native.so
+.*/libSystem.Security.Cryptography.Native.OpenSsl.so
+.*/libclrgc.so
+.*/libclrjit.so
+.*/libcoreclr.so
+.*/libcoreclrtraceptprovider.so
+.*/libhostfxr.so
+.*/libhostpolicy.so
+.*/libmscordaccore.so
+.*/libmscordbi.so
+.*/libnethost.so
+.*/singlefilehost
+"
 
 pkg_setup() {
 	check-reqs_pkg_setup
@@ -144,12 +166,21 @@ src_compile() {
 
 	# The "source_repository" should always be the same.
 	local source_repository="https://github.com/dotnet/dotnet"
+	local verbosity="${GENTOO_DOTNET_BUILD_VERBOSITY:-minimal}"
 
 	ebegin "Building the .NET SDK ${SDK_SLOT}"
 	local -a buildopts=(
 		--clean-while-building
 		--source-repository "${source_repository}"
 		--source-version "${COMMIT}"
+
+		--
+		-maxCpuCount:"$(makeopts_jobs)"
+		-verbosity:"${verbosity}"
+		-p:ContinueOnPrebuiltBaselineError=true
+		-p:LogVerbosity="${verbosity}"
+		-p:MinimalConsoleLogOutput=false
+		-p:verbosity="${verbosity}"
 	)
 	bash ./build.sh	"${buildopts[@]}"
 	eend ${?} || die "build failed"
