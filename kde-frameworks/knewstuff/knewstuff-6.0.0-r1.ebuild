@@ -31,6 +31,8 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${PVCUT}:6
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-kdebug-482349.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package opds KF6Syndication)
