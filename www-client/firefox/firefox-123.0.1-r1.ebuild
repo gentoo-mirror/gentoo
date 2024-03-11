@@ -3,11 +3,11 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-123-patches-03.tar.xz"
+FIREFOX_PATCHSET="firefox-123-patches-07.tar.xz"
 
 LLVM_COMPAT=( 16 17 )
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
 
 WANT_AUTOCONF="2.1"
@@ -1120,6 +1120,9 @@ src_configure() {
 	if use valgrind; then
 		mozconfig_add_options_ac 'valgrind requirement' --disable-jemalloc
 	fi
+
+	# System-av1 fix
+	use system-av1 && append-ldflags "-Wl,--undefined-version"
 
 	# Allow elfhack to work in combination with unstripped binaries
 	# when they would normally be larger than 2GiB.
