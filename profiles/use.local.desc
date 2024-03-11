@@ -7269,6 +7269,7 @@ sci-libs/caffe2:openblas - Use sci-libs/openblas for blas routines
 sci-libs/caffe2:opencv - Add support for image processing operators
 sci-libs/caffe2:openmp - Use OpenMP for parallel code
 sci-libs/caffe2:qnnpack - Use QNNPACK
+sci-libs/caffe2:rocm - Enable ROCm gpu computing support
 sci-libs/caffe2:tensorpipe - Use tensorpipe
 sci-libs/caffe2:xnnpack - Use XNNPACK
 sci-libs/cantera:hdf5 - Add HDF5 container files support
@@ -8207,7 +8208,7 @@ sys-devel/crosstool-ng:rsync - Require net-misc/rsync
 sys-devel/crosstool-ng:wget - Require net-misc/wget
 sys-devel/distcc:gssapi - Enable support for net-libs/libgssglue
 sys-devel/gcc:ada - Build the ADA language (GNAT) frontend
-sys-devel/gcc:cet - Enable support for Intel Control Flow Enforcement Technology (CET). Only effective on amd64/x86. Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either. When combined with USE=hardened, GCC will set -fcf-protection by default when building software. The effect is minimal on systems which do not support it, other than a possible small increase in codesize for the NOPs. The generated code is therefore compatible with i686 at the earliest.
+sys-devel/gcc:cet - Enable support for control flow hijacking protection. On amd64, this provides Intel Control Flow Enforcement Technology (CET). On arm64, this provides Branch Target Identification (BTI) and Pointer Authentication Code (PAC) support. This is only effective on amd64 or arm64. Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either. For ARM64, PAC was introduced in armv8.3-a, and BTI was introduced in armv8.5-a. When combined with USE=hardened on amd64, GCC will set -fcf-protection by default when building software. The effect is minimal on systems which do not support it, other than a possible small increase in codesize for the NOPs. The generated code is therefore compatible with i686 at the earliest. On arm64, GCC will set -mbranch-protection=standard by default when building software.
 sys-devel/gcc:d - Enable support for the D programming language
 sys-devel/gcc:debug - Enables GCC's 'checking' facility via --enable-checking=yes,extra,rtl. This adds checks to various compiler passes for integrity and input validation. This can help catch possible miscompilations early as well as latent bugs which could become real problems in future, but at the cost of slower compile times when using GCC. Unrelated to backtraces.
 sys-devel/gcc:default-stack-clash-protection - Build packages with stack clash protection on by default as a hardening measure. This enables -fstack-clash-protection by default which protects against large memory allocations allowing stack smashing. May cause slightly increased codesize, but modern compilers have been adapted to optimize well for this case, as this mitigation is now quite common. See https://developers.redhat.com/blog/2020/05/22/stack-clash-mitigation-in-gcc-part-3 and https://www.qualys.com/2017/06/19/stack-clash/stack-clash.txt.
