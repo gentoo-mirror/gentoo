@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.eclipse.org/
 INHERIT=java-pkg-2 java-pkg-simple prefix
 IUSE=doc source
-KEYWORDS=amd64 ~arm ~arm64
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=EPL-1.0
 RDEPEND=app-eselect/eselect-java !dev-java/ant-eclipse-ecj:4.26 >=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=4.26
 SRC_URI=https://archive.eclipse.org/eclipse/downloads/drops4/R-4.26-202211231800/ecjsrc-4.26.jar
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22	prefix	eab3c99d77fe00506c109c8a736186f7
-_md5_=ac7f3ceb29c8541a407f91618a62be27
+_md5_=fb0a3efb3f10744b60852cd48247bd61
