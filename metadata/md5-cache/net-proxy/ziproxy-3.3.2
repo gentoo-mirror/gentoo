@@ -3,10 +3,12 @@ DEPEND=acct-group/ziproxy acct-user/ziproxy media-libs/giflib:= media-libs/libpn
 DESCRIPTION=A forwarding, non-caching, compressing web proxy server
 EAPI=7
 HOMEPAGE=http://ziproxy.sourceforge.net/
+INHERIT=flag-o-matic
 IUSE=sasl xinetd
 KEYWORDS=~amd64 ~ppc ~riscv ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/ziproxy acct-user/ziproxy media-libs/giflib:= media-libs/libpng:= media-libs/libjpeg-turbo:= sys-libs/zlib sasl? ( dev-libs/cyrus-sasl ) xinetd? ( virtual/inetd )
 SLOT=0
 SRC_URI=mirror://sourceforge/ziproxy/ziproxy-3.3.2.tar.xz
-_md5_=1f73d442824a54d21ae50b8dbe7781ac
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=1894713d95e941bdd31dfa554a6de0a7
