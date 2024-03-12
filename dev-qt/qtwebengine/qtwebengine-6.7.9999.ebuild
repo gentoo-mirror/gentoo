@@ -18,15 +18,16 @@ if [[ ${QT6_BUILD_TYPE} == release ]]; then
 fi
 
 IUSE="
-	+alsa bindist custom-cflags designer geolocation +jumbo-build
-	kerberos opengl pdfium pulseaudio qml screencast +system-icu
-	vaapi vulkan webdriver +widgets
+	accessibility +alsa bindist custom-cflags designer geolocation
+	+jumbo-build kerberos opengl pdfium pulseaudio qml screencast
+	+system-icu vaapi vulkan webdriver +widgets
 "
 REQUIRED_USE="
 	designer? ( qml widgets )
 "
 
 # dlopen: krb5, libva, pciutils, udev
+# gcc: for -latomic
 RDEPEND="
 	app-arch/snappy:=
 	dev-libs/expat
@@ -35,7 +36,7 @@ RDEPEND="
 	dev-libs/libxslt
 	dev-libs/nspr
 	dev-libs/nss
-	~dev-qt/qtbase-${PV}:6[gui,opengl=,vulkan?,widgets?]
+	~dev-qt/qtbase-${PV}:6[accessibility=,gui,opengl=,vulkan?,widgets?]
 	~dev-qt/qtwebchannel-${PV}:6[qml?]
 	media-libs/fontconfig
 	media-libs/freetype
@@ -49,6 +50,7 @@ RDEPEND="
 	media-libs/tiff:=
 	sys-apps/dbus
 	sys-apps/pciutils
+	sys-devel/gcc:*
 	sys-libs/zlib:=[minizip]
 	virtual/libudev
 	x11-libs/libX11
