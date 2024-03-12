@@ -1,0 +1,62 @@
+Title: installkernel is no longer implicitly installed
+Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
+Posted: 2024-02-26
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-kernel/installkernel
+Display-If-Installed: >=sys-apps/debianutils-5.14-r1
+Display-If-Installed: app-misc/ca-certificates
+
+/sbin/installkernel is a script called by the kernel's "make install"
+as well as by the distribution kernel's post-install phase. If you are
+reading this then chances are you use and rely on installkernel[1] and
+what follows is essential for you.
+
+Previously sys-kernel/installkernel was implicitly installed on many
+systems via a dependency in sys-apps/debianutils. This dependency was
+toggled by the "installkernel" USE flag, and enabled by default.
+
+Until recently, sys-apps/debianutils was in turn pulled in by
+app-misc/ca-certificates, an essential package installed on many
+systems. However, this dependency of app-misc/ca-certificates on
+sys-apps/debianutils was removed[2]. As a result many users may find
+that sys-apps/debianutils and therefore sys-kernel/installkernel are no
+longer part of the dependency graph and will therefore be cleaned up by
+"emerge --depclean".
+
+Removing sys-kernel/installkernel from your system WILL change the way
+kernels are installed by "make install"! Instead of the versioned
+/boot/vmlinuz-x.y.z that you are used to, "make install" will simply
+copy bzImage (or equivalent for your arch) into /boot. This image may
+not be picked up by your bootloader or its configuration tools.
+
+To avoid surprises from such implicit dependencies from happening again
+in the future, the dependency on sys-kernel/installkernel in
+sys-apps/debianutils is removed. And as such, sys-kernel/installkernel
+is only installed on the system if it is either explicitly selected or
+pulled in via the distribution kernels (e.g. gentoo-kernel(-bin)).
+
+
+User Action Required (all users)
+====================
+
+Users who currently have sys-kernel/installkernel installed, must
+ensure that it is explicitly selected by emerging it:
+
+	emerge --noreplace sys-kernel/installkernel
+
+Users who find that sys-kernel/installkernel has already been cleaned
+from their systems and are therefore affected by the change in kernel
+installation described above should re-install sys-kernel/installkernel
+and then re-install their kernel.
+
+	emerge sys-kernel/installkernel
+	cd /usr/src/linux       # (or other location of the kernel sources)
+	make install
+
+Note that this re-installation is not required for users of the
+distribution kernels (e.g. gentoo-kernel(-bin)).
+
+
+[1] https://wiki.gentoo.org/wiki/Installkernel
+[2] https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=6e6ccafd58bc7401fa371d2f255d72ddae0131e6
