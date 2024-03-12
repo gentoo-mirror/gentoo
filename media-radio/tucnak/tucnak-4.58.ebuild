@@ -10,11 +10,11 @@ SRC_URI="http://tucnak.nagano.cz/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa fftw gpm hamlib suid"
 
 RDEPEND="dev-libs/glib:2
-	~dev-libs/libzia-4.52
+	~dev-libs/libzia-4.58
 	media-libs/libsndfile
 	media-libs/libsdl2
 	alsa? ( media-libs/alsa-lib )
