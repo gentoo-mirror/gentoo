@@ -4,7 +4,7 @@ DEPEND=dev-debug/gdb sys-libs/ncurses:= x11-libs/libX11 x11-libs/libXaw x11-libs
 DESCRIPTION=Graphical front-end for command-line debuggers
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/ddd
-INHERIT=autotools desktop optfeature
+INHERIT=autotools desktop flag-o-matic optfeature
 IUSE=readline
 KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-3 LGPL-3 FDL-1.1
@@ -12,5 +12,5 @@ RDEPEND=dev-debug/gdb sys-libs/ncurses:= x11-libs/libX11 x11-libs/libXaw x11-lib
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://gnu/ddd/ddd-3.4.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	desktop	021728fdc1b03b36357dbc89489e0f0d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=e29ae97014ac88c40e17899a0ba82ab2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	desktop	021728fdc1b03b36357dbc89489e0f0d	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=db9f92e5b7057eaad8025d5a105f17ab
