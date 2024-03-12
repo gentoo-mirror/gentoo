@@ -40,21 +40,18 @@ BDEPEND="app-editors/vim-core"
 	# vim-core is needed for "xxd"
 
 src_prepare() {
-	# ... otherwise system llvm/clang is used ...
-	sed -e "s:find_package(Clang REQUIRED HINTS \${CMAKE_INSTALL_PREFIX}/llvm \${CMAKE_PREFIX_PATH}/llvm PATHS /opt/rocm/llvm ):find_package(Clang REQUIRED HINTS /usr/lib/llvm/roc ):" -i image/blit_src/CMakeLists.txt || die
-
 	# Gentoo installs "*.bc" to "/usr/lib" instead of a "[path]/bitcode" directory ...
 	sed -e "s:-O2:--rocm-path=${EPREFIX}/usr/lib/ -O2:" -i image/blit_src/CMakeLists.txt || die
-
-	# internal version depends on git being present and random weird magic, otherwise fallback to incoherent default value
-	# fix default value to be more better
-
-	sed -i -e "s:1.7.0:${PV}:" CMakeLists.txt || die
 
 	cmake_src_prepare
 }
 
 src_configure() {
+	# -Werror=odr
+	# https://bugs.gentoo.org/856091
+	# https://github.com/ROCm/ROCR-Runtime/issues/182
+	filter-lto
+
 	use debug || append-cxxflags "-DNDEBUG"
 	local mycmakeargs=( -DINCLUDE_PATH_COMPATIBILITY=OFF )
 	cmake_src_configure
