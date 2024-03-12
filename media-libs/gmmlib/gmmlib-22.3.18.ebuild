@@ -3,16 +3,23 @@
 
 EAPI=8
 
-CMAKE_BUILD_TYPE="Release"
-
 inherit cmake-multilib
+
+if [[ ${PV} == *9999 ]] ; then
+	: ${EGIT_REPO_URI:="https://github.com/intel/gmmlib"}
+	if [[ ${PV%9999} != "" ]] ; then
+		: ${EGIT_BRANCH:="release/${PV%.9999}"}
+	fi
+	inherit git-r3
+else
+	KEYWORDS="~amd64"
+	SRC_URI="https://github.com/intel/gmmlib/archive/intel-${P}.tar.gz"
+	S="${WORKDIR}/${PN}-intel-${P}"
+fi
 
 DESCRIPTION="Intel Graphics Memory Management Library"
 HOMEPAGE="https://github.com/intel/gmmlib"
-SRC_URI="https://github.com/intel/gmmlib/archive/intel-${P}.tar.gz"
-S="${WORKDIR}/${PN}-intel-${P}"
 
-KEYWORDS="amd64"
 LICENSE="MIT"
 SLOT="0/12.3"
 IUSE="+custom-cflags test"
@@ -27,7 +34,6 @@ PATCHES=(
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING="$(usex test)"
-		-DBUILD_TYPE="Release"
 		-DOVERRIDE_COMPILER_FLAGS="$(usex !custom-cflags)"
 	)
 
