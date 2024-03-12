@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/doxygen[dot] dev-qt/qthelp:5 qt6? ( dev-qt/qttools:6[assistant] ) ) examples? ( dev-util/patchelf ) dev-qt/qttest:5 app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 qt6? ( dev-qt/qtbase:6[network,widgets] )
+DESCRIPTION=KDAB's helper class for single-instance policy applications
+EAPI=8
+HOMEPAGE=https://github.com/KDAB/KDSingleApplication
+INHERIT=cmake multibuild
+IUSE=doc examples test qt6
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=BSD MIT
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 qt6? ( dev-qt/qtbase:6[network,widgets] )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/KDAB/KDSingleApplication/releases/download/v1.1.0/kdsingleapplication-1.1.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489
+_md5_=ca574a8fcb6547aa6b63674112a1bd5b
