@@ -1,0 +1,15 @@
+BDEPEND=guile? ( >=dev-scheme/guile-1.8 )
+DEFINED_PHASES=configure install
+DEPEND=readline? ( sys-libs/readline:0= )
+DESCRIPTION=Patched version of GNU Make with improved error reporting, tracing and debugging
+EAPI=8
+HOMEPAGE=http://bashdb.sourceforge.net/remake/
+INHERIT=flag-o-matic
+IUSE=guile readline
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=GPL-3
+RDEPEND=readline? ( sys-libs/readline:0= ) guile? ( >=dev-scheme/guile-1.8:= )
+SLOT=0
+SRC_URI=https://github.com/rocky/remake/releases/download/remake-4.3+dbg-1.6/remake-4.3+dbg-1.6.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=88e842c90609478129f73c80b0d9b28c
