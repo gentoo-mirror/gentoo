@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.113.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm flag-o-matic plasma.kde.org
 
 DESCRIPTION="Provides KWindowSystem integration plugin for Wayland"
