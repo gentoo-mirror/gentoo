@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -10,7 +10,7 @@ PSYBNC_HOME="/var/lib/psybnc"
 
 DESCRIPTION="A multi-user and multi-server gateway to IRC networks"
 HOMEPAGE="http://www.psybnc.at/index.html"
-SRC_URI="http://www.psybnc.at/download/beta/psyBNC-${MY_PV}.tar.gz"
+SRC_URI="http://psybnc.org/download/psyBNC-${PV}.tar.gz"
 S="${WORKDIR}"/${PN}
 
 LICENSE="GPL-2"
@@ -21,14 +21,15 @@ IUSE="ipv6 ssl oidentd scripting multinetwork"
 DEPEND="
 	acct-group/psybnc
 	acct-user/psybnc
+	net-dns/c-ares
 	ssl? ( >=dev-libs/openssl-0.9.7d:= )
 	oidentd? ( >=net-misc/oidentd-2.0 )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.3.2.9-compile.patch
-	"${FILESDIR}"/${PN}-2.3.2.9-ldflags-fix.patch
+	"${FILESDIR}"/${PN}-2.4.3-Fix-build-with-Clang-16.patch
+	"${FILESDIR}"/${PN}-2.4.3-strmncpy-lto-mismatch.patch
 )
 
 src_unpack() {
@@ -112,9 +113,13 @@ src_install() {
 		newinitd "${FILESDIR}"/psybnc.initd psybnc
 	fi
 
+	if use scripting ; then
+		dodoc SCRIPTING
+	fi
+
 	newconfd "${FILESDIR}"/psybnc.confd psybnc
 
-	dodoc CHANGES FAQ README SCRIPTING TODO
+	dodoc CHANGES FAQ README TODO
 	docinto example-script
 	dodoc scripts/example/DEFAULT.SCRIPT
 }
