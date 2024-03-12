@@ -28,12 +28,12 @@ PATCHES=(
 	"${FILESDIR}/${P}-glibc228.patch"
 	"${FILESDIR}/${PN}-4.1-configure-clang16.patch"
 	"${FILESDIR}/${P}-fortify.patch"
+	"${FILESDIR}/${PN}-4.1-fix-ncurses.patch"
 )
 
 src_prepare() {
 	default
 
-	# Drop once ${PN}-4.1-configure-clang16.patch merged
 	eautoreconf
 }
 
