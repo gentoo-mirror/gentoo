@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/stleary/JSON-java
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=JSON
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://codeload.github.com/stleary/JSON-java/tar.gz/20240205 -> json-20240205.tar.gz test? ( https://repo1.maven.org/maven2/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar )
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
-_md5_=51a2e399dcc6578421a5f9157959de67
+_md5_=c099ddd8b71d67e5050ec27354e3f4f7
