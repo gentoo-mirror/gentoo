@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,11 @@ if [[ "${PV}" == "9999" ]]; then
 
 	EGIT_REPO_URI="https://github.com/hydrusnetwork/hydrus.git"
 else
-	SRC_URI="https://github.com/hydrusnetwork/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/hydrusnetwork/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/vaartis/hydrus/commit/5d2505a1eb4721f7750861f7622c46adec31db8b.diff -> hydrus-3500-mpeg-error.patch
+		https://github.com/vaartis/hydrus/commit/dc20196f47ac29568a40cd04a45cf4fc5f237603.diff -> hydrus-test-fixes.patch
+"
 
 	KEYWORDS="~amd64"
 fi
@@ -76,6 +80,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/userpath-in-local-share.patch"
+	"${DISTDIR}/hydrus-3500-mpeg-error.patch"
+	"${DISTDIR}/hydrus-test-fixes.patch"
 )
 
 src_prepare() {
