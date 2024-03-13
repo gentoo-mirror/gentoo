@@ -28,6 +28,7 @@ DEPEND="
 	opds? ( =kde-frameworks/syndication-${PVCUT}*:6 )
 "
 RDEPEND="${DEPEND}
+	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=kde-frameworks/kirigami-${PVCUT}:6
 "
 
