@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst prepare test
+DESCRIPTION=Command-line interface to various pastebins
+EAPI=8
+HOMEPAGE=https://github.com/zlin/wgetpaste
+INHERIT=optfeature
+IUSE=+ssl
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=MIT
+PROPERTIES=test_network
+RDEPEND=net-misc/wget[ssl?]
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/zlin/wgetpaste/releases/download/2.34/wgetpaste-2.34.tar.xz
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=5ba4116c372a54ba4f0fc8cad6071bdf
