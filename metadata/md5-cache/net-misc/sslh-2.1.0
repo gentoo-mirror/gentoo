@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install prepare unpack
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
 DEPEND=caps? ( sys-libs/libcap ) dev-libs/libpcre2:= systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) dev-libs/libconfig:= libev? ( dev-libs/libev ) >=dev-libs/libconfig-1.5:= dev-lang/perl
 DESCRIPTION=Port multiplexer - accept both HTTPS and SSH connections on the same port
 EAPI=7
 HOMEPAGE=https://www.rutschle.net/tech/sslh/README.html
-INHERIT=flag-o-matic systemd toolchain-funcs git-r3
+INHERIT=flag-o-matic systemd toolchain-funcs
 IUSE=caps libev systemd tcpd
+KEYWORDS=amd64 ~arm ~m68k ~mips ~s390 x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=caps? ( sys-libs/libcap ) dev-libs/libpcre2:= systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) dev-libs/libconfig:= libev? ( dev-libs/libev ) >=dev-libs/libconfig-1.5:=
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	systemd	c8b03e8df84486aa991d4396686e8942	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+SRC_URI=https://github.com/yrutschle/sslh/archive/v2.1.0.tar.gz -> sslh-2.1.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=fb5f1700f6f888ab345db606f658fccb

@@ -4,7 +4,7 @@ DEPEND=>=sys-fs/e2fsprogs-1.27:= sys-apps/util-linux bzip2? ( app-arch/bzip2:= s
 DESCRIPTION=Dump/restore ext2fs backup utilities
 EAPI=8
 HOMEPAGE=https://dump.sourceforge.io/
-INHERIT=readme.gentoo-r1
+INHERIT=flag-o-matic readme.gentoo-r1
 IUSE=bzip2 debug ermt lzo readline selinux sqlite ssl static test uuid zlib
 KEYWORDS=~alpha amd64 ~hppa ~ia64 ~ppc ppc64 ~sparc x86
 LICENSE=BSD
@@ -13,5 +13,5 @@ REQUIRED_USE=ermt? ( ssl ) ssl? ( zlib ) test? ( sqlite? ( uuid ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/dump/dump-0.4b47.tar.gz
-_eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
-_md5_=4ade255c623eb3d349d9422926fa3e25
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
+_md5_=2fb3f937991e8574acefdca1547151ad
