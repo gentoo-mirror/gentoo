@@ -10,15 +10,15 @@ inherit cmake flag-o-matic
 
 DESCRIPTION="Musepack SV8 libraries and utilities"
 HOMEPAGE="https://www.musepack.net"
-SRC_URI="mirror://gentoo/${P}.tar.bz2"
+SRC_URI="mirror://gentoo/${P}.tar.xz"
 
 LICENSE="BSD LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 
 DEPEND="
-	>=media-libs/libcuefile-${PV}
-	>=media-libs/libreplaygain-${PV}
+	>=media-libs/libcuefile-477
+	>=media-libs/libreplaygain-477
 "
 RDEPEND="
 	${DEPEND}
@@ -27,9 +27,8 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-gentoo.patch
-	"${FILESDIR}"/${P}-fno-common.patch
-	"${FILESDIR}"/${P}-musl.patch
+	"${FILESDIR}"/${P}-respect-cflags.patch
+	"${FILESDIR}"/${P}-fixup-link-depends.patch
 )
 
 src_configure() {
@@ -38,6 +37,10 @@ src_configure() {
 	#
 	# Software is dead since 2016.
 	filter-lto
+
+	# Symbols are decorated with MPC_API but visibility isn't wired up to the
+	# build system(s)
+	append-flags -fvisibility=hidden
 
 	cmake_src_configure
 }
