@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=dev-java/ant-core:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=dev-java/ant:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Partial port of the C++ Standard Template Library
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
@@ -7,8 +7,8 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
 KEYWORDS=amd64 x86
 LICENSE=HPND
-RDEPEND=dev-java/ant-core:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~monsieurp/packages/jal-20031117.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
-_md5_=a224f9655ad253eaccfee7c3ac067deb
+_md5_=48421c3551f54bb15d5849edc9b0c8f4
