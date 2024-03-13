@@ -901,7 +901,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.49 1.32.54 1.32.59 1.32.60: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.49 1.32.54 1.32.59 1.32.60 1.32.61: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5: Distribution-independent installer framework
@@ -5206,7 +5206,7 @@ dev-lang/perl 5.36.0-r2 5.36.1-r3 5.38.0-r1 5.38.2-r1 5.38.2-r2: Larry Wall's Pr
 dev-lang/php 8.1.26-r1 8.1.27-r2 8.2.15 8.2.16-r1 8.3.3-r1: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p16-r2 3.8.18_p2 3.9.18_p2 3.10.13_p3 3.11.8_p1 3.12.2_p1 3.13.0_alpha4: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p16-r2 3.8.18_p2 3.9.18_p2 3.10.13_p3 3.11.8_p1 3.12.2_p1 3.13.0_alpha4 3.13.0_alpha5: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.1 1.19.2: Qore, the embeddable multithreaded scripting language
@@ -8104,7 +8104,7 @@ dev-python/PySensors 0.0.4-r1: Python bindings to libsensors (via ctypes)
 dev-python/PySocks 1.7.1-r2: SOCKS client module
 dev-python/Pyro5 5.15-r1: Distributed object middleware for Python (RPC)
 dev-python/QtPy 2.4.1-r1: Abstraction layer on top of PyQt and PySide with additional custom QWidgets
-dev-python/a2wsgi 1.10.2: Convert WSGI app to ASGI app or ASGI app to WSGI app
+dev-python/a2wsgi 1.10.2 1.10.3: Convert WSGI app to ASGI app or ASGI app to WSGI app
 dev-python/absl-py 2.1.0: Abseil Python Common Libraries
 dev-python/accessible-pygments 0.0.4: A collection of accessible pygments styles
 dev-python/adblock 0.6.0: Python wrapper for Brave's adblocking library, which is written in Rust
@@ -8213,8 +8213,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.34.49 1.34.54 1.34.59 1.34.60: The AWS SDK for Python
-dev-python/botocore 1.34.49 1.34.54 1.34.59 1.34.60: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.49 1.34.54 1.34.59 1.34.60 1.34.61: The AWS SDK for Python
+dev-python/botocore 1.34.49 1.34.54 1.34.59 1.34.60 1.34.61: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.7 1.3.8: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8284,7 +8284,7 @@ dev-python/coloredlogs 15.0.1-r1: Colored stream handler for the logging module
 dev-python/colorful 0.5.6: Terminal string styling done right, in Python
 dev-python/colorlog 6.8.2: Log formatting with colors
 dev-python/colour 0.1.5-r1: Python color representations manipulation library
-dev-python/comm 0.2.1: Jupyter Python Comm implementation, for usage in ipykernel, xeus-python
+dev-python/comm 0.2.1 0.2.2: Jupyter Python Comm implementation, for usage in ipykernel, xeus-python
 dev-python/commentjson 0.9.0-r2: Add Python and JavaScript style comments in your JSON files
 dev-python/commonmark 0.9.1-r1: Python parser for the CommonMark Markdown spec
 dev-python/configclass 0.2.0-r1: A Python to class to hold configuration values
@@ -8449,7 +8449,7 @@ dev-python/fitsio 1.2.1: Python library to read from and write to FITS files
 dev-python/fixtures 4.1.0: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 7.0.0: A wrapper around PyFlakes, pep8 & mccabe
 dev-python/flake8-polyfill 1.0.2-r1: Polyfill package for Flake8 plugins
-dev-python/flaky 3.7.0-r5 3.8.0: Plugin for pytest that automatically reruns flaky tests
+dev-python/flaky 3.7.0-r5 3.8.0 3.8.1: Plugin for pytest that automatically reruns flaky tests
 dev-python/flasgger 0.9.7.1: Easy OpenAPI specs and Swagger UI for your Flask API
 dev-python/flask 3.0.2: A microframework based on Werkzeug, Jinja2 and good intentions
 dev-python/flask-api 3.1-r2: Browsable web APIs for Flask
@@ -8646,7 +8646,7 @@ dev-python/jupyter-client 8.6.0 8.6.1: Jupyter protocol implementation and clien
 dev-python/jupyter-console 6.6.3: A terminal-based console frontend for Jupyter kernels
 dev-python/jupyter-core 5.7.1 5.7.2: Core common functionality of Jupyter projects
 dev-python/jupyter-events 0.9.0 0.9.1: Jupyter Event System library
-dev-python/jupyter-kernel-test 0.6.0: A tool for testing Jupyter kernels
+dev-python/jupyter-kernel-test 0.6.0 0.7.0: A tool for testing Jupyter kernels
 dev-python/jupyter-lsp 2.2.1 2.2.3 2.2.4: Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab
 dev-python/jupyter-packaging 0.12.3: Tools to help build and install Jupyter Python packages
 dev-python/jupyter-server 2.12.5 2.13.0: Core services, APIs, and REST endpoints to Jupyter web applications
@@ -8768,7 +8768,7 @@ dev-python/mkdocs-autorefs 0.5.0 1.0.1: Automatically link across pages in MkDoc
 dev-python/mkdocs-bootstrap 1.1.1: Bootstrap theme for MkDocs
 dev-python/mkdocs-bootswatch 1.1-r2: Bootswatch themes for MkDocs
 dev-python/mkdocs-gen-files 0.5.0: MkDocs plugin to programmatically generate documentation pages during the build
-dev-python/mkdocs-git-authors-plugin 0.7.2: Mkdocs plugin to display git authors of a page
+dev-python/mkdocs-git-authors-plugin 0.7.2 0.8.0: Mkdocs plugin to display git authors of a page
 dev-python/mkdocs-git-revision-date-localized-plugin 1.2.4: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.0.0 1.1.0 1.2.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
@@ -8808,7 +8808,7 @@ dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plu
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0: Python bindings for the Nautilus file manager
 dev-python/nbclassic 1.0.0-r1: Jupyter Notebook as a Jupyter Server Extension
-dev-python/nbclient 0.9.0: A client library for executing Jupyter notebooks
+dev-python/nbclient 0.9.0 0.9.1 0.10.0: A client library for executing Jupyter notebooks
 dev-python/nbconvert 7.15.0 7.16.1 7.16.2: Converting Jupyter Notebooks
 dev-python/nbdime 4.0.1: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.9.2 5.10.2: Reference implementation of the Jupyter Notebook format
@@ -8841,7 +8841,7 @@ dev-python/numpy 1.26.1 1.26.2 1.26.3 1.26.4 2.0.0_beta1: Fast array and numeric
 dev-python/numpydoc 1.6.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauthlib 3.2.2: Spec-compliant and thorough implementation of the OAuth request-signing logic
 dev-python/objgraph 3.5.0-r1 3.6.1: Draws Python object reference graphs with graphviz
-dev-python/oct2py 5.6.0: Python to GNU Octave bridge
+dev-python/oct2py 5.6.0 5.6.1: Python to GNU Octave bridge
 dev-python/octave_kernel 0.35.1: Jupyter kernel for octave
 dev-python/odfpy 1.4.2: Python API and tools to manipulate OpenDocument files
 dev-python/olefile 0.47: Python package to parse, read and write Microsoft OLE2 files
@@ -9233,7 +9233,7 @@ dev-python/python-lhafile 0.3.0-r1: LHA archive support for Python
 dev-python/python-linux-procfs 0.7.1: Python classes to extract information from the Linux kernel /proc files
 dev-python/python-lsp-black 2.0.0: Black plugin for the Python LSP Server
 dev-python/python-lsp-jsonrpc 1.1.2: JSON RPC 2.0 server library
-dev-python/python-lsp-server 1.10.0: Python Language Server for the Language Server Protocol
+dev-python/python-lsp-server 1.10.0 1.10.1: Python Language Server for the Language Server Protocol
 dev-python/python-ly 0.9.7: Tool and library for manipulating LilyPond files
 dev-python/python-lzo 1.15: Python interface to lzo
 dev-python/python-magic 0.4.27: Access the libmagic file type identification library
@@ -9245,7 +9245,7 @@ dev-python/python-mpv 1.0.5: Python interface to the mpv media player
 dev-python/python-multipart 0.0.9: A streaming multipart parser for Python
 dev-python/python-netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/python-neutronclient 11.1.0 11.2.0: A client for the OpenStack Quantum API
-dev-python/python-novaclient 18.4.0 18.5.0: A client for the OpenStack Nova API
+dev-python/python-novaclient 18.4.0 18.5.0 18.6.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 6.5.0: A client for the OpenStack APIs
 dev-python/python-pam 2.0.2-r2: Python PAM module
 dev-python/python-poppler-qt5 21.3.0: Python binding for libpoppler-qt5
@@ -9372,7 +9372,7 @@ dev-python/rtimulib 7.2.1-r3: Python Binding for RTIMULib, a versatile IMU libra
 dev-python/rtslib-fb 2.1.76: A Python object API for managing the Linux LIO kernel target
 dev-python/ruamel-yaml 0.17.40 0.18.6: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.8: C-based reader/scanner and emitter for dev-python/ruamel-yaml
-dev-python/rustworkx 0.14.1: A high performance Python graph library implemented in Rust
+dev-python/rustworkx 0.14.1 0.14.2: A high performance Python graph library implemented in Rust
 dev-python/s3transfer 0.10.0: An Amazon S3 Transfer Manager
 dev-python/sabctools 7.0.2 7.1.1 7.1.2 8.0.0 8.0.1 8.1.0: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
@@ -9714,7 +9714,7 @@ dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.0: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.2.1: A modern/fast Python SOAP client based on lxml / requests
 dev-python/zeroconf 0.131.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
-dev-python/zipp 3.17.0: Backport of pathlib-compatible object wrapper for zip files
+dev-python/zipp 3.17.0 3.18.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 5.0.1: Zope Configuration Architecture
 dev-python/zope-deprecation 5.0: Zope Deprecation Infrastructure
