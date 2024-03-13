@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,18 +12,19 @@ SRC_URI="https://github.com/ddccontrol/ddccontrol/archive/${PV}.tar.gz -> ${P}.t
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="doc gtk nls +pci static-libs"
+IUSE="doc gui nls +pci"
 
 # Upstream doesn't seem to care about tests: failures for lack of translations,
 # and no real test targets.
 RESTRICT='test'
 
-RDEPEND="app-misc/ddccontrol-db
+RDEPEND="
+	app-arch/xz-utils
+	app-misc/ddccontrol-db
 	dev-libs/glib:2
 	dev-libs/libxml2:2
-	app-arch/xz-utils
-	gtk? (
-		dev-libs/atk
+	gui? (
+		>=app-accessibility/at-spi2-core-2.46.0
 		media-libs/fontconfig
 		media-libs/freetype
 		media-libs/harfbuzz:=
@@ -32,18 +33,22 @@ RDEPEND="app-misc/ddccontrol-db
 		x11-libs/gtk+:2
 		x11-libs/pango
 	)
-	pci? ( sys-apps/pciutils )"
-DEPEND="${RDEPEND}"
-BDEPEND="dev-perl/XML-Parser
+	pci? ( sys-apps/pciutils )
+"
+DEPEND="
+	${RDEPEND}
+	sys-kernel/linux-headers
+"
+BDEPEND="
 	dev-util/gdbus-codegen
 	dev-util/intltool
-	sys-kernel/linux-headers
 	doc? (
 		>=app-text/docbook-xsl-stylesheets-1.65.1
 		app-text/htmltidy
 		>=dev-libs/libxslt-1.1.6
 	)
-	nls? ( sys-devel/gettext )"
+	nls? ( sys-devel/gettext )
+"
 
 src_prepare() {
 	# ppc/ppc64 do not have inb/outb/ioperm
@@ -65,7 +70,7 @@ src_prepare() {
 	default
 
 	## Save for a rainy day or future patching
-	touch config.rpath ABOUT-NLS
+	touch config.rpath ABOUT-NLS || die
 	eautoreconf
 	intltoolize --force || die "intltoolize failed"
 }
@@ -74,16 +79,14 @@ src_configure() {
 	# amdadl broken, bug #527268
 	econf \
 		--htmldir='$(datarootdir)'/doc/${PF}/html \
-		--disable-gnome-applet \
 		--disable-amdadl \
 		$(use_enable doc) \
-		$(use_enable gtk gnome) \
+		$(use_enable gui gnome) \
 		$(use_enable nls) \
-		$(use_enable pci ddcpci) \
-		$(use_enable static-libs static)
+		$(use_enable pci ddcpci)
 }
 
 src_install() {
 	default
-	use static-libs || find "${ED}" -name '*.la' -delete
+	find "${ED}" -name '*.la' -delete || die
 }
