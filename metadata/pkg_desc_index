@@ -1438,7 +1438,7 @@ app-crypt/libb2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE
 app-crypt/libmd 1.0.4 1.1.0: Message Digest functions from BSD systems
 app-crypt/libnitrokey 3.8 9999: Support library for the Nitrokey
 app-crypt/libscrypt 1.22 1.22-r1 1.22-r2: Shared library to implement the scrypt algorithm
-app-crypt/libsecret 0.20.5-r3 0.21.1: GObject library for accessing the freedesktop.org Secret Service API
+app-crypt/libsecret 0.21.1: GObject library for accessing the freedesktop.org Secret Service API
 app-crypt/libu2f-host 1.1.10-r1: Yubico Universal 2nd Factor (U2F) Host C Library
 app-crypt/libu2f-server 1.1.0-r2: Yubico Universal 2nd Factor (U2F) server C Library
 app-crypt/loop-aes-losetup 2.39.2: Loop-AES losetup utility
@@ -2727,7 +2727,7 @@ app-misc/geekcode 1.7.3-r1: Geek code generator
 app-misc/geneweb 7.0.0-r3 7.0.0_p1-r1: Genealogy software program with a Web interface
 app-misc/gentoo 0.20.7-r1: Graphical file manager for Unix-like systems, using GTK+
 app-misc/gentoo-elections 0_p20190710: Gentoo election control data and scripts
-app-misc/geoclue 2.7.0 2.7.1: A location information D-Bus service
+app-misc/geoclue 2.7.1: A location information D-Bus service
 app-misc/getopt 1.1.6-r1: getopt(1) replacement supporting GNU-style long options
 app-misc/glastree 1.04_p20150525: glastree is a poor mans snapshot utility using hardlinks written in perl
 app-misc/glcdprocdriver 0.1.2-r1: A glue between the graphlcd-base library from the GraphLCD project
@@ -5397,7 +5397,7 @@ dev-libs/jansson 2.14-r1 2.14-r2: C library for encoding, decoding and manipulat
 dev-libs/jemalloc 5.3.0-r1: Jemalloc is a general-purpose scalable concurrent allocator
 dev-libs/jerasure 2.0.0-r2: A Library in C Facilitating Erasure Coding for Storage Applications
 dev-libs/json-c 0.17 9999: A JSON implementation in C
-dev-libs/json-glib 1.6.6-r1 1.8.0: Library providing GLib serialization and deserialization for the JSON format
+dev-libs/json-glib 1.8.0: Library providing GLib serialization and deserialization for the JSON format
 dev-libs/json-parser 1.1.0_p20211208: Very low footprint JSON parser written in portable ANSI C
 dev-libs/jsoncpp 1.9.5: C++ JSON reader and writer
 dev-libs/jsonrpc-glib 3.44.0: JSON-RPC library for GLib
@@ -5500,7 +5500,7 @@ dev-libs/libgpg-error 1.47-r1 1.48: Contains error handling functions used by Gn
 dev-libs/libgpiod 1.6.3-r4 1.6.4 2.0.2 2.1: C library and tools for interacting with the linux GPIO character device
 dev-libs/libgrapheme 2.0.2: Unicode string library
 dev-libs/libgudev 238-r1: GObject bindings for libudev
-dev-libs/libgusb 0.4.6 0.4.7 0.4.8: GObject wrapper for libusb
+dev-libs/libgusb 0.4.7 0.4.8: GObject wrapper for libusb
 dev-libs/libgweather 4.4.0: Location and timezone database and weather-lookup library
 dev-libs/libhid 0.2.17-r1: Provides a generic and flexible way to access and interact with USB HID devices
 dev-libs/libical 3.0.17: Implementation of basic iCAL protocols
@@ -12071,7 +12071,7 @@ gui-libs/display-manager-init 1.1.2: RC init files for starting display and logi
 gui-libs/egl-gbm 1.1.1: GBM EGL external platform library
 gui-libs/egl-wayland 1.1.7-r1 1.1.13: EGLStream-based Wayland external platform
 gui-libs/eglexternalplatform 1.1: EGL External Platform interface
-gui-libs/gdk-pixbuf-loader-webp 0.0.7 0.2.4: WebP GDK Pixbuf Loader library
+gui-libs/gdk-pixbuf-loader-webp 0.2.4: WebP GDK Pixbuf Loader library
 gui-libs/greetd 0.9.0: ipc based login daemon
 gui-libs/gtk 4.12.4 4.12.5: GTK is a multi-platform toolkit for creating graphical user interfaces
 gui-libs/gtk-layer-shell 0.8.1 0.8.2: Library to create desktop components for Wayland using the Layer Shell protocol
@@ -12942,7 +12942,7 @@ media-gfx/graphicsmagick 1.3.42 9999: Collection of tools and libraries for many
 media-gfx/graphite2 1.3.14_p20210810-r3: Library providing rendering capabilities for complex non-Roman writing systems
 media-gfx/graphviz 9.0.0 10.0.1: Open Source Graph Visualization Software
 media-gfx/gscan2pdf 2.13.2 2.13.2-r1: Scan documents, perform OCR, produce PDFs and DjVus
-media-gfx/gthumb 3.12.3 3.12.4 3.12.5: Image viewer and browser for Gnome
+media-gfx/gthumb 3.12.3 3.12.4 3.12.5 3.12.6: Image viewer and browser for Gnome
 media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
 media-gfx/hp2xx 3.4.4-r3 3.4.4-r4: Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
 media-gfx/hugin 2022.0.0 2022.0.0-r2 2023.0.0-r1 9999: GUI for the creation & processing of panoramic images
@@ -14864,7 +14864,7 @@ net-libs/libblkmaker 0.6.0-r2: C implementation of Bitcoin's getblocktemplate in
 net-libs/libbloom 1.5-r2 1.6: A simple and small bloom filter implementation in plain C
 net-libs/libbtbb 2020.12.1-r1 9999: Library to decode Bluetooth baseband packets
 net-libs/libcapi 3.2.3: CAPI library used by various AVM products
-net-libs/libcloudproviders 0.3.2 0.3.4 0.3.5: DBus API that allows cloud storage sync clients to expose their services
+net-libs/libcloudproviders 0.3.5: DBus API that allows cloud storage sync clients to expose their services
 net-libs/libcork 0.15.0-r2: A simple, easily embeddable cross-platform C library
 net-libs/libcorkipset 1.1.1.20150311_p8: A small C helper library for storing sets of IPv4 and IPv6 addresses
 net-libs/libcrafter 1.0-r1 9999: A high level C++ network packet sniffing and crafting library
@@ -14938,7 +14938,7 @@ net-libs/libsignal-protocol-c 2.3.3-r1: Signal Protocol C Library
 net-libs/libsignon-glib 2.1-r2: GLib binding for the D-Bus API provided by signond
 net-libs/libslirp 4.6.1 4.7.0: A TCP-IP emulator used to provide virtual networking services
 net-libs/libsmi 0.5.0-r1 0.5.0-r5: A Library to Access SMI MIB Information
-net-libs/libsoup 2.74.3 3.4.2 3.4.3 3.4.4: HTTP client/server library for GNOME
+net-libs/libsoup 2.74.3 3.4.4: HTTP client/server library for GNOME
 net-libs/libsrsirc 0.0.14-r1: A lightweight, cross-platform IRC library
 net-libs/libsrtp 1.6.0-r1 2.4.2: Open-source implementation of the Secure Real-time Transport Protocol (SRTP)
 net-libs/libssh 0.10.6 9999: Access a working SSH implementation by means of a library
@@ -18478,7 +18478,7 @@ x11-misc/cdm 0.7: The Console Display Manager
 x11-misc/chgres 0.1-r3: A very simple command line utility for changing X resolutions
 x11-misc/clipmenu 6.2.0-r1: Clipboard management
 x11-misc/clipnotify 1.0.2: Notify on new X clipboard events
-x11-misc/colord 1.4.6-r1 1.4.6-r2 1.4.7 1.4.7-r1: System service to accurately color manage input and output devices
+x11-misc/colord 1.4.6-r2 1.4.7-r1: System service to accurately color manage input and output devices
 x11-misc/compose-tables 1.8.7: X.Org Compose Key tables from libX11
 x11-misc/copyq 7.0.0 7.1.0-r1: Clipboard manager with advanced features
 x11-misc/dclock 2.2.2_p12: Digital clock for the X window system
