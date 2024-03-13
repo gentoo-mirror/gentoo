@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,30 +6,39 @@ EAPI=8
 inherit elisp
 
 DESCRIPTION="Emacs Lisp Development Tool"
-HOMEPAGE="https://github.com/doublep/eldev/"
+HOMEPAGE="https://emacs-eldev.github.io/eldev/
+	https://github.com/doublep/eldev/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/doublep/${PN}.git"
 else
 	SRC_URI="https://github.com/doublep/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~ppc64 ~riscv ~x86"
+
+	KEYWORDS="~amd64 ~arm ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
+ELISP_REMOVE="
+	test/doctor.el
+"
+
 DOCS=( README.adoc )
 SITEFILE="50${PN}-gentoo.el"
 
 src_test() {
-	ELDEV_LOCAL="${S}" ./bin/${PN} test
+	ELDEV_LOCAL="${S}" "./bin/${PN}" test
 }
 
 src_install() {
 	elisp_src_install
-	dobin bin/${PN}
+
+	exeinto /usr/bin
+	doexe "./bin/${PN}"
 
 	# NOTICE: If ELDEV_LOCAL is defined Eldev will use it
 	# to load up it's components,
@@ -37,8 +46,8 @@ src_install() {
 	# always check if it uses installed Emacs Lisp files.
 	# Also, do not forget to run `env-update` & reopen your shell.
 	# https://github.com/doublep/eldev#influential-environment-variables
-	echo "ELDEV_LOCAL=${SITELISP}/${PN}" >> "${T}"/99${PN} || die
-	doenvd "${T}"/99${PN}
+	echo "ELDEV_LOCAL=${SITELISP}/${PN}" >> "${T}/99${PN}" || die
+	doenvd "${T}/99${PN}"
 }
 
 pkg_postinst() {
