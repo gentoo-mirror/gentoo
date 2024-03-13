@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?]
+DESCRIPTION=GNAT Component Collection
+EAPI=8
+HOMEPAGE=http://libre.adacore.com
+INHERIT=ada multiprocessing python-single-r1
+IUSE=gmp iconv lzma openmp python readline +shared static-libs static-pic syslog ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] )
+REQUIRED_USE=|| ( shared static-libs static-pic ) || ( gmp iconv lzma openmp python readline syslog ) ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
+SLOT=0/24.0.0
+SRC_URI=https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v24.0.0.tar.gz -> gnatcoll-bindings-24.0.0.tar.gz
+_eclasses_=ada	825cf3c59de8fefe1dde148596e006f5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=17b8cccd40a94bb5c4b0fbe4fbdf3cf1
