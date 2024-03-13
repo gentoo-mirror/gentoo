@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://python-pillow.org/ https://github.com/python-pillow/Pillow/ https://pypi.org/project/pillow/
 INHERIT=distutils-r1 toolchain-funcs virtualx
 IUSE=examples imagequant +jpeg jpeg2k lcms test tiff tk truetype webp xcb zlib python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
+KEYWORDS=~alpha ~amd64 arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
 LICENSE=HPND
 RDEPEND=imagequant? ( media-gfx/libimagequant:= ) jpeg? ( media-libs/libjpeg-turbo:= ) jpeg2k? ( media-libs/openjpeg:2= ) lcms? ( media-libs/lcms:2= ) tiff? ( media-libs/tiff:=[jpeg,zlib] ) truetype? ( media-libs/freetype:2= ) webp? ( media-libs/libwebp:= ) xcb? ( x11-libs/libxcb ) zlib? ( sys-libs/zlib:= ) dev-python/olefile[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_pypy3? ( dev-python/pypy3:=[tk?,threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[tk?,threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[tk?,threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[tk?,threads(+)] )
 REQUIRED_USE=test? ( jpeg jpeg2k lcms tiff truetype ) || ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/python-pillow/Pillow/archive/10.2.0.tar.gz -> pillow-10.2.0.gh.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	virtualx	817571665ee28575da44ee08135089e5
-_md5_=e6bf3b4ec0e3617fd1f8f64db5b5d280
+_md5_=039ae50dc8ddad3a64987cf009523f65
