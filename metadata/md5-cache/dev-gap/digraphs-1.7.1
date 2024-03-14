@@ -1,0 +1,16 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp sci-mathematics/gap:= sci-mathematics/planarity sci-libs/bliss:= dev-gap/io dev-gap/orb dev-gap/datastructures )
+DEFINED_PHASES=compile configure install test
+DEPEND=sci-mathematics/gap:= sci-mathematics/planarity sci-libs/bliss:=
+DESCRIPTION=Graphs, digraphs, and multidigraphs in GAP
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/Packages/digraphs.html
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=sci-mathematics/gap:= sci-mathematics/planarity sci-libs/bliss:= dev-gap/io dev-gap/orb dev-gap/datastructures sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/digraphs/Digraphs/releases/download/v1.7.1/digraphs-1.7.1.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	49107a349cfd3e19c01c89922d464e4f
+_md5_=7c329abd5b9eadd730db6fbb9f80989e
