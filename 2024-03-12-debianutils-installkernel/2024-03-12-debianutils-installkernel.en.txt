@@ -1,7 +1,7 @@
 Title: installkernel is no longer implicitly installed
 Author: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Posted: 2024-02-26
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: sys-kernel/installkernel
 Display-If-Installed: >=sys-apps/debianutils-5.14-r1
@@ -37,11 +37,13 @@ is only installed on the system if it is either explicitly selected or
 pulled in via the distribution kernels (e.g. gentoo-kernel(-bin)).
 
 
-User Action Required (all users)
+User Action Required (users of manually managed kernels)
 ====================
 
-Users who currently have sys-kernel/installkernel installed, must
-ensure that it is explicitly selected by emerging it:
+Users who manually configure, compile, and install their kernels, i.e.
+users of the sys-kernel/*-sources packages, and who wish to continue
+to use sys-kernel/installkernel, must ensure that it is explicitly
+selected by emerging it:
 
 	emerge --noreplace sys-kernel/installkernel
 
@@ -54,8 +56,12 @@ and then re-install their kernel.
 	cd /usr/src/linux       # (or other location of the kernel sources)
 	make install
 
-Note that this re-installation is not required for users of the
-distribution kernels (e.g. gentoo-kernel(-bin)).
+
+No manual action is required for users of the distribution kernels:
+- sys-kernel/gentoo-kernel, or
+- sys-kernel/gentoo-kernel-bin, or
+- sys-kernel/vanilla-kernel
+
 
 
 [1] https://wiki.gentoo.org/wiki/Installkernel
