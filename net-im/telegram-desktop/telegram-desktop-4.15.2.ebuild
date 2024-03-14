@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
 IUSE="dbus enchant +fonts screencast qt6 qt6-imageformats wayland webkit +X"
 REQUIRED_USE="
 	qt6-imageformats? ( qt6 )
@@ -45,7 +45,6 @@ CDEPEND="
 	~media-libs/tg_owt-0_pre20230921:=[screencast=,X=]
 	media-video/ffmpeg:=[opus,vpx]
 	sys-libs/zlib:=[minizip]
-	virtual/opengl
 	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
 	!qt6? (
