@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://buildbot.net/ https://github.com/buildbot/buildbot https://pypi.org/project/buildbot-worker/
 INHERIT=readme.gentoo-r1 systemd distutils-r1 pypi
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~arm64 ~sparc ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm64 ~sparc ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=acct-user/buildbot !<dev-util/buildbot-3.0.0 >=dev-python/autobahn-0.16.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/msgpack-0.6.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/twisted-18.7.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/b/buildbot-worker/buildbot-worker-3.11.0.tar.gz https://dev.gentoo.org/~zorry/patches/buildbot/buildbot-worker-3.11.0-remove_py27.tar.gz
 _eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=e53209887a76c56a14af4228490f9e95
+_md5_=4e0413c7cacd96b31061ec18eddbab83
