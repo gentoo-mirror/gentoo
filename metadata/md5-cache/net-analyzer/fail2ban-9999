@@ -1,14 +1,15 @@
-BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/setuptools-67.8.0-r1[python_targets_python3_11(-)] ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( python_single_target_python3_10? ( dev-python/aiosmtpd[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/aiosmtpd[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/aiosmtpd[python_targets_python3_12(-)] ) ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/setuptools-67.8.0-r1[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/setuptools-67.8.0-r1[python_targets_python3_12(-)] ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
 DESCRIPTION=Scans log files and bans IPs that show malicious signs
 EAPI=8
 HOMEPAGE=https://www.fail2ban.org/
 INHERIT=bash-completion-r1 distutils-r1 systemd tmpfiles git-r3
-IUSE=selinux systemd python_single_target_python3_10 python_single_target_python3_11
+IUSE=selinux systemd test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=virtual/logger virtual/mta selinux? ( sec-policy/selinux-fail2ban ) systemd? ( python_single_target_python3_10? ( dev-python/python-systemd[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-systemd[python_targets_python3_11(-)] ) ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) virtual/tmpfiles
-REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
+RDEPEND=python_single_target_python3_12? ( dev-python/pyasyncore[python_targets_python3_12(-)] dev-python/pyasynchat[python_targets_python3_12(-)] ) virtual/logger virtual/mta selinux? ( sec-policy/selinux-fail2ban ) systemd? ( python_single_target_python3_10? ( dev-python/python-systemd[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-systemd[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/python-systemd[python_targets_python3_12(-)] ) ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) virtual/tmpfiles
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=40822a5e047c764db8ff72bf45c3662f
+_md5_=960c81490f40e83de2f46bd60b66f72f
