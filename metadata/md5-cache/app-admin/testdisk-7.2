@@ -1,0 +1,16 @@
+BDEPEND=gui? ( dev-qt/linguist-tools:5 )
+DEFINED_PHASES=configure postinst postrm
+DEPEND=sudo? ( app-admin/sudo ) static? ( sys-apps/util-linux[static-libs] sys-fs/e2fsprogs[static-libs] sys-libs/ncurses:0[static-libs] jpeg? ( media-libs/libjpeg-turbo:=[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] ) zlib? ( sys-libs/zlib[static-libs] ) !arm? ( ewf? ( app-forensics/libewf[static-libs] ) ) ) !static? ( sys-apps/util-linux sys-fs/e2fsprogs sys-libs/ncurses:0= jpeg? ( media-libs/libjpeg-turbo:= ) ntfs? ( sys-fs/ntfs3g:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 ) zlib? ( sys-libs/zlib ) !arm? ( ewf? ( app-forensics/libewf:= ) ) )
+DESCRIPTION=Checks and undeletes partitions + PhotoRec, signature based recovery tool
+EAPI=7
+HOMEPAGE=https://www.cgsecurity.org/wiki/TestDisk
+INHERIT=flag-o-matic qmake-utils xdg-utils
+IUSE=ewf jpeg ntfs gui reiserfs static +sudo zlib
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=sudo? ( app-admin/sudo ) !static? ( sudo? ( app-admin/sudo ) static? ( sys-apps/util-linux[static-libs] sys-fs/e2fsprogs[static-libs] sys-libs/ncurses:0[static-libs] jpeg? ( media-libs/libjpeg-turbo:=[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] ) zlib? ( sys-libs/zlib[static-libs] ) !arm? ( ewf? ( app-forensics/libewf[static-libs] ) ) ) !static? ( sys-apps/util-linux sys-fs/e2fsprogs sys-libs/ncurses:0= jpeg? ( media-libs/libjpeg-turbo:= ) ntfs? ( sys-fs/ntfs3g:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 ) zlib? ( sys-libs/zlib ) !arm? ( ewf? ( app-forensics/libewf:= ) ) ) )
+REQUIRED_USE=static? ( !gui )
+SLOT=0
+SRC_URI=https://www.cgsecurity.org/testdisk-7.2.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=f6a3081d0a87ac58922f9a4642443f71
