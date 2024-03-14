@@ -4,12 +4,12 @@ DEPEND=dev-qt/qtcore:5 sci-libs/shapelib:= sys-libs/zlib virtual/libusb:1
 DESCRIPTION=GPS waypoints, tracks and routes converter
 EAPI=7
 HOMEPAGE=https://www.gpsbabel.org/ https://github.com/gpsbabel/gpsbabel
-INHERIT=qmake-utils
+INHERIT=flag-o-matic qmake-utils
 IUSE=doc
 KEYWORDS=amd64 ~ppc ~x86
 LICENSE=GPL-2
 RDEPEND=dev-qt/qtcore:5 sci-libs/shapelib:= sys-libs/zlib virtual/libusb:1
 SLOT=0
 SRC_URI=https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_7_0.tar.gz doc? ( https://www.gpsbabel.org/style3.css -> gpsbabel.org-style3.css )
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=9bf80a9bc865f81d65daeb490a45d446
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=8e03c8af6ddeda483280475f87f785ae
