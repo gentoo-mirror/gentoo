@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare test unpack
+DESCRIPTION=Prometheus exporter for LVM metrics
+EAPI=8
+HOMEPAGE=https://github.com/hansmi/prometheus-lvm-exporter
+INHERIT=go-module systemd
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0 BSD MIT
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/hansmi/prometheus-lvm-exporter/archive/v0.3.3.tar.gz -> prometheus-lvm-exporter-0.3.3.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/app-metrics/prometheus-lvm-exporter/prometheus-lvm-exporter-0.3.3-deps.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	go-env	96e1747610bbb2f5c5d3fb16f0f3a83a	go-module	83fd3ed1657cfc316c93d6a37018290d	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=0dda8c5a634f50f7b4cf0f63aaa5c411
