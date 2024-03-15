@@ -1,12 +1,12 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Library for free and lossless compression of the LAS LiDAR format
-EAPI=7
+EAPI=8
 HOMEPAGE=https://laszip.org/
 INHERIT=cmake flag-o-matic
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=LGPL-2.1+
 SLOT=0
 SRC_URI=https://github.com/LASzip/LASzip/releases/download/3.4.1/laszip-src-3.4.1.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=2f4c019ebf034ae0d3aec728c27b85c8
+_md5_=100b8a9cc2eadf1732ecd841bdb982c1
