@@ -16,7 +16,9 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/rust-lang/${PN}.git"
 else
 	SRC_URI="https://github.com/rust-lang/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
-		${CARGO_CRATE_URIS}"
+		${CARGO_CRATE_URIS}
+		https://dev.gentoo.org/~arthurzam/distfiles/dev-util/${PN}/${P}-crates.tar.xz
+	"
 	KEYWORDS="~amd64 ~arm64 ~ppc64"
 fi
 
