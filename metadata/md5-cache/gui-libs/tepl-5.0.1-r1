@@ -1,4 +1,4 @@
-BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.25 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.25 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install test
 DEPEND=>=dev-libs/glib-2.64:2 >=x11-libs/gtk+-3.22:3[introspection] >=x11-libs/gtksourceview-4.0:4[introspection] >=gui-libs/amtk-5.0:5[introspection] dev-libs/icu:= >=dev-libs/gobject-introspection-1.42:=
 DESCRIPTION=GtkSourceView-based text editors and IDE helper library
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/glib-2.64:2 >=x11-libs/gtk+-3.22:3[introspection] >=x11-libs/
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=mirror://gnome/sources/tepl/5.0/tepl-5.0.1.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	virtualx	817571665ee28575da44ee08135089e5
 _md5_=63e63d00737413c93b6365ebb8aee076

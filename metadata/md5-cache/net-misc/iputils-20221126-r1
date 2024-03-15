@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-ns-stylesheets app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig test? ( sys-apps/iproute2 ) nls? ( sys-devel/gettext ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst preinst prepare test
 DEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) virtual/os-headers
 DESCRIPTION=Network monitoring tools including ping and ping6
@@ -13,5 +13,5 @@ RDEPEND=caps? ( sys-libs/libcap ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libi
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/iputils/iputils/archive/20221126.tar.gz -> iputils-20221126.tar.gz
-_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	plocale	950fbaec7deeba41b5bcc0572cca99b9	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	plocale	950fbaec7deeba41b5bcc0572cca99b9	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=41d26baa657eac7514b10177f5cb9f64

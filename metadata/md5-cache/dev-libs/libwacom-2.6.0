@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.11 dev-python/libevdev[python_targets_python3_11(-)] dev-python/pyudev[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/libevdev[python_targets_python3_10(-)] dev-python/pyudev[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] ) ) ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.11 dev-python/libevdev[python_targets_python3_11(-)] dev-python/pyudev[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/libevdev[python_targets_python3_10(-)] dev-python/pyudev[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=dev-libs/glib:2 dev-libs/libgudev:=
 DESCRIPTION=Library for identifying Wacom tablets and their model-specific features
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 dev-libs/libgudev:=
 RESTRICT=!test? ( test )
 SLOT=0/9
 SRC_URI=https://github.com/linuxwacom/libwacom/releases/download/libwacom-2.6.0/libwacom-2.6.0.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	python-any-r1	f5169813d1619761b459800587005fd2	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	python-any-r1	f5169813d1619761b459800587005fd2	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=fe2be00a092d882024eb4933a3e26acb

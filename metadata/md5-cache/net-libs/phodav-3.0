@@ -1,4 +1,4 @@
-BDEPEND=app-text/asciidoc app-text/docbook-xml-dtd:4.5 app-text/xmlto sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) test? ( gnome-base/dconf ) app-arch/xz-utils >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig virtual/pkgconfig
+BDEPEND=app-text/asciidoc app-text/docbook-xml-dtd:4.5 app-text/xmlto sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) test? ( gnome-base/dconf ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=>=dev-libs/glib-2.51.2:2 >=net-libs/libsoup-3.0.0:3.0 dev-libs/libxml2 zeroconf? ( net-dns/avahi[dbus] ) !net-libs/phodav:2.0
 DESCRIPTION=WebDav server implementation using libsoup
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/glib-2.51.2:2 >=net-libs/libsoup-3.0.0:3.0 dev-libs/libxml2 z
 RESTRICT=!test? ( test )
 SLOT=3.0
 SRC_URI=mirror://gnome/sources/phodav/3.0/phodav-3.0.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=10f8edd38241de10537aab051a62e75e

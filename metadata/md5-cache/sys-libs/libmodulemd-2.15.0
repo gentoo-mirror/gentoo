@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/gobject-introspection dev-util/glib-utils gtk-doc? ( dev-libs/glib[gtk-doc] dev-util/gtk-doc ) test? ( sys-libs/libmodulemd ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/gobject-introspection dev-util/glib-utils gtk-doc? ( dev-libs/glib[gtk-doc] dev-util/gtk-doc ) test? ( sys-libs/libmodulemd ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) app-arch/rpm sys-apps/file dev-libs/glib:2 dev-libs/libyaml python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] )
 DESCRIPTION=C Library for manipulating Fedora Modularity metadata files
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fedora-modularity/libmodulemd/archive/refs/tags/2.15.0.tar.gz -> libmodulemd-2.15.0.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=7382ec787eb2365aaeb8205df4a97acd

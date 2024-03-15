@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxml2 >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=dev-libs/libxml2 >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
 DEPEND=>=dev-libs/glib-2.40:2 >=app-crypt/libsecret-0.18 >=net-libs/libnma-1.10.4-r2 >=x11-libs/gtk+-3.10:3 >=dev-libs/libgudev-147:= >=net-misc/networkmanager-1.16[modemmanager?,teamd?] appindicator? ( dev-libs/libayatana-appindicator >=dev-libs/libdbusmenu-16.04.0 ) modemmanager? ( net-misc/modemmanager ) selinux? ( sys-libs/libselinux ) teamd? ( >=dev-libs/jansson-2.7:= ) virtual/freedesktop-icon-theme
 DESCRIPTION=NetworkManager connection editor and applet
@@ -12,5 +12,5 @@ LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.40:2 >=app-crypt/libsecret-0.18 >=net-libs/libnma-1.10.4-r2 >=x11-libs/gtk+-3.10:3 >=dev-libs/libgudev-147:= >=net-misc/networkmanager-1.16[modemmanager?,teamd?] appindicator? ( dev-libs/libayatana-appindicator >=dev-libs/libdbusmenu-16.04.0 ) modemmanager? ( net-misc/modemmanager ) selinux? ( sys-libs/libselinux ) teamd? ( >=dev-libs/jansson-2.7:= ) virtual/freedesktop-icon-theme
 SLOT=0
 SRC_URI=mirror://gnome/sources/network-manager-applet/1.32/network-manager-applet-1.32.0.tar.xz
-_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=202fe584faac6c3ad4c4ffb93d5bcad5

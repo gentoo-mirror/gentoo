@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl dev-util/gdbus-codegen virtual/pkgconfig doc? ( dev-libs/libxml2 dev-libs/libxslt dev-util/gtk-doc ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+BDEPEND=dev-lang/perl dev-util/gdbus-codegen virtual/pkgconfig doc? ( dev-libs/libxml2 dev-libs/libxslt dev-util/gtk-doc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=dev-libs/dbus-glib dev-libs/glib:2 >=sys-auth/libfprint-1.94.0:2 sys-auth/polkit pam? ( sys-libs/pam systemd? ( sys-apps/systemd:= ) !systemd? ( sys-auth/elogind:= ) ) test? ( || ( ( dev-lang/python:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] dev-python/dbus-python[python_targets_python3_11(-)] dev-python/pycairo[python_targets_python3_11(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_11(-)] ) ) ( dev-lang/python:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] dev-python/dbus-python[python_targets_python3_10(-)] dev-python/pycairo[python_targets_python3_10(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_10(-)] ) ) ) )
 DESCRIPTION=D-Bus service to access fingerprint readers
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/dbus-glib dev-libs/glib:2 >=sys-auth/libfprint-1.94.0:2 sys-aut
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/libfprint/fprintd/-/archive/v1.94.2/fprintd-v1.94.2.tar.bz2
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	pam	b56d0c9c20fc5b553f13c8ae165a10a5	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	pam	b56d0c9c20fc5b553f13c8ae165a10a5	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=55896dfe22f1b5a287cc6ffcffc57069

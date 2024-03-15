@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/texinfo virtual/pkgconfig >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=sys-apps/texinfo virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-libs/glib:2 dev-libs/gmime:3.0 >=dev-libs/xapian-1.4:= emacs? ( >=app-editors/emacs-25.3:* ) readline? ( sys-libs/readline:= )
 DESCRIPTION=Set of tools to deal with Maildirs, in particular, searching and indexing
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=dev-libs/glib:2 dev-libs/gmime:3.0 >=dev-libs/xapian-1.4:= emacs? ( >=app-editors/emacs-25.3:* ) readline? ( sys-libs/readline:= )
 SLOT=0
 SRC_URI=https://github.com/djcb/mu/releases/download/v1.10.8/mu-1.10.8.tar.xz
-_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c
+_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
 _md5_=e225deed0165218997d4252876031309

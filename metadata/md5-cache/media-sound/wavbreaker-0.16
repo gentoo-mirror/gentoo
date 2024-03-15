@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
 DEPEND=dev-libs/glib media-libs/libao x11-libs/gtk+:3 mp3? ( media-sound/mpg123 ) vorbis? ( media-libs/libvorbis )
 DESCRIPTION=wavbreaker/wavmerge GTK+ utility to break or merge WAV files
@@ -12,5 +12,5 @@ LICENSE=GPL-2
 RDEPEND=dev-libs/glib media-libs/libao x11-libs/gtk+:3 mp3? ( media-sound/mpg123 ) vorbis? ( media-libs/libvorbis )
 SLOT=0
 SRC_URI=https://github.com/thp/wavbreaker/archive/refs/tags/0.16.tar.gz -> wavbreaker-0.16.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=3c5afa27fdc6d7cfb79f5a90298f24a1

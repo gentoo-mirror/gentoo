@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-util/cmocka ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=test? ( dev-util/cmocka ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install test
 DEPEND=atahpt? ( sys-apps/pciutils ) atapromise? ( sys-apps/pciutils ) atavia? ( sys-apps/pciutils ) ch341a-spi? ( virtual/libusb:1 ) dediprog? ( virtual/libusb:1 ) developerbox-spi? ( virtual/libusb:1 ) digilent-spi? ( virtual/libusb:1 ) dirtyjtag-spi? ( virtual/libusb:1 ) drkaiser? ( sys-apps/pciutils ) ft2232-spi? ( dev-embedded/libftdi:1= ) gfxnvidia? ( sys-apps/pciutils ) internal? ( sys-apps/pciutils ) it8212? ( sys-apps/pciutils ) jlink-spi? ( dev-embedded/libjaylink ) nic3com? ( sys-apps/pciutils ) nicintel? ( sys-apps/pciutils ) nicintel-eeprom? ( sys-apps/pciutils ) nicintel-spi? ( sys-apps/pciutils ) nicnatsemi? ( sys-apps/pciutils ) nicrealtek? ( sys-apps/pciutils ) ogp-spi? ( sys-apps/pciutils ) pickit2-spi? ( virtual/libusb:1 ) raiden-debug-spi? ( virtual/libusb:1 ) satamv? ( sys-apps/pciutils ) satasii? ( sys-apps/pciutils ) stlinkv3-spi? ( virtual/libusb:1 ) usbblaster-spi? ( dev-embedded/libftdi:1= ) sys-apps/diffutils linux-mtd? ( sys-kernel/linux-headers ) linux-spi? ( sys-kernel/linux-headers ) mediatek-i2c-spi? ( sys-kernel/linux-headers ) mstarddc-spi? ( sys-kernel/linux-headers ) parade-lspcon? ( sys-kernel/linux-headers ) realtek-mst-i2c-spi? ( sys-kernel/linux-headers )
 DESCRIPTION=Utility for reading, writing, erasing and verifying flash ROM chips
@@ -12,5 +12,5 @@ RDEPEND=atahpt? ( sys-apps/pciutils ) atapromise? ( sys-apps/pciutils ) atavia? 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.flashrom.org/releases/flashrom-v1.3.0.tar.bz2
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
 _md5_=75e98d730b20c91ea90e6d06c425cd9a

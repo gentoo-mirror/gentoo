@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=>=dev-libs/yajl-2.0.2 dev-libs/confuse:= dev-libs/libnl:3 media-libs/alsa-lib pulseaudio? ( || ( media-libs/libpulse media-sound/apulse[sdk] ) ) app-text/asciidoc app-text/xmlto
 DESCRIPTION=Generates a status bar for dzen2, xmobar or similar
@@ -12,5 +12,5 @@ LICENSE=BSD
 RDEPEND=>=dev-libs/yajl-2.0.2 dev-libs/confuse:= dev-libs/libnl:3 media-libs/alsa-lib pulseaudio? ( || ( media-libs/libpulse media-sound/apulse[sdk] ) )
 SLOT=0
 SRC_URI=https://i3wm.org/i3status/i3status-2.14.tar.xz
-_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
 _md5_=da5125eeb03f0b800c8d80ae259dccef

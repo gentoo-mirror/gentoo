@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
 DEPEND=>=dev-libs/efl-1.27.0[eet,fontconfig,sound,X] virtual/udev x11-libs/libXext x11-libs/libxcb x11-libs/xcb-util-keysyms x11-misc/xkeyboard-config acpi? ( sys-power/acpid ) bluetooth? ( net-wireless/bluez ) connman? ( dev-libs/efl[connman] ) exif? ( media-libs/libexif ) geolocation? ( app-misc/geoclue:2.0 ) pam? ( sys-libs/pam ) policykit? ( sys-auth/polkit ) systemd? ( sys-apps/systemd ) udisks? ( sys-fs/udisks:2 ) wayland? ( || ( dev-libs/efl[systemd] dev-libs/efl[elogind] ) dev-libs/efl[drm,wayland] dev-libs/wayland x11-libs/libxkbcommon x11-libs/pixman ) xwayland? ( dev-libs/efl[X,wayland] x11-base/xwayland )
 DESCRIPTION=Enlightenment window manager
@@ -13,5 +13,5 @@ RDEPEND=>=dev-libs/efl-1.27.0[eet,fontconfig,sound,X] virtual/udev x11-libs/libX
 REQUIRED_USE=xwayland? ( wayland )
 SLOT=0.17/0.26.0
 SRC_URI=https://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.26.0.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=de6bdfb7770c4fae2c98f05258a0dfd3

@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/glib dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext test? ( sys-apps/dbus ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+BDEPEND=dev-libs/glib dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext test? ( sys-apps/dbus ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=dev-libs/glib-2.62 >=media-video/pipewire-0.3.68:= virtual/libintl elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
 DESCRIPTION=Replacement for pipewire-media-session
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ?? ( elogi
 RESTRICT=!test? ( test )
 SLOT=0/0.4
 SRC_URI=https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.17/wireplumber-0.4.17.tar.bz2
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=5428ca57bcf61481e3783d6f4347e399

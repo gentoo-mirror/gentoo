@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gettext qt6? ( dev-qt/qttools:6[linguist] ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=virtual/pkgconfig sys-devel/gettext qt6? ( dev-qt/qttools:6[linguist] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:3.0 doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) qml? ( dev-qt/qtdeclarative:6 ) qt6? ( dev-qt/qtbase:6[network,widgets] ) vala? ( || ( dev-lang/vala:0.56 ) )
 DESCRIPTION=glib library for communicating with snapd
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:
 REQUIRED_USE=qml? ( qt6 ) vala? ( introspection )
 SLOT=0/1
 SRC_URI=https://github.com/snapcore/snapd-glib/releases/download/1.64/snapd-glib-1.64.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	vala	e477903dbe0105930c51f170a592dc16
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	vala	e477903dbe0105930c51f170a592dc16
 _md5_=7d08e1b479dd61a384ef0c9946e0c35a

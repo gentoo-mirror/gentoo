@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig virtual/pkgconfig
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=dev-libs/openssl:= sys-apps/kmod sys-block/open-isns:= sys-kernel/linux-headers infiniband? ( sys-cluster/rdma-core ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=A performant, transport independent, multi-platform implementation of RFC3720
@@ -13,5 +13,5 @@ REQUIRED_USE=infiniband? ( rdma ) || ( rdma tcp )
 RESTRICT=test
 SLOT=0/0.2
 SRC_URI=https://github.com/open-iscsi/open-iscsi/archive/2.1.8.tar.gz -> open-iscsi-2.1.8.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	linux-info	7ca3057b277f1e5978947b4cc289ce62	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	linux-info	7ca3057b277f1e5978947b4cc289ce62	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=74c7a3a95940f66be79307fa627b1a98

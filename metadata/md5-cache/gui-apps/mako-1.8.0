@@ -1,4 +1,4 @@
-BDEPEND=app-text/scdoc dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+BDEPEND=app-text/scdoc dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install test
 DEPEND=dev-libs/wayland x11-libs/pango x11-libs/cairo || ( systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) sys-libs/basu ) sys-apps/dbus icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf ) >=dev-libs/wayland-protocols-1.21
 DESCRIPTION=A lightweight notification daemon for Wayland. Works on Sway
@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/wayland x11-libs/pango x11-libs/cairo || ( systemd? ( sys-apps/systemd ) elogind? ( sys-auth/elogind ) sys-libs/basu ) sys-apps/dbus icons? ( x11-libs/gtk+:3 x11-libs/gdk-pixbuf )
 SLOT=0
 SRC_URI=https://github.com/emersion/mako/archive/v1.8.0.tar.gz -> mako-1.8.0.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=eb0e9e8506889e0b28aeddf4db8cb3ae

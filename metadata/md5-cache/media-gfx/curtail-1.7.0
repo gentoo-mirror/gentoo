@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) gui-libs/gtk:4[introspection] python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) dev-libs/appstream-glib dev-util/desktop-file-utils >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) gui-libs/gtk:4[introspection] python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) dev-libs/appstream-glib dev-util/desktop-file-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DESCRIPTION=Image compressor, supporting PNG, JPEG and WebP
 EAPI=8
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/Huluti/Curtail/archive/1.7.0.tar.gz -> curtail-1.7.0.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=51fc11970032e6c717e7f785c25470a6

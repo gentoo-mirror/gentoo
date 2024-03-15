@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen dev-python/sphinx dev-python/sphinx-lv2-theme dev-python/sphinxygen ) test? ( dev-libs/check ) >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen dev-python/sphinx dev-python/sphinx-lv2-theme dev-python/sphinxygen ) test? ( dev-libs/check ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=media-libs/lv2 gtk2? ( >=x11-libs/gtk+-2.18.0:2 dev-libs/glib:2 ) gtk? ( >=x11-libs/gtk+-3.14.0:3 dev-libs/glib:2 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 ) X? ( x11-libs/libX11 )
 DESCRIPTION=Lightweight C library for loading and wrapping LV2 plugin UIs
@@ -12,5 +12,5 @@ RDEPEND=media-libs/lv2 gtk2? ( >=x11-libs/gtk+-2.18.0:2 dev-libs/glib:2 ) gtk? (
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.drobilla.net/suil-0.10.20.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
 _md5_=f079e5ade3f2afdf34b4eff4f1f7f67b

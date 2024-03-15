@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/help2man || ( sys-apps/util-linux app-misc/getopt ) test? ( app-misc/pax-utils app-portage/portage-utils >=app-shells/bash-5.1:0[readline] dev-libs/libxml2:2 sys-apps/coreutils sys-apps/diffutils sys-apps/file sys-apps/portage || ( sys-apps/util-linux app-misc/getopt ) ) >=dev-vcs/git-1.8.2.1[curl] >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=sys-apps/help2man || ( sys-apps/util-linux app-misc/getopt ) test? ( app-misc/pax-utils app-portage/portage-utils >=app-shells/bash-5.1:0[readline] dev-libs/libxml2:2 sys-apps/coreutils sys-apps/diffutils sys-apps/file sys-apps/portage || ( sys-apps/util-linux app-misc/getopt ) ) >=dev-vcs/git-1.8.2.1[curl] >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst test unpack
 DESCRIPTION=Small tools to aid with Gentoo development, primarily intended for QA
 EAPI=8
@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=app-misc/pax-utils app-portage/portage-utils >=app-shells/bash-5.1:0[readline] dev-libs/libxml2:2 sys-apps/coreutils sys-apps/diffutils sys-apps/file sys-apps/portage || ( sys-apps/util-linux app-misc/getopt )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	bd1d5eaa305de6645e939caa7a352e3c	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
 _md5_=0dae46108b09cae787b5e5eeba99fa9a
