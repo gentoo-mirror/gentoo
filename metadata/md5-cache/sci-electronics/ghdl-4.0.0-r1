@@ -1,16 +1,16 @@
 BDEPEND=dev-util/patchelf
-DEFINED_PHASES=compile configure prepare setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) llvm? ( <sys-devel/llvm-18:= ) !!sys-devel/llvm:0
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) llvm? ( <sys-devel/llvm-18:= ) !!sys-devel/llvm:0
 DESCRIPTION=Open-source analyzer, compiler, and simulator for VHDL 2008/93/87
 EAPI=8
 HOMEPAGE=https://ghdl.github.io/ghdl/ https://github.com/ghdl/ghdl/
 INHERIT=ada edo llvm toolchain-funcs
 IUSE=llvm ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) llvm? ( <sys-devel/llvm-18:= )
-REQUIRED_USE=ada_target_gnat_2021
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) llvm? ( <sys-devel/llvm-18:= )
+REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_13 )
 SLOT=0
-SRC_URI=https://github.com/ghdl/ghdl/archive/2135cbf1458bd1b8b8f42bda81222ab57bd66de6.tar.gz -> ghdl-4.0.0_pre20231218.tar.gz
+SRC_URI=https://github.com/ghdl/ghdl/archive/v4.0.0.tar.gz -> ghdl-4.0.0.tar.gz
 _eclasses_=ada	f59e3151d12cf89115ffac32a03e7d31	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	1eea65d11f743b8e256ef279b652a2e6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=1747b312a70216cd22589f6c466535b2
+_md5_=60dd801f4ad41e4e2b2ea615b96878ef

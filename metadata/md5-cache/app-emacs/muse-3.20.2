@@ -1,14 +1,13 @@
-BDEPEND=>=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/htmlize >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=An authoring and publishing environment for Emacs
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.gnu.org/software/emacs-muse/
 INHERIT=elisp
-KEYWORDS=amd64 ppc x86
+KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-3+ FDL-1.2+ GPL-2 MIT
-RDEPEND=>=app-editors/emacs-25.3:*
-RESTRICT=test
+RDEPEND=app-emacs/htmlize >=app-editors/emacs-25.3:*
 SLOT=0
-SRC_URI=https://github.com/alexott/muse/archive/v3.20.tar.gz -> muse-3.20.tar.gz
+SRC_URI=https://dev.gentoo.org/~xgqt/distfiles/repackaged/muse-3.20.2.tar.xz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=a5bc15f35110be375d19b1f58ba9679f
+_md5_=7e0d0cbe5fdcefb53fa85d68e0e0e290
