@@ -18,11 +18,11 @@ if [[ ${PV} == 9999 ]]; then
 		subprojects/dxil-spirv/third_party/spirv-headers # skip cross/tools
 	)
 else
-	HASH_VKD3D= # match tag on bumps
-	HASH_DXIL=
-	HASH_SPIRV=
-	HASH_SPIRV_DXIL=
-	HASH_VULKAN=
+	HASH_VKD3D=7460c70de0dff08de2f4a78a7ac7c71fd7f0ea6e # match tag on bumps
+	HASH_DXIL=b03d68d6ed30e87a3bcef9a861fa3c6b4429e5cc
+	HASH_SPIRV=8b246ff75c6615ba4532fe4fde20f1be090c3764
+	HASH_SPIRV_DXIL=8b246ff75c6615ba4532fe4fde20f1be090c3764
+	HASH_VULKAN=f030d9dd8ca297b84b10330cee87f72acc3b0aab
 	SRC_URI="
 		https://github.com/HansKristian-Work/vkd3d-proton/archive/refs/tags/v${PV}.tar.gz
 			-> ${P}.tar.gz
