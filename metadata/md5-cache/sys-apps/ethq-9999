@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install prepare test unpack
+DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=sys-libs/ncurses:=
 DESCRIPTION=Ethernet NIC Queue stats viewer
 EAPI=7
 HOMEPAGE=https://github.com/isc-projects/ethq
-INHERIT=git-r3 toolchain-funcs
+INHERIT=git-r3 flag-o-matic toolchain-funcs
 IUSE=test
 LICENSE=MPL-2.0
 PROPERTIES=live
 RDEPEND=sys-libs/ncurses:=
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=5a1a16e23fec3272a831cd30c07e81b2
+_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=295c08f51b60c79f3c96e6f78d54d285

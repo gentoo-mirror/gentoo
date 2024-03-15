@@ -1,9 +1,9 @@
-DEFINED_PHASES=compile install prepare test
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=sys-libs/ncurses:=
 DESCRIPTION=Ethernet NIC Queue stats viewer
 EAPI=7
 HOMEPAGE=https://github.com/isc-projects/ethq
-INHERIT=toolchain-funcs
+INHERIT=flag-o-matic toolchain-funcs
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=MPL-2.0
@@ -11,5 +11,5 @@ RDEPEND=sys-libs/ncurses:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/isc-projects/ethq/archive/v0_6_1.tar.gz -> ethq-0_6_1.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=5b427c8212858b6f88a65600e6bd024b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=47fe33748df048be6549da46da4259c0
