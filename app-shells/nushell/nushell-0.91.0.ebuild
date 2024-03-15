@@ -18,7 +18,6 @@ CRATES="
 	alphanumeric-sort@1.5.3
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
-	anes@0.1.6
 	ansi-str@0.8.0
 	ansitok@0.2.0
 	anstream@0.6.11
@@ -31,7 +30,6 @@ CRATES="
 	array-init-cursor@0.2.0
 	arrayvec@0.5.2
 	arrayvec@0.7.4
-	arrow-format@0.8.1
 	assert-json-diff@2.0.2
 	assert_cmd@2.0.13
 	async-stream-impl@0.3.5
@@ -41,6 +39,7 @@ CRATES="
 	atoi_simd@0.15.6
 	autocfg@1.1.0
 	avro-schema@0.3.0
+	backtrace-ext@0.2.1
 	backtrace@0.3.69
 	base64@0.13.1
 	base64@0.21.7
@@ -69,9 +68,9 @@ CRATES="
 	byteorder@1.5.0
 	bytes@1.5.0
 	bytesize@1.3.0
-	calamine@0.23.1
+	calamine@0.24.0
 	cassowary@0.3.0
-	cast@0.3.0
+	castaway@0.2.2
 	cc@1.0.83
 	cexpr@0.6.0
 	cfg-if@1.0.0
@@ -81,11 +80,8 @@ CRATES="
 	chrono-humanize@0.2.3
 	chrono-tz-build@0.2.1
 	chrono-tz@0.8.5
-	chrono@0.4.33
+	chrono@0.4.34
 	chumsky@0.9.3
-	ciborium-io@0.2.2
-	ciborium-ll@0.2.2
-	ciborium@0.2.2
 	clang-sys@1.7.0
 	clap@4.4.18
 	clap_builder@4.4.18
@@ -94,6 +90,8 @@ CRATES="
 	codepage@0.1.1
 	colorchoice@1.0.0
 	comfy-table@7.1.0
+	compact_str@0.7.1
+	condtype@1.3.0
 	console@0.15.8
 	const-random-macro@0.1.16
 	const-random@0.1.17
@@ -105,8 +103,6 @@ CRATES="
 	crc-catalog@1.1.1
 	crc32fast@1.3.2
 	crc@2.1.0
-	criterion-plot@0.5.0
-	criterion@0.5.1
 	crossbeam-channel@0.5.11
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
@@ -131,6 +127,8 @@ CRATES="
 	digest@0.10.7
 	dirs-next@2.0.0
 	dirs-sys-next@0.1.2
+	divan-macros@0.1.14
+	divan@0.1.14
 	dlib@0.5.2
 	dlv-list@0.5.2
 	doc-comment@0.3.3
@@ -152,9 +150,9 @@ CRATES="
 	errno@0.3.8
 	error-code@2.3.1
 	ethnum@1.5.0
-	fallible-iterator@0.2.0
+	fallible-iterator@0.3.0
 	fallible-streaming-iterator@0.1.9
-	fancy-regex@0.12.0
+	fancy-regex@0.13.0
 	fast-float@0.2.0
 	fastrand@2.0.1
 	fd-lock@3.0.13
@@ -193,14 +191,13 @@ CRATES="
 	gjson@0.8.1
 	glob@0.3.1
 	h2@0.3.24
-	half@2.3.1
 	halfbrown@0.2.4
 	hamcrest2@0.3.0
 	hash32@0.3.1
 	hashbrown@0.12.3
 	hashbrown@0.13.2
 	hashbrown@0.14.3
-	hashlink@0.8.4
+	hashlink@0.9.0
 	heapless@0.8.0
 	heck@0.4.1
 	hermit-abi@0.3.4
@@ -217,7 +214,7 @@ CRATES="
 	iana-time-zone@0.1.59
 	ical@0.10.0
 	idna@0.5.0
-	indexmap@2.1.0
+	indexmap@2.2.2
 	indicatif@0.17.7
 	indoc@2.0.4
 	inotify-sys@0.1.5
@@ -225,15 +222,14 @@ CRATES="
 	instant@0.1.12
 	inventory@0.3.15
 	is-docker@0.2.0
-	is-terminal@0.4.10
 	is-wsl@0.4.0
-	is_ci@1.1.1
+	is_ci@1.2.0
 	is_debug@1.0.1
 	is_executable@1.0.1
-	itertools@0.10.5
 	itertools@0.11.0
 	itertools@0.12.0
 	itoa@1.0.10
+	itoap@1.0.1
 	jobserver@0.1.27
 	joinery@2.1.0
 	js-sys@0.3.67
@@ -250,13 +246,13 @@ CRATES="
 	libc@0.2.152
 	libflate@1.4.0
 	libflate_lz77@1.2.0
-	libgit2-sys@0.16.1+1.7.1
+	libgit2-sys@0.16.2+1.7.2
 	libloading@0.8.1
 	libm@0.2.8
 	libmimalloc-sys@0.1.35
 	libproc@0.14.2
 	libredox@0.0.1
-	libsqlite3-sys@0.26.0
+	libsqlite3-sys@0.28.0
 	libssh2-sys@0.3.0
 	libz-sys@1.1.15
 	linked-hash-map@0.5.6
@@ -277,15 +273,15 @@ CRATES="
 	memchr@2.7.1
 	memmap2@0.7.1
 	memoffset@0.7.1
-	miette-derive@5.10.0
-	miette@5.10.0
+	miette-derive@7.1.0
+	miette@7.1.0
 	mimalloc@0.1.39
 	mime@0.3.17
 	mime_guess@2.0.4
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.1
-	mio@0.8.10
-	mockito@1.2.0
+	mio@0.8.11
+	mockito@1.3.0
 	multiversion-macros@0.7.3
 	multiversion@0.7.3
 	native-tls@0.2.11
@@ -319,17 +315,16 @@ CRATES="
 	object@0.32.2
 	omnipath@0.1.6
 	once_cell@1.19.0
-	oorandom@11.1.3
 	open@5.0.1
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
-	openssl-src@300.2.1+3.2.0
+	openssl-src@300.2.3+3.2.1
 	openssl-sys@0.9.99
 	openssl@0.10.63
 	ordered-multimap@0.7.1
 	os_display@0.1.3
 	os_pipe@1.1.5
-	owo-colors@3.5.0
+	owo-colors@4.0.0
 	papergrid@0.10.0
 	parking_lot@0.12.1
 	parking_lot_core@0.9.9
@@ -358,25 +353,23 @@ CRATES="
 	pin-utils@0.1.0
 	pkg-config@0.3.29
 	planus@0.3.1
-	plotters-backend@0.3.5
-	plotters-svg@0.3.5
-	plotters@0.3.5
-	polars-arrow@0.36.2
-	polars-compute@0.36.2
-	polars-core@0.36.2
-	polars-error@0.36.2
-	polars-io@0.36.2
-	polars-json@0.36.2
-	polars-lazy@0.36.2
-	polars-ops@0.36.2
-	polars-parquet@0.36.2
-	polars-pipe@0.36.2
-	polars-plan@0.36.2
-	polars-row@0.36.2
-	polars-sql@0.36.2
-	polars-time@0.36.2
-	polars-utils@0.36.2
-	polars@0.36.2
+	polars-arrow-format@0.1.0
+	polars-arrow@0.37.0
+	polars-compute@0.37.0
+	polars-core@0.37.0
+	polars-error@0.37.0
+	polars-io@0.37.0
+	polars-json@0.37.0
+	polars-lazy@0.37.0
+	polars-ops@0.37.0
+	polars-parquet@0.37.0
+	polars-pipe@0.37.0
+	polars-plan@0.37.0
+	polars-row@0.37.0
+	polars-sql@0.37.0
+	polars-time@0.37.0
+	polars-utils@0.37.0
+	polars@0.37.0
 	pori@0.0.0
 	portable-atomic@1.6.0
 	powerfmt@0.2.0
@@ -396,7 +389,7 @@ CRATES="
 	psm@0.1.21
 	ptr_meta@0.1.4
 	ptr_meta_derive@0.1.4
-	pure-rust-locales@0.7.0
+	pure-rust-locales@0.8.1
 	pwd@1.4.0
 	quick-error@1.2.3
 	quick-error@2.0.1
@@ -410,15 +403,16 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_distr@0.4.3
-	ratatui@0.23.0
+	ratatui@0.26.0
 	rayon-core@1.12.1
 	rayon@1.8.1
 	redox_syscall@0.4.1
 	redox_users@0.4.4
-	reedline@0.29.0
+	reedline@0.30.0
 	ref-cast-impl@1.0.22
 	ref-cast@1.0.22
 	regex-automata@0.4.5
+	regex-lite@0.1.5
 	regex-syntax@0.8.2
 	regex@1.10.3
 	relative-path@1.9.2
@@ -430,10 +424,10 @@ CRATES="
 	rmp-serde@1.1.2
 	rmp@0.8.12
 	ropey@1.6.1
-	roxmltree@0.18.1
+	roxmltree@0.19.0
 	rstest@0.18.2
 	rstest_macros@0.18.2
-	rusqlite@0.29.0
+	rusqlite@0.31.0
 	rust-embed-impl@8.2.0
 	rust-embed-utils@8.2.0
 	rust-embed@8.2.0
@@ -442,7 +436,7 @@ CRATES="
 	rustc-demangle@0.1.23
 	rustc-hash@1.1.0
 	rustc_version@0.4.0
-	rustix@0.38.30
+	rustix@0.38.31
 	rustversion@1.0.14
 	ryu@1.0.16
 	same-file@1.0.6
@@ -463,8 +457,8 @@ CRATES="
 	serde_spanned@0.6.5
 	serde_urlencoded@0.7.1
 	serde_yaml@0.9.30
-	serial_test@2.0.0
-	serial_test_derive@2.0.0
+	serial_test@3.0.0
+	serial_test_derive@3.0.0
 	servo_arc@0.3.0
 	sha2@0.10.8
 	shadow-rs@0.26.1
@@ -486,6 +480,7 @@ CRATES="
 	socket2@0.5.5
 	sqlparser@0.39.0
 	sqlparser@0.43.1
+	stability@0.1.1
 	stable_deref_trait@1.2.0
 	stacker@0.1.15
 	static_assertions@1.1.0
@@ -499,10 +494,12 @@ CRATES="
 	strip-ansi-escapes@0.2.0
 	strsim@0.10.0
 	strum@0.25.0
+	strum@0.26.1
 	strum_macros@0.25.3
-	supports-color@2.1.0
-	supports-hyperlinks@2.1.0
-	supports-unicode@2.1.0
+	strum_macros@0.26.1
+	supports-color@3.0.0
+	supports-hyperlinks@3.0.0
+	supports-unicode@3.0.0
 	sxd-document@0.3.2
 	sxd-xpath@0.4.2
 	syn@1.0.109
@@ -513,13 +510,12 @@ CRATES="
 	tabled@0.14.0
 	tap@1.0.1
 	target-features@0.1.5
-	tempfile@3.9.0
+	tempfile@3.10.0
 	tendril@0.4.3
 	termcolor@1.1.3
-	terminal_size@0.1.17
 	terminal_size@0.3.0
 	termtree@0.4.1
-	textwrap@0.15.2
+	textwrap@0.16.0
 	thiserror-impl@1.0.56
 	thiserror@1.0.56
 	thread_local@1.1.7
@@ -527,11 +523,9 @@ CRATES="
 	time-macros@0.2.16
 	time@0.3.31
 	tiny-keccak@2.0.2
-	tinytemplate@1.2.1
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	titlecase@2.2.1
-	tokio-macros@2.2.0
 	tokio-util@0.7.10
 	tokio@1.35.1
 	toml@0.7.8
@@ -542,7 +536,7 @@ CRATES="
 	tower-service@0.3.2
 	tracing-core@0.1.32
 	tracing@0.1.40
-	trash@3.2.1
+	trash@3.3.1
 	tree_magic_mini@3.0.3
 	try-lock@0.2.5
 	typed-arena@1.7.0
@@ -556,7 +550,8 @@ CRATES="
 	unicode-ident@1.0.12
 	unicode-linebreak@0.1.5
 	unicode-normalization@0.1.22
-	unicode-segmentation@1.10.1
+	unicode-reverse@1.0.8
+	unicode-segmentation@1.11.0
 	unicode-width@0.1.11
 	unicode-xid@0.2.4
 	unsafe-libyaml@0.2.10
@@ -597,8 +592,7 @@ CRATES="
 	wayland-protocols@0.31.2
 	wayland-scanner@0.31.1
 	wayland-sys@0.31.1
-	web-sys@0.3.67
-	which@5.0.0
+	which@6.0.0
 	wild@2.2.1
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.6
@@ -642,7 +636,6 @@ CRATES="
 	x11rb-protocol@0.12.0
 	x11rb@0.12.0
 	xattr@1.3.1
-	xmlparser@0.13.6
 	xxhash-rust@0.8.8
 	yansi@0.5.1
 	zerocopy-derive@0.7.32
