@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/m4 verify-sig? ( sec-keys/openpgp-keys-midipix ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure unpack
-DESCRIPTION=A skinny libtool implementation, written in C
+DESCRIPTION=A strong libtool implementation, written in C
 EAPI=8
 HOMEPAGE=https://git.foss21.org/slibtool
 INHERIT=toolchain-funcs verify-sig
@@ -10,4 +10,4 @@ LICENSE=MIT
 SLOT=0
 SRC_URI=https://dl.midipix.org/slibtool/slibtool-0.5.35.tar.xz verify-sig? ( https://dl.midipix.org/slibtool/slibtool-0.5.35.tar.xz.sig )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=061818864d8b1825875c13d56bd04075
+_md5_=d7a963111952d753c178e32980da046d
