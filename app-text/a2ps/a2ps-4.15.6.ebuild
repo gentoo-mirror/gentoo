@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="cjk emacs latex nls static-libs vanilla"
 
 # a2ps-lpr-wrapper needs bash
@@ -35,10 +35,6 @@ BDEPEND="
 "
 
 SITEFILE="50${PN}-gentoo.el"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-4.15-lpr-wrapper.patch
-)
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	# gnulib FPs
@@ -74,6 +70,8 @@ src_install() {
 		lispdir="${EPREFIX}${SITELISP}"/${PN} \
 		install
 
+	einstalldocs
+
 	newdoc "${ED}"/usr/share/a2ps/README README.a2ps
 	newdoc "${ED}"/usr/share/a2ps/ppd/README README.a2ps.ppd
 	newdoc "${ED}"/usr/share/ogonkify/README README.ogonkify
@@ -83,8 +81,6 @@ src_install() {
 	find "${ED}" -name '*.la' -delete || die
 
 	use emacs && elisp-site-file-install "${FILESDIR}"/${SITEFILE}
-
-	dodoc ANNOUNCE AUTHORS ChangeLog FAQ NEWS README* THANKS TODO
 }
 
 pkg_postinst() {
