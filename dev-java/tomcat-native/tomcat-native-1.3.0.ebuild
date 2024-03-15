@@ -12,11 +12,11 @@ DESCRIPTION="Allows Tomcat to use certain native resources for better performanc
 HOMEPAGE="https://tomcat.apache.org/native-doc/"
 SRC_URI="mirror://apache/tomcat/tomcat-connectors/native/${PV}/source/${P}-src.tar.gz
 	verify-sig? (
-		https://downloads.apache.org/tomcat/tomcat-connectors/native/${PV}/source/tomcat-native-${PV}-src.tar.gz.asc
+		https://downloads.apache.org/tomcat/tomcat-connectors/native/${PV}/source/${P}-src.tar.gz.asc
 	)"
 S=${WORKDIR}/${P}-src/native
 
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="static-libs"
