@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-
-inherit cmake llvm python-single-r1
+PYTHON_COMPAT=( python3_{10..12} )
+LLVM_COMPAT=( {16..18} )
+inherit cmake llvm-r1 python-single-r1
 
 DESCRIPTION="Super-parallel Python port of the C-Reduce"
 HOMEPAGE="https://github.com/marxin/cvise/"
@@ -15,19 +15,16 @@ SRC_URI="
 
 LICENSE="UoI-NCSA"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE=${PYTHON_REQUIRED_USE}
 
-LLVM_MAX_SLOT=16
 DEPEND="
-	|| (
-		sys-devel/clang:16
-		sys-devel/clang:15
-		sys-devel/clang:14
-	)
-	<sys-devel/clang-$(( LLVM_MAX_SLOT + 1 )):=
+	$(llvm_gen_dep '
+		sys-devel/clang:${LLVM_SLOT}
+		sys-devel/llvm:${LLVM_SLOT}
+	')
 "
 RDEPEND="
 	${DEPEND}
@@ -51,13 +48,9 @@ BDEPEND="
 	)
 "
 
-llvm_check_deps() {
-	has_version "sys-devel/clang:${LLVM_SLOT}"
-}
-
 pkg_setup() {
 	python-single-r1_pkg_setup
-	llvm_pkg_setup
+	llvm-r1_pkg_setup
 }
 
 src_prepare() {
