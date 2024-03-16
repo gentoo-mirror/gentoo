@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,8 +22,9 @@ SLOT="0"
 IUSE="asan clang debug doc +jit optimize static-libs ubsan"
 
 RDEPEND="dev-libs/libatomic_ops
-		>=dev-libs/libuv-1.26:=
-		dev-libs/libffi:="
+	>=dev-libs/libuv-1.26:=
+	dev-libs/libffi:=
+	dev-libs/mimalloc"
 DEPEND="${RDEPEND}
 	clang? ( >=sys-devel/clang-3.1 )
 	dev-lang/perl"
@@ -45,6 +46,7 @@ src_configure() {
 		"--has-libuv"
 		"--has-libatomic_ops"
 		"--has-libffi"
+		"--has-mimalloc"
 		"--libdir" "${libdir}"
 		"--compiler" "$(usex clang clang gcc)"
 		"$(usex asan        --asan)"
