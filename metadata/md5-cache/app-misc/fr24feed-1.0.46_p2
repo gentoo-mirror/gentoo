@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Flightradar24 data sharing software
+EAPI=8
+HOMEPAGE=https://www.flightradar24.com/share-your-data
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=Flightradar24
+RDEPEND=net-wireless/dump1090
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=amd64? ( https://repo-feed.flightradar24.com/linux_binaries/fr24feed_1.0.46-2_amd64.tgz ) x86? ( https://repo-feed.flightradar24.com/linux_binaries/fr24feed_1.0.46-2_i386.tgz )
+_md5_=b1a81538978aa9f2d2de08ecc94887c7
