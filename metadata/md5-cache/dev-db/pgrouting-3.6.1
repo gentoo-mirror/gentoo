@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://pgrouting.org/
 INHERIT=cmake postgres-multi
 IUSE=postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2 MIT Boost-1.0
 RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) >=dev-db/postgis-2.0 dev-libs/boost sci-mathematics/cgal
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/pgRouting/pgrouting/archive/v3.6.1.tar.gz -> pgrouting-3.6.1.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
-_md5_=157b5bbca69d586d81e0f52b58d9cbb4
+_md5_=054e9ae113b5932afe686c480d82d002
