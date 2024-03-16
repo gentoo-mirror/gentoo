@@ -1,15 +1,16 @@
-BDEPEND=app-text/scdoc dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
+BDEPEND=app-text/scdoc dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
 DEPEND==dev-libs/aml-0.3* dev-libs/jansson:= dev-libs/wayland =gui-libs/neatvnc-0.8* media-libs/mesa[egl(+),gles2,gbm(+)?] x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman pam? ( sys-libs/pam ) tracing? ( dev-debug/systemtap ) dev-libs/wayland-protocols
 DESCRIPTION=VNC server for wlroots based Wayland compositors
 EAPI=8
 HOMEPAGE=https://github.com/any1/wayvnc
-INHERIT=meson git-r3
+INHERIT=meson
 IUSE=gbm pam test tracing
+KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=ISC
-PROPERTIES=live
 RDEPEND==dev-libs/aml-0.3* dev-libs/jansson:= dev-libs/wayland =gui-libs/neatvnc-0.8* media-libs/mesa[egl(+),gles2,gbm(+)?] x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman pam? ( sys-libs/pam ) tracing? ( dev-debug/systemtap )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+SRC_URI=https://github.com/any1/wayvnc/archive/v0.8.0.tar.gz -> wayvnc-0.8.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
 _md5_=bc34c76bed95e9eb46b9cc7d2218b822

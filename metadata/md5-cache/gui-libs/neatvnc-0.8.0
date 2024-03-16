@@ -1,16 +1,17 @@
-BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
 DEPEND==dev-libs/aml-0.3* sys-libs/zlib x11-libs/pixman examples? ( media-libs/libpng:= ) gbm? ( media-libs/mesa ) h264? ( media-video/ffmpeg:= x11-libs/libdrm ) jpeg? ( media-libs/libjpeg-turbo:= ) ssl? ( net-libs/gnutls:= ) tracing? ( dev-debug/systemtap ) websockets? ( dev-libs/gmp:= dev-libs/nettle:=[gmp] ) x11-libs/libdrm
 DESCRIPTION=Liberally licensed VNC server library with a clean interface
 EAPI=8
 HOMEPAGE=https://github.com/any1/neatvnc/
-INHERIT=meson git-r3
+INHERIT=meson
 IUSE=examples gbm h264 jpeg ssl test tracing websockets
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=ISC
-PROPERTIES=live
 RDEPEND==dev-libs/aml-0.3* sys-libs/zlib x11-libs/pixman examples? ( media-libs/libpng:= ) gbm? ( media-libs/mesa ) h264? ( media-video/ffmpeg:= x11-libs/libdrm ) jpeg? ( media-libs/libjpeg-turbo:= ) ssl? ( net-libs/gnutls:= ) tracing? ( dev-debug/systemtap ) websockets? ( dev-libs/gmp:= dev-libs/nettle:=[gmp] )
 REQUIRED_USE=h264? ( gbm )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=25c5cf3578e1e89733aa77ccec030407
+SRC_URI=https://github.com/any1/neatvnc/archive/v0.8.0.tar.gz -> neatvnc-0.8.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
+_md5_=54b270c78d0112a8d41cd7b4b35d83c3
