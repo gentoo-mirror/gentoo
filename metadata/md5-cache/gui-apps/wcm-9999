@@ -1,6 +1,6 @@
 BDEPEND=dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
-DEPEND=dev-libs/libevdev dev-libs/libxml2 dev-libs/wayland dev-cpp/gtkmm:3.0[wayland] gui-apps/wf-shell:0/9999 gui-libs/wf-config:0/9999 gui-wm/wayfire:0/9999 x11-libs/libxkbcommon dev-libs/wayland-protocols
+DEPEND=dev-libs/libevdev dev-libs/libxml2 dev-libs/wayland dev-cpp/gtkmm:3.0[wayland] gui-apps/wf-shell >=gui-libs/wf-config-0.6.0 gui-wm/wayfire x11-libs/libxkbcommon dev-libs/wayland-protocols
 DESCRIPTION=Wayfire Config Manager
 EAPI=8
 HOMEPAGE=https://github.com/WayfireWM/wcm
@@ -8,7 +8,7 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson xdg git-r3
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/libevdev dev-libs/libxml2 dev-libs/wayland dev-cpp/gtkmm:3.0[wayland] gui-apps/wf-shell:0/9999 gui-libs/wf-config:0/9999 gui-wm/wayfire:0/9999 x11-libs/libxkbcommon
-SLOT=0/9999
+RDEPEND=dev-libs/libevdev dev-libs/libxml2 dev-libs/wayland dev-cpp/gtkmm:3.0[wayland] gui-apps/wf-shell >=gui-libs/wf-config-0.6.0 gui-wm/wayfire x11-libs/libxkbcommon
+SLOT=0/0.9
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=7646423af8a05791e29113aafd5cbc4d
+_md5_=351675684acf37c040af225275de9ef1
