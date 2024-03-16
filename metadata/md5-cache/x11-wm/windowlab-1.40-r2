@@ -1,9 +1,9 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install postinst
 DEPEND=truetype? ( x11-libs/libXft ) x11-libs/libXext x11-base/xorg-proto
-DESCRIPTION=small and simple window manager of novel design
+DESCRIPTION=Small and simple window manager of novel design
 EAPI=8
-HOMEPAGE=http://www.nickgravgaard.com/windowlab/
+HOMEPAGE=https://github.com/nick-gravgaard/windowlab
 INHERIT=toolchain-funcs
 IUSE=truetype
 KEYWORDS=amd64 ~mips ppc x86
@@ -12,4 +12,4 @@ RDEPEND=truetype? ( x11-libs/libXft ) x11-libs/libXext
 SLOT=0
 SRC_URI=http://www.nickgravgaard.com/windowlab/windowlab-1.40.tar
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=4cd40ea8e8ffa5dbacb47228fe6e8493
+_md5_=10f566634aaccf70b60f3edbee416b0b

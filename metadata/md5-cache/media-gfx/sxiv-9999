@@ -3,7 +3,7 @@ DEFINED_PHASES=compile install postinst postrm prepare unpack
 DEPEND=exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) media-libs/imlib2[X,gif?,jpeg?,png?,webp?] x11-libs/libX11 x11-libs/libXft
 DESCRIPTION=Simple (or small or suckless) X Image Viewer
 EAPI=7
-HOMEPAGE=https://github.com/muennich/sxiv/
+HOMEPAGE=https://github.com/xyb3rt/sxiv/
 INHERIT=desktop xdg-utils savedconfig toolchain-funcs git-r3
 IUSE=exif gif +jpeg +png webp savedconfig
 LICENSE=GPL-2+ public-domain
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) media-libs/imlib2[X,gif?,jpeg?,png?,webp?] x11-libs/libX11 x11-libs/libXft
 SLOT=0
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=fce12c50ca4a37fefca30121194d9f21
+_md5_=cc009afa1369f8a80f9fd708e19fce72

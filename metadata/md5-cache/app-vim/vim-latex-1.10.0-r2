@@ -1,8 +1,8 @@
 DEFINED_PHASES=compile install postinst postrm setup
 DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
-DESCRIPTION=A comprehensive set of tools to view, edit and compile LaTeX documents
+DESCRIPTION=Comprehensive set of tools to view, edit and compile LaTeX documents
 EAPI=7
-HOMEPAGE=http://vim-latex.sourceforge.net/
+HOMEPAGE=https://vim-latex.sourceforge.net/
 INHERIT=vim-plugin python-single-r1
 IUSE=python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~alpha amd64 ~ia64 ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 SLOT=0
 SRC_URI=mirror://sourceforge/vim-latex/vim-latex-1.10.0.tar.gz
 _eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	92ea4186891b666b0970fa1d713d64fa	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=98dabb6fb24eb922ca4d505c353ac94a
+_md5_=6e4596d601fff2f26d48c8367904e45f
