@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,15 +13,19 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://downloads.scummvm.org/frs/scummvm/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
-	S="${WORKDIR}/${PN}-${P}"
+	S=${WORKDIR}/${P/_/}
 fi
 
 LICENSE="GPL-2+ LGPL-2.1 BSD GPL-3-with-font-exception"
 SLOT="0"
-IUSE="a52 aac alsa debug flac fluidsynth fribidi gif +gtk jpeg lua mpeg2 mp3 +net opengl png sndio speech theora truetype unsupported vorbis zlib"
+IUSE="
+	a52 aac alsa debug flac fluidsynth fribidi gif +gtk jpeg lua mpeg2
+	mp3 +net opengl png sndio speech theora truetype unsupported vorbis
+	zlib
+"
 RESTRICT="test"  # it only looks like there's a test there #77507
 
-RDEPEND="
+DEPEND="
 	>=media-libs/libsdl2-2.0.0[sound,joystick,video]
 	a52? ( media-libs/a52dec )
 	aac? ( media-libs/faad2 )
@@ -59,14 +63,14 @@ RDEPEND="
 	)
 	zlib? ( sys-libs/zlib:= )
 "
-DEPEND="${RDEPEND}"
+RDEPEND="
+	${DEPEND}
+"
 BDEPEND="
 	app-arch/xz-utils
 	truetype? ( virtual/pkgconfig )
 	x86? ( dev-lang/nasm )
 "
-
-S="${WORKDIR}/${P/_/}"
 
 src_prepare() {
 	default
@@ -121,7 +125,7 @@ src_configure() {
 		$(use_enable x86 nasm)
 	)
 	echo "configure ${myconf[@]}"
-	# NOT AN AUTOCONF SCRIPT SO DONT CALL ECONF
+	# not an autoconf script, so don't call econf
 	SDL_CONFIG="sdl2-config" \
 	./configure "${myconf[@]}" ${EXTRA_ECONF} || die
 }
