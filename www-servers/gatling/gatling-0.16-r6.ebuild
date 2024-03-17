@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
-inherit toolchain-funcs
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="High performance web server"
 HOMEPAGE="https://www.fefe.de/gatling/"
@@ -16,6 +16,7 @@ IUSE="ssl diet"
 REQUIRED_USE="ssl? ( !diet )"
 
 DEPEND=">=dev-libs/libowfat-0.32-r2[diet=]
+	sys-libs/zlib
 	virtual/libcrypt:=
 	diet? ( dev-libs/dietlibc )
 	ssl? (
@@ -38,6 +39,12 @@ src_prepare() {
 }
 
 src_compile() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/864133
+	#
+	# Last released in 2016, sources are in cvs so I cannot check for activity.
+	filter-lto
+
 	local DIET=
 	use diet && DIET='/usr/bin/diet'
 
