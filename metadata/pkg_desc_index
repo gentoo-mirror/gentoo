@@ -5828,7 +5828,7 @@ dev-libs/voikko-fi 2.5-r1: Finnish dictionary for libvoikko based spell checkers
 dev-libs/volume_key 0.3.12-r4: Library for manipulating and storing storage volume encryption keys
 dev-libs/wayland 1.22.0 9999: Wayland protocol libraries
 dev-libs/wayland-protocols 1.32 1.33 9999: Wayland protocol files
-dev-libs/weston 11.0.1 12.0.91 13.0.0 9999: Wayland reference compositor
+dev-libs/weston 11.0.1-r1 11.0.1-r10 12.0.91-r1 13.0.0-r1 9999: Wayland reference compositor
 dev-libs/xalan-c 1.12-r2 9999: XSLT processor for transforming XML into HTML, text, or other XML types
 dev-libs/xapian 1.4.22 1.4.23 1.4.24 1.4.25: Xapian Probabilistic Information Retrieval library
 dev-libs/xapian-bindings 1.4.22 1.4.23 1.4.24 1.4.25: SWIG and JNI bindings for Xapian
@@ -8128,7 +8128,7 @@ dev-python/aiohttp-socks 0.8.4: SOCKS proxy connector for aiohttp
 dev-python/aioitertools 0.11.0: itertools and builtins for AsyncIO and mixed iterables
 dev-python/aiopylgtv 0.4.1: Python library to control webOS-based LG TV devices
 dev-python/aioresponses 0.7.6: Helper to mock/fake web requests in Python's aiohttp package
-dev-python/aiorpcX 0.22.1-r1: Generic async RPC implementation, including JSON-RPC
+dev-python/aiorpcx 0.22.1-r1: Generic async RPC implementation, including JSON-RPC
 dev-python/aiosignal 1.3.1: A list of registered asynchronous callbacks
 dev-python/aiosmtpd 1.4.5: Reimplementation of the Python stdlib smtpd.py based on asyncio
 dev-python/aiosqlite 0.20.0: asyncio bridge to the standard sqlite3 module
@@ -9596,7 +9596,7 @@ dev-python/translate-toolkit 3.12.2: Toolkit to convert between many translation
 dev-python/tree-sitter 0.20.1-r1 0.20.4: Python bindings to the Tree-sitter parsing library
 dev-python/treq 23.11.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.1.5 4.1.8 4.2.0: Python library for loading and using triangular meshes
-dev-python/trio 0.24.0: Python library for async concurrency and I/O
+dev-python/trio 0.24.0 0.25.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.11.1: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2024.3.3: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 1.1.0: #1 quality TLS certs while you wait, for the discerning tester
@@ -12262,7 +12262,7 @@ kde-apps/kpat 23.08.5 24.02.0: KDE patience game
 kde-apps/kpimtextedit 23.08.5 24.02.0: Extended text editor for PIM applications
 kde-apps/kpkpass 23.08.5 24.02.0: Library to deal with Apple Wallet pass files
 kde-apps/kqtquickcharts 23.08.5 24.02.0: Qt Quick plugin for beautiful and interactive charts
-kde-apps/krdc 23.08.5 24.02.0: Remote desktop connection (RDP and VNC) client
+kde-apps/krdc 23.08.5 24.02.0-r1: Remote desktop connection (RDP and VNC) client
 kde-apps/kreversi 23.08.5 24.02.0: Board game by KDE
 kde-apps/krfb 23.08.5 24.02.0: VNC-compatible server to share Plasma desktops
 kde-apps/kruler 23.08.5 24.02.0: Screen ruler for Plasma
@@ -14317,7 +14317,7 @@ media-video/vidcutter 6.0.5.1_p20230201 9999: FFmpeg-based simple video cutter &
 media-video/videotrans 1.6.1-r2: A package to convert movies to DVD format and to build DVDs with
 media-video/vidify 2.2.6-r3: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0-r2: Audio synchronization feature for vidify
-media-video/vlc 3.0.18-r3 3.0.20 3.0.20-r3 3.0.20-r4 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
+media-video/vlc 3.0.20-r5 3.0.20-r10 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
 media-video/vobcopy 1.2.0 1.2.1: Copies DVD .vob files to harddisk, decrypting them on the way
 media-video/vstrip 0.8f: A program to split non-css dvd vobs into individual chapters
 media-video/webcamoid 9.0.0-r1 9.1.1 9999: Full featured webcam capture application
@@ -14396,7 +14396,7 @@ net-analyzer/hexinject 1.6-r2: Network packet sniffer and injector
 net-analyzer/hping 3_pre20141226: A ping-like TCP/IP packet assembler/analyzer
 net-analyzer/httping 2.5 2.9-r1: http protocol ping-like program
 net-analyzer/hunt 1.5_p6_p1: Tool for checking well known weaknesses in the TCP/IP protocol
-net-analyzer/hydra 9.4 9.5: Parallelized network login hacker
+net-analyzer/hydra 9.5-r1 9.5-r10: Parallelized network login hacker
 net-analyzer/ibmonitor 1.4-r1: Interactive bandwidth monitor
 net-analyzer/icinga2 2.13.9 2.14.1 2.14.2 9999: Distributed, general purpose, network monitoring engine
 net-analyzer/ifmetric 0.3-r3: Set metrics of all IPv4 routes attached to a given network interface at once
@@ -15184,15 +15184,15 @@ net-misc/exabgp 4.2.21: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/fatrat 1.2.0_beta2_p20161204: Qt5-based download/upload manager
 net-misc/felix 3.1.3: Calico's per-host agent, responsible for programming routes and security policy
-net-misc/freerdp 2.11.5-r1 2.9999 3.2.0-r2 3.4.0-r2 9999: Free implementation of the Remote Desktop Protocol
+net-misc/freerdp 2.11.5-r1 2.11.5-r10 2.9999 3.2.0-r2 3.4.0-r10 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 9.0 9.0.1 9.0.2: The FRRouting Protocol Suite
 net-misc/gallery-dl 1.26.7 1.26.8 9999: Download image galleries and collections from several image hosting sites
 net-misc/geoipupdate 4.9.0 6.0.0 6.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geomyidae 0.34-r1 0.69: A daemon to serve the gopher protocol
 net-misc/gerbera 1.12.1-r1 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
-net-misc/gnome-connections 44.1 45.0: A remote desktop client for the GNOME desktop environment
-net-misc/gnome-remote-desktop 45.1: Remote desktop daemon for GNOME using pipewire
+net-misc/gnome-connections 44.1 45.0-r1: A remote desktop client for the GNOME desktop environment
+net-misc/gnome-remote-desktop 45.1-r1: Remote desktop daemon for GNOME using pipewire
 net-misc/gns3-gui 2.2.44.1 2.2.45: Graphical Network Simulator
 net-misc/gns3-server 2.2.44.1 2.2.45: GNS3 server to asynchronously manage emulators
 net-misc/gofish 1.2-r2: Gofish gopher server
@@ -15338,7 +15338,7 @@ net-misc/rclone 1.62.2-r1 1.63.0 1.63.1: A program to sync files to and from var
 net-misc/rdate 1.10 1.10.2 1.11: Use TCP or UDP to retrieve the current time of another machine
 net-misc/rdesktop 1.9.0-r4: A Remote Desktop Protocol Client
 net-misc/redir 3.2 3.3: Redir is a port redirector
-net-misc/remmina 1.4.31-r1 1.4.35: A GTK+ RDP, SPICE, VNC and SSH client
+net-misc/remmina 1.4.31-r2 1.4.35-r1: A GTK+ RDP, SPICE, VNC and SSH client
 net-misc/rinetd 0.73: redirects TCP connections from one IP address and port to another
 net-misc/rsync 3.2.7-r3 3.2.7-r4 9999: File transfer program to keep remote files into sync
 net-misc/rsync-bpc 3.1.3.0: Rsync-bpc is a customized version of rsync that is used as part of BackupPC

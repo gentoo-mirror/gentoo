@@ -1,6 +1,6 @@
 BDEPEND=dev-libs/glib dev-util/gdbus-codegen dev-util/glib-utils virtual/pkgconfig doc? ( app-text/asciidoc ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst test
-DEPEND=x11-libs/cairo x11-libs/libdrm >=media-libs/libepoxy-1.4 >=dev-libs/glib-2.68:2 >=dev-libs/libei-1.0.901 x11-libs/libnotify app-crypt/libsecret >=media-video/pipewire-0.3.49:= app-crypt/tpm2-tss:= rdp? ( >=media-libs/nv-codec-headers-11.1.5.0 >=net-misc/freerdp-2.10.0:=[server] <net-misc/freerdp-3 >=sys-fs/fuse-3.9.1:3 >=x11-libs/libxkbcommon-1.0.0 aac? ( media-libs/fdk-aac:= ) ) vnc? ( net-libs/libvncserver )
+DEPEND=x11-libs/cairo x11-libs/libdrm >=media-libs/libepoxy-1.4 >=dev-libs/glib-2.68:2 >=dev-libs/libei-1.0.901 x11-libs/libnotify app-crypt/libsecret >=media-video/pipewire-0.3.49:= app-crypt/tpm2-tss:= rdp? ( >=media-libs/nv-codec-headers-11.1.5.0 >=net-misc/freerdp-2.10.0:2=[server] >=sys-fs/fuse-3.9.1:3 >=x11-libs/libxkbcommon-1.0.0 aac? ( media-libs/fdk-aac:= ) ) vnc? ( net-libs/libvncserver )
 DESCRIPTION=Remote desktop daemon for GNOME using pipewire
 EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/gnome-remote-desktop
@@ -9,10 +9,10 @@ INHERIT=gnome.org gnome2-utils meson systemd xdg
 IUSE=aac doc +rdp systemd +vnc
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2+
-RDEPEND=x11-libs/cairo x11-libs/libdrm >=media-libs/libepoxy-1.4 >=dev-libs/glib-2.68:2 >=dev-libs/libei-1.0.901 x11-libs/libnotify app-crypt/libsecret >=media-video/pipewire-0.3.49:= app-crypt/tpm2-tss:= rdp? ( >=media-libs/nv-codec-headers-11.1.5.0 >=net-misc/freerdp-2.10.0:=[server] <net-misc/freerdp-3 >=sys-fs/fuse-3.9.1:3 >=x11-libs/libxkbcommon-1.0.0 aac? ( media-libs/fdk-aac:= ) ) vnc? ( net-libs/libvncserver ) x11-wm/mutter[screencast]
+RDEPEND=x11-libs/cairo x11-libs/libdrm >=media-libs/libepoxy-1.4 >=dev-libs/glib-2.68:2 >=dev-libs/libei-1.0.901 x11-libs/libnotify app-crypt/libsecret >=media-video/pipewire-0.3.49:= app-crypt/tpm2-tss:= rdp? ( >=media-libs/nv-codec-headers-11.1.5.0 >=net-misc/freerdp-2.10.0:2=[server] >=sys-fs/fuse-3.9.1:3 >=x11-libs/libxkbcommon-1.0.0 aac? ( media-libs/fdk-aac:= ) ) vnc? ( net-libs/libvncserver ) x11-wm/mutter[screencast]
 REQUIRED_USE=|| ( rdp vnc ) aac? ( rdp )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-remote-desktop/45/gnome-remote-desktop-45.1.tar.xz
 _eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	systemd	c8b03e8df84486aa991d4396686e8942	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=9a5bf655889229fb3c4dc334ca0852d2
+_md5_=69bfeb691a8829a00c42a997ddee34d1
