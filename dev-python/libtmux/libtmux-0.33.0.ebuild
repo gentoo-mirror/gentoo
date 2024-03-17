@@ -28,8 +28,8 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 	)
 "
 
@@ -42,21 +42,14 @@ python_prepare_all() {
 	# increase timeouts for tests
 	sed -e 's/0.01/0.1/' -i tests/test_test.py || die
 
-	sed -r -e '/addopts/s:--doctest-docutils-modules::' \
-		-e '/^[[:space:]]+"README\.md"/d' \
-		-i pyproject.toml || die
-
 	distutils-r1_python_prepare_all
 }
 
 python_test() {
-	local -a EPYTEST_DESELECT=(
-		libtmux/pane.py::libtmux.pane.Pane.send_keys
-	)
 	# tests/test_window.py::test_fresh_window_data fails if TMUX_PANE is set
 	# https://bugs.gentoo.org/927158
 	local -x TMUX_PANE=
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local -x PYTEST_PLUGINS=libtmux.pytest_plugin
-	epytest -p pytest_mock -p rerunfailures
+	epytest -o addopts= -p pytest_mock -p rerunfailures tests
 }
