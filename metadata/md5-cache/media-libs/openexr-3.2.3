@@ -1,6 +1,6 @@
-BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=virtual/pkgconfig doc? ( sys-apps/help2man ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/libdeflate >=dev-libs/imath-3.1.6:= doc? ( sys-apps/help2man dev-python/sphinx-press-theme )
+DEPEND=app-arch/libdeflate[zlib] >=dev-libs/imath-3.1.6:=
 DESCRIPTION=ILM's OpenEXR high dynamic-range image file format libraries
 EAPI=8
 HOMEPAGE=https://openexr.com/
@@ -8,9 +8,10 @@ INHERIT=cmake flag-o-matic
 IUSE=cpu_flags_x86_avx doc examples large-stack utils test threads
 KEYWORDS=~amd64 ~arm ~arm64 ~loong -ppc ~ppc64 ~riscv -sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=BSD
-RDEPEND=app-arch/libdeflate >=dev-libs/imath-3.1.6:= doc? ( sys-apps/help2man dev-python/sphinx-press-theme )
+RDEPEND=app-arch/libdeflate[zlib] >=dev-libs/imath-3.1.6:=
+REQUIRED_USE=doc? ( utils )
 RESTRICT=!test? ( test )
 SLOT=0/31
-SRC_URI=https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.2.tar.gz -> openexr-3.2.2.tar.gz test? ( utils? ( https://github.com/AcademySoftwareFoundation/openexr-images/archive/refs/tags/v1.0.tar.gz -> openexr-images-1.0.tar.gz ) )
+SRC_URI=https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.3.tar.gz -> openexr-3.2.3.tar.gz test? ( utils? ( https://github.com/AcademySoftwareFoundation/openexr-images/archive/refs/tags/v1.0.tar.gz -> openexr-images-1.0.tar.gz ) )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=16b649db88312419843f6ef1321f55fd
+_md5_=08cc5b94d445c782f36f5d7ec0f6d08a
