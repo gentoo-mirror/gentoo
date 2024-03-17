@@ -1,0 +1,15 @@
+BDEPEND=dev-qt/linguist-tools:5 virtual/fortran
+DEFINED_PHASES=configure setup test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 net-dialup/lrzsz virtual/szip hdf5? ( sci-libs/hdf5 ) virtual/fortran
+DESCRIPTION=A mesh and field I/O library and scientific database
+EAPI=8
+HOMEPAGE=https://software.llnl.gov/Silo/
+INHERIT=flag-o-matic fortran-2 qmake-utils
+IUSE=browser +hdf5 +silex
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 net-dialup/lrzsz virtual/szip hdf5? ( sci-libs/hdf5 ) virtual/fortran
+SLOT=0
+SRC_URI=https://github.com/LLNL/Silo/releases/download/4.11.1/silo-4.11.1-bsd.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=451c0f0359ba6c5128fc685d0cdfc08a
