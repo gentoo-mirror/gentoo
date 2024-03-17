@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,37 +12,38 @@ S="${WORKDIR}"/thc-${P}
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="debug firebird gcrypt gtk idn memcached mongodb mysql ncurses oracle pcre postgres rdp libssh samba subversion zlib"
 
 RDEPEND="
 	dev-libs/openssl:=
 	gtk? (
-		dev-libs/atk
+		>=app-accessibility/at-spi2-core-2.46.0
 		dev-libs/glib:2
 		x11-libs/gdk-pixbuf:2
 		x11-libs/gtk+:2
 	)
 	firebird? ( dev-db/firebird )
 	gcrypt? ( dev-libs/libgcrypt )
-	idn? ( net-dns/libidn:0= )
+	idn? ( net-dns/libidn:= )
 	memcached? ( dev-libs/libmemcached[sasl] )
 	mongodb? ( dev-libs/mongo-c-driver )
-	mysql? ( dev-db/mysql-connector-c:0= )
+	mysql? ( dev-db/mysql-connector-c:= )
 	ncurses? ( sys-libs/ncurses:= )
 	oracle? ( dev-db/oracle-instantclient[sdk] )
 	pcre? ( dev-libs/libpcre2 )
 	postgres? ( dev-db/postgresql:* )
-	rdp? ( net-misc/freerdp )
+	rdp? ( net-misc/freerdp:2= )
 	libssh? ( >=net-libs/libssh-0.4.0 )
 	samba? ( net-fs/samba )
 	subversion? ( dev-vcs/subversion )
-	zlib? ( sys-libs/zlib )"
+	zlib? ( sys-libs/zlib )
+"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9.4-implicit-func-decl.patch
+	"${FILESDIR}"/${PN}-9.5-no-clobber-fortify-source.patch
 )
 
 src_prepare() {

@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	gstreamer? (
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
-		X? ( x11-libs/libXrandr )
+		x11-libs/libXrandr
 	)
 	icu? ( dev-libs/icu:0= )
 	jpeg? ( media-libs/libjpeg-turbo:0= )
@@ -100,6 +100,11 @@ RDEPEND="${COMMON_DEPEND}
 	server? ( !net-misc/freerdp:3[server] )
 	tools? ( !net-misc/freerdp:3[tools] )
 "
+
+PATCHES=(
+	"${FILESDIR}/freerdp-2.11.2-clang.patch"
+	"${FILESDIR}/freerdp-2.11-Revert-codec-encode-messages-considering-endianness.patch"
+)
 
 option() {
 	usex "$1" ON OFF
