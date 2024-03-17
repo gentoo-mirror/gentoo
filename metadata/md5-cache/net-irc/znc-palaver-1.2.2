@@ -4,13 +4,13 @@ DESCRIPTION=A ZNC module which provides push notifications to Palaver
 EAPI=8
 HOMEPAGE=https://github.com/cocodelabs/znc-palaver
 INHERIT=python-single-r1 toolchain-funcs
-IUSE=test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=amd64 x86
 LICENSE=MIT
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) net-irc/znc:=[ssl]
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
-RESTRICT=!test? ( test )
+RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/cocodelabs/znc-palaver/archive/1.2.2.tar.gz -> znc-palaver-1.2.2.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=8ef635b432fc90c2a18df78697b14145
+_md5_=2f70bea884ae5f937e14df127f1d6524
