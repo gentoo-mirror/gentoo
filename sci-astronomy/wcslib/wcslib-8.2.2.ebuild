@@ -13,7 +13,7 @@ SRC_URI="ftp://ftp.atnf.csiro.au/pub/software/${PN}/${P}.tar.bz2"
 
 SLOT="0/7"
 LICENSE="LGPL-3"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc fortran fits pgplot static-libs +tools"
 
 RDEPEND="
@@ -74,4 +74,6 @@ src_install () {
 			"${ED}"/usr/share/doc/${PF}/html \
 			"${ED}"/usr/share/doc/${PF}/*.pdf || die
 	fi
+	# always creates this symlink
+	rm "${ED}"/usr/share/doc/${PN} || die
 }
