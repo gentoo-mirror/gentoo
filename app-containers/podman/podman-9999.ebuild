@@ -116,6 +116,9 @@ src_install() {
 	newinitd "${FILESDIR}"/podman-restart-5.0.0_rc4.initd podman-restart
 	newconfd "${FILESDIR}"/podman-restart-5.0.0_rc4.confd podman-restart
 
+	newinitd "${FILESDIR}"/podman-clean-transient-5.0.0_rc6.initd podman-clean-transient
+	newconfd "${FILESDIR}"/podman-clean-transient-5.0.0_rc6.confd podman-clean-transient
+
 	use cron && \
 		{ exeinto /etc/cron.daily && newexe "${FILESDIR}"/podman-auto-update-5.0.0_rc4.cron podman-auto-update; }
 
