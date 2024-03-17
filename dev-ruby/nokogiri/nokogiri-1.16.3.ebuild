@@ -20,15 +20,15 @@ SRC_URI="https://github.com/sparklemotion/nokogiri/archive/v${PV}.tar.gz -> ${P}
 
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos"
 SLOT="0"
-IUSE=""
+IUSE="test"
 
 RDEPEND="${RDEPEND}
-	>=dev-libs/libxml2-2.12.3
+	>=dev-libs/libxml2-2.12.6
 	>=dev-libs/libxslt-1.1.39
 	sys-libs/zlib
 	virtual/libiconv"
 DEPEND="${DEPEND}
-	>=dev-libs/libxml2-2.12.3
+	>=dev-libs/libxml2-2.12.6
 	>=dev-libs/libxslt-1.1.39
 	>=sys-libs/zlib-1.2.13
 	virtual/libiconv"
