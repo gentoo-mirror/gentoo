@@ -4,7 +4,7 @@ DEPEND=dev-libs/boehm-gc[threads] dev-libs/libpcre2:= dev-libs/libunistring:= de
 DESCRIPTION=Practical Scheme Compiler with many extensions
 EAPI=8
 HOMEPAGE=http://www-sop.inria.fr/indes/fp/Bigloo/index.html
-INHERIT=elisp-common toolchain-funcs
+INHERIT=elisp-common flag-o-matic toolchain-funcs
 IUSE=alsa avahi emacs flac +gmp gpg gstreamer java libuv mp3 pulseaudio +sqlite
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/boehm-gc[threads] dev-libs/libpcre2:= dev-libs/libunistring:= d
 REQUIRED_USE=flac? ( alsa ) mp3? ( alsa )
 SLOT=0
 SRC_URI=ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-4.tar.gz
-_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=e9d04e5849804157d5cf2bba8ca2d093
+_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=ba04030f046414431a73ecd163840067
