@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit linux-info systemd tmpfiles toolchain-funcs udev
+inherit flag-o-matic linux-info systemd tmpfiles toolchain-funcs udev
 
 DESCRIPTION="Device mapper target autoconfig"
 HOMEPAGE="http://christophe.varoqui.free.fr/"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/opensvc/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="systemd test"
 RESTRICT="!test? ( test )"
 
@@ -33,7 +33,8 @@ BDEPEND="virtual/pkgconfig"
 CONFIG_CHECK="~DM_MULTIPATH"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.9.4-remove-Werror.patch
+	"${FILESDIR}"/${PN}-0.9.7-remove-Werror.patch
+	"${FILESDIR}"/${P}-null-pointer-dereference-in-uev_update_path.patch
 )
 
 myemake() {
@@ -65,6 +66,10 @@ src_prepare() {
 
 src_compile() {
 	tc-export CC
+	# Breaks with always_inline
+	filter-flags -fno-semantic-interposition
+	# Breaks because of use of wrapping (-Wl,-wrap, wrap_*)
+	filter-lto
 	myemake
 }
 
