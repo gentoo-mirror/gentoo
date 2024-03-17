@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/Alexays/Waybar
 INHERIT=meson
 IUSE=evdev experimental jack +libinput +logind mpd mpris network +popups pipewire pulseaudio sndio systemd test tray +udev upower wifi
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=MIT
 RDEPEND=dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 dev-libs/jsoncpp:= dev-libs/libinput:= dev-libs/libsigc++:2 >=dev-libs/libfmt-8.1.1:= >=dev-libs/spdlog-1.10.0:= dev-libs/date:= dev-libs/wayland gui-libs/wlroots:= x11-libs/gtk+:3[wayland] x11-libs/libxkbcommon evdev? ( dev-libs/libevdev:= ) jack? ( virtual/jack ) libinput? ( dev-libs/libinput:= ) logind? ( || ( sys-apps/systemd sys-auth/elogind ) ) mpd? ( media-libs/libmpdclient ) mpris? ( >=media-sound/playerctl-2 ) network? ( dev-libs/libnl:3 ) popups? ( gui-libs/gtk-layer-shell ) pipewire? ( media-video/wireplumber:0/0.4 ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) systemd? ( sys-apps/systemd:= ) tray? ( dev-libs/libdbusmenu[gtk3] dev-libs/libayatana-appindicator ) udev? ( virtual/libudev:= ) upower? ( sys-power/upower ) wifi? ( sys-apps/util-linux )
 REQUIRED_USE=mpris? ( logind ) upower? ( logind )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Alexays/Waybar/archive/0.9.24.tar.gz -> waybar-0.9.24.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
-_md5_=99c1640092207bda6419421f59c856f7
+_md5_=0729fd3b1d8a8bc00c0561ca64907f0f
