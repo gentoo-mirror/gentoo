@@ -8359,6 +8359,7 @@ sys-kernel/gentoo-kernel-bin:generic-uki - Install a prebuilt generic initramfs 
 sys-kernel/gentoo-kernel-bin:initramfs - Build initramfs along with the kernel.
 sys-kernel/gentoo-sources:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
 sys-kernel/installkernel:dracut - Generate an initrd or UKI on each kernel installation
+sys-kernel/installkernel:efistub - EXPERIMENTAL: Update UEFI configuration on each kernel installation
 sys-kernel/installkernel:grub - Re-generate grub.cfg on each kernel installation, used grub.cfg is overridable with GRUB_CFG env var
 sys-kernel/installkernel:refind - Install a Gentoo icon for rEFInd alongside the (unified) kernel image, used icon is overridable with REFIND_ICON env var
 sys-kernel/installkernel:systemd - Use systemd's kernel-install to install kernels, overridable with SYSTEMD_KERNEL_INSTALL env var
