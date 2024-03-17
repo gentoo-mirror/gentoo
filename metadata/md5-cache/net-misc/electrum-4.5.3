@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://electrum.org/ https://github.com/spesmilo/electrum/
 INHERIT=distutils-r1 xdg-utils
 IUSE=cli ncurses qrcode +qt5 test python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=MIT
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[ncurses?] ) python_targets_python3_11? ( dev-lang/python:3.11[ncurses?] ) <dev-libs/libsecp256k1-0.4 >=dev-python/aiohttp-socks-0.8.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?] =dev-python/aiorpcx-0.22*[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/attrs-20.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/bitstring[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/cryptography[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/dnspython-2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/jsonpatch[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pbkdf2[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pyperclip[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/PySocks[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/qrcode[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/requests[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/six[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/protobuf-python-3.20[python_targets_python3_10(-)?,python_targets_python3_11(-)?] qrcode? ( media-gfx/zbar[v4l] ) qt5? ( dev-python/PyQt5[gui,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ncurses? ( python_targets_python3_10? ( dev-lang/python:3.10[ncurses] ) python_targets_python3_11? ( dev-lang/python:3.11[ncurses] ) ) python_targets_python3_10? ( dev-lang/python:3.10[ncurses?] ) python_targets_python3_11? ( dev-lang/python:3.11[ncurses?] )
 REQUIRED_USE=|| ( cli ncurses qt5 ) || ( python_targets_python3_10 python_targets_python3_11 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/spesmilo/electrum/archive/4.5.3.tar.gz -> electrum-4.5.3.gh.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=92d3327d3ed48dab527def5a1e4d8827
+_md5_=f72fb9288d00311df4c6bf20bd66ee74
