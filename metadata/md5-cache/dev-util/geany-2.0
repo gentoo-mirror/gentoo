@@ -5,12 +5,12 @@ DESCRIPTION=GTK+ based fast and lightweight IDE
 EAPI=8
 HOMEPAGE=https://www.geany.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=strip-linguas xdg
+INHERIT=optfeature strip-linguas xdg
 IUSE=+vte
 KEYWORDS=~alpha amd64 arm ~ia64 ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+ HPND
 RDEPEND=>=dev-libs/glib-2.32:2 >=x11-libs/gtk+-3.24:3 vte? ( x11-libs/vte:2.91 )
 SLOT=0
 SRC_URI=https://download.geany.org/geany-2.0.tar.bz2
-_eclasses_=strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=0559cb270baada8e5e5fc733b216822b
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=d64e40d8c2a2454cbe096c59f729c712
