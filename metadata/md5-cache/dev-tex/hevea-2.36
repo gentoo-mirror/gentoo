@@ -1,0 +1,13 @@
+BDEPEND=dev-ml/ocamlbuild
+DEFINED_PHASES=compile install postinst postrm
+DEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt=]
+DESCRIPTION=HeVeA is a quite complete and fast LaTeX to HTML translator
+EAPI=8
+HOMEPAGE=https://hevea.inria.fr/
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=QPL-1.0
+RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt=] app-text/ghostscript-gpl dev-texlive/texlive-latexextra
+SLOT=0
+SRC_URI=https://hevea.inria.fr/distri/hevea-2.36.tar.gz
+_md5_=26e4aa50362871d9993e2f3dc913c1cc
