@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature virtualx xdg
 
 # Commit of documentation to fetch
-DOCS_PV="678f4e94542e25c8c0bfc1cb6abca94126f24fa6"
+DOCS_PV="390681bc6557a051579337723c11b835d3855222"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -46,17 +46,17 @@ RDEPEND="
 	<dev-python/python-lsp-black-3[${PYTHON_USEDEP}]
 	>=dev-python/pyls-spyder-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-22.1.0[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-24.0.0[${PYTHON_USEDEP}]
 	>=dev-python/qdarkstyle-3.2[${PYTHON_USEDEP}]
 	<dev-python/qdarkstyle-3.3[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.2.2[${PYTHON_USEDEP}]
 	>=dev-python/qtawesome-1.2.1[${PYTHON_USEDEP}]
 	>=dev-python/qtconsole-5.5.1[${PYTHON_USEDEP}]
 	<dev-python/qtconsole-5.6.0[${PYTHON_USEDEP}]
-	>=dev-python/QtPy-2.1.0[${PYTHON_USEDEP},svg,webengine]
+	>=dev-python/QtPy-2.1.0[${PYTHON_USEDEP},pyqt5,svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.5.1[${PYTHON_USEDEP}]
 	<dev-python/spyder-kernels-2.6.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
@@ -136,6 +136,7 @@ python_prepare_all() {
 		-e "/'parso[ 0-9<=>.,]*',/d" \
 		-e "/'jedi[ 0-9<=>.,]*',/d" \
 		-e "/'pylint[ 0-9<=>.,]*',/d" \
+		-e "/'qtawesome[ 0-9<=>.,]*',/d" \
 			setup.py || die
 		# -e "/'ipython[ 0-9<=>.,]*',/d" \
 
@@ -145,6 +146,7 @@ python_prepare_all() {
 		-e "/^PARSO_REQVER/c\PARSO_REQVER = '>=0.0.1'" \
 		-e "/^JEDI_REQVER/c\JEDI_REQVER = '>=0.0.1'" \
 		-e "/^PYLINT_REQVER/c\PYLINT_REQVER = '>=0.0.1'" \
+		-e "/^QTAWESOME_REQVER/c\QTAWESOME_REQVER = '>=0.0.1'" \
 			spyder/dependencies.py || die
 		# -e "/^IPYTHON_REQVER/c\IPYTHON_REQVER = '>=0.0.1'" \
 
