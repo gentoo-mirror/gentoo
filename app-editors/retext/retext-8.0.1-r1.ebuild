@@ -40,6 +40,10 @@ BDEPEND="
 	test? ( dev-python/PyQt6[testlib,${PYTHON_USEDEP}] )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-set-desktop-entry.patch
+)
+
 distutils_enable_tests unittest
 
 pkg_setup() {
@@ -61,7 +65,7 @@ src_install() {
 	newicon data/retext-kde5.png retext.png
 
 	# Fixme: The application actually provides a desktop file which theoretically
-	# could be used, so far though I could not make it install properly.
+	# could be used. So far though I could not make it install properly.
 	make_desktop_entry ${PN} "ReText" ${PN} "Office;WordProcessor"
 }
 
