@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
@@ -9,15 +9,16 @@ MY_P="wiimms-iso-tools.source-${PV}"
 
 DESCRIPTION="command line tools to manipulate Wii/GameCube ISO images and WBFS containers"
 HOMEPAGE="https://wit.wiimm.de/"
-SRC_URI="https://download.wiimm.de/source/wiimms-iso-tools/${MY_P}.tar.bz2"
+SRC_URI="https://download.wiimm.de/source/wiimms-iso-tools/${MY_P}.txz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+fuse +zlib"
 
 RDEPEND="
 	app-arch/bzip2:0=
+	dev-libs/openssl:=
 	fuse? ( sys-fs/fuse:0= )
 	zlib? ( sys-libs/zlib:0= )"
 DEPEND="${RDEPEND}"
@@ -28,7 +29,6 @@ S="${WORKDIR}/${MY_P}"
 PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
 	"${FILESDIR}"/${P}-no-exec-stack.patch
-	"${FILESDIR}"/${P}-fno-common.patch
 )
 
 src_configure() {
