@@ -4412,6 +4412,7 @@ media-libs/oneVPL-cpu:openh264 - Use media-libs/openh264 instead of media-libs/x
 media-libs/openal:pipewire - Enable support for the media-video/pipewire audio backend
 media-libs/openal:sndio - Enable support for the media-sound/sndio backend
 media-libs/opencolorio:apps - Build the OCIO command line apps
+media-libs/opencv:atlas - Use sci-libs/atlas for blas, lapack and sparse blas routines
 media-libs/opencv:contrib - Install user contributed scripts from opencv_contrib (Experimental!)
 media-libs/opencv:contribcvv - Enable CVV in contrib (requires Qt5)
 media-libs/opencv:contribdnn - Enable DNN module contrib (requires tinydnn)
@@ -4429,8 +4430,11 @@ media-libs/opencv:gdal - Enable support for sci-libs/gdal library
 media-libs/opencv:gflags - Use Google's C++ argument parsing library (dev-cpp/gflags)
 media-libs/opencv:glog - Use Google's C++ logging library (dev-cpp/glog)
 media-libs/opencv:gtk3 - Enable x11-libs/gtk+:3 support
+media-libs/opencv:jasper - Use media-libs/jasper for jpeg2k support
+media-libs/opencv:mkl - Use sci-libs/mkl for blas, lapack and sparse blas routines
 media-libs/opencv:non-free - Enable non-free components
 media-libs/opencv:opencvapps - Enable compilation with opencvapps
+media-libs/opencv:quirc - Enable qrcode decoding via media-libs/quirc
 media-libs/opencv:tbb - Enable multithreading with the Intel Threads Building Block (dev-cpp/tbb)
 media-libs/opencv:tesseract - Use Google's OCR Engine
 media-libs/opencv:testprograms - Build and install programs for testing OpenCV (performance)
@@ -4441,6 +4445,7 @@ media-libs/openexr:utils - Build several binary tools for verifying and manipula
 media-libs/openh264:plugin - Install the Gecko Media Plugin (GMP) for use with Mozilla packages
 media-libs/openh264:utils - Install the CLI encoder and decoder utilities
 media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
+media-libs/openimageio:fits - Enable support for NASA's sci-libs/cfitsio library
 media-libs/openimageio:gui - Build iv (with Qt5)
 media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
 media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
@@ -4467,6 +4472,10 @@ media-libs/phonon-gstreamer:network - Enable network streaming support via libso
 media-libs/portmidi:test-programs - Install various example programs
 media-libs/quarter:designer - Install plugin for dev-qt/designer
 media-libs/quarter:qthelp - Build API documentation in QtHelp format
+media-libs/quirc:opencv - Build tools requiring media-libs/opencv (inspect-opencv,quirc-demo-opencv)
+media-libs/quirc:sdl - Build tools requiring media-libs/sdl-gfx (inspect, quirc-demo)
+media-libs/quirc:tools - Build tools (qrtest)
+media-libs/quirc:v4l - Build tools for webcams (quirc-scanner)
 media-libs/raptor:json - Enable support for JSON parsing
 media-libs/raspberrypi-userland-bin:hardfp - Use armv6 hardfp ABI
 media-libs/roc-toolkit:tools - Install helper tools like roc-conv, roc-recv, roc-send
