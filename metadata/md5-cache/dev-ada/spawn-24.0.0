@@ -1,0 +1,16 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?]
+DEFINED_PHASES=compile install setup test
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) glib? ( dev-ada/gtkada[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?,static-pic(-)?] dev-libs/glib )
+DESCRIPTION=Simple API to spawn processes
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/spawn
+INHERIT=ada multiprocessing
+IUSE=glib +shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3 gcc-runtime-library-exception-3.1
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) glib? ( dev-ada/gtkada[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?,static-pic(-)?] dev-libs/glib )
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
+SLOT=0/24.0.0
+SRC_URI=https://github.com/AdaCore/spawn/archive/refs/tags/v24.0.0.tar.gz -> spawn-24.0.0.tar.gz
+_eclasses_=ada	f59e3151d12cf89115ffac32a03e7d31	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
+_md5_=42b07ef73a3420dad9e1df2cd3264106
