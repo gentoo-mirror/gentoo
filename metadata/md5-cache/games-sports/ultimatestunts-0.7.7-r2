@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext
+DEFINED_PHASES=compile configure install prepare
+DEPEND=media-libs/freealut media-libs/libsdl[joystick,opengl,video] media-libs/libvorbis >=media-libs/openal-1 media-libs/sdl-image virtual/opengl virtual/glu nls? ( virtual/libintl )
+DESCRIPTION=Remake of the famous Stunts game
+EAPI=8
+HOMEPAGE=http://www.ultimatestunts.nl/
+INHERIT=desktop flag-o-matic vcs-clean
+IUSE=nls
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=media-libs/freealut media-libs/libsdl[joystick,opengl,video] media-libs/libvorbis >=media-libs/openal-1 media-libs/sdl-image virtual/opengl virtual/glu nls? ( virtual/libintl )
+SLOT=0
+SRC_URI=mirror://sourceforge/ultimatestunts/ultimatestunts-srcdata-0771.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3
+_md5_=353d5d4971c92580118ed50dd2118742

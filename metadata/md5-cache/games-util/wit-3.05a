@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install
-DEPEND=app-arch/bzip2:0= fuse? ( sys-fs/fuse:0= ) zlib? ( sys-libs/zlib:0= )
+DEPEND=app-arch/bzip2:0= dev-libs/openssl:= fuse? ( sys-fs/fuse:0= ) zlib? ( sys-libs/zlib:0= )
 DESCRIPTION=command line tools to manipulate Wii/GameCube ISO images and WBFS containers
-EAPI=7
+EAPI=8
 HOMEPAGE=https://wit.wiimm.de/
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=+fuse +zlib
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=app-arch/bzip2:0= fuse? ( sys-fs/fuse:0= ) zlib? ( sys-libs/zlib:0= )
+RDEPEND=app-arch/bzip2:0= dev-libs/openssl:= fuse? ( sys-fs/fuse:0= ) zlib? ( sys-libs/zlib:0= )
 SLOT=0
-SRC_URI=https://download.wiimm.de/source/wiimms-iso-tools/wiimms-iso-tools.source-3.02a.tar.bz2
+SRC_URI=https://download.wiimm.de/source/wiimms-iso-tools/wiimms-iso-tools.source-3.05a.txz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
-_md5_=b9819565acb6b134158ebf413f380186
+_md5_=88287c8ccd1dcef3a05cf8833ae21ff2
