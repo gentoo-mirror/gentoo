@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install postinst postrm prepare unpack
 DEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-error-1.17 efl? ( dev-libs/efl[X] ) keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 wayland? ( kde-plasma/kwayland:5 ) X? ( dev-qt/qtx11extras:5 x11-libs/libX11 ) )
 DESCRIPTION=Simple passphrase entry dialogs which utilize the Assuan protocol
 EAPI=8
-HOMEPAGE=https://gnupg.org/aegypten2/
+HOMEPAGE=https://gnupg.org/related_software/pinentry/
 IDEPEND=>=app-eselect/eselect-pinentry-0.7.2
 INHERIT=autotools qmake-utils verify-sig
 IUSE=caps efl emacs gtk keyring ncurses qt5 wayland X verify-sig
@@ -14,4 +14,4 @@ RDEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-er
 SLOT=0
 SRC_URI=mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2 verify-sig? ( mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2.sig )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=a66e3eba4ea8a78c78035f775c935482
+_md5_=5ebb9c68f47cacc35bec58f6afc90550
