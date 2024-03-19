@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://htop.dev/ https://github.com/htop-dev/htop
 INHERIT=linux-info optfeature xdg-utils
 IUSE=caps debug delayacct hwloc lm-sensors llvm-libunwind openvz unicode unwind vserver
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=BSD GPL-2+
 RDEPEND=sys-libs/ncurses:=[unicode(+)?] hwloc? ( sys-apps/hwloc:= ) unwind? ( !llvm-libunwind? ( sys-libs/libunwind:= ) llvm-libunwind? ( sys-libs/llvm-libunwind:= ) ) kernel_linux? ( caps? ( sys-libs/libcap ) delayacct? ( dev-libs/libnl:3 ) lm-sensors? ( sys-apps/lm-sensors ) )
 SLOT=0
 SRC_URI=https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	7ca3057b277f1e5978947b4cc289ce62	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=e13522dac50f017c10a91b2936863e55
+_md5_=c529aae060acec9777c959e757032087
