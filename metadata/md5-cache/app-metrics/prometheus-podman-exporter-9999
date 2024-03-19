@@ -1,5 +1,5 @@
 BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+DEFINED_PHASES=compile install prepare unpack
 DESCRIPTION=Exporter for podman giving containers, pods, images, volumes & networks metrics
 EAPI=8
 HOMEPAGE=https://github.com/containers/prometheus-podman-exporter
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=test strip
 SLOT=0
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	go-env	14f8f70fe58c14d7ab44fff15a05ac47	go-module	83fd3ed1657cfc316c93d6a37018290d	systemd	c8b03e8df84486aa991d4396686e8942	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=dc33d59f859f8334b08af58408b66e59
+_md5_=92b15bc5fd1f30db5cf57292d7bddf6d
