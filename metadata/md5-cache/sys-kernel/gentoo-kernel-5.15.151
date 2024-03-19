@@ -6,7 +6,7 @@ HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Distribution_Kernel https://www.ke
 IDEPEND=!initramfs? ( >=sys-kernel/installkernel-14 ) initramfs? ( >=sys-kernel/installkernel-14[dracut(-)] )
 INHERIT=kernel-build toolchain-funcs
 IUSE=debug hardened savedconfig +initramfs test +strip
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc x86
+KEYWORDS=amd64 ~arm arm64 ~hppa ~ppc ppc64 ~sparc x86
 LICENSE=GPL-2
 PDEPEND=>=virtual/dist-kernel-5.15.151
 RDEPEND=!sys-kernel/gentoo-kernel-bin:5.15.151 virtual/libelf
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
 SLOT=5.15.151
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.15-160.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-5.15-160.extras.tar.xz https://github.com/projg2/gentoo-kernel-config/archive/g11.tar.gz -> gentoo-kernel-config-g11.tar.gz amd64? ( https://src.fedoraproject.org/rpms/kernel/raw/ec69da7a42b5b7c3da91572ef22097b069ddbd01/f/kernel-x86_64-fedora.config -> kernel-x86_64-fedora.config.5.15.19 ) arm64? ( https://src.fedoraproject.org/rpms/kernel/raw/ec69da7a42b5b7c3da91572ef22097b069ddbd01/f/kernel-aarch64-fedora.config -> kernel-aarch64-fedora.config.5.15.19 ) ppc64? ( https://src.fedoraproject.org/rpms/kernel/raw/ec69da7a42b5b7c3da91572ef22097b069ddbd01/f/kernel-ppc64le-fedora.config -> kernel-ppc64le-fedora.config.5.15.19 ) x86? ( https://src.fedoraproject.org/rpms/kernel/raw/ec69da7a42b5b7c3da91572ef22097b069ddbd01/f/kernel-i686-fedora.config -> kernel-i686-fedora.config.5.15.19 )
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-any-r1	f5169813d1619761b459800587005fd2	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	mount-boot	3945d351ee3192381911f938f4ee527a	kernel-install	8b3f309ac423799839f1fb3253b473b8	kernel-build	99eb00d7450b05352eb000bfb702db53
-_md5_=edfe4077f214d3df69ed167b61cf26c0
+_md5_=2ab2e135b34485917cb78ef2df444e41

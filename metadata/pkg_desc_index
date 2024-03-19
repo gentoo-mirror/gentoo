@@ -1740,7 +1740,7 @@ app-doc/phrack 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22
 app-doc/phrack-all 70: Hacker magazine by the community, for the community (all issues)
 app-doc/pms 7_p20180430-r2 8_p20210613-r1 9999: Gentoo Package Manager Specification (draft)
 app-doc/pms-bin 7_p20180430 8_p20210613-r1: Gentoo Package Manager Specification
-app-doc/python-docs 2.7.18 3.8.18 3.9.18 3.10.13 3.11.7 3.11.8 3.12.1 3.12.2: HTML documentation for Python
+app-doc/python-docs 2.7.18 3.8.18 3.8.19 3.9.18 3.9.19 3.10.13 3.11.7 3.11.8 3.12.1 3.12.2: HTML documentation for Python
 app-doc/s6-linux-init-man-pages 1.1.2.0.1: mdoc port of the HTML documentation for the s6-linux-init suite
 app-doc/s6-man-pages 2.12.0.3.1: mdoc port of the HTML documentation for the s6 suite
 app-doc/s6-networking-man-pages 2.7.0.1.1: mdoc port of the HTML documentation for the s6 suite
@@ -5213,7 +5213,7 @@ dev-lang/perl 5.38.2-r2: Larry Wall's Practical Extraction and Report Language
 dev-lang/php 8.1.26-r1 8.1.27-r2 8.2.15 8.2.16-r1 8.3.3-r1: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p16-r2 3.8.18_p2 3.9.18_p2 3.10.13_p3 3.11.8_p1 3.12.2_p1 3.13.0_alpha4 3.13.0_alpha5: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p16-r2 3.8.18_p2 3.8.19 3.9.18_p2 3.9.19 3.10.13_p3 3.11.8_p1 3.12.2_p1 3.13.0_alpha4 3.13.0_alpha5: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.1 1.19.2: Qore, the embeddable multithreaded scripting language
@@ -5260,7 +5260,7 @@ dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for 
 dev-libs/aml 0.3.0 9999: Event timer executor loop
 dev-libs/angelscript 2.36.0 2.36.1: A flexible, cross-platform scripting library
 dev-libs/antlr-c 3.5.2-r2 3.5.2-r3: The ANTLR3 C Runtime
-dev-libs/apache-arrow 14.0.2-r1 15.0.0 15.0.1: A cross-language development platform for in-memory data.
+dev-libs/apache-arrow 14.0.2-r1 15.0.0 15.0.1 15.0.2: A cross-language development platform for in-memory data.
 dev-libs/appstream 0.15.6 0.16.4 1.0.2: Cross-distro effort for providing metadata for software in the Linux ecosystem
 dev-libs/appstream-glib 0.8.2: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.7.2 1.7.2-r1 1.7.3 1.7.4 1.7.4-r1: Apache Portable Runtime Library
@@ -8317,7 +8317,7 @@ dev-python/crcmod 1.7-r5: Python CRC Generator module
 dev-python/crispy-bootstrap3 2024.1: Bootstrap3 template pack for django-crispy-forms
 dev-python/crispy-bootstrap4 2023.1 2024.1: Bootstrap4 template pack for django-crispy-forms
 dev-python/crispy-bootstrap5 2024.2: Bootstrap5 template pack for django-crispy-forms
-dev-python/croniter 2.0.2: Python module to provide iteration for datetime object
+dev-python/croniter 2.0.2 2.0.3: Python module to provide iteration for datetime object
 dev-python/cryptography 41.0.7 42.0.0 42.0.1 42.0.2 42.0.3 42.0.4 42.0.5: Library providing cryptographic recipes and primitives
 dev-python/cson 0.8-r4: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/css-parser 1.0.10: A CSS Cascading Style Sheets library (fork of cssutils)
@@ -8523,7 +8523,7 @@ dev-python/graph-tool 2.58 9999: An efficient python module for manipulation and
 dev-python/graphviz 0.20.1 0.20.1-r1 0.20.2: Simple Python interface for Graphviz
 dev-python/greenlet 2.0.2 3.0.2 3.0.3: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.0.2: Python 3 client for the beanstalkd work queue
-dev-python/griffe 0.40.1 0.41.0 0.41.1 0.41.2 0.41.3 0.42.0: Signature generator for Python programs
+dev-python/griffe 0.40.1 0.41.0 0.41.1 0.41.2 0.41.3 0.42.0 0.42.1: Signature generator for Python programs
 dev-python/grpcio 1.51.0-r1: High-performance RPC framework (python libraries)
 dev-python/grpcio-testing 1.51.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.51.0: Protobuf code generator for gRPC
@@ -8563,7 +8563,7 @@ dev-python/hvac 2.1.0: HashiCorp Vault API client
 dev-python/hypercorn 0.16.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.98.9 6.98.15 6.98.17 6.98.18 6.99.0 6.99.2 6.99.4 6.99.5 6.99.6 6.99.7 6.99.8: A library for property based testing
+dev-python/hypothesis 6.98.9 6.98.15 6.98.17 6.98.18 6.99.0 6.99.2 6.99.4 6.99.5 6.99.6 6.99.7 6.99.8 6.99.9: A library for property based testing
 dev-python/icalendar 5.0.11: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.35: File identification library for Python
 dev-python/idna 3.6: Internationalized Domain Names in Applications (IDNA)
@@ -8699,7 +8699,7 @@ dev-python/libpillowfight 0.3.0_p20210816-r1: Small library containing various i
 dev-python/libsass 0.23.0: A straightforward binding of libsass for Python
 dev-python/libtmux 0.21.0 0.27.0 0.28.0 0.30.1 0.30.2 0.32.0 0.33.0 0.35.0: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
 dev-python/libvirt-python 9.8.0 9.9.0 10.0.0 10.1.0 9999: libvirt Python bindings
-dev-python/license-expression 30.2.0: Parse, compare, simplify and normalize license expressions
+dev-python/license-expression 30.2.0 30.3.0: Parse, compare, simplify and normalize license expressions
 dev-python/line-profiler 4.1.2: Line-by-line profiler
 dev-python/linkify-it-py 2.0.3: Links recognition library with full unicode support
 dev-python/linode-metadata 0.2.0: Python bindings for the Linode Metadata Service
@@ -8999,10 +8999,10 @@ dev-python/pyDes 2.0.1: Python implementation of DES and TRIPLE DES
 dev-python/pyacoustid 1.3.0: Python bindings for Chromaprint and the AcoustID web service
 dev-python/pyaes 1.6.1-r3: Pure-Python Implementation of the AES block-cipher and common modes of operation
 dev-python/pyalsa 1.2.7 1.2.7-r1: Python bindings for ALSA library
-dev-python/pyamg 5.0.1: Algebraic multigrid solvers in Python
+dev-python/pyamg 5.0.1 5.1.0: Algebraic multigrid solvers in Python
 dev-python/pyaml 23.12.0: PyYAML-based module to produce pretty and readable YAML-serialized data
 dev-python/pyannotate 1.2.0-r1: Auto-generate PEP-484 annotations
-dev-python/pyarrow 15.0.0 15.0.1: Python library for Apache Arrow
+dev-python/pyarrow 15.0.0 15.0.1 15.0.2: Python library for Apache Arrow
 dev-python/pyasn1 0.5.1: ASN.1 library for Python
 dev-python/pyasn1-modules 0.3.0: pyasn1 modules
 dev-python/pyasynchat 1.0.4: Make asynchat available for Python 3.12 onwards
@@ -9154,7 +9154,7 @@ dev-python/pyte 0.8.2: Simple VTXXX-compatible terminal emulator
 dev-python/pytesseract 0.3.12: Optical character recognition (OCR) tool
 dev-python/pytest 7.4.4 8.0.0 8.0.1 8.0.2 8.1.0 8.1.1: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.0.5: pytest plugin for aiohttp support
-dev-python/pytest-asyncio 0.23.5 0.23.5_p1: Library for testing asyncio code with pytest
+dev-python/pytest-asyncio 0.23.5 0.23.5_p1 0.23.6: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 7.0.1 7.1.1 7.1.2: BDD library for the pytest runner
 dev-python/pytest-check 2.3.1: pytest plugin that allows multiple failures per test
 dev-python/pytest-codeblocks 0.17.0: Extract code blocks from markdown
@@ -9511,7 +9511,7 @@ dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.51 1.4.52 2.0.27 2.0.28: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 22.2.1 22.3.0 22.3.1 22.4.0 22.5.0 23.0.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 22.2.1 22.3.0 22.3.1 22.4.0 22.5.0 23.0.0 23.0.1: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.4.4: A non-validating SQL parser module for Python
 dev-python/sshpubkeys 3.3.1-r1: OpenSSH public key parser for Python
@@ -9648,9 +9648,9 @@ dev-python/urwidtrees 1.0.3-r1: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.9 0.10: TidyLib Python wrapper
 dev-python/uv 0.1.13: A Python package installer and resolver, written in Rust
-dev-python/uvicorn 0.27.1 0.28.0: Lightning-fast ASGI server implementation
+dev-python/uvicorn 0.27.1 0.28.0 0.28.1: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.19.0-r1: Ultra-fast implementation of asyncio event loop on top of libuv
-dev-python/validators 0.22.0: Python Data Validation for Humans
+dev-python/validators 0.22.0 0.23.1: Python Data Validation for Humans
 dev-python/varlink 31.0.0: Python implementation of the Varlink protocol
 dev-python/vcrpy 6.0.1: Automatically mock your HTTP interactions to simplify and speed up testing
 dev-python/vdf 3.4-r1: A module for (de)serialization to and from VDF, Valve's key-value text format
@@ -13292,7 +13292,7 @@ media-libs/libiptcdata 1.0.5: Library for International Press Telecommunications
 media-libs/libirman 0.4.5: library for Irman control of Unix software
 media-libs/libjpeg-turbo 2.1.5.1 3.0.0 3.0.1 3.0.2: MMX, SSE, and SSE2 SIMD accelerated JPEG library
 media-libs/libjsw 1.5.8: provide a uniform API and user configuration for joysticks and game controllers
-media-libs/libjxl 0.8.1 0.8.2-r1 0.9.1-r1 0.10.1 0.10.2 9999: JPEG XL image format reference implementation
+media-libs/libjxl 0.8.1 0.8.2-r1 0.9.1-r1 0.9.2 0.10.1 0.10.2 9999: JPEG XL image format reference implementation
 media-libs/libkate 0.4.1-r4: Codec for karaoke and text encapsulation for Ogg
 media-libs/libkeyfinder 2.2.7 2.2.8: Musical key detection library for digital audio
 media-libs/liblastfm 1.1.0_pre20190625: Collection of libraries to integrate Last.fm services
@@ -17680,8 +17680,8 @@ sys-kernel/dkms 3.0.12-r1 3.0.13: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7 1.0.8: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 4.3.10 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.209 5.10.210 5.10.211 5.10.212 5.10.213 5.15.148 5.15.149 5.15.150 5.15.151 5.15.152 6.1.77 6.1.78 6.1.79 6.1.80 6.1.81 6.1.82 6.6.16 6.6.17 6.6.18 6.6.19 6.6.21 6.6.22 6.7.5 6.7.6 6.7.7 6.7.9 6.7.10: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.209 5.10.210 5.10.211 5.10.212 5.10.213 5.15.148 5.15.149 5.15.150 5.15.151 5.15.152 6.1.77 6.1.78 6.1.79 6.1.80 6.1.81 6.1.82 6.6.16 6.6.17 6.6.18 6.6.19 6.6.21 6.6.22 6.7.5 6.7.6 6.7.7 6.7.9 6.7.10: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.212 5.10.213 5.15.151 5.15.152 6.1.81 6.1.82 6.6.21 6.6.22 6.7.10: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.212 5.10.213 5.15.151 5.15.152 6.1.81 6.1.82 6.6.21 6.6.22 6.7.10: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.208 5.10.211 5.10.212 5.10.213 5.15.147 5.15.150 5.15.151 5.15.152 6.1.74 6.1.80 6.1.81 6.1.82 6.6.13 6.6.20 6.6.21 6.6.22 6.7.8 6.7.9 6.7.10 6.8.0 6.8.1: Full sources including the Gentoo patchset for the 6.8 kernel tree
 sys-kernel/git-sources 6.8_rc1 6.8_rc2 6.8_rc3 6.8_rc4 6.8_rc5 6.8_rc6 6.8_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 25 28 30: Gentoo fork of installkernel script from debianutils
@@ -17696,7 +17696,7 @@ sys-kernel/pf-sources 6.6_p6 6.7_p1 6.7_p2 6.7_p3 6.7_p5 6.8_p1: Linux kernel fo
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.307_p133 5.4.264_p88 5.10.210_p102 5.15.148_p74 6.0.5_p14 6.1.80_p26 6.5.2_p8 6.6.20_p25: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.10.209 5.10.210 5.10.211 5.10.212 5.10.213 5.10.9999 5.15.148 5.15.149 5.15.150 5.15.151 5.15.152 5.15.9999 6.1.77 6.1.78 6.1.79 6.1.80 6.1.81 6.1.82 6.1.9999 6.6.16 6.6.17 6.6.18 6.6.19 6.6.21 6.6.22 6.6.9999 6.7.5 6.7.6 6.7.7 6.7.9 6.7.10: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.212 5.10.213 5.10.9999 5.15.151 5.15.152 5.15.9999 6.1.81 6.1.82 6.1.9999 6.6.21 6.6.22 6.6.9999 6.7.10: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.310 5.4.272 5.10.213 5.15.152 6.1.82 6.6.22 6.7.10 6.8.1: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.6.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17888,7 +17888,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.209 5.10.210 5.10.211 5.10.212 5.10.213 5.15.148 5.15.149 5.15.150 5.15.151 5.15.152 6.1.77 6.1.78 6.1.79 6.1.80 6.1.81 6.1.82 6.6.16 6.6.17 6.6.18 6.6.19 6.6.21 6.6.22 6.7.5 6.7.6 6.7.7 6.7.9 6.7.10: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.212 5.10.213 5.15.151 5.15.152 6.1.81 6.1.82 6.6.21 6.6.22 6.7.10: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
