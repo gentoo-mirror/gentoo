@@ -67,6 +67,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:6"
 
+PATCHES=( "${FILESDIR}/${P}-kterminallauncherjob.patch" ) # KDE-bug 482107
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package acl ACL)
