@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs Scala Mode via Tree-Sitter
+EAPI=8
+HOMEPAGE=https://github.com/KaranAhlawat/scala-ts-mode
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-29[tree-sitter] dev-libs/tree-sitter-scala >=app-editors/emacs-25.3:*
+SLOT=0
+SRC_URI=https://codeload.github.com/KaranAhlawat/scala-ts-mode/tar.gz/11a01d726ac4fafb8a6688459ac79b41333bd6c8 -> scala-ts-mode-1.0.0_p20240316.tar.gz
+_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_md5_=9ec8b99ca947deb830041d0ca2e01a10
