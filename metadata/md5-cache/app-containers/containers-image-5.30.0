@@ -1,12 +1,11 @@
-BDEPEND=>=dev-go/go-md2man-2.0.3 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+BDEPEND=>=dev-go/go-md2man-2.0.3
+DEFINED_PHASES=compile install
 DESCRIPTION=Default config and docs related to Containers' images
 EAPI=8
 HOMEPAGE=https://github.com/containers/image
-INHERIT=git-r3
+KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=Apache-2.0
-PROPERTIES=live
 RESTRICT=test
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+SRC_URI=https://github.com/containers/image/archive/v5.30.0.tar.gz -> containers-image-5.30.0.tar.gz
 _md5_=6e4a456f48b19c402c7dc63a54bb4278
