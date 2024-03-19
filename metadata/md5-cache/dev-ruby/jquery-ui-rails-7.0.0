@@ -1,17 +1,17 @@
-BDEPEND=test? ( ruby_targets_ruby31? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) )
+BDEPEND=test? ( ruby_targets_ruby31? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 DESCRIPTION=The jQuery UI assets for the Rails 3.2+ asset pipeline
 EAPI=8
 HOMEPAGE=https://github.com/jquery-ui-rails/jquery-ui-rails
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 test
+IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 test
 KEYWORDS=~amd64 ~arm ~x86 ~x64-macos
 LICENSE=MIT
-RDEPEND=ruby_targets_ruby31? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby32(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
+RDEPEND=ruby_targets_ruby31? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/railties-3.2.16:*[ruby_targets_ruby33(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=7
 SRC_URI=https://github.com/jquery-ui-rails/jquery-ui-rails/archive/refs/tags/v7.0.0.tar.gz -> jquery-ui-rails-7.0.0.tar.gz
 _eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	ruby-utils	820207a5d3f0e2e31c28080f131f2037	ruby-ng	4ef520a992dc54fdd8f49d875c1ab2c0	ruby-fakegem	5f7dd7ffeaf00a781713582bd507f80b
-_md5_=d6bb05d99188ca010219fa304aa5685e
+_md5_=86c2ab6525ab1e3cb8f2862bad208e83
