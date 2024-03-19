@@ -1,0 +1,16 @@
+BDEPEND=dev-util/wayland-scanner virtual/pkgconfig !system-wlroots? ( dev-util/glslang dev-util/wayland-scanner ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-cpp/nlohmann_json dev-libs/libevdev >=dev-libs/libinput-1.7.0 dev-libs/wayland >=dev-libs/wayland-protocols-1.12 media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/cairo x11-libs/libdrm:= x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman system-wfconfig? ( gui-libs/wf-config:0/0.8 ) !system-wfconfig? ( dev-libs/libxml2 ) !system-wlroots? ( >=dev-libs/libinput-1.14.0:= >=dev-libs/wayland-1.21 media-libs/libglvnd media-libs/mesa[egl(+),gles2] sys-apps/hwdata:= sys-auth/seatd:= >=x11-libs/libdrm-2.4.114:= x11-libs/libxkbcommon >=x11-libs/pixman-0.42.0 virtual/libudev X? ( x11-base/xwayland x11-libs/libxcb:0= x11-libs/xcb-util-image x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm ) ) system-wlroots? ( gui-libs/wlroots:0/16[drm(+),libinput(+),x11-backend,X?] ) !system-wlroots? ( >=dev-libs/wayland-protocols-1.28 ) test? ( dev-cpp/doctest )
+DESCRIPTION=compiz like 3D wayland compositor
+EAPI=8
+HOMEPAGE=https://github.com/WayfireWM/wayfire
+INHERIT=meson
+IUSE=+gles3 +system-wfconfig +system-wlroots test X
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-cpp/nlohmann_json dev-libs/libevdev >=dev-libs/libinput-1.7.0 dev-libs/wayland >=dev-libs/wayland-protocols-1.12 media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/cairo x11-libs/libdrm:= x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman system-wfconfig? ( gui-libs/wf-config:0/0.8 ) !system-wfconfig? ( dev-libs/libxml2 ) !system-wlroots? ( >=dev-libs/libinput-1.14.0:= >=dev-libs/wayland-1.21 media-libs/libglvnd media-libs/mesa[egl(+),gles2] sys-apps/hwdata:= sys-auth/seatd:= >=x11-libs/libdrm-2.4.114:= x11-libs/libxkbcommon >=x11-libs/pixman-0.42.0 virtual/libudev X? ( x11-base/xwayland x11-libs/libxcb:0= x11-libs/xcb-util-image x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm ) ) system-wlroots? ( gui-libs/wlroots:0/16[drm(+),libinput(+),x11-backend,X?] ) x11-misc/xkeyboard-config !system-wfconfig? ( !gui-libs/wf-config ) !system-wlroots? ( !gui-libs/wlroots )
+RESTRICT=!test? ( test )
+SLOT=0/0.8
+SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.8.0/wayfire-0.8.0.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e
+_md5_=c731b6fdd61a7e1c670a27fd78a79253
