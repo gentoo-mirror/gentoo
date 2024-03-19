@@ -1,13 +1,12 @@
-BDEPEND=>=dev-go/go-md2man-2.0.3 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install prepare unpack
+BDEPEND=>=dev-go/go-md2man-2.0.3
+DEFINED_PHASES=compile install prepare
 DESCRIPTION=Common config files and docs for Containers stack
 EAPI=8
 HOMEPAGE=https://github.com/containers/common
-INHERIT=git-r3
+KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=Apache-2.0
-PROPERTIES=live
 RDEPEND=app-containers/containers-image app-containers/containers-storage app-containers/containers-shortnames net-firewall/nftables net-firewall/iptables[nftables] || ( app-containers/crun app-containers/runc ) || ( ( >=app-containers/netavark-1.6.0 >=app-containers/aardvark-dns-1.6.0 ) >=app-containers/cni-plugins-0.9.1 )
 RESTRICT=test
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+SRC_URI=https://github.com/containers/common/archive/v0.58.0.tar.gz -> containers-common-0.58.0.tar.gz
 _md5_=c0c5897e9b4dc2f470c54a7e827eaffb
