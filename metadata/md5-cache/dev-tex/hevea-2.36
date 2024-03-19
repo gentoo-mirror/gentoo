@@ -4,10 +4,12 @@ DEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt=]
 DESCRIPTION=HeVeA is a quite complete and fast LaTeX to HTML translator
 EAPI=8
 HOMEPAGE=https://hevea.inria.fr/
+INHERIT=texlive-common
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=QPL-1.0
 RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt=] app-text/ghostscript-gpl dev-texlive/texlive-latexextra
 SLOT=0
 SRC_URI=https://hevea.inria.fr/distri/hevea-2.36.tar.gz
-_md5_=26e4aa50362871d9993e2f3dc913c1cc
+_eclasses_=texlive-common	175686d2dfee969e2d49b1e7a997df1d
+_md5_=5617e919681a9c4c7a1a175ff3a2712d
