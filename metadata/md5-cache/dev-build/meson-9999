@@ -8,9 +8,9 @@ INHERIT=bash-completion-r1 edo distutils-r1 flag-o-matic toolchain-funcs ninja-u
 IUSE=test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 LICENSE=Apache-2.0
 PROPERTIES=live
-RDEPEND=virtual/pkgconfig python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+RDEPEND=!<dev-build/muon-0.2.0-r2[man(-)] virtual/pkgconfig python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=5e953313844fd09ba79b9725d64d17c1
+_md5_=de13d108706795a670aea200f48a859e
