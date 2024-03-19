@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 INHERIT=selinux-policy-2
 IUSE=alsa
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+KEYWORDS=amd64 arm arm64 ~mips x86
 LICENSE=GPL-2
 RDEPEND=>=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-2.20240226-r1
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20240226/refpolicy-2.20240226.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20240226-r1.tar.bz2
 _eclasses_=selinux-policy-2	834ee4d0adb51cceff7b63cfa1f00054
-_md5_=e39c5a645720f072a33a0791a48a78cc
+_md5_=0cc07bd06015689d0f2a9c307e91d671

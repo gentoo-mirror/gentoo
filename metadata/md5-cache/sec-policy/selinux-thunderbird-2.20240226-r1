@@ -5,10 +5,10 @@ DESCRIPTION=SELinux policy for thunderbird
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 INHERIT=selinux-policy-2
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+KEYWORDS=amd64 arm arm64 ~mips x86
 LICENSE=GPL-2
 RDEPEND=sec-policy/selinux-xserver >=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-2.20240226-r1
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20240226/refpolicy-2.20240226.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20240226-r1.tar.bz2
 _eclasses_=selinux-policy-2	834ee4d0adb51cceff7b63cfa1f00054
-_md5_=e3a40598ff88b022c6465e3b7d291406
+_md5_=a91e0a2c6d2ed44f8fb9f1abee79bbaa

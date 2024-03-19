@@ -5,10 +5,10 @@ DESCRIPTION=SELinux policy for uucp
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 INHERIT=selinux-policy-2
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+KEYWORDS=amd64 arm arm64 ~mips x86
 LICENSE=GPL-2
 RDEPEND=sec-policy/selinux-inetd >=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-2.20240226-r1
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20240226/refpolicy-2.20240226.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20240226-r1.tar.bz2
 _eclasses_=selinux-policy-2	834ee4d0adb51cceff7b63cfa1f00054
-_md5_=0e60da367c75971488d615936c0d3114
+_md5_=f3c4933bf148470550e4a84c12a30f8c

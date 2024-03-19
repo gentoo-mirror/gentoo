@@ -1,0 +1,17 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?]
+DEFINED_PHASES=compile install setup
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) dev-ada/templates-parser[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?] dev-ada/libadalang:=[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,static-libs?,static-pic?]
+DESCRIPTION=Libadalang-based tools: gnatpp, gnatmetric and gnatstub
+EAPI=8
+HOMEPAGE=https://www.adacore.com/community
+INHERIT=ada multiprocessing
+IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) dev-ada/templates-parser[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,shared?,static-libs?] dev-ada/VSS[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?]
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/AdaCore/libadalang-tools/archive/refs/tags/v24.0.0.tar.gz -> libadalang-tools-24.0.0.tar.gz
+_eclasses_=ada	f59e3151d12cf89115ffac32a03e7d31	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
+_md5_=efb979af77772ddd5f4ba0ccc7a86cd2

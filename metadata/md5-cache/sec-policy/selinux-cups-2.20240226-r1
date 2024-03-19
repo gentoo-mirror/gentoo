@@ -5,10 +5,10 @@ DESCRIPTION=SELinux policy for cups
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 INHERIT=selinux-policy-2
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+KEYWORDS=amd64 arm arm64 ~mips x86
 LICENSE=GPL-2
 RDEPEND=sec-policy/selinux-lpd >=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-2.20240226-r1
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20240226/refpolicy-2.20240226.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20240226-r1.tar.bz2
 _eclasses_=selinux-policy-2	834ee4d0adb51cceff7b63cfa1f00054
-_md5_=c2000dc8c94d55d0225c6c97ba9187de
+_md5_=e98dd0c66ab6d2340f0be316ea31481d
