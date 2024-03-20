@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 systemd
 
-COMMIT="f278ef19b0bc94ae93881ee4ab45fcbb03926e5f"
+COMMIT="94db6a7d9eb867076d9b79536d9b9b6c065f341b"
 
 DESCRIPTION="Tools for ovmf/armvirt firmware volumes"
 HOMEPAGE="
@@ -29,7 +29,6 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-24.2-dont-force-shim.patch"
-	"${FILESDIR}/${PN}-24.2-allow-cmdline-override.patch"
 )
 
 distutils_enable_tests unittest
