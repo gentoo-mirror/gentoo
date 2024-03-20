@@ -1902,7 +1902,7 @@ app-emacs/company-ebuild 0.1.4 9999: Company backend for editing Ebuild files
 app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols and latex tags
 app-emacs/company-mode 0.10.1: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
-app-emacs/compat 29.1.4.4: Compatibility libraries for Emacs
+app-emacs/compat 29.1.4.4 29.1.4.5: Compatibility libraries for Emacs
 app-emacs/consult 1.2 1.3 1.4 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0: Consult integration for Flycheck
 app-emacs/corfu 1.2 9999: Completion Overlay Region FUnction
@@ -2133,7 +2133,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 1.0: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.0: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.4.1 0.4.2: Contributed packages to Org
-app-emacs/org-mode 9.5.5 9.6.17 9.6.19 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.5.5 9.6.17 9.6.19 9.6.21 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.1 1.2: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r1 2.2.2-r2 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
@@ -2955,7 +2955,7 @@ app-office/grisbi 2.0.5 3.0.1 3.0.3: Grisbi is a personal accounting application
 app-office/gtg 0.6-r1: Personal organizer for the GNOME desktop environment
 app-office/homebank 5.7.4: Free, easy, personal accounting for everyone
 app-office/impressive 0.13.1 0.13.2: Stylish way of giving presentations with Python
-app-office/joplin-desktop 2.14.11 2.14.17 2.14.19: Secure note taking and to-do app with synchronization capabilities
+app-office/joplin-desktop 2.14.11 2.14.17 2.14.19 2.14.20: Secure note taking and to-do app with synchronization capabilities
 app-office/kexi 3.2.0-r4: Visual database applications creator
 app-office/kmymoney 5.1.3: Personal finance manager based on KDE Frameworks
 app-office/kraft 1.0: Software to manage quotes and invoices in small enterprises
@@ -4032,7 +4032,7 @@ dev-dotnet/dotnet-outdated 4.6.0: Display and update outdated NuGet packages in 
 dev-dotnet/dotnet-runtime-nugets 6.0.24 6.0.25 6.0.26 6.0.27 6.0.28 7.0.13 7.0.14 7.0.15 7.0.16 7.0.17 8.0.1-r1 8.0.2-r1 8.0.3: .NET runtime nugets
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.101 8.0.102: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.101-r3 8.0.201 8.0.202: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.101-r3 8.0.201 8.0.202 8.0.203: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.12.0 4.14.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 6.2.3: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.69.0: F# language server using the Language Server Protocol
@@ -5136,13 +5136,13 @@ dev-lang/clips 6.40: Tool for building Expert Systems (native version)
 dev-lang/clipsjni 6.40-r1: Tool for building Expert Systems (Java version)
 dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.11.1 1.11.2: General-purpose programming language with an emphasis on functional programming
-dev-lang/closure-compiler-bin 20231112: JavaScript optimizing compiler
+dev-lang/closure-compiler-bin 20231112 20240317: JavaScript optimizing compiler
 dev-lang/coffee-script 2.5.1 2.7.0: A little language that compiles into javascript
 dev-lang/crystal 1.11.2: The Crystal Programming Language
 dev-lang/cue 0.7.0: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2: A WAM based Prolog system
 dev-lang/dafny 4.4.0-r1 4.5.0: Dafny is a verification-aware programming language
-dev-lang/dafny-bin 4.3.0 4.4.0: Verification-aware programming language
+dev-lang/dafny-bin 4.4.0 4.5.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 3.60 3.70 9999: Interpreter and compiler compatible with the ISLisp standard
@@ -16492,7 +16492,7 @@ sci-physics/hepmc 2.06.11 3.2.5 3.2.5_p20230225-r1 3.2.6 3.2.7 9999: Event Recor
 sci-physics/heppdt 3.04.01-r1: Data about each particle from the Review of Particle Properties
 sci-physics/herwig 6.5.21-r2: High Energy Physics Event Generator
 sci-physics/lammps 20220217 20220217-r1 20220623 20230328 20230802 20230802-r1: Large-scale Atomic/Molecular Massively Parallel Simulator
-sci-physics/lhapdf 6.3.0-r2 6.5.3-r1 6.5.4 9999: Les Houches Parton Density Function unified library
+sci-physics/lhapdf 6.3.0-r2 6.5.3-r1 6.5.4 6.5.4-r1 9999: Les Houches Parton Density Function unified library
 sci-physics/looptools 2.15: Tools for evaluation of scalar and tensor one-loop integrals
 sci-physics/pythia 6.4.28-r2 8.2.45-r2 8.3.07-r1 8.3.09 9999: Lund Monte Carlo high-energy physics event generator
 sci-physics/qmeq 1.1: Quantum master equation package for Quantum dot transport calculations

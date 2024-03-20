@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install preinst prepare setup unpack
+DEPEND=>=dev-java/java-config-2.2.0-r3
+DESCRIPTION=JavaScript optimizing compiler
+EAPI=8
+HOMEPAGE=https://developers.google.com/closure/compiler/ https://github.com/google/closure-compiler/
+INHERIT=java-pkg-2
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
+SLOT=0
+SRC_URI=https://repo1.maven.org/maven2/com/google/javascript/closure-compiler/v20240317/closure-compiler-v20240317.jar
+_eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368
+_md5_=edb59e520f40a43ac9a28a3eda7715a0
