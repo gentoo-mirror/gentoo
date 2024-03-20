@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) test? ( sys-devel/clang:18 ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-16.0.4 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=install prepare test unpack
+DEPEND=>=sys-devel/clang-18.1.2:* !sys-devel/llvm:0[clang(-),python(-)] !sys-devel/clang:0[python(-)]
+DESCRIPTION=Python bindings for sys-devel/clang
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=llvm.org python-r1
+IUSE=test verify-sig python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+RDEPEND=>=sys-devel/clang-18.1.2:* !sys-devel/llvm:0[clang(-),python(-)] !sys-devel/clang:0[python(-)] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.2/llvm-project-18.1.2.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.2/llvm-project-18.1.2.src.tar.xz.sig )
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	verify-sig	a79ba011daaf532d71a219182474d150	llvm.org	5e74e9ae3c1cc567f08864efe88e2a26	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_md5_=198a43f401a0941d5031c57a30d0990d
