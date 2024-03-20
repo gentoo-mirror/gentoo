@@ -6,7 +6,7 @@ EAPI=8
 inherit savedconfig toolchain-funcs
 
 DESCRIPTION="Simple generic tabbed fronted to xembed aware applications"
-HOMEPAGE="https://tools.suckless.org/tabbed"
+HOMEPAGE="https://tools.suckless.org/tabbed/"
 SRC_URI="https://dl.suckless.org/tools/${P}.tar.gz"
 
 LICENSE="MIT"
@@ -34,8 +34,8 @@ src_compile() {
 	tc-export CC PKG_CONFIG
 
 	local emakeargs=(
-		TABBED_CFLAGS="$("${PKG_CONFIG}" --cflags x11 xft)"
-		TABBED_LDFLAGS="$("${PKG_CONFIG}" --libs x11 xft)"
+		TABBED_CFLAGS="${CFLAGS} $("${PKG_CONFIG}" --cflags x11 xft)"
+		TABBED_LDFLAGS="${LDFLAGS} $("${PKG_CONFIG}" --libs x11 xft)"
 	)
 
 	emake "${emakeargs[@]}"
