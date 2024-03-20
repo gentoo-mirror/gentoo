@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,10 +7,11 @@ DESCRIPTION="Verification-aware programming language"
 HOMEPAGE="https://dafny.org/
 	https://github.com/dafny-lang/dafny/"
 SRC_URI="https://github.com/dafny-lang/dafny/releases/download/v${PV}/dafny-${PV}-x64-ubuntu-20.04.zip"
+S="${WORKDIR}/dafny"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 REQUIRED_USE="elibc_glibc"
 
 RDEPEND="
@@ -19,9 +20,10 @@ RDEPEND="
 	dev-util/lttng-ust:0/2.12
 	sci-mathematics/z3
 "
-BDEPEND="app-arch/unzip"
+BDEPEND="
+	app-arch/unzip
+"
 
-S="${WORKDIR}/dafny"
 QA_PREBUILT="*"
 
 src_prepare() {
@@ -49,5 +51,5 @@ src_install() {
 	done
 
 	# Make "dafny-server" clients happy.
-	dosym ../../${dest}/DafnyServer /usr/bin/dafny-server
+	dosym -r /${dest}/DafnyServer /usr/bin/dafny-server
 }
