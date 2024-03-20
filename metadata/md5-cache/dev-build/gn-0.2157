@@ -1,0 +1,12 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja
+DEFINED_PHASES=compile configure install setup test
+DESCRIPTION=GN is a meta-build system that generates build files for Ninja
+EAPI=8
+HOMEPAGE=https://gn.googlesource.com/
+INHERIT=edo ninja-utils python-any-r1 toolchain-funcs
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://deps.gentoo.zip/dev-build/gn/gn-0.2157.tar.xz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=d5726d9a99548633b9b10ffd40a3a11e
