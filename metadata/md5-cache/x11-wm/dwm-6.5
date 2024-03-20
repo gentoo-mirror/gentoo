@@ -1,14 +1,14 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst prepare unpack
+DEFINED_PHASES=compile install postinst prepare
 DEPEND=media-libs/fontconfig x11-libs/libX11 >=x11-libs/libXft-2.3.5 xinerama? ( x11-libs/libXinerama ) x11-base/xorg-proto xinerama? ( x11-base/xorg-proto )
 DESCRIPTION=a dynamic window manager for X11
 EAPI=8
 HOMEPAGE=https://dwm.suckless.org/
-INHERIT=savedconfig toolchain-funcs git-r3
+INHERIT=savedconfig toolchain-funcs
 IUSE=xinerama savedconfig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=media-libs/fontconfig x11-libs/libX11 >=x11-libs/libXft-2.3.5 xinerama? ( x11-libs/libXinerama )
 SLOT=0
-_eclasses_=portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+SRC_URI=https://dl.suckless.org/dwm/dwm-6.5.tar.gz
+_eclasses_=portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
 _md5_=3d4f774e1f311e51743fecce44e84b83
