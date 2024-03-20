@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( luajit )
 
-inherit autotools lua-single systemd tmpfiles
+inherit autotools flag-o-matic lua-single systemd tmpfiles
 
 DESCRIPTION="The de facto standard for intrusion detection/prevention"
 HOMEPAGE="https://www.snort.org"
@@ -52,14 +52,19 @@ src_prepare() {
 
 	mv configure.{in,ac} || die
 
-	# USE=debug exposes a macro whose name apparently wasn't changed
-	sed -i -e 's/BEFORE_SRV_FAIL/BEFORE_SERVICE_FAIL/' \
-		src/dynamic-preprocessors/appid/appInfoTable.c || die
-
 	AT_M4DIR=m4 eautoreconf
 }
 
 src_configure() {
+	# -Werror=strict-aliasing
+	# https://bugs.gentoo.org/861239
+	#
+	# Upstream does bug mail. Sent an email.
+	#
+	# Do not trust with LTO either.
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	econf \
 		$(use_enable gre) \
 		$(use_enable control-socket) \

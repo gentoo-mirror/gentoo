@@ -8,8 +8,8 @@ PYTHON_COMPAT=( python3_{10..11} pypy3 )
 inherit flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="Portable, Extensible Toolkit for Scientific Computation"
-HOMEPAGE="https://www.mcs.anl.gov/petsc"
-SRC_URI="http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/${P}.tar.gz"
+HOMEPAGE="https://petsc.org/release/"
+SRC_URI="https://web.cels.anl.gov/projects/petsc/download/release-snapshots/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -92,6 +92,11 @@ petsc_select() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/863260
+	# https://gitlab.com/petsc/petsc/-/issues/1560
+	filter-lto
+
 	# bug 548498
 	# PETSc runs mpi processes during configure that result in a sandbox
 	# violation by trying to open /proc/mtrr rw. This is not easy to

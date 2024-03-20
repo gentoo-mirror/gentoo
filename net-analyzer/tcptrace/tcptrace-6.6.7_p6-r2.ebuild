@@ -11,10 +11,11 @@ SRC_URI="
 	http://www.tcptrace.org/download/old/$(ver_cut 1-2)/${P/_p*}.tar.gz
 	mirror://debian/pool/main/t/${PN}/${PN}_${PV/_p*}-${PV/*_p}.debian.tar.xz
 "
+S=${WORKDIR}/${P/_p*}
 
-SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~ppc ppc64 x86"
+SLOT="0"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 DEPEND="
 	net-libs/libpcap
@@ -22,12 +23,13 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
+
 PATCHES=(
 	"${FILESDIR}"/${P/_p*}-cross-compile.patch
 	"${FILESDIR}"/${P/_p*}-_DEFAULT_SOURCE.patch
 	"${FILESDIR}"/${P/_p*}-fix-build-clang16.patch
+	"${FILESDIR}"/0001-configure.in-fix-implicit-function-declaration-causi.patch
 )
-S=${WORKDIR}/${P/_p*}
 
 src_prepare() {
 	default
