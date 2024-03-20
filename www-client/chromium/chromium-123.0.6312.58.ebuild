@@ -27,13 +27,14 @@ PYTHON_REQ_USE="xml(+)"
 # These variables let us easily bound supported major dependency versions in one place.
 GCC_MIN_VER=12
 GN_MIN_VER=0.2154
-LLVM_MAX_SLOT=17
-LLVM_MIN_SLOT=16
+# Since Google use prerelease llvm we can let any adventurous users try to build with prerelease
+# ebuilds; try to keep this up to date with the latest version in the tree.
+LLVM_MAX_SLOT=19
+LLVM_MIN_SLOT=17
 RUST_MIN_VER=1.72.0
-# grep 'CLANG_REVISION = ' ${S}/tools/clang/scripts/update.py -A1 | cut -c 18-
-GOOGLE_CLANG_VER="llvmorg-19-init-2319-g7c4c2746-1"
-# grep 'RUST_REVISION = ' ${S}/tools/rust/update_rust.py -A1 | cut -c 17-
-GOOGLE_RUST_VER="340bb19fea20fd5f9357bbfac542fad84fc7ea2b-3"
+# chromium-tools/get-chromium-toolchain-strings.sh
+GOOGLE_CLANG_VER=llvmorg-19-init-2319-g7c4c2746-1
+GOOGLE_RUST_VER=340bb19fea20fd5f9357bbfac542fad84fc7ea2b-3
 
 # https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
 : ${CHROMIUM_FORCE_CLANG=yes}
@@ -75,7 +76,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/beta"
+SLOT="0/stable"
 KEYWORDS="~amd64 ~arm64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
@@ -209,7 +210,6 @@ depend_clang_llvm_versions() {
 	fi
 }
 
-# #923010 - add `profiler` USE to rust-bin
 BDEPEND="
 	${COMMON_SNAPSHOT_DEPEND}
 	${PYTHON_DEPS}
@@ -229,7 +229,7 @@ BDEPEND="
 			>=dev-util/web_page_replay_go-20220314
 			$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
 		)
-		>=dev-lang/rust-${RUST_MIN_VER}[profiler]
+		>=virtual/rust-${RUST_MIN_VER}[profiler(-)]
 	)
 	>=dev-build/gn-${GN_MIN_VER}
 	dev-lang/perl
@@ -338,7 +338,10 @@ pre_build_checks() {
 }
 
 pkg_pretend() {
-	pre_build_checks
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		# The pre_build_checks are all about compilation resources, no need to run it for a binpkg
+		pre_build_checks
+	fi
 
 	if use headless; then
 		local headless_unused_flags=("cups" "kerberos" "pulseaudio" "qt5" "qt6" "vaapi" "wayland")
@@ -349,33 +352,38 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	if use system-toolchain && needs_clang; then
-		llvm_pkg_setup
-	fi
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		# The pre_build_checks are all about compilation resources, no need to run it for a binpkg
+		pre_build_checks
 
-	pre_build_checks
-
-	if [[ ${MERGE_TYPE} != binary ]] && use system-toolchain; then
-		local -x CPP="$(tc-getCXX) -E"
-		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${GCC_MIN_VER}; then
-			die "At least gcc ${GCC_MIN_VER} is required"
-		fi
-		if use pgo && tc-is-cross-compiler; then
-			die "The pgo USE flag cannot be used when cross-compiling"
-		fi
-		if needs_clang && ! tc-is-clang; then
-			if tc-is-cross-compiler; then
-				CPP="${CBUILD}-clang++ -E"
-			else
-				CPP="${CHOST}-clang++ -E"
+		if use system-toolchain; then
+			local -x CPP="$(tc-getCXX) -E"
+			if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${GCC_MIN_VER}; then
+				die "At least gcc ${GCC_MIN_VER} is required"
 			fi
-			if ver_test "$(clang-major-version)" -lt ${LLVM_MIN_SLOT}; then
-				die "At least Clang ${LLVM_MIN_SLOT} is required"
+			if use pgo && tc-is-cross-compiler; then
+				die "The pgo USE flag cannot be used when cross-compiling"
+			fi
+			if needs_clang && ! tc-is-clang; then
+				if tc-is-cross-compiler; then
+					CPP="${CBUILD}-clang++ -E"
+				else
+					CPP="${CHOST}-clang++ -E"
+				fi
+			fi
+			if needs_clang || tc-is-clang; then
+				if ver_test "$(clang-major-version)" -lt ${LLVM_MIN_SLOT}; then
+					die "At least Clang ${LLVM_MIN_SLOT} is required"
+				fi
+				# Ideally we never see this, but it should help prevent bugs like 927154
+				if ver_test "$(clang-major-version)" -gt ${LLVM_MAX_SLOT}; then
+					die "Clang $(clang-major-version) is too new; ${LLVM_MAX_SLOT} is the highest supported version"
+				fi
 			fi
 		fi
 		# Users should never hit this, it's purely a development convenience
 		if ver_test $(gn --version || die) -lt ${GN_MIN_VER}; then
-				die "dev-build/gn >= ${GN_MIN_VER} is required to build this Chromium"
+			die "dev-build/gn >= ${GN_MIN_VER} is required to build this Chromium"
 		fi
 	fi
 
