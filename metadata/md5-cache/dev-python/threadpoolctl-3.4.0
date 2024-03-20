@@ -1,0 +1,16 @@
+BDEPEND=dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( >=dev-python/pytest-7.3.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/flit-core-3.9.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Limit the number of threads used in native libs that have their own threadpool
+EAPI=8
+HOMEPAGE=https://github.com/joblib/threadpoolctl/ https://pypi.org/project/threadpoolctl/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos
+LICENSE=BSD
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/joblib/threadpoolctl/archive/3.4.0.tar.gz -> threadpoolctl-3.4.0.gh.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b
+_md5_=3b9e6e35a555d3682e56c8c02df21669
