@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst setup
+DESCRIPTION=Gentoo fork of installkernel script from debianutils
+EAPI=8
+HOMEPAGE=https://github.com/projg2/installkernel-gentoo https://wiki.gentoo.org/wiki/Installkernel
+INHERIT=linux-info
+IUSE=dracut efistub grub refind systemd systemd-boot uki ukify
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x86-linux
+LICENSE=GPL-2+
+RDEPEND=!<=sys-kernel/installkernel-systemd-3 dracut? ( >=sys-kernel/dracut-060_pre20240104-r4 uki? ( || ( sys-apps/systemd[boot(-)] sys-apps/systemd-utils[boot(-)] ) ) ) efistub? ( systemd? ( >=app-emulation/virt-firmware-24.2_p20240315-r2 || ( sys-apps/systemd[boot(-)] sys-apps/systemd-utils[boot(-)] ) ) ) grub? ( sys-boot/grub ) refind? ( sys-boot/refind ) systemd? ( || ( sys-apps/systemd[kernel-install(-)] sys-apps/systemd-utils[kernel-install(-)] ) ) systemd-boot? ( || ( sys-apps/systemd[boot(-)] sys-apps/systemd-utils[boot(-)] ) ) ukify? ( || ( sys-apps/systemd[boot(-),ukify(-)] sys-apps/systemd-utils[boot(-),ukify(-)] ) ) !=sys-apps/systemd-255.2-r1 !=sys-apps/systemd-255.2-r0 !~sys-apps/systemd-255.1 !~sys-apps/systemd-255.0 !=sys-apps/systemd-254.8-r0 !=sys-apps/systemd-254.7-r0 !~sys-apps/systemd-254.6 !<=sys-apps/systemd-254.5-r1
+REQUIRED_USE=systemd-boot? ( systemd ) ukify? ( uki ) ?? ( efistub grub refind systemd-boot )
+SLOT=0
+SRC_URI=https://github.com/projg2/installkernel-gentoo/archive/v33.tar.gz -> installkernel-33.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	7ca3057b277f1e5978947b4cc289ce62
+_md5_=25b900acfe5fdbfcdbc0a4c4abc5867e
