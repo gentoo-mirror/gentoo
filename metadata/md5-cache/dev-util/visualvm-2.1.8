@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile configure install preinst prepare setup unpack
+DEPEND=dev-java/jmc:0 dev-java/lz4-java:0 dev-java/owasp-java-encoder:0 virtual/jdk:1.8 >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-1.10.14-r2:0 dev-java/javatoolkit
+DESCRIPTION=Integrates commandline JDK tools and profiling capabilities
+EAPI=8
+HOMEPAGE=https://visualvm.github.io
+INHERIT=java-pkg-2 java-ant-2 desktop
+KEYWORDS=~amd64
+LICENSE=GPL-2-with-linking-exception
+RDEPEND=dev-java/jmc:0 dev-java/lz4-java:0 dev-java/owasp-java-encoder:0 dev-java/asm:9 dev-java/hamcrest-core:1.3 dev-java/jcommander:0 dev-java/jna:4 dev-java/junit:4 dev-java/junit:5 dev-java/testng:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
+SLOT=7
+SRC_URI=https://github.com/oracle/visualvm/archive/2.1.8.tar.gz -> visualvm-2.1.8.tar.gz https://github.com/oracle/visualvm/releases/download/2.1.8/nb190_platform_20231030.zip https://repo1.maven.org/maven2/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar
+_eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	java-ant-2	695635244f02d8e4820279a6511ccc18	desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=ec0e59926fe4c940d486933c960e6a9a
