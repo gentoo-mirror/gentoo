@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+DEFINED_PHASES=install prepare setup
+DESCRIPTION=Short-term-memory training N-Back game
+EAPI=8
+HOMEPAGE=https://github.com/brain-workshop/brainworkshop/
+INHERIT=desktop python-single-r1
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~x86
+LICENSE=CC-Sampling-Plus-1.0 GPL-2+
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pyglet[python_targets_python3_10(-),sound] ) python_single_target_python3_11? ( dev-python/pyglet[python_targets_python3_11(-),sound] ) python_single_target_python3_12? ( dev-python/pyglet[python_targets_python3_12(-),sound] )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=0
+SRC_URI=https://github.com/brain-workshop/brainworkshop/archive/refs/tags/v5.0.3.tar.gz -> brainworkshop-5.0.3.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=f9e5f9622b638b3f6d62a3fa1cf3ba50
