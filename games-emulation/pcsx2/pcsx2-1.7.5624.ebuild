@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake desktop fcaps flag-o-matic
+inherit cmake desktop fcaps flag-o-matic toolchain-funcs
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -12,7 +12,7 @@ else
 	# unbundling on this package has become unmaintainable and, rather than
 	# handle submodules separately, using a tarball that includes them
 	SRC_URI="https://dev.gentoo.org/~ionen/distfiles/${P}.tar.xz"
-	KEYWORDS="-* amd64"
+	KEYWORDS="-* ~amd64"
 fi
 
 DESCRIPTION="PlayStation 2 emulator"
@@ -23,19 +23,22 @@ LICENSE="
 	ISC LGPL-2.1+ LGPL-3+ MIT OFL-1.1 ZLIB public-domain
 "
 SLOT="0"
-IUSE="alsa cpu_flags_x86_sse4_1 jack pulseaudio sndio test vulkan wayland"
+IUSE="alsa cpu_flags_x86_sse4_1 +clang jack pulseaudio sndio test vulkan wayland"
 REQUIRED_USE="cpu_flags_x86_sse4_1" # dies at runtime if no support
 RESTRICT="!test? ( test )"
 
 # dlopen: qtsvg, vulkan-loader, wayland
 COMMON_DEPEND="
+	app-arch/lz4:=
 	app-arch/xz-utils
+	app-arch/zstd:=
 	dev-libs/libaio
 	dev-qt/qtbase:6[concurrent,gui,widgets]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
 	media-libs/libpng:=
 	media-libs/libsdl2[haptic,joystick]
+	media-libs/libwebp:=
 	media-video/ffmpeg:=
 	net-libs/libpcap
 	net-misc/curl
@@ -62,6 +65,7 @@ DEPEND="
 "
 BDEPEND="
 	dev-qt/qttools:6[linguist]
+	clang? ( sys-devel/clang:* )
 	wayland? (
 		dev-util/wayland-scanner
 		kde-frameworks/extra-cmake-modules
@@ -69,7 +73,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.7.3773-lto.patch
 	"${FILESDIR}"/${PN}-1.7.4667-flags.patch
 	"${FILESDIR}"/${PN}-1.7.5232-cubeb-automagic.patch
 )
@@ -90,23 +93,26 @@ src_prepare() {
 }
 
 src_configure() {
+	# note that upstream only supports clang and ignores gcc issues, e.g.
+	# https://github.com/PCSX2/pcsx2/issues/10624#issuecomment-1890326047
+	# (CMakeLists.txt also gives a big warning if compiler is not clang)
+	if use clang && ! tc-is-clang; then
+		local -x CC=${CHOST}-clang CXX=${CHOST}-clang++
+		strip-unsupported-flags
+	fi
+
 	# for bundled old glslang (bug #858374)
 	use vulkan && append-flags -fno-strict-aliasing
 
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=no
-		-DDISABLE_BUILD_DATE=yes
+		-DDISABLE_ADVANCE_SIMD=yes
 		-DENABLE_TESTS=$(usex test)
 		-DUSE_LINKED_FFMPEG=yes
 		-DUSE_VTUNE=no
 		-DUSE_VULKAN=$(usex vulkan)
 		-DWAYLAND_API=$(usex wayland)
 		-DX11_API=yes # X libs are currently hard-required either way
-
-		# sse4.1 is the bare minimum required, -m is required at build time
-		# (see PCSX2Base.h) and it dies if no support at runtime (AppInit.cpp)
-		# https://github.com/PCSX2/pcsx2/pull/4329
-		-DARCH_FLAG=-msse4.1
 
 		# not packaged due to bug #885471, but still disable for no automagic
 		-DCMAKE_DISABLE_FIND_PACKAGE_Libbacktrace=yes
