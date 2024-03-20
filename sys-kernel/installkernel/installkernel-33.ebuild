@@ -19,7 +19,6 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x86-linux"
 IUSE="dracut efistub grub refind systemd systemd-boot uki ukify"
 REQUIRED_USE="
-	efistub? ( systemd )
 	systemd-boot? ( systemd )
 	ukify? ( uki )
 	?? ( efistub grub refind systemd-boot )
@@ -41,10 +40,12 @@ RDEPEND="
 		)
 	)
 	efistub? (
-		>=app-emulation/virt-firmware-24.2_p20240315-r2
-		|| (
-			sys-apps/systemd[boot(-)]
-			sys-apps/systemd-utils[boot(-)]
+		systemd? (
+			>=app-emulation/virt-firmware-24.2_p20240315-r2
+			|| (
+				sys-apps/systemd[boot(-)]
+				sys-apps/systemd-utils[boot(-)]
+			)
 		)
 	)
 	grub? ( sys-boot/grub )
@@ -90,7 +91,6 @@ src_install() {
 	use ukify && doexe hooks/60-ukify.install
 
 	exeinto /usr/lib/kernel/postinst.d
-	use uki && doexe hooks/90-uki-copy.install
 	use grub && doexe hooks/91-grub-mkconfig.install
 	use refind && doexe hooks/95-refind-copy-icon.install
 
@@ -98,8 +98,8 @@ src_install() {
 	doexe hooks/systemd/00-00machineid-directory.install
 	doexe hooks/systemd/10-copy-prebuilt.install
 	doexe hooks/systemd/90-compat.install
-	use efistub && doexe hooks/systemd/95-efistub-kernel-bootcfg.install
 	use grub && doexe hooks/systemd/91-grub-mkconfig.install
+	use efistub && doexe hooks/systemd/95-efistub-kernel-bootcfg.install
 	use refind && doexe hooks/systemd/95-refind-copy-icon.install
 
 	if use systemd; then
@@ -185,7 +185,7 @@ pkg_postinst() {
 		fi
 	fi
 
-	if use efistub && ! has_version "${CATEGORY}/${PN}[efistub]"; then
+	if use efistub; then
 		ewarn "Automated EFI Stub booting is highly experimental. UEFI implementations"
 		ewarn "often differ between vendors and as a result EFI stub booting is not"
 		ewarn "guaranteed to work for all UEFI systems. Ensure an alternative method"
