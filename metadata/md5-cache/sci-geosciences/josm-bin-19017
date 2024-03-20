@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=Java-based editor for the OpenStreetMap project
+EAPI=8
+HOMEPAGE=https://josm.openstreetmap.de/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop java-utils-2 xdg
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0 GPL-2+ GPL-3
+RDEPEND=>=virtual/jre-1.8
+SLOT=0
+SRC_URI=https://josm.openstreetmap.de/download/josm-snapshot-19017.jar
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	java-utils-2	b346c3901e71ba37137bae0b25b00221	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=a0cc76b429d9e64c40fe6426e6f9c6ba
