@@ -1,0 +1,14 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/glslang !crossdev-mingw? ( dev-util/mingw64-toolchain[abi_x86_32(-)?,abi_x86_64(-)?] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst preinst prepare pretend setup test
+DESCRIPTION=Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+EAPI=8
+HOMEPAGE=https://github.com/doitsujin/dxvk/
+INHERIT=flag-o-matic meson-multilib python-any-r1
+IUSE=+abi_x86_32 crossdev-mingw +d3d9 +d3d10 +d3d11 +dxgi +strip abi_x86_32 abi_x86_64
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=ZLIB Apache-2.0 MIT
+REQUIRED_USE=|| ( d3d9 d3d10 d3d11 dxgi ) d3d10? ( d3d11 ) d3d11? ( dxgi ) || ( abi_x86_32 abi_x86_64 )
+SLOT=0
+SRC_URI=https://github.com/doitsujin/dxvk/archive/refs/tags/v2.3.1.tar.gz -> dxvk-2.3.1.tar.gz https://github.com/KhronosGroup/SPIRV-Headers/archive/8b246ff75c6615ba4532fe4fde20f1be090c3764.tar.gz -> spirv-headers-8b246ff75c6615ba4532fe4fde20f1be090c3764.tar.gz https://github.com/KhronosGroup/Vulkan-Headers/archive/46dc0f6e514f5730784bb2cac2a7c731636839e8.tar.gz -> vulkan-headers-46dc0f6e514f5730784bb2cac2a7c731636839e8.tar.gz https://gitlab.freedesktop.org/JoshuaAshton/libdisplay-info/-/archive/275e6459c7ab1ddd4b125f28d0440716e4888078/libdisplay-info-275e6459c7ab1ddd4b125f28d0440716e4888078.tar.bz2 https://raw.githubusercontent.com/doitsujin/dxvk/cd21cd7fa3b0df3e0819e21ca700b7627a838d69/setup_dxvk.sh
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	8989922d980e5e870cc3de949d1b2586	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=7799d0329bfd49a16a16fb2b785286d7
