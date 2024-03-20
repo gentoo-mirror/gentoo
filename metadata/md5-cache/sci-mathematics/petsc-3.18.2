@@ -1,4 +1,4 @@
-BDEPEND=dev-build/cmake sys-apps/which virtual/pkgconfig virtual/fortran
+BDEPEND=dev-build/cmake virtual/pkgconfig virtual/fortran
 DEFINED_PHASES=configure install setup
 DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( dev-lang/python:3.11 dev-lang/python:3.10 dev-python/pypy3 ) virtual/fortran
 DESCRIPTION=Portable, Extensible Toolkit for Scientific Computation
@@ -13,4 +13,4 @@ REQUIRED_USE=afterimage? ( X ) complex-scalars? ( !hypre !superlu ) fftw? ( mpi 
 SLOT=0
 SRC_URI=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.18.2.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=4608edad129c91889b6515b20fc16ea0
+_md5_=9cbebf14569f86b9d4665804421ce9cd
