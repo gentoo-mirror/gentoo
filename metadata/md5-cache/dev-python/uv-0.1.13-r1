@@ -1,5 +1,6 @@
 BDEPEND=test? ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.10 dev-lang/python:3.11 dev-lang/python:3.12 ) >=virtual/rust-1.53
-DEFINED_PHASES=compile configure install pretend setup test unpack
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=dev-libs/libgit2:=
 DESCRIPTION=A Python package installer and resolver, written in Rust
 EAPI=8
 HOMEPAGE=https://github.com/astral-sh/uv/ https://pypi.org/project/uv/
@@ -8,8 +9,9 @@ IUSE=test debug
 KEYWORDS=~amd64
 LICENSE=|| ( Apache-2.0 MIT ) 0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD ISC MIT MPL-2.0 Unicode-DFS-2016 openssl
 PROPERTIES=test_network
+RDEPEND=dev-libs/libgit2:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/astral-sh/uv/archive/0.1.13.tar.gz -> uv-0.1.13.gh.tar.gz https://github.com/charliermarsh/rs-async-zip/archive/d76801da0943de985254fc6255c0e476b57c5836.tar.gz -> rs-async-zip-d76801da0943de985254fc6255c0e476b57c5836.gh.tar.gz https://github.com/zanieb/pubgrub/archive/aab132a3d4d444dd8dd41d8c4e605abd69dacfe1.tar.gz -> pubgrub-aab132a3d4d444dd8dd41d8c4e605abd69dacfe1.gh.tar.gz https://dev.gentoo.org/~mgorny/dist/uv-0.1.13-crates.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc
-_md5_=18e8ac89e0f5a8a17bdec604c7c682e9
+_md5_=73523e64e441b6ae7aeddce0613b4f07
