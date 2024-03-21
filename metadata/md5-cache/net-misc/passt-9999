@@ -1,12 +1,12 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile unpack
+DEFINED_PHASES=compile prepare unpack
 DESCRIPTION=User-mode networking daemons for VMs and namespaces, replacement for Slirp
 EAPI=8
 HOMEPAGE=https://passt.top/
-INHERIT=git-r3
+INHERIT=toolchain-funcs git-r3
 IUSE=static
 LICENSE=BSD GPL-2+
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
-_md5_=75b428f8e185ec4851f239f8a0fe4435
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_md5_=7761b34f6fb782ee269e7665bdef4668

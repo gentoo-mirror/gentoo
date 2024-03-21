@@ -1,10 +1,10 @@
-BDEPEND=virtual/pkgconfig test? ( net-misc/curl ) >=virtual/rust-1.53
-DEFINED_PHASES=compile configure install postinst postrm test unpack
+BDEPEND=virtual/pkgconfig test? ( net-misc/curl ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 >=virtual/rust-1.53
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=dev-libs/libxml2 media-libs/libjpeg-turbo:= gtk? ( dev-libs/glib:2 >=x11-libs/gdk-pixbuf-2.24.0:2 ) dev-libs/boost
 DESCRIPTION=RAW image formats decoding library
 EAPI=8
 HOMEPAGE=https://libopenraw.freedesktop.org/
-INHERIT=cargo gnome2-utils
+INHERIT=autotools cargo gnome2-utils
 IUSE=gtk test debug
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=GPL-3 LGPL-3 MPL-2.0
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libxml2 media-libs/libjpeg-turbo:= gtk? ( dev-libs/glib:2 >=x11
 RESTRICT=!test? ( test )
 SLOT=0/9
 SRC_URI=https://libopenraw.freedesktop.org/download/libopenraw-0.3.7.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad
-_md5_=6c3b8a9f379c4df1cc3ce73dabb42b1e
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad
+_md5_=aa287161188470fc6f86d12568f2002f
