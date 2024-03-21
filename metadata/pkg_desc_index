@@ -901,7 +901,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.54 1.32.59 1.32.64 1.32.65 1.32.66: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.54 1.32.59 1.32.64 1.32.65 1.32.66 1.32.67: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5: Distribution-independent installer framework
@@ -5499,7 +5499,7 @@ dev-libs/libgcrypt 1.10.2 1.10.3-r1 1.10.3-r2: General purpose crypto library ba
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1-r1: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6-r1: GObject-based interfaces and classes for commonly used data structures
-dev-libs/libgit2 1.7.1 1.7.2: A linkable library for Git
+dev-libs/libgit2 1.7.1 1.7.2 1.8.0: A linkable library for Git
 dev-libs/libgit2-glib 1.2.0: Git library for GLib
 dev-libs/libglib-testing 0.1.1: Libglib-testing is a test library providing test harnesses and mock classes
 dev-libs/libgnome-games-support 1.8.2 2.0.0: Library for code common to GNOME games
@@ -8223,8 +8223,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.34.54 1.34.59 1.34.64 1.34.65 1.34.66: The AWS SDK for Python
-dev-python/botocore 1.34.54 1.34.59 1.34.64 1.34.65 1.34.66: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.54 1.34.59 1.34.64 1.34.65 1.34.66 1.34.67: The AWS SDK for Python
+dev-python/botocore 1.34.54 1.34.59 1.34.64 1.34.65 1.34.66 1.34.67: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8256,7 +8256,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3021.3.16-r4: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.85.3 0.86.0: CloudFormation Linter
+dev-python/cfn-lint 0.85.3 0.86.0 0.86.1: CloudFormation Linter
 dev-python/cftime 1.6.3: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8-r1: Tools and libraries for control groups of Linux
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
@@ -8565,7 +8565,7 @@ dev-python/hvac 2.1.0: HashiCorp Vault API client
 dev-python/hypercorn 0.16.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.98.9 6.98.15 6.98.17 6.98.18 6.99.0 6.99.2 6.99.4 6.99.5 6.99.6 6.99.7 6.99.8 6.99.9: A library for property based testing
+dev-python/hypothesis 6.98.9 6.98.15 6.98.17 6.98.18 6.99.0 6.99.2 6.99.4 6.99.5 6.99.6 6.99.7 6.99.8 6.99.9 6.99.11: A library for property based testing
 dev-python/icalendar 5.0.11 5.0.12: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.5.35: File identification library for Python
 dev-python/idna 3.6: Internationalized Domain Names in Applications (IDNA)
@@ -8578,7 +8578,7 @@ dev-python/imapclient 3.0.1: easy-to-use, pythonic, and complete IMAP client lib
 dev-python/iminuit 2.21.3 2.25.2: Minuit numerical function minimization in Python
 dev-python/immutabledict 4.1.0 4.2.0: An immutable wrapper around dictionaries
 dev-python/immutables 0.20: A high-performance immutable mapping type for Python
-dev-python/importlib-metadata 7.0.1 7.0.2: Read metadata from Python packages
+dev-python/importlib-metadata 7.0.1 7.0.2 7.1.0: Read metadata from Python packages
 dev-python/incremental 22.10.0-r1: Incremental is a small library that versions your Python projects
 dev-python/indexed-gzip 1.8.7: Fast random access of gzip files in Python
 dev-python/inflect 7.0.0: Correctly inflect words and numbers
@@ -9286,7 +9286,7 @@ dev-python/pythran 0.13.1 0.14.0 0.15.0-r1: Ahead of Time compiler for numeric k
 dev-python/pytidylib 0.3.2-r2: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8-r1: A small Python module to parse various kinds of time expressions
 dev-python/pytoolconfig 1.3.1: Python tool configuration
-dev-python/pytools 2023.1.1: Collection of tools missing from the Python standard library
+dev-python/pytools 2023.1.1 2024.1.1: Collection of tools missing from the Python standard library
 dev-python/pytrie 0.4.0-r1: A pure Python implementation of the trie data structure
 dev-python/pytz 2024.1: World timezone definitions for Python
 dev-python/pytzdata 2020.1-r2: The Olson timezone database for Python
@@ -9513,7 +9513,7 @@ dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.51 1.4.52 2.0.27 2.0.28: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 23.0.1 23.0.3 23.0.4: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 23.0.1 23.0.3 23.0.4 23.0.5: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.4.4: A non-validating SQL parser module for Python
 dev-python/sshpubkeys 3.3.1-r1: OpenSSH public key parser for Python
@@ -9625,7 +9625,7 @@ dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & J
 dev-python/tzdata 9999: tzdata shim to satisfy requirements (while using system tzdata)
 dev-python/tzlocal 5.2: tzinfo object for the local timezone
 dev-python/u-msgpack-python 2.8.0: A portable, lightweight MessagePack serializer and deserializer
-dev-python/ubelt 1.3.4: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
+dev-python/ubelt 1.3.4 1.3.5: A stdlib like feel, and extra batteries. Hashing, Caching, Timing, Progress
 dev-python/uc-micro-py 1.0.3: Micro subset of unicode data files for linkify-it-py projects
 dev-python/ujson 5.9.0: Ultra fast JSON encoder and decoder for Python
 dev-python/ukkonen 1.0.1-r1: Implementation of bounded Levenshtein distance (Ukkonen)
