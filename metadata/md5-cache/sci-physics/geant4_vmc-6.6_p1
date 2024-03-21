@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sci-physics/clhep:= >=sci-physics/geant-4.11.1:=[opengl,geant3?] sci-physics/root:= >=sci-physics/vmc-2.0:= vgm? ( >=sci-physics/vgm-5.1:= ) test? ( >=sci-physics/geant-4.11.1:=[gdml] )
+DESCRIPTION=Virtual Monte Carlo Geant4 implementation
+EAPI=8
+HOMEPAGE=https://github.com/vmc-project/geant4_vmc
+INHERIT=cmake virtualx
+IUSE=doc examples geant3 +g4root vgm test test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=sci-physics/clhep:= >=sci-physics/geant-4.11.1:=[opengl,geant3?] sci-physics/root:= >=sci-physics/vmc-2.0:= vgm? ( >=sci-physics/vgm-5.1:= )
+RESTRICT=!examples? ( test ) !geant3? ( test ) !g4root? ( test ) !test? ( test ) !vgm? ( test ) !test? ( test )
+SLOT=4
+SRC_URI=https://github.com/vmc-project/geant4_vmc/archive/v6-6-p1.tar.gz -> geant4_vmc-6.6_p1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	virtualx	817571665ee28575da44ee08135089e5
+_md5_=07f470d9c5980cd4963120fba019b6dc
