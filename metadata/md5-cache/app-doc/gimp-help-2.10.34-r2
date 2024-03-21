@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.11 dev-libs/libxml2[python,python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-libs/libxml2[python,python_targets_python3_10(-)] ) ) app-text/docbook-xml-dtd dev-lang/perl dev-libs/libxslt gnome-base/librsvg sys-devel/gettext
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 dev-libs/libxml2[python,python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-libs/libxml2[python,python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-libs/libxml2[python,python_targets_python3_10(-)] ) ) app-text/docbook-xml-dtd dev-lang/perl dev-libs/libxslt gnome-base/librsvg sys-devel/gettext
 DEFINED_PHASES=compile configure install setup test
 DESCRIPTION=GNU Image Manipulation Program help files
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=FDL-1.2+
 SLOT=2
 SRC_URI=mirror://gimp/help/gimp-help-2.10.34.tar.bz2
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=6813cd88e1fff9cf8f8ddebe237feb10
+_md5_=2f5046b84b06b85c4c5c693a245bc07a

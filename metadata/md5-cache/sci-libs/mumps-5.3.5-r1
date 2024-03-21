@@ -3,13 +3,13 @@ DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=virtual/blas metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( sci-libs/scalapack ) !mpi? ( virtual/lapack ) scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] ) virtual/fortran
 DESCRIPTION=MUltifrontal Massively Parallel sparse direct matrix Solver
 EAPI=7
-HOMEPAGE=http://mumps.enseeiht.fr/
+HOMEPAGE=https://mumps-solver.org/
 INHERIT=fortran-2 flag-o-matic multilib toolchain-funcs
 IUSE=doc examples metis mpi +scotch static-libs
 KEYWORDS=~amd64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=public-domain
 RDEPEND=virtual/blas metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( sci-libs/scalapack ) !mpi? ( virtual/lapack ) scotch? ( >=sci-libs/scotch-6.0.1:=[mpi=] ) virtual/fortran
 SLOT=0
-SRC_URI=http://mumps.enseeiht.fr/MUMPS_5.3.5.tar.gz
+SRC_URI=https://mumps-solver.org/MUMPS_5.3.5.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
-_md5_=a9a58ec4fed4cc58267e49000463bdf8
+_md5_=ad05cb044c8a209e2546cf8af869ecb3
