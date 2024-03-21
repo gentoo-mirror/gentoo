@@ -1,7 +1,8 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
 inherit autotools
 
 DESCRIPTION="Grab news from a remote NNTP server and feed them to another"
@@ -14,17 +15,19 @@ IUSE="perl ssl"
 
 RDEPEND="
 	sys-libs/gdbm:=
-	ssl? ( dev-libs/openssl:0= )
+	ssl? (
+		dev-libs/openssl:0=
+	)
 "
 DEPEND="${RDEPEND}
 	sys-libs/db
 	perl? ( dev-lang/perl )
 "
 
-PATCHES=( "${FILESDIR}/${PV}-fputs.patch" )
-
 src_prepare() {
 	default
+
+	rm java/*.class || die
 
 	# Fix paths to the locations in Gentoo
 	sed -i \
@@ -36,8 +39,13 @@ src_prepare() {
 }
 
 src_configure() {
-	use ssl || sed -i -e 's/^SSL_/#SSL_/' Makefile.in || die "ssl sed failed"
-	use perl || sed -i -e 's/^PERL_/#PERL_/' Makefile.in || die "perl sed failed"
+	if use ssl; then
+		sed -i -e 's/^SSL_/#SSL_/' Makefile.in || die "ssl sed failed"
+	fi
+
+	if use perl; then
+		sed -i -e 's/^PERL_/#PERL_/' Makefile.in || die "perl sed failed"
+	fi
 
 	econf --without-inn-lib --without-inn-include
 }

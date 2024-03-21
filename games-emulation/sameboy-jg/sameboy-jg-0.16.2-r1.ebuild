@@ -33,6 +33,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	# https://bugs.gentoo.org/926077
+	"${FILESDIR}"/${P}-strict-aliasing.patch
+)
+
 src_compile() {
 	emake -C jollygood \
 		CC="$(tc-getCC)" \
