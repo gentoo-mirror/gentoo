@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=dev-ada/gnatcoll-core:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),shared?,static-libs] dev-ada/libgpr:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),shared?,static-libs] dev-ada/xmlada:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),shared?,static-libs] wsdl? ( dev-ada/libadalang:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),static-libs] dev-ada/langkit:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),static-libs] dev-ada/gnatcoll-bindings:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),gmp,iconv,static-libs] dev-libs/gmp ) ssl? ( dev-libs/openssl ) !dev-ada/templates-parser dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-)]
+DESCRIPTION=A complete Web development framework
+EAPI=8
+HOMEPAGE=http://libre.adacore.com/tools/aws/
+INHERIT=ada multiprocessing
+IUSE=+shared ssl wsdl ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-ada/gnatcoll-core:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),shared?,static-libs] dev-ada/libgpr:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),shared?,static-libs] dev-ada/xmlada:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),shared?,static-libs] wsdl? ( dev-ada/libadalang:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),static-libs] dev-ada/langkit:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),static-libs] dev-ada/gnatcoll-bindings:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),gmp,iconv,static-libs] dev-libs/gmp ) ssl? ( dev-libs/openssl ) !dev-ada/templates-parser
+REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 )
+SLOT=0
+SRC_URI=https://github.com/AdaCore/aws/archive/refs/tags/v24.0.0.tar.gz -> aws-24.0.0.tar.gz https://github.com/AdaCore/templates-parser/archive/refs/tags/v24.0.0.tar.gz -> templates-parser-24.0.0.tar.gz
+_eclasses_=ada	f59e3151d12cf89115ffac32a03e7d31	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
+_md5_=04de6f2c9cd26b44ff61dc0817aee282
