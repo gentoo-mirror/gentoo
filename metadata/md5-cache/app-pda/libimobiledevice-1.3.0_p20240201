@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.libimobiledevice.org/
 INHERIT=autotools
 IUSE=doc gnutls readline static-libs
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~s390 ~x86
 LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=app-pda/libimobiledevice-glue:= >=app-pda/libplist-2.3:= >=app-pda/libusbmuxd-2.0.2:= gnutls? ( dev-libs/libgcrypt:0 >=dev-libs/libtasn1-1.1 >=net-libs/gnutls-2.2.0 ) !gnutls? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:= )
 SLOT=0/1.0-6
 SRC_URI=https://github.com/libimobiledevice/libimobiledevice/archive/73b6fd183872096f20e6d1007429546a317a7cb1.tar.gz -> libimobiledevice-1.3.0_p20240201.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
-_md5_=c4b2662ae4d72b5f0b398ce4b2c68102
+_md5_=677079c842e324451b619ec5dbc344b4
