@@ -32,6 +32,15 @@ src_compile() {
 		PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
+src_test() {
+	local dir
+	for dir in asm link fix gfx; do
+		pushd "test/${dir}" >/dev/null || die
+		./test.sh || die
+		popd >/dev/null || die
+	done
+}
+
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr Q= STRIP= install
 	dodoc README.rst
