@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/xdp-project/${PN}/archive/refs/tags/v${PV}.tar.gz ->
 
 LICENSE="GPL-2 LGPL-2.1 BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="+tools"
 
 DEPEND="
@@ -32,23 +32,32 @@ QA_PREBUILT="usr/lib/bpf/*.o"
 
 MAKEOPTS+=" V=1"
 
-PATCHES=(
-	"${FILESDIR}"/1.4.0-no-Werror.patch
-	"${FILESDIR}"/1.4.0-toolchain.patch
-)
+src_prepare() {
+	# remove -Werror: #899744
+	sed -i 's/-Werror//g' lib/Makefile lib/defines.mk || die
+	sed -i '/-Werror/d' lib/common.mk lib/libxdp/Makefile \
+		lib/libxdp/tests/Makefile lib/util/Makefile || die
+
+	default
+}
 
 src_configure() {
+	# filter LTO: #861587
+	filter-lto
+
+	# filter LDFLAGS some more: #916591
+	filter-ldflags -Wl,--{icf,lto}*
+
+	# force ld.bfd: #916591
+	tc-ld-force-bfd
+
 	export CC="$(tc-getCC)"
-	export LD="$(tc-getLD)"
 	export PREFIX="${EPREFIX}/usr"
 	export LIBDIR="${PREFIX}/$(get_libdir)"
 	export BPF_OBJECT_DIR="${PREFIX}/lib/bpf"
 	export PRODUCTION=1
 	export DYNAMIC_LIBXDP=1
 	export FORCE_SYSTEM_LIBBPF=1
-
-	# bug 861587
-	filter-lto
 
 	default
 }
