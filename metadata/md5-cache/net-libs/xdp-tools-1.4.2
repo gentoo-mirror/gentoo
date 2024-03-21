@@ -1,15 +1,15 @@
 BDEPEND=sys-apps/grep[pcre] >=sys-devel/clang-11.0.0
-DEFINED_PHASES=configure install postinst test
+DEFINED_PHASES=configure install postinst prepare test
 DEPEND=dev-libs/libbpf:= dev-util/bpftool net-libs/libpcap sys-libs/zlib virtual/libelf
 DESCRIPTION=The libxdp library and various tools for use with XDP
 EAPI=8
 HOMEPAGE=https://github.com/xdp-project/xdp-tools
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=+tools
-KEYWORDS=amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2 LGPL-2.1 BSD-2
 RDEPEND=dev-libs/libbpf:= dev-util/bpftool net-libs/libpcap sys-libs/zlib virtual/libelf
 SLOT=0
-SRC_URI=https://github.com/xdp-project/xdp-tools/archive/refs/tags/v1.4.0.tar.gz -> xdp-tools-1.4.0.tar.gz
+SRC_URI=https://github.com/xdp-project/xdp-tools/archive/refs/tags/v1.4.2.tar.gz -> xdp-tools-1.4.2.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
-_md5_=cf40cbc78fd24ef54c6352dac293f4f3
+_md5_=e37c395840f3d50d27b6851fd6de0509

@@ -1,0 +1,16 @@
+BDEPEND=dev-go/go-md2man >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install setup unpack
+DEPEND=>=app-crypt/gpgme-1.5.5:= >=dev-libs/libassuan-2.4.3:= btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) device-mapper? ( >=sys-fs/lvm2-2.02.145:= ) rootless? ( sys-apps/shadow:= )
+DESCRIPTION=Work with remote container images registries
+EAPI=8
+HOMEPAGE=https://github.com/containers/skopeo
+INHERIT=go-module linux-info
+IUSE=btrfs device-mapper rootless
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT
+RDEPEND=>=app-crypt/gpgme-1.5.5:= >=dev-libs/libassuan-2.4.3:= btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) device-mapper? ( >=sys-fs/lvm2-2.02.145:= ) rootless? ( sys-apps/shadow:= ) app-containers/containers-common
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/containers/skopeo/archive/v1.15.0.tar.gz -> skopeo-1.15.0.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	go-env	14f8f70fe58c14d7ab44fff15a05ac47	go-module	83fd3ed1657cfc316c93d6a37018290d	linux-info	7ca3057b277f1e5978947b4cc289ce62
+_md5_=f3b88cce377fde4c2f66a2a2c2653f54
