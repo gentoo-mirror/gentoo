@@ -1,17 +1,17 @@
-BDEPEND=test? ( app-containers/docker app-containers/docker-cli sys-fs/fuse python_targets_python3_10? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+BDEPEND=test? ( app-containers/docker app-containers/docker-cli sys-fs/fuse python_targets_python3_10? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/setuptools-scm[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/sphinx[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEPEND=dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/setuptools-scm[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/sphinx[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DESCRIPTION=A dockerized approach to test a Gentoo package within a clean stage3 container
 EAPI=8
 HOMEPAGE=https://ebuildtester.readthedocs.io/
 INHERIT=bash-completion-r1 distutils-r1 pypi
-IUSE=test test python_targets_python3_10 python_targets_python3_11
+IUSE=test test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=app-containers/docker app-containers/docker-cli sys-fs/fuse python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=app-containers/docker app-containers/docker-cli sys-fs/fuse python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/e/ebuildtester/ebuildtester-42.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=11976ec0f71cd6a498731ce1cc5edd19
+_md5_=6cafee242dedf9eaab2fd1288b3e5e0a
