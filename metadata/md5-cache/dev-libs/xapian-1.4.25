@@ -1,4 +1,4 @@
-DEFINED_PHASES=configure install
+DEFINED_PHASES=configure install test
 DEPEND=sys-libs/zlib:= !elibc_Darwin? ( !elibc_SunOS? ( sys-apps/util-linux ) ) elibc_SunOS? ( sys-libs/libuuid )
 DESCRIPTION=Xapian Probabilistic Information Retrieval library
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=sys-libs/zlib:= !elibc_Darwin? ( !elibc_SunOS? ( sys-apps/util-linux ) )
 SLOT=0/30
 SRC_URI=https://oligarchy.co.uk/xapian/1.4.25/xapian-core-1.4.25.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=b5dac0b0849ffe31bb904f9d82aecbac
+_md5_=364eb0a67968d42ca1a0d2b60ed104a0
