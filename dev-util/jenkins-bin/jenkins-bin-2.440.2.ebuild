@@ -11,7 +11,6 @@ LICENSE="MIT"
 SRC_URI="https://get.jenkins.io/war-stable/${PV}/${PN/-bin/}.war -> ${P}.war"
 SLOT="lts"
 KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux"
-IUSE=""
 
 DEPEND="acct-group/jenkins
 	acct-user/jenkins"
