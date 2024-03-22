@@ -1,0 +1,13 @@
+BDEPEND=>=dev-util/cargo-c-0.9.14 >=virtual/rust-1.64 >=virtual/rust-1.53
+DEFINED_PHASES=compile configure install test unpack
+DESCRIPTION=Palette quantization library that powers pngquant and other PNG optimizers
+EAPI=8
+HOMEPAGE=https://pngquant.org/lib/
+INHERIT=cargo
+IUSE=debug
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~s390 ~sparc
+LICENSE=GPL-3+ MIT Unicode-DFS-2016 ZLIB
+SLOT=0/0
+SRC_URI=https://github.com/ImageOptim/libimagequant/archive/4.3.0.tar.gz -> libimagequant-4.3.0.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/media-gfx/libimagequant/imagequant-4.3.0-crates.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0
+_md5_=54a2abf9c6defdfb8d93d718c9d9739c
