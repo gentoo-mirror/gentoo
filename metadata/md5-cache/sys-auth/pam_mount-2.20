@@ -5,9 +5,9 @@ DESCRIPTION=A PAM module that can mount volumes for a user session
 EAPI=8
 HOMEPAGE=https://inai.de/projects/pam_mount/
 IUSE=crypt ssl selinux
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-3
 RDEPEND=>=sys-libs/pam-0.99 >=sys-libs/libhx-3.12.1:= >=sys-apps/util-linux-2.20:= >=dev-libs/libxml2-2.6:= dev-libs/libpcre2 crypt? ( >=sys-fs/cryptsetup-1.1.0:= ) ssl? ( dev-libs/openssl:0= ) selinux? ( sys-libs/libselinux )
 SLOT=0
 SRC_URI=https://inai.de/files/pam_mount/pam_mount-2.20.tar.xz
-_md5_=1f8f503e800a63b9c55c96547fe9dd8c
+_md5_=36c7cc804e240b8800181fb5eda1fbc1
