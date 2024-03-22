@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install unpack
+DEPEND=dev-cpp/gtkmm:3.0 media-libs/openal
+DESCRIPTION=FreeDoko is a Doppelkopf-game
+EAPI=8
+HOMEPAGE=https://free-doko.sourceforge.net
+INHERIT=desktop flag-o-matic toolchain-funcs
+IUSE=+backgrounds +gnomecards +kdecards +openclipartcards +pysolcards +xskatcards
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-cpp/gtkmm:3.0 media-libs/openal
+SLOT=0
+SRC_URI=mirror://sourceforge/free-doko/FreeDoko_0.8.0.src.zip backgrounds? ( mirror://sourceforge/free-doko/backgrounds.zip -> freedoko-backgrounds.zip ) gnomecards? ( mirror://sourceforge/free-doko/gnome-games.zip ) kdecards? ( mirror://sourceforge/free-doko/kdecarddecks.zip ) openclipartcards? ( mirror://sourceforge/free-doko/openclipart.zip ) pysolcards? ( mirror://sourceforge/free-doko/pysol.zip ) xskatcards? ( mirror://sourceforge/free-doko/xskat.zip ) !xskatcards? ( !kdecards? ( !gnomecards? ( !openclipartcards? ( !pysolcards? ( mirror://sourceforge/free-doko/xskat.zip ) ) ) ) )
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=f935cf5f2959202d50cd0667c094b797
