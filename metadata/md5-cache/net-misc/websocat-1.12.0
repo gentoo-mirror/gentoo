@@ -1,0 +1,16 @@
+BDEPEND=>=virtual/rust-1.53
+DEFINED_PHASES=compile configure install test unpack
+DEPEND=>=virtual/rust-1.53 ssl? ( dev-libs/openssl:0= )
+DESCRIPTION=Command-line client for WebSockets, like netcat, with socat-like functions
+EAPI=8
+HOMEPAGE=https://github.com/vi/websocat
+INHERIT=cargo
+IUSE=ssl debug
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD ISC MIT Unicode-DFS-2016
+RDEPEND=ssl? ( dev-libs/openssl:0= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/vi/websocat/archive/v1.12.0.tar.gz -> websocat-1.12.0.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/net-misc/websocat/websocat-1.12.0-crates.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0
+_md5_=db82f1c4137c9c673a38fa0552ad91f3

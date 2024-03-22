@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://tomcat.apache.org
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64
+KEYWORDS=amd64 ~arm ~arm64
 LICENSE=Apache-2.0
 RDEPEND=>=dev-java/ant-1.10.14-r1:0 dev-java/bcel:0 >=dev-java/commons-compress-1.26.0:0 dev-java/commons-io:1 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/tomcat/jakartaee-migration/v1.0.8/source/jakartaee-migration-1.0.8-src.tar.gz -> jakartaee-migration-1.0.8-sources.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22
-_md5_=d56d5e59682ce374f6d6ea592f5c30d8
+_md5_=a6751608e6b44ebb5ad2baa5c5ad2061
