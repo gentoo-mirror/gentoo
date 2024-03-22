@@ -3,7 +3,7 @@ DEPEND=java? ( >=virtual/jre-1.8:= ) ncurses? ( sys-libs/ncurses:0= ) ncurses? (
 DESCRIPTION=Common Data Format I/O library for multi-dimensional data sets
 EAPI=7
 HOMEPAGE=https://cdf.gsfc.nasa.gov
-INHERIT=java-pkg-opt-2 multilib toolchain-funcs
+INHERIT=flag-o-matic java-pkg-opt-2 multilib toolchain-funcs
 IUSE=doc examples java ncurses static-libs java
 KEYWORDS=amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=CDF
@@ -11,5 +11,5 @@ RDEPEND=java? ( >=virtual/jre-1.8:= ) ncurses? ( sys-libs/ncurses:0= ) java? ( >
 RESTRICT=bindist
 SLOT=0
 SRC_URI=https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_0-dist-cdf.tar.gz java? ( https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_0-dist-java.tar.gz ) doc? ( https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf38ifd.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380crm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380csrm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380frm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380prm.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380ug.pdf https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/cdf38_0/unix//cdf38_documentation/cdf380vbrm.pdf )
-_eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
-_md5_=375d8888131cc79a2b79cb8784b77353
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629
+_md5_=e14ce6f38d33f1ad4cbc490b16195a93
