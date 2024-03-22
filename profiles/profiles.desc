@@ -297,33 +297,33 @@ ia64		default/linux/ia64/23.0/split-usr/desktop/gnome			exp
 
 # LoongArch Profiles
 # @MAINTAINER: loong@gentoo.org
-loong		default/linux/loong/22.0/la64v100/lp64d						stable
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop					stable
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/gnome				dev
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/gnome/systemd			dev
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/gnome/systemd/merged-usr	dev
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/plasma				stable
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/plasma/systemd			stable
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/plasma/systemd/merged-usr	stable
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/systemd				stable
-loong		default/linux/loong/22.0/la64v100/lp64d/desktop/systemd/merged-usr		stable
+loong		default/linux/loong/22.0/la64v100/lp64d						exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop					exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/gnome				exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/gnome/systemd			exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/gnome/systemd/merged-usr	exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/plasma				exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/plasma/systemd			exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/plasma/systemd/merged-usr	exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/systemd				exp
+loong		default/linux/loong/22.0/la64v100/lp64d/desktop/systemd/merged-usr		exp
 loong		default/linux/loong/22.0/la64v100/lp64d/developer				exp
-loong		default/linux/loong/22.0/la64v100/lp64d/systemd					stable
-loong		default/linux/loong/22.0/la64v100/lp64d/systemd/merged-usr			stable
+loong		default/linux/loong/22.0/la64v100/lp64d/systemd					exp
+loong		default/linux/loong/22.0/la64v100/lp64d/systemd/merged-usr			exp
 loong		default/linux/loong/23.0/la64v100/lp64d						stable
-loong		default/linux/loong/23.0/la64v100/lp64d/llvm					exp
-loong		default/linux/loong/23.0/la64v100/lp64d/llvm/systemd				exp
-loong		default/linux/loong/23.0/la64v100/lp64d/desktop					exp
-loong		default/linux/loong/23.0/la64v100/lp64d/desktop/gnome				exp
-loong		default/linux/loong/23.0/la64v100/lp64d/desktop/gnome/systemd			exp
-loong		default/linux/loong/23.0/la64v100/lp64d/desktop/plasma				exp
-loong		default/linux/loong/23.0/la64v100/lp64d/desktop/plasma/systemd			exp
-loong		default/linux/loong/23.0/la64v100/lp64d/desktop/systemd				exp
-loong		default/linux/loong/23.0/la64v100/lp64d/systemd					exp
-loong		default/linux/loong/23.0/la64v100/split-usr/lp64d				exp
-loong		default/linux/loong/23.0/la64v100/split-usr/lp64d/desktop			exp
-loong		default/linux/loong/23.0/la64v100/split-usr/lp64d/desktop/gnome			exp
-loong		default/linux/loong/23.0/la64v100/split-usr/lp64d/desktop/plasma		exp
+loong		default/linux/loong/23.0/la64v100/lp64d/llvm					dev
+loong		default/linux/loong/23.0/la64v100/lp64d/llvm/systemd				dev
+loong		default/linux/loong/23.0/la64v100/lp64d/desktop					stable
+loong		default/linux/loong/23.0/la64v100/lp64d/desktop/gnome				dev
+loong		default/linux/loong/23.0/la64v100/lp64d/desktop/gnome/systemd			dev
+loong		default/linux/loong/23.0/la64v100/lp64d/desktop/plasma				stable
+loong		default/linux/loong/23.0/la64v100/lp64d/desktop/plasma/systemd			stable
+loong		default/linux/loong/23.0/la64v100/lp64d/desktop/systemd				stable
+loong		default/linux/loong/23.0/la64v100/lp64d/systemd					stable
+loong		default/linux/loong/23.0/la64v100/split-usr/lp64d				stable
+loong		default/linux/loong/23.0/la64v100/split-usr/lp64d/desktop			stable
+loong		default/linux/loong/23.0/la64v100/split-usr/lp64d/desktop/gnome			dev
+loong		default/linux/loong/23.0/la64v100/split-usr/lp64d/desktop/plasma		stable
 
 
 # M68K Profiles
@@ -333,6 +333,7 @@ m68k		default/linux/m68k/17.0/systemd/merged-usr			exp
 m68k		default/linux/m68k/23.0						exp
 m68k		default/linux/m68k/23.0/systemd					exp
 m68k		default/linux/m68k/23.0/split-usr				exp
+
 
 # MIPS Profiles
 # @MAINTAINER: mips@gentoo.org
@@ -394,6 +395,7 @@ mips		default/linux/mips/23.0/split-usr/n64				exp
 mips		default/linux/mips/23.0/split-usr/multilib/n32			exp
 mips		default/linux/mips/23.0/split-usr/multilib/n64			exp
 
+
 # Deprecated PPC64 Profiles
 # @MAINTAINER: ppc64@gentoo.org
 ppc		default/linux/powerpc/ppc64/17.0/32bit-userland				exp
@@ -402,28 +404,24 @@ ppc		default/linux/powerpc/ppc64/17.0/32bit-userland/desktop/gnome		exp
 ppc		default/linux/powerpc/ppc64/17.0/32bit-userland/desktop/gnome/systemd	exp
 ppc		default/linux/powerpc/ppc64/17.0/32bit-userland/developer		exp
 
+
 # PPC profiles
 # @MAINTAINER: gyakovlev@gentoo.org, ppc@gentoo.org, musl@gentoo.org
-ppc		default/linux/ppc/17.0						stable
-ppc		default/linux/ppc/17.0/desktop					stable
-ppc		default/linux/ppc/17.0/desktop/gnome				stable
-ppc		default/linux/ppc/17.0/desktop/gnome/systemd/merged-usr		stable
-ppc		default/linux/ppc/17.0/systemd/merged-usr			stable
+ppc		default/linux/ppc/17.0						exp
+ppc		default/linux/ppc/17.0/desktop					exp
+ppc		default/linux/ppc/17.0/desktop/gnome				exp
+ppc		default/linux/ppc/17.0/desktop/gnome/systemd/merged-usr		exp
+ppc		default/linux/ppc/17.0/systemd/merged-usr			exp
 ppc		default/linux/ppc/17.0/developer				exp
-ppc		default/linux/ppc/17.0/musl					dev
-ppc		default/linux/ppc/17.0/musl/hardened				exp
 ppc		default/linux/ppc/23.0						stable
-ppc		default/linux/ppc/23.0/desktop					exp
-ppc		default/linux/ppc/23.0/desktop/gnome				exp
-ppc		default/linux/ppc/23.0/desktop/gnome/systemd			exp
-ppc		default/linux/ppc/23.0/systemd					exp
-ppc		default/linux/ppc/23.0/musl					exp
-ppc		default/linux/ppc/23.0/musl/hardened				exp
-ppc		default/linux/ppc/23.0/split-usr				exp
-ppc		default/linux/ppc/23.0/split-usr/desktop			exp
-ppc		default/linux/ppc/23.0/split-usr/desktop/gnome			exp
-ppc		default/linux/ppc/23.0/split-usr/musl				exp
-ppc		default/linux/ppc/23.0/split-usr/musl/hardened			exp
+ppc		default/linux/ppc/23.0/desktop					stable
+ppc		default/linux/ppc/23.0/desktop/gnome				stable
+ppc		default/linux/ppc/23.0/desktop/gnome/systemd			stable
+ppc		default/linux/ppc/23.0/systemd					stable
+ppc		default/linux/ppc/23.0/split-usr				stable
+ppc		default/linux/ppc/23.0/split-usr/desktop			stable
+ppc		default/linux/ppc/23.0/split-usr/desktop/gnome			stable
+
 
 # PPC64 profiles
 # @MAINTAINER: gyakovlev@gentoo.org, ppc64@gentoo.org, musl@gentoo.org
@@ -673,6 +671,12 @@ mips		default/linux/mips/23.0/split-usr/mipsel/o32/musl		exp
 mips		default/linux/mips/23.0/split-usr/mipsel/n64/musl		exp
 mips		default/linux/mips/23.0/split-usr/o32/musl			exp
 mips		default/linux/mips/23.0/split-usr/n64/musl			exp
+ppc		default/linux/ppc/17.0/musl					exp
+ppc		default/linux/ppc/17.0/musl/hardened				exp
+ppc		default/linux/ppc/23.0/musl					dev
+ppc		default/linux/ppc/23.0/musl/hardened				exp
+ppc		default/linux/ppc/23.0/split-usr/musl				dev
+ppc		default/linux/ppc/23.0/split-usr/musl/hardened			exp
 riscv		default/linux/riscv/20.0/rv64gc/lp64d/musl			dev
 riscv		default/linux/riscv/20.0/rv64gc/lp64/musl			dev
 riscv		default/linux/riscv/23.0/rv64/lp64d/musl			exp
