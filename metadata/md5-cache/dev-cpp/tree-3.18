@@ -1,0 +1,13 @@
+BDEPEND=doc? ( app-text/doxygen )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=An STL-like tree class
+EAPI=8
+HOMEPAGE=https://github.com/kpeeters/tree.hh
+INHERIT=docs toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=|| ( GPL-2 GPL-3 )
+SLOT=0
+SRC_URI=https://github.com/kpeeters/tree.hh/archive/refs/tags/3.18.tar.gz -> tree-3.18.tar.gz
+_eclasses_=docs	7f3c0d47338743498c69f1887a139f57	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=0038840ae17be8dc2a89a2628b7059c4
