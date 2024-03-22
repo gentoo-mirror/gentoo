@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/
 INHERIT=cmake
 IUSE=+brotli bzip2 compute dataset +json lz4 +parquet re2 +snappy ssl test zlib zstd
-KEYWORDS=~amd64 ~arm64 ~hppa ~riscv
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib:= ) zstd? ( app-arch/zstd:= )
 REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/15
 SRC_URI=mirror://apache/arrow/arrow-15.0.2/apache-arrow-15.0.2.tar.gz test? ( https://github.com/apache/parquet-testing/archive/d69d979223e883faef9dc6fe3cf573087243c28a.tar.gz -> apache-arrow-parquet-data-d69d979223e883faef9dc6fe3cf573087243c28a.tar.gz https://github.com/apache/arrow-testing/archive/ad82a736c170e97b7c8c035ebd8a801c17eec170.tar.gz -> apache-arrow-arrow-data-ad82a736c170e97b7c8c035ebd8a801c17eec170.tar.gz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=6a50c86e53ec0e5a9c61c061de100dd2
+_md5_=00e390a20111b89179c3fbfac5c070a5
