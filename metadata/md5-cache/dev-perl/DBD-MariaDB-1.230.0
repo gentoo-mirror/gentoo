@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/DBD-MariaDB
 INHERIT=perl-module
 IUSE=+mariadb mysql minimal test
-KEYWORDS=~amd64 ~riscv ~x86
+KEYWORDS=amd64 ~riscv ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=>=dev-perl/DBI-1.608.0 virtual/perl-XSLoader mysql? ( dev-db/mysql-connector-c:= ) mariadb? ( dev-db/mariadb-connector-c:= ) dev-lang/perl:=
 REQUIRED_USE=^^ ( mysql mariadb )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/P/PA/PALI/DBD-MariaDB-1.23.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676
-_md5_=9fb80f643888efd1796a123b362d9e71
+_md5_=daa2c633c6e4a55e5dde6cdd5e988864

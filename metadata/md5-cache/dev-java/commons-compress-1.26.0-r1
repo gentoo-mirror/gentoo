@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-compress/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source verify-sig
-KEYWORDS=~amd64 ~arm arm64 ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=dev-java/asm:9 dev-java/brotli-dec:0 dev-java/commons-codec:0 >=dev-java/commons-io-2.15.1:1 dev-java/commons-lang:3.6 dev-java/xz-java:0 dev-java/zstd-jni:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=mirror://apache/commons/compress/source/commons-compress-1.26.0-src.tar.gz verify-sig? ( https://downloads.apache.org/commons/compress/source/commons-compress-1.26.0-src.tar.gz.asc )
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	67f37f8db9bdf7868f26504fd7bcbb22	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=08d1f852ff0f3976b9f71a3e6ec532e0
+_md5_=c16770fc4e36113a4fc1b657d1aeaeab
