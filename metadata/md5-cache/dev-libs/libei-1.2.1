@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/libinput/libei
 INHERIT=meson python-any-r1
 IUSE=elogind systemd test
-KEYWORDS=~alpha ~amd64 arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/libevdev-1.9.902 || ( systemd? ( >=sys-apps/systemd-237 ) elogind? ( >=sys-auth/elogind-237 ) sys-libs/basu )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/libinput/libei/-/archive/1.2.1/libei-1.2.1.tar.bz2 https://github.com/nemequ/munit/archive/fbbdf1467eb0d04a6ee465def2e529e4c87f2118.tar.gz -> munit-fbbdf1467eb0d04a6ee465def2e529e4c87f2118.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=7feb01b3c8b9632daac368b64d9c4871
+_md5_=5adfee4c76e3a243d58e53f950947412
