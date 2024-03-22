@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+inherit bash-completion-r1 distutils-r1
 
 DESCRIPTION="CTF framework and exploit development library"
 HOMEPAGE="https://github.com/Gallopsled/pwntools"
@@ -15,7 +15,9 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/Gallopsled/pwntools.git"
 else
 	SRC_URI="https://github.com/Gallopsled/pwntools/archive/${PV/_beta/beta}.tar.gz -> ${P}.gh.tar.gz"
-	KEYWORDS="amd64 ~arm64 ~riscv x86"
+	if [[ ${PV} != *_beta* ]] ; then
+		KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+	fi
 	S="${WORKDIR}/${PN}-${PV/_beta/beta}"
 fi
 
@@ -56,6 +58,16 @@ python_configure_all() {
 
 src_install() {
 	distutils-r1_src_install
+
+	newbashcomp extra/bash_completion.d/pwn pwn
+	newbashcomp extra/bash_completion.d/shellcraft shellcraft
+
+	insinto /usr/share/zsh/site-functions
+	doins extra/zsh_completion/_pwn
+
+	# Disable automatic update check (bug 915496).
+	insinto /etc
+	doins "${FILESDIR}/pwn.conf"
 
 	rm -r "${ED}/usr/pwntools-doc" || die
 }
