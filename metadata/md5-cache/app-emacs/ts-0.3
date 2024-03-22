@@ -1,13 +1,15 @@
-BDEPEND=app-emacs/dash app-emacs/s >=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/dash app-emacs/s test? ( sys-libs/timezone-data ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs timestamp and date-time library
 EAPI=8
 HOMEPAGE=https://github.com/alphapapa/ts.el
 INHERIT=elisp
+IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=app-emacs/dash app-emacs/s >=app-editors/emacs-25.3:*
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/alphapapa/ts.el/archive/552936017cfdec89f7fc20c254ae6b37c3f22c5b.tar.gz -> ts-0.3.tar.gz
 _eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=7062a2476c1427187f923a115acdb072
+_md5_=a9226d04fb022a489a3baa254297affe
