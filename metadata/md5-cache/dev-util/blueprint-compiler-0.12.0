@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) doc? ( python_single_target_python3_10? ( dev-python/furo[python_targets_python3_10(-)] dev-python/sphinx[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/furo[python_targets_python3_11(-)] dev-python/sphinx[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/furo[python_targets_python3_12(-)] dev-python/sphinx[python_targets_python3_12(-)] ) ) test? ( gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install setup test
+DESCRIPTION=Compiler for Blueprint, a markup language for GTK user interfaces
+EAPI=8
+HOMEPAGE=https://jwestman.pages.gitlab.gnome.org/blueprint-compiler/ https://gitlab.gnome.org/jwestman/blueprint-compiler/
+INHERIT=meson python-single-r1 virtualx
+IUSE=doc test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 test
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3+
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.12.0/blueprint-compiler-v0.12.0.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	python-single-r1	75118e916668a74c660a13b0ecb22562	virtualx	817571665ee28575da44ee08135089e5
+_md5_=57dc0db8f800f4b8d8fdf8c4b9aec4e0
