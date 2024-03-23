@@ -4,10 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-# No 3.12 yet as these two tests fail:
-# ERROR tests/comparators/test_elf.py::test_differences_with_dbgsym - TypeError: sequence item 1: expected str instance, bytes found
-# ERROR tests/comparators/test_elf.py::test_original_gnu_debuglink - TypeError: sequence item 1: expected str instance, bytes found
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE="ncurses"
 inherit distutils-r1
 
@@ -19,7 +16,7 @@ SRC_URI="https://diffoscope.org/archive/${P}.tar.bz2"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ia64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc64 ~x86"
 IUSE="acl binutils bzip2 libcaca colord cpio +diff docx dtc e2fsprogs file
 find gettext gif gpg haskell hdf5 hex imagemagick iso java llvm lzma
 mono opendocument pascal pdf postscript R rpm sqlite squashfs
@@ -27,7 +24,10 @@ ssh tar test tcpdump zip zlib zstd"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-python/python-magic[${PYTHON_USEDEP}]
+	|| (
+		dev-python/python-magic[${PYTHON_USEDEP}]
+		sys-apps/file[python,${PYTHON_USEDEP}]
+	)
 	dev-python/libarchive-c[${PYTHON_USEDEP}]
 	dev-python/distro[${PYTHON_USEDEP}]
 	dev-python/tlsh[${PYTHON_USEDEP}]
@@ -74,15 +74,13 @@ RDEPEND="
 	zlib? ( app-arch/gzip )
 	zstd? ( app-arch/zstd )
 "
-# Presence of filemagic's magic.py breaks imports
-# of dev-python/python-magic: bug #716482
-RDEPEND+=" !dev-python/filemagic"
 
 # pull in optional tools for tests:
 # img2txt: bug #797688
 # docx2txt: bug #797688
 BDEPEND="
 	test? (
+		app-arch/p7zip
 		app-text/docx2txt
 		app-text/html2text
 		media-libs/libcaca
@@ -121,6 +119,12 @@ EPYTEST_DESELECT=(
 	# Fails on (unreleased) LLVM 16 with minor difference
 	#tests/comparators/test_macho.py::test_llvm_diff
 	#tests/comparators/test_elf.py::test_libmix_differences
+
+	# https://salsa.debian.org/reproducible-builds/diffoscope/-/issues/362
+	tests/comparators/test_zip.py::test_mozzip_metadata
+	tests/comparators/test_zip.py::test_mozzip_compressed_files
+	tests/comparators/test_zip.py::test_mozzip_no_differences
+	tests/comparators/test_zip.py::test_mozzip_compare_non_existing
 )
 
 distutils_enable_tests pytest
