@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit linux-mod toolchain-funcs
+inherit linux-mod-r1 toolchain-funcs
 
 case ${PV} in
 9999)
@@ -24,11 +24,9 @@ SLOT="0"
 IUSE="examples"
 
 CONFIG_CHECK="VIDEO_DEV"
-MODULE_NAMES="v4l2loopback(video:)"
-BUILD_TARGETS="all"
 
 pkg_setup() {
-	linux-mod_pkg_setup
+	linux-mod-r1_pkg_setup
 	export KERNELRELEASE=${KV_FULL}
 }
 
@@ -38,14 +36,18 @@ src_prepare() {
 }
 
 src_compile() {
-	linux-mod_src_compile
+	local modlist=(
+		v4l2loopback=video:::all
+	)
+
+	linux-mod-r1_src_compile
 	if use examples; then
 		emake CC="$(tc-getCC)" -C examples
 	fi
 }
 
 src_install() {
-	linux-mod_src_install
+	linux-mod-r1_src_install
 	dosbin utils/v4l2loopback-ctl
 	dodoc doc/kernel_debugging.txt
 	dodoc doc/docs.txt

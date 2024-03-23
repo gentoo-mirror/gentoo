@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,6 +31,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		dev-python/inflection[${PYTHON_USEDEP}]
 		dev-python/pytest-django[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	)
@@ -45,4 +46,8 @@ EPYTEST_DESELECT=(
 	tests/schemas/test_managementcommand.py::GenerateSchemaTests::test_coreapi_renders_default_schema_with_custom_title_url_and_desc
 	tests/schemas/test_managementcommand.py::GenerateSchemaTests::test_coreapi_renders_openapi_json_schema
 	tests/schemas/test_managementcommand.py::GenerateSchemaTests::test_renders_corejson_schema
+
+	# upstream is removing pytz, apparently it's not tested anymore
+	# https://github.com/encode/django-rest-framework/discussions/9342
+	tests/test_fields.py::TestPytzNaiveDayLightSavingTimeTimeZoneDateTimeField::test_invalid_inputs
 )
