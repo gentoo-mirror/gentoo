@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig )
+DEFINED_PHASES=compile install postinst prepare setup
+DEPEND=virtual/linux-sources
+DESCRIPTION=v4l2 loopback device whose output is its own input
+EAPI=8
+HOMEPAGE=https://github.com/umlaeute/v4l2loopback
+IDEPEND=sys-apps/kmod[tools]
+INHERIT=linux-mod-r1 toolchain-funcs
+IUSE=examples dist-kernel modules-compress modules-sign +strip
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+SLOT=0
+SRC_URI=https://github.com/umlaeute/v4l2loopback/archive/v0.13.1.tar.gz -> v4l2loopback-0.13.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	linux-info	7ca3057b277f1e5978947b4cc289ce62	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	137b318f89f77c2b66124fcc7790737a
+_md5_=f241a22c0e7f8516f2acba3dd36b8d50
