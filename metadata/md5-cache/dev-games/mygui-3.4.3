@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=media-libs/freetype:2 sys-libs/zlib ogre? ( >=dev-games/ogre-1.12:0=[freeimage,opengl] samples? ( dev-games/ois ) ) opengl? ( virtual/opengl media-libs/glew:0= ) tools? ( dev-games/ois )
+DESCRIPTION=A library for creating GUIs for games and 3D applications
+EAPI=8
+HOMEPAGE=http://mygui.info
+INHERIT=cmake flag-o-matic
+IUSE=debug doc +ogre opengl plugins samples static-libs test tools l10n_ru
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=media-libs/freetype:2 sys-libs/zlib ogre? ( >=dev-games/ogre-1.12:0=[freeimage,opengl] samples? ( dev-games/ois ) ) opengl? ( virtual/opengl media-libs/glew:0= ) tools? ( dev-games/ois )
+REQUIRED_USE=ogre? ( !opengl ) opengl? ( !ogre )
+RESTRICT=!test? ( test )
+SLOT=0/3.4.3
+SRC_URI=https://github.com/MyGUI/mygui/archive/MyGUI3.4.3.tar.gz -> mygui-3.4.3.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
+_md5_=d6a84ec87d92b0cf3e1a246e204ed137
