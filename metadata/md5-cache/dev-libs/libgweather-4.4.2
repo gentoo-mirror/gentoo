@@ -1,0 +1,18 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gi-docgen-2021.6 ) >=sys-devel/gettext-0.19.8 virtual/pkgconfig || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 dev-python/pygobject[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pygobject[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pygobject[python_targets_python3_10(-)] ) ) vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=>=dev-libs/glib-2.68.0:2 >=net-libs/libsoup-2.99.2:3.0 sci-geosciences/geocode-glib:2 >=dev-libs/libxml2-2.6.0:2 dev-libs/json-glib introspection? ( >=dev-libs/gobject-introspection-1.54:= )
+DESCRIPTION=Location and timezone database and weather-lookup library
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Projects/LibGWeather
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson python-any-r1 vala xdg
+IUSE=gtk-doc +introspection test +vala
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.68.0:2 >=net-libs/libsoup-2.99.2:3.0 sci-geosciences/geocode-glib:2 >=dev-libs/libxml2-2.6.0:2 dev-libs/json-glib introspection? ( >=dev-libs/gobject-introspection-1.54:= )
+REQUIRED_USE=vala? ( introspection ) gtk-doc? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=4/4-0
+SRC_URI=mirror://gnome/sources/libgweather/4.4/libgweather-4.4.2.tar.xz
+_eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	python-any-r1	f5169813d1619761b459800587005fd2	vala	e477903dbe0105930c51f170a592dc16	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=ece29ab54e04143ba481081e118f1d4a
