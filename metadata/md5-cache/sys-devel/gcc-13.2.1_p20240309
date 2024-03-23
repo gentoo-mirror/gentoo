@@ -1,5 +1,5 @@
-BDEPEND=amd64? ( >=sys-devel/binutils-2.30[cet(-)?] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 app-alternatives/yacc >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 ) sys-apps/texinfo valgrind? ( dev-debug/valgrind ) d? ( || ( sys-devel/gcc[d(-)] <sys-devel/gcc-12[d(-)] ) )
-DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
+BDEPEND=amd64? ( >=sys-devel/binutils-2.30[cet(-)?] ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 app-alternatives/yacc >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 ) sys-apps/texinfo valgrind? ( dev-debug/valgrind ) d? ( || ( sys-devel/gcc[d(-)] <sys-devel/gcc-12[d(-)] ) )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
 DEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= ) sanitize? ( virtual/libcrypt ) systemtap? ( dev-debug/systemtap ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=The GNU Compiler Collection
 EAPI=8
@@ -11,6 +11,6 @@ PDEPEND=>=sys-devel/gcc-config-2.11
 RDEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= ) zstd? ( app-arch/zstd:= )
 RESTRICT=!test? ( test )
 SLOT=13
-SRC_URI=mirror://gcc/snapshots/13-20240309/gcc-13-20240309.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-patches-14.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-musl-patches-2.tar.xz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain	d0340e0d6552732480198667a10ba8a3
-_md5_=fa2750c8f839dd4017dfbe258241059b
+SRC_URI=mirror://gcc/snapshots/13-20240309/gcc-13-20240309.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-patches-14.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-13.2.0-musl-patches-2.tar.xz test? ( https://gitweb.gentoo.org/proj/gcc-patches.git/plain/scripts/testsuite-management/validate_failures.py?id=7bbfb01a32b73842f8908de028703510a0e12057 -> gcc-validate-failures-7bbfb01a32b73842f8908de028703510a0e12057.py )
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-any-r1	f5169813d1619761b459800587005fd2	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain	0b4f73254eaa28f5833ba34c4549c58e
+_md5_=f647ad087e35ca7fb60e34223caf1c75

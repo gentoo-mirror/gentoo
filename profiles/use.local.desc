@@ -8217,6 +8217,7 @@ sys-devel/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
 sys-devel/clang:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
 sys-devel/clang:static-analyzer - Install the Clang static analyzer
 sys-devel/clang-common:bootstrap-prefix - !!internal use only!! DO NOT SET THIS FLAG YOURSELF!, used for bootstrapping Gentoo Prefix
+sys-devel/clang-common:cet - Enable support for control flow hijacking protection. On amd64, this provides Intel Control Flow Enforcement Technology (CET). Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either.
 sys-devel/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
 sys-devel/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
 sys-devel/clang-common:default-lld - Use lld as the default linker for clang
