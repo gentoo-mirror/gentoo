@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://rpm.org/ https://github.com/rpm-software-management/rpm
 INHERIT=cmake lua-single python-single-r1 toolchain-funcs
 IUSE=acl audit caps +berkdb doc dbus nls openmp python readline selinux +sequoia +sqlite lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~alpha ~amd64 ~loong ~riscv ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~riscv ~s390 ~x86
 LICENSE=GPL-2 LGPL-2
 RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=app-arch/bzip2-1.0.1 app-arch/libarchive:= app-arch/xz-utils app-arch/zstd:= >=app-crypt/gnupg-1.2 >=dev-lang/perl-5.8.8 dev-libs/elfutils >=dev-libs/popt-1.7 sys-apps/file sys-libs/readline:= >=sys-libs/zlib-1.2.3-r1 acl? ( virtual/acl ) audit? ( sys-process/audit ) caps? ( >=sys-libs/libcap-2.0 ) dbus? ( sys-apps/dbus ) nls? ( virtual/libintl ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) readline? ( sys-libs/readline:= ) sequoia? ( app-crypt/rpm-sequoia ) !sequoia? ( dev-libs/libgcrypt:= ) sqlite? ( dev-db/sqlite:3 ) selinux? ( sec-policy/selinux-rpm )
 REQUIRED_USE=^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://ftp.osuosl.org/pub/rpm/releases/rpm-4.19.x/rpm-4.19.1.1.tar.bz2 http://ftp.rpm.org/releases/rpm-4.19.x/rpm-4.19.1.1.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=b9788164cc5be81ef3f3516a218b7a30
+_md5_=f156bdb1c71f26bd72e50c9fdc43aa50
