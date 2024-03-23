@@ -6,8 +6,8 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 QA_PKGCONFIG_VERSION=$(ver_cut 1)
 
-inherit bash-completion-r1 flag-o-matic linux-info meson-multilib optfeature
-inherit python-single-r1 secureboot toolchain-funcs udev
+inherit bash-completion-r1 flag-o-matic linux-info meson-multilib python-single-r1
+inherit secureboot toolchain-funcs udev
 
 DESCRIPTION="Utilities split out from systemd for OpenRC users"
 HOMEPAGE="https://systemd.io/"
@@ -22,12 +22,12 @@ else
 	SRC_URI="https://github.com/systemd/systemd/archive/refs/tags/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 fi
 
-MUSL_PATCHSET="systemd-musl-patches-254.3"
+MUSL_PATCHSET="systemd-musl-patches-255.4"
 SRC_URI+=" elibc_musl? ( https://dev.gentoo.org/~floppym/dist/${MUSL_PATCHSET}.tar.gz )"
 
 LICENSE="GPL-2 LGPL-2.1 MIT public-domain"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+acl boot +kmod kernel-install selinux split-usr sysusers +tmpfiles test +udev ukify"
 REQUIRED_USE="
 	|| ( kernel-install tmpfiles sysusers udev )
@@ -101,6 +101,7 @@ BDEPEND="
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	dev-util/gperf
+	dev-util/patchelf
 	>=sys-apps/coreutils-8.16
 	sys-devel/gettext
 	virtual/pkgconfig
@@ -130,7 +131,6 @@ pkg_setup() {
 
 src_prepare() {
 	local PATCHES=(
-		"${FILESDIR}/${PN}-254.3-add-link-kernel-install-shared-option.patch"
 	)
 
 	if use elibc_musl; then
@@ -139,11 +139,6 @@ src_prepare() {
 		)
 	fi
 	default
-
-	# Remove install_rpath; we link statically
-	local rpath_pattern="install_rpath : rootpkglibdir,"
-	grep -q -e "${rpath_pattern}" meson.build || die
-	sed -i -e "/${rpath_pattern}/d" meson.build || die
 }
 
 src_configure() {
@@ -153,10 +148,6 @@ src_configure() {
 
 multilib_src_configure() {
 	local emesonargs=(
-		$(meson_use split-usr)
-		$(meson_use split-usr split-bin)
-		-Drootprefix="$(usex split-usr "${EPREFIX:-/}" "${EPREFIX}/usr")"
-		-Drootlibdir="${EPREFIX}/usr/$(get_libdir)"
 		-Dsysvinit-path=
 		$(meson_native_use_bool boot bootloader)
 		$(meson_native_use_bool kernel-install)
@@ -166,14 +157,6 @@ multilib_src_configure() {
 		$(meson_native_use_bool tmpfiles)
 		$(meson_use udev hwdb)
 		$(meson_native_use_bool ukify)
-
-		# Link staticly with libsystemd-shared
-		-Dlink-boot-shared=false
-		-Dlink-kernel-install-shared=false
-		-Dlink-udev-shared=false
-
-		# systemd-tmpfiles has a separate "systemd-tmpfiles.standalone" target
-		-Dstandalone-binaries=true
 
 		# Disable all optional features
 		-Dadm-group=false
@@ -298,7 +281,7 @@ multilib_src_compile() {
 		fi
 		if use sysusers; then
 			targets+=(
-				systemd-sysusers.standalone
+				systemd-sysusers
 				man/sysusers.d.5
 				man/systemd-sysusers.8
 			)
@@ -310,7 +293,7 @@ multilib_src_compile() {
 		fi
 		if use tmpfiles; then
 			targets+=(
-				systemd-tmpfiles.standalone
+				systemd-tmpfiles
 				man/tmpfiles.d.5
 				man/systemd-tmpfiles.8
 				tmpfiles.d/{etc,static-nodes-permissions,var}.conf
@@ -323,13 +306,13 @@ multilib_src_compile() {
 			targets+=(
 				udevadm
 				systemd-hwdb
-				src/udev/ata_id
-				src/udev/cdrom_id
-				src/udev/fido_id
-				src/udev/mtd_probe
-				src/udev/scsi_id
+				ata_id
+				cdrom_id
+				fido_id
+				mtd_probe
+				scsi_id
+				v4l_id
 				src/udev/udev.pc
-				src/udev/v4l_id
 				man/udev.conf.5
 				man/systemd.link.5
 				man/hwdb.7
@@ -396,12 +379,12 @@ multilib_src_test() {
 	if multilib_is_native_abi; then
 		if use sysusers; then
 			tests+=(
-				test-sysusers.standalone
+				test-sysusers
 			)
 		fi
 		if use tmpfiles; then
 			tests+=(
-				test-systemd-tmpfiles.standalone
+				test-systemd-tmpfiles
 				test-tmpfile-util
 			)
 		fi
@@ -430,52 +413,62 @@ multilib_src_test() {
 }
 
 src_install() {
-	local rootprefix="$(usex split-usr '' /usr)"
 	meson-multilib_src_install
 }
 
+set_rpath() {
+	patchelf --set-rpath "${EPREFIX}/usr/$(get_libdir)/systemd" "$@" || die "patchelf failed"
+}
+
 multilib_src_install() {
+	if use udev; then
+		meson_install --no-rebuild --tags libudev
+		insinto "/usr/$(get_libdir)/pkgconfig"
+		doins src/libudev/libudev.pc
+	fi
 	if multilib_is_native_abi; then
+		exeinto "/usr/$(get_libdir)/systemd"
+		doexe src/shared/libsystemd-shared-${PV%%.*}.so
 		if use boot; then
-			into /usr
+			set_rpath bootctl
 			dobin bootctl
 			doman man/bootctl.1
-			insinto usr/lib/systemd/boot/efi
+			insinto /usr/lib/systemd/boot/efi
 			doins src/boot/efi/{linux$(efi_arch).{efi,elf}.stub,systemd-boot$(efi_arch).efi}
 		fi
 		if use kernel-install; then
+			set_rpath kernel-install
 			dobin kernel-install
 			doman man/kernel-install.8
-			# copy the default set of plugins
-			cp "${S}/src/kernel-install/"*.install src/kernel-install || die
-			exeinto usr/lib/kernel/install.d
+			exeinto /usr/lib/kernel/install.d
 			doexe src/kernel-install/*.install
 		fi
 		if use sysusers; then
-			into "${rootprefix:-/}"
-			newbin systemd-sysusers{.standalone,}
+			set_rpath systemd-sysusers
+			dobin systemd-sysusers
 			doman man/{systemd-sysusers.8,sysusers.d.5}
 		fi
 		if use tmpfiles; then
-			into "${rootprefix:-/}"
-			newbin systemd-tmpfiles{.standalone,}
+			set_rpath systemd-tmpfiles
+			dobin systemd-tmpfiles
 			doman man/{systemd-tmpfiles.8,tmpfiles.d.5}
 			insinto /usr/lib/tmpfiles.d
 			doins tmpfiles.d/{etc,static-nodes-permissions,var}.conf
 		fi
 		if use udev; then
-			into "${rootprefix:-/}"
+			set_rpath udevadm systemd-hwdb
 			dobin udevadm systemd-hwdb
-			dosym ../../bin/udevadm "${rootprefix}"/lib/systemd/systemd-udevd
+			dosym ../../bin/udevadm /usr/lib/systemd/systemd-udevd
 
-			exeinto "${rootprefix}"/lib/udev
-			doexe src/udev/{ata_id,cdrom_id,fido_id,mtd_probe,scsi_id,v4l_id}
+			exeinto /usr/lib/udev
+			set_rpath {ata_id,cdrom_id,fido_id,mtd_probe,scsi_id,v4l_id}
+			doexe {ata_id,cdrom_id,fido_id,mtd_probe,scsi_id,v4l_id}
 
 			rm -f rules.d/99-systemd.rules
-			insinto "${rootprefix}"/lib/udev/rules.d
+			insinto /usr/lib/udev/rules.d
 			doins rules.d/*.rules
 
-			insinto "${rootprefix}"/lib/udev/hwdb.d
+			insinto /usr/lib/udev/hwdb.d
 			doins hwdb.d/*.hwdb
 
 			insinto /usr/share/pkgconfig
@@ -487,27 +480,23 @@ multilib_src_install() {
 			doman man/udev_*.3
 		fi
 		if use ukify; then
-			exeinto "${rootprefix}"/lib/systemd/
+			exeinto /usr/lib/systemd
 			doexe ukify
 			doman man/ukify.1
 		fi
-	fi
-	if use udev; then
-		meson_install --no-rebuild --tags libudev
-		insinto "/usr/$(get_libdir)/pkgconfig"
-		doins src/libudev/libudev.pc
 	fi
 }
 
 multilib_src_install_all() {
 	einstalldocs
 	if use boot; then
-		into /usr
-		exeinto usr/lib/kernel/install.d
-		doexe src/kernel-install/*.install
 		dobashcomp shell-completion/bash/bootctl
 		insinto /usr/share/zsh/site-functions
 		doins shell-completion/zsh/{_bootctl,_kernel-install}
+	fi
+	if use kernel-install; then
+		exeinto /usr/lib/kernel/install.d
+		doexe src/kernel-install/*.install
 	fi
 	if use tmpfiles; then
 		doinitd "${FILESDIR}"/systemd-tmpfiles-setup
@@ -527,17 +516,17 @@ multilib_src_install_all() {
 		doins src/udev/udev.conf
 		keepdir /etc/udev/{hwdb.d,rules.d}
 
-		insinto "${rootprefix}"/lib/systemd/network
+		insinto /usr/lib/systemd/network
 		doins network/99-default.link
 
 		# Remove to avoid conflict with elogind
 		# https://bugs.gentoo.org/856433
 		rm rules.d/70-power-switch.rules || die
-		insinto "${rootprefix}"/lib/udev/rules.d
+		insinto /usr/lib/udev/rules.d
 		doins rules.d/*.rules
 		doins "${FILESDIR}"/40-gentoo.rules
 
-		insinto "${rootprefix}"/lib/udev/hwdb.d
+		insinto /usr/lib/udev/hwdb.d
 		doins hwdb.d/*.hwdb
 
 		dobashcomp shell-completion/bash/udevadm
@@ -548,6 +537,11 @@ multilib_src_install_all() {
 
 	use ukify && python_fix_shebang "${ED}"
 	use boot && secureboot_auto_sign
+
+	if use split-usr; then
+		dosym ../usr/lib/systemd /lib/systemd
+		dosym ../usr/lib/udev /lib/udev
+	fi
 }
 
 add_service() {
@@ -560,6 +554,20 @@ add_service() {
 	eend $?
 }
 
+pkg_preinst() {
+	# Migrate /lib/{systemd,udev} to /usr/lib
+	# Symlinks will be installed in the merge phase
+	if use split-usr; then
+		local d
+		for d in systemd udev; do
+			if [[ -e ${EROOT}/lib/${d} && ! -L ${EROOT}/lib/${d} ]]; then
+				cp -rpPT "${EROOT}"/{,usr/}lib/${d} || die
+				rm -r "${EROOT}"/lib/${d} || die
+			fi
+		done
+	fi
+}
+
 pkg_postinst() {
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		add_service systemd-tmpfiles-setup-dev sysinit
@@ -570,14 +578,5 @@ pkg_postinst() {
 		systemd-hwdb --root="${ROOT}" update
 		eend $?
 		udev_reload
-	fi
-
-	if use boot; then
-		optfeature "automatically installing the kernels in systemd-boot's native layout and updating the bootloader configuration" \
-			"sys-kernel/installkernel[systemd-boot]"
-	fi
-	if use ukify; then
-		optfeature "automatically generating an unified kernel image on each kernel installation" \
-			"sys-kernel/installkernel[ukify]"
 	fi
 }
