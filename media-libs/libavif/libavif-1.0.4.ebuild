@@ -3,15 +3,19 @@
 
 EAPI=8
 
-inherit cmake-multilib git-r3 gnome2-utils
+inherit cmake-multilib gnome2-utils
 
 DESCRIPTION="Library for encoding and decoding .avif files"
 HOMEPAGE="https://github.com/AOMediaCodec/libavif"
-EGIT_REPO_URI="https://github.com/AOMediaCodec/libavif.git"
+SRC_URI="
+	https://github.com/AOMediaCodec/libavif/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="BSD-2"
 # See bug #822336 re subslot
-SLOT="0/${PV}"
+SLOT="0/16"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc64 ~riscv ~sparc ~x86"
 IUSE="+aom dav1d examples extras gdk-pixbuf rav1e svt-av1 test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="|| ( aom dav1d )"
@@ -39,14 +43,13 @@ BDEPEND="
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
-		-DAVIF_CODEC_AOM=$(usex aom SYSTEM OFF)
-		-DAVIF_CODEC_DAV1D=$(usex dav1d SYSTEM OFF)
+		-DAVIF_CODEC_AOM=$(usex aom ON OFF)
+		-DAVIF_CODEC_DAV1D=$(usex dav1d ON OFF)
 		-DAVIF_CODEC_LIBGAV1=OFF
-		-DAVIF_LIBYUV=OFF
 
 		# Use system libraries.
-		-DAVIF_ZLIBPNG=SYSTEM
-		-DAVIF_JPEG=SYSTEM
+		-DAVIF_LOCAL_ZLIBPNG=OFF
+		-DAVIF_LOCAL_JPEG=OFF
 
 		-DAVIF_BUILD_GDK_PIXBUF=$(usex gdk-pixbuf ON OFF)
 
@@ -55,8 +58,8 @@ multilib_src_configure() {
 
 	if multilib_is_native_abi; then
 		mycmakeargs+=(
-			-DAVIF_CODEC_RAV1E=$(usex rav1e SYSTEM OFF)
-			-DAVIF_CODEC_SVT=$(usex svt-av1 SYSTEM OFF)
+			-DAVIF_CODEC_RAV1E=$(usex rav1e ON OFF)
+			-DAVIF_CODEC_SVT=$(usex svt-av1 ON OFF)
 
 			-DAVIF_BUILD_EXAMPLES=$(usex examples ON OFF)
 			-DAVIF_BUILD_APPS=$(usex extras ON OFF)
