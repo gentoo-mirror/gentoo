@@ -14,12 +14,10 @@ LICENSE="Apache-2.0"
 LICENSE+=" BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0"
 
 SLOT="0"
-IUSE="apparmor btrfs +seccomp systemd doc test"
+IUSE="apparmor btrfs +seccomp systemd test"
 RESTRICT="test"
-EXTRA_DOCS=(
+DOCS=(
 	"CHANGELOG.md"
-	"CONTRIBUTING.md"
-	"install.md"
 	"troubleshooting.md"
 	"docs/tutorials"
 )
@@ -121,5 +119,4 @@ src_test() {
 src_install() {
 	emake DESTDIR="${ED}" install install.completions
 	einstalldocs
-	use doc && dodoc -r "${EXTRA_DOCS[@]}"
 }

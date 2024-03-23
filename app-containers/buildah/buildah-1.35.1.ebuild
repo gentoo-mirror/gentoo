@@ -35,7 +35,7 @@ RDEPEND="
 	btrfs? ( sys-fs/btrfs-progs )
 	seccomp? ( sys-libs/libseccomp:= )
 	apparmor? ( sys-libs/libapparmor:= )
-	>=app-containers/containers-common-0.58.0-r1
+	app-containers/containers-common
 	app-crypt/gpgme:=
 	dev-libs/libgpg-error:=
 	dev-libs/libassuan:=
