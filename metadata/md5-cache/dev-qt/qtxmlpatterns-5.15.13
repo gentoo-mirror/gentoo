@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND==dev-qt/qtcore-5.15.13* =dev-qt/qtnetwork-5.15.13* qml? ( =dev-qt/qtdeclarative-5.15.13* ) test? ( =dev-qt/qttest-5.15.13* )
+DESCRIPTION=XPath, XQuery, XSLT, and XML Schema validation library for the Qt5 framework
+EAPI=8
+HOMEPAGE=https://www.qt.io/
+INHERIT=qt5-build
+IUSE=qml debug test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND==dev-qt/qtcore-5.15.13* =dev-qt/qtnetwork-5.15.13* qml? ( =dev-qt/qtdeclarative-5.15.13* ) !<dev-qt/qtchooser-66-r2
+RESTRICT=test
+SLOT=5
+SRC_URI=https://download.qt.io/official_releases/qt/5.15/5.15.13/submodules/qtxmlpatterns-everywhere-opensource-src-5.15.13.tar.xz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	virtualx	817571665ee28575da44ee08135089e5	qt5-build	c161db79c008040ab24e2978c6c077af
+_md5_=2b1f7bc709724f4bc5689038c219df3b

@@ -1207,7 +1207,7 @@ app-backup/backuppc 3.3.1-r6 4.4.0-r1: High-performance backups to a server's di
 app-backup/bacula 13.0.3-r2 13.0.4: Featureful client/server network backup suite
 app-backup/bareos 21.1.8-r1 22.1.2-r1 23.0.1 23.0.2 9999: Featureful client/server network backup suite
 app-backup/borgbackup 1.2.7: Deduplicating backup program with compression and authenticated encryption
-app-backup/borgmatic 1.8.8: Automatically create, prune and verify backups with borgbackup
+app-backup/borgmatic 1.8.8 1.8.9: Automatically create, prune and verify backups with borgbackup
 app-backup/btrbk 0.32.6-r1 0.32.6-r2 9999: Tool for creating snapshots and remote backups of btrfs subvolumes
 app-backup/burp 3.1.4: Network backup and restore client and server for Unix and Windows
 app-backup/ccollect 0.8-r1 0.8-r2: Pseudo incremental backup with different exclude lists using hardlinks and rsync
@@ -4014,7 +4014,7 @@ dev-debug/gdb-apple 1752: Apple branch of the GNU Debugger, Developer Tools 4.3
 dev-debug/gef 2023.08 2024.01 9999: GDB Enhanced Features for exploit devs & reversers
 dev-debug/kdbg 3.0.1-r1 3.1.0: Graphical debugger interface
 dev-debug/leaktracer 2.4-r3: Trace and analyze memory leaks in C++ programs
-dev-debug/lldb 15.0.7 16.0.6 16.0.6-r1 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: The LLVM debugger
+dev-debug/lldb 15.0.7 16.0.6 16.0.6-r1 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: The LLVM debugger
 dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-debug/pwndbg 20230717-r1 99999999: A GDB plug-in that makes debugging with GDB suck less
@@ -5453,7 +5453,7 @@ dev-libs/libcdio 2.1.0-r1: A library to encapsulate CD-ROM reading and control
 dev-libs/libcdio-paranoia 2.0.1: an advanced CDDA reader with error correction
 dev-libs/libcec 6.0.2-r1 6.0.2-r2: Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor
 dev-libs/libcgroup 0.41-r6 3.0.0 3.0.0-r1 3.1.0: Tools and libraries to configure and manage kernel control groups
-dev-libs/libclc 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: OpenCL C library
+dev-libs/libclc 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: OpenCL C library
 dev-libs/libclthreads 2.4.2: POSIX threads C++ access library
 dev-libs/libconfig 1.7.3: Libconfig is a simple library for manipulating structured configuration files
 dev-libs/libcpuid 0.6.4: A small C library for x86 (and x86_64) CPU detection and feature extraction
@@ -5987,7 +5987,7 @@ dev-ml/lablgtk 2.18.10 2.18.12 2.18.13 3.1.1 3.1.2 3.1.3: OCaml bindings to GTK-
 dev-ml/lablgtk-sourceview 3.1.1 3.1.2 3.1.3: OCaml bindings to GTK-3
 dev-ml/labltk 8.06.7-r1 8.06.9-r1 8.06.10-r1 8.06.11-r1 8.06.12-r2: OCaml interface to the Tcl/Tk GUI framework
 dev-ml/lambda-term 3.1.0 3.3.1-r1 3.3.2: Terminal manipulation library for OCaml
-dev-ml/llvm-ocaml 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: OCaml bindings for LLVM
+dev-ml/llvm-ocaml 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: OCaml bindings for LLVM
 dev-ml/logs 0.7.0-r1: Logging infrastructure for OCaml
 dev-ml/luv 0.5.10-r3 0.5.11-r2 0.5.12: Binding to libuv: cross-platform asynchronous I/O
 dev-ml/lwt 5.3.0-r1 5.4.2-r1 5.6.1 5.7.0: Cooperative light-weight thread library for OCaml
@@ -8271,7 +8271,7 @@ dev-python/cheroot 10.0.0: High-performance, pure-Python HTTP server used by Che
 dev-python/cherrypy 18.9.0: CherryPy is a pythonic, object-oriented HTTP framework
 dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
-dev-python/clang-python 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: Python bindings for sys-devel/clang
+dev-python/clang-python 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Python bindings for sys-devel/clang
 dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
 dev-python/cli-helpers 2.3.1 9999: Python helpers for common CLI tasks
 dev-python/click 8.1.7: A Python package for creating beautiful command line interfaces
@@ -8706,7 +8706,7 @@ dev-python/license-expression 30.2.0 30.3.0: Parse, compare, simplify and normal
 dev-python/line-profiler 4.1.2: Line-by-line profiler
 dev-python/linkify-it-py 2.0.3: Links recognition library with full unicode support
 dev-python/linode-metadata 0.2.0: Python bindings for the Linode Metadata Service
-dev-python/lit 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: A stand-alone install of the LLVM suite testing tool
+dev-python/lit 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: A stand-alone install of the LLVM suite testing tool
 dev-python/littleutils 0.2.2-r1: Small personal collection of Python utility functions
 dev-python/livereload 2.6.3-r1: livereload server in Python
 dev-python/llfuse 1.5.0: Python bindings for the low-level FUSE API
@@ -8888,7 +8888,7 @@ dev-python/packaging 23.2-r1 24.0: Core utilities for Python packages
 dev-python/paginate 0.5.6: Divides large result sets into pages for easier browsing
 dev-python/paho-mqtt 1.6.1-r1: A client class with support for MQTT v5.0, v3.1.1, and v3.1
 dev-python/pallets-sphinx-themes 2.1.1: Sphinx themes for Pallets and related projects
-dev-python/pandas 2.1.4 2.2.0 2.2.0-r1 2.2.1-r1: Powerful data structures for data analysis and statistics
+dev-python/pandas 2.1.4 2.2.0 2.2.0-r1 2.2.1 2.2.1-r1: Powerful data structures for data analysis and statistics
 dev-python/pandocfilters 1.5.1: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.8: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.9.0: Parameterized testing with any Python test framework
@@ -9741,75 +9741,75 @@ dev-python/zope-schema 7.0.1: Zope schema Architecture
 dev-python/zope-testing 5.0.1: Zope testing helpers
 dev-python/zstandard 0.22.0: Zstandard Bindings for Python
 dev-python/zstd 1.5.5.1: Simple python bindings to Yann Collet ZSTD compression library
-dev-qt/assistant 5.15.12: Tool for viewing on-line documentation in Qt help file format
-dev-qt/designer 5.15.12: WYSIWYG tool for designing and building graphical user interfaces with QtWidgets
+dev-qt/assistant 5.15.12 5.15.13: Tool for viewing on-line documentation in Qt help file format
+dev-qt/designer 5.15.12 5.15.13: WYSIWYG tool for designing and building graphical user interfaces with QtWidgets
 dev-qt/kdsingleapplication 1.1.0: KDAB's helper class for single-instance policy applications
-dev-qt/linguist 5.15.12: Graphical tool for translating Qt applications
-dev-qt/linguist-tools 5.15.12: Tools for working with Qt translation data files
-dev-qt/pixeltool 5.15.12: Qt screen magnifier
-dev-qt/qdbus 5.15.12: Interface to Qt applications communicating over D-Bus
-dev-qt/qdbusviewer 5.15.12: Graphical tool that lets you introspect D-Bus objects and messages
-dev-qt/qdoc 5.15.12: Qt documentation generator
+dev-qt/linguist 5.15.12 5.15.13: Graphical tool for translating Qt applications
+dev-qt/linguist-tools 5.15.12 5.15.13: Tools for working with Qt translation data files
+dev-qt/pixeltool 5.15.12 5.15.13: Qt screen magnifier
+dev-qt/qdbus 5.15.12 5.15.13: Interface to Qt applications communicating over D-Bus
+dev-qt/qdbusviewer 5.15.12 5.15.13: Graphical tool that lets you introspect D-Bus objects and messages
+dev-qt/qdoc 5.15.12 5.15.13: Qt documentation generator
 dev-qt/qt-creator 12.0.2 9999: Lightweight IDE for C++/QML development centering around Qt
 dev-qt/qt-docs 5.15.2_p202011130614 6.6.2_p202402121133: Qt6 documentation and examples for Qt Creator and other tools
-dev-qt/qt3d 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: 3D rendering module for the Qt6 framework
+dev-qt/qt3d 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: 3D rendering module for the Qt6 framework
 dev-qt/qt5compat 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt module containing the unsupported Qt 5 APIs
 dev-qt/qtbase 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Cross-platform application development framework
-dev-qt/qtbluetooth 5.15.12: Bluetooth support library for the Qt5 framework
-dev-qt/qtcharts 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Chart component library for the Qt6 framework
+dev-qt/qtbluetooth 5.15.12 5.15.13: Bluetooth support library for the Qt5 framework
+dev-qt/qtcharts 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Chart component library for the Qt6 framework
 dev-qt/qtchooser 66-r2: Tool to quickly switch between multiple Qt installations
-dev-qt/qtconcurrent 5.15.12: Multi-threading concurrence support library for the Qt5 framework
+dev-qt/qtconcurrent 5.15.12 5.15.13: Multi-threading concurrence support library for the Qt5 framework
 dev-qt/qtconnectivity 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Bluetooth and NFC support library for the Qt6 framework
-dev-qt/qtcore 5.15.12-r2: Cross-platform application development framework
-dev-qt/qtdatavis3d 5.15.12: 3D data visualization library for the Qt5 framework
-dev-qt/qtdbus 5.15.12: Qt5 module for inter-process communication over the D-Bus protocol
-dev-qt/qtdeclarative 5.15.12 6.6.2-r1 6.6.9999 6.7.0_rc-r1 6.7.0_rc2 6.7.9999 6.9999: Qt Declarative (Quick 2)
-dev-qt/qtdiag 5.15.12: Tool for reporting diagnostic information about Qt and its environment
-dev-qt/qtgamepad 5.15.12: Qt module to support gamepad hardware
-dev-qt/qtgraphicaleffects 5.15.12: Set of QML types for adding visual effects to user interfaces
-dev-qt/qtgui 5.15.12-r2: The GUI module and platform plugins for the Qt5 framework
-dev-qt/qthelp 5.15.12: Qt5 module for integrating online documentation into applications
+dev-qt/qtcore 5.15.12-r2 5.15.13: Cross-platform application development framework
+dev-qt/qtdatavis3d 5.15.12 5.15.13: 3D data visualization library for the Qt5 framework
+dev-qt/qtdbus 5.15.12 5.15.13: Qt5 module for inter-process communication over the D-Bus protocol
+dev-qt/qtdeclarative 5.15.12 5.15.13 6.6.2-r1 6.6.9999 6.7.0_rc-r1 6.7.0_rc2 6.7.9999 6.9999: Qt Declarative (Quick 2)
+dev-qt/qtdiag 5.15.12 5.15.13: Tool for reporting diagnostic information about Qt and its environment
+dev-qt/qtgamepad 5.15.12 5.15.13: Qt module to support gamepad hardware
+dev-qt/qtgraphicaleffects 5.15.12 5.15.13: Set of QML types for adding visual effects to user interfaces
+dev-qt/qtgui 5.15.12-r2 5.15.13: The GUI module and platform plugins for the Qt5 framework
+dev-qt/qthelp 5.15.12 5.15.13: Qt5 module for integrating online documentation into applications
 dev-qt/qthttpserver 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: HTTP server functionality for the Qt6 framework
-dev-qt/qtimageformats 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Additional format plugins for the Qt image I/O system
-dev-qt/qtlocation 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Location (places, maps, navigation) library for the Qt6 framework
+dev-qt/qtimageformats 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Additional format plugins for the Qt image I/O system
+dev-qt/qtlocation 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Location (places, maps, navigation) library for the Qt6 framework
 dev-qt/qtlockedfile 2.4.1_p20171024: QFile extension with advisory locking functions
-dev-qt/qtmultimedia 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Multimedia (audio, video, radio, camera) library for the Qt6 framework
-dev-qt/qtnetwork 5.15.12-r1: Network abstraction library for the Qt5 framework
-dev-qt/qtnetworkauth 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Network authorization library for the Qt6 framework
-dev-qt/qtopengl 5.15.12: OpenGL support library for the Qt5 framework (deprecated)
-dev-qt/qtpaths 5.15.12: Command line client to QStandardPaths
-dev-qt/qtplugininfo 5.15.12: Qt5 plugin metadata dumper
-dev-qt/qtpositioning 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Physical position determination library for the Qt6 framework
-dev-qt/qtprintsupport 5.15.12: Printing support library for the Qt5 framework
+dev-qt/qtmultimedia 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Multimedia (audio, video, radio, camera) library for the Qt6 framework
+dev-qt/qtnetwork 5.15.12-r1 5.15.13: Network abstraction library for the Qt5 framework
+dev-qt/qtnetworkauth 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Network authorization library for the Qt6 framework
+dev-qt/qtopengl 5.15.12 5.15.13: OpenGL support library for the Qt5 framework (deprecated)
+dev-qt/qtpaths 5.15.12 5.15.13: Command line client to QStandardPaths
+dev-qt/qtplugininfo 5.15.12 5.15.13: Qt5 plugin metadata dumper
+dev-qt/qtpositioning 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Physical position determination library for the Qt6 framework
+dev-qt/qtprintsupport 5.15.12 5.15.13: Printing support library for the Qt5 framework
 dev-qt/qtquick3d 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt module and API for defining 3D content in Qt QuickTools
-dev-qt/qtquickcontrols 5.15.12: Set of Qt Quick controls to create complete user interfaces (deprecated)
-dev-qt/qtquickcontrols2 5.15.12: Set of next generation Qt Quick controls for the Qt5 framework
-dev-qt/qtquicktimeline 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt module for keyframe-based timeline construction
-dev-qt/qtscript 5.15.12: Application scripting library for the Qt5 framework (deprecated)
-dev-qt/qtscxml 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: State Chart XML (SCXML) support library for the Qt6 framework
-dev-qt/qtsensors 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Hardware sensor access library for the Qt6 framework
-dev-qt/qtserialbus 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt module to access CAN, ModBus, and other industrial serial buses and protocols
-dev-qt/qtserialport 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Serial port abstraction library for the Qt6 framework
+dev-qt/qtquickcontrols 5.15.12 5.15.13: Set of Qt Quick controls to create complete user interfaces (deprecated)
+dev-qt/qtquickcontrols2 5.15.12 5.15.13: Set of next generation Qt Quick controls for the Qt5 framework
+dev-qt/qtquicktimeline 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt module for keyframe-based timeline construction
+dev-qt/qtscript 5.15.12 5.15.13: Application scripting library for the Qt5 framework (deprecated)
+dev-qt/qtscxml 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: State Chart XML (SCXML) support library for the Qt6 framework
+dev-qt/qtsensors 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Hardware sensor access library for the Qt6 framework
+dev-qt/qtserialbus 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt module to access CAN, ModBus, and other industrial serial buses and protocols
+dev-qt/qtserialport 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Serial port abstraction library for the Qt6 framework
 dev-qt/qtshadertools 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt APIs and Tools for Graphics Pipelines
 dev-qt/qtsingleapplication 2.6.1_p20171024: Qt library to start applications only once per user
-dev-qt/qtspeech 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Text-to-speech library for the Qt6 framework
-dev-qt/qtsql 5.15.12: SQL abstraction library for the Qt5 framework
+dev-qt/qtspeech 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Text-to-speech library for the Qt6 framework
+dev-qt/qtsql 5.15.12 5.15.13: SQL abstraction library for the Qt5 framework
 dev-qt/qtstyleplugins 5.0.0_p20170311-r1: Additional style plugins for Qt5 (gtk2, cleanlook, plastic, motif)
-dev-qt/qtsvg 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: SVG rendering library for the Qt6 framework
-dev-qt/qttest 5.15.12: Unit testing library for the Qt5 framework
+dev-qt/qtsvg 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: SVG rendering library for the Qt6 framework
+dev-qt/qttest 5.15.12 5.15.13: Unit testing library for the Qt5 framework
 dev-qt/qttools 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt Tools Collection
-dev-qt/qttranslations 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Translation files for the Qt6 framework
-dev-qt/qtvirtualkeyboard 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Customizable input framework and virtual keyboard for Qt
-dev-qt/qtwayland 5.15.12-r1 6.6.2-r1 6.6.9999 6.7.0_rc-r1 6.7.0_rc2 6.7.9999 6.9999: Wayland platform plugin for Qt
-dev-qt/qtwaylandscanner 5.15.12: Tool that generates certain boilerplate C++ code from Wayland protocol xml spec
-dev-qt/qtwebchannel 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt WebChannel
-dev-qt/qtwebengine 5.15.12_p20240122 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Library for rendering dynamic web content in Qt6 C++ and QML applications
-dev-qt/qtwebsockets 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Implementation of the WebSocket protocol for the Qt6 framework
-dev-qt/qtwebview 5.15.12 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Module for displaying web content in a QML application using the Qt6 framework
-dev-qt/qtwidgets 5.15.12-r1: Set of components for creating classic desktop-style UIs for the Qt5 framework
-dev-qt/qtx11extras 5.15.12: Linux/X11-specific support library for the Qt5 framework
-dev-qt/qtxml 5.15.12: Implementation of SAX and DOM for the Qt5 framework
-dev-qt/qtxmlpatterns 5.15.12: XPath, XQuery, XSLT, and XML Schema validation library for the Qt5 framework
+dev-qt/qttranslations 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Translation files for the Qt6 framework
+dev-qt/qtvirtualkeyboard 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Customizable input framework and virtual keyboard for Qt
+dev-qt/qtwayland 5.15.12-r1 5.15.13 6.6.2-r1 6.6.9999 6.7.0_rc-r1 6.7.0_rc2 6.7.9999 6.9999: Wayland platform plugin for Qt
+dev-qt/qtwaylandscanner 5.15.12 5.15.13: Tool that generates certain boilerplate C++ code from Wayland protocol xml spec
+dev-qt/qtwebchannel 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Qt WebChannel
+dev-qt/qtwebengine 5.15.12_p20240122 5.15.13_p20240322 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Library for rendering dynamic web content in Qt6 C++ and QML applications
+dev-qt/qtwebsockets 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Implementation of the WebSocket protocol for the Qt6 framework
+dev-qt/qtwebview 5.15.12 5.15.13 6.6.2 6.6.9999 6.7.0_rc 6.7.0_rc2 6.7.9999 6.9999: Module for displaying web content in a QML application using the Qt6 framework
+dev-qt/qtwidgets 5.15.12-r1 5.15.13: Set of components for creating classic desktop-style UIs for the Qt5 framework
+dev-qt/qtx11extras 5.15.12 5.15.13: Linux/X11-specific support library for the Qt5 framework
+dev-qt/qtxml 5.15.12 5.15.13: Implementation of SAX and DOM for the Qt5 framework
+dev-qt/qtxmlpatterns 5.15.12 5.15.13: XPath, XQuery, XSLT, and XML Schema validation library for the Qt5 framework
 dev-ruby/GeoRuby 2.5.2-r2: Ruby data holder for OGC Simple Features
 dev-ruby/abbrev 0.1.2: Calculates a set of unique abbreviations for a given set of strings
 dev-ruby/abstract 1.0.0-r5: Library which enable you to define abstract method in Ruby
@@ -14750,7 +14750,7 @@ net-im/discord 0.0.46: All-in-one voice and text chat for gamers
 net-im/ejabberd 22.10 23.01 23.04 23.10-r1 24.02-r1: Robust, scalable and extensible XMPP server
 net-im/element-desktop-bin 1.11.54: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
-net-im/fractal 6_rc 6: Matrix messaging app for GNOME written in Rust
+net-im/fractal 6: Matrix messaging app for GNOME written in Rust
 net-im/gajim 1.7.3 1.7.3-r1 1.8.0 1.8.1 1.8.4: Jabber client written in PyGTK
 net-im/gitter-bin 4.1.0-r1 5.0.1 5.0.1-r1: Chat and network platform
 net-im/libcommuni 3.7.0: A cross-platform IRC framework written with Qt
@@ -15510,7 +15510,7 @@ net-p2p/qbittorrent 4.6.2-r1 4.6.3 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.7.2.1375-r1 2.7.3.1381 9999: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.6-r1: P2P private sharing application
 net-p2p/rtorrent 0.9.8-r1 0.9.8-r2 0.9.8-r3: BitTorrent Client using libtorrent
-net-p2p/syncthing 1.27.2: Open Source Continuous File Synchronization
+net-p2p/syncthing 1.27.2 1.27.4: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.6-r3: A torrent file parser
 net-p2p/transmission 3.00-r6 4.0.3 4.0.3-r1 4.0.4 4.0.5 9999: A fast, easy, and free BitTorrent client
 net-p2p/transmission-remote-gtk 1.5.1-r1: GTK+ client for management of the Transmission BitTorrent client, over HTTP RPC
@@ -17472,10 +17472,10 @@ sys-devel/binutils-apple 3.2.6-r1 8.2.1-r2 8.2.1-r103: Darwin Xtools matching Xc
 sys-devel/binutils-config 5.5 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r3 2.41-r5 2.42-r1: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
-sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: C language family frontend for LLVM
-sys-devel/clang-common 15.0.7-r7 16.0.6-r2 17.0.6-r1 17.0.6-r2 18.1.2 18.1.2-r1 19.0.0_pre20240316 19.0.0.9999: Common files shared between multiple slots of clang
+sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: C language family frontend for LLVM
+sys-devel/clang-common 15.0.7-r7 16.0.6-r2 17.0.6-r1 17.0.6-r2 18.1.2 18.1.2-r1 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Common files shared between multiple slots of clang
 sys-devel/clang-crossdev-wrappers 16 17 18 19: Symlinks to a Clang crosscompiler
-sys-devel/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: Meta-ebuild for clang runtime libraries
+sys-devel/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Meta-ebuild for clang runtime libraries
 sys-devel/clang-toolchain-symlinks 15-r2 16-r2 17 18 19: Symlinks to use Clang on GCC-free system
 sys-devel/cproc 0_pre20220805 9999: C11 compiler using QBE as backend
 sys-devel/crossdev 20240209 99999999: Gentoo Cross-toolchain generator
@@ -17492,10 +17492,10 @@ sys-devel/gettext 0.21.1 0.22.4 0.22.5: GNU locale utilities
 sys-devel/gnuconfig 20230731 99999999: Updated config.sub and config.guess file from GNU
 sys-devel/icecream 1.4: Distributed compiler with a central scheduler to share build load
 sys-devel/kgcc64 10.5.0 11.4.1_p20240111 11.4.1_p20240208 12.3.1_p20240112 12.3.1_p20240209 13.2.1_p20240113-r1 13.2.1_p20240210: 64bit kernel compiler
-sys-devel/lld 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: The LLVM linker (link editor)
+sys-devel/lld 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: The LLVM linker (link editor)
 sys-devel/lld-toolchain-symlinks 15-r2 16-r2 17 18 19: Symlinks to use LLD on binutils-free system
-sys-devel/llvm 15.0.7-r3 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: Low Level Virtual Machine
-sys-devel/llvm-common 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: Common files shared between multiple slots of LLVM
+sys-devel/llvm 15.0.7-r3 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Low Level Virtual Machine
+sys-devel/llvm-common 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Common files shared between multiple slots of LLVM
 sys-devel/llvm-toolchain-symlinks 15-r1 16-r1 17 18 19: Symlinks to use LLVM on binutils-free system
 sys-devel/llvmgold 15 16 17 18 19: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19-r2: GNU macro processor
@@ -17708,8 +17708,8 @@ sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1 0.2.1: The sd-bus library, extracted from systemd
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r2 2.41-r3 2.41-r5 2.42-r1: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
 sys-libs/blocksruntime 0_pre20171027-r2: BlocksRuntime library needed for clang's -fblocks support
-sys-libs/compiler-rt 15.0.7 16.0.6 16.0.6-r4 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: Compiler runtime library for clang (built-in part)
-sys-libs/compiler-rt-sanitizers 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
+sys-libs/compiler-rt 15.0.7 16.0.6 16.0.6-r4 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Compiler runtime library for clang (built-in part)
+sys-libs/compiler-rt-sanitizers 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
 sys-libs/cracklib 2.9.11: Password Checking Library
 sys-libs/csu 85-r1: Darwin Csu (crt1.o) - Mac OS X 10.10 version
 sys-libs/db 4.8.30-r8 4.8.30-r9 5.3.28-r9 5.3.28-r10 6.0.35-r4 6.0.35-r5: Oracle Berkeley DB
@@ -17730,8 +17730,8 @@ sys-libs/libblockdev 2.28-r1 3.0.3 3.0.4: A library for manipulating block devic
 sys-libs/libcap 2.69 2.69-r1 9999: POSIX 1003.1e capabilities
 sys-libs/libcap-ng 0.8.3 0.8.4 0.8.4-r1: POSIX 1003.1e capabilities
 sys-libs/libchipcard 5.1.5_rc2 5.1.6 5.1.6-r1: Library for accessing chip cards via chip card readers (terminals)
-sys-libs/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: New implementation of the C++ standard library, targeting C++11
-sys-libs/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: Low level support for a standard C++ library
+sys-libs/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: New implementation of the C++ standard library, targeting C++11
+sys-libs/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: Low level support for a standard C++ library
 sys-libs/libfaketime 0.9.6-r4 0.9.9 0.9.10: Report faked system time to programs
 sys-libs/libhugetlbfs 2.23: Easy hugepage access
 sys-libs/libhx 3.24-r1 3.25 4.21 4.23: Platform independent library providing basic system functions
@@ -17740,7 +17740,7 @@ sys-libs/libixp 0.5_p20110208-r3: A stand-alone client/server 9P library includi
 sys-libs/libmodulemd 2.15.0 9999: C Library for manipulating Fedora Modularity metadata files
 sys-libs/libnbd 1.14.1 1.16.1-r1 1.18.1: NBD client library in userspace
 sys-libs/libnvme 1.7.1-r1 1.8: C Library for NVM Express on Linux
-sys-libs/libomp 15.0.7-r6 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: OpenMP runtime library for LLVM/clang compiler
+sys-libs/libomp 15.0.7-r6 16.0.6 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: OpenMP runtime library for LLVM/clang compiler
 sys-libs/libosinfo 1.10.0-r1 1.11.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
@@ -17761,7 +17761,7 @@ sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utm
 sys-libs/libuuid 1.0.3: Portable uuid C library
 sys-libs/libvpd 2.2.9: Library implementation for listing Vital Product Data
 sys-libs/libxcrypt 4.4.36 4.4.36-r2 4.4.36-r3: Extended crypt library for descrypt, md5crypt, bcrypt, and others
-sys-libs/llvm-libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0.9999: C++ runtime stack unwinder from LLVM
+sys-libs/llvm-libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.2 19.0.0_pre20240316 19.0.0_pre20240322 19.0.0.9999: C++ runtime stack unwinder from LLVM
 sys-libs/lwp 2.8: Light-weight process library (used by Coda)
 sys-libs/minizip-ng 4.0.4 4.0.5: Fork of the popular zip manipulation library found in the zlib distribution
 sys-libs/mtdev 1.1.6: Multitouch Protocol Translation Library
@@ -18168,7 +18168,7 @@ www-client/elinks 0.16.1.1-r2 9999: Advanced and well-established text-mode web 
 www-client/epiphany 44.6: GNOME webbrowser based on Webkit
 www-client/falkon 23.08.5 24.02.1: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
-www-client/firefox 115.8.0 115.9.0 122.0.1 123.0.1-r1 124.0: Firefox Web Browser
+www-client/firefox 115.8.0 115.9.0 122.0.1 123.0.1-r1 124.0 124.0.1: Firefox Web Browser
 www-client/firefox-bin 115.9.1 124.0.1: Firefox Web Browser
 www-client/google-chrome 123.0.6312.58: The web browser from Google
 www-client/google-chrome-beta 124.0.6367.9: The web browser from Google
