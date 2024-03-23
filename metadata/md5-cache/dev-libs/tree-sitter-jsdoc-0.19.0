@@ -1,5 +1,5 @@
 BDEPEND=test? ( dev-util/tree-sitter-cli )
-DEFINED_PHASES=compile install test
+DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=JSDoc grammar for Tree-sitter
 EAPI=8
 HOMEPAGE=https://github.com/tree-sitter/tree-sitter-jsdoc
@@ -10,5 +10,5 @@ LICENSE=MIT
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tree-sitter/tree-sitter-jsdoc/archive/v0.19.0.tar.gz -> tree-sitter-jsdoc-0.19.0.tar.gz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	tree-sitter-grammar	295211cd03e4160303d359596aef4684
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	tree-sitter-grammar	b387ae33d78340575171e420abadc3db
 _md5_=817d99f66e83804b59d95573f07cdd6a

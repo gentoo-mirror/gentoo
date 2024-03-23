@@ -1,0 +1,15 @@
+BDEPEND=~dev-libs/tree-sitter-0.22.1 >=virtual/rust-1.53
+DEFINED_PHASES=compile configure install test unpack
+DESCRIPTION=Command-line tool for creating and testing tree-sitter grammars
+EAPI=8
+HOMEPAGE=https://github.com/tree-sitter/tree-sitter
+INHERIT=cargo
+IUSE=debug
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=MIT Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD ISC MIT MPL-2.0 Unicode-DFS-2016
+RDEPEND=~dev-libs/tree-sitter-0.22.1
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.22.1.tar.gz -> tree-sitter-0.22.1.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/dev-util/tree-sitter-cli/tree-sitter-cli-0.22.1-crates.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0
+_md5_=2364b6d9c86b33cc161f98ce527d5154

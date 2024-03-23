@@ -333,9 +333,8 @@ app-containers/incus:fuidshift - Install the fuidshift binary - currently confli
 app-containers/lxc:io-uring - Enable io_uring support, and use io_uring instead of epoll
 app-containers/lxc:tools - Build and install additional command line tools
 app-containers/nerdctl:rootless - Enables dependencies for running in rootless mode.
-app-containers/podman:btrfs - Enables dependencies for the "btrfs" graph driver, including necessary kernel flags.
+app-containers/podman:btrfs - Enables btrfs support (graph driver) in Podman
 app-containers/podman:cgroup-hybrid - Use legacy (hybrid) cgroups instead of modern (unified) cgroups
-app-containers/podman:cron - Runs `podman auto-update` daily. See podman-auto-update(1)
 app-containers/podman:fuse - Enables fuse dependencies (fuse-overlayfs is especially useful for rootless mode).
 app-containers/podman:init - Enables catatonit dependency required for podman run --init.
 app-containers/podman:rootless - Enables dependencies for running in rootless mode.

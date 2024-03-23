@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-util/tree-sitter-cli ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/wheel[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+DESCRIPTION=Python grammar for Tree-sitter
+EAPI=8
+HOMEPAGE=https://github.com/tree-sitter/tree-sitter-python
+INHERIT=tree-sitter-grammar
+IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug test python
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64
+LICENSE=MIT
+RDEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/tree-sitter-0.21.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tree-sitter/tree-sitter-python/archive/v0.21.0.tar.gz -> tree-sitter-python-0.21.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	tree-sitter-grammar	b387ae33d78340575171e420abadc3db
+_md5_=c2acc4d25827f0041c9c563ba8f68424
