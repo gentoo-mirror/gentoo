@@ -1,0 +1,16 @@
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
+DESCRIPTION=Team collaboration tool
+EAPI=8
+HOMEPAGE=https://slack.com
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop multilib-build optfeature pax-utils unpacker xdg
+IUSE=appindicator +seccomp suid wayland abi_x86_64
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=app-accessibility/at-spi2-core:2[abi_x86_64(-)?] dev-libs/expat:0[abi_x86_64(-)?] dev-libs/glib:2[abi_x86_64(-)?] dev-libs/nspr:0[abi_x86_64(-)?] dev-libs/nss:0[abi_x86_64(-)?] dev-libs/wayland[abi_x86_64(-)?] media-libs/alsa-lib:0[abi_x86_64(-)?] media-libs/mesa:0[abi_x86_64(-)?] net-print/cups:0[abi_x86_64(-)?] sys-apps/dbus:0[abi_x86_64(-)?] x11-libs/cairo:0[abi_x86_64(-)?] x11-libs/gdk-pixbuf:2[abi_x86_64(-)?] x11-libs/gtk+:3[abi_x86_64(-)?] x11-libs/libdrm:0[abi_x86_64(-)?] x11-libs/libX11:0[abi_x86_64(-)?] x11-libs/libxcb:0/1.12[abi_x86_64(-)?] x11-libs/libXcomposite:0[abi_x86_64(-)?] x11-libs/libXdamage:0[abi_x86_64(-)?] x11-libs/libXext:0[abi_x86_64(-)?] x11-libs/libXfixes:0[abi_x86_64(-)?] x11-libs/libxkbcommon:0[abi_x86_64(-)?] x11-libs/libxkbfile:0[abi_x86_64(-)?] x11-libs/libXrandr:0[abi_x86_64(-)?] x11-libs/pango:0[abi_x86_64(-)?] appindicator? ( dev-libs/libayatana-appindicator )
+REQUIRED_USE=|| ( abi_x86_64 )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://downloads.slack-edge.com/releases/linux/4.37.94/prod/x64/slack-desktop-4.37.94-amd64.deb
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib-build	e8aed98bd43dbd25694310a660ad562c	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	pax-utils	91d47e5d20627c717aa878b9167c62a8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=0bdf88e20f770347ba67c805640fd08d
