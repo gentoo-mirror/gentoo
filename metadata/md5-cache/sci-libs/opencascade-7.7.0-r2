@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-text/doxygen ) examples? ( dev-qt/linguist-tools:5 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=!app-eselect/eselect-opencascade dev-lang/tcl:= dev-lang/tk:= media-libs/fontconfig media-libs/freetype:2 virtual/opengl x11-libs/libX11 examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) tbb? ( dev-cpp/tbb:= ) vtk? ( <sci-libs/vtk-9.3.0:=[rendering] ) x11-base/xorg-proto json? ( dev-libs/rapidjson ) vtk? ( dev-libs/utfcpp )
+DEPEND=dev-lang/tcl:= dev-lang/tk:= media-libs/fontconfig media-libs/freetype:2 virtual/opengl x11-libs/libX11 examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) tbb? ( dev-cpp/tbb:= ) vtk? ( <sci-libs/vtk-9.3.0:=[rendering] ) x11-base/xorg-proto json? ( dev-libs/rapidjson ) vtk? ( dev-libs/utfcpp )
 DESCRIPTION=Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 EAPI=8
 HOMEPAGE=https://www.opencascade.com
@@ -8,10 +8,10 @@ INHERIT=cmake
 IUSE=doc examples ffmpeg freeimage gles2 json optimize tbb vtk
 KEYWORDS=amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )
-RDEPEND=!app-eselect/eselect-opencascade dev-lang/tcl:= dev-lang/tk:= media-libs/fontconfig media-libs/freetype:2 virtual/opengl x11-libs/libX11 examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) tbb? ( dev-cpp/tbb:= ) vtk? ( <sci-libs/vtk-9.3.0:=[rendering] )
+RDEPEND=dev-lang/tcl:= dev-lang/tk:= media-libs/fontconfig media-libs/freetype:2 virtual/opengl x11-libs/libX11 examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) tbb? ( dev-cpp/tbb:= ) vtk? ( <sci-libs/vtk-9.3.0:=[rendering] )
 REQUIRED_USE=?? ( optimize tbb )
 RESTRICT=test
 SLOT=0/7.7
 SRC_URI=https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=185d29b92f6764ffa9fc195b7dbe7bba3c4ac855;sf=tgz -> opencascade-7.7.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=91117f0068a5c2b46d80751941e4f30b
+_md5_=ea8eca9ce43d5615af601658dc59a0e7

@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://xmrig.com https://github.com/xmrig/xmrig
 INHERIT=cmake flag-o-matic systemd toolchain-funcs
 IUSE=cpu_flags_x86_sse4_1 donate hwloc opencl +ssl
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 arm64
 LICENSE=Apache-2.0 GPL-3+ MIT
 RDEPEND=dev-libs/libuv:= hwloc? ( >=sys-apps/hwloc-2.5.0:= ) opencl? ( virtual/opencl ) ssl? ( dev-libs/openssl:= ) !arm64? ( sys-apps/msr-tools )
 SLOT=0
 SRC_URI=https://github.com/xmrig/xmrig/archive/v6.21.1.tar.gz -> xmrig-6.21.1.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=40ff5cf97b9cf70219b0ff5066f6cb2c
+_md5_=5ac027bc30af9d5efb40fb4de37fb40c
