@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) =dev-qt/qtcore-5.15.13*:5 llvm_slot_15? ( sys-devel/clang:15 sys-devel/llvm:15 ) docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 =dev-qt/qtxml-5.15.13*:5 =dev-qt/qtxmlpatterns-5.15.13*:5 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers ) test? ( =dev-qt/qttest-5.15.13*:5 )
+DESCRIPTION=Python binding generator for C++ libraries
+EAPI=8
+HOMEPAGE=https://wiki.qt.io/PySide2
+INHERIT=cmake llvm-r1 python-r1 toolchain-funcs
+IUSE=+docstrings numpy test vulkan +llvm_slot_15 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3+ LGPL-3 ) GPL-3
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) =dev-qt/qtcore-5.15.13*:5 llvm_slot_15? ( sys-devel/clang:15 sys-devel/llvm:15 ) docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 =dev-qt/qtxml-5.15.13*:5 =dev-qt/qtxmlpatterns-5.15.13*:5 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 ) ^^ ( llvm_slot_15 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.13-src/pyside-setup-opensource-src-5.15.13.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	2e652182b1f239b07688071f959f19e4	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_md5_=b6b04a17551d6b3c8e805b879f6e9eb6
