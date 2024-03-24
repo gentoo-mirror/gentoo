@@ -1,7 +1,7 @@
 Title: Profile upgrade to version 23.0 available
 Author: Andreas K. Huettel <dilfridge@gentoo.org>
 Posted: 2024-03-22
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Profile: default/linux/alpha/17.0
 Display-If-Profile: default/linux/alpha/17.0/*
@@ -50,15 +50,15 @@ architecture, see [2].
 
 Upgrade instructions
 
-Note 1: The use of binary packages is completely optional, and also not 
-as much tested as the source-based upgrade path yet. If you prefer to 
-only use the traditional source-based installation, omit the "--getbinpkg" 
-parameter in all emerge invocations.
-
-Note 2: If you have manually changed your CHOST to a value different from 
-what the stages and profiles set, you may have to do that in the future too. 
+Note 1: If you have manually changed your CHOST to a value different from 
+what the stages and profiles set, you may have to do that in the future too.
 In that case you should know what you are doing, hopefully; please read the 
 instructions with a critical eye then.
+
+Note 2: In case you are already familiar with binary packages, you should be
+able to add "--getbinpkg" to the emerge calls to speed things up.
+The use of binary packages is completely optional though, and also not
+as much tested as the source-based upgrade path yet.
 
 1. Ensure your system backups are up to date. Please also update
    your system fully and depclean before proceeding.
@@ -105,16 +105,16 @@ instructions with a critical eye then.
 
 9. Rebuild or reinstall from binary (if available) the following packages in
    this order, with the same version as already active:
-     emerge --ask --oneshot --getbinpkg sys-devel/binutils
+     emerge --ask --oneshot sys-devel/binutils
    (you may have to run binutils-config and re-select your binutils now)
-     emerge --ask --oneshot --getbinpkg sys-devel/gcc
+     emerge --ask --oneshot sys-devel/gcc
    (IMPORTANT: If this command wants to rebuild glibc first, do *not* let it do 
     that; instead, abort and try again with --nodeps added to the command line.)
    (you may have to run gcc-config and re-select your gcc now)
    and the C library, i.e. for glibc-based systems
-     emerge --ask --oneshot --getbinpkg sys-libs/glibc
+     emerge --ask --oneshot sys-libs/glibc
    or for musl-based systems
-     emerge --ask --oneshot --getbinpkg sys-libs/musl
+     emerge --ask --oneshot sys-libs/musl
 
 10. Re-run "emerge --info" and check if CHOST has changed compared to step 4.
 
@@ -130,14 +130,14 @@ If the CHOST has NOT changed, skip to step 13 (env-update). Otherwise,
 13. Run env-update && source /etc/profile
 
 14. Re-emerge libtool:
-   emerge --ask --oneshot --getbinpkg libtool
+   emerge --ask --oneshot libtool
 
 15. Just for safety, delete the contents of your binary package cache at 
     ${PKGDIR} again:
      rm -r /var/cache/binpkgs/*
 
 16. Rebuild world:
-   emerge --ask --emptytree --getbinpkg @world
+   emerge --ask --emptytree @world
 
 
 [1] https://wiki.gentoo.org/wiki/Project:Toolchain/23.0_profile_transition
