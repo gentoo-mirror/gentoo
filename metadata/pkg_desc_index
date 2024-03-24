@@ -3809,7 +3809,7 @@ dev-build/ninja 1.11.1-r5 9999: A small build system similar to make
 dev-build/pmake 1.111.3.3-r1: BSD build tool to create programs in parallel. Debian's version of NetBSD's make
 dev-build/qconf 2.5: ./configure like generator for qmake-based projects
 dev-build/remake 4.3.1.1.5 4.3.1.1.6: Patched version of GNU Make with improved error reporting, tracing and debugging
-dev-build/rocm-cmake 5.4.3 5.7.1: Radeon Open Compute CMake Modules
+dev-build/rocm-cmake 5.7.1: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
 dev-build/scons 4.6.0-r1 4.7.0: Extensible Python-based build utility
 dev-build/slibtool 0.5.35 0.5.36 9999: A strong libtool implementation, written in C
@@ -5296,7 +5296,7 @@ dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/R
 dev-libs/cJSON 1.7.17: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1: RPC/Serialization system with capabilities support
 dev-libs/capstone 4.0.2-r2 5.0.1 9999: disassembly/disassembler framework + bindings
-dev-libs/castxml 0.5.1-r1 0.6.1 0.6.2: C-family abstract syntax tree XML output tool
+dev-libs/castxml 0.5.1-r1 0.6.1 0.6.2 0.6.4: C-family abstract syntax tree XML output tool
 dev-libs/cdk 5.0.20230201 5.0.20230201-r1: A library of curses widgets
 dev-libs/cereal 1.3.2-r2: Header-only C++11 serialization library
 dev-libs/cgilib 0.7-r1: A simple and lightweight interface to the CGI for C and C++ programs
@@ -5616,7 +5616,7 @@ dev-libs/libtraceevent 1.6.3 1.7.2 1.7.3: Linux kernel trace event library
 dev-libs/libtracefs 1.6.1-r2 1.6.3-r2 1.6.4-r1 1.7.0: Linux kernel trace file system library
 dev-libs/libtsm 4.0.2: Terminal Emulator State Machine
 dev-libs/libucl 0.8.1-r100 0.9.0 9999: Universal configuration library parser
-dev-libs/libudfread 1.1.0 1.1.1 1.1.2 9999: Library for reading UDF from raw devices and image files
+dev-libs/libudfread 1.1.2 9999: Library for reading UDF from raw devices and image files
 dev-libs/libuev 2.3.2-r1 2.4.0 2.4.1: Lightweight event loop library for Linux epoll() family APIs
 dev-libs/libugpio 0.0.7-r1: Lib for the use of linux kernel's sysfs gpio interface from C programs
 dev-libs/libunibreak 5.1: Line and word breaking library
@@ -12371,7 +12371,7 @@ kde-frameworks/kcontacts 5.115.0 6.0.0: Address book API based on KDE Frameworks
 kde-frameworks/kcoreaddons 5.115.0 6.0.0: Framework for solving common problems such as caching, randomisation, and more
 kde-frameworks/kcrash 5.115.0 6.0.0: Framework for intercepting and handling application crashes
 kde-frameworks/kdav 5.115.0 6.0.0: DAV protocol implemention with KJobs
-kde-frameworks/kdbusaddons 5.115.0 6.0.0: Framework for registering services and applications per freedesktop standards
+kde-frameworks/kdbusaddons 5.115.0 6.0.0-r1: Framework for registering services and applications per freedesktop standards
 kde-frameworks/kdeclarative 5.115.0 6.0.0: Framework providing integration of QML and KDE work spaces
 kde-frameworks/kded 5.115.0 6.0.0: Central daemon of KDE workspaces
 kde-frameworks/kdelibs4support 5.115.0: Framework easing the development transition from KDELibs 4 to KF 5
@@ -12386,15 +12386,15 @@ kde-frameworks/kguiaddons 5.115.0 6.0.0: Framework providing assorted high-level
 kde-frameworks/kholidays 5.115.0 6.0.0: Library to determine holidays and other special events for a geographical region
 kde-frameworks/khtml 5.115.0: KHTML web rendering engine
 kde-frameworks/ki18n 5.115.1 6.0.0: Framework based on Gettext for internationalizing user interface text
-kde-frameworks/kiconthemes 5.115.0 6.0.0: Framework for icon theming and configuration
+kde-frameworks/kiconthemes 5.115.0 6.0.0-r1: Framework for icon theming and configuration
 kde-frameworks/kidletime 5.115.0 6.0.0: Framework for detection and notification of device idle time
 kde-frameworks/kimageformats 5.115.0 6.0.0: Framework providing additional format plugins for Qt's image I/O system
 kde-frameworks/kinit 5.115.0: Helper library to speed up start of applications on KDE workspaces
-kde-frameworks/kio 5.115.0 6.0.0-r1: Framework providing transparent file and data management
-kde-frameworks/kirigami 5.115.0 6.0.0: Lightweight user interface framework for mobile and convergent applications
+kde-frameworks/kio 5.115.0 6.0.0-r2: Framework providing transparent file and data management
+kde-frameworks/kirigami 5.115.0 6.0.0-r1: Lightweight user interface framework for mobile and convergent applications
 kde-frameworks/kitemmodels 5.115.0 6.0.0: Framework providing data models to help with tasks such as sorting and filtering
 kde-frameworks/kitemviews 5.115.0 6.0.0: Framework providing additional widgets for item models
-kde-frameworks/kjobwidgets 5.115.0 6.0.0: Framework providing assorted widgets for showing the progress of jobs
+kde-frameworks/kjobwidgets 5.115.0 6.0.0-r1: Framework providing assorted widgets for showing the progress of jobs
 kde-frameworks/kjs 5.115.0: ECMAScipt compatible parser and engine
 kde-frameworks/knewstuff 5.115.0 6.0.0-r2: Framework for downloading and sharing additional application data
 kde-frameworks/knotifications 5.115.0 6.0.0: Framework for notifying the user of an event
@@ -12417,7 +12417,7 @@ kde-frameworks/kunitconversion 5.115.0 6.0.0: Framework for converting units
 kde-frameworks/kuserfeedback 1.3.0-r3 6.0.0: Framework to collect user feedback for applications via telemetry and surveys
 kde-frameworks/kwallet 5.115.0 6.0.0: Framework providing desktop-wide storage for passwords
 kde-frameworks/kwidgetsaddons 5.115.0 6.0.0: An assortment of high-level widgets for common tasks
-kde-frameworks/kwindowsystem 5.115.0 6.0.0: Framework providing access to properties and features of the window manager
+kde-frameworks/kwindowsystem 5.115.0 6.0.0-r1: Framework providing access to properties and features of the window manager
 kde-frameworks/kxmlgui 5.115.0 6.0.0: Framework for managing menu and toolbar actions in an abstract way
 kde-frameworks/modemmanager-qt 5.115.0 6.0.0: ModemManager bindings for Qt
 kde-frameworks/networkmanager-qt 5.115.0 6.0.0: NetworkManager bindings for Qt
@@ -12970,7 +12970,7 @@ media-gfx/gscan2pdf 2.13.2 2.13.2-r1: Scan documents, perform OCR, produce PDFs 
 media-gfx/gthumb 3.12.3 3.12.4 3.12.5 3.12.6: Image viewer and browser for Gnome
 media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
 media-gfx/hp2xx 3.4.4-r3 3.4.4-r4: Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
-media-gfx/hugin 2022.0.0 2022.0.0-r2 2023.0.0-r1 9999: GUI for the creation & processing of panoramic images
+media-gfx/hugin 2023.0.0-r1 9999: GUI for the creation & processing of panoramic images
 media-gfx/hydrus 565 9999: A booru-like media organizer for the desktop
 media-gfx/icon-slicer 0.3-r1: Utility for generating icon themes and libXcursor cursor themes
 media-gfx/icoutils 0.32.3: Tools to extract and convert images in icon and cursor files (.ico, .cur)
@@ -13459,7 +13459,7 @@ media-libs/quarter 1.1.0-r1 1.2.1: GUI binding for using Coin/Open Inventor with
 media-libs/quesoglc 0.7.2-r1: Free implementation of the OpenGL Character Renderer (GLC)
 media-libs/quirc 1.2-r2 9999: QR decoder library
 media-libs/raptor 2.0.15-r8: The RDF Parser Toolkit
-media-libs/raspberrypi-userland 0_pre20160424 0_pre20201022 9999: Raspberry Pi userspace tools and libraries
+media-libs/raspberrypi-userland 0_pre20201022 9999: Raspberry Pi userspace tools and libraries
 media-libs/raspberrypi-userland-bin 1.20201201: Raspberry Pi userspace tools and libraries
 media-libs/resid 0.16_p2-r2: C++ library to emulate the C64 SID chip
 media-libs/rlottie 0.2_p20210405: A platform independent standalone library that plays Lottie Animations
@@ -15697,7 +15697,7 @@ net-wireless/portapack-firmware 20190405: Firmware and scripts for controlling t
 net-wireless/portapack-havoc 0.0_p20180612: Custom firmware for the HackRF SDR + PortaPack H1 addon
 net-wireless/qdmr 0.10.2 0.10.4 0.11.2 0.11.3 9999: GUI application for configuring and programming cheap DMR radios
 net-wireless/reaver 1.6.5: Brute force attack against Wifi Protected Setup
-net-wireless/rtl-sdr 0.6.0_p2020802 0.6.0_p2020802-r1 0.6.0_p20221217 2.0.1 9999: Turns your Realtek RTL2832 based DVB dongle into a SDR receiver
+net-wireless/rtl-sdr 2.0.1 9999: Turns your Realtek RTL2832 based DVB dongle into a SDR receiver
 net-wireless/rtl_433 21.12 22.11 9999: Decode OOK modulated signals
 net-wireless/sdrplay 2.13.1-r1 3.07.1: SDRplay API/HW driver for all RSPs
 net-wireless/sigdigger 0.1.0 0.3.0: The free digital signal analyzer
@@ -15960,7 +15960,7 @@ sci-chemistry/threeV 1.2-r1: 3V: Voss Volume Voxelator
 sci-chemistry/tinker 8.2.1-r1: Molecular modeling package that includes force fields, such as AMBER and CHARMM
 sci-chemistry/tm-align 20150914-r1: Quick & Accurate Structural Alignment
 sci-chemistry/vmd 1.9.4_alpha57: Visual Molecular Dynamics
-sci-chemistry/votca 2022 2022.1 9999: Versatile Object-oriented Toolkit for Coarse-graining Applications
+sci-chemistry/votca 2022.1 9999: Versatile Object-oriented Toolkit for Coarse-graining Applications
 sci-chemistry/wxmacmolplt 7.5-r1 7.7.2: Chemical 3D graphics program with GAMESS input builder
 sci-chemistry/xds-bin 20170930: Software for processing single-crystal X-ray monochromatic diffraction data
 sci-chemistry/xyza2pipe 20121001: Cross conversion environment of NMR spectra
@@ -16264,11 +16264,11 @@ sci-libs/lmfit 9.0-r1: library for Levenberg-Marquardt least-squares minimizatio
 sci-libs/lrslib 071b 071b-r1: Reverse-search algorithm for vertex enumeration problems
 sci-libs/m4ri 20200125: Method of four russian for inversion (M4RI)
 sci-libs/m4rie 20200115-r1: Fast dense matrix arithmetic over GF(2^e) for 2 <= e <= 16
-sci-libs/mathgl 2.4.4-r1 8.0.1: Math Graphics Library
+sci-libs/mathgl 8.0.1: Math Graphics Library
 sci-libs/matio 1.5.23: Library for reading and writing matlab files
 sci-libs/mc 1.5: 2D/3D AFEM code for nonlinear geometric PDE
 sci-libs/med 4.1.1-r1 4.1.1-r3: A library to store and exchange meshed data or computation results
-sci-libs/metis 5.1.0-r5 5.2.1-r2: A package for unstructured serial graph partitioning
+sci-libs/metis 5.2.1-r2: A package for unstructured serial graph partitioning
 sci-libs/minuit 5.34.14: A C++ physics analysis tool for function minimization
 sci-libs/miopen 5.1.3-r1 5.7.1-r1: AMD's Machine Intelligence Library
 sci-libs/mkl 2020.4.304 2022.2.1.16993-r1 2023.0.0.25398: Intel Math Kernel Library
@@ -16300,7 +16300,7 @@ sci-libs/pastix 5.2.3 6.0.3: Parallel solver for very large sparse linear system
 sci-libs/pcl 1.14.0 9999: 2D/3D image and point cloud processing
 sci-libs/pdal 2.4.3 2.4.3-r1 2.5.3 2.5.3-r1 2.6.0 2.6.2: A C++ library for translating and manipulating point cloud data
 sci-libs/pgplot 5.2.2-r7: FORTRAN/C device-independent scientific graphic library
-sci-libs/plplot 5.15.0-r105 5.15.0_p6: Multi-language scientific plotting library
+sci-libs/plplot 5.15.0_p6: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r2 0.97-r3: Small, fast library to generate primes in order
 sci-libs/profnet 1.0.22: Neural network architecture for profacc
 sci-libs/profphd-utils 1.0.10-r1: Additional utils for profphd
