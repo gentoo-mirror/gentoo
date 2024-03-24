@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig apidoc? ( app-text/doxygen[dot] ) >=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig apidoc? ( app-text/doxygen[dot] ) >=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare pretend setup unpack
 DEPEND=caps? ( sys-libs/libcap ) cgroups? ( dev-libs/libcgroup ) clsync? ( dev-libs/glib:2 ) mhash? ( app-crypt/mhash )
 DESCRIPTION=Live sync tool based on inotify, written in GNU C
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=caps? ( sys-libs/libcap ) cgroups? ( dev-libs/libcgroup ) clsync? ( dev-libs/glib:2 ) mhash? ( app-crypt/mhash ) !app-doc/clsync-docs !dev-libs/libclsync
 REQUIRED_USE=|| ( clsync socket-library ) || ( gio inotify ) mhash? ( cluster ) seccomp? ( caps )
 SLOT=0
-_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	linux-info	7ca3057b277f1e5978947b4cc289ce62	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	linux-info	7ca3057b277f1e5978947b4cc289ce62	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=231892ccc0644d9305765b8c1b3d79a8

@@ -1,5 +1,5 @@
 DEFINED_PHASES=prepare unpack
-DEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/gtk+:3 dev-util/intltool virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/gtk+:3 dev-util/intltool virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DESCRIPTION=A full-featured GTK based trayicon UI for ConnMan
 EAPI=6
 HOMEPAGE=https://github.com/tbursztyka/connman-ui
@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/gtk+:3 net-misc/connman
 SLOT=0
 SRC_URI=https://github.com/tbursztyka/connman-ui/archive/fce0af94e121bde77c7fa2ebd6a319f0180c5516.tar.gz -> connman-ui-0_p20150622.tar.gz
-_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
+_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
 _md5_=ff8752d1ecdaf1f1a8c9095acbd5bc90

@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20170815 sys-devel/gnuconfig
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib doc? ( sys-apps/texinfo ) test? ( dev-util/dejagnu ) nls? ( sys-devel/gettext ) app-alternatives/lex app-alternatives/yacc
 DESCRIPTION=Tools necessary to build programs
@@ -13,5 +13,5 @@ REQUIRED_USE=default-gold? ( gold )
 RESTRICT=!test? ( test )
 SLOT=2.33
 SRC_URI=mirror://gnu/binutils/binutils-2.33.1.tar.xz https://dev.gentoo.org/~slyfox/distfiles/binutils-2.33.1-patches-2.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
 _md5_=0b9855afbc2c83ee8dfd579dc6053b85

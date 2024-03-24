@@ -1,4 +1,4 @@
-BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=dev-libs/boost:= dev-libs/json-c:= dev-libs/libxml2 dev-libs/icu:= sys-apps/acl sys-apps/dbus sys-apps/util-linux >=sys-fs/btrfs-progs-3.17.1 sys-libs/zlib virtual/libintl lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) xattr? ( sys-apps/attr )
 DESCRIPTION=Command-line program for btrfs and lvm snapshot management
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/boost:= dev-libs/json-c:= dev-libs/libxml2 dev-libs/icu:= sys-a
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/openSUSE/snapper/archive/v0.10.7.tar.gz -> snapper-0.10.7.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=a2bd8eab698e20df5399305e8b374a73

@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/gettext-0.18.3 virtual/pkgconfig test? ( media-fonts/dejavu ) >=app-portage/elt-patches-20170815
+BDEPEND=>=sys-devel/gettext-0.18.3 virtual/pkgconfig test? ( media-fonts/dejavu ) >=app-portage/elt-patches-20240116
 DEFINED_PHASES=configure install prepare
 DEPEND=>=app-text/qpdf-8.3.0:= media-libs/fontconfig media-libs/lcms:2 >=net-print/cups-2 !<net-print/cups-filters-2.0.0 exif? ( media-libs/libexif ) dbus? ( sys-apps/dbus ) jpeg? ( media-libs/libjpeg-turbo:= ) pdf? ( app-text/mupdf ) postscript? ( app-text/ghostscript-gpl[cups] ) poppler? ( >=app-text/poppler-0.32[cxx] ) png? ( media-libs/libpng:= ) tiff? ( media-libs/tiff:= )
 DESCRIPTION=library for developing printing features, split out of cups-filters
@@ -12,5 +12,5 @@ RDEPEND=>=app-text/qpdf-8.3.0:= media-libs/fontconfig media-libs/lcms:2 >=net-pr
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/OpenPrinting/libcupsfilters/releases/download/2.0.0/libcupsfilters-2.0.0.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001
 _md5_=edf130b46ee159cbf04439f7363d7cf4

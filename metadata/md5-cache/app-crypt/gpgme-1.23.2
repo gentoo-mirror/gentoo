@@ -1,4 +1,4 @@
-BDEPEND=python_targets_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)?] ) python? ( dev-lang/swig ) verify-sig? ( sec-keys/openpgp-keys-gnupg ) >=app-portage/elt-patches-20170815 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=python_targets_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)?] ) python? ( dev-lang/swig ) verify-sig? ( sec-keys/openpgp-keys-gnupg ) >=app-portage/elt-patches-20240116 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=>=app-crypt/gnupg-2 >=dev-libs/libassuan-2.5.3:= >=dev-libs/libgpg-error-1.46-r1:= python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtcore:5 ) qt6? ( dev-qt/qtbase:6 ) test? ( qt5? ( dev-qt/qttest:5 ) )
 DESCRIPTION=GnuPG Made Easy is a library for making GnuPG easier to use
@@ -13,5 +13,5 @@ REQUIRED_USE=qt5? ( cxx ) qt6? ( cxx ) python? ( || ( python_targets_python3_10 
 RESTRICT=!test? ( test )
 SLOT=1/11.6.15.2
 SRC_URI=mirror://gnupg/gpgme/gpgme-1.23.2.tar.bz2 verify-sig? ( mirror://gnupg/gpgme/gpgme-1.23.2.tar.bz2.sig )
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	libtool	9d3a9a889a6fa62ae794f817c156491b	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	verify-sig	a79ba011daaf532d71a219182474d150
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	libtool	5f49a16f67f81bdf873e3d1f10b10001	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=b2341374eab980547300f122bbc7f73d

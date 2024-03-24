@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20170815
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116
 DEFINED_PHASES=configure install prepare test
 DEPEND=dev-libs/libltdl:0 mysql? ( dev-db/mysql-connector-c:0= ) sqlite? ( =dev-db/sqlite-3* ) berkdb? ( sys-libs/db:* ) >=media-libs/raptor-2.0.14 >=dev-libs/rasqal-0.9.32 postgres? ( dev-db/postgresql:* ) iodbc? ( dev-db/libiodbc ) odbc? ( dev-db/unixODBC )
 DESCRIPTION=High-level interface for the Resource Description Framework
@@ -11,5 +11,5 @@ LICENSE=Apache-2.0 GPL-2 LGPL-2.1
 RDEPEND=dev-libs/libltdl:0 mysql? ( dev-db/mysql-connector-c:0= ) sqlite? ( =dev-db/sqlite-3* ) berkdb? ( sys-libs/db:* ) >=media-libs/raptor-2.0.14 >=dev-libs/rasqal-0.9.32 postgres? ( dev-db/postgresql:* ) iodbc? ( dev-db/libiodbc ) odbc? ( dev-db/unixODBC )
 SLOT=0
 SRC_URI=https://download.librdf.org/source/redland-1.0.17.tar.gz
-_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	libtool	9d3a9a889a6fa62ae794f817c156491b
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	libtool	5f49a16f67f81bdf873e3d1f10b10001
 _md5_=8d9c4ebe089d2483640f5a23a1fb7964

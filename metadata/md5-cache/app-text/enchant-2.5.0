@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/groff virtual/pkgconfig >=app-portage/elt-patches-20170815
+BDEPEND=sys-apps/groff virtual/pkgconfig >=app-portage/elt-patches-20240116
 DEFINED_PHASES=configure install prepare
 DEPEND=>=dev-libs/glib-2.6:2 aspell? ( app-text/aspell ) hunspell? ( >=app-text/hunspell-1.2.1:0= ) nuspell? ( >=app-text/nuspell-5.1.0:0= ) voikko? ( dev-libs/libvoikko:= ) test? ( >=dev-libs/unittest++-2.0.0-r2 )
 DESCRIPTION=Spellchecker wrapping library
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( aspell hunspell nuspell )
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://github.com/AbiWord/enchant/releases/download/v2.5.0/enchant-2.5.0.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001
 _md5_=33c0268a362d2b92d628b4585981c416

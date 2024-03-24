@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sphinx? ( dev-python/sphinx ) >=app-portage/elt-patches-20170815
+BDEPEND=virtual/pkgconfig sphinx? ( dev-python/sphinx ) >=app-portage/elt-patches-20240116
 DEFINED_PHASES=configure install prepare
 DEPEND=>=dev-libs/onigmo-6.1.1:0= benchmark? ( >=dev-libs/glib-2.8 ) jemalloc? ( dev-libs/jemalloc:0= ) libedit? ( >=dev-libs/libedit-3 ) libevent? ( dev-libs/libevent:0= ) lzo? ( dev-libs/lzo ) mecab? ( >=app-text/mecab-0.80 ) msgpack? ( dev-libs/msgpack:= ) sphinx? ( >=dev-python/sphinx-1.0.1 ) zeromq? ( net-libs/zeromq:0= ) zlib? ( sys-libs/zlib:0= ) zstd? ( app-arch/zstd:0= )
 DESCRIPTION=An Embeddable Fulltext Search Engine
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/onigmo-6.1.1:0= benchmark? ( >=dev-libs/glib-2.8 ) jemalloc? 
 REQUIRED_USE=abort? ( dynamic-malloc-change ) fmalloc? ( dynamic-malloc-change ) sphinx? ( doc )
 SLOT=0
 SRC_URI=https://packages.groonga.org/source/groonga/groonga-8.0.2.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001
 _md5_=26dd47258b0e5c493f1284f3a8503ce7

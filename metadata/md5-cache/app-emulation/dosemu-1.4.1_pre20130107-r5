@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip X? ( x11-apps/bdftopcf >=x11-apps/mkfontscale-1.2.0 ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=app-arch/unzip X? ( x11-apps/bdftopcf >=x11-apps/mkfontscale-1.2.0 ) sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare pretend
 DEPEND=media-libs/libsdl >=sys-libs/slang-1.4 X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXxf86vm ) alsa? ( media-libs/alsa-lib ) fluidsynth? ( media-sound/fluid-soundfont media-sound/fluidsynth ) gpm? ( sys-libs/gpm ) svga? ( media-libs/svgalib ) X? ( x11-base/xorg-proto )
 DESCRIPTION=DOS Emulator
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=media-libs/libsdl >=sys-libs/slang-1.4 X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXxf86vm ) alsa? ( media-libs/alsa-lib ) fluidsynth? ( media-sound/fluid-soundfont media-sound/fluidsynth ) gpm? ( sys-libs/gpm ) svga? ( media-libs/svgalib ) X? ( x11-apps/xset )
 SLOT=0
 SRC_URI=mirror://sourceforge/dosemu/dosemu-freedos-1.0-bin.tgz https://dev.gentoo.org/~sam/distfiles/dosemu-1.4.1_pre20130107.zip
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pax-utils	91d47e5d20627c717aa878b9167c62a8
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pax-utils	91d47e5d20627c717aa878b9167c62a8
 _md5_=5915adeefbb4e40f84c90540e3d59f02

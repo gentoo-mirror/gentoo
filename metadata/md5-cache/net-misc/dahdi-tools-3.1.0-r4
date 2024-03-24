@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl sys-apps/file sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=dev-lang/perl sys-apps/file sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm prepare
 DEPEND=dev-libs/newt net-misc/dahdi sys-kernel/linux-headers virtual/libusb:0 ppp? ( net-dialup/ppp:= )
 DESCRIPTION=Userspace tools to configure the kernel modules from net-misc/dahdi
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=dev-libs/newt net-misc/dahdi sys-kernel/linux-headers virtual/libusb:0 ppp? ( net-dialup/ppp:= ) dev-lang/perl:= dev-perl/CGI
 SLOT=0
 SRC_URI=https://downloads.asterisk.org/pub/telephony/dahdi-tools/releases/dahdi-tools-3.1.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	perl-functions	c3fca037246e877693badea0df3b0ef8	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	perl-functions	c3fca037246e877693badea0df3b0ef8	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=ce39d24ed4b4b03058b295cf9fecc65c

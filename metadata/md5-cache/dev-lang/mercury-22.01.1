@@ -1,4 +1,4 @@
-BDEPEND=test? ( sys-libs/timezone-data ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=test? ( sys-libs/timezone-data ) sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=net-libs/libnsl:0= readline? ( sys-libs/readline:= ) java? ( >=virtual/jdk-1.8:* ) mono? ( dev-lang/mono ) doc? ( sys-apps/texinfo ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Mercury is a modern general-purpose logic/functional programming language
@@ -12,5 +12,5 @@ RDEPEND=net-libs/libnsl:0= readline? ( sys-libs/readline:= ) java? ( >=virtual/j
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dl.mercurylang.org/release/mercury-srcdist-22.01.1.tar.gz https://dev.gentoo.org/~keri/distfiles/mercury/mercury-22.01.1-gentoo-patchset-2.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	elisp-common	2a0fa407d2e6363c663ccb299503b25c	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	elisp-common	2a0fa407d2e6363c663ccb299503b25c	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=d35d677456ae159661b7d0270ed0c715

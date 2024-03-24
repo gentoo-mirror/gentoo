@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/gettext-0.19.4 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
+BDEPEND=>=sys-devel/gettext-0.19.4 virtual/pkgconfig >=app-portage/elt-patches-20240116 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
 DEPEND=>=dev-libs/glib-2.29.15:2 introspection? ( >=dev-libs/gobject-introspection-0.9.5:= ) test? ( dev-libs/gjs )
 DESCRIPTION=Library and layout configuration for the Desktop Menu fd.o specification
@@ -13,5 +13,5 @@ RDEPEND=>=dev-libs/glib-2.29.15:2 introspection? ( >=dev-libs/gobject-introspect
 RESTRICT=!test? ( test )
 SLOT=3
 SRC_URI=mirror://gnome/sources/gnome-menus/3.36/gnome-menus-3.36.0.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	fc9e598eaac41c6ac9ed1a44bc004d03
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	fc9e598eaac41c6ac9ed1a44bc004d03
 _md5_=09b7c4ede80cba95200009b4310b2b33

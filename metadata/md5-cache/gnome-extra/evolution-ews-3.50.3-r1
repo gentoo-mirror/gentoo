@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=dev-util/intltool-0.35.5 >=sys-devel/gettext-0.18.3 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 >=app-portage/elt-patches-20170815 app-arch/xz-utils
+BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=dev-util/intltool-0.35.5 >=sys-devel/gettext-0.18.3 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 >=app-portage/elt-patches-20240116 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-db/sqlite:3 >=dev-libs/glib-2.68:2 >=dev-libs/libical-3.0.5:0=[introspection(-)] >=dev-libs/json-glib-1.0.4 >=dev-libs/libmspack-0.4 dev-libs/libxml2:2 >=gnome-extra/evolution-data-server-3.50.3:0= >=mail-client/evolution-3.50.3:2.0 >=net-libs/libsoup-3.0:3.0 >=x11-libs/gtk+-3.10:3 test? ( >=net-libs/uhttpmock-0.9:1.0 )
 DESCRIPTION=Evolution module for connecting to Microsoft Exchange Web Services
@@ -13,5 +13,5 @@ RDEPEND=dev-db/sqlite:3 >=dev-libs/glib-2.68:2 >=dev-libs/libical-3.0.5:0=[intro
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/evolution-ews/3.50/evolution-ews-3.50.3.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	libtool	9d3a9a889a6fa62ae794f817c156491b	gnome.org	6b39404f1491c60a2d32e3c693a683fe	gnome2-utils	30dbce54b89e77b86f366548f94419ad	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	fc9e598eaac41c6ac9ed1a44bc004d03	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	libtool	5f49a16f67f81bdf873e3d1f10b10001	gnome.org	6b39404f1491c60a2d32e3c693a683fe	gnome2-utils	30dbce54b89e77b86f366548f94419ad	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	fc9e598eaac41c6ac9ed1a44bc004d03	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
 _md5_=540ffdabda7bf87df38e2da5b4969dec

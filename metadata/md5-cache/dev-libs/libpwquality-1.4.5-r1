@@ -1,4 +1,4 @@
-BDEPEND=>=sys-devel/gettext-0.18.2 virtual/pkgconfig >=app-portage/elt-patches-20170815
+BDEPEND=>=sys-devel/gettext-0.18.2 virtual/pkgconfig >=app-portage/elt-patches-20240116
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=sys-libs/cracklib-2.8:=[static-libs(+)?] pam? ( sys-libs/pam ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
 DESCRIPTION=Library for password quality checking and generating random passwords
@@ -12,5 +12,5 @@ RDEPEND=>=sys-libs/cracklib-2.8:=[static-libs(+)?] pam? ( sys-libs/pam ) python?
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.5/libpwquality-1.4.5.tar.bz2
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pam	b56d0c9c20fc5b553f13c8ae165a10a5	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pam	b56d0c9c20fc5b553f13c8ae165a10a5	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
 _md5_=210dcbd7a6244f450b7924ad769c9a7b

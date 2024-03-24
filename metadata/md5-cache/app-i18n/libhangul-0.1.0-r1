@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20240116
 DEFINED_PHASES=configure install prepare test
 DEPEND=virtual/libiconv nls? ( virtual/libintl ) test? ( dev-libs/check )
 DESCRIPTION=Library for hangul input method logic, hanja dictionary
@@ -12,5 +12,5 @@ RDEPEND=virtual/libiconv nls? ( virtual/libintl )
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libhangul/libhangul-0.1.0.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001
 _md5_=21341c9a911a98cc08d326973bbfda4e

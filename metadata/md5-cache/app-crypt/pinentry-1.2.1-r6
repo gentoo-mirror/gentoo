@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-gnupg ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=sys-devel/gettext virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-gnupg ) sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst postrm prepare unpack
 DEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-error-1.17 efl? ( dev-libs/efl[X] ) keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 wayland? ( kde-plasma/kwayland:5 ) X? ( dev-qt/qtx11extras:5 x11-libs/libX11 ) )
 DESCRIPTION=Simple passphrase entry dialogs which utilize the Assuan protocol
@@ -13,5 +13,5 @@ PDEPEND=emacs? ( app-emacs/pinentry )
 RDEPEND=>=dev-libs/libassuan-2.1 >=dev-libs/libgcrypt-1.6.3 >=dev-libs/libgpg-error-1.17 efl? ( dev-libs/efl[X] ) keyring? ( app-crypt/libsecret ) ncurses? ( sys-libs/ncurses:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 wayland? ( kde-plasma/kwayland:5 ) X? ( dev-qt/qtx11extras:5 x11-libs/libX11 ) ) gtk? ( app-crypt/gcr:0[gtk] )
 SLOT=0
 SRC_URI=mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2 verify-sig? ( mirror://gnupg/pinentry/pinentry-1.2.1.tar.bz2.sig )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	verify-sig	a79ba011daaf532d71a219182474d150
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=5ebb9c68f47cacc35bec58f6afc90550

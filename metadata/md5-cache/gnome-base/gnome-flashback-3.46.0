@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20170815 app-arch/xz-utils
+BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20240116 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
 DEPEND=>=x11-libs/gdk-pixbuf-2.32.2:2 >=x11-libs/gtk+-3.22.0:3[X] >=gnome-base/gnome-desktop-43:3= >=gnome-base/gnome-panel-3.35.2 >=media-libs/libcanberra-0.13[gtk3] >=dev-libs/glib-2.67.3:2 >=gnome-base/gsettings-desktop-schemas-3.31.0 >=sys-auth/polkit-0.97 >=app-i18n/ibus-1.5.2 >=sys-power/upower-0.99.0:= >=x11-libs/libXrandr-1.5.0 >=x11-libs/libXxf86vm-1.1.4 x11-libs/libxcb:= x11-libs/libX11 gnome-base/gdm elogind? ( >=sys-auth/elogind-230 ) systemd? ( >=sys-apps/systemd-230:= ) net-wireless/gnome-bluetooth:3= x11-libs/libXext >=x11-libs/libXi-1.6.0 x11-libs/pango x11-libs/libxkbfile x11-misc/xkeyboard-config x11-libs/libXfixes media-libs/libpulse[glib] media-libs/alsa-lib sys-libs/pam x11-base/xorg-proto
 DESCRIPTION=GNOME Flashback session
@@ -13,5 +13,5 @@ RDEPEND=>=x11-libs/gdk-pixbuf-2.32.2:2 >=x11-libs/gtk+-3.22.0:3[X] >=gnome-base/
 REQUIRED_USE=^^ ( elogind systemd )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-flashback/3.46/gnome-flashback-3.46.0.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	fc9e598eaac41c6ac9ed1a44bc004d03
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	gnome.org	6b39404f1491c60a2d32e3c693a683fe	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	xdg	4a14c5c24f121e7da66e5aab4a168c6e	gnome2	fc9e598eaac41c6ac9ed1a44bc004d03
 _md5_=a594f446b65c814e853775cfe22e9479

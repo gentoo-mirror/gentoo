@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20170815
+BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20240116
 DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=sys-libs/zlib:0= adns? ( >=net-dns/c-ares-1.5.0:0= ) jemalloc? ( dev-libs/jemalloc ) libuv? ( >=dev-libs/libuv-1.13:0= ) metalink? ( libxml2? ( >=dev-libs/libxml2-2.6.26:2= ) !libxml2? ( dev-libs/expat:0= ) ) sqlite? ( dev-db/sqlite:3= ) ssh? ( net-libs/libssh2:= ) ssl? ( app-misc/ca-certificates gnutls? ( >=net-libs/gnutls-1.2.9:0= nettle? ( >=dev-libs/nettle-2.4:0= bittorrent? ( >=dev-libs/nettle-2.4:0=[gmp] >=dev-libs/gmp-6:0= ) ) !nettle? ( >=dev-libs/libgcrypt-1.2.2:0= ) ) !gnutls? ( dev-libs/openssl:0= ) ) !ssl? ( nettle? ( >=dev-libs/nettle-2.4:0= bittorrent? ( >=dev-libs/nettle-2.4:0=[gmp] >=dev-libs/gmp-6:0= ) ) !nettle? ( >=dev-libs/libgcrypt-1.2.2:0= ) ) tcmalloc? ( dev-util/google-perftools ) xmlrpc? ( libxml2? ( >=dev-libs/libxml2-2.6.26:2= ) !libxml2? ( dev-libs/expat:0= ) ) test? ( >=dev-util/cppunit-1.12.0:0 )
 DESCRIPTION=A download utility with segmented downloading with BitTorrent support
@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( jemalloc tcmalloc ) metalink? ( xmlrpc )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	libtool	9d3a9a889a6fa62ae794f817c156491b
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	libtool	5f49a16f67f81bdf873e3d1f10b10001
 _md5_=d81e6bef21a88183e9721ec396d9fef7
