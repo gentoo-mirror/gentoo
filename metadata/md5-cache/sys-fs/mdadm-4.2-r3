@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git/
 INHERIT=flag-o-matic systemd toolchain-funcs udev
 IUSE=static systemd +udev
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86
 LICENSE=GPL-2
 RDEPEND=udev? ( virtual/libudev:= ) >=sys-apps/util-linux-2.16
 REQUIRED_USE=static? ( !udev )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.2.tar.xz mirror://debian/pool/main/m/mdadm/mdadm_4.2~rc2-7.debian.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=ff4f1ef450225642dac4604354cbd2d6
+_md5_=0945d983b021a5b90c8c1fddce68b2b7
