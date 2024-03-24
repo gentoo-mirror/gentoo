@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 virtual/pkgconfig
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare
 DEPEND=acct-user/fetchmail ssl? ( >=dev-libs/openssl-3.0.9:= ) kerberos? ( virtual/krb5 ) nls? ( virtual/libintl ) !elibc_glibc? ( sys-fs/e2fsprogs ) socks? ( net-proxy/dante ) app-arch/xz-utils app-alternatives/lex nls? ( sys-devel/gettext )
 DESCRIPTION=the legendary remote-mail retrieval and forwarding utility
@@ -12,5 +12,5 @@ RDEPEND=acct-user/fetchmail ssl? ( >=dev-libs/openssl-3.0.9:= ) kerberos? ( virt
 REQUIRED_USE=kerberos? ( ssl )
 SLOT=0
 SRC_URI=mirror://sourceforge/fetchmail/fetchmail-6.4.38.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=cc067b6936e1e0ef47e1959ab1678921

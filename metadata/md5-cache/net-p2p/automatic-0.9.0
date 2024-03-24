@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=acct-group/automatic acct-user/automatic dev-libs/libxml2:2 dev-libs/libpcre:3 net-misc/curl
 DESCRIPTION=RSS downloader for Tranmission
@@ -12,5 +12,5 @@ RDEPEND=acct-group/automatic acct-user/automatic dev-libs/libxml2:2 dev-libs/lib
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/1100101/Automatic/archive/v0.9.0.tar.gz -> automatic-0.9.0.gh.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=b20359fae979454097e55de0a0897978

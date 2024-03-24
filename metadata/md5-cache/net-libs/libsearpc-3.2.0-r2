@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=install prepare setup
 DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) >=dev-libs/glib-2.26.0 >=dev-libs/jansson-2.2.1:=
 DESCRIPTION=Simple C language RPC framework
@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) >=dev-libs/gli
 REQUIRED_USE=^^ ( python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/haiwen/libsearpc/archive/v3.2.0.tar.gz -> libsearpc-3.2.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=146dba7ab49471794dde83fd5fbba28f

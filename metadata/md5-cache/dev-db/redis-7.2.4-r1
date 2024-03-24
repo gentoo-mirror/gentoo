@@ -1,4 +1,4 @@
-BDEPEND=jemalloc? ( >=dev-libs/jemalloc-5.1:= ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? ( dev-util/google-perftools ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 virtual/pkgconfig
+BDEPEND=jemalloc? ( >=dev-libs/jemalloc-5.1:= ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? ( dev-util/google-perftools ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=jemalloc? ( >=dev-libs/jemalloc-5.1:= ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? ( dev-util/google-perftools ) test? ( dev-lang/tcl:0= ssl? ( dev-tcltk/tls ) )
 DESCRIPTION=A persistent caching system, key-value, and data structures database
@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( jemalloc tcmalloc )
 RESTRICT=!test? ( test )
 SLOT=0/7.2
 SRC_URI=https://download.redis.io/releases/redis-7.2.4.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=4e98b9d2a13215dbf5f120e81c5e259b

@@ -1,4 +1,4 @@
-BDEPEND=python? ( dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) test? ( dev-libs/check ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=python? ( dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) test? ( dev-libs/check ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/libbsd python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
 DESCRIPTION=Simplified, portable interface to several low-level networking routines
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ofalk/libdnet/archive/libdnet-1.18.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b
 _md5_=cd89c6100d9d5d4bfadb7be53ae7ec5e

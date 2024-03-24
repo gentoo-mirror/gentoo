@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
 DEPEND=>=dev-libs/glib-2.6 sys-apps/hwdata >=sys-kernel/linux-headers-3.17 virtual/libudev tcpd? ( sys-apps/tcp-wrappers )
 DESCRIPTION=Userspace utilities for a general USB device sharing system over IP networks
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/glib-2.6 sys-apps/hwdata >=sys-kernel/linux-headers-3.17 virt
 RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	kernel-2	d7063ec2420394c5b29ed142f15b5033
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	kernel-2	d7063ec2420394c5b29ed142f15b5033
 _md5_=b5ee7a841f08fb2cb467128d0b8d0faf

@@ -1,4 +1,4 @@
-BDEPEND=doc? ( dev-python/sphinx dev-python/sphinxcontrib-bibtex dev-tex/rubber media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=doc? ( dev-python/sphinx dev-python/sphinxcontrib-bibtex dev-tex/rubber media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare
 DEPEND=>=dev-lang/ocaml-4.11:=[ocamlopt?] dev-ml/menhir:=[ocamlopt?] dev-ml/num:=[ocamlopt?] dev-ml/yojson:= coq? ( sci-mathematics/coq ) emacs? ( app-editors/emacs:* ) gtk? ( dev-ml/lablgtk:=[sourceview] ) html? ( dev-tex/hevea:= ) hypothesis-selection? ( dev-ml/ocamlgraph:= ) sexp? ( dev-ml/ppx_deriving:=[ocamlopt?] dev-ml/ppx_sexp_conv:=[ocamlopt?] dev-ml/sexplib:=[ocamlopt?] ) zarith? ( dev-ml/zarith:=[ocamlopt?] ) zip? ( dev-ml/camlzip:=[ocamlopt?] ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Platform for deductive program verification
@@ -13,5 +13,5 @@ REQUIRED_USE=html? ( doc ) ocamlopt
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/dd74ae7ecfd7d56aff7b17cee7a35559384a600f?filename=why3-2021-20210519-19ADF-src.tar.gz -> why3-2021-20210519-19ADF-src.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	findlib	cc1c14904708a0a28bcb256b342a808c
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	findlib	cc1c14904708a0a28bcb256b342a808c
 _md5_=27c2766cdac950f187bbd61c462f073f

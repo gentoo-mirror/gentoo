@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install postinst prepare setup test
-DEPEND=!app-mobilephone/smstools dev-libs/glib:2 bluetooth? ( kernel_linux? ( net-wireless/bluez ) ) ical? ( dev-libs/libical:= ) pcsc-lite? ( sys-apps/pcsc-lite ) sms? ( postgres? ( dev-db/postgresql:* ) mysql? ( dev-db/mysql-connector-c:= ) ) usb? ( virtual/libusb:0 ) X? ( x11-libs/gtk+:2 ) dev-util/intltool irda? ( virtual/os-headers ) nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+DEPEND=!app-mobilephone/smstools dev-libs/glib:2 bluetooth? ( kernel_linux? ( net-wireless/bluez ) ) ical? ( dev-libs/libical:= ) pcsc-lite? ( sys-apps/pcsc-lite ) sms? ( postgres? ( dev-db/postgresql:* ) mysql? ( dev-db/mysql-connector-c:= ) ) usb? ( virtual/libusb:0 ) X? ( x11-libs/gtk+:2 ) dev-util/intltool irda? ( virtual/os-headers ) nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DESCRIPTION=User space driver and tools for use with mobile phones
 EAPI=6
 HOMEPAGE=https://www.gnokii.org/
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=!app-mobilephone/smstools dev-libs/glib:2 bluetooth? ( kernel_linux? ( net-wireless/bluez ) ) ical? ( dev-libs/libical:= ) pcsc-lite? ( sys-apps/pcsc-lite ) sms? ( postgres? ( dev-db/postgresql:* ) mysql? ( dev-db/mysql-connector-c:= ) ) usb? ( virtual/libusb:0 ) X? ( x11-libs/gtk+:2 )
 SLOT=0
 SRC_URI=https://www.gnokii.org/download/gnokii/gnokii-0.6.31.tar.bz2
-_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	desktop	021728fdc1b03b36357dbc89489e0f0d	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	linux-info	7ca3057b277f1e5978947b4cc289ce62	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
+_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	desktop	021728fdc1b03b36357dbc89489e0f0d	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	linux-info	7ca3057b277f1e5978947b4cc289ce62	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
 _md5_=d8b0e9d312c97f7527d4122495665008

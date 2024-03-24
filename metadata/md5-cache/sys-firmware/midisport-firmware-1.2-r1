@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure prepare setup
-DEPEND=sys-apps/fxload virtual/udev virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 virtual/pkgconfig
+DEPEND=sys-apps/fxload virtual/udev virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DESCRIPTION=Firmware for M-Audio/Midiman USB MIDI devices
 EAPI=6
 HOMEPAGE=http://usb-midi-fw.sourceforge.net
@@ -9,5 +9,5 @@ LICENSE=Midisport
 RDEPEND=sys-apps/fxload virtual/udev
 SLOT=0
 SRC_URI=http://downloads.sourceforge.net/usb-midi-fw/midisport-firmware-1.2.tar.gz
-_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	linux-info	7ca3057b277f1e5978947b4cc289ce62	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	linux-info	7ca3057b277f1e5978947b4cc289ce62	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=21562b9b4c2355d319700848b81297c8

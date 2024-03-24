@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 ) virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 ) virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=virtual/libusb:0 >=dev-libs/libg15-3.0 >=dev-libs/libg15render-3.0 perl? ( dev-lang/perl dev-perl/GDGraph >=dev-perl/Inline-0.4 ) dev-lang/perl
 DESCRIPTION=Takes control of the G15 keyboard, through the linux kernel uinput device driver
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=virtual/libusb:0 >=dev-libs/libg15-3.0 >=dev-libs/libg15render-3.0 perl? ( dev-lang/perl dev-perl/GDGraph >=dev-perl/Inline-0.4 ) dev-lang/perl:=
 RESTRICT=test !test? ( test )
 SLOT=0/3
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	linux-info	7ca3057b277f1e5978947b4cc289ce62	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	4e37e1004a0a27e41bb7025c0b974676	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	linux-info	7ca3057b277f1e5978947b4cc289ce62	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	4e37e1004a0a27e41bb7025c0b974676	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152	git-r3	86fa1f157b70b9d2ff340c4633b1cf4b
 _md5_=c38c14b7ff1f57cba2b68965954fcfb0

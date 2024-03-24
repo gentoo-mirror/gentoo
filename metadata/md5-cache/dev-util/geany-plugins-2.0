@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
 DEPEND=dev-libs/glib:2 >=dev-util/geany-2.0 x11-libs/gtk+:3 ctags? ( dev-util/ctags ) debugger? ( x11-libs/vte:2.91 ) enchant? ( app-text/enchant:= ) git? ( dev-libs/libgit2:= ) gpg? ( app-crypt/gpgme:= ) gtkspell? ( app-text/gtkspell:3= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) markdown? ( app-text/discount:= net-libs/webkit-gtk:4.1 ) pretty-printer? ( dev-libs/libxml2:2 ) scope? ( x11-libs/vte:2.91 ) webhelper? ( net-libs/webkit-gtk:4.1 ) workbench? ( dev-libs/libgit2:= )
 DESCRIPTION=A collection of different plugins for Geany
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 >=dev-util/geany-2.0 x11-libs/gtk+:3 ctags? ( dev-util/c
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 ) )
 SLOT=0
 SRC_URI=https://plugins.geany.org/geany-plugins/geany-plugins-2.0.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
 _md5_=0e723d8159ae8deb738378a044fb0d8c

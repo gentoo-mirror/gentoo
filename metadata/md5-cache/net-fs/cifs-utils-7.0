@@ -1,4 +1,4 @@
-BDEPEND=dev-python/docutils sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=dev-python/docutils sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=ads? ( sys-apps/keyutils:= sys-libs/talloc virtual/krb5 ) caps? ( sys-libs/libcap-ng ) creds? ( sys-apps/keyutils:= ) pam? ( sys-apps/keyutils:= sys-libs/pam ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
 DESCRIPTION=Tools for Managing Linux CIFS Client Filesystems
@@ -13,5 +13,5 @@ RDEPEND=ads? ( sys-apps/keyutils:= sys-libs/talloc virtual/krb5 ) caps? ( sys-li
 REQUIRED_USE=acl? ( ads ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://ftp.samba.org/pub/linux-cifs/cifs-utils/cifs-utils-7.0.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	7ca3057b277f1e5978947b4cc289ce62	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pam	b56d0c9c20fc5b553f13c8ae165a10a5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	linux-info	7ca3057b277f1e5978947b4cc289ce62	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pam	b56d0c9c20fc5b553f13c8ae165a10a5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=0a91b4e8735d8b4e6aee9bf070a78194

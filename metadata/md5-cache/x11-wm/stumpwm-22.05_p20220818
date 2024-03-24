@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/texinfo doc? ( virtual/texi2dvi ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=sys-apps/texinfo doc? ( virtual/texi2dvi ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm prepare
 DEPEND=dev-lisp/alexandria dev-lisp/cl-ppcre dev-lisp/clx >=dev-lisp/sbcl-1.3.0 emacs? ( >=app-editors/emacs-23.1:* )
 DESCRIPTION=A Window Manager written entirely in Common Lisp
@@ -13,5 +13,5 @@ RDEPEND=dev-lisp/alexandria dev-lisp/cl-ppcre dev-lisp/clx >=dev-lisp/sbcl-1.3.0
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/stumpwm/stumpwm/archive/740e945d742d85aef36e0ed9467de9bbbf5eafd2.tar.gz -> stumpwm-740e945d742d85aef36e0ed9467de9bbbf5eafd2.tar.gz
-_eclasses_=common-lisp-3	561c60f248457d6d3edbeddaa6f2f6c2	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	desktop	021728fdc1b03b36357dbc89489e0f0d	elisp-common	2a0fa407d2e6363c663ccb299503b25c	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=common-lisp-3	561c60f248457d6d3edbeddaa6f2f6c2	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	desktop	021728fdc1b03b36357dbc89489e0f0d	elisp-common	2a0fa407d2e6363c663ccb299503b25c	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=c63d500ea969907cb45769be1bd4c100

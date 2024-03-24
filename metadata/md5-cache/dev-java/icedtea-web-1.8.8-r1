@@ -1,4 +1,4 @@
-BDEPEND=app-arch/zip app-alternatives/bc virtual/pkgconfig virtual/rust doc? ( app-alternatives/bc ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7 >=virtual/rust-1.53
+BDEPEND=app-arch/zip app-alternatives/bc virtual/pkgconfig virtual/rust doc? ( app-alternatives/bc ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=virtual/rust-1.53
 DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
 DEPEND=virtual/jdk:1.8 >=dev-java/java-config-2.2.0-r3
 DESCRIPTION=FOSS Java browser plugin and Web Start implementation
@@ -12,5 +12,5 @@ RDEPEND=>=app-eselect/eselect-java-0.2.0 >=virtual/jre-1.8:* >=dev-java/java-con
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AdoptOpenJDK/icedtea-web/archive/icedtea-web-1.8.8.tar.gz https://crates.io/api/v1/crates/dunce/0.1.1/download -> dunce-0.1.1.crate
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=2552f7cc6c69a27db6c20d28b6d99381

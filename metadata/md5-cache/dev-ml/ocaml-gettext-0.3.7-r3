@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/docbook-xsl-stylesheets dev-libs/libxslt ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=doc? ( app-text/docbook-xsl-stylesheets dev-libs/libxslt ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare
 DEPEND=>=dev-lang/ocaml-3.12.1:= <dev-lang/ocaml-4.10.0:= >=dev-ml/ocaml-fileutils-0.4.0:= >=dev-ml/camomile-0.8.3:= sys-devel/gettext dev-ml/camlp4:= !dev-ml/ocaml-gettext-stub test? ( dev-ml/ounit2 ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Provides support for internationalization of OCaml program
@@ -12,5 +12,5 @@ RDEPEND=>=dev-lang/ocaml-3.12.1:= <dev-lang/ocaml-4.10.0:= >=dev-ml/ocaml-fileut
 RESTRICT=!test? ( test )
 SLOT=0/0.3.7
 SRC_URI=https://github.com/gildor478/ocaml-gettext/archive/0.3.7.tar.gz -> ocaml-gettext-0.3.7.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	findlib	cc1c14904708a0a28bcb256b342a808c
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	findlib	cc1c14904708a0a28bcb256b342a808c
 _md5_=0655d3cf6792f6a1e1d81d86e271b22f

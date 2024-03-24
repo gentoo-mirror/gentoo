@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=app-misc/mime-types virtual/libiconv berkdb? ( >=sys-libs/db-4:= ) gdbm? ( sys-libs/gdbm ) lmdb? ( dev-db/lmdb:= ) qdbm? ( dev-db/qdbm ) tokyocabinet? ( dev-db/tokyocabinet ) ssl? ( gnutls? ( >=net-libs/gnutls-1.0.17:= ) !gnutls? ( >=dev-libs/openssl-0.9.6:0= ) ) nls? ( virtual/libintl ) sasl? ( gsasl? ( >=net-misc/gsasl-2.0.0 ) !gsasl? ( >=dev-libs/cyrus-sasl-2 ) ) kerberos? ( virtual/krb5 ) idn? ( net-dns/libidn2 ) gpgme? ( >=app-crypt/gpgme-0.9.0:= ) autocrypt? ( >=dev-db/sqlite-3 ) slang? ( sys-libs/slang ) !slang? ( >=sys-libs/ncurses-5.2:0= ) net-mail/mailbase doc? ( dev-libs/libxml2 dev-libs/libxslt app-text/docbook-xsl-stylesheets || ( www-client/lynx www-client/w3m www-client/elinks ) )
 DESCRIPTION=A small but very powerful text-based mail client
@@ -12,5 +12,5 @@ RDEPEND=app-misc/mime-types virtual/libiconv berkdb? ( >=sys-libs/db-4:= ) gdbm?
 REQUIRED_USE=gsasl? ( sasl ) hcache? ( || ( berkdb gdbm lmdb qdbm tokyocabinet ) ) imap? ( ssl ) pop? ( ssl ) smime-classic? ( ssl !gnutls ) smtp? ( ssl sasl ) sasl? ( || ( imap pop smtp ) ) kerberos? ( || ( imap pop smtp ) ) autocrypt? ( gpgme )
 SLOT=0
 SRC_URI=ftp://ftp.mutt.org/pub/mutt/mutt-2.2.12.tar.gz https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.12.tar.gz https://dev.gentoo.org/~grobian/distfiles/mutt-gentoo-2.2.12-patches-r0.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee
 _md5_=8bd1502b339e7e422e0f74ab29d0abe9

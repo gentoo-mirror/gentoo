@@ -1,4 +1,4 @@
-BDEPEND=app-text/doxygen app-text/yelp-tools virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=app-text/doxygen app-text/yelp-tools virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst postrm preinst prepare
 DEPEND=>=dev-libs/glib-2.36.0:2 >=dev-libs/libxml2-2.4.16:2 >=gnome-extra/libgsf-1.14.9 >=sci-chemistry/bodr-5 >=sci-chemistry/chemical-mime-data-0.1.94 >=sci-chemistry/openbabel-2.3.0:0= >=x11-libs/cairo-1.6.0 >=x11-libs/gdk-pixbuf-2.22.0 >=x11-libs/goffice-0.10.12 x11-libs/gtk+:3[X] >=x11-libs/libX11-1.0.0 virtual/glu gnumeric? ( >=app-office/gnumeric-1.12.42:= )
 DESCRIPTION=Programs and library containing GTK widgets and C++ classes related to chemistry
@@ -12,5 +12,5 @@ LICENSE=GPL-3
 RDEPEND=>=dev-libs/glib-2.36.0:2 >=dev-libs/libxml2-2.4.16:2 >=gnome-extra/libgsf-1.14.9 >=sci-chemistry/bodr-5 >=sci-chemistry/chemical-mime-data-0.1.94 >=sci-chemistry/openbabel-2.3.0:0= >=x11-libs/cairo-1.6.0 >=x11-libs/gdk-pixbuf-2.22.0 >=x11-libs/goffice-0.10.12 x11-libs/gtk+:3[X] >=x11-libs/libX11-1.0.0 virtual/glu gnumeric? ( >=app-office/gnumeric-1.12.42:= )
 SLOT=0
 SRC_URI=http://download.savannah.gnu.org/releases/gchemutils/0.14/gnome-chemistry-utils-0.14.17.tar.xz mirror://debian/pool/main/g/gnome-chemistry-utils/gnome-chemistry-utils_0.14.17-6.debian.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=6e6bb6adab9851a4bcb2590675bf3466

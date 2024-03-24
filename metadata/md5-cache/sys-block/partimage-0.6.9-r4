@@ -1,4 +1,4 @@
-BDEPEND=acct-group/partimag acct-user/partimag nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=acct-group/partimag acct-user/partimag nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=config configure install postinst prepare
 DEPEND=pam? ( sys-libs/pam ) app-arch/bzip2 >=dev-libs/newt-0.52 >=sys-libs/slang-2 sys-libs/zlib:= !nologin? ( virtual/libcrypt:= ) ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Console-based application to efficiently save raw partition data to image file
@@ -12,5 +12,5 @@ RDEPEND=acct-group/partimag acct-user/partimag pam? ( sys-libs/pam ) !static? ( 
 REQUIRED_USE=static? ( !pam )
 SLOT=0
 SRC_URI=mirror://sourceforge/partimage/partimage-0.6.9.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pam	b56d0c9c20fc5b553f13c8ae165a10a5
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	pam	b56d0c9c20fc5b553f13c8ae165a10a5
 _md5_=f46629bf2db78373ffe2956da17843fe

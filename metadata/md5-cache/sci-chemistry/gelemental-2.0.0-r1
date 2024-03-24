@@ -1,4 +1,4 @@
-BDEPEND=dev-util/intltool sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=dev-util/intltool sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst postrm preinst prepare
 DEPEND=dev-cpp/gtkmm:2.4 dev-cpp/glibmm:2 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Periodic table viewer with detailed information on the chemical elements
@@ -11,5 +11,5 @@ LICENSE=GPL-3 MIT
 RDEPEND=dev-cpp/gtkmm:2.4 dev-cpp/glibmm:2
 SLOT=0
 SRC_URI=https://github.com/ginggs/gelemental/archive/v2.0.0.tar.gz -> gelemental-2.0.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=e6c4f2d91d68cb5588f70952f51db5f6

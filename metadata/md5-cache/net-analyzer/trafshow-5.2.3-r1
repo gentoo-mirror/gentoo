@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure prepare
 DEPEND=net-libs/libpcap !slang? ( sys-libs/ncurses ) slang? ( >=sys-libs/slang-1.4 )
 DESCRIPTION=Full screen visualization of the network traffic
@@ -10,5 +10,5 @@ KEYWORDS=amd64 ~hppa ~ppc ppc64 sparc x86
 LICENSE=BSD
 SLOT=3
 SRC_URI=ftp://ftp.nsk.su/pub/RinetSoftware/trafshow-5.2.3.tgz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee
 _md5_=f826b241de7f5267d6b92dab4715e7ef

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
 DEPEND=>=sys-kernel/linux-headers-2.6
 DESCRIPTION=Tools for Linux Kernel Stream Control Transmission Protocol implementation
@@ -11,5 +11,5 @@ LICENSE=|| ( GPL-2+ LGPL-2.1 )
 REQUIRED_USE=kernel_linux
 SLOT=0
 SRC_URI=https://github.com/sctp/lksctp-tools/archive/v1.0.19.tar.gz -> lksctp-tools-1.0.19.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81	linux-info	7ca3057b277f1e5978947b4cc289ce62
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee	linux-info	7ca3057b277f1e5978947b4cc289ce62
 _md5_=ba48d2767a3bc4c44ae170e9c7776a39

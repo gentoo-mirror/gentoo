@@ -1,4 +1,4 @@
-BDEPEND=>=net-fs/samba-4.2[client] virtual/perl-ExtUtils-MakeMaker virtual/pkgconfig test? ( virtual/perl-Test-Simple ) dev-lang/perl sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=>=net-fs/samba-4.2[client] virtual/perl-ExtUtils-MakeMaker virtual/pkgconfig test? ( virtual/perl-Test-Simple ) dev-lang/perl sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=net-fs/samba-4.2[client] dev-lang/perl
 DESCRIPTION=Provide Perl API for libsmbclient.so
@@ -12,5 +12,5 @@ RDEPEND=>=net-fs/samba-4.2[client] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AL/ALIAN/Filesys-SmbClient-3.2.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee
 _md5_=6526917483fcd5eabd0dd7db75a0347a
