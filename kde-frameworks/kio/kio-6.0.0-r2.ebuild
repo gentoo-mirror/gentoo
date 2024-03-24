@@ -3,6 +3,7 @@
 
 EAPI=8
 
+PATCHSET="${P}-patchset"
 ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="optional"
 ECM_HANDBOOK_DIR="docs"
@@ -12,6 +13,7 @@ QTMIN=6.6.2
 inherit ecm frameworks.kde.org xdg-utils
 
 DESCRIPTION="Framework providing transparent file and data management"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64"
@@ -20,6 +22,7 @@ IUSE="acl +kwallet wayland X"
 # tests hang
 RESTRICT="test"
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,ssl,widgets]
 	>=dev-qt/qt5compat-${QTMIN}:6
@@ -58,16 +61,18 @@ COMMON_DEPEND="
 		=kde-frameworks/kdoctools-${PVCUT}*:6
 	)
 	kwallet? ( =kde-frameworks/kwallet-${PVCUT}*:6 )
+	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui] )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 RDEPEND="${COMMON_DEPEND}
+	>=dev-qt/qtbase-${QTMIN}:6[libproxy]
 	sys-power/switcheroo-control
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:6"
 
-PATCHES=( "${FILESDIR}/${P}-kterminallauncherjob.patch" ) # KDE-bug 482107
+PATCHES=( "${WORKDIR}/${PATCHSET}" )
 
 src_configure() {
 	local mycmakeargs=(
