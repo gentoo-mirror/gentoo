@@ -1,20 +1,19 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit go-module
-EGIT_COMMIT=6d22e2be6bc7b40571bd8ecf8366986da2f7198c
+EGIT_COMMIT=47dfcd9d56f544c58795b6ca98a1dfd378a0505f
 
 DESCRIPTION="Replicated SQLite using the Raft consensus protocol"
 HOMEPAGE="https://github.com/rqlite/rqlite https://www.philipotoole.com/tag/rqlite/"
-SRC_URI="https://github.com/zmedico/rqlite/archive/v${PV}-vendor.tar.gz -> ${P}-vendor.tar.gz"
+SRC_URI="https://github.com/rqlite/rqlite/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
 
-LICENSE="MIT Apache-2.0 BSD CC0-1.0 MPL-2.0"
+LICENSE="MIT"
+LICENSE+=" Apache-2.0 BSD CC0-1.0 MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
-S=${WORKDIR}/${P}-vendor
 
 src_compile() {
 	GOBIN="${S}/bin" \
