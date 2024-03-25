@@ -3537,10 +3537,12 @@ kde-apps/kdecore-meta:thumbnail - Install kde-apps/ffmpegthumbs and kde-apps/thu
 kde-apps/kdecore-meta:webengine - Enable www-client/falkon which depends on dev-qt/qtwebengine
 kde-apps/kdeedu-meta:webengine - Enable packages requiring dev-qt/qtwebengine
 kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/opencolorio
+kde-apps/kdegraphics-meta:screencast - Pull in kde-apps/spectacle for screenshot/screenrecording support
 kde-apps/kdemultimedia-meta:cdrom - Include packages for optical discs
 kde-apps/kdenetwork-meta:bittorrent - Pull in net-p2p/ktorrent for BitTorrent protocol support
 kde-apps/kdenetwork-meta:dropbox - Enable support for Dropbox in kde-apps/dolphin via kde-apps/dolphin-plugins-dropbox
 kde-apps/kdenetwork-meta:samba - Enable support for net-fs/samba file sharing plugin from within file properties
+kde-apps/kdenetwork-meta:screencast - Pull in kde-apps/krfb for Plasma desktop sharing support
 kde-apps/kdenetwork-meta:webengine - Enable support for Google Drive integration via kde-misc/kio-gdrive
 kde-apps/kdenlive:designer - Build plugins for dev-qt/designer
 kde-apps/kdepim-addons:importwizard - Enable additional import plugins for kde-apps/akonadi-import-wizard
@@ -3750,6 +3752,7 @@ kde-plasma/plasma-workspace:screencast - Enable screencast portal using kde-plas
 kde-plasma/plasma-workspace:telemetry - Enable User Feedback control module for kde-plasma/systemsettings
 kde-plasma/plasma-workspace:wallpaper-metadata - Show metadata for image wallpaper plugin using kde-apps/libkexiv2
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
+kde-plasma/powerdevil:caps - Capabilities support for scheduled wakeup which can wake from suspend (CAP_WAKE_ALARM)
 kde-plasma/powerdevil:wireless - Enable wireless energy saving actions via kde-frameworks/bluez-qt and kde-frameworks/networkmanager-qt
 lxqt-base/liblxqt:backlight - Enable backlight control features.
 lxqt-base/lxqt-config:monitor - Build monitor settings tool
