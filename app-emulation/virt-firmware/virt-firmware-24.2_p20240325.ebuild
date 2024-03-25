@@ -6,9 +6,9 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 systemd
+inherit distutils-r1 systemd optfeature
 
-COMMIT="94db6a7d9eb867076d9b79536d9b9b6c065f341b"
+COMMIT="58080ddb4868ca5bab571f518bb8fcc605b51cf5"
 
 DESCRIPTION="Tools for ovmf/armvirt firmware volumes"
 HOMEPAGE="
@@ -25,7 +25,11 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 RDEPEND="
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/pefile[${PYTHON_USEDEP}]
-"
+	|| (
+		sys-apps/systemd[boot(-)]
+		sys-apps/systemd-utils[boot(-)]
+	)
+" # We need bootctl from systemd(-utils)
 
 PATCHES=(
 	"${FILESDIR}/${PN}-24.2-dont-force-shim.patch"
@@ -48,4 +52,9 @@ python_install_all() {
 	# Use our own provided by sys-kernel/installkernel[efistub] instead
 	#exeinto /usr/lib/kernel/install.d
 	#doexe systemd/99-uki-uefi-setup.install
+}
+
+pkg_postinst() {
+	optfeature "automatically updating UEFI configuration on each kernel installation or removal" \
+		"sys-kernel/installkernel[systemd,efistub]"
 }
