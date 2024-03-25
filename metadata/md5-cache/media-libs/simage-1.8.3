@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/coin3d/simage/
 INHERIT=cmake
 IUSE=gif jpeg png qt5 qt6 sndfile test tiff vorbis zlib
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ppc ppc64 ~sparc x86
 LICENSE=BSD-1
 RDEPEND=gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 ) qt6? ( dev-qt/qtbase:6[gui] ) sndfile? ( media-libs/libsndfile media-libs/flac:= ) tiff? ( media-libs/tiff:=[lzma,zstd] app-arch/xz-utils app-arch/zstd:= ) vorbis? ( media-libs/libogg media-libs/libvorbis media-libs/opus ) zlib? ( sys-libs/zlib:= )
 REQUIRED_USE=qt5? ( !qt6 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/coin3d/simage/releases/download/v1.8.3/simage-1.8.3-src.tar.gz -> simage-1.8.3.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=0f71541b50e3f17d6bc19e1f76658c65
+_md5_=983b79105e4261665d5b0b49ab4ee545
