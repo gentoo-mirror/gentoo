@@ -4,7 +4,7 @@ DEPEND=sys-libs/ncurses:= X? ( x11-libs/libXaw x11-libs/libXt x11-libs/libX11 ) 
 DESCRIPTION=The Next Generation Spice (Electronic Circuit Simulator)
 EAPI=8
 HOMEPAGE=http://ngspice.sourceforge.net
-INHERIT=autotools multibuild toolchain-funcs virtualx
+INHERIT=autotools flag-o-matic multibuild toolchain-funcs virtualx
 IUSE=X debug deprecated doc examples fftw openmp +readline +shared tcl test
 KEYWORDS=amd64 ~arm64 ~ppc ~riscv ~sparc ~x86 ~x64-macos
 LICENSE=BSD GPL-2 MPL-2.0
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/ncurses:= X? ( x11-libs/libXaw x11-libs/libXt x11-libs/libX11 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://sourceforge/ngspice/ngspice-40.tar.gz doc? ( mirror://sourceforge/ngspice/ngspice-40-manual.pdf )
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	virtualx	817571665ee28575da44ee08135089e5
-_md5_=b0e3b627603114bfb3a64cbe455e2c43
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	virtualx	817571665ee28575da44ee08135089e5
+_md5_=c1cc1b654eaf6dcfbf1977d661971cb8
