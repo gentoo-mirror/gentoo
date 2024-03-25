@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DESCRIPTION=API Support for your favorite torrent trackers
+EAPI=8
+HOMEPAGE=https://github.com/Jackett/Jackett/
+INHERIT=systemd
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=acct-group/jackett acct-user/jackett media-video/mediainfo dev-libs/icu dev-util/lttng-ust:0 dev-db/sqlite
+RESTRICT=bindist strip test
+SLOT=0
+SRC_URI=amd64? ( elibc_glibc? ( https://github.com/Jackett/Jackett/releases/download/v0.21.2146/Jackett.Binaries.LinuxAMDx64.tar.gz -> jackett-0.21.2146-x64.tar.gz ) elibc_musl? ( https://github.com/Jackett/Jackett/releases/download/v0.21.2146/Jackett.Binaries.LinuxMuslAMDx64.tar.gz -> jackett-0.21.2146-musl-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://github.com/Jackett/Jackett/releases/download/v0.21.2146/Jackett.Binaries.LinuxARM32.tar.gz -> jackett-0.21.2146-arm.tar.gz ) elibc_musl? ( https://github.com/Jackett/Jackett/releases/download/v0.21.2146/Jackett.Binaries.LinuxMuslARM32.tar.gz -> jackett-0.21.2146-musl-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://github.com/Jackett/Jackett/releases/download/v0.21.2146/Jackett.Binaries.LinuxARM64.tar.gz -> jackett-0.21.2146-arm64.tar.gz ) elibc_musl? ( https://github.com/Jackett/Jackett/releases/download/v0.21.2146/Jackett.Binaries.LinuxMuslARM64.tar.gz -> jackett-0.21.2146-musl-arm64.tar.gz ) )
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=11c9d749f0d58f026c16e672aec1cafa
