@@ -2,17 +2,19 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit go-module
+inherit go-module systemd
 GIT_COMMIT=c34ff3d6b4817f42e74b2b05b3797cf99683b4a9
 
 DESCRIPTION="Prometheus exporter for BIND"
-HOMEPAGE="https://github.com/digitalocean/bind_exporter"
-SRC_URI="https://github.com/digitalocean/bind_exporter/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/prometheus-community/bind_exporter"
+SRC_URI="
+	https://github.com/prometheus-community/bind_exporter/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://dev.gentoo.org/~robbat2/distfiles/bind_exporter-${PV}-vendor.tar.xz
+	"
 
 LICENSE="Apache-2.0 BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 COMMON_DEPEND="acct-group/bind_exporter
 	acct-user/bind_exporter"
@@ -39,6 +41,7 @@ src_install() {
 	dodoc {README,CHANGELOG}.md
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	newconfd "${FILESDIR}"/${PN}.confd ${PN}
+	systemd_dounit "${FILESDIR}"/${PN}.service
 	keepdir /var/log/${PN}
 	fowners ${PN}:${PN} /var/log/${PN}
 }
