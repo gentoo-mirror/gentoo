@@ -1,15 +1,15 @@
-BDEPEND=dev-util/promu >=dev-lang/go-1.20:= app-arch/unzip
+BDEPEND=dev-util/promu >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
 DEFINED_PHASES=compile install postinst prepare test unpack
 DEPEND=acct-group/bind_exporter acct-user/bind_exporter
 DESCRIPTION=Prometheus exporter for BIND
 EAPI=7
 HOMEPAGE=https://github.com/prometheus-community/bind_exporter
-INHERIT=go-module
+INHERIT=go-module systemd
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 BSD MIT
 RDEPEND=acct-group/bind_exporter acct-user/bind_exporter
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/prometheus-community/bind_exporter/archive/refs/tags/v0.6.1.tar.gz -> bind_exporter-0.6.1.tar.gz https://dev.gentoo.org/~robbat2/distfiles/bind_exporter-0.6.1-vendor.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	go-env	14f8f70fe58c14d7ab44fff15a05ac47	go-module	83fd3ed1657cfc316c93d6a37018290d
-_md5_=44dd98eda22638b031d23a9908fe5869
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	go-env	14f8f70fe58c14d7ab44fff15a05ac47	go-module	83fd3ed1657cfc316c93d6a37018290d	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=208214061b37e7e0ed90da84bfc366e8
