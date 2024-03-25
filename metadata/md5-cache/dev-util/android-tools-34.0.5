@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/go dev-lang/perl app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= virtual/libusb:1=
+DESCRIPTION=Android platform tools (adb, fastboot, and mkbootimg)
+EAPI=8
+HOMEPAGE=https://github.com/nmeum/android-tools/ https://developer.android.com/
+INHERIT=cmake python-r1
+IUSE=python udev python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=Apache-2.0 BSD-2
+RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= virtual/libusb:1= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
+SLOT=0
+SRC_URI=https://github.com/nmeum/android-tools/releases/download/34.0.5/android-tools-34.0.5.tar.xz https://dev.gentoo.org/~zmedico/dist/android-tools-31.0.3-no-gtest.patch
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_md5_=1e11919c056c69186c4733039532dfb8
