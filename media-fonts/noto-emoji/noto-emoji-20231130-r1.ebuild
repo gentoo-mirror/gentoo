@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit font
 DESCRIPTION="Google Noto Emoji fonts"
 HOMEPAGE="https://fonts.google.com/noto/specimen/Noto+Color+Emoji https://github.com/googlefonts/noto-emoji"
 
-COMMIT="144e84dbc2b49f164279bfce230569116ac98bfd"
+COMMIT="d79d23e6822e0f6e5731b114cbfb26b2a4e380da"
 SRC_URI="https://github.com/googlefonts/noto-emoji/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 OFL-1.1"
@@ -22,19 +22,12 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 # https://github.com/gentoo/gentoo/pull/32203
 FONT_CONF=( "${FILESDIR}"/75-noto-emoji-fallback.conf )
 
-src_prepare() {
-	default
-
-	# Drop font for Windows 10
-	rm fonts/NotoColorEmoji_WindowsCompatible.ttf || die
-}
-
 src_compile() { :; }
 
 src_install() {
-	FONT_S="${S}/fonts"
-	# Drop non used fonts
-	rm -f fonts/*COLR*.ttf || die
+	# Ensure we install only the desired font (the same other distros
+	# supply), https://bugs.gentoo.org/927294
+	FONT_S="${S}/fonts-install"
 
 	# Don't lose fancy emoji icons
 	if use icons; then
@@ -46,6 +39,12 @@ src_install() {
 		insinto /usr/share/icons/"${PN}"/scalable/emotes/
 		doins svg/*.svg
 	fi
+
+	# Ensure we install only the desired font (the same other distros
+	# supply), https://bugs.gentoo.org/927294
+	mkdir fonts-install || die
+	FONT_S="${S}/fonts-install"
+	cp -p fonts/NotoColorEmoji.ttf fonts-install/. || die
 
 	FONT_SUFFIX="ttf"
 	font_src_install
