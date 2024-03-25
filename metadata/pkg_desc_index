@@ -1334,7 +1334,7 @@ app-containers/cri-o 1.26.0 1.29.0: OCI-based implementation of Kubernetes Conta
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.4 1.11.2 1.14.3: A fast and low-memory footprint OCI Container Runtime fully written in C
 app-containers/devcontainer 0.56.2 0.57.0 0.58.0: Reference implementation of the Development Containers specification
-app-containers/distrobox 1.6.0.1 1.7.0 1.7.0.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
+app-containers/distrobox 1.6.0.1 1.7.0.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1: System container image builder for LXC and incus
 app-containers/docker 24.0.5 24.0.6 24.0.7 25.0.1 25.0.4: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.3.3 1.6.0: Test for best practices around deploying docker containers
@@ -1901,7 +1901,7 @@ app-emacs/commenter 0.5.2: Set both single and multi line comment variables in E
 app-emacs/company-coq 1.0.1_p20220314: Collection of extensions for Proof General's Coq mode
 app-emacs/company-ebuild 0.1.4 9999: Company backend for editing Ebuild files
 app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols and latex tags
-app-emacs/company-mode 0.10.1: In-buffer completion front-end
+app-emacs/company-mode 0.10.1 0.10.2: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 29.1.4.4 29.1.4.5: Compatibility libraries for Emacs
 app-emacs/consult 1.2 1.3 1.4 9999: Consulting complete-read for GNU Emacs
@@ -1968,7 +1968,7 @@ app-emacs/elfeed 3.4.1_p20210822: Emacs web feeds client
 app-emacs/elfeed-protocol 0.9.0 0.9.1: Provide extra news client subscription protocols for elfeed
 app-emacs/elixir-mode 2.4.1 2.5.0: Emacs major mode for editing Elixir files
 app-emacs/elpa-mirror 2.2.2: Create local package repository from installed Emacs Lisp packages
-app-emacs/elpher 3.5.0 3.5.1 9999: Practical and friendly Gopher and Gemini client for GNU Emacs
+app-emacs/elpher 3.5.1 3.6.0 9999: Practical and friendly Gopher and Gemini client for GNU Emacs
 app-emacs/elpy 1.35.0_p20220627: Emacs Python Development Environment
 app-emacs/elscreen 20180321: Frame configuration management for GNU Emacs modelled after GNU Screen
 app-emacs/emacs-aio 1.0_p20200610: Async and await functions for Emacs Lisp
@@ -2142,7 +2142,7 @@ app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mod
 app-emacs/osm 1.2 1.3 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
-app-emacs/package-lint 0.21-r1: Linting library for Emacs Lisp package metadata
+app-emacs/package-lint 0.21-r1 0.22: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.32-r1: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
@@ -2243,7 +2243,7 @@ app-emacs/tempel 1.0 1.1 9999: Templates with in-buffer field editing for GNU Em
 app-emacs/template 3.3b: Use templates, decorate comments, auto-update buffers
 app-emacs/tempo-snippets 0.1.5: Visual insertion of tempo templates
 app-emacs/thinks 1.12: Insert text in a think bubble
-app-emacs/transient 0.5.3 9999: Transient commands abstraction for GNU Emacs
+app-emacs/transient 0.5.3 0.6.0 9999: Transient commands abstraction for GNU Emacs
 app-emacs/treemacs 3.1-r1: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.1: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.2: Generic tree traversing tools for Emacs Lisp
@@ -5146,7 +5146,7 @@ dev-lang/dafny 4.4.0-r1 4.5.0: Dafny is a verification-aware programming languag
 dev-lang/dafny-bin 4.4.0 4.5.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 3.60 3.70 9999: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 3.70 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.13.4-r1 1.14.3-r1 1.14.5-r1 1.15.6 1.15.7 1.16.1: Elixir programming language
 dev-lang/elpi 1.17.0 1.17.4: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 25.3 26.0 26.1.2 26.2 26.2.1 26.2.2: Erlang programming language, runtime environment and libraries (OTP)
@@ -12859,7 +12859,7 @@ media-fonts/source-code-pro 2.038: Monospaced font family for user interface and
 media-fonts/source-han-sans 2.004: Pan-CJK OpenType/CFF font family
 media-fonts/source-sans 3.052: Sans serif font family for user interface environments
 media-fonts/source-serif 4.005: Serif font family for user interface environments
-media-fonts/spleen 2.0.1 2.0.2: Monospaced bitmap fonts for consoles and terminals
+media-fonts/spleen 2.0.2 2.1.0: Monospaced bitmap fonts for consoles and terminals
 media-fonts/stix-fonts 2.11: Comprehensive OpenType font set of mathematical symbols and alphabets
 media-fonts/takao-fonts 00303.01: A community developed derivatives of IPA Fonts
 media-fonts/tengwar-fonts 1.9d: Tengwar - the Elvish letters, created by Feanor and described by J.R.R.Tolkien)
@@ -15199,7 +15199,7 @@ net-misc/fatrat 1.2.0_beta2_p20161204: Qt5-based download/upload manager
 net-misc/felix 3.1.3: Calico's per-host agent, responsible for programming routes and security policy
 net-misc/freerdp 2.11.5-r2 2.11.5-r10 2.9999 3.4.0-r11 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 9.0.2: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.26.8 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.26.8 1.26.9 9999: Download image galleries and collections from several image hosting sites
 net-misc/geoipupdate 4.9.0 6.0.0 6.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geomyidae 0.34-r1 0.69: A daemon to serve the gopher protocol
 net-misc/gerbera 1.12.1-r1 9999: UPnP Media Server

@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/compat >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Linting library for Emacs Lisp package metadata
+EAPI=8
+HOMEPAGE=https://github.com/purcell/package-lint/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/compat >=app-editors/emacs-26.1:*
+SLOT=0
+SRC_URI=https://github.com/purcell/package-lint/archive/0.22.tar.gz -> package-lint-0.22.tar.gz
+_eclasses_=elisp-common	2a0fa407d2e6363c663ccb299503b25c	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_md5_=7b51fcf6603d60fe786375e5fa39f960
