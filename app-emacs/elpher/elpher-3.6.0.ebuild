@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,25 +10,29 @@ inherit elisp
 DESCRIPTION="Practical and friendly Gopher and Gemini client for GNU Emacs"
 HOMEPAGE="https://thelambdalab.xyz/elpher/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="git://thelambdalab.xyz/${PN}.git"
 else
-	if [[ ${PV} == 3.5.0 ]] ; then
-		COMMIT=81f2883
+	if [[ "${PV}" == 3.6.0 ]] ; then
+		COMMIT=56bc74e
 		SRC_URI="https://thelambdalab.xyz/gitweb/index.cgi?p=${PN}.git;a=snapshot;h=${COMMIT};sf=tgz
 			-> ${P}.tar.gz"
-		S="${WORKDIR}"/${PN}-${COMMIT}
+		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
 		die "could not generate SRC_URI"
 	fi
-	KEYWORDS="amd64 x86"
+
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
-ELISP_REMOVE="elpher-pkg.el"
+ELISP_REMOVE="
+	elpher-pkg.el
+"
 
 DOCS=( ISSUES.org README )
 ELISP_TEXINFO="${PN}.texi"
