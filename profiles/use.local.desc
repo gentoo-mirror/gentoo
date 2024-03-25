@@ -3556,7 +3556,7 @@ kde-apps/kdeutils-meta:7zip - Install app-arch/p7zip for 7zip archive support in
 kde-apps/kdeutils-meta:gpg - Install kde-apps/kgpg which depends on kde-apps/akonadi
 kde-apps/kdeutils-meta:lrz - Install app-arch/lrzip for LRZ archive support in kde-apps/ark
 kde-apps/kdeutils-meta:rar - Install one of app-arch/rar, app-arch/unrar or app-arch/unar for RAR archive support in kde-apps/ark
-kde-apps/kdeutils-meta:webengine - Enable kde-apps/kimagemapeditor, requiring dev-qt/qtwebengine
+kde-apps/kdeutils-meta:webengine - Install app-editors/ghostwriter and kde-apps/kimagemapeditor, requiring dev-qt/qtwebengine
 kde-apps/kget:bittorrent - Enable bittorrent transfer plugin through net-libs/libktorrent
 kde-apps/kget:gpg - Enable signature verification by GpgME++ via app-crypt/gpgme
 kde-apps/kget:mms - Enable MMS (Microsoft Media Server) plugin through media-libs/libmms
@@ -3699,6 +3699,7 @@ kde-plasma/kdeplasma-addons:alternate-calendar - Support alternate calendar syst
 kde-plasma/kdeplasma-addons:networkmanager - Disable wallpaper update when using metered connections
 kde-plasma/kdeplasma-addons:share - Enable applet for quickly sharing data to a variety of sources
 kde-plasma/kdeplasma-addons:webengine - Enable dictionary and web browser applets using dev-qt/qtwebengine
+kde-plasma/kinfocenter:usb - Show USB device information
 kde-plasma/ksystemstats:networkmanager - Enable improved backend for Network statistics using kde-frameworks/networkmanager-qt
 kde-plasma/kwin:lock - Enable screen locking via kde-plasma/kscreenlocker
 kde-plasma/kwin:multimedia - Enable effect video button in desktop effects KCM
@@ -4412,6 +4413,8 @@ media-libs/netpbm:rle - Build converters for the RLE format (utah raster toolkit
 media-libs/noise-suppression-for-voice:lv2 - Enable the LV2 plugin
 media-libs/noise-suppression-for-voice:vst - Enable the VST plugin
 media-libs/noise-suppression-for-voice:vst3 - Enable the VST3 plugin
+media-libs/oidn:apps - Build the standalone denoise, self test, and benchmark binaries.
+media-libs/oidn:hip - Build OIDN with AMD HIP support.
 media-libs/oneVPL-cpu:experimental - Enable experimental API
 media-libs/oneVPL-cpu:openh264 - Use media-libs/openh264 instead of media-libs/x264
 media-libs/openal:pipewire - Enable support for the media-video/pipewire audio backend
