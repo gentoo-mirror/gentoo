@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare test unpack
+DESCRIPTION=CoreDNS is a DNS server that chains plugins
+EAPI=8
+HOMEPAGE=https://github.com/coredns/coredns
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module multiprocessing systemd tmpfiles toolchain-funcs
+IUSE=test +filecaps
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 MIT BSD ISC MPL-2.0 BSD-2
+RDEPEND=acct-user/coredns acct-group/coredns virtual/tmpfiles
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~zmedico/dist/coredns-1.11.2.tar.gz https://dev.gentoo.org/~zmedico/dist/coredns-1.11.2-r1-deps.tar.xz
+_eclasses_=fcaps	c0a086b957a1b183a8d136eabf02f191	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	go-env	14f8f70fe58c14d7ab44fff15a05ac47	go-module	83fd3ed1657cfc316c93d6a37018290d	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=4ffb546eb2c116ae84f37b80107252ca
