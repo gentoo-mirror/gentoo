@@ -20,6 +20,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.7.6-musl.patch
+	"${FILESDIR}"/${P}-xop.patch
 )
 
 src_configure() {
@@ -37,8 +38,8 @@ src_configure() {
 
 src_test() {
 	if use x86; then
-		# some --skip option for meson when
-		meson_src_test $(meson_src_test --list | grep -v dbsad) #926706
+		# https://github.com/simd-everywhere/simde/issues/867 (bug #926706)
+		meson_src_test $(meson_src_test --list | grep -Ev '(dbsad|fpclass)')
 	else
 		meson_src_test
 	fi
