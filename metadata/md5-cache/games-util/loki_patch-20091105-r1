@@ -2,8 +2,8 @@ BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20240116
 DEFINED_PHASES=compile configure install prepare
 DEPEND=dev-util/xdelta:0 dev-libs/libxml2 dev-libs/glib:2
 DESCRIPTION=Loki Software binary patch tool
-EAPI=7
-HOMEPAGE=http://www.icculus.org/loki_setup/
+EAPI=8
+HOMEPAGE=https://github.com/icculus/loki_patch
 INHERIT=autotools
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
@@ -11,4 +11,4 @@ RDEPEND=dev-util/xdelta:0 dev-libs/libxml2 dev-libs/glib:2
 SLOT=0
 SRC_URI=mirror://gentoo/loki_patch-20091105.tar.bz2 mirror://gentoo/loki_setupdb-20091105.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee
-_md5_=b0862a7768918aa863033a98eb8c94be
+_md5_=7caaec09a9fb2fb4d8dbe26303d8b378
