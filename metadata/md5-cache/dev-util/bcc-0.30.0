@@ -1,0 +1,17 @@
+BDEPEND=app-arch/zip virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-1.2.0:=[static-libs(-)] sys-kernel/linux-headers <sys-devel/clang-19:= <sys-devel/llvm-19:=[llvm_targets_BPF(+)] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) test? ( || ( net-misc/iputils[arping] net-analyzer/arping ) net-analyzer/netperf net-misc/iperf:* ) !!sys-devel/llvm:0
+DESCRIPTION=Tools for BPF-based Linux IO analysis, networking, monitoring, and more
+EAPI=8
+HOMEPAGE=https://iovisor.github.io/bcc/
+INHERIT=cmake linux-info llvm lua-single python-r1 toolchain-funcs
+IUSE=+lua test +lua_single_target_luajit python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-1.2.0:=[static-libs(-)] sys-kernel/linux-headers <sys-devel/clang-19:= <sys-devel/llvm-19:=[llvm_targets_BPF(+)] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) lua? ( ^^ ( lua_single_target_luajit ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/iovisor/bcc/archive/v0.30.0.tar.gz -> bcc-0.30.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	linux-info	7ca3057b277f1e5978947b4cc289ce62	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	1eea65d11f743b8e256ef279b652a2e6	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
+_md5_=de8a234c34312d221aafb8a9cd0f629d
