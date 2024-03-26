@@ -8,8 +8,8 @@ IUSE=emacs verify-sig
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 PDEPEND=emacs? ( app-emacs/autoconf-mode )
-RDEPEND=verify-sig? ( sec-keys/openpgp-keys-m4 ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.6 >=dev-build/autoconf-wrapper-13 !~sys-devel/autoconf-vanilla-2.69:2.5
+RDEPEND=verify-sig? ( sec-keys/openpgp-keys-m4 ) >=sys-devel/m4-1.4.16 >=dev-lang/perl-5.6 >=dev-build/autoconf-wrapper-13 !~dev-build/autoconf-vanilla-2.69:2.5
 SLOT=2.69
 SRC_URI=mirror://gnu/autoconf/autoconf-2.69.tar.xz https://dev.gentoo.org/~polynomial-c/dist/autoconf-2.69-runstatedir_patches.tar.xz verify-sig? ( mirror://gnu/autoconf/autoconf-2.69.tar.xz.sig )
 _eclasses_=verify-sig	a79ba011daaf532d71a219182474d150	toolchain-autoconf	6feb18874c9d75a5b7cdf922f49f67bf
-_md5_=9ff5715c8212130d92a9ac94fc44636c
+_md5_=a533bebb95763b1755ed015a2a9b12c3
