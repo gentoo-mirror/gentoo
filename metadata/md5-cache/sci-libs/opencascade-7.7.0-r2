@@ -4,7 +4,7 @@ DEPEND=dev-lang/tcl:= dev-lang/tk:= media-libs/fontconfig media-libs/freetype:2 
 DESCRIPTION=Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 EAPI=8
 HOMEPAGE=https://www.opencascade.com
-INHERIT=cmake
+INHERIT=cmake flag-o-matic
 IUSE=doc examples ffmpeg freeimage gles2 json optimize tbb vtk
 KEYWORDS=amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/7.7
 SRC_URI=https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=185d29b92f6764ffa9fc195b7dbe7bba3c4ac855;sf=tgz -> opencascade-7.7.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=ea8eca9ce43d5615af601658dc59a0e7
+_md5_=36eb1a6809275497da51081e88b318ef
