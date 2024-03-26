@@ -34,6 +34,41 @@
 #--- END OF EXAMPLES ---
 
 # Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# A dead wiget library with no reverse dependencies.  Homepage gone.
+# Removal on 2024-04-25.  Bug #926604.
+x11-libs/scw
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Deprecated upstream and the URL no longer works.
+# Removal on 2024-04-25.  Bug #926550.
+sys-firmware/bluez-firmware
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Wrapper library that's stuck on Qt5.  No reverse dependencies left.
+# Removal on 2024-04-25.  Bug #926548.
+dev-python/anyqt
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Unfinished package from 2021 that was added as a short-lived
+# dependency of dev-python/GitPython.  No reverse dependencies remain.
+# Removal on 2024-04-25.  Bug #924683.
+dev-python/sumtypes
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Uses deprecated distutils-r1 API.  The current version is outdated,
+# from mid-2022.  No reverse dependencies.
+# Removal on 2024-04-25.  Bug #910015.
+sci-biology/HTSeq
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Uses deprecated distutils-r1 API.  Depends on dev-qt/qtwebengine:5.
+# Includes the libraries with no other reverse dependencies.
+# Removal on 2024-04-25.  Bug #909996.
+media-libs/libopenshot
+media-libs/libopenshot-audio
+media-video/openshot
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
 # Issues with OpenSSL 3.  Unmaintained.  Last activity in 2019.
 # Removal on 2024-04-25.  Bug #892031.
 sys-auth/pam_ssh
