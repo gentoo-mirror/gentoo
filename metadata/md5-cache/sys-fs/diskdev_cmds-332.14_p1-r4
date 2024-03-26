@@ -3,11 +3,11 @@ DEPEND=dev-libs/openssl:0=
 DESCRIPTION=HFS and HFS+ utils ported from OSX, supplies mkfs and fsck
 EAPI=7
 HOMEPAGE=http://opendarwin.org
-INHERIT=toolchain-funcs
+INHERIT=flag-o-matic toolchain-funcs
 KEYWORDS=amd64 ~arm ~arm64 ppc ppc64 x86
 LICENSE=APSL-2
 RDEPEND=dev-libs/openssl:0=
 SLOT=0
 SRC_URI=http://darwinsource.opendarwin.org/tarballs/apsl/diskdev_cmds-332.14.tar.gz mirror://gentoo/diskdev_cmds-332.14_p1.patch.bz2
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=c4e8d2a04f6f0672d11f3f615e320632
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425
+_md5_=a0c04d75848c3d98747acd2ae2859eed
