@@ -33,6 +33,23 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Issues with OpenSSL 3.  Unmaintained.  Last activity in 2019.
+# Removal on 2024-04-25.  Bug #892031.
+sys-auth/pam_ssh
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Fails to compile.  Unmaintained.  Last activity in 2016.
+# Depends on an old wxGTK slot.
+# Removal on 2024-04-25.  Bug #895222.
+app-misc/tek
+
+# Michał Górny <mgorny@gentoo.org> (2024-03-26)
+# Bad C++ code.  Unmaintained.  Carries a number of patches already.
+# No reverse dependencies.
+# Removal on 2024-04-25.  Bug #924925.
+dev-libs/zthread
+
 # Ionen Wolkens <ionen@gentoo.org> (2024-03-26)
 # Breaks revdeps that need embree-3 and seems intended to be
 # SLOT=4. Mask until the situation is improved (bug #927833).
