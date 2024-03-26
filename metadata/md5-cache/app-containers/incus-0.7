@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.21 nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-linuxcontainers ) >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=acct-group/incus acct-group/incus-admin app-arch/xz-utils >=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)] dev-db/sqlite:3 dev-libs/cowsql dev-libs/lzo >=dev-libs/raft-0.22.0:=[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp] sys-libs/libcap virtual/udev
+DESCRIPTION=Modern, secure and powerful system container and virtual machine manager
+EAPI=8
+HOMEPAGE=https://linuxcontainers.org/incus/introduction/ https://github.com/lxc/incus
+INHERIT=go-module linux-info optfeature systemd verify-sig
+IUSE=apparmor fuidshift nls verify-sig
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD LGPL-3 MIT
+RDEPEND=acct-group/incus acct-group/incus-admin app-arch/xz-utils >=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)] dev-db/sqlite:3 dev-libs/cowsql dev-libs/lzo >=dev-libs/raft-0.22.0:=[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp] sys-libs/libcap virtual/udev fuidshift? ( !app-containers/lxd ) net-firewall/ebtables net-firewall/iptables sys-apps/iproute2 sys-fs/fuse:* >=sys-fs/lxcfs-5.0.0 sys-fs/squashfs-tools[lzma] virtual/acl
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://linuxcontainers.org/downloads/incus/incus-0.7.tar.xz verify-sig? ( https://linuxcontainers.org/downloads/incus/incus-0.7.tar.xz.asc )
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	go-env	14f8f70fe58c14d7ab44fff15a05ac47	go-module	83fd3ed1657cfc316c93d6a37018290d	linux-info	7ca3057b277f1e5978947b4cc289ce62	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=ffe8b0915bc93d113eaf5f89f6ca79b2
