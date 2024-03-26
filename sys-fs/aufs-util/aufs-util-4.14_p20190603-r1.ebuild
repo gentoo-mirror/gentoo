@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit linux-info multilib toolchain-funcs
+inherit flag-o-matic linux-info multilib toolchain-funcs
 
 DESCRIPTION="Utilities are always necessary for aufs"
 HOMEPAGE="http://aufs.sourceforge.net/"
@@ -44,4 +44,15 @@ src_prepare() {
 	export HOSTCC="$(tc-getCC)"
 	export STRIP=true
 	default
+}
+
+src_compile() {
+	# It uses an elaborate macro to insert __attribute__ ((section ("EXP"), used))
+	# as an export annotation, and then uses readelf to dump this and assemble a
+	# linker version script. Apparently visibility attributes is too boring. ;)
+	#
+	# It totally falls over when exposed to LTO.
+	filter-lto
+
+	emake all
 }
