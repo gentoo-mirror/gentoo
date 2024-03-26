@@ -901,7 +901,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.59 1.32.64 1.32.69: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.59 1.32.64 1.32.69 1.32.70: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.5: Distribution-independent installer framework
@@ -5351,7 +5351,7 @@ dev-libs/fcgi 2.4.1_pre0910052249-r2: FastCGI Developer's Kit
 dev-libs/fddl 20111124-r1: Free Decision Diagram Library
 dev-libs/ferrisloki 3.0.13-r2 3.0.13-r3: Loki C++ library from Modern C++ Design
 dev-libs/ffcall 2.4 2.4-r1: Build foreign function call interfaces in embedded interpreter
-dev-libs/flatbuffers 24.3.7: Memory efficient serialization library
+dev-libs/flatbuffers 24.3.7 24.3.25: Memory efficient serialization library
 dev-libs/folks 0.15.6 0.15.6-r1 0.15.7 0.15.9: Library for aggregating people from multiple sources
 dev-libs/foma 0.10.0_p20220612-r1: Multi-purpose finite-state toolkit
 dev-libs/freexl 1.0.5 1.0.6 2.0.0-r1: Simple XLS data extraction library
@@ -8089,7 +8089,7 @@ dev-python/Babel 2.14.0: Collection of tools for internationalizing Python appli
 dev-python/BitVector 3.5.0-r1: A pure-Python memory-efficient packed representation for bit arrays
 dev-python/ConfigArgParse 1.7: Drop-in replacement for argparse supporting config files and env variables
 dev-python/CppHeaderParser 2.7.4-r1: Parse C++ header files and generate a data structure
-dev-python/Faker 23.3.0 24.1.0 24.2.0 24.3.0: A Python package that generates fake data for you
+dev-python/Faker 23.3.0 24.1.0 24.2.0 24.3.0 24.4.0: A Python package that generates fake data for you
 dev-python/Frozen-Flask 1.0.2: Freezes a Flask application into a set of static files
 dev-python/GitPython 3.1.42: Library used to interact with Git repositories
 dev-python/GridDataFormats 1.0.2: Reading and writing of data on regular grids in Python
@@ -8224,8 +8224,8 @@ dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto 2.49.0-r6: Amazon Web Services API
-dev-python/boto3 1.34.59 1.34.64 1.34.69: The AWS SDK for Python
-dev-python/botocore 1.34.59 1.34.64 1.34.69: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.59 1.34.64 1.34.69 1.34.70: The AWS SDK for Python
+dev-python/botocore 1.34.59 1.34.64 1.34.69 1.34.70: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8453,10 +8453,10 @@ dev-python/ffmpeg-python 0.2.0_p20220711-r1: Python bindings for FFmpeg with com
 dev-python/fido2 0.9.3-r1 1.1.2 1.1.3: Python based FIDO 2.0 library
 dev-python/fields 5.0.0-r3: Container class boilerplate killer
 dev-python/filebytes 0.10.2 9999: Classes/Types to read and edit executable files
-dev-python/filelock 3.13.1: A platform independent file lock for Python
+dev-python/filelock 3.13.1 3.13.3: A platform independent file lock for Python
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 2.4.0: Python module import analysis tool
-dev-python/findpython 0.4.1: A utility to find python versions on your system
+dev-python/findpython 0.4.1 0.6.0: A utility to find python versions on your system
 dev-python/fitsio 1.2.1: Python library to read from and write to FITS files
 dev-python/fixtures 4.1.0: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 7.0.0: A wrapper around PyFlakes, pep8 & mccabe
@@ -8478,7 +8478,7 @@ dev-python/flask-paginate 2023.10.24: Pagination support for flask
 dev-python/flask-paranoid 0.3.0: Simple user session protection extension for Flask
 dev-python/flask-sphinx-themes 1.0.2-r1: Sphinx Themes for Flask related projects and Flask itself
 dev-python/flask-sqlalchemy 3.1.1: SQLAlchemy support for Flask applications
-dev-python/flatbuffers 24.3.7: RFC 7049 - Concise Binary Object Representation
+dev-python/flatbuffers 24.3.7 24.3.25: RFC 7049 - Concise Binary Object Representation
 dev-python/flatdict 4.0.1: Python module for interacting with nested dicts
 dev-python/fleep 1.0.1-r1 9999: File format determination library for Python
 dev-python/flexmock 0.11.3 0.12.0: Testing library to create mocks, stubs and fakes
@@ -8932,7 +8932,7 @@ dev-python/pendulum 2.1.2-r2 3.0.0-r1: Drop-in replacement for the standard date
 dev-python/pexpect 4.9.0: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 2.1.1: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1-r2: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 8.13.31 8.13.32: Python port of Google's libphonenumber
+dev-python/phonenumbers 8.13.31 8.13.32 8.13.33: Python port of Google's libphonenumber
 dev-python/phply 1.2.6: Lexer and parser for PHP source implemented using PLY
 dev-python/pickleshare 0.7.5-r1: A small 'shelve' like datastore with concurrency support
 dev-python/picobox 3.0.0 4.0.0: Dependency injection framework designed with Python in mind
@@ -8943,7 +8943,7 @@ dev-python/pikepdf 8.4.1 8.11.2 8.12.0 8.13.0 8.14.0: Python library to work wit
 dev-python/pillow 10.0.1 10.1.0-r1 10.2.0 10.2.0-r1: Python Imaging Library (fork)
 dev-python/pip 24.0: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 12.6.1: Install packages and run Python with them
-dev-python/pipdeptree 2.15.1 2.16.0 2.16.1: Utility for displaying installed packages in a dependency tree
+dev-python/pipdeptree 2.15.1 2.16.0 2.16.1 2.16.2: Utility for displaying installed packages in a dependency tree
 dev-python/pipenv 2023.12.1: Python Development Workflow for Humans
 dev-python/pipx 1.4.3: Install and Run Python Applications in Isolated Environments
 dev-python/pivy 0.6.8: Coin3D bindings for Python
@@ -9606,10 +9606,10 @@ dev-python/transitions 0.9.0: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.12.2: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.20.1-r1 0.20.4 0.21.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 23.11.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 4.1.8 4.2.0: Python library for loading and using triangular meshes
+dev-python/trimesh 4.1.8 4.2.0 4.2.1: Python library for loading and using triangular meshes
 dev-python/trio 0.24.0 0.25.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.11.1: WebSocket client and server implementation for Python Trio
-dev-python/trove-classifiers 2024.3.3: Canonical source for classifiers on PyPI (pypi.org)
+dev-python/trove-classifiers 2024.3.3 2024.3.25: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 1.1.0: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/truststore 0.8.0: Verify certificates using native system trust stores
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
@@ -9650,7 +9650,7 @@ dev-python/uritemplate 4.1.1: Python implementation of RFC6570, URI Template
 dev-python/uritools 4.0.1 4.0.2: RFC 3986-compliant URI parsing, classification and composition
 dev-python/url-normalize 1.4.3-r1: URL normalization for Python
 dev-python/urllib3 1.26.18 2.0.7 2.1.0 2.2.0-r1 2.2.1: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 2.6.8 2.6.9: Curses-based user interface library for Python
+dev-python/urwid 2.6.8 2.6.9 2.6.10: Curses-based user interface library for Python
 dev-python/urwid-readline 0.14: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r1: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
@@ -9672,7 +9672,7 @@ dev-python/virtualenv 20.25.1: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.7: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 6.1.0: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r2: A tiny pythonic visitor implementation
-dev-python/vobject 0.9.6.1-r3: Python package for parsing and generating vCard and vCalendar files
+dev-python/vobject 0.9.6.1-r3 0.9.7: Python package for parsing and generating vCard and vCalendar files
 dev-python/voluptuous 0.14.2: A Python data validation library
 dev-python/vpython 7.6.4-r1: VPython for Jupyter notebook
 dev-python/waitress 3.0.0: A pure-Python WSGI server
@@ -9714,7 +9714,7 @@ dev-python/xkbcommon 0.8: Python bindings for libxkbcommon using cffi
 dev-python/xlrd 2.0.1-r1: Library to extract data from Microsoft Excel spreadsheets
 dev-python/xlsxwriter 3.2.0: Python module for creating Excel XLSX files
 dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible with Excel
-dev-python/xmlschema 3.0.2 3.1.0: An XML Schema validator and decoder
+dev-python/xmlschema 3.0.2 3.1.0 3.2.0: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.12-r3: Python bindings for the XML Security Library
 dev-python/xmltodict 0.13.0-r1: Makes working with XML feel like you are working with JSON
 dev-python/xvfbwrapper 0.2.9-r1: Python wrapper for running a display inside X virtual framebuffer
@@ -17095,7 +17095,7 @@ sys-apps/locale-gen 2.23-r1: Generate locales based upon the config file /etc/lo
 sys-apps/logwatch 7.9 7.10 9999: Analyzes and Reports on system logs
 sys-apps/lsadb 0.1.3-r1: Prints out information on all devices attached to the ADB bus
 sys-apps/lsb-release 1.4-r4 3.2 3.3: LSB version query program
-sys-apps/lsd 1.0.0 1.1.1: An ls command with a lot of pretty colors and some other stuff.
+sys-apps/lsd 1.0.0 1.1.1 1.1.2: An ls command with a lot of pretty colors and some other stuff.
 sys-apps/lshw 02.19.2b_p20220831-r1 02.20.2b: Hardware Lister
 sys-apps/lssbus 0.1: Small utility for Linux/SPARC that list devices on SBUS
 sys-apps/lsvpd 1.7.14: Utility to List Device Vital Product Data (VPD)

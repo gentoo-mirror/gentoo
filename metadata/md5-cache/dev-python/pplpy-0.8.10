@@ -1,11 +1,11 @@
-BDEPEND=dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] doc? ( dev-python/sphinx[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) doc? ( || ( ( dev-lang/python:3.12 >=dev-python/sphinx-5.3.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/sphinx-5.3.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] ) ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=dev-python/cython[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] doc? ( dev-python/sphinx[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/ppl dev-python/cysignals[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/gmpy-2.1.0_beta1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 DESCRIPTION=Python bindings for the Parma Polyhedra Library (PPL)
 EAPI=8
 HOMEPAGE=https://github.com/sagemath/pplpy/ https://pypi.org/project/pplpy/
 INHERIT=distutils-r1 pypi
-IUSE=doc doc python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
+IUSE=doc python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
 KEYWORDS=~amd64
 LICENSE=GPL-3+
 RDEPEND=dev-libs/ppl dev-python/cysignals[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/gmpy-2.1.0_beta1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_tar
 SLOT=0/0.8.10
 SRC_URI=https://files.pythonhosted.org/packages/source/p/pplpy/pplpy-0.8.10.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=547d07d4ccf0f5edc030e1dc7fe25396
+_md5_=a970ebcda23f8b9da1fd6958090249d9
