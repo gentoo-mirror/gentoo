@@ -31,6 +31,7 @@ RDEPEND="
 	>=sys-devel/clang-10
 	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
 	<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
+	sys-process/procps
 	sys-libs/binutils-libs:=
 	virtual/libelf:=
 "
@@ -43,18 +44,23 @@ BDEPEND="
 	app-arch/xz-utils
 	app-alternatives/lex
 	app-alternatives/yacc
+	test? (
+		app-editors/vim-core
+		dev-util/pahole
+	)
 	virtual/pkgconfig
 "
 
 QA_DT_NEEDED="
-	/usr/lib.*/libbpftraceresources.so
-	/usr/lib.*/libcxxdemangler_llvm.so
+	usr/lib.*/libbpftraceresources.so
+	usr/lib.*/libcxxdemangler_llvm.so
 "
 
 PATCHES=(
-	"${FILESDIR}/bpftrace-0.19.0-install-libs.patch"
+	"${FILESDIR}/bpftrace-0.20.0-install-libs.patch"
 	"${FILESDIR}/bpftrace-0.15.0-dont-compress-man.patch"
 	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
+	"${FILESDIR}/bpftrace-0.20.1-fuzzer.patch"
 )
 
 pkg_pretend() {
@@ -81,7 +87,6 @@ src_configure() {
 		-DBUILD_TESTING:BOOL=$(usex test)
 		-DBUILD_FUZZ:BOOL=$(usex fuzzing)
 		-DENABLE_MAN:BOOL=OFF
-		-DUSE_SYSTEM_BPF_BCC:BOOL=ON
 	)
 
 	cmake_src_configure
