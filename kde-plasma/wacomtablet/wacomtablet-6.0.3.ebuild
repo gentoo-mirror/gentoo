@@ -17,9 +17,10 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE=""
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 RDEPEND="
 	>=dev-libs/libwacom-0.30:=
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6

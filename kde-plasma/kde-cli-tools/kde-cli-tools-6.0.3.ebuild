@@ -38,6 +38,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	kdesu? ( >=kde-frameworks/kdesu-${KFMIN}:6 )
+	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui] )
 "
 RDEPEND="${DEPEND}
 	kdesu? ( sys-apps/dbus[X] )

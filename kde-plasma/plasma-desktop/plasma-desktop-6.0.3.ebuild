@@ -21,12 +21,13 @@ IUSE="ibus kaccounts scim screencast sdl +semantic-desktop X"
 
 RESTRICT="test" # missing selenium-webdriver-at-spi
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
 COMMON_DEPEND="
 	dev-libs/icu:=
 	dev-libs/wayland
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,sql,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwayland-${QTMIN}:6

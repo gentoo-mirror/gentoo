@@ -20,6 +20,7 @@ IUSE="qt5"
 # requires running kde environment
 RESTRICT="test"
 
+# slot ops: qdbus*_p.h and Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
 	dev-libs/wayland
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]

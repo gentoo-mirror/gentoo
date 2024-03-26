@@ -18,8 +18,9 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE="brightness-control caps"
 
+# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -34,6 +35,7 @@ DEPEND="
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/layer-shell-qt-${PVCUT}:6

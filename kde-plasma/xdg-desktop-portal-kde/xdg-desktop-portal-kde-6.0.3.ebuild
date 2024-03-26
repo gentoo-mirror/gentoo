@@ -16,6 +16,7 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE=""
 
+# dev-qt/qtbase:= slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 # dev-qt/qtbase:=[cups]: includes specifically the cups private header
 # dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
 COMMON_DEPEND="

@@ -18,6 +18,7 @@ IUSE="X"
 REQUIRED_USE="test? ( X )"
 RESTRICT="test" # requires installed instance
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -42,7 +43,7 @@ BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_X11=$(usex X) # Pending: https://invent.kde.org/plasma/kglobalacceld/-/merge_requests/26
+		-DWITH_X11=$(usex X)
 	)
 	ecm_src_configure
 }

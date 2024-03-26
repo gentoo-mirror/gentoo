@@ -18,6 +18,7 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE="qt5 X"
 
+# slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -49,7 +50,10 @@ RDEPEND="
 		>=kde-frameworks/kwindowsystem-${KF5MIN}:5
 		X? ( >=dev-qt/qtx11extras-${QT5MIN}:5 )
 	)
-	X? ( x11-libs/libxcb )
+	X? (
+		>=dev-qt/qtbase-${QTMIN}:6=[gui]
+		x11-libs/libxcb
+	)
 "
 DEPEND="${RDEPEND}
 	>=kde-frameworks/kservice-${KFMIN}:6

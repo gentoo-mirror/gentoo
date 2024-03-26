@@ -6,7 +6,6 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 KFMIN=6.0
-PVCUT=$(ver_cut 1-3)
 QTMIN=6.6.2
 inherit ecm plasma.kde.org
 
@@ -20,9 +19,10 @@ IUSE=""
 # requires running session
 RESTRICT="test"
 
+# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 RDEPEND="
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui]
 	>=dev-qt/qtwayland-${QTMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	x11-libs/libxcb:=

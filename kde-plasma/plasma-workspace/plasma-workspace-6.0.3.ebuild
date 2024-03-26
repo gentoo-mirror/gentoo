@@ -22,12 +22,13 @@ REQUIRED_USE="gps? ( geolocation )"
 RESTRICT="test"
 
 # kde-frameworks/kwindowsystem[X]: Uses KX11Extras
+# slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 # slot op: various private QtWaylandClient headers
 COMMON_DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,libinput,network,sql,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,libinput,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
