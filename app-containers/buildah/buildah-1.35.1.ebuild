@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module linux-info
+inherit go-module linux-info toolchain-funcs
 
 DESCRIPTION="A tool that facilitates building OCI images"
 HOMEPAGE="https://github.com/containers/buildah"
@@ -35,13 +35,14 @@ RDEPEND="
 	btrfs? ( sys-fs/btrfs-progs )
 	seccomp? ( sys-libs/libseccomp:= )
 	apparmor? ( sys-libs/libapparmor:= )
-	app-containers/containers-common
+	>=app-containers/containers-common-0.58.0-r1
 	app-crypt/gpgme:=
 	dev-libs/libgpg-error:=
 	dev-libs/libassuan:=
 	sys-apps/shadow:=
 "
 DEPEND="${RDEPEND}"
+BDEPEND="dev-go/go-md2man"
 
 pkg_pretend() {
 	local CONFIG_CHECK=""
@@ -98,6 +99,9 @@ src_prepare() {
 		@@ -54 +54 @@
 		-all: bin/buildah bin/imgtype bin/copy bin/tutorial docs
 		+all: bin/buildah docs
+		@@ -123 +123 @@
+		-docs: install.tools ## build the docs on the host
+		+docs: ## build the docs on the host
 		EOF
 		eapply "${T}/disable_tests.patch" || die
 	}
@@ -109,6 +113,8 @@ src_compile() {
 	# https://github.com/gentoo/gentoo/pull/33531#issuecomment-1786107493
 	[[ ${PV} != 9999* ]] && export COMMIT_NO="" GIT_COMMIT=""
 
+	tc-export AS LD
+	export GOMD2MAN="$(command -v go-md2man)"
 	default
 }
 
