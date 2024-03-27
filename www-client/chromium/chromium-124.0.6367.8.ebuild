@@ -6,15 +6,16 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..12} )
 PYTHON_REQ_USE="xml(+)"
 
-# PACKAGING NOTES:
+# PACKAGING NOTES
+
 # Google roll their bundled Clang every two weeks, and the bundled Rust
 # is rolled regularly and depends on that. While we do our best to build
 # with system Clang, we will eventually hit the point where we need to use
 # the bundled Clang due to the use of prerelease features. We've been lucky
 # enough so far that this hasn't been an issue.
 
-# We try and avoid forcing the use of libcxx, but sometimes it is unavoidable.
-# Remember to force the use of Clang when this is forced.
+# We try and avoid forcing the use of the custom/bundled libcxx, but sometimes
+# it is unavoidable. Remember to force the use of Clang when this is forced.
 
 # GCC is _not_ supported upstream, though patches are welcome. We do our
 # best to enable builds with GCC but reserve the right to force Clang
@@ -24,18 +25,29 @@ PYTHON_REQ_USE="xml(+)"
 # GN is bundled with Chromium, but we always use the system version. Remember to
 # check for upstream changes to GN and update ebuild (and version below) as required.
 
+# For binhost users, if USE=bindist is set, we configure Chromium in a way that it is able
+# to use proprietary codecs, and so that ffmpeg is an external component (libffmpeg.so),
+# then we remove ffmpeg from the image to ensure that the built package is distributable
+# (i.e. we don't owe royalties). A suitable libffmpeg.so is symlinked in its place;
+# as a result of this, ffmpeg[chromium] or ffmpeg-chromium must be installed on the system.
+
+# For non-binhost builds, we build the bundled ffmpeg and enable proprietary codecs because there's
+# no reason not to. Todo: Re-enable USE=system-ffmpeg.
+
 # These variables let us easily bound supported major dependency versions in one place.
 GCC_MIN_VER=12
 GN_MIN_VER=0.2154
-LLVM_MAX_SLOT=17
-LLVM_MIN_SLOT=16
+# Since Google use prerelease llvm we can let any adventurous users try to build with prerelease
+# ebuilds; try to keep this up to date with the latest version in the tree.
+LLVM_MAX_SLOT=19
+LLVM_MIN_SLOT=17
 RUST_MIN_VER=1.72.0
-# grep 'CLANG_REVISION = ' ${S}/tools/clang/scripts/update.py -A1 | cut -c 18-
-GOOGLE_CLANG_VER="llvmorg-19-init-2319-g7c4c2746-1"
-# grep 'RUST_REVISION = ' ${S}/tools/rust/update_rust.py -A1 | cut -c 17-
-GOOGLE_RUST_VER="340bb19fea20fd5f9357bbfac542fad84fc7ea2b-3"
+# chromium-tools/get-chromium-toolchain-strings.sh
+GOOGLE_CLANG_VER=llvmorg-19-init-2941-ga0b3dbaf-22
+GOOGLE_RUST_VER=7168c13579a550f2c47f7eea22f5e226a436cd00-1
 
 # https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
+# Resolved upstream, requires testing and some backporting I'm sure
 : ${CHROMIUM_FORCE_CLANG=yes}
 # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101227 - Chromium 120:
 #    webrtc -  no matching member function for call to 'emplace'
@@ -65,7 +77,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	!system-toolchain? (
 		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/clang-${GOOGLE_CLANG_VER}.tar.xz
 			-> chromium-${PV%%\.*}-clang.tar.xz
-		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${GOOGLE_RUST_VER}-${GOOGLE_CLANG_VER%??}.tar.xz
+		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${GOOGLE_RUST_VER}-${GOOGLE_CLANG_VER%???}.tar.xz
 			-> chromium-${PV%%\.*}-rust.tar.xz
 	)
 	ppc64? (
@@ -78,14 +90,17 @@ LICENSE="BSD"
 SLOT="0/beta"
 KEYWORDS="~amd64 ~arm64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
-IUSE="+X ${IUSE_SYSTEM_LIBS} cups debug gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
+IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
 IUSE+=" qt5 qt6 screencast selinux +system-toolchain vaapi wayland widevine"
+RESTRICT="!bindist? ( bindist )"
+
 REQUIRED_USE="
 	!headless? ( || ( X wayland ) )
 	pgo? ( X !wayland )
 	qt6? ( qt5 )
 	screencast? ( wayland )
 	!system-toolchain? ( libcxx )
+	ffmpeg-chromium? ( bindist proprietary-codecs )
 "
 
 COMMON_X_DEPEND="
@@ -173,6 +188,10 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	virtual/ttf-fonts
 	selinux? ( sec-policy/selinux-chromium )
+	bindist? (
+		!ffmpeg-chromium? ( >=media-video/ffmpeg-6.1-r1:0/58.60.60[chromium] )
+		ffmpeg-chromium? ( media-video/ffmpeg-chromium:${PV%%\.*} )
+	)
 "
 DEPEND="${COMMON_DEPEND}
 	!headless? (
@@ -209,7 +228,6 @@ depend_clang_llvm_versions() {
 	fi
 }
 
-# #923010 - add `profiler` USE to rust-bin
 BDEPEND="
 	${COMMON_SNAPSHOT_DEPEND}
 	${PYTHON_DEPS}
@@ -229,7 +247,7 @@ BDEPEND="
 			>=dev-util/web_page_replay_go-20220314
 			$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
 		)
-		>=dev-lang/rust-${RUST_MIN_VER}[profiler]
+		>=virtual/rust-${RUST_MIN_VER}[profiler(-)]
 	)
 	>=dev-build/gn-${GN_MIN_VER}
 	dev-lang/perl
@@ -338,44 +356,56 @@ pre_build_checks() {
 }
 
 pkg_pretend() {
-	pre_build_checks
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		# The pre_build_checks are all about compilation resources, no need to run it for a binpkg
+		pre_build_checks
+	fi
 
 	if use headless; then
 		local headless_unused_flags=("cups" "kerberos" "pulseaudio" "qt5" "qt6" "vaapi" "wayland")
 		for myiuse in ${headless_unused_flags[@]}; do
-			use ${myiuse} && ewarn "Ignoring USE=${myiuse} since USE=headless is set."
+			use ${myiuse} && ewarn "Ignoring USE=${myiuse}, USE=headless is set."
 		done
+	fi
+
+	if ! use bindist && use ffmpeg-chromium; then
+		ewarn "Ignoring USE=ffmpeg-chromium, USE=bindist is not set."
 	fi
 }
 
 pkg_setup() {
-	if use system-toolchain && needs_clang; then
-		llvm_pkg_setup
-	fi
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		# The pre_build_checks are all about compilation resources, no need to run it for a binpkg
+		pre_build_checks
 
-	pre_build_checks
-
-	if [[ ${MERGE_TYPE} != binary ]] && use system-toolchain; then
-		local -x CPP="$(tc-getCXX) -E"
-		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${GCC_MIN_VER}; then
-			die "At least gcc ${GCC_MIN_VER} is required"
-		fi
-		if use pgo && tc-is-cross-compiler; then
-			die "The pgo USE flag cannot be used when cross-compiling"
-		fi
-		if needs_clang && ! tc-is-clang; then
-			if tc-is-cross-compiler; then
-				CPP="${CBUILD}-clang++ -E"
-			else
-				CPP="${CHOST}-clang++ -E"
+		if use system-toolchain; then
+			local -x CPP="$(tc-getCXX) -E"
+			if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${GCC_MIN_VER}; then
+				die "At least gcc ${GCC_MIN_VER} is required"
 			fi
-			if ver_test "$(clang-major-version)" -lt ${LLVM_MIN_SLOT}; then
-				die "At least Clang ${LLVM_MIN_SLOT} is required"
+			if use pgo && tc-is-cross-compiler; then
+				die "The pgo USE flag cannot be used when cross-compiling"
+			fi
+			if needs_clang && ! tc-is-clang; then
+				if tc-is-cross-compiler; then
+					CPP="${CBUILD}-clang++ -E"
+				else
+					CPP="${CHOST}-clang++ -E"
+				fi
+			fi
+			if needs_clang || tc-is-clang; then
+				if ver_test "$(clang-major-version)" -lt ${LLVM_MIN_SLOT}; then
+					die "At least Clang ${LLVM_MIN_SLOT} is required"
+				fi
+				# Ideally we never see this, but it should help prevent bugs like 927154
+				if ver_test "$(clang-major-version)" -gt ${LLVM_MAX_SLOT}; then
+					die "Clang $(clang-major-version) is too new; ${LLVM_MAX_SLOT} is the highest supported version"
+				fi
 			fi
 		fi
 		# Users should never hit this, it's purely a development convenience
 		if ver_test $(gn --version || die) -lt ${GN_MIN_VER}; then
-				die "dev-build/gn >= ${GN_MIN_VER} is required to build this Chromium"
+			die "dev-build/gn >= ${GN_MIN_VER} is required to build this Chromium"
 		fi
 	fi
 
@@ -397,10 +427,11 @@ src_prepare() {
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
 		"${FILESDIR}/chromium-117-system-zstd.patch"
+		"${FILESDIR}/chromium-124-libwebp-shim-sharpyuv.patch"
 	)
 
 	if use system-toolchain; then
-		# The patchset is really only required if we're not using the system-toolchain
+		# The patchset is really only required if we're using the system-toolchain
 		PATCHES+=( "${WORKDIR}/chromium-patches-${PATCH_V}" )
 		# We can't use the bundled compiler builtins
 		sed -i -e \
@@ -520,7 +551,6 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/puppeteer/package/lib/esm/third_party/rxjs
 		third_party/devtools-frontend/src/front_end/third_party/vscode.web-custom-data
 		third_party/devtools-frontend/src/front_end/third_party/wasmparser
-		third_party/devtools-frontend/src/test/unittests/front_end/third_party/i18n
 		third_party/devtools-frontend/src/third_party
 		third_party/distributed_point_functions
 		third_party/dom_distiller_js
@@ -602,7 +632,6 @@ src_prepare() {
 		third_party/ots
 		third_party/pdfium
 		third_party/pdfium/third_party/agg23
-		third_party/pdfium/third_party/base
 		third_party/pdfium/third_party/bigint
 		third_party/pdfium/third_party/freetype
 		third_party/pdfium/third_party/lcms
@@ -829,13 +858,17 @@ chromium_configure() {
 		local rustc_ver
 		rustc_ver=$(chromium_rust_version_check)
 		if ver_test "${rustc_ver}" -lt "${RUST_MIN_VER}"; then
-			eerror "Rust >=${RUST_MIN_VER} is required"
-			eerror "Please run 'eselect rust' and select the correct rust version"
-			die "Selected rust version is too old"
+				eerror "Rust >=${RUST_MIN_VER} is required"
+				eerror "Please run 'eselect rust' and select the correct rust version"
+				die "Selected rust version is too old"
 		else
-			einfo "Using rust ${rustc_ver} to build"
+				einfo "Using rust ${rustc_ver} to build"
 		fi
-		myconf_gn+=" rust_sysroot_absolute=\"${EPREFIX}/usr/lib/rust/${rustc_ver}/\""
+		if [[ "$(eselect --brief rust show 2>/dev/null)" == *"bin"* ]]; then
+				myconf_gn+=" rust_sysroot_absolute=\"${EPREFIX}/opt/rust-bin-${rustc_ver}/\""
+		else
+				myconf_gn+=" rust_sysroot_absolute=\"${EPREFIX}/usr/lib/rust/${rustc_ver}/\""
+		fi
 		myconf_gn+=" rustc_version=\"${rustc_ver}\""
 	fi
 
@@ -941,9 +974,19 @@ chromium_configure() {
 	# Disable code formating of generated files
 	myconf_gn+=" blink_enable_generated_code_formatting=false"
 
-	ffmpeg_branding="$(usex proprietary-codecs Chrome Chromium)"
-	myconf_gn+=" proprietary_codecs=$(usex proprietary-codecs true false)"
-	myconf_gn+=" ffmpeg_branding=\"${ffmpeg_branding}\""
+	if use bindist ; then
+		# proprietary_codecs just forces Chromium to say that it can use h264/aac,
+		# the work is still done by ffmpeg. If this is set to no Chromium
+		# won't be able to load the codec even if the library can handle it
+		myconf_gn+=" proprietary_codecs=true"
+		myconf_gn+=" ffmpeg_branding=\"Chrome\""
+		# build ffmpeg as an external component (libffmpeg.so) that we can remove / substitute
+		myconf_gn+=" is_component_ffmpeg=true"
+	else
+		ffmpeg_branding="$(usex proprietary-codecs Chrome Chromium)"
+		myconf_gn+=" proprietary_codecs=$(usex proprietary-codecs true false)"
+		myconf_gn+=" ffmpeg_branding=\"${ffmpeg_branding}\""
+	fi
 
 	# Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
 	# Note: these are for Gentoo use ONLY. For your own distribution,
@@ -1294,6 +1337,19 @@ src_install() {
 	insinto "${CHROMIUM_HOME}"
 	doins out/Release/*.bin
 	doins out/Release/*.pak
+
+	if use bindist; then
+		# We built libffmpeg as a component library, but we can't distribute it
+		# with proprietary codec support. Remove it and make a symlink to the requested
+		# system library.
+		rm -f out/Release/libffmpeg.so \
+			|| die "Failed to remove bundled libffmpeg.so (with proprietary codecs)"
+		# symlink the libffmpeg.so from either ffmpeg-chromium or ffmpeg[chromium].
+		einfo "Creating symlink to libffmpeg.so from $(usex ffmpeg-chromium ffmpeg-chromium ffmpeg[chromium])..."
+		dosym ../chromium/libffmpeg.so$(usex ffmpeg-chromium .${PV%%\.*} "") \
+			/usr/$(get_libdir)/chromium-browser/libffmpeg.so
+	fi
+
 	(
 		shopt -s nullglob
 		local files=(out/Release/*.so out/Release/*.so.[0-9])
