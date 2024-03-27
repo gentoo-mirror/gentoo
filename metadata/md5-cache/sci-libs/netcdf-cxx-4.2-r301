@@ -1,12 +1,15 @@
-DEFINED_PHASES=configure install
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare
 DEPEND=>=sci-libs/netcdf-4.2:0=
 DESCRIPTION=C++ library for netCDF
 EAPI=7
 HOMEPAGE=https://www.unidata.ucar.edu/software/netcdf/
+INHERIT=autotools
 IUSE=examples
 KEYWORDS=amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=UCAR-Unidata
 RDEPEND=>=sci-libs/netcdf-4.2:0=
 SLOT=3
 SRC_URI=https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx-4.2.tar.gz
-_md5_=037741a63eca0a616262150be82a365c
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee
+_md5_=3742e5b0684062dce54525e2ca5c7740

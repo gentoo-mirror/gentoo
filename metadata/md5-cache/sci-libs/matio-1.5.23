@@ -1,13 +1,15 @@
-BDEPEND=doc? ( virtual/latex-base )
-DEFINED_PHASES=compile configure install
+BDEPEND=doc? ( virtual/latex-base ) >=app-portage/elt-patches-20240116
+DEFINED_PHASES=compile configure install prepare
 DEPEND=sys-libs/zlib hdf5? ( sci-libs/hdf5:= )
 DESCRIPTION=Library for reading and writing matlab files
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/matio/
+INHERIT=libtool
 IUSE=doc examples hdf5 sparse
 KEYWORDS=amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD-2
 RDEPEND=sys-libs/zlib hdf5? ( sci-libs/hdf5:= )
 SLOT=0/11
 SRC_URI=mirror://sourceforge/matio/matio-1.5.23.tar.gz
-_md5_=d9551c717023c5ff4219257d675ef682
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001
+_md5_=f6d81a49430610770b394347a282a569

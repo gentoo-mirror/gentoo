@@ -4,7 +4,7 @@ DEPEND=sys-libs/ncurses:0= app-arch/sharutils dev-perl/Astro-FITS-Header dev-per
 DESCRIPTION=Perl Data Language for scientific computing
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/PDL
-INHERIT=perl-module fortran-2
+INHERIT=flag-o-matic perl-module fortran-2
 IUSE=+badval doc fortran gd gsl hdf netpbm pdl2 pgplot threads test test examples
 KEYWORDS=amd64 arm ppc x86
 LICENSE=|| ( Artistic GPL-1+ ) public-domain PerlDL
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/ncurses:0= app-arch/sharutils dev-perl/Astro-FITS-Header dev-pe
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETJ/PDL-2.063.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
-_md5_=4dfc7f4514cbbd927f8089ed161b3ec3
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	4e37e1004a0a27e41bb7025c0b974676	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
+_md5_=8acdf5ecf65069035393dca4b36c18c8
