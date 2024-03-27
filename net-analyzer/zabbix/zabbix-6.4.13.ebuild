@@ -11,7 +11,7 @@ EAPI=8
 GO_OPTIONAL="yes"
 # needed to make webapp-config dep optional
 WEBAPP_OPTIONAL="yes"
-inherit webapp java-pkg-opt-2 systemd tmpfiles toolchain-funcs go-module user-info
+inherit autotools webapp java-pkg-opt-2 systemd tmpfiles toolchain-funcs go-module user-info
 
 DESCRIPTION="ZABBIX is software for monitoring of your applications, network and servers"
 HOMEPAGE="https://www.zabbix.com/"
@@ -26,7 +26,7 @@ S=${WORKDIR}/${MY_P}
 LICENSE="GPL-2"
 SLOT="0/$(ver_cut 1-2)"
 WEBAPP_MANUAL_SLOT="yes"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="agent +agent2 curl frontend gnutls ipv6 java ldap libxml2 mysql odbc openipmi +openssl oracle +postgres proxy selinux server snmp sqlite ssh static"
 REQUIRED_USE="|| ( agent agent2 frontend proxy server )
 	?? ( gnutls openssl )
@@ -121,7 +121,8 @@ RESTRICT="test"
 PATCHES=(
 	"${FILESDIR}/${PN}-4.0.18-modulepathfix.patch"
 	"${FILESDIR}/${PN}-3.0.30-security-disable-PidFile.patch"
-	"${FILESDIR}/${PN}-6.0.3-system.sw.packages.patch"
+	"${FILESDIR}/${PN}-6.4.0-configure-sscanf.patch"
+	"${FILESDIR}/${PN}-6.4.6-clang16-build-fix.patch"
 )
 
 ZABBIXJAVA_BASE="opt/zabbix_java"
@@ -147,6 +148,9 @@ pkg_setup() {
 
 src_prepare() {
 	default
+
+	# Since we patch configure.ac with e.g., ${PN}-6.4.0-configure-sscanf.patch".
+	eautoreconf
 }
 
 src_configure() {
