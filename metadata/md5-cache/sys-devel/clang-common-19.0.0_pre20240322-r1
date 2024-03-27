@@ -6,8 +6,8 @@ IDEPEND=!default-compiler-rt? ( sys-devel/gcc-config ) !default-libcxx? ( sys-de
 INHERIT=bash-completion-r1 llvm.org multilib
 IUSE=default-compiler-rt default-libcxx default-lld bootstrap-prefix cet hardened llvm-libunwind
 LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
-PDEPEND=sys-devel/clang:* default-compiler-rt? ( sys-devel/clang-runtime[compiler-rt] llvm-libunwind? ( sys-libs/llvm-libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=sys-libs/libcxx-19.0.0_pre20240322[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( sys-devel/lld ) !default-lld? ( sys-devel/binutils )
+PDEPEND=sys-devel/clang:* default-compiler-rt? ( sys-devel/clang-runtime[compiler-rt] llvm-libunwind? ( sys-libs/llvm-libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=sys-libs/libcxx-19.0.0_pre20240322[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( >=sys-devel/lld-19.0.0_pre20240322 ) !default-lld? ( sys-devel/binutils )
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/archive/f3cfe016c5d8429c0dccfa6f85442e2ea0d45a58.tar.gz -> llvm-project-f3cfe016c5d8429c0dccfa6f85442e2ea0d45a58.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	llvm.org	27df78f45d06b1b148561cd393743422
-_md5_=55d262318c2d68c5e264195b4b954ef8
+_md5_=dd0a65b321bbbfc231ad0fccc5efe033
