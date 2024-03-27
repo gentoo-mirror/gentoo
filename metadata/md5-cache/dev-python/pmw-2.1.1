@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[tk] ) python_targets_python3_11? ( dev-lang/python:3.11[tk] ) python_targets_python3_12? ( dev-lang/python:3.12[tk] ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=!dev-python/pmw:0
+DESCRIPTION=Toolkit for building high-level compound Python widgets using the Tkinter module
+EAPI=8
+HOMEPAGE=https://pypi.org/project/Pmw/
+INHERIT=distutils-r1 virtualx pypi
+IUSE=doc test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 test
+KEYWORDS=~alpha ~amd64 ~ia64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=BSD
+RDEPEND=!dev-python/pmw:0 python_targets_python3_10? ( dev-lang/python:3.10[tk] ) python_targets_python3_11? ( dev-lang/python:3.11[tk] ) python_targets_python3_12? ( dev-lang/python:3.12[tk] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=test !test? ( test )
+SLOT=py3
+SRC_URI=https://files.pythonhosted.org/packages/source/P/Pmw/Pmw-2.1.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	8262de2e5a28df8624b96e031d8d0f2b	virtualx	817571665ee28575da44ee08135089e5	pypi	2eecb475512bc76e5ea9192a681b9e6b
+_md5_=7e8d66a5f601ad849b3b4eb881f65416
