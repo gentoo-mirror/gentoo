@@ -26,7 +26,7 @@ else
 	XEN_GENTOO_PATCHSET_NUM=2
 	XEN_GENTOO_PATCHSET_BASE=4.17.0
 	XEN_PRE_PATCHSET_NUM=0
-	XEN_PRE_VERSION_BASE=4.17.2
+	XEN_PRE_VERSION_BASE=4.17.3
 
 	XEN_BASE_PV="${PV}"
 	if [[ -n "${XEN_PRE_VERSION_BASE}" ]]; then
@@ -144,7 +144,7 @@ DEPEND="${COMMON_DEPEND}
 			dev-python/markdown[${PYTHON_USEDEP}]
 		')
 		dev-texlive/texlive-latexextra
-		media-gfx/transfig
+		>=media-gfx/fig2dev-3.2.9-r1
 		virtual/pandoc
 	)
 	hvm? ( x11-base/xorg-proto )
