@@ -1,19 +1,19 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit linux-info python-any-r1 systemd toolchain-funcs
 
 DESCRIPTION="A tool to log and decode Machine Check Exceptions"
 HOMEPAGE="http://mcelog.org/"
-SRC_URI="https://github.com/andikleen/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://git.kernel.org/pub/scm/utils/cpu/mce/mcelog.git/snapshot/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="selinux"
 
 RDEPEND="selinux? ( sec-policy/selinux-mcelog )"
