@@ -4,46 +4,37 @@
 EAPI=8
 
 CRATES="
-	autocfg-1.1.0
-	base64-0.13.1
-	bumpalo-3.12.0
-	cc-1.0.79
-	cfg-if-1.0.0
-	hashbrown-0.12.3
-	indexmap-1.9.3
-	js-sys-0.3.61
-	libc-0.2.140
-	log-0.4.17
-	memchr-2.5.0
-	num_enum-0.5.11
-	num_enum_derive-0.5.11
-	once_cell-1.17.1
-	proc-macro-crate-1.3.1
-	proc-macro2-1.0.55
-	quote-1.0.26
-	ring-0.16.20
-	rustls-0.21.0
-	rustls-pemfile-0.2.1
-	rustls-webpki-0.100.1
-	rustversion-1.0.12
-	sct-0.7.0
-	spin-0.5.2
-	syn-1.0.109
-	toml_datetime-0.6.1
-	toml_edit-0.19.8
-	unicode-ident-1.0.8
-	untrusted-0.7.1
-	wasm-bindgen-0.2.84
-	wasm-bindgen-backend-0.2.84
-	wasm-bindgen-macro-0.2.84
-	wasm-bindgen-macro-support-0.2.84
-	wasm-bindgen-shared-0.2.84
-	web-sys-0.3.61
-	webpki-0.22.0
-	winapi-0.3.9
-	winapi-i686-pc-windows-gnu-0.4.0
-	winapi-x86_64-pc-windows-gnu-0.4.0
-	winnow-0.4.1
+	aho-corasick@1.1.1
+	base64@0.21.5
+	cc@1.0.83
+	cfg-if@1.0.0
+	getrandom@0.2.11
+	libc@0.2.153
+	log@0.4.21
+	memchr@2.6.4
+	regex-automata@0.3.9
+	regex-syntax@0.7.5
+	regex@1.9.6
+	ring@0.17.5
+	rustls-pemfile@2.1.1
+	rustls-pki-types@1.3.1
+	rustls-webpki@0.102.0
+	rustls@0.22.0
+	rustversion@1.0.14
+	spin@0.9.8
+	subtle@2.5.0
+	untrusted@0.9.0
+	wasi@0.11.0+wasi-snapshot-preview1
+	windows-sys@0.48.0
+	windows-targets@0.48.5
+	windows_aarch64_gnullvm@0.48.5
+	windows_aarch64_msvc@0.48.5
+	windows_i686_gnu@0.48.5
+	windows_i686_msvc@0.48.5
+	windows_x86_64_gnu@0.48.5
+	windows_x86_64_gnullvm@0.48.5
+	windows_x86_64_msvc@0.48.5
+	zeroize@1.7.0
 "
 
 inherit cargo flag-o-matic multilib-minimal rust-toolchain
@@ -51,12 +42,11 @@ inherit cargo flag-o-matic multilib-minimal rust-toolchain
 DESCRIPTION="C-to-rustls bindings"
 HOMEPAGE="https://github.com/rustls/rustls-ffi"
 SRC_URI="https://github.com/rustls/rustls-ffi/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" $(cargo_crate_uris)"
+SRC_URI+=" ${CARGO_CRATE_URIS}"
 
-# From cargo-ebuild (note that webpki is also just ISC)
-LICENSE="|| ( MIT Apache-2.0 ) BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016"
+LICENSE="|| ( Apache-2.0 MIT ISC )"
 # Dependent crate licenses
-LICENSE+=" ISC MIT Unicode-DFS-2016"
+LICENSE+=" BSD ISC MIT"
 # For Ring (see its LICENSE)
 LICENSE+=" ISC openssl SSLeay MIT"
 SLOT="0/${PV}"
@@ -65,10 +55,6 @@ KEYWORDS="~amd64"
 BDEPEND="dev-util/cargo-c"
 
 QA_FLAGS_IGNORED="usr/lib.*/librustls.*"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.10.0-cargo-c.patch
-)
 
 src_prepare() {
 	default
@@ -80,14 +66,21 @@ src_configure() {
 	# bug #927231
 	filter-lto
 
+	# textrels in ring
+	# Hopefully fixed with https://github.com/rustls/rustls-ffi/pull/389
+	export RUSTFLAGS="${RUSTFLAGS} -C link-arg=-Wl,-z,notext"
+
+	# https://github.com/rustls/rustls-ffi/issues/397
+	export RUSTC_BOOTSTRAP=1
+
 	multilib-minimal_src_configure
 }
 
 multilib_src_compile() {
 	local cargoargs=(
 		--library-type=cdylib
-		--prefix=/usr
-		--libdir="/usr/$(get_libdir)"
+		--prefix="${EPREFIX}"/usr
+		--libdir="${EPREFIX}/usr/$(get_libdir)"
 		--target="$(rust_abi)"
 		$(usev !debug '--release')
 	)
@@ -97,8 +90,8 @@ multilib_src_compile() {
 
 multilib_src_test() {
 	local cargoargs=(
-		--prefix=/usr
-		--libdir="/usr/$(get_libdir)"
+		--prefix="${EPREFIX}"/usr
+		--libdir="${EPREFIX}/usr/$(get_libdir)"
 		--target="$(rust_abi)"
 		$(usex debug '--debug' '--release')
 	)
@@ -109,10 +102,10 @@ multilib_src_test() {
 multilib_src_install() {
 	local cargoargs=(
 		--library-type=cdylib
-		--prefix=/usr
-		--libdir="/usr/$(get_libdir)"
+		--prefix="${EPREFIX}"/usr
+		--libdir="${EPREFIX}/usr/$(get_libdir)"
 		--target="$(rust_abi)"
-		--destdir="${ED}"
+		--destdir="${D}"
 		$(usex debug '--debug' '--release')
 	)
 
