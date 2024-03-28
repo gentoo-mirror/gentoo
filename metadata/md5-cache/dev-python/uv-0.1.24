@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/astral-sh/uv/ https://pypi.org/project/uv/
 INHERIT=cargo check-reqs
 IUSE=test debug
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm ~arm64
 LICENSE=|| ( Apache-2.0 MIT ) 0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD ISC MIT MPL-2.0 Unicode-DFS-2016 openssl
 PROPERTIES=test_network
 RDEPEND=dev-libs/libgit2:=
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/astral-sh/uv/archive/0.1.24.tar.gz -> uv-0.1.24.gh.tar.gz https://github.com/charliermarsh/rs-async-zip/archive/d76801da0943de985254fc6255c0e476b57c5836.tar.gz -> rs-async-zip-d76801da0943de985254fc6255c0e476b57c5836.gh.tar.gz https://github.com/astral-sh/pubgrub/archive/e981e4dfe315582e84e2fd724832fb0e0c50b7aa.tar.gz -> pubgrub-e981e4dfe315582e84e2fd724832fb0e0c50b7aa.gh.tar.gz https://dev.gentoo.org/~mgorny/dist/uv-0.1.24-crates.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	cargo	4dede41d64d595673f6da62ab5540fa0	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc
-_md5_=2a7027a1cd14c232f5d89dc11b0bba22
+_md5_=c7e0e8aac78693b28204eeba6f69fd95
