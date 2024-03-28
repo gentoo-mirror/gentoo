@@ -1,0 +1,13 @@
+BDEPEND=app-arch/rpm2targz secureboot? ( app-crypt/sbsigntools )
+DEFINED_PHASES=install setup unpack
+DESCRIPTION=Fedora's signed UEFI shim
+EAPI=8
+HOMEPAGE=https://src.fedoraproject.org/rpms/shim
+INHERIT=rpm secureboot
+IUSE=secureboot
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=BSD
+SLOT=0
+SRC_URI=amd64? ( https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-x64-15.8-3.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-ia32-15.8-3.x86_64.rpm ) x86? ( https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-x64-15.8-3.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-ia32-15.8-3.x86_64.rpm ) arm64? ( https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/aarch64/shim-aa64-15.8-3.aarch64.rpm )
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	528663355249513309c74d7775936940	secureboot	4911adb593665638c76fbd4e70d451ac
+_md5_=38ca69a15a3680d30bdc622d72234ba2
