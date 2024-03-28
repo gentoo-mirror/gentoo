@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-arch/bzip2 app-arch/xz-utils ) >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=Pager designed to do the right thing without any configuration
+EAPI=8
+HOMEPAGE=https://github.com/walles/moar
+INHERIT=go-module
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64
+LICENSE=BSD-2 BSD MIT
+RDEPEND=!dev-lang/moarvm
+RESTRICT=!test? ( test ) strip
+SLOT=0
+SRC_URI=https://github.com/walles/moar/archive/refs/tags/v1.23.9.tar.gz -> moar-1.23.9.tar.gz https://dev.gentoo.org/~sam/distfiles/sys-apps/moar/moar-1.23.9-deps.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	go-env	14f8f70fe58c14d7ab44fff15a05ac47	go-module	83fd3ed1657cfc316c93d6a37018290d
+_md5_=b46fe4e9cde918f833172734a9171395
