@@ -102,8 +102,8 @@ RESTRICT="!test? ( test )"
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
 
-# [[ ${MY_PV} == *9999* ]] || \
-# KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
+[[ ${MY_PV} == *9999* ]] || \
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-arch/unzip
@@ -295,6 +295,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.3.4.2-kioclient5.patch"
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
 	"${FILESDIR}/${PN}-7.2.0.4-qt5detect.patch"
+
+	# 24.2 branch
+	"${FILESDIR}/${P}-autoconf-2.72.patch" # bug 925162
 
 	# TODO: upstream
 	"${FILESDIR}/${PN}-7.6-unused-qt5network.patch"
