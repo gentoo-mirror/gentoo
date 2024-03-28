@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 >=dev-python/mako-0.8.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/mako-0.8.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/mako-0.8.0[python_targets_python3_10(-)] ) ) virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=dev-libs/libclc dev-util/spirv-tools >=sys-libs/zlib-1.2.8:= x11-libs/libdrm llvm_slot_16? ( dev-util/spirv-llvm-translator:16 sys-devel/clang:16 sys-devel/llvm:16 ) llvm_slot_17? ( dev-util/spirv-llvm-translator:17 sys-devel/clang:17 sys-devel/llvm:17 ) dev-libs/expat
+DESCRIPTION=intel_clc tool used for building OpenCL C to SPIR-V
+EAPI=8
+HOMEPAGE=https://mesa3d.org/
+INHERIT=llvm-r1 meson python-any-r1
+IUSE=debug +llvm_slot_17 llvm_slot_16
+KEYWORDS=~amd64
+LICENSE=MIT SGI-B-2.0
+RDEPEND=dev-libs/libclc dev-util/spirv-tools >=sys-libs/zlib-1.2.8:= x11-libs/libdrm llvm_slot_16? ( dev-util/spirv-llvm-translator:16 sys-devel/clang:16 sys-devel/llvm:16 ) llvm_slot_17? ( dev-util/spirv-llvm-translator:17 sys-devel/clang:17 sys-devel/llvm:17 )
+REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 )
+SLOT=0
+SRC_URI=https://archive.mesa3d.org/mesa-24.0.4.tar.xz
+_eclasses_=llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	2e652182b1f239b07688071f959f19e4	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	24c947ff5f858625cf0b33c15eed4425	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8904b60325f22500b0c3ad4b68a42448	meson	56446e0ef4b4c9af0e2dd4cdef1a086e	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=ade88cee60c274b9bd2035c0250121a7
