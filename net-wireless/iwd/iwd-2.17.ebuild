@@ -5,7 +5,7 @@ EAPI=8
 inherit flag-o-matic linux-info systemd
 
 #Set this variable to the required external ell version
-ELL_REQ="0.63"
+ELL_REQ="0.64"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit autotools git-r3

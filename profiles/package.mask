@@ -806,20 +806,6 @@ dev-cpp/libodb
 dev-cpp/libodb-sqlite
 dev-util/build2
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-02-14)
-# "A harness to build OpenJDK using [...]" is no longer needed since
-# Gentoo can build openjdk from source.
-# Maintainer capacity missing to maintain these packages.
-# More than 30 open bugs.
-# Removal on 2024-03-15.
-dev-java/icedtea
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-10)
-# Very fragile, keeps breaking.  Limited platform support.  Used only
-# as an optional dependency for dev-python/ipykernel.
-# Removal on 2024-03-11.  Bug #924221.
-dev-python/debugpy
-
 # Ulrich Müller <ulm@gentoo.org> (2024-02-08)
 # Masked for testing.
 # Test failure in watchpoints.dem, undefined function FresnelC.
@@ -830,12 +816,6 @@ dev-python/debugpy
 # Last upstream activity in late 2020.  No reverse dependencies left.
 # Removal on 2024-03-08.  Bug #806079.
 sys-libs/libhugetlbfs
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-03)
-# Doesn't work with Flask 3, and is abandoned upstream.  It can be
-# trivially replaced by a local function.  No revdeps.
-# Removal on 2024-03-04.  Bug #923701.
-dev-python/flask-gravatar
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-01-24)
 # app-misc/ddcutil-2.1.0 causes core-dump crashes in
