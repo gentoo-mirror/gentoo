@@ -13,6 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 REQUIRED_USE="elibc_glibc"
+RESTRICT="strip"
 
 RDEPEND="
 	!dev-lang/dafny
