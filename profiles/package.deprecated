@@ -31,11 +31,6 @@ dev-python/pyside2
 dev-python/pyside2-tools
 dev-python/shiboken2
 
-# Michał Górny <mgorny@gentoo.org> (2024-01-23)
-# Unmaintained, very hacky package.  Its replacement, berkeleydb,
-# was so bad that we've lastrited it.
-dev-python/bsddb3
-
 # Michał Górny <mgorny@gentoo.org> (2023-12-10)
 # Superseded by dev-python/psycopg:0 (version 3).
 dev-python/psycopg:2
@@ -111,14 +106,6 @@ sys-apps/edac-utils
 # to CVE-2022-40899.  Above all, this library is completely redundant
 # to packages not supporting Python 2 anymore.
 dev-python/future
-
-# Michał Górny <mgorny@gentoo.org> (2022-10-17)
-# Nosetests are no longer maintained (since 2015!), are completely
-# broken with Python 3.11, and we were already patching it to make it
-# work with prior Python versions.  If your package still needs it
-# (sic!), then either port it to use a maintained test framework (pytest
-# preferably) or last rite it.
-dev-python/nose
 
 # Matt Turner <mattst88@gentoo.org> (2022-10-02)
 # Dummy packages, now merged into app-accessibility/at-spi2-core.

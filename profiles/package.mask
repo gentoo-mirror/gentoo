@@ -693,61 +693,6 @@ sci-libs/mpir
 ~sys-auth/polkit-qt-0.200.0
 >=sys-libs/snapd-glib-1.64-r100
 
-# Michał Górny <mgorny@gentoo.org> (2024-02-28)
-# Nosetests have been abandoned in 2015.  Upstream (while technically
-# still around) has refused to accept any patches since, and we have
-# already had to fork it, to keep it somewhat working.  All
-# the remaining reverse dependencies were finally ported or last rited.
-# Removal on 2024-03-29.  Bug #822414.
-dev-python/nose
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-28)
-# The project is not really actively maintained upstream, and it still
-# depends on dev-python/nose.  There are other tools with similar
-# functionality.
-# Removal on 2024-03-29.  Bug #878695.
-app-misc/rmlint
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-27)
-# dev-python/boto is dead, with last release in 2018.  It has been
-# replaced by dev-python/boto3.  It carries a ton of patches and still
-# depends on dev-python/nose.
-#
-# Removal on 2024-03-28.  Bug #888235.
-dev-python/boto
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-27)
-# Still depends on dev-python/nose.  No reverse dependencies.
-# Removal on 2024-03-28.  Bug #878721.
-sci-biology/biopandas
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-27)
-# Effectively unmaintained in Gentoo.  Still depends on dev-python/nose,
-# on top of that tests are restricted, so we don't even know if it
-# works at all.  No reverse dependencies.
-# Removal on 2024-03-28.  Bug #878725.
-sci-chemistry/nmrglue
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-02-23)
-# A library without any reverse dependencies in tree. Maintainer-needed
-# package. Has open security bug without handling. Has open bump for a
-# long time.
-# Removal: 2024-03-24.  Bugs #925342, #837518.
-dev-libs/zlog
-
-# Vadim Misbakh-Soloviov <mva@gentoo.org> (2024-02-22)
-# Masked for removal in 30 (or more) days.
-# Fetches only from specific geo-locations, hostile upstream, security issues.
-# Consider to use the version from overlay named "mva" after tree-cleaning.
-# No revdeps.  Bug #876271
-www-plugins/gosuslugi-plugin
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-20)
-# Unmaintained.  The recently merged rewrite in Rust broke compilation
-# on 32-bit architecture.  No revdeps left.
-# Removal on 2024-03-21.  Bug #924881.
-dev-python/pendulum
-
 # Sam James <sam@gentoo.org> (2024-02-18)
 # Lots of changes, including a port to a new build system. Needs lots of testing.
 =sys-apps/gentoo-functions-1*
@@ -755,56 +700,6 @@ dev-python/pendulum
 # Sam James <sam@gentoo.org> (2024-02-15)
 # May break on some arches b/c of visibility/map changes to ffi_type_longdouble
 =dev-libs/libffi-3.4.5
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-14)
-# Abandoned upstream in 2020.  Has a fork that has last been released
-# in 2021.  No revdeps.
-# Removal on 2024-03-15.  Bug #833088.
-dev-python/fb-re2
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-14)
-# Unmaintained.  EAPI 6.  The service was shut down.
-# Removal on 2024-03-15.  Bug #922925.
-net-dns/odsclient
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-14)
-# Data for removed sci-astronomy/casacore.  No other revdeps.
-# Removal on 2024-03-15.  Bug #923954.
-sci-astronomy/casa-data
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-14)
-# media-sound/exaile is the last package to require unmaintained
-# dev-python/bsddb3 (or dev-python/berkeleydb which is equally horrible
-# and was removed in the past).
-# Removal on 2024-03-15.  Bug #922816.
-dev-python/bsddb3
-media-sound/exaile
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-14)
-# All these firmwares are included in sys-kernel/linux-firmware, in some
-# cases in newer versions with security fixes.
-# Removal on 2024-03-15.  Bug #924589.
-sys-firmware/iwl1000-ucode
-sys-firmware/iwl3160-7260-bt-ucode
-sys-firmware/iwl3160-ucode
-sys-firmware/iwl6005-ucode
-sys-firmware/iwl6030-ucode
-sys-firmware/iwl7260-ucode
-sys-firmware/iwl8000-ucode
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-14)
-# Does not work with >=kde-plasma/kwin-5.27 anymore.  Discontinued upstream.
-# https://github.com/Bismuth-Forge/bismuth/issues/471#issuecomment-1410969462
-# Removal on 2024-03-15.  Bug #924588.
-kde-misc/bismuth
-
-# Michał Górny <mgorny@gentoo.org> (2024-02-14)
-# A NIH build system with no revdeps.  Broken with ccache, clang
-# and possibly more.  Horrible bootstrap process.
-# Removal on 2024-03-15.  Bug #924587.
-dev-cpp/libodb
-dev-cpp/libodb-sqlite
-dev-util/build2
 
 # Ulrich Müller <ulm@gentoo.org> (2024-02-08)
 # Masked for testing.
