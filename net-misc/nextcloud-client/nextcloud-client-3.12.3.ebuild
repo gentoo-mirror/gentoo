@@ -93,7 +93,7 @@ src_configure() {
 }
 
 src_test() {
-	virtx cmake_src_test
+	TEST_VERBOSE=1 virtx cmake_src_test
 }
 
 src_compile() {
