@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 pypi
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://github.com/ansible/ansible-lint"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 # Upstream has stated explicitly that all tests require Internet access
 PROPERTIES="test_network"
