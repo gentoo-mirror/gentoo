@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 GNOME_TARBALL_SUFFIX="bz2"
 GNOME2_LA_PUNT="yes"
@@ -14,7 +14,7 @@ HOMEPAGE="https://library.gnome.org/devel/libglade/stable/"
 
 LICENSE="LGPL-2"
 SLOT="2.0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
@@ -23,24 +23,28 @@ RDEPEND=">=dev-libs/glib-2.34.3:2[${MULTILIB_USEDEP}]
 	>=dev-libs/atk-2.10.0[${MULTILIB_USEDEP}]
 	>=dev-libs/libxml2-2.9.1-r4[${MULTILIB_USEDEP}]
 "
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-build/gtk-doc-am
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
-src_prepare() {
+PATCHES=(
 	# patch to stop make install installing the xml catalog
 	# because we do it ourselves in postinst()
-	eapply "${FILESDIR}"/Makefile.in.am-2.4.2-xmlcatalog.patch
+	"${FILESDIR}"/Makefile.in.am-2.4.2-xmlcatalog.patch
 
 	# patch to not throw a warning with gtk+-2.14 during tests, as it triggers abort
-	eapply "${FILESDIR}/${PN}-2.6.3-fix_tests-page_size.patch"
+	"${FILESDIR}/${PN}-2.6.3-fix_tests-page_size.patch"
 
 	# Fails with gold due to recent changes in glib-2.32's pkg-config files
-	eapply "${FILESDIR}/${P}-gold-glib-2.32.patch"
+	"${FILESDIR}/${P}-gold-glib-2.32.patch"
 
 	# Needed for solaris, else gcc finds a syntax error in /usr/include/signal.h
-	eapply "${FILESDIR}/${P}-enable-extensions.patch"
+	"${FILESDIR}/${P}-enable-extensions.patch"
+)
 
+src_prepare() {
 	if ! use test; then
 		sed 's/ tests//' -i Makefile.am Makefile.in || die "sed failed"
 	fi
@@ -49,7 +53,6 @@ src_prepare() {
 	# but adding an additional bdep for this is silly.
 	sed -i '/GNOME_COMMON_INIT/d' configure.in || die
 
-	mv configure.in configure.ac || die
 	gnome2_src_prepare
 }
 

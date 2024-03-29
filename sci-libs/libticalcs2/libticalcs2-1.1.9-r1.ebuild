@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit autotools
+inherit autotools flag-o-matic
 
 DESCRIPTION="Library for communication with TI calculators"
 HOMEPAGE="http://lpg.ticalc.org/prj_tilp/"
@@ -20,11 +20,18 @@ RDEPEND="
 	>=sci-libs/libticonv-1.1.3
 	>=sci-libs/libtifiles2-1.1.5
 	nls? ( virtual/libintl )"
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	virtual/pkgconfig
-	nls? ( sys-devel/gettext )"
+	nls? ( sys-devel/gettext )
+"
 
 DOCS=( AUTHORS LOGO NEWS README ChangeLog docs/api.txt )
+
+PATCHES=(
+	# https://github.com/debrouxl/tilibs/pull/87
+	"${FILESDIR}"/0001-libticalcs-fix-erroneous-bashism-in-configure-script.patch
+)
 
 src_prepare() {
 	default
@@ -32,6 +39,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/927586
+	filter-lto
+
 	econf \
 		--disable-rpath \
 		$(use_enable static-libs static) \
