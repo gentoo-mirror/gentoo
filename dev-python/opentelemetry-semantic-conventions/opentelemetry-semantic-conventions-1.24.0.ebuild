@@ -8,9 +8,9 @@ MY_P="opentelemetry-python-${PV}"
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{11..12} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
-DESCRIPTION="OpenTelemetry Python SDK"
+DESCRIPTION="OpenTelemetry Semantic Conventions"
 HOMEPAGE="
 	https://opentelemetry.io/
 	https://pypi.org/project/opentelemetry-sdk/
@@ -20,18 +20,12 @@ SRC_URI="
 	https://github.com/open-telemetry/opentelemetry-python/archive/refs/tags/v${PV}.tar.gz
 		-> ${MY_P}.gh.tar.gz
 "
-
 S="${WORKDIR}/${MY_P}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	~dev-python/opentelemetry-api-${PV}[${PYTHON_USEDEP}]
-	~dev-python/opentelemetry-semantic-conventions-${PV}[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]
-"
 BDEPEND="
 	test? (
 		dev-python/asgiref[${PYTHON_USEDEP}]
@@ -45,36 +39,31 @@ BDEPEND="
 		dev-python/py-cpuinfo[${PYTHON_USEDEP}]
 		dev-python/py[${PYTHON_USEDEP}]
 		dev-python/tomli[${PYTHON_USEDEP}]
+		dev-python/typing-extensions[${PYTHON_USEDEP}]
 		dev-python/wrapt[${PYTHON_USEDEP}]
 		dev-python/zipp[${PYTHON_USEDEP}]
 	)
 "
 
-# Tests cannot handle xdist with high makeopts
-# https://bugs.gentoo.org/928132
 distutils_enable_tests pytest
 
 src_prepare() {
 	default
 
 	# Use the same version with all opentelemetry components
-	# # https://github.com/gentoo/gentoo/pull/35962#issuecomment-2025466313
-	sed -i -e "s/\"\(opentelemetry-semantic-conventions == \).*\"/\"\1 ${PV}\"/" pyproject.toml || die
+	# https://github.com/gentoo/gentoo/pull/35962#issuecomment-2025466313
+	sed -i -e "s/\(__version__ =\) .*/\1 \"${PV}\"/" src/opentelemetry/semconv/version.py || die
 }
 
 python_test() {
 	cp -a "${BUILD_DIR}"/{install,test} || die
 	local -x PATH=${BUILD_DIR}/test/usr/bin:${PATH}
 
-	for dep in tests/opentelemetry-test-utils; do
+	for dep in opentelemetry-api opentelemetry-sdk tests/opentelemetry-test-utils ; do
 		pushd "${WORKDIR}/${MY_P}/${dep}" >/dev/null || die
 		distutils_pep517_install "${BUILD_DIR}"/test
 		popd >/dev/null || die
 	done
-
-	local -x EPYTEST_IGNORE=(
-		tests/performance/benchmarks/
-	)
 
 	epytest
 }
