@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ DOCS_AUTODOC=1
 DOCS_DEPEND="dev-python/sphinx-rtd-theme"
 DOCS_DIR="${S}/docs/source"
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 inherit python-any-r1 docs meson
 
 DESCRIPTION="OpenGL Mathematics (glm) for C"
