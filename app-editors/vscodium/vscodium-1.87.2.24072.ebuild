@@ -87,7 +87,7 @@ src_install() {
 	rm -f "${S}/resources/app/LICENSE.txt" || die
 
 	if ! use kerberos; then
-		rm -r "${S}/resources/app/node_modules.asar.unpacked/kerberos" || die
+		rm -rf "${S}/resources/app/node_modules.asar.unpacked/kerberos" || die
 	fi
 
 	# Install
