@@ -20,10 +20,14 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sparc ~
 IUSE="graphviz"
 
 RDEPEND="graphviz? ( >=media-gfx/graphviz-5.0.0 )"
+
 BDEPEND="${PYTHON_DEPS}
 	>=dev-python/sphinx-7.2.3
 	dev-python/sphinx-rtd-theme
-	media-libs/fontconfig"
+	media-libs/fontconfig
+	$(python_gen_any_dep '
+		>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
+	')"
 
 src_prepare() {
 	default
