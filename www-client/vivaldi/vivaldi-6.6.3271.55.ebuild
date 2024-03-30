@@ -98,7 +98,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 SRC_URI="
@@ -109,7 +109,7 @@ SRC_URI="
 
 LICENSE="Vivaldi"
 SLOT="0"
-IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 widevine"
+IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 qt6 widevine"
 RESTRICT="bindist mirror"
 #REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
 
@@ -144,6 +144,7 @@ RDEPEND="
 		dev-qt/qtgui:5
 		dev-qt/qtwidgets:5
 	)
+	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 	widevine? ( www-plugins/chrome-binary-plugins )
 "
 
@@ -186,7 +187,7 @@ src_prepare() {
 		rm ${VIVALDI_HOME}/libqt5_shim.so || die
 	fi
 
-	if ! false; then # use qt6; then (TODO)
+	if ! use qt6; then
 		rm ${VIVALDI_HOME}/libqt6_shim.so || die
 	fi
 
