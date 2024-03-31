@@ -1,13 +1,13 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit autotools fortran-2 toolchain-funcs
+inherit autotools flag-o-matic fortran-2 toolchain-funcs
 
 DESCRIPTION="Library of Iterative Solvers for Linear Systems"
 HOMEPAGE="https://www.ssisc.org/lis/index.en.html"
-SRC_URI="https://www.ssisc.org/lis/dl/${P}.tar.gz"
+SRC_URI="https://www.ssisc.org/lis/dl/${P}.zip"
 
 LICENSE="BSD"
 SLOT="0"
@@ -17,7 +17,7 @@ IUSE="cpu_flags_x86_fma3 cpu_flags_x86_fma4 cpu_flags_x86_sse2 doc fortran mpi o
 RDEPEND="mpi? ( virtual/mpi )"
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${PN}-1.6.2-autotools.patch )
+PATCHES=( "${FILESDIR}"/${PN}-2.1.3-autotools.patch )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -34,6 +34,11 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/927587
+	# https://github.com/anishida/lis/issues/37
+	filter-lto
+
 	econf \
 		--enable-shared \
 		$(use_enable static-libs static) \
