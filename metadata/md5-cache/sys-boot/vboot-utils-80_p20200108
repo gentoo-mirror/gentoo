@@ -4,12 +4,12 @@ DEPEND=!static? ( elibc_musl? ( sys-libs/fts-standalone:= ) dev-libs/openssl:0= 
 DESCRIPTION=Chrome OS verified boot tools
 EAPI=7
 HOMEPAGE=https://chromium.googlesource.com/chromiumos/platform/vboot_reference/ https://dev.chromium.org/chromium-os/chromiumos-design-docs/verified-boot
-INHERIT=toolchain-funcs
+INHERIT=flag-o-matic toolchain-funcs
 IUSE=+libzip minimal static
 KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
 LICENSE=BSD
 RDEPEND=!static? ( elibc_musl? ( sys-libs/fts-standalone:= ) dev-libs/openssl:0= libzip? ( dev-libs/libzip:= ) sys-apps/util-linux:= !minimal? ( dev-libs/libyaml:= app-arch/xz-utils:= ) )
 SLOT=0
 SRC_URI=mirror://gentoo/vboot-utils-80_p20200108.tar.xz https://dev.gentoo.org/~zmedico/dist/vboot-utils-80_p20200108.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=104ddadfdf496cf14f9df67bd89989e5
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4
+_md5_=a0f890bd7b668bfc44096fd0cf54bcb1
