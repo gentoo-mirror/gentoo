@@ -1,27 +1,34 @@
-https://github.com/curl/curl/pull/13202
-From: Matt Jolly <kangie@gentoo.org>
-Date: Wed, 27 Mar 2024 22:52:26 +1000
-Subject: [PATCH] m4: fix rustls pkg-config codepath
+From a866b062b17ab94b16b817ab9969c561364a4d72 Mon Sep 17 00:00:00 2001
+From: Matt Jolly <Matt.Jolly@footclan.ninja>
+Date: Mon, 1 Apr 2024 08:36:51 +1000
+Subject: [PATCH] m4: fix rustls builds
 
-The previous pkg-config code would successfully detect rustls
-but did not set all appropriate variables and call the right macros to
-properly configure cURL.
+This patch consolidates the following commits to do with rustls
+detection using pkg-config:
 
-Closes: #13200
+- https://github.com/curl/curl/commit/9c4209837094781d5eef69ae6bcad0e86b64bf99
+- https://github.com/curl/curl/commit/5a50cb5a18a141a463148562dab83fa3be1a3b90
+---
+ m4/curl-rustls.m4 | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/m4/curl-rustls.m4 b/m4/curl-rustls.m4
+index 7c55230..8082cf9 100644
 --- a/m4/curl-rustls.m4
 +++ b/m4/curl-rustls.m4
-@@ -142,6 +142,10 @@ if test "x$OPT_RUSTLS" != xno; then
+@@ -142,6 +142,11 @@ if test "x$OPT_RUSTLS" != xno; then
        LIBS="$SSL_LIBS $LIBS"
        USE_RUSTLS="yes"
        ssl_msg="rustls"
 +      AC_DEFINE(USE_RUSTLS, 1, [if rustls is enabled])
 +      AC_SUBST(USE_RUSTLS, [1])
++      USE_RUSTLS="yes"
 +      RUSTLS_ENABLED=1
 +      test rustls != "$DEFAULT_SSL_BACKEND" || VALID_DEFAULT_SSL_BACKEND=yes
      else
        AC_MSG_ERROR([pkg-config: Could not find rustls])
      fi
-@@ -174,5 +178,15 @@ if test "x$OPT_RUSTLS" != xno; then
+@@ -174,5 +179,15 @@ if test "x$OPT_RUSTLS" != xno; then
    fi
  
    test -z "$ssl_msg" || ssl_backends="${ssl_backends:+$ssl_backends, }$ssl_msg"
@@ -37,3 +44,6 @@ Closes: #13200
 +
 +
 +RUSTLS_ENABLED
+-- 
+2.44.0
+

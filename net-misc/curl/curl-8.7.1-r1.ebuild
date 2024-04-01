@@ -85,8 +85,11 @@ RDEPEND="
 		openssl? (
 			>=dev-libs/openssl-0.9.7:=[sslv3(-)=,static-libs?,${MULTILIB_USEDEP}]
 		)
-		rustls? (
-			~net-libs/rustls-ffi-0.10.0:=[${MULTILIB_USEDEP}]
+		rustls? ( ||
+			(
+				~net-libs/rustls-0.12.1:=[${MULTILIB_USEDEP}]
+				~net-libs/rustls-ffi-0.12.2:=[${MULTILIB_USEDEP}]
+			)
 		)
 	)
 	zstd? ( app-arch/zstd:=[${MULTILIB_USEDEP}] )
@@ -130,8 +133,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-prefix.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
-	"${FILESDIR}"/${P}-vtls-revert-receive-max-buffer-add-test-case.patch
-	"${FILESDIR}"/${P}-backport-rustls-detection.patch
+	"${FILESDIR}"/${PN}-8.7.1-rustls-fixes.patch
 )
 
 src_prepare() {

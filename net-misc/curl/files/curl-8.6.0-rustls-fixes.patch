@@ -1,28 +1,22 @@
-https://github.com/curl/curl/commit/647e86a3efe1eea7a2a456c009cfe1eb55fe48eb
-https://github.com/curl/curl/pull/13202
+From a59683a3607bc0167ff702352d15eee1c0d658a6 Mon Sep 17 00:00:00 2001
 From: Matt Jolly <Matt.Jolly@footclan.ninja>
-Date: Fri, 29 Mar 2024 09:58:14 +1000
-Subject: [PATCH] curl-rustls.m4: add pkg-config support to rustls detection
+Date: Mon, 1 Apr 2024 08:49:27 +1000
+Subject: [PATCH] m4: fix rustls builds
 
-Based on the existing openssl pkg-config detection, this commit tries to
-use pkg-config to find `rustls` then falls back to the current approach
-if that fails.
+This patch consolidates the following commits to do with rustls
+detection using pkg-config:
 
-We use the following logic:
-
-- if no path is provided, just use pkg-config, if it's not there we have
-  a problem!
-- if a path is provided, try pkg-config
-  + if pkg-config fails, try and find rustls directly
+- https://github.com/curl/curl/commit/9c4209837094781d5eef69ae6bcad0e86b64bf99
+- https://github.com/curl/curl/commit/5a50cb5a18a141a463148562dab83fa3be1a3b90
 ---
- m4/curl-rustls.m4 | 209 ++++++++++++++++++++++++++++++++--------------
- 1 file changed, 145 insertions(+), 64 deletions(-)
+ m4/curl-rustls.m4 | 210 ++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 146 insertions(+), 64 deletions(-)
 
 diff --git a/m4/curl-rustls.m4 b/m4/curl-rustls.m4
-index 75542e4..902327a 100644
+index 75542e4..8082cf9 100644
 --- a/m4/curl-rustls.m4
 +++ b/m4/curl-rustls.m4
-@@ -28,84 +28,165 @@ dnl check for rustls
+@@ -28,84 +28,166 @@ dnl check for rustls
  dnl ----------------------------------------------------
  
  if test "x$OPT_RUSTLS" != xno; then
@@ -205,6 +199,7 @@ index 75542e4..902327a 100644
 +      ssl_msg="rustls"
 +      AC_DEFINE(USE_RUSTLS, 1, [if rustls is enabled])
 +      AC_SUBST(USE_RUSTLS, [1])
++      USE_RUSTLS="yes"
 +      RUSTLS_ENABLED=1
 +      test rustls != "$DEFAULT_SSL_BACKEND" || VALID_DEFAULT_SSL_BACKEND=yes
 +    else
@@ -252,5 +247,6 @@ index 75542e4..902327a 100644
 +
 +
 +RUSTLS_ENABLED
---
+-- 
 2.44.0
+
