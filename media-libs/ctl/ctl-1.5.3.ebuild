@@ -9,12 +9,12 @@ MY_COMMIT=3fc4ae7a8af35d380654e573d895216fd5ba407e
 
 DESCRIPTION="AMPAS' Color Transformation Language"
 HOMEPAGE="https://github.com/ampas/CTL"
-SRC_URI="https://github.com/ampas/CTL/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/CTL-${MY_COMMIT}"
+SRC_URI="https://github.com/ampas/CTL/archive/${P}.tar.gz"
+S="${WORKDIR}/CTL-${P}"
 
 LICENSE="AMPAS"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="test"
 
 RESTRICT="!test? ( test )"
@@ -26,8 +26,6 @@ RDEPEND="
 	!media-libs/openexr_ctl"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=( "${FILESDIR}"/${PN}-1.5.2-fix-installation-directories.patch )
 
 src_configure() {
 	# -Werror=strict-aliasing
