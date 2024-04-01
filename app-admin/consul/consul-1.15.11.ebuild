@@ -6,11 +6,12 @@ inherit go-module systemd
 
 DESCRIPTION="A tool for service discovery, monitoring and configuration"
 HOMEPAGE="https://www.consul.io"
-GIT_COMMIT="8e803db6b98d10b2d310800f2aef7e20d3add03c"
+GIT_COMMIT="4fc94919996f7b7e5d16145f8d89cc5ee644b094"
 
-SRC_URI="https://github.com/zmedico/consul/archive/v${PV}-vendor.tar.gz -> ${P}-vendor.tar.gz"
-
-LICENSE="MPL-2.0 Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT"
+SRC_URI="https://github.com/hashicorp/consul/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
+LICENSE="BUSL-1.1 MPL-2.0"
+LICENSE=+=" Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT"
 RESTRICT="test"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
@@ -22,11 +23,11 @@ COMMON_DEPEND="
 	DEPEND="${COMMON_DEPEND}"
 	RDEPEND="${COMMON_DEPEND}"
 
-S=${WORKDIR}/${P}-vendor
+S=${WORKDIR}/${P}
 
 src_prepare() {
 	default
-	sed -e 's|^GIT_DATE=.*|GIT_DATE=2023-10-31T14:10:44Z|' -i GNUmakefile || die
+	sed -e 's|^GIT_DATE=.*|GIT_DATE=2024-03-26T21:43:41Z|' -i GNUmakefile || die
 }
 
 src_compile() {
