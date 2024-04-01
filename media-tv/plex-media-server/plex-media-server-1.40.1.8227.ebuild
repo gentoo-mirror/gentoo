@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit readme.gentoo-r1 systemd unpacker pax-utils
 
-MY_PV="${PV}-8f4248874"
+MY_PV="${PV}-c0dd5a73e"
 MY_URI="https://downloads.plex.tv/plex-media-server-new"
 
 DESCRIPTION="Free media library that is intended for use with a plex client"
@@ -20,7 +20,7 @@ S="${WORKDIR}"
 
 LICENSE="Plex"
 SLOT="0"
-KEYWORDS="-* amd64 ~arm arm64 ~x86"
+KEYWORDS="-* ~amd64 ~arm ~arm64 ~x86"
 RESTRICT="bindist"
 
 DEPEND="
@@ -84,7 +84,8 @@ pkg_postinst() {
 	readme.gentoo_print_elog
 
 	einfo
-	einfo "Be advised beginning 2023-10-12 Plex will begin blocking servers"
-	einfo "hosted at Hetzner. More information:"
-	einfo "https://forums.plex.tv/t/not-allowed-to-use-hetzner/853570"
+	ewarn "IMPORTANT: This version makes changes to the database which will require 1.31.2 or higher to start"
+	ewarn "Please also be patient when updating to this version, initial run may take time as database is upgraded"
+	ewarn "Full release announcement, including instructions for rollback: https://forums.plex.tv/t/plex-media-server/30447/612"
+
 }

@@ -13,7 +13,7 @@ LICENSE="LGPL-3-with-linking-exception"
 
 # Upstream change from canonical to cowsql resetted SONAME, 3 -> 0. bgo#915960
 SLOT="0/0"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="lz4 test zfs"
 RESTRICT="!test? ( test )"
 
@@ -35,6 +35,7 @@ src_configure() {
 	# --disable-hardening: most of these are covered on non-hardened Gentoo already.
 	local myeconfargs=(
 		--enable-uv
+		--enable-v0
 
 		--disable-backtrace
 		--disable-benchmark
