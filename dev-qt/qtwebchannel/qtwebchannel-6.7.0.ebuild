@@ -1,28 +1,27 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit qt6-build
 
-DESCRIPTION="Hardware sensor access library for the Qt6 framework"
+DESCRIPTION="Qt WebChannel"
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
-	KEYWORDS="~amd64 ~arm64 ~loong"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~riscv ~x86"
 fi
 
 IUSE="qml"
 
 RDEPEND="
-	~dev-qt/qtbase-${PV}:6[dbus]
+	~dev-qt/qtbase-${PV}:6[concurrent]
 	qml? ( ~dev-qt/qtdeclarative-${PV}:6 )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package qml Qt6Qml)
-	)
+	has_version ">=dev-qt/qtdeclarative-${PV}:6" && #913692
+		local mycmakeargs=( $(cmake_use_find_package qml Qt6Qml) )
 
 	qt6-build_src_configure
 }
