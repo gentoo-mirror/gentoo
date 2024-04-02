@@ -117,8 +117,20 @@ src_install() {
 	find "${ED}" -name '*.la' -delete || die
 }
 
+pkg_preinst() {
+	UPGRADING_POKE=false
+	if has_version '<dev-util/poke-4'; then
+		UPGRADING_POKE=true
+	fi
+}
+
 pkg_postinst() {
 	use emacs && elisp-site-regen
+
+	if "${UPGRADING_POKE}"; then
+		ewarn "GNU poke 4.0 moves the ELF pickle to a separate package."
+		ewarn "To install elf.pk, please install dev-util/poke-elf."
+	fi
 }
 
 pkg_postrm() {
