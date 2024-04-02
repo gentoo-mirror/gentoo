@@ -1,12 +1,14 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator"
 HOMEPAGE="https://codeberg.org/dnkl/foot"
-SRC_URI="https://codeberg.org/dnkl/foot/archive/${PV}.tar.gz -> foot-${PV}.tar.gz"
-S="${WORKDIR}/foot"
+SRC_URI="
+	https://codeberg.org/dnkl/foot/releases/download/${PV}/foot-${PV}.tar.gz
+"
+S="${WORKDIR}/${P/-terminfo/}"
 
 LICENSE="MIT"
 SLOT="0"

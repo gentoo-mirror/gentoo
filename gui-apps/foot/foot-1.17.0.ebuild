@@ -7,12 +7,13 @@ inherit meson xdg systemd
 
 DESCRIPTION="Fast, lightweight and minimalistic Wayland terminal emulator"
 HOMEPAGE="https://codeberg.org/dnkl/foot"
-SRC_URI="https://codeberg.org/dnkl/foot/archive/${PV}.tar.gz -> ${P}_20240120.tar.gz"
-S="${WORKDIR}/${PN}"
+SRC_URI="
+	https://codeberg.org/dnkl/foot/releases/download/${PV}/${P}.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="+grapheme-clustering test"
 RESTRICT="!test? ( test )"
 
