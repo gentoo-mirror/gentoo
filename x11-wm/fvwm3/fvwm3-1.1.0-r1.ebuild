@@ -105,7 +105,7 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto"
 
 PATCHES=(
-	"${FILESDIR}"/fvwm3-1.1.0-fix-go-detection.patch
+	"${FILESDIR}"/fvwm3-1.1.0-fix-go-detection-v2.patch
 )
 
 src_prepare() {
@@ -117,9 +117,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# Non-upstream email where bugs should be sent; used in fvwm-bug.
-	export FVWM_BUGADDR="desktop-wm@nogentoo.org"
-
 	# Recommended by upstream for release. Doesn't really matter for live ebuilds.
 	append-flags -fno-strict-aliasing
 
