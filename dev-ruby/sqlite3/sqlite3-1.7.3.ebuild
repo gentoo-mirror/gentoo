@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_TASK_DOC="faq"
 RUBY_FAKEGEM_DOCDIR="doc faq"
@@ -20,14 +20,14 @@ LICENSE="BSD"
 
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 SLOT="0"
-IUSE=""
+IUSE="doc test"
 
 # We track the bundled sqlite version here
-RDEPEND+=" >=dev-db/sqlite-3.43.1:3"
-DEPEND+=" >=dev-db/sqlite-3.43.1:3"
+RDEPEND+=" >=dev-db/sqlite-3.45.2:3"
+DEPEND+=" >=dev-db/sqlite-3.45.2:3"
 
 ruby_add_bdepend "
-	doc? ( dev-ruby/rdoc dev-ruby/redcloth )
+	doc? ( dev-ruby/rdoc )
 	test? ( dev-ruby/minitest:5 )
 "
 
