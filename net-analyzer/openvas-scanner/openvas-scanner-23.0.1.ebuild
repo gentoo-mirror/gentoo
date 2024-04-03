@@ -21,18 +21,19 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	acct-user/gvm
+	app-crypt/gpgme:=
 	>=dev-db/redis-5.0.3
 	>=dev-libs/glib-2.42:2
-	>=dev-libs/json-glib-1.4.4
-	>=net-libs/gnutls-3.2.15:=
-	>=net-analyzer/gvm-libs-22.4
-	net-libs/libpcap
-	app-crypt/gpgme:=
 	>=dev-libs/libgcrypt-1.6:=
 	dev-libs/libgpg-error
 	>=dev-libs/libksba-1.0.7
-	>=net-libs/libssh-0.6.0:=
 	dev-libs/libbsd
+	>=net-libs/libssh-0.6.0:=
+	>=dev-libs/json-glib-1.4.4
+	>=net-analyzer/gvm-libs-22.4
+	>=net-libs/gnutls-3.6.4:=
+	net-libs/libpcap
+	>=net-misc/curl-7.74.0[ssl]
 	snmp? ( net-analyzer/net-snmp:= )
 "
 RDEPEND="${DEPEND}"
@@ -50,6 +51,10 @@ BDEPEND="
 	)
 	test? ( dev-libs/cgreen )
 "
+PATCHES=(
+	# See https://github.com/greenbone/openvas-scanner/pull/1611
+	"${FILESDIR}"/openvas-scanner-23.0.1-link-pcap.patch
+)
 
 src_prepare() {
 	cmake_src_prepare
@@ -82,7 +87,6 @@ src_configure() {
 		"-DSBINDIR=${EPREFIX}/usr/bin"
 		"-DOPENVAS_FEED_LOCK_PATH=${EPREFIX}/var/lib/openvas/feed-update.lock"
 		"-DOPENVAS_RUN_DIR=/run/ospd"
-		"-DINSTALL_OLD_SYNC_SCRIPT=OFF"
 		"-DBUILD_WITH_NETSNMP=$(usex snmp)"
 	)
 	cmake_src_configure
