@@ -19,7 +19,7 @@ HOMEPAGE="https://wayland.freedesktop.org/xserver.html"
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="libei selinux unwind xcsecurity"
+IUSE="libei selinux systemd video_cards_nvidia unwind xcsecurity"
 
 COMMON_DEPEND="
 	dev-libs/libbsd
@@ -41,7 +41,9 @@ COMMON_DEPEND="
 	>=x11-misc/xkeyboard-config-2.4.1-r3
 
 	libei? ( dev-libs/libei )
+	systemd? ( sys-apps/systemd )
 	unwind? ( sys-libs/libunwind )
+	video_cards_nvidia? ( gui-libs/egl-wayland )
 "
 DEPEND="
 	${COMMON_DEPEND}
@@ -61,14 +63,18 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/xwayland-drop-redundantly-installed-files_v2.patch
+	"${FILESDIR}"/xwayland-drop-redundantly-installed-files.patch
+	"${FILESDIR}"/xwayland-23.2.3-systemd-automagic.patch
+	"${FILESDIR}"/xwayland-23.2.4-c99.patch
 )
 
 src_configure() {
 	local emesonargs=(
 		$(meson_use selinux xselinux)
+		$(meson_use systemd)
 		$(meson_use unwind libunwind)
 		$(meson_use xcsecurity)
+		$(meson_use video_cards_nvidia xwayland_eglstream)
 		-Ddpms=true
 		-Ddri3=true
 		-Ddrm=true
@@ -89,10 +95,6 @@ src_configure() {
 		-Ddocs=false
 		-Ddevel-docs=false
 		-Ddocs-pdf=false
-		-Dxorg=false
-		-Dxnest=false
-		-Dxvfb=false
-		-Dxwayland=true
 	)
 
 	if use libei; then
