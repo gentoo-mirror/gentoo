@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_DOCDIR="doc"
 RUBY_FAKEGEM_EXTRADOC="CHANGES.txt README.md THANKS.txt"
@@ -29,7 +29,7 @@ ruby_add_rdepend "
 	ed25519? ( >=dev-ruby/ed25519-1.2:1 dev-ruby/x25519 dev-ruby/bcrypt_pbkdf:1 )
 "
 
-ruby_add_bdepend "test? ( dev-ruby/test-unit:2 >=dev-ruby/mocha-0.13 )"
+ruby_add_bdepend "test? ( dev-ruby/base64 dev-ruby/test-unit:2 >=dev-ruby/mocha-0.13 )"
 
 all_ruby_prepare() {
 	# Avoid bundler dependency
