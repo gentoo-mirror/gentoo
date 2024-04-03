@@ -4,31 +4,31 @@
 EAPI=8
 
 JAVA_PKG_IUSE="doc source"
+# 3.36.0 according to
+# https://github.com/eclipse-jdt/eclipse.jdt.core/blob/R4_30/org.eclipse.jdt.core.compiler.batch/pom.xml#L20
+MAVEN_ID="org.eclipse.jdt:org.eclipse.jdt.core.compiler.batch:3.33.0"
 
 inherit java-pkg-2 java-pkg-simple prefix
 
-DMF="R-${PV}-202211231800"
+DMF="R-${PV/_rc/RC}-202303020300"
 
 DESCRIPTION="Eclipse Compiler for Java"
 HOMEPAGE="https://projects.eclipse.org/projects/eclipse.jdt"
-SRC_URI="https://archive.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${PV}.jar"
-S="${WORKDIR}"
+SRC_URI="https://archive.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${PV/_rc/RC}.jar"
 
 LICENSE="EPL-1.0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
-SLOT="4.26"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+SLOT="4.27"
 
-BDEPEND="
-	app-arch/unzip
-	app-arch/zip
-"
+BDEPEND="app-arch/unzip"
 COMMON_DEP="app-eselect/eselect-java"
 DEPEND="${COMMON_DEP}
-	>=dev-java/ant-1.10.14:0
+	dev-java/ant:0
 	>=virtual/jdk-17:*"
 RDEPEND="${COMMON_DEP}
-	!dev-java/ant-eclipse-ecj:4.26
 	>=virtual/jre-11:*"
+
+HTML_DOCS=( about.html )
 
 JAVA_AUTOMATIC_MODULE_NAME="org.eclipse.jdt.core.compiler.batch"
 JAVA_CLASSPATH_EXTRA="ant"
@@ -40,18 +40,12 @@ JAVA_RESOURCE_DIRS="res"
 src_prepare() {
 	java-pkg-2_src_prepare
 
+	# Exception in thread "main" java.lang.SecurityException: Invalid signature file digest for Manifest main attributes
+	rm META-INF/ECLIPSE_* || die
 	mkdir "${JAVA_RESOURCE_DIRS}" || die
-	find org META-INF -type f \
+	find -type f \
 		! -name '*.java' \
 		| xargs cp --parent -t "${JAVA_RESOURCE_DIRS}" || die
-}
-
-src_compile() {
-	java-pkg-simple_src_compile
-	#925083
-	# Exception in thread "main" java.lang.SecurityException: Invalid signature file digest for Manifest main attributes
-	zip -d ecj.jar "META-INF/ECLIPSE_.RSA" || die "Failed to remove ECLIPSE_.RSA"
-	zip -d ecj.jar "META-INF/ECLIPSE_.SF" || die "Failed to remove ECLIPSE_.SF"
 }
 
 src_install() {
