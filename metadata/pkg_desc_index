@@ -901,7 +901,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.64 1.32.69 1.32.74 1.32.75: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.64 1.32.69 1.32.74 1.32.75 1.32.76: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0 2024.3.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.5: Distribution-independent installer framework
@@ -5604,7 +5604,7 @@ dev-libs/libthreadar 1.4.0: Threading library used by dar archiver
 dev-libs/libtimezonemap 0.4.6-r1: GTK+3 timezone map widget
 dev-libs/libtomcrypt 1.18.2-r4: LibTomCrypt is a comprehensive, modular and portable cryptographic toolkit
 dev-libs/libtomfloat 0.02-r1: library for floating point number manipulation
-dev-libs/libtommath 1.2.0-r2 1.2.1: Optimized and portable routines for integer theoretic applications
+dev-libs/libtommath 1.2.1: Optimized and portable routines for integer theoretic applications
 dev-libs/libtompoly 0.04-r2: Portable ISO C library for polynomial basis arithmetic
 dev-libs/libtpms 0.9.6: Library providing software emultion of a TPM
 dev-libs/libtracecmd 1.5.1: Linux kernel tracecmd library
@@ -7417,6 +7417,7 @@ dev-perl/Set-IntSpan 1.190.0-r2: Manages sets of integers
 dev-perl/Set-Object 1.420.0: Set of objects and strings
 dev-perl/Set-Scalar 1.290.0-r1: Scalar set operations
 dev-perl/Shell 0.730.0-r1: Run shell commands transparently within perl
+dev-perl/Shell-Command 0.60.0: Cross-platform functions emulating common shell commands
 dev-perl/Shell-Config-Generate 0.340.0: Portably generate config for any shell
 dev-perl/Shell-EnvImporter 1.70.0-r3: Import environment variable changes from external commands or shell scripts
 dev-perl/Shell-Guess 0.90.0-r1: Make an educated guess about the shell in use
@@ -8218,8 +8219,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.34.64 1.34.69 1.34.74 1.34.75: The AWS SDK for Python
-dev-python/botocore 1.34.64 1.34.69 1.34.74 1.34.75: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.64 1.34.69 1.34.74 1.34.75 1.34.76: The AWS SDK for Python
+dev-python/botocore 1.34.64 1.34.69 1.34.74 1.34.75 1.34.76: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -9024,7 +9025,7 @@ dev-python/pycurl 7.45.2-r1 7.45.3: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.7: Set of facilities to extend Python with C++
 dev-python/pydantic 2.6.3 2.6.4: Data parsing and validation using Python type hints
-dev-python/pydantic-core 2.16.3 2.17.0: Core validation logic for pydantic written in Rust
+dev-python/pydantic-core 2.16.3 2.17.0 2.18.0: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.15.2: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -11101,7 +11102,7 @@ dev-vcs/tig 2.5.8 9999: text mode interface for git
 dev-vcs/tkcvs 9.3.2: Tcl/Tk-based graphical interface to CVS with Subversion support
 dev-vcs/topgit 0.19.13: A different patch queue manager
 dev-vcs/tortoisehg 6.2.3 6.3.2 6.4.2 6.4.5 6.5.1 9999: Set of graphical tools for Mercurial
-dev-vcs/vcsh 1.20190621.4 2.0.4: Manage config files in /tmp via fake bare git repositories
+dev-vcs/vcsh 1.20190621.4 2.0.4 2.0.8: Manage config files in $HOME via fake bare git repositories
 games-action/0verkill 0.16-r4: A bloody 2D action deathmatch-like game in ASCII-ART
 games-action/a-story-about-my-uncle 5188: First person platforming adventure about a boy who searches for his lost uncle
 games-action/abuse 0.9.1: Port of Abuse by Crack Dot Com
@@ -13216,7 +13217,7 @@ media-libs/ksanecore 23.08.5 23.08.5-r1 24.02.1: Qt-based interface for SANE lib
 media-libs/kvazaar 2.1.0 2.2.0 2.3.0-r1 9999: Open-source HEVC encoder
 media-libs/ladspa-sdk 1.17-r2: The Linux Audio Developer's Simple Plugin API
 media-libs/lasi 1.1.3: C++ library for postscript stream output
-media-libs/lastfmlib 0.4.0-r1: C++ library to scrobble tracks on Last.fm
+media-libs/lastfmlib 0.4.0-r1 0.4.0-r2: C++ library to scrobble tracks on Last.fm
 media-libs/lcms 2.15 2.16: A lightweight, speed optimized color management engine
 media-libs/lensfun 0.3.4_rc1 0.3.4: Library for rectifying and simulating photographic lens distortions
 media-libs/leptonica 1.83.1 1.84.1-r2: C library for image processing and analysis
@@ -17308,7 +17309,7 @@ sys-block/hdrecover 0.5: Attempts to recover a hard disk that has bad blocks on 
 sys-block/hpssacli 2.40.13.0-r2 3.40.3.0-r1 4.21.7.0 5.30.6.0 6.10.14.0 6.25.9.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-block/io-scheduler-udev-rules 2: Udev rules to allow easier customization of kernel I/O schedulers
 sys-block/libfabric 1.11.2-r2: The Open Fabrics Interfaces (OFI) framework
-sys-block/libzbc 5.9.0 5.13.0: A library and tools for working with ZBC and ZAC disks
+sys-block/libzbc 5.9.0 5.13.0 5.13.0-r1: A library and tools for working with ZBC and ZAC disks
 sys-block/libzbd 1.2.0-r1 2.0.4: Zoned block device manipulation library and tools
 sys-block/lsiutil 1.62-r3: LSI Logic Fusion MPT Command Line Interface management tool
 sys-block/mbuffer 20220418 20230301 20230301-r1 20231216 20240107: M(easuring)buffer is a replacement for buffer with additional functionality

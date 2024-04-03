@@ -1,0 +1,13 @@
+BDEPEND=test? ( dev-lang/perl dev-perl/Shell-Command dev-perl/Test-Most )
+DEFINED_PHASES=configure install
+DESCRIPTION=Manage config files in $HOME via fake bare git repositories
+EAPI=8
+HOMEPAGE=https://github.com/RichiH/vcsh
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-vcs/git
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/RichiH/vcsh/releases/download/v2.0.8/vcsh-2.0.8.tar.xz
+_md5_=d322b810837f956786ce53c727b535ad
