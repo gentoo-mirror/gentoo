@@ -1,17 +1,17 @@
-BDEPEND=>=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] virtual/pkgconfig test? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=>=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] virtual/pkgconfig test? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender test? ( dev-python/ewmh dev-python/python-xlib x11-apps/xsetroot x11-base/xorg-server[xephyr,xvfb] x11-misc/xdotool x11-terms/xterm )
 DESCRIPTION=A manual tiling window manager for X
 EAPI=8
 HOMEPAGE=https://herbstluftwm.org/
 INHERIT=cmake desktop distutils-r1
-IUSE=+doc python test test python_targets_python3_10 python_targets_python3_11
+IUSE=+doc python test test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=amd64 x86
 LICENSE=BSD-2
-RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) ) test? ( python )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://herbstluftwm.org/tarballs/herbstluftwm-0.9.5.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	desktop	021728fdc1b03b36357dbc89489e0f0d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	d9a9242b3972ef569e740451da4b90e1
-_md5_=0773ccfedc6c6c452ca21a497fde25a6
+_md5_=fe21a4b22fda4ea8827d6d2d249b291e
