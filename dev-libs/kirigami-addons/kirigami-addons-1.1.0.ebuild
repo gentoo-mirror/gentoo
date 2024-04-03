@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=5.249.0
+KFMIN=6.0.0
 QTMIN=6.6.2
 inherit ecm kde.org
 
@@ -42,9 +42,3 @@ DEPEND="${COMMON_DEPEND}
 		x11-themes/sound-theme-freedesktop
 	)
 "
-
-src_prepare() {
-	ecm_src_prepare
-
-	sed -e "/set(KF_MIN_VERSION/s/6.0.0/5.249.0/" -i CMakeLists.txt || die
-}
