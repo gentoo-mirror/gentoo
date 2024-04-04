@@ -4,12 +4,14 @@
 EAPI=8
 inherit desktop wrapper
 
+MY_PV=$(ver_cut 1-2)
+
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
 HOMEPAGE="https://www.jetbrains.com/idea"
 
 SRC_URI="
-	amd64? ( https://download.jetbrains.com/idea/ideaIC-${PV}.tar.gz -> ${P}-amd64.tar.gz )
-	arm64? ( https://download.jetbrains.com/idea/ideaIC-${PV}-aarch64.tar.gz -> ${P}-aarch64.tar.gz )
+	amd64? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}.tar.gz -> ${P}-amd64.tar.gz )
+	arm64? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}-aarch64.tar.gz -> ${P}-aarch64.tar.gz )
 	"
 
 LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 CC-BY-2.5 CDDL-1.1
