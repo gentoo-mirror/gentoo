@@ -46,7 +46,7 @@ RDEPEND="
 	cuda? (
 		=dev-libs/cudnn-8*
 		>=dev-libs/cudnn-frontend-0.9.2:0/8
-		dev-util/nvidia-cuda-toolkit:=[profiler]
+		<dev-util/nvidia-cuda-toolkit-12.4.0:=[profiler]
 	)
 	fbgemm? ( >=dev-libs/FBGEMM-2023.12.01 )
 	ffmpeg? ( media-video/ffmpeg:= )
@@ -95,10 +95,8 @@ DEPEND="
 	')
 "
 
-S="${WORKDIR}"/${MYP}
-
 PATCHES=(
-	"${FILESDIR}"/${P}-gentoo.patch
+	"${FILESDIR}"/${PN}-2.2.1-gentoo.patch
 	"${FILESDIR}"/${PN}-1.13.0-install-dirs.patch
 	"${FILESDIR}"/${PN}-1.12.0-glog-0.6.0.patch
 	"${FILESDIR}"/${PN}-1.13.1-tensorpipe.patch
@@ -108,6 +106,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.1.2-fix-openmp-link.patch
 	"${FILESDIR}"/${PN}-2.1.2-rocm-fix-std-cpp17.patch
 )
+
+S="${WORKDIR}"/${MYP}
 
 src_prepare() {
 	filter-lto #bug 862672
