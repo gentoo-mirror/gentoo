@@ -16,11 +16,7 @@ EAPI=7
 # If any of the above applies to a user patch, the user should set the
 # corresponding variable in make.conf or the environment.
 
-if [[ ${PV} == 9999  ]]; then
-	GRUB_AUTORECONF=1
-	GRUB_BOOTSTRAP=1
-fi
-
+GRUB_AUTORECONF=1
 PYTHON_COMPAT=( python3_{9..11} )
 WANT_LIBTOOL=none
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/dkiper.gpg
@@ -34,6 +30,9 @@ if [[ -n ${GRUB_AUTORECONF} ]]; then
 fi
 
 inherit bash-completion-r1 flag-o-matic multibuild optfeature toolchain-funcs
+
+DESCRIPTION="GNU GRUB boot loader"
+HOMEPAGE="https://www.gnu.org/software/grub/"
 
 MY_P=${P}
 if [[ ${PV} != 9999 ]]; then
@@ -50,6 +49,7 @@ if [[ ${PV} != 9999 ]]; then
 	else
 		SRC_URI="
 			mirror://gnu/${PN}/${P}.tar.xz
+			https://dev.gentoo.org/~floppym/dist/${P}-bash-completion.patch.gz
 			verify-sig? ( mirror://gnu/${PN}/${P}.tar.xz.sig )
 		"
 		S=${WORKDIR}/${P%_*}
@@ -61,19 +61,10 @@ else
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/grub.git"
 fi
 
-PATCHES=(
-	"${FILESDIR}"/gfxpayload.patch
-	"${FILESDIR}"/grub-2.02_beta2-KERNEL_GLOBS.patch
-	"${FILESDIR}"/grub-2.06-test-words.patch
-)
-
 DEJAVU=dejavu-sans-ttf-2.37
 UNIFONT=unifont-15.0.06
 SRC_URI+=" fonts? ( mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz )
 	themes? ( mirror://sourceforge/dejavu/${DEJAVU}.zip )"
-
-DESCRIPTION="GNU GRUB boot loader"
-HOMEPAGE="https://www.gnu.org/software/grub/"
 
 # Includes licenses for dejavu and unifont
 LICENSE="GPL-3+ BSD MIT fonts? ( GPL-2-with-font-exception ) themes? ( CC-BY-SA-3.0 BitstreamVera )"
@@ -167,6 +158,13 @@ src_unpack() {
 }
 
 src_prepare() {
+	local PATCHES=(
+		"${FILESDIR}"/gfxpayload.patch
+		"${FILESDIR}"/grub-2.02_beta2-KERNEL_GLOBS.patch
+		"${FILESDIR}"/grub-2.06-test-words.patch
+		"${WORKDIR}"/grub-2.12-bash-completion.patch
+	)
+
 	default
 
 	if [[ -n ${GRUB_AUTOGEN} || -n ${GRUB_BOOTSTRAP} ]]; then
