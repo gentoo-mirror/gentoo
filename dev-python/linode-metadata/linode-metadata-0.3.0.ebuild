@@ -18,5 +18,5 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 RDEPEND="
-	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/httpx[${PYTHON_USEDEP}]
 "
