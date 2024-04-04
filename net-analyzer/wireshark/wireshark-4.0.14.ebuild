@@ -4,10 +4,9 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..2} )
-# TODO: check cmake/modules/UseAsn2Wrs.cmake for 3.12
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..11} )
 
-inherit fcaps flag-o-matic lua-single python-any-r1 qmake-utils xdg cmake
+inherit fcaps flag-o-matic readme.gentoo-r1 lua-single python-any-r1 qmake-utils xdg cmake
 
 DESCRIPTION="Network protocol analyzer (sniffer)"
 HOMEPAGE="https://www.wireshark.org/"
@@ -24,14 +23,14 @@ else
 	S="${WORKDIR}/${P/_/}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~amd64 ~arm64 ~hppa"
+		KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc64 ~riscv ~x86"
 	fi
 fi
 
 LICENSE="GPL-2"
 SLOT="0/${PV}"
 IUSE="androiddump bcg729 brotli +capinfos +captype ciscodump +dftest doc dpauxmon"
-IUSE+=" +dumpcap +editcap +gui http2 http3 ilbc kerberos libxml2 lua lz4 maxminddb"
+IUSE+=" +dumpcap +editcap +gui http2 ilbc kerberos libxml2 lua lz4 maxminddb"
 IUSE+=" +mergecap +minizip +netlink opus +plugins +pcap qt6 +randpkt"
 IUSE+=" +randpktdump +reordercap sbc selinux +sharkd smi snappy spandsp sshdump ssl"
 IUSE+=" sdjournal test +text2pcap tfshark +tshark +udpdump wifi zlib +zstd"
@@ -40,7 +39,9 @@ REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 "
 
-RESTRICT="!test? ( test )"
+# Tests restricted for now because rely on pytest internals w/ >=3.11
+# See bug #897078 and https://gitlab.com/wireshark/wireshark/-/issues/18740.
+RESTRICT="!test? ( test ) test"
 
 # bug #753062 for speexdsp
 RDEPEND="
@@ -55,7 +56,6 @@ RDEPEND="
 	ciscodump? ( >=net-libs/libssh-0.6:= )
 	filecaps? ( sys-libs/libcap )
 	http2? ( >=net-libs/nghttp2-1.11.0:= )
-	http3? ( net-libs/nghttp3 )
 	ilbc? ( media-libs/libilbc:= )
 	kerberos? ( virtual/krb5 )
 	libxml2? ( dev-libs/libxml2 )
@@ -112,7 +112,6 @@ BDEPEND="
 	doc? (
 		app-text/doxygen
 		dev-ruby/asciidoctor
-		dev-libs/libxslt
 	)
 	gui? (
 		qt6? (
@@ -141,6 +140,7 @@ fi
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.0-redhat.patch
+	"${FILESDIR}"/${PN}-3.4.2-cmake-lua-version.patch
 )
 
 python_check_deps() {
@@ -244,12 +244,10 @@ src_configure() {
 		# only appends -flto
 		-DENABLE_LTO=OFF
 		-DENABLE_LUA=$(usex lua)
-		-DLUA_FIND_VERSIONS="${ELUA#lua}"
 		-DENABLE_LZ4=$(usex lz4)
 		-DENABLE_MINIZIP=$(usex minizip)
 		-DENABLE_NETLINK=$(usex netlink)
 		-DENABLE_NGHTTP2=$(usex http2)
-		-DENABLE_NGHTTP3=$(usex http3)
 		-DENABLE_OPUS=$(usex opus)
 		-DENABLE_PCAP=$(usex pcap)
 		-DENABLE_PLUGINS=$(usex plugins)
@@ -326,6 +324,8 @@ src_install() {
 	if [[ -d "${ED}"/usr/share/appdata ]] ; then
 		rm -r "${ED}"/usr/share/appdata || die
 	fi
+
+	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
@@ -340,7 +340,5 @@ pkg_postinst() {
 			"${EROOT}"/usr/bin/dumpcap
 	fi
 
-	ewarn "NOTE: To capture traffic with wireshark as normal user you have to"
-	ewarn "add yourself to the pcap group. This security measure ensures"
-	ewarn "that only trusted users are allowed to sniff your traffic."
+	readme.gentoo_print_elog
 }
