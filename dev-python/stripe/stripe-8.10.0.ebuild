@@ -27,6 +27,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		>=dev-util/stripe-mock-0.183.0
+		dev-python/aiohttp[${PYTHON_USEDEP}]
 		dev-python/anyio[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
@@ -42,6 +43,9 @@ src_prepare() {
 	if ! use telemetry; then
 		sed -i -e '/enable_telemetry/s:True:False:' stripe/__init__.py || die
 	fi
+	# https://github.com/stripe/stripe-python/pull/1297
+	sed -e 's:from mock:from unittest.mock:' \
+		-i tests/test_http_client.py || die
 	distutils-r1_src_prepare
 }
 
