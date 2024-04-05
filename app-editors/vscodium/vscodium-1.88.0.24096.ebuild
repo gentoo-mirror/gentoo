@@ -41,7 +41,7 @@ LICENSE="
 	W3C
 "
 SLOT="0"
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* amd64 ~arm ~arm64"
 IUSE="egl kerberos wayland"
 RESTRICT="strip bindist"
 
@@ -87,7 +87,7 @@ src_install() {
 	rm -f "${S}/resources/app/LICENSE.txt" || die
 
 	if ! use kerberos; then
-		rm -r "${S}/resources/app/node_modules.asar.unpacked/kerberos" || die
+		rm -rf "${S}/resources/app/node_modules.asar.unpacked/kerberos" || die
 	fi
 
 	# Install
