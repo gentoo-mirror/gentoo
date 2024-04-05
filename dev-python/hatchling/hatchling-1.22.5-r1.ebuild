@@ -36,7 +36,12 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/tomli-1.2.2[${PYTHON_USEDEP}]
 	' 3.10)
-	dev-python/trove-classifiers[${PYTHON_USEDEP}]
+"
+# always depend on the newest version available, at least until upstream
+# stops treating unknown classifiers as a fatal error
+# https://github.com/pypa/hatch/issues/1368
+RDEPEND+="
+	>=dev-python/trove-classifiers-2024.3.25[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	${RDEPEND}
