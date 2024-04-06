@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
-# no documentation is generable, it needs hanna, which is broken
+# no documentation can be generated. It needs hanna, which is broken.
 RUBY_FAKEGEM_RECIPE_DOC="none"
 
 RUBY_FAKEGEM_TASK_TEST="none"
@@ -21,8 +21,8 @@ SRC_URI="https://github.com/rack/rack-cache/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="MIT"
 SLOT="1.2"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE=""
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+IUSE="test"
 
 ruby_add_rdepend "dev-ruby/rack:*"
 
@@ -34,7 +34,6 @@ ruby_add_bdepend "test? (
 all_ruby_prepare() {
 	sed -i -e 's/git ls-files/find */' -e "s:_relative ': './:" ${RUBY_FAKEGEM_GEMSPEC} || die
 	sed -i -e '/bundler/ s:^:#:' test/test_helper.rb || die
-	sed -i -e 's/MiniTest/Minitest/' test/*_test.rb || die
 }
 
 each_ruby_test() {
