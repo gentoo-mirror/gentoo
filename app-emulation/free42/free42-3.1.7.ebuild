@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,6 +10,7 @@ MY_PV="${PN}-nologo-${PV}"
 DESCRIPTION="An HP-42S Calculator Simulator"
 HOMEPAGE="https://thomasokken.com/free42/"
 SRC_URI="https://thomasokken.com/free42/upstream/${MY_PV}.tgz"
+S=${WORKDIR}/${MY_PV}
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,11 +22,9 @@ DEPEND="app-accessibility/at-spi2-core
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
 	alsa? ( media-libs/alsa-lib )"
-
 RDEPEND="${DEPEND}"
 
 DOCS=( CREDITS HISTORY README )
-S="${WORKDIR}/${MY_PV}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0.14-fix-makefile.patch"
