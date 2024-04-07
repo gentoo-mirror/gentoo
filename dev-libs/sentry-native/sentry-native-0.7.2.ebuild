@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,12 +21,14 @@ RDEPEND="
 		dev-util/breakpad
 		virtual/pkgconfig
 	)
-	curl? ( net-misc/curl )
+	curl? (
+		net-misc/curl
+		sys-libs/zlib
+	)
 "
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.6.5_cmake-breakpad.patch
 	"${FILESDIR}"/${PN}-0.6.5_no-fuzz-test.patch
 )
 
@@ -36,6 +38,7 @@ src_configure() {
 		-DSENTRY_BACKEND=$(usex breakpad "breakpad" "inproc")
 		-DSENTRY_BUILD_TESTS=$(usex test)
 		-DSENTRY_TRANSPORT=$(usex curl "curl" "none")
+		-DSENTRY_TRANSPORT_COMPRESSION=$(usex curl)
 	)
 	# Avoid "not used by the project" warnings when USE=-breakpad
 	if use breakpad; then
