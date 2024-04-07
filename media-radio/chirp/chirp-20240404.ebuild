@@ -11,8 +11,8 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="A free, open-source tool for programming your radio"
-HOMEPAGE="https://chirp.danplanet.com/"
-SRC_URI="https://trac.chirp.danplanet.com/${PN}_next/next-${PV}/${P}.tar.gz"
+HOMEPAGE="https://chirpmyradio.com/"
+SRC_URI="https://archive.chirpmyradio.com/${PN}_next/next-${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -30,6 +30,7 @@ RDEPEND="$(python_gen_cond_dep '
 	radioreference? ( dev-python/suds-community[${PYTHON_USEDEP}] )
 ')"
 BDEPEND="test? ( $(python_gen_cond_dep '
+	dev-python/ddt[${PYTHON_USEDEP}]
 	dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 ') )"
