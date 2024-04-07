@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..12} )
 
-inherit autotools python-single-r1 udev systemd
+inherit autotools flag-o-matic python-single-r1 udev systemd
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://www.kismetwireless.net/git/${PN}.git"
@@ -26,7 +26,11 @@ else
 	#SRC_URI="https://github.com/kismetwireless/kismet/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	#S="${WORKDIR}/${PN}-${COMMIT}"
 
-	PATCHES=( "${DISTDIR}/${P}-stdint-fix.patch" )
+	PATCHES=(
+		"${DISTDIR}/${P}-stdint-fix.patch"
+		# https://github.com/kismetwireless/kismet/pull/517
+		"${FILESDIR}"/0001-configure.ac-bashism-fix-critical-existence-failure-.patch
+	)
 
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 fi
@@ -41,8 +45,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 CDEPEND="
 	${PYTHON_DEPS}
-	acct-user/kismet
-	acct-group/kismet
 	networkmanager? ( net-misc/networkmanager )
 	dev-libs/glib:2
 	dev-libs/elfutils
@@ -67,6 +69,8 @@ CDEPEND="
 	ubertooth? ( net-wireless/ubertooth )
 	"
 RDEPEND="${CDEPEND}
+	acct-user/kismet
+	acct-group/kismet
 	$(python_gen_cond_dep '
 		dev-python/pyserial[${PYTHON_USEDEP}]
 	')
@@ -108,12 +112,18 @@ src_prepare() {
 
 	default
 
-	if [ "${PV}" = "9999" ]; then
-		eautoreconf
-	fi
+	eautoreconf
 }
 
 src_configure() {
+	# -Werror=strict-aliasing
+	# https://bugs.gentoo.org/877761
+	# https://github.com/kismetwireless/kismet/issues/518
+	#
+	# Do not trust with LTO either.
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	econf \
 		$(use_enable libusb libusb) \
 		$(use_enable libusb wifi-coconut) \
