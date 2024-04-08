@@ -79,7 +79,7 @@ CDEPEND="
 	)
 "
 RDEPEND="${CDEPEND}
-	webkit? ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 )
+	webkit? ( || ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 ) )
 "
 DEPEND="${CDEPEND}
 	>=dev-cpp/cppgir-0_p20240110

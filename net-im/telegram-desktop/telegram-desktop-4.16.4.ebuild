@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
 IUSE="dbus enchant +fonts screencast qt6 qt6-imageformats wayland webkit +X"
 REQUIRED_USE="
 	qt6-imageformats? ( qt6 )
@@ -79,10 +79,10 @@ CDEPEND="
 	)
 "
 RDEPEND="${CDEPEND}
-	webkit? ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 )
+	webkit? ( || ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 ) )
 "
 DEPEND="${CDEPEND}
-	>=dev-cpp/cppgir-0_p20240110
+	>=dev-cpp/cppgir-2.0_p20240315
 	>=dev-cpp/ms-gsl-4
 	dev-cpp/expected-lite
 	dev-cpp/range-v3
@@ -90,7 +90,7 @@ DEPEND="${CDEPEND}
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-build/cmake-3.16
-	>=dev-cpp/cppgir-0_p20230926
+	>=dev-cpp/cppgir-2.0_p20240315
 	dev-util/gdbus-codegen
 	virtual/pkgconfig
 	wayland? ( dev-util/wayland-scanner )
@@ -98,7 +98,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/tdesktop-4.10.0-system-cppgir.patch"
-	"${FILESDIR}/tdesktop-4.10.5-qt_compare.patch"
 )
 
 pkg_pretend() {
