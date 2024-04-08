@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 FORTRAN_NEEDED=fortran
 
@@ -34,6 +34,12 @@ PATCHES=(
 	# May need to extend these for more arches in future.
 	# bug #664856
 	"${WORKDIR}"/${PN}-4.2.15-arch-patches/
+
+	# backport fix for Modern C
+	"${FILESDIR}"/hdf4-c99.patch
+
+	# These tools were dropped upstream. Get them from netcdf...
+	"${FILESDIR}"/0001-simply-do-not-build-the-mfhdf-tools-ncgen-ncdump.patch
 )
 
 src_prepare() {
@@ -44,6 +50,14 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=strict-aliasing, -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/862720
+	#
+	# Do not trust with LTO either, just because of strict-aliasing.
+	# But also because it does have blatant LTO errors too.
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	[[ $(tc-getFC) = *gfortran ]] && append-fflags -fno-range-check
 	# GCC 10 workaround
 	# bug #723014
@@ -75,9 +89,4 @@ src_install() {
 	else
 		rm -r share/hdf4_examples || die
 	fi
-
-	mv bin/ncgen{,-hdf} || die
-	mv bin/ncdump{,-hdf} || die
-	mv share/man/man1/ncgen{,-hdf}.1 || die
-	mv share/man/man1/ncdump{,-hdf}.1 || die
 }
