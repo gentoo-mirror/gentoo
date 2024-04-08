@@ -2,7 +2,7 @@ BDEPEND=fortran? ( virtual/fortran ) sys-devel/gnuconfig >=app-portage/elt-patch
 DEFINED_PHASES=configure install prepare setup
 DEPEND=net-libs/libtirpc:= sys-libs/zlib virtual/jpeg:0 szip? ( virtual/szip ) test? ( virtual/szip ) fortran? ( virtual/fortran )
 DESCRIPTION=General purpose library and format for storing scientific data
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.hdfgroup.org/hdf4.html
 INHERIT=fortran-2 toolchain-funcs autotools flag-o-matic
 IUSE=examples fortran szip static-libs test
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.15/src/hdf-4.2.15.tar.bz2 https://dev.gentoo.org/~sam/distfiles/sci-libs/hdf/hdf-4.2.15-arch-patches-1.tar.bz2 https://dev.gentoo.org/~dlan/distfiles/sci-libs/hdf/hdf-4.2.15-arch-patches-1.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	288c54efeb5e2aa70775e39032695ad4
-_md5_=4b450cbe1bd0e4ada2b198b762d7e293
+_md5_=5f1e2aa4b129bc04f5178bb680a31f20
