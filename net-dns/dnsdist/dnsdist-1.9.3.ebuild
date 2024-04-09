@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
@@ -15,66 +15,81 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="dnscrypt dnstap doh doh3 gnutls ipcipher +lmdb quic regex remote-logging snmp +ssl systemd test"
+IUSE="bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}
 		dnscrypt? ( ssl )
-		gnutls? ( ssl )
-		doh? ( ssl !gnutls )
-		doh3? ( ssl !gnutls quic )
-		ipcipher? ( ssl !gnutls )
-		quic? ( ssl !gnutls )
-		ssl? ( !gnutls )"
+		doh? ( ssl )
+		doh3? ( ssl quic )
+		ipcipher? ( ssl )
+		quic? ( ssl )"
 
 RDEPEND="acct-group/dnsdist
 	acct-user/dnsdist
+	bpf? ( dev-libs/libbpf:= )
+	cdb? ( dev-db/tinycdb:= )
 	dev-libs/boost:=
-	dev-libs/libedit:=
+	sys-libs/libcap
+	dev-libs/libedit
 	dev-libs/libsodium:=
-	>=dev-libs/protobuf-3:=
-	dnstap? ( dev-libs/fstrm:= )
+	dnstap? ( dev-libs/fstrm )
+	doh? ( net-libs/nghttp2:= )
 	doh3? ( net-libs/quiche:= )
 	lmdb? ( dev-db/lmdb:= )
-	quic? ( net-libs/quiche:= )
+	quic? ( net-libs/quiche )
 	regex? ( dev-libs/re2:= )
 	snmp? ( net-analyzer/net-snmp:= )
-	ssl? (
-		gnutls? ( net-libs/gnutls:= )
-		!gnutls? ( dev-libs/openssl:= )
-	)
+	ssl? ( dev-libs/openssl:= )
 	systemd? ( sys-apps/systemd:0= )
+	xdp? ( net-libs/xdp-tools )
 	${LUA_DEPS}
-	net-libs/nghttp2
 "
 
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+src_prepare() {
+	default
+
+	# clean up duplicate file
+	rm -f README.md
+}
+
 src_configure() {
 	# bug #822855
 	append-lfs-flags
 
-	econf \
-		--sysconfdir=/etc/dnsdist \
-		--with-lua="${ELUA}" \
-		--enable-tls-providers \
-		--enable-asan \
-		--enable-lsan \
-		--enable-ubsan \
-		$(use_enable doh dns-over-https) \
-		$(use_enable doh3 dns-over-http3) \
-		$(use_enable dnscrypt) \
-		$(use_enable dnstap) \
-		$(use_enable ipcipher) \
-		$(use_with lmdb ) \
-		$(use_enable quic dns-over-quic ) \
-		$(use_with regex re2) \
-		$(use_with snmp net-snmp) \
-		$(use ssl && { echo "--enable-dns-over-tls" && use_with gnutls && use_with !gnutls libssl;} || echo "--without-gnutls --without-libssl") \
+	# some things can only be enabled/disabled by defines
+	! use dnstap && append-cppflags -DDISABLE_PROTOBUF
+	! use web && append-cppflags -DDISABLE_BUILTIN_HTML
+
+	sed 's/hardcode_libdir_flag_spec_CXX='\''$wl-rpath $wl$libdir'\''/hardcode_libdir_flag_spec_CXX='\''$wl-rpath $wl\/$libdir'\''/g' \
+		-i "${S}/configure"
+
+	local myeconfargs=(
+		--sysconfdir=/etc/dnsdist
+		--with-lua="${ELUA}"
+		--without-h2o
+		--enable-tls-providers
+		--without-gnutls
+		$(use_with bpf ebpf)
+		$(use_with cdb cdb)
+		$(use_enable doh dns-over-https)
+		$(use_enable doh3 dns-over-http3)
+		$(use_enable dnscrypt)
+		$(use_enable dnstap)
+		$(use_enable ipcipher)
+		$(use_with lmdb )
+		$(use_enable quic dns-over-quic)
+		$(use_with regex re2)
+		$(use_with snmp net-snmp)
+		$(use_enable ssl dns-over-tls)
 		$(use_enable systemd) \
 		$(use_enable test unit-tests)
-		sed 's/hardcode_libdir_flag_spec_CXX='\''$wl-rpath $wl$libdir'\''/hardcode_libdir_flag_spec_CXX='\''$wl-rpath $wl\/$libdir'\''/g' \
-			-i "${S}/configure" || die
+		$(use_with xdp xsk)
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
