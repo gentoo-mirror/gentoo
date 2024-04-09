@@ -40,13 +40,8 @@ RDEPEND="
 		)
 	)
 	efistub? (
-		systemd? (
-			>=app-emulation/virt-firmware-24.2_p20240315-r2
-			|| (
-				sys-apps/systemd[boot(-)]
-				sys-apps/systemd-utils[boot(-)]
-			)
-		)
+		systemd? ( >=app-emulation/virt-firmware-24.2_p20240315-r2 )
+		!systemd? ( amd64? ( sys-boot/uefi-mkconfig ) )
 	)
 	grub? ( sys-boot/grub )
 	refind? ( sys-boot/refind )
@@ -92,6 +87,7 @@ src_install() {
 
 	exeinto /usr/lib/kernel/postinst.d
 	use grub && doexe hooks/91-grub-mkconfig.install
+	use efistub && doexe hooks/95-efistub-uefi-mkconfig.install
 	use refind && doexe hooks/95-refind-copy-icon.install
 
 	exeinto /usr/lib/kernel/install.d
