@@ -15,10 +15,8 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/emacs-lsp/${PN}"
 else
-	COMMIT_SHA=a414b18ea774ae75bdc7344af500b6f15849a65d
-	SRC_URI="https://github.com/emacs-lsp/${PN}/archive/${COMMIT_SHA}.tar.gz
+	SRC_URI="https://github.com/emacs-lsp/${PN}/archive/refs/tags/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${COMMIT_SHA}"
 
 	KEYWORDS="~amd64"
 fi
