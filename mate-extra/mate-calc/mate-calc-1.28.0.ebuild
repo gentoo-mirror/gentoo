@@ -14,8 +14,6 @@ DESCRIPTION="Calculator for MATE"
 LICENSE="CC-BY-SA-3.0 GPL-2+"
 SLOT="0"
 
-IUSE=""
-
 COMMON_DEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0
 	>=dev-libs/glib-2.50:2

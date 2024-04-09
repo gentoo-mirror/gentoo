@@ -9,9 +9,7 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 inherit mate python-any-r1 virtualx
 
-#if [[ ${PV} != 9999 ]]; then
-#	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
-#fi
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 
 DESCRIPTION="Atril document viewer for MATE"
 LICENSE="FDL-1.1+ GPL-2+ GPL-3+ LGPL-2+ LGPL-2.1+"
@@ -72,11 +70,6 @@ BDEPEND="${COMMON_DEPEND}
 # Tests use dogtail and require using accessibility services.
 # Until we figure out how to run successfully, don't run tests
 RESTRICT="test"
-
-PATCHES=(
-	# https://github.com/mate-desktop/atril/issues/582
-	"${FILESDIR}/${PN}-1.26.1-webkitgtk4.1.patch"
-)
 
 python_check_deps() {
 	use test && python_has_version "dev-util/dogtail[${PYTHON_USEDEP}]"

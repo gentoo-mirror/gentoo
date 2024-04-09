@@ -24,7 +24,7 @@ COMMON_DEPEND=">=dev-util/gdbus-codegen-2.76.4
 	>=dev-libs/glib-2.50:2
 	>=gnome-base/dconf-0.13.4
 	>=mate-base/libmatekbd-1.17.0
-	>=mate-base/mate-desktop-1.27.1
+	>=mate-base/mate-desktop-1.25.0
 	media-libs/fontconfig:1.0
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
@@ -36,6 +36,7 @@ COMMON_DEPEND=">=dev-util/gdbus-codegen-2.76.4
 	accessibility? ( >=app-accessibility/at-spi2-core-2.36.0 )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	policykit? (
+		>=dev-libs/dbus-glib-0.71
 		>=sys-apps/dbus-1.10.0
 		>=sys-auth/polkit-0.97
 	)

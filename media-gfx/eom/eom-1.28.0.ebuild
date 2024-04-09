@@ -54,10 +54,6 @@ BDEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.26.1-libxml2-2.12.patch
-)
-
 src_configure() {
 	mate_src_configure \
 		--enable-thumbnailer \

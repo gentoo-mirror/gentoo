@@ -16,7 +16,7 @@ DESCRIPTION="Utilities for the MATE desktop"
 LICENSE="FDL-1.1+ GPL-2+ GPL-3+ LGPL-2+"
 SLOT="0"
 
-IUSE="X applet debug ipv6 nls test udisks"
+IUSE="X applet debug nls test udisks"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
@@ -44,7 +44,6 @@ RDEPEND="${COMMON_DEPEND}
 
 BDEPEND="${COMMON_DEPEND}
 	app-text/rarian
-	>=app-text/scrollkeeper-dtd-1:1.0
 	app-text/yelp-tools
 	dev-libs/libxml2
 	dev-util/glib-utils
@@ -69,7 +68,6 @@ src_configure() {
 		--enable-debug=$(usex debug yes minimum) \
 		$(use_with X x) \
 		$(use_enable applet gdict-applet) \
-		$(use_enable ipv6) \
 		$(use_enable nls) \
 		$(use_enable udisks disk_image_mounter)
 }
