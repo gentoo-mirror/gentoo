@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature virtualx xdg
 
 # Commit of documentation to fetch
-DOCS_PV="390681bc6557a051579337723c11b835d3855222"
+DOCS_PV="32efdaebc11dab0b8e0767717342b7d306dc06ea"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -50,7 +50,8 @@ RDEPEND="
 	>=dev-python/qdarkstyle-3.2[${PYTHON_USEDEP}]
 	<dev-python/qdarkstyle-3.3[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.2.2[${PYTHON_USEDEP}]
-	>=dev-python/qtawesome-1.2.1[${PYTHON_USEDEP}]
+	>=dev-python/qtawesome-1.3.1[${PYTHON_USEDEP}]
+	<dev-python/qtawesome-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/qtconsole-5.5.1[${PYTHON_USEDEP}]
 	<dev-python/qtconsole-5.6.0[${PYTHON_USEDEP}]
 	>=dev-python/QtPy-2.1.0[${PYTHON_USEDEP},pyqt5,svg,webengine]
@@ -136,7 +137,6 @@ python_prepare_all() {
 		-e "/'parso[ 0-9<=>.,]*',/d" \
 		-e "/'jedi[ 0-9<=>.,]*',/d" \
 		-e "/'pylint[ 0-9<=>.,]*',/d" \
-		-e "/'qtawesome[ 0-9<=>.,]*',/d" \
 			setup.py || die
 		# -e "/'ipython[ 0-9<=>.,]*',/d" \
 
@@ -146,7 +146,6 @@ python_prepare_all() {
 		-e "/^PARSO_REQVER/c\PARSO_REQVER = '>=0.0.1'" \
 		-e "/^JEDI_REQVER/c\JEDI_REQVER = '>=0.0.1'" \
 		-e "/^PYLINT_REQVER/c\PYLINT_REQVER = '>=0.0.1'" \
-		-e "/^QTAWESOME_REQVER/c\QTAWESOME_REQVER = '>=0.0.1'" \
 			spyder/dependencies.py || die
 		# -e "/^IPYTHON_REQVER/c\IPYTHON_REQVER = '>=0.0.1'" \
 
