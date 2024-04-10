@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE='ncurses,xml(+),threads(+)'
@@ -14,19 +14,19 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://xenbits.xen.org/git-http/${REPO}"
 	S="${WORKDIR}/${REPO}"
 else
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 	SEABIOS_VER="1.16.0"
 	EDK2_COMMIT="b16284e2a0011489f6e16dfcc6af7623c3cbaf0b"
 	EDK2_OPENSSL_VERSION="1_1_1t"
 	EDK2_SOFTFLOAT_COMMIT="b64af41c3276f97f0e181920400ee056b9c88037"
 	EDK2_BROTLI_COMMIT="f4153a09f87cbb9c826d8fc12c74642bb2d879ea"
-	IPXE_COMMIT="3c040ad387099483102708bb1839110bc788cefb"
+	IPXE_COMMIT="1d1cf74a5e58811822bee4b3da3cff7282fcdfca"
 
 	XEN_GENTOO_PATCHSET_NUM=2
 	XEN_GENTOO_PATCHSET_BASE=4.17.0
-	XEN_PRE_PATCHSET_NUM=0
-	XEN_PRE_VERSION_BASE=4.17.3
+	XEN_PRE_PATCHSET_NUM=
+	XEN_PRE_VERSION_BASE=
 
 	XEN_BASE_PV="${PV}"
 	if [[ -n "${XEN_PRE_VERSION_BASE}" ]]; then
