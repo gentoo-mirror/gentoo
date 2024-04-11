@@ -22,6 +22,7 @@ RESTRICT="test" # bug 653046
 
 COMMON_DEPEND="
 	dev-libs/openssl:0=
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus?,gui,network,sql,sqlite,ssl,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtwebchannel-${QTMIN}:6
