@@ -901,7 +901,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.69 1.32.74 1.32.79 1.32.80 1.32.81: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.69 1.32.74 1.32.79 1.32.80 1.32.81 1.32.82: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0 2024.3.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.5: Distribution-independent installer framework
@@ -5293,7 +5293,7 @@ dev-libs/boost 1.84.0-r3: Boost Libraries for C++
 dev-libs/botan 2.19.3-r2 2.19.4 3.1.1 3.2.0-r1 3.2.0-r2 3.3.0: C++ crypto library
 dev-libs/boxfort 0.1.1 0.1.4: Convenient & cross-platform sandboxing C library
 dev-libs/c-blosc 1.21.5: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.10.5 2.13.2 2.14.0 2.14.1 2.14.3: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.10.5 2.13.2 2.14.0 2.14.1 2.14.4: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/cJSON 1.7.17: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1: RPC/Serialization system with capabilities support
@@ -8227,8 +8227,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 23.1.1 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.34.69 1.34.74 1.34.79 1.34.80 1.34.81: The AWS SDK for Python
-dev-python/botocore 1.34.69 1.34.74 1.34.79 1.34.80 1.34.81: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.69 1.34.74 1.34.79 1.34.80 1.34.81 1.34.82: The AWS SDK for Python
+dev-python/botocore 1.34.69 1.34.74 1.34.79 1.34.80 1.34.81 1.34.82: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8253,7 +8253,7 @@ dev-python/capturer 3.0-r1: Easily capture stdout/stderr of the current process 
 dev-python/carbon 1.1.10: Backend data caching and persistence daemon for Graphite
 dev-python/casttube 0.2.1-r1: casttube provides a way to interact with the Youtube Chromecast api
 dev-python/cattrs 23.2.3: Composable complex class support for attrs and dataclasses
-dev-python/cbor2 5.6.2: Pure Python CBOR (de)serializer with extensive tag support
+dev-python/cbor2 5.6.2 5.6.3: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cchardet 2.1.19: High speed universal character encoding detector
 dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library for Python
 dev-python/certifi 3021.3.16-r4: A certifi hack to use system trust store on Linux/FreeBSD
@@ -8381,7 +8381,7 @@ dev-python/django-crispy-forms 2.1: DRY Django forms
 dev-python/django-debug-toolbar 4.3.0: A configurable set of panels that display various debug information
 dev-python/django-filter 23.5 24.1 24.2: Django app allowing declarative dynamic QuerySet filtering from URL parameters
 dev-python/django-js-asset 2.2.0: Script tag with additional attributes for django.forms.Media
-dev-python/django-otp 1.3.0 1.4.0: Django framework adding two-factor authentication using one-time passwords
+dev-python/django-otp 1.3.0 1.4.0 1.4.1: Django framework adding two-factor authentication using one-time passwords
 dev-python/django-prometheus 2.3.1: Library to export Django metrics for Prometheus
 dev-python/django-redis 5.4.0: Full featured redis cache backend for Django
 dev-python/django-registration 3.4-r1: user-registration application for Django
@@ -8537,7 +8537,7 @@ dev-python/guessit 3.8.0: Python library for guessing information from video fil
 dev-python/guzzle_sphinx_theme 0.7.11-r2: Sphinx theme used by Guzzle
 dev-python/h11 0.14.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
 dev-python/h2 4.1.0-r1: HTTP/2 State-Machine based protocol implementation
-dev-python/h5py 3.10.0-r1: Simple Python interface to HDF5 files
+dev-python/h5py 3.10.0-r1 3.11.0: Simple Python interface to HDF5 files
 dev-python/happybase 1.2.0-r1: A developer-friendly Python library to interact with Apache HBase
 dev-python/hatch-fancy-pypi-readme 24.1.0: Fancy PyPI READMEs with Hatch
 dev-python/hatch-jupyter-builder 0.9.1: A hatch plugin to help build Jupyter packages
@@ -8731,7 +8731,7 @@ dev-python/magic-wormhole 0.13.0: Get Things From One Computer To Another, Safel
 dev-python/magic-wormhole-mailbox-server 0.4.1_p20230525: Mailbox server for magic-wormhole
 dev-python/magic-wormhole-transit-relay 0.2.1 0.2.1_p20230525: Transit relay server for magic-wormhole
 dev-python/makefun 1.15.2: Small library to dynamically create Python functions
-dev-python/mako 1.3.2: A Python templating language
+dev-python/mako 1.3.2 1.3.3: A Python templating language
 dev-python/mamba 0.11.3: Python test runner born under the banner of Behavior Driven Development
 dev-python/mando 0.7.1: Create Python CLI apps with little to no effort at all!
 dev-python/manuel 1.12.4 1.12.4_p20231129: Lets you mix and match traditional doctests with custom test syntax
@@ -8859,7 +8859,7 @@ dev-python/octave_kernel 0.35.1: Jupyter kernel for octave
 dev-python/odfpy 1.4.2: Python API and tools to manipulate OpenDocument files
 dev-python/olefile 0.47: Python package to parse, read and write Microsoft OLE2 files
 dev-python/omemo-dr 1.0.1: OMEMO Crypto Library
-dev-python/openapi-core 0.18.2 0.19.0: Client-side and server-side support for the OpenAPI Specification v3
+dev-python/openapi-core 0.18.2 0.19.0 0.19.1: Client-side and server-side support for the OpenAPI Specification v3
 dev-python/openapi-schema-validator 0.6.2: OpenAPI schema validation for Python
 dev-python/openapi-spec-validator 0.7.1: OpenAPI 2.0 (aka Swagger) and OpenAPI 3.0 spec validator
 dev-python/openapi3 1.8.2: Python OpenAPI 3 Specification client and validator
@@ -8892,7 +8892,7 @@ dev-python/packaging 23.2-r1 24.0: Core utilities for Python packages
 dev-python/paginate 0.5.6: Divides large result sets into pages for easier browsing
 dev-python/paho-mqtt 1.6.1-r1 2.0.0: MQTT version 5.0/3.1.1 client class
 dev-python/pallets-sphinx-themes 2.1.1: Sphinx themes for Pallets and related projects
-dev-python/pandas 2.1.4 2.2.0 2.2.0-r1 2.2.1 2.2.1-r1: Powerful data structures for data analysis and statistics
+dev-python/pandas 2.1.4 2.2.0 2.2.0-r1 2.2.1 2.2.1-r1 2.2.2 2.2.2-r1: Powerful data structures for data analysis and statistics
 dev-python/pandocfilters 1.5.1: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.8: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.9.0: Parameterized testing with any Python test framework
@@ -9399,7 +9399,7 @@ dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
 dev-python/schema 0.7.5-r1: Simple data validation library
 dev-python/scikit-build 0.17.6: Improved build system generator for Python C/C++/Fortran/Cython extensions
 dev-python/scikit-build-core 0.8.2: Build backend for CMake based projects
-dev-python/scikit-image 0.22.0 0.23.0_rc2: Image processing routines for SciPy
+dev-python/scikit-image 0.22.0 0.23.0_rc2 0.23.1: Image processing routines for SciPy
 dev-python/scikit-learn 1.3.2-r1 1.4.2: Machine learning library for Python
 dev-python/scipy 1.11.3-r1 1.11.4 1.12.0 1.13.0_rc1 1.13.0: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r2: A very small text templating language
@@ -9519,7 +9519,7 @@ dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.51 1.4.52 2.0.27 2.0.28 2.0.29: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 23.7.0 23.8.0 23.8.1: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 23.7.0 23.8.0 23.8.1 23.8.2: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.4.4: A non-validating SQL parser module for Python
 dev-python/sshpubkeys 3.3.1-r1: OpenSSH public key parser for Python
@@ -9535,7 +9535,7 @@ dev-python/stestr 4.1.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.2.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.0: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 8.7.0 8.9.0 8.10.0 8.11.0: Stripe python bindings
+dev-python/stripe 8.7.0 8.9.0 8.10.0 8.11.0 9.0.0: Stripe python bindings
 dev-python/structlog 24.1.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.1: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.4: A streaming protocol for test results
@@ -9609,7 +9609,7 @@ dev-python/treq 23.11.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.1.8 4.2.4 4.3.0: Python library for loading and using triangular meshes
 dev-python/trio 0.25.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.11.1: WebSocket client and server implementation for Python Trio
-dev-python/trove-classifiers 2024.3.25: Canonical source for classifiers on PyPI (pypi.org)
+dev-python/trove-classifiers 2024.3.25 2024.4.10: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 1.1.0: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/truststore 0.8.0: Verify certificates using native system trust stores
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
