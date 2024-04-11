@@ -1,12 +1,10 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=unpack
+DEFINED_PHASES=install postinst
 DESCRIPTION=Symlinks and syncs browser profile dirs to RAM
 EAPI=8
 HOMEPAGE=https://wiki.archlinux.org/title/Profile-sync-daemon
-INHERIT=git-r3
+KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=app-shells/bash net-misc/rsync[xattr] sys-apps/systemd
 SLOT=0
-_eclasses_=git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=b4bf9a8ca628938e31f8b42a9df803ec
+SRC_URI=https://github.com/graysky2/profile-sync-daemon/archive/v6.50.tar.gz -> profile-sync-daemon-6.50.tar.gz
+_md5_=34aae9b6162790d371c499e7fb6ba78a
