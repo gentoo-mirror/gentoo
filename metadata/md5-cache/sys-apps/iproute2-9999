@@ -4,12 +4,12 @@ DEPEND=!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-at
 DESCRIPTION=kernel routing and traffic control utilities
 EAPI=8
 HOMEPAGE=https://wiki.linuxfoundation.org/networking/iproute2
-INHERIT=edo toolchain-funcs git-r3
+INHERIT=edo toolchain-funcs flag-o-matic git-r3
 IUSE=atm berkdb bpf caps elf +iptables minimal nfs selinux split-usr
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=!net-misc/arpd !minimal? ( net-libs/libmnl:= ) atm? ( net-dialup/linux-atm ) berkdb? ( sys-libs/db:= ) bpf? ( dev-libs/libbpf:= ) caps? ( sys-libs/libcap ) elf? ( virtual/libelf:= ) iptables? ( >=net-firewall/iptables-1.4.20:= ) nfs? ( net-libs/libtirpc:= ) selinux? ( sys-libs/libselinux )
 RESTRICT=test
 SLOT=0
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=a1da30a5d7bc0b44041b5e5379b48a4f
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	git-r3	fbb2889c81f3a05910c1524db69425c1
+_md5_=637d1a4e58e09dc85ff456dd18a2e194
