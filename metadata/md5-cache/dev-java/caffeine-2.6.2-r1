@@ -1,16 +1,15 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=dev-java/jsr305:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=dev-java/jsr305:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=A high performance caching library
 EAPI=8
 HOMEPAGE=https://github.com/ben-manes/caffeine
 INHERIT=java-pkg-2 java-pkg-simple
-IUSE=doc source test
+IUSE=doc source
 KEYWORDS=amd64 ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=dev-java/jsr305:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://repo1.maven.org/maven2/com/github/ben-manes/caffeine/caffeine/2.6.2/caffeine-2.6.2-sources.jar
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9
-_md5_=5fd662d8bae432ce177ccc3477755d61
+_md5_=57e91096dd5bff9c71dc16ed29177e6c
