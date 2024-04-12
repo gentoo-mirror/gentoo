@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 systemd optfeature
 
-COMMIT="58080ddb4868ca5bab571f518bb8fcc605b51cf5"
+COMMIT="a76f90d60e95883c360ddc1dfcf108e359bc0a78"
 
 DESCRIPTION="Tools for ovmf/armvirt firmware volumes"
 HOMEPAGE="
@@ -25,14 +25,10 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 RDEPEND="
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/pefile[${PYTHON_USEDEP}]
-	|| (
-		sys-apps/systemd[boot(-)]
-		sys-apps/systemd-utils[boot(-)]
-	)
-" # We need bootctl from systemd(-utils)
+"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-24.2-dont-force-shim.patch"
+	"${FILESDIR}/${PN}-24.2_p20240402-expand-shim-search.patch"
 )
 
 distutils_enable_tests unittest
@@ -49,7 +45,7 @@ python_install_all() {
 	doinitd "${FILESDIR}/kernel-bootcfg-boot-successful"
 	systemd_dounit systemd/kernel-bootcfg-boot-successful.service
 
-	# Use our own provided by sys-kernel/installkernel[efistub] instead
+	# Use our own provided by sys-kernel/installkernel[efistub,systemd]
 	#exeinto /usr/lib/kernel/install.d
 	#doexe systemd/99-uki-uefi-setup.install
 }
