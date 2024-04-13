@@ -1,21 +1,25 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit distutils-r1 systemd
 
+MY_P=${P^}
 DESCRIPTION="A simple CalDAV calendar server"
 HOMEPAGE="https://radicale.org/"
-SRC_URI="https://github.com/Kozea/Radicale/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/Kozea/Radicale/archive/refs/tags/v${PV}.tar.gz
+		-> ${MY_P}.gh.tar.gz
+"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-
-MY_P="Radicale-${PV}"
 
 RDEPEND="
 	>=acct-user/radicale-0-r2
@@ -30,27 +34,20 @@ RDEPEND="
 "
 
 BDEPEND="
-	${RDEPEND}
 	test? (
+		<dev-python/pytest-8[${PYTHON_USEDEP}]
 		dev-python/waitress[${PYTHON_USEDEP}]
 	)
 "
 
-distutils_enable_tests --install pytest
-
-S="${WORKDIR}/${MY_P}"
+distutils_enable_tests pytest
 
 RDIR=/var/lib/"${PN}"
 
 DOCS=( DOCUMENTATION.md CHANGELOG.md )
 
-src_prepare() {
-	sed -i '/^addopts =/d' setup.cfg || die
-	distutils-r1_src_prepare
-}
-
 python_test() {
-	epytest radicale/tests/
+	epytest -o addopts= radicale/tests/
 }
 
 python_install_all() {
