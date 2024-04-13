@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,4 @@ S="${WORKDIR}/BLAKE3-${PV}/c"
 
 LICENSE="|| ( CC0-1.0 Apache-2.0 )"
 SLOT="0/0"
-KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
-
-RDEPEND=""
-DEPEND="${RDEPEND}"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~sparc ~x86"
