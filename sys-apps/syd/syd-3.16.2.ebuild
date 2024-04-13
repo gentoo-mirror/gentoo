@@ -13,7 +13,7 @@ CRATES="
 	aho-corasick@1.1.3
 	anes@0.1.6
 	anstyle@1.0.6
-	anyhow@1.0.81
+	anyhow@1.0.82
 	argv@0.1.11
 	autocfg@1.2.0
 	backtrace@0.3.71
@@ -22,7 +22,7 @@ CRATES="
 	bstr@1.9.1
 	byteorder@1.5.0
 	cast@0.3.0
-	cc@1.0.90
+	cc@1.0.92
 	cfg-if@1.0.0
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
@@ -60,11 +60,11 @@ CRATES="
 	futures-task@0.3.30
 	futures-util@0.3.30
 	getargs@0.5.0
-	getrandom@0.2.12
+	getrandom@0.2.14
 	getset@0.1.2
 	gimli@0.28.1
 	globset@0.4.14
-	half@2.4.0
+	half@2.4.1
 	hashbrown@0.14.3
 	heck@0.4.1
 	hermit-abi@0.3.9
@@ -78,6 +78,7 @@ CRATES="
 	itertools@0.10.5
 	itoa@1.0.11
 	lazy_static@1.4.0
+	lexis@0.2.2
 	libc@0.2.153
 	libloading@0.8.3
 	libm@0.2.8
@@ -118,7 +119,7 @@ CRATES="
 	proc-macro2@1.0.79
 	procfs@0.15.1
 	proptest@1.4.0
-	quote@1.0.35
+	quote@1.0.36
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
@@ -139,7 +140,7 @@ CRATES="
 	rustc-demangle@0.1.23
 	rustix@0.36.17
 	rustix@0.38.32
-	rustversion@1.0.14
+	rustversion@1.0.15
 	rusty_pool@0.7.0
 	ryu@1.0.17
 	same-file@1.0.6
