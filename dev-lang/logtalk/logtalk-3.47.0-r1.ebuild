@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit xdg-utils
+inherit xdg
 
 DESCRIPTION="Open source object-oriented logic programming language"
 HOMEPAGE="https://logtalk.org"
@@ -14,8 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="fop xslt"
 
-DEPEND=""
-RDEPEND="${DEPEND}
+RDEPEND="
 	xslt? ( dev-libs/libxslt )
 	fop? ( dev-java/fop )"
 
@@ -26,7 +25,7 @@ PATCHES=(
 src_install() {
 	# Look at scripts/install.sh for upstream installation process.
 	# Install logtalk base
-	mv scripts/logtalk_user_setup.sh integration/
+	mv scripts/logtalk_user_setup.sh integration/ || die
 	mkdir -p "${ED}/usr/share/${P}" || die
 	cp -r adapters coding contributions core docs examples integration \
 		library manuals paths scratch tests tools VERSION.txt \
@@ -44,8 +43,8 @@ src_install() {
 		CUSTOMIZE.md INSTALL.md LICENSE.txt QUICK_START.md \
 		README.md RELEASE_NOTES.md UPGRADING.md VERSION.txt
 
-	rm -f man/man1/logtalk_backend_select.1
-	rm -f man/man1/logtalk_version_select.1
+	rm -f man/man1/logtalk_backend_select.1 || die
+	rm -f man/man1/logtalk_version_select.1 || die
 	doman man/man1/*.1
 
 	# Integration symlinks
@@ -99,8 +98,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
+	xdg_pkg_postinst
 
 	ewarn "The following integration scripts are installed"
 	ewarn "for running logtalk with selected Prolog compilers:"
@@ -126,9 +124,4 @@ pkg_postinst() {
 	ewarn "Please run 'etc-update && source /etc/profile' to update"
 	ewarn "the environment now, otherwise it will be updated at next"
 	ewarn "login."
-}
-
-pkg_postrm() {
-	xdg_mimeinfo_database_update
-	xdg_desktop_database_update
 }
