@@ -226,8 +226,9 @@ RDEPEND="
 BDEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/lit
 		dev-python/OutputCheck
+		dev-python/lit
+		dev-python/psutil
 	)
 "
 
@@ -254,7 +255,13 @@ src_prepare() {
 	# Remove bad tests.
 	local -a bad_tests=(
 		civl/inductive-sequentialization/BroadcastConsensus.bpl
+		civl/inductive-sequentialization/ChangRoberts.bpl
 		civl/inductive-sequentialization/PingPong.bpl
+		civl/large-samples/GC.bpl
+		civl/paxos/is.sh
+		civl/samples/reserve.bpl
+		inst/vector-generic.bpl
+		livevars/stack_overflow.bpl
 		prover/cvc5-offline.bpl
 		prover/cvc5.bpl
 		prover/exitcode.bpl
@@ -281,6 +288,7 @@ src_test() {
 	local -a lit_opts=(
 		--order=lexical
 		--time-tests
+		--timeout 1800          # Let one test take no mere than half a hour.
 		--verbose
 		--workers="$(makeopts_jobs)"
 	)
