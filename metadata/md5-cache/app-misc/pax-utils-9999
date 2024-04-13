@@ -1,16 +1,16 @@
-BDEPEND=caps? ( virtual/pkgconfig ) man? ( app-text/xmlto ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=caps? ( virtual/pkgconfig ) man? ( app-text/xmlto ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pyelftools[python_targets_python3_12(-)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
-DEPEND=caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) )
+DEPEND=caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pyelftools[python_targets_python3_12(-)] ) )
 DESCRIPTION=ELF utils that can check files for security relevant properties
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Hardened/PaX_Utilities
 INHERIT=meson python-single-r1 git-r3
-IUSE=caps +man python seccomp test python_single_target_python3_10 python_single_target_python3_11
+IUSE=caps +man python seccomp test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) ) test? ( python )
+RDEPEND=caps? ( >=sys-libs/libcap-2.24 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pyelftools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pyelftools[python_targets_python3_12(-)] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ) test? ( python )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	meson	92696988eaddba122c4cedc191f59bcb	python-single-r1	75118e916668a74c660a13b0ecb22562	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=2bdac1fcd458e575d2bd2ce94c8b676c
+_md5_=772c7fff177db9510230d161b085cca6
