@@ -263,75 +263,6 @@ dev-ruby/atomic
 # https://github.com/containers/buildah/issues/5320
 =app-containers/buildah-1.34.0
 
-# Eli Schwartz <eschwartz93@gmail.com> (2024-03-14)
-# Deprecated, doesn't work with python 3.12. Unmaintained with last
-# serious release in 2019, and another release in 2024 that claims
-# to support python 3.12 but fails tests if you actually do. No
-# route to making it work with python 3.13 at all, and upstream
-# explicitly states that future "like Python 2, is now done". The
-# package is entirely redundant to packages not supporting python
-# 2 anymore, and the ones that do support it should be using
-# dev-python/six instead, anyways.  Bug #888271
-# Removal on 2024-04-13.
-dev-python/future
-
-# Alfredo Tupone <tupone@gentoo.org> (2024-03-12)
-# Not more needed, >=sci-visualization/dash-2.11 provide
-# direct integration with jupyter nodebook
-# Removal on 2024-04-11.
-sci-visualization/jupyter-dash
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-03-12)
-# Unused java libraries. Removal on 2024-04-11.
-dev-java/ant-eclipse-ecj
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-03-10)
-# Unused java libraries. The ant tasks are now provided by dev-java/ant.
-# Removal on 2024-04-09.
-dev-java/ant-apache-regexp
-dev-java/ant-apache-log4j
-dev-java/ant-apache-xalan2
-dev-java/ant-commons-logging
-dev-java/ant-swing
-dev-java/ant-junit4
-dev-java/ant-testutil
-dev-java/ant-junitlauncher
-dev-java/ant-jai
-dev-java/ant-commons-net
-dev-java/ant-apache-bsf
-dev-java/ant-jmf
-dev-java/ant-apache-oro
-dev-java/ant-javamail
-dev-java/ant-junit
-dev-java/ant-jdepend
-dev-java/ant-antlr
-dev-java/ant-apache-bcel
-dev-java/ant-apache-resolver
-dev-java/ant-jsch
-dev-java/ant-xz
-dev-java/gnu-jaf
-dev-java/failureaccess
-
-# Michał Górny <mgorny@gentoo.org> (2024-03-10)
-# Packages that still require <dev-python/cython-3 and do not promise
-# a fix anytime soon.
-#
-# dev-python/python-efl: econnman as revdep, bug #925692.
-# dev-python/pygame_sdl2: also py3.12, bug #911781
-# games-engines/renpy: also py3.12, bug #925693
-# sci-chemistry/mdtraj: also py3.12, PEP517, bug #911646.
-#
-# Includes their few reverse dependencies and their exclusive
-# dependencies without Python 3.12 support.
-#
-# Removal on 2024-04-09.
-dev-python/astunparse
-dev-python/pygame_sdl2
-dev-python/python-efl
-games-engines/renpy
-net-misc/econnman
-sci-chemistry/mdtraj
-
 # Eray Aslan <eras@gentoo.org> (2024-03-10)
 # Mask experimental software
 =mail-mta/postfix-3.10*
@@ -745,12 +676,6 @@ sci-chemistry/mdtraj
 # Test failure in watchpoints.dem, undefined function FresnelC.
 ~sci-visualization/gnuplot-6.0.0
 
-# Michał Górny <mgorny@gentoo.org> (2024-02-07)
-# Does not build anymore.  Carries a large stack of patches already.
-# Last upstream activity in late 2020.  No reverse dependencies left.
-# Removal on 2024-03-08.  Bug #806079.
-sys-libs/libhugetlbfs
-
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-01-24)
 # app-misc/ddcutil-2.1.0 causes core-dump crashes in
 # kde-plasma/powerdevil[brightness-control].
@@ -840,19 +765,6 @@ sys-libs/libhugetlbfs
 # Sam James <sam@gentoo.org> (2023-10-06)
 # Breaks building scipy: https://github.com/cython/cython/issues/5748
 =dev-python/cython-3.0.3
-
-# Jaco Kroon <jaco@uls.co.za> (2023-09-19)
-# Joonas Niilola <juippis@gentoo.org> (2023-09-21)
-# DAHDI is not suited for a rolling-release distribution. Upstream releases new
-# versions sporadically and it may take multiple years between them. Old
-# versions are constantly broken with newer kernels, requiring heavy patching
-# downstream. Has no active maintainer in Gentoo. If you use DAHDI and have
-# some ideas how to help, please see bug #914477.
-# Removal on 2024-03-01.
-net-libs/libpri
-net-misc/dahdi
-net-misc/dahdi-tools
-net-misc/openr2
 
 # Sam James <sam@gentoo.org> (2023-09-09)
 # OpenSSL 1.1.x is EOL on 2023-09-11. Please upgrade immediately to >= OpenSSL 3.
