@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( || ( dev-lang/python:3.11[xml(+)] dev-lang/python:3.10[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv ) verify-sig? ( sec-keys/openpgp-keys-dwmw2 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=virtual/pkgconfig doc? ( || ( dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] dev-lang/python:3.10[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv ) verify-sig? ( sec-keys/openpgp-keys-dwmw2 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare pretend setup test unpack
 DEPEND=dev-libs/json-parser:0= dev-libs/libxml2 sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc(+)] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) test? ( net-libs/socket_wrapper sys-libs/uid_wrapper !gnutls? ( dev-libs/openssl:0[weak-ssl-ciphers(-)] ) )
 DESCRIPTION=Free client for Cisco AnyConnect SSL VPN software
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz verify-sig? ( https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz.asc )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	7ca3057b277f1e5978947b4cc289ce62	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-any-r1	f5169813d1619761b459800587005fd2	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=fd40cd0d7d9accfd14dc0f1648ffdedd
+_md5_=b88edc75ccdb2747edeb8dbe3bfa44e2
