@@ -1,7 +1,7 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] ) ( dev-python/pypy3 dev-python/pytest[python_targets_pypy3(-)] ) ) )
-DEFINED_PHASES=configure install setup
+BDEPEND=test? ( || ( ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] ) ( dev-python/pypy3 dev-python/pytest[python_targets_pypy3(-)] ) ) )
+DEFINED_PHASES=configure install setup test
 DESCRIPTION=Python script wrapper
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/projg2/python-exec/
 INHERIT=python-any-r1
 IUSE=python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 +native-symlinks test
@@ -11,5 +11,5 @@ RDEPEND=dev-lang/python-exec-conf !<=dev-lang/python-2.7.18-r3:2.7
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://github.com/projg2/python-exec/releases/download/v2.4.10/python-exec-2.4.10.tar.bz2
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=feca7458347f585c0afcd58fc0024609
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=48e54099198bd3f91995846086cdbc84
