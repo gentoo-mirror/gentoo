@@ -21,8 +21,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_X11=$(usex X)

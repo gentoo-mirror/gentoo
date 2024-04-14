@@ -19,6 +19,7 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,xml]
 	=kde-frameworks/karchive-${PVCUT}*:6
+	=kde-frameworks/kcodecs-${PVCUT}*:6
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	=kde-frameworks/ki18n-${PVCUT}*:6
 	epub? ( app-text/ebook-tools )

@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PATCHSET="${P}-patchset"
 ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="optional"
 ECM_HANDBOOK_DIR="docs"
@@ -13,7 +12,6 @@ QTMIN=6.6.2
 inherit ecm frameworks.kde.org xdg-utils
 
 DESCRIPTION="Framework providing transparent file and data management"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64"
@@ -71,8 +69,6 @@ RDEPEND="${COMMON_DEPEND}
 	sys-power/switcheroo-control
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:6"
-
-PATCHES=( "${WORKDIR}/${PATCHSET}" )
 
 src_configure() {
 	local mycmakeargs=(

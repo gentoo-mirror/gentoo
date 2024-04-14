@@ -11,28 +11,15 @@ DESCRIPTION="Framework providing assorted widgets for showing the progress of jo
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64"
-IUSE="X"
+IUSE=""
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
+# ...by automagic: #if __has_include(<private/qtx11extras_p.h>)
 RDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	=kde-frameworks/knotifications-${PVCUT}*:6
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:6
-	X? ( >=dev-qt/qtbase-${QTMIN}:6=[gui] )
 "
-DEPEND="${RDEPEND}
-	X? (
-		x11-base/xorg-proto
-		x11-libs/libX11
-	)
-"
+DEPEND="${RDEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
-
-src_configure() {
-	local mycmakeargs=(
-		$(cmake_use_find_package X X11)
-	)
-
-	ecm_src_configure
-}

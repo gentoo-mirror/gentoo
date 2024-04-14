@@ -15,6 +15,7 @@ LICENSE="MIT"
 KEYWORDS="~amd64"
 IUSE="doc"
 
+# FIXME: Qt_6_PRIVATE_API matches UserFeedbackConsole, but where is it coming from?
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtcharts-${QTMIN}:6
