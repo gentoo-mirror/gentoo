@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,7 @@ HOMEPAGE="https://www.radare.org"
 
 ARM64_COMMIT=55d73c6bbb94448a5c615933179e73ac618cf876
 ARMV7_COMMIT=f270a6cc99644cb8e76055b6fa632b25abd26024
-BINS_COMMIT=fbb0059b0a120fbb31d378affd8b47d0996f9676
-CAPSTONE_VER=4.0.2
+BINS_COMMIT=32e2480e3b7b6959cd1ba483a200c792b4cb9236
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -20,7 +19,6 @@ else
 	SRC_URI="mirror+https://github.com/radareorg/radare2/archive/${PV}.tar.gz -> ${P}.tar.gz
 		mirror+https://github.com/radareorg/vector35-arch-arm64/archive/${ARM64_COMMIT}.tar.gz -> ${P}-vector35-arm64.tar.gz
 		mirror+https://github.com/radareorg/vector35-arch-armv7/archive/${ARMV7_COMMIT}.tar.gz -> ${P}-vector35-armv7.tar.gz
-		mirror+https://codeload.github.com/capstone-engine/capstone/tar.gz/${CAPSTONE_VER} -> ${P}-capstone-${CAPSTONE_VER}.tar.gz
 		test? ( https://github.com/radareorg/radare2-testbins/archive/${BINS_COMMIT}.tar.gz -> radare2-testbins-${BINS_COMMIT}.tar.gz )
 	"
 
@@ -35,6 +33,7 @@ IUSE="ssl test"
 RESTRICT="fetch !test? ( test )"
 
 RDEPEND="
+	>=dev-libs/capstone-5.0_rc4:=
 	dev-libs/libzip:=
 	dev-libs/xxhash
 	sys-apps/file
@@ -49,14 +48,10 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.8.2-vector35.patch"
-	# Maybe temporary, https://bugs.gentoo.org/891805
-	"${FILESDIR}/${PN}-5.8.2-bundled-capstone.patch"
 )
 
 src_prepare() {
 	default
-
-	mv "${WORKDIR}/capstone-${CAPSTONE_VER}" shlr/capstone || die
 
 	# Hack for vector35 arm plugins
 	mv "${WORKDIR}/vector35-arch-arm64-${ARM64_COMMIT}" libr/arch/p/arm/v35/arch-arm64 || die
@@ -79,6 +74,7 @@ src_configure() {
 
 	econf \
 		--without-libuv \
+		--with-syscapstone \
 		--with-sysmagic \
 		--with-sysxxhash \
 		--with-syszip \
