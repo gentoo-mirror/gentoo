@@ -1969,7 +1969,7 @@ app-emacs/eldev 1.8.2 1.9 1.9.1 9999: Emacs Lisp Development Tool
 app-emacs/elfeed 3.4.1_p20210822: Emacs web feeds client
 app-emacs/elfeed-protocol 0.9.0 0.9.1: Provide extra news client subscription protocols for elfeed
 app-emacs/elixir-mode 2.4.1 2.5.0: Emacs major mode for editing Elixir files
-app-emacs/elpa-mirror 2.2.2: Create local package repository from installed Emacs Lisp packages
+app-emacs/elpa-mirror 2.2.2 2.3.0: Create local package repository from installed Emacs Lisp packages
 app-emacs/elpher 3.5.1 3.6.0 9999: Practical and friendly Gopher and Gemini client for GNU Emacs
 app-emacs/elpy 1.35.0_p20220627-r1: Emacs Python Development Environment
 app-emacs/elscreen 20180321: Frame configuration management for GNU Emacs modelled after GNU Screen
@@ -2048,7 +2048,7 @@ app-emacs/gruvbox-theme 1.30.1-r1 9999: Gruvbox is a retro groove color scheme, 
 app-emacs/h4x0r 0.13-r1: Aid in writing like a script kiddie does
 app-emacs/haskell-mode 17.4 17.5 9999: Mode for editing (and running) Haskell programs in Emacs
 app-emacs/haxe-mode 0.3.3: Major mode for editing Haxe files
-app-emacs/helm 3.9.7: Emacs incremental completion and selection narrowing framework
+app-emacs/helm 3.9.7 3.9.8: Emacs incremental completion and selection narrowing framework
 app-emacs/helm-system-packages 1.10.1 1.10.2: A Helm interface to the package manager of your operating system
 app-emacs/hexrgb 0_p1019: Functions to manipulate colors, including RGB hex strings
 app-emacs/highlight-indentation 0.7.0_p20210221: Minor modes to highlight indentation guides in Emacs
@@ -4030,10 +4030,10 @@ dev-dotnet/csharp-gentoodotnetinfo 1.1.1-r1: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.11.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.6: A command line C# REPL with syntax highlighting
 dev-dotnet/dotnet-outdated 4.6.0: Display and update outdated NuGet packages in a project
-dev-dotnet/dotnet-runtime-nugets 6.0.24-r1 6.0.25-r1 6.0.26-r1 6.0.27-r1 6.0.28-r1 7.0.13-r1 7.0.14-r1 7.0.15-r1 7.0.16-r1 7.0.17-r1 8.0.1-r2 8.0.2-r2 8.0.3-r1: .NET runtime nugets
+dev-dotnet/dotnet-runtime-nugets 6.0.24-r1 6.0.25-r1 6.0.27-r1 6.0.28-r1 7.0.13-r1 7.0.14-r1 7.0.16-r1 7.0.17-r1 8.0.2-r2 8.0.3-r1: .NET runtime nugets
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
-dev-dotnet/dotnet-sdk 8.0.101 8.0.102: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.101-r3 8.0.201 8.0.202 8.0.203: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk 8.0.102: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.201 8.0.202 8.0.203: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.12.0 4.14.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 6.2.3 6.3.1: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.69.0: F# language server using the Language Server Protocol
@@ -15407,7 +15407,7 @@ net-misc/you-get 0.4.1650: Utility to download media contents from the web
 net-misc/youtube-viewer 3.10.1 9999: A command line utility for viewing youtube-videos in Mplayer
 net-misc/yt-dlp 2024.03.10 2024.04.09 9999: youtube-dl fork with additional features and fixes
 net-misc/ytfzf 2.6.2: Posix script to find and watch youtube videos from the terminal
-net-misc/ytmdl 2023.11.26-r1: Simple app to get songs from youtube in mp3 format
+net-misc/ytmdl 2023.11.26-r1 2024.04.14: Simple app to get songs from youtube in mp3 format
 net-misc/zerotier 1.10.1 1.10.6 1.12.2: A software-based managed Ethernet switch for planet Earth
 net-misc/zssh 1.5c-r2: SSH wrapper enabling zmodem up/download in ssh
 net-misc/zsync 0.6.2-r2 0.6.2-r3: Partial/differential file download client over HTTP using the rsync algorithm
@@ -17641,7 +17641,7 @@ sys-kernel/genkernel 4.3.2-r1 4.3.3 4.3.5 4.3.5-r1 4.3.6 4.3.7 4.3.8 4.3.10 9999
 sys-kernel/gentoo-kernel 5.10.212 5.10.214 5.10.215 5.15.151 5.15.154 5.15.155 6.1.81 6.1.85 6.1.86 6.6.21 6.6.26 6.6.26-r1 6.6.27 6.8.5 6.8.6: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.212 5.10.214 5.10.215 5.15.151 5.15.154 5.15.155 6.1.81 6.1.85 6.1.86 6.6.21 6.6.26 6.6.26-r1 6.6.27 6.8.5 6.8.6: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.208 5.10.212 5.10.213 5.10.214 5.10.215 5.15.147 5.15.151 5.15.152 5.15.153 5.15.154 5.15.155 6.1.74 6.1.81 6.1.83 6.1.84 6.1.85 6.1.86 6.6.13 6.6.21 6.6.24 6.6.25 6.6.26 6.6.26-r1 6.6.27 6.8.3 6.8.4 6.8.5 6.8.5-r1 6.8.6: Full sources including the Gentoo patchset for the 6.8 kernel tree
-sys-kernel/git-sources 6.9_rc1 6.9_rc2 6.9_rc3: The very latest -git version of the Linux kernel
+sys-kernel/git-sources 6.9_rc1 6.9_rc2 6.9_rc3 6.9_rc4: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 28 36: Gentoo fork of installkernel script from debianutils
 sys-kernel/kergen 0.1.5-r1: Kernel config generator
 sys-kernel/kpatch 0.9.7 0.9.8 9999: Dynamic kernel patching for Linux
@@ -18575,7 +18575,7 @@ x11-misc/rss-glx 0.9.1-r3: Really Slick OpenGL Screensavers for XScreenSaver
 x11-misc/safeeyes 2.1.6 2.1.6-r1 2.1.6-r2 2.1.6-r3: Linux alternative to EyeLeo
 x11-misc/screen-message 0.26 0.28: Display a multi-line message large, fullscreen, black on white
 x11-misc/screengrab 2.6.0 2.7.0: Qt GUI Screenshot Utility
-x11-misc/screenkey 1.5_p20230109 9999: A screencast tool to display your keys inspired by Screenflick
+x11-misc/screenkey 1.5_p20230109-r1 9999: A screencast tool to display your keys inspired by Screenflick
 x11-misc/sct 0.5-r1: Set color temperature of the screen
 x11-misc/sddm 0.18.1-r8 0.21.0: Simple Desktop Display Manager
 x11-misc/seetxt 0.72-r1: Clever, lightweight GUI text file and manual page viewer for X windows
