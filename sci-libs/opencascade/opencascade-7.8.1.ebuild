@@ -10,12 +10,11 @@ HOMEPAGE="https://www.opencascade.com"
 
 MY_PN="OCCT"
 
-MY_TEST_PV="7.7.0"
+MY_TEST_PV="7.8.0"
 MY_TEST_PV2="${MY_TEST_PV//./_}"
 
 SRC_URI="
-	test? ( https://github.com/Open-Cascade-SAS/${MY_PN}/releases/download/V${MY_TEST_PV2}/${PN}-dataset-${MY_TEST_PV}.tgz
-		-> ${PN}-dataset-${MY_TEST_PV}.tar.gz )
+	test? ( https://github.com/Open-Cascade-SAS/${MY_PN}/releases/download/V${MY_TEST_PV2}/${PN}-dataset-${MY_TEST_PV}.tar.xz )
 "
 
 if [[ ${PV} = *9999* ]] ; then
@@ -32,12 +31,11 @@ fi
 
 LICENSE="|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="X debug doc examples ffmpeg freeimage freetype gles2-only gui json +opengl optimize tbb test testprograms tk vtk"
+IUSE="X debug doc examples ffmpeg freeimage freetype gles2-only inspector jemalloc json +opengl optimize tbb test testprograms tk vtk"
 
 REQUIRED_USE="
 	?? ( optimize tbb )
 	?? ( opengl gles2-only )
-	examples? ( gui )
 	test? ( freeimage json opengl )
 "
 
@@ -59,7 +57,7 @@ RDEPEND="
 	X? (
 		x11-libs/libX11
 	)
-	gui? (
+	examples? (
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5
 		dev-qt/qtquickcontrols2:5
@@ -68,8 +66,17 @@ RDEPEND="
 	)
 	ffmpeg? ( <media-video/ffmpeg-5:= )
 	freeimage? ( media-libs/freeimage )
+	inspector? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtquickcontrols2:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtxml:5
+	)
+	jemalloc? ( dev-libs/jemalloc )
 	tbb? ( dev-cpp/tbb:= )
 	vtk? (
+		dev-lang/tk:=
 		sci-libs/vtk:=[rendering]
 		tbb? (
 			sci-libs/vtk:=[tbb,-cuda]
@@ -83,7 +90,7 @@ DEPEND="
 "
 BDEPEND="
 	doc? ( app-text/doxygen[dot] )
-	gui? (
+	inspector? (
 		dev-qt/linguist-tools:5
 	)
 	test? ( dev-tcltk/thread )
@@ -97,8 +104,11 @@ PATCHES=(
 	"${FILESDIR}/${PN}-7.7.0-build-against-vtk-9.2.patch"
 	"${FILESDIR}/${PN}-7.7.0-musl.patch"
 	"${FILESDIR}/${PN}-7.7.0-tbb-detection.patch"
+	"${FILESDIR}/${PN}-7.7.0-jemalloc-lib-type.patch"
 	"${FILESDIR}/${PN}-7.8.0-cmake-min-version.patch"
 	"${FILESDIR}/${PN}-7.8.0-tests.patch"
+	"${FILESDIR}/${PN}-7.8.0-jemalloc-noexcept.patch"
+	"${FILESDIR}/${PN}-7.8.1-vtk_components.patch"
 )
 
 src_unpack() {
@@ -113,7 +123,7 @@ src_unpack() {
 		pushd "${WORKDIR}/data" > /dev/null || die
 		# should be in paths indicated by CSF_TestDataPath environment variable,
 		# or in subfolder data in the script directory
-		unpack "${PN}-dataset-${MY_TEST_PV}.tar.gz"
+		unpack "${PN}-dataset-${MY_TEST_PV}.tar.xz"
 		popd > /dev/null || die
 	fi
 }
@@ -144,7 +154,7 @@ src_configure() {
 		-DBUILD_SOVERSION_NUMBERS=2
 
 		-DBUILD_DOC_Overview="$(usex doc)"
-		-DBUILD_Inspector="$(usex gui)"
+		-DBUILD_Inspector="$(usex inspector)"
 
 		-DBUILD_ENABLE_FPE_SIGNAL_HANDLER="$(usex debug)"
 		-DBUILD_USE_PCH="no"
@@ -181,12 +191,25 @@ src_configure() {
 		# no package in tree
 		-DUSE_OPENVR="no"
 		-DUSE_RAPIDJSON="$(usex json)"
-		-DUSE_QT="$(usex gui)"
 		-DUSE_TBB="$(usex tbb)"
 		-DUSE_TK="$(usex tk)"
 		-DUSE_VTK="$(usex vtk)"
 		-DUSE_XLIB="$(usex X)"
 	)
+
+	# Select using memory manager tool.
+	if ! use jemalloc && ! use tbb; then
+		mycmakeargs+=( -DUSE_MMGR_TYPE=NATIVE )
+	elif use jemalloc && ! use tbb; then
+		mycmakeargs+=(
+			-DUSE_MMGR_TYPE=JEMALLOC
+			-D3RDPARTY_JEMALLOC_INCLUDE_DIR="${ESYSROOT}/usr/include/jemalloc"
+		)
+	elif ! use jemalloc && use tbb; then
+		mycmakeargs+=( -DUSE_MMGR_TYPE=TBB )
+	elif use jemalloc && use tbb; then
+		mycmakeargs+=( -DUSE_MMGR_TYPE=FLEXIBLE )
+	fi
 
 	if use doc; then
 		mycmakeargs+=(
@@ -195,14 +218,10 @@ src_configure() {
 		)
 	fi
 
-	if use gui; then
+	if use examples || use inspector; then
 		mycmakeargs+=(
 			-D3RDPARTY_QT_DIR="${ESYSROOT}/usr"
 			-DBUILD_SAMPLES_QT="$(usex examples)"
-		)
-	else
-		mycmakeargs+=(
-			-DCMAKE_DISABLE_FIND_PACKAGE_Qt5="yes"
 		)
 	fi
 
@@ -287,9 +306,6 @@ src_test() {
 			'opengl background bug27836'
 			'opengl drivers opengles'
 			'opengles3'
-
-			'offset wire_closed_inside_0_005 D1'
-			'offset wire_unclosed_outside_0_025 A1'
 
 			'demo draw bug30430'
 		)
