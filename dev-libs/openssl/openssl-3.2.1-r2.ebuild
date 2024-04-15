@@ -17,19 +17,25 @@ if [[ ${PV} == 9999 ]] ; then
 
 	inherit git-r3
 else
-	SRC_URI="mirror://openssl/source/${MY_P}.tar.gz
-		verify-sig? ( mirror://openssl/source/${MY_P}.tar.gz.asc )"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	SRC_URI="
+		mirror://openssl/source/${MY_P}.tar.gz
+		verify-sig? ( mirror://openssl/source/${MY_P}.tar.gz.asc )
+	"
+
+	if [[ ${PV} != *_alpha* && ${PV} != *_beta* ]] ; then
+		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	fi
 fi
 
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="Apache-2.0"
-SLOT="0/3" # .so version of libssl/libcrypto
+SLOT="0/$(ver_cut 1)" # .so version of libssl/libcrypto
 IUSE="+asm cpu_flags_x86_sse2 fips ktls rfc3779 sctp static-libs test tls-compression vanilla verify-sig weak-ssl-ciphers"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
+	!<net-misc/openssh-9.2_p1-r3
 	tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,${MULTILIB_USEDEP}] )
 "
 BDEPEND="
@@ -48,6 +54,13 @@ PDEPEND="app-misc/ca-certificates"
 
 MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/openssl/configuration.h
+)
+
+PATCHES=(
+	"${FILESDIR}"/${P}-p11-segfault.patch
+	# bug 923956 (drop on next version bump)
+	"${FILESDIR}"/${P}-riscv.patch
+	"${FILESDIR}"/${P}-CVE-2024-2511.patch
 )
 
 pkg_setup() {
@@ -136,8 +149,8 @@ src_configure() {
 
 	append-flags $(test-flags-CC -Wa,--noexecstack)
 
-	# bug #895308
-	append-atomic-flags
+	# bug #895308 -- check inserts GNU ld-compatible arguments
+	[[ ${CHOST} == *-darwin* ]] || append-atomic-flags
 	# Configure doesn't respect LIBS
 	export LDLIBS="${LIBS}"
 
@@ -216,9 +229,15 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
+	# See https://github.com/openssl/openssl/blob/master/test/README.md for options.
+	#
 	# VFP = show subtests verbosely and show failed tests verbosely
 	# Normal V=1 would show everything verbosely but this slows things down.
-	emake HARNESS_JOBS="$(makeopts_jobs)" -Onone VFP=1 test
+	#
+	# -j1 here for https://github.com/openssl/openssl/issues/21999, but it
+	# shouldn't matter as tests were already built earlier, and HARNESS_JOBS
+	# controls running the tests.
+	emake -Onone -j1 HARNESS_JOBS="$(makeopts_jobs)" VFP=1 test
 }
 
 multilib_src_install() {
