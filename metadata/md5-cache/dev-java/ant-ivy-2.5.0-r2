@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=dev-java/ant-1.10.14-r3:0 dev-java/bcpg:0 dev-java/bcprov:0 dev-java/httpcomponents-client dev-java/commons-vfs:2 dev-java/httpcore:0 dev-java/jakarta-oro:2.0 dev-java/jsch:0 dev-java/jsch-agent-proxy:0 test? ( >=dev-java/ant-1.10.14-r3:0[junit,junit4,junitlauncher,testutil] dev-java/hamcrest-core:1.3 dev-java/hamcrest-library:1.3 dev-java/xmlunit:1 ) virtual/jdk:1.8 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Ivy is a free java based dependency manager
+EAPI=8
+HOMEPAGE=https://ant.apache.org/ivy/
+INHERIT=java-pkg-2 java-pkg-simple java-osgi
+IUSE=doc source test
+KEYWORDS=amd64 ppc64 x86
+LICENSE=Apache-2.0
+PROPERTIES=test_network
+RDEPEND=>=dev-java/ant-1.10.14-r3:0 dev-java/bcpg:0 dev-java/bcprov:0 dev-java/httpcomponents-client dev-java/commons-vfs:2 dev-java/httpcore:0 dev-java/jakarta-oro:2.0 dev-java/jsch:0 dev-java/jsch-agent-proxy:0 test? ( >=dev-java/ant-1.10.14-r3:0[junit,junit4,junitlauncher,testutil] dev-java/hamcrest-core:1.3 dev-java/hamcrest-library:1.3 dev-java/xmlunit:1 ) virtual/jre:1.8 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=2
+SRC_URI=https://archive.apache.org/dist/ant/ivy/2.5.0/apache-ivy-2.5.0-src.tar.gz
+_eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9	java-osgi	c82db640aeccac34f009e90c7bb10a81
+_md5_=98beb35c28526a841061d16f2341e735
