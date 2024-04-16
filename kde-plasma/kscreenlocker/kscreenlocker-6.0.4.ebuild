@@ -58,8 +58,6 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
-PATCHES=( "${FILESDIR}/${P}-fix-lockscreen-race.patch" )
-
 src_prepare() {
 	ecm_src_prepare
 	use test || cmake_run_in greeter cmake_comment_add_subdirectory autotests
