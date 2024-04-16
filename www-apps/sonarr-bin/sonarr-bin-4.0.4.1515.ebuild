@@ -11,23 +11,23 @@ HOMEPAGE="https://www.sonarr.tv"
 SRC_URI="
 	amd64? (
 		elibc_glibc? (
-			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.main.${PV}.linux-x64.tar.gz
+			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-x64.tar.gz
 		)
 		elibc_musl? (
-			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.main.${PV}.linux-musl-x64.tar.gz
+			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-musl-x64.tar.gz
 		)
 	)
 	arm? (
 		elibc_glibc? (
-			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.main.${PV}.linux-arm.tar.gz
+			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-arm.tar.gz
 		)
 	)
 	arm64? (
 		elibc_glibc? (
-			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.main.${PV}.linux-arm64.tar.gz
+			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-arm64.tar.gz
 		)
 		elibc_musl? (
-			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.main.${PV}.linux-musl-arm64.tar.gz
+			https://github.com/Sonarr/Sonarr/releases/download/v${PV}/Sonarr.develop.${PV}.linux-musl-arm64.tar.gz
 		)
 	)
 "
