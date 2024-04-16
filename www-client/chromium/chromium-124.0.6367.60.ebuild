@@ -336,7 +336,7 @@ pre_build_checks() {
 	# Check build requirements: bugs #471810, #541816, #914220
 	# We're going to start doing maths here on the size of an unpacked source tarball,
 	# this should make updates easier as chromium continues to balloon in size.
-	local BASE_DISK=18
+	local BASE_DISK=19
 	local EXTRA_DISK=1
 	local CHECKREQS_MEMORY="4G"
 	tc-is-cross-compiler && EXTRA_DISK=2
