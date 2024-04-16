@@ -34,9 +34,9 @@ DEPEND="${PYTHON_DEPS}
 	)
 	qt6? (
 		dev-python/PyQt6[gui,printsupport,widgets,${PYTHON_USEDEP}]
-		dev-qt/qtbase:6[cups,gui,widgets]
+		dev-qt/qtbase:6[gui,widgets]
 	)
-	~x11-libs/qscintilla-${PV}:=[qt5(+),qt6(+)]
+	~x11-libs/qscintilla-${PV}:=[qt5(+)?,qt6(-)?]
 "
 RDEPEND="${DEPEND}
 	qt5? ( >=dev-python/PyQt5-sip-12.9:=[${PYTHON_USEDEP}] )
