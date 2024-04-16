@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 DISTUTILS_USE_PEP517=poetry
 inherit distutils-r1 systemd
 
@@ -11,8 +11,8 @@ DESCRIPTION="New script for syncing the Greenbone Community Feed"
 HOMEPAGE="https://github.com/greenbone/greenbone-feed-sync"
 SRC_URI="https://github.com/greenbone/greenbone-feed-sync/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-SLOT="0"
 LICENSE="GPL-3+"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="cron"
 
@@ -20,13 +20,13 @@ COMMON_DEPEND="
 	acct-user/gvm
 	net-misc/rsync
 	>=net-analyzer/gvmd-22.5.0
-	dev-python/tomli[${PYTHON_USEDEP}]
+	>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	>=dev-python/rich-13.2.0[${PYTHON_USEDEP}]
-	>=dev-python/shtab-1.6.5[${PYTHON_USEDEP}]
+	>=dev-python/shtab-1.7.0[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${COMMON_DEPEND}
-	test? ( net-analyzer/pontos[${PYTHON_USEDEP}] )
+	test? ( >=net-analyzer/pontos-22.12.2[${PYTHON_USEDEP}] )
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -34,6 +34,21 @@ RDEPEND="
 "
 
 distutils_enable_tests unittest
+
+src_test() {
+	# Disable tests that require network access.
+	sed -i \
+		-e 's:test_do_not_run_as_root:_&:' \
+		-e 's:test_sync_nvts:_&:' \
+		-e 's:test_sync_nvts_quiet:_&:' \
+		-e 's:test_sync_nvts_rsync_error:_&:' \
+		-e 's:test_sync_nvts_verbose:_&:' \
+		-e 's:test_sync_nvts:_&:' \
+		-e 's:test_sync_nvts_error:_&:' \
+			tests/test_main.py || die
+
+	distutils-r1_src_test
+}
 
 python_install() {
 	distutils-r1_python_install
