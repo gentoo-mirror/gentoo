@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit cmake desktop flag-o-matic python-any-r1 toolchain-funcs xdg-utils
+inherit cmake desktop python-any-r1 toolchain-funcs xdg-utils
 
 SKIA_VER="m102"
 # Last commit in ${SKIA_VER} feature branch
@@ -18,7 +18,7 @@ SRC_URI="https://github.com/aseprite/aseprite/releases/download/v${PV}/Aseprite-
 	https://github.com/google/skia/archive/${SKIA_REV}.tar.gz -> skia-${SKIA_VER}-${SKIA_REV}.gh.tar.gz"
 
 # See https://github.com/aseprite/aseprite#license
-LICENSE="Aseprite-EULA"
+LICENSE="Aseprite-EULA MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
@@ -78,6 +78,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.2.35_laf_fixes.patch"
 	"${FILESDIR}/${PN}-1.3.2_shared_fmt.patch"
 	"${FILESDIR}/${PN}-1.3.2_strict-aliasing.patch"
+	"${FILESDIR}/${PN}-1.3.5_laf-strict-aliasing.patch"
 )
 
 src_prepare() {
@@ -96,19 +97,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=strict-aliasing, -Werror=odr, -Werror=lto-type-mismatch
-	# https://bugs.gentoo.org/924692
-	# https://github.com/aseprite/aseprite/issues/4413
-	#
-	# There is a bundled skia that fails with ODR errors. When excluding just
-	# skia from testing, aseprite itself fails with strict-aliasing, and when
-	# that is disabled, fails again with ODR and lto-type-mismatch issues.
-	#
-	# There are a lot of issues, so don't trust any fixes without thorough
-	# testing.
-	append-flags -fno-strict-aliasing
-	filter-lto
-
 	einfo "Skia configuration"
 	cd "${WORKDIR}/skia-${SKIA_REV}" || die
 
