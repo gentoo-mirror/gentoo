@@ -8,15 +8,14 @@ inherit cmake desktop optfeature python-single-r1
 
 DESCRIPTION="Shane's Chess Information Database"
 HOMEPAGE="https://scid.sourceforge.net/"
-SRC_URI="
-	mirror://sourceforge/scid/${PN}-code-${PV}.zip
-	mirror://sourceforge/scid/${P}_x64_linux.tar.gz"
-S="${WORKDIR}/${PN}"
+SRC_URI="https://sourceforge.net/projects/scid/files/Scid/Scid%205.0/${PN}_src_${PV}.zip/download -> ${P}.zip"
+
+#S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="photos scripts test"
+IUSE="scripts test"
 REQUIRED_USE="scripts? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
@@ -36,8 +35,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.6.2-pgnfix-python3.patch
-	"${FILESDIR}"/${P}-system-gtest.patch
-	"${FILESDIR}"/${P}-tcl-start-path.patch
+	"${FILESDIR}"/${PN}-4.7.0-tcl-start-path.patch
 )
 
 HTML_DOCS=( help/. )
@@ -74,7 +72,7 @@ src_test() {
 src_install() {
 	cmake_src_install
 
-	dobin "${BUILD_DIR}"/{phalanx-scid,scid,scidlet}
+	dobin "${BUILD_DIR}"/{phalanx-scid,scid}
 
 	if use scripts; then
 		local script
@@ -83,10 +81,6 @@ src_install() {
 			newbin scripts/${script} ${script%.*}
 		done
 	fi
-
-	insinto /usr/share/scid
-	doins scid{,_es,_fr}.eco "${WORKDIR}"/${P}/spelling.ssp
-	use photos && doins -r "${WORKDIR}"/${P}/photos
 
 	newicon resources/svg/scid_app.svg scid.svg
 	make_desktop_entry scid Scid
@@ -97,10 +91,4 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "speech support" dev-tcltk/snack
-
-	if [[ ${REPLACING_VERSIONS} ]] && ver_test ${REPLACING_VERSIONS} -lt 4.7; then
-		elog
-		elog "Warning: this version uses ~/.scid4.7 and is incompatible with older ~/.scid"
-		elog
-	fi
 }
