@@ -1,4 +1,4 @@
-# Copyright 2018-2023 Gentoo Authors
+# Copyright 2018-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop java-pkg-2 xdg-utils
 
 MY_PN="Moneydance"
-MY_PV="$(ver_cut 1-2)_$(ver_cut 3)"
+MY_PV="$(ver_cut 1)_$(ver_cut 2)"
 
 DESCRIPTION="A cross-platform personal finance application"
 HOMEPAGE="https://moneydance.com/"
