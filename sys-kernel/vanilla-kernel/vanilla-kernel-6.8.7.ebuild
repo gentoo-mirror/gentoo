@@ -4,11 +4,12 @@
 EAPI=8
 
 KERNEL_IUSE_MODULES_SIGN=1
-inherit git-r3 kernel-build toolchain-funcs
+inherit kernel-build toolchain-funcs verify-sig
 
+MY_P=linux-${PV}
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
-CONFIG_VER=6.6.12-gentoo
+CONFIG_VER=6.8.7-gentoo
 GENTOO_CONFIG_VER=g12
 
 DESCRIPTION="Linux kernel built from vanilla upstream sources"
@@ -17,8 +18,12 @@ HOMEPAGE="
 	https://www.kernel.org/
 "
 SRC_URI+="
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
+	verify-sig? (
+		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.sign
+	)
 	amd64? (
 		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-x86_64-fedora.config
 			-> kernel-x86_64-fedora.config.${CONFIG_VER}
@@ -36,27 +41,33 @@ SRC_URI+="
 			-> kernel-i686-fedora.config.${CONFIG_VER}
 	)
 "
-
-EGIT_REPO_URI=(
-	https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/
-	https://github.com/gregkh/linux/
-)
-EGIT_BRANCH="linux-${PV/.9999/.y}"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~x86"
 IUSE="debug hardened"
 REQUIRED_USE="arm? ( savedconfig )"
 
 BDEPEND="
 	debug? ( dev-util/pahole )
+	verify-sig? ( sec-keys/openpgp-keys-kernel )
 "
 PDEPEND="
-	>=virtual/dist-kernel-$(ver_cut 1-2)
+	>=virtual/dist-kernel-${PV}
 "
 
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kernel.org.asc
+
 src_unpack() {
-	git-r3_src_unpack
-	default
+	if use verify-sig; then
+		einfo "Unpacking linux-${PV}.tar.xz ..."
+		verify-sig_verify_detached - "${DISTDIR}"/linux-${PV}.tar.sign \
+			< <(xz -cd "${DISTDIR}"/linux-${PV}.tar.xz | tee >(tar -x))
+		assert "Unpack failed"
+		unpack "gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz"
+	else
+		default
+	fi
 }
 
 src_prepare() {
