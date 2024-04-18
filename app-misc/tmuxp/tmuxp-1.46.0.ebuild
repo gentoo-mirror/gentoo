@@ -17,13 +17,14 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	>=app-misc/tmux-3.0a
-	=dev-python/libtmux-0.27.0*[${PYTHON_USEDEP}]
+	=dev-python/libtmux-0.36*[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.3.9[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
+		>=dev-python/pytest-6.2.5[${PYTHON_USEDEP}]
+		>=dev-python/pytest-mock-3.14.0[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '>=dev-python/typing-extensions-4.0.1[${PYTHON_USEDEP}]' 3.{9..10})
 		>=dev-python/pytest-rerunfailures-4.2[${PYTHON_USEDEP}]
 		>=dev-python/tomli-1.1.0[${PYTHON_USEDEP}]
@@ -37,6 +38,13 @@ EPYTEST_DESELECT=(
 )
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	sed -r -e 's:libtmux = "~[0-9.]+":libtmux = "~0.30":' \
+		-i pyproject.toml || die
+
+	distutils-r1_python_prepare_all
+}
 
 python_test() {
 	SHELL="/bin/bash" epytest tests
