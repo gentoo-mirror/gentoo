@@ -16,7 +16,7 @@ if [[ ${PV} = 9999* ]]; then
 else
 	SRC_URI="https://mesa.freedesktop.org/archive/demos/${MY_P}.tar.xz
 		https://mesa.freedesktop.org/archive/demos/${PV}/${MY_P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${MY_P}"
 fi
 LICENSE="LGPL-2"
@@ -65,7 +65,11 @@ pkg_setup() {
 
 	use gles2 && use X && MULTILIB_CHOST_TOOLS+=(
 		/usr/bin/es2_info
-		/usr/bin/es2gears
+		/usr/bin/es2gears_x11
+	)
+
+	use gles2 && use wayland && MULTILIB_CHOST_TOOLS+=(
+		/usr/bin/es2gears_wayland
 	)
 
 	use vulkan && MULTILIB_CHOST_TOOLS+=(
