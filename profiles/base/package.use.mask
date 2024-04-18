@@ -6,6 +6,10 @@
 # This file is only for generic masks. For arch-specific masks (i.e.
 # mask everywhere, unmask on arch/*) use arch/base.
 
+# Mike Gilbert <floppym@gentoo.org> (2024-04-18)
+# Wayland client is broken/deprecated by upstream. Bug 930197.
+>=net-misc/freerdp-3 wayland
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-04-06)
 # Depends on last-rited kde-apps/ktp-accounts-kcm
 dev-util/kdevelop reviewboard
@@ -618,10 +622,6 @@ dev-python/autobahn xbr
 # Stephan Hartmann <stha09@googlemail.com> (2020-06-28)
 # Mostly intended for development and not for general use.
 >=www-client/chromium-84 headless
-
-# Mikle Kolyada <zlogene@gentoo.org> (2020-06-21)
-# Multiple runtime crashes, see bug #724672
-media-gfx/inkscape jemalloc
 
 # Ben Kohler <bkohler@gentoo.org> (2020-04-29)
 # Dependency pam_wrapper missing for tests, and RESTRICT=test is already set
