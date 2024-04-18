@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -53,12 +53,4 @@ pkg_postinst() {
 		ewarn " - IRQ_FORCED_THREADING config option enabled and 'threadirqs' option"
 		ewarn "   added to the kernel cmdline."
 	fi
-
-	for ver in ${REPLACING_VERSIONS}; do
-		if ver_test ${ver} -lt "20210329"; then
-			elog "Starting with 20210329 version the config has been moved to '${EROOT}/etc/rtirq.conf'"
-			elog "Please migrate all you setting from '${EROOT}/etc/conf.d/rtirq'"
-			break
-		fi
-	done
 }
