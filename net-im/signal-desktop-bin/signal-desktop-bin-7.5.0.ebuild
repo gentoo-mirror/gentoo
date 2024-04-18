@@ -82,9 +82,9 @@ src_install() {
 
 	doins -r usr/share/applications
 	doins -r usr/share/icons
-	fperms +x /opt/Signal/signal-desktop /opt/Signal/chrome-sandbox
+	fperms +x /opt/Signal/signal-desktop /opt/Signal/chrome-sandbox /opt/Signal/chrome_crashpad_handler
 	fperms u+s /opt/Signal/chrome-sandbox
-	pax-mark m opt/Signal/signal-desktop opt/Signal/chrome-sandbox
+	pax-mark m opt/Signal/signal-desktop opt/Signal/chrome-sandbox opt/Signal/chrome_crashpad_handler
 
 	dosym -r /opt/Signal/${MY_PN} /usr/bin/${MY_PN}
 }
