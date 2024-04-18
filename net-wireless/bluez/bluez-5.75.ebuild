@@ -101,7 +101,11 @@ src_prepare() {
 	default
 
 	# https://github.com/bluez/bluez/issues/773
-	eapply "${FILESDIR}"/${P}-configure-cups.patch
+	eapply "${FILESDIR}"/${PN}-5.73-configure-cups.patch
+
+	# https://github.com/bluez/bluez/issues/806
+	eapply "${FILESDIR}"/0001-Allow-using-obexd-without-systemd-in-the-user-session-r3.patch
+
 	eautoreconf
 
 	multilib_copy_sources
