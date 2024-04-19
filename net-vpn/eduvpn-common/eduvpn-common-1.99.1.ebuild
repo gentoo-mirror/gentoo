@@ -16,7 +16,12 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/eduvpn/eduvpn-common.git"
 else
-	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/eduvpn.asc
+	# Development Versions use a different release signing key
+	if [[ $(ver_cut 2) == 99 || $(ver_cut 3) == 99 ]] ; then
+		VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/eduvpn-dev.asc
+	else
+		VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/eduvpn.asc
+	fi
 	inherit verify-sig
 	SRC_URI="
 		https://github.com/eduvpn/eduvpn-common/releases/download/${PV}/eduvpn-common-${PV}.tar.xz
@@ -36,7 +41,7 @@ RDEPEND="
 "
 
 if [[ ${PV} != *9999* ]] ; then
-	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-eduvpn )"
+	BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-eduvpn-20240307 )"
 fi
 
 wrap_python() {
