@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -10,19 +10,24 @@ HOMEPAGE="https://github.com/redis/hiredis"
 SRC_URI="https://github.com/redis/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-# 1.0.1 erroneously bumped SONAME but we're stuck with it now. Force another
-# rebuild so everybody is on the right one though (1.0.0).
-SLOT="0/1.0.2"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv ~s390 sparc x86 ~x64-solaris"
+# Always check "Upgrading from ..." in README
+# e.g. https://github.com/redis/hiredis#upgrading-to-110
+SLOT="0/$(ver_cut 1-2)"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-solaris"
 IUSE="examples ssl static-libs test"
 RESTRICT="!test? ( test )"
 
 DEPEND="ssl? ( dev-libs/openssl:= )"
 RDEPEND="${DEPEND}"
-BDEPEND="test? ( dev-db/redis )"
+BDEPEND="
+	test? (
+		dev-db/redis
+		dev-libs/libevent
+	)
+"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.0.0-disable-network-tests.patch
+	"${FILESDIR}"/${PN}-1.1.0-disable-network-tests.patch
 )
 
 src_prepare() {
@@ -39,6 +44,7 @@ _build() {
 		PREFIX="${EPREFIX}/usr" \
 		LIBRARY_PATH="$(get_libdir)" \
 		USE_SSL=$(usex ssl 1 0) \
+		TEST_ASYNC=$(usex test 1 0) \
 		DEBUG_FLAGS= \
 		OPTIMIZATION= \
 		"$@"
@@ -52,6 +58,7 @@ src_compile() {
 }
 
 src_test() {
+	# Compare with https://github.com/redis/hiredis/blob/648763c36e9f6493b13a77da35eb33ef0652b4e2/Makefile#L32
 	local REDIS_PID="${T}"/hiredis.pid
 	local REDIS_SOCK="${T}"/hiredis.sock
 	local REDIS_PORT=56379
