@@ -24,7 +24,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
-	>=dev-python/dask-2024.4.1[${PYTHON_USEDEP}]
+	>=dev-python/dask-2024.4.2[${PYTHON_USEDEP}]
 	>=dev-python/pyarrow-7.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pandas-2[${PYTHON_USEDEP}]
 "

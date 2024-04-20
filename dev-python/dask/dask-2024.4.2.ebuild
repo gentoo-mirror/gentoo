@@ -77,6 +77,7 @@ python_test() {
 		"dask/dataframe/tests/test_dataframe.py::test_repartition_npartitions[<lambda>1-float-5-1-True]"
 		dask/array/tests/test_image.py::test_preprocess
 		dask/tests/test_system.py::test_cpu_count_cgroups_v2
+		dask/dataframe/tests/test_dataframe.py::test_attribute_assignment
 		# require sqlalchemy<2.0
 		dask/dataframe/io/tests/test_sql.py
 		# crashes
