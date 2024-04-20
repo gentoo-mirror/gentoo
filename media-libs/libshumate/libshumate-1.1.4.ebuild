@@ -10,10 +10,10 @@ HOMEPAGE="https://wiki.gnome.org/Projects/libshumate https://gitlab.gnome.org/GN
 
 SLOT="1.0/1"
 LICENSE="LGPL-2.1+"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~sparc ~x86"
 REQUIRED_USE="gtk-doc? ( introspection )"
 
-IUSE="gtk-doc +introspection vala" # vector-renderer is still experimental, maybe put in at a later release
+IUSE="gtk-doc +introspection sysprof vala" # vector-renderer is still experimental, maybe put in at a later release
 
 RDEPEND="
 	>=dev-libs/glib-2.68.0:2
@@ -28,15 +28,13 @@ RDEPEND="
 #	dev-libs/protobuf-c
 # )
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	sysprof? ( dev-util/sysprof-capture:4 )
+"
 BDEPEND="
 	gtk-doc? ( >=dev-util/gi-docgen-2021.1 )
 	vala? ( $(vala_depend) )
 "
-
-PATCHES=(
-	"${FILESDIR}"/1.0.4-tests-Add-test-setup-for-valgrind.patch
-)
 
 src_configure() {
 	local emesonargs=(
@@ -47,6 +45,7 @@ src_configure() {
 		# $(meson_use vector-renderer vector_renderer)
 		-Dvector_renderer=false
 		-Dlibsoup3=true
+		$(meson_feature sysprof)
 	)
 	meson_src_configure
 }
