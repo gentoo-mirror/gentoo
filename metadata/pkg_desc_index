@@ -1384,7 +1384,7 @@ app-crypt/asedriveiiie-usb 3.5: ASEDriveIIIe USB Card Reader
 app-crypt/asekey 3.7 3.7-r1: ASEKey USB SIM Card Reader
 app-crypt/bcwipe 1.9.13: Secure file removal utility
 app-crypt/bsign 0.4.5-r1: embed secure hashes (SHA1) and digital signatures (GNU Privacy Guard) into files
-app-crypt/ccid 1.5.1 1.5.4: CCID free software driver
+app-crypt/ccid 1.5.1 1.5.4 1.5.5: CCID free software driver
 app-crypt/ccrypt 1.11-r4: Encryption and decryption
 app-crypt/certbot 2.9.0 2.10.0 9999: Let’s Encrypt client to automate deployment of X.509 certificates
 app-crypt/certbot-apache 2.9.0 2.10.0 9999: Apache plugin for Certbot (Let’s Encrypt client)
@@ -2310,7 +2310,7 @@ app-emulation/dosemu 1.4.1_pre20130107-r5: DOS Emulator
 app-emulation/dxvk 1.10.3-r1 2.2-r1 2.3 2.3.1-r1 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
 app-emulation/faudio 23.02 23.10 24.02: Accuracy-focused XAudio reimplementation for open platforms
-app-emulation/firecracker-bin 1.5.1 1.6.0: Secure and fast microVMs for serverless computing (static build)
+app-emulation/firecracker-bin 1.5.1 1.6.0 1.7.0: Secure and fast microVMs for serverless computing (static build)
 app-emulation/free42 2.5.24 3.1.3 3.1.7: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.66: Integrates the most accurate Amiga emulation code available from WinUAE
 app-emulation/fs-uae-launcher 3.1.70: PyQt5-based launcher for FS-UAE
@@ -2357,14 +2357,14 @@ app-emulation/spice-vdagent 0.22.1: SPICE VD Linux Guest Agent
 app-emulation/spim 8.0-r3: MIPS Simulator
 app-emulation/uade 2.13-r2: Unix Amiga Delitracker Emulator - plays old Amiga tunes through UAE emulation
 app-emulation/uxn 0_p20240304 9999: An assembler and emulator for the Uxn stack-machine, written in ANSI C
-app-emulation/vagrant 2.3.7 2.4.0-r1: A tool for building and distributing development environments
+app-emulation/vagrant 2.4.0-r1 2.4.1: A tool for building and distributing development environments
 app-emulation/vendor-reset 0.1.1_pre20221205 0.1.1_pre20221205-r1 9999: Linux kernel vendor specific hardware reset module
 app-emulation/vice 3.8-r1: Versatile Commodore Emulator
 app-emulation/virt-firmware 24.4: Tools for ovmf/armvirt firmware volumes
 app-emulation/virt-manager 4.1.0 4.1.0-r1 9999: A graphical tool for administering virtual machines
 app-emulation/virt-viewer 11.0: Graphical console client for connecting to virtual machines
 app-emulation/virt-what 1.21 1.25: Detects if the current machine is running in a virtual machine
-app-emulation/virtio-win 0.1.225.2 0.1.229.1 0.1.240.1: VirtIO drivers for Windows virtual machines running on KVM
+app-emulation/virtio-win 0.1.229.1 0.1.240.1 0.1.248.1: VirtIO drivers for Windows virtual machines running on KVM
 app-emulation/virtiofsd 1.10.0 9999: Shared file system for virtual machines
 app-emulation/virtualbox 6.1.48-r2 6.1.50-r2 7.0.12-r2 7.0.14-r2 7.0.16 9999: Family of powerful x86 virtualization products for enterprise and home use
 app-emulation/virtualbox-additions 6.1.48 6.1.50 7.0.12 7.0.14 7.0.16: CD image containing guest additions for VirtualBox
@@ -3068,7 +3068,7 @@ app-portage/ufed 0.96 9999: Gentoo Linux USE flags editor
 app-portage/unsymlink-lib 20: Convert your system to SYMLINK_LIB=no
 app-shells/atuin 17.2.1 18.0.1 18.1.0 18.2.0: Shell history manager supporting encrypted synchronisation
 app-shells/autojump 22.5.3-r2 22.5.3-r3: change directory command that learns
-app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r2 5.1_p16-r6 5.1_p16-r7 5.2_p26 9999: The standard GNU Bourne again shell
+app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r2 5.1_p16-r6 5.1_p16-r7 5.1_p16-r8 5.2_p26 5.2_p26-r1 9999: The standard GNU Bourne again shell
 app-shells/bash-completion 2.11 9999: Programmable Completion for bash
 app-shells/bashdb 5.0.1.1.2: bash source code debugging
 app-shells/bashish 2.2.4: Text console theme engine
@@ -3985,7 +3985,7 @@ dev-db/slony1 2.2.10-r1: A replication system for the PostgreSQL Database Manage
 dev-db/spatialite 5.0.1-r1 5.0.1-r2 5.1.0-r1: A complete Spatial DBMS in a nutshell built upon sqlite
 dev-db/spatialite-tools 5.0.1-r1: A collection of CLI tools supporting SpatiaLite
 dev-db/sqlcipher 4.5.1 4.5.5: Full Database Encryption for SQLite
-dev-db/sqlcl-bin 23.3.0.270.1251: Oracle SQLcl is the new SQL*Plus
+dev-db/sqlcl-bin 23.4.0.023.2321: Oracle SQLcl is the new SQL*Plus
 dev-db/sqldeveloper 23.1.1.345.2114: Oracle SQL Developer is a graphical tool for database development
 dev-db/sqlite 3.44.2-r1 3.44.2-r2 3.45.1-r1 3.45.2 3.45.3 9999: SQL database engine
 dev-db/sqlitebrowser 3.12.2-r2 9999: A light GUI editor for SQLite databases
@@ -10000,7 +10000,7 @@ dev-ruby/haml 5.2.2 6.1.1-r1 6.2.3 6.3.0: A ruby web page templating engine
 dev-ruby/haml-rails 2.1.0: Provides Haml generators for Rails 4
 dev-ruby/hashdiff 1.0.1 1.1.0: Simple Hash extension to make working with nested hashes easier
 dev-ruby/hashery 2.1.2-r1: The Hashery is a tight collection of Hash-like classes
-dev-ruby/hashicorp-checkpoint 0.1.5-r2: Internal HashiCorp service to check version information
+dev-ruby/hashicorp-checkpoint 0.1.5-r2 0.1.5-r3: Internal HashiCorp service to check version information
 dev-ruby/hashie 5.0.0: Hashie is a small collection of tools that make hashes more powerful
 dev-ruby/hashr 2.0.1-r1: Simple Hash extension to make working with nested hashes easier
 dev-ruby/heredoc_unindent 1.2.0-r2: Removes leading whitespace from Ruby heredocs
@@ -10885,7 +10885,7 @@ dev-util/open-vcdiff 0.8.4-r2: An encoder/decoder for the VCDIFF (RFC3284) forma
 dev-util/opencl-headers 2023.04.17 2023.12.14: Unified C language headers for the OpenCL API
 dev-util/oprofile 1.4.0: A transparent low-overhead system-wide profiler
 dev-util/ostree 2023.1 2023.2 2023.3 2023.3-r1 2023.5 2024.3: Operating system and container binary deployment and upgrades
-dev-util/packer 1.8.6 1.9.4: A tool to create identical machine images for multiple platforms
+dev-util/packer 1.8.6 1.9.4 1.9.5: A tool to create identical machine images for multiple platforms
 dev-util/pahole 1.24_p20221024 1.25 1.26 9999: pahole (Poke-a-Hole) and other DWARF2 utilities
 dev-util/patchelf 0.17.2 0.18.0: Small utility to modify the dynamic linker and RPATH of ELF executables
 dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
@@ -14785,7 +14785,7 @@ net-irc/irssi 1.4.4-r1 1.4.5 9999: A modular textUI IRC client with IPv6 support
 net-irc/irssi-xmpp 0.54 0.54-r1: Irssi plugin providing Jabber/XMPP support
 net-irc/irssistats 0.75-r1: Generates HTML IRC stats based on irssi logs
 net-irc/konversation 23.08.5 24.02.2: User friendly IRC Client
-net-irc/kvirc 5.2.0-r1 5.2.0-r2 9999: Advanced IRC Client
+net-irc/kvirc 5.2.0-r1 5.2.0-r2 5.2.2 9999: Advanced IRC Client
 net-irc/limnoria 20220814 20220927 20221116 20221116-r1 99999999: Python based extensible IRC infobot and channel bot
 net-irc/limnoria-plugins-chantracker 1.6_p20220429 1.6_p20220803 1.6_p20221109: supybot ban management and channel flood/spam/repeat protections plugin
 net-irc/limnoria-plugins-jlu5 20210801 20220201 20220201_p20221108: A collection of plugins for the Limnoria IRC bot
@@ -16124,7 +16124,7 @@ sci-libs/dlib 19.24 19.24.2: Numerical and networking C++ library
 sci-libs/dmlc-core 0_p20170719-r1 0.5: Common bricks library for building distributed machine learning
 sci-libs/dsdp 5.8-r4: Software for interior-point for semidefinite programming
 sci-libs/eccodes 2.18.0: A set of encoding/decoding APIs and tools for WMO GRIB, BUFR, and GTS messages
-sci-libs/evaluate 0.4.0-r2: makes evaluating, comparing models and reporting their performance easier
+sci-libs/evaluate 0.4.0-r3: makes evaluating, comparing models and reporting their performance easier
 sci-libs/exodusii 6.09-r1: Model developed to store and retrieve transient data for finite element analyses
 sci-libs/fcl 0.6.1-r1 9999: The Flexible Collision Library
 sci-libs/fetk 1.5: The Finite Element ToolKit - Meta package
