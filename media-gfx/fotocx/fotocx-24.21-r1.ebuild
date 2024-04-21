@@ -12,7 +12,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 x86"
 
 # For required dependencies read doc/README, for required tools read
 # data/userguide [INSTALLATION]. xdg-open (x11-misc/xdg-utils) is an
@@ -49,7 +49,7 @@ src_prepare() {
 src_install() {
 	# For the Help menu items to work, *.html must be in /usr/share/doc/${PF},
 	# and README, changelog, copyright, license, etc. must not be compressed.
-	emake DESTDIR="${D}" install
+	emake DESTDIR="${D}" PREFIX="/usr" install
 	rm -f "${D}"/usr/share/doc/${PF}/*.man || die
 	docompress -x /usr/share/doc
 }
