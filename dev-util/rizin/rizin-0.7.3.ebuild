@@ -35,7 +35,7 @@ RDEPEND="
 	dev-libs/libzip:0=
 	dev-libs/openssl:0=
 	dev-libs/libpcre2:0=
-	>=dev-libs/tree-sitter-0.19.0:=
+	>=dev-libs/tree-sitter-0.19.0
 	dev-libs/xxhash
 	sys-apps/file
 	sys-libs/zlib:0=
