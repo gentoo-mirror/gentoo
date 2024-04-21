@@ -6,9 +6,9 @@ EAPI=8
 inherit cmake
 
 # arrow.git: testing
-ARROW_DATA_GIT_HASH=ad82a736c170e97b7c8c035ebd8a801c17eec170
+ARROW_DATA_GIT_HASH=25d16511e8d42c2744a1d94d90169e3a36e92631
 # arrow.git: cpp/submodules/parquet-testing
-PARQUET_DATA_GIT_HASH=d69d979223e883faef9dc6fe3cf573087243c28a
+PARQUET_DATA_GIT_HASH=74278bc4a1122d74945969e6dec405abd1533ec3
 
 DESCRIPTION="A cross-language development platform for in-memory data."
 HOMEPAGE="
@@ -28,7 +28,7 @@ S="${WORKDIR}/${P}/cpp"
 
 LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm64 ~hppa ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~riscv ~s390 ~x86"
 IUSE="
 	+brotli bzip2 compute dataset +json lz4 +parquet re2 +snappy ssl
 	test zlib zstd
@@ -73,9 +73,6 @@ REQUIRED_USE="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-11.0.0-shared-lz4.patch"
-	"${FILESDIR}/${PN}-14.0.1-gcc14.patch"
-	# upstream backports
-	"${FILESDIR}/${PN}-15.0.1-32bit.patch"
 )
 
 src_prepare() {
