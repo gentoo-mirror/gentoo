@@ -37,7 +37,7 @@ BDEPEND="${PYTHON_DEPS}
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}"/libepoxy-1.5.10-use-opengl.pc-without-x.patch )
+PATCHES=( "${FILESDIR}"/libepoxy-1.5.10-libopengl-fallback.patch )
 
 multilib_src_configure() {
 	local emesonargs=(
