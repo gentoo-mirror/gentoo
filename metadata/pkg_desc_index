@@ -1351,7 +1351,7 @@ app-containers/earthly 0.8.4 0.8.5 0.8.6 0.8.7 0.8.8: Build automation tool that
 app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containers
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
-app-containers/incus 0.6-r1 0.7 6.0.0: Modern, secure and powerful system container and virtual machine manager
+app-containers/incus 0.6-r1 0.7 6.0.0-r1: Modern, secure and powerful system container and virtual machine manager
 app-containers/k3d 5.4.9 5.6.0: k3d creates k3s clusters in docker
 app-containers/kompose 1.26.1: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 5.0.3 6.0.0-r1: A userspace interface for the Linux kernel containment features
@@ -10697,7 +10697,7 @@ dev-util/checkbashisms 2.22.2 2.23.5: Perl script to check for commonly used bas
 dev-util/chirurgien 2.1 2.2: Chirurgien helps to understand and manipulate file formats
 dev-util/chroot-wrapper 0.9.4 0.9.9: Wrapper for chroot to set up some bind mounts, namespaces, and control groups
 dev-util/clair 4.4.4: Vulnerability Static Analysis for Containers
-dev-util/clazy 1.11-r3 1.11-r4: Compiler plugin which allows clang to understand Qt semantics
+dev-util/clazy 1.11-r4: Compiler plugin which allows clang to understand Qt semantics
 dev-util/clinfo 3.0.23.01.25 9999: A tool to display info about the system's OpenCL capabilities
 dev-util/clion 2022.3.2 2023.1.4 2023.3.4: A complete toolset for C and C++ development
 dev-util/clippy 9.0 9.0.1 9.0.2: Standalone clippy tool built from FRR sources
@@ -12410,7 +12410,7 @@ kde-misc/kio-gopher 0.1.99-r1: Gopher KIO worker for Konqueror
 kde-misc/kio-locate 0.5.3-r3: KIO worker for the locate command
 kde-misc/kio-stash 1.0-r1: KIO worker and daemon to stash discontinuous file selections
 kde-misc/krename 5.0.2-r1: Powerful batch file renamer
-kde-misc/krusader 2.8.0-r1 2.8.1: Advanced twin-panel (commander-style) file-manager with many extras
+kde-misc/krusader 2.8.1: Advanced twin-panel (commander-style) file-manager with many extras
 kde-misc/kshutdown 5.2: Shutdown manager for desktop environments like KDE Plasma
 kde-misc/ktoshiba 5.3.1: Function key (FN) monitoring for Toshiba laptops
 kde-misc/kweather 23.08.5 24.02.2: Weather forecast application for Plasma with flat and dynamic/animated views
@@ -12421,7 +12421,7 @@ kde-misc/plasma-applet-network-monitor 1.7.3-r1: Plasma 5 applet for monitoring 
 kde-misc/plasma-pass 1.2.1 1.2.2: Plasma applet to access password from pass
 kde-misc/rsibreak 0.12.15: Small utility which bothers you at certain intervals
 kde-misc/skanlite 23.08.5 24.02.2: Simple image scanning application based on libksane and KDE Frameworks
-kde-misc/tellico 3.5.3 3.5.4: Collection manager based on KDE Frameworks
+kde-misc/tellico 3.5.4: Collection manager based on KDE Frameworks
 kde-misc/zanshin 23.08.5 24.02.2: Getting things done application by KDE
 kde-plasma/bluedevil 5.27.11 6.0.4: Bluetooth stack for KDE Plasma
 kde-plasma/breeze 5.27.11 6.0.4: Breeze visual style for the Plasma desktop
@@ -12883,7 +12883,7 @@ media-gfx/curtail 1.8.0-r1 1.9.1: Image compressor, supporting PNG, JPEG and Web
 media-gfx/darktable 4.6.0 4.6.1: A virtual lighttable and darkroom for photographers
 media-gfx/dawn 3.90b-r1: 3D geometrical postscript renderer
 media-gfx/dcraw 9.28.0-r2 9.28.0-r3 9.28.0-r4: Command-line decoder for raw digital photos
-media-gfx/digikam 8.2.0 8.3.0: Digital photo management application
+media-gfx/digikam 8.3.0: Digital photo management application
 media-gfx/displaycal-py3 3.9.10 3.9.10-r3: Modernize the DisplayCAL code including Python 3 support
 media-gfx/ditaa 0.11.0-r1: A utility that converts ascii-art diagrams to bitmap diagrams
 media-gfx/dmtx-utils 0.7.5 0.7.6: Tools for reading and writing Data Matrix barcodes
@@ -13191,7 +13191,7 @@ media-libs/jg 1.0.0 9999: Reference Implementation of The Jolly Good API
 media-libs/kcolorpicker 0.2.0 0.3.1: Qt based color picker with popup menu
 media-libs/kimageannotator 0.6.1 0.7.1: Tool for annotating images
 media-libs/kquickimageeditor 0.3.0 0.3.0-r100: QtQuick components providing basic image editing capabilities
-media-libs/ksanecore 23.08.5 23.08.5-r1 24.02.2: Qt-based interface for SANE library to control scanner hardware
+media-libs/ksanecore 23.08.5-r1 24.02.2: Qt-based interface for SANE library to control scanner hardware
 media-libs/kvazaar 2.1.0 2.2.0 2.3.0-r1 9999: Open-source HEVC encoder
 media-libs/ladspa-sdk 1.17-r2: The Linux Audio Developer's Simple Plugin API
 media-libs/lasi 1.1.3: C++ library for postscript stream output
@@ -13376,7 +13376,7 @@ media-libs/lv2 1.18.10: A simple but extensible successor of LADSPA
 media-libs/lvtk 1.2.0-r2: A set of C++ wrappers around the LV2 C API
 media-libs/mesa 24.0.4 24.0.5 9999: OpenGL-like graphic library for Linux
 media-libs/mesa-amber 21.3.9-r1: OpenGL-like graphic library for Linux
-media-libs/mlt 7.22.0 7.22.0-r1: Open source multimedia framework for television broadcasting
+media-libs/mlt 7.22.0-r1: Open source multimedia framework for television broadcasting
 media-libs/mpvqt 1.0.0: libmpv wrapper for QtQuick2 and QML
 media-libs/munt-mt32emu 2.7.0: Library for emulating the Roland MT-32, CM-32L, CM-64 and LAPC-I
 media-libs/musicbrainz 5.1.0-r1: Client Library for accessing the latest XML based MusicBrainz web service
@@ -13931,7 +13931,7 @@ media-sound/jalv 1.6.8: Simple but fully featured LV2 host for Jack
 media-sound/jamin 0.98.9_pre20170111: Audio mastering interface for JACK Audio Connection Kit (JACK)
 media-sound/justeport 0.2: Stream audio to your AirPort Express
 media-sound/kasts 23.08.5 24.02.2: Convergent podcast application for desktop and mobile
-media-sound/kid3 3.9.4 3.9.5: Simple tag editor based on Qt
+media-sound/kid3 3.9.5: Simple tag editor based on Qt
 media-sound/klick 0.12.2-r4: An advanced command-line based metronome for JACK
 media-sound/kmetronome 1.3.0: MIDI based metronome using ALSA sequencer
 media-sound/kmidimon 1.3.0: MIDI monitor for ALSA sequencer
@@ -17194,7 +17194,7 @@ sys-apps/watchdog 5.16 5.16-r1: A software watchdog and /dev/watchdog daemon
 sys-apps/which 2.21: Prints out location of specified executables that are in your path
 sys-apps/x86info 1.30_p20190617 1.31: Dave Jones' handy, informative x86 CPU diagnostic utility
 sys-apps/xdg-dbus-proxy 0.1.5: Filtering proxy for D-Bus connections
-sys-apps/xdg-desktop-portal 1.18.2 1.18.4: Desktop integration portal
+sys-apps/xdg-desktop-portal 1.18.4: Desktop integration portal
 sys-apps/xdg-desktop-portal-gnome 45.1-r1: Backend implementation for xdg-desktop-portal using GNOME
 sys-apps/xdg-desktop-portal-gtk 1.14.1: Backend implementation for xdg-desktop-portal using GTK+
 sys-apps/xdg-desktop-portal-xapp 1.0.4: Backend implementation for xdg-desktop-portal using Cinnamon/MATE/Xfce
@@ -18120,7 +18120,7 @@ www-client/epiphany 46.0: GNOME webbrowser based on Webkit
 www-client/falkon 23.08.5 24.02.2: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
 www-client/firefox 115.9.0 115.9.1 115.10.0 122.0.1 124.0.1 124.0.2 125.0.1: Firefox Web Browser
-www-client/firefox-bin 115.9.1 115.10.0 124.0.1 124.0.2 125.0.1: Firefox Web Browser
+www-client/firefox-bin 115.10.0 125.0.1 125.0.2: Firefox Web Browser
 www-client/google-chrome 124.0.6367.60: The web browser from Google
 www-client/google-chrome-beta 125.0.6422.4: The web browser from Google
 www-client/google-chrome-unstable 125.0.6420.3: The web browser from Google
