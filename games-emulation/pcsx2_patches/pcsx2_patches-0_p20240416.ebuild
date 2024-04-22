@@ -10,13 +10,13 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PCSX2/pcsx2_patches.git"
 else
-	HASH_PCSX2_PATCHES=42d7ee72b66955e3bbd2caaeaa855f605b463722
+	HASH_PCSX2_PATCHES=0f52d8a5eb1cefea8b416532ce6ba225271e267f
 	SRC_URI="
 		https://github.com/PCSX2/pcsx2_patches/archive/${HASH_PCSX2_PATCHES}.tar.gz
 			-> ${P}.tar.gz
 	"
 	S=${WORKDIR}/${PN}-${HASH_PCSX2_PATCHES}
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Collection of game patches for use with PCSX2 (e.g. widescreen hacks)"

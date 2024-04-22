@@ -12,7 +12,7 @@ else
 	# unbundling on this package has become unmaintainable and, rather than
 	# handle submodules separately, using a tarball that includes them
 	SRC_URI="https://dev.gentoo.org/~ionen/distfiles/${P}.tar.xz"
-	KEYWORDS="-* amd64"
+	KEYWORDS="-* ~amd64"
 fi
 
 DESCRIPTION="PlayStation 2 emulator"
@@ -27,15 +27,16 @@ IUSE="alsa cpu_flags_x86_sse4_1 +clang jack pulseaudio sndio test vulkan wayland
 REQUIRED_USE="cpu_flags_x86_sse4_1" # dies at runtime if no support
 RESTRICT="!test? ( test )"
 
-# dlopen: qtsvg, vulkan-loader, wayland
+# dlopen: libglvnd, qtsvg, vulkan-loader, wayland
 COMMON_DEPEND="
 	app-arch/lz4:=
-	app-arch/xz-utils
 	app-arch/zstd:=
 	dev-libs/libaio
 	dev-qt/qtbase:6[concurrent,gui,widgets]
 	dev-qt/qtsvg:6
+	media-libs/freetype
 	media-libs/libglvnd[X]
+	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
 	media-libs/libsdl2[haptic,joystick]
 	media-libs/libwebp:=
@@ -50,7 +51,10 @@ COMMON_DEPEND="
 	jack? ( virtual/jack )
 	pulseaudio? ( media-libs/libpulse )
 	sndio? ( media-sound/sndio:= )
-	vulkan? ( media-libs/vulkan-loader )
+	vulkan? (
+		media-libs/shaderc
+		media-libs/vulkan-loader
+	)
 	wayland? ( dev-libs/wayland )
 "
 # patches is a optfeature but always pull given PCSX2 complaints if it
@@ -75,6 +79,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.4667-flags.patch
 	"${FILESDIR}"/${PN}-1.7.5232-cubeb-automagic.patch
+	"${FILESDIR}"/${PN}-1.7.5700-vanilla-shaderc.patch
 )
 
 src_prepare() {
@@ -100,9 +105,6 @@ src_configure() {
 		local -x CC=${CHOST}-clang CXX=${CHOST}-clang++
 		strip-unsupported-flags
 	fi
-
-	# for bundled old glslang (bug #858374)
-	use vulkan && append-flags -fno-strict-aliasing
 
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=no
