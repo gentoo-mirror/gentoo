@@ -5,15 +5,15 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 git-r3
+inherit distutils-r1
 
 DESCRIPTION="Arch testing tool"
 HOMEPAGE="https://github.com/gentoo/tatt"
-EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/tatt.git
-	https://github.com/gentoo/tatt.git"
+SRC_URI="https://github.com/gentoo/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="+templates"
 
 RDEPEND="

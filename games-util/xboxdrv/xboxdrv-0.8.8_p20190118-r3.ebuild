@@ -1,15 +1,18 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit linux-info python-any-r1 scons-utils toolchain-funcs systemd udev
 
+MY_P="${PN}-v$(ver_cut 1-3)"
 DESCRIPTION="Userspace Xbox 360 Controller driver"
 HOMEPAGE="https://xboxdrv.gitlab.io"
-SRC_URI="https://gitlab.com/xboxdrv/xboxdrv/-/archive/v0.8.8/xboxdrv-v0.8.8.tar.bz2"
+SRC_URI="https://gitlab.com/xboxdrv/${PN}/-/archive/v$(ver_cut 1-3)/${MY_P}.tar.bz2"
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -33,17 +36,17 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/xboxdrv-v0.8.8"
-
-PATCHES=( "${FILESDIR}/"xboxdrv-0.8.8-some-boost-fix.patch
+PATCHES=(
+	"${FILESDIR}/"xboxdrv-0.8.8-some-boost-fix.patch
 	"${FILESDIR}/"xboxdrv-0.8.8-Update-SConstruct-to-python3.patch
-	"${FILESDIR}/"xboxdrv-0.8.8-Updating-python-code-to-python3.patch )
+	"${FILESDIR}/"xboxdrv-0.8.8-Updating-python-code-to-python3.patch
+)
 
 CONFIG_CHECK="~INPUT_EVDEV ~INPUT_JOYDEV ~INPUT_UINPUT ~!JOYSTICK_XPAD"
 
 pkg_setup() {
 	linux-info_pkg_setup
-	python_setup
+	python-any-r1_pkg_setup
 }
 
 src_compile() {
@@ -72,5 +75,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
 	udev_reload
 }

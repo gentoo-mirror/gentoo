@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit autotools flag-o-matic python-single-r1 desktop
 
 DESCRIPTION="An extremely powerful ICCCM-compliant multiple virtual desktop window manager"
@@ -82,6 +82,7 @@ src_prepare() {
 	eapply -p0 "${FILESDIR}/${PN}-2.6.5-ar.patch" #474528
 
 	eapply "${FILESDIR}"/fvwm-2.7.0-c99.patch
+	eapply "${FILESDIR}"/fvwm-2.7.0-fix-docdir.patch
 
 	default
 
@@ -131,25 +132,25 @@ src_install() {
 	make_session_desktop fvwm /usr/bin/fvwm
 
 	if ! use lock; then
-		find "${D}" -name '*fvwm-menu-xlock' -exec rm -f '{}' \; 2>/dev/null
+		find "${ED}" -name '*fvwm-menu-xlock' -delete || die
 	fi
 
 	if use perl; then
 		if ! use tk; then
-			rm "${D}"/usr/share/fvwm/perllib/FVWM/Module/Tk.pm || die
-			rm "${D}"/usr/share/fvwm/perllib/FVWM/Module/Toolkit.pm || die
-			find "${D}"/usr/share/fvwm/perllib -depth -type d -exec rmdir '{}' \; 2>/dev/null
+			rm "${ED}"/usr/share/fvwm/perllib/FVWM/Module/Tk.pm || die
+			rm "${ED}"/usr/share/fvwm/perllib/FVWM/Module/Toolkit.pm || die
+			find "${ED}"/usr/share/fvwm/perllib -depth -type d -exec rmdir '{}' \; || die
 		fi
 	else
 		# Completely wipe it if ! use perl
-		rm -r "${D}"/usr/bin/fvwm-perllib "${D}"/usr/share/man/man1/fvwm-perllib.1
+		rm -r "${ED}"/usr/bin/fvwm-perllib "${ED}"/usr/share/man/man1/fvwm-perllib.1 || die
 	fi
 
 	# Utility for testing FVWM behaviour by creating a simple window with
 	# configurable hints.
 	if use debug; then
-		dobin "${S}"/tests/hints/hints_test
-		newdoc "${S}"/tests/hints/README README.hints
+		dobin tests/hints/hints_test
+		newdoc tests/hints/README README.hints
 	fi
 
 	exeinto /etc/X11/Sessions
