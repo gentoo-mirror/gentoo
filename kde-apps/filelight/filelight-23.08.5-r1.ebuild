@@ -33,6 +33,7 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
 RDEPEND="${DEPEND}
+	>=kde-frameworks/kdeclarative-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kquickcharts-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
