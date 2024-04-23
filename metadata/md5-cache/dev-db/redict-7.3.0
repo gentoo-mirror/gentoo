@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( dev-lang/tcl:0= ssl? ( dev-tcltk/tls ) ) virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare test
+DEPEND=acct-group/redict acct-user/redict dev-libs/hiredict:0=[ssl?] jemalloc? ( >=dev-libs/jemalloc-5.1:=[stats] ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? ( dev-util/google-perftools )
+DESCRIPTION=A persistent caching system, key-value, and data structures database
+EAPI=8
+HOMEPAGE=https://redict.io
+INHERIT=edo multiprocessing systemd tmpfiles toolchain-funcs
+IUSE=+jemalloc ssl systemd tcmalloc test
+KEYWORDS=~amd64
+LICENSE=BSD Boost-1.0 LGPL-3
+RDEPEND=acct-group/redict acct-user/redict dev-libs/hiredict:0=[ssl?] jemalloc? ( >=dev-libs/jemalloc-5.1:=[stats] ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcmalloc? ( dev-util/google-perftools ) virtual/tmpfiles
+REQUIRED_USE=?? ( jemalloc tcmalloc )
+RESTRICT=!test? ( test )
+SLOT=0/7.3
+SRC_URI=https://codeberg.org/redict/redict/archive/7.3.0.tar.gz -> redict-7.3.0.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=a1ba71eeab0ad2618074998500948b5e
