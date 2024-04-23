@@ -8132,7 +8132,7 @@ dev-python/anyascii 0.3.2: Unicode to ASCII transliteration
 dev-python/anyio 4.3.0: Compatibility layer for multiple asynchronous event loop implementations
 dev-python/apache-libcloud 3.8.0-r1: Unified Interface to the Cloud - python support libs
 dev-python/apipkg 3.0.2: Namespace control and lazy-import mechanism
-dev-python/apispec 6.4.0 6.5.0 6.6.0: A pluggable API specification generator
+dev-python/apispec 6.4.0 6.5.0 6.6.0 6.6.1: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r3: Module for determining appropriate platform-specific dirs
 dev-python/apprise 1.7.5 1.7.6: Push Notifications that work with just about every platform
 dev-python/apsw 3.45.1.0 3.45.2.0 3.45.3.0: APSW - Another Python SQLite Wrapper
@@ -8228,7 +8228,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3021.3.16-r4: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.86.2 0.86.3: CloudFormation Linter
+dev-python/cfn-lint 0.86.2 0.86.3 0.86.4: CloudFormation Linter
 dev-python/cftime 1.6.3: Time-handling functionality from netcdf4-python
 dev-python/cgroup-utils 0.8-r1: Tools and libraries for control groups of Linux
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
@@ -8238,7 +8238,7 @@ dev-python/chardet 5.2.0: Universal encoding detector
 dev-python/charset-normalizer 3.3.2: The Real First Universal Charset Detector
 dev-python/chart-studio 1.1.0-r2: Browser-based graphing library for Python
 dev-python/cheetah3 3.3.1: Python-powered template engine and code generator
-dev-python/cheroot 10.0.0: High-performance, pure-Python HTTP server used by CherryPy
+dev-python/cheroot 10.0.0 10.0.1: High-performance, pure-Python HTTP server used by CherryPy
 dev-python/cherrypy 18.9.0: CherryPy is a pythonic, object-oriented HTTP framework
 dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
@@ -9514,7 +9514,7 @@ dev-python/svg-path 6.3: SVG path objects and parser
 dev-python/svglib 1.5.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.3: Validate Swagger specs against Swagger 1.1 or 2.0 specification
-dev-python/sybil 6.0.3: Automated testing for the examples in your documentation
+dev-python/sybil 6.0.3 6.1.0: Automated testing for the examples in your documentation
 dev-python/symengine 0.11.0: Python wrappers to the symengine C++ library
 dev-python/sympy 1.12-r1: Computer Algebra System in pure Python
 dev-python/tables 3.8.0-r3 3.9.0 3.9.1-r1 3.9.2: Hierarchical datasets for Python
@@ -9589,10 +9589,10 @@ dev-python/txredisapi 1.4.10: Non-blocking redis client for python
 dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
 dev-python/txtorcon 23.11.0: Twisted-based Tor controller client, with state-tracking abstractions
 dev-python/typeguard 4.1.5 4.2.1: Run-time type checker for Python
-dev-python/types-docutils 0.20.0.20240406: Typing stubs for docutils
+dev-python/types-docutils 0.20.0.20240406 0.21.0.20240423: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.20240401 12.1.4.20240408: Typing stubs for gdb
-dev-python/types-psutil 5.9.5.20240316: Typing stubs for psutil
-dev-python/types-setuptools 69.2.0.20240317 69.5.0.20240415: Typing stubs for setuptools
+dev-python/types-psutil 5.9.5.20240316 5.9.5.20240423: Typing stubs for psutil
+dev-python/types-setuptools 69.2.0.20240317 69.5.0.20240415 69.5.0.20240423: Typing stubs for setuptools
 dev-python/typing-extensions 4.11.0: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
@@ -12596,7 +12596,7 @@ mail-mta/netqmail 1.06-r14 1.06-r16: qmail -- a secure, reliable, efficient, sim
 mail-mta/notqmail 1.08-r6 9999: Collaborative open-source successor to qmail
 mail-mta/nullmailer 2.2-r2: Simple relay-only local mail transport agent
 mail-mta/opensmtpd 7.3.0_p1-r1 7.4.0_p1: Lightweight but featured SMTP daemon from OpenBSD
-mail-mta/postfix 3.8.5 3.8.6 3.9.0 3.10_pre20240310: A fast and secure drop-in replacement for sendmail
+mail-mta/postfix 3.8.5 3.8.6 3.9.0 3.10_pre20240422: A fast and secure drop-in replacement for sendmail
 mail-mta/proton-mail-bridge 3.10.0-r1: Serves Proton Mail to IMAP/SMTP clients
 mail-mta/qpsmtpd 0.95-r1 9999: qpsmtpd is a flexible smtpd daemon written in Perl
 mail-mta/sendmail 8.17.1.9: Widely-used Mail Transport Agent (MTA)
@@ -14522,7 +14522,7 @@ net-analyzer/sqlninja 0.2.6_p1-r1: A SQL Server injection & takeover tool
 net-analyzer/squid-graph 3.2-r2: Squid logfile analyzer and traffic grapher
 net-analyzer/squidsites 1.01-r2: A tool to parse Squid access log file and to generate reports
 net-analyzer/squidview 0.86: Interactive console program to analyse squid logs
-net-analyzer/ssh-audit 3.0.0 3.1.0: SSH server auditing (banner, key exchange, encryption, mac, compression, etc)
+net-analyzer/ssh-audit 3.0.0 3.1.0 3.2.0: SSH server auditing (banner, key exchange, encryption, mac, compression, etc)
 net-analyzer/sshping 0.1.4: ssh-based ping: measure character echo latency and bandwidth
 net-analyzer/ssldump 1.5: An SSLv3/TLS network protocol analyzer
 net-analyzer/sslscan 2.1.1 2.1.2 2.1.3 2.1.3-r1: Fast SSL configuration scanner
