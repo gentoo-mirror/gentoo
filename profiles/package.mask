@@ -34,6 +34,33 @@
 #--- END OF EXAMPLES ---
 
 # Michał Górny <mgorny@gentoo.org> (2024-04-23)
+# No py3.12, no tests, no maintainer.  Also no revdeps.
+# Removal on 2024-05-23.  Bug #929513.
+dev-python/sphinxcontrib-newsfeed
+
+# Michał Górny <mgorny@gentoo.org> (2024-04-23)
+# Integrated into >=dev-python/pytest-5.0.  No revdeps.
+# Removal on 2024-05-23.  Bug #929496.
+dev-python/pytest-faulthandler
+
+# Michał Górny <mgorny@gentoo.org> (2024-04-23)
+# Broken with py3.12.  Last commit upstream in 2021.  No revdeps.
+# Removal on 2024-05-23.  Bug #929484.
+dev-python/pyannotate
+
+# Michał Górny <mgorny@gentoo.org> (2024-04-23)
+# No py3.12, broken.  Upstream literally tells people to use a fork
+# "for the time being".  No revdeps.
+# Removal on 2024-05-23.  Bug #929461.
+dev-python/kafka-python
+
+# Michał Górny <mgorny@gentoo.org> (2024-04-23)
+# Unmaintained.  No py3.12, failing tests.  Last upstream activity
+# in 2020, triggered by our previous last rites.  No revdeps.
+# Removal on 2024-05-23.  Bug #929445.
+dev-python/cgroup-utils
+
+# Michał Górny <mgorny@gentoo.org> (2024-04-23)
 # Unmaintained Sphinx theme.  Last commit in 2021.  No revdeps.
 # Removal on 2024-05-23.  Bug #929458.
 dev-python/guzzle_sphinx_theme
