@@ -4053,12 +4053,14 @@ media-gfx/blender:cycles - Build cycles renderer (requires media-libs/openimagei
 media-gfx/blender:cycles-bin-kernels - Precompile the cycles render kernels for the CUDA/HIP/OneAPI backends, if they are enabled, at compile time. This makes it so that the user doesn't have to wait for the kernels to compile when they are used for the first time in Blender. If this option is not on, they will be built as needed at runtime.
 media-gfx/blender:dds - Adds DDS textures support to Blender.
 media-gfx/blender:embree - Use embree to accelerate certain areas of the Cycles render engine.
+media-gfx/blender:experimental - Build Experimental Blender Modules
 media-gfx/blender:fluid - Adds fluid simulation support via the built-in Mantaflow library.
 media-gfx/blender:headless - Build without graphical support (renderfarm, server mode only).
 media-gfx/blender:hip - Build cycles renderer with AMD HIP support.
 media-gfx/blender:nanovdb - Enable nanoVDB support in Cycles. Uses less memory than regular openVDB when rendering.
 media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
 media-gfx/blender:oidn - Enable OpenImageDenoiser Support
+media-gfx/blender:oneapi - Build OIDN with Intel oneAPI SyCL support
 media-gfx/blender:openimageio - Enable OpenImageIO Support
 media-gfx/blender:openpgl - Enable path guiding support in Cycles
 media-gfx/blender:opensubdiv - Add rendering support form OpenSubdiv from Dreamworks Animation through media-libs/opensubdiv.
@@ -4067,7 +4069,9 @@ media-gfx/blender:optix - Add support for NVIDIA's OptiX Raytracing Engine.
 media-gfx/blender:osl - Add support for OpenShadingLanguage scripting.
 media-gfx/blender:potrace - Add support for converting bitmaps into Grease pencil line using the potrace library.
 media-gfx/blender:pugixml - Enable PugiXML support (Used for OpenImageIO, Grease Pencil SVG export)
+media-gfx/blender:renderdoc - Build Blender with renderdoc support
 media-gfx/blender:tbb - Use threading building blocks library from dev-cpp/tbb.
+media-gfx/blender:vulkan - Add support for the experimental Vulkan viewport backend
 media-gfx/chafa:tools - Build command-line tools
 media-gfx/darktable:gamepad - Support using game controllers as input devices
 media-gfx/darktable:geolocation - Enable geotagging support
