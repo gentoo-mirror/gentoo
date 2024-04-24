@@ -22,14 +22,14 @@ KEYWORDS=""
 RDEPEND="
 	dev-python/cloudpickle[${PYTHON_USEDEP}]
 	<dev-python/ipykernel-7[${PYTHON_USEDEP}]
-	>=dev-python/ipykernel-6.23.2[${PYTHON_USEDEP}]
+	>=dev-python/ipykernel-6.29.3[${PYTHON_USEDEP}]
 	<dev-python/ipython-9[${PYTHON_USEDEP}]
 	>dev-python/ipython-8.13.0[${PYTHON_USEDEP}]
 	<dev-python/jupyter-client-9[${PYTHON_USEDEP}]
 	>=dev-python/jupyter-client-7.4.9[${PYTHON_USEDEP}]
 	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-22.1.0[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-24.0.0[${PYTHON_USEDEP}]
 	>=dev-python/wurlitzer-1.0.3[${PYTHON_USEDEP}]
 "
 

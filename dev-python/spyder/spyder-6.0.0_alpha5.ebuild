@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature virtualx xdg
 
 # Commit of documentation to fetch
-DOCS_PV="0aa81d44ec6490c155be1bb1acca0a27328b12e0"
+DOCS_PV="32efdaebc11dab0b8e0767717342b7d306dc06ea"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -49,14 +49,15 @@ RDEPEND="
 	>=dev-python/qdarkstyle-3.2.0[${PYTHON_USEDEP}]
 	<dev-python/qdarkstyle-3.3.0[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.2.2[${PYTHON_USEDEP}]
-	>=dev-python/qtawesome-1.3.0[${PYTHON_USEDEP}]
+	>=dev-python/qtawesome-1.3.1[${PYTHON_USEDEP}]
+	<dev-python/qtawesome-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/qtconsole-5.5.1[${PYTHON_USEDEP}]
 	<dev-python/qtconsole-5.6.0[${PYTHON_USEDEP}]
 	>=dev-python/QtPy-2.4.0[${PYTHON_USEDEP},svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-3.0.0_beta4[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-3.0.0_beta5[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-3.0.0_beta5[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-3.0.0_beta6[${PYTHON_USEDEP}]
 	>=dev-python/superqt-0.6.1[${PYTHON_USEDEP}]
 	<dev-python/superqt-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
