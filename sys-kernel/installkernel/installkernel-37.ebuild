@@ -23,10 +23,6 @@ REQUIRED_USE="
 	ukify? ( uki )
 	?? ( efistub grub refind systemd-boot )
 "
-# efistub requires systemd's kernel-install because:
-# - We need support for removal to clean-up the created entry
-# - We need to know the location of the ESP
-# - kernel-bootcfg at some point calls bootctl (to find ESP)
 
 RDEPEND="
 	!<=sys-kernel/installkernel-systemd-3
