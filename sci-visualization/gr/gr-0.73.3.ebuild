@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,10 +12,10 @@ SRC_URI="https://github.com/sciapp/gr/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="cairo ffmpeg postscript tiff truetype"
+IUSE="agg cairo ffmpeg postscript tiff truetype"
 
 DEPEND="
-	dev-qt/qtgui:5
+	dev-qt/qtgui:=
 	media-libs/fontconfig
 	media-libs/glfw
 	media-libs/libjpeg-turbo:=
@@ -24,9 +24,9 @@ DEPEND="
 	net-libs/zeromq
 	sys-libs/zlib
 	virtual/opengl
-	x11-libs/agg
 	x11-libs/libX11
 	x11-libs/libXt
+	agg? ( x11-libs/agg )
 	cairo? ( x11-libs/cairo )
 	ffmpeg? ( media-video/ffmpeg:= )
 	postscript? ( app-text/ghostscript-gpl )
@@ -34,7 +34,6 @@ DEPEND="
 	truetype? ( media-libs/freetype )
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.53.0-musl.patch"
@@ -43,6 +42,12 @@ PATCHES=(
 REQUIRED_USE="cairo? ( truetype )"
 
 src_configure() {
+	if use agg ; then
+		mycmakeargs+=( -DAGG_LIBRARY=libagg.so -DAGG_INCLUDE_DIR=/usr/include/agg2 )
+	else
+		mycmakeargs+=( -DAGG_LIBRARY= )
+	fi
+
 	use cairo || mycmakeargs+=( -DCAIRO_LIBRARY= )
 	use postscript || mycmakeargs+=( -DGS_LIBRARY= )
 	use ffmpeg || mycmakeargs+=( -DFFMPEG_INCLUDE_DIR= )
