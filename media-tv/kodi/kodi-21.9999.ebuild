@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CODENAME=""
+CODENAME="Omega"
 
 # libdvd{css,read,nav} are not unbundlable without patching the buildsystem.
 

@@ -60,7 +60,7 @@ else
 	MY_PV="${MY_PV}-${CODENAME}"
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI+=" https://github.com/xbmc/xbmc/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 	S=${WORKDIR}/xbmc-${MY_PV}
 fi
 
@@ -271,6 +271,7 @@ Please consider enabling IP_MULTICAST under Networking options.
 
 PATCHES=(
 	"${FILESDIR}"/kodi-20.2-binutils-2.41.patch
+	"${FILESDIR}"/kodi-20.3-gcc-14.patch
 )
 
 pkg_setup() {
