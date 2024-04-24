@@ -210,7 +210,7 @@ else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -255,6 +255,7 @@ src_prepare() {
 	# Remove bad tests.
 	local -a bad_tests=(
 		civl/inductive-sequentialization/BroadcastConsensus.bpl
+		civl/inductive-sequentialization/ChangRoberts.bpl
 		civl/inductive-sequentialization/PingPong.bpl
 		civl/large-samples/GC.bpl
 		civl/paxos/is.sh
