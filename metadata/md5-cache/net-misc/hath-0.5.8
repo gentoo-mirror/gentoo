@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-haskell/cmdargs-0.10:= >=dev-haskell/split-0.2:= >=dev-haskell/tasty-0.8:= >=dev-haskell/tasty-hunit-0.8:= >=dev-haskell/tasty-quickcheck-0.8.1:= >=dev-lang/ghc-9.0.0:= >=dev-haskell/cabal-3.0.0.0 test? ( dev-util/shelltestrunner )
+DEPEND=>=dev-haskell/cmdargs-0.10:= >=dev-haskell/split-0.2:= >=dev-haskell/tasty-0.8:= >=dev-haskell/tasty-hunit-0.8:= >=dev-haskell/tasty-quickcheck-0.8.1:= >=dev-lang/ghc-9.0.0:= >=dev-haskell/cabal-3.0.0.0 test? ( dev-util/shelltestrunner sys-apps/grep[pcre] )
 DESCRIPTION=Manipulate network blocks in CIDR notation
 EAPI=8
 HOMEPAGE=https://michael.orlitzky.com/code/hath.xhtml
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://michael.orlitzky.com/code/releases/hath-0.5.8.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=ab059f165e5c4cb59df3d1ffe577f619
+_md5_=c682325529efecf8d41696c8e94a3a57
