@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop udev
 
@@ -21,11 +21,20 @@ RESTRICT="bindist mirror"
 DEPEND="acct-group/android"
 RDEPEND="
 	${DEPEND}
-	dev-java/ant-core
+	>=dev-java/ant-1.10.14-r3:0
 	dev-java/swt:3.7[cairo]
-	>=virtual/jdk-1.8
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/libpulse
 	sys-libs/ncurses-compat:5[abi_x86_32(-)]
 	sys-libs/zlib[abi_x86_32(-)]
+	>=virtual/jdk-1.8
+	x11-libs/libX11
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXrender
+
 "
 
 QA_PREBUILT="*"
