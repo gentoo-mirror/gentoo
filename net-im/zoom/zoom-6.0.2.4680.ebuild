@@ -101,8 +101,8 @@ src_prepare() {
 src_install() {
 	insinto /opt/zoom
 	exeinto /opt/zoom
-	doins -r calendar cef email json ringtone scheduler sip timezones \
-		translations
+	doins -r calendar cef chatapp email json ringtone scheduler sip \
+		timezones translations
 	doins *.pcm Embedded.properties version.txt
 	doexe zoom zopen ZoomLauncher *.sh \
 		aomhost libaomagent.so libdvf.so libmkldnn.so \
