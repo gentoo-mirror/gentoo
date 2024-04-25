@@ -55,7 +55,7 @@ RDEPEND="
 	)
 	editor? ( x11-libs/pango )
 	examples? ( x11-libs/pango )
-	gles2? ( media-libs/mesa[gles2,wayland] )
+	gles2? ( media-libs/mesa[gles2(+),wayland] )
 	jpeg? ( media-libs/libjpeg-turbo:0= )
 	lcms? ( >=media-libs/lcms-2.9:2 )
 	pipewire? ( >=media-video/pipewire-0.3:= )
@@ -67,7 +67,7 @@ RDEPEND="
 	systemd? ( sys-apps/systemd )
 	vnc? (
 		=dev-libs/aml-0.3*
-		=gui-libs/neatvnc-0.7*
+		=gui-libs/neatvnc-0.8*
 		sys-libs/pam
 	)
 	webp? ( media-libs/libwebp:0= )
@@ -92,6 +92,10 @@ BDEPEND="
 	virtual/pkgconfig
 	$(python_gen_any_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-neatvnc-0.8.patch
+)
 
 python_check_deps() {
 	python_has_version "dev-python/setuptools[${PYTHON_USEDEP}]"
