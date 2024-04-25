@@ -5,12 +5,13 @@ EAPI=8
 
 MY_PN="fcitx5-gtk"
 
-inherit cmake gnome2-utils xdg
+inherit cmake gnome2-utils unpacker xdg
 
 DESCRIPTION="Gtk im module for fcitx5 and glib based dbus client library"
 HOMEPAGE="https://github.com/fcitx/fcitx5-gtk"
-SRC_URI="https://download.fcitx-im.org/fcitx5/${MY_PN}/${MY_PN}-${PV}.tar.xz -> ${P}.tar.xz"
+SRC_URI="https://download.fcitx-im.org/fcitx5/${MY_PN}/${MY_PN}-${PV}.tar.zst -> ${P}.tar.zst"
 
+S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
@@ -32,8 +33,6 @@ BDEPEND="
 	virtual/pkgconfig
 	kde-frameworks/extra-cmake-modules:0
 "
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_configure() {
 	local mycmakeargs=(
