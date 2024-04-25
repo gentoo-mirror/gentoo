@@ -36,15 +36,15 @@ PYTHON_REQ_USE="xml(+)"
 
 # These variables let us easily bound supported major dependency versions in one place.
 GCC_MIN_VER=12
-GN_MIN_VER=0.2154
+GN_MIN_VER=0.2165
 # Since Google use prerelease llvm we can let any adventurous users try to build with prerelease
 # ebuilds; try to keep this up to date with the latest version in the tree.
 LLVM_MAX_SLOT=19
 LLVM_MIN_SLOT=17
 RUST_MIN_VER=1.72.0
 # chromium-tools/get-chromium-toolchain-strings.sh
-GOOGLE_CLANG_VER=llvmorg-19-init-2319-g7c4c2746-1
-GOOGLE_RUST_VER=340bb19fea20fd5f9357bbfac542fad84fc7ea2b-3
+GOOGLE_CLANG_VER=llvmorg-19-init-8091-gab037c4f-1
+GOOGLE_RUST_VER=ab71ee7a9214c2793108a41efb065aa77aeb7326-1
 
 # https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
 # Resolved upstream, requires testing and some backporting I'm sure
@@ -64,11 +64,11 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu
 	sv sw ta te th tr uk ur vi zh-CN zh-TW"
 
 inherit check-reqs chromium-2 desktop flag-o-matic llvm ninja-utils pax-utils
-inherit python-any-r1 qmake-utils readme.gentoo-r1 toolchain-funcs virtualx xdg-utils
+inherit python-any-r1 qmake-utils readme.gentoo-r1 systemd toolchain-funcs virtualx xdg-utils
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="123.0.6312.86-1raptor0~deb12u1"
+PATCHSET_PPC64="123.0.6312.105-1raptor0~deb12u1"
 PATCH_V="${PV%%\.*}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	system-toolchain? (
@@ -87,10 +87,10 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/stable"
-KEYWORDS="amd64 arm64 ~ppc64"
+SLOT="0/beta"
+KEYWORDS="~amd64 ~arm64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
-IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos libcxx lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
+IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos libcxx +lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
 IUSE+=" qt5 qt6 +screencast selinux +system-toolchain +vaapi +wayland +widevine"
 RESTRICT="!bindist? ( bindist )"
 
@@ -250,8 +250,8 @@ BDEPEND="
 		>=virtual/rust-${RUST_MIN_VER}[profiler(-)]
 	)
 	>=dev-build/gn-${GN_MIN_VER}
+	<dev-build/ninja-1.12
 	dev-lang/perl
-	<dev-build/ninja-1.12.0
 	>=dev-util/gperf-3.0.3
 	dev-vcs/git
 	>=net-libs/nodejs-7.6.0[inspector]
@@ -336,7 +336,7 @@ pre_build_checks() {
 	# Check build requirements: bugs #471810, #541816, #914220
 	# We're going to start doing maths here on the size of an unpacked source tarball,
 	# this should make updates easier as chromium continues to balloon in size.
-	local BASE_DISK=18
+	local BASE_DISK=22
 	local EXTRA_DISK=1
 	local CHECKREQS_MEMORY="4G"
 	tc-is-cross-compiler && EXTRA_DISK=2
@@ -423,11 +423,11 @@ src_prepare() {
 
 	local PATCHES=(
 		"${FILESDIR}/chromium-cross-compile.patch"
-		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
-		"${FILESDIR}/chromium-117-system-zstd.patch"
 		"${FILESDIR}/chromium-124-libwebp-shim-sharpyuv.patch"
+		"${FILESDIR}/chromium-125-oauth2-client-switches.patch"
+		"${FILESDIR}/chromium-125-system-zstd.patch"
 	)
 
 	if use system-toolchain; then
@@ -552,7 +552,6 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/puppeteer/package/lib/esm/third_party/rxjs
 		third_party/devtools-frontend/src/front_end/third_party/vscode.web-custom-data
 		third_party/devtools-frontend/src/front_end/third_party/wasmparser
-		third_party/devtools-frontend/src/test/unittests/front_end/third_party/i18n
 		third_party/devtools-frontend/src/third_party
 		third_party/distributed_point_functions
 		third_party/dom_distiller_js
@@ -584,6 +583,7 @@ src_prepare() {
 		third_party/jsoncpp
 		third_party/jstemplate
 		third_party/khronos
+		third_party/lens_server_proto
 		third_party/leveldatabase
 		third_party/libaddressinput
 		third_party/libaom
@@ -634,7 +634,6 @@ src_prepare() {
 		third_party/ots
 		third_party/pdfium
 		third_party/pdfium/third_party/agg23
-		third_party/pdfium/third_party/base
 		third_party/pdfium/third_party/bigint
 		third_party/pdfium/third_party/freetype
 		third_party/pdfium/third_party/lcms
@@ -680,6 +679,7 @@ src_prepare() {
 		third_party/tflite/src/third_party/eigen3
 		third_party/tflite/src/third_party/fft2d
 		third_party/tflite/src/third_party/xla/third_party/tsl
+		third_party/tflite/src/third_party/xla/xla/tsl/util
 		third_party/ruy
 		third_party/six
 		third_party/ukey2
@@ -1435,5 +1435,13 @@ pkg_postinst() {
 			elog "--qt-version=6, e.g. by adding it to CHROMIUM_FLAGS in"
 			elog "/etc/chromium/default."
 		fi
+	fi
+
+	if systemd_is_booted && ! [[ -f "/etc/machine-id" ]]; then
+		ewarn "The lack of an '/etc/machine-id' file on this system booted with systemd"
+		ewarn "indicates that the Gentoo handbook was not followed to completion."
+		ewarn ""
+		ewarn "Chromium is known to behave unpredictably with this system configuration;"
+		ewarn "please complete the configuration of this system before logging any bugs."
 	fi
 }
