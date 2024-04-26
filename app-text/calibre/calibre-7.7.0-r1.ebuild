@@ -35,7 +35,7 @@ LICENSE="
 	OFL-1.1
 	PSF-2
 "
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64"
 SLOT="0"
 IUSE="+font-subsetting ios speech +system-mathjax test +udisks unrar"
 
@@ -64,6 +64,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		>=dev-python/html5-parser-0.4.9[${PYTHON_USEDEP}]
 		dev-python/jeepney[${PYTHON_USEDEP}]
 		>=dev-python/lxml-3.8.0[${PYTHON_USEDEP}]
+		dev-python/lxml-html-clean[${PYTHON_USEDEP}]
 		>=dev-python/markdown-3.0.1[${PYTHON_USEDEP}]
 		>=dev-python/mechanize-0.3.5[${PYTHON_USEDEP}]
 		>=dev-python/msgpack-0.6.2[${PYTHON_USEDEP}]
