@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,7 @@ DEPEND="
 	>=xfce-base/garcon-0.6:=
 	>=xfce-base/libxfce4ui-4.13:=
 	>=xfce-base/libxfce4util-4.13:=
-	>=xfce-base/libxfce4windowing-4.19.1:=
+	>=xfce-base/libxfce4windowing-4.19.3:=[X?]
 	>=xfce-base/xfconf-4.18.0:=
 	libnotify? ( >=x11-libs/libnotify-0.7:= )
 	thunar? ( >=xfce-base/thunar-4.17.10:= )
@@ -43,6 +43,11 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# https://gitlab.xfce.org/xfce/xfdesktop/-/issues/242
+	"${FILESDIR}/${P}-settings.patch"
+)
 
 src_configure() {
 	local myconf=(
