@@ -8,7 +8,7 @@ inherit cmake
 DESCRIPTION="oneAPI Video Processing Library Intel GPU implementation"
 HOMEPAGE="https://github.com/oneapi-src/oneVPL-intel-gpu"
 SRC_URI="https://github.com/oneapi-src/oneVPL-intel-gpu/archive/refs/tags/intel-onevpl-${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-intel-onevpl-${PV}"
+S="${WORKDIR}/vpl-gpu-rt-intel-onevpl-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,7 +21,7 @@ DEPEND="
 	media-libs/libva
 	x11-libs/libdrm[video_cards_intel]
 "
-# At runtime we need a dispatcher, oneVPL is preferred but mediasdk also works
+# At runtime we need a dispatcher, libvpl is preferred but mediasdk also works
 RDEPEND="${DEPEND}
 	>=media-libs/libva-intel-media-driver-${PV}
 	|| (
