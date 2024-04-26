@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 inherit fortran-2 flag-o-matic toolchain-funcs
 
@@ -13,7 +13,7 @@ SRC_URI="ftp://ftp.astro.caltech.edu/pub/pgplot/${MY_P}.tar.gz"
 
 LICENSE="free-noncomm"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~ia64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ia64 ~ppc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc motif static-libs tk"
 
 RDEPEND="
@@ -21,9 +21,12 @@ RDEPEND="
 	x11-libs/libX11:=
 	x11-libs/libXt:=
 	motif? ( x11-libs/motif:= )
-	tk? ( dev-lang/tk:= )"
-DEPEND="${RDEPEND}
-	doc? ( virtual/latex-base )"
+	tk? ( dev-lang/tk:= )
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	doc? ( virtual/latex-base )
+"
 
 S="${WORKDIR}/${PN}"
 
