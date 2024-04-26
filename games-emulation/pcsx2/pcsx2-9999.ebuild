@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake desktop fcaps flag-o-matic toolchain-funcs
+inherit cmake desktop fcaps flag-o-matic optfeature toolchain-funcs
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -113,8 +113,14 @@ src_configure() {
 		-DUSE_LINKED_FFMPEG=yes
 		-DUSE_VTUNE=no
 		-DUSE_VULKAN=$(usex vulkan)
+
+		# note that upstream hardly support native wayland, may or may not work
+		# https://github.com/PCSX2/pcsx2/pull/10179
 		-DWAYLAND_API=$(usex wayland)
-		-DX11_API=yes # X libs are currently hard-required either way
+		# not optional given libX11 is hard-required either way and upstream
+		# seemingly has no intention to drop the requirement at the moment
+		# https://github.com/PCSX2/pcsx2/issues/11149
+		-DX11_API=yes
 
 		# not packaged due to bug #885471, but still disable for no automagic
 		-DCMAKE_DISABLE_FIND_PACKAGE_Libbacktrace=yes
@@ -151,6 +157,12 @@ src_install() {
 
 pkg_postinst() {
 	fcaps -m 0755 cap_net_admin,cap_net_raw=eip usr/lib/${PN}/pcsx2-qt
+
+	# calls aplay or gst-play/launch-1.0 as fallback
+	# https://github.com/PCSX2/pcsx2/issues/11141
+	optfeature "UI sound effects support" \
+		media-sound/alsa-utils \
+		media-libs/gst-plugins-base:1.0
 
 	if [[ ${REPLACING_VERSIONS##* } ]] &&
 		ver_test ${REPLACING_VERSIONS##* } -lt 1.7; then
