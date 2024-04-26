@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="121"
+CHROMIUM_VERSION="124"
 CHROMIUM_LANGS="
 	af
 	am
@@ -50,7 +50,6 @@ CHROMIUM_LANGS="
 	kab
 	kn
 	ko
-	ku
 	lt
 	lv
 	mk
@@ -98,7 +97,7 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 SRC_URI="
@@ -111,7 +110,7 @@ LICENSE="Vivaldi"
 SLOT="0"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 qt6 widevine"
 RESTRICT="bindist mirror"
-#REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
+REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
@@ -175,6 +174,7 @@ src_prepare() {
 
 	pushd ${VIVALDI_HOME}/locales > /dev/null || die
 	rm ja-KS.pak || die # No flag for Kansai as not in IETF list.
+	rm kmr.pak || die # No flag for Kurmanji.
 	chromium_remove_language_paks
 	popd > /dev/null || die
 
