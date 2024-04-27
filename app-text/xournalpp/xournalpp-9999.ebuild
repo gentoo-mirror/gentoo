@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,14 +25,14 @@ REQUIRED_USE="${LUA_REQUIRED_USE}"
 COMMON_DEPEND="
 	${LUA_DEPS}
 	app-text/poppler[cairo]
-	dev-libs/glib
+	>=dev-libs/glib-2.32.0
 	dev-libs/libxml2
-	dev-libs/libzip:=
-	gnome-base/librsvg
-	media-libs/portaudio[cxx]
-	media-libs/libsndfile
+	>=dev-libs/libzip-1.0.1:=
+	>=gnome-base/librsvg-2.40
+	>=media-libs/portaudio-12[cxx]
+	>=media-libs/libsndfile-1.0.25
 	sys-libs/zlib:=
-	x11-libs/gtk+:3
+	>=x11-libs/gtk+-3.18.9:3
 "
 RDEPEND="${COMMON_DEPEND}"
 DEPEND="${COMMON_DEPEND}"
@@ -43,9 +43,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.1.1-nostrip.patch"
-	"${FILESDIR}/${PN}-1.1.1-nocompress.patch"
-	"${FILESDIR}/${PN}-1.1.3-lua-5-4.patch"
-	"${FILESDIR}/${PN}-1.1.3-gcc13.patch"
+	"${FILESDIR}/${PN}-1.2.3-nocompress.patch"
+	"${FILESDIR}/${PN}-1.2.3-lua-5-4.patch"
 )
 
 src_configure() {
