@@ -1386,6 +1386,7 @@ app-crypt/argon2 20190702-r1: Password hashing software that won the Password Ha
 app-crypt/asedriveiiie-serial 3.5: ASEDriveIIIe Serial Card Reader
 app-crypt/asedriveiiie-usb 3.5: ASEDriveIIIe USB Card Reader
 app-crypt/asekey 3.7 3.7-r1: ASEKey USB SIM Card Reader
+app-crypt/badkeys 0.0.8: Check cryptographic keys for known weaknesses
 app-crypt/bcwipe 1.9.13: Secure file removal utility
 app-crypt/bsign 0.4.5-r1: embed secure hashes (SHA1) and digital signatures (GNU Privacy Guard) into files
 app-crypt/ccid 1.5.1 1.5.4 1.5.5: CCID free software driver
@@ -3894,7 +3895,7 @@ dev-cpp/robin-hood-hashing 3.11.5-r1: Fast & memory efficient hashtable based on
 dev-cpp/robin-map 0.6.3 9999: C++ fast hash map and hash set using robin hood hashing
 dev-cpp/scitokens-cpp 1.1.0-r1 1.1.1: C++ implementation of the SciTokens library with a C library interface
 dev-cpp/sdbus-c++ 1.4.0-r1: High-level C++ D-Bus library
-dev-cpp/simpleini 4.22 4.22-r1: C++ library providing a simple API to read and write INI-style files
+dev-cpp/simpleini 4.22-r1: C++ library providing a simple API to read and write INI-style files
 dev-cpp/sol2 3.3.1: Header-only C++ <-> Lua API wrapper
 dev-cpp/sparsehash 2.0.4: An extremely memory-efficient hash_map implementation
 dev-cpp/string-theory 3.5 3.6: A flexible modern C++ library for string manipulation and storage
@@ -4146,7 +4147,7 @@ dev-games/clanlib 0.8.1-r2 2.3.7-r3 4.1.0: Multi-platform game development libra
 dev-games/flatzebra 0.1.7-r1: Generic game engine for 2D double-buffering animation
 dev-games/freecell-solver 6.8.0: C library for automatically solving Freecell and some other solitaire variants
 dev-games/freesolid 2.1.2: Library for collision detection of three-dimensional objects
-dev-games/godot 3.5.3 4.2.1 4.2.2: Multi-platform 2D and 3D game engine with a feature-rich editor
+dev-games/godot 3.5.3 4.2.2: Multi-platform 2D and 3D game engine with a feature-rich editor
 dev-games/guichan 0.8.2: A portable C++ GUI library designed for games using Allegro, SDL and/or OpenGL
 dev-games/hawknl 1.68-r3: A cross-platform network library designed for games
 dev-games/hdl_dump 0.9.2.20180722: Game installer for PlayStation 2 HD Loader and Open PS2 Loader
@@ -7781,7 +7782,7 @@ dev-perl/XML-NodeFilter 0.10.0-r2: Generic XML::NodeFilter Class
 dev-perl/XML-Parser 2.460.0-r2: A perl module for parsing XML documents
 dev-perl/XML-Parser-Lite 0.722.0: Lightweight regexp-based XML parser
 dev-perl/XML-RAI 1.303.100-r2: RSS Abstraction Interface
-dev-perl/XML-RSS 1.620.0: a basic framework for creating and maintaining RSS files
+dev-perl/XML-RSS 1.620.0 1.630.0: a basic framework for creating and maintaining RSS files
 dev-perl/XML-RSS-Feed 2.400.0-r2: Persistent XML RSS Encapsulation
 dev-perl/XML-RSS-LibXML 0.310.500-r1: XML::RSS with XML::LibXML
 dev-perl/XML-RSS-Parser 4.0.0-r2: A liberal object-oriented parser for RSS feeds
@@ -10962,7 +10963,7 @@ dev-util/shadowman 3: Unified compiler shadow link directory updater
 dev-util/shards 0.17.4 0.18.0: Dependency manager for the Crystal language
 dev-util/shc 3.9.6 4.0.3: A (shell-) script compiler/scrambler
 dev-util/shellcheck 0.9.0-r2: Shell script analysis tool
-dev-util/shellcheck-bin 0.9.0 0.10.0: Shell script analysis tool (binary package)
+dev-util/shellcheck-bin 0.10.0: Shell script analysis tool (binary package)
 dev-util/shelltestrunner 1.9: A tool for testing command-line programs
 dev-util/shflags 1.2.3 1.3.0: Command-line flags module for Unix shell scripts
 dev-util/shtool 2.0.8-r2: Set of stable and portable shell scripts
@@ -11201,7 +11202,7 @@ games-arcade/briquolo 0.5.7: Breakout with 3D representation based on OpenGL
 games-arcade/bumprace 1.5.3-r1: simple arcade racing game
 games-arcade/burgerspace 1.9.3-r1: Clone of the 1982 BurgerTime video game by Data East
 games-arcade/cavezofphear 0.5.1-r1: A boulder dash / digger-like game for console using ncurses
-games-arcade/cdogs-sdl 2.0.0 2.1.0: Classic overhead run-and-gun game
+games-arcade/cdogs-sdl 2.1.0: Classic overhead run-and-gun game
 games-arcade/ceferino 0.97.8-r3: Super-Pang clone (destroy bouncing balloons with your grapnel)
 games-arcade/circuslinux 1.0.3-r2: Clone of the Atari 2600 game "Circus Atari"
 games-arcade/cob 0.9-r2: Cruising on Broadway: a painting-type game
@@ -11347,7 +11348,7 @@ games-board/pioneers 15.6: Clone of the popular board game The Settlers of Catan
 games-board/pokerth 1.1.2-r1: Texas Hold'em poker game
 games-board/polyglot 1.4.70b-r3: Protocol adapter to run UCI chess engines under xboard
 games-board/pychess 1.0.4: GTK chess client
-games-board/pysolfc 2.21.0 3.0.0: Exciting collection of more than 1000 solitaire card games
+games-board/pysolfc 3.0.0: Exciting collection of more than 1000 solitaire card games
 games-board/scid 4.7.0-r1 5.0.2: Shane's Chess Information Database
 games-board/simsu 1.3.9: Basic sudoku game
 games-board/sjeng 11.2_p8_p1: Console based chess interface
@@ -11538,7 +11539,7 @@ games-misc/bsd-games 2.17_p28-r2 3.1-r2 3.2: collection of games from NetBSD
 games-misc/bsod 0.1-r1: This program will let you experience the authentic Microsoft Windows experience
 games-misc/c++robots 0-r1: ongoing 'King of the Hill' (KotH) tournament
 games-misc/cowsay 3.7.0: Configurable talking ASCII cow (and other characters)
-games-misc/doge 3.7.0 3.8.0: wow very terminal doge
+games-misc/doge 3.8.0: wow very terminal doge
 games-misc/exult-sound 0-r2: Sound data for games-engines/exult
 games-misc/fortune-mod 1.99.1-r3 3.12.0 3.14.1-r1 3.16.0-r1 3.18.0: The notorious fortune program
 games-misc/fortune-mod-all 4 5: Meta package for all fortune-mod packages
@@ -11850,7 +11851,7 @@ games-strategy/wargus 3.3.2: Warcraft II for the Stratagus game engine
 games-strategy/warmux 11.04.1-r2: A free Worms clone
 games-strategy/warzone2100 4.4.2: 3D real-time strategy game
 games-strategy/wesnoth 1.16.9 1.16.10 1.17.19 1.17.20: Battle for Wesnoth - A fantasy turn-based strategy game
-games-strategy/widelands 1.1 1.2 9999: Game similar to Settlers 2
+games-strategy/widelands 1.2 9999: Game similar to Settlers 2
 games-strategy/xbattleai 1.2.2-r2: A multi-player game of strategy and coordination
 games-util/acc 1.58: ACS script compiler for use with ZDoom and Hexen
 games-util/antimicro 2.23: Map keyboard and mouse buttons to gamepad buttons
@@ -13495,7 +13496,7 @@ media-libs/urt 3.1b-r3: the Utah Raster Toolkit is a library for dealing with ra
 media-libs/vamp-plugin-sdk 2.10: Audio processing system for plugins to extract information from audio data
 media-libs/vidstab 1.1.1 1.1.1-r1 9999: Video stabilization library
 media-libs/vigra 1.11.1-r9 9999: C++ computer vision library emphasizing customizable algorithms and structures
-media-libs/vips 8.15.1 8.15.2: VIPS Image Processing Library
+media-libs/vips 8.15.2: VIPS Image Processing Library
 media-libs/virglrenderer 0.10.1 0.10.4 9999: library used implement a virtual 3D GPU used by qemu
 media-libs/vitamtp 2.5.9_pre20160829 9999: Library to interact with PS Vita's USB MTP protocol
 media-libs/vkroots 0_p20231108: Simple framework for writing Vulkan layers
@@ -14254,7 +14255,7 @@ media-video/mpglen 0.1: A program to scan through a MPEG file and count the numb
 media-video/mpgtx 1.3.1-r2: Command line MPEG audio/video/system file toolbox
 media-video/mplay-sh 0.5.3-r1: mplayer wrapper script as backend for vdr-mplayer
 media-video/mplayer 1.5_p20230215 1.5_p20230618 1.5_p20231206 9999: Media Player for Linux
-media-video/mpv 0.37.0 0.37.0-r1 0.38.0 9999: Media player for the command line
+media-video/mpv 0.37.0 0.38.0 9999: Media player for the command line
 media-video/noad 0.8.7-r1 0.8.8: Mark commercial breaks in VDR recordings
 media-video/obs-studio 30.1.0 30.1.1 9999: Software for Recording and Streaming Live Video Content
 media-video/openshot 2.6.1 3.1.1: Award-winning free and open-source video editor
@@ -15420,7 +15421,7 @@ net-misc/xmrig 6.21.1 6.21.3 9999: RandomX, CryptoNight, KawPow, AstroBWT, and A
 net-misc/yandex-disk 0.1.6.1080_p1: CLI to access Yandex Disk file storage service
 net-misc/you-get 0.4.1650 0.4.1650-r1: Utility to download media contents from the web
 net-misc/youtube-viewer 3.10.1 9999: A command line utility for viewing youtube-videos in Mplayer
-net-misc/yt-dlp 2024.03.10 2024.04.09 9999: youtube-dl fork with additional features and fixes
+net-misc/yt-dlp 2024.04.09 9999: youtube-dl fork with additional features and fixes
 net-misc/ytfzf 2.6.2: Posix script to find and watch youtube videos from the terminal
 net-misc/ytmdl 2023.11.26-r1 2024.04.14: Simple app to get songs from youtube in mp3 format
 net-misc/zerotier 1.10.1 1.10.6 1.12.2: A software-based managed Ethernet switch for planet Earth
@@ -18306,7 +18307,7 @@ x11-base/xorg-proto 2023.2 2024.1 9999: X.Org combined protocol headers
 x11-base/xorg-server 21.1.13 9999: X.Org X servers
 x11-base/xorg-sgml-doctools 1.12.1: SGML entities and XML/CSS stylesheets used in X.Org docs
 x11-base/xwayland 23.2.6 9999: Standalone X server running under Wayland
-x11-drivers/nvidia-drivers 390.157 470.239.06 525.147.05 535.161.07 535.171.04 550.40.61 550.67 550.76 550.78: NVIDIA Accelerated Graphics Driver
+x11-drivers/nvidia-drivers 390.157 470.239.06 525.147.05 535.171.04 550.40.61 550.67 550.78: NVIDIA Accelerated Graphics Driver
 x11-drivers/xf86-input-elographics 1.4.4: Elographics input driver
 x11-drivers/xf86-input-evdev 2.10.6: Generic Linux input driver
 x11-drivers/xf86-input-joystick 1.6.4: X.Org driver for joystick input devices
@@ -18886,9 +18887,9 @@ x11-terms/aterm 1.0.1-r6: rxvt compatible terminal emulator with transparency su
 x11-terms/cool-retro-term 1.2.0: Terminal emulator with an old school look and feel
 x11-terms/gnome-terminal 3.44.1 3.50.1: A terminal emulator for GNOME
 x11-terms/guake 3.8.5-r1 3.9.0: Drop-down terminal for GNOME
-x11-terms/kitty 0.32.2 0.33.1 0.34.0 0.34.1 9999: Fast, feature-rich, GPU-based terminal
-x11-terms/kitty-shell-integration 0.32.2 0.33.1 0.34.0 0.34.1-r1 9999: Shell integration scripts for kitty, a GPU-based terminal emulator
-x11-terms/kitty-terminfo 0.32.2 0.33.1 0.34.0 0.34.1 9999: Terminfo for kitty, a GPU-based terminal emulator
+x11-terms/kitty 0.32.2 0.33.1 0.34.1 9999: Fast, feature-rich, GPU-based terminal
+x11-terms/kitty-shell-integration 0.32.2 0.33.1 0.34.1-r1 9999: Shell integration scripts for kitty, a GPU-based terminal emulator
+x11-terms/kitty-terminfo 0.32.2 0.33.1 0.34.1 9999: Terminfo for kitty, a GPU-based terminal emulator
 x11-terms/kterm 6.2.0-r7: Japanese Kanji X Terminal
 x11-terms/mate-terminal 1.26.1 1.28.1: The MATE Terminal
 x11-terms/mlterm 3.9.3-r1: A multi-lingual terminal emulator
