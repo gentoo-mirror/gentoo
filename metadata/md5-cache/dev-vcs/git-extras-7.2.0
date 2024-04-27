@@ -1,0 +1,15 @@
+BDEPEND=test? ( || ( ( dev-lang/python:3.12 >=dev-python/GitPython-3.1.40[python_targets_python3_12(-)] >=dev-python/pytest-7.2[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/GitPython-3.1.40[python_targets_python3_11(-)] >=dev-python/pytest-7.2[python_targets_python3_11(-)] ) ) )
+DEFINED_PHASES=compile install prepare setup test
+DESCRIPTION=Git utilities -- repo summary, repl, changelog population, and many more
+EAPI=8
+HOMEPAGE=https://github.com/tj/git-extras
+INHERIT=bash-completion-r1 python-any-r1
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~x64-macos
+LICENSE=MIT
+RDEPEND=>=app-shells/bash-4.0:* dev-vcs/git
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tj/git-extras/archive/7.2.0.tar.gz -> git-extras-7.2.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=7f1bccb5c0091efd8c76f8625ccab163
