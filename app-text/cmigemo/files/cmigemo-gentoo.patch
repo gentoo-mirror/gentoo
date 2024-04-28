@@ -40,16 +40,28 @@
  
 --- a/tools/migemo.vim
 +++ b/tools/migemo.vim
-@@ -20,7 +20,7 @@
-     let dict = globpath(path, "migemo-dict")
+@@ -24,10 +24,7 @@
    endif
    if dict == ''
--    let dict = '/usr/local/share/migemo/'.&encoding.'/migemo-dict'
-+    let dict = '/usr/share/migemo/migemo-dict'
-     if !filereadable(dict)
-       let dict = ''
-     endif
-@@ -43,7 +43,9 @@
+     for path in [
+-          \ '/usr/local/share/migemo/',
+-          \ '/usr/local/share/cmigemo/',
+           \ '/usr/local/share/',
+-          \ '/usr/share/cmigemo/',
+           \ '/usr/share/',
+           \ ]
+       let path = path . a:name
+@@ -50,6 +47,9 @@
+     let dict = s:SearchDict2(&encoding.'/migemo-dict')
+   endif
+   if dict == ''
++    let dict = s:SearchDict2('migemo/migemo-dict')
++  endif
++  if dict == ''
+     let dict = s:SearchDict2('migemo-dict')
+   endif
+   return dict
+@@ -70,7 +70,9 @@
    nnoremap <Leader>f :call <SID>SearchChar(0)<CR>
  else
    " non-builtin version
@@ -60,27 +72,3 @@
    command! -nargs=* Migemo :call <SID>MigemoSearch(<q-args>)
    nnoremap <silent> <leader>mi :call <SID>MigemoSearch('')<cr>
  
-@@ -53,11 +55,6 @@
-       if retval == ''
-         return
-       endif
--      if has('iconv') && $HOMEDRIVE != ''
--        let retval = iconv(retval, 'cp932', 'euc-jp')
--      elseif &encoding != 'euc-jp'
--        let retval = iconv(retval, &encoding, 'euc-jp')
--      endif
-       "let retval = system('cmigemo -v -w "'.retval.'" -d "'.g:migemodict.'"')
-       let retval = system('cmigemo -v -w '.retval.' -d "'.g:migemodict.'"')
-       if retval == ''
-@@ -88,11 +85,6 @@
-       echohl None
-       return
-     endif
--    if has('iconv') && $HOMEDRIVE != ''
--      let retval = iconv(retval, 'euc-jp', 'cp932')
--    elseif &encoding != 'euc-jp'
--      let retval = iconv(retval, 'euc-jp', &encoding)
--    endif
-   
-     let @/ = retval
-     let v:errmsg = ''
