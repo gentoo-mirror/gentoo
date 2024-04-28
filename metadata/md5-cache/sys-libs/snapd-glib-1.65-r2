@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/gettext qt5? ( dev-qt/linguist-tools:5 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
-DEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:3.0 doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) qml? ( dev-qt/qtdeclarative:5 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) vala? ( || ( dev-lang/vala:0.56 ) )
+DEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:3.0 doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) qml? ( qt5? ( dev-qt/qtdeclarative:5 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) vala? ( || ( dev-lang/vala:0.56 ) )
 DESCRIPTION=glib library for communicating with snapd
 EAPI=8
 HOMEPAGE=https://snapcraft.io/
@@ -8,9 +8,9 @@ INHERIT=meson vala
 IUSE=doc introspection qml qt5 vala
 KEYWORDS=~amd64
 LICENSE=LGPL-3
-RDEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:3.0 doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) qml? ( dev-qt/qtdeclarative:5 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) vala? ( || ( dev-lang/vala:0.56 ) ) app-containers/snapd
+RDEPEND=dev-libs/json-glib dev-libs/glib:2 dev-util/glib-utils net-libs/libsoup:3.0 doc? ( dev-util/gtk-doc ) introspection? ( dev-libs/gobject-introspection ) qml? ( qt5? ( dev-qt/qtdeclarative:5 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) vala? ( || ( dev-lang/vala:0.56 ) ) app-containers/snapd
 REQUIRED_USE=qml? ( qt5 ) vala? ( introspection )
 SLOT=0/1
-SRC_URI=https://github.com/snapcore/snapd-glib/releases/download/1.64/snapd-glib-1.64.tar.xz
+SRC_URI=https://github.com/snapcore/snapd-glib/releases/download/1.65/snapd-glib-1.65.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	meson	aecae905c2e0c201d7925fae52a5576d	vala	e477903dbe0105930c51f170a592dc16
-_md5_=a2e800e9b1ae6cb5bd0f2a86c37267ed
+_md5_=ab4b304debb6d9be86cc0c066b0f27e5
