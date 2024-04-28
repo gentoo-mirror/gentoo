@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,18 +32,25 @@ DEPEND="
 	net-libs/libsoup:3.0
 	doc? ( dev-util/gtk-doc )
 	introspection? ( dev-libs/gobject-introspection )
-	qml? ( dev-qt/qtdeclarative:5 )
+	qml? (
+		qt5? ( dev-qt/qtdeclarative:5 )
+	)
 	qt5? (
 		dev-qt/qtcore:5
 		dev-qt/qtnetwork:5
 		dev-qt/qtwidgets:5
-		)
+	)
 	vala? ( $(vala_depend) )
 "
 
 RDEPEND="${DEPEND}
 	app-containers/snapd
 "
+
+PATCHES=(
+	# https://github.com/snapcore/snapd-glib/pull/152
+	"${FILESDIR}/${P}-install-missing-header.patch"
+)
 
 pkg_setup() {
 	vala_setup
@@ -54,9 +61,10 @@ src_configure() {
 		"$(meson_use doc docs)"
 		"$(meson_use introspection)"
 		"$(meson_use qml qml-bindings)"
-		"$(meson_use qt5 qt-bindings)"
+		"$(meson_use qt5)"
 		"$(meson_use vala vala-bindings)"
 		-Dsoup2=false
+		-Dqt6=false
 	)
 
 	meson_src_configure
