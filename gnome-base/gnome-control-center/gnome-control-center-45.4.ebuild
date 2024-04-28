@@ -1,14 +1,14 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
-inherit gnome.org gnome2-utils meson python-any-r1 virtualx xdg
+inherit flag-o-matic gnome.org gnome2-utils meson python-any-r1 virtualx xdg
 
 DESCRIPTION="GNOME's main interface to configure various aspects of the desktop"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-control-center"
-SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-44.0-patchset.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-45.0-patchset.tar.xz"
 SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-gentoo-logo.svg"
 SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-gentoo-logo-dark.svg"
 # Logo is CC-BY-SA-2.5
@@ -18,22 +18,24 @@ IUSE="+bluetooth +cups debug elogind +gnome-online-accounts +ibus input_devices_
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	^^ ( elogind systemd )
-" # Theoretically "?? ( elogind systemd )" is fine too, lacking some functionality at runtime, but needs testing if handled gracefully enough
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+" # Theoretically "?? ( elogind systemd )" is fine too, lacking some functionality at runtime,
+#   but needs testing if handled gracefully enough
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 # kerberos unfortunately means mit-krb5; build fails with heimdal
 # display panel requires colord and gnome-settings-daemon[colord]
 # wacom panel requires gsd-enums.h from gsd at build time, probably also runtime support
 # printer panel requires cups and smbclient (the latter is not patched yet to be separately optional)
-# First block is toplevel meson.build deps in order of occurrence (plus deeper deps if in same conditional). Second block is dependency() from subdir meson.builds, sorted by directory name occurrence order
+# First block is toplevel meson.build deps in order of occurrence (plus deeper deps if in same conditional).
+# Second block is dependency() from subdir meson.builds, sorted by directory name occurrence order
 DEPEND="
 	gnome-online-accounts? (
 		x11-libs/gtk+:3
 		>=net-libs/gnome-online-accounts-3.25.3:=
 	)
 	>=media-libs/libpulse-2.0[glib]
-	>=gui-libs/gtk-4.9.3:4[X,wayland=]
-	>=gui-libs/libadwaita-1.2.0:1
+	>=gui-libs/gtk-4.11.2:4[X,wayland=]
+	>=gui-libs/libadwaita-1.4_alpha:1
 	>=sys-apps/accountsservice-0.6.39
 	>=x11-misc/colord-0.1.34:0=
 	>=x11-libs/gdk-pixbuf-2.23.0:2
@@ -79,7 +81,6 @@ DEPEND="
 # Settings/Sound/Output/Output Device, bug #814110
 # systemd/elogind USE flagged because package manager will potentially try to satisfy a
 # "|| ( systemd ( elogind openrc-settingsd)" via systemd if openrc-settingsd isn't already installed.
-# libgnomekbd needed only for gkbd-keyboard-display tool
 # gnome-color-manager needed for gcm-calibrate and gcm-viewer calls from color panel
 # <gnome-color-manager-3.1.2 has file collisions with g-c-c-3.1.x
 #
@@ -102,7 +103,7 @@ RDEPEND="${DEPEND}
 		app-admin/system-config-printer
 		net-print/cups-pk-helper
 	)
-	>=gnome-base/libgnomekbd-3
+	gnome-extra/tecla
 	wayland? ( dev-libs/libinput )
 	!wayland? (
 		>=x11-drivers/xf86-input-libinput-0.19.0
@@ -134,7 +135,6 @@ BDEPEND="${PYTHON_DEPS}
 "
 
 PATCHES=(
-	# Patches from gnome-43 branch
 	# Makes some panels and dependencies optional
 	# https://bugzilla.gnome.org/686840, 697478, 700145
 	# Fix some absolute paths to be appropriate for Gentoo
@@ -159,6 +159,14 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=strict-aliasing
+	# https://bugs.gentoo.org/889008
+	# https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/2563
+	#
+	# Do not trust with LTO either
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	local emesonargs=(
 		$(meson_use bluetooth)
 		-Dcups=$(usex cups enabled disabled)
@@ -172,7 +180,8 @@ src_configure() {
 		$(meson_use test tests)
 		$(meson_use input_devices_wacom wacom)
 		#$(meson_use wayland) # doesn't do anything in 3.34 and 3.36 due to unified gudev handling code
-		# bashcompletions installed to $datadir/bash-completion/completions by v3.28.2, which is the same as $(get_bashcompdir)
+		# bashcompletions installed to $datadir/bash-completion/completions by v3.28.2,
+		# which is the same as $(get_bashcompdir)
 		-Dmalcontent=false # unpackaged
 		-Ddistributor_logo=/usr/share/pixmaps/gnome-control-center-gentoo-logo.svg
 		-Ddark_mode_distributor_logo=/usr/share/pixmaps/gnome-control-center-gentoo-logo-dark.svg
