@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit distutils-r1 optfeature
 
@@ -34,7 +34,7 @@ pkg_postinst() {
 	optfeature "disassembly" dev-libs/capstone[python]
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
-		elog "binwalk has many optional dependencies to automatically"
+		elog "binwalk has many more optional dependencies to automatically"
 		elog "extract/decompress data, see INSTALL.md for more details."
 	fi
 }
