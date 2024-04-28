@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+curl +imagemagick mysql postgres +sqlite"
 REQUIRED_USE="|| ( mysql postgres sqlite )"
 
-RDEPEND="<dev-lang/php-8.2[curl?,filter,gd,hash(+),intl,json(+),mysql?,pdo,posix,postgres?,session,simplexml,sqlite?,truetype,xmlreader,xmlwriter,zip]
+RDEPEND="dev-lang/php[curl?,filter,gd,hash(+),intl,json(+),mysql?,pdo,posix,postgres?,session,simplexml,sqlite?,truetype,xmlreader,xmlwriter,zip]
 	imagemagick? ( dev-php/pecl-imagick )
 	virtual/httpd-php"
 
