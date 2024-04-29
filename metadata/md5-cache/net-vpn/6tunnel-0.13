@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) )
+BDEPEND=test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) )
 DEFINED_PHASES=setup
 DESCRIPTION=TCP proxy for applications that don't speak IPv6
 EAPI=7
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/wojtekka/6tunnel/releases/download/0.13/6tunnel-0.13.tar.gz
 _eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=08756a0f180064627f16b1c658e1add5
+_md5_=be63935171565ad6f3d3b33a3fea8e79
