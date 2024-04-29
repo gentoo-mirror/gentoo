@@ -20,6 +20,7 @@ fi
 
 LICENSE="BSD GPL-2 GPL-2+ LGPL-2.1+ ZLIB"
 SLOT="1"
+IUSE="cpu_flags_x86_avx"
 
 DEPEND="
 	app-arch/zstd
@@ -46,7 +47,7 @@ src_prepare() {
 
 src_configure() {
 	cd jollygood/conf || die
-	econf
+	econf $(use_enable cpu_flags_x86_avx avx)
 }
 
 src_compile() {

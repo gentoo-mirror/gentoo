@@ -7,8 +7,8 @@ inherit toolchain-funcs
 
 MY_PN=${PN%-*}
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Jolly Good Fork of bsnes"
-HOMEPAGE="https://gitlab.com/jgemu/bsnes"
+DESCRIPTION="Jolly Good Fork of Nestopia"
+HOMEPAGE="https://gitlab.com/jgemu/nestopia"
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/jgemu/${MY_PN}.git"
@@ -18,16 +18,11 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
-LICENSE="ISC GPL-3+ LGPL-2.1+ MIT ZLIB"
+LICENSE="GPL-2+"
 SLOT="1"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-endianness.patch # 891201#c9
-)
 
 DEPEND="
 	media-libs/jg:1=
-	media-libs/libsamplerate
 "
 RDEPEND="
 	${DEPEND}
@@ -38,7 +33,7 @@ BDEPEND="
 "
 
 src_compile() {
-	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
+	emake CXX="$(tc-getCXX)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
 src_install() {
