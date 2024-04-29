@@ -3,27 +3,34 @@
 
 EAPI=8
 
-inherit git-r3 gnome2-utils meson optfeature vala
+inherit gnome2-utils meson optfeature vala
 
+MY_P=${P^}
 DESCRIPTION="Browse the Fediverse (GTK client)"
 HOMEPAGE="
 	https://tuba.geopjr.dev/
 	https://github.com/GeopJr/Tuba/
 "
-EGIT_REPO_URI="https://github.com/GeopJr/Tuba.git"
+SRC_URI="
+	https://github.com/GeopJr/Tuba/archive/v${PV}.tar.gz
+		-> ${MY_P}.gh.tar.gz
+"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-3 CC-BY-SA-4.0"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64"
 
 # TODO: optional dep on libspelling-1
 DEPEND="
 	app-crypt/libsecret[introspection,vala]
 	>=dev-libs/glib-2.76.0:2
+	dev-libs/icu:=
 	>=dev-libs/json-glib-1.4.4[introspection]
 	>=dev-libs/libgee-0.8.5:0.8[introspection]
 	dev-libs/libxml2
-	>=gui-libs/gtk-4.11.3:4[gstreamer,introspection]
-	>=gui-libs/libadwaita-1.4:1[introspection,vala]
+	>=gui-libs/gtk-4.13.4:4[gstreamer,introspection]
+	>=gui-libs/libadwaita-1.5:1[introspection,vala]
 	>=gui-libs/gtksourceview-5.6.0:5[introspection,vala]
 	net-libs/libsoup:3.0[introspection,vala]
 "
