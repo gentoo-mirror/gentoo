@@ -5182,7 +5182,7 @@ dev-lang/moarvm 2023.12 2024.02 9999: A 6model-based VM for NQP and Raku
 dev-lang/mond 0.10.0: Mond is a scripting language for .NET Core
 dev-lang/mono 6.12.0.199-r2: Mono runtime and class libraries, a C# compiler/interpreter
 dev-lang/mono-basic 4.8: Visual Basic Compiler and Runtime
-dev-lang/mozart 2.0.1: Advanced development platform for intelligent, distributed applications
+dev-lang/mozart 2.0.1-r1: Advanced development platform for intelligent, distributed applications
 dev-lang/mozart-stdlib 2.0.1: The Mozart Standard Library
 dev-lang/mujs 1.3.3 1.3.4: An embeddable JavaScript interpreter written in C
 dev-lang/nasm 2.16.01-r1 2.16.02 2.16.03: groovy little assembler
@@ -5193,7 +5193,7 @@ dev-lang/nprolog 1.94: Interpreter and compiler to be compatible with Arity/Prol
 dev-lang/nqp 2023.12 2024.02 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.0-r1 4.14.1 4.14.2: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.0.0: Open source implementation of Object Rexx
-dev-lang/orc 0.4.33 0.4.34 0.4.38: The Oil Runtime Compiler, a just-in-time compiler for array operations
+dev-lang/orc 0.4.38: The Oil Runtime Compiler, a just-in-time compiler for array operations
 dev-lang/parrot 8.1.0-r4: Virtual machine designed to compile and execute bytecode for dynamic languages
 dev-lang/pcc 1.1.0-r1: pcc portable c compiler
 dev-lang/perl 5.38.2-r2: Larry Wall's Practical Extraction and Report Language
@@ -5211,7 +5211,7 @@ dev-lang/ruby 3.1.4-r3 3.1.4-r5 3.1.5 3.2.3 3.2.4 3.3.0-r2 3.3.1: An object-orie
 dev-lang/rust 1.71.0 1.71.1 1.73.0 1.74.1 1.75.0-r1 1.76.0-r1 1.77.1: Systems programming language from Mozilla
 dev-lang/rust-bin 1.71.0 1.71.1 1.73.0 1.74.1 1.75.0 1.76.0 1.77.1: Systems programming language from Mozilla
 dev-lang/sassc 3.6.2: A libsass command line driver
-dev-lang/scala 2.12.4 2.12.10: The Scala Programming Language
+dev-lang/scala 2.12.4 2.12.10-r1: The Scala Programming Language
 dev-lang/scala-bin 2.13.9: The Scala Programming Language
 dev-lang/smlnj 110.99.3 110.99.4: Standard ML of New Jersey compiler and libraries
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
@@ -8509,7 +8509,7 @@ dev-python/grpcio-testing 1.51.0: Testing utilities for gRPC Python
 dev-python/grpcio-tools 1.51.0: Protobuf code generator for gRPC
 dev-python/gsd 3.2.1: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.8.3-r1: Low and high level wrappers around the GSSAPI C libraries
-dev-python/gst-python 1.20.5 1.20.6 1.22.11: A Python Interface to GStreamer
+dev-python/gst-python 1.22.11: A Python Interface to GStreamer
 dev-python/guessit 3.8.0: Python library for guessing information from video filenames
 dev-python/guzzle_sphinx_theme 0.7.11-r2: Sphinx theme used by Guzzle
 dev-python/h11 0.14.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
@@ -13175,13 +13175,13 @@ media-libs/gmmlib 22.3.18 22.3.19 9999: Intel Graphics Memory Management Library
 media-libs/graphene 1.10.8: A thin layer of types for graphic libraries
 media-libs/grilo 0.3.16: A framework for easy media discovery and browsing
 media-libs/gsound 1.0.3: Thin GObject wrapper around the libcanberra sound event library
-media-libs/gst-plugins-bad 1.20.5-r1 1.20.6 1.22.11-r1: Less plugins for GStreamer
-media-libs/gst-plugins-base 1.20.5 1.20.6 1.22.11: Basepack of plugins for gstreamer
-media-libs/gst-plugins-good 1.20.5 1.20.6 1.22.11: Basepack of plugins for GStreamer
-media-libs/gst-plugins-ugly 1.20.5 1.20.6 1.22.11: Basepack of plugins for gstreamer
-media-libs/gst-rtsp-server 1.20.5 1.20.6 1.22.11: A GStreamer based RTSP server
-media-libs/gstreamer 1.20.5 1.20.6 1.22.11: Open source multimedia framework
-media-libs/gstreamer-editing-services 1.20.5 1.20.6 1.22.11: SDK for making video editors and more
+media-libs/gst-plugins-bad 1.22.11-r1: Less plugins for GStreamer
+media-libs/gst-plugins-base 1.22.11: Basepack of plugins for gstreamer
+media-libs/gst-plugins-good 1.22.11: Basepack of plugins for GStreamer
+media-libs/gst-plugins-ugly 1.22.11: Basepack of plugins for gstreamer
+media-libs/gst-rtsp-server 1.22.11: A GStreamer based RTSP server
+media-libs/gstreamer 1.22.11: Open source multimedia framework
+media-libs/gstreamer-editing-services 1.22.11: SDK for making video editors and more
 media-libs/gupnp-dlna 0.12.0: Library providing DLNA-related functionality for MediaServers
 media-libs/hamlib 4.5.5-r1 4.5.5-r2 4.5.5-r3: Ham radio backend rig control libraries
 media-libs/harfbuzz 8.3.0 8.3.1 9999: An OpenType text shaping engine
@@ -13531,84 +13531,84 @@ media-plugins/g2reverb 0.7.1: Stereo reverb LADSPA plugin
 media-plugins/gimp-lqr 0.7.2-r1: Content-aware resizing for the GIMP
 media-plugins/gkrellmpc 0.1_beta10-r1: A gkrellm plugin to control the MPD (Music Player Daemon)
 media-plugins/grilo-plugins 0.3.16: A collection of plugins for the Grilo framework
-media-plugins/gst-plugins-a52dec 1.20.5 1.20.6 1.22.11: ATSC A/52 audio decoder plugin for GStreamer
+media-plugins/gst-plugins-a52dec 1.22.11: ATSC A/52 audio decoder plugin for GStreamer
 media-plugins/gst-plugins-adaptivedemux2 1.22.11: Adaptive demuxer plugins for Gstreamer
-media-plugins/gst-plugins-amr 1.20.5 1.20.6 1.22.11: AMRNB encoder/decoder and AMRWB decoder plugin for GStreamer
-media-plugins/gst-plugins-aom 1.20.5 1.20.6 1.22.11: Alliance for Open Media AV1 plugin for GStreamer
-media-plugins/gst-plugins-assrender 1.20.5 1.20.6 1.22.11: ASS/SSA rendering with effects support plugin for GStreamer
-media-plugins/gst-plugins-bluez 1.20.5 1.20.6 1.22.11: AVDTP source/sink and A2DP sink plugin for GStreamer
-media-plugins/gst-plugins-bs2b 1.20.5 1.20.6 1.22.11: bs2b elements for Gstreamer
-media-plugins/gst-plugins-cairo 1.20.5 1.20.6 1.22.11: Video overlay plugin based on cairo for GStreamer
-media-plugins/gst-plugins-cdio 1.20.5 1.20.6 1.22.11: CD Audio Source (cdda) plugin for GStreamer
-media-plugins/gst-plugins-cdparanoia 1.20.5 1.20.6 1.22.11: CD Audio Source (cdda) plugin for GStreamer
-media-plugins/gst-plugins-chromaprint 1.20.5 1.20.6 1.22.11: Calculate Chromaprint fingerprint from audio files for GStreamer
-media-plugins/gst-plugins-colormanagement 1.20.5 1.20.6 1.22.11: Color management correction GStreamer plugins
-media-plugins/gst-plugins-dash 1.20.5 1.20.6 1.22.11: MPEG-DASH plugin for GStreamer
-media-plugins/gst-plugins-dtls 1.20.5 1.20.6 1.22.11: DTLS encoder/decoder with SRTP support plugin for GStreamer
-media-plugins/gst-plugins-dts 1.20.5 1.20.6 1.22.11: DTS audio decoder plugin for Gstreamer
-media-plugins/gst-plugins-dv 1.20.5 1.20.6 1.22.11: DV demuxer and decoder plugin for GStreamer
-media-plugins/gst-plugins-dvb 1.20.5 1.20.6 1.22.11: plugin for gstreamer
-media-plugins/gst-plugins-dvdread 1.20.5 1.20.6 1.22.11: DVD read plugin for GStreamer
-media-plugins/gst-plugins-faac 1.20.5 1.20.6 1.22.11: AAC audio encoder plugin for GStreamer
-media-plugins/gst-plugins-faad 1.20.5 1.20.6 1.22.11: AAC audio decoder plugin
-media-plugins/gst-plugins-flac 1.20.5 1.20.6 1.22.11: FLAC encoder/decoder/tagger plugin for GStreamer
-media-plugins/gst-plugins-gdkpixbuf 1.20.5 1.20.6 1.22.11: plugin for gstreamer
-media-plugins/gst-plugins-gtk 1.20.5 1.20.6 1.22.11: Video sink plugin for GStreamer that renders to a GtkWidget
-media-plugins/gst-plugins-hls 1.20.5 1.20.6 1.22.11: HTTP live streaming plugin for GStreamer
-media-plugins/gst-plugins-jack 1.20.5 1.20.6 1.22.11: plugin for gstreamer
-media-plugins/gst-plugins-jpeg 1.20.5 1.20.6 1.22.11: JPEG image encoder/decoder plugin for GStreamer
-media-plugins/gst-plugins-kate 1.20.5 1.20.6 1.22.11: Kate overlay codec suppport plugin for GStreamer
-media-plugins/gst-plugins-ladspa 1.20.5 1.20.6 1.22.11: Ladspa elements for Gstreamer
-media-plugins/gst-plugins-lame 1.20.5 1.20.6 1.22.11: MP3 encoder plugin for GStreamer
-media-plugins/gst-plugins-ldac 1.20.5 1.20.6 1.22.11: LDAC plugin for GStreamer
-media-plugins/gst-plugins-libav 1.20.5 1.20.6 1.22.11: FFmpeg based gstreamer plugin
-media-plugins/gst-plugins-libde265 1.20.5 1.20.6 1.22.11: H.265 decoder plugin for GStreamer
+media-plugins/gst-plugins-amr 1.22.11: AMRNB encoder/decoder and AMRWB decoder plugin for GStreamer
+media-plugins/gst-plugins-aom 1.22.11: Alliance for Open Media AV1 plugin for GStreamer
+media-plugins/gst-plugins-assrender 1.22.11: ASS/SSA rendering with effects support plugin for GStreamer
+media-plugins/gst-plugins-bluez 1.22.11: AVDTP source/sink and A2DP sink plugin for GStreamer
+media-plugins/gst-plugins-bs2b 1.22.11: bs2b elements for Gstreamer
+media-plugins/gst-plugins-cairo 1.22.11: Video overlay plugin based on cairo for GStreamer
+media-plugins/gst-plugins-cdio 1.22.11: CD Audio Source (cdda) plugin for GStreamer
+media-plugins/gst-plugins-cdparanoia 1.22.11: CD Audio Source (cdda) plugin for GStreamer
+media-plugins/gst-plugins-chromaprint 1.22.11: Calculate Chromaprint fingerprint from audio files for GStreamer
+media-plugins/gst-plugins-colormanagement 1.22.11: Color management correction GStreamer plugins
+media-plugins/gst-plugins-dash 1.22.11: MPEG-DASH plugin for GStreamer
+media-plugins/gst-plugins-dtls 1.22.11: DTLS encoder/decoder with SRTP support plugin for GStreamer
+media-plugins/gst-plugins-dts 1.22.11: DTS audio decoder plugin for Gstreamer
+media-plugins/gst-plugins-dv 1.22.11: DV demuxer and decoder plugin for GStreamer
+media-plugins/gst-plugins-dvb 1.22.11: plugin for gstreamer
+media-plugins/gst-plugins-dvdread 1.22.11: DVD read plugin for GStreamer
+media-plugins/gst-plugins-faac 1.22.11: AAC audio encoder plugin for GStreamer
+media-plugins/gst-plugins-faad 1.22.11: AAC audio decoder plugin
+media-plugins/gst-plugins-flac 1.22.11: FLAC encoder/decoder/tagger plugin for GStreamer
+media-plugins/gst-plugins-gdkpixbuf 1.22.11: plugin for gstreamer
+media-plugins/gst-plugins-gtk 1.22.11: Video sink plugin for GStreamer that renders to a GtkWidget
+media-plugins/gst-plugins-hls 1.22.11: HTTP live streaming plugin for GStreamer
+media-plugins/gst-plugins-jack 1.22.11: plugin for gstreamer
+media-plugins/gst-plugins-jpeg 1.22.11: JPEG image encoder/decoder plugin for GStreamer
+media-plugins/gst-plugins-kate 1.22.11: Kate overlay codec suppport plugin for GStreamer
+media-plugins/gst-plugins-ladspa 1.22.11: Ladspa elements for Gstreamer
+media-plugins/gst-plugins-lame 1.22.11: MP3 encoder plugin for GStreamer
+media-plugins/gst-plugins-ldac 1.22.11: LDAC plugin for GStreamer
+media-plugins/gst-plugins-libav 1.22.11: FFmpeg based gstreamer plugin
+media-plugins/gst-plugins-libde265 1.22.11: H.265 decoder plugin for GStreamer
 media-plugins/gst-plugins-libnice 0.1.19 0.1.21: GStreamer plugin for ICE (RFC 5245) support
-media-plugins/gst-plugins-libpng 1.20.5 1.20.6 1.22.11: PNG image encoder/decoder plugin for GStreamer
-media-plugins/gst-plugins-libvisual 1.20.5 1.20.6 1.22.11: Visualization elements for GStreamer
-media-plugins/gst-plugins-lv2 1.20.5 1.20.6 1.22.11: Lv2 elements for Gstreamer
+media-plugins/gst-plugins-libpng 1.22.11: PNG image encoder/decoder plugin for GStreamer
+media-plugins/gst-plugins-libvisual 1.22.11: Visualization elements for GStreamer
+media-plugins/gst-plugins-lv2 1.22.11: Lv2 elements for Gstreamer
 media-plugins/gst-plugins-meta 1.20.5 1.20.6: Meta ebuild to pull in gst plugins for apps
-media-plugins/gst-plugins-modplug 1.20.5 1.20.6 1.22.11: MOD audio decoder plugin for GStreamer
-media-plugins/gst-plugins-mpeg2dec 1.20.5 1.20.6 1.22.11: MPEG2 decoder plugin for GStreamer
-media-plugins/gst-plugins-mpeg2enc 1.20.5 1.20.6 1.22.11: MPEG-1/2 video encoding plugin for GStreamer
-media-plugins/gst-plugins-mpg123 1.20.5 1.20.6 1.20.6-r1 1.22.11: MP3 decoder plugin for GStreamer
-media-plugins/gst-plugins-mplex 1.20.5 1.20.6 1.22.11: MPEG/DVD/SVCD/VCD video/audio multiplexing plugin for GStreamer
-media-plugins/gst-plugins-neon 1.20.5 1.20.6 1.22.11: HTTP client source plugin for GStreamer
-media-plugins/gst-plugins-openaptx 1.20.5 1.20.6 1.22.11: openaptx plugin for GStreamer
+media-plugins/gst-plugins-modplug 1.22.11: MOD audio decoder plugin for GStreamer
+media-plugins/gst-plugins-mpeg2dec 1.22.11: MPEG2 decoder plugin for GStreamer
+media-plugins/gst-plugins-mpeg2enc 1.22.11: MPEG-1/2 video encoding plugin for GStreamer
+media-plugins/gst-plugins-mpg123 1.22.11: MP3 decoder plugin for GStreamer
+media-plugins/gst-plugins-mplex 1.22.11: MPEG/DVD/SVCD/VCD video/audio multiplexing plugin for GStreamer
+media-plugins/gst-plugins-neon 1.22.11: HTTP client source plugin for GStreamer
+media-plugins/gst-plugins-openaptx 1.22.11: openaptx plugin for GStreamer
 media-plugins/gst-plugins-opencv 1.22.11: OpenCV elements for GStreamer
-media-plugins/gst-plugins-openh264 1.20.5 1.20.6 1.22.11: H.264 encoder/decoder plugin for GStreamer
-media-plugins/gst-plugins-opus 1.20.5 1.20.6 1.22.11: Opus audio parser plugin for GStreamer
-media-plugins/gst-plugins-oss 1.20.5 1.20.6 1.22.11: OSS (Open Sound System) support plugin for GStreamer
-media-plugins/gst-plugins-pulse 1.20.5-r1 1.20.6 1.22.11: PulseAudio sound server plugin for GStreamer
-media-plugins/gst-plugins-raw1394 1.20.5 1.20.6 1.22.11: Fiwewire DV/HDV capture plugin for GStreamer
-media-plugins/gst-plugins-resindvd 1.20.5 1.20.6 1.22.11: DVD playback support plugin for GStreamer
-media-plugins/gst-plugins-rtmp 1.20.5 1.20.6 1.22.11: RTMP source/sink plugin for GStreamer
-media-plugins/gst-plugins-sbc 1.20.5 1.20.6 1.22.11: SBC encoder and decoder plugin for GStreamer
-media-plugins/gst-plugins-sctp 1.20.5 1.20.6 1.22.11: SCTP plugins for GStreamer
-media-plugins/gst-plugins-shout2 1.20.5 1.20.6 1.22.11: Icecast server sink plugin for GStreamer
-media-plugins/gst-plugins-sidplay 1.20.5 1.20.6 1.22.11: Sid decoder plugin for GStreamer
-media-plugins/gst-plugins-smoothstreaming 1.20.5 1.20.6 1.22.11: Smooth Streaming plugin for GStreamer
+media-plugins/gst-plugins-openh264 1.22.11: H.264 encoder/decoder plugin for GStreamer
+media-plugins/gst-plugins-opus 1.22.11: Opus audio parser plugin for GStreamer
+media-plugins/gst-plugins-oss 1.22.11: OSS (Open Sound System) support plugin for GStreamer
+media-plugins/gst-plugins-pulse 1.22.11: PulseAudio sound server plugin for GStreamer
+media-plugins/gst-plugins-raw1394 1.22.11: Fiwewire DV/HDV capture plugin for GStreamer
+media-plugins/gst-plugins-resindvd 1.22.11: DVD playback support plugin for GStreamer
+media-plugins/gst-plugins-rtmp 1.22.11: RTMP source/sink plugin for GStreamer
+media-plugins/gst-plugins-sbc 1.22.11: SBC encoder and decoder plugin for GStreamer
+media-plugins/gst-plugins-sctp 1.22.11: SCTP plugins for GStreamer
+media-plugins/gst-plugins-shout2 1.22.11: Icecast server sink plugin for GStreamer
+media-plugins/gst-plugins-sidplay 1.22.11: Sid decoder plugin for GStreamer
+media-plugins/gst-plugins-smoothstreaming 1.22.11: Smooth Streaming plugin for GStreamer
 media-plugins/gst-plugins-sndio 1.8.0.1: Sndio audio sink and source for GStreamer
-media-plugins/gst-plugins-soundtouch 1.20.5 1.20.6 1.22.11: Beats-per-minute detection and pitch controlling plugin for GStreamer
-media-plugins/gst-plugins-soup 1.20.5 1.20.6 1.22.11: HTTP client source/sink plugin for GStreamer
-media-plugins/gst-plugins-speex 1.20.5 1.20.6 1.22.11: Speex encoder/decoder plugin for GStreamer
-media-plugins/gst-plugins-srt 1.20.5 1.20.6 1.22.11: Secure reliable transport (SRT) transfer plugin for GStreamer
-media-plugins/gst-plugins-srtp 1.20.5 1.20.6 1.22.11: SRTP encoder/decoder plugin for GStreamer
-media-plugins/gst-plugins-taglib 1.20.5 1.20.6 1.22.11: ID3v2/APEv2 tagger plugin for GStreamer
-media-plugins/gst-plugins-twolame 1.20.5 1.20.6 1.22.11: MPEG2 encoder plugin for GStreamer
-media-plugins/gst-plugins-uvch264 1.20.5 1.20.6 1.22.11: UVC compliant H264 encoding cameras plugin for GStreamer
-media-plugins/gst-plugins-v4l2 1.20.5 1.20.6 1.22.11: plugin for gstreamer
-media-plugins/gst-plugins-vaapi 1.20.5 1.20.6 1.22.11: Hardware accelerated video decoding through VA-API plugin for GStreamer
-media-plugins/gst-plugins-voaacenc 1.20.5 1.20.6 1.22.11: AAC encoder plugin for GStreamer
-media-plugins/gst-plugins-voamrwbenc 1.20.5 1.20.6 1.22.11: AMR-WB audio encoder plugin for GStreamer
-media-plugins/gst-plugins-vpx 1.20.5 1.20.6 1.22.11: VP8/VP9 video encoder/decoder plugin for GStreamer
-media-plugins/gst-plugins-wavpack 1.20.5 1.20.6 1.22.11: Wavpack audio encoder/decoder plugin for GStreamer
+media-plugins/gst-plugins-soundtouch 1.22.11: Beats-per-minute detection and pitch controlling plugin for GStreamer
+media-plugins/gst-plugins-soup 1.22.11: HTTP client source/sink plugin for GStreamer
+media-plugins/gst-plugins-speex 1.22.11: Speex encoder/decoder plugin for GStreamer
+media-plugins/gst-plugins-srt 1.22.11: Secure reliable transport (SRT) transfer plugin for GStreamer
+media-plugins/gst-plugins-srtp 1.22.11: SRTP encoder/decoder plugin for GStreamer
+media-plugins/gst-plugins-taglib 1.22.11: ID3v2/APEv2 tagger plugin for GStreamer
+media-plugins/gst-plugins-twolame 1.22.11: MPEG2 encoder plugin for GStreamer
+media-plugins/gst-plugins-uvch264 1.22.11: UVC compliant H264 encoding cameras plugin for GStreamer
+media-plugins/gst-plugins-v4l2 1.22.11: plugin for gstreamer
+media-plugins/gst-plugins-vaapi 1.22.11: Hardware accelerated video decoding through VA-API plugin for GStreamer
+media-plugins/gst-plugins-voaacenc 1.22.11: AAC encoder plugin for GStreamer
+media-plugins/gst-plugins-voamrwbenc 1.22.11: AMR-WB audio encoder plugin for GStreamer
+media-plugins/gst-plugins-vpx 1.22.11: VP8/VP9 video encoder/decoder plugin for GStreamer
+media-plugins/gst-plugins-wavpack 1.22.11: Wavpack audio encoder/decoder plugin for GStreamer
 media-plugins/gst-plugins-webp 1.22.11: WebP image format support for GStreamer
-media-plugins/gst-plugins-webrtc 1.20.5 1.20.6 1.22.11: WebRTC plugins for GStreamer
-media-plugins/gst-plugins-x264 1.20.5 1.20.6 1.22.11: H.264 encoder plugin for GStreamer
-media-plugins/gst-plugins-x265 1.20.5 1.20.6 1.22.11: H.265 encoder plugin for GStreamer
-media-plugins/gst-plugins-ximagesrc 1.20.5 1.20.6 1.22.11: X11 video capture stream plugin for GStreamer
-media-plugins/gst-plugins-zbar 1.20.5 1.20.6 1.22.11: Bar codes detection in video streams for GStreamer
+media-plugins/gst-plugins-webrtc 1.22.11: WebRTC plugins for GStreamer
+media-plugins/gst-plugins-x264 1.22.11: H.264 encoder plugin for GStreamer
+media-plugins/gst-plugins-x265 1.22.11: H.265 encoder plugin for GStreamer
+media-plugins/gst-plugins-ximagesrc 1.22.11: X11 video capture stream plugin for GStreamer
+media-plugins/gst-plugins-zbar 1.22.11: Bar codes detection in video streams for GStreamer
 media-plugins/hdx-realtime-media-engine 2.9.700.3000: HDX RealTime Media Engine plugin for Citrix Workspace App
 media-plugins/hexter 1.1.1: Yamaha DX7 modeling DSSI plugin
 media-plugins/imlib2_loaders 1.9.1 1.11.0 1.12.2: Additional image loaders for Imlib2
@@ -14500,7 +14500,7 @@ net-analyzer/portmon 2.0-r1: Portmon is a network service monitoring daemon
 net-analyzer/portsentry 1.2-r1: Automated port scan detector and response tool
 net-analyzer/prettyping 1.0.1: Ping wrapper that produces coloured, easily readable output
 net-analyzer/pypacker 5.2: Fast and simple packet creation and parsing library for Python
-net-analyzer/python-gvm 24.1.0: Greenbone Vulnerability Management Python Library
+net-analyzer/python-gvm 24.1.0 24.3.0: Greenbone Vulnerability Management Python Library
 net-analyzer/raddump 0.3.1: RADIUS packet interpreter
 net-analyzer/rain 1.2.9_beta1-r1: powerful tool for testing stability of utilizing IP protocols
 net-analyzer/rrdcollect 0.2.10: Read system statistical data and feed it to RRDtool
@@ -18202,7 +18202,7 @@ www-servers/servefile 0.5.4 0.5.4-r1: Serve a single file via HTTP
 www-servers/sniproxy 0.6.1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.1-r3 1.8.2: A fast and very simple Ruby web server
-www-servers/tomcat 8.5.99-r1 8.5.100 9.0.87-r1 9.0.87-r3 9.0.88-r1 10.1.19-r1 10.1.20-r2 10.1.23: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+www-servers/tomcat 8.5.100 9.0.87-r1 9.0.87-r3 9.0.88-r1 10.1.19-r1 10.1.20-r2 10.1.23: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
 www-servers/uwsgi 2.0.21-r1 2.0.21-r2 2.0.23: uWSGI server for Python web applications
 www-servers/varnish 7.1.2-r2: Varnish is a state-of-the-art, high-performance HTTP accelerator
 www-servers/webfs 1.21: Lightweight HTTP server for static content
