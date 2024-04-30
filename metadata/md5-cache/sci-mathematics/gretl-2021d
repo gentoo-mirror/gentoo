@@ -11,6 +11,6 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/glib:2= >=dev-libs/gmp-4.0.1:0= dev-libs/json-glib:0= dev-libs/libxml2:2= >=dev-libs/mpfr-2.2.0:0= net-misc/curl:0= sci-libs/fftw:3.0= sci-visualization/gnuplot virtual/lapack virtual/latex-base emacs? ( >=app-editors/emacs-23.1:* ) gnome? ( >=gnome-extra/libgsf-1.14.47[gtk?] ) gtk? ( media-libs/gd:2=[png] >=sci-visualization/gnuplot-5.0[cairo] x11-libs/gtk+:3= x11-libs/gtksourceview:3.0= ) mpi? ( virtual/mpi ) odbc? ( dev-db/unixODBC:0= ) R? ( dev-lang/R:0= ) readline? ( sys-libs/readline:0= ) python? ( dev-python/numpy )
 REQUIRED_USE=emacs? ( gtk )
 SLOT=0/40
-SRC_URI=mirror://sourceforge/project/gretl/gretl/2021d/gretl-2021d.tar.xz
+SRC_URI=https://downloads.sourceforge.net/project/gretl/gretl/2021d/gretl-2021d.tar.xz
 _eclasses_=elisp-common	b5740ee671dad911400f832fe315a9a5	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=9e2447542b4c60ef587a6f9835afe54d
+_md5_=023b894272f5703e2dd412c845dcada5

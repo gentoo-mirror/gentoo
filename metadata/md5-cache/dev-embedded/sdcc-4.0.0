@@ -12,6 +12,6 @@ RDEPEND=dev-libs/boost:= sys-libs/ncurses:= sys-libs/readline:0= >=dev-embedded/
 REQUIRED_USE=avr? ( sdbinutils ) mcs51? ( sdbinutils ) z80? ( sdbinutils ) z180? ( sdbinutils ) r2k? ( sdbinutils ) r3ka? ( sdbinutils ) gbz80? ( sdbinutils ) tlcs90? ( sdbinutils ) ez80-z80? ( sdbinutils ) ds390? ( sdbinutils ) ds400? ( sdbinutils ) pic14? ( sdbinutils ) pic16? ( sdbinutils ) hc08? ( sdbinutils ) s08? ( sdbinutils ) stm8? ( sdbinutils ) pdk13? ( sdbinutils ) pdk14? ( sdbinutils ) pdk15? ( sdbinutils ) pdk16? ( sdbinutils ) || ( avr mcs51 z80 z180 r2k r3ka gbz80 tlcs90 ez80-z80 ds390 ds400 pic14 pic16 hc08 s08 stm8 pdk13 pdk14 pdk15 pdk16 )
 RESTRICT=strip
 SLOT=0
-SRC_URI=mirror://sourceforge/sdcc/sdcc-src-4.0.0.tar.bz2 doc? ( mirror://sourceforge/sdcc/sdcc-doc-4.0.0.tar.bz2 )
+SRC_URI=https://downloads.sourceforge.net/sdcc/sdcc-src-4.0.0.tar.bz2 doc? ( https://downloads.sourceforge.net/sdcc/sdcc-doc-4.0.0.tar.bz2 )
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee
-_md5_=e953fa8d69bceb96e87ce6a6a7b43ec2
+_md5_=d40a4439f7565a5fa00d9d0a136a38f5

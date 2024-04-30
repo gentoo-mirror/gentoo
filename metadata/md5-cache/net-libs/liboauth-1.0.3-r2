@@ -10,5 +10,5 @@ LICENSE=|| ( GPL-2 MIT )
 RDEPEND=curl? ( net-misc/curl ) nss? ( dev-libs/nss curl? ( || ( net-misc/curl[ssl,curl_ssl_nss(-)] net-misc/curl[-ssl] ) ) ) !nss? ( dev-libs/openssl:= curl? ( || ( net-misc/curl[ssl,curl_ssl_openssl] net-misc/curl[-ssl] ) ) )
 REQUIRED_USE=bindist? ( nss )
 SLOT=0
-SRC_URI=mirror://sourceforge/project/liboauth/liboauth-1.0.3.tar.gz
-_md5_=930c02aa80f39e52ba69444534167aa4
+SRC_URI=https://downloads.sourceforge.net/project/liboauth/liboauth-1.0.3.tar.gz
+_md5_=6b032d9693306af397c830b41f64683d

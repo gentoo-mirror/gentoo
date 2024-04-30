@@ -12,6 +12,6 @@ RDEPEND=app-arch/xz-utils >=sys-libs/ncurses-5.2-r5:0= grub_platforms_emu? ( sdl
 REQUIRED_USE=grub_platforms_coreboot? ( fonts ) grub_platforms_qemu? ( fonts ) grub_platforms_ieee1275? ( fonts ) grub_platforms_loongson? ( fonts )
 RESTRICT=!test? ( test ) test? ( userpriv )
 SLOT=2/9999
-SRC_URI=fonts? ( mirror://gnu/unifont/unifont-15.0.06/unifont-15.0.06.pcf.gz ) themes? ( mirror://sourceforge/dejavu/dejavu-sans-ttf-2.37.zip )
+SRC_URI=fonts? ( mirror://gnu/unifont/unifont-15.0.06/unifont-15.0.06.pcf.gz ) themes? ( https://downloads.sourceforge.net/dejavu/dejavu-sans-ttf-2.37.zip )
 _eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-any-r1	f5169813d1619761b459800587005fd2	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=c98d0017226052bb4b3ea92335641ae4
+_md5_=a9aab95786c02959790148d24661b729

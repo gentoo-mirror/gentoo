@@ -12,6 +12,6 @@ LICENSE=GPL-2+
 RDEPEND=>=app-emulation/libspectrum-1.5.0[zlib?] dev-libs/glib:2 alsa? ( media-libs/alsa-lib ) ao? ( media-libs/libao ) backend-X? ( x11-libs/libX11 x11-libs/libXext ) backend-gtk3? ( x11-libs/gtk+:3 ) backend-sdl? ( media-libs/libsdl[joystick,sound] ) backend-svga? ( media-libs/svgalib ) gpm? ( backend-fbcon? ( sys-libs/gpm ) ) joystick? ( !backend-sdl? ( media-libs/libjsw ) ) png? ( media-libs/libpng:0= ) pulseaudio? ( media-libs/libpulse ) xml? ( dev-libs/libxml2:2 ) zlib? ( sys-libs/zlib )
 REQUIRED_USE=?? ( alsa ao backend-sdl pulseaudio ) ?? ( backend-X backend-fbcon backend-gtk3 backend-sdl backend-svga ) png? ( zlib )
 SLOT=0
-SRC_URI=mirror://sourceforge/fuse-emulator/fuse-1.6.0.tar.gz
+SRC_URI=https://downloads.sourceforge.net/fuse-emulator/fuse-1.6.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=746a1e3651b265ffe7693ca8cba28c11
+_md5_=2af59ea1a39fe79d4dab12852e00a02a

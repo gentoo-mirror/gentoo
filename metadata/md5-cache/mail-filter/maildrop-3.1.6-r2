@@ -11,6 +11,6 @@ LICENSE=GPL-3
 RDEPEND=!mail-mta/courier net-mail/mailbase dev-libs/libpcre2 net-dns/libidn2:= net-libs/courier-unicode:= gdbm? ( sys-libs/gdbm:= ) mysql? ( net-libs/courier-authlib ) postgres? ( net-libs/courier-authlib ) ldap? ( net-libs/courier-authlib ) authlib? ( net-libs/courier-authlib ) !gdbm? ( berkdb? ( sys-libs/db:= ) ) gdbm? ( net-mail/courier-imap[gdbm?,berkdb?] ) berkdb? ( net-mail/courier-imap[gdbm?,berkdb?] ) tools? ( !mail-mta/netqmail !<net-mail/courier-imap-5.2.6 net-mail/courier-common ) dev-lang/perl dovecot? ( net-mail/dovecot )
 REQUIRED_USE=mysql? ( authlib ) postgres? ( authlib ) ldap? ( authlib )
 SLOT=0
-SRC_URI=mirror://sourceforge/courier/maildrop-3.1.6.tar.bz2
+SRC_URI=https://downloads.sourceforge.net/courier/maildrop-3.1.6.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee
-_md5_=8a358168ef7412f828f16b6739437bd9
+_md5_=2dde1b351eb7605ec803f1a98cf05576

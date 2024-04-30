@@ -10,6 +10,6 @@ KEYWORDS=amd64 ppc ppc64 ~sparc x86
 LICENSE=HPND BSD BSD-2 GPL-2+ GPL-3+
 RDEPEND=acct-group/amanda acct-user/amanda app-arch/dump app-arch/tar dev-libs/glib:2 dev-lang/perl:= dev-perl/Encode-Locale dev-perl/JSON virtual/openssh sys-libs/readline:= app-alternatives/awk kerberos? ( app-crypt/mit-krb5 ) ndmp? ( net-libs/libtirpc:= ) nls? ( virtual/libintl ) samba? ( net-fs/samba:= ) s3? ( net-misc/curl ) !s3? ( curl? ( net-misc/curl ) ) xfs? ( sys-fs/xfsdump ) !minimal? ( app-arch/mt-st:= app-crypt/aespipe app-crypt/gnupg dev-perl/XML-Simple sys-block/mtx virtual/mailx gnuplot? ( sci-visualization/gnuplot ) ) selinux? ( sec-policy/selinux-amanda ) dev-lang/perl:=
 SLOT=0
-SRC_URI=mirror://sourceforge/amanda/amanda-3.5.1.tar.gz
+SRC_URI=https://downloads.sourceforge.net/amanda/amanda-3.5.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	4e37e1004a0a27e41bb7025c0b974676	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=9a3756ba4598df7a436efc9c0fdbd303
+_md5_=444dae31d0e63d4586afe23a61b402db
