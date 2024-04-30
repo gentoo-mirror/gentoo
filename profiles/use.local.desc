@@ -4265,7 +4265,6 @@ media-libs/glfw:wayland-only - Enable wayland support and disable X11 support
 media-libs/gmmlib:custom-cflags - Do not override user CFLAGS like -march, -msse and similar with lib defaults. Not tested by upstream.
 media-libs/grilo:playlist - Enable support for playlists through dev-libs/totem-pl-parser
 media-libs/gst-plugins-bad:bzip2 - Enable bzip2 encoder/decoder plugin
-media-libs/gst-plugins-bad:qsv - Enable Intel Quick Sync Video using the media-libs/libvpl dispatcher
 media-libs/gst-plugins-base:X - Enable ximagesink and xvimagesink plugins; build GLX platform support if USE=opengl is enabled; build x11 windowing system support if USE=egl is enabled
 media-libs/gst-plugins-base:gbm - Enable Graphics Buffer Manager based EGL windowing system support (requires egl and at least one of gles or opengl)
 media-libs/gst-plugins-base:gles2 - Enable OpenGL library and plugin via GLESv2 API (requires egl)
@@ -4273,7 +4272,6 @@ media-libs/gst-plugins-base:ivorbis - Enable integer based vorbis decoder
 media-libs/gst-plugins-base:opengl - Enable OpenGL library and plugin via desktop OpenGL API
 media-libs/gst-plugins-base:pango - Enable pango GStreamer plugin
 media-libs/gst-plugins-base:wayland - Enable Wayland EGL windowing system support (requires egl and at least one of gles2 or opengl)
-media-libs/gstreamer:orc - Disable some PaX memory protections to allow plugins that use dev-lang/orc for runtime optimization to be used on hardened PaX systems
 media-libs/gstreamer:unwind - Enable sys-libs/libunwind usage for better backtrace support in leaks tracer module
 media-libs/harfbuzz:experimental - Enable experimental APIs
 media-libs/harfbuzz:glib - Enable dev-libs/glib unicode functions
