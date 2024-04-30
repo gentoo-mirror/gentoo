@@ -15,7 +15,7 @@ MY_PV=${MY_PV/_/-}
 MY_P=${PN}-${MY_PV}
 MY_PATCHES=()
 
-# Determine the patchlevel.
+# Determine the patchlevel. See ftp://ftp.gnu.org/gnu/bash/bash-5.1-patches/.
 case ${PV} in
 	*_p*)
 		PLEVEL=${PV##*_p}
@@ -30,7 +30,7 @@ esac
 
 # The version of readline this bash normally ships with. Note that we only use
 # the bundled copy of readline for pre-releases.
-READLINE_VER="8.3_alpha"
+READLINE_VER="8.1"
 
 DESCRIPTION="The standard GNU Bourne again shell"
 HOMEPAGE="https://tiswww.case.edu/php/chet/bash/bashtop.html https://git.savannah.gnu.org/cgit/bash.git"
@@ -67,7 +67,7 @@ SLOT="0"
 if (( PLEVEL >= 0 )); then
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
-IUSE="afs bashlogger examples mem-scramble +net nls plugins pgo +readline"
+IUSE="afs bashlogger examples mem-scramble +net nls plugins +readline"
 
 DEPEND="
 	>=sys-libs/ncurses-5.2-r2:=
@@ -81,7 +81,7 @@ RDEPEND="
 "
 # We only need bison (yacc) when the .y files get patched (bash42-005, bash51-011).
 BDEPEND="
-	pgo? ( dev-util/gperf )
+	sys-devel/bison
 	verify-sig? ( sec-keys/openpgp-keys-chetramey )
 "
 
@@ -93,6 +93,7 @@ PATCHES=(
 
 	# Patches to or from Chet, posted to the bug-bash mailing list.
 	"${FILESDIR}/${PN}-5.0-syslog-history-extern.patch"
+	"${FILESDIR}/${PN}-5.1_p16-configure-clang16.patch"
 )
 
 pkg_setup() {
@@ -152,9 +153,6 @@ src_prepare() {
 	&& touch -r . doc/* \
 	|| die
 
-	# Sometimes hangs (more noticeable w/ pgo), bug #907403.
-	rm tests/run-jobs || die
-
 	eapply -p0 "${PATCHES[@]}"
 	eapply_user
 }
@@ -168,10 +166,6 @@ src_configure() {
 	# configure warns on use of non-Bison but doesn't abort. The result
 	# may misbehave at runtime.
 	unset -v YACC
-
-	# wcsnwidth(), substring() issues with -Wlto-type-mismatch, reported
-	# upstream to Chet by email.
-	filter-lto
 
 	myconf=(
 		--disable-profiling
@@ -236,54 +230,11 @@ src_configure() {
 }
 
 src_compile() {
-	local -a pgo_generate_flags pgo_use_flags
-	local flag
+	emake
 
-	# -fprofile-partial-training because upstream notes the test suite isn't
-	# super comprehensive.
-	# https://documentation.suse.com/sbp/all/html/SBP-GCC-10/index.html#sec-gcc10-pgo
-	if use pgo; then
-		pgo_generate_flags=(
-			-fprofile-update=atomic
-			-fprofile-dir="${T}"/pgo
-			-fprofile-generate="${T}"/pgo
-		)
-		pgo_use_flags=(
-			-fprofile-use="${T}"/pgo
-			-fprofile-dir="${T}"/pgo
-		)
-		if flag=$(test-flags-CC -fprofile-partial-training); then
-			pgo_generate_flags+=( "${flag}" )
-			pgo_use_flags+=( "${flag}" )
-		fi
+	if use plugins; then
+		emake -C examples/loadables all others
 	fi
-
-	emake CFLAGS="${CFLAGS} ${pgo_generate_flags[*]}"
-	use plugins && emake -C examples/loadables CFLAGS="${CFLAGS} ${pgo_generate_flags[*]}" all others
-
-	# Build Bash and run its tests to generate profiles.
-	if (( ${#pgo_generate_flags[@]} )); then
-		# Used in test suite.
-		unset -v A
-
-		emake CFLAGS="${CFLAGS} ${pgo_generate_flags[*]}" -k check
-
-		if tc-is-clang; then
-			llvm-profdata merge "${T}"/pgo --output="${T}"/pgo/default.profdata || die
-		fi
-
-		# Rebuild Bash using the profiling data we just generated.
-		emake clean
-		emake CFLAGS="${CFLAGS} ${pgo_use_flags[*]}"
-		use plugins && emake -C examples/loadables CFLAGS="${CFLAGS} ${pgo_use_flags[*]}" all others
-	fi
-}
-
-src_test() {
-	# Used in test suite.
-	unset -v A
-
-	default
 }
 
 src_install() {
