@@ -26,7 +26,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~riscv ~s390 ~x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="big-endian"
 
 RDEPEND="
@@ -40,6 +40,7 @@ BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/bottleneck[${PYTHON_USEDEP}]
+		dev-python/cftime[${PYTHON_USEDEP}]
 		dev-python/hypothesis[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/toolz[${PYTHON_USEDEP}]
@@ -51,10 +52,7 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_test() {
-	local EPYTEST_DESELECT=(
-		# requires dev-python/cftime
-		'xarray/tests/test_coding_times.py::test_encode_cf_datetime_datetime64_via_dask[mixed-cftime-pandas-encoding-with-prescribed-units-and-dtype]'
-	)
+	local EPYTEST_DESELECT=()
 	if ! has_version ">=dev-python/scipy-1.4[${PYTHON_USEDEP}]" ; then
 		EPYTEST_DESELECT+=(
 			'xarray/tests/test_missing.py::test_interpolate_na_2d[coords1]'
