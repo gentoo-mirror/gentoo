@@ -10121,7 +10121,7 @@ dev-ruby/mqtt 0.6.0: Pure Ruby gem that implements the MQTT protocol
 dev-ruby/msgpack 1.6.1 1.7.1 1.7.2: Binary-based efficient data interchange format for ruby binding
 dev-ruby/multi_json 1.15.0: A gem to provide swappable JSON backends
 dev-ruby/multi_test 1.1.0: A uniform interface for Ruby testing libraries
-dev-ruby/multi_xml 0.6.0-r2: A generic swappable back-end for XML parsing
+dev-ruby/multi_xml 0.6.0-r2 0.7.0: A generic swappable back-end for XML parsing
 dev-ruby/multipart-parser 0.1.1: A multipart parser written in Ruby
 dev-ruby/multipart-post 2.3.0 2.4.0: Adds a streamy multipart form post capability to Net::HTTP
 dev-ruby/mustache 1.1.1-r1: Mustache is a framework-agnostic way to render logic-free views
@@ -10419,7 +10419,7 @@ dev-ruby/tty-prompt 0.23.1 0.23.1-r1: A beautiful and powerful interactive comma
 dev-ruby/tty-reader 0.9.0 0.9.0-r1: Methods for processing keyboard input in character, line and multiline modes
 dev-ruby/tty-screen 0.8.1 0.8.2: Terminal screen size detection which works on Linux, OS X and Windows/Cygwin
 dev-ruby/tty-which 0.5.0: Platform independent implementation of Unix which command
-dev-ruby/twitter 8.0.0 8.0.1: Ruby wrapper around the Twitter API
+dev-ruby/twitter 8.0.0 8.0.1 8.1.0: Ruby wrapper around the Twitter API
 dev-ruby/twitter-text 3.1.0-r2: Text handling for Twitter
 dev-ruby/typed-array 0.1.2-r2: Gem provides enforced-type functionality to Arrays
 dev-ruby/typeprof 0.21.7 0.21.8 0.21.9 0.21.10 0.21.11: Performs a type analysis of non-annotated Ruby code
@@ -18126,29 +18126,29 @@ www-apps/wiliki 0.6.1-r1: WiLiKi is a lightweight Wiki engine written in and run
 www-apps/wordpress 6.4.4 6.5.2: Wordpress PHP and MySQL based content management system (CMS)
 www-apps/xpra-html5 6.1 10.1: HTML5 client to connect to any xpra server
 www-apps/zeppelin-bin 0.10.1: Web-based interactive data analytics notebook launcher
-www-client/chromium 124.0.6367.60 124.0.6367.78 125.0.6422.14: Open-source version of Google Chrome web browser
+www-client/chromium 124.0.6367.60 124.0.6367.78 124.0.6367.118 125.0.6422.14: Open-source version of Google Chrome web browser
 www-client/elinks 0.16.1.1-r2 9999: Advanced and well-established text-mode web browser
 www-client/epiphany 46.0: GNOME webbrowser based on Webkit
 www-client/falkon 23.08.5 24.02.2: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
 www-client/firefox 115.9.0 115.9.1 115.10.0 125.0.2 125.0.3: Firefox Web Browser
 www-client/firefox-bin 115.10.0 125.0.2 125.0.3: Firefox Web Browser
-www-client/google-chrome 124.0.6367.78: The web browser from Google
+www-client/google-chrome 124.0.6367.118: The web browser from Google
 www-client/google-chrome-beta 125.0.6422.14: The web browser from Google
-www-client/google-chrome-unstable 126.0.6423.2: The web browser from Google
+www-client/google-chrome-unstable 126.0.6439.0: The web browser from Google
 www-client/httrack 3.49.5: HTTrack Website Copier, Open Source Offline Browser
 www-client/jd 2.8.9_p150226-r2: gtk2 based 2ch browser written in C++
 www-client/links 2.29 2.29-r1: A fast and lightweight web browser running in both graphics and text mode
 www-client/luakit 2.3.3-r1 2.3.6: A fast, extensible, and customizable web browser
 www-client/lynx 2.9.0_pre12-r1 2.9.0_pre12-r2 2.9.0: An excellent console-based web browser with ssl support
-www-client/microsoft-edge 124.0.2478.51: The web browser from Microsoft
-www-client/microsoft-edge-beta 124.0.2478.39 124.0.2478.49 124.0.2478.51: The web browser from Microsoft
-www-client/microsoft-edge-dev 125.0.2492.1 125.0.2506.0 125.0.2518.0: The web browser from Microsoft
+www-client/microsoft-edge 124.0.2478.67: The web browser from Microsoft
+www-client/microsoft-edge-beta 124.0.2478.51 124.0.2478.67 125.0.2535.13: The web browser from Microsoft
+www-client/microsoft-edge-dev 125.0.2518.0 125.0.2535.6 126.0.2552.0: The web browser from Microsoft
 www-client/netrik 1.16.1-r3: A text based web browser with no ssl support
 www-client/netsurf 3.11 9999: A free, open source web browser
-www-client/opera 109.0.5097.59: A fast and secure web browser
-www-client/opera-beta 109.0.5097.24-r1 110.0.5130.4 110.0.5130.8: A fast and secure web browser
-www-client/opera-developer 111.0.5131.0 111.0.5138.0 111.0.5145.0: A fast and secure web browser
+www-client/opera 109.0.5097.68: A fast and secure web browser
+www-client/opera-beta 110.0.5130.4 110.0.5130.8 110.0.5130.13: A fast and secure web browser
+www-client/opera-developer 111.0.5138.0 111.0.5145.0 111.0.5151.0: A fast and secure web browser
 www-client/otter 1.0.03-r1 9999: Project aiming to recreate classic Opera (12.x) UI using Qt5
 www-client/pybugz 0.13-r2 0.13-r3 0.14 9999: Command line interface to (Gentoo) Bugzilla
 www-client/qutebrowser 3.1.0-r1 9999: Keyboard-driven, vim-like browser based on Python and Qt
@@ -18177,7 +18177,7 @@ www-misc/urlwatch 2.25 2.28-r1: A tool for monitoring webpages for updates
 www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
 www-plugins/browserpass 3.1.0: WebExtension host binary for app-admin/pass, a UNIX password manager
-www-plugins/chrome-binary-plugins 124.0.6367.78 125.0.6422.14_beta 126.0.6423.2_alpha: Binary plugins from Google Chrome for use in Chromium
+www-plugins/chrome-binary-plugins 124.0.6367.118 125.0.6422.14_beta 126.0.6439.0_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/lightspark 0.8.6.1 0.8.7: High performance flash player
 www-plugins/passff-host 1.2.3-r1 1.2.4: Host app for the PassFF WebExtension
 www-plugins/pdfjs 2.14.305 3.9.179 4.0.269 4.0.379: A PDF reader in JavaScript
