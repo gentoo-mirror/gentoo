@@ -1,13 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20240116 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=install prepare
 DEPEND=media-libs/libsdl[joystick,video] media-libs/sdl-image[png] media-libs/sdl-ttf
 DESCRIPTION=Clone of old-school Wizardry(tm) games by SirTech
 EAPI=8
 HOMEPAGE=https://icculus.org/gwiz/
-INHERIT=desktop flag-o-matic toolchain-funcs
+INHERIT=desktop flag-o-matic toolchain-funcs autotools
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=media-libs/libsdl[joystick,video] media-libs/sdl-image[png] media-libs/sdl-ttf
 SLOT=0
 SRC_URI=https://icculus.org/gwiz/gwiz-0.8.tar.bz2
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4
-_md5_=982655a67b2184375ca4352962e06dd3
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee
+_md5_=f873e6d688a15e4e1b7a8b352b9b9ee4
