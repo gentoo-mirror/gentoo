@@ -86,8 +86,8 @@ tc_version_is_between() {
 
 # @ECLASS_VARIABLE: TOOLCHAIN_GCC_VALIDATE_FAILURES_VERSION
 # @DESCRIPTION:
-# Version of test comparison script (validate_fails.py) to use.
-: "${GCC_VALIDATE_FAILURES_VERSION:=7bbfb01a32b73842f8908de028703510a0e12057}"
+# Version of test comparison script (validate_failures.py) to use.
+: "${GCC_VALIDATE_FAILURES_VERSION:=a447cd6dee206facb66720bdacf0c765a8b09f33}"
 
 # @ECLASS_VARIABLE: TOOLCHAIN_USE_GIT_PATCHES
 # @DEFAULT_UNSET
@@ -536,7 +536,7 @@ get_gcc_src_uri() {
 	[[ -n ${MUSL_VER} ]] && \
 		GCC_SRC_URI+=" $(gentoo_urls gcc-${MUSL_GCC_VER}-musl-patches-${MUSL_VER}.tar.${TOOLCHAIN_PATCH_SUFFIX})"
 
-	GCC_SRC_URI+=" test? ( https://gitweb.gentoo.org/proj/gcc-patches.git/plain/scripts/testsuite-management/validate_failures.py?id=${GCC_VALIDATE_FAILURES_VERSION} -> ${PN}-validate-failures-${GCC_VALIDATE_FAILURES_VERSION}.py )"
+	GCC_SRC_URI+=" test? ( https://gitweb.gentoo.org/proj/gcc-patches.git/plain/scripts/testsuite-management/validate_failures.py?id=${GCC_VALIDATE_FAILURES_VERSION} -> gcc-validate-failures-${GCC_VALIDATE_FAILURES_VERSION}.py )"
 
 	echo "${GCC_SRC_URI}"
 }
@@ -1893,6 +1893,7 @@ gcc_do_make() {
 
 #---->> src_test <<----
 
+# TODO: add JIT testing
 toolchain_src_test() {
 	# GCC's testsuite is a special case.
 	#
@@ -1930,7 +1931,17 @@ toolchain_src_test() {
 		--manifest="${T}"/${CHOST}.xfail \
 		--produce_manifest &> /dev/null
 
-	local manifest="${GCC_TESTS_COMPARISON_DIR}/${GCC_TESTS_COMPARISON_SLOT}/${CHOST}.xfail"
+	# If there's no manifest available, check older slots, as it's better
+	# than nothing. We start with 10 for the fallback as the first version
+	# we started using --with-major-version-only.
+	local possible_slot
+	for possible_slot in "${GCC_TESTS_COMPARISON_SLOT}" $(seq ${SLOT} -1 10) ; do
+		[[ -f "${GCC_TESTS_COMPARISON_DIR}/${possible_slot}/${CHOST}.xfail" ]] && break
+	done
+	if [[ ${possible_slot} != "${GCC_TESTS_COMPARISON_SLOT}" ]] ; then
+		ewarn "Couldn't find manifest for ${GCC_TESTS_COMPARISON_SLOT}; falling back to ${possible_slot}"
+	fi
+	local manifest="${GCC_TESTS_COMPARISON_DIR}/${possible_slot}/${CHOST}.xfail"
 
 	if [[ -f "${manifest}" ]] ; then
 		# TODO: Distribute some baseline results in e.g. gcc-patches.git?
