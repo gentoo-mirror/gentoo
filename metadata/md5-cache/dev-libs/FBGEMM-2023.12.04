@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-cpp/gtest ) doc? ( || ( ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] dev-python/breathe[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] dev-python/breathe[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx-rtd-theme[python_targets_python3_10(-)] dev-python/breathe[python_targets_python3_10(-)] ) ) ) || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=>=dev-libs/asmjit-2022.07.02 dev-libs/cpuinfo
+DESCRIPTION=Facebook GEneral Matrix Multiplication
+EAPI=8
+HOMEPAGE=https://github.com/pytorch/FBGEMM
+INHERIT=python-any-r1 flag-o-matic cmake
+IUSE=doc test
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=>=dev-libs/asmjit-2022.07.02 dev-libs/cpuinfo
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/pytorch/FBGEMM/archive/dbc3157bf256f1339b3fa1fef2be89ac4078be0e.tar.gz -> FBGEMM-2023.12.04.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-any-r1	f5169813d1619761b459800587005fd2	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
+_md5_=a4f6b9997152f7c38ae5f9f7b020e87c
