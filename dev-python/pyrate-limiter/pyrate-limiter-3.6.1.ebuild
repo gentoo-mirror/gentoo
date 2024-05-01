@@ -70,5 +70,6 @@ src_test() {
 
 python_test() {
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p asyncio -p rerunfailures --reruns=5
+	# postgres tests require psycopg-pool
+	epytest -p asyncio -p rerunfailures --reruns=5 -k "not postgres"
 }
