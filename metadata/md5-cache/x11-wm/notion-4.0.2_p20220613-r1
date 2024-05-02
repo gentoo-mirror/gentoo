@@ -1,16 +1,17 @@
-BDEPEND=lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) virtual/pkgconfig
 DEFINED_PHASES=configure install postinst setup unpack
 DEPEND=lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) x11-libs/libSM x11-libs/libX11 x11-libs/libXext nls? ( sys-devel/gettext ) xinerama? ( x11-libs/libXinerama ) xrandr? ( x11-libs/libXrandr )
 DESCRIPTION=Notion is a tiling, tabbed window manager for the X window system
 EAPI=8
 HOMEPAGE=https://notionwm.net/
-INHERIT=lua-single toolchain-funcs readme.gentoo-r1 git-r3
+INHERIT=lua-single toolchain-funcs readme.gentoo-r1 vcs-snapshot
 IUSE=nls xinerama +xrandr +lua_single_target_lua5-4
+KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
-PROPERTIES=live
 RDEPEND=lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) x11-libs/libSM x11-libs/libX11 x11-libs/libXext nls? ( sys-devel/gettext ) xinerama? ( x11-libs/libXinerama ) xrandr? ( x11-libs/libXrandr )
 REQUIRED_USE=^^ ( lua_single_target_lua5-4 ) xrandr? ( xinerama )
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=192fe80b43f9fc864b5408c3a5bdcb6e
+SRC_URI=https://github.com/raboof/notion/archive/f161c1b4dbba1ac81d8e9c3d7e5e353058a4d7d1.tar.gz -> notion-4.0.2_p20220613.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
+_md5_=215fa7805e0fd6d6ba430fd16e52483f
