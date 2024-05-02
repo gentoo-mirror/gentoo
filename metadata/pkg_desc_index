@@ -6531,7 +6531,7 @@ dev-perl/Devel-CheckBin 0.40.0-r1: check that a command is available
 dev-perl/Devel-CheckCompiler 0.70.0-r1: Check the compiler's availability
 dev-perl/Devel-CheckLib 1.160.0: Check that a library is available
 dev-perl/Devel-CheckOS 1.960.0: Check what OS we're running on
-dev-perl/Devel-Cover 1.400.0: Code coverage metrics for Perl
+dev-perl/Devel-Cover 1.400.0 1.420.0: Code coverage metrics for Perl
 dev-perl/Devel-Cycle 1.120.0-r1: Find memory cycles in objects
 dev-perl/Devel-Declare 0.6.22: (DEPRECATED) Adding keywords to perl, in perl
 dev-perl/Devel-Dumpvar 1.60.0-r2: Pure-OO reimplementation of dumpvar.pl
@@ -6802,7 +6802,7 @@ dev-perl/HTML-Mason 1.600.0: A HTML development and delivery Perl Module
 dev-perl/HTML-Mason-PSGIHandler 0.530.0-r1: PSGI handler for HTML::Mason
 dev-perl/HTML-Object 2.30: A HTML development and delivery Perl Module
 dev-perl/HTML-Packer 2.100.0: Another HTML code cleaner
-dev-perl/HTML-Parser 3.810.0: Parse HTML documents
+dev-perl/HTML-Parser 3.810.0 3.820.0: Parse HTML documents
 dev-perl/HTML-Quoted 0.50.0: Extract structure of quoted HTML mail message
 dev-perl/HTML-RewriteAttributes 0.50.0-r2: Perl module for concise attribute rewriting
 dev-perl/HTML-Scrubber 0.190.0: Perl extension for scrubbing/sanitizing html
@@ -6828,7 +6828,7 @@ dev-perl/HTTP-Body 1.220.0-r1 1.230.0: HTTP Body Parser
 dev-perl/HTTP-BrowserDetect 3.400.0: Determine Web browser, version, and platform from an HTTP user agent string
 dev-perl/HTTP-Cache-Transparent 1.400.0-r1: Cache the result of http get-requests persistently
 dev-perl/HTTP-CookieJar 0.14.0: Minimalist HTTP user agent cookie jar
-dev-perl/HTTP-Cookies 6.100.0: Storage of cookies
+dev-perl/HTTP-Cookies 6.100.0 6.110.0: Storage of cookies
 dev-perl/HTTP-DAV 0.490.0: A WebDAV client library for Perl5
 dev-perl/HTTP-Daemon 6.160.0: Base class for simple HTTP servers
 dev-perl/HTTP-Daemon-SSL 1.04-r1: A simple http server class with SSL support
@@ -7390,6 +7390,7 @@ dev-perl/SVG-Graph 0.20.0-r2: Visualize your data in Scalable Vector Graphics (S
 dev-perl/Safe-Hole 0.140.0: Exec subs in the original package from Safe
 dev-perl/Safe-Isa 1.0.10: Call isa, can, does and DOES safely on things that may not be objects
 dev-perl/Scalar-Properties 1.100.860-r2: run-time properties on scalar variables
+dev-perl/Scalar-Readonly 0.30.0: Functions for controlling whether any scalar variable is read-only
 dev-perl/Schedule-At 1.150.0-r3: OS independent interface to the Unix 'at' command
 dev-perl/Schedule-Cron-Events 1.960.0: Take a line from a crontab and find out when events will occur
 dev-perl/Scope-Guard 0.210.0-r1: Lexically scoped resource management
@@ -7534,13 +7535,14 @@ dev-perl/Test-DistManifest 1.14.0-r1: Author test that validates a package MANIF
 dev-perl/Test-Distribution 2.0.0-r2: perform tests on all modules of a distribution
 dev-perl/Test-EOL 2.20.0: Check the correct line endings in your project
 dev-perl/Test-Exception 0.430.0-r1: Test functions for exception based code
+dev-perl/Test-Expander 2.5.0: Expansion of test functionality that is frequently used while testing
 dev-perl/Test-FailWarnings 0.8.0-r2: Add test failures if warnings are caught
 dev-perl/Test-Fatal 0.17.0: Incredibly simple helpers for testing code with exceptions
 dev-perl/Test-File 1.993.0: Test file attributes
 dev-perl/Test-File-Contents 0.242.0: Test routines for examining the contents of files
 dev-perl/Test-File-ShareDir 1.1.2-r1: Create a Fake ShareDir for your modules for testing
 dev-perl/Test-Filename 0.30.0-r2: Portable filename comparison
-dev-perl/Test-Files 0.150.0: A Test::Builder based module to ease testing with files and dirs
+dev-perl/Test-Files 0.150.0 0.260.0: A Test::Builder based module to ease testing with files and dirs
 dev-perl/Test-Fork 0.20.0: test code which forks
 dev-perl/Test-HTTP-Server-Simple 0.110.0: Test::More functions for HTTP::Server::Simple
 dev-perl/Test-InDistDir 1.112.71: Test environment setup for development with IDE
@@ -7594,12 +7596,13 @@ dev-perl/Test-UseAllModules 0.170.0-r2: do use_ok() for all the MANIFESTed modul
 dev-perl/Test-Version 2.90.0: Check to see that version's in modules are sane
 dev-perl/Test-WWW-Mechanize 1.600.0: Testing-specific WWW::Mechanize subclass
 dev-perl/Test-Warn 0.370.0: Perl extension to test methods for warnings
-dev-perl/Test-Warnings 0.32.0: Test for warnings and the lack of them
+dev-perl/Test-Warnings 0.32.0 0.33.0: Test for warnings and the lack of them
 dev-perl/Test-Without-Module 0.210.0: Test fallback behaviour in absence of modules
 dev-perl/Test-YAML 1.70.0: Testing Module for YAML Implementations
 dev-perl/Test-utf8 1.20.0: Handy utf8 tests
 dev-perl/Test2-Plugin-NoWarnings 0.90.0 0.100.0: Fail if tests warn
 dev-perl/Test2-Suite 0.0.159 0.0.162: Rich set of tools built upon the Test2 framework
+dev-perl/Test2-Tools-Explain 0.20.0: Explain tools for Perl's Test2 framework
 dev-perl/Text-Aligner 0.160.0: Used to justify strings to various alignment styles
 dev-perl/Text-Aspell 0.90.0-r3: Perl interface to the GNU Aspell Library
 dev-perl/Text-Autoformat 1.750.0: Automatic text wrapping and reformatting
@@ -15696,7 +15699,7 @@ net-wireless/wireless-regdb 20220606 20230503-r2: Wireless Regulatory database f
 net-wireless/wireless-tools 30_pre9-r1: A collection of tools to configure IEEE 802.11 wireless LAN cards
 net-wireless/wpa_supplicant 2.10-r4 9999: IEEE 802.1X/WPA supplicant for secure wireless transfers
 perl-core/CPAN 2.290.0-r1: Query, download and build perl modules from CPAN sites
-perl-core/Compress-Raw-Zlib 2.206.0: Low-Level Interface to zlib compression library
+perl-core/Compress-Raw-Zlib 2.206.0 2.212.0: Low-Level Interface to zlib compression library
 perl-core/Encode 3.190.0 3.210.0: Character encodings in Perl
 perl-core/File-Temp 0.231.100 0.231.100-r1: File::Temp can be used to create and open temporary files in a safe way
 perl-core/Getopt-Long 2.570.0: Advanced handling of command line options
@@ -17914,7 +17917,7 @@ virtual/perl-CPAN-Meta-Requirements 2.140.0-r9: Virtual for CPAN-Meta-Requiremen
 virtual/perl-CPAN-Meta-YAML 0.18.0-r9: Virtual for CPAN-Meta-YAML
 virtual/perl-Carp 1.540.0: Virtual for Carp
 virtual/perl-Compress-Raw-Bzip2 2.204.1_rc: Virtual for Compress-Raw-Bzip2
-virtual/perl-Compress-Raw-Zlib 2.206.0: Virtual for Compress-Raw-Zlib
+virtual/perl-Compress-Raw-Zlib 2.206.0 2.212.0: Virtual for Compress-Raw-Zlib
 virtual/perl-DB_File 1.858.0: Virtual for DB_File
 virtual/perl-Data-Dumper 2.188.0: Virtual for Data-Dumper
 virtual/perl-Devel-PPPort 3.710.0: Virtual for Devel-PPPort
