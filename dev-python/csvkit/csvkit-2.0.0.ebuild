@@ -29,6 +29,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/zstandard[${PYTHON_USEDEP}]
 	)
 "
 

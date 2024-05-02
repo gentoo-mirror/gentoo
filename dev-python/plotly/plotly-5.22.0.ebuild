@@ -40,7 +40,7 @@ BDEPEND="
 		dev-python/jupyter[${PYTHON_USEDEP}]
 		dev-python/jupyterlab[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
-		dev-python/numpy[${PYTHON_USEDEP}]
+		<dev-python/numpy-2[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
