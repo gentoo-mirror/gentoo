@@ -5,10 +5,9 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
-PYPI_NO_NORMALIZE=1
-inherit distutils-r1 pypi
+inherit distutils-r1 pypi shell-completion
 
-DESCRIPTION="Linode Command Line Interface"
+DESCRIPTION="Official command-line interface for interacting with the Linode API"
 HOMEPAGE="https://github.com/linode/linode-cli https://www.linode.com/"
 
 LICENSE="BSD"
@@ -21,7 +20,7 @@ RESTRICT="test"
 
 RDEPEND="
 	dev-python/boto3[${PYTHON_USEDEP}]
-	dev-python/linode-metadata[${PYTHON_USEDEP}]
+	>=dev-python/linode-metadata-0.3[${PYTHON_USEDEP}]
 	dev-python/openapi3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -29,3 +28,18 @@ RDEPEND="
 	dev-python/rich[${PYTHON_USEDEP}]
 	<dev-python/urllib3-3[${PYTHON_USEDEP}]
 "
+
+python_install_all() {
+	distutils-r1_python_install_all
+
+	${EPYTHON} linodecli --skip-config completion bash > "${T}/${PN}".bash || die
+	${EPYTHON} linodecli --skip-config completion fish > "${T}/${PN}".fish || die
+
+	newbashcomp "${T}/${PN}".bash ${PN}
+	newfishcomp "${T}/${PN}".fish ${PN}
+
+	dosym ${PN} "$(get_bashcompdir)"/linode
+	dosym ${PN} "$(get_bashcompdir)"/lin
+	dosym ${PN} "$(get_fishcompdir)"/linode
+	dosym ${PN} "$(get_fishcompdir)"/lin
+}
