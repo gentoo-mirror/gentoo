@@ -14,14 +14,11 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-perl/Const-Fast
 	dev-perl/Importer
+	dev-perl/File-chdir
 	dev-perl/PadWalker
 	>=dev-perl/Path-Tiny-0.144.0
 	dev-perl/Scalar-Readonly
 	dev-perl/Test2-Suite
+	dev-perl/Test2-Tools-Explain
 "
-BDEPEND="
-	${RDEPEND}
-	test? (
-		dev-perl/Test2-Tools-Explain
-	)
-"
+BDEPEND="${RDEPEND}"
