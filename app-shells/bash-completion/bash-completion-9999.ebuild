@@ -20,6 +20,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=app-shells/bash-4.3_p30-r1:0
 	sys-apps/miscfiles
+	!<app-text/tree/tree-2.1.1-r1
 	!!net-fs/mc
 "
 BDEPEND="
@@ -28,6 +29,7 @@ BDEPEND="
 		$(python_gen_any_dep '
 			dev-python/pexpect[${PYTHON_USEDEP}]
 			dev-python/pytest[${PYTHON_USEDEP}]
+			dev-python/pytest-forked[${PYTHON_USEDEP}]
 			dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		')
 	)
@@ -70,6 +72,7 @@ strip_completions() {
 python_check_deps() {
 	python_has_version "dev-python/pexpect[${PYTHON_USEDEP}]" &&
 	python_has_version "dev-python/pytest[${PYTHON_USEDEP}]" &&
+	python_has_version "dev-python/pytest-forked[${PYTHON_USEDEP}]" &&
 	python_has_version "dev-python/pytest-xdist[${PYTHON_USEDEP}]"
 }
 
