@@ -980,7 +980,7 @@ app-admin/kpcli 3.8.1: Command line interface to KeePass database files
 app-admin/kube-bench 0.6.8: Kubernetes Bench for Security runs the CIS Kubernetes Benchmark
 app-admin/kubectx 0.9.4: Fast way to switch between clusters and namespaces in kubectl
 app-admin/lib_users 0.15 0.15-r1: Check for mapped libs and open files that are marked as deleted
-app-admin/linode-cli 5.48.4 5.49.0: Official command-line interface for interacting with the Linode API
+app-admin/linode-cli 5.48.4 5.49.1: Official command-line interface for interacting with the Linode API
 app-admin/lnav 0.11.1-r2 0.11.2: A curses-based tool for viewing and analyzing log files
 app-admin/logcheck 1.4.3-r2 1.4.3-r4: Mails anomalies in the system logfiles to the administrator
 app-admin/logmon 0.4.4-r1: Split-screen terminal/ncurses based log viewer
@@ -1833,7 +1833,7 @@ app-editors/vile 9.8y 9.8z: VI Like Emacs -- yet another full-featured vi clone
 app-editors/vim 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9.0.2167 9.1.0366 9999: Vim, an improved vi-style text editor
 app-editors/vim-core 9.0.1503 9.0.1627 9.0.1678 9.0.1777 9.0.2092 9.0.2167 9.1.0366 9999: vim and gvim shared files
 app-editors/vis 0.8-r1 9999: modern, legacy free, simple yet efficient vim-like editor
-app-editors/vscode 1.88.1: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscode 1.88.1 1.89.0: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium 1.88.1.24102 1.88.1.24104: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r1: A cross-platform hex editor designed specially for large files
@@ -2716,7 +2716,7 @@ app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
 app-misc/evtest 1.33 1.34 1.35: test program for capturing input device events
 app-misc/faq 0.0.7: Format agnostic jQ
-app-misc/fastfetch 0.1.9999 0.2.9999 2.8.10 2.9.2 2.11.0: Fast neofetch-like system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 2.8.10 2.9.2 2.11.2: Fast neofetch-like system information tool
 app-misc/fdupes 2.2.1 2.3.0 9999: Identify/delete duplicate files residing within specified directories
 app-misc/fdutils 5.6_p2: Utilities for configuring and debugging the Linux floppy driver
 app-misc/fhem 6.2: A GPL'd perl server for house automation
@@ -5291,7 +5291,7 @@ dev-libs/cglm 0.9.2 0.9.3 0.9.4: OpenGL Mathematics (glm) for C
 dev-libs/cgreen 1.3.0: Unit test and mocking framework for C and C++
 dev-libs/check 0.15.2-r1: A unit test framework for C
 dev-libs/chmlib 0.40-r2: Library for MS CHM (compressed html) file format
-dev-libs/cjose 0.6.2.2: C library implementing the Javascript Object Signing and Encryption (JOSE)
+dev-libs/cjose 0.6.2.2 0.6.2.3: C library implementing the Javascript Object Signing and Encryption (JOSE)
 dev-libs/cl 1.2.4-r2: OpenCL bindings for Erlang
 dev-libs/collada-dom 2.5.0-r1: COLLADA Document Object Model (DOM) C++ Library
 dev-libs/concurrencykit 0.7.1-r1 0.7.2: A library with concurrency related algorithms and data structures in C
@@ -8108,7 +8108,7 @@ dev-python/absl-py 2.1.0: Abseil Python Common Libraries
 dev-python/accessible-pygments 0.0.4: A collection of accessible pygments styles
 dev-python/adblock 0.6.0: Python wrapper for Brave's adblocking library, which is written in Rust
 dev-python/aesara 2.9.3: Library for operating on mathematical expressions with multi-dimensional arrays
-dev-python/agate 1.10.1: A Python data analysis library that is optimized for humans instead of machines
+dev-python/agate 1.10.1 1.10.2: A Python data analysis library that is optimized for humans instead of machines
 dev-python/agate-dbf 0.2.3: Adds read support for DBF files to agate
 dev-python/agate-excel 0.4.1: Adds read support for Excel files (xls and xlsx) to agate
 dev-python/agate-sql 0.7.2: Adds SQL read/write support to agate
@@ -9181,7 +9181,7 @@ dev-python/pytest-localserver 0.8.1: Pytest plugin to test server connections lo
 dev-python/pytest-markdown 1.0.2-r1: Run tests in your markdown
 dev-python/pytest-metadata 3.1.1: A plugin for pytest that provides access to test session metadata
 dev-python/pytest-mock 3.14.0: Thin-wrapper around the mock package for easier use with pytest
-dev-python/pytest-mpl 0.16.1: Facilitate image comparison for Matplotlib figures
+dev-python/pytest-mpl 0.16.1 0.17.0: Facilitate image comparison for Matplotlib figures
 dev-python/pytest-order 1.2.0 1.2.1: pytest plugin to run your tests in a specific order
 dev-python/pytest-ordering 0.6-r1: pytest plugin to run your tests in a specific order
 dev-python/pytest-param-files 0.3.5 0.5.0 0.6.0: Pytest parametrize decorators from external files.
@@ -14715,7 +14715,7 @@ net-ftp/ftpbase 0.01-r6: File Transfer Protocol (FTP) base layout
 net-ftp/gftp 2.9.1b: a free multithreaded file transfer client
 net-ftp/lftp 4.9.2-r1 9999: A sophisticated ftp/sftp/http/https/torrent client and file transfer program
 net-ftp/linksys-tftp 1.2.1-r3 1.2.1-r4: TFTP client suitable for uploading to the Linksys WRT54G Wireless Router
-net-ftp/ncftp 3.2.7-r1: An extremely configurable ftp client
+net-ftp/ncftp 3.2.7-r1 3.2.7-r2: An extremely configurable ftp client
 net-ftp/proftpd 1.3.8 1.3.8-r1 1.3.8a 1.3.8a-r1 1.3.8b: An advanced and very configurable FTP server
 net-ftp/pure-ftpd 1.0.51-r2 9999: Fast, production-quality, standard-conformant FTP server
 net-ftp/pureadmin 0.4-r3: GUI tool used to make the management of Pure-FTPd a little easier
