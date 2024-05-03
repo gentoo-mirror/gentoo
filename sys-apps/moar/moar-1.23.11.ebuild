@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module
+inherit go-env go-module
 
 DESCRIPTION="Pager designed to do the right thing without any configuration"
 HOMEPAGE="https://github.com/walles/moar"
@@ -12,7 +12,7 @@ SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-deps.tar
 
 LICENSE="BSD-2 BSD MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -24,6 +24,12 @@ BDEPEND="
 		app-arch/xz-utils
 	)
 "
+
+src_unpack() {
+	default
+	mv "${WORKDIR}"/vendor "${S}"/vendor || die
+	go-env_set_compile_environment
+}
 
 src_compile() {
 	# https://github.com/walles/moar/blob/master/build.sh#L28

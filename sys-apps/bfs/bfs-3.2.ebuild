@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic toolchain-funcs
+inherit edo flag-o-matic toolchain-funcs
 
 DESCRIPTION="Breadth-first version of the UNIX find command"
 HOMEPAGE="https://tavianator.com/projects/bfs.html"
@@ -12,35 +12,46 @@ SRC_URI="https://github.com/tavianator/bfs/archive/refs/tags/${PV}.tar.gz -> ${P
 LICENSE="0BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc"
-IUSE="acl caps debug io-uring unicode xattr"
+IUSE="acl caps debug io-uring selinux unicode"
 
 DEPEND="
 	acl? ( virtual/acl )
 	caps? ( sys-libs/libcap )
 	io-uring? ( sys-libs/liburing:= )
+	selinux? ( sys-libs/libselinux )
 	unicode? ( dev-libs/oniguruma:= )
-	xattr? ( sys-apps/attr )
 "
 RDEPEND="${DEPEND}"
 
-bfsmake() {
-	emake \
-		USE_ACL=$(usev acl '1') \
-		USE_ATTR=$(usev xattr '1') \
-		USE_LIBCAP=$(usev caps '1') \
-		USE_LIBURING=$(usev io-uring '1') \
-		USE_ONIGURUMA=$(usev unicode '1') \
-		"$@"
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# Not available on Linux
+	acl_is_trivial_np acl_trivial fdclosedir getdents getprogname
+	posix_spawn_file_actions_addfchdir
+)
+
+src_configure() {
+	tc-export CC PKG_CONFIG
+	use debug || append-cppflags -DNDEBUG
+
+	edo ./configure \
+		$(use_enable acl libacl) \
+		$(use_enable caps libcap) \
+		$(use_enable selinux libselinux) \
+		$(use_enable io-uring liburing) \
+		$(use_enable unicode oniguruma) \
+		V=1
 }
 
 src_compile() {
-	tc-export CC
-	use debug || append-cppflags -DNDEBUG
-
-	bfsmake
+	emake V=1
 }
 
 src_test() {
 	# -n check gets confused so need manual src_test definition?
-	bfsmake check
+	emake V=1 check
+}
+
+src_install() {
+	emake V=1 DESTDIR="${D}" install
+	einstalldocs
 }
