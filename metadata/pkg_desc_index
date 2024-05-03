@@ -2137,7 +2137,7 @@ app-emacs/no-littering 1.5.0: ELisp library that helps keeping Emacs configurati
 app-emacs/noflet 0.0.15_p20141102-r1: Dynamic, local advice for Emacs-Lisp code
 app-emacs/nxml-docbook5-schemas 5.1: Add support for DocBook 5 schemas to NXML
 app-emacs/nxml-gentoo-schemas 20240208: Extension for nxml-mode with Gentoo-specific schemas
-app-emacs/nxml-libvirt-schemas 9.8.0 9.9.0 10.0.0 10.1.0 10.2.0: Extension for nxml-mode with libvirt schemas
+app-emacs/nxml-libvirt-schemas 9.8.0 9.9.0 10.0.0 10.1.0 10.2.0 10.3.0: Extension for nxml-mode with libvirt schemas
 app-emacs/nxml-svg-schemas 1.1.20081123-r1: Extension for nxml-mode with SVG 1.1 schemas
 app-emacs/oauth2 0.16: OAuth 2.0 authorization protocol
 app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
@@ -2338,7 +2338,7 @@ app-emulation/libdsk 1.5.18: LIBDSK is a library for accessing discs and disc im
 app-emulation/libguestfs 1.48.6-r1: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/libguestfs-appliance 1.46.0: VM appliance disk image used in libguestfs package
 app-emulation/libspectrum 1.5.0: Spectrum emulation library
-app-emulation/libvirt 9.8.0-r2 9.9.0-r2 10.0.0-r2 10.1.0-r1 10.2.0 9999: C toolkit to manipulate virtual machines
+app-emulation/libvirt 9.8.0-r2 9.9.0-r2 10.0.0-r2 10.1.0-r1 10.2.0 10.3.0 9999: C toolkit to manipulate virtual machines
 app-emulation/libvirt-glib 4.0.0 5.0.0: GLib and GObject mappings for libvirt
 app-emulation/nemu 3.0.0 3.1.0 3.3.0: Ncurses interface for QEMU
 app-emulation/open-vm-tools 12.2.0 12.2.5: Tools for VMware guests
@@ -8491,7 +8491,7 @@ dev-python/genson 1.2.2: GenSON is a powerful, user-friendly JSON Schema generat
 dev-python/gentoo-common 1: Common files shared by Python implementations in Gentoo
 dev-python/genty 1.3.2-r2: Allows you to run a test with multiple data sets
 dev-python/geographiclib 2.0: Python implementation of the geodesic routines
-dev-python/gfloat 0.0.5: Generic floating-point types in Python
+dev-python/gfloat 0.0.5 0.1: Generic floating-point types in Python
 dev-python/ghp-import 2.1.0-r1: Copy your docs directly to the gh-pages branch
 dev-python/git-review 2.4.0 9999: Tool to submit code to Gerrit
 dev-python/gitdb 4.0.11: GitDB is a pure-Python git object database
@@ -8619,7 +8619,7 @@ dev-python/jinja 3.1.3: A full-featured template engine for Python
 dev-python/jinja2-time 0.2.0-r1: Jinja2 Extension for Dates and Times
 dev-python/jinja2_pluralize 0.3.0-r1: Jinja2 pluralize filters
 dev-python/jmespath 1.0.1: JSON Matching Expressions
-dev-python/joblib 1.4.0: Tools to provide lightweight pipelining in Python
+dev-python/joblib 1.4.0 1.4.2: Tools to provide lightweight pipelining in Python
 dev-python/josepy 1.14.0: JOSE protocol implementation in Python
 dev-python/jq 1.7.0: Python bindings for jq
 dev-python/js2py 0.74: JavaScript to Python Translator & JavaScript interpreter in Python
@@ -8691,7 +8691,7 @@ dev-python/libnacl 2.1.0: Python ctypes wrapper for libsodium
 dev-python/libpillowfight 0.3.0_p20210816-r1: Small library containing various image processing algorithms
 dev-python/libsass 0.23.0: A straightforward binding of libsass for Python
 dev-python/libtmux 0.21.0 0.27.0 0.28.0 0.30.1 0.30.2 0.32.0 0.33.0 0.35.0 0.35.1 0.36.0 0.37.0: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
-dev-python/libvirt-python 9.8.0 9.9.0 10.0.0 10.1.0 10.2.0 9999: libvirt Python bindings
+dev-python/libvirt-python 9.8.0 9.9.0 10.0.0 10.1.0 10.2.0 10.3.0 9999: libvirt Python bindings
 dev-python/license-expression 30.3.0: Parse, compare, simplify and normalize license expressions
 dev-python/line-profiler 4.1.2 4.1.3: Line-by-line profiler
 dev-python/linkify-it-py 2.0.3: Links recognition library with full unicode support
@@ -8783,7 +8783,7 @@ dev-python/mkdocs-minify-plugin 0.8.0: An MkDocs plugin to minify HTML and/or JS
 dev-python/mkdocs-monorepo-plugin 1.1.0: Build multiple documentation folders in a single Mkdocs
 dev-python/mkdocs-pymdownx-material-extras 2.5.6: Custom alterations based on Mkdocs-Material
 dev-python/mkdocs-redirects 1.2.1: Plugin for Mkdocs page redirects
-dev-python/mkdocs-static-i18n 1.2.2: MkDocs i18n plugin using static translation markdown files
+dev-python/mkdocs-static-i18n 1.2.2 1.2.3: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.24.3 0.25.0: Automatic documentation from sources, for MkDocs
 dev-python/mkdocstrings-python 1.9.2 1.10.0: Python handler for dev-python/mkdocstrings
 dev-python/ml-dtypes 0.3.2-r1 0.4.0: A stand-alone implementation of several NumPy dtype extensions
@@ -9294,7 +9294,7 @@ dev-python/pywayland 0.4.17: Python bindings for the libwayland library
 dev-python/pywinrm 0.4.3: Python client for the Windows Remote Management (WinRM) service
 dev-python/pywlroots 0.15.24-r2 0.16.6-r2 0.16.7: Python binding to the wlroots library using cffi
 dev-python/pyx 0.16-r1: Python package for the generation of encapsulated PostScript figures
-dev-python/pyxDamerauLevenshtein 1.7.1: Implements the Damerau-Levenshtein edit distance algorithm for Python in Cython
+dev-python/pyxDamerauLevenshtein 1.7.1 1.8.0: Implements the Damerau-Levenshtein edit distance algorithm for Python in Cython
 dev-python/pyxattr 0.8.1: Python interface to xattr
 dev-python/pyxdg 0.28-r1: A Python module to deal with freedesktop.org specifications
 dev-python/pyyaml 6.0.1-r1: YAML parser and emitter for Python
@@ -9318,7 +9318,7 @@ dev-python/quart-trio 0.11.1: A Quart extension to provide trio support
 dev-python/radon 6.0.1: Code Metrics in Python
 dev-python/raet 0.6.8-r6: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.2: Python 2.7 random module ported to Python 3
-dev-python/rapidfuzz 3.8.1: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 3.8.1 3.9.0: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rapidfuzz-capi 1.0.5: C-API of RapidFuzz, which can be used to extend RapidFuzz
 dev-python/rarfile 4.2: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
@@ -9521,7 +9521,7 @@ dev-python/stestr 4.1.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.2.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.0: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 9.2.0 9.3.0 9.4.0: Stripe python bindings
+dev-python/stripe 9.2.0 9.3.0 9.4.0 9.5.0: Stripe python bindings
 dev-python/structlog 24.1.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.1: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.4: A streaming protocol for test results
@@ -9585,7 +9585,7 @@ dev-python/tornado 6.4: Python web framework and asynchronous networking library
 dev-python/towncrier 23.11.0: Building newsfiles for your project
 dev-python/tox 4.14.2 4.15.0: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.2.1: Python bindings for TSS
-dev-python/tqdm 4.66.2: Add a progress meter to your loops in a second
+dev-python/tqdm 4.66.2 4.66.4: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.2 5.14.3: A configuration system for Python applications
 dev-python/transitions 0.9.0: A lightweight, object-oriented state machine implementation in Python
 dev-python/translate-toolkit 3.12.2 3.13.0: Toolkit to convert between many translation formats
