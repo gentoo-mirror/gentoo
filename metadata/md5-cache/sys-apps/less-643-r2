@@ -1,4 +1,4 @@
-BDEPEND=test? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20240116 dev-build/automake || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 )
+BDEPEND=test? ( virtual/pkgconfig ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig dev-build/automake || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 )
 DEFINED_PHASES=configure install preinst prepare test
 DEPEND=>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:= pcre? ( dev-libs/libpcre2 )
 DESCRIPTION=Excellent text file viewer
@@ -12,5 +12,5 @@ RDEPEND=>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:= pcre? ( dev-libs/li
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://www.greenwoodsoftware.com/less/less-643.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	3af8f60c4bdb23e738db506a630898ee	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
 _md5_=782b2a68f8a3b13fa19e2c49a219d090
