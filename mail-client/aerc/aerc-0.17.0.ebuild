@@ -13,7 +13,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://git.sr.ht/~rjarry/aerc"
 else
 	SRC_URI="https://git.sr.ht/~rjarry/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
+	SRC_URI+=" https://dev.gentoo.org/~arthurzam/distfiles/mail-client/${PN}/${P}-deps.tar.xz"
 	KEYWORDS="~amd64 ~ppc64"
 fi
 
