@@ -9,7 +9,7 @@ MY_P="Linux-${PN^^}-${PV}"
 # Can reconsider w/ EAPI 8 and IDEPEND, bug #810979
 TMPFILES_OPTIONAL=1
 
-inherit db-use fcaps flag-o-matic toolchain-funcs usr-ldscript multilib-minimal
+inherit db-use fcaps flag-o-matic toolchain-funcs multilib-minimal
 
 DESCRIPTION="Linux-PAM (Pluggable Authentication Modules)"
 HOMEPAGE="https://github.com/linux-pam/linux-pam"
@@ -21,8 +21,8 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="|| ( BSD GPL-2 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-IUSE="audit berkdb debug nis selinux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="audit berkdb examples debug nis selinux"
 
 BDEPEND="
 	app-alternatives/yacc
@@ -44,10 +44,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 PDEPEND=">=sys-auth/pambase-20200616"
-
-PATCHES=(
-	"${FILESDIR}/${P}-termios.patch"
-)
 
 src_prepare() {
 	default
@@ -85,10 +81,10 @@ multilib_src_configure() {
 		--disable-regenerate-docu
 		--disable-static
 		--disable-Werror
-		# TODO: wire this up now it's more useful as of 1.5.3
+		# TODO: wire this up now it's more useful as of 1.5.3 (bug #931117)
 		--disable-econf
 
-		# TODO: add elogind support
+		# TODO: add elogind support (bug #931115)
 		# lastlog is enabled again for now by us until logind support
 		# is handled. Even then, disabling lastlog will probably need
 		# a news item.
@@ -96,6 +92,7 @@ multilib_src_configure() {
 		--enable-lastlog
 
 		$(use_enable audit)
+		$(multilib_native_use_enable examples)
 		$(use_enable berkdb db)
 		$(use_enable debug)
 		$(use_enable nis)
@@ -112,8 +109,6 @@ multilib_src_compile() {
 multilib_src_install() {
 	emake DESTDIR="${D}" install \
 		sepermitlockdir="/run/sepermit"
-
-	gen_usr_ldscript -a pam pam_misc pamc
 }
 
 multilib_src_install_all() {

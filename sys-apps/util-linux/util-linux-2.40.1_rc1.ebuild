@@ -138,6 +138,7 @@ src_prepare() {
 			hardlink/options
 
 			# Fails in sandbox
+			# re ioctl_ns: https://github.com/util-linux/util-linux/issues/2967
 			lsns/ioctl_ns
 			lsfd/mkfds-inotify
 			lsfd/mkfds-symlink
@@ -229,6 +230,9 @@ multilib_src_configure() {
 		$(use_enable static-libs static)
 		$(use_with ncurses tinfo)
 		$(use_with selinux)
+
+		# TODO: Wire this up (bug #931118)
+		--without-econf
 
 		# TODO: investigate build failure w/ 2.40.1_rc1
 		--disable-liblastlog2
