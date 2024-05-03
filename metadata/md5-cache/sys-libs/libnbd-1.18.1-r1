@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-libs/libxml2 fuse? ( sys-fs/fuse:3 ) gnutls? ( net-libs/gnutls:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] ) test? ( sys-block/nbd[gnutls?] sys-block/nbdkit[gnutls?] )
+DESCRIPTION=NBD client library in userspace
+EAPI=8
+HOMEPAGE=https://gitlab.com/nbdkit/libnbd
+INHERIT=bash-completion-r1 python-single-r1
+IUSE=fuse gnutls go ocaml python test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~ppc64 ~sparc ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/libxml2 fuse? ( sys-fs/fuse:3 ) gnutls? ( net-libs/gnutls:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.libguestfs.org/libnbd/1.18-stable/libnbd-1.18.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=51a31500aa97f24a0ebedbc04b2b88f0
