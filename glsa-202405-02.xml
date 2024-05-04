@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-02">
+    <title>ImageMagick: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in ImageMagick, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">imagemagick</product>
+    <announced>2024-05-04</announced>
+    <revised count="1">2024-05-04</revised>
+    <bug>835931</bug>
+    <bug>843833</bug>
+    <bug>852947</bug>
+    <bug>871954</bug>
+    <bug>893526</bug>
+    <bug>904357</bug>
+    <bug>908082</bug>
+    <bug>917594</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/imagemagick" auto="yes" arch="*">
+            <unaffected range="ge">6.9.13.0</unaffected>
+            <unaffected range="ge">7.1.1.22</unaffected>
+            <vulnerable range="lt">6.9.12.88</vulnerable>
+            <vulnerable range="lt">7.1.1.11</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ImageMagick is a software suite to create, edit, and compose bitmap images, that can also read, write, and convert images in many other formats.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in ImageMagick. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ImageMagick 6.x users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/imagemagick-6.9.13.0" =media-gfx/imagemagick-6*"
+        </code>
+        
+        <p>All ImageMagick 7.x users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/imagemagick-7.1.1.22"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4219">CVE-2021-4219</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20224">CVE-2021-20224</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0284">CVE-2022-0284</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1115">CVE-2022-1115</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2719">CVE-2022-2719</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3213">CVE-2022-3213</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28463">CVE-2022-28463</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32545">CVE-2022-32545</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32546">CVE-2022-32546</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32547">CVE-2022-32547</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44267">CVE-2022-44267</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44268">CVE-2022-44268</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1906">CVE-2023-1906</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2157">CVE-2023-2157</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5341">CVE-2023-5341</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34151">CVE-2023-34151</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34153">CVE-2023-34153</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-04T06:13:28.990846Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-04T06:13:28.993140Z">graaff</metadata>
+</glsa>
