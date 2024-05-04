@@ -28,7 +28,6 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		dev-python/dask[${PYTHON_USEDEP}]
 		dev-python/defusedxml[${PYTHON_USEDEP}]
 		>=dev-python/fsspec-2021.5.0[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
@@ -36,22 +35,13 @@ BDEPEND="
 	)
 "
 
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	# Internet
-	tests/test_tifffile.py::test_class_omexml
-	tests/test_tifffile.py::test_class_omexml_fail
-	tests/test_tifffile.py::test_class_omexml_modulo
-	tests/test_tifffile.py::test_class_omexml_attributes
-	tests/test_tifffile.py::test_class_omexml_multiimage
-	tests/test_tifffile.py::test_write_ome
-	tests/test_tifffile.py::test_write_ome_manual
-	# requires tons of free space
-	tests/test_tifffile.py::test_write_3gb
-	tests/test_tifffile.py::test_write_5GB_bigtiff
-	tests/test_tifffile.py::test_write_5GB_fails
-	tests/test_tifffile.py::test_write_6gb
-	tests/test_tifffile.py::test_write_bigtiff
-	'tests/test_tifffile.py::test_write_imagej_raw'
-)
+python_test() {
+	local -x SKIP_LARGE=1
+	local -x SKIP_HTTP=1
+
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest
+}
