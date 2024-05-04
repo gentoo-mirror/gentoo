@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-07">
+    <title>HTMLDOC: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in HTMLDOC, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">htmldoc</product>
+    <announced>2024-05-04</announced>
+    <revised count="1">2024-05-04</revised>
+    <bug>780489</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-text/htmldoc" auto="yes" arch="*">
+            <unaffected range="ge">1.9.16</unaffected>
+            <vulnerable range="lt">1.9.16</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>HTMLDOC is a HTML indexer and HTML to PS and PDF converter.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in HTMLDOC. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All HTMLDOC users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/htmldoc-1.9.16"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20308">CVE-2021-20308</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23158">CVE-2021-23158</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23165">CVE-2021-23165</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23180">CVE-2021-23180</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23191">CVE-2021-23191</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23206">CVE-2021-23206</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26252">CVE-2021-26252</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26259">CVE-2021-26259</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26948">CVE-2021-26948</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33235">CVE-2021-33235</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33236">CVE-2021-33236</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-40985">CVE-2021-40985</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43579">CVE-2021-43579</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0137">CVE-2022-0137</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0534">CVE-2022-0534</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24191">CVE-2022-24191</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27114">CVE-2022-27114</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28085">CVE-2022-28085</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34033">CVE-2022-34033</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34035">CVE-2022-34035</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-04T08:44:19.188140Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-04T08:44:19.190127Z">graaff</metadata>
+</glsa>
