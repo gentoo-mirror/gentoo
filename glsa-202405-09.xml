@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-09">
+    <title>MediaInfo, MediaInfoLib: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in MediaInfo and MediaInfoLib, the worst of which could allow user-assisted remote code execution.</synopsis>
+    <product type="ebuild">libmediainfo,mediainfo</product>
+    <announced>2024-05-04</announced>
+    <revised count="1">2024-05-04</revised>
+    <bug>778992</bug>
+    <bug>836564</bug>
+    <bug>875374</bug>
+    <bug>917612</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libmediainfo" auto="yes" arch="*">
+            <unaffected range="ge">23.10</unaffected>
+            <vulnerable range="lt">23.10</vulnerable>
+        </package>
+        <package name="media-video/mediainfo" auto="yes" arch="*">
+            <unaffected range="ge">23.10</unaffected>
+            <vulnerable range="lt">23.10</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>MediaInfo supplies technical and tag information about media files. MediaInfoLib contains MediaInfo libraries.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in MediaInfo and MediaInfoLib. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All MediaInfo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-video/mediainfo-23.10"
+        </code>
+        
+        <p>All MediaInfolib users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libmediainfo-23.10"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-04T09:27:38.638046Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-05-04T09:27:38.656198Z">graaff</metadata>
+</glsa>
