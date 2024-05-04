@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-03">
+    <title>Dalli: Code Injection</title>
+    <synopsis>A vulnerability has been discovered in Dalli, which can lead to code injection.</synopsis>
+    <product type="ebuild">dalli</product>
+    <announced>2024-05-04</announced>
+    <revised count="1">2024-05-04</revised>
+    <bug>882077</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-ruby/dalli" auto="yes" arch="*">
+            <unaffected range="ge">3.2.3</unaffected>
+            <vulnerable range="lt">3.2.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Dalli is a high performance pure Ruby client for accessing memcached servers.</p>
+    </background>
+    <description>
+        <p>A vulnerability was found in Dalli. Affected is the function self.meta_set of the file lib/dalli/protocol/meta/request_formatter.rb of the component Meta Protocol Handler. The manipulation leads to injection.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Dalli users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/dalli-3.2.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4064">CVE-2022-4064</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-04T06:43:24.230534Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-04T06:43:24.233626Z">graaff</metadata>
+</glsa>
