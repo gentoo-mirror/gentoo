@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="121"
+CHROMIUM_VERSION="124"
 CHROMIUM_LANGS="
 	af
 	am
@@ -50,7 +50,6 @@ CHROMIUM_LANGS="
 	kab
 	kn
 	ko
-	ku
 	lt
 	lv
 	mk
@@ -98,7 +97,6 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 SRC_URI="
@@ -107,11 +105,13 @@ SRC_URI="
 	arm64? ( ${VIVALDI_BASE_URI}arm64.deb )
 "
 
+S="${WORKDIR}"
 LICENSE="Vivaldi"
 SLOT="0"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 qt6 widevine"
 RESTRICT="bindist mirror"
-#REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
+REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
@@ -150,7 +150,6 @@ RDEPEND="
 
 QA_PREBUILT="*"
 CONFIG_CHECK="~CPU_FREQ"
-S="${WORKDIR}"
 
 src_unpack() {
 	unpack_deb ${A}
@@ -175,6 +174,7 @@ src_prepare() {
 
 	pushd ${VIVALDI_HOME}/locales > /dev/null || die
 	rm ja-KS.pak || die # No flag for Kansai as not in IETF list.
+	rm kmr.pak || die # No flag for Kurmanji.
 	chromium_remove_language_paks
 	popd > /dev/null || die
 
@@ -190,11 +190,6 @@ src_prepare() {
 
 	if ! use qt6; then
 		rm ${VIVALDI_HOME}/libqt6_shim.so || die
-	fi
-
-	# Bug #928519, #928520.
-	if ! use amd64; then
-		rm ${VIVALDI_HOME}/relayproxy-linux || die
 	fi
 
 	eapply_user
