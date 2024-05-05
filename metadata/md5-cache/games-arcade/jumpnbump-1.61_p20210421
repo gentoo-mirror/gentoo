@@ -1,16 +1,16 @@
-BDEPEND=gui? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) )
+BDEPEND=gui? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) )
 DEFINED_PHASES=compile install setup
 DEPEND=app-arch/bzip2:= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer[mod] media-libs/sdl2-net sys-libs/zlib:=
 DESCRIPTION=Funny multiplayer game about cute little fluffy bunnies
 EAPI=8
 HOMEPAGE=https://libregames.gitlab.io/jumpnbump
 INHERIT=desktop python-single-r1 toolchain-funcs
-IUSE=gui python_single_target_python3_10 python_single_target_python3_11
+IUSE=gui python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=app-arch/bzip2:= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer[mod] media-libs/sdl2-net sys-libs/zlib:= gui? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-python/pillow[python_targets_python3_10(-)] dev-python/pygobject[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pillow[python_targets_python3_11(-)] dev-python/pygobject[python_targets_python3_11(-)] ) x11-libs/gdk-pixbuf:2[introspection] x11-libs/gtk+:3[introspection] )
-REQUIRED_USE=gui? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
+RDEPEND=app-arch/bzip2:= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer[mod] media-libs/sdl2-net sys-libs/zlib:= gui? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/pillow[python_targets_python3_10(-)] dev-python/pygobject[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pillow[python_targets_python3_11(-)] dev-python/pygobject[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pillow[python_targets_python3_12(-)] dev-python/pygobject[python_targets_python3_12(-)] ) x11-libs/gdk-pixbuf:2[introspection] x11-libs/gtk+:3[introspection] )
+REQUIRED_USE=gui? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
 SLOT=0
 SRC_URI=https://gitlab.com/LibreGames/jumpnbump/-/archive/73c5fe86fd831dec45a22077e8d63dd2b6a6349e/jumpnbump-1.61_p20210421.tar.bz2
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	a1229a86bd0db058e474a2d7d9191cca	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=eab5689132bb077870eba7dd1c7b813f
+_md5_=1e5ed1d0c3ea4332e36a1183096e4026
