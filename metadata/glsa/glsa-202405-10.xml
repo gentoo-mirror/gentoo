@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-10">
+    <title>Setuptools: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in Setuptools, which can lead to denial of service.</synopsis>
+    <product type="ebuild">setuptools</product>
+    <announced>2024-05-05</announced>
+    <revised count="1">2024-05-05</revised>
+    <bug>879813</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/setuptools" auto="yes" arch="*">
+            <unaffected range="ge">65.5.1</unaffected>
+            <vulnerable range="lt">65.5.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Setuptools is a manager for Python packages.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Setuptools. See the impact field.</p>
+    </description>
+    <impact type="normal">
+        <p>An inefficiency in a regular expression may end in a denial of service if an user is fetching malicious HTML from a package in PyPI or a custom PackageIndex page.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Setuptools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/setuptools-65.5.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40897">CVE-2022-40897</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-05T06:37:49.107714Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-05T06:37:49.110409Z">graaff</metadata>
+</glsa>
