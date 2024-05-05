@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=>=sys-libs/ncurses-6.0:0= media-libs/fontconfig x11-libs/libX11 x11-libs/libXft x11-base/xorg-proto
+DEPEND=>=sys-libs/ncurses-6.0:0= media-libs/fontconfig x11-libs/libX11 x11-libs/libXft ~x11-terms/st-terminfo-0.9.2 x11-base/xorg-proto
 DESCRIPTION=Simple terminal implementation for X
-EAPI=7
+EAPI=8
 HOMEPAGE=https://st.suckless.org/
 INHERIT=desktop savedconfig toolchain-funcs
-IUSE=savedconfig savedconfig
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc64 ~riscv ~x86
+IUSE=savedconfig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc64 ~riscv ~x86
 LICENSE=MIT
-RDEPEND=>=sys-libs/ncurses-6.0:0= media-libs/fontconfig x11-libs/libX11 x11-libs/libXft
+RDEPEND=>=sys-libs/ncurses-6.0:0= media-libs/fontconfig x11-libs/libX11 x11-libs/libXft ~x11-terms/st-terminfo-0.9.2
 SLOT=0
-SRC_URI=https://dl.suckless.org/st/st-0.8.4.tar.gz
+SRC_URI=https://dl.suckless.org/st/st-0.9.2.tar.gz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=e974548cdfadeb3883e8aafe806593b0
+_md5_=46e336a3ee24661ed88899740179ebf2
