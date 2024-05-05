@@ -1275,7 +1275,7 @@ app-benchmarks/pmbw 0.6.3: Parallel Memory Bandwidth Measurement / Benchmark Too
 app-benchmarks/ramspeed 3.5.0-r2: Benchmarking for memory and cache
 app-benchmarks/siege 4.1.0 4.1.6 4.1.6-r1: A HTTP regression testing and benchmarking utility
 app-benchmarks/stress 1.0.7: A deliberately simple workload generator for POSIX systems
-app-benchmarks/stress-ng 0.17.07: Stress test for a computer system with various selectable ways
+app-benchmarks/stress-ng 0.17.08: Stress test for a computer system with various selectable ways
 app-benchmarks/sysbench 1.0.20-r101: A scriptable multi-threaded benchmark tool based on LuaJIT
 app-benchmarks/tiobench 0.5.0: Portable, robust, fully-threaded I/O benchmark program
 app-benchmarks/wrk 4.2.0: A HTTP benchmarking tool
@@ -1535,7 +1535,7 @@ app-dicts/aspell-ca 2.5.0-r1: Aspell (Catalan) language dictionary
 app-dicts/aspell-cs 20040614.1-r1: Aspell (Czech) language dictionary
 app-dicts/aspell-csb 0.02.0-r1: Aspell (Kashubian) language dictionary
 app-dicts/aspell-cy 0.50.3-r1: Aspell (Welsh) language dictionary
-app-dicts/aspell-da 4.2.1: Aspell (Danish) language dictionary
+app-dicts/aspell-da 4.2.1 4.3: Aspell (Danish) language dictionary
 app-dicts/aspell-de 20161207.7.0-r1: Aspell (German, Austria-German and Swiss-German) language dictionary
 app-dicts/aspell-de-alt 2.1.1-r2: Aspell (German (traditional orthography)) language dictionary
 app-dicts/aspell-el 0.08.0-r1: Aspell (Greek) language dictionary
@@ -2688,7 +2688,7 @@ app-misc/cpipe 3.0.3-r1: Counting pipe, measures data transfered over pipe
 app-misc/crunch 3.6: A wordlist generator
 app-misc/cstream 3.2.1-r1: General-purpose stream-handling tool like UNIX dd
 app-misc/cw 1.0.16-r3 1.0.16-r5: A non-intrusive real-time ANSI color wrapper for common unix-based commands
-app-misc/dailystrips 1.0.28-r4: dailystrips automatically downloads your favorite online comics from the web
+app-misc/dailystrips 1.0.28-r4: Dailystrips automatically downloads your favorite online comics from the web
 app-misc/dasel 1.26.1 1.27.1 1.27.3: Query, update and convert data structures from the command line
 app-misc/datefudge 1.24 1.26: A program (and preload library) to fake system date
 app-misc/dateutils 0.4.9 0.4.10 9999: Command line date and time utilities
@@ -2834,7 +2834,7 @@ app-misc/pal 0.4.3-r2: Command-line calendar program
 app-misc/pax-utils 1.3.7 9999: ELF utils that can check files for security relevant properties
 app-misc/perltrash 0.3-r2: Command-line trash can emulation
 app-misc/pet 0.4.0: Simple command-line snippet manager
-app-misc/pfm 2.12.3-r1: A terminal-based file manager written in Perl
+app-misc/pfm 2.12.3-r1: Terminal-based file manager written in Perl
 app-misc/physlock 13-r3: Lightweight Linux console locking tool
 app-misc/pip 1.2-r3: Wrapper around programs that don't support stdin/stdout
 app-misc/piper 0.6 0.7-r1 9999: GTK application to configure gaming devices
@@ -5294,7 +5294,7 @@ dev-libs/chmlib 0.40-r2: Library for MS CHM (compressed html) file format
 dev-libs/cjose 0.6.2.2 0.6.2.3: C library implementing the Javascript Object Signing and Encryption (JOSE)
 dev-libs/cl 1.2.4-r2: OpenCL bindings for Erlang
 dev-libs/collada-dom 2.5.0-r1: COLLADA Document Object Model (DOM) C++ Library
-dev-libs/concurrencykit 0.7.1-r1 0.7.2: A library with concurrency related algorithms and data structures in C
+dev-libs/concurrencykit 0.7.2: A library with concurrency related algorithms and data structures in C
 dev-libs/confuse 3.3 3.3-r1 3.3-r2: a configuration file parser library
 dev-libs/console_bridge 1.0.2 9999: A ROS-independent package for logging into rosconsole/rosout
 dev-libs/cowsql 1.15.6: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
@@ -5414,7 +5414,7 @@ dev-libs/kreport 3.2.0-r3: Framework for creation and generation of reports in m
 dev-libs/ktextaddons 1.2.1 1.5.4: Various text handling addons
 dev-libs/kweathercore 0.7 0.8.0: Library for retrieval of weather information including forecasts and alerts
 dev-libs/leatherman 1.12.12 1.12.13: A C++ toolkit
-dev-libs/level-zero 1.16.1 1.16.14-r1: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.16.1 1.16.14-r1 1.16.15: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.20 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 0.3.113-r1 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5860,7 +5860,7 @@ dev-lua/busted 2.2.0: Elegant Lua unit testing
 dev-lua/busted-htest 1.0.0-r1: Pretty output handler for Busted
 dev-lua/dkjson 2.7: David Kolf's JSON module for Lua
 dev-lua/inifile 1.1: A simple and complete ini parser for Lua
-dev-lua/lanes 3.16.3: Lightweight, native, lazy evaluating multithreading library
+dev-lua/lanes 3.16.3 3.17.0: Lightweight, native, lazy evaluating multithreading library
 dev-lua/ldoc 1.4.6-r100: A LuaDoc-compatible documentation generation system
 dev-lua/lgi 0.9.2-r100: Lua bindings using gobject-introspection
 dev-lua/lpeg 1.0.2-r101: Parsing Expression Grammars for Lua
@@ -11778,11 +11778,11 @@ games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic com
 games-rpg/xu4 0.9-r1: A remake of the computer game Ultima IV
 games-rpg/zsdx 1.12.3: Free 2D Zelda fangame
 games-rpg/zsxd 1.12.2: Free 2D Zelda fangame parody
-games-server/bedrock-server 1.20.80.05: The official bedrock (non-java) based server for the sandbox video game
+games-server/bedrock-server 1.20.80.05 1.20.81.01: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r1: Server for Mednafen emulator
-games-server/minecraft-server 1.20.5: The official server for the sandbox video game
+games-server/minecraft-server 1.20.6: The official server for the sandbox video game
 games-server/monopd 0.10.2-r1: server for atlantik games
 games-server/mtavc 0.5-r2: dedicated server for GTA3 multiplayer
 games-server/pvpgn 1.99.7.2.1-r1: A gaming server for Battle.Net compatible clients
@@ -15154,7 +15154,7 @@ net-misc/cmst 2023.03.14-r1: Qt GUI for Connman with system tray icon
 net-misc/connect 1.105: SSH Proxy Command
 net-misc/connman 1.42 9999: Provides a daemon for managing internet connections
 net-misc/connman-gtk 1.1.1-r1: GTK GUI for Connman
-net-misc/connman-json-client 1.0_p20150721-r2: An ncurses UI for connman
+net-misc/connman-json-client 1.0_p20150721-r3: An ncurses UI for connman
 net-misc/connman-notify 0_pre20191003-r3: Desktop notification integration for connman
 net-misc/connman-ui 0_p20150622-r1: A full-featured GTK based trayicon UI for ConnMan
 net-misc/croc 9.6.15: Easily and securely send things from one computer to another
@@ -15197,8 +15197,8 @@ net-misc/gerbera 1.12.1-r1 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
 net-misc/gnome-connections 45.0-r2: A remote desktop client for the GNOME desktop environment
 net-misc/gnome-remote-desktop 45.1-r1: Remote desktop daemon for GNOME using pipewire
-net-misc/gns3-gui 2.2.44.1 2.2.45: Graphical Network Simulator
-net-misc/gns3-server 2.2.44.1 2.2.45: GNS3 server to asynchronously manage emulators
+net-misc/gns3-gui 2.2.45 2.2.46: Graphical Network Simulator
+net-misc/gns3-server 2.2.45 2.2.46: GNS3 server to asynchronously manage emulators
 net-misc/gofish 1.2-r2: Gofish gopher server
 net-misc/grive 0.5.2_pre20211128-r1: An open source Linux client for Google Drive
 net-misc/gsasl 2.0.1 2.0.1-r2 2.2.0 2.2.1: The GNU SASL client, server, and library
@@ -15705,7 +15705,7 @@ net-wireless/suwidgets 0.1.0-r1 0.3.0: graphical library containing all SigDigge
 net-wireless/tempestsdr 0.0_p20200221-r1 9999: Remote video eavesdropping using a software-defined radio platform
 net-wireless/ubertooth 2020.12.1-r1 9999: open source wireless development platform suitable for Bluetooth experimentation
 net-wireless/uhd 4.4.0.0 4.6.0.0: Universal Software Radio Peripheral (USRP) Hardware Driver
-net-wireless/unifi 6.5.55-r2 7.5.187 8.1.113: A Management Controller for Ubiquiti Networks UniFi APs
+net-wireless/unifi 6.5.55-r2 7.5.187 8.1.113 8.1.127: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.9.4 2.9.5 9999: Universal Radio Hacker: investigate wireless protocols like a boss
 net-wireless/wavemon 0.9.3-r1 0.9.4 0.9.5: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r6: WLAN tool for breaking 802.11 WEP keys
@@ -16187,7 +16187,7 @@ sci-libs/htslib 1.17 1.19.1: C library for high-throughput sequencing data forma
 sci-libs/huggingface_hub 0.20.3 0.21.4: a client library to interact with the Hugging Face Hub
 sci-libs/hypre 2.20.0 2.21.0 2.24.0: Parallel matrix preconditioners library
 sci-libs/ideep 3.1.1 3.3.2: Intel® Optimization for Chainer
-sci-libs/idlcoyote 20161220 99999999: GDL library from D. Fannings IDL courses
+sci-libs/idlcoyote 20161220-r1 99999999: GDL library from D. Fannings IDL courses
 sci-libs/idlmarkwardt 20160319-r1: Craig Markwardt IDL procedures (MPFIT, CMSVLIB, etc)
 sci-libs/ignition-common 3.14.2 3.17.0: Set of libraries designed to rapidly develop robot applications
 sci-libs/ignition-fuel-tools 4.9.1: Classes and tools for interacting with Ignition Fuel
@@ -17292,7 +17292,7 @@ sys-auth/ykpers 1.20.0-r1: Library and tool for personalization of Yubico's Yubi
 sys-auth/yubico-piv-tool 2.3.1 2.4.2 2.5.1: Command-line tool and p11-kit module for the YubiKey PIV application
 sys-auth/yubikey-personalization-gui 3.1.25: GUI for personalization of Yubico's YubiKey
 sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protocol
-sys-block/arcconf 2.01.22270-r2 3.07.23980 4.16.00.26273: Microsemi Adaptec RAID Controller Command Line Utility
+sys-block/arcconf 2.01.22270-r2 3.07.23980 4.16.00.26273 4.17.00.26540: Microsemi Adaptec RAID Controller Command Line Utility
 sys-block/blktrace 1.3.0 1.3.0-r1: show detailed info about what is happening on a block device io queue
 sys-block/bmap-tools 3.6-r1: Flashing tool using block maps and sparse files
 sys-block/buffer 1.19-r4: A tapedrive tool for speeding up reading from and writing to tape
@@ -18092,7 +18092,7 @@ www-apps/icingaweb2 2.11.4-r1 2.12.1 9999: Icinga Web 2 - Frontend for icinga2
 www-apps/icingaweb2-module-director 1.11.1 9999: Icinga Web 2 plugin for configuration
 www-apps/icingaweb2-module-graphite 1.1.0 1.2.1 9999: Icinga Web 2 plugin for Graphite
 www-apps/icingaweb2-module-incubator 0.22.0: Bleeding edge Icinga Web 2 libraries
-www-apps/icingaweb2-module-pnp4nagios 1.0.1 9999: Icinga Web 2 plugin for pnp4nagios
+www-apps/icingaweb2-module-pnp4nagios 1.0.1 1.0.1-r1 9999: Icinga Web 2 plugin for pnp4nagios
 www-apps/ikiwiki 3.20190228-r1 3.20200202.3 3.20200202.3-r1: A wiki compiler
 www-apps/jackett-bin 0.21.2146: API Support for your favorite torrent trackers
 www-apps/jekyll 4.3.2-r2 4.3.3: Simple, blog aware, static site generator

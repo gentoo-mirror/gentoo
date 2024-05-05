@@ -1,13 +1,11 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install
 DEPEND=>=net-analyzer/icinga2-2.1.1 >=www-apps/icingaweb2-2.0.0
 DESCRIPTION=Icinga Web 2 plugin for pnp4nagios
 EAPI=8
 HOMEPAGE=https://icinga.org/
-INHERIT=git-r3
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=>=net-analyzer/icinga2-2.1.1 >=www-apps/icingaweb2-2.0.0
 SLOT=0
-_eclasses_=git-r3	fbb2889c81f3a05910c1524db69425c1
+SRC_URI=https://codeload.github.com/Icinga/icingaweb2-module-pnp/tar.gz/v1.0.1 -> icingaweb2-module-pnp4nagios-1.0.1.tar.gz
 _md5_=77380a05f7d5186341de4ae525026028
