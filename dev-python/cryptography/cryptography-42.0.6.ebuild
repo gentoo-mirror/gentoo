@@ -27,18 +27,19 @@ CRATES="
 	memoffset@0.9.0
 	once_cell@1.19.0
 	openssl-macros@0.1.1
-	openssl-sys@0.9.99
-	openssl@0.10.63
+	openssl-sys@0.9.102
+	openssl@0.10.64
 	parking_lot@0.12.1
 	parking_lot_core@0.9.9
 	pem@3.0.3
 	pkg-config@0.3.29
+	portable-atomic@1.6.0
 	proc-macro2@1.0.78
-	pyo3-build-config@0.20.2
-	pyo3-ffi@0.20.2
-	pyo3-macros-backend@0.20.2
-	pyo3-macros@0.20.2
-	pyo3@0.20.2
+	pyo3-build-config@0.20.3
+	pyo3-ffi@0.20.3
+	pyo3-macros-backend@0.20.3
+	pyo3-macros@0.20.3
+	pyo3@0.20.3
 	quote@1.0.35
 	redox_syscall@0.4.1
 	scopeguard@1.2.0
@@ -80,7 +81,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-libs/openssl-1.0.2o-r6:0=
