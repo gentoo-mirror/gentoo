@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,14 +14,15 @@ SRC_URI="https://github.com/GNS3/gns3-gui/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 #net-misc/gns3-server version should always match gns3-gui version
 RDEPEND="
-	>=dev-python/distro-1.8.0[${PYTHON_USEDEP}]
+	>=dev-python/distro-1.9.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.9.6[${PYTHON_USEDEP}]
+	>=dev-python/psutil-5.9.8[${PYTHON_USEDEP}]
 	>=dev-python/sentry-sdk-1.34.0[${PYTHON_USEDEP}]
+	>=dev-python/truststore-0.8.0[${PYTHON_USEDEP}]
 	~net-misc/gns3-server-${PV}[${PYTHON_USEDEP}]
 	dev-python/PyQt5[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
 "
