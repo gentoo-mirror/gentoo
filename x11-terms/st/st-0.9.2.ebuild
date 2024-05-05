@@ -1,29 +1,36 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit desktop multilib savedconfig toolchain-funcs
+EAPI=8
 
-DESCRIPTION="simple terminal implementation for X"
+inherit desktop savedconfig toolchain-funcs
+
+DESCRIPTION="Simple terminal implementation for X"
 HOMEPAGE="https://st.suckless.org/"
-SRC_URI="https://dl.suckless.org/st/${P}.tar.gz"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://git.suckless.org/${PN}"
+else
+	SRC_URI="https://dl.suckless.org/${PN}/${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc64 ~riscv ~x86"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~hppa ppc64 ~riscv x86"
-IUSE="savedconfig"
 
 RDEPEND="
 	>=sys-libs/ncurses-6.0:0=
 	media-libs/fontconfig
 	x11-libs/libX11
 	x11-libs/libXft
+	~x11-terms/st-terminfo-${PV}
 "
 DEPEND="
 	${RDEPEND}
-	virtual/pkgconfig
 	x11-base/xorg-proto
 "
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	default
@@ -59,7 +66,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	if ! [[ "${REPLACING_VERSIONS}" ]]; then
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "Please ensure a usable font is installed, like"
 		elog "    media-fonts/corefonts"
 		elog "    media-fonts/dejavu"
