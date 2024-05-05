@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-13">
+    <title>borgmatic: Shell Injection</title>
+    <synopsis>A vulnerability has been discovered in borgmatic, which can lead to shell injection.</synopsis>
+    <product type="ebuild">borgmatic</product>
+    <announced>2024-05-05</announced>
+    <revised count="1">2024-05-05</revised>
+    <bug>924892</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-backup/borgmatic" auto="yes" arch="*">
+            <unaffected range="ge">1.8.8</unaffected>
+            <vulnerable range="lt">1.8.8</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>borgmatic is simple, configuration-driven backup software for servers and workstations.</p>
+    </background>
+    <description>
+        <p>Prevent shell injection attacks within the PostgreSQL hook, the MongoDB hook, the SQLite hook, the &#34;borgmatic borg&#34; action, and command hook variable/constant interpolation.</p>
+    </description>
+    <impact type="high">
+        <p>Shell injection may be used in several borgmatic backends to execute arbitrary code.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All borgmatic users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-backup/borgmatic-1.8.8"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-05T07:55:00.732358Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-05T07:55:00.739533Z">graaff</metadata>
+</glsa>
