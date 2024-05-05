@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit elisp-common desktop xdg-utils readme.gentoo-r1
+inherit elisp-common desktop gnome2-utils readme.gentoo-r1
 
 DESCRIPTION="Common files needed by all GNU Emacs versions"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Emacs"
@@ -11,12 +11,13 @@ SRC_URI="https://dev.gentoo.org/~ulm/emacs/${P}.tar.xz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
-IUSE="games gui"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+IUSE="games gsettings gui"
 
-RDEPEND="games? ( acct-group/gamestat )"
-DEPEND="${RDEPEND}"
+DEPEND="games? ( acct-group/gamestat )"
+RDEPEND="${DEPEND}"
 PDEPEND=">=app-editors/emacs-23.1:*"
+IDEPEND="gui? ( gsettings? ( dev-libs/glib ) )"
 
 src_install() {
 	insinto "${SITELISP}"
@@ -49,6 +50,11 @@ src_install() {
 		doicon -s scalable emacs23.svg
 		newicon -s scalable emacs25.svg emacs.svg
 		popd
+
+		if use gsettings; then
+			insinto /usr/share/glib-2.0/schemas
+			doins org.gnu.emacs.defaults.gschema.xml
+		fi
 	fi
 
 	DOC_CONTENTS="All site initialisation for Gentoo-installed packages is
@@ -91,6 +97,7 @@ pkg_postinst() {
 	if use gui; then
 		xdg_desktop_database_update
 		xdg_icon_cache_update
+		use gsettings && gnome2_schemas_update
 	fi
 	readme.gentoo_print_elog
 }
@@ -99,5 +106,6 @@ pkg_postrm() {
 	if use gui; then
 		xdg_desktop_database_update
 		xdg_icon_cache_update
+		use gsettings && gnome2_schemas_update
 	fi
 }
