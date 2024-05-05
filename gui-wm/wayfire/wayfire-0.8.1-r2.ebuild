@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/WayfireWM/wayfire"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/WayfireWM/${PN}.git"
-	SLOT="0/0.9"
+	SLOT="0/0.8"
 else
 	SRC_URI="https://github.com/WayfireWM/${PN}/releases/download/v${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~riscv"
@@ -58,6 +58,10 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}/wayfire-0.8.0-dont-use-installed-config-h.patch"
+)
 
 src_prepare() {
 	default
