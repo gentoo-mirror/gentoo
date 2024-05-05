@@ -115,7 +115,7 @@ CRATES="
 
 inherit cargo
 
-ELFSHAKER_COMMIT="9b65a536ed25d698311b7298332900c54967aa97"
+ELFSHAKER_COMMIT="bf7097efb1e645f74f2c820741ad791f38cff38c"
 DESCRIPTION="Stores binary objects efficiently"
 HOMEPAGE="https://github.com/elfshaker/elfshaker"
 SRC_URI="
