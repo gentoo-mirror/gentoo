@@ -13,27 +13,41 @@ CRATES="
 	ahash@0.8.11
 	aho-corasick@1.1.3
 	allocator-api2@0.2.18
+	android-tzdata@0.1.1
+	android_system_properties@0.1.5
 	anes@0.1.6
+	anstream@0.6.14
+	anstyle-parse@0.2.4
+	anstyle-query@1.0.3
+	anstyle-wincon@3.0.3
 	anstyle@1.0.7
 	anyhow@1.0.82
 	argv@0.1.11
-	autocfg@1.2.0
+	autocfg@1.3.0
 	backtrace@0.3.71
 	bitflags@1.3.2
 	bitflags@2.5.0
 	bstr@1.9.1
+	bumpalo@3.16.0
 	byteorder@1.5.0
+	caps@0.5.5
 	cast@0.3.0
 	cc@1.0.96
 	cfg-if@1.0.0
+	cfg_aliases@0.1.1
+	chrono@0.4.38
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
 	clap@4.5.4
 	clap_builder@4.5.2
+	clap_derive@4.5.4
 	clap_lex@0.7.0
+	colorchoice@1.0.1
 	const-hex@1.11.3
+	core-foundation-sys@0.8.6
 	cpufeatures@0.2.12
+	crc32fast@1.4.0
 	criterion-plot@0.5.0
 	criterion@0.5.1
 	crossbeam-channel@0.5.12
@@ -59,12 +73,17 @@ CRATES="
 	errno@0.3.8
 	fastrand@2.1.0
 	fixedbitset@0.4.2
+	flate2@1.0.30
 	fnv@1.0.7
 	futures-channel@0.3.30
 	futures-core@0.3.30
 	futures-executor@0.3.30
+	futures-io@0.3.30
+	futures-macro@0.3.30
+	futures-sink@0.3.30
 	futures-task@0.3.30
 	futures-util@0.3.30
+	futures@0.3.30
 	getargs@0.5.0
 	getrandom@0.2.14
 	getset@0.1.2
@@ -73,23 +92,34 @@ CRATES="
 	globset@0.4.14
 	goblin@0.8.2
 	half@2.4.1
+	hashbrown@0.12.3
 	hashbrown@0.14.5
 	heck@0.4.1
+	heck@0.5.0
 	hermit-abi@0.3.9
 	hex@0.4.3
+	home@0.5.9
+	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.60
 	ident_case@1.0.1
+	indexmap@1.9.3
 	indexmap@2.2.6
 	io-lifetimes@1.0.11
 	io-uring@0.6.4
 	ipnetwork@0.20.0
 	is-terminal@0.4.12
+	is_terminal_polyfill@1.70.0
 	itertools@0.10.5
 	itoa@1.0.11
+	js-sys@0.3.69
 	lazy_static@1.4.0
 	lexis@0.2.2
 	libc@0.2.154
+	libcgroups@0.3.2
+	libcontainer@0.3.2
 	libloading@0.8.3
 	libm@0.2.8
+	liboci-cli@0.3.2
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
@@ -100,12 +130,16 @@ CRATES="
 	md5@0.7.0
 	memchr@2.7.2
 	memoffset@0.7.1
+	memoffset@0.9.1
 	mimalloc2-rust-sys@2.1.4-source
 	mimalloc2-rust@0.3.1
 	miniz_oxide@0.7.2
+	nc@0.8.20
 	nix@0.26.4
+	nix@0.27.1
+	nix@0.28.0
 	nonempty@0.10.0
-	num-traits@0.2.18
+	num-traits@0.2.19
 	num_cpus@1.16.0
 	object@0.32.2
 	oci-spec@0.6.5
@@ -123,11 +157,18 @@ CRATES="
 	pkg-config@0.3.30
 	plain@0.2.3
 	ppv-lite86@0.2.17
+	prctl@1.0.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
 	proc-macro2@1.0.81
+	procfs-core@0.16.0
 	procfs@0.15.1
+	procfs@0.16.0
 	proptest@1.4.0
+	protobuf-codegen@3.2.0
+	protobuf-parse@3.2.0
+	protobuf-support@3.2.0
+	protobuf@3.2.0
 	quote@1.0.36
 	rand@0.8.5
 	rand_chacha@0.3.1
@@ -146,12 +187,14 @@ CRATES="
 	rs_sha3_256@0.1.2
 	rs_sha3_384@0.1.2
 	rs_sha3_512@0.1.2
+	rust-criu@0.4.0
 	rustc-demangle@0.1.23
 	rustix@0.36.17
 	rustix@0.38.34
 	rustversion@1.0.15
 	rusty_pool@0.7.0
 	ryu@1.0.17
+	safe-path@0.1.0
 	same-file@1.0.6
 	scopeguard@1.2.0
 	scroll@0.12.0
@@ -165,25 +208,39 @@ CRATES="
 	slotmap@1.0.7
 	smallvec@1.13.2
 	strsim@0.10.0
+	strsim@0.11.1
 	strum@0.26.2
 	strum_macros@0.26.2
 	syn@1.0.109
 	syn@2.0.60
+	tabwriter@1.4.0
 	tempfile@3.10.1
 	thiserror-impl@1.0.59
 	thiserror@1.0.59
 	thread-id@4.2.1
 	tick_counter@0.4.5
 	tinytemplate@1.2.1
+	tracing-attributes@0.1.27
+	tracing-core@0.1.32
+	tracing@0.1.40
 	unarray@0.1.4
 	unicode-ident@1.0.12
+	unicode-width@0.1.12
+	utf8parse@0.2.1
 	version_check@0.9.4
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
+	wasm-bindgen-backend@0.2.92
+	wasm-bindgen-macro-support@0.2.92
+	wasm-bindgen-macro@0.2.92
+	wasm-bindgen-shared@0.2.92
+	wasm-bindgen@0.2.92
+	which@4.4.2
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.8
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
+	windows-core@0.52.0
 	windows-sys@0.45.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
@@ -212,8 +269,8 @@ CRATES="
 	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.5
-	zerocopy-derive@0.7.32
-	zerocopy@0.7.32
+	zerocopy-derive@0.7.33
+	zerocopy@0.7.33
 "
 
 inherit cargo
@@ -247,6 +304,7 @@ src_configure() {
 		local myfeatures=( "log,mimalloc,uring,utils" )
 		cargo_src_configure --no-default-features
 	else
+		local myfeatures=( "oci" )
 		cargo_src_configure
 	fi
 }
