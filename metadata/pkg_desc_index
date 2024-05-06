@@ -973,7 +973,7 @@ app-admin/helm 3.11.2 3.12.3 3.13.2: Kubernetes Package Manager
 app-admin/ide-smart 1.4-r3: A tool to read SMART information from harddiscs
 app-admin/integrit 4.2_rc1: file integrity verification program
 app-admin/keepass 2.49 2.53 2.56: A free, open source, light-weight and easy-to-use password manager
-app-admin/keepassxc 2.7.6 2.7.7-r2 9999: KeePassXC - KeePass Cross-platform Community Edition
+app-admin/keepassxc 2.7.7-r2 2.7.8 9999: KeePassXC - KeePass Cross-platform Community Edition
 app-admin/kernel-hardening-checker 0.6.6: A tool for checking the security hardening options of the Linux kernel
 app-admin/killproc 2.13-r1: killproc and assorted tools for boot scripts
 app-admin/kpcli 3.8.1: Command line interface to KeePass database files
@@ -1340,7 +1340,7 @@ app-containers/cri-o 1.29.0 1.29.2: OCI-based implementation of Kubernetes Conta
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.4 1.11.2 1.14.3: A fast and low-memory footprint OCI Container Runtime fully written in C
 app-containers/devcontainer 0.57.0 0.58.0 0.59.1: Reference implementation of the Development Containers specification
-app-containers/distrobox 1.7.1 1.7.2.0 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
+app-containers/distrobox 1.7.1 1.7.2.0 1.7.2.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1: System container image builder for LXC and incus
 app-containers/docker 24.0.5-r1 24.0.6 24.0.7-r1 25.0.1 25.0.4 26.1.0-r1: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.6.0: Test for best practices around deploying docker containers
@@ -1860,14 +1860,14 @@ app-emacs/apheleia 4.0 4.1: Reformat GNU Emacs buffers stably without moving poi
 app-emacs/assess 0.6: Test support functions for Emacs
 app-emacs/async 1.9.8: Simple library for asynchronous processing in Emacs
 app-emacs/atomic-chrome 2.0.0-r1: Edit text area on Chrome with Emacs using Atomic Chrome
-app-emacs/auctex 13.2 13.3: Extensible package for writing and formatting TeX files in Emacs
+app-emacs/auctex 13.3: Extensible package for writing and formatting TeX files in Emacs
 app-emacs/auto-complete 1.5.1-r2: Auto-complete package
 app-emacs/autoconf-mode 2.71 2.72: Emacs major modes for editing autoconf and autotest input
 app-emacs/autothemer 0.2.18 9999: Conveniently define themes for GNU Emacs
 app-emacs/avy 0.5.0: Jump to arbitrary positions in visible text and quickly select
 app-emacs/avy-embark-collect 1.0 9999: Use avy to jump to Embark Collect entries
 app-emacs/basic-toolkit 0.7: Basic edit toolkit
-app-emacs/bbdb 3.2.2b: The Insidious Big Brother Database
+app-emacs/bbdb 3.2.2b 3.2.2d_p20231122: The Insidious Big Brother Database
 app-emacs/biblio 0.3: Browse and import bibliographic references with Emacs
 app-emacs/binclock 1.11: Display the current time using a binary clock
 app-emacs/bind-chord 2.4.4: Key-chord binding helper for use-package-chords
@@ -1970,7 +1970,7 @@ app-emacs/ef-themes 1.4.0 9999: Colourful and legible themes for GNU Emacs
 app-emacs/eglot 1.15-r1: A minimal Emacs LSP client for GNU Emacs
 app-emacs/eimp 1.4.0-r1: Emacs Image Manipulation Package
 app-emacs/el-mock 1.25.1: Mocking library for Emacs
-app-emacs/eldev 1.8.2 1.9 1.9.1 9999: Emacs Lisp Development Tool
+app-emacs/eldev 1.9.1 1.10 9999: Emacs Lisp Development Tool
 app-emacs/eldoc-box 1.11.1 9999: Child frame doc for Eglot and anything that uses ElDoc
 app-emacs/elfeed 3.4.1_p20210822: Emacs web feeds client
 app-emacs/elfeed-protocol 0.9.0 0.9.1: Provide extra news client subscription protocols for elfeed
@@ -2144,7 +2144,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 1.0 1.1: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.0: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.4.1 0.4.2: Contributed packages to Org
-app-emacs/org-mode 9.6.23 9.6.24 9.6.26 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.6.23 9.6.24 9.6.26 9.6.28 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.1 1.2: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r1 2.2.2-r2 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
@@ -2299,7 +2299,7 @@ app-emacs/yaml 0.5.5: YAML parser in Emacs Lisp
 app-emacs/yaml-mode 0.0.15 0.0.16: A major mode for GNU Emacs for editing YAML files
 app-emacs/yasnippet 0.14.0: Yet another snippet extension for Emacs
 app-emacs/yasnippet-snippets 1.0-r2: A collection of yasnippet snippets for many languages
-app-emacs/yatex 1.82: Yet Another TeX mode for Emacs
+app-emacs/yatex 1.82 1.83: Yet Another TeX mode for Emacs
 app-emacs/zenburn 20110907-r1: Zenburn color theme for Emacs
 app-emacs/zenirc 2.112-r1: A full-featured scriptable IRC client for the Emacs text editor
 app-emulation/86Box 4.0.1-r1 4.1.1-r1: Emulator of x86-based machines based on PCem
@@ -3314,7 +3314,7 @@ app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML par
 app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
 app-text/pandoc-bin 3.1.12.3 3.1.13: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
-app-text/paper-clip 5.0 9999: Edit the title, author, keywords and more details of PDF documents
+app-text/paper-clip 5.0 5.5 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/paperwork 2.1.2 2.2.1: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.1.2 2.2.1 2.2.1-r1: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
@@ -5122,7 +5122,7 @@ dev-lang/cfortran 4.4-r4 20110621 20210827: Header file allowing to call Fortran
 dev-lang/clips 6.40: Tool for building Expert Systems (native version)
 dev-lang/clipsjni 6.40-r1: Tool for building Expert Systems (Java version)
 dev-lang/cll1h 0.6-r1: C<<1 programming language system
-dev-lang/clojure 1.11.1-r1 1.11.2-r1: General-purpose programming language with an emphasis on functional programming
+dev-lang/clojure 1.11.1-r1 1.11.2-r1 1.11.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/closure-compiler-bin 20240317: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
 dev-lang/crystal 1.11.2 1.12.1: The Crystal Programming Language
@@ -11875,7 +11875,7 @@ games-util/antimicrox 3.3.4 3.4.0: Graphical program used to map keyboard button
 games-util/atlas 0.6.1_beta_pre20181202: Chart Program to use with Flightgear Flight Simulator
 games-util/basis_universal 1.16.3-r1 1.16.4: Basis Universal GPU Texture Codec
 games-util/biounzip 1.1a: Unpacks BioZip archives
-games-util/cartridges 2.7.4 9999: Simple game launcher written in Python using GTK4 and Libadwaita
+games-util/cartridges 2.7.4 2.8.4 9999: Simple game launcher written in Python using GTK4 and Libadwaita
 games-util/catcodec 1.0.5: Decodes and encodes sample catalogues for OpenTTD
 games-util/datutil 2.46: Converter for dat files for Rom Managers
 games-util/deutex 5.2.2: WAD composer for Doom, Heretic, Hexen, and Strife
