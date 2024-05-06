@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=app-text/stardict-2.4.2 app-text/sdcv ) zlib? ( app-arch/gzip app-text/dictd )
+BDEPEND=app-text/sdcv zlib? ( app-arch/gzip app-text/dictd )
 DEFINED_PHASES=compile install
 DESCRIPTION=Stardict Dictionary Traditional Chinese (BIG5) to English
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/stardict/stardict-xdict-ce-big5-2.4.2.tar.bz2
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	stardict	4d73386bfcaa4ea5b21fe0d01e8b4a7d
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	stardict	fa190c2cfa280c7f5b3149123d3f8a36
 _md5_=a49f864e571be0446a9232630f0c9ebf

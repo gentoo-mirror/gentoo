@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=app-text/stardict-2.4.2 app-text/sdcv ) zlib? ( app-arch/gzip app-text/dictd )
+BDEPEND=app-text/sdcv zlib? ( app-arch/gzip app-text/dictd )
 DEFINED_PHASES=compile install
 DESCRIPTION=Stardict Dictionary English to Swedish
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/stardict/stardict-dictd_www.freedict.de_eng-swe-2.4.2.tar.bz2
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	stardict	4d73386bfcaa4ea5b21fe0d01e8b4a7d
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	stardict	fa190c2cfa280c7f5b3149123d3f8a36
 _md5_=f7b0ec4df7f4ab64d6a71724f77569d6
