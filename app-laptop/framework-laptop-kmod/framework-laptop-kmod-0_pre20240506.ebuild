@@ -1,11 +1,11 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit linux-mod-r1
 
-COMMIT_HASH="d5367eb9e5b5542407494d04ac1a0e77f10cc89d"
+COMMIT_HASH="cfff3d242c11dc3ebfa70e7771ee1c094bf2f368"
 DESCRIPTION="Kernel module to expose more Framework Laptop stuff"
 HOMEPAGE="https://github.com/DHowett/framework-laptop-kmod"
 SRC_URI="https://github.com/DHowett/framework-laptop-kmod/archive/${COMMIT_HASH}.tar.gz -> ${P}.gh.tar.gz"
