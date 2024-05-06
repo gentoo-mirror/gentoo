@@ -1,9 +1,9 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit toolchain-funcs
+inherit autotools flag-o-matic
 
 DESCRIPTION="Tools and libraries for NWN file manipulation"
 HOMEPAGE="https://sourceforge.net/projects/openknights"
@@ -22,20 +22,19 @@ DOCS=( AUTHORS ChangeLog NEWS README README.tech TODO )
 
 src_prepare() {
 	default
+	eautoreconf
 
-	local f
-	while IFS="" read -d $'\0' -r f; do
-		einfo "Removing hardcoded CC/CXX from ${f}"
-		sed -i \
-			-e '/^CC =/d' \
-			-e '/^CXX =/d' \
-			"${f}" || die
-	done < <(find "${S}" -name Makefile.in -type f -print0)
 }
 
 src_configure() {
-	tc-export CC CXX
-	econf --disable-static
+	# -Werror=strict-aliasing
+	# https://bugs.gentoo.org/855314
+	#
+	# Sourceforge software dead since 2006, no point reporting anything.
+	append-flags -fno-strict-aliasing
+	filter-lto
+
+	default
 }
 
 src_install() {

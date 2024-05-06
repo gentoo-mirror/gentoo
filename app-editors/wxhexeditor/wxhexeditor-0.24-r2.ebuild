@@ -1,11 +1,11 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN="wxHexEditor"
 WX_GTK_VER=3.0-gtk3
-inherit toolchain-funcs wxwidgets
+inherit flag-o-matic toolchain-funcs wxwidgets
 
 DESCRIPTION="A cross-platform hex editor designed specially for large files"
 HOMEPAGE="https://github.com/EUA/wxHexEditor"
@@ -14,7 +14,6 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${MY_PN}-v${PV}-src.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv ~x86"
-IUSE=""
 
 DEPEND="
 	app-crypt/mhash
@@ -40,4 +39,9 @@ pkg_setup() {
 src_prepare() {
 	setup-wxwidgets
 	default
+
+	# -Werror=odr, -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/854414
+	# https://github.com/EUA/wxHexEditor/issues/222
+	filter-lto
 }
