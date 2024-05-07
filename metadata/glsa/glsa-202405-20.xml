@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-20">
+    <title>libjpeg-turbo: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libjpeg-turbo, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">libjpeg-turbo</product>
+    <announced>2024-05-07</announced>
+    <revised count="1">2024-05-07</revised>
+    <bug>797424</bug>
+    <bug>814206</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libjpeg-turbo" auto="yes" arch="*">
+            <unaffected range="ge">2.1.1</unaffected>
+            <vulnerable range="lt">2.1.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libjpeg-turbo is a MMX, SSE, and SSE2 SIMD accelerated JPEG library.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libjpeg-turbo. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libjpeg-turbo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libjpeg-turbo-2.1.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-17541">CVE-2020-17541</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37956">CVE-2021-37956</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37957">CVE-2021-37957</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37958">CVE-2021-37958</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37959">CVE-2021-37959</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37960">CVE-2021-37960</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37961">CVE-2021-37961</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37962">CVE-2021-37962</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37963">CVE-2021-37963</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37965">CVE-2021-37965</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37966">CVE-2021-37966</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37967">CVE-2021-37967</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37968">CVE-2021-37968</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37970">CVE-2021-37970</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37971">CVE-2021-37971</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37972">CVE-2021-37972</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-07T05:04:06.111037Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-07T05:04:06.115519Z">graaff</metadata>
+</glsa>
