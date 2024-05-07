@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic systemd udev usr-ldscript
+inherit flag-o-matic systemd udev
 
 DESCRIPTION="XFS filesystem utilities"
 HOMEPAGE="https://xfs.wiki.kernel.org/ https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/"
@@ -89,8 +89,5 @@ src_compile() {
 }
 
 src_install() {
-	emake DIST_ROOT="${ED}" HAVE_ZIPPED_MANPAGES=false install
-	emake DIST_ROOT="${ED}" HAVE_ZIPPED_MANPAGES=false install-dev
-
-	gen_usr_ldscript -a handle
+	emake DIST_ROOT="${ED}" HAVE_ZIPPED_MANPAGES=false install install-dev
 }
