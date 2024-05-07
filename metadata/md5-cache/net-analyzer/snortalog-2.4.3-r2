@@ -6,8 +6,8 @@ INHERIT=edos2unix
 IUSE=tk
 KEYWORDS=~amd64 ~arm ~ppc ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/perl[ithreads] dev-perl/GDGraph dev-perl/HTML-HTMLDoc virtual/perl-DB_File virtual/perl-Getopt-Long tk? ( dev-perl/Tk )
+RDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_ithreads] <dev-lang/perl-5.38.2-r3[ithreads] ) dev-perl/GDGraph dev-perl/HTML-HTMLDoc virtual/perl-DB_File virtual/perl-Getopt-Long tk? ( dev-perl/Tk )
 SLOT=0
 SRC_URI=http://jeremy.chartier.free.fr/snortalog/downloads/snortalog/snortalog_v2.4.3.tar
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773
-_md5_=aea60d9c34cb25ab172289ce6b9321ad
+_md5_=ea031818975271430e5209f8927ecee3

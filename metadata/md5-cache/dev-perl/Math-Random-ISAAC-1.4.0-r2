@@ -1,17 +1,17 @@
-BDEPEND=test? ( dev-perl/Test-NoWarnings ) dev-lang/perl test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=test? ( dev-perl/Test-NoWarnings ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-lang/perl
+DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
 DESCRIPTION=Perl interface to the ISAAC PRNG algorithm
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Math-Random-ISAAC
 INHERIT=perl-module
-IUSE=test
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=amd64 ~riscv x86
 LICENSE=|| ( public-domain MIT Artistic Artistic-2 GPL-1 GPL-2 GPL-3 )
 PDEPEND=dev-perl/Math-Random-ISAAC-XS
-RDEPEND=dev-lang/perl:=
+RDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	4e37e1004a0a27e41bb7025c0b974676
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	9cfd8bc4b0466de21b0127c4c8ab844e
 _md5_=21a08e362cf2d15517f9b2f76c957972

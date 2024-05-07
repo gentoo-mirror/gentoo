@@ -9,10 +9,10 @@ INHERIT=cmake plocale xdg
 IUSE=cdda cddb cdio http-server mtp musicbrainz replaygain streaming taglib udisks zeroconf
 KEYWORDS=amd64 ~ppc ~ppc64 x86
 LICENSE=GPL-2
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5[sqlite] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib virtual/libudev:= cdda? ( media-sound/cdparanoia ) cddb? ( media-libs/libcddb ) cdio? ( dev-libs/libcdio-paranoia:= ) mtp? ( media-libs/libmtp:= ) musicbrainz? ( media-libs/musicbrainz:5= ) replaygain? ( media-libs/libebur128:= media-sound/mpg123 media-video/ffmpeg:0= ) streaming? ( dev-qt/qtmultimedia:5 ) taglib? ( media-libs/taglib[asf(+),mp4(+)] udisks? ( sys-fs/udisks:2 ) ) zeroconf? ( net-dns/avahi ) dev-lang/perl[ithreads] || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* )
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5[sqlite] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib virtual/libudev:= cdda? ( media-sound/cdparanoia ) cddb? ( media-libs/libcddb ) cdio? ( dev-libs/libcdio-paranoia:= ) mtp? ( media-libs/libmtp:= ) musicbrainz? ( media-libs/musicbrainz:5= ) replaygain? ( media-libs/libebur128:= media-sound/mpg123 media-video/ffmpeg:0= ) streaming? ( dev-qt/qtmultimedia:5 ) taglib? ( media-libs/taglib[asf(+),mp4(+)] udisks? ( sys-fs/udisks:2 ) ) zeroconf? ( net-dns/avahi ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_ithreads] <dev-lang/perl-5.38.2-r3[ithreads] ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* )
 REQUIRED_USE=?? ( cdda cdio ) cdda? ( udisks || ( cddb musicbrainz ) ) cddb? ( || ( cdio cdda ) taglib ) cdio? ( udisks || ( cddb musicbrainz ) ) mtp? ( taglib udisks ) musicbrainz? ( || ( cdio cdda ) taglib ) replaygain? ( taglib )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/CDrummond/cantata/releases/download/v2.5.0/cantata-2.5.0.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	plocale	950fbaec7deeba41b5bcc0572cca99b9	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=540c8d13b45fcd8f42c48c10fc08cb39
+_md5_=58c6612410fe8da3ca0d245aa4b0b55c
