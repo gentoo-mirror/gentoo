@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-19">
+    <title>xar: Unsafe Extraction</title>
+    <synopsis>A vulnerability has been discovered in xar, which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">xar</product>
+    <announced>2024-05-07</announced>
+    <revised count="1">2024-05-07</revised>
+    <bug>820641</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-arch/xar" auto="yes" arch="*">
+            <unaffected range="ge">1.8.0.0.487.100.1</unaffected>
+            <vulnerable range="lt">1.8.0.0.487.100.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>xar provides an easily extensible archive format.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in xar. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>xar allows for a forward-slash separated path to be specified in the file name property, e.g. &lt;name&gt;x/foo&lt;/name&gt; – as long as it doesn’t traverse upwards, and the path exists within the current directory. This means an attacker can create a .xar file which contains both a directory symlink, and a file with a name property which points into the extracted symlink directory. By abusing symlink directories in this manner, an attacker can write arbitrary files to any directory on the filesystem – providing the user has permissions to write to it.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All xar users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/xar-1.8.0.0.487.100.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30833">CVE-2021-30833</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-07T04:42:07.751840Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-07T04:42:07.755662Z">graaff</metadata>
+</glsa>
