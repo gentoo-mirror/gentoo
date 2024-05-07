@@ -32,7 +32,7 @@ CRATES="
 	byteorder@1.5.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.0.96
+	cc@1.0.97
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	chrono@0.4.38
@@ -85,7 +85,7 @@ CRATES="
 	futures-util@0.3.30
 	futures@0.3.30
 	getargs@0.5.0
-	getrandom@0.2.14
+	getrandom@0.2.15
 	getset@0.1.2
 	gimli@0.28.1
 	glob@0.3.1
