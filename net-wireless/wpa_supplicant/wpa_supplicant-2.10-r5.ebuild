@@ -13,7 +13,7 @@ if [ "${PV}" = "9999" ]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://w1.fi/hostap.git"
 else
-	KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 	SRC_URI="https://w1.fi/releases/${P}.tar.gz"
 fi
 
@@ -393,7 +393,7 @@ src_install() {
 	newconfd "${FILESDIR}/${PN}-conf.d" wpa_supplicant
 
 	exeinto /etc/wpa_supplicant/
-	newexe "${FILESDIR}/wpa_cli.sh" wpa_cli.sh
+	newexe "${FILESDIR}/wpa_cli-r1.sh" wpa_cli.sh
 
 	readme.gentoo_create_doc
 	dodoc ChangeLog {eap_testing,todo}.txt README{,-WPS} \
