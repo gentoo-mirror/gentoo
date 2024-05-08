@@ -1,5 +1,5 @@
-BDEPEND=doc? ( virtual/latex-base )
-DEFINED_PHASES=compile install prepare test
+BDEPEND=doc? ( virtual/latex-base ) openmp? ( || ( sys-devel/gcc[openmp] sys-devel/clang-runtime[openmp] ) )
+DEFINED_PHASES=compile install prepare pretend setup test
 DESCRIPTION=A sequence assembler for very short reads
 EAPI=8
 HOMEPAGE=https://www.ebi.ac.uk/~zerbino/velvet/
@@ -10,4 +10,4 @@ LICENSE=GPL-2
 SLOT=0
 SRC_URI=https://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4
-_md5_=f48eb0348a1ac91d41dde22d3ced2ea1
+_md5_=b0793fd684981bd3e2b3f0d2f50c4d91
