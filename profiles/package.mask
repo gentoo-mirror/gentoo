@@ -302,35 +302,6 @@ app-emulation/runv
 =sys-kernel/vanilla-kernel-6.6.26
 =sys-kernel/vanilla-kernel-6.8.5
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-04-08)
-# Obsolete java-vm, bugs #848804 #830248.
-# Removal on 2024-05-08
-dev-java/icedtea-bin
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-04-08)
-# Java libraries without consumers.
-# Removal on 2024-05-08, bugs #853100 #716228.
-dev-java/gin
-dev-java/gwt
-dev-java/validation-api
-
-# Ben Kohler <bkohler@gentoo.org> (2024-04-07)
-# Abandoned upstream long ago in favor of Unifi Protect (running only on an
-# official Unifi appliance.  Likely contains lots of security holes in bundled
-# libs.
-# Removal on 2024-05-07.  Bug #928881
-acct-group/unifi-video
-acct-user/unifi-video
-media-video/unifi-video
-
-# Ben Kohler <bkohler@gentoo.org> (2024-04-07)
-# Long ago forked to and obsoleted by sys-apps/memtest86+.  Upstream has
-# abandoned this for their proprietary UEFI-based one (packaged in gentoo as
-# as sys-apps/memtest86-bin).
-# Removal on 2024-05-07.  Bug #502464, #607494, #628528, #750677, #887003,
-# #912973, #920109
-sys-apps/memtest86
-
 # Sam James <sam@gentoo.org> (2024-03-28)
 # Newer 5.4.x releases were signed by a potentially compromised upstream maintainer.
 # There is no evidence that these releases contain malicious code, but masked
