@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=Statically typed language that targets the JVM and JavaScript
+EAPI=8
+HOMEPAGE=https://kotlinlang.org/ https://github.com/JetBrains/kotlin/
+INHERIT=java-pkg-2 wrapper
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0 BSD MIT NPL-1.1
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
+SLOT=0/1.9.24
+SRC_URI=https://github.com/JetBrains/kotlin/releases/download/v1.9.24/kotlin-compiler-1.9.24.zip
+_eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	wrapper	4a1902f969e5718126434fc35f3a0d9c
+_md5_=db0901065397c32a19a75359fdf2c712
