@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure install
+DEPEND=sys-libs/ncurses:= sys-libs/readline:= postgres? ( dev-db/postgresql:= )
+DESCRIPTION=A better pager for CLI database clients and can be used in place of psql
+EAPI=8
+HOMEPAGE=https://github.com/okbob/pspg
+INHERIT=bash-completion-r1
+IUSE=postgres
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=sys-libs/ncurses:= sys-libs/readline:= postgres? ( dev-db/postgresql:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/okbob/pspg/archive/5.8.5.tar.gz -> pspg-5.8.5.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=9daf0d43230147c69c92a6bda3120210
