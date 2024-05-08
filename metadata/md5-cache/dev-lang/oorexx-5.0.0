@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sys-libs/ncurses:= virtual/libcrypt:=
+DEPEND=sys-libs/ncurses:= virtual/libcrypt:= !dev-lang/regina-rexx
 DESCRIPTION=Open source implementation of Object Rexx
 EAPI=8
 HOMEPAGE=https://www.oorexx.org/about.html https://sourceforge.net/projects/oorexx/
 INHERIT=cmake
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=CPL-1.0
-RDEPEND=sys-libs/ncurses:= virtual/libcrypt:=
+RDEPEND=sys-libs/ncurses:= virtual/libcrypt:= !dev-lang/regina-rexx
 SLOT=0
-SRC_URI=https://sourceforge.net/projects/oorexx/files/oorexx/5.0.0/oorexx-5.0.0-12583.tar.gz
+SRC_URI=https://downloads.sourceforge.net/project/oorexx/oorexx/5.0.0/oorexx-5.0.0-12583.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=776ed37a32515d21269d223ba13318f0
+_md5_=42beee454dea21f011853855591f8b35
