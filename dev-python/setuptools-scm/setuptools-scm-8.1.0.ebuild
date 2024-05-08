@@ -5,7 +5,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit distutils-r1 pypi
 
@@ -30,6 +30,7 @@ RDEPEND="
 BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
+		dev-python/build[${PYTHON_USEDEP}]
 		dev-vcs/git
 		!sparc? (
 			dev-vcs/mercurial
