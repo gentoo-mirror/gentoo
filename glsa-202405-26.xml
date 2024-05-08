@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-26">
+    <title>qtsvg: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in qtsvg, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">qtsvg</product>
+    <announced>2024-05-08</announced>
+    <revised count="1">2024-05-08</revised>
+    <bug>830381</bug>
+    <bug>906465</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-qt/qtsvg" auto="yes" arch="*">
+            <unaffected range="ge" slot="5">5.15.9-r1</unaffected>
+            <vulnerable range="lt" slot="5">5.15.9-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>qtsvg is a SVG rendering library for the Qt framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in qtsvg. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All qtsvg users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtsvg-5.15.9-r1:5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45930">CVE-2021-45930</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32573">CVE-2023-32573</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-08T09:13:29.745666Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-08T09:13:29.749484Z">graaff</metadata>
+</glsa>
