@@ -1,0 +1,12 @@
+BDEPEND=test? ( app-arch/unzip )
+DEFINED_PHASES=configure install prepare test unpack
+DESCRIPTION=Correctly-rounded arbitrary precision decimal floating point arithmetic
+EAPI=8
+HOMEPAGE=https://www.bytereef.org/mpdecimal/
+IUSE=cxx test
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RESTRICT=!test? ( test )
+SLOT=4
+SRC_URI=https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz test? ( http://speleotrove.com/decimal/dectest.zip )
+_md5_=f017b72598a2e344dcefbd5ec25e196f
