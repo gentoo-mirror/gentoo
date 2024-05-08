@@ -331,50 +331,6 @@ media-video/unifi-video
 # #912973, #920109
 sys-apps/memtest86
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-04-06)
-# Dead upstream for many years, in a state of decay and no revdeps.
-# Removal on 2024-05-06.  Bug #926193, #891791
-net-im/telepathy-connection-managers
-net-libs/sofia-sip
-net-libs/telepathy-accounts-signon
-net-libs/telepathy-farstream
-net-libs/telepathy-qt
-net-voip/telepathy-gabble
-net-voip/telepathy-rakia
-net-voip/telepathy-salut
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-04-06)
-# Dead upstream, as is the whole telepathy stack. Some parts depend on
-# dev-qt/qtwebengine:5.
-# Removal on 2024-05-06.  Bug #926679
-kde-apps/ktp-accounts-kcm
-kde-apps/ktp-approver
-kde-apps/ktp-auth-handler
-kde-apps/ktp-common-internals
-kde-apps/ktp-contact-list
-kde-apps/ktp-contact-runner
-kde-apps/ktp-desktop-applets
-kde-apps/ktp-filetransfer-handler
-kde-apps/ktp-kded-module
-kde-apps/ktp-send-file
-kde-apps/ktp-text-ui
-kde-apps/plasma-telepathy-meta
-net-libs/telepathy-logger-qt
-
-# James Le Cuirot <chewi@gentoo.org> (2024-04-05)
-# Dead upstream and broken beyond repair. Removal on 2024-05-05. Bug #928591.
-games-board/xmille
-
-# Michał Górny <mgorny@gentoo.org> (2024-03-30)
-# NIH package that was added for dev-python/setuptools but is no longer
-# used there.
-# Removal on 2024-04-29.  Bug #928270.
-dev-python/nspektr
-
-# James Le Cuirot <chewi@gentoo.org> (2024-03-30)
-# Old, ugly, broken, and requires OSS sound. Removal on 2024-04-30. Bug #928066.
-games-sports/gracer
-
 # Sam James <sam@gentoo.org> (2024-03-28)
 # Newer 5.4.x releases were signed by a potentially compromised upstream maintainer.
 # There is no evidence that these releases contain malicious code, but masked
