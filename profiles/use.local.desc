@@ -3611,10 +3611,6 @@ kde-apps/kpimtextedit:designer - Build plugins for dev-qt/designer
 kde-apps/krdc:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
 kde-apps/ksystemlog:kdesu - Run as root using kdesu from kde-plasma/kde-cli-tools
 kde-apps/ktouch:X - Enable support for X11 Keyboard Layout Detection
-kde-apps/ktp-accounts-kcm:experimental - Enables disabled telepathy services (currently only steam)
-kde-apps/ktp-common-internals:otr - Enable support for encrypted conversations using Off-The-Records messaging
-kde-apps/ktp-common-internals:sso - Enable support for Single sign-on through KAccounts
-kde-apps/ktp-text-ui:speech - Enable incoming messages to be read out using text-to-speech
 kde-apps/kwave:qtmedia - Enable playback via Qt5Multimedia
 kde-apps/libkcddb:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libkcompactdisc:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
@@ -5910,17 +5906,6 @@ net-im/telegram-desktop:enchant - Use the app-text/enchant spell-checking backen
 net-im/telegram-desktop:fonts - Use builtin patched copy of open-sans fonts (overrides fontconfig)
 net-im/telegram-desktop:qt6 - Build with Qt6 support
 net-im/telegram-desktop:qt6-imageformats - Add support for HEIF, AVIF and JpegXL by bundling kde-frameworks/kimageformats
-net-im/telepathy-connection-managers:gadu - Enable Gadu Gadu protocol support.
-net-im/telepathy-connection-managers:icq - Enable ICQ IM protocol support.
-net-im/telepathy-connection-managers:irc - Enable Internet Relay Chat (IRC) support.
-net-im/telepathy-connection-managers:meanwhile - Enable meanwhile support for Sametime protocol.
-net-im/telepathy-connection-managers:msn - Enable MSN Messenger IM protocol support.
-net-im/telepathy-connection-managers:sip - Enable SIP/SIMPLE messaging and calling.
-net-im/telepathy-connection-managers:sipe - Enable Sip Exchange Protocol.
-net-im/telepathy-connection-managers:steam - Enable Steam Chat support.
-net-im/telepathy-connection-managers:xmpp - Enable XMPP protocol handler (this is also Google Talk).
-net-im/telepathy-connection-managers:yahoo - Enable Yahoo! messaging support.
-net-im/telepathy-connection-managers:zeroconf - Enable Link-Local Messaging via the zeroconf or Bonjour protocol.
 net-im/tkabber:plugins - Enables installation the extra plugins
 net-im/toxic:audio-notify - Enables native sound notifications
 net-im/toxic:games - Enables some small mini-games
@@ -6160,7 +6145,6 @@ net-libs/qxmpp:omemo - Enable OMEMO encryption
 net-libs/rabbitmq-c:tools - Builds cli tools to interact with brokers
 net-libs/rtrlib:ssh - Enable SSH support
 net-libs/shairplay:playfair - Add support for handling fairplay handshake (used in for example screen mirroring)
-net-libs/telepathy-qt:farstream - Enable support for audio/video calls via farstream
 net-libs/tox:av - Adds support for audio and video.
 net-libs/tox:daemon - Enable the DHT Bootstrap Daemon.
 net-libs/tox:dht-node - Enables DHT Bootstrap Node.
@@ -6910,8 +6894,6 @@ net-voip/mumble:pipewire - Enable pipewire support for audio output.
 net-voip/mumble:rnnoise - Enable alternative noise suppression option based on RNNoise.
 net-voip/murmur:grpc - Use net-libs/grpc to enable remote control capabilities.
 net-voip/murmur:ice - Use dev-libs/Ice to enable remote control capabilities.
-net-voip/telepathy-gabble:jingle - Enable voice calls for jabber
-net-voip/telepathy-gabble:plugins - Enable plugin loader
 net-voip/umurmur:mbedtls - Use net-libs/mbedtls as TLS provider
 net-voip/umurmur:shm - Enable shared memory support
 net-voip/yate:amrnb - use AMR-NB
