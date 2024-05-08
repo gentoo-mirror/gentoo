@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-27">
+    <title>Epiphany: Buffer Overflow</title>
+    <synopsis>A vulnerability has been discovered in Epiphany, which can lead to a buffer overflow.</synopsis>
+    <product type="ebuild">epiphany</product>
+    <announced>2024-05-08</announced>
+    <revised count="1">2024-05-08</revised>
+    <bug>839786</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/epiphany" auto="yes" arch="*">
+            <unaffected range="ge">42.4</unaffected>
+            <vulnerable range="lt">42.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Epiphany is a GNOME webbrowser based on the Mozilla rendering engine Gecko.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Epiphany. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>In GNOME Epiphany an HTML document can trigger a client buffer overflow (in ephy_string_shorten) via a long page title. The issue occurs because the number of bytes for a UTF-8 ellipsis character is not properly considered.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Epiphany users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/epiphany-42.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29536">CVE-2022-29536</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-08T09:47:31.556833Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-08T09:47:31.561419Z">graaff</metadata>
+</glsa>
