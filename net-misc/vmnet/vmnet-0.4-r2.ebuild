@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit flag-o-matic
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="A simple virtual networking program - SLIP over stdin/out"
 HOMEPAGE="ftp://ftp.xos.nl/pub/linux/vmnet/"
@@ -11,13 +11,14 @@ HOMEPAGE="ftp://ftp.xos.nl/pub/linux/vmnet/"
 # So this might be better but it's a different filename
 # http://ftp.debian.org/debian/pool/main/${PN:0:1}/${PN}/${P/-/_}.orig.tar.gz
 # We use the debian patch anyway
-SRC_URI="ftp://ftp.xos.nl/pub/linux/${PN}/${P}.tar.gz
-	mirror://debian/pool/main/${PN:0:1}/${PN}/${P/-/_}-1.diff.gz"
+SRC_URI="
+	ftp://ftp.xos.nl/pub/linux/${PN}/${P}.tar.gz
+	mirror://debian/pool/main/${PN:0:1}/${PN}/${P/-/_}-1.diff.gz
+"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc x86"
-IUSE=""
 
 RDEPEND="sys-apps/net-tools"
 DEPEND="${RDEPEND}"
@@ -25,11 +26,12 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${WORKDIR}"/${P/-/_}-1.diff
 	"${FILESDIR}"/${PN}-0.4-Fix-build-with-Clang-16.patch
+	"${FILESDIR}"/${PN}-0.4-replace-missing-musl-function.patch
 )
 
 src_compile() {
 	append-ldflags -Wl,-z,now
-	emake
+	emake CC="$(tc-getCC)"
 }
 
 src_install() {
