@@ -25,6 +25,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	# https://bugs.gentoo.org/928268
+	"${FILESDIR}"/${P}-fix-nan-tests.patch
+)
+
 src_compile() {
 	append-flags -DNDEBUG
 
@@ -46,5 +51,5 @@ src_test() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr Q= STRIP= install
-	dodoc README.md
+	dodoc README.rst
 }
