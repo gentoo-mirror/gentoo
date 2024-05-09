@@ -8,7 +8,7 @@ LLVM_MAX_SLOT=17
 
 inherit flag-o-matic linux-info llvm pam python-single-r1 systemd tmpfiles
 
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 
 SLOT=$(ver_cut 1)
 
@@ -21,8 +21,8 @@ LICENSE="POSTGRESQL GPL-2"
 DESCRIPTION="PostgreSQL RDBMS"
 HOMEPAGE="https://www.postgresql.org/"
 
-IUSE="debug doc icu kerberos ldap llvm lz4 nls pam perl python +readline
-	  selinux +server systemd ssl static-libs tcl uuid xml zlib zstd"
+IUSE="debug doc icu kerberos ldap llvm +lz4 nls pam perl python +readline
+	  selinux +server systemd ssl static-libs tcl uuid xml zlib +zstd"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -45,8 +45,7 @@ perl? ( >=dev-lang/perl-5.8:= )
 python? ( ${PYTHON_DEPS} )
 readline? ( sys-libs/readline:0= )
 server? ( systemd? ( sys-apps/systemd ) )
-ssl? ( >=dev-libs/openssl-0.9.6-r1:0=
-	<dev-libs/openssl-3.2 )
+ssl? ( >=dev-libs/openssl-0.9.6-r1:0= )
 tcl? ( >=dev-lang/tcl-8:0= )
 xml? ( dev-libs/libxml2 dev-libs/libxslt )
 zlib? ( sys-libs/zlib )
