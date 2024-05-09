@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare pretend setup test unpack
-DEPEND=>=dev-java/ant-1.10.14-r3:0 dev-java/jline:2 !binary? ( >=dev-java/sbt-0.13.18:0 media-gfx/graphviz ) <=virtual/jdk-17:* app-arch/xz-utils:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=>=dev-java/ant-1.10.14-r3:0 dev-java/jline:2 !binary? ( >=dev-java/sbt-0.13.18-r1:0 media-gfx/graphviz ) <=virtual/jdk-11:* app-arch/xz-utils:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=The Scala Programming Language
 EAPI=8
 HOMEPAGE=https://www.scala-lang.org/
@@ -12,4 +12,4 @@ RDEPEND=>=dev-java/ant-1.10.14-r3:0 dev-java/jline:2 >=virtual/jre-1.8:* app-ese
 SLOT=2.12/2.12.10
 SRC_URI=!binary? ( https://github.com/scala/scala/archive/v2.12.10.tar.gz -> scala-2.12.10.tar.gz https://dev.gentoo.org/~gienah/snapshots/scala-2.12.10-ivy2-deps.tar.xz https://dev.gentoo.org/~gienah/snapshots/scala-2.12.10-sbt-deps.tar.xz ) binary? ( https://dev.gentoo.org/~gienah/distfiles/scala-2.12.10-gentoo-binary.tar.xz )
 _eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368
-_md5_=634faa8513fde57b36e534a63bc58856
+_md5_=d6aa30e17fcf682a5dc58c6695ff6cb5
