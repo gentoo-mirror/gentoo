@@ -21,7 +21,7 @@ CRATES="
 	anstyle-query@1.0.3
 	anstyle-wincon@3.0.3
 	anstyle@1.0.7
-	anyhow@1.0.82
+	anyhow@1.0.83
 	argv@0.1.11
 	autocfg@1.3.0
 	backtrace@0.3.71
@@ -32,7 +32,7 @@ CRATES="
 	byteorder@1.5.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.0.96
+	cc@1.0.97
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	chrono@0.4.38
@@ -70,7 +70,7 @@ CRATES="
 	env_filter@0.1.0
 	env_logger@0.11.3
 	equivalent@1.0.1
-	errno@0.3.8
+	errno@0.3.9
 	fastrand@2.1.0
 	fixedbitset@0.4.2
 	flate2@1.0.30
@@ -85,7 +85,7 @@ CRATES="
 	futures-util@0.3.30
 	futures@0.3.30
 	getargs@0.5.0
-	getrandom@0.2.14
+	getrandom@0.2.15
 	getset@0.1.2
 	gimli@0.28.1
 	glob@0.3.1
@@ -151,7 +151,7 @@ CRATES="
 	parking_lot_core@0.9.10
 	parse-size@1.0.0
 	pentacle@1.0.0
-	petgraph@0.6.4
+	petgraph@0.6.5
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
 	pkg-config@0.3.30
@@ -160,7 +160,7 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.81
+	proc-macro2@1.0.82
 	procfs-core@0.16.0
 	procfs@0.15.1
 	procfs@0.16.0
@@ -188,21 +188,21 @@ CRATES="
 	rs_sha3_384@0.1.2
 	rs_sha3_512@0.1.2
 	rust-criu@0.4.0
-	rustc-demangle@0.1.23
+	rustc-demangle@0.1.24
 	rustix@0.36.17
 	rustix@0.38.34
-	rustversion@1.0.15
+	rustversion@1.0.16
 	rusty_pool@0.7.0
-	ryu@1.0.17
+	ryu@1.0.18
 	safe-path@0.1.0
 	same-file@1.0.6
 	scopeguard@1.2.0
 	scroll@0.12.0
 	scroll_derive@0.12.0
 	sendfd@0.4.3
-	serde@1.0.200
-	serde_derive@1.0.200
-	serde_json@1.0.116
+	serde@1.0.201
+	serde_derive@1.0.201
+	serde_json@1.0.117
 	shellexpand@3.1.0
 	slab@0.4.9
 	slotmap@1.0.7
@@ -212,11 +212,11 @@ CRATES="
 	strum@0.26.2
 	strum_macros@0.26.2
 	syn@1.0.109
-	syn@2.0.60
+	syn@2.0.61
 	tabwriter@1.4.0
 	tempfile@3.10.1
-	thiserror-impl@1.0.59
-	thiserror@1.0.59
+	thiserror-impl@1.0.60
+	thiserror@1.0.60
 	thread-id@4.2.1
 	tick_counter@0.4.5
 	tinytemplate@1.2.1
@@ -269,8 +269,8 @@ CRATES="
 	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.5
-	zerocopy-derive@0.7.33
-	zerocopy@0.7.33
+	zerocopy-derive@0.7.34
+	zerocopy@0.7.34
 "
 
 inherit cargo
