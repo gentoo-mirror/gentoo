@@ -11,6 +11,6 @@ LICENSE=Apache-2.0
 RDEPEND=dev-libs/glib:= seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/containers/conmon/archive/v2.1.11.tar.gz -> conmon-2.1.11.tar.gz
+SRC_URI=https://github.com/containers/conmon/archive/v2.1.11.tar.gz -> conmon-2.1.11.tar.gz https://github.com/Flowdalic/conmon/commit/ff8794c5bc0805cc430229728befde16da47b68c.patch -> conmon-2.1.11-make-docs-target-not-depend-on-install.tools.patch
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=eba39f44112a306fed0df8e4712ec34f
+_md5_=1b95953dde964aff5ca44b45b28102ae
