@@ -19,14 +19,17 @@ if [[ ${PV} != ${PV/_rc} ]] ; then
 else
 	# $PV is expected to be of following form: 5.19.0_p1
 	MY_TAG="$(ver_cut 5)"
-	MY_P="asahi-$(ver_cut 1-2)-${MY_TAG}"
+	if [[ "$(ver_cut 3)" == "0" ]] ; then
+		MY_P="asahi-$(ver_cut 1-2)-${MY_TAG}"
+	else
+		MY_P="asahi-$(ver_cut 1-3)-${MY_TAG}"
+	fi
 fi
 
 DESCRIPTION="Asahi Linux kernel sources"
 HOMEPAGE="https://asahilinux.org"
-KERNEL_URI="https://github.com/AsahiLinux/linux/archive/refs/tags/${MY_P}.tar.gz -> ${PN}-${PV}.tar.gz"
+KERNEL_URI="https://github.com/AsahiLinux/linux/archive/refs/tags/${MY_P}.tar.gz -> linux-${MY_P}.tar.gz"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}
-	https://raw.githubusercontent.com/chadmed/asahi-overlay/main/sys-kernel/asahi-kernel/files/asahi-kernel-6.6.0_p16-rust-alloc-fix.patch -> ${P}-rust-alloc-fix.patch
 "
 
 KEYWORDS="arm64"
@@ -34,21 +37,22 @@ IUSE="rust"
 
 DEPEND="
 	${DEPEND}
-	rust? ( || ( dev-lang/rust:stable/1.75[rust-src,rustfmt]
-				 ~dev-lang/rust-bin-1.75.0[rust-src,rustfmt]
-			)
-			dev-util/bindgen
+	rust? (
+		|| (
+			>=dev-lang/rust-bin-1.76[rust-src,rustfmt]
+			>=dev-lang/rust-1.76[rust-src,rustfmt]
 		)
+		dev-util/bindgen
+	)
 "
 
 PATCHES=(
-		"${FILESDIR}/${P}-enable-speakers-stage1.patch"
-		"${FILESDIR}/${P}-enable-speakers-stage2.patch"
-		"${DISTDIR}/${P}-rust-alloc-fix.patch"
+		"${FILESDIR}/asahi-sources-6.6.0_p16-enable-speakers-stage1.patch"
+		"${FILESDIR}/asahi-sources-6.6.0_p16-enable-speakers-stage2.patch"
 )
 
 src_unpack() {
-	unpack ${PN}-${PV}.tar.gz
+	unpack linux-${MY_P}.tar.gz
 	mv linux-${MY_P} linux-${KV_FULL} || die "Could not move source tree"
 }
 
