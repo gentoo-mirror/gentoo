@@ -7,10 +7,10 @@ HOMEPAGE=https://igraph.org/
 INHERIT=cmake
 IUSE=debug test threads
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-2
+LICENSE=GPL-2+
 RDEPEND=dev-libs/gmp:0= dev-libs/libxml2 sci-libs/arpack sci-mathematics/glpk:= sci-mathematics/plfit virtual/blas virtual/lapack
 RESTRICT=!test? ( test )
 SLOT=0/0
 SRC_URI=https://github.com/igraph/igraph/releases/download/0.10.11/igraph-0.10.11.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=bf576b8c2ac07d0ccc4b5dfc19889e5d
+_md5_=fd8d2ec7ff92fdd1acc1dcde27812950
