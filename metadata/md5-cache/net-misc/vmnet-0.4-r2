@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install postinst
 DEPEND=sys-apps/net-tools
 DESCRIPTION=A simple virtual networking program - SLIP over stdin/out
-EAPI=7
+EAPI=8
 HOMEPAGE=ftp://ftp.xos.nl/pub/linux/vmnet/
-INHERIT=flag-o-matic
+INHERIT=flag-o-matic toolchain-funcs
 KEYWORDS=~amd64 ~ppc x86
 LICENSE=GPL-2+
 RDEPEND=sys-apps/net-tools
 SLOT=0
 SRC_URI=ftp://ftp.xos.nl/pub/linux/vmnet/vmnet-0.4.tar.gz mirror://debian/pool/main/v/vmnet/vmnet_0.4-1.diff.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4
-_md5_=7c1bfd6a11d3070086a654977ce61e70
+_md5_=6246060f1785829d5278c75ae528dbba
