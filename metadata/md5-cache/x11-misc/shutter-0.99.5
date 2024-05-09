@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext test? ( dev-perl/Test-MockModule )
+DEFINED_PHASES=install postinst postrm preinst prepare test
+DESCRIPTION=Feature-rich screenshot program
+EAPI=8
+HOMEPAGE=https://shutter-project.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop optfeature prefix xdg
+IUSE=test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-lang/perl dev-libs/libayatana-appindicator dev-perl/Carp-Always dev-perl/libxml-perl dev-perl/Glib-Object-Introspection dev-perl/GooCanvas2 dev-perl/GooCanvas2-CairoTypes dev-perl/Gtk3 dev-perl/Gtk3-ImageView dev-perl/File-DesktopEntry dev-perl/File-HomeDir dev-perl/File-Which dev-perl/JSON dev-perl/File-Copy-Recursive dev-perl/File-MimeInfo dev-perl/Locale-gettext dev-perl/Moo dev-perl/Net-DBus dev-perl/Number-Bytes-Human dev-perl/Pango dev-perl/Proc-Simple dev-perl/Proc-ProcessTable dev-perl/Sort-Naturally dev-perl/X11-Protocol dev-perl/XML-Simple virtual/imagemagick-tools[perl] x11-libs/libwnck:3[introspection]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/shutter-project/shutter/archive/v0.99.5.tar.gz -> shutter-0.99.5.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=6c1b6483cbc40194e3857782ea2d945e
