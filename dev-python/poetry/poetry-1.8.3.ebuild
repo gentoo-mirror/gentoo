@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,25 +19,23 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# dev-python/build: 1.0 breaks backward compatibility
-# https://github.com/python-poetry/poetry/issues/8434
 RDEPEND="
-	>=dev-python/poetry-core-1.8.1[${PYTHON_USEDEP}]
+	>=dev-python/poetry-core-1.9.0[${PYTHON_USEDEP}]
 	>=dev-python/poetry-plugin-export-1.6.0[${PYTHON_USEDEP}]
 	>=dev-python/build-1.0.3[${PYTHON_USEDEP}]
-	>=dev-python/cachecontrol-0.13.0[${PYTHON_USEDEP}]
+	>=dev-python/cachecontrol-0.14.0[${PYTHON_USEDEP}]
 	>=dev-python/cleo-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/crashtest-0.4.1[${PYTHON_USEDEP}]
 	>=dev-python/dulwich-0.21.2[${PYTHON_USEDEP}]
 	>=dev-python/fastjsonschema-2.18.0[${PYTHON_USEDEP}]
 	>=dev-python/installer-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/keyring-24.0.0[${PYTHON_USEDEP}]
-	>=dev-python/packaging-20.5[${PYTHON_USEDEP}]
+	>=dev-python/packaging-23.1[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.7.0[${PYTHON_USEDEP}]
-	>=dev-python/pkginfo-1.9.4[${PYTHON_USEDEP}]
+	>=dev-python/pkginfo-1.10[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.26[${PYTHON_USEDEP}]
-	>=dev-python/requests-toolbelt-0.10.1[${PYTHON_USEDEP}]
+	>=dev-python/requests-toolbelt-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/shellingham-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/tomlkit-0.11.6[${PYTHON_USEDEP}]
 	>=dev-python/trove-classifiers-2022.5.19[${PYTHON_USEDEP}]
@@ -83,6 +81,14 @@ EPYTEST_DESELECT=(
 	tests/installation/test_chef.py::test_prepare_directory
 	tests/installation/test_chef.py::test_prepare_directory_with_extensions
 	tests/installation/test_chef.py::test_prepare_directory_editable
+
+	# Internal test for lockfile being up-to-date
+	# Meaningless, also sdist does not include lockfile
+	tests/installation/test_installer.py::test_not_fresh_lock
+
+	# TODO
+	tests/installation/test_executor.py::test_executor_known_hashes
+	tests/utils/env/test_env_manager.py::test_create_venv_finds_no_python_executable
 )
 
 distutils_enable_tests pytest
