@@ -19,7 +19,7 @@ else
 		UPSTREAM_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${CATEGORY}/${PN}/${P}-patches-${UPSTREAM_VER}.tar.xz"
 
 	[[ -n ${EXTRA_VER} ]] && \
-		EXTRA_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${CATEGORY}/${PN}/${P}-extra-${EXTRA_VER}.tar.xz"
+		EXTRA_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${CATEGORY}/${PN}/${PN}-8.0.3-extra-${EXTRA_VER}.tar.xz"
 
 	SRC_URI="https://github.com/crash-utility/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 		${UPSTREAM_PATCHSET_URI} ${EXTRA_PATCHSET_URI}
@@ -32,15 +32,9 @@ HOMEPAGE="https://crash-utility.github.io/"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 # there is no "make test" target, but there is a test.c so the automatic
 # make rules catch it and tests fail
 RESTRICT="test"
-
-PATCHES=(
-	# bug 911929, patch already in upstream, drop in next version bump
-	"${FILESDIR}/${P}-strlcpy.patch"
-)
 
 src_prepare() {
 	default
