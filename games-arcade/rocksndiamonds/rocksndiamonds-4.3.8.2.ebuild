@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,7 +36,6 @@ SRC_URI="https://www.artsoft.org/RELEASES/unix/rocksndiamonds/${P}-linux.tar.gz
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="
 	media-libs/libmodplug
@@ -51,7 +50,6 @@ BDEPEND="$(unpacker_src_uri_depends)"
 
 PATCHES=(
 	# From Fedora:
-	"${FILESDIR}"/${PN}-4.3.2.0-music-info-url.patch
 	"${FILESDIR}"/${PN}-4.1.0.0-CVE-2011-4606.patch
 )
 
