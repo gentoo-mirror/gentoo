@@ -9,7 +9,7 @@ DESCRIPTION="Creating and manipulating undirected and directed graphs"
 HOMEPAGE="https://igraph.org/"
 SRC_URI="https://github.com/igraph/igraph/releases/download/${PV}/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0/0"
 KEYWORDS="amd64 x86"
 
@@ -44,6 +44,7 @@ src_configure() {
 		-DIGRAPH_USE_INTERNAL_LAPACK=OFF
 		-DIGRAPH_USE_INTERNAL_PLFIT=OFF
 		-DIGRAPH_ENABLE_TLS=$(usex threads)
+		-DIGRAPH_WARNINGS_AS_ERRORS=OFF
 		-DBUILD_TESTING=$(usex test)
 	)
 	cmake_src_configure
