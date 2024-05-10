@@ -97,7 +97,6 @@ else
 	DEB_REV=1
 fi
 
-KEYWORDS="-* amd64 ~arm ~arm64"
 VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI_PN}_${PV%_p*}-${DEB_REV}_"
 
 SRC_URI="
@@ -106,8 +105,10 @@ SRC_URI="
 	arm64? ( ${VIVALDI_BASE_URI}arm64.deb )
 "
 
+S="${WORKDIR}"
 LICENSE="Vivaldi"
 SLOT="0"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 qt6 widevine"
 RESTRICT="bindist mirror"
 REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
@@ -149,7 +150,6 @@ RDEPEND="
 
 QA_PREBUILT="*"
 CONFIG_CHECK="~CPU_FREQ"
-S="${WORKDIR}"
 
 src_unpack() {
 	unpack_deb ${A}
