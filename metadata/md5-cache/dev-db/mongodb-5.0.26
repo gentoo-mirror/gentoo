@@ -1,0 +1,17 @@
+BDEPEND=|| ( ( dev-lang/python:3.12 >=dev-build/scons-3.1.1[python_targets_python3_12(-)] dev-python/cheetah3[python_targets_python3_12(-)] dev-python/psutil[python_targets_python3_12(-)] dev-python/pyyaml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-3.1.1[python_targets_python3_11(-)] dev-python/cheetah3[python_targets_python3_11(-)] dev-python/psutil[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-build/scons-3.1.1[python_targets_python3_10(-)] dev-python/cheetah3[python_targets_python3_10(-)] dev-python/psutil[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] ) ) || ( ( dev-lang/python:3.12 >=dev-build/scons-3.3.1[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-3.3.1[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-build/scons-3.3.1[python_targets_python3_10(-)] ) ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare pretend setup
+DEPEND=acct-group/mongodb acct-user/mongodb >=app-arch/snappy-1.1.7:= >=dev-cpp/yaml-cpp-0.6.2:= dev-libs/boost:=[nls] >=dev-libs/libpcre-8.42[cxx] app-arch/zstd:= dev-libs/snowball-stemmer:= >=sys-libs/zlib-1.2.12:= kerberos? ( dev-libs/cyrus-sasl[kerberos] ) ssl? ( >=dev-libs/openssl-1.0.1g:0= ) || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) sys-libs/ncurses:0= sys-libs/readline:0= debug? ( dev-debug/valgrind )
+DESCRIPTION=A high-performance, open source, schema-free document-oriented database
+EAPI=8
+HOMEPAGE=https://www.mongodb.com
+INHERIT=check-reqs flag-o-matic multiprocessing pax-utils python-any-r1 scons-utils systemd toolchain-funcs
+IUSE=debug kerberos mongosh ssl +tools cpu_flags_x86_avx
+KEYWORDS=~amd64 ~arm64 -riscv
+LICENSE=Apache-2.0 SSPL-1
+PDEPEND=mongosh? ( app-admin/mongosh-bin ) tools? ( >=app-admin/mongo-tools-100 )
+RDEPEND=acct-group/mongodb acct-user/mongodb >=app-arch/snappy-1.1.7:= >=dev-cpp/yaml-cpp-0.6.2:= dev-libs/boost:=[nls] >=dev-libs/libpcre-8.42[cxx] app-arch/zstd:= dev-libs/snowball-stemmer:= >=sys-libs/zlib-1.2.12:= kerberos? ( dev-libs/cyrus-sasl[kerberos] ) ssl? ( >=dev-libs/openssl-1.0.1g:0= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/mongodb/mongo/archive/refs/tags/r5.0.26.tar.gz -> mongodb-5.0.26.gh.tar.gz
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	python-any-r1	f5169813d1619761b459800587005fd2	scons-utils	b3544637c85286a19000d59461d3a7a5	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=bb26dc971c5326eaa766a1bde98edab5
