@@ -1,4 +1,4 @@
-BDEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !<app-text/tree-2.1.1-r1 !!net-fs/mc || ( ( dev-lang/python:3.13 dev-python/pexpect[python_targets_python3_13(-)] dev-python/pytest[python_targets_python3_13(-)] dev-python/pytest-xdist[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pexpect[python_targets_python3_12(-)] dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pexpect[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pexpect[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] dev-python/pytest-xdist[python_targets_python3_10(-)] ) ) )
+BDEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !<app-text/tree-2.1.1-r1 !!net-fs/mc || ( ( dev-lang/python:3.12 dev-python/pexpect[python_targets_python3_12(-)] dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pexpect[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pexpect[python_targets_python3_10(-)] dev-python/pytest[python_targets_python3_10(-)] dev-python/pytest-xdist[python_targets_python3_10(-)] ) ) )
 DEFINED_PHASES=install postinst prepare setup test
 DESCRIPTION=Programmable Completion for bash
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/scop/bash-completion/releases/download/2.14.0/bash-completion-2.14.0.tar.xz eselect? ( https://github.com/projg2/bashcomp2/releases/download/v2.0.3/bashcomp-2.0.3.tar.gz )
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=3401f48e876f54e22c22b89b79c8a794
+_md5_=e476f3bc4a24bc629bd43c53e774423b
