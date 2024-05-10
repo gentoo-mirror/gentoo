@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: perl-module.eclass
@@ -272,8 +272,16 @@ perl-module_src_configure() {
 		set -- \
 			--installdirs=vendor \
 			--libdoc= \
-			--destdir="${D}" \
 			--create_packlist=1 \
+			--config ar="$(tc-getAR)" \
+			--config cc="$(tc-getCC)" \
+			--config cpp="$(tc-getCPP)" \
+			--config ld="$(tc-getCC)" \
+			--config nm="$(tc-getNM)" \
+			--config ranlib="$(tc-getRANLIB)" \
+			--config ccflags="${CFLAGS}" \
+			--config optimize="${CFLAGS}" \
+			--config ldflags="${LDFLAGS}" \
 			"${myconf_local[@]}"
 		einfo "perl Build.PL" "$@"
 		perl Build.PL "$@" <<< "${pm_echovar}" \
@@ -281,10 +289,17 @@ perl-module_src_configure() {
 	elif [[ -f Makefile.PL ]] ; then
 		einfo "Using ExtUtils::MakeMaker"
 		set -- \
+			AR="$(tc-getAR)" \
+			CC="$(tc-getCC)" \
+			CPP="$(tc-getCPP)" \
+			LD="$(tc-getCC)" \
+			NM="$(tc-getNM)" \
+			RANLIB="$(tc-getRANLIB)" \
+			OPTIMIZE="${CFLAGS}" \
+			LDFLAGS="${LDFLAGS}" \
 			PREFIX="${EPREFIX}"/usr \
 			INSTALLDIRS=vendor \
 			INSTALLMAN3DIR='none' \
-			DESTDIR="${D}" \
 			"${myconf_local[@]}"
 		einfo "perl Makefile.PL" "$@"
 		perl Makefile.PL "$@" <<< "${pm_echovar}" \
@@ -430,7 +445,7 @@ perl-module_src_install() {
 
 	if [[ -f Build ]]; then
 		mytargets="${mytargets:-install}"
-		mbparams="${mbparams:---pure}"
+		mbparams="${mbparams:---destdir="${D}" --pure}"
 		einfo "./Build ${mytargets} ${mbparams}"
 		./Build ${mytargets} ${mbparams} \
 			|| die "./Build ${mytargets} ${mbparams} failed"
@@ -444,7 +459,7 @@ perl-module_src_install() {
 		else
 			local myinst_local=("${myinst[@]}")
 		fi
-		emake "${myinst_local[@]}" ${mytargets}
+		emake DESTDIR="${D}" "${myinst_local[@]}" ${mytargets}
 	fi
 
 	case ${EAPI} in
