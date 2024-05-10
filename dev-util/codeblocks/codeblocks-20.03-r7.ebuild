@@ -5,19 +5,20 @@ EAPI=8
 
 WX_GTK_VER="3.0-gtk3"
 
-inherit autotools flag-o-matic wxwidgets xdg
+inherit autotools flag-o-matic multiprocessing wxwidgets xdg
 
 DESCRIPTION="The open source, cross platform, free C, C++ and Fortran IDE"
 HOMEPAGE="https://codeblocks.org/"
-LICENSE="GPL-3"
-SLOT="0"
-KEYWORDS="amd64 ~ppc ~x86"
 SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.xz
 	https://dev.gentoo.org/~leio/distfiles/${P}-fortran.tar.xz
 	https://dev.gentoo.org/~leio/distfiles/${P}-fortran-update-v1.7.tar.xz
 	https://dev.gentoo.org/~leio/distfiles/${P}-fortran-update-v1.8.tar.xz
 	https://dev.gentoo.org/~leio/distfiles/${P}-codecompletion-symbolbrowser-update.tar.xz
 "
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="amd64 ~ppc ~x86"
 
 # USE="fortran" enables FortranProject plugin (updated to v1.8 2021-05-29 [r230])
 # that is delivered with Code::Blocks 20.03 source code.
@@ -82,6 +83,18 @@ src_configure() {
 	)
 
 	econf "${myeconfargs[@]}"
+}
+
+src_compile() {
+	if use contrib; then
+		if (( $(get_makeopts_jobs) > 8 )); then
+			emake -j8  # Bug 930819
+		else
+			emake
+		fi
+	else
+		emake
+	fi
 }
 
 src_install() {
