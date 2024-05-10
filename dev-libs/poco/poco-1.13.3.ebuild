@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,11 +11,13 @@ SRC_URI="https://github.com/pocoproject/${PN}/archive/${P}-release.tar.gz -> ${P
 S="${WORKDIR}/${PN}-${P}-release"
 
 LICENSE="Boost-1.0"
-SLOT="0"
+# SHARED_LIBRARY_VERSION -> "${S}"/libversion
+SLOT="0/103"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="7z activerecord cppparser +data examples +file2pagecompiler iodbc +json jwt mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc postgres prometheus sqlite +ssl test +util +xml +zip"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
+	activerecord? ( util xml )
 	7z? ( xml )
 	file2pagecompiler? ( pagecompiler )
 	iodbc? ( odbc )
@@ -28,15 +30,19 @@ REQUIRED_USE="
 	pocodoc? ( cppparser util xml )
 	sqlite? ( data )
 	ssl? ( util )
-	test? ( data? ( sqlite ) json util xml )
+	test? ( data? ( sqlite ) activerecord json jwt pdf util xml )
 "
 
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	test? ( dev-util/cppunit )
+	virtual/pkgconfig
+"
+
 RDEPEND="
 	>=dev-libs/libpcre2-10.40
 	activerecord? ( !app-arch/arc )
-	mysql? ( dev-db/mysql-connector-c:0= )
-	mariadb? ( dev-db/mariadb-connector-c:0= )
+	mysql? ( dev-db/mysql-connector-c:= )
+	mariadb? ( dev-db/mariadb-connector-c:= )
 	postgres? ( dev-db/postgresql:= )
 	odbc? (
 		iodbc? ( dev-db/libiodbc )
@@ -44,30 +50,29 @@ RDEPEND="
 	)
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? (
-		dev-libs/openssl:0=
+		dev-libs/openssl:=
 	)
 	xml? ( dev-libs/expat )
 	zip? ( sys-libs/zlib:= )
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-1.10.1-iodbc-incdir.patch" )
-
 src_prepare() {
 	cmake_src_prepare
+
+	if [[ ${SLOT} != 0/$(< "${S}"/libversion) ]] ; then
+		die "Please update subslot in ebuild to the version in ${S}/libversion!"
+	fi
 
 	if use test ; then
 		# ignore missing tests on experimental library
 		# and tests requiring running DB-servers, internet connections, etc.
 		sed -i -e '/testsuite/d' \
-			{Data/{MySQL,ODBC},MongoDB,Net,NetSSL_OpenSSL,PDF,Redis}/CMakeLists.txt || die
+			{Data/{MySQL,ODBC},MongoDB,Net,NetSSL_OpenSSL,Redis}/CMakeLists.txt || die
+
 		# Poco expands ~ using passwd, which does not match $HOME in the build environment
 		sed -i -e '/CppUnit_addTest.*testExpand/d' \
 			Foundation/testsuite/src/PathTest.cpp || die
-		# ignore failing Crypto test since upstream does not seem to care,
-		# see https://github.com/pocoproject/poco/issues/1209
-		sed -i -e '/RSATest, testRSACipherLarge/d' \
-			Crypto/testsuite/src/RSATest.cpp || die
 	fi
 
 	# Fix MariaDB and MySQL detection
@@ -75,9 +80,6 @@ src_prepare() {
 		-e 's/mysqlclient_r/mysqlclient/' \
 		-e 's/STATUS "Couldn/FATAL_ERROR "Couldn/' \
 		cmake/FindMySQL.cmake || die
-
-	# Add missing directory that breaks the build
-	mkdir -p Encodings/testsuite/data || die
 
 	if ! use iodbc ; then
 		sed -i -e 's|iodbc||' cmake/FindODBC.cmake || die
