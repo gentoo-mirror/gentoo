@@ -4,9 +4,9 @@
 EAPI=7
 
 # latest gentoo apache files
-GENTOO_PATCHSTAMP="20240405"
+GENTOO_PATCHSTAMP="20240511"
 GENTOO_DEVELOPER="graaff"
-GENTOO_PATCHNAME="gentoo-apache-2.4.59"
+GENTOO_PATCHNAME="gentoo-apache-2.4.59-r3"
 
 # IUSE/USE_EXPAND magic
 IUSE_MPMS_FORK="prefork"
@@ -152,8 +152,6 @@ RDEPEND="
 	apache2_modules_tls? ( >=net-libs/rustls-ffi-0.13.0:= )
 "
 DEPEND="${RDEPEND}"
-
-PATCHES=( "${FILESDIR}/${P}-dh-regression.patch" "${FILESDIR}/${P}-rustls-0.13.0.patch" )
 
 pkg_setup() {
 	# dependent critical modules which are not allowed in global scope due
