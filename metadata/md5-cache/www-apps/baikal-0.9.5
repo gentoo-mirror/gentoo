@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://sabre.io/baikal/
 INHERIT=webapp
 IUSE=+mysql sqlite vhosts
-KEYWORDS=~amd64 ~arm ~ppc64
+KEYWORDS=~amd64 ~arm ~ppc64 ~riscv
 LICENSE=GPL-3
 RDEPEND=>=dev-lang/php-6[ctype,filter,json(+),pdo,session,xml,xmlreader,xmlwriter,mysql?,sqlite?] mysql? ( virtual/mysql ) sqlite? ( dev-db/sqlite ) virtual/httpd-php app-admin/webapp-config
 REQUIRED_USE=|| ( mysql sqlite )
-SLOT=0.8.0
-SRC_URI=https://github.com/sabre-io/Baikal/releases/download/0.8.0/baikal-0.8.0.zip
+SLOT=0.9.5
+SRC_URI=https://github.com/sabre-io/Baikal/releases/download/0.9.5/baikal-0.9.5.zip
 _eclasses_=webapp	de2d3d345b44597c10d7104a7bcdf7b2
-_md5_=8241180f7f5d9e65d9c36f651ea6e724
+_md5_=384b7cd7659d8fecffa5b161a5076110
