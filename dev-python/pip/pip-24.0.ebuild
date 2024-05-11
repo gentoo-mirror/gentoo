@@ -6,7 +6,7 @@ EAPI=8
 # please bump dev-python/ensurepip-pip along with this package!
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_TESTED=( python3_{10..12} )
+PYTHON_TESTED=( python3_{10..13} )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" pypy3 )
 PYTHON_REQ_USE="ssl(+),threads(+)"
 
@@ -25,8 +25,8 @@ SRC_URI="
 LICENSE="MIT"
 # bundled deps
 LICENSE+=" Apache-2.0 BSD BSD-2 ISC LGPL-2.1+ MPL-2.0 PSF-2"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 SLOT="0"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 IUSE="test-rust"
 
 RDEPEND="
@@ -109,6 +109,15 @@ python_test() {
 	fi
 
 	case ${EPYTHON} in
+		python3.13)
+			EPYTEST_DESELECT+=(
+				# hacky upstream time mocking stopped working, they have it
+				# failing on CI already too
+				tests/unit/test_base_command.py::test_log_command_success
+				tests/unit/test_base_command.py::test_log_command_error
+				tests/unit/test_base_command.py::test_log_file_command_error
+			)
+			;;
 		python3.10)
 			EPYTEST_DESELECT+=(
 				# no clue why they fail
@@ -122,7 +131,7 @@ python_test() {
 	local -x PIP_DISABLE_PIP_VERSION_CHECK=1
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local EPYTEST_XDIST=1
-	epytest -m "not network"
+	epytest -m "not network" -o tmp_path_retention_policy=all
 }
 
 python_install_all() {
