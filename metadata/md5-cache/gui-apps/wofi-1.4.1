@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/glib:2 dev-libs/wayland x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[wayland(-)] x11-libs/pango
+DESCRIPTION=Wofi is a launcher/menu program for wlroots based wayland compositors like sway
+EAPI=8
+HOMEPAGE=https://hg.sr.ht/~scoopta/wofi
+INHERIT=meson
+KEYWORDS=~amd64 ~riscv
+LICENSE=GPL-3
+RDEPEND=dev-libs/glib:2 dev-libs/wayland x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[wayland(-)] x11-libs/pango
+SLOT=0
+SRC_URI=https://hg.sr.ht/~scoopta/wofi/archive/v1.4.1.tar.gz -> wofi-1.4.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	288c54efeb5e2aa70775e39032695ad4	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	meson	aecae905c2e0c201d7925fae52a5576d
+_md5_=2b50c4711c4e18d772835527244f690c
