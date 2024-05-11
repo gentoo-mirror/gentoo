@@ -103,13 +103,24 @@ PATCHES=(
 )
 
 src_unpack() {
-	if [[ ${PV} == 9999 ]] ; then
+	local patch
+
+	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
 	else
-		# Needed because we don't want the patches being unpacked
-		# (which emits annoying and useless error messages)
-		verify-sig_src_unpack
-		unpack ${MY_P}.tar.gz
+		if use verify-sig; then
+			verify-sig_verify_detached "${DISTDIR}/${MY_P}.tar.gz"{,.sig}
+
+			for patch in "${MY_PATCHES[@]}"; do
+				verify-sig_verify_detached "${patch}"{,.sig}
+			done
+		fi
+
+		unpack "${MY_P}.tar.gz"
+
+		#if [[ ${GENTOO_PATCH_VER} ]]; then
+		#	unpack "${PN}-${GENTOO_PATCH_VER}-patches.tar.xz"
+		#fi
 	fi
 }
 
