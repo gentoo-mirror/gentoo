@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/systemd-cron/systemd-cron/
 INHERIT=systemd toolchain-funcs
 IUSE=cron-boot etc-crontab-systemd minutely +runparts setgid yearly
-KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc ~x86
+KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86
 LICENSE=MIT
 RDEPEND=!sys-process/cronie[anacron] acct-user/_cron-failure acct-group/_cron-failure app-crypt/libmd:= sys-process/cronbase >=sys-apps/systemd-255[-split-usr(-)] !etc-crontab-systemd? ( !sys-process/dcron ) runparts? ( sys-apps/debianutils )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/systemd-cron/systemd-cron/archive/v2.4.0.tar.gz -> systemd-cron-2.4.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=370ee4c40409fbf125ae6e9bc5a0d69e
+_md5_=77d8ee0fe0aeaccea16506adfa037d38
