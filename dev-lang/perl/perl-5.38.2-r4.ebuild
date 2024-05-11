@@ -567,9 +567,6 @@ src_configure() {
 	# This flag makes compiling crash in interesting ways
 	filter-flags "-malign-double"
 
-	# Generic LTO broken since 5.28, triggers EUMM failures
-	filter-lto
-
 	# On musl we dont want to use largefile *64 types, since 1) normal
 	# types are 64bit / largefile anyway and 2) the *64 types are going
 	# away in 1.2.4... bug #911233
@@ -607,7 +604,7 @@ src_configure() {
 	myconf "-${myndbm}i_ndbm" "-${mygdbm}i_gdbm" "-${mydb}i_db"
 
 	if use alpha && [[ "$(tc-getCC)" = "ccc" ]] ; then
-		ewarn "Perl will not be built with berkdb support, use gcc if you needed it..."
+		ewarn "Perl will not be built with berkdb support, use gcc if you need it..."
 		myconf -Ui_db -Ui_ndbm
 	fi
 
@@ -680,7 +677,7 @@ src_configure() {
 	if use prefix ; then
 		# Set a hook to check for each detected library whether it actually works.
 		export libscheck="
-			( echo 'main(){}' > '${T}'/conftest.c &&
+			( echo 'int main(){}' > '${T}'/conftest.c &&
 				$(tc-getCC) -o '${T}'/conftest '${T}'/conftest.c -l\$thislib >/dev/null 2>/dev/null
 			) || xxx=/dev/null"
 
