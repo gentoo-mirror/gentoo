@@ -1,10 +1,10 @@
-# Copyright 2018-2023 Gentoo Authors
+# Copyright 2018-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit distutils-r1
 
@@ -14,8 +14,8 @@ HOMEPAGE="
 	https://pypi.org/project/fqdn/
 "
 SRC_URI="
-	https://github.com/ypcrts/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz
+	https://github.com/ypcrts/fqdn/archive/v${PV}.tar.gz
+		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MPL-2.0"

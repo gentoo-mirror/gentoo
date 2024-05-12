@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 PYPI_PN=${PN/-/.}
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit distutils-r1 pypi
 
@@ -27,6 +27,13 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
+
+src_test() {
+	# workaround namespaces blocking test.support import (sigh!)
+	mv jaraco/test jaraco_test || die
+	rmdir jaraco || die
+	distutils-r1_src_test
+}
 
 python_test() {
 	# while technically these tests are skipped when Internet is
