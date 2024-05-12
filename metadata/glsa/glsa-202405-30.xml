@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-30">
+    <title>Rebar3: Command Injection</title>
+    <synopsis>A vulnerability has been discovered in Rebar3, which can lead to command injection.</synopsis>
+    <product type="ebuild">rebar-bin</product>
+    <announced>2024-05-12</announced>
+    <revised count="1">2024-05-12</revised>
+    <bug>749363</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-util/rebar-bin" auto="yes" arch="*">
+            <unaffected range="ge">3.14.4</unaffected>
+            <vulnerable range="lt">3.14.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A sophisticated build-tool for Erlang projects that follows OTP principles.</p>
+    </background>
+    <description>
+        <p>Rebar3 is vulnerable to OS command injection via the URL parameter of a dependency specification.</p>
+    </description>
+    <impact type="normal">
+        <p>A vulnerability has been discovered in Rebar3. Please review the CVE identifier referenced below for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for Rebar3 binary package. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "dev-util/rebar-bin"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-13802">CVE-2020-13802</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-12T05:10:21.260403Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-12T05:10:21.264061Z">graaff</metadata>
+</glsa>
