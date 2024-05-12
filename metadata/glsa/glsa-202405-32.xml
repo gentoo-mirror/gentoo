@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-32">
+    <title>Mozilla Thunderbird: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mozilla Thunderbird, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">thunderbird,thunderbird-bin</product>
+    <announced>2024-05-12</announced>
+    <revised count="1">2024-05-12</revised>
+    <bug>925123</bug>
+    <bug>926533</bug>
+    <bug>930381</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="mail-client/thunderbird" auto="yes" arch="*">
+            <unaffected range="ge">115.10.0</unaffected>
+            <vulnerable range="lt">115.10.0</vulnerable>
+        </package>
+        <package name="mail-client/thunderbird-bin" auto="yes" arch="*">
+            <unaffected range="ge">115.10.0</unaffected>
+            <vulnerable range="lt">115.10.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Thunderbird is a popular open-source email client from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Thunderbird. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Thunderbird users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-bin-115.10.0"
+        </code>
+        
+        <p>All Mozilla Thunderbird users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-115.10.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1546">CVE-2024-1546</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1547">CVE-2024-1547</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1548">CVE-2024-1548</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1549">CVE-2024-1549</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1550">CVE-2024-1550</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1551">CVE-2024-1551</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1552">CVE-2024-1552</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1553">CVE-2024-1553</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1936">CVE-2024-1936</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2609">CVE-2024-2609</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3302">CVE-2024-3302</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3854">CVE-2024-3854</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3857">CVE-2024-3857</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3859">CVE-2024-3859</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3861">CVE-2024-3861</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3864">CVE-2024-3864</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-12T05:22:33.946434Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-12T05:22:33.951011Z">graaff</metadata>
+</glsa>
