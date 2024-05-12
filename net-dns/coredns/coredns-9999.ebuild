@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,7 +23,6 @@ LICENSE="Apache-2.0"
 LICENSE+=" MIT BSD ISC MPL-2.0 BSD-2"
 
 SLOT="0"
-IUSE="test"
 # TODO: debug test failure with deps tarball
 RESTRICT="test"
 
@@ -35,32 +34,22 @@ FILECAPS=(
 )
 
 src_unpack() {
-	if [[ ${PV} == *9999* ]]; then
+	if [[ ${PV} == 9999* ]]; then
 		git-r3_src_unpack
 		go-module_live_vendor
 	else
-		go-module_src_unpack
+		default
 	fi
 }
 
 src_prepare() {
+	[[ ${PV} != 9999* ]] && { ln -sv ../vendor ./ || die ; }
 	default
-	use test || sed -i -e 's|coredns: $(CHECKS)|coredns:|' Makefile
 }
 
 src_compile() {
-	# For non-live versions, prevent git operations which causes sandbox violations
-	# https://github.com/gentoo/gentoo/pull/33531#issuecomment-1786107493
-	[[ ${PV} != 9999* ]] && export GITCOMMIT=''
-
-	# Mimicking go-module.eclass's GOFLAGS
-	if use amd64 || use arm || use arm64 ||
-			( use ppc64 && [[ $(tc-endian) == "little" ]] ) || use s390 || use x86; then
-		local buildmode="-buildmode=pie"
-	fi
-	export BUILDOPTS="-buildvcs=false -modcacherw -v -x -p=$(makeopts_jobs) ${buildmode}"
-
-	default
+	[[ ${PV} == 9999* ]] &&	local GIT_COMMIT="$(git describe --dirty --always)"
+	ego build -ldflags="-s -w -X github.com/coredns/coredns/coremain.GitCommit=${GIT_COMMIT}"
 }
 
 src_install() {
