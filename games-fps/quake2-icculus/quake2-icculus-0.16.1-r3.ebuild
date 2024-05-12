@@ -1,15 +1,15 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit desktop toolchain-funcs
+inherit desktop flag-o-matic toolchain-funcs
 
 MY_P="quake2-r${PV}"
 DESCRIPTION="The icculus.org Linux port of iD's Quake 2 engine"
-HOMEPAGE="http://icculus.org/quake2/"
-SRC_URI="http://icculus.org/quake2/files/${MY_P}.tar.gz
-	qmax? ( http://icculus.org/quake2/files/maxpak.pak )
+HOMEPAGE="https://icculus.org/quake2/"
+SRC_URI="https://icculus.org/quake2/files/${MY_P}.tar.gz
+	qmax? ( https://icculus.org/quake2/files/maxpak.pak )
 	rogue? ( mirror://idsoftware/quake2/source/roguesrc320.shar.Z )
 	xatrix? ( mirror://idsoftware/quake2/source/xatrixsrc320.shar.Z )"
 S="${WORKDIR}"/${MY_P}
@@ -102,6 +102,14 @@ yesno() {
 }
 
 src_compile() {
+	# -Werror=strict-aliasing, also -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/858752
+	#
+	# Upstream last committed changes in 2006, and that was "Switch from CVS to SVN".
+	# Effectively no mailing list discussion since then (sporadic posts from users).
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	# xatrix fails to build
 	# rogue fails to build
 	local libsuffix
