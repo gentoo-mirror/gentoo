@@ -14,7 +14,7 @@ SRC_URI="https://github.com/shirok/${PN^g}/releases/download/release${PV//./_}/$
 
 LICENSE="BSD"
 SLOT="0/$(ver_cut 1-2)8"
-KEYWORDS="~alpha amd64 ~ia64 ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="ipv6 test"
 RESTRICT="!test? ( test )"
 
@@ -27,7 +27,7 @@ S="${WORKDIR}/${MY_P}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-ext-ldflags.patch
 	"${FILESDIR}"/${PN}-gauche.m4.patch
-	"${FILESDIR}"/${P}-info.patch
+	"${FILESDIR}"/${PN}-info.patch
 	"${FILESDIR}"/${PN}-xz-info.patch
 )
 DOCS=( AUTHORS ChangeLog HACKING.adoc README.adoc )
