@@ -7,7 +7,7 @@ inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.4.2
+BV_AMD64=2.4.4
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
 BV_SPARC=1.0.28
@@ -112,7 +112,7 @@ src_prepare() {
 	# bug #767742
 	eapply "${FILESDIR}"/etags-2.1.0.patch
 	# Use ${PV} as build-id, bug #797574
-	eapply "${FILESDIR}"/build-id-2.3.6.patch
+	eapply "${FILESDIR}"/build-id-2.4.3.patch
 
 	eapply "${FILESDIR}"/verbose-build-2.0.3.patch
 
