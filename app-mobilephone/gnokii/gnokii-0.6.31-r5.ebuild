@@ -1,28 +1,23 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
+
 inherit autotools desktop linux-info strip-linguas
 
 HOMEPAGE="https://www.gnokii.org/"
-if [[ ${PV} == *9999 ]]; then
-	EGIT_REPO_URI="
-		git://git.savannah.nongnu.org/${PN}.git
-		http://git.savannah.gnu.org/r/${PN}.git"
-	inherit git-r3
-else
-	SRC_URI="https://www.gnokii.org/download/${PN}/${P}.tar.bz2"
-	KEYWORDS="amd64 ~arm64 ~hppa ~ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
-fi
 DESCRIPTION="User space driver and tools for use with mobile phones"
+SRC_URI="https://www.gnokii.org/download/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="amd64 ~arm64 ~hppa ~ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="bluetooth debug ical irda mysql nls +pcsc-lite postgres sms usb X"
 
 RDEPEND="
 	!app-mobilephone/smstools
 	dev-libs/glib:2
+	sys-libs/readline:=
 	bluetooth? ( kernel_linux? ( net-wireless/bluez ) )
 	ical? ( dev-libs/libical:= )
 	pcsc-lite? ( sys-apps/pcsc-lite )
@@ -33,7 +28,8 @@ RDEPEND="
 	usb? ( virtual/libusb:0 )
 	X? ( x11-libs/gtk+:2 )
 "
-DEPEND="${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	dev-util/intltool
 	irda? ( virtual/os-headers )
 	nls? ( sys-devel/gettext )
@@ -56,12 +52,6 @@ PATCHES=(
 )
 
 src_prepare() {
-	[[ ${PV} == *9999 ]] && \
-		PATCHES=(
-			"${FILESDIR}"/${P}-icon.patch
-			"${FILESDIR}"/${P}-translations.patch
-		)
-
 	default
 
 	sed -i -e "s:/usr/local:${EPREFIX}/usr:" Docs/sample/gnokiirc || die
@@ -85,23 +75,24 @@ src_configure() {
 		config_xdebug="--disable-xdebug"
 	fi
 
-	econf \
-		--disable-static \
-		--enable-security \
-		--disable-unix98test \
-		$(use_enable bluetooth) \
-		${config_xdebug} \
-		$(use_enable debug fulldebug) \
-		$(use_enable debug rlpdebug) \
-		$(use_enable ical libical) \
-		$(use_enable irda) \
-		$(use_enable mysql) \
-		$(use_enable nls) \
-		$(use_enable pcsc-lite libpcsclite) \
-		$(use_enable postgres) \
-		$(use_enable sms smsd) \
-		$(use_enable usb libusb) \
+	local myeconfargs=(
+		--enable-security
+		--disable-unix98test
+		$(use_enable bluetooth)
+		${config_xdebug}
+		$(use_enable debug fulldebug)
+		$(use_enable debug rlpdebug)
+		$(use_enable ical libical)
+		$(use_enable irda)
+		$(use_enable mysql)
+		$(use_enable nls)
+		$(use_enable pcsc-lite libpcsclite)
+		$(use_enable postgres)
+		$(use_enable sms smsd)
+		$(use_enable usb libusb)
 		$(use_with X x)
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {
@@ -137,10 +128,4 @@ pkg_postinst() {
 	elog "Make sure the user that runs gnokii has read/write access to the device"
 	elog "which your phone is connected to."
 	elog "The simple way of doing that is to add your user to the uucp group."
-	if [[ ${PV} == *9999 ]]; then
-		elog "This is the GIT version of ${PN}. It is experimental but may have important bug fixes."
-		elog "You can keep track of the most recent commits at:"
-		elog "    http://git.savannah.gnu.org/cgit/gnokii.git/"
-		elog "Whenever there is a change you are interested in, you can re-emerge ${P}."
-	fi
 }
