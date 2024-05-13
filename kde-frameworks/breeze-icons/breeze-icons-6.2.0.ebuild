@@ -22,7 +22,7 @@ RDEPEND="
 "
 BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/lxml[${PYTHON_USEDEP}]')
-	dev-qt/qtbase:6
+	dev-qt/qtbase:6[gui]
 	>=kde-frameworks/extra-cmake-modules-${PVCUT}:*
 	test? ( app-misc/fdupes )
 "
@@ -39,7 +39,8 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DPython_EXECUTABLE="${PYTHON}"
-		-DBINARY_ICONS_RESOURCE=ON
+		-DBINARY_ICONS_RESOURCE=ON # TODO: remove when kexi was ported away
+		-DICONS_LIBRARY=ON
 		-DSKIP_INSTALL_ICONS=OFF
 	)
 	cmake_src_configure
