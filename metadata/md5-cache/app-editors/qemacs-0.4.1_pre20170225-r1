@@ -1,7 +1,7 @@
 DEFINED_PHASES=configure install prepare
 DEPEND=gui? ( x11-libs/libX11 x11-libs/libXext xv? ( x11-libs/libXv ) ) png? ( >=media-libs/libpng-1.2:0= ) >=app-text/texi2html-5 gui? ( x11-base/xorg-proto )
 DESCRIPTION=QEmacs is a very small but powerful UNIX editor
-EAPI=6
+EAPI=8
 HOMEPAGE=https://savannah.nongnu.org/projects/qemacs/
 INHERIT=toolchain-funcs
 IUSE=gui png xv
@@ -12,4 +12,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~ulm/distfiles/qemacs-0.4.1_pre20170225.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=aeff0eff48550c18b6b09e4315af72d7
+_md5_=9838a49a207d135dae26479da47e14af
