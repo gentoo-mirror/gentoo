@@ -1,7 +1,7 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson
 
@@ -17,33 +17,31 @@ else
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
-IUSE="man"
-
-PATCHES=(
-	"${FILESDIR}/${P}-optional-man.patch"
-)
+IUSE="+svg man"
 
 RDEPEND="
 	dev-libs/wayland
 	x11-libs/cairo
+	x11-libs/libxkbcommon
+	svg? ( gnome-base/librsvg )
 "
+DEPEND="${RDEPEND}"
 BDEPEND="
-	${RDEPEND}
-	virtual/pkgconfig
 	dev-libs/wayland-protocols
+	virtual/pkgconfig
+	man? ( >=app-text/scdoc-1.9.3 )
 "
 
-if [[ ${PV} == 9999 ]]; then
-	BDEPEND+="man? ( ~app-text/scdoc-9999 )"
-else
-	BDEPEND+="man? ( >=app-text/scdoc-1.9.3 )"
-fi
+PATCHES=(
+	"${FILESDIR}/lavalauncher-remove-werror.patch"
+)
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature man man-page)
+		$(meson_feature man man-pages)
+		$(meson_feature svg librsvg)
 	)
 	meson_src_configure
 }
