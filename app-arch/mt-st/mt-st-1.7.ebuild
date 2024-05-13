@@ -3,14 +3,21 @@
 
 EAPI=8
 
-inherit git-r3 toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Control magnetic tape drive operation"
 HOMEPAGE="https://github.com/iustin/mt-st"
-EGIT_REPO_URI="https://github.com/iustin/mt-st"
+SRC_URI="https://github.com/iustin/mt-st/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	test? ( dev-util/shelltestrunner )
+"
 
 src_configure() {
 	tc-export CC
