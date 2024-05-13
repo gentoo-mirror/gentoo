@@ -13,4 +13,4 @@ REQUIRED_USE=gles? ( !glx ) ?? ( elogind systemd ) pam? ( locking ) logind-idle-
 SLOT=0
 SRC_URI=https://www.jwz.org/xscreensaver/xscreensaver-6.07.tar.gz logind-idle-hint? ( https://github.com/Flowdalic/xscreensaver/commit/59e7974c42dc08411c9af2a3a644a582c2116f46.patch -> xscreensaver-6.06-logind-idle-hint.patch ) systemd? ( https://github.com/Flowdalic/xscreensaver/commit/376b07ec76cfe1070f498773aaec8fd7030593af.patch -> xscreensaver-6.07-xscreensaver.service-start-with-no-splash.patch )
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	pam	b56d0c9c20fc5b553f13c8ae165a10a5	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	systemd	c8b03e8df84486aa991d4396686e8942	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=9dc9cbb7b219f19fc807355238ae9229
+_md5_=26400d7cc084f020496901da570382a5
