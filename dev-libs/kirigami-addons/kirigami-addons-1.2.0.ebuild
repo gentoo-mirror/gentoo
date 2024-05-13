@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=6.0.0
+KFMIN=6.2.0
 QTMIN=6.6.2
 inherit ecm kde.org
 
