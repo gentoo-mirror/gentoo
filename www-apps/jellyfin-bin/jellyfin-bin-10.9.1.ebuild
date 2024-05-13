@@ -11,17 +11,26 @@ HOMEPAGE="https://jellyfin.readthedocs.io/en/latest/
 
 SRC_URI="
 	arm64? (
-		https://repo.jellyfin.org/files/server/linux/stable/v${PV}/arm64/jellyfin_${PV}-arm64.tar.xz
+		elibc_glibc? (
+			https://repo.jellyfin.org/files/server/linux/stable/v${PV}/arm64/jellyfin_${PV}-arm64.tar.xz
+		)
+		elibc_musl? (
+			https://repo.jellyfin.org/files/server/linux/stable/v${PV}/arm64-musl/jellyfin_${PV}-arm64-musl.tar.xz
+		)
 	)
 	amd64? (
-		https://repo.jellyfin.org/files/server/linux/stable/v${PV}/amd64/jellyfin_${PV}-amd64.tar.xz
+		elibc_glibc? (
+			https://repo.jellyfin.org/files/server/linux/stable/v${PV}/amd64/jellyfin_${PV}-amd64.tar.xz
+		)
+		elibc_musl? (
+			https://repo.jellyfin.org/files/server/linux/stable/v${PV}/amd64-musl/jellyfin_${PV}-amd64-musl.tar.xz
+		)
 	)"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
 RESTRICT="mirror test"
-REQUIRED_USE="elibc_glibc"
 
 DEPEND="acct-user/jellyfin
 	media-libs/fontconfig
