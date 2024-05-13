@@ -1,11 +1,11 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1
 
@@ -27,17 +27,26 @@ IUSE="+native-extensions"
 distutils_enable_tests pytest
 
 src_prepare() {
+	local PATCHES=(
+		# https://github.com/MagicStack/immutables/pull/117
+		"${FILESDIR}/${P}-opt-ext.patch"
+	)
+
 	sed -i -e '/mypy/d' tests/conftest.py || die
-	# NB: upstream never builds extensions on PyPy
-	if ! use native-extensions; then
-		sed -i -e '/ext_modules=/d' setup.py || die
-	fi
 	distutils-r1_src_prepare
 }
 
 python_compile() {
 	# upstream controls NDEBUG explicitly
 	use debug && local -x DEBUG_IMMUTABLES=1
+	local -x IMMUTABLES_EXT=$(usex native-extensions 1 0)
+	case ${EPYTHON} in
+		python3.13)
+			# https://github.com/MagicStack/immutables/issues/116
+			IMMUTABLES_EXT=0
+			;;
+	esac
+
 	distutils-r1_python_compile
 }
 
@@ -47,5 +56,6 @@ python_test() {
 	)
 
 	rm -rf immutables || die
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest
 }
