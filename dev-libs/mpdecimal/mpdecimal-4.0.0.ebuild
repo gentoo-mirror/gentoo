@@ -8,7 +8,7 @@ HOMEPAGE="https://www.bytereef.org/mpdecimal/"
 SRC_URI="
 	https://www.bytereef.org/software/mpdecimal/releases/${P}.tar.gz
 	test? (
-		http://speleotrove.com/decimal/dectest.zip
+		https://speleotrove.com/decimal/dectest.zip
 	)
 "
 
@@ -59,5 +59,5 @@ src_test() {
 
 src_install() {
 	default
-	rm -r "${ED}/removeme" || die
+	rm -r "${D}/removeme" || die
 }
