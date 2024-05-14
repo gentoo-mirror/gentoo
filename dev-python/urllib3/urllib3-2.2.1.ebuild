@@ -6,7 +6,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_TESTED=( python3_{10..12} pypy3 )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_13 )
 PYTHON_REQ_USE="ssl(+)"
 
 inherit distutils-r1 pypi
@@ -27,7 +27,7 @@ SRC_URI+="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ppc ppc64 ~riscv ~s390 sparc x86"
 IUSE="brotli http2 test zstd"
 RESTRICT="!test? ( test )"
 
