@@ -58,7 +58,7 @@ CDEPEND="
 		kde-frameworks/kcoreaddons:5
 		webkit? (
 			>=dev-qt/qtdeclarative-5.15:5
-			>=dev-qt/qtwayland-5.15:5
+			>=dev-qt/qtwayland-5.15:5[compositor(+)]
 		)
 	)
 	qt6? (
@@ -67,7 +67,7 @@ CDEPEND="
 		>=dev-qt/qtsvg-6.5:6
 		webkit? (
 			>=dev-qt/qtdeclarative-6.5:6
-			>=dev-qt/qtwayland-6.5:6[compositor]
+			>=dev-qt/qtwayland-6.5:6[compositor,qml]
 		)
 		qt6-imageformats? (
 			>=dev-qt/qtimageformats-6.5:6=
@@ -100,6 +100,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/tdesktop-4.2.4-jemalloc-only-telegram-r1.patch"
 	"${FILESDIR}/tdesktop-4.10.0-system-cppgir.patch"
+	"${FILESDIR}/tdesktop-5.0.1-qt6-no-wayland.patch"
 )
 
 pkg_pretend() {
@@ -138,6 +139,8 @@ src_prepare() {
 	# CMAKE_DISABLE_FIND_PACKAGE entries.
 
 	# Control QtDBus dependency from here, to avoid messing with QtGui.
+	# QtGui will use find_package to find QtDbus as well, which
+	# conflicts with the -DCMAKE_DISABLE_FIND_PACKAGE method.
 	if ! use dbus; then
 		sed -e '/find_package(Qt[^ ]* OPTIONAL_COMPONENTS/s/DBus *//' \
 			-i cmake/external/qt/package.cmake || die
