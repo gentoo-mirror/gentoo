@@ -3,19 +3,26 @@
 
 EAPI=8
 
-COMMIT=5b2f3741bb797371bba2932653ca829167f9745a
 NEED_EMACS=27.1
 
 inherit elisp
 
 DESCRIPTION="Emacs client/library for the Language Server Protocol"
-HOMEPAGE="https://emacs-lsp.github.io/lsp-mode/"
-SRC_URI="https://github.com/emacs-lsp/${PN}/archive/${COMMIT}.tar.gz
-	-> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+HOMEPAGE="https://emacs-lsp.github.io/lsp-mode/
+	https://github.com/emacs-lsp/lsp-mode/"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/emacs-lsp/${PN}.git"
+else
+	SRC_URI="https://github.com/emacs-lsp/${PN}/archive/${PV}.tar.gz
+		-> ${P}.tar.gz"
+
+	KEYWORDS="~amd64 ~arm64"
+fi
 
 LICENSE="GPL-3+"
-KEYWORDS="amd64 ~arm64"
 SLOT="0"
 
 RDEPEND="
@@ -38,13 +45,14 @@ BDEPEND="
 	)
 "
 
-DOCS=( AUTHORS CHANGELOG.org README.md refcard )
 BYTECOMPFLAGS="-L . -L clients"
 ELISP_REMOVE="
 	test/lsp-clangd-test.el
 	test/lsp-common-test.el
 	test/lsp-integration-test.el
 "                                                       # Remove failing tests.
+
+DOCS=( AUTHORS CHANGELOG.org README.md refcard )
 SITEFILE="50${PN}-gentoo.el"
 
 elisp-enable-tests ert-runner "${S}" -t "!no-win" -t "!org"

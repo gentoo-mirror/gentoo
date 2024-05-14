@@ -4,13 +4,13 @@
 EAPI=8
 
 # Git commit SHA is needed at runtime by earthly to pull and bootstrap images.
-if [[ "${PV}" == 0.8.6 ]] ; then
-	COMMIT_SHA=b20c1db1cfe5816a5d2f7d416d598d5777d8f4bb
+if [[ "${PV}" == 0.8.10 ]] ; then
+	COMMIT_SHA=9050356a89d53c96ff94b6a46107274426353441
 else
 	die 'Could not detect "COMMIT_SHA", please update the ebuild.'
 fi
 
-inherit go-module
+inherit go-module unpacker
 
 DESCRIPTION="Build automation tool that executes in containers"
 HOMEPAGE="https://earthly.dev/
@@ -18,12 +18,12 @@ HOMEPAGE="https://earthly.dev/
 SRC_URI="
 	https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz
-	https://dev.gentoo.org/~xgqt/distfiles/deps/${P}-deps.tar.xz
+	https://dev.gentoo.org/~xgqt/distfiles/deps/${P}-deps.tar.zst
 "
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	|| (
@@ -34,14 +34,20 @@ RDEPEND="
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md )
 
+src_unpack() {
+	unpacker "${P}-deps.tar.zst"
+
+	go-module_src_unpack
+}
+
 src_compile() {
-	local go_tags="dfrunmount,dfrunsecurity,dfsecrets,dfssh,dfrunnetwork,dfheredoc,forceposix"
-	local go_ldflags="
+	local -r go_tags="dfrunmount,dfrunsecurity,dfsecrets,dfssh,dfrunnetwork,dfheredoc,forceposix"
+	local -r go_ldflags="
 		-X main.DefaultBuildkitdImage=docker.io/earthly/buildkitd:v${PV}
 		-X main.GitSha=${COMMIT_SHA}
 		-X main.Version=v${PV}
 	"
-	local -a go_buildargs=(
+	local -a -r go_buildargs=(
 		-tags "${go_tags}"
 		-ldflags "${go_ldflags}"
 		-o ./bin/
