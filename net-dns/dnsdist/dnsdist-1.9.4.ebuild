@@ -11,10 +11,11 @@ DESCRIPTION="A highly DNS-, DoS- and abuse-aware loadbalancer"
 HOMEPAGE="https://dnsdist.org"
 
 SRC_URI="https://downloads.powerdns.com/releases/${P}.tar.bz2"
-KEYWORDS="~amd64 ~x86"
-
 LICENSE="GPL-2"
 SLOT="0"
+
+KEYWORDS="~amd64 ~x86"
+
 IUSE="bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}
