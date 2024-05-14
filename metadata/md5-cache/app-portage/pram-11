@@ -1,0 +1,16 @@
+BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=test? ( dev-vcs/git net-misc/wget[ssl] virtual/editor !dev-perl/Gentoo-App-Pram app-crypt/gnupg >=dev-vcs/git-2.45.0 sys-apps/diffutils )
+DESCRIPTION=Tool to ease merging Pull Requests and git patches
+EAPI=8
+HOMEPAGE=https://github.com/projg2/pram/
+INHERIT=meson
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos
+LICENSE=GPL-2+
+RDEPEND=dev-vcs/git net-misc/wget[ssl] virtual/editor !dev-perl/Gentoo-App-Pram
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/projg2/pram/archive/v11.tar.gz -> pram-11.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	meson	aecae905c2e0c201d7925fae52a5576d
+_md5_=47bd24e1ffff70389479e04eaf663f97
