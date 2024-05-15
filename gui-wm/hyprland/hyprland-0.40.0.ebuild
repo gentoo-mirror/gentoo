@@ -15,7 +15,7 @@ else
 	SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${PN}-source"
 
-	KEYWORDS="~amd64 ~riscv"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="BSD"
@@ -28,6 +28,7 @@ HYPRPM_RDEPEND="
 	app-alternatives/ninja
 	dev-build/cmake
 	dev-build/meson
+	dev-libs/libliftoff
 	dev-vcs/git
 	virtual/pkgconfig
 "
@@ -37,7 +38,8 @@ HYPRPM_RDEPEND="
 WLROOTS_DEPEND="
 	>=dev-libs/wayland-1.22
 	media-libs/libglvnd
-	media-libs/mesa[egl(+),gles2]
+	|| ( <media-libs/mesa-24.1[egl(+),gles2]
+		 >=media-libs/mesa-24.1[egl(+)] )
 	>=x11-libs/libdrm-2.4.114
 	x11-libs/libxkbcommon
 	>=x11-libs/pixman-0.42.0
@@ -58,7 +60,7 @@ WLROOTS_RDEPEND="
 "
 WLROOTS_BDEPEND="
 	>=dev-libs/wayland-protocols-1.32
-	dev-util/wayland-scanner
+	dev-util/hyprwayland-scanner
 	virtual/pkgconfig
 "
 RDEPEND="
@@ -68,7 +70,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/libinput
 	>=dev-libs/wayland-1.20.0
-	gui-libs/hyprcursor
+	>=gui-libs/hyprcursor-0.1.7
 	media-libs/libglvnd
 	x11-libs/cairo
 	x11-libs/libdrm
@@ -84,16 +86,22 @@ DEPEND="
 	${WLROOTS_DEPEND}
 	>=dev-libs/hyprland-protocols-0.2
 	>=dev-libs/hyprlang-0.3.2
-	>=dev-libs/wayland-protocols-1.32
+	>=dev-libs/wayland-protocols-1.34
 "
 BDEPEND="
 	${WLROOTS_BDEPEND}
 	|| ( >=sys-devel/gcc-13:* >=sys-devel/clang-16:* )
 	app-misc/jq
 	dev-build/cmake
-	dev-util/wayland-scanner
+	~dev-util/hyprwayland-scanner-0.3.4
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# apply.sh script is broken in the targetted commit of 0.40.0
+	# they fixed it since; the fix being this patch
+	"${FILESDIR}"/wlroots-hyprland-apply-0.40.0.patch
+)
 
 pkg_setup() {
 	[[ ${MERGE_TYPE} == binary ]] && return
