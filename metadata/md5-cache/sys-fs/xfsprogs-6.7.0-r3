@@ -1,5 +1,5 @@
 BDEPEND=nls? ( sys-devel/gettext ) virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=compile configure install prepare
+DEFINED_PHASES=compile configure install postinst postrm prepare
 DEPEND=dev-libs/inih dev-libs/userspace-rcu:= >=sys-apps/util-linux-2.17.2 icu? ( dev-libs/icu:= ) libedit? ( dev-libs/libedit )
 DESCRIPTION=XFS filesystem utilities
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/inih dev-libs/userspace-rcu:= >=sys-apps/util-linux-2.17.2 icu?
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.7.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=06e8aa3ff986df97b25c971240831ac1
+_md5_=29b6371b6a4b4b271e714077bbd01422
