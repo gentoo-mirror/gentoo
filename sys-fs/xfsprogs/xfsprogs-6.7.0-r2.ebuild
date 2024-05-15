@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic systemd udev usr-ldscript
+inherit flag-o-matic systemd udev
 
 DESCRIPTION="XFS filesystem utilities"
 HOMEPAGE="https://xfs.wiki.kernel.org/ https://git.kernel.org/pub/scm/fs/xfs/xfsprogs-dev.git/"
@@ -11,7 +11,7 @@ SRC_URI="https://www.kernel.org/pub/linux/utils/fs/xfs/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="icu libedit nls selinux"
 
 RDEPEND="
@@ -27,9 +27,7 @@ RDEPEND+=" selinux? ( sec-policy/selinux-xfs )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.3.0-libdir.patch
-	"${FILESDIR}"/0001-Remove-use-of-LFS64-interfaces.patch
-	"${FILESDIR}"/0002-io-Adapt-to-64-bit-time_t.patch
-	"${FILESDIR}"/0003-build-Request-64-bit-time_t-where-possible.patch
+	"${FILESDIR}"/${PN}-6.7.0-fix-porting-to-6.7.patch
 )
 
 src_prepare() {
@@ -73,12 +71,11 @@ src_configure() {
 	# https://www.spinics.net/lists/linux-xfs/msg30272.html
 	local myconf=(
 		--enable-static
-		--enable-blkid
 		# Doesn't do anything beyond adding -flto (bug #930947).
 		--disable-lto
 		--with-crond-dir="${EPREFIX}/etc/cron.d"
 		--with-systemd-unit-dir="$(systemd_get_systemunitdir)"
-		--with-udev-rule-dir="$(get_udevdir)"
+		--with-udev-rule-dir="$(get_udevdir)/rules.d"
 		$(use_enable icu libicu)
 		$(use_enable nls gettext)
 		$(use_enable libedit editline)
@@ -92,8 +89,7 @@ src_compile() {
 }
 
 src_install() {
+	# XXX: There's a missing dep in the install-dev target, so split it
 	emake DIST_ROOT="${ED}" HAVE_ZIPPED_MANPAGES=false install
 	emake DIST_ROOT="${ED}" HAVE_ZIPPED_MANPAGES=false install-dev
-
-	gen_usr_ldscript -a handle
 }
