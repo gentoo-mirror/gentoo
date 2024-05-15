@@ -26,8 +26,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
-	>=dev-python/griffe-0.37[${PYTHON_USEDEP}]
-	>=dev-python/mkdocstrings-0.24.2[${PYTHON_USEDEP}]
+	>=dev-python/griffe-0.44[${PYTHON_USEDEP}]
+	>=dev-python/mkdocstrings-0.25.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
