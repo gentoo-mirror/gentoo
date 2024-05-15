@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/google/jimfs
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ppc64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=dev-java/auto-service-annotations:0 dev-java/error-prone-annotations:0 dev-java/guava:0 >=dev-java/icu4j-74.2-r1:0 dev-java/jsr305:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/google/jimfs/archive/v1.3.0.tar.gz -> jimfs-1.3.0.tar.gz test? ( https://repo1.maven.org/maven2/com/google/truth/truth/1.1.3/truth-1.1.3.jar )
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9
-_md5_=37009948b9a6ef64613bda0d4bbf35e5
+_md5_=97ef1e3170a4e5957cea2e9706241b5c
