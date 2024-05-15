@@ -1,39 +1,56 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit linux-info mount-boot
 
 # Find updates by searching and clicking the first link (hopefully it's the one):
 # https://www.intel.com/content/www/us/en/search.html?keyword=Processor+Microcode+Data+File
+#
+#
+# Package Maintenance instructions:
+# 1. The ebuild is in the form of intel-microcode-<INTEL_SNAPSHOT>_p<COLLECTION_SNAPSHOT>.ebuild
+# 2. The INTEL_SNAPSHOT upstream is located at: https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
+# 3. The COLLECTION_SNAPSHOT is created manually using the following steps:
+#   a. Clone the repository https://github.com/platomav/CPUMicrocodes
+#   b. Rename the Intel directory to intel-microcode-collection-<YYYYMMDD>
+#   c. From the CPUMicrocodes directory tar and xz compress the contents of intel-microcode-collection-<YYYYMMDD>:
+#      tar -cJf intel-microcode-collection-<YYYYMMDD>.tar.xz intel-microcode-collection-<YYYYMMDD>/
+#   d. This file can go in your devspace, add the URL to SRC_URI if it's not there
+#      https://dev.gentoo.org/~<dev nick>/dist/intel-microcode/intel-microcode-collection-${COLLECTION_SNAPSHOT}.tar.xz
+#
+# PV:
+# * the first date is upstream
+# * the second date is snapshot (use last commit date in repo) from intel-microcode-collection
 
 COLLECTION_SNAPSHOT="${PV##*_p}"
 INTEL_SNAPSHOT="${PV/_p*}"
 #NUM="28087"
+
 #https://downloadcenter.intel.com/Detail_Desc.aspx?DwnldID=${NUM}
 #https://downloadmirror.intel.com/${NUM}/eng/microcode-${INTEL_SNAPSHOT}.tgz
+
 DESCRIPTION="Intel IA32/IA64 microcode update data"
-HOMEPAGE="https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files http://inertiawar.com/microcode/"
-SRC_URI="https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/archive/microcode-${INTEL_SNAPSHOT}.tar.gz
+HOMEPAGE="https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files https://github.com/platomav/CPUMicrocodes http://inertiawar.com/microcode/"
+SRC_URI="
+	https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/archive/microcode-${INTEL_SNAPSHOT}.tar.gz
 	https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/raw/437f382b1be4412b9d03e2bbdcda46d83d581242/intel-ucode/06-4e-03 -> intel-ucode-sig_0x406e3-rev_0xd6.bin
 	https://dev.gentoo.org/~mpagano/dist/intel-microcode/intel-microcode-collection-${COLLECTION_SNAPSHOT}.tar.xz
-	https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/intel-microcode-collection-${COLLECTION_SNAPSHOT}.tar.xz"
+	https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/intel-microcode-collection-${COLLECTION_SNAPSHOT}.tar.xz
+"
+S="${WORKDIR}"
 
 LICENSE="intel-ucode"
 SLOT="0"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="hostonly initramfs +split-ucode vanilla"
 REQUIRED_USE="|| ( initramfs split-ucode )"
-
-BDEPEND=">=sys-apps/iucode_tool-2.3"
-
-# !<sys-apps/microcode-ctl-1.17-r2 due to bug #268586
-RDEPEND="hostonly? ( sys-apps/iucode_tool )"
-
 RESTRICT="binchecks strip"
 
-S=${WORKDIR}
+BDEPEND=">=sys-apps/iucode_tool-2.3"
+# !<sys-apps/microcode-ctl-1.17-r2 due to bug #268586
+RDEPEND="hostonly? ( sys-apps/iucode_tool )"
 
 # Blacklist bad microcode here.
 # 0x000406f1 aka 06-4f-01 aka CPUID 406F1 require newer microcode loader
@@ -56,17 +73,6 @@ MICROCODE_SIGNATURES_DEFAULT=""
 # only current CPU: MICROCODE_SIGNATURES="-S"
 # only specific CPU: MICROCODE_SIGNATURES="-s 0x00000f4a -s 0x00010676"
 # exclude specific CPU: MICROCODE_SIGNATURES="-s !0x00000686"
-
-# Package Maintenance instructions :
-# 1. The ebuild is in the form of intel-microcode-<INTEL_SNAPSHOT>_p<COLLECTION_SNAPSHOT>.ebuild
-# 2. The INTEL_SNAPSHOT upstream is located at: https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files\
-# 3. The COLLECTION_SNAPSHOT is created manually using the following steps:
-#   a. Clone the repository https://github.com/platomav/CPUMicrocodes
-#   b. Rename the Intel directory to intel-microcode-collection-<YYYYMMDD>
-#   c. From the CPUMicrocodes directory tar and xz compress the contents of intel-microcode-collection-<YYYYMMDD>:
-#      tar -cJf intel-microcode-collection-<YYYYMMDD>.tar.xz intel-microcode-collection-<YYYYMMDD>/
-#   d. This file can go in your devspace, add the URL to SRC_URI if it's not there
-#      https://dev.gentoo.org/~<dev nick>/dist/intel-microcode/intel-microcode-collection-${COLLECTION_SNAPSHOT}.tar.xz
 
 pkg_pretend() {
 	use initramfs && mount-boot_pkg_pretend
