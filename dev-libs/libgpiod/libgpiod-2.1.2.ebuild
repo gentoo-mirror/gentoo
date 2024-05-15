@@ -26,13 +26,9 @@ DEPEND="
 		>=sys-apps/kmod-18
 		>=sys-apps/util-linux-2.33.1
 		>=virtual/libudev-215
+		cxx? ( <dev-cpp/catch-3.5:0 )
 	)
 "
-
-PATCHES=(
-	# bug 913899
-	"${FILESDIR}"/${PN}-2.1-libtool.patch
-)
 
 pkg_setup() {
 	CONFIG_CHECK="~GPIO_CDEV_V1"
