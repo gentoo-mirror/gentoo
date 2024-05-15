@@ -1,16 +1,6 @@
-This is an adapted patch from the games/anki FreeBSD port.
-https://github.com/freebsd/freebsd-ports/blob/109c3d4629b84972e660b689d169ac0761c1a519/games/anki/files/patch-build_runner_src_yarn.rs
-
 The ebuild ships a ready-to-use node_modules tarball which does not require
-sys-apps/yarn to be installed. Pre-built node_modules allows us to run JS tests.
-* Don't add inputs that depend on the yarn:bin target. This saves us from
-setting an extra environment variable.
-
-Rework when nodejs.eclass (GitHub PR 33426) gets added to the tree?
-The benefit of `yarn install --cache-folder .yarn --offline --ignore-scripts`
-is the hackability of `.yarn` contents in src_prepare.
-The drawback is that we lose JS tests since some npm test deps (which?) access
-the network to update their dependency graph before building.
+sys-apps/yarn to be installed. Pre-built node_modules allows us to run JS tests
+but we lose the ability to hack node packages' source files in YARN_CACHE_FOLDER.
 
 From: Lucio Sauer <watermanpaint@posteo.net>
 --- a/build/ninja_gen/src/node.rs
@@ -42,9 +32,11 @@ From: Lucio Sauer <watermanpaint@posteo.net>
      for binary in binary_exports {
 --- a/build/runner/src/yarn.rs
 +++ b/build/runner/src/yarn.rs
-@@ -2,23 +2,18 @@
+@@ -1,36 +1,18 @@
+ // Copyright: Ankitects Pty Ltd and contributors
  // License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
  
+-use std::env;
  use std::path::Path;
 -use std::process::Command;
  
@@ -59,10 +51,20 @@ From: Lucio Sauer <watermanpaint@posteo.net>
  }
  
  pub fn setup_yarn(args: YarnArgs) {
-+    println!("Patch: Linking pre-built node_modules.");
      link_node_modules();
  
--    run_command(Command::new(&args.yarn_bin).arg("install"));
+-    if env::var("OFFLINE_BUILD").is_ok() {
+-        println!("OFFLINE_BUILD is set");
+-        println!("Running yarn with '--offline' and '--ignore-scripts'.");
+-        run_command(
+-            Command::new(&args.yarn_bin)
+-                .arg("install")
+-                .arg("--offline")
+-                .arg("--ignore-scripts"),
+-        );
+-    } else {
+-        run_command(Command::new(&args.yarn_bin).arg("install"));
+-    }
 -
      std::fs::write(args.stamp, b"").unwrap();
  }
