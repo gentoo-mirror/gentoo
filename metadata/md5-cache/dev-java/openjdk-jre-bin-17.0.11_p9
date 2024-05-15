@@ -7,11 +7,11 @@ HOMEPAGE=https://adoptium.net/
 IDEPEND=app-eselect/eselect-java
 INHERIT=java-vm-2
 IUSE=alsa cups headless-awt selinux
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2-with-classpath-exception
 RDEPEND=media-libs/fontconfig:1.0 media-libs/freetype:2 >net-libs/libnet-1.1 >=sys-apps/baselayout-java-0.1.0-r1 >=sys-libs/glibc-2.2.5:* sys-libs/zlib alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) dev-java/java-config app-eselect/eselect-java
 RESTRICT=preserve-libs splitdebug
 SLOT=17
 SRC_URI=amd64? ( https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.11+9/OpenJDK17U-jre_x64_linux_hotspot_17.0.11_9.tar.gz )
 _eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	baea6080dd821f5562d715887954c9d3	java-vm-2	562cbc1b6ee63dacf0cf6447f00d26b3
-_md5_=dc3f3adda0df765c6e3c9efe14d00280
+_md5_=e22ec0d01c254155884c0b1f46f7ceb7
