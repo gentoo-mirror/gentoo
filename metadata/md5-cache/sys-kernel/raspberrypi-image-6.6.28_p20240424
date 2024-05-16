@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm preinst prepare prerm pretend
+DESCRIPTION=Raspberry Pi (all versions) kernel and modules
+EAPI=8
+HOMEPAGE=https://github.com/raspberrypi/firmware
+INHERIT=mount-boot
+KEYWORDS=-* ~arm ~arm64
+LICENSE=GPL-2 raspberrypi-videocore-bin
+RDEPEND=>sys-boot/raspberrypi-firmware-1.20190709
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/raspberrypi/firmware/archive/1.20240424.tar.gz -> raspberrypi-firmware-1.20240424.tar.gz
+_eclasses_=mount-boot	3945d351ee3192381911f938f4ee527a
+_md5_=9af1214ee4c03c810cf53c2e237f189d
