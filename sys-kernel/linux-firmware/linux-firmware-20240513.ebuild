@@ -19,7 +19,7 @@ else
 		SRC_URI="https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/${P}.tar.xz"
 	fi
 
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 fi
 
 DESCRIPTION="Linux firmware files"
@@ -48,12 +48,6 @@ RDEPEND="!savedconfig? (
 		redistributable? (
 			!sys-firmware/alsa-firmware[alsa_cards_ca0132]
 			!sys-block/qla-fc-firmware
-			!sys-firmware/iwl1000-ucode
-			!sys-firmware/iwl6005-ucode
-			!sys-firmware/iwl6030-ucode
-			!sys-firmware/iwl3160-ucode
-			!sys-firmware/iwl7260-ucode
-			!sys-firmware/iwl3160-7260-bt-ucode
 			!sys-firmware/raspberrypi-wifi-ucode
 		)
 		unknown-license? (
