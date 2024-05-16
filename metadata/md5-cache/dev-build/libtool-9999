@@ -2,13 +2,13 @@ BDEPEND=sys-apps/help2man >=app-portage/elt-patches-20240116 sys-devel/gnuconfig
 DEFINED_PHASES=configure install prepare test unpack
 DEPEND=sys-devel/gnuconfig >=dev-build/autoconf-2.69:* >=dev-build/automake-1.13:*
 DESCRIPTION=A shared library tool for developers
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.gnu.org/software/libtool/
-INHERIT=autotools prefix multiprocessing git-r3
+INHERIT=autotools flag-o-matic prefix multiprocessing git-r3
 IUSE=vanilla
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=sys-devel/gnuconfig >=dev-build/autoconf-2.69:* >=dev-build/automake-1.13:*
 SLOT=2
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=f1bae1cac03ec47edb42ed1475b2dde2
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	git-r3	fbb2889c81f3a05910c1524db69425c1
+_md5_=722db9f3b584692b3ca4cc2f7e6a0a35
