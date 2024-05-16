@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MY_PN=SPIRV-Headers
+MY_PN=Vulkan-Headers
 inherit cmake
 
 if [[ ${PV} == *9999* ]]; then
@@ -11,20 +11,12 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/vulkan-sdk-${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86"
 	S="${WORKDIR}"/${MY_PN}-vulkan-sdk-${PV}
 fi
 
-DESCRIPTION="Machine-readable files for the SPIR-V Registry"
-HOMEPAGE="https://registry.khronos.org/SPIR-V/ https://github.com/KhronosGroup/SPIRV-Headers"
+DESCRIPTION="Vulkan Header files and API registry"
+HOMEPAGE="https://github.com/KhronosGroup/Vulkan-Headers"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0"
 SLOT="0"
-
-src_configure() {
-	local mycmakeargs=(
-		-DSPIRV_HEADERS_ENABLE_TESTS=OFF
-		-DSPIRV_HEADERS_ENABLE_INSTALL=ON
-	)
-	cmake_src_configure
-}
