@@ -42,14 +42,14 @@ fi
 # Commit ref from `strings libffmpeg.so | grep -F "FFmpeg version"` matches this Chromium version
 # used to select the correct ffmpeg-chromium version (corresponds to a major version of Chromium)
 # Does not need to be updated for every new version of Opera, only when it breaks
-CHROMIUM_VERSION="123"
+CHROMIUM_VERSION="124"
 SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.${OPERA_ARCHIVE_EXT}}"
 S=${WORKDIR}
 
 LICENSE="OPERA-2018"
 SLOT="0"
 KEYWORDS="-* amd64"
-IUSE="+proprietary-codecs +suid qt5 qt6"
+IUSE="+ffmpeg-chromium +proprietary-codecs +suid qt5 qt6"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -80,7 +80,8 @@ RDEPEND="
 	x11-libs/libXrandr
 	x11-libs/pango
 	proprietary-codecs? (
-		media-video/ffmpeg-chromium:${CHROMIUM_VERSION}
+		!ffmpeg-chromium? ( >=media-video/ffmpeg-6.1-r1:0/58.60.60[chromium] )
+		ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 	)
 	qt5? (
 		dev-qt/qtcore:5
@@ -154,7 +155,7 @@ src_install() {
 	# install proprietary codecs
 	rm "${OPERA_HOME}/resources/ffmpeg_preload_config.json" || die
 	if use proprietary-codecs; then
-		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so.${CHROMIUM_VERSION} \
+		dosym ../../usr/$(get_libdir)/chromium/libffmpeg.so$(usex ffmpeg-chromium .${CHROMIUM_VERSION} "") \
 			  /${OPERA_HOME}/libffmpeg.so
 	fi
 
