@@ -18,16 +18,19 @@ HOMEPAGE="
 	https://pypi.org/project/spyder/
 "
 SRC_URI="
-	https://github.com/spyder-ide/${PN}/archive/v${PV//_alpha/a}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/spyder-ide/${PN}/archive/v${PV//_beta/b}.tar.gz -> ${P}.gh.tar.gz
 	https://github.com/spyder-ide/${PN}-docs/archive/${DOCS_PV}.tar.gz -> ${PN}-docs-${DOCS_PV}.gh.tar.gz
 "
-S="${WORKDIR}/${PN}-${PV//_alpha/a}"
+S="${WORKDIR}/${PN}-${PV//_beta/b}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
 
 RDEPEND="
+	>=dev-python/aiohttp-3.9.3[${PYTHON_USEDEP}]
+	>=dev-python/asyncssh-2.0.0[${PYTHON_USEDEP}]
+	<dev-python/asyncssh-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/atomicwrites-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/chardet-2.0.0[${PYTHON_USEDEP}]
 	>=dev-util/cookiecutter-1.6.0[${PYTHON_USEDEP}]
@@ -56,13 +59,14 @@ RDEPEND="
 	>=dev-python/QtPy-2.4.0[${PYTHON_USEDEP},svg,webengine]
 	>=sci-libs/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-3.0.0_beta5[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-3.0.0_beta6[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-3.0.0_beta6[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-3.0.0_beta7[${PYTHON_USEDEP}]
 	>=dev-python/superqt-0.6.1[${PYTHON_USEDEP}]
 	<dev-python/superqt-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
+	>=dev-python/yarl-1.9.4[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
