@@ -8179,6 +8179,7 @@ dev-python/astroid 3.1.0 3.2.0 3.2.1: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 2.4.1: Annotate Python AST trees with source text and token information
 dev-python/async-lru 2.0.4: Simple lru_cache for asyncio
 dev-python/async-timeout 4.0.3: Timeout context manager for asyncio programs
+dev-python/asyncssh 2.14.2: Asynchronous SSHv2 client and server library
 dev-python/asyncstdlib 3.12.0 3.12.1 3.12.2 3.12.3: The missing async toolbox
 dev-python/atomicwrites 1.4.1: Atomic file writes
 dev-python/atpublic 4.0 4.1.0: A decorator to populate __all__ and the module globals
@@ -8783,7 +8784,7 @@ dev-python/mkdocs-bootstrap 1.1.1: Bootstrap theme for MkDocs
 dev-python/mkdocs-bootswatch 1.1-r2: Bootswatch themes for MkDocs
 dev-python/mkdocs-gen-files 0.5.0: MkDocs plugin to programmatically generate documentation pages during the build
 dev-python/mkdocs-get-deps 0.2.0: extension that lists all dependencies according to a mkdocs.yml file
-dev-python/mkdocs-git-authors-plugin 0.8.0: Mkdocs plugin to display git authors of a page
+dev-python/mkdocs-git-authors-plugin 0.8.0 0.9.0: Mkdocs plugin to display git authors of a page
 dev-python/mkdocs-git-revision-date-localized-plugin 1.2.5: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.2.0 1.2.1: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
@@ -9509,8 +9510,8 @@ dev-python/sphinxygen 1.0.4-r1: Python module/script that generates Sphinx marku
 dev-python/sphobjinv 2.3.1: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.23.0: A lightweight Python library for the Spotify Web API
 dev-python/spur 0.3.23: Run commands locally or over SSH using the same interface
-dev-python/spyder 5.5.4 6.0.0_alpha5: The Scientific Python Development Environment
-dev-python/spyder-kernels 2.5.1 3.0.0_beta5: Kernels used by spyder on its ipython console
+dev-python/spyder 5.5.4 6.0.0_beta1: The Scientific Python Development Environment
+dev-python/spyder-kernels 2.5.1 3.0.0_beta6: Kernels used by spyder on its ipython console
 dev-python/spyder-line-profiler 0.3.2: Plugin to run the python line profiler from within the spyder editor
 dev-python/spyder-notebook 0.5.1: Jupyter notebook integration with Spyder
 dev-python/spyder-terminal 1.2.2: Run system terminals inside Spyder
@@ -9539,7 +9540,7 @@ dev-python/structlog 24.1.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.1: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.4: A streaming protocol for test results
 dev-python/suds-community 1.1.2: Lightweight SOAP client
-dev-python/superqt 0.6.4: Missing widgets and components for PyQt/PySide
+dev-python/superqt 0.6.4 0.6.6: Missing widgets and components for PyQt/PySide
 dev-python/sure 2.0.1: idiomatic assertion toolkit with human-friendly failure messages
 dev-python/svg-path 6.3: SVG path objects and parser
 dev-python/svglib 1.5.1: Pure-Python library for reading and converting SVG
@@ -11168,7 +11169,7 @@ games-action/noiz2sa 0.51a-r2: Abstract Shooting Game
 games-action/orbital-eunuchs-sniper 1.30-r1: Snipe terrorists from your orbital base
 games-action/postalplus 1-r1: Ultraviolent and controversial game featuring the Postal Dude
 games-action/powermanga 0.93.1-r1: Arcade 2D shoot-em-up game
-games-action/prismlauncher 8.2-r1 9999: A custom, open source Minecraft launcher
+games-action/prismlauncher 8.2-r1 8.3 9999: A custom, open source Minecraft launcher
 games-action/psychonauts-gog 2.0.0.4: A mind-bending platforming adventure from Double Fine Productions
 games-action/psychonauts-hb 20130506: A mind-bending platforming adventure from Double Fine Productions
 games-action/psychonauts2-hb 1097251: Platform-adventure game with cinematic style and customizable psychic powers
@@ -13377,7 +13378,8 @@ media-libs/libvisio 0.1.7 9999: Library parsing the file format of MS Visio docu
 media-libs/libvisual 0.4.1 0.4.2-r1: Abstraction library between applications and audio visualisation plugins
 media-libs/libvmaf 2.3.1 3.0.0 9999: C libary for Netflix's Perceptual video quality assessment
 media-libs/libvorbis 1.3.7-r1: The Ogg Vorbis sound file format library
-media-libs/libvpl 2.10.2: Intel Video Processing Library, dispatcher, tools, and examples
+media-libs/libvpl 2.10.2 2.11.0: Intel Video Processing Library dispatcher
+media-libs/libvpl-tools 1.0.0: Intel Video Processing Library tools
 media-libs/libvpx 1.13.1 1.13.1-r1 1.14.0: WebM VP8 and VP9 Codec SDK
 media-libs/libwebp 1.3.2 1.4.0: A lossy image compression format
 media-libs/libwmf 0.2.8.4-r9 0.2.13-r1: A library for reading vector images in Microsoft's Windows Metafile Format (WMF)
@@ -13406,7 +13408,7 @@ media-libs/nv-codec-headers 11.1.5.2 12.1.14.0: FFmpeg version of headers requir
 media-libs/nvidia-vaapi-driver 0.0.11 0.0.12: A VA-API implemention using NVIDIA's NVDEC
 media-libs/oidn 1.4.2 1.4.3 2.1.0 2.2.2: Intel(R) Open Image Denoise library
 media-libs/oneVPL-cpu 2023.2.0: oneAPI Video Processing Library CPU implementation
-media-libs/oneVPL-intel-gpu 24.2.0 24.2.1: oneAPI Video Processing Library Intel GPU implementation
+media-libs/oneVPL-intel-gpu 24.2.2: oneAPI Video Processing Library Intel GPU implementation
 media-libs/openal 1.23.1-r1: A software implementation of the OpenAL 3D audio API
 media-libs/opencollada 1.6.68: Stream based read/write library for COLLADA files
 media-libs/opencolorio 2.1.3 2.2.1 2.3.0 2.3.2: Color management framework for visual effects and animation
@@ -15595,7 +15597,7 @@ net-vpn/openvpn 2.5.2-r3 2.5.6-r1 2.5.7-r1 2.6.4 2.6.8 2.6.9 9999: Robust and hi
 net-vpn/ovpn-dco 0.2.20230426 0.2.20231117 9999: OpenVPN Data Channel Offload in the linux kernel
 net-vpn/pptpd 1.4.0-r4: Linux Point-to-Point Tunnelling Protocol Server
 net-vpn/protonvpn-cli 2.2.11-r2: A VPN command-line tool from protonvpn - python rewrite
-net-vpn/riseup-vpn 0.24.3: Anonymous encrypted VPN client powered by Bitmask
+net-vpn/riseup-vpn 0.24.3 0.24.5: Anonymous encrypted VPN client powered by Bitmask
 net-vpn/strongswan 5.9.11 5.9.13 5.9.14: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.50.1 1.56.1 1.58.2 1.60.0 1.66.1: Tailscale vpn client
 net-vpn/tinc 1.0.36 1.1_pre18: tinc is an easy to configure VPN implementation
