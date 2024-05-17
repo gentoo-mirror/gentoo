@@ -1,14 +1,14 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PATCHSET_VER="3"
 
-inherit autotools java-pkg-opt-2
+inherit autotools flag-o-matic java-pkg-opt-2
 
 DESCRIPTION="XSB is a logic programming and deductive database system"
-HOMEPAGE="http://xsb.sourceforge.net"
+HOMEPAGE="https://xsb.sourceforge.net"
 SRC_URI="https://downloads.sourceforge.net/xsb/XSB-$(ver_rs 1-3 -).tar.gz
 	https://dev.gentoo.org/~keri/distfiles/xsb/${P}-gentoo-patchset-${PATCHSET_VER}.tar.gz"
 
@@ -30,7 +30,12 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/XSB
 
-PATCHES=( "${WORKDIR}/${PV}" )
+PATCHES=(
+	"${WORKDIR}/${PV}"
+	# https://bugs.gentoo.org/870970
+	# https://sourceforge.net/p/xsb/bugs/265/
+	"${FILESDIR}"/0001-modern-C-fix-for-implicit-int.patch
+)
 
 src_prepare() {
 	default
@@ -50,6 +55,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=strict-aliasing, -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/855659
+	# https://sourceforge.net/p/xsb/bugs/264/
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	cd "${S}"/build
 
 	econf \
