@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ else
 	SRC_URI="https://github.com/NetworkConfiguration/dhcpcd/releases/download/v${PV}/${MY_P}.tar.xz"
 	S="${WORKDIR}/${MY_P}"
 
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 fi
 
 DESCRIPTION="A fully featured, yet light weight RFC2131 compliant DHCP client"
@@ -25,7 +25,10 @@ LICENSE="BSD-2 BSD ISC MIT"
 SLOT="0"
 IUSE="debug +embedded ipv6 privsep +udev"
 
-DEPEND="udev? ( virtual/udev )"
+DEPEND="
+	app-crypt/libmd
+	udev? ( virtual/udev )
+"
 RDEPEND="
 	${DEPEND}
 	privsep? (
@@ -34,8 +37,21 @@ RDEPEND="
 	)
 "
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# These don't exist on Linux/glibc (bug #900264)
+	memset_explicit
+	memset_s
+	setproctitle
+	strtoi
+	consttime_memequal
+	SHA256_Init
+	hmac
+)
+
 PATCHES=(
-	"${FILESDIR}"/10.0.5
+	"${FILESDIR}"/${PN}-10.0.6-rebinding.patch
+	"${FILESDIR}"/${PN}-10.0.6-crash.patch
+	"${FILESDIR}"/${PN}-10.0.6-fix-lib-check.patch
 )
 
 src_configure() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,10 @@ LICENSE="BSD-2 BSD ISC MIT"
 SLOT="0"
 IUSE="debug +embedded ipv6 privsep +udev"
 
-DEPEND="udev? ( virtual/udev )"
+DEPEND="
+	app-crypt/libmd
+	udev? ( virtual/udev )
+"
 RDEPEND="
 	${DEPEND}
 	privsep? (
@@ -43,6 +46,10 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	consttime_memequal
 	SHA256_Init
 	hmac
+)
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-10.0.6-fix-lib-check.patch
 )
 
 src_configure() {
