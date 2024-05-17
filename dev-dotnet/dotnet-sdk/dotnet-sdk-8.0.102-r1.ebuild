@@ -24,7 +24,7 @@ SDK_SLOT="$(ver_cut 1-2)"
 RUNTIME_SLOT="${SDK_SLOT}.2"
 
 LLVM_MAX_SLOT=17
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit check-reqs flag-o-matic llvm multiprocessing python-any-r1
 
@@ -62,7 +62,7 @@ RDEPEND="
 	app-crypt/mit-krb5:0/0
 	dev-libs/icu
 	dev-libs/openssl:=
-	dev-util/lttng-ust:0/2.12
+	dev-util/lttng-ust:=
 	sys-libs/zlib:0/1
 "
 BDEPEND="
