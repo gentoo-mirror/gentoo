@@ -1,9 +1,9 @@
 BDEPEND=test? ( dev-util/tree-sitter-cli ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/wheel[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
-DESCRIPTION=HTML grammar for Tree-sitter
+DESCRIPTION=Ruby grammar for Tree-sitter
 EAPI=8
-HOMEPAGE=https://github.com/tree-sitter/tree-sitter-html
+HOMEPAGE=https://github.com/tree-sitter/tree-sitter-ruby
 INHERIT=tree-sitter-grammar
 IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug test python
 KEYWORDS=~amd64
@@ -12,6 +12,6 @@ RDEPEND=python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_tar
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/tree-sitter/tree-sitter-html/archive/v0.20.3.tar.gz -> tree-sitter-html-0.20.3.tar.gz
+SRC_URI=https://github.com/tree-sitter/tree-sitter-ruby/archive/v0.21.0.tar.gz -> tree-sitter-ruby-0.21.0.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	a9e13d91cb9541a054827cb1d957a660	tree-sitter-grammar	f75f8078d91d685f79c130e884c93a37
-_md5_=8457caf06ac9187e1b8317fe1684861e
+_md5_=423689c0d035dcde1e02e54eb10cd87e
