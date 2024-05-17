@@ -1,16 +1,16 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Clone of EditorConfig core written in Python
 EAPI=8
-HOMEPAGE=https://editorconfig.org/
+HOMEPAGE=https://editorconfig.org/ https://github.com/editorconfig/editorconfig-core-py/ https://pypi.org/project/EditorConfig/
 INHERIT=cmake distutils-r1
-IUSE=cli test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=cli test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=~amd64 ~x86
 LICENSE=PYTHON BSD-2
-RDEPEND=cli? ( !app-text/editorconfig-core-c[cli] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=cli? ( !app-text/editorconfig-core-c[cli] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/editorconfig/editorconfig-core-py/archive/v0.12.4.tar.gz -> editorconfig-core-py-0.12.4.gh.tar.gz test? ( https://github.com/editorconfig/editorconfig-core-test/archive/abb579e00f2deeede91cb485e53512efab9c6474.tar.gz -> editorconfig-core-test-abb579e00f2deeede91cb485e53512efab9c6474.gh.tar.gz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	a9e13d91cb9541a054827cb1d957a660
-_md5_=e90892f1126231ba8db5c03f469d6939
+_md5_=8d1265cef0350fcc2bc7a1520e322b52
