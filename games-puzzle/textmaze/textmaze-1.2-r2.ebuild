@@ -1,22 +1,19 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-MY_P=${PN}_v${PV}
-DESCRIPTION="An ncurses-based maze solving game written in Perl"
+MY_P="${PN}_v${PV}"
+DESCRIPTION="Ncurses-based maze solving game written in Perl"
 HOMEPAGE="https://robobunny.com/projects/textmaze/html/"
-SRC_URI="https://www.robobunny.com/projects/${PN}/${MY_P}.tar.gz"
+SRC_URI="https://robobunny.com/projects/${PN}/${MY_P}.tar.gz"
+S="${WORKDIR}/TextMaze"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="dev-perl/Curses"
-DEPEND=""
-
-S="${WORKDIR}/TextMaze"
 
 src_prepare() {
 	default

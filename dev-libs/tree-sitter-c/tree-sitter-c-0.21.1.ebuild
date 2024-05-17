@@ -7,9 +7,9 @@ TS_BINDINGS=( python )
 
 inherit tree-sitter-grammar
 
-DESCRIPTION="JavaScript grammar for Tree-sitter"
-HOMEPAGE="https://github.com/tree-sitter/tree-sitter-javascript"
+DESCRIPTION="C grammar for Tree-sitter"
+HOMEPAGE="https://github.com/tree-sitter/tree-sitter-c"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64"

@@ -1,31 +1,33 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
+
 inherit desktop
 
 DESCRIPTION="Tetris and Pong in the same place at the same time"
-HOMEPAGE="http://www.nongnu.org/tong/"
-SRC_URI="http://www.nongnu.org/tong/${P}.tar.gz"
+HOMEPAGE="https://www.nongnu.org/tong/"
+SRC_URI="https://www.nongnu.org/tong/${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="media-libs/libsdl[sound,joystick,video]
 	media-libs/sdl-image[png]
 	media-libs/sdl-mixer[vorbis]"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}"
+PATCHES=(
+	"${FILESDIR}/${P}-makefile.patch"
+	"${FILESDIR}/${P}-fps.patch"
+	"${FILESDIR}/${P}-datadir.patch"
+)
 
 src_prepare() {
 	default
-	eapply \
-		"${FILESDIR}/${P}-makefile.patch" \
-		"${FILESDIR}/${P}-fps.patch" \
-		"${FILESDIR}/${P}-datadir.patch"
+
 	sed -i \
 		-e "s:\"media/:\"/usr/share/${PN}/media/:" \
 		media.cpp option.cpp option.h pong.cpp tetris.cpp text.cpp \
