@@ -499,7 +499,7 @@ linux-mod-r1_pkg_postinst() {
 	if [[ -z ${ROOT} && ${MODULES_INITRAMFS_IUSE} ]] &&
 		use dist-kernel && use ${MODULES_INITRAMFS_IUSE#+}
 	then
-			dist-kernel_reinstall_initramfs "${KV_DIR}" "${KV_FULL}"
+		dist-kernel_reinstall_initramfs "${KV_DIR}" "${KV_FULL}"
 	fi
 
 	if has_version virtual/dist-kernel && ! use dist-kernel; then
@@ -583,10 +583,11 @@ modules_post_process() {
 	(( ${#mods[@]} )) ||
 		die "${FUNCNAME[0]} was called with no installed modules under ${path}"
 
-	# TODO?: find way for sane use with dracut (its 90kernel-modules-extra
-	# parses depmod.d files directly and assumes should include its modules
-	# which can lead to unnecessarily increased size or stale modules)
-#	_modules_process_depmod.d "${mods[@]#"${path}/"}"
+	# TODO?: look into re-introducing after verifying it works as expected,
+	# formerly omitted because dracut's 90kernel-modules-extra parses depmod.d
+	# files directly and assumes should include its modules but we now create
+	# dracut omit files that *hopefully* prevent this
+#	_modules_process_depmod.d "${mods[@]##*/}"
 
 	_modules_process_dracut.conf.d "${mods[@]##*/}"
 	_modules_process_strip "${mods[@]}"
@@ -694,24 +695,6 @@ _modules_prepare_kernel() {
 	fi
 
 	linux-info_pkg_setup
-
-	if use dist-kernel &&
-		! has_version "~virtual/dist-kernel-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
-	then
-		ewarn
-		ewarn "The kernel modules in ${CATEGORY}/${PN} are being built for"
-		ewarn "kernel version ${KV_FULL}. But this does not match the"
-		ewarn "installed version of virtual/dist-kernel."
-		ewarn
-		ewarn "If this is not intentional, the problem may be corrected by"
-		ewarn "using \"eselect kernel\" to set the default kernel version to"
-		ewarn "the same version as the installed version of virtual/dist-kernel."
-		ewarn
-		ewarn "If the distribution kernel is being downgraded, ensure that"
-		ewarn "virtual/dist-kernel is also downgraded to the same version"
-		ewarn "before rebuilding external kernel modules."
-		ewarn
-	fi
 }
 
 # @FUNCTION: _modules_prepare_sign
@@ -856,7 +839,7 @@ _modules_prepare_toolchain() {
 	# can work but raises concerns about breaking packages that may use these
 	if linux_chkconfig_present LTO_CLANG_THIN && tc-ld-is-lld; then
 		KERNEL_LD=${T}/linux-mod-r1_ld.lld
-		printf '#!/usr/bin/env sh\nexec %s "${@}" --thinlto-cache-dir=\n' \
+		printf '#!/usr/bin/env sh\nexec %q "${@}" --thinlto-cache-dir=\n' \
 			"${LD}" > "${KERNEL_LD}" || die
 		chmod +x -- "${KERNEL_LD}" || die
 	fi
@@ -898,7 +881,7 @@ _modules_prepare_toolchain() {
 # If enabled in the kernel configuration, this compresses the given
 # modules using the same format.
 _modules_process_compress() {
-	use modules-compress || return
+	use modules-compress || return 0
 
 	local -a compress
 	if linux_chkconfig_present MODULE_COMPRESS_XZ; then
@@ -1143,7 +1126,10 @@ _modules_sanity_kernelbuilt() {
 # @DESCRIPTION:
 # Prints a warning if the kernel version is greater than to
 # MODULES_KERNEL_MAX (while only considering same amount of version
-# components), or aborts if it is less than MODULES_KERNEL_MIN
+# components), or aborts if it is less than MODULES_KERNEL_MIN.
+#
+# With USE=dist-kernel, also warn if virtual/dist-kernel is of a
+# different version than the one being built against.
 _modules_sanity_kernelversion() {
 	local kv=${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}
 
@@ -1192,6 +1178,24 @@ _modules_sanity_kernelversion() {
 			ewarn "[1] https://www.kernel.org/category/releases.html"
 			ewarn
 		fi
+	fi
+
+	if use dist-kernel &&
+		! has_version "~virtual/dist-kernel-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
+	then
+		ewarn
+		ewarn "The kernel modules in ${CATEGORY}/${PN} are being built for"
+		ewarn "kernel version ${KV_FULL}. But this does not match the"
+		ewarn "installed version of virtual/dist-kernel."
+		ewarn
+		ewarn "If this is not intentional, the problem may be corrected by"
+		ewarn "using \"eselect kernel\" to set the default kernel version to"
+		ewarn "the same version as the installed version of virtual/dist-kernel."
+		ewarn
+		ewarn "If the distribution kernel is being downgraded, ensure that"
+		ewarn "virtual/dist-kernel is also downgraded to the same version"
+		ewarn "before rebuilding external kernel modules."
+		ewarn
 	fi
 }
 
