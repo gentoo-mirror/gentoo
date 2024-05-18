@@ -1,0 +1,16 @@
+BDEPEND=test? ( sys-devel/clang:* )
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=virtual/jdk:21 >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=A language with a focus on simplicity, safety and correctness
+EAPI=8
+HOMEPAGE=https://fuzion-lang.dev/ https://github.com/tokiwa-software/fuzion/
+INHERIT=java-pkg-2
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=>=virtual/jre-21:* dev-libs/boehm-gc >=dev-java/java-config-2.2.0-r3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tokiwa-software/fuzion/archive/refs/tags/v0.088.tar.gz -> fuzion-0.088.tar.gz
+_eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368
+_md5_=5a3ef7b6343958876ed3f72674c51b98
