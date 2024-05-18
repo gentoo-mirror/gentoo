@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://kb.ettus.com
 INHERIT=cmake gnome2-utils python-single-r1 udev
 IUSE=+b100 +b200 doc cpu_flags_arm_neon cpu_flags_x86_ssse3 e300 examples +mpmd octoclock test +usb +usrp1 +usrp2 +utils +x300 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~amd64 ~arm ~riscv ~x86
+KEYWORDS=amd64 ~arm ~riscv ~x86
 LICENSE=GPL-3
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_10? ( dev-python/numpy[python_targets_python3_10(-)] dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] dev-python/requests[python_targets_python3_12(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) b100? ( usb ) b200? ( usb ) usrp1? ( usb ) usrp2? ( usb ) || ( b100 b200 e300 mpmd usrp1 usrp2 x300 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/4.6.0
 SRC_URI=https://github.com/EttusResearch/uhd/archive/v4.6.0.0.tar.gz -> EttusResearch-UHD-4.6.0.0.tar.gz https://github.com/EttusResearch/uhd/releases/download/v4.6.0.0/uhd-images_4.6.0.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	gnome2-utils	30dbce54b89e77b86f366548f94419ad	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	python-single-r1	75118e916668a74c660a13b0ecb22562	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=7511f29ce55e7d4f1e2d699d3da58681
+_md5_=07ea8269be11d66970be29dd9462b522
