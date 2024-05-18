@@ -1,28 +1,25 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit gnome2-utils
 
-DESCRIPTION="Changes your wallpaper daily to the bing.com background image"
+DESCRIPTION="Change your wallpaper daily to the bing.com background image"
 HOMEPAGE="https://github.com/neffo/bing-wallpaper-gnome-extension"
 SRC_URI="https://github.com/neffo/bing-wallpaper-gnome-extension/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/bing-wallpaper-gnome-extension-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/glib:2
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-3.36
-	net-libs/libsoup:2.4
+	>=gnome-base/gnome-shell-45
+	net-libs/libsoup:3.0
 "
-DEPEND=""
-BDEPEND=""
 
-S="${WORKDIR}/bing-wallpaper-gnome-extension-${PV}"
 extension_uuid="BingWallpaper@ineffable-gmail.com"
 
 PATCHES=(
