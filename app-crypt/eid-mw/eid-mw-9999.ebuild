@@ -43,6 +43,12 @@ src_prepare() {
 		-e "s:get_lsb_info('c'):strdup(_(\"n/a\")):" \
 		plugins_tools/aboutmw/gtk/about-main.c || die
 
+	# Fix libdir for manifestdir
+	sed -i \
+		-e "/pkcs11_manifestdir/ s:prefix)/lib:libdir):" \
+		-e "/managed_storage_manifestdir/ s:prefix)/lib:libdir):" \
+		cardcomm/pkcs11/src/Makefile.am || die
+
 	# See bug #811270 (remove uml build)
 	sed -i \
 		-e 's:cardlayer/uml::' \

@@ -14,19 +14,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+dialogs +gtk p11-kit"
 
-RDEPEND=">=sys-apps/pcsc-lite-1.2.9
+RDEPEND="sys-apps/pcsc-lite
 	gtk? (
 		x11-libs/gdk-pixbuf[jpeg]
 		x11-libs/gtk+:3
 		dev-libs/libxml2
 		net-misc/curl[ssl]
 		net-libs/libproxy
-		>=app-crypt/pinentry-1.1.0-r4[gtk]
+		app-crypt/pinentry[gtk]
 	)
 	p11-kit? ( app-crypt/p11-kit )"
 
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 REQUIRED_USE="dialogs? ( gtk )"
 
@@ -37,11 +37,6 @@ src_prepare() {
 	# Weird numbering is required otherwise we get a seg fault in
 	# about-eid-mw program.
 	echo "${PV}-v${PV}" > .version
-
-	# See bug #862306
-	sed -i \
-		-e 's:PACKAGE_VERSION:MAINVERSION:' \
-		cardcomm/pkcs11/src/libbeidpkcs11.pc.in || die
 
 	# xpi module : we don't want it anymore
 	sed -i -e '/SUBDIRS/ s:plugins_tools/xpi ::' Makefile.am || die
@@ -60,14 +55,6 @@ src_prepare() {
 		-e "/managed_storage_manifestdir/ s:prefix)/lib:libdir):" \
 		cardcomm/pkcs11/src/Makefile.am || die
 
-	# See bug #732994
-	sed -i \
-		-e '/LDFLAGS="/ s:$CPPFLAGS:$LDFLAGS:' \
-		configure.ac || die
-
-	# See bug #751472
-	eapply "${FILESDIR}/use-printf-in-Makefile.patch"
-
 	# See bug #811270 (remove uml build)
 	sed -i \
 		-e 's:cardlayer/uml::' \
@@ -76,11 +63,6 @@ src_prepare() {
 		-e 's:uml::' \
 		plugins_tools/eid-viewer/Makefile.am || die
 
-	# See bug #923375
-	sed -i \
-		-e 's:C_Sign(NULL,:C_Sign(NULL_PTR,:' \
-		tests/unit/sign_state.c || die
-
 	eautoreconf
 }
 
@@ -88,9 +70,8 @@ src_configure() {
 	econf \
 		$(use_enable dialogs) \
 		$(use_enable p11-kit p11kit) \
-		$(use_with gtk gtkvers 'detect') \
-		--with-gnu-ld \
-		--disable-static
+		$(use_with gtk gtkvers '3') \
+		--with-gnu-ld
 }
 
 src_install() {
