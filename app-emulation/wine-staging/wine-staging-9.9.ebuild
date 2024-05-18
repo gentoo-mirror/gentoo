@@ -9,7 +9,7 @@ inherit autotools edo flag-o-matic multilib multilib-build optfeature
 inherit prefix python-any-r1 toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=9.0.0
+WINE_MONO=9.1.0
 WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == *9999 ]]; then
@@ -79,7 +79,7 @@ WINE_DLOPEN_DEPEND="
 	truetype? ( media-libs/freetype[${MULTILIB_USEDEP}] )
 	udisks? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	v4l? ( media-libs/libv4l[${MULTILIB_USEDEP}] )
-	vulkan? ( media-libs/vulkan-loader[X?,${MULTILIB_USEDEP}] )
+	vulkan? ( media-libs/vulkan-loader[X?,wayland?,${MULTILIB_USEDEP}] )
 "
 WINE_COMMON_DEPEND="
 	${WINE_DLOPEN_DEPEND}
