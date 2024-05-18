@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=x11-libs/libpciaccess vaapi? ( media-libs/libva[X?,wayland?,drm(+)?] ) drm? ( x11-libs/libdrm ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 x11-libs/libxcb ) >=media-libs/libvpl-2.11.0 wayland? ( dev-libs/wayland-protocols )
+DEPEND=drm? ( x11-libs/libdrm ) opencl? ( virtual/opencl ) vaapi? ( media-libs/libva[X?,wayland?,drm(+)?] ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 x11-libs/libxcb ) x11-libs/libpciaccess >=media-libs/libvpl-2.11.0 wayland? ( dev-libs/wayland-protocols )
 DESCRIPTION=Intel Video Processing Library tools
 EAPI=8
 HOMEPAGE=https://github.com/intel/libvpl-tools/
 INHERIT=cmake
-IUSE=dri drm test vaapi wayland X
+IUSE=dri +drm opencl test +vaapi wayland X
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=x11-libs/libpciaccess vaapi? ( media-libs/libva[X?,wayland?,drm(+)?] ) drm? ( x11-libs/libdrm ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 x11-libs/libxcb ) >=media-libs/libvpl-2.11.0
-REQUIRED_USE=dri? ( X drm ) X? ( vaapi ) wayland? ( drm )
+RDEPEND=drm? ( x11-libs/libdrm ) opencl? ( virtual/opencl ) vaapi? ( media-libs/libva[X?,wayland?,drm(+)?] ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 x11-libs/libxcb ) x11-libs/libpciaccess >=media-libs/libvpl-2.11.0
+REQUIRED_USE=dri? ( X ) opencl? ( X ) vaapi? ( drm ) wayland? ( vaapi ) X? ( vaapi )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/intel/libvpl-tools/archive/refs/tags/v1.0.0.tar.gz -> libvpl-tools-1.0.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=6503a09f38df14d79ca3069a302f07c9
+_md5_=e6fc8da762a305fb888f24adc42b1481
