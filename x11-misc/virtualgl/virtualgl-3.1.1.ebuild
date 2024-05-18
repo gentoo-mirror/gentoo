@@ -12,16 +12,15 @@ else
 	MY_PN="VirtualGL"
 	MY_P="${MY_PN}-${PV}"
 	S="${WORKDIR}/${MY_P}"
-	SRC_URI="https://downloads.sourceforge.net/project/${PN}/${PV}/${MY_P}.tar.gz"
+	SRC_URI="https://github.com/VirtualGL/${PN}/releases/download/${PV}/${MY_P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Run OpenGL applications remotely with full 3D hardware acceleration"
 HOMEPAGE="https://www.virtualgl.org/"
+LICENSE="LGPL-2.1 wxWinLL-3.1 FLTK"
 
 SLOT="0"
-LICENSE="LGPL-2.1 wxWinLL-3.1 FLTK"
-IUSE=""
 
 RDEPEND="
 	media-libs/libjpeg-turbo[${MULTILIB_USEDEP}]
