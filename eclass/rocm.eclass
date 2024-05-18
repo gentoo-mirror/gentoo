@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: rocm.eclass
@@ -161,13 +161,23 @@ _rocm_set_globals() {
 				gfx906 gfx908 gfx90a gfx1030
 			)
 			;;
-		5.*|9999)
+		5.*)
 			unofficial_amdgpu_targets=(
 				gfx803 gfx900 gfx1010 gfx1011 gfx1012
 				gfx1031 gfx1100 gfx1101 gfx1102
 			)
 			official_amdgpu_targets=(
 				gfx906 gfx908 gfx90a gfx1030
+			)
+			;;
+		6.*|9999)
+			unofficial_amdgpu_targets=(
+				gfx803 gfx900 gfx940 gfx941
+				gfx1010 gfx1011 gfx1012
+				gfx1031 gfx1101 gfx1102
+			)
+			official_amdgpu_targets=(
+				gfx906 gfx908 gfx90a gfx942 gfx1030 gfx1100
 			)
 			;;
 		*)
@@ -201,22 +211,7 @@ unset -f _rocm_set_globals
 # Append default target feature to GPU arch. See
 # https://llvm.org/docs/AMDGPUUsage.html#target-features
 get_amdgpu_flags() {
-	local amdgpu_target_flags
-	for gpu_target in ${AMDGPU_TARGETS}; do
-	local target_feature=
-		case ${gpu_target} in
-			gfx906|gfx908)
-				target_feature=:xnack-
-				;;
-			gfx90a)
-				target_feature=:xnack+
-				;;
-			*)
-				;;
-		esac
-		amdgpu_target_flags+="${gpu_target}${target_feature};"
-	done
-	echo "${amdgpu_target_flags}"
+	echo $(printf "%s;" ${AMDGPU_TARGETS[@]})
 }
 
 # @FUNCTION: check_amdgpu
