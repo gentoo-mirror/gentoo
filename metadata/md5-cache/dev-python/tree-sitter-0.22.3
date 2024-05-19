@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/tree-sitter/py-tree-sitter/ https://pypi.org/project/tree-sitter/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
-KEYWORDS=~amd64 ~arm64 ~s390
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~s390 ~x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/tree-sitter-0.22.1:= python_targets_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tree-sitter/py-tree-sitter/archive/v0.22.3.tar.gz -> tree-sitter-0.22.3.gh.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e527bb25fc6ab8bb127b889b8f62500a	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	a9e13d91cb9541a054827cb1d957a660
-_md5_=aa5bca5f743e074af82d74c1dbb8bc0d
+_md5_=ec25ce6d74c7a844b8a177bbdd42cde4
