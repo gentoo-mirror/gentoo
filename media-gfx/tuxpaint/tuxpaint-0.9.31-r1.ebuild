@@ -12,7 +12,7 @@ S="${WORKDIR}"/${P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="
 	app-text/libpaper:=
@@ -33,13 +33,12 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/gperf
-	media-gfx/graphicsmagick[jpeg,png,svg]
+	media-gfx/graphicsmagick[jpeg,png]
 	sys-devel/gettext
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PF}-Makefile.patch
-	"${FILESDIR}"/${PF}-Makefile-trans.patch
+	"${FILESDIR}"/${P}-Makefile.patch
 )
 
 src_compile() {

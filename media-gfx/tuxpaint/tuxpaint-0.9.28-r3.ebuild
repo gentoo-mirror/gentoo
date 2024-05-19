@@ -7,8 +7,8 @@ inherit desktop optfeature toolchain-funcs xdg
 
 DESCRIPTION="Drawing program designed for young children"
 HOMEPAGE="https://www.tuxpaint.org/"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
-S="${WORKDIR}"/${P}
+SRC_URI="https://downloads.sourceforge.net/${PN}/${P}-sdl1.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/${P}-sdl1
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,15 +18,15 @@ RDEPEND="
 	app-text/libpaper:=
 	dev-libs/fribidi
 	gnome-base/librsvg:2
-	media-gfx/libimagequant
-	>=media-libs/freetype-2:2
 	>=media-libs/libpng-1.2:0=
-	media-libs/libsdl2[X,joystick]
-	media-libs/sdl2-gfx
-	media-libs/sdl2-image[png]
-	media-libs/sdl2-mixer
-	media-libs/sdl2-pango
-	media-libs/sdl2-ttf
+	>=media-libs/freetype-2:2
+	media-libs/libsdl[X,joystick]
+	media-libs/sdl-image[png]
+	media-libs/sdl-mixer
+	media-libs/sdl-pango
+	media-libs/sdl-ttf
+	media-libs/sdl-gfx:=
+	media-gfx/libimagequant
 	sys-libs/zlib
 	x11-libs/cairo
 "
@@ -38,7 +38,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-Makefile.patch
+	"${FILESDIR}"/${PF}-Makefile.patch
 )
 
 src_compile() {

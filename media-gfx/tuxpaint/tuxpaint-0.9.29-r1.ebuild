@@ -7,8 +7,8 @@ inherit desktop optfeature toolchain-funcs xdg
 
 DESCRIPTION="Drawing program designed for young children"
 HOMEPAGE="https://www.tuxpaint.org/"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${P}-sdl1.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/${P}-sdl1
+SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
+S="${WORKDIR}"/${P}
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,27 +18,28 @@ RDEPEND="
 	app-text/libpaper:=
 	dev-libs/fribidi
 	gnome-base/librsvg:2
-	>=media-libs/libpng-1.2:0=
-	>=media-libs/freetype-2:2
-	media-libs/libsdl[X,joystick]
-	media-libs/sdl-image[png]
-	media-libs/sdl-mixer
-	media-libs/sdl-pango
-	media-libs/sdl-ttf
-	media-libs/sdl-gfx:=
 	media-gfx/libimagequant
+	>=media-libs/freetype-2:2
+	>=media-libs/libpng-1.2:0=
+	media-libs/libsdl2[X,joystick]
+	media-libs/sdl2-gfx
+	media-libs/sdl2-image[png]
+	media-libs/sdl2-mixer
+	media-libs/sdl2-pango
+	media-libs/sdl2-ttf
 	sys-libs/zlib
 	x11-libs/cairo
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/gperf
-	media-gfx/graphicsmagick[jpeg,png,svg]
+	media-gfx/graphicsmagick[jpeg,png]
 	sys-devel/gettext
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PF}-Makefile.patch
+	"${FILESDIR}"/${PF}-Makefile-trans.patch
 )
 
 src_compile() {
