@@ -1,15 +1,15 @@
 BDEPEND=app-admin/chrpath
 DEFINED_PHASES=install nofetch postinst postrm preinst prepare
-DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Atmospheric side-scrolling action adventure platformer set in a gorgeous forest
-EAPI=7
+EAPI=8
 HOMEPAGE=http://badlandgame.com
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop wrapper xdg
 KEYWORDS=-* ~amd64 ~x86
 LICENSE=all-rights-reserved
-RDEPEND=dev-db/sqlite:3[abi_x86_32] media-libs/fontconfig:1.0[abi_x86_32] media-libs/freetype:2[abi_x86_32] media-libs/libpng-compat:1.2[abi_x86_32] media-libs/libsdl2[abi_x86_32,joystick,opengl,sound,threads,video] net-misc/curl[abi_x86_32] >=sys-devel/gcc-4.6[cxx] >=sys-libs/glibc-2.14 virtual/opengl[abi_x86_32] x11-libs/libX11[abi_x86_32]
+RDEPEND=dev-db/sqlite:3[abi_x86_32] media-libs/fontconfig:1.0[abi_x86_32] media-libs/freetype:2[abi_x86_32] media-libs/libpng-compat:1.2[abi_x86_32] media-libs/libsdl2[abi_x86_32,joystick,opengl,sound,threads(+),video] net-misc/curl[abi_x86_32] >=sys-devel/gcc-4.6[cxx] >=sys-libs/glibc-2.14 virtual/opengl[abi_x86_32] x11-libs/libX11[abi_x86_32]
 RESTRICT=bindist fetch mirror splitdebug
 SLOT=0
 SRC_URI=Badland_GotY_121.tar https://dev.gentoo.org/~chewi/distfiles/badland.png
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=4ff2f233a7a42bb410030a85e4e21bf7
+_md5_=430c1b3d38a06a6f00e41308b212036d
