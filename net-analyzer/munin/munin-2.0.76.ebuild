@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PATCHSET=1
 
@@ -13,13 +13,11 @@ DESCRIPTION="Munin Server Monitoring Tool"
 HOMEPAGE="https://munin-monitoring.org/"
 SRC_URI="
 	https://github.com/munin-monitoring/munin/archive/${PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~graaff/munin/${P}-gentoo-${PATCHSET}.tar.xz
-	https://github.com/munin-monitoring/munin/commit/47a2ea75899a6395a80918d043a21d61fe712b44.patch -> munin-remove-Date-Manip-DM5.patch
 	"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="asterisk irc java ldap memcached minimal mysql postgres selinux ssl test cgi ipv6 syslog ipmi http dhcpd doc apache2"
 REQUIRED_USE="cgi? ( !minimal ) apache2? ( cgi )"
 RESTRICT="!test? ( test )"
@@ -120,10 +118,7 @@ pkg_setup() {
 src_prepare() {
 	echo ${PV} > RELEASE || die
 
-	eapply "${WORKDIR}"/patches/*.patch
-	# Quick hack to make the munin-remove-Date-Manip-DM5.patch apply
-	sed -i -e '/^BEGIN/,/Date::Manip::Backend/{ /no warnings;/d  }' "${S}"/master/_bin/munin-cgi-graph.in
-	eapply "${DISTDIR}"/munin-remove-Date-Manip-DM5.patch
+	eapply "${FILESDIR}"/patches/*.patch
 
 	eapply_user
 
@@ -177,6 +172,8 @@ src_test() {
 }
 
 src_install() {
+	local cgiuser=$(usex apache2 apache munin)
+
 	local dirs="
 		/var/log/munin
 		/var/lib/munin/plugin-state
@@ -193,9 +190,9 @@ src_install() {
 	# run in parallel for now (because it uses internal loops).
 	emake -j1 CHOWN=true DESTDIR="${D}" $(usex minimal "install-minimal install-man" install)
 
-	# we remove /run from the install, as it's not the package's to deal
-	# with.
-	rm -rf "${D}"/run || die
+	# we remove /run and /var/cache from the install, as it's not the
+	# package's to deal with.
+	rm -rf "${D}"/run "${D}"/var/cache || die
 
 	# remove the plugins for non-Gentoo package managers; use -f so that
 	# it doesn't fail when installing on non-Linux platforms.
@@ -204,13 +201,14 @@ src_install() {
 	insinto /etc/munin/plugin-conf.d/
 	newins "${FILESDIR}"/${PN}-1.3.2-plugins.conf munin-node
 
-	newinitd "${FILESDIR}"/munin-node_init.d_2.0.19 munin-node
+	newinitd "${FILESDIR}"/munin-node_init.d_2.0.73 munin-node
 	newconfd "${FILESDIR}"/munin-node_conf.d_1.4.6-r2 munin-node
 
 	newinitd "${FILESDIR}"/munin-asyncd.init.2 munin-asyncd
 
 	newtmpfiles - ${CATEGORY}:${PN}:${SLOT}.conf <<-EOF || die
 	d /run/munin 0700 munin munin - -
+	d /var/cache/munin-cgi 0755 ${cgiuser} munin - -
 	EOF
 
 	systemd_dounit "${FILESDIR}"/munin-async.service
@@ -271,8 +269,7 @@ src_install() {
 
 			if use apache2; then
 				insinto /etc/apache2/vhosts.d
-				newins "${FILESDIR}"/munin.apache.include munin.include
-				newins "${FILESDIR}"/munin.apache.include-2.4 munin-2.4.include
+				newins "${FILESDIR}"/munin.apache.include-2.4-r1 munin-2.4.include
 			fi
 		else
 			sed \
@@ -399,8 +396,8 @@ pkg_postinst() {
 			"${ROOT}"/var/log/munin/munin-cgi-{graph,html}.log
 
 		if use apache2; then
-			elog "To use Munin with CGI you should include /etc/apache2/vhosts.d/munin.include"
-			elog "or /etc/apache2/vhosts.d/munin-2.4.include (for Apache 2.4) from the virtual"
+			elog "To use Munin with CGI you should include"
+			elog "/etc/apache2/vhosts.d/munin-2.4.include from the virtual"
 			elog "host you want it to be served."
 			elog "If you want to enable CGI-based HTML as well, you have to add to"
 			elog "/etc/conf.d/apache2 the option -D MUNIN_HTML_CGI."
