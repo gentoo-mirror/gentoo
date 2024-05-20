@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 17 )
+LLVM_COMPAT=( 18 )
 LLVM_OPTIONAL=1
 
 inherit check-reqs cmake edo llvm-r1 toolchain-funcs
@@ -14,8 +14,17 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/ziglang/zig.git"
 	inherit git-r3
 else
-	SRC_URI="https://ziglang.org/download/${PV}/${P}.tar.xz"
+	VERIFY_SIG_METHOD=minisig
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/minisig-keys/zig-software-foundation.pub
+	inherit verify-sig
+
+	SRC_URI="
+		https://ziglang.org/download/${PV}/${P}.tar.xz
+		verify-sig? ( https://ziglang.org/download/${PV}/${P}.tar.xz.minisig )
+	"
 	KEYWORDS="~amd64 ~arm ~arm64"
+
+	BDEPEND="verify-sig? ( sec-keys/minisig-keys-zig-software-foundation )"
 fi
 
 # project itself: MIT
@@ -129,7 +138,7 @@ src_configure() {
 			-Dtarget="$(get_zig_target)"
 			-Dcpu="$(get_zig_mcpu)"
 			-Doptimize=Debug
-			-Dno-autodocs
+			-Dstd-docs=false
 			-Dno-langref
 			-Denable-llvm=false
 			-Dforce-link-libc
