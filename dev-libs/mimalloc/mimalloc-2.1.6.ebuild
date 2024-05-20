@@ -28,6 +28,9 @@ src_configure() {
 		-DMI_LIBC_MUSL=$(usex elibc_musl)
 	)
 
+	# XXX: Should be able to clean this up after 2.1.6
+	# https://github.com/microsoft/mimalloc/pull/898
+	#
 	# Bug #923177, #931778: append -latomic if it is available
 	test-flags-CCLD "-latomic" &>/dev/null &&
 		mycmakeargs+=( -DMI_USE_LIBATOMIC=ON )
