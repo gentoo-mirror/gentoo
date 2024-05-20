@@ -1321,6 +1321,15 @@ _python_check_occluded_packages() {
 # Specifies the number of jobs for parallel (pytest-xdist) test runs.
 # When unset, defaults to -j from MAKEOPTS, or the current nproc.
 
+# @ECLASS_VARIABLE: EPYTEST_FLAGS
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Additional flags to pass to pytest.  This is intended to be set
+# in the environment when debugging packages (options such as -x or -s
+# are useful here), rather than globally.  It must not be set
+# in ebuilds.
+
 # @FUNCTION: epytest
 # @USAGE: [<args>...]
 # @DESCRIPTION:
@@ -1432,10 +1441,10 @@ epytest() {
 	for x in "${EPYTEST_IGNORE[@]}"; do
 		args+=( --ignore "${x}" )
 	done
-	set -- "${EPYTHON}" -m pytest "${args[@]}" "${@}"
+	set -- "${EPYTHON}" -m pytest "${args[@]}" "${@}" ${EPYTEST_FLAGS}
 
 	echo "${@}" >&2
-	"${@}" || die -n "pytest failed with ${EPYTHON}"
+	"${@}"
 	local ret=${?}
 
 	# remove common temporary directories left over by pytest plugins
@@ -1446,6 +1455,7 @@ epytest() {
 		find "${BUILD_DIR}" -name '*-pytest-*.pyc' -delete || die
 	fi
 
+	[[ ${ret} -ne 0 ]] && die -n "pytest failed with ${EPYTHON}"
 	return ${ret}
 }
 

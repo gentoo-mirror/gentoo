@@ -189,6 +189,18 @@ esac
 #     ${DISTUTILS_DEPS}"
 # @CODE
 
+# @ECLASS_VARIABLE: DISTUTILS_ALLOW_WHEEL_REUSE
+# @DEFAULT_UNSET
+# @USER_VARIABLE
+# @DESCRIPTION:
+# If set to a non-empty value, the eclass is allowed to reuse a wheel
+# that was built for a prior Python implementation, provided that it is
+# compatible with the current one, rather than building a new one.
+#
+# This is an optimization that can avoid the overhead of calling into
+# the build system in pure Python packages and packages using the stable
+# Python ABI.
+
 if [[ -z ${_DISTUTILS_R1_ECLASS} ]]; then
 _DISTUTILS_R1_ECLASS=1
 
@@ -267,7 +279,7 @@ _distutils_set_globals() {
 				;;
 			scikit-build-core)
 				bdep+='
-					>=dev-python/scikit-build-core-0.8.2[${PYTHON_USEDEP}]
+					>=dev-python/scikit-build-core-0.9.4[${PYTHON_USEDEP}]
 				'
 				;;
 			setuptools)
@@ -1343,6 +1355,10 @@ distutils_wheel_install() {
 		\) -delete || die
 }
 
+# @VARIABLE: DISTUTILS_WHEEL_PATH
+# @DESCRIPTION:
+# Path to the wheel created by distutils_pep517_install.
+
 # @FUNCTION: distutils_pep517_install
 # @USAGE: <root>
 # @DESCRIPTION:
@@ -1350,7 +1366,8 @@ distutils_wheel_install() {
 # backend and install it into <root>.
 #
 # This function is intended for expert use only.  It does not handle
-# wrapping executables.
+# wrapping executables.  The wheel path is returned
+# in DISTUTILS_WHEEL_PATH variable.
 distutils_pep517_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 	[[ ${#} -eq 1 ]] || die "${FUNCNAME} takes exactly one argument: root"
@@ -1440,17 +1457,21 @@ distutils_pep517_install() {
 				"${DISTUTILS_ARGS[@]}"
 			)
 
-			# NB: we need to pass strings for boolean fields
-			# https://github.com/scikit-build/scikit-build-core/issues/707
+			local -x NINJAOPTS=$(get_NINJAOPTS)
 			config_settings=$(
 				"${EPYTHON}" - "${cmake_args[@]}" <<-EOF || die
 					import json
+					import os
+					import shlex
 					import sys
+
+					ninjaopts = shlex.split(os.environ["NINJAOPTS"])
 					print(json.dumps({
+						"build.tool-args": ninjaopts,
 						"cmake.args": ";".join(sys.argv[1:]),
 						"cmake.build-type": "${CMAKE_BUILD_TYPE}",
-						"cmake.verbose": "true",
-						"install.strip": "false",
+						"cmake.verbose": True,
+						"install.strip": False,
 					}))
 				EOF
 			)
@@ -1523,7 +1544,18 @@ distutils_pep517_install() {
 	[[ -n ${wheel} ]] || die "No wheel name returned"
 
 	distutils_wheel_install "${root}" "${WHEEL_BUILD_DIR}/${wheel}"
+
+	DISTUTILS_WHEEL_PATH=${WHEEL_BUILD_DIR}/${wheel}
 }
+
+# @VARIABLE: DISTUTILS_WHEELS
+# @DESCRIPTION:
+# An associative array of wheels created as a result
+# of distutils-r1_python_compile invocations, mapped to the source
+# directories.  Note that this includes only wheels implicitly created
+# by the eclass, and not wheels created as a result of direct
+# distutils_pep517_install calls in the ebuild.
+declare -g -A DISTUTILS_WHEELS=()
 
 # @FUNCTION: distutils-r1_python_compile
 # @USAGE: [additional-args...]
@@ -1534,6 +1566,7 @@ distutils_pep517_install() {
 #
 # If DISTUTILS_USE_PEP517 is set to any other value, builds a wheel
 # using the PEP517 backend and installs it into ${BUILD_DIR}/install.
+# Path to the wheel is then added to DISTUTILS_WHEELS array.
 #
 # In legacy mode, runs 'esetup.py build'. Any parameters passed to this
 # function will be appended to setup.py invocation, i.e. passed
@@ -1568,7 +1601,34 @@ distutils-r1_python_compile() {
 	esac
 
 	if [[ ${DISTUTILS_USE_PEP517} ]]; then
+		if [[ ${DISTUTILS_ALLOW_WHEEL_REUSE} ]]; then
+			local whl
+			for whl in "${!DISTUTILS_WHEELS[@]}"; do
+				# use only wheels corresponding to the current directory
+				if [[ ${PWD} != ${DISTUTILS_WHEELS["${whl}"]} ]]; then
+					continue
+				fi
+
+				# 1. Use pure Python wheels only if we're not expected
+				# to build extensions.  Otherwise, we may end up
+				# not building the extension at all when e.g. PyPy3
+				# is built without one.
+				#
+				# 2. For CPython, we can reuse stable ABI wheels.  Note
+				# that this relies on the assumption that we're building
+				# from the oldest to the newest implementation,
+				# and the wheels are forward-compatible.
+				if [[ ( ! ${DISTUTILS_EXT} && ${whl} == *py3-none-any* ) ||
+					( ${EPYTHON} == python* && ${whl} == *-abi3-* ) ]]
+				then
+					distutils_wheel_install "${BUILD_DIR}/install" "${whl}"
+					return
+				fi
+			done
+		fi
+
 		distutils_pep517_install "${BUILD_DIR}/install"
+		DISTUTILS_WHEELS+=( "${DISTUTILS_WHEEL_PATH}" "${PWD}" )
 	fi
 }
 
@@ -2004,6 +2064,44 @@ distutils-r1_src_configure() {
 	return ${ret}
 }
 
+# @FUNCTION: _distutils-r1_compare_installed_files
+# @INTERNAL
+# @DESCRIPTION:
+# Verify the the match between files installed between this and previous
+# implementation.
+_distutils-r1_compare_installed_files() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	# QA check requires diff(1).
+	if ! type -P diff &>/dev/null; then
+		return
+	fi
+
+	# Perform the check only if at least one potentially reusable wheel
+	# has been produced.  Nonpure packages (e.g. NumPy) may install
+	# interpreter configuration details into sitedir.
+	if [[ ${!DISTUTILS_WHEELS[*]} != *-none-any.whl* &&
+			${!DISTUTILS_WHEELS[*]} != *-abi3-*.whl ]]; then
+		return
+	fi
+
+	local sitedir=${BUILD_DIR}/install$(python_get_sitedir)
+	if [[ -n ${_DISTUTILS_PREVIOUS_SITE} ]]; then
+		diff -dur \
+			--exclude=__pycache__ \
+			--exclude='*.dist-info' \
+			--exclude="*$(get_modname)" \
+			"${_DISTUTILS_PREVIOUS_SITE}" "${sitedir}"
+		if [[ ${?} -ne 0 ]]; then
+			eqawarn "Package creating at least one pure Python wheel installs different"
+			eqawarn "Python files between implementations.  See diff in build log, above"
+			eqawarn "this message."
+		fi
+	fi
+
+	_DISTUTILS_PREVIOUS_SITE=${sitedir}
+}
+
 # @FUNCTION: _distutils-r1_post_python_compile
 # @INTERNAL
 # @DESCRIPTION:
@@ -2038,6 +2136,8 @@ _distutils-r1_post_python_compile() {
 		find "${bindir}" -type f -exec sed -i \
 			-e "1s@^#!\(${EPREFIX}/usr/bin/\(python\|pypy\)\)@#!${root}\1@" \
 			{} + || die
+
+		_distutils-r1_compare_installed_files
 	fi
 }
 
