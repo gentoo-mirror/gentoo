@@ -3540,6 +3540,7 @@ kde-apps/kdecore-meta:webengine - Enable www-client/falkon which depends on dev-
 kde-apps/kdeedu-meta:webengine - Enable packages requiring dev-qt/qtwebengine
 kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/opencolorio
 kde-apps/kdegraphics-meta:screencast - Pull in kde-apps/spectacle for screenshot/screenrecording support
+kde-apps/kdegraphics-meta:webengine - Enable page scanning support via media-gfx/skanpage
 kde-apps/kdemultimedia-meta:cdrom - Include packages for optical discs
 kde-apps/kdenetwork-meta:bittorrent - Pull in net-p2p/ktorrent for BitTorrent protocol support
 kde-apps/kdenetwork-meta:dropbox - Enable support for Dropbox in kde-apps/dolphin via kde-apps/dolphin-plugins-dropbox
@@ -3569,6 +3570,7 @@ kde-apps/kig:scripting - Support Python scripting
 kde-apps/kio-extras:X - Enable support for XCursor thumbnails via x11-libs/libX11
 kde-apps/kio-extras:activities - Enable activities KIO worker and fileitem plugin
 kde-apps/kio-extras:ios - Enable AFC (Apple File Conduit) KIO worker for iOS devices support
+kde-apps/kio-extras:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/kio-extras:man - Enable manpages KIO worker
 kde-apps/kio-extras:nfs - Enable NFS support using net-libs/libtirpc
 kde-apps/kio-extras:phonon - Enable file audio preview plugin using media-libs/phonon
@@ -3617,6 +3619,7 @@ kde-apps/libkcompactdisc:kf6compat - Disable components colliding with KF6, depe
 kde-apps/libkdepim:designer - Build plugins for dev-qt/designer
 kde-apps/libkgapi:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libkleo:fancyviewer - Use kde-apps/kpimtextedit for an improved audit log viewer
+kde-apps/libksane:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libksane:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 kde-apps/mailcommon:designer - Build plugins for dev-qt/designer
 kde-apps/marble:aprs - Enable support for APRS data sources
@@ -5906,6 +5909,8 @@ net-im/telegram-desktop:fonts - Use builtin patched copy of open-sans fonts (ove
 net-im/telegram-desktop:qt6 - Build with Qt6 support
 net-im/telegram-desktop:qt6-imageformats - Add support for HEIF, AVIF and JpegXL by bundling kde-frameworks/kimageformats
 net-im/tkabber:plugins - Enables installation the extra plugins
+net-im/tokodon:mpv - Use media-libs/mpvqt instead of dev-qt/qtmultimedia for video playback (default)
+net-im/tokodon:webengine - Use dev-qt/qtwebengine for built-in authentication page (default is external browser)
 net-im/toxic:audio-notify - Enables native sound notifications
 net-im/toxic:games - Enables some small mini-games
 net-im/toxic:llvm - Enables support for LLVM Address Sanitizer
