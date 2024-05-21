@@ -11,9 +11,10 @@
 depend() {
 	use localmount logger
 	after keepalived redict
+	provide redis-sentinel
 }
 
-command="/usr/sbin/redict-sentinel"
+command="/usr/bin/redict-sentinel"
 command_args="${REDICT_SENTINEL_CONF}"
 command_background="true"
 command_user="${REDICT_SENTINEL_USER}:${REDICT_SENTINEL_GROUP}"
