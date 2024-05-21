@@ -109,8 +109,8 @@ RESTRICT="!test? ( test )"
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
 
-#[[ ${MY_PV} == *9999* ]] || \
-#KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
+[[ ${MY_PV} == *9999* ]] || \
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	app-arch/unzip
@@ -322,6 +322,9 @@ PATCHES=(
 	# TODO: upstream
 	"${FILESDIR}/${PN}-7.6-unused-qt5network.patch"
 	"${FILESDIR}/${PN}-24.2-unused-qt6network.patch"
+
+	# git master
+	"${FILESDIR}/${P}-fix-bashism.patch" # bug #928733
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"
