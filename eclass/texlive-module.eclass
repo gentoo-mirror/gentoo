@@ -538,9 +538,13 @@ texlive-module_src_install() {
 			ebegin "Installing man pages"
 			find texmf-dist/doc/man -type f -name '*.[0-9n]' -print |
 				grep -v "${grep_expressions[@]}" |
-				xargs -d '\n' --no-run-if-empty doman
-			[[ "${PIPESTATUS[*]}" =~ ^0(" 0")*$ ]]
-			eend $? || die "error installing man pages"
+				xargs -d '\n' --no-run-if-empty nonfatal doman
+			local pipestatus="${PIPESTATUS[*]}"
+			# The grep in the middle of the pipe may return 1 in case
+			# everything from the input is dropped.
+			# See https://bugs.gentoo.org/931994
+			[[ ${pipestatus} == "0 "[01]" 0" ]]
+			eend $? || die "error installing man pages (pipestatus: ${pipestatus})"
 
 			# Delete all man pages under texmf-dist/doc/man
 			find texmf-dist/doc/man -type f -name '*.[0-9n]' -delete ||

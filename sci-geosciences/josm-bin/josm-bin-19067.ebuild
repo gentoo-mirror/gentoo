@@ -13,14 +13,18 @@ S="${WORKDIR}"
 
 LICENSE="Apache-2.0 GPL-2+ GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=virtual/jre-1.8"
 BDEPEND="app-arch/unzip"
 
 src_install() {
 	java-pkg_newjar "${DISTDIR}/${A}" ${PN}.jar
-	java-pkg_dolauncher ${PN} --jar ${PN}.jar
+	java-pkg_dolauncher ${PN} --jar ${PN}.jar \
+		--java_args "\
+			--add-exports=java.base/sun.security.action=ALL-UNNAMED \
+			--add-exports=java.desktop/com.sun.imageio.plugins.jpeg=ALL-UNNAMED \
+			--add-exports=java.desktop/com.sun.imageio.spi=ALL-UNNAMED"
 
 	local icon_size
 	for icon_size in 16 32 48; do
