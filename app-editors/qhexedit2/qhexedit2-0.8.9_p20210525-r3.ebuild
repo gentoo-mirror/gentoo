@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit python-r1 qmake-utils
 
 EGIT_COMMIT="541139125be034b90b6811a84faa1413e357fd94"
@@ -11,6 +11,7 @@ DESCRIPTION="Hex editor library, Qt application written in C++ with Python bindi
 HOMEPAGE="https://github.com/Simsys/qhexedit2/"
 SRC_URI="https://github.com/Simsys/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~riscv x86"
@@ -28,6 +29,7 @@ RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	media-libs/libglvnd
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
@@ -44,8 +46,6 @@ BDEPEND="
 		')
 	)
 "
-
-S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 
 src_prepare() {
 	default
