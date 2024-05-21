@@ -15,7 +15,7 @@ DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64"
-IUSE="accessibility caps gles2-only lock screencast +shortcuts"
+IUSE="accessibility +caps gles2-only lock screencast +shortcuts"
 
 RESTRICT="test"
 
@@ -71,7 +71,10 @@ COMMON_DEPEND="
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
-	gles2-only? ( media-libs/mesa[gles2] )
+	gles2-only? ( || (
+		>=media-libs/mesa-24.1.0_rc1[opengl]
+		<media-libs/mesa-24.1.0_rc1[gles2]
+	) )
 	lock? ( >=kde-plasma/kscreenlocker-${PVCUT}:6 )
 	screencast? ( >=media-video/pipewire-0.3:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${PVCUT}:6 )

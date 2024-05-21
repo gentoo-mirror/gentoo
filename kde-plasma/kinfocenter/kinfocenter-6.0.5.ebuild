@@ -30,7 +30,10 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
-	gles2-only? ( media-libs/mesa[gles2] )
+	gles2-only? ( || (
+		>=media-libs/mesa-24.1.0_rc1[opengl]
+		<media-libs/mesa-24.1.0_rc1[gles2]
+	) )
 	usb? ( virtual/libusb:1 )
 "
 RDEPEND="${DEPEND}

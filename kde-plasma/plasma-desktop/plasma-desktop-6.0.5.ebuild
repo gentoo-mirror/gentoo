@@ -11,13 +11,13 @@ QTMIN=6.6.2
 inherit ecm plasma.kde.org optfeature
 
 DESCRIPTION="KDE Plasma desktop"
-XORGHDRS="${PN}-override-include-dirs-3"
+XORGHDRS="${PN}-override-include-dirs-4"
 SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS="~amd64"
-IUSE="ibus kaccounts scim screencast sdl +semantic-desktop X"
+IUSE="ibus kaccounts scim screencast sdl +semantic-desktop"
 
 RESTRICT="test" # missing selenium-webdriver-at-spi
 
@@ -74,13 +74,11 @@ COMMON_DEPEND="
 	>=kde-plasma/plasma5support-${PVCUT}:6
 	media-libs/libcanberra
 	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXcursor
 	x11-libs/libXi
-	X? (
-		x11-libs/libxcb
-		x11-libs/libXcursor
-		x11-libs/libxkbcommon
-		x11-libs/libxkbfile
-	)
+	x11-libs/libxkbcommon
+	x11-libs/libxkbfile
 	ibus? (
 		app-i18n/ibus
 		dev-libs/glib:2
@@ -126,7 +124,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-5.90.0-override-include-dirs.patch" # downstream patch
+	"${FILESDIR}/${PN}-6.0.5-unused-dep.patch" # backport from 6.1/git master
+	"${WORKDIR}/${XORGHDRS}/${PN}-6.0.5-override-include-dirs.patch" # downstream patch
 )
 
 src_prepare() {
@@ -145,23 +144,17 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_KCM_MOUSE_X11=ON
+		-DBUILD_KCM_TOUCHPAD_X11=ON
+		-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
+		-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
 		-DCMAKE_DISABLE_FIND_PACKAGE_PackageKitQt6=ON # not packaged
 		$(cmake_use_find_package ibus GLIB2)
 		$(cmake_use_find_package kaccounts AccountsQt6)
 		$(cmake_use_find_package kaccounts KAccounts6)
 		$(cmake_use_find_package sdl SDL2)
 		$(cmake_use_find_package semantic-desktop KF6Baloo)
-		-DBUILD_KCM_MOUSE_X11=$(usex X)
-		-DBUILD_KCM_TOUCHPAD_X11=$(usex X)
 	)
-
-	if use X; then
-		mycmakeargs+=(
-			-DEVDEV_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
-			-DXORGLIBINPUT_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
-			-DXORGSERVER_INCLUDE_DIRS="${WORKDIR}/${XORGHDRS}"/include
-		)
-	fi
 
 	ecm_src_configure
 }
