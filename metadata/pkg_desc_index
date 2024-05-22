@@ -905,7 +905,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.98 1.32.103 1.32.107 1.32.108 1.32.109: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.98 1.32.103 1.32.107 1.32.108 1.32.109 1.32.110: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0 2024.3.0 2024.4.1: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.5 3.3.6: Distribution-independent installer framework
@@ -8223,8 +8223,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.34.98 1.34.103 1.34.107 1.34.108 1.34.109: The AWS SDK for Python
-dev-python/botocore 1.34.98 1.34.103 1.34.107 1.34.108 1.34.109: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.98 1.34.103 1.34.107 1.34.108 1.34.109 1.34.110: The AWS SDK for Python
+dev-python/botocore 1.34.98 1.34.103 1.34.107 1.34.108 1.34.109 1.34.110: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8 1.3.8-r1: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8417,7 +8417,7 @@ dev-python/emcee 3.1.4 3.1.5 3.1.6: Python ensemble sampling toolkit for affine-
 dev-python/emoji 2.11.0 2.11.1 2.12.1: Emoji for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 24.0: Shared pip wheel for ensurepip Python module
-dev-python/ensurepip-setuptools 69.0.3 69.5.1: Shared setuptools wheel for ensurepip Python module
+dev-python/ensurepip-setuptools 69.0.3 69.5.1 70.0.0: Shared setuptools wheel for ensurepip Python module
 dev-python/ensurepip-wheel 0.43.0: Shared wheel wheel for use in pip tests
 dev-python/ensurepip-wheels 100: Shared wheels for ensurepip Python module
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
@@ -8502,7 +8502,7 @@ dev-python/genson 1.2.2 1.3.0: GenSON is a powerful, user-friendly JSON Schema g
 dev-python/gentoo-common 1: Common files shared by Python implementations in Gentoo
 dev-python/genty 1.3.2-r2 1.3.2-r3: Allows you to run a test with multiple data sets
 dev-python/geographiclib 2.0: Python implementation of the geodesic routines
-dev-python/gfloat 0.0.5 0.1: Generic floating-point types in Python
+dev-python/gfloat 0.0.5 0.1 0.2.1: Generic floating-point types in Python
 dev-python/ghp-import 2.1.0-r1: Copy your docs directly to the gh-pages branch
 dev-python/git-review 2.4.0 9999: Tool to submit code to Gerrit
 dev-python/gitdb 4.0.11: GitDB is a pure-Python git object database
@@ -9094,7 +9094,7 @@ dev-python/pymediainfo 6.1.0: A wrapper around the mediainfo library
 dev-python/pymetar 1.4-r2: Downloads and decodes to the weather report for a given station ID
 dev-python/pymongo 4.6.3 4.7.0 4.7.1 4.7.2: Python driver for MongoDB
 dev-python/pymountboot 0.2.3-r1: Python extension module to (re)mount /boot
-dev-python/pymysql 1.1.0: Pure-Python MySQL Driver
+dev-python/pymysql 1.1.0 1.1.1: Pure-Python MySQL Driver
 dev-python/pynacl 1.5.0-r3: Python binding to the Networking and Cryptography (NaCl) library
 dev-python/pynvim 0.5.0: Python client for Neovim
 dev-python/pyocr 0.8.5: An optical character recognition (OCR) tool wrapper
@@ -9292,7 +9292,7 @@ dev-python/pythran 0.13.1 0.14.0 0.15.0-r1: Ahead of Time compiler for numeric k
 dev-python/pytidylib 0.3.2-r2: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8-r1: A small Python module to parse various kinds of time expressions
 dev-python/pytoolconfig 1.3.1: Python tool configuration
-dev-python/pytools 2024.1.2: Collection of tools missing from the Python standard library
+dev-python/pytools 2024.1.2 2024.1.3: Collection of tools missing from the Python standard library
 dev-python/pytrie 0.4.0-r1: A pure Python implementation of the trie data structure
 dev-python/pytz 2024.1: World timezone definitions for Python
 dev-python/pytzdata 2020.1-r2: The Olson timezone database for Python
@@ -9352,10 +9352,10 @@ dev-python/rencode 1.0.6-r3: similar to bencode from the BitTorrent project
 dev-python/reno 4.1.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 4.2.0: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r3: A tiny LRU cache implementation and decorator
-dev-python/requests 2.32.1: HTTP library for human beings
+dev-python/requests 2.32.1 2.32.2: HTTP library for human beings
 dev-python/requests-cache 1.2.0: Persistent cache for requests library
 dev-python/requests-credssp 2.0.0: HTTPS CredSSP authentication with the requests library
-dev-python/requests-file 2.0.0: File transport adapter for Requests
+dev-python/requests-file 2.0.0 2.1.0: File transport adapter for Requests
 dev-python/requests-futures 1.0.1: Asynchronous Python HTTP for Humans
 dev-python/requests-kerberos 0.14.0-r1: A Kerberos authentication handler for python-requests
 dev-python/requests-mock 1.12.1: Mock out responses from the requests package
@@ -9401,7 +9401,7 @@ dev-python/schema 0.7.7: Simple data validation library
 dev-python/scikit-build 0.17.6: Improved build system generator for Python C/C++/Fortran/Cython extensions
 dev-python/scikit-build-core 0.9.2-r1 0.9.3 0.9.4: Build backend for CMake based projects
 dev-python/scikit-image 0.23.1 0.23.2: Image processing routines for SciPy
-dev-python/scikit-learn 1.4.2-r1: Machine learning library for Python
+dev-python/scikit-learn 1.4.2-r1 1.5.0: Machine learning library for Python
 dev-python/scipy 1.11.3-r2 1.11.4-r1 1.12.0-r1 1.13.0: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r2: A very small text templating language
 dev-python/scrypt 0.8.24: Bindings for the scrypt key derivation function library
@@ -9419,7 +9419,7 @@ dev-python/serpent 1.41: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1-r1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service-identity 24.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.3.3: Allow customization of the process title
-dev-python/setuptools 69.0.3-r1 69.5.1-r1: Collection of extensions to Distutils
+dev-python/setuptools 69.0.3-r1 69.5.1-r1 70.0.0: Collection of extensions to Distutils
 dev-python/setuptools-gettext 0.1.11 0.1.14: Setuptools plugin for building mo files
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.9.0: A plugin for setuptools to build Rust Python extensions
@@ -9476,7 +9476,7 @@ dev-python/sphinx-inline-tabs 2023.4.21: A sphinx extension for inline tabs
 dev-python/sphinx-issues 4.1.0: Sphinx extension for linking to your project's issue tracker
 dev-python/sphinx-lv2-theme 1.4.2: Minimal pure-CSS Sphinx theme using the LV2 plugin documentation style
 dev-python/sphinx-multiversion 0.2.4-r1: Add support for multiple versions to sphinx
-dev-python/sphinx-notfound-page 1.0.0: Create a custom 404 page with absolute URLs hardcoded
+dev-python/sphinx-notfound-page 1.0.0 1.0.1: Create a custom 404 page with absolute URLs hardcoded
 dev-python/sphinx-panels 0.6.0-r1: A sphinx extension for creating panels in a grid layout
 dev-python/sphinx-press-theme 0.9.1: A Sphinx-doc theme based on Vuepress
 dev-python/sphinx-prompt 1.8.0: Sphinx directive to add unselectable prompt
@@ -9519,7 +9519,7 @@ dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.52 2.0.29 2.0.30: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 23.15.10 23.16.0 23.17.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 23.15.10 23.16.0 23.17.0 24.0.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.0: A non-validating SQL parser module for Python
 dev-python/sshpubkeys 3.3.1-r1: OpenSSH public key parser for Python
@@ -9624,7 +9624,7 @@ dev-python/typeguard 4.2.1: Run-time type checker for Python
 dev-python/types-docutils 0.21.0.20240423: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.20240401 12.1.4.20240408: Typing stubs for gdb
 dev-python/types-psutil 5.9.5.20240423 5.9.5.20240511 5.9.5.20240516: Typing stubs for psutil
-dev-python/types-setuptools 69.5.0.20240423 69.5.0.20240513 69.5.0.20240518 69.5.0.20240519: Typing stubs for setuptools
+dev-python/types-setuptools 69.5.0.20240423 69.5.0.20240513 69.5.0.20240518 69.5.0.20240519 69.5.0.20240522: Typing stubs for setuptools
 dev-python/typing-extensions 4.11.0 4.11.0_p20240512 4.12.0_rc1: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
@@ -19057,7 +19057,7 @@ x11-wm/openbox 3.6.1-r5 3.6.1-r8 9999: Standards compliant, fast, light-weight, 
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
 x11-wm/page 1.9.10 1.9.10-r1: A mouse friendly tiling window manager
 x11-wm/pekwm 0.1.18 0.2.1 0.3.0: A lightweight window manager initially based on aewm++
-x11-wm/qtile 0.23.0-r1 0.25.0: A full-featured, hackable tiling window manager written in Python
+x11-wm/qtile 0.23.0-r1 0.25.0 0.26.0: A full-featured, hackable tiling window manager written in Python
 x11-wm/ratpoison 1.4.9-r3 9999: window manager without mouse dependency
 x11-wm/selectwm 0.4.1-r2: window manager selector tool
 x11-wm/sithwm 1.2.3: Minimalist Window Manager for X
