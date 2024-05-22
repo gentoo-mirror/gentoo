@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="tk?"
 inherit cmake desktop flag-o-matic optfeature python-single-r1 xdg
 
@@ -38,7 +38,7 @@ DEPEND="${PYTHON_DEPS}
 	dev-libs/librevenge
 	dev-libs/libxml2
 	dev-qt/qt5compat:6
-	dev-qt/qtbase:6[cups,gui,network,opengl,xml,widgets]
+	dev-qt/qtbase:6[cups,gui,network,opengl,X,xml,widgets]
 	dev-qt/qtsvg:6
 	media-libs/fontconfig
 	media-libs/freetype:2
