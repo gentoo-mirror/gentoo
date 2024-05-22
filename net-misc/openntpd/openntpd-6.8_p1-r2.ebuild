@@ -1,14 +1,14 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit systemd
+inherit autotools systemd
 
 MY_P="${P/_p/p}"
 
 DESCRIPTION="Lightweight NTP server ported from OpenBSD"
-HOMEPAGE="http://www.openntpd.org/"
+HOMEPAGE="https://www.openntpd.org/"
 SRC_URI="mirror://openbsd/OpenNTPD/${MY_P}.tar.gz"
 
 LICENSE="BSD GPL-2"
@@ -28,8 +28,14 @@ RDEPEND="
 
 S="${WORKDIR}/${MY_P}"
 
+PATCHES=(
+	# https://github.com/openntpd-portable/openntpd-portable/pull/75
+	"${FILESDIR}"/0001-fix-incompatible-check-for-libc-compat.patch
+)
+
 src_prepare() {
 	default
+	eautoreconf
 
 	# fix /run path
 	sed -i 's:/var/run/ntpd:/run/ntpd:g' src/ntpctl.8 src/ntpd.8 || die
