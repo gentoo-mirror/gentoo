@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -26,6 +26,12 @@ DEPEND="${RDEPEND}
 BDEPEND="ssl? ( virtual/pkgconfig )"
 
 DOCS=( AUTHORS NEWS COPYING README ChangeLog )
+
+# All checks in libmicrohttpd's configure are correct
+# Gentoo Bug #923760
+QA_CONFIG_IMPL_DECL_SKIP=(
+	'stpncpy'
+)
 
 pkg_pretend() {
 	if use kernel_linux ; then
