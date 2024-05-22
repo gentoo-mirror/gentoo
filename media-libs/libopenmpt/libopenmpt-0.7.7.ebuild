@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,6 +9,7 @@ MY_P="libopenmpt-${PV}+release.autotools"
 DESCRIPTION="Library to decode tracked music files (modules)"
 HOMEPAGE="https://lib.openmpt.org/libopenmpt/"
 SRC_URI="https://lib.openmpt.org/files/libopenmpt/src/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
@@ -25,7 +26,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-S="${WORKDIR}/${MY_P}"
 ECONF_SOURCE="${S}"
 
 multilib_src_configure() {
