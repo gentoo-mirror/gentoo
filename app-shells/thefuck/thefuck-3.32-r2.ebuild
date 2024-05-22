@@ -1,9 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
@@ -13,7 +14,7 @@ SRC_URI="https://github.com/nvbn/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/psutil[${PYTHON_USEDEP}]
@@ -28,7 +29,21 @@ DEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-python-312.patch
+)
+
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	# failing tests because of trying to access portage's home dir
+	tests/test_conf.py
+	tests/entrypoints/test_not_configured.py
+	tests/test_utils.py::test_get_all_executables_exclude_paths
+	tests/test_utils.py::TestCache
+	# These tests fail with py312; #929026
+	tests/test_utils.py::TestGetValidHistoryWithoutCurrent::test_get_valid_history_without_current
+)
 
 python_prepare_all() {
 	sed -i -e "/import pip/s/^/#/" -e "/pip.__version__/,+3 s/^/#/" setup.py || die
