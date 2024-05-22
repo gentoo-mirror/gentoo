@@ -68,6 +68,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 
 PATCHES=(
 	"${FILESDIR}"/gcc-12.2.0-drop-cflags-sed.patch
+	"${FILESDIR}"/gcc-14.1.0-no-omit-fp-ice.patch
 )
 
 pkg_pretend() {
@@ -236,9 +237,6 @@ src_compile() {
 				# crashes with -march=skylake >=wine-8.10, similar issues with
 				# znver4: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=110273
 				append-flags -mno-avx
-
-				# gcc14 -fno-omit-frame-pointer ICE workaround (bug #932319)
-				append-flags -fomit-frame-pointer
 
 				strip-unsupported-flags
 				mwt-build "${@:2}"
