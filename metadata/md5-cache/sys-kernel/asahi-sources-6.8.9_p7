@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://asahilinux.org
 INHERIT=kernel-2
 IUSE=rust symlink build
-KEYWORDS=arm64
+KEYWORDS=~arm64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc dev-build/make sys-devel/bison sys-devel/flex >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=6.8.8_p2
-SRC_URI=https://github.com/AsahiLinux/linux/archive/refs/tags/asahi-6.8.8-2.tar.gz -> linux-asahi-6.8.8-2.tar.gz
+SLOT=6.8.9_p7
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.8.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.8-12.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.8-12.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.8-12.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.8-12.extras.tar.xz https://github.com/AsahiLinux/linux/compare/v6.8.9...asahi-6.8.9-6.patch -> linux-asahi-6.8.9-6.patch https://github.com/AsahiLinux/linux/compare/asahi-6.8.9-6...asahi-6.8.9-7.patch -> linux-asahi-6.8.9-6..asahi-6.8.9-7.patch
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	kernel-2	d7063ec2420394c5b29ed142f15b5033
-_md5_=097d7201101df66d0490b384d1b0d1dd
+_md5_=c14889c310176b9f55e3c863961634d4
