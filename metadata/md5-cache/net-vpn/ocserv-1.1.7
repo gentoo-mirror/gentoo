@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://ocserv.gitlab.io/www/index.html
 INHERIT=systemd verify-sig
 IUSE=geoip kerberos +lz4 otp pam radius +seccomp systemd tcpd test verify-sig
-KEYWORDS=~amd64 arm arm64 ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= net-libs/http-parser:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( virtual/krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-dialup/freeradius-client:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.infradead.org/ocserv/download/ocserv-1.1.7.tar.xz verify-sig? ( https://www.infradead.org/ocserv/download/ocserv-1.1.7.tar.xz.sig )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=0c6a8d1ba9c7bd10b8fce795d7366968
+_md5_=5eda78bfb9901481536b233867e4eb2c
