@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -21,13 +21,21 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.0.0-tinfo.patch"
 )
 
+# all these checks are compiled via a homebrew configure script which
+# does set -Werror. bug #908573
+QA_CONFIG_IMPL_DECL_SKIP+=(
+	# "check if _GNU_SOURCE is needed" ???
+	wcwidth
+	# not available on Linux
+	pledge
+	# libbsd
+	strtonum
+)
+
 src_configure() {
 	# not autoconf
+	tc-export CC
 	./configure || die
-}
-
-src_compile() {
-	emake CC="$(tc-getCC)"
 }
 
 src_install() {
