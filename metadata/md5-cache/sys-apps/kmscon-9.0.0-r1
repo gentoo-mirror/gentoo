@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( dev-util/gtk-doc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.0.0:= media-libs/mesa[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) gles2? ( >=media-libs/mesa-8.0.3[gles2] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) pixman? ( x11-libs/pixman ) x11-base/xorg-proto
+DEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.0.0:= media-libs/libglvnd[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) pixman? ( x11-libs/pixman ) x11-base/xorg-proto
 DESCRIPTION=KMS/DRM based virtual Console Emulator
 EAPI=7
 HOMEPAGE=https://github.com/Aetf/kmscon
@@ -8,10 +8,10 @@ INHERIT=meson flag-o-matic toolchain-funcs
 IUSE=debug doc +drm +fbdev +gles2 +pango pixman systemd test
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT LGPL-2.1 BSD-2
-RDEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.0.0:= media-libs/mesa[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) gles2? ( >=media-libs/mesa-8.0.3[gles2] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) pixman? ( x11-libs/pixman ) x11-misc/xkeyboard-config
+RDEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.0.0:= media-libs/libglvnd[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) pixman? ( x11-libs/pixman ) x11-misc/xkeyboard-config
 REQUIRED_USE=drm? ( gles2 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Aetf/kmscon/releases/download/v9.0.0/kmscon-9.0.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	aecae905c2e0c201d7925fae52a5576d
-_md5_=9d73c67923ac53d73f3d31e0c3de8bec
+_md5_=f23b25c57ad5291639e343c296263cd7
