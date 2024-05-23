@@ -1,10 +1,10 @@
-BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=configure install postinst
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
 DEPEND=gnutls? ( net-libs/gnutls:=[tools] ) !gnutls? ( dev-libs/openssl:0= ) net-libs/courier-authlib net-libs/courier-unicode net-mail/mailbase net-dns/libidn:= berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) !mail-mta/courier dev-lang/perl sys-process/procps net-mail/courier-common
 DESCRIPTION=An IMAP daemon designed specifically for maildirs
 EAPI=8
 HOMEPAGE=https://www.courier-mta.org/imap/
-INHERIT=readme.gentoo-r1 systemd
+INHERIT=autotools readme.gentoo-r1 systemd
 IUSE=berkdb debug +gdbm gnutls ipv6 selinux trashquota
 KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ~ppc ppc64 ~s390 sparc x86
 LICENSE=GPL-3
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( berkdb gdbm )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/courier/courier-imap-5.2.6.tar.bz2
-_eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=8196bbd35cf195c941ec8e98e88d5182
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=3524ff6a4c28c3ec35a9733f493ac224
