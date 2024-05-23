@@ -1,0 +1,12 @@
+BDEPEND=test? ( dev-util/shunit2 )
+DEFINED_PHASES=install test
+DESCRIPTION=Full-featured & carefully designed adaptive prompt for Bash & Zsh
+EAPI=8
+HOMEPAGE=https://github.com/nojhan/liquidprompt https://liquidprompt.readthedocs.io/
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/nojhan/liquidprompt/releases/download/v2.2.0/liquidprompt-v2.2.0.tar.gz -> liquidprompt-2.2.0.tar.gz test? ( https://raw.githubusercontent.com/rcaloras/bash-preexec/0.4.1/bash-preexec.sh )
+_md5_=cd707585c2f39200f4b97fd5550bc437
