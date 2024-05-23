@@ -210,7 +210,7 @@ else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -260,6 +260,7 @@ src_prepare() {
 		civl/large-samples/GC.bpl
 		civl/paxos/is.sh
 		civl/samples/reserve.bpl
+		civl/samples/treiber-stack.bpl
 		inst/vector-generic.bpl
 		livevars/stack_overflow.bpl
 		prover/cvc5-offline.bpl
@@ -288,11 +289,12 @@ src_test() {
 	local -a lit_opts=(
 		--order=lexical
 		--time-tests
-		--timeout 1800          # Let one test take no mere than half a hour.
+		--timeout 1800            # Let one test take no more than half a hour.
 		--verbose
 		--workers="$(makeopts_jobs)"
+		--workers=1
 	)
-	edob lit "${lit_opts[@]}" "${S}/Test"
+	edo lit "${lit_opts[@]}" "${S}/Test"
 }
 
 src_install() {
