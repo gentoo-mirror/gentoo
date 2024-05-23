@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/WayfireWM/wf-shell
 INHERIT=meson
 IUSE=+pulseaudio
-KEYWORDS=amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64
 LICENSE=MIT
 RDEPEND=dev-cpp/gtkmm:3.0[wayland] dev-libs/gobject-introspection dev-libs/libdbusmenu[gtk3] >=gui-libs/gtk-layer-shell-0.6 dev-libs/wayland gui-libs/wf-config:0/0.8 gui-wm/wayfire:0/0.8 pulseaudio? ( media-libs/libpulse ) gui-apps/wayland-logout
 RESTRICT=test
 SLOT=0/0.8
 SRC_URI=https://github.com/WayfireWM/wf-shell/releases/download/v0.8.0/wf-shell-0.8.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	aecae905c2e0c201d7925fae52a5576d
-_md5_=2546b8f99cadb5660fe32d3158f17426
+_md5_=bceb1de05fdb845646286824ce4e8d90

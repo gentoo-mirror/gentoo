@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=kdecore - merge this to pull in the most basic applications
+EAPI=8
+HOMEPAGE=https://apps.kde.org/
+IUSE=+share +thumbnail +webengine
+KEYWORDS=~amd64
+LICENSE=metapackage
+RDEPEND=>=kde-apps/dolphin-24.05.0:* >=kde-apps/kdialog-24.05.0:* >=kde-apps/keditbookmarks-24.05.0:* >=kde-apps/kfind-24.05.0:* >=kde-apps/konsole-24.05.0:* >=kde-apps/kwrite-24.05.0:* webengine? ( >=kde-apps/khelpcenter-24.05.0:* || ( >=www-client/falkon-24.05.0 >=kde-apps/konqueror-24.05.0:* ) ) share? ( kde-frameworks/purpose:6 ) thumbnail? ( >=kde-apps/ffmpegthumbs-24.05.0:* >=kde-apps/thumbnailers-24.05.0:* )
+SLOT=0
+_md5_=25417abfe22bb8c42e3fb8b62a26d79b

@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=media-libs/freetype:2 virtual/opengl virtual/glu x11-libs/libX11 x11-libs/libXaw x11-libs/libXrandr x11-libs/libXt boost? ( dev-libs/boost:= ) cg? ( media-gfx/nvidia-cg-toolkit ) freeimage? ( media-libs/freeimage ) gles2? ( media-libs/libglvnd ) gles3? ( media-libs/libglvnd ) gl3plus? ( media-libs/libglvnd ) ois? ( dev-games/ois ) threads? ( poco? ( dev-libs/poco ) tbb? ( dev-cpp/tbb:= ) ) tools? ( dev-libs/tinyxml[stl] ) zip? ( sys-libs/zlib dev-libs/zziplib ) x11-base/xorg-proto
+DESCRIPTION=Object-oriented Graphics Rendering Engine
+EAPI=7
+HOMEPAGE=https://www.ogre3d.org/
+INHERIT=cmake flag-o-matic vcs-snapshot
+IUSE=+boost cg doc double-precision examples +freeimage gl3plus gles2 gles3 ois +opengl poco profile tbb threads tools +zip
+KEYWORDS=amd64 ~arm x86
+LICENSE=MIT public-domain
+RDEPEND=media-libs/freetype:2 virtual/opengl virtual/glu x11-libs/libX11 x11-libs/libXaw x11-libs/libXrandr x11-libs/libXt boost? ( dev-libs/boost:= ) cg? ( media-gfx/nvidia-cg-toolkit ) freeimage? ( media-libs/freeimage ) gles2? ( media-libs/libglvnd ) gles3? ( media-libs/libglvnd ) gl3plus? ( media-libs/libglvnd ) ois? ( dev-games/ois ) threads? ( poco? ( dev-libs/poco ) tbb? ( dev-cpp/tbb:= ) ) tools? ( dev-libs/tinyxml[stl] ) zip? ( sys-libs/zlib dev-libs/zziplib )
+REQUIRED_USE=threads? ( ^^ ( boost poco tbb ) ) examples? ( ois ) poco? ( threads ) tbb? ( threads ) gl3plus? ( !gles2 !gles3 ) gles3? ( gles2 ) gl3plus? ( opengl )
+RESTRICT=test
+SLOT=0/1.9.0
+SRC_URI=https://bitbucket.org/sinbad/ogre/get/v1-9-0.tar.bz2 -> ogre-1.9.0.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	vcs-snapshot	eab6d8533446763c2e9777d8bbd1594e
+_md5_=858dba832c64f56ef8271e5ea3b331e1
