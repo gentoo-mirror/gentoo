@@ -19,7 +19,7 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="
+COMMON_DEPEND="
 	>=dev-libs/ktextaddons-1.5.4:6
 	dev-libs/libxslt
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,xml]
@@ -54,6 +54,9 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libX11
 "
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	>=kde-apps/kdepim-runtime-${PVCUT}:6
+"
+DEPEND="${COMMON_DEPEND}
+	x11-base/xorg-proto
 "

@@ -33,6 +33,7 @@ COMMON_DEPEND="
 "
 DEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
+	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-libs/kirigami-addons:6

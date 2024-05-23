@@ -18,7 +18,7 @@ IUSE="absolute-position"
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-apps/konsole-${PVCUT}:6
@@ -44,7 +44,9 @@ DEPEND="
 	x11-libs/libX11
 	absolute-position? ( kde-plasma/kwayland:6 )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	x11-base/xorg-proto
+"
 
 src_configure() {
 	# TODO: start to use WITH_X11 option? but there's still the

@@ -17,7 +17,7 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE="+pim speech X"
 
-DEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=kde-apps/kcalutils-${PVCUT}:6
 	>=kde-apps/kidentitymanagement-${PVCUT}:6
@@ -58,8 +58,11 @@ DEPEND="
 	speech? ( >=dev-libs/ktextaddons-1.5.4:6[speech] )
 	X? ( x11-libs/libX11 )
 "
-RDEPEND="${DEPEND}
+RDEPEND="${COMMON_DEPEND}
 	pim? ( >=kde-apps/kdepim-runtime-${PVCUT}:6 )
+"
+DEPEND="${COMMON_DEPEND}
+	X? ( x11-base/xorg-proto )
 "
 
 src_configure() {
