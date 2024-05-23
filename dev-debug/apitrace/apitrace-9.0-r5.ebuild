@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit cmake-multilib multilib python-single-r1
 
 DESCRIPTION="Tool for tracing, analyzing, and debugging graphics APIs"
@@ -21,7 +21,7 @@ DEPEND="${PYTHON_DEPS}
 	app-arch/brotli:=[${MULTILIB_USEDEP}]
 	>=app-arch/snappy-1.1.1[${MULTILIB_USEDEP}]
 	media-libs/libpng:0=
-	media-libs/mesa[egl(+),gles1,gles2,X?,${MULTILIB_USEDEP}]
+	media-libs/libglvnd[X?,${MULTILIB_USEDEP}]
 	>=media-libs/waffle-1.6.0-r1[egl(+),${MULTILIB_USEDEP}]
 	sys-libs/zlib[${MULTILIB_USEDEP}]
 	sys-process/procps:=[${MULTILIB_USEDEP}]
