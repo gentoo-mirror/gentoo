@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=compile configure install postinst preinst prepare pretend setup test
-DEPEND=dev-libs/gmp:0= dev-java/bcprov:0 dev-java/hashcash:1 dev-java/httpcomponents-client:4 dev-java/identicon:1 dev-java/java-getopt:1 dev-java/java-service-wrapper:0 dev-java/jbcrypt:0 dev-java/json-simple:2.3 dev-java/json-smart:1 dev-java/jsonrpc2-base:1 dev-java/jsonrpc2-server:1 dev-java/jstl:0 dev-java/jstl-api:0 dev-java/minidns-core:1 dev-java/zxing-core:3 dev-java/zxing-javase:3 sys-devel/gettext:0[java] www-servers/tomcat:9 >=virtual/jdk-1.8:* test? ( dev-java/ant:0[junit4] dev-java/hamcrest:0 dev-java/junit:4 dev-java/mockito:4 ) >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-1.10.14-r2:0 dev-java/javatoolkit
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test
+DEPEND=dev-libs/gmp:0= dev-java/bcprov:0 dev-java/hashcash:1 dev-java/httpcomponents-client:4 dev-java/identicon:1 dev-java/java-getopt:1 dev-java/java-service-wrapper:0 dev-java/jbcrypt:0 dev-java/json-simple:2.3 dev-java/json-smart:1 dev-java/jsonrpc2-base:1 dev-java/jsonrpc2-server:1 dev-java/jstl:0 dev-java/jstl-api:0 dev-java/minidns-core:1 dev-java/zxing-core:3 dev-java/zxing-javase:3 sys-devel/gettext:0[java] www-servers/tomcat:9 >=virtual/jdk-11:* test? ( >=dev-java/ant-1.10.14-r3:0[junit4] dev-java/hamcrest:0 dev-java/junit:4 dev-java/mockito:4 ) >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-1.10.14-r2:0 dev-java/javatoolkit
 DESCRIPTION=A privacy-centric, anonymous network
 EAPI=8
 HOMEPAGE=https://geti2p.net
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.i2p-projekt.de/2.3.0/i2psource_2.3.0.tar.bz2
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	java-ant-2	d3f6ffc6629499cbc0d4cd71b9d7e7dc	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=9374b9a507cb61a629801e83171747d8
+_md5_=3822d5184e807b9b973a52df858d968f
