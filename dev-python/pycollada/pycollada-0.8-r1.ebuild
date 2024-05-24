@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1
 
@@ -31,6 +31,11 @@ RDEPEND="
 "
 
 DOCS=( AUTHORS.md COPYING README.markdown )
+
+PATCHES=(
+	# https://github.com/pycollada/pycollada/pull/147
+	"${FILESDIR}/${P}-numpy-2.patch"
+)
 
 distutils_enable_sphinx docs
 distutils_enable_tests unittest
