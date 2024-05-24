@@ -24,14 +24,15 @@ KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	>=dev-python/six-1.15.0[${PYTHON_USEDEP}]
-	>=dev-python/chardet-4.0.0[${PYTHON_USEDEP}]
+	>=dev-python/charset-normalizer-2.1.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
-		dev-python/django[${PYTHON_USEDEP}]
+		>=dev-python/django-4.0.6[${PYTHON_USEDEP}]
+		>=dev-python/flask-2.1.1[${PYTHON_USEDEP}]
 		>=dev-python/jinja-3.1.1[${PYTHON_USEDEP}]
 		>=dev-python/mako-1.1.3[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+		>=dev-python/pytest-asyncio-0.19.0[${PYTHON_USEDEP}]
 		>=dev-python/tornado-6.0.4[${PYTHON_USEDEP}]
 	)
 "
@@ -41,12 +42,6 @@ distutils_enable_tests pytest
 src_prepare() {
 	# poetry nonsense
 	sed -i -e 's:\^:>=:' pyproject.toml || die
-	# upstream hardcodes wrong version, and puts test dependencies
-	# in regular depenendencies, so discard the whole thing
-	sed -e "/version/s:5\.9\.12:${PV}:" \
-		-e 's:tool\.poetry\.dependencies:tool.poetry.group.ignored.dependencies:' \
-		-i pyproject.toml || die
-
 	distutils-r1_src_prepare
 }
 
