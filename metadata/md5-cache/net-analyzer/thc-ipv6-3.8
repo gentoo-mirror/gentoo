@@ -1,14 +1,14 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install prepare unpack
+DEFINED_PHASES=compile install prepare
 DEPEND=net-libs/libnetfilter_queue net-libs/libpcap ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Complete tool set to attack the inherent protocol weaknesses of IPV6 and ICMP6
 EAPI=8
 HOMEPAGE=https://github.com/vanhauser-thc/thc-ipv6
-INHERIT=toolchain-funcs git-r3
+INHERIT=toolchain-funcs
 IUSE=ssl
+KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3 openssl
-PROPERTIES=live
 RDEPEND=net-libs/libnetfilter_queue net-libs/libpcap ssl? ( dev-libs/openssl:0= )
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=216f8a1cedfd267bd125633c05b0268e
+SRC_URI=https://github.com/vanhauser-thc/thc-ipv6/archive/v3.8.tar.gz -> thc-ipv6-3.8.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=80bf6b5d0ca029168712f47277cd5d70

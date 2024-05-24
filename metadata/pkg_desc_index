@@ -1167,7 +1167,7 @@ app-arch/plzip 1.11: Parallel lzip compressor
 app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par files
 app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
-app-arch/rar 7.00: RAR compressor/uncompressor
+app-arch/rar 7.00 7.01: RAR compressor/uncompressor
 app-arch/rpm 4.18.1 4.19.1.1: The RPM Package Manager
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
@@ -1186,7 +1186,7 @@ app-arch/unace 2.5-r6: ACE unarchiver
 app-arch/unadf 0.7.12-r2: Extract files from Amiga adf disk images
 app-arch/unar 1.10.8: Unpacker for various archiving formats, e.g. rar v3
 app-arch/unp 2.0_pre9 2.0_pre10 2.0: Script for unpacking various file formats
-app-arch/unrar 6.2.8 6.2.9 6.2.10 6.2.12 6.2.12-r1 7.0.7: Uncompress rar files
+app-arch/unrar 6.2.8 6.2.9 6.2.10 6.2.12 6.2.12-r1 7.0.7 7.0.9: Uncompress rar files
 app-arch/unrpa 2.3.0-r1: Ren'Py's RPA data file extractor
 app-arch/unshield 1.5.1: InstallShield CAB file extractor
 app-arch/unzip 6.0_p27-r1: unzipper for pkzip-compressed files
@@ -1588,7 +1588,7 @@ app-dicts/aspell-no 0.50.2-r2: Aspell (Norwegian) language dictionary
 app-dicts/aspell-ny 0.01.0-r1: Aspell (Chichewa) language dictionary
 app-dicts/aspell-or 0.03.1-r1: Aspell (Oriya) language dictionary
 app-dicts/aspell-pa 0.01.1-r1: Aspell (Punjabi) language dictionary
-app-dicts/aspell-pl 6.0.20240101.0 6.0.20240301.0: Aspell (Polish) language dictionary
+app-dicts/aspell-pl 6.0.20240301.0: Aspell (Polish) language dictionary
 app-dicts/aspell-pt 20220621: Aspell (Portuguese) language dictionary
 app-dicts/aspell-pt-br 20131030.12.0-r1: Aspell (Brazilian Portuguese) language dictionary
 app-dicts/aspell-qu 0.02.0-r1: Aspell (Quechua Runasimi) language dictionary
@@ -5379,9 +5379,9 @@ dev-libs/imath 3.1.6 3.1.9 3.1.11: Imath basic math package
 dev-libs/inih 57-r1 58: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1-r1: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 24.05.28454.17-r1 24.13.29138.7: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
-dev-libs/intel-metrics-discovery 1.12.170 1.12.171: A user mode library that provides access to GPU performance data
-dev-libs/intel-metrics-library 1.0.156 1.0.161: User mode driver helper library that provides access to GPU performance counters
+dev-libs/intel-compute-runtime 24.13.29138.7 24.17.29377.6: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-metrics-discovery 1.12.171: A user mode library that provides access to GPU performance data
+dev-libs/intel-metrics-library 1.0.161: User mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.18.0: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1 2.31.0: Intelligent Storage Acceleration Library
 dev-libs/isa-l_crypto 2.24.0: Intelligent Storage Acceleration Library - cryptographic components
@@ -5412,7 +5412,7 @@ dev-libs/kreport 3.2.0-r3: Framework for creation and generation of reports in m
 dev-libs/ktextaddons 1.2.1 1.5.4: Various text handling addons
 dev-libs/kweathercore 0.7 0.8.0: Library for retrieval of weather information including forecasts and alerts
 dev-libs/leatherman 1.12.12 1.12.13: A C++ toolkit
-dev-libs/level-zero 1.16.1 1.16.14-r1 1.16.15 1.17.0: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.16.15 1.17.0: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.20 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 0.3.113-r1 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5873,7 +5873,7 @@ dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.5: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r1: Simple streaming interface to zlib for Lua
 dev-lua/lua_cliargs 3.0_p2-r1: A command-line argument parsing module for Lua
-dev-lua/luacheck 1.1.2: A tool for linting and static analysis of Lua code
+dev-lua/luacheck 1.1.2 1.2.0: A tool for linting and static analysis of Lua code
 dev-lua/luacov 0.15.0: A simple coverage analyzer for Lua scripts
 dev-lua/luadbi 0.7.2-r2 0.7.3: A database interface library for Lua
 dev-lua/luaevent 0.4.6-r1: Binding of libevent for Lua
@@ -10856,7 +10856,7 @@ dev-util/idea-community 2024.1.2: A complete toolset for web, mobile and enterpr
 dev-util/imediff2 1.1.2.1: An interactive, user friendly 2-way merge tool in text mode
 dev-util/include-what-you-use 0.20 0.21 0.22: Find unused include directives in C/C++ programs
 dev-util/indent 2.2.12 2.2.13: Indent program source files
-dev-util/intel-graphics-compiler 1.0.15985.15 1.0.16695.2: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
+dev-util/intel-graphics-compiler 1.0.16695.2 1.0.16695.4: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
 dev-util/intel-graphics-system-controller 0.8.16: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015: Intel's implementation of the OpenCL standard
 dev-util/intel_clc 24.0.7 24.0.8 24.1.0 9999: intel_clc tool used for building OpenCL C to SPIR-V
@@ -12079,7 +12079,7 @@ gui-apps/swappy 1.5.1 9999: A Wayland native snapshot and editor tool, inspired 
 gui-apps/swaybg 1.2.0 9999: A wallpaper utility for Wayland
 gui-apps/swayidle 1.8.0 9999: Idle management daemon for Wayland
 gui-apps/swaylock 1.7 1.7.2 9999: Screen locker for Wayland
-gui-apps/tuigreet 0.7.2 0.8.0-r1 9999: TUI greeter for greetd login manager
+gui-apps/tuigreet 0.8.0-r1 0.9.0 9999: TUI greeter for greetd login manager
 gui-apps/waybar 0.9.22 0.9.24 0.10.0 0.10.3 9999: Highly customizable Wayland bar for Sway and Wlroots based compositors
 gui-apps/wayland-logout 1.4 9999: general logout scripts for wayland compositors
 gui-apps/waypipe 0.8.0-r2 0.8.6 9999: Transparent network proxy for Wayland compositors
@@ -14563,7 +14563,7 @@ net-analyzer/tcptrack 1.4.2: Passive per-connection tcp bandwidth monitor
 net-analyzer/telegraf 1.18.3 1.26.3-r1: The plugin-driven server agent for collecting & reporting metrics
 net-analyzer/termshark 2.4.0: A terminal UI for tshark, inspired by Wireshark
 net-analyzer/testssl 3.0.8: Tool to check TLS/SSL cipher support
-net-analyzer/thc-ipv6 3.2-r1 9999: Complete tool set to attack the inherent protocol weaknesses of IPV6 and ICMP6
+net-analyzer/thc-ipv6 3.2-r1 3.8 9999: Complete tool set to attack the inherent protocol weaknesses of IPV6 and ICMP6
 net-analyzer/thrulay 0.9-r1: Measure the capacity of a network by sending a bulk TCP stream over it
 net-analyzer/tleds 1.05_beta11-r2: Blinks keyboard LEDs indicating outgoing and incoming network packets
 net-analyzer/tptest 3.1.7-r2 3.1.7-r3: Internet bandwidth tester
@@ -15179,8 +15179,8 @@ net-misc/gerbera 1.12.1-r1 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
 net-misc/gnome-connections 45.0-r2: A remote desktop client for the GNOME desktop environment
 net-misc/gnome-remote-desktop 45.1-r1: Remote desktop daemon for GNOME using pipewire
-net-misc/gns3-gui 2.2.45 2.2.46: Graphical Network Simulator
-net-misc/gns3-server 2.2.45 2.2.46: GNS3 server to asynchronously manage emulators
+net-misc/gns3-gui 2.2.46 2.2.47: Graphical Network Simulator
+net-misc/gns3-server 2.2.46 2.2.47: GNS3 server to asynchronously manage emulators
 net-misc/gofish 1.2-r2: Gofish gopher server
 net-misc/grive 0.5.2_pre20211128-r1: An open source Linux client for Google Drive
 net-misc/gsasl 2.0.1 2.0.1-r2 2.2.0 2.2.1: The GNU SASL client, server, and library
@@ -15227,7 +15227,7 @@ net-misc/l7-filter-userspace 0.12_beta1-r1: Userspace utilities for layer 7 ipta
 net-misc/l7-protocols 2009.05.28-r1: Protocol definitions of l7-filter kernel modules
 net-misc/lambdamoo 1.8.1-r3: networked mud that can be used for different types of collaborative software
 net-misc/lanmap 81-r3: lanmap sits quietly on a network and builds a picture of what it sees
-net-misc/libteam 1.23 1.31-r1 9999: Library and tools set for controlling team network device
+net-misc/libteam 1.23 1.31-r1 1.32 9999: Library and tools set for controlling team network device
 net-misc/linux-eoip 0.5: Linux support for proprietary MIkrotik EoIP protocol
 net-misc/linuxptp 4.1 4.2: The Linux Precision Time Protocol (PTP) implementation
 net-misc/liveice 2000530-r3: Live Source Client For IceCast
@@ -16956,7 +16956,7 @@ sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 8.32-r1 9.4 9.4-r1 9.5 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 5.0.2 5.0.3 5.0.4: A Free software that gathers information on CPU, motherboard and more
-sys-apps/cpuid 20230614-r1 20240330-r1 20240409: Linux tool to dump x86 CPUID information about the CPUs
+sys-apps/cpuid 20240409: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.9.11: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
@@ -17218,7 +17218,7 @@ sys-apps/xmbmon 2.0.5-r2: Mother Board Monitor Program for X Window System
 sys-apps/yarn 1.22.17 1.22.19 1.22.21 1.22.22: Fast, reliable, and secure node dependency management
 sys-apps/zorroutils 0.05: Zorro bus utility for Amigas running 2.1 and later kernels
 sys-apps/zram-generator 1.1.2: Systemd unit generator for zram swap devices
-sys-auth/AusweisApp 2.1.0 2.1.1 9999: Official authentication app for German ID cards and residence permits
+sys-auth/AusweisApp 2.1.1 9999: Official authentication app for German ID cards and residence permits
 sys-auth/docker_auth 1.9.0: Docker Registry 2 authentication server
 sys-auth/elogind 246.10-r3 252.9: The systemd project's logind, extracted to a standalone package
 sys-auth/fprintd 1.94.1 1.94.2: D-Bus service to access fingerprint readers
@@ -18472,7 +18472,7 @@ x11-misc/devilspie 0.23-r2: Window matching utility similar to Sawfish's Matched
 x11-misc/devilspie2 0.44: Window matching utility with Lua scripting
 x11-misc/dex 0.9.0: DesktopEntry eXecution - tool to manage and launch autostart entries
 x11-misc/dmenu 5.2 5.3 9999: a generic, highly customizable, and efficient menu for the X Window System
-x11-misc/dunst 1.10.0 1.11.0 9999: Lightweight replacement for common notification daemons
+x11-misc/dunst 1.11.0 9999: Lightweight replacement for common notification daemons
 x11-misc/dxpc 3.9.2-r3: Differential X Protocol Compressor
 x11-misc/dzen 0.9.5_p2: General purpose messaging, notification, and menu utility
 x11-misc/e16-keyedit 0.9-r1: Key binding editor for Enlightenment DR16
@@ -18592,7 +18592,7 @@ x11-misc/sct 0.5-r1: Set color temperature of the screen
 x11-misc/sddm 0.18.1-r8 0.21.0: Simple Desktop Display Manager
 x11-misc/seetxt 0.72-r1: Clever, lightweight GUI text file and manual page viewer for X windows
 x11-misc/sent 1-r1: Simple plaintext presentation tool
-x11-misc/set_opacity 1.0 9999: Tool for set real compositing for windows through window's id, process' pid etc.
+x11-misc/set_opacity 1.0-r1: Tool for set real compositing for windows through window's id, process' pid etc.
 x11-misc/shared-mime-info 2.2 2.3-r1 2.4-r1: The Shared MIME-info Database specification
 x11-misc/shutter 0.99.4-r1 0.99.5: Feature-rich screenshot program
 x11-misc/simpleswitcher 20191008 99999999: lightweight EWMH window switcher with features and looks of dmenu

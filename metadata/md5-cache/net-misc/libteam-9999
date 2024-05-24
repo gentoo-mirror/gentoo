@@ -2,8 +2,8 @@ BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/
 DEFINED_PHASES=configure install prepare setup unpack
 DEPEND=>=dev-libs/jansson-2.4:= dev-libs/libdaemon >=dev-libs/libnl-3.2.19[utils] dbus? ( sys-apps/dbus ) zmq? ( >=net-libs/zeromq-3.2.0 )
 DESCRIPTION=Library and tools set for controlling team network device
-EAPI=7
-HOMEPAGE=http://libteam.org
+EAPI=8
+HOMEPAGE=https://libteam.org
 INHERIT=autotools linux-info git-r3
 IUSE=dbus debug examples static-libs +syslog zmq
 LICENSE=LGPL-2.1+
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=>=dev-libs/jansson-2.4:= dev-libs/libdaemon >=dev-libs/libnl-3.2.19[utils] dbus? ( sys-apps/dbus ) zmq? ( >=net-libs/zeromq-3.2.0 ) syslog? ( virtual/logger )
 SLOT=0
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	linux-info	e967b81f54be6f49f4219a57ce7db437	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=592786e40fb35bc978137378c03e36a7
+_md5_=940a68aee7a248b157e31f9032d148f2
