@@ -78,6 +78,9 @@ multilib_src_configure() {
 		$(multilib_native_use_enable test integration)
 		$(multilib_native_use_enable test self-generated-certificate)
 		--disable-tcti-libtpms
+		--disable-tcti-spi-ltt2go
+		--disable-tcti-spi-ftdi
+		--disable-tcti-i2c-ftdi
 		--disable-defaultflags
 		--disable-weakcrypto
 		--with-crypto="$(usex mbedtls mbed ossl)"
