@@ -7,7 +7,7 @@ CMAKE_BUILD_TYPE="Release"
 LLVM_COMPAT=( 15 )
 MY_PN="igc"
 MY_P="${MY_PN}-${PV}"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cmake flag-o-matic llvm-r1 python-any-r1
 
@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="debug vc"
 
 DEPEND="
