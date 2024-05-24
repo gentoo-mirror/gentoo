@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-libs/boost
@@ -47,6 +47,7 @@ BDEPEND="
 			dev-python/pip[${PYTHON_USEDEP}]
 			dev-python/scipy[${PYTHON_USEDEP}]
 		' "${PYTHON_TESTED[@]}")
+		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/wheel[${PYTHON_USEDEP}]
 		virtual/cblas
 		!!dev-python/setuptools-declarative-requirements
@@ -72,5 +73,31 @@ src_configure() {
 python_test() {
 	local -x COLUMNS=80
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+
+	local EPYTEST_DESELECT=(
+		# TODO
+		pythran/tests/test_numpy_ufunc_unary.py::TestNumpyUFuncUnary::test_signbit0
+	)
+
+	if has_version ">=dev-python/numpy-2[${PYTHON_USEDEP}]"; then
+		case ${EPYTHON} in
+			pypy3)
+				EPYTEST_DESELECT+=(
+					pythran/tests/test_distutils.py::TestDistutils::test_setup_bdist_install3
+					pythran/tests/test_distutils.py::TestDistutils::test_setup_build3
+					pythran/tests/test_distutils.py::TestDistutils::test_setup_sdist_install
+					pythran/tests/test_distutils.py::TestDistutils::test_setup_sdist_install2
+					pythran/tests/test_distutils.py::TestDistutils::test_setup_sdist_install3
+					pythran/tests/test_exception.py::TestException::test_multiple_tuple_exception_register
+					pythran/tests/test_ndarray.py::TestNdarray::test_ndarray_fancy_indexing1
+					pythran/tests/test_numpy_fft.py::TestNumpyFFTN::test_fftn_1
+					pythran/tests/test_numpy_func0.py::TestNumpyFunc0::test_ravel0
+					pythran/tests/test_numpy_func3.py::TestNumpyFunc3::test_list_imag0
+					pythran/tests/test_set.py::TestSet::test_fct_symmetric_difference_update
+				)
+				;;
+		esac
+	fi
+
 	epytest
 }

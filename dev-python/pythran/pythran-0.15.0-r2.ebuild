@@ -7,7 +7,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_TESTED=( pypy3 python3_{10..12} )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
 
-inherit distutils-r1 multiprocessing
+inherit distutils-r1
 
 MY_P=${P/_p/.post}
 DESCRIPTION="Ahead of Time compiler for numeric kernels"
@@ -27,38 +27,41 @@ KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv ~s390 ~sparc x86"
 
 RDEPEND="
 	dev-libs/boost
+	dev-cpp/xsimd
 	=dev-python/beniget-0.4*[${PYTHON_USEDEP}]
 	=dev-python/gast-0.5*[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]
+	<dev-python/numpy-2[${PYTHON_USEDEP}]
 	>=dev-python/ply-3.4[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 "
 DEPEND="
-	dev-libs/boost
-	dev-cpp/xsimd
+	test? (
+		dev-libs/boost
+		dev-cpp/xsimd
+	)
 "
 BDEPEND="
 	test? (
 		$(python_gen_cond_dep '
 			dev-python/ipython[${PYTHON_USEDEP}]
+			dev-python/pip[${PYTHON_USEDEP}]
+			dev-python/scipy[${PYTHON_USEDEP}]
 		' "${PYTHON_TESTED[@]}")
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
-		dev-python/scipy[${PYTHON_USEDEP}]
 		dev-python/wheel[${PYTHON_USEDEP}]
 		virtual/cblas
 		!!dev-python/setuptools-declarative-requirements
 	)
 "
 
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 src_configure() {
-	cat >> setup.cfg <<-EOF || die
-		[build_py]
-		no_boost = True
-		no_xsimd = True
-	EOF
+	# vendored C++ headers -- use system copies
+	rm -r pythran/{boost,xsimd} || die
 
 	if use test ; then
+		# https://bugs.gentoo.org/916461
 		sed -i \
 			-e 's|blas=blas|blas=cblas|' \
 			-e 's|libs=|libs=cblas|' \
@@ -67,25 +70,7 @@ src_configure() {
 }
 
 python_test() {
-	local EPYTEST_DESELECT=(
-		# TODO
-		pythran/tests/test_xdoc.py::TestDoctest::test_cli
-		pythran/tests/test_xdoc.py::TestDoctest::test_toolchain
-		# Tries to invoke pip
-		pythran/tests/test_distutils.py::TestDistutils::test_setup_build
-		pythran/tests/test_distutils.py::TestDistutils::test_setup_build2
-	)
-
-	case ${EPYTHON} in
-		python3.12)
-			EPYTEST_DESELECT+=(
-				# requires numpy.distutils
-				pythran/tests/test_distutils.py::TestDistutils::test_setup_{b,s}dist_install3
-			)
-			;;
-	esac
-
 	local -x COLUMNS=80
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p xdist -n "$(makeopts_jobs)"
+	epytest
 }
