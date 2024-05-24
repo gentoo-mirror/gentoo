@@ -839,49 +839,12 @@ sec-keys/openpgp-keys-jiatan
 <sys-kernel/gentoo-kernel-5.10
 <virtual/dist-kernel-5.10
 
-# Sam James <sam@gentoo.org> (2023-12-09)
-# ext4 corruption bug: https://lore.kernel.org/stable/20231205122122.dfhhoaswsfscuhc3@quack3/ (bug #919675)
-# Please update immediately to the latest versions in each series.
-=sys-kernel/gentoo-sources-6.1.64
-=sys-kernel/gentoo-sources-6.1.64-r1
-=sys-kernel/gentoo-sources-6.1.65
-=sys-kernel/gentoo-kernel-6.1.64
-=sys-kernel/gentoo-kernel-6.1.64-r1
-=sys-kernel/gentoo-kernel-6.1.65
-=sys-kernel/vanilla-sources-6.1.64
-=sys-kernel/vanilla-sources-6.1.65
-=sys-kernel/vanilla-kernel-6.1.64
-=sys-kernel/vanilla-kernel-6.1.65
-
-# Sam James <sam@gentoo.org> (2023-11-22)
-# Further bugs with CoW via copy_file_range (bug #917224, https://github.com/openzfs/zfs/issues/15526).
-# The issue is very similar to bug #815469.
-# ZFS 2.2.1 has a workaround but if you haven't already upgraded your pool to
-# use the new block cloning feature, consider using <zfs-2.2 for now.
-=sys-fs/zfs-2.2.0
-=sys-fs/zfs-kmod-2.2.0
-
 # Sam James <sam@gentoo.org> (2023-11-19)
 # GCC 10 and older no longer receive upstream support or fixes for
 # bugs. Please switch to a newer GCC version using gcc-config.
 # The lowest supported version of GCC is GCC 11.
 <sys-devel/gcc-11
 <sys-devel/kgcc64-11
-
-# Sam James <sam@gentoo.org> (2023-11-05)
-# Mask broken versions:
-# - sys-fs/btrfs-progs-6.6(-r0) was respun upstream.
-# - sys-fs/btrfs-progs-6.6-r1 had the fixed tarball, but contained an upstream
-# bug in the ioctl numbers.
-# Please use sys-fs/btrfs-progs-6.6-r2 or, better, sys-fs/btrfs-progs-6.6.1
-# (identical in functional contents).
-=sys-fs/btrfs-progs-6.6
-=sys-fs/btrfs-progs-6.6-r1
-=sys-fs/btrfs-progs-6.6-r2
-
-# Sam James <sam@gentoo.org> (2023-10-06)
-# Breaks building scipy: https://github.com/cython/cython/issues/5748
-=dev-python/cython-3.0.3
 
 # Sam James <sam@gentoo.org> (2023-09-09)
 # OpenSSL 1.1.x is EOL on 2023-09-11. Please upgrade immediately to >= OpenSSL 3.
@@ -950,11 +913,6 @@ x11-drivers/nvidia-drivers:0/390
 # Ben Kohler <bkohler@gentoo.org> (2023-01-30)
 # Breaks too many revdeps for now
 =app-text/discount-3*
-
-# John Helmert III <ajak@gentoo.org> (2022-10-16)
-# <OpenSSL-1.1.1 are EOL and contain known vulnerabilities. Users should
-# migrate to a newer branch.
-<dev-libs/openssl-1.1.1
 
 # Joonas Niilola <juippis@gentoo.org> (2022-04-29)
 # Apparently the "b" in version means "beta". 3.24 is available, we
