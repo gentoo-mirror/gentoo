@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( sec-keys/minisig-keys-zig-software-foundation ) verify-sig? ( app-crypt/minisign )
+DEFINED_PHASES=install postinst postrm unpack
+DESCRIPTION=A robust, optimal, and maintainable programming language
+EAPI=8
+HOMEPAGE=https://ziglang.org/
+IDEPEND=app-eselect/eselect-zig
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT ) || ( Apache-2.0-with-LLVM-exceptions Apache-2.0 MIT BSD-2 ) public-domain BSD-2 ZPL ISC HPND BSD inner-net LGPL-2.1+
+SLOT=0.12
+SRC_URI=amd64? ( https://ziglang.org/download/0.12.0/zig-linux-x86_64-0.12.0.tar.xz ) arm? ( https://ziglang.org/download/0.12.0/zig-linux-armv7a-0.12.0.tar.xz ) arm64? ( https://ziglang.org/download/0.12.0/zig-linux-aarch64-0.12.0.tar.xz ) ppc64? ( https://ziglang.org/download/0.12.0/zig-linux-powerpc64le-0.12.0.tar.xz ) riscv? ( https://ziglang.org/download/0.12.0/zig-linux-riscv64-0.12.0.tar.xz ) x86? ( https://ziglang.org/download/0.12.0/zig-linux-x86-0.12.0.tar.xz ) verify-sig? ( amd64? ( https://ziglang.org/download/0.12.0/zig-linux-x86_64-0.12.0.tar.xz.minisig ) arm? ( https://ziglang.org/download/0.12.0/zig-linux-armv7a-0.12.0.tar.xz.minisig ) arm64? ( https://ziglang.org/download/0.12.0/zig-linux-aarch64-0.12.0.tar.xz.minisig ) ppc64? ( https://ziglang.org/download/0.12.0/zig-linux-powerpc64le-0.12.0.tar.xz.minisig ) riscv? ( https://ziglang.org/download/0.12.0/zig-linux-riscv64-0.12.0.tar.xz.minisig ) x86? ( https://ziglang.org/download/0.12.0/zig-linux-x86-0.12.0.tar.xz.minisig ) )
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=b28d9c65e86753c94552d55d04615723
