@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,15 +10,15 @@ MY_COMMIT="740e945d742d85aef36e0ed9467de9bbbf5eafd2"
 DESCRIPTION="A Window Manager written entirely in Common Lisp"
 HOMEPAGE="https://stumpwm.github.io/"
 SRC_URI="https://github.com/stumpwm/stumpwm/archive/${MY_COMMIT}.tar.gz -> ${PN}-${MY_COMMIT}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc emacs"
 
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
-
-RESTRICT="strip"
+# Test restriction because of missing "fiasco" tool which is not yet packaged
+RESTRICT="strip test"
 
 RDEPEND="dev-lisp/alexandria
 		dev-lisp/cl-ppcre
@@ -27,13 +27,17 @@ RDEPEND="dev-lisp/alexandria
 		emacs? ( >=app-editors/emacs-23.1:* )"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-apps/texinfo
-		doc? ( virtual/texi2dvi )"
+		doc? (
+			virtual/texi2dvi
+			dev-texlive/texlive-fontsrecommended
+		)"
 
 SITEFILE=70${PN}-gentoo.el
 CLPKGDIR="${CLSOURCEROOT}/${CLPACKAGE}"
 
 install_docs() {
 	local pdffile="${PN}.pdf"
+	export VARTEXFONTS="${T}/fonts"
 
 	texi2pdf -o "${pdffile}" "${PN}.texi.in" && dodoc "${pdffile}" || die
 	cp "${FILESDIR}/README.Gentoo" . && sed -i "s:@VERSION@:${PV}:" README.Gentoo || die
