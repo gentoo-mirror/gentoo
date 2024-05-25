@@ -4,7 +4,7 @@
 EAPI="8"
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras experimental"
-K_GENPATCHES_VER="98"
+K_GENPATCHES_VER="229"
 
 inherit kernel-2
 detect_version
