@@ -1,15 +1,16 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/byaccj:0 >=dev-java/jflex-1.6.1:0 dev-java/jmock:1.0 test? ( dev-java/junit:0 ) >=dev-java/ant-1.10.14-r3:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=>=virtual/jdk-1.8:* dev-java/byaccj:0 dev-java/jflex:0 dev-java/jmock:1.0 ant-task? ( >=dev-java/ant-1.10.14-r3:0 ) test? ( dev-java/junit:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Parser for extracting class/interface/method definitions
 EAPI=8
 HOMEPAGE=https://github.com/codehaus/qdox
 INHERIT=java-pkg-2
-IUSE=doc source test
+IUSE=ant-task doc source test
 KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~ppc-macos ~x64-macos
 LICENSE=Apache-2.0
-RDEPEND=>=virtual/jre-1.8:* >=dev-java/ant-1.10.14-r3:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.8:* ant-task? ( >=dev-java/ant-1.10.14-r3:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+REQUIRED_USE=test? ( ant-task )
 RESTRICT=!test? ( test )
 SLOT=1.12
 SRC_URI=https://github.com/codehaus/qdox/archive/qdox-1.12.1.tar.gz
 _eclasses_=java-utils-2	b346c3901e71ba37137bae0b25b00221	java-pkg-2	b6d755b4f6afabfd933932be28b46368
-_md5_=8bf97d1bc123dc94b12ee3e91ba40357
+_md5_=5a6a049cf8f9e088b4ab31e94b7cbc11
