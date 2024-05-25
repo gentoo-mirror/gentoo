@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-libs/capnproto:= sys-libs/zlib:= test? ( python_single_target_python3_10? ( dev-python/pexpect[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pexpect[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pexpect[python_targets_python3_12(-)] ) dev-debug/gdb[xml] )
+DESCRIPTION=Record and Replay Framework
+EAPI=8
+HOMEPAGE=https://rr-project.org/
+INHERIT=cmake linux-info python-single-r1
+IUSE=multilib test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT BSD-2 GPL-2 ZLIB
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-libs/capnproto:= sys-libs/zlib:= dev-debug/gdb[xml]
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/rr-debugger/rr/archive/5.8.0.tar.gz -> mozilla-rr-5.8.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	linux-info	e967b81f54be6f49f4219a57ce7db437	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=41a9c704c2f79a90a17c1241ff23fd49
