@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-jariruusu ) sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install postinst setup unpack
+DEPEND=app-crypt/loop-aes-losetup virtual/linux-sources
+DESCRIPTION=Linux kernel module to encrypt disk partitions with AES cipher
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/loop-aes/
+IDEPEND=sys-apps/kmod[tools]
+INHERIT=linux-mod-r1 verify-sig
+IUSE=cpu_flags_x86_aes extra-ciphers keyscrub cpu_flags_x86_padlock dist-kernel modules-compress modules-sign +strip verify-sig
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+SLOT=0
+SRC_URI=https://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.8c.tar.bz2 verify-sig? ( https://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.8c.tar.bz2.sign -> loop-AES-v3.8c.tar.bz2.sig )
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	9ccd2b29cd75bd48092f8f46b07fc935	verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=69f0f6f7c64cdd7bcccc982d64261b3e
