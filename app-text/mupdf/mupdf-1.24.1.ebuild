@@ -15,14 +15,15 @@ S="${WORKDIR}"/${P}-source
 
 LICENSE="AGPL-3"
 SLOT="0/${PV}"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
-IUSE="+javascript opengl ssl X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="archive +javascript opengl ssl X"
 REQUIRED_USE="opengl? ( javascript )"
 
 # Although we use the bundled, patched version of freeglut in mupdf (because of
 # bug #653298), the best way to ensure that its dependencies are present is to
 # install system's freeglut.
 RDEPEND="
+	archive? ( app-arch/libarchive )
 	dev-libs/gumbo:=
 	media-libs/freetype:2
 	media-libs/harfbuzz:=[truetype]
@@ -50,11 +51,11 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.15-CFLAGS.patch
 	"${FILESDIR}"/${PN}-1.19.0-Makefile.patch
 	"${FILESDIR}"/${PN}-1.21.0-add-desktop-pc-files.patch
+	"${FILESDIR}"/${P}-cross-fixes.patch
 	"${FILESDIR}"/${P}-darwin.patch
 	# See bugs #662352
 	"${FILESDIR}"/${P}-openssl-x11.patch
 	# General cross fixes from Debian (refreshed)
-	"${FILESDIR}"/${P}-cross-fixes.patch
 	"${FILESDIR}"/${PN}-1.21.1-fix-aliasing-violation.patch
 )
 
@@ -75,7 +76,7 @@ src_prepare() {
 		-i Makerules || die "Failed adding build variables to Makerules in src_prepare()"
 
 	# Adjust MuPDF version in .pc file created by the
-	# mupdf-1.10a-add-desktop-pc-xpm-files.patch file
+	# mupdf-1.21.0-add-desktop-pc-files.patch file
 	sed -e "s/Version: \(.*\)/Version: ${PV}/" \
 		-i platform/debian/${PN}.pc || die "Failed substituting version in ${PN}.pc"
 }
@@ -153,9 +154,10 @@ src_install() {
 		dosym ${PN}-x11 /usr/bin/${PN}
 	fi
 
-	# Respect libdir (bug #734898)
-	sed -i -e "s:/lib:/$(get_libdir):" platform/debian/${PN}.pc \
-		|| die "Failed to sed pkgconfig file to respect libdir in src_install()"
+	# Respect libdir and EPREFIX (bugs #734898, #911965)
+	sed -i -e "s:/lib:/$(get_libdir):" \
+		-e "s:/usr:${EPREFIX}/usr:" platform/debian/${PN}.pc \
+		|| die "Failed to sed pkgconfig file to respect libdir and EPREFIX in src_install()"
 
 	insinto /usr/$(get_libdir)/pkgconfig
 	doins platform/debian/${PN}.pc
