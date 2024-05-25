@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/transient app-text/texi2html sys-apps/texinfo >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=Generic interaction mode between Emacs and different Scheme implementations
+EAPI=8
+HOMEPAGE=https://gitlab.com/emacs-geiser/geiser/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=app-emacs/transient >=app-editors/emacs-25.3:*
+SLOT=0
+SRC_URI=https://gitlab.com/emacs-geiser/geiser/-/archive/0.31/geiser-0.31.tar.bz2
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_md5_=27edc5295743e310e0d644e27f7bb286
