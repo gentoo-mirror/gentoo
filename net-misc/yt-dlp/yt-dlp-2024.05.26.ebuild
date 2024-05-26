@@ -5,22 +5,23 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{10..13} )
-inherit bash-completion-r1 distutils-r1 git-r3 optfeature wrapper
+inherit bash-completion-r1 distutils-r1 optfeature wrapper
 
 DESCRIPTION="youtube-dl fork with additional features and fixes"
 HOMEPAGE="https://github.com/yt-dlp/yt-dlp/"
-EGIT_REPO_URI="https://github.com/yt-dlp/yt-dlp.git"
+SRC_URI="
+	https://github.com/yt-dlp/yt-dlp/releases/download/${PV}/${PN}.tar.gz
+		-> ${P}.tar.gz
+"
+S="${WORKDIR}/${PN}"
 
 LICENSE="Unlicense"
 SLOT="0"
-IUSE="man"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	!net-misc/youtube-dl[-yt-dlp(-)]
-"
-BDEPEND="
-	man? ( virtual/pandoc )
 "
 
 distutils_enable_tests pytest
@@ -32,16 +33,6 @@ src_prepare() {
 	sed -Ei pyproject.toml \
 		-e 's/("pycryptodome)x/\1/' \
 		-e '/"(brotli.*|certifi|mutagen|requests|urllib3|websockets)/d' || die
-}
-
-python_compile() {
-	# generate missing files in live, not in compile_all nor prepare
-	# given need lazy before compile and it needs a usable ${PYTHON}
-	emake completions lazy-extractors $(usev man yt-dlp.1)
-
-	"${EPYTHON}" devscripts/update-version.py || die
-
-	distutils-r1_python_compile
 }
 
 python_test() {
@@ -57,7 +48,7 @@ python_test() {
 
 python_install_all() {
 	dodoc README.md Changelog.md supportedsites.md
-	use man && doman yt-dlp.1
+	doman yt-dlp.1
 
 	dobashcomp completions/bash/yt-dlp
 
@@ -66,6 +57,8 @@ python_install_all() {
 
 	insinto /usr/share/zsh/site-functions
 	doins completions/zsh/_yt-dlp
+
+	rm -r "${ED}"/usr/share/doc/yt_dlp || die
 
 	make_wrapper youtube-dl "yt-dlp --compat-options youtube-dl"
 }
