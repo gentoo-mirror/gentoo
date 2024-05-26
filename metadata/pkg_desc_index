@@ -2702,7 +2702,7 @@ app-misc/ddcutil 1.2.2 1.3.0 1.4.1 1.4.5 2.0.0-r2 2.1.4: Program for querying an
 app-misc/delay 1.6-r5 1.6-r6: Sleeplike program that counts down the number of seconds specified
 app-misc/detachtty 11.0.0 11.0.0-r1: Attach/detach from interactive processes across the network
 app-misc/detox 1.4.2-r1 1.4.5-r1: Safely remove spaces and strange characters from filenames
-app-misc/devtodo 0.1.20-r3: A nice command line todo list for developers
+app-misc/devtodo 0.1.20-r3 0.1.20-r4: Hierarchical command-line task manager
 app-misc/dfshow 0.9.1_beta-r2: DF-SHOW is a Unix-like rewrite of some of the applications from DF-EDIT
 app-misc/digitemp 3.7.2: Temperature logging and reporting using Maxim's iButtons and 1-Wire protocol
 app-misc/dtach 0.9-r1: Emulates the detach feature of screen
@@ -4039,7 +4039,7 @@ dev-dotnet/coco 2014.12.24-r3: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 1.1.1-r1: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.11.0 0.12.0 0.13.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.6: A command line C# REPL with syntax highlighting
-dev-dotnet/dotnet-outdated 4.6.0 4.6.1 4.6.2: Display and update outdated NuGet packages in a project
+dev-dotnet/dotnet-outdated 4.6.1 4.6.2 4.6.4: Display and update outdated NuGet packages in a project
 dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.27-r1 6.0.30 7.0.14-r1 7.0.16-r1 7.0.19 8.0.2-r2 8.0.5: .NET runtime nugets
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.102-r1 8.0.105: .NET is a free, cross-platform, open-source developer platform
@@ -5127,7 +5127,7 @@ dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 3.72 3.90 3.95 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.13.4-r1 1.14.3-r1 1.14.5-r2 1.15.7 1.16.2: Elixir programming language
-dev-lang/elpi 1.17.0 1.17.4: Embeddable Lambda Prolog Interpreter in OCaml
+dev-lang/elpi 1.17.4 1.18.2: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 25.3 26.0 26.1.2 26.2 26.2.1 26.2.2 26.2.4 27.0: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.513: Combine interpreter of esoteric languages
 dev-lang/execline 2.9.5.1: A non-interactive scripting language
@@ -5209,7 +5209,7 @@ dev-lang/rust-bin 1.71.0 1.71.1 1.73.0 1.74.1 1.75.0 1.76.0 1.77.1: Systems prog
 dev-lang/sassc 3.6.2: A libsass command line driver
 dev-lang/scala 2.12.4 2.12.10-r2: The Scala Programming Language
 dev-lang/scala-bin 2.13.9: The Scala Programming Language
-dev-lang/smlnj 110.99.3 110.99.4: Standard ML of New Jersey compiler and libraries
+dev-lang/smlnj 110.99.4 110.99.5: Standard ML of New Jersey compiler and libraries
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
 dev-lang/souffle 2.4.1: Datalog compiler, synthesizes C++ program from logic specification
 dev-lang/spark 2021: Software development for high-reliability applications
@@ -5903,7 +5903,7 @@ dev-ml/async_extra 0.14.0 0.15.0: Jane Street Capital's asynchronous execution l
 dev-ml/async_kernel 0.14.0 0.15.0 0.16.0: Jane Street Capital's asynchronous execution library (core)
 dev-ml/async_rpc_kernel 0.14.0-r1 0.15.0 0.16.0: Platform-independent core of Async RPC library
 dev-ml/async_unix 0.14.0 0.15.0 0.16.0: Jane Street Capital's asynchronous execution library (unix)
-dev-ml/atd 2.12.0 2.15.0: Static types for JSON APIs
+dev-ml/atd 2.15.0: Static types for JSON APIs
 dev-ml/base 0.14.0-r2 0.14.3-r2 0.15.1-r2 0.16.3-r1: Standard library for OCaml
 dev-ml/base_bigstring 0.14.0 0.15.0-r1 0.16.0: String type based on Bigarray, for use in I/O and C-bindings
 dev-ml/base_quickcheck 0.14.0-r1 0.14.1-r2 0.15.0-r2 0.16.0: Randomized testing framework, designed for compatibility with Base
@@ -6086,7 +6086,7 @@ dev-ml/qtest 2.11.2: Inline (Unit) Tests for OCaml
 dev-ml/re 1.10.4-r2 1.11.0: Regular expression library for OCaml
 dev-ml/react 1.2.1-r1 1.2.2-r1: OCaml module for functional reactive programming
 dev-ml/reactiveData 0.2.1: Functional reactive programming with incremental changes in data structures
-dev-ml/reason 3.10.0 3.11.0: Simple, fast & type safe language that leverages JavaScript and OCaml
+dev-ml/reason 3.11.0: Simple, fast & type safe language that leverages JavaScript and OCaml
 dev-ml/result 1.5: Compat result type
 dev-ml/rresult 0.6.0 0.7.0: Result value combinators for OCaml
 dev-ml/sedlex 2.5-r1 3.0 3.1: An OCaml lexer generator for Unicode
@@ -6133,14 +6133,14 @@ dev-perl/Algorithm-ClusterPoints 0.80.0-r1: Find clusters inside a set of points
 dev-perl/Algorithm-Dependency 1.112.0: Toolkit for implementing dependency systems
 dev-perl/Algorithm-Diff 1.201.0: Compute intelligent differences between two files / lists
 dev-perl/Algorithm-Munkres 0.80.0-r2: Munkres solution to classical Assignment problem
-dev-perl/Alien-Base-ModuleBuild 1.170.0: A Module::Build subclass for building Alien:: modules and their libraries
-dev-perl/Alien-Build 2.800.0: Build external dependencies for use in CPAN
-dev-perl/Alien-GMP 1.160.0: Alien package for the GNU Multiple Precision library
+dev-perl/Alien-Base-ModuleBuild 1.170.0-r1: A Module::Build subclass for building Alien:: modules and their libraries
+dev-perl/Alien-Build 2.800.0-r1: Build external dependencies for use in CPAN
+dev-perl/Alien-GMP 1.160.0-r1: Alien package for the GNU Multiple Precision library
 dev-perl/Alien-Gnuplot 1.34.0 1.43.0: Find and verify functionality of the gnuplot executable
 dev-perl/Alien-HDF4 0.60.0: Encapsulate install info for HDF4
 dev-perl/Alien-LibGumbo 0.50.0-r3 0.50.0-r4: Gumbo parser library
-dev-perl/Alien-Libxml2 0.170.0: Install the C libxml2 library on your system
-dev-perl/Alien-OpenSSL 0.150.0: Alien wrapper for OpenSSL
+dev-perl/Alien-Libxml2 0.170.0-r1: Install the C libxml2 library on your system
+dev-perl/Alien-OpenSSL 0.150.0-r1: Alien wrapper for OpenSSL
 dev-perl/Alien-SDL 1.446.0-r1: Building, finding and using SDL binaries
 dev-perl/Alien-wxWidgets 0.690.0-r3: Building, finding and using wxWidgets binaries
 dev-perl/Any-Moose 0.270.0-r1: Use Moose or Mouse modules (DEPRECATED)
@@ -6165,7 +6165,7 @@ dev-perl/App-FatPacker 0.10.8: Pack your dependencies onto your script file
 dev-perl/App-Nopaste 1.13.0: Easy access to any pastebin
 dev-perl/App-cpanminus 1.704.700 9999: Get, unpack, build and install modules from CPAN
 dev-perl/App-perlbrew 0.980.0: Manage perl installations in your $HOME
-dev-perl/App-pwhich 1.170.0: Perl-only 'which'
+dev-perl/App-pwhich 1.170.0-r1: Perl-only 'which'
 dev-perl/AppConfig 1.710.0-r1: Perl5 module for reading configuration files and parsing command line arguments
 dev-perl/Archive-Any 0.94.600: Single interface to deal with file archives
 dev-perl/Archive-Any-Lite 0.110.0: Simple CPAN package extractor
@@ -6275,7 +6275,7 @@ dev-perl/Cache 2.110.0-r1: the Cache interface
 dev-perl/Cache-Cache 1.80.0-r1: Generic cache interface and implementations
 dev-perl/Cache-FastMmap 1.570.0: Uses an mmaped file to act as a shared memory interprocess cache
 dev-perl/Cache-Memcached 1.300.0-r2: Perl API for memcached
-dev-perl/Cache-Memcached-Fast 0.280.0: Perl client for memcached, in C language
+dev-perl/Cache-Memcached-Fast 0.280.0-r1: Perl client for memcached, in C language
 dev-perl/Cache-Simple-TimedExpiry 0.270.0-r2: Lightweight cache with timed expiration
 dev-perl/Cairo 1.109.0 1.109.0-r1: Perl interface to the cairo library
 dev-perl/Cairo-GObject 1.5.0-r1: Integrate Cairo into the Glib type system
@@ -6373,7 +6373,7 @@ dev-perl/Convert-BER 1.320.0-r2: Class for encoding/decoding BER messages
 dev-perl/Convert-Base32 0.60.0: Encoding and decoding of base32 strings
 dev-perl/Convert-BinHex 1.125.0-r1: Extract data from Macintosh BinHex files
 dev-perl/Convert-Binary-C 0.840.0: Binary Data Conversion using C Types
-dev-perl/Convert-Color 0.170.0: Color space conversions and named lookups
+dev-perl/Convert-Color 0.170.0-r1: Color space conversions and named lookups
 dev-perl/Convert-PEM 0.80.0-r2: Read/write encrypted ASN.1 PEM files
 dev-perl/Convert-TNEF 0.180.0-r3: Perl module for reading TNEF files
 dev-perl/Convert-UU 0.520.100: Perl replacement for uuencode
@@ -6489,7 +6489,7 @@ dev-perl/Data-URIEncode 0.110.0-r2: Allow complex data structures to be encoded 
 dev-perl/Data-UUID 1.226.0 1.227.0: Generate Globally/Universally Unique Identifiers (GUIDs/UUIDs)
 dev-perl/Data-Uniqid 0.120.0-r2: Perl extension for simple generating of unique ids
 dev-perl/Data-Utilities 0.40.0-r2: Merge nested Perl data structures
-dev-perl/Data-Validate-Domain 0.150.0: Domain and host name validation
+dev-perl/Data-Validate-Domain 0.150.0-r1: Domain and host name validation
 dev-perl/Data-Validate-IP 0.310.0: IPv4 and IPv6 validation methods
 dev-perl/Data-Visitor 0.320.0: Visitor style traversal of Perl data structures
 dev-perl/Date-Calc 6.400.0-r1: Gregorian calendar date calculations
@@ -6510,14 +6510,14 @@ dev-perl/DateTime-Format-Flexible 0.340.0: Flexibly parse strings and turn them 
 dev-perl/DateTime-Format-HTTP 0.420.0-r1: Date conversion routines
 dev-perl/DateTime-Format-Human-Duration 0.640.0-r1: Get a locale specific string describing the span of a given duration
 dev-perl/DateTime-Format-ICal 0.90.0-r1: Parse and format iCal datetime and duration strings
-dev-perl/DateTime-Format-ISO8601 0.160.0: Parses ISO8601 formats
+dev-perl/DateTime-Format-ISO8601 0.160.0-r1: Parses ISO8601 formats
 dev-perl/DateTime-Format-Mail 0.403.0-r1: Convert between DateTime and RFC2822/822 formats
 dev-perl/DateTime-Format-Natural 1.180.0: Parse informal natural language date/time strings
 dev-perl/DateTime-Format-SQLite 0.110.0-r1: Parse and format SQLite dates and times
 dev-perl/DateTime-Format-Strptime 1.790.0: Parse and Format DateTimes using Strptime
 dev-perl/DateTime-Format-W3CDTF 0.80.0: Parse and format W3CDTF datetime strings
 dev-perl/DateTime-HiRes 0.40.0: Create DateTime objects with sub-second current time resolution
-dev-perl/DateTime-Locale 1.400.0: Localization support for DateTime
+dev-perl/DateTime-Locale 1.400.0-r1: Localization support for DateTime
 dev-perl/DateTime-Set 0.390.0-r1: Datetime sets and set math
 dev-perl/DateTime-TimeZone 2.600.0: Time zone object base class and factory
 dev-perl/DateTime-Tiny 1.70.0: Date object, with as little code as possible
@@ -6660,7 +6660,7 @@ dev-perl/Exporter-Cluster 0.310.0-r2: Extension for easy multiple module imports
 dev-perl/Exporter-Lite 0.90.0: Lightweight exporting of variables
 dev-perl/Exporter-Tiny 1.6.2: An exporter with the features of Sub::Exporter but only core dependencies
 dev-perl/ExtUtils-AutoInstall 0.640.0-r1: Automatic installation of dependencies via CPAN from within Makefile.PL
-dev-perl/ExtUtils-CChecker 0.110.0 0.120.0: Configure-time utilities for using C headers
+dev-perl/ExtUtils-CChecker 0.110.0 0.120.0-r1: Configure-time utilities for using C headers
 dev-perl/ExtUtils-Config 0.8.0-r1 0.9.0: Wrapper for perl's configuration
 dev-perl/ExtUtils-CppGuess 0.260.0: Guess C++ compiler and flags
 dev-perl/ExtUtils-Depends 0.800.100: Easily build XS extensions that depend on XS extensions
@@ -6677,7 +6677,7 @@ dev-perl/ExtUtils-XSpp 0.180.0-r1: XS for C++
 dev-perl/FCGI 0.790.0 0.820.0: Fast CGI module
 dev-perl/FCGI-Client 0.90.0: Client library for fastcgi protocol
 dev-perl/FCGI-ProcManager 0.280.0-r1: A FastCGI process manager
-dev-perl/FFI-CheckLib 0.310.0: Check that a library is available for FFI
+dev-perl/FFI-CheckLib 0.310.0-r1: Check that a library is available for FFI
 dev-perl/FLV-AudioExtractor 0.10.0-r1: Extract audio from Flash Videos
 dev-perl/Fatal-Exception 0.50.0-r3: Succeed or throw exception
 dev-perl/Feature-Compat-Class 0.60.0: Make class syntax available
@@ -6747,10 +6747,10 @@ dev-perl/Format-Human-Bytes 0.60.0-r2: Format a bytecount and make it human read
 dev-perl/FreezeThaw 0.500.100-r2: Convert Perl structures to strings and back
 dev-perl/Frontier-RPC 0.07_beta4-r4: Perform remote procedure calls using extensible markup language
 dev-perl/Fuse 0.16.1-r2: Fuse module for perl
-dev-perl/Future 0.500.0: Represent an operation awaiting completion
-dev-perl/Future-IO 0.150.0: Future-returning IO methods
+dev-perl/Future 0.500.0-r1: Represent an operation awaiting completion
+dev-perl/Future-IO 0.150.0-r1: Future-returning IO methods
 dev-perl/GD 2.780.0 2.790.0 2.800.0: Interface to Thomas Boutell's gd library
-dev-perl/GD-Barcode 2.0.0: Create barcode images with GD
+dev-perl/GD-Barcode 2.0.0-r1: Create barcode images with GD
 dev-perl/GD-Graph3d 0.630.0-r3: Create 3D Graphs with GD and GD::Graph
 dev-perl/GD-SVG 0.330.0-r2: Seamlessly enable SVG output from scripts written using GD
 dev-perl/GDGraph 1.560.0: Perl5 module to create charts using the GD module
@@ -6864,7 +6864,7 @@ dev-perl/IMAP-Admin 1.6.8-r1: Perl module for basic IMAP server administration
 dev-perl/IMAP-BodyStructure 1.30.0-r1: IMAP4-compatible BODYSTRUCTURE and ENVELOPE parser
 dev-perl/IO-AIO 4.800.0 4.810.0: Asynchronous Input/Output
 dev-perl/IO-All 0.870.0-r1: Unified IO operations
-dev-perl/IO-Async 0.803.0: Asynchronous event-driven programming
+dev-perl/IO-Async 0.803.0-r1: Asynchronous event-driven programming
 dev-perl/IO-BufferedSelect 1.0.0-r3: Perl module that implements a line-buffered select interface
 dev-perl/IO-Capture 0.50.0-r3: Abstract Base Class to build modules to capture output
 dev-perl/IO-CaptureOutput 1.110.500: Capture STDOUT and STDERR from Perl code, subprocesses or XS
@@ -7058,7 +7058,7 @@ dev-perl/MaxMind-DB-Common 0.40.1: Code shared by the MaxMind DB reader and writ
 dev-perl/MaxMind-DB-Reader 1.0.14: Read MaxMind DB files and look up IP addresses
 dev-perl/MaxMind-DB-Reader-XS 1.0.9: Fast XS implementation of MaxMind DB reader
 dev-perl/MediaWiki-API 0.520.0: A OO interface to the Mediawiki API
-dev-perl/Metrics-Any 0.100.0: Set the Metrics::Any adapter for the program
+dev-perl/Metrics-Any 0.100.0-r1: Set the Metrics::Any adapter for the program
 dev-perl/Mixin-Linewise 0.111.0: Write your linewise code for handles; this does the rest
 dev-perl/Mo 0.400.0-r1: Perl Micro Object framework
 dev-perl/Mock-Config 0.30.0-r1: Temporarily set Config or XSConfig values
@@ -7172,7 +7172,7 @@ dev-perl/Net-LDAP-Server 0.430.0-r2: LDAP server side protocol handling
 dev-perl/Net-LDAPapi 3.0.7-r1: Perl5 Module Supporting LDAP API
 dev-perl/Net-LibIDN 0.120.0-r3: Perl bindings for GNU Libidn
 dev-perl/Net-LibIDN2 1.20.0 1.20.0-r1: Perl bindings for GNU Libidn2
-dev-perl/Net-Netmask 2.0.200: Parse, manipulate and lookup IP network blocks
+dev-perl/Net-Netmask 2.0.200-r1: Parse, manipulate and lookup IP network blocks
 dev-perl/Net-OAuth 0.280.0-r2: OAuth protocol support
 dev-perl/Net-OpenID-Common 1.200.0-r1: Libraries shared between Net::OpenID::Consumer and Net::OpenID::Server
 dev-perl/Net-OpenID-Consumer 1.180.0-r1: Library for consumers of OpenID identities
@@ -7225,7 +7225,7 @@ dev-perl/ORLite-Migrate 1.100.0-r2: Extremely light weight SQLite-specific schem
 dev-perl/Object-Enum 0.75.0-r1: Replacement for if ($foo eq 'bar')
 dev-perl/Object-Event 1.230.0-r1: A class that provides an event callback interface
 dev-perl/Object-MultiType 0.50.0-r1: Perl Objects as Hash, Array, Scalar, Code and Glob at the same time
-dev-perl/Object-Pad 0.805.0 0.808.0: Simple syntax for lexical field-based objects
+dev-perl/Object-Pad 0.805.0-r1 0.808.0-r1: Simple syntax for lexical field-based objects
 dev-perl/Object-Realize-Later 0.210.0: Delayed creation of objects
 dev-perl/Ogg-Vorbis-Header 0.110.0: An object-oriented interface to Ogg Vorbis information and comment fields
 dev-perl/Ogg-Vorbis-Header-PurePerl 1.50.0: Object-oriented interface to Ogg Vorbis information and comment fields
@@ -7281,7 +7281,7 @@ dev-perl/Parallel-Prefork 0.180.0-r1: A simple prefork server framework
 dev-perl/Params-Classify 0.15.0-r1: Argument type classification
 dev-perl/Params-Util 1.102.0: Utility functions to aid in parameter checking
 dev-perl/Params-Validate 1.310.0: Flexible system for validation of method/function call parameters
-dev-perl/Params-ValidationCompiler 0.310.0: Build an optimized subroutine parameter validator once, use it forever
+dev-perl/Params-ValidationCompiler 0.310.0-r1: Build an optimized subroutine parameter validator once, use it forever
 dev-perl/Parse-Distname 0.50.0: Parse a distribution name
 dev-perl/Parse-ErrorString-Perl 0.270.0-r1: Parse error messages from the perl interpreter
 dev-perl/Parse-ExuberantCTags 1.20.0-r2: Efficiently parse exuberant ctags files
@@ -7413,7 +7413,7 @@ dev-perl/Set-Object 1.420.0: Set of objects and strings
 dev-perl/Set-Scalar 1.290.0-r1: Scalar set operations
 dev-perl/Shell 0.730.0-r1: Run shell commands transparently within perl
 dev-perl/Shell-Command 0.60.0: Cross-platform functions emulating common shell commands
-dev-perl/Shell-Config-Generate 0.340.0: Portably generate config for any shell
+dev-perl/Shell-Config-Generate 0.340.0-r1: Portably generate config for any shell
 dev-perl/Shell-EnvImporter 1.70.0-r3: Import environment variable changes from external commands or shell scripts
 dev-perl/Shell-Guess 0.90.0-r1: Make an educated guess about the shell in use
 dev-perl/ShipIt 0.600.0-r2: Software Release Tool
@@ -7462,7 +7462,7 @@ dev-perl/String-Tokenizer 0.60.0-r1: A simple string tokenizer
 dev-perl/String-Truncate 1.100.603: Module for when strings are too long to be displayed in...
 dev-perl/String-Util 1.340.0: String processing utility functions
 dev-perl/Struct-Compare 1.0.1-r1: Recursive diff for perl structures
-dev-perl/Struct-Dumb 0.140.0: Make simple lightweight record-like structures
+dev-perl/Struct-Dumb 0.140.0-r1: Make simple lightweight record-like structures
 dev-perl/Sub-Delete 1.0.20-r1: Perl module enabling one to delete subroutines
 dev-perl/Sub-Exporter 0.990.0 0.991.0: Sophisticated exporter for custom-built routines
 dev-perl/Sub-Exporter-ForMethods 0.100.55: Helper routines for using Sub::Exporter to build methods
@@ -7482,7 +7482,7 @@ dev-perl/Symbol-Util 0.20.300-r2: Additional utils for Perl symbols manipulation
 dev-perl/Syntax-Highlight-Engine-Simple 0.102.0: Simple Syntax Highlight Engine
 dev-perl/Syntax-Highlight-Engine-Simple-Perl 0.60.0: Experimental Perl code highlighting class
 dev-perl/Syntax-Keyword-Junction 0.3.8-r2: Perl6 style Junction operators in Perl5
-dev-perl/Syntax-Keyword-Try 0.280.0 0.290.0: A try/catch/finally syntax for Perl
+dev-perl/Syntax-Keyword-Try 0.280.0 0.290.0-r1: A try/catch/finally syntax for Perl
 dev-perl/Sys-CPU 0.610.0-r2: Access CPU info. number, etc on Win and UNIX
 dev-perl/Sys-CpuLoad 0.310.0-r2: A module to retrieve system load averages
 dev-perl/Sys-Hostname-Long 1.500.0-r2: Try every conceivable way to get full hostname
@@ -7540,8 +7540,8 @@ dev-perl/Test-DistManifest 1.14.0-r1: Author test that validates a package MANIF
 dev-perl/Test-Distribution 2.0.0-r2: perform tests on all modules of a distribution
 dev-perl/Test-EOL 2.20.0: Check the correct line endings in your project
 dev-perl/Test-Exception 0.430.0-r1: Test functions for exception based code
-dev-perl/Test-Expander 2.5.0-r3: Expansion of test functionality that is frequently used while testing
-dev-perl/Test-ExpectAndCheck 0.60.0-r1: expect/check-style unit testing with object methods
+dev-perl/Test-Expander 2.5.0-r4: Expansion of test functionality that is frequently used while testing
+dev-perl/Test-ExpectAndCheck 0.60.0-r2: expect/check-style unit testing with object methods
 dev-perl/Test-FailWarnings 0.8.0-r2: Add test failures if warnings are caught
 dev-perl/Test-Fatal 0.17.0: Incredibly simple helpers for testing code with exceptions
 dev-perl/Test-File 1.993.0: Test file attributes
@@ -7550,7 +7550,7 @@ dev-perl/Test-File-ShareDir 1.1.2-r1: Create a Fake ShareDir for your modules fo
 dev-perl/Test-Filename 0.30.0-r2: Portable filename comparison
 dev-perl/Test-Files 0.150.0 0.260.0-r1: A Test::Builder based module to ease testing with files and dirs
 dev-perl/Test-Fork 0.20.0: test code which forks
-dev-perl/Test-Future-IO-Impl 0.140.0-r1: Acceptance tests for Future::IO implementations
+dev-perl/Test-Future-IO-Impl 0.140.0-r2: Acceptance tests for Future::IO implementations
 dev-perl/Test-HTTP-Server-Simple 0.110.0: Test::More functions for HTTP::Server::Simple
 dev-perl/Test-InDistDir 1.112.71: Test environment setup for development with IDE
 dev-perl/Test-Inline 2.214.0: Inline test suite support for Perl
@@ -7588,7 +7588,7 @@ dev-perl/Test-Refcount 0.100.0: Assert reference counts on objects
 dev-perl/Test-Regexp 2017040101.0.0-r1: Provide commonly requested regular expressions
 dev-perl/Test-Requires 0.110.0: Checks to see if the module can be loaded
 dev-perl/Test-RequiresInternet 0.50.0-r1: Easily test network connectivity
-dev-perl/Test-Script 1.290.0: Cross-platform basic tests for scripts
+dev-perl/Test-Script 1.290.0-r1: Cross-platform basic tests for scripts
 dev-perl/Test-SharedFork 0.350.0-r1: Ensure that tests work correctly when fork() is used
 dev-perl/Test-Spec 0.540.0-r1: Write tests in a declarative specification style
 dev-perl/Test-Strict 0.520.0: Check syntax, presence of use strict; and test coverage
@@ -7609,9 +7609,8 @@ dev-perl/Test-Warnings 0.32.0 0.33.0: Test for warnings and the lack of them
 dev-perl/Test-Without-Module 0.210.0: Test fallback behaviour in absence of modules
 dev-perl/Test-YAML 1.70.0: Testing Module for YAML Implementations
 dev-perl/Test-utf8 1.20.0: Handy utf8 tests
-dev-perl/Test2-Plugin-NoWarnings 0.90.0 0.100.0: Fail if tests warn
-dev-perl/Test2-Suite 0.0.159-r1 0.0.162-r1: Rich set of tools built upon the Test2 framework
-dev-perl/Test2-Tools-Explain 0.20.0: Explain tools for Perl's Test2 framework
+dev-perl/Test2-Plugin-NoWarnings 0.90.0-r1 0.100.0-r1: Fail if tests warn
+dev-perl/Test2-Tools-Explain 0.20.0-r1: Explain tools for Perl's Test2 framework
 dev-perl/Text-Aligner 0.160.0: Used to justify strings to various alignment styles
 dev-perl/Text-Aspell 0.90.0-r3: Perl interface to the GNU Aspell Library
 dev-perl/Text-Autoformat 1.750.0: Automatic text wrapping and reformatting
@@ -7820,8 +7819,8 @@ dev-perl/XML-XSLT 0.480.0-r2: A Perl module to parse XSL Transformational sheets
 dev-perl/XML-XUpdate-LibXML 0.6.0-r2: Process XUpdate commands over an XML document
 dev-perl/XMLRPC-Lite 0.717.0-r1: client and server implementation of XML-RPC protocol
 dev-perl/XS-Object-Magic 0.50.0: Opaque, extensible XS pointer backed objects using sv_magic
-dev-perl/XS-Parse-Keyword 0.380.0 0.410.0 0.420.0: XS functions to assist in parsing keyword syntax
-dev-perl/XS-Parse-Sublike 0.210.0: XS functions to assist in parsing sub-like syntax
+dev-perl/XS-Parse-Keyword 0.380.0-r1 0.420.0-r1: XS functions to assist in parsing keyword syntax
+dev-perl/XS-Parse-Sublike 0.210.0-r1: XS functions to assist in parsing sub-like syntax
 dev-perl/XString 0.5.0: Isolated String helpers from B
 dev-perl/XXX 0.380.0: See Your Data in the Nude
 dev-perl/YAML 1.300.0 1.310.0: YAML Ain't Markup Language (tm)
@@ -7866,7 +7865,7 @@ dev-perl/perl-headers 0.0.2: Generated .ph equivalents of system headers
 dev-perl/perl-ldap 0.680.0: Perl modules which provide an object-oriented interface to LDAP servers
 dev-perl/prefork 1.50.0: Optimized module loading for forking or non-forking processes
 dev-perl/rename 1.110.0-r1 1.140.0: Filename renaming utility based on perl regular expression
-dev-perl/self 0.360.0: provides '$self' in OO code
+dev-perl/self 0.360.0-r1: provides '$self' in OO code
 dev-perl/strictures 2.0.6: Turn on strict and make most warnings fatal
 dev-perl/syntax 0.4.0-r2: Activate syntax extensions
 dev-perl/tkispell 0.200.0: Perl/Tk user interface for ispell
@@ -11865,7 +11864,7 @@ games-util/antimicrox 3.4.0: Graphical program used to map keyboard buttons and 
 games-util/atlas 0.6.1_beta_pre20181202: Chart Program to use with Flightgear Flight Simulator
 games-util/basis_universal 1.16.3-r1 1.16.4: Basis Universal GPU Texture Codec
 games-util/biounzip 1.1a: Unpacks BioZip archives
-games-util/cartridges 2.7.4 2.8.4 9999: Simple game launcher written in Python using GTK4 and Libadwaita
+games-util/cartridges 2.7.4 2.8.4 2.8.5 9999: Simple game launcher written in Python using GTK4 and Libadwaita
 games-util/catcodec 1.0.5: Decodes and encodes sample catalogues for OpenTTD
 games-util/datutil 2.46: Converter for dat files for Rom Managers
 games-util/deutex 5.2.2: WAD composer for Doom, Heretic, Hexen, and Strife
@@ -15687,6 +15686,7 @@ perl-core/Params-Check 0.380.0-r2: A generic input parsing/checking mechanism
 perl-core/Scalar-List-Utils 1.630.0: Common Scalar and List utility subroutines
 perl-core/Term-Table 0.18.0: Format a header and rows into a table
 perl-core/Test-Simple 1.302.196: Basic utilities for writing tests
+perl-core/Test2-Suite 0.0.159-r1 0.0.162-r1: Rich set of tools built upon the Test2 framework
 perl-core/Text-Tabs+Wrap 2023.51.100: Expand/unexpand tabs per unix expand and line wrapping
 perl-core/Unicode-Collate 1.310.0: Unicode Collate Algorithm
 sci-astronomy/aatm 0.6: Atmospheric Modelling for ALMA Observatory
@@ -16365,7 +16365,7 @@ sci-mathematics/lpsolve 5.5.2.11-r2: Mixed Integer Linear Programming (MILP) sol
 sci-mathematics/lrcalc 1.2 2.1: Littlewood-Richardson Calculator
 sci-mathematics/mathematica 10.3.1-r1 12.1.0 12.1.1-r1 12.2.0 13.0.0 13.0.1 13.1.0 13.2.1 13.3.1: Wolfram Mathematica
 sci-mathematics/mathlib-tools 1.3.2_p1: Development tools for Lean's mathlib
-sci-mathematics/mathmod 4.1-r1: Plot parametric and implicit surfaces
+sci-mathematics/mathmod 4.1-r1 11.1: Plot parametric and implicit surfaces
 sci-mathematics/mathomatic 16.0.5-r1: Automatic algebraic manipulator
 sci-mathematics/maxima 5.46.0-r1 5.47.0: Free computer algebra environment based on Macsyma
 sci-mathematics/metamath 0.198: Proof verifier based on a minimalistic formalism
@@ -17960,6 +17960,7 @@ virtual/perl-Term-Table 0.18.0: Virtual for Term-Table
 virtual/perl-Test 1.310.0-r7: Virtual for Test
 virtual/perl-Test-Harness 3.440.0-r1 3.480.0: Virtual for Test-Harness
 virtual/perl-Test-Simple 1.302.196 1.302.199: Virtual for Test-Simple
+virtual/perl-Test2-Suite 0.0.159 0.0.162: Virtual for Test2-Suite
 virtual/perl-Text-Balanced 2.60.0-r1: Virtual for Text-Balanced
 virtual/perl-Text-ParseWords 3.310.0-r3: Virtual for Text-ParseWords
 virtual/perl-Text-Tabs+Wrap 2021.81.400-r1 2023.51.100 2024.1.0: Virtual for Text::Tabs and Text::Wrap, also distributed as Text::Tabs+Wrap
