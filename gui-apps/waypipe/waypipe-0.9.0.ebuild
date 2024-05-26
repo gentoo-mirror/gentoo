@@ -1,9 +1,9 @@
 # Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit meson python-any-r1
 
 DESCRIPTION="Transparent network proxy for Wayland compositors"
@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.freedesktop.org/mstoeckl/waypipe"
 else
-	SRC_URI="https://gitlab.freedesktop.org/mstoeckl/waypipe/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.freedesktop.org/mstoeckl/waypipe/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
 	S="${WORKDIR}"/${PN}-v${PV}
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
@@ -28,7 +28,7 @@ WAYPIPE_FLAG_MAP=(
 	"${WAYPIPE_FLAG_MAP_ARM[@]/#/cpu_flags_arm_}"
 )
 
-IUSE="dmabuf ffmpeg lz4 man systemtap test vaapi zstd ${WAYPIPE_FLAG_MAP[@]%:*}"
+IUSE="dmabuf ffmpeg lz4 systemtap test vaapi zstd ${WAYPIPE_FLAG_MAP[@]%:*}"
 REQUIRED_USE="vaapi? ( ffmpeg )"
 RESTRICT="!test? ( test )"
 
@@ -37,29 +37,27 @@ DEPEND="
 		media-libs/mesa[gbm(+),vaapi?,wayland]
 		x11-libs/libdrm
 	)
+	ffmpeg? ( media-video/ffmpeg[x264,vaapi?] )
 	lz4? ( app-arch/lz4 )
 	systemtap? ( dev-debug/systemtap )
 	vaapi? ( media-libs/libva[drm(+),wayland] )
-	ffmpeg? (
-		media-video/ffmpeg[x264,vaapi?]
-	)
 	zstd? ( app-arch/zstd )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
+	app-text/scdoc
 	virtual/pkgconfig
-	man? ( app-text/scdoc )
 	test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] )
 "
 
 src_configure() {
 	local emesonargs=(
+		-Dman-pages=enabled
 		$(meson_use systemtap with_systemtap)
 		$(meson_feature dmabuf with_dmabuf)
 		$(meson_feature ffmpeg with_video)
 		$(meson_feature lz4 with_lz4)
-		$(meson_feature man man-pages)
 		$(meson_feature vaapi with_vaapi)
 		$(meson_feature zstd with_zstd)
 	)
