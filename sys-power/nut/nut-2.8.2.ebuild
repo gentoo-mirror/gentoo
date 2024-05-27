@@ -1,10 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit bash-completion-r1 flag-o-matic linux-info optfeature systemd
-inherit tmpfiles toolchain-funcs udev
+PYTHON_COMPAT=( python3_{10..12} )
+inherit bash-completion-r1 desktop flag-o-matic linux-info optfeature
+inherit python-single-r1 systemd tmpfiles toolchain-funcs udev wrapper xdg
 
 MY_P=${P/_/-}
 
@@ -16,27 +17,37 @@ if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://networkupstools.org/source/${PV%.*}/${MY_P}.tar.gz"
-	KEYWORDS="amd64 arm ~arm64 ~ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86" # waiting for ~arch of dev-libs/libgpiod: ~ppc ~ppc64
 fi
 
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="cgi doc ipmi serial i2c +man snmp +usb modbus selinux split-usr ssl tcpd test xml zeroconf"
+IUSE="gpio cgi doc ipmi serial i2c +man snmp +usb modbus selinux ssl tcpd test xml zeroconf python monitor systemd"
 RESTRICT="!test? ( test )"
 
+REQUIRED_USE="
+	monitor? ( python )
+	python? ( ${PYTHON_REQUIRED_USE} )
+	snmp? ( python )
+"
+
+# sys-apps/systemd-253 required for Type=notify-reload
 DEPEND="
 	acct-group/nut
 	acct-user/nut
 	dev-libs/libltdl
 	virtual/udev
 	cgi? ( >=media-libs/gd-2[png] )
+	gpio? ( dev-libs/libgpiod )
 	i2c? ( sys-apps/i2c-tools )
 	ipmi? ( sys-libs/freeipmi )
 	modbus? ( dev-libs/libmodbus )
+	python? ( ${PYTHON_DEPS} )
 	snmp? ( net-analyzer/net-snmp:= )
 	ssl? ( >=dev-libs/openssl-1:= )
+	systemd? ( >=sys-apps/systemd-253 )
 	tcpd? ( sys-apps/tcp-wrappers )
 	usb? ( virtual/libusb:1 )
 	xml? ( >=net-libs/neon-0.25.0:= )
@@ -49,11 +60,16 @@ BDEPEND="
 "
 RDEPEND="
 	${DEPEND}
+	monitor? ( $(python_gen_cond_dep '
+			dev-python/PyQt5[gui,widgets,${PYTHON_USEDEP}]
+		')
+	)
 	selinux? ( sec-policy/selinux-nut )
 "
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.6.2-lowspeed-buffer-size.patch"
+	"${FILESDIR}/systemd_notify.path"
 )
 
 pkg_pretend() {
@@ -66,6 +82,10 @@ pkg_pretend() {
 		ERROR_HIDRAW="HIDRAW is needed to support USB UPSes"
 		ERROR_I2C_CHARDEV="USB_HIDDEV is needed to support USB UPSes"
 	fi
+	if use gpio; then
+		CONFIG_CHECK="~GPIO_CDEV_V1"
+		ERROR_GPIO_CDEV_V1="GPIO_CDEV_V1 is needed to support GPIO UPSes"
+	fi
 	if use serial; then
 		CONFIG_CHECK="~SERIAL_8250"
 		ERROR_SERIAL_8250="SERIAL_8250 is needed to support Serial UPSes"
@@ -75,12 +95,18 @@ pkg_pretend() {
 	check_extra_config
 }
 
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
+
 src_prepare() {
 	default
 
 	if [[ ${PV} == *9999 ]] ; then
 		./autogen.sh || die
 	fi
+
+	xdg_environment_reset
 }
 
 src_configure() {
@@ -104,17 +130,19 @@ src_configure() {
 		--without-powerman
 		--without-python
 		--without-python2
-		--without-python3
 		--with-altpidpath=/run/nut
 		--with-pidpath=/run/nut
-		$(use_enable test cppunit)
 		$(use_with cgi)
+		$(use_with gpio)
 		$(use_with i2c linux_i2c)
 		$(use_with ipmi freeipmi)
 		$(use_with ipmi)
+		$(use_with monitor nut_monitor)
+		$(use_with python pynut)
 		$(use_with serial)
 		$(use_with snmp)
 		$(use_with ssl)
+		$(use_with systemd libsystemd)
 		$(use_with tcpd wrap)
 		$(use_with usb)
 		$(use_with xml neon)
@@ -127,6 +155,7 @@ src_configure() {
 
 	use cgi && myeconfargs+=( --with-cgipath=/usr/share/nut/cgi )
 	use man && myeconfargs+=( --with-doc=man )
+	use python && myeconfargs+=( --with-python3="${PYTHON}" ) || myeconfargs+=( --without-python3 )
 
 	export bashcompdir="$(get_bashcompdir)"
 
@@ -141,7 +170,6 @@ src_install() {
 	find "${ED}" -name '*.la' -delete || die
 
 	dodir /sbin
-	use split-usr && dosym ../usr/sbin/upsdrvctl /sbin/upsdrvctl
 
 	if use cgi; then
 		elog "CGI monitoring scripts are installed in ${EPREFIX}/usr/share/nut/cgi."
@@ -158,11 +186,11 @@ src_install() {
 		mv "${i}" "${i/.sample/}" || die
 	done
 
-	local DOCS=( AUTHORS MAINTAINERS NEWS README TODO UPGRADING )
+	local DOCS=( AUTHORS MAINTAINERS NEWS.adoc README.adoc TODO.adoc UPGRADING.adoc )
 	einstalldocs
 
 	if use doc; then
-		newdoc lib/README README.lib
+		newdoc lib/README.adoc
 		dodoc docs/*.txt
 		docinto cables
 		dodoc docs/cables/*
@@ -182,10 +210,21 @@ src_install() {
 		doins scripts/avahi/nut.service
 	fi
 
-	mv "${ED}"/usr/lib/tmpfiles.d/nut-common.tmpfiles "${ED}"/usr/lib/tmpfiles.d/nut-common-tmpfiles.conf || die
+	if use monitor; then
+		make_wrapper NUT-Monitor-py3qt5 /usr/share/nut/nut-monitor/app/NUT-Monitor-py3qt5 /usr/share/nut/nut-monitor/app
 
-	# Fix double directory
-	sed -i -e 's:/nut/nut:/nut:g' "${ED}"/usr/lib/tmpfiles.d/nut-common-tmpfiles.conf || die
+		# Install desktop shortcut
+		newmenu scripts/python/app/nut-monitor-py3qt5.desktop nut-monitor.desktop
+
+		# Installing Application icons
+		local res
+		for res in 48 64 256; do
+			doicon -s ${res} scripts/python/app/icons/${res}x${res}/nut-monitor.png
+		done
+		doicon -s scalable scripts/python/app/icons/scalable/nut-monitor.svg
+	fi
+
+	use python && python_optimize
 }
 
 pkg_postinst() {
@@ -214,8 +253,10 @@ pkg_postinst() {
 	udev_reload
 
 	tmpfiles_process nut-common-tmpfiles.conf
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
 	udev_reload
+	xdg_pkg_postrm
 }
