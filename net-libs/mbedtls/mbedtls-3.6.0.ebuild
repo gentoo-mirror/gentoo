@@ -9,11 +9,10 @@ inherit cmake multilib-minimal python-any-r1
 
 DESCRIPTION="Cryptographic library for embedded systems"
 HOMEPAGE="https://www.trustedfirmware.org/projects/mbed-tls/"
-SRC_URI="https://github.com/Mbed-TLS/mbedtls/archive/${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${P}
+SRC_URI="https://github.com/Mbed-TLS/mbedtls/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="|| ( Apache-2.0 GPL-2+ )"
-SLOT="0/15.20.6" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
+SLOT="0/16.21.7" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cpu_flags_x86_sse2 doc programs static-libs test threads"
 RESTRICT="!test? ( test )"

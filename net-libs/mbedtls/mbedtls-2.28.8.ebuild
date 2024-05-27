@@ -3,27 +3,26 @@
 
 EAPI=8
 
-inherit cmake multilib-minimal
+PYTHON_COMPAT=( python3_{10..12} )
+
+inherit cmake multilib-minimal python-any-r1
 
 DESCRIPTION="Cryptographic library for embedded systems"
 HOMEPAGE="https://www.trustedfirmware.org/projects/mbed-tls/"
-SRC_URI="https://github.com/Mbed-TLS/mbedtls/archive/${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${P}
+SRC_URI="https://github.com/Mbed-TLS/mbedtls/releases/download/v${PV}/${P}.tar.bz2"
 
-LICENSE="Apache-2.0"
+LICENSE="|| ( Apache-2.0 GPL-2+ )"
 SLOT="0/7.14.1" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cmac cpu_flags_x86_sse2 doc havege programs static-libs test threads zlib"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	programs? (
-		dev-libs/openssl:=
-	)
 	zlib? ( >=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}] )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
+	${PYTHON_DEPS}
 	doc? (
 		app-text/doxygen
 		media-gfx/graphviz
@@ -53,13 +52,14 @@ src_prepare() {
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_PROGRAMS=$(multilib_native_usex programs)
-		-DENABLE_ZLIB_SUPPORT=$(usex zlib)
-		-DUSE_STATIC_MBEDTLS_LIBRARY=$(usex static-libs)
 		-DENABLE_TESTING=$(usex test)
-		-DUSE_SHARED_MBEDTLS_LIBRARY=ON
+		-DENABLE_ZLIB_SUPPORT=$(usex zlib)
 		-DINSTALL_MBEDTLS_HEADERS=ON
 		-DLIB_INSTALL_DIR="${EPREFIX}/usr/$(get_libdir)"
+		-DLINK_WITH_PTHREAD=$(usex threads)
 		-DMBEDTLS_FATAL_WARNINGS=OFF # Don't use -Werror, #744946
+		-DUSE_SHARED_MBEDTLS_LIBRARY=ON
+		-DUSE_STATIC_MBEDTLS_LIBRARY=$(usex static-libs)
 	)
 
 	cmake_src_configure
