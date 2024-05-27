@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,10 +23,18 @@ else
 fi
 MY_P=${PN}-${MY_PV}
 SRC_URI_VENDOR="https://dev.gentoo.org/~robbat2/distfiles/${MY_P}-vendor.tar.xz"
+UPSTREAM_PATCHES=(
+	0.12.0:d33b5a391f4a18b3d9c0a194e57cdd3491130099
+)
 SRC_URI="
 	${SRC_URI_UPSTREAM} -> ${P}.tar.gz
 	${SRC_URI_VENDOR}
 	"
+PATCHES=()
+for p in $UPSTREAM_PATCHES; do
+	SRC_URI+=" https://github.com/prometheus-community/smartctl_exporter/commit/${p/*:}.patch -> ${PN}-${p/:/-}.patch"
+	PATCHES+=( "${DISTDIR}/${PN}-${p/:/-}.patch" )
+done
 
 # Upstream LICENSE file is wrong see https://github.com/prometheus-community/smartctl_exporter/pull/113
 LICENSE="Apache-2.0"
