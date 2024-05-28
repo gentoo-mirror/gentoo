@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare setup
+DEPEND=acct-group/backuppc acct-user/backuppc app-admin/apache-tools app-admin/makepasswd dev-lang/perl =www-servers/apache-2.4*
+DESCRIPTION=High-performance backups to a server's disk
+EAPI=8
+HOMEPAGE=https://backuppc.github.io/backuppc/index.html
+INHERIT=depend.apache systemd
+IUSE=rss samba
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/backuppc acct-user/backuppc app-admin/apache-tools app-admin/makepasswd dev-lang/perl app-arch/par2cmdline dev-perl/Archive-Zip dev-perl/CGI dev-perl/File-RsyncP dev-perl/libwww-perl dev-perl/BackupPC-XS net-misc/rsync-bpc virtual/mta virtual/perl-IO-Compress www-apache/mod_perl www-apache/mpm_itk || ( >=www-servers/apache-2.4[apache2_modules_alias,apache2_modules_authn_core,apache2_modules_authz_core,apache2_modules_authz_host,apache2_modules_authz_user,apache2_modules_cgi] >=www-servers/apache-2.4[apache2_modules_alias,apache2_modules_authn_core,apache2_modules_authz_core,apache2_modules_authz_host,apache2_modules_authz_user,apache2_modules_cgid] ) rss? ( dev-perl/XML-RSS ) samba? ( net-fs/samba ) =www-servers/apache-2.4*
+SLOT=0
+SRC_URI=https://github.com/backuppc/backuppc/releases/download/4.4.0/BackupPC-4.4.0.tar.gz
+_eclasses_=depend.apache	1d51223a0def226481583990f380519c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=e2342235696073a994806d562b7b8c12
