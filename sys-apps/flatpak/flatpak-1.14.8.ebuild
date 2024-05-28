@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10,11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
-inherit linux-info python-any-r1
+inherit linux-info python-any-r1 systemd tmpfiles
 
 DESCRIPTION="Linux application sandboxing and distribution framework"
 HOMEPAGE="https://flatpak.org/"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="doc introspection policykit seccomp systemd X"
 RESTRICT="test"
 
@@ -22,22 +22,20 @@ RDEPEND="
 	>=app-arch/libarchive-2.8:=
 	app-arch/zstd:=
 	>=app-crypt/gpgme-1.1.8:=
+	>=dev-libs/appstream-0.12:=
 	>=dev-libs/appstream-glib-0.5.10:=
 	>=dev-libs/glib-2.56:2=
 	>=dev-libs/libxml2-2.4:=
 	dev-libs/json-glib:=
 	dev-libs/libassuan:=
 	>=dev-util/ostree-2020.8:=[gpg(+)]
-	|| (
-		dev-util/ostree[curl]
-		dev-util/ostree[soup]
-	)
+	dev-util/ostree[curl]
 	>=gnome-base/dconf-0.26:=
 	gnome-base/gsettings-desktop-schemas
-	>=net-libs/libsoup-2.4:2.4=
+	net-misc/curl:=
 	>=sys-apps/bubblewrap-0.5.0
 	sys-apps/dbus
-	>=sys-fs/fuse-2.9.9:0=
+	>=sys-fs/fuse-3.1.1:3=
 	sys-apps/xdg-dbus-proxy
 	X? (
 		x11-apps/xauth
@@ -50,25 +48,29 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}"
-# pyparsing version pinned for https://bugs.gentoo.org/825230
 BDEPEND="
 	>=dev-build/automake-1.13.4
 	>=sys-devel/gettext-0.18.2
 	virtual/pkgconfig
 	dev-util/gdbus-codegen
+	dev-util/glib-utils
 	app-alternatives/yacc
+	$(python_gen_any_dep 'dev-python/pyparsing[${PYTHON_USEDEP}]')
 	introspection? ( >=dev-libs/gobject-introspection-1.40 )
 	doc? (
-		>=dev-util/gtk-doc-1.20
+		app-text/xmlto
 		dev-libs/libxslt
 	)
-	$(python_gen_any_dep 'dev-python/pyparsing[${PYTHON_USEDEP}]')
 "
 
 PDEPEND="sys-apps/xdg-desktop-portal"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.14.4-fuse-3-slotted.patch
+)
+
 python_check_deps() {
-	python_has_version -b "dev-python/pyparsing[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/pyparsing[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
@@ -89,9 +91,10 @@ src_configure() {
 		--localstatedir="${EPREFIX}"/var
 		--with-system-bubblewrap
 		--with-system-dbus-proxy
+		--with-tmpfilesdir="/usr/lib/tmpfiles.d"
 		$(use_enable X xauth)
 		$(use_enable doc documentation)
-		$(use_enable doc gtk-doc)
+		$(use_enable doc docbook-docs)
 		$(use_enable introspection)
 		$(use_enable policykit system-helper)
 		$(use_enable seccomp)
@@ -103,6 +106,16 @@ src_configure() {
 
 src_install() {
 	default
+	# https://projects.gentoo.org/qa/policy-guide/installed-files.html#pg0303
+	find "${ED}" -name '*.la' -delete || die
 	# resolve conflict with acct-user/flatpak for #856706
 	rm -rf "${ED}/usr/lib/sysusers.d"
+
+	if use systemd; then
+	   systemd_dounit "${FILESDIR}"/flatpak-update.{service,timer}
+	fi
+}
+
+pkg_postinst() {
+	tmpfiles_process flatpak.conf
 }
