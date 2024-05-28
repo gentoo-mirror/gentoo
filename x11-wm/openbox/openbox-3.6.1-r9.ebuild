@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11})
+PYTHON_COMPAT=( python3_{9..12})
 inherit autotools python-single-r1
 
 DESCRIPTION="Standards compliant, fast, light-weight, extensible window manager"
@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/Mikachu/openbox.git"
 else
 	SRC_URI="http://openbox.org/dist/openbox/${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv sparc x86 ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x86-linux"
 fi
 
 SRC_URI+=" branding? ( https://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
@@ -101,9 +101,12 @@ src_configure() {
 }
 
 src_install() {
-	dodir /etc/X11/Sessions
-	echo "/usr/bin/openbox-session" > "${ED}/etc/X11/Sessions/${PN}"
-	fperms a+x /etc/X11/Sessions/${PN}
+	exeinto /etc/X11/Sessions
+	newexe - ${PN} <<-EOF
+	#!/bin/sh
+	openbox-session
+	EOF
+
 	emake DESTDIR="${D}" install
 	if use branding; then
 		insinto /usr/share/themes
