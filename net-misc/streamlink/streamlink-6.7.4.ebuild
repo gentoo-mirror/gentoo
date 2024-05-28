@@ -33,6 +33,9 @@ fi
 RDEPEND="
 	media-video/ffmpeg
 	$(python_gen_cond_dep '
+		dev-python/exceptiongroup[${PYTHON_USEDEP}]
+	' 3.10)
+	$(python_gen_cond_dep '
 		dev-python/certifi[${PYTHON_USEDEP}]
 		|| (
 			dev-python/chardet[${PYTHON_USEDEP}]
@@ -72,3 +75,25 @@ if [[ ${PV} == 9999* ]]; then
 fi
 
 distutils_enable_tests pytest
+
+python_test() {
+	# Skip tests requiring <dev-python/pytest-8.0.0
+	# https://github.com/streamlink/streamlink/pull/5901
+	EPYTEST_DESELECT+=(
+		tests/webbrowser/cdp/test_client.py::TestEvaluate::test_exception
+		tests/webbrowser/cdp/test_client.py::TestEvaluate::test_error
+		tests/webbrowser/cdp/test_client.py::TestNavigate::test_detach
+		tests/webbrowser/cdp/test_client.py::TestNavigate::test_error
+		tests/webbrowser/cdp/test_connection.py::TestCreateConnection::test_failure
+		tests/webbrowser/cdp/test_connection.py::TestReaderError::test_invalid_json
+		tests/webbrowser/cdp/test_connection.py::TestReaderError::test_unknown_session_id
+		'tests/webbrowser/cdp/test_connection.py::TestSend::test_timeout[Default timeout, response not in time]'
+		'tests/webbrowser/cdp/test_connection.py::TestSend::test_timeout[Custom timeout, response not in time]'
+		tests/webbrowser/cdp/test_connection.py::TestSend::test_bad_command
+		tests/webbrowser/cdp/test_connection.py::TestSend::test_result_exception
+		tests/webbrowser/cdp/test_connection.py::TestHandleCmdResponse::test_response_error
+		tests/webbrowser/cdp/test_connection.py::TestHandleCmdResponse::test_response_no_result
+	)
+
+	epytest
+}
