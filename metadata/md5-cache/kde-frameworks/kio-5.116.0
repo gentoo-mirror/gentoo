@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org xdg-utils
 IUSE=acl kerberos kf6compat +kwallet X debug designer +handbook doc test
-KEYWORDS=amd64 ~arm ~arm64 ~loong ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv x86
 LICENSE=LGPL-2+
 PDEPEND=>=kde-frameworks/kded-5.116:5
 RDEPEND=>=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtdeclarative-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtnetwork-5.15.9:5[ssl] >=dev-qt/qtwidgets-5.15.9:5 >=dev-qt/qtxml-5.15.9:5 =kde-frameworks/kauth-5.116*:5 =kde-frameworks/karchive-5.116*:5 =kde-frameworks/kbookmarks-5.116*:5 =kde-frameworks/kcodecs-5.116*:5 =kde-frameworks/kcompletion-5.116*:5 =kde-frameworks/kconfig-5.116*:5 =kde-frameworks/kconfigwidgets-5.116*:5 =kde-frameworks/kcoreaddons-5.116*:5 =kde-frameworks/kcrash-5.116*:5 =kde-frameworks/kdbusaddons-5.116*:5 =kde-frameworks/kguiaddons-5.116*:5 =kde-frameworks/ki18n-5.116*:5 =kde-frameworks/kiconthemes-5.116*:5 =kde-frameworks/kitemviews-5.116*:5 =kde-frameworks/kjobwidgets-5.116*:5 =kde-frameworks/knotifications-5.116*:5 =kde-frameworks/kservice-5.116*:5 =kde-frameworks/ktextwidgets-5.116*:5 =kde-frameworks/kwidgetsaddons-5.116*:5 =kde-frameworks/kwindowsystem-5.116*:5[X?] =kde-frameworks/kxmlgui-5.116*:5 =kde-frameworks/solid-5.116*:5 sys-power/switcheroo-control acl? ( sys-apps/attr virtual/acl ) handbook? ( dev-libs/libxml2 dev-libs/libxslt =kde-frameworks/kdoctools-5.116*:5 ) kerberos? ( virtual/krb5 ) kf6compat? ( kde-apps/kio-extras:6 ) kwallet? ( =kde-frameworks/kwallet-5.116*:5 ) X? ( >=dev-qt/qtx11extras-5.15.9:5 ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=5/5.116
 SRC_URI=mirror://kde/stable/frameworks/5.116/kio-5.116.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	virtualx	817571665ee28575da44ee08135089e5	ecm	322462a1b61f437f69f66ac730eb98c5	kde.org	60fcb935e4206806bf9f38e3537521a2	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
-_md5_=42d5c16fa3cd3478ec5fbc653c28884c
+_md5_=ed133dbd94fd96c4d591e34f1bb0627c
