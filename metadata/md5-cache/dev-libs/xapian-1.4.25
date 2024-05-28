@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://xapian.org/
 INHERIT=toolchain-funcs
 IUSE=cpu_flags_x86_sse cpu_flags_x86_sse2 debug static-libs
-KEYWORDS=~alpha ~amd64 ~arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris
+KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=sys-libs/zlib:= !elibc_Darwin? ( !elibc_SunOS? ( sys-apps/util-linux ) ) elibc_SunOS? ( sys-libs/libuuid )
 SLOT=0/30
 SRC_URI=https://oligarchy.co.uk/xapian/1.4.25/xapian-core-1.4.25.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=f4f2f5a096a0ee22c146819b4db6c681
+_md5_=6d870d799d13003aa3d36ae8496309bd
