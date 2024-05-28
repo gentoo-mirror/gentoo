@@ -4,13 +4,12 @@ DEPEND=berkdb? ( sys-libs/db:= ) gdbm? ( >=sys-libs/gdbm-1.8.3:= ) app-arch/bzip
 DESCRIPTION=Larry Wall's Practical Extraction and Report Language
 EAPI=8
 HOMEPAGE=https://www.perl.org/
-IDEPEND=app-admin/perl-cleaner
 INHERIT=alternatives flag-o-matic toolchain-funcs multilib multiprocessing
 IUSE=berkdb perl_features_debug doc gdbm perl_features_ithreads minimal perl_features_quadmath
 LICENSE=|| ( Artistic GPL-1+ )
-PDEPEND=!minimal? ( >=virtual/perl-CPAN-2.290.0 >=virtual/perl-Encode-3.120.0 >=virtual/perl-File-Temp-0.230.400-r2 >=virtual/perl-Data-Dumper-2.154.0 >=virtual/perl-Math-BigInt-1.999.842 virtual/perl-Test-Harness )
+PDEPEND=!minimal? ( >=app-admin/perl-cleaner-2.31 >=virtual/perl-CPAN-2.290.0 >=virtual/perl-Encode-3.120.0 >=virtual/perl-File-Temp-0.230.400-r2 >=virtual/perl-Data-Dumper-2.154.0 >=virtual/perl-Math-BigInt-1.999.842 virtual/perl-Test-Harness )
 RDEPEND=berkdb? ( sys-libs/db:= ) gdbm? ( >=sys-libs/gdbm-1.8.3:= ) app-arch/bzip2 >=sys-libs/zlib-1.2.12 virtual/libcrypt:=
 SLOT=0/5.40
 SRC_URI=mirror://cpan/src/5.0/perl-5.40.0-RC1.tar.xz mirror://cpan/authors/id/P/PE/PEVANS/perl-5.40.0-RC1.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/perl-5.40.0-patches-2.tar.xz https://github.com/arsv/perl-cross/releases/download/1.5.2/perl-cross-1.5.2.tar.gz https://haarg.org/perl-5.40.0-RC1.tar.xz
 _eclasses_=alternatives	8e630f543dbc427323566317daa8cf87	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
-_md5_=538adf6ee94a4191e23b2c8c390b140c
+_md5_=af851627fcb9a77d23ebaf51f84782c2
