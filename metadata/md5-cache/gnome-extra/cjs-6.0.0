@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cjs
 INHERIT=flag-o-matic meson pax-utils python-any-r1 virtualx
 IUSE=+cairo examples readline sysprof test test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=BSD CC0-1.0 MIT MPL-2.0 || ( MPL-1.1 GPL-2+ LGPL-2.1+ )
 RDEPEND=dev-lang/spidermonkey:102 >=dev-libs/glib-2.66.0:2 >=dev-libs/gobject-introspection-1.71.0:= >=dev-libs/libffi-3.3:0= cairo? ( x11-libs/cairo[glib,svg(+),X] x11-libs/libX11 ) readline? ( sys-libs/readline:0= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cjs/archive/6.0.0.tar.gz -> cjs-6.0.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	aecae905c2e0c201d7925fae52a5576d	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-any-r1	f5169813d1619761b459800587005fd2	virtualx	817571665ee28575da44ee08135089e5
-_md5_=21fefff61ed65d90e74063639f5c725c
+_md5_=b8934a9f96bbd5fc271a16767b128624

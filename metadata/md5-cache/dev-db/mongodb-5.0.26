@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.mongodb.com
 INHERIT=check-reqs flag-o-matic multiprocessing pax-utils python-any-r1 scons-utils systemd toolchain-funcs
 IUSE=debug kerberos mongosh ssl +tools cpu_flags_x86_avx
-KEYWORDS=~amd64 ~arm64 -riscv
+KEYWORDS=amd64 ~arm64 -riscv
 LICENSE=Apache-2.0 SSPL-1
 PDEPEND=mongosh? ( app-admin/mongosh-bin ) tools? ( >=app-admin/mongo-tools-100 )
 RDEPEND=acct-group/mongodb acct-user/mongodb >=app-arch/snappy-1.1.7:= >=dev-cpp/yaml-cpp-0.6.2:= dev-libs/boost:=[nls] >=dev-libs/libpcre-8.42[cxx] app-arch/zstd:= dev-libs/snowball-stemmer:= >=sys-libs/zlib-1.2.12:= kerberos? ( dev-libs/cyrus-sasl[kerberos] ) ssl? ( >=dev-libs/openssl-1.0.1g:0= )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/mongodb/mongo/archive/refs/tags/r5.0.26.tar.gz -> mongodb-5.0.26.gh.tar.gz
 _eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2	scons-utils	b3544637c85286a19000d59461d3a7a5	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=6ba9c62e202ecaa5041353c88da2e707
+_md5_=576826e1ee8e413cf23c8531ab81faff

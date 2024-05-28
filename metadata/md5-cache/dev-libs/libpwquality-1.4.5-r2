@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/libpwquality/libpwquality
 INHERIT=libtool pam distutils-r1
 IUSE=pam python static-libs python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=|| ( BSD GPL-2 )
 RDEPEND=>=sys-libs/cracklib-2.8:=[static-libs(+)?] pam? ( sys-libs/pam ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
 SLOT=0
 SRC_URI=https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.5/libpwquality-1.4.5.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	pam	b56d0c9c20fc5b553f13c8ae165a10a5	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	5400d21736d8621562bf93be4fa98eec
-_md5_=9f9496cfc0ae1b2b205b3f5586662ce2
+_md5_=405a342c3ac581e36e7e1aced29b65e5

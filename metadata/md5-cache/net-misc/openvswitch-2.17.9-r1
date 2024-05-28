@@ -7,11 +7,11 @@ HOMEPAGE=https://www.openvswitch.org
 IDEPEND=sys-apps/kmod[tools]
 INHERIT=autotools linux-mod-r1 python-single-r1 systemd tmpfiles
 IUSE=debug modules monitor +ssl unwind valgrind dist-kernel modules-compress modules-sign +strip python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 x86
 LICENSE=Apache-2.0 GPL-2
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( ~dev-python/ovs-2.17.9[python_targets_python3_10(-)] dev-python/twisted[python_targets_python3_10(-)] dev-python/zope-interface[python_targets_python3_10(-)] ) python_single_target_python3_11? ( ~dev-python/ovs-2.17.9[python_targets_python3_11(-)] dev-python/twisted[python_targets_python3_11(-)] dev-python/zope-interface[python_targets_python3_11(-)] ) python_single_target_python3_12? ( ~dev-python/ovs-2.17.9[python_targets_python3_12(-)] dev-python/twisted[python_targets_python3_12(-)] dev-python/zope-interface[python_targets_python3_12(-)] ) debug? ( dev-lang/perl ) unwind? ( sys-libs/libunwind:= ) ssl? ( dev-libs/openssl:= ) sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) virtual/tmpfiles
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=https://www.openvswitch.org/releases/openvswitch-2.17.9.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	9ccd2b29cd75bd48092f8f46b07fc935	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
-_md5_=9352d461eeaf30d33c60ca9a0fb4e3e0
+_md5_=ea2c2f7648e2d6cb67ed70ffe85a7755

@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://asymptote.sourceforge.io/
 INHERIT=autotools elisp-common latex-package python-r1
 IUSE=+boehm-gc context curl doc emacs examples fftw gsl +imagemagick latex lsp offscreen +opengl python sigsegv svg test vim-syntax X python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~ppc ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~ppc ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-3
 RDEPEND=>=sys-libs/ncurses-5.4-r5:0= >=sys-libs/readline-4.3-r5:0= net-libs/libtirpc:= imagemagick? ( media-gfx/imagemagick[png] ) opengl? ( media-libs/mesa[X(+)] media-libs/freeglut media-libs/glew:0 media-libs/glm ) offscreen? ( media-libs/mesa[osmesa] ) svg? ( app-text/dvisvgm ) sigsegv? ( dev-libs/libsigsegv ) boehm-gc? ( >=dev-libs/boehm-gc-7.0[cxx,threads] ) fftw? ( >=sci-libs/fftw-3.0.1:= ) gsl? ( sci-libs/gsl:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) curl? ( net-misc/curl ) lsp? ( dev-libs/boost dev-libs/rapidjson dev-libs/utfcpp ) X? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-python/PyQt5[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,gui,widgets,svg] dev-python/cson dev-python/numpy >=gnome-base/librsvg-2.40 ) latex? ( virtual/latex-base dev-texlive/texlive-latexextra ) context? ( dev-texlive/texlive-context ) emacs? ( >=app-editors/emacs-23.1:* ) vim-syntax? ( || ( app-editors/vim app-editors/gvim ) ) virtual/latex-base
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) offscreen? ( opengl ) doc? ( boehm-gc )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/asymptote/asymptote-2.89.src.tgz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	elisp-common	abb2dda42f680fce87602c8273f832c7	latex-package	c20e442c3953c765f636630631c96194	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f
-_md5_=0fdfc79a03061416e57207701823b9f6
+_md5_=ded041fb824a5f14b4d6c4a259dcbecf

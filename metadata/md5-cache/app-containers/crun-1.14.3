@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/containers/crun
 INHERIT=python-any-r1
 IUSE=+bpf +caps criu +seccomp selinux systemd static-libs
-KEYWORDS=~amd64 ~arm arm64 ppc64 ~riscv
+KEYWORDS=amd64 ~arm arm64 ppc64 ~riscv
 LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) elibc_musl? ( sys-libs/argp-standalone[static-libs] ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= ) selinux? ( sec-policy/selinux-container )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/containers/crun/releases/download/1.14.3/crun-1.14.3.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=bedc4a0fa32e5f4b98fdae1c57b81394
+_md5_=c16489f73aade2a968e795a22408a1bb

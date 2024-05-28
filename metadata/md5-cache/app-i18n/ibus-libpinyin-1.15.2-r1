@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/libpinyin/ibus-libpinyin https://sourceforge.net/projects/libpinyin/
 INHERIT=autotools gnome2-utils lua-single python-single-r1
 IUSE=boost lua opencc lua_single_target_lua5-1 lua_single_target_lua5-3 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3+
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) >=app-i18n/libpinyin-2.7.91:= dev-db/sqlite:3 dev-libs/glib:2 virtual/libintl python_single_target_python3_10? ( app-i18n/ibus[python(+),python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( app-i18n/ibus[python(+),python_targets_python3_11(-)] dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( app-i18n/ibus[python(+),python_targets_python3_12(-)] dev-python/pygobject:3[python_targets_python3_12(-)] ) boost? ( dev-libs/boost:= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) opencc? ( app-i18n/opencc:= )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 ) )
 SLOT=0
 SRC_URI=https://github.com/libpinyin/ibus-libpinyin/archive/1.15.2.tar.gz -> ibus-libpinyin-1.15.2.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=de74280a65e6c4e3514befa702ae2a79
+_md5_=1fd5303c424e658a050b1b20c1df332f

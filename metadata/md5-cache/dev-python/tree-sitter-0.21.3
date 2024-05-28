@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/tree-sitter/py-tree-sitter/ https://pypi.org/project/tree-sitter/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv ~s390 sparc x86 ~x64-macos
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv ~s390 sparc x86 ~x64-macos
 LICENSE=MIT
 RDEPEND=>=dev-libs/tree-sitter-0.22.1:= python_targets_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tree-sitter/py-tree-sitter/archive/v0.21.3.tar.gz -> tree-sitter-0.21.3.gh.tar.gz test? ( https://github.com/tree-sitter/tree-sitter-json/archive/3b129203f4b72d532f58e72c5310c0a7db3b8e6d.tar.gz -> tree-sitter-json-3b129203f4b72d532f58e72c5310c0a7db3b8e6d.tar.gz https://github.com/tree-sitter/tree-sitter-python/archive/03e88c170cb23142559a406b6e7621c4af3128f5.tar.gz -> tree-sitter-python-03e88c170cb23142559a406b6e7621c4af3128f5.tar.gz https://github.com/tree-sitter/tree-sitter-embedded-template/archive/6d791b897ecda59baa0689a85a9906348a2a6414.tar.gz -> tree-sitter-embedded-template-6d791b897ecda59baa0689a85a9906348a2a6414.tar.gz https://github.com/tree-sitter/tree-sitter-rust/archive/3a56481f8d13b6874a28752502a58520b9139dc7.tar.gz -> tree-sitter-rust-3a56481f8d13b6874a28752502a58520b9139dc7.tar.gz https://github.com/tree-sitter/tree-sitter-html/archive/b5d9758e22b4d3d25704b72526670759a9e4d195.tar.gz -> tree-sitter-html-b5d9758e22b4d3d25704b72526670759a9e4d195.tar.gz https://github.com/tree-sitter/tree-sitter-javascript/archive/de1e682289a417354df5b4437a3e4f92e0722a0f.tar.gz -> tree-sitter-javascript-de1e682289a417354df5b4437a3e4f92e0722a0f.tar.gz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	5400d21736d8621562bf93be4fa98eec
-_md5_=6ff746266d1ca40338aacf9cfa9c3ba7
+_md5_=19a2fa73200541e968997ad9c0150222
