@@ -7,7 +7,7 @@ HOMEPAGE=https://github.com/danmar/cppcheck
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake python-single-r1 xdg
 IUSE=charts gui qt6 htmlreport pcre test threads python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/tinyxml2:= pcre? ( dev-libs/libpcre ) gui? ( qt6? ( dev-qt/qtbase:6[gui,widgets,network] dev-qt/qttools:6[assistant,linguist] charts? ( dev-qt/qtcharts:6 ) ) !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 charts? ( dev-qt/qtcharts:5 ) ) ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) htmlreport? ( python_single_target_python3_10? ( dev-python/pygments[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygments[python_targets_python3_12(-)] ) )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) charts? ( gui ) qt6? ( gui )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/danmar/cppcheck/archive/refs/tags/2.13.0.tar.gz -> cppcheck-2.13.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=8410e4254702a4f6878b54e3065eb80d
+_md5_=dfcb3b815d75ce6d06c458b60fa4f28b

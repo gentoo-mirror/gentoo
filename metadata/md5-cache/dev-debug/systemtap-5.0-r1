@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.sourceware.org/systemtap
 INHERIT=autotools linux-info python-single-r1
 IUSE=libvirt selinux sqlite +ssl test zeroconf python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 arm arm64 ~ia64 ~loong ~mips ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_pypy3? ( dev-python/pypy3:= ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:= >=dev-libs/elfutils-0.142[debuginfod] dev-libs/json-c:= sys-libs/ncurses:= sys-libs/readline:= libvirt? ( >=app-emulation/libvirt-1.0.2 ) selinux? ( sys-libs/libselinux ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/nspr dev-libs/nss ) zeroconf? ( net-dns/avahi ) acct-group/stapdev acct-group/stapsys acct-group/stapusr
 REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.sourceware.org/ftp/systemtap/releases/systemtap-5.0.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=bee674f5d7ae9aeb04e09157ea5a468a
+_md5_=5f9b704edcd661a38c1e36a774973b3d
