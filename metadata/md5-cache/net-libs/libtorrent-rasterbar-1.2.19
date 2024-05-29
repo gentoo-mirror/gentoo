@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://libtorrent.org/ https://github.com/arvidn/libtorrent
 INHERIT=cmake python-single-r1
 IUSE=+dht debug python ssl test python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=BSD
 RDEPEND=dev-libs/boost:= python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_10? ( dev-libs/boost[python,python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) ) ssl? ( dev-libs/openssl:= )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/10
 SRC_URI=https://github.com/arvidn/libtorrent/releases/download/v1.2.19/libtorrent-rasterbar-1.2.19.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=adaa1be7c13d3388e75c19c8429452b1
+_md5_=fc9442c141e380b786a8db53f82a913b
