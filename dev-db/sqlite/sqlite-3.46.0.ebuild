@@ -52,7 +52,6 @@ fi
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.45.1-ppc64-ptr.patch
-	"${FILESDIR}"/${PN}-3.45.2-tests-x86.patch
 )
 
 _fossil_fetch() {
