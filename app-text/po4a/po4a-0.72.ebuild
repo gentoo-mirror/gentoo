@@ -8,7 +8,7 @@ inherit perl-module plocale
 
 DESCRIPTION="Tools to ease the translation of documentation"
 HOMEPAGE="https://po4a.org/"
-SRC_URI="https://github.com/mquinson/${PN}/files/14077820/${P}.tar.gz"
+SRC_URI="https://github.com/mquinson/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
