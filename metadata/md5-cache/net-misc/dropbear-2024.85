@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://matt.ucc.asn.au/dropbear/dropbear.html
 INHERIT=pam python-any-r1 savedconfig verify-sig
 IUSE=bsdpty minimal multicall pam +shadow static +syslog test zlib savedconfig verify-sig
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=~alpha amd64 ~arm arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=MIT GPL-2
 RDEPEND=acct-group/sshd acct-user/sshd !static? ( >=dev-libs/libtomcrypt-1.18.2-r2[libtommath] >=dev-libs/libtommath-1.2.0 virtual/libcrypt zlib? ( sys-libs/zlib ) ) pam? ( sys-libs/pam ) pam? ( >=sys-auth/pambase-20080219.1 )
 REQUIRED_USE=pam? ( !static )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://matt.ucc.asn.au/dropbear/releases/dropbear-2024.85.tar.bz2 https://matt.ucc.asn.au/dropbear/testing/dropbear-2024.85.tar.bz2 verify-sig? ( https://matt.ucc.asn.au/dropbear/releases/dropbear-2024.85.tar.bz2.asc https://matt.ucc.asn.au/dropbear/testing/dropbear-2024.85.tar.bz2.asc )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	pam	b56d0c9c20fc5b553f13c8ae165a10a5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=dba30932d8536b6cb8227c7f8c480a30
+_md5_=1ca5e3ec4d9a2697baff6da2bb49f173
