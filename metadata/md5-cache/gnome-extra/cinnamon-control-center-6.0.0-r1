@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-control-center
 INHERIT=meson gnome2-utils python-any-r1 xdg virtualx
 IUSE=+colord input_devices_wacom +networkmanager +modemmanager gnome-online-accounts systemd test wayland test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2+ LGPL-2.1+ MIT
 RDEPEND=app-accessibility/at-spi2-core:2 >=dev-libs/glib-2.44.0:2 >=gnome-base/libgnomekbd-3.0.0:0= >=gnome-extra/cinnamon-desktop-6.0:0= >=gnome-extra/cinnamon-menus-6.0 media-libs/fontconfig >=sys-auth/polkit-0.103 >=sys-power/upower-0.99.8:= >=x11-libs/gdk-pixbuf-2.23.0:2 >=x11-libs/gtk+-3.16.0:3[wayland=] >=dev-libs/libgudev-232 >=x11-libs/libnotify-0.7.3 x11-libs/cairo x11-libs/libX11 >=x11-libs/libxklavier-5.1:= x11-libs/pango colord? ( >=x11-misc/colord-0.1.14:0= ) input_devices_wacom? ( >=dev-libs/libwacom-0.7:= >=x11-libs/libXi-1.2 ) networkmanager? ( >=gnome-extra/nm-applet-1.2.0 >=net-libs/libnma-1.8.34 >=net-misc/networkmanager-1.2.0[modemmanager?] modemmanager? ( >=net-misc/modemmanager-0.7:= ) ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.18.0:= ) x11-themes/adwaita-icon-theme colord? ( >=gnome-extra/gnome-color-manager-3 ) input_devices_wacom? ( gnome-extra/cinnamon-settings-daemon[input_devices_wacom] ) systemd? ( >=sys-apps/systemd-31 ) !systemd? ( app-admin/openrc-settingsd )
 REQUIRED_USE=modemmanager? ( networkmanager )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-control-center/archive/6.0.0.tar.gz -> cinnamon-control-center-6.0.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	aecae905c2e0c201d7925fae52a5576d	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad	python-any-r1	f5169813d1619761b459800587005fd2	xdg	4a14c5c24f121e7da66e5aab4a168c6e	virtualx	817571665ee28575da44ee08135089e5
-_md5_=02a2eaec78fd1ab3637e11eb1a45e5ba
+_md5_=02199c0c3e8d09243d5dafdbe0240348
