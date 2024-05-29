@@ -905,7 +905,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.103 1.32.108 1.32.113: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.103 1.32.108 1.32.113 1.32.114: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0 2024.3.0 2024.4.1 2024.5.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.6-r1: Distribution-independent installer framework
@@ -8196,7 +8196,7 @@ dev-python/bandit 1.7.8: A security linter from OpenStack Security
 dev-python/bareos 22.1.2 22.1.4 23.0.2: python bindings for bareos network backup suite
 dev-python/bashate 2.1.1: A pep8 equivalent for bash scripts
 dev-python/basho-erlastic 2.1.1-r1: Erlang binary term codec and port interface
-dev-python/bcrypt 4.1.1 4.1.2 4.1.3: Modern password hashing for software and servers
+dev-python/bcrypt 4.1.3: Modern password hashing for software and servers
 dev-python/beagle 0.3.0-r1: Command line client for Hound, the code search tool
 dev-python/beartype 0.18.5: Unbearably fast runtime type checking in pure Python
 dev-python/beautifulsoup4 4.12.3: Pythonic idioms for iterating, searching, and modifying an HTML/XML parse tree
@@ -8218,8 +8218,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.34.103 1.34.108 1.34.113: The AWS SDK for Python
-dev-python/botocore 1.34.103 1.34.108 1.34.113: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.103 1.34.108 1.34.113 1.34.114: The AWS SDK for Python
+dev-python/botocore 1.34.103 1.34.108 1.34.113 1.34.114: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8 1.3.8-r1 1.4.0_rc5: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8738,7 +8738,7 @@ dev-python/markdown2 2.4.13: Python Markdown language reimplementation
 dev-python/markups 4.0.0: A wrapper around various text markups
 dev-python/markupsafe 2.1.5: Implements a XML/HTML/XHTML Markup safe string for Python
 dev-python/marshmallow 3.21.2: A library for converting to and from native Python datatypes
-dev-python/matplotlib 3.8.3 3.8.4-r1 3.9.0-r1: Pure python plotting library with matlab like syntax
+dev-python/matplotlib 3.8.4-r1 3.9.0-r1: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.7: Inline Matplotlib backend for Jupyter
 dev-python/matrix-common 1.3.0-r1: Common code for Synapse, Sydent and Sygnal
 dev-python/matterhook 0.2-r2: Interact with Mattermost incoming webhooks easily
@@ -9028,8 +9028,8 @@ dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
 dev-python/pycurl 7.45.2-r1 7.45.3: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8: Set of facilities to extend Python with C++
-dev-python/pydantic 2.6.3 2.6.4 2.7.0 2.7.1: Data parsing and validation using Python type hints
-dev-python/pydantic-core 2.16.3 2.18.1 2.18.2: Core validation logic for pydantic written in Rust
+dev-python/pydantic 2.6.3 2.6.4 2.7.0 2.7.1 2.7.2: Data parsing and validation using Python type hints
+dev-python/pydantic-core 2.16.3 2.18.1 2.18.2 2.18.3: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.15.2-r1 0.15.3_rc1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -9373,7 +9373,7 @@ dev-python/roman 4.2: An Integer to Roman numerals converter
 dev-python/rope 1.13.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
 dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
-dev-python/rpds-py 0.10.6 0.17.1 0.18.0 0.18.1: Python bindings to Rust's persistent data structures (rpds)
+dev-python/rpds-py 0.18.1: Python bindings to Rust's persistent data structures (rpds)
 dev-python/rply 0.7.8-r1: Pure python parser generator that also works with RPython
 dev-python/rpy 3.5.14: Python interface to the R language
 dev-python/rpyc 5.3.1-r1: Remote Python Call (RPyC), a transparent and symmetric RPC library
@@ -9546,7 +9546,7 @@ dev-python/tappy 3.1-r1: Test Anything Protocol (TAP) tools
 dev-python/taskgroup 0.0.0_alpha4: Backport of asyncio.TaskGroup, asyncio.Runner and asyncio.timeout
 dev-python/tasklib 2.5.1: A Python library for interacting with taskwarrior databases
 dev-python/tavalidate 0.0.6-r1: Utities to validate Tavern responses
-dev-python/tavern 2.10.3 2.11.0: A tool, library, and Pytest plugin for testing RESTful APIs
+dev-python/tavern 2.11.0: A tool, library, and Pytest plugin for testing RESTful APIs
 dev-python/tblib 3.0.0: Traceback fiddling library for Python
 dev-python/tcolorpy 0.1.6: tcolorpy is a Python library to apply true color for terminal text
 dev-python/tekore 5.3.1 5.4.0: Spotify Web API client
@@ -9643,7 +9643,7 @@ dev-python/urwid-readline 0.14: Text input widget for urwid that supports readli
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
-dev-python/uv 0.1.24 0.2.3: A Python package installer and resolver, written in Rust
+dev-python/uv 0.1.24 0.2.3 0.2.5: A Python package installer and resolver, written in Rust
 dev-python/uvicorn 0.29.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.19.0-r1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.28.1 0.28.3: Python Data Validation for Humans
