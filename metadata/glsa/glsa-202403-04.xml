@@ -5,13 +5,15 @@
     <synopsis>A backdoor has been discovered in XZ utils that could lead to remote compromise of systems.</synopsis>
     <product type="ebuild">xz-utils</product>
     <announced>2024-03-29</announced>
-    <revised count="1">2024-03-29</revised>
+    <revised count="2">2024-05-29</revised>
     <bug>928134</bug>
     <access>remote</access>
     <affected>
         <package name="app-arch/xz-utils" auto="yes" arch="*">
             <unaffected range="lt">5.6.0</unaffected>
-            <vulnerable range="ge">5.6.0</vulnerable>
+            <unaffected range="gt">5.6.1</unaffected>
+            <vulnerable range="eq">5.6.0</vulnerable>
+            <vulnerable range="eq">5.6.1</vulnerable>
         </package>
     </affected>
     <background>
@@ -32,8 +34,12 @@ Analysis is still ongoing, however, and additional vectors may still be identifi
         <p>There is no known workaround at this time.</p>
     </workaround>
     <resolution>
-        <p>All XZ utils users should downgrade to the latest version before the backdoor was introduced:</p>
+        <p>All XZ utils users should upgrade to the latest fixed version, or downgrade to the latest version before the backdoor was introduced:</p>
         
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose "&gt;app-arch/xz-utils-5.6.1"
+        </code>
         <code>
           # emerge --sync
           # emerge --ask --oneshot --verbose "&lt;app-arch/xz-utils-5.6.0"
