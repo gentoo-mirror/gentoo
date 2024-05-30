@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-ml/ppx_expect ) dev-lang/ocaml dev-ml/dune
+BDEPEND=>=dev-ml/dune-3.4 test? ( dev-ml/ppx_expect ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=>=dev-ml/result-1.5:=[ocamlopt=] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Parsing and printing of S-expressions in Canonical form
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.5.2
 SRC_URI=https://github.com/ocaml-dune/csexp/releases/download/1.5.2/csexp-1.5.2.tbz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	beddc7cde467b2e48afc78a87d042c01
-_md5_=cfe78cf686ae6b0114b3f2343a7437ef
+_md5_=7b17193a6cff7a6c9ca67bc56ec0e9d7
