@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/stow/ https://git.savannah.gnu.org/cgit/stow.git
 INHERIT=perl-functions verify-sig
 IUSE=test verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 arm arm64 ~hppa ~mips ~ppc ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=GPL-3+
 RDEPEND=dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/stow/stow-2.4.0.tar.bz2 verify-sig? ( mirror://gnu/stow/stow-2.4.0.tar.bz2.sig )
 _eclasses_=perl-functions	c3fca037246e877693badea0df3b0ef8	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=8b9d769d1c82cf2ead423e065d96958a
+_md5_=b1c6c0a51437fb5bb8b8aafbaa772821
