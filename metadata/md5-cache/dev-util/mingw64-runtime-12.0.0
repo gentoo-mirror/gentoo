@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install setup
+DESCRIPTION=Free Win64 runtime and import library definitions
+EAPI=8
+HOMEPAGE=https://www.mingw-w64.org/
+INHERIT=crossdev flag-o-matic toolchain-funcs
+IUSE=default-ucrt headers-only idl libraries tools
+KEYWORDS=~amd64 ~x86
+LICENSE=ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain tools? ( GPL-3+ )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v12.0.0.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	crossdev	f04338ff78f213a4a55c5c37b3c6563e	flag-o-matic	d309b9713dfc18e754cba88d3ba69653
+_md5_=57035aa3ea259ee0e0d4c6f8eb3aa0e2
