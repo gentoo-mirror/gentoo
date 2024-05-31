@@ -7,7 +7,7 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1 multiprocessing
+inherit distutils-r1
 
 DESCRIPTION="High performance simulator for quantum circuits that includes noise models"
 HOMEPAGE="
@@ -31,7 +31,6 @@ KEYWORDS="~amd64"
 #
 # <nlohmann_json-3.10.3 for https://github.com/Qiskit/qiskit-aer/issues/1742
 DEPEND="
-	<dev-python/numpy-2[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.16.3[${PYTHON_USEDEP}]
 	<dev-cpp/nlohmann_json-3.10.3
 	>=dev-cpp/nlohmann_json-3.1.1
@@ -43,7 +42,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	>=dev-python/psutil-5[${PYTHON_USEDEP}]
-	>=dev-python/qiskit-0.45.0[${PYTHON_USEDEP}]
+	>=dev-python/qiskit-1.1.0[${PYTHON_USEDEP}]
 	>=dev-python/scipy-1.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -53,10 +52,10 @@ BDEPEND="
 	test? (
 		dev-python/ddt[${PYTHON_USEDEP}]
 		dev-python/fixtures[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 check_openblas() {
@@ -87,29 +86,21 @@ python_prepare_all() {
 	export DISABLE_DEPENDENCY_INSTALL="ON"
 	export SKBUILD_CONFIGURE_OPTIONS="-DTEST_JSON=1"
 
-	# remove meaningless dep on the metapackage
-	sed -i -e '/qiskit>=/d' setup.py || die
-
 	distutils-r1_python_prepare_all
 }
 
 python_test() {
 	local EPYTEST_DESELECT=(
-		# TODO
-		test/terra/states/test_aer_state.py::TestAerState::test_appply_diagonal
-		test/terra/states/test_aer_state.py::TestAerState::test_appply_measure
-		test/terra/states/test_aer_state.py::TestAerState::test_appply_reset
-
-		# TODO: GLIBCXX_ASSERTIONS, bug #897758
-		test/terra/backends/aer_simulator/test_algorithms.py::TestAlgorithms::test_extended_stabilizer_sparse_output_probs
-		test/terra/backends/aer_simulator/test_options.py::TestOptions::test_mps_options
-		test/terra/backends/aer_simulator/test_fusion.py::TestGateFusion::test_parallel_fusion_diagonal
-
 		# requires qiskit_qasm3_import
 		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_1___automatic____CPU__
 		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_2___statevector____CPU__
 		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_3___matrix_product_state____CPU__
 		test/terra/backends/aer_simulator/test_save_statevector.py::TestSaveStatevector::test_save_statevector_for_qasm3_circuit_4___extended_stabilizer____CPU__
+	)
+
+	local EPYTEST_IGNORE=(
+		# TODO: qiskit.providers.aer? wtf?
+		test/terra/expression/test_classical_expressions.py
 	)
 
 	# From tox.ini/tests.yml in CI
@@ -119,7 +110,8 @@ python_test() {
 	local -x JUPYTER_PLATFORM_DIRS=1
 
 	rm -rf qiskit_aer || die
-	epytest -n "$(makeopts_jobs)" -s
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest -s
 }
 
 pkg_postinst() {
