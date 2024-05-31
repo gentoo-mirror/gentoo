@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure postinst
+DEPEND=>=dev-lang/tk-8.3:= x11-libs/libX11 alsa? ( media-libs/alsa-lib:= ) lash? ( media-sound/lash:= ) x11-base/xorg-proto virtual/pkgconfig
+DESCRIPTION=A virtual MIDI keyboard for X
+EAPI=8
+HOMEPAGE=https://github.com/tiwai/vkeybd
+INHERIT=toolchain-funcs
+IUSE=alsa lash oss
+KEYWORDS=~amd64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-lang/tk-8.3:= x11-libs/libX11 alsa? ( media-libs/alsa-lib:= ) lash? ( media-sound/lash:= )
+SLOT=0
+SRC_URI=https://github.com/tiwai/vkeybd/archive/refs/tags/v0.1.18e.tar.gz -> vkeybd-0.1.18e.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=8baf840b117420acbd4671601b659a4e
