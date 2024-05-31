@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit systemd
 
@@ -11,10 +11,12 @@ SRC_URI="https://github.com/kdave/btrfsmaintenance/archive/v${PV}.tar.gz -> ${P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="systemd"
 
 RDEPEND="
+	app-shells/bash
+	sys-apps/util-linux
 	sys-fs/btrfs-progs
 	systemd? ( sys-apps/systemd )
 	!systemd? ( virtual/cron )
@@ -22,8 +24,9 @@ RDEPEND="
 
 src_prepare() {
 	# Fix config path into watching service
-	sed -i 's%/etc/sysconfig/btrfsmaintenance%/etc/default/btrfsmaintenance%g' btrfsmaintenance-refresh.* || \
+	sed -i 's%/etc/sysconfig/btrfsmaintenance%/etc/default/btrfsmaintenance%g' btrfsmaintenance-refresh.* ||
 		die "Unable to patch btrfsmaintenance-refresh.*"
+	rm btrfs-defrag-plugin.sh || die "cannot remove btrfs-defrag-plugin.sh" # not necessary on gentoo systems
 	default
 }
 
