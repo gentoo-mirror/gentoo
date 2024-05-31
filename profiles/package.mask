@@ -319,24 +319,6 @@ app-i18n/skkserv
 # Removal: 2024-05-26.  Bug #912842.
 net-misc/ttytter
 
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Broken with py3.12.  Last commit upstream in 2021.  No revdeps.
-# Removal on 2024-05-23.  Bug #929484.
-dev-python/pyannotate
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Unmaintained in Gentoo.  Lacking tests, py3.12 support, outdated.
-# No revdeps.  The alternatives are dev-python/{llfuse,pyfuse3}.
-# Removal on 2024-05-23.  Bug #929453.
-dev-python/fuse-python
-
-# Michał Górny <mgorny@gentoo.org> (2024-04-23)
-# Unmaintained in Gentoo and seriously outdated.  Its only reverse
-# dependency is app-admin/testdisk, and the current TestDisk versions
-# do not build against this version anyway
-# Removal on 2024-05-23.  Bug #927076.
-app-forensics/libewf
-
 # Michał Górny <mgorny@gentoo.org> (2024-04-11)
 # Contains a bug that could render the kernel fail to boot.
 # https://lore.kernel.org/oe-lkp/202403221630.2692c998-oliver.sang@intel.com/
