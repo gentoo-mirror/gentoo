@@ -129,12 +129,12 @@ multilib_src_compile() {
 					"${tar_pgo_args[@]}" \
 					-cf xz-pgo-test-01.tar \
 					{"${S}","${BUILD_DIR}"}/**/*.[cho] \
-					{"${S}","${BUILD_DIR}"}/**/*.so* \
+					{"${S}","${BUILD_DIR}"}/**/.libs/* \
 					{"${S}","${BUILD_DIR}"}/**/**.txt \
 					{"${S}","${BUILD_DIR}"}/tests/files
 
-				stat --printf="xz-pgo-test-01.tar.tar size: %s\n" xz-pgo-test-01.tar
-				md5sum xz-pgo-test-01.tar
+				stat --printf="xz-pgo-test-01.tar.tar size: %s\n" xz-pgo-test-01.tar || die
+				md5sum xz-pgo-test-01.tar || die
 			)
 
 			local test_variants=(
@@ -142,14 +142,14 @@ multilib_src_compile() {
 				# https://packages.altlinux.org/en/sisyphus/srpms/xz/specfiles/#line-80
 				'-0 -C none'
 				'-2 -C crc32'
-				$(usev extra-filters '-6 --arm --lzma2 -C crc64')
-				$(usev extra-filters '-6 --x86 --lzma2=lc=4 -C sha256')
+				"$(usev extra-filters '-6 --arm --lzma2 -C crc64')"
+				"$(usev extra-filters '-6 --x86 --lzma2=lc=4 -C sha256')"
 				'-7e --format=lzma'
 
 				# Our own variants
 				''
 				'-9e'
-				$(usev extra-filters '--x86 --lzma2=preset=9e')
+				"$(usev extra-filters '--x86 --lzma2=preset=9e')"
 			)
 			local test_variant
 			for test_variant in "${test_variants[@]}" ; do
