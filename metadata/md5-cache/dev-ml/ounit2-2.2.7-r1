@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/ocaml dev-ml/dune
+BDEPEND=>=dev-ml/dune-3 dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/lwt:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Unit testing framework for OCaml
@@ -12,4 +12,4 @@ RDEPEND=dev-ml/lwt:= dev-ml/stdlib-shims:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-m
 SLOT=0/2.2.7
 SRC_URI=https://github.com/gildor478/ounit/archive/v2.2.7.tar.gz -> ounit2-2.2.7.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
-_md5_=80116b1bc38afa0ddc938a7aa241cbca
+_md5_=2881f9d2b313f0894ddf826006fe1731
