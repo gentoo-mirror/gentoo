@@ -13,7 +13,7 @@ SRC_URI="http://git.tvdr.de/?p=vdr.git;a=snapshot;h=refs/tags/${PV};sf=tbz2 -> $
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 IUSE="bidi debug demoplugins html keyboard mainmenuhooks menuorg naludump permashift pinplugin systemd ttxtsubs verbose"
 
 COMMON_DEPEND="
@@ -111,7 +111,7 @@ src_prepare() {
 	EOT
 	eend 0
 
-	eapply "${FILESDIR}/${PN}-2.4.6_gentoo.patch"
+	eapply "${FILESDIR}/vdr-2.6.6_gentoo.patch"
 	use demoplugins || eapply "${FILESDIR}/vdr-2.4_remove_plugins.patch"
 	eapply "${FILESDIR}/${PN}-2.4.6_makefile-variables.patch"
 
