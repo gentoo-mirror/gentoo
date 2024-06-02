@@ -11,23 +11,16 @@ inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="A port of pdftk into java"
 HOMEPAGE="https://gitlab.com/pdftk-java/pdftk"
-
-if [[ ${PV} == 9999 ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.com/pdftk-java/pdftk/"
-	S="${WORKDIR}/pdftk-${PV}"
-else
-	SRC_URI="https://gitlab.com/pdftk-java/pdftk/-/archive/v${PV}/pdftk-v${PV}.tar.bz2"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-	S="${WORKDIR}/pdftk-v${PV}"
-fi
+MY_COMMIT="3f1918c831c919d0a8fcf18c36cf40118398b995"
+SRC_URI="https://gitlab.com/pdftk-java/pdftk/-/archive/${MY_COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+S="${WORKDIR}/pdftk-${MY_COMMIT}"
 
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
-# Switch back to bcprov:0 once pdftk updates its bcprov dependency.
 CP_DEPEND="
-	dev-java/bcprov:1.74
+	dev-java/bcprov:0
 	dev-java/commons-lang:3.6
 "
 
