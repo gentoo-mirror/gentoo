@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake unpacker
 
 DESCRIPTION="Fcitx5 Next generation of fcitx "
 HOMEPAGE="https://fcitx-im.org/"
-SRC_URI="https://download.fcitx-im.org/fcitx5/libime/libime-${PV}_dict.tar.xz"
+SRC_URI="https://download.fcitx-im.org/fcitx5/libime/libime-${PV}_dict.tar.zst"
 
 LICENSE="LGPL-2+"
 SLOT="5"

@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake unpacker
 
 DESCRIPTION="Input method development support for xcb"
 HOMEPAGE="https://github.com/fcitx/xcb-imdkit"
-SRC_URI="https://download.fcitx-im.org/fcitx5/${PN}/${P}.tar.xz"
+SRC_URI="https://download.fcitx-im.org/fcitx5/${PN}/${P}.tar.zst"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
