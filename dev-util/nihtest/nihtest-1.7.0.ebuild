@@ -50,7 +50,7 @@ python_test() {
 
 src_install() {
 	distutils-r1_src_install
-	newman manpages/nihtest.man nihtest.1
-	newman manpages/nihtest.conf.man nihtest.conf.5
-	newman manpages/nihtest-case.man nihtest-case.5
+	newman manpages/nihtest.mdoc nihtest.1
+	newman manpages/nihtest.conf.mdoc nihtest.conf.5
+	newman manpages/nihtest-case.mdoc nihtest-case.5
 }
