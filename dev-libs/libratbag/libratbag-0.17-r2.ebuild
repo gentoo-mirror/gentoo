@@ -3,17 +3,23 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit meson python-single-r1 systemd udev
 
 DESCRIPTION="Library to configure gaming mice"
 HOMEPAGE="https://github.com/libratbag/libratbag"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/libratbag/libratbag.git"
+else
+	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="doc elogind systemd test"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -62,7 +68,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.16-musl-error.h.patch
+	"${FILESDIR}"/libratbag-0.17-python3.12-imp.patch
 )
 
 src_prepare() {
@@ -102,4 +108,5 @@ pkg_postinst() {
 		elog 'You need to be in "plugdev" group in order to access the'
 		elog 'ratbagd dbus interface'
 	fi
+	elog 'You may be required to create and/or be part of the "games" group if you intend on using piper'
 }
