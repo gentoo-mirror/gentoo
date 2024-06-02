@@ -964,7 +964,7 @@ app-admin/gopass-hibp 1.15.11 1.15.13: Gopass haveibeenpwnd.com integration
 app-admin/gopass-jsonapi 1.15.11 1.15.13: Gopass Browser Bindings
 app-admin/gopass-summon-provider 1.15.11 1.15.13: Gopass Summon Provider
 app-admin/graylog 4.1.13 4.2.7: Free and open source log management
-app-admin/gtkdiskfree 2.0.4_p20200224 2.0.4_p20200224-r1: Graphical tool to show free disk space like df
+app-admin/gtkdiskfree 2.0.4_p20200224 2.0.4_p20200224-r1 2.0.4_p20200224-r2: Graphical tool to show free disk space like df
 app-admin/hardinfo 0.6_alpha_pre20221113: System information and benchmark tool for Linux systems
 app-admin/haskell-updater 1.3.2-r1 9999: Rebuild Haskell dependencies in Gentoo
 app-admin/hcloud 1.43.1: A command-line interface for Hetzner Cloud
@@ -1643,7 +1643,7 @@ app-dicts/myspell-da 2.6: Danish dictionaries for myspell/hunspell
 app-dicts/myspell-de 2017.01.12-r1: German (AT,CH,DE) dictionaries for myspell/hunspell
 app-dicts/myspell-de_1901 20170622: German (traditional orthography) dictionaries for myspell/hunspell
 app-dicts/myspell-el 0.9: Greek dictionaries for myspell/hunspell
-app-dicts/myspell-en 20230701 20230901 20240101 20240201: English dictionaries for myspell/hunspell
+app-dicts/myspell-en 20230701 20230901 20240101 20240201 20240501: English dictionaries for myspell/hunspell
 app-dicts/myspell-eo 1.01: Esperanto dictionaries for myspell/hunspell
 app-dicts/myspell-es 2.6: Spanish dictionaries for myspell/hunspell
 app-dicts/myspell-et 20030606: Estonian dictionaries for myspell/hunspell
@@ -5511,7 +5511,7 @@ dev-libs/libjodycode 3.1: Shared code used by several utilities written by Jody 
 dev-libs/libjwt 1.15.3: JWT C Library
 dev-libs/libkpass 6-r2: Libkpass is a C implementation to access KeePass 1.x format password databases
 dev-libs/libksba 1.6.5 1.6.6: X.509 and CMS (PKCS#7) library
-dev-libs/libliftoff 0.3.0 0.4.1: Lightweight KMS plane library
+dev-libs/libliftoff 0.4.1 0.5.0: Lightweight KMS plane library
 dev-libs/liblinear 243 246: A Library for Large Linear Classification
 dev-libs/liblogging 1.0.6 1.0.6-r1: Liblogging is an easy to use, portable, open source library for system logging
 dev-libs/liblognorm 2.0.6-r1: Fast samples-based log normalization library
@@ -7832,16 +7832,16 @@ dev-perl/YAML-Tiny 1.740.0: Read/Write YAML files with as little code as possibl
 dev-perl/ZMQ-Constants 1.40.0-r1: Constants for libzmq
 dev-perl/aliased 0.340.0-r2: Use shorter versions of class names
 dev-perl/asa 1.40.0: Lets your class/object say it works like something else
-dev-perl/autobox 3.0.1-r1: Call methods on native types
-dev-perl/autovivification 0.180.0-r1: Lexically disable autovivification
-dev-perl/bareword-filehandles 0.7.0-r1: Disables bareword filehandles
+dev-perl/autobox 3.0.1-r1 3.0.1-r2: Call methods on native types
+dev-perl/autovivification 0.180.0-r1 0.180.0-r2: Lexically disable autovivification
+dev-perl/bareword-filehandles 0.7.0-r1 0.7.0-r2: Disables bareword filehandles
 dev-perl/boolean 0.460.0-r1: Boolean support for Perl
 dev-perl/capitalization 0.30.0-r2: no capitalization on method names
 dev-perl/common-sense 3.750.0: Save a tree AND a kitten, use common::sense!
 dev-perl/constant-boolean 0.20.0-r2: Define TRUE and FALSE constants
 dev-perl/constant-defer 6.0.0-r1: constant subs with deferred value calculation
 dev-perl/enum 1.120.0: C style enumerated types and bitmask flags in Perl
-dev-perl/forks 0.360.0-r2: Emulate threads with fork
+dev-perl/forks 0.360.0-r2 0.360.0-r3: Emulate threads with fork
 dev-perl/glib-perl 1.329.400: Glib - Perl wrappers for the GLib utility and Object libraries
 dev-perl/go-perl 0.150.0: GO::Parser parses all GO files formats and types
 dev-perl/gtk2-ex-formfactory 0.670.0-r2: Gtk2 FormFactory
@@ -10903,7 +10903,7 @@ dev-util/open-vcdiff 0.8.4-r2: An encoder/decoder for the VCDIFF (RFC3284) forma
 dev-util/opencl-headers 2023.04.17 2023.12.14: Unified C language headers for the OpenCL API
 dev-util/oprofile 1.4.0: A transparent low-overhead system-wide profiler
 dev-util/ostree 2023.1 2023.2 2023.3 2023.3-r1 2023.5 2024.3: Operating system and container binary deployment and upgrades
-dev-util/packer 1.8.6 1.9.4 1.9.5: A tool to create identical machine images for multiple platforms
+dev-util/packer 1.9.5: A tool to create identical machine images for multiple platforms
 dev-util/pahole 1.24_p20221024 1.25 1.26 9999: pahole (Poke-a-Hole) and other DWARF2 utilities
 dev-util/patchelf 0.17.2 0.18.0: Small utility to modify the dynamic linker and RPATH of ELF executables
 dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
@@ -14667,7 +14667,7 @@ net-firewall/nftables 1.0.9 9999: Linux kernel firewall, NAT and packet mangling
 net-firewall/nftlb 1.0.7-r1 1.0.8-r1: nftables load balancer
 net-firewall/pglinux 2.3.1_p20171006-r1: Privacy oriented firewall application
 net-firewall/psad 2.4.6-r1: Port Scanning Attack Detection daemon
-net-firewall/rtsp-conntrack 5.3 5.3-r1: RTSP conntrack module for Netfilter
+net-firewall/rtsp-conntrack 5.3 5.3-r1 5.3-r2: RTSP conntrack module for Netfilter
 net-firewall/shorewall 5.2.8-r1: A high-level tool for configuring Netfilter
 net-firewall/ufw 0.36.1: A program used to manage a netfilter firewall
 net-firewall/xtables-addons 3.24-r1: iptables extensions not yet accepted in the main kernel
@@ -18589,7 +18589,7 @@ x11-misc/slim 1.4.0 9999: Simple Login Manager resurrected
 x11-misc/slock 1.4-r1 1.5: simple X display locker
 x11-misc/slop 7.6-r1: Application that queries the user for a selection for printing
 x11-misc/snixembed 0.2.2 0.3.0: Proxy StatusNotifierItems as XEmbedded systemtray-spec icons
-x11-misc/spacefm 1.0.6-r1 1.0.6-r2: A multi-panel tabbed file manager
+x11-misc/spacefm 1.0.6-r1 1.0.6-r2 1.0.6-r3: A multi-panel tabbed file manager
 x11-misc/splatmoji 1.1.1 1.2.0: Quickly look up and input emoji and/or emoticons
 x11-misc/spnavcfg 0.3.1 1.0 1.1: Qt-based GUI to configure a space navigator device
 x11-misc/stalonetray 0.8.4 0.8.5: System tray utility including support for KDE system tray icons
