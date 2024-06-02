@@ -7,11 +7,11 @@ HOMEPAGE=https://gpsd.gitlab.io/gpsd/
 INHERIT=distutils-r1 scons-utils systemd toolchain-funcs udev
 IUSE=+gpsd_protocols_aivdm +gpsd_protocols_ashtech +gpsd_protocols_earthmate +gpsd_protocols_evermore +gpsd_protocols_fury +gpsd_protocols_fv18 +gpsd_protocols_garmin +gpsd_protocols_garmintxt +gpsd_protocols_geostar +gpsd_protocols_gpsclock +gpsd_protocols_greis +gpsd_protocols_isync +gpsd_protocols_itrax +gpsd_protocols_navcom +gpsd_protocols_nmea2000 +gpsd_protocols_oceanserver +gpsd_protocols_oncore +gpsd_protocols_rtcm104v2 +gpsd_protocols_rtcm104v3 +gpsd_protocols_sirf +gpsd_protocols_skytraq +gpsd_protocols_superstar2 +gpsd_protocols_tnt +gpsd_protocols_tripmate +gpsd_protocols_tsip +gpsd_protocols_ublox bluetooth +cxx dbus debug ipv6 latency-timing ncurses ntp +python qt5 selinux +shm +sockets static systemd test udev usb X python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 arm ~arm64 ~loong ~ppc ppc64 ~riscv ~sparc ~x86
-LICENSE=BSD
+LICENSE=BSD-2
 RDEPEND=acct-user/gpsd acct-group/dialout >=net-misc/pps-tools-0.0.20120407 bluetooth? ( net-wireless/bluez:= ) dbus? ( sys-apps/dbus dev-libs/dbus-glib ) ncurses? ( sys-libs/ncurses:= ) ntp? ( || ( net-misc/ntp net-misc/ntpsec net-misc/chrony ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5 ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) ) gpsd_protocols_ublox? ( dev-python/pyserial ) gpsd_protocols_greis? ( dev-python/pyserial ) usb? ( virtual/libusb:1 ) X? ( dev-python/pygobject:3[cairo,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) selinux? ( sec-policy/selinux-gpsd )
 REQUIRED_USE=X? ( python ) gpsd_protocols_nmea2000? ( gpsd_protocols_aivdm ) gpsd_protocols_isync? ( gpsd_protocols_ublox ) gpsd_protocols_ublox? ( python ) gpsd_protocols_greis? ( python ) python? ( || ( python_targets_python3_10 python_targets_python3_11 ) ) qt5? ( cxx )
 RESTRICT=!test? ( test )
 SLOT=0/30
 SRC_URI=mirror://nongnu/gpsd/gpsd-3.25.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	8a28fa6d3e3bc96ff8a7eff2badbe71f	distutils-r1	5400d21736d8621562bf93be4fa98eec	scons-utils	b3544637c85286a19000d59461d3a7a5	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=2f0fc7f3fa5069def09994f9635cfef2
+_md5_=c70ed821511515b0c63d29be6c5248c6
