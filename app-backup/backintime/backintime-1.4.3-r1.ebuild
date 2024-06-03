@@ -14,12 +14,12 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/bit-team/${PN}/releases/download/v${PV}/${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="examples qt5 test"
+IUSE="examples gui test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -29,13 +29,14 @@ DEPEND="
 	$(python_gen_cond_dep '
 		dev-python/dbus-python[${PYTHON_USEDEP}]
 		dev-python/keyring[${PYTHON_USEDEP}]
+		dev-python/packaging[${PYTHON_USEDEP}]
 	')
 "
 RDEPEND="
 	${DEPEND}
 	virtual/openssh
 	net-misc/rsync[xattr,acl]
-	qt5? ( dev-python/PyQt5[gui,widgets] )
+	gui? ( dev-python/PyQt5[gui,widgets] )
 "
 BDEPEND="
 	sys-devel/gettext
@@ -46,7 +47,9 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-1.2.1-no-compress-docs-examples.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-1.4.3-no-compress-docs-examples.patch"
+)
 
 src_prepare() {
 	default
@@ -58,14 +61,16 @@ src_prepare() {
 }
 
 src_configure() {
+	# TODO: Review https://github.com/bit-team/backintime/blob/dev/CONTRIBUTING.md#dependencies
+	# for deps (some may be optfeatures).
 	pushd common > /dev/null || die
 	# Not autotools
-	./configure --python3 --no-fuse-group || die
+	./configure --python="${PYTHON}" --no-fuse-group || die
 	popd > /dev/null || die
 
-	if use qt5 ; then
+	if use gui ; then
 		pushd qt > /dev/null || die
-		./configure --python3 || die
+		./configure --python="${PYTHON}" || die
 		popd > /dev/null || die
 	fi
 }
@@ -73,7 +78,7 @@ src_configure() {
 src_compile() {
 	emake -C common
 
-	if use qt5 ; then
+	if use gui ; then
 		emake -C qt
 	fi
 }
@@ -88,7 +93,7 @@ src_test() {
 src_install() {
 	emake -C common DESTDIR="${D}" install
 
-	if use qt5 ; then
+	if use gui ; then
 		emake -C qt DESTDIR="${D}" install
 	fi
 
