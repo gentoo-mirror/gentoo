@@ -15,10 +15,11 @@ SRC_URI="https://github.com/brndnmtthws/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-3 BSD LGPL-2.1 MIT"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="apcupsd bundled-toluapp cmus curl doc extras hddtemp ical iconv imlib
-	intel-backlight iostats irc lua-cairo lua-cairo-xlib lua-imlib lua-rsvg
-	math moc mpd mysql ncurses nvidia +portmon pulseaudio rss systemd test
-	thinkpad truetype wayland webserver wifi X xinerama xmms2"
+IUSE="apcupsd bundled-toluapp cmus colour-name-map curl doc extras hddtemp ical
+	iconv imlib intel-backlight iostats irc lua-cairo lua-cairo-xlib
+	lua-imlib lua-rsvg math moc mpd mysql ncurses nvidia +portmon
+	pulseaudio rss systemd test thinkpad truetype wayland webserver wifi X
+	xinerama xmms2"
 RESTRICT="!test? ( test )"
 
 # Note: toluapp is bundled in conky since 1.11.2
@@ -83,6 +84,9 @@ DEPEND="
 	)
 "
 BDEPEND="
+	colour-name-map? (
+		dev-util/gperf
+	)
 	doc? (
 		virtual/pandoc
 		$(python_gen_any_dep '
@@ -173,6 +177,7 @@ src_configure() {
 		-DBUILD_AUDACIOUS=no
 		-DBUILD_BUILTIN_CONFIG=yes
 		-DBUILD_CMUS=$(usex cmus)
+		-DBUILD_COLOUR_NAME_MAP=$(usex colour-name-map)
 		-DBUILD_CURL=$(usex curl)
 		-DBUILD_DOCS=$(usex doc)
 		-DBUILD_EXTRAS=$(usex extras)
