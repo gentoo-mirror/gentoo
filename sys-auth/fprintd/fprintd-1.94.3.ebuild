@@ -1,21 +1,23 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit meson pam python-any-r1 systemd
 
 MY_P="${PN}-v${PV}"
+
 DESCRIPTION="D-Bus service to access fingerprint readers"
 HOMEPAGE="https://gitlab.freedesktop.org/libfprint/fprintd"
 SRC_URI="https://gitlab.freedesktop.org/libfprint/${PN}/-/archive/v${PV}/${MY_P}.tar.bz2"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ppc ppc64 ~riscv sparc x86"
-IUSE="doc pam systemd test"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="doc pam selinux systemd test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -25,9 +27,10 @@ RDEPEND="
 	sys-auth/polkit
 	pam? (
 		sys-libs/pam
-		systemd? ( sys-apps/systemd )
-		!systemd? ( sys-auth/elogind )
-	)"
+		systemd? ( sys-apps/systemd:= )
+		!systemd? ( sys-auth/elogind:= )
+	)
+"
 
 DEPEND="
 	${RDEPEND}
@@ -38,7 +41,8 @@ DEPEND="
 			dev-python/pycairo[${PYTHON_USEDEP}]
 			pam? ( sys-libs/pam_wrapper[${PYTHON_USEDEP}] )
 		')
-	)"
+	)
+"
 
 BDEPEND="
 	dev-lang/perl
@@ -48,25 +52,23 @@ BDEPEND="
 		dev-libs/libxml2
 		dev-libs/libxslt
 		dev-util/gtk-doc
-	)"
+	)
+"
+
+RDEPEND+=" selinux? ( sec-policy/selinux-fprintd )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.90.7_0001-add-test-feature-and-make-tests-optional.patch"
-	"${FILESDIR}/${PN}-1.90.8_0002-add-configure-option-for-libsystemd-provider.patch"
-	"${FILESDIR}/${P}-fix-meson-0.61-build.patch"
-	"${FILESDIR}/tests-Fix-dbusmock-AddDevice-calls-to-include-optional-ar.patch"
+	"${FILESDIR}/fprintd-1.94.3-test-optional.patch"
 )
-
-S="${WORKDIR}/${MY_P}"
 
 python_check_deps() {
 	if use test; then
-		has_version -d "sys-libs/pam_wrapper[${PYTHON_USEDEP}]"
+		python_has_version -d "sys-libs/pam_wrapper[${PYTHON_USEDEP}]"
 	fi
 
-	has_version -d "dev-python/python-dbusmock[${PYTHON_USEDEP}]" &&
-	has_version -d "dev-python/dbus-python[${PYTHON_USEDEP}]" &&
-	has_version -d "dev-python/pycairo[${PYTHON_USEDEP}]"
+	python_has_version -d "dev-python/python-dbusmock[${PYTHON_USEDEP}]" &&
+	python_has_version -d "dev-python/dbus-python[${PYTHON_USEDEP}]" &&
+	python_has_version -d "dev-python/pycairo[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
@@ -74,16 +76,16 @@ pkg_setup() {
 }
 
 src_configure() {
-		local emesonargs=(
-			$(meson_feature test)
-			$(meson_use pam)
-			-Dgtk_doc=$(usex doc true false)
-			-Dman=true
-			-Dsystemd_system_unit_dir=$(systemd_get_systemunitdir)
-			-Dpam_modules_dir=$(getpam_mod_dir)
-			-Dlibsystemd=$(usex systemd libsystemd libelogind)
-		)
-		meson_src_configure
+	local emesonargs=(
+		$(meson_use test tests)
+		$(meson_use pam)
+		-Dgtk_doc=$(usex doc true false)
+		-Dman=true
+		-Dsystemd_system_unit_dir=$(systemd_get_systemunitdir)
+		-Dpam_modules_dir=$(getpam_mod_dir)
+		-Dlibsystemd=$(usex systemd libsystemd libelogind)
+	)
+	meson_src_configure
 }
 
 src_install() {
