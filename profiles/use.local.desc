@@ -8774,7 +8774,6 @@ www-servers/tomcat:extra-webapps - Build also the docs and examples webapp
 www-servers/uwsgi:embedded - Embed plugins instead of building them as real plugins. When disabling this USE flag make sure you specify all used plugins in your uWSGI configuration. Note: Language plugins will always be built as real plugins.
 www-servers/uwsgi:go - Build the gccgo plugin to run Go applications.
 www-servers/uwsgi:json - Support json as a configuration file format.
-www-servers/uwsgi:python-asyncio - Use the EXPERIMENTAL asyncio (tulip) for python3.4 async request dispatching and as LoopEngine (see http://uwsgi-docs.readthedocs.org/en/latest/asyncio.html).
 www-servers/uwsgi:routing - Enable routing support
 www-servers/uwsgi:yajl - Use dev-libs/yajl instead of dev-libs/jansson for parsing JSON configuration files (if USe=json is set)
 www-servers/uwsgi:yaml - Support yaml as a configuration file format.
