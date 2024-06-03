@@ -12,54 +12,43 @@ CRATES="
 	aes-gcm@0.10.3
 	aes@0.8.4
 	ahash@0.8.11
-	aho-corasick@1.1.2
-	allocator-api2@0.2.16
+	aho-corasick@1.1.3
+	allocator-api2@0.2.18
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
-	anstream@0.6.13
-	anstyle-parse@0.2.3
-	anstyle-query@1.0.2
-	anstyle-wincon@3.0.2
-	anstyle@1.0.6
-	anyhow@1.0.80
+	anyhow@1.0.83
 	ascii-canvas@3.0.0
-	async-trait@0.1.77
-	autocfg@1.1.0
-	backtrace@0.3.69
+	async-trait@0.1.80
+	autocfg@1.3.0
+	backtrace@0.3.71
 	base64@0.21.7
+	base64@0.22.1
 	base64ct@1.6.0
 	bindgen@0.68.1
 	bit-set@0.5.3
 	bit-vec@0.6.3
 	bitflags@1.3.2
-	bitflags@2.4.2
+	bitflags@2.5.0
 	block-buffer@0.10.4
 	block-padding@0.3.3
 	botan-sys@0.10.5
 	botan@0.10.7
-	buffered-reader@1.3.0
-	bumpalo@3.15.3
+	buffered-reader@1.3.1
+	bumpalo@3.16.0
 	byteorder@1.5.0
-	bytes@1.5.0
+	bytes@1.6.0
 	bzip2-sys@0.1.11+1.0.8
 	bzip2@0.4.4
 	capnp-futures@0.19.0
 	capnp-rpc@0.19.0
-	capnp@0.19.2
-	cc@1.0.89
+	capnp@0.19.3
+	cc@1.0.97
 	cexpr@0.6.0
 	cfg-if@1.0.0
-	chrono@0.4.34
+	chrono@0.4.38
 	cipher@0.4.4
 	clang-sys@1.7.0
-	clap@4.4.11
-	clap_builder@4.4.11
-	clap_complete@4.4.4
-	clap_derive@4.4.7
-	clap_lex@0.6.0
-	clap_mangen@0.2.15
 	cmac@0.7.2
-	colorchoice@1.0.0
 	const-oid@0.9.6
 	core-foundation-sys@0.8.6
 	core-foundation@0.9.4
@@ -73,7 +62,7 @@ CRATES="
 	crossbeam@0.8.4
 	crunchy@0.2.2
 	crypto-common@0.1.6
-	ctor@0.2.7
+	ctor@0.2.8
 	ctr@0.9.2
 	curve25519-dalek-derive@0.1.1
 	curve25519-dalek@4.1.2
@@ -81,9 +70,9 @@ CRATES="
 	darling@0.20.8
 	darling_core@0.20.8
 	darling_macro@0.20.8
-	data-encoding@2.5.0
+	data-encoding@2.6.0
 	dbl@0.3.2
-	der@0.7.8
+	der@0.7.9
 	deranged@0.3.11
 	diff@0.1.13
 	digest@0.10.7
@@ -92,29 +81,28 @@ CRATES="
 	dirs-sys@0.4.1
 	dirs@5.0.1
 	doc-comment@0.3.3
-	dot-writer@0.1.3
 	dyn-clone@1.0.17
 	eax@0.5.0
 	ed25519-dalek@2.1.1
 	ed25519@2.2.3
 	editdistancek@1.0.2
-	either@1.10.0
+	either@1.11.0
 	embedded-io@0.6.1
-	ena@0.14.2
-	encoding_rs@0.8.33
+	ena@0.14.3
+	encoding_rs@0.8.34
 	endian-type@0.1.2
 	enum-as-inner@0.6.0
-	enumber@0.3.0
+	enumber@0.3.1
 	equivalent@1.0.1
 	errno@0.3.8
 	fallible-iterator@0.3.0
 	fallible-streaming-iterator@0.1.9
-	fastrand@2.0.1
+	fastrand@2.1.0
 	fd-lock@4.0.2
-	fiat-crypto@0.2.6
+	fiat-crypto@0.2.8
 	filetime@0.2.23
 	fixedbitset@0.4.2
-	flate2@1.0.28
+	flate2@1.0.30
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
@@ -131,20 +119,21 @@ CRATES="
 	futures@0.3.30
 	generic-array@0.14.7
 	generic-array@1.0.0
-	getrandom@0.2.12
+	gethostname@0.4.3
+	getrandom@0.2.15
 	ghash@0.5.1
 	gimli@0.28.1
 	glob@0.3.1
-	h2@0.3.24
+	h2@0.3.26
 	hashbrown@0.12.3
-	hashbrown@0.14.3
+	hashbrown@0.14.5
 	hashlink@0.9.0
 	heck@0.4.1
 	hermit-abi@0.3.9
 	hex@0.4.3
-	hickory-client@0.24.0
-	hickory-proto@0.24.0
-	hickory-resolver@0.24.0
+	hickory-client@0.24.1
+	hickory-proto@0.24.1
+	hickory-resolver@0.24.1
 	histo@1.0.0
 	hostname@0.3.1
 	http-body@0.4.6
@@ -159,31 +148,31 @@ CRATES="
 	idna@0.4.0
 	idna@0.5.0
 	indexmap@1.9.3
-	indexmap@2.2.5
+	indexmap@2.2.6
 	inout@0.1.3
 	interprocess@1.2.1
 	ipconfig@0.3.2
 	ipnet@2.9.0
 	itertools@0.11.0
-	itoa@1.0.10
+	itoa@1.0.11
 	js-sys@0.3.69
 	lalrpop-util@0.20.2
 	lalrpop@0.20.2
 	lazy_static@1.4.0
 	lazycell@1.3.0
-	libc@0.2.153
-	libloading@0.8.2
+	libc@0.2.154
+	libloading@0.8.3
 	libm@0.2.8
-	libredox@0.0.1
+	libredox@0.1.3
 	libsqlite3-sys@0.28.0
 	linked-hash-map@0.5.6
 	linux-raw-sys@0.4.13
-	lock_api@0.4.11
+	lock_api@0.4.12
 	log@0.4.21
 	lru-cache@0.1.2
 	match_cfg@0.1.0
 	md-5@0.10.6
-	memchr@2.7.1
+	memchr@2.7.2
 	memsec@0.6.3
 	mime@0.3.17
 	minimal-lexical@0.2.1
@@ -191,103 +180,102 @@ CRATES="
 	mio@0.8.11
 	native-tls@0.2.11
 	nettle-sys@2.3.0
-	nettle@7.3.0
-	new_debug_unreachable@1.0.4
+	nettle@7.4.0
+	new_debug_unreachable@1.0.6
 	nibble_vec@0.1.0
 	nom@7.1.3
-	ntest@0.9.0
-	ntest_test_cases@0.9.0
-	ntest_timeout@0.9.0
+	ntest@0.9.2
+	ntest_test_cases@0.9.2
+	ntest_timeout@0.9.2
 	num-bigint-dig@0.8.4
 	num-conv@0.1.0
 	num-integer@0.1.46
-	num-iter@0.1.44
-	num-traits@0.2.18
+	num-iter@0.1.45
+	num-traits@0.2.19
 	num_cpus@1.16.0
 	object@0.32.2
 	once_cell@1.19.0
 	opaque-debug@0.3.1
-	openpgp-cert-d@0.3.1
+	openpgp-cert-d@0.3.2
 	openssh-keys@0.6.2
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
-	openssl-sys@0.9.101
+	openssl-sys@0.9.102
 	openssl@0.10.64
 	option-ext@0.2.0
-	parking_lot@0.12.1
-	parking_lot_core@0.9.9
+	parking_lot@0.12.2
+	parking_lot_core@0.9.10
 	peeking_take_while@0.1.2
 	percent-encoding@2.3.1
 	petgraph@0.6.4
 	phf_shared@0.10.0
-	pin-project-lite@0.2.13
+	pin-project-lite@0.2.14
 	pin-utils@0.1.0
 	pkcs8@0.10.2
 	pkg-config@0.3.30
-	platforms@3.3.0
+	platforms@3.4.0
 	polyval@0.6.2
 	powerfmt@0.2.0
 	ppv-lite86@0.2.17
 	precomputed-hash@0.1.1
-	proc-macro-crate@1.3.1
-	proc-macro2@1.0.78
+	proc-macro-crate@3.1.0
+	proc-macro2@1.0.82
 	quick-error@1.2.3
-	quote@1.0.35
+	quote@1.0.36
 	radix_trie@0.2.1
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_distr@0.4.3
 	rayon-core@1.12.1
-	rayon@1.9.0
+	rayon@1.10.0
 	redox_syscall@0.4.1
-	redox_users@0.4.4
+	redox_syscall@0.5.1
+	redox_users@0.4.5
 	regex-automata@0.4.6
-	regex-syntax@0.8.2
-	regex@1.10.3
-	reqwest@0.11.24
+	regex-syntax@0.8.3
+	regex@1.10.4
+	reqwest@0.11.27
 	resolv-conf@0.7.0
-	roff@0.2.1
 	rpassword@7.3.1
 	rtoolbox@0.0.2
 	rusqlite@0.31.0
-	rustc-demangle@0.1.23
+	rustc-demangle@0.1.24
 	rustc-hash@1.1.0
 	rustc_version@0.4.0
-	rustix@0.38.31
+	rustix@0.38.34
 	rustls-pemfile@1.0.4
-	rustversion@1.0.14
-	ryu@1.0.17
+	rustversion@1.0.16
+	ryu@1.0.18
 	same-file@1.0.6
 	schannel@0.1.23
 	scopeguard@1.2.0
-	security-framework-sys@2.9.1
-	security-framework@2.9.2
-	semver@1.0.22
-	sequoia-cert-store@0.5.0
-	sequoia-gpg-agent@0.1.0
-	sequoia-ipc@0.33.0
+	security-framework-sys@2.11.0
+	security-framework@2.11.0
+	semver@1.0.23
+	sequoia-cert-store@0.5.3
+	sequoia-gpg-agent@0.3.1
+	sequoia-ipc@0.34.1
 	sequoia-net@0.28.0
-	sequoia-openpgp-mt@0.1.0
-	sequoia-openpgp@1.19.0
+	sequoia-openpgp@1.20.0
 	sequoia-policy-config@0.6.0
 	sequoia-wot@0.11.0
-	serde@1.0.197
-	serde_derive@1.0.197
-	serde_json@1.0.114
+	serde@1.0.200
+	serde_derive@1.0.200
+	serde_json@1.0.116
 	serde_urlencoded@0.7.1
-	serde_with@3.6.1
-	serde_with_macros@3.6.1
-	sha1collisiondetection@0.3.3
+	serde_with@3.8.1
+	serde_with_macros@3.8.1
+	sha1collisiondetection@0.3.4
 	sha2@0.10.8
 	shellexpand@3.1.0
 	shlex@1.3.0
-	signal-hook-registry@1.4.1
+	signal-hook-registry@1.4.2
 	signature@2.2.0
 	siphasher@0.3.11
 	slab@0.4.9
-	smallvec@1.13.1
-	socket2@0.5.6
+	smallvec@1.13.2
+	socket2@0.5.7
 	spin@0.5.2
 	spki@0.7.3
 	stfu8@0.2.7
@@ -296,19 +284,18 @@ CRATES="
 	strsim@0.10.0
 	subtle@2.5.0
 	syn@1.0.109
-	syn@2.0.52
+	syn@2.0.61
 	sync_wrapper@0.1.2
 	system-configuration-sys@0.5.0
 	system-configuration@0.5.1
 	tar@0.4.40
 	tempfile@3.10.1
 	term@0.7.0
-	terminal_size@0.3.0
-	thiserror-impl@1.0.57
-	thiserror@1.0.57
+	thiserror-impl@1.0.60
+	thiserror@1.0.60
 	time-core@0.1.2
-	time-macros@0.2.17
-	time@0.3.34
+	time-macros@0.2.18
+	time@0.3.36
 	tiny-keccak@2.0.2
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
@@ -316,11 +303,11 @@ CRATES="
 	tokio-macros@2.2.0
 	tokio-native-tls@0.3.1
 	tokio-socks@0.5.1
-	tokio-util@0.7.10
-	tokio@1.36.0
+	tokio-util@0.7.11
+	tokio@1.37.0
 	toml@0.5.11
 	toml_datetime@0.6.5
-	toml_edit@0.19.15
+	toml_edit@0.21.1
 	tower-service@0.3.2
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
@@ -333,7 +320,6 @@ CRATES="
 	unicode-xid@0.2.4
 	universal-hash@0.5.1
 	url@2.5.0
-	utf8parse@0.2.1
 	vcpkg@0.2.15
 	version_check@0.9.4
 	walkdir@2.5.0
@@ -346,51 +332,52 @@ CRATES="
 	wasm-bindgen-shared@0.2.92
 	wasm-bindgen@0.2.92
 	web-sys@0.3.69
-	widestring@1.0.2
+	widestring@1.1.0
 	win-crypto-ng@0.5.1
 	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-util@0.1.6
+	winapi-util@0.1.8
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-core@0.52.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-targets@0.48.5
-	windows-targets@0.52.4
+	windows-targets@0.52.5
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.4
+	windows_aarch64_gnullvm@0.52.5
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.4
+	windows_aarch64_msvc@0.52.5
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.4
+	windows_i686_gnu@0.52.5
+	windows_i686_gnullvm@0.52.5
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.4
+	windows_i686_msvc@0.52.5
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.4
+	windows_x86_64_gnu@0.52.5
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.4
+	windows_x86_64_gnullvm@0.52.5
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.4
+	windows_x86_64_msvc@0.52.5
 	winnow@0.5.40
 	winreg@0.50.0
 	xxhash-rust@0.8.10
 	z-base-32@0.1.4
 	zbase32@0.1.2
-	zerocopy-derive@0.7.32
-	zerocopy@0.7.32
+	zerocopy-derive@0.7.34
+	zerocopy@0.7.34
 	zeroize@1.7.0
 "
 
-LLVM_MAX_SLOT=17
-inherit cargo llvm xdg-utils
+LLVM_COMPAT=( {17..18} )
+inherit cargo llvm-r1 xdg-utils
 
 DESCRIPTION="Sequoia's reimplementation of the GnuPG interface"
-HOMEPAGE="https://sequoia-pgp.org/"
+HOMEPAGE="https://sequoia-pgp.org/ https://gitlab.com/sequoia-pgp/sequoia-chameleon-gnupg/"
 SRC_URI="
 	https://gitlab.com/sequoia-pgp/sequoia-chameleon-gnupg/-/archive/v${PV}/${P}-v${PV}.tar.bz2
 	${CARGO_CRATE_URIS}
 "
-S="${WORKDIR}"/${PN}-v${PV}-82a07a59cb0335f4e70bbc3f22177ae587aac83b
+S="${WORKDIR}"/${PN}-v${PV}-81b95c7807d13a8adef5277ae840ca7ed73c02c0
 
 LICENSE="GPL-3+"
 # Dependent crate licenses
@@ -413,15 +400,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 # Clang needed for bindgen
 BDEPEND="
-	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1))
+	$(llvm_gen_dep '
+		sys-devel/clang:${LLVM_SLOT}
+	')
 	>=virtual/rust-1.70
 "
 
 QA_FLAGS_IGNORED="usr/bin/gpg-sq usr/bin/gpgv-sq"
-
-llvm_check_deps() {
-	has_version -b "sys-devel/clang:${LLVM_SLOT}"
-}
 
 src_test() {
 	local -x GNUPGHOME="${T}"/.gnupg
