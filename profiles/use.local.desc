@@ -5669,14 +5669,23 @@ net-dns/knot-resolver:kresc - Build (experimental) command-line client
 net-dns/knot-resolver:nghttp2 - DNS-over-HTTPS support
 net-dns/mydns:alias - Enable David Phillips aliasing
 net-dns/mydns:status - Enable the STATUS opcode to check server status
-net-dns/nsd:bind8-stats - Enables BIND8 like NSTATS and XSTATS
+net-dns/nsd:bind8-stats - Enables BIND8 like NSTATS and XSTATS and statistics in nsd-control
+net-dns/nsd:default-znow - Enable full relocation binding at load-time (RELRO NOW, to protect GOT and .dtor areas)
 net-dns/nsd:dnstap - Enable the structured binary log format
+net-dns/nsd:ipv6 - Enable IPv6 support
+net-dns/nsd:largefile - Enables support for large files
 net-dns/nsd:libevent - Use libevent or libev, useful when zone count is high
+net-dns/nsd:memclean - Cleanup memory (at exit) for eg. valgrind, memcheck
 net-dns/nsd:minimal-responses - If minimal responses are disabled, responses are more likely to get truncated, resulting in TCP fallback
-net-dns/nsd:munin - Install a plugin for net-analyzer/munin to graph statistical data from nsd.
+net-dns/nsd:munin - Install a plugin for net-analyzer/munin to graph statistical data from nsd
 net-dns/nsd:nsec3 - Enable NSEC3 support
+net-dns/nsd:packed - Enable packed structure alignment; uses less memory but has unaligned reads
+net-dns/nsd:radix-tree - Use a red-black tree for main lookups; uses less memory at the expense of more CPU
 net-dns/nsd:ratelimit - Enables ratelimiting, based on query name, type and source
-net-dns/nsd:root-server - Configure NSD as a root server
+net-dns/nsd:recvmmsg - Enable recvmmsg and sendmmsg compilation, faster but some kernel versions may have implementation problems for IPv6
+net-dns/nsd:root-server - Configure NSD as a root server (OBSOLETE: removed in >=4.9.x)
+net-dns/nsd:tfo - Enable TCP Fast Open
+net-dns/nsd:year2038 - Support timestamps after 2038 (glibc only!)
 net-dns/opendnssec:external-hsm - Enables support for storing DNSSEC keys through an arbitrary non-portage PKCS#11 interface, specified through an environment variable
 net-dns/opendnssec:opensc - Enables support for storing DNSSEC keys through a dev-libs/opensc PKCS#11 interface
 net-dns/opendnssec:signer - Enables signing capabilities for OpenDNSSEC
