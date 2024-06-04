@@ -2692,6 +2692,7 @@ dev-qt/qtbase:tslib - Enable support for touchscreen devices via x11-libs/tslib
 dev-qt/qtbase:widgets - Build Qt6Widgets module
 dev-qt/qtbluetooth:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtcharts:qml - Build QML/QtQuick bindings and imports
+dev-qt/qtconnectivity:neard - Use net-wireless/neard to access NFC devices
 dev-qt/qtconnectivity:nfc - Enable support for the Near Field Communication protocol
 dev-qt/qtcore:old-kernel - Disable syscalls not available on Linux kernels older than 4.11
 dev-qt/qtdatavis3d:qml - Build QML/QtQuick bindings and imports
@@ -2741,12 +2742,14 @@ dev-qt/qttools:pixeltool - Build Qt Pixeltool
 dev-qt/qttools:qdbus - Build the Qt D-Bus Interface (D-Bus Viewer requires USE=widgets)
 dev-qt/qttools:qdoc - Build Qt Documentation Generator
 dev-qt/qttools:qml - Build QML/QtQuick bindings and imports
+dev-qt/qttools:qmlls - Build the QtHelp plugin for the QML language server
 dev-qt/qttools:qtattributionsscanner - Build Qt Source Code Attribution Scanner
 dev-qt/qttools:qtdiag - Build Qt Diag
 dev-qt/qttools:qtplugininfo - Build Qt Plugin Info
 dev-qt/qttools:widgets - Enable QtWidgets support
 dev-qt/qtvirtualkeyboard:handwriting - Adds handwriting recognition integration support
 dev-qt/qtwayland:compositor - Enable support for the wayland compositor / server APIs
+dev-qt/qtwayland:gnome - Build the GNOME-like decoration plugin (loaded by default with GNOME)
 dev-qt/qtwayland:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtwayland:vulkan - Enable support for Vulkan-based server buffer integration
 dev-qt/qtwebchannel:qml - Build QML/QtQuick bindings and imports
