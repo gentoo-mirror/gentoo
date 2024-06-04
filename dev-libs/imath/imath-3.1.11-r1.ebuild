@@ -3,26 +3,24 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake python-single-r1
 
-MY_PN="${PN^}"
+MY_PN=${PN^}
 
 DESCRIPTION="Imath basic math package"
 HOMEPAGE="https://imath.readthedocs.io"
 SRC_URI="https://github.com/AcademySoftwareFoundation/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-# re-keywording needed for (according to ilmbase keywords): ~x64-macos ~x86-solaris
-KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="BSD"
 SLOT="3/29"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc large-stack python test"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
-# blocker due to file collision #803347
 RDEPEND="
 	sys-libs/zlib
 	python? (
@@ -36,11 +34,23 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( $(python_gen_cond_dep 'dev-python/breathe[${PYTHON_USEDEP}]') )
+	doc? (
+		app-text/doxygen
+		$(python_gen_cond_dep '
+			dev-python/breathe[${PYTHON_USEDEP}]
+			dev-python/sphinx[${PYTHON_USEDEP}]
+			dev-python/sphinx-press-theme[${PYTHON_USEDEP}]
+		')
+	)
 	python? ( ${PYTHON_DEPS} )
 "
 
-DOCS=( CHANGES.md CONTRIBUTORS.md README.md SECURITY.md docs/PortingGuide2-3.md )
+DOCS=( CHANGES.md CONTRIBUTORS.md README.md SECURITY.md )
+
+PATCHES=(
+	"${FILESDIR}/${PN}-3.1.11-fix_cmake_module_export.patch"
+	"${FILESDIR}/${PN}-3.1.11-use-correct-boost_python_version.patch"
+)
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -48,11 +58,13 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DDOCS=$(usex doc)
-		-DIMATH_ENABLE_LARGE_STACK=$(usex large-stack)
+		-DBUILD_WEBSITE="$(usex doc)"
+		-DIMATH_ENABLE_LARGE_STACK="$(usex large-stack)"
+		# the following options are at their default value
 		-DIMATH_HALF_USE_LOOKUP_TABLE=ON
 		-DIMATH_INSTALL_PKG_CONFIG=ON
 		-DIMATH_USE_CLANG_TIDY=OFF
+		-DIMATH_USE_DEFAULT_VISIBILITY=OFF
 		-DIMATH_USE_NOEXCEPT=ON
 	)
 	if use python; then
@@ -60,10 +72,15 @@ src_configure() {
 			-DBoost_NO_BOOST_CMAKE=OFF
 			-DPYTHON=ON
 			-DPython3_EXECUTABLE="${PYTHON}"
-			-DPython3_INCLUDE_DIR=$(python_get_includedir)
-			-DPython3_LIBRARY=$(python_get_library_path)
+			-DPython3_INCLUDE_DIR="$(python_get_includedir)"
+			-DPython3_LIBRARY="$(python_get_library_path)"
 		)
 	fi
 
 	cmake_src_configure
+}
+
+src_install() {
+	use doc && HTML_DOCS=( "${BUILD_DIR}/website/sphinx/." )
+	cmake_src_install
 }
