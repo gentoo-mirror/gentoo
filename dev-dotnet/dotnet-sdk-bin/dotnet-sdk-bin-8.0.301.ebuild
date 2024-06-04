@@ -4,7 +4,7 @@
 EAPI=8
 
 SDK_SLOT="$(ver_cut 1-2)"
-RUNTIME_SLOT="${SDK_SLOT}.5"
+RUNTIME_SLOT="${SDK_SLOT}.6"
 
 DESCRIPTION=".NET is a free, cross-platform, open-source developer platform"
 HOMEPAGE="https://dotnet.microsoft.com/
@@ -38,8 +38,8 @@ CURRENT_NUGETS_DEPEND="
 	~dev-dotnet/dotnet-runtime-nugets-${RUNTIME_SLOT}
 "
 EXTRA_NUGETS_DEPEND="
-	~dev-dotnet/dotnet-runtime-nugets-6.0.30
-	~dev-dotnet/dotnet-runtime-nugets-7.0.19
+	~dev-dotnet/dotnet-runtime-nugets-6.0.31
+	~dev-dotnet/dotnet-runtime-nugets-7.0.20
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}
