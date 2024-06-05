@@ -11,8 +11,8 @@ QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma workspace"
-SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}_p20240601-58ced80a.tar.gz"
-S="${WORKDIR}/${PN}-58ced80a7b48d85b7a7743195479dc35ad1889c6"
+SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}-7a700862.tar.gz"
+S="${WORKDIR}/${PN}-7a700862f820e6aff958ed7129b62fb2b771ac45"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
