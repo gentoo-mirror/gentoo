@@ -4338,7 +4338,8 @@ media-libs/libheif:gdk-pixbuf - Enable x11-libs/gdk-pixbuf plugin
 media-libs/libheif:go - Enable building dev-lang/go code/examples
 media-libs/libheif:rav1e - Use media-video/rav1e for AVIF encoding
 media-libs/libheif:x265 - Use media-libs/x265 for HEIF encoding
-media-libs/libjxl:gdk-pixbuf - Build a gdk-pixbuf loader
+media-libs/libjxl:gdk-pixbuf - Build a gdk-pixbuf loader.
+media-libs/libjxl:jpeg - Enable full support for JPEG images. When disabled, only lossless conversion between JPEG and JPEG-XL is supported.
 media-libs/liblastfm:fingerprint - Build the lastfm-fingerprint library
 media-libs/libmp4v2:utils - Install command-line utilities
 media-libs/libmypaint:gegl - Add support for media-libs/gegl
