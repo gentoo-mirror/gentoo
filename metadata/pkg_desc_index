@@ -2374,12 +2374,12 @@ app-emulation/virt-viewer 11.0: Graphical console client for connecting to virtu
 app-emulation/virt-what 1.21 1.25: Detects if the current machine is running in a virtual machine
 app-emulation/virtio-win 0.1.229.1 0.1.240.1 0.1.248.1: VirtIO drivers for Windows virtual machines running on KVM
 app-emulation/virtiofsd 1.10.0 9999: Shared file system for virtual machines
-app-emulation/virtualbox 6.1.50-r3 7.0.14-r2 7.0.18 7.0.18-r1 9999: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-additions 6.1.50 7.0.14 7.0.18: CD image containing guest additions for VirtualBox
-app-emulation/virtualbox-extpack-oracle 6.1.50 7.0.14-r1 7.0.18: PUEL extensions for VirtualBox
-app-emulation/virtualbox-guest-additions 6.1.50 6.1.50-r1 7.0.14-r1 7.0.14-r2 7.0.14-r3 7.0.18: VirtualBox kernel modules and user-space tools for Gentoo guests
-app-emulation/virtualbox-kvm 7.0.14_pre20240502 7.0.18_pre20240515 9999: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-modules 6.1.50-r1 7.0.14-r1 7.0.18: Kernel Modules for Virtualbox
+app-emulation/virtualbox 6.1.50-r3 7.0.18-r1 9999: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-additions 6.1.50 7.0.18: CD image containing guest additions for VirtualBox
+app-emulation/virtualbox-extpack-oracle 6.1.50 7.0.18: PUEL extensions for VirtualBox
+app-emulation/virtualbox-guest-additions 6.1.50 6.1.50-r1 7.0.18: VirtualBox kernel modules and user-space tools for Gentoo guests
+app-emulation/virtualbox-kvm 7.0.18_pre20240515 9999: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-modules 6.1.50-r1 7.0.18: Kernel Modules for Virtualbox
 app-emulation/vkd3d 1.11 1.12: D3D12 to Vulkan translation library
 app-emulation/vkd3d-proton 2.6-r1 2.12 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r1: Various desktop menu items and icons for wine
@@ -8186,7 +8186,7 @@ dev-python/autopage 0.5.2: A library to provide automatic paging for console out
 dev-python/autopep8 2.1.0 2.1.1 2.1.2 2.2.0: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.89.0: A library that transform SAM templates into AWS CloudFormation templates
-dev-python/aws-xray-sdk 2.13.0 2.13.1: AWS X-Ray SDK for Python
+dev-python/aws-xray-sdk 2.13.0 2.13.1 2.14.0: AWS X-Ray SDK for Python
 dev-python/babelfish 0.6.1 9999: Python library to work with countries and languages
 dev-python/backoff 2.2.1: Function decoration for backoff and retry
 dev-python/backports-tarfile 1.1.1 1.2.0: Backport of CPython tarfile module (from Python 3.12)
@@ -8317,7 +8317,7 @@ dev-python/css-parser 1.0.10: A CSS Cascading Style Sheets library (fork of cssu
 dev-python/csscompressor 0.9.5-r2: A python port of YUI CSS Compressor
 dev-python/cssselect 1.2.0: Parse CSS3 Selectors and translate them to XPath 1.0
 dev-python/cssselect2 0.7.0: Parses CSS3 Selectors and translates them to XPath 1.0
-dev-python/cssutils 2.11.0: A CSS Cascading Style Sheets library
+dev-python/cssutils 2.11.0 2.11.1: A CSS Cascading Style Sheets library
 dev-python/cstruct 5.3: C-style structs for Python
 dev-python/csvkit 2.0.0: A suite of utilities for converting to and working with CSV
 dev-python/curtsies 0.4.2: Curses-like terminal wrapper, with colored strings
@@ -8501,7 +8501,7 @@ dev-python/gitdb 4.0.11: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5-r2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.19.0: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.128.0 2.129.0 2.130.0 2.131.0: Google API Client for Python
+dev-python/google-api-python-client 2.128.0 2.129.0 2.130.0 2.131.0 2.132.0: Google API Client for Python
 dev-python/google-auth 2.29.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.0-r1: Google Authentication Library
@@ -8588,7 +8588,7 @@ dev-python/ipykernel 6.29.4: IPython Kernel for Jupyter
 dev-python/ipyparallel 8.8.0: Interactive Parallel Computing with IPython
 dev-python/ipython 8.24.0 8.24.0-r1 8.25.0: Advanced interactive shell for Python
 dev-python/ipython_genutils 0.2.0-r4: Vestigial utilities from IPython
-dev-python/ipywidgets 8.1.2 8.1.2-r1: IPython HTML widgets for Jupyter
+dev-python/ipywidgets 8.1.2 8.1.2-r1 8.1.3: IPython HTML widgets for Jupyter
 dev-python/irc 20.4.0: IRC client framework written in Python
 dev-python/irctokens 2.0.2: RFC1459 and IRCv3 protocol tokeniser library
 dev-python/iso8601 2.1.0: Simple module to parse ISO 8601 dates
@@ -8660,7 +8660,7 @@ dev-python/jupyterlab 4.1.8 4.2.0 4.2.1: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.0.3 5.1.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.27.1 2.27.2: Server components for JupyterLab and JupyterLab like applications
-dev-python/jupyterlab_widgets 3.0.10: Jupyter interactive widgets for JupyterLab
+dev-python/jupyterlab_widgets 3.0.10 3.0.11: Jupyter interactive widgets for JupyterLab
 dev-python/jwcrypto 1.5.6: Implements JWK,JWS,JWE specifications using python-cryptography
 dev-python/k5test 0.10.4: Library for testing Python applications in Kerberos 5 environments
 dev-python/kaitaistruct 0.10: Kaitai Struct runtime for Python
@@ -8832,7 +8832,7 @@ dev-python/nextinspace 2.0.5 9999: A command-line tool for seeing the latest in 
 dev-python/nh3 0.2.17: Ammonia HTML sanitizer Python binding
 dev-python/nnpy 1.4.2-r1: cffi-based Python bindings for nanomsg
 dev-python/node-semver 0.9.0: Python version of node-semver, the semantic versioner for npm
-dev-python/nodeenv 1.8.0-r1 1.9.0: Node.js virtual environment builder
+dev-python/nodeenv 1.8.0-r1 1.9.0 1.9.1: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33.
 dev-python/nose2 0.14.2 0.15.0 0.15.1: Unittest with plugins
 dev-python/noseofyeti 2.4.9: A custom python codec that provides an RSpec style dsl for python
@@ -8925,7 +8925,7 @@ dev-python/pelican-minify 2.0.0: An HTML minification plugin for Pelican, the st
 dev-python/pexpect 4.9.0: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 2.1.2: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1-r2: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 8.13.37: Python port of Google's libphonenumber
+dev-python/phonenumbers 8.13.37 8.13.38: Python port of Google's libphonenumber
 dev-python/phply 1.2.6: Lexer and parser for PHP source implemented using PLY
 dev-python/pickleshare 0.7.5-r1: A small 'shelve' like datastore with concurrency support
 dev-python/picobox 4.0.0: Dependency injection framework designed with Python in mind
@@ -8975,7 +8975,7 @@ dev-python/process-tests 3.0.0: Tools for testing processes
 dev-python/progress 1.6-r1: Easy to use progress bars
 dev-python/progressbar2 4.4.2: Text progressbar library for python
 dev-python/prometheus-client 0.20.0: Python client for the Prometheus monitoring system
-dev-python/prompt-toolkit 3.0.43 3.0.44 3.0.45: Building powerful interactive command lines in Python
+dev-python/prompt-toolkit 3.0.43 3.0.44 3.0.45 3.0.46: Building powerful interactive command lines in Python
 dev-python/proto-plus 1.23.0: Beautiful, Pythonic protocol buffers
 dev-python/protobuf-python 4.21.9 4.21.12 4.22.5 4.23.3 9999: Google's Protocol Buffers - Python bindings
 dev-python/pslab 3.0.0: Python library for communicating with Pocket Science Lab
@@ -9622,7 +9622,7 @@ dev-python/ujson 5.9.0 5.10.0: Ultra fast JSON encoder and decoder for Python
 dev-python/ukkonen 1.0.1-r1: Implementation of bounded Levenshtein distance (Ukkonen)
 dev-python/unasync 0.6.0-r1: The async transformation code
 dev-python/uncertainties 3.1.7-r1: Python module for calculations with uncertainties
-dev-python/unearth 0.15.1 0.15.2 0.15.3: A utility to fetch and download python packages
+dev-python/unearth 0.15.3 0.15.4: A utility to fetch and download python packages
 dev-python/unidecode 1.3.8: Module providing ASCII transliterations of Unicode text
 dev-python/unidiff 0.7.5: Unified diff parsing/metadata extraction library
 dev-python/unittest-mixins 1.6-r2: A set of mixin classes and other helpers for unittest test case classes
@@ -9668,7 +9668,7 @@ dev-python/watchfiles 0.20.0-r1 0.21.0-r1 0.22.0: Simple, modern file watching a
 dev-python/wcag-contrast-ratio 0.9-r1: A library for computing contrast ratios, as required by WCAG 2.0
 dev-python/wcmatch 8.5.2: Wildcard/glob file name matcher
 dev-python/wcwidth 0.2.13: Measures number of Terminal column cells of wide-character codes
-dev-python/weasyprint 62.1: Visual rendering engine for HTML and CSS that can export to PDF
+dev-python/weasyprint 62.1 62.2: Visual rendering engine for HTML and CSS that can export to PDF
 dev-python/webcolors 1.13: Color names and value formats defined by the HTML and CSS specifications
 dev-python/webencodings 0.5.1-r2: Character encoding aliases for legacy web content
 dev-python/webob 1.8.7-r1: WSGI request and response object
@@ -9683,7 +9683,7 @@ dev-python/wheel 0.43.0: A built-package format for Python
 dev-python/whichcraft 0.6.1-r1: Cross-platform cross-python shutil.which functionality
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
-dev-python/widgetsnbextension 4.0.10: IPython HTML widgets for Jupyter
+dev-python/widgetsnbextension 4.0.10 4.0.11: IPython HTML widgets for Jupyter
 dev-python/wrapt 1.16.0: Module for decorators, wrappers and monkey patching
 dev-python/wsaccel 0.6.6: Accelerator for ws4py, autobahn and tornado
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
@@ -9718,7 +9718,7 @@ dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.0 4.1: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.2.1: A modern/fast Python SOAP client based on lxml / requests
 dev-python/zeroconf 0.132.2: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
-dev-python/zipp 3.18.2 3.19.1: Backport of pathlib-compatible object wrapper for zip files
+dev-python/zipp 3.18.2 3.19.1 3.19.2: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 5.0.1: Zope Configuration Architecture
 dev-python/zope-deprecation 5.0: Zope Deprecation Infrastructure
@@ -17345,7 +17345,7 @@ sys-boot/palo 2.24 9999: PALO: PArisc Linux Loader
 sys-boot/plymouth 22.02.122-r1 9999: Graphical boot animation (splash) and logger
 sys-boot/plymouth-openrc-plugin 0.1.3: Plymouth plugin for OpenRC
 sys-boot/raspberrypi-firmware 1.20221104 1.20230106 9999: Raspberry Pi (all versions) bootloader and GPU firmware
-sys-boot/refind 0.13.2 0.13.3.1 0.14.0.2 0.14.0.2-r1: The UEFI Boot Manager by Rod Smith
+sys-boot/refind 0.14.0.2-r1: The UEFI Boot Manager by Rod Smith
 sys-boot/sgibootcd 0.13: Creates burnable CD images for SGI LiveCDs
 sys-boot/shim 15.6 15.8: Fedora's signed UEFI shim
 sys-boot/silo 1.4.14_p20200602: SPARC/UltraSPARC Improved Loader, a boot loader for sparc
