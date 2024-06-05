@@ -5681,10 +5681,11 @@ net-dns/nsd:largefile - Enables support for large files
 net-dns/nsd:libevent - Use libevent or libev, useful when zone count is high
 net-dns/nsd:memclean - Cleanup memory (at exit) for eg. valgrind, memcheck
 net-dns/nsd:minimal-responses - If minimal responses are disabled, responses are more likely to get truncated, resulting in TCP fallback
+net-dns/nsd:mmap - Use mmap(2) instead of malloc(3); currently experimental
 net-dns/nsd:munin - Install a plugin for net-analyzer/munin to graph statistical data from nsd
 net-dns/nsd:nsec3 - Enable NSEC3 support
 net-dns/nsd:packed - Enable packed structure alignment; uses less memory but has unaligned reads
-net-dns/nsd:radix-tree - Use a red-black tree for main lookups; uses less memory at the expense of more CPU
+net-dns/nsd:radix-tree - Use a radix tree for main lookups instead of a red-black tree
 net-dns/nsd:ratelimit - Enables ratelimiting, based on query name, type and source
 net-dns/nsd:recvmmsg - Enable recvmmsg and sendmmsg compilation, faster but some kernel versions may have implementation problems for IPv6
 net-dns/nsd:root-server - Configure NSD as a root server (OBSOLETE: removed in >=4.9.x)
