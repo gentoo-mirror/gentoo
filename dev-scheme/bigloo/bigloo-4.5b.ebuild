@@ -9,7 +9,7 @@ MY_PV=${PV/_p/-}  # e.g.: 4.4c_p4 -> 4.4c-4
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Practical Scheme Compiler with many extensions"
-HOMEPAGE="http://www-sop.inria.fr/indes/fp/Bigloo/index.html"
+HOMEPAGE="https://www-sop.inria.fr/indes/fp/Bigloo/index.html"
 SRC_URI="ftp://ftp-sop.inria.fr/indes/fp/Bigloo/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
@@ -17,7 +17,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa avahi emacs flac +gmp gpg gstreamer java libuv mp3 pulseaudio +sqlite"
-REQUIRED_USE="flac? ( alsa ) mp3? ( alsa )"
+REQUIRED_USE="flac? ( alsa ) mp3? ( alsa ) gstreamer? ( pulseaudio )"
 
 EMACS_DEPEND="
 	emacs? ( >=app-editors/emacs-23.1:* )
@@ -59,12 +59,14 @@ BDEPEND="
 DOCS=( ChangeLog README.md TODO.org )
 SITEFILE="50${PN}-gentoo.el"
 
+PATCHES="${FILESDIR}/${P}-makefile.patch"
+
 src_prepare() {
 	default
 
-	sed -e "/^ar=/s|=|= \"$(tc-getAR)\"|"			\
-		-e "/^ranlib=/s|=|= \"$(tc-getRANLIB)\"|"	\
-		-i ./configure								\
+	sed -e "/^ar=/s|=|=\"$(tc-getAR)\"|" \
+		-e "/^ranlib=/s|=|=\"$(tc-getRANLIB)\"|" \
+		-i ./configure \
 		|| die
 
 	sed "s|^ar |$(tc-getAR) |" -i ./autoconf/ranlib || die
@@ -94,6 +96,7 @@ src_configure() {
 		--cpicflags="-fPIC"
 		--cwarningflags=""
 		--ldflags="${LDFLAGS}"
+		--gclibdir=/usr/"$(get_libdir)"
 		# Installation directories
 		--prefix=/usr
 		--bindir=/usr/share/${PN}/bin
