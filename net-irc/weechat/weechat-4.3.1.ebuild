@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} )
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cmake lua-single python-single-r1 xdg
 
@@ -17,13 +17,13 @@ else
 		verify-sig? ( https://weechat.org/files/src/${P}.tar.xz.asc )"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/weechat.org.asc
 	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-weechat )"
-	KEYWORDS="amd64 ~arm arm64 ~ppc ppc64 ~riscv ~x86 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos"
 fi
 
 DESCRIPTION="Portable and multi-interface IRC client"
 HOMEPAGE="https://weechat.org/"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0/${PV}"
 
 NETWORKS="+irc"
@@ -32,17 +32,17 @@ PLUGINS="+alias +buflist +charset +exec +fifo +fset +logger +relay +scripts +spe
 # dev-lang/php eclass support is lacking, php plugins don't work. bug #705702
 SCRIPT_LANGS="guile lua +perl +python ruby tcl"
 LANGS=" cs de es fr it ja pl ru"
-IUSE="doc enchant man nls selinux test ${SCRIPT_LANGS} ${PLUGINS} ${INTERFACES} ${NETWORKS}"
+IUSE="doc enchant man nls relay-api selinux test +zstd ${SCRIPT_LANGS} ${PLUGINS} ${INTERFACES} ${NETWORKS}"
 
 REQUIRED_USE="
 	enchant? ( spell )
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	test? ( nls )
+	relay-api? ( relay )
 "
 
 RDEPEND="
-	app-arch/zstd:=
 	dev-libs/libgcrypt:0=
 	net-libs/gnutls:=
 	sys-libs/ncurses:0=
@@ -59,8 +59,9 @@ RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 	ruby? (
 		|| (
+			dev-lang/ruby:3.3
+			dev-lang/ruby:3.2
 			dev-lang/ruby:3.1
-			dev-lang/ruby:3.0
 		)
 	)
 	selinux? ( sec-policy/selinux-irc )
@@ -69,6 +70,7 @@ RDEPEND="
 		!enchant? ( app-text/aspell )
 	)
 	tcl? ( >=dev-lang/tcl-8.4.15:0= )
+	zstd? ( app-arch/zstd:= )
 "
 
 DEPEND="${RDEPEND}
@@ -163,6 +165,7 @@ src_configure() {
 		-DENABLE_PERL=$(usex perl)
 		-DENABLE_PYTHON=$(usex python)
 		-DENABLE_RELAY=$(usex relay)
+		-DENABLE_CJSON=$(usex relay-api)
 		-DENABLE_RUBY=$(usex ruby)
 		-DENABLE_SCRIPT=$(usex scripts)
 		-DENABLE_SCRIPTS=$(usex scripts)
@@ -172,6 +175,7 @@ src_configure() {
 		-DENABLE_TRIGGER=$(usex trigger)
 		-DENABLE_TYPING=$(usex typing)
 		-DENABLE_XFER=$(usex xfer)
+		-DENABLE_ZSTD=$(usex zstd)
 	)
 	cmake_src_configure
 }

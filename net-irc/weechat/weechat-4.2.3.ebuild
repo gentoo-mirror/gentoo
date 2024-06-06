@@ -4,7 +4,7 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} )
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cmake lua-single python-single-r1 xdg
 
@@ -58,6 +58,7 @@ RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 	ruby? (
 		|| (
+			dev-lang/ruby:3.3
 			dev-lang/ruby:3.2
 			dev-lang/ruby:3.1
 		)
