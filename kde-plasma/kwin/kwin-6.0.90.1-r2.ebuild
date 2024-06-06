@@ -11,8 +11,8 @@ QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
-SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}-5911940b.tar.gz"
-S="${WORKDIR}/${PN}-5911940b282834c7d6cb8d84e33fd7b07284db8e"
+SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}-1d936cf6.tar.gz"
+S="${WORKDIR}/${PN}-1d936cf69d83f2b0ee770376d86f508b16757382"
 
 LICENSE="GPL-2+"
 SLOT="6"
