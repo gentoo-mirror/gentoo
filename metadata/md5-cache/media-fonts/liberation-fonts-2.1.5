@@ -1,4 +1,4 @@
-BDEPEND=fontforge? ( || ( dev-lang/python:3.11 dev-lang/python:3.10 ) media-gfx/fontforge || ( ( dev-lang/python:3.11 dev-python/fonttools[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/fonttools[python_targets_python3_10(-)] ) ) ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=fontforge? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) media-gfx/fontforge || ( ( dev-lang/python:3.12 dev-python/fonttools[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/fonttools[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/fonttools[python_targets_python3_10(-)] ) ) ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=install postinst postrm prepare setup
 DESCRIPTION=A Helvetica/Times/Courier replacement TrueType font set, courtesy of Red Hat
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=OFL-1.1
 SLOT=0
 SRC_URI=fontforge? ( https://github.com/liberationfonts/liberation-fonts/files/7261483/liberation-fonts-2.1.5.tar.gz ) !fontforge? ( https://github.com/liberationfonts/liberation-fonts/files/7261482/liberation-fonts-ttf-2.1.5.tar.gz )
 _eclasses_=font	aa113a3df9cd0a9693a1c1ee7c34a6eb	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=323eb507ac5c3fabe357758170dc3213
+_md5_=112db9f47676af29a7bea3208ffc282a
