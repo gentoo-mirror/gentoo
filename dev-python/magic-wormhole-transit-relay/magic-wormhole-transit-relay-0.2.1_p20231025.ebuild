@@ -3,12 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 
-# Version 0.2.1 with additional upstream fixes for python 3.11 support and
+# Version 0.2.1 with additional upstream fixes for python 3.12 support and
 # miscelleanous bufixes
-COMMIT_SHA1="db48e915311d1d10c748bb5299e2345c74e90a1b"
+COMMIT_SHA1="3b298558e419b0f575f4026be02dd369a4e5f245"
 
 inherit distutils-r1
 
