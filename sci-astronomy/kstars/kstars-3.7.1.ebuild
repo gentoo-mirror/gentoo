@@ -5,18 +5,16 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm kde.org optfeature
 
 DESCRIPTION="Desktop Planetarium"
 HOMEPAGE="https://apps.kde.org/kstars/ https://edu.kde.org/kstars/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	THEIR_PV="2.6.9"
-	SRC_URI="mirror://kde/stable/${PN}/${PN}-${THEIR_PV}.tar.xz"
-	S="${WORKDIR}/${PN}-${THEIR_PV}"
-	KEYWORDS="amd64 ~x86"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+ GPL-3+"
