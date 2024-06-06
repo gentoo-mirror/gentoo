@@ -17,11 +17,11 @@ SRC_URI="
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0 Unlicense"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="doc +extended test"
 
 BDEPEND="
-	>=dev-lang/go-1.21.5
+	>=dev-lang/go-1.22.2
 	test? (
 		dev-python/docutils
 		dev-ruby/asciidoctor
@@ -40,7 +40,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.121.0-unbundle-libwebp-and-libsass.patch
-	"${FILESDIR}"/${PN}-0.118.2-skip-some-tests.patch
+	"${FILESDIR}"/${PN}-0.123.0-skip-some-tests.patch
 )
 
 src_configure() {
@@ -56,7 +56,7 @@ src_configure() {
 
 src_prepare() {
 	# wants to run command that require network access
-	rm testscripts/commands/mod{,_vendor,__disable,_get,_get_u}.txt || die
+	rm testscripts/commands/mod{,_vendor,__disable,_get,_get_u,_npm{,_withexisting}}.txt || die
 
 	default
 }
