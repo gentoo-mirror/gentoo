@@ -8,10 +8,13 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[async_zip]='https://github.com/charliermarsh/rs-async-zip;1dcb40cfe1bf5325a6fd4bfcf9894db40241f585;rs-async-zip-%commit%'
-	[pubgrub]='https://github.com/astral-sh/pubgrub;0e684a874c9fb8f74738cd8875524c80e3d4820b;pubgrub-%commit%'
+	[pubgrub]='https://github.com/astral-sh/pubgrub;a68cbd1a26e43986a31563e1d127e83bafca3a0c;pubgrub-%commit%'
 )
 
-inherit cargo check-reqs
+# workaround faulty assumptions that 3.12 is the newest Python installed
+PYTHON_COMPAT=( python3_12 )
+
+inherit cargo check-reqs python-any-r1
 
 CRATE_P=${P}
 DESCRIPTION="A Python package installer and resolver, written in Rust"
@@ -78,6 +81,7 @@ pkg_pretend() {
 
 pkg_setup() {
 	check_space
+	python-any-r1_pkg_setup
 }
 
 src_prepare() {
