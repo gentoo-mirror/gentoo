@@ -7,12 +7,13 @@ inherit autotools
 
 DESCRIPTION="Asynchronous Network Library"
 HOMEPAGE="https://think-async.com https://github.com/chriskohlhoff/asio"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${PN}/${P}.tar.bz2"
+SRC_URI="https://github.com/chriskohlhoff/asio/archive/refs/tags/asio-${PV//./-}.tar.gz"
+S="${WORKDIR}/asio-asio-${PV//./-}/asio"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ppc ppc64 ~riscv sparc x86"
-IUSE="doc examples test"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="examples test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -22,6 +23,10 @@ DEPEND="
 	)
 "
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/asio-1.30.1-pkgconfig.patch"
+)
 
 src_prepare() {
 	default
@@ -41,13 +46,7 @@ src_prepare() {
 	fi
 }
 
-src_configure() {
-	# By default it puts .pc to libdir
-	econf --with-pkgconfigdir="${EPREFIX}/usr/share/pkgconfig"
-}
-
 src_install() {
-	use doc && local HTML_DOCS=( doc/. )
 	default
 
 	if use examples; then
@@ -55,11 +54,5 @@ src_install() {
 		emake clean
 		dodoc -r src/examples
 		docompress -x /usr/share/doc/${PF}/examples
-
-		# Make links to the example .cpp files work
-		# https://bugs.gentoo.org/828648
-		if use doc; then
-			dosym ../examples /usr/share/doc/${PF}/src/examples
-		fi
 	fi
 }
