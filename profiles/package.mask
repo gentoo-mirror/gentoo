@@ -275,35 +275,6 @@ dev-go/sanitized-anchor-name
 # Removal on 2024-06-08.
 net-irc/ninja
 
-# Sam James <sam@gentoo.org> (2024-05-06)
-# Long-deprecated upstream, replaced by (unpackaged) Twitter::API.
-# Twitter's API has changed at least once since the last release of Net::Twitter.
-# Removal on 2024-06-05.  Bug #931295.
-dev-perl/Net-Twitter
-
-# Sam James <sam@gentoo.org> (2024-05-06)
-# Incompatible with latest last.fm APIs, hence useless.
-# Removal on 2024-06-05.  Bug #928115.
-media-libs/lastfmlib
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-05)
-# A library last bumped in 2010.  Homepage gone.  No revdeps.
-# Removal on 2024-06-04.  Bug #909527.
-dev-games/poker-eval
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-05)
-# A library last bumped in 2004.  Homepage gone.  Carries patches
-# and hacks already.  No reverse dependencies.
-# Removal on 2024-06-04.  Bug #909581.
-dev-games/hawknl
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-05)
-# An unmaintained fork of an unmaintained DNS server.  All successive
-# homepages are gone.  Last commit in 2014.  Already carries a lot
-# of patches and hacks.
-# Removal on 2024-06-04.  Bug #928942.
-net-dns/mydns
-
 # Michał Górny <mgorny@gentoo.org> (2024-05-04)
 # A really bad quality package with a never-ending stream of unclear
 # test failures, and blocked keywording and stabilization bugs.
@@ -312,18 +283,6 @@ net-dns/mydns
 # Removal on 2024-06-03.  Bug #931151.
 dev-python/dask
 dev-python/dask-expr
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2024-05-01)
-# Outdated package, now part of dev-perl/Type-Tiny. Removal in 30 days.
-dev-perl/Type-Tie
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-01)
-# Unmaintained in Gentoo.  Multiple releases behind upstream.  No tests.
-# No Python 3.12.  No (unconditional) reverse dependencies.
-# Removal on 2024-05-31.  Bug #904945.
-dev-python/grpcio
-dev-python/grpcio-testing
-dev-python/grpcio-tools
 
 # Sam James <sam@gentoo.org> (2024-04-28)
 # Masked for testing. Tracker bug: bug #930805.
