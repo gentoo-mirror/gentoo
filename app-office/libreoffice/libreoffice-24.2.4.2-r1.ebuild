@@ -26,7 +26,7 @@ inherit autotools bash-completion-r1 check-reqs flag-o-matic java-pkg-opt-2 mult
 DESCRIPTION="A full office productivity suite"
 HOMEPAGE="https://www.libreoffice.org"
 SRC_URI="branding? ( https://dev.gentoo.org/~dilfridge/distfiles/${BRANDING} )"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-icu-74.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-24.2.3.2-icu-74.tar.xz"
 [[ -n ${PATCHSET} ]] && SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}"
 
 # Split modules following git/tarballs; Core MUST be first!
@@ -92,13 +92,12 @@ unset ADDONS_SRC
 LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 
 IUSE="accessibility base bluetooth +branding clang coinmp +cups custom-cflags +dbus debug eds firebird
-googledrive gstreamer +gtk kde ldap +mariadb odk pdfimport postgres qt5 qt6 test valgrind vulkan
+googledrive gstreamer +gtk kde ldap +mariadb odk pdfimport postgres test valgrind vulkan
 $(printf 'libreoffice_extensions_%s ' ${LO_EXTS})"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	base? ( java )
 	bluetooth? ( dbus )
-	kde? ( || ( qt5 qt6 ) )
 	libreoffice_extensions_nlpsolver? ( java )
 	libreoffice_extensions_scripting-beanshell? ( java )
 	libreoffice_extensions_scripting-javascript? ( java )
@@ -210,20 +209,15 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		x11-libs/pango
 	)
 	kde? (
-		qt5? (
-			kde-frameworks/kconfig:5
-			kde-frameworks/kcoreaddons:5
-			kde-frameworks/ki18n:5
-			kde-frameworks/kio:5
-			kde-frameworks/kwindowsystem:5
-		)
-		qt6? (
-			kde-frameworks/kconfig:6
-			kde-frameworks/kcoreaddons:6
-			kde-frameworks/ki18n:6
-			kde-frameworks/kio:6
-			kde-frameworks/kwindowsystem:6
-		)
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5
+		kde-frameworks/kconfig:5
+		kde-frameworks/kcoreaddons:5
+		kde-frameworks/ki18n:5
+		kde-frameworks/kio:5
+		kde-frameworks/kwindowsystem:5
 	)
 	ldap? ( net-nds/openldap:= )
 	libreoffice_extensions_scripting-beanshell? ( dev-java/bsh )
@@ -232,13 +226,6 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	!mariadb? ( dev-db/mysql-connector-c:= )
 	pdfimport? ( >=app-text/poppler-22.06:=[cxx] )
 	postgres? ( >=dev-db/postgresql-9.0:*[kerberos] )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtx11extras:5
-	)
-	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 "
 # FIXME: cppunit should be moved to test conditional
 #        after everything upstream is under gbuild
@@ -322,11 +309,11 @@ PATCHES=(
 	"${FILESDIR}/${PN}-24.2-unused-qt6network.patch"
 
 	# git master
-	"${FILESDIR}/${P}-fix-bashism.patch" # bug #928733
+	"${FILESDIR}/${PN}-24.2.3.2-fix-bashism.patch" # bug #928733
 	# bug #917618, thx to Debian:
-	"${WORKDIR}/${P}-icu-74/${P}-icu-74.2-reviewed-breakIterator-customizations.patch"
-	"${WORKDIR}/${P}-icu-74/${P}-icu-74.2-breakiterator-updates.patch"
-	"${WORKDIR}/${P}-icu-74/${P}-icu-74-unicode.patch"
+	"${WORKDIR}/${PN}-24.2.3.2-icu-74/${PN}-24.2.3.2-icu-74.2-reviewed-breakIterator-customizations.patch"
+	"${WORKDIR}/${PN}-24.2.3.2-icu-74/${PN}-24.2.3.2-icu-74.2-breakiterator-updates.patch"
+	"${WORKDIR}/${PN}-24.2.3.2-icu-74/${PN}-24.2.3.2-icu-74-unicode.patch"
 )
 
 S="${WORKDIR}/${PN}-${MY_PV}"
@@ -482,12 +469,7 @@ src_configure() {
 	export PYTHON_CFLAGS=$(python_get_CFLAGS)
 	export PYTHON_LIBS=$(python_get_LIBS)
 
-	if use qt5; then
-		export QT5DIR="$(qt5_get_bindir)/.."
-	fi
-	if use qt6; then
-		export QT6DIR="$(qt6_get_bindir)/.."
-	fi
+	use kde && export QT5DIR="$(qt5_get_bindir)/.."
 
 	local gentoo_buildid="Gentoo official package"
 	if [[ -n ${LOCOREGIT_VERSION} ]]; then
@@ -528,6 +510,7 @@ src_configure() {
 		--disable-online-update
 		--disable-openssl
 		--disable-pdfium
+		--disable-qt6
 		--with-extra-buildid="${gentoo_buildid}"
 		--enable-extension-integration
 		--with-external-dict-dir="${EPREFIX}/usr/share/myspell"
@@ -562,12 +545,12 @@ src_configure() {
 		$(use_enable firebird firebird-sdbc)
 		$(use_enable gstreamer gstreamer-1-0)
 		$(use_enable gtk gtk3)
+		$(use_enable kde kf5)
+		$(use_enable kde qt5)
 		$(use_enable ldap)
 		$(use_enable odk)
 		$(use_enable pdfimport)
 		$(use_enable postgres postgresql-sdbc)
-		$(use_enable qt5)
-		$(use_enable qt6)
 		$(use_enable vulkan skia)
 		$(use_with accessibility lxml)
 		$(use_with coinmp system-coinmp)
@@ -577,9 +560,6 @@ src_configure() {
 		$(use_with odk doxygen)
 		$(use_with valgrind)
 	)
-
-	use qt5 && myeconfargs+=( $(use_enable kde kf5) )
-	use qt6 && myeconfargs+=( $(use_enable kde kf6) )
 
 	if use eds || use gtk; then
 		myeconfargs+=( --enable-dconf --enable-gio )
