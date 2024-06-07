@@ -33,6 +33,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-07)
+# EAPI=6, no reverse dependencies, failing tests, various QA issues.
+# Removal on 2024-07-07.  Bugs #933768, #849923, #882403, #837020,
+# #741444, #831092, #862717.
+sci-libs/h5part
+
 # Michał Górny <mgorny@gentoo.org> (2024-06-06)
 # Causes crashes in pure Python modules, e.g. dev-python/freezegun.
 =dev-lang/python-3.13.0_beta2
@@ -310,12 +316,6 @@ dev-python/dask-expr
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2024-05-01)
 # Outdated package, now part of dev-perl/Type-Tiny. Removal in 30 days.
 dev-perl/Type-Tie
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-01)
-# Effectively unmaintained.  EAPI 6.  Keyworded for PowerPC only.
-# Might not work anymore (when I run it, it hangs input to X11 entirely).
-# Removal on 2024-05-31.  Bug #930195.
-sys-apps/mouseemu
 
 # Michał Górny <mgorny@gentoo.org> (2024-05-01)
 # Unmaintained in Gentoo.  Multiple releases behind upstream.  No tests.
