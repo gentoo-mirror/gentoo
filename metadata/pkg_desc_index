@@ -2627,7 +2627,7 @@ app-metrics/rabbitmq_exporter 0.29.0-r1: Rabbitmq exporter for Prometheus
 app-metrics/redis_exporter 1.40.0 1.43.0 1.44.0: Prometheus Exporter for Redis Metrics. Supports Redis 2.x, 3.x and 4.x
 app-metrics/smartctl_exporter 0.12.0-r1: Export smartctl statistics to prometheus
 app-metrics/snmp_exporter 0.24.1: Prometheus exporter for snmp metrics
-app-metrics/unbound-telemetry 0.1.0_pre20210321-r1 0.1.0_pre20210920: Prometheus exporter for Unbound DNS resolver
+app-metrics/unbound-telemetry 0.1.0_pre20210920: Prometheus exporter for Unbound DNS resolver
 app-metrics/uwsgi_exporter 0.8.0-r1 1.1.0: uWSGI metrics exporter for prometheus.io
 app-metrics/vault_exporter 0.1.2-r1: Vault exporter for Prometheus
 app-misc/FreeSSM 1.2.5_p20210702 9999: Free and easy to use diagnostic and adjustment tool for SUBARU® vehicles
@@ -5193,7 +5193,7 @@ dev-lang/orc 0.4.38: The Oil Runtime Compiler, a just-in-time compiler for array
 dev-lang/parrot 8.1.0-r4: Virtual machine designed to compile and execute bytecode for dynamic languages
 dev-lang/pcc 1.1.0-r1: pcc portable c compiler
 dev-lang/perl 5.38.2-r3 5.38.2-r5 5.38.2-r6 5.40.0_rc1-r1 5.40.0_rc2: Larry Wall's Practical Extraction and Report Language
-dev-lang/php 8.1.26-r1 8.1.28 8.2.15 8.2.18 8.2.19 8.3.7-r1: The PHP language runtime engine
+dev-lang/php 8.1.26-r1 8.1.28 8.1.29 8.2.15 8.2.18 8.2.20 8.3.8: The PHP language runtime engine
 dev-lang/pico8 0.2.5g: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
 dev-lang/python 2.7.18_p16-r2 3.8.19_p1 3.8.19_p2 3.9.19_p2 3.9.19_p3 3.10.14_p1 3.10.14_p1-r1 3.11.9 3.11.9-r1 3.12.3 3.12.3-r1 3.12.4 3.13.0_beta1_p1 3.13.0_beta1_p2 3.13.0_beta1_p3 3.13.0_beta2: An interpreted, interactive, object-oriented programming language
@@ -8836,7 +8836,7 @@ dev-python/nodeenv 1.8.0-r1 1.9.0 1.9.1: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33.
 dev-python/nose2 0.14.2 0.15.0 0.15.1: Unittest with plugins
 dev-python/noseofyeti 2.4.9: A custom python codec that provides an RSpec style dsl for python
-dev-python/notebook 7.2.0: Jupyter Interactive Notebook
+dev-python/notebook 7.2.0 7.2.1: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2023.04.22 2024.03.02 2024.04.15: Flexible test automation for Python
@@ -8961,7 +8961,7 @@ dev-python/poetry 1.8.2 1.8.3: A frontend for poetry - a python dependency manag
 dev-python/poetry-core 1.9.0: Poetry PEP 517 Build Backend
 dev-python/poetry-plugin-export 1.7.1 1.8.0: A plugin that allows the export of locked packages to various formats
 dev-python/polib 1.2.0: A library to manipulate gettext files (.po and .mo files)
-dev-python/pooch 1.8.1: Manage your Python library's sample data files
+dev-python/pooch 1.8.1 1.8.2: Manage your Python library's sample data files
 dev-python/portalocker 2.7.0 2.8.2: A library for Python file locking
 dev-python/portend 3.2.0: TCP port monitoring utilities
 dev-python/poyo 0.5.0-r1: A lightweight YAML Parser for Python
@@ -9635,7 +9635,7 @@ dev-python/uritemplate 4.1.1: Python implementation of RFC6570, URI Template
 dev-python/uritools 4.0.2 4.0.3: RFC 3986-compliant URI parsing, classification and composition
 dev-python/url-normalize 1.4.3-r1: URL normalization for Python
 dev-python/urllib3 1.26.18 2.1.0 2.2.1: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 2.6.11 2.6.12: Curses-based user interface library for Python
+dev-python/urwid 2.6.12 2.6.13: Curses-based user interface library for Python
 dev-python/urwid-readline 0.14: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
@@ -9723,7 +9723,7 @@ dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 5.0.1: Zope Configuration Architecture
 dev-python/zope-deprecation 5.0: Zope Deprecation Infrastructure
 dev-python/zope-event 5.0: Event publishing / dispatch, used by Zope Component Architecture
-dev-python/zope-exceptions 5.0.1: General purpose exceptions for Zope packages
+dev-python/zope-exceptions 5.0.1 5.1: General purpose exceptions for Zope packages
 dev-python/zope-hookable 6.0: Efficient creation of 'hookable' objects
 dev-python/zope-i18nmessageid 6.1.0: Zope support for i18nmessageid (tagging source of i18n strings)
 dev-python/zope-interface 6.3 6.4 6.4_p2: Interfaces for Python
@@ -17522,7 +17522,7 @@ sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration file
 sys-fs/cramfs 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 0.10.3-r1: Encrypted FUSE filesystem that conceals metadata
 sys-fs/cryptmount 6.2.0: A utility for management and user-mode mounting of encrypted filesystems
-sys-fs/cryptsetup 2.6.1: Tool to setup encrypted devices with dm-crypt
+sys-fs/cryptsetup 2.6.1 2.7.2: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
 sys-fs/dd-rescue 1.99.13-r1: Similar to dd but can copy from source with errors
