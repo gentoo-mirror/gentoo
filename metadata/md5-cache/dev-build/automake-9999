@@ -1,14 +1,14 @@
-BDEPEND=app-alternatives/gzip sys-apps/help2man dev-build/autoconf-wrapper dev-build/autoconf test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare setup unpack
+BDEPEND=app-alternatives/gzip sys-apps/help2man dev-build/autoconf-wrapper dev-build/autoconf test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-util/dejagnu ) verify-sig? ( sec-keys/openpgp-keys-jimmeyering ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install prepare setup test unpack
 DESCRIPTION=Used to generate Makefile.in from Makefile.am
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.gnu.org/software/automake/
-INHERIT=python-any-r1 git-r3
-IUSE=test
+INHERIT=python-any-r1 verify-sig git-r3
+IUSE=test verify-sig
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-11 >=dev-build/autoconf-2.69:* sys-devel/gnuconfig
+RDEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-20240607 >=dev-build/autoconf-2.69:* sys-devel/gnuconfig
 RESTRICT=!test? ( test )
 SLOT=9999
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=ecadf5686f58b144d3a2a418c42c4850
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2	verify-sig	a79ba011daaf532d71a219182474d150	git-r3	fbb2889c81f3a05910c1524db69425c1
+_md5_=fe3621656055712b2eeedb9850a166d9
