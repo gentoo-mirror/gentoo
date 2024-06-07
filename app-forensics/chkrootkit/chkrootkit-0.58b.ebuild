@@ -1,28 +1,28 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit systemd toolchain-funcs
 
-GENTOO_PATCH="${PN}-0.55-gentoo.patch"
+GENTOO_PATCH="${P}-gentoo.patch"
 
 DESCRIPTION="Tool to locally check for signs of a rootkit"
-HOMEPAGE="http://www.chkrootkit.org/"
-SRC_URI="ftp://ftp.pangeia.com.br/pub/seg/pac/${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${GENTOO_PATCH}.bz2"
+HOMEPAGE="https://www.chkrootkit.org/"
+SRC_URI="ftp://ftp.chkrootkit.org/pub/seg/pac/${P}.tar.gz
+	https://md11.it.cx/download/${PN}/${GENTOO_PATCH}.bz2"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
 IUSE="+cron"
 
 RDEPEND="cron? ( virtual/cron )"
 
 PATCHES=(
-	"${WORKDIR}/${GENTOO_PATCH}"
-	"${FILESDIR}/${P}-fcntl_h.patch"
-	"${FILESDIR}/${P}-limits_h.patch"
+	"${WORKDIR}/${P}-gentoo.patch"
+	"${FILESDIR}/${PN}-0.55-fcntl_h.patch"
+	"${FILESDIR}/${PN}-0.55-limits_h.patch"
 )
 
 src_prepare() {
@@ -33,7 +33,7 @@ src_prepare() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" STRIP=true sense
+	emake CC="$(tc-getCC)" STRIP=/bin/true sense
 }
 
 src_install() {
