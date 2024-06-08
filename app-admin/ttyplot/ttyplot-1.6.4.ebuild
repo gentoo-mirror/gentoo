@@ -3,6 +3,8 @@
 
 EAPI="8"
 
+inherit toolchain-funcs
+
 DESCRIPTION="Realtime plotting utility with data input from stdin"
 HOMEPAGE="https://github.com/tenox7/ttyplot"
 SRC_URI="https://github.com/tenox7/ttyplot/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
@@ -14,6 +16,10 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="virtual/pkgconfig"
 DEPEND="${RDEPEND}
 	sys-libs/ncurses[tinfo]"
+
+src_compile() {
+	emake CC="$(tc-getCC)"
+}
 
 src_install() {
 	local args=(
