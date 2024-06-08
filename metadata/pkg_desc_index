@@ -1834,7 +1834,7 @@ app-editors/vim 9.0.2167 9.1.0366 9.1.0470 9999: Vim, an improved vi-style text 
 app-editors/vim-core 9.0.2167 9.0.2167-r1 9.1.0366 9.1.0366-r1 9.1.0470 9999: vim and gvim shared files
 app-editors/vis 0.8-r1 0.9 9999: modern, legacy free, simple yet efficient vim-like editor
 app-editors/vscode 1.89.0 1.89.1 1.90.0: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.89.0.24127 1.89.1.24130: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscodium 1.89.0.24127 1.89.1.24130 1.90.0.24158: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r2: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.4.24-r9 21.4.24-r10 21.5.35 21.5.35-r1 21.5.9999: highly customizable open source text editor and application development system
@@ -3075,7 +3075,7 @@ app-portage/unsymlink-lib 20: Convert your system to SYMLINK_LIB=no
 app-shells/atuin 18.0.1 18.1.0 18.2.0: Shell history manager supporting encrypted synchronisation
 app-shells/autojump 22.5.3-r3: change directory command that learns
 app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r2 5.1_p16-r6 5.1_p16-r10 5.2_p26-r3 5.3_alpha-r2 9999: The standard GNU Bourne again shell
-app-shells/bash-completion 2.11 2.13.0-r1 2.14.0 2.14.0-r1 9999: Programmable Completion for bash
+app-shells/bash-completion 2.14.0 2.14.0-r1 9999: Programmable Completion for bash
 app-shells/bashdb 5.0.1.1.2: bash source code debugging
 app-shells/bashish 2.2.4: Text console theme engine
 app-shells/ccsh 0.0.4-r5: UNIX Shell for people already familiar with the C language
@@ -3087,7 +3087,7 @@ app-shells/fish 3.4.0 3.6.1 3.7.1 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r1: F# Shell with integrated F# scripting
 app-shells/fzf 0.44.0 0.46.1 0.49.0 0.51.0 0.52.1: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0: POSIX-compatible shell written in Guile Scheme
-app-shells/gentoo-bashcomp 20190211-r1 20230313 20240511 20240525: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
+app-shells/gentoo-bashcomp 20240511 20240525: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20220112 20230117 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
 app-shells/heirloom-sh 050706-r1: Heirloom Bourne Shell, derived from OpenSolaris code SVR4/SVID3
 app-shells/hstr 2.2-r1 2.6: Shell history suggest box
@@ -3386,7 +3386,7 @@ app-text/tkman 2.2-r3: Graphical, hypertex man and info page browser
 app-text/tofrodos 1.7.13: Utility that converts ASCII files between the MSDOS and the Unix format
 app-text/tokyodystopia 0.9.15: A fulltext search engine for Tokyo Cabinet
 app-text/trang 20181222: Multi-format schema converter based on RELAX NG
-app-text/tree 2.1.0 2.1.1 2.1.1-r1: Lists directories recursively, and produces an indented listing of files
+app-text/tree 2.1.0 2.1.1-r1: Lists directories recursively, and produces an indented listing of files
 app-text/ttf2pk2 2.0_p20210325 2.0_p20230311: Freetype 2 based TrueType font to TeX's PK format converter
 app-text/ttf2pt1 3.4.4-r2: True Type Font to Postscript Type 1 Converter
 app-text/txt2man 1.7.1: Scripts to convert regular ASCII text to man pages
@@ -5937,7 +5937,7 @@ dev-ml/csexp 1.3.2-r1 1.5.1 1.5.2-r1: Parsing and printing of S-expressions in C
 dev-ml/cudf 0.9-r2 0.10: Library to parse, pretty print, and evaluate CUDF documents
 dev-ml/curses 1.0.10 1.0.11: Bindings to ncurses
 dev-ml/dose3 7.0.0: Library to perform analysis on package repositories
-dev-ml/dune 2.8.4 2.9.1 2.9.3-r3 3.6.2 3.7.0 3.7.1 3.10.0: A composable build system for OCaml
+dev-ml/dune 2.8.4 2.9.1 2.9.3-r3 3.6.2 3.7.0 3.7.1 3.10.0 3.11.1: A composable build system for OCaml
 dev-ml/dune-build-info 2.9.1 2.9.3 3.6.1 3.7.1 3.10.0: Embed locations informations inside executable and libraries
 dev-ml/dune-configurator 2.8.4 2.9.1 2.9.3 3.6.1 3.7.1 3.10.0: Helper library for gathering system configuration
 dev-ml/dune-private-libs 2.8.4 2.9.1 2.9.3 3.6.2 3.7.1 3.10.0: Private libraries of Dune
@@ -12049,7 +12049,7 @@ gui-apps/foot-terminfo 1.16.2 1.17.0 1.17.1 1.17.2: Terminfo for foot, a fast, l
 gui-apps/gnome-console 45.0-r1: A simple user-friendly terminal emulator for the GNOME desktop
 gui-apps/grim 1.4.1 9999: Grab images from a Wayland compositor
 gui-apps/gtkgreet 0.7 0.8 9999: gtk based greeter for greetd
-gui-apps/kanshi 1.6.0: dynamic display configuration (autorandr for wayland)
+gui-apps/kanshi 1.6.0 1.7.0: dynamic display configuration (autorandr for wayland)
 gui-apps/lavalauncher 2.1.0 2.1.1 9999: Simple launcher for wayland
 gui-apps/liquidshell 1.9.0-r1: Basic desktop shell using QtWidgets
 gui-apps/mako 1.8.0 1.9.0 9999: A lightweight notification daemon for Wayland. Works on Sway
