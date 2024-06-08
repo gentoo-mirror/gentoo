@@ -2747,6 +2747,7 @@ app-misc/glcdprocdriver 0.1.2-r1: A glue between the graphlcd-base library from 
 app-misc/gnote 45.2: Desktop note-taking application
 app-misc/gnuit 4.9.5-r2: GNU Interactive Tools - increase speed and efficiency of most daily tasks
 app-misc/go-jira 1.0.28: A simple JIRA commandline client in Go
+app-misc/gojq 0.12.16: Pure Go implementation of jq with yaml support
 app-misc/golly 4.2-r1 4.3: simulator for Conway's Game of Life and other cellular automata
 app-misc/grabcartoons 2.8.5 9999: Comic-summarizing utility
 app-misc/gramps 5.1.6-r3 5.2.2: Community genealogy program aiming to be both intuitive and feature-complete
@@ -6006,6 +6007,7 @@ dev-ml/ocaml-sqlite3 5.0.2: SQLite3 bindings for OCaml
 dev-ml/ocaml-ssl 0.5.13 0.7.0: OCaml bindings for OpenSSL
 dev-ml/ocaml-stdint 0.7.0 0.7.2-r1: Signed and unsigned integer types having specified widths
 dev-ml/ocaml_intrinsics 0.15.1 0.15.2 0.16.0: Invoke amd64 instructions (such as clz, popcnt, rdtsc, rdpmc)
+dev-ml/ocaml_intrinsics_kernel 0.17.0: Functions to invoke amd64 instructions (such as cmov, min/maxsd, popcnt)
 dev-ml/ocamlbuild 0.14.0-r1 0.14.1 0.14.2: Generic build tool with built-in rules for building OCaml library and programs
 dev-ml/ocamlfuse 2.7.1_p7-r1: OCaml binding for fuse
 dev-ml/ocamlgraph 2.0.0-r1: O'Caml Graph library
@@ -6092,7 +6094,7 @@ dev-ml/sedlex 2.5-r1 3.0 3.1: An OCaml lexer generator for Unicode
 dev-ml/seq 0.2 0.2.2 0.3-r1 0.3.1-r1: Compatibility package for the standard OCaml iterator type
 dev-ml/sexp_pretty 0.15.0-r1 0.15.1-r1 0.16.0: S-expression pretty-printer
 dev-ml/sexplib 0.14.0-r1 0.15.1-r2 0.16.0-r1: Library for automated conversion of OCaml-values to and from S-expressions
-dev-ml/sexplib0 0.14.0 0.15.0-r2 0.15.1-r1 0.16.0: Library for automated conversion of OCaml-values to and from S-expressions
+dev-ml/sexplib0 0.14.0 0.15.0-r2 0.15.1-r1 0.16.0 0.17.0: Library for automated conversion of OCaml-values to and from S-expressions
 dev-ml/spawn 0.13.0 0.15.0-r1 0.15.1: Spawning sub-processes
 dev-ml/splittable_random 0.14.0 0.15.0 0.16.0: PRNG that can be split into independent streams
 dev-ml/stdcompat 19: Compatibility module for OCaml standard library
@@ -14649,7 +14651,7 @@ net-firewall/firewalld 2.1.1 2.1.1-r2: Firewall daemon with D-Bus interface prov
 net-firewall/fwbuilder 6.0.0_rc1: A firewall management GUI for iptables, PF, Cisco routers and more
 net-firewall/fwknop 2.6.10-r3 2.6.11: Single Packet Authorization and Port Knocking application
 net-firewall/ipkungfu 0.6.1-r2: A nice iptables firewall script
-net-firewall/ipset 7.21 7.21-r1: IPset tool for iptables, successor to ippool
+net-firewall/ipset 7.21 7.21-r1 7.22: IPset tool for iptables, successor to ippool
 net-firewall/ipt_netflow 2.6-r1 9999: Netflow iptables module
 net-firewall/iptables 1.8.9 1.8.9-r2 1.8.10 1.8.10-r1: Linux kernel (2.4+) firewall, NAT and packet mangling tools
 net-firewall/itval 1.2_p20121104-r1: Iptables policy testing and validation tool
