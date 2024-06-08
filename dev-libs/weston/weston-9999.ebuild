@@ -93,10 +93,6 @@ BDEPEND="
 	$(python_gen_any_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-neatvnc-0.8.patch
-)
-
 python_check_deps() {
 	python_has_version "dev-python/setuptools[${PYTHON_USEDEP}]"
 }
