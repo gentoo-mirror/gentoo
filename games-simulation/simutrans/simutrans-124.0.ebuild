@@ -3,44 +3,45 @@
 
 EAPI=8
 
-inherit autotools desktop flag-o-matic optfeature toolchain-funcs xdg
+inherit autotools desktop flag-o-matic toolchain-funcs xdg
 
 MY_PV=${PV//./-}
-MY_PAK_64="simupak64-123-0.zip"
-# Required for network games, published in release announcement.
-MY_SVN_REVISION="10421"
+MY_PAK_64="simupak64-${MY_PV}.zip"
+# Required for network games, published in release announcement on the forums
+MY_SVN_REVISION="11164"
 
 DESCRIPTION="A free Transport Tycoon clone"
 HOMEPAGE="https://www.simutrans.com/"
 SRC_URI="
 	https://downloads.sourceforge.net/simutrans/simutrans-src-${MY_PV}.zip
 	!minimal? ( https://downloads.sourceforge.net/simutrans/${MY_PAK_64} -> simutrans_${MY_PAK_64} )
-	https://tastytea.de/files/simutrans_language_pack-Base+texts-${PV}.zip
-	https://github.com/aburch/simutrans/raw/9c84822/simutrans.svg
+	https://tastytea.de/files/gentoo/simutrans_language_pack-Base+texts-${PV}.zip
 "
-S=${WORKDIR}
+S="${WORKDIR}/simutrans"
 
-# NOTE: Get the latest language pack from:
+# NOTE: get the latest language pack from:
 # https://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip
 
 LICENSE="Artistic"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="minimal truetype upnp zstd"
+IUSE="minimal +midi fontconfig upnp zstd"
 
 DEPEND="
 	app-arch/bzip2
-	media-libs/libpng:0
+	media-libs/freetype
+	media-libs/libpng:0=
 	media-libs/libsdl2[sound,video]
-	media-sound/fluidsynth[sdl]
 	sys-libs/zlib
-	truetype? ( media-libs/freetype )
+	midi? ( media-sound/fluidsynth:=[sdl] )
+	fontconfig? ( media-libs/fontconfig )
 	upnp? ( net-libs/miniupnpc:= )
 	zstd? ( app-arch/zstd )
 "
 RDEPEND="
 	${DEPEND}
-	media-sound/fluid-soundfont
+	midi? ( media-sound/fluid-soundfont )
+	!<games-simulation/simutrans-paksets-${PV}
 "
 BDEPEND="
 	app-arch/unzip
@@ -48,14 +49,16 @@ BDEPEND="
 "
 RESTRICT="test" # Opens the program and doesn't close it.
 
-PATCHES=( "${FILESDIR}"/${PN}-123.0.1-silence-svn-and-git-errors.patch )
+PATCHES=( "${FILESDIR}"/${PN}-124.0-disable-svn-check.patch )
 
 src_unpack() {
 	unpack "simutrans-src-${MY_PV}.zip"
+	mv simutrans-Nightly simutrans || die "renaming directory failed"
+	cd simutrans || die "could not cd to ‘simutrans’"
 	use minimal || unpack "simutrans_${MY_PAK_64}"
 
 	# Bundled text files are incomplete, bug #580948
-	cd "${S}/simutrans/text" || die
+	cd simutrans/text || die "could not cd to ‘simutrans/text’"
 	unpack "simutrans_language_pack-Base+texts-${PV}.zip"
 }
 
@@ -67,26 +70,25 @@ src_prepare() {
 	append-flags -fno-strict-aliasing # bug #859229
 
 	eautoreconf
-
-	# Make it look for the data in the right directory.
-	sed -i -e "s:argv\[0\]:\"/usr/share/${PN}/\":" simmain.cc || die
 }
 
 src_configure() {
 	default
 
+	# NOTE: some flags need to be 0, some need to be empty to turn them off
 	cat > config.default <<-EOF || die
 		BACKEND=sdl2
 		OSTYPE=linux
 		OPTIMISE=0
 		STATIC=0
+		WITH_REVISION=${MY_SVN_REVISION}
 		MULTI_THREAD=1
-		USE_UPNP=$(usex upnp 1 0)
-		USE_FREETYPE=$(usex truetype 1 0)
-		USE_ZSTD=$(usex zstd 1 0)
-		USE_FLUIDSYNTH_MIDI=1
+		USE_UPNP=$(usex upnp 1 '')
+		USE_FREETYPE=1
+		USE_ZSTD=$(usex zstd 1 '')
+		USE_FONTCONFIG=$(usex fontconfig 1 '')
+		USE_FLUIDSYNTH_MIDI=$(usex midi 1 '')
 		VERBOSE=1
-		FLAGS := -DREVISION="${MY_SVN_REVISION}"
 
 		HOSTCC = $(tc-getCC)
 		HOSTCXX = $(tc-getCXX)
@@ -97,13 +99,13 @@ src_install() {
 	newbin build/default/sim ${PN}
 	insinto usr/share/${PN}
 	doins -r simutrans/*
-	doicon "${DISTDIR}"/${PN}.svg
-	domenu "${FILESDIR}"/${PN}.desktop
+	doicon src/simutrans/${PN}.svg
+	newmenu src/simutrans/.desktop simutrans.desktop
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	optfeature_header "Since 123.0 this ebuild only installs the Pak64 PakSet. You can install"
-	optfeature "other PakSets" games-simulation/simutrans-paksets
+	elog "Since 124.0 simutrans allows you to download PakSets to your home directory,"
+	elog "therefore games-simulation/simutrans-paksets has been deprecated."
 }
