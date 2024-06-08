@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,10 +16,6 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv ~x86"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-py312.patch
-)
-
 RDEPEND="
 	dev-libs/libayatana-appindicator
 	dev-python/Babel[${PYTHON_USEDEP}]
@@ -34,6 +30,24 @@ RDEPEND="
 	x11-libs/libnotify[introspection]
 	x11-misc/xprintidle
 	"
+
+python_install() {
+	distutils-r1_python_install
+
+	# Workaround for https://bugs.gentoo.org/926816
+	# Files were misplaced and also duplicate across Python slots.
+	local misplaced_usr="${D}/usr/lib/${EPYTHON}/site-packages/usr"
+	local i
+	for i in applications icons ; do
+		local source="${misplaced_usr}/share/${i}"
+		local target="${D}/usr/share/${i}"
+		if [[ ! -d "${target}" ]]; then
+			dodir /usr/share/
+			mv "${source}" "${target}" || die
+		fi
+	done
+	rm -R "${misplaced_usr}" || die
+}
 
 pkg_postinst() {
 	xdg_desktop_database_update
