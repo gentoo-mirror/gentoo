@@ -6,7 +6,7 @@ EAPI=8
 RESTRICT="test" # fails with sandbox
 
 CRATES="
-	addr2line@0.21.0
+	addr2line@0.22.0
 	adler@1.0.2
 	ahash@0.8.11
 	aho-corasick@1.1.3
@@ -16,13 +16,13 @@ CRATES="
 	anes@0.1.6
 	anstream@0.6.14
 	anstyle-parse@0.2.4
-	anstyle-query@1.0.3
+	anstyle-query@1.1.0
 	anstyle-wincon@3.0.3
 	anstyle@1.0.7
 	anyhow@1.0.86
 	argv@0.1.11
 	autocfg@1.3.0
-	backtrace@0.3.71
+	backtrace@0.3.72
 	bitflags@1.3.2
 	bitflags@2.5.0
 	bstr@1.9.1
@@ -30,29 +30,29 @@ CRATES="
 	byteorder@1.5.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.0.97
+	cc@1.0.99
 	cfg-if@1.0.0
-	cfg_aliases@0.1.1
+	cfg_aliases@0.2.1
 	chrono@0.4.38
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.4
-	clap_builder@4.5.2
-	clap_derive@4.5.4
-	clap_lex@0.7.0
+	clap@4.5.6
+	clap_builder@4.5.6
+	clap_derive@4.5.5
+	clap_lex@0.7.1
 	colorchoice@1.0.1
-	const-hex@1.11.4
+	const-hex@1.12.0
 	core-foundation-sys@0.8.6
 	cpufeatures@0.2.12
-	crc32fast@1.4.0
+	crc32fast@1.4.2
 	criterion-plot@0.5.0
 	criterion@0.5.1
-	crossbeam-channel@0.5.12
+	crossbeam-channel@0.5.13
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
 	crossbeam-queue@0.3.11
-	crossbeam-utils@0.8.19
+	crossbeam-utils@0.8.20
 	crossbeam@0.8.4
 	crunchy@0.2.2
 	cty@0.2.2
@@ -71,6 +71,7 @@ CRATES="
 	errno@0.3.9
 	fastrand@2.1.0
 	fixedbitset@0.4.2
+	fixedbitset@0.5.7
 	flate2@1.0.30
 	fnv@1.0.7
 	futures-channel@0.3.30
@@ -85,14 +86,13 @@ CRATES="
 	getargs@0.5.0
 	getrandom@0.2.15
 	getset@0.1.2
-	gimli@0.28.1
+	gimli@0.29.0
 	glob@0.3.1
 	globset@0.4.14
 	goblin@0.8.2
 	half@2.4.1
 	hashbrown@0.12.3
 	hashbrown@0.14.5
-	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.3.9
 	hex@0.4.3
@@ -111,13 +111,13 @@ CRATES="
 	itoa@1.0.11
 	js-sys@0.3.69
 	lazy_static@1.4.0
-	lexis@0.2.2
+	lexis@0.2.3
 	libc@0.2.155
-	libcgroups@0.3.2
-	libcontainer@0.3.2
+	libcgroups@0.3.3
+	libcontainer@0.3.3
 	libloading@0.8.3
 	libm@0.2.8
-	liboci-cli@0.3.2
+	liboci-cli@0.3.3
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
@@ -129,23 +129,25 @@ CRATES="
 	memchr@2.7.2
 	memoffset@0.7.1
 	memoffset@0.9.1
-	mimalloc2-rust-sys@2.1.4-source
-	mimalloc2-rust@0.3.1
+	mimalloc2-rust-sys@2.1.7-source
+	mimalloc2-rust@0.3.2
 	miniz_oxide@0.7.3
-	nc@0.8.20
+	nc@0.8.21
 	nix@0.26.4
 	nix@0.27.1
-	nix@0.28.0
+	nix@0.29.0
 	nonempty@0.10.0
+	nu-ansi-term@0.46.0
 	num-traits@0.2.19
 	num_cpus@1.16.0
-	object@0.32.2
+	object@0.35.0
 	oci-spec@0.6.5
 	once_cell@1.19.0
 	oorandom@11.1.3
 	openat2@0.1.2
 	option-ext@0.2.0
-	parking_lot@0.12.2
+	overload@0.1.1
+	parking_lot@0.12.3
 	parking_lot_core@0.9.10
 	parse-size@1.0.0
 	pentacle@1.0.0
@@ -158,7 +160,7 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.82
+	proc-macro2@1.0.85
 	procfs-core@0.16.0
 	procfs@0.15.1
 	procfs@0.16.0
@@ -197,33 +199,39 @@ CRATES="
 	scopeguard@1.2.0
 	scroll@0.12.0
 	scroll_derive@0.12.0
+	secure-string@0.3.0
 	sendfd@0.4.3
-	serde@1.0.202
-	serde_derive@1.0.202
+	serde@1.0.203
+	serde_derive@1.0.203
 	serde_json@1.0.117
+	sharded-slab@0.1.7
 	shellexpand@3.1.0
 	slab@0.4.9
 	slotmap@1.0.7
 	smallvec@1.13.2
 	strsim@0.11.1
 	strum@0.26.2
-	strum_macros@0.26.2
+	strum_macros@0.26.4
 	syn@1.0.109
-	syn@2.0.64
+	syn@2.0.66
 	tabwriter@1.4.0
 	tempfile@3.10.1
 	thiserror-impl@1.0.61
 	thiserror@1.0.61
 	thread-id@4.2.1
+	thread_local@1.1.8
 	tick_counter@0.4.5
 	tinytemplate@1.2.1
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
+	tracing-log@0.2.0
+	tracing-subscriber@0.3.18
 	tracing@0.1.40
 	unarray@0.1.4
 	unicode-ident@1.0.12
-	unicode-width@0.1.12
+	unicode-width@0.1.13
 	utf8parse@0.2.1
+	valuable@0.1.0
 	version_check@0.9.4
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
@@ -268,6 +276,7 @@ CRATES="
 	windows_x86_64_msvc@0.52.5
 	zerocopy-derive@0.7.34
 	zerocopy@0.7.34
+	zeroize@1.8.1
 "
 
 inherit cargo
