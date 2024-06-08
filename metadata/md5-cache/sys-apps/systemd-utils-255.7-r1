@@ -4,7 +4,7 @@ DEPEND=elibc_musl? ( >=sys-libs/musl-1.2.3 ) selinux? ( sys-libs/libselinux:0= )
 DESCRIPTION=Utilities split out from systemd for OpenRC users
 EAPI=8
 HOMEPAGE=https://systemd.io/
-INHERIT=bash-completion-r1 flag-o-matic linux-info meson-multilib python-single-r1 secureboot udev
+INHERIT=bash-completion-r1 flag-o-matic linux-info meson-multilib ninja-utils python-single-r1 secureboot udev
 IUSE=+acl boot +kmod kernel-install selinux split-usr sysusers +tmpfiles test +udev ukify abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 secureboot
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=GPL-2 LGPL-2.1 MIT public-domain
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd-stable/archive/refs/tags/v255.7.tar.gz -> systemd-stable-255.7.tar.gz elibc_musl? ( https://dev.gentoo.org/~floppym/dist/systemd-musl-patches-255.6.tar.gz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	8989922d980e5e870cc3de949d1b2586	python-single-r1	75118e916668a74c660a13b0ecb22562	secureboot	4911adb593665638c76fbd4e70d451ac	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=f9ec7dc33e0455b2b19eaf828b8f50ca
+_md5_=df6a80b86a4cc65eb4bdd47daa9e0dc9
