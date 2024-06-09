@@ -176,9 +176,9 @@ CRATES="
 	rand_xorshift@0.3.0
 	redox_syscall@0.5.1
 	redox_users@0.4.5
-	regex-automata@0.4.6
-	regex-syntax@0.8.3
-	regex@1.10.4
+	regex-automata@0.4.7
+	regex-syntax@0.8.4
+	regex@1.10.5
 	rs_hasher_ctx@0.1.3
 	rs_internal_hasher@0.1.3
 	rs_internal_state@0.1.3
