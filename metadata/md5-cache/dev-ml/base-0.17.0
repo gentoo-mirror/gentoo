@@ -1,0 +1,15 @@
+BDEPEND=>=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-5 dev-ml/sexplib0:0/0.17[ocamlopt?] dev-ml/dune-configurator:=[ocamlopt?] dev-ml/ocaml_intrinsics_kernel:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Standard library for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/base
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-lang/ocaml-5 dev-ml/sexplib0:0/0.17[ocamlopt?] dev-ml/dune-configurator:=[ocamlopt?] dev-ml/ocaml_intrinsics_kernel:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.17
+SRC_URI=https://github.com/janestreet/base/archive/v0.17.0.tar.gz -> base-0.17.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=35cf54045e07e7352c961358c3aa16be
