@@ -230,7 +230,7 @@ CRATES="
 	unarray@0.1.4
 	unicode-ident@1.0.12
 	unicode-width@0.1.13
-	utf8parse@0.2.1
+	utf8parse@0.2.2
 	valuable@0.1.0
 	version_check@0.9.4
 	walkdir@2.5.0
