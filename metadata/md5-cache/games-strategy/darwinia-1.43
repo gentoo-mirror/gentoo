@@ -1,0 +1,13 @@
+DEFINED_PHASES=install nofetch unpack
+DESCRIPTION=A digital dreamscape simulation game
+EAPI=8
+HOMEPAGE=https://www.introversion.co.uk/introversion/
+INHERIT=desktop
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=Introversion
+RDEPEND=media-libs/libglvnd[X] media-libs/libogg media-libs/libsdl[opengl,sound,video] media-libs/libvorbis virtual/glu
+RESTRICT=bindist fetch mirror strip
+SLOT=0
+SRC_URI=amd64? ( darwinia_1.43_amd64.tar.gz ) x86? ( darwinia_1.43_i386.tar.gz )
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=87f651934ddb0793a0ac37c317dcf084
