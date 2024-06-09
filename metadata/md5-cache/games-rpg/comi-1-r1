@@ -1,8 +1,8 @@
-DEFINED_PHASES=install postinst postrm preinst prepare unpack
-DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEFINED_PHASES=install postinst postrm preinst unpack
 DESCRIPTION=The Curse of Monkey Island, the third game in the series
-EAPI=6
+EAPI=8
 HOMEPAGE=https://en.wikipedia.org/wiki/The_Curse_of_Monkey_Island
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cdrom estack desktop wrapper xdg
 IUSE=doc
 KEYWORDS=~amd64 ~x86
@@ -13,4 +13,4 @@ RESTRICT=bindist
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~chewi/distfiles/comi.jpg
 _eclasses_=portability	225656ad6c6594fe3b0187bdd50707fb	cdrom	e2d6b737cd384c6064917aee0a82b6e1	estack	c61c368a76fdf3a82fdf8dbaebea3804	desktop	021728fdc1b03b36357dbc89489e0f0d	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=089f84ddf86de2523a8ed7c622040582
+_md5_=910c6851cb35dc7ba7d27d5b4625b82c
