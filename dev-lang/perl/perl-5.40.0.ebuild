@@ -10,7 +10,7 @@ CROSS_VER=1.5.2
 PATCH_BASE="perl-5.40.0-patches-${PATCH_VER}"
 PATCH_DEV=dilfridge
 
-DIST_AUTHOR=PEVANS
+DIST_AUTHOR=HAARG
 
 # Greatest first, don't include yourself
 # Devel point-releases are not ABI-intercompatible, but stable point releases are
@@ -94,7 +94,7 @@ dual_scripts() {
 	src_remove_dual      perl-core/ExtUtils-ParseXS   3.510.0       xsubpp
 	src_remove_dual      perl-core/IO-Compress        2.212.0       zipdetails
 	src_remove_dual      perl-core/JSON-PP            4.160.0       json_pp
-	src_remove_dual      perl-core/Module-CoreList    5.202.405.240 corelist
+	src_remove_dual      perl-core/Module-CoreList    5.202.406.90  corelist
 	src_remove_dual      perl-core/Pod-Checker        1.770.0       podchecker
 	src_remove_dual      perl-core/Pod-Perldoc        3.280.100     perldoc
 	src_remove_dual      perl-core/Pod-Usage          2.30.0        pod2usage
