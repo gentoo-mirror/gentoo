@@ -1174,7 +1174,7 @@ app-arch/rzip 2.1-r5: Compression program for large files
 app-arch/sharutils 4.15.2-r2: Tools to deal with shar archives
 app-arch/snappy 1.1.10-r1 1.2.0-r1: A high-speed compression/decompression library by Google
 app-arch/stenc 1.1.1 2.0.0: SCSI Tape Encryption Manager enables AES support for LTO drives
-app-arch/stormlib 9.25: Library to read and write MPQ archives (Diablo, StarCraft)
+app-arch/stormlib 9.25 9.26: Library to read and write MPQ archives (Diablo, StarCraft)
 app-arch/stuffit 5.2.0.611-r1: Aladdin Software's StuffIt and StuffIt Expander
 app-arch/tapeutils 0.4-r1: Utilities for manipulation of tapes and tape image files
 app-arch/tar 1.34-r3 1.35: Use this to make tarballs :)
@@ -6101,7 +6101,7 @@ dev-ml/sexplib0 0.14.0 0.15.0-r2 0.15.1-r1 0.16.0 0.17.0-r1: Library for automat
 dev-ml/spawn 0.13.0 0.15.0-r1 0.15.1: Spawning sub-processes
 dev-ml/splittable_random 0.14.0 0.15.0 0.16.0: PRNG that can be split into independent streams
 dev-ml/stdcompat 19: Compatibility module for OCaml standard library
-dev-ml/stdio 0.14.0-r2 0.15.0-r1 0.16.0: Standard IO Library for OCaml
+dev-ml/stdio 0.14.0-r2 0.15.0-r1 0.16.0 0.17.0: Standard IO Library for OCaml
 dev-ml/stdlib-shims 0.2.0 0.3.0: Pure OCaml library that allows replacing Pervasives with Stdlib before 4.08
 dev-ml/stdune 3.6.2-r1 3.7.1 3.10.0 3.11.1: Dune's unstable standard library
 dev-ml/textutils 0.14.0-r1 0.15.0 0.16.0: Text output utilities
@@ -10887,7 +10887,7 @@ dev-util/maturin 1.4.0 1.5.1-r1 1.6.0: Build and publish crates with pyo3, rust-
 dev-util/maxcso 1.13.0 9999: Fast cso compressor
 dev-util/mdds 2.1.1 9999: Collection of multi-dimensional data structure and indexing algorithm
 dev-util/meld 3.22.0-r2 3.22.1 3.22.2: A graphical diff and merge tool
-dev-util/memprof 0.6.2-r1: Profiling and leak detection tool
+dev-util/memprof 0.6.2-r1 0.6.2-r2: Profiling and leak detection tool
 dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
 dev-util/mingw64-runtime 11.0.1 12.0.0: Free Win64 runtime and import library definitions
 dev-util/mingw64-toolchain 11.0.0_p2 12.0.0: All-in-one mingw64 toolchain intended for building Wine without crossdev
@@ -13697,14 +13697,14 @@ media-plugins/vdr-clock 1.0.0-r2: VDR Plugin: Tea clock, clock
 media-plugins/vdr-ddci2 1.0.4 1.0.5 9999: VDR plugin: DDCI2 - Digital Devices CI support
 media-plugins/vdr-devstatus 0.4.1-r1: VDR plugin: display the usage status of the available DVB devices
 media-plugins/vdr-dummydevice 2.0.0: VDR Plugin: dummy output device ,for recording server without any output devices
-media-plugins/vdr-duplicates 1.0.1: VDR Plugin: show duplicated records
+media-plugins/vdr-duplicates 1.0.1 1.0.1-r1: VDR Plugin: show duplicated records
 media-plugins/vdr-dvbapi 2.2.5: VDR Plugin: allows connect VDR to OScam
-media-plugins/vdr-dvbhddevice 2.1.3_p20140115 2.2.0_p20180420-r1: VDR Plugin: output device for the 'Full Featured' TechnoTrend S2-6400 DVB Card
+media-plugins/vdr-dvbhddevice 2.2.0_p20180420-r1: VDR Plugin: output device for the 'Full Featured' TechnoTrend S2-6400 DVB Card
 media-plugins/vdr-dvbsddevice 2.2.0-r2: VDR Plugin: output device for the 'Full Featured' SD DVB Card
 media-plugins/vdr-dvd 0.3.7_pre20090106-r4: VDR Plugin: DVD-Player
 media-plugins/vdr-dvdswitch 0.2.2 0.2.3: VDR Plugin: to play dvds and dvd file structures
 media-plugins/vdr-epgsearch 2.4.1: VDR plugin: create timers from epg content based on saved search expressions
-media-plugins/vdr-epgsync 1.0.1 1.0.1-r1 1.0.2: VDR Plugin: Import the EPG of another VDR via vdr-svdrpservice
+media-plugins/vdr-epgsync 1.0.1 1.0.2: VDR Plugin: Import the EPG of another VDR via vdr-svdrpservice
 media-plugins/vdr-exec 0.0.3: VDR plugin: Exec commands like timers at defined times
 media-plugins/vdr-extrecmenu 1.2.4-r2: VDR Plugin: Extended recordings menu
 media-plugins/vdr-femon 2.4.0: VDR Plugin: DVB Frontend Status Monitor (signal strength/noise)
@@ -17649,7 +17649,7 @@ sys-kernel/linux-headers 3.18-r1 4.4-r1 4.9-r1 4.14-r2 4.19-r1 5.4-r2 5.10-r2 5.
 sys-kernel/linux-next 9999: Linux kernel and patches aimed at the next kernel merge window
 sys-kernel/mips-sources 4.19.307 5.4.269: Kernel.org sources for MIPS-based machines
 sys-kernel/modprobed-db 2.47: Keeps track of EVERY kernel module ever used - useful for make localmodconfig
-sys-kernel/pf-sources 6.8_p1 6.8_p5 6.8_p6 6.8_p7 6.8_p8 6.8_p9: Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
+sys-kernel/pf-sources 6.8_p1 6.8_p5 6.8_p6 6.8_p7 6.8_p8 6.8_p9 6.9_p2 6.9_p4: Linux kernel fork that includes the pf-kernel patchset and Gentoo's genpatches
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 6.6.28_p20240424 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.312_p134 5.4.271_p89 5.10.217_p109 5.15.158_p76 6.0.5_p14 6.1.92_p32 6.5.2_p8 6.6.32_p32: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
