@@ -1,4 +1,4 @@
-# Copyright 2006-2023 Gentoo Authors
+# Copyright 2006-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ else
 	MY_P="${PN}-${MY_PV}"
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="https://github.com/transmission/transmission/releases/download/${MY_PV}/${MY_P}.tar.xz"
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="A fast, easy, and free BitTorrent client"
@@ -46,7 +46,7 @@ COMMON_DEPEND="
 	mbedtls? ( net-libs/mbedtls:0= )
 	net-libs/libnatpmp
 	>=net-libs/libpsl-0.21.1
-	>=net-libs/miniupnpc-1.7:=
+	<net-libs/miniupnpc-2.2.8:=
 	>=net-misc/curl-7.28.0[ssl]
 	sys-libs/zlib:=
 	nls? ( virtual/libintl )
@@ -117,6 +117,11 @@ src_configure() {
 	use debug || append-cppflags -DNDEBUG
 
 	cmake_src_configure
+}
+
+src_test() {
+	# https://github.com/transmission/transmission/issues/4763
+	cmake_src_test -E DhtTest.usesBootstrapFile
 }
 
 src_install() {

@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
 TL_SOURCE_VERSION=20230311
 inherit flag-o-matic toolchain-funcs libtool texlive-common
@@ -193,15 +193,11 @@ RDEPEND="
 S="${WORKDIR}/${MY_P}"
 BUILDDIR="${WORKDIR}/${P}_build"
 
-src_unpack() {
-	default
-
-	mkdir -p "${BUILDDIR}" || die "failed to create build dir"
-}
-
 RELOC_TARGET=texmf-dist
 
 src_prepare() {
+	mkdir "${BUILDDIR}" || die "failed to create build dir"
+
 	cd "${WORKDIR}" || die
 
 	# From texlive-module.eclass.
@@ -383,6 +379,20 @@ src_compile() {
 	} > "${T}/updmap_update2"
 	sed -f "${T}/updmap_update2" "texmf-dist/web2c/updmap.cfg" >	"${T}/updmap_update3"\
 		&& cat "${T}/updmap_update3" > "texmf-dist/web2c/updmap.cfg"
+}
+
+src_test() {
+	cd "${BUILDDIR}" || die
+
+	sed -i \
+		-e 's;uptexdir/nissya.test;;' \
+		-e 's;uptexdir/upbibtex.test;;' \
+		texk/web2c/Makefile || die
+	sed -i \
+		-e 's;dvispc.test;;' \
+		texk/dviout-util/Makefile || die
+
+	emake check
 }
 
 src_install() {
