@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit distutils-r1 pypi
 
@@ -15,8 +15,8 @@ HOMEPAGE="
 	https://github.com/pytest-dev/pytest-forked/
 "
 
-SLOT="0"
 LICENSE="MIT"
+SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 
 # Please do not RDEPEND on pytest; this package won't do anything
@@ -31,16 +31,20 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-python_test() {
-	[[ ${PV} != 1.6.0 ]] && die "Recheck the deselect, please"
-	local EPYTEST_DESELECT=()
-	if [[ ${EPYTHON} == python3.12 ]]; then
-		EPYTEST_DESELECT+=(
-			# failing due to warnings coming from pytest
-			# https://github.com/gentoo/gentoo/pull/31151
-			testing/test_xfail_behavior.py::test_xfail
-		)
-	fi
+src_prepare() {
+	local PATCHES=(
+		# https://github.com/pytest-dev/pytest-forked/pull/90
+		"${FILESDIR}/${P}-pytest-8.patch"
+	)
 
-	epytest -p no:flaky -o tmp_path_retention_count=1
+	distutils-r1_src_prepare
+
+	# this is not printed when loaded via PYTEST_PLUGINS
+	sed -i -e '/loaded_pytest_plugins/d' testing/test_xfail_behavior.py || die
+}
+
+python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	local -x PYTEST_PLUGINS=pytest_forked
+	epytest -o tmp_path_retention_count=1
 }
