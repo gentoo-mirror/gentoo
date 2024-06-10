@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -30,8 +30,10 @@ RDEPEND="
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
-	# TODO
+	# sys.stdout is not properly mocked, see
+	# https://github.com/lincolnloop/python-qrcode/pull/364
 	qrcode/tests/test_script.py::ScriptTest::test_factory
+	qrcode/tests/test_script.py::ScriptTest::test_pipe
 	# release process-specific tests, broken on py3.12
 	qrcode/tests/test_release.py
 )
