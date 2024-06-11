@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-lang/php:* dev-php/PEAR-Net_Socket dev-php/PEAR-PEAR sasl? ( dev-php/PEAR-Auth_SASL ) )
+DEFINED_PHASES=install postinst postrm test
+DESCRIPTION=A PHP implementation of the SMTP protocol
+EAPI=8
+HOMEPAGE=https://pear.php.net/package/Net_SMTP
+IDEPEND=>=dev-php/pear-1.8.1
+INHERIT=php-pear-r2
+IUSE=examples sasl test
+KEYWORDS=~amd64 ~arm ~hppa ~ppc64 ~s390 ~sparc ~x86
+LICENSE=BSD-2
+RDEPEND=dev-lang/php:* dev-php/PEAR-Net_Socket dev-php/PEAR-PEAR sasl? ( dev-php/PEAR-Auth_SASL ) >=dev-php/pear-1.8.1
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://pear.php.net/get/Net_SMTP-1.12.1.tgz
+_eclasses_=php-pear-r2	920a4ee643aaaeef0f8b358fbf2255ab
+_md5_=1d4d49fa96b81e0da201fec081a98014
