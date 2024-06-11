@@ -86,6 +86,7 @@ DEPEND="
 	x11-libs/libXcursor
 	x11-libs/libXi
 	x11-libs/libxshmfence
+	opengl? ( media-libs/libglvnd[X] )
 	screencast? ( media-libs/libepoxy[egl(+)] )
 	pdfium? ( net-print/cups )
 	test? (
