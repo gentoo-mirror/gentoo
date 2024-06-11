@@ -19,12 +19,15 @@ else
 fi
 
 LICENSE="MIT"
-IUSE="liftoff +libinput +drm +session tinywl vulkan x11-backend xcb-errors X"
+IUSE="liftoff +libinput +drm +session vulkan x11-backend xcb-errors X"
 REQUIRED_USE="
 	drm? ( session )
 	libinput? ( session )
+	liftoff? ( drm )
 	xcb-errors? ( || ( x11-backend X ) )
 "
+
+PATCHES=( "${FILESDIR}/${PN}-0.17-fix-automagic-libliftoff.patch" )
 
 RDEPEND="
 	>=dev-libs/wayland-1.22.0
@@ -62,6 +65,8 @@ RDEPEND="
 		x11-base/xwayland
 	)
 "
+
+# TODO: 0.17.4 will add support for libliftoff-0.5
 DEPEND="
 	${RDEPEND}
 	liftoff? (
@@ -84,11 +89,12 @@ src_configure() {
 	local meson_backends=$(IFS=','; echo "${backends[*]}")
 	local emesonargs=(
 		$(meson_feature xcb-errors)
-		$(meson_use tinywl examples)
+		-Dexamples=false
 		-Drenderers=$(usex vulkan 'gles2,vulkan' gles2)
 		$(meson_feature X xwayland)
 		-Dbackends=${meson_backends}
 		$(meson_feature session)
+		$(meson_feature liftoff libliftoff)
 	)
 
 	meson_src_configure
@@ -97,10 +103,6 @@ src_configure() {
 src_install() {
 	meson_src_install
 	dodoc docs/*
-
-	if use tinywl; then
-		dobin "${BUILD_DIR}"/tinywl/tinywl
-	fi
 }
 
 pkg_postinst() {

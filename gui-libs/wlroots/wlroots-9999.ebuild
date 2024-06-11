@@ -19,10 +19,11 @@ else
 fi
 
 LICENSE="MIT"
-IUSE="liftoff +libinput +drm +session tinywl vulkan x11-backend xcb-errors X"
+IUSE="liftoff +libinput +drm +session lcms vulkan x11-backend xcb-errors X"
 REQUIRED_USE="
 	drm? ( session )
 	libinput? ( session )
+	liftoff? ( drm )
 	xcb-errors? ( || ( x11-backend X ) )
 "
 
@@ -41,6 +42,7 @@ DEPEND="
 		sys-apps/hwdata
 		liftoff? ( >=dev-libs/libliftoff-0.4 )
 	)
+	lcms? ( media-libs/lcms:2 )
 	libinput? ( >=dev-libs/libinput-1.14.0:= )
 	session? (
 		sys-auth/seatd:=
@@ -80,11 +82,13 @@ src_configure() {
 	local meson_backends=$(IFS=','; echo "${backends[*]}")
 	local emesonargs=(
 		$(meson_feature xcb-errors)
-		$(meson_use tinywl examples)
+		-Dexamples=false
 		-Drenderers=$(usex vulkan 'gles2,vulkan' gles2)
 		$(meson_feature X xwayland)
 		-Dbackends=${meson_backends}
 		$(meson_feature session)
+		$(meson_feature lcms color-management)
+		$(meson_feature liftoff libliftoff)
 	)
 
 	meson_src_configure
@@ -93,10 +97,6 @@ src_configure() {
 src_install() {
 	meson_src_install
 	dodoc docs/*
-
-	if use tinywl; then
-		dobin "${BUILD_DIR}"/tinywl/tinywl
-	fi
 }
 
 pkg_postinst() {
