@@ -1,0 +1,15 @@
+BDEPEND=>=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-5 dev-ml/base:0/0.17[ocamlopt?] >=dev-ml/ppxlib-0.32.1:=[ocamlopt?] dev-ml/ppxlib_jane:0/0.17[ocamlopt?] dev-ml/sexplib0:0/0.17 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Support Library for type-driven code generators
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/ppx_sexp_conv
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-5 dev-ml/base:0/0.17[ocamlopt?] >=dev-ml/ppxlib-0.32.1:=[ocamlopt?] dev-ml/ppxlib_jane:0/0.17[ocamlopt?] dev-ml/sexplib0:0/0.17 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.17
+SRC_URI=https://github.com/janestreet/ppx_sexp_conv/archive/v0.17.0.tar.gz -> ppx_sexp_conv-0.17.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=38cae8868bbbe10a73bd54cc1c467c89
