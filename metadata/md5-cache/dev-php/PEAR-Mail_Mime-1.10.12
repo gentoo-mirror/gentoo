@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-php/PEAR-PEAR )
+DEFINED_PHASES=install postinst postrm test
+DESCRIPTION=Create and manipulate mime messages with PHP
+EAPI=8
+HOMEPAGE=https://pear.php.net/package/Mail_Mime
+IDEPEND=>=dev-php/pear-1.8.1
+INHERIT=php-pear-r2
+IUSE=test
+KEYWORDS=~amd64 ~arm ~hppa ~ppc64 ~s390 ~sparc ~x86
+LICENSE=BSD
+RDEPEND=>=dev-php/pear-1.8.1
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://pear.php.net/get/Mail_Mime-1.10.12.tgz
+_eclasses_=php-pear-r2	920a4ee643aaaeef0f8b358fbf2255ab
+_md5_=8810d7d2e697b5493921f4487acb3933
