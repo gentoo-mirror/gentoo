@@ -182,6 +182,8 @@ dev-ml/stdio:0/0.17
 dev-ml/ppx_cold:0/0.17
 dev-ml/ppxlib_jane
 dev-ml/ppx_compare:0/0.17
+dev-ml/ppx_enumerate:0/0.17
+dev-ml/ppx_globalize:0/0.17
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-06-08)
 # EAPI=6, waiting for a version bump, not maintained for many years.
@@ -460,12 +462,6 @@ sci-libs/cifparse-obj
 sci-libs/libghemical
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-05-11)
-# EAPI=6, uses deprecated go eclass, archived upstream. Update to
-# usage of go-module.eclass isn't simple.
-# Removal: 2024-06-10.  Bugs #931745, #844598.
-app-emulation/docker-machine
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-11)
 # EAPI=6, library only without any reverse dependencies, uses
 # deprecated go eclasses.
 # Removal: 2024-06-10.  Bug #931725.
@@ -473,22 +469,6 @@ dev-go/fuzzy
 dev-go/go-bindata-assetfs
 dev-go/godebug-pretty
 dev-go/sanitized-anchor-name
-
-# Eli Schwartz <eschwartz93@gmail.com> (2024-05-08)
-# Fails to configure with GCC 14, fails to install with older
-# gcc, unmaintained, upstream website vanished.
-# Bug #731180, #861461, #888577, #889930.
-# Removal on 2024-06-08.
-net-irc/ninja
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-04)
-# A really bad quality package with a never-ending stream of unclear
-# test failures, and blocked keywording and stabilization bugs.
-# The bump to the most recent release is blocked by a ton of test
-# regressions.  No reverse dependencies left.
-# Removal on 2024-06-03.  Bug #931151.
-dev-python/dask
-dev-python/dask-expr
 
 # Sam James <sam@gentoo.org> (2024-04-28)
 # Masked for testing. Tracker bug: bug #930805.
