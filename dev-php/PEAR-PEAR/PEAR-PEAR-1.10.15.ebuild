@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN="${PN/PEAR-/}"
 MY_P="${MY_PN}-${PV}"
@@ -9,20 +9,17 @@ MY_P="${MY_PN}-${PV}"
 DESCRIPTION="PEAR Base System"
 HOMEPAGE="https://pear.php.net/package/PEAR"
 SRC_URI="https://pear.php.net/get/${MY_P}.tgz"
-LICENSE="MIT"
-KEYWORDS="~alpha amd64 arm ~hppa ppc64 ~s390 sparc x86"
-SLOT="0"
-IUSE=""
-
-DEPEND=""
-RDEPEND="dev-lang/php:*[cli(-),xml(-),zlib(-)]
-	>=dev-php/PEAR-Archive_Tar-1.4.9
-	>=dev-php/PEAR-Console_Getopt-1.4.1
-	dev-php/PEAR-Exception
-	>=dev-php/PEAR-Structures_Graph-1.1.0
-	>=dev-php/PEAR-XML_Util-1.4.0"
-
 S="${WORKDIR}/${MY_P}"
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ppc64 ~s390 ~sparc ~x86"
+
+RDEPEND="dev-lang/php:*[cli(-),xml(-),zlib(-)]
+	dev-php/PEAR-Archive_Tar
+	dev-php/PEAR-Console_Getopt
+	dev-php/PEAR-Exception
+	dev-php/PEAR-Structures_Graph
+	dev-php/PEAR-XML_Util"
 
 PATCHES=( "${FILESDIR}/gentoo-libtool-mismatch-fix-v2.patch" )
 
