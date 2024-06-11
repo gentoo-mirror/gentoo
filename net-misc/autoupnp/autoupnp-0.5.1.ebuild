@@ -12,13 +12,13 @@ SRC_URI="
 		-> ${P}.tar.gz
 "
 
-LICENSE="BSD"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="libnotify"
 
 DEPEND="
-	<net-libs/miniupnpc-2.2.8:0=
+	net-libs/miniupnpc:0=
 	libnotify? ( x11-libs/libtinynotify:0= )
 "
 RDEPEND="
