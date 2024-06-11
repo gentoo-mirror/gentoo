@@ -3,6 +3,7 @@
 
 EAPI=8
 
+KDE_ORG_COMMIT=4b3f6a4312c02243c33d01e38ce2827664cae8ac
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=6.2.0
@@ -11,8 +12,8 @@ QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
-SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}-1d936cf6.tar.gz"
-S="${WORKDIR}/${PN}-1d936cf69d83f2b0ee770376d86f508b16757382"
+#SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}-4b3f6a43.tar.gz"
+S="${WORKDIR}/${PN}-4b3f6a4312c02243c33d01e38ce2827664cae8ac"
 
 LICENSE="GPL-2+"
 SLOT="6"
