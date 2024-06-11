@@ -1,13 +1,13 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 export CBUILD=${CBUILD:-${CHOST}}
 export CTARGET=${CTARGET:-${CHOST}}
 
 # See "Bootstrap" in release notes
-GO_BOOTSTRAP_MIN=1.20.14
+GO_BOOTSTRAP_MIN=1.17.13
 MY_PV=${PV/_/}
 
 inherit toolchain-funcs
@@ -23,7 +23,7 @@ case ${PV}  in
 	case ${PV} in
 	*_beta*|*_rc*) ;;
 	*)
-		KEYWORDS="-* amd64 arm arm64 ~loong ~mips ppc64 ~riscv ~s390 x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
+		KEYWORDS="-* ~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 		;;
 	esac
 esac
@@ -57,7 +57,7 @@ QA_PREBUILT='.*'
 
 # Do not strip this package. Stripping is unsupported upstream and may
 # fail.
-RESTRICT=" strip"
+RESTRICT+=" strip"
 
 DOCS=(
 	CONTRIBUTING.md
@@ -165,9 +165,6 @@ src_test() {
 
 	PATH="${GOBIN}:${PATH}" \
 	./run.bash -no-rebuild -k || die "tests failed"
-	cd ..
-	rm -fr pkg/*_race || die
-	rm -fr pkg/obj/go-build || die
 }
 
 src_install() {
@@ -177,7 +174,7 @@ src_install() {
 	einstalldocs
 
 	insinto /usr/lib/go
-	doins go.env VERSION*
+	doins go.env VERSION
 
 	# testdata directories are not needed on the installed system
 	rm -fr $(find "${ED}"/usr/lib/go -iname testdata -type d -print)
