@@ -5,11 +5,11 @@ EAPI=8
 
 inherit dune
 
-DESCRIPTION="Generate a list containing all values of a finite type"
-HOMEPAGE="https://github.com/janestreet/ppx_enumerate"
-SRC_URI="https://github.com/janestreet/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Support Library for type-driven code generators"
+HOMEPAGE="https://github.com/janestreet/ppx_sexp_conv"
+SRC_URI="https://github.com/janestreet/ppx_sexp_conv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apache-2.0"
+LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64"
 IUSE="+ocamlopt"
@@ -19,6 +19,7 @@ RDEPEND="
 	dev-ml/base:${SLOT}[ocamlopt?]
 	>=dev-ml/ppxlib-0.32.1:=[ocamlopt?]
 	dev-ml/ppxlib_jane:${SLOT}[ocamlopt?]
+	dev-ml/sexplib0:${SLOT}
 "
 DEPEND="${RDEPEND}"
 BDEPEND=">=dev-ml/dune-3.11"
