@@ -1,0 +1,13 @@
+DEFINED_PHASES=install prepare test
+DEPEND=test? ( dev-lang/php:* dev-php/PEAR-Exception dev-php/PEAR-PEAR )
+DESCRIPTION=A full-featured command-line options and arguments parser
+EAPI=8
+HOMEPAGE=https://pear.php.net/package/Console_CommandLine
+IUSE=examples test
+KEYWORDS=~amd64 ~arm ~hppa ~ppc64 ~sparc ~x86
+LICENSE=MIT
+RDEPEND=dev-lang/php:* dev-php/PEAR-Exception
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/pear/Console_CommandLine/archive/refs/tags/v1.2.6.tar.gz -> Console_CommandLine-1.2.6.tgz
+_md5_=3978626e0ef9fc9bd524459a5e807b31
