@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 LUA_COMPAT=( lua5-4 lua5-3 )
 
@@ -18,7 +18,7 @@ if [[ ${PV} != *9999 ]]; then
 	VTEST_DIR="${WORKDIR}/VTest-${VTEST_COMMIT}"
 	SRC_URI="http://haproxy.1wt.eu/download/$(ver_cut 1-2)/src/${MY_P}.tar.gz
 			test? ( https://github.com/vtest/VTest/archive/${VTEST_COMMIT}.tar.gz -> VTest-${VTEST_COMMIT}.tar.gz )"
-	KEYWORDS="amd64 ~arm64 ~ppc x86"
+	KEYWORDS="~amd64 ~arm64 ~ppc ~x86"
 elif [[ ${PV} == 9999 ]]; then
 	VTEST_DIR="${WORKDIR}/VTest"
 	EGIT_REPO_URI="https://git.haproxy.org/git/haproxy.git/"
