@@ -12,6 +12,8 @@ QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Plasma library and runtime components based upon KF6 and Qt6"
+SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}-1f3f984c.tar.gz"
+S="${WORKDIR}/${PN}-1f3f984c02bcf6719fb96182e47546ce62dbef73"
 
 LICENSE="LGPL-2+"
 SLOT="6"
