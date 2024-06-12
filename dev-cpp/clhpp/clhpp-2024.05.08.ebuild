@@ -12,6 +12,8 @@ DESCRIPTION="Khronos OpenCL C++ bindings"
 HOMEPAGE="https://github.com/KhronosGroup/OpenCL-CLHPP/"
 SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}"/${MY_P}
+
 LICENSE="Khronos-CLHPP"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
@@ -25,8 +27,6 @@ RESTRICT="test"
 RDEPEND="virtual/opencl"
 DEPEND="${RDEPEND}
 	>=dev-util/opencl-headers-${PV}"
-
-S="${WORKDIR}"/${MY_P}
 
 src_configure() {
 	local mycmakeargs=(
