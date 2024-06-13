@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-POSTGRES_COMPAT=( {12..16} )
+POSTGRES_COMPAT=( {11..16} )
 POSTGRES_USEDEP="server"
 inherit autotools postgres-multi toolchain-funcs
 
@@ -37,7 +37,7 @@ RDEPEND="${POSTGRES_DEP}
 	dev-libs/libxml2:2
 	dev-libs/protobuf-c:=
 	>=sci-libs/geos-3.9.0
-	>=sci-libs/proj-6.1.0:=
+	>=sci-libs/proj-4.9.0:=
 	>=sci-libs/gdal-1.10.0:=
 	address-standardizer? ( dev-libs/libpcre2 )
 	gtk? ( x11-libs/gtk+:2 )
@@ -54,9 +54,6 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0.3-try-other-cpp-names.patch"
-	"${FILESDIR}/${PN}-3.4.0-without-gui.patch"
-	# source: https://github.com/google/flatbuffers/pull/7897
-	#"${FILESDIR}/${PN}-3.3.2-flatbuffers-abseil-2023.patch" # bug 905378
 )
 
 src_prepare() {
@@ -98,7 +95,7 @@ src_compile() {
 
 	if use doc ; then
 		postgres-multi_foreach emake comments
-		postgres-multi_forbest emake cheatsheets
+		postgres-multi_foreach emake cheatsheets
 		postgres-multi_forbest emake -C doc html
 	fi
 }
@@ -115,7 +112,12 @@ src_install() {
 
 	if use doc ; then
 		postgres-multi_foreach emake DESTDIR="${D}" comments-install
-		postgres-multi_forbest emake DESTDIR="${D}" -C doc cheatsheet-install html-install html-assets-install
+
+		docinto html
+		postgres-multi_forbest dodoc doc/html/{postgis.html,style.css}
+
+		docinto html/images
+		postgres-multi_forbest dodoc doc/html/images/*
 	fi
 
 	use static-libs || find "${ED}" -name '*.a' -delete
