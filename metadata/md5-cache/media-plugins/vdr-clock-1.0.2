@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=>=media-video/vdr-1.6.0 media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
-DESCRIPTION=VDR Plugin: Automatic Video Aspect Ratio Detection and Signaling
-EAPI=7
-HOMEPAGE=http://firefly.vdr-developer.org/avards/
+DEPEND=media-video/vdr media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DESCRIPTION=VDR Plugin: Tea clock, On-Screen clock
+EAPI=8
+HOMEPAGE=https://github.com/madmartin/vdr-clock
 INHERIT=vdr-plugin-2
-KEYWORDS=amd64 x86
-LICENSE=GPL-2+
-RDEPEND=>=media-video/vdr-1.6.0 media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-video/vdr media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
 SLOT=0
-SRC_URI=http://firefly.vdr-developer.org/avards/vdr-avards-0.2.4.tar.bz2
+SRC_URI=https://github.com/madmartin/vdr-clock/archive/v1.0.2.tar.gz -> vdr-clock-1.0.2.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09	vdr-plugin-2	538778293cabc2e533fb35e1a658af6b
-_md5_=3918630bcee92ecdb62bb02ffd0dcd5e
+_md5_=bbf629df990dadff14589d64b4008edc
