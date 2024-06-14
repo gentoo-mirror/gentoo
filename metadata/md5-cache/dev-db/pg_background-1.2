@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= )
+DESCRIPTION=Postgres Background Worker
+EAPI=8
+HOMEPAGE=https://github.com/vibhorkum/pg_background
+INHERIT=postgres-multi
+IUSE=postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/vibhorkum/pg_background/archive/refs/tags/v1.2.tar.gz -> pg_background-1.2.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	7140a1e9480de59ab4172274608bffce
+_md5_=bae19bfacf3e1da3c0950ccb4d0675ce
