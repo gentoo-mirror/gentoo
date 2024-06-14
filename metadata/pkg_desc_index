@@ -5913,7 +5913,7 @@ dev-ml/base_bigstring 0.14.0 0.15.0-r1 0.16.0: String type based on Bigarray, fo
 dev-ml/base_quickcheck 0.14.0-r1 0.14.1-r2 0.15.0-r3 0.16.0 0.17.0: Randomized testing framework, designed for compatibility with Base
 dev-ml/batteries 3.5.1 3.6.0-r1 3.6.1: A community-maintained standard library extension
 dev-ml/bigarray-compat 1.0.0 1.1.0: Compatibility library to use Stdlib.Bigarray when possible
-dev-ml/bin_prot 0.14.0 0.15.0-r3 0.16.0: Binary protocol generator
+dev-ml/bin_prot 0.14.0 0.15.0-r3 0.16.0 0.17.0: Binary protocol generator
 dev-ml/biniou 1.2.1 1.2.2-r1: A binary data serialization format inspired by JSON for OCaml
 dev-ml/bos 0.2.1: Basic OS interaction for OCaml
 dev-ml/cairo2 0.6.1-r2 0.6.2-r2 0.6.4: Binding to Cairo, a 2D Vector Graphics Library
@@ -5928,6 +5928,7 @@ dev-ml/camlp5 7.11-r1 7.12 7.13 7.14 8.00 8.00.01 8.00.02 8.00.03 8.00.04 8.00.0
 dev-ml/camlpdf 2.3.1: OCaml library for reading, writing, and modifying PDF files
 dev-ml/camlzip 1.10 1.11: Compressed file access ML library (ZIP, GZIP and JAR)
 dev-ml/camomile 1.0.2 2.0.0: Camomile is a comprehensive Unicode library for ocaml
+dev-ml/capitalization 0.17.0: Defines case conventions and functions to rename identifiers according to them
 dev-ml/charinfo_width 1.1.0-r1: Determine column width for a character
 dev-ml/cinaps 0.14.0 0.15.1-r1: Trivial metaprogramming tool
 dev-ml/cmdliner 1.0.4 1.1.1 1.2.0: Declarative definition of command line interfaces for OCaml
@@ -6044,15 +6045,15 @@ dev-ml/pprint 20211129 20220103 20230830: A pretty-printing combinator library a
 dev-ml/ppx_assert 0.14.0-r1 0.15.0-r1 0.16.0 0.17.0: Assert-like extension nodes that raise useful errors on failure
 dev-ml/ppx_base 0.14.0 0.15.0 0.16.0-r1 0.17.0: Base set of ppx rewriters
 dev-ml/ppx_bench 0.14.1 0.15.0-r1 0.16.0 0.17.0: Syntax extension for writing in-line benchmarks in ocaml code
-dev-ml/ppx_bin_prot 0.14.0 0.15.0-r1 0.16.0: Generation of bin_prot readers and writers from types
+dev-ml/ppx_bin_prot 0.14.0 0.15.0-r1 0.16.0 0.17.0: Generation of bin_prot readers and writers from types
 dev-ml/ppx_blob 0.7.2: Include a file as a string at compile time
 dev-ml/ppx_cold 0.14.0-r1 0.15.0 0.16.0 0.17.0: Expands [@cold] into [@inline never][@specialise never][@local never]
 dev-ml/ppx_compare 0.14.0 0.15.0 0.16.0 0.17.0: Generation of comparison functions from types
-dev-ml/ppx_custom_printf 0.14.0 0.14.1 0.15.0-r1 0.16.0: Printf-style format-strings for user-defined string conversion
+dev-ml/ppx_custom_printf 0.14.0 0.14.1 0.15.0-r1 0.16.0 0.17.0: Printf-style format-strings for user-defined string conversion
 dev-ml/ppx_derivers 1.2.1: Shared [@@deriving] plugin registry
 dev-ml/ppx_deriving 5.2.1-r2: Type-driven code generation for OCaml
 dev-ml/ppx_deriving_yojson 3.6.1-r1 3.7.0: JSON codec generator for OCaml
-dev-ml/ppx_disable_unused_warnings 0.15.0-r1 0.16.0: Expands [@disable_unused_warnings]
+dev-ml/ppx_disable_unused_warnings 0.15.0-r1 0.16.0 0.17.0: Expands [@disable_unused_warnings]
 dev-ml/ppx_enumerate 0.14.0 0.15.0 0.16.0 0.17.0: Generate a list containing all values of a finite type
 dev-ml/ppx_expect 0.14.0 0.14.1 0.14.2 0.15.0-r1 0.15.1-r1 0.16.0 0.17.0: Cram like framework for OCaml
 dev-ml/ppx_fail 0.14.0: Add location to calls to failwiths
@@ -6061,26 +6062,27 @@ dev-ml/ppx_fixed_literal 0.14.0 0.15.0 0.16.0 0.17.0: Simpler notation for fixed
 dev-ml/ppx_globalize 0.16.0 0.17.0: Generates functions to copy local values to the global heap
 dev-ml/ppx_hash 0.14.0 0.15.0-r1 0.16.0 0.17.0: PPX rewriter that generates hash functions from type expressions and definitions
 dev-ml/ppx_here 0.14.0 0.15.0 0.16.0 0.17.0: Expands [%here] into its location
-dev-ml/ppx_ignore_instrumentation 0.15.0-r1 0.16.0: Ignore Jane Street specific instrumentation extensions
+dev-ml/ppx_ignore_instrumentation 0.15.0-r1 0.16.0 0.17.0: Ignore Jane Street specific instrumentation extensions
 dev-ml/ppx_import 1.9.1-r1 1.10.0: A syntax extension for importing declarations from interface files
 dev-ml/ppx_inline_test 0.14.1 0.15.0-r2 0.15.0-r3 0.16.0 0.17.0: Syntax extension for writing in-line tests in ocaml code
-dev-ml/ppx_jane 0.14.0-r1 0.15.0 0.16.0-r1: Standard Jane Street ppx rewriters
+dev-ml/ppx_jane 0.14.0-r1 0.15.0 0.16.0-r1 0.17.0: Standard Jane Street ppx rewriters
 dev-ml/ppx_js_style 0.14.0 0.14.1 0.15.0 0.16.0: Code style checker for Jane Street Packages
 dev-ml/ppx_let 0.14.0 0.15.0 0.16.0 0.17.0: Monadic let-bindings
 dev-ml/ppx_log 0.15.0-r1 0.16.0 0.17.0: Lazily rendering log messages
-dev-ml/ppx_module_timer 0.14.0 0.15.0-r1 0.16.0: Ppx rewriter that records top-level module startup times
+dev-ml/ppx_module_timer 0.14.0 0.15.0-r1 0.16.0 0.17.0: Ppx rewriter that records top-level module startup times
 dev-ml/ppx_optcomp 0.14.0 0.14.3 0.15.0 0.16.0 0.17.0: Optional compilation for OCaml
-dev-ml/ppx_optional 0.14.0 0.15.0 0.16.0: Pattern matching on flat options
-dev-ml/ppx_pipebang 0.14.0 0.15.0-r1 0.16.0: A ppx rewriter that inlines reverse application operators |> and |!
+dev-ml/ppx_optional 0.14.0 0.15.0 0.16.0 0.17.0: Pattern matching on flat options
+dev-ml/ppx_pipebang 0.14.0 0.15.0-r1 0.16.0 0.17.0: A ppx rewriter that inlines reverse application operators |> and |!
 dev-ml/ppx_sexp_conv 0.14.1-r1 0.14.2-r2 0.14.3-r1 0.15.1-r1 0.16.0-r1 0.17.0: Support Library for type-driven code generators
 dev-ml/ppx_sexp_message 0.14.0 0.14.1-r1 0.15.0-r1 0.16.0 0.17.0: A ppx rewriter for easy construction of s-expressions
 dev-ml/ppx_sexp_value 0.14.0 0.15.0-r1 0.16.0 0.17.0: Standard library for ppx rewriters
 dev-ml/ppx_stable 0.14.1 0.15.0 0.16.0 0.17.0: Stable types conversions generator
-dev-ml/ppx_stable_witness 0.16.0: Ppx extension for deriving a witness that a type is intended to be stable
+dev-ml/ppx_stable_witness 0.16.0 0.17.0: Ppx extension for deriving a witness that a type is intended to be stable
 dev-ml/ppx_string 0.14.1 0.15.0-r1 0.16.0 0.17.0: Ppx extension for string interpolation
+dev-ml/ppx_string_conv 0.17.0: Ppx extension for generating of_string & to_string
 dev-ml/ppx_tools 6.2 6.3 6.4 6.5 6.6: Tools for authors of ppx rewriters
-dev-ml/ppx_tydi 0.16.0: Let expressions, inferring pattern type from expression
-dev-ml/ppx_typerep_conv 0.14.1-r1 0.14.2 0.15.0 0.16.0: Generation of runtime types from type declarations
+dev-ml/ppx_tydi 0.16.0 0.17.0: Let expressions, inferring pattern type from expression
+dev-ml/ppx_typerep_conv 0.14.1-r1 0.14.2 0.15.0 0.16.0 0.17.0: Generation of runtime types from type declarations
 dev-ml/ppx_variants_conv 0.14.1 0.14.1-r2 0.14.2-r1 0.15.0 0.16.0 0.17.0: Generation of accessor and iteration functions for ocaml variant types
 dev-ml/ppxlib 0.20.0-r2 0.21.0-r4 0.22.0-r4 0.22.2-r3 0.24.0-r1 0.29.0-r1 0.29.1-r1 0.30.0-r1 0.32.1: Base library and tools for ppx rewriters
 dev-ml/ppxlib_jane 0.17.0: Utilities for working with Jane Street AST constructs
@@ -6113,7 +6115,7 @@ dev-ml/timezone 0.14.0 0.15.0 0.16.0-r1: Time-zone handling for OCaml
 dev-ml/tiny_httpd 0.12-r1: Minimal HTTP server with a small request router
 dev-ml/topkg 1.0.3 1.0.5 1.0.6 1.0.7: The transitory OCaml software packager
 dev-ml/trie 1.0.0: Strict impure trie tree
-dev-ml/typerep 0.14.0 0.15.0 0.16.0: Library for creating runtime representation of OCaml types
+dev-ml/typerep 0.14.0 0.15.0 0.16.0 0.17.0: Library for creating runtime representation of OCaml types
 dev-ml/tyxml 4.5.0 4.6.0: A library for building correct HTML and SVG documents
 dev-ml/uchar 0.0.2-r1: Uchar compatibility library
 dev-ml/unidecode 0.4.0: Convert unicode strings into its ASCII representation
@@ -12336,7 +12338,7 @@ kde-frameworks/extra-cmake-modules 5.116.0 6.3.0: Extra modules and scripts for 
 kde-frameworks/frameworkintegration 5.116.0 6.3.0: Framework for integrating Qt applications with KDE Plasma workspaces
 kde-frameworks/kapidox 5.116.0: Framework for building KDE API documentation in a standard format and style
 kde-frameworks/karchive 5.116.0 6.3.0: Framework for reading, creation, and manipulation of various archive formats
-kde-frameworks/kauth 5.116.0 6.3.0: Framework to let applications perform actions as a privileged user
+kde-frameworks/kauth 5.116.0 6.3.0-r1: Framework to let applications perform actions as a privileged user
 kde-frameworks/kbookmarks 5.116.0 6.3.0: Framework for managing bookmarks stored in XBEL format
 kde-frameworks/kcalendarcore 5.116.0 6.3.0: Library for interfacing with calendars
 kde-frameworks/kcmutils 5.116.0 6.3.0: Framework to work with KDE System Settings modules
