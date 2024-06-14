@@ -1,12 +1,13 @@
 DEFINED_PHASES=configure install
 DEPEND=dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtx11extras:5 dev-qt/qtcore:5 dev-qt/qtwidgets:5
-DESCRIPTION=Free Pascal Qt5 bindings library updated by lazarus IDE.
+DESCRIPTION=Free Pascal Qt5 bindings library updated by lazarus IDE
 EAPI=8
 HOMEPAGE=https://gitlab.com/freepascal.org/lazarus/lazarus
 INHERIT=qmake-utils
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-3
-SLOT=0/2.2
-SRC_URI=https://downloads.sourceforge.net/lazarus/lazarus-2.2.4-0.tar.gz
+RDEPEND=dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtx11extras:5 dev-qt/qtcore:5 dev-qt/qtwidgets:5
+SLOT=0/3.0
+SRC_URI=https://downloads.sourceforge.net/lazarus/lazarus-3.0-0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=0085a5e0b01a3ae14b1164e8081c03be
+_md5_=568decd6681c709ccdb882a663f23026
