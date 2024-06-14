@@ -19,6 +19,7 @@ else
 	SRC_URI="
 		https://ftp.ntpsec.org/pub/releases/${P}.tar.gz
 		verify-sig? ( https://ftp.ntpsec.org/pub/releases/${P}.tar.gz.asc )
+		https://waf.io/waf-2.0.27
 	"
 	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
@@ -36,7 +37,7 @@ NTPSEC_REFCLOCK=(
 	shm pps hpgps zyfer arbiter nmea modem local
 )
 
-IUSE="${NTPSEC_REFCLOCK[@]} debug doc early heat libbsd nist ntpviz samba seccomp smear test" #ionice
+IUSE="${NTPSEC_REFCLOCK[@]} debug doc early gdb heat libbsd nist ntpviz samba seccomp smear test" #ionice
 REQUIRED_USE="${PYTHON_REQUIRED_USE} nist? ( local )"
 RESTRICT="!test? ( test )"
 
@@ -89,6 +90,8 @@ src_unpack() {
 }
 
 src_prepare() {
+	cp -v "${DISTDIR}/waf-2.0.27" "${WAF_BINARY}" || die
+	chmod -v ugo+x "${WAF_BINARY}" || die
 	default
 
 	# Remove autostripping of binaries
@@ -122,6 +125,7 @@ src_configure() {
 		#--build-epoch="$(date +%s)"
 		$(use doc	|| echo "--disable-doc")
 		$(use early	&& echo "--enable-early-droproot")
+		$(use gdb	&& echo "--enable-debug-gdb")
 		$(use samba	&& echo "--enable-mssntp")
 		$(use seccomp	&& echo "--enable-seccomp")
 		$(use smear	&& echo "--enable-leap-smear")
