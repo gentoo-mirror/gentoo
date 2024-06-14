@@ -5,15 +5,15 @@ EAPI=8
 
 inherit gap-pkg
 
-DESCRIPTION="Database and algorithms for Lie p-rings"
-SLOT="0"
+DESCRIPTION="GAP interface to sci-mathematics/singular"
 SRC_URI="https://github.com/gap-packages/${PN}/releases/download/v${PV}/${P}.tar.gz"
-
 LICENSE="GPL-2+"
+SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-gap/liering
-	dev-gap/singular"
+RDEPEND="sci-mathematics/singular"
 
-GAP_PKG_HTML_DOCDIR="htm"
+DOCS=( README.md CHANGES.md )
+
+GAP_PKG_EXTRA_INSTALL=( contrib )
 gap-pkg_enable_tests
