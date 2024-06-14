@@ -11,8 +11,7 @@ SRC_URI="https://github.com/acaudwell/Gource/releases/download/${P}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
 
 COMMON_DEPEND="
 	dev-libs/boost:=
