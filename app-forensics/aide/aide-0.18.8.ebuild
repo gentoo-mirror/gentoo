@@ -3,35 +3,41 @@
 
 EAPI=8
 
-inherit autotools readme.gentoo-r1
+inherit readme.gentoo-r1
 
 DESCRIPTION="AIDE (Advanced Intrusion Detection Environment) is a file integrity checker"
 HOMEPAGE="https://aide.github.io/ https://github.com/aide/aide"
 SRC_URI="https://github.com/aide/aide/releases/download/v${PV}/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="acl audit curl e2fs mhash selinux xattr"
 
-DEPEND="dev-libs/libpcre
+DEPEND="
+	dev-libs/libpcre2
 	sys-libs/zlib
 	acl? ( virtual/acl )
 	audit? ( sys-process/audit )
 	curl? ( net-misc/curl )
 	e2fs? ( sys-fs/e2fsprogs )
 	!mhash? (
-		dev-libs/libgcrypt:0=
+		dev-libs/libgcrypt:=
 		dev-libs/libgpg-error
 	)
 	mhash? ( app-crypt/mhash )
 	selinux? ( sys-libs/libselinux )
-	xattr? ( sys-apps/attr )"
-RDEPEND="${DEPEND}
-	selinux? ( sec-policy/selinux-aide )"
-BDEPEND="app-alternatives/yacc
-	app-alternatives/lex
-	virtual/pkgconfig"
+	xattr? ( sys-apps/attr )
+"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-aide )
+"
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
+	virtual/pkgconfig
+"
 
 DISABLE_AUTOFORMATTING=1
 DOC_CONTENTS="
@@ -42,26 +48,20 @@ for more information.
 A helper script, aideinit, was installed and can be used to make AIDE
 management easier. Please run 'aideinit --help' for more information."
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.16-fix-acl-configure-option.patch
-	"${FILESDIR}"/${PN}-0.17.4-configure.patch
-)
-
 src_prepare() {
 	default
-
-	sed -i -e 's| -Werror||g' configure.ac || die
 
 	# Only needed for snapshots.
 	if [[ ${PV} == *_p* ]] ; then
 		echo "m4_define([AIDE_VERSION], [${PV}])" > version.m4 || die
 	fi
-
-	# Can be dropped once Bashism patch is gone
-	eautoreconf
 }
 
 src_configure() {
+	# Needs Bison, flex
+	unset YACC
+	export LEX=flex
+
 	local myeconfargs=(
 		--sysconfdir="${EPREFIX}"/etc/${PN}
 
@@ -71,8 +71,6 @@ src_configure() {
 		# Disable broken l10n support: https://sourceforge.net/p/aide/bugs/98/
 		# This doesn't affect anything because there are no localizations yet.
 		--without-locale
-
-		--without-prelink
 
 		--with-zlib
 		$(use_with curl)
