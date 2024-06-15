@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Access C-like structures directly from OCaml
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-cstruct
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
+LICENSE=ISC
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/6.2.0
+SRC_URI=https://github.com/mirage/ocaml-cstruct/releases/download/v6.2.0/cstruct-6.2.0.tbz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=b6c4fceccf34114a1bd829ee70d2f767

@@ -1,0 +1,15 @@
+BDEPEND=>=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-5 dev-ml/async_kernel:0/0.17[ocamlopt?] dev-ml/core:0/0.17[ocamlopt?] dev-ml/core_kernel:0/0.17[ocamlopt?] dev-ml/gel:0/0.17[ocamlopt?] dev-ml/ppx_jane:0/0.17[ocamlopt?] dev-ml/protocol_version_header:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Platform-independent core of Async RPC library
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/async_rpc_kernel
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-5 dev-ml/async_kernel:0/0.17[ocamlopt?] dev-ml/core:0/0.17[ocamlopt?] dev-ml/core_kernel:0/0.17[ocamlopt?] dev-ml/gel:0/0.17[ocamlopt?] dev-ml/ppx_jane:0/0.17[ocamlopt?] dev-ml/protocol_version_header:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.17
+SRC_URI=https://github.com/janestreet/async_rpc_kernel/archive/v0.17.0.tar.gz -> async_rpc_kernel-0.17.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=1909ef7a9e5b3ecbe42770bf984d9cf4
