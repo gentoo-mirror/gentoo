@@ -905,7 +905,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.113 1.32.117 1.33.4 1.33.5 1.33.6 1.33.7 1.33.8 1.33.9: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.117 1.33.4 1.33.9: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.2.0 2024.3.0 2024.4.1 2024.5.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.6-r1: Distribution-independent installer framework
@@ -8223,8 +8223,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.34.113 1.34.117 1.34.122 1.34.123 1.34.124 1.34.125 1.34.126 1.34.127: The AWS SDK for Python
-dev-python/botocore 1.34.113 1.34.117 1.34.122 1.34.123 1.34.124 1.34.125 1.34.126 1.34.127: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.117 1.34.122 1.34.127: The AWS SDK for Python
+dev-python/botocore 1.34.117 1.34.122 1.34.127: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.12.25-r2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8-r1 1.4.0_rc5: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8778,7 +8778,7 @@ dev-python/mkdocs-bootswatch 1.1-r2: Bootswatch themes for MkDocs
 dev-python/mkdocs-gen-files 0.5.0: MkDocs plugin to programmatically generate documentation pages during the build
 dev-python/mkdocs-get-deps 0.2.0: extension that lists all dependencies according to a mkdocs.yml file
 dev-python/mkdocs-git-authors-plugin 0.9.0: Mkdocs plugin to display git authors of a page
-dev-python/mkdocs-git-revision-date-localized-plugin 1.2.5 1.2.6: Display the localized date of the last git modification of a markdown file
+dev-python/mkdocs-git-revision-date-localized-plugin 1.2.6: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.2.0 1.2.1: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
 dev-python/mkdocs-macros-plugin 1.0.4 1.0.5: Mkdocs plug-in allowing the use of macros and variables in Markdown
@@ -9538,7 +9538,7 @@ dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.3: Validate Swagger specs against Swagger 1.1 or 2.0 specification
 dev-python/sybil 6.1.1: Automated testing for the examples in your documentation
 dev-python/symengine 0.11.0: Python wrappers to the symengine C++ library
-dev-python/sympy 1.12-r1 1.12.1_rc1 1.12.1: Computer Algebra System in pure Python
+dev-python/sympy 1.12.1: Computer Algebra System in pure Python
 dev-python/tables 3.9.2: Hierarchical datasets for Python
 dev-python/tabulate 0.9.0-r1: Pretty-print tabular data
 dev-python/tagpy 2022.1: Python Bindings for TagLib
@@ -15140,7 +15140,7 @@ net-misc/dropbox 199.4.6287 200.4.7134 201.4.5552: Dropbox daemon (pretends to b
 net-misc/dropbox-cli 2023 2024.01.22: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electron-cash 4.2.11: Lightweight Bitcoin Cash client (BCH fork of Electrum)
-net-misc/electrum 4.5.4 4.5.5: User friendly Bitcoin client
+net-misc/electrum 4.5.5: User friendly Bitcoin client
 net-misc/electrum-ltc 4.2.2.1: User friendly Litecoin client
 net-misc/email-validator 1.1.0: Basic syntax and deliverability checks on email addresses
 net-misc/ena-driver 2.11.1 2.12.0 2.12.1: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
@@ -17638,8 +17638,8 @@ sys-kernel/dkms 3.0.12-r1 3.0.13: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r4 101 102 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7 1.0.8: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.216 5.10.217 5.10.218 5.15.158 5.15.159 5.15.160 6.1.90 6.1.91 6.1.92 6.1.93 6.6.30 6.6.31 6.6.32 6.6.33 6.8.9 6.8.10 6.8.11 6.8.12 6.9.2 6.9.3 6.9.4: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.216 5.10.217 5.10.218 5.15.158 5.15.159 5.15.160 6.1.90 6.1.91 6.1.92 6.1.93 6.6.30 6.6.31 6.6.32 6.6.33 6.8.9 6.8.10 6.8.11 6.8.12 6.9.2 6.9.3 6.9.4: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.218 5.15.160 6.1.92 6.1.93 6.6.32 6.6.33 6.9.4: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.218 5.15.160 6.1.92 6.1.93 6.6.32 6.6.33 6.9.4: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.212 5.10.216 5.10.217 5.10.218 5.15.151 5.15.158 5.15.159 5.15.160 6.1.81 6.1.90 6.1.91 6.1.92 6.1.93 6.6.21 6.6.30 6.6.31 6.6.32 6.6.33 6.9.1 6.9.2 6.9.3 6.9.4: Full sources including the Gentoo patchset for the 6.9 kernel tree
 sys-kernel/git-sources 6.10_rc1 6.10_rc2 6.10_rc3: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 38 39: Gentoo fork of installkernel script from debianutils
@@ -17655,7 +17655,7 @@ sys-kernel/pf-sources 6.8_p1 6.8_p5 6.8_p6 6.8_p7 6.8_p8 6.8_p9 6.9_p2 6.9_p4: L
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 6.6.28_p20240424 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.315_p135 5.4.271_p89 5.10.218_p110 5.15.158_p76 6.0.5_p14 6.1.92_p32 6.5.2_p8 6.6.32_p32: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.10.216 5.10.217 5.10.218 5.10.9999 5.15.158 5.15.159 5.15.160 5.15.9999 6.1.90 6.1.91 6.1.92 6.1.93 6.1.9999 6.6.30 6.6.31 6.6.32 6.6.33 6.6.9999 6.8.9 6.8.10 6.8.11 6.8.12 6.9.2 6.9.3 6.9.4: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.218 5.10.9999 5.15.160 5.15.9999 6.1.92 6.1.93 6.1.9999 6.6.32 6.6.33 6.6.9999 6.9.4: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.315 5.4.277 5.10.218 5.15.160 6.1.93 6.6.33 6.8.12 6.9.4: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.8.9: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17846,7 +17846,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.216 5.10.217 5.10.218 5.15.158 5.15.159 5.15.160 6.1.90 6.1.91 6.1.92 6.1.93 6.6.30 6.6.31 6.6.32 6.6.33 6.8.9 6.8.10 6.8.11 6.8.12 6.9.2 6.9.3 6.9.4: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.218 5.15.160 6.1.92 6.1.93 6.6.32 6.6.33 6.9.4: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
