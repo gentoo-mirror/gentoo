@@ -30,7 +30,7 @@ DEPEND="
 	kde-frameworks/kwindowsystem:6[X]
 	x11-libs/libX11
 	x11-libs/libXScrnSaver
-	backlight? ( sys-auth/polkit-qt )
+	backlight? ( sys-auth/polkit-qt[qt6] )
 "
 RDEPEND="${DEPEND}"
 
