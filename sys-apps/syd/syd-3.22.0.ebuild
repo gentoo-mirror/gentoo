@@ -16,13 +16,13 @@ CRATES="
 	anes@0.1.6
 	anstream@0.6.14
 	anstyle-parse@0.2.4
-	anstyle-query@1.0.3
+	anstyle-query@1.1.0
 	anstyle-wincon@3.0.3
 	anstyle@1.0.7
 	anyhow@1.0.86
 	argv@0.1.11
 	autocfg@1.3.0
-	backtrace@0.3.72
+	backtrace@0.3.73
 	bitflags@1.3.2
 	bitflags@2.5.0
 	bstr@1.9.1
@@ -30,17 +30,17 @@ CRATES="
 	byteorder@1.5.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.0.98
+	cc@1.0.99
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	chrono@0.4.38
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.4
-	clap_builder@4.5.2
-	clap_derive@4.5.4
-	clap_lex@0.7.0
+	clap@4.5.7
+	clap_builder@4.5.7
+	clap_derive@4.5.5
+	clap_lex@0.7.1
 	colorchoice@1.0.1
 	const-hex@1.12.0
 	core-foundation-sys@0.8.6
@@ -55,7 +55,6 @@ CRATES="
 	crossbeam-utils@0.8.20
 	crossbeam@0.8.4
 	crunchy@0.2.2
-	cty@0.2.2
 	darling@0.20.9
 	darling_core@0.20.9
 	darling_macro@0.20.9
@@ -93,7 +92,6 @@ CRATES="
 	half@2.4.1
 	hashbrown@0.12.3
 	hashbrown@0.14.5
-	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.3.9
 	hex@0.4.3
@@ -112,7 +110,7 @@ CRATES="
 	itoa@1.0.11
 	js-sys@0.3.69
 	lazy_static@1.4.0
-	lexis@0.2.2
+	lexis@0.2.3
 	libc@0.2.155
 	libcgroups@0.3.3
 	libcontainer@0.3.3
@@ -127,11 +125,9 @@ CRATES="
 	lock_api@0.4.12
 	log@0.4.21
 	md5@0.7.0
-	memchr@2.7.2
+	memchr@2.7.4
 	memoffset@0.7.1
 	memoffset@0.9.1
-	mimalloc2-rust-sys@2.1.4-source
-	mimalloc2-rust@0.3.1
 	miniz_oxide@0.7.3
 	nc@0.8.21
 	nix@0.26.4
@@ -141,7 +137,7 @@ CRATES="
 	nu-ansi-term@0.46.0
 	num-traits@0.2.19
 	num_cpus@1.16.0
-	object@0.35.0
+	object@0.36.0
 	oci-spec@0.6.5
 	once_cell@1.19.0
 	oorandom@11.1.3
@@ -161,7 +157,7 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.84
+	proc-macro2@1.0.85
 	procfs-core@0.16.0
 	procfs@0.15.1
 	procfs@0.16.0
@@ -175,11 +171,11 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_xorshift@0.3.0
-	redox_syscall@0.5.1
+	redox_syscall@0.5.2
 	redox_users@0.4.5
-	regex-automata@0.4.6
-	regex-syntax@0.8.3
-	regex@1.10.4
+	regex-automata@0.4.7
+	regex-syntax@0.8.4
+	regex@1.10.5
 	rs_hasher_ctx@0.1.3
 	rs_internal_hasher@0.1.3
 	rs_internal_state@0.1.3
@@ -193,7 +189,6 @@ CRATES="
 	rustix@0.36.17
 	rustix@0.38.34
 	rustversion@1.0.17
-	rusty_pool@0.7.0
 	ryu@1.0.18
 	safe-path@0.1.0
 	same-file@1.0.6
@@ -212,7 +207,7 @@ CRATES="
 	smallvec@1.13.2
 	strsim@0.11.1
 	strum@0.26.2
-	strum_macros@0.26.2
+	strum_macros@0.26.4
 	syn@1.0.109
 	syn@2.0.66
 	tabwriter@1.4.0
@@ -230,8 +225,8 @@ CRATES="
 	tracing@0.1.40
 	unarray@0.1.4
 	unicode-ident@1.0.12
-	unicode-width@0.1.12
-	utf8parse@0.2.1
+	unicode-width@0.1.13
+	utf8parse@0.2.2
 	valuable@0.1.0
 	version_check@0.9.4
 	walkdir@2.5.0
@@ -308,7 +303,7 @@ src_configure() {
 		export LIBSECCOMP_LINK_TYPE="static"
 		export LIBSECCOMP_LIB_PATH=$(pkgconf --variable=libdir libseccomp)
 		export RUSTFLAGS+="-Clink-args=-static -Clink-args=-no-pie -Clink-args=-Wl,-Bstatic -Ctarget-feature=+crt-static"
-		local myfeatures=( "log,mimalloc,uring,utils" )
+		local myfeatures=( "log,uring,utils" )
 		cargo_src_configure --no-default-features
 	else
 		local myfeatures=( "oci" )
