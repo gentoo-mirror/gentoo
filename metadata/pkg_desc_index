@@ -1339,7 +1339,7 @@ app-containers/cosign 2.0.0 2.0.1 2.2.0 2.2.1 2.2.3: container signing utility
 app-containers/cri-o 1.29.0 1.29.2: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.4 1.11.2 1.14.3: A fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.59.1 0.60.0 0.62.0: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.60.0 0.62.0 0.64.0: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.7.1 1.7.2.0 1.7.2.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1: System container image builder for LXC and incus
 app-containers/docker 24.0.5-r1 24.0.6 24.0.7-r1 25.0.1 25.0.4 26.1.0-r1: The core functions you need to create Docker images and run Docker containers
@@ -1931,7 +1931,7 @@ app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
 app-emacs/deferred 0.5.1: Deferred and Concurrent - simple asynchronous functions for Emacs Lisp
 app-emacs/deft 08_p20210707: Quickly browse, filter and edit directories of plain text notes
 app-emacs/demap 1.4.0: Detachable minimap for Emacs
-app-emacs/denote 2.2.0 2.3.0: Simple notes for Emacs with an efficient file-naming scheme
+app-emacs/denote 2.3.0 2.3.5: Simple notes for Emacs with an efficient file-naming scheme
 app-emacs/desktop+ 0.2-r2: desktop+ extends standard desktop module
 app-emacs/desktop-entry-mode 0.27-r1: GNU Emacs mode for handling freedesktop.org desktop entry files
 app-emacs/develock 0.47: An Emacs minor mode for highlighting broken formatting rules
@@ -1956,7 +1956,7 @@ app-emacs/dts-mode 1.0: Emacs major mode for devicetree sources
 app-emacs/dune-format 0.1: Reformat OCaml's dune files automatically
 app-emacs/dwarf-mode 2.40: Emacs mode to browse DWARF information
 app-emacs/earthfile-mode 0.1.0_p20230810: GNU Emacs major mode for editing Earthly Earthfiles
-app-emacs/ebib 2.40.5 2.41.1: BibTeX database manager for Emacs
+app-emacs/ebib 2.41.1 2.42: BibTeX database manager for Emacs
 app-emacs/ebuild-mode 1.70 1.71: Emacs modes for editing ebuilds and other Gentoo specific files
 app-emacs/ebuild-run-mode 20210713 20221116: Major mode for Emacs buffers where ebuild commands run
 app-emacs/ecb 2.50_pre20170728: Source code browser for Emacs
@@ -2296,7 +2296,7 @@ app-emacs/xrdb-mode 3.0-r1: An Emacs major mode for editing X resource database 
 app-emacs/xslide 0.2.2-r1: An Emacs major mode for editing XSL stylesheets and running XSL processes
 app-emacs/yaml 0.5.5: YAML parser in Emacs Lisp
 app-emacs/yaml-mode 0.0.15 0.0.16: A major mode for GNU Emacs for editing YAML files
-app-emacs/yasnippet 0.14.0: Yet another snippet extension for Emacs
+app-emacs/yasnippet 0.14.0 0.14.1_p20240406: Yet another snippet extension for Emacs
 app-emacs/yasnippet-snippets 1.0-r2 1.1: A collection of yasnippet snippets for many languages
 app-emacs/yatex 1.83: Yet Another TeX mode for Emacs
 app-emacs/zenburn 20110907-r1: Zenburn color theme for Emacs
@@ -5100,7 +5100,7 @@ dev-java/zxing-core 3.5.1: Core barcode encoding/decoding library
 dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.3.1-r1 4.3.2-r1: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
-dev-lang/algol68g 3.5.1 3.5.2: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.5.1 3.5.2 3.5.3: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.9 2.5.11: Scala language-based scripting and REPL
 dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2: Functional programming language with dependent types
@@ -5163,7 +5163,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.47.0-r1: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.0_beta3_p20220127-r2 2.1.0_beta3_p20220613 2.1.1716656478: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.618: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.618 0.630: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 22.01.1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -12899,7 +12899,7 @@ media-gfx/clockphoto 1.2: Adjusts photo timestamps based on clock photos
 media-gfx/converseen 0.9.11.1 0.12.0.1: Batch image converter and resizer based on ImageMagick
 media-gfx/cropgui 0.7 0.8: GUI for lossless cropping of jpeg images
 media-gfx/crwinfo 0.2: Canon raw image (CRW) information and thumbnail extractor
-media-gfx/curtail 1.8.0-r1 1.9.1: Image compressor, supporting PNG, JPEG and WebP
+media-gfx/curtail 1.9.1 1.10.0: Image compressor, supporting PNG, JPEG and WebP
 media-gfx/darktable 4.6.0 4.6.1: A virtual lighttable and darkroom for photographers
 media-gfx/dawn 3.90b-r1: 3D geometrical postscript renderer
 media-gfx/dcraw 9.28.0-r2 9.28.0-r3 9.28.0-r4: Command-line decoder for raw digital photos
@@ -15309,7 +15309,7 @@ net-misc/r8152 2.16.3-r1 2.17.1: r8152 driver for Realtek USB FE / GBE / 2.5G Ga
 net-misc/r8168 8.051.02-r1 8.052.01 8.053.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
 net-misc/rabbitmq-server 3.13.1: RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
 net-misc/radvd 2.19-r5 2.19-r6 2.19-r7: Linux IPv6 Router Advertisement Daemon
-net-misc/rclone 1.62.2-r1 1.63.0 1.63.1 1.66.0-r1: A program to sync files to and from various cloud storage providers
+net-misc/rclone 1.63.1 1.66.0-r1 1.67.0: A program to sync files to and from various cloud storage providers
 net-misc/rdate 1.10 1.10.2 1.11: Use TCP or UDP to retrieve the current time of another machine
 net-misc/rdesktop 1.9.0-r4: A Remote Desktop Protocol Client
 net-misc/redir 3.2 3.3: Redir is a port redirector
