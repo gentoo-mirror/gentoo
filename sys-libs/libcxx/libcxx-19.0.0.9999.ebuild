@@ -58,15 +58,6 @@ pkg_setup() {
 	fi
 }
 
-src_prepare() {
-	# hanging tests
-	# https://github.com/llvm/llvm-project/issues/73791
-	rm ../libcxx/test/std/atomics/atomics.types.generic/atomics.types.float/fetch_* || die
-	rm ../libcxx/test/std/atomics/atomics.types.generic/atomics.types.float/operator.*_equals* || die
-
-	cmake_src_prepare
-}
-
 test_compiler() {
 	$(tc-getCXX) ${CXXFLAGS} ${LDFLAGS} "${@}" -o /dev/null -x c++ - \
 		<<<'int main() { return 0; }' &>/dev/null

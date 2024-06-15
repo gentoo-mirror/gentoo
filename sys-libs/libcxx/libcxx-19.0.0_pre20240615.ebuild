@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit cmake-multilib flag-o-matic llvm.org llvm-utils python-any-r1
 inherit toolchain-funcs
 
@@ -12,7 +12,6 @@ HOMEPAGE="https://libcxx.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="+clang +libcxxabi +static-libs test"
 REQUIRED_USE="test? ( clang )"
 RESTRICT="!test? ( test )"
@@ -60,10 +59,9 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# hanging tests
-	# https://github.com/llvm/llvm-project/issues/73791
-	rm ../libcxx/test/std/atomics/atomics.types.generic/atomics.types.float/fetch_* || die
-	rm ../libcxx/test/std/atomics/atomics.types.generic/atomics.types.float/operator.*_equals* || die
+	# broken test, apparently doesn't like our timezone-data
+	# https://github.com/llvm/llvm-project/pull/89537
+	rm ../libcxx/test/std/time/time.zone/time.zone.timezone/time.zone.members/get_info.local_time.pass.cpp || die
 
 	cmake_src_prepare
 }
@@ -128,6 +126,7 @@ multilib_src_configure() {
 		-DLIBCXX_HAS_MUSL_LIBC=$(usex elibc_musl)
 		-DLIBCXX_INCLUDE_BENCHMARKS=OFF
 		-DLIBCXX_INCLUDE_TESTS=$(usex test)
+		-DLIBCXX_INSTALL_MODULES=ON
 		-DLIBCXX_USE_COMPILER_RT=${use_compiler_rt}
 		# this is broken with standalone builds, and also meaningless
 		-DLIBCXXABI_USE_LLVM_UNWINDER=OFF
