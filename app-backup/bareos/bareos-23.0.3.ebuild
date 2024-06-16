@@ -3,15 +3,29 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 CMAKE_WARN_UNUSED_CLI=no
-#CMAKE_REMOVE_MODULES=yes
 
-inherit python-any-r1 systemd cmake tmpfiles
+inherit python-any-r1 systemd cmake tmpfiles flag-o-matic
+
+if [[ ${PV} == *9999 ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+else
+	SRC_URI="https://github.com/${PN}/${PN}/archive/Release/${PV}.tar.gz -> ${P}.tar.gz"
+
+	KEYWORDS="~amd64 ~x86"
+	S=${WORKDIR}/${PN}-Release-${PV}
+fi
 
 DESCRIPTION="Featureful client/server network backup suite"
 HOMEPAGE="https://www.bareos.org/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/Release/${PV}.tar.gz -> ${P}.tar.gz"
+
+LICENSE="AGPL-3"
+SLOT="0"
+IUSE="X acl ceph clientonly cpu_flags_x86_avx +director glusterfs ipv6 lmdb
+	logwatch ndmp readline scsi-crypto split-usr
+	static +storage-daemon systemd tcpd test vim-syntax vmware xattr"
 
 # some tests still fail propably due to missing bits in src_test -> TODO
 RESTRICT="mirror test"
@@ -19,13 +33,6 @@ RESTRICT="mirror test"
 #	mirror
 #	!test? ( test )
 #"
-
-LICENSE="AGPL-3"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="X acl ceph clientonly +director glusterfs ipv6 lmdb
-	logwatch ndmp readline scsi-crypto split-usr
-	static +storage-daemon systemd tcpd test vim-syntax vmware xattr"
 
 # get cmake variables from core/cmake/BareosSetVariableDefaults.cmake
 DEPEND="
@@ -64,6 +71,9 @@ DEPEND="
 		sys-libs/ncurses:=
 		sys-libs/zlib
 	)
+	X? (
+		dev-qt/qtwidgets:5=
+	)
 	"
 RDEPEND="${DEPEND}
 	!clientonly? (
@@ -89,7 +99,11 @@ REQUIRED_USE="
 	x86? ( !ceph )
 "
 
-S=${WORKDIR}/${PN}-Release-${PV}
+PATCHES=(
+	"${FILESDIR}/${PN}-21-cmake-gentoo.patch"
+	"${FILESDIR}/${PN}-22.0.2-werror.patch"
+	"${FILESDIR}/${PN}-21.1.2-no-automagic-ccache.patch"
+)
 
 pkg_pretend() {
 	local active_removed_backend=""
@@ -141,12 +155,6 @@ src_test() {
 }
 
 src_prepare() {
-	# fix gentoo platform support
-	eapply -p1 "${FILESDIR}/${PN}-21-cmake-gentoo.patch"
-	eapply "${FILESDIR}/${PN}-21.1.2-werror.patch"
-	eapply "${FILESDIR}/${PN}-21.1.2-no-automagic-ccache.patch"
-	eapply "${FILESDIR}/${PN}-21.1.8-gcc14-fixes.patch"
-
 	# fix missing DESTDIR in symlink creation
 	sed -i '/bareos-symlink-default-db-backend.cmake/d' "${S}/core/src/cats/CMakeLists.txt"
 
@@ -170,6 +178,9 @@ src_configure() {
 		systemd lmdb; do
 		mycmakeargs+=( -D$useflag=$(usex $useflag) )
 	done
+	if use X; then
+		mycmakeargs+=( -Dtraymonitor=yes )
+	fi
 
 	mycmakeargs+=(
 		-DHAVE_PYTHON=0
@@ -213,6 +224,8 @@ src_configure() {
 		-Dworkingdir=/var/lib/bareos
 		-Dx=$(usex X)
 		)
+
+		use cpu_flags_x86_avx && append-flags "-DXXH_X86DISPATCH_ALLOW_AVX"
 
 		# disable droplet support for now as it does not build with gcc 10
 		# ... and this is a bundled lib, which should have its own package
@@ -404,6 +417,14 @@ pkg_postinst() {
 		einfo " emerge --config app-backup/bareos"
 		einfo
 		einfo "to do this"
+		einfo
+		einfo "For major upgrades you may need to run:"
+		einfo
+		einfo "  su postgres -c '/usr/libexec/bareos/update_bareos_tables'"
+		einfo
+		einfo "Please see release notes for details."
+		einfo "( https://docs.bareos.org/Appendix/ReleaseNotes.html )"
+		einfo
 	fi
 }
 

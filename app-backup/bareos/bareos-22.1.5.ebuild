@@ -3,10 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 CMAKE_WARN_UNUSED_CLI=no
 
-inherit python-any-r1 systemd cmake tmpfiles flag-o-matic
+inherit python-any-r1 systemd cmake tmpfiles
 
 if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
@@ -21,18 +21,18 @@ fi
 DESCRIPTION="Featureful client/server network backup suite"
 HOMEPAGE="https://www.bareos.org/"
 
+LICENSE="AGPL-3"
+SLOT="0"
+IUSE="X acl ceph clientonly +director glusterfs ipv6 lmdb
+	logwatch ndmp readline scsi-crypto split-usr
+	static +storage-daemon systemd tcpd test vim-syntax vmware xattr"
+
 # some tests still fail propably due to missing bits in src_test -> TODO
 RESTRICT="mirror test"
 #RESTRICT="
 #	mirror
 #	!test? ( test )
 #"
-
-LICENSE="AGPL-3"
-SLOT="0"
-IUSE="X acl ceph clientonly cpu_flags_x86_avx +director glusterfs ipv6 lmdb
-	logwatch ndmp readline scsi-crypto split-usr
-	static +storage-daemon systemd tcpd test vim-syntax vmware xattr"
 
 # get cmake variables from core/cmake/BareosSetVariableDefaults.cmake
 DEPEND="
@@ -100,10 +100,10 @@ REQUIRED_USE="
 "
 
 PATCHES=(
+	# fix gentoo platform support
 	"${FILESDIR}/${PN}-21-cmake-gentoo.patch"
 	"${FILESDIR}/${PN}-22.0.2-werror.patch"
 	"${FILESDIR}/${PN}-21.1.2-no-automagic-ccache.patch"
-	"${FILESDIR}/${PN}-22.1.2-include-algorithm.patch"
 )
 
 pkg_pretend() {
@@ -225,8 +225,6 @@ src_configure() {
 		-Dworkingdir=/var/lib/bareos
 		-Dx=$(usex X)
 		)
-
-		use cpu_flags_x86_avx && append-flags "-DXXH_X86DISPATCH_ALLOW_AVX"
 
 		# disable droplet support for now as it does not build with gcc 10
 		# ... and this is a bundled lib, which should have its own package
