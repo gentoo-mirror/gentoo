@@ -28,7 +28,7 @@ BDEPEND="
 "
 DEPEND="
 	dev-libs/glib:2
-	>=dev-qt/qtbase-6.6:6=[gui,widgets]
+	>=dev-qt/qtbase-6.6:6=[gui,widgets,X]
 	>=lxde-base/menu-cache-1.1.0:=
 	>=lxqt-base/lxqt-menu-data-2.0.0
 	media-libs/libexif
