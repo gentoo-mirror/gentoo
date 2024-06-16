@@ -26,15 +26,15 @@ RESTRICT="test"
 RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/annotated-types-0.6.0[${PYTHON_USEDEP}]
-		>=dev-python/cachetools-5.3.2[${PYTHON_USEDEP}]
+		>=dev-python/cachetools-5.3.3[${PYTHON_USEDEP}]
 		>=dev-python/emcee-3.1.4[${PYTHON_USEDEP}]
 		>=dev-python/lmfit-1.2.2[${PYTHON_USEDEP}]
-		>=dev-python/matplotlib-3.8.0[${PYTHON_USEDEP}]
-		>=dev-python/numpy-1.26.1[${PYTHON_USEDEP}]
-		>=dev-python/pydantic-2.4.2[${PYTHON_USEDEP}]
-		>=dev-python/rapidfuzz-3.4.0[${PYTHON_USEDEP}]
-		>=dev-python/rich-13.6.0[${PYTHON_USEDEP}]
-		>=dev-python/scipy-1.11.3[${PYTHON_USEDEP}]
+		>=dev-python/matplotlib-3.8.4[${PYTHON_USEDEP}]
+		>=dev-python/numpy-1.26.4[${PYTHON_USEDEP}]
+		>=dev-python/pydantic-2.6.4[${PYTHON_USEDEP}]
+		>=dev-python/rapidfuzz-3.7.0[${PYTHON_USEDEP}]
+		>=dev-python/rich-13.7.1[${PYTHON_USEDEP}]
+		>=dev-python/scipy-1.13.0[${PYTHON_USEDEP}]
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	')
 "

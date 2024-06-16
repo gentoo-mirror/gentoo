@@ -93,7 +93,9 @@ multilib_src_configure() {
 			# those are used by default, depending on preset
 			--enable-match-finders=hc3,hc4,bt4
 
-			# CRC64 is used by default, though some (old?) files use CRC32
+			# CRC64 is used by default, though 7-Zip uses CRC32 by default.
+			# Also, XZ Embedded in Linux doesn't support CRC64, so
+			# kernel modules and friends are CRC32.
 			--enable-checks=crc32,crc64
 		)
 	fi
@@ -101,7 +103,7 @@ multilib_src_configure() {
 	if [[ ${CHOST} == *-solaris* ]] ; then
 		export gl_cv_posix_shell="${EPREFIX}"/bin/sh
 
-		# Undo Solaris-based defaults pointing to /usr/xpg5/bin
+		# Undo Solaris-based defaults pointing to /usr/xpg4/bin
 		myconf+=( --disable-path-for-script )
 	fi
 
@@ -156,11 +158,14 @@ multilib_src_compile() {
 
 				# Our own variants
 				''
+				'-e'
 				'-9e'
+				"$(usev extra-filters '--x86 --lzma2=preset=6e')"
 				"$(usev extra-filters '--x86 --lzma2=preset=9e')"
 			)
 			local test_variant
 			for test_variant in "${test_variants[@]}" ; do
+				einfo "Testing '${test_variant}' variant"
 				"${BUILD_DIR}"/src/xz/xz -c ${test_variant} xz-pgo-test-01.tar | "${BUILD_DIR}"/src/xz/xz -c -d - > /dev/null
 				assert "Testing '${test_variant}' variant failed"
 			done
