@@ -1,14 +1,14 @@
 BDEPEND=>=dev-qt/qttools-6.6:6[linguist] >=dev-util/lxqt-build-tools-2.0.0 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=dev-libs/glib:2 >=dev-qt/qtbase-6.6:6=[gui,widgets] >=lxde-base/menu-cache-1.1.0:= >=lxqt-base/lxqt-menu-data-2.0.0 media-libs/libexif x11-libs/libxcb:=
+DEPEND=dev-libs/glib:2 >=dev-qt/qtbase-6.6:6=[gui,widgets,X] >=lxde-base/menu-cache-1.1.0:= >=lxqt-base/lxqt-menu-data-2.0.0 media-libs/libexif x11-libs/libxcb:=
 DESCRIPTION=Qt Library for Building File Managers
 EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 INHERIT=cmake xdg-utils
 KEYWORDS=~amd64
 LICENSE=BSD GPL-2+ LGPL-2.1+
-RDEPEND=dev-libs/glib:2 >=dev-qt/qtbase-6.6:6=[gui,widgets] >=lxde-base/menu-cache-1.1.0:= >=lxqt-base/lxqt-menu-data-2.0.0 media-libs/libexif x11-libs/libxcb:=
+RDEPEND=dev-libs/glib:2 >=dev-qt/qtbase-6.6:6=[gui,widgets,X] >=lxde-base/menu-cache-1.1.0:= >=lxqt-base/lxqt-menu-data-2.0.0 media-libs/libexif x11-libs/libxcb:=
 SLOT=0/7
 SRC_URI=https://github.com/lxqt/libfm-qt/releases/download/2.0.2/libfm-qt-2.0.2.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=6d2f5cbb75b16c27391c64065b4b978b
+_md5_=7fd7dda01c89085b2de28cbd2bf9caf1
