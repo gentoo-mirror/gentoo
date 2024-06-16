@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -26,12 +26,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
-		>=dev-python/sphinx-1.6.5[${PYTHON_USEDEP}]
-		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
-		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
-		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 	)
 "
 
