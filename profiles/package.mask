@@ -33,6 +33,13 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-06-16)
+# After most protocol support is gone, there is barely anything usable
+# left in kde-apps/kopete. It is also unmaintained and still depends on
+# kf5-portingaids, as well as conflicting kde-apps in slot 5. bug #760555
+# Removal on 2024-07-24.
+kde-apps/kopete
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-06-15)
 # EAPI=6, fetch restricted, and the file not available to download
 # any more.
@@ -493,22 +500,6 @@ dev-python/aesara
 # Superseded by dev-python/pdm-backend.  No revdeps left.
 # Removal on 2024-06-17.  Bug #932160.
 dev-python/pdm-pep517
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-17)
-# Superseded by dev-python/pathable.  No revdeps.
-# Removal on 2024-06-16.  Bug #932103.
-dev-python/dictpath
-
-# Michał Górny <mgorny@gentoo.org> (2024-05-17)
-# Unmaintained.  Last activity in 2020.  Redundant to stdlib.
-# No revdeps.
-# Removal on 2024-06-16.  Bug #932096.
-dev-python/cached-property
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-05-17)
-# EAPI=6, no maintainer, fails to compile.
-# Removal on 2024-06-16.  Bugs #932097, #542244, #742965.
-x11-plugins/pidgintex
 
 # Sam James <sam@gentoo.org> (2024-04-28)
 # Masked for testing. Tracker bug: bug #930805.
