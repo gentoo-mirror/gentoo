@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 GCONF_DEBUG="yes"
 PYTHON_COMPAT=( python3_{10..12} )
 
@@ -10,16 +10,16 @@ inherit gnome.org meson python-r1
 DESCRIPTION="GObject to SQLite object mapper library"
 HOMEPAGE="https://wiki.gnome.org/Projects/Gom"
 
-LICENSE="LGPL-2+"
+LICENSE="LGPL-2+ FDL-1.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk-doc +introspection python test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( introspection ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
 	>=dev-db/sqlite-3.7:3
-	>=dev-libs/glib-2.36:2
+	>=dev-libs/glib-2.38:2
 	introspection? ( >=dev-libs/gobject-introspection-1.30.0:= )
 	python? ( ${PYTHON_DEPS}
 		>=dev-python/pygobject-3.16:3[${PYTHON_USEDEP}] )
