@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip secureboot? ( app-crypt/sbsigntools )
+DEFINED_PHASES=install nofetch postinst postrm preinst prerm pretend setup unpack
+DESCRIPTION=LSI MPT-SAS2 controller management tool
+EAPI=8
+HOMEPAGE=https://www.broadcom.com/products/storage/host-bus-adapters/sas-9207-8e#tab-archive-drivers4-abc
+INHERIT=mount-boot secureboot
+IUSE=doc uefi secureboot
+KEYWORDS=-* ~amd64 ~ppc64 ~x86 ~x64-solaris
+LICENSE=LSI
+RESTRICT=strip fetch mirror
+SLOT=0
+SRC_URI=https://docs.broadcom.com/docs/SAS2IRCU_P20.zip doc? ( https://docs.broadcom.com/doc/12353380 -> SAS2IRCU_User_Guide.pdf )
+_eclasses_=mount-boot	3945d351ee3192381911f938f4ee527a	secureboot	4911adb593665638c76fbd4e70d451ac
+_md5_=e5ba0e0833a395290c581d7e0a576446
