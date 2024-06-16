@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+# py3.13: https://github.com/CheetahTemplate3/cheetah3/issues/60
 PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
@@ -24,7 +25,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/markdown[${PYTHON_USEDEP}]
