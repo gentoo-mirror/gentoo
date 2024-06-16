@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1
 
@@ -22,8 +22,8 @@ SRC_URI="
 "
 S=${WORKDIR}/${MY_P}
 
-SLOT="0"
 LICENSE="BSD"
+SLOT="0"
 KEYWORDS="amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux"
 IUSE="test"
 RESTRICT="!test? ( test )"
@@ -45,9 +45,22 @@ BDEPEND="
 
 DOCS=( ANNOUNCE.rst README.rst RELEASE_NOTES.rst )
 
+PATCHES=(
+	# https://github.com/Blosc/python-blosc/pull/329
+	"${FILESDIR}/${P}-numpy-2.patch"
+)
+
 src_configure() {
 	export USE_SYSTEM_BLOSC=1
 	export BLOSC_DIR="${EPREFIX}/usr"
+}
+
+python_compile() {
+	distutils-r1_python_compile
+
+	# scikit-build is broken and reuses the same build
+	# https://github.com/scikit-build/scikit-build/issues/633
+	rm -r _skbuild || die
 }
 
 python_test() {
