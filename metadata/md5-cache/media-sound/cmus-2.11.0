@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://cmus.github.io/
 INHERIT=bash-completion-r1 toolchain-funcs
 IUSE=aac alsa ao cddb cdio debug discid elogind examples ffmpeg +flac jack libsamplerate +mad mikmod modplug mp4 musepack opus oss pidgin pulseaudio sndio systemd tremor +unicode +vorbis wavpack
-KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:=[unicode(+)?] aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) ao? ( media-libs/libao ) cddb? ( media-libs/libcddb ) cdio? ( dev-libs/libcdio-paranoia ) discid? ( media-libs/libdiscid ) elogind? ( sys-auth/elogind ) ffmpeg? ( media-video/ffmpeg:= ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) mikmod? ( media-libs/libmikmod:0 ) modplug? ( media-libs/libmodplug ) mp4? ( media-libs/libmp4v2:0 ) musepack? ( media-sound/musepack-tools ) opus? ( media-libs/opusfile ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio ) systemd? ( sys-apps/systemd ) tremor? ( media-libs/tremor ) !tremor? ( vorbis? ( media-libs/libvorbis ) ) wavpack? ( media-sound/wavpack ) pidgin? ( dev-python/dbus-python net-im/pidgin )
 REQUIRED_USE=?? ( elogind systemd ) tremor? ( vorbis ) mp4? ( aac )
 SLOT=0
 SRC_URI=https://github.com/cmus/cmus/archive/v2.11.0.tar.gz -> cmus-2.11.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=8914de7428fe2c0868eac2c04459ceea
+_md5_=f12d092e71cbab59a8fda96f1b0a7007
