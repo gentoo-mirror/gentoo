@@ -46,6 +46,7 @@ RDEPEND="${DEPEND}
 	!<=lxqt-base/lxqt-session-2
 	!<=lxqt-base/lxqt-sudo-2
 	!<=media-gfx/lximage-qt-2
+	!<=media-sound/pavucontrol-qt-2
 	!<=x11-libs/libfm-qt-2
 	!<=x11-libs/qtermwidget-2
 	!x11-misc/obconf-qt
