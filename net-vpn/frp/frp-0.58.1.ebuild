@@ -7,14 +7,15 @@ inherit go-module systemd shell-completion
 
 DESCRIPTION="A reverse proxy that exposes a server behind a NAT or firewall to the internet"
 HOMEPAGE="https://github.com/fatedier/frp"
-SRC_URI="https://github.com/fatedier/frp/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
+SRC_URI="https://github.com/fatedier/frp/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~loong ~riscv"
 IUSE="+client +server"
 REQUIRED_USE="|| ( client server )"
+BDEPEND=">=dev-lang/go-1.22"
 
 src_compile() {
 	mkdir -pv comp || die
