@@ -22,28 +22,19 @@ inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature p
 
 PATCHES_PV="7.0.16"
 ORIGIN_PN="VirtualBox"
-ORIGIN_PV=${PATCHES_PV}
+ORIGIN_PV=${PV%_pre*}
 
 MY_PN=virtualbox
 MY_PV=${PV#*_pre}
+MY_P=${ORIGIN_PN}-${ORIGIN_PV}
 
-PATCHES_DIR="${WORKDIR}"/${PN}-${MY_PV}
+PATCHES_DIR="${WORKDIR}"/${PN}-dev-${MY_PV}
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/ https://github.com/cyberus-technology/virtualbox-kvm"
-SRC_URI="https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_PV}.tar.bz2"
-if [[ ${PV} == *9999* ]]; then
-	inherit git-r3
-
-	ORIGIN_PV=${PATCHES_PV}
-	EGIT_REPO_URI="https://github.com/cyberus-technology/virtualbox-kvm"
-else
-	ORIGIN_PV=${PV%_pre*}
-	PATCHES_DIR="${WORKDIR}"/${PN}-dev-${MY_PV}
-	SRC_URI+=" https://github.com/cyberus-technology/virtualbox-kvm/archive/dev-${MY_PV}.tar.gz -> ${P}.tar.gz"
-fi
-MY_P=${ORIGIN_PN}-${ORIGIN_PV}
-SRC_URI+="
+SRC_URI="
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_PV}.tar.bz2
+	https://github.com/cyberus-technology/virtualbox-kvm/archive/dev-${MY_PV}.tar.gz -> ${P}.tar.gz
 	https://download.virtualbox.org/virtualbox/${ORIGIN_PV}/${MY_P}.tar.bz2
 	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${MY_PN}/${MY_PN}-help-${ORIGIN_PV}.tar.xz ) )
 "
@@ -51,12 +42,11 @@ S="${WORKDIR}/${ORIGIN_PN}-${ORIGIN_PV}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0"
-IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl +udev vboxwebsrv vde vnc"
+IUSE="alsa dbus debug doc dtrace +gui +hardened java lvm nls pam pch pulseaudio +opengl python +sdk +sdl +udev vboxwebsrv vde +vmmraw vnc"
 
 unset WATCOM #856769
 
 COMMON_DEPEND="
-	${PYTHON_DEPS}
 	acct-group/vboxusers
 	dev-libs/libtpms
 	dev-libs/libxml2
@@ -87,6 +77,7 @@ COMMON_DEPEND="
 		x11-libs/libXt
 	)
 	pam? ( sys-libs/pam )
+	python? ( ${PYTHON_DEPS} )
 	sdl? (
 		media-libs/libsdl2[X,video]
 		x11-libs/libX11
@@ -141,7 +132,6 @@ RDEPEND="
 	java? ( virtual/jre:1.8 )
 "
 BDEPEND="
-	${PYTHON_DEPS}
 	>=app-arch/tar-1.34-r2
 	>=dev-lang/yasm-0.6.2
 	dev-libs/libIDL
@@ -166,6 +156,7 @@ BDEPEND="
 	gui? ( dev-qt/linguist-tools:5 )
 	nls? ( dev-qt/linguist-tools:5 )
 	java? ( virtual/jdk:1.8 )
+	python? ( ${PYTHON_DEPS} )
 "
 
 QA_FLAGS_IGNORED="
@@ -200,9 +191,8 @@ QA_PRESTRIPPED="
 
 REQUIRED_USE="
 	java? ( sdk )
-	python? ( sdk )
+	python? ( sdk ${PYTHON_REQUIRED_USE} )
 	vboxwebsrv? ( java )
-	${PYTHON_REQUIRED_USE}
 "
 
 PATCHES=(
@@ -219,10 +209,6 @@ pkg_pretend() {
 	if ! use opengl; then
 		einfo "No USE=\"opengl\" selected, this build will lack"
 		einfo "the OpenGL feature."
-	fi
-	if ! use python; then
-		einfo "You have disabled the \"python\" USE flag. This will only"
-		einfo "disable the python bindings being installed."
 	fi
 	if ! use nls && use gui; then
 		einfo "USE=\"gui\" also selects USE=\"nls\".  This build"
@@ -241,12 +227,7 @@ pkg_pretend() {
 
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
-	python-single-r1_pkg_setup
-}
-
-src_unpack() {
-	[[ ${PV} == *9999* ]] && git-r3_src_unpack
-	default
+	use python && python-single-r1_pkg_setup
 }
 
 src_prepare() {
@@ -376,20 +357,18 @@ src_configure() {
 		--disable-kmods
 		--with-kvm
 
-		# this is required for kvm to work.
-		# also this prohibits installation with suid.
-		--disable-hardening
-
 		$(usev !alsa --disable-alsa)
 		$(usev !dbus --disable-dbus)
 		$(usev debug --build-debug)
 		$(usev !doc --disable-docs)
+		$(usev !hardened --disable-hardening)
 		$(usev !java --disable-java)
 		$(usev !lvm --disable-devmapper)
 		$(usev !pulseaudio --disable-pulse)
 		$(usev !python --disable-python)
 		$(usev vboxwebsrv --enable-webservice)
 		$(usev vde --enable-vde)
+		$(usev !vmmraw --disable-vmmraw)
 		$(usev vnc --enable-vnc)
 	)
 
@@ -420,13 +399,13 @@ src_configure() {
 		-e '/VBOX_LIB_PYTHON.*=/d' \
 		AutoConfig.kmk || die
 
-	cat >> AutoConfig.kmk <<-EOF || die
-		VBOX_WITH_PYTHON=$(usev python 1)
-		VBOX_PATH_PYTHON_INC=$(python_get_includedir)
-		VBOX_LIB_PYTHON=$(python_get_library_path)
-	EOF
-
 	if use python; then
+		cat >> AutoConfig.kmk <<-EOF || die
+			VBOX_WITH_PYTHON=$(usev python 1)
+			VBOX_PATH_PYTHON_INC=$(python_get_includedir)
+			VBOX_LIB_PYTHON=$(python_get_library_path)
+		EOF
+
 		local mangled_python="${EPYTHON#python}"
 		mangled_python="${mangled_python/.}"
 
@@ -443,6 +422,10 @@ src_configure() {
 		EOF
 
 		chmod +x src/libs/xpcom18a4/python/gen_python_deps.py || die
+	else
+		cat >> AutoConfig.kmk <<-EOF || die
+			VBOX_WITH_PYTHON:=
+		EOF
 	fi
 }
 
@@ -552,8 +535,10 @@ src_install() {
 		vbox_inst ${each}
 	done
 
+	# These binaries need to be suid root with USE=hardened.
+	local mode=$(usex hardened 4750 0750)
 	for each in VBox{Headless,Net{AdpCtl,DHCP,NAT}} ; do
-		vbox_inst ${each} 0750
+		vbox_inst ${each} ${mode}
 	done
 
 	# Install EFI Firmware files (bug #320757)
@@ -588,7 +573,7 @@ src_install() {
 	doenvd "${T}/90virtualbox"
 
 	if use sdl; then
-		vbox_inst VBoxSDL 0750
+		vbox_inst VBoxSDL ${mode}
 		pax-mark -m "${ED}"${vbox_inst_path}/VBoxSDL
 
 		for each in vboxsdl VBoxSDL ; do
@@ -598,7 +583,7 @@ src_install() {
 
 	if use gui; then
 		vbox_inst VirtualBox
-		vbox_inst VirtualBoxVM 0750
+		vbox_inst VirtualBoxVM ${mode}
 		for each in VirtualBox{,VM} ; do
 			pax-mark -m "${ED}"${vbox_inst_path}/${each}
 		done
@@ -638,7 +623,7 @@ src_install() {
 	fi
 
 	if use lvm; then
-		vbox_inst VBoxVolInfo 0750
+		vbox_inst VBoxVolInfo ${mode}
 		dosym ${vbox_inst_path}/VBoxVolInfo /usr/bin/VBoxVolInfo
 	fi
 
