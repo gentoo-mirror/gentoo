@@ -11,7 +11,7 @@ SRC_URI="https://downloads.sourceforge.net/project/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	dev-util/intltool
@@ -24,19 +24,10 @@ RDEPEND="
 	>=x11-libs/gtkdatabox-1.0.0
 	x11-libs/pango
 "
-
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	# https://sourceforge.net/p/klavaro/patches/16/
-	"${FILESDIR}"/${PN}-3.13-datadir.patch
-	# https://sourceforge.net/p/klavaro/patches/17/
-	"${FILESDIR}"/${PN}-3.13-desktop-keywords.patch
-)
 
 src_prepare() {
 	default
-
 	eautoreconf
 }
 

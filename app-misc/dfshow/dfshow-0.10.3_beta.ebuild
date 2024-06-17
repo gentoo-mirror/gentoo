@@ -15,14 +15,16 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-libs/libconfig:=
+DEPEND="
+	sys-apps/acl
+	dev-libs/libconfig:=
 	sys-libs/ncurses:0=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.9.1_beta-use-PKG_CHECK_MODULES-for-ncurses-libconfig.patch
+	"${FILESDIR}"/${P}-use-PKG_CHECK_MODULES-for-ncurses-libconfig.patch
 )
 
 src_prepare() {
@@ -49,8 +51,8 @@ src_configure() {
 src_install() {
 	default
 
-	newbashcomp "${S}/misc/auto-completion/bash/sf-completion.bash" sf-completion
-	newbashcomp "${S}/misc/auto-completion/bash/show-completion.bash" show-completion
+	newbashcomp "${S}/misc/auto-completion/bash/sf-completion.bash" sf
+	newbashcomp "${S}/misc/auto-completion/bash/show-completion.bash" show
 
 	insinto /usr/share/zsh/site-functions
 	doins "${S}/misc/auto-completion/zsh/_sf"
