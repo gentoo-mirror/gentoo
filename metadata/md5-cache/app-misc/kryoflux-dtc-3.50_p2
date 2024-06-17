@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm prepare unpack
+DESCRIPTION=KryoFlux Host Software
+EAPI=8
+HOMEPAGE=https://www.kryoflux.com
+INHERIT=desktop udev wrapper xdg-utils
+IUSE=demos doc gui
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=SPS
+RDEPEND=dev-libs/libfmt virtual/libusb:1 gui? ( virtual/jre )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://www.kryoflux.com/download/kryoflux_3.50_linux_2.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	udev	eec0bbab06977f1cfc5597269c1fa152	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=46bb174ab6f460826b8b220e2e4b68f9

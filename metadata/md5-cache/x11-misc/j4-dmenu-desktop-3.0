@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-cpp/catch:1 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/libfmt:= dev-libs/spdlog:=
+DESCRIPTION=A fast desktop replacement for i3-dmenu-desktop
+EAPI=8
+HOMEPAGE=https://github.com/enkore/j4-dmenu-desktop
+INHERIT=cmake
+IUSE=+dmenu test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/libfmt:= dev-libs/spdlog:= dmenu? ( x11-misc/dmenu )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/enkore/j4-dmenu-desktop/archive/r3.0.tar.gz -> j4-dmenu-desktop-3.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
+_md5_=55517820243fa705f606dbfd2644812e
