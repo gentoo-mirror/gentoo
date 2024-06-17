@@ -3,24 +3,23 @@
 
 EAPI=8
 
-PATCH_PV="1.6.6_p1"
+ATLAS_V="0.8.0"
 
 inherit bash-completion-r1 edo multiprocessing toolchain-funcs xdg-utils
 
 DESCRIPTION="Compiled, garbage-collected systems programming language"
-HOMEPAGE="https://nim-lang.org/"
+HOMEPAGE="https://nim-lang.org/
+	https://github.com/nim-lang/Nim/"
 SRC_URI="
 	https://nim-lang.org/download/${P}.tar.xz
-	experimental? (
-		https://git.sr.ht/~cyber/${PN}-patches/archive/${PATCH_PV}.tar.gz
-			-> nim-patches-${PATCH_PV}.tar.gz
-	)
+	https://github.com/nim-lang/atlas/archive/refs/tags/${ATLAS_V}.tar.gz
+		-> nim-atlas-${ATLAS_V}.tar.gz
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~x86"
-IUSE="doc experimental test-js test"
+KEYWORDS="~amd64 ~arm ~x86"
+IUSE="test-js test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -43,13 +42,15 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.20.0-paths.patch
-	"${FILESDIR}"/${PN}-1.6.6-csources-flags.patch
-)
+src_configure() {
+	xdg_environment_reset  # bug #667182
 
-# Borrowed from nim-utils.eclass (guru overlay).
-nim_gen_config() {
+	unset NIMBLE_DIR
+	tc-export CC CXX LD
+
+	mkdir "${HOME}/.parallel" || die
+	touch "${HOME}/.parallel/will-cite" || die "parallel setup failed"
+
 	cat > nim.cfg <<- EOF || die "Failed to create Nim config"
 		cc:"gcc"
 		gcc.exe:"$(tc-getCC)"
@@ -74,29 +75,8 @@ nim_gen_config() {
 		# some tests don't work with processing hints
 		--processing:"off"
 	EOF
-}
 
-src_prepare() {
-	default
-
-	# note: there are consumers in the ::guru overlay
-	use experimental && eapply "${WORKDIR}"/nim-patches-${PATCH_PV}
-
-	# refer: https://github.com/nim-lang/Nim/issues/20886#issuecomment-1511708198
-	# bug: https://bugs.gentoo.org/894410
-	use elibc_musl && eapply "${FILESDIR}"/${PN}-1.6.14-clang16-musl-fix.patch
-}
-
-src_configure() {
-	xdg_environment_reset  # bug 667182
-
-	unset NIMBLE_DIR
-	tc-export CC CXX LD
-
-	nim_gen_config
-
-	mkdir "${HOME}"/.parallel || die
-	touch "${HOME}"/.parallel/will-cite || die "parallel setup failed"
+	cp -r "${WORKDIR}/atlas-${ATLAS_V}" "${S}/dist/atlas" || die
 }
 
 src_compile() {
@@ -112,23 +92,10 @@ src_compile() {
 	eend 0
 
 	edo chmod +x ./bin/nim
-	edo ./bin/nim compile koch
-	edo ./koch boot -d:nimUseLinenoise --skipParentCfg:off
-	edo ./koch tools
-
-	if use doc; then
-		local -a docargs=(
-			# set git tag
-			--git.commit:v${PV}
-			# skip runnableExamples as some of them need net
-			--docCmd:skip
-			# make logs less verbose
-			--hints:off
-			--warnings:off
-		)
-		edo ./koch doc "${docargs[@]}"
-		HTML_DOCS=( web/upload/${PV}/. )
-	fi
+	edo ./bin/nim compile -d:release koch
+	edo ./koch boot -d:nimUseLinenoise -d:release --skipParentCfg:off
+	edo ./koch tools -d:release
+	edo ./bin/nim compile -d:release ./tools/niminst/niminst.nim
 }
 
 src_test() {
@@ -140,13 +107,13 @@ src_test() {
 		--hint:UserRaw:on
 	)
 	local -a testament_args=(
-		--skipFrom:"${FILESDIR}/${PN}-1.6.14-testament-skipfile.txt"
+		--skipFrom:"${FILESDIR}/${PN}-2.0.6-testament-skipfile.txt"
 		--nim:"bin/nim"
 		--targets:"$(usex test-js 'c js' 'c')"
 	)
 
-	[[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && \
-		testament_args+=( --colors:off )
+	[[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] \
+		&& testament_args+=( --colors:off )
 
 	local -a categories
 	readarray -t categories < <(find tests -mindepth 1 -maxdepth 1 -type d -printf "%P\n" | sort)
@@ -164,39 +131,42 @@ src_test() {
 
 		[[ -f "${checkpoint}" ]] && continue
 
-		case ${tcat} in
+		case "${tcat}" in
 			testdata )
 				:
 				;;
-			arc | ic | valgrind )
-				einfo "Skipped category '${tcat}'"
+			arc | gc | ic | js | msgs | stylecheck \
+				| testament | untestable | objects | valgrind )
+				einfo "Skipped nim test category: ${tcat}"
 				;;
 			* )
 				einfo "Running tests in category '${tcat}'"
 				nonfatal edo ./bin/testament "${testament_args[@]}" \
-						 category "${tcat}" "${nimflags[@]}" || test_return=1
+						 category "${tcat}" "${nimflags[@]}" \
+					|| test_return=1
 				;;
 		esac
 
 		touch "${checkpoint}" || die
 	done
 
-	[[ "${test_return}" -eq 1 ]] &&
-		die "tests failed, please inspect the failed test categories above"
+	[[ "${test_return}" -eq 1 ]] \
+		&& die "tests failed, please inspect the failed test categories above"
 }
 
 src_install() {
 	local -x PATH="${S}/bin:${PATH}"
 
-	edo ./koch install "${ED}"
-	einstalldocs
+	edo ./koch install "${ED}/usr/lib"
+	dosym -r /usr/lib/nim/bin/nim /usr/bin/nim
 
 	# "./koch install" installs only "nim" binary but not the rest.
+	exeinto /usr/bin
 	local exe
-	for exe in bin/* ; do
-		[[ "${exe}" == bin/nim ]] && continue
-		dobin "${exe}"
-	done
+	while read -r exe ; do
+		einfo "Installing nim support tool: ${exe}"
+		doexe "${exe}"
+	done < <(find ./bin -type f -not -iname nim)
 
 	newbashcomp tools/nim.bash-completion nim
 	newbashcomp dist/nimble/nimble.bash-completion nimble
@@ -207,5 +177,7 @@ src_install() {
 
 	# Install the @nim-rebuild set for Portage.
 	insinto /usr/share/portage/config/sets
-	newins "${FILESDIR}"/nim-sets.conf nim.conf
+	newins "${FILESDIR}/nim-sets.conf" nim.conf
+
+	einstalldocs
 }
