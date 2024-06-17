@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit libtool toolchain-funcs
 
@@ -11,7 +11,7 @@ SRC_URI="http://202.36.178.9/sage/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
 IUSE="+cholmod doc"
 
 BDEPEND="virtual/pkgconfig
@@ -30,7 +30,6 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--disable-static \
 		--with-blas="$($(tc-getPKG_CONFIG) --libs blas)" \
 		$(use_with doc) \
 		$(use_with cholmod)
