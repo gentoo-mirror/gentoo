@@ -29,10 +29,6 @@ RDEPEND="
 	ctags? ( dev-python/python-ctags3[${PYTHON_USEDEP}] )
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-fix-cli.py"
-)
-
 python_install_all() {
 	distutils-r1_python_install_all
 	doman ${PN}.1
