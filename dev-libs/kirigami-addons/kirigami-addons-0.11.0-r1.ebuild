@@ -3,22 +3,22 @@
 
 EAPI=8
 
-ECM_QTHELP="true"
-ECM_TEST="true"
-KFMIN=6.2.0
-QTMIN=6.6.2
+ECM_QTHELP=true
+ECM_TEST=true
+KFMIN=5.106.0
+QTMIN=5.15.9
 inherit ecm kde.org
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
 fi
 
 DESCRIPTION="Visual end user components for Kirigami-based applications"
 HOMEPAGE="https://invent.kde.org/libraries/kirigami-addons"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 ) LGPL-2.1+"
-SLOT="6"
+SLOT="5"
 IUSE=""
 
 # would profit from VIRTUALX_REQUIRED=test, but then still requires
@@ -26,19 +26,24 @@ IUSE=""
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=kde-frameworks/ki18n-${KFMIN}:6
-	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
+	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 RDEPEND="${COMMON_DEPEND}
-	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	kde-plasma/libplasma:6
+	>=dev-qt/qtgraphicaleffects-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5[qml]
+	>=kde-plasma/libplasma-${KFMIN}:5
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 "
 DEPEND="${COMMON_DEPEND}
 	test? (
-		>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
+		>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml]
+		media-libs/gst-plugins-base:1.0[ogg,vorbis]
+		media-libs/gst-plugins-bad:1.0
+		media-libs/gst-plugins-good:1.0
 		x11-themes/sound-theme-freedesktop
 	)
 "
