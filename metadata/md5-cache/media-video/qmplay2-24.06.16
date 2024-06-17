@@ -1,0 +1,17 @@
+BDEPEND=!qt6? ( dev-qt/linguist-tools:5 ) qt6? ( dev-qt/qttools:6[linguist] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=media-video/ffmpeg:=[vaapi?] !qt6? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5[X(-),vulkan?] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 extensions? ( dev-qt/qtdeclarative:5 ) videofilters? ( dev-qt/qtconcurrent:5 ) ) qt6? ( dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl?,ssl,vulkan?,widgets] dev-qt/qt5compat:6 dev-qt/qtsvg:6 extensions? ( dev-qt/qtdeclarative:6 ) ) alsa? ( media-libs/alsa-lib ) cdio? ( dev-libs/libcdio[cddb] ) gme? ( media-libs/game-music-emu ) libass? ( media-libs/libass ) opengl? ( virtual/opengl ) pipewire? ( media-video/pipewire ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sid? ( media-libs/libsidplayfp ) shaders? ( >=media-libs/shaderc-2020.1 ) taglib? ( media-libs/taglib ) vaapi? ( media-libs/libva[X] ) vulkan? ( >=media-libs/vulkan-loader-1.2.133 ) xv? ( x11-libs/libXv )
+DESCRIPTION=A Qt-based video player, which can play most formats and codecs
+EAPI=8
+HOMEPAGE=https://github.com/zaps166/QMPlay2
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=avdevice +audiofilters +alsa cdio cuvid extensions gme inputs libass modplug notifications opengl pipewire portaudio pulseaudio qt6 sid shaders +taglib vaapi videofilters visualizations vulkan xv
+KEYWORDS=~amd64
+LICENSE=LGPL-3
+RDEPEND=media-video/ffmpeg:=[vaapi?] !qt6? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5[X(-),vulkan?] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 extensions? ( dev-qt/qtdeclarative:5 ) videofilters? ( dev-qt/qtconcurrent:5 ) ) qt6? ( dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl?,ssl,vulkan?,widgets] dev-qt/qt5compat:6 dev-qt/qtsvg:6 extensions? ( dev-qt/qtdeclarative:6 ) ) alsa? ( media-libs/alsa-lib ) cdio? ( dev-libs/libcdio[cddb] ) gme? ( media-libs/game-music-emu ) libass? ( media-libs/libass ) opengl? ( virtual/opengl ) pipewire? ( media-video/pipewire ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sid? ( media-libs/libsidplayfp ) shaders? ( >=media-libs/shaderc-2020.1 ) taglib? ( media-libs/taglib ) vaapi? ( media-libs/libva[X] ) vulkan? ( >=media-libs/vulkan-loader-1.2.133 ) xv? ( x11-libs/libXv )
+REQUIRED_USE=audiofilters? ( || ( alsa pipewire portaudio pulseaudio ) ) shaders? ( vulkan )
+SLOT=0
+SRC_URI=https://github.com/zaps166/QMPlay2/releases/download/24.06.16/QMPlay2-src-24.06.16.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=350280bbf98d44125a41d8b6587eb618
