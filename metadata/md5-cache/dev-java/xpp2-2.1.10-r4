@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/xerces:2 >=virtual/jdk-1.8:* test? ( dev-java/junit:4 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=A streaming pull XML parser used to quickly process input elements
+EAPI=8
+HOMEPAGE=https://web.archive.org/web/20130904163229/http://www.extreme.indiana.edu/xgws/xsoap/xpp/xpp2/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=Apache-1.1 IBM
+RDEPEND=dev-java/xerces:2 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://web.archive.org/web/20130904173708/http://www.extreme.indiana.edu/xgws/xsoap/xpp/download/PullParser2/PullParser2.1.10.tgz
+_eclasses_=java-utils-2	09d793abe112f655cd781e4467a6fc10	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9
+_md5_=6ffb10a3460992dd4dd40b3b6a41e561
