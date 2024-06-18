@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
-inherit python-any-r1
+# PYTHON_COMPAT=( python3_{10..12} )
+# inherit python-any-r1
 
 DESCRIPTION="Backup and recovery utilities for GitHub Enterprise"
 HOMEPAGE="https://github.com/github/backup-utils"
@@ -14,8 +14,9 @@ S=${WORKDIR}/${PN}-v${PV}
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
+
+# tests restricted due to bug #796815
+RESTRICT="test"
 
 # moreutils parallel is now used for speedups in main code:
 # https://github.com/github/backup-utils/pull/635
@@ -25,15 +26,15 @@ RDEPEND="app-misc/jq
 	sys-apps/moreutils"
 
 # tests invoke parallel & rsync
-DEPEND="test? (
-	${RDEPEND}
-	dev-util/checkbashisms
-	${PYTHON_DEPS}
-)"
+# DEPEND="test? (
+#	${RDEPEND}
+#	dev-util/checkbashisms
+#	${PYTHON_DEPS}
+#)"
 
-pkg_setup() {
-	use test && python-any-r1_pkg_setup
-}
+# pkg_setup() {
+#	use test && python-any-r1_pkg_setup
+#}
 
 src_compile() {
 	:;
