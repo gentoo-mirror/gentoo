@@ -1,20 +1,20 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1
 
 DESCRIPTION="Python library that makes exceptions handling and inspection easier"
 HOMEPAGE="
-	https://github.com/sdispater/crashtest/
+	https://github.com/python-poetry/crashtest/
 	https://pypi.org/project/crashtest/
 "
 SRC_URI="
-	https://github.com/sdispater/crashtest/archive/${PV}.tar.gz
+	https://github.com/python-poetry/crashtest/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
 
