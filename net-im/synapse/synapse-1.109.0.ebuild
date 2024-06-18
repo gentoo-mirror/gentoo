@@ -8,14 +8,14 @@ DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{10..12} )
 
 CRATES="
-	aho-corasick@1.0.2
-	anyhow@1.0.82
-	arc-swap@1.5.1
-	autocfg@1.1.0
+	aho-corasick@1.1.3
+	anyhow@1.0.86
+	arc-swap@1.7.1
+	autocfg@1.3.0
 	base64@0.21.7
-	bitflags@1.3.2
+	bitflags@2.5.0
 	blake2@0.10.6
-	block-buffer@0.10.3
+	block-buffer@0.10.4
 	bumpalo@3.16.0
 	bytes@1.6.0
 	cfg-if@1.0.0
@@ -23,59 +23,59 @@ CRATES="
 	crypto-common@0.1.6
 	digest@0.10.7
 	fnv@1.0.7
-	generic-array@0.14.6
-	getrandom@0.2.14
+	generic-array@0.14.7
+	getrandom@0.2.15
 	headers-core@0.3.0
 	headers@0.4.0
 	heck@0.4.1
 	hex@0.4.3
 	http@1.1.0
 	httpdate@1.0.3
-	indoc@2.0.4
-	itoa@1.0.4
+	indoc@2.0.5
+	itoa@1.0.11
 	js-sys@0.3.69
 	lazy_static@1.4.0
-	libc@0.2.153
-	lock_api@0.4.9
+	libc@0.2.154
+	lock_api@0.4.12
 	log@0.4.21
-	memchr@2.6.3
-	memoffset@0.9.0
+	memchr@2.7.2
+	memoffset@0.9.1
 	mime@0.3.17
-	once_cell@1.15.0
-	parking_lot@0.12.1
-	parking_lot_core@0.9.3
+	once_cell@1.19.0
+	parking_lot@0.12.2
+	parking_lot_core@0.9.10
 	portable-atomic@1.6.0
 	ppv-lite86@0.2.17
-	proc-macro2@1.0.76
-	pyo3-build-config@0.20.3
-	pyo3-ffi@0.20.3
-	pyo3-log@0.9.0
-	pyo3-macros-backend@0.20.3
-	pyo3-macros@0.20.3
-	pyo3@0.20.3
-	pythonize@0.20.0
-	quote@1.0.35
+	proc-macro2@1.0.82
+	pyo3-build-config@0.21.2
+	pyo3-ffi@0.21.2
+	pyo3-log@0.10.0
+	pyo3-macros-backend@0.21.2
+	pyo3-macros@0.21.2
+	pyo3@0.21.2
+	pythonize@0.21.1
+	quote@1.0.36
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
-	redox_syscall@0.2.16
-	regex-automata@0.4.4
-	regex-syntax@0.8.2
+	redox_syscall@0.5.1
+	regex-automata@0.4.6
+	regex-syntax@0.8.3
 	regex@1.10.4
-	ryu@1.0.11
-	scopeguard@1.1.0
-	serde@1.0.197
-	serde_derive@1.0.197
-	serde_json@1.0.115
-	sha1@0.10.5
+	ryu@1.0.18
+	scopeguard@1.2.0
+	serde@1.0.203
+	serde_derive@1.0.203
+	serde_json@1.0.117
+	sha1@0.10.6
 	sha2@0.10.8
-	smallvec@1.10.0
-	subtle@2.4.1
-	syn@2.0.48
-	target-lexicon@0.12.4
-	typenum@1.15.0
+	smallvec@1.13.2
+	subtle@2.5.0
+	syn@2.0.61
+	target-lexicon@0.12.14
+	typenum@1.17.0
 	ulid@1.1.2
-	unicode-ident@1.0.5
+	unicode-ident@1.0.12
 	unindent@0.2.3
 	version_check@0.9.4
 	wasi@0.11.0+wasi-snapshot-preview1
@@ -85,12 +85,15 @@ CRATES="
 	wasm-bindgen-shared@0.2.92
 	wasm-bindgen@0.2.92
 	web-time@1.1.0
-	windows-sys@0.36.1
-	windows_aarch64_msvc@0.36.1
-	windows_i686_gnu@0.36.1
-	windows_i686_msvc@0.36.1
-	windows_x86_64_gnu@0.36.1
-	windows_x86_64_msvc@0.36.1
+	windows-targets@0.52.5
+	windows_aarch64_gnullvm@0.52.5
+	windows_aarch64_msvc@0.52.5
+	windows_i686_gnu@0.52.5
+	windows_i686_gnullvm@0.52.5
+	windows_i686_msvc@0.52.5
+	windows_x86_64_gnu@0.52.5
+	windows_x86_64_gnullvm@0.52.5
+	windows_x86_64_msvc@0.52.5
 "
 
 inherit cargo distutils-r1 multiprocessing optfeature systemd
@@ -113,7 +116,7 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
