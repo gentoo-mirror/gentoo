@@ -5678,6 +5678,7 @@ net-dns/nsd:radix-tree - Use a radix tree for main lookups instead of a red-blac
 net-dns/nsd:ratelimit - Enables ratelimiting, based on query name, type and source
 net-dns/nsd:recvmmsg - Enable recvmmsg and sendmmsg compilation, faster but some kernel versions may have implementation problems for IPv6
 net-dns/nsd:root-server - Configure NSD as a root server (OBSOLETE: removed in >=4.9.x)
+net-dns/nsd:simdzone - Leverage SIMD instructions in modern CPUs to improve throughput
 net-dns/nsd:tfo - Enable TCP Fast Open
 net-dns/nsd:year2038 - Support timestamps after 2038 (glibc only!)
 net-dns/opendnssec:external-hsm - Enables support for storing DNSSEC keys through an arbitrary non-portage PKCS#11 interface, specified through an environment variable
