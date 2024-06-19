@@ -5,15 +5,15 @@ EAPI=8
 
 inherit elisp
 
-DESCRIPTION="Emacs major modes for editing Git configuration files"
-HOMEPAGE="https://github.com/magit/git-modes/"
+DESCRIPTION="Highlight TODO and similar keywords in comments and strings"
+HOMEPAGE="https://github.com/tarsius/hl-todo/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/magit/${PN}.git"
+	EGIT_REPO_URI="https://github.com/tarsius/${PN}.git"
 else
-	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
+	SRC_URI="https://github.com/tarsius/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
@@ -31,9 +31,3 @@ BDEPEND="
 
 DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
-
-src_compile() {
-	elisp_src_compile
-
-	elisp-make-autoload-file
-}

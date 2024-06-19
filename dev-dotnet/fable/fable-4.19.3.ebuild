@@ -5,6 +5,7 @@ EAPI=8
 
 DOTNET_PKG_COMPAT=8.0
 NUGETS="
+altcover@5.3.675
 blackfox.commandline@1.0.0
 buildalyzer.logger@5.0.1
 buildalyzer@5.0.1
@@ -41,7 +42,7 @@ fsharp.core@4.7.0
 fsharp.core@6.0.2
 fsharp.core@7.0.200
 fsharp.core@8.0.100
-fsharp.core@8.0.101
+fsharp.core@8.0.102
 fsharp.data.adaptive@1.2.14
 fsharp.systemtextjson@1.2.42
 fsharp.umx@1.1.0
@@ -306,7 +307,7 @@ else
 		-> ${P}.tar.gz"
 	S="${WORKDIR}/${P^}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
