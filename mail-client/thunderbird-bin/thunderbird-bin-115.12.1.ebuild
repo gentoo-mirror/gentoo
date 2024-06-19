@@ -26,28 +26,37 @@ MOZ_P="${MOZ_PN}-${MOZ_PV}"
 MOZ_PV_DISTFILES="${MOZ_PV}${MOZ_PV_SUFFIX}"
 MOZ_P_DISTFILES="${MOZ_PN}-${MOZ_PV_DISTFILES}"
 
-inherit desktop linux-info optfeature pax-utils xdg
+inherit desktop optfeature pax-utils xdg
 
 MOZ_SRC_BASE_URI="https://archive.mozilla.org/pub/${MOZ_PN}/releases/${MOZ_PV}"
 
 SRC_URI="amd64? ( ${MOZ_SRC_BASE_URI}/linux-x86_64/en-US/${MOZ_P}.tar.bz2 -> ${PN}_x86_64-${PV}.tar.bz2 )
 	x86? ( ${MOZ_SRC_BASE_URI}/linux-i686/en-US/${MOZ_P}.tar.bz2 -> ${PN}_i686-${PV}.tar.bz2 )"
 
-DESCRIPTION="Firefox Web Browser"
-HOMEPAGE="https://www.mozilla.com/firefox"
+DESCRIPTION="Thunderbird Mail Client"
+HOMEPAGE="https://www.thunderbird.net/"
 
 KEYWORDS="-* amd64 x86"
-SLOT="rapid"
+SLOT="0/$(ver_cut 1)"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
-IUSE="+alsa +ffmpeg +gmp-autoupdate +pulseaudio selinux wayland"
+IUSE="+alsa +ffmpeg +pulseaudio selinux wayland"
 
 RESTRICT="strip"
 
-BDEPEND="app-arch/unzip"
+BDEPEND="app-arch/unzip
+	alsa? (
+		!pulseaudio? (
+			dev-util/patchelf
+		)
+	)"
+DEPEND="alsa? (
+		!pulseaudio? (
+			media-sound/apulse
+		)
+	)"
 RDEPEND="${DEPEND}
-	!www-client/firefox-bin:0
-	!www-client/firefox-bin:esr
 	>=app-accessibility/at-spi2-core-2.46.0:2
+	dev-libs/dbus-glib
 	>=dev-libs/glib-2.26:2
 	media-libs/alsa-lib
 	media-libs/fontconfig
@@ -56,7 +65,7 @@ RDEPEND="${DEPEND}
 	virtual/freedesktop-icon-theme
 	>=x11-libs/cairo-1.10[X]
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.11:3[X,wayland?]
+	>=x11-libs/gtk+-3.11:3[wayland?]
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
@@ -66,32 +75,23 @@ RDEPEND="${DEPEND}
 	x11-libs/libXi
 	x11-libs/libXrandr
 	x11-libs/libXrender
+	x11-libs/libXtst
 	x11-libs/libxcb
 	>=x11-libs/pango-1.22.0
-	alsa? (
-		!pulseaudio? ( media-sound/apulse )
-	)
 	ffmpeg? ( media-video/ffmpeg )
 	pulseaudio? ( media-libs/libpulse )
-	selinux? ( sec-policy/selinux-mozilla )
+	selinux? ( sec-policy/selinux-thunderbird )
 "
 
 QA_PREBUILT="opt/${MOZ_PN}/*"
 
-# Allow MOZ_GMP_PLUGIN_LIST to be set in an eclass or
-# overridden in the enviromnent (advanced hackers only)
-if [[ -z "${MOZ_GMP_PLUGIN_LIST+set}" ]] ; then
-	MOZ_GMP_PLUGIN_LIST=( gmp-gmpopenh264 gmp-widevinecdm )
-fi
-
 MOZ_LANGS=(
-	ach af an ar ast az be bg bn br bs ca-valencia ca cak cs cy
-	da de dsb el en-CA en-GB en-US eo es-AR es-CL es-ES es-MX et eu
-	fa ff fi fr fy-NL ga-IE gd gl gn gu-IN he hi-IN hr hsb hu hy-AM
-	ia id is it ja ka kab kk km kn ko lij lt lv mk mr ms my
-	nb-NO ne-NP nl nn-NO oc pa-IN pl pt-BR pt-PT rm ro ru sco
-	si sk sl son sq sr sv-SE ta te th tl tr trs uk ur uz vi
-	xh zh-CN zh-TW
+	af ar ast be bg br ca cak cs cy da de dsb
+	el en-CA en-GB en-US es-AR es-ES es-MX et eu
+	fi fr fy-NL ga-IE gd gl he hr hsb hu
+	id is it ja ka kab kk ko lt lv ms nb-NO nl nn-NO
+	pa-IN pl pt-BR pt-PT rm ro ru
+	sk sl sq sr sv-SE th tr uk uz vi zh-CN zh-TW
 )
 
 mozilla_set_globals() {
@@ -158,13 +158,6 @@ moz_install_xpi() {
 	done
 }
 
-pkg_setup() {
-	CONFIG_CHECK="~SECCOMP"
-	WARNING_SECCOMP="CONFIG_SECCOMP not set! This system will be unable to play DRM-protected content."
-
-	linux-info_pkg_setup
-}
-
 src_unpack() {
 	local _lp_dir="${WORKDIR}/language_packs"
 	local _src_file
@@ -198,26 +191,23 @@ src_install() {
 		"${ED}${MOZILLA_FIVE_HOME}"/${MOZ_PN}-bin \
 		"${ED}${MOZILLA_FIVE_HOME}"/plugin-container
 
+	# Patch alsa support
+	local apulselib=
+	if use alsa && ! use pulseaudio ; then
+		apulselib="${EPREFIX}/usr/$(get_libdir)/apulse"
+		patchelf --set-rpath "${apulselib}" "${ED}${MOZILLA_FIVE_HOME}/libxul.so" || die
+	fi
+
 	# Install policy (currently only used to disable application updates)
 	insinto "${MOZILLA_FIVE_HOME}/distribution"
 	newins "${FILESDIR}"/disable-auto-update.policy.json policies.json
 
 	# Install system-wide preferences
-	local PREFS_DIR="${MOZILLA_FIVE_HOME}/browser/defaults/preferences"
+	local PREFS_DIR="${MOZILLA_FIVE_HOME}/defaults/pref"
 	insinto "${PREFS_DIR}"
-	newins "${FILESDIR}"/gentoo-default-prefs.js all-gentoo.js
+	newins "${FILESDIR}"/gentoo-default-prefs.js gentoo-prefs.js
 
-	local GENTOO_PREFS="${ED}${PREFS_DIR}/all-gentoo.js"
-
-	if ! use gmp-autoupdate ; then
-		local plugin
-		for plugin in "${MOZ_GMP_PLUGIN_LIST[@]}" ; do
-			einfo "Disabling auto-update for ${plugin} plugin ..."
-			cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to disable autoupdate for ${plugin} media plugin"
-			pref("media.${plugin}.autoupdate",   false);
-			EOF
-		done
-	fi
+	local GENTOO_PREFS="${ED}${PREFS_DIR}/gentoo-prefs.js"
 
 	# Install language packs
 	local langpacks=( $(find "${WORKDIR}/language_packs" -type f -name '*.xpi') )
@@ -226,11 +216,7 @@ src_install() {
 	fi
 
 	# Install icons
-	local icon_srcdir="${ED}/${MOZILLA_FIVE_HOME}/browser/chrome/icons/default"
-	local icon_symbolic_file="${FILESDIR}/firefox-symbolic.svg"
-
-	insinto /usr/share/icons/hicolor/symbolic/apps
-	newins "${icon_symbolic_file}" ${PN}-symbolic.svg
+	local icon_srcdir="${ED}/${MOZILLA_FIVE_HOME}/chrome/icons/default"
 
 	local icon size
 	for icon in "${icon_srcdir}"/default*.png ; do
@@ -246,7 +232,7 @@ src_install() {
 
 	# Install menu
 	local app_name="Mozilla ${MOZ_PN^} (bin)"
-	local desktop_file="${FILESDIR}/${PN}-r3.desktop"
+	local desktop_file="${FILESDIR}/icon/${PN}-r2.desktop"
 	local desktop_filename="${PN}.desktop"
 	local exec_command="${PN}"
 	local icon="${PN}"
@@ -257,13 +243,6 @@ src_install() {
 	fi
 
 	cp "${desktop_file}" "${WORKDIR}/${PN}.desktop-template" || die
-
-	# Add apulse support through our wrapper shell launcher, patchelf-method broken since 119.0.
-	# See bgo#916230
-	local apulselib=
-	if use alsa && ! use pulseaudio ; then
-		apulselib="${EPREFIX}/usr/$(get_libdir)/apulse"
-	fi
 
 	sed -i \
 		-e "s:@NAME@:${app_name}:" \
@@ -293,24 +272,23 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	if ! use gmp-autoupdate ; then
-		elog "USE='-gmp-autoupdate' has disabled the following plugins from updating or"
-		elog "installing into new profiles:"
-		local plugin
-		for plugin in "${MOZ_GMP_PLUGIN_LIST[@]}" ; do
-			elog "\t ${plugin}"
-		done
-		elog
-	fi
-
 	use ffmpeg || ewarn "USE=-ffmpeg : HTML5 video will not render without media-video/ffmpeg installed"
 
-	local show_doh_information show_normandy_information show_shortcut_information
+	local HAS_AUDIO=0
+	if use alsa || use pulseaudio; then
+		HAS_AUDIO=1
+	fi
+
+	if [[ ${HAS_AUDIO} -eq 0 ]] ; then
+		ewarn "USE=-pulseaudio & USE=-alsa : For audio please either set USE=pulseaudio or USE=alsa!"
+	fi
+
+	local show_doh_information
+	local show_shortcut_information
 
 	if [[ -z "${REPLACING_VERSIONS}" ]] ; then
 		# New install; Tell user that DoH is disabled by default
 		show_doh_information=yes
-		show_normandy_information=yes
 		show_shortcut_information=no
 	else
 		local replacing_version
@@ -333,34 +311,17 @@ pkg_postinst() {
 		elog "You can enable DNS-over-HTTPS in ${PN^}'s preferences."
 	fi
 
-	# bug 713782
-	if [[ -n "${show_normandy_information}" ]] ; then
-		elog
-		elog "Upstream operates a service named Normandy which allows Mozilla to"
-		elog "push changes for default settings or even install new add-ons remotely."
-		elog "While this can be useful to address problems like 'Armagadd-on 2.0' or"
-		elog "revert previous decisions to disable TLS 1.0/1.1, privacy and security"
-		elog "concerns prevail, which is why we have switched off the use of this"
-		elog "service by default."
-		elog
-		elog "To re-enable this service set"
-		elog
-		elog "    app.normandy.enabled=true"
-		elog
-		elog "in about:config."
-	fi
-
 	if [[ -n "${show_shortcut_information}" ]] ; then
 		elog
-		elog "Since firefox-91.0 we no longer install multiple shortcuts for"
+		elog "Since ${PN}-91.0 we no longer install multiple shortcuts for"
 		elog "each supported display protocol.  Instead we will only install"
-		elog "one generic Mozilla Firefox shortcut."
-		elog "If you still want to be able to select between running Mozilla Firefox"
+		elog "one generic Mozilla ${PN^} shortcut."
+		elog "If you still want to be able to select between running Mozilla ${PN^}"
 		elog "on X11 or Wayland, you have to re-create these shortcuts on your own."
 	fi
 
 	optfeature_header "Optional programs for extra features:"
-	optfeature "speech syntesis (text-to-speech) support" app-accessibility/speech-dispatcher
-	optfeature "fallback mouse cursor theme e.g. on WMs" gnome-base/gsettings-desktop-schemas
 	optfeature "desktop notifications" x11-libs/libnotify
+	optfeature "encrypted chat support" net-libs/libotr
+	optfeature "fallback mouse cursor theme e.g. on WMs" gnome-base/gsettings-desktop-schemas
 }
