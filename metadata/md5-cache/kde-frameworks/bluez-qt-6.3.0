@@ -1,10 +1,10 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( >=app-text/doxygen-1.8.13-r1 ) dev-qt/qttools:6[assistant] dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.3:* virtual/pkgconfig
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( >=app-text/doxygen-1.8.13-r1 ) dev-qt/qttools:6[assistant] dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.3:*
 DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
 DEPEND=>=dev-qt/qtbase-6.6.2:6[dbus,network] >=dev-qt/qtdeclarative-6.6.2:6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
 DESCRIPTION=Qt wrapper for Bluez 5 DBus API
 EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
-INHERIT=ecm frameworks.kde.org udev
+INHERIT=ecm frameworks.kde.org
 IUSE=debug doc test
 KEYWORDS=~amd64
 LICENSE=LGPL-2
@@ -12,5 +12,5 @@ RDEPEND=>=dev-qt/qtbase-6.6.2:6[dbus,network] >=dev-qt/qtdeclarative-6.6.2:6 >=k
 RESTRICT=!test? ( test )
 SLOT=6/6.3
 SRC_URI=mirror://kde/stable/frameworks/6.3/bluez-qt-6.3.0.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	virtualx	817571665ee28575da44ee08135089e5	ecm	4374b8174045bfc8f743c11736520e32	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4	udev	eec0bbab06977f1cfc5597269c1fa152
-_md5_=21b90a90019e424a9d23cbd9dbf811f6
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	virtualx	817571665ee28575da44ee08135089e5	ecm	4374b8174045bfc8f743c11736520e32	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
+_md5_=306d9dc9f00b4628bc24d58924168e9d
