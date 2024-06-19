@@ -15,6 +15,7 @@ IUSE="teamd"
 DEPEND="
 	dev-libs/glib:2
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,network]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=net-misc/networkmanager-1.4.0-r1[teamd=]
 "
 RDEPEND="${DEPEND}
