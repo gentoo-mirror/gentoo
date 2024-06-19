@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs virtualx
+inherit autotools toolchain-funcs virtualx xdg-utils
 
 DESCRIPTION="Lean FLTK based web browser"
 HOMEPAGE="https://dillo-browser.github.io/"
@@ -44,7 +44,10 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
-	doc? ( app-text/doxygen )
+	doc? (
+		app-text/doxygen[dot]
+		app-text/texlive
+	)
 "
 
 DOCS="AUTHORS ChangeLog README NEWS doc/*.txt doc/README"
@@ -89,4 +92,12 @@ src_install() {
 	default
 
 	use doc && dodoc -r html
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }

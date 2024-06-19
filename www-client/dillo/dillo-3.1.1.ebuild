@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs virtualx
+inherit autotools toolchain-funcs virtualx xdg-utils
 
 DESCRIPTION="Lean FLTK based web browser"
 HOMEPAGE="https://dillo-browser.github.io/"
@@ -12,10 +12,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/dillo-browser/dillo.git"
 else
-	SRC_URI="
-		https://github.com/dillo-browser/dillo/releases/download/v${PV}/${P}.tar.bz2
-		test? ( https://deps.gentoo.zip/www-client/${P}-html-tests.tar.xz )
-	"
+	SRC_URI="https://github.com/dillo-browser/dillo/releases/download/v${PV}/${P}.tar.bz2"
 	KEYWORDS="~amd64"
 fi
 
@@ -47,24 +44,16 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
-	doc? ( app-text/doxygen )
+	doc? (
+		app-text/doxygen[dot]
+		app-text/texlive
+	)
 "
 
 DOCS="AUTHORS ChangeLog README NEWS doc/*.txt doc/README"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-remove-floatref.patch
-)
-
 src_prepare() {
 	default
-	if use test; then
-		# https://github.com/dillo-browser/dillo/pull/176
-		# Upstream forgot to package tests for 3.1.0, I've done it
-		# so we'll just move them into place for this release.
-		rm -r "${S}"/test/html || die "Failed to remove broken test dir"
-		mv "${WORKDIR}"/html test/ || die "Failed to add good tests"
-	fi
 	eautoreconf
 }
 
@@ -103,4 +92,12 @@ src_install() {
 	default
 
 	use doc && dodoc -r html
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
