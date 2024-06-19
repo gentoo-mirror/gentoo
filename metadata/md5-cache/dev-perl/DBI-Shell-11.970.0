@@ -1,6 +1,6 @@
-BDEPEND=!minimal? ( virtual/perl-IO dev-perl/TermReadKey virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap ) virtual/perl-Carp dev-perl/DBI virtual/perl-Data-Dumper virtual/perl-Exporter >=dev-perl/File-HomeDir-0.500.0 virtual/perl-File-Spec dev-perl/IO-Interactive dev-perl/IO-Tee virtual/perl-Term-ReadLine dev-perl/Text-CSV_XS dev-perl/Text-Reform virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Getopt-Long-2.170.0 virtual/perl-Test-Simple ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=!minimal? ( virtual/perl-IO dev-perl/TermReadKey virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap ) virtual/perl-Carp dev-perl/DBI virtual/perl-Data-Dumper virtual/perl-Exporter >=dev-perl/File-HomeDir-0.500.0 virtual/perl-File-Spec dev-perl/IO-Interactive dev-perl/IO-Tee virtual/perl-Term-ReadLine dev-perl/Text-CSV_XS dev-perl/Text-Reform virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-Getopt-Long-2.170.0 virtual/perl-Test-Simple ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Interactive command shell for the DBI
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/DBI-Shell
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=minimal test perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=amd64 ppc x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=!minimal? ( virtual/perl-IO dev-perl/TermReadKey virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap ) virtual/perl-Carp dev-perl/DBI virtual/perl-Data-Dumper virtual/perl-Exporter >=dev-perl/File-HomeDir-0.500.0 virtual/perl-File-Spec dev-perl/IO-Interactive dev-perl/IO-Tee virtual/perl-Term-ReadLine dev-perl/Text-CSV_XS dev-perl/Text-Reform || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=!minimal? ( virtual/perl-IO dev-perl/TermReadKey virtual/perl-Text-ParseWords virtual/perl-Text-Tabs+Wrap ) virtual/perl-Carp dev-perl/DBI virtual/perl-Data-Dumper virtual/perl-Exporter >=dev-perl/File-HomeDir-0.500.0 virtual/perl-File-Spec dev-perl/IO-Interactive dev-perl/IO-Tee virtual/perl-Term-ReadLine dev-perl/Text-CSV_XS dev-perl/Text-Reform >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DL/DLAMBLEY/DBI-Shell-11.97.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=04d826c19eaabc39081a86eb63c205fe

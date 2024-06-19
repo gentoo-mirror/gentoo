@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/rpm app-arch/dpkg dev-util/debhelper >=app-arch/tar-1.14.91 bzip2? ( app-arch/bzip2 ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=app-arch/rpm app-arch/dpkg dev-util/debhelper >=app-arch/tar-1.14.91 bzip2? ( app-arch/bzip2 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Converts between the rpm, dpkg, stampede slp, and slackware tgz file formats
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/alien-pkg-convert
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=+bzip2 perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~alpha amd64 ~hppa ppc ppc64 ~riscv x86
 LICENSE=LGPL-2.1
-RDEPEND=app-arch/rpm app-arch/dpkg dev-util/debhelper >=app-arch/tar-1.14.91 bzip2? ( app-arch/bzip2 ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=app-arch/rpm app-arch/dpkg dev-util/debhelper >=app-arch/tar-1.14.91 bzip2? ( app-arch/bzip2 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/a/alien/alien_8.95.tar.xz -> alien-8.95.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=28aa20704e139471230c2a65db58e94f

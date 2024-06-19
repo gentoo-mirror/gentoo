@@ -1,6 +1,6 @@
-BDEPEND=virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-Which dev-perl/IPC-Run dev-perl/Log-Log4perl virtual/perl-File-Path app-arch/tar virtual/perl-ExtUtils-MakeMaker virtual/perl-CPAN-Meta test? ( >=virtual/perl-Test-Simple-1.302.73 ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-Which dev-perl/IPC-Run dev-perl/Log-Log4perl virtual/perl-File-Path app-arch/tar virtual/perl-ExtUtils-MakeMaker virtual/perl-CPAN-Meta test? ( >=virtual/perl-Test-Simple-1.302.73 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=API wrapper around the 'tar' utility
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Archive-Tar-Wrapper
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath test examples
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-Which dev-perl/IPC-Run dev-perl/Log-Log4perl virtual/perl-File-Path app-arch/tar || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-Which dev-perl/IPC-Run dev-perl/Log-Log4perl virtual/perl-File-Path app-arch/tar >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AR/ARFREITAS/Archive-Tar-Wrapper-0.39.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=0ea131e06b8520f80505a20645c81dc8

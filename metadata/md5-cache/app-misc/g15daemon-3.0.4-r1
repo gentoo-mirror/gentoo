@@ -1,6 +1,6 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 ) virtual/pkgconfig virtual/pkgconfig
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 ) virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
-DEPEND=virtual/libusb:0 >=dev-libs/libg15-3.0 >=dev-libs/libg15render-3.0 perl? ( dev-lang/perl dev-perl/GDGraph >=dev-perl/Inline-0.4 ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=virtual/libusb:0 >=dev-libs/libg15-3.0 >=dev-libs/libg15render-3.0 perl? ( dev-lang/perl dev-perl/GDGraph >=dev-perl/Inline-0.4 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Takes control of the G15 keyboard, through the linux kernel uinput device driver
 EAPI=8
 HOMEPAGE=https://gitlab.com/menelkir/g15daemon
@@ -8,9 +8,9 @@ INHERIT=autotools flag-o-matic linux-info perl-module systemd toolchain-funcs ud
 IUSE=perl static-libs perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2
-RDEPEND=virtual/libusb:0 >=dev-libs/libg15-3.0 >=dev-libs/libg15render-3.0 perl? ( dev-lang/perl dev-perl/GDGraph >=dev-perl/Inline-0.4 ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=virtual/libusb:0 >=dev-libs/libg15-3.0 >=dev-libs/libg15render-3.0 perl? ( dev-lang/perl dev-perl/GDGraph >=dev-perl/Inline-0.4 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=test !test? ( test )
 SLOT=0/3
 SRC_URI=https://gitlab.com/menelkir/g15daemon/-/archive/3.0.4/g15daemon-3.0.4.tar.bz2
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	07f7f317d867e5d5aa30fdeb6e873138	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=01bcf4e91a77616ea368d8a97710c327

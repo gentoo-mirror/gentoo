@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Distributed, collaborative spam detection and filtering network
 EAPI=8
 HOMEPAGE=http://razor.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=perl-module readme.gentoo-r1
 IUSE=selinux perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~alpha amd64 ~arm64 ~hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=Artistic
-RDEPEND=dev-perl/URI dev-perl/Net-DNS virtual/perl-Net-Ping virtual/perl-Time-HiRes dev-perl/Digest-Nilsimsa || ( virtual/perl-Digest-SHA dev-perl/Digest-SHA1 ) selinux? ( sec-policy/selinux-razor ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=dev-perl/URI dev-perl/Net-DNS virtual/perl-Net-Ping virtual/perl-Time-HiRes dev-perl/Digest-Nilsimsa || ( virtual/perl-Digest-SHA dev-perl/Digest-SHA1 ) selinux? ( sec-policy/selinux-razor ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/razor/razor-agents-2.85.tar.bz2
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=aa92750699b872ffc0c8d6c5cc37e5eb

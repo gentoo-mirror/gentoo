@@ -1,6 +1,6 @@
-BDEPEND=>=dev-perl/common-sense-3.740.0 >=virtual/perl-ExtUtils-MakeMaker-6.520.0 dev-perl/Canary-Stability || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-perl/common-sense-3.740.0 >=virtual/perl-ExtUtils-MakeMaker-6.520.0 dev-perl/Canary-Stability >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=decode uu/xx/b64/mime/yenc/etc-encoded data
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Convert-UUlib
@@ -8,9 +8,9 @@ INHERIT=perl-module toolchain-funcs
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ~m68k ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=BSD CC0-1.0 GPL-1 GPL-2+
-RDEPEND=>=dev-perl/common-sense-3.740.0 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-perl/common-sense-3.740.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/ML/MLEHMANN/Convert-UUlib-1.8.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=738fd0a59a3090ea08d94e15098c11ee

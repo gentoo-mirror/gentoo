@@ -1,6 +1,6 @@
-BDEPEND=>=dev-perl/Alien-SDL-1.446 dev-perl/Capture-Tiny >=virtual/perl-CPAN-1.920.0 >=virtual/perl-ExtUtils-CBuilder-0.260.301 >=dev-perl/File-ShareDir-1.0.0 >=dev-perl/Module-Build-0.400.0 media-libs/libjpeg-turbo virtual/perl-Scalar-List-Utils dev-perl/Tie-Simple media-libs/libpng:0 media-libs/libsdl media-libs/sdl-gfx media-libs/sdl-image media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/smpeg media-libs/tiff:0 virtual/glu virtual/opengl test? ( >=dev-perl/Test-Most-0.210.0 ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=dev-perl/Alien-SDL-1.446 dev-perl/Capture-Tiny >=virtual/perl-CPAN-1.920.0 >=virtual/perl-ExtUtils-CBuilder-0.260.301 >=dev-perl/File-ShareDir-1.0.0 >=dev-perl/Module-Build-0.400.0 media-libs/libjpeg-turbo virtual/perl-Scalar-List-Utils dev-perl/Tie-Simple media-libs/libpng:0 media-libs/libsdl media-libs/sdl-gfx media-libs/sdl-image media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/smpeg media-libs/tiff:0 virtual/glu virtual/opengl test? ( >=dev-perl/Test-Most-0.210.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Simple DirectMedia Layer (SDL) bindings for perl
 EAPI=8
 HOMEPAGE=http://sdl.perl.org/ https://search.cpan.org/dist/SDL/ https://github.com/PerlGameDev/SDL
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=amd64 ~hppa ~x86
 LICENSE=GPL-2 OFL-1.1
-RDEPEND=>=dev-perl/Alien-SDL-1.446 dev-perl/Capture-Tiny >=virtual/perl-CPAN-1.920.0 >=virtual/perl-ExtUtils-CBuilder-0.260.301 >=dev-perl/File-ShareDir-1.0.0 >=dev-perl/Module-Build-0.400.0 media-libs/libjpeg-turbo virtual/perl-Scalar-List-Utils dev-perl/Tie-Simple media-libs/libpng:0 media-libs/libsdl media-libs/sdl-gfx media-libs/sdl-image media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/smpeg media-libs/tiff:0 virtual/glu virtual/opengl || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-perl/Alien-SDL-1.446 dev-perl/Capture-Tiny >=virtual/perl-CPAN-1.920.0 >=virtual/perl-ExtUtils-CBuilder-0.260.301 >=dev-perl/File-ShareDir-1.0.0 >=dev-perl/Module-Build-0.400.0 media-libs/libjpeg-turbo virtual/perl-Scalar-List-Utils dev-perl/Tie-Simple media-libs/libpng:0 media-libs/libsdl media-libs/sdl-gfx media-libs/sdl-image media-libs/sdl-mixer media-libs/sdl-pango media-libs/sdl-ttf media-libs/smpeg media-libs/tiff:0 virtual/glu virtual/opengl >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/F/FR/FROGGS/SDL-2.548.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=fd0fed73f1638c297b6b22363d60d9b2

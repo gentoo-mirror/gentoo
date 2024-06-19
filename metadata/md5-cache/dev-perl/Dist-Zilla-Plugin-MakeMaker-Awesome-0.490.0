@@ -1,6 +1,6 @@
-BDEPEND=!<=dev-perl/Dist-Zilla-Plugin-MakeMaker-Fallback-0.11.0 >=virtual/perl-CPAN-Meta-Requirements-2.121.0 >=dev-perl/Dist-Zilla-5.1.0 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Type-Tiny >=virtual/perl-Scalar-List-Utils-1.290.0 dev-perl/namespace-autoclean virtual/perl-version >=dev-perl/Module-Build-Tiny-0.34.0 virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/CPAN-Meta-Check-0.11.0 virtual/perl-File-Spec dev-perl/File-pushd virtual/perl-Module-Metadata dev-perl/Test-Deep dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.960.0 virtual/perl-if ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=!<=dev-perl/Dist-Zilla-Plugin-MakeMaker-Fallback-0.11.0 >=virtual/perl-CPAN-Meta-Requirements-2.121.0 >=dev-perl/Dist-Zilla-5.1.0 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Type-Tiny >=virtual/perl-Scalar-List-Utils-1.290.0 dev-perl/namespace-autoclean virtual/perl-version >=dev-perl/Module-Build-Tiny-0.34.0 virtual/perl-ExtUtils-MakeMaker test? ( >=dev-perl/CPAN-Meta-Check-0.11.0 virtual/perl-File-Spec dev-perl/File-pushd virtual/perl-Module-Metadata dev-perl/Test-Deep dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.960.0 virtual/perl-if ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=A more awesome MakeMaker plugin for Dist::Zilla
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Dist-Zilla-Plugin-MakeMaker-Awesome
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=!<=dev-perl/Dist-Zilla-Plugin-MakeMaker-Fallback-0.11.0 >=virtual/perl-CPAN-Meta-Requirements-2.121.0 >=dev-perl/Dist-Zilla-5.1.0 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Type-Tiny >=virtual/perl-Scalar-List-Utils-1.290.0 dev-perl/namespace-autoclean virtual/perl-version || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=!<=dev-perl/Dist-Zilla-Plugin-MakeMaker-Fallback-0.11.0 >=virtual/perl-CPAN-Meta-Requirements-2.121.0 >=dev-perl/Dist-Zilla-5.1.0 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Type-Tiny >=virtual/perl-Scalar-List-Utils-1.290.0 dev-perl/namespace-autoclean virtual/perl-version >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/Dist-Zilla-Plugin-MakeMaker-Awesome-0.49.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=5e1dd30d48f59da44ee302bc45e0112a

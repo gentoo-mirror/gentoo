@@ -1,6 +1,6 @@
-BDEPEND=dev-perl/Module-Install dev-perl/File-Copy-Recursive app-portage/gentoolkit || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) virtual/pkgconfig
+BDEPEND=dev-perl/Module-Install dev-perl/File-Copy-Recursive app-portage/gentoolkit >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/libwww-perl dev-perl/File-Which dev-perl/Net-IP dev-perl/Text-Template dev-perl/UNIVERSAL-require dev-perl/XML-TreePP dev-perl/XML-XPath virtual/perl-IO-Compress virtual/perl-threads dev-perl/HTTP-Daemon dev-perl/IO-Socket-SSL dev-perl/LWP-Protocol-https dev-perl/Proc-Daemon || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=dev-perl/libwww-perl dev-perl/File-Which dev-perl/Net-IP dev-perl/Text-Template dev-perl/UNIVERSAL-require dev-perl/XML-TreePP dev-perl/XML-XPath virtual/perl-IO-Compress virtual/perl-threads dev-perl/HTTP-Daemon dev-perl/IO-Socket-SSL dev-perl/LWP-Protocol-https dev-perl/Proc-Daemon >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=The FusionInventory agent is a generic management agent
 EAPI=7
 HOMEPAGE=http://fusioninventory.org/
@@ -8,8 +8,8 @@ INHERIT=perl-module systemd
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-perl/libwww-perl dev-perl/File-Which dev-perl/Net-IP dev-perl/Text-Template dev-perl/UNIVERSAL-require dev-perl/XML-TreePP dev-perl/XML-XPath virtual/perl-IO-Compress virtual/perl-threads dev-perl/HTTP-Daemon dev-perl/IO-Socket-SSL dev-perl/LWP-Protocol-https dev-perl/Proc-Daemon || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=dev-perl/libwww-perl dev-perl/File-Which dev-perl/Net-IP dev-perl/Text-Template dev-perl/UNIVERSAL-require dev-perl/XML-TreePP dev-perl/XML-XPath virtual/perl-IO-Compress virtual/perl-threads dev-perl/HTTP-Daemon dev-perl/IO-Socket-SSL dev-perl/LWP-Protocol-https dev-perl/Proc-Daemon >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 SLOT=0
 SRC_URI=https://github.com/fusioninventory/fusioninventory-agent/archive/2.5.2.tar.gz -> fusioninventory-agent-2.5.2.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=cc76e0b0c70a3d4a0fe6d1b592ce48fa

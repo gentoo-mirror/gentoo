@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=A handy shell-like interface for browsing LDAP servers and editing their content
 EAPI=7
 HOMEPAGE=https://github.com/mahlonsmith/shelldap
@@ -8,8 +8,8 @@ INHERIT=perl-module
 IUSE=+readline sasl +ssl perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=dev-perl/Algorithm-Diff sasl? ( dev-perl/Authen-SASL ) dev-perl/IO-Socket-SSL dev-perl/perl-ldap dev-perl/TermReadKey readline? ( dev-perl/Term-ReadLine-Gnu ) dev-perl/Term-Shell dev-perl/Tie-IxHash dev-perl/YAML-Syck virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-Getopt-Long virtual/perl-Digest-MD5 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+RDEPEND=dev-perl/Algorithm-Diff sasl? ( dev-perl/Authen-SASL ) dev-perl/IO-Socket-SSL dev-perl/perl-ldap dev-perl/TermReadKey readline? ( dev-perl/Term-ReadLine-Gnu ) dev-perl/Term-Shell dev-perl/Tie-IxHash dev-perl/YAML-Syck virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-Getopt-Long virtual/perl-Digest-MD5 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 SLOT=0
 SRC_URI=https://github.com/mahlonsmith/shelldap/releases/download/v1.5.1/shelldap-1.5.1.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=64dd128797a180e9f77cb7fa04c309d2

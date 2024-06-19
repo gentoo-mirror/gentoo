@@ -1,6 +1,6 @@
-BDEPEND=>=app-emulation/libvirt-9.7.0 virtual/perl-ExtUtils-CBuilder dev-perl/Module-Build virtual/pkgconfig test? ( dev-perl/CPAN-Changes dev-perl/Test-More-UTF8 dev-perl/Test-Pod-Coverage dev-perl/XML-XPath virtual/perl-Test-Simple virtual/perl-Time-HiRes ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=app-emulation/libvirt-9.7.0 virtual/perl-ExtUtils-CBuilder dev-perl/Module-Build virtual/pkgconfig test? ( dev-perl/CPAN-Changes dev-perl/Test-More-UTF8 dev-perl/Test-Pod-Coverage dev-perl/XML-XPath virtual/perl-Test-Simple virtual/perl-Time-HiRes ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=app-emulation/libvirt-9.7.0 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=app-emulation/libvirt-9.7.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=API for using the libvirt library from Perl
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Sys-Virt
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test examples
 KEYWORDS=amd64 ~ppc64 x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=>=app-emulation/libvirt-9.7.0 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=app-emulation/libvirt-9.7.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DA/DANBERR/Sys-Virt-v9.7.0.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=9b114a08ae97a28e080369e5a682e0e6

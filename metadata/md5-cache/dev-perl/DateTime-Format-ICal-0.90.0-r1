@@ -1,6 +1,6 @@
-BDEPEND=>=dev-perl/DateTime-0.170.0 >=dev-perl/DateTime-Event-ICal-0.30.0 >=dev-perl/DateTime-Set-0.100.0 >=dev-perl/DateTime-TimeZone-0.220.0 >=dev-perl/Params-Validate-0.590.0 dev-perl/Module-Build || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-perl/DateTime-0.170.0 >=dev-perl/DateTime-Event-ICal-0.30.0 >=dev-perl/DateTime-Set-0.100.0 >=dev-perl/DateTime-TimeZone-0.220.0 >=dev-perl/Params-Validate-0.590.0 dev-perl/Module-Build >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Module-Build || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=dev-perl/Module-Build >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Parse and format iCal datetime and duration strings
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/DateTime-Format-ICal
@@ -8,8 +8,8 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=>=dev-perl/DateTime-0.170.0 >=dev-perl/DateTime-Event-ICal-0.30.0 >=dev-perl/DateTime-Set-0.100.0 >=dev-perl/DateTime-TimeZone-0.220.0 >=dev-perl/Params-Validate-0.590.0 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-perl/DateTime-0.170.0 >=dev-perl/DateTime-Event-ICal-0.30.0 >=dev-perl/DateTime-Set-0.100.0 >=dev-perl/DateTime-TimeZone-0.220.0 >=dev-perl/Params-Validate-0.590.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DR/DROLSKY/DateTime-Format-ICal-0.09.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=ade51e3f313334eabb2459c63ce7e5bf

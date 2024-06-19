@@ -1,6 +1,6 @@
-BDEPEND=virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-perl/Dist-Milla dev-perl/Dist-Zilla dev-perl/Dist-Zilla-Plugin-Run dev-perl/Perl-Version dev-perl/App-FatPacker dev-perl/Module-Install dev-perl/Module-Signature dev-perl/Perl-Strip || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) dev-perl/Dist-Milla dev-perl/Dist-Zilla dev-perl/Dist-Zilla-Plugin-Run dev-perl/Perl-Version dev-perl/App-FatPacker dev-perl/Module-Install dev-perl/Module-Signature dev-perl/Perl-Strip >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Get, unpack, build and install modules from CPAN
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/App-cpanminus
@@ -8,8 +8,8 @@ INHERIT=perl-module git-r3
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
 LICENSE=|| ( Artistic GPL-1+ )
 PROPERTIES=live
-RDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138	git-r3	fbb2889c81f3a05910c1524db69425c1
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	git-r3	fbb2889c81f3a05910c1524db69425c1
 _md5_=b50fcd3c4356fd6a933ed19698a369f0

@@ -1,6 +1,6 @@
-BDEPEND=>=dev-perl/glib-perl-1.12.0 >=dev-perl/Gtk2-1.12.0 gnome-base/libglade:2.0 x11-libs/gtk+:2 dev-perl/ExtUtils-Depends dev-perl/ExtUtils-PkgConfig virtual/pkgconfig || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=>=dev-perl/glib-perl-1.12.0 >=dev-perl/Gtk2-1.12.0 gnome-base/libglade:2.0 x11-libs/gtk+:2 dev-perl/ExtUtils-Depends dev-perl/ExtUtils-PkgConfig virtual/pkgconfig >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=gnome-base/libglade:2.0 x11-libs/gtk+:2 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=gnome-base/libglade:2.0 x11-libs/gtk+:2 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Perl wrappers for the egg cup Gtk2::TrayIcon utilities
 EAPI=8
 HOMEPAGE=https://gtk2-perl.sf.net/ https://metacpan.org/release/Gtk2-TrayIcon
@@ -8,9 +8,9 @@ INHERIT=perl-module virtualx
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test examples test
 KEYWORDS=amd64 ~ia64 ~ppc ~sparc x86
 LICENSE=LGPL-2
-RDEPEND=>=dev-perl/glib-perl-1.12.0 >=dev-perl/Gtk2-1.12.0 gnome-base/libglade:2.0 x11-libs/gtk+:2 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-perl/glib-perl-1.12.0 >=dev-perl/Gtk2-1.12.0 gnome-base/libglade:2.0 x11-libs/gtk+:2 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/X/XA/XAOC/Gtk2-TrayIcon-0.07.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	virtualx	817571665ee28575da44ee08135089e5
 _md5_=32bdf7d0c3e357a0ff0555f72e25732f

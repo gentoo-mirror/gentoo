@@ -1,6 +1,6 @@
-BDEPEND=dev-perl/DateTime dev-perl/Any-Moose dev-perl/UNIVERSAL-require dev-perl/XML-LibXML test? ( dev-perl/YAML dev-perl/Spiffy dev-perl/Test-Base virtual/perl-Test-Simple ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=dev-perl/DateTime dev-perl/Any-Moose dev-perl/UNIVERSAL-require dev-perl/XML-LibXML test? ( dev-perl/YAML dev-perl/Spiffy dev-perl/Test-Base virtual/perl-Test-Simple ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=(de)serializer perl module for Adobe's AMF (Action Message Format)
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Data-AMF
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=amd64 x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=dev-perl/DateTime dev-perl/Any-Moose dev-perl/UNIVERSAL-require dev-perl/XML-LibXML || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=dev-perl/DateTime dev-perl/Any-Moose dev-perl/UNIVERSAL-require dev-perl/XML-LibXML >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/T/TY/TYPESTER/Data-AMF-0.09.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=67f23698a2b8a16b756f0444ae286b5a

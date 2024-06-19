@@ -1,6 +1,6 @@
-BDEPEND=>=dev-perl/Alien-Gnuplot-1.31.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-IO dev-perl/IPC-Run virtual/perl-Scalar-List-Utils dev-perl/PDL dev-perl/PDL-Transform-Color dev-perl/Safe-Isa virtual/perl-Storable virtual/perl-Time-HiRes sci-visualization/gnuplot >=virtual/perl-ExtUtils-MakeMaker-6.480.0 test? ( virtual/perl-Test-Simple ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=dev-perl/Alien-Gnuplot-1.31.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-IO dev-perl/IPC-Run virtual/perl-Scalar-List-Utils dev-perl/PDL dev-perl/PDL-Transform-Color dev-perl/Safe-Isa virtual/perl-Storable virtual/perl-Time-HiRes sci-visualization/gnuplot >=virtual/perl-ExtUtils-MakeMaker-6.480.0 test? ( virtual/perl-Test-Simple ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Gnuplot-based plotting for PDL
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/PDL-Graphics-Gnuplot
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=>=dev-perl/Alien-Gnuplot-1.31.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-IO dev-perl/IPC-Run virtual/perl-Scalar-List-Utils dev-perl/PDL dev-perl/PDL-Transform-Color dev-perl/Safe-Isa virtual/perl-Storable virtual/perl-Time-HiRes sci-visualization/gnuplot || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-perl/Alien-Gnuplot-1.31.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-IO dev-perl/IPC-Run virtual/perl-Scalar-List-Utils dev-perl/PDL dev-perl/PDL-Transform-Color dev-perl/Safe-Isa virtual/perl-Storable virtual/perl-Time-HiRes sci-visualization/gnuplot >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETJ/PDL-Graphics-Gnuplot-2.026.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=feb65ccbc40b6216299f9c3aec28c39b

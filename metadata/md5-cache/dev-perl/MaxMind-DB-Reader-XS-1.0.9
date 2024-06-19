@@ -1,6 +1,6 @@
-BDEPEND=dev-libs/libmaxminddb:= dev-perl/Math-Int128 dev-perl/Math-Int64 dev-perl/MaxMind-DB-Reader >=dev-perl/MaxMind-DB-Common-0.40.1 dev-perl/Moo virtual/perl-XSLoader dev-perl/namespace-autoclean >=dev-perl/Module-Build-0.280.0 test? ( virtual/perl-ExtUtils-MakeMaker virtual/perl-File-Spec dev-perl/Module-Implementation >=dev-perl/Net-Works-0.210.0 >=dev-perl/Path-Class-0.270.0 dev-perl/Test-Fatal dev-perl/Test-Number-Delta dev-perl/Test-Requires >=virtual/perl-Test-Simple-0.960.0 virtual/perl-autodie virtual/perl-version ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=dev-libs/libmaxminddb:= dev-perl/Math-Int128 dev-perl/Math-Int64 dev-perl/MaxMind-DB-Reader >=dev-perl/MaxMind-DB-Common-0.40.1 dev-perl/Moo virtual/perl-XSLoader dev-perl/namespace-autoclean >=dev-perl/Module-Build-0.280.0 test? ( virtual/perl-ExtUtils-MakeMaker virtual/perl-File-Spec dev-perl/Module-Implementation >=dev-perl/Net-Works-0.210.0 >=dev-perl/Path-Class-0.270.0 dev-perl/Test-Fatal dev-perl/Test-Number-Delta dev-perl/Test-Requires >=virtual/perl-Test-Simple-0.960.0 virtual/perl-autodie virtual/perl-version ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-perl/Module-Build-0.280.0 dev-libs/libmaxminddb:= || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-perl/Module-Build-0.280.0 dev-libs/libmaxminddb:= >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Fast XS implementation of MaxMind DB reader
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/MaxMind-DB-Reader-XS
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64
 LICENSE=Artistic-2
-RDEPEND=dev-libs/libmaxminddb:= dev-perl/Math-Int128 dev-perl/Math-Int64 dev-perl/MaxMind-DB-Reader >=dev-perl/MaxMind-DB-Common-0.40.1 dev-perl/Moo virtual/perl-XSLoader dev-perl/namespace-autoclean || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=dev-libs/libmaxminddb:= dev-perl/Math-Int128 dev-perl/Math-Int64 dev-perl/MaxMind-DB-Reader >=dev-perl/MaxMind-DB-Common-0.40.1 dev-perl/Moo virtual/perl-XSLoader dev-perl/namespace-autoclean >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MA/MAXMIND/MaxMind-DB-Reader-XS-1.000009.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=29e99b75b32a43ca4daaa79ac1b5c2e3

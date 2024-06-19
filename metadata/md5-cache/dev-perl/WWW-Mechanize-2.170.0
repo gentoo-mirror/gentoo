@@ -1,6 +1,6 @@
-BDEPEND=virtual/perl-Carp virtual/perl-Getopt-Long >=dev-perl/HTML-Form-6.80.0 dev-perl/HTML-Parser >=dev-perl/HTML-Tree-5 dev-perl/HTTP-Cookies >=dev-perl/HTTP-Message-1.300.0 >=dev-perl/libwww-perl-6.450.0 >=virtual/perl-Scalar-List-Utils-1.140.0 virtual/perl-Tie-RefHash dev-perl/URI virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-File-Spec virtual/perl-File-Temp >=dev-perl/HTTP-Daemon-6.120.0 dev-perl/Path-Tiny dev-perl/Test-Deep dev-perl/Test-Fatal dev-perl/Test-Memory-Cycle dev-perl/Test-Output >=virtual/perl-Test-Simple-0.960.0 dev-perl/Test-Taint dev-perl/Test-Warnings ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=virtual/perl-Carp virtual/perl-Getopt-Long >=dev-perl/HTML-Form-6.80.0 dev-perl/HTML-Parser >=dev-perl/HTML-Tree-5 dev-perl/HTTP-Cookies >=dev-perl/HTTP-Message-1.300.0 >=dev-perl/libwww-perl-6.450.0 >=virtual/perl-Scalar-List-Utils-1.140.0 virtual/perl-Tie-RefHash dev-perl/URI virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-File-Spec virtual/perl-File-Temp >=dev-perl/HTTP-Daemon-6.120.0 dev-perl/Path-Tiny dev-perl/Test-Deep dev-perl/Test-Fatal dev-perl/Test-Memory-Cycle dev-perl/Test-Output >=virtual/perl-Test-Simple-0.960.0 dev-perl/Test-Taint dev-perl/Test-Warnings ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Handy web browsing in a Perl object
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/WWW-Mechanize
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=amd64 ~arm ppc ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=virtual/perl-Carp virtual/perl-Getopt-Long >=dev-perl/HTML-Form-6.80.0 dev-perl/HTML-Parser >=dev-perl/HTML-Tree-5 dev-perl/HTTP-Cookies >=dev-perl/HTTP-Message-1.300.0 >=dev-perl/libwww-perl-6.450.0 >=virtual/perl-Scalar-List-Utils-1.140.0 virtual/perl-Tie-RefHash dev-perl/URI || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=virtual/perl-Carp virtual/perl-Getopt-Long >=dev-perl/HTML-Form-6.80.0 dev-perl/HTML-Parser >=dev-perl/HTML-Tree-5 dev-perl/HTTP-Cookies >=dev-perl/HTTP-Message-1.300.0 >=dev-perl/libwww-perl-6.450.0 >=virtual/perl-Scalar-List-Utils-1.140.0 virtual/perl-Tie-RefHash dev-perl/URI >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/S/SI/SIMBABQUE/WWW-Mechanize-2.17.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=1545b3c43c5922931987ad553e120939

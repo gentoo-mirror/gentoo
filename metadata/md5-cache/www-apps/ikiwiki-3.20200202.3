@@ -1,6 +1,6 @@
-BDEPEND=test? ( dev-perl/File-chdir dev-perl/File-ReadBackwards dev-perl/File-MimeInfo dev-perl/HTML-LinkExtractor dev-perl/HTML-Tree dev-perl/Net-OpenID-Consumer dev-perl/RPC-XML dev-perl/XML-Feed dev-perl/XML-Twig dev-vcs/cvs[server] dev-vcs/cvsps ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=test? ( dev-perl/File-chdir dev-perl/File-ReadBackwards dev-perl/File-MimeInfo dev-perl/HTML-LinkExtractor dev-perl/HTML-Tree dev-perl/Net-OpenID-Consumer dev-perl/RPC-XML dev-perl/XML-Feed dev-perl/XML-Twig dev-vcs/cvs[server] dev-vcs/cvsps ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-lang/perl-5.10 app-text/po4a dev-perl/HTML-Parser dev-perl/HTML-Scrubber dev-perl/HTML-Template dev-perl/URI dev-perl/Text-Markdown dev-perl/TimeDate dev-perl/YAML-LibYAML || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.10 app-text/po4a dev-perl/HTML-Parser dev-perl/HTML-Scrubber dev-perl/HTML-Template dev-perl/URI dev-perl/Text-Markdown dev-perl/TimeDate dev-perl/YAML-LibYAML >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=A wiki compiler
 EAPI=8
 HOMEPAGE=http://ikiwiki.info/
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=extras minimal test perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=dev-lang/perl-5.10 app-text/po4a dev-perl/HTML-Parser dev-perl/HTML-Scrubber dev-perl/HTML-Template dev-perl/URI dev-perl/Text-Markdown dev-perl/TimeDate dev-perl/YAML-LibYAML !minimal? ( dev-perl/CGI >=dev-perl/CGI-FormBuilder-3.0202 >=dev-perl/CGI-Session-4.14 dev-perl/Mail-Sendmail dev-perl/Term-ReadLine-Gnu dev-perl/XML-Simple media-gfx/imagemagick[perl] extras? ( dev-python/docutils dev-perl/Digest-SHA1 dev-perl/File-MimeInfo dev-perl/RPC-XML dev-perl/XML-Feed dev-perl/LWPx-ParanoidAgent dev-perl/Net-OpenID-Consumer ) ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-lang/perl-5.10 app-text/po4a dev-perl/HTML-Parser dev-perl/HTML-Scrubber dev-perl/HTML-Template dev-perl/URI dev-perl/Text-Markdown dev-perl/TimeDate dev-perl/YAML-LibYAML !minimal? ( dev-perl/CGI >=dev-perl/CGI-FormBuilder-3.0202 >=dev-perl/CGI-Session-4.14 dev-perl/Mail-Sendmail dev-perl/Term-ReadLine-Gnu dev-perl/XML-Simple media-gfx/imagemagick[perl] extras? ( dev-python/docutils dev-perl/Digest-SHA1 dev-perl/File-MimeInfo dev-perl/RPC-XML dev-perl/XML-Feed dev-perl/LWPx-ParanoidAgent dev-perl/Net-OpenID-Consumer ) ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/i/ikiwiki/ikiwiki_3.20200202.3.orig.tar.xz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=5781c0ba7047088522585686c03fce0a

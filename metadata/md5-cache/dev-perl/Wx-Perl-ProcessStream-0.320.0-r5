@@ -1,6 +1,6 @@
-BDEPEND=x11-libs/wxGTK:3.2-gtk3 >=dev-perl/Wx-0.97.01 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=x11-libs/wxGTK:3.2-gtk3 >=dev-perl/Wx-0.97.01 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=x11-libs/wxGTK:3.2-gtk3 >=dev-perl/Wx-0.97.01 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=x11-libs/wxGTK:3.2-gtk3 >=dev-perl/Wx-0.97.01 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=access IO of external processes via events
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Wx-Perl-ProcessStream
@@ -8,9 +8,9 @@ INHERIT=wxwidgets perl-module virtualx
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test test
 KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=x11-libs/wxGTK:3.2-gtk3 >=dev-perl/Wx-0.97.01 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=x11-libs/wxGTK:3.2-gtk3 >=dev-perl/Wx-0.97.01 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MD/MDOOTSON/Wx-Perl-ProcessStream-0.32.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	07f7f317d867e5d5aa30fdeb6e873138	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	virtualx	817571665ee28575da44ee08135089e5
 _md5_=4ca9ceee0448dbd8c4f62bbd70f31ec2

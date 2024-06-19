@@ -1,6 +1,6 @@
-BDEPEND=>=dev-perl/Data-Section-0.4.0 >=dev-perl/Dist-Zilla-4.300.39 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Sub-Exporter-ForMethods dev-perl/namespace-autoclean virtual/perl-ExtUtils-MakeMaker >=dev-perl/Module-Build-Tiny-0.34.0 test? ( virtual/perl-CPAN-Meta-Requirements >=dev-perl/CPAN-Meta-Check-0.11.0 virtual/perl-File-Spec >=dev-perl/File-pushd-1.4.0 virtual/perl-IO >=virtual/perl-Module-CoreList-2.770.0 virtual/perl-Module-Metadata >=dev-perl/Perl-PrereqScanner-1.16.0 dev-perl/Test-Deep dev-perl/Test-MinimumVersion >=virtual/perl-Test-Simple-0.960.0 >=dev-perl/Test-Warnings-0.9.0 virtual/perl-if virtual/perl-version ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-perl/Data-Section-0.4.0 >=dev-perl/Dist-Zilla-4.300.39 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Sub-Exporter-ForMethods dev-perl/namespace-autoclean virtual/perl-ExtUtils-MakeMaker >=dev-perl/Module-Build-Tiny-0.34.0 test? ( virtual/perl-CPAN-Meta-Requirements >=dev-perl/CPAN-Meta-Check-0.11.0 virtual/perl-File-Spec >=dev-perl/File-pushd-1.4.0 virtual/perl-IO >=virtual/perl-Module-CoreList-2.770.0 virtual/perl-Module-Metadata >=dev-perl/Perl-PrereqScanner-1.16.0 dev-perl/Test-Deep dev-perl/Test-MinimumVersion >=virtual/perl-Test-Simple-0.960.0 >=dev-perl/Test-Warnings-0.9.0 virtual/perl-if virtual/perl-version ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Module-Build-Tiny || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=dev-perl/Module-Build-Tiny >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Common tests to check syntax of your modules, using only core modules
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Dist-Zilla-Plugin-Test-Compile
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=>=dev-perl/Data-Section-0.4.0 >=dev-perl/Dist-Zilla-4.300.39 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Sub-Exporter-ForMethods dev-perl/namespace-autoclean || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-perl/Data-Section-0.4.0 >=dev-perl/Dist-Zilla-4.300.39 dev-perl/Moose dev-perl/Path-Tiny dev-perl/Sub-Exporter-ForMethods dev-perl/namespace-autoclean >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETHER/Dist-Zilla-Plugin-Test-Compile-2.058.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=a2ce332b69b49061c0f1f45165f36000

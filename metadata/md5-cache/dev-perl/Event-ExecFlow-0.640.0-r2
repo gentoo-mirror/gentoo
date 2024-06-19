@@ -1,6 +1,6 @@
-BDEPEND=>=dev-perl/AnyEvent-0.400.0 dev-perl/libintl-perl virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-perl/AnyEvent-0.400.0 dev-perl/libintl-perl virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-Test-Simple ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=High level API for event-based execution flow control
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Event-ExecFlow
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=amd64 ppc ppc64 sparc x86
 LICENSE=|| ( Artistic GPL-1+ ) LGPL-2.1+
-RDEPEND=>=dev-perl/AnyEvent-0.400.0 dev-perl/libintl-perl || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=dev-perl/AnyEvent-0.400.0 dev-perl/libintl-perl >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JR/JRED/Event-ExecFlow-0.64.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=9a50efdc8b8bf4574ac3a97a8359f911

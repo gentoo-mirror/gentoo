@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=acct-group/gnump3d acct-user/gnump3d || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=acct-group/gnump3d acct-user/gnump3d >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Streaming server for MP3, OGG vorbis and other streamable files
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/gnump3d/
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=sox perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~alpha amd64 ~ppc ppc64 sparc x86
 LICENSE=GPL-2+ || ( Artistic GPL-1+ )
-RDEPEND=acct-group/gnump3d acct-user/gnump3d sox? ( media-sound/sox ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=acct-group/gnump3d acct-user/gnump3d sox? ( media-sound/sox ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://savannah.gnu.org/download/gnump3d/gnump3d-3.0.tar.bz2
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=0044e3fcdd85e88c95df65f64355b6a7

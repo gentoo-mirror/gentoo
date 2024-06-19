@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=!minimal? ( dev-perl/Pod-Markdown dev-perl/Pod-Markdown-Github dev-perl/Pod-Simple-LaTeX dev-perl/Type-Tiny-XS virtual/perl-podlators ) >=dev-perl/CPAN-Changes-0.300.0 virtual/perl-CPAN-Meta dev-perl/Class-Method-Modifiers dev-perl/File-Slurp dev-perl/Getopt-Long-Descriptive virtual/perl-Module-CoreList dev-perl/Moo dev-perl/MooX-HandlesVia dev-perl/Path-Tiny virtual/perl-Pod-Simple dev-perl/Role-Tiny >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Try-Tiny >=dev-perl/Type-Tiny-1.0.0 dev-perl/namespace-autoclean virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/IO-String virtual/perl-Module-Metadata dev-perl/Test-Deep dev-perl/Test-Exception dev-perl/Test-Kit virtual/perl-Test-Simple ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=!minimal? ( dev-perl/Pod-Markdown dev-perl/Pod-Markdown-Github dev-perl/Pod-Simple-LaTeX dev-perl/Type-Tiny-XS virtual/perl-podlators ) >=dev-perl/CPAN-Changes-0.300.0 virtual/perl-CPAN-Meta dev-perl/Class-Method-Modifiers dev-perl/File-Slurp dev-perl/Getopt-Long-Descriptive virtual/perl-Module-CoreList dev-perl/Moo dev-perl/MooX-HandlesVia dev-perl/Path-Tiny virtual/perl-Pod-Simple dev-perl/Role-Tiny >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Try-Tiny >=dev-perl/Type-Tiny-1.0.0 dev-perl/namespace-autoclean virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/IO-String virtual/perl-Module-Metadata dev-perl/Test-Deep dev-perl/Test-Exception dev-perl/Test-Kit virtual/perl-Test-Simple ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Intelligently generate a README file from POD
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Pod-Readme
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=minimal test perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=amd64 x86 ~x64-macos
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=!minimal? ( dev-perl/Pod-Markdown dev-perl/Pod-Markdown-Github dev-perl/Pod-Simple-LaTeX dev-perl/Type-Tiny-XS virtual/perl-podlators ) >=dev-perl/CPAN-Changes-0.300.0 virtual/perl-CPAN-Meta dev-perl/Class-Method-Modifiers dev-perl/File-Slurp dev-perl/Getopt-Long-Descriptive virtual/perl-Module-CoreList dev-perl/Moo dev-perl/MooX-HandlesVia dev-perl/Path-Tiny virtual/perl-Pod-Simple dev-perl/Role-Tiny >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Try-Tiny >=dev-perl/Type-Tiny-1.0.0 dev-perl/namespace-autoclean || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=!minimal? ( dev-perl/Pod-Markdown dev-perl/Pod-Markdown-Github dev-perl/Pod-Simple-LaTeX dev-perl/Type-Tiny-XS virtual/perl-podlators ) >=dev-perl/CPAN-Changes-0.300.0 virtual/perl-CPAN-Meta dev-perl/Class-Method-Modifiers dev-perl/File-Slurp dev-perl/Getopt-Long-Descriptive virtual/perl-Module-CoreList dev-perl/Moo dev-perl/MooX-HandlesVia dev-perl/Path-Tiny virtual/perl-Pod-Simple dev-perl/Role-Tiny >=virtual/perl-Scalar-List-Utils-1.330.0 dev-perl/Try-Tiny >=dev-perl/Type-Tiny-1.0.0 dev-perl/namespace-autoclean >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RR/RRWO/Pod-Readme-v1.2.3.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=4f06ffe55be72a1767b5f96ef639802c

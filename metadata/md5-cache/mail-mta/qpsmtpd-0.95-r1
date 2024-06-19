@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=qpsmtpd is a flexible smtpd daemon written in Perl
 EAPI=7
 HOMEPAGE=https://smtpd.github.io/qpsmtpd/
@@ -8,8 +8,8 @@ INHERIT=perl-module
 IUSE=postfix ipv6 syslog perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=acct-group/smtpd acct-user/smtpd dev-lang/perl dev-perl/Danga-Socket dev-perl/IPC-Shareable dev-perl/MailTools dev-perl/Net-DNS dev-perl/ParaDNS dev-perl/Socket6 dev-perl/UNIVERSAL-isa postfix? ( acct-group/postdrop ) virtual/inetd virtual/perl-MIME-Base64 ipv6? ( dev-perl/IO-Socket-INET6 ) syslog? ( virtual/perl-Sys-Syslog ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=acct-group/smtpd acct-user/smtpd dev-lang/perl dev-perl/Danga-Socket dev-perl/IPC-Shareable dev-perl/MailTools dev-perl/Net-DNS dev-perl/ParaDNS dev-perl/Socket6 dev-perl/UNIVERSAL-isa postfix? ( acct-group/postdrop ) virtual/inetd virtual/perl-MIME-Base64 ipv6? ( dev-perl/IO-Socket-INET6 ) syslog? ( virtual/perl-Sys-Syslog ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 SLOT=0
 SRC_URI=https://github.com/smtpd/qpsmtpd/archive/v0.95.tar.gz -> qpsmtpd-0.95.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=56f1bc0c8208274ad3ae07679b9c3ceb

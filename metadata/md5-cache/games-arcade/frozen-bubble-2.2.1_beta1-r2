@@ -1,6 +1,6 @@
-BDEPEND=dev-perl/Locale-Maketext-Lexicon dev-perl/Module-Build virtual/perl-ExtUtils-CBuilder virtual/perl-ExtUtils-ParseXS virtual/pkgconfig || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=dev-perl/Locale-Maketext-Lexicon dev-perl/Module-Build virtual/perl-ExtUtils-CBuilder virtual/perl-ExtUtils-ParseXS virtual/pkgconfig >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-lang/perl dev-libs/glib:2 >=dev-perl/Alien-SDL-1.413 dev-perl/Compress-Bzip2 dev-perl/File-ShareDir dev-perl/File-Slurp dev-perl/File-Which dev-perl/IPC-System-Simple >=dev-perl/SDL-2.511 media-libs/sdl-image[gif,png] media-libs/sdl-mixer[vorbis] media-libs/sdl-pango media-libs/sdl-ttf virtual/libiconv virtual/perl-Getopt-Long virtual/perl-IO || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=dev-lang/perl dev-libs/glib:2 >=dev-perl/Alien-SDL-1.413 dev-perl/Compress-Bzip2 dev-perl/File-ShareDir dev-perl/File-Slurp dev-perl/File-Which dev-perl/IPC-System-Simple >=dev-perl/SDL-2.511 media-libs/sdl-image[gif,png] media-libs/sdl-mixer[vorbis] media-libs/sdl-pango media-libs/sdl-ttf virtual/libiconv virtual/perl-Getopt-Long virtual/perl-IO >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=A Puzzle Bubble clone written in perl (now with network support)
 EAPI=8
 HOMEPAGE=http://www.frozen-bubble.org/
@@ -9,9 +9,9 @@ INHERIT=desktop perl-module toolchain-funcs xdg
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/perl dev-libs/glib:2 >=dev-perl/Alien-SDL-1.413 dev-perl/Compress-Bzip2 dev-perl/File-ShareDir dev-perl/File-Slurp dev-perl/File-Which dev-perl/IPC-System-Simple >=dev-perl/SDL-2.511 media-libs/sdl-image[gif,png] media-libs/sdl-mixer[vorbis] media-libs/sdl-pango media-libs/sdl-ttf virtual/libiconv virtual/perl-Getopt-Long virtual/perl-IO || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=dev-lang/perl dev-libs/glib:2 >=dev-perl/Alien-SDL-1.413 dev-perl/Compress-Bzip2 dev-perl/File-ShareDir dev-perl/File-Slurp dev-perl/File-Which dev-perl/IPC-System-Simple >=dev-perl/SDL-2.511 media-libs/sdl-image[gif,png] media-libs/sdl-mixer[vorbis] media-libs/sdl-pango media-libs/sdl-ttf virtual/libiconv virtual/perl-Getopt-Long virtual/perl-IO >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://www.frozen-bubble.org/data/frozen-bubble-2.2.1-beta1.tar.bz2
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=b3fd3590a25edc75dd27fbbddd227a43

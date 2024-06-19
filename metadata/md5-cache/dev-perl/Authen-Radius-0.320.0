@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=virtual/perl-Data-Dumper-1.0.0 >=dev-perl/Data-HexDump-0.20.0 >=virtual/perl-Digest-MD5-2.200.0 >=virtual/perl-IO-1.120.0 >=dev-perl/Net-IP-1.260.0 >=virtual/perl-ExtUtils-MakeMaker-6.640.0 test? ( dev-perl/Test-NoWarnings virtual/perl-Test-Simple ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=virtual/perl-Data-Dumper-1.0.0 >=dev-perl/Data-HexDump-0.20.0 >=virtual/perl-Digest-MD5-2.200.0 >=virtual/perl-IO-1.120.0 >=dev-perl/Net-IP-1.260.0 >=virtual/perl-ExtUtils-MakeMaker-6.640.0 test? ( dev-perl/Test-NoWarnings virtual/perl-Test-Simple ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Communicate with a Radius server from Perl
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Authen-Radius
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath examples
 KEYWORDS=amd64 ~hppa ~sparc x86
 LICENSE=Artistic-2
-RDEPEND=>=virtual/perl-Data-Dumper-1.0.0 >=dev-perl/Data-HexDump-0.20.0 >=virtual/perl-Digest-MD5-2.200.0 >=virtual/perl-IO-1.120.0 >=dev-perl/Net-IP-1.260.0 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=virtual/perl-Data-Dumper-1.0.0 >=dev-perl/Data-HexDump-0.20.0 >=virtual/perl-Digest-MD5-2.200.0 >=virtual/perl-IO-1.120.0 >=dev-perl/Net-IP-1.260.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/P/PO/PORTAONE/Authen-Radius-0.32.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=fd089c7aea87400d17d9ddb998b5b03d

@@ -1,6 +1,6 @@
-BDEPEND=>=virtual/perl-Archive-Tar-1.0.0 >=dev-perl/Archive-Zip-1.300.0 >=dev-perl/CPAN-DistnameInfo-0.120.0 >=virtual/perl-CPAN-Meta-2.100.0 virtual/perl-Carp >=virtual/perl-Digest-1.30.0 >=virtual/perl-Digest-MD5-2.0.0 >=virtual/perl-Digest-SHA-5.0.0 >=dev-perl/File-Spec-Native-1.2.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-Module-Metadata >=dev-perl/Path-Class-0.240.0 virtual/perl-Scalar-List-Utils >=dev-perl/Try-Tiny-0.90.0 virtual/perl-parent virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-CPAN-Meta-2.120.900 virtual/perl-File-Spec virtual/perl-IO dev-perl/Test-Fatal >=dev-perl/Test-MockObject-1.90.0 >=virtual/perl-Test-Simple-0.960.0 ) || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=virtual/perl-Archive-Tar-1.0.0 >=dev-perl/Archive-Zip-1.300.0 >=dev-perl/CPAN-DistnameInfo-0.120.0 >=virtual/perl-CPAN-Meta-2.100.0 virtual/perl-Carp >=virtual/perl-Digest-1.30.0 >=virtual/perl-Digest-MD5-2.0.0 >=virtual/perl-Digest-SHA-5.0.0 >=dev-perl/File-Spec-Native-1.2.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-Module-Metadata >=dev-perl/Path-Class-0.240.0 virtual/perl-Scalar-List-Utils >=dev-perl/Try-Tiny-0.90.0 virtual/perl-parent virtual/perl-ExtUtils-MakeMaker test? ( >=virtual/perl-CPAN-Meta-2.120.900 virtual/perl-File-Spec virtual/perl-IO dev-perl/Test-Fatal >=dev-perl/Test-MockObject-1.90.0 >=virtual/perl-Test-Simple-0.960.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Information about a perl module distribution
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Dist-Metadata
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=>=virtual/perl-Archive-Tar-1.0.0 >=dev-perl/Archive-Zip-1.300.0 >=dev-perl/CPAN-DistnameInfo-0.120.0 >=virtual/perl-CPAN-Meta-2.100.0 virtual/perl-Carp >=virtual/perl-Digest-1.30.0 >=virtual/perl-Digest-MD5-2.0.0 >=virtual/perl-Digest-SHA-5.0.0 >=dev-perl/File-Spec-Native-1.2.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-Module-Metadata >=dev-perl/Path-Class-0.240.0 virtual/perl-Scalar-List-Utils >=dev-perl/Try-Tiny-0.90.0 virtual/perl-parent || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=virtual/perl-Archive-Tar-1.0.0 >=dev-perl/Archive-Zip-1.300.0 >=dev-perl/CPAN-DistnameInfo-0.120.0 >=virtual/perl-CPAN-Meta-2.100.0 virtual/perl-Carp >=virtual/perl-Digest-1.30.0 >=virtual/perl-Digest-MD5-2.0.0 >=virtual/perl-Digest-SHA-5.0.0 >=dev-perl/File-Spec-Native-1.2.0 >=virtual/perl-File-Temp-0.190.0 virtual/perl-Module-Metadata >=dev-perl/Path-Class-0.240.0 virtual/perl-Scalar-List-Utils >=dev-perl/Try-Tiny-0.90.0 virtual/perl-parent >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RW/RWSTAUNER/Dist-Metadata-0.927.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
 _md5_=2badd5794136a521e2a3d2f141432515

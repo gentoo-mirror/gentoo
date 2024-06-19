@@ -1,6 +1,6 @@
-BDEPEND=>=app-editors/emacs-23.1:* >=dev-perl/Module-Build-0.420.0 || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=app-editors/emacs-23.1:* >=dev-perl/Module-Build-0.420.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Module-Build || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+DEPEND=dev-perl/Module-Build >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Perl Develop Environment in Emacs
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Emacs-PDE
@@ -8,8 +8,8 @@ INHERIT=perl-module elisp-common
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath
 KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
 LICENSE=|| ( Artistic GPL-1+ ) GPL-2+ FDL-1.1+
-RDEPEND=>=app-editors/emacs-23.1:* || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:=
+RDEPEND=>=app-editors/emacs-23.1:* >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/Y/YE/YEWENBIN/Emacs-PDE-v0.2.17.tar.gz
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138	elisp-common	abb2dda42f680fce87602c8273f832c7
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	elisp-common	abb2dda42f680fce87602c8273f832c7
 _md5_=71af4aab61634d84ddfe5e7612348c53

@@ -1,6 +1,6 @@
-BDEPEND=|| ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 )
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install postinst prepare prerm setup test
-DEPEND==www-servers/apache-2* || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) app-admin/webapp-config
+DEPEND==www-servers/apache-2* >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] app-admin/webapp-config
 DESCRIPTION=Apache gallery for mod_perl
 EAPI=7
 HOMEPAGE=http://apachegallery.dk/
@@ -8,8 +8,8 @@ INHERIT=depend.apache perl-module webapp
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath vhosts
 KEYWORDS=amd64 ppc x86
 LICENSE=|| ( Artistic GPL-2 )
-RDEPEND==dev-lang/perl-5* =www-apache/libapreq2-2*[perl] >=media-libs/imlib2-1.0.6-r1 dev-perl/URI >=dev-perl/Image-Info-1.40.0 >=dev-perl/Image-Size-2.990.0 dev-perl/Text-Template >=dev-perl/CGI-3.08 dev-perl/Image-Imlib2 =www-servers/apache-2* || ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] <dev-lang/perl-5.38.2-r3 ) dev-lang/perl:= app-admin/webapp-config
+RDEPEND==dev-lang/perl-5* =www-apache/libapreq2-2*[perl] >=media-libs/imlib2-1.0.6-r1 dev-perl/URI >=dev-perl/Image-Info-1.40.0 >=dev-perl/Image-Size-2.990.0 dev-perl/Text-Template >=dev-perl/CGI-3.08 dev-perl/Image-Imlib2 =www-servers/apache-2* >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:= app-admin/webapp-config
 SLOT=0
 SRC_URI=http://apachegallery.dk/download/Apache-Gallery-1.0RC3.tar.gz
-_eclasses_=depend.apache	1d51223a0def226481583990f380519c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	07f7f317d867e5d5aa30fdeb6e873138	webapp	de2d3d345b44597c10d7104a7bcdf7b2
+_eclasses_=depend.apache	1d51223a0def226481583990f380519c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	webapp	de2d3d345b44597c10d7104a7bcdf7b2
 _md5_=5f4d1c5a34d0538174716c0bdf4f08b7
