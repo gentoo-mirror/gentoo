@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CHROMIUM_VERSION="120"
+CHROMIUM_VERSION="125"
 CHROMIUM_LANGS="
 	af
 	am
@@ -68,6 +68,7 @@ MY_P="${PN}-v${PV}"
 DESCRIPTION="Framework that lets you call all Node.js modules directly from the DOM"
 HOMEPAGE="https://nwjs.io"
 SRC_URI="amd64? ( https://dl.nwjs.io/v${PV}/${MY_P}-linux-x64.tar.gz )"
+S="${WORKDIR}/${MY_P}-linux-x64"
 
 LICENSE="MIT"
 SLOT="0"
@@ -109,7 +110,6 @@ RDEPEND="
 	ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 "
 
-S="${WORKDIR}/${MY_P}-linux-x64"
 DIR="/opt/${PN}"
 QA_PREBUILT="${DIR#/}/*"
 

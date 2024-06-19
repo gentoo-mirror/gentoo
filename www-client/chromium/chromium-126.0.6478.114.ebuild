@@ -68,7 +68,7 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 systemd toolchain-funcs virtu
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="124.0.6367.207-1raptor0~deb12u1"
+PATCHSET_PPC64="126.0.6478.56-1raptor0~deb12u2"
 PATCH_V="${PV%%\.*}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	system-toolchain? (
@@ -87,8 +87,8 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/beta"
-KEYWORDS="~amd64 ~arm64"
+SLOT="0/stable"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos libcxx +lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
 IUSE+=" qt5 qt6 +screencast selinux +system-toolchain +vaapi +wayland +widevine"
