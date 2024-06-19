@@ -1,12 +1,13 @@
-BDEPEND=>=app-emacs/compat-29.1.4.5 >=app-editors/emacs-25.3:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=app-emacs/compat-29.1.4.5 >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs major modes for editing Git configuration files
 EAPI=8
 HOMEPAGE=https://github.com/magit/git-modes/
-INHERIT=elisp git-r3
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-PROPERTIES=live
 RDEPEND=>=app-emacs/compat-29.1.4.5 >=app-editors/emacs-25.3:*
 SLOT=0
-_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7	git-r3	fbb2889c81f3a05910c1524db69425c1
+SRC_URI=https://github.com/magit/git-modes/archive/v1.4.3.tar.gz -> git-modes-1.4.3.tar.gz
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
 _md5_=f1e196220513b963639084d6f88c26f2

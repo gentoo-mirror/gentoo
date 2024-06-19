@@ -2041,7 +2041,7 @@ app-emacs/geiser-gambit 0.18.1: Gambit Scheme's implementation of the Geiser pro
 app-emacs/geiser-guile 0.28.1: Guile's implementation of the Geiser protocols
 app-emacs/geiser-mit 0.15: MIT/GNU Scheme's implementation of the Geiser protocols
 app-emacs/ghub 3.6.0: Minuscule client library for the Git forge APIs
-app-emacs/git-modes 1.4.2 9999: Emacs major modes for editing Git configuration files
+app-emacs/git-modes 1.4.2 1.4.3 9999: Emacs major modes for editing Git configuration files
 app-emacs/git-timemachine 4.13 9999: Step through historic versions of git controlled files in GNU Emacs
 app-emacs/gnuplot-mode 0.8.0 0.8.1: Gnuplot mode for Emacs
 app-emacs/gnuserv 3.12.8-r8: Attach to an already running Emacs
@@ -2060,7 +2060,7 @@ app-emacs/helm-system-packages 1.10.1 1.10.2: A Helm interface to the package ma
 app-emacs/hexrgb 0_p1019: Functions to manipulate colors, including RGB hex strings
 app-emacs/highlight-indentation 0.7.0_p20210221: Minor modes to highlight indentation guides in Emacs
 app-emacs/highline 7.2.2: Minor mode to highlight current line in buffer
-app-emacs/hl-todo 3.5.0 3.6.0: Highlight TODO and similar keywords in comments and strings
+app-emacs/hl-todo 3.6.0 3.7.0: Highlight TODO and similar keywords in comments and strings
 app-emacs/howm 1.5.0: Note-taking tool on Emacs
 app-emacs/ht 2.3: The missing hash table library for Emacs
 app-emacs/htmlize 1.56: HTML-ize font-lock buffers in Emacs
@@ -2253,7 +2253,7 @@ app-emacs/tempel 1.0 1.1 9999: Templates with in-buffer field editing for GNU Em
 app-emacs/template 3.3b: Use templates, decorate comments, auto-update buffers
 app-emacs/tempo-snippets 0.1.5: Visual insertion of tempo templates
 app-emacs/thinks 1.12: Insert text in a think bubble
-app-emacs/transient 0.6.0 9999: Transient commands abstraction for GNU Emacs
+app-emacs/transient 0.6.0 0.7.0 9999: Transient commands abstraction for GNU Emacs
 app-emacs/treemacs 3.1-r1 3.1_p20240229: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.1: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.2: Generic tree traversing tools for Emacs Lisp
@@ -2287,7 +2287,7 @@ app-emacs/wgrep 3.0.0-r1: Writable grep buffer and apply the changes to files
 app-emacs/which-key 3.6.0: Display the key bindings following your currently entered keys
 app-emacs/whine 20231020: Complaint generator for GNU Emacs
 app-emacs/wikipedia-mode 0.5-r2: Mode for editing Wikipedia articles off-line
-app-emacs/with-editor 3.3.2 9999: Use the Emacsclient as the $EDITOR of child processes
+app-emacs/with-editor 3.3.2 3.3.3 9999: Use the Emacsclient as the $EDITOR of child processes
 app-emacs/with-simulated-input 3.0: Emacs Lisp macro to simulate user input non-interactively
 app-emacs/ws-butler 0.6_p20201117: Unobtrusively trim extraneous white-space *ONLY* in lines edited
 app-emacs/xclip 1.11-r1: Emacs Interface to XClip
@@ -3114,7 +3114,7 @@ app-shells/powerline 2.7-r3 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
 app-shells/pwsh 7.4.1: Cross-platform automation and configuration tool
-app-shells/pwsh-bin 7.4.1 7.4.2: Cross-platform automation and configuration tool (binary package)
+app-shells/pwsh-bin 7.4.2 7.4.3: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r2: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -3842,7 +3842,7 @@ dev-cpp/clhpp 2023.12.14 2024.05.08: Khronos OpenCL C++ bindings
 dev-cpp/cli11 2.4.2: Command line parser for C++11
 dev-cpp/clucene 2.3.3.4-r9: High-performance, full-featured text search engine based off of lucene in C++
 dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration file format
-dev-cpp/cpp-httplib 0.15.3: C++ HTTP/HTTPS server and client library
+dev-cpp/cpp-httplib 0.15.3-r1 0.16.0: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1: C++ library for the Debug Adapter Protocol
 dev-cpp/cppgir 0_p20230926 0_p20240110 2.0_p20240315: GObject-Introspection C++ binding wrapper generator
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
@@ -4044,8 +4044,8 @@ dev-dotnet/dotnet-outdated 4.6.1 4.6.2 4.6.4: Display and update outdated NuGet 
 dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.27-r1 6.0.30 6.0.31 7.0.14-r1 7.0.16-r1 7.0.19 7.0.20 8.0.2-r3 8.0.5-r1 8.0.6-r1: .NET runtime nugets
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.102-r1 8.0.105: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.105 8.0.106 8.0.301: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/fable 4.12.0 4.14.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
+dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.105 8.0.106 8.0.302: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/fable 4.14.0 4.19.3: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 6.3.1 6.3.4 6.3.7 6.3.9: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.71.0 0.73.1 0.73.2: F# language server using the Language Server Protocol
 dev-dotnet/gentoo-dotnet-maintainer-tools 2.4.0 2.4.1 2.9999: Gentoo tools for .NET packages maintenance
@@ -5098,7 +5098,7 @@ dev-java/zxing-core 3.5.1: Core barcode encoding/decoding library
 dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.3.1-r1 4.3.2-r1: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
-dev-lang/algol68g 3.5.1 3.5.2 3.5.3: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.5.1 3.5.2 3.5.3 3.5.4: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.9 2.5.11: Scala language-based scripting and REPL
 dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2: Functional programming language with dependent types
@@ -10661,7 +10661,7 @@ dev-util/aruba 0.6.2-r3 2.1.0 2.2.0: Cucumber steps for driving out command line
 dev-util/astyle 3.1-r2 3.4.8 3.4.9: Artistic Style is a re-indenter and reformatter for C++, C and Java source code
 dev-util/autodia 2.140.0-r2: Parses source code, XML or data and produces an XML document in Dia format
 dev-util/autoproject 0.20_p5 0.20_p15: Start a programming project using autotools and a command line parser generator
-dev-util/azuredatastudio 1.48.0: Data management and development tool from Microsoft
+dev-util/azuredatastudio 1.48.0 1.48.1: Data management and development tool from Microsoft
 dev-util/babeltrace 1.5.8 1.5.11 2.0.5: A command-line tool and library to read and convert trace files
 dev-util/bats 1.10.0 1.11.0: Bats-core: Bash Automated Testing System
 dev-util/bbe 0.2.2-r1: Sed-like editor for binary files

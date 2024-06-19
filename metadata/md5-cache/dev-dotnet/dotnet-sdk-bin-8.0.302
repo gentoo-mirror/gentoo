@@ -1,0 +1,13 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=install postinst postrm prepare
+DESCRIPTION=.NET is a free, cross-platform, open-source developer platform
+EAPI=8
+HOMEPAGE=https://dotnet.microsoft.com/ https://github.com/dotnet/dotnet/
+IDEPEND=app-eselect/eselect-dotnet
+LICENSE=MIT
+PDEPEND=~dev-dotnet/dotnet-runtime-nugets-8.0.6 ~dev-dotnet/dotnet-runtime-nugets-6.0.31 ~dev-dotnet/dotnet-runtime-nugets-7.0.20
+RDEPEND=app-crypt/mit-krb5:0/0 dev-libs/icu dev-util/lttng-ust:0/2.12 sys-libs/zlib:0/1
+RESTRICT=splitdebug strip
+SLOT=8.0/8.0.6
+SRC_URI=amd64? ( elibc_glibc? ( https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.302/dotnet-sdk-8.0.302-linux-x64.tar.gz ) elibc_musl? ( https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.302/dotnet-sdk-8.0.302-linux-musl-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.302/dotnet-sdk-8.0.302-linux-arm.tar.gz ) elibc_musl? ( https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.302/dotnet-sdk-8.0.302-linux-musl-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.302/dotnet-sdk-8.0.302-linux-arm64.tar.gz ) elibc_musl? ( https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.302/dotnet-sdk-8.0.302-linux-musl-arm64.tar.gz ) )
+_md5_=03079740c98f5d331e18a004b89650bd
