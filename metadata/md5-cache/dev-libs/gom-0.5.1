@@ -1,6 +1,6 @@
 BDEPEND=app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-db/sqlite-3.7:3 >=dev-libs/glib-2.38:2 introspection? ( >=dev-libs/gobject-introspection-1.30.0:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/pygobject-3.16:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) virtual/pkgconfig test? ( x11-libs/gdk-pixbuf:2 )
+DEPEND=>=dev-db/sqlite-3.7:3 >=dev-libs/glib-2.38:2 introspection? ( >=dev-libs/gobject-introspection-1.30.0:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/pygobject-3.16:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) gtk-doc? ( dev-util/gi-docgen ) virtual/pkgconfig test? ( x11-libs/gdk-pixbuf:2 )
 DESCRIPTION=GObject to SQLite object mapper library
 EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Projects/Gom
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gom/0.5/gom-0.5.1.tar.xz
 _eclasses_=gnome.org	6b39404f1491c60a2d32e3c693a683fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-r1	428f5c53276c2adc06a89108fc2f9f46
-_md5_=2c06fe901c3c6e0aed78558c01e5591a
+_md5_=dc67ee20de1592238942f2aed017f70f
