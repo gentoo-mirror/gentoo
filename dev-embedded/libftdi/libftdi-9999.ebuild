@@ -15,11 +15,6 @@ else
 	S="${WORKDIR}/${MY_P}"
 
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
-
-	PATCHES=(
-		"${FILESDIR}"/${P}-tests-no-cxx.patch
-		"${FILESDIR}"/${P}-cmake-cxx.patch
-	)
 fi
 
 DESCRIPTION="Userspace access to FTDI USB interface chips"
