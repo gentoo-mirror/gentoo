@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=app-arch/bzip2 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=OCaml bindings for libbz (AKA, bzip2)
+EAPI=8
+HOMEPAGE=https://gitlab.com/irill/camlbz2
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=app-arch/bzip2 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.8.0
+SRC_URI=https://gitlab.com/irill/camlbz2/-/archive/0.8.0/camlbz2-0.8.0.tar.bz2
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=925d082bedc0f9f6cca1fac181eaf447
