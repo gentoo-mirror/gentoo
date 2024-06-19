@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -36,6 +36,12 @@ BDEPEND="
 "
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+
+PATCHES=(
+	# Update for dj-database-url == 2.2.0
+	# https://github.com/jazzband/django-configurations/issues/387
+	"${FILESDIR}/${P}-test.patch"
+)
 
 python_test() {
 	local -x DJANGO_SETTINGS_MODULE=tests.settings.main
