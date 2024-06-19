@@ -5,10 +5,10 @@ EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
-COMMIT="3997177624f6b302bbc8a7edbb6f8a6ab47ea978"
+COMMIT=bc1ee906cede137c061bea5a5e8d0743374392a5
 DESCRIPTION="FFmpeg built specifically for codec support in Chromium-based browsers"
 HOMEPAGE="https://ffmpeg.org/"
-SRC_URI="https://dev.gentoo.org/~chewi/distfiles/${P}.tar.xz"
+SRC_URI="https://deps.gentoo.zip/media-video/${P}.tar.xz"
 
 LICENSE="
 	!gpl? ( LGPL-2.1 )
@@ -16,7 +16,7 @@ LICENSE="
 "
 SLOT="${PV}"
 
-KEYWORDS="amd64 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64"
 
 # Options to use as use_enable in the foo[:bar] form.
 # This will feed configure with $(use_enable foo bar)
@@ -26,8 +26,6 @@ FFMPEG_FLAG_MAP=(
 		cpudetection:runtime-cpudetect debug
 		+gpl
 		vaapi vdpau vulkan
-		# decoders
-		mmal
 		nvenc:ffnvcodec
 		# Threads; we only support pthread for now but ffmpeg supports more
 		+threads:pthreads
@@ -97,16 +95,15 @@ CPU_REQUIRED_USE="
 "
 
 RDEPEND="
-	mmal? ( media-libs/raspberrypi-userland )
 	>=media-libs/opus-1.0.2-r2
 	vaapi? ( >=media-libs/libva-1.2.1-r1:0= )
 	nvenc? ( >=media-libs/nv-codec-headers-11.1.5.3 )
 	vdpau? ( >=x11-libs/libvdpau-0.7 )
-	vulkan? ( >=media-libs/vulkan-loader-1.3.255:= )
+	vulkan? ( >=media-libs/vulkan-loader-1.3.277:= )
 "
 
 DEPEND="${RDEPEND}
-	vulkan? ( >=dev-util/vulkan-headers-1.3.255 )
+	vulkan? ( >=dev-util/vulkan-headers-1.3.277 )
 "
 BDEPEND="
 	>=dev-build/make-3.81
@@ -115,6 +112,7 @@ BDEPEND="
 "
 
 REQUIRED_USE="
+	vulkan? ( threads )
 	${CPU_REQUIRED_USE}"
 RESTRICT="
 	test
