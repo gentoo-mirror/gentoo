@@ -17,8 +17,6 @@ HOMEPAGE="
 SRC_URI="
 	https://github.com/esheldon/fitsio/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz
-	https://github.com/esheldon/fitsio/pull/394.patch
-		-> fitsio-1.2.1-gcc-14.patch
 "
 
 LICENSE="GPL-2+"
@@ -27,20 +25,13 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 DEPEND="
 	>=dev-python/numpy-1.11:=[${PYTHON_USEDEP}]
-	sci-libs/cfitsio:0=
+	>=sci-libs/cfitsio-4.4.0:0=
 "
 RDEPEND="
 	${DEPEND}
 "
 
 distutils_enable_tests pytest
-
-PATCHES=(
-	# https://github.com/esheldon/fitsio/pull/394
-	"${DISTDIR}/${P}-gcc-14.patch"
-	# https://github.com/esheldon/fitsio/pull/390
-	"${FILESDIR}/${P}-numpy-2.patch"
-)
 
 export FITSIO_USE_SYSTEM_FITSIO=1
 
