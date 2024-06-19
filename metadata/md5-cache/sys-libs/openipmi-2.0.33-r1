@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/openipmi/
 INHERIT=autotools python-single-r1
 IUSE=crypt snmp perl python static-libs tcl python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=amd64 ~arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 hppa ~ia64 ~loong ppc ppc64 ~riscv x86
 LICENSE=LGPL-2.1 GPL-2
 RDEPEND=dev-libs/glib:2 dev-libs/popt sys-libs/gdbm:= sys-libs/ncurses:= sys-libs/readline:= crypt? ( dev-libs/openssl:= ) snmp? ( net-analyzer/net-snmp ) perl? ( dev-lang/perl:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) tcl? ( dev-lang/tcl:= )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/openipmi/OpenIPMI-2.0.33.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=490f948e746d6bef2fe2f024651b399c
+_md5_=774e0d3088e365da3fd5bedd93ba61dd
