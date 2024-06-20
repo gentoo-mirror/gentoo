@@ -62,6 +62,8 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="sys-devel/gettext"
 
+PATCHES=( "${FILESDIR}/${P}-timeline-freeze.patch" ) # KDE-bug 488689
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package v4l LibV4L2)
