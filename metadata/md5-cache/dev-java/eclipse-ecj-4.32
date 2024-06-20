@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test
+DEPEND=app-eselect/eselect-java >=dev-java/ant-1.10.14-r3:0 >=virtual/jdk-21:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Eclipse Compiler for Java
+EAPI=8
+HOMEPAGE=https://projects.eclipse.org/projects/eclipse.jdt
+INHERIT=java-pkg-2 java-pkg-simple prefix
+IUSE=doc source
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=EPL-1.0
+RDEPEND=app-eselect/eselect-java >=virtual/jre-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=4.32
+SRC_URI=https://download.eclipse.org/eclipse/downloads/drops4/R-4.32-202406010610/ecjsrc-4.32.jar
+_eclasses_=java-utils-2	09d793abe112f655cd781e4467a6fc10	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9	prefix	eab3c99d77fe00506c109c8a736186f7
+_md5_=da8e77d48e22665f955547cfc7fa0288
