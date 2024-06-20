@@ -6,31 +6,45 @@ EAPI=8
 inherit elisp readme.gentoo-r1
 
 DESCRIPTION="An Emacs mode for notes and project planning"
-HOMEPAGE="https://www.orgmode.org/"
-MY_P="${PN}-release_${PV}"
-SRC_URI="https://git.savannah.gnu.org/cgit/emacs/${PN}.git/snapshot/${MY_P}.tar.gz"
-S="${WORKDIR}"/${MY_P}
+HOMEPAGE="https://orgmode.org/"
+
+if [[ "${PV}" == 9999 ]]; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://git.savannah.gnu.org/git/emacs/${PN}.git"
+	EGIT_CHECKOUT_DIR="${WORKDIR}/org"
+	S="${WORKDIR}/org"
+else
+	MY_P="${PN}-release_${PV}"
+
+	SRC_URI="https://git.savannah.gnu.org/cgit/emacs/${PN}.git/snapshot/${MY_P}.tar.gz"
+	S="${WORKDIR}/${MY_P}"
+
+	KEYWORDS="~amd64 ~ppc ~x86"
+fi
 
 LICENSE="GPL-3+ FDL-1.3+ CC-BY-SA-3.0 odt-schema? ( OASIS-Open )"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
 IUSE="doc odt-schema"
 RESTRICT="test"
 
-BDEPEND="doc? ( virtual/texi2dvi )"
+BDEPEND="
+	doc? ( virtual/texi2dvi )
+"
 
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
 	emake -j1 \
-		ORGVERSION=${PV} \
+		ORGVERSION="${PV}" \
 		datadir="${EPREFIX}${SITEETC}/${PN}"
+
 	use doc && emake -j1 pdf card
 }
 
 src_install() {
-	emake \
-		ORGVERSION=${PV} \
+	emake -j1 \
+		ORGVERSION="${PV}" \
 		DESTDIR="${D}" \
 		ETCDIRS="styles csl $(use odt-schema && echo schema)" \
 		lispdir="${EPREFIX}${SITELISP}/${PN}" \
