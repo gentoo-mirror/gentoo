@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/ocaml:=[ocamlopt?] doc? ( app-text/dvipsk app-text/ghostscript-gpl dev-tex/hevea dev-texlive/texlive-latex www-client/lynx )
+DEFINED_PHASES=compile install postinst postrm prepare test
+DEPEND=gui? ( dev-ml/lablgtk:2=[ocamlopt?] )
+DESCRIPTION=Two-way cross-platform file synchronizer
+EAPI=8
+HOMEPAGE=https://www.seas.upenn.edu/~bcpierce/unison/ https://github.com/bcpierce00/unison/
+IDEPEND=>=app-eselect/eselect-unison-0.4
+INHERIT=desktop xdg-utils
+IUSE=debug doc gui +ocamlopt +threads
+KEYWORDS=amd64 ~arm ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=GPL-2
+RDEPEND=gui? ( dev-ml/lablgtk:2=[ocamlopt?] || ( net-misc/ssh-askpass-fullscreen net-misc/x11-ssh-askpass ) )
+RESTRICT=!ocamlopt? ( strip )
+SLOT=2.51
+SRC_URI=https://github.com/bcpierce00/unison/archive/v2.51.5.tar.gz -> unison-2.51.5.tar.gz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3
+_md5_=9faf19e438d4f7d25a23c0718e604e80
