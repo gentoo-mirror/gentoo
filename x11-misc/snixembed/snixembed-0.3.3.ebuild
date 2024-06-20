@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE="doc"
 
 DEPEND="dev-libs/glib:2
-	dev-libs/libdbusmenu[gtk3]
+	dev-libs/libdbusmenu[gtk3,introspection]
 	x11-libs/gtk+:3"
 RDEPEND="${DEPEND}"
 BDEPEND="$(vala_depend)
@@ -28,9 +28,7 @@ src_prepare() {
 	use doc && local VALA_USE_DEPEND="valadoc"
 	vala_src_prepare
 
-	sed -e "s: .git/HEAD .git/index::" \
-		-e "s:\$(shell git describe --always --tags --dirty):${PV}:" \
-		-e "s:valac :${VALAC} :" \
+	sed -e "s:valac :${VALAC} :" \
 		-e "s:valadoc :${VALADOC} :" \
 		-i makefile || die
 }
@@ -41,7 +39,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}" BINDIR="/usr/bin" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}" BINDIR="/usr/bin" MANDIR="/usr/share/man" install
 	use doc && HTML_DOCS=( doc/. )
 	einstalldocs
 }
