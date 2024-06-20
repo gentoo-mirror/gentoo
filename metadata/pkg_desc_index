@@ -905,7 +905,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.32.117 1.33.4 1.33.9 1.33.10 1.33.11: Universal Command Line Environment for AWS
+app-admin/awscli 1.32.117 1.33.4 1.33.9 1.33.10 1.33.11 1.33.12: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.5.0 2024.6.0: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.6-r1: Distribution-independent installer framework
@@ -8190,7 +8190,7 @@ dev-python/autobahn 23.6.2: WebSocket and WAMP for Twisted and Asyncio
 dev-python/autocommand 2.2.2: Library to create a command-line program from a function
 dev-python/automat 22.10.0: Self-service finite-state machines for the programmer on the go
 dev-python/autopage 0.5.2: A library to provide automatic paging for console output
-dev-python/autopep8 2.1.2 2.2.0 2.3.0: Automatically formats Python code to conform to the PEP 8 style guide
+dev-python/autopep8 2.1.2 2.2.0 2.3.0-r1: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.89.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.13.1 2.14.0: AWS X-Ray SDK for Python
@@ -8224,8 +8224,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.34.117 1.34.122 1.34.127 1.34.128 1.34.129: The AWS SDK for Python
-dev-python/botocore 1.34.117 1.34.122 1.34.127 1.34.128 1.34.129: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.117 1.34.122 1.34.127 1.34.128 1.34.129 1.34.130: The AWS SDK for Python
+dev-python/botocore 1.34.117 1.34.122 1.34.127 1.34.128 1.34.129 1.34.130: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.3.8-r1 1.4.0_rc5 1.4.0: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8255,7 +8255,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3021.3.16-r4: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0 1.17.0_pre20240424 1.17.0_rc1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.87.3 0.87.5 0.87.6 0.87.7: CloudFormation Linter
+dev-python/cfn-lint 0.87.3 0.87.5 0.87.6 0.87.7 1.3.0: CloudFormation Linter
 dev-python/cftime 1.6.3 1.6.4: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4: Fast HTML/XML template compiler for Python
@@ -8368,7 +8368,7 @@ dev-python/django-auth-ldap 4.6.0 4.7.0 4.8.0: Django LDAP authentication backen
 dev-python/django-cache-url 3.4.5: Use Cache URLs in your Django application
 dev-python/django-cacheops 7.0.2: ORM cache with automatic granular event-driven invalidation for Django
 dev-python/django-configurations 2.5.1: A helper for organizing Django settings
-dev-python/django-cors-headers 4.3.1: Django App that adds CORS (Cross-Origin Resource Sharing) headers to responses
+dev-python/django-cors-headers 4.3.1 4.4.0: Django App that adds CORS (Cross-Origin Resource Sharing) headers to responses
 dev-python/django-crispy-forms 2.1 2.2: DRY Django forms
 dev-python/django-debug-toolbar 4.3.0 4.4.1 4.4.2: A configurable set of panels that display various debug information
 dev-python/django-filter 23.5 24.1 24.2: Django app allowing declarative dynamic QuerySet filtering from URL parameters
@@ -8445,7 +8445,7 @@ dev-python/ffmpeg-python 0.2.0_p20220711-r1: Python bindings for FFmpeg with com
 dev-python/fido2 0.9.3-r1 1.1.3: Python based FIDO 2.0 library
 dev-python/fields 5.0.0-r3: Container class boilerplate killer
 dev-python/filebytes 0.10.2 9999: Classes/Types to read and edit executable files
-dev-python/filelock 3.14.0 3.15.1: A platform independent file lock for Python
+dev-python/filelock 3.14.0 3.15.1 3.15.3: A platform independent file lock for Python
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 2.4.0 2.5.0: Python module import analysis tool
 dev-python/findpython 0.6.1: A utility to find python versions on your system
@@ -8505,7 +8505,7 @@ dev-python/gitdb 4.0.11: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5-r2: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.19.0: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.130.0 2.132.0 2.133.0: Google API Client for Python
+dev-python/google-api-python-client 2.130.0 2.132.0 2.133.0 2.134.0: Google API Client for Python
 dev-python/google-auth 2.29.0 2.30.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.0-r1: Google Authentication Library
@@ -8686,7 +8686,7 @@ dev-python/lazy-object-proxy 1.10.0: A fast and thorough lazy object proxy
 dev-python/ldap3 2.9.1: A strictly RFC 4511 conforming LDAP V3 pure Python client
 dev-python/leather 0.4.0: Python charting for 80% of humans
 dev-python/leechcorepyc 2.17.4 2.18.0: Python binding for LeechCore Physical Memory Acquisition Library
-dev-python/legacy-cgi 2.6: Fork of the standard library cgi and cgitb modules (deprecated)
+dev-python/legacy-cgi 2.6 2.6.1: Fork of the standard library cgi and cgitb modules (deprecated)
 dev-python/lesscpy 0.15.1: A compiler written in Python for the LESS language
 dev-python/libarchive-c 5.1: A Python interface to libarchive
 dev-python/libcst 1.3.1 1.4.0: A concrete syntax tree with AST-like properties for Python
@@ -8790,7 +8790,7 @@ dev-python/mkdocs-pymdownx-material-extras 2.5.6: Custom alterations based on Mk
 dev-python/mkdocs-redirects 1.2.1: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.2.3: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.25.1: Automatic documentation from sources, for MkDocs
-dev-python/mkdocstrings-python 1.10.3 1.10.4: Python handler for dev-python/mkdocstrings
+dev-python/mkdocstrings-python 1.10.3 1.10.4 1.10.5: Python handler for dev-python/mkdocstrings
 dev-python/ml-dtypes 0.4.0: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
@@ -8978,7 +8978,7 @@ dev-python/progress 1.6-r1: Easy to use progress bars
 dev-python/progressbar2 4.4.2: Text progressbar library for python
 dev-python/prometheus-client 0.20.0: Python client for the Prometheus monitoring system
 dev-python/prompt-toolkit 3.0.45 3.0.47: Building powerful interactive command lines in Python
-dev-python/proto-plus 1.23.0: Beautiful, Pythonic protocol buffers
+dev-python/proto-plus 1.23.0 1.24.0: Beautiful, Pythonic protocol buffers
 dev-python/protobuf-python 4.21.9 4.21.12 4.22.5 4.23.3 9999: Google's Protocol Buffers - Python bindings
 dev-python/pslab 3.0.0: Python library for communicating with Pocket Science Lab
 dev-python/psutil 5.9.8 6.0.0: Retrieve information on running processes and system utilization
@@ -9456,7 +9456,7 @@ dev-python/sphinx 7.2.6 7.3.7-r2: Python documentation generator
 dev-python/sphinx-aiohttp-theme 0.1.6-r1: Sphinx theme for aiohttp
 dev-python/sphinx-argparse 0.4.0: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autoapi 3.1.1: A new approach to API documentation in Sphinx
-dev-python/sphinx-autodoc-typehints 2.1.0: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 2.1.0 2.2.0: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-basic-ng 1.0.0_beta2: A modern skeleton for Sphinx themes
 dev-python/sphinx-bootstrap-theme 0.8.1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
 dev-python/sphinx-celery 2.1.3: Celery Sphinx Theme and Utilities
@@ -10347,7 +10347,7 @@ dev-ruby/securerandom 0.3.0 0.3.1: Interface for secure random number generator
 dev-ruby/seed-fu 2.3.9-r1: Advanced seed data handling for Rails
 dev-ruby/selenium-webdriver 4.1.0 4.1.0-r1 4.10.0 4.11.0 4.14.0 4.15.0: This gem provides Ruby bindings for WebDriver
 dev-ruby/semantic_puppet 1.0.4 1.1.0: Library of tools for working with Semantic Versions and module dependencies
-dev-ruby/sequel 5.74.0 5.75.0 5.76.0 5.77.0 5.78.0: A lightweight database toolkit for Ruby
+dev-ruby/sequel 5.77.0 5.78.0 5.81.0: A lightweight database toolkit for Ruby
 dev-ruby/serialport 1.3.2-r1: a library for serial port (rs232) access in ruby
 dev-ruby/serverengine 2.3.2: A framework to implement robust multiprocess servers
 dev-ruby/set 1.1.0-r1: Provides a class to deal with collections of unordered, unique values
@@ -10397,7 +10397,7 @@ dev-ruby/syslogger 1.6.6-r2: Drop-in replacement for the standard Logger, that l
 dev-ruby/systemu 2.6.5-r1: Universal capture of STDOUT and STDERR and handling of child process PID
 dev-ruby/tdiff 0.3.4-r1 0.4.0: Calculates the differences between two tree-like structures
 dev-ruby/temple 0.10.2 0.10.3: An abstraction and a framework for compiling templates to pure Ruby
-dev-ruby/term-ansicolor 1.7.1-r1 1.7.2 1.8.0: Small Ruby library that colors strings using ANSI escape sequences
+dev-ruby/term-ansicolor 1.7.1-r1 1.7.2 1.8.0 1.9.0: Small Ruby library that colors strings using ANSI escape sequences
 dev-ruby/terminal-table 1.8.0-r4 2.0.0-r1 3.0.2: Simple, feature rich ascii table generation library
 dev-ruby/test-unit 3.5.8 3.6.1 3.6.2: An xUnit family unit testing framework for Ruby
 dev-ruby/test-unit-rr 1.0.5-r2: RR adapter for Test::Unit
@@ -10412,7 +10412,7 @@ dev-ruby/thread_safe 0.3.6-r3: A collection of thread-safe versions of common co
 dev-ruby/tidy_table 0.0.5-r6: Tool to convert an array of struct into an HTML table
 dev-ruby/tilt 2.2.0 2.3.0: Thin interface over template engines to make their usage as generic as possible
 dev-ruby/time 0.2.2 0.3.0: Extends the Time class with methods for parsing and conversion
-dev-ruby/timecop 0.9.6 0.9.7 0.9.8 0.9.9: A gem providing 'time travel' and 'time freezing' capabilities
+dev-ruby/timecop 0.9.6 0.9.7 0.9.8 0.9.10: A gem providing 'time travel' and 'time freezing' capabilities
 dev-ruby/timeout 0.3.2 0.4.0 0.4.1: Provides a framework for message digest libraries
 dev-ruby/timers 4.3.5-r1: Pure Ruby one-shot and periodic timers
 dev-ruby/tins 1.32.1 1.33.0: All the stuff that isn't good enough for a real library
@@ -14530,7 +14530,7 @@ net-analyzer/squidview 0.86: Interactive console program to analyse squid logs
 net-analyzer/ssh-audit 3.0.0 3.1.0 3.2.0: SSH server auditing (banner, key exchange, encryption, mac, compression, etc)
 net-analyzer/sshping 0.1.4: ssh-based ping: measure character echo latency and bandwidth
 net-analyzer/ssldump 1.5: An SSLv3/TLS network protocol analyzer
-net-analyzer/sslscan 2.1.1 2.1.2 2.1.3 2.1.3-r1: Fast SSL configuration scanner
+net-analyzer/sslscan 2.1.1 2.1.2 2.1.3 2.1.3-r1 2.1.4: Fast SSL configuration scanner
 net-analyzer/sslsplit 0.5.5-r1: Transparent SSL/TLS interception
 net-analyzer/ssmping 0.9.1: Tool for testing multicast connectivity
 net-analyzer/suricata 7.0.5: High performance Network IDS, IPS and Network Security Monitoring engine
