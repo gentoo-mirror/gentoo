@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/google/guava
 INHERIT=java-pkg-2 java-pkg-simple check-reqs
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm arm64 ~ppc64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=dev-java/error-prone-annotations-2.27.1:0 ~dev-java/guava-33.2.0:0 dev-java/jsr305:0 dev-java/junit:4 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/google/guava/archive/v33.2.0.tar.gz -> guava-33.2.0.tar.gz test? ( https://repo1.maven.org/maven2/com/google/truth/truth/1.4.2/truth-1.4.2.jar )
 _eclasses_=java-utils-2	09d793abe112f655cd781e4467a6fc10	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc
-_md5_=d3da8456ac6fff6064c48b2b01233f27
+_md5_=d6cc3a29ee0a854b88eebd5fc9b76a96
