@@ -9,20 +9,21 @@ DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition"
 HOMEPAGE="https://keepassxc.org/
 	https://github.com/keepassxreboot/keepassxc/"
 
-if [[ "${PV}" != *9999 ]] ; then
+if [[ "${PV}" = *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_BRANCH="develop"
+	EGIT_REPO_URI="https://github.com/keepassxreboot/${PN}"
+else
 	if [[ "${PV}" == *_beta* ]] ; then
-		SRC_URI="https://github.com/keepassxreboot/${PN}/archive/${PV/_/-}.tar.gz -> ${P}.tar.gz"
+		SRC_URI="https://github.com/keepassxreboot/${PN}/archive/${PV/_/-}.tar.gz
+			-> ${P}.tar.gz"
 		S="${WORKDIR}/${P/_/-}"
 	else
 		SRC_URI="https://github.com/keepassxreboot/${PN}/releases/download/${PV}/${P}-src.tar.xz"
-
-		KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
 	fi
-else
-	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/keepassxreboot/${PN}"
-	[[ "${PV}" != 9999 ]] && EGIT_BRANCH="master"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
@@ -69,7 +70,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.7.4-tests.patch"
+	"${FILESDIR}/${PN}-2.7.9-tests.patch"
 )
 
 src_prepare() {
@@ -104,7 +105,9 @@ src_configure() {
 		-DWITH_XC_X11="$(usex X)"
 	)
 	if [[ "${PV}" == *_beta* ]] ; then
-		mycmakeargs+=( -DOVERRIDE_VERSION="${PV/_/-}" )
+		mycmakeargs+=(
+			-DOVERRIDE_VERSION="${PV/_/-}"
+		)
 	fi
 	cmake_src_configure
 }
