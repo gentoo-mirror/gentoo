@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=media-libs/libsdl[opengl,video] media-libs/libglvnd[X]
+DESCRIPTION=Swap and match 3 or more jewels in a line in order to score points
+EAPI=8
+HOMEPAGE=https://www.linuxmotors.com/linux/gljewel/
+INHERIT=desktop toolchain-funcs vcs-clean
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libsdl[opengl,video] media-libs/libglvnd[X]
+RESTRICT=test
+SLOT=0
+SRC_URI=https://www.linuxmotors.com/linux/gljewel/downloads/SDL_jewels-1.1.1.tgz
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3
+_md5_=b69f70a6eb2e656b41971b70a4831586
