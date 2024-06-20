@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/linux-nfc/neard
 INHERIT=autotools
 IUSE=test tools systemd
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.28 dev-libs/libnl:3= >=sys-apps/dbus-1.2 systemd? ( sys-apps/systemd:0 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linux-nfc/neard/archive/refs/tags/v0.19.tar.gz -> neard-0.19.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d
-_md5_=db1a9bc49215b23673817dfb11b08921
+_md5_=c3fe0af499b0a6c78a55007f2b373b7f
