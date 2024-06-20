@@ -7,11 +7,12 @@ HOMEPAGE=https://bitcoincore.org/
 IDEPEND=gui? ( dev-util/desktop-file-utils )
 INHERIT=autotools bash-completion-r1 check-reqs db-use desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
 IUSE=+asm +berkdb +cli +daemon dbus examples +external-signer gui kde libs +man nat-pmp +qrcode +sqlite system-leveldb +system-libsecp256k1 systemtap test upnp zeromq
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=!dev-util/bitcoin-tx >=dev-libs/boost-1.81.0:= >=dev-libs/libevent-2.1.12:= berkdb? ( >=sys-libs/db-4.8.30:4.8=[cxx] ) cli? ( !net-p2p/bitcoin-cli ) daemon? ( !net-p2p/bitcoind acct-group/bitcoin acct-user/bitcoin ) gui? ( !net-p2p/bitcoin-qt >=dev-qt/qtcore-5.15.11:5 >=dev-qt/qtgui-5.15.11:5 >=dev-qt/qtnetwork-5.15.11:5 >=dev-qt/qtwidgets-5.15.11:5 dbus? ( >=dev-qt/qtdbus-5.15.11:5 ) ) libs? ( !net-libs/libbitcoinconsensus ) nat-pmp? ( >=net-libs/libnatpmp-20220705:= ) qrcode? ( >=media-gfx/qrencode-4.1.1:= ) sqlite? ( >=dev-db/sqlite-3.38.5:= ) system-leveldb? ( virtual/bitcoin-leveldb ) system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.4.0:=[ellswift,extrakeys,recovery,schnorr] ) upnp? ( >=net-libs/miniupnpc-2.2.2:= ) zeromq? ( >=net-libs/zeromq-4.3.4:= )
 REQUIRED_USE=dbus? ( gui ) kde? ( gui ) qrcode? ( gui ) system-leveldb? ( || ( daemon gui ) )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/bitcoin/bitcoin/archive/v27.1rc1.tar.gz -> bitcoin-core-27.1_rc1.tar.gz
+SRC_URI=https://github.com/bitcoin/bitcoin/archive/v27.1.tar.gz -> bitcoin-core-27.1.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	desktop	021728fdc1b03b36357dbc89489e0f0d	edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=be9b0de00536ce41c1828a3a80297c03
