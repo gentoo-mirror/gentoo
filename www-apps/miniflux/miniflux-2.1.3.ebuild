@@ -1,12 +1,12 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit go-module systemd
 
-# Get with 'git rev-parse --short HEAD'
-MY_GIT_COMMIT="e234b86a"
+# git rev-parse --short HEAD
+MY_GIT_COMMIT="4d3ee0d1"
 
 DESCRIPTION="Minimalist and opinionated feed reader"
 HOMEPAGE="https://miniflux.app https://github.com/miniflux/v2"
@@ -15,7 +15,7 @@ SRC_URI+=" https://dev.gentoo.org/~concord/distfiles/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
-KEYWORDS="amd64 ppc64 ~riscv"
+KEYWORDS="~amd64 ~ppc64 ~riscv"
 
 RESTRICT="test" # requires network access
 
@@ -29,9 +29,9 @@ S="${WORKDIR}/v2-${PV}"
 src_compile() {
 	ego build -ldflags="
 		-s -w
-		-X 'miniflux.app/version.Version=${PV}'
-		-X 'miniflux.app/version.Commit=${MY_GIT_COMMIT}'
-		-X 'miniflux.app/version.BuildDate=$(date +%FT%T%z)'
+		-X 'miniflux.app/v2/internal/version.Version=${PV}'
+		-X 'miniflux.app/v2/internal/version.Commit=${MY_GIT_COMMIT}'
+		-X 'miniflux.app/v2/internal/version.BuildDate=$(date +%FT%T%z)'
 		" -o miniflux main.go
 }
 
