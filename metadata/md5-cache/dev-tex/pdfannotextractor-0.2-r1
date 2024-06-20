@@ -1,5 +1,5 @@
 BDEPEND=app-arch/unzip virtual/latex-base >=sys-apps/texinfo-4.2-r5
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup unpack
 DEPEND=virtual/latex-base >=virtual/jdk-11 >=dev-java/java-config-2.2.0-r3 >=dev-java/ant-1.10.14-r2:0 dev-java/javatoolkit
 DESCRIPTION=Extract annotations from pdf files
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=dev-java/commons-logging:0 virtual/perl-Getopt-Long dev-perl/File-Which 
 SLOT=0
 SRC_URI=https://github.com/bastien-roucaries/latex-pax/archive/718e18be0c8fd1dc5b7c974eb4fbe6d0774cd05e.tar.gz -> pdfannotextractor-0.2.tar.gz https://downloads.apache.org/pdfbox/1.8.17/pdfbox-1.8.17.jar https://archive.apache.org/dist/pdfbox/1.7.1/fontbox-1.7.1.jar
 _eclasses_=latex-package	c20e442c3953c765f636630631c96194	java-utils-2	09d793abe112f655cd781e4467a6fc10	java-pkg-2	b6d755b4f6afabfd933932be28b46368	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	java-ant-2	d3f6ffc6629499cbc0d4cd71b9d7e7dc
-_md5_=413f698ff657d7fb95ebee00323e025e
+_md5_=768a329f7c8de833bbe46dcd5f35a7eb
