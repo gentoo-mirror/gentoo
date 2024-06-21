@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/lefcha/imapfilter
 INHERIT=lua-single toolchain-funcs
 IUSE=lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ppc x86
 LICENSE=MIT
 RDEPEND=dev-libs/openssl:= dev-libs/libpcre2 lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
 SRC_URI=https://github.com/lefcha/imapfilter/archive/v2.8.2.tar.gz -> imapfilter-2.8.2.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
-_md5_=f3576e0bab7e1c6f4094dd38671b002f
+_md5_=a6ec286a2a764df3adf565ca6389fe73
