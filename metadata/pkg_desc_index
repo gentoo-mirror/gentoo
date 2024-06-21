@@ -5266,7 +5266,7 @@ dev-libs/boost 1.84.0-r3 1.85.0 1.85.0-r1: Boost Libraries for C++
 dev-libs/botan 2.19.3-r2 2.19.4 3.1.1 3.2.0-r1 3.2.0-r2 3.3.0: C++ crypto library
 dev-libs/boxfort 0.1.1 0.1.4: Convenient & cross-platform sandboxing C library
 dev-libs/c-blosc 1.21.5: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.10.5 2.13.2 2.14.0 2.14.1 2.14.4: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.14.4: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/cJSON 1.7.17 1.7.18: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1: RPC/Serialization system with capabilities support
@@ -8099,7 +8099,7 @@ dev-python/GridDataFormats 1.0.2: Reading and writing of data on regular grids i
 dev-python/IPy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/Levenshtein 0.25.1: Functions for fast computation of Levenshtein distance, and edit operations
 dev-python/MechanicalSoup 1.3.0: A Python library for automating interaction with websites
-dev-python/Nuitka 2.3.3 2.3.4 2.3.7 2.3.8: Python to native compiler
+dev-python/Nuitka 2.3.3 2.3.4 2.3.7 2.3.8 2.3.9: Python to native compiler
 dev-python/Opcodes 0.3.14-r1: Opcodes Project
 dev-python/OutputCheck 0.4.2-r2: A tool for checking the output of console programs inspired by LLVM's FileCheck
 dev-python/PeachPy 2022.11.13-r2: Portable Efficient Assembly Code-generator in Higher-level Python
@@ -8636,7 +8636,7 @@ dev-python/jsonext 0.4.2-r1: Well-structured helpers for serializing commonly en
 dev-python/jsonmerge 1.9.2: Merge a series of JSON documents
 dev-python/jsonpatch 1.33: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
 dev-python/jsonpath-ng 1.6.1: Python JSONPath Next-Generation
-dev-python/jsonpickle 3.0.4 3.2.1: Python library for serializing any arbitrary object graph into JSON
+dev-python/jsonpickle 3.0.4 3.2.1 3.2.2: Python library for serializing any arbitrary object graph into JSON
 dev-python/jsonpointer 2.4 3.0.0: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 1.1.0: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
@@ -8732,7 +8732,7 @@ dev-python/manuel 1.12.4_p20231129: Lets you mix and match traditional doctests 
 dev-python/mapbox-vector-tile 2.1.0: Mapbox Vector Tile encoding and decoding.
 dev-python/mapbox_earcut 1.0.1-r1: Python bindings to the mapbox earcut C++ library
 dev-python/markdown 3.5.2 3.6: Python implementation of the markdown markup language
-dev-python/markdown-exec 1.9.1: Utilities to execute code blocks in Markdown files
+dev-python/markdown-exec 1.9.1 1.9.2: Utilities to execute code blocks in Markdown files
 dev-python/markdown-include 0.8.1: Python-Markdown extension providing LaTeX-style 'include' function
 dev-python/markdown-it-py 3.0.0: Python port of markdown-it, Markdown parser
 dev-python/markdown2 2.4.13: Python Markdown language reimplementation
@@ -8844,7 +8844,7 @@ dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2024.04.15: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
-dev-python/numexpr 2.9.0 2.10.0-r1: Fast numerical array expression evaluator for Python and NumPy
+dev-python/numexpr 2.9.0 2.10.0-r1 2.10.1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.26.4 2.0.0_rc2-r1 2.0.0: Fast array and numerical python library
 dev-python/numpydoc 1.7.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauthlib 3.2.2: Spec-compliant and thorough implementation of the OAuth request-signing logic
@@ -9011,7 +9011,7 @@ dev-python/pyaudio 0.2.13-r2: Python bindings for PortAudio
 dev-python/pybind11 2.11.1 2.12.0: AST-based Python refactoring library
 dev-python/pybtex 0.24.0-r1: BibTeX-compatible bibliography processor
 dev-python/pybtex-docutils 1.0.3: A docutils backend for pybtex
-dev-python/pycairo 1.26.0 1.26.0-r1: Python bindings for the cairo library
+dev-python/pycairo 1.26.0 1.26.0-r1 1.26.1: Python bindings for the cairo library
 dev-python/pycares 4.4.0: Python interface for c-ares
 dev-python/pycdio 2.1.1-r1: Python OO interface to libcdio (CD Input and Control library)
 dev-python/pychm 0.8.6-r1: Python bindings for the chmlib library
@@ -9027,8 +9027,8 @@ dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
 dev-python/pycurl 7.45.3: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8 7.1.8-r1: Set of facilities to extend Python with C++
-dev-python/pydantic 2.7.2 2.7.3 2.7.4: Data parsing and validation using Python type hints
-dev-python/pydantic-core 2.18.3 2.18.4 2.19.0: Core validation logic for pydantic written in Rust
+dev-python/pydantic 2.7.3 2.7.4: Data parsing and validation using Python type hints
+dev-python/pydantic-core 2.18.4 2.19.0: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.15.3: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -9262,7 +9262,7 @@ dev-python/python-ptrace 0.9.9 9999: A Python binding of ptrace library
 dev-python/python-redmine 2.5.0: Python interface to the Redmine REST API
 dev-python/python-rtmidi 1.5.8: Python bindings for media-libs/rtmidi implemented using Cython
 dev-python/python-slugify 8.0.4: A Python Slugify application that handles Unicode
-dev-python/python-snappy 0.6.1 0.7.1: Python library for the snappy compression library from Google
+dev-python/python-snappy 0.6.1 0.7.1 0.7.2: Python library for the snappy compression library from Google
 dev-python/python-socks 2.4.4: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
 dev-python/python-stdnum 1.20: A module to handle standardized numbers and codes
 dev-python/python-swiftclient 4.6.0: Python bindings to the OpenStack Object Storage API
@@ -9306,8 +9306,8 @@ dev-python/pyzbar 0.1.9: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 25.1.2 26.0.2 26.0.3: Lightweight and super-fast messaging library built on top of the ZeroMQ library
 dev-python/pyzotero 1.5.18 1.5.19: A Python client for the Zotero API
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
-dev-python/qiskit 0.46.1 1.1.0: An open-source SDK for working with quantum computers
-dev-python/qiskit-aer 0.12.2 0.13.3 0.14.2: High performance simulator for quantum circuits that includes noise models
+dev-python/qiskit 1.1.0 1.1.1: An open-source SDK for working with quantum computers
+dev-python/qiskit-aer 0.14.2: High performance simulator for quantum circuits that includes noise models
 dev-python/qpageview 0.6.2: Page-based viewer widget for Qt5/PyQt5
 dev-python/qrcode 7.4.2: QR Code generator on top of PIL
 dev-python/qscintilla-python 2.14.1-r2: Python bindings for QScintilla
@@ -9400,7 +9400,7 @@ dev-python/seaborn 0.13.2: Statistical data visualization
 dev-python/secretstorage 3.3.3: Python bindings to FreeDesktop.org Secret Service API
 dev-python/seedir 0.4.2: Package for creating, editing, and reading folder tree diagrams
 dev-python/segno 1.6.1: Python QR Code and Micro QR Code encoder
-dev-python/selenium 4.21.0 4.22.0: Python language binding for Selenium Remote Control
+dev-python/selenium 4.21.0 4.22.0-r1: Python language binding for Selenium Remote Control
 dev-python/semantic-version 2.10.0: Python library providing a few tools handling SemVer in Python
 dev-python/semver 3.0.2: A Python module for semantic versioning
 dev-python/send2trash 1.8.3: Sends files to the Trash (or Recycle Bin)
@@ -9455,7 +9455,7 @@ dev-python/speg 0.3_p20180819-r2: A PEG-based parser interpreter with memoizatio
 dev-python/sphinx 7.2.6 7.3.7-r2: Python documentation generator
 dev-python/sphinx-aiohttp-theme 0.1.6-r1: Sphinx theme for aiohttp
 dev-python/sphinx-argparse 0.4.0: Sphinx extension that automatically documents argparse commands and options
-dev-python/sphinx-autoapi 3.1.1: A new approach to API documentation in Sphinx
+dev-python/sphinx-autoapi 3.1.1 3.1.2: A new approach to API documentation in Sphinx
 dev-python/sphinx-autodoc-typehints 2.1.0 2.2.0: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-basic-ng 1.0.0_beta2: A modern skeleton for Sphinx themes
 dev-python/sphinx-bootstrap-theme 0.8.1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
@@ -9611,7 +9611,7 @@ dev-python/txtorcon 23.11.0: Twisted-based Tor controller client, with state-tra
 dev-python/typeguard 4.3.0: Run-time type checker for Python
 dev-python/types-docutils 0.21.0.20240423: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.20240401 12.1.4.20240408: Typing stubs for gdb
-dev-python/types-psutil 5.9.5.20240516: Typing stubs for psutil
+dev-python/types-psutil 5.9.5.20240516 6.0.0.20240621: Typing stubs for psutil
 dev-python/types-setuptools 70.0.0.20240524: Typing stubs for setuptools
 dev-python/typing-extensions 4.11.0 4.11.0_p20240512 4.12.0_rc1 4.12.0 4.12.1 4.12.2: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
@@ -17635,8 +17635,8 @@ sys-kernel/dkms 3.0.12-r1 3.0.13: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r4 101 102 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7 1.0.8: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.218 5.10.219 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.6.32 6.6.33 6.6.34 6.9.4 6.9.5: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.218 5.10.219 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.6.32 6.6.33 6.6.34 6.9.4 6.9.5: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.218 5.10.219 5.10.220 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.1.95 6.6.32 6.6.33 6.6.34 6.6.35 6.9.4 6.9.5 6.9.6: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.218 5.10.219 5.10.220 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.1.95 6.6.32 6.6.33 6.6.34 6.6.35 6.9.4 6.9.5 6.9.6: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.212 5.10.216 5.10.217 5.10.218 5.10.219 5.15.151 5.15.158 5.15.159 5.15.160 5.15.161 6.1.81 6.1.90 6.1.91 6.1.92 6.1.93 6.1.94 6.6.21 6.6.30 6.6.31 6.6.32 6.6.33 6.6.34 6.9.1 6.9.2 6.9.3 6.9.4 6.9.5: Full sources including the Gentoo patchset for the 6.9 kernel tree
 sys-kernel/git-sources 6.10_rc1 6.10_rc2 6.10_rc3 6.10_rc4: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 38 39: Gentoo fork of installkernel script from debianutils
@@ -17652,7 +17652,7 @@ sys-kernel/pf-sources 6.8_p1 6.8_p5 6.8_p6 6.8_p7 6.8_p8 6.8_p9 6.9_p2 6.9_p4: L
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 6.6.28_p20240424 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.315_p135 5.4.271_p89 5.10.218_p110 5.15.158_p76 6.0.5_p14 6.1.92_p32 6.5.2_p8 6.6.32_p32: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/vanilla-kernel 5.10.218 5.10.219 5.10.9999 5.15.160 5.15.161 5.15.9999 6.1.92 6.1.93 6.1.94 6.1.9999 6.6.32 6.6.33 6.6.34 6.6.9999 6.9.4 6.9.5: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.218 5.10.219 5.10.220 5.10.9999 5.15.160 5.15.161 5.15.9999 6.1.92 6.1.93 6.1.94 6.1.95 6.1.9999 6.6.32 6.6.33 6.6.34 6.6.35 6.6.9999 6.9.4 6.9.5 6.9.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.316 5.4.278 5.10.220 5.15.161 6.1.95 6.6.35 6.9.6: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.8.9: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17843,7 +17843,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.218 5.10.219 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.6.32 6.6.33 6.6.34 6.9.4 6.9.5: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.218 5.10.219 5.10.220 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.1.95 6.6.32 6.6.33 6.6.34 6.6.35 6.9.4 6.9.5 6.9.6: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
