@@ -1,0 +1,18 @@
+BDEPEND=|| ( ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pyyaml[python_targets_python3_10(-)] ) ) sys-devel/gettext doc? ( app-text/doxygen dev-lua/ldoc media-gfx/graphviz ) test? ( media-libs/mesa[llvm] x11-base/xorg-server[-minimal] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-libs/libpcre2:= dev-libs/libunibreak:= dev-libs/libxml2 media-libs/freetype:2 media-libs/libglvnd media-libs/libsdl2[joystick,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png,webp] net-libs/enet:1.3= sci-libs/cholmod sci-libs/cxsparse sci-libs/openblas sci-libs/suitesparse sci-mathematics/glpk:= virtual/libintl test? ( dev-games/physfs[zip] media-libs/libsdl2[X] )
+DESCRIPTION=2D space trading and combat game, in a similar vein to Escape Velocity
+EAPI=8
+HOMEPAGE=https://naev.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=lua-single meson python-any-r1 virtualx xdg
+IUSE=doc lua_single_target_luajit lua_single_target_lua5-1 test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+ Apache-2.0 BSD BSD-2 CC-BY-2.0 CC-BY-3.0 CC-BY-4.0 CC-BY-SA-3.0 CC-BY-SA-4.0 CC0-1.0 GPL-2+ MIT OFL-1.1 public-domain
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-libs/libpcre2:= dev-libs/libunibreak:= dev-libs/libxml2 media-libs/freetype:2 media-libs/libglvnd media-libs/libsdl2[joystick,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png,webp] net-libs/enet:1.3= sci-libs/cholmod sci-libs/cxsparse sci-libs/openblas sci-libs/suitesparse sci-mathematics/glpk:= virtual/libintl
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/naev/naev/releases/download/v0.11.5/naev-0.11.5-source.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	f5169813d1619761b459800587005fd2	virtualx	817571665ee28575da44ee08135089e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=4de589b11d0e9370b1d313a5c8bcb2fa
