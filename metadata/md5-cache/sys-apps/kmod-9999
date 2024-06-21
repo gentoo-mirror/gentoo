@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=!sys-apps/module-init-tools !sys-apps/modutils !<sys-apps/openrc-0.13.8 !<sys-apps/systemd-216-r3 lzma? ( >=app-arch/xz-utils-5.0.4-r1 ) pkcs7? ( >=dev-libs/openssl-1.1.0:= ) zlib? ( >=sys-libs/zlib-1.2.6 ) zstd? ( >=app-arch/zstd-1.5.2-r1:= )
 DESCRIPTION=Library and tools for managing linux kernel modules
 EAPI=8
-HOMEPAGE=https://git.kernel.org/?p=utils/kernel/kmod/kmod.git
+HOMEPAGE=https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git
 INHERIT=autotools libtool bash-completion-r1 git-r3
 IUSE=debug doc +lzma pkcs7 static-libs +tools +zlib +zstd
 LICENSE=LGPL-2
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=!sys-apps/module-init-tools !sys-apps/modutils !<sys-apps/openrc-0.13.8 !<sys-apps/systemd-216-r3 lzma? ( >=app-arch/xz-utils-5.0.4-r1 ) pkcs7? ( >=dev-libs/openssl-1.1.0:= ) zlib? ( >=sys-libs/zlib-1.2.6 ) zstd? ( >=app-arch/zstd-1.5.2-r1:= )
 SLOT=0
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=1dc4e5407aaf72897abfbea05efd670a
+_md5_=6e1dd3a701d857590d01e90999874a17
