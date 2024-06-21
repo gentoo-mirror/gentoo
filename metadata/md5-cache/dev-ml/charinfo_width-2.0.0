@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/camomile-2.0.0:=[ocamlopt?] dev-ml/ppx_expect:=[ocamlopt?] dev-ml/result:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Determine column width for a character
+EAPI=8
+HOMEPAGE=https://github.com/kandu/charInfo_width
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-ml/camomile-2.0.0:=[ocamlopt?] dev-ml/ppx_expect:=[ocamlopt?] dev-ml/result:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/2.0.0
+SRC_URI=https://github.com/kandu/charInfo_width/archive/2.0.0.tar.gz -> charinfo_width-2.0.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=1898bd71959afc28763e818ad56fa7eb
