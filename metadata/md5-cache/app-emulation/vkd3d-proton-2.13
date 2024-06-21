@@ -1,0 +1,14 @@
+BDEPEND=dev-util/glslang !crossdev-mingw? ( dev-util/mingw64-toolchain[abi_x86_32(-)?,abi_x86_64(-)?] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare pretend test
+DESCRIPTION=Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
+EAPI=8
+HOMEPAGE=https://github.com/HansKristian-Work/vkd3d-proton/
+INHERIT=flag-o-matic meson-multilib toolchain-funcs
+IUSE=+abi_x86_32 crossdev-mingw debug extras +strip abi_x86_32 abi_x86_64
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=LGPL-2.1+ Apache-2.0 MIT
+REQUIRED_USE=|| ( abi_x86_32 abi_x86_64 )
+SLOT=0
+SRC_URI=https://github.com/HansKristian-Work/vkd3d-proton/archive/refs/tags/v2.13.tar.gz -> vkd3d-proton-2.13.tar.gz https://github.com/HansKristian-Work/dxil-spirv/archive/41dae24cdba6771ceede9d45dae1c8580c147ce4.tar.gz -> dxil-spirv-41dae24cdba6771ceede9d45dae1c8580c147ce4.tar.gz https://github.com/KhronosGroup/SPIRV-Headers/archive/8b246ff75c6615ba4532fe4fde20f1be090c3764.tar.gz -> spirv-headers-8b246ff75c6615ba4532fe4fde20f1be090c3764.tar.gz https://github.com/KhronosGroup/SPIRV-Headers/archive/4f7b471f1a66b6d06462cd4ba57628cc0cd087d7.tar.gz -> spirv-headers-4f7b471f1a66b6d06462cd4ba57628cc0cd087d7.tar.gz https://github.com/KhronosGroup/Vulkan-Headers/archive/5677bafb820e476441e9e1f745371b72133407d3.tar.gz -> vulkan-headers-5677bafb820e476441e9e1f745371b72133407d3.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	8989922d980e5e870cc3de949d1b2586
+_md5_=fa3adac6f72d7b9a8c096c6c4444986e
