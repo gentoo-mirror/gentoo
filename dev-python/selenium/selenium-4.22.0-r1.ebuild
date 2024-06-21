@@ -40,6 +40,7 @@ RDEPEND="
 	>=dev-python/typing-extensions-4.9[${PYTHON_USEDEP}]
 	<dev-python/urllib3-3[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-1.26[${PYTHON_USEDEP}]
+	>=dev-python/websocket-client-1.8.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -48,6 +49,12 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	find -name selenium-manager -delete || die
+}
 
 python_test() {
 	if ! has "${EPYTHON/./_}" "${PYTHON_TESTED[@]}"; then
