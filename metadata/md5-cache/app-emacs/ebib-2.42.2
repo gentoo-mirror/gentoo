@@ -1,0 +1,15 @@
+BDEPEND=>=app-emacs/compat-29.1.4.4 app-emacs/parsebib test? ( app-emacs/with-simulated-input ) test? ( app-emacs/ert-runner ) >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=BibTeX database manager for Emacs
+EAPI=8
+HOMEPAGE=https://joostkremers.github.io/ebib/ https://github.com/joostkremers/ebib/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=>=app-emacs/compat-29.1.4.4 app-emacs/parsebib >=app-editors/emacs-26.1:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/joostkremers/ebib/archive/2.42.2.tar.gz -> ebib-2.42.2.tar.gz
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_md5_=ce2a22cb4daafcca54110907fb9205ca
