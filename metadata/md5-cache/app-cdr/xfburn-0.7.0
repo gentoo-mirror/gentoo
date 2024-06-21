@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/apps/xfburn/start https://gitlab.xfce.org/apps/xfburn/
 INHERIT=xdg-utils
 IUSE=gstreamer +udev
-KEYWORDS=amd64 arm arm64 ~ia64 ~loong ~ppc ppc64 ~riscv x86
+KEYWORDS=amd64 arm arm64 ~ia64 ~loong ppc ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.38:= >=dev-libs/libburn-0.4.2:= >=dev-libs/libisofs-0.6.2:= >=x11-libs/gtk+-3.20:3= >=xfce-base/exo-0.11.0:= >=xfce-base/libxfce4ui-4.12.0:= gstreamer? ( media-libs/gstreamer:1.0= media-libs/gst-plugins-base:1.0= ) udev? ( dev-libs/libgudev:= )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/apps/xfburn/0.7/xfburn-0.7.0.tar.bz2
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=ee3c95a364cf76c1bc6c7932234191a3
+_md5_=9a9d833ee8052a7b5d7d84da25098915

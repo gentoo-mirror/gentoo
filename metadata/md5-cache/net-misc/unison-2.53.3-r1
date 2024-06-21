@@ -7,10 +7,10 @@ HOMEPAGE=https://www.seas.upenn.edu/~bcpierce/unison/ https://github.com/bcpierc
 IDEPEND=>=app-eselect/eselect-unison-0.4
 INHERIT=desktop xdg-utils
 IUSE=debug doc gui +ocamlopt +threads
-KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~arm ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=>=dev-lang/ocaml-4.08:= gui? ( dev-ml/lablgtk:3=[ocamlopt?] || ( net-misc/ssh-askpass-fullscreen net-misc/x11-ssh-askpass ) )
 SLOT=2.53
 SRC_URI=https://github.com/bcpierce00/unison/archive/v2.53.3.tar.gz -> unison-2.53.3.tar.gz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=bd71f74345fc51c24cd3f0cbac000704
+_md5_=0c85b439c44fff2b12263904f0028988
