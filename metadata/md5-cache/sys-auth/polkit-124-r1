@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=>=dev-libs/glib-2.32:2 dev-libs/expat daemon? ( duktape? ( dev-lang/duktape:= ) !duktape? ( dev-lang/spidermonkey:115[-debug] ) ) pam? ( sys-auth/pambase sys-libs/pam ) !pam? ( virtual/libcrypt:= ) systemd? ( sys-apps/systemd:0=[policykit] ) !systemd? ( sys-auth/elogind )
 DESCRIPTION=Policy framework for controlling privileges for system-wide services
 EAPI=8
-HOMEPAGE=https://www.freedesktop.org/wiki/Software/polkit https://gitlab.freedesktop.org/polkit/polkit
+HOMEPAGE=https://www.freedesktop.org/wiki/Software/polkit https://github.com/polkit-org/polkit
 INHERIT=meson pam pax-utils python-any-r1 systemd xdg-utils
 IUSE=+daemon +duktape examples gtk +introspection kde pam selinux systemd test
 KEYWORDS=~alpha amd64 ~arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/polkit/polkit/-/archive/124/polkit-124.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	pam	b56d0c9c20fc5b553f13c8ae165a10a5	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-any-r1	f5169813d1619761b459800587005fd2	systemd	c8b03e8df84486aa991d4396686e8942	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=37848aef9f5b61688afe8c42b70416d2
+_md5_=54756c07f5409a34142b3033c496cab4
