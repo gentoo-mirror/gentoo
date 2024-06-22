@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gnustep.github.io/
 INHERIT=gnustep-base multilib virtualx
 IUSE=cups icu jpeg png speech debug doc test
-KEYWORDS=~alpha ~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 ppc ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1
 RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) app-text/aspell >=gnustep-base/gnustep-base-1.28.0:=[icu?] media-libs/audiofile >=media-libs/giflib-4.1:= >=media-libs/tiff-3:= x11-libs/libXt cups? ( >=net-print/cups-1.7.4:= ) icu? ( dev-libs/icu:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( >=media-libs/libpng-1.2:= ) speech? ( app-accessibility/flite )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=ftp://ftp.gnustep.org/pub/gnustep/core/gnustep-gui-0.30.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	gnustep-base	2b9571bc4b56a107f4efee592fa2f2a8	virtualx	817571665ee28575da44ee08135089e5
-_md5_=eef44db63d3bc9ef13a4665352dcfe3c
+_md5_=286392274f5e8553bc76b33a4196567e
