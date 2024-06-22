@@ -1,8 +1,8 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
@@ -15,8 +15,8 @@ HOMEPAGE="https://nanoc.app/"
 SRC_URI="https://github.com/nanoc/nanoc/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="${IUSE} minimal"
 
 DEPEND+="test? ( app-text/asciidoc app-text/highlight )"
@@ -30,7 +30,7 @@ ruby_add_rdepend "!minimal? (
 )
 	>=dev-ruby/addressable-2.5
 	>=dev-ruby/colored-1.2:0
-	>=www-apps/nanoc-checking-1.0.2:1
+	>=www-apps/nanoc-checking-1.0.5:1
 	~www-apps/nanoc-cli-${PV}
 	~www-apps/nanoc-core-${PV}
 	www-apps/nanoc-deploying:1
@@ -51,12 +51,14 @@ ruby_add_bdepend "test? (
 	dev-ruby/pry
 	dev-ruby/rdoc
 	>=dev-ruby/rouge-3.5.1:2
+	dev-ruby/rspec-its
 	dev-ruby/rubypants
 	dev-ruby/systemu
 	dev-ruby/timecop
 	dev-ruby/vcr
 	dev-ruby/webmock
 	dev-ruby/yard
+	www-apps/nanoc-spec
 )
 doc? (
 	dev-ruby/kramdown
@@ -70,7 +72,6 @@ all_ruby_prepare() {
 		-e '/codecov/I s:^:#:' test/helper.rb ../common/spec/spec_helper_head_core.rb || die
 	sed -i -e '/coverall/I s:^:#:' \
 		-e '/rubocop/ s:^:#:' Rakefile || die
-	sed -i -e '2igem "psych", "~> 4.0"' test/helper.rb || die
 
 	echo "-r ./spec/spec_helper.rb" > .rspec || die
 
@@ -89,13 +90,8 @@ all_ruby_prepare() {
 	sed -i -e '/test_filter_\(with_proper_indentation\|error\)/askip "haml 6"' test/filters/test_haml.rb || die
 
 	# Avoid non-fatal failing tests due to specifics in the environment
-	sed -e '124askip "ordering issues"' -e '168askip "ordering issues"' \
-		-i spec/nanoc/data_sources/filesystem_spec.rb || die
 	sed -e '/def test_default_encoding/,/^  end/ s:^:#:' \
 		-i test/orig_cli/commands/test_create_site.rb || die
-
-	# Fix deprecated minitest constant
-	sed -i -e 's/MiniTest/Minitest/' test/rule_dsl/test_rules_collection.rb || die
 }
 
 each_ruby_test() {

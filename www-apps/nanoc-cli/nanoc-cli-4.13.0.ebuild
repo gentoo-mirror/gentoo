@@ -1,8 +1,8 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
@@ -15,8 +15,8 @@ HOMEPAGE="https://nanoc.app/"
 SRC_URI="https://github.com/nanoc/nanoc/archive/${PV}.tar.gz -> nanoc-${PV}.tar.gz"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 ~riscv"
 SLOT="0"
+KEYWORDS="~amd64 ~riscv"
 IUSE="${IUSE} minimal"
 
 RUBY_S="nanoc-${PV}/nanoc-cli"
@@ -25,6 +25,7 @@ ruby_add_rdepend "
 	>=dev-ruby/cri-2.15:0
 	>=dev-ruby/diff-lcs-1.3:0
 	~www-apps/nanoc-core-${PV}
+	dev-ruby/pry
 	>=dev-ruby/zeitwerk-2.1:2
 "
 
