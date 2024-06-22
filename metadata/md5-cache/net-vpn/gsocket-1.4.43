@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.gsocket.io/
 INHERIT=autotools systemd
 IUSE=test
-KEYWORDS=~amd64 ~arm64 ~riscv
+KEYWORDS=amd64 ~arm64 ~riscv
 LICENSE=BSD-2
 RDEPEND=dev-libs/openssl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/hackerschoice/gsocket/archive/v1.4.43.tar.gz -> gsocket-1.4.43.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=8cc6e23f542cc0a0a59b74cc5f6bc19b
+_md5_=82e954b5753fb6c16b1baa1abc17dfb9
