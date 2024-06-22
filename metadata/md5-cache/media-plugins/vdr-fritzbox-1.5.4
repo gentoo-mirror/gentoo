@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
+DEPEND=dev-libs/libgcrypt:= dev-libs/boost:= media-video/vdr media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DESCRIPTION=VDR Plugin: Inform about incoming phone-calls and use the fritz!box phonebook
+EAPI=8
+HOMEPAGE=https://github.com/jowi24/vdr-fritz
+INHERIT=toolchain-funcs vdr-plugin-2
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libgcrypt:= dev-libs/boost:= media-video/vdr media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+SLOT=0
+SRC_URI=https://github.com/jowi24/vdr-fritz/archive/refs/tags/1.5.4.tar.gz -> vdr-fritzbox-1.5.4.tar.gz https://github.com/jowi24/libconvpp/archive/286a289e30417ac534c861529ae245ccb44286e5.tar.gz -> vdr-fritzbox-1.5.4.libconvpp.tar.gz https://github.com/jowi24/libfritzpp/archive/c74fd462285ade1054784b97b6dce22d55196c01.tar.gz -> vdr-fritzbox-1.5.4.libfritzpp.tar.gz https://github.com/jowi24/liblogpp/archive/d61e25f4548f40261e6db62a967776cfa16e599a.tar.gz -> vdr-fritzbox-1.5.4.liblogpp.tar.gz https://github.com/jowi24/libnetpp/archive/b32ecc8e64508f3b1158a2adcbd82034c71d7a38.tar.gz -> vdr-fritzbox-1.5.4.libnetpp.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09	vdr-plugin-2	538778293cabc2e533fb35e1a658af6b
+_md5_=02a89bd6b0b958b084ed6d27cd143ae5

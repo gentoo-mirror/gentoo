@@ -1,0 +1,14 @@
+BDEPEND=acct-user/vdr media-video/vdr virtual/pkgconfig
+DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
+DEPEND=acct-user/vdr media-video/vdr media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DESCRIPTION=VDR Plugin: to play dvds and dvd file structures
+EAPI=8
+HOMEPAGE=https://github.com/vdr-projects/vdr-plugin-dvdswitch
+INHERIT=user-info vdr-plugin-2
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-user/vdr media-video/vdr media-plugins/vdr-dvd media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+SLOT=0
+SRC_URI=https://github.com/vdr-projects/vdr-plugin-dvdswitch/archive/refs/tags/0.2.3.tar.gz -> vdr-dvdswitch-0.2.3.tar.gz
+_eclasses_=user-info	9951b1a0e4f026d16c33a001fd2d5cdf	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09	vdr-plugin-2	538778293cabc2e533fb35e1a658af6b
+_md5_=3b732d0d407ee9dcbb7c581e5175b505
