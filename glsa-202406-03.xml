@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202406-03">
+    <title>RDoc: Remote Code Cxecution</title>
+    <synopsis>A vulnerability has been discovered in RDoc, which can lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">rdoc</product>
+    <announced>2024-06-22</announced>
+    <revised count="1">2024-06-22</revised>
+    <bug>927565</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-ruby/rdoc" auto="yes" arch="*">
+            <unaffected range="ge">6.6.3.1</unaffected>
+            <vulnerable range="lt">6.6.3.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>RDoc produces HTML and command-line documentation for Ruby projects.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in RDoc. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>When parsing .rdoc_options (used for configuration in RDoc) as a YAML file, object injection and resultant remote code execution are possible because there are no restrictions on the classes that can be restored.
+
+When loading the documentation cache, object injection and resultant remote code execution are also possible if there were a crafted cache.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All RDoc users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/rdoc-6.6.3.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-27281">CVE-2024-27281</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-06-22T07:30:29.289298Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-06-22T07:30:29.293762Z">graaff</metadata>
+</glsa>
