@@ -3,20 +3,20 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit python-any-r1
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PCSX2/pcsx2_patches.git"
 else
-	HASH_PCSX2_PATCHES=f15daef9e6a7044c55f3d7b2deccbb2e9928feb0
+	HASH_PCSX2_PATCHES=fcb11f6b699fd68e41977bffe53b8e8031ccb578
 	SRC_URI="
 		https://github.com/PCSX2/pcsx2_patches/archive/${HASH_PCSX2_PATCHES}.tar.gz
 			-> ${P}.tar.gz
 	"
 	S=${WORKDIR}/${PN}-${HASH_PCSX2_PATCHES}
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Collection of game patches for use with PCSX2 (e.g. widescreen hacks)"
