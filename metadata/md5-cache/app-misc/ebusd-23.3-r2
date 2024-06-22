@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://ebusd.de https://github.com/john30/ebusd
 INHERIT=autotools systemd
 IUSE=+contrib doc knx mqtt +ssl test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/openssl:0= mqtt? ( app-misc/mosquitto )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/john30/ebusd/archive/refs/tags/23.3.tar.gz -> ebusd-23.3.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=bf784cd2e3a42a7fc8266f55a8d1e60c
+_md5_=b2f0e41e9ff425a708eab2b44e095daa
