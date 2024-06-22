@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,6 @@ HOMEPAGE="https://www.teamspeak.com/"
 SRC_URI="https://files.teamspeak-services.com/pre_releases/client/${PV/_/-}/teamspeak-client.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}"
 
-KEYWORDS=""
 LICENSE="teamspeak5 || ( GPL-2 GPL-3 LGPL-3 )"
 SLOT="5"
 
