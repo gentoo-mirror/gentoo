@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip sys-apps/texinfo
+DEFINED_PHASES=compile install
+DESCRIPTION=GUI and command-line converter for [e]ps and pdf
+EAPI=8
+HOMEPAGE=http://tex.aanhet.net/epspdf/
+INHERIT=desktop texlive-common
+IUSE=doc tk
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=GPL-2
+RDEPEND=!<dev-texlive/texlive-pictures-2023_p69409-r2 >=dev-texlive/texlive-basic-2011 app-text/ghostscript-gpl tk? ( dev-lang/tk )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~flow/distfiles//epspdf/epspdf-0.6.5.1.zip
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	edo	367e103a74bf77e6a8da7894d999fa3c	texlive-common	8eb189ef6113c001970b6dfed9a50a42
+_md5_=a73a4703d2bfd1d50af89542b6280b8c
