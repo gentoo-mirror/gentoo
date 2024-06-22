@@ -17,6 +17,7 @@ IUSE="X anthy athena bidi fontconfig gd libotf libxml2 spell xft"
 RDEPEND="~dev-db/m17n-db-${PV}
 	X? (
 		x11-libs/libX11
+		x11-libs/libXt
 		athena? ( x11-libs/libXaw )
 		bidi? ( dev-libs/fribidi )
 		fontconfig? ( media-libs/fontconfig )
@@ -83,4 +84,9 @@ src_configure() {
 	fi
 
 	econf "${myconf[@]}"
+}
+
+src_install() {
+	default
+	find "${ED}" -name '*.la' -delete || die
 }
