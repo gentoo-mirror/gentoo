@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202406-02">
+    <title>Flatpak: Sandbox Escape</title>
+    <synopsis>A vulnerability has been discovered in Flatpak, which can lead to a sandbox escape.</synopsis>
+    <product type="ebuild">flatpak</product>
+    <announced>2024-06-22</announced>
+    <revised count="1">2024-06-22</revised>
+    <bug>930202</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/flatpak" auto="yes" arch="*">
+            <unaffected range="ge">1.14.6</unaffected>
+            <vulnerable range="lt">1.14.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Flatpak is a Linux application sandboxing and distribution framework.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Flatpak. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A malicious or compromised Flatpak app could execute arbitrary code outside its sandbox in conjunction with xdg-desktop-portal.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Flatpak users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/flatpak-1.14.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-32462">CVE-2024-32462</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-06-22T07:02:59.833368Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-06-22T07:02:59.837565Z">graaff</metadata>
+</glsa>
