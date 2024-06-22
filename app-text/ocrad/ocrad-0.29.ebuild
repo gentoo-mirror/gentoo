@@ -1,30 +1,28 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit unpacker toolchain-funcs
+inherit edo unpacker toolchain-funcs
 
-DESCRIPTION="GNU Ocrad is an OCR (Optical Character Recognition) program"
+DESCRIPTION="OCR (Optical Character Recognition) program"
 HOMEPAGE="https://www.gnu.org/software/ocrad/ocrad.html"
 SRC_URI="mirror://nongnu/${PN}/${P}.tar.lz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ppc ppc64 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86"
 
 BDEPEND="$(unpacker_src_uri_depends)"
 
-DOCS=( AUTHORS ChangeLog NEWS README )
-
 src_configure() {
 	# ./configure is not based on autotools
-	./configure \
+	edo ./configure \
 		CPPFLAGS="${CPPFLAGS}" \
 		CXX="$(tc-getCXX)" \
 		CXXFLAGS="${CXXFLAGS}" \
 		LDFLAGS="${LDFLAGS}" \
-		--prefix=/usr || die
+		--prefix=/usr
 }
 
 src_compile() {
