@@ -11,6 +11,6 @@ LICENSE=GPL-3
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) acct-user/tvheadend virtual/libiconv dbus? ( sys-apps/dbus ) dvbcsa? ( media-libs/libdvbcsa ) ffmpeg? ( media-video/ffmpeg:=[opus?,vpx?,x264?,x265?] ) hdhomerun? ( media-libs/libhdhomerun ) dev-libs/openssl:0= uriparser? ( dev-libs/uriparser ) zeroconf? ( net-dns/avahi ) zlib? ( sys-libs/zlib ) python_single_target_python3_10? ( dev-python/requests[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/requests[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/requests[python_targets_python3_12(-)] ) dvb? ( media-tv/dtv-scan-tables ) xmltv? ( media-tv/xmltv )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ddci? ( dvb )
 SLOT=0
-SRC_URI=https://github.com/tvheadend/tvheadend/archive/c63115464d8f6556fb4cac93ce8740afea1b00d5.tar.gz -> tvheadend-4.3_p20240322.tar.gz
+SRC_URI=https://github.com/tvheadend/tvheadend/archive/e855f62e6697cf756ad2eed2ed03b8d06ba2019b.tar.gz -> tvheadend-4.3_p20240618.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=cce645ad654444d5bf2af7a353d89c65
+_md5_=72592af3142150c89b0d85763b964d5a
