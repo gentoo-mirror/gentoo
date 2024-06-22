@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare test
+DESCRIPTION=Advanced file encryption using AES
+EAPI=8
+HOMEPAGE=https://www.aescrypt.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=toolchain-funcs flag-o-matic desktop xdg
+IUSE=static X
+KEYWORDS=~amd64 ~arm64
+LICENSE=BSD GPL-2
+RDEPEND=X? ( || ( gnome-extra/zenity kde-apps/kdialog ) dev-lang/perl )
+SLOT=0
+SRC_URI=https://www.aescrypt.com/download/v3/linux/aescrypt-3.16.tgz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=f378458447d43f37888852fc7b63f774

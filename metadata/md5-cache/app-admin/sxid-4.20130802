@@ -1,0 +1,11 @@
+DEFINED_PHASES=postinst
+DESCRIPTION=suid, sgid file and directory checking
+EAPI=8
+HOMEPAGE=https://linukz.org/sxid.shtml https://github.com/taem/sxid
+IUSE=selinux
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2+
+RDEPEND=virtual/mailx selinux? ( sec-policy/selinux-sxid )
+SLOT=0
+SRC_URI=https://linukz.org/download/sxid-4.20130802.tar.gz
+_md5_=54715763702f4082d8f54b475f6a0e11
