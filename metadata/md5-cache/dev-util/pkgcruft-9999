@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/clang >=virtual/rust-1.74 test? ( dev-util/cargo-nextest ) >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/clang >=virtual/rust-1.76 test? ( dev-util/cargo-nextest ) >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
 DESCRIPTION=QA library and tools based on pkgcraft
 EAPI=8
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	rust-toolchain	68a6453cb41148db1da01fa2267527f0	cargo	67ea64209e3442a3a0e095f048d43a62	edo	367e103a74bf77e6a8da7894d999fa3c	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=04fd0b2de5bd63ab99452683ec4bba7f
+_md5_=ee66f985a3b1320a4c785022d4f123b2
