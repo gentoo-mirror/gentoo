@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/chexum/${PN}/archive/refs/tags/${PV}.tar.gz
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong ppc ~ppc64 ~s390 x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc ~ppc64 ~s390 ~x86"
 
 PATCHES=( "${FILESDIR}"/${P}-build.patch )
 
