@@ -1,0 +1,14 @@
+DEFINED_PHASES=postinst prepare
+DEPEND=acct-group/monkeysphere acct-user/monkeysphere >=app-crypt/gnupg-2.1.17:0= net-misc/socat:0= dev-libs/libassuan:= dev-libs/libgcrypt:= dev-libs/libgpg-error:= dev-perl/Crypt-OpenSSL-RSA:0= dev-perl/Digest-SHA1:0= app-misc/lockfile-progs:0=
+DESCRIPTION=Leverage the OpenPGP web of trust for OpenSSH and Web authentication
+EAPI=7
+HOMEPAGE=http://web.monkeysphere.info/
+INHERIT=toolchain-funcs
+KEYWORDS=amd64 ~arm x86
+LICENSE=GPL-3
+RDEPEND=acct-group/monkeysphere acct-user/monkeysphere >=app-crypt/gnupg-2.1.17:0= net-misc/socat:0= dev-libs/libassuan:= dev-libs/libgcrypt:= dev-libs/libgpg-error:= dev-perl/Crypt-OpenSSL-RSA:0= dev-perl/Digest-SHA1:0= app-misc/lockfile-progs:0= virtual/openssh
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.44.orig.tar.gz http://archive.monkeysphere.info/debian/pool/monkeysphere/m/monkeysphere/monkeysphere_0.44.orig.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=3d6ef9fd9a16aaac1e717cc208b2b538

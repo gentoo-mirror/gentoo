@@ -1,6 +1,6 @@
 BDEPEND=ruby_targets_ruby31? ( test? ( dev-ruby/mocha:0.14[ruby_targets_ruby31(-)] dev-ruby/minitest:5.15[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/mocha:0.14[ruby_targets_ruby32(-)] dev-ruby/minitest:5.15[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=>=app-crypt/gpgme-1.18.0:= >=dev-libs/libassuan-2.5.6 >=dev-libs/libgpg-error-1.47 ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DEPEND=>=app-crypt/gpgme-1.18.0:= >=dev-libs/libassuan-2.5.6:= >=dev-libs/libgpg-error-1.47 ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 DESCRIPTION=Ruby language binding for GnuPG Made Easy
 EAPI=8
 HOMEPAGE=https://github.com/ueno/ruby-gpgme
@@ -8,10 +8,10 @@ INHERIT=ruby-fakegem flag-o-matic
 IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 doc test test
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=LGPL-2.1+
-RDEPEND=>=app-crypt/gpgme-1.18.0:= >=dev-libs/libassuan-2.5.6 >=dev-libs/libgpg-error-1.47 ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+RDEPEND=>=app-crypt/gpgme-1.18.0:= >=dev-libs/libassuan-2.5.6:= >=dev-libs/libgpg-error-1.47 ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ueno/ruby-gpgme/archive/v2.0.24.tar.gz -> ruby-gpgme-2.0.24.tar.gz
 _eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	ruby-utils	820207a5d3f0e2e31c28080f131f2037	ruby-ng	4ef520a992dc54fdd8f49d875c1ab2c0	ruby-fakegem	5f7dd7ffeaf00a781713582bd507f80b	flag-o-matic	d309b9713dfc18e754cba88d3ba69653
-_md5_=0bf3d2f44a5a3e5c1c120c62ca0e08b7
+_md5_=ca90fb4f0d4859707f7c8b6be395600b

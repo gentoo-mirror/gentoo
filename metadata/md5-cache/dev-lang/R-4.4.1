@@ -1,0 +1,17 @@
+BDEPEND=sys-apps/which virtual/pkgconfig doc? ( virtual/latex-base dev-texlive/texlive-fontsrecommended ) test? ( virtual/latex-base ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/fortran
+DEFINED_PHASES=compile configure install postinst prepare pretend setup
+DEPEND=app-arch/bzip2 app-arch/xz-utils app-text/ghostscript-gpl dev-libs/libpcre2:= >=dev-libs/tre-0.8.0_p20210321[approx] net-misc/curl sys-libs/zlib[minizip] sys-apps/coreutils sys-libs/timezone-data virtual/blas virtual/lapack cairo? ( x11-libs/cairo:=[X=] x11-libs/pango:= ) icu? ( dev-libs/icu:= ) jpeg? ( media-libs/libjpeg-turbo:= ) kernel_linux? ( net-libs/libtirpc:= ) libdeflate? ( app-arch/libdeflate ) perl? ( dev-lang/perl ) png? ( media-libs/libpng:= ) readline? ( sys-libs/readline:= ) tiff? ( media-libs/tiff:= ) tk? ( dev-lang/tk:= ) X? ( x11-libs/libX11 x11-libs/libXmu x11-libs/libXt ) virtual/fortran
+DESCRIPTION=Language and environment for statistical computing and graphics
+EAPI=8
+HOMEPAGE=https://www.r-project.org/
+INHERIT=bash-completion-r1 autotools flag-o-matic fortran-2 toolchain-funcs
+IUSE=cairo doc icu java jpeg +libdeflate lto minimal nls openmp perl png prefix profile readline test tiff tk X
+KEYWORDS=~amd64 ~arm64 ~hppa ~ia64 ~loong ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
+LICENSE=|| ( GPL-2 GPL-3 ) LGPL-2.1
+RDEPEND=app-arch/bzip2 app-arch/xz-utils app-text/ghostscript-gpl dev-libs/libpcre2:= >=dev-libs/tre-0.8.0_p20210321[approx] net-misc/curl sys-libs/zlib[minizip] sys-apps/coreutils sys-libs/timezone-data virtual/blas virtual/lapack cairo? ( x11-libs/cairo:=[X=] x11-libs/pango:= ) icu? ( dev-libs/icu:= ) jpeg? ( media-libs/libjpeg-turbo:= ) kernel_linux? ( net-libs/libtirpc:= ) libdeflate? ( app-arch/libdeflate ) perl? ( dev-lang/perl ) png? ( media-libs/libpng:= ) readline? ( sys-libs/readline:= ) tiff? ( media-libs/tiff:= ) tk? ( dev-lang/tk:= ) X? ( x11-libs/libX11 x11-libs/libXmu x11-libs/libXt ) java? ( >=virtual/jre-1.8:* ) virtual/fortran
+REQUIRED_USE=png? ( || ( cairo X ) ) jpeg? ( || ( cairo X ) ) tiff? ( || ( cairo X ) )
+RESTRICT=minimal? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://cran.r-project.org/src/base/R-4/R-4.4.1.tar.gz https://raw.githubusercontent.com/deepayan/rcompletion/78d6830e28ea90a046da79a9b4f70c39594bb6d6/bash_completion/R -> R-78d6830e28ea90a046da79a9b4f70c39594bb6d6.bash_completion
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	gnuconfig	a397adda6984a4c423e28ac274c1ba98	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
+_md5_=72d64df57475d16dae109186a271ddb5
