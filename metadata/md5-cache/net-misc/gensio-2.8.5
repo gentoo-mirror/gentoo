@@ -1,0 +1,16 @@
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare
+DEPEND=tcpd? ( sys-apps/tcp-wrappers )
+DESCRIPTION=General Stream I/O
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/ser2net
+INHERIT=autotools
+IUSE=debug tcpd
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=tcpd? ( sys-apps/tcp-wrappers )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/ser2net/gensio-2.8.5.tar.gz
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d
+_md5_=529d5e7ca9616893462cdd009c4d194b
