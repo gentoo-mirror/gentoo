@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://www.gromacs.org/
 INHERIT=bash-completion-r1 cmake cuda distutils-r1 flag-o-matic readme.gentoo-r1 toolchain-funcs xdg-utils
 IUSE=blas clang clang-cuda cuda +custom-cflags +doc build-manual double-precision +fftw +gmxapi +gmxapi-legacy +hwloc lapack mkl mpi +offensive opencl openmp +python +single-precision test +threads +tng cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 cpu_flags_x86_fma4 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_arm_neon python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~amd64 -arm ~arm64 ~x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=~amd64 -arm ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=LGPL-2.1 UoI-NCSA !mkl? ( !fftw? ( BSD ) !blas? ( BSD ) !lapack? ( BSD ) ) cuda? ( LGPL-3 ) threads? ( BSD )
 RDEPEND=blas? ( virtual/blas ) cuda? ( >=dev-util/nvidia-cuda-toolkit-11:=[profiler] ) opencl? ( virtual/opencl ) fftw? ( sci-libs/fftw:3.0= ) hwloc? ( sys-apps/hwloc:= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) mpi? ( virtual/mpi[cxx] ) sci-libs/lmfit:= >=dev-cpp/muParser-2.3:= python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( single-precision double-precision ) doc? ( !build-manual ) cuda? ( single-precision ) opencl? ( single-precision ) cuda? ( !opencl ) clang-cuda? ( clang cuda ) mkl? ( !blas !fftw !lapack ) ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/2024.2
 SRC_URI=https://ftp.gromacs.org/gromacs/gromacs-2024.2.tar.gz doc? ( https://ftp.gromacs.org/manual/manual-2024.2.pdf ) test? ( https://ftp.gromacs.org/regressiontests/regressiontests-2024.2.tar.gz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	cuda	283d0f298f6c196c755a0f8d50daca85	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	distutils-r1	f11e1bc907da246e941fbae648327823	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4
-_md5_=2913fa98274b71a930f88d0aaee5c3fd
+_md5_=bc9440ee2c526e412faba6dd25dd9650
