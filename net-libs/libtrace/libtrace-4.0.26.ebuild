@@ -21,7 +21,7 @@ RDEPEND="
 	dev-libs/libyaml
 	dev-libs/openssl:=
 	>=net-libs/libpcap-0.8
-	net-libs/wandio
+	>=net-libs/wandio-4.0.0
 	ncurses? ( sys-libs/ncurses:= )
 	numa? ( sys-process/numactl )"
 DEPEND="${RDEPEND}"

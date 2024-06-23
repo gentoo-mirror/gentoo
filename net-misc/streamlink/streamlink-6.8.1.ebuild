@@ -26,20 +26,21 @@ fi
 LICENSE="BSD-2 Apache-2.0"
 SLOT="0"
 if [[ ${PV} != 9999* ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 # See https://github.com/streamlink/streamlink/commit/9d8156dd794ee0919297cd90d85bcc11b8a28358 for chardet/charset-normalizer dep
-# See https://github.com/streamlink/streamlink/pull/5895 re exceptiongroup dep
 RDEPEND="
 	media-video/ffmpeg
+	$(python_gen_cond_dep '
+		dev-python/exceptiongroup[${PYTHON_USEDEP}]
+	' 3.10)
 	$(python_gen_cond_dep '
 		dev-python/certifi[${PYTHON_USEDEP}]
 		|| (
 			dev-python/chardet[${PYTHON_USEDEP}]
 			dev-python/charset-normalizer[${PYTHON_USEDEP}]
 		)
-		dev-python/exceptiongroup[${PYTHON_USEDEP}]
 		>=dev-python/requests-2.26.0[${PYTHON_USEDEP}]
 		dev-python/isodate[${PYTHON_USEDEP}]
 		>=dev-python/lxml-4.6.4[${PYTHON_USEDEP}]
@@ -73,14 +74,10 @@ if [[ ${PV} == 9999* ]]; then
 	"
 fi
 
-PATCHES=(
-	"${FILESDIR}"/${P}-validator.patch
-)
-
 distutils_enable_tests pytest
 
 python_test() {
-	# Skip tests requiring <dev-python/pytest-8.0.0 which is currently masked
+	# Skip tests requiring <dev-python/pytest-8.0.0
 	# https://github.com/streamlink/streamlink/pull/5901
 	EPYTEST_DESELECT+=(
 		tests/webbrowser/cdp/test_client.py::TestEvaluate::test_exception
