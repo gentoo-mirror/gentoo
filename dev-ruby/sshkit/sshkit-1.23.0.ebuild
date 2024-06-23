@@ -20,7 +20,6 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 ruby_add_rdepend "
 	dev-ruby/base64
-	dev-ruby/mutex_m
 	>=dev-ruby/net-ssh-2.8.0:*
 	>=dev-ruby/net-scp-1.1.2
 	>=dev-ruby/net-sftp-2.1.2
