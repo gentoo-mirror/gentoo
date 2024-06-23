@@ -9,22 +9,29 @@ SRC_URI="https://downloads.sourceforge.net/ser2net/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
-IUSE="tcpd"
+KEYWORDS="~amd64 ~x86"
+IUSE="pam"
 
-DEPEND="tcpd? ( sys-apps/tcp-wrappers )"
+DEPEND="
+	dev-libs/libyaml:=
+	net-misc/gensio
+	pam? ( sys-libs/pam )
+"
 RDEPEND="${DEPEND}"
 
+# Test suite requires a kernel module
+RESTRICT="test"
+
 src_configure() {
-	econf $(use_with tcpd tcp-wrappers) --with-uucp-locking
+	econf --without-sysfs-led-support $(use_with pam)
 }
 
 src_install() {
 	default
 
-	insinto /etc
-	newins ${PN}.conf ${PN}.conf.dist
+	insinto /etc/${PN}
+	doins ${PN}.yaml
 
-	newinitd "${FILESDIR}/${PN}.initd" ${PN}
-	newconfd "${FILESDIR}/${PN}.confd" ${PN}
+	newinitd "${FILESDIR}/${PN}.initd-r2" ${PN}
+	newconfd "${FILESDIR}/${PN}.confd-r2" ${PN}
 }
