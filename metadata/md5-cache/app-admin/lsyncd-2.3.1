@@ -1,0 +1,16 @@
+BDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3[deprecated] ) lua_single_target_lua5-4? ( dev-lang/lua:5.4[deprecated] ) app-text/asciidoc virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3[deprecated] ) lua_single_target_lua5-4? ( dev-lang/lua:5.4[deprecated] )
+DESCRIPTION=Live Syncing (Mirror) Daemon
+EAPI=8
+HOMEPAGE=https://github.com/lsyncd/lsyncd
+INHERIT=cmake lua-single
+IUSE=lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+
+RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3[deprecated] ) lua_single_target_lua5-4? ( dev-lang/lua:5.4[deprecated] ) net-misc/rsync
+REQUIRED_USE=^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 )
+SLOT=0
+SRC_URI=https://github.com/lsyncd/lsyncd/archive/release-2.3.1.tar.gz -> lsyncd-2.3.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
+_md5_=9810f9cbd749c87c549fba79e6d5ce8a

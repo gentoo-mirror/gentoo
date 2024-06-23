@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=>=dev-libs/libpcre-3.4 >=media-libs/gd-1.8.4-r2[jpeg,png] sys-libs/zlib
+DESCRIPTION=Multi-purpose, multi-platform log file analyser
+EAPI=8
+HOMEPAGE=https://www.c-amie.co.uk/software/analog/ https://github.com/c-amie/analog-ce
+INHERIT=toolchain-funcs
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/libpcre-3.4 >=media-libs/gd-1.8.4-r2[jpeg,png] sys-libs/zlib
+SLOT=0
+SRC_URI=https://github.com/c-amie/analog-ce/archive/refs/tags/6.0.17.tar.gz -> analog-6.0.17.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=b4f7ed3bccd25bc5d94f57fae0eb2a18

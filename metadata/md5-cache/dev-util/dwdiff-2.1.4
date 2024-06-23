@@ -1,0 +1,15 @@
+BDEPEND=nls? ( sys-devel/gettext )
+DEFINED_PHASES=compile configure prepare
+DEPEND=dev-libs/icu:= sys-apps/diffutils
+DESCRIPTION=diff-like program operating at word level instead of line level
+EAPI=8
+HOMEPAGE=https://os.ghalkes.nl/dwdiff.html
+INHERIT=toolchain-funcs
+IUSE=nls
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/icu:= sys-apps/diffutils
+SLOT=0
+SRC_URI=https://os.ghalkes.nl/dist/dwdiff-2.1.4.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=3c82c4b2860b2cf8885ee7f40aedb8c4
