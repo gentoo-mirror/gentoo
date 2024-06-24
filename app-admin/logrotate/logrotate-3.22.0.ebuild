@@ -1,31 +1,38 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit systemd tmpfiles
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/cgzones.asc
+inherit systemd tmpfiles verify-sig
 
 DESCRIPTION="Rotates, compresses, and mails system logs"
 HOMEPAGE="https://github.com/logrotate/logrotate"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
+SRC_URI+=" verify-sig? ( https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz.asc )"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="acl +cron selinux"
 
-DEPEND=">=dev-libs/popt-1.5
+DEPEND="
+	>=dev-libs/popt-1.5
 	selinux? ( sys-libs/libselinux )
-	acl? ( virtual/acl )"
-RDEPEND="${DEPEND}
+	acl? ( virtual/acl )
+"
+RDEPEND="
+	${DEPEND}
 	selinux? ( sec-policy/selinux-logrotate )
-	cron? ( virtual/cron )"
+	cron? ( virtual/cron )
+"
+BDEPEND="verify-sig? ( sec-keys/openpgp-keys-cgzones )"
 
 STATEFILE="${EPREFIX}/var/lib/misc/logrotate.status"
 OLDSTATEFILE="${EPREFIX}/var/lib/logrotate.status"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-3.15.0-ignore-hidden.patch"
+	"${FILESDIR}"/${PN}-3.15.0-ignore-hidden.patch
 )
 
 move_old_state_file() {
@@ -53,10 +60,6 @@ src_configure() {
 		$(use_with acl) \
 		$(use_with selinux) \
 		--with-state-file-path="${STATEFILE}"
-}
-
-src_test() {
-	emake test
 }
 
 src_install() {
