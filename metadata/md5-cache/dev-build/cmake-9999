@@ -1,15 +1,15 @@
-BDEPEND=doc? ( dev-python/requests dev-python/sphinx ) test? ( app-arch/libarchive[zstd] ) dev-build/make test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=doc? ( dev-python/requests dev-python/sphinx ) test? ( app-arch/libarchive[zstd] ) dev-build/make >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) gui? ( !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) ) ncurses? ( sys-libs/ncurses:= )
 DESCRIPTION=Cross platform Make
 EAPI=8
 HOMEPAGE=https://cmake.org/
-INHERIT=bash-completion-r1 cmake flag-o-matic multiprocessing toolchain-funcs virtualx xdg-utils git-r3
-IUSE=+doc dap gui ncurses qt6 test test
+INHERIT=bash-completion-r1 cmake flag-o-matic multiprocessing toolchain-funcs xdg-utils git-r3
+IUSE=+doc dap gui ncurses qt6 test
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=>=app-arch/libarchive-3.3.3:= app-crypt/rhash:0= >=dev-libs/expat-2.0.1 >=dev-libs/jsoncpp-1.9.2-r2:0= >=dev-libs/libuv-1.10.0:= >=net-misc/curl-7.21.5[ssl] sys-libs/zlib virtual/pkgconfig dap? ( dev-cpp/cppdap ) gui? ( !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) ) ncurses? ( sys-libs/ncurses:= )
-RESTRICT=!test? ( test ) !test? ( test )
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	virtualx	817571665ee28575da44ee08135089e5	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=423cdd1032425fdf6fab23f0ada63ba7
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	git-r3	fbb2889c81f3a05910c1524db69425c1
+_md5_=0999081da3c86c0750509d5e06e6d007
