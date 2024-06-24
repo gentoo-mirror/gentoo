@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile configure install preinst prepare pretend setup test
+DEPEND=~dev-lang/nqp-2024.05:0=[java?,moar?,clang=] clang? ( sys-devel/clang ) java? ( >=virtual/jdk-1.9 ) >=dev-lang/perl-5.10 java? ( >=dev-java/java-config-2.2.0-r3 )
+DESCRIPTION=A compiler for the Raku programming language
+EAPI=8
+HOMEPAGE=https://rakudo.org
+INHERIT=java-pkg-opt-2
+IUSE=clang java +moar test java
+KEYWORDS=~amd64 ~x86
+LICENSE=Artistic-2
+RDEPEND=~dev-lang/nqp-2024.05:0=[java?,moar?,clang=] java? ( >=virtual/jre-1.9 ) java? ( >=dev-java/java-config-2.2.0-r3 )
+REQUIRED_USE=|| ( java moar )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://rakudo.org/dl/rakudo/rakudo-2024.05.tar.gz
+_eclasses_=java-utils-2	09d793abe112f655cd781e4467a6fc10	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629
+_md5_=637524407d4841797804d261ad3b0dc3
