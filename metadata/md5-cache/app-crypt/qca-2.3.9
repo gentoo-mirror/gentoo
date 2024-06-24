@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] virtual/latex-base ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] virtual/latex-base ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install nofetch prepare setup test unpack
 DEPEND=botan? ( dev-libs/botan:3= ) gcrypt? ( dev-libs/libgcrypt:= ) gpg? ( app-crypt/gnupg ) nss? ( dev-libs/nss ) pkcs11? ( >=dev-libs/openssl-1.1 dev-libs/pkcs11-helper ) qt5? ( >=dev-qt/qtcore-5.14:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qt5compat:6 ) sasl? ( dev-libs/cyrus-sasl:2 ) ssl? ( >=dev-libs/openssl-1.1:= ) test? ( qt5? ( dev-qt/qtnetwork:5 dev-qt/qttest:5 ) qt6? ( dev-qt/qtbase:6[network] ) )
 DESCRIPTION=Qt Cryptographic Architecture (QCA)
@@ -6,11 +6,12 @@ EAPI=8
 HOMEPAGE=https://userbase.kde.org/QCA
 INHERIT=cmake kde.org multibuild out-of-source-utils qmake-utils
 IUSE=botan debug doc examples gcrypt gpg logger nss pkcs11 +qt5 qt6 sasl softstore +ssl test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=LGPL-2.1
-PROPERTIES=live
 RDEPEND=botan? ( dev-libs/botan:3= ) gcrypt? ( dev-libs/libgcrypt:= ) gpg? ( app-crypt/gnupg ) nss? ( dev-libs/nss ) pkcs11? ( >=dev-libs/openssl-1.1 dev-libs/pkcs11-helper ) qt5? ( >=dev-qt/qtcore-5.14:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qt5compat:6 ) sasl? ( dev-libs/cyrus-sasl:2 ) ssl? ( >=dev-libs/openssl-1.1:= )
 REQUIRED_USE=|| ( qt5 qt6 )
 RESTRICT=!test? ( test )
 SLOT=2
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	git-r3	fbb2889c81f3a05910c1524db69425c1	kde.org	5b717883256e9841ce52e6cad2fca427	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=f48c53ff6b8f7515653d12023f27ae20
+SRC_URI=mirror://kde/stable/qca/2.3.9/qca-2.3.9.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	kde.org	5b717883256e9841ce52e6cad2fca427	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=d41a75d078d4f0e6036702e5511e8b58
