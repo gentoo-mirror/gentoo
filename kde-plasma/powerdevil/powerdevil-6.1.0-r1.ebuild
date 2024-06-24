@@ -18,6 +18,8 @@ SLOT="6"
 KEYWORDS="~amd64"
 IUSE="brightness-control caps"
 
+RESTRICT="test" # bug 926513
+
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets]
@@ -62,4 +64,9 @@ src_configure() {
 	)
 
 	ecm_src_configure
+}
+
+src_test() {
+	# bug 926513
+	ecm_src_test -j1
 }
