@@ -16,6 +16,8 @@ else
 	S="${WORKDIR}/${P/_/-}"
 fi
 
+S="${WORKDIR}/${PN}"
+
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 
@@ -66,11 +68,10 @@ RDEPEND="${COMMON_DEPEND}
 
 DOCS=( README.md doc/AUTHORS )
 
-S="${WORKDIR}/${PN}"
-
 PATCHES=(
 	"${FILESDIR}/${PN}-1.2.2-no_compress_man.patch" #733284
 	"${FILESDIR}/${PN}-1.2.2-plugin-path.patch" #907285
+	"${FILESDIR}/${PN}-1.2.2-kwidgetsaddons.patch"
 )
 
 src_configure() {
