@@ -7,7 +7,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE="xml(+)"
-inherit flag-o-matic python-r1 multilib-minimal
+inherit python-r1 multilib-minimal
 
 XSTS_HOME="http://www.w3.org/XML/2004/xml-schema-test-suite"
 XSTS_NAME_1="xmlschema2002-01-16"
@@ -37,7 +37,7 @@ S="${WORKDIR}/${PN}-${PV%_rc*}"
 
 LICENSE="MIT"
 SLOT="2"
-IUSE="debug examples +ftp icu lzma +python readline static-libs test"
+IUSE="examples icu lzma +python readline static-libs test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -99,17 +99,8 @@ src_prepare() {
 }
 
 multilib_src_configure() {
-	# Filter seemingly problematic CFLAGS (bug #26320)
-	filter-flags -fprefetch-loop-arrays -funroll-loops
-
-	# Notes:
-	# The meaning of the 'debug' USE flag does not apply to the --with-debug
-	# switch (enabling the libxml2 debug module). See bug #100898.
 	libxml2_configure() {
 		ECONF_SOURCE="${S}" econf \
-			--enable-ipv6 \
-			$(use_with ftp) \
-			$(use_with debug run-debug) \
 			$(use_with icu) \
 			$(use_with lzma) \
 			$(use_enable static-libs static) \
