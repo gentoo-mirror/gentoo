@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://dotnet.microsoft.com/ https://github.com/dotnet/dotnet/
 IDEPEND=app-eselect/eselect-dotnet
 INHERIT=check-reqs flag-o-matic llvm multiprocessing python-any-r1
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=MIT
 PDEPEND=~dev-dotnet/dotnet-runtime-nugets-8.0.5 ~dev-dotnet/dotnet-runtime-nugets-6.0.30 ~dev-dotnet/dotnet-runtime-nugets-7.0.19
 RDEPEND=app-crypt/mit-krb5:0/0 dev-libs/icu dev-libs/openssl:= dev-util/lttng-ust:= sys-libs/zlib:0/1
@@ -14,4 +14,4 @@ RESTRICT=splitdebug strip
 SLOT=8.0/8.0.5
 SRC_URI=amd64? ( elibc_glibc? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/dotnet-sdk-8.0.105-prepared-gentoo-amd64.tar.xz ) elibc_musl? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/dotnet-sdk-8.0.105-prepared-gentoo-musl-amd64.tar.xz ) )
 _eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	1eea65d11f743b8e256ef279b652a2e6	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=73c0bf6bbefbadbbff3f34eed0692545
+_md5_=4b55563c7e240db4d86c2fa07d04479b
