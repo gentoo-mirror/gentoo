@@ -7,10 +7,10 @@ HOMEPAGE=https://ipset.netfilter.org/ https://git.netfilter.org/ipset/
 IDEPEND=modules? ( sys-apps/kmod[tools] )
 INHERIT=autotools bash-completion-r1 linux-mod-r1 systemd
 IUSE=dist-kernel modules-compress modules-sign +strip modules
-KEYWORDS=~amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=net-firewall/iptables net-libs/libmnl:= modules? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
 SRC_URI=https://ipset.netfilter.org/ipset-7.21.tar.bz2
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	e967b81f54be6f49f4219a57ce7db437	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	9ccd2b29cd75bd48092f8f46b07fc935	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=0ea06266b0ad4ee365123d42c7263487
+_md5_=a40b3c938406c28ceb2a5a8373d8f697
