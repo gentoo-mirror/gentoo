@@ -8,12 +8,12 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[async_zip]='https://github.com/charliermarsh/rs-async-zip;1dcb40cfe1bf5325a6fd4bfcf9894db40241f585;rs-async-zip-%commit%'
-	[pubgrub]='https://github.com/astral-sh/pubgrub;a68cbd1a26e43986a31563e1d127e83bafca3a0c;pubgrub-%commit%'
+	[pubgrub]='https://github.com/astral-sh/pubgrub;b4435e2f3af10dab2336a0345b35dcd622699d06;pubgrub-%commit%'
 )
 
 inherit cargo check-reqs
 
-CRATE_P=${P}
+CRATE_PV=${PV}
 DESCRIPTION="A Python package installer and resolver, written in Rust"
 HOMEPAGE="
 	https://github.com/astral-sh/uv/
@@ -27,7 +27,7 @@ SRC_URI="
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
-		https://dev.gentoo.org/~mgorny/dist/${CRATE_P}-crates.tar.xz
+		https://dev.gentoo.org/~mgorny/dist/uv-${CRATE_PV}-crates.tar.xz
 	"
 fi
 
@@ -47,12 +47,6 @@ IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"
 
-DEPEND="
-	dev-libs/libgit2:=
-"
-RDEPEND="
-	${DEPEND}
-"
 BDEPEND="
 	>=virtual/rust-1.77
 	test? (
@@ -96,6 +90,9 @@ src_compile() {
 }
 
 src_test() {
+	# work around https://github.com/astral-sh/uv/issues/4376
+	local -x PATH=${BROOT}/usr/lib/python-exec/python3.12:${PATH}
+
 	cd crates/uv || die
 	cargo_src_test --no-fail-fast
 }
