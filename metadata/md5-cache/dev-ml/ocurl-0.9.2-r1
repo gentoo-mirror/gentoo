@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install
-DEPEND=>=net-misc/curl-7.9.8 dev-ml/lwt:= dev-ml/camlp4:= >=dev-lang/ocaml-3.12:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DEPEND=net-misc/curl dev-ml/lwt:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=OCaml interface to the libcurl library
-EAPI=7
+EAPI=8
 HOMEPAGE=https://forge.ocamlcore.org/projects/ocurl/ https://github.com/ygrek/ocurl
 INHERIT=findlib
 IUSE=examples +ocamlopt +ocamlopt
 KEYWORDS=amd64 arm arm64 ~ppc ppc64 x86
 LICENSE=MIT
-RDEPEND=>=net-misc/curl-7.9.8 dev-ml/lwt:= dev-ml/camlp4:= >=dev-lang/ocaml-3.12:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=net-misc/curl dev-ml/lwt:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
 SLOT=0/0.9.2
 SRC_URI=https://github.com/ygrek/ocurl/archive/0.9.2.tar.gz -> ocurl-0.9.2.tar.gz
 _eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e
-_md5_=1ea4283a18916ff853d6c0df872970b0
+_md5_=3bec0e8d7d6b3ab70ff0756064ff6bdf
