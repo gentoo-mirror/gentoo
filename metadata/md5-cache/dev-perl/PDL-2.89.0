@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/PDL
 INHERIT=perl-module toolchain-funcs fortran-2
 IUSE=+badval doc gd gsl hdf netpbm pdl2 pgplot test perl_features_debug perl_features_ithreads perl_features_quadmath test examples
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=|| ( Artistic GPL-1+ ) public-domain PerlDL
 RDEPEND=sys-libs/ncurses:= app-arch/sharutils dev-perl/Astro-FITS-Header dev-perl/Convert-UU >=virtual/perl-Data-Dumper-2.121.0 >=dev-perl/File-Map-0.570.0 >=virtual/perl-Filter-Simple-0.880.0 dev-perl/Filter dev-perl/File-Which >=dev-perl/Inline-0.830.0 >=dev-perl/Inline-C-0.620.0 >=virtual/perl-Scalar-List-Utils-1.330.0 virtual/perl-Math-Complex dev-perl/Module-Compile >=dev-perl/OpenGL-0.700.0 dev-perl/OpenGL-GLUT >=dev-perl/TermReadKey-2.340.0 || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) >=virtual/perl-Data-Dumper-2.121.0 dev-perl/Pod-Parser virtual/perl-File-Spec virtual/perl-File-Temp virtual/perl-Filter-Simple virtual/perl-Storable >=virtual/perl-Text-Balanced-2.50.0 >=dev-perl/ExtUtils-F77-1.260.0 gd? ( media-libs/gd ) gsl? ( sci-libs/gsl ) hdf? ( sci-libs/hdf dev-perl/Alien-HDF4 ) netpbm? ( media-libs/netpbm media-video/ffmpeg ) pdl2? ( >=dev-perl/Devel-REPL-1.3.11 || ( dev-perl/Term-ReadLine-Perl dev-perl/Term-ReadLine-Gnu ) ) pgplot? ( dev-perl/PGPLOT ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:= virtual/fortran
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETJ/PDL-2.089.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
-_md5_=240cbc2dd9fa08fe5f846e0e3e6dd9b6
+_md5_=7746eeb09f7ec20a4689f52580544522
