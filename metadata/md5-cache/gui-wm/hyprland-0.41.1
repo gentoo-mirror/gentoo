@@ -1,0 +1,15 @@
+BDEPEND=>=dev-libs/wayland-protocols-1.32 dev-util/hyprwayland-scanner virtual/pkgconfig || ( >=sys-devel/gcc-13:* >=sys-devel/clang-16:* ) app-misc/jq dev-build/cmake >=dev-util/hyprwayland-scanner-0.3.9 virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=app-alternatives/ninja dev-build/cmake dev-build/meson dev-libs/libliftoff dev-vcs/git virtual/pkgconfig >=dev-libs/wayland-1.22 media-libs/libglvnd || ( >=media-libs/mesa-24.1.0_rc1[opengl] <media-libs/mesa-24.1.0_rc1[egl(+),gles2] ) >=x11-libs/libdrm-2.4.114 x11-libs/libxkbcommon >=x11-libs/pixman-0.42.0 media-libs/libdisplay-info sys-apps/hwdata >=dev-libs/libinput-1.14.0:= sys-auth/seatd:= virtual/libudev:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm x11-base/xwayland ) dev-cpp/tomlplusplus dev-libs/glib:2 dev-libs/libinput >=dev-libs/wayland-1.20.0 ~gui-libs/hyprcursor-0.1.9 media-libs/libglvnd x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman X? ( x11-libs/libxcb:0= ) >=dev-libs/wayland-1.22 media-libs/libglvnd || ( >=media-libs/mesa-24.1.0_rc1[opengl] <media-libs/mesa-24.1.0_rc1[egl(+),gles2] ) >=x11-libs/libdrm-2.4.114 x11-libs/libxkbcommon >=x11-libs/pixman-0.42.0 media-libs/libdisplay-info sys-apps/hwdata >=dev-libs/libinput-1.14.0:= sys-auth/seatd:= virtual/libudev:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm x11-base/xwayland ) >=dev-libs/hyprland-protocols-0.3 >=dev-libs/hyprlang-0.3.2 >=dev-libs/wayland-protocols-1.36 >=gui-libs/hyprutils-0.1.2 x11-libs/xcb-util-errors
+DESCRIPTION=A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
+EAPI=8
+HOMEPAGE=https://github.com/hyprwm/Hyprland
+INHERIT=meson toolchain-funcs
+IUSE=X legacy-renderer systemd
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=app-alternatives/ninja dev-build/cmake dev-build/meson dev-libs/libliftoff dev-vcs/git virtual/pkgconfig >=dev-libs/wayland-1.22 media-libs/libglvnd || ( >=media-libs/mesa-24.1.0_rc1[opengl] <media-libs/mesa-24.1.0_rc1[egl(+),gles2] ) >=x11-libs/libdrm-2.4.114 x11-libs/libxkbcommon >=x11-libs/pixman-0.42.0 media-libs/libdisplay-info sys-apps/hwdata >=dev-libs/libinput-1.14.0:= sys-auth/seatd:= virtual/libudev:= X? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm x11-base/xwayland ) dev-cpp/tomlplusplus dev-libs/glib:2 dev-libs/libinput >=dev-libs/wayland-1.20.0 ~gui-libs/hyprcursor-0.1.9 media-libs/libglvnd x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman X? ( x11-libs/libxcb:0= )
+SLOT=0
+SRC_URI=https://github.com/hyprwm/Hyprland/releases/download/v0.41.1/source-v0.41.1.tar.gz -> hyprland-0.41.1.gh.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=b2be01cd4fa034804ae5e8a52c902e89
