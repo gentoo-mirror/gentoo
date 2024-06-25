@@ -11,7 +11,7 @@ inherit systemd flag-o-matic prefix toolchain-funcs \
 
 HOMEPAGE="https://mariadb.org/"
 SRC_URI="mirror://mariadb/${PN}-${PV}/source/${P}.tar.gz
-	https://github.com/hydrapolic/gentoo-dist/raw/master/mariadb/mariadb-10.11.6-patches-01.tar.xz"
+	https://github.com/hydrapolic/gentoo-dist/raw/main/mariadb/mariadb-10.11.6-patches-01.tar.xz"
 
 DESCRIPTION="An enhanced, drop-in replacement for MySQL"
 LICENSE="GPL-2 LGPL-2.1+"
@@ -29,7 +29,7 @@ REQUIRED_USE="jdbc? ( extraengine server !static )
 	static? ( yassl !pam )
 	test? ( extraengine )"
 
-KEYWORDS="~amd64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86"
 
 # Shorten the path because the socket path length must be shorter than 107 chars
 # and we will run a mysql server during test phase
@@ -108,6 +108,10 @@ RDEPEND="${COMMON_DEPEND}
 	!dev-db/mariadb:10.9
 	!dev-db/mariadb:10.10
 	!dev-db/mariadb:11.0
+	!dev-db/mariadb:11.1
+	!dev-db/mariadb:11.2
+	!dev-db/mariadb:11.3
+	!dev-db/mariadb:11.4
 	selinux? ( sec-policy/selinux-mysql )
 	server? (
 		columnstore? ( dev-db/mariadb-connector-c )
@@ -206,7 +210,6 @@ src_unpack() {
 src_prepare() {
 	eapply "${WORKDIR}"/mariadb-patches
 	eapply "${FILESDIR}"/${PN}-10.6.11-gssapi.patch
-	eapply "${FILESDIR}"/${PN}-10.6.11-include.patch
 	eapply "${FILESDIR}"/${PN}-10.6.12-gcc-13.patch
 
 	eapply_user

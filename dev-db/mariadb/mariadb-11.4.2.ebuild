@@ -11,7 +11,7 @@ inherit systemd flag-o-matic prefix toolchain-funcs \
 
 HOMEPAGE="https://mariadb.org/"
 SRC_URI="mirror://mariadb/${PN}-${PV}/source/${P}.tar.gz
-	https://github.com/hydrapolic/gentoo-dist/raw/master/mariadb/mariadb-10.6.13-patches-01.tar.xz"
+	https://github.com/hydrapolic/gentoo-dist/raw/main/mariadb/mariadb-11.4.2-patches-01.tar.xz"
 
 DESCRIPTION="An enhanced, drop-in replacement for MySQL"
 LICENSE="GPL-2 LGPL-2.1+"
@@ -29,7 +29,7 @@ REQUIRED_USE="jdbc? ( extraengine server !static )
 	static? ( yassl !pam )
 	test? ( extraengine )"
 
-KEYWORDS="~amd64 ~x86"
+#KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86"
 
 # Shorten the path because the socket path length must be shorter than 107 chars
 # and we will run a mysql server during test phase
@@ -38,6 +38,7 @@ S="${WORKDIR}/mysql"
 # Be warned, *DEPEND are version-dependant
 # These are used for both runtime and compiletime
 COMMON_DEPEND="
+	dev-libs/libfmt:=
 	>=dev-libs/libpcre2-10.34:=
 	>=sys-apps/texinfo-4.7-r1
 	sys-libs/ncurses:0=
@@ -97,22 +98,20 @@ DEPEND="${COMMON_DEPEND}
 	static? ( sys-libs/ncurses[static-libs] )
 "
 RDEPEND="${COMMON_DEPEND}
-	!dev-db/mysql !dev-db/mariadb-galera !dev-db/percona-server !dev-db/mysql-cluster
-	!dev-db/mariadb:0
-	!dev-db/mariadb:5.5
-	!dev-db/mariadb:10.1
-	!dev-db/mariadb:10.2
+	!dev-db/mysql !dev-db/percona-server
 	!dev-db/mariadb:10.3
 	!dev-db/mariadb:10.4
 	!dev-db/mariadb:10.5
+	!dev-db/mariadb:10.6
 	!dev-db/mariadb:10.7
 	!dev-db/mariadb:10.8
 	!dev-db/mariadb:10.9
 	!dev-db/mariadb:10.10
 	!dev-db/mariadb:10.11
 	!dev-db/mariadb:11.0
-	!<virtual/mysql-5.6-r11
-	!<virtual/libmysqlclient-18-r1
+	!dev-db/mariadb:11.1
+	!dev-db/mariadb:11.2
+	!dev-db/mariadb:11.3
 	selinux? ( sec-policy/selinux-mysql )
 	server? (
 		columnstore? ( dev-db/mariadb-connector-c )
@@ -129,12 +128,6 @@ RDEPEND="${COMMON_DEPEND}
 # For other stuff to bring us in
 # dev-perl/DBD-MariaDB is needed by some scripts installed by MySQL
 PDEPEND="perl? ( dev-perl/DBD-MariaDB )"
-
-QA_CONFIG_IMPL_DECL_SKIP=(
-	# These don't exist on Linux
-	pthread_threadid_np
-	getthrid
-)
 
 mysql_init_vars() {
 	MY_SHAREDSTATEDIR=${MY_SHAREDSTATEDIR="${EPREFIX}/usr/share/mariadb"}
@@ -217,7 +210,6 @@ src_unpack() {
 src_prepare() {
 	eapply "${WORKDIR}"/mariadb-patches
 	eapply "${FILESDIR}"/${PN}-10.6.11-gssapi.patch
-	eapply "${FILESDIR}"/${PN}-10.6.11-include.patch
 	eapply "${FILESDIR}"/${PN}-10.6.12-gcc-13.patch
 
 	eapply_user
