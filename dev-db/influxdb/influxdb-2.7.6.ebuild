@@ -194,16 +194,18 @@ inherit cargo go-module systemd
 DESCRIPTION="Scalable datastore for metrics, events, and real-time analytics"
 HOMEPAGE="https://www.influxdata.com"
 
-FLUX_PV="0.194.3"
+FLUX_PV="0.194.5"
 
 SRC_URI="https://github.com/influxdata/influxdb/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/influxdata/ui/releases/download/OSS-v2.7.1/build.tar.gz -> ${P}-assets.tar.gz"
+# Generate go-mod of base dir. Then cd go-mod/github.com/influxdata/pkg-config@v0.2.11 and generate go-mod of it
+# The tarball has next backported commit: github.com/influxdata/flux/commit/68c831c40b396f0274f6a9f97d77707c39970b02
 SRC_URI+=" https://gentoo.kropotkin.rocks/go-pkgs/${P}-deps.tar.xz"
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 LICENSE="Apache-2.0 BSD BSD-2 EPL-2.0 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
