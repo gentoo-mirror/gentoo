@@ -1,0 +1,17 @@
+BDEPEND=>=dev-build/cmake-3.22 >=dev-libs/half-1.12.0-r1 test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip:0/6.1
+DESCRIPTION=AMD ROCm Performance Primitives (RPP) high-performance computer vision library
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rpp
+INHERIT=cmake flag-o-matic rocm
+IUSE=cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_f16c test +amdgpu_targets_gfx906 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-util/hip:0/6.1
+REQUIRED_USE=cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_f16c || ( amdgpu_targets_gfx906 amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 )
+RESTRICT=!test? ( test )
+SLOT=0/6.1
+SRC_URI=https://github.com/ROCm/rpp/archive/refs/tags/rocm-6.1.1.tar.gz -> rpp-6.1.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	rocm	c4a9a8e37c0ead379f7ddb4ddee80485
+_md5_=8bf386ddb5008daad894e1005612a8d8

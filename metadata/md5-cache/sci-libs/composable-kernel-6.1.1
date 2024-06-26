@@ -1,0 +1,17 @@
+BDEPEND=dev-build/rocm-cmake app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip >=dev-db/sqlite-3.17 sci-libs/rocBLAS:0/6.1[amdgpu_targets_gfx906(-)?,amdgpu_targets_gfx908(-)?,amdgpu_targets_gfx90a(-)?,amdgpu_targets_gfx942(-)?,amdgpu_targets_gfx1030(-)?,amdgpu_targets_gfx1100(-)?,amdgpu_targets_gfx803(-)?,amdgpu_targets_gfx900(-)?,amdgpu_targets_gfx940(-)?,amdgpu_targets_gfx941(-)?,amdgpu_targets_gfx1010(-)?,amdgpu_targets_gfx1011(-)?,amdgpu_targets_gfx1012(-)?,amdgpu_targets_gfx1031(-)?,amdgpu_targets_gfx1101(-)?,amdgpu_targets_gfx1102(-)?] >=dev-libs/boost-1.72 dev-cpp/nlohmann_json dev-cpp/frugally-deep
+DESCRIPTION=High Performance Composable Kernel for AMD GPUs
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/composable_kernel
+INHERIT=cmake flag-o-matic rocm
+IUSE=debug test +amdgpu_targets_gfx906 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip >=dev-db/sqlite-3.17 sci-libs/rocBLAS:0/6.1[amdgpu_targets_gfx906(-)?,amdgpu_targets_gfx908(-)?,amdgpu_targets_gfx90a(-)?,amdgpu_targets_gfx942(-)?,amdgpu_targets_gfx1030(-)?,amdgpu_targets_gfx1100(-)?,amdgpu_targets_gfx803(-)?,amdgpu_targets_gfx900(-)?,amdgpu_targets_gfx940(-)?,amdgpu_targets_gfx941(-)?,amdgpu_targets_gfx1010(-)?,amdgpu_targets_gfx1011(-)?,amdgpu_targets_gfx1012(-)?,amdgpu_targets_gfx1031(-)?,amdgpu_targets_gfx1101(-)?,amdgpu_targets_gfx1102(-)?] >=dev-libs/boost-1.72 dev-cpp/nlohmann_json dev-cpp/frugally-deep
+REQUIRED_USE=|| ( amdgpu_targets_gfx906 amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 )
+RESTRICT=!test? ( test )
+SLOT=0/6.1
+SRC_URI=https://github.com/ROCm/composable_kernel/archive/rocm-6.1.1.tar.gz -> composable-kernel-6.1.1.tar.gz test? ( https://github.com/google/googletest/archive/b85864c64758dec007208e56af933fc3f52044ee.tar.gz -> gtest-1.14.0_p20220421.tar.gz )
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	rocm	c4a9a8e37c0ead379f7ddb4ddee80485
+_md5_=4058ba5335788516eae0717f4e952b74

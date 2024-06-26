@@ -1,0 +1,17 @@
+BDEPEND=video_cards_amdgpu? ( dev-util/hipcc:0/6.1[llvm_slot_18(-)?] ) app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( app-text/doxygen media-gfx/graphviz )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=video_cards_amdgpu? ( >=dev-util/rocminfo-5 llvm_slot_18? ( sys-devel/clang:18 ) dev-libs/rocm-comgr:0/6.1 dev-libs/rocr-runtime:0/6.1 ) video_cards_nvidia? ( dev-libs/hipother:0/6.1 ) x11-base/xorg-proto virtual/opengl
+DESCRIPTION=C++ Heterogeneous-Compute Interface for Portability
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/clr
+INHERIT=cmake docs flag-o-matic llvm-r1 rocm
+IUSE=debug +hip opencl test video_cards_amdgpu video_cards_nvidia doc +llvm_slot_18
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=video_cards_amdgpu? ( >=dev-util/rocminfo-5 llvm_slot_18? ( sys-devel/clang:18 ) dev-libs/rocm-comgr:0/6.1 dev-libs/rocr-runtime:0/6.1 ) video_cards_nvidia? ( dev-libs/hipother:0/6.1 ) x11-base/xorg-proto virtual/opengl sys-devel/clang-runtime:= video_cards_amdgpu? ( dev-util/hipcc:0/6.1[llvm_slot_18(-)?] >=dev-libs/rocm-device-libs-6.1.1 >=dev-libs/roct-thunk-interface-5 )
+REQUIRED_USE=|| ( hip opencl ) ^^ ( video_cards_amdgpu video_cards_nvidia ) ^^ ( llvm_slot_18 )
+RESTRICT=!test? ( test )
+SLOT=0/6.1
+SRC_URI=https://github.com/ROCm/clr/archive/refs/tags/rocm-6.1.1.tar.gz -> rocm-clr-6.1.1.tar.gz https://github.com/ROCm/HIP/archive/refs/tags/rocm-6.1.1.tar.gz -> hip-6.1.1.tar.gz test? ( https://github.com/ROCm/hip-tests/archive/refs/tags/rocm-6.1.1.tar.gz -> hip-test-6.1.1.tar.gz )
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	docs	7f3c0d47338743498c69f1887a139f57	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	b0b1f2b1f205cf6142716789254aea99	rocm	c4a9a8e37c0ead379f7ddb4ddee80485
+_md5_=5507e3372d955ee8eb1c6a13d7140130

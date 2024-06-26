@@ -2672,7 +2672,7 @@ app-misc/cdctl 0.16: Utility to control your cd/dvd drive
 app-misc/cdircmp 0.3-r2: Compare directories and select files to copy
 app-misc/cdspeed 0.4-r2: Change the speed of your CD drive
 app-misc/cfiles 1.5 1.8 1.8-r1: Ncurses file manager written in C with vim like keybindings
-app-misc/check-jsonschema 0.21.0-r1 0.23.3 0.28.4: A CLI and set of pre-commit hooks for jsonschema validation
+app-misc/check-jsonschema 0.23.3 0.28.4-r1: A CLI and set of pre-commit hooks for jsonschema validation
 app-misc/chkcrontab 1.7-r2 1.7-r3: A tool to detect crontab errors
 app-misc/ckb 0.6.0-r1 0.6.0-r2 9999: Corsair K65/K70/K95 Driver
 app-misc/ckermit 9.0.302: combined serial and network communication software package
@@ -3820,7 +3820,7 @@ dev-build/ninja 1.11.1-r5 1.12.1 9999: A small build system similar to make
 dev-build/pmake 1.111.3.3-r1: BSD build tool to create programs in parallel. Debian's version of NetBSD's make
 dev-build/qconf 2.5: ./configure like generator for qmake-based projects
 dev-build/remake 4.3.1.1.5 4.3.1.1.6: Patched version of GNU Make with improved error reporting, tracing and debugging
-dev-build/rocm-cmake 5.7.1: Radeon Open Compute CMake Modules
+dev-build/rocm-cmake 5.7.1 6.1.1: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
 dev-build/scons 4.7.0: Extensible Python-based build utility
 dev-build/slibtool 0.5.35 0.5.36 0.6.0 9999: A strong libtool implementation, written in C
@@ -5350,9 +5350,10 @@ dev-libs/gost-engine 3.0.1 3.0.1-r1 3.0.2 3.0.3 9999: A reference implementation
 dev-libs/granite 6.2.0: Elementary OS library that extends GTK+
 dev-libs/grantlee 5.3.0: C++ string template engine based on the Django template system
 dev-libs/gumbo 0.10.1 0.11.0 0.12.1: The HTML5 parsing algorithm implemented as a pure C99 library
-dev-libs/half 1.12.0: Half-precision floating-point library
+dev-libs/half 1.12.0-r1: Half-precision floating-point library
 dev-libs/heatshrink 0.4.1: A data compression/decompression library for embedded/real-time systems
 dev-libs/hidapi 0.13.1-r1 0.14.0: A multi-platform library for USB and Bluetooth HID-Class devices
+dev-libs/hipother 6.1.1: ROCclr runtime implementation for non-AMD HIP platforms, like NVIDIA
 dev-libs/hiredict 1.3.1: Minimalistic C client library for the Redict database
 dev-libs/hiredis 1.0.2-r3 1.1.0-r1 1.2.0: Minimalistic C client library for the Redis database
 dev-libs/http-fetcher 1.1.0-r2: Library for downloading files via HTTP using the GET method
@@ -5719,19 +5720,20 @@ dev-libs/qxlsx 1.4.7 1.4.8: Excel file(*.xlsx) reader/writer library using Qt
 dev-libs/raft 0.22.1: C implementation of the Raft consensus protocol
 dev-libs/rapidjson 1.1.0-r4 9999: A fast JSON parser/generator for C++ with both SAX/DOM style API
 dev-libs/rasqal 0.9.33-r2: Library that handles Resource Description Framework (RDF)
-dev-libs/rccl 5.1.3 5.7.1: ROCm Communication Collectives Library (RCCL)
+dev-libs/rccl 5.1.3 5.7.1 6.1.1: ROCm Communication Collectives Library (RCCL)
 dev-libs/re2 0.2022.06.01 0.2022.12.01: An efficient, principled regular expression library
 dev-libs/redis-ipc 0.1.0: A (redis) client library for using redis as system IPC msg/event bus
 dev-libs/redland 1.0.17-r3: High-level interface for the Resource Description Framework
 dev-libs/redland-bindings 1.0.17.1-r101: Language bindings for Redland
 dev-libs/rinutils 0.10.0 0.10.2 0.10.2-r1: Set of C headers containing macros and static functions
 dev-libs/rlog 1.4: A C++ logging library
+dev-libs/rocdbgapi 5.7.1 6.1.1: AMD Debugger API
 dev-libs/rocksdb 6.14.6-r2 6.14.6-r3 7.9.2 7.9.2-r1 8.10.0 8.11.3: Embeddable, persistent key-value store for fast storage
-dev-libs/rocm-comgr 5.1.3-r3 5.3.3-r2 5.4.3-r1 5.5.1 5.7.1 6.0.0: Radeon Open Compute Code Object Manager
-dev-libs/rocm-device-libs 5.1.3-r1 5.3.3 5.4.3 5.5.1 5.7.1 6.0.0: Radeon Open Compute Device Libraries
-dev-libs/rocm-opencl-runtime 5.1.3 5.3.3-r1 5.4.3-r1 5.5.1 5.7.1-r1 6.0.0 9999: Radeon Open Compute OpenCL Compatible Runtime
-dev-libs/rocr-runtime 5.1.3-r1 5.3.3-r1 5.4.3-r1 5.5.1 5.7.1-r2 6.0.0-r1: Radeon Open Compute Runtime
-dev-libs/roct-thunk-interface 5.1.3 5.3.3 5.4.3 5.5.1 5.7.1-r1 6.0.0-r1: Radeon Open Compute Thunk Interface
+dev-libs/rocm-comgr 5.1.3-r3 5.3.3-r2 5.4.3-r1 5.5.1 5.7.1 6.1.1: Radeon Open Compute Code Object Manager
+dev-libs/rocm-device-libs 5.1.3-r1 5.3.3 5.4.3 5.5.1 5.7.1 6.1.1: Radeon Open Compute Device Libraries
+dev-libs/rocm-opencl-runtime 5.1.3 5.3.3-r1 5.4.3-r1 5.5.1 5.7.1-r1 6.1.1: Radeon Open Compute OpenCL Compatible Runtime
+dev-libs/rocr-runtime 5.1.3-r1 5.3.3-r1 5.4.3-r1 5.5.1 5.7.1-r3 6.1.1: Radeon Open Compute Runtime
+dev-libs/roct-thunk-interface 5.1.3 5.3.3 5.4.3 5.5.1 5.7.1-r1 6.1.1: Radeon Open Compute Thunk Interface
 dev-libs/rremove 1.0.5: A simple library to recursively delete non-empty directories
 dev-libs/s2n 1.0.0: Simple, small, fast and secure C99 implementation of the TLS/SSL protocols
 dev-libs/sdformat 9.10.0: Simulation Description Format (SDF) parser
@@ -8386,7 +8388,7 @@ dev-python/djangorestframework 3.15.2: Web APIs with django made easy
 dev-python/dkimpy 1.1.6 1.1.7: DKIM and ARC email signing and verification library
 dev-python/dns-lexicon 3.17.0: Manipulate DNS records on various DNS providers in a standardized/agnostic way
 dev-python/dnspython 2.6.1: DNS toolkit for Python
-dev-python/doc8 1.1.1: Style checker for Sphinx (or other) RST documentation
+dev-python/doc8 1.1.1 1.1.1-r1: Style checker for Sphinx (or other) RST documentation
 dev-python/docker 6.1.3 7.0.0 7.1.0: Python client for Docker
 dev-python/dockerpty 0.4.1-r2: Python library to use the pseudo-tty of a docker container
 dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
@@ -8394,7 +8396,7 @@ dev-python/docstring-to-markdown 0.15: On the fly conversion of Python docstring
 dev-python/docutils 0.20.1-r1 0.21.2: Python Documentation Utilities (reference reStructuredText impl.)
 dev-python/docutils-glep 1.5: Gentoo GLEP support for docutils
 dev-python/dogpile-cache 1.3.3: A locking API for expiring values while a single thread generates a new value
-dev-python/doit 0.36.0-r1: Automation tool
+dev-python/doit 0.36.0-r1 0.36.0-r2: Automation tool
 dev-python/doit-py 0.5.0-r1: doit tasks for python stuff
 dev-python/dominate 2.9.1: Library for creating and manipulating HTML documents using an elegant DOM API
 dev-python/doublex 1.9.6.1: Python test doubles
@@ -8473,7 +8475,7 @@ dev-python/flatbuffers 24.3.25: RFC 7049 - Concise Binary Object Representation
 dev-python/flatdict 4.0.1: Python module for interacting with nested dicts
 dev-python/fleep 1.0.1-r1 9999: File format determination library for Python
 dev-python/flexmock 0.12.1: Testing library to create mocks, stubs and fakes
-dev-python/flit 3.8.0 3.9.0: Simplified packaging of Python modules
+dev-python/flit 3.9.0-r1: Simplified packaging of Python modules
 dev-python/flit-core 3.9.0: Simplified packaging of Python modules (core module)
 dev-python/flit_scm 1.7.0: A PEP 518 build backend combining flit with setuptools_scm
 dev-python/flufl-lock 8.1.0: NFS-safe file locking with timeouts for POSIX systems
@@ -10646,7 +10648,7 @@ dev-util/0xtools 1.2.4 9999: Always-on profiling for production systems
 dev-util/App-SVN-Bisect 1.1-r2: Binary search through svn revisions
 dev-util/FlameGraph 1.0 1.0_p20210830 1.0_p20220918 9999: Visualization of hierarchical data, especially profiled stack traces
 dev-util/ROPgadget 7.4 9999: Search for gadgets in binaries to facilitate your ROP exploitation
-dev-util/Tensile 5.1.3-r3 5.4.2-r2 5.7.1-r2: Stretching GPU performance for GEMMs and tensor contractions
+dev-util/Tensile 5.1.3-r3 5.4.2-r2 5.7.1-r2 6.1.1: Stretching GPU performance for GEMMs and tensor contractions
 dev-util/abi-compliance-checker 2.3-r1 9999: A tool for checking backward compatibility of a C/C++ library
 dev-util/abi-dumper 1.2-r1: Dump ABI of an ELF object containing DWARF debug info
 dev-util/abootimg 20150323-r1: Manipulate Android boot images
@@ -10797,7 +10799,7 @@ dev-util/fq 0.9.0 0.10.0 0.11.0: Tool for working with binary data (app-misc/jq 
 dev-util/ftjam 2.5.3_rc2-r3: A 100% compatible, enhanced implementation of the make alternative Jam
 dev-util/ftnchek 3.3.1-r2: Static analyzer a la 'lint' for Fortran 77
 dev-util/fuzz 0.6-r3: Stress-tests programs by giving them random input
-dev-util/gcovr 6.0 7.2: A Python script for summarizing gcov data
+dev-util/gcovr 6.0 7.2 7.2-r1: A Python script for summarizing gcov data
 dev-util/gdbus-codegen 2.76.4 2.78.3 2.78.4-r1 2.78.6: GDBus code and documentation generator
 dev-util/geany 1.38 2.0: GTK+ based fast and lightweight IDE
 dev-util/geany-plugins 1.38-r410 2.0 2.0-r1: A collection of different plugins for Geany
@@ -10820,7 +10822,7 @@ dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME deskt
 dev-util/gob 2.0.20-r1: Preprocessor for making GTK+ objects with inline C code
 dev-util/goland 2022.3.3-r1: Golang IDE by JetBrains
 dev-util/google-perftools 2.10-r1 2.15: Fast, multi-threaded malloc() and nifty performance analysis tools
-dev-util/gource 0.53 0.54: A software version control visualization tool
+dev-util/gource 0.53 0.54 0.55: A software version control visualization tool
 dev-util/gperf 3.1-r2: A perfect hash function generator
 dev-util/gpp 2.27 2.28: A generic preprocessor
 dev-util/gprof2dot 2022.7.29 2022.7.29-r1 2024.6.5 2024.6.6: Converts profiling output to dot graphs
@@ -10831,9 +10833,9 @@ dev-util/heaptrack 1.5.0 9999: Fast heap memory profiler
 dev-util/herdtools7 7.51: The Herd toolsuite to deal with .cat memory models
 dev-util/hermes 2.8_p20180315 2.9 9999: Lua based testing manager
 dev-util/hfstospell 0.5.4: HFST spell checker library and command line tool
-dev-util/hip 5.1.3-r4 5.3.3-r3 5.4.3 5.5.1 5.7.1-r2 6.0.0: C++ Heterogeneous-Compute Interface for Portability
-dev-util/hipcc 5.7.1-r3 6.0.0: Radeon Open Compute hipcc
-dev-util/hipify-clang 5.7.1: A set of tools to translate CUDA source code into portable HIP C++
+dev-util/hip 5.1.3-r4 5.3.3-r3 5.4.3 5.5.1 5.7.1-r2 6.1.1: C++ Heterogeneous-Compute Interface for Portability
+dev-util/hipcc 5.7.1-r3 6.1.1: Radeon Open Compute hipcc
+dev-util/hipify-clang 5.7.1 6.1.1: A set of tools to translate CUDA source code into portable HIP C++
 dev-util/howdoi 2.0.19 2.0.20 2.0.20-r1: A code search tool
 dev-util/huc 0.1-r2: HTML umlaut conversion tool
 dev-util/hxd 0.70.02-r3: Binary to hexadecimal converter
@@ -10913,7 +10915,7 @@ dev-util/perf 6.3 6.7 6.8 6.9: Userland tools for Linux Performance Counters
 dev-util/pkgcheck 0.10.27-r3 0.10.28-r2 0.10.29-r1 0.10.30 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 1.8.1 2.1.1 2.2.0 9999: pkg-config compatible replacement with no dependencies other than C99
 dev-util/pkgcruft 0.0.1 0.0.2 9999: QA library and tools based on pkgcraft
-dev-util/pkgdev 0.2.10 9999: Collection of tools for Gentoo development
+dev-util/pkgdev 0.2.10 0.2.10-r1 9999: Collection of tools for Gentoo development
 dev-util/pkgdiff 1.7.2 9999: Package Changes Analyzer (pkgdiff)
 dev-util/plan9port 0_pre20210321 0_pre20230331-r1: Port of many Plan 9 programs and libraries
 dev-util/ply 2.3.0: Dynamic instrumentation of the Linux kernel with BPF and kprobes
@@ -10934,7 +10936,7 @@ dev-util/quilt 0.67 0.68 9999: quilt patch manager
 dev-util/radare2 5.9.0: unix-like reverse engineering framework and commandline tools
 dev-util/ragel 6.10 7.0.0.12 7.0.4-r2 7.0.4-r3: Compiles finite state machines from regular languages into executable code
 dev-util/rats 2.4-r2: RATS - Rough Auditing Tool for Security
-dev-util/rbtools 4.1 5.0: Command line tools for use with Review Board
+dev-util/rbtools 4.1 5.0-r1: Command line tools for use with Review Board
 dev-util/re2c 2.2 3.1: Tool for generating C-based recognizers from regular expressions
 dev-util/rebar 2.6.4-r1 3.22.1-r1 3.23.0: A sophisticated build-tool for Erlang projects that follows OTP principles
 dev-util/redo 0.42d: Smaller, easier, more powerful, and more reliable than make
@@ -10945,11 +10947,11 @@ dev-util/reuse 2.1.0 3.0.1 3.0.2: Manage license information according to the SP
 dev-util/rgbds 0.6.1 0.7.0 0.7.0-r1 9999: Rednex Game Boy Development System
 dev-util/rinstall 0.2.0: Utility for declarative installation of programs
 dev-util/rizin 0.6.3-r1 0.7.1-r1 0.7.3: reverse engineering framework for binary analysis
-dev-util/rocm-smi 5.1.3-r1 5.4.2 5.7.1-r2 9999: ROCm System Management Interface Library
+dev-util/rocm-smi 5.1.3-r1 5.4.2 5.7.1-r2 6.1.1 9999: ROCm System Management Interface Library
 dev-util/rocm_bandwidth_test 5.3.3 5.4.3 5.7.1: Bandwidth test for ROCm
-dev-util/rocminfo 5.1.3 5.3.3 5.4.3 5.5.1 5.7.1 6.0.0: ROCm Application for Reporting System Info
+dev-util/rocminfo 5.7.1-r1 6.1.1: ROCm Application for Reporting System Info
 dev-util/rocprofiler 5.1.3-r1 5.3.3-r1: Callback/Activity Library for Performance tracing AMD GPU's
-dev-util/roctracer 5.1.3-r1 5.3.3-r1 5.7.1-r1: Callback/Activity Library for Performance tracing AMD GPU's
+dev-util/roctracer 5.1.3-r1 5.3.3-r1 5.7.1-r1 6.1.1: Callback/Activity Library for Performance tracing AMD GPU's
 dev-util/ropper 1.13.8 1.13.10 9999: Use to display information about binary files in different file formats
 dev-util/rpmdevtools 9.5 9.6: Collection of rpm packaging related utilities
 dev-util/rr 5.7.0 5.8.0: Record and Replay Framework
@@ -14800,7 +14802,7 @@ net-irc/sic 1.2-r1: An extremely simple IRC client
 net-irc/soju 0.6.2 0.7.0-r1: soju is a user-friendly IRC bouncer
 net-irc/telepathy-idle 0.2.2: Full-featured IRC connection manager for Telepathy
 net-irc/unrealircd 5.2.4-r1 6.0.4.2: An advanced Internet Relay Chat daemon
-net-irc/weechat 4.1.2 4.2.1 4.2.3 4.3.1 4.3.2-r1 9999: Portable and multi-interface IRC client
+net-irc/weechat 4.1.2 4.2.1 4.2.3 4.3.1 4.3.2-r1 4.3.3 9999: Portable and multi-interface IRC client
 net-irc/znc 1.8.2-r2 1.9.0 9999: An advanced IRC Bouncer
 net-irc/znc-clientbuffer 1.0.48 1.0.48-r1: A ZNC module which provides client specific buffers
 net-irc/znc-igloo-push 20200520: A ZNC module which provides push notifications for Igloo client
@@ -16101,7 +16103,7 @@ sci-libs/coinor-utils 2.11.4 2.11.9: COIN-OR Matrix, Vector and other utility cl
 sci-libs/coinor-vol 1.5.4: COIN-OR volume algorithm linear program solver
 sci-libs/colamd 2.9.6 3.0.3: Column approximate minimum degree ordering algorithm
 sci-libs/colpack 1.0.10: C++ algorithms for specialized vertex coloring problems
-sci-libs/composable-kernel 5.7.1-r1: High Performance Composable Kernel for AMD GPUs
+sci-libs/composable-kernel 5.7.1-r1 6.1.1: High Performance Composable Kernel for AMD GPUs
 sci-libs/cqrlib 1.1.4: Utility library for quaternion arithmetic / rotation math (ANSI C implemented)
 sci-libs/cxsparse 3.2.0 4.0.3: Extended sparse matrix package
 sci-libs/datasets 2.18.0-r1: Access and share datasets for Audio, Computer Vision, and NLP tasks
@@ -16139,12 +16141,13 @@ sci-libs/h5hut 1.99.13-r1: High-Performance I/O Library for Particle-based Simul
 sci-libs/h5part 1.6.6-r1: Portable High Performance Parallel Data Interface to HDF5
 sci-libs/hdf 4.2.15-r2: General purpose library and format for storing scientific data
 sci-libs/hdf5 1.10.5-r1 1.12.2-r4 1.12.2-r6 1.14.1 1.14.2 1.14.3-r1 1.14.4_p2: General purpose library and file format for storing scientific data
-sci-libs/hipBLAS 5.1.3 5.4.2 5.7.1: ROCm BLAS marshalling library
-sci-libs/hipCUB 5.1.3 5.7.1-r1: Wrapper of rocPRIM or CUB for GPU parallel primitives
-sci-libs/hipFFT 5.1.3-r1 5.7.1-r1: CU / ROCM agnostic hip FFT implementation
-sci-libs/hipRAND 5.6.0-r1 5.7.1: CU / ROCM agnostic hip RAND implementation
-sci-libs/hipSOLVER 5.7.1: CU / ROCM agnostic marshalling library for LAPACK routines on the GPU
-sci-libs/hipSPARSE 5.1.3-r1 5.7.1: ROCm SPARSE marshalling library
+sci-libs/hipBLAS 5.1.3 5.4.2 5.7.1 6.1.1: ROCm BLAS marshalling library
+sci-libs/hipBLASLt 6.1.1: General matrix-matrix operations library for AMD Instinct accelerators
+sci-libs/hipCUB 5.1.3 5.7.1-r1 6.1.1: Wrapper of rocPRIM or CUB for GPU parallel primitives
+sci-libs/hipFFT 5.1.3-r1 5.7.1-r1 6.1.1: CU / ROCM agnostic hip FFT implementation
+sci-libs/hipRAND 5.6.0-r1 5.7.1 6.1.1: CU / ROCM agnostic hip RAND implementation
+sci-libs/hipSOLVER 5.7.1 6.1.1: CU / ROCM agnostic marshalling library for LAPACK routines on the GPU
+sci-libs/hipSPARSE 5.1.3-r1 5.7.1 6.1.1: ROCm SPARSE marshalling library
 sci-libs/htslib 1.19.1 1.20: C library for high-throughput sequencing data formats
 sci-libs/huggingface_hub 0.20.3 0.21.4: a client library to interact with the Hugging Face Hub
 sci-libs/hypre 2.20.0 2.21.0 2.24.0: Parallel matrix preconditioners library
@@ -16215,7 +16218,7 @@ sci-libs/mc 1.5: 2D/3D AFEM code for nonlinear geometric PDE
 sci-libs/med 4.1.1-r1 4.1.1-r3: A library to store and exchange meshed data or computation results
 sci-libs/metis 5.2.1-r2: A package for unstructured serial graph partitioning
 sci-libs/minuit 5.34.14: A C++ physics analysis tool for function minimization
-sci-libs/miopen 5.1.3-r1 5.7.1-r1: AMD's Machine Intelligence Library
+sci-libs/miopen 5.1.3-r1 5.7.1-r1 6.1.1: AMD's Machine Intelligence Library
 sci-libs/mkl 2020.4.304 2022.2.1.16993-r1 2023.0.0.25398: Intel Math Kernel Library
 sci-libs/mpfi 1.5.4: Multiple precision interval arithmetic library based on MPFR
 sci-libs/mumps 5.3.5-r1: MUltifrontal Massively Parallel sparse direct matrix Solver
@@ -16255,14 +16258,15 @@ sci-libs/pytorch 2.2.2 2.3.0: Tensors and Dynamic neural networks in Python
 sci-libs/qd 2.3.23: Quad-double and double-double float arithmetics
 sci-libs/qfits 6.2.0: ESO stand-alone C library offering easy access to FITS files
 sci-libs/qrupdate 1.1.2-r2: Library for updating of QR and Cholesky decompositions
-sci-libs/rocBLAS 5.1.3-r4 5.4.2-r3 5.7.1-r2: AMD's library for BLAS on ROCm
-sci-libs/rocFFT 5.1.3-r1 5.7.1-r2: Next generation FFT implementation for ROCm
-sci-libs/rocPRIM 5.1.3 5.7.1: HIP parallel primitives for developing performant GPU-accelerated code on ROCm
-sci-libs/rocRAND 5.1.3 5.6.0-r1 5.7.1: Generate pseudo-random and quasi-random numbers
-sci-libs/rocSOLVER 5.1.3-r1 5.4.2 5.7.1: Implementation of a subset of LAPACK functionality on the ROCm platform
-sci-libs/rocSPARSE 5.1.3-r1 5.7.1-r2: Basic Linear Algebra Subroutines for sparse computation
-sci-libs/rocThrust 5.1.3 5.7.1: HIP back-end for the parallel algorithm library Thrust
-sci-libs/rocWMMA 5.7.1: library for accelerating mixed precision matrix multiply-accumulate operations
+sci-libs/rocBLAS 5.1.3-r4 5.4.2-r3 5.7.1-r2 6.1.1: AMD's library for BLAS on ROCm
+sci-libs/rocFFT 5.1.3-r1 5.7.1-r2 6.1.1: Next generation FFT implementation for ROCm
+sci-libs/rocPRIM 5.1.3 5.7.1 6.1.1: HIP parallel primitives for developing performant GPU-accelerated code on ROCm
+sci-libs/rocRAND 5.1.3 5.6.0-r1 5.7.1 6.1.1: Generate pseudo-random and quasi-random numbers
+sci-libs/rocSOLVER 5.1.3-r1 5.4.2 5.7.1 6.1.1: Implementation of a subset of LAPACK functionality on the ROCm platform
+sci-libs/rocSPARSE 5.1.3-r1 5.7.1-r2 6.1.1: Basic Linear Algebra Subroutines for sparse computation
+sci-libs/rocThrust 5.1.3 5.7.1 6.1.1: HIP back-end for the parallel algorithm library Thrust
+sci-libs/rocWMMA 5.7.1 6.1.1: library for accelerating mixed precision matrix multiply-accumulate operations
+sci-libs/rpp 6.1.1: AMD ROCm Performance Primitives (RPP) high-performance computer vision library
 sci-libs/rtabmap 0.20.23 0.21.3 9999: Real-Time Appearance-Based Mapping (RGB-D Graph SLAM)
 sci-libs/rtree 1.0.0: R-Tree spatial index for Python GIS
 sci-libs/safetensors 0.4.3: Simple, safe way to store and distribute tensors
@@ -17087,7 +17091,7 @@ sys-apps/nvme-cli 2.7.1 2.8 2.9.1: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
 sys-apps/openrazer 3.8.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
-sys-apps/openrc 0.48 0.53.1 0.54 9999: OpenRC manages the services, startup and shutdown of a host
+sys-apps/openrc 0.48 0.53.1 0.54-r1 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/osinfo-db 20240523: osinfo database files
 sys-apps/osinfo-db-tools 1.10.0-r1 1.10.0-r2 1.11.0: Tools for managing the osinfo database
 sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32, Elf64, binaries

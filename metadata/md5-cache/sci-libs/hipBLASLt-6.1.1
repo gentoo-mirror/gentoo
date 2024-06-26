@@ -1,0 +1,17 @@
+BDEPEND=dev-build/rocm-cmake || ( ( dev-lang/python:3.13 dev-python/msgpack[python_targets_python3_13(-)] dev-python/pyyaml[python_targets_python3_13(-)] dev-python/joblib[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/msgpack[python_targets_python3_12(-)] dev-python/pyyaml[python_targets_python3_12(-)] dev-python/joblib[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/msgpack[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] dev-python/joblib[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/msgpack[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] dev-python/joblib[python_targets_python3_10(-)] ) ) llvm_slot_18? ( sys-devel/clang:18 ) test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-util/hip dev-cpp/msgpack-cxx sci-libs/hipBLAS:0/6.1
+DESCRIPTION=General matrix-matrix operations library for AMD Instinct accelerators
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/hipBLASLt
+INHERIT=cmake python-any-r1 llvm-r1 prefix rocm
+IUSE=+amdgpu_targets_gfx90a +amdgpu_targets_gfx940 +amdgpu_targets_gfx941 +amdgpu_targets_gfx942 test +llvm_slot_18
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip dev-cpp/msgpack-cxx sci-libs/hipBLAS:0/6.1
+REQUIRED_USE=^^ ( llvm_slot_18 )
+RESTRICT=!test? ( test )
+SLOT=0/6.1
+SRC_URI=https://github.com/ROCm/hipBLASLt/archive/rocm-6.1.1.tar.gz -> hipBLASLt-6.1.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	b0b1f2b1f205cf6142716789254aea99	prefix	eab3c99d77fe00506c109c8a736186f7	rocm	c4a9a8e37c0ead379f7ddb4ddee80485
+_md5_=37d8aef2da4ad36dbcab4507618890f3
