@@ -40,6 +40,9 @@ fi
 
 RDEPEND+="
 	dev-vcs/git
+	$(python_gen_cond_dep '
+		dev-python/tomli[${PYTHON_USEDEP}]
+	' 3.10)
 "
 BDEPEND="
 	>=dev-python/flit-core-3.8[${PYTHON_USEDEP}]

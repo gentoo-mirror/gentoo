@@ -17,7 +17,17 @@
     <email>gentoo@holzke.net</email>
     <name>Wilfried Holzke</name>
   </maintainer>
+  <maintainer type="person">
+    <email>lockalsash@gmail.com</email>
+    <name>Sv. Lockal</name>
+  </maintainer>
   <upstream>
-    <remote-id type="github">ROCm-Developer-Tools/HIP</remote-id>
+    <remote-id type="github">ROCm/HIP</remote-id>
   </upstream>
+  <use>
+    <flag name="hip">Build HIP runtime</flag>
+    <flag name="opencl">Build OpenCL runtime</flag>
+    <flag name="video_cards_amdgpu">Build for AMD platform</flag>
+    <flag name="video_cards_nvidia">Build for Nvidia platform</flag>
+  </use>
 </pkgmetadata>

@@ -66,7 +66,8 @@ src_configure() {
 }
 
 src_test() {
-	CHECK_AMDGPU
+	check_amdgpu
+	cd "${BUILD_DIR}" || die
 	LD_LIBRARY_PATH="${BUILD_DIR}" edob test/rccl-UnitTests
 }
 

@@ -38,6 +38,7 @@ BDEPEND="
 		dev-python/pytest-forked[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		dev-python/filelock[${PYTHON_USEDEP}]
+		dev-python/joblib[${PYTHON_USEDEP}]
 	)
 "
 
