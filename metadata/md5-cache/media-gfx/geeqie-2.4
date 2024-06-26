@@ -7,11 +7,11 @@ HOMEPAGE=http://www.geeqie.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=flag-o-matic lua-single meson optfeature xdg
 IUSE=debug djvu exif ffmpegthumbnailer heif jpeg jpeg2k jpegxl lcms lua map pdf raw spell tiff webp xmp zip lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~arm64 ~ppc ~x86
+KEYWORDS=amd64 ~arm64 ~ppc x86
 LICENSE=GPL-2
 RDEPEND=gnome-extra/zenity virtual/libintl x11-libs/gtk+:3 djvu? ( app-text/djvu ) exif? ( >=media-gfx/exiv2-0.17:=[xmp?] ) ffmpegthumbnailer? ( media-video/ffmpegthumbnailer ) heif? ( >=media-libs/libheif-1.3.2 ) jpeg2k? ( >=media-libs/openjpeg-2.3.0:2= ) jpeg? ( media-libs/libjpeg-turbo:= ) jpegxl? ( >=media-libs/libjxl-0.3.7:= ) lcms? ( media-libs/lcms:2 ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) map? ( media-libs/clutter-gtk media-libs/libchamplain:0.12[gtk] ) pdf? ( >=app-text/poppler-0.62[cairo] ) raw? ( >=media-libs/libraw-0.20:= ) spell? ( app-text/gspell ) tiff? ( media-libs/tiff:= ) webp? ( gui-libs/gdk-pixbuf-loader-webp:= ) zip? ( >=app-arch/libarchive-3.4.0 )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
 SLOT=0
 SRC_URI=https://github.com/BestImageViewer/geeqie/releases/download/v2.4/geeqie-2.4.tar.xz https://dev.gentoo.org/~voyageur/distfiles/geeqie-2.4-docs.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=41d43787dd3749f77d4e0e07913035d0
+_md5_=95f35a05027f311e766783c4389b2847
