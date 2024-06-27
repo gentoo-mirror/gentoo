@@ -11,10 +11,10 @@ SRC_URI="mirror://nongnu/m17n/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="X anthy athena bidi fontconfig gd libotf libxml2 spell xft"
 
-RDEPEND="~dev-db/m17n-db-${PV}
+RDEPEND=">=dev-db/m17n-db-${PV}
 	X? (
 		x11-libs/libX11
 		x11-libs/libXt
@@ -35,12 +35,9 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-configure.patch
+	"${FILESDIR}"/${PN}-configure.patch
 	"${FILESDIR}"/${PN}-freetype.patch
-	"${FILESDIR}"/${PN}-ftconfig.patch
 	"${FILESDIR}"/${PN}-ispell.patch
-	"${FILESDIR}"/${PN}-parallel-make.patch
-	"${FILESDIR}"/${PN}-pkg-config.patch
 )
 
 src_prepare() {
