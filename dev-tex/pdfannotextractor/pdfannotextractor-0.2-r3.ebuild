@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit latex-package java-pkg-2 java-ant-2
+JAVA_PKG_IUSE="doc source"
+
+inherit latex-package java-pkg-2 java-pkg-simple
 
 MY_COMMIT_ID=718e18be0c8fd1dc5b7c974eb4fbe6d0774cd05e
 MY_PDFBOX_VER="1.8.17"
@@ -27,7 +29,7 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~x64-macos"
 COMMON_DEPEND="virtual/latex-base"
 DEPEND="
 	${COMMON_DEPEND}
-	>=virtual/jdk-11
+	>=virtual/jdk-1.8:*
 "
 BDEPEND="app-arch/unzip"
 RDEPEND="
@@ -35,38 +37,30 @@ RDEPEND="
 	${COMMON_DEPEND}
 	virtual/perl-Getopt-Long
 	dev-perl/File-Which
-	>=virtual/jre-11
+	>=virtual/jre-1.8:*
 	!<dev-texlive/texlive-latexextra-2023_p69752-r4
 "
-
-JAVA_ANT_REWRITE_CLASSPATH="true"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.2-javajars.patch
 )
 
+JAVA_GENTOO_CLASSPATH_EXTRA="${DISTDIR}/fontbox-${MY_FONTBOX_VER}.jar"
+JAVA_GENTOO_CLASSPATH_EXTRA+=":${DISTDIR}/pdfbox-${MY_PDFBOX_VER}.jar"
+JAVA_JAR_FILENAME="pax.jar"
+JAVA_MAIN_CLASS="pax.PDFAnnotExtractor"
+JAVA_SRC_DIR="source/src"
+
 src_unpack() {
 	unpack ${P}.tar.gz
 }
 
-src_prepare() {
-	default
-	cp "${DISTDIR}"/pdfbox-${MY_PDFBOX_VER}.jar pdfbox.jar || die
-	cp "${DISTDIR}"/fontbox-${MY_FONTBOX_VER}.jar fontbox.jar || die
-}
-
-src_compile() {
-	cd source || die
-	EANT_GENTOO_CLASSPATH_EXTRA="${S}/pdfbox.jar:${S}/fontbox.jar" eant || die
-}
-
 src_install() {
-	java-pkg_dojar scripts/pax.jar pdfbox.jar fontbox.jar
-	java-pkg_dolauncher ${PN} --main pax.PDFAnnotExtractor
+	java-pkg-simple_src_install
+	java-pkg_newjar "${DISTDIR}/pdfbox-${MY_PDFBOX_VER}.jar" pdfbox.jar
+	java-pkg_newjar "${DISTDIR}/fontbox-${MY_FONTBOX_VER}.jar" fontbox.jar
 	java-pkg_addcp "$(java-pkg_getjars --runtime-only --with-dependencies commons-logging)"
 
 	insinto ${TEXMF}/latex/pax
 	doins tex/pax.sty
-
-	dodoc README
 }
