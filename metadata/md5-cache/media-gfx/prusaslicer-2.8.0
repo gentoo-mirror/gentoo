@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-cpp/eigen:3 dev-cpp/tbb:= dev-libs/boost:=[nls] dev-libs/cereal dev-libs/expat dev-libs/glib:2 dev-libs/gmp:= dev-libs/mpfr:= media-gfx/openvdb:= media-gfx/libbgcode net-misc/curl[adns] media-libs/glew:0= media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/qhull:= sci-libs/libigl sci-libs/nlopt sci-libs/opencascade:= sci-mathematics/cgal:= sys-apps/dbus sys-libs/zlib:= virtual/opengl x11-libs/gtk+:3 >=x11-libs/wxGTK-3.2.2.1-r3:3.2-gtk3[X,opengl,webkit] media-libs/nanosvg:= media-libs/qhull[static-libs] test? ( =dev-cpp/catch-2* )
+DESCRIPTION=A mesh slicer to generate G-code for fused-filament-fabrication (3D printers)
+EAPI=8
+HOMEPAGE=https://www.prusa3d.com/prusaslicer/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake wxwidgets xdg
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=AGPL-3 Boost-1.0 GPL-2 LGPL-3 MIT
+RDEPEND=dev-cpp/eigen:3 dev-cpp/tbb:= dev-libs/boost:=[nls] dev-libs/cereal dev-libs/expat dev-libs/glib:2 dev-libs/gmp:= dev-libs/mpfr:= media-gfx/openvdb:= media-gfx/libbgcode net-misc/curl[adns] media-libs/glew:0= media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/qhull:= sci-libs/libigl sci-libs/nlopt sci-libs/opencascade:= sci-mathematics/cgal:= sys-apps/dbus sys-libs/zlib:= virtual/opengl x11-libs/gtk+:3 >=x11-libs/wxGTK-3.2.2.1-r3:3.2-gtk3[X,opengl,webkit] media-libs/nanosvg:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/prusa3d/PrusaSlicer/archive/refs/tags/version_2.8.0.tar.gz -> prusaslicer-2.8.0.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=723bb52eb81e4a8365fff0e3a7ec8e66
