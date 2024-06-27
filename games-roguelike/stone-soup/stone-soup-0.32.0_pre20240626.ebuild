@@ -24,7 +24,7 @@ DESCRIPTION="Role-playing roguelike game of exploration and treasure-hunting in 
 HOMEPAGE="https://crawl.develz.org"
 
 # Leave empty string if not a _pre release
-COMMITSHA=""
+COMMITSHA="3d6ac616a9d452a692b94beb1a9d6b8e66346631"
 if [ -z "${COMMITSHA}" ]; then
 	# This is a tagged release
 	# Note the archive URI and file layout changed upstream between 0.29.0 and 0.29.1
@@ -40,7 +40,7 @@ else
 	MY_P="crawl-${COMMITSHA}/crawl-ref"
 fi
 # MY_SLOT to satisfy pkgcheck variable order checking
-MY_SLOT="0.30"
+MY_SLOT="0.32"
 SRC_URI="
 	${SRC_URI}
 	https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
@@ -54,7 +54,7 @@ S=${WORKDIR}/${MY_P}/source
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
 SLOT="${MY_SLOT}"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="advpng debug ncurses sound test +tiles"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
