@@ -1186,7 +1186,7 @@ app-arch/unace 2.5-r6: ACE unarchiver
 app-arch/unadf 0.7.12-r2: Extract files from Amiga adf disk images
 app-arch/unar 1.10.8: Unpacker for various archiving formats, e.g. rar v3
 app-arch/unp 2.0_pre9 2.0_pre10 2.0: Script for unpacking various file formats
-app-arch/unrar 6.2.12-r1 7.0.7 7.0.9: Uncompress rar files
+app-arch/unrar 7.0.9: Uncompress rar files
 app-arch/unrpa 2.3.0-r1: Ren'Py's RPA data file extractor
 app-arch/unshield 1.5.1: InstallShield CAB file extractor
 app-arch/unzip 6.0_p27-r1: unzipper for pkzip-compressed files
@@ -5371,9 +5371,9 @@ dev-libs/imath 3.1.11 3.1.11-r1: Imath basic math package
 dev-libs/inih 57-r1 58: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1-r1 4.2.2: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 24.17.29377.6: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
-dev-libs/intel-metrics-discovery 1.12.171: A user mode library that provides access to GPU performance data
-dev-libs/intel-metrics-library 1.0.161: User mode driver helper library that provides access to GPU performance counters
+dev-libs/intel-compute-runtime 24.17.29377.6 24.22.29735.21: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-metrics-discovery 1.12.171 1.12.172: A user mode library that provides access to GPU performance data
+dev-libs/intel-metrics-library 1.0.161 1.0.166: User mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.18.0: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1 2.31.0: Intelligent Storage Acceleration Library
 dev-libs/isa-l_crypto 2.24.0: Intelligent Storage Acceleration Library - cryptographic components
@@ -5642,7 +5642,7 @@ dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ progr
 dev-libs/marisa 0.2.6 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.7 2.7.7-r1 3.2.2-r1 3.2.2-r2: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/mdns 1.4.3: Public domain mDNS/DNS-SD library in C
-dev-libs/metee 3.2.4: Cross-platform access library for Intel CSME HECI interface
+dev-libs/metee 3.2.4 4.1.0: Cross-platform access library for Intel CSME HECI interface
 dev-libs/mimalloc 2.1.2 2.1.4 2.1.6 2.1.7: A compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniaudio 0.11.11 0.11.15: Single file library for audio playback and capture
@@ -5874,7 +5874,7 @@ dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.5: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r1: Simple streaming interface to zlib for Lua
 dev-lua/lua_cliargs 3.0_p2-r1: A command-line argument parsing module for Lua
-dev-lua/luacheck 1.1.2 1.2.0: A tool for linting and static analysis of Lua code
+dev-lua/luacheck 1.2.0: A tool for linting and static analysis of Lua code
 dev-lua/luacov 0.15.0: A simple coverage analyzer for Lua scripts
 dev-lua/luadbi 0.7.3: A database interface library for Lua
 dev-lua/luaevent 0.4.6-r1: Binding of libevent for Lua
@@ -5888,7 +5888,7 @@ dev-lua/luarocks 3.11.1: A package manager for the Lua programming language
 dev-lua/luasec 1.3.2: Lua binding for OpenSSL library to provide TLS/SSL communication
 dev-lua/luasocket 3.1.0: Networking support for the Lua language
 dev-lua/luassert 1.9.0: Assertion library for Lua
-dev-lua/luasystem 0.2.1_p0-r1 0.3.0 0.4.0: Platform independent system calls for Lua
+dev-lua/luasystem 0.2.1_p0-r1 0.3.0 0.4.0 0.4.1: Platform independent system calls for Lua
 dev-lua/lutok 0.4-r11: Lightweight C++ API library for Lua
 dev-lua/luv 1.44.2.0 1.45.0.0: Bare libuv bindings for lua
 dev-lua/md5 1.3-r1: Offers basic cryptographic facilities for Lua
@@ -10790,7 +10790,7 @@ dev-util/dwdiff 2.1.3 2.1.4: diff-like program operating at word level instead o
 dev-util/ebuildtester 42-r2 42-r3: A dockerized approach to test a Gentoo package within a clean stage3 container
 dev-util/edi 0.8.0-r2: An EFL-based IDE
 dev-util/editorconfig-geany 0.2: EditorConfig plugin for Geany
-dev-util/egypt 1.10: Devilishly simple tool for creating call graphs of C programs
+dev-util/egypt 1.10 1.11: Devilishly simple tool for creating call graphs of C programs
 dev-util/elfkickers 3.1a 3.2: Collection of programs to manipulate ELF files: sstrip, rebind, elfls, elftoc
 dev-util/elfshaker 0.9.0_p20230918 0.9.0_p20240122: Stores binary objects efficiently
 dev-util/flatpak-builder 1.3.3: Tool to build flatpaks from source
@@ -10846,7 +10846,7 @@ dev-util/idea-community 2024.1.4: A complete toolset for web, mobile and enterpr
 dev-util/imediff2 1.1.2.1: An interactive, user friendly 2-way merge tool in text mode
 dev-util/include-what-you-use 0.20 0.21 0.22: Find unused include directives in C/C++ programs
 dev-util/indent 2.2.12 2.2.13: Indent program source files
-dev-util/intel-graphics-compiler 1.0.16695.4: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
+dev-util/intel-graphics-compiler 1.0.16695.4 1.0.17193.2: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
 dev-util/intel-graphics-system-controller 0.8.16: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015: Intel's implementation of the OpenCL standard
 dev-util/intel_clc 24.0.9 24.1.1 24.1.2 9999: intel_clc tool used for building OpenCL C to SPIR-V
@@ -18093,7 +18093,7 @@ www-apps/nanoc-cli 4.12.20 4.12.21 4.13.0: nanoc is a simple but very flexible s
 www-apps/nanoc-core 4.12.20 4.12.21 4.13.0: nanoc is a simple but very flexible static site generator written in Ruby
 www-apps/nanoc-deploying 1.0.2-r1: Provides deploying functionality for Nanoc
 www-apps/nanoc-spec 0.0.2-r1: Provides Nanoc::Spec, containing functionality for writing tests for Nanoc
-www-apps/nextcloud 27.1.5 27.1.9 27.1.10 28.0.1 28.0.2 28.0.5 28.0.6 29.0.1 29.0.2: Personal cloud that runs on your own server
+www-apps/nextcloud 27.1.5 27.1.9 27.1.10 28.0.1 28.0.2 28.0.5 28.0.6 29.0.1 29.0.2 29.0.3: Personal cloud that runs on your own server
 www-apps/nextcloud-notify_push 0.6.6 0.6.9: Push daemon for Nextcloud clients
 www-apps/nikola 8.2.4-r1 8.3.0: A static website and blog generator
 www-apps/novnc 1.2.0 1.3.0 1.4.0 9999: noVNC is a VNC client implemented using HTML5 technologies
@@ -18190,7 +18190,7 @@ www-servers/lighttpd 1.4.75 1.4.75-r1 1.4.76: Lightweight high-performance web s
 www-servers/mongrel2 1.11.0-r2: A language agnostic web server focused on web applications
 www-servers/monkeyd 1.6.9-r2 9999: A small, fast, and scalable web server
 www-servers/moonbridge 1.1.3: Network Server for Lua Applications
-www-servers/nginx 1.26.1 1.27.0: Robust, small and high performance http and reverse proxy server
+www-servers/nginx 1.26.1-r1 1.27.0-r1: Robust, small and high performance http and reverse proxy server
 www-servers/nginx-unit 1.32.1: Dynamic web and application server
 www-servers/pound 3.0.2 4.10: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.1 0.4.3: Pretty small HTTP server -- a command-line tool to share files
