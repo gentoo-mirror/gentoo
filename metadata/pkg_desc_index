@@ -12203,7 +12203,7 @@ kde-apps/kdepim-runtime 23.08.5 24.05.1: Runtime plugin collection to extend the
 kde-apps/kdesdk-meta 23.08.5 24.05.1: KDE SDK - merge this to pull in all kdesdk-derived packages
 kde-apps/kdesdk-thumbnailers 24.05.1: Thumbnail generator for PO files
 kde-apps/kdeutils-meta 23.08.5 24.05.1: kdeutils - merge this to pull in all kdeutils-derived packages
-kde-apps/kdf 23.08.5 24.05.1: KDE free disk space utility
+kde-apps/kdf 23.08.5 24.05.1-r1: KDE free disk space utility
 kde-apps/kdialog 23.08.5 24.05.1: Can be used to show nice dialog boxes from shell scripts
 kde-apps/kdiamond 23.08.5 24.05.1: Single player three-in-a-row game
 kde-apps/keditbookmarks 23.08.5 24.05.1: Bookmarks editor based on KDE Frameworks
@@ -14686,7 +14686,7 @@ net-fs/nfs4-acl-tools 0.3.7-r1: Commandline and GUI tools that deal directly wit
 net-fs/openafs 1.8.7 1.8.8.1-r1: The OpenAFS distributed file system
 net-fs/s3backer 1.6.3 2.1.2: A filesystem that contains a single file backed by Amazon S3
 net-fs/s3fs 1.94: Amazon S3 mounting via fuse
-net-fs/samba 4.18.8 4.18.9 4.18.10 4.18.11 4.19.4 4.19.6 4.20.0 4.20.1: Samba Suite Version 4
+net-fs/samba 4.18.8 4.18.9 4.18.10 4.18.11 4.19.4 4.19.6 4.19.7 4.20.0 4.20.1 4.20.2: Samba Suite Version 4
 net-fs/smbnetfs 0.6.3: FUSE filesystem for SMB shares
 net-fs/sshfs 3.7.3-r1: Fuse-filesystem utilizing the sftp service
 net-fs/wdfs 1.4.2-r2: WebDAV filesystem with special features for accessing subversion repositories
@@ -17643,7 +17643,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7 1.0.8: Early unlocking of encrypted systems vi
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.218 5.10.219 5.10.220 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.1.95 6.1.96 6.6.32 6.6.33 6.6.34 6.6.35 6.6.36 6.9.4 6.9.5 6.9.6 6.9.7: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.218 5.10.219 5.10.220 5.15.160 5.15.161 6.1.92 6.1.93 6.1.94 6.1.95 6.1.96 6.6.32 6.6.33 6.6.34 6.6.35 6.6.36 6.9.4 6.9.5 6.9.6 6.9.7: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.212 5.10.216 5.10.217 5.10.218 5.10.219 5.10.220 5.15.151 5.15.158 5.15.159 5.15.160 5.15.161 6.1.81 6.1.90 6.1.91 6.1.92 6.1.93 6.1.94 6.1.95 6.1.96 6.6.21 6.6.30 6.6.31 6.6.32 6.6.33 6.6.34 6.6.35 6.6.36 6.9.1 6.9.2 6.9.3 6.9.4 6.9.5 6.9.6 6.9.7: Full sources including the Gentoo patchset for the 6.9 kernel tree
+sys-kernel/gentoo-sources 5.10.212 5.10.217 5.10.218 5.10.219 5.10.220 5.15.151 5.15.158 5.15.159 5.15.160 5.15.161 6.1.81 6.1.90 6.1.94 6.1.95 6.1.96 6.6.21 6.6.30 6.6.34 6.6.35 6.6.36 6.9.4 6.9.5 6.9.6 6.9.7: Full sources including the Gentoo patchset for the 6.9 kernel tree
 sys-kernel/git-sources 6.10_rc1 6.10_rc2 6.10_rc3 6.10_rc4 6.10_rc5: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 38 39: Gentoo fork of installkernel script from debianutils
 sys-kernel/kergen 0.1.5-r1: Kernel config generator
@@ -17679,7 +17679,7 @@ sys-libs/glibc 2.19-r3 2.31-r7 2.32-r8 2.33-r14 2.34-r14 2.35-r11 2.36-r8 2.37-r
 sys-libs/gpm 1.20.7-r5 1.20.7-r6: Console-based mouse driver
 sys-libs/gwenhywfar 5.10.1: Multi-platform helper library for other libraries
 sys-libs/kpmcore 23.08.5 24.05.1: Library for managing partitions
-sys-libs/ldb 2.7.2 2.8.0 2.9.0: LDAP-like embedded database
+sys-libs/ldb 2.7.2 2.8.0 2.8.1 2.9.0 2.9.1: LDAP-like embedded database
 sys-libs/libaal 1.0.7-r2: library required by reiser4progs
 sys-libs/libapparmor 3.1.4 3.1.4-r2: Library to support AppArmor userspace utilities
 sys-libs/libavc1394 0.5.4-r2: Library for the 1394 AV/C (Audio/Video Control) Digital Interface Command Set
@@ -18081,7 +18081,7 @@ www-apps/klaus 2.0.3 3.0.1: A simple, easy-to-set-up Git web viewer
 www-apps/lidarr-bin 2.4.0.4222: Looks and smells like Sonarr but made for music
 www-apps/liquid_feedback_core 4.2.2: Internet platforms for proposition development and decision making
 www-apps/liquid_feedback_frontend 4.0.0: Internet platforms for proposition development and decision making
-www-apps/mediawiki 1.39.7 1.40.3 1.41.1 1.41.2 1.42.1: The MediaWiki wiki web application (as used on wikipedia.org)
+www-apps/mediawiki 1.39.7 1.40.3 1.40.4 1.41.1 1.41.2 1.42.1: The MediaWiki wiki web application (as used on wikipedia.org)
 www-apps/miniflux 2.0.49 2.1.3: Minimalist and opinionated feed reader
 www-apps/mirmon 2.11-r2: Simple webapp to monitor the status of mirrors
 www-apps/moodle 4.2.8 4.3.5 4.4.1: The Moodle Course Management System
