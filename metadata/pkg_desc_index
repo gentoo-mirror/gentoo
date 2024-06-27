@@ -1339,7 +1339,7 @@ app-containers/cosign 2.0.0 2.0.1 2.2.0 2.2.1 2.2.3: container signing utility
 app-containers/cri-o 1.29.0 1.29.2: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.25.0 1.27.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.8.4 1.11.2 1.14.3: A fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.60.0 0.62.0 0.64.0: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.60.0 0.62.0 0.64.0 0.65.0: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.7.2.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1: System container image builder for LXC and incus
 app-containers/docker 26.1.0-r1: The core functions you need to create Docker images and run Docker containers
@@ -1351,7 +1351,7 @@ app-containers/docker-credential-helpers 0.6.3: Suite of programs to use native 
 app-containers/docker-proxy 0.8.0_p20230118: Docker container networking
 app-containers/docker-registry 2.8.1 2.8.2: Docker Registry 2.0
 app-containers/docker-swarm 1.2.9: Swarm Classic: a container clustering system
-app-containers/earthly 0.8.9 0.8.10 0.8.11 0.8.12 0.8.13 0.8.14: Build automation tool that executes in containers
+app-containers/earthly 0.8.12 0.8.13 0.8.14: Build automation tool that executes in containers
 app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containers
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
@@ -5104,7 +5104,7 @@ dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2: Functional programming language with dependent types
 dev-lang/bas 2.4: An interpreter for the classic dialect of the programming language BASIC
 dev-lang/bff 1.0.7: A brainfuck interpreter
-dev-lang/boogie 3.1.5 3.1.6: SMT-based program verifier
+dev-lang/boogie 3.1.6: SMT-based program verifier
 dev-lang/c-intercal 31.0: C-INTERCAL - INTERCAL to binary (via C) compiler
 dev-lang/cfortran 4.4-r4 20110621 20210827: Header file allowing to call Fortran routines from C and C++
 dev-lang/clips 6.40: Tool for building Expert Systems (native version)
@@ -5116,8 +5116,8 @@ dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
 dev-lang/crystal 1.12.1 1.12.2: The Crystal Programming Language
 dev-lang/cue 0.7.0: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r1: A WAM based Prolog system
-dev-lang/dafny 4.6.0: Dafny is a verification-aware programming language
-dev-lang/dafny-bin 4.6.0: Verification-aware programming language
+dev-lang/dafny 4.6.0 4.7.0: Dafny is a verification-aware programming language
+dev-lang/dafny-bin 4.6.0 4.7.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 3.90 3.95 4.00 9999: Interpreter and compiler compatible with the ISLisp standard
@@ -5127,7 +5127,7 @@ dev-lang/erlang 26.2.1 26.2.2 26.2.4 27.0: Erlang programming language, runtime 
 dev-lang/esco 0.513: Combine interpreter of esoteric languages
 dev-lang/execline 2.9.5.1 2.9.6.0: A non-interactive scripting language
 dev-lang/f2c 20100827-r1 20240130 20240312: Fortran to C converter
-dev-lang/fennel 1.4.2-r1: Lisp-like language that compiles to Lua
+dev-lang/fennel 1.4.2-r1 1.5.0: Lisp-like language that compiles to Lua
 dev-lang/fpc 3.2.2: Free Pascal Compiler
 dev-lang/fuzion 0.086 0.088: A language with a focus on simplicity, safety and correctness
 dev-lang/gdl 1.0.4-r1: GNU Data Language
@@ -16313,7 +16313,7 @@ sci-mathematics/bertini 1.4 1.6: Software for Numerical Algebraic Geometry
 sci-mathematics/boolector 3.2.3: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
 sci-mathematics/btor2tools 1.0.0_pre20220518-r1: Generic parser and tools for the BTOR2 format
 sci-mathematics/cadabra 2.4.5.4 2.4.5.6 2.4.5.7: Field-theory motivated approach to computer algebra
-sci-mathematics/cadical 1.9.4 1.9.5: Simplified Satisfiability Solver
+sci-mathematics/cadical 1.9.5 2.0.0: Simplified Satisfiability Solver
 sci-mathematics/calc 2.13.0.1: Arbitrary precision C-like arithmetic system
 sci-mathematics/cgal 5.6: C++ library for geometric algorithms and data structures
 sci-mathematics/cliquer 1.22: C routines for finding cliques in an arbitrary weighted graph
@@ -16403,7 +16403,7 @@ sci-mathematics/singular 4.3.2_p16-r1: Computer algebra system for polynomial co
 sci-mathematics/slepc 3.16.0 3.17.1 3.18.1 3.19.0 3.19.1 3.20.1: Scalable Library for Eigenvalue Problem Computations
 sci-mathematics/smtinterpol 2.5_p20211018: Interpolating SMT-solver computing Craig interpolants for various theories
 sci-mathematics/spin 6.5.2-r1: An efficient logic-model checker for the verification of multi-threaded code
-sci-mathematics/stp 2.3.3-r3: Simple Theorem Prover, an efficient SMT solver for bitvectors
+sci-mathematics/stp 2.3.3-r3 2.3.4: Simple Theorem Prover, an efficient SMT solver for bitvectors
 sci-mathematics/sympow 2.023.6: Symmetric power elliptic curve L-functions
 sci-mathematics/topcom 0.17.8-r3 1.1.2: Computing Triangulations Of Point Configurations and Oriented Matroids
 sci-mathematics/twelf 1.7.1-r2: Implementation of the logical framework LF
