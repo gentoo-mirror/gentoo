@@ -6,7 +6,8 @@ EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="Simplified Satisfiability Solver"
-HOMEPAGE="http://fmv.jku.at/cadical/"
+HOMEPAGE="http://fmv.jku.at/cadical/
+	https://github.com/arminbiere/cadical/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -25,13 +26,14 @@ SLOT="0/${PV}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-configure.patch"
-	"${FILESDIR}/${PN}-makefile.in-ar.patch"
+	"${FILESDIR}/${PN}-makefile-in-respect-ar-2.0.0.patch"
 )
 
 DOCS=( CONTRIBUTING.md NEWS.md README.md )
 
 src_configure() {
 	tc-export AR
+
 	CXX="$(tc-getCXX)" CXXFLAGS="${CXXFLAGS} ${LDFLAGS}" ./configure || die
 }
 
