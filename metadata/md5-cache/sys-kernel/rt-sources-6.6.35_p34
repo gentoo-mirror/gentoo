@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
-DESCRIPTION=Full Linux 5.15 kernel sources with the CONFIG_PREEMPT_RT patch
+DESCRIPTION=Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
 EAPI=8
 HOMEPAGE=https://wiki.linuxfoundation.org/realtime/start
 INHERIT=kernel-2
@@ -8,7 +8,7 @@ KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc dev-build/make sys-devel/bison sys-devel/flex >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=5.15.158_p76
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.15.158.xz https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz deblob? ( https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//5.15-gnu/deblob-5.15 https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//5.15-gnu/deblob-check -> deblob-check-5.15 ) https://www.kernel.org/pub/linux/kernel/projects/rt/5.15/patch-5.15.158-rt76.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/5.15/older/patch-5.15.158-rt76.patch.xz
+SLOT=6.6.35_p34
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/patch-6.6.35.xz https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.6.tar.xz deblob? ( https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//6.6-gnu/deblob-6.6 https://www.fsfla.org/svn/fsfla/software/linux-libre/releases/tags//6.6-gnu/deblob-check -> deblob-check-6.6 ) https://www.kernel.org/pub/linux/kernel/projects/rt/6.6/patch-6.6.35-rt34.patch.xz https://www.kernel.org/pub/linux/kernel/projects/rt/6.6/older/patch-6.6.35-rt34.patch.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	kernel-2	d7063ec2420394c5b29ed142f15b5033
 _md5_=f38021cb7995abf3d0f637ed0753b70a
