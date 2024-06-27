@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-text/scdoc virtual/pkgconfig test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-debug/systemtap ) vaapi? ( media-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
+DESCRIPTION=Transparent network proxy for Wayland compositors
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/mstoeckl/waypipe
+INHERIT=meson python-any-r1
+IUSE=dmabuf ffmpeg lz4 systemtap test vaapi zstd cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_sse3 cpu_flags_arm_neon
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=MIT
+RDEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-debug/systemtap ) vaapi? ( media-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
+REQUIRED_USE=vaapi? ( ffmpeg )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/mstoeckl/waypipe/-/archive/v0.9.1/waypipe-v0.9.1.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	f5169813d1619761b459800587005fd2
+_md5_=bd6aa8bb884d212e2408f7b7ee57ee94
