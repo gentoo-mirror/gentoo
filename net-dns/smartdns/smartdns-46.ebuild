@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,14 +8,13 @@ DESCRIPTION="A local DNS server returns the fastest access results"
 HOMEPAGE="https://github.com/pymumu/smartdns"
 SRC_URI="https://github.com/pymumu/smartdns/archive/refs/tags/Release${PV}.tar.gz -> ${P}.tar.gz"
 
+S="${WORKDIR}/${PN}-Release${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="dev-libs/openssl:0="
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-Release${PV}"
 
 src_prepare() {
 	default
