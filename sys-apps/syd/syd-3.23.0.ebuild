@@ -22,23 +22,22 @@ CRATES="
 	anyhow@1.0.86
 	argv@0.1.11
 	autocfg@1.3.0
-	backtrace@0.3.72
+	backtrace@0.3.73
 	bitflags@1.3.2
-	bitflags@2.5.0
+	bitflags@2.6.0
 	bstr@1.9.1
 	bumpalo@3.16.0
-	byteorder@1.5.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.0.99
+	cc@1.0.101
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	chrono@0.4.38
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.6
-	clap_builder@4.5.6
+	clap@4.5.7
+	clap_builder@4.5.7
 	clap_derive@4.5.5
 	clap_lex@0.7.1
 	colorchoice@1.0.1
@@ -55,7 +54,6 @@ CRATES="
 	crossbeam-utils@0.8.20
 	crossbeam@0.8.4
 	crunchy@0.2.2
-	cty@0.2.2
 	darling@0.20.9
 	darling_core@0.20.9
 	darling_macro@0.20.9
@@ -64,7 +62,7 @@ CRATES="
 	derive_builder_macro@0.20.0
 	dirs-sys@0.4.1
 	dirs@5.0.1
-	either@1.12.0
+	either@1.13.0
 	env_filter@0.1.0
 	env_logger@0.11.3
 	equivalent@1.0.1
@@ -102,7 +100,6 @@ CRATES="
 	ident_case@1.0.1
 	indexmap@1.9.3
 	indexmap@2.2.6
-	io-lifetimes@1.0.11
 	io-uring@0.6.4
 	ipnetwork@0.20.0
 	is-terminal@0.4.12
@@ -110,37 +107,32 @@ CRATES="
 	itertools@0.10.5
 	itoa@1.0.11
 	js-sys@0.3.69
-	lazy_static@1.4.0
+	lazy_static@1.5.0
 	lexis@0.2.3
 	libc@0.2.155
 	libcgroups@0.3.3
 	libcontainer@0.3.3
-	libloading@0.8.3
+	libloading@0.8.4
 	libm@0.2.8
 	liboci-cli@0.3.3
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
-	linux-raw-sys@0.1.4
 	linux-raw-sys@0.4.14
 	lock_api@0.4.12
 	log@0.4.21
 	md5@0.7.0
-	memchr@2.7.2
-	memoffset@0.7.1
+	memchr@2.7.4
 	memoffset@0.9.1
-	mimalloc2-rust-sys@2.1.7-source
-	mimalloc2-rust@0.3.2
-	miniz_oxide@0.7.3
+	miniz_oxide@0.7.4
 	nc@0.8.21
-	nix@0.26.4
 	nix@0.27.1
 	nix@0.29.0
 	nonempty@0.10.0
 	nu-ansi-term@0.46.0
 	num-traits@0.2.19
 	num_cpus@1.16.0
-	object@0.35.0
+	object@0.36.0
 	oci-spec@0.6.5
 	once_cell@1.19.0
 	oorandom@11.1.3
@@ -160,11 +152,10 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.85
+	proc-macro2@1.0.86
 	procfs-core@0.16.0
-	procfs@0.15.1
 	procfs@0.16.0
-	proptest@1.4.0
+	proptest@1.5.0
 	protobuf-codegen@3.2.0
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
@@ -174,7 +165,7 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_xorshift@0.3.0
-	redox_syscall@0.5.1
+	redox_syscall@0.5.2
 	redox_users@0.4.5
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
@@ -189,10 +180,8 @@ CRATES="
 	rs_sha3_512@0.1.2
 	rust-criu@0.4.0
 	rustc-demangle@0.1.24
-	rustix@0.36.17
 	rustix@0.38.34
 	rustversion@1.0.17
-	rusty_pool@0.7.0
 	ryu@1.0.18
 	safe-path@0.1.0
 	same-file@1.0.6
@@ -203,17 +192,17 @@ CRATES="
 	sendfd@0.4.3
 	serde@1.0.203
 	serde_derive@1.0.203
-	serde_json@1.0.117
+	serde_json@1.0.118
 	sharded-slab@0.1.7
 	shellexpand@3.1.0
 	slab@0.4.9
 	slotmap@1.0.7
 	smallvec@1.13.2
 	strsim@0.11.1
-	strum@0.26.2
+	strum@0.26.3
 	strum_macros@0.26.4
 	syn@1.0.109
-	syn@2.0.66
+	syn@2.0.68
 	tabwriter@1.4.0
 	tempfile@3.10.1
 	thiserror-impl@1.0.61
@@ -246,32 +235,23 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-core@0.52.0
-	windows-sys@0.45.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
-	windows-targets@0.42.2
 	windows-targets@0.48.5
 	windows-targets@0.52.5
-	windows_aarch64_gnullvm@0.42.2
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.5
-	windows_aarch64_msvc@0.42.2
 	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.5
-	windows_i686_gnu@0.42.2
 	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.5
 	windows_i686_gnullvm@0.52.5
-	windows_i686_msvc@0.42.2
 	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.5
-	windows_x86_64_gnu@0.42.2
 	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.5
-	windows_x86_64_gnullvm@0.42.2
 	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.5
-	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.5
 	zerocopy-derive@0.7.34
@@ -307,7 +287,7 @@ src_configure() {
 		export LIBSECCOMP_LINK_TYPE="static"
 		export LIBSECCOMP_LIB_PATH=$(pkgconf --variable=libdir libseccomp)
 		export RUSTFLAGS+="-Clink-args=-static -Clink-args=-no-pie -Clink-args=-Wl,-Bstatic -Ctarget-feature=+crt-static"
-		local myfeatures=( "log,mimalloc,uring,utils" )
+		local myfeatures=( "log,uring,utils" )
 		cargo_src_configure --no-default-features
 	else
 		local myfeatures=( "oci" )
