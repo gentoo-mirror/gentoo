@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org
 IUSE=avif eps heif jpegxl openexr raw debug test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtbase-6.6.2:6[gui] =kde-frameworks/karchive-6.3*:6 avif? ( >=media-libs/libavif-0.8.2:= ) eps? ( >=dev-qt/qtbase-6.6.2:6[widgets] ) heif? ( >=media-libs/libheif-1.10.0:= ) jpegxl? ( >=media-libs/libjxl-0.7.0:= ) openexr? ( >=media-libs/openexr-3:= ) raw? ( media-libs/libraw:= ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
 RESTRICT=!test? ( test )
 SLOT=6/6.3
 SRC_URI=mirror://kde/stable/frameworks/6.3/kimageformats-6.3.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	virtualx	817571665ee28575da44ee08135089e5	ecm	4374b8174045bfc8f743c11736520e32	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
-_md5_=29d6f26b4cd9825217b14ddc76f1ff38
+_md5_=472fb6b5e78b37df6eb0787d5acbffaf
