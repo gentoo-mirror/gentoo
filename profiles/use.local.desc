@@ -686,7 +686,7 @@ app-emulation/vkd3d:spirv-tools - Enable SPIRV shader debugging support using de
 app-emulation/vkd3d-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/vkd3d-proton:extras - Install extra tools and demos in /usr/lib/vkd3d-proton
 app-emulation/wine-gecko:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
-app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix
+app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix (note that this requires the default top-level Z: drive to be kept for out-of-prefix files to be readable)
 app-emulation/wine-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up)
 app-emulation/wine-proton:gecko - Enable mshtml support using app-emulation/wine-gecko
 app-emulation/wine-proton:mono - Enable .NET support using app-emulation/wine-mono
