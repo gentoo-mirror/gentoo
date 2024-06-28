@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=media-libs/glm media-libs/libglvnd[X(+)] jack? ( virtual/jack ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtopengl:5 ) pulseaudio? ( media-libs/libpulse ) sdl? ( >=media-libs/libsdl2-2.0.5 ) sys-libs/zlib
+DESCRIPTION=A graphical music visualization plugin similar to milkdrop
+EAPI=8
+HOMEPAGE=https://github.com/projectM-visualizer/projectm
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools xdg
+IUSE=gles2 jack pulseaudio qt5 sdl
+KEYWORDS=amd64 arm arm64 ~loong ppc ppc64 ~riscv sparc x86
+LICENSE=LGPL-2
+RDEPEND=media-libs/glm media-libs/libglvnd[X(+)] jack? ( virtual/jack ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtopengl:5 ) pulseaudio? ( media-libs/libpulse ) sdl? ( >=media-libs/libsdl2-2.0.5 ) sys-libs/zlib
+REQUIRED_USE=jack? ( qt5 ) pulseaudio? ( qt5 )
+SLOT=0/2
+SRC_URI=https://github.com/projectM-visualizer/projectm/archive/v3.1.12.tar.gz -> libprojectm-3.1.12.tar.gz
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=4892b3afc4533237a4e5da7ebc1976c2
