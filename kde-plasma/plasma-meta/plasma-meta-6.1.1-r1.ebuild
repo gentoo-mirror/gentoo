@@ -20,6 +20,7 @@ REQUIRED_USE="^^ ( elogind systemd )"
 
 RDEPEND="
 	!${CATEGORY}/${PN}:5
+	!kde-plasma/khotkeys:5
 	>=kde-plasma/breeze-${PV}:${SLOT}[qt5?]
 	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
 	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
@@ -79,6 +80,7 @@ RDEPEND="
 	gtk? (
 		>=kde-plasma/breeze-gtk-${PV}:${SLOT}
 		>=kde-plasma/kde-gtk-config-${PV}:${SLOT}
+		sys-apps/xdg-desktop-portal-gtk
 		x11-misc/appmenu-gtk-module
 	)
 	kwallet? ( >=kde-plasma/kwallet-pam-${PV}:${SLOT} )
