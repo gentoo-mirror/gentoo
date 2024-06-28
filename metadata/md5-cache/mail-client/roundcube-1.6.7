@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://roundcube.net
 INHERIT=webapp
 IUSE=change-password enigma exif fileinfo ldap mysql postgres sqlite ssl spell zip vhosts
-KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 arm ~hppa ppc ppc64 sparc x86
 LICENSE=GPL-3 BSD PHP-2.02 PHP-3 MIT public-domain
 RDEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=dev-lang/php-7.4.0[exif?,fileinfo?,filter,gd,iconv,intl,json(+),ldap?,pdo,postgres?,session,sqlite?,ssl?,unicode,xml,zip?] virtual/httpd-php change-password? ( dev-lang/php[sockets] ) enigma? ( app-crypt/gnupg ) mysql? ( || ( dev-lang/php[mysql] dev-lang/php[mysqli] ) ) spell? ( dev-lang/php[curl,spell] ) app-admin/webapp-config
 REQUIRED_USE=|| ( mysql postgres sqlite )
 SLOT=1.6.7
 SRC_URI=https://github.com/roundcube/roundcubemail/releases/download/1.6.7/roundcubemail-1.6.7-complete.tar.gz
 _eclasses_=webapp	de2d3d345b44597c10d7104a7bcdf7b2
-_md5_=17310d35fe5dda0b7ded8cfe863f5955
+_md5_=86046692ad9f1275e0b0b2fb6371550f
