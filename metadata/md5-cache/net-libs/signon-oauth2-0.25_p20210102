@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/accounts-sso/signon-plugin-oauth2
 INHERIT=qmake-utils
 IUSE=+qt5 qt6 test
-KEYWORDS=~amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1
 RDEPEND=qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5[ssl] ) qt6? ( dev-qt/qtbase:6[network,ssl] ) >=net-libs/signond-8.61-r100[qt5=,qt6=]
 REQUIRED_USE=|| ( qt5 qt6 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/signon-plugin-oauth2/-/archive/d759439066f0a34e5ad352ebab0b3bb2790d429e/signon-plugin-oauth2-d759439066f0a34e5ad352ebab0b3bb2790d429e.tar.bz2 -> signon-oauth2-0.25_p20210102.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=4c40177967d346aae6b11be9edd8d2c1
+_md5_=75fc0206d53b64eaecfa977efc4ae887

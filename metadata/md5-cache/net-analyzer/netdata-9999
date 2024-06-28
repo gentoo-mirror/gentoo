@@ -5,7 +5,7 @@ DESCRIPTION=Linux real time system monitoring, done right!
 EAPI=8
 HOMEPAGE=https://github.com/netdata/netdata https://my-netdata.io/
 IDEPEND=filecaps? ( sys-libs/libcap )
-INHERIT=cmake fcaps flag-o-matic linux-info optfeature python-single-r1 systemd git-r3
+INHERIT=cmake fcaps linux-info optfeature python-single-r1 systemd git-r3
 IUSE=aclk bpf cloud cups +dbengine ipmi mongodb mysql nfacct nodejs postgres prometheus +python systemd tor xen +filecaps python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 LICENSE=GPL-3+ MIT BSD
 PROPERTIES=live
@@ -13,4 +13,4 @@ RDEPEND=acct-group/netdata acct-user/netdata app-misc/jq >=app-shells/bash-4:0 |
 REQUIRED_USE=mysql? ( python ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ) tor? ( python )
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	fcaps	c0a086b957a1b183a8d136eabf02f191	linux-info	e967b81f54be6f49f4219a57ce7db437	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	c8b03e8df84486aa991d4396686e8942	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=69ffb907b3dfbda519c0343422c5c51b
+_md5_=17efa38b2c71d8f706cdaae51c584c5d
