@@ -103,9 +103,20 @@ BDEPEND="test? ( dev-util/cmocka )"
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.3.0_spi-master.patch
 	"${FILESDIR}"/${PN}-1.3.0-c99.patch
+	"${FILESDIR}"/${PN}-1.3.0-llvm-dummyflasher.patch
+	"${FILESDIR}"/${PN}-1.3.0-libflashrom.patch
 )
 
 DOCS=( README Documentation/ )
+
+src_prepare() {
+	default
+	if use elibc_musl ; then
+		# skip failing test #908539
+		sed -i -e 's/-DCONFIG_LINUX_MTD=1/-UCONFIG_LINUX_MTD/' \
+			meson.build || die
+	fi
+}
 
 src_configure() {
 	local programmers="$(printf '%s,' $(for flag in ${IUSE_PROGRAMMERS//+/}; do usev ${flag}; done))"
