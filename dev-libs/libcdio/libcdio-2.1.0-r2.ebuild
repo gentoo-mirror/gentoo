@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools flag-o-matic libtool multilib-minimal
 
@@ -39,6 +39,7 @@ MULTILIB_WRAPPED_HEADERS=(
 PATCHES=(
 	"${FILESDIR}/${PN}-2.1.0-ncurses_pkgconfig.patch"
 	"${FILESDIR}/${P}-realpath-test-fix.patch"
+	"${FILESDIR}/${P}-no-lfs-shims.patch"
 )
 
 src_prepare() {
