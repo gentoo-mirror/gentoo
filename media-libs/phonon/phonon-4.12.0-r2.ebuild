@@ -10,7 +10,7 @@ HOMEPAGE="https://community.kde.org/Phonon"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/phonon/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) !pulseaudio? ( || ( GPL-2 GPL-3 ) )"
@@ -44,15 +44,10 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	dev-libs/libpcre2:*
+	>=kde-frameworks/extra-cmake-modules-5.115.0:*
 	virtual/pkgconfig
-	qt5? (
-		dev-qt/linguist-tools:5
-		>=kde-frameworks/extra-cmake-modules-5.115.0:*
-	)
-	qt6? (
-		dev-qt/qttools:6[linguist]
-		>=kde-frameworks/extra-cmake-modules-6.0.0:*
-	)
+	qt5? ( dev-qt/linguist-tools:5 )
+	qt6? ( dev-qt/qttools:6[linguist] )
 "
 PDEPEND="
 	vlc? ( >=media-libs/phonon-vlc-0.12.0[qt5?,qt6?] )
