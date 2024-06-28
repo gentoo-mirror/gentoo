@@ -3,35 +3,33 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 LLVM_COMPAT=( {15..17} )
 ROCM_VERSION=5.7
 
-inherit cuda cmake python-single-r1 llvm-r1 rocm
+inherit cmake cuda llvm-r1 python-any-r1 rocm
 
-DESCRIPTION="Intel(R) Open Image Denoise library"
-HOMEPAGE="https://www.openimagedenoise.org/"
+DESCRIPTION="Intel® Open Image Denoise library"
+HOMEPAGE="https://www.openimagedenoise.org https://github.com/RenderKit/oidn"
 
 if [[ ${PV} = *9999 ]]; then
-	EGIT_REPO_URI="https://github.com/OpenImageDenoise/oidn.git"
+	EGIT_REPO_URI="https://github.com/RenderKit/oidn.git"
 	EGIT_BRANCH="master"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/OpenImageDenoise/${PN}/releases/download/v${PV}/${P}.src.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~x86"
+	SRC_URI="https://github.com/RenderKit/${PN}/releases/download/v${PV}/${P}.src.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
 REQUIRED_USE="
-	${PYTHON_REQUIRED_USE}
 	test? ( apps )
 "
 IUSE="apps cuda hip openimageio test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	${PYTHON_DEPS}
 	dev-cpp/tbb:=
 	dev-lang/ispc
 	cuda? ( dev-util/nvidia-cuda-toolkit )
@@ -39,6 +37,7 @@ RDEPEND="
 	openimageio? ( media-libs/openimageio:= )
 "
 DEPEND="${RDEPEND}"
+BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.2.2-amdgpu-targets.patch"
