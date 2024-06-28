@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/accounts-sso/signon-ui
 INHERIT=qmake-utils
 IUSE=qt6 test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 arm64
 LICENSE=GPL-2 GPL-3
 RDEPEND=dev-libs/glib:2 !qt6? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtwebengine:5 dev-qt/qtwidgets:5 >=net-libs/accounts-qt-1.16_p20220803[qt5] >=net-libs/signond-8.61-r100[qt5] ) qt6? ( dev-qt/qtbase:6[dbus,gui,network,ssl,widgets] dev-qt/qtdeclarative:6 dev-qt/qtwebengine:6[qml] >=net-libs/accounts-qt-1.16_p20220803[qt6] >=net-libs/signond-8.61-r100[qt6] ) net-libs/libproxy x11-libs/libnotify !qt6? ( dev-qt/qtwebchannel:5 ) qt6? ( dev-qt/qtwebchannel:6 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/signon-ui/-/archive/eef943f0edf3beee8ecb85d4a9dae3656002fc24/signon-ui-eef943f0edf3beee8ecb85d4a9dae3656002fc24.tar.bz2 -> signon-ui-0.15_p20231016.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=be5f488339509afe7dda07b673a3d9ba
+_md5_=6f2236811077be2b09f11d36242b07e1

@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://accounts-sso.gitlab.io/
 INHERIT=qmake-utils multibuild
 IUSE=doc +qt5 qt6 test
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1
 RDEPEND=qt5? ( dev-qt/qtcore:5 dev-qt/qtdeclarative:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qtdeclarative:6 ) >=net-libs/accounts-qt-1.16_p20220803[qt5?,qt6?] >=net-libs/signond-8.61-r100[qt5?,qt6?]
 REQUIRED_USE=|| ( qt5 qt6 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/accounts-qml-module/-/archive/05e79ebbbf3784a87f72b7be571070125c10dfe3/accounts-qml-module-05e79ebbbf3784a87f72b7be571070125c10dfe3.tar.bz2 -> accounts-qml-0.7_p20231028.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489
-_md5_=c07d5b666f78067001ee63b8f41a8ce7
+_md5_=b52bd86620f86438e95b7ac8b58c6f40
