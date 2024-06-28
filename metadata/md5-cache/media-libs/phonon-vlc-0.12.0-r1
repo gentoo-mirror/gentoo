@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libpcre2:* virtual/pkgconfig qt5? ( dev-qt/linguist-tools:5 >=kde-frameworks/extra-cmake-modules-5.115.0:* ) qt6? ( dev-qt/qttools:6[linguist] >=kde-frameworks/extra-cmake-modules-6.0.0:* ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.115.0:* virtual/pkgconfig qt5? ( dev-qt/linguist-tools:5 ) qt6? ( dev-qt/qttools:6[linguist] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install nofetch prepare setup test unpack
 DEPEND=>=media-libs/phonon-4.12.0[qt5=,qt6=] media-video/vlc:=[dbus,ogg,vorbis(+)] qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] )
 DESCRIPTION=VLC backend for the Phonon multimedia library
@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://community.kde.org/Phonon
 INHERIT=cmake flag-o-matic kde.org multibuild
 IUSE=debug +qt5 qt6
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1+ || ( LGPL-2.1 LGPL-3 )
 RDEPEND=>=media-libs/phonon-4.12.0[qt5=,qt6=] media-video/vlc:=[dbus,ogg,vorbis(+)] qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) qt6? ( dev-qt/qtbase:6[gui,widgets] )
 REQUIRED_USE=|| ( qt5 qt6 )
 SLOT=0
 SRC_URI=mirror://kde/stable/phonon/phonon-backend-vlc/0.12.0/phonon-backend-vlc-0.12.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	kde.org	5b717883256e9841ce52e6cad2fca427	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489
-_md5_=261d286b635b08f08c89469bf52c629f
+_md5_=66e37f53f6397a276c509f6b039c4ba3
