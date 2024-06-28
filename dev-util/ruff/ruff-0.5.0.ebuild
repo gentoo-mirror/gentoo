@@ -22,6 +22,7 @@ CRATES="
 	anstyle-wincon@3.0.2
 	anstyle@1.0.6
 	anyhow@1.0.86
+	arc-swap@1.7.1
 	argfile@0.2.0
 	arrayvec@0.7.4
 	autocfg@1.2.0
@@ -31,7 +32,9 @@ CRATES="
 	bitflags@2.5.0
 	bstr@1.9.1
 	bumpalo@3.16.0
+	byteorder@1.5.0
 	cachedir@0.3.1
+	camino@1.1.7
 	cast@0.3.0
 	cc@1.0.95
 	cfg-if@1.0.0
@@ -41,13 +44,13 @@ CRATES="
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.4
-	clap_builder@4.5.2
+	clap@4.5.7
+	clap_builder@4.5.7
 	clap_complete@4.5.2
 	clap_complete_command@0.5.1
 	clap_complete_fig@4.5.0
 	clap_complete_nushell@0.1.11
-	clap_derive@4.5.4
+	clap_derive@4.5.5
 	clap_lex@0.7.0
 	clearscreen@3.0.0
 	codspeed-criterion-compat@2.6.0
@@ -87,6 +90,8 @@ CRATES="
 	env_logger@0.11.3
 	equivalent@1.0.1
 	errno@0.3.8
+	etcetera@0.8.0
+	eyre@0.6.12
 	fastrand@2.0.2
 	fern@0.6.2
 	filetime@0.2.23
@@ -102,6 +107,7 @@ CRATES="
 	half@2.4.1
 	hashbrown@0.12.3
 	hashbrown@0.14.5
+	hashlink@0.8.4
 	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.3.9
@@ -114,30 +120,32 @@ CRATES="
 	ignore@0.4.22
 	imara-diff@0.1.5
 	imperative@1.0.5
+	indenter@0.3.3
 	indexmap@2.2.6
 	indicatif@0.17.8
 	indoc@2.0.5
 	inotify-sys@0.1.5
 	inotify@0.9.6
 	insta-cmd@0.6.0
-	insta@1.38.0
+	insta@1.39.0
 	instant@0.1.12
 	is-docker@0.2.0
 	is-macro@0.3.5
 	is-terminal@0.4.12
 	is-wsl@0.4.0
 	itertools@0.10.5
-	itertools@0.12.1
+	itertools@0.13.0
 	itoa@1.0.11
+	jobserver@0.1.31
 	jod-thread@0.1.2
 	js-sys@0.3.69
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	lazy_static@1.4.0
 	libc@0.2.155
-	libcst@1.3.1
-	libcst_derive@1.3.1
-	libmimalloc-sys@0.1.38
+	libcst@1.4.0
+	libcst_derive@1.4.0
+	libmimalloc-sys@0.1.39
 	libredox@0.1.3
 	linked-hash-map@0.5.6
 	linux-raw-sys@0.4.13
@@ -147,8 +155,8 @@ CRATES="
 	matchers@0.1.0
 	matches@0.1.10
 	matchit@0.8.2
-	memchr@2.7.2
-	mimalloc@0.1.42
+	memchr@2.7.4
+	mimalloc@0.1.43
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.2
 	mio@0.8.11
@@ -158,7 +166,7 @@ CRATES="
 	nom@7.1.3
 	notify@6.1.1
 	nu-ansi-term@0.46.0
-	nu-ansi-term@0.49.0
+	nu-ansi-term@0.50.0
 	num-traits@0.2.18
 	number_prefix@0.4.0
 	once_cell@1.19.0
@@ -185,11 +193,11 @@ CRATES="
 	phf_generator@0.11.2
 	phf_shared@0.11.2
 	pin-project-lite@0.2.14
-	pmutil@0.6.1
+	pkg-config@0.3.30
 	portable-atomic@1.6.0
 	ppv-lite86@0.2.17
 	pretty_assertions@1.4.0
-	proc-macro2@1.0.84
+	proc-macro2@1.0.86
 	pyproject-toml@0.9.0
 	quick-junit@0.4.0
 	quick-xml@0.31.0
@@ -205,12 +213,11 @@ CRATES="
 	regex-automata@0.4.6
 	regex-syntax@0.6.29
 	regex-syntax@0.8.3
-	regex@1.10.4
-	result-like-derive@0.5.0
-	result-like@0.5.0
+	regex@1.10.5
 	ring@0.17.8
 	rust-stemmers@1.2.0
 	rustc-hash@1.1.0
+	rustc-hash@2.0.0
 	rustix@0.38.34
 	rustls-pki-types@1.5.0
 	rustls-webpki@0.102.3
@@ -229,7 +236,7 @@ CRATES="
 	serde_derive_internals@0.29.0
 	serde_json@1.0.117
 	serde_repr@0.1.19
-	serde_spanned@0.6.5
+	serde_spanned@0.6.6
 	serde_test@1.0.176
 	serde_with@3.8.1
 	serde_with_macros@3.8.1
@@ -238,24 +245,23 @@ CRATES="
 	similar@2.5.0
 	siphasher@0.3.11
 	smallvec@1.13.2
-	smawk@0.3.2
 	smol_str@0.2.2
 	spin@0.9.8
 	static_assertions@1.1.0
 	strip-ansi-escapes@0.2.0
 	strsim@0.10.0
 	strsim@0.11.1
-	strum@0.26.2
-	strum_macros@0.26.2
+	strum@0.26.3
+	strum_macros@0.26.4
 	subtle@2.5.0
-	syn@2.0.66
+	syn@2.0.68
+	synstructure@0.13.1
 	tempfile@3.10.1
 	terminal_size@0.3.0
 	terminfo@0.8.0
 	test-case-core@3.3.1
 	test-case-macros@3.3.1
 	test-case@3.3.1
-	textwrap@0.16.1
 	thiserror-impl@1.0.61
 	thiserror@1.0.61
 	thread_local@1.1.8
@@ -264,15 +270,15 @@ CRATES="
 	tinytemplate@1.2.1
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
-	toml@0.8.12
-	toml_datetime@0.6.5
-	toml_edit@0.22.12
+	toml@0.8.14
+	toml_datetime@0.6.6
+	toml_edit@0.22.14
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
 	tracing-indicatif@0.3.6
 	tracing-log@0.2.0
 	tracing-subscriber@0.3.18
-	tracing-tree@0.3.0
+	tracing-tree@0.3.1
 	tracing@0.1.40
 	typed-arena@2.0.2
 	unic-char-property@0.9.0
@@ -282,15 +288,14 @@ CRATES="
 	unic-ucd-version@0.9.0
 	unicode-bidi@0.3.15
 	unicode-ident@1.0.12
-	unicode-linebreak@0.1.5
 	unicode-normalization@0.1.23
-	unicode-width@0.1.11
+	unicode-width@0.1.13
 	unicode_names2@1.2.2
 	unicode_names2_generator@1.2.2
 	unscanny@0.1.0
 	untrusted@0.9.0
 	ureq@2.9.7
-	url@2.5.0
+	url@2.5.2
 	utf8parse@0.2.1
 	uuid-macro-internal@1.8.0
 	uuid@1.8.0
@@ -344,10 +349,16 @@ CRATES="
 	zerocopy-derive@0.7.32
 	zerocopy@0.7.32
 	zeroize@1.7.0
+	zip@0.6.6
+	zstd-safe@5.0.2+zstd.1.5.2
+	zstd-sys@2.0.11+zstd.1.5.6
+	zstd@0.11.2+zstd.1.5.2
 "
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;f706aa2d32d473ee633a77c1af01d180c85da308;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;f706aa2d32d473ee633a77c1af01d180c85da308;salsa-%commit%'
 )
 
 inherit shell-completion cargo
@@ -359,13 +370,13 @@ HOMEPAGE="
 "
 SRC_URI="
 	${CARGO_CRATE_URIS}
-	https://github.com/astral-sh/ruff/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/astral-sh/ruff/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD-2 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016
+	Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016
 	WTFPL-2
 "
 # ring
