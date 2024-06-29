@@ -120,7 +120,7 @@ CRATES="
 	libseccomp@0.3.0
 	linux-raw-sys@0.4.14
 	lock_api@0.4.12
-	log@0.4.21
+	log@0.4.22
 	md5@0.7.0
 	memchr@2.7.4
 	memoffset@0.9.1
