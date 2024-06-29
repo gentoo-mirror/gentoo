@@ -1,6 +1,6 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=breakpad? ( dev-util/breakpad virtual/pkgconfig ) curl? ( net-misc/curl )
+DEPEND=breakpad? ( dev-util/breakpad ) curl? ( net-misc/curl sys-libs/zlib )
 DESCRIPTION=Sentry SDK for C, C++ and native applications
 EAPI=8
 HOMEPAGE=https://sentry.io/ https://github.com/getsentry/sentry-native
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=+breakpad +curl test
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=breakpad? ( dev-util/breakpad virtual/pkgconfig ) curl? ( net-misc/curl )
+RDEPEND=breakpad? ( dev-util/breakpad ) curl? ( net-misc/curl sys-libs/zlib )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/getsentry/sentry-native/archive/refs/tags/0.6.7.tar.gz -> sentry-native-0.6.7.tar.gz
+SRC_URI=https://github.com/getsentry/sentry-native/archive/refs/tags/0.7.6.tar.gz -> sentry-native-0.7.6.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c
-_md5_=de170e7d3d9d6bd7be76bfcbb094089e
+_md5_=e4185fd9012274eaa5bc96da6660ee0e
