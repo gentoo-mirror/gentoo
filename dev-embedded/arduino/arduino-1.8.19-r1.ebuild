@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit java-pkg-2 java-ant-2 desktop xdg-utils
+inherit java-pkg-2 desktop xdg
 
 DESCRIPTION="An open-source AVR electronics prototyping platform"
 HOMEPAGE="https://www.arduino.cc/ https://github.com/arduino/"
@@ -17,11 +17,13 @@ SRC_URI="https://github.com/arduino/Arduino/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/arduino/arduino-examples/archive/refs/tags/${EXAMPLES_VERSION}.zip -> ${PN}-examples-${EXAMPLES_VERSION}.zip
 	https://github.com/arduino/WiFi101-FirmwareUpdater-Plugin/releases/download/v${PLUGIN_VERSION}/WiFi101-Updater-ArduinoIDE-Plugin-${PLUGIN_VERSION}.zip -> ${PN}-WiFi101-Updater-ArduinoIDE-Plugin-${PLUGIN_VERSION}.zip
 	"
+S="${WORKDIR}/Arduino-${PV}"
 
 LICENSE="GPL-2 LGPL-2.1 CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
+BDEPEND=">=dev-java/ant-1.10.14-r3:0"
 CDEPEND="dev-embedded/arduino-builder"
 
 RDEPEND="${CDEPEND}
@@ -36,13 +38,9 @@ DEPEND="${CDEPEND}
 EANT_BUILD_TARGET="build"
 # don't run the default "javadoc" target, we don't have one.
 EANT_DOC_TARGET=""
-EANT_BUILD_XML="build/build.xml"
-EANT_EXTRA_ARGS=" -Dlight_bundle=1 -Dlocal_sources=1 -Dno_arduino_builder=1 -Dversion=${PV}"
 
 RESTRICT="strip"
 QA_PREBUILT="usr/share/arduino/hardware/arduino/avr/firmwares/*"
-
-S="${WORKDIR}/Arduino-${PV}"
 
 PATCHES=(
 	# We need to load system astyle/listserialportsc instead of bundled ones.
@@ -61,6 +59,7 @@ src_unpack() {
 
 src_prepare() {
 	default
+#	java-pkg_clean # pretty much stuff to get unbundled
 
 	# Unbundle libastyle
 	sed -i 's/\(target name="linux-libastyle-[a-zA-Z0-9]*"\)/\1 if="never"/g' "$S/build/build.xml" || die
@@ -70,6 +69,10 @@ src_prepare() {
 
 	# Install avr hardware
 	sed -i 's/target name="assemble-hardware" unless="light_bundle"/target name="assemble-hardware"/' "$S/build/build.xml" || die
+}
+
+src_compile() {
+	eant -f build/build.xml -Dlight_bundle=1 -Dlocal_sources=1 -Dno_arduino_builder=1 -Dversion=1.8.19
 }
 
 src_install() {
@@ -113,6 +116,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 	[[ ! -x /usr/bin/avr-g++ ]] && ewarn "Missing avr-g++; you need to crossdev -s4 avr"
 }
