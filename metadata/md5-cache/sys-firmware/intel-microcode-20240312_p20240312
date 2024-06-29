@@ -13,5 +13,5 @@ REQUIRED_USE=!dist-kernel? ( || ( initramfs split-ucode ) )
 RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/archive/microcode-20240312.tar.gz https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/raw/437f382b1be4412b9d03e2bbdcda46d83d581242/intel-ucode/06-4e-03 -> intel-ucode-sig_0x406e3-rev_0xd6.bin https://dev.gentoo.org/~mpagano/dist/intel-microcode/intel-microcode-collection-20240312.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-firmware/intel-microcode/intel-microcode-collection-20240312.tar.xz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	145861da258122cbba5240a850f1a5e8	linux-info	e967b81f54be6f49f4219a57ce7db437	mount-boot	3945d351ee3192381911f938f4ee527a
-_md5_=e19a315a79b3d20af88da3505f1b1427
+_eclasses_=mount-boot-utils	221f3b57621b98ab8e76d42420601f6d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	c5204a4147b612736aef239e7cc69885	linux-info	e967b81f54be6f49f4219a57ce7db437	mount-boot	3761c5b1263df19a739506b36a060464
+_md5_=2d6aed3860a612d168c8121d98ba1c28
