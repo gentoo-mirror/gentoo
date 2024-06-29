@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/madrisan/nagios-plugins-linux
 INHERIT=autotools
 IUSE=curl systemd
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-3+
 RDEPEND=curl? ( net-misc/curl:0= ) systemd? ( sys-apps/systemd:= )
 SLOT=0
 SRC_URI=https://github.com/madrisan/nagios-plugins-linux/releases/download/v33/nagios-plugins-linux-33.tar.xz -> nagios-plugins-linux-madrisan-33.tar.xz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d
-_md5_=7de66975344d1ec1dee15b41bbbfad75
+_md5_=cccd74d83cf5e6278ca170caf5d35c63
