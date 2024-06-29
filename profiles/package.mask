@@ -49,11 +49,6 @@
 # Bugs #871387, #907261, #712480, #931765.
 media-libs/libmpeg3
 
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-23)
-# EAPI=6, waiting for a version bump, no reverse-dependencies.
-# Removal on 2024-07-23.  Bugs #934756, #924303.
-sci-astronomy/scamp
-
 # Arthur Zamarin <arthurzam@gentoo.org> (2024-06-22)
 # EAPI=6, no reverse-dependencies, various issues with modern C,
 # installs libtools files.
@@ -542,13 +537,6 @@ net-mail/gnubiff
 # EAPI=6, no activity upstream, maintianer-needed.
 # Removal on 2024-06-30.  Bugs #933239, #828068.
 app-emulation/phpvirtualbox
-
-# Sam James <sam@gentoo.org> (2024-05-29)
-# OpenPGP key of malicious upstream xz co-maintainer. This key is no longer
-# used by any ebuilds in tree. Removal on 2024-06-29. This package was already
-# masked a while ago but is now being removed. See the bug for details
-# on the gap. Bug #928134 (GLSA-202403-04).
-sec-keys/openpgp-keys-jiatan
 
 # Sam James <sam@gentoo.org> (2024-05-28)
 # Breaks reverse dependencies like protobuf-c (bug #932857) and protobuf-26.1
