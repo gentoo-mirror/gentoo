@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KFMIN=6.0.0
+KFMIN=6.3.0
 QTMIN=6.6.2
 inherit ecm kde.org
 
@@ -22,6 +22,7 @@ SLOT="0"
 IUSE="+discovery plasma"
 
 DEPEND="
+	>=dev-libs/qtkeychain-0.14.2:=[qt6]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/kauth-${KFMIN}:6
@@ -53,7 +54,7 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 	plasma? (
 		>=kde-frameworks/kirigami-${KFMIN}:6
-		>=kde-plasma/libplasma-${KFMIN}:6
+		kde-plasma/libplasma:6
 	)
 "
 
