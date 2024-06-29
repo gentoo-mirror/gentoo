@@ -1,11 +1,11 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig gold? ( sys-devel/binutils[gold] ) qt5? ( dev-qt/linguist-tools:5 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=sys-devel/gettext virtual/pkgconfig qt5? ( dev-qt/linguist-tools:5 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=app-arch/bzip2 dev-libs/openssl:0= sys-apps/attr sys-libs/zlib virtual/libiconv virtual/libintl cli? ( dev-lang/perl dev-perl/Data-Dump dev-perl/Term-ShellUI virtual/perl-Getopt-Long dev-perl/JSON-RPC ) daemon? ( dev-libs/jsoncpp:= ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/pango x11-themes/hicolor-icon-theme libcanberra? ( media-libs/libcanberra ) libnotify? ( x11-libs/libnotify ) ) idn? ( net-dns/libidn ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) pcre? ( dev-libs/libpcre ) qt5? ( dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 dbus? ( dev-qt/qtdbus:5 ) javascript? ( dev-qt/qtdeclarative:5 dev-qt/qtscript:5 ) spell? ( app-text/aspell ) sqlite? ( dev-qt/qtsql:5[sqlite] ) ) upnp? ( net-libs/miniupnpc )
 DESCRIPTION=Qt/DC++ based client for DirectConnect and ADC protocols
 EAPI=7
 HOMEPAGE=https://github.com/eiskaltdcpp/eiskaltdcpp
 INHERIT=cmake lua-single plocale strip-linguas xdg-utils
-IUSE=cli daemon dbus +dht examples gold gtk idn javascript libcanberra libnotify lua +minimal pcre +qt5 spell sqlite upnp +lua_single_target_lua5-1
+IUSE=cli daemon dbus +dht examples gtk idn javascript libcanberra libnotify lua +minimal pcre +qt5 spell sqlite upnp +lua_single_target_lua5-1
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 GPL-3
 RDEPEND=app-arch/bzip2 dev-libs/openssl:0= sys-apps/attr sys-libs/zlib virtual/libiconv virtual/libintl cli? ( dev-lang/perl dev-perl/Data-Dump dev-perl/Term-ShellUI virtual/perl-Getopt-Long dev-perl/JSON-RPC ) daemon? ( dev-libs/jsoncpp:= ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/pango x11-themes/hicolor-icon-theme libcanberra? ( media-libs/libcanberra ) libnotify? ( x11-libs/libnotify ) ) idn? ( net-dns/libidn ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) pcre? ( dev-libs/libpcre ) qt5? ( dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 dbus? ( dev-qt/qtdbus:5 ) javascript? ( dev-qt/qtdeclarative:5 dev-qt/qtscript:5 ) spell? ( app-text/aspell ) sqlite? ( dev-qt/qtsql:5[sqlite] ) ) upnp? ( net-libs/miniupnpc )
@@ -13,4 +13,4 @@ REQUIRED_USE=dbus? ( qt5 ) javascript? ( qt5 ) libcanberra? ( gtk ) libnotify? (
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/eiskaltdcpp/Sources/eiskaltdcpp-2.4.2.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	c7c9a62d6232cac66d4ea32d575c3e7c	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	plocale	950fbaec7deeba41b5bcc0572cca99b9	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
-_md5_=00b3ffcfc01fa211d8a993c37466d5d3
+_md5_=57b0e8cfc51de3e4df4839e58d122e53
