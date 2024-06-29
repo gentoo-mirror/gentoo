@@ -3,6 +3,8 @@
 
 EAPI=7
 
+export CTARGET=hppa64-${CHOST#*-}
+
 inherit libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
 
 DESCRIPTION="Tools necessary to build programs"
@@ -32,7 +34,7 @@ else
 	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
 		https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="-* ~hppa"
 fi
 
 #
@@ -60,10 +62,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	doc? ( sys-apps/texinfo )
-	pgo? (
-		dev-util/dejagnu
-		app-alternatives/bc
-	)
 	test? (
 		dev-util/dejagnu
 		app-alternatives/bc
@@ -76,7 +74,8 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
-MY_BUILDDIR=${WORKDIR}/build
+MY_BUILDDIR="${WORKDIR}"/build
+S="${WORKDIR}"/${P/-hppa64/}
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]] ; then
@@ -122,7 +121,7 @@ src_prepare() {
 
 			# This is applied conditionally for now just out of caution.
 			# It should be okay on non-prefix systems though. See bug #892549.
-			if is_cross || use prefix; then
+			if [[ ${PN} != binutils-hppa64 ]] && { is_cross || use prefix; } ; then
 				eapply "${FILESDIR}"/binutils-2.40-linker-search-path.patch \
 					   "${FILESDIR}"/binutils-2.41-linker-prefix.patch
 			fi
@@ -263,7 +262,7 @@ src_configure() {
 		$(use_with zstd)
 
 		# Disable modules that are in a combined binutils/gdb tree, bug #490566
-		--disable-{gdb,gdbserver,libbacktrace,libdecnumber,readline,sim}
+		--disable-{gdb,libdecnumber,readline,sim}
 		# Strip out broken static link flags: https://gcc.gnu.org/PR56750
 		--without-stage1-ldflags
 		# Change SONAME to avoid conflict across {native,cross}/binutils, binutils-libs. bug #666100
@@ -326,20 +325,11 @@ src_configure() {
 		)
 	fi
 
-	if use test || { use pgo && tc-is-lto ; } ; then
-		# -Wa,* needs to be consistent everywhere or lto-wrapper will complain
-		filter-flags '-Wa,*'
-	fi
-
 	if ! is_cross ; then
-		myconf+=( $(use_enable pgo pgo-build $(tc-is-lto && echo "lto" || echo "yes")) )
+		# No LTO for HPPA64 right now as we don't build kgcc64 with LTO support.
+		myconf+=( $(use_enable pgo pgo-build) )
 
 		if use pgo ; then
-			# We let configure handle it for us because it has to run
-			# the testsuite later on for profiling, and LTO isn't compatible
-			# with the testsuite.
-			filter-lto
-
 			export BUILD_CFLAGS="${CFLAGS}"
 		fi
 	fi
@@ -377,28 +367,10 @@ src_compile() {
 src_test() {
 	cd "${MY_BUILDDIR}" || die
 
-	# https://sourceware.org/PR31327
-	local -x XZ_OPT="-T1"
-	local -x XZ_DEFAULTS="-T1"
+	# bug #637066
+	filter-flags -Wall -Wreturn-type
 
-	(
-		# Tests don't expect LTO
-		filter-lto
-
-		# lto-wrapper warnings which confuse tests
-		filter-flags '-Wa,*'
-
-		# bug #637066
-		filter-flags -Wall -Wreturn-type
-
-		emake -k check \
-			CFLAGS_FOR_TARGET="${CFLAGS_FOR_TARGET:-${CFLAGS}}" \
-			CXXFLAGS_FOR_TARGET="${CXXFLAGS_FOR_TARGET:-${CXXFLAGS}}" \
-			LDFLAGS_FOR_TARGET="${LDFLAGS_FOR_TARGET:-${LDFLAGS}}" \
-			CFLAGS="${CFLAGS}" \
-			CXXFLAGS="${CXXFLAGS}" \
-			LDFLAGS="${LDFLAGS}"
-	)
+	emake -k check
 }
 
 src_install() {
@@ -429,6 +401,7 @@ src_install() {
 		done
 
 		if [[ -d ${ED}/usr/${CHOST}/${CTARGET} ]] ; then
+			# No die for now, dies on hppa?
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/include "${ED}"/${INCPATH}
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/lib/* "${ED}"/${LIBPATH}/
 			rm -r "${ED}"/usr/${CHOST}/{include,lib}
@@ -448,8 +421,9 @@ src_install() {
 	)
 	doins "${libiberty_headers[@]/#/${S}/include/}"
 	if [[ -d ${ED}/${LIBPATH}/lib ]] ; then
-		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/ || die
-		rm -r "${ED}"/${LIBPATH}/lib || die
+		# TODO: add || die here, fails on hppa?
+		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/
+		rm -r "${ED}"/${LIBPATH}/lib
 	fi
 
 	# Generate an env.d entry for this binutils
@@ -495,6 +469,11 @@ src_install() {
 
 	# Trim all empty dirs
 	find "${ED}" -depth -type d -exec rmdir {} + 2>/dev/null
+
+	# the hppa64 hack; this should go into 9999 as a PN-conditional
+	# tweak the default fake list a little bit
+	cd "${D}"/etc/env.d/binutils
+	sed -i '/FAKE_TARGETS=/s:"$: hppa64-linux":' ${CTARGET}-${PV} || die
 }
 
 pkg_postinst() {
