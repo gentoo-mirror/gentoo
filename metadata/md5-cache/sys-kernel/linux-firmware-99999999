@@ -4,7 +4,7 @@ DESCRIPTION=Linux firmware files
 EAPI=8
 HOMEPAGE=https://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git
 IDEPEND=dist-kernel? ( initramfs? ( sys-kernel/installkernel ) )
-INHERIT=dist-kernel-utils linux-info mount-boot savedconfig multiprocessing git-r3
+INHERIT=dist-kernel-utils linux-info mount-boot savedconfig git-r3
 IUSE=compress-xz compress-zstd deduplicate dist-kernel +initramfs +redistributable savedconfig unknown-license savedconfig
 LICENSE=GPL-2 GPL-2+ GPL-3 BSD MIT || ( MPL-1.1 GPL-2 ) redistributable? ( linux-fw-redistributable BSD-2 BSD BSD-4 ISC MIT ) unknown-license? ( all-rights-reserved )
 PROPERTIES=live
@@ -12,5 +12,5 @@ RDEPEND=!savedconfig? ( redistributable? ( !sys-firmware/alsa-firmware[alsa_card
 REQUIRED_USE=initramfs? ( redistributable ) ?? ( compress-xz compress-zstd ) savedconfig? ( !deduplicate )
 RESTRICT=binchecks strip test unknown-license? ( bindist )
 SLOT=0
-_eclasses_=mount-boot-utils	221f3b57621b98ab8e76d42420601f6d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	c5204a4147b612736aef239e7cc69885	linux-info	e967b81f54be6f49f4219a57ce7db437	mount-boot	3761c5b1263df19a739506b36a060464	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=18dcbec6a6956512c926e378569bda17
+_eclasses_=mount-boot-utils	221f3b57621b98ab8e76d42420601f6d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	c5204a4147b612736aef239e7cc69885	linux-info	e967b81f54be6f49f4219a57ce7db437	mount-boot	3761c5b1263df19a739506b36a060464	portability	225656ad6c6594fe3b0187bdd50707fb	savedconfig	8b5f9d995a970e49cd427c55d5840285	git-r3	fbb2889c81f3a05910c1524db69425c1
+_md5_=0566df5199bb6de541534d6d4c5f59f3
