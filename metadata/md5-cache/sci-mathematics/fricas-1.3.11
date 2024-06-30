@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile configure install postinst postrm test
+DEFINED_PHASES=configure install postinst postrm test
 DEPEND=sbcl? ( dev-lisp/sbcl:= ) cmucl? ( dev-lisp/cmucl:= ) gcl? ( dev-lisp/gcl:= ) ecl? ( dev-lisp/ecl:= ) clisp? ( dev-lisp/clisp:= ) clozurecl? ( dev-lisp/clozurecl:= ) X? ( x11-libs/libXpm x11-libs/libICE ) emacs? ( >=app-editors/emacs-23.1:* ) gmp? ( dev-libs/gmp:= )
 DESCRIPTION=FriCAS is a fork of Axiom computer algebra system
 EAPI=8
@@ -11,6 +11,6 @@ RDEPEND=sbcl? ( dev-lisp/sbcl:= ) cmucl? ( dev-lisp/cmucl:= ) gcl? ( dev-lisp/gc
 REQUIRED_USE=^^ ( sbcl cmucl gcl ecl clisp clozurecl ) gmp? ( ^^ ( sbcl clozurecl ) )
 RESTRICT=strip
 SLOT=0
-SRC_URI=https://downloads.sourceforge.net/fricas/1.3.9/fricas-1.3.9-full.tar.bz2
+SRC_URI=https://downloads.sourceforge.net/fricas/1.3.11/fricas-1.3.11-full.tar.bz2
 _eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7
-_md5_=dd2099e71c04c89877c4e853ea7ef026
+_md5_=c3c08077b01b3355959d2a44e6a5348b
