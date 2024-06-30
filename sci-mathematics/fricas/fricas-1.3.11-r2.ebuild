@@ -27,7 +27,13 @@ RDEPEND="sbcl? ( dev-lisp/sbcl:= )
 	X? ( x11-libs/libXpm x11-libs/libICE )
 	emacs? ( >=app-editors/emacs-23.1:* )
 	gmp? ( dev-libs/gmp:= )"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	doc? ( dev-texlive/texlive-basic
+		dev-texlive/texlive-latex
+		dev-texlive/texlive-latexrecommended
+		dev-texlive/texlive-latexextra
+		dev-texlive/texlive-mathscience
+		dev-tex/pgf )"
 
 # necessary for clisp and gcl
 RESTRICT="strip"
