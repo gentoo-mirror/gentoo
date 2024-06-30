@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 PYTHON_REQ_USE="threads(+)"
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
@@ -15,11 +15,7 @@ HOMEPAGE="https://pypi.org/project/humanfriendly/
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
-
-# This is completely broken
-# AttributeError: module 'humanfriendly.tests' has no attribute 'connect'
-RESTRICT="test"
+KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
 
 BDEPEND="
 	test? (
@@ -29,6 +25,10 @@ BDEPEND="
 		dev-python/mock[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}/${PN}-10.0-py3.13.patch"
+)
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
