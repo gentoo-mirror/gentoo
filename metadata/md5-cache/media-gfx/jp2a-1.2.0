@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=media-libs/libjpeg-turbo:= media-libs/libpng curl? ( net-misc/curl )
+DESCRIPTION=JPEG/PNG image to ASCII art converter
+EAPI=8
+HOMEPAGE=https://github.com/Talinx/jp2a/
+IUSE=curl
+KEYWORDS=~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris
+LICENSE=GPL-2
+RDEPEND=media-libs/libjpeg-turbo:= media-libs/libpng curl? ( net-misc/curl )
+SLOT=0
+SRC_URI=https://github.com/Talinx/jp2a/releases/download/v1.2.0/jp2a-1.2.0.tar.bz2
+_md5_=ac4b7a76b2d1fcc4b652857de51644f1
