@@ -2,7 +2,7 @@ BDEPEND=test? ( >=sys-libs/libselinux-9999:=[python] >=sys-libs/libsemanage-9999
 DEFINED_PHASES=compile install prepare test unpack
 DEPEND=>=sys-libs/libselinux-9999:=[python] >=sys-libs/libsemanage-9999:=[python(+)] >=sys-libs/libsepol-9999:= >=app-admin/setools-4.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10[xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] )
 DESCRIPTION=SELinux core utilities
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=python-r1 toolchain-funcs git-r3
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
@@ -12,5 +12,5 @@ RDEPEND=>=sys-libs/libselinux-9999:=[python] >=sys-libs/libsemanage-9999:=[pytho
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=55d4a91c55a0ffd04115f669b1571673
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	git-r3	fbb2889c81f3a05910c1524db69425c1
+_md5_=9df77814310e0e2d78fcfd16ca27d595
