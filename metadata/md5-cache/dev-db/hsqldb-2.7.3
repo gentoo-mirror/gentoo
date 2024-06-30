@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip >=dev-java/ant-1.10.14-r3:0
+DEFINED_PHASES=compile install postinst preinst prepare setup test
+DEPEND=acct-group/hsqldb acct-user/hsqldb dev-java/javax-servlet-api:3.1 >=virtual/jdk-11:* test? ( >=dev-java/ant-1.10.14-r3:0[junit] dev-java/junit:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=HSQLDB - Lightweight 100% Java SQL Database Engine
+EAPI=8
+HOMEPAGE=https://hsqldb.org
+INHERIT=java-pkg-2
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=BSD GPL-2
+RDEPEND=acct-group/hsqldb acct-user/hsqldb >=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/hsqldb/hsqldb/hsqldb_2_7/hsqldb-2.7.3.zip
+_eclasses_=java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-2	b6d755b4f6afabfd933932be28b46368
+_md5_=955778e7efc2bd8a943a8938684a071d
