@@ -1,17 +1,18 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools elisp-common flag-o-matic java-pkg-opt-2 multilib vcs-clean xdg-utils
+inherit autotools elisp-common flag-o-matic java-pkg-opt-2 vcs-clean xdg-utils
 
 PATCHSET_VER="2"
 MY_P=${PN}-srcdist-${PV}
 
 DESCRIPTION="Mercury is a modern general-purpose logic/functional programming language"
-HOMEPAGE="https://www.mercurylang.org/index.html"
+HOMEPAGE="https://mercurylang.org"
 SRC_URI="https://dl.mercurylang.org/release/${MY_P}.tar.gz
 	https://dev.gentoo.org/~keri/distfiles/mercury/${P}-gentoo-patchset-${PATCHSET_VER}.tar.gz"
+S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
@@ -20,18 +21,19 @@ KEYWORDS="amd64 x86"
 IUSE="debug doc emacs examples java mono profile readline test threads trail"
 RESTRICT="!test? ( test )"
 
-DEPEND="net-libs/libnsl:0=
+COMMON_DEP="net-libs/libnsl:0=
 	readline? ( sys-libs/readline:= )
-	java? ( >=virtual/jdk-1.8:* )
 	mono? ( dev-lang/mono )
 	doc? ( sys-apps/texinfo )"
 
-RDEPEND="${DEPEND}
-	emacs? ( >=app-editors/emacs-23.1:* )"
+DEPEND="${COMMON_DEP}
+	java? ( >=virtual/jdk-1.8:* )"
+
+RDEPEND="${COMMON_DEP}
+	emacs? ( >=app-editors/emacs-23.1:* )
+	java? ( >=virtual/jre-1.8:* )"
 
 BDEPEND="test? ( sys-libs/timezone-data )"
-
-S="${WORKDIR}"/${MY_P}
 
 SITEFILE=50${PN}-gentoo.el
 
