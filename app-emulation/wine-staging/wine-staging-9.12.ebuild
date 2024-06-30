@@ -9,7 +9,7 @@ inherit autotools edo flag-o-matic multilib multilib-build optfeature
 inherit prefix python-any-r1 toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=9.0.0
+WINE_MONO=9.2.0
 WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == *9999 ]]; then
@@ -37,8 +37,8 @@ SLOT="${PV}"
 IUSE="
 	+X +abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups dos
 	llvm-libunwind custom-cflags +fontconfig +gecko gphoto2 +gstreamer
-	kerberos +mingw +mono netapi nls opencl +opengl osmesa pcap perl
-	pulseaudio samba scanner +sdl selinux smartcard +ssl +strip
+	kerberos +mingw +mono netapi nls odbc opencl +opengl osmesa pcap
+	perl pulseaudio samba scanner +sdl selinux smartcard +ssl +strip
 	+truetype udev udisks +unwind usb v4l +vulkan wayland wow64
 	+xcomposite xinerama
 "
@@ -79,7 +79,7 @@ WINE_DLOPEN_DEPEND="
 	truetype? ( media-libs/freetype[${MULTILIB_USEDEP}] )
 	udisks? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	v4l? ( media-libs/libv4l[${MULTILIB_USEDEP}] )
-	vulkan? ( media-libs/vulkan-loader[X?,${MULTILIB_USEDEP}] )
+	vulkan? ( media-libs/vulkan-loader[X?,wayland?,${MULTILIB_USEDEP}] )
 "
 WINE_COMMON_DEPEND="
 	${WINE_DLOPEN_DEPEND}
@@ -95,6 +95,7 @@ WINE_COMMON_DEPEND="
 		media-libs/gst-plugins-base:1.0[${MULTILIB_USEDEP}]
 		media-libs/gstreamer:1.0[${MULTILIB_USEDEP}]
 	)
+	odbc? ( dev-db/unixODBC[${MULTILIB_USEDEP}] )
 	opencl? ( virtual/opencl[${MULTILIB_USEDEP}] )
 	pcap? ( net-libs/libpcap[${MULTILIB_USEDEP}] )
 	pulseaudio? ( media-libs/libpulse[${MULTILIB_USEDEP}] )
@@ -297,6 +298,7 @@ src_configure() {
 		$(use_with mingw)
 		$(use_with netapi)
 		$(use_with nls gettext)
+		$(use_with odbc)
 		$(use_with opencl)
 		$(use_with opengl)
 		$(use_with osmesa)
