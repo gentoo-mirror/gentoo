@@ -38,6 +38,7 @@ src_test() {
 	local dir
 	for dir in asm link fix gfx; do
 		pushd "test/${dir}" >/dev/null || die
+		einfo "Running ${dir} tests."
 		./test.sh || die
 		popd >/dev/null || die
 	done
@@ -45,5 +46,5 @@ src_test() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr Q= STRIP= install
-	dodoc README.rst
+	dodoc README.md
 }

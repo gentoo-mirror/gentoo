@@ -28,14 +28,12 @@ RDEPEND="sbcl? ( dev-lisp/sbcl:= )
 	gmp? ( dev-libs/gmp:= )"
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/${PN}-sbcl-2.3.9.patch )
-
 # necessary for clisp and gcl
 RESTRICT="strip"
 
 src_configure() {
 	local LISP GMP
-	use sbcl && LISP=sbcl
+	use sbcl && LISP="sbcl --dynamic-space-size 4096"
 	use cmucl && LISP=lisp
 	use gcl && LISP=gcl
 	use ecl && LISP=ecl
@@ -48,12 +46,7 @@ src_configure() {
 	fi
 
 	# aldor is not yet in portage
-	econf --disable-aldor --with-lisp=${LISP} $(use_with X x) ${GMP}
-}
-
-src_compile() {
-	# bug #300132
-	emake -j1
+	econf --disable-aldor --with-lisp="${LISP}" $(use_with X x) ${GMP}
 }
 
 src_test() {
