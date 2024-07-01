@@ -28,8 +28,6 @@ RDEPEND="
 	!ppc64? ( dev-util/android-tools )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-bash-completion.patch )
-
 src_configure() {
 	local emesonargs=(
 		-Dprebuilt_server="${DISTDIR}/${PN}-server-v${PV}"

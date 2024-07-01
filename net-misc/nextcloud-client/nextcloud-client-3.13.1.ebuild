@@ -26,7 +26,7 @@ RDEPEND="
 	dev-libs/qtkeychain:=[qt5(+)]
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
-	dev-qt/qtdeclarative:5
+	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgui:5=
 	dev-qt/qtnetwork:5[ssl]
 	dev-qt/qtquickcontrols2:5
