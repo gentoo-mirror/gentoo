@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,11 +9,12 @@ MY_MAJOR="$(ver_cut 1)"
 MY_P="${PN}${MY_MAJOR}"
 DESCRIPTION="All-In-One Solution for Remote Access and Support over the Internet"
 HOMEPAGE="https://www.teamviewer.com"
-MY_URI="https://dl.tvcdn.de/download/linux/version_${MY_MAJOR}x/${PN}_${PV}"
-SRC_URI="amd64? ( ${MY_URI}_amd64.tar.xz )
-		arm? ( ${MY_URI}_armhf.tar.xz )
-		arm64? ( ${MY_URI}_arm64.tar.xz )
-		x86? ( ${MY_URI}_i386.tar.xz )"
+MY_URI="https://dl.teamviewer.com/download/linux/version_${MY_MAJOR}x/${PN}_${PV}"
+SRC_URI="
+	amd64? ( ${MY_URI}_amd64.tar.xz )
+	arm? ( ${MY_URI}_armhf.tar.xz )
+	arm64? ( ${MY_URI}_arm64.tar.xz )
+	x86? ( ${MY_URI}_i386.tar.xz )"
 S="${WORKDIR}"/teamviewer
 
 LICENSE="TeamViewer MIT"
@@ -125,7 +126,8 @@ pkg_postinst() {
 	ewarn "Please note that the teamviewer gui works only when started from"
 	ewarn "a session initiated by a display manager." #799137
 	optfeature_header "Install one of the following display managers:"
-	optfeature "an example display manager" x11-misc/cdm gnome-base/gdm gui-apps/gtkgreet x11-misc/lightdm lxde-base/lxdm sys-apps/qingy x11-misc/sddm x11-misc/slim x11-misc/wdm x11-apps/xdm
+	optfeature "an example display manager" x11-misc/cdm gnome-base/gdm gui-apps/gtkgreet x11-misc/lightdm \
+		lxde-base/lxdm sys-apps/qingy x11-misc/sddm x11-misc/slim x11-misc/wdm x11-apps/xdm
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog
