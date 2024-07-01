@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-06">
+    <title>cryptography: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in cryptography, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">cryptography</product>
+    <announced>2024-07-01</announced>
+    <revised count="1">2024-07-01</revised>
+    <bug>769419</bug>
+    <bug>864049</bug>
+    <bug>893576</bug>
+    <bug>918685</bug>
+    <bug>925120</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/cryptography" auto="yes" arch="*">
+            <unaffected range="ge">42.0.4</unaffected>
+            <vulnerable range="lt">42.0.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>cryptography is a package which provides cryptographic recipes and primitives to Python developers.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in cryptography. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All cryptography users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/cryptography-42.0.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36242">CVE-2020-36242</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23931">CVE-2023-23931</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49083">CVE-2023-49083</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-26130">CVE-2024-26130</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-01T05:59:02.809872Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-01T05:59:02.812394Z">ajak</metadata>
+</glsa>
