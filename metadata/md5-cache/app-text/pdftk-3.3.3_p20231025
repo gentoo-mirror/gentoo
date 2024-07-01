@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/pdftk-java/pdftk
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=GPL-2
 RDEPEND=>=virtual/jre-1.8:* dev-java/bcprov:0 dev-java/commons-lang:3.6 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/pdftk-java/pdftk/-/archive/3f1918c831c919d0a8fcf18c36cf40118398b995.tar.bz2 -> pdftk-3.3.3_p20231025.tar.bz2
 _eclasses_=java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9
-_md5_=00602842b0e8531beaded20f997dfd0b
+_md5_=d3553212596c657cb4e2a26b1d66211f
