@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-08">
+    <title>GNU Emacs, Org Mode: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GNU Emacs and Org Mode, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">emacs,org-mode</product>
+    <announced>2024-07-01</announced>
+    <revised count="1">2024-07-01</revised>
+    <bug>897950</bug>
+    <bug>927820</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-editors/emacs" auto="yes" arch="*">
+            <unaffected range="ge" slot="26">26.3-r16</unaffected>
+            <unaffected range="ge" slot="27">27.2-r14</unaffected>
+            <unaffected range="ge" slot="28">28.2-r10</unaffected>
+            <unaffected range="ge" slot="29">29.2-r1</unaffected>
+            <vulnerable range="lt" slot="26">26.3-r16</vulnerable>
+            <vulnerable range="lt" slot="27">27.2-r14</vulnerable>
+            <vulnerable range="lt" slot="28">28.2-r10</vulnerable>
+            <vulnerable range="lt" slot="29">29.2-r1</vulnerable>
+        </package>
+        <package name="app-emacs/org-mode" auto="yes" arch="*">
+            <unaffected range="ge">9.6.23</unaffected>
+            <vulnerable range="lt">9.6.23</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU Emacs is a highly extensible and customizable text editor.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GNU Emacs. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GNU Emacs users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-29.3-r2"
+        </code>
+        
+        <p>All Org Mode users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emacs/org-mode-9.6.23"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-48337">CVE-2022-48337</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-48338">CVE-2022-48338</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-48339">CVE-2022-48339</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-30202">CVE-2024-30202</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-30203">CVE-2024-30203</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-30204">CVE-2024-30204</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-30205">CVE-2024-30205</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-01T05:59:40.316405Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-01T05:59:40.319047Z">ajak</metadata>
+</glsa>
