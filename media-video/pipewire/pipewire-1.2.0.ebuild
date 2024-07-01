@@ -175,6 +175,8 @@ PDEPEND=">=media-video/wireplumber-0.5.2"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.3.25-enable-failed-mlock-warning.patch
+	# https://gitlab.freedesktop.org/pipewire/pipewire/-/merge_requests/2061
+	"${FILESDIR}"/${P}-automagic-gsettings.patch
 )
 
 pkg_setup() {
@@ -205,7 +207,6 @@ multilib_src_configure() {
 		$(meson_native_use_feature gstreamer)
 		$(meson_native_use_feature gstreamer gstreamer-device-provider)
 		$(meson_native_use_feature gsettings)
-		$(meson_native_use_feature gsettings gsettings-pulse-schema)
 		$(meson_native_use_feature systemd)
 
 		$(meson_native_use_feature system-service systemd-system-service)
@@ -279,6 +280,16 @@ multilib_src_configure() {
 		# TODO
 		-Dsnap=disabled
 	)
+
+	# This installs the schema file for pulseaudio-daemon, iff we are replacing
+	# the official sound-server
+	if use !sound-server; then
+		emesonargs+=( '-Dgsettings-pulse-schema=disabled' )
+	else
+		emesonargs+=(
+			$(meson_native_use_feature gsettings gsettings-pulse-schema)
+		)
+	fi
 
 	meson_src_configure
 }
