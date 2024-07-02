@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,9 +25,8 @@ SLOT="0/${PV}"
 IUSE="+ocamlopt"
 
 RDEPEND="
+	<dev-ml/num-1.5:=
 	>=dev-lang/ocaml-4.08.0:=[ocamlopt?]
-	>=sci-mathematics/why3-1.6:= <sci-mathematics/why3-1.7:=
-
 	dev-ml/batteries:=
 	dev-ml/camlp-streams:=
 	dev-ml/camlzip:=
@@ -37,6 +36,7 @@ RDEPEND="
 	dev-ml/pcre-ocaml:=
 	dev-ml/yojson:=
 	dev-ml/zarith:=
+	sci-mathematics/why3:=
 "
 DEPEND="
 	${RDEPEND}
