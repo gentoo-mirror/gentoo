@@ -4,29 +4,39 @@
 EAPI=8
 
 NEED_EMACS=27.1
+
 inherit edo elisp toolchain-funcs
 
 DESCRIPTION="Enchanted Spell Checker for GNU Emacs"
 HOMEPAGE="https://github.com/minad/jinx"
 
-SRC_URI="
-	https://github.com/minad/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-"
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/minad/${PN}.git"
+else
+	SRC_URI="https://github.com/minad/${PN}/archive/refs/tags/${PV}.tar.gz
+		-> ${P}.tar.gz"
+
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
 
 RDEPEND="
 	app-text/enchant:2
 	>=app-emacs/compat-29.1.4.0
 "
-DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
-
-SITEFILE="50${PN}-gentoo.el"
+DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	virtual/pkgconfig
+"
 
 ELISP_TEXINFO="${PN}.texi"
+SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
 	edo $(tc-getCC) -fPIC -Wall -Wextra -shared \
