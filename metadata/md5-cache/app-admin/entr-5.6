@@ -1,0 +1,14 @@
+BDEPEND=test? ( app-alternatives/awk[gawk] app-editors/vim app-misc/tmux dev-vcs/git sys-apps/file )
+DEFINED_PHASES=configure
+DESCRIPTION=Run arbitrary commands when files change
+EAPI=8
+HOMEPAGE=https://eradman.com/entrproject/ https://github.com/eradman/entr
+INHERIT=edo toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=ISC
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://eradman.com/entrproject/code/entr-5.6.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=6a6f8515813f2444068f80dd0f014ddd
