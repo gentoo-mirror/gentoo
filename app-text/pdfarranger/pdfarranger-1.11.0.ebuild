@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..12} )
 inherit distutils-r1 optfeature xdg desktop
 
 DESCRIPTION="Merge or split pdfs; rearrange, rotate, crop pages"
@@ -13,22 +13,19 @@ SRC_URI="https://github.com/jeromerobert/${PN}/archive/${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
-IUSE=""
+KEYWORDS="~amd64"
 
 RDEPEND="
 	app-text/poppler[introspection,cairo]
-	>=dev-python/pikepdf-6.0.0[${PYTHON_USEDEP}]
+	dev-python/pikepdf[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP},lcms]
 	dev-python/pygobject:3[${PYTHON_USEDEP},cairo]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	x11-libs/gtk+:3[introspection]
 	x11-libs/pango[introspection]
 "
-DEPEND="${RDEPEND}
-	dev-python/python-distutils-extra[${PYTHON_USEDEP}]
-	dev-util/intltool
-"
+DEPEND="${RDEPEND}"
 
 src_install() {
 	distutils-r1_src_install
