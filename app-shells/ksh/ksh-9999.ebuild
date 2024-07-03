@@ -21,13 +21,6 @@ HOMEPAGE="http://www.kornshell.com/"
 LICENSE="EPL-1.0"
 SLOT="0"
 
-src_prepare() {
-	default
-
-	# disable register for debugging
-	sed -i 1i"#define register" src/lib/libast/include/ast.h || die
-}
-
 src_compile() {
 	local extraflags=(
 		"-Wno-unknown-pragmas"

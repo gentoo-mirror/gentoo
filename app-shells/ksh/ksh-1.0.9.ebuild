@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ksh93/ksh"
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 	MY_PV=$(ver_rs 3 - 4 .)
 	SRC_URI="https://github.com/ksh93/${PN}/archive/v${MY_PV}/ksh-v${MY_PV}.tar.gz"
 	S="${WORKDIR}/${PN}-${MY_PV}"
@@ -20,13 +20,6 @@ HOMEPAGE="http://www.kornshell.com/"
 
 LICENSE="EPL-1.0"
 SLOT="0"
-
-src_prepare() {
-	default
-
-	# disable register for debugging
-	sed -i 1i"#define register" src/lib/libast/include/ast.h || die
-}
 
 src_compile() {
 	local extraflags=(
@@ -40,18 +33,17 @@ src_compile() {
 		"-Wno-unused-but-set-variable"
 		"-Wno-cpp"
 		"-Wno-maybe-uninitialized"
-		"-Wno-lto-type-mismatch"
-		"-Wno-error=int-conversion"
-		"-Wno-int-conversion"
 		"-P"
 	)
 	append-cflags $(test-flags-CC ${extraflags[@]})
+	append-cflags -fno-strict-aliasing
 	filter-flags '-fdiagnostics-color=always' # https://github.com/ksh93/ksh/issues/379
-	export CCFLAGS="${CFLAGS} -fno-strict-aliasing"
+	filter-lto
 
+	export CCFLAGS="${CFLAGS}"
 	tc-export AR CC LD NM
 
-	sh bin/package make SHELL="${BROOT}"/bin/sh || die
+	sh bin/package make AR="${AR}" CC="${CC}" NM="${NM}" SHELL="${BROOT}"/bin/sh || die
 }
 
 src_test() {
