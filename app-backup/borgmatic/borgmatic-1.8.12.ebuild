@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://torsion.org/borgmatic/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 IUSE="apprise"
 
 REQUIRED_USE="test? ( apprise )"
@@ -41,6 +41,8 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.13-no_test_coverage.patch
 	"${FILESDIR}"/${PN}-1.7.14-systemd_service_bin_path.patch
+	# fix for py3.10
+	"${FILESDIR}"/${PN}-1.8.12-datetime-utc.patch
 )
 
 # A fragile test whose only purpose is to make sure the NEWS file
