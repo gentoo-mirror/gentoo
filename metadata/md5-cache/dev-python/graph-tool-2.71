@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare pretend setup
+DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] ) dev-cpp/sparsehash
+DESCRIPTION=An efficient python module for manipulation and statistical analysis of graphs
+EAPI=8
+HOMEPAGE=https://graph-tool.skewed.de/
+INHERIT=check-reqs python-r1 toolchain-funcs
+IUSE=+cairo openmp python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+SLOT=0
+SRC_URI=https://downloads.skewed.de/graph-tool/graph-tool-2.71.tar.xz
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46
+_md5_=866a8f6a2c127ba4823cb74371b42cb6

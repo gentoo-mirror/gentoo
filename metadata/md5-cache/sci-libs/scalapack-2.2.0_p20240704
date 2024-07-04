@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/fortran
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=virtual/lapack virtual/mpi[fortran] virtual/fortran
+DESCRIPTION=Subset of LAPACK routines redesigned for heterogenous (MPI) computing
+EAPI=8
+HOMEPAGE=https://www.netlib.org/scalapack/
+INHERIT=cmake flag-o-matic fortran-2 toolchain-funcs
+IUSE=static-libs test
+KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=BSD
+RDEPEND=virtual/lapack virtual/mpi[fortran] virtual/fortran
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/Reference-ScaLAPACK/scalapack//archive/0234af94c6578c53ac4c19f2925eb6e5c4ad6f0f.tar.gz -> scalapack-2.2.0_p20240704.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
+_md5_=5547231022711a88b6b459d54d26185f

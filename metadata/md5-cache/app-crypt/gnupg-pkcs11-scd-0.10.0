@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/openssl:= <dev-libs/libassuan-3:= dev-libs/libgcrypt:= dev-libs/libgpg-error:= dev-libs/pkcs11-helper:=
+DESCRIPTION=PKCS#11 support for GnuPG
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/gnupg-pkcs11/
+IUSE=proxy
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/openssl:= <dev-libs/libassuan-3:= dev-libs/libgcrypt:= dev-libs/libgpg-error:= dev-libs/pkcs11-helper:= proxy? ( acct-group/gnupg-pkcs11 acct-group/gnupg-pkcs11-scd-proxy acct-user/gnupg-pkcs11-scd-proxy )
+SLOT=0
+SRC_URI=https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.10.0/gnupg-pkcs11-scd-0.10.0.tar.bz2
+_md5_=ba02e335957bde944a6d32e49e65b707
