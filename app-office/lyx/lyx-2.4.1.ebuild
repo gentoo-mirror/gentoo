@@ -3,18 +3,17 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit desktop font optfeature python-single-r1 cmake xdg
 
 DESCRIPTION="WYSIWYM (What You See Is What You Mean) document processor based on LaTeX"
 HOMEPAGE="https://www.lyx.org/"
-SRC_URI="http://ftp.lyx.org/pub/lyx/devel/lyx-$(ver_cut 1-2)/${P/_rc/~RC}.tar.xz"
-S=${WORKDIR}/${P/_rc/~RC}
+SRC_URI="http://ftp.lyx.org/pub/lyx/devel/lyx-$(ver_cut 1-2)/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="aspell cups dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf svg l10n_he"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
@@ -110,6 +109,7 @@ src_configure() {
 		-DLYX_INSTALL=ON
 		-DLYX_USE_QT=QT6
 		-DLYX_INSTALL_PREFIX="${EPREFIX}/usr"
+		-DLYX_CXX_FLAGS_EXTRA="${CXXFLAGS}"
 
 		-DLYX_NLS=$(usex nls)
 		-DLYX_ASPELL=$(usex aspell)
