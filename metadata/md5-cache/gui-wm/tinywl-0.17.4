@@ -1,0 +1,14 @@
+BDEPEND=dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.17*:=
+DESCRIPTION="minimum viable product" Wayland compositor based on wlroots
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=CC0-1.0
+RDEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.17*:= !gui-libs/wlroots[tinywl(-)]
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.17.4/downloads/wlroots-0.17.4.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=c6c706b326266114d737289e5d07f3de

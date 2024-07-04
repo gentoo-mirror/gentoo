@@ -49,6 +49,7 @@ acct-group/cdrom 0-r3: System group: cdrom
 acct-group/ceph 0-r3: System group: ceph
 acct-group/cgit 0-r2: System group: cgit
 acct-group/chronograf 0-r3: System group: chronograf
+acct-group/chrony_exporter 0: chrony_exporter group
 acct-group/clair 0-r3: System group: clair
 acct-group/clamav 0-r3: System group: clamav
 acct-group/cntlm 0-r2: Group for net-proxy/cntlm
@@ -493,6 +494,7 @@ acct-user/carbon 0-r3: User for graphite/carbon suite
 acct-user/ceph 0-r3: User for ceph
 acct-user/cgit 0-r2: a fast web-interface for git repositories
 acct-user/chronograf 0-r3: User for chronograf
+acct-user/chrony_exporter 0: System user: chrony_exporter
 acct-user/clair 0-r3: User for clair
 acct-user/clamav 0-r3: System user: clamav
 acct-user/cntlm 0-r2: User for net-proxy/cntlm
@@ -1036,7 +1038,7 @@ app-admin/rcm 1.3.5 1.3.6: rc file (dotfile) management
 app-admin/redfishtool 1.1.8: Python package and command-line tool for accessing the Redfish API
 app-admin/restart-services 0.17.0-r1 1.2 1.3: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.14.3 9999: (R)?ex, the friendly automation framework
-app-admin/rsyslog 8.2404.0 8.2404.0-r1: An enhanced multi-threaded syslogd with database support and more
+app-admin/rsyslog 8.2404.0 8.2404.0-r1 8.2406.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/ryzen_monitor 1.0.4-r1 1.0.5 1.0.5-r1 1.0.6_pre20220901: Monitor power information of Ryzen processors via the PM table of the SMU
 app-admin/ryzen_smu 0.1.2 0.1.2_p20210627 0.1.2_p20211205 0.1.2_p20211205-r1 0.1.5: Kernel driver for AMD Ryzen's System Management Unit
 app-admin/sagan 2.0.1-r6 2.0.2: Sagan is a multi-threaded, real time system and event log monitoring system
@@ -1070,7 +1072,7 @@ app-admin/tmpwatch 2.11-r3: Files which haven't been accessed are removed from s
 app-admin/tpm 1.3.3 9999: Tiny password manager
 app-admin/tripwire 2.4.3.7: Open Source File Integrity Checker and IDS
 app-admin/ttyplot 1.6.2-r1 1.6.4 1.6.5: Realtime plotting utility with data input from stdin
-app-admin/ulogd 2.0.8: A userspace logging daemon for netfilter/iptables related logging
+app-admin/ulogd 2.0.8-r1: A userspace logging daemon for netfilter/iptables related logging
 app-admin/usbview 3.0 3.1: Display the topology of devices on the USB bus
 app-admin/vault 1.14.5 1.14.9 1.15.6 1.16.1: A tool for managing secrets
 app-admin/verynice 1.1-r3: A tool for dynamically adjusting the nice-level of processes
@@ -1520,7 +1522,7 @@ app-crypt/xca 2.5.0 2.6.0: A GUI to OpenSSL, RSA public keys, certificates, sign
 app-crypt/xor-analyze 0.5-r1: Program for cryptanalyzing xor 'encryption' with variable key length
 app-crypt/yubihsm-connector 3.0.4: Server to expose YubiHSM 2 to network
 app-crypt/yubihsm-shell 2.4.0: Components used to interact with the YubiHSM 2
-app-crypt/yubikey-manager 5.2.0 5.4.0 5.4.0-r1: Python library and command line tool for configuring a YubiKey
+app-crypt/yubikey-manager 5.2.0 5.4.0 5.4.0-r1 5.5.1: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.2.5: Cross-platform application for configuring any YubiKey over all USB transports
 app-crypt/yubioath-flutter-bin 6.1.0-r3 6.4.0-r1 7.0.0: Yubico Authenticator for TOTP
 app-crypt/zulucrypt 5.5.0_pre20180223: Front end to cryptsetup
@@ -2592,6 +2594,7 @@ app-metrics/burrow_exporter 0.0.6-r2: Prometheus exporter for Burrow
 app-metrics/carbonapi-booking 0.3.0-r1: High-performance Graphite front-end, Booking.com fork
 app-metrics/carbonapi-web 1.1: graphite-web fork for standalone usage with carbonapi
 app-metrics/ceph_exporter 4.1.1-r1: Prometheus exporter that scrapes metrics from a ceph cluster
+app-metrics/chrony_exporter 0.10.1: Chrony NTP exporter for Prometheus
 app-metrics/collectd 5.12.0-r10: Collects system statistics and provides mechanisms to store the values
 app-metrics/consul_exporter 0.7.1: Prometheus exporter for consul metrics
 app-metrics/dnsmasq_exporter 0.2.0-r1: prometheus exporter for dnsmasq
@@ -2963,7 +2966,7 @@ app-office/grisbi 2.0.5 3.0.1 3.0.3: Grisbi is a personal accounting application
 app-office/gtg 0.6-r1: Personal organizer for the GNOME desktop environment
 app-office/homebank 5.7.4 5.8 5.8.1: Free, easy, personal accounting for everyone
 app-office/impressive 0.13.1 0.13.2: Stylish way of giving presentations with Python
-app-office/joplin-desktop 3.0.2: Secure note taking and to-do app with synchronization capabilities
+app-office/joplin-desktop 3.0.2 3.0.12: Secure note taking and to-do app with synchronization capabilities
 app-office/kexi 3.2.0-r4: Visual database applications creator
 app-office/kmymoney 5.1.3: Personal finance manager based on KDE Frameworks
 app-office/kraft 1.0: Software to manage quotes and invoices in small enterprises
@@ -3918,7 +3921,7 @@ dev-db/citus 11.3.1 12.0.1 12.1.3 12.1.4: Open-source postgresql extension for c
 dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud services
 dev-db/datadraw 3.1.1: feature rich database generator for high performance C applications
 dev-db/etcd 3.4.26 3.4.31 3.5.12 3.5.13: Highly-available key value store for shared configuration and service discovery
-dev-db/firebird 3.0.4.33054.0-r2 3.0.10.33601.0-r1: Relational database offering many ANSI SQL:2003 and some SQL:2008 features
+dev-db/firebird 3.0.4.33054.0-r3 3.0.10.33601.0-r2: Relational database offering many ANSI SQL:2003 and some SQL:2008 features
 dev-db/freetds 1.2.18 1.4.17: Tabular Datastream Library
 dev-db/futuresql 0.1.1: Non-blocking Qt database framework
 dev-db/futuresql5 0.1.1: Non-blocking Qt database framework
@@ -3946,7 +3949,7 @@ dev-db/mongodb 4.4.29 5.0.26: A high-performance, open source, schema-free docum
 dev-db/mycli 1.27.2: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.14.5.2 0.15.2.8: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.27-r1 8.0.32: ODBC driver for MySQL
-dev-db/mysql 5.7.41 8.0.27-r1 8.0.31-r2 8.0.32-r2 8.0.34 8.0.36: A fast, multi-threaded, multi-user SQL database server
+dev-db/mysql 5.7.41 8.0.27-r1 8.0.31-r2 8.0.32-r2 8.0.34 8.0.36 8.0.37: A fast, multi-threaded, multi-user SQL database server
 dev-db/mysql++ 3.3.0: C++ API interface to the MySQL database
 dev-db/mysql-connector-c 8.0.32-r1 8.0.36: C client library for MariaDB/MySQL
 dev-db/mysql-connector-c++ 8.0.33-r1: MySQL database connector for C++ (mimics JDBC 4.0 API)
@@ -5118,7 +5121,7 @@ dev-lang/dafny 4.6.0 4.7.0: Dafny is a verification-aware programming language
 dev-lang/dafny-bin 4.6.0 4.7.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 3.90 3.95 4.00 9999: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 3.95 4.00 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.14.5-r2 1.15.7 1.15.8 1.16.2 1.16.3: Elixir programming language
 dev-lang/elpi 1.17.4 1.18.2: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 26.2.1 26.2.2 26.2.4 27.0: Erlang programming language, runtime environment and libraries (OTP)
@@ -5619,9 +5622,9 @@ dev-libs/libxdg-basedir 1.2.3: Small library to access XDG Base Directories Spec
 dev-libs/libxdiff 0.23-r3: Library for creating diff files
 dev-libs/libxls 1.6.2-r1: A library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.5-r1: C library for creating Excel XLSX files
-dev-libs/libxml2 2.11.7 2.11.8 2.12.5 2.12.6 2.12.7 2.12.8 9999: XML C parser and toolkit
+dev-libs/libxml2 2.11.7 2.11.8 2.12.5 2.12.6 2.12.7 2.12.8 2.13.1 9999: XML C parser and toolkit
 dev-libs/libxmlb 0.3.14 0.3.18 0.3.19: Library to help create and query binary XML blobs
-dev-libs/libxslt 1.1.39 9999: XSLT libraries and tools
+dev-libs/libxslt 1.1.39 1.1.41 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
 dev-libs/libzia 4.59 4.60: Platform abstraction code for tucnak package
 dev-libs/libzip 1.9.2: Library for manipulating zip archives
@@ -12106,12 +12109,12 @@ gui-libs/wlroots 0.15.1-r2 0.16.2-r3 0.17.2-r1 0.17.3-r1 0.17.3-r3 0.17.4 9999: 
 gui-libs/wpebackend-fdo 1.14.2-r1: WPE backend designed for Linux desktop systems
 gui-libs/xdg-desktop-portal-lxqt 0.5.0 1.0.2: Backend implementation for xdg-desktop-portal using Qt/KF5/libfm-qt
 gui-libs/xdg-desktop-portal-wlr 0.5.0 0.6.0 0.7.0 0.7.0-r2 0.7.1-r1 9999: xdg-desktop-portal backend for wlroots
-gui-wm/dwl 0.5 9999 9999-r1: dwm for Wayland
+gui-wm/dwl 0.5 0.5-r1 9999 9999-r1: dwm for Wayland
 gui-wm/gamescope 3.14.22: Efficient micro-compositor for running games
 gui-wm/hikari 2.3.3: Wayland compositor inspired by CWM
 gui-wm/hyprland 0.37.1-r1 0.39.1-r3 0.40.0-r1 0.41.1 0.41.2 9999: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 gui-wm/sway 1.9-r1 9999: i3-compatible Wayland window manager
-gui-wm/tinywl 0.17.3 9999: "minimum viable product" Wayland compositor based on wlroots
+gui-wm/tinywl 0.17.3 0.17.4 9999: "minimum viable product" Wayland compositor based on wlroots
 gui-wm/wayfire 0.8.1-r2 9999: compiz like 3D wayland compositor
 kde-apps/akonadi 23.08.5 24.05.1-r1: Storage service for PIM data and libraries for PIM apps
 kde-apps/akonadi-calendar 23.08.5 24.05.1: Library for akonadi calendar integration
@@ -14162,7 +14165,7 @@ media-tv/kodi 19.5-r2 20.5-r1 21.0-r1 21.0-r2 21.9999 9999: A free and open sour
 media-tv/linuxtv-dvb-apps 1.1.1.20140321-r2: Small utils for DVB to scan, zap, view signal strength
 media-tv/mythtv 33.1-r1: Open Source DVR and media center hub
 media-tv/mythtv-status 1.0.1 1.1.0: Displays the current status of MythTV at the command prompt
-media-tv/plex-media-server 1.40.2.8395: Free media library that is intended for use with a plex client
+media-tv/plex-media-server 1.40.2.8395 1.40.3.8555: Free media library that is intended for use with a plex client
 media-tv/shoutcast2vdr 0.0.8-r1: VDR script: generate shoutcast playlists
 media-tv/tvbrowser-bin 4.2.7: Themeable and easy to use TV Guide - written in Java
 media-tv/tvheadend 4.3_p20240618 9999: Tvheadend is a TV streaming server and digital video recorder
@@ -14355,7 +14358,7 @@ net-analyzer/echoping 6.0.2_p434-r5: Small program to test performances of remot
 net-analyzer/etherape 0.9.20: A graphical network monitor for Unix modeled after etherman
 net-analyzer/ethloop 10-r4: Local simulator for testing Linux QoS disciplines
 net-analyzer/ettercap 0.8.3.1-r3 9999: Suite for man in the middle attacks
-net-analyzer/fail2ban 1.0.2-r2 1.0.2-r3 1.1.0 9999: Scans log files and bans IPs that show malicious signs
+net-analyzer/fail2ban 1.0.2-r2 1.0.2-r3 1.1.0 1.1.0-r1 9999: Scans log files and bans IPs that show malicious signs
 net-analyzer/firewalk 5.0-r2: A tool for determining a firewall's rule set
 net-analyzer/flow-tools 0.68.6-r1: library and programs to process reports from NetFlow data
 net-analyzer/flowgrind 0.8.2: Network performance measurement tool
@@ -15259,7 +15262,7 @@ net-misc/netstat-nat 1.4.10-r1: Display NAT connections
 net-misc/networkmanager 1.46.0-r1: A set of co-operative tools that make networking simple and straightforward
 net-misc/nextcloud-client 3.9.4 3.11.1 3.13.0 3.13.1: Desktop Syncing Client for Nextcloud
 net-misc/nicstat 1.95: Network traffic statics utility for Solaris and Linux
-net-misc/ntp 4.2.8_p15-r6 4.2.8_p17-r1 4.2.8_p17-r2: Network Time Protocol suite/programs
+net-misc/ntp 4.2.8_p15-r6 4.2.8_p17-r1 4.2.8_p17-r2 4.2.8_p18: Network Time Protocol suite/programs
 net-misc/ntpsec 1.2.2a 1.2.2a-r1 1.2.3 1.2.3-r1 9999: The NTP reference implementation, refactored
 net-misc/nx 3.5.99.26 3.5.99.27: NX compression technology core libraries
 net-misc/nxplayer 7.6.2.4-r1: Client for NoMachine remote servers
@@ -15372,7 +15375,7 @@ net-misc/ucarp 1.5.2-r7: Portable userland implementation of Common Address Redu
 net-misc/udpcast 20211207 20211207-r1: Multicast file transfer tool
 net-misc/udpxy 1.0.23.7-r2: Small daemon to relay multicast UDP traffic to client's TCP (HTTP) connection
 net-misc/uftp 5.0.3: Encrypted UDP based FTP with multicast
-net-misc/unison 2.53.3-r1 2.53.5: Two-way cross-platform file synchronizer
+net-misc/unison 2.53.3-r1 2.53.5-r1: Two-way cross-platform file synchronizer
 net-misc/unix2tcp 0.8.2-r2: Connection forwarder that converts Unix sockets into TCP sockets
 net-misc/usbip 5.15: Userspace utilities for a general USB device sharing system over IP networks
 net-misc/utelnetd 0.1.11-r3 0.1.11-r4: Small telnet daemon derived from the Axis tools
@@ -15389,7 +15392,7 @@ net-misc/websocketd 0.4.1: Like inetd, but for WebSockets
 net-misc/wget 1.21.4 1.24.5: Network utility to retrieve files from the WWW
 net-misc/wget2 2.0.1-r5 2.1.0-r1 9999: GNU Wget2 is a file and recursive website downloader
 net-misc/whatmask 1.2-r1: Little C program to compute different subnet mask notations
-net-misc/whois 5.5.20 5.5.21 9999: Improved Whois Client
+net-misc/whois 5.5.20 5.5.21 5.5.23 9999: Improved Whois Client
 net-misc/wol 0.7.1-r4: Implements Wake On LAN (Magic Paket) functionality in a small program
 net-misc/wput 0.6.2 0.6.2_p20130413_p11 0.6.2_p20130413_p11-r1: Tiny program like wget, to upload files/whole directories via FTP
 net-misc/x11-ssh-askpass 1.2.4.1-r2: X11-based passphrase dialog for use with OpenSSH
@@ -15468,7 +15471,7 @@ net-p2p/ncdc 1.23.1 1.24-r1: Lightweight direct connect client with a friendly n
 net-p2p/nicotine+ 3.2.8 3.2.9-r1 3.3.4: Graphical client for the Soulseek peer to peer network written in Python
 net-p2p/qbittorrent 4.6.3 4.6.4 4.6.5 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.7.2.1375-r1 2.7.3.1381 9999: Resilient, fast and scalable file synchronization tool
-net-p2p/retroshare 0.6.6-r1 0.6.7: Friend to Friend secure communication and sharing application
+net-p2p/retroshare 0.6.7-r1: Friend to Friend secure communication and sharing application
 net-p2p/rtorrent 0.9.8-r1 0.9.8-r2 0.9.8-r3: BitTorrent Client using libtorrent
 net-p2p/syncthing 1.27.2 1.27.6 1.27.8: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.6-r3 1.8.7: A torrent file parser
@@ -15551,8 +15554,8 @@ net-voip/umurmur 0.2.20 9999: Minimalistic Murmur (Mumble server)
 net-voip/yate 6.2.0 9999: The Yate AV Suite
 net-vpn/6tunnel 0.13: TCP proxy for applications that don't speak IPv6
 net-vpn/corkscrew 2.0-r1: a tool for tunneling SSH through HTTP proxies
-net-vpn/eduvpn-client 4.1.3-r2 4.2.1-r1 4.2.99.0 9999: Linux client and Python client API for eduVPN
-net-vpn/eduvpn-common 1.1.2 1.2.0 1.99.1: Linux client and Python client API for eduVPN
+net-vpn/eduvpn-client 4.2.1-r1 4.3.1 9999: Linux client and Python client API for eduVPN
+net-vpn/eduvpn-common 1.2.0 2.0.2: Linux client and Python client API for eduVPN
 net-vpn/fp-multiuser 0.0.2: A frp server plugin to support multiple users for frp
 net-vpn/frp 0.56.0 0.58.1: A reverse proxy that exposes a server behind a NAT or firewall to the internet
 net-vpn/gsocket 1.4.43 9999: Allow firewalled/NATed host to establish a secure connection
@@ -16383,7 +16386,7 @@ sci-mathematics/otter 3.3-r4: An Automated Deduction System
 sci-mathematics/palp 2.21: A Package for Analyzing Lattice Polytopes (PALP)
 sci-mathematics/pari 2.15.4-r1 2.15.5: Computer-aided number theory C library and tools
 sci-mathematics/pari-data 20191216: Additional dataset packages for PARI
-sci-mathematics/petsc 3.16.0-r2 3.17.1-r2 3.18.2-r1 3.19.1-r1 3.19.2-r1 3.19.4-r1 3.20.5-r1: Portable, Extensible Toolkit for Scientific Computation
+sci-mathematics/petsc 3.16.0-r2 3.17.1-r2 3.18.2-r1 3.19.1-r1 3.19.2-r1 3.19.4-r1 3.20.5-r1 3.21.3: Portable, Extensible Toolkit for Scientific Computation
 sci-mathematics/picosat 965: SAT solver with proof and core support
 sci-mathematics/planarity 3.0.2.0: The edge addition planarity suite of graph algorithms
 sci-mathematics/plfit 0.9.3 0.9.5: Fit power-law distributions to empirical data
@@ -16400,7 +16403,7 @@ sci-mathematics/rngstreams 1.0.1: Multiple independent streams of pseudo-random 
 sci-mathematics/rw 0.9: Compute rank-width decompositions of graphs
 sci-mathematics/sha1-polyml 5.9: implementation of SHA1 is taken from the GNU coreutils package
 sci-mathematics/singular 4.3.2_p16-r1: Computer algebra system for polynomial computations
-sci-mathematics/slepc 3.16.0 3.17.1 3.18.1 3.19.0 3.19.1 3.20.1: Scalable Library for Eigenvalue Problem Computations
+sci-mathematics/slepc 3.16.0 3.17.1 3.18.1 3.19.0 3.19.1 3.20.1 3.21.1: Scalable Library for Eigenvalue Problem Computations
 sci-mathematics/smtinterpol 2.5_p20211018: Interpolating SMT-solver computing Craig interpolants for various theories
 sci-mathematics/spin 6.5.2-r1: An efficient logic-model checker for the verification of multi-threaded code
 sci-mathematics/stp 2.3.3-r3 2.3.4: Simple Theorem Prover, an efficient SMT solver for bitvectors
@@ -16635,7 +16638,7 @@ sec-keys/openpgp-keys-wget 20220407 20230313 20230511 20240415: OpenPGP keys use
 sec-keys/openpgp-keys-wireshark 20230903: OpenPGP keys used to sign Wireshark releases
 sec-keys/openpgp-keys-xpdf 20220515: OpenPGP key used to sign Xpdf releases
 sec-keys/openpgp-keys-yorhel 20221110: OpenPGP keys used by Yoran Heling
-sec-keys/openpgp-keys-yubico 20230825: OpenPGP keys used by Yubico's developers
+sec-keys/openpgp-keys-yubico 20230825 20240628: OpenPGP keys used by Yubico's developers
 sec-keys/openpgp-keys-zackweinberg 20231223: OpenPGP keys used by Zack Weinberg
 sec-keys/signify-keys-opensmtpd 20181026: Signify keys used to sign OpenSMTPD portable releases
 sec-keys/signify-keys-signify 30: Signify keys used to sign signify portable releases
@@ -16975,7 +16978,7 @@ sys-apps/epoch 1.3.0 9999: Init system, /sbin/init replacement; designed for sim
 sys-apps/etckeeper 1.18.18 1.18.20 1.18.21: A collection of tools to let /etc be stored in a repository
 sys-apps/ethq 0.6.1 0.6.3 9999: Ethernet NIC Queue stats viewer
 sys-apps/ethtool 6.6 6.7 6.9: Utility for examining and tuning ethernet-based network interfaces
-sys-apps/eza 0.18.6 0.18.13 0.18.16: A modern, maintained replacement for ls
+sys-apps/eza 0.18.6 0.18.13 0.18.16 0.18.20: A modern, maintained replacement for ls
 sys-apps/fakechroot 2.20.1_p2: Provide a faked chroot environment without requiring root privileges
 sys-apps/fakeroot 1.32.2 1.33: A fake root environment by means of LD_PRELOAD and SysV IPC (or TCP) trickery
 sys-apps/fbset 2.1: A utility to set the framebuffer videomode
@@ -17073,7 +17076,7 @@ sys-apps/minised 1.16: a smaller, cheaper and faster sed implementation
 sys-apps/miscfiles 1.5-r4: Miscellaneous files
 sys-apps/mlocate 0.26-r3: Merging locate is an utility to index and quickly search for files
 sys-apps/mlxup-bin 4.13.0: Mellanox Update and Query Utility
-sys-apps/moar 1.23.9 1.23.15 1.24.3 1.24.4: Pager designed to do the right thing without any configuration
+sys-apps/moar 1.23.9 1.23.15 1.24.3 1.24.4 1.24.6: Pager designed to do the right thing without any configuration
 sys-apps/moreutils 0.68 0.69: Collection of tools that nobody thought to write when Unix was young
 sys-apps/most 5.1.0 5.2.0: Paging program that displays, one windowful at a time, the contents of a file
 sys-apps/mount-gtk 1.4.5.1: GTK+ based UDisks2 frontend
@@ -17223,7 +17226,7 @@ sys-auth/microsoft-identity-broker 2.0.0: Microsoft Authentication Broker to acc
 sys-auth/munge 0.5.13-r2 0.5.15: An authentication service for creating and validating credentials
 sys-auth/nss-mdns 0.15.1 9999: Name Service Switch module for Multicast DNS
 sys-auth/nss-myhostname 0.3-r1: Name Service Switch module for resolving the local hostname
-sys-auth/nss-pam-ldapd 0.9.12-r2 0.9.12-r3: NSS module for name lookups using LDAP
+sys-auth/nss-pam-ldapd 0.9.12-r2 0.9.12-r3 0.9.12-r4: NSS module for name lookups using LDAP
 sys-auth/nss_ldap 265-r11: NSS LDAP Module
 sys-auth/oath-toolkit 2.6.7-r2 2.6.9 2.6.10 2.6.11: Toolkit for using one-time password authentication with HOTP/TOTP algorithms
 sys-auth/otpcalc 0.97.9 0.98: A One Time Password and S/Key calculator for GTK+
@@ -17259,7 +17262,7 @@ sys-auth/sssd 2.9.4 2.9.5: System Security Services Daemon provides access to id
 sys-auth/thinkfinger 0.3-r3: Support for the UPEK/SGS Thomson fingerprint reader, common in Thinkpads
 sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykpers 1.20.0-r1: Library and tool for personalization of Yubico's YubiKey
-sys-auth/yubico-piv-tool 2.3.1 2.4.2 2.5.1: Command-line tool and p11-kit module for the YubiKey PIV application
+sys-auth/yubico-piv-tool 2.3.1 2.4.2 2.5.1 2.5.2: Command-line tool and p11-kit module for the YubiKey PIV application
 sys-auth/yubikey-personalization-gui 3.1.25: GUI for personalization of Yubico's YubiKey
 sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protocol
 sys-block/arcconf 2.01.22270-r2 3.07.23980 4.17.00.26540: Microsemi Adaptec RAID Controller Command Line Utility
@@ -17541,7 +17544,7 @@ sys-fs/ecryptfs-utils 111_p20170609-r1: eCryptfs userspace utilities
 sys-fs/encfs 1.9.5-r2: An implementation of encrypted filesystem in user-space using FUSE
 sys-fs/erofs-utils 1.6-r1 1.7: Userspace tools for EROFS
 sys-fs/exfat-utils 1.3.0 1.4.0: exFAT filesystem utilities
-sys-fs/exfatprogs 1.2.2 1.2.3 9999: Userspace utilities for new exfat filesystem (kernel 5.7+)
+sys-fs/exfatprogs 1.2.2 1.2.3 1.2.4 9999: Userspace utilities for the exFAT filesystem (kernel 5.7+)
 sys-fs/ext3grep 0.10.2-r1: Recover deleted files on an ext3 file system
 sys-fs/ext4magic 0.3.2-r2: Tool for recovery of deleted or overwritten files on ext3/ext4 filesystems
 sys-fs/extundelete 0.2.4-r2: A utility to undelete files from an ext3 or ext4 partition
