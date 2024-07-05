@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-17">
+    <title>BusyBox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in BusyBox, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">busybox</product>
+    <announced>2024-07-05</announced>
+    <revised count="1">2024-07-05</revised>
+    <bug>824222</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/busybox" auto="yes" arch="*">
+            <unaffected range="ge">1.34.0</unaffected>
+            <vulnerable range="lt">1.34.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>BusyBox is set of tools for embedded systems and is a replacement for GNU Coreutils.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in BusyBox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All BusyBox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/busybox-1.34.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42373">CVE-2021-42373</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42374">CVE-2021-42374</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42375">CVE-2021-42375</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42376">CVE-2021-42376</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42377">CVE-2021-42377</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42378">CVE-2021-42378</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42379">CVE-2021-42379</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42380">CVE-2021-42380</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42381">CVE-2021-42381</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42382">CVE-2021-42382</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42383">CVE-2021-42383</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42384">CVE-2021-42384</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42385">CVE-2021-42385</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42386">CVE-2021-42386</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-05T09:49:36.081859Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-05T09:49:36.086656Z">graaff</metadata>
+</glsa>
