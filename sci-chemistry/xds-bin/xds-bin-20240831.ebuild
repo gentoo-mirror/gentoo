@@ -1,20 +1,30 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
 DESCRIPTION="Software for processing single-crystal X-ray monochromatic diffraction data"
-HOMEPAGE="http://xds.mpimf-heidelberg.mpg.de/"
+HOMEPAGE="https://xds.mr.mpg.de"
 SRC_URI="
-	ftp://ftp.mpimf-heidelberg.mpg.de/pub/kabsch/XDS-INTEL64_Linux_x86_64.tar.gz -> XDS-INTEL64_Linux_x86_64-${PV}.tar.gz
-	ftp://ftp.mpimf-heidelberg.mpg.de/pub/kabsch/XDS_html_doc.tar.gz -> XDS_html_doc-${PV}.tar.gz"
+	https://xds.mr.mpg.de/XDS-INTEL64_Linux_x86_64.tar.gz -> XDS-INTEL64_Linux_x86_64-${PVR}.tar.gz
+	https://xds.mr.mpg.de/XDS_html_doc.tar.gz -> XDS_html_doc-${PVR}.tar.gz"
 
 LICENSE="free-noncomm"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 IUSE="smp"
+RESTRICT="fetch"
 
 QA_PREBUILT="opt/xds-bin/*"
+
+# The web site uses a certificate that is not in the system certificate store.
+# Use a web browser to download, instead.
+pkg_nofetch() {
+	elog "Please visit"
+	elog "https://xds.mr.mpg.de/html_doc/downloading.html"
+	elog "and download XDS-INTEL64_Linux_x86_64.tar.gz and XDS_html_doc.tar.gz."
+	elog "Please save them as: ${A}. in your \${DISTDIR}"
+}
 
 src_unpack() {
 	default
@@ -33,7 +43,7 @@ src_install() {
 		dosym ../${PN}/${i}${suffix} /opt/bin/${i}
 	done
 
-	for i in 2cbf cellparm forkcolspot forkintegrate merge2cbf pix2lab xdsconv; do
+	for i in 2cbf cellparm forkxds merge2cbf pix2lab xdsconv; do
 		dosym ../${PN}/${i} /opt/bin/${i}
 	done
 
@@ -42,5 +52,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "This package will expire on September 30, 2017"
+	elog "This package will expire on August 31, 2024"
 }
