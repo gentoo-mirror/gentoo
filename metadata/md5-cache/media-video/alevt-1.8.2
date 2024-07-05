@@ -1,14 +1,15 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install
 DEPEND=x11-libs/libX11 media-libs/libpng:= x11-base/xorg-proto
 DESCRIPTION=Teletext viewer for X11
-EAPI=7
+EAPI=8
 HOMEPAGE=https://gitlab.com/alevt/alevt
 INHERIT=desktop flag-o-matic toolchain-funcs
-KEYWORDS=~amd64 ~ppc ~sparc x86
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=x11-libs/libX11 media-libs/libpng:=
 RESTRICT=strip
 SLOT=0
-SRC_URI=http://www.goron.de/~froese/alevt/alevt-1.6.2.tar.gz
+SRC_URI=https://gitlab.com/alevt/alevt/-/archive/v1.8.2/alevt-v1.8.2.tar.bz2 -> alevt-1.8.2.tar.bz2
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653
-_md5_=86fc1c82a8720b9c4af72e60c181f381
+_md5_=2b1233841a30e8bad1c3afb3b828b468
