@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-14">
+    <title>TigerVNC: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in TigerVNC, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">tigervnc</product>
+    <announced>2024-07-05</announced>
+    <revised count="1">2024-07-05</revised>
+    <bug>700464</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/tigervnc" auto="yes" arch="*">
+            <unaffected range="ge">1.12.0-r2</unaffected>
+            <vulnerable range="lt">1.12.0-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>TigerVNC is a high-performance VNC server/client.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in TigerVNC. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All TigerVNC users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/tigervnc-1.12.0-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-15691">CVE-2019-15691</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-15692">CVE-2019-15692</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-15694">CVE-2019-15694</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-15695">CVE-2019-15695</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-26117">CVE-2020-26117</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-05T08:04:14.901340Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-05T08:04:14.904899Z">graaff</metadata>
+</glsa>
