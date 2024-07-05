@@ -25,7 +25,7 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	drm? ( x11-libs/libdrm )
+	drm? ( x11-libs/libdrm[video_cards_intel] )
 	opencl? ( virtual/opencl )
 	vaapi? ( media-libs/libva[X?,wayland?,drm(+)?] )
 	wayland? (
@@ -36,7 +36,7 @@ RDEPEND="
 		x11-libs/libxcb
 	)
 	x11-libs/libpciaccess
-	>=media-libs/libvpl-2.11.0
+	>=media-libs/libvpl-2.11.0:=
 "
 
 DEPEND="${RDEPEND}
