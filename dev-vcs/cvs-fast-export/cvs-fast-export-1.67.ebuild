@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,24 +12,16 @@ SRC_URI="http://www.catb.org/~esr/${PN}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
-BDEPEND="app-text/asciidoc"
-
 RESTRICT=test # upstream does not ship some tests in tarball
+
+BDEPEND="dev-ruby/asciidoctor"
+
+PATCHES=( "${FILESDIR}/${PN}-1.61-Makefile.patch" )
 
 src_prepare() {
 	default
-
 	tc-export CC
 	export prefix="${EPREFIX}"/usr
-
-	# respect CC, CFLAGS and LDFLAGS
-	sed \
-		-e 's/cc /$(CC) $(LDFLAGS) /' \
-		-e 's/^CFLAGS += -O/#&/' \
-		-e 's/CFLAGS=/CFLAGS+=/' \
-		-i Makefile || die
 }
 
 src_compile() {
@@ -42,5 +34,5 @@ src_compile() {
 
 src_install() {
 	default
-	dodoc README.adoc
+	dodoc {NEWS,README,TODO,hacking,reporting-bugs}.adoc
 }
