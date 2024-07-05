@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-10">
+    <title>Sofia-SIP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Sofia-SIP, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">sofia-sip</product>
+    <announced>2024-07-05</announced>
+    <revised count="1">2024-07-05</revised>
+    <bug>891791</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/sofia-sip" auto="yes" arch="*">
+            <vulnerable range="lt">1.13.16</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Sofia-SIP is an RFC3261 compliant SIP User-Agent library.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Sofia-SIP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Multiple vulnerabilities have been discovered in Sofia-SIP. Please review the CVE identifiers referenced below for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for the Sofia-SIP package. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "net-libs/sofia-sip"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22741">CVE-2023-22741</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32307">CVE-2023-32307</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-05T06:01:03.002442Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-05T06:01:03.007447Z">graaff</metadata>
+</glsa>
