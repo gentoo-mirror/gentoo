@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-12">
+    <title>podman: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Podman, the worst of which could lead to privilege escalation.</synopsis>
+    <product type="ebuild">podman</product>
+    <announced>2024-07-05</announced>
+    <revised count="1">2024-07-05</revised>
+    <bug>829896</bug>
+    <bug>870931</bug>
+    <bug>896372</bug>
+    <bug>921290</bug>
+    <bug>923751</bug>
+    <bug>927500</bug>
+    <bug>927501</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-containers/podman" auto="yes" arch="*">
+            <unaffected range="ge">4.9.4</unaffected>
+            <vulnerable range="lt">4.9.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Podman is a tool for managing OCI containers and pods with a Docker-compatible CLI.</p>
+    </background>
+    <description>
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Podman users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/podman-4.9.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4024">CVE-2021-4024</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2989">CVE-2022-2989</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0778">CVE-2023-0778</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-48795">CVE-2023-48795</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1753">CVE-2024-1753</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23651">CVE-2024-23651</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23652">CVE-2024-23652</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23653">CVE-2024-23653</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24786">CVE-2024-24786</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-05T07:05:25.139225Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-05T07:05:25.142869Z">graaff</metadata>
+</glsa>
