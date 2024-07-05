@@ -6,12 +6,14 @@ EAPI=8
 WX_GTK_VER="3.2-gtk3"
 inherit desktop optfeature wxwidgets xdg
 
-MY_P="${PN}-v${PV}"
-
 DESCRIPTION="GUI frontend for Ngspice and Gnucap"
 HOMEPAGE="https://sourceforge.net/projects/gspiceui/"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
+#SRC_URI="https://downloads.sourceforge.net/${PN}/${MY_P}.tar.gz"
+MY_REV="382"
+# SF source is temporal
+#SRC_URI="https://sourceforge.net/code-snapshots/svn/g/gs/${PN}/code/${PN}-code-r${MY_REV}-trunk.zip -> ${P}.zip"
+SRC_URI="https://dev.gentoo.org/~pacho/${PN}/${PN}-code-r${MY_REV}-trunk.zip -> ${P}.zip"
+S="${WORKDIR}/${PN}-code-r${MY_REV}-trunk"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -32,17 +34,9 @@ RDEPEND="
 
 PATCHES=(
 	# Use Gentoo LDFLAGS and CXXFLAGS
+	# https://sourceforge.net/p/gspiceui/bugs/30/
 	"${FILESDIR}"/${P}-respect-users-flags.patch
 )
-
-src_prepare() {
-	default
-
-	# Adjusting the doc path at src/main/FrmHtmlVwr.cpp
-	sed -i -e \
-		"s:/share/gspiceui/html/User-Manual.html:/share/doc/${PF}/html/User-Manual.html:g" \
-		src/main/FrmHtmlVwr.cpp || die
-}
 
 src_configure() {
 	setup-wxwidgets
@@ -50,8 +44,9 @@ src_configure() {
 }
 
 src_compile() {
-	# GSPICEUI_WXLIB=3.0 also works for 3.2
-	emake GSPICEUI_WXLIB=3.0
+	export HOME="${T}"
+	mkdir -p "${T}/.config"
+	emake GSPICEUI_WXLIB=3.2 GSPICEUI_DEBUG=0
 }
 
 src_install() {
@@ -59,7 +54,7 @@ src_install() {
 
 	einstalldocs
 	dodoc html/*.html html/*.jpg html/*.png
-	dodoc ChangeLog ReadMe ToDo release-notes-v${PV}.txt
+	dodoc ChangeLog ReadMe ToDo
 	doman gspiceui.1
 
 	# installing examples and according model and symbol files
