@@ -47,7 +47,7 @@ for _BINDING in "${TS_BINDINGS[@]}"; do
 			DISTUTILS_EXT=1
 			DISTUTILS_OPTIONAL=1
 			DISTUTILS_USE_PEP517=setuptools
-			PYTHON_COMPAT=( python3_{10..12} )
+			PYTHON_COMPAT=( python3_{10..13} )
 			inherit distutils-r1
 
 			IUSE+=" python"
@@ -162,6 +162,8 @@ tree-sitter-grammar_src_compile() {
 	if [[ -f "${S}/pyproject.toml" ]]; then
 		sed -e "/SONAME_MINOR :=/s/:=.*$/:= $(_get_tsg_abi_ver)/" -i "${S}/Makefile" || die
 		emake \
+			CC="$(tc-getCC)" \
+			AR="$(tc-getAR)" \
 			STRIP="" \
 			PREFIX="${EPREFIX}/usr" \
 			LIBDIR="${EPREFIX}/usr/$(get_libdir)"
@@ -205,6 +207,19 @@ tree-sitter-grammar_src_install() {
 
 		dolib.so "${WORKDIR}/${soname}"
 		dosym "${soname}" /usr/$(get_libdir)/lib${PN}$(get_libname)
+		# Install symlinks to grammars so that they can be found by NeoVim.
+		# /usr/$(get_libdir)/tree-sitter gets added to the NeoVim runtimepath.
+		# See neovim/runtime/doc/treesitter.txt for info.
+		keepdir /usr/$(get_libdir)/tree-sitter
+		dosym ../"${soname}" \
+			/usr/$(get_libdir)/tree-sitter/parser/${PN##tree-sitter-}$(get_libname)
+
+		# Install queries (e.g. highlight.scm) so that they can be found by NeoVim.
+		if [[ -d "${S}/../queries" ]]; then
+			keepdir /usr/share/tree-sitter
+			insinto /usr/share/tree-sitter
+			doins -r "${S}/../queries"
+		fi
 	fi
 
 	local binding
