@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ruby:* virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 sys-libs/zlib alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio )
+DEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 sys-libs/zlib virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio )
 DESCRIPTION=Software synthesizer capable of making a countless number of instruments
 EAPI=8
 HOMEPAGE=https://zynaddsubfx.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic
 IUSE=+alsa doc dssi jack lash portaudio
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 sys-libs/zlib alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio ) media-fonts/roboto
+RDEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 sys-libs/zlib virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio ) media-fonts/roboto
 REQUIRED_USE=|| ( alsa jack portaudio )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/zynaddsubfx/zynaddsubfx-3.0.6.tar.bz2 https://downloads.sourceforge.net/zynaddsubfx/zyn-fusion-ui-src-3.0.6.tar.bz2
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	d309b9713dfc18e754cba88d3ba69653	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
-_md5_=aa5f8ba64843a27c71c75b7cccd38f39
+_md5_=33c1bd68d235ab2fd6ce56a1cd6dcc4a
