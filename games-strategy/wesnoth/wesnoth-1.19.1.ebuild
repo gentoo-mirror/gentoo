@@ -22,7 +22,7 @@ RDEPEND="
 	acct-group/wesnoth
 	acct-user/wesnoth
 	dev-libs/boost:=[bzip2,context,icu,nls]
-	>=media-libs/libsdl2-2.0.4:0[joystick,video,X]
+	>=media-libs/libsdl2-2.0.18:0[joystick,video,X]
 	!dedicated? (
 		dev-libs/glib:2
 		dev-libs/openssl:0=
@@ -90,6 +90,11 @@ src_configure() {
 		-DENABLE_STRICT_COMPILATION="OFF"
 		)
 	cmake_src_configure
+}
+
+src_test() {
+	# Allow SDL_Mixer test to pass, bug #931551
+	SDL_AUDIODRIVER=dummy cmake_src_test
 }
 
 src_install() {
