@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -21,7 +21,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-python/django[${PYTHON_USEDEP}]
+	>=dev-python/django-4.2.9[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -31,6 +31,6 @@ BDEPEND="
 "
 
 python_test() {
-	"${EPYTHON}" -m django test -v 2 --settings tests.settings \
+	"${EPYTHON}" -m django test -v 2 --settings tests.settings tests \
 		|| die "Tests failed with ${EPYTHON}"
 }
