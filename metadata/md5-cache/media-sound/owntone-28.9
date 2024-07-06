@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=app-pda/libplist dev-db/sqlite:3 dev-libs/confuse dev-libs/json-c dev-libs/libevent dev-libs/libgcrypt dev-libs/libsodium dev-libs/libunistring dev-libs/libxml2 dev-libs/mxml:0 dev-libs/protobuf-c media-libs/alsa-lib media-video/ffmpeg net-dns/avahi net-libs/libwebsockets net-misc/curl sys-devel/gettext sys-libs/zlib acct-group/audio acct-user/owntone alsa? ( media-libs/alsa-lib ) chromecast? ( net-libs/gnutls media-video/ffmpeg[opus] ) dev-util/gperf sys-apps/gawk sys-devel/bison sys-devel/flex virtual/pkgconfig
+DESCRIPTION=DAAP (iTunes) and MPD media server
+EAPI=8
+HOMEPAGE=https://owntone.github.io/owntone-server
+IUSE=+alsa +chromecast
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-pda/libplist dev-db/sqlite:3 dev-libs/confuse dev-libs/json-c dev-libs/libevent dev-libs/libgcrypt dev-libs/libsodium dev-libs/libunistring dev-libs/libxml2 dev-libs/mxml:0 dev-libs/protobuf-c media-libs/alsa-lib media-video/ffmpeg net-dns/avahi net-libs/libwebsockets net-misc/curl sys-devel/gettext sys-libs/zlib acct-group/audio acct-user/owntone alsa? ( media-libs/alsa-lib ) chromecast? ( net-libs/gnutls media-video/ffmpeg[opus] )
+SLOT=0
+SRC_URI=https://github.com/owntone/owntone-server/releases/download/28.9/owntone-28.9.tar.xz
+_md5_=6ef388d7b637e7e53661576eb471c029
