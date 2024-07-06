@@ -1,34 +1,38 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
-RUBY_FAKEGEM_RECIPE_TEST="rspec3"
+RUBY_FAKEGEM_TASK_DOC=doc
+
+RUBY_FAKEGEM_TASK_TEST="NOTURN=true test"
 
 inherit ruby-fakegem
 
 MY_P=elasticsearch-ruby-${PV}
-DESCRIPTION="Ruby integrations for ES, elasticsearch module"
+DESCRIPTION="Ruby integrations for ES, elasticsearch-api module"
 HOMEPAGE="https://github.com/elastic/elasticsearch-ruby"
 SRC_URI="https://github.com/elastic/elasticsearch-ruby/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="test"
 
 ruby_add_rdepend "
-	~dev-ruby/elasticsearch-api-${PV}
-	dev-ruby/elastic-transport:8
+	dev-ruby/multi_json
 "
 ruby_add_bdepend "
 	doc? ( dev-ruby/yard )
 	test? (
 		dev-ruby/ansi
+		dev-ruby/elasticsearch
+		dev-ruby/elastic-transport
 		dev-ruby/mocha:1.0
+		dev-ruby/patron
 		dev-ruby/pry
 		dev-ruby/shoulda-context
 	)
@@ -45,10 +49,17 @@ all_ruby_prepare() {
 		-e '/require.*cane/,/end/d' \
 		-i Rakefile || die
 
-	sed -e '/documentation/ s:^:#:' \
-		-i spec/spec_helper.rb || die
+	sed -i -e '/add_formatter/ s/documentation/progress/' spec/spec_helper.rb || die
 
-	# Avoid spec requiring a running elasticsearch server
-	rm -f spec/integration/{characters_escaping,client_integration,validation_integration}_spec.rb || die
-	rm -f spec/integration/helpers/*_helper_spec.rb || die
+	# Avoid tests that require unpackaged jbuilder and jsonify
+	sed -e '/\(pry-\|jbuilder\|jsonify\)/ s:^:#:' \
+		-e '/RspecJunitFormatter/ s:^:#:' \
+		-e '/ansi/arequire "patron"' \
+		-i spec/spec_helper.rb || die
+	rm -f spec/elasticsearch/api/actions/json_builders_spec.rb || die
+
+	sed -i -e '/uses the escape_utils gem/askip "unmaintained gem"' spec/elasticsearch/api/utils_spec.rb || die
+
+	# Create tmp directory required for tests
+	mkdir -p ../tmp/rest-api-spec/api || die
 }
