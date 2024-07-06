@@ -1,0 +1,15 @@
+BDEPEND=virtual/latex-base >=sys-apps/texinfo-4.2-r5
+DEFINED_PHASES=compile install postinst postrm prepare
+DEPEND=dev-texlive/texlive-latexextra
+DESCRIPTION=A pretty printer for various programming languages with tex output
+EAPI=8
+HOMEPAGE=http://www.tug.org/
+INHERIT=latex-package toolchain-funcs
+IUSE=examples
+KEYWORDS=amd64 ppc ~sparc x86
+LICENSE=BSD LGrind-Jacobson
+RDEPEND=virtual/latex-base
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~dilfridge/distfiles/lgrind-3.67.tgz https://salsa.debian.org/debian/lgrind/-/raw/dbf049621a61720c8350c37659cf6537ac3893a9/debian/patches/texlive-2022.patch -> lgrind-3.67-texlive-2022.patch https://salsa.debian.org/debian/lgrind/-/raw/dbf049621a61720c8350c37659cf6537ac3893a9/debian/patches/texlive-2020.patch -> lgrind-3.67-fix-begin-document.patch
+_eclasses_=latex-package	c20e442c3953c765f636630631c96194	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=21668c90f9f5ce521ae308db4055a9bf
