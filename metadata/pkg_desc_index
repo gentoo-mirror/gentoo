@@ -2276,7 +2276,7 @@ app-emacs/vhdl-mode 3.39.3: VHDL-mode for Emacs
 app-emacs/visual-basic-mode 1.5: A mode for editing Visual Basic programs
 app-emacs/vm 8.2.0_beta-r1: The VM mail reader for Emacs
 app-emacs/volume 1.0-r1: Tweak your sound card volume from Emacs
-app-emacs/vterm 0.0.2_p20240102 9999: Fully-featured terminal emulator based on libvterm
+app-emacs/vterm 0.0.2_p20240102 0.0.2_p20240705 9999: Fully-featured terminal emulator based on libvterm
 app-emacs/vue-html-mode 0.2 9999: Major Emacs mode for editing Vue.js templates
 app-emacs/vue-mode 0.4 9999: Major Emacs mode for vue component based on mmm-mode
 app-emacs/w3mnav 0.5-r3: Add Info-like navigation keys to the emacs-w3m web browser
@@ -8919,7 +8919,7 @@ dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.0.0: Inject some useful and sensible default behaviors into setuptools
 dev-python/pbs-installer 2024.4.24: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
-dev-python/pdm 2.15.4 2.16.0 2.16.1: Python package and dependency manager supporting the latest PEP standards
+dev-python/pdm 2.16.1: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.3.1 2.3.2: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdoc3 0.10.0-r2: Auto-generate API documentation for Python projects
 dev-python/pebble 5.0.7: Threading and multiprocessing eye-candy
@@ -9203,7 +9203,7 @@ dev-python/pytest-services 2.2.1-r1: Collection of fixtures and utility function
 dev-python/pytest-shell-utilities 1.9.0: pytest plugin: fixtures and code to help with running shell commands on tests
 dev-python/pytest-skip-markers 1.5.1: A Pytest plugin which implements a few useful skip markers
 dev-python/pytest-subprocess 1.5.0: A plugin to fake subprocess for pytest
-dev-python/pytest-subtests 0.12.1: Unittest subTest() support and subtests fixture
+dev-python/pytest-subtests 0.12.1 0.13.0: Unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 1.0.0: Plugin that changes the default look and feel of pytest
 dev-python/pytest-system-statistics 1.0.2-r2: Pytest Plugin Which Reports System Usage Statistics
 dev-python/pytest-tempdir 2019.10.12-r1: Pytest plugin to support for a predictable and repeatable temporary directory
@@ -9700,7 +9700,7 @@ dev-python/x-wr-timezone 0.0.7: Convert calendars using X-WR-TIMEZONE to standar
 dev-python/xarray 2024.6.0: N-D labeled arrays and datasets in Python
 dev-python/xcffib 1.5.0: A drop in replacement for xpyb, an XCB python binding
 dev-python/xdoctest 1.1.3 1.1.4 1.1.5: A rewrite of Python's builtin doctest module but without all the weirdness
-dev-python/xkbcommon 1.0 1.0.1 1.5: Python bindings for libxkbcommon using cffi
+dev-python/xkbcommon 1.0 1.0.1 1.5 1.5.1: Python bindings for libxkbcommon using cffi
 dev-python/xlrd 2.0.1-r1: Library to extract data from Microsoft Excel spreadsheets
 dev-python/xlsxwriter 3.2.0: Python module for creating Excel XLSX files
 dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible with Excel
@@ -17645,7 +17645,7 @@ sys-kernel/dracut-crypt-ssh 1.0.7 1.0.8: Early unlocking of encrypted systems vi
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.218 5.10.219 5.10.220 5.10.221 5.15.160 5.15.161 5.15.162 6.1.92 6.1.93 6.1.94 6.1.95 6.1.96 6.1.97 6.6.32 6.6.33 6.6.34 6.6.35 6.6.36 6.6.37 6.9.4 6.9.5 6.9.6 6.9.7 6.9.8: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.218 5.10.219 5.10.220 5.10.221 5.15.160 5.15.161 5.15.162 6.1.92 6.1.93 6.1.94 6.1.95 6.1.96 6.1.97 6.6.32 6.6.33 6.6.34 6.6.35 6.6.36 6.6.37 6.9.4 6.9.5 6.9.6 6.9.7 6.9.8: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.216 5.10.217 5.10.218 5.10.219 5.10.220 5.10.221 5.15.158 5.15.159 5.15.160 5.15.161 5.15.162 6.1.90 6.1.94 6.1.95 6.1.96 6.1.97 6.6.30 6.6.34 6.6.35 6.6.36 6.6.37 6.9.4 6.9.5 6.9.6 6.9.7 6.9.8: Full sources including the Gentoo patchset for the 6.9 kernel tree
+sys-kernel/gentoo-sources 5.10.216 5.10.218 5.10.219 5.10.220 5.10.221 5.15.158 5.15.160 5.15.161 5.15.162 6.1.90 6.1.95 6.1.96 6.1.97 6.6.30 6.6.35 6.6.36 6.6.37 6.9.5 6.9.6 6.9.7 6.9.8: Full sources including the Gentoo patchset for the 6.9 kernel tree
 sys-kernel/git-sources 6.10_rc1 6.10_rc2 6.10_rc3 6.10_rc4 6.10_rc5 6.10_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 39-r1: Gentoo fork of installkernel script from debianutils
 sys-kernel/kergen 0.1.5-r1: Kernel config generator
