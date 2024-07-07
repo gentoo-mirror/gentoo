@@ -1,4 +1,4 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="agg cairo ffmpeg postscript tiff truetype"
 
 DEPEND="
-	dev-qt/qtgui:5
+	dev-qt/qtgui:=
 	media-libs/fontconfig
 	media-libs/glfw
 	media-libs/libjpeg-turbo:=
@@ -34,7 +34,6 @@ DEPEND="
 	truetype? ( media-libs/freetype )
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.53.0-musl.patch"
@@ -44,7 +43,7 @@ REQUIRED_USE="cairo? ( truetype )"
 
 src_configure() {
 	if use agg ; then
-		mycmakeargs+=( -DAGG_LIBRARY=libagg.so -DAGG_INCLUDE_DIR=/usr/include/agg2 )
+		mycmakeargs+=( -DAGG_LIBRARY=/usr/$(get_libdir)/libagg.so -DAGG_INCLUDE_DIR=/usr/include/agg2 )
 	else
 		mycmakeargs+=( -DAGG_LIBRARY= )
 	fi
