@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=>=dev-libs/icu-60 doc? ( virtual/pandoc ) test? ( >=dev-cpp/catch-3.1.1:0 )
+DESCRIPTION=Spell checker library and CLI for complex natural languages
+EAPI=8
+HOMEPAGE=https://nuspell.github.io/ https://github.com/nuspell/nuspell
+INHERIT=cmake
+IUSE=doc test
+KEYWORDS=~amd64 ~loong ~riscv ~x86
+LICENSE=LGPL-3+
+RDEPEND=>=dev-libs/icu-60
+RESTRICT=!test? ( test )
+SLOT=0/5
+SRC_URI=https://github.com/nuspell/nuspell/archive/v5.1.6.tar.gz -> nuspell-5.1.6.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
+_md5_=8ba64fb2f8e30e483ecb7fa5b3be73fa
