@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,18 +7,22 @@ inherit cmake
 
 DESCRIPTION="The notorious fortune program"
 HOMEPAGE="https://www.shlomifish.org/open-source/projects/fortune-mod/"
-SRC_URI="https://www.shlomifish.org/open-source/projects/${PN}/arcs/${P}.tar.xz
-	https://github.com/shlomif/fortune-mod/releases/download/${P}/${P}.tar.xz"
+SRC_URI="
+	https://www.shlomifish.org/open-source/projects/${PN}/arcs/${P}.tar.xz
+	https://github.com/shlomif/fortune-mod/releases/download/${P}/${P}.tar.xz
+"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc64 ~riscv ~sparc ~x86"
-IUSE="offensive test"
+IUSE="offensive pcre test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	app-text/recode:=
 	!games-misc/fortune-mod-tao
+	app-text/recode:=
+	>=dev-libs/rinutils-0.10.2
+	pcre? ( dev-libs/libpcre2 )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -34,11 +38,11 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.14.0-valgrind-tests.patch
-	"${FILESDIR}"/${PN}-3.14.1-fix-localdir-mixup.patch
 )
 
 src_configure() {
 	local mycmakeargs=(
+		-DUSE_PCRE=$(usex pcre)
 		-DNO_OFFENSIVE=$(usex !offensive)
 		# bug #857246
 		-DLOCALDIR="/usr/local/share/fortune"
