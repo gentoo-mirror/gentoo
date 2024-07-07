@@ -1,9 +1,9 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cmake python-any-r1 xdg
 
@@ -13,13 +13,15 @@ HOMEPAGE="https://www.giuspen.com/cherrytree/"
 SRC_URI="https://github.com/giuspen/${PN}/releases/download/v$PV/${P/-/_}.tar.xz"
 S="${WORKDIR}"/${P/-/_}
 
-KEYWORDS="~amd64 ~x86"
-
 # GPL-3 — future/src/ct (CherryTree)
 # LGPL-2.1 — future/src/7za (7zip)
 # MIT — future/src/fmt (libfmt)
 LICENSE="GPL-3 LGPL-2.1 MIT"
+
 SLOT="0"
+
+KEYWORDS="~amd64 ~x86"
+
 IUSE="nls test"
 
 # Has deps that aren't available in ::gentoo repo
@@ -36,13 +38,14 @@ RDEPEND="app-i18n/uchardet
 	dev-libs/fribidi
 	dev-libs/glib:2
 	dev-libs/libfmt:=
+	dev-libs/libsigc++:2
 	dev-libs/libxml2:2
-	dev-libs/spdlog:=
+	>=dev-libs/spdlog-1.5
 	>=x11-libs/vte-0.70.2:2.91
 	net-misc/curl
-	x11-libs/cairo
-	x11-libs/gtk+:3
-	x11-libs/pango"
+	x11-libs/cairo[X]
+	x11-libs/gtk+:3[X]
+	x11-libs/pango[X]"
 
 DEPEND="${PYTHON_DEPS}
 	${RDEPEND}"
