@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+# py3.13: https://github.com/pylint-dev/astroid/pull/2424
 PYTHON_COMPAT=( pypy3 python3_{10..12} )
 
 inherit distutils-r1
@@ -58,7 +59,7 @@ python_test() {
 		tests/test_nodes.py::AsStringTest::test_recursion_error_trapped
 		# TODO
 		tests/test_builder.py::BuilderTest::test_data_build_error_filename
-		# numpy-2
+		# numpy-2 (https://github.com/pylint-dev/astroid/issues/2442)
 		tests/brain/numpy/test_core_einsumfunc.py::test_numpy_function_calls_inferred_as_ndarray
 		tests/brain/numpy/test_core_fromnumeric.py::BrainNumpyCoreFromNumericTest::test_numpy_function_calls_inferred_as_ndarray
 		tests/brain/numpy/test_core_multiarray.py::BrainNumpyCoreMultiarrayTest::test_numpy_function_calls_inferred_as_ndarray
