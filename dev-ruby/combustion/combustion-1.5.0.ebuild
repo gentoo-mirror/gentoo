@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_EXTRADOC="README.md"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
@@ -28,6 +28,7 @@ ruby_add_bdepend "
 		>=dev-ruby/activemodel-3.0.0:*
 		>=dev-ruby/activerecord-3.0.0:*
 		dev-ruby/bundler
+		dev-ruby/net-smtp
 		>=dev-ruby/rails-3.0.0:*
 		dev-ruby/rspec:3
 		>=dev-ruby/sqlite3-1.4
@@ -36,7 +37,6 @@ ruby_add_bdepend "
 
 each_ruby_prepare() {
 	sed -i \
-		-e '/sqlite3/s:1.3.13:1.4:' \
 		-e '/rubocop/d' \
 		Gemfile || die
 
