@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 optfeature pypi
 
@@ -26,17 +26,6 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
-distutils_enable_sphinx doc --no-autodoc
-
-src_prepare() {
-	# not used in py3, see https://github.com/lmfit/uncertainties/pull/168
-	sed -i -e '/future/d' setup.py || die
-	# fix tests with numpy-2
-	# https://github.com/lmfit/uncertainties/pull/225
-	sed -e "/assert not hasattr(numpy, 'acos')/d" \
-		-i uncertainties/unumpy/test_unumpy.py || die
-	distutils-r1_src_prepare
-}
 
 pkg_postinst() {
 	optfeature "numpy support" dev-python/numpy
