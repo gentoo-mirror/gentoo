@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 IUSE="kerberos"
 
 RDEPEND="
@@ -27,6 +27,7 @@ RDEPEND="
 	kerberos? (
 		<dev-python/kerberos-2.0.0[${PYTHON_USEDEP}]
 		dev-python/requests-credssp[${PYTHON_USEDEP}]
+		dev-python/requests-kerberos[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
@@ -36,3 +37,11 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# unbundle requests-kerberos
+	rm -r winrm/vendor || die
+	sed -i -e 's:winrm\.vendor\.::' winrm/*.py || die
+}
