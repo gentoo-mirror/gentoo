@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-23">
+    <title>LIVE555 Media Server: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in LIVE555 Media Server, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">live</product>
+    <announced>2024-07-09</announced>
+    <revised count="1">2024-07-09</revised>
+    <bug>732598</bug>
+    <bug>807622</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-plugins/live" auto="yes" arch="*">
+            <unaffected range="ge">2021.08.24</unaffected>
+            <vulnerable range="lt">2021.08.24</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>LIVE555 Media Server is a set of libraries for multimedia streaming.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in LIVE555 Media Server. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All LIVE555 Media Server users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-plugins/live-2021.08.24"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-24027">CVE-2020-24027</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38380">CVE-2021-38380</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38381">CVE-2021-38381</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38382">CVE-2021-38382</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39282">CVE-2021-39282</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39283">CVE-2021-39283</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-09T13:09:03.649511Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-09T13:09:03.653871Z">graaff</metadata>
+</glsa>
