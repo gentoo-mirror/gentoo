@@ -29,7 +29,7 @@ start_pre() {
 	local has_errors=
 
 	if [ -n "${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}" ] ; then
-		if ! su -s /bin/sh -c "test -r \"${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}\"" ${NOTIFY_PUSH_USER} 1>/dev/null 2>&1 ; then
+		if ! su -s /bin/sh -c "test -r ${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}" "${NOTIFY_PUSH_USER}" 1>/dev/null 2>&1 ; then
 			eerror "Config file \"${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}\" does not exist or is not accessible for user \"${NOTIFY_PUSH_USER}\"!"
 			return 1
 		fi
@@ -39,21 +39,21 @@ start_pre() {
 
 	# Required options when no config file was specified
 	if [ -n "${DATABASE_URL}" ] ; then
-		export DATABASE_URL
+		command_args="${command_args} --database-url \"$DATABASE_URL\""
 	elif [ -z "${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}" ] && [ -z "${DATABASE_URL}" ] ; then
 		has_errors=yes
 		eerror "DATABASE_URL not set!"
 	fi
 
 	if [ -n "${DATABASE_PREFIX}" ] ; then
-		export DATABASE_PREFIX
+		command_args="${command_args} --database-prefix \"$DATABASE_PREFIX\""
 	elif [ -z "${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}" ] && [ -z "${DATABASE_PREFIX}" ] ; then
 		has_errors=yes
 		eerror "DATABASE_PREFIX not set!"
 	fi
 
 	if [ -n "${REDIS_URL}" ] ; then
-		export REDIS_URL
+		command_args="${command_args} --redis-url \"$REDIS_URL\""
 	elif [ -z "${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}" ] && [ -z "${REDIS_URL}" ] ; then
 		has_errors=yes
 		eerror "REDIS_URL not set!"
@@ -63,45 +63,52 @@ start_pre() {
 		has_errors=yes
 		eerror "Neither SOCKET_PATH nor PORT is set!"
 	elif [ -n "${SOCKET_PATH}" ] ; then
-		checkpath -q -d -o ${NOTIFY_PUSH_USER}:${NOTIFY_PUSH_GROUP} -m 0770 "$(dirname "${SOCKET_PATH}")"
+		checkpath -q -d -o "${NOTIFY_PUSH_USER}:${NOTIFY_PUSH_GROUP}" -m 0770 "$(dirname "${SOCKET_PATH}")"
 		service_set_value SOCKET_PATH "${SOCKET_PATH}"
-		export SOCKET_PATH
+		command_args="${command_args} --socket-path \"${SOCKET_PATH}\""
 	elif [ -n "${PORT}" ] ; then
-		export PORT
+		command_args="${command_args} -p ${PORT}"
+	fi
+
+	if [ -n "${NEXTCLOUD_URL}" ] ; then
+		command_args="${command_args} --nextcloud-url \"$NEXTCLOUD_URL\""
+	elif [ -z "${NOTIFY_PUSH_NEXTCLOUD_CONFIGFILE}" ] && [ -z "${NEXTCLOUD_URL}" ] ; then
+		has_errors=yes
+		eerror "NEXTCLOUD_URL not set!"
 	fi
 
 	# Optional options
 	if [ -n "${ALLOW_SELF_SIGNED}" ] ; then
-		export ALLOW_SELF_SIGNED
+		command_args="${command_args} --allow-self-signed"
 	fi
 
 	if [ -n "${BIND}" ] ; then
-		export BIND
+		command_args="${command_args} --bind \"${BIND}\""
 	fi
 
 	if [ -n "${LOG}" ] ; then
-		export LOG
+		command_args="${command_args} --log-level \"${LOG}\""
 	fi
 
 	# shellcheck disable=SC2154
 	if [ -n "${LOGFILE}" ] ; then
-		checkpath -q -f -o ${NOTIFY_PUSH_USER}:adm -m 0644 "${LOGFILE}"
+		checkpath -q -f -o "${NOTIFY_PUSH_USER}:adm" -m 0644 "${LOGFILE}"
 		output_log="${LOGFILE}"
 		error_log="${LOGFILE}"
 	fi
 
 	if [ -n "${METRICS_PORT}" ] ; then
-		export METRICS_PORT
+		command_args="${command_args} --metrics-port \"${METRICS_PORT}\""
 	fi
 
 	if [ -n "${METRICS_SOCKET_PATH}" ] ; then
-		checkpath -q -d -o ${NOTIFY_PUSH_USER}:${NOTIFY_PUSH_GROUP} -m 0770 "$(dirname "${METRICS_SOCKET_PATH}")"
+		checkpath -q -d -o "${NOTIFY_PUSH_USER}:${NOTIFY_PUSH_GROUP}" -m 0770 "$(dirname "${METRICS_SOCKET_PATH}")"
 		service_set_value METRICS_SOCKET_PATH "${METRICS_SOCKET_PATH}"
-		export METRICS_SOCKET_PATH
+		command_args="${command_args} --metrics-socket-path \"${METRICS_SOCKET_PATH}\""
 	fi
 
 	if [ -n "${SOCKET_PERMISSIONS}" ] ; then
-		export SOCKET_PERMISSIONS
+		command_args="${command_args} --socket-permissions \"${SOCKET_PERMISSIONS}\""
 	fi
 
 	if [ -n "${has_errors}" ] ; then
