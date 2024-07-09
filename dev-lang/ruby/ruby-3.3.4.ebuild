@@ -8,7 +8,6 @@ inherit autotools flag-o-matic multiprocessing
 MY_P="${PN}-$(ver_cut 1-3)"
 S=${WORKDIR}/${MY_P}
 
-SLOT=$(ver_cut 1-2)
 MY_SUFFIX=$(ver_rs 1 '' ${SLOT})
 RUBYVERSION=${SLOT}.0
 
@@ -16,6 +15,7 @@ DESCRIPTION="An object-oriented scripting language"
 HOMEPAGE="https://www.ruby-lang.org/"
 SRC_URI="https://cache.ruby-lang.org/pub/ruby/${SLOT}/${MY_P}.tar.xz"
 
+SLOT=$(ver_cut 1-2)
 LICENSE="|| ( Ruby-BSD BSD-2 )"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="berkdb debug doc examples gdbm jemalloc jit socks5 +ssl static-libs systemtap tk valgrind xemacs"
@@ -60,7 +60,7 @@ BUNDLED_GEMS="
 	>=dev-ruby/racc-1.7.3[ruby_targets_ruby33(-)]
 	>=dev-ruby/rake-13.1.0[ruby_targets_ruby33(-)]
 	>=dev-ruby/rbs-3.4.0[ruby_targets_ruby33(-)]
-	>=dev-ruby/rexml-3.2.6[ruby_targets_ruby33(-)]
+	>=dev-ruby/rexml-3.2.8[ruby_targets_ruby33(-)]
 	>=dev-ruby/rss-0.3.0[ruby_targets_ruby33(-)]
 	>=dev-ruby/test-unit-3.6.1[ruby_targets_ruby33(-)]
 	>=dev-ruby/typeprof-0.21.9[ruby_targets_ruby33(-)]
@@ -69,7 +69,7 @@ BUNDLED_GEMS="
 PDEPEND="
 	${BUNDLED_GEMS}
 	virtual/rubygems[ruby_targets_ruby33(-)]
-	>=dev-ruby/bundler-2.5.3[ruby_targets_ruby33(-)]
+	>=dev-ruby/bundler-2.5.11[ruby_targets_ruby33(-)]
 	>=dev-ruby/did_you_mean-1.6.3[ruby_targets_ruby33(-)]
 	>=dev-ruby/json-2.7.1[ruby_targets_ruby33(-)]
 	>=dev-ruby/rdoc-6.6.2[ruby_targets_ruby33(-)]
@@ -155,6 +155,10 @@ src_configure() {
 	local makeopts_tmp="-j$(makeopts_jobs) -l$(makeopts_loadavg)"
 	unset MAKEOPTS MAKEFLAGS GNUMAKEFLAGS
 	export MAKEOPTS="${makeopts_tmp}"
+
+	# Avoid a hardcoded path to mkdir to avoid issues with mixed
+	# usr-merge and normal binary packages, bug #932386.
+	export ac_cv_path_mkdir=mkdir
 
 	# -fomit-frame-pointer makes ruby segfault, see bug #150413.
 	filter-flags -fomit-frame-pointer
