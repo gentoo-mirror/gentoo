@@ -4,12 +4,12 @@ DEPEND=ssl? ( dev-libs/openssl:0= ) lzo? ( dev-libs/lzo:2 ) ncurses? ( sys-libs/
 DESCRIPTION=tinc is an easy to configure VPN implementation
 EAPI=8
 HOMEPAGE=https://www.tinc-vpn.org/
-INHERIT=autotools flag-o-matic systemd
+INHERIT=autotools bash-completion-r1 flag-o-matic systemd
 IUSE=+lzo +ncurses +readline +ssl uml vde upnp +zlib
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=ssl? ( dev-libs/openssl:0= ) lzo? ( dev-libs/lzo:2 ) ncurses? ( sys-libs/ncurses:= ) readline? ( sys-libs/readline:= ) upnp? ( net-libs/miniupnpc:= ) zlib? ( sys-libs/zlib ) vde? ( net-misc/vde )
 SLOT=0
 SRC_URI=https://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=3711323a3468dd079fc6bb4559925939
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=49e3642e5210d545e8be86f56df65bd6
