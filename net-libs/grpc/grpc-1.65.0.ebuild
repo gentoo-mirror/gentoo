@@ -16,19 +16,19 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="Apache-2.0"
 # format is 0/${CORE_SOVERSION//./}.${CPP_SOVERSION//./} , check top level CMakeLists.txt
-SLOT="0/39.162"
+SLOT="0/42.165"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="doc examples test systemd"
 RESTRICT="!test? ( test )"
 
 # look for submodule versions in third_party dir
 RDEPEND="
-	=dev-cpp/abseil-cpp-20230802.0*:=
-	>=dev-libs/re2-0.2021.11.01:=
+	>=dev-cpp/abseil-cpp-20240116:=
+	>=dev-libs/re2-0.2022.04.01:=
 	>=dev-libs/openssl-1.1.1:0=[-bindist(-)]
-	>=dev-libs/protobuf-23.3:=
+	>=dev-libs/protobuf-27.0:=
 	dev-libs/xxhash
-	>=net-dns/c-ares-1.15.0:=
+	>=net-dns/c-ares-1.19.1:=
 	sys-libs/zlib:=
 	systemd? ( sys-apps/systemd:= )
 "
@@ -54,7 +54,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-1.62.1-system-gtest.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.65.0-system-gtest.patch" )
 
 python_check_deps() {
 	if use test; then
@@ -175,7 +175,7 @@ src_test() {
 	curl --retry 9999 --retry-all-errors --retry-max-time 120 \
 		--fail --silent --output /dev/null "http://localhost:32766/get" || die
 
-	local disabled_tests=(
+	CMAKE_SKIP_TESTS=(
 		no_logging_test # hangs everywhere, no output
 		grpc_tool_test # fails everywhere
 		examine_stack_test # fails on amd64 only
@@ -185,7 +185,8 @@ src_test() {
 		tcp_posix_test # fails on alpha
 	)
 
-	cmake_src_test -E "($(IFS=$"|"; echo "${disabled_tests[*]}"))"
+	# BUG this should be nonfatal and we kill the server even when tests fail
+	cmake_src_test
 
 	kill "${port_server_pid}" || die
 }
