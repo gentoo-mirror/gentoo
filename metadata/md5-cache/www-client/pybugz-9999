@@ -1,15 +1,15 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl] python_targets_python3_10? ( dev-lang/python:3.10[readline(+),ssl(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[readline(+),ssl(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[readline(+),ssl(+)] ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/flit-core-3.9.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] python_targets_python3_10? ( dev-lang/python:3.10[readline(+),ssl(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[readline(+),ssl(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[readline(+),ssl(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[readline(+),ssl(+)] ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/flit-core-3.9.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=Command line interface to (Gentoo) Bugzilla
 EAPI=8
 HOMEPAGE=https://github.com/williamh/pybugz
 INHERIT=git-r3 distutils-r1
-IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 LICENSE=GPL-2
 PROPERTIES=test_network live
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[readline(+),ssl(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[readline(+),ssl(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[readline(+),ssl(+)] )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[readline(+),ssl(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[readline(+),ssl(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[readline(+),ssl(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[readline(+),ssl(+)] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=test
 SLOT=0
 _eclasses_=git-r3	fbb2889c81f3a05910c1524db69425c1	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	distutils-r1	f11e1bc907da246e941fbae648327823
-_md5_=bcf1eb7a40ee7a7ecde786aef4e60789
+_md5_=11af77f5f8e5d65062b12c4ce1e65ed7

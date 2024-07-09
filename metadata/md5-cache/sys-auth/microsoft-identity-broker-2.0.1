@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install preinst prepare setup unpack
+DEPEND=>=dev-java/java-config-2.2.0-r3
+DESCRIPTION=Microsoft Authentication Broker to access a corporate environment
+EAPI=8
+HOMEPAGE=https://learn.microsoft.com/mem/intune/
+INHERIT=java-pkg-2 prefix systemd unpacker
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=acct-user/microsoft-identity-broker acct-group/microsoft-identity-broker sys-apps/bubblewrap sys-apps/dbus virtual/jre:11 >=dev-java/java-config-2.2.0-r3
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/m/microsoft-identity-broker/microsoft-identity-broker_2.0.1_amd64.deb
+_eclasses_=java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-2	b6d755b4f6afabfd933932be28b46368	prefix	eab3c99d77fe00506c109c8a736186f7	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09
+_md5_=ec27804bb10cdc73589dd45f353adc29
