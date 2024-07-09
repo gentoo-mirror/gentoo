@@ -20,6 +20,7 @@ CRATES="
 	clap_builder@4.5.2
 	clap_complete@4.5.1
 	clap_complete_nushell@4.5.1
+	clap_derive@4.5.3
 	clap_lex@0.7.0
 	colorchoice@1.0.0
 	crossbeam-channel@0.5.12
@@ -31,14 +32,15 @@ CRATES="
 	fastrand@2.0.1
 	form_urlencoded@1.2.1
 	getrandom@0.2.12
-	git2@0.18.3
+	git2@0.19.0
+	heck@0.5.0
 	hermit-abi@0.3.9
 	idna@0.5.0
 	is-terminal@0.4.12
 	itoa@1.0.10
 	jobserver@0.1.28
-	libc@0.2.153
-	libgit2-sys@0.16.2+1.7.2
+	libc@0.2.155
+	libgit2-sys@0.17.0+1.8.1
 	libredox@0.0.1
 	libz-sys@1.1.16
 	linux-raw-sys@0.4.13
@@ -70,8 +72,8 @@ CRATES="
 	thiserror@1.0.58
 	thread_local@1.1.8
 	time-core@0.1.2
-	time-macros@0.2.17
-	time@0.3.34
+	time-macros@0.2.18
+	time@0.3.36
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	unicode-bidi@0.3.15
@@ -117,11 +119,18 @@ LICENSE+=" MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+RDEPEND="
+	>=dev-libs/libgit2-1.8:=
+"
+DEPEND="${RDEPEND}"
+
 DOCS=( README.md )
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_compile() {
+	export LIBGIT2_NO_VENDOR=1
+
 	cargo_src_compile
 
 	GIT_ABSORB_BIN="$(cargo_target_dir)/${PN}"
