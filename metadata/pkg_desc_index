@@ -5269,6 +5269,8 @@ dev-libs/boxfort 0.1.4 0.1.4-r1: Convenient & cross-platform sandboxing C librar
 dev-libs/c-blosc 1.21.5 1.21.6: Blocking, shuffling and lossless compression library
 dev-libs/c-blosc2 2.14.4: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
+dev-libs/c-siphash 1.1.0: Streaming-capable SipHash Implementation
+dev-libs/c-stdaux 1.5.0: Auxiliary macros and functions for the C standard library
 dev-libs/cJSON 1.7.17 1.7.18: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1: RPC/Serialization system with capabilities support
 dev-libs/capstone 5.0.1 9999: disassembly/disassembler framework + bindings
@@ -5837,7 +5839,7 @@ dev-libs/yajl 2.1.0-r4 2.1.0-r5: Small event-driven (SAX-style) JSON parser
 dev-libs/yaz 5.32.0 5.34.0: C/C++ toolkit for Z39.50v3 clients and servers
 dev-libs/yyjson 0.9.0 0.10.0: Fast JSON library in C
 dev-libs/zix 0.4.2: Lightweight C library of portability wrappers and data structures
-dev-libs/zziplib 0.13.72-r4 0.13.74 0.13.76: Lightweight library for extracting data from files archived in a single zip file
+dev-libs/zziplib 0.13.72-r4 0.13.74 0.13.76 0.13.77: Lightweight library for extracting data from files archived in a single zip file
 dev-lisp/abcl 1.9.2 1.9.2-r1: Armed Bear Common Lisp is a Common Lisp implementation for the JVM
 dev-lisp/alexandria 1.4: A collection of portable utilities for Common Lisp
 dev-lisp/asdf 3.3.5-r1: ASDF is Another System Definition Facility for Common Lisp
@@ -8258,7 +8260,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3021.3.16-r4: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0 1.17.0_pre20240424 1.17.0_rc1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 0.87.8 0.87.9 1.3.7 1.4.0 1.4.2 1.5.0 1.5.1: CloudFormation Linter
+dev-python/cfn-lint 0.87.8 0.87.9 1.3.7 1.4.0 1.4.2 1.5.0 1.5.1 1.5.2: CloudFormation Linter
 dev-python/cftime 1.6.4: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4: Fast HTML/XML template compiler for Python
@@ -8290,7 +8292,7 @@ dev-python/clr-loader 0.2.6: Generic pure Python loader for .NET runtimes
 dev-python/cmd2 2.4.3: Extra features for standard library's cmd module
 dev-python/colorama 0.4.6: ANSI escape character sequences for colored terminal text & cursor positioning
 dev-python/colorclass 2.2.2-r1: Colorful worry-free console applications for multiple platforms
-dev-python/colored-traceback 0.3.0: Automatically color Python's uncaught exception tracebacks
+dev-python/colored-traceback 0.3.0 0.4.0: Automatically color Python's uncaught exception tracebacks
 dev-python/coloredlogs 15.0.1-r1 15.0.1-r2: Colored stream handler for the logging module
 dev-python/colorful 0.5.6: Terminal string styling done right, in Python
 dev-python/colorlog 6.8.2: Log formatting with colors
@@ -8366,7 +8368,7 @@ dev-python/distro 1.9.0: Reliable machine-readable Linux distribution informatio
 dev-python/dj-database-url 2.2.0: Use Database URLs in your Django Application
 dev-python/dj-email-url 1.0.6: Use an URL to configure email backend settings in your Django Application
 dev-python/dj-search-url 0.1-r1: Use Search URLs in your Django Haystack Application
-dev-python/django 3.2.25 4.2.13 4.2.14 5.0.6 5.0.7: High-level Python web framework
+dev-python/django 4.2.14 5.0.7: High-level Python web framework
 dev-python/django-auth-ldap 4.6.0 4.7.0 4.8.0: Django LDAP authentication backend
 dev-python/django-cache-url 3.4.5: Use Cache URLs in your Django application
 dev-python/django-cacheops 7.0.2: ORM cache with automatic granular event-driven invalidation for Django
@@ -8508,7 +8510,7 @@ dev-python/gitdb 4.0.11: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5-r2 2.2.0: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.19.0 2.19.1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.134.0 2.136.0: Google API Client for Python
+dev-python/google-api-python-client 2.134.0 2.136.0 2.137.0: Google API Client for Python
 dev-python/google-auth 2.30.0 2.31.0 2.32.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.0-r1 1.2.1: Google Authentication Library
@@ -9193,7 +9195,7 @@ dev-python/pytest-ordering 0.6-r1: pytest plugin to run your tests in a specific
 dev-python/pytest-param-files 0.6.0: Pytest parametrize decorators from external files.
 dev-python/pytest-plus 0.7.0: PyTest Plus Plugin - extends pytest functionality
 dev-python/pytest-qt 4.4.0: Pytest plugin for PyQt5 and PySide2 applications
-dev-python/pytest-recording 0.13.1: A pytest plugin to record network interactions via VCR.py
+dev-python/pytest-recording 0.13.1 0.13.2: A pytest plugin to record network interactions via VCR.py
 dev-python/pytest-regressions 2.5.0: Easy to use fixtures to write regression tests
 dev-python/pytest-repeat 0.9.3: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
@@ -9287,7 +9289,7 @@ dev-python/pythran 0.15.0-r2 0.16.0 0.16.1: Ahead of Time compiler for numeric k
 dev-python/pytidylib 0.3.2-r2: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8-r1: A small Python module to parse various kinds of time expressions
 dev-python/pytoolconfig 1.3.1: Python tool configuration
-dev-python/pytools 2024.1.5 2024.1.6: Collection of tools missing from the Python standard library
+dev-python/pytools 2024.1.5 2024.1.6 2024.1.7: Collection of tools missing from the Python standard library
 dev-python/pytrie 0.4.0-r1: A pure Python implementation of the trie data structure
 dev-python/pytz 2024.1: World timezone definitions for Python
 dev-python/pytzdata 2020.1-r2: The Olson timezone database for Python
@@ -9337,7 +9339,7 @@ dev-python/readthedocs-sphinx-ext 2.2.5: Code specific for Read the Docs and Sph
 dev-python/readtime 3.0.0: Calculates the time some text takes the average human to read
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
-dev-python/recurring-ical-events 2.2.1 2.2.2: Repeat ICalendar events by RRULE, RDATE and EXDATE
+dev-python/recurring-ical-events 2.2.1 2.2.2 2.2.3: Repeat ICalendar events by RRULE, RDATE and EXDATE
 dev-python/redis 5.0.6 5.0.7: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.35.1: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
@@ -9440,6 +9442,7 @@ dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as
 dev-python/simpy 4.1.1: Object-oriented, process-based discrete-event simulation language
 dev-python/simsimd 4.3.1: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
 dev-python/sip 6.8.3 6.8.5: Python bindings generator for C/C++ libraries
+dev-python/siphash24 1.6: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.16.0-r1: Python 2 and 3 compatibility library
 dev-python/slixmpp 1.8.5 9999: Python 3 library for XMPP
 dev-python/smartypants 2.0.1-r1: ASCII quote-dot-dash to HTML entity converter
@@ -9614,10 +9617,10 @@ dev-python/txredisapi 1.4.10: Non-blocking redis client for python
 dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
 dev-python/txtorcon 23.11.0: Twisted-based Tor controller client, with state-tracking abstractions
 dev-python/typeguard 4.3.0: Run-time type checker for Python
-dev-python/types-docutils 0.21.0.20240704 0.21.0.20240708: Typing stubs for docutils
+dev-python/types-docutils 0.21.0.20240704 0.21.0.20240708 0.21.0.20240710: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.20240408 12.1.4.20240704: Typing stubs for gdb
 dev-python/types-psutil 5.9.5.20240516 6.0.0.20240621: Typing stubs for psutil
-dev-python/types-setuptools 70.0.0.20240524 70.1.0.20240625 70.1.0.20240627 70.2.0.20240704: Typing stubs for setuptools
+dev-python/types-setuptools 70.0.0.20240524 70.1.0.20240625 70.1.0.20240627 70.2.0.20240704 70.3.0.20240710: Typing stubs for setuptools
 dev-python/typing-extensions 4.12.2: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)

@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/c-stdaux-1.5.0
+DESCRIPTION=Streaming-capable SipHash Implementation
+EAPI=8
+HOMEPAGE=https://c-util.github.io/c-siphash/ https://github.com/c-util/c-siphash/
+INHERIT=meson
+KEYWORDS=~amd64
+LICENSE=|| ( Apache-2.0 LGPL-2.1+ )
+SLOT=0
+SRC_URI=https://github.com/c-util/c-siphash/archive/v1.1.0.tar.gz -> c-siphash-1.1.0.gh.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=6889fa7e7a7e3a842d6b335aa510d841
