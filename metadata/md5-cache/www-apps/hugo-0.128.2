@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.22.2 test? ( dev-python/docutils dev-ruby/asciidoctor ) >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=extended? ( dev-libs/libsass:= >=media-libs/libwebp-1.3.2:= )
+DESCRIPTION=Fast static HTML and CSS website generator
+EAPI=8
+HOMEPAGE=https://gohugo.io https://github.com/gohugoio/hugo
+INHERIT=go-module shell-completion
+IUSE=doc +extended test
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=Apache-2.0 BSD BSD-2 MIT MPL-2.0 Unlicense
+RDEPEND=extended? ( dev-libs/libsass:= >=media-libs/libwebp-1.3.2:= )
+RESTRICT=!test? ( test ) strip
+SLOT=0
+SRC_URI=https://github.com/gohugoio/hugo/archive/v0.128.2.tar.gz -> hugo-0.128.2.tar.gz https://tastytea.de/files/gentoo/hugo-0.128.2-vendor.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	go-env	dbefaac6fd7019213514bccd65949d9a	go-module	83fd3ed1657cfc316c93d6a37018290d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	bb7eb6bc232cd6c4bf8af739cdd2ee14
+_md5_=8aece05a868f1f2b03be7068cad245c4
