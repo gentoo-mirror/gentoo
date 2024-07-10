@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-build/libtool-1.4 nls? ( >=sys-devel/gettext-0.11 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=>=dev-libs/nettle-3.1:= >=dev-db/sqlite-3.7 >=dev-libs/boost-1.76.0:= >=dev-libs/libfilezilla-0.47.0:= >=dev-libs/pugixml-1.7 >=net-libs/gnutls-3.5.7 x11-libs/wxGTK:3.2-gtk3[X] x11-misc/xdg-utils dbus? ( sys-apps/dbus ) test? ( >=dev-util/cppunit-1.13.0 )
+DESCRIPTION=FTP client with lots of useful features and an intuitive interface
+EAPI=8
+HOMEPAGE=https://filezilla-project.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools flag-o-matic wxwidgets xdg
+IUSE=cpu_flags_x86_sse2 dbus nls test
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/nettle-3.1:= >=dev-db/sqlite-3.7 >=dev-libs/boost-1.76.0:= >=dev-libs/libfilezilla-0.47.0:= >=dev-libs/pugixml-1.7 >=net-libs/gnutls-3.5.7 x11-libs/wxGTK:3.2-gtk3[X] x11-misc/xdg-utils dbus? ( sys-apps/dbus )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.filezilla-project.org/client/FileZilla_3.67.0_src.tar.xz
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=e35ae4ce04a1e0f85c90030163f6e122
