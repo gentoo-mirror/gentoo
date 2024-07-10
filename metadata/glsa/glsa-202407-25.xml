@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-25">
+    <title>Buildah: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Buildah, the worst of which could lead to privilege escalation.</synopsis>
+    <product type="ebuild">buildah</product>
+    <announced>2024-07-10</announced>
+    <revised count="1">2024-07-10</revised>
+    <bug>923650</bug>
+    <bug>927499</bug>
+    <bug>927502</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-containers/buildah" auto="yes" arch="*">
+            <unaffected range="ge">1.35.3</unaffected>
+            <vulnerable range="lt">1.35.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Buildah is a tool that facilitates building Open Container Initiative (OCI) container images</p>
+    </background>
+    <description>
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Buildah users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/buildah-1.35.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1753">CVE-2024-1753</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23651">CVE-2024-23651</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23652">CVE-2024-23652</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23653">CVE-2024-23653</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24786">CVE-2024-24786</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-10T06:35:05.025996Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-10T06:35:05.030840Z">graaff</metadata>
+</glsa>
