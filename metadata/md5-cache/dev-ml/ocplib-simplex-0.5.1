@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-ml/zarith ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A library implementing a simplex algorithm
+EAPI=8
+HOMEPAGE=https://github.com/OCamlPro-Iguernlala/ocplib-simplex
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=dev-ml/findlib:=[ocamlopt?] dev-ml/logs:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/OCamlPro-Iguernlala/ocplib-simplex/archive/v0.5.1.tar.gz -> ocplib-simplex-0.5.1.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=392dced2fd50048adf0e3c8ae4b1e209
