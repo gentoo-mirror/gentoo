@@ -1,0 +1,12 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Fuzzy matching library
+EAPI=8
+HOMEPAGE=https://github.com/trendmicro/tlsh
+INHERIT=cmake toolchain-funcs flag-o-matic
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~x86
+LICENSE=|| ( Apache-2.0 BSD )
+SLOT=0
+SRC_URI=https://github.com/trendmicro/tlsh/archive/4.8.2.tar.gz -> tlsh-4.8.2.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
+_md5_=e0557fe58db19576cc978e6c51ed5a2e
