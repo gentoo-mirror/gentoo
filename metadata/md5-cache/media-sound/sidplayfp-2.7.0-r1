@@ -1,13 +1,13 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure prepare
-DEPEND=media-libs/libsidplayfp alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse ) media-plugins/mpg123-output-plugins oss? ( virtual/os-headers )
+DEPEND=media-libs/libsidplayfp alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse ) oss? ( virtual/os-headers )
 DESCRIPTION=Sidplay2 fork with resid-fp
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/sidplay-residfp/
 IUSE=+alsa oss pulseaudio
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=media-libs/libsidplayfp alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse )
+RDEPEND=media-libs/libsidplayfp alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse ) media-plugins/mpg123-output-plugins
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/sidplay-residfp/sidplayfp/2.7/sidplayfp-2.7.0.tar.gz
-_md5_=2e93b80d284f0cc34521d37e70241768
+_md5_=ae34deec803271aa3f188ace6276450d
