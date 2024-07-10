@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=dev-lang/ocaml-4.02.3-r1:=[ocamlopt?] dev-ml/findlib
+DESCRIPTION=Generic build tool with built-in rules for building OCaml library and programs
+EAPI=8
+HOMEPAGE=https://github.com/ocaml/ocamlbuild
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=>=dev-lang/ocaml-4.02.3-r1:=[ocamlopt?]
+RESTRICT=test
+SLOT=0/0.15.0
+SRC_URI=https://github.com/ocaml/ocamlbuild/archive/0.15.0.tar.gz -> ocamlbuild-0.15.0.tar.gz
+_md5_=8396e28003670be509bb6dcb1e426819
