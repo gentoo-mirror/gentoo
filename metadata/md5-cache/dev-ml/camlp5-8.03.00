@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-ml/bos:= dev-ml/camlp-streams:=[ocamlopt?] dev-ml/fmt:=[ocamlopt?] dev-ml/fpath:= dev-ml/logs:=[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/rresult:= >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DESCRIPTION=A preprocessor-pretty-printer of ocaml
+EAPI=8
+HOMEPAGE=https://camlp5.github.io/
+INHERIT=findlib vcs-clean
+IUSE=doc +ocamlopt +ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=dev-ml/bos:= dev-ml/camlp-streams:=[ocamlopt?] dev-ml/fmt:=[ocamlopt?] dev-ml/fpath:= dev-ml/logs:=[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/rresult:= dev-lang/ocaml:=[ocamlopt?]
+SLOT=0/8.03.00
+SRC_URI=https://github.com/camlp5/camlp5/archive/refs/tags/8.03.00.tar.gz -> camlp5-8.03.00.tar.gz
+_eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3
+_md5_=b90460ef532d5775fbc00561f96439b4
