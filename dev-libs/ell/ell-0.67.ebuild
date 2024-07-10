@@ -52,3 +52,8 @@ src_install() {
 
 	find "${ED}" -name "*.la" -delete || die
 }
+
+src_test() {
+	# New dbus tests fail with >3 jobs, this should get fixed soon
+	emake -j1 check
+}
