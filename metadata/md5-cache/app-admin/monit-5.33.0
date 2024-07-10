@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=http://mmonit.com/monit/
 INHERIT=bash-completion-r1 pam systemd
 IUSE=ipv6 pam ssl
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux
+KEYWORDS=amd64 ~arm ~arm64 ppc ~ppc64 ~riscv x86 ~amd64-linux
 LICENSE=AGPL-3
 RDEPEND=sys-libs/zlib:= virtual/libcrypt:= pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=http://mmonit.com/monit/dist/monit-5.33.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=2cb42bac81d4a75794bf3922f791a3e8
+_md5_=268ad4b8bb2317ed23b4b6bc455fcb50
