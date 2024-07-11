@@ -15,6 +15,8 @@ SRC_URI="
 		https://github.com/firecracker-microvm/firecracker/releases/download/v${PV}/firecracker-v${PV}-aarch64.tgz
 	)"
 
+S="${WORKDIR}"
+
 LICENSE="|| ( Apache-2.0 MIT Apache-2.0-with-LLVM-exceptions ) MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
@@ -29,8 +31,6 @@ QA_PREBUILT="usr/bin/cpu-template-helper
 	usr/bin/rebase-snap
 	usr/bin/seccompiler-bin
 	usr/bin/snapshot-editor"
-
-S="${WORKDIR}"
 
 pkg_pretend() {
 	if use kernel_linux && kernel_is lt 4 14; then

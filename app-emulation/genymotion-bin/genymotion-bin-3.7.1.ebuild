@@ -10,8 +10,10 @@ MY_P="${MY_PN}-${PV}"
 BIN_ARCHIVE="${MY_P}-linux_x64.bin"
 
 DESCRIPTION="Complete set of tools that provide a virtual environment for Android"
-HOMEPAGE="https://genymotion.com"
+HOMEPAGE="https://www.genymotion.com"
 SRC_URI="https://dl.genymotion.com/releases/${MY_P}/${BIN_ARCHIVE}"
+
+S="${WORKDIR}"
 
 LICENSE="genymotion"
 SLOT="0"
@@ -53,7 +55,6 @@ RDEPEND="app-arch/lz4
 BDEPEND="x11-misc/xdg-utils"
 
 RESTRICT="bindist mirror"
-S="${WORKDIR}"
 
 QA_PREBUILT="
 	opt/${MY_PN}/*.so*
@@ -125,22 +126,20 @@ src_install() {
 	insinto /usr/share/zsh/site-functions
 	doins "${MY_PN}/completion/zsh/_gmtool"
 
-	if has_version app-emulation/qemu ; then
-		dodir /opt/"${MY_PN}"/qemu/bin
-		dosym  -r /usr/bin/qemu-system-x86_64 /opt/"${MY_PN}"/qemu/bin/qemu-system-x86_64
-		dosym -r /usr/bin/qemu-img /opt/"${MY_PN}"/qemu/bin/qemu-img
-	fi
+	dodir /opt/"${MY_PN}"/qemu/bin
+	dosym  -r /usr/bin/qemu-system-x86_64 /opt/"${MY_PN}"/qemu/x86_64/bin/qemu-system-x86_64
+	dosym -r /usr/bin/qemu-img /opt/"${MY_PN}"/qemu/x86_64/bin/qemu-img
 
 	domenu genymobile-genymotion.desktop
 }
 
 pkg_postinst() {
-	if has_version app-emulation/qemu && ! has_version app-emulation/virtualbox ; then
-		ewarn "By default Genymotion is configured to work with VirtualBox hypervisor."
+	if ! has_version app-emulation/qemu && has_version app-emulation/virtualbox ; then
+		ewarn "By default Genymotion is configured to work with QEMU hypervisor."
 		ewarn "So you should run command:"
 		ewarn ""
-		ewarn "  gmtool config --hypervisor qemu"
+		ewarn "  gmtool config --hypervisor virtualbox"
 		ewarn ""
-		ewarn "to change hypervisor to QEMU."
+		ewarn "to change hypervisor to VirtualBox"
 	fi
 }
