@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 INHERIT=cmake optfeature virtualx
 IUSE=test test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=LGPL-2.1+ Nokia-Qt-LGPL-Exception-1.1
 RDEPEND=dev-libs/glib:2 >=dev-qt/qtbase-6.6:6=[dbus,gui,widgets,xml] >=dev-qt/qtsvg-6.6:6 x11-misc/xdg-utils
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/lxqt/libqtxdg/releases/download/4.0.0/libqtxdg-4.0.0.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	virtualx	817571665ee28575da44ee08135089e5
-_md5_=9a4e4e752b165f618833bc9b38072ec9
+_md5_=7781396565f9b56c726e4a6cce680234
