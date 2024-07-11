@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) libtomcrypt? ( dev-libs/libtomcrypt:= ) nettle? ( dev-libs/nettle:= ) nss? ( dev-libs/nss:= ) nts? ( net-libs/gnutls:= ) pps? ( net-misc/pps-tools ) readline? ( dev-libs/libedit ) seccomp? ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-chronyd ) virtual/tmpfiles
 REQUIRED_USE=sechash? ( || ( nettle nss libtomcrypt ) ) nettle? ( !nss ) nss? ( !nettle ) libtomcrypt? ( !nettle !nss ) !sechash? ( !nss ) !sechash? ( !nts? ( !nettle ) ) html
 SLOT=0
-_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	fbb2889c81f3a05910c1524db69425c1
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=0e864bd56abaa7e1181bc45bf555cb0d

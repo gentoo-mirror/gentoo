@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=>=net-analyzer/icinga2-2.1.1 dev-php/pecl-imagick pdf? ( media-gfx/imagemagick[png] ) apache2-server? ( >=www-servers/apache-2.4.0 ) nginx? ( >=www-servers/nginx-1.7.0:* ) || ( dev-lang/php:8.0[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] dev-lang/php:8.1[apache2?,cli,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml] ) >=dev-libs/icinga-php-library-0.8.1 >=dev-libs/icinga-php-thirdparty-0.11.0 acct-group/icingacmd acct-group/icingaweb2 apache2? ( =www-servers/apache-2* )
 REQUIRED_USE=( ^^ ( apache2-server nginx ) ) apache2? ( apache2-server )
 SLOT=0
-_eclasses_=depend.apache	1d51223a0def226481583990f380519c	git-r3	fbb2889c81f3a05910c1524db69425c1
+_eclasses_=depend.apache	1d51223a0def226481583990f380519c	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=4bb700a767d9ff6996354931e26f745b
