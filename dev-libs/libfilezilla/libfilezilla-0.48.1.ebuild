@@ -3,15 +3,15 @@
 
 EAPI=8
 
-inherit flag-o-matic
+inherit autotools flag-o-matic
 
 DESCRIPTION="C++ library offering some basic functionality for platform-independent programs"
 HOMEPAGE="https://lib.filezilla-project.org/"
 SRC_URI="https://download.filezilla-project.org/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2+"
-SLOT="0/41" # libfilezilla.so version
-KEYWORDS="amd64 ~arm ~arm64 ~ia64 ppc ppc64 ~riscv x86"
+SLOT="0/45" # libfilezilla.so version
+KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="test"
 
 RESTRICT="!test? ( test )"
@@ -39,6 +39,12 @@ pkg_pretend() {
 			die "Currently active compiler does not support -std=c++14"
 		fi
 	fi
+}
+
+src_prepare() {
+	default
+	# we patch configure.ac
+	eautoreconf
 }
 
 src_configure() {
