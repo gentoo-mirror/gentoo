@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install
+DEPEND=acct-group/jenkins acct-user/jenkins
+DESCRIPTION=The leading open source automation server
+EAPI=8
+HOMEPAGE=https://jenkins.io/
+INHERIT=systemd
+KEYWORDS=~amd64 ~arm64 ~x86 ~amd64-linux
+LICENSE=MIT
+RDEPEND=acct-group/jenkins acct-user/jenkins media-fonts/dejavu media-libs/freetype !dev-util/jenkins-bin:0 || ( virtual/jre:17 virtual/jre:11 )
+SLOT=lts
+SRC_URI=https://get.jenkins.io/war-stable/2.452.3/jenkins.war -> jenkins-bin-2.452.3.war
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=91f5dd6d8508d6a3c6ff56755a82b12c
