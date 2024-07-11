@@ -1158,7 +1158,7 @@ app-arch/p7zip 16.02-r8 17.05-r1: Port of 7-Zip archiver for Unix
 app-arch/pack 0.0.0.1: Haskell implementation of pack compression from the early 1980s
 app-arch/par2cmdline 0.8.1-r1 0.8.1-r2: A PAR-2.0 file verification and repair tool
 app-arch/par2cmdline-turbo 1.1.0 1.1.1 9999: par2cmdline × ParPar: speed focused par2cmdline fork
-app-arch/patool 2.2.0: Portable archive file manager
+app-arch/patool 2.2.0 2.3.0: Portable archive file manager
 app-arch/pax 20201030: pax (Portable Archive eXchange) is the POSIX standard archive tool
 app-arch/pbzip2 1.1.13: Parallel bzip2 (de)compressor using libbz2
 app-arch/pdlzip 1.13: Public-domain version of lzip compressor
@@ -2316,7 +2316,7 @@ app-emulation/dosemu 1.4.1_pre20130107-r5: DOS Emulator
 app-emulation/dxvk 1.10.3-r1 2.3.1-r1 2.4 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
 app-emulation/faudio 23.02 23.10 24.02 24.06: Accuracy-focused XAudio reimplementation for open platforms
-app-emulation/firecracker-bin 1.5.1 1.6.0 1.7.0: Secure and fast microVMs for serverless computing (static build)
+app-emulation/firecracker-bin 1.7.0 1.8.0: Secure and fast microVMs for serverless computing (static build)
 app-emulation/free42 2.5.24 3.1.3 3.1.7 3.1.8: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.66: Integrates the most accurate Amiga emulation code available from WinUAE
 app-emulation/fs-uae-launcher 3.1.70: PyQt5-based launcher for FS-UAE
@@ -2325,7 +2325,7 @@ app-emulation/fuse-utils 1.4.3-r2: Utils for the Free Unix Spectrum Emulator by 
 app-emulation/gallium-nine-standalone 0.8-r1 0.9-r1 9999: A standalone version of the WINE parts of Gallium Nine
 app-emulation/ganeti-os-noop 0.2: Dummy OS provider for Ganeti
 app-emulation/ganeti-os-simpleimage 0_p20221113: Ganeti OS provider for simple images
-app-emulation/genymotion-bin 3.6.0: Complete set of tools that provide a virtual environment for Android
+app-emulation/genymotion-bin 3.7.1: Complete set of tools that provide a virtual environment for Android
 app-emulation/glean 1.23.0-r1: Simple program to write static config from config-drive
 app-emulation/grub-xen-host 1.0-r1 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot Protocol
 app-emulation/guestfs-tools 1.48.2: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
@@ -2554,7 +2554,7 @@ app-i18n/tagainijisho 1.2.2 9999: Open-source Japanese dictionary and kanji look
 app-i18n/tegaki-zinnia-japanese 0.3: Handwriting model data of Japanese
 app-i18n/tomoe 0.6.0-r7: Japanese handwriting recognition engine
 app-i18n/tomoe-gtk 0.6.0-r7: Tomoe GTK+ interface widget library
-app-i18n/transifex-client 1.6.4 1.6.12: The Transifex command-line client
+app-i18n/transifex-client 1.6.4 1.6.14: The Transifex command-line client
 app-i18n/translate-shell 0.9.7.1: Online command-line translator
 app-i18n/uchardet 0.0.7 9999: An encoding detector library
 app-i18n/uim 1.8.9-r1: A multilingual input method framework
@@ -10161,7 +10161,7 @@ dev-ruby/net-http-persistent 4.0.2: Manages persistent connections using Net::HT
 dev-ruby/net-http-pipeline 1.0.1-r1: An HTTP/1.1 pipelining implementation atop Net::HTTP
 dev-ruby/net-imap 0.3.7 0.4.10 0.4.11 0.4.12 0.4.13 0.4.14: Ruby client api for Internet Message Access Protocol
 dev-ruby/net-pop 0.1.2: Ruby client library for POP3
-dev-ruby/net-protocol 0.2.1 0.2.2: The abstruct interface for net-* client
+dev-ruby/net-protocol 0.2.2: The abstruct interface for net-* client
 dev-ruby/net-scp 4.0.0: A pure Ruby implementation of the SCP client protocol
 dev-ruby/net-sftp 4.0.0: SFTP in pure Ruby
 dev-ruby/net-smtp 0.5.0: Simple Mail Transfer Protocol client library for Ruby
@@ -10190,14 +10190,14 @@ dev-ruby/pairing_heap 3.0.1-r1 3.1.0: Performant priority queue with support for
 dev-ruby/parallel 1.23.0 1.24.0: Run any code in parallel Processes or Threads
 dev-ruby/paramesan 1.0.1-r1: Parameterized tests in Ruby
 dev-ruby/parser 3.3.0.5 3.3.1.0 3.3.2.0 3.3.3.0 3.3.4.0: A production-ready Ruby parser written in pure Ruby
-dev-ruby/pastel 0.8.0 0.8.0-r1: Terminal strings styling with intuitive and clean API
+dev-ruby/pastel 0.8.0-r1: Terminal strings styling with intuitive and clean API
 dev-ruby/path_expander 1.1.1: Pre-process CLI arguments expanding directories into their constituent files
 dev-ruby/pathutil 0.16.2-r2: Like Pathname but a little less insane
 dev-ruby/patron 0.13.3-r2 0.13.3-r3: Patron is a Ruby HTTP client library based on libcurl
 dev-ruby/pcaprub 0.13.1 0.13.2: Libpcap bindings for ruby compat
 dev-ruby/pdf-core 0.9.0-r1 0.10.0: Implements low level PDF features for Prawn
 dev-ruby/pdf-inspector 1.3.0-r1: A tool for analyzing PDF output
-dev-ruby/pdf-reader 1.4.1-r4 2.11.0 2.12.0: PDF parser conforming as much as possible to the PDF specification from Adobe
+dev-ruby/pdf-reader 1.4.1-r4 2.12.0: PDF parser conforming as much as possible to the PDF specification from Adobe
 dev-ruby/permutation 0.1.8-r3: Library performing operations with permutations of sequences (strings, arrays)
 dev-ruby/pg 1.4.6-r1 1.5.4-r1 1.5.5 1.5.6: Ruby extension library providing an API to PostgreSQL
 dev-ruby/pg_array_parser 0.0.9-r3: Simple library to parse PostgreSQL arrays into a array of strings
@@ -10222,7 +10222,7 @@ dev-ruby/puppet_forge 5.0.1-r1 5.0.2 5.0.3: Tools to access Forge API informatio
 dev-ruby/puppetdb-termini 7.13.0 8.5.0: Library needed to connect puppet to puppetdb
 dev-ruby/pusher-client 0.6.2-r1: Client for consuming WebSockets from http://pusher.com
 dev-ruby/qed 2.9.2-r1: QED (Quality Ensured Demonstrations) is a TDD/BDD framework
-dev-ruby/racc 1.7.0 1.7.1 1.7.3 1.8.0: A LALR(1) parser generator for Ruby
+dev-ruby/racc 1.7.3 1.8.0: A LALR(1) parser generator for Ruby
 dev-ruby/rack 2.2.8 2.2.8.1 2.2.9 3.0.8 3.0.9 3.0.9.1 3.0.10: A modular Ruby webserver interface
 dev-ruby/rack-attack 6.6.1 6.7.0: A DSL for blocking & throttling abusive clients
 dev-ruby/rack-cache 1.15.0 1.16.0 1.17.0: Enable HTTP caching for Rack-based applications that produce freshness info
@@ -10285,7 +10285,7 @@ dev-ruby/rr 3.1.0: A double framework featuring a selection of double techniques
 dev-ruby/rrdtool-bindings 1.8.0: Ruby bindings for rrdtool
 dev-ruby/rspec 3.12.0 3.13.0: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-block_is_expected 1.0.5: Simplify testing of blocks in RSpec
-dev-ruby/rspec-collection_matchers 1.2.0 1.2.1: A Behaviour Driven Development (BDD) framework for Ruby
+dev-ruby/rspec-collection_matchers 1.2.1: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-core 3.12.2 3.12.3 3.13.0: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-expectations 3.12.3 3.12.4 3.13.0 3.13.1: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-files 1.1.3: RSpec helpers for buffering and detecting file descriptor leaks
@@ -10326,7 +10326,7 @@ dev-ruby/ruby-openid 2.9.2: A robust library for verifying and serving OpenID id
 dev-ruby/ruby-pango 4.1.2: Ruby Pango bindings
 dev-ruby/ruby-poppler 4.1.2: Ruby poppler-glib bindings
 dev-ruby/ruby-prof 1.6.3-r1 1.7.0: A module for profiling Ruby code
-dev-ruby/ruby-progressbar 1.13.0 1.13.0-r1: A Text Progress Bar Library for Ruby
+dev-ruby/ruby-progressbar 1.13.0-r1: A Text Progress Bar Library for Ruby
 dev-ruby/ruby-rc4 0.1.5-r3: A pure Ruby implementation of the RC4 algorithm
 dev-ruby/ruby-romkan 0.4-r7: A Romaji <-> Kana conversion library for Ruby
 dev-ruby/ruby-shadow 2.5.1: ruby shadow bindings
@@ -10396,7 +10396,7 @@ dev-ruby/stream 0.5.5: Module Stream defines an interface for external iterators
 dev-ruby/stringex 2.8.6: Extensions for Ruby's String class
 dev-ruby/stringio 3.0.7 3.0.9 3.1.0 3.1.1: Pseudo IO class from/to String.
 dev-ruby/strptime 0.2.5-r2: A fast strptime/strftime engine which uses VM
-dev-ruby/strscan 3.0.6 3.0.9 3.1.0: Provides lexical scanning operations on a String
+dev-ruby/strscan 3.0.9 3.1.0: Provides lexical scanning operations on a String
 dev-ruby/sus 0.23.0 0.25.0 0.27.0: A fast and scalable test runner
 dev-ruby/sus-fixtures-async 0.1.1 0.1.2 0.1.3: Convenient fixture for testing async components in a reactor
 dev-ruby/sync 0.5.0 0.5.0-r1: A module that provides a two-phase lock with a counter
@@ -10407,7 +10407,7 @@ dev-ruby/syslogger 1.6.6-r2: Drop-in replacement for the standard Logger, that l
 dev-ruby/systemu 2.6.5-r1: Universal capture of STDOUT and STDERR and handling of child process PID
 dev-ruby/tdiff 0.3.4-r1 0.4.0: Calculates the differences between two tree-like structures
 dev-ruby/temple 0.10.2 0.10.3: An abstraction and a framework for compiling templates to pure Ruby
-dev-ruby/term-ansicolor 1.7.1-r1 1.7.2 1.8.0 1.9.0: Small Ruby library that colors strings using ANSI escape sequences
+dev-ruby/term-ansicolor 1.8.0 1.9.0: Small Ruby library that colors strings using ANSI escape sequences
 dev-ruby/terminal-table 1.8.0-r4 2.0.0-r1 3.0.2: Simple, feature rich ascii table generation library
 dev-ruby/test-unit 3.5.8 3.6.1 3.6.2: An xUnit family unit testing framework for Ruby
 dev-ruby/test-unit-rr 1.0.5-r2: RR adapter for Test::Unit
@@ -10431,14 +10431,14 @@ dev-ruby/tomlrb 2.0.3: A racc based toml parser
 dev-ruby/transaction-simple 1.4.0.2-r3: Provides transaction support at the object level
 dev-ruby/treetop 1.6.12: Treetop is a language for describing languages
 dev-ruby/ttfunk 1.7.0-r1 1.8.0: A TrueType font parser written in pure ruby
-dev-ruby/tty-color 0.6.0 0.6.0-r1: Terminal color capabilities detection
+dev-ruby/tty-color 0.6.0-r1: Terminal color capabilities detection
 dev-ruby/tty-command 0.10.1-r1: Terminal color capabilities detection
 dev-ruby/tty-cursor 0.7.1 0.7.1-r1: Move the terminal cursor around and manipulate text using intuitive method calls
 dev-ruby/tty-editor 0.7.0: Opens a file or text in the user's preferred editor
 dev-ruby/tty-file 0.10.0-r1: File manipulation utility methods
 dev-ruby/tty-platform 0.3.0-r1: Query methods for detecting different operating systems
-dev-ruby/tty-prompt 0.23.1 0.23.1-r1: A beautiful and powerful interactive command line prompt
-dev-ruby/tty-reader 0.9.0 0.9.0-r1: Methods for processing keyboard input in character, line and multiline modes
+dev-ruby/tty-prompt 0.23.1-r1: A beautiful and powerful interactive command line prompt
+dev-ruby/tty-reader 0.9.0-r1: Methods for processing keyboard input in character, line and multiline modes
 dev-ruby/tty-screen 0.8.1 0.8.2: Terminal screen size detection which works on Linux, OS X and Windows/Cygwin
 dev-ruby/tty-which 0.5.0: Platform independent implementation of Unix which command
 dev-ruby/twitter 8.0.0 8.0.1 8.1.0: Ruby wrapper around the Twitter API
@@ -18889,7 +18889,7 @@ x11-terms/rxvt-unicode 9.31-r2 9.31-r3: rxvt clone with xft and unicode support
 x11-terms/sakura 3.8.4: GTK/VTE based terminal emulator
 x11-terms/st 0.9 0.9.2 9999: Simple terminal implementation for X
 x11-terms/st-terminfo 0.9 0.9.2 9999: Terminfo for x11-terms/st
-x11-terms/terminator 2.1.3: Multiple GNOME terminals in one window
+x11-terms/terminator 2.1.3 2.1.4: Multiple GNOME terminals in one window
 x11-terms/terminology 1.13.0: Feature rich terminal emulator using the Enlightenment Foundation Libraries
 x11-terms/tilda 1.5.4: A drop down terminal, similar to the consoles found in first person shooters
 x11-terms/wezterm 20240203.110809-r1: A GPU-accelerated cross-platform terminal emulator and multiplexer

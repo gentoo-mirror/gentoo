@@ -4,7 +4,7 @@ DEPEND=dev-cpp/antlr-cpp:2= dev-libs/expat media-libs/libpng:= net-libs/libtirpc
 DESCRIPTION=GNU Data Language
 EAPI=8
 HOMEPAGE=https://github.com/gnudatalanguage/gdl
-INHERIT=cmake python-single-r1 toolchain-funcs virtualx wxwidgets
+INHERIT=cmake flag-o-matic python-single-r1 toolchain-funcs virtualx wxwidgets
 IUSE=+eigen fftw glpk graphicsmagick gshhs hdf hdf5 +imagemagick netcdf openmp png proj postscript python shapelib tiff udunits wxwidgets python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 test
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/gnudatalanguage/gdl/releases/download/v1.0.4/gdl-v1.0.4.tar.gz -> gdl-1.0.4.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	virtualx	817571665ee28575da44ee08135089e5	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5
-_md5_=73713161136a5ec5e69643925e825692
+_md5_=4902b6424a9081526cf7b28774e59b6c
