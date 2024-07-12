@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=client? ( net-misc/wget[ssl] ) firewalld? ( net-firewall/firewalld ) gdbm? ( sys-libs/gdbm ) gpg? ( app-crypt/gpgme:= dev-libs/libassuan:= dev-libs/libgpg-error ) iptables? ( net-firewall/iptables ) nfqueue? ( net-libs/libnetfilter_queue ) server? ( !nfqueue? ( !udp-server? ( net-libs/libpcap ) ) )
 DESCRIPTION=Single Packet Authorization and Port Knocking application
@@ -12,5 +12,5 @@ RDEPEND=client? ( net-misc/wget[ssl] ) firewalld? ( net-firewall/firewalld ) gdb
 REQUIRED_USE=nfqueue? ( server ) server? ( ^^ ( firewalld iptables ) ) udp-server? ( server )
 SLOT=0
 SRC_URI=https://www.cipherdyne.org/fwknop/download/fwknop-2.6.10.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=1f1c95f19d0561533644a26eb37d1195

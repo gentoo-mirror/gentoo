@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm prepare pretend setup
 DEPEND=dev-libs/glib:2 sys-apps/i2c-tools virtual/udev drm? ( x11-libs/libdrm ) usb-monitor? ( dev-libs/hidapi virtual/libusb:1 sys-apps/usbutils ) user-permissions? ( acct-group/i2c usb-monitor? ( acct-group/video ) ) X? ( x11-libs/libXrandr x11-libs/libX11 )
 DESCRIPTION=Program for querying and changing monitor settings
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 sys-apps/i2c-tools virtual/udev drm? ( x11-libs/libdrm )
 REQUIRED_USE=drm? ( X )
 SLOT=0/4
 SRC_URI=https://github.com/rockowitz/ddcutil/archive/v1.4.1.tar.gz -> ddcutil-1.4.1.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=d16aaef20626ab4818ebff7b4d2b14a9

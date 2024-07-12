@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig virtual/pkgconfig
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=dev-libs/glib:2 caps? ( sys-libs/libcap-ng ) numa? ( sys-process/numactl ) systemd? ( sys-apps/systemd:= ) thermal? ( dev-libs/libnl:3 ) tui? ( sys-libs/ncurses:=[unicode(+)] )
 DESCRIPTION=Distribute hardware interrupts across processors on a multiprocessor system
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 caps? ( sys-libs/libcap-ng ) numa? ( sys-process/numactl
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/Irqbalance/irqbalance/archive/v1.9.3.tar.gz -> irqbalance-1.9.3.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	udev	eec0bbab06977f1cfc5597269c1fa152	systemd	c8b03e8df84486aa991d4396686e8942	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	udev	eec0bbab06977f1cfc5597269c1fa152	systemd	c8b03e8df84486aa991d4396686e8942	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
 _md5_=493ac5d2272da5a87e9840eefc0ad093

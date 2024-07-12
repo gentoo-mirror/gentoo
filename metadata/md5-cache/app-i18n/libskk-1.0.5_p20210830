@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/vala:0.56 ) virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=|| ( dev-lang/vala:0.56 ) virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=configure install prepare test unpack
 DEPEND=dev-libs/glib:2 dev-libs/json-glib dev-libs/libgee:0.8 x11-libs/libxkbcommon introspection? ( dev-libs/gobject-introspection ) nls? ( virtual/libintl )
 DESCRIPTION=GObject-based library to deal with Japanese kana-to-kanji conversion method
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 dev-libs/json-glib dev-libs/libgee:0.8 x11-libs/libxkbco
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ueno/libskk/archive/5f5e5c2d3facfec9f577fb66032e6f1994ed5d44.tar.gz -> libskk-1.0.5_p20210830.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	vala	e477903dbe0105930c51f170a592dc16	vcs-snapshot	3d327d546f76e4c2054573ff0d78fad2	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	vala	e477903dbe0105930c51f170a592dc16	vcs-snapshot	3d327d546f76e4c2054573ff0d78fad2	virtualx	817571665ee28575da44ee08135089e5
 _md5_=657e56e1636bfee01d23bae0e8ee5077

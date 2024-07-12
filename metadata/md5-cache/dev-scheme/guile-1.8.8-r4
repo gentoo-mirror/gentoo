@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/texinfo dev-build/libtool emacs? ( >=app-editors/emacs-23.1:* ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=sys-apps/texinfo dev-build/libtool emacs? ( >=app-editors/emacs-23.1:* ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm prepare
 DEPEND=>=dev-libs/gmp-4.1:0= dev-libs/libltdl:0= sys-devel/gettext sys-libs/ncurses:0= virtual/libcrypt:= readline? ( sys-libs/readline:0= )
 DESCRIPTION=GNU Ubiquitous Intelligent Language for Extensions
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/gmp-4.1:0= dev-libs/libltdl:0= sys-devel/gettext sys-libs/ncu
 RESTRICT=!regex? ( test )
 SLOT=12/8
 SRC_URI=mirror://gnu/guile/guile-1.8.8.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	elisp-common	abb2dda42f680fce87602c8273f832c7
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	elisp-common	abb2dda42f680fce87602c8273f832c7
 _md5_=cce66cea5777a3eab3d1867da6e5d9e8

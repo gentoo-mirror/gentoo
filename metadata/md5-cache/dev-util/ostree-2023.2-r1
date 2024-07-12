@@ -1,4 +1,4 @@
-BDEPEND=dev-util/glib-utils sys-devel/flex sys-devel/bison virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=dev-util/glib-utils sys-devel/flex sys-devel/bison virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=app-arch/xz-utils dev-libs/libassuan:= dev-libs/glib:2 sys-fs/fuse:3 sys-libs/zlib archive? ( app-arch/libarchive:= ) curl? ( net-misc/curl ) dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( dev-libs/gobject-introspection ) libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14:= ) soup? ( net-libs/libsoup:2.4 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] ) app-text/docbook-xsl-stylesheets dev-libs/libxslt doc? ( dev-util/gtk-doc )
 DESCRIPTION=Operating system and container binary deployment and upgrades
@@ -13,5 +13,5 @@ REQUIRED_USE=dracut? ( systemd ) http2? ( curl ) httpd? ( || ( curl soup ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2023.2/libostree-2023.2.tar.xz -> ostree-2023.2.tar.xz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=074d49c024a11bf18180b51623bb95ba

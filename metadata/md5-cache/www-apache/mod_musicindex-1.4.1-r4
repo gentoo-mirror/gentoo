@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=mp3? ( media-libs/libmad media-libs/libid3tag:= ) mp4? ( media-libs/libmp4v2:0 ) flac? ( media-libs/flac:= ) vorbis? ( media-libs/libvorbis ) archive? ( app-arch/libarchive:= ) mysql? ( dev-db/mysql-connector-c:0= ) =www-servers/apache-2*
 DESCRIPTION=mod_musicindex allows nice displaying of directories containing music files
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=mp3? ( media-libs/libmad media-libs/libid3tag:= ) mp4? ( media-libs/libmp4v2:0 ) flac? ( media-libs/flac:= ) vorbis? ( media-libs/libvorbis ) archive? ( app-arch/libarchive:= ) mysql? ( dev-db/mysql-connector-c:0= ) dev-build/libtool =www-servers/apache-2*
 SLOT=0
 SRC_URI=http://hacks.slashdirt.org/musicindex/mod_musicindex-1.4.1.tar.gz http://validator.w3.org/feed/images/valid-rss.png -> mod_musicindex-1.4.1_valid-rss.png http://jigsaw.w3.org/css-validator/images/vcss -> mod_musicindex-1.4.1_vcss http://www.w3.org/Icons/valid-xhtml11 -> mod_musicindex-1.4.1_valid-xhtml11
-_eclasses_=depend.apache	1d51223a0def226481583990f380519c	apache-module	7a226dc5662c581e506e053b99bb8b31	gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	depend.apache	1d51223a0def226481583990f380519c	apache-module	7a226dc5662c581e506e053b99bb8b31
 _md5_=6de62e866ce78c83b8c0a4a79ba32b18

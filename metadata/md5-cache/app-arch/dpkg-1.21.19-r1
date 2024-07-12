@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/lex nls? ( app-text/po4a >=sys-devel/gettext-0.18.2 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=app-alternatives/lex nls? ( app-text/po4a >=sys-devel/gettext-0.18.2 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare
 DEPEND=>=app-arch/gzip-1.7 >=app-arch/tar-1.34-r1 app-crypt/libmd >=dev-lang/perl-5.14.2:= sys-libs/ncurses:=[unicode(+)] bzip2? ( app-arch/bzip2 ) lzma? ( app-arch/xz-utils ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) zlib? ( >=sys-libs/zlib-1.1.4 ) zstd? ( app-arch/zstd:= ) app-arch/xz-utils virtual/pkgconfig test? ( dev-perl/IO-String dev-perl/Test-Pod virtual/perl-Test-Harness )
 DESCRIPTION=Package maintenance system for Debian
@@ -11,5 +11,5 @@ RDEPEND=>=app-arch/gzip-1.7 >=app-arch/tar-1.34-r1 app-crypt/libmd >=dev-lang/pe
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/d/dpkg/dpkg_1.21.19.tar.xz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0
 _md5_=29dbe49fb8a1a2d77cb72ae7cbc56b7e

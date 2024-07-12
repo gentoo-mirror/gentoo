@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare pretend
 DEPEND=acct-group/privoxy acct-user/privoxy dev-libs/libpcre brotli? ( app-arch/brotli ) ssl? ( mbedtls? ( net-libs/mbedtls:= ) openssl? ( dev-libs/openssl:= ) ) zlib? ( sys-libs/zlib:= )
 DESCRIPTION=A web proxy with advanced filtering capabilities for enhancing privacy
@@ -12,5 +12,5 @@ RDEPEND=acct-group/privoxy acct-user/privoxy dev-libs/libpcre brotli? ( app-arch
 REQUIRED_USE=brotli? ( zlib ) client-tags? ( threads ) compression? ( zlib ) extended-statistics? ( threads ) fuzz? ( zlib ) ssl? ( ^^ ( mbedtls openssl ) threads ) toggle? ( editor )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/ijbswa/privoxy-3.0.34-stable-src.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=36ed968df443b10846924c5329ab9f9a

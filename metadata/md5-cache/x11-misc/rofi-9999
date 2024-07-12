@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison >=sys-devel/flex-2.5.39 virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/bison >=sys-devel/flex-2.5.39 virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure postinst postrm prepare unpack
 DEPEND=dev-libs/glib:2 x11-libs/cairo[X,xcb(+)] x11-libs/gdk-pixbuf:2 x11-libs/libxcb:= x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-wm x11-misc/xkeyboard-config x11-base/xorg-proto test? ( >=dev-libs/check-0.11 )
 DESCRIPTION=A window switcher, run dialog and dmenu replacement
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/glib:2 x11-libs/cairo[X,xcb(+)] x11-libs/gdk-pixbuf:2 x11-libs/libxcb:= x11-libs/libxkbcommon[X] x11-libs/pango[X] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-wm x11-misc/xkeyboard-config
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	xdg-utils	baea6080dd821f5562d715887954c9d3	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	xdg-utils	baea6080dd821f5562d715887954c9d3	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=404ccb6199d01c9684653ae01f20f3bb

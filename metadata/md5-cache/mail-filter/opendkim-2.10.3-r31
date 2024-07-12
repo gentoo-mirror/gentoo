@@ -1,4 +1,4 @@
-BDEPEND=acct-user/opendkim test? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=acct-user/opendkim test? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=compile config configure install postinst prepare setup test
 DEPEND=mail-filter/libmilter:= dev-libs/libbsd sys-apps/grep ssl? ( dev-libs/openssl:0= ) berkdb? ( >=sys-libs/db-3.2:* ) opendbx? ( >=dev-db/opendbx-1.4.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ldap? ( net-nds/openldap:= ) lmdb? ( dev-db/lmdb:= ) memcached? ( dev-libs/libmemcached ) sasl? ( dev-libs/cyrus-sasl ) unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root )
 DESCRIPTION=A milter providing DKIM signing and verification
@@ -13,5 +13,5 @@ REQUIRED_USE=sasl? ( ldap ) stats? ( opendbx ) querycache? ( berkdb ) lua? ( ^^ 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/opendkim/opendkim-2.10.3.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1
 _md5_=c73ba87e16cb9272c4bfe5693f17af17

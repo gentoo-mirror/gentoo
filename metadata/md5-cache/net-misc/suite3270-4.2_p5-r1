@@ -1,4 +1,4 @@
-BDEPEND=X? ( app-text/rman x11-apps/bdftopcf >=x11-apps/mkfontscale-1.2.0 x11-misc/xbitmaps ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=X? ( app-text/rman x11-apps/bdftopcf >=x11-apps/mkfontscale-1.2.0 x11-misc/xbitmaps ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=configure install postinst postrm prepare setup
 DEPEND=X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXt ) ssl? ( dev-libs/openssl:= ) ncurses? ( sys-libs/ncurses:= sys-libs/readline:= ) tcl? ( dev-lang/tcl:= ) X? ( x11-base/xorg-proto )
 DESCRIPTION=Complete 3270 (S390) access package
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXt ) ssl? ( dev-libs/openssl:= ) ncurses? ( sys-libs/ncurses:= sys-libs/readline:= ) tcl? ( dev-lang/tcl:= )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/x3270/suite3270-4.2ga5-src.tgz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	font	aa113a3df9cd0a9693a1c1ee7c34a6eb
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	font	aa113a3df9cd0a9693a1c1ee7c34a6eb
 _md5_=6f22b6f924213ef455d2da5dede2802e

@@ -1,4 +1,4 @@
-BDEPEND=dev-util/intltool dev-build/autoconf-archive sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=dev-util/intltool dev-build/autoconf-archive sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DEPEND=>=dev-libs/glib-2.10 media-libs/libpng:0= media-libs/libsdl2 media-libs/libv4l >=media-libs/portaudio-19_pre >=media-video/ffmpeg-2.8:0= virtual/libusb:1 virtual/udev gsl? ( >=sci-libs/gsl-1.15:= ) pulseaudio? ( >=media-sound/pulseaudio-0.9.15 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) !qt5? ( >=x11-libs/gtk+-3.6:3 ) >=sys-kernel/linux-headers-3.4-r2 virtual/os-headers
 DESCRIPTION=Simple Qt5 or GTK+3 interface for capturing and viewing video from v4l2 devices
@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=>=dev-libs/glib-2.10 media-libs/libpng:0= media-libs/libsdl2 media-libs/libv4l >=media-libs/portaudio-19_pre >=media-video/ffmpeg-2.8:0= virtual/libusb:1 virtual/udev gsl? ( >=sci-libs/gsl-1.15:= ) pulseaudio? ( >=media-sound/pulseaudio-0.9.15 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) !qt5? ( >=x11-libs/gtk+-3.6:3 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/guvcview/guvcview-src-2.0.8.tar.bz2
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
 _md5_=04c897cd0d0cf6940bb30581f0c6190a

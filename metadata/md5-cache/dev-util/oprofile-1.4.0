@@ -1,4 +1,4 @@
-BDEPEND=apidoc? ( app-text/doxygen[dot] ) java? ( >=virtual/jdk-1.8:= ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=apidoc? ( app-text/doxygen[dot] ) java? ( >=virtual/jdk-1.8:= ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst preinst prepare setup
 DEPEND=>=dev-libs/popt-1.7-r1 sys-libs/binutils-libs:= elibc_glibc? ( >=sys-libs/glibc-2.3.2-r1 ) ppc64? ( dev-libs/libpfm ) >=sys-kernel/linux-headers-2.6.31 java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=A transparent low-overhead system-wide profiler
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=>=dev-libs/popt-1.7-r1 sys-libs/binutils-libs:= elibc_glibc? ( >=sys-libs/glibc-2.3.2-r1 ) ppc64? ( dev-libs/libpfm ) acct-user/oprofile acct-group/oprofile java? ( >=dev-java/java-config-2.2.0-r3 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/oprofile/oprofile-1.4.0.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	linux-info	ea4122ba1d8791a12b78e53f9510a2e3
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	linux-info	ea4122ba1d8791a12b78e53f9510a2e3
 _md5_=4f1c2d239fb6971919d28b23dbb93f9e
