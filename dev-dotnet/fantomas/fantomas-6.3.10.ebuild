@@ -6,11 +6,11 @@ EAPI=8
 DOTNET_PKG_COMPAT=8.0
 NUGETS="
 dotnet-fsharplint@0.19.2
-fantomas@6.3.0
-fsdocs-tool@20.0.0
+fantomas@6.3.9
+fsdocs-tool@21.0.0-beta-002
 fsharp-analyzers@0.25.0
 
-argu@6.1.1
+argu@6.2.4
 cliwrap@3.6.4
 commandlineparser@2.9.1
 dotnet.reproduciblebuilds@1.1.1
@@ -20,7 +20,7 @@ fparsec@1.1.1
 fscheck@2.16.5
 fsharp.analyzers.build@0.3.0
 fsharp.core@5.0.1
-fsharp.core@6.0.1
+fsharp.core@6.0.7
 fsharp.core@8.0.101
 fsharp.data.csv.core@6.3.0
 fsharp.data.html.core@6.3.0
@@ -225,12 +225,12 @@ else
 	SRC_URI="https://github.com/fsprojects/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
 
-FCS_COMMIT="1da032a64321c77782e8d125afd3bf29863c3d9c"
+FCS_COMMIT="836d4e0603442d6053c8d439993a022501cae494"
 SRC_URI+="
 	https://github.com/dotnet/fsharp/archive/${FCS_COMMIT}.tar.gz
 		-> fsharp-${FCS_COMMIT}.tar.gz

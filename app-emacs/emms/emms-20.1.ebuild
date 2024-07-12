@@ -8,11 +8,19 @@ inherit elisp toolchain-funcs
 DESCRIPTION="The Emacs Multimedia System"
 HOMEPAGE="https://www.gnu.org/software/emms/
 	https://www.emacswiki.org/emacs/EMMS"
-SRC_URI="https://git.savannah.gnu.org/cgit/emms.git/snapshot/${P}.tar.gz"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://git.savannah.gnu.org/git/emms.git"
+else
+	SRC_URI="https://git.savannah.gnu.org/cgit/emms.git/snapshot/${P}.tar.gz"
+
+	KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+fi
 
 LICENSE="GPL-3+ FDL-1.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 
 RDEPEND="
 	media-libs/taglib
@@ -33,7 +41,7 @@ src_compile() {
 }
 
 src_install() {
-	elisp-install ${PN} *.el *.elc
+	elisp-install "${PN}" *.el *.elc
 	elisp-site-file-install "${FILESDIR}/${SITEFILE}"
 
 	exeinto /usr/bin
