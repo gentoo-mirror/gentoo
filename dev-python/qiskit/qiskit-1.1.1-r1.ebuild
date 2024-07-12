@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 CRATES="
 	ahash@0.7.8
@@ -203,6 +203,8 @@ SRC_URI="
 	https://github.com/Qiskit/qiskit/archive/${PV}.tar.gz
 		-> ${MY_P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
+	https://github.com/PyO3/pyo3/pull/4324.patch
+		-> pyo3-ffi-0.22.1-py313.patch
 "
 S=${WORKDIR}/${MY_P}
 
@@ -260,9 +262,13 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 src_prepare() {
+	distutils-r1_src_prepare
+
 	# strip forcing -Werror from tests that also leaks to other packages
 	sed -i -e '/filterwarnings.*error/d' test/utils/base.py || die
-	distutils-r1_src_prepare
+
+	cd "${ECARGO_VENDOR}"/pyo3-ffi-*/ || die
+	eapply -p2 "${DISTDIR}/pyo3-ffi-0.22.1-py313.patch"
 }
 
 python_test() {
@@ -278,6 +284,17 @@ python_test() {
 		# Breaks xdist
 		test/python/qasm2/test_parse_errors.py
 	)
+
+	case ${EPYTHON} in
+		python3.13)
+			EPYTEST_DESELECT+=(
+				# docstring mismatches
+				test/python/utils/test_deprecation.py::AddDeprecationDocstringTest::test_add_deprecation_docstring_meta_lines
+				test/python/utils/test_deprecation.py::AddDeprecationDocstringTest::test_add_deprecation_docstring_multiple_entries
+				test/python/utils/test_deprecation.py::AddDeprecationDocstringTest::test_add_deprecation_docstring_no_meta_lines
+			)
+			;;
+	esac
 
 	rm -rf qiskit || die
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1

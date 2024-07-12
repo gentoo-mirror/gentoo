@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 CRATES="
 	ahash@0.8.11
@@ -110,6 +110,8 @@ SRC_URI="
 	https://github.com/Qiskit/rustworkx/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
+	https://github.com/PyO3/pyo3/pull/4324.patch
+		-> pyo3-ffi-0.22.1-py313.patch
 "
 
 LICENSE="Apache-2.0"
@@ -144,12 +146,10 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 src_prepare() {
-	distutils-r1_src_prepare
+	default
 
-	# force unstable ABI to workaround stable ABI crash in py3.13
-	# https://github.com/PyO3/pyo3/issues/4311
-	sed -i -e 's:"abi3-py38",::' Cargo.toml || die
-	export UNSAFE_PYO3_SKIP_VERSION_CHECK=1
+	cd "${ECARGO_VENDOR}"/pyo3-ffi-*/ || die
+	eapply -p2 "${DISTDIR}/pyo3-ffi-0.22.1-py313.patch"
 }
 
 python_test() {
