@@ -13,15 +13,18 @@ LICENSE="LGPL-2.1+"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 IUSE="+policykit"
 
-DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui]
+RDEPEND="
+	>=dev-qt/qtbase-${QTMIN}:6[gui]
 	=kde-frameworks/kcoreaddons-${PVCUT}*:6
 	policykit? (
+		>=dev-qt/qtbase-${QTMIN}:6[dbus]
 		=kde-frameworks/kwindowsystem-${PVCUT}*:6[wayland]
 		>=sys-auth/polkit-qt-0.113.0[qt6(-)]
 	)
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? ( >=dev-qt/qtbase-${QTMIN}:6[dbus] )
+"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 PDEPEND="policykit? ( kde-plasma/polkit-kde-agent:* )"
 

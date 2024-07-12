@@ -22,8 +22,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
-# Pending: https://invent.kde.org/frameworks/sonnet/-/merge_requests/108
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" ) # bug 935488
+PATCHES=( "${FILESDIR}/${PN}-6.3.0-cmake.patch" ) # in 6.5;  bug 935488
 
 CMAKE_SKIP_TESTS=(
 	# bug 779994

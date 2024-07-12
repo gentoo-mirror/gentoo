@@ -322,7 +322,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-24.2-unused-qt6network.patch"
 
 	# git master
-	"${FILESDIR}/${PN}-24.2.3.2-fix-bashism.patch" # bug #928733
 	# bug #917618, thx to Debian:
 	"${WORKDIR}/${PN}-24.2.3.2-icu-74/${PN}-24.2.3.2-icu-74.2-reviewed-breakIterator-customizations.patch"
 	"${WORKDIR}/${PN}-24.2.3.2-icu-74/${PN}-24.2.3.2-icu-74.2-breakiterator-updates.patch"

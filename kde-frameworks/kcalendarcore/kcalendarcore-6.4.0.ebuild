@@ -18,6 +18,7 @@ RESTRICT="test" # multiple tests fail or hang indefinitely
 DEPEND="
 	>=dev-libs/libical-3.0.5:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
 "
 RDEPEND="${DEPEND}"
 BDEPEND="app-alternatives/yacc"

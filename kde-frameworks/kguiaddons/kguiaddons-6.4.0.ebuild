@@ -36,7 +36,7 @@ BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_GEO_SCHEME_HANDLER=ON
-		-DWITH_DBUS=$(usex dbus)
+		-DUSE_DBUS=$(usex dbus)
 		-DWITH_WAYLAND=$(usex wayland)
 		-DWITH_X11=$(usex X)
 	)

@@ -25,7 +25,7 @@ BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 src_configure() {
 	local mycmakeargs=(
 		-DKCOREADDONS_USE_QML=ON
-		$(cmake_use_find_package dbus Qt6DBus)
+		-DUSE_DBUS=$(usex dbus)
 	)
 
 	ecm_src_configure
