@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://qcoro.dvratil.cz/ https://github.com/danvratil/qcoro
 INHERIT=cmake
 IUSE=dbus examples +network qml test websockets
-KEYWORDS=~amd64 ~arm64 ~riscv
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=dev-qt/qtbase:6[dbus?,network?] qml? ( dev-qt/qtbase:6[gui] dev-qt/qtdeclarative:6= ) websockets? ( dev-qt/qtwebsockets:6 )
 REQUIRED_USE=examples? ( network )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/danvratil/qcoro/archive/refs/tags/v0.10.0.tar.gz -> qcoro-0.10.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
-_md5_=9c1415698a20029cc13e8052bb8ad970
+_md5_=7b9c2aa787679712aa17442ababc23e2
