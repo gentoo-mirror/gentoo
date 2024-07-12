@@ -11,8 +11,8 @@ SRC_URI="https://linuxcontainers.org/downloads/incus/${P}.tar.xz
 	verify-sig? ( https://linuxcontainers.org/downloads/incus/${P}.tar.xz.asc )"
 
 LICENSE="Apache-2.0 BSD LGPL-3 MIT"
-SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+SLOT="0/lts"
+KEYWORDS="amd64 ~arm64"
 IUSE="apparmor fuidshift nls"
 
 DEPEND="acct-group/incus
