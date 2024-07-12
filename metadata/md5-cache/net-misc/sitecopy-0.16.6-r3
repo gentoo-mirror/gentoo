@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure prepare
 DEPEND=rsh? ( net-misc/netkit-rsh ) >=net-libs/neon-0.24.6[zlib?,ssl?,expat?] <=net-libs/neon-0.32.9999[zlib?,ssl?,expat?] xml? ( >=net-libs/neon-0.24.6:=[-expat] )
 DESCRIPTION=Maintain remote web sites with ease
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=rsh? ( net-misc/netkit-rsh ) >=net-libs/neon-0.24.6[zlib?,ssl?,expat?] <=net-libs/neon-0.32.9999[zlib?,ssl?,expat?] xml? ( >=net-libs/neon-0.24.6:=[-expat] )
 SLOT=0
 SRC_URI=mirror://gentoo/sitecopy-0.16.6.tar.gz https://dev.gentoo.org/~jstein/files/sitecopy-0.16.6-04-manpages-addition-fixes.patch
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499
 _md5_=749188a5e3dcf1a90068766f8ca4384a

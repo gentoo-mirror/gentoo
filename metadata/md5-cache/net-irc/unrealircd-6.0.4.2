@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-unrealircd ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 dev-libs/openssl virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-unrealircd ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 dev-libs/openssl virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=acct-group/unrealircd acct-user/unrealircd >=app-crypt/argon2-20171227-r1:= dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:= dev-libs/jansson:= >=net-dns/c-ares-1.7:= virtual/libcrypt:= curl? ( net-misc/curl[adns] ) geoip? ( dev-libs/libmaxminddb )
 DESCRIPTION=An advanced Internet Relay Chat daemon
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=acct-group/unrealircd acct-user/unrealircd >=app-crypt/argon2-20171227-r1:= dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:= dev-libs/jansson:= >=net-dns/c-ares-1.7:= virtual/libcrypt:= curl? ( net-misc/curl[adns] ) geoip? ( dev-libs/libmaxminddb ) virtual/tmpfiles
 SLOT=0
 SRC_URI=https://www.unrealircd.org/downloads/unrealircd-6.0.4.2.tar.gz verify-sig? ( https://www.unrealircd.org/downloads/unrealircd-6.0.4.2.tar.gz.asc )
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	a79ba011daaf532d71a219182474d150
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=be0f6411bb850166ad9203be423f7367

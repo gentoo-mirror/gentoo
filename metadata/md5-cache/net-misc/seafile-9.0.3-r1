@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) || ( dev-lang/vala:0.56 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) || ( dev-lang/vala:0.56 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
 DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/openssl:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/libevent:= net-libs/libsearpc[python_single_target_python3_10(-)?,python_single_target_python3_11(-)?] net-libs/libwebsockets[client] net-misc/curl sys-apps/util-linux sys-libs/zlib elibc_musl? ( sys-libs/fts-standalone )
 DESCRIPTION=File syncing and sharing software with file encryption and group sharing
@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/haiwen/seafile/archive/90a2bc6e30a14ac4c91250da3957330f1051462e.tar.gz -> seafile-9.0.3.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	vala	e477903dbe0105930c51f170a592dc16
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	vala	e477903dbe0105930c51f170a592dc16
 _md5_=c0127b59056e7cccf4f97edb15f27711

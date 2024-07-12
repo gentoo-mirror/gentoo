@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/lex virtual/pkgconfig app-alternatives/yacc >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 ssl? ( dev-libs/openssl )
+BDEPEND=app-alternatives/lex virtual/pkgconfig app-alternatives/yacc >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 ssl? ( dev-libs/openssl )
 DEFINED_PHASES=configure install postinst preinst prepare
 DEPEND=dev-libs/libpcre:3 >=dev-libs/cyrus-sasl-2.1.13:2 dev-libs/jansson:= dev-libs/icu:= sys-apps/util-linux sys-fs/e2fsprogs:= sys-libs/zlib:= afs? ( net-fs/openafs ) calalarm? ( dev-libs/libical:= ) caps? ( sys-libs/libcap ) clamav? ( app-antivirus/clamav ) http? ( app-arch/brotli:= app-arch/zstd:= dev-libs/libxml2 dev-libs/libical:= net-libs/nghttp2:= sci-libs/shapelib:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) mysql? ( dev-db/mysql-connector-c:= ) nntp? ( !net-nntp/leafnode ) pam? ( >=net-mail/mailbase-1 sys-libs/pam ) perl? ( dev-lang/perl:= virtual/perl-Term-ReadLine ) postgres? ( dev-db/postgresql:* ) ssl? ( >=dev-libs/openssl-1.0.1e:=[-bindist(-)] ) sqlite? ( dev-db/sqlite:3 ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) xapian? ( >=dev-libs/xapian-1.4.0:= ) test? ( dev-util/cunit )
 DESCRIPTION=The Cyrus IMAP Server
@@ -13,5 +13,5 @@ REQUIRED_USE=afs? ( kerberos ) backup? ( sqlite ) calalarm? ( http ) http? ( sql
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cyrusimap/cyrus-imapd/releases/download/cyrus-imapd-3.4.5/cyrus-imapd-3.4.5.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26
 _md5_=9eab40f7700d27a33aeb4cbe45266533

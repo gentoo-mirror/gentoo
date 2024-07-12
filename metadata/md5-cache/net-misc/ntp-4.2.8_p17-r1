@@ -1,4 +1,4 @@
-BDEPEND=acct-group/ntp acct-user/ntp virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=acct-group/ntp acct-user/ntp virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=>=dev-libs/libevent-2.0.9:=[threads(+)?] readline? ( >=sys-libs/readline-4.1:= ) kernel_linux? ( caps? ( sys-libs/libcap ) ) zeroconf? ( net-dns/avahi[mdnsresponder-compat] ) snmp? ( net-analyzer/net-snmp ) ssl? ( dev-libs/openssl:= ) parse-clocks? ( net-misc/pps-tools )
 DESCRIPTION=Network Time Protocol suite/programs
@@ -12,5 +12,5 @@ PDEPEND=openntpd? ( net-misc/openntpd )
 RDEPEND=>=dev-libs/libevent-2.0.9:=[threads(+)?] readline? ( >=sys-libs/readline-4.1:= ) kernel_linux? ( caps? ( sys-libs/libcap ) ) zeroconf? ( net-dns/avahi[mdnsresponder-compat] ) snmp? ( net-analyzer/net-snmp ) ssl? ( dev-libs/openssl:= ) parse-clocks? ( net-misc/pps-tools ) acct-group/ntp acct-user/ntp selinux? ( sec-policy/selinux-ntp ) vim-syntax? ( app-vim/ntp-syntax ) !net-misc/ntpsec !openntpd? ( !net-misc/openntpd ) virtual/tmpfiles
 SLOT=0
 SRC_URI=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p17.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=6e2c4f39fb53a01190d7ca645c334270

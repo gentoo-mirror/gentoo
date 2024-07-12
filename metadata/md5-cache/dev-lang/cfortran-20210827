@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 test? ( virtual/fortran )
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 test? ( virtual/fortran )
 DEFINED_PHASES=configure install prepare setup
 DESCRIPTION=Header file allowing to call Fortran routines from C and C++
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=LGPL-2
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/c/cfortran/cfortran_20210827.orig.tar.gz mirror://debian/pool/main/c/cfortran/cfortran_20210827-1.debian.tar.xz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
 _md5_=ad54116368ea49c35e1ee3fe7e61c4e1

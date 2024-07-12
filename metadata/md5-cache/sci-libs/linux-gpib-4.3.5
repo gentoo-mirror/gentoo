@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-text/docbook-sgml-utils ) perl? ( virtual/perl-ExtUtils-MakeMaker ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig doc? ( app-text/docbook-sgml-utils ) perl? ( virtual/perl-ExtUtils-MakeMaker ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup unpack
 DEPEND=sys-libs/readline:= tcl? ( dev-lang/tcl:0= ) guile? ( dev-scheme/guile:12 ) perl? ( dev-lang/perl:= ) php? ( dev-lang/php:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ) firmware? ( sys-apps/fxload )
 DESCRIPTION=Driver library for GPIB (IEEE 488.2) hardware
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/readline:= tcl? ( dev-lang/tcl:0= ) guile? ( dev-scheme/guile:1
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/linux-gpib/linux-gpib-4.3.5.tar.gz firmware? ( https://linux-gpib.sourceforge.io/firmware/gpib_firmware-2008-08-10.tar.gz )
-_eclasses_=readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	perl-functions	c3fca037246e877693badea0df3b0ef8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	perl-functions	c3fca037246e877693badea0df3b0ef8	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=3ad9f40c681d284e916bceb20ec97e00

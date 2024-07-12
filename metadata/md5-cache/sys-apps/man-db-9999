@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( >=app-text/po4a-0.45 sys-devel/gettext virtual/libiconv virtual/libintl ) virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( >=app-text/po4a-0.45 sys-devel/gettext virtual/libiconv virtual/libintl ) virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst preinst prepare unpack
 DEPEND=>=dev-libs/libpipeline-1.5.0 sys-apps/groff sys-libs/gdbm:= seccomp? ( sys-libs/libseccomp ) zlib? ( sys-libs/zlib )
 DESCRIPTION=A man replacement that utilizes dbm instead of flat files
@@ -11,5 +11,5 @@ PDEPEND=manpager? ( app-text/manpager )
 PROPERTIES=live
 RDEPEND=>=dev-libs/libpipeline-1.5.0 sys-apps/groff sys-libs/gdbm:= seccomp? ( sys-libs/libseccomp ) zlib? ( sys-libs/zlib ) acct-group/man acct-user/man selinux? ( sec-policy/selinux-mandb ) virtual/tmpfiles
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	prefix	eab3c99d77fe00506c109c8a736186f7	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	gnuconfig	a397adda6984a4c423e28ac274c1ba98	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	prefix	eab3c99d77fe00506c109c8a736186f7	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	gnuconfig	a397adda6984a4c423e28ac274c1ba98	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=b2f82c1b6b82fc7758e12574d6c6091a

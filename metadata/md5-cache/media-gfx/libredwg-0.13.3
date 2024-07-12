@@ -1,4 +1,4 @@
-BDEPEND=|| ( sys-devel/gcc[sanitize] sys-libs/compiler-rt-sanitizers[asan(-)] ) dev-vcs/git >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 doc? ( app-text/doxygen )
+BDEPEND=|| ( sys-devel/gcc[sanitize] sys-libs/compiler-rt-sanitizers[asan(-)] ) dev-vcs/git >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 doc? ( app-text/doxygen )
 DEFINED_PHASES=compile configure install prepare setup unpack
 DEPEND=python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) perl? ( dev-lang/perl ) dev-libs/libpcre2 dev-libs/pslib python? ( dev-lang/swig ) perl? ( dev-lang/swig )
 DESCRIPTION=C library to handle DWG files
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/LibreDWG/libredwg/archive/refs/tags/0.13.3.tar.gz -> libredwg-0.13.3.tar.gz https://github.com/zserge/jsmn/archive/85695f3d5903b1cd5b4030efe50db3b4f5f3c928.tar.gz -> libredwg-85695f3d5903b1cd5b4030efe50db3b4f5f3c928.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	docs	7f3c0d47338743498c69f1887a139f57	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	perl-functions	c3fca037246e877693badea0df3b0ef8
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	docs	7f3c0d47338743498c69f1887a139f57	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	perl-functions	c3fca037246e877693badea0df3b0ef8
 _md5_=2622f7003d6f4cd7e2e7b3cba56ad3fb

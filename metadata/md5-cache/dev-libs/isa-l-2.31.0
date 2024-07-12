@@ -1,4 +1,4 @@
-BDEPEND=amd64? ( cpu_flags_x86_avx512f? ( >=dev-lang/nasm-2.13 ) !cpu_flags_x86_avx512f? ( || ( >=dev-lang/nasm-2.11.01 >=dev-lang/yasm-1.2.0 ) ) ) x86? ( cpu_flags_x86_avx512f? ( >=dev-lang/nasm-2.13 ) !cpu_flags_x86_avx512f? ( || ( >=dev-lang/nasm-2.11.01 >=dev-lang/yasm-1.2.0 ) ) ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=amd64? ( cpu_flags_x86_avx512f? ( >=dev-lang/nasm-2.13 ) !cpu_flags_x86_avx512f? ( || ( >=dev-lang/nasm-2.11.01 >=dev-lang/yasm-1.2.0 ) ) ) x86? ( cpu_flags_x86_avx512f? ( >=dev-lang/nasm-2.13 ) !cpu_flags_x86_avx512f? ( || ( >=dev-lang/nasm-2.11.01 >=dev-lang/yasm-1.2.0 ) ) ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=install prepare
 DESCRIPTION=Intelligent Storage Acceleration Library
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=~amd64 ~arm ~arm64 ~riscv -x86
 LICENSE=BSD
 SLOT=0
 SRC_URI=https://github.com/intel/isa-l/archive/refs/tags/v2.31.0.tar.gz -> isa-l-2.31.0.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499
 _md5_=69f89aa3becc5cba824e930a8c55721c

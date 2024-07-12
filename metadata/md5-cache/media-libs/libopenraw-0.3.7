@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig test? ( net-misc/curl ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=virtual/rust-1.53
+BDEPEND=virtual/pkgconfig test? ( net-misc/curl ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=virtual/rust-1.53
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=dev-libs/libxml2 media-libs/libjpeg-turbo:= gtk? ( dev-libs/glib:2 >=x11-libs/gdk-pixbuf-2.24.0:2 ) dev-libs/boost
 DESCRIPTION=RAW image formats decoding library
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libxml2 media-libs/libjpeg-turbo:= gtk? ( dev-libs/glib:2 >=x11
 RESTRICT=!test? ( test )
 SLOT=0/9
 SRC_URI=https://libopenraw.freedesktop.org/download/libopenraw-0.3.7.tar.xz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	rust-toolchain	68a6453cb41148db1da01fa2267527f0	cargo	67ea64209e3442a3a0e095f048d43a62	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	rust-toolchain	68a6453cb41148db1da01fa2267527f0	cargo	67ea64209e3442a3a0e095f048d43a62	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	30dbce54b89e77b86f366548f94419ad
 _md5_=aa287161188470fc6f86d12568f2002f

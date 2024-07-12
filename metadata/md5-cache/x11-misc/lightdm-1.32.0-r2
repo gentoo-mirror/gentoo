@@ -1,4 +1,4 @@
-BDEPEND=dev-build/gtk-doc-am dev-util/intltool sys-devel/gettext virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+BDEPEND=dev-build/gtk-doc-am dev-util/intltool sys-devel/gettext virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup
 DEPEND=>=dev-libs/glib-2.44.0:2 dev-libs/libgcrypt:= dev-libs/libxml2 sys-libs/pam x11-libs/libX11 >=x11-libs/libxklavier-5 audit? ( sys-process/audit ) gnome? ( sys-apps/accountsservice ) introspection? ( >=dev-libs/gobject-introspection-1 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 ) gnome? ( gnome-base/gnome-common )
 DESCRIPTION=A lightweight display manager
@@ -14,5 +14,5 @@ REQUIRED_USE=^^ ( elogind systemd ) vala? ( introspection )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/canonical/lightdm/releases/download/1.32.0/lightdm-1.32.0.tar.xz mirror://gentoo/introspection-20110205.m4.tar.bz2
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	systemd	c8b03e8df84486aa991d4396686e8942	vala	e477903dbe0105930c51f170a592dc16	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	systemd	c8b03e8df84486aa991d4396686e8942	vala	e477903dbe0105930c51f170a592dc16	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=9788089a5683b7b8e4c9fb3ce4bd89ba

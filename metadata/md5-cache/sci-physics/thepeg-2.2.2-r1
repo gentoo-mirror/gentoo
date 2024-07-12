@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=sci-libs/gsl:0= emacs? ( >=app-editors/emacs-23.1:* ) fastjet? ( sci-physics/fastjet:0= ) hepmc? ( sci-physics/hepmc:2= ) lhapdf? ( >=sci-physics/lhapdf-6.0:0= ) zlib? ( sys-libs/zlib:0= ) java? ( virtual/jdk:1.8 ) test? ( sys-process/time ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Toolkit for High Energy Physics Event Generation
@@ -12,5 +12,5 @@ RDEPEND=sci-libs/gsl:0= emacs? ( >=app-editors/emacs-23.1:* ) fastjet? ( sci-phy
 RESTRICT=!test? ( test )
 SLOT=0/20
 SRC_URI=https://www.hepforge.org/archive/thepeg/ThePEG-2.2.2.tar.bz2 test? ( hepmc? ( https://www.hepforge.org/archive/lhapdf/pdfsets/current/cteq6ll.LHpdf https://www.hepforge.org/archive/lhapdf/pdfsets/current/cteq5l.LHgrid https://www.hepforge.org/archive/lhapdf/pdfsets/current/GRV98nlo.LHgrid https://www.hepforge.org/archive/lhapdf/pdfsets/current/MRST2001nlo.LHgrid ) )
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	elisp-common	abb2dda42f680fce87602c8273f832c7	java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	elisp-common	abb2dda42f680fce87602c8273f832c7	java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629
 _md5_=5d0c4c65411d47b09cd234a79dacebf7

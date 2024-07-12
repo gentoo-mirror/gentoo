@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 fortran? ( virtual/fortran )
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 fortran? ( virtual/fortran )
 DEFINED_PHASES=configure install prepare setup
 DEPEND=mpi? ( virtual/mpi[romio] ) szip? ( virtual/szip ) zlib? ( sys-libs/zlib:0= ) fortran? ( virtual/fortran )
 DESCRIPTION=General purpose library and file format for storing scientific data
@@ -12,5 +12,5 @@ RDEPEND=mpi? ( virtual/mpi[romio] ) szip? ( virtual/szip ) zlib? ( sys-libs/zlib
 REQUIRED_USE=!unsupported? ( cxx? ( !mpi ) mpi? ( !cxx ) threads? ( !cxx !mpi !fortran !hl ) )
 SLOT=0/1.12.2
 SRC_URI=https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.2/src/hdf5-1.12.2.tar.bz2
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	prefix	eab3c99d77fe00506c109c8a736186f7
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	prefix	eab3c99d77fe00506c109c8a736186f7
 _md5_=5f75753e27aef94560f1d7f7c396b2db

@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=doc? ( app-text/doxygen ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare
 DEPEND=x11-libs/fox-wrapper x11-libs/libXcursor x11-libs/libXrandr bzip2? ( app-arch/bzip2 ) jpeg? ( media-libs/libjpeg-turbo:= ) opengl? ( virtual/glu virtual/opengl ) png? ( media-libs/libpng:= ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 x11-libs/libXft ) zlib? ( sys-libs/zlib ) x11-base/xorg-proto x11-libs/libXt
 DESCRIPTION=C++ Toolkit for developing Graphical User Interfaces easily and effectively
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=x11-libs/fox-wrapper x11-libs/libXcursor x11-libs/libXrandr bzip2? ( app-arch/bzip2 ) jpeg? ( media-libs/libjpeg-turbo:= ) opengl? ( virtual/glu virtual/opengl ) png? ( media-libs/libpng:= ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 x11-libs/libXft ) zlib? ( sys-libs/zlib )
 SLOT=1.7
 SRC_URI=ftp://ftp.fox-toolkit.org/pub/fox-1.7.67.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
 _md5_=50ef8da04224359daec3ff50ba0b8c49

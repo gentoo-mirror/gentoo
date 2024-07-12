@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure preinst prepare test
-DEPEND=dev-libs/boost:= media-libs/libjpeg-turbo:= media-libs/libpng:= sys-libs/zlib tiff? ( media-libs/tiff:= ) X? ( media-libs/libsdl ) dev-build/autoconf-archive >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEPEND=dev-libs/boost:= media-libs/libjpeg-turbo:= media-libs/libpng:= sys-libs/zlib tiff? ( media-libs/tiff:= ) X? ( media-libs/libsdl ) dev-build/autoconf-archive >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DESCRIPTION=The Persistence of Vision Raytracer
 EAPI=6
 HOMEPAGE=https://www.povray.org/
@@ -11,5 +11,5 @@ RDEPEND=dev-libs/boost:= media-libs/libjpeg-turbo:= media-libs/libpng:= sys-libs
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/POV-Ray/povray/archive/v3.7.0.0.tar.gz -> povray-3.7.0.0.tar.gz https://dev.gentoo.org/~soap/distfiles/povray-3.7.0.0_p20160914-fix-c++14.patch.bz2
-_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	virtualx	817571665ee28575da44ee08135089e5
+_eclasses_=eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	virtualx	817571665ee28575da44ee08135089e5
 _md5_=4c1b50b8e6a6fd2069321ff3adf8325e

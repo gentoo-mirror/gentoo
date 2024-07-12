@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 dev-vcs/subversion[http(+)] net-misc/rsync
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 dev-vcs/subversion[http(+)] net-misc/rsync
 DEFINED_PHASES=compile install preinst prepare unpack
 DEPEND=media-libs/audiofile media-libs/libsndfile
 DESCRIPTION=C++ library for loading Gigasampler and DLS level 1/2 files
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=media-libs/audiofile media-libs/libsndfile
 SLOT=0
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
 _md5_=066a4b4e3c6fbe0d6c202a3420ac296d

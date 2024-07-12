@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install
 DEPEND=>=sys-fs/fuse-2.8.6:0= lzma? ( >=app-arch/xz-utils-5.0.4:= ) zlib? ( >=sys-libs/zlib-1.2.5-r2:= ) lzo? ( >=dev-libs/lzo-2.06:= ) lz4? ( >=app-arch/lz4-0_p106:= ) zstd? ( app-arch/zstd:= ) virtual/pkgconfig
 DESCRIPTION=FUSE filesystem to mount squashfs archives
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( lz4 lzma lzo zlib zstd )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/vasi/squashfuse/archive/refs/tags/0.1.105.tar.gz -> squashfuse-0.1.105.tar.gz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
 _md5_=41dd67d0fa7dd5845299765b3267182c

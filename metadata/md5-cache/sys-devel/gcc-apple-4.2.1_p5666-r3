@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm prepare unpack
 DEPEND=>=sys-libs/zlib-1.1.4 >=sys-libs/ncurses-5.2-r2 nls? ( sys-devel/gettext ) >=sys-devel/gcc-config-1.8-r1 !<sys-apps/portage-2.2.14 fortran? ( >=dev-libs/gmp-4.2.1 >=dev-libs/mpfr-2.2.0_p10 ) >=sys-apps/texinfo-4.2-r4 app-alternatives/yacc sys-devel/binutils-apple >=dev-libs/mpfr-2.2.0_p10
 DESCRIPTION=Apple branch of the GNU Compiler Collection, Developer Tools 4.0
@@ -12,5 +12,5 @@ PDEPEND=sys-libs/csu
 RDEPEND=>=sys-libs/zlib-1.1.4 >=sys-libs/ncurses-5.2-r2 nls? ( sys-devel/gettext ) >=sys-devel/gcc-config-1.8-r1 !<sys-apps/portage-2.2.14 fortran? ( >=dev-libs/gmp-4.2.1 >=dev-libs/mpfr-2.2.0_p10 )
 SLOT=42
 SRC_URI=http://www.opensource.apple.com/darwinsource/tarballs/other/gcc-5666.3.tar.gz http://www.opensource.apple.com/darwinsource/tarballs/other/libstdcxx-39.tar.gz fortran? ( mirror://gnu/gcc/gcc-4.2.4/gcc-fortran-4.2.4.tar.bz2 https://dev.gentoo.org/~grobian/distfiles/gcc-apple-4.2.1_p5646-gfortran.patch )
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	gnuconfig	a397adda6984a4c423e28ac274c1ba98	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	prefix	eab3c99d77fe00506c109c8a736186f7
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	gnuconfig	a397adda6984a4c423e28ac274c1ba98	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	prefix	eab3c99d77fe00506c109c8a736186f7
 _md5_=a5bd3c4dc0f6c252e7eae6fabc55bdff

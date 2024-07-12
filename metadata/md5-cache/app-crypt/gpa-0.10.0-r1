@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure postinst postrm preinst prepare
 DEPEND=>=app-crypt/gnupg-2:= >=app-crypt/gpgme-1.11.1:= >=dev-libs/libassuan-1.1.0:= >=dev-libs/libgpg-error-1.4:= >=x11-libs/gtk+-2.10.0:2=
 DESCRIPTION=The GNU Privacy Assistant (GPA) is a graphical user interface for GnuPG
@@ -12,5 +12,5 @@ LICENSE=GPL-3
 RDEPEND=>=app-crypt/gnupg-2:= >=app-crypt/gpgme-1.11.1:= >=dev-libs/libassuan-1.1.0:= >=dev-libs/libgpg-error-1.4:= >=x11-libs/gtk+-2.10.0:2=
 SLOT=0
 SRC_URI=mirror://gnupg/gpa/gpa-0.10.0.tar.bz2 https://dev.gentoo.org/~sam/distfiles/app-crypt/gpa/gpa-0.10.0-autoconf.patch.xz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=08a51d3676b37d2622e85557308dbef7

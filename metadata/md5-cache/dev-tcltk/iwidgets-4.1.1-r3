@@ -1,4 +1,4 @@
-BDEPEND=test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-tcltk/itcl-4.2.4-r1 >=dev-tcltk/itk-4.1.0-r1
 DESCRIPTION=Widget collection for incrTcl/incrTk
@@ -12,5 +12,5 @@ RDEPEND=>=dev-tcltk/itcl-4.2.4-r1 >=dev-tcltk/itk-4.1.0-r1
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/incrtcl/%5BIncr%20Widgets%5D/4.1.1/iwidgets-4.1.1.tar.gz
-_eclasses_=virtualx	817571665ee28575da44ee08135089e5	gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d
+_eclasses_=virtualx	817571665ee28575da44ee08135089e5	gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499
 _md5_=d63cf28f0c8311814e5a214cf8676253

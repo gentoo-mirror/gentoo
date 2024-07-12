@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) jemalloc? ( dev-libs/jemalloc:= ) jit? ( || ( sys-devel/gcc:* sys-devel/clang:* ) ) ssl? ( dev-libs/openssl:0= ) socks5? ( >=net-proxy/dante-1.1.13 ) systemtap? ( dev-debug/systemtap ) tk? ( dev-lang/tcl:0=[threads] dev-lang/tk:0=[threads] ) dev-libs/libyaml dev-libs/libffi:= sys-libs/readline:0= sys-libs/zlib virtual/libcrypt:= >=app-eselect/eselect-ruby-20201225 valgrind? ( dev-debug/valgrind )
 DESCRIPTION=An object-oriented scripting language
@@ -12,5 +12,5 @@ PDEPEND=>=dev-ruby/minitest-5.15.0[ruby_targets_ruby31(-)] >=dev-ruby/power_asse
 RDEPEND=berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) jemalloc? ( dev-libs/jemalloc:= ) jit? ( || ( sys-devel/gcc:* sys-devel/clang:* ) ) ssl? ( dev-libs/openssl:0= ) socks5? ( >=net-proxy/dante-1.1.13 ) systemtap? ( dev-debug/systemtap ) tk? ( dev-lang/tcl:0=[threads] dev-lang/tk:0=[threads] ) dev-libs/libyaml dev-libs/libffi:= sys-libs/readline:0= sys-libs/zlib virtual/libcrypt:= >=app-eselect/eselect-ruby-20201225
 SLOT=3.1
 SRC_URI=https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.4.tar.xz
-_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	dc70c1dc473b68317fc4a86f5fbfc57d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	fb7c3cd829c27448f5a05212de2bf499	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
 _md5_=016757c131335d55ce70d8d10c61a0d9
