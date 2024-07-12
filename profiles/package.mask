@@ -401,29 +401,6 @@ dev-ml/async:0/0.17
 dev-ml/patience_diff:0/0.17
 >=dev-ml/ppx_deriving-6.0.2
 
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-08)
-# EAPI=6, waiting for a version bump, not maintained for many years.
-# Removal on 2024-07-08.  Bug #933850.
-www-apps/wiliki
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-08)
-# Various apache modules with no reverse dependencies, EAPI=6,
-# some maintainer-needed.
-# Removal on 2024-07-08.  Bugs #933847, #742452.
-www-apache/mod_vdbh
-www-apache/modsec-flameeyes
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-08)
-# EAPI=6, no reverse dependencies, maintainer-needed, various QA issues.
-# Removal on 2024-07-08.  Bugs #933843, #695068, #677432.
-net-analyzer/check_mk_agent
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-08)
-# EAPI=6, no reverse dependencies, fails to compile with LLVM or musl,
-# various QA issues.
-# Removal on 2024-07-08.  Bugs #933837, #832891, #740364, #751697, #403627.
-media-sound/herrie
-
 # Michał Górny <mgorny@gentoo.org> (2024-06-08)
 # Prereleases of Xfce 4.20.  Masking upon popular request, due to
 # a large number of regressions in every new release.
