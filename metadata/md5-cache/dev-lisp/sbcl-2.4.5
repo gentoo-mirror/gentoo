@@ -2,7 +2,7 @@ BDEPEND=>=dev-lisp/asdf-3.3:= prefix? ( dev-util/patchelf ) dev-debug/strace doc
 DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=Steel Bank Common Lisp (SBCL) is an implementation of ANSI Common Lisp
 EAPI=8
-HOMEPAGE=https://www.sbcl.org/ http://sbcl.sourceforge.net/
+HOMEPAGE=https://www.sbcl.org/ https://sbcl.sourceforge.net/
 INHERIT=flag-o-matic pax-utils toolchain-funcs
 IUSE=system-bootstrap debug doc source +threads +unicode +zstd
 KEYWORDS=-* ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos
@@ -11,4 +11,4 @@ RDEPEND=>=dev-lisp/asdf-3.3:= prefix? ( dev-util/patchelf ) zstd? ( app-arch/zst
 SLOT=0/2.4.5
 SRC_URI=https://downloads.sourceforge.net/sbcl/sbcl-2.4.5-source.tar.bz2 https://dev.gentoo.org/~grozin/bsd-sockets-test-2.3.6.patch.gz !system-bootstrap? ( x86? ( https://downloads.sourceforge.net/sbcl/sbcl-1.4.3-x86-linux-binary.tar.bz2 ) amd64? ( https://downloads.sourceforge.net/sbcl/sbcl-2.4.5-x86-64-linux-binary.tar.bz2 ) ppc? ( https://downloads.sourceforge.net/sbcl/sbcl-1.2.7-powerpc-linux-binary.tar.bz2 ) ppc64? ( https://downloads.sourceforge.net/sbcl/sbcl-1.5.8-ppc64le-linux-binary.tar.bz2 ) sparc? ( https://downloads.sourceforge.net/sbcl/sbcl-1.0.28-sparc-linux-binary.tar.bz2 ) alpha? ( https://downloads.sourceforge.net/sbcl/sbcl-1.0.28-alpha-linux-binary.tar.bz2 ) arm? ( https://downloads.sourceforge.net/sbcl/sbcl-2.3.3-armhf-linux-binary.tar.bz2 ) arm64? ( https://downloads.sourceforge.net/sbcl/sbcl-1.4.2-arm64-linux-binary.tar.bz2 ) x64-macos? ( https://downloads.sourceforge.net/sbcl/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2 ) ppc-macos? ( https://downloads.sourceforge.net/sbcl/sbcl-1.0.47-powerpc-darwin-binary.tar.bz2 ) x64-solaris? ( https://downloads.sourceforge.net/sbcl/sbcl-1.2.7-x86-64-solaris-binary.tar.bz2 ) )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	pax-utils	91d47e5d20627c717aa878b9167c62a8
-_md5_=12530f6d6d96248f81bda6b0e2bb207a
+_md5_=d1be8d33508d4e088732aa259df1d7b7

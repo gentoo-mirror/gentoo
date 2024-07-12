@@ -1,0 +1,16 @@
+BDEPEND=fortran? ( virtual/fortran ) >=app-portage/elt-patches-20240116
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=!sys-cluster/mpich !sys-cluster/mpich2 !sys-cluster/nullmpi >=dev-libs/libevent-2.0.22:=[threads(+)] >=sys-apps/hwloc-2.0.2:= sys-cluster/pmix:= >=sys-libs/zlib-1.2.8-r1 cuda? ( >=dev-util/nvidia-cuda-toolkit-6.5.19-r1:= ) openmpi_fabrics_ofed? ( sys-cluster/rdma-core ) openmpi_fabrics_knem? ( sys-cluster/knem ) openmpi_rm_pbs? ( sys-cluster/torque ) openmpi_rm_slurm? ( sys-cluster/slurm ) valgrind? ( dev-debug/valgrind ) fortran? ( virtual/fortran )
+DESCRIPTION=A high-performance message passing library (MPI)
+EAPI=8
+HOMEPAGE=https://www.open-mpi.org
+INHERIT=cuda flag-o-matic fortran-2 libtool
+IUSE=cma cuda cxx fortran ipv6 peruse romio valgrind openmpi_fabrics_ofed openmpi_fabrics_knem openmpi_rm_pbs openmpi_rm_slurm
+KEYWORDS=~alpha ~amd64 -arm -ppc -x86 ~amd64-linux
+LICENSE=BSD
+RDEPEND=!sys-cluster/mpich !sys-cluster/mpich2 !sys-cluster/nullmpi >=dev-libs/libevent-2.0.22:=[threads(+)] >=sys-apps/hwloc-2.0.2:= sys-cluster/pmix:= >=sys-libs/zlib-1.2.8-r1 cuda? ( >=dev-util/nvidia-cuda-toolkit-6.5.19-r1:= ) openmpi_fabrics_ofed? ( sys-cluster/rdma-core ) openmpi_fabrics_knem? ( sys-cluster/knem ) openmpi_rm_pbs? ( sys-cluster/torque ) openmpi_rm_slurm? ( sys-cluster/slurm ) fortran? ( virtual/fortran )
+REQUIRED_USE=openmpi_rm_slurm? ( !openmpi_rm_pbs ) openmpi_rm_pbs? ( !openmpi_rm_slurm )
+SLOT=0
+SRC_URI=https://www.open-mpi.org/software/ompi/v5.0/downloads/openmpi-5.0.3.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	cuda	283d0f298f6c196c755a0f8d50daca85	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	libtool	5f49a16f67f81bdf873e3d1f10b10001
+_md5_=bd04ab98ee7a911f11e715a6ec1da951
