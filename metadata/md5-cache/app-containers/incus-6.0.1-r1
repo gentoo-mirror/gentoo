@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://linuxcontainers.org/incus/introduction/ https://github.com/lxc/incus
 INHERIT=go-module linux-info optfeature systemd toolchain-funcs verify-sig
 IUSE=apparmor fuidshift nls verify-sig
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=Apache-2.0 BSD LGPL-3 MIT
 RDEPEND=acct-group/incus acct-group/incus-admin app-arch/xz-utils >=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)] dev-db/sqlite:3 >=dev-libs/cowsql-1.15.6 dev-libs/lzo >=dev-libs/raft-0.22.1:=[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp] sys-libs/libcap virtual/udev fuidshift? ( !app-containers/lxd ) net-firewall/ebtables net-firewall/iptables sys-apps/iproute2 sys-fs/fuse:* >=sys-fs/lxcfs-5.0.0 sys-fs/squashfs-tools[lzma] virtual/acl
 RESTRICT=test strip
-SLOT=0
+SLOT=0/lts
 SRC_URI=https://linuxcontainers.org/downloads/incus/incus-6.0.1.tar.xz verify-sig? ( https://linuxcontainers.org/downloads/incus/incus-6.0.1.tar.xz.asc )
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	go-env	dbefaac6fd7019213514bccd65949d9a	go-module	83fd3ed1657cfc316c93d6a37018290d	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=a6381e8ce32a927f5fb50ef15a99eda0
+_md5_=3c9d150bbde28515e20af3057ae0e25e
