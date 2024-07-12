@@ -7,7 +7,7 @@ HOMEPAGE=https://www.lyx.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop font optfeature python-single-r1 cmake xdg
 IUSE=aspell cups dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf svg l10n_he X python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) app-text/mythes dev-libs/boost:= sys-apps/file sys-libs/zlib:= virtual/imagemagick-tools[png,svg?] x11-misc/xdg-utils dev-qt/qtbase:6[concurrent,dbus,gui,widgets] dev-qt/qt5compat:6 dev-qt/qtsvg:6 aspell? ( app-text/aspell ) cups? ( net-print/cups ) dia? ( app-office/dia ) dot? ( media-gfx/graphviz ) enchant? ( app-text/enchant:2 ) gnumeric? ( app-office/gnumeric ) html? ( dev-tex/html2latex ) hunspell? ( app-text/hunspell ) l10n_he? ( dev-tex/culmus-latex dev-texlive/texlive-langarabic ) latex? ( app-text/dvipng app-text/ghostscript-gpl app-text/ps2eps app-text/texlive dev-texlive/texlive-fontsrecommended dev-texlive/texlive-latexextra dev-texlive/texlive-mathscience dev-texlive/texlive-pictures dev-texlive/texlive-plaingeneric || ( dev-tex/latex2html dev-tex/hevea dev-tex/tex4ht[java] dev-tex/tth ) ) rcs? ( dev-vcs/rcs ) rtf? ( app-text/unrtf dev-tex/html2latex dev-tex/latex2rtf ) svg? ( || ( gnome-base/librsvg media-gfx/inkscape ) )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=http://ftp.lyx.org/pub/lyx/devel/lyx-2.4/lyx-2.4.1.tar.xz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=b2e4265362f98756fadddc1739b1a762
+_md5_=672bfa4e45179c118dcb3cfbbe96f0af
