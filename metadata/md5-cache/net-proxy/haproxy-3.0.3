@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile install postinst setup test unpack
+DEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) test? ( dev-libs/libpcre2 sys-libs/zlib )
+DESCRIPTION=A TCP/HTTP reverse proxy for high availability environments
+EAPI=8
+HOMEPAGE=http://www.haproxy.org
+INHERIT=toolchain-funcs lua-single systemd linux-info multiprocessing
+IUSE=+crypt doc examples +slz +net_ns +pcre pcre-jit prometheus-exporter ssl systemd test +threads tools zlib lua 51degrees wurfl lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm64 ~ppc ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) zlib? ( sys-libs/zlib ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) test? ( dev-libs/libpcre2 sys-libs/zlib ) acct-group/haproxy acct-user/haproxy
+REQUIRED_USE=pcre-jit? ( pcre ) lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) ?? ( slz zlib )
+RESTRICT=!test? ( test )
+SLOT=0/3.0
+SRC_URI=http://haproxy.1wt.eu/download/3.0/src/haproxy-3.0.3.tar.gz test? ( https://github.com/vtest/VTest/archive/af198470d7ce482d3d26eb9ca3f246a438739366.tar.gz -> VTest-af198470d7ce482d3d26eb9ca3f246a438739366.tar.gz )
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	systemd	c8b03e8df84486aa991d4396686e8942	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe
+_md5_=0b48974758a1d79cc50804fac045c96c
