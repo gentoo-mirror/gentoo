@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.4:*
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=>=dev-qt/qtbase-6.6.2:6[gui] =kde-frameworks/karchive-6.4*:6 avif? ( >=media-libs/libavif-0.8.2:= ) eps? ( >=dev-qt/qtbase-6.6.2:6[widgets] ) heif? ( >=media-libs/libheif-1.10.0:= ) jpegxl? ( >=media-libs/libjxl-0.7.0:= ) openexr? ( >=media-libs/openexr-3:= ) raw? ( media-libs/libraw:= ) test? ( >=dev-qt/qtimageformats-6.6.2:6 heif? ( media-libs/libheif[x265] ) ) dev-qt/qtbase:6
+DESCRIPTION=Framework providing additional format plugins for Qt's image I/O system
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm frameworks.kde.org
+IUSE=avif eps heif jpegxl openexr raw debug test
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=LGPL-2+
+RDEPEND=>=dev-qt/qtbase-6.6.2:6[gui] =kde-frameworks/karchive-6.4*:6 avif? ( >=media-libs/libavif-0.8.2:= ) eps? ( >=dev-qt/qtbase-6.6.2:6[widgets] ) heif? ( >=media-libs/libheif-1.10.0:= ) jpegxl? ( >=media-libs/libjxl-0.7.0:= ) openexr? ( >=media-libs/openexr-3:= ) raw? ( media-libs/libraw:= ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=6/6.4
+SRC_URI=mirror://kde/stable/frameworks/6.4/kimageformats-6.4.0.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	virtualx	817571665ee28575da44ee08135089e5	ecm	4374b8174045bfc8f743c11736520e32	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
+_md5_=92b103e46c24d95562fd2ed288e14311

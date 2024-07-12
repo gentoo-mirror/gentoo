@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( >=app-text/doxygen-1.8.13-r1 ) dev-qt/qttools:6[assistant] dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.4:*
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=dev-libs/glib:2 >=dev-qt/qtbase-6.6.2:6[dbus,network] >=dev-qt/qtdeclarative-6.6.2:6 >=net-misc/networkmanager-1.4.0-r1[teamd=] doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+DESCRIPTION=NetworkManager bindings for Qt
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm frameworks.kde.org
+IUSE=teamd debug doc test
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=LGPL-2
+RDEPEND=dev-libs/glib:2 >=dev-qt/qtbase-6.6.2:6[dbus,network] >=dev-qt/qtdeclarative-6.6.2:6 >=net-misc/networkmanager-1.4.0-r1[teamd=] || ( >=net-misc/networkmanager-1.4.0-r1[elogind] >=net-misc/networkmanager-1.4.0-r1[systemd] ) >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=6/6.4
+SRC_URI=mirror://kde/stable/frameworks/6.4/networkmanager-qt-6.4.0.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	virtualx	817571665ee28575da44ee08135089e5	ecm	4374b8174045bfc8f743c11736520e32	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
+_md5_=7c80ea0b8305fe841953d72e33dfa71f
