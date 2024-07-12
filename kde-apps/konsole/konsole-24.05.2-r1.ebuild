@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/konsole/ https://konsole.kde.org"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~riscv"
-IUSE=""
+IUSE="X"
 
 DEPEND="
 	dev-libs/icu:=
@@ -42,12 +42,19 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-23.08.1-drop-unused-X11-dep.patch" ) # FIXME properly upstream
+PATCHES=( "${FILESDIR}/${P}-cmake.patch" ) # fixed in 24.08
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_X11=$(usex X)
+	)
+	ecm_src_configure
+}
 
 src_test() {
 	# DBusTest: drkonqi process interferes. bug 702690

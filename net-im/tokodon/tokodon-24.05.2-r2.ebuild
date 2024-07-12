@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/tokodon/"
 LICENSE="CC-BY-SA-4.0 GPL-2+ GPL-3+ || ( LGPL-2.1+ LGPL-3+ ) MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="webengine"
+IUSE="+mpv webengine"
 
 # TODO: Add kunifiedpush support once packaged (cd01eb31d1ec298d4c1e10d25a0781d799161bfc)
 DEPEND="
@@ -37,7 +37,8 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-frameworks/purpose-${KFMIN}:6
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
-	media-libs/mpvqt
+	mpv? ( media-libs/mpvqt )
+	!mpv? ( >=dev-qt/qtmultimedia-${QTMIN}:6[qml] )
 	webengine? ( >=dev-qt/qtwebview-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
@@ -46,9 +47,11 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}/${P}-enable-exceptions.patch" ) # bug 935363
+
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_QTMULTIMEDIA=OFF # bug 935363
+		-DUSE_QTMULTIMEDIA=$(usex !mpv)
 		$(cmake_use_find_package webengine Qt6WebView) # "only makes sense on mobile"
 	)
 
