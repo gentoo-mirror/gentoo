@@ -1,6 +1,17 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-07-12)
+# Need as-yet-unkeyworded KF6-based counterparts (bug #934361)
+kde-apps/libkcddb kf6compat
+kde-apps/libkcompactdisc kf6compat
+kde-apps/libksane kf6compat
+net-misc/kio-zeroconf kf6compat
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-07-12)
+# KDE PIM 6 is not being keyworded here
+kde-apps/libkgapi:5 kf6compat
+
 # Michael Orlitzky <mjo@gentoo.org> (2024-07-09)
 # The opcache extension fails to build on hardened x86, but only
 # if the JIT is enabled. Bug 930145.
@@ -20,11 +31,6 @@ kde-frameworks/purpose:5 kaccounts
 # Paul Zander <negril.nx+gentoo@gmail.com> (2024-06-17)
 # missing keywords on dev-python/PyQt6
 sci-geosciences/qgis qt6
-
-# Sam James <sam@gentoo.org> (2024-06-13)
-# Needs as-yet-unkeyworded KF6 (bug #934215)
-app-crypt/pinentry qt6
-app-office/libreoffice qt6
 
 # José de Paula R. N. Assis <espinafre@gmail.com> (2024-03-25)
 # No PyQt6 (which is needed by USE=qt6 for qscintilla-python) on x86.
