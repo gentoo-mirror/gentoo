@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/cppo dev-ml/findlib emacs? ( >=app-editors/emacs-24:* >=app-emacs/tuareg-mode-2.2.0 ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install postinst postrm test
+DEPEND=>=dev-lang/ocaml-4.11 dev-ml/lambda-term:=[ocamlopt?] dev-ml/logs:=[ocamlopt?] dev-ml/lwt:=[ocamlopt?] dev-ml/react:= dev-ml/xdg:=[ocamlopt?] dev-ml/zed:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Universal toplevel for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/ocaml-community/utop
+INHERIT=dune elisp-common
+IUSE=emacs +ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=>=dev-lang/ocaml-4.11 dev-ml/lambda-term:=[ocamlopt?] dev-ml/logs:=[ocamlopt?] dev-ml/lwt:=[ocamlopt?] dev-ml/react:= dev-ml/xdg:=[ocamlopt?] dev-ml/zed:=[ocamlopt?] emacs? ( >=app-editors/emacs-24:* >=app-emacs/tuareg-mode-2.2.0 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/2.14.0
+SRC_URI=https://github.com/ocaml-community/utop/archive/2.14.0.tar.gz -> utop-2.14.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d	elisp-common	abb2dda42f680fce87602c8273f832c7
+_md5_=71da5bc94d4b8dcb60c4becf52b30c53
