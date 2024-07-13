@@ -19,6 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
+	>=dev-python/packaging-23.1[${PYTHON_USEDEP}]
 	>=dev-python/pip-23.1.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -37,6 +38,13 @@ PATCHES=(
 )
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	find -name '*.py' -exec \
+		sed -i -e 's:pip[.]_vendor[.]::' {} + || die
+}
 
 python_test() {
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
