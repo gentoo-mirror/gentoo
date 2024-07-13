@@ -1,16 +1,17 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl] app-alternatives/ninja >=dev-build/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-cpp/asio-1.12.0 dev-libs/boost:= sys-apps/hwloc:= jemalloc? ( dev-libs/jemalloc:= ) mpi? ( virtual/mpi ) papi? ( dev-libs/papi ) perftools? ( dev-util/google-perftools:= ) tbb? ( dev-cpp/tbb:= ) zlib? ( sys-libs/zlib )
 DESCRIPTION=C++ runtime system for parallel and distributed applications
 EAPI=8
 HOMEPAGE=https://hpx.stellar-group.org/
-INHERIT=git-r3 check-reqs cmake multiprocessing python-single-r1
+INHERIT=check-reqs cmake multiprocessing python-single-r1
 IUSE=examples jemalloc mpi papi +perftools tbb zlib python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=Boost-1.0
-PROPERTIES=live
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-cpp/asio-1.12.0 dev-libs/boost:= sys-apps/hwloc:= jemalloc? ( dev-libs/jemalloc:= ) mpi? ( virtual/mpi ) papi? ( dev-libs/papi ) perftools? ( dev-util/google-perftools:= ) tbb? ( dev-cpp/tbb:= ) zlib? ( sys-libs/zlib )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ?? ( jemalloc perftools tbb )
 RESTRICT=test
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=96517581244a8d79c85d3d4af2dccfee
+SRC_URI=https://github.com/STEllAR-GROUP/hpx/archive/v1.10.0.tar.gz -> hpx-1.10.0.tar.gz
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=ecd10b9ba8bf1219e843f0498d2b4cc6
