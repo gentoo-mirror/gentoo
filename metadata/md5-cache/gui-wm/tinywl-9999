@@ -3,11 +3,11 @@ DEFINED_PHASES=compile install prepare unpack
 DEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-9999*:=
 DESCRIPTION="minimum viable product" Wayland compositor based on wlroots
 EAPI=8
-HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots
+HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots/-/tree/master/tinywl
 INHERIT=git-r3
 LICENSE=CC0-1.0
 PROPERTIES=live
 RDEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-9999*:= !gui-libs/wlroots[tinywl(-)]
 SLOT=0
 _eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=50c6a3e8b7582c77e094a14e923a2038
+_md5_=424696613ff6f5fcb116da8591084ed1
