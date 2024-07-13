@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/alcotest:=[ocamlopt?] dev-ml/ounit2:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=QuickCheck inspired property-based testing for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/c-cube/qcheck
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=dev-ml/alcotest:=[ocamlopt?] dev-ml/ounit2:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/0.22
+SRC_URI=https://github.com/c-cube/qcheck/archive/v0.22.tar.gz -> qcheck-0.22.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=57745259045f97f5bdb8677d5206b0d5
