@@ -5,9 +5,8 @@ EAPI=8
 
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{10..12} )
-KFMIN=5.82.0
-QTMIN=5.15.5
-VIRTUALX_REQUIRED="test"
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm kde.org python-single-r1
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
@@ -26,8 +25,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # bug 630508
 RESTRICT="test"
 
-RDEPEND="
-	${PYTHON_DEPS}
+RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=
 	dev-libs/libunibreak:=
 	dev-libs/quazip:0=[qt5(+)]
@@ -74,17 +72,16 @@ RDEPEND="
 	jpeg2k? ( media-libs/openjpeg:= )
 	jpegxl? ( >=media-libs/libjxl-0.7.0_pre20220825:= )
 	heif? ( >=media-libs/libheif-1.11:=[x265] )
+	media? ( media-libs/mlt:= )
 	mypaint-brush-engine? ( media-libs/libmypaint:= )
 	openexr? ( media-libs/openexr:= )
 	pdf? ( app-text/poppler[qt5] )
-	media? ( media-libs/mlt:= )
 	raw? ( kde-apps/libkdcraw:= )
-	xsimd? ( dev-cpp/xsimd )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
+	xsimd? ( dev-cpp/xsimd )
 
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	dev-libs/immer
 	dev-libs/lager
 	dev-libs/zug
@@ -96,11 +93,11 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.3.1-tests-optional.patch"
-	"${FILESDIR}/${PN}-5.1.5-sip-6.8.patch" # bug 919139
-	"${FILESDIR}/${P}-libjxl-0.9.patch" # bug 922524
-	"${FILESDIR}/${P}-fftw.patch"
-	"${FILESDIR}/${P}-openjpeg.patch"
+	# downstream
+	"${FILESDIR}"/${P}-tests-optional.patch
+	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
+	# git master
+	"${FILESDIR}"/${PN}-5.1.5-sip-6.8.patch # bug 919139
 )
 
 pkg_setup() {
@@ -124,13 +121,13 @@ src_configure() {
 		$(cmake_use_find_package heif HEIF)
 		$(cmake_use_find_package jpeg2k OpenJPEG)
 		$(cmake_use_find_package jpegxl JPEGXL)
+		$(cmake_use_find_package media Mlt7)
 		$(cmake_use_find_package mypaint-brush-engine LibMyPaint)
 		$(cmake_use_find_package openexr OpenEXR)
 		$(cmake_use_find_package pdf Poppler)
-		$(cmake_use_find_package media Mlt7)
 		$(cmake_use_find_package raw KF5KDcraw)
-		$(cmake_use_find_package xsimd xsimd)
 		$(cmake_use_find_package webp WebP)
+		$(cmake_use_find_package xsimd xsimd)
 	)
 
 	ecm_src_configure
