@@ -4852,7 +4852,7 @@ dev-java/freenet-ext 29-r1: Freenet REference Daemon
 dev-java/gnu-regexp 1.1.4-r4: GNU regular expression package for Java
 dev-java/gradle-bin 8.4 8.5 8.7: A project automation and build tool with a Groovy based DSL
 dev-java/greenmail 2.0.0_alpha2: GreenMail - Email Test Servers
-dev-java/gson 2.10.2_pre20231128-r1 2.11.0: Gson JSON library
+dev-java/gson 2.10.2_pre20231128-r1 2.11.0-r1: Gson JSON library
 dev-java/guava 33.2.0: A collection of Google's core Java libraries
 dev-java/guava-testlib 33.2.0: A set of java classes to assist the tests for Guava itself
 dev-java/guice 5.1.0-r1: Guice is a lightweight dependency injection framework for Java 6 and above
@@ -4945,7 +4945,7 @@ dev-java/jffi 1.3.10: Java Foreign Function Interface
 dev-java/jflex 1.6.1-r2 1.6.1-r3: JFlex is a lexical analyzer generator for Java
 dev-java/jgoodies-common 1.8.0-r1: JGoodies Common Library
 dev-java/jgoodies-looks 2.6.0-r1: JGoodies Looks Library
-dev-java/jide-oss 3.7.12: JIDE Common Layer (Professional Swing Components)
+dev-java/jide-oss 3.7.12-r1: JIDE Common Layer (Professional Swing Components)
 dev-java/jimfs 1.3.0: An in-memory file system for Java 7+
 dev-java/jline 2.14.6: A Java library for handling console input
 dev-java/jmc 8.3.0: JDK Mission Control
@@ -5912,7 +5912,7 @@ dev-ml/async_log 0.17.0: Logging library built on top of Async_unix
 dev-ml/async_rpc_kernel 0.14.0-r1 0.15.0 0.16.0 0.17.0: Platform-independent core of Async RPC library
 dev-ml/async_unix 0.14.0 0.15.0 0.16.0 0.17.0: Jane Street Capital's asynchronous execution library (unix)
 dev-ml/atd 2.15.0: Static types for JSON APIs
-dev-ml/base 0.14.0-r2 0.14.3-r2 0.15.1-r2 0.16.3-r1 0.17.0-r1: Standard library for OCaml
+dev-ml/base 0.14.0-r2 0.14.3-r2 0.15.1-r2 0.16.3-r1 0.17.1: Standard library for OCaml
 dev-ml/base_bigstring 0.14.0 0.15.0-r1 0.16.0 0.17.0: String type based on Bigarray, for use in I/O and C-bindings
 dev-ml/base_quickcheck 0.14.0-r1 0.14.1-r2 0.15.0-r3 0.16.0 0.17.0: Randomized testing framework, designed for compatibility with Base
 dev-ml/batteries 3.5.1 3.6.0-r1 3.6.1 3.8.0: A community-maintained standard library extension
@@ -6132,12 +6132,12 @@ dev-ml/utop 2.12.1 2.14.0: Universal toplevel for OCaml
 dev-ml/uucp 15.0.0 15.1.0: Unicode character properties for OCaml
 dev-ml/uuidm 0.9.7 0.9.8: Universally unique identifiers (UUIDs) for OCaml
 dev-ml/uunf 15.0.0 15.1.0-r1: Unicode text normalization
-dev-ml/uuseg 15.0.0: Unicode text segmentation for OCaml
+dev-ml/uuseg 15.0.0 15.1.0: Unicode text segmentation for OCaml
 dev-ml/uutf 1.0.1 1.0.2 1.0.3: Non-blocking streaming Unicode codec for OCaml
 dev-ml/variantslib 0.14.0 0.15.0 0.16.0 0.17.0: OCaml variants as first class values
 dev-ml/xdg 3.16.0: XDG Base Directory Specification
 dev-ml/xml-light 2.2-r3 2.5: Minimal Xml parser and printer for OCaml
-dev-ml/yojson 2.1.0 2.1.1 2.2.1: JSON parsing and pretty-printing library for OCaml
+dev-ml/yojson 2.1.0 2.1.1 2.2.1 2.2.2: JSON parsing and pretty-printing library for OCaml
 dev-ml/zarith 1.13: Arithmetic and logic operations over arbitrary-precision integers
 dev-ml/zed 3.2.2-r1 3.2.3: Abstract engine for text edition in OCaml
 dev-ml/zmq 5.2.1: OCaml bindings for ZeroMQ 4.x
@@ -16417,7 +16417,7 @@ sec-keys/openpgp-keys-apache-httpcomponents-client 220903: OpenPGP keys used by 
 sec-keys/openpgp-keys-apache-httpcomponents-httpcore 220903: OpenPGP keys used by httpcomponents-core.hc.apache.org
 sec-keys/openpgp-keys-apache-logging 20220918: OpenPGP keys used by logging.apache.org
 sec-keys/openpgp-keys-apache-lucene 20170408: OpenPGP keys used by lucene.apache.org
-sec-keys/openpgp-keys-apache-tomcat 9.0.89 9.0.90 9.0.91 10.1.24 10.1.25: OpenPGP keys used by tomcat.apache.org
+sec-keys/openpgp-keys-apache-tomcat 9.0.89 9.0.90 9.0.91 10.1.24 10.1.25 10.1.26: OpenPGP keys used by tomcat.apache.org
 sec-keys/openpgp-keys-apache-tomcat-connectors 20141023: OpenPGP keys used by tomcat-connectors
 sec-keys/openpgp-keys-apache-xalan-c 20221123: OpenPGP keys used to sign Apache Xalan-C
 sec-keys/openpgp-keys-apache-xalan-j 20221029: OpenPGP keys used by xalan.apache.org
@@ -18107,7 +18107,7 @@ www-servers/servefile 0.5.4 0.5.4-r1: Serve a single file via HTTP
 www-servers/sniproxy 0.6.1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.1-r3 1.8.2: A fast and very simple Ruby web server
-www-servers/tomcat 9.0.89 9.0.90 9.0.90-r1 9.0.91 10.1.24-r1 10.1.25 10.1.25-r1: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+www-servers/tomcat 9.0.89 9.0.90 9.0.90-r1 9.0.91 10.1.24-r1 10.1.25 10.1.25-r1 10.1.26: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
 www-servers/uwsgi 2.0.23: uWSGI server for Python web applications
 www-servers/varnish 7.5.0: Varnish is a state-of-the-art, high-performance HTTP accelerator
 www-servers/webfs 1.21: Lightweight HTTP server for static content
