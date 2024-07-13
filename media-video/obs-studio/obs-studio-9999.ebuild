@@ -57,6 +57,7 @@ DEPEND="
 	dev-cpp/nlohmann_json
 	dev-libs/glib:2
 	dev-libs/jansson:=
+	dev-libs/uthash
 	dev-qt/qtbase:6[network,widgets,xml(+)]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
