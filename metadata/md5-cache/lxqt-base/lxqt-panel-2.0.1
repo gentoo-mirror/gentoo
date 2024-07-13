@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 INHERIT=cmake
 IUSE=+alsa colorpicker cpuload +desktopswitch +directorymenu dom +kbindicator +mainmenu +mount networkmonitor pulseaudio +quicklaunch lm-sensors +showdesktop +spacer +statusnotifier sysstat +taskbar tray +volume +worldclock
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=LGPL-2.1 LGPL-2.1+
 RDEPEND=>=dev-libs/libqtxdg-4.0.0 >=dev-qt/qtbase-6.6:6[dbus,gui,widgets,xml] >=dev-qt/qtsvg-6.6:6 kde-frameworks/kwindowsystem:6[X] kde-plasma/layer-shell-qt:6 >=lxde-base/menu-cache-1.1.0 =lxqt-base/liblxqt-2.0*:= =lxqt-base/lxqt-globalkeys-2.0* =lxqt-base/lxqt-menu-data-2.0* x11-libs/libX11 cpuload? ( sys-libs/libstatgrab ) kbindicator? ( x11-libs/libxkbcommon ) lm-sensors? ( sys-apps/lm-sensors:= ) mount? ( kde-frameworks/solid:6 ) networkmonitor? ( sys-libs/libstatgrab ) statusnotifier? ( dev-libs/libdbusmenu-lxqt >=dev-qt/qtbase-6.6:6[concurrent] ) sysstat? ( >=lxqt-base/libsysstat-1.0.0 ) tray? ( x11-libs/libxcb:= x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXrender x11-libs/libXtst x11-libs/xcb-util x11-libs/xcb-util-image ) volume? ( alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse media-sound/pavucontrol-qt ) )
 REQUIRED_USE=|| ( desktopswitch mainmenu showdesktop taskbar ) volume? ( || ( alsa pulseaudio ) )
 SLOT=0
 SRC_URI=https://github.com/lxqt/lxqt-panel/releases/download/2.0.1/lxqt-panel-2.0.1.tar.xz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
-_md5_=1beea9005380d95fe77f9fbe808f46eb
+_md5_=14d181540b04449b0c4a24ad66ac6fc5

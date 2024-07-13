@@ -3,9 +3,9 @@ DESCRIPTION=Meta ebuild for LXQt, the Lightweight Desktop Environment
 EAPI=8
 HOMEPAGE=https://lxqt-project.org/
 IUSE=+about admin +archiver +desktop-portal +display-manager +filemanager +lximage nls +policykit powermanagement +processviewer +screenshot +sddm ssh-askpass +sudo +terminal +trash +window-manager
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=metapackage
 RDEPEND=kde-frameworks/breeze-icons:6 =lxqt-base/lxqt-config-2.0* =lxqt-base/lxqt-globalkeys-2.0* =lxqt-base/lxqt-menu-data-2.0* =lxqt-base/lxqt-notificationd-2.0* =lxqt-base/lxqt-panel-2.0* =lxqt-base/lxqt-qtplugin-2.0* =lxqt-base/lxqt-runner-2.0* =lxqt-base/lxqt-session-2.0* virtual/ttf-fonts x11-terms/xterm =x11-themes/lxqt-themes-2.0* about? ( =lxqt-base/lxqt-about-2.0* ) admin? ( =lxqt-base/lxqt-admin-2.0* ) archiver? ( >=app-arch/lxqt-archiver-1.0 ) desktop-portal? ( >=gui-libs/xdg-desktop-portal-lxqt-1.0 ) display-manager? ( sddm? ( x11-misc/sddm ) !sddm? ( x11-misc/lightdm ) ) filemanager? ( =x11-misc/pcmanfm-qt-2.0* ) lximage? ( =media-gfx/lximage-qt-2.0* ) nls? ( dev-qt/qttranslations:6 ) policykit? ( =lxqt-base/lxqt-policykit-2.0* ) powermanagement? ( =lxqt-base/lxqt-powermanagement-2.0* ) processviewer? ( >=x11-misc/qps-2.9 ) screenshot? ( >=x11-misc/screengrab-2.8 ) sddm? ( x11-misc/sddm ) ssh-askpass? ( =lxqt-base/lxqt-openssh-askpass-2.0* ) sudo? ( =lxqt-base/lxqt-sudo-2.0* ) terminal? ( =x11-terms/qterminal-2.0* ) trash? ( gnome-base/gvfs ) window-manager? ( kde-plasma/kwin:6 kde-plasma/systemsettings:6 )
 REQUIRED_USE=trash? ( filemanager )
 SLOT=0
-_md5_=085aacc131608c668dc9c9115cdff4b3
+_md5_=de9e3ccf8bf15b877785b3120faaec53
