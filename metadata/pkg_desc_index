@@ -2331,7 +2331,7 @@ app-emulation/grub-xen-host 1.0-r1 1.0-r2: Grub2 built as a PV grub per the Xen 
 app-emulation/guestfs-tools 1.48.2: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/gxemul 0.6.2: A Machine Emulator, Mainly emulates MIPS, but supports other CPU types
 app-emulation/hercules 3.13-r1: Hercules System/370, ESA/390 and zArchitecture Mainframe Emulator
-app-emulation/hercules-sdl 4.7.0 4.7.0-r1: The SoftDevLabs (SDL) version of the Hercules 4.x Hyperion Emulator
+app-emulation/hercules-sdl 4.7.0-r1: The SoftDevLabs (SDL) version of the Hercules 4.x Hyperion Emulator
 app-emulation/hercules-sdl-crypto 4.7.0 9999: Simple AES/DES encryption and SHA1/SHA2 hashing library
 app-emulation/hercules-sdl-decnumber 4.7.0 9999: ANSI C General Decimal Arithmetic Library
 app-emulation/hercules-sdl-softfloat 4.7.0 9999: Berkeley IEEE Binary Floating-Point Library
@@ -6002,6 +6002,7 @@ dev-ml/ocaml-augeas 0.5 0.6: Ocaml bindings for Augeas
 dev-ml/ocaml-autoconf 1.1-r1: autoconf macros to support configuration of OCaml programs and libraries
 dev-ml/ocaml-base64 3.5.0 3.5.1: Library for radix-64 representation (de)coding
 dev-ml/ocaml-compiler-libs 0.12.3 0.12.4 0.17.0: Repackage the OCaml compiler libs so they do not expose everything at toplevel
+dev-ml/ocaml-crunch 3.3.1: Convert a filesystem into a static OCaml module
 dev-ml/ocaml-ctypes 0.17.1-r1 0.20.0 0.20.1 0.21.1-r2 0.22.0: Library for binding to C libraries using pure OCaml
 dev-ml/ocaml-doc 4.04 4.05: Ocaml reference manual (html)
 dev-ml/ocaml-expat 1.1.0-r1 1.3.0: OCaml bindings for expat
@@ -8862,8 +8863,8 @@ dev-python/pikepdf 8.4.1-r1 8.11.2-r1 8.14.0-r1 8.15.1-r1 9.0.0: Python library 
 dev-python/pillow 10.2.0-r1 10.3.0 10.4.0: Python Imaging Library (fork)
 dev-python/pip 24.0 24.1 24.1-r1 24.1.1 24.1.2: The PyPA recommended tool for installing Python packages
 dev-python/pip-run 12.6.1: Install packages and run Python with them
-dev-python/pipdeptree 2.16.2-r1 2.17.0-r1 2.21.0-r1 2.22.0-r1 2.23.0-r1 2.23.1: Utility for displaying installed packages in a dependency tree
-dev-python/pipenv 2023.12.1-r1: Python Development Workflow for Humans
+dev-python/pipdeptree 2.16.2-r1 2.17.0-r1 2.18.1 2.21.0-r1 2.22.0-r1 2.23.0-r1 2.23.1: Utility for displaying installed packages in a dependency tree
+dev-python/pipenv 2023.12.1-r1 2024.0.1: Python Development Workflow for Humans
 dev-python/pipx 1.6.0: Install and Run Python Applications in Isolated Environments
 dev-python/pivy 0.6.8: Coin3D bindings for Python
 dev-python/pkgconfig 1.5.5-r1: Interface Python with pkg-config
@@ -14062,7 +14063,7 @@ media-sound/wavegain 1.3.1-r1: ReplayGain for WAVE audio files
 media-sound/wavpack 5.7.0: Hybrid lossless audio compression tools
 media-sound/wavplay 2.0: A command line player/recorder for wav files
 media-sound/wavsplit 1.2.1-r2: Simple command line tool to split WAV files
-media-sound/whipper 0.10.0-r1 0.10.0-r2: A Python CD-DA ripper preferring accuracy over speed (forked from morituri)
+media-sound/whipper 0.10.0-r3: A Python CD-DA ripper preferring accuracy over speed (forked from morituri)
 media-sound/wildmidi 0.4.5 0.4.6: MIDI processing library and player using the GUS patch set
 media-sound/wmsound-data 1.0.0: A bunch of sounds for WindowMaker Sound Server
 media-sound/xfmpc 0.3.1: Music Player Daemon (MPD) client for the Xfce desktop environment
@@ -16262,7 +16263,7 @@ sci-mathematics/geogebra-bin 5.0.752.0 6.0.804.0: Mathematics software for geome
 sci-mathematics/geomview 1.9.5-r1: Interactive Geometry Viewer
 sci-mathematics/gfan 0.6.2-r4: Compute Groebner fans and tropical varieties
 sci-mathematics/giac 1.9.0.29-r1 1.9.0.93: A free C++ Computer Algebra System library and its interfaces
-sci-mathematics/gimps 30.8.15 30.8.17 30.19.14: The Great Internet Mersenne Prime Search
+sci-mathematics/gimps 30.8.15 30.8.17 30.19.14 30.19.20: The Great Internet Mersenne Prime Search
 sci-mathematics/ginac 1.8.7-r1 1.8.7-r2 1.8.7-r3: C++ library and tools for symbolic calculations
 sci-mathematics/glpk 5.0-r1 5.0-r2: GNU Linear Programming Kit
 sci-mathematics/gmm 5.4 5.4.2: Generic C++ template library for sparse, dense and skyline matrices
@@ -17102,7 +17103,7 @@ sys-apps/usbguard 1.1.2 1.1.3-r1: Daemon protecting your computer against BadUSB
 sys-apps/usbmon 6.1-r1: Userland for USB monitoring framework
 sys-apps/usbredir 0.13.0-r1 0.14.0: TCP daemon and set of libraries for usbredir protocol (redirecting USB traffic)
 sys-apps/usbutils 016 017: USB enumeration utilities
-sys-apps/usermode-utilities 20070815-r4 20070815-r5: Tools for use with Usermode Linux virtual machines
+sys-apps/usermode-utilities 20070815-r4 20070815-r5 20070815-r6: Tools for use with Usermode Linux virtual machines
 sys-apps/uswid 0.4.7: Pure-Python library and CLI tool for processing SBoM metadata
 sys-apps/utempter 0.5.5.6-r1 0.5.5.6-r2: App that allows non-privileged apps to write utmp (login) info
 sys-apps/util-linux 2.39.3-r2 2.39.3-r7 2.39.4-r1 2.40.1-r3 2.40.2 9999: Various useful Linux utilities

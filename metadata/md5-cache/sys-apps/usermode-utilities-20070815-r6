@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile prepare
+DEPEND=fuse? ( sys-fs/fuse:0= ) sys-libs/readline:0=
+DESCRIPTION=Tools for use with Usermode Linux virtual machines
+EAPI=8
+HOMEPAGE=http://user-mode-linux.sourceforge.net/
+INHERIT=toolchain-funcs
+IUSE=fuse
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2
+RDEPEND=fuse? ( sys-fs/fuse:0= ) sys-libs/readline:0=
+SLOT=0
+SRC_URI=http://user-mode-linux.sourceforge.net/uml_utilities_20070815.tar.bz2
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=7707847b8769d40fc224351ee6e5473a
