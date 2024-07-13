@@ -10,5 +10,5 @@ LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
 PDEPEND=sys-devel/clang:* default-compiler-rt? ( sys-devel/clang-runtime[compiler-rt] llvm-libunwind? ( sys-libs/llvm-libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=sys-libs/libcxx-19.0.0.9999[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( >=sys-devel/lld-19.0.0.9999 ) !default-lld? ( sys-devel/binutils )
 PROPERTIES=live
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	git-r3	875eb471682d3e1f18da124be97dcc81	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	llvm.org	ef3fc632e9a7928d573f9002f0041c72
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	git-r3	875eb471682d3e1f18da124be97dcc81	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	llvm.org	c68903c615ff8e1dde53e3ee2ffba44c
 _md5_=e9e4ccda4ef42e66cb8ad3a2b0fb5771

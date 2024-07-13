@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-ml/ppx_expect ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Pretty-printing library
+EAPI=8
+HOMEPAGE=https://github.com/ocaml-dune/pp
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ocaml-dune/pp/releases/download/1.2.0/pp-1.2.0.tbz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=0366b9f3a9c957c17e12621d58bc896c
