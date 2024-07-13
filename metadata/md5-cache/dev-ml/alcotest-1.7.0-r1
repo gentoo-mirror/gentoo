@@ -1,0 +1,15 @@
+BDEPEND=>=dev-ml/dune-3.0 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-ml/astring:= dev-ml/async:=[ocamlopt?] dev-ml/async_kernel:=[ocamlopt?] >=dev-ml/async_unix-0.15.0:=[ocamlopt?] dev-ml/base:=[ocamlopt?] dev-ml/cmdliner:=[ocamlopt?] >=dev-ml/core-0.15.0:=[ocamlopt?] >=dev-ml/core_unix-0.15.0:=[ocamlopt?] dev-ml/duration:=[ocamlopt?] dev-ml/fmt:=[ocamlopt?] dev-ml/lwt:=[ocamlopt?] dev-ml/mirage-clock:=[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/logs:=[ocamlopt?] dev-ml/uutf:=[ocamlopt?] dev-ml/uuidm:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A lightweight and colourful test framework
+EAPI=8
+HOMEPAGE=https://github.com/mirage/alcotest/
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=ISC
+RDEPEND=dev-ml/astring:= dev-ml/async:=[ocamlopt?] dev-ml/async_kernel:=[ocamlopt?] >=dev-ml/async_unix-0.15.0:=[ocamlopt?] dev-ml/base:=[ocamlopt?] dev-ml/cmdliner:=[ocamlopt?] >=dev-ml/core-0.15.0:=[ocamlopt?] >=dev-ml/core_unix-0.15.0:=[ocamlopt?] dev-ml/duration:=[ocamlopt?] dev-ml/fmt:=[ocamlopt?] dev-ml/lwt:=[ocamlopt?] dev-ml/mirage-clock:=[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/logs:=[ocamlopt?] dev-ml/uutf:=[ocamlopt?] dev-ml/uuidm:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/1.7.0
+SRC_URI=https://github.com/mirage/alcotest/archive/1.7.0.tar.gz -> alcotest-1.7.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=033ade8e7a2b723729c0cf0dfb7549ff
