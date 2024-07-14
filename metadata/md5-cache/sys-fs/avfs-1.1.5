@@ -1,0 +1,13 @@
+BDEPEND=dev-build/libtool virtual/pkgconfig
+DEFINED_PHASES=configure install postinst
+DEPEND=app-arch/bzip2:= >=sys-fs/fuse-2.4:0 sys-libs/zlib lzip? ( app-arch/lzlib ) lzma? ( app-arch/xz-utils ) webdav? ( net-libs/neon:= ) zstd? ( app-arch/zstd:= )
+DESCRIPTION=Virtual filesystem that allows browsing of compressed files
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/avf/
+IUSE=lzip +lzma webdav +zstd
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-arch/bzip2:= >=sys-fs/fuse-2.4:0 sys-libs/zlib lzip? ( app-arch/lzlib ) lzma? ( app-arch/xz-utils ) webdav? ( net-libs/neon:= ) zstd? ( app-arch/zstd:= )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/avf/avfs-1.1.5.tar.bz2
+_md5_=4c0bc8db9dc53cc1683fbe1808bbba21
