@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.gap-system.org/
 INHERIT=estack
 IUSE=cpu_flags_x86_popcnt debug memcheck minimal readline test valgrind
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2+
 PDEPEND=dev-gap/gapdoc dev-gap/primgrp dev-gap/smallgrp dev-gap/transgrp !minimal? ( dev-gap/autpgrp dev-gap/alnuth dev-gap/crisp dev-gap/ctbllib dev-gap/factint dev-gap/fga dev-gap/irredsol dev-gap/laguna dev-gap/polenta dev-gap/polycyclic dev-gap/resclasses dev-gap/sophus dev-gap/tomlib )
 RDEPEND=dev-libs/gmp:= sys-libs/zlib valgrind? ( dev-debug/valgrind ) readline? ( sys-libs/readline:= )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0/9
 SRC_URI=https://github.com/gap-system/gap/releases/download/v4.13.1/gap-4.13.1-core.tar.gz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804
-_md5_=ef53b858b7385f708788a9151b1b08a1
+_md5_=14e34f086daeb62a8b653a434a4bf9f1
