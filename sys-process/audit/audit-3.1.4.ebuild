@@ -7,7 +7,7 @@ EAPI=8
 # check Fedora's packaging (https://src.fedoraproject.org/rpms/audit/tree/rawhide)
 # on bumps (or if hitting a bug) to see what they've done there.
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit autotools multilib-minimal toolchain-funcs python-r1 linux-info systemd usr-ldscript
 
@@ -17,7 +17,7 @@ SRC_URI="https://people.redhat.com/sgrubb/audit/${P}.tar.gz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="gssapi io-uring ldap python static-libs test"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
@@ -34,22 +34,16 @@ DEPEND="
 	>=sys-kernel/linux-headers-2.6.34
 	test? ( dev-libs/check )
 "
-BDEPEND="python? (
-			dev-lang/swig
-			$(python_gen_cond_dep '
-				dev-python/setuptools[${PYTHON_USEDEP}]
-			' python3_12)
-		)
+BDEPEND="
+	python? (
+		dev-lang/swig
+		$(python_gen_cond_dep '
+			dev-python/setuptools[${PYTHON_USEDEP}]
+		' python3_12)
+	)
 "
 
 CONFIG_CHECK="~AUDIT"
-
-PATCHES=(
-	# See bug #836702 before removing / verify builds fine w/ USE=python
-	# with latest kernel headers.
-	"${FILESDIR}"/${PN}-3.0.8-linux-headers-5.17.patch
-	"${FILESDIR}"/${PN}-3.0.8-musl-malloc.patch
-)
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	# missing on musl. Uses handrolled AC_LINK_IFELSE but fails at link time
