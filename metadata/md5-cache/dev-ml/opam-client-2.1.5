@@ -1,0 +1,16 @@
+BDEPEND=test? ( sys-apps/bubblewrap ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-ml/cmdliner:=[ocamlopt?] ~dev-ml/opam-repository-2.1.5:=[ocamlopt?] ~dev-ml/opam-state-2.1.5:=[ocamlopt?] ~dev-ml/opam-solver-2.1.5:=[ocamlopt?] dev-ml/opam-file-format:=[ocamlopt?] dev-ml/re:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=opam client libraries
+EAPI=8
+HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-ml/cmdliner:=[ocamlopt?] ~dev-ml/opam-repository-2.1.5:=[ocamlopt?] ~dev-ml/opam-state-2.1.5:=[ocamlopt?] ~dev-ml/opam-solver-2.1.5:=[ocamlopt?] dev-ml/opam-file-format:=[ocamlopt?] dev-ml/re:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/2.1.5
+SRC_URI=https://github.com/ocaml/opam/archive/2.1.5.tar.gz -> opam-2.1.5.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=b8ded3a8dedec315f903831b31d42f0e
