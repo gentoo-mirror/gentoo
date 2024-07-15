@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://linalg.org/
 INHERIT=autotools toolchain-funcs
 IUSE=doc opencl openmp
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=GPL-2+ LGPL-2.1
 RDEPEND=dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.2* =sci-libs/fflas-ffpack-2.5* virtual/cblas virtual/lapack opencl? ( virtual/opencl ) dev-libs/ntl:= sci-libs/iml dev-libs/mpfr:= sci-mathematics/flint doc? ( >=dev-libs/mathjax-3 )
 SLOT=0
 SRC_URI=https://github.com/linbox-team/linbox/releases/download/v1.7.0/linbox-1.7.0.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0
-_md5_=176081ba8ec5d8dbbca78a0c94046291
+_md5_=0160a122123ce71a44c4086f7d786e54
