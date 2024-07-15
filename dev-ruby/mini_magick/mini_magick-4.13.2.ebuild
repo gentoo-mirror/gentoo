@@ -27,8 +27,8 @@ IUSE="test"
 # It's only used at runtime in this case because this extension only
 # _calls_ the commands. But when we run tests we're going to need tiff
 # and jpeg support at a minimum.
-RDEPEND+=" media-gfx/imagemagick"
-DEPEND+=" test? ( virtual/imagemagick-tools[jpeg,png,tiff] )"
+RDEPEND=" media-gfx/imagemagick"
+DEPEND=" test? ( virtual/imagemagick-tools[jpeg,png,tiff] )"
 
 ruby_add_bdepend "test? ( dev-ruby/mocha dev-ruby/webmock )"
 
@@ -36,28 +36,21 @@ all_ruby_prepare() {
 	# remove executable bit from all files
 	find "${S}" -type f -exec chmod -x {} +
 
-	sed -i -e '/\([Bb]undler\|pry\)/ s:^:#:' spec/spec_helper.rb || die
+	sed -i -e '/bundler/ s:^:#:' spec/spec_helper.rb || die
 
-	# Don't force a specific formatter but use overall Gentoo defaults.
-	sed -i -e '/config.formatter/d' spec/spec_helper.rb || die
+	# Don't force a specific formatter but use overall Gentoo defaults
+	# and show all failures.
+	sed -i -e '/config.\(fail_fast\|formatter\)/ s:^:#:' spec/spec_helper.rb || die
 
 	# Avoid broken spec that does not assume . in path name
 	sed -i -e '/reformats a layer/,/end/ s:^:#:' spec/lib/mini_magick/image_spec.rb || die
 
 	# Avoid spec broken by recent imagemagick updates
-	sed -i -e '/cache files generated from .mpc/askip' spec/lib/mini_magick/image_spec.rb || die
-	sed -i -e '/does not hang when parsing verbose data/askip' spec/lib/mini_magick/image_spec.rb || die
 	sed -i -e '/reads exif/askip "Now returns more complete EXIF data"' spec/lib/mini_magick/image_spec.rb || die
 
 	# Avoid graphicsmagick tests because installing both in parallel for
 	# tests is hard.
-	sed -i -e 's/:graphicsmagick//' spec/spec_helper.rb || die
 	sed -i -e '/identifies when gm exists/,/^    end/ s:^:#:' spec/lib/mini_magick/utilities_spec.rb || die
 	sed -i -e '/returns GraphicsMagick/,/^    end/ s:^:#:' spec/lib/mini_magick_spec.rb || die
 	sed -i -e 's/"GraphicsMagick"//' spec/lib/mini_magick/image_spec.rb || die
-
-	# Avoid posix-spawn tests because is not the default, does not work with ruby30 and appears to be unmaintained.
-	sed	-e '/SHELL_APIS.*posix-spawn/ s:^:#:' \
-		-e 's/"posix-spawn"//' \
-		-i spec/spec_helper.rb || die
 }
