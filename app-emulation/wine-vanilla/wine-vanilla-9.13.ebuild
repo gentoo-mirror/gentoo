@@ -4,33 +4,27 @@
 EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_{32,64} )
-PYTHON_COMPAT=( python3_{10..13} )
-inherit autotools edo flag-o-matic multilib multilib-build optfeature
-inherit prefix python-any-r1 toolchain-funcs wrapper
+inherit autotools flag-o-matic multilib multilib-build optfeature
+inherit prefix toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
 WINE_MONO=9.2.0
-WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine-staging.git"
-	WINE_EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
+	EGIT_REPO_URI="https://gitlab.winehq.org/wine/wine.git"
 else
 	(( $(ver_cut 2) )) && WINE_SDIR=$(ver_cut 1).x || WINE_SDIR=$(ver_cut 1).0
-	SRC_URI="
-		https://dl.winehq.org/wine/source/${WINE_SDIR}/${WINE_P}.tar.xz
-		https://github.com/wine-staging/wine-staging/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://dl.winehq.org/wine/source/${WINE_SDIR}/wine-${PV}.tar.xz"
+	S="${WORKDIR}/wine-${PV}"
 	KEYWORDS="-* ~amd64 ~x86"
 fi
 
-DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
+DESCRIPTION="Free implementation of Windows(tm) on Unix, without external patchsets"
 HOMEPAGE="
-	https://wiki.winehq.org/Wine-Staging
-	https://gitlab.winehq.org/wine/wine-staging/
+	https://www.winehq.org/
+	https://gitlab.winehq.org/wine/wine/
 "
-
-S="${WORKDIR}/${WINE_P}"
 
 LICENSE="LGPL-2.1+ BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
 SLOT="${PV}"
@@ -40,10 +34,9 @@ IUSE="
 	kerberos +mingw +mono netapi nls odbc opencl +opengl osmesa pcap
 	perl pulseaudio samba scanner +sdl selinux smartcard +ssl +strip
 	+truetype udev udisks +unwind usb v4l +vulkan wayland wow64
-	+xcomposite xinerama
-"
+	+xcomposite xinerama"
 # bug #551124 for truetype
-# TODO: wow64 can be done without mingw if using clang (needs bug #912237)
+# TODO?: wow64 can be done without mingw if using clang (needs bug #912237)
 REQUIRED_USE="
 	X? ( truetype )
 	crossdev-mingw? ( mingw )
@@ -140,16 +133,7 @@ DEPEND="
 	sys-kernel/linux-headers
 	X? ( x11-base/xorg-proto )
 "
-# gitapply.sh prefers git but can fallback to patch+extras
 BDEPEND="
-	${PYTHON_DEPS}
-	|| (
-		dev-vcs/git
-		(
-			sys-apps/gawk
-			sys-apps/util-linux
-		)
-	)
 	|| (
 		sys-devel/binutils
 		sys-devel/lld
@@ -168,13 +152,13 @@ BDEPEND="
 IDEPEND=">=app-eselect/eselect-wine-2"
 
 QA_CONFIG_IMPL_DECL_SKIP=(
-	__clear_cache # unused on amd64+x86 (bug #900334)
+	__clear_cache # unused on amd64+x86 (bug #900338)
 	res_getservers # false positive
 )
 QA_TEXTRELS="usr/lib/*/wine/i386-unix/*.so" # uses -fno-PIC -Wl,-z,notext
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-7.17-noexecstack.patch
+	"${FILESDIR}"/${PN}-7.0-noexecstack.patch
 	"${FILESDIR}"/${PN}-7.20-unwind.patch
 	"${FILESDIR}"/${PN}-8.13-rpath.patch
 )
@@ -199,34 +183,7 @@ pkg_pretend() {
 	fi
 }
 
-src_unpack() {
-	if [[ ${PV} == *9999 ]]; then
-		EGIT_CHECKOUT_DIR=${WORKDIR}/${P}
-		git-r3_src_unpack
-
-		# hack: use subshell to preserve state (including what git-r3 unpack
-		# sets) for smart-live-rebuild as this is not the repo to look at
-		(
-			EGIT_COMMIT=$(<"${EGIT_CHECKOUT_DIR}"/staging/upstream-commit) || die
-			EGIT_REPO_URI=${WINE_EGIT_REPO_URI}
-			EGIT_CHECKOUT_DIR=${S}
-			einfo "Fetching Wine commit matching the current patchset by default (${EGIT_COMMIT})"
-			git-r3_src_unpack
-		)
-	else
-		default
-	fi
-}
-
 src_prepare() {
-	local patchinstallargs=(
-		--all
-		--no-autoconf
-		${MY_WINE_STAGING_CONF}
-	)
-
-	edo "${PYTHON}" ../${P}/staging/patchinstall.py "${patchinstallargs[@]}"
-
 	# sanity check, bumping these has a history of oversights
 	local geckomono=$(sed -En '/^#define (GECKO|MONO)_VER/{s/[^0-9.]//gp}' \
 		dlls/appwiz.cpl/addons.c || die)
@@ -265,7 +222,7 @@ src_prepare() {
 	tools/make_requests || die # perl
 	# tip: if need more for user patches, with portage can e.g. do
 	# echo "post_src_prepare() { tools/make_specfiles || die; }" \
-	#     > /etc/portage/env/app-emulation/wine-staging
+	#     > /etc/portage/env/app-emulation/wine-vanilla
 }
 
 src_configure() {
@@ -333,11 +290,6 @@ src_configure() {
 			append-ldflags -fuse-ld=lld
 		strip-unsupported-flags
 	fi
-
-	# >=wine-vanilla-9 has proper fixes and builds with gcc-14, but
-	# staging patchset is messier and would rather not have to worry
-	# about it (try to remove on bump now and then, bug #919758)
-	append-cflags $(test-flags-CC -Wno-error=incompatible-pointer-types)
 
 	if use mingw; then
 		use crossdev-mingw || PATH=${BROOT}/usr/lib/mingw64-toolchain/bin:${PATH}
