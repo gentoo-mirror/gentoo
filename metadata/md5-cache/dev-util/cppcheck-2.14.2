@@ -6,13 +6,13 @@ EAPI=8
 HOMEPAGE=https://github.com/danmar/cppcheck
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake python-single-r1 xdg
-IUSE=charts gui qt6 htmlreport pcre test threads python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv ~x86
+IUSE=charts gui qt6 htmlreport pcre test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/tinyxml2:= pcre? ( dev-libs/libpcre ) gui? ( qt6? ( dev-qt/qtbase:6[gui,widgets,network] dev-qt/qttools:6[assistant,linguist] charts? ( dev-qt/qtcharts:6 ) ) !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 charts? ( dev-qt/qtcharts:5 ) ) ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) htmlreport? ( python_single_target_python3_10? ( dev-python/pygments[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygments[python_targets_python3_12(-)] ) )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) charts? ( gui ) qt6? ( gui )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/danmar/cppcheck/archive/refs/tags/2.13.0.tar.gz -> cppcheck-2.13.0.tar.gz
+SRC_URI=https://github.com/danmar/cppcheck/archive/refs/tags/2.14.2.tar.gz -> cppcheck-2.14.2.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=9dc1306fb4903e00b09ade11f94ee385
+_md5_=100b7b67b7fc74f47c27738cf79d02e7
