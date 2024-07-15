@@ -1810,7 +1810,7 @@ app-editors/mg 20220614 20230501: MicroGnuEmacs, a port from the BSDs
 app-editors/micro 2.0.13-r1: Modern and intuitive terminal-based text editor
 app-editors/moe 1.12 1.14: Powerful and user-friendly console text editor
 app-editors/mousepad 0.6.2: GTK+-based editor for the Xfce Desktop Environment
-app-editors/nano 7.2-r1 8.0 9999: GNU GPL'd Pico clone with more functionality
+app-editors/nano 7.2-r1 8.0 8.1 9999: GNU GPL'd Pico clone with more functionality
 app-editors/ne 3.3.1 3.3.2 3.3.3: The nice editor, easy to use for the beginner and powerful for the wizard
 app-editors/nedit 5.7: Multi-purpose text editor for the X Window System
 app-editors/neovim 0.9.5 0.9.5-r1 0.10.0 9999: Vim-fork focused on extensibility and agility
@@ -6249,7 +6249,7 @@ dev-perl/Browser-Open 0.40.0-r1: Open a browser at a given URL
 dev-perl/Business-FedEx-DirectConnect 1.10.0-r2: Interface to FedEx Ship Manager Direct
 dev-perl/Business-Hours 0.130.0-r1: Calculate business hours in a time period
 dev-perl/Business-ISBN 3.8.0 3.9.0: Work with ISBN as objects
-dev-perl/Business-ISBN-Data 20240509.1.0 20240523.1.0 20240614.1.0: Data pack for Business::ISBN
+dev-perl/Business-ISBN-Data 20240509.1.0 20240523.1.0 20240614.1.0 20240710.1.0: Data pack for Business::ISBN
 dev-perl/Business-ISMN 1.203.0 1.204.0: International Standard Music Numbers
 dev-perl/Business-ISSN 1.5.0 1.6.0: Object and functions to work with International Standard Serial Numbers
 dev-perl/Business-Tax-VAT-Validation 1.230.0: A class for european VAT numbers validation
@@ -6906,7 +6906,7 @@ dev-perl/IO-SessionData 1.30.0-r2: Session data support module for SOAP::Lite
 dev-perl/IO-Socket-INET6 2.730.0: Work with IO sockets in IPv6
 dev-perl/IO-Socket-Multicast 1.120.0-r1: Send and receive multicast messages
 dev-perl/IO-Socket-PortState 0.30.0-r1: Perl extension for checking the open or closed status of a port
-dev-perl/IO-Socket-SSL 2.83.0 2.85.0 2.86.0 2.87.0: Nearly transparent SSL encapsulation for IO::Socket::INET
+dev-perl/IO-Socket-SSL 2.83.0 2.85.0 2.86.0 2.87.0 2.88.0: Nearly transparent SSL encapsulation for IO::Socket::INET
 dev-perl/IO-Socket-Timeout 0.320.0-r1: IO::Socket with read/write timeout
 dev-perl/IO-String 1.80.0-r2: IO::File interface for in-core strings
 dev-perl/IO-Stty 0.40.0: Change and print terminal line settings
@@ -7246,7 +7246,7 @@ dev-perl/ORLite-Migrate 1.100.0-r2: Extremely light weight SQLite-specific schem
 dev-perl/Object-Enum 0.75.0-r1: Replacement for if ($foo eq 'bar')
 dev-perl/Object-Event 1.230.0-r1: A class that provides an event callback interface
 dev-perl/Object-MultiType 0.50.0-r1: Perl Objects as Hash, Array, Scalar, Code and Glob at the same time
-dev-perl/Object-Pad 0.805.0-r1 0.808.0-r1: Simple syntax for lexical field-based objects
+dev-perl/Object-Pad 0.805.0-r1 0.808.0-r1 0.809.0: Simple syntax for lexical field-based objects
 dev-perl/Object-Realize-Later 0.210.0: Delayed creation of objects
 dev-perl/Ogg-Vorbis-Header 0.110.0: An object-oriented interface to Ogg Vorbis information and comment fields
 dev-perl/Ogg-Vorbis-Header-PurePerl 1.50.0: Object-oriented interface to Ogg Vorbis information and comment fields
@@ -8205,6 +8205,7 @@ dev-python/click-default-group 1.2.4: Extends click.Group to invoke a command wi
 dev-python/click-didyoumean 0.3.1: Enable git-like did-you-mean feature in click
 dev-python/click-help-colors 0.9.4: Colorization of help messages in Click
 dev-python/click-log 0.4.0: Logging integration for Click
+dev-python/click-option-group 0.5.6: Click-extension package that adds option groups missing in Click
 dev-python/click-plugins 1.1.1-r1: Module for click to enable registering CLI commands via entry points
 dev-python/click-threading 0.5.0-r1: Multithreaded Click apps made easy
 dev-python/cliff 4.7.0: Command Line Interface Formulation Framework
@@ -9077,6 +9078,7 @@ dev-python/pyspf 2.0.14-r3: Python implementation of the Sender Policy Framework
 dev-python/pyspnego 0.11.0: Library to handle SPNEGO and CredSSP authentication
 dev-python/pysrt 1.1.2-r1 9999: Python library used to edit or create SubRip files
 dev-python/pystache 0.6.5: Updated Python implementation of Mustache templating framework
+dev-python/pysubs2 1.7.2: Python library for editing subtitle files
 dev-python/pysvg 0.2.2_p3-r1: Python SVG document creation library
 dev-python/pysvn 1.9.22: Object-oriented python bindings for subversion
 dev-python/pyte 0.8.2: Simple VTXXX-compatible terminal emulator
@@ -9444,6 +9446,7 @@ dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
 dev-python/sqlglot 25.4.0 25.4.1 25.5.0 25.5.1: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.0: A non-validating SQL parser module for Python
+dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
 dev-python/sshpubkeys 3.3.1-r1: OpenSSH public key parser for Python
 dev-python/sshtunnel 0.3.1 0.4.0: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
@@ -14206,7 +14209,7 @@ media-video/sonic-snap 1.7-r1: Webcam app for sn9c10x based camera controllers (
 media-video/streamdvd 0.4-r2: fast tool to backup Video DVDs 'on the fly'
 media-video/sub2srt 0.5.3: Tool to convert several subtitle formats into subviewer srt
 media-video/subcheck 0.78.2-r1: Subcheck checks srt subtitle files for errors
-media-video/subliminal 2.1.0-r2 9999: Python library to search and download subtitles
+media-video/subliminal 2.1.0-r2 2.2.1 9999: Python library to search and download subtitles
 media-video/submux-dvd 0.5.2-r1: A subtitle multiplexer, muxes subtitles into .vob
 media-video/subsync 0.0.1: subsync is an program that synchronizes srt subtitle files
 media-video/subtitlecomposer 0.8.1: Text-based subtitles editor
@@ -17207,7 +17210,7 @@ sys-block/libfabric 1.11.2-r2: The Open Fabrics Interfaces (OFI) framework
 sys-block/libzbc 5.9.0 5.13.0 5.13.0-r1: A library and tools for working with ZBC and ZAC disks
 sys-block/libzbd 1.2.0-r1 2.0.4: Zoned block device manipulation library and tools
 sys-block/lsiutil 1.62-r3: LSI Logic Fusion MPT Command Line Interface management tool
-sys-block/mbuffer 20220418 20230301 20230301-r1 20231216 20240107: M(easuring)buffer is a replacement for buffer with additional functionality
+sys-block/mbuffer 20240107 20240707: M(easuring)buffer is a replacement for buffer with additional functionality
 sys-block/megacli 8.07.14-r4: LSI Logic MegaRAID Command Line Interface management tool
 sys-block/megactl 0.4.1-r3: LSI MegaRAID control utility
 sys-block/megarc 1.11-r3: LSI Logic MegaRAID Text User Interface management tool
@@ -17218,7 +17221,7 @@ sys-block/mtx 1.3.12: Utilities for controlling SCSI media changers and tape dri
 sys-block/nbd 3.25 9999: Userland client/server for kernel network block device
 sys-block/nbdkit 1.32.4 1.36.1: NBD server with stable plugin ABI and permissive license
 sys-block/ndctl 71.1-r2 76.1 77-r1: Helper tools and libraries for managing non-volatile memory on Linux
-sys-block/open-iscsi 2.1.8 2.1.9: A performant, transport independent, multi-platform implementation of RFC3720
+sys-block/open-iscsi 2.1.8 2.1.9 2.1.10: A performant, transport independent, multi-platform implementation of RFC3720
 sys-block/open-isns 0.101 0.102: iSNS server and client for Linux
 sys-block/parted 3.6-r2: Create, destroy, resize, check, copy partitions and file systems
 sys-block/partimage 0.6.9-r3 0.6.9-r4: Console-based application to efficiently save raw partition data to image file
