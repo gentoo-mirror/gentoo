@@ -15,18 +15,18 @@ SRC_URI="https://github.com/zlib-ng/minizip-ng/archive/refs/tags/${PV}.tar.gz ->
 LICENSE="ZLIB"
 SLOT="0/4"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="compat openssl test zstd"
+IUSE="compat lzma openssl test zstd"
 RESTRICT="!test? ( test )"
 
 # Automagically prefers sys-libs/zlib-ng if installed, so let's
 # just depend on it as presumably it's better tested anyway.
 RDEPEND="
 	app-arch/bzip2[${MULTILIB_USEDEP}]
-	app-arch/xz-utils
 	dev-libs/libbsd[${MULTILIB_USEDEP}]
 	sys-libs/zlib-ng[${MULTILIB_USEDEP}]
 	virtual/libiconv
 	compat? ( !sys-libs/zlib[minizip] )
+	lzma? ( app-arch/xz-utils )
 	openssl? ( dev-libs/openssl:=[${MULTILIB_USEDEP}] )
 	zstd? ( app-arch/zstd:=[${MULTILIB_USEDEP}] )
 "
@@ -52,7 +52,7 @@ multilib_src_configure() {
 		# Compression library options
 		-DMZ_ZLIB=ON
 		-DMZ_BZIP2=ON
-		-DMZ_LZMA=ON
+		-DMZ_LZMA=$(usex lzma)
 		-DMZ_ZSTD=$(usex zstd)
 		-DMZ_LIBCOMP=OFF
 
@@ -79,14 +79,6 @@ multilib_src_test() {
 	# It gets better with a patch applied (see https://github.com/zlib-ng/minizip-ng/issues/623#issuecomment-1264518994)
 	# but still hangs.
 	cmake_src_test -j1
-}
-
-multilib_src_install_all() {
-	if ! use compat && use test ; then
-		# Test binaries, bug #874591
-		rm "${ED}"/usr/bin/minigzip || die
-		rm "${ED}"/usr/bin/minizip-ng || die
-	fi
 }
 
 pkg_postinst() {
