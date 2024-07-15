@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune-build-info dev-ml/dune-configurator dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] >=sci-mathematics/psmt2-frontend-0.4.0:= <dev-ml/zarith-1.14:= >=dev-ml/cmdliner-1.1.0:= >=dev-ml/menhir-20181006:= >=dev-ml/ocplib-simplex-0.4:= dev-ml/camlzip:= dev-ml/num:= dev-ml/stdlib-shims:= gui? ( dev-ml/lablgtk:3 dev-ml/lablgtk-sourceview:3 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Automatic theorem prover
+EAPI=8
+HOMEPAGE=https://alt-ergo.ocamlpro.com https://github.com/OCamlPro/alt-ergo/
+INHERIT=dune
+IUSE=examples gui +ocamlopt
+KEYWORDS=amd64
+LICENSE=CeCILL-C
+RDEPEND=>=dev-lang/ocaml-4.09.0:=[ocamlopt=] >=sci-mathematics/psmt2-frontend-0.4.0:= <dev-ml/zarith-1.14:= >=dev-ml/cmdliner-1.1.0:= >=dev-ml/menhir-20181006:= >=dev-ml/ocplib-simplex-0.4:= dev-ml/camlzip:= dev-ml/num:= dev-ml/stdlib-shims:= gui? ( dev-ml/lablgtk:3 dev-ml/lablgtk-sourceview:3 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=ocamlopt
+SLOT=0/2.4.3
+SRC_URI=https://github.com/OCamlPro/alt-ergo/archive/2.4.3.tar.gz -> alt-ergo-2.4.3.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=933c3cdcb10469bc54c5d1b4b5a3e81d
