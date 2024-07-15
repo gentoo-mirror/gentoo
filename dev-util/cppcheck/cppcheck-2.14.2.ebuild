@@ -12,8 +12,8 @@ SRC_URI="https://github.com/danmar/cppcheck/archive/refs/tags/${PV}.tar.gz -> ${
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ppc64 ~riscv ~x86"
-IUSE="charts gui qt6 htmlreport pcre test threads"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="charts gui qt6 htmlreport pcre test"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	charts? ( gui )
@@ -75,10 +75,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.13.0-32-bit-tests.patch
-)
-
 src_prepare() {
 	cmake_src_prepare
 
@@ -109,7 +105,6 @@ src_configure() {
 		-DUSE_MATCHCOMPILER=ON
 		-DUSE_LIBCXX=OFF
 
-		-DUSE_THREADS=$(usex threads)
 		-DDISABLE_DMAKE=ON
 		-DUSE_BOOST=OFF
 		-DUSE_BUNDLED_TINYXML2=OFF
