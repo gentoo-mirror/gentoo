@@ -8,10 +8,11 @@ inherit autotools
 DESCRIPTION="M(easuring)buffer is a replacement for buffer with additional functionality"
 HOMEPAGE="https://www.maier-komor.de/mbuffer.html"
 SRC_URI="https://www.maier-komor.de/software/mbuffer/${P}.tgz"
+S="${WORKDIR}"/${PN}-r${PV}
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="debug ssl test"
 REQUIRED_USE="test? ( ssl )"
 RESTRICT="!test? ( test )"
