@@ -4,8 +4,8 @@
 EAPI=8
 
 # Git commit SHA is needed at runtime by earthly to pull and bootstrap images.
-if [[ "${PV}" == "0.8.12" ]] ; then
-	COMMIT_SHA="7dbb0eab6af95b6f43483ff4065445470252f522"
+if [[ "${PV}" == "0.8.15" ]] ; then
+	COMMIT_SHA="cb38f72663696d17d8393b1cc8bac66aed28faa2"
 else
 	die 'Could not detect "COMMIT_SHA", please update the ebuild.'
 fi
@@ -23,7 +23,7 @@ SRC_URI="
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	|| (
