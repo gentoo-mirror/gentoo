@@ -1,0 +1,16 @@
+BDEPEND=dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.21 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=>=dev-libs/glib-2.73.0:2 >=gui-libs/gtk-4.12:4 >=gui-libs/gtksourceview-5.10.0:5 >=gui-libs/libadwaita-1.5_alpha:1 app-text/editorconfig-core-c x11-libs/cairo spell? ( >=app-text/enchant-2.2.0:2 dev-libs/icu:= )
+DESCRIPTION=A simple text editor for the GNOME desktop
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/gnome-text-editor
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson xdg
+IUSE=spell
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-3+ CC-BY-SA-3.0
+RDEPEND=>=dev-libs/glib-2.73.0:2 >=gui-libs/gtk-4.12:4 >=gui-libs/gtksourceview-5.10.0:5 >=gui-libs/libadwaita-1.5_alpha:1 app-text/editorconfig-core-c x11-libs/cairo spell? ( >=app-text/enchant-2.2.0:2 dev-libs/icu:= ) gnome-base/gsettings-desktop-schemas
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-text-editor/46/gnome-text-editor-46.3.tar.xz
+_eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=95bbeceeb4e54bb66265dd8d8a2b249e
