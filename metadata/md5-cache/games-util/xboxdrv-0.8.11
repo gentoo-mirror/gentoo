@@ -1,0 +1,14 @@
+BDEPEND=dev-util/glib-utils virtual/pkgconfig || ( ( dev-lang/python:3.13 >=dev-build/scons-4.4.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-build/scons-4.4.0[python_targets_python3_10(-)] ) ) virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm setup
+DEPEND=dev-libs/dbus-glib dev-libs/glib:2 sys-apps/dbus virtual/libudev:= virtual/libusb:1 x11-libs/libX11
+DESCRIPTION=Userspace Xbox 360 Controller driver
+EAPI=8
+HOMEPAGE=https://github.com/xiota/xboxdrv https://xboxdrv.gitlab.io
+INHERIT=linux-info python-any-r1 scons-utils toolchain-funcs systemd udev
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/dbus-glib dev-libs/glib:2 sys-apps/dbus virtual/libudev:= virtual/libusb:1 x11-libs/libX11
+SLOT=0
+SRC_URI=https://github.com/xiota/xboxdrv/archive/v0.8.11.tar.gz -> xboxdrv-0.8.11.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2	scons-utils	b3544637c85286a19000d59461d3a7a5	systemd	c8b03e8df84486aa991d4396686e8942	udev	eec0bbab06977f1cfc5597269c1fa152
+_md5_=49cb2965a62b7b041cd5b2883c323834
