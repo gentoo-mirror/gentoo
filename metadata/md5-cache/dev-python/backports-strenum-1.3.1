@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/pytest-7.4.4[python_targets_pypy3(-)?,python_targets_python3_10(-)?] ) python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-python/gpep517-15[python_targets_pypy3(-)?,python_targets_python3_10(-)?] >=dev-python/poetry-core-1.9.0[python_targets_pypy3(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Create enumerated constants that are also subclasses of str
+EAPI=8
+HOMEPAGE=https://github.com/clbarnes/backports.strenum/ https://pypi.org/project/backports.strenum/
+INHERIT=distutils-r1
+IUSE=test python_targets_pypy3 python_targets_python3_10
+KEYWORDS=~amd64
+LICENSE=PSF-2
+RDEPEND=python_targets_pypy3? ( dev-python/pypy3:= ) python_targets_python3_10? ( dev-lang/python:3.10 )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/clbarnes/backports.strenum/archive/v1.3.1.tar.gz -> backports.strenum-1.3.1.gh.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	distutils-r1	f11e1bc907da246e941fbae648327823
+_md5_=223c8d4571ef55293310aca47a80fc4c
