@@ -29,7 +29,7 @@ CRATES="
 	bumpalo@3.16.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.1.2
+	cc@1.1.5
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	chrono@0.4.38
@@ -164,7 +164,7 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_xorshift@0.3.0
-	redox_syscall@0.5.2
+	redox_syscall@0.5.3
 	redox_users@0.4.5
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
