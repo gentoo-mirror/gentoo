@@ -1,0 +1,14 @@
+BDEPEND=pgo? ( dev-util/gperf ) verify-sig? ( sec-keys/openpgp-keys-chetramey ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
+DEPEND=>=sys-libs/ncurses-5.2-r2:= nls? ( virtual/libintl )
+DESCRIPTION=The standard GNU Bourne again shell
+EAPI=8
+HOMEPAGE=https://tiswww.case.edu/php/chet/bash/bashtop.html https://git.savannah.gnu.org/cgit/bash.git
+INHERIT=flag-o-matic toolchain-funcs prefix verify-sig
+IUSE=afs bashlogger examples mem-scramble +net nls plugins pgo +readline verify-sig
+LICENSE=GPL-3+
+RDEPEND=>=sys-libs/ncurses-5.2-r2:= nls? ( virtual/libintl )
+SLOT=0
+SRC_URI=https://git.savannah.gnu.org/cgit/bash.git/snapshot/bash-d3e86e66ce857a8dc02e3116fd98b6e5b34d6364.tar.xz -> bash-5.3_alpha_p20240711-d3e86e66ce857a8dc02e3116fd98b6e5b34d6364.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	prefix	eab3c99d77fe00506c109c8a736186f7	verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=03e54745a7b28a593c3a9067e260d61a
