@@ -11,8 +11,6 @@ QTMIN=6.7.1
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
-PATCHSET="${P}-patchset"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="6"
@@ -116,8 +114,6 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
-
-PATCHES=( "${WORKDIR}/${PATCHSET}" )
 
 src_prepare() {
 	ecm_src_prepare

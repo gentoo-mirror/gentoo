@@ -70,6 +70,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:6"
 
+PATCHES=( "${FILESDIR}/${P}-remove-parent-for-DropMenu.patch" ) # KDE-bug 490183
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package acl ACL)

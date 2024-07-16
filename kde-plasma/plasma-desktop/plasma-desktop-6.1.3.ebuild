@@ -13,8 +13,6 @@ inherit ecm plasma.kde.org optfeature
 DESCRIPTION="KDE Plasma desktop"
 XORGHDRS="${PN}-override-include-dirs-4"
 SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
-PATCHSET="${P}-patchset"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
@@ -129,7 +127,6 @@ BDEPEND="
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/${PN}-6.0.80-override-include-dirs.patch" # downstream patch
-	"${WORKDIR}/${PATCHSET}"
 )
 
 src_prepare() {

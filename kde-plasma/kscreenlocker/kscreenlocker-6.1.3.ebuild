@@ -58,8 +58,6 @@ BDEPEND="
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
-PATCHES=( "${FILESDIR}/${P}-greeter-unlock-button.patch" ) # KDE-bug 485520
-
 src_prepare() {
 	ecm_src_prepare
 	use test || cmake_run_in greeter cmake_comment_add_subdirectory autotests
