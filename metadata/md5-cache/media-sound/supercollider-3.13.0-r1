@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig qt5? ( dev-qt/linguist-tools:5 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-cpp/yaml-cpp:= dev-libs/boost:= media-libs/alsa-lib sys-libs/readline:0= virtual/libudev:= fftw? ( sci-libs/fftw:3.0= ) jack? ( virtual/jack ) !jack? ( media-libs/portaudio ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ) sndfile? ( media-libs/libsndfile ) webengine? ( dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5[widgets] dev-qt/qtwebsockets:5 ) X? ( x11-libs/libX11 x11-libs/libXt ) zeroconf? ( net-dns/avahi ) dev-libs/icu emacs? ( >=app-editors/emacs-23.1:* ) gedit? ( app-editors/gedit ) qt5? ( dev-qt/qtconcurrent:5 ) vim? ( app-editors/vim )
+DESCRIPTION=Environment and programming language for real time audio synthesis
+EAPI=8
+HOMEPAGE=https://supercollider.github.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake flag-o-matic xdg
+IUSE=ableton-link cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack qt5 server +sndfile static-libs vim webengine X +zeroconf
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 gpl3? ( GPL-3 )
+RDEPEND=dev-cpp/yaml-cpp:= dev-libs/boost:= media-libs/alsa-lib sys-libs/readline:0= virtual/libudev:= fftw? ( sci-libs/fftw:3.0= ) jack? ( virtual/jack ) !jack? ( media-libs/portaudio ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ) sndfile? ( media-libs/libsndfile ) webengine? ( dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5[widgets] dev-qt/qtwebsockets:5 ) X? ( x11-libs/libX11 x11-libs/libXt ) zeroconf? ( net-dns/avahi )
+REQUIRED_USE=qt5? ( X ) webengine? ( qt5 )
+SLOT=0
+SRC_URI=https://github.com/supercollider/supercollider/releases/download/Version-3.13.0/SuperCollider-3.13.0-Source.tar.bz2 https://dev.gentoo.org/~sam/distfiles/media-sound/supercollider/supercollider-3.13.0-boost-1.85.patch.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=8669b6cd2371b1c1d978007e22b67345
