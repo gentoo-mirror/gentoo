@@ -1,16 +1,16 @@
 BDEPEND=gtk-doc? ( dev-util/gi-docgen ) test? ( dev-util/desktop-file-utils dev-libs/appstream-glib ) dev-util/gtk-update-icon-cache dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
-DEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4[introspection] gui-libs/libadwaita:1 dev-libs/gobject-introspection !app-editors/ghex:2
+DEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4 >=gui-libs/libadwaita-1.2:1 dev-libs/gobject-introspection !app-editors/ghex:2
 DESCRIPTION=GNOME hexadecimal editor
 EAPI=8
-HOMEPAGE=https://wiki.gnome.org/Apps/Ghex
+HOMEPAGE=https://gitlab.gnome.org/GNOME/ghex
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson xdg git-r3
 IUSE=gtk-doc test
 LICENSE=GPL-2+ FDL-1.1+
 PROPERTIES=live
-RDEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4[introspection] gui-libs/libadwaita:1 dev-libs/gobject-introspection !app-editors/ghex:2
+RDEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4 >=gui-libs/libadwaita-1.2:1 dev-libs/gobject-introspection !app-editors/ghex:2
 RESTRICT=!test? ( test )
 SLOT=4
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	xdg	4a14c5c24f121e7da66e5aab4a168c6e	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=0b03d268a092d484432406de66492d48
+_md5_=c75850b023a67595334c98f47bcb9b6f
