@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) virtual/pkgconfig
+DEFINED_PHASES=compile install setup
+DESCRIPTION=Always-on profiling for production systems
+EAPI=8
+HOMEPAGE=https://0x.tools/ https://github.com/tanelpoder/0xtools/
+INHERIT=python-single-r1 systemd toolchain-funcs
+IUSE=python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=0
+SRC_URI=https://github.com/tanelpoder/0xtools/archive/v2.0.2.tar.gz -> 0xtools-2.0.2.tar.gz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562	systemd	c8b03e8df84486aa991d4396686e8942
+_md5_=c7c503e4f4da75195f8083b061e4e948
