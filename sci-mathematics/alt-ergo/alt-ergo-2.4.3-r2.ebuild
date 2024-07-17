@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/OCamlPro/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="amd64"
 fi
 
 LICENSE="CeCILL-C"
@@ -27,9 +27,9 @@ RDEPEND="
 	>=dev-lang/ocaml-4.09.0:=[ocamlopt=]
 	>=sci-mathematics/psmt2-frontend-0.4.0:=
 
+	<dev-ml/ocplib-simplex-0.5:=
 	>=dev-ml/cmdliner-1.1.0:=
 	>=dev-ml/menhir-20181006:=
-	>=dev-ml/ocplib-simplex-0.4:=
 	dev-ml/camlzip:=
 	dev-ml/num:=
 	dev-ml/stdlib-shims:=
