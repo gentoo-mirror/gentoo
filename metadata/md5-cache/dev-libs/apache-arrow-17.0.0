@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib:= ) zstd? ( app-arch/zstd:= ) dev-cpp/xsimd >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
+DESCRIPTION=A cross-language development platform for in-memory data.
+EAPI=8
+HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/
+INHERIT=cmake
+IUSE=+brotli bzip2 compute dataset +json lz4 +parquet re2 +snappy ssl test zlib zstd
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~riscv ~s390 ~x86
+LICENSE=Apache-2.0
+RDEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib:= ) zstd? ( app-arch/zstd:= )
+REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
+RESTRICT=!test? ( test )
+SLOT=0/17
+SRC_URI=mirror://apache/arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/74278bc4a1122d74945969e6dec405abd1533ec3.tar.gz -> apache-arrow-parquet-data-74278bc4a1122d74945969e6dec405abd1533ec3.tar.gz https://github.com/apache/arrow-testing/archive/735ae7128d571398dd798d7ff004adebeb342883.tar.gz -> apache-arrow-arrow-data-735ae7128d571398dd798d7ff004adebeb342883.tar.gz )
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
+_md5_=dc3e679e5bc02d2c8684b33ee39a8589
