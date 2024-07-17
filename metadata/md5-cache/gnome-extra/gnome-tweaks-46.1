@@ -1,0 +1,17 @@
+BDEPEND=>=sys-devel/gettext-0.19.8 app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst setup test
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+DESCRIPTION=Customize advanced GNOME options
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/gnome-tweaks
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome.org gnome2-utils meson python-single-r1 xdg
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-3+ CC0-1.0
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( >=dev-python/pygobject-3.46.0:3[python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-python/pygobject-3.46.0:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/pygobject-3.46.0:3[python_targets_python3_12(-)] ) >=gnome-base/gnome-settings-daemon-3 x11-themes/sound-theme-freedesktop >=dev-libs/glib-2.78:2 >=dev-libs/gobject-introspection-1.78.0 >=gui-libs/gtk-4.10.0:4[introspection] >=gui-libs/libadwaita-1.4.0 >=dev-libs/libgudev-238 >=gnome-base/gnome-desktop-3.30:3[introspection] x11-libs/libnotify[introspection] x11-libs/pango[introspection] >=gnome-base/gsettings-desktop-schemas-46.0 >=gnome-base/gnome-shell-3.24 x11-wm/mutter
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-tweaks/46/gnome-tweaks-46.1.tar.xz
+_eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	python-single-r1	75118e916668a74c660a13b0ecb22562	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=51d4baa6c19d52648db085cbe5c479cf
