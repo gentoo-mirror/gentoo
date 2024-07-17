@@ -21,6 +21,7 @@ CRATES="
 	anstyle@1.0.7
 	anyhow@1.0.86
 	argv@0.1.11
+	arrayvec@0.7.4
 	autocfg@1.3.0
 	backtrace@0.3.73
 	bitflags@1.3.2
@@ -29,7 +30,7 @@ CRATES="
 	bumpalo@3.16.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.1.4
+	cc@1.1.5
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	chrono@0.4.38
@@ -92,6 +93,7 @@ CRATES="
 	hashbrown@0.14.5
 	heck@0.5.0
 	hermit-abi@0.3.9
+	hex-conservative@0.2.1
 	hex@0.4.3
 	home@0.5.9
 	iana-time-zone-haiku@0.1.2
@@ -164,7 +166,7 @@ CRATES="
 	rand_chacha@0.3.1
 	rand_core@0.6.4
 	rand_xorshift@0.3.0
-	redox_syscall@0.5.2
+	redox_syscall@0.5.3
 	redox_users@0.4.5
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
