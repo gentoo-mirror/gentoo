@@ -1,4 +1,4 @@
-BDEPEND=net-misc/curl || ( ( dev-lang/python:3.12 dev-python/python-gnupg[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/python-gnupg[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-gnupg[python_targets_python3_10(-)] ) ) >=sec-keys/openpgp-keys-gentoo-auth-20240703 test? ( app-crypt/gnupg sys-apps/grep[pcre] )
+BDEPEND=net-misc/curl || ( ( dev-lang/python:3.13 dev-python/python-gnupg[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/python-gnupg[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/python-gnupg[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-gnupg[python_targets_python3_10(-)] ) ) >=sec-keys/openpgp-keys-gentoo-auth-20240703 test? ( app-crypt/gnupg sys-apps/grep[pcre] )
 DEFINED_PHASES=compile install setup test unpack
 DESCRIPTION=Gentoo Authority Keys (GLEP 79)
 EAPI=8
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=ae190dd1f5e8405a594aa8e41c698f51
+_md5_=551ed3c6fd6d9ae9ec05a2ca9d92fc3d

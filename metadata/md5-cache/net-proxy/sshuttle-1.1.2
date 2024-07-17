@@ -1,16 +1,16 @@
-BDEPEND=doc? ( dev-python/sphinx dev-python/furo ) test? ( dev-python/mock[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) test? ( dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] || ( net-firewall/iptables net-firewall/nftables ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/poetry-core-1.9.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=doc? ( dev-python/sphinx dev-python/furo ) test? ( dev-python/mock[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) test? ( dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] || ( net-firewall/iptables net-firewall/nftables ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/poetry-core-1.9.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Transparent proxy server that works as a poor man's VPN using ssh
 EAPI=8
 HOMEPAGE=https://github.com/sshuttle/sshuttle https://pypi.org/project/sshuttle/
 INHERIT=distutils-r1 linux-info
-IUSE=doc test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=doc test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=amd64 x86
 LICENSE=LGPL-2.1+
-RDEPEND=dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] || ( net-firewall/iptables net-firewall/nftables ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] || ( net-firewall/iptables net-firewall/nftables ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sshuttle/sshuttle/archive/refs/tags/v1.1.2.tar.gz -> sshuttle-1.1.2.gh.tar.gz !doc? ( https://dev.gentoo.org/~sam/distfiles/net-proxy/sshuttle/sshuttle-1.1.2-docs.tar.xz )
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	distutils-r1	f11e1bc907da246e941fbae648327823	linux-info	ea4122ba1d8791a12b78e53f9510a2e3
-_md5_=596c04d918c42eb0b621dae794c2ac94
+_md5_=637f77550a791e2bcd1fe1baef7a0634
