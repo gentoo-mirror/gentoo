@@ -1,29 +1,29 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=no
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{11..13} pypy3 )
 
 inherit gnome.org meson virtualx xdg distutils-r1
 
 DESCRIPTION="Python bindings for GObject Introspection"
 HOMEPAGE="
-	https://pygobject.readthedocs.io/
+	https://pygobject.gnome.org/
 	https://gitlab.gnome.org/GNOME/pygobject/
 "
 
 LICENSE="LGPL-2.1+"
 SLOT="3"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="+cairo examples test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/glib-2.56:2
-	>=dev-libs/gobject-introspection-1.56:=
+	>=dev-libs/glib-2.64:2
+	>=dev-libs/gobject-introspection-1.64:=
 	dev-libs/libffi:=
 	cairo? (
 		>=dev-python/pycairo-1.16.0[${PYTHON_USEDEP}]
@@ -43,12 +43,6 @@ DEPEND="
 BDEPEND="
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	# fix test failure on py3.12
-	# https://gitlab.gnome.org/GNOME/pygobject/-/commit/fe6aedd8eebd92844b873f72e99dc4023316c6f3
-	"${FILESDIR}/${P}-py312.patch"
-)
 
 python_configure() {
 	local emesonargs=(
