@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://mesa3d.org/
 INHERIT=llvm-r1 meson python-any-r1
 IUSE=debug +llvm_slot_17 llvm_slot_16 llvm_slot_18
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=MIT SGI-B-2.0
 RDEPEND=dev-libs/libclc dev-util/spirv-tools >=sys-libs/zlib-1.2.8:= x11-libs/libdrm llvm_slot_16? ( dev-util/spirv-llvm-translator:16 sys-devel/clang:16 sys-devel/llvm:16 ) llvm_slot_17? ( dev-util/spirv-llvm-translator:17 sys-devel/clang:17 sys-devel/llvm:17 ) llvm_slot_18? ( dev-util/spirv-llvm-translator:18 sys-devel/clang:18 sys-devel/llvm:18 )
 REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 )
 SLOT=0
 SRC_URI=https://archive.mesa3d.org/mesa-24.1.3.tar.xz
 _eclasses_=llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	b0b1f2b1f205cf6142716789254aea99	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=4935c70e65214aaa3e5acc186b1d53d9
+_md5_=2060b7f59a38e8d75731af5c478ce3a3

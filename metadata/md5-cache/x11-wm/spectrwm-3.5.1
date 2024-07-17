@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
-DEPEND=elibc_musl? ( sys-libs/queue-standalone ) x11-libs/libxcb x11-libs/libX11 x11-libs/libXcursor x11-libs/libXft x11-libs/libXrandr x11-libs/xcb-util x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm
+DEPEND=elibc_musl? ( sys-libs/queue-standalone ) x11-libs/libxcb x11-libs/libX11 x11-libs/libXcursor x11-libs/libXft x11-libs/libXrandr x11-libs/libXt x11-libs/xcb-util x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm
 DESCRIPTION=Small dynamic tiling window manager for X11
 EAPI=8
 HOMEPAGE=https://github.com/conformal/spectrwm
 INHERIT=toolchain-funcs
 KEYWORDS=amd64 x86
 LICENSE=ISC
-RDEPEND=elibc_musl? ( sys-libs/queue-standalone ) x11-libs/libxcb x11-libs/libX11 x11-libs/libXcursor x11-libs/libXft x11-libs/libXrandr x11-libs/xcb-util x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-misc/dmenu
+RDEPEND=elibc_musl? ( sys-libs/queue-standalone ) x11-libs/libxcb x11-libs/libX11 x11-libs/libXcursor x11-libs/libXft x11-libs/libXrandr x11-libs/libXt x11-libs/xcb-util x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-misc/dmenu
 SLOT=0
 SRC_URI=https://github.com/conformal/spectrwm/archive/SPECTRWM_3_5_1.tar.gz -> spectrwm-3.5.1.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=d551b9118154ffee8b5e55f5247b52fc
+_md5_=644e270a7b196d83414a556b574d7d17
