@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit python-single-r1
 
@@ -30,6 +30,11 @@ RDEPEND="
 	openpgp? ( $(python_gen_cond_dep 'dev-python/python-gnupg[${PYTHON_USEDEP}]') )
 	ssh? ( virtual/openssh )
 "
+
+PATCHES=(
+	"${FILESDIR}/${PN}-3.3-fix-tlsa-record-generation.patch"
+	"${FILESDIR}/${PN}-3.3-python-3.12.patch"
+)
 
 src_install() {
 	local tools tool
