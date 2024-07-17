@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure prepare pretend setup
 DEPEND=sys-libs/binutils-libs:= numa? ( sys-process/numactl )
 DESCRIPTION=Unified Communication X
 EAPI=8
-HOMEPAGE=https://www.openucx.org
+HOMEPAGE=https://openucx.org
 INHERIT=autotools toolchain-funcs
 IUSE=+numa +openmp
 KEYWORDS=~amd64 -riscv ~x86 ~amd64-linux ~x86-linux
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/binutils-libs:= numa? ( sys-process/numactl )
 SLOT=0
 SRC_URI=https://github.com/openucx/ucx/archive/v1.13.0.tar.gz -> ucx-1.13.0.tar.gz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0
-_md5_=00c154a1a1bf419b8f61b7f8c8f13194
+_md5_=168804ba73cd1ead231971abd99d603f
