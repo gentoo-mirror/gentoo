@@ -21,7 +21,7 @@ SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~ppc64"
 IUSE="test"
 
-DEPEND+="test? ( >=dev-vcs/git-1.6.0.0 app-arch/tar )"
+DEPEND+="test? ( >=dev-vcs/git-1.6.0.0 net-misc/openssh app-arch/tar )"
 RDEPEND+=">=dev-vcs/git-1.6.0.0"
 
 ruby_add_rdepend "
@@ -38,6 +38,9 @@ all_ruby_prepare() {
 	sed -i -e "s:/tmp:${TMPDIR}:" tests/units/test_archive.rb tests/test_helper.rb || die
 
 	sed -i -e 's/__dir__/"."/' -e 's/git ls-files -z/find * -print0/' ${RUBY_FAKEGEM_GEMSPEC} || die
+
+	# Don't use deprecated key type that is removed from openssh
+	sed -i -e 's/-t dsa/-t rsa/' tests/units/test_signed_commits.rb || die
 }
 
 each_ruby_test() {
