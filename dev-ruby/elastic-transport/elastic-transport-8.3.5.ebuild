@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -18,7 +18,7 @@ RUBY_S="elastic-transport-ruby-${PV}"
 LICENSE="Apache-2.0"
 SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="doc test"
 
 ruby_add_rdepend "
 	|| ( dev-ruby/faraday:2 dev-ruby/faraday:1 )
@@ -29,8 +29,8 @@ ruby_add_bdepend "
 	test? (
 		dev-ruby/ansi
 		dev-ruby/hashie
-		|| ( ( dev-ruby/faraday:2 dev-ruby/faraday-net_http_persistent ) dev-ruby/faraday:1 )
-		dev-ruby/mocha:1.0
+		|| ( ( dev-ruby/faraday:2 dev-ruby/faraday-net_http_persistent:2 ) dev-ruby/faraday:1 )
+		dev-ruby/mocha:2
 		dev-ruby/pry
 		dev-ruby/rspec:3
 		dev-ruby/shoulda-context
