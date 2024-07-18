@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/cppo <dev-ml/dune-3 test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-ml/re:= dev-ml/uutf:= dev-ml/uunf:= dev-ml/uucp:= dev-ml/unidecode:= dev-ml/calendars:= dev-ml/zarith:= dev-ml/markup:= dev-ml/jingoo:= >=dev-ml/camlp5-8:=[ocamlopt?] <dev-ml/camlp5-8.03 dev-ml/ppx_import:= dev-ml/ppx_blob:= acct-user/geneweb acct-group/geneweb >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Genealogy software program with a Web interface
+EAPI=8
+HOMEPAGE=https://github.com/geneweb/geneweb
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=dev-ml/re:= dev-ml/uutf:= dev-ml/uunf:= dev-ml/uucp:= dev-ml/unidecode:= dev-ml/calendars:= dev-ml/zarith:= dev-ml/markup:= dev-ml/jingoo:= >=dev-ml/camlp5-8:=[ocamlopt?] <dev-ml/camlp5-8.03 dev-ml/ppx_import:= dev-ml/ppx_blob:= acct-user/geneweb acct-group/geneweb >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=strip !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/geneweb/geneweb/archive/refs/tags/Geneweb-1eaac340.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=f766b4b94cc08d33e64a807f0759d8fa
