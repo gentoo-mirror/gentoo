@@ -3,6 +3,9 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_REQ_USE="xml(+)"
+
 # PACKAGING NOTES
 
 # Google roll their bundled Clang every two weeks, and the bundled Rust
@@ -10,6 +13,14 @@ EAPI=8
 # with system Clang, we will eventually hit the point where we need to use
 # the bundled Clang due to the use of prerelease features. We've been lucky
 # enough so far that this hasn't been an issue.
+
+# We try and avoid forcing the use of the custom/bundled libcxx, but sometimes
+# it is unavoidable. Remember to force the use of Clang when this is forced.
+
+# GCC is _not_ supported upstream, though patches are welcome. We do our
+# best to enable builds with GCC but reserve the right to force Clang
+# builds if we can't keep up with upstream's changes. Please comment
+# when forcing Clang builds so we can track the need for it.
 
 # GN is bundled with Chromium, but we always use the system version. Remember to
 # check for upstream changes to GN and update ebuild (and version below) as required.
@@ -23,11 +34,26 @@ EAPI=8
 # For non-binhost builds, we build the bundled ffmpeg and enable proprietary codecs because there's
 # no reason not to. Todo: Re-enable USE=system-ffmpeg.
 
+# These variables let us easily bound supported major dependency versions in one place.
+GCC_MIN_VER=12
 GN_MIN_VER=0.2165
-RUST_MIN_VER=1.78.0
+# Since Google use prerelease llvm we can let any adventurous users try to build with prerelease
+# ebuilds; try to keep this up to date with the latest version in the tree.
+LLVM_MAX_SLOT=19
+LLVM_MIN_SLOT=17
+RUST_MIN_VER=1.72.0
 # chromium-tools/get-chromium-toolchain-strings.sh
-GOOGLE_CLANG_VER=llvmorg-19-init-10646-g084e2b53-57
-GOOGLE_RUST_VER=32dd3795bce8b347fda786529cf5e42a813e0b7d-2
+GOOGLE_CLANG_VER=llvmorg-19-init-9433-g76ea5feb-1
+GOOGLE_RUST_VER=31e6e8c6c5b6ce62656c922c7384d3376018c980-2
+
+# https://bugs.chromium.org/p/v8/issues/detail?id=14449 - V8 used in 120 can't build with GCC
+# Resolved upstream, requires testing and some backporting I'm sure
+: ${CHROMIUM_FORCE_CLANG=yes}
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101227 - Chromium 120:
+#    webrtc -  no matching member function for call to 'emplace'
+: ${CHROMIUM_FORCE_LIBCXX=yes}
+# 121's 'gcc_link_wrapper.py' currently fails if not using lld due to the addition of rust
+: ${CHROMIUM_FORCE_LLD=yes}
 
 : ${CHROMIUM_FORCE_GOOGLE_TOOLCHAIN=no}
 
@@ -37,18 +63,12 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu
 	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr
 	sv sw ta te th tr uk ur vi zh-CN zh-TW"
 
-# Since Google use prerelease llvm we can let any adventurous users try to build with prerelease
-# ebuilds; try to keep this up to date with the latest version in the tree.
-LLVM_COMPAT=( {17..18} )
-PYTHON_COMPAT=( python3_{11..13} )
-PYTHON_REQ_USE="xml(+)"
-
-inherit check-reqs chromium-2 desktop flag-o-matic llvm-r1 ninja-utils pax-utils
+inherit check-reqs chromium-2 desktop flag-o-matic llvm ninja-utils pax-utils
 inherit python-any-r1 qmake-utils readme.gentoo-r1 systemd toolchain-funcs virtualx xdg-utils
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PATCHSET_PPC64="124.0.6367.207-1raptor0~deb12u1"
+PATCHSET_PPC64="126.0.6478.126-1raptor0~deb12u1"
 PATCH_V="${PV%%\.*}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	system-toolchain? (
@@ -57,7 +77,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	!system-toolchain? (
 		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/clang-${GOOGLE_CLANG_VER}.tar.xz
 			-> chromium-${PV%%\.*}-clang.tar.xz
-		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${GOOGLE_RUST_VER}-${GOOGLE_CLANG_VER%???}.tar.xz
+		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${GOOGLE_RUST_VER}-${GOOGLE_CLANG_VER%??}.tar.xz
 			-> chromium-${PV%%\.*}-rust.tar.xz
 	)
 	ppc64? (
@@ -67,19 +87,19 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/beta"
-KEYWORDS="~amd64 ~arm64"
+SLOT="0/stable"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
-IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos +lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
+IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos libcxx +lto +official pax-kernel pgo +proprietary-codecs pulseaudio"
 IUSE+=" qt5 qt6 +screencast selinux +system-toolchain +vaapi +wayland +widevine"
 RESTRICT="!bindist? ( bindist )"
 
 REQUIRED_USE="
 	!headless? ( || ( X wayland ) )
-	official? ( lto )
 	pgo? ( X !wayland )
 	qt6? ( qt5 )
 	screencast? ( wayland )
+	!system-toolchain? ( libcxx )
 	ffmpeg-chromium? ( bindist proprietary-codecs )
 "
 
@@ -180,6 +200,34 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 
+depend_clang_llvm_version() {
+	echo "sys-devel/clang:$1"
+	echo "sys-devel/llvm:$1"
+	echo "=sys-devel/lld-$1*"
+}
+
+# When passed multiple arguments we assume that
+# we want a range of versions, inclusive.
+depend_clang_llvm_versions() {
+	local _v
+	if [[ $# -eq 1 ]]; then
+		depend_clang_llvm_version "$1"
+	elif [[ $# -eq 2 ]]; then
+		if [[ $1 -eq $2 ]]; then
+			depend_clang_llvm_version "$1"
+		fi
+		echo "|| ("
+		for ((i=$1; i<=$2; i++)); do
+			echo "("
+			depend_clang_llvm_version "${i}"
+			echo ")"
+		done
+		echo ")"
+	else
+		die "depend_clang_llvm_versions() requires 1 or 2 arguments"
+	fi
+}
+
 BDEPEND="
 	${COMMON_SNAPSHOT_DEPEND}
 	${PYTHON_DEPS}
@@ -192,18 +240,14 @@ BDEPEND="
 		qt6? ( dev-qt/qtbase:6 )
 	)
 	system-toolchain? (
-		$(llvm_gen_dep '
-			sys-devel/clang:${LLVM_SLOT}
-			sys-devel/llvm:${LLVM_SLOT}
-			sys-devel/lld:${LLVM_SLOT}
-			virtual/rust:0/llvm-${LLVM_SLOT}[profiler(-)]
-			pgo? ( sys-libs/compiler-rt-sanitizers:${LLVM_SLOT}[profile] )
-		')
+		libcxx? ( >=sys-devel/clang-${LLVM_MIN_SLOT} )
+		lto? ( $(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT}) )
 		pgo? (
 			>=dev-python/selenium-3.141.0
 			>=dev-util/web_page_replay_go-20220314
+			$(depend_clang_llvm_versions ${LLVM_MIN_SLOT} ${LLVM_MAX_SLOT})
 		)
-		dev-util/bindgen
+		>=virtual/rust-${RUST_MIN_VER}[profiler(-)]
 	)
 	>=dev-build/gn-${GN_MIN_VER}
 	dev-build/ninja
@@ -215,6 +259,17 @@ BDEPEND="
 	sys-devel/flex
 	virtual/pkgconfig
 "
+
+if [[ ${CHROMIUM_FORCE_CLANG} == yes ]]; then
+	BDEPEND+="system-toolchain? ( >=sys-devel/clang-${LLVM_MIN_SLOT} ) "
+fi
+
+if [[ ${CHROMIUM_FORCE_LLD} == yes ]]; then
+	BDEPEND+="system-toolchain? ( >=sys-devel/lld-${LLVM_MIN_SLOT} ) "
+else
+	# #918897: Hack for arm64
+	BDEPEND+=" arm64? ( >=sys-devel/lld-${LLVM_MIN_SLOT} )"
+fi
 
 if ! has chromium_pkg_die ${EBUILD_DEATH_HOOKS}; then
 	EBUILD_DEATH_HOOKS+=" chromium_pkg_die";
@@ -251,6 +306,30 @@ in /etc/chromium/default.
 
 python_check_deps() {
 	python_has_version "dev-python/setuptools[${PYTHON_USEDEP}]"
+}
+
+needs_clang() {
+	[[ ${CHROMIUM_FORCE_CLANG} == yes ]] || use libcxx || use lto || use pgo
+}
+
+needs_lld() {
+	# #641556: Force lld for lto and pgo builds, otherwise disable
+	# #918897: Temporary hack w/ use arm64
+	[[ ${CHROMIUM_FORCE_LLD} == yes ]] || use lto || use pgo || use arm64
+}
+
+llvm_check_deps() {
+	if ! has_version -b "sys-devel/clang:${LLVM_SLOT}" ; then
+		einfo "sys-devel/clang:${LLVM_SLOT} is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
+		return 1
+	fi
+
+	if ( use lto || use pgo ) && ! has_version -b "=sys-devel/lld-${LLVM_SLOT}*" ; then
+		einfo "=sys-devel/lld-${LLVM_SLOT}* is missing! Cannot use LLVM slot ${LLVM_SLOT} ..." >&2
+		return 1
+	fi
+
+	einfo "Using LLVM slot ${LLVM_SLOT} to build" >&2
 }
 
 pre_build_checks() {
@@ -295,31 +374,34 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	ewarn "PATH = ${PATH}"
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		# The pre_build_checks are all about compilation resources, no need to run it for a binpkg
 		pre_build_checks
 
 		if use system-toolchain; then
-			# The linux:unbundle toolchain in GN grabs CC, CXX, CPP (etc) from the environment
-			# We'll set these to clang here then let llvm-r1_pkg_setup reconfigure them to be
-			# specific to the selected slot.
-			# 935689 - call llvm-r1_pkg_setup once to make sure that PATH is set then again
-			# to make sure that CC and friends get updated appropriately.
-			llvm-r1_pkg_setup
-			AR=llvm-ar
-			CPP="${CHOST}-clang++ -E"
-			NM=llvm-nm
-			CC=${CHOST}-clang
-			CXX=${CHOST}-clang++
-
-			if tc-is-cross-compiler; then
-				use pgo && die "The pgo USE flag cannot be used when cross-compiling"
-				CPP="${CBUILD}-clang++ -E"
+			local -x CPP="$(tc-getCXX) -E"
+			if tc-is-gcc && ! ver_test "$(gcc-version)" -ge ${GCC_MIN_VER}; then
+				die "At least gcc ${GCC_MIN_VER} is required"
 			fi
-
-			llvm-r1_pkg_setup
-
+			if use pgo && tc-is-cross-compiler; then
+				die "The pgo USE flag cannot be used when cross-compiling"
+			fi
+			if needs_clang && ! tc-is-clang; then
+				if tc-is-cross-compiler; then
+					CPP="${CBUILD}-clang++ -E"
+				else
+					CPP="${CHOST}-clang++ -E"
+				fi
+			fi
+			if needs_clang || tc-is-clang; then
+				if ver_test "$(clang-major-version)" -lt ${LLVM_MIN_SLOT}; then
+					die "At least Clang ${LLVM_MIN_SLOT} is required"
+				fi
+				# Ideally we never see this, but it should help prevent bugs like 927154
+				if ver_test "$(clang-major-version)" -gt ${LLVM_MAX_SLOT}; then
+					die "Clang $(clang-major-version) is too new; ${LLVM_MAX_SLOT} is the highest supported version"
+				fi
+			fi
 		fi
 		# Users should never hit this, it's purely a development convenience
 		if ver_test $(gn --version || die) -lt ${GN_MIN_VER}; then
@@ -328,30 +410,6 @@ pkg_setup() {
 	fi
 
 	chromium_suid_sandbox_check_kernel_config
-}
-
-src_unpack() {
-	# In 126 Chromium upstream decided to change the way that the rust toolchain is packaged
-	# so now we get a fancy src_unpack function to ensure that we don't accidentally unpack
-	# one toolchain over the other. The addtional control over over unpacking also helps us
-	# ensure that GN doesn't try and use some bundled tool (like bindgen) instead of the system
-	# package by just not unpacking it unless we're using the bundled toolchain.
-	unpack ${P}.tar.xz
-	if use system-toolchain; then
-		unpack chromium-patches-${PATCH_V}.tar.bz2
-	else
-		unpack chromium-${PV%%\.*}-clang.tar.xz
-		local rust_dir="${WORKDIR}/rust-toolchain"
-		mkdir -p ${rust_dir} || die "Failed to create rust toolchain directory"
-		tar xf "${DISTDIR}/chromium-${PV%%\.*}-rust.tar.xz" -C ${rust_dir} || die "Failed to unpack rust toolchain"
-	fi
-
-	use pgo && unpack chromium-profiler-0.2.tar
-
-	if use ppc64; then
-		unpack chromium_${PATCHSET_PPC64}.debian.tar.xz
-		unpack chromium-ppc64le-gentoo-patches-1.tar.xz
-	fi
 }
 
 src_prepare() {
@@ -364,19 +422,12 @@ src_prepare() {
 		"chrome/browser/media/router/media_router_feature.cc" || die
 
 	local PATCHES=(
-		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
+		"${FILESDIR}/chromium-125-system-zstd.patch"
 		"${FILESDIR}/chromium-126-oauth2-client-switches.patch"
-		"${FILESDIR}/chromium-127-browser-ui-deps.patch"
-		"${FILESDIR}/chromium-127-bindgen-custom-toolchain.patch"
+		"${FILESDIR}/chromium-cross-compile.patch"
 	)
-
-	# 127: test deps are broken for ui/lens with system ICU "//third_party/icu:icuuc_public"
-	sed -i '/source_set("unit_tests") {/,/}/d' \
-		chrome/browser/ui/lens/BUILD.gn || die "Failed to remove bad test target"
-	sed -i '/lens:unit_tests/d' chrome/test/BUILD.gn components/BUILD.gn \
-		|| die "Failed to remove dependencies on bad target"
 
 	if use system-toolchain; then
 		# The patchset is really only required if we're using the system-toolchain
@@ -409,7 +460,7 @@ src_prepare() {
 
 	default
 
-	rm third_party/node/linux/node-linux-x64/bin/node || die
+	mkdir -p third_party/node/linux/node-linux-x64/bin || die
 	ln -s "${EPREFIX}"/usr/bin/node third_party/node/linux/node-linux-x64/bin/node || die
 
 	# adjust python interpreter version
@@ -422,6 +473,7 @@ src_prepare() {
 		base/third_party/nspr
 		base/third_party/superfasthash
 		base/third_party/symbolize
+		base/third_party/valgrind
 		base/third_party/xdg_user_dirs
 		buildtools/third_party/libc++
 		buildtools/third_party/libc++abi
@@ -440,8 +492,8 @@ src_prepare() {
 		third_party/anonymous_tokens
 		third_party/apple_apsl
 		third_party/axe-core
-		third_party/bidimapper
 		third_party/blink
+		third_party/bidimapper
 		third_party/boringssl
 		third_party/boringssl/src/third_party/fiat
 		third_party/breakpad
@@ -466,7 +518,6 @@ src_prepare() {
 		third_party/closure_compiler
 		third_party/content_analysis_sdk
 		third_party/cpuinfo
-		third_party/crabbyavif
 		third_party/crashpad
 		third_party/crashpad/crashpad/third_party/lss
 		third_party/crashpad/crashpad/third_party/zlib
@@ -498,7 +549,6 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/puppeteer/package/lib/esm/third_party/rxjs
 		third_party/devtools-frontend/src/front_end/third_party/vscode.web-custom-data
 		third_party/devtools-frontend/src/front_end/third_party/wasmparser
-		third_party/devtools-frontend/src/front_end/third_party/web-vitals
 		third_party/devtools-frontend/src/third_party
 		third_party/distributed_point_functions
 		third_party/dom_distiller_js
@@ -513,12 +563,15 @@ src_prepare() {
 		third_party/freetype
 		third_party/fusejs
 		third_party/fxdiv
+		third_party/highway
+		third_party/liburlpattern
+		third_party/libzip
+		third_party/lit
 		third_party/gemmlowp
 		third_party/google_input_tools
 		third_party/google_input_tools/third_party/closure_library
 		third_party/google_input_tools/third_party/closure_library/third_party/closure
 		third_party/googletest
-		third_party/highway
 		third_party/hunspell
 		third_party/iccjpeg
 		third_party/inspector_protocol
@@ -536,7 +589,6 @@ src_prepare() {
 		third_party/libaom/source/libaom/third_party/vector
 		third_party/libaom/source/libaom/third_party/x86inc
 		third_party/libavif
-		third_party/libc++
 		third_party/libevent
 		third_party/libgav1
 		third_party/libjingle
@@ -545,7 +597,6 @@ src_prepare() {
 		third_party/libsrtp
 		third_party/libsync
 		third_party/libudev
-		third_party/liburlpattern
 		third_party/libva_protected_content
 		third_party/libvpx
 		third_party/libvpx/source/libvpx/third_party/x86inc
@@ -554,12 +605,13 @@ src_prepare() {
 		third_party/libxcb-keysyms
 		third_party/libxml/chromium
 		third_party/libyuv
-		third_party/libzip
-		third_party/lit
 		third_party/lottie
 		third_party/lss
 		third_party/lzma_sdk
 		third_party/mako
+		third_party/maldoca
+		third_party/maldoca/src/third_party/tensorflow_protos
+		third_party/maldoca/src/third_party/zlibwrapper
 		third_party/markupsafe
 		third_party/material_color_utilities
 		third_party/mesa
@@ -586,12 +638,11 @@ src_prepare() {
 		third_party/pdfium/third_party/libtiff
 		third_party/perfetto
 		third_party/perfetto/protos/third_party/chromium
-		third_party/perfetto/protos/third_party/simpleperf
 		third_party/pffft
 		third_party/ply
 		third_party/polymer
-		third_party/private_membership
 		third_party/private-join-and-compute
+		third_party/private_membership
 		third_party/protobuf
 		third_party/pthreadpool
 		third_party/puffin
@@ -601,7 +652,6 @@ src_prepare() {
 		third_party/re2
 		third_party/rnnoise
 		third_party/rust
-		third_party/ruy
 		third_party/s2cellid
 		third_party/securemessage
 		third_party/selenium-atoms
@@ -609,22 +659,19 @@ src_prepare() {
 		third_party/sentencepiece/src/third_party/darts_clone
 		third_party/shell-encryption
 		third_party/simplejson
-		third_party/six
 		third_party/skia
 		third_party/skia/include/third_party/vulkan
 		third_party/skia/third_party/vulkan
 		third_party/smhasher
 		third_party/snappy
-		third_party/spirv-headers
-		third_party/spirv-tools
 		third_party/sqlite
 		third_party/swiftshader
 		third_party/swiftshader/third_party/astc-encoder
 		third_party/swiftshader/third_party/llvm-subzero
 		third_party/swiftshader/third_party/marl
+		third_party/swiftshader/third_party/subzero
 		third_party/swiftshader/third_party/SPIRV-Headers/include/spirv
 		third_party/swiftshader/third_party/SPIRV-Tools
-		third_party/swiftshader/third_party/subzero
 		third_party/tensorflow_models
 		third_party/tensorflow-text
 		third_party/tflite
@@ -632,6 +679,8 @@ src_prepare() {
 		third_party/tflite/src/third_party/fft2d
 		third_party/tflite/src/third_party/xla/third_party/tsl
 		third_party/tflite/src/third_party/xla/xla/tsl/util
+		third_party/ruy
+		third_party/six
 		third_party/ukey2
 		third_party/unrar
 		third_party/utf
@@ -653,12 +702,12 @@ src_prepare() {
 		third_party/x11proto
 		third_party/xcbproto
 		third_party/xnnpack
-		third_party/zlib/google
 		third_party/zxcvbn-cpp
+		third_party/zlib/google
 		url/third_party/mozilla
 		v8/src/third_party/siphash
-		v8/src/third_party/utf8-decoder
 		v8/src/third_party/valgrind
+		v8/src/third_party/utf8-decoder
 		v8/third_party/glibc
 		v8/third_party/inspector_protocol
 		v8/third_party/v8
@@ -684,6 +733,10 @@ src_prepare() {
 
 	if ! use system-zstd; then
 		keeplibs+=( third_party/zstd )
+	fi
+
+	if use libcxx || [[ ${CHROMIUM_FORCE_LIBCXX} == yes ]]; then
+		keeplibs+=( third_party/libc++ )
 	fi
 
 	if ! use system-toolchain || [[ ${CHROMIUM_FORCE_GOOGLE_TOOLCHAIN} == yes ]]; then
@@ -740,26 +793,53 @@ chromium_configure() {
 
 	local myconf_gn=""
 
-	# We already forced the correct clang via {llvm-r1_}pkg_setup
-	if use system-toolchain; then
-		if tc-is-cross-compiler; then
-			CC="${CC} -target ${CHOST} --sysroot ${ESYSROOT}"
-			CXX="${CXX} -target ${CHOST} --sysroot ${ESYSROOT}"
-			BUILD_AR=${AR}
-			BUILD_CC=${CC}
-			BUILD_CXX=${CXX}
-			BUILD_NM=${NM}
-		fi
-
-		strip-unsupported-flags
-
-		myconf_gn+=" is_clang=true clang_use_chrome_plugins=false"
-		# https://bugs.gentoo.org/918897#c32
-		append-ldflags -Wl,--undefined-version
-		myconf_gn+=" use_lld=true"
-
+	if use system-toolchain && [[ ${CHROMIUM_FORCE_GOOGLE_TOOLCHAIN} == no ]]; then
 		# Make sure the build system will use the right tools, bug #340795.
 		tc-export AR CC CXX NM
+
+		if needs_clang && ! tc-is-clang; then
+			# Force clang since gcc is either broken or build is using libcxx.
+			if tc-is-cross-compiler; then
+				CC="${CBUILD}-clang -target ${CHOST} --sysroot ${ESYSROOT}"
+				CXX="${CBUILD}-clang++ -target ${CHOST} --sysroot ${ESYSROOT}"
+				BUILD_CC=${CBUILD}-clang
+				BUILD_CXX=${CBUILD}-clang++
+			else
+				CC=${CHOST}-clang
+				CXX=${CHOST}-clang++
+			fi
+			strip-unsupported-flags
+		fi
+
+		if tc-is-clang; then
+			myconf_gn+=" is_clang=true clang_use_chrome_plugins=false"
+			# Workaround for build failure with clang-18 and -march=native without
+			# avx512. Does not affect e.g. -march=skylake, only native (bug #931623).
+			use amd64 && is-flagq -march=native &&
+				[[ $(clang-major-version) -eq 18 ]] && [[ $(clang-minor-version) -lt 6 ]] &&
+				tc-cpp-is-true "!defined(__AVX512F__)" ${CXXFLAGS} &&
+				append-flags -mevex512
+		else
+			myconf_gn+=" is_clang=false"
+		fi
+
+		if needs_lld ; then
+			# https://bugs.gentoo.org/918897#c32
+			append-ldflags -Wl,--undefined-version
+			myconf_gn+=" use_lld=true"
+		else
+			# This doesn't prevent lld from being used, but rather prevents gn from forcing it
+			myconf_gn+=" use_lld=false"
+		fi
+
+		if use lto; then
+			AR=llvm-ar
+			NM=llvm-nm
+			if tc-is-cross-compiler; then
+				BUILD_AR=llvm-ar
+				BUILD_NM=llvm-nm
+			fi
+		fi
 
 		myconf_gn+=" custom_toolchain=\"//build/toolchain/linux/unbundle:default\""
 
@@ -782,17 +862,6 @@ chromium_configure() {
 		else
 			myconf_gn+=" host_toolchain=\"//build/toolchain/linux/unbundle:default\""
 		fi
-
-		# bindgen settings
-		# From 127, to make bindgen work, we need to provide a location for libclang.
-		# We patch this in for gentoo - see chromium-*-bindgen-custom-toolchain.patch
-		# rust_bindgen_root = directory with `bin/bindgen` beneath it.
-		myconf_gn+=" rust_bindgen_root=\"${EPREFIX}/usr/\""
-		myconf_gn+=" bindgen_libclang_path=\"$(get_llvm_prefix)/$(get_libdir)\""
-		# We don't need to set 'clang_base_bath' for anything in our build
-		# and it defaults to the google toolchain location. Instead provide a location
-		# to where system clang lives sot that bindgen can find system headers (e.g. stddef.h)
-		myconf_gn+=" clang_base_path=\"${EPREFIX}/usr/lib/clang/${LLVM_SLOT}/\""
 
 		local rustc_ver
 		rustc_ver=$(chromium_rust_version_check)
@@ -892,13 +961,20 @@ chromium_configure() {
 	# Chromium builds provided by Linux distros) should disable the testing config
 	myconf_gn+=" disable_fieldtrial_testing_config=true"
 
+	if use system-toolchain; then
+		myconf_gn+=" use_gold=false"
+	fi
+
 	# The sysroot is the oldest debian image that chromium supports, we don't need it
 	myconf_gn+=" use_sysroot=false"
 
-	# Use in-tree libc++ (buildtools/third_party/libc++ and buildtools/third_party/libc++abi)
-	# instead of the system C++ library for C++ standard library support.
-	# default: true, but let's be explicit (forced since 120 ; USE removed 127).
-	myconf_gn+=" use_custom_libcxx=true"
+	# This determines whether or not GN uses the bundled libcxx
+	# default: true
+	if use libcxx || [[ ${CHROMIUM_FORCE_LIBCXX} == yes ]]; then
+		myconf_gn+=" use_custom_libcxx=true"
+	else
+		myconf_gn+=" use_custom_libcxx=false"
+	fi
 
 	# Disable pseudolocales, only used for testing
 	myconf_gn+=" enable_pseudolocales=false"
@@ -946,6 +1022,13 @@ chromium_configure() {
 		if [[ ${myarch} == amd64 ]]; then
 			filter-flags -mno-mmx -mno-sse2 -mno-ssse3 -mno-sse4.1 -mno-avx -mno-avx2 -mno-fma -mno-fma4 -mno-xop -mno-sse4a
 		fi
+
+		if tc-is-gcc; then
+			# https://bugs.gentoo.org/904455
+			local -x CPP="$(tc-getCXX) -E"
+			# https://bugs.gentoo.org/912381
+			filter-lto
+		fi
 	fi
 
 	if [[ $myarch = amd64 ]] ; then
@@ -961,7 +1044,11 @@ chromium_configure() {
 		die "Failed to determine target arch, got '$myarch'."
 	fi
 
+	# Make sure that -Werror doesn't get added to CFLAGS by the build system.
+	# Depending on GCC version the warnings are different and we don't want
+	# the build to fail because of that.
 	myconf_gn+=" treat_warnings_as_errors=false"
+
 	# Disable fatal linker warnings, bug 506268.
 	myconf_gn+=" fatal_linker_warnings=false"
 
@@ -983,12 +1070,13 @@ chromium_configure() {
 	# https://bugs.gentoo.org/654216
 	addpredict /dev/dri/ #nowarn
 
-	# We don't use the same clang version as upstream, and with -Werror
-	# we need to make sure that we don't get superfluous warnings.
-	append-flags -Wno-unknown-warning-option
-	if tc-is-cross-compiler; then
+	# Disable unknown warning message from clang.
+	if tc-is-clang; then
+		append-flags -Wno-unknown-warning-option
+		if tc-is-cross-compiler; then
 			export BUILD_CXXFLAGS+=" -Wno-unknown-warning-option"
 			export BUILD_CFLAGS+=" -Wno-unknown-warning-option"
+		fi
 	fi
 
 	# Explicitly disable ICU data file support for system-icu/headless builds.
@@ -1057,7 +1145,7 @@ chromium_configure() {
 		# Allow building against system libraries in official builds
 		sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' \
 			tools/generate_shim_headers/generate_shim_headers.py || die
-		# Req's LTO; handled by REQUIRED_USE - TODO: not compatible with -fno-split-lto-unit
+		# Disable CFI: unsupported for GCC, requires clang+lto+lld
 		myconf_gn+=" is_cfi=false"
 		# Don't add symbols to build
 		myconf_gn+=" symbol_level=0"
@@ -1071,6 +1159,12 @@ chromium_configure() {
 	else
 		# Disable PGO
 		myconf_gn+=" chrome_pgo_phase=0"
+	fi
+
+	# user CXXFLAGS might overwrite -march=armv8-a+crc+crypto, bug #851639
+	if use arm64 && tc-is-gcc; then
+		sed -i '/^#if HAVE_ARM64_CRC32C/a #pragma GCC target ("+crc+crypto")' \
+			third_party/crc32c/src/src/crc32c_arm64.cc || die
 	fi
 
 	# skipping typecheck is only supported on amd64, bug #876157
