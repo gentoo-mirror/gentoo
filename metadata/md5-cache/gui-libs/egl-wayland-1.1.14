@@ -1,0 +1,14 @@
+BDEPEND=dev-util/wayland-scanner >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/wayland x11-libs/libdrm dev-libs/wayland-protocols gui-libs/eglexternalplatform media-libs/libglvnd
+DESCRIPTION=EGLStream-based Wayland external platform
+EAPI=8
+HOMEPAGE=https://github.com/NVIDIA/egl-wayland/
+INHERIT=meson
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=dev-libs/wayland x11-libs/libdrm
+SLOT=0
+SRC_URI=https://github.com/NVIDIA/egl-wayland/archive/refs/tags/1.1.14.tar.gz -> egl-wayland-1.1.14.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=5bd161d1cce79f4dfc32b87b673951d9
