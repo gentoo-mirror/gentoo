@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-ml/cmdliner:=[ocamlopt?] ~dev-ml/opam-2.1.6:=[ocamlopt?] dev-ml/dose3:=[ocamlopt?] dev-ml/findlib >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Core installer for opam packages
+EAPI=8
+HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-ml/cmdliner:=[ocamlopt?] ~dev-ml/opam-2.1.6:=[ocamlopt?] dev-ml/dose3:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/2.1.6
+SRC_URI=https://github.com/ocaml/opam/releases/download/2.1.6/opam-full-2.1.6.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	dune	339df00cc31668d437589817d093748d
+_md5_=385c895a3f88cd029eb825dcd3bcd434
