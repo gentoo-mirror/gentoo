@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=http://tuprolog.unibo.it/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc examples source test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=LGPL-3 BSD
 RDEPEND=dev-java/commons-lang:3.6 dev-java/gson:0 dev-java/javassist:3 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~keri/distfiles/tuprolog/tuprolog-3.2.0.tar.gz https://dev.gentoo.org/~keri/distfiles/tuprolog/tuprolog-3.2.0-gentoo-patchset-0.tar.gz
 _eclasses_=java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	742531b28b0ce82ba9425bd2c28654f9
-_md5_=2f4e32684aa23f0abc17746a8d99db26
+_md5_=82f0cab840bee0a7c32361de1bcc3429
