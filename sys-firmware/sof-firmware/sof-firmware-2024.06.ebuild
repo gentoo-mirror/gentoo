@@ -10,10 +10,15 @@ S="${WORKDIR}"/sof-bin-${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
+IUSE="+tools"
 
-# Needed for sof-ctl
-RDEPEND="media-libs/alsa-lib"
+RDEPEND="
+	tools? (
+		media-libs/alsa-lib
+		sys-libs/glibc
+	)
+"
 
 QA_PREBUILT="usr/bin/sof-ctl
 	usr/bin/sof-logger
@@ -23,10 +28,17 @@ src_install() {
 	dodir /lib/firmware/intel
 	dodir /usr/bin
 	FW_DEST="${D}/lib/firmware/intel" TOOLS_DEST="${D}/usr/bin" "${S}/install.sh" || die
+
+	# Drop tools if requested (i.e. useful for musl systems, where glibc
+	# is not available)
+	if ! use tools ; then
+		rm -rv "${D}"/usr/bin || die
+	fi
 }
 
 pkg_preinst() {
-	local sofpath="${EROOT}/lib/firmware/intel/sof"
+	# Fix sof-ace-tplg directory symlink collisions
+	local sofpath="${EROOT}/lib/firmware/intel/sof-ace-tplg"
 	if [[ ! -L "${sofpath}" && -d "${sofpath}" ]] ; then
 		rm -r "${sofpath}" || die
 	fi
