@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/pytest-8.1[${PYTHON_USEDEP}]
@@ -27,10 +27,11 @@ BDEPEND="
 	)
 "
 
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_test() {
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	local -x PYTEST_PLUGINS=pytest_import_check
+	local -x PYTEST_PLUGINS=pytest_import_check.plugin
 	epytest
 }
