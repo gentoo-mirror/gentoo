@@ -903,7 +903,7 @@ app-admin/ansible-core 2.14.13-r1 2.15.8-r1 2.16.6 9999: Model-driven deployment
 app-admin/ansible-lint 24.2.2 24.6.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1: Ansible module for hashicorp vault
 app-admin/ansible-molecule 24.2.1: A toolkit designed to aid in the development and testing of Ansible roles
-app-admin/apache-tools 2.4.57 2.4.58 2.4.59 2.4.61: Useful Apache tools - htdigest, htpasswd, ab, htdbm
+app-admin/apache-tools 2.4.59 2.4.61 2.4.62: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
@@ -3969,7 +3969,7 @@ dev-db/pgFormatter 5.0 5.1: PostgreSQL SQL syntax beautifier
 dev-db/pgLatLon 0.15: Spatial database extension for the PostgreSQL
 dev-db/pg_activity 3.5.1: Realtime PostgreSQL database server monitoring tool
 dev-db/pg_background 1.2: Postgres Background Worker
-dev-db/pg_top 4.0.0-r3: 'top' for PostgreSQL
+dev-db/pg_top 4.0.0-r3 4.1.1: 'top' for PostgreSQL
 dev-db/pgagent 4.2.1: pgAgent is a job scheduler for PostgreSQL
 dev-db/pgbadger 12.1 12.2 12.4: pgBadger is a PostgreSQL log analyzer
 dev-db/pgbouncer 1.16.1 1.22.0 1.22.1: Lightweight connection pooler for PostgreSQL
@@ -10039,7 +10039,7 @@ dev-ruby/mash 0.1.1-r3: Mash is an extended Hash that gives simple pseudo-object
 dev-ruby/matrix 0.4.2: An implementation of Matrix and Vector classes
 dev-ruby/maxitest 4.4.1-r1 5.4.0 5.5.0 5.6.0: Minitest + all the features you always wanted
 dev-ruby/mecab-ruby 0.996-r2: Ruby binding for MeCab
-dev-ruby/mechanize 2.9.1 2.9.2 2.10.0 2.10.1: A Ruby library used for automating interaction with websites
+dev-ruby/mechanize 2.9.1 2.9.2 2.10.0 2.10.1 2.11.0: A Ruby library used for automating interaction with websites
 dev-ruby/memo_wise 1.8.0 1.9.0: The wise choice for Ruby memoization
 dev-ruby/memoist 0.16.2-r1: ActiveSupport::Memoizable with a few enhancements
 dev-ruby/memoizable 0.4.2-r1: Memoize method return values
@@ -10066,7 +10066,7 @@ dev-ruby/minitest-pretty_diff 0.1-r2: Pretty-print hashes and arrays before diff
 dev-ruby/mixlib-config 3.0.27: A class based configuration library
 dev-ruby/mixlib-shellout 3.0.9-r1 3.2.7 3.2.8: Run external commands on Unix or Windows
 dev-ruby/mkmf-lite 0.6.0: light version of the the mkmf library designed for use as a library
-dev-ruby/mocha 0.14.0-r1 1.16.0 1.16.1 2.0.4 2.2.0 2.3.0 2.4.0 2.4.1: Mocking and stubbing using a syntax like that of JMock and SchMock
+dev-ruby/mocha 0.14.0-r1 1.16.0 1.16.1 2.0.4 2.2.0 2.3.0 2.4.0 2.4.1 2.4.2: Mocking and stubbing using a syntax like that of JMock and SchMock
 dev-ruby/moneta 1.6.0: A unified interface to key/value stores
 dev-ruby/mqtt 0.6.0: Pure Ruby gem that implements the MQTT protocol
 dev-ruby/msgpack 1.7.1 1.7.2: Binary-based efficient data interchange format for ruby binding
@@ -10119,7 +10119,7 @@ dev-ruby/org-ruby 0.9.12_p20200519: Ruby routines for parsing org-mode files
 dev-ruby/ox 2.14.17 2.14.18: A fast XML parser and Object marshaller
 dev-ruby/paint 2.3.0-r1: Terminal painter
 dev-ruby/pairing_heap 3.0.1-r1 3.1.0: Performant priority queue with support for changing priority
-dev-ruby/parallel 1.23.0 1.24.0: Run any code in parallel Processes or Threads
+dev-ruby/parallel 1.23.0 1.24.0 1.25.1: Run any code in parallel Processes or Threads
 dev-ruby/paramesan 1.0.1-r1: Parameterized tests in Ruby
 dev-ruby/parser 3.3.0.5 3.3.1.0 3.3.2.0 3.3.3.0 3.3.4.0: A production-ready Ruby parser written in pure Ruby
 dev-ruby/pastel 0.8.0-r1: Terminal strings styling with intuitive and clean API
@@ -12024,7 +12024,7 @@ gui-libs/gdk-pixbuf-loader-webp 0.2.4 0.2.7: WebP GDK Pixbuf Loader library
 gui-libs/greetd 0.9.0 0.10.0: ipc based login daemon
 gui-libs/gtk 4.12.5-r1 4.14.3 4.14.4: GTK is a multi-platform toolkit for creating graphical user interfaces
 gui-libs/gtk-layer-shell 0.8.2: Library to create desktop components for Wayland using the Layer Shell protocol
-gui-libs/gtksourceview 5.10.0: A text widget implementing syntax highlighting and other features
+gui-libs/gtksourceview 5.10.0 5.12.1: A text widget implementing syntax highlighting and other features
 gui-libs/hyprcursor 0.1.5 0.1.7 0.1.8 0.1.9: The hyprland cursor format, library and utilities
 gui-libs/hyprutils 0.1.4-r1 0.1.5 9999: Hyprland utilities library used across the ecosystem
 gui-libs/libadwaita 1.4.4 1.4.5 1.5.1 1.5.2: Building blocks for modern GNOME applications
@@ -18101,7 +18101,7 @@ www-plugins/lightspark 0.8.6.1-r1 0.8.7-r1: High performance flash player
 www-plugins/passff-host 1.2.3-r1 1.2.4: Host app for the PassFF WebExtension
 www-plugins/pdfjs 3.9.179 4.3.136 4.4.168: A PDF reader in JavaScript
 www-servers/adsf 1.4.6-r1 1.4.8 1.5.0: A Dead Simple Fileserver is a static file server that can launch in a directory
-www-servers/apache 2.4.58-r2 2.4.59-r1 2.4.59-r3 2.4.61: The Apache Web Server
+www-servers/apache 2.4.59-r1 2.4.59-r3 2.4.61 2.4.62: The Apache Web Server
 www-servers/caddy 2.7.6-r2 2.8.4 9999: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
 www-servers/civetweb 1.16: Embedded C/C++ web server
 www-servers/fnord 1.11-r2 1.11-r3: Yet another small httpd
@@ -18818,7 +18818,8 @@ x11-terms/yeahconsole 0.3.4-r2: yeahconsole turns an xterm or rxvt-unicode into 
 x11-terms/zutty 0.15 0.16: X terminal emulator rendering through OpenGL ES Compute Shaders
 x11-themes/QGnomePlatform 0.9.1-r1 0.9.2-r5: A Qt Platform Theme aimed to accommodate GNOME settings
 x11-themes/adapta-gtk-theme 3.95.0.11: An adaptive Gtk+ theme based on Material Design Guidelines
-x11-themes/adwaita-icon-theme 3.32.0 45.0: GNOME default icon theme
+x11-themes/adwaita-icon-theme 3.32.0 45.0 46.2: GNOME default icon theme
+x11-themes/adwaita-icon-theme-legacy 46.2: Adwaita Icon Theme legacy
 x11-themes/adwaita-qt 1.4.2 1.4.2-r1: A style to bend Qt applications to look like they belong into GNOME Shell
 x11-themes/arc-icon-theme 20161122-r1: Vertex icon theme
 x11-themes/arc-theme 20210412 20220223 20220405 20221218: A flat theme with transparent elements for GTK 2/3/4 and GNOME Shell
