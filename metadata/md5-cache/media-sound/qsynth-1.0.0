@@ -7,11 +7,11 @@ HOMEPAGE=https://qsynth.sourceforge.io/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake desktop xdg
 IUSE=+alsa debug jack pulseaudio qt6
-KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=qt6? ( dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtsvg:6 ) !qt6? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ) media-sound/fluidsynth:=[jack?,alsa?,pulseaudio?]
 REQUIRED_USE=|| ( alsa jack pulseaudio )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/qsynth/qsynth-1.0.0.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	desktop	021728fdc1b03b36357dbc89489e0f0d	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=165e9b534b125451aba15016ef75cb5d
+_md5_=ec6c2a8d2a6be7503ff879288e794c00
