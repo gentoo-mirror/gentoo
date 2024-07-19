@@ -1,0 +1,16 @@
+BDEPEND=app-arch/xz-utils app-alternatives/lex app-alternatives/yacc test? ( app-editors/vim-core dev-util/pahole ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-libs/cereal:= test? ( dev-cpp/gtest ) !!sys-devel/llvm:0
+DESCRIPTION=High-level tracing language for eBPF
+EAPI=8
+HOMEPAGE=https://github.com/bpftrace/bpftrace
+INHERIT=llvm linux-info cmake
+IUSE=lldb test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-libs/libbpf-1.1:= >=dev-util/bcc-0.25.0:= lldb? ( >=dev-debug/lldb-15 ) >=sys-devel/llvm-15[llvm_targets_BPF(+)] >=sys-devel/clang-15 <sys-devel/clang-19:= <sys-devel/llvm-19:=[llvm_targets_BPF(+)] sys-process/procps sys-libs/binutils-libs:= virtual/libelf:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/bpftrace/bpftrace/archive/v0.21.2.tar.gz -> bpftrace-0.21.2.gh.tar.gz
+_eclasses_=llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	1eea65d11f743b8e256ef279b652a2e6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
+_md5_=586943e8f5e44fed76d5c540d74c595e
