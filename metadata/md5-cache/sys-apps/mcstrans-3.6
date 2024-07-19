@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=>=sys-libs/libsepol-3.6:= >=sys-libs/libselinux-3.6:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
+DEPEND=>=sys-libs/libsepol-3.6:=[static-libs(+)] >=sys-libs/libselinux-3.6:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
 DESCRIPTION=SELinux context translation to human readable names
 EAPI=7
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=toolchain-funcs
 KEYWORDS=amd64 arm arm64 ~mips x86
 LICENSE=GPL-2
-RDEPEND=>=sys-libs/libsepol-3.6:= >=sys-libs/libselinux-3.6:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
+RDEPEND=>=sys-libs/libsepol-3.6:=[static-libs(+)] >=sys-libs/libselinux-3.6:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.6/mcstrans-3.6.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=2af7df3bdece2f4d1fdda11236d54624
+_md5_=2f8f5e0a15463e5589bb11539ad079fe

@@ -1,13 +1,13 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare unpack
-DEPEND=>=sys-libs/libsepol-9999:= >=sys-libs/libselinux-9999:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
+DEPEND=>=sys-libs/libsepol-9999:=[static-libs(+)] >=sys-libs/libselinux-9999:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
 DESCRIPTION=SELinux context translation to human readable names
 EAPI=8
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=toolchain-funcs git-r3
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=sys-libs/libsepol-9999:= >=sys-libs/libselinux-9999:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
+RDEPEND=>=sys-libs/libsepol-9999:=[static-libs(+)] >=sys-libs/libselinux-9999:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
 SLOT=0
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=0381437714a883ea27484dabca669928
+_md5_=a337a20b1a997cad2060f9e0ec616d03
