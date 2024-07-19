@@ -8,12 +8,12 @@ inherit autotools toolchain-funcs
 DESCRIPTION="Useful Apache tools - htdigest, htpasswd, ab, htdbm"
 HOMEPAGE="https://httpd.apache.org/"
 SRC_URI="mirror://apache/httpd/httpd-${PV}.tar.bz2"
+S="${WORKDIR}/httpd-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="ssl"
-RESTRICT="test"
 
 RDEPEND=">=dev-libs/apr-1.5.0:1=
 	dev-libs/apr-util:1=
@@ -28,7 +28,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/httpd-${PV}"
+RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.4.54-Makefile.patch" #459446

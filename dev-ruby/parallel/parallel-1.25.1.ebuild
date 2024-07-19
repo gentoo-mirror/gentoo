@@ -19,7 +19,7 @@ SRC_URI="https://github.com/grosser/parallel/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="MIT"
 SLOT="1"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
 DEPEND+="test? ( sys-process/lsof sys-process/procps )"
 
@@ -28,7 +28,7 @@ ruby_add_bdepend "
 "
 
 # Rails isn't yet ruby32-ready in Gentoo
-USE_RUBY="ruby30 ruby31" ruby_add_bdepend "
+USE_RUBY="ruby31 ruby32 ruby33" ruby_add_bdepend "
 	test? ( dev-ruby/activerecord[sqlite] )
 "
 

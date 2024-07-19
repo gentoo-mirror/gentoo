@@ -4,9 +4,9 @@
 EAPI=7
 
 # latest gentoo apache files
-GENTOO_PATCHSTAMP="20231019"
+GENTOO_PATCHSTAMP="20240719"
 GENTOO_DEVELOPER="graaff"
-GENTOO_PATCHNAME="gentoo-apache-2.4.58"
+GENTOO_PATCHNAME="gentoo-apache-2.4.62"
 
 # IUSE/USE_EXPAND magic
 IUSE_MPMS_FORK="prefork"
@@ -146,16 +146,12 @@ HOMEPAGE="https://httpd.apache.org/"
 # some helper scripts are Apache-1.1, thus both are here
 LICENSE="Apache-2.0 Apache-1.1"
 SLOT="2"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x64-macos ~x64-solaris"
 
 RDEPEND="
-	apache2_modules_tls? ( >=net-libs/rustls-ffi-0.9.2:= <net-libs/rustls-ffi-11 )
+	apache2_modules_tls? ( >=net-libs/rustls-ffi-0.13.0:= )
 "
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/libxmlv212.patch
-)
 
 pkg_setup() {
 	# dependent critical modules which are not allowed in global scope due
