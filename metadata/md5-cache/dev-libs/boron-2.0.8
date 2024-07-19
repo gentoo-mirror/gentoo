@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install
+DEPEND=bzip2? ( app-arch/bzip2:= ) !bzip2? ( sys-libs/zlib:= )
+DESCRIPTION=A scripting language similar to REBOL
+EAPI=8
+HOMEPAGE=https://urlan.sourceforge.net/boron/
+INHERIT=edo toolchain-funcs
+IUSE=bzip2 readline
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3+
+RDEPEND=bzip2? ( app-arch/bzip2:= ) !bzip2? ( sys-libs/zlib:= )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/urlan/boron-2.0.8.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=a1f8e707fa7a098bda395d6475af1678
