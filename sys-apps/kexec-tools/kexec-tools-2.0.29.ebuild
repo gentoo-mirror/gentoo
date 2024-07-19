@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit libtool linux-info optfeature systemd
 
@@ -11,24 +11,28 @@ if [[ ${PV} == "9999" ]] ; then
 else
 	SRC_URI="https://www.kernel.org/pub/linux/utils/kernel/kexec/${P/_/-}.tar.xz"
 	[[ "${PV}" == *_rc* ]] || \
-	KEYWORDS="amd64 ~arm64 ~ppc64 x86"
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Load another kernel from the currently executing Linux kernel"
 HOMEPAGE="https://kernel.org/pub/linux/utils/kernel/kexec/"
 
+S="${WORKDIR}/${P/_/-}"
+
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="booke lzma xen zlib"
+IUSE="booke lzma selinux xen zlib"
 
 REQUIRED_USE="lzma? ( zlib )"
 
 DEPEND="
 	lzma? ( app-arch/xz-utils )
-	zlib? ( sys-libs/zlib )"
-RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${P/_/-}"
+	zlib? ( sys-libs/zlib )
+"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-kdump )
+"
 
 CONFIG_CHECK="~KEXEC"
 
