@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=python-r1 toolchain-funcs bash-completion-r1
 IUSE=audit pam split-usr python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~riscv ~x86
 LICENSE=GPL-2
 PDEPEND=sys-apps/semodule-utils sys-apps/selinux-python
 RDEPEND=>=sys-libs/libselinux-3.7:=[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=sys-libs/libsemanage-3.7:=[python(+),python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=sys-libs/libsepol-3.7:= sys-libs/libcap-ng:= >=app-admin/setools-4.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] audit? ( >=sys-process/audit-1.5.1[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) pam? ( sys-libs/pam:= ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) app-misc/pax-utils
@@ -14,4 +14,4 @@ REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_tar
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.7/policycoreutils-3.7.tar.gz https://dev.gentoo.org/~perfinion/distfiles/policycoreutils-extra-1.37.tar.bz2
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=730c29103c0dc0291a3e17b284031406
+_md5_=c7aaf092a618b5a13512441856c48942

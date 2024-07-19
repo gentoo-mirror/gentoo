@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 INHERIT=python-any-r1
 IUSE=doc +unknown-perms systemd +ubac +unconfined
-KEYWORDS=amd64 arm arm64 ~mips x86
+KEYWORDS=amd64 arm arm64 ~mips ~riscv x86
 LICENSE=GPL-2
 RDEPEND=>=sys-apps/policycoreutils-2.8
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20240226/refpolicy-2.20240226.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20240226-r2.tar.bz2
 _eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-any-r1	f5169813d1619761b459800587005fd2
-_md5_=159e65cc57d6cb81bfa821d79e15532c
+_md5_=91773dd1403ca73b5aa4a7d0b2f1e28c
