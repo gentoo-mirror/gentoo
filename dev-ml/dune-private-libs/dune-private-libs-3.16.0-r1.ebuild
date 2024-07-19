@@ -1,11 +1,11 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit dune
 
-DESCRIPTION="Dune's unstable standard library"
+DESCRIPTION="Private libraries of Dune"
 HOMEPAGE="https://github.com/ocaml/dune"
 SRC_URI="https://github.com/ocaml/dune/archive/${PV}.tar.gz
 	-> dune-${PV}.tar.gz"
@@ -19,10 +19,7 @@ RESTRICT="test"
 
 BDEPEND=">=dev-ml/dune-3.12"
 DEPEND="
-	~dev-ml/dyn-${PV}:=[ocamlopt?]
-	~dev-ml/ordering-${PV}:=[ocamlopt?]
 	dev-ml/csexp:=[ocamlopt?]
-	!<dev-ml/dune-private-libs-3
 "
 RDEPEND="${DEPEND}"
 
@@ -31,5 +28,5 @@ src_configure() {
 }
 
 src_compile() {
-	dune-compile ${PN}
+	dune-compile ordering dyn stdune ${PN}
 }
