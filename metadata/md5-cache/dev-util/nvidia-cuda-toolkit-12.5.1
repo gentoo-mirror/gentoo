@@ -1,0 +1,15 @@
+BDEPEND=nsight? ( dev-util/patchelf )
+DEFINED_PHASES=install postinst prepare pretend setup unpack
+DESCRIPTION=NVIDIA CUDA Toolkit (compiler and friends)
+EAPI=8
+HOMEPAGE=https://developer.nvidia.com/cuda-zone
+INHERIT=check-reqs toolchain-funcs unpacker
+IUSE=debugger examples nsight profiler rdma vis-profiler sanitizer
+KEYWORDS=-* ~amd64 ~amd64-linux
+LICENSE=NVIDIA-CUDA
+RDEPEND=<sys-devel/gcc-14_pre[cxx] virtual/libcrypt examples? ( media-libs/freeglut media-libs/glu ) nsight? ( app-crypt/mit-krb5 dev-libs/libpfm dev-libs/wayland dev-qt/qtwayland:6 >=dev-libs/openssl-3 media-libs/tiff-compat:4 sys-libs/zlib ) rdma? ( sys-cluster/rdma-core ) vis-profiler? ( >=virtual/jre-1.8:* )
+RESTRICT=bindist mirror
+SLOT=0/12.5.1
+SRC_URI=https://developer.download.nvidia.com/compute/cuda/12.5.1/local_installers/cuda_12.5.1_555.42.06_linux.run
+_eclasses_=check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	7b40f3faa3e2e12f5cf6d36d0fbfcd09
+_md5_=77f3092a1001bceaa0f29a1e086ff6ac
