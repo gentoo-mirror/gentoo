@@ -1,0 +1,17 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-netfilter ) app-alternatives/lex virtual/pkgconfig doc? ( app-text/asciidoc >=app-text/docbook2X-0.8.8-r4 ) python? ( >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
+DEPEND=>=net-libs/libmnl-1.0.4:= >=net-libs/libnftnl-1.2.7:= gmp? ( dev-libs/gmp:= ) json? ( dev-libs/jansson:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) readline? ( sys-libs/readline:= ) xtables? ( >=net-firewall/iptables-1.6.1:= )
+DESCRIPTION=Linux kernel firewall, NAT and packet mangling tools
+EAPI=8
+HOMEPAGE=https://netfilter.org/projects/nftables/
+INHERIT=edo linux-info distutils-r1 systemd verify-sig
+IUSE=debug doc +gmp json libedit python +readline static-libs test xtables python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2 GPL-2+
+RDEPEND=>=net-libs/libmnl-1.0.4:= >=net-libs/libnftnl-1.2.7:= gmp? ( dev-libs/gmp:= ) json? ( dev-libs/jansson:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) readline? ( sys-libs/readline:= ) xtables? ( >=net-firewall/iptables-1.6.1:= )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) ) libedit? ( !readline )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://netfilter.org/projects/nftables/files/nftables-1.1.0.tar.xz verify-sig? ( https://netfilter.org/projects/nftables/files/nftables-1.1.0.tar.xz.sig )
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	distutils-r1	f11e1bc907da246e941fbae648327823	systemd	c8b03e8df84486aa991d4396686e8942	verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=604e3dedff82adf692eb5755d5d31b59
