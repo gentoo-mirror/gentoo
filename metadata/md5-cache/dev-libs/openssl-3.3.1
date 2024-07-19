@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.openssl.org/
 INHERIT=edo flag-o-matic linux-info toolchain-funcs multilib multilib-minimal multiprocessing preserve-libs verify-sig
 IUSE=+asm cpu_flags_x86_sse2 fips ktls quic rfc3779 sctp static-libs test tls-compression vanilla verify-sig weak-ssl-ciphers abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
-KEYWORDS=~amd64 ~mips ~sparc
+KEYWORDS=~amd64 ~mips ~sparc ~x86
 LICENSE=Apache-2.0
 PDEPEND=app-misc/ca-certificates
 RDEPEND=!<net-misc/openssh-9.2_p1-r3 tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=mirror://openssl/source/openssl-3.3.1.tar.gz verify-sig? ( mirror://openssl/source/openssl-3.3.1.tar.gz.asc )
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multilib-build	e8aed98bd43dbd25694310a660ad562c	multilib-minimal	4b0f1857965db8869a729948d5277e0b	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	preserve-libs	21162ec96c87041004a75348d97342dd	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=d6184fac53224acec1eb516ade69b5c5
+_md5_=01f1d96260b6c9598ced2f23a8952e93
