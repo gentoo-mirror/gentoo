@@ -263,13 +263,6 @@ kde-plasma/ksysguard
 # Removal on 2024-07-24.
 kde-apps/kopete
 
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-15)
-# EAPI=6, no reverse dependencies, not packaged on other distributions,
-# waiting for a version bump (which is hard since ebuild used debian
-# patches). Not really maintained in Gentoo for a long time.
-# Removal on 2024-07-15.  Bugs #934366, #871378, #716084, #924302.
-sci-astronomy/predict
-
 # Cédric Krier <cedk@gentoo.org> (2023-06-15)
 # critical regression with potential data loss:
 # https://lists.mercurial-scm.org/pipermail/mercurial-devel/2024-June/297954.html
@@ -278,43 +271,6 @@ sci-astronomy/predict
 ~dev-vcs/mercurial-6.7.1
 ~dev-vcs/mercurial-6.7.2
 ~dev-vcs/mercurial-6.7.3
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-14)
-# EAPI=6, no reverse dependencies, maintainer-needed, installation
-# blocked by iproute2.
-# Removal on 2024-07-14.  Bugs #934242, #430816.
-net-misc/arpd
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-14)
-# EAPI=6, many compilation issues, upstream is gone, not maintained for
-# many years.
-# Removal on 2024-07-14.  Bugs #934240.
-sci-electronics/vbs
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-14)
-# EAPI=6, dead upstream website, Gentoo is last distribution to
-# package it.
-# Removal on 2024-07-14.  Bug #934232.
-sci-chemistry/xyza2pipe
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-14)
-# EAPI=6, not maintained for ~7 years in gentoo, waiting for version
-# bump. Fetch restricted, and fails to build after manual fetch.
-# Removal on 2024-07-14.  Bugs #934228, #686860, #686858, #686856.
-sci-chemistry/namd
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-14)
-# EAPI=6, not maintained in Gentoo for a long time. procheck is
-# fetch restricted, and the file you download from upstream
-# doesn't match size and manifests. aqua depends on procheck.
-# Removal on 2024-07-14.  Bugs #928067, #928068.
-sci-chemistry/aqua
-sci-chemistry/procheck
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-14)
-# EAPI=6, maintainer-needed, no reverse dependencies.
-# Removal on 2024-07-14.  Bugs #934227, #898840.
-www-misc/log-toolkit
 
 # Viorel Munteanu <ceamac@gentoo.org> (2024-06-11)
 # dev-php/pear, dev-php/PEAR-* and their reverse dependencies: mask for removal
