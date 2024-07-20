@@ -21,6 +21,7 @@ CRATES="
 	anstyle@1.0.7
 	anyhow@1.0.86
 	argv@0.1.11
+	arrayvec@0.7.4
 	autocfg@1.3.0
 	backtrace@0.3.73
 	bitflags@1.3.2
@@ -41,9 +42,8 @@ CRATES="
 	clap_derive@4.5.8
 	clap_lex@0.7.1
 	colorchoice@1.0.1
-	const-hex@1.12.0
 	core-foundation-sys@0.8.6
-	cpufeatures@0.2.12
+	core_affinity@0.8.1
 	crc32fast@1.4.2
 	criterion-plot@0.5.0
 	criterion@0.5.1
@@ -64,8 +64,6 @@ CRATES="
 	dirs-sys@0.4.1
 	dirs@5.0.1
 	either@1.13.0
-	env_filter@0.1.0
-	env_logger@0.11.3
 	equivalent@1.0.1
 	errno@0.3.9
 	fastrand@2.1.0
@@ -92,6 +90,7 @@ CRATES="
 	hashbrown@0.14.5
 	heck@0.5.0
 	hermit-abi@0.3.9
+	hex-conservative@0.2.1
 	hex@0.4.3
 	home@0.5.9
 	iana-time-zone-haiku@0.1.2
@@ -112,7 +111,6 @@ CRATES="
 	libcgroups@0.3.3
 	libcontainer@0.3.3
 	libloading@0.8.4
-	libm@0.2.8
 	liboci-cli@0.3.3
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
@@ -137,7 +135,6 @@ CRATES="
 	oci-spec@0.6.5
 	once_cell@1.19.0
 	oorandom@11.1.4
-	openat2@0.1.2
 	option-ext@0.2.0
 	overload@0.1.1
 	parking_lot@0.12.3
@@ -147,23 +144,17 @@ CRATES="
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
 	pkg-config@0.3.30
-	ppv-lite86@0.2.17
 	prctl@1.0.0
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
 	proc-macro2@1.0.86
 	procfs-core@0.16.0
 	procfs@0.16.0
-	proptest@1.5.0
 	protobuf-codegen@3.2.0
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
 	quote@1.0.36
-	rand@0.8.5
-	rand_chacha@0.3.1
-	rand_core@0.6.4
-	rand_xorshift@0.3.0
 	redox_syscall@0.5.3
 	redox_users@0.4.5
 	regex-automata@0.4.7
@@ -203,8 +194,8 @@ CRATES="
 	syn@2.0.71
 	tabwriter@1.4.0
 	tempfile@3.10.1
-	thiserror-impl@1.0.62
-	thiserror@1.0.62
+	thiserror-impl@1.0.63
+	thiserror@1.0.63
 	thread-id@4.2.1
 	thread_local@1.1.8
 	tick_counter@0.4.5
@@ -214,7 +205,6 @@ CRATES="
 	tracing-log@0.2.0
 	tracing-subscriber@0.3.18
 	tracing@0.1.40
-	unarray@0.1.4
 	unicode-ident@1.0.12
 	unicode-width@0.1.13
 	utf8parse@0.2.2
