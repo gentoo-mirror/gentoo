@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/CastXML/CastXML
 INHERIT=cmake llvm-r1
 IUSE=+man test +llvm_slot_17 llvm_slot_18 llvm_slot_19
-KEYWORDS=~amd64 ~arm ~riscv ~x86
+KEYWORDS=amd64 ~arm ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=llvm_slot_17? ( sys-devel/clang:17= ) llvm_slot_18? ( sys-devel/clang:18= ) llvm_slot_19? ( sys-devel/clang:19= )
 REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/CastXML/CastXML/archive/v0.6.7.tar.gz -> CastXML-0.6.7.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	b0b1f2b1f205cf6142716789254aea99
-_md5_=b955a5848a3144ca770e5464af760479
+_md5_=5e10b0a70a23889e28219def18488f32
