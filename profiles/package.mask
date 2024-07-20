@@ -241,28 +241,6 @@ games-util/xgame-gtk2
 # Removal on 2024-07-20.  Bug #934637.
 games-strategy/majesty-demo
 
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-20)
-# EAPI=6, keyworded for x86 only (making it hard to debug), has
-# open bugs for modern C and not using correct toolchain commands.
-# Removal on 2024-07-20.  Bugs #934621, #925090, #724078, #727438.
-dev-debug/ald
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-06-20)
-# EAPI=6, no reverse dependencies, waiting for a version bump.
-# Removal on 2024-07-20.  Bugs #934619, #730758, #713760.
-media-gfx/dawn
-
-# Jakov Smolić <jsmolic@gentoo.org> (2024-06-18)
-# Outdated by several versions, very difficult to package due to the
-# complicated Cargo dependency management.
-# Removal on 2024-07-18. Bug #922378.
-app-emulation/cloud-hypervisor
-
-# Hans de Graaff <graaff@gentoo.org> (2024-06-17)
-# Obsolete slot with failing tests. Use the newer slot instead. No
-# reverse dependencies. Masked for removal on 2024-07-17.
-dev-ruby/net-imap:0
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-06-16)
 # No release since 2021-06-10 and effectively declared unmaintained by
 # upstream since then; now conflicting with Plasma 6 by pulling in old
