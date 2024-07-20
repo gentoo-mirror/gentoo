@@ -21,7 +21,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.0.8_makefile.patch"
+	"${FILESDIR}/${PN}-2.1.0_makefile.patch"
 )
 
 src_configure() {

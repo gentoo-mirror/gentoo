@@ -60,16 +60,16 @@ https://github.com/xu4-engine/u4/pull/16
          support/notify.c \
          support/stringTable.c \
          support/txf_draw.c \
--        unzip.c \
+-        support/unzip.c \
          $(NULL)
  
  CXXSRCS=\
 --- a/src/u4file.cpp
 +++ b/src/u4file.cpp
 @@ -6,9 +6,9 @@
- #include <cctype>
  #include <cstring>
  #include <cstdlib>
+ #include <map>
 +#include <unzip.h>
  
  #include "u4file.h"

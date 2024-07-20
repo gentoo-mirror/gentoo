@@ -1,26 +1,19 @@
-From 8f796a61697e9efe1d6e5498b807e74fc274af24 Mon Sep 17 00:00:00 2001
-From: "Azamat H. Hackimov" <azamat.hackimov@gmail.com>
-Date: Fri, 28 Apr 2023 12:01:28 +0300
-Subject: [PATCH] Fixes to buildsystem
-
-* Properly respect CFLAGS
-* Respect LDFLAGS
-* Don't compress man-pages
-* Don't strip binaries
+diff --git a/Makefile b/Makefile
+index a590cbb..e3ee964 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -11,7 +11,7 @@
-
+@@ -11,7 +11,7 @@ VIM_DIR=$(DESTDIR)/share/vim/vimfiles/syntax
+ 
  OS := $(shell uname)
-
+ 
 -CFLAGS = -pipe -pedantic -Wall -W -Iinclude -Iurlan -Ieval -Isupport
 +CFLAGS += -pipe -pedantic -Wall -W -Iinclude -Iurlan -Ieval -Isupport
  CFLAGS += -O3 -DNDEBUG
  #CFLAGS += -g -DDEBUG
-
-@@ -84,17 +84,17 @@
-
-
+ 
+@@ -84,17 +84,17 @@ endif
+ 
+ 
  $(ODIR)/%.o: urlan/%.c
 -	cc -c $(CFLAGS) $(CONFIG) $< -o $@
 +	$(CC) -c $(CFLAGS) $(CONFIG) $< -o $@
@@ -30,18 +23,18 @@ Subject: [PATCH] Fixes to buildsystem
  $(ODIR)/%.o: eval/%.c
 -	cc -c $(CFLAGS) $(CONFIG) $< -o $@
 +	$(CC) -c $(CFLAGS) $(CONFIG) $< -o $@
-
+ 
  boron: $(EXE_OBJS) $(BORON_LIB)
 -	cc $^ -o $@ $(EXE_LIBS)
-+	$(CC) $^ -o $@ $(EXE_LIBS)
-
++	$(CC) $(LDFLAGS) $^ -o $@ $(EXE_LIBS)
+ 
  $(ODIR)/os.o: unix/os.c
 -	cc -c $(CFLAGS) $(CONFIG) $< -o $@
 +	$(CC) -c $(CFLAGS) $(LDFLAGS) $(CONFIG) $< -o $@
-
+ 
  $(EXE_OBJS): | $(ODIR)
  $(LIB_OBJS): | $(ODIR)
-@@ -108,7 +108,7 @@
+@@ -108,7 +108,7 @@ ifdef STATIC_LIB
  else ifeq ($(OS), Darwin)
  	libtool -dynamiclib -o $@ $^ -install_name @rpath/$(BORON_LIB) $(LIBS)
  else
@@ -50,7 +43,7 @@ Subject: [PATCH] Fixes to buildsystem
  	ln -sf $(BORON_LIB) libboron.so.2
  	ln -sf $(BORON_LIB) libboron.so
  endif
-@@ -130,13 +130,12 @@
+@@ -130,13 +130,12 @@ ifeq ($(OS), Darwin)
  	install_name_tool -change libboron.dylib $(LIB_DIR)/libboron.dylib boron
  	install -m 644 libboron.dylib $(LIB_DIR)
  else
@@ -64,6 +57,6 @@ Subject: [PATCH] Fixes to buildsystem
 -	install -m 644 doc/boron.1.gz $(MAN_DIR)
 +	install -m 755 boron $(BIN_DIR)
 +	install -m 644 doc/boron.troff $(MAN_DIR)/boron.1
-
+ 
  uninstall:
  	rm -f $(BIN_DIR)/boron $(MAN_DIR)/boron.1

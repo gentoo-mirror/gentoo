@@ -26,8 +26,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
 
 PATCHES=(
-	"${FILESDIR}/1.2.1-system-minizip.patch"
-	"${FILESDIR}/1.2.1-desktop-file.patch"
+	"${FILESDIR}/1.4-system-minizip.patch"
 )
 
 src_unpack() {
