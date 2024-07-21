@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst unpack
+DEPEND=acct-group/plex acct-user/plex
+DESCRIPTION=Free media library that is intended for use with a plex client
+EAPI=8
+HOMEPAGE=https://www.plex.tv/
+INHERIT=readme.gentoo-r1 systemd unpacker pax-utils
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~x86
+LICENSE=Plex
+RDEPEND=acct-group/plex acct-user/plex
+RESTRICT=bindist
+SLOT=0
+SRC_URI=amd64? ( https://downloads.plex.tv/plex-media-server-new/1.40.4.8679-424562606/debian/plexmediaserver_1.40.4.8679-424562606_amd64.deb ) arm? ( https://downloads.plex.tv/plex-media-server-new/1.40.4.8679-424562606/debian/plexmediaserver_1.40.4.8679-424562606_armhf.deb ) arm64? ( https://downloads.plex.tv/plex-media-server-new/1.40.4.8679-424562606/debian/plexmediaserver_1.40.4.8679-424562606_arm64.deb ) x86? ( https://downloads.plex.tv/plex-media-server-new/1.40.4.8679-424562606/debian/plexmediaserver_1.40.4.8679-424562606_i386.deb )
+_eclasses_=readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	fb4b84181244b3b9990fa0bf40232dd2	pax-utils	91d47e5d20627c717aa878b9167c62a8
+_md5_=3c932e1845c32b57785940904d3fbdf6
