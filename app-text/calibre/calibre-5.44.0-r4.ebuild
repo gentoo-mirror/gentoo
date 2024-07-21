@@ -4,9 +4,9 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
-PYTHON_REQ_USE="ipv6(+),sqlite,ssl"
+PYTHON_REQ_USE="sqlite,ssl"
 
-inherit toolchain-funcs python-single-r1 qmake-utils verify-sig xdg-utils
+inherit edo toolchain-funcs python-single-r1 qmake-utils verify-sig xdg
 
 DESCRIPTION="Ebook management application"
 HOMEPAGE="https://calibre-ebook.com/"
@@ -14,7 +14,7 @@ SRC_URI="
 	https://download.calibre-ebook.com/${PV}/${P}.tar.xz
 	verify-sig? ( https://calibre-ebook.com/signatures/${P}.tar.xz.sig )
 "
-VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/kovidgoyal.gpg"
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kovidgoyal.gpg
 
 LICENSE="
 	GPL-3+
@@ -36,8 +36,8 @@ LICENSE="
 	PSF-2
 "
 SLOT="0"
-KEYWORDS="amd64"
-IUSE="ios speech test +udisks"
+KEYWORDS="~amd64"
+IUSE="ios speech +system-mathjax test +udisks unrar"
 
 RESTRICT="!test? ( test )"
 
@@ -65,6 +65,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		>=dev-python/html5-parser-0.4.9[${PYTHON_USEDEP}]
 		dev-python/jeepney[${PYTHON_USEDEP}]
 		>=dev-python/lxml-3.8.0[${PYTHON_USEDEP}]
+		dev-python/lxml-html-clean[${PYTHON_USEDEP}]
 		>=dev-python/markdown-3.0.1[${PYTHON_USEDEP}]
 		>=dev-python/mechanize-0.3.5[${PYTHON_USEDEP}]
 		>=dev-python/msgpack-0.6.2[${PYTHON_USEDEP}]
@@ -74,10 +75,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		>=dev-python/pychm-0.8.6[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.3.1[${PYTHON_USEDEP}]
 		>=dev-python/python-dateutil-2.5.3[${PYTHON_USEDEP}]
-		dev-python/zeroconf[${PYTHON_USEDEP}]
 		>=dev-python/PyQt5-5.15.5_pre2107091435[gui,widgets,network,printsupport,svg,${PYTHON_USEDEP}]
 		>=dev-python/PyQtWebEngine-5.15.5_pre2108100905[${PYTHON_USEDEP}]
 		dev-python/regex[${PYTHON_USEDEP}]
+		dev-python/zeroconf[${PYTHON_USEDEP}]
 	')
 	dev-qt/qtimageformats:5
 	dev-qt/qtcore:5=
@@ -99,7 +100,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		>=app-pda/libimobiledevice-1.2.0
 	)
 	speech? ( $(python_gen_cond_dep 'app-accessibility/speech-dispatcher[python,${PYTHON_USEDEP}]') )
-	udisks? ( virtual/libudev )"
+	system-mathjax? ( >=dev-libs/mathjax-3:= )
+	udisks? ( virtual/libudev )
+	unrar? ( dev-python/unrardll )
+"
 RDEPEND="${COMMON_DEPEND}
 	udisks? ( sys-fs/udisks:2 )"
 DEPEND="${COMMON_DEPEND}
@@ -112,14 +116,11 @@ BDEPEND="$(python_gen_cond_dep '
 	>=virtual/podofo-build-0.9.6_pre20171027
 	<virtual/podofo-build-0.10
 	virtual/pkgconfig
+	system-mathjax? ( dev-lang/rapydscript-ng )
 	verify-sig? ( sec-keys/openpgp-keys-kovidgoyal )
 "
 
 PATCHES=(
-	# Don't prompt the user for updates - they've installed via
-	# an ebuild.
-	"${FILESDIR}/${PN}-2.9.0-no_updates_dialog.patch"
-
 	# Skip calling a binary (JxrDecApp) from libjxr which is used for tests
 	# We don't (yet?) package libjxr and it seems to be dead upstream
 	# (last commit in 2017)
@@ -185,17 +186,21 @@ src_compile() {
 	export FT_LIB_DIR="${MY_LIBDIR}" HUNSPELL_LIB_DIR="${MY_LIBDIR}" PODOFO_LIB_DIR="${MY_LIBDIR}"
 	export QMAKE="$(qt5_get_bindir)/qmake"
 
-	${EPYTHON} setup.py build || die
-	${EPYTHON} setup.py gui || die
+	edo ${EPYTHON} setup.py build
+	edo ${EPYTHON} setup.py gui
 
 	# A few different resources are bundled in the distfile by default, because
 	# not all systems necessarily have them. We un-vendor them, using the
 	# upstream integrated approach if possible. See setup/revendor.py and
 	# consider migrating other resources to this if they do not use it, in
 	# *preference* over manual rm'ing.
-	${EPYTHON} setup.py liberation_fonts \
+	edo ${EPYTHON} setup.py liberation_fonts \
 		--path-to-liberation_fonts "${EPREFIX}"/usr/share/fonts/liberation-fonts \
-		--system-liberation_fonts || die
+		--system-liberation_fonts
+	if use system-mathjax; then
+		edo ${EPYTHON} setup.py mathjax --path-to-mathjax "${EPREFIX}"/usr/share/mathjax --system-mathjax
+		edo ${EPYTHON} setup.py rapydscript
+	fi
 }
 
 src_test() {
@@ -203,19 +208,18 @@ src_test() {
 	local _test_excludes=(
 		# unpackaged Python dependency: py7zr
 		7z
-		# unpackaged Python dependency: unrardll
-		test_unrar
 		# tests if a completely unused module is bundled
 		pycryptodome
 
 		$(usev !speech speech_dispatcher)
+		$(usev !unrar test_unrar)
 
 		# undocumented reasons
 		test_mem_leaks
 		test_searching
 	)
 
-	${PYTHON} setup.py test "${_test_excludes[@]/#/--exclude-test-name=}" || die
+	edo ${PYTHON} setup.py test "${_test_excludes[@]/#/--exclude-test-name=}"
 }
 
 src_install() {
@@ -226,7 +230,7 @@ src_install() {
 	#    raise ValueError, 'unknown locale: %s' % localename
 	#ValueError: unknown locale: 46
 	export -n LANG LANGUAGE ${!LC_*}
-	export LC_ALL=C.utf8 #709682
+	export LC_ALL=C.utf8 # bug #709682
 
 	# Bug #295672 - Avoid sandbox violation in ~/.config by forcing
 	# variables to point to our fake temporary $HOME.
@@ -239,35 +243,21 @@ src_install() {
 	# If this directory doesn't exist, zsh completion won't install
 	dodir /usr/share/zsh/site-functions
 
-	"${PYTHON}" setup.py install \
+	edo "${PYTHON}" setup.py install \
 		--staging-root="${ED}/usr" \
 		--prefix="${EPREFIX}/usr" \
 		--libdir="${EPREFIX}/usr/$(get_libdir)" \
 		--staging-libdir="${ED}/usr/$(get_libdir)" \
-		--system-plugins-location="${EPREFIX}/usr/share/calibre/system-plugins" || die
+		--system-plugins-location="${EPREFIX}/usr/share/calibre/system-plugins"
 
 	cp -r man-pages/ "${ED}"/usr/share/man || die
 
 	find "${ED}"/usr/share -type d -empty -delete || die
 
-	einfo "Converting python shebangs"
 	python_fix_shebang "${ED}/usr/bin"
 
-	einfo "Compiling python modules"
 	python_optimize "${ED}"/usr/$(get_libdir)/calibre "${D}/$(python_get_sitedir)"
 
 	newinitd "${FILESDIR}"/calibre-server-3.init calibre-server
 	newconfd "${FILESDIR}"/calibre-server-3.conf calibre-server
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
 }
