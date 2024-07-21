@@ -11,7 +11,7 @@ SRC_URI="https://github.com/joewing/${PN}/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~hppa ~ppc x86"
+KEYWORDS="~amd64 ~hppa ~ppc ~x86"
 IUSE="svg debug iconv jpeg nls png pango truetype xinerama xpm"
 
 RDEPEND="dev-libs/expat
@@ -38,22 +38,25 @@ DEPEND="${RDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 src_configure() {
-	econf \
-		$(use_enable svg cairo) \
-		$(use_enable svg rsvg) \
-		$(use_enable debug) \
-		$(use_enable jpeg) \
-		$(use_enable nls) \
-		$(use_enable pango) \
-		$(use_enable png) \
-		$(use_enable truetype xft) \
-		$(use_enable xinerama) \
-		$(use_enable xpm) \
-		$(use_with iconv libiconv-prefix /usr) \
-		$(use_with nls libintl-prefix /usr) \
-		--enable-shape \
-		--enable-xrender \
+	local myeconfargs=(
+		$(use_enable svg cairo)
+		$(use_enable svg rsvg)
+		$(use_enable debug)
+		$(use_enable jpeg)
+		$(use_enable nls)
+		$(use_enable pango)
+		$(use_enable png)
+		$(use_enable truetype xft)
+		$(use_enable xinerama)
+		$(use_enable xpm)
+		$(use_with iconv libiconv-prefix /usr)
+		$(use_with nls libintl-prefix /usr)
+		--enable-shape
+		--enable-xrender
 		--disable-rpath
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {

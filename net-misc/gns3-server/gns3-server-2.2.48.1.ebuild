@@ -14,22 +14,24 @@ SRC_URI="https://github.com/GNS3/gns3-server/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	acct-group/gns3
 	acct-user/gns3
 	app-emulation/dynamips
-	>=dev-python/aiofiles-23.2.1[${PYTHON_USEDEP}]
-	>=dev-python/aiohttp-3.9.3[${PYTHON_USEDEP}]
+	>=dev-python/aiofiles-24.1.0[${PYTHON_USEDEP}]
+	>=dev-python/aiohttp-3.9.5[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/async-timeout-4.0.3[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.9.0[${PYTHON_USEDEP}]
-	>=dev-python/jinja-3.1.3[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.9.8[${PYTHON_USEDEP}]
+	>=dev-python/jinja-3.1.4[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-4.22.0[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-2.4.0[${PYTHON_USEDEP}]
+	>=dev-python/psutil-6.0.0[${PYTHON_USEDEP}]
 	>=dev-python/py-cpuinfo-9.0.0[${PYTHON_USEDEP}]
-	>=dev-python/sentry-sdk-1.34.0[${PYTHON_USEDEP}]
+	>=dev-python/sentry-sdk-2.7.1[${PYTHON_USEDEP}]
+	>=dev-python/truststore-0.9.1[${PYTHON_USEDEP}]
 	net-misc/ubridge
 	sys-apps/busybox[static]
 "

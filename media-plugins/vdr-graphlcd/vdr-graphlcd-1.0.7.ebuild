@@ -1,61 +1,32 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-MY_PN="vdr-plugin-graphlcd"
-MY_P="${MY_PN}-${PV}"
+EAPI=8
 
 inherit vdr-plugin-2
 
 DESCRIPTION="VDR Plugin: support output on Graphical LCD"
-HOMEPAGE="https://projects.vdr-developer.org/projects/plg-graphlcd"
-SRC_URI="https://projects.vdr-developer.org/git/${MY_PN}.git/snapshot/${MY_P}.tar.bz2"
+HOMEPAGE="https://github.com/vdr-projects/vdr-plugin-graphlcd/"
+SRC_URI="https://github.com/vdr-projects/vdr-plugin-graphlcd/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/vdr-plugin-graphlcd-${PV}"
 
-KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
-DEPEND=">=app-misc/graphlcd-base-${PV}
+BDEPEND="acct-user/vdr[graphlcd]"
+DEPEND="app-misc/graphlcd-base
 	media-fonts/corefonts
 	media-video/vdr"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	acct-user/vdr[graphlcd]"
 
-S="${WORKDIR}/${MY_P}"
-
-pkg_setup() {
-	vdr-plugin-2_pkg_setup
-
-	if ! getent group lp | grep -q vdr; then
-		einfo
-		einfo "Add user 'vdr' to group 'lp' for full user access to parport device"
-		elog
-		elog "User vdr added to group lp"
-		gpasswd -a vdr lp || die
-	fi
-	if ! getent group usb | grep -q vdr; then
-		einfo
-		einfo "Add user 'vdr' to group 'usb' for full user access to usb device"
-		elog
-		elog "User vdr added to group usb"
-		gpasswd -a vdr usb || die
-	fi
-}
+PATCHES=( "${FILESDIR}/${PN}-1.0.1_no-font.patch" )
 
 src_prepare() {
 	vdr-plugin-2_src_prepare
 
-	sed -e "s:/usr/local:/usr:" \
-		-e "s:i18n.c:i18n.h:g" \
-		-e "s:include \$(VDRDIR)/Make.global:-include \$(VDRDIR)/Make.global:" \
-		-i Makefile || die
-
 	sed -e "s:SKIP_INSTALL_DOC ?= 0:SKIP_INSTALL_DOC ?= 1:" -i Makefile || die
-
-	eapply "${FILESDIR}/${P}_no-font.patch"
-
-	# bug 740296
-	sed -e "s:\"PLUGIN_GRAPHLCDCONF:\" PLUGIN_GRAPHLCDCONF:" -i plugin.c || die
 }
 
 src_install() {

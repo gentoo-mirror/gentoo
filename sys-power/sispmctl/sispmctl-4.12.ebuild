@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit systemd udev
 
@@ -22,8 +22,6 @@ RDEPEND="
 	acct-group/sispmctl
 "
 
-DOCS="AUTHORS README ChangeLog"
-
 src_configure() {
 	local myeconfargs=(
 		$(use_enable static-libs static)
@@ -38,11 +36,18 @@ src_install() {
 
 	find "${ED}" -name '*.la' -delete || die
 
-	## install udev rules which make the device files writable
-	## by the members of the group sispmctl
+	# install udev rules which make the device files writable
+	# by the members of the group sispmctl
 	udev_dorules examples/60-sispmctl.rules
 
 	systemd_dounit examples/${PN}.service
+}
 
+pkg_postinst() {
+	udev_reload
 	einfo "Add users who may run ${PN} to the group '${PN}'"
+}
+
+pkg_postrm() {
+	udev_reload
 }
