@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip secureboot? ( app-crypt/sbsigntools )
+BDEPEND=app-arch/unzip secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
 DEFINED_PHASES=install setup
 DESCRIPTION=An in-band utility for configuring Supermicro IPMI devices
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=supermicro
 RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=https://www.supermicro.com/Bios/sw_download/551/IPMICFG_1.34.2_build.230224.zip
-_eclasses_=secureboot	4911adb593665638c76fbd4e70d451ac
+_eclasses_=secureboot	f695cce74d5a14f87f209a0ec363a01a
 _md5_=68dd9916909564d57261359504872497
