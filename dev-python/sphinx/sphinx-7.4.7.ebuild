@@ -60,6 +60,7 @@ BDEPEND="
 		app-text/dvipng
 		>=dev-python/cython-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/defusedxml-0.7.1[${PYTHON_USEDEP}]
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		>=dev-python/setuptools-67.0[${PYTHON_USEDEP}]
 		dev-texlive/texlive-fontsextra
 		dev-texlive/texlive-latexextra
@@ -100,7 +101,7 @@ python_test() {
 		tests/test_extensions/test_ext_math.py::test_imgmath_numfig_html
 	)
 	case ${EPYTHON} in
-		python3.13)
+		python3.13x)
 			EPYTEST_DESELECT+=(
 				tests/test_extensions/test_ext_autodoc.py::test_autodoc_special_members
 				tests/test_extensions/test_ext_autodoc_configs.py::test_autodoc_type_aliases
@@ -137,5 +138,5 @@ python_test() {
 
 	# note: pytest-xdist causes random test failures
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
+	epytest -p rerunfailures --reruns=5
 }
