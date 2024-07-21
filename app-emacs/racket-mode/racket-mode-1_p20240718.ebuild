@@ -3,9 +3,9 @@
 
 EAPI=8
 
-[[ "${PV}" == *p20240130 ]] && COMMIT=d3ab936af10909874443cadb2e6c952faf2f536f
+[[ "${PV}" == *p20240718 ]] && COMMIT="b6db517f79c067e5519871909bb842bb2d266047"
 
-inherit elisp # virtualx
+inherit elisp
 
 DESCRIPTION="Emacs modes for Racket: edit, REPL, check-syntax, debug, profile, and more"
 HOMEPAGE="https://www.racket-mode.com/
@@ -20,7 +20,7 @@ else
 		-> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -38,7 +38,9 @@ BDEPEND="
 ELISP_REMOVE="
 	test/racket/hash-lang-test.rkt
 "
-PATCHES=( "${FILESDIR}/${PN}-rkt-source-dir.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-rkt-source-dir.patch"
+)
 
 DOCS=( CONTRIBUTING.org README.org THANKS.org )
 ELISP_TEXINFO="doc/${PN}.texi"
