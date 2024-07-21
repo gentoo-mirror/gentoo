@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.courier-mta.org/imap/
 INHERIT=autotools readme.gentoo-r1 systemd
 IUSE=berkdb debug fam +gdbm gnutls ipv6 selinux trashquota
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~mips ~ppc ppc64 ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ~ppc ppc64 ~s390 sparc x86
 LICENSE=GPL-3
 RDEPEND=gnutls? ( net-libs/gnutls:=[tools] ) !gnutls? ( dev-libs/openssl:0= ) >=net-libs/courier-authlib-0.71 >=net-libs/courier-unicode-2:= >=net-mail/mailbase-0.00-r8 net-dns/libidn:= berkdb? ( sys-libs/db:= ) fam? ( virtual/fam ) gdbm? ( >=sys-libs/gdbm-1.8.0:= ) selinux? ( sec-policy/selinux-courier ) !mail-mta/courier !net-mail/cyrus-imapd
 REQUIRED_USE=|| ( berkdb gdbm )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/courier/courier-imap-5.1.2.tar.bz2
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=21228f50d1898cc10785ba8bbba2874f
+_md5_=89f86f821c676b785d09028227709951
