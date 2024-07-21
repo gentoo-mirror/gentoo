@@ -1008,7 +1008,7 @@ app-admin/needrestart 3.6 3.6-r1 9999: Restart daemons after library updates
 app-admin/ngxtop 0.0.3_pre141201-r3: real-time metrics for nginx server (and others)
 app-admin/ocsinventory-agent 2.10.0: Hardware and software inventory tool (client)
 app-admin/op-cli-bin 1.12.3 2.23.0: command line interface for the 1password password manager
-app-admin/openrc-settingsd 1.4.0: System settings D-Bus service for OpenRC
+app-admin/openrc-settingsd 1.4.0-r1: System settings D-Bus service for OpenRC
 app-admin/opentofu 1.6.0 1.6.1 1.6.2 1.7.1 1.7.2: The open source infrastructure as code tool
 app-admin/pass 1.7.3-r2 1.7.4-r2 9999: Stores, retrieves, generates, and synchronizes passwords securely
 app-admin/pass-otp 1.2.0 1.2.0-r1: A pass extension for managing one-time-password (OTP) tokens
@@ -1037,7 +1037,7 @@ app-admin/ranpwd 1.2: Generate random passwords using the in-kernel cryptographi
 app-admin/rasdaemon 0.8.0-r2: Reliability, Availability and Serviceability logging tool
 app-admin/rcm 1.3.5 1.3.6: rc file (dotfile) management
 app-admin/redfishtool 1.1.8: Python package and command-line tool for accessing the Redfish API
-app-admin/restart-services 0.17.0-r1 1.2 1.3: Tool to manage OpenRC and systemd services that need to be restarted
+app-admin/restart-services 0.17.0-r1 1.2 1.3-r1: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.14.3 9999: (R)?ex, the friendly automation framework
 app-admin/rsyslog 8.2404.0 8.2404.0-r1 8.2406.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/ryzen_monitor 1.0.4-r1 1.0.5 1.0.5-r1 1.0.6_pre20220901: Monitor power information of Ryzen processors via the PM table of the SMU
@@ -2796,7 +2796,7 @@ app-misc/linux-logo 6.0 6.01: A utility that displays an ANSI/ASCII logo and som
 app-misc/linuxspa 0.7.1-r2: Linux Serial Protocol Analyser
 app-misc/liquidctl 1.11.1 1.12.1 1.13.0: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/lirc 0.10.1-r4 0.10.1_p7 0.10.2: decode and send infra-red signals of many commonly used remote controls
-app-misc/livecd-tools 2.9 2.10 9999: Gentoo LiveCD tools for autoconfiguration of hardware
+app-misc/livecd-tools 2.9 2.10-r1 9999: Gentoo LiveCD tools for autoconfiguration of hardware
 app-misc/lockfile-progs 0.1.17 0.1.19: Programs to safely lock/unlock files and mailboxes
 app-misc/logiops 0.3.4: An unofficial userspace driver for HID++ Logitech devices
 app-misc/lsx 0.1-r1: list executables
@@ -14398,7 +14398,7 @@ net-analyzer/nmbscan 1.2.5-r1: Scans the shares of a SMB/NetBIOS network
 net-analyzer/notus-scanner 22.6.2 22.6.3-r1 22.6.3-r2: Notus is a vulnerability scanner for creating results from local security checks
 net-analyzer/nrpe 4.0.0 4.0.2 4.0.3 4.1.0: Nagios Remote Plugin Executor
 net-analyzer/nsat 1.5-r6: Network Security Analysis Tool, an application-level network security scanner
-net-analyzer/nsca 2.7.2-r103: Nagios Service Check Acceptor
+net-analyzer/nsca 2.7.2-r104: Nagios Service Check Acceptor
 net-analyzer/nstats 0.4-r4: Displays statistics about ethernet traffic including protocol breakdown
 net-analyzer/ntopng 5.2.1-r1 5.6-r2 6.0: Network traffic analyzer with web interface
 net-analyzer/nttcp 1.47-r3: Tool to test TCP and UDP throughput
@@ -14585,7 +14585,7 @@ net-firewall/conntrack-tools 1.4.7-r1 1.4.8: Connection tracking userspace tools
 net-firewall/ebtables 2.0.11-r3: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
 net-firewall/ferm 2.6 2.7: Command line util for managing firewall rules
 net-firewall/firehol 3.1.6-r3 3.1.7-r2: iptables firewall generator
-net-firewall/firewalld 2.1.1 2.1.1-r2: Firewall daemon with D-Bus interface providing a dynamic firewall
+net-firewall/firewalld 2.1.1-r3: Firewall daemon with D-Bus interface providing a dynamic firewall
 net-firewall/fwbuilder 6.0.0_rc1: A firewall management GUI for iptables, PF, Cisco routers and more
 net-firewall/fwknop 2.6.10-r4 2.6.11-r1: Single Packet Authorization and Port Knocking application
 net-firewall/ipkungfu 0.6.1-r2: A nice iptables firewall script
@@ -15173,7 +15173,7 @@ net-misc/ndppd 0.2.5-r1: Proxies NDP messages between interfaces
 net-misc/nemesis 1.7-r1 1.8: A commandline-based, portable human IP stack for UNIX/Linux
 net-misc/netdate 1.2-r2: Utility to set date and time by ARPA Internet RFC 868
 net-misc/netevent 2.2.2: Tool to share Linux event devices with other machines
-net-misc/netifrc 0.7.7 0.7.8 9999: Gentoo Network Interface Management Scripts
+net-misc/netifrc 0.7.7 0.7.8-r1 9999: Gentoo Network Interface Management Scripts
 net-misc/netkit-bootparamd 0.17-r5: Netkit - bootparamd: Net-boot support daemon
 net-misc/netkit-bootpd 2.4-r2: Netkit - bootp
 net-misc/netkit-fingerd 0.17-r3: Netkit - fingerd and finger client
@@ -17010,6 +17010,7 @@ sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator call
 sys-apps/opal-utils 7.0: OPAL firmware utilities
 sys-apps/openrazer 3.8.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.48 0.53.1 0.54.2 9999: OpenRC manages the services, startup and shutdown of a host
+sys-apps/openrc-navi 0.60_beta 9999: OpenRC fork with user services support
 sys-apps/osinfo-db 20240523: osinfo database files
 sys-apps/osinfo-db-tools 1.10.0-r1 1.10.0-r2 1.11.0: Tools for managing the osinfo database
 sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32, Elf64, binaries
@@ -17243,7 +17244,7 @@ sys-block/vblade 25: vblade exports a block device using AoE
 sys-block/viaideinfo 0.5-r1: Query VIA IDE controllers for various information
 sys-block/wait-for-dri-devices-rules 1: Udev and systemd rules to wait for dri devices
 sys-block/whdd 3.0.1-r2 3.1: Diagnostic and recovery tool for block devices
-sys-block/zram-init 11.1 9999: Scripts to support compressed swap devices or ramdisks with zRAM
+sys-block/zram-init 11.1-r1 9999: Scripts to support compressed swap devices or ramdisks with zRAM
 sys-boot/aboot 1.0_pre20040408-r3 2.0_pre20210801 9999: Alpha Linux boot loader for SRM
 sys-boot/arcload 0.50-r3: ARCLoad - Bootloader for SGI IP22/IP32/IP27/IP28/IP30 Systems
 sys-boot/bootcreator 1.2-r1: Simple generator for Forth based BootMenu scripts for Pegasos machines
@@ -17264,7 +17265,7 @@ sys-boot/nettrom 2.3.3: NetWinder ARM bootloader and utilities
 sys-boot/os-prober 1.81-r3 1.82 9999: Utility to detect other OSs on a set of drives
 sys-boot/palo 2.24 9999: PALO: PArisc Linux Loader
 sys-boot/plymouth 22.02.122-r1 9999: Graphical boot animation (splash) and logger
-sys-boot/plymouth-openrc-plugin 0.1.3 0.2.0: Plymouth plugin for OpenRC
+sys-boot/plymouth-openrc-plugin 0.1.3 0.2.0-r1: Plymouth plugin for OpenRC
 sys-boot/raspberrypi-firmware 1.20221104 1.20230106 9999: Raspberry Pi (all versions) bootloader and GPU firmware
 sys-boot/refind 0.14.0.2-r1 0.14.2: The UEFI Boot Manager by Rod Smith
 sys-boot/sgibootcd 0.13: Creates burnable CD images for SGI LiveCDs
@@ -17366,7 +17367,7 @@ sys-devel/distcc 3.4-r1 3.4-r2 3.4-r3 3.4-r4: Distribute compilation of C code a
 sys-devel/dwz 0.15-r1: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r1 9.5.0 10.5.0 11.4.1_p20240501 11.5.0 12.3.1_p20240209 12.4.0 12.4.1_p20240711 12.5.9999 13.2.0 13.2.1_p20240210 13.3.1_p20240614 13.3.1_p20240712 13.3.1_p20240719 13.4.9999 14.1.1_p20240622 14.1.1_p20240713 14.1.9999 15.0.0_pre20240714 15.0.0_pre20240714-r1 15.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r1 9.5.0 10.5.0 11.4.1_p20240501 11.5.0 12.3.1_p20240209 12.4.0 12.4.1_p20240711 12.5.9999 13.2.0 13.2.1_p20240210 13.3.1_p20240614 13.3.1_p20240712 13.3.1_p20240719 13.4.9999 14.1.1_p20240622 14.1.1_p20240713 14.1.1_p20240720 14.1.9999 15.0.0_pre20240714 15.0.0_pre20240714-r1 15.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 9999: Utility to manage compilers
 sys-devel/gettext 0.21.1 0.22.4 0.22.5: GNU locale utilities
@@ -17555,7 +17556,7 @@ sys-kernel/asahi-sources 6.9.8_p1-r1 6.9.9_p5-r1: Asahi Linux kernel sources
 sys-kernel/bliss-initramfs 9.3.0: Boot your system's rootfs from Encrypted/OpenZFS
 sys-kernel/cryptodev 1.12 1.13-r1 9999: device that allows access to Linux kernel cryptographic drivers
 sys-kernel/dkms 3.0.12-r1 3.0.13: Dynamic Kernel Module Support
-sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r4 101 102 103-r1 9999: Generic initramfs generation tool
+sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r4 101 102 103-r2 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7 1.0.8: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.220 5.10.221 5.10.222 5.15.161 5.15.162 5.15.163 6.1.95 6.1.97 6.1.98 6.1.99 6.1.100 6.6.35 6.6.37 6.6.38 6.6.39 6.6.40 6.6.41 6.9.8 6.9.9 6.9.10: Linux kernel built with Gentoo patches
@@ -17742,7 +17743,7 @@ sys-process/procs 0.14.4 0.14.5: Modern replacement for ps
 sys-process/psinfo 0.12-r1 0.12-r2: Process information and statistics using the kernel /proc interface
 sys-process/psmisc 23.6 23.7: A set of tools that use the proc filesystem
 sys-process/rtirq 20240120 20240220: Modify realtime scheduling policy and priority of IRQ handlers
-sys-process/runit 2.1.2-r2: A UNIX init scheme with service supervision
+sys-process/runit 2.1.2-r3: A UNIX init scheme with service supervision
 sys-process/schedtool 1.3.0-r1 1.3.0-r2: A tool to query or alter a process' scheduling policy
 sys-process/supervise-scripts 4.0-r1 4.0-r2: Starting and stopping daemontools managed services
 sys-process/systemd-cron 2.2.0-r1 2.3.4-r1 2.4.0: systemd units to create timers for cron directories and crontab
@@ -17913,7 +17914,7 @@ virtual/ruby-ssl 12 13 14: Virtual ebuild for the Ruby OpenSSL bindings
 virtual/rubygems 17 19 20: Virtual ebuild for rubygems
 virtual/rust 1.71.0-r2 1.71.1-r2 1.73.0-r1 1.74.1-r1 1.75.0-r1 1.76.0 1.77.1 1.78.0 1.79.0: Virtual for Rust language compiler
 virtual/secret-service 0: Virtual for a freedesktop.org Secret Service API provider
-virtual/service-manager 1-r1: Virtual for various service managers
+virtual/service-manager 1-r2: Virtual for various service managers
 virtual/skkserv 0-r1: Virtual for SKK server
 virtual/ssh 0-r2: Virtual for SSH client and server
 virtual/szip 2.1: Virtual for szip compression drop-in replacements
@@ -18019,7 +18020,7 @@ www-apps/radicale 3.1.9: A simple CalDAV calendar server
 www-apps/readarr-bin 0.3.31.2578: An ebook and audiobook collection manager for Usenet and BitTorrent users
 www-apps/redmine 5.0.6 5.1.0: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.2.0 2.3.0: Issue-tracking system with command-line, web, and e-mail interfaces
-www-apps/rt 4.4.4-r3: RT is an enterprise-grade ticketing system
+www-apps/rt 4.4.4-r4: RT is an enterprise-grade ticketing system
 www-apps/rutorrent 4.3.5 4.3.6 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
 www-apps/selfoss 2.20_pre20230730: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/sfpg 4.11.0: A web gallery in one single PHP file
