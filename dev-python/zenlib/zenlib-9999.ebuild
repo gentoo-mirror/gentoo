@@ -7,11 +7,9 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..12} )
 inherit distutils-r1 git-r3
 
-DESCRIPTION="Python CPIO library"
-HOMEPAGE="https://github.com/desultory/pycpio"
-EGIT_REPO_URI="https://github.com/desultory/${PN}"
+DESCRIPTION="Useful python decorators and utilities"
+HOMEPAGE="https://github.com/desultory/zenlib"
+EGIT_REPO_URI="https://github.com/desultory/zenlib.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-
-RDEPEND=">=dev-python/zenlib-9999[${PYTHON_USEDEP}]"
