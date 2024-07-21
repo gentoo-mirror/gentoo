@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install postinst postrm prerm pretend setup unpack
+DEPEND=dev-java/java-config app-eselect/eselect-java
+DESCRIPTION=Prebuilt Java JDK binaries provided by Eclipse Temurin
+EAPI=8
+HOMEPAGE=https://adoptium.net
+IDEPEND=app-eselect/eselect-java
+INHERIT=java-vm-2 toolchain-funcs
+IUSE=alsa cups headless-awt selinux source
+LICENSE=GPL-2-with-classpath-exception
+RDEPEND=>=sys-apps/baselayout-java-0.1.0-r1 kernel_linux? ( media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/harfbuzz elibc_glibc? ( >=sys-libs/glibc-2.2.5:* ) elibc_musl? ( sys-libs/musl ) sys-libs/zlib alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) ) dev-java/java-config app-eselect/eselect-java
+RESTRICT=preserve-libs splitdebug
+SLOT=24
+SRC_URI=arm64? ( https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24+6-ea-beta//OpenJDK-jdk_aarch64_linux_hotspot_24_6-ea.tar.gz ) ppc64? ( https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24+6-ea-beta//OpenJDK-jdk_ppc64le_linux_hotspot_24_6-ea.tar.gz ) amd64? ( https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24+6-ea-beta//OpenJDK-jdk_x64_linux_hotspot_24_6-ea.tar.gz ) amd64? ( elibc_musl? ( https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24+6-ea-beta//OpenJDK-jdk_x64_alpine-linux_hotspot_24_6-ea.tar.gz ) ) riscv? ( https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24+6-ea-beta//OpenJDK-jdk_riscv64_linux_hotspot_24_6-ea.tar.gz )
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	pax-utils	91d47e5d20627c717aa878b9167c62a8	prefix	eab3c99d77fe00506c109c8a736186f7	xdg-utils	baea6080dd821f5562d715887954c9d3	java-vm-2	a4e242a071bea6071a08ad3af362c4a4
+_md5_=517625eb3543e708dfaedef94be030d2
