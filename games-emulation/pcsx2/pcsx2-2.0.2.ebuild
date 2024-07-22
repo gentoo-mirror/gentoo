@@ -9,10 +9,11 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PCSX2/pcsx2.git"
 else
-	# unbundling on this package has become unmaintainable and, rather than
-	# handle submodules separately, using a tarball that includes them
-	SRC_URI="https://dev.gentoo.org/~ionen/distfiles/${P}.tar.xz"
-	KEYWORDS="-* amd64"
+	SRC_URI="
+		https://github.com/PCSX2/pcsx2/archive/refs/tags/v${PV}.tar.gz
+			-> ${P}.tar.gz
+	"
+	KEYWORDS="-* ~amd64"
 fi
 
 DESCRIPTION="PlayStation 2 emulator"
@@ -79,7 +80,9 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.4667-flags.patch
 	"${FILESDIR}"/${PN}-1.7.5232-cubeb-automagic.patch
 	"${FILESDIR}"/${PN}-1.7.5835-vanilla-shaderc.patch
+	"${FILESDIR}"/${PN}-1.7.5855-no-libbacktrace.patch
 	"${FILESDIR}"/${PN}-1.7.5835-musl-header.patch
+	"${FILESDIR}"/${PN}-1.7.5913-musl-cache.patch
 )
 
 src_prepare() {
@@ -115,7 +118,7 @@ src_configure() {
 		-DDISABLE_ADVANCE_SIMD=yes
 		-DENABLE_TESTS=$(usex test)
 		-DUSE_LINKED_FFMPEG=yes
-		-DUSE_VTUNE=no
+		-DUSE_VTUNE=no # not packaged
 		-DUSE_VULKAN=$(usex vulkan)
 
 		# note that upstream hardly support native wayland, may or may not work
@@ -125,9 +128,6 @@ src_configure() {
 		# seemingly has no intention to drop the requirement at the moment
 		# https://github.com/PCSX2/pcsx2/issues/11149
 		-DX11_API=yes
-
-		# not packaged due to bug #885471, but still disable for no automagic
-		-DCMAKE_DISABLE_FIND_PACKAGE_Libbacktrace=yes
 
 		# bundled cubeb flags, see media-libs/cubeb and cubeb-automagic.patch
 		-DCHECK_ALSA=$(usex alsa)
@@ -167,13 +167,4 @@ pkg_postinst() {
 	optfeature "UI sound effects support" \
 		media-sound/alsa-utils \
 		media-libs/gst-plugins-base:1.0
-
-	if [[ ${REPLACING_VERSIONS##* } ]] &&
-		ver_test ${REPLACING_VERSIONS##* } -lt 1.7; then
-		elog ">=${PN}-1.7 has received several changes since <=${PN}-1.6.0, and is"
-		elog "notably now a 64bit build using Qt6. Just-in-case it is recommended"
-		elog "to backup configs, save states, and memory cards before using."
-		elog
-		elog "The executable was also renamed from 'PCSX2' to 'pcsx2'."
-	fi
 }
