@@ -14,10 +14,6 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	SRC_URI="https://github.com/werman/noise-suppression-for-voice/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-
-	PATCHES=(
-		"${FILESDIR}/${P}-tests.patch"
-	)
 fi
 
 LICENSE="GPL-3+"
@@ -43,15 +39,13 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-tests.patch"
+)
+
 src_configure() {
 	# Bug #925672
-	# append-atomic-flags does not work for us in this case, as it can
-	# only test for single integers of given sizes, meanwhile
-	# noise-suppression-for-voice does std::atomic<RnNoiseStats>, where
-	# RnNoiseStats is a struct with 4 uint32_t members.
-	if test-flags-CCLD "-latomic" &>/dev/null; then
-		append-flags -Wl,--push-state,--as-needed,-latomic,--pop-state
-	fi
+	append-atomic-flags
 
 	local mycmakeargs=(
 		-DBUILD_LADSPA_PLUGIN=$(usex ladspa ON OFF)
