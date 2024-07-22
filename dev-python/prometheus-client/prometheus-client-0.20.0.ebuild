@@ -23,3 +23,13 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
+
+python_test() {
+	local EPYTEST_IGNORE=(
+		# optional tests, broken with >=dev-python/asgiref-3.8
+		tests/test_asgi.py
+	)
+
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest
+}
