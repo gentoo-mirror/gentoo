@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit meson python-any-r1 udev
 
 DESCRIPTION="Library for identifying Wacom tablets and their model-specific features"
@@ -12,12 +12,13 @@ SRC_URI="https://github.com/linuxwacom/${PN}/releases/download/${P}/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0/9" # libwacom SONAME
-KEYWORDS="~alpha amd64 arm ~arm64 ~ia64 ppc ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/glib:2
+	dev-libs/libevdev
 	dev-libs/libgudev:=
 "
 DEPEND="${RDEPEND}"
