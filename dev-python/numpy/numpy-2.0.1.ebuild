@@ -52,11 +52,6 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	local PATCHES=(
-		# https://github.com/numpy/numpy/pull/26534
-		"${FILESDIR}/${P}-gcc14.patch"
-	)
-
 	# bug #922457
 	filter-lto
 	# https://github.com/numpy/numpy/issues/25004
@@ -93,7 +88,7 @@ python_test() {
 		'core/tests/test_multiarray.py::TestDot::test_huge_vectordot[complex128]'
 	)
 
-	if use arm && [[ $(uname -m || echo "unknown") == "armv8l" ]] ; then
+	if [[ $(uname -m) == armv8l ]]; then
 		# Degenerate case of arm32 chroot on arm64, bug #774108
 		EPYTEST_DESELECT+=(
 			core/tests/test_cpu_features.py::Test_ARM_Features::test_features
@@ -105,6 +100,16 @@ python_test() {
 			EPYTEST_DESELECT+=(
 				_core/tests/test_nditer.py::test_iter_refcount
 				_core/tests/test_limited_api.py::test_limited_api
+				f2py/tests/test_f2py2e.py::test_gh22819_cli
+			)
+			;&
+		python3.12)
+			EPYTEST_DESELECT+=(
+				# flaky
+				f2py/tests/test_crackfortran.py
+				f2py/tests/test_data.py::TestData::test_crackedlines
+				f2py/tests/test_data.py::TestDataF77::test_crackedlines
+				f2py/tests/test_f2py2e.py::test_gen_pyf
 			)
 			;;
 	esac
