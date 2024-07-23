@@ -1,0 +1,16 @@
+BDEPEND=>=dev-java/ant-1.10.14-r3:0
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* test? ( >=dev-java/ant-1.10.14:0[junit] ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Java Compiler Compiler - The Java Parser Generator
+EAPI=8
+HOMEPAGE=https://javacc.github.io/javacc/
+INHERIT=java-pkg-2
+IUSE=doc examples source test
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=BSD-2
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=7.0.4
+SRC_URI=https://github.com/javacc/javacc/archive/7.0.4.tar.gz -> javacc-7.0.4.tar.gz
+_eclasses_=java-utils-2	d2bf348d35fd96d97944269dfbaf0f97	java-pkg-2	b6d755b4f6afabfd933932be28b46368
+_md5_=a41b64d87b49165e9e3adb90859b64f7
