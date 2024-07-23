@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit cmake-multilib flag-o-matic llvm.org llvm-utils python-any-r1
 inherit toolchain-funcs
 
@@ -12,8 +12,7 @@ HOMEPAGE="https://llvm.org/docs/ExceptionHandling.html"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ~ppc ppc64 ~riscv sparc x86 ~arm64-macos ~x64-macos"
-IUSE="+clang debug static-libs test"
+IUSE="+clang +debug static-libs test"
 REQUIRED_USE="test? ( clang )"
 RESTRICT="!test? ( test )"
 

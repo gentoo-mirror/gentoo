@@ -16,8 +16,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA MIT"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv sparc x86 ~amd64-linux ~arm64-macos ~x64-macos"
-IUSE="debug doc +extra ieee-long-double +pie +static-analyzer test xml"
+IUSE="+debug doc +extra ieee-long-double +pie +static-analyzer test xml"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
 
@@ -44,7 +43,6 @@ PDEPEND="
 
 LLVM_COMPONENTS=(
 	clang clang-tools-extra cmake
-	llvm/lib/Transforms/Hello
 )
 LLVM_MANPAGES=1
 LLVM_TEST_COMPONENTS=(
@@ -194,6 +192,7 @@ get_distribution_components() {
 			c-index-test
 			clang
 			clang-format
+			clang-installapi
 			clang-linker-wrapper
 			clang-offload-bundler
 			clang-offload-packager
@@ -277,12 +276,6 @@ multilib_src_configure() {
 		# libgomp support fails to find headers without explicit -I
 		# furthermore, it provides only syntax checking
 		-DCLANG_DEFAULT_OPENMP_RUNTIME=libomp
-
-		# disable using CUDA to autodetect GPU, just build for all
-		-DCMAKE_DISABLE_FIND_PACKAGE_CUDAToolkit=ON
-		# disable linking to HSA to avoid automagic dep,
-		# load it dynamically instead
-		-DCMAKE_DISABLE_FIND_PACKAGE_hsa-runtime64=ON
 
 		-DCLANG_DEFAULT_PIE_ON_LINUX=$(usex pie)
 
