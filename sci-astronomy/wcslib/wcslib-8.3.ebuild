@@ -25,12 +25,6 @@ BDEPEND="
 	virtual/pkgconfig"
 
 src_configure() {
-	# -Werror=lto-type-mismatch
-	# https://bugs.gentoo.org/877885
-	#
-	# Upstream has an email contact address, so sent an email describing the issue.
-	filter-lto
-
 	# workaround until upstream fix it properly
 	append-fflags $(test-flags-FC -fallow-argument-mismatch)
 
@@ -39,6 +33,7 @@ src_configure() {
 		--htmldir="${EPREFIX}"/usr/share/doc/${PF}
 		$(use_enable fortran)
 		$(use_enable tools utils)
+		--with-bindc
 	)
 	# hacks because cfitsio and pgplot directories are hard-coded
 	if use fits; then
