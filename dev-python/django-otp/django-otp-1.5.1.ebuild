@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -27,10 +27,13 @@ BDEPEND="
 	test? (
 		$(python_gen_impl_dep sqlite)
 		dev-python/freezegun[${PYTHON_USEDEP}]
-		dev-python/qrcode[${PYTHON_USEDEP}]
+		|| (
+			dev-python/qrcode[${PYTHON_USEDEP}]
+			dev-python/segno[${PYTHON_USEDEP}]
+		)
 		$(python_gen_cond_dep '
 			dev-python/tomli[${PYTHON_USEDEP}]
-		' 3.9 3.10)
+		' 3.10)
 		${RDEPEND}
 	)
 "
