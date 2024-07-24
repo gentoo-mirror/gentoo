@@ -187,6 +187,10 @@ kernel-build_src_configure() {
 	fi
 
 	# force ld.bfd if we can find it easily
+	local HOSTLD="$(tc-getBUILD_LD)"
+	if type -P "${HOSTLD}.bfd" &>/dev/null; then
+		HOSTLD+=.bfd
+	fi
 	local LD="$(tc-getLD)"
 	if type -P "${LD}.bfd" &>/dev/null; then
 		LD+=.bfd
@@ -198,6 +202,8 @@ kernel-build_src_configure() {
 
 		HOSTCC="$(tc-getBUILD_CC)"
 		HOSTCXX="$(tc-getBUILD_CXX)"
+		HOSTLD="${HOSTLD}"
+		HOSTAR="$(tc-getBUILD_AR)"
 		HOSTCFLAGS="${BUILD_CFLAGS}"
 		HOSTLDFLAGS="${BUILD_LDFLAGS}"
 
@@ -210,6 +216,7 @@ kernel-build_src_configure() {
 		STRIP="$(tc-getSTRIP)"
 		OBJCOPY="$(tc-getOBJCOPY)"
 		OBJDUMP="$(tc-getOBJDUMP)"
+		READELF="$(tc-getREADELF)"
 
 		# we need to pass it to override colliding Gentoo envvar
 		ARCH=$(tc-arch-kernel)
@@ -253,25 +260,21 @@ kernel-build_src_configure() {
 	mkdir -p "${WORKDIR}"/modprep || die
 	mv .config "${WORKDIR}"/modprep/ || die
 	emake O="${WORKDIR}"/modprep "${MAKEARGS[@]}" olddefconfig
-	emake O="${WORKDIR}"/modprep "${MAKEARGS[@]}" modules_prepare
-	cp -pR "${WORKDIR}"/modprep "${WORKDIR}"/build || die
 
-	# Now that we have a release file, set KV_FULL
-	local relfile=${WORKDIR}/build/include/config/kernel.release
+	local k_release=$(emake -s O="${WORKDIR}"/modprep "${MAKEARGS[@]}" kernelrelease)
 	if [[ -z ${KV_FULL} ]]; then
-		KV_FULL=$(<"${relfile}") || die
+		KV_FULL=${k_release}
 	fi
 
 	# Make sure we are about to build the correct kernel
 	if [[ ${PV} != *9999 ]]; then
 		local expected_ver=$(dist-kernel_PV_to_KV "${PV}")
-		local expected_rel=$(<"${relfile}")
 
-		if [[ ${KV_FULL} != ${expected_rel} ]]; then
+		if [[ ${KV_FULL} != ${k_release} ]]; then
 			eerror "KV_FULL mismatch!"
 			eerror "KV_FULL:  ${KV_FULL}"
-			eerror "Expected: ${expected_rel}"
-			die "KV_FULL mismatch: got ${KV_FULL}, expected ${expected_rel}"
+			eerror "Expected: ${k_release}"
+			die "KV_FULL mismatch: got ${KV_FULL}, expected ${k_release}"
 		fi
 
 		if [[ ${KV_FULL} != ${expected_ver}* ]]; then
@@ -282,6 +285,9 @@ kernel-build_src_configure() {
 			die "Kernel version mismatch: got ${KV_FULL}, expected ${expected_ver}*"
 		fi
 	fi
+
+	emake O="${WORKDIR}"/modprep "${MAKEARGS[@]}" modules_prepare
+	cp -pR "${WORKDIR}"/modprep "${WORKDIR}"/build || die
 }
 
 # @FUNCTION: kernel-build_src_compile
@@ -448,6 +454,8 @@ kernel-build_src_install() {
 	# fix source tree and build dir symlinks
 	dosym "../../../${kernel_dir}" "/lib/modules/${KV_FULL}/build"
 	dosym "../../../${kernel_dir}" "/lib/modules/${KV_FULL}/source"
+	dosym "../../../${kernel_dir}/.config" "/lib/modules/${KV_FULL}/config"
+	dosym "../../../${kernel_dir}/System.map" "/lib/modules/${KV_FULL}/System.map"
 	if [[ "${image_path}" == *vmlinux* ]]; then
 		dosym "../../../${kernel_dir}/${image_path}" "/lib/modules/${KV_FULL}/vmlinux"
 	else
