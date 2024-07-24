@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-28">
+    <title>Freenet: Deanonymization Vulnerability</title>
+    <synopsis>A vulnerability has been discovered in Freenet, which can lead to deanonymization due to path folding.</synopsis>
+    <product type="ebuild">freenet</product>
+    <announced>2024-07-24</announced>
+    <revised count="1">2024-07-24</revised>
+    <bug>904441</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-p2p/freenet" auto="yes" arch="*">
+            <unaffected range="ge">0.7.5_p1497</unaffected>
+            <vulnerable range="lt">0.7.5_p1497</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Freenet is an encrypted network without censorship.</p>
+    </background>
+    <description>
+        <p>This release fixes a severe vulnerability in path folding that allowed
+to distinguish between downloaders and forwarders with an adapted
+node that is directly connected via opennet.</p>
+    </description>
+    <impact type="normal">
+        <p>This release fixes a severe vulnerability in path folding that allowed
+to distinguish between downloaders and forwarders with an adapted
+node that is directly connected via opennet.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Freenet users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-p2p/freenet-0.7.5_p1497"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-24T06:10:44.345056Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-24T06:10:44.351516Z">graaff</metadata>
+</glsa>
