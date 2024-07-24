@@ -624,3 +624,9 @@ TEXLIVE_MODULE_BINSCRIPTS="
 	texmf-dist/scripts/petri-nets/pn2pdf
 	texmf-dist/scripts/tikztosvg/tikztosvg
 "
+TEXLIVE_SCRIPTS_W_FILE_EXT="
+	memoize-clean.pl
+	memoize-clean.py
+	memoize-extract.pl
+	memoize-extract.py
+"
