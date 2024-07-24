@@ -8,13 +8,13 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
-	COMMIT=ae072f901671b68861da9577e3e12e350a9053d5
+	COMMIT=4ec29a8bba033d475f197693fac6cb0c383a1da2
 	SRC_URI="https://github.com/${PN}/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
-	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
-QTMIN=6.7.1
+QTMIN=5.15.12
 inherit cmake linux-info optfeature pam systemd tmpfiles
 
 DESCRIPTION="Simple Desktop Display Manager"
@@ -23,7 +23,7 @@ SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PAM_TAR}.tar.xz"
 
 LICENSE="GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain"
 SLOT="0"
-IUSE="+elogind systemd test +X"
+IUSE="+elogind systemd test"
 
 REQUIRED_USE="^^ ( elogind systemd )"
 RESTRICT="!test? ( test )"
@@ -31,8 +31,11 @@ RESTRICT="!test? ( test )"
 COMMON_DEPEND="
 	acct-group/sddm
 	acct-user/sddm
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network]
-	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtcore-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtdeclarative-${QTMIN}:5
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	sys-libs/pam
 	x11-libs/libXau
 	x11-libs/libxcb:=
@@ -43,16 +46,16 @@ COMMON_DEPEND="
 	systemd? ( sys-apps/systemd:=[pam] )
 "
 DEPEND="${COMMON_DEPEND}
-	test? ( >=dev-qt/qtbase-${QTMIN}:6 )
+	test? ( >=dev-qt/qttest-${QTMIN}:5 )
 "
 RDEPEND="${COMMON_DEPEND}
-	X? ( x11-base/xorg-server )
+	x11-base/xorg-server
 	!systemd? ( gui-libs/display-manager-init )
 "
 BDEPEND="
 	dev-python/docutils
 	>=dev-build/cmake-3.25.0
-	>=dev-qt/qttools-${QTMIN}[linguist]
+	>=dev-qt/linguist-tools-${QTMIN}:5
 	kde-frameworks/extra-cmake-modules:0
 	virtual/pkgconfig
 "
@@ -98,7 +101,7 @@ EOF
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_MAN_PAGES=ON
-		-DBUILD_WITH_QT6=ON
+		-DBUILD_WITH_QT6=OFF # default theme (and others) not yet compatible
 		-DDBUS_CONFIG_FILENAME="org.freedesktop.sddm.conf"
 		-DRUNTIME_DIR=/run/sddm
 		-DSYSTEMD_TMPFILES_DIR="/usr/lib/tmpfiles.d"
