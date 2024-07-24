@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-26">
+    <title>Dmidecode: Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in Dmidecode, which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">dmidecode</product>
+    <announced>2024-07-24</announced>
+    <revised count="1">2024-07-24</revised>
+    <bug>905093</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/dmidecode" auto="yes" arch="*">
+            <unaffected range="ge">3.5</unaffected>
+            <vulnerable range="lt">3.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Dmidecode reports information about your system&#39;s hardware as described in your system BIOS according to the SMBIOS/DMI standard (see a sample output). This information typically includes system manufacturer, model name, serial number, BIOS version, asset tag as well as a lot of other details of varying level of interest and reliability depending on the manufacturer. This will often include usage status for the CPU sockets, expansion slots (e.g. AGP, PCI, ISA) and memory module slots, and the list of I/O ports (e.g. serial, parallel, USB).</p>
+    </background>
+    <description>
+        <p>Dmidecode -dump-bin can overwrite a local file. This has security relevance because, for example, execution of Dmidecode via sudo is plausible.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Dmidecode users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/dmidecode-3.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-30630">CVE-2023-30630</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-24T06:06:10.030561Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-24T06:06:10.033680Z">graaff</metadata>
+</glsa>
