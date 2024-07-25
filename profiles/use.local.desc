@@ -2685,11 +2685,13 @@ dev-qt/qtbase:evdev - Enable support for input devices via evdev
 dev-qt/qtbase:gssapi - Enable support for GSSAPI (virtual/krb5)
 dev-qt/qtbase:gtk - Build the GTK platform theme plugin
 dev-qt/qtbase:gui - Build Qt6Gui module
+dev-qt/qtbase:journald - Log messages using sys-apps/systemd's journald rather than output to stderr (override with the QT_FORCE_STDERR_LOGGING=1 env var)
 dev-qt/qtbase:libinput - Enable support for input devices via dev-libs/libinput
 dev-qt/qtbase:libproxy - Use net-libs/libproxy for automatic HTTP/SOCKS proxy configuration
 dev-qt/qtbase:network - Build Qt6Network module
 dev-qt/qtbase:renderdoc - Enable support for capturing graphic's API calls using media-gfx/renderdoc
 dev-qt/qtbase:sql - Build Qt6Sql module
+dev-qt/qtbase:syslog - Log messages using syslog rather than output to stderr (override with the QT_FORCE_STDERR_LOGGING=1 env var)
 dev-qt/qtbase:tslib - Enable support for touchscreen devices via x11-libs/tslib
 dev-qt/qtbase:widgets - Build Qt6Widgets module
 dev-qt/qtbluetooth:qml - Build QML/QtQuick bindings and imports
