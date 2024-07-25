@@ -13,7 +13,7 @@ fi
 
 declare -A QT6_IUSE=(
 	[global]="+ssl +udev zstd"
-	[core]="icu"
+	[core]="icu journald syslog"
 	[modules]="+concurrent +dbus +gui +network +sql +xml"
 
 	[gui]="
@@ -28,6 +28,7 @@ declare -A QT6_IUSE=(
 )
 IUSE="${QT6_IUSE[*]}"
 REQUIRED_USE="
+	?? ( journald syslog )
 	$(
 		printf '%s? ( gui ) ' ${QT6_IUSE[gui]//+/}
 		printf '%s? ( network ) ' ${QT6_IUSE[network]//+/}
@@ -50,8 +51,8 @@ REQUIRED_USE="
 # - qtnetwork (src/network/configure.cmake)
 # - qtprintsupport (src/printsupport/configure.cmake) [gui+widgets]
 # - qtsql (src/plugins/sqldrivers/configure.cmake)
-# dlopen: renderdoc
-RDEPEND="
+# nolink: renderdoc, systemd
+COMMON_DEPEND="
 	sys-libs/zlib:=
 	ssl? ( dev-libs/openssl:= )
 	udev? ( virtual/libudev:= )
@@ -62,6 +63,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/libpcre2:=[pcre16,unicode(+)]
 	icu? ( dev-libs/icu:= )
+	journald? ( sys-apps/systemd )
 
 	dbus? ( sys-apps/dbus )
 	gui? (
@@ -115,8 +117,12 @@ RDEPEND="
 		sqlite? ( dev-db/sqlite:3 )
 	)
 "
+RDEPEND="
+	${COMMON_DEPEND}
+	syslog? ( virtual/logger )
+"
 DEPEND="
-	${RDEPEND}
+	${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
 	gui? (
 		vulkan? ( dev-util/vulkan-headers )
@@ -187,6 +193,8 @@ src_configure() {
 
 		# qtcore
 		$(qt_feature icu)
+		$(qt_feature journald)
+		$(qt_feature syslog)
 
 		# tools
 		-DQT_FEATURE_androiddeployqt=OFF
