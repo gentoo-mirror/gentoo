@@ -4,7 +4,7 @@
 EAPI=8
 
 CONFIG_CHECK="~ADVISE_SYSCALLS"
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit bash-completion-r1 check-reqs flag-o-matic linux-info pax-utils python-any-r1 toolchain-funcs xdg-utils
@@ -263,6 +263,7 @@ src_test() {
 		test/sequential/test-util-debug.js
 	)
 	[[ "$(nice)" -gt 10 ]] && drop_tests+=( "test/parallel/test-os.js" )
+	use inspector || drop_tests+=( test/sequential/test-watch-mode.mjs )
 	rm -f "${drop_tests[@]}" || die "disabling tests failed"
 
 	out/${BUILDTYPE}/cctest || die
