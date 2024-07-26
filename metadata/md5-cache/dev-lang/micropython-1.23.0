@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-libs/libffi:= virtual/pkgconfig
+DESCRIPTION=Python implementation for microcontrollers
+EAPI=8
+HOMEPAGE=https://micropython.org https://github.com/micropython/micropython
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://micropython.org/resources/source/micropython-1.23.0.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=c46b5d2cb3b6afb2b9d3fe3448889597

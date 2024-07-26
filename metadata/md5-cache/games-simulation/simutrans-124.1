@@ -9,9 +9,9 @@ INHERIT=autotools desktop flag-o-matic toolchain-funcs xdg
 IUSE=minimal +midi fontconfig upnp zstd
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=Artistic
-RDEPEND=app-arch/bzip2 media-libs/freetype media-libs/libpng:0= media-libs/libsdl2[sound,video] sys-libs/zlib midi? ( media-sound/fluidsynth:=[sdl] ) fontconfig? ( media-libs/fontconfig ) upnp? ( net-libs/miniupnpc:= ) zstd? ( app-arch/zstd ) midi? ( media-sound/fluid-soundfont ) !<games-simulation/simutrans-paksets-124.0
+RDEPEND=app-arch/bzip2 media-libs/freetype media-libs/libpng:0= media-libs/libsdl2[sound,video] sys-libs/zlib midi? ( media-sound/fluidsynth:=[sdl] ) fontconfig? ( media-libs/fontconfig ) upnp? ( net-libs/miniupnpc:= ) zstd? ( app-arch/zstd ) midi? ( media-sound/fluid-soundfont ) !<games-simulation/simutrans-paksets-124.1
 RESTRICT=test
 SLOT=0
-SRC_URI=https://downloads.sourceforge.net/simutrans/simutrans-src-124-0.zip !minimal? ( https://downloads.sourceforge.net/simutrans/simupak64-124-0.zip -> simutrans_simupak64-124-0.zip ) https://tastytea.de/files/gentoo/simutrans_language_pack-Base+texts-124.0.zip
+SRC_URI=https://downloads.sourceforge.net/simutrans/simutrans-src-124-1.zip !minimal? ( https://downloads.sourceforge.net/simutrans/simupak64-124-1.zip -> simutrans_simupak64-124-1.zip ) https://tastytea.de/files/gentoo/simutrans_language_pack-Base+texts-124.1.zip
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	desktop	021728fdc1b03b36357dbc89489e0f0d	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=885b6676f5ebe4e511dcc5bd01957e25
+_md5_=78c59fb2ae288c244fffdb9bee7fe611
