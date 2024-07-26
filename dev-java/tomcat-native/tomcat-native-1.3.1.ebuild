@@ -12,12 +12,12 @@ DESCRIPTION="Allows Tomcat to use certain native resources for better performanc
 HOMEPAGE="https://tomcat.apache.org/native-doc/"
 SRC_URI="mirror://apache/tomcat/tomcat-connectors/native/${PV}/source/${P}-src.tar.gz
 	verify-sig? (
-		https://downloads.apache.org/tomcat/tomcat-connectors/native/${PV}/source/tomcat-native-${PV}-src.tar.gz.asc
+		https://downloads.apache.org/tomcat/tomcat-connectors/native/${PV}/source/${P}-src.tar.gz.asc
 	)"
 S=${WORKDIR}/${P}-src/native
 
 LICENSE="Apache-2.0"
-SLOT="2"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
 
@@ -38,8 +38,10 @@ JAVA_TEST_GENTOO_CLASSPATH="junit-4"
 JAVA_TEST_SRC_DIR="../test"
 
 DOCS=( ../{CHANGELOG.txt,NOTICE,README.txt} )
+PATCHES=( "${FILESDIR}/tomcat-native-1.2.39-slibtool.patch" )
 
 src_prepare() {
+	default #780585
 	java-pkg-2_src_prepare
 	mkdir -p "${JAVA_RESOURCE_DIRS}/META-INF" || die
 	sed -ne '/attribute name/s:^.*name="\(.*\)" value="\(.*\)".*$:\1\: \2:p' \
@@ -62,6 +64,11 @@ src_compile() {
 }
 
 src_test() {
+	# Adjusting "String testFile =" path in TestFile.java:29 to match ${S}
+	sed \
+		-e '/String testFile =/s&test/&../test/&' \
+		-i ../test/org/apache/tomcat/jni/TestFile.java || die
+
 	JAVA_TEST_EXTRA_ARGS=( -Djava.library.path=".libs" )
 	java-pkg-simple_src_test
 }
