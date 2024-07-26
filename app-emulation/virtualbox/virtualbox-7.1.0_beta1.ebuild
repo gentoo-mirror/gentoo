@@ -3,12 +3,6 @@
 
 EAPI=8
 
-# Important!
-# This compiles the latest svn version.
-# It also compiles the kernel modules.  Does not depend on virtualbox-modules.
-# It is not meant to be used, might be very unstable.
-# Upstream seem to have added support for python 3.12, but it crashes.
-#
 # USE=doc does not work for now.
 #
 #
@@ -26,24 +20,27 @@ EAPI=8
 #  See bug #785835, bug #856121.
 PYTHON_COMPAT=( python3_{10..11} )
 
-inherit desktop edo flag-o-matic java-pkg-opt-2 linux-mod-r1 multilib optfeature pax-utils \
-	python-single-r1 subversion tmpfiles toolchain-funcs udev xdg
+inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature pax-utils \
+	python-single-r1 tmpfiles toolchain-funcs udev xdg
 
 MY_PN="VirtualBox"
-BASE_PV=7.0.16
-MY_P=${MY_PN}-${PV}
+MY_PV=${PV^^}
+MY_P=${MY_PN}-${MY_PV}
+HELP_PV=7.0.20
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/"
-ESVN_REPO_URI="https://www.virtualbox.org/svn/vbox/trunk"
 SRC_URI="
+	https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2
 	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.1.0_beta1.tar.bz2
-	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${BASE_PV}.tar.xz ) )
+	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${HELP_PV}.tar.xz ) )
 "
-S="${WORKDIR}/trunk"
+S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
+# Beta version
+#KEYWORDS="~amd64"
 IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl +udev vboxwebsrv vde +vmmraw vnc"
 
 unset WATCOM #856769
@@ -51,6 +48,7 @@ unset WATCOM #856769
 COMMON_DEPEND="
 	acct-group/vboxusers
 	app-arch/xz-utils
+	~app-emulation/virtualbox-modules-${PV}
 	dev-libs/libtpms
 	dev-libs/libxml2
 	dev-libs/openssl:0=
@@ -127,12 +125,10 @@ DEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	!app-emulation/virtualbox-modules
 	gui? ( x11-libs/libxcb:= )
 	java? ( virtual/jre:1.8 )
 "
 BDEPEND="
-	${PYTHON_DEPS}
 	>=app-arch/tar-1.34-r2
 	>=dev-lang/yasm-0.6.2
 	dev-libs/libIDL
@@ -157,6 +153,7 @@ BDEPEND="
 	gui? ( dev-qt/qttools:6[linguist] )
 	nls? ( dev-qt/qttools:6[linguist] )
 	java? ( virtual/jdk:1.8 )
+	python? ( ${PYTHON_DEPS} )
 "
 
 QA_FLAGS_IGNORED="
@@ -202,8 +199,6 @@ PATCHES=(
 
 DOCS=()	# Don't install the default README file during einstalldocs
 
-CONFIG_CHECK="~!SPINLOCK JUMP_LABEL"
-
 pkg_pretend() {
 	if ! use gui; then
 		einfo "No USE=\"gui\" selected, this build will not include any Qt frontend."
@@ -231,12 +226,6 @@ pkg_pretend() {
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	use python && python-single-r1_pkg_setup
-	linux-mod-r1_pkg_setup
-}
-
-src_unpack() {
-	subversion_src_unpack
-	default
 }
 
 src_prepare() {
@@ -289,21 +278,8 @@ src_prepare() {
 		java-pkg-opt-2_src_prepare
 	fi
 
-	#856811 #864274
-	# cannot filter out only one flag, some combinations of these flags produce buggy executables
-	for i in abm avx avx2 bmi bmi2 fma fma4 popcnt; do
-		append-cflags $(test-flags-CC -mno-$i)
-		append-cxxflags $(test-flags-CXX -mno-$i)
-	done
-
 	# bug #908814
 	filter-lto
-
-	# bug #843437
-	cat >> LocalConfig.kmk <<-EOF || die
-		CXXFLAGS=${CXXFLAGS}
-		CFLAGS=${CFLAGS}
-	EOF
 
 	if use sdl; then
 		sed -i 's/sdl-config/sdl2-config/' configure || die
@@ -497,21 +473,9 @@ src_compile() {
 	fi
 
 	MAKE="kmk" emake "${myemakeargs[@]}" all
-
-	local modlist=( {vboxdrv,vboxnetflt,vboxnetadp}=misc:"out/linux.${ARCH}/release/bin/src" )
-	local modargs=( KERN_DIR="${KV_OUT_DIR}" KERN_VER="${KV_FULL}" )
-	linux-mod-r1_src_compile
 }
 
 src_install() {
-	linux-mod-r1_src_install
-	insinto /usr/lib/modules-load.d/
-	newins - virtualbox.conf <<-EOF
-		vboxdrv
-		vboxnetflt
-		vboxnetadp
-	EOF
-
 	cd "${S}"/out/linux.${ARCH}/$(usex debug debug release)/bin || die
 
 	local vbox_inst_path="/usr/$(get_libdir)/${PN}" each size ico icofile
@@ -696,7 +660,7 @@ src_install() {
 		dodoc UserManual.pdf UserManual.q{ch,hc}
 		docompress -x /usr/share/doc/${PF}
 	elif use gui; then
-		dodoc "${WORKDIR}"/${PN}-help-${BASE_PV}/UserManual.q{ch,hc}
+		dodoc "${WORKDIR}"/${PN}-help-${HELP_PV}/UserManual.q{ch,hc}
 		docompress -x /usr/share/doc/${PF}
 	fi
 
@@ -733,8 +697,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	linux-mod-r1_pkg_postinst
-
 	xdg_pkg_postinst
 
 	if use udev; then
@@ -751,7 +713,7 @@ pkg_postinst() {
 	elog "You must be in the vboxusers group to use VirtualBox."
 	elog ""
 	elog "The latest user manual is available for download at:"
-	elog "https://download.virtualbox.org/virtualbox/${BASE_PV}/UserManual.pdf"
+	elog "https://download.virtualbox.org/virtualbox/${MY_PV}/UserManual.pdf"
 	elog ""
 
 	optfeature "Advanced networking setups" net-misc/bridge-utils sys-apps/usermode-utilities
