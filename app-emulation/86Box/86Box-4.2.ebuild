@@ -51,6 +51,8 @@ RDEPEND="
 
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}/${PN}-4.2-gcc14.patch" )
+
 src_configure() {
 	# LTO needs to be filtered
 	# See https://bugs.gentoo.org/854507
@@ -71,7 +73,7 @@ src_configure() {
 		-DRTMIDI="ON"
 		-DQT="$(usex qt5 'ON' $(usex qt6))"
 		-DRELEASE="ON"
-		$(usex qt6 '-DUSE_QT6=ON')
+		$(usex qt6 '-DUSE_QT6=ON' '')
 	)
 
 	cmake_src_configure
