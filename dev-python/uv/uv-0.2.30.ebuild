@@ -15,7 +15,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo check-reqs
 
-CRATE_PV=0.2.28
+CRATE_PV=0.2.29
 DESCRIPTION="A Python package installer and resolver, written in Rust"
 HOMEPAGE="
 	https://github.com/astral-sh/uv/
