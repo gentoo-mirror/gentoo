@@ -10,18 +10,19 @@ SRC_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kuber
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="hardened selinux"
 
-BDEPEND=">=dev-lang/go-1.20"
+BDEPEND=">=dev-lang/go-1.21.9"
 RDEPEND="selinux? ( sec-policy/selinux-kubernetes )"
 
 RESTRICT+=" test "
 S="${WORKDIR}/kubernetes-${PV}"
 
 src_compile() {
-	CGO_LDFLAGS="$(usex hardened '-fno-PIC ' '')" FORCE_HOST_GO=yes \
-	emake -j1 GOFLAGS="" GOLDFLAGS="" LDFLAGS="" WHAT=cmd/${PN}
+	CGO_LDFLAGS="$(usex hardened '-fno-PIC ' '')" \
+	emake -j1 GOFLAGS="" GOLDFLAGS="" LDFLAGS="" FORCE_HOST_GO=yes \
+	WHAT=cmd/${PN}
 }
 
 src_install() {
