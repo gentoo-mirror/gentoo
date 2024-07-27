@@ -25,15 +25,8 @@ checkconfig() {
 			for display in $DISPLAYS; do
 				user="$(grep "^:${display}" /etc/tigervnc/vncserver.users)"
 				user=${user#*=}
-				# bug #690046
 				if [ -z "${user}" ]; then
 					eerror "User is not defined for display :${display} in /etc/tigervnc/vncserver.users"
-					return 1
-				# 1.13.90 changed the default config directory to ~/.config/tigervnc
-				# but still supports ~/.vnc if not found
-				elif ! runuser -l "${user}" -s /bin/bash -c \
-					"[[ ( -d ${XDG_CONFIG_HOME:-~/.config}/tigervnc && -f ${XDG_CONFIG_HOME:-~/.config}/tigervnc/passwd ) || ( ! -d ${XDG_CONFIG_HOME:-~/.config}/tigervnc && -f ~/.vnc/passwd ) ]]"; then
-					eerror "There are no passwords defined for user ${user}."
 					return 1
 				elif [ -e "/tmp/.X11-unix/X${display}" ]; then
 					eerror "Display :${display} appears to be already in use because of /tmp/.X11-unix/X${display}"
@@ -43,6 +36,12 @@ checkconfig() {
 					eerror "Display :${display} appears to be already in use because of /tmp/.X${display}-lock"
 					eerror "Remove this file if there is no X server for :${display}"
 					return 1
+				# bug #690046
+				# The default config directory is now ~/.config/tigervnc, but still supports ~/.vnc if not found
+				# Only warn if password is missing, do not error out.  See bug #936442
+				elif ! runuser -l "${user}" -s /bin/bash -c \
+					"[[ ( -d ${XDG_CONFIG_HOME:-~/.config}/tigervnc && -f ${XDG_CONFIG_HOME:-~/.config}/tigervnc/passwd ) || ( ! -d ${XDG_CONFIG_HOME:-~/.config}/tigervnc && -f ~/.vnc/passwd ) ]]"; then
+					ewarn "There are no passwords defined for user ${user}. The server may not start."
 				fi
 				FREEDISPLAYS="${FREEDISPLAYS} ${display}"
 			done
