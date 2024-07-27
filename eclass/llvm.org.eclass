@@ -75,12 +75,6 @@ if [[ -z ${_LLVM_SOURCE_TYPE+1} ]]; then
 				19.0.0_pre20240720)
 					EGIT_COMMIT=72d8c2737bb557af9d0c735b9fa30b1b03485627
 					;;
-				19.0.0_pre20240712)
-					EGIT_COMMIT=1bad7024561bc64ed4bfda0772b16376b475eba5
-					;;
-				19.0.0_pre20240706)
-					EGIT_COMMIT=0b9f2847da79298ed09c29493245113f02b32d9f
-					;;
 				*)
 					die "Unknown snapshot: ${PV}"
 					;;
@@ -241,12 +235,21 @@ llvm.org_set_globals() {
 				EGIT_BRANCH="release/${LLVM_MAJOR}.x"
 			;;
 		tar)
-			SRC_URI+="
-				https://github.com/llvm/llvm-project/releases/download/llvmorg-${PV/_/-}/llvm-project-${PV/_/}.src.tar.xz
-				verify-sig? (
-					https://github.com/llvm/llvm-project/releases/download/llvmorg-${PV/_/-}/llvm-project-${PV/_/}.src.tar.xz.sig
-				)
-			"
+			if [[ ${LLVM_MAJOR} -ge 19 ]]; then
+				SRC_URI+="
+					https://github.com/llvm/llvm-project/releases/download/llvmorg-${PV/_/-}/llvm-project-${PV/_/-}.src.tar.xz
+					verify-sig? (
+						https://github.com/llvm/llvm-project/releases/download/llvmorg-${PV/_/-}/llvm-project-${PV/_/-}.src.tar.xz.sig
+					)
+				"
+			else
+				SRC_URI+="
+					https://github.com/llvm/llvm-project/releases/download/llvmorg-${PV/_/-}/llvm-project-${PV/_/}.src.tar.xz
+					verify-sig? (
+						https://github.com/llvm/llvm-project/releases/download/llvmorg-${PV/_/-}/llvm-project-${PV/_/}.src.tar.xz.sig
+					)
+				"
+			fi
 			BDEPEND+="
 				verify-sig? (
 					>=sec-keys/openpgp-keys-llvm-18.1.6
@@ -359,7 +362,11 @@ llvm.org_src_unpack() {
 			git-r3_checkout '' . '' "${components[@]}"
 			;;
 		tar)
-			archive=llvm-project-${PV/_/}.src.tar.xz
+			if [[ ${LLVM_MAJOR} -ge 19 ]]; then
+				archive=llvm-project-${PV/_/-}.src.tar.xz
+			else
+				archive=llvm-project-${PV/_/}.src.tar.xz
+			fi
 			if use verify-sig; then
 				verify-sig_verify_detached \
 					"${DISTDIR}/${archive}" "${DISTDIR}/${archive}.sig"
