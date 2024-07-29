@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module
 
-EGIT_COMMIT="7b5f7e0d8f705ed4e54f7040512327e231433366"
+EGIT_COMMIT="845e989f69d25b420ae325fedc8e70186243fd93"
 
 DESCRIPTION="Docker-compatible CLI for containerd, with support for Compose"
 HOMEPAGE="https://github.com/containerd/nerdctl"
@@ -45,9 +45,8 @@ src_install() {
 		REVISION="${EGIT_COMMIT}"
 		DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
 		PREFIX="${EPREFIX}/usr"
-		install
 	)
-	emake "${emake_args[@]}"
-	DOCS=( README.md docs/* examples )
+	emake "${emake_args[@]}" install
+	local DOCS=( README.md docs/* examples )
 	einstalldocs
 }
