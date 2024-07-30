@@ -17,8 +17,8 @@ LICENSE="LGPL-2.1"
 SLOT="$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm ~x86"
 
-DEPEND+="net-libs/libpcap"
-RDEPEND+="net-libs/libpcap"
+DEPEND="net-libs/libpcap"
+RDEPEND="net-libs/libpcap"
 
 ruby_add_bdepend "
 	test? (
@@ -43,11 +43,14 @@ all_ruby_prepare() {
 
 	sed -i -e '/coveralls/Id' test/test_helper.rb || die
 
-	# Tests which need escalated privileges
+	# Tests which need escalated privileges, network interfaces or other devices
 	local privileged_tests=(
 		test_set_datalink
 		test_create_from_primitives
 		test_filter
+		test_lookupdev
+		test_lookupnet
+		test_monitor
 		test_pcap_stats
 		test_pcap_datalink
 		test_pcap_inject
