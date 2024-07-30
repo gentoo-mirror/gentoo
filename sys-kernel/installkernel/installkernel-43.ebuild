@@ -215,17 +215,17 @@ pkg_postinst() {
 	local log=${ROOT}/var/log/installkernel.log
 	if [[ ! -f ${log} ]]; then
 		echo -e \
-			"DATE\t" \
-			"KI_VENDOR\t" \
-			"VERSION\t" \
-			"CONF_ROOT\t" \
-			"LAYOUT\t" \
-			"INITRD_GEN\t" \
-			"UKI_GEN\t" \
-			"BOOT_ROOT\t" \
-			"KERNEL_REL_PATH\t" \
-			"INITRD_REL_PATH\t" \
-			"PLUGIN_OVERRIDE\t" \
-				>> "${log}" || die
+"DATE\t"\
+"KI_VENDOR\t"\
+"VERSION\t"\
+"CONF_ROOT\t"\
+"LAYOUT\t"\
+"INITRD_GEN\t"\
+"UKI_GEN\t"\
+"BOOT_ROOT\t"\
+"KERNEL_REL_PATH\t"\
+"INITRD_REL_PATH\t"\
+"PLUGIN_OVERRIDE\t"\
+>> "${log}" || die
 	fi
 }
