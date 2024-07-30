@@ -20,7 +20,6 @@ BDEPEND="test? ( ${PYTHON_DEPS} )"
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.3.4-Werror.patch
 	"${FILESDIR}"/${PN}-0.3.5-respect-CFLAGS.patch
-	"${FILESDIR}"/${PN}-0.6.0-test-fixes.patch
 )
 
 pkg_setup() {
