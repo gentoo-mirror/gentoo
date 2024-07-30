@@ -8,7 +8,7 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit cmake lua-single python-single-r1
 
@@ -69,7 +69,7 @@ CDEPEND="
 	osc? ( media-libs/liblo )
 	portaudio? ( media-libs/portaudio )
 	portmidi? ( media-libs/portmidi )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	utils? ( !media-sound/snd )
 	vim-syntax? ( !app-vim/csound-syntax )
 "
