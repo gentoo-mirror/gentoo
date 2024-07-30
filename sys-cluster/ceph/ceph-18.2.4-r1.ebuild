@@ -62,6 +62,7 @@ DEPEND="
 	dev-cpp/yaml-cpp:=
 	dev-python/natsort[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-vcs/git
 	net-dns/c-ares:=
 	net-libs/gnutls:=
 	sys-auth/oath-toolkit:=
@@ -87,7 +88,10 @@ DEPEND="
 	kerberos? ( virtual/krb5 )
 	ldap? ( net-nds/openldap:= )
 	lttng? ( dev-util/lttng-ust:= )
-	parquet? ( dev-libs/re2:= )
+	parquet? (
+		<dev-cpp/abseil-cpp-20240116.2
+		<dev-libs/re2-0.2024.07.02:=
+	)
 	pmdk? (
 		>=dev-libs/pmdk-1.10.0:=
 		sys-block/ndctl:=
