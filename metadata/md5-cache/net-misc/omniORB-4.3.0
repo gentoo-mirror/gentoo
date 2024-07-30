@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ssl? ( dev-libs/openssl:= )
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ssl? ( dev-libs/openssl:= )
 DESCRIPTION=A robust, high-performance CORBA 2 ORB
-EAPI=7
+EAPI=8
 HOMEPAGE=http://omniorb.sourceforge.net/
 INHERIT=python-single-r1
-IUSE=doc ipv6 ssl python_single_target_python3_10 python_single_target_python3_11
+IUSE=doc ipv6 ssl python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=amd64 ppc ppc64 ~sparc x86
 LICENSE=LGPL-2 GPL-2
-RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) ssl? ( dev-libs/openssl:= )
-REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 )
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ssl? ( dev-libs/openssl:= )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/omniorb/omniORB-4.3.0.tar.bz2
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=8276668c69db9fc0f4a1c06bc1461905
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=928023db711487041138e36652a18bb4
