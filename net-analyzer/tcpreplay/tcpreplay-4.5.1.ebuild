@@ -15,8 +15,6 @@ else
 	KEYWORDS="~amd64 ~arm ~sparc ~x86"
 fi
 
-S="${WORKDIR}"/${P/_/-}
-
 LICENSE="BSD GPL-3"
 SLOT="0"
 IUSE="debug pcapnav +tcpdump"
