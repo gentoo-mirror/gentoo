@@ -1,17 +1,17 @@
-BDEPEND=python? ( >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?] test? ( dev-python/pytest[python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/pip[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=python? ( >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( dev-python/pytest[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pip[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) ) sqlite? ( dev-db/sqlite:3 ) X? ( x11-libs/libX11 )
+DEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) sqlite? ( dev-db/sqlite:3 ) X? ( x11-libs/libX11 )
 DESCRIPTION=Numerical and networking C++ library
 EAPI=8
 HOMEPAGE=http://dlib.net/
 INHERIT=cmake cuda distutils-r1
-IUSE=cblas cuda debug examples gif jpeg lapack mkl png python sqlite test X cpu_flags_x86_avx cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 python_targets_python3_10 python_targets_python3_11
+IUSE=cblas cuda debug examples gif jpeg lapack mkl png python sqlite test X cpu_flags_x86_avx cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=Boost-1.0
-RDEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) ) sqlite? ( dev-db/sqlite:3 ) X? ( x11-libs/libX11 )
-REQUIRED_USE=python? ( png || ( python_targets_python3_10 python_targets_python3_11 ) )
+RDEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) sqlite? ( dev-db/sqlite:3 ) X? ( x11-libs/libX11 )
+REQUIRED_USE=python? ( png || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
 RESTRICT=!test? ( test )
 SLOT=0/19.24.2
 SRC_URI=https://github.com/davisking/dlib/archive/v19.24.2.tar.gz -> dlib-19.24.2.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	cuda	283d0f298f6c196c755a0f8d50daca85	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-r1	428f5c53276c2adc06a89108fc2f9f46	distutils-r1	ac3ce68c875c9b392338dcd64f7feb73
-_md5_=60928f09eebe49f4e9c8dca65bc12d9e
+_md5_=1a905526884c6320e8e3573dcaaf1a94
