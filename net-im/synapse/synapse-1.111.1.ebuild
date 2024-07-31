@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 CRATES="
 	aho-corasick@1.1.3
-	anyhow@1.0.83
+	anyhow@1.0.86
 	arc-swap@1.7.1
 	autocfg@1.3.0
 	base64@0.21.7
@@ -34,10 +34,10 @@ CRATES="
 	indoc@2.0.5
 	itoa@1.0.11
 	js-sys@0.3.69
-	lazy_static@1.4.0
+	lazy_static@1.5.0
 	libc@0.2.154
 	lock_api@0.4.12
-	log@0.4.21
+	log@0.4.22
 	memchr@2.7.2
 	memoffset@0.9.1
 	mime@0.3.17
@@ -61,12 +61,12 @@ CRATES="
 	redox_syscall@0.5.1
 	regex-automata@0.4.6
 	regex-syntax@0.8.3
-	regex@1.10.4
+	regex@1.10.5
 	ryu@1.0.18
 	scopeguard@1.2.0
-	serde@1.0.201
-	serde_derive@1.0.201
-	serde_json@1.0.117
+	serde@1.0.204
+	serde_derive@1.0.204
+	serde_json@1.0.120
 	sha1@0.10.6
 	sha2@0.10.8
 	smallvec@1.13.2
@@ -116,7 +116,7 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
@@ -150,12 +150,13 @@ RDEPEND="
 	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/pymacaroons[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
+	dev-python/python-multipart[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/service-identity[${PYTHON_USEDEP}]
 	dev-python/signedjson[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 	dev-python/treq[${PYTHON_USEDEP}]
-	<dev-python/twisted-24.3.0_p20240628[${PYTHON_USEDEP}]
+	dev-python/twisted[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )

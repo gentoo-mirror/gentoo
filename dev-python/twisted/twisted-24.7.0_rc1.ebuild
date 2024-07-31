@@ -8,7 +8,7 @@ PYTHON_TESTED=( python3_{10..13} pypy3 )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
 PYTHON_REQ_USE="threads(+)"
 
-inherit distutils-r1 virtualx
+inherit distutils-r1 pypi virtualx
 
 DESCRIPTION="An asynchronous networking framework written in Python"
 HOMEPAGE="
@@ -16,15 +16,9 @@ HOMEPAGE="
 	https://github.com/twisted/twisted/
 	https://pypi.org/project/Twisted/
 "
-# The snapshot is based on commit from PR https://github.com/twisted/twisted/pull/12092
-# which resolves most of remaining py3.13 issues.
-COMMIT="8f6b89855d4384e3ed80884ca6f7ecc46f7a92fb"
-SRC_URI="
-	https://github.com/twisted/twisted/archive/${COMMIT}.tar.gz
-		-> ${P}.gh.tar.gz
+SRC_URI+="
 	https://dev.gentoo.org/~mgorny/dist/twisted-regen-cache.gz
 "
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -89,7 +83,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-skip-py313-test.patch"
+	"${FILESDIR}/${PN}-24.3.0_p20240628-skip-py313-test.patch"
+	"${FILESDIR}/${PN}-24.7.0_rc1-skip-py313-tests.patch"
 )
 
 python_prepare_all() {
@@ -122,6 +117,8 @@ python_test() {
 
 	# breaks some tests by overriding empty environment
 	local -x SANDBOX_ON=0
+	local -x LINES=25
+	local -x COLUMNS=80
 	"${EPYTHON}" -m twisted.trial twisted ||
 		die "Tests failed with ${EPYTHON}"
 }
