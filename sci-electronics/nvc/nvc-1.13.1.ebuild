@@ -3,9 +3,9 @@
 
 EAPI=8
 
-LLVM_MAX_SLOT=16
+LLVM_COMPAT=( {17..18} )
 
-inherit autotools bash-completion-r1 llvm
+inherit autotools bash-completion-r1 llvm-r1
 
 DESCRIPTION="NVC is a VHDL compiler and simulator"
 HOMEPAGE="https://www.nickg.me.uk/nvc/
@@ -44,7 +44,9 @@ RDEPEND="
 	sys-libs/ncurses:=
 	sys-libs/zlib:=
 	llvm? (
-		<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=
+		$(llvm_gen_dep '
+			sys-devel/llvm:${LLVM_SLOT}=
+		')
 	)
 "
 DEPEND="
@@ -62,7 +64,7 @@ PATCHES=( "${FILESDIR}/nvc-1.9.2-jit-code-capstone.patch" )
 QA_FLAGS_IGNORED="usr/lib[0-9]*/nvc/preload[0-9]*.so"
 
 pkg_setup() {
-	use llvm && llvm_pkg_setup
+	use llvm && llvm-r1_pkg_setup
 }
 
 src_unpack() {
