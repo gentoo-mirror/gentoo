@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig dev-build/make >=dev-build/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=virtual/pkgconfig qt5? ( dev-qt/linguist-tools:5 ) dev-build/make >=dev-build/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=dev-lang/tcl:= dev-libs/jsoncpp:= dev-libs/libgcrypt:= =dev-libs/libgpiod-1*:= dev-libs/libsigc++:2 dev-libs/popt media-libs/alsa-lib media-sound/gsm media-libs/speex media-libs/opus net-misc/curl ogg? ( media-libs/libogg ) rtlsdr? ( net-wireless/rtl-sdr ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 )
 DESCRIPTION=Multi Purpose Voice Services System, including Qtel for EchoLink
@@ -12,4 +12,4 @@ RDEPEND=dev-lang/tcl:= dev-libs/jsoncpp:= dev-libs/libgcrypt:= =dev-libs/libgpio
 SLOT=0
 SRC_URI=https://github.com/sm0svx/svxlink/archive/24.02.tar.gz -> svxlink-24.02.tar.gz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=a436dbdb3f1b6b85680b15a7ae61a523
+_md5_=6271234782e98dcd612d356b03b1c675
