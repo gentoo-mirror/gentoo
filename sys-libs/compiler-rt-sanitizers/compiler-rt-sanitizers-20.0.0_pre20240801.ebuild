@@ -99,6 +99,11 @@ src_prepare() {
 	# hangs, sigh
 	rm test/tsan/getline_nohang.cpp || die
 
+	if has_version ">=sys-libs/glibc-2.40"; then
+		# https://github.com/llvm/llvm-project/issues/100877
+		rm test/asan/TestCases/Linux/printf-fortify-5.c || die
+	fi
+
 	llvm.org_src_prepare
 }
 
