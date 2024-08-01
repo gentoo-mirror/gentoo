@@ -1,11 +1,11 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit dune
 
-DESCRIPTION="Element ordering"
+DESCRIPTION="Private libraries of Dune"
 HOMEPAGE="https://github.com/ocaml/dune"
 SRC_URI="https://github.com/ocaml/dune/archive/${PV}.tar.gz
 	-> dune-${PV}.tar.gz"
@@ -18,6 +18,9 @@ IUSE="+ocamlopt"
 RESTRICT="test"
 
 BDEPEND=">=dev-ml/dune-3.5"
+DEPEND="
+	dev-ml/csexp:=[ocamlopt?]
+"
 RDEPEND="${DEPEND}"
 
 src_configure() {
@@ -25,5 +28,5 @@ src_configure() {
 }
 
 src_compile() {
-	dune-compile ${PN}
+	dune-compile ordering dyn stdune ${PN}
 }
