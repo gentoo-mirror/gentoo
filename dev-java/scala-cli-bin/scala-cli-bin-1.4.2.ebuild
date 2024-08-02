@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,11 +25,11 @@ SRC_URI="
 	)
 "
 
-KEYWORDS="amd64 ~arm64"
+S="${WORKDIR}"
+
 LICENSE="Apache-2.0"
 SLOT="0"
-
-S="${WORKDIR}"
+KEYWORDS="~amd64 ~arm64"
 
 # A JRE is not strictly required if native images of scala-cli are used
 # (amd64, arm64). However we may want a system JRE anyway, and having JRE
