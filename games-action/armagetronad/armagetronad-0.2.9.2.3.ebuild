@@ -1,12 +1,12 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop
 
 DESCRIPTION="Fast-paced 3D lightcycle game based on Tron"
-HOMEPAGE="http://armagetronad.org/"
+HOMEPAGE="https://www.armagetronad.org/"
 SRC_URI="https://launchpad.net/armagetronad/$(ver_cut 1-3)/${PV}/+download/armagetronad-${PV}.tbz"
 
 LICENSE="GPL-2+"
@@ -27,7 +27,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-AR.patch
+	"${FILESDIR}"/${PN}-0.2.9.1.0-AR.patch
 )
 
 src_prepare() {
