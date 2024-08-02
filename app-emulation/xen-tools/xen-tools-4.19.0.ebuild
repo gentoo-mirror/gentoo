@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE='ncurses,xml(+),threads(+)'
 
 inherit bash-completion-r1 flag-o-matic multilib python-single-r1 readme.gentoo-r1 toolchain-funcs
@@ -14,7 +14,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://xenbits.xen.org/git-http/${REPO}"
 	S="${WORKDIR}/${REPO}"
 else
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 	SEABIOS_VER="1.16.0"
 	EDK2_COMMIT="b16284e2a0011489f6e16dfcc6af7623c3cbaf0b"
@@ -363,7 +363,7 @@ src_prepare() {
 		-i tools/Makefile || die
 
 	# disable png automagic
-	sed -e "s:\$\$source/configure:\0 --disable-vnc-png:" \
+	sed -e "s:\$\$source/configure:\0 --disable-png:" \
 		-i tools/Makefile || die
 
 	# disable docker (Bug #732970)
@@ -373,6 +373,10 @@ src_prepare() {
 	# disable abi-dumper (Bug #791172)
 	sed -e 's/$(ABI_DUMPER) /echo /g' \
 		-i tools/libs/libs.mk || die
+
+	# disable header check (Bug #921932)
+	sed -e '/__XEN_INTERFACE_VERSION__/,+2d' \
+		-i tools/qemu-xen/include/hw/xen/xen_native.h || die
 
 	# Remove -Werror
 	find . -type f \( -name Makefile -o -name "*.mk" \) \
@@ -456,9 +460,6 @@ src_install() {
 
 	emake DESTDIR="${ED}" DOCDIR="/usr/share/doc/${PF}" \
 		XEN_PYTHON_NATIVE_INSTALL=y install-tools
-
-	# Created at runtime
-	rm -rv "${ED}/var/run" || die
 
 	# Fix the remaining Python shebangs.
 	python_fix_shebang "${D}"
