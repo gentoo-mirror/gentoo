@@ -4,6 +4,7 @@
 EAPI=8
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/andresimon.asc
+
 inherit toolchain-funcs java-pkg-opt-2 verify-sig
 
 DESCRIPTION="Artistic Style is a re-indenter and reformatter for C++, C and Java source code"
@@ -19,11 +20,15 @@ SLOT="0/3.2"
 KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="examples java static-libs"
 
-DEPEND="
+COMMON_DEPEND="
 	app-arch/xz-utils
-	java? ( >=virtual/jdk-1.6:= )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${COMMON_DEPEND}
+	java? ( >=virtual/jdk-1.8:* )
+"
+RDEPEND="${COMMON_DEPEND}
+	java? ( >=virtual/jre-1.8:* )
+"
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-andresimon )"
 
 src_prepare() {
