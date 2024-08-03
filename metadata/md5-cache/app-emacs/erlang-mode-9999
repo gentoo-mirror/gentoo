@@ -1,13 +1,12 @@
-BDEPEND=>=app-editors/emacs-25.3:*
+BDEPEND=>=app-editors/emacs-25.3:* >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=A major mode for editing Erlang
 EAPI=8
 HOMEPAGE=https://www.erlang/ https://github.com/erlang/
-INHERIT=elisp
-KEYWORDS=~amd64 ~x86
+INHERIT=elisp git-r3
 LICENSE=Apache-2.0
+PROPERTIES=live
 RDEPEND=!dev-lang/erlang[emacs(-)] >=app-editors/emacs-25.3:*
 SLOT=0
-SRC_URI=https://github.com/erlang/otp/archive/OTP-27.0.1.tar.gz -> erlang-27.0.1.tar.gz
-_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=e595ef825e5a5bd9b5c4ccff3dcbbec5
