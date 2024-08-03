@@ -94,8 +94,12 @@ pkg_setup() {
 }
 
 src_install() {
-	keepdir /etc/kernel/postinst.d
+	keepdir /etc/kernel/install.d
 	keepdir /etc/kernel/preinst.d
+	keepdir /etc/kernel/postinst.d
+	keepdir /usr/lib/kernel/install.d
+	keepdir /usr/lib/kernel/preinst.d
+	keepdir /usr/lib/kernel/postinst.d
 
 	exeinto /usr/lib/kernel/preinst.d
 	doexe hooks/99-check-diskspace.install
@@ -164,6 +168,9 @@ src_install() {
 
 	insinto /usr/lib/kernel
 	doins "${T}/install.conf"
+
+	insinto /etc/logrotate.d
+	newins installkernel.logrotate installkernel
 
 	into /
 	dosbin installkernel
