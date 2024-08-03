@@ -27,12 +27,14 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="gnuplot"
 SLOT="0"
-IUSE="aqua bitmap cairo doc examples +gd latex libcaca libcerf lua qt5 readline regis wxwidgets X"
+IUSE="amos aqua bitmap cairo doc examples +gd gpic latex libcaca libcerf lua metafont metapost qt5 readline regis tgif wxwidgets X"
+
 REQUIRED_USE="
 	doc? ( gd )
 	lua? ( ${LUA_REQUIRED_USE} )"
 
 RDEPEND="
+	amos? ( dev-libs/openspecfun )
 	cairo? (
 		x11-libs/cairo
 		x11-libs/pango )
@@ -83,6 +85,7 @@ TEXMF="${EPREFIX}/usr/share/texmf-site"
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.1-no-picins.patch
 	"${FILESDIR}"/${PN}-6.0.0-configure.patch
+	"${FILESDIR}"/${PN}-6.0.1-watchpoints.patch
 )
 
 pkg_setup() {
@@ -128,13 +131,18 @@ src_configure() {
 	econf \
 		--with-texdir="${TEXMF}/tex/latex/${PN}" \
 		--with-readline=$(usex readline gnu builtin) \
+		$(use_with amos) \
 		$(use_with bitmap bitmap-terminals) \
 		$(use_with cairo) \
 		$(use_with gd) \
+		$(use_with gpic) \
 		"$(use_with libcaca caca "${EPREFIX}/usr/$(get_libdir)")" \
 		$(use_with libcerf) \
 		$(use_with lua) \
+		$(use_with metafont) \
+		$(use_with metapost) \
 		$(use_with regis) \
+		$(use_with tgif) \
 		$(use_with X x) \
 		--enable-stats \
 		$(use_with qt5 qt qt5) \
@@ -149,16 +157,18 @@ src_compile() {
 
 	emake all
 
-	if use doc; then
-		if use cairo; then
-			emake -C docs pdf
-		else
-			ewarn "Cannot build figures unless cairo is enabled."
-			ewarn "Building documentation without figures."
-			emake -C docs pdf_nofig
-			mv docs/nofigures.pdf docs/gnuplot.pdf || die
-		fi
-	fi
+	# pdflatex fails in titlepag.tex: "Argument of Â has an extra }."
+	# Install the pre-built gnuplot.pdf instead.
+	#if use doc; then
+	#	if use cairo; then
+	#		emake -C docs pdf
+	#	else
+	#		ewarn "Cannot build figures unless cairo is enabled."
+	#		ewarn "Building documentation without figures."
+	#		emake -C docs pdf_nofig
+	#		mv docs/nofigures.pdf docs/gnuplot.pdf || die
+	#	fi
+	#fi
 }
 
 src_install() {
