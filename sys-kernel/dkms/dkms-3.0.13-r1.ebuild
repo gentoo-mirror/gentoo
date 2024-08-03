@@ -10,8 +10,8 @@ HOMEPAGE="https://github.com/dell/dkms"
 SRC_URI="https://github.com/dell/dkms/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~arm64 ~x86"
 SLOT="0"
+KEYWORDS="amd64 arm64 x86"
 
 IUSE="systemd"
 
@@ -22,10 +22,6 @@ RDEPEND="
 	virtual/linux-sources
 	systemd? ( sys-apps/systemd )
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-add-gentoo-os-id.patch"
-)
 
 # Can not work in the emerge sandbox
 RESTRICT="test"
@@ -46,14 +42,12 @@ src_install() {
 	else
 		emake install DESTDIR="${ED}" KCONF="/usr/lib/kernel"
 	fi
-	# Backwards compatibility with sys-kernel/installkernel[-systemd]
-	dosym ../../../usr/lib/kernel/postinst.d/dkms /etc/kernel/postinst.d/dkms
-	dosym ../../../usr/lib/kernel/prerm.d/dkms /etc/kernel/prerm.d/dkms
+
 	einstalldocs
 	keepdir /var/lib/dkms
 }
 
 pkg_postinst() {
 	optfeature "automatically running \"dkms autoinstall\" on each kernel installation" \
-		"sys-kernel/installkernel[systemd]"
+		sys-kernel/installkernel
 }
