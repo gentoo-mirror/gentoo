@@ -18,20 +18,22 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="
-		mirror://openssl/source/${MY_P}.tar.gz
-		verify-sig? ( mirror://openssl/source/${MY_P}.tar.gz.asc )
+		https://github.com/openssl/openssl/releases/download/${P}/${P}.tar.gz
+		verify-sig? (
+			https://github.com/openssl/openssl/releases/download/${P}/${P}.tar.gz.asc
+		)
 	"
 
-	#if [[ ${PV} != *_alpha* && ${PV} != *_beta* ]] ; then
-	#	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
-	#fi
+	if [[ ${PV} != *_alpha* && ${PV} != *_beta* ]] ; then
+		KEYWORDS="~amd64 ~arm ~m68k ~mips ~s390 ~sparc ~x86 ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	fi
 fi
 
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1)" # .so version of libssl/libcrypto
-IUSE="+asm cpu_flags_x86_sse2 fips ktls quic rfc3779 sctp static-libs test tls-compression vanilla verify-sig weak-ssl-ciphers"
+IUSE="+asm cpu_flags_x86_sse2 fips ktls +quic rfc3779 sctp static-libs test tls-compression vanilla verify-sig weak-ssl-ciphers"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
@@ -57,6 +59,12 @@ MULTILIB_WRAPPED_HEADERS=(
 )
 
 PATCHES=(
+	# bug 936311, drop on next version bump
+	"${FILESDIR}"/${P}-riscv.patch
+	# https://bugs.gentoo.org/936793
+	"${FILESDIR}"/openssl-3.3.1-pkg-config.patch
+	# https://bugs.gentoo.org/936576
+	"${FILESDIR}"/openssl-3.3.1-pkg-config-deux.patch
 )
 
 pkg_setup() {
