@@ -1,0 +1,16 @@
+BDEPEND=app-text/mandoc test? ( sys-boot/grub:2 )
+DEFINED_PHASES=compile configure prepare test
+DEPEND=dev-libs/popt >=sys-kernel/linux-headers-3.18 virtual/pkgconfig
+DESCRIPTION=Tools and library to manipulate EFI variables
+EAPI=8
+HOMEPAGE=https://github.com/rhboot/efivar
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/popt
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/rhboot/efivar/archive/refs/tags/39.tar.gz -> efivar-39.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=5a4b01cc5dd7e2522f5479ac0fc9aca4
