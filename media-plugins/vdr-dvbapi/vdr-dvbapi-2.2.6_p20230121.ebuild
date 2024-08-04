@@ -1,25 +1,26 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit vdr-plugin-2
 
-MY_P="vdr-plugin-dvbapi-${PV}"
-
+GIT_COMMIT="d0fb10b0bc67ad172e7b383f5da2de9d87f74d7f"
+MY_P="vdr-plugin-dvbapi-${GIT_COMMIT}"
 DESCRIPTION="VDR Plugin: allows connect VDR to OScam"
 HOMEPAGE="https://github.com/manio/vdr-plugin-dvbapi"
-SRC_URI="https://github.com/manio/vdr-plugin-dvbapi/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
+SRC_URI="https://github.com/manio/vdr-plugin-dvbapi/archive/${GIT_COMMIT}.tar.gz -> ${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="cpu_flags_x86_3dnow cpu_flags_x86_mmx cpu_flags_x86_sse cpu_flags_x86_sse2 dvbcsa"
 
 DEPEND=">=media-video/vdr-2.4.1
 	dvbcsa? ( media-libs/libdvbcsa )"
 RDEPEND="${DEPEND}"
+# You also need OScam svn rev >= 11534
 
 DOCS=( "FAQ" "HISTORY" "INSTALL" "README" "FFdecsa/docs" )
 QA_FLAGS_IGNORED="
@@ -84,7 +85,7 @@ pkg_postinst() {
 	vdr-plugin-2_pkg_postinst
 
 	elog "This software might be illegal in some countries or violate"
-	elog "rules of your DVB provideri. Please respect these rules."
+	elog "rules of your DVB provider. Please respect these rules."
 	elog
 	elog "We do not offer support of any kind."
 	elog "Asking for keys or for installation help will be ignored by gentoo developers!"

@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,17 +23,14 @@ DEPEND="${RDEPEND}
 
 DOCS=( README.md )
 
-PATCHES=(
-	"${FILESDIR}/${P}-build.patch"
-)
-
 pkg_pretend() {
 	local CONFIG_CHECK="~CFG80211"
-
 	check_extra_config
 }
 
 src_prepare() {
+	default
+
 	# Do not install docs to /usr/share
 	sed -i -e '/^install:/s/install-docs//' Makefile.in || die \
 		'sed on Makefile.in failed'
@@ -41,12 +38,21 @@ src_prepare() {
 	# automagic on libcap, discovered in bug #448406
 	use caps || export ac_cv_lib_cap_cap_get_flag=false
 
-	default_src_prepare
 	eautoreconf
 }
 
+src_configure () {
+	CFLAGS="${CFLAGS}" econf
+}
+
+src_compile() {
+	unset CFLAGS
+	default
+}
+
 src_install() {
-	default_src_install
+	default
+
 	# Install man files manually(bug #397807)
 	doman wavemon.1
 	doman wavemonrc.5
