@@ -24,13 +24,25 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-RESTRICT="test"                                              # Some tests fail.
 
 DOCS=( CHANGELOG.org README.md )
 ELISP_TEXINFO="${PN}.texi"
 SITEFILE="50${PN}-gentoo.el"
 
 elisp-enable-tests ert tests
+
+src_prepare() {
+	default
+
+	# Skip failing test. Tests are marked as "WORK IN PROGRESS" at the
+	# top of the file.
+	local skip_tests=(
+		denote-test--denote-get-identifier
+	)
+	for test in "${skip_tests[@]}"; do
+		sed -i "/${test}/a (ert-skip nil)" tests/denote-test.el || die
+	done
+}
 
 src_compile() {
 	elisp-org-export-to texinfo README.org
