@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/msgraph
 INHERIT=gnome.org meson
 IUSE=debug gtk-doc +introspection man test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
 RDEPEND=>=dev-libs/glib-2.28.0:2 dev-libs/json-glib net-libs/rest:1.0 net-libs/libsoup:3.0 net-libs/gnome-online-accounts:= >=net-libs/uhttpmock-0.11.0:1.0 introspection? ( >=dev-libs/gobject-introspection-0.6.2:= )
 REQUIRED_USE=gtk-doc? ( introspection )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=mirror://gnome/sources/msgraph/0.2/msgraph-0.2.3.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=57550f442c9e90b0a869d2d305fbc986
+_md5_=7781c6a09ed0fd72d9f70d38cc0f9c64
