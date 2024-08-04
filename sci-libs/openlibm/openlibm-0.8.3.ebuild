@@ -13,7 +13,7 @@ IUSE="static-libs"
 LICENSE="public-domain MIT ISC BSD-2 LGPL-2.1+"
 # See https://abi-laboratory.pro/index.php?view=timeline&l=openlibm
 SLOT="0/4"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~s390 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-stack-protection.patch
@@ -29,6 +29,8 @@ src_prepare() {
 
 src_configure() {
 	tc-export CC CXX FC AR LD
+	# Build system uses the riscv64 arch variable
+	use riscv && export ARCH=riscv64
 	default
 }
 
