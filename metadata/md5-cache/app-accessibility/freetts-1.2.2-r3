@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://freetts.sourceforge.io/
 INHERIT=java-pkg-2
 IUSE=jsapi mbrola doc examples source
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=jsapi? ( sun-bcla-jsapi ) freetts
 RDEPEND=virtual/jre:1.8 mbrola? ( >=app-accessibility/mbrola-3.0.1h-r6 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/freetts/FreeTTS/FreeTTS%201.2.2/freetts-1.2.2-src.zip
 _eclasses_=java-utils-2	b2e92a8220dc7b1bd2062ca11774798a	java-pkg-2	b6d755b4f6afabfd933932be28b46368
-_md5_=6a1379944702b6055f6d19e2d2fa2c44
+_md5_=700bf9830bf35114d326d7545daf44a2
