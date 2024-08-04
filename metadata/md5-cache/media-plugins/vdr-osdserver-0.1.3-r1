@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=>=media-video/vdr-1.7.20 media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DEPEND=media-video/vdr media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
 DESCRIPTION=VDR plugin: VDR OSD access for ext. programs through a TCP/IP socket connection
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.udo-richter.de/vdr/osdserver.en.html
 INHERIT=vdr-plugin-2
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+RDEPEND=media-video/vdr media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
 SLOT=0
 SRC_URI=https://www.udo-richter.de/vdr/files/vdr-osdserver-0.1.3.tgz
 _eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	unpacker	fb4b84181244b3b9990fa0bf40232dd2	vdr-plugin-2	1f7898fc2559c31e52b516b3279760c3
-_md5_=02ea7bff0ce85b9c54d421c5a8c5cb66
+_md5_=599d808adce98bb355f7269bb9febe1f

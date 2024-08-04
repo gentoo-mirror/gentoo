@@ -4001,10 +4001,10 @@ dev-db/sqlcipher 4.5.1 4.5.5: Full Database Encryption for SQLite
 dev-db/sqlcl-bin 24.1.0.087.0929: Oracle SQLcl is the new SQL*Plus
 dev-db/sqldeveloper 23.1.1.345.2114: Oracle SQL Developer is a graphical tool for database development
 dev-db/sqlite 3.45.3 3.46.0 9999: SQL database engine
-dev-db/sqlitebrowser 3.12.2-r2 9999: A light GUI editor for SQLite databases
+dev-db/sqlitebrowser 3.12.2-r2 3.13.0 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r6: Powerful GUI manager for the Sqlite3 database
 dev-db/sqlitestudio 3.4.4-r1: Powerful cross-platform SQLite database manager
-dev-db/sqlmap 1.8.2 1.8.5 1.8.6 9999: An automatic SQL injection and database takeover tool
+dev-db/sqlmap 1.8.5 1.8.6 1.8.7 9999: An automatic SQL injection and database takeover tool
 dev-db/textsearch_ja 9.0.0: Integrated Full-Text-Search for Japanese language using morphological analyze
 dev-db/timescaledb 2.14.2 2.15.2 2.15.3: Open-source time-series SQL database
 dev-db/tinycdb 0.81: A very fast and simple package for creating and reading constant data bases
@@ -13617,7 +13617,7 @@ media-plugins/vdr-ddci2 1.0.4 1.0.5 9999: VDR plugin: DDCI2 - Digital Devices CI
 media-plugins/vdr-devstatus 0.4.1-r1: VDR plugin: display the usage status of the available DVB devices
 media-plugins/vdr-dummydevice 2.0.0: VDR Plugin: dummy output device ,for recording server without any output devices
 media-plugins/vdr-duplicates 1.0.1 1.0.1-r1: VDR Plugin: show duplicated records
-media-plugins/vdr-dvbapi 2.2.5: VDR Plugin: allows connect VDR to OScam
+media-plugins/vdr-dvbapi 2.2.5 2.2.6_p20230121: VDR Plugin: allows connect VDR to OScam
 media-plugins/vdr-dvbhddevice 2.2.0_p20180420-r1: VDR Plugin: output device for the 'Full Featured' TechnoTrend S2-6400 DVB Card
 media-plugins/vdr-dvbsddevice 2.2.0-r2: VDR Plugin: output device for the 'Full Featured' SD DVB Card
 media-plugins/vdr-dvd 0.3.7_pre20090106-r4 0.3.7: VDR Plugin: DVD-Player
@@ -13645,10 +13645,10 @@ media-plugins/vdr-mp3ng 0.0.1_pre5-r5: VDR Plugin: play mp3 and ogg on VDR
 media-plugins/vdr-mplayer 0.10.2-r2: VDR Plugin: Play video files not supported by VDR with mplayer (divx and more)
 media-plugins/vdr-newsticker 0.0.4 0.0.4-r1: VDR plugin: Show rdf Newsticker on TV
 media-plugins/vdr-noepg 0.0.4 0.0.5: VDR Plugin: will replace the noepg-patch with the new cEpgHandler
-media-plugins/vdr-osdserver 0.1.3: VDR plugin: VDR OSD access for ext. programs through a TCP/IP socket connection
-media-plugins/vdr-osdteletext 0.9.8 2.2.1 2.3.1: VDR Plugin: Osd-Teletext displays the teletext/videotext on the OSD
+media-plugins/vdr-osdserver 0.1.3-r1: VDR plugin: VDR OSD access for ext. programs through a TCP/IP socket connection
+media-plugins/vdr-osdteletext 0.9.8 2.3.1 2.3.1_p20211217: VDR Plugin: Osd-Teletext displays the teletext/videotext on the OSD
 media-plugins/vdr-peer 0.0.1: VDR Plugin: peer-to-peer between multiple VDRs
-media-plugins/vdr-permashift 1.0.1-r1 1.0.4_pre20200301: VDR Plugin: permanent timeshift by recording live TV on RAM
+media-plugins/vdr-permashift 1.0.1-r1 1.0.4_pre20220818: VDR Plugin: permanent timeshift by recording live TV on RAM
 media-plugins/vdr-pin 0.1.17-r1: VDR plugin: enable/disable parentalrating in records
 media-plugins/vdr-powermate 0.0.5: VDR PLUGIN: support the Powermate device
 media-plugins/vdr-pvr350 1.7.5: VDR plugin: use a PVR350 as output device
@@ -14210,7 +14210,7 @@ media-video/v4l2loopback 0.12.7 0.13.1 9999: v4l2 loopback device whose output i
 media-video/vamps 0.99.2-r2: Very fast requantisizing tool for backup DVDs
 media-video/vcdimager 2.0.1: GNU VCDimager
 media-video/vcsi 7.0.16: Create thumbnail sheets from video files
-media-video/vdr 2.2.0-r7 2.6.6 2.6.7: Video Disk Recorder - turns a pc into a powerful set top box for DVB
+media-video/vdr 2.2.0-r7 2.6.6 2.6.7 2.6.9: Video Disk Recorder - turns a pc into a powerful set top box for DVB
 media-video/vdrsync 0.1.3_pre050322-r2: converting vdr-recordings to mpeg2, dvd or other similar formats
 media-video/vdrtools-genindex 0.1.3-r2: VDR: genindex Script
 media-video/vidcutter 6.0.5.1_p20230201 9999: FFmpeg-based simple video cutter & joiner with a modern PyQt5 GUI
@@ -14562,7 +14562,7 @@ net-dns/smartdns 46: A local DNS server returns the fastest access results
 net-dns/unbound 1.19.3 1.20.0: A validating, recursive and caching DNS resolver
 net-dns/updatedd 2.6-r8: Dynamic DNS client with plugins for several dynamic dns services
 net-dns/valtz 0.8: Validation tool for tinydns-data zone files
-net-firewall/arno-iptables-firewall 2.1.1 2.1.1a: Arno's iptables firewall script
+net-firewall/arno-iptables-firewall 2.1.1 2.1.1a 2.1.2a: Arno's iptables firewall script
 net-firewall/arptables 0.0.5-r2: Set up, maintain, and inspect the tables of ARP rules in the Linux kernel
 net-firewall/conntrack-tools 1.4.7-r1 1.4.8: Connection tracking userspace tools
 net-firewall/ebtables 2.0.11-r3: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
@@ -15584,7 +15584,7 @@ net-wireless/ubertooth 2020.12.1-r1 9999: open source wireless development platf
 net-wireless/uhd 4.4.0.0 4.6.0.0: Universal Software Radio Peripheral (USRP) Hardware Driver
 net-wireless/unifi 6.5.55-r2 7.5.187 8.1.127 8.2.93 8.3.32: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.9.6_p20240428 9999: Universal Radio Hacker: investigate wireless protocols like a boss
-net-wireless/wavemon 0.9.3-r1 0.9.4 0.9.5: Ncurses based monitor for IEEE 802.11 wireless LAN cards
+net-wireless/wavemon 0.9.3-r1 0.9.5 0.9.6: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r6: WLAN tool for breaking 802.11 WEP keys
 net-wireless/wepdecrypt 0.8-r2: Enhanced version of WepAttack a tool for breaking 802.11 WEP keys
 net-wireless/wireless-regdb 20220606 20230503-r2 20240508: Wireless Regulatory database for Linux
@@ -17955,7 +17955,7 @@ www-apps/drupal 7.97 10.1.8 10.2.2: PHP-based open-source platform and content m
 www-apps/element 1.11.70 1.11.71: A glossy Matrix collaboration client for the web
 www-apps/gitea 1.21.11 1.22.1: A painless self-hosted Git service
 www-apps/grafana-bin 9.5.15 10.1.6 10.2.3 10.3.1 11.1.0: Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
-www-apps/hugo 0.124.1 0.125.7 0.127.0 0.128.2: Fast static HTML and CSS website generator
+www-apps/hugo 0.124.1 0.127.0 0.128.2 0.129.0: Fast static HTML and CSS website generator
 www-apps/icingadb-web 1.1.0 1.1.1 1.1.2: UI for Icinga DB
 www-apps/icingaweb2 2.11.4-r1 2.12.1 2.12.1-r1 9999: Icinga Web 2 - Frontend for icinga2
 www-apps/icingaweb2-module-director 1.11.1 9999: Icinga Web 2 plugin for configuration
