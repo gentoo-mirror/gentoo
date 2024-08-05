@@ -4,7 +4,7 @@ DEPEND=x11-libs/libX11 >=media-libs/graphene-1.9.3[introspection?] >=x11-libs/gt
 DESCRIPTION=Compositing window manager forked from Mutter for use with Cinnamon
 EAPI=8
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/muffin
-INHERIT=gnome2-utils meson python-any-r1 virtualx
+INHERIT=flag-o-matic gnome2-utils meson python-any-r1 virtualx
 IUSE=input_devices_wacom +introspection screencast sysprof systemd test udev wayland video_cards_nvidia test
 KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=BSD GPL-2+ LGPL-2+ LGPL-2.1+ MIT SGI-B-2.0
@@ -13,5 +13,5 @@ REQUIRED_USE=wayland? ( udev )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/muffin/archive/6.0.1.tar.gz -> muffin-6.0.1.tar.gz
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	f5169813d1619761b459800587005fd2	virtualx	817571665ee28575da44ee08135089e5
-_md5_=97631aab4ed497fe4f8ed93605b8b31a
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	f5169813d1619761b459800587005fd2	virtualx	817571665ee28575da44ee08135089e5
+_md5_=ee4d79e92d199b016076d74a71c61d89
