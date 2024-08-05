@@ -1,24 +1,24 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} )
 
-inherit autotools linux-info lua-single systemd toolchain-funcs tmpfiles
+inherit autotools linux-info lua-single toolchain-funcs
 
 DESCRIPTION="Asterisk: A Modular Open Source PBX System"
 HOMEPAGE="https://www.asterisk.org/"
 SRC_URI="https://downloads.asterisk.org/pub/telephony/asterisk/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
 	voicemail_storage_odbc
 	voicemail_storage_imap
 )
-IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster codec2 curl dahdi debug deprecated doc freetds gtalk http iconv ilbc ldap lua mysql newt odbc oss pjproject portaudio postgres radius selinux snmp span speex srtp +ssl static statsd syslog systemd unbound vorbis xmpp"
+IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster codec2 curl debug deprecated doc freetds gtalk http iconv ilbc ldap lua mysql newt odbc oss pjproject portaudio postgres radius selinux snmp span speex srtp +ssl static statsd syslog systemd unbound vorbis xmpp"
 IUSE_EXPAND="VOICEMAIL_STORAGE"
 REQUIRED_USE="gtalk? ( xmpp )
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -52,10 +52,6 @@ DEPEND="acct-user/asterisk
 	cluster? ( sys-cluster/corosync )
 	codec2? ( media-libs/codec2:= )
 	curl? ( net-misc/curl )
-	dahdi? (
-		net-libs/libpri
-		net-misc/dahdi-tools
-	)
 	freetds? ( dev-db/freetds )
 	gtalk? ( dev-libs/iksemel )
 	http? ( dev-libs/gmime:2.6 )
@@ -98,23 +94,28 @@ RDEPEND="${DEPEND}
 	net-misc/asterisk-moh-opsound
 	selinux? ( sec-policy/selinux-asterisk )
 	syslog? ( virtual/logger )"
+PDEPEND="net-misc/asterisk-base"
 
 BDEPEND="dev-libs/libxml2:2
 	virtual/pkgconfig"
 
 QA_DT_NEEDED="/usr/lib.*/libasteriskssl[.]so[.][0-9]\+"
 
-_make_args=(
-	"NOISY_BUILD=yes"
-	"ASTDBDIR=\$(ASTDATADIR)/astdb"
-	"ASTVARRUNDIR=/run/asterisk"
-	"ASTCACHEDIR=/var/cache/asterisk"
-	"OPTIMIZE="
-	"DEBUG="
-	"DESTDIR=${D}"
-	"CONFIG_SRC=configs/samples"
-	"CONFIG_EXTEN=.sample"
-)
+ast_make() {
+	local make_args=(
+		"NOISY_BUILD=yes"
+		"ASTDBDIR=\$(ASTDATADIR)/astdb"
+		"ASTVARRUNDIR=/run/asterisk"
+		"ASTCACHEDIR=/var/cache/asterisk"
+		"OPTIMIZE="
+		"DEBUG="
+		"CONFIG_SRC=configs/samples"
+		"CONFIG_EXTEN=.sample"
+		"AST_FORTIFY_SOURCE="
+	)
+
+	emake "${make_args[@]}" "$@"
+}
 
 pkg_pretend() {
 	CONFIG_CHECK="~!NF_CONNTRACK_SIP"
@@ -138,94 +139,94 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	AT_M4DIR="autoconf third-party third-party/pjproject third-party/jansson" \
+	AT_M4DIR="autoconf third-party third-party/pjproject third-party/jansson third-party/libjwt" \
 		AC_CONFIG_SUBDIRS=menuselect eautoreconf
 }
 
 src_configure() {
 	local vmst
 	local copt cstate
-
-	econf \
-		LUA_VERSION="${ELUA#lua}" \
-		--libdir="/usr/$(get_libdir)" \
-		--localstatedir="/var" \
-		--with-crypto \
-		--with-gsm=internal \
-		--with-popt \
-		--with-z \
-		--with-libedit \
-		--without-jansson-bundled \
-		--without-pjproject-bundled \
-		$(use_with caps cap) \
-		$(use_with codec2) \
-		$(use_with lua lua) \
-		$(use_with http gmime) \
-		$(use_with newt) \
-		$(use_with pjproject) \
-		$(use_with portaudio) \
-		$(use_with ssl) \
+	local myconf=(
+		LUA_VERSION="${ELUA#lua}"
+		--localstatedir="/var"
+		--with-crypto
+		--with-gsm=internal
+		--with-popt
+		--with-z
+		--with-libedit
+		--without-jansson-bundled
+		--without-pjproject-bundled
+		$(use_with caps cap)
+		$(use_with codec2)
+		$(use_with lua lua)
+		$(use_with http gmime)
+		$(use_with newt)
+		$(use_with pjproject)
+		$(use_with portaudio)
+		$(use_with ssl)
 		$(use_with unbound)
+	)
+	econf "${myconf[@]}"
 
-	_menuselect() {
-		menuselect/menuselect "$@" || die "menuselect $* failed."
+	ast_menuselect() {
+		menuselect/menuselect "$@" menuselect.makeopts || die "menuselect $* failed."
 	}
 
 	_use_select() {
 		local state=$(use "$1" && echo enable || echo disable)
+		local x
 		shift # remove use from parameters
 
-		while [[ -n $1 ]]; do
-			_menuselect --${state} "$1" menuselect.makeopts
-			shift
+		for x; do
+			ast_menuselect --${state} "$x"
 		done
 	}
 
 	# Blank out sounds/sounds.xml file to prevent
 	# asterisk from installing sounds files (we pull them in via
 	# asterisk-{core,extra}-sounds and asterisk-moh-opsound.
-	>"${S}"/sounds/sounds.xml
+	>sounds/sounds.xml || die "Unable to blank out sounds/sounds.xml"
 
 	# That NATIVE_ARCH chatter really is quite bothersome
-	sed -i 's/NATIVE_ARCH=/NATIVE_ARCH=0/' build_tools/menuselect-deps || die "Unable to squelch noisy build system"
+	sed -i 's/NATIVE_ARCH=/&0/' build_tools/menuselect-deps || die "Unable to squelch noisy build system"
 
 	# Compile menuselect binary for optional components
-	emake "${_make_args[@]}" menuselect.makeopts
+	ast_make menuselect.makeopts
 
 	# Disable astdb2* tools.  We've been on sqlite long enough
 	# that this should really no longer be a problem (bug #https://bugs.gentoo.org/872194)
-	_menuselect --disable astdb2sqlite3 menuselect.makeopts
-	_menuselect --disable astdb2bdb menuselect.makeopts
+	ast_menuselect --disable astdb2sqlite3
+	ast_menuselect --disable astdb2bdb
 
 	# Disable BUILD_NATIVE (bug #667498)
-	_menuselect --disable build_native menuselect.makeopts
+	ast_menuselect --disable build_native
 
 	# Broken functionality is forcibly disabled (bug #360143)
-	_menuselect --disable chan_misdn menuselect.makeopts
-	_menuselect --disable chan_ooh323 menuselect.makeopts
+	ast_menuselect --disable chan_misdn
+	ast_menuselect --disable chan_ooh323
 
 	# Utility set is forcibly enabled (bug #358001)
-	_menuselect --enable smsq menuselect.makeopts
-	_menuselect --enable streamplayer menuselect.makeopts
-	_menuselect --enable aelparse menuselect.makeopts
-	_menuselect --enable astman menuselect.makeopts
+	ast_menuselect --enable smsq
+	ast_menuselect --enable streamplayer
+	ast_menuselect --enable aelparse
+	ast_menuselect --enable astman
 
 	# this is connected, otherwise it would not find
 	# ast_pktccops_gate_alloc symbol
-	_menuselect --enable chan_mgcp menuselect.makeopts
-	_menuselect --enable res_pktccops menuselect.makeopts
+	ast_menuselect --enable chan_mgcp
+	ast_menuselect --enable res_pktccops
 
 	# SSL is forcibly enabled, IAX2 & DUNDI are expected to be available
-	_menuselect --enable pbx_dundi menuselect.makeopts
-	_menuselect --enable func_aes menuselect.makeopts
-	_menuselect --enable chan_iax2 menuselect.makeopts
+	ast_menuselect --enable pbx_dundi
+	ast_menuselect --enable func_aes
+	ast_menuselect --enable chan_iax2
 
 	# SQlite3 is now the main database backend, enable related features
-	_menuselect --enable cdr_sqlite3_custom menuselect.makeopts
-	_menuselect --enable cel_sqlite3_custom menuselect.makeopts
+	ast_menuselect --enable cdr_sqlite3_custom
+	ast_menuselect --enable cel_sqlite3_custom
 
 	# Disable conversion tools (which fails to compile in some cases).
-	_menuselect --disable astdb2bdb menuselect.makeopts
+	ast_menuselect --disable astdb2bdb
 
 	# The others are based on USE-flag settings
 	_use_select alsa         chan_alsa
@@ -234,7 +235,6 @@ src_configure() {
 	_use_select cluster      res_corosync
 	_use_select codec2       codec_codec2
 	_use_select curl         func_curl res_config_curl res_curl
-	_use_select dahdi        app_dahdiras app_meetme chan_dahdi codec_dahdi res_timing_dahdi
 	_use_select deprecated   app_macro
 	_use_select freetds      {cdr,cel}_tds
 	_use_select gtalk        chan_motif
@@ -259,16 +259,16 @@ src_configure() {
 	_use_select xmpp         res_xmpp
 
 	# Voicemail storage ...
-	_menuselect --enable app_voicemail menuselect.makeopts
+	ast_menuselect --enable app_voicemail
 	for vmst in "${IUSE_VOICEMAIL_STORAGE[@]}"; do
 		if use "${vmst#+}"; then
-			_menuselect --enable "app_voicemail_${vmst##*_}" menuselect.makeopts
+			ast_menuselect --enable "app_voicemail_${vmst##*_}"
 		fi
 	done
 
 	if use debug; then
 		for o in DONT_OPTIMIZE DEBUG_FD_LEAKS MALLOC_DEBUG BETTER_BACKTRACES; do
-			_menuselect --enable "${o}" menuselect.makeopts
+			ast_menuselect --enable "${o}"
 		done
 	fi
 
@@ -277,14 +277,14 @@ src_configure() {
 			cstate=--enable
 			[[ "${copt}" == -* ]] && cstate=--disable
 			ebegin "Custom option ${copt#[-+]} ${cstate:2}d"
-			_menuselect ${cstate} "${copt#[-+]}"
+			ast_menuselect ${cstate} "${copt#[-+]}"
 			eend $?
 		done
 	fi
 }
 
 src_compile() {
-	emake "${_make_args[@]}"
+	ast_make
 }
 
 src_install() {
@@ -295,7 +295,7 @@ src_install() {
 	diropts -m 0750 -o root -g asterisk
 	dodir /etc/asterisk
 
-	emake "${_make_args[@]}" install install-headers install-configs
+	ast_make install install-headers install-configs "DESTDIR=${D}"
 
 	fowners asterisk: /var/lib/asterisk/astdb
 
@@ -310,27 +310,14 @@ src_install() {
 	diropts -m 0750 -o asterisk -g asterisk
 	keepdir /var/log/asterisk/{cdr-csv,cdr-custom}
 
-	newsbin "${FILESDIR}/asterisk_wrapper-16.26.1-18.12.1" asterisk_wrapper
-	newinitd "${FILESDIR}"/initd-16.26.1-18.12.1 asterisk
-	newconfd "${FILESDIR}"/confd-16.26.1-18.12.1 asterisk
-
-	systemd_dounit "${FILESDIR}"/asterisk.service
-	newtmpfiles "${FILESDIR}"/asterisk.tmpfiles-16.22.0-18.8.0.conf asterisk.conf
-	systemd_install_serviced "${FILESDIR}"/asterisk.service.conf
-
 	# Reset diropts else dodoc uses it for doc installations.
 	diropts -m0755
 
 	# install the upgrade documentation
-	dodoc UPGRADE* BUGS CREDITS
+	dodoc README* BUGS CREDITS
 
 	# install extra documentation
 	use doc && dodoc doc/*.{txt,pdf}
-
-	# install logrotate snippet; bug #329281
-	#
-	insinto /etc/logrotate.d
-	newins "${FILESDIR}/1.6.2/asterisk.logrotate4" asterisk
 
 	# Asterisk installs a few folders that's empty by design,
 	# but still required.  This finds them, and marks them for
@@ -341,15 +328,24 @@ src_install() {
 }
 
 pkg_postinst() {
-	tmpfiles_process asterisk.conf
-
-	if [ -z "${REPLACING_VERSIONS}" ]; then
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		elog "Asterisk Wiki: https://wiki.asterisk.org/wiki/"
 		elog "Gentoo VoIP IRC Channel: #gentoo-voip @ irc.libera.chat"
-	elif [ "$(ver_cut 1 "${REPLACING_VERSIONS}")" != "$(ver_cut 1)" ]; then
-		elog "You are updating from Asterisk $(ver_cut 1 "${REPLACING_VERSIONS}") upgrade document:"
-		elog "https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+$(ver_cut 1)"
-		elog "Gentoo VoIP IRC Channel: #gentoo-voip @ irc.libera.chat"
+	else
+		local my_replacing=() x
+		for x in ${REPLACING_VERSIONS}; do
+			[[ $(ver_cut 1 ${x}) != $(ver_cut 1) ]] &&
+				my_replacing+=( $(ver_cut 1 ${x}) )
+		done
+		if [[ "${#my_replacing}" -gt 0 ]]; then
+			my_replacing="${my_replacing[*]}"
+			my_replacing="${my_replacing// /, }"
+			[[ "${my_replacing}" = *", "* ]] &&
+				my_replacing="${my_replacing%, *} or ${my_replacing##*, }"
+			elog "You are updating from Asterisk ${my_replacing}, you should reference the upgrade document:"
+			elog "https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+$(ver_cut 1)"
+			elog "Assistance also available on Gentoo VoIP IRC Channel: #gentoo-voip @ irc.libera.chat"
+		fi
 	fi
 
 	if use deprecated; then

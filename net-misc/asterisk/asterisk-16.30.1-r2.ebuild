@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,22 +12,25 @@ HOMEPAGE="https://www.asterisk.org/"
 SRC_URI="https://downloads.asterisk.org/pub/telephony/asterisk/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
+	+voicemail_storage_file
 	voicemail_storage_odbc
 	voicemail_storage_imap
 )
-IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster codec2 curl dahdi debug deprecated doc freetds gtalk http iconv ilbc ldap lua mysql newt odbc oss pjproject portaudio postgres radius selinux snmp span speex srtp +ssl static statsd syslog systemd unbound vorbis xmpp"
+IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster codec2 curl debug deprecated doc freetds gtalk http iconv ilbc ldap lua mysql newt odbc oss pjproject portaudio postgres radius selinux snmp span speex srtp +ssl static statsd syslog systemd unbound vorbis xmpp"
 IUSE_EXPAND="VOICEMAIL_STORAGE"
 REQUIRED_USE="gtalk? ( xmpp )
 	lua? ( ${LUA_REQUIRED_USE} )
+	^^ ( ${IUSE_VOICEMAIL_STORAGE[*]//+/} )
 	voicemail_storage_odbc? ( odbc )
 "
 
 PATCHES=(
 	"${FILESDIR}/asterisk-16.16.2-no-var-run-install.patch"
-	"${FILESDIR}/asterisk-18.17.1-20.2.1-configure-fix-test-code-to-match-gethostbyname_r-pro.patch"
+	"${FILESDIR}/asterisk-16.29.1_18.15.1_20.0.1-noexec_stack.patch"
+	"${FILESDIR}/asterisk-16.30.1-r1-iax2_jitterbuffer.patch"
 )
 
 DEPEND="acct-user/asterisk
@@ -53,10 +56,6 @@ DEPEND="acct-user/asterisk
 	cluster? ( sys-cluster/corosync )
 	codec2? ( media-libs/codec2:= )
 	curl? ( net-misc/curl )
-	dahdi? (
-		net-libs/libpri
-		net-misc/dahdi-tools
-	)
 	freetds? ( dev-db/freetds )
 	gtalk? ( dev-libs/iksemel )
 	http? ( dev-libs/gmime:2.6 )
@@ -67,7 +66,7 @@ DEPEND="acct-user/asterisk
 	mysql? ( dev-db/mysql-connector-c:= )
 	newt? ( dev-libs/newt )
 	odbc? ( dev-db/unixODBC )
-	pjproject? ( >=net-libs/pjproject-2.12:= )
+	pjproject? ( >=net-libs/pjproject-2.9:= )
 	portaudio? ( media-libs/portaudio )
 	postgres? ( dev-db/postgresql:* )
 	radius? ( net-dialup/freeradius-client )
@@ -116,7 +115,6 @@ _make_args=(
 	"DESTDIR=${D}"
 	"CONFIG_SRC=configs/samples"
 	"CONFIG_EXTEN=.sample"
-	"AST_FORTIFY_SOURCE="
 )
 
 pkg_pretend() {
@@ -150,6 +148,7 @@ src_configure() {
 	local copt cstate
 
 	econf \
+		SED=sed \
 		LUA_VERSION="${ELUA#lua}" \
 		--libdir="/usr/$(get_libdir)" \
 		--localstatedir="/var" \
@@ -237,7 +236,6 @@ src_configure() {
 	_use_select cluster      res_corosync
 	_use_select codec2       codec_codec2
 	_use_select curl         func_curl res_config_curl res_curl
-	_use_select dahdi        app_dahdiras app_meetme chan_dahdi codec_dahdi res_timing_dahdi
 	_use_select deprecated   app_macro
 	_use_select freetds      {cdr,cel}_tds
 	_use_select gtalk        chan_motif
@@ -262,10 +260,9 @@ src_configure() {
 	_use_select xmpp         res_xmpp
 
 	# Voicemail storage ...
-	_menuselect --enable app_voicemail menuselect.makeopts
 	for vmst in "${IUSE_VOICEMAIL_STORAGE[@]}"; do
 		if use "${vmst#+}"; then
-			_menuselect --enable "app_voicemail_${vmst##*_}" menuselect.makeopts
+			_menuselect --enable "$(echo "${vmst##*_}" | tr '[:lower:]' '[:upper:]')_STORAGE" menuselect.makeopts
 		fi
 	done
 
@@ -298,7 +295,7 @@ src_install() {
 	diropts -m 0750 -o root -g asterisk
 	dodir /etc/asterisk
 
-	emake "${_make_args[@]}" install install-headers install-configs
+	emake "${_make_args[@]}" install install-configs
 
 	fowners asterisk: /var/lib/asterisk/astdb
 
