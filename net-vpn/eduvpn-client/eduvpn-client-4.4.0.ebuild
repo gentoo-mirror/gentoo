@@ -48,6 +48,7 @@ RDEPEND="
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	net-misc/networkmanager
 	>=net-vpn/eduvpn-common-2.1[${PYTHON_USEDEP}]
+	<net-vpn/eduvpn-common-3[${PYTHON_USEDEP}]
 "
 
 if [[ ${PV} != *9999* ]] ; then
