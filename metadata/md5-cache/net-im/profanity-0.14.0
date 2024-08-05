@@ -3,6 +3,7 @@ DEPEND=>=app-accessibility/at-spi2-core-2.46.0 dev-db/sqlite:3 dev-libs/glib:2 >
 DESCRIPTION=A console based XMPP client inspired by Irssi
 EAPI=8
 HOMEPAGE=https://profanity-im.github.io
+INHERIT=flag-o-matic
 IUSE=libnotify omemo omemo-qrcode otr gpg test xscreensaver
 KEYWORDS=amd64 ~arm64
 LICENSE=GPL-3
@@ -11,4 +12,5 @@ REQUIRED_USE=omemo-qrcode? ( omemo )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/profanity-im/profanity/releases/download/0.14.0/profanity-0.14.0.tar.gz
-_md5_=2f95ecb4bcc2069622af41936aa0661f
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
+_md5_=6d3633380dcd82a02ef160c06e1f66e2

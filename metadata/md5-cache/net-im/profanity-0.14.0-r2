@@ -3,7 +3,7 @@ DEPEND=>=app-accessibility/at-spi2-core-2.46.0 dev-db/sqlite:3 dev-libs/glib:2 >
 DESCRIPTION=A console based XMPP client inspired by Irssi
 EAPI=8
 HOMEPAGE=https://profanity-im.github.io
-INHERIT=python-single-r1
+INHERIT=flag-o-matic python-single-r1
 IUSE=libnotify omemo omemo-qrcode otr gpg test xscreensaver python python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-3
@@ -12,5 +12,5 @@ REQUIRED_USE=omemo-qrcode? ( omemo ) python? ( ^^ ( python_single_target_python3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/profanity-im/profanity/releases/download/0.14.0/profanity-0.14.0.tar.gz https://github.com/profanity-im/profanity/commit/122434a.patch -> profanity-0.14.0-ox-carbons.patch https://github.com/profanity-im/profanity/commit/2ed6211c.patch -> profanity-0.14.0-xscreensaver.patch https://github.com/profanity-im/profanity/commit/b8817470.patch -> profanity-0.14.0-plugins-install.patch https://github.com/profanity-im/profanity/commit/6b9d0e86.patch -> profanity-0.14.0-fix-test-lto.patch
-_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=762062d0813aa1870ba6af2a2313aa1a
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	python-utils-r1	8b220bbce5c119fb1d4d5c2f5588f3ea	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=8d044fb1e3963cdecea524ce14e76ff9
