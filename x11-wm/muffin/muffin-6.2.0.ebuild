@@ -1,9 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit gnome2-utils meson virtualx
+PYTHON_COMPAT=( python3_{10..13} )
+
+inherit flag-o-matic gnome2-utils meson python-any-r1 virtualx
 
 DESCRIPTION="Compositing window manager forked from Mutter for use with Cinnamon"
 HOMEPAGE="https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/muffin"
@@ -11,8 +13,9 @@ SRC_URI="https://github.com/linuxmint/muffin/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="BSD GPL-2+ LGPL-2+ LGPL-2.1+ MIT SGI-B-2.0"
 SLOT="0"
-IUSE="input_devices_wacom +introspection screencast sysprof test udev"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="input_devices_wacom +introspection screencast sysprof systemd test udev wayland video_cards_nvidia"
+REQUIRED_USE="wayland? ( udev )"
 
 # Dependencies listed in meson order
 COMDEPEND="
@@ -25,7 +28,7 @@ COMDEPEND="
 	>=dev-libs/fribidi-1.0.0
 	>=dev-libs/glib-2.61.1:2
 	>=dev-libs/json-glib-0.12.0[introspection?]
-	>=gnome-extra/cinnamon-desktop-5.8:0=
+	>=gnome-extra/cinnamon-desktop-6.2:0=
 	>=x11-libs/libXcomposite-0.4
 	x11-libs/libXcursor
 	x11-libs/libXdamage
@@ -51,12 +54,43 @@ COMDEPEND="
 	>=x11-libs/startup-notification-0.7
 	media-libs/fontconfig
 
-	input_devices_wacom? ( >=dev-libs/libwacom-0.13:= )
-	introspection? ( >=dev-libs/gobject-introspection-1.41.3:= )
-	screencast? ( >=media-video/pipewire-0.3.0:= )
-	sysprof? ( >=dev-util/sysprof-capture-3.35.2:3 )
-	udev? ( >=virtual/libudev-228:=
-	        >=dev-libs/libgudev-232 )
+	input_devices_wacom? (
+		>=dev-libs/libwacom-0.13:=
+	)
+	introspection? (
+		>=dev-libs/gobject-introspection-1.41.3:=
+	)
+	screencast? (
+		>=media-video/pipewire-0.3.0:=
+	)
+	sysprof? (
+		>=dev-util/sysprof-capture-3.35.2:3
+	)
+	udev? (
+		>=virtual/libudev-228:=
+		>=dev-libs/libgudev-232
+	)
+	wayland? (
+		>=dev-libs/libinput-1.7:=
+		>=dev-libs/wayland-1.13.0
+		>=dev-libs/wayland-protocols-1.19
+		|| (
+			>=media-libs/mesa-24.1.0_rc1[opengl]
+			<media-libs/mesa-24.1.0_rc1[gbm(+),gles2]
+		)
+		x11-base/xwayland
+		x11-libs/libdrm
+
+		systemd? (
+			sys-apps/systemd
+		)
+		!systemd? (
+			sys-auth/elogind
+		)
+		video_cards_nvidia? (
+			gui-libs/egl-wayland
+		)
+	)
 "
 RDEPEND="${COMDEPEND}
 	gnome-extra/zenity
@@ -64,14 +98,28 @@ RDEPEND="${COMDEPEND}
 DEPEND="${COMDEPEND}
 	x11-base/xorg-proto
 
-	sysprof? ( dev-util/sysprof-common )
+	sysprof? (
+		dev-util/sysprof-common
+	)
 "
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	sys-devel/gettext
 	virtual/pkgconfig
+
+	wayland? (
+		dev-util/wayland-scanner
+		>=sys-kernel/linux-headers-4.4
+		x11-libs/libxcvt
+	)
 "
+
+src_prepare() {
+	default
+	python_fix_shebang src/backends/native/gen-default-modes.py
+}
 
 # Wayland is not supported upstream.
 src_configure() {
@@ -79,9 +127,11 @@ src_configure() {
 		-Dopengl=true
 		#opengl_libname
 		#gles2_libname
-		-Dgles2=false # wayland
+		$(meson_use wayland gles2)
 		-Degl=true
 		-Dglx=true
+		$(meson_use wayland)
+		$(meson_use wayland native_backend)
 		$(meson_use screencast remote_desktop)
 		$(meson_use udev)
 		$(meson_use input_devices_wacom libwacom)
@@ -91,12 +141,25 @@ src_configure() {
 		$(meson_use introspection)
 		$(meson_use test cogl_tests)
 		$(meson_use test clutter_tests)
+		# Wayland/Core tests cause issues. They attempt to access video hardware
+		# and leave /tmp/.X#-lock files behind.
 		-Dcore_tests=false # wayland
 		$(meson_use test tests)
 		$(meson_use sysprof profiler)
 		-Dinstalled_tests=false
 		#verbose
 	)
+
+	if use wayland; then
+		emesonargs+=(
+			$(meson_use video_cards_nvidia egl_device)
+			$(meson_use video_cards_nvidia wayland_eglstream)
+		)
+	fi
+
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/933879
+	use wayland && filter-lto
 
 	meson_src_configure
 }

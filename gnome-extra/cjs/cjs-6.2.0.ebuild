@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit flag-o-matic meson pax-utils python-any-r1 virtualx
 
@@ -13,11 +13,11 @@ SRC_URI="https://github.com/linuxmint/cjs/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD CC0-1.0 MIT MPL-2.0 || ( MPL-1.1 GPL-2+ LGPL-2.1+ )"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="+cairo examples readline sysprof test"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
 
 RDEPEND="
-	dev-lang/spidermonkey:102
+	dev-lang/spidermonkey:115
 	>=dev-libs/glib-2.66.0:2
 	>=dev-libs/gobject-introspection-1.71.0:=
 	>=dev-libs/libffi-3.3:0=
@@ -40,10 +40,6 @@ BDEPEND="
 	${PYTHON_DEPS}
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.8.0-move_have_gtk4_to_the_appropriate_place.patch
-)
 
 src_prepare() {
 	default

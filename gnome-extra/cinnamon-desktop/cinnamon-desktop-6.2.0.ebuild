@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit meson gnome2-utils python-any-r1
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/linuxmint/cinnamon-desktop/archive/${PV}.tar.gz -> $
 
 LICENSE="GPL-1 GPL-2+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0/4" # subslot = libcinnamon-desktop soname version
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.37.3:2[dbus]
@@ -37,6 +37,7 @@ DEPEND="
 "
 BDEPEND="
 	${PYTHON_DEPS}
+	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	sys-devel/gettext
 	virtual/pkgconfig
@@ -50,6 +51,11 @@ src_prepare() {
 src_configure() {
 	local emesonargs=(
 		-Dpnp_ids="${EPREFIX}/usr/share/hwdata/pnp.ids"
+
+		# https://github.com/linuxmint/cinnamon-desktop/commit/7eadfb1da9a42384396978b8ab46e0725d18e04f
+		# > Unless/until this fixes an actual identified issue for us or provides significant advantages
+		# > we're not using it in Cinnamon.
+		-Dsystemd=disabled
 	)
 	meson_src_configure
 }

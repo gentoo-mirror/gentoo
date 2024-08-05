@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit meson gnome2-utils python-any-r1 xdg
 
@@ -13,14 +13,14 @@ SRC_URI="https://github.com/linuxmint/cinnamon-settings-daemon/archive/${PV}.tar
 
 LICENSE="GPL-2+ LGPL-2+ LGPL-2.1 LGPL-2.1+ MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
-IUSE="+colord cups input_devices_wacom smartcard systemd"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="+colord cups input_devices_wacom smartcard systemd wayland"
 
 RDEPEND="
 	>=dev-libs/glib-2.40.0:2[dbus]
 	dev-libs/libgudev
 	>=gnome-base/libgnomekbd-3.6:=
-	>=gnome-extra/cinnamon-desktop-5.8:0=
+	>=gnome-extra/cinnamon-desktop-6.2:0=
 	media-libs/fontconfig
 	>=media-libs/lcms-2.2:2
 	media-libs/libcanberra[gtk3,pulseaudio]
@@ -28,7 +28,7 @@ RDEPEND="
 	>=sys-auth/polkit-0.97
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.14.0:3
+	>=x11-libs/gtk+-3.14.0:3[wayland=]
 	>=x11-libs/libnotify-0.7.3
 	x11-libs/libX11
 	x11-libs/libXext
