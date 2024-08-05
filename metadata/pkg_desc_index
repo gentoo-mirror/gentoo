@@ -2454,7 +2454,7 @@ app-forensics/radamsa 0.6 0.7: A general-purpose fuzzer
 app-forensics/rifiuti 20040505_p1-r1: Recycle Bin Analyzer
 app-forensics/rkhunter 1.4.6-r2: Rootkit Hunter scans for known and unknown rootkits, backdoors, and sniffers
 app-forensics/scalpel 2.1_pre20210326: A high performance file carver
-app-forensics/sleuthkit 4.11.1-r2 4.12.1-r1: A collection of file system and media management forensic analysis tools
+app-forensics/sleuthkit 4.12.1-r1 4.12.1-r2: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20210124 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.5.2 2.7.0: Framework for analyzing volatile memory
 app-forensics/yara 4.5.0 4.5.1 9999: A malware identification and classification tool
@@ -2658,7 +2658,7 @@ app-misc/blink1 1.98-r3: blink(1) USB RGB LED status light control suite
 app-misc/bottlerocket 0.04c-r2: CLI interface to the X-10 Firecracker Kit
 app-misc/boxes 2.2.1 2.3.0: Draw any kind of boxes around your text
 app-misc/brewtarget 2.3.1-r1: Application to create and manage beer recipes
-app-misc/broot 1.36.1 1.39.0 1.39.1 1.40.0: A new way to see and navigate directory trees
+app-misc/broot 1.39.0 1.39.1 1.40.0 1.41.1: A new way to see and navigate directory trees
 app-misc/btail 0.3-r1: Bayesian logfile filter
 app-misc/byobu 5.133: A set of profiles for the GNU Screen console window manager (app-misc/screen)
 app-misc/c_rehash 1.7-r1: c_rehash script from OpenSSL
@@ -3929,7 +3929,7 @@ dev-db/futuresql5 0.1.1: Non-blocking Qt database framework
 dev-db/gqlplus 1.16-r2: a front-end for Oracle program sqlplus with command-line editing
 dev-db/hsqldb 2.7.3: HSQLDB - Lightweight 100% Java SQL Database Engine
 dev-db/influx-cli 2.7.3: The command line for influxdb
-dev-db/influxdb 1.8.10 2.7.5 2.7.6: Scalable datastore for metrics, events, and real-time analytics
+dev-db/influxdb 1.8.10 2.7.6 2.7.8: Scalable datastore for metrics, events, and real-time analytics
 dev-db/innotop 1.13.0: A text-mode MySQL and InnoDB monitor like mytop, but with many more features
 dev-db/kdb 3.2.0-r2: Database connectivity and creation framework for various vendors
 dev-db/kyotocabinet 1.2.77 1.2.79-r1 1.2.79-r2: A straightforward implementation of DBM
@@ -13690,7 +13690,7 @@ media-plugins/xsynth-dssi 0.9.4: A software synthesizer plugin for the DSSI Soft
 media-plugins/zam-plugins 4.2: Collection of LV2/LADSPA/VST/JACK audio plugins for high quality processing
 media-radio/adifmerg 31-r1: A small conversion and check utility for ADIF files
 media-radio/ax25-apps 0.0.8_rc5: Basic AX.25 (Amateur Radio) user tools, additional daemons
-media-radio/ax25-tools 0.0.10_rc5: Basic AX.25 (Amateur Radio) administrative tools and daemons
+media-radio/ax25-tools 0.0.10_rc5 0.0.10_rc5-r1: Basic AX.25 (Amateur Radio) administrative tools and daemons
 media-radio/chirp 20240311 20240606: A free, open-source tool for programming your radio
 media-radio/cqrlog 2.5.2: CQRLOG is an advanced ham radio logger based on MySQL database
 media-radio/cwdaemon 0.12.0: A morse daemon for the parallel or serial port
@@ -15036,7 +15036,7 @@ net-misc/connman-json-client 1.0_p20150721-r3: An ncurses UI for connman
 net-misc/connman-notify 0_pre20191003-r3: Desktop notification integration for connman
 net-misc/connman-ui 0_p20150622-r1: A full-featured GTK based trayicon UI for ConnMan
 net-misc/croc 9.6.15 9.6.17 10.0.11: Easily and securely send things from one computer to another
-net-misc/curl 8.7.1-r4 8.8.0-r1 8.9.1 9999: A Client that groks URLs
+net-misc/curl 8.7.1-r4 8.8.0-r1 8.9.1 8.9.1-r1 9999: A Client that groks URLs
 net-misc/datapipe 1.0-r2: Bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
 net-misc/dhcdrop 0.5-r1: Effectively suppresses illegal DHCP servers on the LAN
@@ -15463,8 +15463,8 @@ net-voip/umurmur 0.2.20 9999: Minimalistic Murmur (Mumble server)
 net-voip/yate 6.2.0 9999: The Yate AV Suite
 net-vpn/6tunnel 0.13: TCP proxy for applications that don't speak IPv6
 net-vpn/corkscrew 2.0-r1: a tool for tunneling SSH through HTTP proxies
-net-vpn/eduvpn-client 4.2.1-r1 4.3.1 9999: Linux client and Python client API for eduVPN
-net-vpn/eduvpn-common 1.2.0 2.0.2: Linux client and Python client API for eduVPN
+net-vpn/eduvpn-client 4.2.1-r1 4.3.1 4.4.0 9999: Linux client and Python client API for eduVPN
+net-vpn/eduvpn-common 1.2.0 2.0.2 2.1.0: Linux client and Python client API for eduVPN
 net-vpn/fp-multiuser 0.0.2: A frp server plugin to support multiple users for frp
 net-vpn/frp 0.56.0 0.58.1: A reverse proxy that exposes a server behind a NAT or firewall to the internet
 net-vpn/gsocket 1.4.43 9999: Allow firewalled/NATed host to establish a secure connection
@@ -16885,7 +16885,7 @@ sys-apps/flashrom 1.3.0-r1 1.3.0-r3: Utility for reading, writing, erasing and v
 sys-apps/flatpak 1.12.8 1.14.4-r3 1.14.6 1.14.8: Linux application sandboxing and distribution framework
 sys-apps/fwts 22.03.00 23.11.00 24.03.00: Firmware Test Suite
 sys-apps/fwupd 1.9.20: Aims to make updating firmware on Linux automatic, safe and reliable
-sys-apps/fwupd-efi 1.4 1.5 1.6: EFI executable for fwupd
+sys-apps/fwupd-efi 1.6: EFI executable for fwupd
 sys-apps/fxload 20081013-r1: USB firmware uploader
 sys-apps/gawk 5.2.2 5.3.0-r1: GNU awk pattern-matching language
 sys-apps/gentoo-functions 0.19 1.5 1.6-r1 1.7-r1 9999: Base functions required by all Gentoo systems
@@ -17327,10 +17327,10 @@ sys-cluster/zookeepercli 1.0.12: Simple, lightweight, dependable CLI for ZooKeep
 sys-devel/autogen 5.18.16-r3 5.18.16-r4: Program and text file generation
 sys-devel/bc 1.07.1-r6: Handy console-based calculator utility
 sys-devel/bin86 0.16.21-r1 0.16.21-r2: Assembler and loader used to create kernel bootsector
-sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r9 2.41-r5 2.42-r1 2.42-r2 2.43.9999 9999: Tools necessary to build programs
+sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r9 2.41-r5 2.42-r1 2.42-r2 2.43 2.43.9999 9999: Tools necessary to build programs
 sys-devel/binutils-apple 3.2.6-r1 8.2.1-r2 8.2.1-r103: Darwin Xtools matching Xcode Tools binutils-apple
 sys-devel/binutils-config 5.5 5.5.2 9999: Utility to change the binutils version being used
-sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r1 2.42-r2: Tools necessary to build programs
+sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r1 2.42-r2 2.43: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
 sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8 19.1.0_rc1 20.0.0_pre20240801 20.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 15.0.7-r8 16.0.6-r4 17.0.6-r5 17.0.6-r6 18.1.8-r1 19.1.0_rc1 20.0.0_pre20240801 20.0.0.9999: Common files shared between multiple slots of clang
@@ -17560,7 +17560,7 @@ sys-kernel/vanilla-sources 4.19.319 5.4.281 5.10.223 5.15.164 6.1.103 6.6.44 6.9
 sys-kernel/zen-sources 6.8.9: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1 0.2.1: The sd-bus library, extracted from systemd
-sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r1 2.42-r2: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
+sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r1 2.42-r2 2.43: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
 sys-libs/blocksruntime 0_pre20171027-r2: BlocksRuntime library needed for clang's -fblocks support
 sys-libs/compiler-rt 15.0.7 16.0.6 16.0.6-r4 17.0.6 18.1.8 19.1.0_rc1 20.0.0_pre20240801 20.0.0.9999: Compiler runtime library for clang (built-in part)
 sys-libs/compiler-rt-sanitizers 15.0.7 16.0.6 17.0.6 18.1.8 19.1.0_rc1 20.0.0_pre20240801 20.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
@@ -17652,7 +17652,7 @@ sys-power/acpitool 0.5.1-r2: A replacement for the APM tool
 sys-power/apcupsd 3.14.14-r3: APC UPS daemon with integrated tcp/ip remote shutdown
 sys-power/athcool 0.3.12: small utility to toggle Powersaving mode for AMD Athlon/Duron processors
 sys-power/autosuspend 5.0.0: A daemon to automatically suspend and wake up a system
-sys-power/bbswitch 0.8_p20211129 0.8_p20211129-r1: Toggle discrete NVIDIA Optimus graphics card
+sys-power/bbswitch 0.8_p20211129-r1: Toggle discrete NVIDIA Optimus graphics card
 sys-power/cpupower 5.18 6.2: Shows and sets processor power related values
 sys-power/hibernate-script 2.0-r6: Hibernate script supporting multiple suspend methods
 sys-power/iasl 20200717: Intel ACPI Source Language (ASL) compiler
@@ -17663,7 +17663,7 @@ sys-power/nvram-reboot 2004.10.03-r1: PowerOff Boot-Images for nvram-wakeup (not
 sys-power/pmtools 20110323-r2 20130209: Collection of tools for ACPI and power management
 sys-power/power-profiles-daemon 0.20 0.21: Makes power profiles handling available over D-Bus
 sys-power/powermgmt-base 1.31-r2: Script to test whether computer is running on AC power
-sys-power/powerstat 0.02.22 0.02.27 9999: Laptop power measuring tool
+sys-power/powerstat 0.02.27 9999: Laptop power measuring tool
 sys-power/powertop 2.15 9999: tool to diagnose issues with power consumption and power management
 sys-power/sandmann-bin 1.0: An autosuspend and wakeup daemon
 sys-power/sispmctl 4.1-r1 4.12: GEMBIRD SiS-PM control utility
@@ -17707,7 +17707,7 @@ sys-process/iotop-c 1.26: top utility for IO (C port)
 sys-process/latencytop 0.5-r3: Tool for identifying where in the system latency is happening
 sys-process/lsof 4.98.0-r1 4.99.0 4.99.3: Lists open files for running Unix processes
 sys-process/memwatch 0.3.3-r1: Interactive memory viewer
-sys-process/minicoredumper 2.0.2 2.0.7: Core dump file processor
+sys-process/minicoredumper 2.0.7: Core dump file processor
 sys-process/minit 0.10-r2: a small yet feature-complete init
 sys-process/nmon 16n 16q: Nigel's performance MONitor for CPU, memory, network, disks, etc
 sys-process/numactl 2.0.16-r1 2.0.18 9999: Utilities and libraries for NUMA systems
@@ -17722,12 +17722,12 @@ sys-process/psinfo 0.12-r1 0.12-r2: Process information and statistics using the
 sys-process/psmisc 23.6 23.7: A set of tools that use the proc filesystem
 sys-process/rtirq 20240120 20240220: Modify realtime scheduling policy and priority of IRQ handlers
 sys-process/runit 2.1.2-r3: A UNIX init scheme with service supervision
-sys-process/schedtool 1.3.0-r1 1.3.0-r2: A tool to query or alter a process' scheduling policy
+sys-process/schedtool 1.3.0-r2: A tool to query or alter a process' scheduling policy
 sys-process/supervise-scripts 4.0-r1 4.0-r2: Starting and stopping daemontools managed services
 sys-process/systemd-cron 2.2.0-r1 2.3.4-r1 2.4.0: systemd units to create timers for cron directories and crontab
 sys-process/time 1.9-r1: Displays info about resources used by a program
 sys-process/tini 0.19.0-r1: A tiny but valid init for containers
-sys-process/tiptop 2.3.1_p4 2.3.1_p4_p20221211: top for performance counters
+sys-process/tiptop 2.3.1_p4_p20221211: top for performance counters
 sys-process/top-apple 73: Apple's top from Mac OS X Lion 10.7
 sys-process/uksmd 6.5.1: Userspace KSM helper daemon
 sys-process/unixtop 3.8_beta1-r4: top for UNIX systems
@@ -17931,7 +17931,7 @@ www-apache/mod_security 2.9.7: Application firewall and intrusion detection for 
 www-apache/mod_whatkilledus 2.01-r1: Debug segmentation faults in Apache threads
 www-apache/mod_wsgi 4.9.0 4.9.4-r1 5.0.0: An Apache2 module for running Python WSGI applications
 www-apache/mod_xsendfile 1.0_beta1-r2 1.0_beta1-r3: Apache module that processes X-SENDFILE headers registered by the output handler
-www-apache/modsecurity-crs 3.3.5 4.0.0 4.4.0: OWASP ModSecurity Core Rule Set
+www-apache/modsecurity-crs 3.3.5 4.0.0 4.4.0 4.5.0: OWASP ModSecurity Core Rule Set
 www-apache/mpm_itk 2.4.7_p4-r2: Run virtual hosts under separate users/groups
 www-apache/passenger 6.0.20 6.0.22 6.0.23: Passenger makes deployment of Ruby on Rails applications a breeze
 www-apache/pwauth 2.3.10-r2: A Unix Web Authenticator
@@ -18162,7 +18162,7 @@ x11-apps/xmodmap 1.0.11: utility for modifying keymaps and pointer button mappin
 x11-apps/xmore 1.0.4: plain text display program for the X Window System
 x11-apps/xpr 1.2.0: X.Org xpr application
 x11-apps/xprop 1.2.7: property displayer for X
-x11-apps/xrandr 1.5.2: primitive command line interface to RandR extension
+x11-apps/xrandr 1.5.2: A primitive command line interface to RandR extension
 x11-apps/xrdb 1.2.2: X server resource database utility
 x11-apps/xrectsel 0.3.2-r1: Print the geometry of a rectangular screen region
 x11-apps/xrefresh 1.1.0: refresh all or part of an X screen

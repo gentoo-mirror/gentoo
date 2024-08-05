@@ -1,0 +1,15 @@
+BDEPEND=doc? ( sys-apps/texinfo ) pgo? ( dev-util/dejagnu app-alternatives/bc ) test? ( dev-util/dejagnu app-alternatives/bc ) nls? ( sys-devel/gettext ) zstd? ( virtual/pkgconfig ) app-alternatives/lex app-alternatives/yacc >=app-portage/elt-patches-20240116 sys-devel/gnuconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= )
+DESCRIPTION=Tools necessary to build programs
+EAPI=7
+HOMEPAGE=https://sourceware.org/binutils/
+INHERIT=libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
+IUSE=cet debuginfod doc gold gprofng hardened multitarget +nls pgo +plugins static-libs test vanilla zstd
+LICENSE=GPL-3+
+RDEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= )
+RESTRICT=!test? ( test )
+SLOT=2.43
+SRC_URI=mirror://gnu/binutils/binutils-2.43.tar.xz https://sourceware.org/pub/binutils/releases/binutils-2.43.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.43.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.43-patches-1.tar.xz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	gnuconfig	a397adda6984a4c423e28ac274c1ba98	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7
+_md5_=f0214b001256f20338e50fb5c2be175e
