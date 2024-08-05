@@ -101,6 +101,16 @@ python_test() {
 			# sigh
 			local -x AIOHTTP_NO_EXTENSIONS=1
 			;;
+		python3.13)
+			EPYTEST_DESELECT+=(
+				# buggy test
+				# https://github.com/aio-libs/aiohttp/issues/8551
+				tests/test_web_urldispatcher.py::test_access_mock_special_resource
+				# new test (so not a regression)
+				# https://github.com/aio-libs/aiohttp/issues/8565
+				tests/test_web_urldispatcher.py::test_access_symlink_loop
+			)
+			;;
 	esac
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
