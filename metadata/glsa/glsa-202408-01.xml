@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-01">
+    <title>containerd: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in containerd, the worst of which could lead to privilege escalation.</synopsis>
+    <product type="ebuild">containerd</product>
+    <announced>2024-08-06</announced>
+    <revised count="1">2024-08-06</revised>
+    <bug>897960</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-containers/containerd" auto="yes" arch="*">
+            <unaffected range="ge">1.6.19</unaffected>
+            <vulnerable range="lt">1.6.19</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>containerd is a daemon with an API and a command line client, to manage containers on one machine. It uses runC to run containers according to the OCI specification.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in containerd. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All containerd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/containerd-1.6.19"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25153">CVE-2023-25153</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25173">CVE-2023-25173</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-06T05:38:04.316179Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-06T05:38:04.318621Z">graaff</metadata>
+</glsa>
