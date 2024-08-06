@@ -1,14 +1,14 @@
-BDEPEND=|| ( app-emacs/erlang-mode dev-lang/erlang[emacs(-)] ) >=app-editors/emacs-25.3:*
+BDEPEND=dev-lang/erlang || ( app-emacs/erlang-mode dev-lang/erlang[emacs(-)] ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Distributed Emacs Lisp for Erlang
-EAPI=7
+EAPI=8
 HOMEPAGE=https://massemanet.github.io/distel/ https://www.emacswiki.org/emacs/DistributedEmacsLisp
 INHERIT=elisp
 IUSE=doc
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD MIT
-RDEPEND=|| ( app-emacs/erlang-mode dev-lang/erlang[emacs(-)] ) >=app-editors/emacs-25.3:*
+RDEPEND=dev-lang/erlang || ( app-emacs/erlang-mode dev-lang/erlang[emacs(-)] ) >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://github.com/massemanet/distel/archive/4.1.1.tar.gz -> distel-4.1.1.tar.gz
 _eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
-_md5_=e78d6f62c30b622862728d79a60430fe
+_md5_=980c9ededb904dfd6f482726deffa977
