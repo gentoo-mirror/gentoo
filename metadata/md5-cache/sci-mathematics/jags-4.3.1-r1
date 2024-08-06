@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( virtual/latex-base dev-texlive/texlive-latexextra ) >=app-portage/elt-patches-20240116
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-libs/libltdl virtual/blas virtual/lapack
+DESCRIPTION=Just Another Gibbs Sampler for Bayesian MCMC simulation
+EAPI=8
+HOMEPAGE=https://mcmc-jags.sourceforge.io/
+INHERIT=libtool toolchain-funcs
+IUSE=doc
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=dev-libs/libltdl virtual/blas virtual/lapack
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/mcmc-jags/JAGS/4.x/Source/JAGS-4.3.1.tar.gz
+_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001
+_md5_=a1ebef4c268cc08fd3201e6b8b9bd77c
