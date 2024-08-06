@@ -37,10 +37,11 @@ DEPEND="${COMMON_DEPEND}
 		dev-libs/wayland
 		>=dev-qt/qtwayland-${QTMIN}:6
 		>=kde-plasma/kwayland-${PVCUT}:6
+		media-video/pipewire[extra]
 	)
 "
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	x11-themes/sound-theme-freedesktop
-	test? ( >=dev-qt/qtwayland-${QTMIN}:6 )
 "
+BDEPEND="test? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
