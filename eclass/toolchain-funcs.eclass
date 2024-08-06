@@ -1,4 +1,4 @@
-# Copyright 2002-2023 Gentoo Authors
+# Copyright 2002-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: toolchain-funcs.eclass
@@ -1234,6 +1234,7 @@ tc-get-build-ptr-size() {
 # @RETURN: Shell true if we are using LTO, shell false otherwise
 tc-is-lto() {
 	local f="${T}/test-lto.o"
+	local ret=1
 
 	case $(tc-get-compiler-type) in
 		clang)
@@ -1241,14 +1242,25 @@ tc-is-lto() {
 			# If LTO is used, clang will output bytecode and llvm-bcanalyzer
 			# will run successfully.  Otherwise, it will output plain object
 			# file and llvm-bcanalyzer will exit with error.
-			llvm-bcanalyzer "${f}" &>/dev/null && return 0
+			llvm-bcanalyzer "${f}" &>/dev/null && ret=0
 			;;
 		gcc)
 			$(tc-getCC) ${CFLAGS} -c -o "${f}" -x c - <<<"" || die
-			[[ $($(tc-getREADELF) -S "${f}") == *.gnu.lto* ]] && return 0
+			[[ $($(tc-getREADELF) -S "${f}") == *.gnu.lto* ]] && ret=0
 			;;
 	esac
-	return 1
+	rm -f "${f}" || die
+	return "${ret}"
+}
+
+# @FUNCTION: tc-has-64bit-time_t
+# @RETURN: Shell true if time_t is at least 64 bits long, false otherwise
+tc-has-64bit-time_t() {
+	$(tc-getCC) ${CFLAGS} ${CPPFLAGS} -c -x c - -o /dev/null <<-EOF &>/dev/null
+		#include <sys/types.h>
+		int test[sizeof(time_t) >= 8 ? 1 : -1];
+	EOF
+	return $?
 }
 
 fi
