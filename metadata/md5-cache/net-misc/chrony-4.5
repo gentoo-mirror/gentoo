@@ -12,5 +12,5 @@ RDEPEND=caps? ( acct-group/ntp acct-user/ntp sys-libs/libcap ) libtomcrypt? ( de
 REQUIRED_USE=sechash? ( || ( nettle nss libtomcrypt ) ) nettle? ( !nss ) nss? ( !nettle ) libtomcrypt? ( !nettle !nss ) !sechash? ( !nss ) !sechash? ( !nts? ( !nettle ) )
 SLOT=0
 SRC_URI=https://chrony-project.org/releases/chrony-4.5.tar.gz verify-sig? ( https://chrony-project.org/releases/chrony-4.5-tar-gz-asc.txt -> chrony-4.5.tar.gz.asc )
-_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	a79ba011daaf532d71a219182474d150
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	e7e7331166166e7a516d19e264b098c2	multilib	c19072c3cd7ac5cb21de013f7e9832e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=807ddf95402fcc9c2f5531c916431b26
