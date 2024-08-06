@@ -17,6 +17,8 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="Unlicense"
 SLOT="0"
+# note that yt-dlp bumps are typically done straight-to-stable (unless there
+# was major/breaking changes) given website changes breaks it on a whim
 KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
