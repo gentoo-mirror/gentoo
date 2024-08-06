@@ -12,7 +12,7 @@ SRC_URI="https://ecsft.cern.ch/dist/cvmfs/${P}/source.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="server"
 
 CDEPEND="
@@ -61,6 +61,7 @@ src_prepare() {
 	# gentoo stuff
 	rm bootstrap.sh || die
 	sed -i -e "s:/usr/bin/systemctl:/bin/systemctl:g" \
+		-e "/^INSTALL_BASE/s:=.*\$:=${EPREFIX}/usr:" \
 		-e "s:/bin/pidof:/usr/bin/pidof:g" cvmfs/cvmfs_config || die
 	sed -i -e 's/COPYING//' -e "s:cvmfs-\${CernVM-FS_VERSION_STRING}:${PF}:" \
 		CMakeLists.txt || die
