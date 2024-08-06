@@ -12,9 +12,9 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/evolution/-/wikis/home https://gitlab.g
 LICENSE="|| ( LGPL-2 LGPL-3 ) CC-BY-SA-3.0 FDL-1.3+ OPENLDAP"
 SLOT="2.0"
 
-IUSE="archive +bogofilter geolocation gtk-doc highlight ldap selinux spamassassin spell ssl +weather ytnef"
-
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+
+IUSE="archive +bogofilter geolocation gtk-doc highlight ldap selinux spamassassin spell ssl +weather ytnef"
 
 # glade-3 support is for maintainers only per configure.ac
 # pst is not mature enough and changes API/ABI frequently
