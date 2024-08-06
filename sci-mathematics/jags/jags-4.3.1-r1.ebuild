@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit libtool toolchain-funcs
 
 MYP="JAGS-${PV}"
 
@@ -18,6 +18,7 @@ KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc"
 
 RDEPEND="
+	dev-libs/libltdl
 	virtual/blas
 	virtual/lapack
 "
@@ -29,6 +30,11 @@ BDEPEND="
 		dev-texlive/texlive-latexextra
 	)
 "
+
+src_prepare() {
+	default
+	elibtoolize
+}
 
 src_configure() {
 	econf \
