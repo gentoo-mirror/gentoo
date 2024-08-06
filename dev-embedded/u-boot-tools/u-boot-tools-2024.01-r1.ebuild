@@ -8,7 +8,11 @@ inherit toolchain-funcs
 MY_P="u-boot-${PV/_/-}"
 DESCRIPTION="utilities for working with Das U-Boot"
 HOMEPAGE="https://www.denx.de/wiki/U-Boot/WebHome"
-SRC_URI="https://ftp.denx.de/pub/u-boot/${MY_P}.tar.bz2"
+SRC_URI="
+	https://ftp.denx.de/pub/u-boot/${MY_P}.tar.bz2
+	https://github.com/u-boot/u-boot/commit/88b9b9c44c859bdd9bb227e2fdbc4cbf686c3343.patch
+		-> u-boot-tools-2024.01-fix-invalid-escape-sequence.patch
+"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
@@ -16,18 +20,22 @@ SLOT="0"
 KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv x86"
 IUSE="envtools"
 
-RDEPEND="dev-libs/openssl:="
+RDEPEND="
+	dev-libs/openssl:=
+	net-libs/gnutls:=
+	sys-apps/util-linux:=
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
+	dev-lang/swig
 	app-alternatives/yacc
 	app-alternatives/lex
-	sys-apps/which
 	virtual/pkgconfig
 "
 
 PATCHES=(
-	"${FILESDIR}/disable-unused-mkeficapsule.patch"
-	"${FILESDIR}/disable-unused-pylibfdt.patch"
+	# https://github.com/u-boot/u-boot/pull/489
+	"${DISTDIR}"/u-boot-tools-2024.01-fix-invalid-escape-sequence.patch
 )
 
 src_prepare() {
@@ -72,7 +80,7 @@ src_install() {
 	cd tools || die
 
 	if ! use envtools; then
-		dobin dumpimage fdtgrep gen_eth_addr img2srec mkenvimage mkimage
+		dobin dumpimage fdtgrep gen_eth_addr img2srec mkeficapsule mkenvimage mkimage
 	fi
 
 	dobin env/fw_printenv
