@@ -908,7 +908,7 @@ app-admin/apachetop 0.19.7 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.2 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.33.27 1.33.31 1.33.35: Universal Command Line Environment for AWS
+app-admin/awscli 1.33.27 1.33.31 1.33.35 1.33.36: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.6.0 2024.6.4: Bitwarden password manager desktop client
 app-admin/calamares 3.2.60-r5 3.3.6-r1: Distribution-independent installer framework
@@ -8144,8 +8144,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0 1.2.0 1.2.1: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.34.145 1.34.149 1.34.153: The AWS SDK for Python
-dev-python/botocore 1.34.145 1.34.149 1.34.153: Low-level, data-driven core of boto 3
+dev-python/boto3 1.34.145 1.34.149 1.34.153 1.34.154: The AWS SDK for Python
+dev-python/botocore 1.34.145 1.34.149 1.34.153 1.34.154: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.0: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8175,7 +8175,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3021.3.16-r4 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0 1.17.0_pre20240424 1.17.0_rc1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.8.2 1.9.3 1.9.4: CloudFormation Linter
+dev-python/cfn-lint 1.8.2 1.9.3 1.9.4 1.9.5: CloudFormation Linter
 dev-python/cftime 1.6.4: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4: Fast HTML/XML template compiler for Python
@@ -8254,7 +8254,7 @@ dev-python/cwcwidth 0.1.9: Python bindings for wc(s)width
 dev-python/cycler 0.12.1: Composable style cycles
 dev-python/cypari2 2.1.4-r1: Cython interface to PARI
 dev-python/cysignals 1.11.4-r1: Interrupt and signal handling for Cython
-dev-python/cython 3.0.10: A Python to C compiler
+dev-python/cython 3.0.10 3.0.11: A Python to C compiler
 dev-python/cython-test-exception-raiser 1.0.2-r1: A trivial extension that just raises an exception (for testing)
 dev-python/daemonize 2.5.0-r1: Library for writing system daemons in Python
 dev-python/dbfread 2.0.7-r1: Read DBF Files with Python
@@ -8406,7 +8406,7 @@ dev-python/fritzconnection 1.13.2-r1: Lib/tool to communicate with AVM FRITZ! de
 dev-python/frozenlist 1.4.1: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
 dev-python/fsspec 2024.6.1: A specification that python filesystems should adhere to
-dev-python/ftfy 6.2.0: Fixes mojibake and other problems with Unicode, after the fact
+dev-python/ftfy 6.2.0 6.2.3: Fixes mojibake and other problems with Unicode, after the fact
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
 dev-python/funcy 2.0: A collection of fancy functional tools focused on practicality
 dev-python/furo 2024.7.18: Clean customisable Sphinx documentation theme
@@ -8476,7 +8476,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.107.0 6.108.4 6.108.5 6.108.8: A library for property based testing
+dev-python/hypothesis 6.107.0 6.108.4 6.108.5 6.108.8 6.108.9: A library for property based testing
 dev-python/icalendar 5.0.13 6.0.0_alpha0: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.6.0: File identification library for Python
 dev-python/idna 3.7: Internationalized Domain Names in Applications (IDNA)
@@ -8733,7 +8733,7 @@ dev-python/mygpoclient 1.9 1.9-r1: A gpodder.net client library
 dev-python/mypy 1.10.1 1.11.0 1.11.1: Optional static typing for Python
 dev-python/mypy_extensions 1.0.0: Type system extensions for programs checked with mypy
 dev-python/mysqlclient 2.2.4: Python interface to MySQL
-dev-python/myst-parser 3.0.1: Extended commonmark compliant parser, with bridges to Sphinx
+dev-python/myst-parser 3.0.1 4.0.0: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.0.0-r1: Tiny and efficient C++/Python bindings
 dev-python/natsort 8.4.0: Natural sorting for Python
@@ -8949,7 +8949,7 @@ dev-python/pycurl 7.45.3: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8-r1: Set of facilities to extend Python with C++
 dev-python/pydantic 2.7.4 2.8.0_beta1 2.8.0 2.8.2: Data parsing and validation using Python type hints
-dev-python/pydantic-core 2.18.4 2.19.0 2.20.0 2.20.1: Core validation logic for pydantic written in Rust
+dev-python/pydantic-core 2.18.4 2.19.0 2.20.0 2.20.1 2.21.0: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.15.4: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -9356,7 +9356,7 @@ dev-python/simpleeval 0.9.13: A simple, safe single expression evaluator library
 dev-python/simplejson 3.19.2: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
 dev-python/simpy 4.1.1: Object-oriented, process-based discrete-event simulation language
-dev-python/simsimd 4.3.1: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
+dev-python/simsimd 4.3.1 5.0.0: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
 dev-python/sip 6.8.6: Python bindings generator for C/C++ libraries
 dev-python/siphash24 1.6: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.16.0-r1: Python 2 and 3 compatibility library
@@ -9430,9 +9430,9 @@ dev-python/spyder-notebook 0.5.1: Jupyter notebook integration with Spyder
 dev-python/spyder-terminal 1.2.2: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the results
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
-dev-python/sqlalchemy 1.4.52 1.4.53 2.0.29 2.0.30 2.0.30-r1 2.0.31: Python SQL toolkit and Object Relational Mapper
+dev-python/sqlalchemy 1.4.52 1.4.53 2.0.29 2.0.30 2.0.30-r1 2.0.31 2.0.32: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 25.7.1 25.8.0 25.8.1: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 25.7.1 25.8.0 25.8.1 25.9.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.1: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9510,7 +9510,7 @@ dev-python/toolz 0.12.1: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.4.1: Python web framework and asynchronous networking library
 dev-python/towncrier 23.11.0 24.7.0_rc1 24.7.1: Building newsfiles for your project
-dev-python/tox 4.16.0: virtualenv-based automation of test activities
+dev-python/tox 4.16.0 4.17.0: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.2.1 2.3.0: Python bindings for TSS
 dev-python/tqdm 4.66.4 4.66.5: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
@@ -9537,7 +9537,7 @@ dev-python/typeguard 4.3.0: Run-time type checker for Python
 dev-python/types-docutils 0.21.0.20240710 0.21.0.20240711 0.21.0.20240724: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.20240408 12.1.4.20240704: Typing stubs for gdb
 dev-python/types-psutil 5.9.5.20240516 6.0.0.20240621: Typing stubs for psutil
-dev-python/types-setuptools 70.3.0.20240710 71.1.0.20240726: Typing stubs for setuptools
+dev-python/types-setuptools 70.3.0.20240710 71.1.0.20240726 71.1.0.20240806: Typing stubs for setuptools
 dev-python/typing-extensions 4.12.2: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
