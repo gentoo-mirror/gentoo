@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-13">
+    <title>Nokogiri: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in Nokogiri, which can lead to a denial of service.</synopsis>
+    <product type="ebuild">nokogiri</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>884863</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-ruby/nokogiri" auto="yes" arch="*">
+            <unaffected range="ge">1.13.10</unaffected>
+            <vulnerable range="lt">1.13.10</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Nokogiri is an HTML, XML, SAX, and Reader parser.</p>
+    </background>
+    <description>
+        <p>A denial of service vulnerability has been discovered in Nokogiri. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Nokogiri fails to check the return value from `xmlTextReaderExpand` in the method `Nokogiri::XML::Reader#attribute_hash`. This can lead to a null pointer exception when invalid markup is being parsed. For applications using `XML::Reader` to parse untrusted inputs, this may potentially be a vector for a denial of service attack.</p>
+    </impact>
+    <workaround>
+        <p>Users may be able to search their code for calls to either `XML::Reader#attributes` or `XML::Reader#attribute_hash` to determine if they are affected.</p>
+    </workaround>
+    <resolution>
+        <p>All Nokogiri users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/nokogiri-1.13.10"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23476">CVE-2022-23476</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T13:11:11.971415Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T13:11:11.974740Z">graaff</metadata>
+</glsa>
