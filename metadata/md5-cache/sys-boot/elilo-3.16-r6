@@ -1,13 +1,15 @@
-DEFINED_PHASES=compile install prepare unpack
+BDEPEND=secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+DEFINED_PHASES=compile install prepare setup unpack
 DEPEND=>=sys-boot/gnu-efi-3.0g dev-util/patchutils
 DESCRIPTION=Linux boot loader for EFI-based systems such as IA-64
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/elilo/
-INHERIT=toolchain-funcs
+INHERIT=secureboot toolchain-funcs
+IUSE=secureboot
 KEYWORDS=~amd64 ~ia64 ~x86
 LICENSE=GPL-2
 RDEPEND=sys-boot/efibootmgr sys-fs/dosfstools[compat]
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/elilo/elilo-3.16-all.tar.gz mirror://debian/pool/main/e/elilo/elilo_3.14-3.debian.tar.gz
-_eclasses_=toolchain-funcs	e7e7331166166e7a516d19e264b098c2	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=c6342471695174e400577b071354bd82
+_eclasses_=secureboot	f695cce74d5a14f87f209a0ec363a01a	toolchain-funcs	e7e7331166166e7a516d19e264b098c2	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=41fcb0d2a0db022a0c8f47f60b02e638
