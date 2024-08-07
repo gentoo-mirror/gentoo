@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit gnome.org gnome2-utils python-any-r1 meson udev virtualx xdg
 
@@ -52,9 +52,8 @@ COMMON_DEPEND="
 	x11-libs/libXi
 	x11-libs/libXext
 	media-libs/fontconfig
-	systemd? (
-		>=sys-apps/systemd-243
-	)
+	elogind? ( >=sys-auth/elogind-209 )
+	systemd? ( >=sys-apps/systemd-243 )
 "
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
@@ -62,7 +61,6 @@ DEPEND="${COMMON_DEPEND}
 # logind needed for power and session management, bug #464944
 RDEPEND="${COMMON_DEPEND}
 	gnome-base/dconf
-	elogind? ( sys-auth/elogind )
 "
 # rfkill requires linux/rfkill.h, thus linux-headers dep, not os-headers.
 # If this package wants to work on other kernels, we need to make rfkill conditional instead
@@ -86,6 +84,8 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/42.1-build-Make-wacom-optional-and-controllable-via-meson.patch
 	"${FILESDIR}"/${PN}-3.38.1-build-Allow-NM-optional-on-Linux.patch
+	# https://bugs.gentoo.org/937244 , is merged so it should not be needed since 46.1
+	"${FILESDIR}"/${P}-add-elogind-support.patch
 )
 
 python_check_deps() {
@@ -103,6 +103,7 @@ src_configure() {
 	local emesonargs=(
 		-Dudev_dir="$(get_udevdir)"
 		$(meson_use systemd)
+		$(meson_use elogind)
 		-Dalsa=true
 		-Dgudev=true
 		-Dgcr3=false
