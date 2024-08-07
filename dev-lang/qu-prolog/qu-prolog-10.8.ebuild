@@ -35,11 +35,10 @@ S="${WORKDIR}"/${MY_P}
 
 src_prepare() {
 	eapply "${FILESDIR}"/${PN}-10.x-qt5.patch
-	eapply "${FILESDIR}"/${PN}-10.x-compiler-flags.patch
+	eapply "${FILESDIR}"/${PN}-10.8-compiler-flags.patch
 	eapply "${FILESDIR}"/${PN}-10.x-qa-compiler-flags.patch
 	eapply_user
 
-	mv configure.in configure.ac || die
 	eautoconf
 
 	python_fix_shebang "${S}"/bin/qc.in
