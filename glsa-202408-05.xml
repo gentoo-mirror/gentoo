@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-05">
+    <title>Redis: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Redis, the worst of which may lead to a denial of service or possible remote code execution.</synopsis>
+    <product type="ebuild">redis</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>891169</bug>
+    <bug>898464</bug>
+    <bug>902501</bug>
+    <bug>904486</bug>
+    <bug>910191</bug>
+    <bug>913741</bug>
+    <bug>915989</bug>
+    <bug>921662</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-db/redis" auto="yes" arch="*">
+            <unaffected range="ge">7.2.4</unaffected>
+            <vulnerable range="lt">7.2.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Redis. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Redis users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/redis-7.2.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24834">CVE-2022-24834</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-35977">CVE-2022-35977</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36021">CVE-2022-36021</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22458">CVE-2023-22458</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25155">CVE-2023-25155</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28425">CVE-2023-28425</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28856">CVE-2023-28856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-36824">CVE-2023-36824</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-41053">CVE-2023-41053</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-41056">CVE-2023-41056</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45145">CVE-2023-45145</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T06:33:13.322960Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T06:33:13.327235Z">graaff</metadata>
+</glsa>
