@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-08">
+    <title>json-c: Buffer Overflow</title>
+    <synopsis>A vulnerability has been discovered in json-c, which can lead to a stack buffer overflow.</synopsis>
+    <product type="ebuild">json-c</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>918555</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/json-c" auto="yes" arch="*">
+            <unaffected range="ge">0.16</unaffected>
+            <vulnerable range="lt">0.16</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>json-c is a JSON implementation in C.</p>
+    </background>
+    <description>
+        <p>Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A stack-buffer-overflow exists in the auxiliary sample program json_parse which is located in the function parseit.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All json-c users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/json-c-0.16"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32292">CVE-2021-32292</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T11:00:32.063764Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T11:00:32.067004Z">graaff</metadata>
+</glsa>
