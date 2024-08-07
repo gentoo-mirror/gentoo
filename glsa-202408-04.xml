@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-04">
+    <title>Levenshtein: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Levenshtein, which could lead to a remote code execution.</synopsis>
+    <product type="ebuild">Levenshtein</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>766009</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/Levenshtein" auto="yes" arch="*">
+            <unaffected range="ge">0.12.1</unaffected>
+            <vulnerable range="lt">0.12.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Levenshtein is a Python extension for computing string edit distances and similarities.</p>
+    </background>
+    <description>
+        <p>Fixed handling of numerous possible wraparounds in calculating the size  of memory allocations; incorrect handling of which could cause denial of service or even possible remote code execution.</p>
+    </description>
+    <impact type="normal">
+        <p>Fixed handling of numerous possible wraparounds in calculating the size  of memory allocations; incorrect handling of which could cause denial of service or even possible remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Levenshtein users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/Levenshtein-0.12.1"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T06:14:52.905613Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T06:14:52.912037Z">graaff</metadata>
+</glsa>
