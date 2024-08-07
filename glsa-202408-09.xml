@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-09">
+    <title>Cairo: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Cairo, the worst of which a denial of service.</synopsis>
+    <product type="ebuild">cairo</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>717778</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-libs/cairo" auto="yes" arch="*">
+            <unaffected range="ge">1.18.0</unaffected>
+            <vulnerable range="lt">1.18.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Cairo is a 2D vector graphics library with cross-device output support.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Cairo. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Cairo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-libs/cairo-1.18.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-6461">CVE-2019-6461</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-6462">CVE-2019-6462</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T11:19:32.821340Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T11:19:32.823921Z">graaff</metadata>
+</glsa>
