@@ -18,7 +18,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="test-js test"
 RESTRICT="!test? ( test )"
 
@@ -100,14 +100,14 @@ src_compile() {
 
 src_test() {
 	local -x PATH="${S}/bin:${PATH}"
-	local -a -r nimflags=(
+	local -a nimflags=(
 		# Leave only the safe hints enabled.
 		--hint:all:off
 		--hint:User:on
 		--hint:UserRaw:on
 	)
 	local -a testament_args=(
-		--skipFrom:"${FILESDIR}/${PN}-2.0.4-testament-skipfile.txt"
+		--skipFrom:"${FILESDIR}/${PN}-2.0.6-testament-skipfile.txt"
 		--nim:"bin/nim"
 		--targets:"$(usex test-js 'c js' 'c')"
 	)
