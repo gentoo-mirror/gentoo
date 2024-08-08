@@ -1936,6 +1936,10 @@ toolchain_src_test() {
 		# tests too.
 		append-flags -Wno-trampolines
 
+		# Avoid confusing tests like Fortran/C interop ones where
+		# CFLAGS are used.
+		append-flags -Wno-complain-wrong-lang
+
 		# Issues with Ada tests:
 		# gnat.dg/align_max.adb
 		# gnat.dg/trampoline4.adb
@@ -1957,6 +1961,9 @@ toolchain_src_test() {
 
 		# nonfatal here as we die if the comparison below fails. Also, note that
 		# the exit code of targets other than 'check' may be unreliable.
+		#
+		# CFLAGS and so on are repeated here because of tests vs building test
+		# deps like libbacktrace.
 		nonfatal emake -C "${WORKDIR}"/build -k "${GCC_TESTS_CHECK_TARGET}" \
 			RUNTESTFLAGS=" \
 				${GCC_TESTS_RUNTESTFLAGS} \
