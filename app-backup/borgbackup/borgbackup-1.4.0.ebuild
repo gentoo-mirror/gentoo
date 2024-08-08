@@ -14,7 +14,7 @@ HOMEPAGE="https://borgbackup.readthedocs.io/"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 DEPEND="
 	app-arch/lz4
@@ -27,7 +27,7 @@ DEPEND="
 # check setup.py on bumps.
 RDEPEND="
 	${DEPEND}
-	~dev-python/msgpack-1.0.8[${PYTHON_USEDEP}]
+	<=dev-python/msgpack-1.1.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pyfuse3[${PYTHON_USEDEP}]
 "
@@ -48,15 +48,6 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# Needs pytest-benchmark fixture
 		benchmark.py::test_
-
-		# TODO:
-		# Following tests fail because of additional warning in the output:
-		#   ResourceWarning: unclosed file <_io.BufferedReader name=14>
-		# which is not expected in asserts
-		archiver.py::ArchiverTestCase::test_create_content_from_command_with_failed_command
-		archiver.py::ArchiverTestCase::test_create_paths_from_command_with_failed_command
-		archiver.py::RemoteArchiverTestCase::test_create_content_from_command_with_failed_command
-		archiver.py::RemoteArchiverTestCase::test_create_paths_from_command_with_failed_command
 	)
 
 	# This disables fuse releated tests
