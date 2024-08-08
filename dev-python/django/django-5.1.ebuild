@@ -4,12 +4,10 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYPI_NO_NORMALIZE=1
-PYPI_PN=${PN^}
 PYTHON_COMPAT=( pypy3 python3_{10..13} )
 PYTHON_REQ_USE='sqlite?,threads(+)'
 
-inherit bash-completion-r1 distutils-r1 multiprocessing optfeature pypi
+inherit bash-completion-r1 distutils-r1 multiprocessing optfeature verify-sig
 
 DESCRIPTION="High-level Python web framework"
 HOMEPAGE="
@@ -17,6 +15,12 @@ HOMEPAGE="
 	https://github.com/django/django/
 	https://pypi.org/project/Django/
 "
+SRC_URI="
+	https://media.djangoproject.com/releases/$(ver_cut 1-2)/${P^}.tar.gz
+	https://dev.gentoo.org/~mgorny/dist/python/django-5.0-pypy3.patch.xz
+	verify-sig? ( https://media.djangoproject.com/pgp/${P^}.checksum.txt )
+"
+S="${WORKDIR}/${P^}"
 
 LICENSE="BSD"
 # admin fonts: Roboto (media-fonts/roboto)
@@ -24,6 +28,7 @@ LICENSE+=" Apache-2.0"
 # admin icons, jquery, xregexp.js
 LICENSE+=" MIT"
 SLOT="0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 IUSE="doc sqlite test"
 RESTRICT="!test? ( test )"
 
@@ -46,6 +51,7 @@ BDEPEND="
 		>=dev-python/tblib-1.5.0[${PYTHON_USEDEP}]
 		sys-devel/gettext
 	)
+	verify-sig? ( >=sec-keys/openpgp-keys-django-20240807 )
 "
 
 PATCHES=(
@@ -55,6 +61,17 @@ PATCHES=(
 distutils_enable_sphinx docs --no-autodoc
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/django.asc
+
+src_unpack() {
+	if use verify-sig; then
+		cd "${DISTDIR}" || die
+		verify-sig_verify_signed_checksums \
+			"${P^}.checksum.txt" sha256 "${P^}.tar.gz"
+		cd "${WORKDIR}" || die
+	fi
+
+	default
+}
 
 python_test() {
 	# Tests have non-standard assumptions about PYTHONPATH,
