@@ -23,6 +23,7 @@ SRC_URI="
 	https://github.com/antlr/antlr4/archive/${PV}.tar.gz -> ${MY_P}.tar.gz
 	https://repo1.maven.org/maven2/org/antlr/antlr4/${PV}/antlr4-${PV}-sources.jar -> ${P}-sources.jar
 "
+S="${WORKDIR}/${MY_PN}4-${PV}"
 
 LICENSE="BSD"
 SLOT="4"
@@ -50,8 +51,6 @@ RDEPEND="
 	>=virtual/jre-1.8:*
 	${CP_DEPEND}
 "
-
-S="${WORKDIR}/${MY_PN}4-${PV}"
 
 JAVA_SRC_DIR=(
 	tool/src
@@ -103,7 +102,7 @@ src_test() {
 	)
 	local CP="${S}/${JAVA_JAR_FILENAME}"
 	for test_dep in "${test_deps[@]}"; do
-		CP+=":$(java-pkg_getjars --with-dependencies "${test_dep}")"
+		CP+=":$(java-pkg_getjars --build-only --with-dependencies "${test_dep}")"
 	done
 	for res_dir in "${JAVA_TEST_RESOURCE_DIRS[@]}"; do
 		CP+=":${res_dir}"
