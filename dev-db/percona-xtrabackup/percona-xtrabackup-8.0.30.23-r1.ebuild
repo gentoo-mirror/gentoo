@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-inherit cmake
+inherit cmake flag-o-matic
 
 # TODO: just keep it unbundled...?
 MY_BOOST_VERSION="1.77.0"
@@ -26,6 +26,7 @@ KEYWORDS="amd64 x86"
 
 DEPEND="
 	app-arch/lz4:0=
+	app-arch/zstd:=
 	app-editors/vim-core
 	dev-libs/icu:=
 	dev-libs/libaio
@@ -37,11 +38,12 @@ DEPEND="
 	dev-libs/libgpg-error
 	dev-libs/openssl:0=
 	dev-libs/protobuf:=
-	dev-libs/rapidjson
 	dev-libs/re2:=
 	dev-python/sphinx
 	net-misc/curl
-	sys-libs/zlib:="
+	sys-libs/zlib:=
+	sys-process/procps:=
+"
 
 RDEPEND="
 	${DEPEND}
@@ -51,6 +53,8 @@ RDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-8.0.26-remove-rpm.patch
 	"${FILESDIR}"/${PN}-8.0.30.23-gcc13.patch
+	# procps 4 support, released in 8.0.33
+	"${FILESDIR}"/6038a7934cbd4e6c01389fdc9b8ffabf8c3e006a.patch
 )
 
 S="${WORKDIR}/percona-xtrabackup-${MY_PV}"
@@ -64,9 +68,21 @@ src_prepare() {
 		eerror "Ebuild Boost version: ${MY_BOOST_VERSION}"
 		die "Ebuild needs to fix MY_BOOST_VERSION!"
 	fi
+
+	local extra
+	# rapidjson: last released in 2016 and totally unviable to devendor
+	# lz4: in storage/innobase/xtrabackup/src/CMakeLists.txt it is used even when =system
+	for extra in curl icu libcbor libedit libevent libfido2 zlib zstd; do
+		rm -r "extra/${extra}/" || die "failed to remove bundled libs"
+	done
 }
 
 src_configure() {
+	# -Werror=odr
+	# https://bugs.gentoo.org/855245
+	# https://perconadev.atlassian.net/browse/PXB-3345
+	filter-lto
+
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
 
 	local mycmakeargs=(
@@ -78,6 +94,8 @@ src_configure() {
 		-DWITH_BOOST="${WORKDIR}/boost_$(ver_rs 1- _ ${MY_BOOST_VERSION})"
 		-DWITH_MAN_PAGES=ON
 		-DWITH_SYSTEM_LIBS=ON
+		# not handled via SYSTEM_LIBS
+		-DWITH_ZLIB=system
 	)
 
 	cmake_src_configure
