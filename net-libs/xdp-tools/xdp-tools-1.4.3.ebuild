@@ -11,7 +11,7 @@ SRC_URI="https://github.com/xdp-project/${PN}/archive/refs/tags/v${PV}.tar.gz ->
 
 LICENSE="GPL-2 LGPL-2.1 BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+tools"
 
 DEPEND="
@@ -31,10 +31,6 @@ BDEPEND="
 QA_PREBUILT="usr/lib/bpf/*.o"
 
 MAKEOPTS+=" V=1"
-
-PATCHES=(
-	"${FILESDIR}"/1.4.1-fix-memory-leak-in-xsk_setup_xdp_prog.patch
-)
 
 src_prepare() {
 	# remove -Werror: #899744
