@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,12 +15,12 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="curl varlink"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="curl systemd"
 
 DEPEND="
 	curl? ( net-misc/curl:0= )
-	varlink? ( dev-libs/libvarlink:= )
+	systemd? ( sys-apps/systemd:= )
 "
 RDEPEND="${DEPEND}"
 
@@ -38,7 +38,7 @@ src_configure() {
 		# Most options are already defaults for Gentoo
 		--disable-hardening
 		$(use_enable curl libcurl)
-		$(use_enable varlink libvarlink)
+		$(use_enable systemd)
 	)
 	econf "${myconf[@]}"
 }
