@@ -4,7 +4,7 @@
 EAPI=8
 inherit desktop wrapper
 
-MY_PV=$(ver_cut 1-3)
+MY_PV=$(ver_cut 1-2)
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
 HOMEPAGE="https://www.jetbrains.com/idea"
@@ -100,10 +100,9 @@ src_install() {
 
 	insinto "${dir}"
 	doins -r *
-	fperms 755 "${dir}"/bin/{format.sh,idea.sh,inspect.sh,restarter,fsnotifier}
+	fperms 755 "${dir}"/bin/{format.sh,idea,inspect.sh,restarter,fsnotifier}
 	if use amd64; then
-		JRE_DIR=jre64
-	else
+		JRE_DIR=jre
 		JRE_DIR=jre
 	fi
 
@@ -121,7 +120,7 @@ src_install() {
 	local pngfile="$(find ${dst}/bin -maxdepth 1 -iname '*.png')"
 	newicon $pngfile "${PN}.png" || die "we died"
 
-	make_desktop_entry "${PN}" "IntelliJ Idea Community Edition" "${PN}" "Development;IDE;"
+	make_desktop_entry "/opt/idea-community/bin/idea" "IntelliJ Idea Community Edition" "${PN}" "Development;IDE;"
 
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	mkdir -p "${D}/etc/sysctl.d/" || die
