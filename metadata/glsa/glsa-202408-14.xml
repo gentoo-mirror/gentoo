@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-14">
+    <title>Librsvg: Arbitrary File Read</title>
+    <synopsis>A vulnerability has been discovered in Librsvg, which can lead to arbitrary file reads.</synopsis>
+    <product type="ebuild">librsvg</product>
+    <announced>2024-08-09</announced>
+    <revised count="1">2024-08-09</revised>
+    <bug>918100</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="gnome-base/librsvg" auto="yes" arch="*">
+            <unaffected range="ge">2.56.3</unaffected>
+            <vulnerable range="lt">2.56.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Librsvg is a library to render SVG files using cairo as a rendering engine.</p>
+    </background>
+    <description>
+        <p>A directory traversal problem in the URL decoder of librsvg could be used by local or remote attackers to disclose files (on the local filesystem outside of the expected area), as demonstrated by href=&#34;.?../../../../../../../../../../etc/passwd&#34; in an xi:include element.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Librsvg users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=gnome-base/librsvg-2.56.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38633">CVE-2023-38633</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-09T06:49:19.778412Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-09T06:49:19.781284Z">graaff</metadata>
+</glsa>
