@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 
@@ -19,7 +19,7 @@ SRC_URI="https://github.com/grosser/parallel/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="MIT"
 SLOT="1"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
 DEPEND+="test? ( sys-process/lsof sys-process/procps )"
 
@@ -28,7 +28,7 @@ ruby_add_bdepend "
 "
 
 # Rails isn't yet ruby32-ready in Gentoo
-USE_RUBY="ruby30 ruby31" ruby_add_bdepend "
+USE_RUBY="ruby31 ruby32 ruby33" ruby_add_bdepend "
 	test? ( dev-ruby/activerecord[sqlite] )
 "
 

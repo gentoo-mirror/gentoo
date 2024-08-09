@@ -1,16 +1,16 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 JAVA_PKG_OPT_USE=viewer
-inherit cmake desktop java-pkg-opt-2 verify-sig
+inherit cmake desktop java-pkg-opt-2 optfeature verify-sig
 
 DESCRIPTION="A fast replacement for TigerVNC"
 HOMEPAGE="https://www.turbovnc.org/"
 SRC_URI="
-	https://sourceforge.net/projects/turbovnc/files/${PV}/${P}.tar.gz/download -> ${P}.tar.gz
-	verify-sig? ( https://sourceforge.net/projects/turbovnc/files/${PV}/${P}.tar.gz.sig/download -> ${P}.tar.gz.sig )
+	https://github.com/TurboVNC/turbovnc/releases/download/${PV}/turbovnc-${PV}.tar.gz
+	verify-sig? ( https://github.com/TurboVNC/turbovnc/releases/download/${PV}/turbovnc-${PV}.tar.gz.sig )
 "
 
 LICENSE="GPL-2"
@@ -139,4 +139,8 @@ src_install() {
 	find "${ED}"/usr/share/man/man1/ -name Xserver.1\* -delete || die
 
 	einstalldocs
+}
+
+pkg_postinst() {
+	use server && optfeature "dbus support" sys-apps/dbus
 }
