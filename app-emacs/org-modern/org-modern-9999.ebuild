@@ -3,17 +3,19 @@
 
 EAPI=8
 
+NEED_EMACS=27.1
+
 inherit elisp
 
-DESCRIPTION="Emacs major modes for editing Git configuration files"
-HOMEPAGE="https://github.com/magit/git-modes/"
+DESCRIPTION="Modern style for your GNU Emacs Org buffers"
+HOMEPAGE="https://github.com/minad/org-modern/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/magit/${PN}.git"
+	EGIT_REPO_URI="https://github.com/minad/${PN}.git"
 else
-	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
+	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
@@ -29,11 +31,5 @@ BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( README.org )
+DOCS=( README.org example.org )
 SITEFILE="50${PN}-gentoo.el"
-
-src_compile() {
-	elisp_src_compile
-
-	elisp-make-autoload-file
-}

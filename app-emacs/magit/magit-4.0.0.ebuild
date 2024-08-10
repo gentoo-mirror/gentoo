@@ -9,20 +9,18 @@ DESCRIPTION="A Git porcelain inside Emacs"
 HOMEPAGE="https://magit.vc/
 	https://github.com/magit/magit/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/magit/magit.git"
-	S="${WORKDIR}/${P}/lisp"
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
-	[[ ${PV} == *_p20230912 ]] && COMMIT=141dd46798e5cae57617e941418ebbb3a2172f5e
-
-	SRC_URI="https://github.com/magit/magit/archive/${COMMIT}.tar.gz
+	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${COMMIT}/lisp"
 
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
+
+S="${WORKDIR}/${P}/lisp"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -32,21 +30,21 @@ ELISP_TEXINFO="../docs/*.texi"
 SITEFILE="50${PN}-gentoo.el"
 
 RDEPEND="
+	>=app-emacs/compat-30.0.0.0
 	>=app-emacs/dash-2.19.1
-	>=app-emacs/transient-0.3.6
-	>=app-emacs/with-editor-3.0.5
+	>=app-emacs/transient-0.7.4
+	>=app-emacs/with-editor-3.4.1
 "
 BDEPEND="
 	${RDEPEND}
 	sys-apps/texinfo
 "
 RDEPEND+="
-	>=dev-vcs/git-2.0.0
+	>=dev-vcs/git-2.44.2
 "
 
 src_prepare() {
 	default
 
-	rm magit-libgit.el || die
-	echo "(setq magit-version \"${PV}\")" > magit-version.el || die
+	echo "(setq ${PN}-version \"${PV}\")" > ./${PN}-version.el || die
 }
