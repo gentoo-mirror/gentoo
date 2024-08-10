@@ -39,6 +39,8 @@ CMAKE_SKIP_TESTS=(
 	usermetadatawritertest
 )
 
+PATCHES=( "${FILESDIR}/${P}-libexecdir.patch" ) # KDE-bug 491462
+
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
 	ecm_pkg_setup
