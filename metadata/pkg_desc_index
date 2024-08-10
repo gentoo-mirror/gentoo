@@ -1648,7 +1648,7 @@ app-dicts/myspell-da 2.6: Danish dictionaries for myspell/hunspell
 app-dicts/myspell-de 2017.01.12-r1: German (AT,CH,DE) dictionaries for myspell/hunspell
 app-dicts/myspell-de_1901 20170622: German (traditional orthography) dictionaries for myspell/hunspell
 app-dicts/myspell-el 0.9: Greek dictionaries for myspell/hunspell
-app-dicts/myspell-en 20240201 20240501 20240601: English dictionaries for myspell/hunspell
+app-dicts/myspell-en 20240201 20240501 20240601 20240801: English dictionaries for myspell/hunspell
 app-dicts/myspell-eo 1.01: Esperanto dictionaries for myspell/hunspell
 app-dicts/myspell-es 2.6: Spanish dictionaries for myspell/hunspell
 app-dicts/myspell-et 20030606: Estonian dictionaries for myspell/hunspell
@@ -2459,7 +2459,7 @@ app-forensics/sleuthkit 4.12.1-r1 4.12.1-r2: A collection of file system and med
 app-forensics/unhide 20210124 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.5.2 2.7.0: Framework for analyzing volatile memory
 app-forensics/yara 4.5.0 4.5.1 9999: A malware identification and classification tool
-app-forensics/yara-x 0.4.0 0.5.0: A malware identification and classification tool
+app-forensics/yara-x 0.4.0 0.5.0 0.6.0: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -2653,7 +2653,7 @@ app-misc/bfr 1.6-r4: General-purpose command-line pipe buffer
 app-misc/bgrep 0.2_p20210221: Grep-like tool to search for binary strings
 app-misc/bijiben 40.1-r2: Note editor designed to remain simple to use
 app-misc/binclock 1.5-r1: Displays a binary clock in your terminal
-app-misc/binwalk 2.4.0 2.4.1 9999: A tool for identifying files embedded inside firmware images
+app-misc/binwalk 2.4.1 2.4.2 9999: A tool for identifying files embedded inside firmware images
 app-misc/birthday 1.6.2-r2: Displays a list of events happening in the near future
 app-misc/blink1 1.98-r3: blink(1) USB RGB LED status light control suite
 app-misc/bottlerocket 0.04c-r2: CLI interface to the X-10 Firecracker Kit
@@ -10806,7 +10806,7 @@ dev-util/lttng-tools 2.13.9: Linux Trace Toolkit - next generation
 dev-util/lttng-ust 2.12.0 2.12.1 2.12.9 2.13.6: Linux Trace Toolkit - UST library
 dev-util/lv2lint 0.16.2: Check whether a given LV2 plugin is up to the specification
 dev-util/lxqt-build-tools 0.13.0 2.0.0-r1: LXQt Build Tools
-dev-util/makeheaders 0_p20220411 0_p20240202: Tool that automatically generates .h files for a C or C++ programming project
+dev-util/makeheaders 0_p20240202: Tool that automatically generates .h files for a C or C++ programming project
 dev-util/makepp 2.0.99.2: GNU make replacement
 dev-util/marksman 2023.12.09: LSP language server for editing Markdown files
 dev-util/massif-visualizer 0.7.0-r1 0.8.0: Tool visualising massif data
@@ -14911,7 +14911,7 @@ net-libs/zmqpp 4.2.0-r1: ZeroMQ 'highlevel' C++ bindings
 net-mail/altermime 0.3.11 0.3.12: alterMIME is a small program which is used to alter your mime-encoded mailpacks
 net-mail/amavis-logwatch 1.51.04: A log analyzer for amavisd-new
 net-mail/asmail 2.1-r2 2.1-r3: A small mail monitor similar to xbiff
-net-mail/automx2 2022.1 2022.1-r1: Email client autoconfiguration service
+net-mail/automx2 2022.1-r1 2024.2: Email client autoconfiguration service
 net-mail/autorespond 2.0.4 2.0.5: Autoresponder add on package for qmailadmin
 net-mail/b4 0.13.0: Utility for fetching patchsets from public-inbox
 net-mail/checkpassword 0.90-r5: A uniform password checking interface for root applications
@@ -15376,7 +15376,7 @@ net-p2p/ktorrent 23.08.5 24.05.2: Powerful BitTorrent client based on KDE Framew
 net-p2p/kubo 0.26.0 0.28.0 0.29.0: Main implementation of IPFS
 net-p2p/mktorrent 1.1_p20180912 1.1_p20210130: Simple command line utility to create BitTorrent metainfo files
 net-p2p/mldonkey 3.1.7-r3 3.1.7-r4: Multi-network P2P application written in Ocaml, with Gtk, web & telnet interface
-net-p2p/ncdc 1.23.1 1.24-r1: Lightweight direct connect client with a friendly ncurses interface
+net-p2p/ncdc 1.23.1 1.24-r1 1.24.1: Lightweight direct connect client with a friendly ncurses interface
 net-p2p/nicotine+ 3.2.9-r1 3.3.4: Graphical client for the Soulseek peer to peer network written in Python
 net-p2p/qbittorrent 4.6.3 4.6.4 4.6.5 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.7.3.1381 9999: Resilient, fast and scalable file synchronization tool
@@ -15889,7 +15889,7 @@ sci-geosciences/gpsprune-bin 23.2: An application for viewing, editing and conve
 sci-geosciences/gpx-viewer 0.4.0-r1: Simple program to visualize a gpx file
 sci-geosciences/gpxlab 0.7.0-r1: An application to display and manage GPS tracks
 sci-geosciences/gpxsee 13.22 13.23: A viewer and analyzer that supports gpx, tcx, kml, fit, igc and nmea files
-sci-geosciences/grass 8.3.1 8.3.2 8.3.2-r1 8.4.0_rc1 9999: A free GIS with raster and vector functionality, as well as 3D vizualization
+sci-geosciences/grass 8.3.2 8.3.2-r1 8.4.0_rc1 8.4.0 9999: A free GIS with raster and vector functionality, as well as 3D vizualization
 sci-geosciences/gshhg-gmt 2.3.7: Global Self-consistent, Hierarchical, High-resolution Geography Database
 sci-geosciences/gshhs 1.13-r1: Global Self-consistent, Hierarchical, High-resolution Shoreline programs
 sci-geosciences/gshhs-data 2.2.0: Global Self-consistent, Hierarchical, High-resolution Shoreline programs data
