@@ -38,6 +38,8 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/diffutils
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-fp-exception.patch" ) # KDE-bug 487338
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_WITH_QT6=ON
