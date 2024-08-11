@@ -8597,7 +8597,7 @@ dev-python/keystoneauth1 5.7.0: This package contains tools for authenticating t
 dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.1.1: Python function spy support for unit tests
 dev-python/kiwisolver 1.4.5: An efficient C++ implementation of the Cassowary constraint solving algorithm
-dev-python/klein 23.12.0: Micro-framework for developing production-ready web services with Python
+dev-python/klein 23.12.0-r1: Micro-framework for developing production-ready web services with Python
 dev-python/kombu 5.3.7 5.4.0: AMQP Messaging Framework for Python
 dev-python/krb5 0.6.0: Kerberos API bindings for Python
 dev-python/lark 1.1.9: Python module to propose a modern general-purpose parsing library for Python
@@ -16828,7 +16828,7 @@ sys-apps/biosdevname 0.7.3 0.7.3-r1: Sets BIOS-given device names instead of ker
 sys-apps/biosdisk 1.01: FreeDOS based BIOS updating utility for Dell machines
 sys-apps/bleachbit 4.6.0-r1: Clean junk to free disk space and to maintain privacy
 sys-apps/bolt 0.9.3 0.9.6 0.9.7 0.9.8-r1: Userspace system daemon to enable security levels for Thunderbolt 3
-sys-apps/bubblewrap 0.8.0: Unprivileged sandboxing tool, namespaces-powered chroot-like solution
+sys-apps/bubblewrap 0.8.0 0.9.0: Unprivileged sandboxing tool, namespaces-powered chroot-like solution
 sys-apps/busybox 1.36.1-r1 1.36.1-r3 9999: Utilities for rescue and embedded systems
 sys-apps/byld 1.0.3-r1: Build a Linux distribution on a single floppy
 sys-apps/cciss_vol_status 1.12a 1.12a-r1: Shows status of logical drives attached to HP SmartArray controllers
@@ -17541,8 +17541,8 @@ sys-kernel/dkms 3.0.13-r1: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r4 101 102 103-r2 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.7 1.0.8: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.222 5.10.223 5.15.163 5.15.164 6.1.100 6.1.102 6.1.103 6.6.41 6.6.43 6.6.44 6.10.2 6.10.3: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.222 5.10.223 5.15.163 5.15.164 6.1.100 6.1.102 6.1.103 6.6.41 6.6.43 6.6.44 6.10.2 6.10.3: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.222 5.10.223 5.15.163 5.15.164 6.1.100 6.1.102 6.1.103 6.1.104 6.6.41 6.6.43 6.6.44 6.6.45 6.10.2 6.10.3 6.10.4: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.222 5.10.223 5.15.163 5.15.164 6.1.100 6.1.102 6.1.103 6.1.104 6.6.41 6.6.43 6.6.44 6.6.45 6.10.2 6.10.3 6.10.4: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.216 5.10.221 5.10.222 5.10.223 5.15.158 5.15.162 5.15.163 5.15.164 6.1.90 6.1.97 6.1.101 6.1.102 6.1.103 6.1.104 6.6.30 6.6.38 6.6.42 6.6.43 6.6.44 6.6.45 6.10.1 6.10.2 6.10.3 6.10.4: Full sources including the Gentoo patchset for the 6.10 kernel tree
 sys-kernel/git-sources 6.11_rc1 6.11_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 39-r2 48-r1: Gentoo fork of installkernel script from debianutils
@@ -17559,9 +17559,9 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405 6.6.31_p20240529: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.317_p137 5.4.278_p91 5.10.221_p113 5.15.163_p78 6.0.5_p14 6.1.102_p37 6.5.2_p8 6.6.43_p38: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/ugrd 1.13.0 1.16.0 1.17.0 9999: Python based initramfs generator with TOML defintions
-sys-kernel/vanilla-kernel 5.10.222 5.10.223 5.10.9999 5.15.163 5.15.164 5.15.9999 6.1.100 6.1.102 6.1.103 6.6.41 6.6.43 6.6.44 6.6.9999 6.10.2 6.10.3: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.222 5.10.223 5.10.9999 5.15.163 5.15.164 5.15.9999 6.1.100 6.1.102 6.1.103 6.1.104 6.6.41 6.6.43 6.6.44 6.6.45 6.6.9999 6.10.2 6.10.3 6.10.4: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.319 5.4.281 5.10.223 5.15.164 6.1.104 6.6.45 6.10.4: Full sources for the Linux kernel
-sys-kernel/zen-sources 6.8.9: The Zen Kernel Live Sources
+sys-kernel/zen-sources 6.9.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1 0.2.1: The sd-bus library, extracted from systemd
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r1 2.42-r2 2.43: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
@@ -17748,7 +17748,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.222 5.10.223 5.15.163 5.15.164 6.1.100 6.1.102 6.1.103 6.6.41 6.6.43 6.6.44 6.10.2 6.10.3: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.222 5.10.223 5.15.163 5.15.164 6.1.100 6.1.102 6.1.103 6.1.104 6.6.41 6.6.43 6.6.44 6.6.45 6.10.2 6.10.3 6.10.4: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
