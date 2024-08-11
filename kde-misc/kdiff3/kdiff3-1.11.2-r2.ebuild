@@ -38,7 +38,10 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/diffutils
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-fp-exception.patch" ) # KDE-bug 487338
+PATCHES=(
+	"${FILESDIR}/${P}-fix-fp-exception.patch" # KDE-bug 487338
+	"${FILESDIR}/${P}-unknown-error.patch" # KDE-bug 486782
+)
 
 src_configure() {
 	local mycmakeargs=(

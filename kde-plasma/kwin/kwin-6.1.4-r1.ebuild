@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-KFMIN=6.3.0
+KFMIN=6.5.0 # bug 933271
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.7.1
+QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
@@ -114,6 +114,8 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
+
+PATCHES=( "${FILESDIR}/${P}-screenedge-dnd.patch" ) # KDE-bug 450579, in 6.1.5
 
 src_prepare() {
 	ecm_src_prepare

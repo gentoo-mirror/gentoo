@@ -4,19 +4,24 @@
 EAPI=8
 
 ECM_TEST="true"
+KDE_ORG_CATEGORY="kdevelop"
+KFMIN=6.3.0
 inherit ecm kde.org
+
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm64"
+fi
 
 DESCRIPTION="LL(1) parser generator used mainly by KDevelop language plugins"
 HOMEPAGE="https://www.kdevelop.org/"
-SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="LGPL-2+ LGPL-2.1+"
-SLOT="5"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+SLOT="0"
+IUSE=""
 
+RDEPEND+=" !${CATEGORY}/${PN}:6"
 BDEPEND="
-	app-alternatives/yacc
 	app-alternatives/lex
+	app-alternatives/yacc
 "
-
-PATCHES=( "${FILESDIR}/${P}-port-away-from-depr-QString_midRef.patch" )
