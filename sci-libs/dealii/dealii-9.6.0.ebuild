@@ -85,11 +85,9 @@ DEPEND="${RDEPEND}
 	doc? ( app-text/doxygen[dot] dev-lang/perl )"
 
 BDEPEND="
-	verify-sig? ( <=sec-keys/openpgp-keys-dealii-20230904 )"
+	verify-sig? ( >=sec-keys/openpgp-keys-dealii-20240811 )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9.4.2-base-mpi.cc-remove-superfluous-explicit-instantiatio.patch
-	"${FILESDIR}"/${PN}-9.4.2-base-mpi.h-mark-a-template-variable-to-have-const-in.patch
 )
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/dealii.asc"
@@ -137,6 +135,7 @@ src_configure() {
 		-DDEAL_II_WITH_SYMENGINE="$(usex symengine)"
 		-DDEAL_II_WITH_UMFPACK="$(usex sparse)"
 		-DDEAL_II_WITH_TBB=ON
+		-DDEAL_II_WITH_TASKFLOW=OFF
 		-DDEAL_II_WITH_TRILINOS="$(usex trilinos)"
 	)
 
