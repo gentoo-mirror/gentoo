@@ -1,16 +1,16 @@
 BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/libxml2:2= llvm_slot_15? ( sys-devel/llvm:15 ) llvm_slot_16? ( sys-devel/llvm:16 ) llvm_slot_17? ( sys-devel/llvm:17 ) sys-libs/zlib
+DEPEND=dev-libs/libxml2:2= llvm_slot_15? ( sys-devel/llvm:15 ) llvm_slot_16? ( sys-devel/llvm:16 ) llvm_slot_17? ( sys-devel/llvm:17 ) llvm_slot_18? ( sys-devel/llvm:18 ) sys-libs/zlib
 DESCRIPTION=A set of new intrinsics on top of core LLVM IR instructions
 EAPI=8
 HOMEPAGE=https://github.com/intel/vc-intrinsics
 INHERIT=cmake llvm-r1 python-any-r1
-IUSE=+llvm_slot_17 llvm_slot_15 llvm_slot_16
+IUSE=+llvm_slot_18 llvm_slot_15 llvm_slot_16 llvm_slot_17
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-libs/libxml2:2= llvm_slot_15? ( sys-devel/llvm:15 ) llvm_slot_16? ( sys-devel/llvm:16 ) llvm_slot_17? ( sys-devel/llvm:17 ) sys-libs/zlib
-REQUIRED_USE=^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 )
+RDEPEND=dev-libs/libxml2:2= llvm_slot_15? ( sys-devel/llvm:15 ) llvm_slot_16? ( sys-devel/llvm:16 ) llvm_slot_17? ( sys-devel/llvm:17 ) llvm_slot_18? ( sys-devel/llvm:18 ) sys-libs/zlib
+REQUIRED_USE=^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 )
 SLOT=0
 SRC_URI=https://github.com/intel/vc-intrinsics/archive/refs/tags/v0.19.0.tar.gz -> intel-vc-intrinsics-0.19.0.tar.gz
 _eclasses_=toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
-_md5_=bd7b49c845a7e8f12adf0bd501cd6eee
+_md5_=7c2e1d62cb766bfbcdeac720873e5b01
