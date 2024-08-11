@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-28">
+    <title>rsyslog: Heap Buffer Overflow</title>
+    <synopsis>A vulnerability has been discovered in rsyslog, which could possibly lead to remote code execution.</synopsis>
+    <product type="ebuild">rsyslog</product>
+    <announced>2024-08-11</announced>
+    <revised count="1">2024-08-11</revised>
+    <bug>842846</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-admin/rsyslog" auto="yes" arch="*">
+            <unaffected range="ge">8.2206.0</unaffected>
+            <vulnerable range="lt">8.2206.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>rsyslog is an enhanced multi-threaded syslogd with database support and more.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in rsyslog. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Modules for TCP syslog reception have a heap buffer overflow when octet-counted framing is used. The attacker can corrupt heap values, leading to data integrity issues and availability impact. Remote code execution is unlikely to happen but not impossible.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All rsyslog users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/rsyslog-8.2206.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24903">CVE-2022-24903</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-11T14:42:54.282784Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-11T14:42:54.286434Z">graaff</metadata>
+</glsa>
