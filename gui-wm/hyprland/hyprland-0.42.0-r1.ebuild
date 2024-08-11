@@ -46,20 +46,22 @@ RDEPEND="
 	x11-libs/libxkbcommon
 	x11-libs/pango
 	x11-libs/pixman
+	x11-libs/libXcursor
 	X? (
 		x11-libs/libxcb:0=
+		x11-base/xwayland
+		x11-libs/xcb-util-errors
+		x11-libs/xcb-util-wm
 	)
 "
 DEPEND="
 	${RDEPEND}
-	${WLROOTS_DEPEND}
 	>=dev-libs/hyprland-protocols-0.3
 	>=dev-libs/hyprlang-0.3.2
 	>=dev-libs/wayland-protocols-1.36
 	>=gui-libs/hyprutils-0.2.1
 "
 BDEPEND="
-	${WLROOTS_BDEPEND}
 	|| ( >=sys-devel/gcc-13:* >=sys-devel/clang-16:* )
 	app-misc/jq
 	dev-build/cmake
@@ -81,13 +83,17 @@ pkg_setup() {
 	fi
 }
 
+src_prepare() {
+	# skip version.h
+	sed -i -e "s|scripts/generateVersion.sh|echo|g" meson.build || die
+	default
+}
+
 src_configure() {
 	local emesonargs=(
 		$(meson_feature legacy-renderer legacy_renderer)
 		$(meson_feature systemd)
 		$(meson_feature X xwayland)
-		-Dwlroots:backends=drm,libinput$(usev X ',x11')
-		-Dwlroots:xcb-errors=disabled
 	)
 
 	meson_src_configure
