@@ -5,7 +5,7 @@ EAPI=8
 
 # Check on bumps of atop
 # https://www.atoptool.nl/downloadnetatop.php
-NETATOP_VER=3.1
+NETATOP_VER=3.2.2
 
 # Controls 'netatop' kernel module
 MODULES_OPTIONAL_IUSE="modules"
@@ -22,9 +22,10 @@ SRC_URI+=" modules? ( https://www.atoptool.nl/download/${NETATOP_P}.tar.gz )"
 # Module is GPL-2 as well
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~mips ppc ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
+	dev-libs/glib
 	sys-libs/ncurses:=
 	sys-libs/zlib
 	>=sys-process/acct-6.6.4-r1
@@ -33,7 +34,8 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.6.0-build.patch
+	"${FILESDIR}"/${PN}-2.11.0-build.patch
+	"${FILESDIR}"/${PN}-2.11.0-respect-opt.patch
 )
 
 pkg_pretend() {
@@ -48,12 +50,11 @@ src_prepare() {
 
 	if use modules ; then
 		cd "${WORKDIR}"/${NETATOP_P} || die
-		eapply "${FILESDIR}"/${PN}-2.9.0-netatop-makefile.patch
 
 		sed \
 			-e "s#\`uname -r\`#${KV_FULL}#g" \
 			-e "s#\$(shell uname -r)#${KV_FULL}#g" \
-			-i {.,daemon,module}/Makefile || die
+			-i Makefile || die
 
 		grep -rq "uname -r" && die "found uname calls"
 
@@ -72,13 +73,12 @@ src_prepare() {
 src_compile() {
 	default
 
-	local modlist=( "netatop=:../${NETATOP_P}/module::netatop.ko" )
+	local modlist=( "netatop=:../${NETATOP_P}::netatop.ko" )
 	linux-mod-r1_src_compile
 
 	if use modules ; then
-		# netatop's Makefile tries to build the kernel module for us
-		# so let's just replicate parts of it here.
-		emake -C "${NETATOP_S}"/daemon all
+		# Don't let the Makefile try to build the module for us
+		emake -C "${NETATOP_S}" netatopd
 	fi
 }
 
@@ -86,13 +86,12 @@ src_install() {
 	linux-mod-r1_src_install
 
 	if use modules ; then
-		dosbin "${NETATOP_S}"/daemon/netatopd
+		dosbin "${NETATOP_S}"/netatopd
 		doman "${NETATOP_S}"/man/*
 
 		systemd_dounit "${NETATOP_S}"/netatop.service
 
-		# TODO: Release after 2.8.0 may contain this, check!
-		newinitd "${FILESDIR}"/netatop.rc netatop
+		newinitd "${NETATOP_S}"/netatop.rc netatop
 	fi
 
 	emake DESTDIR="${D}" genericinstall
