@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-dealii ) app-alternatives/ninja >=dev-build/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( <=sec-keys/openpgp-keys-dealii-20230904 ) app-alternatives/ninja >=dev-build/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-libs/boost:= app-arch/bzip2 sys-libs/zlib dev-cpp/tbb:= arborx? ( sci-libs/arborx[mpi=] ) adolc? ( sci-libs/adolc ) arpack? ( sci-libs/arpack[mpi=] ) assimp? ( media-libs/assimp:= ) cuda? ( dev-util/nvidia-cuda-toolkit ) ginkgo? ( sci-libs/ginkgo ) gmsh? ( sci-libs/gmsh ) gsl? ( sci-libs/gsl:= ) hdf5? ( sci-libs/hdf5:=[mpi=] ) lapack? ( virtual/lapack ) metis? ( >=sci-libs/metis-5 mpi? ( >=sci-libs/parmetis-4 ) ) mpi? ( virtual/mpi[cxx] ) muparser? ( dev-cpp/muParser ) opencascade? ( sci-libs/opencascade:= ) p4est? ( sci-libs/p4est[mpi] ) petsc? ( sci-mathematics/petsc[mpi=] ) scalapack? ( sci-libs/scalapack ) slepc? ( sci-mathematics/slepc[mpi=] ) sparse? ( sci-libs/umfpack ) sundials? ( sci-libs/sundials:= ) symengine? ( >=sci-libs/symengine-0.4:= ) trilinos? ( sci-libs/trilinos ) virtual/pkgconfig doc? ( app-text/doxygen[dot] dev-lang/perl )
 DESCRIPTION=Solving partial differential equations with the finite element method
@@ -13,4 +13,4 @@ REQUIRED_USE=arborx? ( trilinos ) p4est? ( mpi ) slepc? ( petsc ) trilinos? ( mp
 SLOT=0
 SRC_URI=https://github.com/dealii/dealii/releases/download/v9.4.2/dealii-9.4.2.tar.gz verify-sig? ( https://github.com/dealii/dealii/releases/download/v9.4.2/dealii-9.4.2.tar.gz.asc ) doc? ( https://github.com/dealii/dealii/releases/download/v9.4.1/dealii-9.4.1-offline_documentation.tar.gz verify-sig? ( https://github.com/dealii/dealii/releases/download/v9.4.1/dealii-9.4.1-offline_documentation.tar.gz.asc ) )
 _eclasses_=toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=d62e3b5a1d6fc609c3198f4ecfc1c929
+_md5_=6e7a8f169d106c328c625a893dd8709e
