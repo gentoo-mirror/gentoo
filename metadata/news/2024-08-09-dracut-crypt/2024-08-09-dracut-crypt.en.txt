@@ -1,7 +1,7 @@
 Title: dracut module config changes
 Author: Mike Gilbert <floppym@gentoo.org>
 Posted: 2024-08-09
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: sys-kernel/dracut
 
@@ -15,11 +15,11 @@ Users who use the "dracutmodules" config option to explicitly name all
 modules to be included may be affected if they fail to update their
 dracut configuration to include the new "systemd-cryptsetup" module.
 
-Users who have not altered the default config, or who are not using the
+Users who have not altered the default config or who are not using the
 "dracutmodules" option should not be affected.
 
 The dracut.conf(5) manual page warns against using "dracutmodules".
-Instead, the "add_dracutmodules" and "omit_dracutmodules" can be used to
+Instead, "add_dracutmodules" and "omit_dracutmodules" can be used to
 to alter the default module list with less risk of omiting modules by
 accident.
 
