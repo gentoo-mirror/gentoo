@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://galeracluster.com
 INHERIT=cmake
 IUSE=garbd ssl
-KEYWORDS=amd64 ~arm arm64 ~ia64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ~ia64 ~ppc ppc64 ~x86
 LICENSE=GPL-2 BSD
 RDEPEND=ssl? ( dev-libs/openssl:= ) dev-libs/boost:=
 SLOT=0
 SRC_URI=https://releases.galeracluster.com/galera-4.19/source/galera-4-26.4.19.tar.gz -> galera-26.4.19.tar.gz
 _eclasses_=toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	258a4691fd43b8cd5814cb1acbb3c7df
-_md5_=58dc2702473ee5cca84ccc534d41854d
+_md5_=9550c62a24e83a9ed9a845aa4eefaf1f
