@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-30">
+    <title>dpkg: Directory Traversal</title>
+    <synopsis>A vulnerability has been discovered in dpkg, which allows for directory traversal.</synopsis>
+    <product type="ebuild">dpkg</product>
+    <announced>2024-08-12</announced>
+    <revised count="1">2024-08-12</revised>
+    <bug>847976</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-arch/dpkg" auto="yes" arch="*">
+            <unaffected range="ge">1.20.9-r1</unaffected>
+            <vulnerable range="lt">1.20.9-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Debian package management system.</p>
+    </background>
+    <description>
+        <p>Please review the CVE indentifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Dpkg::Source::Archive in dpkg, the Debian package management system, is prone to a directory traversal vulnerability. When extracting untrusted source packages in v2 and v3 source package formats that include a debian.tar, the in-place extraction can lead to directory traversal situations on specially crafted orig.tar and debian.tar tarballs.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All dpkg users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/dpkg-1.20.9-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1664">CVE-2022-1664</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-12T07:19:16.088421Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-12T07:19:16.091312Z">graaff</metadata>
+</glsa>
