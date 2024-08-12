@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-29">
+    <title>MuPDF: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in MuPDF, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">mupdf</product>
+    <announced>2024-08-12</announced>
+    <revised count="1">2024-08-12</revised>
+    <bug>803305</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-text/mupdf" auto="yes" arch="*">
+            <unaffected range="ge">1.20.0</unaffected>
+            <vulnerable range="lt">1.20.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A lightweight PDF, XPS, and E-book viewer.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in MuPDF. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All MuPDF users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/mupdf-1.20.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4216">CVE-2021-4216</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37220">CVE-2021-37220</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-12T07:17:27.916325Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-12T07:17:27.921110Z">graaff</metadata>
+</glsa>
