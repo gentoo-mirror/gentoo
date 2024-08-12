@@ -5,9 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.3.0
+KFMIN=6.5.0
 PVCUT=$(ver_cut 1-3)
-QTMIN=6.7.1
+QTMIN=6.7.2
 inherit ecm plasma.kde.org
 
 DESCRIPTION="KDE Plasma workspace"
@@ -160,7 +160,12 @@ BDEPEND="
 PDEPEND=">=kde-plasma/kde-cli-tools-${PVCUT}:*"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
+	# TODO upstream: KDE-bug 432975, bug 767478
+	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch"
+	# upstream Plasma/6.1 branch (fixed in 6.1.5)
+	"${FILESDIR}/${P}-restart-unhide-timer-on-dnd.patch" # KDE-bug 450579
+	"${FILESDIR}"/${P}-fix-mediacontroller-{1,2}.patch # KDE-bug 490569
+	"${FILESDIR}/${P}-fix-svg-images.patch" # KDE-bug 491369
 )
 
 src_prepare() {
