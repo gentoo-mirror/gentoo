@@ -1,8 +1,8 @@
-BDEPEND=dev-lang/perl dev-libs/libxslt sys-devel/gettext test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 ) x11-apps/xkbcomp x11-libs/libxkbcommon || ( ( dev-lang/python:3.12 dev-python/pycountry[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pycountry[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-lang/perl dev-libs/libxslt sys-devel/gettext || ( dev-lang/python:3.12 dev-lang/python:3.11 ) test? ( x11-apps/xkbcomp x11-libs/libxkbcommon || ( ( dev-lang/python:3.12 dev-python/pycountry[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pycountry[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=X keyboard configuration database
 EAPI=8
-HOMEPAGE=https://www.freedesktop.org/wiki/Software/XKeyboardConfig https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config
+HOMEPAGE=https://www.freedesktop.org/wiki/Software/XKeyboardConfig/ https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config
 INHERIT=meson python-any-r1 git-r3
 IUSE=test
 LICENSE=MIT
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=17fe5188f7700df578f36e5849f6be76
+_md5_=8e1c491a3366e347eb3d3abb640bd0a5
