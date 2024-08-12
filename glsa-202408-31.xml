@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-31">
+    <title>protobuf, protobuf-python: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in protobuf and protobuf-python, which can lead to a denial of service.</synopsis>
+    <product type="ebuild">protobuf,protobuf-python</product>
+    <announced>2024-08-12</announced>
+    <revised count="1">2024-08-12</revised>
+    <bug>872434</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-libs/protobuf" auto="yes" arch="*">
+            <unaffected range="ge">3.20.3</unaffected>
+            <vulnerable range="lt">3.20.3</vulnerable>
+        </package>
+        <package name="dev-python/protobuf-python" auto="yes" arch="*">
+            <unaffected range="ge">3.19.6</unaffected>
+            <vulnerable range="lt">3.19.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Google&#39;s Protocol Buffers are an extensible mechanism for serializing structured data.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in protobuf and protobuf-python. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A parsing vulnerability for the MessageSet type can lead to out of memory failures. A specially crafted message with multiple key-value per elements creates parsing issues, and can lead to a Denial of Service against services receiving unsanitized input.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All protobuf and protobuf-python users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/protobuf-3.20.3"
+          # emerge --ask --oneshot --verbose ">=dev-python/protobuf-python-3.19.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1941">CVE-2022-1941</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-12T07:20:36.807024Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-12T07:20:36.811154Z">graaff</metadata>
+</glsa>
