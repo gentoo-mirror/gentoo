@@ -1920,34 +1920,27 @@ toolchain_src_test() {
 	local -x LD_PRELOAD=
 
 	# Controls running expensive tests in e.g. the torture testsuite.
+	# Note that 'TEST', not 'TESTS', is correct here as it's a GCC
+	# testsuite variable, not ours.
 	local -x GCC_TEST_RUN_EXPENSIVE=1
 
 	# Use a subshell to allow meddling with flags just for the testsuite
 	(
-		# Unexpected warnings confuse the tests.
-		filter-flags -W*
-		# May break parsing.
-		filter-flags '-fdiagnostics-color=*' '-fdiagnostics-urls=*'
-		# Gentoo QA flags which don't belong in tests
-		filter-flags -frecord-gcc-switches
-		filter-flags '-Wl,--defsym=__gentoo_check_ldflags__=0'
-		# Go doesn't support this and causes noisy warnings
-		filter-flags -Wbuiltin-declaration-mismatch
-		# The ASAN tests at least need LD_PRELOAD and the contract
-		# tests.
-		filter-flags -fno-semantic-interposition
-
 		# Workaround our -Wformat-security default which breaks
 		# various tests as it adds unexpected warning output.
-		append-flags -Wno-format-security -Wno-format
+		GCC_TESTS_CFLAGS+=" -Wno-format-security -Wno-format"
+		GCC_TESTS_CXXFLAGS+=" -Wno-format-security -Wno-format"
+
 		# Workaround our -Wtrampolines default which breaks
 		# tests too.
-		append-flags -Wno-trampolines
+		GCC_TESTS_CFLAGS+=" -Wno-trampolines"
+		GCC_TESTS_CXXFLAGS+=" -Wno-trampolines"
 		# A handful of Ada (and objc++?) tests need an executable stack
-		append-ldflags -Wl,--no-warn-execstack
+		GCC_TESTS_LDFLAGS+=" -Wl,--no-warn-execstack"
 		# Avoid confusing tests like Fortran/C interop ones where
 		# CFLAGS are used.
-		append-flags -Wno-complain-wrong-lang
+		GCC_TESTS_CFLAGS+=" -Wno-complain-wrong-lang"
+		GCC_TESTS_CXXFLAGS+=" -Wno-complain-wrong-lang"
 
 		# Issues with Ada tests:
 		# gnat.dg/align_max.adb
@@ -1958,11 +1951,12 @@ toolchain_src_test() {
 		#
 		# TODO: This isn't ideal given it obv. affects codegen
 		# and we want to be sure it works.
-		append-flags -fno-stack-clash-protection
+		GCC_TESTS_CFLAGS+=" -fno-stack-clash-protection"
+		GCC_TESTS_CXXFLAGS+=" -fno-stack-clash-protection"
 
 		# configure defaults to '-O2 -g' and some tests expect it
 		# accordingly.
-		append-flags -g
+		GCC_TESTS_CFLAGS+=" -g"
 
 		# TODO: Does this handle s390 (-m31) correctly?
 		# TODO: What if there are multiple ABIs like x32 too?
@@ -1975,26 +1969,29 @@ toolchain_src_test() {
 		#
 		# CFLAGS and so on are repeated here because of tests vs building test
 		# deps like libbacktrace.
+		#
+		# TODO: Should we try pass in the regular user flags for the non-RUNTESTFLAGS
+		# instances below for building e.g. libbacktrace?
 		nonfatal emake -C "${WORKDIR}"/build -k "${GCC_TESTS_CHECK_TARGET}" \
 			RUNTESTFLAGS=" \
 				${GCC_TESTS_RUNTESTFLAGS} \
-				CFLAGS_FOR_TARGET='${CFLAGS_FOR_TARGET:-${CFLAGS}}' \
-				CXXFLAGS_FOR_TARGET='${CXXFLAGS_FOR_TARGET:-${CXXFLAGS}}' \
-				LDFLAGS_FOR_TARGET='${LDFLAGS_FOR_TARGET:-${LDFLAGS}}' \
-				CFLAGS='${CFLAGS}' \
-				CXXFLAGS='${CXXFLAGS}' \
-				FCFLAGS='${FCFLAGS}' \
-				FFLAGS='${FFLAGS}' \
-				LDFLAGS='${LDFLAGS}' \
+				CFLAGS_FOR_TARGET='${GCC_TESTS_CFLAGS_FOR_TARGET:-${GCC_TESTS_CFLAGS}}' \
+				CXXFLAGS_FOR_TARGET='${GCC_TESTS_CXXFLAGS_FOR_TARGET:-${GCC_TESTS_CXXFLAGS}}' \
+				LDFLAGS_FOR_TARGET='${TEST_LDFLAGS_FOR_TARGET:-${GCC_TESTS_LDFLAGS}}' \
+				CFLAGS='${GCC_TESTS_CFLAGS}' \
+				CXXFLAGS='${GCC_TESTS_CXXFLAGS}' \
+				FCFLAGS='${GCC_TESTS_FCFLAGS}' \
+				FFLAGS='${GCC_TESTS_FFLAGS}' \
+				LDFLAGS='${GCC_TESTS_LDFLAGS}' \
 			" \
-			CFLAGS_FOR_TARGET="${CFLAGS_FOR_TARGET:-${CFLAGS}}" \
-			CXXFLAGS_FOR_TARGET="${CXXFLAGS_FOR_TARGET:-${CXXFLAGS}}" \
-			LDFLAGS_FOR_TARGET="${LDFLAGS_FOR_TARGET:-${LDFLAGS}}" \
-			CFLAGS="${CFLAGS}" \
-			CXXFLAGS="${CXXFLAGS}" \
-			FCFLAGS="${FCFLAGS}" \
-			FFLAGS="${FFLAGS}" \
-			LDFLAGS="${LDFLAGS}"
+			CFLAGS_FOR_TARGET="${GCC_TESTS_CFLAGS_FOR_TARGET:-${GCC_TESTS_CFLAGS}}" \
+			CXXFLAGS_FOR_TARGET="${GCC_TESTS_CXXFLAGS_FOR_TARGET:-${GCC_TESTS_CXXFLAGS}}" \
+			LDFLAGS_FOR_TARGET="${GCC_TESTS_LDFLAGS_FOR_TARGET:-${GCC_TESTS_LDFLAGS}}" \
+			CFLAGS="${GCC_TESTS_CFLAGS}" \
+			CXXFLAGS="${GCC_TESTS_CXXFLAGS}" \
+			FCFLAGS="${GCC_TESTS_FCFLAGS}" \
+			FFLAGS="${GCC_TESTS_FFLAGS}" \
+			LDFLAGS="${GCC_TESTS_LDFLAGS}"
 	)
 
 	# Produce an updated failure manifest.
