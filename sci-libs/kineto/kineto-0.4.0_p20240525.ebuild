@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit python-any-r1 cmake prefix
 
 CommitId=be1317644c68b4bfc4646024a6b221066e430031
@@ -32,6 +32,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.4.0-gcc13.patch
+	"${FILESDIR}"/kineto-0.4.0_p20240525-libfmt-11.patch
 )
 
 src_prepare() {
