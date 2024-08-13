@@ -5,7 +5,7 @@
     <synopsis>Multiple vulnerabilities have been discovered in PHP, the worst of which can lead to a denial of service.</synopsis>
     <product type="ebuild">php</product>
     <announced>2024-08-12</announced>
-    <revised count="1">2024-08-12</revised>
+    <revised count="2">2024-08-13</revised>
     <bug>889882</bug>
     <bug>895416</bug>
     <bug>908259</bug>
@@ -19,9 +19,9 @@
             <unaffected range="ge" slot="8.2">8.2.20</unaffected>
             <unaffected range="ge" slot="8.3">8.3.8</unaffected>
             <vulnerable range="lt">8.1</vulnerable>
-            <vulnerable range="ge" slot="8.1">8.1.29</vulnerable>
-            <vulnerable range="ge" slot="8.2">8.2.20</vulnerable>
-            <vulnerable range="ge" slot="8.3">8.3.8</vulnerable>
+            <vulnerable range="lt" slot="8.1">8.1.29</vulnerable>
+            <vulnerable range="lt" slot="8.2">8.2.20</vulnerable>
+            <vulnerable range="lt" slot="8.3">8.3.8</vulnerable>
         </package>
     </affected>
     <background>
