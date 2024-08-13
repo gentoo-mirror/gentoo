@@ -1,0 +1,14 @@
+BDEPEND=uasm? ( dev-lang/uasm ) jwasm? ( dev-lang/jwasm )
+DEFINED_PHASES=compile install prepare setup
+DESCRIPTION=Free file archiver for extremely high compression
+EAPI=8
+HOMEPAGE=https://www.7-zip.org/ https://sourceforge.net/projects/sevenzip/
+INHERIT=edos2unix flag-o-matic toolchain-funcs
+IUSE=uasm jwasm rar
+KEYWORDS=~amd64 ~arm64
+LICENSE=LGPL-2 BSD rar? ( unRAR )
+REQUIRED_USE=?? ( uasm jwasm )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/sevenzip/7-Zip/24.08/7z2408-src.tar.xz https://downloads.sourceforge.net/sevenzip/7-Zip/24.08/7z2408-linux-x64.tar.xz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d
+_md5_=315bdc413b903ed130f399ccaa995fa8
