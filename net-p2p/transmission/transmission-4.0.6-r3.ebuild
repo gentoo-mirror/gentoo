@@ -13,7 +13,7 @@ else
 	MY_P="${PN}-${MY_PV}"
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="https://github.com/transmission/transmission/releases/download/${MY_PV}/${MY_P}.tar.xz"
-	KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="A fast, easy, and free BitTorrent client"
@@ -41,17 +41,18 @@ BDEPEND="
 	qt6? ( dev-qt/qttools:6[linguist] )
 "
 COMMON_DEPEND="
+	app-arch/libdeflate:=
 	>=dev-libs/libevent-2.1.0:=[threads(+)]
 	!mbedtls? ( dev-libs/openssl:0= )
 	mbedtls? ( net-libs/mbedtls:0= )
 	net-libs/libnatpmp
 	>=net-libs/libpsl-0.21.1
-	<net-libs/miniupnpc-2.2.8:=
+	>=net-libs/miniupnpc-1.7:=
 	>=net-misc/curl-7.28.0[ssl]
 	sys-libs/zlib:=
 	nls? ( virtual/libintl )
 	gtk? (
-		>=dev-cpp/gtkmm-3.24.0:4.0
+		>=dev-cpp/gtkmm-4.11.1:4.0
 		>=dev-cpp/glibmm-2.60.0:2.68
 		appindicator? ( dev-libs/libayatana-appindicator )
 	)
@@ -76,6 +77,10 @@ RDEPEND="${COMMON_DEPEND}
 	${ACCT_DEPEND}
 "
 
+PATCHES=(
+	"${FILESDIR}/transmission-4.0.6-miniupnpc-2.2.8.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_DOCDIR=share/doc/${PF}
@@ -91,7 +96,7 @@ src_configure() {
 
 		-DUSE_GTK_VERSION=4
 		-DUSE_SYSTEM_EVENT2=ON
-		-DUSE_SYSTEM_DEFLATE=OFF
+		-DUSE_SYSTEM_DEFLATE=ON
 		-DUSE_SYSTEM_DHT=OFF
 		-DUSE_SYSTEM_MINIUPNPC=ON
 		-DUSE_SYSTEM_NATPMP=ON
