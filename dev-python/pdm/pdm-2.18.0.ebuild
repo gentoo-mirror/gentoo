@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/blinker[${PYTHON_USEDEP}]
-	>=dev-python/dep-logic-0.4.3[${PYTHON_USEDEP}]
+	>=dev-python/dep-logic-0.4.4[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/platformdirs[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]

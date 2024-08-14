@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1
 
@@ -29,7 +29,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	<dev-python/numpy-2[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.20.0[${PYTHON_USEDEP}]
 	>=dev-python/pillow-8.3.2[${PYTHON_USEDEP}]
 	media-libs/freeimage
@@ -51,7 +50,7 @@ distutils_enable_tests pytest
 src_prepare() {
 	local PATCHES=(
 		# block silently downloading vulnerable libraries from the Internet
-		"${FILESDIR}"/imageio-2.22.0-block-download.patch
+		"${FILESDIR}/imageio-2.22.0-block-download.patch"
 	)
 
 	if use test; then
@@ -89,6 +88,7 @@ python_test() {
 		tests/test_core.py::test_request_read_sources
 		tests/test_pillow.py::test_gif_first_p_frame
 		tests/test_pillow.py::test_png_remote
+		tests/test_pillow.py::test_webp_remote
 		tests/test_pillow_legacy.py::test_png_remote
 		tests/test_swf.py::test_read_from_url
 		# requires pillow-heif, also possibly Internet
