@@ -101,10 +101,10 @@ src_prepare() {
 src_install() {
 	insinto /opt/zoom
 	exeinto /opt/zoom
-	doins -r calendar cef email json ringtone scheduler sip timezones \
-		translations
+	doins -r calendar cef chatapp email json ringtone scheduler sip \
+		timezones translations
 	doins *.pcm Embedded.properties version.txt
-	doexe zoom zopen ZoomLauncher *.sh \
+	doexe zoom zopen ZoomLauncher ZoomWebviewHost *.sh \
 		aomhost libaomagent.so libdvf.so libmkldnn.so \
 		libavcodec.so* libavformat.so* libavutil.so* libswresample.so*
 	fperms a+x /opt/zoom/cef/chrome-sandbox
@@ -133,7 +133,7 @@ src_install() {
 				plugins/platforms/libqeglfs.so \
 				plugins/platforms/libqlinuxfb.so \
 				plugins/platformthemes/libqgtk3.so \
-				qml/QtQml/RemoteObjects \
+				qml/Qt/labs/lottieqt qml/QtQml/RemoteObjects \
 				qml/QtQuick/LocalStorage qml/QtQuick/Particles.2 \
 				qml/QtQuick/Scene2D qml/QtQuick/Scene3D \
 				qml/QtQuick/XmlListModel || die
