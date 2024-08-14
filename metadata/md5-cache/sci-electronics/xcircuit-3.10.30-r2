@@ -1,6 +1,6 @@
 BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
-DEPEND=app-text/ghostscript-gpl:= media-libs/fontconfig:1.0= sys-libs/zlib:= x11-libs/cairo x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm x11-libs/libXt tcl? ( dev-lang/tcl:0= dev-lang/tk:0= )
+DEPEND=app-text/ghostscript-gpl:= media-libs/fontconfig:1.0= sys-libs/zlib:= x11-libs/cairo[X] x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm x11-libs/libXt tcl? ( dev-lang/tcl:0= dev-lang/tk:0= )
 DESCRIPTION=Circuit drawing and schematic capture program
 EAPI=7
 HOMEPAGE=http://opencircuitdesign.com/xcircuit
@@ -8,8 +8,8 @@ INHERIT=autotools
 IUSE=tcl
 KEYWORDS=amd64 ~ppc ~x86
 LICENSE=GPL-2
-RDEPEND=app-text/ghostscript-gpl:= media-libs/fontconfig:1.0= sys-libs/zlib:= x11-libs/cairo x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm x11-libs/libXt tcl? ( dev-lang/tcl:0= dev-lang/tk:0= ) sci-electronics/ngspice
+RDEPEND=app-text/ghostscript-gpl:= media-libs/fontconfig:1.0= sys-libs/zlib:= x11-libs/cairo[X] x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXpm x11-libs/libXt tcl? ( dev-lang/tcl:0= dev-lang/tk:0= ) sci-electronics/ngspice
 SLOT=0
 SRC_URI=http://opencircuitdesign.com/xcircuit/archive/xcircuit-3.10.30.tgz
 _eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0
-_md5_=4feda0101bc3fed56ce6ac4e6a0a7f8b
+_md5_=10b63d6bcc00e47da7461cdbce9654c3
