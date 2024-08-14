@@ -4,7 +4,7 @@
 EAPI=8
 
 LLVM_COMPAT=( {16..18} )
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit llvm-r1 meson python-any-r1
 
@@ -43,18 +43,12 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	$(python_gen_any_dep "
-		>=dev-python/mako-0.8.0[\${PYTHON_USEDEP}]
-		dev-python/packaging[\${PYTHON_USEDEP}]
-		dev-python/pyyaml[\${PYTHON_USEDEP}]
-	")
+	$(python_gen_any_dep ">=dev-python/mako-0.8.0[\${PYTHON_USEDEP}]")
 	virtual/pkgconfig
 "
 
 python_check_deps() {
-	python_has_version -b ">=dev-python/mako-0.8.0[${PYTHON_USEDEP}]" &&
-	python_has_version -b "dev-python/packaging[${PYTHON_USEDEP}]" &&
-	python_has_version -b "dev-python/pyyaml[${PYTHON_USEDEP}]" || return 1
+	python_has_version -b ">=dev-python/mako-0.8.0[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
