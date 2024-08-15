@@ -3,7 +3,7 @@
 
 EAPI=8
 
-EGIT_COMMIT=d59bbdc252837107c9f5d235b8fb2650ff2b9d93=
+EGIT_COMMIT=dbc00ffd41a487c847158032193b6dca9b49e821
 
 inherit go-module
 
