@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit autotools flag-o-matic python-single-r1 desktop
 
 DESCRIPTION="An extremely powerful ICCCM-compliant multiple virtual desktop window manager"
@@ -49,10 +49,10 @@ COMMON_DEPEND="
 	)
 	xinerama? ( x11-libs/libXinerama )
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="
+	${COMMON_DEPEND}
 	${PYTHON_DEPS}
 	dev-lang/perl
-	sys-apps/debianutils
 	perl? ( tk? (
 			dev-lang/tk
 			dev-perl/Tk
@@ -62,7 +62,8 @@ RDEPEND="${COMMON_DEPEND}
 	lock? ( x11-misc/xlockmore )
 	netpbm? ( media-libs/netpbm )
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="
+	${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 BDEPEND="
@@ -74,15 +75,12 @@ BDEPEND="
 src_prepare() {
 	if ! use vanilla; then
 		# Enables fast translucent menus; patch from fvwm-user mailing list.
-		eapply -p0 "${FILESDIR}/${PN}-2.5.27-translucent-menus.diff"
-
-		# Allow more mouse buttons, bug #411811
-		eapply -p0 "${FILESDIR}/${PN}-2.6.5-mouse-buttons.patch"
+		eapply "${FILESDIR}/${PN}-2.7.0-translucent-menus.diff"
 	fi
 
-	eapply -p0 "${FILESDIR}/${PN}-2.6.5-ar.patch" #474528
-
-	eapply "${FILESDIR}"/fvwm-2.7.0-clang16.patch
+	eapply "${FILESDIR}"/fvwm-2.7.0-ar.patch # bug #474528
+	eapply "${FILESDIR}"/fvwm-2.7.0-c99.patch
+	eapply "${FILESDIR}"/fvwm-2.7.0-fix-docdir.patch
 
 	default
 
@@ -117,6 +115,9 @@ src_configure() {
 	# Recommended by upstream, reference ????
 	append-flags -fno-strict-aliasing
 
+	# bug #864959
+	filter-lto
+
 	# Signed chars are required.
 	use ppc && append-flags -fsigned-char
 
@@ -132,25 +133,25 @@ src_install() {
 	make_session_desktop fvwm /usr/bin/fvwm
 
 	if ! use lock; then
-		find "${D}" -name '*fvwm-menu-xlock' -exec rm -f '{}' \; 2>/dev/null
+		find "${ED}" -name '*fvwm-menu-xlock' -delete || die
 	fi
 
 	if use perl; then
 		if ! use tk; then
-			rm "${D}"/usr/share/fvwm/perllib/FVWM/Module/Tk.pm || die
-			rm "${D}"/usr/share/fvwm/perllib/FVWM/Module/Toolkit.pm || die
-			find "${D}"/usr/share/fvwm/perllib -depth -type d -exec rmdir '{}' \; 2>/dev/null
+			rm "${ED}"/usr/share/fvwm/perllib/FVWM/Module/Tk.pm || die
+			rm "${ED}"/usr/share/fvwm/perllib/FVWM/Module/Toolkit.pm || die
+			find "${ED}"/usr/share/fvwm/perllib -depth -type d -exec rmdir '{}' \; || die
 		fi
 	else
 		# Completely wipe it if ! use perl
-		rm -r "${D}"/usr/bin/fvwm-perllib "${D}"/usr/share/man/man1/fvwm-perllib.1
+		rm -r "${ED}"/usr/bin/fvwm-perllib "${ED}"/usr/share/man/man1/fvwm-perllib.1 || die
 	fi
 
 	# Utility for testing FVWM behaviour by creating a simple window with
 	# configurable hints.
 	if use debug; then
-		dobin "${S}"/tests/hints/hints_test
-		newdoc "${S}"/tests/hints/README README.hints
+		dobin tests/hints/hints_test
+		newdoc tests/hints/README README.hints
 	fi
 
 	exeinto /etc/X11/Sessions
