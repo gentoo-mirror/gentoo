@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_IN_SOURCE_BUILD="yes"
 inherit cmake prefix
@@ -9,18 +9,16 @@ inherit cmake prefix
 DESCRIPTION="The Dungeons of Moria, a single player roguelike game, also known as Umoria"
 HOMEPAGE="https://umoria.org/"
 SRC_URI="https://github.com/dungeons-of-moria/umoria/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/umoria-${PV}"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~m68k ~x86"
-IUSE=""
 
 RDEPEND="acct-group/gamestat
 	>=sys-libs/ncurses-6.0:0="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-S="${WORKDIR}/umoria-${PV}"
 
 PATCHES=( "${FILESDIR}/${PN}-5.7.12-gentoo-paths.patch" )
 
