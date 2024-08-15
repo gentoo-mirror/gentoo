@@ -51,7 +51,7 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 systemd toolchain-funcs virtu
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PATCHSET_PPC64="127.0.6533.88-1raptor0~deb12u2"
-PATCH_V="${PV%%\.*}"
+PATCH_V="${PV%%\.*}-1"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}.tar.xz
 	system-toolchain? (
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
@@ -70,7 +70,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 
 LICENSE="BSD"
 SLOT="0/stable"
-KEYWORDS="amd64 arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos +official pax-kernel pgo +proprietary-codecs pulseaudio"
 IUSE+=" qt5 qt6 +screencast selinux +system-toolchain +vaapi +wayland +widevine"
@@ -97,7 +97,7 @@ COMMON_X_DEPEND="
 "
 
 COMMON_SNAPSHOT_DEPEND="
-	system-icu? ( >=dev-libs/icu-71.1:= )
+	system-icu? ( >=dev-libs/icu-73.0:= )
 	>=dev-libs/libxml2-2.12.4:=[icu]
 	dev-libs/nspr:=
 	>=dev-libs/nss-3.26:=
@@ -121,9 +121,10 @@ COMMON_SNAPSHOT_DEPEND="
 		kerberos? ( virtual/krb5 )
 		vaapi? ( >=media-libs/libva-2.7:=[X?,wayland?] )
 		X? (
+			x11-base/xorg-proto:=
 			x11-libs/libX11:=
-			x11-libs/libXext:=
 			x11-libs/libxcb:=
+			x11-libs/libXext:=
 		)
 		x11-libs/libxkbcommon:=
 		wayland? (
@@ -221,7 +222,7 @@ BDEPEND="
 			>=dev-python/selenium-3.141.0
 			>=dev-util/web_page_replay_go-20220314
 		)
-		dev-util/bindgen
+		>=dev-util/bindgen-0.68.0
 	)
 	>=dev-build/gn-${GN_MIN_VER}
 	dev-build/ninja
@@ -353,6 +354,36 @@ chromium_extract_rust_version() {
 	echo $rustc_version
 }
 
+# https://github.com/gentoo/gentoo/pull/28355
+chromium_tc-ld-is-mold() {
+	local out
+
+	# Ensure ld output is in English.
+	local -x LC_ALL=C
+
+	# First check the linker directly.
+	out=$($(tc-getLD "$@") --version 2>&1)
+	if [[ ${out} == *"mold"* ]] ; then
+		return 0
+	fi
+
+	# Then see if they're selecting mold via compiler flags.
+	# Note: We're assuming they're using LDFLAGS to hold the
+	# options and not CFLAGS/CXXFLAGS.
+	local base="${T}/test-tc-linker"
+	cat <<-EOF > "${base}.c"
+	int main(void) { return 0; }
+	EOF
+	out=$($(tc-getCC "$@") ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -Wl,--version "${base}.c" -o "${base}" 2>&1)
+	rm -f "${base}"*
+	if [[ ${out} == *"mold"* ]] ; then
+		return 0
+	fi
+
+	# No mold here!
+	return 1
+}
+
 pkg_setup() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		# The pre_build_checks are all about compilation resources, no need to run it for a binpkg
@@ -368,6 +399,13 @@ pkg_setup() {
 				einfo "USE=official selected and LTO not detected."
 				einfo "It is _highly_ recommended that LTO be enabled for performance reasons"
 				einfo "and to be consistent with the upstream \"official\" build optimisations."
+			fi
+
+			# 936858
+			if chromium_tc-ld-is-mold; then
+				eerror "Your toolchain is using the mold linker."
+				eerror "This is not supported by Chromium."
+				die "Please switch to a different linker."
 			fi
 
 			LLVM_SLOT=$(chromium_pick_llvm_slot)
