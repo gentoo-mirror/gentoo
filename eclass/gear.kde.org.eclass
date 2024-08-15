@@ -132,7 +132,6 @@ if $(ver_test -gt 24.01.75); then
 		kde-dev-utils | \
 		kdebugsettings | \
 		kdeconnect | \
-		kdegraphics-mobipocket | \
 		kdenetwork-filesharing | \
 		kdenlive | \
 		kdepim-addons | \
@@ -243,7 +242,6 @@ if $(ver_test -gt 24.01.75); then
 		spectacle | \
 		svgpart | \
 		sweeper | \
-		thumbnailers | \
 		yakuake | \
 		zanshin)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
@@ -259,6 +257,30 @@ if $(ver_test -gt 24.04.75); then
 		kio-perldoc | \
 		kolourpaint | \
 		signon-kwallet-extension)
+			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
+		*) ;;
+	esac
+fi
+
+# list of applications ported to KF6 post-24.05 in SLOT=6 having to block SLOT=5
+if $(ver_test -gt 24.07.75); then
+	case ${PN} in
+		k3b | \
+		kde-dev-scripts | \
+		kdesdk-thumbnailers | \
+		kdevelop | \
+		kdevelop-php | \
+		kdevelop-python | \
+		kgraphviewer | \
+		kimagemapeditor | \
+		kmplot | \
+		kompare | \
+		krdc | \
+		libkomparediff2 | \
+		lokalize | \
+		massif-visualizer | \
+		poxml | \
+		skanlite)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
 	esac

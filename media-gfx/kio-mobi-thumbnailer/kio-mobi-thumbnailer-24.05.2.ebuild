@@ -9,30 +9,33 @@ KFMIN=6.3.0
 QTMIN=6.6.2
 inherit ecm gear.kde.org
 
-DESCRIPTION="Thumbnail generators for Mobipocket, PDF/PS and RAW files"
+DESCRIPTION="KIO thumbnail generator for Mobipocket files"
+HOMEPAGE="https://apps.kde.org/kdegraphics_thumbnailers/"
 
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="mobi raw"
 
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-apps/kdegraphics-mobipocket-${PVCUT}:6
 	>=kde-frameworks/kio-${KFMIN}:6
-	mobi? ( >=kde-apps/kdegraphics-mobipocket-${PVCUT}:6 )
-	raw? (
-		>=kde-apps/libkdcraw-${PVCUT}:6
-		>=kde-apps/libkexiv2-${PVCUT}:6
-	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<kde-apps/thumbnailers-24.05.2-r1:6
+"
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_kf_module Archive
+}
 
 src_configure() {
 	local mycmakeargs=(
-		-DDISABLE_MOBIPOCKET=$(usex !mobi)
-		$(cmake_use_find_package raw KExiv2Qt6)
-		$(cmake_use_find_package raw KDcrawQt6)
+		-DBUILD_ps=OFF
+		-DBUILD_blend=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_KExiv2Qt6=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_KDcrawQt6=ON
 	)
 
 	ecm_src_configure
