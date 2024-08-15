@@ -1,0 +1,16 @@
+BDEPEND=kde-frameworks/extra-cmake-modules:0 virtual/pkgconfig doc? ( app-text/doxygen dev-texlive/texlive-fontutils ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=app-i18n/fcitx-5.1.5:5 app-arch/zstd:= dev-libs/boost:=
+DESCRIPTION=Fcitx5 Next generation of fcitx
+EAPI=8
+HOMEPAGE=https://fcitx-im.org/
+INHERIT=cmake unpacker
+IUSE=+data doc test
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=app-i18n/fcitx-5.1.5:5 app-arch/zstd:= dev-libs/boost:=
+RESTRICT=!test? ( test )
+SLOT=5
+SRC_URI=https://download.fcitx-im.org/fcitx5/libime/libime-1.1.8_dict.tar.zst
+_eclasses_=toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	unpacker	fb4b84181244b3b9990fa0bf40232dd2
+_md5_=ac9a6eb57adedfbf4e065aa6cef500b4
