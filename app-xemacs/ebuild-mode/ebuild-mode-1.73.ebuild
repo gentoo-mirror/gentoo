@@ -11,7 +11,7 @@ SRC_URI="https://dev.gentoo.org/~ulm/emacs/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~hppa x86"
+KEYWORDS="~amd64 ~hppa ~x86"
 
 RDEPEND=">=app-editors/xemacs-21.4.20-r5
 	app-xemacs/sh-script"
@@ -31,6 +31,8 @@ src_compile() {
 		-l autoload -f batch-update-autoloads \
 		ebuild-mode.el gentoo-newsitem-mode.el || die
 }
+
+src_test() { :; }  # ERT is not yet available for XEmacs
 
 src_install() {
 	insinto /usr/share/xemacs/site-packages/lisp/${PN}
