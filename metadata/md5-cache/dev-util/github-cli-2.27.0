@@ -3,12 +3,12 @@ DEFINED_PHASES=compile install unpack
 DESCRIPTION=GitHub CLI
 EAPI=8
 HOMEPAGE=https://github.com/cli/cli
-INHERIT=bash-completion-r1 flag-o-matic go-module
+INHERIT=bash-completion-r1 go-module
 KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv
 LICENSE=MIT Apache-2.0 BSD BSD-2 MPL-2.0
 RDEPEND=>=dev-vcs/git-1.7.3
 RESTRICT=test strip
 SLOT=0
 SRC_URI=https://github.com/cli/cli/archive/v2.27.0.tar.gz -> github-cli-2.27.0.tar.gz https://dev.gentoo.org/~williamh/dist/github-cli-2.27.0-deps.tar.xz
-_eclasses_=toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	go-env	7eb56e61e641d6db098d57fb37477c44	go-module	83fd3ed1657cfc316c93d6a37018290d
-_md5_=acdbeb8dc5d3102ae2b276b8ee288a50
+_eclasses_=toolchain-funcs	0c713337f7872f1a002cecaaea9bef73	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	83fd3ed1657cfc316c93d6a37018290d
+_md5_=ba541f0796fef1c53d5f7333c6bd8f63
