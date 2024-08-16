@@ -447,6 +447,41 @@ econf_build() {
 	tc-env_build econf_env "$@"
 }
 
+# @FUNCTION: tc-ld-is-bfd
+# @USAGE: [toolchain prefix]
+# @DESCRIPTION:
+# Return true if the current linker is set to GNU bfd.
+tc-ld-is-bfd() {
+	local out
+
+	# Ensure ld output is in English.
+	local -x LC_ALL=C
+
+	# First check the linker directly.
+	out=$($(tc-getLD "$@") --version 2>&1)
+	if [[ ${out} != "GNU ld"* ]] ; then
+		return 1
+	fi
+
+	# Then see if they're selecting bfd via compiler flags.
+	# Note: We're assuming they're using LDFLAGS to hold the
+	# options and not CFLAGS/CXXFLAGS.
+	local base="${T}/test-tc-linker"
+	cat <<-EOF > "${base}.c"
+	int main(void) { return 0; }
+	EOF
+	out=$($(tc-getCC "$@") ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -Wl,--version "${base}.c" -o "${base}" 2>&1)
+	rm -f "${base}"*
+	if [[ ${out} != "GNU ld"* ]] ; then
+		return 1
+	fi
+
+	# It's bfd!
+	# We use positive logic here unlike tc-ld-is-gold and tc-ld-is-mold
+	# because LD might be bfd even if *FLAGS isn't.
+	return 0
+}
+
 # @FUNCTION: tc-ld-is-gold
 # @USAGE: [toolchain prefix]
 # @DESCRIPTION:
@@ -466,7 +501,7 @@ tc-ld-is-gold() {
 	# Then see if they're selecting gold via compiler flags.
 	# Note: We're assuming they're using LDFLAGS to hold the
 	# options and not CFLAGS/CXXFLAGS.
-	local base="${T}/test-tc-gold"
+	local base="${T}/test-tc-linker"
 	cat <<-EOF > "${base}.c"
 	int main(void) { return 0; }
 	EOF
@@ -499,7 +534,7 @@ tc-ld-is-lld() {
 	# Then see if they're selecting lld via compiler flags.
 	# Note: We're assuming they're using LDFLAGS to hold the
 	# options and not CFLAGS/CXXFLAGS.
-	local base="${T}/test-tc-lld"
+	local base="${T}/test-tc-linker"
 	cat <<-EOF > "${base}.c"
 	int main(void) { return 0; }
 	EOF
@@ -513,8 +548,43 @@ tc-ld-is-lld() {
 	return 1
 }
 
+
+# @FUNCTION: tc-ld-is-mold
+# @USAGE: [toolchain prefix]
+# @DESCRIPTION:
+# Return true if the current linker is set to mold.
+tc-ld-is-mold() {
+	local out
+
+	# Ensure ld output is in English.
+	local -x LC_ALL=C
+
+	# First check the linker directly.
+	out=$($(tc-getLD "$@") --version 2>&1)
+	if [[ ${out} == *"mold"* ]] ; then
+		return 0
+	fi
+
+	# Then see if they're selecting mold via compiler flags.
+	# Note: We're assuming they're using LDFLAGS to hold the
+	# options and not CFLAGS/CXXFLAGS.
+	local base="${T}/test-tc-linker"
+	cat <<-EOF > "${base}.c"
+	int main(void) { return 0; }
+	EOF
+	out=$($(tc-getCC "$@") ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -Wl,--version "${base}.c" -o "${base}" 2>&1)
+	rm -f "${base}"*
+	if [[ ${out} == *"mold"* ]] ; then
+		return 0
+	fi
+
+	# No mold here!
+	return 1
+}
+
 # @FUNCTION: tc-ld-disable-gold
 # @USAGE: [toolchain prefix]
+# @DEPRECATED: tc-ld-force-bfd
 # @DESCRIPTION:
 # If the gold linker is currently selected, configure the compilation
 # settings so that we use the older bfd linker instead.
@@ -525,11 +595,12 @@ tc-ld-disable-gold() {
 # @FUNCTION: tc-ld-force-bfd
 # @USAGE: [toolchain prefix]
 # @DESCRIPTION:
-# If the gold or lld linker is currently selected, configure the compilation
-# settings so that we use the bfd linker instead.
+# If a linker other than bfd is currently selected, configure the compilation
+# settings so that we use the bfd linker instead.  This function should not
+# be used for simple underlinking problems.  This function is intended for use
+# when a package is fragile and/or relies on bfd internals.
 tc-ld-force-bfd() {
-	if ! tc-ld-is-gold "$@" && ! tc-ld-is-lld "$@" ; then
-		# They aren't using gold or lld, so nothing to do!
+	if tc-ld-is-bfd "$@" ; then
 		return
 	fi
 
@@ -544,6 +615,8 @@ tc-ld-force-bfd() {
 
 	# Set up LDFLAGS to select bfd based on the gcc / clang version.
 	if tc-is-gcc || tc-is-clang ; then
+		export CFLAGS="${CFLAGS} -fuse-ld=bfd"
+		export CXXFLAGS="${CXXFLAGS} -fuse-ld=bfd"
 		export LDFLAGS="${LDFLAGS} -fuse-ld=bfd"
 	fi
 }
@@ -561,8 +634,9 @@ _tc-has-openmp() {
 		int nthreads, tid, ret = 0;
 		#pragma omp parallel private(nthreads, tid)
 		{
-		tid = omp_get_thread_num();
-		nthreads = omp_get_num_threads(); ret += tid + nthreads;
+			tid = omp_get_thread_num();
+			nthreads = omp_get_num_threads();
+			ret += tid + nthreads;
 		}
 		return ret;
 	}
