@@ -1,20 +1,22 @@
-# Copyright 2016-2023 Gentoo Authors
+# Copyright 2016-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit flag-o-matic
+EAPI=8
+
+inherit autotools flag-o-matic
 
 DESCRIPTION="FUSE filesystem to mount squashfs archives"
 HOMEPAGE="https://github.com/vasi/squashfuse"
-SRC_URI="https://github.com/vasi/squashfuse/releases/download/${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/vasi/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="lz4 lzma lzo static-libs +zlib zstd"
 REQUIRED_USE="|| ( lz4 lzma lzo zlib zstd )"
+RESTRICT="test" # Tests require access to /dev/fuse.
 
-COMMON_DEPEND="
+DEPEND="
 	>=sys-fs/fuse-2.8.6:0=
 	lzma? ( >=app-arch/xz-utils-5.0.4:= )
 	zlib? ( >=sys-libs/zlib-1.2.5-r2:= )
@@ -22,9 +24,13 @@ COMMON_DEPEND="
 	lz4? ( >=app-arch/lz4-0_p106:= )
 	zstd? ( app-arch/zstd:= )
 "
-DEPEND="${COMMON_DEPEND}
-	virtual/pkgconfig"
-RDEPEND="${COMMON_DEPEND}"
+RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	filter-lto
@@ -44,5 +50,5 @@ src_configure() {
 
 src_install() {
 	default
-	find "${ED}" -name "*.la" -delete || die
+	find "${ED}" -name "*.la" -type f -delete || die
 }
