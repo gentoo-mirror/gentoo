@@ -15,13 +15,8 @@ KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc
 IUSE="ssl nls kerberos tk selinux socks"
 
 RDEPEND="acct-user/fetchmail
-	ssl? (
-		>=dev-libs/openssl-1.1.1:=
-	)
-	kerberos? (
-		virtual/krb5
-		>=dev-libs/openssl-1.0.2:=
-	)
+	ssl? ( >=dev-libs/openssl-3.0.9:= )
+	kerberos? ( virtual/krb5 )
 	nls? ( virtual/libintl )
 	!elibc_glibc? ( sys-fs/e2fsprogs )
 	socks? ( net-proxy/dante )"
@@ -30,6 +25,8 @@ DEPEND="${RDEPEND}
 	app-alternatives/lex
 	nls? ( sys-devel/gettext )"
 RDEPEND+=" selinux? ( sec-policy/selinux-fetchmail )"
+
+REQUIRED_USE="kerberos? ( ssl )"
 
 DOCS="FAQ FEATURES NEWS NOTES README README.NTLM README.SSL* TODO"
 HTML_DOCS="*.html"
@@ -52,7 +49,6 @@ src_configure() {
 		--enable-SDPS \
 		$(use_enable nls) \
 		$(use_with ssl ssl "${EPREFIX}/usr") \
-		$(use kerberos && echo "--with-ssl=${EPREFIX}/usr") \
 		$(use_with kerberos gssapi) \
 		$(use_with kerberos kerberos5) \
 		--without-hesiod \
