@@ -41,8 +41,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="-* ~amd64"
-# TODO: USE=strip from dev-util/mingw64-toolchain?
-IUSE="+bin-symlinks custom-cflags"
+IUSE="+bin-symlinks custom-cflags +strip"
 
 RDEPEND="
 	dev-libs/gmp:=
@@ -194,6 +193,17 @@ src_compile() {
 	# which does not make use of cross-library dependencies: the libdep.a
 	# for the native binutils will do.
 	rm -f ${sysroot}/lib/bfd-plugins/libdep.a || die
+
+	# portage doesn't know the right strip executable to use for CTARGET
+	# and it can lead to .a mangling, notably with 32bit (breaks toolchain)
+	dostrip -x ${bpftdir}/{${CTARGET}/lib{,32},lib/gcc/${CTARGET}}
+
+	# ... and instead do it here given this saves ~60MB
+	if use strip; then
+		einfo "Stripping ${CTARGET} static libraries ..."
+		find "${sysroot}"/{,lib/gcc/}${CTARGET} -type f -name '*.a' \
+			-exec ${CTARGET}-strip --strip-unneeded {} + || die
+	fi
 }
 
 src_install() {
@@ -203,6 +213,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	use bin-symlinks && has_version dev-util/shadowman && [[ ! ${ROOT} ]] &&
+		eselect compiler-shadow update all
+
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		elog "Note that this package is primarily intended for DTrace, systemd, and related"
 		elog "packages to depend on without needing a manual crossdev setup."
@@ -211,4 +224,9 @@ pkg_postinst() {
 		elog "Use sys-devel/crossdev if need full toolchain/customization:"
 		elog "    https://wiki.gentoo.org/wiki/Crossdev"
 	fi
+}
+
+pkg_postrm() {
+	use bin-symlinks && has_version dev-util/shadowman && [[ ! ${ROOT} ]] &&
+		eselect compiler-shadow clean all
 }
