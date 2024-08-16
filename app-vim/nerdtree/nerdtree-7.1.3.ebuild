@@ -5,7 +5,7 @@ EAPI=8
 
 inherit vim-plugin
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/preservim/nerdtree.git"
 	inherit git-r3
 else
