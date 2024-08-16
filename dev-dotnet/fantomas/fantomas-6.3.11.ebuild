@@ -6,8 +6,8 @@ EAPI=8
 DOTNET_PKG_COMPAT=8.0
 NUGETS="
 dotnet-fsharplint@0.19.2
-fantomas@6.3.0
-fsdocs-tool@20.0.0
+fantomas@6.3.9
+fsdocs-tool@21.0.0-beta-002
 fsharp-analyzers@0.25.0
 
 argu@6.2.4
@@ -225,12 +225,12 @@ else
 	SRC_URI="https://github.com/fsprojects/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
 
-FCS_COMMIT="050271d631956a4e0d0484a583d38236b727a46d"
+FCS_COMMIT="836d4e0603442d6053c8d439993a022501cae494"
 SRC_URI+="
 	https://github.com/dotnet/fsharp/archive/${FCS_COMMIT}.tar.gz
 		-> fsharp-${FCS_COMMIT}.tar.gz
