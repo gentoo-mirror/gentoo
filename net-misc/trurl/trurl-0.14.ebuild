@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -30,7 +30,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="test? ( ${PYTHON_DEPS} )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.7-fix-makefile.patch
+	"${FILESDIR}"/${PN}-0.14-fix-makefile.patch
 )
 
 pkg_setup() {
@@ -39,6 +39,7 @@ pkg_setup() {
 
 src_compile() {
 	tc-export CC
+	export NDEBUG=1
 
 	default
 }
