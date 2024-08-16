@@ -33,7 +33,7 @@ RDEPEND="
 	dev-python/hishel[${PYTHON_USEDEP}]
 	>=dev-python/pbs-installer-2024.4.18[${PYTHON_USEDEP}]
 	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
-	>=dev-python/unearth-0.16.0[${PYTHON_USEDEP}]
+	>=dev-python/unearth-0.17.0[${PYTHON_USEDEP}]
 	<dev-python/findpython-1[${PYTHON_USEDEP}]
 	>=dev-python/findpython-0.6.0[${PYTHON_USEDEP}]
 	dev-python/tomlkit[${PYTHON_USEDEP}]
