@@ -156,6 +156,7 @@ declare -A KEEP_BUNDLED=(
 PATCHES=(
 	"${FILESDIR}"/dolphin-2407-libfmt-11-fix.patch
 	"${FILESDIR}"/dolphin-2407-minizip.patch
+	"${FILESDIR}"/dolphin-2407-fix-llvm-build.patch
 )
 
 add_bundled_licenses() {
