@@ -80,22 +80,21 @@ src_prepare() {
 	mv appdata metainfo || die
 	mv zsh/vendor-completions zsh/site-functions || die
 
-	cd "${PN}" || die
+	cd "${PN}/resources/app" || die
 
 	# Kerberos libs, same issue as VSCode/VSCodium.
 	if ! use kerberos ; then
-		rm -r resources/app/node_modules.asar.unpacked/kerberos || die
+		rm -r node_modules.asar.unpacked/kerberos || die
 	fi
 
 	# Patch "System.Security.Cryptography.Native.OpenSsl.so": *.so.10 -> *.so.1.0.0
-	local mssql_ext_version=4.11.1.1
-	local mssql_ext_lib=System.Security.Cryptography.Native.OpenSsl.so
-	cd "resources/app/extensions/mssql/sqltoolsservice/Linux/${mssql_ext_version}" || die
+	local mssql_ext_version="5.0.20240724.1"
+	local mssql_ext_lib="libSystem.Security.Cryptography.Native.OpenSsl.so"
+	cd "extensions/mssql/sqltoolsservice/Linux/${mssql_ext_version}" || die
 	patchelf --add-needed libcrypto.so.1.0.0 "${mssql_ext_lib}" || die
 	patchelf --add-needed libssl.so.1.0.0 "${mssql_ext_lib}" || die
 	patchelf --remove-needed libcrypto.so.10 "${mssql_ext_lib}" || die
 	patchelf --remove-needed libssl.so.10 "${mssql_ext_lib}" || die
-	rm System.Native.a || die
 }
 
 src_install() {
