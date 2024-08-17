@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/crossbario/autobahn-python/ https://pypi.org/project/autobahn/
 INHERIT=distutils-r1 optfeature pypi
 IUSE=test xbr python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
-KEYWORDS=amd64 ~arm arm64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 arm arm64 ~riscv ~sparc x86
 LICENSE=MIT
 RDEPEND=>=dev-python/zope-interface-5.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/twisted-24.3.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/attrs-20.3.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/txaio-21.2.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/cryptography[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/hyperlink-21.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/setuptools[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/a/autobahn/autobahn-24.4.2.tar.gz
 _eclasses_=toolchain-funcs	5f8f1dc0c94e007fa08af4e98a19d0e5	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c	distutils-r1	39c571155ace3dd926fe0d6440cf0a50	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	pypi	2eecb475512bc76e5ea9192a681b9e6b
-_md5_=e9b881fd04523f25adb8ffbb3163c64b
+_md5_=4ec1baca60b067b84a04728083aeaefa
