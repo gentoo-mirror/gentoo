@@ -33,6 +33,18 @@
 
 #--- END OF EXAMPLES ---
 
+# Arsen Arsenović <arsen@gentoo.org> (2024-08-02)
+# Guile rework masks.  Mask all packages or package versions that are
+# being bumped as part of the Guile reslotting process.
+# Masked until the whole Guile ecosystem is updated.
+>=dev-scheme/slib-3.3.1-r100
+www-apps/haunt
+dev-scheme/guile-commonmark
+>=dev-scheme/guile-reader-0.6.3-r100
+dev-scheme/guile:2.2
+dev-scheme/guile:3.0
+>=dev-build/make-4.4.1-r100
+
 # Eli Schwartz <eschwartz@gentoo.org> (2024-08-15)
 # Abandoned upstream since 2011, unmaintained in gentoo since 2017. Tons of
 # patches, breaks again with GCC 14. Severe QA issues, automagic dependencies,
