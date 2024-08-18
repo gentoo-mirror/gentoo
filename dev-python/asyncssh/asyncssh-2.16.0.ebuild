@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	virtual/openssh
 	>=dev-python/cryptography-39.0[${PYTHON_USEDEP}]
-	>=dev-python/typing-extensions-3.6[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.0.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -32,17 +32,18 @@ BDEPEND="
 		>=dev-python/gssapi-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/libnacl-1.4.2[${PYTHON_USEDEP}]
 		>=dev-python/pyopenssl-23.0.0[${PYTHON_USEDEP}]
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 	)
 "
-
-PATCHES=(
-	# https://github.com/ronf/asyncssh/issues/616
-	"${FILESDIR}/${P}-py313.patch"
-)
 
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
+
+python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest -p rerunfailures --reruns=5
+}
 
 pkg_postinst() {
 	optfeature "OpenSSH private key encryption support" ">=dev-python/bcrypt-3.1.3"
