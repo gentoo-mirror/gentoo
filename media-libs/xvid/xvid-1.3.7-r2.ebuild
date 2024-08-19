@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN="${PN}core"
 MY_P="${MY_PN}-${PV}"
@@ -10,21 +10,22 @@ inherit flag-o-matic multilib-minimal
 DESCRIPTION="High performance/quality MPEG-4 video de-/encoding solution"
 HOMEPAGE="https://labs.xvid.com/source/ https://www.xvid.org/"
 SRC_URI="https://downloads.xvid.com/downloads/${MY_P}.tar.bz2"
+S="${WORKDIR}/${MY_PN}/build/generic"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="examples pic +threads"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="examples"
 
 NASM=">=dev-lang/nasm-2"
 YASM=">=dev-lang/yasm-1"
 
 BDEPEND="sys-apps/grep"
-DEPEND="amd64? ( || ( ${YASM} ${NASM} ) )
+DEPEND="
+	amd64? ( || ( ${YASM} ${NASM} ) )
 	x86? ( || ( ${YASM} ${NASM} ) )
-	x64-macos? ( ${NASM} )"
-
-S="${WORKDIR}/${MY_PN}/build/generic"
+	x64-macos? ( ${NASM} )
+"
 
 src_prepare() {
 	default
@@ -48,10 +49,12 @@ src_prepare() {
 multilib_src_configure() {
 	use sparc && append-cflags -mno-vis #357149
 
-	local myconf=( $(use_enable threads pthread) )
-	if use pic || [[ ${ABI} == "x32" ]] ; then #421841
-		myconf+=( --disable-assembly )
-	fi
+	local myconf=(
+		--enable-pthread
+		# On x86, only available for mmx+sse2 and non-PIC.
+		# Not worth it.
+		--disable-assembly
+	)
 
 	econf "${myconf[@]}"
 }
