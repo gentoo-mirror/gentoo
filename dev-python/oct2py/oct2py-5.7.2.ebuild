@@ -3,8 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=hatchling
+PYTHON_COMPAT=( python3_{10..12} )
+
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python to GNU Octave bridge"
@@ -21,13 +22,15 @@ IUSE="examples"
 RDEPEND="
 	>=dev-python/numpy-1.12[${PYTHON_USEDEP}]
 	>=dev-python/octave-kernel-0.34.0[${PYTHON_USEDEP}]
-	>=dev-python/scipy-0.17[${PYTHON_USEDEP}]"
+	>=dev-python/scipy-0.17[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
 		dev-python/ipython[${PYTHON_USEDEP}]
 		dev-python/nbconvert[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 EPYTEST_DESELECT=(
 	# No graphics toolkit available: 743589
