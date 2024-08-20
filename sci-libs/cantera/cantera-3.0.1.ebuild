@@ -16,7 +16,7 @@ SRC_URI="https://github.com/Cantera/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="fortran hdf5 lapack +python test"
 RESTRICT="!test? ( test )"
 
@@ -66,8 +66,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}_env.patch"
-	"${FILESDIR}/${P}_enable_python-3.12.patch"
+	"${FILESDIR}/${PN}-3.0.0_env.patch"
 )
 
 pkg_setup() {
