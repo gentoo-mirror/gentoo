@@ -69,6 +69,13 @@ BDEPEND="
 # https://github.com/oracle/dtrace-utils/issues/80
 DEPEND+=" dev-debug/valgrind"
 
+QA_PRESTRIPPED="
+	usr/.*/dtrace/testsuite/test/triggers/.*
+"
+QA_FLAGS_IGNORED="
+	usr/.*/dtrace/testsuite/test/triggers/.*
+"
+
 pkg_pretend() {
 	# TODO: optional kernel patches
 
@@ -79,6 +86,7 @@ pkg_pretend() {
 
 	# Tracing
 	CONFIG_CHECK+=" ~FTRACE_SYSCALLS ~UPROBE_EVENTS ~DYNAMIC_FTRACE ~FUNCTION_TRACER"
+	CONFIG_CHECK+=" ~FPROBE"
 
 	# https://gcc.gnu.org/PR84052
 	CONFIG_CHECK+=" !GCC_PLUGIN_RANDSTRUCT"
