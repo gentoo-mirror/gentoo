@@ -183,11 +183,6 @@ app-accessibility/epos
 # and works better for merging PRs. Removal on 2024-08-21.
 dev-perl/Gentoo-App-Pram
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2024-07-21)
-# No more revdeps after net-libs/telepathy-accounts-signon last-rites.
-# Removal on 2024-08-20.
-net-libs/libsignon-glib
-
 # Hans de Graaff <graaff@gentoo.org> (2024-07-21)
 # Obsolete slots that are no longer used by any cucumber
 # version. Removal on 2024-08-21.
@@ -195,32 +190,6 @@ dev-util/cucumber-core:10
 dev-util/cucumber-cucumber-expressions:16
 dev-util/cucumber-gherking:22
 dev-util/cucumber-html-formatter:20
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-07-20)
-# EAPI=6, fails to apply patch during src_prepare.
-# Removal on 2024-08-19.  Bugs #936398, #908957, #908959.
-media-video/raspberrypi-omxplayer
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-07-19)
-# EAPI=6 games. Feel free to drop any package after bumping it's EAPI.
-# Removal on 2024-08-18.  Bug #936299.
-games-arcade/sdl-sopwith
-games-arcade/syobon
-games-arcade/wop
-games-mud/crystal
-games-mud/gmudix
-games-mud/kildclient
-games-puzzle/color-lines
-games-puzzle/hangman
-games-puzzle/scramble
-games-puzzle/zaz
-games-simulation/cannonsmash
-games-strategy/crimson
-
-# Hans de Graaff <graaff@gentoo.org> (2024-07-17)
-# Obsolete slot. Please use a newer slot instead. No reverse
-# dependencies left. Removal on 2024-08-17.
-dev-ruby/rmagick:4
 
 # Leonardo Hernández Hernández <leohdz172@proton.me> (2024-07-07)
 # New major ffmpeg version. Tracker bug #928905.
