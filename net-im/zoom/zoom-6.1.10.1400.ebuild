@@ -13,10 +13,10 @@ S="${WORKDIR}/${PN}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="-* ~amd64"
-IUSE="+bundled-qt opencl pulseaudio wayland"
+IUSE="+bundled-qt opencl pulseaudio wayland +zoom-symlink"
 RESTRICT="mirror bindist strip"
 
-RDEPEND="!games-engines/zoom
+RDEPEND="zoom-symlink? ( !games-engines/zoom )
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	app-crypt/mit-krb5
 	dev-libs/expat
@@ -104,7 +104,7 @@ src_install() {
 	doins -r calendar cef chatapp email json ringtone scheduler sip \
 		timezones translations
 	doins *.pcm Embedded.properties version.txt
-	doexe zoom zopen ZoomLauncher *.sh \
+	doexe zoom zopen ZoomLauncher ZoomWebviewHost *.sh \
 		aomhost libaomagent.so libdvf.so libmkldnn.so \
 		libavcodec.so* libavformat.so* libavutil.so* libswresample.so*
 	fperms a+x /opt/zoom/cef/chrome-sandbox
@@ -133,7 +133,7 @@ src_install() {
 				plugins/platforms/libqeglfs.so \
 				plugins/platforms/libqlinuxfb.so \
 				plugins/platformthemes/libqgtk3.so \
-				qml/QtQml/RemoteObjects \
+				qml/Qt/labs/lottieqt qml/QtQml/RemoteObjects \
 				qml/QtQuick/LocalStorage qml/QtQuick/Particles.2 \
 				qml/QtQuick/Scene2D qml/QtQuick/Scene3D \
 				qml/QtQuick/XmlListModel || die
@@ -150,7 +150,8 @@ src_install() {
 		fi
 	fi
 
-	dosym -r /opt/zoom/ZoomLauncher /usr/bin/zoom
+	use zoom-symlink && dosym -r /opt/zoom/ZoomLauncher /usr/bin/zoom
+
 	make_desktop_entry "zoom %U" Zoom videoconference-zoom \
 		"Network;VideoConference;" \
 		"MimeType=$(printf '%s;' \
