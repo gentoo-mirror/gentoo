@@ -38,8 +38,14 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
+# Fixes for the JUCE issues the latter 3 patches work around have been
+# submitted upstream, but have not been merged yet:
+# https://github.com/juce-framework/JUCE/pull/1239
 PATCHES=(
 	"${FILESDIR}/${P}-tests.patch"
+	"${FILESDIR}/${P}-Patch-out-use-of-execinfo.h.patch"
+	"${FILESDIR}/${P}-Patch-out-use-of-stat64.patch"
+	"${FILESDIR}/${P}-Patch-out-uses-of-nl_langinfo-for-musl.patch"
 )
 
 src_configure() {
