@@ -3,24 +3,29 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..12} pypy3 )
 
 inherit autotools linux-info python-single-r1
 
 DESCRIPTION="Linux trace/probe tool"
 HOMEPAGE="https://sourceware.org/systemtap/"
-SRC_URI="https://sourceware.org/ftp/${PN}/releases/${P}.tar.gz"
+if [[ ${PV} == 9999 ]] ; then
+	EGIT_REPO_URI="https://sourceware.org/git/systemtap.git"
+	inherit git-r3
+else
+	SRC_URI="https://sourceware.org/ftp/${PN}/releases/${P}.tar.gz"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE="libvirt selinux sqlite +ssl test zeroconf"
+IUSE="debuginfod libvirt selinux sqlite +ssl test zeroconf"
 
 CDEPEND="
 	${PYTHON_DEPS}
 
 	dev-libs/boost:=
-	>=dev-libs/elfutils-0.142
+	>=dev-libs/elfutils-0.142[debuginfod?]
 	dev-libs/json-c:=
 	sys-libs/ncurses:=
 	sys-libs/readline:=
@@ -49,7 +54,16 @@ RDEPEND="
 	acct-group/stapsys
 	acct-group/stapusr
 "
-BDEPEND="test? ( dev-util/dejagnu )"
+BDEPEND="
+	test? (
+		dev-util/dejagnu
+		|| (
+			net-analyzer/netcat
+			net-analyzer/openbsd-netcat
+		)
+		sys-apps/which
+	)
+"
 
 CONFIG_CHECK="~KPROBES ~RELAY ~DEBUG_FS"
 ERROR_KPROBES="${PN} requires support for KProbes Instrumentation (KPROBES) - this can be enabled in 'Instrumentation Support -> Kprobes'."
@@ -72,20 +86,12 @@ src_prepare() {
 	python_fix_shebang .
 
 	sed -i \
-		-e 's|-Werror||g' \
-		configure.ac \
-		Makefile.am \
-		stapbpf/Makefile.am \
-		stapdyn/Makefile.am \
-		staprun/Makefile.am \
-		testsuite/systemtap.unprivileged/unprivileged_probes.exp \
-		testsuite/systemtap.unprivileged/unprivileged_myproc.exp \
-		testsuite/systemtap.base/stmt_rel_user.exp \
-		testsuite/systemtap.base/sdt_va_args.exp \
-		testsuite/systemtap.base/sdt_misc.exp \
-		testsuite/systemtap.base/sdt.exp \
-		scripts/kprobes_test/gen_code.py \
-		|| die "Failed to clean up sources"
+		-e 's#$(INSTALL_DATA) $(srcdir)/stap-exporter.options "$(DESTDIR)$(sysconfdir)/sysconfig/stap-exporter"##g' \
+		stap-exporter/Makefile.am || die "Failed to modify stap-exporter Makefile.am"
+	sed -i \
+		-e '\#^EnvironmentFile=-/etc/sysconfig/stap-exporter#d' \
+		-e 's#$PORT $KEEPALIVE $SCRIPTS $OPTIONS#--port 9900 --keepalive 300#g' \
+		stap-exporter/stap-exporter.service || die "Failed to adapt stap-exporter.service"
 
 	default
 	eautoreconf
@@ -93,10 +99,12 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
+		--cache-file="${S}"/config.cache
 		--disable-docs
 		--disable-grapher
 		--disable-refdocs
 		--disable-server
+		--disable-Werror
 		# Our toolchain sets this for us already and adding in
 		# -D_FORTIFY_SOURCE=2 breaks builds w/ no optimisation.
 		# This option (at least as of 4.5) doesn't pass -fno* etc,
@@ -114,11 +122,12 @@ src_configure() {
 		--without-rpm
 		$(use_enable libvirt virt)
 		$(use_enable sqlite)
+		$(use_with debuginfod)
 		$(use_with zeroconf avahi)
 		$(use_with ssl nss)
 		$(use_with selinux)
 	)
-	PYTHON3="${PYTHON}" econf "${myeconfargs[@]}"
+	CONFIG_SHELL="${BROOT}"/bin/bash PYTHON3="${PYTHON}" econf "${myeconfargs[@]}"
 }
 
 src_install() {
