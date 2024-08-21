@@ -3561,7 +3561,6 @@ kde-apps/kde-apps-meta:sdk - Pull in developer-specific meta-packages
 kde-apps/kde-apps-meta:utils - Pull in kde-apps/kdeutils-meta packages
 kde-apps/kdeadmin-meta:cron - Installs KDE application for virtual/cron configuration
 kde-apps/kdecore-meta:share - Install kde-frameworks/purpose for share file context menu actions in kde-apps/dolphin
-kde-apps/kdecore-meta:thumbnail - Install kde-apps/ffmpegthumbs and kde-apps/thumbnailers for thumbnail generation in kde-apps/dolphin
 kde-apps/kdecore-meta:webengine - Enable www-client/falkon which depends on dev-qt/qtwebengine
 kde-apps/kdeedu-meta:webengine - Enable packages requiring dev-qt/qtwebengine
 kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/opencolorio
@@ -3611,7 +3610,6 @@ kde-apps/ksystemlog:kdesu - Run as root using kdesu from kde-plasma/kde-cli-tool
 kde-apps/ktouch:X - Enable support for X11 Keyboard Layout Detection
 kde-apps/kwave:qtmedia - Enable playback via Qt5Multimedia
 kde-apps/libkcddb:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
-kde-apps/libkcompactdisc:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libkdepim:designer - Build plugins for dev-qt/designer
 kde-apps/libkgapi:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-apps/libkleo:fancyviewer - Use kde-apps/kpimtextedit for an improved audit log viewer
@@ -3639,7 +3637,9 @@ kde-apps/pimcommon:designer - Build plugins for dev-qt/designer
 kde-apps/spectacle:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/step:qalculate - Enable the libqalculate library for unit conversion
 kde-apps/thumbnailers:blender - Enable blender thumbnail generation using kde-frameworks/karchive
+kde-apps/thumbnailers:gettext - Enable PO file thumbnail generation using kde-apps/kdesdk-thumbnailers
 kde-apps/thumbnailers:mobi - Enable mobipocket thumbnail generation using kde-apps/kdegraphics-mobipocket
+kde-apps/thumbnailers:video - Enable video thumbnail generation using kde-apps/ffmpegthumbs
 kde-apps/umbrello:php - Enable PHP import support using dev-util/kdevelop and dev-util/kdevelop-pg-qt
 kde-apps/yakuake:absolute-position - Use kde-plasma/kwayland for absolute window positioning in KWin
 kde-frameworks/baloo:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
