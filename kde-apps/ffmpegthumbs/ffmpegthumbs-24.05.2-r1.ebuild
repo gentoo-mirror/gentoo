@@ -20,8 +20,16 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 	media-video/ffmpeg:0=
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/${PN}-common-${PV}
+"
 BDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	virtual/pkgconfig
 "
+
+# Shipped by kde-apps/ffmpegthumbs-common package for shared use w/ SLOT 5
+ECM_REMOVE_FROM_INSTALL=(
+	/usr/share/config.kcfg/ffmpegthumbnailersettings5.kcfg
+	/usr/share/metainfo/org.kde.ffmpegthumbs.metainfo.xml
+)

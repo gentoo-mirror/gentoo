@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoff"
 ECM_TEST="true"
 KFMIN=6.3.0
 QTMIN=6.6.2
@@ -11,7 +11,7 @@ inherit ecm gear.kde.org
 
 DESCRIPTION="KDE library for CDDB"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2 )"
+LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="musicbrainz"
@@ -31,19 +31,25 @@ DEPEND="
 	musicbrainz? ( media-libs/musicbrainz:5 )
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	>=kde-apps/libkcddb-common-${PV}
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 
+# Shipped by kde-apps/libkcddb-common package for shared use w/ SLOT 5
+ECM_REMOVE_FROM_INSTALL=(
+	/usr/share/applications/kcm_cddb.desktop
+	/usr/share/config.kcfg/libkcddb5.kcfg
+)
+
 src_prepare() {
 	ecm_src_prepare
-	use handbook || cmake_run_in kcmcddb cmake_comment_add_subdirectory doc
+	ecm_punt_po_install
+	cmake_run_in kcmcddb cmake_comment_add_subdirectory doc
 }
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package musicbrainz MusicBrainz5)
 	)
-
 	ecm_src_configure
 }

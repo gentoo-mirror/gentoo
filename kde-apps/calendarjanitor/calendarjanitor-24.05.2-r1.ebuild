@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional" # FIXME: Check back for doc in release
+ECM_HANDBOOK="forceoff"
 ECM_TEST="false"
 KDE_ORG_NAME="akonadi-calendar-tools"
 PVCUT=$(ver_cut 1-3)
@@ -13,7 +13,7 @@ inherit ecm gear.kde.org
 
 DESCRIPTION="Tool to scan calendar data for buggy instances"
 
-LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
+LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64"
 IUSE=""
@@ -29,11 +29,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-loggingcategory.patch" )
+
 src_prepare() {
 	ecm_src_prepare
-
 	cmake_comment_add_subdirectory doc konsolekalendar
-	sed -i -e "/console\.categories/ s/^/#DONT/" CMakeLists.txt || die
 
 	# delete colliding konsolekalendar translations
 	rm -f po/*/konsolekalendar.po || die

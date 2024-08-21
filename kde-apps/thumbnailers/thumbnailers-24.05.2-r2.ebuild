@@ -9,12 +9,13 @@ HOMEPAGE="https://apps.kde.org/kdegraphics_thumbnailers/"
 LICENSE="metapackage"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="blender mobi pdf raw" # video
+IUSE="blender gettext mobi pdf raw video"
 
 RDEPEND="
 	blender? ( >=media-gfx/kio-blender-thumbnailer-${PV}:6 )
+	gettext? ( >=kde-apps/kdesdk-thumbnailers-${PV}:6 )
 	mobi? ( >=media-gfx/kio-mobi-thumbnailer-${PV}:6 )
 	pdf? ( >=media-gfx/kio-ps-thumbnailer-${PV}:6 )
 	raw? ( >=media-gfx/kio-raw-thumbnailer-${PV}:6 )
+	video? ( >=kde-apps/ffmpegthumbs-${PV}:6 )
 "
-#	video? ( >=kde-apps/ffmpegthumbs-${PV}:6 )

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
+ECM_HANDBOOK="forceoff"
 ECM_TEST="optional"
 KDE_ORG_CATEGORY="network"
 KFMIN=5.106.0
@@ -34,13 +34,24 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	kde-apps/kaccounts-providers:*
-	kf6compat? ( kde-misc/kio-gdrive:6 )
+	${CATEGORY}/${PN}-common
 "
 BDEPEND="dev-util/intltool"
 
 DOCS=( README.md )
 
+ECM_REMOVE_FROM_INSTALL=(
+	/usr/share/accounts/services/kde/google-drive.service
+	/usr/share/metainfo/org.kde.kio_gdrive.metainfo.xml
+	/usr/share/remoteview/gdrive-network.desktop
+)
+
 PATCHES=( "${FILESDIR}/${P}-kaccounts-integration-24.02.patch" )
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_po_install
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -52,16 +63,7 @@ src_configure() {
 src_install() {
 	ecm_src_install
 
-	if use kf6compat; then
-		rm "${D}"/usr/share/accounts/services/kde/google-drive.service \
-			"${D}"/usr/share/metainfo/org.kde.kio_gdrive.metainfo.xml \
-			"${D}"/usr/share/remoteview/gdrive-network.desktop || die
-		if use handbook; then
-			rm -r "${D}"/usr/share/help || die
-		fi
-		if use share; then
-			rm -r "${D}"/usr/share/purpose/purpose_gdrive_config.qml || die
-		fi
-		rm -r "${D}"/usr/share/locale || die
+	if use kf6compat && use share; then
+		rm -r "${D}"/usr/share/purpose/purpose_gdrive_config.qml || die
 	fi
 }

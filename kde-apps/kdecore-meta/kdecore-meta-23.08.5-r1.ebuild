@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="amd64 arm64 ~loong ~ppc64 x86"
-IUSE="+handbook +share +thumbnail +webengine"
+IUSE="+handbook +share +webengine"
 
 RDEPEND="
 	>=kde-apps/dolphin-${PV}:5
@@ -27,8 +27,4 @@ RDEPEND="
 # Optional runtime deps: kde-apps/dolphin
 RDEPEND="${RDEPEND}
 	share? ( kde-frameworks/purpose:5 )
-	thumbnail? (
-		>=kde-apps/ffmpegthumbs-${PV}:5
-		>=kde-apps/thumbnailers-${PV}:5
-	)
 "

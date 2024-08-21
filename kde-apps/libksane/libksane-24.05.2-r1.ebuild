@@ -24,8 +24,18 @@ DEPEND="
 	kwallet? ( >=kde-frameworks/kwallet-${KFMIN}:6 )
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	>=kde-apps/libksane-common-${PV}
 "
+
+# Shipped by kde-apps/libksane-common package for shared use w/ SLOT 5
+ECM_REMOVE_FROM_INSTALL=(
+	/usr/share/icons/hicolor/16x16/actions
+)
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_po_install
+}
 
 src_configure() {
 	local mycmakeargs=(

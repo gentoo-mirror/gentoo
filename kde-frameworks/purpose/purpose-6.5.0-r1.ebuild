@@ -35,10 +35,12 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
 	>=kde-frameworks/kdeclarative-${PVCUT}:6
 	bluetooth? ( =kde-frameworks/bluez-qt-${PVCUT}*:6 )
-	webengine? ( >=net-libs/accounts-qml-0.7_p20231028[qt6] )
+	webengine? (
+		>=kde-frameworks/purpose-kaccounts-services-${PVCUT}
+		>=net-libs/accounts-qml-0.7_p20231028[qt6]
+	)
 "
 BDEPEND="webengine? ( dev-util/intltool )"
 
@@ -55,6 +57,14 @@ src_configure() {
 	)
 
 	ecm_src_configure
+}
+
+src_install() {
+	# Shipped by kde-frameworks/purpose-kaccounts-services package for shared use w/ SLOT 5
+	use webengine && ECM_REMOVE_FROM_INSTALL=(
+		/usr/share/accounts/services/kde/{google-youtube,nextcloud-upload}.service
+	)
+	ecm_src_install
 }
 
 pkg_postinst() {

@@ -22,9 +22,7 @@ DEPEND="
 	>=media-libs/phonon-4.12.0[qt6]
 	alsa? ( media-libs/alsa-lib )
 "
-RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

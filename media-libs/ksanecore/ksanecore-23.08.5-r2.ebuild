@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=5.106.0
+QTMIN=5.15.9
 inherit ecm gear.kde.org
 
 DESCRIPTION="Qt-based interface for SANE library to control scanner hardware"
@@ -12,14 +12,20 @@ HOMEPAGE="https://invent.kde.org/libraries/ksanecore
 https://api.kde.org/ksanecore/html/index.html"
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 )"
-SLOT="6"
+SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui]
-	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=dev-qt/qtgui-${QTMIN}:5
+	>=kde-frameworks/ki18n-${KFMIN}:5
 	media-gfx/sane-backends
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	${CATEGORY}/${PN}-common
 "
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_po_install
+}

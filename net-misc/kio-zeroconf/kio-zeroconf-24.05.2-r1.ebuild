@@ -23,5 +23,15 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	>=net-misc/${PN}-common-${PV}
 "
+
+# Shipped by net-misc/kio-zeroconf-common package for shared use w/ SLOT 5
+ECM_REMOVE_FROM_INSTALL=(
+	/usr/share/dbus-1/interfaces/org.kde.kdnssd.xml
+)
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_po_install
+}

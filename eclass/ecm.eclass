@@ -84,8 +84,8 @@ fi
 
 # @ECLASS_VARIABLE: ECM_HANDBOOK
 # @DESCRIPTION:
-# Will accept "true", "false", "optional", "forceoptional". If set to "false",
-# do nothing.
+# Will accept "true", "false", "optional", "forceoptional", "forceoff".
+# If set to "false" (default), do nothing.
 # Otherwise, add "+handbook" to IUSE, add the appropriate dependency, and let
 # KF${_KFSLOT}DocTools generate and install the handbook from docbook file(s)
 # found in ECM_HANDBOOK_DIR. However if !handbook, disable build of
@@ -121,6 +121,15 @@ if [[ ${CATEGORY} = kde-frameworks ]]; then
 	: "${ECM_QTHELP:=true}"
 fi
 : "${ECM_QTHELP:=false}"
+
+# @ECLASS_VARIABLE: ECM_REMOVE_FROM_INSTALL
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Array of <paths> to remove from install image.
+if [[ ${ECM_REMOVE_FROM_INSTALL} ]]; then
+	[[ ${ECM_REMOVE_FROM_INSTALL@a} == *a* ]] ||
+		die "ECM_REMOVE_FROM_INSTALL must be an array"
+fi
 
 # @ECLASS_VARIABLE: ECM_TEST
 # @DEFAULT_UNSET
@@ -233,7 +242,7 @@ case ${ECM_HANDBOOK} in
 		IUSE+=" +handbook"
 		BDEPEND+=" handbook? ( >=kde-frameworks/kdoctools-${KFMIN}:${_KFSLOT} )"
 		;;
-	false) ;;
+	false|forceoff) ;;
 	*)
 		eerror "Unknown value for \${ECM_HANDBOOK}"
 		die "Value ${ECM_HANDBOOK} is not supported"
@@ -446,6 +455,25 @@ ecm_punt_bogus_dep() {
 	fi
 }
 
+# @FUNCTION: _ecm_punt_kdoctools_install
+# @INTERNAL
+# @DESCRIPTION:
+# Disables kdoctools_install(po) call.
+_ecm_punt_kdoctools_install() {
+	sed -e "s/^ *kdoctools_install.*(po.*)/#& # disabled by ecm.eclass/" \
+		-i CMakeLists.txt || die
+}
+
+# @FUNCTION: ecm_punt_po_install
+# @DESCRIPTION:
+# Disables handling of po subdirectories, typically when the package
+# is outsourcing common files to a ${PN}-common split package.
+ecm_punt_po_install() {
+	_ecm_punt_kdoctools_install
+	sed -e "s/^ *ki18n_install.*(po.*)/#& # disabled by ecm.eclass/" \
+		-i CMakeLists.txt || die
+}
+
 # @FUNCTION: ecm_pkg_pretend
 # @DESCRIPTION:
 # Checks if the active compiler meets the minimum version requirements.
@@ -478,13 +506,16 @@ ecm_src_prepare() {
 	fi
 
 	# only enable handbook when required
-	if in_iuse handbook && ! use handbook ; then
+	if [[ ${ECM_HANDBOOK} == forceoff ]] ||
+		{ [[ ${ECM_HANDBOOK} = forceoptional ]] && in_iuse handbook && ! use handbook; }
+	then
+		ecm_punt_kf_module DocTools
+		_ecm_punt_kdoctools_install
+	fi
+	if [[ ${ECM_HANDBOOK} == forceoff ]] ||
+		{ in_iuse handbook && ! use handbook; }
+	then
 		cmake_comment_add_subdirectory ${ECM_HANDBOOK_DIR}
-
-		if [[ ${ECM_HANDBOOK} = forceoptional ]] ; then
-			ecm_punt_kf_module DocTools
-			sed -i -e "/kdoctools_install/I s/^/#DONT/" CMakeLists.txt || die
-		fi
 	fi
 
 	# drop translations when nls is not wanted
@@ -657,9 +688,9 @@ ecm_src_install() {
 
 	cmake_src_install
 
+	local f
 	# bug 621970
 	if [[ -d "${ED}"/usr/share/applications ]]; then
-		local f
 		for f in "${ED}"/usr/share/applications/*.desktop; do
 			if [[ -x ${f} ]]; then
 				einfo "Removing executable bit from ${f#${ED}}"
@@ -694,6 +725,10 @@ ecm_src_install() {
 			popd > /dev/null || die
 		fi
 	fi
+
+	for f in "${ECM_REMOVE_FROM_INSTALL[@]}"; do
+		rm -r "${ED}"${f} || die
+	done
 }
 
 # @FUNCTION: ecm_pkg_preinst
