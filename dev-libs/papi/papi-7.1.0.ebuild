@@ -15,15 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	dev-libs/libpfm[static-libs]
+	>=dev-libs/libpfm-4.13.0[static-libs]
 	virtual/mpi
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.0.0.1-configure-clang16.patch
-	"${FILESDIR}"/${PN}-6.0.0.1-configure-c99.patch
-)
 
 src_prepare() {
 	default
