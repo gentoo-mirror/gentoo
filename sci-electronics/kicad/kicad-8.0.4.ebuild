@@ -88,7 +88,6 @@ pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 
 	python-single-r1_pkg_setup
-	setup-wxwidgets
 	check-reqs_pkg_setup
 }
 
@@ -132,6 +131,7 @@ src_configure() {
 		-DKICAD_BUILD_QA_TESTS="$(usex test)"
 	)
 
+	setup-wxwidgets
 	cmake_src_configure
 }
 
@@ -148,7 +148,6 @@ src_test() {
 	ln -s "${BUILD_DIR}/eeschema/_eeschema.kiface" "${BUILD_DIR}/qa/eeschema/_eeschema.kiface" || die
 
 	export CMAKE_SKIP_TESTS=(
-		qa_pcbnew
 		qa_cli
 	)
 
