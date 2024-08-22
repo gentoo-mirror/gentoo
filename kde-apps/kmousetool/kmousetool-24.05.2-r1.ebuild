@@ -26,6 +26,7 @@ RDEPEND="
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libX11
 	x11-libs/libXtst
