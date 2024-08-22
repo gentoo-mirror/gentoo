@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://javacc.github.io/javacc/
 INHERIT=java-pkg-2
 IUSE=doc examples source test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm arm64 ppc64 ~x86
 LICENSE=BSD-2
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/javacc/javacc/archive/release_41.tar.gz -> javacc-4.1.tar.gz
 _eclasses_=java-utils-2	b2e92a8220dc7b1bd2062ca11774798a	java-pkg-2	b6d755b4f6afabfd933932be28b46368
-_md5_=8fcbd58ea9bf66eea3128425d529f7f1
+_md5_=0960276e91611b4301ad4e087e15be22
