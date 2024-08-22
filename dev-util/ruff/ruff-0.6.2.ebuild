@@ -20,7 +20,7 @@ CRATES="
 	anstyle-parse@0.2.3
 	anstyle-query@1.0.2
 	anstyle-wincon@3.0.2
-	anstyle@1.0.6
+	anstyle@1.0.8
 	anyhow@1.0.86
 	append-only-vec@0.1.5
 	arc-swap@1.7.1
@@ -35,19 +35,20 @@ CRATES="
 	bumpalo@3.16.0
 	byteorder@1.5.0
 	cachedir@0.3.1
-	camino@1.1.7
+	camino@1.1.9
 	cast@0.3.0
 	castaway@0.2.3
 	cc@1.0.95
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
+	cfg_aliases@0.2.1
 	chic@1.2.2
 	chrono@0.4.38
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.13
-	clap_builder@4.5.13
+	clap@4.5.16
+	clap_builder@4.5.15
 	clap_complete@4.5.2
 	clap_complete_command@0.6.1
 	clap_complete_nushell@4.5.2
@@ -74,7 +75,7 @@ CRATES="
 	crossbeam-utils@0.8.19
 	crossbeam@0.8.4
 	crunchy@0.2.2
-	ctrlc@3.4.4
+	ctrlc@3.4.5
 	darling@0.20.8
 	darling_core@0.20.8
 	darling_macro@0.20.8
@@ -96,7 +97,7 @@ CRATES="
 	etcetera@0.8.0
 	fastrand@2.0.2
 	fern@0.6.2
-	filetime@0.2.23
+	filetime@0.2.24
 	flate2@1.0.28
 	fnv@1.0.7
 	form_urlencoded@1.2.1
@@ -120,7 +121,7 @@ CRATES="
 	ignore@0.4.22
 	imara-diff@0.1.7
 	imperative@1.0.6
-	indexmap@2.3.0
+	indexmap@2.4.0
 	indicatif@0.17.8
 	indoc@2.0.5
 	inotify-sys@0.1.5
@@ -129,7 +130,7 @@ CRATES="
 	insta@1.39.0
 	instant@0.1.12
 	is-docker@0.2.0
-	is-macro@0.3.5
+	is-macro@0.3.6
 	is-terminal@0.4.12
 	is-wsl@0.4.0
 	itertools@0.10.5
@@ -137,11 +138,11 @@ CRATES="
 	itoa@1.0.11
 	jobserver@0.1.32
 	jod-thread@0.1.2
-	js-sys@0.3.69
+	js-sys@0.3.70
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	lazy_static@1.4.0
-	libc@0.2.155
+	libc@0.2.157
 	libcst@1.4.0
 	libcst_derive@1.4.0
 	libmimalloc-sys@0.1.39
@@ -156,12 +157,14 @@ CRATES="
 	matchit@0.8.4
 	memchr@2.7.4
 	mimalloc@0.1.43
+	minicov@0.3.5
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.2
 	mio@0.8.11
 	natord@1.0.9
 	newtype-uuid@1.1.0
 	nix@0.28.0
+	nix@0.29.0
 	nom@7.1.3
 	notify@6.1.1
 	nu-ansi-term@0.46.0
@@ -171,7 +174,7 @@ CRATES="
 	once_cell@1.19.0
 	oorandom@11.1.3
 	option-ext@0.2.0
-	ordermap@0.5.1
+	ordermap@0.5.2
 	os_str_bytes@7.0.0
 	overload@0.1.1
 	parking_lot@0.12.3
@@ -208,6 +211,7 @@ CRATES="
 	rayon-core@1.12.1
 	rayon@1.10.0
 	redox_syscall@0.4.1
+	redox_syscall@0.5.3
 	redox_users@0.4.5
 	regex-automata@0.1.10
 	regex-automata@0.4.6
@@ -231,13 +235,13 @@ CRATES="
 	scopeguard@1.2.0
 	seahash@4.1.0
 	serde-wasm-bindgen@0.6.5
-	serde@1.0.204
-	serde_derive@1.0.204
+	serde@1.0.208
+	serde_derive@1.0.208
 	serde_derive_internals@0.29.0
-	serde_json@1.0.122
+	serde_json@1.0.125
 	serde_repr@0.1.19
 	serde_spanned@0.6.7
-	serde_test@1.0.176
+	serde_test@1.0.177
 	serde_with@3.9.0
 	serde_with_macros@3.9.0
 	sharded-slab@0.1.7
@@ -253,9 +257,9 @@ CRATES="
 	strum@0.26.3
 	strum_macros@0.26.4
 	subtle@2.5.0
-	syn@2.0.72
+	syn@2.0.75
 	synstructure@0.13.1
-	tempfile@3.11.0
+	tempfile@3.12.0
 	terminal_size@0.3.0
 	terminfo@0.8.0
 	test-case-core@3.3.1
@@ -294,7 +298,7 @@ CRATES="
 	unicode_names2_generator@1.2.2
 	unscanny@0.1.0
 	untrusted@0.9.0
-	ureq@2.10.0
+	ureq@2.10.1
 	url@2.5.2
 	utf8parse@0.2.1
 	uuid-macro-internal@1.10.0
@@ -306,14 +310,14 @@ CRATES="
 	vte_generate_state_changes@0.1.1
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.92
-	wasm-bindgen-futures@0.4.42
-	wasm-bindgen-macro-support@0.2.92
-	wasm-bindgen-macro@0.2.92
-	wasm-bindgen-shared@0.2.92
-	wasm-bindgen-test-macro@0.3.42
-	wasm-bindgen-test@0.3.42
-	wasm-bindgen@0.2.92
+	wasm-bindgen-backend@0.2.93
+	wasm-bindgen-futures@0.4.43
+	wasm-bindgen-macro-support@0.2.93
+	wasm-bindgen-macro@0.2.93
+	wasm-bindgen-shared@0.2.93
+	wasm-bindgen-test-macro@0.3.43
+	wasm-bindgen-test@0.3.43
+	wasm-bindgen@0.2.93
 	web-sys@0.3.69
 	web-time@1.1.0
 	webpki-roots@0.26.1
@@ -326,23 +330,24 @@ CRATES="
 	windows-core@0.52.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
+	windows-sys@0.59.0
 	windows-targets@0.48.5
-	windows-targets@0.52.5
+	windows-targets@0.52.6
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.5
+	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.5
+	windows_aarch64_msvc@0.52.6
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.5
-	windows_i686_gnullvm@0.52.5
+	windows_i686_gnu@0.52.6
+	windows_i686_gnullvm@0.52.6
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.5
+	windows_i686_msvc@0.52.6
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.5
+	windows_x86_64_gnu@0.52.6
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.5
+	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.5
+	windows_x86_64_msvc@0.52.6
 	winnow@0.6.18
 	winsafe@0.0.19
 	yansi-term@0.1.2
@@ -358,9 +363,9 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/MichaReiser/salsa;ece083e15b79f155f9e4368ec1318cec9a08d88b;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/MichaReiser/salsa;ece083e15b79f155f9e4368ec1318cec9a08d88b;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/MichaReiser/salsa;ece083e15b79f155f9e4368ec1318cec9a08d88b;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;f608ff8b24f07706492027199f51132244034f29;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;f608ff8b24f07706492027199f51132244034f29;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;f608ff8b24f07706492027199f51132244034f29;salsa-%commit%'
 )
 
 inherit shell-completion cargo
