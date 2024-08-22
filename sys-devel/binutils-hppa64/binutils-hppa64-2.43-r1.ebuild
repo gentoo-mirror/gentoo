@@ -3,6 +3,8 @@
 
 EAPI=7
 
+export CTARGET=hppa64-${CHOST#*-}
+
 inherit libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
 
 DESCRIPTION="Tools necessary to build programs"
@@ -22,12 +24,9 @@ IUSE="cet debuginfod doc gold gprofng hardened multitarget +nls pgo +plugins sta
 PATCH_VER=2
 PATCH_DEV=dilfridge
 
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
 	SLOT=${PV}
-elif [[ ${PV} == *9999 ]]; then
-	inherit git-r3
-	SLOT=$(ver_cut 1-2)
 else
 	PATCH_BINUTILS_VER=${PATCH_BINUTILS_VER:-${PV}}
 	PATCH_DEV=${PATCH_DEV:-dilfridge}
@@ -35,7 +34,7 @@ else
 	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
 		https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="-* ~hppa"
 fi
 
 #
@@ -63,10 +62,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	doc? ( sys-apps/texinfo )
-	pgo? (
-		dev-util/dejagnu
-		app-alternatives/bc
-	)
 	test? (
 		dev-util/dejagnu
 		app-alternatives/bc
@@ -79,18 +74,16 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
-MY_BUILDDIR=${WORKDIR}/build
+MY_BUILDDIR="${WORKDIR}"/build
+S="${WORKDIR}"/${P/-hppa64/}
 
 src_unpack() {
-	if [[ ${PV} == *9999 ]] ; then
+	if [[ ${PV} == 9999* ]] ; then
 		EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/toolchain/binutils-patches.git"
 		EGIT_CHECKOUT_DIR=${WORKDIR}/patches-git
 		git-r3_src_unpack
 		mv patches-git/9999 patch || die
 
-		if [[ ${PV} != 9999 ]] ; then
-			EGIT_BRANCH=binutils-$(ver_cut 1)_$(ver_cut 2)-branch
-		fi
 		EGIT_REPO_URI="https://sourceware.org/git/binutils-gdb.git"
 		S=${WORKDIR}/binutils
 		EGIT_CHECKOUT_DIR=${S}
@@ -114,15 +107,13 @@ src_unpack() {
 
 src_prepare() {
 	local patchsetname
-	if [[ ${PV} == 9999 ]] ; then
+	if [[ ${PV} == 9999* ]] ; then
 		patchsetname="from git master"
-	elif [[ ${PV} == *9999 ]] ; then
-		patchsetname="from git branch ${EGIT_BRANCH}"
 	else
 		patchsetname="${PATCH_BINUTILS_VER}-${PATCH_VER}"
 	fi
 
-	if [[ -n ${PATCH_VER} ]] || [[ ${PV} == *9999 ]] ; then
+	if [[ -n ${PATCH_VER} ]] || [[ ${PV} == 9999* ]] ; then
 		if ! use vanilla; then
 			einfo "Applying binutils patchset ${patchsetname}"
 			eapply "${WORKDIR}/patch"
@@ -130,9 +121,9 @@ src_prepare() {
 
 			# This is applied conditionally for now just out of caution.
 			# It should be okay on non-prefix systems though. See bug #892549.
-			if is_cross || use prefix; then
-				eapply "${FILESDIR}"/binutils-2.43-linker-search-path.patch \
-					   "${FILESDIR}"/binutils-2.43-linker-prefix.patch
+			if [[ ${PN} != binutils-hppa64 ]] && { is_cross || use prefix; } ; then
+				eapply "${FILESDIR}"/binutils-2.40-linker-search-path.patch \
+					   "${FILESDIR}"/binutils-2.41-linker-prefix.patch
 			fi
 		fi
 	fi
@@ -184,6 +175,8 @@ src_configure() {
 	strip-flags
 	use cet && filter-flags -mindirect-branch -mindirect-branch=*
 	use elibc_musl && append-ldflags -Wl,-z,stack-size=2097152
+
+	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
 
 	local x
 	echo
@@ -269,7 +262,7 @@ src_configure() {
 		$(use_with zstd)
 
 		# Disable modules that are in a combined binutils/gdb tree, bug #490566
-		--disable-{gdb,gdbserver,libbacktrace,libdecnumber,readline,sim}
+		--disable-{gdb,libdecnumber,readline,sim}
 		# Strip out broken static link flags: https://gcc.gnu.org/PR56750
 		--without-stage1-ldflags
 		# Change SONAME to avoid conflict across {native,cross}/binutils, binutils-libs. bug #666100
@@ -332,20 +325,11 @@ src_configure() {
 		)
 	fi
 
-	if use test || { use pgo && tc-is-lto ; } ; then
-		# -Wa,* needs to be consistent everywhere or lto-wrapper will complain
-		filter-flags '-Wa,*'
-	fi
-
 	if ! is_cross ; then
-		myconf+=( $(use_enable pgo pgo-build $(tc-is-lto && echo "lto" || echo "yes")) )
+		# No LTO for HPPA64 right now as we don't build kgcc64 with LTO support.
+		myconf+=( $(use_enable pgo pgo-build) )
 
 		if use pgo ; then
-			# We let configure handle it for us because it has to run
-			# the testsuite later on for profiling, and LTO isn't compatible
-			# with the testsuite.
-			filter-lto
-
 			export BUILD_CFLAGS="${CFLAGS}"
 		fi
 	fi
@@ -383,24 +367,10 @@ src_compile() {
 src_test() {
 	cd "${MY_BUILDDIR}" || die
 
-	(
-		# Tests don't expect LTO
-		filter-lto
+	# bug #637066
+	filter-flags -Wall -Wreturn-type
 
-		# lto-wrapper warnings which confuse tests
-		filter-flags '-Wa,*'
-
-		# bug #637066
-		filter-flags -Wall -Wreturn-type
-
-		emake -k check \
-			CFLAGS_FOR_TARGET="${CFLAGS_FOR_TARGET:-${CFLAGS}}" \
-			CXXFLAGS_FOR_TARGET="${CXXFLAGS_FOR_TARGET:-${CXXFLAGS}}" \
-			LDFLAGS_FOR_TARGET="${LDFLAGS_FOR_TARGET:-${LDFLAGS}}" \
-			CFLAGS="${CFLAGS}" \
-			CXXFLAGS="${CXXFLAGS}" \
-			LDFLAGS="${LDFLAGS}"
-	)
+	emake -k check
 }
 
 src_install() {
@@ -431,6 +401,7 @@ src_install() {
 		done
 
 		if [[ -d ${ED}/usr/${CHOST}/${CTARGET} ]] ; then
+			# No die for now, dies on hppa?
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/include "${ED}"/${INCPATH}
 			mv "${ED}"/usr/${CHOST}/${CTARGET}/lib/* "${ED}"/${LIBPATH}/
 			rm -r "${ED}"/usr/${CHOST}/{include,lib}
@@ -450,8 +421,9 @@ src_install() {
 	)
 	doins "${libiberty_headers[@]/#/${S}/include/}"
 	if [[ -d ${ED}/${LIBPATH}/lib ]] ; then
-		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/ || die
-		rm -r "${ED}"/${LIBPATH}/lib || die
+		# TODO: add || die here, fails on hppa?
+		mv "${ED}"/${LIBPATH}/lib/* "${ED}"/${LIBPATH}/
+		rm -r "${ED}"/${LIBPATH}/lib
 	fi
 
 	# Generate an env.d entry for this binutils
@@ -497,12 +469,17 @@ src_install() {
 
 	# Trim all empty dirs
 	find "${ED}" -depth -type d -exec rmdir {} + 2>/dev/null
+
+	# the hppa64 hack; this should go into 9999 as a PN-conditional
+	# tweak the default fake list a little bit
+	cd "${D}"/etc/env.d/binutils
+	sed -i '/FAKE_TARGETS=/s:"$: hppa64-linux":' ${CTARGET}-${PV} || die
 }
 
 pkg_postinst() {
 	# Make sure this ${CTARGET} has a binutils version selected
 	[[ -e ${EROOT}/etc/env.d/binutils/config-${CTARGET} ]] && return 0
-	binutils-config ${CTARGET}-${PV} || eerror binutils-config returned an error
+	binutils-config ${CTARGET}-${PV}
 }
 
 pkg_postrm() {
@@ -519,12 +496,12 @@ pkg_postrm() {
 		choice=${choice//$'\n'/ }
 		choice=${choice/* }
 		if [[ -z ${choice} ]] ; then
-			binutils-config -u ${CTARGET} || eerror binutils-config returned an error
+			binutils-config -u ${CTARGET}
 		else
-			binutils-config ${choice} || eerror binutils-config returned an error
+			binutils-config ${choice}
 		fi
 	elif [[ $(CHOST=${CTARGET} binutils-config -c) == ${CTARGET}-${PV} ]] ; then
-		binutils-config ${CTARGET}-${PV} || eerror binutils-config returned an error
+		binutils-config ${CTARGET}-${PV}
 	fi
 }
 
