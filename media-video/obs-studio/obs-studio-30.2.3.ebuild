@@ -11,8 +11,8 @@ inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
 CEF_DIR="cef_binary_5060_linux_x86_64"
 CEF_REVISION="_v3"
-OBS_BROWSER_COMMIT="996b5a7bc43d912f1f4992e0032d4f263ac8b060"
-OBS_WEBSOCKET_COMMIT="d2d4bfb3e78cf2b02c8e2f5dda1d805eda8d8f32"
+OBS_BROWSER_COMMIT="c710222ec9d7ef9aa5d7099e9019d636e2c89f00"
+OBS_WEBSOCKET_COMMIT="0548c7798a323fe5296c150e13b898a5ee62fc1e"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
 HOMEPAGE="https://obsproject.com"
@@ -54,8 +54,10 @@ BDEPEND="
 "
 # media-video/ffmpeg[opus] required due to bug 909566
 DEPEND="
+	dev-cpp/nlohmann_json
 	dev-libs/glib:2
 	dev-libs/jansson:=
+	dev-libs/uthash
 	dev-qt/qtbase:6[network,widgets,xml(+)]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
@@ -79,7 +81,6 @@ DEPEND="
 			>=app-accessibility/at-spi2-core-2.46.0:2
 			( app-accessibility/at-spi2-atk dev-libs/atk )
 		)
-		dev-cpp/nlohmann_json
 		dev-libs/expat
 		dev-libs/glib
 		dev-libs/nspr
@@ -110,6 +111,7 @@ DEPEND="
 		net-libs/librist
 		net-libs/srt
 	)
+	nvenc? ( >=media-libs/nv-codec-headers-12 )
 	pipewire? ( media-video/pipewire:= )
 	pulseaudio? ( media-libs/libpulse )
 	python? ( ${PYTHON_DEPS} )
@@ -132,12 +134,13 @@ DEPEND="
 	)
 	websocket? (
 		dev-cpp/asio
-		dev-cpp/nlohmann_json
 		dev-cpp/websocketpp
 		dev-libs/qr-code-generator
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	qsv? ( media-libs/intel-mediasdk )
+"
 
 QA_PREBUILT="
 	usr/lib*/obs-plugins/chrome-sandbox
@@ -195,6 +198,7 @@ src_configure() {
 		-DENABLE_FREETYPE=$(usex truetype)
 		-DENABLE_JACK=$(usex jack)
 		-DENABLE_LIBFDK=$(usex fdk)
+		-DENABLE_NATIVE_NVENC=OFF
 		-DENABLE_NEW_MPEGTS_OUTPUT=$(usex mpegts)
 		-DENABLE_PIPEWIRE=$(usex pipewire)
 		-DENABLE_PULSEAUDIO=$(usex pulseaudio)

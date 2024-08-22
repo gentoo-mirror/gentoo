@@ -11,7 +11,7 @@ inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
 CEF_DIR="cef_binary_5060_linux_x86_64"
 CEF_REVISION="_v3"
-OBS_BROWSER_COMMIT="2a2879b5a69f4a99cd7459d8595af46cdb23115c"
+OBS_BROWSER_COMMIT="be9f1b646406d2250b402581b043f1558042d7f0"
 OBS_WEBSOCKET_COMMIT="0548c7798a323fe5296c150e13b898a5ee62fc1e"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
@@ -111,6 +111,7 @@ DEPEND="
 		net-libs/librist
 		net-libs/srt
 	)
+	nvenc? ( >=media-libs/nv-codec-headers-12 )
 	pipewire? ( media-video/pipewire:= )
 	pulseaudio? ( media-libs/libpulse )
 	python? ( ${PYTHON_DEPS} )
@@ -137,7 +138,9 @@ DEPEND="
 		dev-libs/qr-code-generator
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	qsv? ( media-libs/intel-mediasdk )
+"
 
 QA_PREBUILT="
 	usr/lib*/obs-plugins/chrome-sandbox
@@ -195,7 +198,7 @@ src_configure() {
 		-DENABLE_FREETYPE=$(usex truetype)
 		-DENABLE_JACK=$(usex jack)
 		-DENABLE_LIBFDK=$(usex fdk)
-		-DENABLE_NATIVE_NVENC=$(usex nvenc)
+		-DENABLE_NATIVE_NVENC=OFF
 		-DENABLE_NEW_MPEGTS_OUTPUT=$(usex mpegts)
 		-DENABLE_PIPEWIRE=$(usex pipewire)
 		-DENABLE_PULSEAUDIO=$(usex pulseaudio)
