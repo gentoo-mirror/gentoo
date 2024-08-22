@@ -5,7 +5,7 @@ EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
-MY_PV="${PV}_04-May-2020"
+MY_PV="${PV}_14-Nov-2020"
 
 DESCRIPTION="FASTA is a DNA and Protein sequence alignment software package"
 HOMEPAGE="https://fasta.bioch.virginia.edu/fasta_www2/fasta_down.shtml"
@@ -47,8 +47,6 @@ src_prepare() {
 	# https://github.com/wrpearson/fasta36/issues/63
 	filter-lto
 
-	eapply "${FILESDIR}"/${P}-ldflags.patch
-
 	sed \
 		-e 's:-ffast-math::g' \
 		-i make/Makefile* || die
@@ -57,7 +55,7 @@ src_prepare() {
 }
 
 src_compile() {
-	emake -C src -f ../make/Makefile.linux${ALT} CC="${CC_ALT} ${CFLAGS}" HFLAGS="${LDFLAGS} -o" all
+	emake -C src -f ../make/Makefile.linux${ALT} CC="${CC_ALT} ${CFLAGS}" HFLAGS="${LDFLAGS}" all
 }
 
 src_test() {
