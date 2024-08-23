@@ -13,7 +13,7 @@ HOMEPAGE="https://wummel.github.io/patool/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	test? (
@@ -94,7 +94,7 @@ distutils_enable_tests pytest
 src_install() {
 	distutils-r1_src_install
 
-	newdoc doc/README.txt README.md
+	einstalldocs
 	doman doc/patool.1
 }
 
