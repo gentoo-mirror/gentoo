@@ -167,8 +167,8 @@ kernel-build_pkg_setup() {
 
 # @FUNCTION: kernel-build_src_configure
 # @DESCRIPTION:
-# Prepare the toolchain for building the kernel, get the default .config
-# or restore savedconfig, and get build tree configured for modprep.
+# Prepare the toolchain for building the kernel, get the .config file,
+# and get build tree configured for modprep.
 kernel-build_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -243,7 +243,6 @@ kernel-build_src_configure() {
 		MAKEARGS+=( KBZIP2="lbzip2" )
 	fi
 
-	restore_config .config
 	[[ -f .config ]] || die "Ebuild error: please copy default config into .config"
 
 	if [[ -z "${KV_LOCALVERSION}" ]]; then
@@ -594,11 +593,15 @@ kernel-build_pkg_postinst() {
 # @FUNCTION: kernel-build_merge_configs
 # @USAGE: [distro.config...]
 # @DESCRIPTION:
-# Merge the config files specified as arguments (if any) into
-# the '.config' file in the current directory, then merge
-# any user-supplied configs from ${BROOT}/etc/kernel/config.d/*.config.
-# The '.config' file must exist already and contain the base
-# configuration.
+# Merge kernel config files.  The following is merged onto the '.config'
+# file in the current directory, in order:
+#
+# 1. Config files specified as arguments.
+# 2. Default module signing and compression configuration
+#    (if applicable).
+# 3. Config saved via USE=savedconfig (if applicable).
+# 4. Module signing key specified via MODULES_SIGN_KEY* variables.
+# 5. User-supplied configs from ${BROOT}/etc/kernel/config.d/*.config.
 kernel-build_merge_configs() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -613,30 +616,28 @@ kernel-build_merge_configs() {
 
 	local merge_configs=( "${@}" )
 
-	if [[ ${KERNEL_IUSE_MODULES_SIGN} ]]; then
-		if use modules-sign; then
-			: "${MODULES_SIGN_HASH:=sha512}"
-			cat <<-EOF > "${WORKDIR}/modules-sign.config" || die
-				## Enable module signing
-				CONFIG_MODULE_SIG=y
-				CONFIG_MODULE_SIG_ALL=y
-				CONFIG_MODULE_SIG_FORCE=y
-				CONFIG_MODULE_SIG_${MODULES_SIGN_HASH^^}=y
-			EOF
-			if [[ -n ${MODULES_SIGN_KEY_CONTENTS} ]]; then
-				(umask 066 && touch "${T}/kernel_key.pem" || die)
-				echo "${MODULES_SIGN_KEY_CONTENTS}" > "${T}/kernel_key.pem" || die
-				unset MODULES_SIGN_KEY_CONTENTS
-				export MODULES_SIGN_KEY="${T}/kernel_key.pem"
-			fi
-			if [[ ${MODULES_SIGN_KEY} == pkcs11:* || -r ${MODULES_SIGN_KEY} ]]; then
-				echo "CONFIG_MODULE_SIG_KEY=\"${MODULES_SIGN_KEY}\"" \
-					>> "${WORKDIR}/modules-sign.config"
-			elif [[ -n ${MODULES_SIGN_KEY} ]]; then
-				die "MODULES_SIGN_KEY=${MODULES_SIGN_KEY} not found or not readable!"
-			fi
-			merge_configs+=( "${WORKDIR}/modules-sign.config" )
+	if [[ ${KERNEL_IUSE_MODULES_SIGN} ]] && use modules-sign; then
+		: "${MODULES_SIGN_HASH:=sha512}"
+		cat <<-EOF > "${WORKDIR}/modules-sign.config" || die
+			## Enable module signing
+			CONFIG_MODULE_SIG=y
+			CONFIG_MODULE_SIG_ALL=y
+			CONFIG_MODULE_SIG_FORCE=y
+			CONFIG_MODULE_SIG_${MODULES_SIGN_HASH^^}=y
+		EOF
+		if [[ -n ${MODULES_SIGN_KEY_CONTENTS} ]]; then
+			(umask 066 && touch "${T}/kernel_key.pem" || die)
+			echo "${MODULES_SIGN_KEY_CONTENTS}" > "${T}/kernel_key.pem" || die
+			unset MODULES_SIGN_KEY_CONTENTS
+			export MODULES_SIGN_KEY="${T}/kernel_key.pem"
 		fi
+		if [[ ${MODULES_SIGN_KEY} == pkcs11:* || -r ${MODULES_SIGN_KEY} ]]; then
+			echo "CONFIG_MODULE_SIG_KEY=\"${MODULES_SIGN_KEY}\"" \
+				>> "${WORKDIR}/modules-sign-key.config"
+		elif [[ -n ${MODULES_SIGN_KEY} ]]; then
+			die "MODULES_SIGN_KEY=${MODULES_SIGN_KEY} not found or not readable!"
+		fi
+		merge_configs+=( "${WORKDIR}/modules-sign.config" )
 	fi
 
 	# Only semi-related but let's use that to avoid changing stable ebuilds.
@@ -648,6 +649,15 @@ kernel-build_merge_configs() {
 			CONFIG_MODULE_COMPRESS_XZ=y
 		EOF
 		merge_configs+=( "${WORKDIR}/module-compress.config" )
+	fi
+
+	restore_config "${WORKDIR}/savedconfig.config"
+	if [[ -f ${WORKDIR}/savedconfig.config ]]; then
+		merge_configs+=( "${WORKDIR}/savedconfig.config" )
+	fi
+
+	if [[ ${KERNEL_IUSE_MODULES_SIGN} ]] && use modules-sign; then
+		merge_configs+=( "${WORKDIR}/modules-sign-key.config" )
 	fi
 
 	if [[ ${#user_configs[@]} -gt 0 ]]; then
