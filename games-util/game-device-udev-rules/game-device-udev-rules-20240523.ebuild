@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,13 +9,14 @@ inherit linux-info udev
 # also has its own rules and more may be added later so we version it
 # independently.
 
-STEAM_COMMIT="13443480a64fe8f10676606bd57da6de89f8ccb1"
+STEAM_COMMIT="e2971e45063f6b327ccedbf18e168bda6749155c"
 MY_P="steam-devices-${STEAM_COMMIT}"
 
 DESCRIPTION="udev rules for various game hardware devices"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Games
 	https://github.com/ValveSoftware/steam-devices/"
 SRC_URI="https://github.com/ValveSoftware/steam-devices/archive/${STEAM_COMMIT}.tar.gz -> ${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
@@ -32,8 +33,6 @@ RDEPEND="
 	)
 	virtual/udev
 "
-
-S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
 	CONFIG_CHECK="~HIDRAW"
@@ -55,7 +54,7 @@ src_prepare() {
 	local SRC DEST EXTRA
 	for SRC in 60-steam-{input,vr}.rules; do
 		DEST=${SRC//steam/game}
-		EXTRA=${FILESDIR}/${DEST/./-"${PV}".}
+		EXTRA=${FILESDIR}/${DEST/./-20220311.}
 
 		# Make changes in a copy.
 		cp -v "${SRC}" "${DEST}" || die
