@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit meson gnome2-utils python-single-r1 readme.gentoo-r1 virtualx xdg
+inherit meson flag-o-matic gnome2-utils python-single-r1 readme.gentoo-r1 virtualx xdg
 
 DESCRIPTION="A file manager for Cinnamon, forked from Nautilus"
 HOMEPAGE="https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/nemo"
@@ -31,7 +31,7 @@ COMMON_DEPEND="
 	gnome-extra/libgsf:=
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.10.0:3[introspection,wayland=]
+	>=x11-libs/gtk+-3.24.41-r1:3[introspection,wayland?,X]
 	x11-libs/libX11
 	>=x11-libs/pango-1.40.0
 	>=x11-libs/xapp-2.8.4[introspection]
@@ -44,9 +44,6 @@ COMMON_DEPEND="
 	)
 	tracker? (
 		app-misc/tracker:3
-	)
-	wayland? (
-		>=gui-libs/gtk-layer-shell-0.8.0
 	)
 	xmp? (
 		>=media-libs/exempi-2.2.0:=
@@ -115,13 +112,15 @@ src_prepare() {
 }
 
 src_configure() {
+	# defang automagic dependencies
+	use wayland || append-cflags -DGENTOO_GTK_HIDE_WAYLAND
+
 	local emesonargs=(
 		$(meson_use exif)
 		$(meson_use xmp)
 		$(meson_use selinux)
 		$(meson_use tracker)
 		$(meson_use gtk-doc gtk_doc)
-		$(meson_use wayland gtk_layer_shell)
 	)
 	meson_src_configure
 }

@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit meson gnome2-utils python-any-r1 xdg
+inherit meson flag-o-matic gnome2-utils python-any-r1 xdg
 
 DESCRIPTION="Cinnamon's settings daemon"
 HOMEPAGE="https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-settings-daemon"
@@ -28,7 +28,6 @@ RDEPEND="
 	>=sys-auth/polkit-0.97
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-3.14.0:3[wayland=]
 	>=x11-libs/libnotify-0.7.3
 	x11-libs/libX11
 	x11-libs/libXext
@@ -44,8 +43,13 @@ RDEPEND="
 		app-admin/system-config-printer
 		net-print/cups-pk-helper )
 	input_devices_wacom? (
+		>=x11-libs/gtk+-3.24.41-r1:3[wayland?,X]
 		>=dev-libs/libwacom-0.7:=
-		>=gnome-base/librsvg-2.36.2 )
+		>=gnome-base/librsvg-2.36.2
+	)
+	!input_devices_wacom? (
+		>=x11-libs/gtk+-3.14.0:3
+	)
 	smartcard? (
 		dev-libs/nspr
 		>=dev-libs/nss-3.11.2
@@ -71,6 +75,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# The only component that uses gdk backends is the wacom plugin
+	if use input_devices_wacom; then
+		# defang automagic dependencies
+		use wayland || append-cflags -DGENTOO_GTK_HIDE_WAYLAND
+	fi
+
 	# gudev not optional on Linux platforms
 	local emesonargs=(
 		-Duse_gudev=enabled

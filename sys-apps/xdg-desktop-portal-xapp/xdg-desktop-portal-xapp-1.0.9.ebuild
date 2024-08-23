@@ -16,7 +16,6 @@ KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 DEPEND="
 	>=dev-libs/glib-2.44:2
 	>=sys-apps/xdg-desktop-portal-1.5
-	x11-libs/gtk+:3
 "
 RDEPEND="
 	${DEPEND}
@@ -28,6 +27,12 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# Remove orphaned gdk references
+	# https://github.com/linuxmint/xdg-desktop-portal-xapp/commit/b364687b8a696c78f2d3c46e0c45c2dc28e79a33
+	"${FILESDIR}/${PN}-${PV}-remove-gdk-refs.patch"
+)
 
 src_configure() {
 	local emesonargs=(
