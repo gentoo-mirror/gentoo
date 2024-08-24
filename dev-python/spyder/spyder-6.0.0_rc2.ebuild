@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature virtualx xdg
 
 # Commit of documentation to fetch
-DOCS_PV="32efdaebc11dab0b8e0767717342b7d306dc06ea"
+DOCS_PV="6951e02799fc7cd1f29456f1d93cfdcb570dad27"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -61,8 +61,8 @@ RDEPEND="
 	>=dev-python/QtPy-2.4.0[${PYTHON_USEDEP},svg,webengine]
 	>=dev-python/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-3.0.0_beta8[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-3.0.0_beta9[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-3.0.0_beta9[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-3.0.0_beta10[${PYTHON_USEDEP}]
 	>=dev-python/superqt-0.6.2[${PYTHON_USEDEP}]
 	<dev-python/superqt-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
@@ -94,7 +94,6 @@ BDEPEND="
 # This fails because access is denied to this command during build
 PATCHES=(
 	"${FILESDIR}/${PN}-5.0.0-build.patch"
-	"${FILESDIR}/${PN}-5.2.0-doc-theme-renamed.patch"
 )
 
 DOCS=(
@@ -109,10 +108,11 @@ DOCS=(
 )
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs/doc \
-	dev-python/sphinx-panels \
-	dev-python/pydata-sphinx-theme \
-	dev-python/sphinx-multiversion
+# TODO: Package sphinx-design
+# distutils_enable_sphinx docs/doc \
+# 	dev-python/sphinx-panels \
+# 	dev-python/pydata-sphinx-theme \
+# 	dev-python/sphinx-multiversion
 
 python_prepare_all() {
 	# move docs into workdir
