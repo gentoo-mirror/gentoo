@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.open-mpi.org
 INHERIT=cuda flag-o-matic fortran-2 libtool
 IUSE=cma cuda fortran ipv6 peruse romio valgrind openmpi_fabrics_ofed openmpi_fabrics_knem openmpi_rm_pbs openmpi_rm_slurm
-KEYWORDS=~amd64 -arm -ppc ~ppc64 -x86 ~amd64-linux
+KEYWORDS=~amd64 -arm ~arm64 -ppc ~ppc64 -x86 ~amd64-linux
 LICENSE=BSD
 RDEPEND=!sys-cluster/mpich !sys-cluster/mpich2 !sys-cluster/nullmpi >=dev-libs/libevent-2.0.22:=[threads(+)] >=sys-apps/hwloc-2.0.2:= sys-cluster/pmix:= sys-cluster/prrte:= >=sys-libs/zlib-1.2.8-r1 cuda? ( >=dev-util/nvidia-cuda-toolkit-6.5.19-r1:= ) openmpi_fabrics_ofed? ( sys-cluster/rdma-core ) openmpi_fabrics_knem? ( sys-cluster/knem ) openmpi_rm_pbs? ( sys-cluster/torque ) openmpi_rm_slurm? ( sys-cluster/slurm ) fortran? ( virtual/fortran )
 REQUIRED_USE=openmpi_rm_slurm? ( !openmpi_rm_pbs ) openmpi_rm_pbs? ( !openmpi_rm_slurm )
 SLOT=0
 SRC_URI=https://www.open-mpi.org/software/ompi/v5.0/downloads/openmpi-5.0.5.tar.bz2
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	cuda	283d0f298f6c196c755a0f8d50daca85	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	libtool	5f49a16f67f81bdf873e3d1f10b10001
-_md5_=8d09d566ab619aad7b0e705828992c44
+_md5_=10341837cefc3d770ecb98e31ec71c2e
