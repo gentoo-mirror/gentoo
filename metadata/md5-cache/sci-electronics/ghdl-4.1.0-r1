@@ -1,0 +1,16 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) llvm? ( llvm_slot_16? ( sys-devel/llvm:16= ) llvm_slot_17? ( sys-devel/llvm:17= ) )
+DESCRIPTION=Open-source analyzer, compiler, and simulator for VHDL 2008/93/87
+EAPI=8
+HOMEPAGE=https://ghdl.github.io/ghdl/ https://github.com/ghdl/ghdl/
+INHERIT=ada edo llvm-r1 toolchain-funcs
+IUSE=llvm +static-libs ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 +llvm_slot_17 llvm_slot_16
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) llvm? ( llvm_slot_16? ( sys-devel/llvm:16= ) llvm_slot_17? ( sys-devel/llvm:17= ) )
+REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_13 ) llvm? ( static-libs ) ^^ ( llvm_slot_16 llvm_slot_17 )
+SLOT=0
+SRC_URI=https://github.com/ghdl/ghdl/archive/v4.1.0.tar.gz -> ghdl-4.1.0.tar.gz
+_eclasses_=ada	f59e3151d12cf89115ffac32a03e7d31	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0
+_md5_=1ba4f95361ef9ac3205602911a097558
