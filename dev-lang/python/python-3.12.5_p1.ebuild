@@ -2,15 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
-
-LLVM_COMPAT=( 18 )
-LLVM_OPTIONAL=1
 WANT_LIBTOOL="none"
 
-inherit autotools check-reqs flag-o-matic llvm-r1 multiprocessing
-inherit pax-utils python-utils-r1 toolchain-funcs verify-sig
+inherit autotools check-reqs flag-o-matic multiprocessing pax-utils
+inherit python-utils-r1 toolchain-funcs verify-sig
 
-MY_PV=${PV/_beta/b}
+MY_PV=${PV/_rc/rc}
 MY_P="Python-${MY_PV%_p*}"
 PYVER=$(ver_cut 1-2)
 PATCHSET="python-gentoo-patches-${MY_PV}"
@@ -33,10 +30,9 @@ LICENSE="PSF-2"
 SLOT="${PYVER}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="
-	bluetooth build +debug +ensurepip examples gdbm +gil jit
-	libedit +ncurses pgo +readline +sqlite +ssl test tk valgrind
+	bluetooth build debug +ensurepip examples gdbm libedit
+	+ncurses pgo +readline +sqlite +ssl test tk valgrind
 "
-REQUIRED_USE="jit? ( ${LLVM_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
 # Do not add a dependency on dev-lang/python to this ebuild.
@@ -89,12 +85,6 @@ BDEPEND="
 	dev-build/autoconf-archive
 	app-alternatives/awk
 	virtual/pkgconfig
-	jit? (
-		$(llvm_gen_dep '
-			sys-devel/clang:${LLVM_SLOT}
-			sys-devel/llvm:${LLVM_SLOT}
-		')
-	)
 	verify-sig? ( >=sec-keys/openpgp-keys-python-20221025 )
 "
 RDEPEND+="
@@ -117,18 +107,9 @@ QA_CONFIG_IMPL_DECL_SKIP=( chflags lchflags )
 
 pkg_pretend() {
 	use test && check-reqs_pkg_pretend
-
-	if ! use gil || use jit; then
-		ewarn "USE=-gil and USE=jit flags are considered experimental upstream.  Using"
-		ewarn "them could lead to unexpected breakage, including race conditions"
-		ewarn "and crashes, respectively.  Please do not file Gentoo bugs, unless"
-		ewarn "you can reproduce the problem with dev-lang/python[gil,-jit].  Instead,"
-		ewarn "please consider reporting freethreading / JIT problems upstream."
-	fi
 }
 
 pkg_setup() {
-	use jit && llvm-r1_pkg_setup
 	use test && check-reqs_pkg_setup
 }
 
@@ -242,108 +223,25 @@ src_configure() {
 		dbmliborder+="${dbmliborder:+:}gdbm"
 	fi
 
-	# Set baseline test skip flags.
-	COMMON_TEST_SKIPS=(
-		# failures
-		-x test_concurrent_futures
-		-x test_gdb
-		# test_asyncio_repl_is_ok is flaky
-		# https://github.com/python/cpython/issues/119909
-		-x test_repl
-	)
-
-	# Arch-specific skips.  See #931888 for a collection of these.
-	case ${CHOST} in
-		alpha*)
-			COMMON_TEST_SKIPS+=(
-				-x test_builtin
-				-x test_capi
-				-x test_cmath
-				-x test_float
-				# timeout
-				-x test_free_threading
-				-x test_math
-				-x test_numeric_tower
-				-x test_random
-				-x test_statistics
-				# bug 653850
-				-x test_resource
-				-x test_strtod
-			)
-			;;
-		ia64*)
-			COMMON_TEST_SKIPS+=(
-				-x test_ctypes
-				-x test_external_inspection
-			)
-			;;
-		mips*)
-			COMMON_TEST_SKIPS+=(
-				-x test_ctypes
-				-x test_external_inspection
-				-x test_statistics
-			)
-			;;
-		powerpc64-*) # big endian
-			COMMON_TEST_SKIPS+=(
-				-x test_descr
-			)
-			;;
-		riscv*)
-			COMMON_TEST_SKIPS+=(
-				-x test_urllib2
-			)
-			;;
-		sparc*)
-			COMMON_TEST_SKIPS+=(
-				# bug 788022
-				-x test_multiprocessing_fork
-				-x test_multiprocessing_forkserver
-
-				-x test_ctypes
-				-x test_descr
-				# bug 931908
-				-x test_exceptions
-			)
-			;;
-	esac
-
-	# musl-specific skips
-	use elibc_musl && COMMON_TEST_SKIPS+=(
-		# various musl locale deficiencies
-		-x test__locale
-		-x test_c_locale_coercion
-		-x test_locale
-		-x test_re
-
-		# known issues with find_library on musl
-		# https://bugs.python.org/issue21622
-		-x test_ctypes
-
-		# fpathconf, ttyname errno values
-		-x test_os
-	)
-
 	if use pgo; then
 		local profile_task_flags=(
 			-m test
 			"-j$(makeopts_jobs)"
 			--pgo-extended
-			--verbose3
 			-u-network
 
 			# We use a timeout because of how often we've had hang issues
 			# here. It also matches the default upstream PROFILE_TASK.
 			--timeout 1200
 
-			"${COMMON_TEST_SKIPS[@]}"
-
+			-x test_gdb
 			-x test_dtrace
 
 			# All of these seem to occasionally hang for PGO inconsistently
 			# They'll even hang here but be fine in src_test sometimes.
 			# bug #828535 (and related: bug #788022)
 			-x test_asyncio
+			-x test_concurrent_futures
 			-x test_httpservers
 			-x test_logging
 			-x test_multiprocessing_fork
@@ -353,43 +251,23 @@ src_configure() {
 			# Hangs (actually runs indefinitely executing itself w/ many cpython builds)
 			# bug #900429
 			-x test_tools
-
-			# Fails in profiling run, passes in src_test().
-			-x test_capi
 		)
 
-		# Arch-specific skips.  See #931888 for a collection of these.
-		case ${CHOST} in
-			alpha*)
-				profile_task_flags+=(
-					-x test_os
-				)
-				;;
-			hppa*)
-				profile_task_flags+=(
-					-x test_descr
-					# bug 931908
-					-x test_exceptions
-					-x test_os
-				)
-				;;
-			ia64*)
-				profile_task_flags+=(
-					-x test_signal
-				)
-				;;
-			powerpc64-*) # big endian
-				profile_task_flags+=(
-					# bug 931908
-					-x test_exceptions
-				)
-				;;
-			riscv*)
-				profile_task_flags+=(
-					-x test_statistics
-				)
-				;;
-		esac
+		# musl-specific skips
+		use elibc_musl && profile_task_flags+=(
+			# various musl locale deficiencies
+			-x test__locale
+			-x test_c_locale_coercion
+			-x test_locale
+			-x test_re
+
+			# known issues with find_library on musl
+			# https://bugs.python.org/issue21622
+			-x test_ctypes
+
+			# fpathconf, ttyname errno values
+			-x test_os
+		)
 
 		if has_version "app-arch/rpm" ; then
 			# Avoid sandbox failure (attempts to write to /var/lib/rpm)
@@ -424,8 +302,6 @@ src_configure() {
 		--with-wheel-pkg-dir="${EPREFIX}"/usr/lib/python/ensurepip
 
 		$(use_with debug assertions)
-		$(use_enable gil)
-		$(use_enable jit experimental-jit)
 		$(use_enable pgo optimizations)
 		$(use_with readline readline "$(usex libedit editline readline)")
 		$(use_with valgrind)
@@ -498,13 +374,12 @@ src_compile() {
 	# bug #831897
 	local -x _PYTHONDONTWRITEBYTECODE=${PYTHONDONTWRITEBYTECODE}
 
-	# Gentoo hack to disable accessing system site-packages
-	export GENTOO_CPYTHON_BUILD=1
-
 	if use pgo ; then
 		# bug 660358
 		local -x COLUMNS=80
 		local -x PYTHONDONTWRITEBYTECODE=
+
+		addpredict "/usr/lib/python${PYVER}/site-packages"
 	fi
 
 	# also need to clear the flags explicitly here or they end up
@@ -535,25 +410,64 @@ src_test() {
 	local -x LOGNAME=buildbot
 
 	local test_opts=(
-		--verbose3
 		-u-network
 		-j "$(makeopts_jobs)"
-		"${COMMON_TEST_SKIPS[@]}"
+
+		# fails
+		-x test_concurrent_futures
+		-x test_gdb
 	)
+
+	if use sparc ; then
+		# bug #788022
+		test_opts+=(
+			-x test_multiprocessing_fork
+			-x test_multiprocessing_forkserver
+		)
+	fi
+
+	# musl-specific skips
+	use elibc_musl && test_opts+=(
+		# various musl locale deficiencies
+		-x test__locale
+		-x test_c_locale_coercion
+		-x test_locale
+		-x test_re
+
+		# known issues with find_library on musl
+		# https://bugs.python.org/issue21622
+		-x test_ctypes
+
+		# fpathconf, ttyname errno values
+		-x test_os
+	)
+
+	# workaround docutils breaking tests
+	cat > Lib/docutils.py <<-EOF || die
+		raise ImportError("Thou shalt not import!")
+	EOF
 
 	# bug 660358
 	local -x COLUMNS=80
 	local -x PYTHONDONTWRITEBYTECODE=
+	# workaround https://bugs.gentoo.org/775416
+	addwrite "/usr/lib/python${PYVER}/site-packages"
 
 	nonfatal emake -Onone test EXTRATESTOPTS="${test_opts[*]}" \
 		CPPFLAGS= CFLAGS= LDFLAGS= < /dev/tty
 	local ret=${?}
+
+	rm Lib/docutils.py || die
 
 	[[ ${ret} -eq 0 ]] || die "emake test failed"
 }
 
 src_install() {
 	local libdir=${ED}/usr/lib/python${PYVER}
+
+	# the Makefile rules are broken
+	# https://github.com/python/cpython/issues/100221
+	mkdir -p "${libdir}"/lib-dynload || die
 
 	# -j1 hack for now for bug #843458
 	emake -j1 DESTDIR="${D}" altinstall
@@ -634,26 +548,11 @@ src_install() {
 	EOF
 	chmod +x "${scriptdir}/python${pymajor}-config" || die
 	ln -s "python${pymajor}-config" "${scriptdir}/python-config" || die
-	# pydoc
+	# 2to3, pydoc
+	ln -s "../../../bin/2to3-${PYVER}" "${scriptdir}/2to3" || die
 	ln -s "../../../bin/pydoc${PYVER}" "${scriptdir}/pydoc" || die
 	# idle
 	if use tk; then
 		ln -s "../../../bin/idle${PYVER}" "${scriptdir}/idle" || die
 	fi
-}
-
-pkg_postinst() {
-	local v
-	for v in ${REPLACING_VERSIONS}; do
-		if ver_test "${v}" -lt 3.13.0_beta2; then
-			ewarn "Python 3.13.0b2 has changed its module ABI.  The .pyc files"
-			ewarn "installed previously are no longer valid and will be regenerated"
-			ewarn "(or ignored) on the next import.  This may cause sandbox failures"
-			ewarn "when installing some packages and checksum mismatches when removing"
-			ewarn "old versions.  To actively prevent this, rebuild all packages"
-			ewarn "installing Python 3.13 modules, e.g. using:"
-			ewarn
-			ewarn "  emerge -1v /usr/lib/python3.13/site-packages"
-		fi
-	done
 }
