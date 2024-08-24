@@ -5,7 +5,7 @@ EAPI=8
 
 inherit elisp
 
-MY_COMMIT="11a01d726ac4fafb8a6688459ac79b41333bd6c8"
+MY_COMMIT="2701021abd6d65b1f53dd6b1592ec5683dd1365c"
 DESCRIPTION="Emacs Scala Mode via Tree-Sitter"
 HOMEPAGE="https://github.com/KaranAhlawat/scala-ts-mode"
 SRC_URI="
@@ -16,7 +16,7 @@ S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=app-editors/emacs-29[tree-sitter]
