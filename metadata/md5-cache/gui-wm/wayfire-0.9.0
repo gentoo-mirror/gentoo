@@ -1,0 +1,16 @@
+BDEPEND=dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-cpp/nlohmann_json dev-libs/glib:2 dev-libs/libevdev dev-libs/libinput:= dev-libs/wayland >=dev-libs/wayland-protocols-1.12 gui-libs/wf-config:0/0.9 gui-libs/wlroots:0/17[drm(+),libinput(+),x11-backend,X?] media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman dbus? ( sys-apps/dbus ) X? ( x11-libs/libxcb:= ) test? ( dev-cpp/doctest )
+DESCRIPTION=compiz like 3D wayland compositor
+EAPI=8
+HOMEPAGE=https://github.com/WayfireWM/wayfire
+INHERIT=meson
+IUSE=+dbus +gles3 test X
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=MIT
+RDEPEND=dev-cpp/nlohmann_json dev-libs/glib:2 dev-libs/libevdev dev-libs/libinput:= dev-libs/wayland >=dev-libs/wayland-protocols-1.12 gui-libs/wf-config:0/0.9 gui-libs/wlroots:0/17[drm(+),libinput(+),x11-backend,X?] media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman dbus? ( sys-apps/dbus ) X? ( x11-libs/libxcb:= ) x11-misc/xkeyboard-config
+RESTRICT=!test? ( test )
+SLOT=0/0.9
+SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.9.0/wayfire-0.9.0.tar.xz
+_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=367f94ce87c6cea51cc91e8bbbbfa0cd
