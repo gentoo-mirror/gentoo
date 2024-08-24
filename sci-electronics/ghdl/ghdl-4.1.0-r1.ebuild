@@ -4,9 +4,9 @@
 EAPI=8
 
 ADA_COMPAT=( gnat_2021 gcc_13 )
-LLVM_MAX_SLOT=17        # Check "configure" script for supported LLVM versions.
+LLVM_COMPAT=( {16..17} )        # Check configure script for supported LLVM versions.
 
-inherit ada edo llvm toolchain-funcs
+inherit ada edo llvm-r1 toolchain-funcs
 
 DESCRIPTION="Open-source analyzer, compiler, and simulator for VHDL 2008/93/87"
 HOMEPAGE="https://ghdl.github.io/ghdl/
@@ -20,17 +20,23 @@ else
 	SRC_URI="https://github.com/ghdl/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="llvm"
-REQUIRED_USE="${ADA_REQUIRED_USE}"
+IUSE="llvm +static-libs"
+
+# The LLVM backend requires static libraries to work, see bug: https://bugs.gentoo.org/938171
+REQUIRED_USE="${ADA_REQUIRED_USE} llvm? ( static-libs )"
 
 RDEPEND="
 	${ADA_DEPS}
-	llvm? ( <sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):= )
+	llvm? (
+		$(llvm_gen_dep '
+			sys-devel/llvm:${LLVM_SLOT}=
+		')
+	)
 "
 DEPEND="
 	${RDEPEND}
@@ -44,7 +50,7 @@ PATCHES=( "${FILESDIR}/${PN}-4.0.0_pre20231218-no-pyunit.patch" )
 pkg_setup() {
 	ada_pkg_setup
 
-	use llvm && llvm_pkg_setup
+	use llvm && llvm-r1_pkg_setup
 }
 
 src_prepare() {
@@ -62,7 +68,7 @@ src_configure() {
 
 		# Install location.
 		--libdir=$(get_libdir)
-		--prefix=/usr
+		--prefix="/usr"
 
 		# Features.
 		--enable-libghdl
@@ -70,7 +76,9 @@ src_configure() {
 	)
 
 	if use llvm ; then
-		myconf+=( --with-llvm-config=llvm-config )
+		myconf+=(
+			--with-llvm-config="llvm-config"
+		)
 	fi
 
 	# Not a autotools script!
@@ -86,5 +94,7 @@ src_compile() {
 src_install() {
 	default
 
-	find "${ED}" -type f -name '*.a' -delete || die
+	if ! use static-libs ; then
+		find "${ED}" -type f -name '*.a' -delete || die
+	fi
 }
