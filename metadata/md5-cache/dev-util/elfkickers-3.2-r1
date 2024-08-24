@@ -1,13 +1,12 @@
-DEFINED_PHASES=prepare
-DEPEND=app-misc/pax-utils
+BDEPEND=app-misc/pax-utils
+DEFINED_PHASES=compile prepare
 DESCRIPTION=Collection of programs to manipulate ELF files: sstrip, rebind, elfls, elftoc
-EAPI=7
+EAPI=8
 HOMEPAGE=http://www.muppetlabs.com/~breadbox/software/elfkickers.html
 INHERIT=toolchain-funcs
-IUSE=doc
 KEYWORDS=amd64 arm ~hppa ~mips sparc x86
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=http://www.muppetlabs.com/~breadbox/pub/software/ELFkickers-3.2.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=b0c86590446170b0fe9cf4f02cc9c73f
+_md5_=80c30e0090e0dcfe4bb2038a50ae382b
