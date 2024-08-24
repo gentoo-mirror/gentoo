@@ -7,7 +7,7 @@ MY_P="${PN}2-${PV}"
 
 DESCRIPTION="Epson Inkjet Printer Driver 2 (ESC/P-R) for Linux"
 HOMEPAGE="https://download.ebz.epson.net/dsc/search/01/search/?OSC=LX"
-SRC_URI="https://download3.ebz.epson.net/dsc/f/03/00/16/04/80/9eed4e48a994b2ce7d9c83aa7fa7766f2c2d7ef3/${MY_P}-1.tar.gz"
+SRC_URI="https://download3.ebz.epson.net/dsc/f/03/00/16/06/85/fddc1d5996d0cab4dceea35852a2e430fb124993/${MY_P}-1.tar.gz"
 S="${WORKDIR}/${MY_P}"
 LICENSE="EPSON LGPL-2.1+"
 SLOT="2"
@@ -19,8 +19,11 @@ DEPEND="net-print/cups"
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/gcc-no-implicit-function-declaration-${PV}.patch"
+	#"${FILESDIR}/gcc-no-implicit-function-declaration-${PV}.patch"
+	"${FILESDIR}/gcc-no-implicit-function-declaration-$(ver_cut 1-2 ${PV}).patch"
 )
+
+echo "PATCHES is ${PATCHES}"
 
 src_configure() {
 	econf \
