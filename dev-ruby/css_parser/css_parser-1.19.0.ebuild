@@ -15,10 +15,10 @@ inherit ruby-fakegem
 
 DESCRIPTION="Sass-based Stylesheet Framework"
 HOMEPAGE="https://github.com/premailer/css_parser/"
-LICENSE="MIT"
 
 SRC_URI="https://github.com/${GITHUB_USER}/${GITHUB_PROJECT}/archive/v${PV}.tar.gz -> ${GITHUB_PROJECT}-${PV}.tar.gz"
 
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="doc test"
@@ -39,5 +39,5 @@ all_ruby_prepare() {
 }
 
 each_ruby_test() {
-	${RUBY} -Ilib test/*.rb || die
+	MT_NO_PLUGINS=true ${RUBY} -Ilib test/*.rb || die
 }
