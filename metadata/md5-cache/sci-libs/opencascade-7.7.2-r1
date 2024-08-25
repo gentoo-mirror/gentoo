@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-text/doxygen[dot] ) inspector? ( dev-qt/linguist-tools:5 ) test? ( dev-tcltk/thread ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-lang/tcl:= tk? ( dev-lang/tk:= ) dev-libs/double-conversion freetype? ( media-libs/fontconfig media-libs/freetype:2 ) opengl? ( media-libs/libglvnd ) X? ( x11-libs/libX11 ) examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) inspector? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) tbb? ( dev-cpp/tbb:= ) vtk? ( dev-lang/tk:= sci-libs/vtk:=[rendering] tbb? ( sci-libs/vtk:=[tbb,-cuda] ) ) X? ( x11-base/xorg-proto ) json? ( dev-libs/rapidjson )
+DEPEND=dev-lang/tcl:= tk? ( dev-lang/tk:= ) dev-libs/double-conversion freetype? ( media-libs/fontconfig media-libs/freetype:2 ) gles2-only? ( media-libs/libglvnd ) opengl? ( media-libs/libglvnd[X] ) X? ( x11-libs/libX11 ) examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) inspector? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) tbb? ( dev-cpp/tbb:= ) vtk? ( dev-lang/tk:= sci-libs/vtk:=[rendering] tbb? ( sci-libs/vtk:=[tbb,-cuda] ) ) X? ( x11-base/xorg-proto ) json? ( dev-libs/rapidjson )
 DESCRIPTION=Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 EAPI=8
 HOMEPAGE=https://www.opencascade.com
@@ -8,10 +8,10 @@ INHERIT=cmake flag-o-matic virtualx
 IUSE=X debug doc examples ffmpeg freeimage freetype gles2-only inspector json +opengl optimize tbb test testprograms tk vtk test
 KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )
-RDEPEND=dev-lang/tcl:= tk? ( dev-lang/tk:= ) dev-libs/double-conversion freetype? ( media-libs/fontconfig media-libs/freetype:2 ) opengl? ( media-libs/libglvnd ) X? ( x11-libs/libX11 ) examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) inspector? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) tbb? ( dev-cpp/tbb:= ) vtk? ( dev-lang/tk:= sci-libs/vtk:=[rendering] tbb? ( sci-libs/vtk:=[tbb,-cuda] ) )
+RDEPEND=dev-lang/tcl:= tk? ( dev-lang/tk:= ) dev-libs/double-conversion freetype? ( media-libs/fontconfig media-libs/freetype:2 ) gles2-only? ( media-libs/libglvnd ) opengl? ( media-libs/libglvnd[X] ) X? ( x11-libs/libX11 ) examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) inspector? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) tbb? ( dev-cpp/tbb:= ) vtk? ( dev-lang/tk:= sci-libs/vtk:=[rendering] tbb? ( sci-libs/vtk:=[tbb,-cuda] ) )
 REQUIRED_USE=?? ( optimize tbb ) ?? ( opengl gles2-only ) test? ( freeimage json opengl )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0/7.7
 SRC_URI=test? ( https://github.com/Open-Cascade-SAS/OCCT/releases/download/V7_7_0/opencascade-dataset-7.7.0.tgz -> opencascade-dataset-7.7.0.tar.gz ) https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V7_7_2.tar.gz -> opencascade-7.7.2.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	0654dc258d045433af18ffe046363961
-_md5_=256dfe127dd64b94199057db7560b1d7
+_md5_=b7dff7f5bf2eeb3b3383688667759f4a

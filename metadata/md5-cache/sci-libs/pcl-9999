@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-text/doxygen[dot] virtual/latex-base ) tutorials? ( dev-python/sphinx dev-python/sphinx-rtd-theme dev-python/sphinxcontrib-doxylink ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=sci-libs/flann-1.7.1 dev-libs/boost:= dev-cpp/eigen:3 opengl? ( virtual/opengl media-libs/freeglut ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtopengl:5 vtk? ( sci-libs/vtk[qt5] ) ) qt6? ( !qt5? ( dev-qt/qtbase:6[concurrent,gui,opengl] vtk? ( sci-libs/vtk[-qt5,qt6] ) ) ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 ) !!dev-cpp/metslib
+DEPEND=>=sci-libs/flann-1.7.1 dev-libs/boost:= dev-cpp/eigen:3 opengl? ( virtual/opengl media-libs/freeglut ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtopengl:5 vtk? ( sci-libs/vtk[qt5] ) ) qt6? ( !qt5? ( dev-qt/qtbase:6[concurrent,gui,opengl] vtk? ( sci-libs/vtk[-qt5,qt6] ) ) ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 ) !!dev-cpp/metslib test? ( dev-cpp/gtest )
 DESCRIPTION=2D/3D image and point cloud processing
 EAPI=8
 HOMEPAGE=https://pointclouds.org/
@@ -10,7 +10,7 @@ LICENSE=BSD
 PROPERTIES=live
 RDEPEND=>=sci-libs/flann-1.7.1 dev-libs/boost:= dev-cpp/eigen:3 opengl? ( virtual/opengl media-libs/freeglut ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt5? ( dev-qt/qtgui:5 dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtopengl:5 vtk? ( sci-libs/vtk[qt5] ) ) qt6? ( !qt5? ( dev-qt/qtbase:6[concurrent,gui,opengl] vtk? ( sci-libs/vtk[-qt5,qt6] ) ) ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 )
 REQUIRED_USE=openni? ( usb ) openni2? ( usb ) tutorials? ( doc )
-RESTRICT=test
+RESTRICT=!test? ( test )
 SLOT=0/9999
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	cuda	283d0f298f6c196c755a0f8d50daca85	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=01e71865f952b6d5fc7a03ffcbfed357
+_md5_=c9277555c62b540e54ae5a9c91074104
