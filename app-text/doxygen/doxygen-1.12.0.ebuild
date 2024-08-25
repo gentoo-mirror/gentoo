@@ -74,8 +74,10 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.9.4-link_with_pthread.patch"
 	"${FILESDIR}/${PN}-1.9.8-suppress-unused-option-libcxx.patch"
+	"${FILESDIR}/${PN}-1.12.0-libfmt-11.patch"
 
 	# Backports
+	"${FILESDIR}/${PN}-1.12.0-clang-19.patch"
 )
 
 DOCS=( LANGUAGE.HOWTO README.md )
