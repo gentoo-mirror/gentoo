@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake-multilib
+inherit cmake
 
 DESCRIPTION="Heavily optimized DEFLATE/zlib/gzip (de)compression"
 HOMEPAGE="https://github.com/ebiggers/libdeflate"
@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/ebiggers/libdeflate.git"
 else
 	SRC_URI="https://github.com/ebiggers/libdeflate/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
 fi
 
 LICENSE="MIT"
@@ -27,7 +27,7 @@ RESTRICT="
 "
 
 DEPEND="
-	test? ( sys-libs/zlib[${MULTILIB_USEDEP}] )
+	test? ( sys-libs/zlib )
 "
 
 PATCHES=(
@@ -51,5 +51,5 @@ src_configure() {
 		-DLIBDEFLATE_BUILD_TESTS="$(usex test)"
 	)
 
-	cmake-multilib_src_configure
+	cmake_src_configure
 }

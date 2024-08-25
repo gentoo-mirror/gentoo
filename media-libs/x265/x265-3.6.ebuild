@@ -23,7 +23,7 @@ unset MY_P
 
 LICENSE="GPL-2"
 # subslot = libx265 soname
-SLOT="0/212"
+SLOT="0/209"
 IUSE="+10bit +12bit cpu_flags_ppc_vsx2 numa test"
 RESTRICT="!test? ( test )"
 
@@ -38,9 +38,10 @@ PATCHES=(
 	"${FILESDIR}/${PN}-9999-arm.patch"
 	"${FILESDIR}/neon.patch"
 	"${FILESDIR}/tests.patch"
+	"${FILESDIR}/test-ns.patch"
 	"${FILESDIR}/${PN}-3.5-r5-cpp-std.patch"
 	"${FILESDIR}/${PN}-3.5-r5-gcc15.patch"
-	"${FILESDIR}/${PN}-9999-test-ns.patch"
+	"${FILESDIR}/${PN}-3.6-test-ns_2.patch"
 )
 
 pkg_setup() {
