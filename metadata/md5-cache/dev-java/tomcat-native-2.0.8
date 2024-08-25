@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://tomcat.apache.org/native-doc/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=static-libs doc source test verify-sig
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/apr:1= dev-libs/openssl:0/3 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=mirror://apache/tomcat/tomcat-connectors/native/2.0.8/source/tomcat-native-2.0.8-src.tar.gz verify-sig? ( https://downloads.apache.org/tomcat/tomcat-connectors/native/2.0.8/source/tomcat-native-2.0.8-src.tar.gz.asc )
 _eclasses_=java-utils-2	b2e92a8220dc7b1bd2062ca11774798a	java-pkg-2	b6d755b4f6afabfd933932be28b46368	java-pkg-simple	8221818a4df90800de803a44fd0875b4	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=096e7277cee09a073eaa39292c43bee0
+_md5_=426e67c600106da0276444e9d5201971
