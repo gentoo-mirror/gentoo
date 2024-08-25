@@ -21,7 +21,7 @@ if [[ ${PV} = *9999* ]]; then
 else
 	SRC_URI="https://libvirt.org/sources/${P}.tar.xz
 		verify-sig? ( https://libvirt.org/sources/${P}.tar.xz.asc )"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm arm64 ppc64 x86"
 fi
 
 DESCRIPTION="C toolkit to manipulate virtual machines"
@@ -119,10 +119,7 @@ RDEPEND="
 	virt-network? (
 		net-dns/dnsmasq[dhcp,ipv6(+),script]
 		net-firewall/ebtables
-		|| (
-			>=net-firewall/iptables-1.4.10[ipv6(+)]
-			net-firewall/nftables
-		)
+		>=net-firewall/iptables-1.4.10[ipv6(+)]
 		net-misc/radvd
 		sys-apps/iproute2[-minimal]
 	)
@@ -158,6 +155,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-9.4.0-fix_paths_in_libvirt-guests_sh.patch
 	"${FILESDIR}"/${PN}-9.9.0-do-not-use-sysconfig.patch
 	"${FILESDIR}"/${PN}-9.6.0-fix-paths-for-apparmor.patch
+	"${FILESDIR}"/${PN}-10.3.0-vsh-Don-t-init-history-in-cmdComplete.patch
+	"${FILESDIR}"/${PN}-10.5.0-virt-aa-helper-Allow-RO-access-to-usr-share-edk2-ovm.patch
 )
 
 python_check_deps() {
