@@ -149,6 +149,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.1-flags.patch
 	"${FILESDIR}"/${PN}-2.6.1-fix-missing-mapping.patch
 	#"${FILESDIR}"/${PN}-2.6.6-fix-type-mismatch-lloadd.patch
+	"${FILESDIR}"/${PN}-2.6.x-gnutls-pointer-error.patch
+	#"${FILESDIR}"/${PN}-2.6.x-slapd-pointer-types.patch # included upstream
 )
 
 openldap_filecount() {
@@ -417,7 +419,7 @@ multilib_src_configure() {
 
 	# error: passing argument 3 of ‘ldap_bv2rdn’ from incompatible pointer type [-Wincompatible-pointer-types]
 	# expected ‘char **’ but argument is of type ‘const char **’
-	append-flags $(test-flags-CC -Wno-error=incompatible-pointer-types)
+	#append-flags $(test-flags-CC -Wno-error=incompatible-pointer-types)
 
 	if use experimental ; then
 		# connectionless ldap per bug #342439
@@ -819,6 +821,7 @@ multilib_src_install() {
 multilib_src_install_all() {
 	dodoc ANNOUNCEMENT CHANGES COPYRIGHT README
 	docinto rfc ; dodoc doc/rfc/*.txt
+	rmdir -p "${D}"/var/openldap-lloadd # Created but not used by any part of current codebase.
 }
 
 pkg_preinst() {

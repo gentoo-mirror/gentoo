@@ -149,6 +149,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.1-flags.patch
 	"${FILESDIR}"/${PN}-2.6.1-fix-missing-mapping.patch
 	"${FILESDIR}"/${PN}-2.6.6-fix-type-mismatch-lloadd.patch
+	"${FILESDIR}"/${PN}-2.6.x-gnutls-pointer-error.patch
+	"${FILESDIR}"/${PN}-2.6.x-slapd-pointer-types.patch
 )
 
 openldap_filecount() {
@@ -815,6 +817,7 @@ multilib_src_install() {
 multilib_src_install_all() {
 	dodoc ANNOUNCEMENT CHANGES COPYRIGHT README
 	docinto rfc ; dodoc doc/rfc/*.txt
+	rmdir -p "${D}"/var/openldap-lloadd # Created but not used by any part of current codebase.
 }
 
 pkg_preinst() {
