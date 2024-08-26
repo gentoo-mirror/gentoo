@@ -11,8 +11,9 @@ SRC_URI="https://github.com/oneapi-src/${PN}/archive/refs/tags/v${PV}.tar.gz -> 
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
+RDEPEND="dev-libs/spdlog:="
 DEPEND="${RDEPEND}"
 
 src_prepare() {
@@ -24,4 +25,12 @@ src_prepare() {
 	# According to upstream, release tarballs should contain this file but at least
 	# some of them do not. Fortunately it is trivial to make one ourselves.
 	echo "$(ver_cut 3)" > "${S}"/VERSION_PATCH || die
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DSYSTEM_SPDLOG="ON"
+	)
+
+	cmake_src_configure
 }
