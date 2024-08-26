@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=kde-frameworks/extra-cmake-modules-5.115.0:* || ( ( kde-apps/kaccounts-integration:6 ) ( kde-apps/kaccounts-integration:5 ) )
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=kde-frameworks/extra-cmake-modules-5.115.0:* || ( ( kde-apps/kaccounts-integration:6 ) ( || ( kde-apps/kaccounts-integration:6[qt5] kde-apps/kaccounts-integration:5 ) ) )
 DEFINED_PHASES=compile configure install nofetch prepare setup test unpack
 DESCRIPTION=KAccounts generated service files for nextcloud and google services
 EAPI=8
@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=!<kde-frameworks/purpose-5.116.0-r2:5 !<kde-frameworks/purpose-6.5.0-r1:6
 SLOT=0
 SRC_URI=mirror://kde/stable/frameworks/6.5/purpose-6.5.0.tar.xz
-_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	ecm-common	4d6cfbbbbab6c6af294118ba7dd7b779	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
-_md5_=12c79e036ecf0b5a4f497cee55f5954f
+_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	ecm-common	aa0b6fe78a08ad602b3a37a93a376ec6	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
+_md5_=593fe5e92b386297a92a8ca1749d7f51
