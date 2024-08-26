@@ -39,6 +39,13 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# do not force LTO
+	sed -i -e '/INTERPROCEDURAL_OPTIMIZATION/d' CMakeLists.txt || die
+}
+
 src_test() {
 	virtx distutils-r1_src_test
 }
