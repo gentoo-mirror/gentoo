@@ -1,16 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=media-libs/libsdl2[sound]
-DESCRIPTION=Accuracy-focused XAudio reimplementation for open platforms
+DEPEND=dev-libs/spdlog:=
+DESCRIPTION=oneAPI Level Zero headers, loader and validation layer
 EAPI=8
-HOMEPAGE=https://fna-xna.github.io/
-INHERIT=cmake flag-o-matic
-IUSE=debug dumpvoices test
-KEYWORDS=amd64 x86
-LICENSE=ZLIB
-RDEPEND=media-libs/libsdl2[sound]
-RESTRICT=!test? ( test )
-SLOT=0
-SRC_URI=https://github.com/FNA-XNA/FAudio/archive/24.06.tar.gz -> faudio-24.06.tar.gz
+HOMEPAGE=https://github.com/oneapi-src/level-zero
+INHERIT=cmake
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/spdlog:=
+SLOT=0/1.17.28
+SRC_URI=https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.17.28.tar.gz -> level-zero-1.17.28.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=1dc4a19cd594315ef586c92d3fd13c3f
+_md5_=474762aaf5a2f35b994e5c96db8f7e43

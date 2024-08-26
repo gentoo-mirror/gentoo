@@ -1064,7 +1064,7 @@ app-admin/sysrqd 17-r2: Daemon providing access to the kernel sysrq functions vi
 app-admin/sysstat 12.6.2-r1 12.6.2-r2: System performance tools for Linux
 app-admin/system-config-printer 1.5.18-r2: Graphical user interface for CUPS administration
 app-admin/systemdgenie 0.99.0_p20221120: Systemd management utility
-app-admin/tenshi 0.17-r1: Log parsing and notification program
+app-admin/tenshi 0.17-r1 0.18: Log parsing and notification program
 app-admin/terraform 1.8.4 1.9.1 1.9.5: A tool for building, changing, and combining infrastructure safely
 app-admin/testdisk 7.2: Checks and undeletes partitions + PhotoRec, signature based recovery tool
 app-admin/tmpreaper 1.6.17: A utility for removing files based on when they were last accessed
@@ -2315,7 +2315,7 @@ app-emulation/diskimage-builder 3.32.0 9999: Golden Disk Image builder
 app-emulation/dosemu 1.4.1_pre20130107-r5: DOS Emulator
 app-emulation/dxvk 1.10.3-r1 2.3.1-r1 2.4 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
-app-emulation/faudio 24.06 24.07 24.08: Accuracy-focused XAudio reimplementation for open platforms
+app-emulation/faudio 24.08: Accuracy-focused XAudio reimplementation for open platforms
 app-emulation/firecracker-bin 1.7.0 1.8.0: Secure and fast microVMs for serverless computing (static build)
 app-emulation/free42 2.5.24 3.1.3 3.1.7 3.1.8: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.66: Integrates the most accurate Amiga emulation code available from WinUAE
@@ -3877,7 +3877,7 @@ dev-cpp/magic_enum 0.9.5 0.9.6: Static reflection for enums in header-only C++
 dev-cpp/metslib 0.5.3: Metaheuristic modeling framework and optimization toolkit
 dev-cpp/mm-common 1.0.6: Build infrastructure and utilities for GNOME C++ bindings
 dev-cpp/ms-gsl 4.0.0 9999: Guideline Support Library implementation by Microsoft
-dev-cpp/msgpack-cxx 5.0.0 6.0.0 6.1.0: MessagePack for C++
+dev-cpp/msgpack-cxx 5.0.0 6.0.0 6.1.0 6.1.1: MessagePack for C++
 dev-cpp/muParser 2.3.3-r2 2.3.4-r1: Library for parsing mathematical expressions
 dev-cpp/muParserX 4.0.11: Parsing Expressions with Strings, Complex Numbers, Vectors, Matrices and more
 dev-cpp/nlohmann_json 3.10.2 3.11.2 3.11.2-r1 3.11.3: JSON for Modern C++
@@ -5376,7 +5376,7 @@ dev-libs/immer 0.8.1-r1: Library of persistent and immutable data structures wri
 dev-libs/inih 57-r1 58: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1-r1 4.2.2: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 24.22.29735.21-r1: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-compute-runtime 24.22.29735.21-r1 24.31.30508.7: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-discovery 1.12.172: A user mode library that provides access to GPU performance data
 dev-libs/intel-metrics-library 1.0.166: User mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.18.0 0.19.0: A set of new intrinsics on top of core LLVM IR instructions
@@ -5411,7 +5411,7 @@ dev-libs/ktextaddons 1.2.1 1.5.4: Various text handling addons
 dev-libs/kweathercore 0.7 0.8.0 24.08.0: Library for retrieval of weather information including forecasts and alerts
 dev-libs/lager 0.1.1-r1: Library to assist value-oriented design
 dev-libs/leatherman 1.12.13: A C++ toolkit
-dev-libs/level-zero 1.17.6 1.17.19: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.17.19 1.17.28: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.20 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 0.3.113-r1 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5649,7 +5649,7 @@ dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ progr
 dev-libs/marisa 0.2.6 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.7-r1 3.2.2-r2: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/mdns 1.4.3: Public domain mDNS/DNS-SD library in C
-dev-libs/metee 4.1.0 4.2.0: Cross-platform access library for Intel CSME HECI interface
+dev-libs/metee 4.2.0: Cross-platform access library for Intel CSME HECI interface
 dev-libs/mimalloc 2.1.2 2.1.4 2.1.6 2.1.7: A compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniaudio 0.11.11 0.11.15: Single file library for audio playback and capture
@@ -5881,7 +5881,7 @@ dev-lua/lua-term 0.8: Terminal operations for Lua
 dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.5: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r1: Simple streaming interface to zlib for Lua
-dev-lua/lua_cliargs 3.0_p2-r1: A command-line argument parsing module for Lua
+dev-lua/lua_cliargs 3.0_p2-r1 3.0.2: A command-line argument parsing module for Lua
 dev-lua/luacheck 1.2.0: A tool for linting and static analysis of Lua code
 dev-lua/luacov 0.15.0: A simple coverage analyzer for Lua scripts
 dev-lua/luadbi 0.7.3: A database interface library for Lua
@@ -5896,7 +5896,7 @@ dev-lua/luarocks 3.11.1: A package manager for the Lua programming language
 dev-lua/luasec 1.3.2: Lua binding for OpenSSL library to provide TLS/SSL communication
 dev-lua/luasocket 3.1.0: Networking support for the Lua language
 dev-lua/luassert 1.9.0: Assertion library for Lua
-dev-lua/luasystem 0.2.1_p0-r1 0.3.0 0.4.0 0.4.1 0.4.2-r1: Platform independent system calls for Lua
+dev-lua/luasystem 0.2.1_p0-r1 0.3.0 0.4.2-r1: Platform independent system calls for Lua
 dev-lua/lutok 0.4-r11: Lightweight C++ API library for Lua
 dev-lua/luv 1.44.2.0 1.45.0.0: Bare libuv bindings for lua
 dev-lua/md5 1.3-r1: Offers basic cryptographic facilities for Lua
@@ -10768,7 +10768,7 @@ dev-util/idea-community 2024.2.0.2: A complete toolset for web, mobile and enter
 dev-util/imediff2 1.1.2.1: An interactive, user friendly 2-way merge tool in text mode
 dev-util/include-what-you-use 0.20 0.21 0.22: Find unused include directives in C/C++ programs
 dev-util/indent 2.2.12 2.2.13: Indent program source files
-dev-util/intel-graphics-compiler 1.0.17193.2: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
+dev-util/intel-graphics-compiler 1.0.17193.2 1.0.17537.1: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
 dev-util/intel-graphics-system-controller 0.8.16: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015: Intel's implementation of the OpenCL standard
 dev-util/intel_clc 24.0.9 24.1.3 24.1.4 24.1.5 24.1.6 24.2.0_rc4 24.2.0 9999: intel_clc tool used for building OpenCL C to SPIR-V
@@ -11371,7 +11371,7 @@ games-engines/minetest 5.7.0-r2 5.8.0: A free open-source voxel game engine with
 games-engines/odamex 10.4.0-r3: Online multiplayer free software engine for DOOM
 games-engines/openmw 0.48.0 9999: Open source reimplementation of TES III: Morrowind
 games-engines/openxcom 1.0.0_p20180317-r1 9999: Open-source reimplementation of the popular UFO: Enemy Unknown
-games-engines/qtads 3.3.0-r1: Multimedia interpreter for TADS text adventures
+games-engines/qtads 3.3.0-r1 3.4.0: Multimedia interpreter for TADS text adventures
 games-engines/scrap-engine 1.2.0: Terminal-based Python game engine involving objects on a map
 games-engines/scummvm 2.8.0-r1 2.8.1-r1 9999: Reimplementation of the SCUMM game engine used in Lucasarts adventures
 games-engines/scummvm-tools 2.7.0_p1: Utilities for the SCUMM game engine
@@ -11503,7 +11503,7 @@ games-misc/solarus-quest-editor 1.6.5 9999: A graphical user interface to create
 games-misc/sound-of-sorting 0.6.6_pre20221012: Visualization and Audibilization of Sorting Algorithms
 games-misc/typespeed 0.6.5-r2 0.6.5-r3: Test your typing speed, and get your fingers CPS
 games-misc/usolitaire 0.2.1-r1: solitaire in your terminal
-games-misc/wtf 20221208: Translates acronyms for you
+games-misc/wtf 20221208 20230906: Translates acronyms for you
 games-misc/wumpus 1.4-r2: Classic Hunt the Wumpus Adventure Game
 games-misc/xcowsay 1.6: Displays a cute cow and message on your desktop
 games-misc/xcruiser 0.30-r1: Fly about 3D-formed file system
@@ -11677,11 +11677,11 @@ games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic com
 games-rpg/xu4 1.4: A remake of the computer game Ultima IV
 games-rpg/zsdx 1.12.3: Free 2D Zelda fangame
 games-rpg/zsxd 1.12.2: Free 2D Zelda fangame parody
-games-server/bedrock-server 1.21.3.01: The official bedrock (non-java) based server for the sandbox video game
+games-server/bedrock-server 1.21.20.03: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r2: Server for Mednafen emulator
-games-server/minecraft-server 1.21.0: The official server for the sandbox video game
+games-server/minecraft-server 1.21.1: The official server for the sandbox video game
 games-server/monopd 0.10.4: Server for the GtkAtlantic board game
 games-server/mtavc 0.5-r2: dedicated server for GTA3 multiplayer
 games-server/pvpgn 1.99.7.2.1-r1: A gaming server for Battle.Net compatible clients
@@ -11725,10 +11725,10 @@ games-strategy/colobot 0.2.1_alpha 9999: A real-time strategy game, where you ca
 games-strategy/colobot-data 0.2.1_alpha: Data package for colobot (Colonize with Bots)
 games-strategy/darwinia 1.43: A digital dreamscape simulation game
 games-strategy/dominions2 2.16-r1: Dominions 2: The Ascension Wars is an epic turn-based fantasy strategy game
-games-strategy/dopewars 1.6.1: Re-Write of the game Drug Wars
+games-strategy/dopewars 1.6.1 1.6.2: Re-Write of the game Drug Wars
 games-strategy/dunelegacy 0.96.4-r1 0.97.02: Updated clone of Westood Studios' Dune II
-games-strategy/endless-sky 0.10.6: Space exploration, trading & combat in the tradition of Terminal Velocity
-games-strategy/freeciv 3.1.0 9999: Multiplayer strategy game (Civilization Clone)
+games-strategy/endless-sky 0.10.6 0.10.8: Space exploration, trading & combat in the tradition of Terminal Velocity
+games-strategy/freeciv 3.1.0 3.1.2 9999: Multiplayer strategy game (Civilization Clone)
 games-strategy/freecol 1.0.0: An open source clone of the game Colonization
 games-strategy/freeorion 0.5.0.1-r1: Free turn-based space empire and galactic conquest game
 games-strategy/freesynd 0.7.5: Portable engine reimplementation for the classic Bullfrog game Syndicate
@@ -12657,7 +12657,7 @@ media-fonts/inconsolata 20140821: Sans-serif monotype font for code listings
 media-fonts/inconsolata-hellenic 1.19-r1: Hellenisation of the wonderful, monospace, open/free font Inconsolata
 media-fonts/inconsolata-lgc 1.3.0: Modified version of Inconsolata Hellenic adding the Cyrillic alphabet
 media-fonts/intel-one-mono 1.3.0: Intel One Mono font family
-media-fonts/intlfonts 1.4.1: International X11 fixed fonts
+media-fonts/intlfonts 1.4.1 1.4.2: International X11 fixed fonts
 media-fonts/iosevka 29.2.1 30.1.2 31.3.0 31.4.0: Slender typeface for code, from code
 media-fonts/ipaex 004.01: Japanese IPA extended TrueType fonts
 media-fonts/ipamonafont 1.0.8: Hacked version of IPA fonts, which is suitable for browsing 2ch
@@ -12710,7 +12710,7 @@ media-fonts/noto 20240430 20240531 20240630 20240731: Google's font family that 
 media-fonts/noto-cjk 20190416: Google's CJK font family
 media-fonts/noto-emoji 20231130 20231130-r1: Google Noto Emoji fonts
 media-fonts/nunito 1.0-r1: Sans Serif font with rounded terminals
-media-fonts/nuosu-sil 2.200: Unicode font for the standardized Yi script
+media-fonts/nuosu-sil 2.200 2.300: Unicode font for the standardized Yi script
 media-fonts/office-code-pro 1.004: Customized version of Source Code Pro
 media-fonts/ohsnap 1.8.0: Monospace font based on Artwiz Snap with bold and versions with status icons
 media-fonts/oldstandard 2.2-r1: Old Standard - font with wide range of Latin, Greek and Cyrillic characters
@@ -12734,7 +12734,7 @@ media-fonts/sazanami 20040629: Sazanami Japanese TrueType fonts
 media-fonts/sgi-fonts 1.0: SGI fonts collection
 media-fonts/shinonome 0.9.11: Japanese bitmap fonts for X
 media-fonts/signika 1.001: Sans-serif with gentle character designed for signage
-media-fonts/sil-abyssinica 2.200: SIL Opentype Unicode fonts for Ethiopic languages
+media-fonts/sil-abyssinica 2.200 2.201: SIL Opentype Unicode fonts for Ethiopic languages
 media-fonts/sil-arabicfonts 3.000: SIL Opentype Unicode fonts for Arabic Languages
 media-fonts/sil-charis 6.200: Serif typeface for Roman and Cyrillic languages
 media-fonts/sil-doulos 6.200: SIL font for Roman and Cyrillic Languages
@@ -14233,11 +14233,11 @@ net-analyzer/argus 3.0.8.3-r2: network Audit Record Generation and Utilization S
 net-analyzer/argus-clients 3.0.8.4: Clients for net-analyzer/argus
 net-analyzer/arp-scan 1.9.7 1.10.0: ARP scanning and fingerprinting tool
 net-analyzer/arp-sk 0.0.16-r2: A swiss knife tool for ARP
-net-analyzer/arping 2.22 2.23 9999: Utility to see if a specific IP is taken and what MAC owns it
+net-analyzer/arping 2.22 2.23 2.25 9999: Utility to see if a specific IP is taken and what MAC owns it
 net-analyzer/arpoison 0.7 0.7-r1: Utility to poison ARP caches
 net-analyzer/arpon 3.0: ArpON (Arp handler inspectiON) is a portable Arp handler
 net-analyzer/arptools 1.0.2-r1: Collection of libnet and libpcap based ARP utilities
-net-analyzer/arpwatch 3.1-r4 3.5: An ethernet monitor program that keeps track of ethernet/IP address pairings
+net-analyzer/arpwatch 3.1-r4 3.5 3.6: An ethernet monitor program that keeps track of ethernet/IP address pairings
 net-analyzer/authforce 0.9.9-r4: An HTTP authentication brute forcer
 net-analyzer/barnyard 0.2.0-r7: Fast output system for Snort
 net-analyzer/barnyard2 1.13: Parser for Snort unified/unified2 files
@@ -14251,7 +14251,7 @@ net-analyzer/bwmon 1.3-r2: Simple ncurses bandwidth monitor
 net-analyzer/bwping 2.5: A tool to measure bandwidth and RTT between two hosts using ICMP
 net-analyzer/cacti 1.2.21 1.2.26: Cacti is a complete frontend to rrdtool
 net-analyzer/cacti-spine 1.2.20 9999: Spine is a fast poller for Cacti (formerly known as Cactid)
-net-analyzer/calamaris 2.99.4.5: parses logfiles of a wide variety of web proxy servers and generates reports
+net-analyzer/calamaris 2.99.4.5 2.99.4.7: Parses logfiles of a wide variety of web proxy servers and generates reports
 net-analyzer/cbm 0.3.2: Color Bandwidth Meter
 net-analyzer/chronograf 1.8.5: Monitoring, processing and alerting on time series data
 net-analyzer/cloudshark 1.0.4: Easily upload your wireshark captures to CloudShark
@@ -14363,7 +14363,7 @@ net-analyzer/net-snmp 5.9.3-r3 5.9.4 5.9.4-r1 9999: Software for generating and 
 net-analyzer/netcat 110-r9 110.20180111-r1 110.20180111-r2: The network swiss army knife
 net-analyzer/netdata 1.45.4 1.46.1 1.46.2 1.47.0 9999: Linux real time system monitoring, done right!
 net-analyzer/netdata-go-plugin 0.58.1-r1: Netdata plugin for collectors written in Go
-net-analyzer/netdiscover 0.7: Active/passive address reconnaissance tool
+net-analyzer/netdiscover 0.7 0.10: Active/passive address reconnaissance tool
 net-analyzer/nethogs 0.8.7: A small 'net top' tool, grouping bandwidth by process
 net-analyzer/netperf 2.7.0-r5 2.7.0_p20210121: Network performance benchmark
 net-analyzer/netpipe 3.7.2-r1: network protocol independent performance evaluator
@@ -14429,7 +14429,7 @@ net-analyzer/sinfo 0.0.48-r1: A monitoring tool for networked computers
 net-analyzer/siphon 666-r2: A portable passive network mapping suite
 net-analyzer/slurm 0.4.3: Realtime network interface monitor based on FreeBSD's pppstatus
 net-analyzer/snallygaster 0.0.12-r1 0.0.12-r2: Finds file leaks and other security problems on HTTP servers
-net-analyzer/sngrep 1.6.0-r1 1.7.0: Ncurses SIP Messages flow viewer
+net-analyzer/sngrep 1.6.0-r1 1.7.0 1.8.2: Ncurses SIP Messages flow viewer
 net-analyzer/sniffit 0.5-r1: Interactive Packet Sniffer
 net-analyzer/snmpclitools 0.6.4-r1: Pure-Python SNMP management tools, formerly pysnmp-apps
 net-analyzer/snmptt 1.4.2: SNMP Trap Translator
@@ -14451,7 +14451,7 @@ net-analyzer/ssmping 0.9.1: Tool for testing multicast connectivity
 net-analyzer/suricata 7.0.5: High performance Network IDS, IPS and Network Security Monitoring engine
 net-analyzer/symon 2.88: Performance and information monitoring tool
 net-analyzer/synscan 5.02: Fast asynchronous half-open TCP portscanner
-net-analyzer/syweb 0.65-r1: Web frontend to symon
+net-analyzer/syweb 0.65-r1 0.67: Web frontend to symon
 net-analyzer/tcpdump 4.99.4-r1 9999: A tool for network monitoring and data acquisition
 net-analyzer/tcpflow 1.6.1-r1: A tool for monitoring, capturing and storing TCP connections flows
 net-analyzer/tcping 1.3.6 2.1.0: Check if a desired port is reachable via TCP
@@ -15582,7 +15582,7 @@ net-wireless/suwidgets 0.1.0-r1 0.3.0: graphical library containing all SigDigge
 net-wireless/tempestsdr 0.0_p20200221-r1 9999: Remote video eavesdropping using a software-defined radio platform
 net-wireless/ubertooth 2020.12.1-r1 9999: open source wireless development platform suitable for Bluetooth experimentation
 net-wireless/uhd 4.4.0.0 4.6.0.0: Universal Software Radio Peripheral (USRP) Hardware Driver
-net-wireless/unifi 6.5.55-r2 7.5.187 8.1.127 8.2.93 8.3.32: A Management Controller for Ubiquiti Networks UniFi APs
+net-wireless/unifi 6.5.55-r2 7.5.187 8.3.32: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.9.6_p20240428 9999: Universal Radio Hacker: investigate wireless protocols like a boss
 net-wireless/wavemon 0.9.3-r1 0.9.5 0.9.6: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r6: WLAN tool for breaking 802.11 WEP keys
@@ -16263,7 +16263,7 @@ sci-mathematics/lpsolve 5.5.2.11-r2: Mixed Integer Linear Programming (MILP) sol
 sci-mathematics/lrcalc 1.2 2.1: Littlewood-Richardson Calculator
 sci-mathematics/mathematica 10.3.1-r1 12.1.0 12.1.1-r1 12.2.0 13.0.0 13.0.1 13.1.0 13.2.1 13.3.1 14.0.0: Wolfram Mathematica
 sci-mathematics/mathlib-tools 1.3.2_p1: Development tools for Lean's mathlib
-sci-mathematics/mathmod 4.1-r1 11.1: Plot parametric and implicit surfaces
+sci-mathematics/mathmod 11.1: Plot parametric and implicit surfaces
 sci-mathematics/mathomatic 16.0.5-r1: Automatic algebraic manipulator
 sci-mathematics/maxima 5.46.0-r1 5.47.0 5.47.0-r1: Free computer algebra environment based on Macsyma
 sci-mathematics/metamath 0.198: Proof verifier based on a minimalistic formalism
@@ -16844,7 +16844,7 @@ sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 8.32-r1 9.4 9.4-r1 9.5 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 5.0.2 5.0.3 5.0.4: A Free software that gathers information on CPU, motherboard and more
-sys-apps/cpuid 20240709 20240716: Linux tool to dump x86 CPUID information about the CPUs
+sys-apps/cpuid 20240716: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.9.11: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
@@ -17416,14 +17416,14 @@ sys-fs/bcachefs-tools 1.4.0 1.4.1 1.6.4-r1 1.7.0 1.9.1 1.9.4 9999: Tools for bca
 sys-fs/bees 0.10 0.10-r1 9999: Best-Effort Extent-Same, a btrfs dedup agent
 sys-fs/bindfs 1.17.3 1.17.4 1.17.5 1.17.6 1.17.7: FUSE filesystem for bind mounting with altered permissions
 sys-fs/btrfs-progs 6.6.3 6.7.1 6.8.1 6.8.1-r1 6.9 6.9.1 6.9.2 6.10 6.10.1 9999: Btrfs filesystem utilities
-sys-fs/btrfsmaintenance 0.5 0.5.1-r1: Scripts for btrfs maintenance tasks like periodic scrub, balance, trim or defrag
+sys-fs/btrfsmaintenance 0.5.1-r1 0.5.2: Scripts for btrfs maintenance tasks like periodic scrub, balance, trim or defrag
 sys-fs/cachefilesd 0.10.10-r2: Provides a caching directory on an already mounted filesystem
 sys-fs/clamfs 1.2.0 1.3.0: A FUSE-based user-space file system with on-access anti-virus file scanning
 sys-fs/compsize 1.3 1.4 1.5 9999: Utility to find btrfs compression type/ratio on a file or set of files
 sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration files
 sys-fs/cramfs 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 0.10.3-r1 0.11.4: Encrypted FUSE filesystem that conceals metadata
-sys-fs/cryptmount 6.2.0: A utility for management and user-mode mounting of encrypted filesystems
+sys-fs/cryptmount 6.2.0 6.3.0: A utility for management and user-mode mounting of encrypted filesystems
 sys-fs/cryptsetup 2.6.1 2.7.2 2.7.3 2.7.4: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
