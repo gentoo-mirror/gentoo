@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.22 >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=A reverse proxy that exposes a server behind a NAT or firewall to the internet
+EAPI=8
+HOMEPAGE=https://github.com/fatedier/frp
+INHERIT=go-module systemd shell-completion
+IUSE=+client +server
+KEYWORDS=~amd64 ~loong ~riscv
+LICENSE=Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0
+REQUIRED_USE=|| ( client server )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/fatedier/frp/archive/refs/tags/v0.60.0.tar.gz -> frp-0.60.0.tar.gz https://github.com/Puqns67/gentoo-deps/releases/download/frp-0.60.0/frp-0.60.0-vendor.tar.xz
+_eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	83fd3ed1657cfc316c93d6a37018290d	systemd	c8b03e8df84486aa991d4396686e8942	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	bb7eb6bc232cd6c4bf8af739cdd2ee14
+_md5_=e6d7e0506c9e11da811312a1ff7eb97a
