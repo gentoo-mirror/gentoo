@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://jedi.ks.uiuc.edu/~johns/raytracer/
 INHERIT=toolchain-funcs
 IUSE=doc examples jpeg mpi +opengl openmp png threads
-KEYWORDS=~amd64 ~ppc ~x86 ~x64-macos
+KEYWORDS=~amd64 ~ppc ~riscv ~x86 ~x64-macos
 LICENSE=BSD
 RDEPEND=jpeg? ( virtual/jpeg:0= ) mpi? ( virtual/mpi ) opengl? ( virtual/glu virtual/opengl ) png? ( media-libs/libpng:0= )
 SLOT=0
 SRC_URI=http://jedi.ks.uiuc.edu/~johns/raytracer/files/0.99b6/tachyon-0.99b6.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=9c5e369336a0dd681635a25254be1751
+_md5_=b2f149fcf0f6ea23ee59f86a630eff31
