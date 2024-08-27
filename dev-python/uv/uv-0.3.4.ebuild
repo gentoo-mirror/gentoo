@@ -8,14 +8,15 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[async_zip]='https://github.com/charliermarsh/rs-async-zip;011b24604fa7bc223daaad7712c0694bac8f0a87;rs-async-zip-%commit%'
-	[pubgrub]='https://github.com/astral-sh/pubgrub;2fac39371a47e7cb821e510aaa4de25405413d29;pubgrub-%commit%'
-	[reqwest-middleware]='https://github.com/astral-sh/reqwest-middleware;21ceec9a5fd2e8d6f71c3ea2999078fecbd13cbe;reqwest-middleware-%commit%/reqwest-middleware'
-	[reqwest-retry]='https://github.com/astral-sh/reqwest-middleware;21ceec9a5fd2e8d6f71c3ea2999078fecbd13cbe;reqwest-middleware-%commit%/reqwest-retry'
+	[pubgrub]='https://github.com/astral-sh/pubgrub;388685a8711092971930986644cfed152d1a1f6c;pubgrub-%commit%'
+	[reqwest-middleware]='https://github.com/astral-sh/reqwest-middleware;5e3eaf254b5bd481c75d2710eed055f95b756913;reqwest-middleware-%commit%/reqwest-middleware'
+	[reqwest-retry]='https://github.com/astral-sh/reqwest-middleware;5e3eaf254b5bd481c75d2710eed055f95b756913;reqwest-middleware-%commit%/reqwest-retry'
+	[tl]='https://github.com/charliermarsh/tl;6e25b2ee2513d75385101a8ff9f591ef51f314ec;tl-%commit%'
 )
 
 inherit cargo check-reqs
 
-CRATE_PV=${PV}
+CRATE_PV=0.3.4
 DESCRIPTION="A Python package installer and resolver, written in Rust"
 HOMEPAGE="
 	https://github.com/astral-sh/uv/

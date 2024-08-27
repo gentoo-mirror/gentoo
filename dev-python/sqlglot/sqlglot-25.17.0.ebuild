@@ -72,6 +72,9 @@ BDEPEND="
 		${RUST_DEPEND}
 		dev-util/maturin[${PYTHON_USEDEP}]
 	)
+	test? (
+		dev-python/pytz[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
@@ -100,6 +103,11 @@ python_compile() {
 }
 
 python_test() {
+	local EPYTEST_DESELECT=(
+		# timing, sigh
+		# https://github.com/tobymao/sqlglot/issues/3961
+		tests/test_generator.py::TestGenerator::test_generate_nested_binary
+	)
 	local EPYTEST_IGNORE=(
 		# Tests require pyspark or duckdb which aren't in the tree.
 		# Pandas would be a requirement normally, but it gets ignored by proxy.
