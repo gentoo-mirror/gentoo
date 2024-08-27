@@ -69,7 +69,7 @@ src_configure() {
 		# Doesn't do anything beyond adding -flto (bug #930947).
 		--disable-lto
 		# The default value causes double 'lib'
-		--localstatedir=/var
+		--localstatedir="${EPREFIX}/var"
 		--with-crond-dir="${EPREFIX}/etc/cron.d"
 		--with-systemd-unit-dir="$(systemd_get_systemunitdir)"
 		--with-udev-rule-dir="$(get_udevdir)/rules.d"
@@ -97,6 +97,8 @@ src_install() {
 	if ! use static-libs; then
 		rm "${ED}/usr/$(get_libdir)/libhandle.a" || die
 	fi
+
+	find "${ED}" -name '*.la' -delete || die
 }
 
 pkg_postrm() {
