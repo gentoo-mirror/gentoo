@@ -5,10 +5,10 @@ DESCRIPTION=Command-line utility and library for L-function computations
 EAPI=8
 HOMEPAGE=https://gitlab.com/sagemath/lcalc
 IUSE=+double double-double quad-double pari
-KEYWORDS=amd64
+KEYWORDS=amd64 ~riscv
 LICENSE=GPL-2+
 RDEPEND=double-double? ( sci-libs/qd:= ) quad-double? ( sci-libs/qd:= ) pari? ( sci-mathematics/pari:= )
 REQUIRED_USE=^^ ( double double-double quad-double )
 SLOT=0/1
 SRC_URI=https://gitlab.com/sagemath/lcalc/uploads/25f029f3c02fcb6c3174972e0ac0e192/lcalc-2.0.5.tar.xz
-_md5_=08410239b660b324a480c07d56cc7b4d
+_md5_=c1d5061393e03ba9c87cd80d65c0305b
