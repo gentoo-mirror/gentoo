@@ -1357,7 +1357,7 @@ app-containers/earthly 0.8.13 0.8.14 0.8.15: Build automation tool that executes
 app-containers/flannel 0.17.0 0.20.0: An etcd backed network fabric for containers
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0 0.79.3: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
-app-containers/incus 6.0.1-r1 6.3-r1 6.4: Modern, secure and powerful system container and virtual machine manager
+app-containers/incus 6.0.1-r1 6.4: Modern, secure and powerful system container and virtual machine manager
 app-containers/k3d 5.4.9 5.6.0 5.7.3: k3d creates k3s clusters in docker
 app-containers/kompose 1.26.1: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 5.0.3 6.0.0-r2 6.0.1: A userspace interface for the Linux kernel containment features
@@ -1674,7 +1674,7 @@ app-dicts/myspell-ms 20100407: Malay dictionaries for myspell/hunspell
 app-dicts/myspell-nb 2.0.10-r1: Norwegian dictionaries for myspell/hunspell
 app-dicts/myspell-nl 2.10g-r2: Dutch dictionaries for myspell/hunspell
 app-dicts/myspell-nn 2.0.10: Norwegian dictionaries for myspell/hunspell
-app-dicts/myspell-pl 20230101: Polish dictionaries for myspell/hunspell
+app-dicts/myspell-pl 20230101 20240801: Polish dictionaries for myspell/hunspell
 app-dicts/myspell-pt 20120420: Portuguese dictionaries for myspell/hunspell
 app-dicts/myspell-pt-br 3.2.0: Brazilian dictionaries for myspell/hunspell
 app-dicts/myspell-ro 3.3.10: Romanian dictionaries for myspell/hunspell
@@ -5668,7 +5668,7 @@ dev-libs/nmeap 0.3-r2: Extensible NMEA-0183 (GPS) data parser in standard C
 dev-libs/npth 1.6-r1 1.6-r2 1.7-r1: New GNU Portable Threads Library
 dev-libs/nsgenbind 0.9: Generate Javascript-to-DOM bindings from w3c webidl files
 dev-libs/nspr 4.35-r2: Netscape Portable Runtime
-dev-libs/nss 3.90.2-r1 3.101.2 3.102.1 3.103: Mozilla's Network Security Services library that implements PKI support
+dev-libs/nss 3.90.2-r1 3.101.2 3.103: Mozilla's Network Security Services library that implements PKI support
 dev-libs/nss-pem 1.1.0: PEM file reader for Network Security Services (NSS)
 dev-libs/nsync 1.25.0 1.26.0: C library that exports various synchronization primitives, such as mutexes
 dev-libs/ntl 11.5.1-r4: High-performance and portable C++ number theory library
@@ -12458,7 +12458,7 @@ mail-client/neomutt 20220415 20231023 20231023-r1 20231103 20231221 20240201 202
 mail-client/roundcube 1.6.7 1.6.8 9999: A browser-based multilingual IMAP client with an application-like user interface
 mail-client/s-nail 14.9.24: Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
 mail-client/thunderbird 115.14.0 128.1.0: Thunderbird Mail Client
-mail-client/thunderbird-bin 115.13.0 115.14.0 128.1.0: Thunderbird Mail Client
+mail-client/thunderbird-bin 115.14.0 128.1.0: Thunderbird Mail Client
 mail-filter/MailScanner 4.84.5.2: Free Anti-Virus and Anti-Spam Filter
 mail-filter/afew 3.0.1 3.0.1-r1: Initial tagging script for Notmuch
 mail-filter/amavisd-milter 1.7.0-r1 1.7.1 1.7.2 1.7.2-r1: sendmail milter for amavisd-new
@@ -13183,7 +13183,7 @@ media-libs/libgphoto2 2.5.31-r1 2.5.31-r2: Library that implements support for n
 media-libs/libgpod 0.8.3-r6 0.8.3-r7: Shared library to access the contents of an iPod
 media-libs/libharu 2.4.2-r1: C/C++ library for PDF generation
 media-libs/libhdhomerun 20190621 20200521: SiliconDust HDHomeRun Utilties
-media-libs/libheif 1.15.2-r1 1.17.6 1.18.1 9999: ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+media-libs/libheif 1.15.2-r1 1.17.6 1.18.1 1.18.2 9999: ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 media-libs/libicns 0.8.1-r1: A library for manipulating MacOS X .icns icon format
 media-libs/libid3tag 0.16.3: The MAD id3tag library, Tenacity fork
 media-libs/libiec61883 1.2.0-r2: Library for capturing video (dv or mpeg2) over the IEEE 1394 bus
@@ -14222,7 +14222,7 @@ media-video/x264-encoder 0.0.20220222 0.0.20231114 0.0.20240513 9999: A free com
 media-video/xine-ui 0.99.13 0.99.13-r1: Xine movie player
 media-video/xvattr 1.3-r3: X11 XVideo Querying/Setting Tool from Ogle project
 media-video/xvid4conf 1.12: GTK2-configuration dialog for xvid4
-media-video/yle-dl 20240706 20240806: Download media files from Yle Areena
+media-video/yle-dl 20240806: Download media files from Yle Areena
 net-analyzer/2ping 4.5.1-r1: A bi-directional ping utility
 net-analyzer/alive 2.0.5-r1: Periodic ping program
 net-analyzer/apinger 0.6.1: Alarm Pinger
@@ -15063,7 +15063,7 @@ net-misc/fatrat 1.2.0_beta2_p20161204: Qt5-based download/upload manager
 net-misc/freerdp 2.11.5-r10 2.11.7 2.9999 3.4.0-r12 3.6.3 3.7.0 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 9.0.2 9.1: The FRRouting Protocol Suite
 net-misc/gallery-dl 1.27.1 1.27.3 9999: Download image galleries and collections from several image hosting sites
-net-misc/geckodriver 0.34.0 0.35.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
+net-misc/geckodriver 0.35.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 4.9.0 6.0.0 6.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geoipyupdate 0.0.1: Simple python replacement for the MaxMind geoipupdate program
@@ -17482,7 +17482,7 @@ sys-fs/lsscsi 0.32-r1: SCSI sysfs query tool
 sys-fs/lufis 0.3-r1: Wrapper to use lufs modules with fuse kernel support
 sys-fs/lufs 0.9.7-r4: User-mode filesystem implementation
 sys-fs/lvm2 2.03.21-r1 2.03.22-r1 2.03.22-r5: User-land utilities for LVM2 (device-mapper) software
-sys-fs/lxcfs 5.0.4-r1 6.0.0 6.0.1: FUSE filesystem for LXC
+sys-fs/lxcfs 5.0.4-r1 6.0.1: FUSE filesystem for LXC
 sys-fs/mac-fdisk 0.1_p18 0.1_p18-r1: Mac/PowerMac disk partitioning utility
 sys-fs/mdadm 4.2-r2 4.2-r3 4.3: Tool for running RAID systems - replacement for the raidtools
 sys-fs/mergerfs 2.36.0 2.40.2: A featureful union filesystem
@@ -18017,8 +18017,8 @@ www-client/elinks 0.16.1.1-r2 0.16.1.1-r4 9999: Advanced and well-established te
 www-client/epiphany 46.0 46.2: GNOME webbrowser based on Webkit
 www-client/falkon 23.08.5 24.05.2 24.08.0: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
-www-client/firefox 115.13.0 115.14.0 128.1.0 129.0 129.0.1 129.0.2: Firefox Web Browser
-www-client/firefox-bin 115.14.0 128.1.0 129.0.1 129.0.2: Firefox Web Browser
+www-client/firefox 115.13.0 115.14.0 128.1.0 129.0.2: Firefox Web Browser
+www-client/firefox-bin 115.14.0 128.1.0 129.0.2: Firefox Web Browser
 www-client/google-chrome 128.0.6613.84: The web browser from Google
 www-client/google-chrome-beta 128.0.6613.36: The web browser from Google
 www-client/google-chrome-unstable 129.0.6658.0: The web browser from Google
