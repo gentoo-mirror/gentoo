@@ -3,8 +3,8 @@
 
 EAPI=8
 inherit go-module
-GIT_HASH=fb651b4ddd8176bd81756fca2d988dd8611f514d
-SOURCE_DATE_EPOCH=1712786247
+GIT_HASH=b5e7dc123a272080f4af4554054797296271e902
+SOURCE_DATE_EPOCH=1722980393
 
 DESCRIPTION="container signing utility"
 HOMEPAGE="https://sigstore.dev"
@@ -13,7 +13,7 @@ SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RESTRICT="test"
 
