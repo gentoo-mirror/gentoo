@@ -31,11 +31,10 @@ HOMEPAGE="https://www.vim.org https://github.com/vim/vim"
 
 LICENSE="vim"
 SLOT="0"
-IUSE="acl aqua crypt cscope debug lua minimal motif netbeans nls perl python racket ruby selinux session sound tcl"
+IUSE="acl crypt cscope debug lua minimal motif netbeans nls perl python racket ruby selinux session sound tcl"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	aqua? ( !motif )
 "
 
 RDEPEND="
@@ -47,12 +46,10 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXt
 	acl? ( kernel_linux? ( sys-apps/acl ) )
-	!aqua? (
-		motif? ( >=x11-libs/motif-2.3:0 )
-		!motif? (
-			x11-libs/gtk+:3
-			x11-libs/libXft
-		)
+	motif? ( >=x11-libs/motif-2.3:0 )
+	!motif? (
+		x11-libs/gtk+:3
+		x11-libs/libXft
 	)
 	crypt? ( dev-libs/libsodium:= )
 	cscope? ( dev-util/cscope )
@@ -71,7 +68,8 @@ RDEPEND="
 	tcl? ( dev-lang/tcl:0= )
 "
 DEPEND="${RDEPEND}
-	x11-base/xorg-proto"
+	x11-base/xorg-proto
+"
 # configure runs the Lua interpreter
 BDEPEND="
 	dev-build/autoconf
@@ -194,9 +192,15 @@ src_configure() {
 		fi
 	done
 
+	local myconf=(
+		--with-modified-by="Gentoo-${PVR} (RIP Bram)"
+		--with-vim-name=gvim
+		--with-x
+	)
+
 	use debug && append-flags "-DDEBUG"
 
-	local myconf=(
+	myconf+=(
 		--with-features=huge
 		--disable-gpm
 		--with-gnome=no
@@ -228,15 +232,9 @@ src_configure() {
 		)
 	fi
 
-	# Default is gtk unless aqua or motif are enabled
+	# Default is gtk unless motif is enabled
 	echo ; echo
-	if use aqua; then
-		einfo "Building gvim with the Carbon GUI"
-		myconf+=(
-			--enable-darwin
-			--enable-gui=carbon
-		)
-	elif use motif; then
+	if use motif; then
 		einfo "Building gvim with the MOTIF GUI"
 		myconf+=( --enable-gui=motif )
 	else
@@ -260,11 +258,7 @@ src_configure() {
 			   vim_cv_toupper_broken=no
 	fi
 
-	econf \
-		--with-modified-by="Gentoo-${PVR} (RIP Bram)" \
-		--with-vim-name=gvim \
-		--with-x \
-		"${myconf[@]}"
+	econf "${myconf[@]}"
 }
 
 src_compile() {
