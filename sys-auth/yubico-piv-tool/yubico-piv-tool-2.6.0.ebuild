@@ -1,18 +1,20 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+inherit cmake verify-sig
 
 DESCRIPTION="Command-line tool and p11-kit module for the YubiKey PIV application"
 HOMEPAGE="https://developers.yubico.com/yubico-piv-tool/ https://github.com/Yubico/yubico-piv-tool"
-SRC_URI="https://developers.yubico.com/${PN}/Releases/${P}.tar.gz"
+SRC_URI="https://developers.yubico.com/${PN}/Releases/${P}.tar.gz
+	verify-sig? ( https://developers.yubico.com/${PN}/Releases/${P}.tar.gz.sig )"
 
 LICENSE="BSD-2"
 SLOT="0/2"
-KEYWORDS="amd64 ~arm64 ~riscv"
-IUSE="test"
+KEYWORDS="~amd64 ~arm64 ~riscv"
+IUSE="test verify-sig"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/yubico.com.asc"
 
 RESTRICT="!test? ( test )"
 
@@ -22,7 +24,9 @@ DEPEND="${RDEPEND}
 	test? ( dev-libs/check )"
 BDEPEND="dev-util/gengetopt
 	sys-apps/help2man
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	test? ( dev-libs/check )
+	verify-sig? ( >=sec-keys/openpgp-keys-yubico-20240628 )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.1.1-tests-optional.patch
