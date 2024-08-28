@@ -1,0 +1,15 @@
+BDEPEND=>=app-editors/xemacs-21.4.24-r9 app-xemacs/sh-script test? ( >=app-editors/xemacs-21.5.35 )
+DEFINED_PHASES=compile install postinst test
+DESCRIPTION=Emacs modes for editing ebuilds and other Gentoo specific files
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Emacs
+INHERIT=optfeature
+IUSE=test
+KEYWORDS=~amd64 ~hppa ~x86
+LICENSE=GPL-2+
+RDEPEND=>=app-editors/xemacs-21.4.24-r9 app-xemacs/sh-script
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~ulm/emacs/ebuild-mode-1.74.tar.xz
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=079898d82df1901be9fc9e6fb3729ecf
