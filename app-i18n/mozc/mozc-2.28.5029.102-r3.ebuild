@@ -62,7 +62,7 @@ BDEPEND="
 	fcitx5? ( sys-devel/gettext )
 "
 DEPEND="
-	>=dev-cpp/abseil-cpp-20230802.0:=[cxx17(+)]
+	>=dev-cpp/abseil-cpp-20240116.0:=
 	>=dev-libs/protobuf-3.0.0:=
 	fcitx4? (
 		app-i18n/fcitx:4
@@ -134,6 +134,7 @@ PATCHES=(
 	"${WORKDIR}"/mozc-2.28.5029.102-patches
 	"${FILESDIR}"/mozc-2.28.5029.102-abseil.patch
 	"${FILESDIR}"/mozc-2.28.5029.102-abseil-20230802.0.patch
+	"${FILESDIR}"/mozc-2.28.5029.102-abseil-20240116.patch
 )
 
 python_check_deps() {
