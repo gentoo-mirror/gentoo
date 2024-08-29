@@ -8,19 +8,15 @@ PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1
 
-EGIT_COMMIT="6290cacdb7f9d195b4f96ce0ab036c8eebf35d94"
-MY_P=cattrs-${EGIT_COMMIT}
-
 DESCRIPTION="Composable complex class support for attrs and dataclasses"
 HOMEPAGE="
 	https://pypi.org/project/cattrs/
 	https://github.com/python-attrs/cattrs/
 "
 SRC_URI="
-	https://github.com/python-attrs/cattrs/archive/${EGIT_COMMIT}.tar.gz
-		-> ${MY_P}.gh.tar.gz
+	https://github.com/python-attrs/cattrs/archive/v${PV}.tar.gz
+		-> ${P}.gh.tar.gz
 "
-S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
@@ -58,10 +54,10 @@ distutils_enable_tests pytest
 
 PATCHES=(
 	# https://github.com/python-attrs/cattrs/pull/543
-	"${FILESDIR}/${P}-py313.patch"
+	"${FILESDIR}/${PN}-23.2.4_pre20240627-py313.patch"
 )
 
-export SETUPTOOLS_SCM_PRETEND_VERSION=${PV/_pre/.dev}
+export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
 python_test() {
 	local EPYTEST_IGNORE=(
