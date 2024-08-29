@@ -33,6 +33,33 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-08-29)
+# No signs of development upstream (last commit in 2016). If you use this,
+# please ping them in order to get it ported over to KF6.
+# Removal on 2024-09-29.
+kde-misc/ktoshiba
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-08-29)
+# This is so old that it was only kept alive as KF5-based version by means
+# of a downstream patch porting away from KDElibs4 (back in 2014!). Not
+# functional in KIO-6 revdeps. Removal on 2024-09-29.
+kde-misc/openofficeorg-thumbnail
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-08-29)
+# Long unmaintained Plasma 5-only desktop widget. Removal on 2024-09-29.
+kde-misc/plasma-applet-network-monitor
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-08-29)
+# This is so old that it was only kept alive as KF5-based version by means
+# of a downstream patch porting away from KDElibs4. No reports of it even
+# being in a working state (e.g. bug 813031). Removal on 2024-09-29.
+kde-misc/kio-locate
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-08-29)
+# Depends on kde-apps/konqueror:5 which is close to being obsolete.
+# No signs of upstream porting work. Removal on 2024-09-29.
+kde-misc/kio-gopher
+
 # Michał Górny <mgorny@gentoo.org> (2024-08-28)
 # API removals break gobject-introspection.
 >=dev-python/ensurepip-setuptools-74
