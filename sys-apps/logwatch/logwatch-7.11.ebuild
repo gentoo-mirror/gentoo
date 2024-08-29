@@ -34,6 +34,10 @@ RDEPEND="
 	selinux? ( sec-policy/selinux-logwatch )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-openssh-9.8.patch
+)
+
 src_install() {
 	dodir /usr/share/logwatch/lib
 	dodir /usr/share/logwatch/scripts/services
