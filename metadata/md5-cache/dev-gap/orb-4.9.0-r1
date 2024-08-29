@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.gap-system.org/Packages/orb.html
 INHERIT=gap-pkg toolchain-funcs
 IUSE=examples test test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=GPL-3+
 RDEPEND=sci-mathematics/gap:= sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/gap-packages/orb/releases/download/v4.9.0/orb-4.9.0.tar.gz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	49107a349cfd3e19c01c89922d464e4f	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=338fce6b5987589b151d1539bc41e418
+_md5_=f60b7729932db0d3fd59acc2ab9d7e72
