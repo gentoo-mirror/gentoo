@@ -35,18 +35,19 @@ CRATES="
 	bumpalo@3.16.0
 	byteorder@1.5.0
 	cachedir@0.3.1
-	camino@1.1.7
+	camino@1.1.9
 	cast@0.3.0
 	castaway@0.2.3
 	cc@1.0.95
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
+	cfg_aliases@0.2.1
 	chic@1.2.2
 	chrono@0.4.38
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.15
+	clap@4.5.16
 	clap_builder@4.5.15
 	clap_complete@4.5.2
 	clap_complete_command@0.6.1
@@ -74,7 +75,7 @@ CRATES="
 	crossbeam-utils@0.8.19
 	crossbeam@0.8.4
 	crunchy@0.2.2
-	ctrlc@3.4.4
+	ctrlc@3.4.5
 	darling@0.20.8
 	darling_core@0.20.8
 	darling_macro@0.20.8
@@ -120,7 +121,7 @@ CRATES="
 	ignore@0.4.22
 	imara-diff@0.1.7
 	imperative@1.0.6
-	indexmap@2.3.0
+	indexmap@2.4.0
 	indicatif@0.17.8
 	indoc@2.0.5
 	inotify-sys@0.1.5
@@ -137,11 +138,11 @@ CRATES="
 	itoa@1.0.11
 	jobserver@0.1.32
 	jod-thread@0.1.2
-	js-sys@0.3.69
+	js-sys@0.3.70
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	lazy_static@1.4.0
-	libc@0.2.155
+	libc@0.2.158
 	libcst@1.4.0
 	libcst_derive@1.4.0
 	libmimalloc-sys@0.1.39
@@ -156,12 +157,14 @@ CRATES="
 	matchit@0.8.4
 	memchr@2.7.4
 	mimalloc@0.1.43
+	minicov@0.3.5
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.2
 	mio@0.8.11
 	natord@1.0.9
 	newtype-uuid@1.1.0
 	nix@0.28.0
+	nix@0.29.0
 	nom@7.1.3
 	notify@6.1.1
 	nu-ansi-term@0.46.0
@@ -171,7 +174,7 @@ CRATES="
 	once_cell@1.19.0
 	oorandom@11.1.3
 	option-ext@0.2.0
-	ordermap@0.5.1
+	ordermap@0.5.2
 	os_str_bytes@7.0.0
 	overload@0.1.1
 	parking_lot@0.12.3
@@ -201,7 +204,7 @@ CRATES="
 	pyproject-toml@0.9.0
 	quick-junit@0.4.0
 	quick-xml@0.31.0
-	quote@1.0.36
+	quote@1.0.37
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
@@ -232,10 +235,10 @@ CRATES="
 	scopeguard@1.2.0
 	seahash@4.1.0
 	serde-wasm-bindgen@0.6.5
-	serde@1.0.206
-	serde_derive@1.0.206
+	serde@1.0.209
+	serde_derive@1.0.209
 	serde_derive_internals@0.29.0
-	serde_json@1.0.124
+	serde_json@1.0.127
 	serde_repr@0.1.19
 	serde_spanned@0.6.7
 	serde_test@1.0.177
@@ -254,7 +257,7 @@ CRATES="
 	strum@0.26.3
 	strum_macros@0.26.4
 	subtle@2.5.0
-	syn@2.0.74
+	syn@2.0.76
 	synstructure@0.13.1
 	tempfile@3.12.0
 	terminal_size@0.3.0
@@ -307,14 +310,14 @@ CRATES="
 	vte_generate_state_changes@0.1.1
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.92
-	wasm-bindgen-futures@0.4.42
-	wasm-bindgen-macro-support@0.2.92
-	wasm-bindgen-macro@0.2.92
-	wasm-bindgen-shared@0.2.92
-	wasm-bindgen-test-macro@0.3.42
-	wasm-bindgen-test@0.3.42
-	wasm-bindgen@0.2.92
+	wasm-bindgen-backend@0.2.93
+	wasm-bindgen-futures@0.4.43
+	wasm-bindgen-macro-support@0.2.93
+	wasm-bindgen-macro@0.2.93
+	wasm-bindgen-shared@0.2.93
+	wasm-bindgen-test-macro@0.3.43
+	wasm-bindgen-test@0.3.43
+	wasm-bindgen@0.2.93
 	web-sys@0.3.69
 	web-time@1.1.0
 	webpki-roots@0.26.1
@@ -360,9 +363,9 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/MichaReiser/salsa;ece083e15b79f155f9e4368ec1318cec9a08d88b;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/MichaReiser/salsa;ece083e15b79f155f9e4368ec1318cec9a08d88b;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/MichaReiser/salsa;ece083e15b79f155f9e4368ec1318cec9a08d88b;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;f608ff8b24f07706492027199f51132244034f29;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;f608ff8b24f07706492027199f51132244034f29;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;f608ff8b24f07706492027199f51132244034f29;salsa-%commit%'
 )
 
 inherit shell-completion cargo
