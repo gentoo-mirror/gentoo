@@ -1,13 +1,13 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
-DEPEND=app-arch/libdeflate app-arch/lz4:= dev-libs/libuv:= sys-libs/zlib
+DEPEND=app-arch/libdeflate[zlib(+)] app-arch/lz4:= dev-libs/libuv:= sys-libs/zlib
 DESCRIPTION=Fast cso compressor
 EAPI=8
 HOMEPAGE=https://github.com/unknownbrackets/maxcso
 INHERIT=toolchain-funcs git-r3
 LICENSE=ISC LGPL-2.1+ Apache-2.0
 PROPERTIES=live
-RDEPEND=app-arch/libdeflate app-arch/lz4:= dev-libs/libuv:= sys-libs/zlib
+RDEPEND=app-arch/libdeflate[zlib(+)] app-arch/lz4:= dev-libs/libuv:= sys-libs/zlib
 SLOT=0
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=50767311e0c83a522e719d9803c851f7
+_md5_=8a6d43ab14069964fa639228dfdebffc
