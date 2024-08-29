@@ -6,7 +6,7 @@
 EAPI=8
 
 CRATES="
-	adler@1.0.2
+	adler2@2.0.0
 	ahash@0.8.11
 	allocator-api2@0.2.18
 	anstream@0.6.15
@@ -17,88 +17,85 @@ CRATES="
 	anyhow@1.0.86
 	arc-swap@1.7.1
 	autocfg@1.3.0
-	bitflags@1.3.2
 	bitflags@2.6.0
 	bstr@1.10.0
 	bzip2-rs@0.1.2
-	cc@1.1.6
+	cc@1.1.14
 	cfg-if@1.0.0
-	cfg_aliases@0.1.1
-	clap@4.5.11
-	clap_builder@4.5.11
+	cfg_aliases@0.2.1
+	clap@4.5.16
+	clap_builder@4.5.15
 	clap_lex@0.7.2
 	clru@0.6.2
 	colorchoice@1.0.2
 	crc32fast@1.4.2
-	ctrlc@3.4.4
-	curl-sys@0.4.73+curl-8.8.0
+	ctrlc@3.4.5
+	curl-sys@0.4.74+curl-8.9.0
 	curl@0.4.46
-	deranged@0.3.11
-	dunce@1.0.4
+	dunce@1.0.5
 	encoding_rs@0.8.34
 	equivalent@1.0.1
 	errno@0.3.9
 	faster-hex@0.9.0
-	fastrand@2.1.0
-	filetime@0.2.23
-	flate2@1.0.30
+	fastrand@2.1.1
+	filetime@0.2.24
+	flate2@1.0.33
 	fnv@1.0.7
 	form_urlencoded@1.2.1
-	gix-actor@0.31.5
+	gix-actor@0.32.0
 	gix-bitmap@0.2.11
 	gix-chunk@0.4.8
-	gix-command@0.3.8
+	gix-command@0.3.9
 	gix-commitgraph@0.24.3
-	gix-config-value@0.14.7
-	gix-config@0.38.0
-	gix-date@0.8.7
-	gix-diff@0.44.1
-	gix-discover@0.33.0
+	gix-config-value@0.14.8
+	gix-config@0.40.0
+	gix-date@0.9.0
+	gix-diff@0.46.0
+	gix-discover@0.35.0
 	gix-features@0.38.2
-	gix-fs@0.11.2
-	gix-glob@0.16.4
+	gix-fs@0.11.3
+	gix-glob@0.16.5
 	gix-hash@0.14.2
 	gix-hashtable@0.5.2
-	gix-index@0.33.1
+	gix-index@0.35.0
 	gix-lock@14.0.0
-	gix-macros@0.1.5
-	gix-object@0.42.3
-	gix-odb@0.61.1
-	gix-pack@0.51.1
-	gix-path@0.10.9
+	gix-object@0.44.0
+	gix-odb@0.63.0
+	gix-pack@0.53.0
+	gix-path@0.10.10
 	gix-quote@0.4.12
-	gix-ref@0.45.0
-	gix-refspec@0.23.1
-	gix-revision@0.27.2
-	gix-revwalk@0.13.2
-	gix-sec@0.10.7
-	gix-tempfile@14.0.1
+	gix-ref@0.47.0
+	gix-refspec@0.25.0
+	gix-revision@0.29.0
+	gix-revwalk@0.15.0
+	gix-sec@0.10.8
+	gix-tempfile@14.0.2
 	gix-trace@0.1.9
-	gix-traverse@0.39.2
-	gix-url@0.27.4
+	gix-traverse@0.41.0
+	gix-url@0.27.5
 	gix-utils@0.1.12
-	gix-validate@0.8.5
-	gix@0.64.0
+	gix-validate@0.9.0
+	gix@0.66.0
 	hashbrown@0.14.5
-	hermit-abi@0.3.9
+	hermit-abi@0.4.0
 	home@0.5.9
 	idna@0.5.0
-	indexmap@2.2.6
-	is-terminal@0.4.12
+	indexmap@2.4.0
+	is-terminal@0.4.13
 	is_terminal_polyfill@1.70.1
 	itoa@1.0.11
-	libc@0.2.155
-	libz-sys@1.1.18
+	jiff-tzdb-platform@0.1.0
+	jiff-tzdb@0.1.0
+	jiff@0.1.10
+	libc@0.2.158
+	libredox@0.1.3
+	libz-sys@1.1.20
 	linux-raw-sys@0.4.14
 	lock_api@0.4.12
 	memchr@2.7.4
 	memmap2@0.9.4
-	minimal-lexical@0.2.1
-	miniz_oxide@0.7.4
-	nix@0.28.0
-	nom@7.1.3
-	num-conv@0.1.0
-	num_threads@0.1.7
+	miniz_oxide@0.8.0
+	nix@0.29.0
 	once_cell@1.19.0
 	openssl-probe@0.1.5
 	openssl-sys@0.9.103
@@ -106,11 +103,9 @@ CRATES="
 	parking_lot_core@0.9.10
 	percent-encoding@2.3.1
 	pkg-config@0.3.30
-	powerfmt@0.2.0
 	proc-macro2@1.0.86
 	prodash@28.0.0
-	quote@1.0.36
-	redox_syscall@0.4.1
+	quote@1.0.37
 	redox_syscall@0.5.3
 	regex-automata@0.4.7
 	rustix@0.38.34
@@ -118,24 +113,22 @@ CRATES="
 	same-file@1.0.6
 	schannel@0.1.23
 	scopeguard@1.2.0
-	serde@1.0.204
-	serde_derive@1.0.204
-	serde_json@1.0.120
+	serde@1.0.209
+	serde_derive@1.0.209
+	serde_json@1.0.127
 	sha1_smol@1.0.1
 	shell-words@1.1.0
+	shlex@1.3.0
 	smallvec@1.13.2
 	socket2@0.5.7
 	strsim@0.11.1
-	syn@2.0.72
+	syn@2.0.76
 	tar@0.4.41
-	tempfile@3.10.1
+	tempfile@3.12.0
 	termcolor@1.4.1
 	terminal_size@0.3.0
 	thiserror-impl@1.0.63
 	thiserror@1.0.63
-	time-core@0.1.2
-	time-macros@0.2.18
-	time@0.3.36
 	tinyvec@1.8.0
 	tinyvec_macros@0.1.1
 	unicode-bidi@0.3.15
@@ -147,9 +140,10 @@ CRATES="
 	vcpkg@0.2.15
 	version_check@0.9.5
 	walkdir@2.5.0
-	winapi-util@0.1.8
+	winapi-util@0.1.9
 	windows-sys@0.48.0
 	windows-sys@0.52.0
+	windows-sys@0.59.0
 	windows-targets@0.48.5
 	windows-targets@0.52.6
 	windows_aarch64_gnullvm@0.48.5
@@ -167,7 +161,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
-	winnow@0.6.16
+	winnow@0.6.18
 	xattr@1.3.1
 	zerocopy-derive@0.7.35
 	zerocopy@0.7.35
