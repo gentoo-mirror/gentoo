@@ -52,6 +52,7 @@ COMMON_DEPS="
 		>=media-gfx/fig2dev-3.2.9-r1
 	)
 	gui? (
+		dev-qt/qt5compat:6
 		dev-qt/qtbase:6[gui,opengl,network,widgets]
 		media-libs/fontconfig:=
 		media-libs/freetype:=
@@ -74,9 +75,7 @@ COMMON_DEPS="
 		sci-libs/umfpack:=
 	)
 	spqr? ( sci-libs/spqr:= )
-	ssl? (
-		dev-libs/openssl:=
-	)
+	ssl? ( dev-libs/openssl:= )
 	sundials? (
 		klu? ( >=sci-libs/sundials-4:=[sparse] )
 		!klu? ( >=sci-libs/sundials-4:= )
@@ -95,7 +94,10 @@ BDEPEND="
 		dev-texlive/texlive-metapost
 		virtual/latex-base
 	)
-	gui? ( dev-qt/qttools:6[linguist] )
+	gui? (
+		dev-qt/qttools:6[linguist]
+		doc? ( dev-qt/qttools:6[assistant] )
+	)
 	qrupdate? ( app-misc/pax-utils )
 	sparse? ( app-misc/pax-utils )
 "
