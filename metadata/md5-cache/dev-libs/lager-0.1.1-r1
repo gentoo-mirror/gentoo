@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://sinusoid.es/lager/
 INHERIT=cmake
 IUSE=test
-KEYWORDS=~amd64 ~arm64 ~riscv
+KEYWORDS=amd64 ~arm64 ~riscv
 LICENSE=MIT
 RDEPEND=dev-libs/boost:= dev-libs/zug dev-libs/immer
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/arximboldi/lager/archive/v0.1.1.tar.gz -> lager-0.1.1.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=f24061768a8a902a714093faf2c37b69
+_md5_=16258a501425a2ba6637b4b1da932d8c
