@@ -5,8 +5,8 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=6.5.0
-QTMIN=6.7.2
+KFMIN=6.3.0
+QTMIN=6.6.2
 inherit ecm gear.kde.org
 
 DESCRIPTION="KIO plugins present a filesystem-like view of arbitrary data"
@@ -69,8 +69,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!kde-apps/kio-extras:5[-kf6compat(-)]
-	!kde-apps/kio-extras-kf5:5[-kf6compat]
-	!kde-frameworks/kio:5[-kf6compat(-)]
+	!kde-apps/kio-extras-kf5:5
+	!<kde-frameworks/kio-5.116.0-r2:5
+	!kde-frameworks/kio-trash-desktop-file:5
 	>=kde-frameworks/kded-${KFMIN}:6
 "
 BDEPEND="man? ( dev-util/gperf )"

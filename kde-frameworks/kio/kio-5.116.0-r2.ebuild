@@ -15,12 +15,12 @@ DESCRIPTION="Framework providing transparent file and data management"
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="acl kerberos kf6compat +kwallet X"
+IUSE="acl kerberos +kwallet X"
 
 # tests hang
 RESTRICT="test"
 
-RDEPEND="
+COMMON_DEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -60,23 +60,28 @@ RDEPEND="
 		=kde-frameworks/kdoctools-${PVCUT}*:5
 	)
 	kerberos? ( virtual/krb5 )
-	kf6compat? ( kde-apps/kio-extras:6 )
 	kwallet? ( =kde-frameworks/kwallet-${PVCUT}*:5 )
 	X? ( >=dev-qt/qtx11extras-${QTMIN}:5 )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtconcurrent-${QTMIN}:5
 	test? ( sys-libs/zlib )
+"
+RDEPEND="${COMMON_DEPEND}
+	|| (
+		kde-apps/kio-extras:6
+		kde-frameworks/kio-trash-desktop-file:5
+	)
 "
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
 src_configure() {
 	local mycmakeargs=(
+		-DKF6_COMPAT_BUILD=ON
 		-DKIO_NO_PUBLIC_QTCONCURRENT=ON
 		$(cmake_use_find_package acl ACL)
 		$(cmake_use_find_package kerberos GSSAPI)
 		$(cmake_use_find_package kwallet KF5Wallet)
-		-DKF6_COMPAT_BUILD=$(usex kf6compat)
 		-DWITH_X11=$(usex X)
 	)
 
