@@ -15,10 +15,11 @@ else
 	EGIT_REPO_URI="https://github.com/mltframework/shotcut/"
 fi
 
-IUSE="debug"
-
 LICENSE="GPL-3+"
+
 SLOT="0"
+
+IUSE="debug"
 
 BDEPEND="
 	dev-qt/qttools:6[linguist]
@@ -27,6 +28,7 @@ DEPEND="
 	dev-qt/qtbase:6[concurrent,gui,network,opengl,sql,widgets,xml]
 	dev-qt/qtdeclarative:6[widgets]
 	dev-qt/qtmultimedia:6
+	dev-qt/qtcharts:6
 	>=media-libs/mlt-7.18.0[ffmpeg,frei0r,jack,opengl,sdl,xml]
 	media-video/ffmpeg
 "
