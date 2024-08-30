@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure prepare
 DEPEND=sys-kernel/dracut
 DESCRIPTION=Early unlocking of encrypted systems via ssh for dracut
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/dracut-crypt-ssh/dracut-crypt-ssh
 INHERIT=toolchain-funcs
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=sys-kernel/dracut || ( net-misc/connman net-misc/dhcp net-misc/dhcpcd net-misc/netifrc net-misc/networkmanager sys-apps/systemd ) net-misc/dropbear
 SLOT=0
-SRC_URI=https://github.com/dracut-crypt-ssh/dracut-crypt-ssh/archive/v1.0.7.tar.gz -> dracut-crypt-ssh-1.0.7.tar.gz
+SRC_URI=https://github.com/dracut-crypt-ssh/dracut-crypt-ssh/archive/v1.0.8.tar.gz -> dracut-crypt-ssh-1.0.8.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0
-_md5_=7e81879fe6077c805375d52d198fa702
+_md5_=dfc7601a3a12381f5ead9cf21f922b11
