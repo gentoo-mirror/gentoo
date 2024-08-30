@@ -1,32 +1,32 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit multiprocessing toolchain-funcs readme.gentoo-r1
+inherit flag-o-matic multiprocessing toolchain-funcs readme.gentoo-r1
 
-MY_HASH="88a87fadae6629932d9c160f53ad5d79775f8f94"
+MY_HASH="a2567fcac9851e5cc965a236679f568b0e79cff2"
 MY_P="${PN}-${MY_HASH}"
 
 DESCRIPTION="Port of many Plan 9 programs and libraries"
-HOMEPAGE="https://9fans.github.io/plan9port/
-	https://github.com/9fans/plan9port"
+HOMEPAGE="https://9fans.github.io/plan9port/ https://github.com/9fans/plan9port"
 SRC_URI="https://github.com/9fans/${PN}/archive/${MY_HASH}.tar.gz -> ${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
+
 LICENSE="
 	MIT RSA Apache-2.0 public-domain BitstreamVera BZIP2
 	!freefonts? ( BigelowHolmes )
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="X aqua freefonts truetype"
+IUSE="X aqua freefonts"
 REQUIRED_USE="?? ( X aqua )"
 
 DEPEND="
-	X? ( x11-apps/xauth )
-	truetype? (
+	X? (
 		media-libs/freetype
 		media-libs/fontconfig
+		x11-apps/xauth
 	)
 "
 RDEPEND="${DEPEND}"
@@ -88,25 +88,27 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/858452
+	# https://github.com/9fans/plan9port/issues/646
+	filter-lto
+
 	local -a myconf=(
 		CC9="$(tc-getCC)"
 		CC9FLAGS="'${CFLAGS} ${LDFLAGS}'"
 	)
 
 	if use X; then
-		myconf+=( WSYSTYPE=x11 )
+		myconf+=(
+			WSYSTYPE=x11
+			FONTSRV=fontsrv
+		)
 	elif use aqua; then
 		local wsystype="$(awk '{if ($1 > 10.5) print "osx-cocoa"; else print "osx"}' \
 			<<< "${MACOSX_DEPLOYMENT_TARGET}")"
 		myconf+=( WSYSTYPE="${wsystype}" )
 	else
 		myconf+=( WSYSTYPE=nowsys )
-	fi
-
-	if use truetype; then
-		myconf+=( FONTSRV=fontsrv )
-	else
-		myconf+=( FONTSRV= )
 	fi
 
 	printf '%s\n' "${myconf[@]}" >> LOCAL.config ||
