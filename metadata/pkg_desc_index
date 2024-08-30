@@ -5872,7 +5872,7 @@ dev-lua/inifile 1.1: A simple and complete ini parser for Lua
 dev-lua/lanes 3.17.0: Lightweight, native, lazy evaluating multithreading library
 dev-lua/ldoc 1.4.6-r100: A LuaDoc-compatible documentation generation system
 dev-lua/lgi 0.9.2-r100: Lua bindings using gobject-introspection
-dev-lua/lpeg 1.0.2-r101: Parsing Expression Grammars for Lua
+dev-lua/lpeg 1.0.2-r101 1.1.0: Parsing Expression Grammars for Lua
 dev-lua/lua-argparse 0.7.1-r1: Feature-rich command line parser for Lua
 dev-lua/lua-bit32 5.3.5.1-r1: Backported Lua bit manipulation library
 dev-lua/lua-cjson 2.1.0.10-r1: A fast JSON encoding/parsing module for Lua
@@ -5901,7 +5901,7 @@ dev-lua/lutok 0.4-r11: Lightweight C++ API library for Lua
 dev-lua/luv 1.44.2.0 1.45.0.0: Bare libuv bindings for lua
 dev-lua/md5 1.3-r1: Offers basic cryptographic facilities for Lua
 dev-lua/mediator_lua 1.1.2_p0-r1: Mediator pattern implementation for pub-sub management
-dev-lua/messagepack 0.5.2_p20201025-r100: pure Lua implementation of the MessagePack serialization format
+dev-lua/messagepack 0.5.2_p20201025-r100 0.5.4: pure Lua implementation of the MessagePack serialization format
 dev-lua/mpack 1.0.12: Lua bindings for libmpack
 dev-lua/penlight 1.14.0: Lua utility libraries loosely based on the Python standard libraries
 dev-lua/readline 3.3: A simple interface to the readline and history libraries
@@ -12130,7 +12130,7 @@ kde-apps/kigo 23.08.5 24.05.2 24.08.0: Go game by KDE
 kde-apps/killbots 23.08.5 24.05.2 24.08.0: Kill the bots or they kill you!
 kde-apps/kimagemapeditor 24.05.2 24.08.0: Generator of HTML image maps
 kde-apps/kimap 23.08.5 24.05.2 24.08.0: Library for interacting with IMAP servers
-kde-apps/kio-extras 24.02.2-r1 24.05.2 24.08.0: KIO plugins present a filesystem-like view of arbitrary data
+kde-apps/kio-extras 24.02.2-r1 24.02.2-r2 24.05.2 24.08.0: KIO plugins present a filesystem-like view of arbitrary data
 kde-apps/kiriki 23.08.5 24.05.2 24.08.0: An addictive and fun dice game
 kde-apps/kiten 23.08.5 24.05.2 24.08.0: KDE Japanese dictionary and reference
 kde-apps/kitinerary 23.08.5 24.05.2 24.08.0: Data Model and Extraction System for Travel Reservation information
@@ -12203,7 +12203,7 @@ kde-apps/libkdegames 23.08.5 24.05.2 24.08.0: Base library common to many KDE ga
 kde-apps/libkdepim 23.08.5 24.05.2 24.08.0: Common PIM libraries
 kde-apps/libkeduvocdocument 23.08.5 24.05.2 24.08.0: Library for reading/writing KVTML
 kde-apps/libkexiv2 23.08.5 24.05.2 24.08.0: Wrapper around exiv2 library
-kde-apps/libkgapi 23.08.5 23.08.5-r1 24.05.2 24.08.0: Library for accessing Google calendar and contact resources
+kde-apps/libkgapi 23.08.5-r1 23.08.5-r2 24.05.2 24.08.0: Library for accessing Google calendar and contact resources
 kde-apps/libkleo 23.08.5 24.05.2 24.08.0: Library for encryption handling
 kde-apps/libkmahjongg 23.08.5 24.05.2 24.08.0: Mahjongg library based on Qt/KDE Frameworks
 kde-apps/libkomparediff2 24.05.2 24.08.0: Library to compare files and strings
@@ -12238,7 +12238,7 @@ kde-apps/thumbnailers 23.08.5-r2 24.05.2-r2 24.08.0: Metapackage for KIO thumbna
 kde-apps/umbrello 24.05.2 24.08.0: KDE UML Modeller
 kde-apps/yakuake 23.08.5 24.05.2 24.08.0: Quake-style terminal emulator based on konsole
 kde-frameworks/attica 5.116.0 6.5.0: Framework providing access to Open Collaboration Services
-kde-frameworks/baloo 5.116.0 6.5.0: Framework for searching and managing metadata
+kde-frameworks/baloo 5.116.0 5.116.0-r1 6.5.0: Framework for searching and managing metadata
 kde-frameworks/bluez-qt 5.116.0 6.5.0: Qt wrapper for Bluez 5 DBus API
 kde-frameworks/breeze-icons 5.116.0 6.5.0: Breeze SVG icon theme
 kde-frameworks/breeze-icons-rcc 5.116.0: Breeze SVG icon theme binary resource
@@ -12270,8 +12270,8 @@ kde-frameworks/kdoctools 5.116.0 6.5.0: Tools to generate documentation in vario
 kde-frameworks/kemoticons 5.116.0: Framework for converting text emoticons to graphical representations
 kde-frameworks/kf-env 5 6: Environment setting required for all KDE Frameworks apps to run
 kde-frameworks/kfilemetadata 5.116.0 6.5.0-r1: Library for extracting file metadata
-kde-frameworks/kglobalaccel 5.116.0 6.5.0: Framework to handle global shortcuts
-kde-frameworks/kguiaddons 5.116.0 6.5.0: Framework providing assorted high-level user interface components
+kde-frameworks/kglobalaccel 5.116.0 5.116.0-r1 6.5.0: Framework to handle global shortcuts
+kde-frameworks/kguiaddons 5.116.0 5.116.0-r1 6.5.0: Framework providing assorted high-level user interface components
 kde-frameworks/kholidays 5.116.0 6.5.0: Library to determine holidays and other special events for a geographical region
 kde-frameworks/khtml 5.116.0: KHTML web rendering engine
 kde-frameworks/ki18n 5.116.0 6.5.0: Framework based on Gettext for internationalizing user interface text
@@ -12279,7 +12279,7 @@ kde-frameworks/kiconthemes 5.116.0 6.5.0: Framework for icon theming and configu
 kde-frameworks/kidletime 5.116.0 6.5.0: Framework for detection and notification of device idle time
 kde-frameworks/kimageformats 5.116.0 6.5.0: Framework providing additional format plugins for Qt's image I/O system
 kde-frameworks/kinit 5.116.0: Helper library to speed up start of applications on KDE workspaces
-kde-frameworks/kio 5.116.0 6.5.0: Framework providing transparent file and data management
+kde-frameworks/kio 5.116.0 5.116.0-r1 6.5.0: Framework providing transparent file and data management
 kde-frameworks/kirigami 5.116.0 6.5.0: Lightweight user interface framework for mobile and convergent applications
 kde-frameworks/kitemmodels 5.116.0 6.5.0: Framework providing data models to help with tasks such as sorting and filtering
 kde-frameworks/kitemviews 5.116.0 6.5.0: Framework providing additional widgets for item models
@@ -12303,8 +12303,8 @@ kde-frameworks/ktexteditor 5.116.0 6.5.0: Framework providing a full text editor
 kde-frameworks/ktexttemplate 6.5.0: Library to allow separating the structure of documents from data they contain
 kde-frameworks/ktextwidgets 5.116.0 6.5.0: Framework providing an assortment of widgets for displaying and editing text
 kde-frameworks/kunitconversion 5.116.0 6.5.0: Framework for converting units
-kde-frameworks/kuserfeedback 1.3.0-r3 6.5.0: Framework to collect user feedback for applications via telemetry and surveys
-kde-frameworks/kwallet 5.116.0 6.5.0: Framework providing desktop-wide storage for passwords
+kde-frameworks/kuserfeedback 1.3.0-r3 1.3.0-r4 6.5.0: Framework to collect user feedback for applications via telemetry and surveys
+kde-frameworks/kwallet 5.116.0 5.116.0-r1 6.5.0: Framework providing desktop-wide storage for passwords
 kde-frameworks/kwidgetsaddons 5.116.0 6.5.0: An assortment of high-level widgets for common tasks
 kde-frameworks/kwindowsystem 5.116.0 6.5.0: Framework providing access to properties and features of the window manager
 kde-frameworks/kxmlgui 5.116.0 6.5.0: Framework for managing menu and toolbar actions in an abstract way
@@ -12379,7 +12379,7 @@ kde-plasma/layer-shell-qt 5.27.11 6.1.4: Qt component to allow applications make
 kde-plasma/libkscreen 5.27.11 6.1.4: Plasma screen management library
 kde-plasma/libksysguard 5.27.11 6.1.4: Task management and system monitoring library
 kde-plasma/libkworkspace 5.27.11: Workspace library to interact with the Plasma session manager
-kde-plasma/libplasma 5.116.0 6.1.4: Plasma library and runtime components based upon KF6 and Qt6
+kde-plasma/libplasma 5.116.0 5.116.0-r1 6.1.4: Plasma library and runtime components based upon KF6 and Qt6
 kde-plasma/milou 5.27.11 6.1.4: Dedicated search application built on top of Baloo
 kde-plasma/ocean-sound-theme 6.1.4: Ocean Sound Theme for Plasma
 kde-plasma/oxygen 5.27.11 6.1.4: Oxygen visual style for the Plasma desktop

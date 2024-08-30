@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig test? ( lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) )
+DEFINED_PHASES=compile install
+DESCRIPTION=pure Lua implementation of the MessagePack serialization format
+EAPI=8
+HOMEPAGE=https://fperrad.frama.io/lua-MessagePack
+INHERIT=lua
+IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://framagit.org/fperrad/lua-MessagePack/-/archive/0.5.4/lua-MessagePack-0.5.4.tar.bz2 -> messagepack-0.5.4.tar.bz2
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua	f888faf7a77304e3e6c5c386ae0c34d7
+_md5_=7b02db0a2a735c72bee6bbe3f442c7f0
