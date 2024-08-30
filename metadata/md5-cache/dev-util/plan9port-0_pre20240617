@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=X? ( media-libs/freetype media-libs/fontconfig x11-apps/xauth )
+DESCRIPTION=Port of many Plan 9 programs and libraries
+EAPI=8
+HOMEPAGE=https://9fans.github.io/plan9port/ https://github.com/9fans/plan9port
+INHERIT=flag-o-matic multiprocessing toolchain-funcs readme.gentoo-r1
+IUSE=X aqua freefonts
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT RSA Apache-2.0 public-domain BitstreamVera BZIP2 !freefonts? ( BigelowHolmes )
+RDEPEND=X? ( media-libs/freetype media-libs/fontconfig x11-apps/xauth )
+REQUIRED_USE=?? ( X aqua )
+SLOT=0
+SRC_URI=https://github.com/9fans/plan9port/archive/a2567fcac9851e5cc965a236679f568b0e79cff2.tar.gz -> plan9port-a2567fcac9851e5cc965a236679f568b0e79cff2.tar.gz
+_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4
+_md5_=efed02179ed4ebb8a07ce735a290ca92
