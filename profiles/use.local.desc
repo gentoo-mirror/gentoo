@@ -1472,6 +1472,7 @@ dev-debug/strace:elfutils - Enable stack backtraces (-k flag) via dev-libs/elfut
 dev-debug/strace:unwind - Enable stack backtraces (-k flag) via sys-libs/libunwind
 dev-debug/sysdig:modules - Build kernel modules needed for tracing local events. Disable this only if you intend to use sysdig purely to work with dumpfiles.
 dev-debug/systemtap:debuginfod - Enable debuginfod support via dev-libs/elfutils libdebuginfod
+dev-debug/systemtap:dtrace-symlink - Provide /usr/bin/dtrace symlink pointing to /usr/bin/stap-dtrace. This prevents coinstallation with dev-debug/dtrace.
 dev-debug/systemtap:libvirt - Support probing of libvirt domains.
 dev-embedded/avrdude:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
 dev-embedded/libftdi:tools - build ftdi_eeprom helper tool
