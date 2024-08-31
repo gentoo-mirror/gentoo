@@ -5,11 +5,11 @@ DESCRIPTION=a simple but powerful password manager for the terminal
 EAPI=8
 HOMEPAGE=https://www.gopass.pw/
 INHERIT=go-module optfeature
-KEYWORDS=amd64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=MIT Apache-2.0 BSD MPL-2.0 BSD-2
 RDEPEND=dev-vcs/git >=app-crypt/gnupg-2
 RESTRICT=strip
 SLOT=0
-SRC_URI=https://github.com/gopasspw/gopass/archive/v1.15.11.tar.gz -> gopass-1.15.11.tar.gz https://dev.gentoo.org/~ajak/distfiles/app-admin/gopass/gopass-1.15.11-deps.tar.xz
+SRC_URI=https://github.com/gopasspw/gopass/archive/v1.15.14.tar.gz -> gopass-1.15.14.tar.gz https://dev.gentoo.org/~ajak/distfiles/app-admin/gopass/gopass-1.15.14-deps.tar.xz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	83fd3ed1657cfc316c93d6a37018290d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=bb796752db04caa63a64074f755a1611
+_md5_=b1748f0b3a2f7aa44e838b15e4f19903

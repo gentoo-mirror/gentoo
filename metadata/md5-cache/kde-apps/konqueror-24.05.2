@@ -7,11 +7,11 @@ HOMEPAGE=https://apps.kde.org/konqueror/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=flag-o-matic ecm gear.kde.org optfeature
 IUSE=activities speech debug +handbook test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=GPL-2
 RDEPEND=>=dev-qt/qtbase-6.6.2:6=[dbus,gui,widgets,xml] >=dev-qt/qtwebengine-6.6.2:6[widgets] >=kde-frameworks/karchive-6.3.0:6 >=kde-frameworks/kbookmarks-6.3.0:6 >=kde-frameworks/kcmutils-6.3.0:6 >=kde-frameworks/kcodecs-6.3.0:6 >=kde-frameworks/kcompletion-6.3.0:6 >=kde-frameworks/kconfig-6.3.0:6 >=kde-frameworks/kconfigwidgets-6.3.0:6 >=kde-frameworks/kcoreaddons-6.3.0:6 >=kde-frameworks/kcrash-6.3.0:6 >=kde-frameworks/kdbusaddons-6.3.0:6 >=kde-frameworks/kdesu-6.3.0:6 >=kde-frameworks/kguiaddons-6.3.0:6 >=kde-frameworks/ki18n-6.3.0:6 >=kde-frameworks/kiconthemes-6.3.0:6 >=kde-frameworks/kio-6.3.0:6 >=kde-frameworks/kitemviews-6.3.0:6 >=kde-frameworks/kjobwidgets-6.3.0:6 >=kde-frameworks/kparts-6.3.0:6 >=kde-frameworks/kservice-6.3.0:6 >=kde-frameworks/ktextwidgets-6.3.0:6 >=kde-frameworks/kwallet-6.3.0:6 >=kde-frameworks/kwidgetsaddons-6.3.0:6 >=kde-frameworks/kwindowsystem-6.3.0:6 >=kde-frameworks/kxmlgui-6.3.0:6 >=kde-frameworks/sonnet-6.3.0:6 sys-libs/zlib speech? ( >=dev-qt/qtspeech-6.6.2:6 ) !<kde-apps/kio-extras-23.08.5-r100:5 kde-apps/kfind:6 kde-plasma/kde-cli-tools:* || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/konqueror:5
 RESTRICT=test !test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/release-service/24.05.2/src/konqueror-24.05.2.tar.xz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	0654dc258d045433af18ffe046363961	xdg	4a14c5c24f121e7da66e5aab4a168c6e	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	gear.kde.org	9eaba1558ae60129a59a7243175a309d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=34e4889ba0df8ae5c83b5eafcf81591a
+_md5_=46169cfed7ede4d01d664fe0f9589cc0
