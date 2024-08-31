@@ -3,22 +3,23 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 DOTNET_PKG_COMPAT=6.0
 NUGETS="
-boogie.abstractinterpretation@3.1.3
-boogie.basetypes@3.1.3
-boogie.codecontractsextender@3.1.3
-boogie.concurrency@3.1.3
-boogie.core@3.1.3
-boogie.executionengine@3.1.3
-boogie.graph@3.1.3
-boogie.houdini@3.1.3
-boogie.model@3.1.3
-boogie.provers.smtlib@3.1.3
-boogie.vcexpr@3.1.3
-boogie.vcgeneration@3.1.3
+boogie.abstractinterpretation@3.2.3
+boogie.basetypes@3.2.3
+boogie.codecontractsextender@3.2.3
+boogie.concurrency@3.2.3
+boogie.core@3.2.3
+boogie.executionengine@3.2.3
+boogie.graph@3.2.3
+boogie.houdini@3.2.3
+boogie.model@3.2.3
+boogie.provers.leanauto@3.2.3
+boogie.provers.smtlib@3.2.3
+boogie.vcexpr@3.2.3
+boogie.vcgeneration@3.2.3
 castle.core@4.4.0
 commandlineparser@2.8.0
 commandlineparser@2.9.1
@@ -372,12 +373,14 @@ else
 	SRC_URI="https://github.com/dafny-lang/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+="
 	${NUGET_URIS}
-	test? ( https://registry.npmjs.org/bignumber.js/-/bignumber.js-9.1.2.tgz )
+	test? (
+		https://registry.npmjs.org/bignumber.js/-/bignumber.js-9.1.2.tgz
+	)
 "
 
 LICENSE="MIT"
@@ -398,8 +401,8 @@ BDEPEND="
 	dev-dotnet/coco
 	test? (
 		${PYTHON_DEPS}
+		>=dev-lang/boogie-3.1.6
 		dev-go/go-tools
-		dev-lang/boogie
 		dev-lang/go
 		dev-python/OutputCheck
 		dev-python/lit
@@ -409,9 +412,7 @@ BDEPEND="
 "
 
 CHECKREQS_DISK_BUILD="2G"
-DOTNET_PKG_PROJECTS=(
-	"${S}/Source/Dafny/Dafny.csproj"
-)
+DOTNET_PKG_PROJECTS=( "${S}/Source/Dafny/Dafny.csproj" )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.12.0-DafnyCore-csproj.patch"
@@ -452,10 +453,15 @@ pkg_setup() {
 }
 
 src_unpack() {
-	dotnet-pkg_src_unpack
+	# Unpack manually to skip additional archives, eg "bignumber.js".
+
+	nuget_link-system-nugets
+	nuget_link-nuget-archives
 
 	if [[ -n "${EGIT_REPO_URI}" ]] ; then
 		git-r3_src_unpack
+	else
+		unpack "${P}.tar.gz"
 	fi
 }
 
@@ -469,33 +475,57 @@ src_prepare() {
 
 	# Remove bad tests (recursive).
 	local -a bad_tests=(
+		# Unsupported test build (and those that need network access):
+		comp/rust
+
 		# Following tests fail:
 		VSComp2010/Problem2-Invert.dfy
+		ast/function.dfy
 		auditor/TestAuditor.dfy
 		benchmarks/sequence-race/SequenceRace.dfy
 		c++/extern.dfy
 		c++/functions.dfy
 		c++/tuple.dfy
+		cli/measure-complexity.dfy
+		cli/projectFile/projectFile.dfy
 		cli/runArgument.dfy
 		comp/CoverageReport.dfy
+		comp/Libraries/consumer.dfy
 		concurrency/06-ThreadOwnership.dfy
+		dafny0/CoinductiveProofs.dfy
 		dafny0/Fuel.legacy.dfy
 		dafny0/Stdin.dfy
+		dafny0/SubsetTypes.dfy
 		dafny1/MoreInduction.dfy
 		dafny4/Lucas-up.legacy.dfy
 		dafny4/Primes.dfy
+		doofiles/allowWarningsDoo.dfy
+		doofiles/semanticOptions.dfy
+		doofiles/standardLibraryOptionMismatch.dfy
 		examples/Simple_compiler/Compiler.dfy
+		exports/ExportRefinement.dfy
+		exports/IncludeSkipTranslate.dfy
 		git-issues/git-issue-2026.dfy
 		git-issues/git-issue-2299.dfy
 		git-issues/git-issue-2301.dfy
+		git-issues/git-issue-3855.dfy
 		git-issues/git-issue-505.dfy
+		gomodule/multimodule/DerivedModule.dfy
+		gomodule/singlemodule/dafnysource/helloworld.dfy
+		lambdas/MatrixAssoc.dfy
 		metatests/InconsistentCompilerBehavior.dfy
 		metatests/TestBeyondVerifierExpect.dfy
+		printing/ModulePrint.dfy
+		pythonmodule/multimodule/DerivedModule.dfy
+		pythonmodule/nestedmodule/SomeTestModule.dfy
+		pythonmodule/singlemodule/dafnysource/helloworld.dfy
 		separate-verification/assumptions.dfy
 		server/counterexample_none.transcript
 		triggers/emptyTrigger.dfy
-		unicodechars/DafnyTests/RunAllTestsOption.dfy
+		unicodecharsFalse/DafnyTests/RunAllTestsOption.dfy
+		unicodecharsFalse/comp/Print.dfy
 		verification/isolate-assertions.dfy
+		verification/outOfResourceAndIsolateAssertions.dfy
 		verification/progress.dfy
 		vstte2012/Combinators.dfy
 		wishlist/exists-b-exists-not-b.dfy
@@ -507,6 +537,7 @@ src_prepare() {
 		comp/BranchCoverage.dfy
 		comp/CompileWithArguments.dfy
 		comp/Extern.dfy
+		comp/ExternCtors.dfy
 		comp/MainMethod.dfy
 		comp/Print.dfy
 		comp/SequenceConcatOptimization.dfy
@@ -520,18 +551,27 @@ src_prepare() {
 		concurrency/09-CounterNoStateMachine.dfy
 		concurrency/10-SequenceInvariant.dfy
 		concurrency/12-MutexLifetime-short.dfy
+		dafny0/ModuleInsertion.dfy
+		dafny0/NoTypeArgs.dfy
 		dafny0/RlimitMultiplier.dfy
+		dafny1/ExtensibleArray.dfy
+		dafny1/ExtensibleArrayAuto.dfy
 		dafny1/SchorrWaite.dfy
 		dafny2/SnapshotableTrees.dfy
 		dafny4/git-issue250.dfy
 		git-issues/git-issue-Main4.dfy
 		git-issues/git-issue-MainE.dfy
-		unicodechars/comp/CompileWithArguments.dfy
+		separate-verification/app.dfy
+		unicodecharsFalse/comp/CompileWithArguments.dfy
+		unicodecharsFalse/expectations/Expect.dfy
+		unicodecharsFalse/expectations/ExpectAndExceptions.dfy
+		unicodecharsFalse/expectations/ExpectWithNonStringMessage.dfy
+		verification/filter.dfy
 	)
 	local bad_test
 	for bad_test in "${bad_tests[@]}" ; do
-		if [[ -f "${TEST_S}/${bad_test}" ]] ; then
-			rm "${TEST_S}/${bad_test}" || die "failed to remove test ${bad_test}"
+		if [[ -e "${TEST_S}/${bad_test}" ]] ; then
+			rm -r "${TEST_S}/${bad_test}" || die "failed to remove test ${bad_test}"
 		else
 			ewarn "Test file ${bad_test} does not exist"
 		fi
@@ -559,21 +599,22 @@ src_compile () {
 	pushd "${dafny_runtime_java}/build" || die
 
 	ejavac -d ./ $(find "${dafny_runtime_java}/src/main" -type f -name "*.java")
-	edo jar cvf "DafnyRuntime-${PV}.jar" dafny/*
+	edo jar cvf "DafnyRuntime-4.6.0.jar" dafny/*
 
-	cp "DafnyRuntime-${PV}.jar" "${dafny_runtime_java}/build/libs/" || die
+	cp "DafnyRuntime-4.6.0.jar" "${dafny_runtime_java}/build/libs/" || die
 	popd || die
 
 	# Build main dotnet package.
 	dotnet-pkg_src_compile
 
+	# Build "TestDafny" without saving artifacts.
 	if use test ; then
-		# Build "TestDafny" without saving artifacts.
-		edotnet build										\
-				--configuration Debug						\
-				--no-self-contained							\
-				-maxCpuCount:$(makeopts_jobs)				\
-				"${S}/Source/TestDafny/TestDafny.csproj"
+		local build_test_opts=(
+			--configuration Debug
+			--no-self-contained
+			-maxCpuCount:$(makeopts_jobs)
+		)
+		edotnet build "${build_test_opts[@]}" "${S}/Source/TestDafny/TestDafny.csproj"
 	fi
 }
 
