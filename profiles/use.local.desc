@@ -643,7 +643,7 @@ app-emulation/qemu:spice - Enable Spice protocol support via app-emulation/spice
 app-emulation/qemu:ssh - Enable SSH based block device support via net-libs/libssh2
 app-emulation/qemu:static - Build the User and Software MMU (system) targets as well as tools as static binaries
 app-emulation/qemu:static-user - Build the User targets as static binaries
-app-emulation/qemu:systemtap - Enable SystemTAP/DTrace tracing
+app-emulation/qemu:systemtap - Enable SystemTap/DTrace tracing
 app-emulation/qemu:usb - Enable USB passthrough via dev-libs/libusb
 app-emulation/qemu:usbredir - Use sys-apps/usbredir to redirect USB devices to another machine over TCP
 app-emulation/qemu:vde - Enable VDE-based networking
@@ -1758,7 +1758,7 @@ dev-java/openjdk:javafx - Import OpenJFX modules at build time, via dev-java/ope
 dev-java/openjdk:jbootstrap - Build OpenJDK twice, the second time using the result of the first
 dev-java/openjdk:source - Install JVM sources
 dev-java/openjdk:system-bootstrap - Bootstrap using installed openjdk
-dev-java/openjdk:systemtap - Enable SystemTAP/DTrace tracing
+dev-java/openjdk:systemtap - Enable SystemTap/DTrace tracing
 dev-java/openjdk-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-bin:source - Install JVM sources
 dev-java/openjdk-jre-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
@@ -1903,7 +1903,7 @@ dev-lang/qu-prolog:pedro - Pedro subscription/notification communications system
 dev-lang/rakudo:clang - Use Clang to compile the MoarVM backend
 dev-lang/rakudo:moar - Use the MoarVM as backend
 dev-lang/ruby:rdoc - Install dev-ruby/rdoc after installing Ruby.
-dev-lang/ruby:systemtap - Enable SystemTAP/DTrace tracing
+dev-lang/ruby:systemtap - Enable SystemTap/DTrace tracing
 dev-lang/rust:clippy - Install clippy, Rust code linter
 dev-lang/rust:dist - Install dist tarballs (used for bootstrapping)
 dev-lang/rust:miri - Install miri, an interpreter for Rust's mid-level intermediate representation (requires USE=nightly, sometimes is broken)
@@ -3477,7 +3477,7 @@ gui-apps/waybar:tray - Enable support for tray
 gui-apps/waybar:wifi - Enable support for wifi/rfkill
 gui-apps/waypipe:dmabuf - Use DMABUFs for data exchange and hardware decoding
 gui-apps/waypipe:ffmpeg - Link with ffmpeg to allow buffer displays using video streams
-gui-apps/waypipe:systemtap - Enable SystemTAP/DTrace tracing
+gui-apps/waypipe:systemtap - Enable SystemTap/DTrace tracing
 gui-apps/wayvnc:gbm - enable GPU-side screencopy (experimental)
 gui-apps/wayvnc:tracing - Trace kernel and memory calls
 gui-apps/wf-recorder:pipewire - Enable support for audio capture via media-video/pipewire.
@@ -6124,7 +6124,7 @@ net-libs/nodejs:pax-kernel - Enable building under a PaX enabled kernel
 net-libs/nodejs:snapshot - Enable snapshot creation for faster startup
 net-libs/nodejs:system-icu - Use system dev-libs/icu instead of the bundled version
 net-libs/nodejs:system-ssl - Use system OpenSSL instead of the bundled one
-net-libs/nodejs:systemtap - Enable SystemTAP/DTrace tracing
+net-libs/nodejs:systemtap - Enable SystemTap/DTrace tracing
 net-libs/ntirpc:gssapi - Include support for RPCSEC GSS
 net-libs/ntirpc:rdma - Include support for RDMA RPC
 net-libs/paho-mqtt-c:high-performance - The debugging aids internal tracing and heap tracking are not included
@@ -6730,19 +6730,19 @@ net-p2p/bitcoin-core:qrcode - Enable generation of QR Codes for receiving paymen
 net-p2p/bitcoin-core:sqlite - Support descriptor wallets in SQLite format
 net-p2p/bitcoin-core:system-leveldb - Link with virtual/bitcoin-leveldb rather than embedding an internal copy
 net-p2p/bitcoin-core:system-libsecp256k1 - Link with dev-libs/libsecp256k1 rather than embedding an internal copy
-net-p2p/bitcoin-core:systemtap - Enable SystemTAP/DTrace tracing
+net-p2p/bitcoin-core:systemtap - Enable SystemTap/DTrace tracing
 net-p2p/bitcoin-core:upnp - Enable Universal Plug and Play
 net-p2p/bitcoin-core:zeromq - Report blocks and transactions via zeromq
 net-p2p/bitcoin-qt:external-signer - Include support for external wallet signer programs
 net-p2p/bitcoin-qt:nat-pmp - Enable NAT-PMP port forwarding
 net-p2p/bitcoin-qt:qrcode - Enable generation of QR Codes for receiving payments
-net-p2p/bitcoin-qt:systemtap - Enable SystemTAP/DTrace tracing
+net-p2p/bitcoin-qt:systemtap - Enable SystemTap/DTrace tracing
 net-p2p/bitcoin-qt:upnp - Enable Universal Plug and Play
 net-p2p/bitcoin-qt:wallet - Enable wallet support
 net-p2p/bitcoin-qt:zeromq - Report blocks and transactions via zeromq
 net-p2p/bitcoind:external-signer - Include support for external wallet signer programs
 net-p2p/bitcoind:nat-pmp - Enable NAT-PMP port forwarding
-net-p2p/bitcoind:systemtap - Enable SystemTAP/DTrace tracing
+net-p2p/bitcoind:systemtap - Enable SystemTap/DTrace tracing
 net-p2p/bitcoind:upnp - Enable Universal Plug and Play
 net-p2p/bitcoind:wallet - Enable wallet support
 net-p2p/bitcoind:zeromq - Report blocks and transactions via zeromq
@@ -8021,7 +8021,7 @@ sys-auth/sssd:nfsv4 - Add support for the nfsv4 idmapd plugin provided by net-fs
 sys-auth/sssd:samba - Add Privileged Attribute Certificate Support for Kerberos
 sys-auth/sssd:subid - Support subordinate uid and gid ranges in FreeIPA
 sys-auth/sssd:sudo - Build helper to let app-admin/sudo use sssd provided information
-sys-auth/sssd:systemtap - Enable SystemTAP/DTrace tracing
+sys-auth/sssd:systemtap - Enable SystemTap/DTrace tracing
 sys-block/f3:extra - Build the additional f3probe, f3brew and f3fix utility (requires sys-block/parted and virtual/udev)
 sys-block/fio:aio - Enable AIO ioengine
 sys-block/fio:curl - Enable HTTP engine for S3 and WebDav support support via net-misc/curl
