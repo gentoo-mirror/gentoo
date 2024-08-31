@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots
 INHERIT=meson
 IUSE=liftoff +libinput +drm +session lcms vulkan x11-backend xcb-errors X
-KEYWORDS=~amd64 arm64 ~loong ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/wayland-1.23.0 media-libs/libglvnd || ( >=media-libs/mesa-24.1.0_rc1[opengl] <media-libs/mesa-24.1.0_rc1[egl(+),gles2] ) >=x11-libs/libdrm-2.4.122 x11-libs/libxkbcommon >=x11-libs/pixman-0.42.0 drm? ( media-libs/libdisplay-info:= sys-apps/hwdata liftoff? ( >=dev-libs/libliftoff-0.4 ) ) lcms? ( media-libs/lcms:2 ) libinput? ( >=dev-libs/libinput-1.19.0:= ) session? ( sys-auth/seatd:= virtual/libudev ) vulkan? ( dev-util/glslang:= dev-util/vulkan-headers media-libs/vulkan-loader ) xcb-errors? ( x11-libs/xcb-util-errors ) x11-backend? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil ) X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm x11-base/xwayland )
 REQUIRED_USE=drm? ( session ) lcms? ( vulkan ) libinput? ( session ) liftoff? ( drm ) xcb-errors? ( || ( x11-backend X ) )
 SLOT=0.18
 SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.18.0/downloads/wlroots-0.18.0.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=22da09d9da7420c569fd6b097acb484d
+_md5_=3b33d8c2ad34d3987f48a503fa6f82c2
