@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_EXAMPLES="true"
+ECM_EXAMPLES="false"
 ECM_QTHELP="false"
 ECM_TEST="true"
 KDE_ORG_TAR_PN="${PN}2"
@@ -44,7 +44,7 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_EXAMPLES=$(usex examples)
+		-DBUILD_EXAMPLES=OFF
 		$(cmake_use_find_package openmp OpenMP)
 	)
 
