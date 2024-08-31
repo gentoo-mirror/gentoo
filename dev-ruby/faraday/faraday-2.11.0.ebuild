@@ -28,8 +28,8 @@ IUSE="test"
 DEPEND+=" test? ( sys-process/lsof )"
 
 ruby_add_rdepend "
-	|| ( <dev-ruby/faraday-net_http-3.2:3 dev-ruby/faraday-net_http:2 )
-	>=dev-ruby/ruby2_keywords-0.0.4
+	|| ( <dev-ruby/faraday-net_http-3.4:3 dev-ruby/faraday-net_http:2 )
+	dev-ruby/logger
 "
 ruby_add_bdepend "test? (
 		>=dev-ruby/test-unit-2.4
