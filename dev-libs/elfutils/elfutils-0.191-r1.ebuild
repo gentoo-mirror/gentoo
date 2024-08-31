@@ -28,7 +28,7 @@ fi
 
 LICENSE="|| ( GPL-2+ LGPL-3+ ) utils? ( GPL-3+ )"
 SLOT="0"
-IUSE="bzip2 debuginfod lzma nls test +utils zstd"
+IUSE="bzip2 debuginfod lzma nls test +utils valgrind zstd"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -53,6 +53,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	valgrind? ( dev-debug/valgrind )
 "
 BDEPEND+="
 	sys-devel/m4
@@ -92,6 +93,7 @@ multilib_src_configure() {
 		$(use_enable nls)
 		$(multilib_native_use_enable debuginfod)
 		$(use_enable debuginfod libdebuginfod)
+		$(use_enable valgrind valgrind-annotations)
 
 		# explicitly disable thread safety, it's not recommended by upstream
 		# doesn't build either on musl.
@@ -127,8 +129,8 @@ multilib_src_install_all() {
 
 	dodoc NOTES
 
-	# These build quick, and are needed for most tests, so don't
-	# disable their building when the USE flag is disabled.
+	# These build quick, and are needed for most tests, so we don't
+	# disable building them when the USE flag is disabled.
 	if ! use utils; then
 		rm -rf "${ED}"/usr/bin || die
 	fi
