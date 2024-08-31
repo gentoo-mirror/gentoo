@@ -98,15 +98,15 @@ src_install() {
 	insinto ${DIR}
 	doins -r *
 
-	if ! use bundled-jdk; then
-		rm -r "${JRE_DIR}" || die
-	fi
-
-	fperms 755 "${DIR}"/bin/{format.sh,fsnotifier,inspect.sh,jetbrains_client.sh,ltedit.sh,pycharm.sh,repair,restarter}
-	fperms 755 "${DIR}"/"${JRE_DIR}"/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
+	fperms 755 "${DIR}"/bin/{format.sh,fsnotifier,inspect.sh,jetbrains_client.sh,ltedit.sh,pycharm,pycharm.sh,repair,restarter}
+	fperms 755 "${DIR}/${JRE_DIR}"/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
 	fperms 755 "${DIR}"/"${JRE_DIR}"/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
 
-	make_wrapper "${PN}" "${DIR}/bin/pycharm.sh"
+	if ! use bundled-jdk; then
+		rm -r "${D}/${DIR}/${JRE_DIR}" || die
+	fi
+
+	make_wrapper "${PN}" "${DIR}/bin/pycharm"
 	newicon bin/${MY_PN}.png ${PN}.png
 	make_desktop_entry ${PN} ${PN} ${PN}
 
