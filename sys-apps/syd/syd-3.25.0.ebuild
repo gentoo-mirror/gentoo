@@ -7,10 +7,10 @@ RESTRICT="test" # fails with sandbox
 
 CRATES="
 	addr2line@0.22.0
+	adler2@2.0.0
 	adler@1.0.2
 	ahash@0.8.11
 	aho-corasick@1.1.3
-	allocator-api2@0.2.18
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anes@0.1.6
@@ -21,7 +21,7 @@ CRATES="
 	anstyle@1.0.8
 	anyhow@1.0.86
 	argv@0.1.11
-	arrayvec@0.7.4
+	arrayvec@0.7.6
 	autocfg@1.3.0
 	backtrace@0.3.73
 	bitflags@1.3.2
@@ -29,47 +29,41 @@ CRATES="
 	bumpalo@3.16.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.1.10
+	cc@1.1.15
 	cfg-if@1.0.0
+	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
 	chrono@0.4.38
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.15
+	clap@4.5.16
 	clap_builder@4.5.15
 	clap_derive@4.5.13
 	clap_lex@0.7.2
 	colorchoice@1.0.2
 	core-foundation-sys@0.8.7
-	core_affinity@0.8.1
 	crc32fast@1.4.2
 	criterion-plot@0.5.0
 	criterion@0.5.1
-	crossbeam-channel@0.5.13
-	crossbeam-deque@0.8.5
-	crossbeam-epoch@0.9.18
-	crossbeam-queue@0.3.11
-	crossbeam-utils@0.8.20
-	crossbeam@0.8.4
 	crunchy@0.2.2
 	cty@0.2.2
 	darling@0.20.10
 	darling_core@0.20.10
 	darling_macro@0.20.10
-	derive_builder@0.20.0
-	derive_builder_core@0.20.0
-	derive_builder_macro@0.20.0
+	derive_builder@0.20.1
+	derive_builder_core@0.20.1
+	derive_builder_macro@0.20.1
 	dirs-sys@0.4.1
 	dirs@5.0.1
 	either@1.13.0
 	equivalent@1.0.1
 	errno@0.3.9
 	error-chain@0.12.4
-	fastrand@2.1.0
-	fixedbitset@0.4.2
+	expiringmap@0.1.2
+	fastrand@2.1.1
 	fixedbitset@0.5.7
-	flate2@1.0.31
+	flate2@1.0.33
 	fnv@1.0.7
 	futures-channel@0.3.30
 	futures-core@0.3.30
@@ -91,6 +85,7 @@ CRATES="
 	hashbrown@0.14.5
 	heck@0.5.0
 	hermit-abi@0.3.9
+	hermit-abi@0.4.0
 	hex-conservative@0.2.1
 	hex@0.4.3
 	home@0.5.9
@@ -98,21 +93,21 @@ CRATES="
 	iana-time-zone@0.1.60
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.3.0
+	indexmap@2.5.0
 	io-uring@0.6.4
 	ipnetwork@0.20.0
-	is-terminal@0.4.12
+	is-terminal@0.4.13
 	is_terminal_polyfill@1.70.1
 	itertools@0.10.5
 	itoa@1.0.11
-	js-sys@0.3.69
+	js-sys@0.3.70
 	lazy_static@1.5.0
 	lexis@0.2.3
-	libc@0.2.155
-	libcgroups@0.3.3
-	libcontainer@0.3.3
+	libc@0.2.158
+	libcgroups@0.4.0
+	libcontainer@0.4.0
 	libloading@0.8.5
-	liboci-cli@0.3.3
+	liboci-cli@0.4.0
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
@@ -125,15 +120,16 @@ CRATES="
 	mimalloc2-rust-sys@2.1.7-source
 	mimalloc2-rust@0.3.2
 	miniz_oxide@0.7.4
-	nc@0.8.23
-	nix@0.27.1
+	miniz_oxide@0.8.0
+	nc@0.9.3
+	nix@0.28.0
 	nix@0.29.0
 	nonempty@0.10.0
 	nu-ansi-term@0.46.0
 	num-traits@0.2.19
 	num_cpus@1.16.0
-	object@0.36.3
-	oci-spec@0.6.5
+	object@0.36.4
+	oci-spec@0.6.8
 	once_cell@1.19.0
 	oorandom@11.1.4
 	option-ext@0.2.0
@@ -141,7 +137,6 @@ CRATES="
 	parking_lot@0.12.3
 	parking_lot_core@0.9.10
 	parse-size@1.0.0
-	petgraph@0.6.5
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
 	pkg-config@0.3.30
@@ -156,10 +151,10 @@ CRATES="
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
-	quick_cache@0.6.2
-	quote@1.0.36
+	quick_cache@0.6.5
+	quote@1.0.37
 	redox_syscall@0.5.3
-	redox_users@0.4.5
+	redox_users@0.4.6
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
 	regex@1.10.6
@@ -174,7 +169,7 @@ CRATES="
 	rust-criu@0.4.0
 	rustc-demangle@0.1.24
 	rustc-hash@2.0.0
-	rustix@0.38.34
+	rustix@0.38.35
 	rustversion@1.0.17
 	ryu@1.0.18
 	safe-path@0.1.0
@@ -184,25 +179,24 @@ CRATES="
 	scroll_derive@0.12.0
 	secure-string@0.3.0
 	sendfd@0.4.3
-	serde@1.0.206
-	serde_derive@1.0.206
-	serde_json@1.0.124
+	serde@1.0.209
+	serde_derive@1.0.209
+	serde_json@1.0.127
 	sharded-slab@0.1.7
 	shellexpand@3.1.0
+	shlex@1.3.0
 	slab@0.4.9
-	slotmap@1.0.7
 	smallvec@1.13.2
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
 	syn@1.0.109
-	syn@2.0.74
+	syn@2.0.77
 	tabwriter@1.4.0
 	tcmalloc@0.3.0
 	tempfile@3.12.0
 	thiserror-impl@1.0.63
 	thiserror@1.0.63
-	thread-id@4.2.2
 	thread_local@1.1.8
 	tick_counter@0.4.5
 	tinytemplate@1.2.1
@@ -218,11 +212,11 @@ CRATES="
 	version_check@0.9.5
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.92
-	wasm-bindgen-macro-support@0.2.92
-	wasm-bindgen-macro@0.2.92
-	wasm-bindgen-shared@0.2.92
-	wasm-bindgen@0.2.92
+	wasm-bindgen-backend@0.2.93
+	wasm-bindgen-macro-support@0.2.93
+	wasm-bindgen-macro@0.2.93
+	wasm-bindgen-shared@0.2.93
+	wasm-bindgen@0.2.93
 	which@4.4.2
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.9
