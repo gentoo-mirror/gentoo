@@ -29,6 +29,8 @@ RDEPEND="${DEPEND}
 # Shipped by net-misc/kio-zeroconf-common package for shared use w/ SLOT 5
 ECM_REMOVE_FROM_INSTALL=(
 	/usr/share/dbus-1/interfaces/org.kde.kdnssd.xml
+	/usr/share/remoteview/zeroconf.desktop
+	/usr/share/metainfo/org.kde.kio_zeroconf.metainfo.xml
 )
 
 src_prepare() {
