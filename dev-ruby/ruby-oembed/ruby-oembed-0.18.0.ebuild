@@ -16,8 +16,8 @@ HOMEPAGE="https://github.com/ruby-oembed/ruby-oembed"
 SRC_URI="https://github.com/ruby-oembed/ruby-oembed/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 
-KEYWORDS="~amd64"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="test"
 
 ruby_add_bdepend "test?
@@ -38,11 +38,4 @@ all_ruby_prepare() {
 	sed -i -e '/coverall/I s:^:#:' spec/spec_helper.rb || die
 
 	sed -i -e 's/git ls-files/find * -print/' ${RUBY_FAKEGEM_GEMSPEC} || die
-
-	# Fix kwargs expectations for ruby30
-	sed -e '455 s/:format => @default/{format: @default}/' \
-		-e '460 s/:format=>:xml/{format: :xml}/' \
-		-e '465 s/:format=>:json/{format: :json}/' \
-		-e '477 s/:format => @default/{format: @default}/' \
-		-i spec/provider_spec.rb || die
 }
