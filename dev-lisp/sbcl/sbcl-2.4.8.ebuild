@@ -7,7 +7,7 @@ inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.4.6
+BV_AMD64=2.4.8
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
 BV_SPARC=1.0.28
@@ -123,11 +123,6 @@ src_prepare() {
 	strip-unsupported-flags
 	filter-flags -fomit-frame-pointer -Wl,-s
 	filter-ldflags -s
-
-	# -Werror=lto-type-mismatch
-	# https://bugs.gentoo.org/917557
-	# https://bugs.launchpad.net/gentoo/+bug/2072800
-	filter-lto
 
 	# original bugs #526194, #620532
 	# this broke no-pie default builds, c.f. bug #632670
