@@ -1,4 +1,4 @@
-# Copyright 2004-2023 Gentoo Authors
+# Copyright 2004-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: java-pkg-2.eclass
@@ -39,12 +39,6 @@ DEPEND="${JAVA_PKG_E_DEPEND}"
 # Nothing special for RDEPEND... just the same as DEPEND.
 RDEPEND="${DEPEND}"
 
-# Commons packages follow the same rules so do it here
-if [[ ${CATEGORY} = dev-java && ${PN} = commons-* ]]; then
-	HOMEPAGE="http://commons.apache.org/${PN#commons-}/"
-	SRC_URI="mirror://apache/${PN/-///}/source/${P}-src.tar.gz"
-fi
-
 
 # @FUNCTION: java-pkg-2_pkg_setup
 # @DESCRIPTION:
@@ -63,6 +57,7 @@ java-pkg-2_src_prepare() {
 
 
 # @FUNCTION: java-pkg-2_src_compile
+# @DEPRECATED: none
 # @DESCRIPTION:
 # Default src_compile for java packages
 #
@@ -98,6 +93,7 @@ java-pkg-2_src_compile() {
 }
 
 # @FUNCTION: java-pkg-2_src_test
+# @DEPRECATED: none
 # @DESCRIPTION:
 # src_test, not exported.
 java-pkg-2_src_test() {
