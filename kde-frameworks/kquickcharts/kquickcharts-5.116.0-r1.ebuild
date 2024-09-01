@@ -3,7 +3,7 @@
 
 EAPI=8
 
-ECM_EXAMPLES="true"
+ECM_EXAMPLES="false"
 ECM_QTHELP="false"
 ECM_TEST="true"
 PVCUT=$(ver_cut 1-2)
@@ -22,17 +22,12 @@ DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	examples? (
-		>=dev-qt/qtwidgets-${QTMIN}:5
-		=kde-frameworks/kdeclarative-${PVCUT}*:5
-		=kde-frameworks/kirigami-${PVCUT}*:5
-	)
 "
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_EXAMPLES=$(usex examples)
+		-DBUILD_EXAMPLES=OFF
 	)
 
 	ecm_src_configure
