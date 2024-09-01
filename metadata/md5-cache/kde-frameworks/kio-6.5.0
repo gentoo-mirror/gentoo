@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org xdg-utils
 IUSE=acl +kwallet wayland X debug designer +handbook doc test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
 PDEPEND=>=kde-frameworks/kded-6.5:6
 RDEPEND=>=dev-qt/qtbase-6.6.2:6[dbus,gui,network,ssl,widgets] >=dev-qt/qt5compat-6.6.2:6 >=dev-qt/qtdeclarative-6.6.2:6 =kde-frameworks/kauth-6.5*:6 =kde-frameworks/kbookmarks-6.5*:6 =kde-frameworks/kcodecs-6.5*:6 =kde-frameworks/kcolorscheme-6.5*:6 =kde-frameworks/kcompletion-6.5*:6 =kde-frameworks/kconfig-6.5*:6 =kde-frameworks/kconfigwidgets-6.5*:6 =kde-frameworks/kcoreaddons-6.5*:6 =kde-frameworks/kcrash-6.5*:6 =kde-frameworks/kdbusaddons-6.5*:6 =kde-frameworks/kguiaddons-6.5*:6 =kde-frameworks/ki18n-6.5*:6 =kde-frameworks/kiconthemes-6.5*:6 =kde-frameworks/kitemviews-6.5*:6 =kde-frameworks/kjobwidgets-6.5*:6 =kde-frameworks/knotifications-6.5*:6 =kde-frameworks/kservice-6.5*:6 =kde-frameworks/ktextwidgets-6.5*:6 =kde-frameworks/kwidgetsaddons-6.5*:6 =kde-frameworks/kwindowsystem-6.5*:6[wayland?,X?] =kde-frameworks/kxmlgui-6.5*:6 =kde-frameworks/solid-6.5*:6 sys-power/switcheroo-control acl? ( sys-apps/attr virtual/acl ) handbook? ( dev-libs/libxml2 dev-libs/libxslt =kde-frameworks/karchive-6.5*:6 =kde-frameworks/kdoctools-6.5*:6 ) kwallet? ( =kde-frameworks/kwallet-6.5*:6 ) X? ( >=dev-qt/qtbase-6.6.2:6=[gui] ) >=dev-qt/qtbase-6.6.2:6[libproxy] sys-power/switcheroo-control >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=6/6.5
 SRC_URI=mirror://kde/stable/frameworks/6.5/kio-6.5.0.tar.xz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	0654dc258d045433af18ffe046363961	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
-_md5_=2d722f20fe4cb71a63053a14bf57691b
+_md5_=ef08e83cdf6bb7f95124533b26fac993

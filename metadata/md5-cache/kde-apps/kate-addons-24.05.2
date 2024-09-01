@@ -7,11 +7,11 @@ HOMEPAGE=https://kate-editor.org/ https://apps.kde.org/kate/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm flag-o-matic gear.kde.org optfeature
 IUSE=+filebrowser lspclient +projects +snippets sql debug test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2 LGPL-2+ MIT
 RDEPEND=>=dev-qt/qtbase-6.6.2:6[concurrent,dbus,gui,network,widgets,xml] ~kde-apps/kate-lib-24.05.2:6 >=kde-frameworks/kcodecs-6.3.0:6 >=kde-frameworks/kcompletion-6.3.0:6 >=kde-frameworks/kconfig-6.3.0:6 >=kde-frameworks/kconfigwidgets-6.3.0:6 >=kde-frameworks/kcoreaddons-6.3.0:6 >=kde-frameworks/kcrash-6.3.0:6 >=kde-frameworks/kdbusaddons-6.3.0:6 >=kde-frameworks/kguiaddons-6.3.0:6 >=kde-frameworks/ki18n-6.3.0:6 >=kde-frameworks/kiconthemes-6.3.0:6 >=kde-frameworks/kio-6.3.0:6 >=kde-frameworks/kitemviews-6.3.0:6 >=kde-frameworks/kjobwidgets-6.3.0:6 >=kde-frameworks/kparts-6.3.0:6 >=kde-frameworks/kservice-6.3.0:6 >=kde-frameworks/ktexteditor-6.3.0:6 >=kde-frameworks/kwidgetsaddons-6.3.0:6 >=kde-frameworks/kwindowsystem-6.3.0:6 >=kde-frameworks/kxmlgui-6.3.0:6 >=kde-frameworks/syntax-highlighting-6.3.0:6 filebrowser? ( >=kde-frameworks/kbookmarks-6.3.0:6 ) lspclient? ( >=kde-frameworks/kitemmodels-6.3.0:6 ) projects? ( >=kde-frameworks/knewstuff-6.3.0:6 >=kde-frameworks/threadweaver-6.3.0:6 ) snippets? ( >=kde-frameworks/knewstuff-6.3.0:6 ) sql? ( >=dev-qt/qtbase-6.6.2:6[sql] >=kde-frameworks/kwallet-6.3.0:6 ) !<kde-apps/kate-22.08.0:5 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/kate-addons:5
 RESTRICT=!test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/release-service/24.05.2/src/kate-24.05.2.tar.xz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	0654dc258d045433af18ffe046363961	xdg	4a14c5c24f121e7da66e5aab4a168c6e	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	gear.kde.org	9eaba1558ae60129a59a7243175a309d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=05280c36cbe3809a75d1ee1f0ddba52e
+_md5_=850deb0668294c50e07364dc6f604bb0
