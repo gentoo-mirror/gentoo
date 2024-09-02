@@ -1,9 +1,6 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Resolve conflict between Plasma 6 and KDevelop 24.05
->=dev-util/kdevelop-24.05.1:5 -plasma
-
 # Alfred Wingate <parona@protonmail.com> (2023-12-25)
 # Prefer wayland over X with REQUIRED_USE: ^^ ( gbm wayland X )
 >=media-tv/kodi-20.2 wayland -X
@@ -32,9 +29,6 @@ dev-python/pyside6 webchannel
 # Required by sys-apps/flatpak, a dependency of kde-plasma/discover
 dev-util/ostree curl
 
-# Required by <net-im/neochat-23.08.50
-dev-qt/qtmultimedia:5 gstreamer
-
 # Required by app-editors/okteta:5
 dev-qt/qtscript:5 scripttools
 
@@ -43,6 +37,9 @@ dev-qt/qtsql:5 mysql
 
 # Enable by default, requires kde-frameworks/kwayland
 kde-apps/yakuake absolute-position
+
+# Required by kde-plasma/plasma-workspace, in ksmserver
+kde-plasma/kde-cli-tools kdesu
 
 # Required by kde-frameworks/kapidox
 media-gfx/graphviz python
