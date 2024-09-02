@@ -7,19 +7,16 @@ inherit multiprocessing systemd tmpfiles
 
 MY_PV="${PV/_p/-P}"
 MY_PV="${MY_PV/_rc/rc}"
-MY_P="${PN}-${MY_PV}"
-
-RRL_PV="${MY_PV}"
 
 DESCRIPTION="Berkeley Internet Name Domain - Name Server"
 HOMEPAGE="https://www.isc.org/software/bind"
 SRC_URI="https://downloads.isc.org/isc/bind9/${PV}/${P}.tar.xz"
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
-IUSE="+caps dnsrps dnstap doc doh fixed-rrset idn jemalloc geoip gssapi lmdb selinux static-libs test xml"
+IUSE="+caps dnsrps dnstap doc doh fixed-rrset idn +jemalloc geoip gssapi lmdb selinux static-libs test xml"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -27,7 +24,7 @@ DEPEND="
 	acct-user/named
 	dev-libs/json-c:=
 	>=dev-libs/libuv-1.37.0:=
-	sys-libs/zlib
+	sys-libs/zlib:=
 	dev-libs/openssl:=[-bindist(-)]
 	caps? ( >=sys-libs/libcap-2.1.0 )
 	dnstap? (
@@ -61,8 +58,8 @@ BDEPEND="
 src_configure() {
 	local myeconfargs=(
 		--prefix="${EPREFIX}"/usr
-		--sysconfdir=/etc/bind
-		--localstatedir=/var
+		--sysconfdir="${EPREFIX}"/etc/bind
+		--localstatedir="${EPREFIX}"/var
 		--enable-full-report
 		--without-readline
 		--with-openssl="${ESYSROOT}"/usr
@@ -113,7 +110,8 @@ src_install() {
 	fi
 
 	insinto /etc/bind
-	newins "${FILESDIR}"/named.conf-r9 named.conf.auth
+	newins "${FILESDIR}"/named.conf-r8 named.conf
+	newins "${FILESDIR}"/named.conf.auth named.conf.auth
 
 	newinitd "${FILESDIR}"/named.init-r15 named
 	newconfd "${FILESDIR}"/named.confd-r8 named
@@ -146,8 +144,8 @@ src_install() {
 	keepdir /var/bind/{pri,sec,dyn} /var/log/named
 
 	fowners root:named /{etc,var}/bind /var/log/named /var/bind/{sec,pri,dyn}
-	fowners root:named /etc/bind/{bind.keys,named.conf.auth}
-	fperms 0640 /etc/bind/{bind.keys,named.conf.auth}
+	fowners root:named /etc/bind/{bind.keys,named.conf,named.conf.auth}
+	fperms 0640 /etc/bind/{bind.keys,named.conf,named.conf.auth}
 	fperms 0750 /etc/bind /var/bind/pri
 	fperms 0770 /var/log/named /var/bind/{,sec,dyn}
 
@@ -186,6 +184,19 @@ pkg_postinst() {
 		elog "first and merge your existing configs/zones to /etc/bind and"
 		elog "/var/bind because bind will now mount the needed directories into"
 		elog "the chroot dir."
+	fi
+
+	# show only when upgrading to 9.18
+	if [[ -n "${REPLACING_VERSIONS}" ]] && ver_test "${REPLACING_VERSIONS}" -lt 9.18; then
+		elog "As this is a major bind version upgrade, please read:"
+		elog "   https://kb.isc.org/docs/changes-to-be-aware-of-when-moving-from-bind-916-to-918"
+		elog "for differences in functionality."
+		elog ""
+		ewarn "In particular, please note that bind-9.18 does not need a root hints file anymore"
+		ewarn "and we only ship with one as a stop-gap. If your current configuration specifies a"
+		ewarn "root hints file - usually called named.cache - bind will not start as it will not be able"
+		ewarn "to find the specified file. Best practice is to delete the offending lines that"
+		ewarn "reference named.cache file from your configuration."
 	fi
 }
 
