@@ -20,19 +20,25 @@ HOMEPAGE="https://github.com/seleniumhq/selenium"
 LICENSE="Apache-2.0"
 SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~ppc64 ~riscv ~x86"
-IUSE=""
 
-RDEPEND+=" >=dev-util/selenium-manager-$(ver_cut 1-2)"
+RDEPEND=" >=dev-util/selenium-manager-$(ver_cut 1-2)"
 
 ruby_add_rdepend "
+	>=dev-ruby/base64-0.2 =dev-ruby/base64-0*
+	>=dev-ruby/logger-1.4:0
 	>=dev-ruby/rexml-3.2.5:3
-	>=dev-ruby/rubyzip-1.2.2:*
+	dev-ruby/rubyzip:2
 	dev-ruby/websocket:0
 "
-
-PATCHES=( "${FILESDIR}/${PN}-4.13.1-selenium-manager.patch" )
 
 all_ruby_prepare() {
 	# Remove the pre-compiled selenium-manager executables
 	rm -fr bin || die
+}
+
+pkg_postinst() {
+	ewarn "This package now uses the SE_MANAGER_PATH environment "
+	ewarn "variable to locate selenium-manager.  This variable is"
+	ewarn "provided by the selenium-manager package but may not be"
+	ewarn "available yet directly after the update."
 }
