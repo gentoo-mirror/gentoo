@@ -80,6 +80,14 @@ update @world:
 
     emerge -avuUD @world
 
+Run dispatch-conf (preferred) or etc-update to get updated configuration
+files:
+
+    dispatch-conf
+
+Then depclean:
+
+    emerge -ac
 
 [1] https://kde.org/plasma-desktop/
 [2] https://community.kde.org/Plasma/Wayland_Known_Significant_Issues
