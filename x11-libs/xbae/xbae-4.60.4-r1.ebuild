@@ -1,7 +1,11 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+AT_M4DIR=${S}
+
+inherit autotools
 
 DESCRIPTION="Motif-based widget to display a grid of cells as a spreadsheet"
 HOMEPAGE="https://xbae.sourceforge.net/"
@@ -9,7 +13,7 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~hppa ~ia64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc examples"
 # tests need X display
 # and are interactive so virtualx will not help
@@ -29,7 +33,16 @@ PATCHES=(
 	"${FILESDIR}"/${P}-tmpl.patch
 	"${FILESDIR}"/${P}-lxmp.patch
 	"${FILESDIR}"/${P}-Makefile.in.patch
+	# https://sourceforge.net/p/xbae/patches/3/
+	"${FILESDIR}"/${P}-configure-c99.patch
+	"${FILESDIR}"/${P}-modern-autotools.patch
+	"${FILESDIR}"/${P}-c99.patch
 )
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	econf --enable-production
