@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.svxlink.org
 INHERIT=cmake flag-o-matic systemd xdg-utils
 IUSE=ogg qt5 rtlsdr
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2 LGPL-2.1
 RDEPEND=dev-lang/tcl:= dev-libs/jsoncpp:= dev-libs/libgcrypt:= =dev-libs/libgpiod-1*:= dev-libs/libsigc++:2 dev-libs/popt media-libs/alsa-lib media-sound/gsm media-libs/speex media-libs/opus net-misc/curl ogg? ( media-libs/libogg ) rtlsdr? ( net-wireless/rtl-sdr ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 ) acct-group/svxlink acct-user/svxlink
 SLOT=0
 SRC_URI=https://github.com/sm0svx/svxlink/archive/24.02.tar.gz -> svxlink-24.02.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	systemd	c8b03e8df84486aa991d4396686e8942
-_md5_=cbfee025fc103677ba1f3dbedb333c18
+_md5_=9998e195e9ef15c3853f544a51278a31
