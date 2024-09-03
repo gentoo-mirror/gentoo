@@ -17,13 +17,14 @@ else
 	SRC_URI="https://github.com/emacs-helm/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
+	>=app-emacs/async-1.9.9
 	app-emacs/async
 	app-emacs/popup
 "
@@ -32,10 +33,12 @@ BDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${PN}-3.8.8-no-autoload-check.patch" )
+
+DOCS=( NEWS.org README.md )
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
-	elisp-compile *.el
+	elisp_src_compile
 	elisp-make-autoload-file
 }
 

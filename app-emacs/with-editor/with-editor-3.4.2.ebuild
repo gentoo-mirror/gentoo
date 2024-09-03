@@ -17,7 +17,7 @@ else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 S="${WORKDIR}/${P}/lisp"
@@ -26,7 +26,7 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-29.1.4.1
+	>=app-emacs/compat-30.0.0.0
 "
 BDEPEND="
 	${RDEPEND}
