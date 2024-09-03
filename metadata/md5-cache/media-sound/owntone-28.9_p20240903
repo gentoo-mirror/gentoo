@@ -1,0 +1,15 @@
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare
+DEPEND=app-pda/libplist dev-db/sqlite:3 dev-libs/confuse dev-libs/json-c dev-libs/libevent dev-libs/libgcrypt dev-libs/libsodium dev-libs/libunistring dev-libs/libxml2 dev-libs/mxml:0 dev-libs/protobuf-c media-libs/alsa-lib media-video/ffmpeg net-dns/avahi net-libs/libwebsockets net-misc/curl sys-devel/gettext sys-libs/zlib acct-group/audio acct-user/owntone alsa? ( media-libs/alsa-lib ) chromecast? ( net-libs/gnutls media-video/ffmpeg[opus] ) dev-util/gperf sys-apps/gawk sys-devel/bison sys-devel/flex virtual/pkgconfig
+DESCRIPTION=DAAP (iTunes) and MPD media server
+EAPI=8
+HOMEPAGE=https://owntone.github.io/owntone-server
+INHERIT=autotools
+IUSE=+alsa +chromecast
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-pda/libplist dev-db/sqlite:3 dev-libs/confuse dev-libs/json-c dev-libs/libevent dev-libs/libgcrypt dev-libs/libsodium dev-libs/libunistring dev-libs/libxml2 dev-libs/mxml:0 dev-libs/protobuf-c media-libs/alsa-lib media-video/ffmpeg net-dns/avahi net-libs/libwebsockets net-misc/curl sys-devel/gettext sys-libs/zlib acct-group/audio acct-user/owntone alsa? ( media-libs/alsa-lib ) chromecast? ( net-libs/gnutls media-video/ffmpeg[opus] )
+SLOT=0
+SRC_URI=https://github.com/owntone/owntone-server/archive/40c22e3d2f716177ad737998f3ef909f20c4acfa.tar.gz -> owntone-28.9_p20240903-40c22e3d.tar.gz https://github.com/grobian/owntone-mpd/releases/download/mpd-0.24-r1/owntone-40c22e3-mpd-0.24-r1.patch
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0
+_md5_=fd16f3c605e654c5974ec0c97571a521
