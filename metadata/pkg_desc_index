@@ -2355,7 +2355,7 @@ app-emulation/qemu 7.2.11 7.2.12 7.2.13 8.0.5 8.1.5 8.2.3 8.2.5 8.2.6 9.0.1 9.0.
 app-emulation/qemu-guest-agent 8.2.0: QEMU Guest Agent (qemu-ga) for use when running inside a VM
 app-emulation/qemu-init-scripts 0.3.0-r1: Kvm and qemu init scripts
 app-emulation/qtrvsim 0.9.7 0.9.7-r1: RISC-V CPU simulator for education
-app-emulation/ruffle 0_p20240622 0_p20240722 9999: Flash Player emulator written in Rust
+app-emulation/ruffle 0_p20240722 0_p20240902 9999: Flash Player emulator written in Rust
 app-emulation/simh 3.11.1: a simulator for historical computers such as Vax, PDP-11 etc.)
 app-emulation/ski 1.4.0: ia64 instruction set simulator
 app-emulation/softgun 0.22 0.22-r1: ARM software emulator
@@ -2381,7 +2381,7 @@ app-emulation/virtualbox-extpack-oracle 6.1.50 7.0.18 7.0.20 7.1.0_beta2: PUEL e
 app-emulation/virtualbox-guest-additions 6.1.50 6.1.50-r1 7.0.18 7.0.20 7.1.0_beta2: VirtualBox kernel modules and user-space tools for Gentoo guests
 app-emulation/virtualbox-kvm 7.0.18_pre20240617 7.0.20_pre20240828: Family of powerful x86 virtualization products for enterprise and home use
 app-emulation/virtualbox-modules 6.1.50-r1 6.1.50-r2 7.0.18 7.0.20 7.1.0_beta2: Kernel Modules for Virtualbox
-app-emulation/vkd3d 1.12: D3D12 to Vulkan translation library
+app-emulation/vkd3d 1.12 1.13: D3D12 to Vulkan translation library
 app-emulation/vkd3d-proton 2.6-r1 2.12 2.13 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r1: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.2 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
@@ -3893,7 +3893,7 @@ dev-cpp/pystring 1.1.3-r1: C++ functions matching the interface and behavior of 
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.12.0: Range library for C++14/17/20, basis for C++20's std::ranges
 dev-cpp/rapidfuzz-cpp 3.0.5: Rapid fuzzy string matching in C++
-dev-cpp/rapidyaml 0.6.0: Library to parse and emit YAML, and do it fast
+dev-cpp/rapidyaml 0.6.0 0.7.2: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-hood-hashing 3.11.5-r1 3.11.5-r2: Fast & memory efficient hashtable based on robin hood hashing for C++11/14/17/20
 dev-cpp/robin-map 0.6.3 1.3.0 9999: C++ fast hash map and hash set using robin hood hashing
 dev-cpp/scitokens-cpp 1.1.0-r1 1.1.1: C++ implementation of the SciTokens library with a C library interface
@@ -4111,7 +4111,7 @@ dev-embedded/uisp 20050207-r1: Tool for programming AVR microcontroller through 
 dev-embedded/upslug2 11: util for flashing NSLU2 machines remotely
 dev-embedded/urjtag 2021.03 9999: Tool for communicating over JTAG with flash chips, CPUs, and many more
 dev-embedded/usbprog 0.3.0_p20140828-r2: flashtool for the multi purpose programming adapter usbprog
-dev-embedded/xa 2.4.0 2.4.1: High-speed, two-pass portable 6502 cross-assembler
+dev-embedded/xa 2.4.1: High-speed, two-pass portable 6502 cross-assembler
 dev-embedded/zmac 1.3-r1: Z80 macro cross-assembler
 dev-erlang/base64url 1.0.1-r1: URL safe base64-compatible codec
 dev-erlang/cache_tab 1.0.30 1.0.31: In-memory cache Erlang and Elixir library
@@ -8025,7 +8025,7 @@ dev-python/PyGithub 2.3.0 2.4.0: Python library to access the Github API v3
 dev-python/PyQt-builder 1.16.4: The PEP 517 compliant PyQt build system
 dev-python/PyQt5 5.15.11: Python bindings for the Qt framework
 dev-python/PyQt5-sip 12.15.0: sip extension module for PyQt5
-dev-python/PyQt6 6.7.0 6.7.1-r1: Python bindings for the Qt framework
+dev-python/PyQt6 6.7.1-r1: Python bindings for the Qt framework
 dev-python/PyQt6-WebEngine 6.7.0: Python bindings for QtWebEngine
 dev-python/PyQt6-sip 13.8.0: sip module support for PyQt6
 dev-python/PyQtWebEngine 5.15.6-r1 5.15.7: Python bindings for QtWebEngine
@@ -9669,7 +9669,7 @@ dev-qt/pixeltool 5.15.14: Qt screen magnifier
 dev-qt/qdbus 5.15.14: Interface to Qt applications communicating over D-Bus
 dev-qt/qdbusviewer 5.15.14: Graphical tool that lets you introspect D-Bus objects and messages
 dev-qt/qdoc 5.15.14: Qt documentation generator
-dev-qt/qt-creator 13.0.2 14.0.0 14.0.1 9999: Lightweight IDE for C++/QML development centering around Qt
+dev-qt/qt-creator 14.0.1 9999: Lightweight IDE for C++/QML development centering around Qt
 dev-qt/qt-docs 5.15.2_p202011130614 6.7.2_p202406110334: Qt6 documentation and examples for Qt Creator and other tools
 dev-qt/qt3d 5.15.14 6.7.2 6.7.9999 6.8.9999 6.9999: 3D rendering module for the Qt6 framework
 dev-qt/qt5compat 6.7.2 6.7.9999 6.8.9999 6.9999: Qt module containing the unsupported Qt 5 APIs
@@ -10819,8 +10819,8 @@ dev-util/mdds 2.1.1 9999: Collection of multi-dimensional data structure and ind
 dev-util/meld 3.22.0-r2 3.22.1 3.22.2: A graphical diff and merge tool
 dev-util/memprof 0.6.2-r1 0.6.2-r2: Profiling and leak detection tool
 dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
-dev-util/mingw64-runtime 11.0.1 12.0.0: Free Win64 runtime and import library definitions
-dev-util/mingw64-toolchain 11.0.0_p2 12.0.0: All-in-one mingw64 toolchain intended for building Wine without crossdev
+dev-util/mingw64-runtime 12.0.0: Free Win64 runtime and import library definitions
+dev-util/mingw64-toolchain 12.0.0: All-in-one mingw64 toolchain intended for building Wine without crossdev
 dev-util/mk-configure 0.38.3: Lightweight replacement for GNU autotools
 dev-util/nihtest 1.5.2 1.7.0: A testing tool for command line utilities
 dev-util/ninka 2.0_pre1_p20220619: A license identification tool for source code
@@ -11365,7 +11365,7 @@ games-emulation/zinc 1.1-r1: An x86 binary-only emulator for Sony ZN-1, ZN-2, an
 games-emulation/zsnes 2.0.10 2.0.12: Fork of the classic Super Nintendo emulator
 games-engines/box2d 2.4.1: C++ engine for simulating rigid bodies in 2D games
 games-engines/dMagnetic 0.37: A Magnetic Scrolls Interpreter for playing a collection of old text adventures
-games-engines/devilutionx 1.5.2: Diablo engine for modern operating systems
+games-engines/devilutionx 1.5.2 1.5.3: Diablo engine for modern operating systems
 games-engines/exult 1.8: Ultima 7 game engine that runs on modern operating systems
 games-engines/fheroes2 1.1.1: Recreation of HoMM2 game engine
 games-engines/frobtads 2.0: Curses-based interpreter and dev tools for TADS 2 and TADS 3 text adventures
@@ -11990,8 +11990,8 @@ gui-libs/amtk 5.6.1: Actions, Menus and Toolbars Kit for GTK+ applications
 gui-libs/aquamarine 0.1.1-r2 0.3.1 0.3.2 9999: Aquamarine is a very light linux rendering backend library
 gui-libs/display-manager-init 1.1.2: RC init files for starting display and login managers
 gui-libs/egl-gbm 1.1.2: GBM EGL external platform library
-gui-libs/egl-wayland 1.1.13.1 1.1.15 1.1.16: EGLStream-based Wayland external platform
-gui-libs/eglexternalplatform 1.1 1.1-r1: EGL External Platform interface
+gui-libs/egl-wayland 1.1.13.1 1.1.16: EGLStream-based Wayland external platform
+gui-libs/eglexternalplatform 1.1-r1: EGL External Platform interface
 gui-libs/gdk-pixbuf-loader-webp 0.2.4 0.2.7: WebP GDK Pixbuf Loader library
 gui-libs/greetd 0.10.0 0.10.3: ipc based login daemon
 gui-libs/gtk 4.12.5-r2 4.14.3-r1 4.14.4-r1: GTK is a multi-platform toolkit for creating graphical user interfaces
@@ -13162,7 +13162,7 @@ media-libs/libde265 1.0.11 1.0.15 9999: Open h.265 video codec implementation
 media-libs/libdiscid 0.6.4: Client library to create MusicBrainz enabled tagging applications
 media-libs/libdisplay-info 0.1.1 0.2.0: EDID and DisplayID library
 media-libs/libdmtx 0.7.7: Barcode data matrix reading and writing library
-media-libs/libdovi 3.3.0 3.3.1: Dolby Vision metadata parsing and writing
+media-libs/libdovi 3.3.1: Dolby Vision metadata parsing and writing
 media-libs/libdv 1.0.0-r4: Software codec for dv-format video (camcorders etc)
 media-libs/libdvbcsa 1.1.0-r1: Free implementation of the DVB Common Scrambling Algorithm - DVB/CSA
 media-libs/libdvbpsi 1.3.3: Library for MPEG TS/DVB PSI tables decoding and generation
@@ -13247,7 +13247,7 @@ media-libs/libopusenc 0.2.1-r1: High-level API for encoding .opus files
 media-libs/libpagemaker 0.0.4-r1 9999: C++ Library that parses the file format of Aldus/Adobe PageMaker documents
 media-libs/libpano13 2.9.22: Helmut Dersch's panorama toolbox library
 media-libs/libpgf 7.21.7-r2: Library to load, handle and manipulate images in the PGF format
-media-libs/libplacebo 6.338.2 7.349.0 9999: Reusable library for GPU-accelerated image processing primitives
+media-libs/libplacebo 7.349.0 9999: Reusable library for GPU-accelerated image processing primitives
 media-libs/libpng 1.6.40-r1 1.6.42 1.6.43: Portable Network Graphics library
 media-libs/libpng-compat 1.2.59-r1 1.5.30-r1: Portable Network Graphics library
 media-libs/libpqstego 0.0.1-r1: Library for Perturbed Quantization Steganography
@@ -18047,7 +18047,7 @@ www-client/opera-beta 113.0.5230.26-r1: A fast and secure web browser
 www-client/opera-developer 114.0.5267.0 114.0.5272.0: A fast and secure web browser
 www-client/otter 1.0.03-r1 9999: Project aiming to recreate classic Opera (12.x) UI using Qt5
 www-client/pybugz 0.13-r2 0.13-r3 0.14 9999: Command line interface to (Gentoo) Bugzilla
-www-client/qutebrowser 3.2.0 3.2.1 9999: Keyboard-driven, vim-like browser based on Python and Qt
+www-client/qutebrowser 3.2.1 9999: Keyboard-driven, vim-like browser based on Python and Qt
 www-client/seamonkey 2.53.18.1 2.53.18.2 2.53.18.2-r1: Seamonkey Web Browser
 www-client/surf 2.1-r3 9999: A simple web browser based on WebKit/GTK+
 www-client/surfraw 2.3.0-r3 99999: A fast unix command line interface to WWW
@@ -18771,9 +18771,9 @@ x11-terms/aterm 1.0.1-r6: rxvt compatible terminal emulator with transparency su
 x11-terms/cool-retro-term 1.2.0: Terminal emulator with an old school look and feel
 x11-terms/gnome-terminal 3.44.1 3.50.1 3.52.2: A terminal emulator for GNOME
 x11-terms/guake 3.9.0 3.10: Drop-down terminal for GNOME
-x11-terms/kitty 0.34.1 0.35.2 0.36.0 0.36.1 9999: Fast, feature-rich, GPU-based terminal
-x11-terms/kitty-shell-integration 0.34.1-r1 0.35.2 0.36.0 0.36.1 9999: Shell integration scripts for kitty, a GPU-based terminal emulator
-x11-terms/kitty-terminfo 0.34.1 0.35.2 0.36.0 0.36.1 9999: Terminfo for kitty, a GPU-based terminal emulator
+x11-terms/kitty 0.35.2 0.36.1 9999: Fast, feature-rich, GPU-based terminal
+x11-terms/kitty-shell-integration 0.35.2 0.36.1 9999: Shell integration scripts for kitty, a GPU-based terminal emulator
+x11-terms/kitty-terminfo 0.35.2 0.36.1 9999: Terminfo for kitty, a GPU-based terminal emulator
 x11-terms/kterm 6.2.0-r7: Japanese Kanji X Terminal
 x11-terms/mate-terminal 1.26.1 1.28.1: The MATE Terminal
 x11-terms/mlterm 3.9.3-r1: A multi-lingual terminal emulator
