@@ -127,7 +127,7 @@ qtwebengine_check-reqs() {
 		ewarn "If run into issues, please try disabling before reporting a bug."
 	fi
 
-	local CHECKREQS_DISK_BUILD=8G
+	local CHECKREQS_DISK_BUILD=9G
 	local CHECKREQS_DISK_USR=360M
 
 	if ! has distcc ${FEATURES}; then #830661
@@ -244,7 +244,7 @@ src_configure() {
 		use arm64 && tc-is-gcc && filter-flags '-march=*' '-mcpu=*'
 	fi
 
-	export NINJA NINJAFLAGS=$(get_NINJAOPTS)
+	export NINJAFLAGS=$(get_NINJAOPTS)
 	[[ ${NINJA_VERBOSE^^} == OFF ]] || NINJAFLAGS+=" -v"
 
 	local -x EXTRA_GN="${mygnargs[*]} ${EXTRA_GN}"

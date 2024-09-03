@@ -145,6 +145,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.5.2-no-symlink-check.patch
 	"${FILESDIR}"/${PN}-6.6.1-forkfd-childstack-size.patch
 	"${FILESDIR}"/${PN}-6.6.3-gcc14-avx512fp16.patch
+	"${FILESDIR}"/${PN}-6.7.2-qcontiguouscache.patch
 )
 
 src_prepare() {
@@ -165,11 +166,10 @@ src_prepare() {
 }
 
 src_configure() {
-	# The only component that uses gdk backends is the qgtk3 platformtheme plugin
 	if use gtk; then
-		# defang automagic dependencies
-		use wayland || append-cxxflags -DGENTOO_GTK_HIDE_WAYLAND
+		# defang automagic dependencies (bug #624960)
 		use X || append-cxxflags -DGENTOO_GTK_HIDE_X11
+		use wayland || append-cxxflags -DGENTOO_GTK_HIDE_WAYLAND
 	fi
 
 	local mycmakeargs=(
