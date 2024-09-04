@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=>=dev-libs/glib-2.16 net-libs/gnutls >=sys-apps/dbus-1.2.24 sys-libs/readline:0= nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) >=sys-kernel/linux-headers-2.6.39
+DESCRIPTION=Provides a daemon for managing internet connections
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/network/connman/connman.git/
+INHERIT=autotools systemd tmpfiles
+IUSE=bluetooth debug doc +ethernet examples iptables iwd l2tp networkmanager +nftables ofono openconnect openvpn policykit pptp tools vpnc +wifi wireguard wispr
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.16 net-libs/gnutls >=sys-apps/dbus-1.2.24 sys-libs/readline:0= nftables? ( >=net-libs/libnftnl-1.0.4:0= >=net-libs/libmnl-1.0.0:0= ) openconnect? ( net-vpn/openconnect ) openvpn? ( net-vpn/openvpn ) pptp? ( net-dialup/pptpclient ) vpnc? ( net-vpn/vpnc ) wireguard? ( >=net-libs/libmnl-1.0.0:0= ) bluetooth? ( net-wireless/bluez ) iptables? ( >=net-firewall/iptables-1.4.8 ) l2tp? ( net-dialup/xl2tpd ) ofono? ( net-misc/ofono ) policykit? ( sys-auth/polkit ) wifi? ( !iwd? ( >=net-wireless/wpa_supplicant-0.7.3-r3[dbus] ) iwd? ( net-wireless/iwd ) ) virtual/tmpfiles
+REQUIRED_USE=^^ ( iptables nftables )
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/network/connman/connman.git/snapshot/connman-1.43.tar.gz
+_eclasses_=gnuconfig	a397adda6984a4c423e28ac274c1ba98	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	5f49a16f67f81bdf873e3d1f10b10001	autotools	d12ccbad07b44642a75ac97a3334d8e0	systemd	c8b03e8df84486aa991d4396686e8942	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_md5_=25a186e35879566c85111bf5af36429e
