@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/kmix/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="5"
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="alsa plasma pulseaudio"
 
 # kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
@@ -42,11 +42,13 @@ DEPEND="
 		media-libs/libpulse
 	)
 "
-RDEPEND="${DEPEND}
-	kde-plasma/kde-cli-tools:*
-"
+RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-23.04.2-autostart_disable.patch" ) # TODO: upstream
+PATCHES=(
+	# TODO: upstream
+	"${FILESDIR}/${PN}-23.04.2-autostart_disable.patch"
+	"${FILESDIR}/${PN}-24.05.2-revert-kcm_pulseaudio-dep.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
