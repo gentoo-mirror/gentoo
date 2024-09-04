@@ -5,7 +5,7 @@ DESCRIPTION=A JavaScript runtime built on Chrome's V8 JavaScript engine
 EAPI=8
 HOMEPAGE=https://nodejs.org/
 INHERIT=bash-completion-r1 check-reqs flag-o-matic linux-info ninja-utils pax-utils python-any-r1 toolchain-funcs xdg-utils
-IUSE=corepack cpu_flags_x86_sse2 debug doc +icu inspector lto +npm pax-kernel +snapshot +ssl +system-icu +system-ssl test
+IUSE=corepack cpu_flags_x86_sse2 debug doc +icu inspector lto npm pax-kernel +snapshot +ssl +system-icu +system-ssl test
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x64-macos
 LICENSE=Apache-1.1 Apache-2.0 BSD BSD-2 MIT
 RDEPEND=>=app-arch/brotli-1.0.9:= >=dev-libs/libuv-1.46.0:= >=net-dns/c-ares-1.18.1:= >=net-libs/nghttp2-1.41.0:= >=net-libs/ngtcp2-1.1.0:= sys-libs/zlib corepack? ( !sys-apps/yarn ) system-icu? ( >=dev-libs/icu-73:= ) system-ssl? ( >=dev-libs/openssl-1.1.1:0= ) sys-devel/gcc:*
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/20
 SRC_URI=https://nodejs.org/dist/v20.17.0/node-v20.17.0.tar.xz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	check-reqs	02ac7654b64f7acc7a8b1a35ad9d6ddc	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	pax-utils	91d47e5d20627c717aa878b9167c62a8	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=cdc1cefdcb0609fd3c9175c8913d496f
+_md5_=1e076db2f88a50c8f8aa003480fad823
