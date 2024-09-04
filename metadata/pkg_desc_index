@@ -2294,7 +2294,7 @@ app-emacs/with-editor 3.3.4 3.4.0 3.4.1 3.4.2 9999: Use the Emacsclient as the $
 app-emacs/with-simulated-input 3.0: Emacs Lisp macro to simulate user input non-interactively
 app-emacs/ws-butler 0.6_p20201117: Unobtrusively trim extraneous white-space *ONLY* in lines edited
 app-emacs/xclip 1.11-r1: Emacs Interface to XClip
-app-emacs/xelb 0.19 0.20: X protocol Emacs Lisp Binding
+app-emacs/xelb 0.19 0.20-r1: X protocol Emacs Lisp Binding
 app-emacs/xrdb-mode 3.0-r1: An Emacs major mode for editing X resource database files
 app-emacs/xslide 0.2.2-r1: An Emacs major mode for editing XSL stylesheets and running XSL processes
 app-emacs/yaml 0.5.5: YAML parser in Emacs Lisp
@@ -4044,20 +4044,20 @@ dev-dotnet/coco 2014.12.24-r3: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 1.1.1-r1: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.14.0 0.15.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.6: A command line C# REPL with syntax highlighting
-dev-dotnet/dotnet-outdated 4.6.1 4.6.2 4.6.4: Display and update outdated NuGet packages in a project
-dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.30 6.0.31 6.0.32 6.0.33 7.0.14-r1 7.0.19 7.0.20 8.0.5-r1 8.0.6-r1 8.0.7 8.0.8: .NET runtime nugets
+dev-dotnet/dotnet-outdated 4.6.4: Display and update outdated NuGet packages in a project
+dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.31 6.0.32 6.0.33 7.0.14-r1 7.0.20 8.0.6-r1 8.0.7 8.0.8: .NET runtime nugets
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
-dev-dotnet/dotnet-sdk 8.0.105 8.0.107: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.105 8.0.106 8.0.107 8.0.108 8.0.303 8.0.401: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk 8.0.107: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.106 8.0.107 8.0.108 8.0.401: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.19.3: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
-dev-dotnet/fantomas 6.3.9 6.3.10 6.3.11: FSharp source code formatter
+dev-dotnet/fantomas 6.3.10 6.3.11: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.73.2 0.74.0: F# language server using the Language Server Protocol
-dev-dotnet/gentoo-dotnet-maintainer-tools 2.4.0 2.4.1 2.9999: Gentoo tools for .NET packages maintenance
+dev-dotnet/gentoo-dotnet-maintainer-tools 2.4.1 2.9999: Gentoo tools for .NET packages maintenance
 dev-dotnet/libgdiplus 6.0.2-r4: Library for using System.Drawing with Mono
 dev-dotnet/nake 3.0.0-r1: C# scripting build automation task runner
 dev-dotnet/netcoredbg 3.0.0.1018-r1 3.1.0.1031: NetCoreDbg is a managed code debugger with MI interface for CoreCLR
 dev-dotnet/nuget-license 3.0.0: .NET Core tool to print or save all the licenses of a project
-dev-dotnet/omnisharp-roslyn 1.39.11 1.39.12: OmniSharp server (HTTP, STDIO) based on Roslyn workspaces
+dev-dotnet/omnisharp-roslyn 1.39.12: OmniSharp server (HTTP, STDIO) based on Roslyn workspaces
 dev-dotnet/pe-format 2.1.2-r1 9999: Intelligent PE executable wrapper for binfmt_misc
 dev-embedded/arduino 1.8.19-r1: An open-source AVR electronics prototyping platform
 dev-embedded/arduino-builder 1.5.4-r1: A command line tool for compiling Arduino sketches
@@ -5182,7 +5182,7 @@ dev-lang/nasm 2.16.01-r1 2.16.02 2.16.03: groovy little assembler
 dev-lang/neko 2.3.0-r2 2.4.0: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.0.6 2.0.8: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 1.94: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nprolog 1.94 2.50: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2024.04 2024.05 2024.08 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.1 4.14.2 5.2.0: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.0.0: Open source implementation of Object Rexx
@@ -9429,10 +9429,10 @@ dev-python/spotipy 2.24.0: A lightweight Python library for the Spotify Web API
 dev-python/spur 0.3.23: Run commands locally or over SSH using the same interface
 dev-python/spyder 5.5.6 6.0.0: The Scientific Python Development Environment
 dev-python/spyder-kernels 2.5.2 3.0.0: Kernels used by spyder on its ipython console
-dev-python/spyder-line-profiler 0.3.2: Plugin to run the python line profiler from within the spyder editor
-dev-python/spyder-notebook 0.5.1: Jupyter notebook integration with Spyder
-dev-python/spyder-terminal 1.2.2: Run system terminals inside Spyder
-dev-python/spyder-unittest 0.6.0: Plugin for Spyder to run tests and view the results
+dev-python/spyder-line-profiler 0.3.2 0.4.0: Plugin to run the python line profiler from within the spyder editor
+dev-python/spyder-notebook 0.5.1 0.6.0: Jupyter notebook integration with Spyder
+dev-python/spyder-terminal 1.2.2-r1: Run system terminals inside Spyder
+dev-python/spyder-unittest 0.6.0 0.7.0: Plugin for Spyder to run tests and view the results
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.53 2.0.32 2.0.33: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
@@ -11015,7 +11015,7 @@ dev-vcs/lab 0.25.1: Lab wraps Git or Hub, making it simple to interact with repo
 dev-vcs/mercurial 6.5.3-r1 6.6.2-r1 6.7.4-r1 6.8.1 9999: Scalable distributed SCM
 dev-vcs/mr 1.20180726: Multiple Repository management tool
 dev-vcs/notify-webhook 0.1.0-r1: Git post-receive web hook notifier in Python
-dev-vcs/pre-commit 3.7.0 3.7.1 3.8.0: A framework for managing and maintaining multi-language Git pre-commit hooks
+dev-vcs/pre-commit 3.8.0: A framework for managing and maintaining multi-language Git pre-commit hooks
 dev-vcs/pwclient 2.6.2: The command-line client for the patchwork patch tracking tool
 dev-vcs/python-gitlab 3.13.0 4.6.0: Python command line interface to gitlab API
 dev-vcs/qgit 2.10: Qt GUI for git repositories

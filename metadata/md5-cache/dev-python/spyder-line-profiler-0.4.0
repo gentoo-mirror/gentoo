@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/pytest-qt[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) test? ( dev-python/line-profiler[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/qtawesome[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/spyder-6[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] <dev-python/spyder-7[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Plugin to run the python line profiler from within the spyder editor
+EAPI=8
+HOMEPAGE=https://github.com/spyder-ide/spyder-line-profiler/ https://pypi.org/project/spyder-line-profiler/
+INHERIT=distutils-r1 virtualx
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-python/line-profiler[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/qtawesome[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/spyder-6[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] <dev-python/spyder-7[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/spyder-ide/spyder-line-profiler/archive/v0.4.0.tar.gz -> spyder-line-profiler-0.4.0.gh.tar.gz
+_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	d67e78a235f541871c7dfe4cf7931489	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c	distutils-r1	39c571155ace3dd926fe0d6440cf0a50	virtualx	0654dc258d045433af18ffe046363961
+_md5_=16a45cbc26b1d345a177ed0f4a9cc873
