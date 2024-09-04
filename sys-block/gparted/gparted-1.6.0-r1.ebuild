@@ -15,8 +15,10 @@ KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
 IUSE="kde policykit wayland"
 
 DEPEND="
-	!policykit? (
-		kde? ( >=kde-plasma/kde-cli-tools-5.8.6-r1:*[kdesu] ) )
+	!policykit? ( kde? ( || (
+		kde-plasma/kdesu-gui
+		>=kde-plasma/kde-cli-tools-5.8.6-r1:*[kdesu]
+	) ) )
 	policykit? ( >=sys-auth/polkit-0.102 )
 	>=dev-cpp/glibmm-2.56.1:2
 	>=dev-cpp/gtkmm-3.24:3.0

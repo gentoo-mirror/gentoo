@@ -27,10 +27,6 @@ DEPEND="
 		dev-qt/qtdbus:5
 		dev-qt/qtgui:5
 		dev-qt/qtwidgets:5
-		|| (
-			kde-plasma/kde-cli-tools:*[kdesu]
-			x11-misc/ktsuss
-		)
 	)
 	zlib? ( sys-libs/zlib )
 "
@@ -39,6 +35,10 @@ RDEPEND="${DEPEND}
 	sys-apps/sysvinit
 	cron? ( virtual/cron )
 	networkmanager? ( net-misc/networkmanager:= )
+	qt5? ( || (
+			kde-plasma/kdesu-gui
+			x11-misc/ktsuss
+	) )
 "
 BDEPEND="
 	app-arch/unzip
