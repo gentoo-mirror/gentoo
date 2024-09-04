@@ -3823,7 +3823,7 @@ dev-build/qconf 2.5: ./configure like generator for qmake-based projects
 dev-build/remake 4.3.1.1.5 4.3.1.1.6: Patched version of GNU Make with improved error reporting, tracing and debugging
 dev-build/rocm-cmake 6.1.2: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
-dev-build/scons 4.7.0 4.8.0: Extensible Python-based build utility
+dev-build/scons 4.7.0 4.8.0 4.8.1: Extensible Python-based build utility
 dev-build/slibtool 0.5.35 0.5.36 0.6.0 9999: A strong libtool implementation, written in C
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.18.1 4.19.0 4.19.1: A set of scripts and m4/autoconf macros that ease build system maintenance
@@ -8270,7 +8270,7 @@ dev-python/deepdiff 7.0.1 8.0.1: A library for comparing dictionaries, iterables
 dev-python/deepmerge 1.1.1 2.0: Tools to handle merging of nested data structures in python
 dev-python/defusedxml 0.7.1-r1 0.8.0_rc2: XML bomb protection for Python stdlib modules, an xml serialiser
 dev-python/denonavr 0.11.6: Automation Library for Denon AVR receivers
-dev-python/dep-logic 0.4.2 0.4.3 0.4.4: Python dependency specifications supporting logical operations
+dev-python/dep-logic 0.4.4 0.4.5: Python dependency specifications supporting logical operations
 dev-python/deprecated 1.2.14: Python @deprecated decorator to deprecate old API
 dev-python/deprecation 2.1.0-r1: A library to handle automated deprecations
 dev-python/dict2xml 1.7.6: Small utility to convert a python dictionary into an XML string
@@ -8431,7 +8431,7 @@ dev-python/google-api-python-client 2.141.0 2.142.0 2.143.0: Google API Client f
 dev-python/google-auth 2.33.0 2.34.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.1: Google Authentication Library
-dev-python/google-i18n-address 3.1.0-r1: Google's i18n address metadata repository
+dev-python/google-i18n-address 3.1.0-r1 3.1.1: Google's i18n address metadata repository
 dev-python/google-pasta 0.2.0-r2: AST-based Python refactoring library
 dev-python/googleapis-common-protos 1.63.2-r1 1.64.0 1.65.0: Python classes generated from the common protos in the googleapis repository
 dev-python/gpep517 16: A backend script to aid installing Python packages in Gentoo
@@ -8598,7 +8598,7 @@ dev-python/keyrings-alt 5.0.0 5.0.1 5.0.2: Alternate keyring implementations
 dev-python/keystoneauth1 5.7.0 5.8.0: This package contains tools for authenticating to an OpenStack-based cloud
 dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.1.1: Python function spy support for unit tests
-dev-python/kiwisolver 1.4.5: An efficient C++ implementation of the Cassowary constraint solving algorithm
+dev-python/kiwisolver 1.4.5 1.4.7: An efficient C++ implementation of the Cassowary constraint solving algorithm
 dev-python/klein 24.8.0: Micro-framework for developing production-ready web services with Python
 dev-python/kombu 5.3.7 5.4.0: AMQP Messaging Framework for Python
 dev-python/krb5 0.6.0: Kerberos API bindings for Python
@@ -8713,7 +8713,7 @@ dev-python/mkdocs-pymdownx-material-extras 2.5.6: Custom alterations based on Mk
 dev-python/mkdocs-redirects 1.2.1-r1: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.2.3: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.25.1 0.25.2 0.26.0: Automatic documentation from sources, for MkDocs
-dev-python/mkdocstrings-python 1.10.8 1.10.9: Python handler for dev-python/mkdocstrings
+dev-python/mkdocstrings-python 1.10.8 1.10.9 1.11.1: Python handler for dev-python/mkdocstrings
 dev-python/ml-dtypes 0.4.0: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
@@ -8769,7 +8769,7 @@ dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2024.04.15: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
 dev-python/numexpr 2.9.0 2.10.0-r1 2.10.1: Fast numerical array expression evaluator for Python and NumPy
-dev-python/numpy 1.26.4 2.0.0 2.0.1 2.0.2 2.1.0_rc1 2.1.0: Fast array and numerical python library
+dev-python/numpy 1.26.4 2.0.0 2.0.1 2.0.2 2.1.0_rc1 2.1.0 2.1.1: Fast array and numerical python library
 dev-python/numpydoc 1.8.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauthlib 3.2.2: Spec-compliant and thorough implementation of the OAuth request-signing logic
 dev-python/objgraph 3.6.1: Draws Python object reference graphs with graphviz
@@ -9574,7 +9574,7 @@ dev-python/utidylib 0.10: TidyLib Python wrapper
 dev-python/uv 0.4.3 0.4.4: A Python package installer and resolver, written in Rust
 dev-python/uvicorn 0.30.6: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.19.0-r1 0.20.0: Ultra-fast implementation of asyncio event loop on top of libuv
-dev-python/validators 0.33.0: Python Data Validation for Humans
+dev-python/validators 0.33.0 0.34.0: Python Data Validation for Humans
 dev-python/varlink 31.0.0: Python implementation of the Varlink protocol
 dev-python/vcrpy 6.0.1-r1: Automatically mock your HTTP interactions to simplify and speed up testing
 dev-python/vdf 3.4-r1: A module for (de)serialization to and from VDF, Valve's key-value text format
@@ -9638,7 +9638,7 @@ dev-python/yapf 0.40.2: A formatter for Python files
 dev-python/yappi 1.6.0: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
 dev-python/yara-python 4.5.0 9999: Python interface for a malware identification and classification tool
-dev-python/yarl 1.9.4 1.9.5 1.9.6 1.9.7: Yet another URL library
+dev-python/yarl 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8: Yet another URL library
 dev-python/yaswfp 0.9.3-r2: Yet Another SWF Parser
 dev-python/yattag 1.16.0: Python library to generate HTML or XML in a readable, concise and pythonic way
 dev-python/yaxmldiff 0.1.0: Yet Another XML Differ
@@ -12340,7 +12340,7 @@ kde-misc/kio-gopher 0.1.99-r1: Gopher KIO worker for Konqueror
 kde-misc/kio-locate 0.5.3-r3: KIO worker for the locate command
 kde-misc/kio-stash 1.0-r1: KIO worker and daemon to stash discontinuous file selections
 kde-misc/krename 5.0.2-r1: Powerful batch file renamer
-kde-misc/krusader 2.8.1-r2: Advanced twin-panel (commander-style) file-manager with many extras
+kde-misc/krusader 2.8.1-r3: Advanced twin-panel (commander-style) file-manager with many extras
 kde-misc/kshutdown 5.92: Shutdown manager for desktop environments like KDE Plasma
 kde-misc/ktoshiba 5.3.1: Function key (FN) monitoring for Toshiba laptops
 kde-misc/kweather 23.08.5 24.05.2 24.08.0: Weather forecast application for Plasma with flat and dynamic/animated views
@@ -12362,10 +12362,12 @@ kde-plasma/discover 5.27.11 6.1.4: KDE Plasma resources management GUI
 kde-plasma/drkonqi 5.27.11 6.1.4: Plasma crash handler, gives the user feedback if a program crashed
 kde-plasma/flatpak-kcm 5.27.11 6.1.4: Flatpak Permissions Management KCM
 kde-plasma/kactivitymanagerd 5.27.11 6.1.4: System service to manage user's activities, track the usage patterns etc.
-kde-plasma/kde-cli-tools 5.27.11 6.1.4 6.1.4-r1: Tools based on KDE Frameworks 6 to better interact with the system
+kde-plasma/kde-cli-tools 5.27.11 6.1.4 6.1.4-r2: Tools based on KDE Frameworks 6 to better interact with the system
+kde-plasma/kde-cli-tools-common 6.1.4: Common files for kde-cli-tools
 kde-plasma/kde-gtk-config 5.27.11 6.1.4: Syncs KDE Plasma theme settings to GTK applications
 kde-plasma/kdecoration 5.27.11 6.1.4: Plugin based library to create window decorations
 kde-plasma/kdeplasma-addons 5.27.11 6.1.4: Extra Plasma applets and engines
+kde-plasma/kdesu-gui 5.27.11-r1 6.1.4: Graphical frontend for KDE Frameworks' kdesu
 kde-plasma/kgamma 5.27.11 6.1.4: Screen gamma values kcontrol module
 kde-plasma/kglobalacceld 6.1.4: Daemon providing Global Keyboard Shortcut (Accelerator) functionality
 kde-plasma/khotkeys 5.27.11: KDE Plasma workspace hotkey module
@@ -14588,7 +14590,7 @@ net-firewall/lutelwall 0.99-r1: IPTables firewall setup script
 net-firewall/nfacct 1.0.2-r2: Command line tool to create/retrieve/delete accounting objects in NetFilter
 net-firewall/nftables 1.0.9 1.1.0-r1 9999: Linux kernel firewall, NAT and packet mangling tools
 net-firewall/nftlb 1.0.7-r1 1.0.8-r1: nftables load balancer
-net-firewall/pglinux 2.3.1_p20171006-r1: Privacy oriented firewall application
+net-firewall/pglinux 2.3.1_p20171006-r2: Privacy oriented firewall application
 net-firewall/psad 2.4.6-r1: Port Scanning Attack Detection daemon
 net-firewall/rtsp-conntrack 5.3 5.3-r1 5.3-r2: RTSP conntrack module for Netfilter
 net-firewall/shorewall 5.2.8-r1: A high-level tool for configuring Netfilter
@@ -16380,7 +16382,7 @@ sci-visualization/gwyddion 2.61-r1 2.62-r2 2.62-r3: Framework for Scanning Mode 
 sci-visualization/kst 2.0.8-r2: Fast real-time large-dataset viewing and plotting tool
 sci-visualization/labplot 2.10.1 2.11.1 9999: Scientific data analysis and visualisation based on KDE Frameworks
 sci-visualization/paraview 5.11.1-r1 5.12.0_rc1-r1 5.12.0: Powerful scientific data visualization application
-sci-visualization/pythonprop 0.30.1-r1: Scripts to prepare and plot VOACAP propagation predictions
+sci-visualization/pythonprop 0.30.1_p20240217: Scripts to prepare and plot VOACAP propagation predictions
 sci-visualization/quickplot 0.10.6-r1 1.0.1_rc: A fast interactive 2D plotter
 sci-visualization/scidavis 2.9.0-r1: Application for Scientific Data Analysis and Visualization
 sci-visualization/spyview 2018.12.24 9999: 2D and 3D data visualization and analysis program
@@ -17186,7 +17188,7 @@ sys-block/fio 3.27-r4 3.30-r1 3.34 3.36-r1 3.37: Jens Axboe's Flexible IO tester
 sys-block/flashbench 20120606: Tool for benchmarking and classifying flash memory drives
 sys-block/fwdl 1.2.3: Seagate Fibre-Channel disk firmware upgrade tool
 sys-block/gpart 0.3-r1: Partition table rescue/guessing tool
-sys-block/gparted 1.5.0-r1 1.6.0: Partition editor for graphically managing your disk partitions
+sys-block/gparted 1.6.0-r1: Partition editor for graphically managing your disk partitions
 sys-block/hdrecover 0.5: Attempts to recover a hard disk that has bad blocks on it
 sys-block/hpssacli 2.40.13.0-r2 3.40.3.0-r1 4.21.7.0 5.30.6.0 6.10.14.0 6.25.9.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-block/io-scheduler-udev-rules 2: Udev rules to allow easier customization of kernel I/O schedulers
@@ -18419,7 +18421,7 @@ x11-misc/kbdd 0.7.1: Very simple layout switcher
 x11-misc/kdocker 5.3 5.4: Helper to dock any application into the system tray
 x11-misc/kronometer 2.3.0: Stopwatch application
 x11-misc/ktsuss 2.1-r1: Graphical version of su written in C and GTK+ 2
-x11-misc/libinput-gestures 2.73 2.76: Actions gestures on your touchpad using libinput
+x11-misc/libinput-gestures 2.76: Actions gestures on your touchpad using libinput
 x11-misc/light-locker 1.9.0-r2: A simple locker using lightdm
 x11-misc/lightdm 1.32.0-r2: A lightweight display manager
 x11-misc/lightdm-gtk-greeter 2.0.9: LightDM GTK+ Greeter
@@ -18497,7 +18499,7 @@ x11-misc/slim 1.4.0 9999: Simple Login Manager resurrected
 x11-misc/slock 1.4-r1 1.5: simple X display locker
 x11-misc/slop 7.6-r1: Application that queries the user for a selection for printing
 x11-misc/snixembed 0.3.0 0.3.3: Proxy StatusNotifierItems as XEmbedded systemtray-spec icons
-x11-misc/spacefm 1.0.6-r1 1.0.6-r2 1.0.6-r3: A multi-panel tabbed file manager
+x11-misc/spacefm 1.0.6-r2 1.0.6-r3: A multi-panel tabbed file manager
 x11-misc/splatmoji 1.1.1 1.2.0: Quickly look up and input emoji and/or emoticons
 x11-misc/spnavcfg 0.3.1 1.0 1.1: Qt-based GUI to configure a space navigator device
 x11-misc/stalonetray 0.8.4 0.8.5: System tray utility including support for KDE system tray icons
