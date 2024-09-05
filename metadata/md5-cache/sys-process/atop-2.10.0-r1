@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig modules? ( sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) ) virtual/pkgconfig
+BDEPEND=virtual/pkgconfig modules? ( dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) ) virtual/pkgconfig
 DEFINED_PHASES=compile install postinst prepare pretend setup
 DEPEND=dev-libs/glib sys-libs/ncurses:= sys-libs/zlib >=sys-process/acct-6.6.4-r1 modules? ( virtual/linux-sources )
 DESCRIPTION=Resource-specific view of processes
@@ -12,5 +12,5 @@ LICENSE=GPL-2
 RDEPEND=dev-libs/glib sys-libs/ncurses:= sys-libs/zlib >=sys-process/acct-6.6.4-r1 modules? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
 SRC_URI=https://github.com/Atoptool/atop/archive/v2.10.0.tar.gz -> atop-2.10.0.tar.gz modules? ( https://www.atoptool.nl/download/netatop-3.1.tar.gz )
-_eclasses_=mount-boot-utils	69218c024651aa10db01df7e8a5b63e0	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	55a979ee597f57f3b478d503f9af23e4	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	0bdab9f1f3187180a16e0c6827bc13c2	systemd	c8b03e8df84486aa991d4396686e8942
+_eclasses_=mount-boot-utils	69218c024651aa10db01df7e8a5b63e0	toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	dist-kernel-utils	55a979ee597f57f3b478d503f9af23e4	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	linux-mod-r1	c3684e27e002b9857ed37bc4e877e47a	systemd	c8b03e8df84486aa991d4396686e8942
 _md5_=2ec2324cfdf368e677d0aaaf1d7cb467
