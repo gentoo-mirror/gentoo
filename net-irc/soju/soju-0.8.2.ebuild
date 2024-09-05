@@ -6,8 +6,9 @@ inherit go-module systemd
 
 DESCRIPTION="soju is a user-friendly IRC bouncer"
 HOMEPAGE="https://soju.im/"
-SRC_URI="https://git.sr.ht/~emersion/${PN}/refs/download/v${PV}/${P}.tar.gz"
+SRC_URI="https://codeberg.org/emersion/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/alfredfo/${PN}-deps/raw/master/${P}-deps.tar.xz"
+S="${WORKDIR}/soju"
 
 LICENSE="AGPL-3 Apache-2.0 MIT BSD"
 SLOT="0"
