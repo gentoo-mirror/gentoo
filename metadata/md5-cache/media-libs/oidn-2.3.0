@@ -1,17 +1,17 @@
 BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-cpp/tbb:= dev-lang/ispc cuda? ( dev-util/nvidia-cuda-toolkit ) hip? ( dev-util/hip ) openimageio? ( media-libs/openimageio:= )
+DEPEND=dev-cpp/tbb:= dev-lang/ispc cuda? ( dev-util/nvidia-cuda-toolkit ) hip? ( dev-util/hip ) openimageio? ( media-libs/openimageio:= ) llvm_slot_15? ( sys-devel/clang:15= sys-devel/llvm:15= ) llvm_slot_16? ( sys-devel/clang:16= sys-devel/llvm:16= ) llvm_slot_17? ( sys-devel/clang:17= sys-devel/llvm:17= ) llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= )
 DESCRIPTION=Intel® Open Image Denoise library
 EAPI=8
 HOMEPAGE=https://www.openimagedenoise.org https://github.com/RenderKit/oidn
 INHERIT=cmake cuda llvm-r1 python-any-r1 rocm
-IUSE=apps cuda hip openimageio test +llvm_slot_17 llvm_slot_15 llvm_slot_16 +amdgpu_targets_gfx906 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx1030 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102
+IUSE=apps cuda hip openimageio test +llvm_slot_18 llvm_slot_15 llvm_slot_16 llvm_slot_17 +amdgpu_targets_gfx906 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx1030 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=dev-cpp/tbb:= dev-lang/ispc cuda? ( dev-util/nvidia-cuda-toolkit ) hip? ( dev-util/hip ) openimageio? ( media-libs/openimageio:= )
-REQUIRED_USE=test? ( apps ) ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 )
+REQUIRED_USE=test? ( apps ) ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/RenderKit/oidn/releases/download/v2.3.0/oidn-2.3.0.src.tar.gz -> oidn-2.3.0.tar.gz
 _eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	10a50dfaf728b802fcfd37f8d0da9056	cuda	283d0f298f6c196c755a0f8d50daca85	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	rocm	c4a9a8e37c0ead379f7ddb4ddee80485
-_md5_=fd4a7b94259a2631be6e6d4dcf9937cc
+_md5_=a09d0287486d9984403c4cb4155bc887
