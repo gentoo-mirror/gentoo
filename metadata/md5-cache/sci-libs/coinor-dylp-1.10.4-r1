@@ -1,9 +1,10 @@
-BDEPEND=virtual/fortran virtual/pkgconfig doc? ( app-text/doxygen[dot] ) test? ( sci-libs/coinor-sample )
+BDEPEND=virtual/fortran virtual/pkgconfig doc? ( app-text/doxygen[dot] ) test? ( sci-libs/coinor-sample ) >=app-portage/elt-patches-20240116
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=sci-libs/coinor-osi:=
 DESCRIPTION=COIN-OR dynamic simplex linear program solver
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/coin-or/DyLP/
+INHERIT=flag-o-matic libtool
 IUSE=doc examples static-libs test
 KEYWORDS=~amd64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=EPL-1.0
@@ -11,4 +12,5 @@ RDEPEND=sci-libs/coinor-osi:=
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://github.com/coin-or/DyLP/archive/releases/1.10.4.tar.gz -> coinor-dylp-1.10.4.tar.gz
-_md5_=f7acbcc20183656d43bf5093e9209252
+_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	libtool	5f49a16f67f81bdf873e3d1f10b10001
+_md5_=5091abd49346b7876b9ee5caa9c4d0f5
