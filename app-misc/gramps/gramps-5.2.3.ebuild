@@ -1,27 +1,26 @@
-# Copyright 2001-2023 Gentoo Authors
+# Copyright 2001-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1 xdg-utils
 
 DESCRIPTION="Community genealogy program aiming to be both intuitive and feature-complete"
 HOMEPAGE="https://gramps-project.org/"
-SRC_URI="https://github.com/gramps-project/${PN}/archive/v${PV}.tar.gz
-	-> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/gramps-project/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="exif geo postscript +rcs +reports spell test"
-
-# Many tests fail unless the deprecated BerkeleyDB back-end is enabled.
-RESTRICT="test"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -46,16 +45,11 @@ BDEPEND="test? (
 	')
 )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.1.3-test_locale.patch
-	"${FILESDIR}"/${PN}-5.1.6-pep517_setup.patch
-)
-
 DISTUTILS_ARGS=(
 	--no-compress-manpages
 )
 
-distutils_enable_tests pytest
+distutils_enable_tests unittest
 
 src_prepare() {
 	# Install documentation to the proper location. This can't be done
@@ -63,19 +57,23 @@ src_prepare() {
 	# and that changes with every revision.
 	sed -i -e "s:share/doc/gramps:share/doc/${PF}:g" setup.py || die
 
-	# The final part of PEP-517 support, handled with sed in order to avoid
-	# making the patch file too large
-	sed -e "s:_name:name:g" data/holidays.xml.in > data/holidays.xml || die
-	sed -e "s:_tip:tip:g" data/tips.xml.in > data/tips.xml || die
-
 	default
 }
 
-python_install() {
-	distutils-r1_python_install
+python_test() {
+	# gramps.gen.utils.test.file_test.FileTest.test_mediapath expects existing ~/.gramps
+	# see https://gramps-project.org/bugs/view.php?id=13305
+	mkdir -p "${HOME}/.gramps" || die
+	# we need to populate test data to resources, they are not installed
+	ln -snf "${S}/data/tests" "${BUILD_DIR}/install/usr/share/gramps/tests" || die
+	# test_imp_sample_ged wrongly detects mimetype for OBJE without file in ${S}
+	rm -f data/tests/imp_sample.ged || die
 
-	# setup.py option --resourcepath appears to have problems at the moment
-	echo -n "/usr/share" > "${ED}"$(python_get_sitedir)/${PN}/gen/utils/resource-path || die
+	local -x GRAMPS_RESOURCES="${BUILD_DIR}/install/usr/share" GDK_BACKEND=-
+	eunittest -p "*_test.py"
+
+	# we don't want to install this symlink
+	rm -f "${BUILD_DIR}/install/usr/share/gramps/tests" || die
 }
 
 pkg_postinst() {
