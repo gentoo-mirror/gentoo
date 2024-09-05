@@ -142,7 +142,7 @@ CRATES="
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	lazy_static@1.4.0
-	libc@0.2.157
+	libc@0.2.158
 	libcst@1.4.0
 	libcst_derive@1.4.0
 	libmimalloc-sys@0.1.39
@@ -202,9 +202,9 @@ CRATES="
 	pretty_assertions@1.4.0
 	proc-macro2@1.0.86
 	pyproject-toml@0.9.0
-	quick-junit@0.4.0
-	quick-xml@0.31.0
-	quote@1.0.36
+	quick-junit@0.5.0
+	quick-xml@0.36.1
+	quote@1.0.37
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
@@ -235,10 +235,10 @@ CRATES="
 	scopeguard@1.2.0
 	seahash@4.1.0
 	serde-wasm-bindgen@0.6.5
-	serde@1.0.208
-	serde_derive@1.0.208
+	serde@1.0.209
+	serde_derive@1.0.209
 	serde_derive_internals@0.29.0
-	serde_json@1.0.125
+	serde_json@1.0.127
 	serde_repr@0.1.19
 	serde_spanned@0.6.7
 	serde_test@1.0.177
@@ -257,7 +257,7 @@ CRATES="
 	strum@0.26.3
 	strum_macros@0.26.4
 	subtle@2.5.0
-	syn@2.0.75
+	syn@2.0.76
 	synstructure@0.13.1
 	tempfile@3.12.0
 	terminal_size@0.3.0
