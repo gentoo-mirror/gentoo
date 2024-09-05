@@ -6,8 +6,8 @@ EAPI=8
 inherit cmake flag-o-matic
 
 DESCRIPTION="Intel Open Path Guiding Library"
-HOMEPAGE="https://github.com/OpenPathGuidingLibrary/openpgl"
-SRC_URI="https://github.com/OpenPathGuidingLibrary/openpgl/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/RenderKit/openpgl"
+SRC_URI="https://github.com/RenderKit/openpgl/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1-2)"
@@ -41,7 +41,8 @@ src_configure() {
 		-DOPENPGL_ISA_AVX512="$(usex cpu_flags_x86_avx512dq)"
 		-DOPENPGL_ISA_NEON="$(usex arm64)"
 		# TODO look into neon 2x support
-		# -DOPENPGL_ISA_NEON2X="$(usex arm64)"
+		# neon2x is "double pumped" neon on apple silicon
+		# -DOPENPGL_ISA_NEON2X="$(usex cpu_flags_arm64_neon2x)"
 	)
 
 	# This is currently needed on arm64 to get the NEON SIMD wrapper to compile the code successfully
