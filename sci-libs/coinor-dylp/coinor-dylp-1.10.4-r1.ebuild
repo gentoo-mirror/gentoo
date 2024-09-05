@@ -1,9 +1,11 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN=DyLP
+
+inherit flag-o-matic libtool
 
 DESCRIPTION="COIN-OR dynamic simplex linear program solver"
 HOMEPAGE="https://github.com/coin-or/DyLP/"
@@ -43,9 +45,15 @@ src_prepare() {
 		|| die "failed to fix the pkgconfig path in ${S}/configure"
 
 	default
+	elibtoolize
 }
 
 src_configure() {
+	# heavily vintage autotools relies on UB to detect SunOS
+	# https://bugs.gentoo.org/878143
+	# https://github.com/coin-or/DyLP/issues/27
+	filter-lto
+
 	local myeconfargs=(
 		--enable-dependency-linking
 		--with-coin-instdir="${ED}"/usr
@@ -69,6 +77,7 @@ src_install() {
 	use doc && HTML_DOC=("${BUILD_DIR}/doxydocs/html/")
 
 	emake DESTDIR="${D}" install
+	find "${ED}" -type f -name '*.la' -delete || die
 
 	# Duplicate junk, and in the wrong location.
 	rm -r "${ED}/usr/share/coin/doc/${MY_PN}" || die
