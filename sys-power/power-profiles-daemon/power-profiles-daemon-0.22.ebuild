@@ -4,16 +4,16 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit meson python-single-r1 systemd
+inherit meson python-single-r1 shell-completion systemd
 
 DESCRIPTION="Makes power profiles handling available over D-Bus"
 HOMEPAGE="https://gitlab.freedesktop.org/upower/power-profiles-daemon/"
 SRC_URI="https://gitlab.freedesktop.org/upower/${PN}/-/archive/${PV}/${P}.tar.bz2"
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
-IUSE="gtk-doc selinux test"
+IUSE="bash-completion gtk-doc man selinux test zsh-completion"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RESTRICT="!test? ( test )"
@@ -29,9 +29,16 @@ RDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/glib-utils
+	bash-completion? (
+		>=app-shells/bash-completion-2.0
+		$(python_gen_cond_dep '>=dev-python/shtab-1.7.0[${PYTHON_USEDEP}]')
+	)
 	gtk-doc? (
 		dev-util/gi-docgen
 		dev-util/gtk-doc
+	)
+	man? (
+		$(python_gen_cond_dep 'dev-python/argparse-manpage[${PYTHON_USEDEP}]')
 	)
 	test? (
 		dev-util/umockdev
@@ -39,6 +46,9 @@ BDEPEND="
 			dev-python/pygobject:3[${PYTHON_USEDEP}]
 			dev-python/python-dbusmock[${PYTHON_USEDEP}]
 		')
+	)
+	zsh-completion? (
+		$(python_gen_cond_dep '>=dev-python/shtab-1.7.0[${PYTHON_USEDEP}]')
 	)
 "
 
@@ -49,14 +59,24 @@ python_check_deps() {
 	else
 		python_has_version "dev-python/pygobject:3[${PYTHON_USEDEP}]"
 	fi
+
+	if use bash-completion || use zsh-completion; then
+		python_has_version ">=dev-python/shtab-1.7.0[${PYTHON_USEDEP}]"
+	fi
+
+	use man && python_has_version "dev-python/argparse-manpage[${PYTHON_USEDEP}]"
 }
 
 src_configure() {
 	local emesonargs=(
+		-Dpylint=disabled
 		-Dsystemdsystemunitdir="$(systemd_get_systemunitdir)"
+		$(meson_feature bash-completion bashcomp)
 		$(meson_use gtk-doc gtk_doc)
+		$(meson_feature man manpage)
 		$(meson_use test tests)
 	)
+	use zsh-completion && emesonargs+=( -Dzshcomp="$(get_zshcompdir)" )
 	meson_src_configure
 }
 
