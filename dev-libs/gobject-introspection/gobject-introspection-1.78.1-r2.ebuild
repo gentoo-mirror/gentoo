@@ -15,7 +15,7 @@ SLOT="0"
 IUSE="doctool gtk-doc test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 
 # virtual/pkgconfig needed at runtime, bug #505408
 RDEPEND="
@@ -24,7 +24,7 @@ RDEPEND="
 	dev-libs/libffi:=
 	$(python_gen_cond_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]
-	' 3.12)
+	')
 	doctool? (
 		$(python_gen_cond_dep '
 			dev-python/mako[${PYTHON_USEDEP}]
@@ -53,7 +53,11 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-tests-py312.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-tests-py312.patch"
+	# https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/490
+	"${FILESDIR}/${PN}-1.80.1-setuptools-74.patch"
+)
 
 pkg_setup() {
 	python-single-r1_pkg_setup

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
 inherit gnome.org meson python-single-r1 xdg
 
@@ -22,6 +22,7 @@ RDEPEND="
 	>=dev-libs/gobject-introspection-common-${PV}
 	>=dev-libs/glib-2.75.0:2
 	dev-libs/libffi:=
+	<dev-python/setuptools-74
 	doctool? (
 		$(python_gen_cond_dep '
 			dev-python/mako[${PYTHON_USEDEP}]

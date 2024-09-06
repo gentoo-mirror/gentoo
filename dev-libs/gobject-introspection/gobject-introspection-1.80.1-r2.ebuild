@@ -25,7 +25,7 @@ RDEPEND="
 	>=dev-libs/glib-2.79.0:2
 	dev-libs/libffi:=
 	$(python_gen_cond_dep '
-		<dev-python/setuptools-74[${PYTHON_USEDEP}]
+		dev-python/setuptools[${PYTHON_USEDEP}]
 	')
 	doctool? (
 		$(python_gen_cond_dep '
@@ -54,6 +54,11 @@ BDEPEND="
 		')
 	)
 "
+
+PATCHES=(
+	# https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/490
+	"${FILESDIR}/${PN}-1.80.1-setuptools-74.patch"
+)
 
 pkg_setup() {
 	python-single-r1_pkg_setup

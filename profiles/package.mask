@@ -148,11 +148,6 @@ kde-misc/kio-locate
 # No signs of upstream porting work. Removal on 2024-09-29.
 kde-misc/kio-gopher
 
-# Michał Górny <mgorny@gentoo.org> (2024-08-28)
-# API removals break gobject-introspection.
->=dev-python/ensurepip-setuptools-74
->=dev-python/setuptools-74
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-08-25)
 # Broken with current Plasma 5 version, not ported to Plasma 6.
 # Removal on 2024-09-24.
@@ -248,12 +243,6 @@ app-backup/mkstage4
 # Superseded by media-libs/libv4l[utils].
 # Removal on 2024-08-29. Bug #936674.
 media-tv/v4l-utils
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2024-07-29)
-# Lacks maintainer capacity for update version plus java dependencies.
-# A pull request for the version bump could be provided on request.
-# Removal on 2024-08-28. Bug #736076.
-media-video/bdsup2sub
 
 # Eli Schwartz <eschwartz@gentoo.org> (2024-07-29)
 # Bad version can result in failing builds. Please upgrade to 72.1.0.
