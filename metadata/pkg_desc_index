@@ -905,7 +905,7 @@ app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.34.0 1.34.5 1.34.10 1.34.11 1.34.12: Universal Command Line Environment for AWS
+app-admin/awscli 1.34.0 1.34.5 1.34.10 1.34.11 1.34.12 1.34.13: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.7.1 2024.8.1: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r1: Distribution-independent installer framework
@@ -5347,7 +5347,7 @@ dev-libs/glib 2.76.4 2.78.3 2.78.4-r1 2.78.6 2.80.4: The GLib library of C routi
 dev-libs/gmime 2.6.23-r2 3.2.14: Library for creating and parsing MIME messages
 dev-libs/gmp 6.3.0-r1: Library for arbitrary-precision arithmetic on different type of numbers
 dev-libs/gnulib 2022.05.26.07.24.56 2024.01.01.10.31.48 9999-r1: Gnulib is a library of common routines intended to be shared at the source level
-dev-libs/gobject-introspection 1.76.1 1.78.1 1.80.1-r1: Introspection system for GObject-based libraries
+dev-libs/gobject-introspection 1.76.1-r1 1.76.1-r2 1.78.1-r1 1.78.1-r2 1.80.1-r1 1.80.1-r2: Introspection system for GObject-based libraries
 dev-libs/gobject-introspection-common 1.76.1 1.78.1 1.80.1: Build infrastructure for GObject Introspection
 dev-libs/gom 0.4 0.5.1 0.5.2: GObject to SQLite object mapper library
 dev-libs/gost-engine 3.0.1 3.0.1-r1 3.0.2 3.0.3 9999: A reference implementation of the Russian GOST crypto algorithms for OpenSSL
@@ -8143,9 +8143,9 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0 1.2.0 1.2.1: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.35.0 1.35.5 1.35.10 1.35.11 1.35.12: The AWS SDK for Python
-dev-python/botocore 1.35.0 1.35.5 1.35.10 1.35.11 1.35.12: Low-level, data-driven core of boto 3
-dev-python/bottle 0.12.25-r1: A fast and simple micro-framework for small web-applications
+dev-python/boto3 1.35.0 1.35.5 1.35.10 1.35.11 1.35.12 1.35.13: The AWS SDK for Python
+dev-python/botocore 1.35.0 1.35.5 1.35.10 1.35.11 1.35.12 1.35.13: Low-level, data-driven core of boto 3
+dev-python/bottle 0.12.25-r1 0.13.0: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.0: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.5: Bash style brace expansion for Python
@@ -8174,7 +8174,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0 1.17.0_pre20240424 1.17.0_rc1 1.17.0 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.10.3 1.11.1 1.12.1 1.12.2 1.12.3: CloudFormation Linter
+dev-python/cfn-lint 1.10.3 1.11.1 1.12.1 1.12.2 1.12.3 1.12.4: CloudFormation Linter
 dev-python/cftime 1.6.4: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4: Fast HTML/XML template compiler for Python
@@ -8335,7 +8335,7 @@ dev-python/emcee 3.1.4 3.1.5 3.1.6: Python ensemble sampling toolkit for affine-
 dev-python/emoji 2.11.0 2.11.1 2.12.1: Emoji for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 24.0 24.1 24.1.1 24.1.2 24.2: Shared pip wheel for ensurepip Python module
-dev-python/ensurepip-setuptools 72.2.0 73.0.1 74.0.0 74.1.0 74.1.1: Shared setuptools wheel for ensurepip Python module
+dev-python/ensurepip-setuptools 72.2.0 73.0.1 74.1.2: Shared setuptools wheel for ensurepip Python module
 dev-python/ensurepip-wheel 0.44.0: Shared wheel wheel for use in pip tests
 dev-python/ensurepip-wheels 100: Shared wheels for ensurepip Python module
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
@@ -8425,7 +8425,7 @@ dev-python/gitdb 4.0.11: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5-r2 2.2.1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.19.1 2.19.2: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.141.0 2.142.0 2.143.0: Google API Client for Python
+dev-python/google-api-python-client 2.141.0 2.142.0 2.143.0 2.144.0: Google API Client for Python
 dev-python/google-auth 2.33.0 2.34.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.1: Google Authentication Library
@@ -8463,7 +8463,7 @@ dev-python/html5-parser 0.4.12: Fast C based HTML 5 parsing for python
 dev-python/html5lib 1.1-r2: HTML parser based on the HTML5 specification
 dev-python/httmock 1.4.0-r1: A mocking library for requests
 dev-python/httpauth 0.3-r1 0.4 0.4.1: A WSGI middleware that secures routes using HTTP Digest Authentication
-dev-python/httpbin 0.10.2: HTTP Request and Response Service
+dev-python/httpbin 0.10.2-r1: HTTP Request and Response Service
 dev-python/httpcore 1.0.5: A minimal low-level HTTP client
 dev-python/httplib2 0.22.0: A comprehensive HTTP client library
 dev-python/httpretty 1.1.4-r1: HTTP client mock for Python
@@ -8476,7 +8476,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.110.2 6.111.1 6.111.2: A library for property based testing
+dev-python/hypothesis 6.110.2 6.111.1 6.111.2 6.112.0: A library for property based testing
 dev-python/icalendar 5.0.13 6.0.0_alpha0: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/identify 2.6.0: File identification library for Python
 dev-python/idna 3.7 3.8: Internationalized Domain Names in Applications (IDNA)
@@ -8716,7 +8716,7 @@ dev-python/ml-dtypes 0.4.0: A stand-alone implementation of several NumPy dtype 
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.11.0: Python scrapper to access ModDB mods, games and more as objects
-dev-python/more-itertools 10.4.0: More routines for operating on iterables, beyond itertools
+dev-python/more-itertools 10.4.0 10.5.0: More routines for operating on iterables, beyond itertools
 dev-python/moto 4.2.14 5.0.12 5.0.13: Mock library for boto
 dev-python/mpdlcd 0.5.2-r2: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 3.1.5: Message Passing Interface for Python
@@ -8742,7 +8742,7 @@ dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 1.1.0-r1: Jupyter Notebook as a Jupyter Server Extension
 dev-python/nbclient 0.10.0: A client library for executing Jupyter notebooks
 dev-python/nbconvert 7.16.4: Converting Jupyter Notebooks
-dev-python/nbdime 4.0.1: Diff and merge of Jupyter Notebooks
+dev-python/nbdime 4.0.1 4.0.2: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.10.3-r1 5.10.3-r2 5.10.4: Reference implementation of the Jupyter Notebook format
 dev-python/nbsphinx 0.9.5: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.11.0: A pytest plugin to validate Jupyter notebooks
@@ -8950,8 +8950,8 @@ dev-python/pycups 2.0.1-r1: Python bindings for the CUPS API
 dev-python/pycurl 7.45.3: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8-r1: Set of facilities to extend Python with C++
-dev-python/pydantic 2.7.4 2.8.2 2.9.0_beta2: Data parsing and validation using Python type hints
-dev-python/pydantic-core 2.18.4 2.20.1 2.23.0 2.23.1: Core validation logic for pydantic written in Rust
+dev-python/pydantic 2.7.4 2.8.2 2.9.0_beta2 2.9.0: Data parsing and validation using Python type hints
+dev-python/pydantic-core 2.18.4 2.20.1 2.23.0 2.23.1 2.23.2: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.15.4: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -9209,7 +9209,7 @@ dev-python/pythran 0.16.1-r2: Ahead of Time compiler for numeric kernels
 dev-python/pytidylib 0.3.2-r2: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8-r1: A small Python module to parse various kinds of time expressions
 dev-python/pytoolconfig 1.3.1: Python tool configuration
-dev-python/pytools 2024.1.6 2024.1.13: Collection of tools missing from the Python standard library
+dev-python/pytools 2024.1.6 2024.1.13 2024.1.14: Collection of tools missing from the Python standard library
 dev-python/pytrie 0.4.0-r1: A pure Python implementation of the trie data structure
 dev-python/pytz 2024.1: World timezone definitions for Python
 dev-python/pyu2f 0.1.5-r1: Python based U2F host library
@@ -9336,7 +9336,7 @@ dev-python/serpent 1.41: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1-r1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service-identity 24.1.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.3.3: Allow customization of the process title
-dev-python/setuptools 72.2.0 73.0.1 74.0.0 74.1.0 74.1.1: Collection of extensions to Distutils
+dev-python/setuptools 72.2.0 73.0.1 74.1.2: Collection of extensions to Distutils
 dev-python/setuptools-gettext 0.1.11 0.1.14: Setuptools plugin for building mo files
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.10.1: A plugin for setuptools to build Rust Python extensions
@@ -9433,7 +9433,7 @@ dev-python/spyder-notebook 0.5.1 0.6.1: Jupyter notebook integration with Spyder
 dev-python/spyder-terminal 1.2.2-r1: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.6.0 0.7.0: Plugin for Spyder to run tests and view the results
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
-dev-python/sqlalchemy 1.4.53 2.0.32 2.0.33 2.0.34: Python SQL toolkit and Object Relational Mapper
+dev-python/sqlalchemy 1.4.53 1.4.54 2.0.32 2.0.33 2.0.34: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
 dev-python/sqlglot 25.18.0 25.19.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
@@ -9452,7 +9452,7 @@ dev-python/stestr 4.1.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.2.0 5.3.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.2: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 10.8.0 10.9.0: Stripe Python bindings
+dev-python/stripe 10.8.0 10.9.0 10.10.0: Stripe Python bindings
 dev-python/structlog 24.4.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.4: A streaming protocol for test results
@@ -9571,7 +9571,7 @@ dev-python/urwid-readline 0.14: Text input widget for urwid that supports readli
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
-dev-python/uv 0.4.3 0.4.4 0.4.5: A Python package installer and resolver, written in Rust
+dev-python/uv 0.4.3 0.4.4 0.4.5 0.4.6: A Python package installer and resolver, written in Rust
 dev-python/uvicorn 0.30.6: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.19.0-r1 0.20.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.33.0 0.34.0: Python Data Validation for Humans
@@ -9638,7 +9638,7 @@ dev-python/yapf 0.40.2: A formatter for Python files
 dev-python/yappi 1.6.0: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
 dev-python/yara-python 4.5.0 9999: Python interface for a malware identification and classification tool
-dev-python/yarl 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8 1.9.10: Yet another URL library
+dev-python/yarl 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8 1.9.10 1.9.11: Yet another URL library
 dev-python/yaswfp 0.9.3-r2: Yet Another SWF Parser
 dev-python/yattag 1.16.0: Python library to generate HTML or XML in a readable, concise and pythonic way
 dev-python/yaxmldiff 0.1.0: Yet Another XML Differ
@@ -11269,7 +11269,7 @@ games-board/iagno 3.38.1-r1: Dominate the board in a classic version of Reversi
 games-board/jja 0.9.1 9999: swiss army knife for chess file formats
 games-board/mah-jong 1.16: A networked Mah Jong program, together with a computer player
 games-board/maitretarot 0.1.98-r2: Server for the french tarot game maitretarot
-games-board/megamek 0.34.10-r2 0.34.10-r3: Unofficial online version of the Classic BattleTech board game
+games-board/megamek 0.34.10-r3: Unofficial online version of the Classic BattleTech board game
 games-board/mt_dolphin_ia 0.1.98-r2: client for the french tarot game maitretarot
 games-board/mt_ncurses_client 0.1.98-r2: client for the french tarot game maitretarot
 games-board/natch 2.4-r1: A program to solve chess proof games
@@ -13930,7 +13930,7 @@ media-sound/munt-mt32emu-alsadrv 2.6.1: ALSA MIDI driver for emulating the Rolan
 media-sound/mup 6.9: Program for printing music scores
 media-sound/muse 0.9.2_p20161002: Multiple Streaming Engine, an icecast source streamer
 media-sound/musepack-tools 495: Musepack SV8 libraries and utilities
-media-sound/musescore 3.6.2-r1 4.3.2 4.4.0-r1 9999: WYSIWYG Music Score Typesetter
+media-sound/musescore 3.6.2-r1 4.3.2 4.4.1 9999: WYSIWYG Music Score Typesetter
 media-sound/music-file-organizer 1.0.3: Organizes audio files into directories based on metadata tags
 media-sound/musique 1.5-r1: Qt music player
 media-sound/ncmpc 0.49: Ncurses client for the Music Player Daemon (MPD)
@@ -14089,7 +14089,7 @@ media-tv/ivtv-utils 1.4.1-r1: IVTV utilities for Hauppauge PVR PCI cards
 media-tv/ivtvplayer 0.1.3-r3: Simple IVTV command line TV and radio player with support of LIRC
 media-tv/kodi 19.5-r2 20.5-r1 21.0-r1 21.0-r2 21.1 21.9999 9999: A free and open source media-player and entertainment hub
 media-tv/linuxtv-dvb-apps 1.1.1.20140321-r2: Small utils for DVB to scan, zap, view signal strength
-media-tv/mythtv 33.1-r1 33.1-r2: Open Source DVR and media center hub
+media-tv/mythtv 33.1-r2: Open Source DVR and media center hub
 media-tv/mythtv-status 1.0.1 1.1.0: Displays the current status of MythTV at the command prompt
 media-tv/plex-media-server 1.40.5.8854 1.40.5.8921: Free media library that is intended for use with a plex client
 media-tv/shoutcast2vdr 0.0.8-r1: VDR script: generate shoutcast playlists
@@ -14110,7 +14110,6 @@ media-video/avidemux 2.8.1: Video editor designed for simple cutting, filtering 
 media-video/baka-mplayer 2.0.4-r2 9999: Cross-platform libmpv-based multimedia player with uncluttered design
 media-video/bashnapi 2.0.0: Napiprojekt.pl subtitle downloader in bash
 media-video/bbtools 1.9: bbdmux, bbinfo, bbvinfo and bbainfo from Brent Beyeler
-media-video/bdsup2sub 4.0.0-r3: A tool to convert and tweak bitmap based subtitle streams
 media-video/binkplayer 1.99w: Bink Video! Player
 media-video/bino 1.6.8 2.0 2.2: Stereoscopic and multi-display media player
 media-video/blind 1.1-r1: Collection of command line video editing utilities
@@ -16410,7 +16409,7 @@ sec-keys/openpgp-keys-apache-httpcomponents-httpcore 220903: OpenPGP keys used b
 sec-keys/openpgp-keys-apache-logging 20220918: OpenPGP keys used by logging.apache.org
 sec-keys/openpgp-keys-apache-lucene 20170408: OpenPGP keys used by lucene.apache.org
 sec-keys/openpgp-keys-apache-poi 20230921: OpenPGP keys used by poi.apache.org
-sec-keys/openpgp-keys-apache-tomcat 9.0.90 9.0.91 9.0.93 10.1.25 10.1.26 10.1.28: OpenPGP keys used by tomcat.apache.org
+sec-keys/openpgp-keys-apache-tomcat 9.0.93 10.1.28: OpenPGP keys used by tomcat.apache.org
 sec-keys/openpgp-keys-apache-tomcat-connectors 20141023: OpenPGP keys used by tomcat-connectors
 sec-keys/openpgp-keys-apache-xalan-c 20221123: OpenPGP keys used to sign Apache Xalan-C
 sec-keys/openpgp-keys-apache-xalan-j 20221029: OpenPGP keys used by xalan.apache.org
@@ -18102,7 +18101,7 @@ www-servers/servefile 0.5.4 0.5.4-r1: Serve a single file via HTTP
 www-servers/sniproxy 0.6.1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.4-r1 1.6.5: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.1-r3 1.8.2: A fast and very simple Ruby web server
-www-servers/tomcat 9.0.91 9.0.93 10.1.26 10.1.28: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+www-servers/tomcat 9.0.93 10.1.28: Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
 www-servers/uwsgi 2.0.23: uWSGI server for Python web applications
 www-servers/varnish 7.5.0: Varnish is a state-of-the-art, high-performance HTTP accelerator
 www-servers/webfs 1.21: Lightweight HTTP server for static content
