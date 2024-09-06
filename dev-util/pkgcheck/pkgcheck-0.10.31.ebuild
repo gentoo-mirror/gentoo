@@ -39,6 +39,7 @@ RDEPEND+="
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/pathspec[${PYTHON_USEDEP}]
 	>=dev-python/tree-sitter-0.23.0[${PYTHON_USEDEP}]
+	<dev-python/tree-sitter-0.24.0[${PYTHON_USEDEP}]
 	emacs? (
 		>=app-editors/emacs-24.1:*
 		app-emacs/ebuild-mode
@@ -48,7 +49,6 @@ RDEPEND+="
 BDEPEND="${RDEPEND}
 	>=dev-python/flit-core-3.8[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-vcs/git
 	)
