@@ -3,7 +3,7 @@
 
 EAPI=8
 
-NEED_EMACS=28.1
+NEED_EMACS="28.1"
 
 inherit elisp
 
@@ -24,13 +24,27 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-RESTRICT="test"                                              # Some tests fail.
 
 DOCS=( CHANGELOG.org README.md )
 ELISP_TEXINFO="${PN}.texi"
 SITEFILE="50${PN}-gentoo.el"
 
 elisp-enable-tests ert tests
+
+src_prepare() {
+	default
+
+	# Skip failing test. Tests are marked as "WORK IN PROGRESS" at the
+	# top of the file.
+	local -a skip_tests=(
+		denote-test--denote-get-identifier
+		denote-test--denote-journal-extras-daily--title-format
+	)
+	local skip_test=""
+	for skip_test in "${skip_tests[@]}"; do
+		sed -i "/${skip_test}/a (ert-skip nil)" tests/denote-test.el || die
+	done
+}
 
 src_compile() {
 	elisp-org-export-to texinfo README.org
