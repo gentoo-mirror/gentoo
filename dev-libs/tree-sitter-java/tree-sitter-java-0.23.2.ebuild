@@ -5,9 +5,8 @@ EAPI=8
 
 inherit tree-sitter-grammar
 
-DESCRIPTION="TypeScript grammar for Tree-sitter"
-HOMEPAGE="https://github.com/tree-sitter/tree-sitter-typescript"
-S="${WORKDIR}"/${P}/typescript
+DESCRIPTION="Java grammar for Tree-sitter"
+HOMEPAGE="https://github.com/tree-sitter/tree-sitter-java"
 
 LICENSE="MIT"
 SLOT="0"

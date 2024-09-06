@@ -5,9 +5,9 @@ EAPI=8
 
 inherit tree-sitter-grammar
 
-DESCRIPTION="Python grammar for Tree-sitter"
-HOMEPAGE="https://github.com/tree-sitter/tree-sitter-python"
+DESCRIPTION="Haskell grammar for Tree-sitter"
+HOMEPAGE="https://github.com/tree-sitter/tree-sitter-haskell"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64"
+KEYWORDS="~amd64"

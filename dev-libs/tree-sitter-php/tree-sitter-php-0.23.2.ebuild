@@ -5,9 +5,10 @@ EAPI=8
 
 inherit tree-sitter-grammar
 
-DESCRIPTION="Java grammar for Tree-sitter"
-HOMEPAGE="https://github.com/tree-sitter/tree-sitter-java"
+DESCRIPTION="PHP grammar for Tree-sitter"
+HOMEPAGE="https://github.com/tree-sitter/tree-sitter-php"
+S="${WORKDIR}"/${P}/php
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
