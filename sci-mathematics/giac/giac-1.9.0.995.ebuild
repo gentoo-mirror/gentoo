@@ -10,6 +10,7 @@ MY_PV=$(ver_cut 1-3)
 DESCRIPTION="A free C++ Computer Algebra System library and its interfaces"
 HOMEPAGE="https://www-fourier.ujf-grenoble.fr/~parisse/giac.html"
 SRC_URI="https://www-fourier.ujf-grenoble.fr/~parisse/debian/dists/stable/main/source/${FETCH_P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 # The licensing is explained in README. We disable or delete several
 # bundled features (MicroPytho, QuickJS, FLTK, gl2ps) that are
@@ -58,7 +59,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.9.0.21-pari-2.15.patch"
 	"${FILESDIR}/${PN}-1.9.0.67-system-gl2ps.patch"
 	"${FILESDIR}/${P}-glibcxx-assertions.patch"
-	"${FILESDIR}/${P}-no-fltk-buildfix.patch"
+	"${FILESDIR}/${P}-fix-undefined-behavior.patch"
 )
 
 REQUIRED_USE="test? ( gui )"
@@ -67,8 +68,6 @@ REQUIRED_USE="test? ( gui )"
 # "Other kind of redistributions require the consent of the copyright
 # holder."
 RESTRICT="!test? ( test ) mirror"
-
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_prepare() {
 	# giac-1.9.0.55 tries to compile a bundled version of FLTK for you
@@ -79,12 +78,16 @@ src_prepare() {
 	# similar deal with gl2ps
 	rm src/gl2ps.[ch] || die
 
+	# mjs is an arm executable artifact that should not have been shipped
+	# Removing it so it can be rebuilt with the host architecture
+	rm src/mkjs || die
+
 	default
 	eautoreconf
 }
 
 src_configure() {
-	append-cxxflags -std=c++14 # bug 788283
+	append-cxxflags -std=c++17 # bug 788283
 
 	if use gui; then
 		append-cppflags -I$(fltk-config --includedir)
