@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst postrm preinst prepare prerm pretend
+DESCRIPTION=Raspberry Pi (all versions) bootloader and GPU firmware
+EAPI=8
+HOMEPAGE=https://github.com/raspberrypi/firmware
+INHERIT=mount-boot readme.gentoo-r1
+KEYWORDS=-* ~arm ~arm64
+LICENSE=GPL-2 raspberrypi-videocore-bin
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/raspberrypi/firmware/archive/1.20240902.tar.gz -> raspberrypi-firmware-1.20240902.tar.gz
+_eclasses_=mount-boot-utils	69218c024651aa10db01df7e8a5b63e0	mount-boot	03b0280b48caf6e18472fa7272cfcda8	readme.gentoo-r1	b8c7a61664027641d79dcfc04bd366f4
+_md5_=3c881880a011a5949d90386455544507
