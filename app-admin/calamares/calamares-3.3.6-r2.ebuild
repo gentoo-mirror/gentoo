@@ -6,6 +6,8 @@ EAPI=8
 ECM_TEST="true"
 PYTHON_COMPAT=( python3_{10..12} )
 
+QTMIN="6.7.1"
+KFMIN="6.0.0"
 inherit ecm python-single-r1
 
 DESCRIPTION="Distribution-independent installer framework"
@@ -13,79 +15,36 @@ HOMEPAGE="https://calamares.io"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="5"
+SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+networkmanager qt6 +upower"
+IUSE="+networkmanager +upower"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-QT5_MIN="5.15.0"
-KF_QT5_MIN="5.78"
-QT6_MIN="6.5.0"
-KF_QT6_MIN="5.240"
-
-BDEPEND="
-	qt6? (
-		>=dev-qt/qttools-${QT6_MIN}:6[linguist]
-		>=kde-frameworks/extra-cmake-modules-${KF_QT6_MIN}
-	)
-	!qt6? (
-		>=dev-qt/linguist-tools-${QT5_MIN}:5
-		>=kde-frameworks/extra-cmake-modules-${KF_QT5_MIN}
-	)
-"
-COMMON_DEPEND="${PYTHON_DEPS}
+DEPEND="${PYTHON_DEPS}
 	dev-cpp/yaml-cpp:=
 	$(python_gen_cond_dep '
 		>=dev-libs/boost-1.72.0:=[python,${PYTHON_USEDEP}]
 		dev-libs/libpwquality[${PYTHON_USEDEP}]
 	')
-	qt6? (
-		>=dev-qt/qtbase-${QT6_MIN}:6[concurrent,dbus,gui,network,widgets,xml]
-		>=dev-qt/qtdeclarative-${QT6_MIN}:6
-		>=dev-qt/qtsvg-${QT6_MIN}:6
-		>=dev-qt/qtwebengine-${QT6_MIN}:6[widgets]
-		>=kde-frameworks/kconfig-${KF_QT6_MIN}:6
-		>=kde-frameworks/kcoreaddons-${KF_QT6_MIN}:6
-		>=kde-frameworks/kcrash-${KF_QT6_MIN}:6
-		>=kde-frameworks/ki18n-${KF_QT6_MIN}:6
-		>=kde-frameworks/kpackage-${KF_QT6_MIN}:6
-		>=kde-frameworks/kparts-${KF_QT6_MIN}:6
-		>=kde-frameworks/kservice-${KF_QT6_MIN}:6
-		>=kde-frameworks/kwidgetsaddons-${KF_QT6_MIN}:6
-		sys-auth/polkit-qt[qt6(-)]
-		>=sys-libs/kpmcore-24.01.75:6=
-	)
-	!qt6? (
-		>=dev-qt/qtconcurrent-${QT5_MIN}:5
-		>=dev-qt/qtdbus-${QT5_MIN}:5
-		>=dev-qt/qtdeclarative-${QT5_MIN}:5
-		>=dev-qt/qtgui-${QT5_MIN}:5
-		>=dev-qt/qtnetwork-${QT5_MIN}:5
-		>=dev-qt/qtsvg-${QT5_MIN}:5
-		>=dev-qt/qtwebengine-${QT5_MIN}:5[widgets]
-		>=dev-qt/qtwidgets-${QT5_MIN}:5
-		>=dev-qt/qtxml-${QT5_MIN}:5
-		>=kde-frameworks/kconfig-${KF_QT5_MIN}:5
-		>=kde-frameworks/kcoreaddons-${KF_QT5_MIN}:5
-		>=kde-frameworks/kcrash-${KF_QT5_MIN}:5
-		>=kde-frameworks/ki18n-${KF_QT5_MIN}:5
-		>=kde-frameworks/kpackage-${KF_QT5_MIN}:5
-		>=kde-frameworks/kparts-${KF_QT5_MIN}:5
-		>=kde-frameworks/kservice-${KF_QT5_MIN}:5
-		>=kde-frameworks/kwidgetsaddons-${KF_QT5_MIN}:5
-		sys-auth/polkit-qt[qt5(+)]
-		>=sys-libs/kpmcore-20.04.0:5=
-	)
+	>=dev-qt/qtbase-${QTMIN}:6[concurrent,dbus,gui,network,widgets,xml]
+	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsvg-${QTMIN}:6
+	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
+	>=kde-frameworks/kconfig-${KFMIN}:6
+	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
+	>=kde-frameworks/ki18n-${KFMIN}:6
+	>=kde-frameworks/kpackage-${KFMIN}:6
+	>=kde-frameworks/kparts-${KFMIN}:6
+	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	sys-auth/polkit-qt[qt6(-)]
+	>=sys-libs/kpmcore-24.01.75:6=
 	sys-apps/dbus
 	sys-apps/dmidecode
 	virtual/libcrypt:=
 "
-DEPEND="${COMMON_DEPEND}
-	test? (
-		!qt6? ( dev-qt/qttest:5 )
-	)
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	app-admin/sudo
 	dev-libs/libatasmart
 	net-misc/rsync
@@ -101,13 +60,14 @@ RDEPEND="${COMMON_DEPEND}
 	networkmanager? ( net-misc/networkmanager )
 	upower? ( sys-power/upower )
 "
+BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
 src_prepare() {
 	ecm_src_prepare
 	export PYTHON_INCLUDE_DIRS="$(python_get_includedir)" \
-			PYTHON_INCLUDE_PATH="$(python_get_library_path)"\
-			PYTHON_CFLAGS="$(python_get_CFLAGS)"\
-			PYTHON_LIBS="$(python_get_LIBS)"
+		PYTHON_INCLUDE_PATH="$(python_get_library_path)"\
+		PYTHON_CFLAGS="$(python_get_CFLAGS)"\
+		PYTHON_LIBS="$(python_get_LIBS)"
 
 	cp "${FILESDIR}/calamares-gentoo-branding.desc" src/branding/default/branding.desc || die "Failed to overwrite branding file"
 }
@@ -122,7 +82,7 @@ src_configure() {
 		# Use system instead
 		-DWITH_PYBIND11=OFF
 		-DBUILD_APPDATA=ON
-		-DWITH_QT6="$(usex qt6)"
+		-DWITH_QT6=ON
 	)
 
 	ecm_src_configure
