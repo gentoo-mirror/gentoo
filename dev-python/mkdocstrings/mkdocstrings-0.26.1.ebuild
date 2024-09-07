@@ -22,11 +22,11 @@ KEYWORDS="~amd64 ~arm64 ~riscv"
 RDEPEND="
 	>=dev-python/click-7.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.11.1[${PYTHON_USEDEP}]
-	>=dev-python/markdown-3.3[${PYTHON_USEDEP}]
+	>=dev-python/markdown-3.6[${PYTHON_USEDEP}]
 	>=dev-python/markupsafe-1.1[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.5[${PYTHON_USEDEP}]
-	>=dev-python/mkdocs-autorefs-0.3.1[${PYTHON_USEDEP}]
-	>=dev-python/platformdirs-2.2.0[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-autorefs-1.2[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-2.2[${PYTHON_USEDEP}]
 	>=dev-python/pymdown-extensions-6.3[${PYTHON_USEDEP}]
 "
 BDEPEND="

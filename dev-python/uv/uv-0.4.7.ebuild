@@ -50,6 +50,14 @@ IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"
 
+DEPEND="
+	app-arch/bzip2:=
+	app-arch/xz-utils:=
+	app-arch/zstd:=
+"
+RDEPEND="
+	${DEPEND}
+"
 BDEPEND="
 	>=virtual/rust-1.80
 	test? (
@@ -89,8 +97,28 @@ src_prepare() {
 	# https://github.com/vorot93/tokio-tar/pull/23
 	# (fortunately uv already depends on portable-atomic, so we don't
 	# have to fight Cargo.lock)
-	cd "${ECARGO_VENDOR}/tokio-tar-0.3.1" || die
+	pushd "${ECARGO_VENDOR}/tokio-tar-0.3.1" >/dev/null || die
 	eapply "${FILESDIR}/tokio-tar-0.3.1-ppc.patch"
+	popd >/dev/null || die
+
+	# enable system libraries where supported
+	export ZSTD_SYS_USE_PKG_CONFIG=1
+	sed -i -e 's:"static"::' crates/uv-extract/Cargo.toml || die
+	# TODO: unbundle libz-ng-sys, tikv-jemalloc-sys?
+
+	# remove unbundled sources, just in case
+	find "${ECARGO_VENDOR}"/{bzip2,lzma,zstd}-sys-*/ -name '*.c' -delete || die
+
+	# bzip2-sys requires a pkg-config file
+	# https://github.com/alexcrichton/bzip2-rs/issues/104
+	mkdir "${T}/pkg-config" || die
+	export PKG_CONFIG_PATH=${T}/pkg-config${PKG_CONFIG_PATH+:${PKG_CONFIG_PATH}}
+	cat >> "${T}/pkg-config/bzip2.pc" <<-EOF || die
+		Name: bzip2
+		Version: 9999
+		Description:
+		Libs: -lbz2
+	EOF
 }
 
 src_compile() {
