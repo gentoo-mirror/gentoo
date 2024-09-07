@@ -1748,7 +1748,7 @@ app-doc/phrack 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22
 app-doc/phrack-all 70: Hacker magazine by the community, for the community (all issues)
 app-doc/pms 7_p20180430-r2 8_p20210613-r1 9999: Gentoo Package Manager Specification (draft)
 app-doc/pms-bin 7_p20180430 8_p20210613-r1: Gentoo Package Manager Specification
-app-doc/python-docs 2.7.18 3.8.19 3.9.19 3.10.14 3.10.15 3.11.9 3.11.10 3.12.3 3.12.4 3.12.6: HTML documentation for Python
+app-doc/python-docs 2.7.18 3.8.19 3.8.20 3.9.19 3.10.14 3.10.15 3.11.9 3.11.10 3.12.3 3.12.4 3.12.6: HTML documentation for Python
 app-doc/s6-linux-init-man-pages 1.1.2.0.1: mdoc port of the HTML documentation for the s6-linux-init suite
 app-doc/s6-man-pages 2.13.0.0.1: mdoc port of the HTML documentation for the s6 suite
 app-doc/s6-networking-man-pages 2.7.0.3.1: mdoc port of the HTML documentation for the s6 suite
@@ -5190,7 +5190,7 @@ dev-lang/perl 5.38.2-r3 5.38.2-r5 5.38.2-r6 5.40.0: Larry Wall's Practical Extra
 dev-lang/php 8.1.29 8.2.20 8.2.22 8.3.10: The PHP language runtime engine
 dev-lang/pico8 0.2.6b: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p16-r2 3.8.19_p2 3.8.19_p3 3.8.19_p4 3.9.19_p3 3.9.19_p4 3.9.19_p5 3.10.14_p1-r1 3.10.14_p2 3.10.14_p3 3.10.14_p3-r1 3.10.15 3.11.9-r1 3.11.9_p1 3.11.9_p2 3.11.9_p2-r1 3.11.10 3.12.3-r1 3.12.4_p3 3.12.5 3.12.5_p1 3.12.5_p1-r1 3.12.6 3.13.0_rc1_p2 3.13.0_rc1_p3 3.13.0_rc1_p3-r1 3.13.0_rc2: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p16-r2 3.8.19_p2 3.8.19_p3 3.8.19_p4 3.8.20 3.9.19_p3 3.9.19_p4 3.9.19_p5 3.10.14_p1-r1 3.10.14_p2 3.10.14_p3 3.10.14_p3-r1 3.10.15 3.11.9-r1 3.11.9_p1 3.11.9_p2 3.11.9_p2-r1 3.11.10 3.12.3-r1 3.12.4_p3 3.12.5 3.12.5_p1 3.12.5_p1-r1 3.12.6 3.13.0_rc1_p2 3.13.0_rc1_p3 3.13.0_rc1_p3-r1 3.13.0_rc2: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.2: Qore, the embeddable multithreaded scripting language
@@ -8102,11 +8102,11 @@ dev-python/audioread 3.0.1: Wrapper for audio file decoding using FFmpeg or GStr
 dev-python/authres 1.2.0-r1: Parse and generate Authentication-Results headers
 dev-python/autobahn 24.4.2: WebSocket and WAMP for Twisted and Asyncio
 dev-python/autocommand 2.2.2: Library to create a command-line program from a function
-dev-python/automat 22.10.0 24.8.0 24.8.1: Self-service finite-state machines for the programmer on the go
+dev-python/automat 24.8.1: Self-service finite-state machines for the programmer on the go
 dev-python/autopage 0.5.2: A library to provide automatic paging for console output
 dev-python/autopep8 2.3.1: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
-dev-python/aws-sam-translator 1.90.0 1.91.0: A library that transform SAM templates into AWS CloudFormation templates
+dev-python/aws-sam-translator 1.91.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.14.0: AWS X-Ray SDK for Python
 dev-python/babelfish 0.6.1 9999: Python library to work with countries and languages
 dev-python/backoff 2.2.1: Function decoration for backoff and retry
@@ -8422,8 +8422,8 @@ dev-python/gitdb 4.0.11: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gmpy 2.1.5-r2 2.2.1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.19.1 2.19.2: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.141.0 2.142.0 2.143.0 2.144.0: Google API Client for Python
-dev-python/google-auth 2.33.0 2.34.0: Google Authentication Library
+dev-python/google-api-python-client 2.142.0 2.143.0 2.144.0: Google API Client for Python
+dev-python/google-auth 2.34.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.1: Google Authentication Library
 dev-python/google-i18n-address 3.1.0-r1 3.1.1: Google's i18n address metadata repository
@@ -8520,13 +8520,13 @@ dev-python/itunespy 1.6.1: A simple library to fetch data from the iTunes Store 
 dev-python/jack-client 0.5.4: JACK Audio Connection Kit client for Python
 dev-python/jaraco-classes 3.4.0: Classes used by other projects by developer jaraco
 dev-python/jaraco-collections 5.0.1 5.1.0: Models and classes to supplement the stdlib collections module
-dev-python/jaraco-context 5.3.0 6.0.0 6.0.1: Context managers by jaraco
+dev-python/jaraco-context 6.0.1: Context managers by jaraco
 dev-python/jaraco-env 1.0.0: Facilities for environment variables
 dev-python/jaraco-envs 2.6.0: Classes for orchestrating Python (virtual) environments
 dev-python/jaraco-functools 4.0.2: Additional functions used by other projects by developer jaraco
 dev-python/jaraco-itertools 6.4.1: Tools for working with iterables. Complements itertools and more_itertools
 dev-python/jaraco-logging 3.3.0: Additional facilities to supplement Python's stdlib logging module
-dev-python/jaraco-path 3.7.0 3.7.1: Miscellaneous path functions
+dev-python/jaraco-path 3.7.1: Miscellaneous path functions
 dev-python/jaraco-stream 3.0.3-r1 3.0.4: Routines for handling streaming data
 dev-python/jaraco-test 5.4.0: Testing support by jaraco
 dev-python/jaraco-text 4.0.0: Text utilities used by other projects by developer jaraco
@@ -8580,7 +8580,7 @@ dev-python/jupyterlab 4.2.4 4.2.5: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.0.3 5.1.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.27.3: Server components for JupyterLab and JupyterLab like applications
-dev-python/jupyterlab-widgets 3.0.11 3.0.13: Jupyter interactive widgets for JupyterLab
+dev-python/jupyterlab-widgets 3.0.13: Jupyter interactive widgets for JupyterLab
 dev-python/jwcrypto 1.5.6: Implements JWK,JWS,JWE specifications using python-cryptography
 dev-python/k5test 0.10.4: Library for testing Python applications in Kerberos 5 environments
 dev-python/kaitaistruct 0.10: Kaitai Struct runtime for Python
@@ -8793,11 +8793,11 @@ dev-python/os-service-types 1.7.0-r2: A library to handle official service types
 dev-python/osc-lib 3.1.0: A package of common support modules for writing OSC plugins
 dev-python/oslo-concurrency 6.0.0 6.1.0: Oslo Concurrency library
 dev-python/oslo-config 9.5.0 9.6.0: Oslo Configuration API
-dev-python/oslo-context 5.5.0 5.6.0: Helpers to maintain useful information about a request context
+dev-python/oslo-context 5.6.0: Helpers to maintain useful information about a request context
 dev-python/oslo-i18n 6.3.0 6.4.0: Oslo i18n library
 dev-python/oslo-log 6.1.1 6.1.2: OpenStack logging config library, configuration for all openstack projects
 dev-python/oslo-serialization 5.5.0: Oslo Serialization library
-dev-python/oslo-utils 7.2.0 7.3.0: Oslo Utility library
+dev-python/oslo-utils 7.3.0: Oslo Utility library
 dev-python/oslotest 5.0.0: Oslo test framework
 dev-python/outcome 1.3.0_p0: Capture the outcome of Python function calls
 dev-python/overrides 7.7.0: A decorator to automatically detect mismatch when overriding a method.
@@ -9101,7 +9101,7 @@ dev-python/pytest-jupyter 0.10.1: Pytest plugin for testing Jupyter libraries an
 dev-python/pytest-lazy-fixture 0.6.3-r1: It helps to use fixtures in pytest.mark.parametrize
 dev-python/pytest-lazy-fixtures 1.1.1: Allows you to use fixtures in @pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.3.2: A PyTest plugin which provides an FTP fixture for your tests
-dev-python/pytest-localserver 0.8.1 0.9.0: Pytest plugin to test server connections locally
+dev-python/pytest-localserver 0.9.0: Pytest plugin to test server connections locally
 dev-python/pytest-markdown 1.0.2-r1: Run tests in your markdown
 dev-python/pytest-metadata 3.1.1: A plugin for pytest that provides access to test session metadata
 dev-python/pytest-mock 3.14.0: Thin-wrapper around the mock package for easier use with pytest
@@ -9186,7 +9186,7 @@ dev-python/python-redmine 2.5.0: Python interface to the Redmine REST API
 dev-python/python-rtmidi 1.5.8: Python bindings for media-libs/rtmidi implemented using Cython
 dev-python/python-slugify 8.0.4: A Python Slugify application that handles Unicode
 dev-python/python-snappy 0.7.2 0.7.3: Python library for the snappy compression library from Google
-dev-python/python-socks 2.5.0 2.5.1: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
+dev-python/python-socks 2.5.1: SOCKS4, SOCKS5, HTTP tunneling functionality for Python
 dev-python/python-stdnum 1.20: A module to handle standardized numbers and codes
 dev-python/python-swiftclient 4.6.0: Python bindings to the OpenStack Object Storage API
 dev-python/python-systemd 235: Python module for native access to the systemd facilities
@@ -9610,7 +9610,7 @@ dev-python/whatthepatch 1.0.6: A patch parsing and application library.
 dev-python/wheel 0.44.0: A built-package format for Python
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
-dev-python/widgetsnbextension 4.0.11 4.0.13: IPython HTML widgets for Jupyter
+dev-python/widgetsnbextension 4.0.13: IPython HTML widgets for Jupyter
 dev-python/wrapt 1.16.0: Module for decorators, wrappers and monkey patching
 dev-python/wsaccel 0.6.6: Accelerator for ws4py, autobahn and tornado
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
