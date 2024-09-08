@@ -21,10 +21,8 @@ if [[ "${PV}" == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/lucc/khard"
 else
 	inherit pypi
-	KEYWORDS="amd64 arm arm64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
-
-IUSE=""
 
 RDEPEND="
 	dev-python/atomicwrites[${PYTHON_USEDEP}]
@@ -53,7 +51,9 @@ DOCS=(
 )
 
 distutils_enable_tests unittest
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs \
+	dev-python/sphinx-autoapi \
+	dev-python/sphinx-autodoc-typehints
 
 python_compile_all() {
 	use doc && emake -j1 -C doc/ html text man info
