@@ -12,5 +12,5 @@ REQUIRED_USE=vanilla? ( !ssl !qmail-spp !highvolume )
 RESTRICT=test
 SLOT=0
 SRC_URI=http://qmail.org/netqmail-1.06.tar.gz https://github.com/DerDakon/genqmail/releases/download/genqmail-20200817/genqmail-20200817.tar.bz2 https://www.ckdhr.com/ckd/qmail-103.patch !vanilla? ( highvolume? ( http://qmail.org/big-todo.103.patch ) qmail-spp? ( https://downloads.sourceforge.net/qmail-spp/qmail-spp-0.42.tar.gz ) ssl? ( https://mirror.alexh.name/qmail/netqmail/netqmail-1.05-tls-smtpauth-20190114.patch http://inoa.net/qmail-tls/vu555316.patch https://arnt.gulbrandsen.priv.no/qmail/qmail-smtputf8.patch ) )
-_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	fixheadtails	1721997ed44d035654efe12da50797ef	qmail	30f39e6819a20ba64005ceeadd3845e0
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	fixheadtails	1721997ed44d035654efe12da50797ef	qmail	30f39e6819a20ba64005ceeadd3845e0
 _md5_=8f4b3366da687109e740b1f67fa87382
