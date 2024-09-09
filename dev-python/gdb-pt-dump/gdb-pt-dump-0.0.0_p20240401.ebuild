@@ -12,7 +12,7 @@ inherit distutils-r1
 DESCRIPTION="Examine the address space of a QEMU-based virtual machine"
 HOMEPAGE="https://github.com/martinradev/gdb-pt-dump"
 
-GDB_PT_DUMP_COMMIT="89ea252f6efc5d75eacca16fc17ff8966a389690"
+GDB_PT_DUMP_COMMIT="50227bda0b6332e94027f811a15879588de6d5cb"
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
