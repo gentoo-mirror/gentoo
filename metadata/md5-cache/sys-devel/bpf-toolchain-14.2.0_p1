@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://gcc.gnu.org/ https://sourceware.org/binutils/ https://gcc.gnu.org/wiki/BPFBackEnd
 INHERIT=edo flag-o-matic toolchain-funcs
 IUSE=+bin-symlinks custom-cflags +strip
-KEYWORDS=amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 sparc ~x86
+KEYWORDS=amd64 ~arm arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 sparc ~x86
 LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 )
 RDEPEND=dev-libs/gmp:= dev-libs/mpc:= dev-libs/mpfr:= sys-libs/zlib:= virtual/libiconv bin-symlinks? ( !cross-bpf-unknown-none/binutils !cross-bpf-unknown-none/gcc )
 SLOT=0
 SRC_URI=mirror://gnu/binutils/binutils-2.43.1.tar.xz mirror://gcc/gcc-14.2.0/gcc-14.2.0.tar.xz mirror://gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94
-_md5_=d91ada0a10180decf66c55eefe6d4beb
+_md5_=af8d7f6d32e0df0287c81af581bcfa08
