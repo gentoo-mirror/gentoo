@@ -1,0 +1,17 @@
+BDEPEND=|| ( ( dev-lang/python:3.13 dev-python/CppHeaderParser[python_targets_python3_13(-)] dev-python/ply[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/CppHeaderParser[python_targets_python3_12(-)] dev-python/ply[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/CppHeaderParser[python_targets_python3_11(-)] dev-python/ply[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/CppHeaderParser[python_targets_python3_10(-)] dev-python/ply[python_targets_python3_10(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/hip:0/6.1 dev-libs/rocr-runtime
+DESCRIPTION=Callback/Activity Library for Performance tracing AMD GPU's
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/roctracer
+INHERIT=cmake flag-o-matic llvm-r1 prefix python-any-r1 rocm toolchain-funcs
+IUSE=test +llvm_slot_18 +amdgpu_targets_gfx906 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/6.1 dev-libs/rocr-runtime
+REQUIRED_USE=^^ ( llvm_slot_18 )
+RESTRICT=!test? ( test )
+SLOT=0/6.1
+SRC_URI=https://github.com/ROCm/roctracer/archive/rocm-6.1.1.tar.gz -> roctracer-6.1.1.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	prefix	629161311cdf29bf8596fdd036826a2c	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	rocm	d5bf2d11956fcbc1cfbbde87f02e485b
+_md5_=0efe6e4f3068e9655e0dc1a6d0afb6a1

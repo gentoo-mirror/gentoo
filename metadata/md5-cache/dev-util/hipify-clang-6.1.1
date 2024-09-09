@@ -4,7 +4,7 @@ DEPEND=llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= )
 DESCRIPTION=A set of tools to translate CUDA source code into portable HIP C++
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/HIPIFY
-INHERIT=cmake llvm-r1
+INHERIT=cmake flag-o-matic llvm-r1
 IUSE=+llvm_slot_18
 KEYWORDS=~amd64
 LICENSE=MIT
@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( llvm_slot_18 )
 SLOT=0/6.1
 SRC_URI=https://github.com/ROCm/HIPIFY/archive/rocm-6.1.1.tar.gz -> HIPIFY-6.1.1.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3
-_md5_=7b56bd078df850e5093aacf5578f5cc9
+_md5_=390b38532f33b39747b6ee8017e70c73
