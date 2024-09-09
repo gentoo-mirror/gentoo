@@ -3,7 +3,7 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-130-patches-01.tar.xz"
+FIREFOX_PATCHSET="firefox-128esr-patches-03.tar.xz"
 
 LLVM_COMPAT=( 17 18 )
 
@@ -30,11 +30,6 @@ fi
 if [[ -n ${MOZ_ESR} ]] ; then
 	# ESR releases have slightly different version numbers
 	MOZ_PV="${MOZ_PV}esr"
-	HOMEPAGE="https://www.mozilla.com/firefox https://www.mozilla.org/firefox/enterprise/"
-	SLOT="esr"
-else
-	HOMEPAGE="https://www.mozilla.com/firefox"
-	SLOT="rapid"
 fi
 
 MOZ_PN="${PN%-bin}"
@@ -43,32 +38,35 @@ MOZ_PV_DISTFILES="${MOZ_PV}${MOZ_PV_SUFFIX}"
 MOZ_P_DISTFILES="${MOZ_PN}-${MOZ_PV_DISTFILES}"
 
 inherit autotools check-reqs desktop flag-o-matic gnome2-utils linux-info llvm-r1 multiprocessing \
-	optfeature pax-utils python-any-r1 readme.gentoo-r1 toolchain-funcs virtualx xdg
+	optfeature pax-utils python-any-r1 toolchain-funcs virtualx xdg
 
-MOZ_SRC_BASE_URI="https://archive.mozilla.org/pub/${MOZ_PN}/releases/${MOZ_PV}"
+MOZ_SRC_BASE_URI="https://archive.mozilla.org/pub/${MOZ_PN}/releases/${MOZ_PV}esr"
 
 if [[ ${PV} == *_rc* ]] ; then
-	MOZ_SRC_BASE_URI="https://archive.mozilla.org/pub/${MOZ_PN}/candidates/${MOZ_PV}-candidates/build${PV##*_rc}"
+	MOZ_SRC_BASE_URI="https://archive.mozilla.org/pub/${MOZ_PN}/candidates/${MOZ_PV}esr-candidates/build${PV##*_rc}"
 fi
 
 PATCH_URIS=(
 	https://dev.gentoo.org/~juippis/mozilla/patchsets/${FIREFOX_PATCHSET}
 )
 
-DESCRIPTION="Firefox Web Browser"
-SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}.source.tar.xz -> ${MOZ_P_DISTFILES}.source.tar.xz
+SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}esr.source.tar.xz -> ${MOZ_P_DISTFILES}esr.source.tar.xz
 	${PATCH_URIS[@]}"
-S="${WORKDIR}/${PN}-${PV%_*}"
+
+DESCRIPTION="Thunderbird Mail Client"
+HOMEPAGE="https://www.thunderbird.net/"
+
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+
+SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
-IUSE="+clang cpu_flags_arm_neon dbus debug eme-free hardened hwaccel jack +jumbo-build libproxy lto"
-IUSE+=" openh264 pgo pulseaudio sndio selinux +system-av1 +system-harfbuzz +system-icu"
-IUSE+=" +system-jpeg +system-libevent +system-libvpx system-png +system-webp +telemetry valgrind"
-IUSE+=" wayland wifi +X"
+IUSE="+clang dbus debug eme-free hardened hwaccel jack libproxy lto +openh264 pgo pulseaudio sndio"
+IUSE+=" selinux +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent"
+IUSE+=" +system-libvpx system-png +system-webp wayland wifi +X"
 
-# Firefox-only IUSE
-IUSE+=" +gmp-autoupdate gnome-shell"
+# Thunderbird-only USE flags.
+IUSE+=" +system-librnp"
 
 REQUIRED_USE="|| ( X wayland )
 	debug? ( !system-av1 )
@@ -76,8 +74,9 @@ REQUIRED_USE="|| ( X wayland )
 	wayland? ( dbus )
 	wifi? ( dbus )"
 
-FF_ONLY_DEPEND="!www-client/firefox:0
-	selinux? ( sec-policy/selinux-mozilla )"
+TB_ONLY_DEPEND="selinux? ( sec-policy/selinux-thunderbird )
+	!system-librnp? ( dev-libs/jsoncpp )
+	system-librnp? ( >=dev-util/librnp-0.17.1 )"
 BDEPEND="${PYTHON_DEPS}
 	$(llvm_gen_dep '
 		sys-devel/clang:${LLVM_SLOT}
@@ -85,8 +84,8 @@ BDEPEND="${PYTHON_DEPS}
 		clang? (
 			sys-devel/lld:${LLVM_SLOT}
 			virtual/rust:0/llvm-${LLVM_SLOT}
+			pgo? ( sys-libs/compiler-rt-sanitizers:${LLVM_SLOT}[profile] )
 		)
-		pgo? ( sys-libs/compiler-rt-sanitizers:${LLVM_SLOT}[profile] )
 	')
 	app-alternatives/awk
 	app-arch/unzip
@@ -112,12 +111,12 @@ BDEPEND="${PYTHON_DEPS}
 			x11-misc/xkeyboard-config
 		)
 	)"
-COMMON_DEPEND="${FF_ONLY_DEPEND}
+COMMON_DEPEND="${TB_ONLY_DEPEND}
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/libffi:=
-	>=dev-libs/nss-3.103
+	>=dev-libs/nss-3.101
 	>=dev-libs/nspr-4.35
 	media-libs/alsa-lib
 	media-libs/fontconfig
@@ -130,9 +129,7 @@ COMMON_DEPEND="${FF_ONLY_DEPEND}
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango
 	x11-libs/pixman
-	dbus? (
-		sys-apps/dbus
-	)
+	dbus? ( sys-apps/dbus )
 	jack? ( virtual/jack )
 	pulseaudio? (
 		|| (
@@ -151,13 +148,12 @@ COMMON_DEPEND="${FF_ONLY_DEPEND}
 		>=media-gfx/graphite2-1.3.13
 		>=media-libs/harfbuzz-2.8.1:0=
 	)
-	system-icu? ( >=dev-libs/icu-73.1:= )
+	system-icu? ( >=dev-libs/icu-74.1:= )
 	system-jpeg? ( >=media-libs/libjpeg-turbo-1.2.1:= )
 	system-libevent? ( >=dev-libs/libevent-2.1.12:0=[threads(+)] )
 	system-libvpx? ( >=media-libs/libvpx-1.8.2:0=[postproc] )
 	system-png? ( >=media-libs/libpng-1.6.35:0=[apng] )
 	system-webp? ( >=media-libs/libwebp-1.1.0:0= )
-	valgrind? ( dev-debug/valgrind )
 	wayland? (
 		>=media-libs/libepoxy-1.5.10-r1
 		x11-libs/gtk+:3[wayland]
@@ -184,10 +180,6 @@ COMMON_DEPEND="${FF_ONLY_DEPEND}
 		x11-libs/libxcb:=
 	)"
 RDEPEND="${COMMON_DEPEND}
-	hwaccel? (
-		media-video/libva-utils
-		sys-apps/pciutils
-	)
 	jack? ( virtual/jack )
 	openh264? ( media-libs/openh264:*[plugin] )"
 DEPEND="${COMMON_DEPEND}
@@ -197,18 +189,7 @@ DEPEND="${COMMON_DEPEND}
 		x11-libs/libSM
 	)"
 
-# ESR and rapid dependencies.
-if [[ -n ${MOZ_ESR} ]] ; then
-	RDEPEND+=" !www-client/firefox:rapid"
-else
-	RDEPEND+=" !www-client/firefox:esr"
-fi
-
-# Allow MOZ_GMP_PLUGIN_LIST to be set in an eclass or
-# overridden in the enviromnent (advanced hackers only)
-if [[ -z "${MOZ_GMP_PLUGIN_LIST+set}" ]] ; then
-	MOZ_GMP_PLUGIN_LIST=( gmp-gmpopenh264 gmp-widevinecdm )
-fi
+S="${WORKDIR}/${PN}-${PV%_*}"
 
 llvm_check_deps() {
 	if ! has_version -b "sys-devel/clang:${LLVM_SLOT}" ; then
@@ -241,51 +222,12 @@ llvm_check_deps() {
 
 MOZ_LANGS=(
 	af ar ast be bg br ca cak cs cy da de dsb
-	el en-CA en-GB en-US es-AR es-ES et eu
+	el en-CA en-GB en-US es-AR es-ES es-MX et eu
 	fi fr fy-NL ga-IE gd gl he hr hsb hu
 	id is it ja ka kab kk ko lt lv ms nb-NO nl nn-NO
 	pa-IN pl pt-BR pt-PT rm ro ru
 	sk sl sq sr sv-SE th tr uk uz vi zh-CN zh-TW
 )
-
-# Firefox-only LANGS
-MOZ_LANGS+=( ach )
-MOZ_LANGS+=( an )
-MOZ_LANGS+=( az )
-MOZ_LANGS+=( bn )
-MOZ_LANGS+=( bs )
-MOZ_LANGS+=( ca-valencia )
-MOZ_LANGS+=( eo )
-MOZ_LANGS+=( es-CL )
-MOZ_LANGS+=( es-MX )
-MOZ_LANGS+=( fa )
-MOZ_LANGS+=( ff )
-MOZ_LANGS+=( fur )
-MOZ_LANGS+=( gn )
-MOZ_LANGS+=( gu-IN )
-MOZ_LANGS+=( hi-IN )
-MOZ_LANGS+=( hy-AM )
-MOZ_LANGS+=( ia )
-MOZ_LANGS+=( km )
-MOZ_LANGS+=( kn )
-MOZ_LANGS+=( lij )
-MOZ_LANGS+=( mk )
-MOZ_LANGS+=( mr )
-MOZ_LANGS+=( my )
-MOZ_LANGS+=( ne-NP )
-MOZ_LANGS+=( oc )
-MOZ_LANGS+=( sc )
-MOZ_LANGS+=( sco )
-MOZ_LANGS+=( si )
-MOZ_LANGS+=( skr )
-MOZ_LANGS+=( son )
-MOZ_LANGS+=( szl )
-MOZ_LANGS+=( ta )
-MOZ_LANGS+=( te )
-MOZ_LANGS+=( tl )
-MOZ_LANGS+=( trs )
-MOZ_LANGS+=( ur )
-MOZ_LANGS+=( xh )
 
 mozilla_set_globals() {
 	# https://bugs.gentoo.org/587334
@@ -552,10 +494,6 @@ pkg_setup() {
 		# Ensure we use C locale when building, bug #746215
 		export LC_ALL=C
 	fi
-
-	CONFIG_CHECK="~SECCOMP"
-	WARNING_SECCOMP="CONFIG_SECCOMP not set! This system will be unable to play DRM-protected content."
-	linux-info_pkg_setup
 }
 
 src_unpack() {
@@ -605,10 +543,6 @@ src_prepare() {
 			export RUST_TARGET="x86_64-unknown-linux-musl"
 		elif use x86 ; then
 			export RUST_TARGET="i686-unknown-linux-musl"
-		elif use arm64 ; then
-			export RUST_TARGET="aarch64-unknown-linux-musl"
-		elif use ppc64 ; then
-			export RUST_TARGET="powerpc64le-unknown-linux-musl"
 		else
 			die "Unknown musl chost, please post your rustc -vV along with emerge --info on Gentoo's bug #915651"
 		fi
@@ -617,6 +551,14 @@ src_prepare() {
 	# Make LTO respect MAKEOPTS
 	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
 		"${S}"/build/moz.configure/lto-pgo.configure || die "Failed sedding multiprocessing.cpu_count"
+
+	# Make ICU respect MAKEOPTS
+	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
+		"${S}"/intl/icu_sources_data.py || die "Failed sedding multiprocessing.cpu_count"
+
+	# Respect MAKEOPTS all around (maybe some find+sed is better)
+	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
+		"${S}"/python/mozbuild/mozbuild/base.py || die "Failed sedding multiprocessing.cpu_count"
 
 	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
 		"${S}"/third_party/libwebrtc/build/toolchain/get_cpu_count.py || die "Failed sedding multiprocessing.cpu_count"
@@ -627,6 +569,9 @@ src_prepare() {
 
 	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
 		"${S}"/third_party/python/gyp/pylib/gyp/input.py || die "Failed sedding multiprocessing.cpu_count"
+
+	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
+		"${S}"/python/mozbuild/mozbuild/code_analysis/mach_commands.py || die "Failed sedding multiprocessing.cpu_count"
 
 	# sed-in toolchain prefix
 	sed -i \
@@ -643,24 +588,6 @@ src_prepare() {
 
 	# Clear checksums from cargo crates we've manually patched.
 	# moz_clear_vendor_checksums xyz
-
-	# Respect choice for "jumbo-build"
-	# Changing the value for FILES_PER_UNIFIED_FILE may not work, see #905431
-	if [[ -n ${FILES_PER_UNIFIED_FILE} ]] && use jumbo-build; then
-		local my_files_per_unified_file=${FILES_PER_UNIFIED_FILE:=16}
-		elog ""
-		elog "jumbo-build defaults modified to ${my_files_per_unified_file}."
-		elog "if you get a build failure, try undefining FILES_PER_UNIFIED_FILE,"
-		elog "if that fails try -jumbo-build before opening a bug report."
-		elog ""
-
-		sed -i -e "s/\"FILES_PER_UNIFIED_FILE\", 16/\"FILES_PER_UNIFIED_FILE\", "${my_files_per_unified_file}"/" \
-			python/mozbuild/mozbuild/frontend/data.py ||
-				die "Failed to adjust FILES_PER_UNIFIED_FILE in python/mozbuild/mozbuild/frontend/data.py"
-		sed -i -e "s/FILES_PER_UNIFIED_FILE = 6/FILES_PER_UNIFIED_FILE = "${my_files_per_unified_file}"/" \
-			js/src/moz.build ||
-				die "Failed to adjust FILES_PER_UNIFIED_FILE in js/src/moz.build"
-	fi
 
 	# Create build dir
 	BUILD_DIR="${WORKDIR}/${PN}_build"
@@ -694,7 +621,6 @@ src_configure() {
 		if tc-is-gcc; then
 			have_switched_compiler=yes
 		fi
-
 		AR=llvm-ar
 		CC=${CHOST}-clang-${version_clang}
 		CXX=${CHOST}-clang++-${version_clang}
@@ -746,14 +672,10 @@ src_configure() {
 	export MOZCONFIG="${S}/.mozconfig"
 
 	# Initialize MOZCONFIG
-	mozconfig_add_options_ac '' --enable-application=browser
-	mozconfig_add_options_ac '' --enable-project=browser
+	mozconfig_add_options_ac '' --enable-application=comm/mail
+	mozconfig_add_options_ac '' --enable-project=comm/mail
 
 	# Set Gentoo defaults
-	if use telemetry; then
-		export MOZILLA_OFFICIAL=1
-	fi
-
 	mozconfig_add_options_ac 'Gentoo default' \
 		--allow-addon-sideload \
 		--disable-cargo-incremental \
@@ -767,7 +689,9 @@ src_configure() {
 		--disable-strip \
 		--disable-tests \
 		--disable-updater \
+		--disable-valgrind \
 		--disable-wmf \
+		--enable-js-shell \
 		--enable-negotiateauth \
 		--enable-new-pass-manager \
 		--enable-official-branding \
@@ -775,6 +699,7 @@ src_configure() {
 		--enable-system-ffi \
 		--enable-system-pixman \
 		--enable-system-policies \
+		--enable-thunderbird-rust \
 		--host="${CBUILD:-${CHOST}}" \
 		--libdir="${EPREFIX}/usr/$(get_libdir)" \
 		--prefix="${EPREFIX}/usr" \
@@ -806,8 +731,6 @@ src_configure() {
 	# bug 833001, bug 903411#c8
 	if use ppc64 || use riscv; then
 		mozconfig_add_options_ac '' --disable-sandbox
-	elif use valgrind; then
-		mozconfig_add_options_ac 'valgrind requirement' --disable-sandbox
 	else
 		mozconfig_add_options_ac '' --enable-sandbox
 	fi
@@ -862,9 +785,17 @@ src_configure() {
 	mozconfig_use_with system-png
 	mozconfig_use_with system-webp
 
+	if use system-librnp; then
+		mozconfig_add_options_ac "+system-librnp" --enable-compile-environment
+		mozconfig_use_with system-librnp
+	else
+		# This controls the backend of the bundled librnp. Choices are "botan" and "openssl".
+		# RNP Upstream recommends to use botan. In Gentoo it's preferred to use system-librnp.
+		mozconfig_add_options_ac "+bundled librnp backend = botan" --with-librnp-backend="botan"
+	fi
+
 	mozconfig_use_enable dbus
 	mozconfig_use_enable libproxy
-	mozconfig_use_enable valgrind
 
 	use eme-free && mozconfig_add_options_ac '+eme-free' --disable-eme
 
@@ -885,8 +816,6 @@ src_configure() {
 	mozconfig_add_options_ac '--enable-audio-backends' --enable-audio-backends="${myaudiobackends::-1}"
 
 	mozconfig_use_enable wifi necko-wifi
-
-	! use jumbo-build && mozconfig_add_options_ac '--disable-unified-build' --disable-unified-build
 
 	if use X && use wayland ; then
 		mozconfig_add_options_ac '+x11+wayland' --enable-default-toolkit=cairo-gtk3-x11-wayland
@@ -1008,10 +937,6 @@ src_configure() {
 		mozconfig_add_options_ac '!elibc_glibc' --disable-jemalloc
 	fi
 
-	if use valgrind; then
-		mozconfig_add_options_ac 'valgrind requirement' --disable-jemalloc
-	fi
-
 	# System-av1 fix
 	use system-av1 && append-ldflags "-Wl,--undefined-version"
 
@@ -1029,13 +954,6 @@ src_configure() {
 	export PIP_NETWORK_INSTALL_RESTRICTED_VIRTUALENVS=mach
 
 	export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="none"
-
-	if ! use telemetry; then
-		mozconfig_add_options_mk '-telemetry setting' "MOZ_CRASHREPORTER=0"
-		mozconfig_add_options_mk '-telemetry setting' "MOZ_DATA_REPORTING=0"
-		mozconfig_add_options_mk '-telemetry setting' "MOZ_SERVICES_HEALTHREPORT=0"
-		mozconfig_add_options_mk '-telemetry setting' "MOZ_TELEMETRY_REPORTING=0"
-	fi
 
 	# Disable notification when build system has finished
 	export MOZ_NOSPAM=1
@@ -1075,10 +993,6 @@ src_configure() {
 	done
 	echo "=========================================================="
 	echo
-
-	if use valgrind; then
-		sed -i -e 's/--enable-optimize=-O[0-9s]/--enable-optimize="-g -O2"/' .mozconfig || die
-	fi
 
 	./mach configure || die
 }
@@ -1142,68 +1056,38 @@ src_install() {
 	newins "${FILESDIR}"/disable-auto-update.policy.json policies.json
 
 	# Install system-wide preferences
-	local PREFS_DIR="${MOZILLA_FIVE_HOME}/browser/defaults/preferences"
+	local PREFS_DIR="${MOZILLA_FIVE_HOME}/defaults/pref"
 	insinto "${PREFS_DIR}"
-	newins "${FILESDIR}"/gentoo-default-prefs.js gentoo-prefs.js
+	newins "${FILESDIR}"/gentoo-default-prefs-r1.js gentoo-prefs.js
 
 	local GENTOO_PREFS="${ED}${PREFS_DIR}/gentoo-prefs.js"
 
-	# Set dictionary path to use system hunspell
-	cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set spellchecker.dictionary_path pref"
-	pref("spellchecker.dictionary_path", "${EPREFIX}/usr/share/myspell");
-	EOF
-
 	# Force hwaccel prefs if USE=hwaccel is enabled
 	if use hwaccel ; then
-		cat "${FILESDIR}"/gentoo-hwaccel-prefs.js-r2 \
+		cat "${FILESDIR}"/gentoo-hwaccel-prefs.js \
 		>>"${GENTOO_PREFS}" \
 		|| die "failed to add prefs to force hardware-accelerated rendering to all-gentoo.js"
 
 		if use wayland; then
 			cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set hwaccel wayland prefs"
-			pref("gfx.x11-egl.force-enabled", false);
+			pref("gfx.x11-egl.force-enabled",          false);
 			EOF
 		else
 			cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set hwaccel x11 prefs"
-			pref("gfx.x11-egl.force-enabled", true);
+			pref("gfx.x11-egl.force-enabled",          true);
 			EOF
-		fi
-
-		# Install the vaapitest binary on supported arches (122.0 supports all platforms, bmo#1865969)
-		exeinto "${MOZILLA_FIVE_HOME}"
-		doexe "${BUILD_DIR}"/dist/bin/vaapitest
-
-		# Install the v4l2test on supported arches (+ arm, + riscv64 when keyworded)
-		if use arm64 ; then
-			exeinto "${MOZILLA_FIVE_HOME}"
-			doexe "${BUILD_DIR}"/dist/bin/v4l2test
 		fi
 	fi
 
-	if ! use gmp-autoupdate ; then
-		local plugin
-		for plugin in "${MOZ_GMP_PLUGIN_LIST[@]}" ; do
-			einfo "Disabling auto-update for ${plugin} plugin ..."
-			cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to disable autoupdate for ${plugin} media plugin"
-			pref("media.${plugin}.autoupdate", false);
-			EOF
-		done
-	fi
+	# Set dictionary path to use system hunspell
+	cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set spellchecker.dictionary_path pref"
+	pref("spellchecker.dictionary_path",       "${EPREFIX}/usr/share/myspell");
+	EOF
 
 	# Force the graphite pref if USE=system-harfbuzz is enabled, since the pref cannot disable it
 	if use system-harfbuzz ; then
 		cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set gfx.font_rendering.graphite.enabled pref"
 		sticky_pref("gfx.font_rendering.graphite.enabled", true);
-		EOF
-	fi
-
-	# Add telemetry config prefs, just in case something happens in future and telemetry build
-	# options stop working.
-	if ! use telemetry ; then
-		cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to set telemetry prefs"
-		sticky_pref("toolkit.telemetry.dap_enabled", false);
-		pref("toolkit.telemetry.dap_helper", "");
-		pref("toolkit.telemetry.dap_leader", "");
 		EOF
 	fi
 
@@ -1214,8 +1098,8 @@ src_install() {
 	fi
 
 	# Install icons
-	local icon_srcdir="${S}/browser/branding/official"
-	local icon_symbolic_file="${FILESDIR}/icon/firefox-symbolic.svg"
+	local icon_srcdir="${S}/comm/mail/branding/thunderbird"
+	local icon_symbolic_file="${icon_srcdir}/TB-symbolic.svg"
 
 	insinto /usr/share/icons/hicolor/symbolic/apps
 	newins "${icon_symbolic_file}" ${PN}-symbolic.svg
@@ -1234,16 +1118,11 @@ src_install() {
 
 	# Install menu
 	local app_name="Mozilla ${MOZ_PN^}"
-	local desktop_file="${FILESDIR}/icon/${PN}-r3.desktop"
+	local desktop_file="${FILESDIR}/icon/${PN}-r2.desktop"
+	local desktop_filename="${PN}.desktop"
 	local exec_command="${PN}"
 	local icon="${PN}"
 	local use_wayland="false"
-
-	if [[ -n ${MOZ_ESR} ]] ; then
-		local desktop_filename="${PN}-esr.desktop"
-	else
-		local desktop_filename="${PN}.desktop"
-	fi
 
 	if use wayland ; then
 		use_wayland="true"
@@ -1261,31 +1140,6 @@ src_install() {
 
 	rm "${WORKDIR}/${PN}.desktop-template" || die
 
-	if use gnome-shell ; then
-		# Install search provider for Gnome
-		insinto /usr/share/gnome-shell/search-providers/
-		doins browser/components/shell/search-provider-files/org.mozilla.firefox.search-provider.ini
-
-		insinto /usr/share/dbus-1/services/
-		doins browser/components/shell/search-provider-files/org.mozilla.firefox.SearchProvider.service
-
-		# Toggle between rapid and esr desktop file names
-		sed -e "s/firefox.desktop/${desktop_filename}/g" \
-			-i "${ED}/usr/share/gnome-shell/search-providers/org.mozilla.firefox.search-provider.ini" ||
-				die "Failed to sed org.mozilla.firefox.search-provider.ini file."
-
-		# Make the dbus service aware of a previous session, bgo#939196
-		sed -e \
-			"s/Exec=\/usr\/bin\/firefox/Exec=\/usr\/$(get_libdir)\/firefox\/firefox --dbus-service \/usr\/bin\/firefox/g" \
-			-i "${ED}/usr/share/dbus-1/services/org.mozilla.firefox.SearchProvider.service" ||
-				die "Failed to sed org.mozilla.firefox.SearchProvider.service dbus file"
-
-		# Update prefs to enable Gnome search provider
-		cat >>"${GENTOO_PREFS}" <<-EOF || die "failed to enable gnome-search-provider via prefs"
-		pref("browser.gnome-search-provider.enabled", true);
-		EOF
-	fi
-
 	# Install wrapper script
 	[[ -f "${ED}/usr/bin/${PN}" ]] && rm "${ED}/usr/bin/${PN}"
 	newbin "${FILESDIR}/${PN}-r1.sh" ${PN}
@@ -1297,8 +1151,6 @@ src_install() {
 		-e "s:@APULSELIB_DIR@:${apulselib}:" \
 		-e "s:@DEFAULT_WAYLAND@:${use_wayland}:" \
 		"${ED}/usr/bin/${PN}" || die
-
-	readme.gentoo_create_doc
 }
 
 pkg_preinst() {
@@ -1324,16 +1176,6 @@ pkg_preinst() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	if ! use gmp-autoupdate ; then
-		elog "USE='-gmp-autoupdate' has disabled the following plugins from updating or"
-		elog "installing into new profiles:"
-		local plugin
-		for plugin in "${MOZ_GMP_PLUGIN_LIST[@]}" ; do
-			elog "\t ${plugin}"
-		done
-		elog
-	fi
-
 	if use pulseaudio && has_version ">=media-sound/apulse-0.1.12-r4" ; then
 		elog "Apulse was detected at merge time on this system and so it will always be"
 		elog "used for sound.  If you wish to use pulseaudio instead please unmerge"
@@ -1341,28 +1183,8 @@ pkg_postinst() {
 		elog
 	fi
 
-	# bug 835078
-	if use hwaccel && has_version "x11-drivers/xf86-video-nouveau"; then
-		ewarn "You have nouveau drivers installed in your system and 'hwaccel' "
-		ewarn "enabled for Firefox. Nouveau / your GPU might not support the "
-		ewarn "required EGL, so either disable 'hwaccel' or try the workaround "
-		ewarn "explained in https://bugs.gentoo.org/835078#c5 if Firefox crashes."
-	fi
-
-	readme.gentoo_print_elog
-
 	optfeature_header "Optional programs for extra features:"
 	optfeature "desktop notifications" x11-libs/libnotify
+	optfeature "encrypted chat support" net-libs/libotr
 	optfeature "fallback mouse cursor theme e.g. on WMs" gnome-base/gsettings-desktop-schemas
-	optfeature "screencasting with pipewire" sys-apps/xdg-desktop-portal
-	if use hwaccel && has_version "x11-drivers/nvidia-drivers"; then
-		optfeature "hardware acceleration with NVIDIA cards" media-libs/nvidia-vaapi-driver
-	fi
-
-	if ! has_version "sys-libs/glibc"; then
-		elog
-		elog "glibc not found! You won't be able to play DRM content."
-		elog "See Gentoo bug #910309 or upstream bug #1843683."
-		elog
-	fi
 }
