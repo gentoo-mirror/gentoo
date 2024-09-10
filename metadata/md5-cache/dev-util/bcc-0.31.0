@@ -1,0 +1,17 @@
+BDEPEND=app-arch/zip virtual/pkgconfig python? ( >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-1.2.0:= sys-kernel/linux-headers llvm_slot_15? ( sys-devel/clang:15= sys-devel/llvm:15= ) llvm_slot_16? ( sys-devel/clang:16= sys-devel/llvm:16= ) llvm_slot_17? ( sys-devel/clang:17= sys-devel/llvm:17= ) llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) ) test? ( || ( net-misc/iputils[arping] net-analyzer/arping ) net-analyzer/netperf net-misc/iperf:* )
+DESCRIPTION=Tools for BPF-based Linux IO analysis, networking, monitoring, and more
+EAPI=8
+HOMEPAGE=https://iovisor.github.io/bcc/
+INHERIT=cmake linux-info llvm-r1 lua-single distutils-r1 toolchain-funcs
+IUSE=+lua +python static-libs test +llvm_slot_18 llvm_slot_15 llvm_slot_16 llvm_slot_17 +lua_single_target_luajit python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-libs/elfutils-0.166:= >=dev-libs/libbpf-1.2.0:= sys-kernel/linux-headers llvm_slot_15? ( sys-devel/clang:15= sys-devel/llvm:15= ) llvm_slot_16? ( sys-devel/clang:16= sys-devel/llvm:16= ) llvm_slot_17? ( sys-devel/clang:17= sys-devel/llvm:17= ) llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) lua? ( python ^^ ( lua_single_target_luajit ) ) ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/iovisor/bcc/archive/v0.31.0.tar.gz -> bcc-0.31.0.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua-single	3ae43cac1bf8275a847245b9a475a54e	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c	distutils-r1	515591e76fa89a2359ed45d26bf9c774
+_md5_=c4858fb76747edf41743f883dbc7da8b
