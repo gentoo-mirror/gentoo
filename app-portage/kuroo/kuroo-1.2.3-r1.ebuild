@@ -35,7 +35,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	app-portage/gentoolkit
-	kde-apps/kompare:5
+	kde-misc/kdiff3
 "
 
 pkg_postinst() {
