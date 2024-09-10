@@ -1,13 +1,15 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 LUA_COMPAT=( luajit )
-PYTHON_COMPAT=( python3_{9..12} )
-LLVM_MAX_SLOT=17
+DISTUTILS_OPTIONAL=1
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{10..13} )
+LLVM_COMPAT=( {15..18} )
 
-inherit cmake linux-info llvm lua-single python-r1 toolchain-funcs
+inherit cmake linux-info llvm-r1 lua-single distutils-r1 toolchain-funcs
 
 DESCRIPTION="Tools for BPF-based Linux IO analysis, networking, monitoring, and more"
 HOMEPAGE="https://iovisor.github.io/bcc/"
@@ -16,11 +18,11 @@ SRC_URI="https://github.com/iovisor/bcc/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
-IUSE="+lua test"
+IUSE="+lua +python static-libs test"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
-	lua? ( ${LUA_REQUIRED_USE} )
+	lua? ( python ${LUA_REQUIRED_USE} )
 "
 
 # tests need root access
@@ -28,11 +30,13 @@ RESTRICT="test"
 
 RDEPEND="
 	>=dev-libs/elfutils-0.166:=
-	>=dev-libs/libbpf-1.2.0:=[static-libs(-)]
+	>=dev-libs/libbpf-1.2.0:=
 	sys-kernel/linux-headers
-	<sys-devel/clang-$((${LLVM_MAX_SLOT} + 1)):=
-	<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
-	${PYTHON_DEPS}
+	$(llvm_gen_dep '
+		sys-devel/clang:${LLVM_SLOT}=
+		sys-devel/llvm:${LLVM_SLOT}=
+	')
+	python? ( ${PYTHON_DEPS} )
 	lua? ( ${LUA_DEPS} )
 "
 DEPEND="
@@ -49,6 +53,7 @@ DEPEND="
 BDEPEND="
 	app-arch/zip
 	virtual/pkgconfig
+	python? ( ${DISTUTILS_DEPS} )
 "
 
 PATCHES=(
@@ -66,8 +71,22 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	llvm_pkg_setup
-	python_setup
+	llvm-r1_pkg_setup
+	use python && python_setup
+}
+
+bcc_distutils_phase() {
+	if use python; then
+		local python_phase_func="distutils-r1_${EBUILD_PHASE_FUNC}"
+
+		if declare -f "${python_phase_func}" > /dev/null; then
+			pushd "${S}/src/python" > /dev/null || die
+			MY_S="${S}" S="${S}/src/python" "${python_phase_func}"
+			popd > /dev/null || die
+		else
+			die "Called ${FUNCNAME[0]} called in ${EBUILD_PHASE_FUNC}, but ${python_phase_func} doesn't exist"
+		fi
+	fi
 }
 
 src_prepare() {
@@ -80,28 +99,32 @@ src_prepare() {
 	# bug 811288
 	local script scriptname
 	for script in $(find tools/old -type f -name "*.py" || die); do
-		scriptname=$(basename ${script} || die)
-		mv ${script} tools/old/old-${scriptname} || die
+		mv "${script}" "tools/old/old-${script##*/}" || die
 	done
 
-	cmake_src_prepare
-}
+	use static-libs || PATCHES+=( "${FILESDIR}/bcc-0.31.0-dont-install-static-libs.patch" )
 
-python_add_impl() {
-	bcc_python_impls+="${EPYTHON};"
+	# use distutils-r1 eclass funcs rather than letting upstream handle python
+	printf '\n' > src/python/CMakeLists.txt || die
+
+	if use python; then
+		for python_file in $(find "${S}/src/python" -name '*.py.in' || die); do
+			sed "s:@REVISION@:${PV%%_*}:" "${python_file}" > "${python_file%.in}" || die
+		done
+	fi
+
+	cmake_src_prepare
+	bcc_distutils_phase
 }
 
 src_configure() {
-	local bcc_python_impls
-	python_foreach_impl python_add_impl
-
 	local mycmakeargs=(
 		-DREVISION=${PV%%_*}
 		-DENABLE_LLVM_SHARED=ON
+		-DENABLE_NO_PIE=OFF
 		-DCMAKE_USE_LIBBPF_PACKAGE=ON
 		-DLIBBPF_INCLUDE_DIRS="$($(tc-getPKG_CONFIG) --cflags-only-I libbpf | sed 's:-I::g')"
 		-DKERNEL_INCLUDE_DIRS="${KERNEL_DIR}"
-		-DPYTHON_CMD="${bcc_python_impls%;}"
 		-Wno-dev
 	)
 	if use lua && use lua_single_target_luajit; then
@@ -109,13 +132,27 @@ src_configure() {
 	fi
 
 	cmake_src_configure
+	bcc_distutils_phase
+}
+
+src_compile() {
+	cmake_src_compile
+	bcc_distutils_phase
+}
+
+python_install() {
+	distutils-r1_python_install
+
+	local tool
+	for tool in $(grep -Elr '#!/usr/bin/(env |)python' "${MY_S}/tools"); do
+		local tool_name="${tool##*/}"
+		python_newscript "${tool}" "${tool_name%.py}"
+	done
 }
 
 src_install() {
 	cmake_src_install
-
-	python_replicate_script $(grep -Flr '#!/usr/bin/python' "${ED}/usr/share/bcc/tools")
-	python_foreach_impl python_optimize
+	bcc_distutils_phase
 
 	newenvd "${FILESDIR}"/60bcc.env 60bcc.env
 	local -A rename_tools=(
