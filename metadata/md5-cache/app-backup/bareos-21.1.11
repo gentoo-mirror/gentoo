@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) test? ( dev-cpp/gtest dev-db/postgresql:*[server,threads(+)] dev-db/mariadb:*[server] ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) test? ( dev-cpp/gtest dev-db/postgresql:*[server,threads(+)] dev-db/mariadb:*[server] ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile config configure install postinst prepare pretend setup test
 DEPEND=!app-backup/bacula acct-group/bareos !x86? ( ceph? ( sys-cluster/ceph ) ) glusterfs? ( sys-cluster/glusterfs ) lmdb? ( dev-db/lmdb ) dev-libs/gmp:0 !clientonly? ( acct-user/bareos dev-db/postgresql:*[threads(+)] director? ( virtual/mta ) ) logwatch? ( sys-apps/logwatch ) ndmp? ( net-libs/rpcsvc-proto ) tcpd? ( sys-apps/tcp-wrappers ) readline? ( sys-libs/readline:0 ) static? ( acl? ( virtual/acl[static-libs] ) dev-libs/jansson:=[static-libs] dev-libs/lzo[static-libs] dev-libs/openssl:0=[static-libs] sys-libs/ncurses:=[static-libs] sys-libs/zlib[static-libs] ) !static? ( acl? ( virtual/acl ) dev-libs/jansson:= dev-libs/lzo dev-libs/openssl:0= sys-libs/ncurses:= sys-libs/zlib )
 DESCRIPTION=Featureful client/server network backup suite
@@ -12,6 +12,6 @@ RDEPEND=!app-backup/bacula acct-group/bareos !x86? ( ceph? ( sys-cluster/ceph ) 
 REQUIRED_USE=static? ( clientonly ) x86? ( !ceph )
 RESTRICT=mirror test
 SLOT=0
-SRC_URI=https://github.com/bareos/bareos/archive/Release/21.1.9.tar.gz -> bareos-21.1.9.tar.gz
+SRC_URI=https://github.com/bareos/bareos/archive/Release/21.1.11.tar.gz -> bareos-21.1.11.tar.gz
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	systemd	0f241b5c9f3758c3d3423df59a7f655a	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	tmpfiles	abdfd90f8841c1cb4b94575d5d109952
-_md5_=22949398cf04da04ce2383bf9779724b
+_md5_=13d731b99bce2b4c1339c7315597886f
