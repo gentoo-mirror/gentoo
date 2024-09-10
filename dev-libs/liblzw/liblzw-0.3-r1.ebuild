@@ -1,18 +1,19 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="small C library for reading LZW compressed files (.Z)"
 HOMEPAGE="https://github.com/vapier/liblzw"
-SRC_URI="https://downloads.sourceforge.net/freestdf/${P}.tar.lzma"
+SRC_URI="https://github.com/vapier/liblzw/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="amd64 arm ~hppa ~ia64 ~m68k ~s390 x86"
+KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~m68k ~s390 ~x86"
+IUSE="static-libs"
 
 src_configure() {
-	econf --disable-static
+	econf --disable-werror $(use_enable static{-libs,})
 }
 
 src_install() {
