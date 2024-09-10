@@ -98,6 +98,11 @@ src_prepare() {
 		-e "s:make:make ${MAKEOPTS}:g" \
 		Makefile || die
 
+	sed -i \
+		-e "s:/usr/share/OVMF:/usr/share/edk2-ovmf:g" \
+		-e "s:OVMF_VARS.ms.fd:OVMF_VARS.fd:g" \
+		internal/server/instance/drivers/edk2/driver_edk2.go || die "Failed to fix hardcoded ovmf paths."
+
 	# Fix hardcoded virtfs-proxy-helper file path, see bug 798924
 	sed -i \
 		-e "s:/usr/lib/qemu/virtfs-proxy-helper:/usr/libexec/virtfs-proxy-helper:g" \
