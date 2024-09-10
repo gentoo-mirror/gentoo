@@ -4,9 +4,9 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
-inherit distutils-r1 systemd
+inherit distutils-r1 optfeature systemd
 
 MY_P=${P^}
 DESCRIPTION="A simple CalDAV calendar server"
@@ -35,7 +35,7 @@ RDEPEND="
 
 BDEPEND="
 	test? (
-		<dev-python/pytest-8[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/waitress[${PYTHON_USEDEP}]
 	)
 "
@@ -87,4 +87,6 @@ pkg_postinst() {
 		ewarn "#  \`chmod 0750 ${_erdir}\`"
 		ewarn "#  \`chmod -R o= ${_erdir}\`"
 	fi
+
+	optfeature "Publish changes to rabbitmq" dev-python/pika
 }
