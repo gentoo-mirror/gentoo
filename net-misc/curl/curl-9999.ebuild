@@ -78,7 +78,7 @@ REQUIRED_USE="
 # particulary for fast-moving targets like HTTP/2 and TCP/2 e.g.:
 # - https://github.com/curl/curl/blob/master/docs/INTERNALS.md (core dependencies + minimum versions)
 # - https://github.com/curl/curl/blob/master/docs/HTTP3.md (example of a feature that moves quickly)
-# - https://github.com/curl/curl/blob/master/.github/workflows/quiche-linux.yml (CI/CD for TCP/2)
+# - https://github.com/curl/curl/blob/master/.github/workflows/http3-linux.yml (CI/CD for TCP/2)
 # However 'supported' vs 'works' are two entirely different things; be sane but
 # don't be afraid to require a later version.
 # ngtcp2 = https://bugs.gentoo.org/912029 - can only build with one tls backend at a time.
