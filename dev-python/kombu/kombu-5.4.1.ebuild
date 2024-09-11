@@ -45,11 +45,6 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx-celery
 
-PATCHES=(
-	# https://github.com/celery/kombu/pull/2052
-	"${FILESDIR}/${P}-py313.patch"
-)
-
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
