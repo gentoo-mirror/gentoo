@@ -28,7 +28,6 @@ HYPRPM_RDEPEND="
 	app-alternatives/ninja
 	dev-build/cmake
 	dev-build/meson
-	dev-libs/libliftoff
 	dev-vcs/git
 	virtual/pkgconfig
 "
