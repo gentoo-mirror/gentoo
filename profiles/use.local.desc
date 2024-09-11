@@ -8053,7 +8053,7 @@ sys-block/sas3flash:uefi - Install UEFI variant as well
 sys-block/sas3ircu:uefi - Install EFI variant as well
 sys-block/tgt:rbd - Add support for ceph block devices
 sys-block/thin-provisioning-tools:io-uring - Enable experimental support for io-uring.
-sys-boot/grub:device-mapper - Enable support for device-mapper from sys-fs/lvm2
+sys-boot/grub:device-mapper - Enable support for devmapper. Required for LUKS or LVM volume detection.
 sys-boot/grub:efiemu - Build and install the efiemu runtimes
 sys-boot/grub:fonts - Build and install fonts for the gfxterm module
 sys-boot/grub:libzfs - Enable support for sys-fs/zfs
