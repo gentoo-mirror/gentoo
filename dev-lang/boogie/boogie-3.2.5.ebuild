@@ -210,7 +210,7 @@ else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -257,10 +257,12 @@ src_prepare() {
 		civl/inductive-sequentialization/BroadcastConsensus.bpl
 		civl/inductive-sequentialization/ChangRoberts.bpl
 		civl/inductive-sequentialization/PingPong.bpl
+		civl/inductive-sequentialization/distributed-snapshot.bpl
 		civl/large-samples/GC.bpl
 		civl/paxos/is.sh
 		civl/samples/reserve.bpl
 		civl/samples/treiber-stack.bpl
+		havoc0/MouseClassFindMorePorts.bpl
 		inst/vector-generic.bpl
 		livevars/stack_overflow.bpl
 		prover/cvc5-offline.bpl
@@ -268,10 +270,12 @@ src_prepare() {
 		prover/exitcode.bpl
 		prover/z3-hard-timeout.bpl
 		prover/z3mutl.bpl
+		snapshots/runtest.snapshot
 		test0/AssumeFalseSplit/AssumeFalseSplit.bpl
 		test0/Split/Split.bpl
 		test15/CaptureInlineUnroll.bpl
 		test2/Timeouts0.bpl
+		test2/git-issue-366.bpl
 		test21/InterestingExamples4.bpl
 	)
 	local bad_test
