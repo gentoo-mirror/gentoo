@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://sourceware.org/binutils/
 INHERIT=libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
 IUSE=cet default-gold doc +gold multitarget +nls pgo +plugins static-libs test vanilla
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 hppa ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=GPL-3+
 RDEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib
 REQUIRED_USE=default-gold? ( gold )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=2.37
 SRC_URI=mirror://gnu/binutils/binutils-2.37_p1.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.37_p1.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.37_p1-patches-2.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	strip-linguas	fb8451f811e086c24779a594303ff347
-_md5_=ff696ebd991722a1294db554efcd313d
+_md5_=85e40058054400e2a4a8716702989e9b

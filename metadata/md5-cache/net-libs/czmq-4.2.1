@@ -5,10 +5,10 @@ DESCRIPTION=High-level C Binding for ZeroMQ
 EAPI=8
 HOMEPAGE=http://czmq.zeromq.org
 IUSE=curl drafts http-client http-server lz4 nss static-libs systemd test +uuid
-KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~ppc64 ~riscv x86
+KEYWORDS=amd64 arm arm64 ~hppa ~ppc64 ~riscv x86
 LICENSE=MPL-2.0
 RDEPEND=>=net-libs/zeromq-4:=[drafts?] http-client? ( net-misc/curl ) http-server? ( net-libs/libmicrohttpd:= ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nspr dev-libs/nss ) systemd? ( sys-apps/systemd ) uuid? ( sys-apps/util-linux:0 )
 RESTRICT=!test? ( test )
 SLOT=0/4
 SRC_URI=https://github.com/zeromq/czmq/releases/download/v4.2.1/czmq-4.2.1.tar.gz
-_md5_=3a4c0d7b0c8ce1ef908da5378b97a2fc
+_md5_=9d7ed58ac2d2ac1f344221fd5520fac1

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/xfce/xfce4-settings/start https://gitlab.xfce.org/xfce/xfce4-settings/
 INHERIT=python-single-r1 xdg-utils
 IUSE=colord input_devices_libinput libcanberra libnotify upower +xklavier python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~loong ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/glib-2.66.0 media-libs/fontconfig >=x11-libs/gtk+-3.24.0:3 x11-libs/libX11 >=x11-libs/libXcursor-1.1 >=x11-libs/libXi-1.3 >=x11-libs/libXrandr-1.2 >=xfce-base/garcon-0.2:= >=xfce-base/exo-4.15.1:= >=xfce-base/libxfce4ui-4.17.0:= >=xfce-base/libxfce4util-4.17.2:= >=xfce-base/xfconf-4.13:= colord? ( x11-misc/colord:= ) libcanberra? ( >=media-libs/libcanberra-0.25[sound] ) input_devices_libinput? ( x11-drivers/xf86-input-libinput ) libnotify? ( >=x11-libs/libnotify-0.7 ) upower? ( >=sys-power/upower-0.9.23 ) xklavier? ( >=x11-libs/libxklavier-5 )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/xfce/xfce4-settings/4.18/xfce4-settings-4.18.6.tar.bz2
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	xdg-utils	5465aed08f1dfc2a75f14cbea4272961
-_md5_=a7e3f2b5c96081bd5324891abfc0313a
+_md5_=e5c906662acfa54b04eb5b460a437c15

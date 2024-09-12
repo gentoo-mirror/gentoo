@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.r-project.org/
 INHERIT=bash-completion-r1 autotools flag-o-matic fortran-2 toolchain-funcs
 IUSE=cairo doc icu java jpeg lapack lto minimal nls openmp perl png prefix profile readline test tiff tk X
-KEYWORDS=amd64 arm64 ~hppa ~ia64 ~loong sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
+KEYWORDS=amd64 arm64 ~hppa ~loong sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
 LICENSE=|| ( GPL-2 GPL-3 ) LGPL-2.1
 RDEPEND=app-arch/bzip2 app-arch/xz-utils app-text/ghostscript-gpl dev-libs/libpcre2:= >=dev-libs/tre-0.8.0_p20210321[approx] net-misc/curl virtual/blas sys-libs/zlib[minizip] sys-apps/coreutils cairo? ( x11-libs/cairo:=[X=] x11-libs/pango:= ) icu? ( dev-libs/icu:= ) jpeg? ( media-libs/libjpeg-turbo:= ) kernel_linux? ( net-libs/libtirpc ) lapack? ( virtual/lapack ) perl? ( dev-lang/perl ) png? ( media-libs/libpng:= ) readline? ( sys-libs/readline:= ) tiff? ( media-libs/tiff:= ) tk? ( dev-lang/tk:= ) X? ( x11-libs/libXmu x11-libs/libXt ) java? ( >=virtual/jre-1.8:* ) virtual/fortran
 REQUIRED_USE=png? ( || ( cairo X ) ) jpeg? ( || ( cairo X ) ) tiff? ( || ( cairo X ) )
@@ -14,4 +14,4 @@ RESTRICT=minimal? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://cran.r-project.org/src/base/R-4/R-4.3.1.tar.gz https://raw.githubusercontent.com/deepayan/rcompletion/78d6830e28ea90a046da79a9b4f70c39594bb6d6/bash_completion/R -> R-78d6830e28ea90a046da79a9b4f70c39594bb6d6.bash_completion
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	bash-completion-r1	3047612be964ffd4a549447fc4289f12	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	fortran-2	39cd09e82b679e683a5109f9d0da9fe1
-_md5_=a0dcfd6ec6f8a68fc200608d8b24fa1b
+_md5_=afc911a43e7460f17a7c68bdc03bb309

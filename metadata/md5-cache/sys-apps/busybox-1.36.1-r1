@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.busybox.net/
 INHERIT=flag-o-matic readme.gentoo-r1 savedconfig toolchain-funcs
 IUSE=debug livecd make-symlinks math mdev pam selinux sep-usr static syslog systemd savedconfig
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam )
 REQUIRED_USE=pam? ( !static )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://www.busybox.net/downloads/busybox-1.36.1.tar.bz2
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	portability	01f478fa22185b3606f2d4adea4675ed	savedconfig	b9131abe556ad2ea96c01b06d658d363
-_md5_=d0fb8e247a6f6a866feee60cae8693f5
+_md5_=ead6e5172dcaa4302ad6cc74a1e537ed

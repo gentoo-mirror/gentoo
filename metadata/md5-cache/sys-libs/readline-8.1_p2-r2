@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=https://tiswww.case.edu/php/chet/readline/rltop.html
 INHERIT=flag-o-matic multilib multilib-minimal preserve-libs toolchain-funcs verify-sig
 IUSE=static-libs +unicode utils abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 RDEPEND=>=sys-libs/ncurses-5.9-r3:=[static-libs?,unicode(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 SLOT=0/8
 SRC_URI=mirror://gnu/readline/readline-8.1.tar.gz https://dev.gentoo.org/~sam/distfiles/sys-libs/readline/readline-8.1-rlfe-c99.patch.xz verify-sig? ( mirror://gnu/readline/readline-8.1.tar.gz.sig ) mirror://gnu/bash/readline-8.1-patches/readline81-001 verify-sig? ( mirror://gnu/bash/readline-8.1-patches/readline81-001.sig ) ftp://ftp.cwru.edu/pub/bash/readline-8.1-patches/readline81-001 verify-sig? ( ftp://ftp.cwru.edu/pub/bash/readline-8.1-patches/readline81-001.sig ) mirror://gnu/bash/readline-8.1-patches/readline81-002 verify-sig? ( mirror://gnu/bash/readline-8.1-patches/readline81-002.sig ) ftp://ftp.cwru.edu/pub/bash/readline-8.1-patches/readline81-002 verify-sig? ( ftp://ftp.cwru.edu/pub/bash/readline-8.1-patches/readline81-002.sig )
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multilib-build	8cdc28ee17e24f9f57730a28fe166a21	multilib-minimal	b93489cf816ff90770a3c1c61b25db44	preserve-libs	3b2621880c09a11422ec85c8694c3f7c	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=67a1a0d78c381db766c092c5d871d135
+_md5_=b1e78f07261b7fc674035c2a8002b702

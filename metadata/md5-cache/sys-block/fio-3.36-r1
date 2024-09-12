@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://brick.kernel.dk/snaps/
 INHERIT=python-r1 toolchain-funcs
 IUSE=aio curl glusterfs gnuplot gtk io-uring nfs numa pandas python rbd rdma static tcmalloc test valgrind zbc zlib python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=amd64 arm ~arm64 ~ia64 ~loong ~ppc ppc64 ~riscv x86
+KEYWORDS=amd64 arm ~arm64 ~loong ~ppc ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=!static? ( aio? ( dev-libs/libaio ) curl? ( net-misc/curl:= dev-libs/openssl:0= ) nfs? ( net-fs/libnfs:= ) glusterfs? ( sys-cluster/glusterfs ) gtk? ( dev-libs/glib:2 ) io-uring? ( sys-libs/liburing:= ) numa? ( sys-process/numactl ) rbd? ( sys-cluster/ceph ) rdma? ( sys-cluster/rdma-core ) tcmalloc? ( dev-util/google-perftools:= ) zbc? ( >=sys-block/libzbc-5 ) zlib? ( sys-libs/zlib ) ) gtk? ( x11-libs/gtk+:2 ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) pandas? ( dev-python/pandas[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) ) gnuplot? ( sci-visualization/gnuplot )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) ) gnuplot? ( python ) io-uring? ( aio )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://brick.kernel.dk/snaps/fio-3.36.tar.bz2
 _eclasses_=out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c
-_md5_=2121c230717a266caaed76e9a4a7b3dd
+_md5_=e6093775316cb824250b7403d2deea74

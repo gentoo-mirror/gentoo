@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/brimworks/lua-zlib
 INHERIT=cmake lua
 IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86
+KEYWORDS=amd64 arm arm64 ~hppa ~ppc ~ppc64 ~sparc x86
 LICENSE=MIT
 RDEPEND=sys-libs/zlib lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
 SLOT=0
 SRC_URI=https://github.com/brimworks/lua-zlib/archive/v1.2.tar.gz -> lua-zlib-1.2.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua	f888faf7a77304e3e6c5c386ae0c34d7
-_md5_=060299d9710c6678cd7ed08b75164862
+_md5_=cf156d8810e78223b52a8cd803dc149c

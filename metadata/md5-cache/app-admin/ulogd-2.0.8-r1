@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://netfilter.org/projects/ulogd/index.html
 INHERIT=flag-o-matic linux-info readme.gentoo-r1 systemd
 IUSE=dbi doc json mysql nfacct +nfct +nflog pcap postgres selinux sqlite ulog
-KEYWORDS=amd64 ~ia64 ~ppc x86
+KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2
 RDEPEND=|| ( net-firewall/iptables net-firewall/nftables ) >=net-libs/libnfnetlink-1.0.1 dbi? ( dev-db/libdbi ) json? ( dev-libs/jansson:= ) nfacct? ( >=net-libs/libmnl-1.0.4 >=net-libs/libnetfilter_acct-1.0.3 ) nfct? ( >=net-libs/libnetfilter_conntrack-1.0.6 ) nflog? ( >=net-libs/libnetfilter_log-1.0.1 ) mysql? ( dev-db/mysql-connector-c:= ) pcap? ( net-libs/libpcap ) postgres? ( dev-db/postgresql:= ) sqlite? ( dev-db/sqlite:3 ) acct-user/ulogd acct-group/ulogd selinux? ( sec-policy/selinux-ulogd )
 SLOT=0
 SRC_URI=https://www.netfilter.org/projects/ulogd/files/ulogd-2.0.8.tar.bz2
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	systemd	0f241b5c9f3758c3d3423df59a7f655a
-_md5_=c66aa1c99fb649874ce869f3346c2db1
+_md5_=f3066d1621fa85763903173481404585

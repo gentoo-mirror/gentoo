@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/LuaLanes/lanes
 INHERIT=lua toolchain-funcs
 IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=MIT
 RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/LuaLanes/lanes/archive/v3.17.0.tar.gz -> lanes-3.17.0.tar.gz
 _eclasses_=out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua	f888faf7a77304e3e6c5c386ae0c34d7
-_md5_=8f4822450373e844fab463efd5df0d96
+_md5_=76fb084233161c0ff8fcebacc518c487

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.dovecot.org/
 INHERIT=autotools flag-o-matic lua-single ssl-cert systemd toolchain-funcs
 IUSE=kerberos ldap lua mysql pam postgres sqlite lz4 zstd argon2 caps doc lucene managesieve rpc selinux sieve solr static-libs stemmer suid systemd tcpd textcat unwind lua_single_target_lua5-1 lua_single_target_lua5-3
-KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=LGPL-2.1 MIT
 RDEPEND=app-arch/bzip2 app-arch/xz-utils dev-libs/icu:= dev-libs/openssl:0= sys-libs/zlib:= virtual/libiconv argon2? ( dev-libs/libsodium:= ) caps? ( sys-libs/libcap ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) lucene? ( >=dev-cpp/clucene-2.3 ) lz4? ( app-arch/lz4 ) mysql? ( dev-db/mysql-connector-c:0= ) pam? ( sys-libs/pam:= ) postgres? ( dev-db/postgresql:* ) rpc? ( net-libs/libtirpc:= net-libs/rpcsvc-proto ) selinux? ( sec-policy/selinux-dovecot ) solr? ( net-misc/curl dev-libs/expat ) sqlite? ( dev-db/sqlite:* ) stemmer? ( dev-libs/snowball-stemmer:= ) suid? ( acct-group/mail ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) textcat? ( app-text/libexttextcat ) unwind? ( sys-libs/libunwind:= ) zstd? ( app-arch/zstd:= ) virtual/libcrypt:= acct-group/dovecot acct-group/dovenull acct-user/dovecot acct-user/dovenull net-mail/mailbase[pam?]
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 ) )
 SLOT=0/2.3.21.1
 SRC_URI=https://dovecot.org/releases/2.3/dovecot-2.3.21.1.tar.gz sieve? ( https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.21.1.tar.gz ) managesieve? ( https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.21.1.tar.gz )
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua-single	3ae43cac1bf8275a847245b9a475a54e	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	0f241b5c9f3758c3d3423df59a7f655a
-_md5_=4b0fdfc38010cd4d336f1639b7bd613e
+_md5_=7dd67c6f9c1180fb51ba0179ad19dcec

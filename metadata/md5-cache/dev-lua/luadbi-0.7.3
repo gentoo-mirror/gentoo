@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/mwild1/luadbi
 INHERIT=lua toolchain-funcs
 IUSE=mysql postgres +sqlite test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=amd64 arm arm64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc x86
+KEYWORDS=amd64 arm arm64 ~hppa ~ppc ~ppc64 ~sparc x86
 LICENSE=MIT
 RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) mysql? ( dev-db/mysql-connector-c:0= ) postgres? ( dev-db/postgresql:= ) sqlite? ( dev-db/sqlite )
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 ) || ( mysql postgres sqlite )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/mwild1/luadbi/archive/v0.7.3.tar.gz -> luadbi-0.7.3.tar.gz
 _eclasses_=out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua	f888faf7a77304e3e6c5c386ae0c34d7
-_md5_=1e5c77903618d7979cc8e280bb9390b8
+_md5_=78d50f32a3b8ec3d381fbe885c3f94f9

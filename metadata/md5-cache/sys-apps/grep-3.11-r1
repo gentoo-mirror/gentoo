@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/grep/
 INHERIT=flag-o-matic verify-sig
 IUSE=+egrep-fgrep nls pcre static verify-sig
-KEYWORDS=~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 RDEPEND=!static? ( pcre? ( >=dev-libs/libpcre2-10.42-r1 ) sparc? ( dev-libs/libsigsegv ) ) nls? ( virtual/libintl ) virtual/libiconv
 REQUIRED_USE=static? ( !sparc )
 SLOT=0
 SRC_URI=mirror://gnu/grep/grep-3.11.tar.xz verify-sig? ( mirror://gnu/grep/grep-3.11.tar.xz.sig )
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=f978df2879e9f1758da629ae3254dd38
+_md5_=04fbd8616a285495a6e09936e5d7bf63

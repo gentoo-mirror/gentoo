@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://trac.osgeo.org/geotiff/ https://github.com/OSGeo/libgeotiff
 INHERIT=cmake
 IUSE=doc jpeg +tiff zlib
-KEYWORDS=amd64 ~arm arm64 ~ia64 ~loong ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=GPL-2
 RDEPEND=>=sci-libs/proj-6.0.0:= jpeg? ( media-libs/libjpeg-turbo:= ) tiff? ( >=media-libs/tiff-3.9.1:= ) zlib? ( sys-libs/zlib )
 SLOT=0/5
 SRC_URI=https://download.osgeo.org/geotiff/libgeotiff/libgeotiff-1.7.1.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=feb2772fca6b7c8c29502f83553724a8
+_md5_=a4abd4b49a5090619ec9332452ee274e

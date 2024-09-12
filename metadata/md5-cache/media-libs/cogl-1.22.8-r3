@@ -7,7 +7,7 @@ HOMEPAGE=https://www.cogl3d.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome2
 IUSE=debug examples gles2 gstreamer +introspection +kms +opengl +pango wayland
-KEYWORDS=~alpha amd64 ~arm arm64 ~ia64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha amd64 ~arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86
 LICENSE=MIT BSD
 RDEPEND=>=dev-libs/glib-2.32:2 x11-libs/cairo:= >=x11-libs/gdk-pixbuf-2:2 x11-libs/libX11 >=x11-libs/libXcomposite-0.4 x11-libs/libXdamage x11-libs/libXext >=x11-libs/libXfixes-3 >=x11-libs/libXrandr-1.2 virtual/opengl gles2? ( media-libs/libglvnd ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) introspection? ( >=dev-libs/gobject-introspection-1.34.2:= ) kms? ( media-libs/mesa[gbm(+)] x11-libs/libdrm:= ) pango? ( >=x11-libs/pango-1.20.0[introspection?] ) wayland? ( >=dev-libs/wayland-1.1.90 media-libs/mesa[wayland] )
 REQUIRED_USE=wayland? ( gles2 ) || ( gles2 opengl )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=1.0/20
 SRC_URI=mirror://gnome/sources/cogl/1.22/cogl-1.22.8.tar.xz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	8d7d90c01b1b1c2602dab6fc6b177097	gnome2	26fd01914b36038dc8e964ff4bd03a95
-_md5_=05f1a444bab7aaf64e5abb4b5029e905
+_md5_=1d7925fbe004234ea7bbfd22200cf7bf

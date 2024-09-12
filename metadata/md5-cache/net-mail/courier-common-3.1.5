@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.courier-mta.org/maildrop/
 INHERIT=autotools
 IUSE=berkdb +gdbm
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ~ppc ppc64 ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~s390 sparc x86
 LICENSE=GPL-3
 RDEPEND=!mail-mta/courier !<=net-mail/courier-imap-5.2.3 !<=mail-filter/maildrop-3.1.4 !net-mail/courier-makedat >=net-libs/courier-unicode-2.0:= gdbm? ( >=sys-libs/gdbm-1.8.0:= ) !gdbm? ( berkdb? ( >=sys-libs/db-3:= ) )
 REQUIRED_USE=|| ( berkdb gdbm )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/courier/maildrop-3.1.5.tar.bz2
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424
-_md5_=4585a325db3ff81d7150b4014ce61236
+_md5_=080b78093d598f2a97e877eec7b43d4c

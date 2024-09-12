@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://sioseis.ucsd.edu/xloadimage.html https://tracker.debian.org/pkg/xloadimage
 INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=tiff jpeg png
-KEYWORDS=~alpha amd64 arm ~hppa ~ia64 ~mips ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha amd64 arm ~hppa ~mips ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=MIT
 RDEPEND=x11-libs/libX11 tiff? ( media-libs/tiff:= ) png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) !media-gfx/xli
 SLOT=0
 SRC_URI=ftp://ftp.x.org/R5contrib/xloadimage.4.1.tar.gz mirror://gentoo/xloadimage-4.1-gentoo-r1.diff.bz2 https://dev.gentoo.org/~sam/distfiles/media-gfx/xloadimage/xloadimage-4.1-fix-build-for-clang16.patch.xz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94
-_md5_=6f3d3f427ac4e70fa00b09dc9a736855
+_md5_=574a6d9f80adef78d3d66f45254d6e83

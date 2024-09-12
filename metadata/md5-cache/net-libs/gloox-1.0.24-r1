@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://camaya.net/gloox/
 INHERIT=autotools
 IUSE=debug gnutls idn ssl static-libs test zlib
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-3
 RDEPEND=idn? ( net-dns/libidn:= ) gnutls? ( net-libs/gnutls:= ) ssl? ( dev-libs/openssl:0= ) zlib? ( sys-libs/zlib )
 RESTRICT=!test? ( test )
 SLOT=0/18
 SRC_URI=https://camaya.net/download/gloox-1.0.24.tar.bz2
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424
-_md5_=ca4093869e811ecd304d231c5d0506a9
+_md5_=2c5f2c12b44cdbcfda6627e34135519a
