@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org optfeature
 IUSE=gpg kf6compat +man debug doc test
-KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
 RDEPEND=>=app-crypt/qca-2.3.1:2[qt5(+)] dev-libs/libgcrypt:0= >=dev-qt/qtdbus-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 =kde-frameworks/kconfig-5.116*:5 =kde-frameworks/kconfigwidgets-5.116*:5 =kde-frameworks/kcoreaddons-5.116*:5 =kde-frameworks/kdbusaddons-5.116*:5 =kde-frameworks/ki18n-5.116*:5 =kde-frameworks/knotifications-5.116*:5 =kde-frameworks/kservice-5.116*:5 =kde-frameworks/kwidgetsaddons-5.116*:5 =kde-frameworks/kwindowsystem-5.116*:5[X] !kf6compat? ( gpg? ( >=app-crypt/gpgme-1.7.1:=[cxx,qt5] ) ) kf6compat? ( kde-frameworks/kwallet:6 ) >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 RESTRICT=!test? ( test )
 SLOT=5/5.116
 SRC_URI=mirror://kde/stable/frameworks/5.116/kwallet-5.116.0.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	53fb93b5555470a64f14fde25cf1ad2c	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=288d311aaf731947958ca5f6c7c5e12f
+_md5_=cc1993dc94cfd8d0d6bce1062f180ad8
