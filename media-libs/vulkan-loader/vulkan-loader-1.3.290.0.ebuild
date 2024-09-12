@@ -12,7 +12,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/vulkan-sdk-${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+	KEYWORDS="amd64 arm arm64 ~loong ppc ~ppc64 ~riscv x86"
 	S="${WORKDIR}"/${MY_PN}-vulkan-sdk-${PV}
 fi
 
@@ -31,7 +31,7 @@ DEPEND="
 		x11-libs/libXrandr:=[${MULTILIB_USEDEP}]
 	)
 "
-PDEPEND="layers? ( media-libs/vulkan-layers:=[${MULTILIB_USEDEP}] )"
+PDEPEND="layers? ( media-libs/vulkan-layers[${MULTILIB_USEDEP}] )"
 
 multilib_src_configure() {
 	# Integrated clang assembler doesn't work with x86 - Bug #698164
