@@ -26,9 +26,7 @@ IUSE="systemd test-install"
 # XXX: right now, we auto-adapt to whether multilibs are present:
 # should we force them to be? how?
 #
-# XXX: binutils-libs will need an extra patch for what dtrace does with
-# it in the absence of in-kernel CTF: it will be backported
-# to 2.42, but perhaps a patch would be a good idea before that?
+# TODO: can we make the wireshark dep conditional?
 DEPEND="
 	dev-libs/elfutils
 	dev-libs/libbpf
@@ -65,7 +63,7 @@ BDEPEND="
 	>=sys-devel/bpf-toolchain-14.1.0
 	sys-devel/flex
 "
-# TODO: Make this optional, valgrind.h is included unconditionally
+# This isn't yet optional, valgrind.h is included unconditionally
 # https://github.com/oracle/dtrace-utils/issues/80
 DEPEND+=" dev-debug/valgrind"
 
@@ -141,6 +139,7 @@ src_configure() {
 	local confargs=(
 		# TODO: Maybe we should set the UNPRIV_UID to something? -3 is a bit... kludgy
 		--prefix="${EPREFIX}"/usr
+		# See https://github.com/oracle/dtrace-utils/issues/106 for man8 suffix
 		--mandir="${EPREFIX}"/usr/share/man/man8
 		--docdir="${EPREFIX}"/usr/share/doc/${PF}
 		HAVE_LIBCTF=yes
@@ -177,17 +176,15 @@ pkg_postinst() {
 	# We need a udev reload to pick up the CUSE device node rules.
 	udev_reload
 
-	# TODO: One option for this is to detect when it's needed (DOF stash layout changes)
-	# and then e.g. sleep and restart for the user.
 	if [[ -n ${REPLACING_VERSIONS} ]]; then
 		# TODO: Make this more intelligent wrt comparison
+		# One option for this is to detect when it's needed (DOF stash layout changes)
+		# and then e.g. sleep and restart for the user.
 		if systemd_is_booted ; then
-			einfo "Restart the DTrace 'dtprobed' service after upgrades"
-			einfo "once all dtraces are stopped with:"
+			einfo "Restart the DTrace 'dtprobed' service after upgrades once all dtraces are stopped with:"
 			einfo " systemctl try-restart dtprobed"
 		else
-			einfo "Restart the DTrace 'dtprobed' service after upgrades"
-			einfo "once all dtraces are stopped with:"
+			einfo "Restart the DTrace 'dtprobed' service after upgrades once all dtraces are stopped with:"
 			einfo " /etc/init.d/dtprobed restart"
 		fi
 	else
