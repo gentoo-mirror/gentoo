@@ -8,13 +8,13 @@ PYTHON_COMPAT=( python3_{10..12} pypy3 )
 inherit autotools flag-o-matic linux-info python-single-r1 toolchain-funcs
 
 DESCRIPTION="Linux trace/probe tool"
-HOMEPAGE="https://sourceware.org/systemtap/"
+HOMEPAGE="https://sourceware.org/systemtap/ https://sourceware.org/systemtap/wiki"
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://sourceware.org/git/systemtap.git"
 	inherit git-r3
 else
 	SRC_URI="https://sourceware.org/ftp/${PN}/releases/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="GPL-2"
