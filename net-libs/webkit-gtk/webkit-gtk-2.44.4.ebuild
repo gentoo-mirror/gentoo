@@ -13,8 +13,10 @@ DESCRIPTION="Open source web browser engine"
 HOMEPAGE="https://www.webkitgtk.org"
 SRC_URI="https://www.webkitgtk.org/releases/${MY_P}.tar.xz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="LGPL-2+ BSD"
-SLOT="6/0" # soname version of libwebkit2gtk-6.0
+SLOT="4/37" # soname version of libwebkit2gtk-4.0
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="aqua avif examples gamepad keyring +gstreamer +introspection pdf jpegxl +jumbo-build lcms seccomp spell systemd wayland X"
@@ -30,22 +32,18 @@ RESTRICT="test"
 # >=gst-plugins-opus-1.14.4-r1 for opusparse (required by MSE)
 # TODO: gst-plugins-base[X] is only needed when build configuration ends up
 #       with GLX set, but that's a bit automagic too to fix
-# Softblocking <webkit-gtk-2.38:4 and <webkit-gtk-2.44:4.1 as since 2.44 this SLOT ships the WebKitWebDriver binary;
-# WebKitWebDriver is an automation tool for web developers, which lets one control the browser via WebDriver API - only one SLOT can ship it
-# TODO: There is build-time conditional depend on gtk-4.13.4 for using more efficient DmaBuf buffer type instead of EglImage, and gtk-4.13.7 for a11y support - ensure it at some point with a min dep
-# TODO: at-spi2-core (atspi-2.pc) is checked at build time, but not linked to in the gtk4 SLOT - is it an upstream check bug and only gtk-4.14 a11y support is used?
 RDEPEND="
 	>=x11-libs/cairo-1.16.0[X?]
 	>=media-libs/fontconfig-2.13.0:1.0
 	>=media-libs/freetype-2.9.0:2
 	>=dev-libs/libgcrypt-1.7.0:0=
 	dev-libs/libtasn1:=
-	>=gui-libs/gtk-4.6.0:4[aqua?,introspection?,wayland?,X?]
+	>=x11-libs/gtk+-3.22.0:3[aqua?,introspection?,wayland?,X?]
 	>=media-libs/harfbuzz-1.4.2:=[icu(+)]
 	>=dev-libs/icu-61.2:=
 	media-libs/libjpeg-turbo:0=
 	>=media-libs/libepoxy-1.5.4[egl(+)]
-	>=net-libs/libsoup-3.0.8:3.0[introspection?]
+	>=net-libs/libsoup-2.54:2.4[introspection?]
 	>=dev-libs/libxml2-2.8.0:2
 	>=media-libs/libpng-1.4:0=
 	dev-db/sqlite:3
@@ -90,8 +88,6 @@ RDEPEND="
 
 	systemd? ( sys-apps/systemd:= )
 	gamepad? ( >=dev-libs/libmanette-0.2.4 )
-	!<net-libs/webkit-gtk-2.38:4
-	!<net-libs/webkit-gtk-2.44:4.1
 "
 DEPEND="${RDEPEND}"
 # Need real bison, not yacc
@@ -115,8 +111,6 @@ BDEPEND="
 
 	wayland? ( dev-util/wayland-scanner )
 "
-
-S="${WORKDIR}/${MY_P}"
 
 CHECKREQS_DISK_BUILD="18G" # and even this might not be enough, bug #417307
 
@@ -149,12 +143,8 @@ src_prepare() {
 	cmake_src_prepare
 	gnome2_src_prepare
 
-	# Fix USE=-jumbo-build compilation on arm64
-	eapply "${FILESDIR}"/2.42.3-arm64-non-jumbo-fix-925621.patch
 	# Fix USE=-jumbo-build on all arches
 	eapply "${FILESDIR}"/2.44.1-non-unified-build-fixes.patch
-	# https://bugs.webkit.org/show_bug.cgi?id=274261
-	eapply "${FILESDIR}"/${PV}-excessive-cpu-usage.patch
 }
 
 src_configure() {
@@ -217,7 +207,7 @@ src_configure() {
 		-DUSE_GSTREAMER_WEBRTC=$(usex gstreamer)
 		-DUSE_GSTREAMER_TRANSCODER=$(usex gstreamer)
 		-DENABLE_WEB_CODECS=$(usex gstreamer) # https://bugs.webkit.org/show_bug.cgi?id=269147
-		-DENABLE_WEBDRIVER=ON
+		-DENABLE_WEBDRIVER=OFF # Disable WebDriver for webkit2gtk-4.1 and use the webkit2gtk-6.0 one
 		-DENABLE_WEBGL=ON
 		-DENABLE_WEB_AUDIO=$(usex gstreamer)
 		-DUSE_AVIF=$(usex avif)
@@ -229,29 +219,24 @@ src_configure() {
 		-DENABLE_WAYLAND_TARGET=$(usex wayland)
 		-DENABLE_X11_TARGET=$(usex X)
 		-DUSE_GBM=ON
-		-DUSE_GTK4=ON # webkit2gtk-6.0
+		-DUSE_GTK4=OFF
 		-DUSE_JPEGXL=$(usex jpegxl)
 		-DUSE_LCMS=$(usex lcms)
 		-DUSE_LIBBACKTRACE=OFF
 		-DUSE_LIBDRM=ON
 		-DUSE_LIBHYPHEN=ON
 		-DUSE_LIBSECRET=$(usex keyring)
-		-DUSE_SOUP2=OFF
+		-DUSE_SOUP2=ON
 		-DUSE_WOFF2=ON
 	)
+
+	# Temporary workaround for bug 938162 (upstream bug 271371).
+	use riscv && mycmakeargs+=( -DENABLE_JIT=OFF )
 
 	# https://bugs.gentoo.org/761238
 	append-cppflags -DNDEBUG
 
 	WK_USE_CCACHE=NO cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-
-	insinto /usr/share/gtk-doc/html
-	# This will install API docs specific to webkit2gtk-6.0
-	doins -r "${S}"/Documentation/{jsc-glib,webkitgtk,webkitgtk-web-process-extension}-6.0
 }
 
 pkg_postinst() {
