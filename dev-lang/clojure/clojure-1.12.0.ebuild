@@ -3,15 +3,15 @@
 
 EAPI=8
 
-SPEC_ALPHA_VER=0.4.233
-CORE_SPECS_ALPHA_VER=0.3.70
+SPEC_ALPHA_VER="0.5.238"        # https://github.com/clojure/spec.alpha/tags/
+CORE_SPECS_ALPHA_VER="0.4.74"   # https://github.com/clojure/core.specs.alpha/tags/
 
-TOOLS_NAMESPACE_VER=1.5.0
-JAVA_CLASSPATH_VER=1.1.0
-TOOLS_READER_VER=1.4.2
-TEST_GENERATIVE_VER=1.1.0
-DATA_GENERATORS_VER=1.1.0
-TEST_CHECK_VER=1.1.1
+TOOLS_NAMESPACE_VER="1.5.0"     # https://github.com/clojure/tools.namespace/tags/
+JAVA_CLASSPATH_VER="1.1.0"      # https://github.com/clojure/java.classpath/tags/
+TOOLS_READER_VER="1.4.0"        # https://github.com/clojure/tools.reader/tags/
+TEST_GENERATIVE_VER="1.1.0"     # https://github.com/clojure/test.generative/tags/
+DATA_GENERATORS_VER="1.1.0"     # https://github.com/clojure/data.generators/tags/
+TEST_CHECK_VER="1.1.1"          # https://github.com/clojure/test.check/tags/
 
 JAVA_PKG_IUSE="test"
 
@@ -47,7 +47,7 @@ S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="EPL-1.0 Apache-2.0 BSD"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 x86 ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~x86-linux"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -83,22 +83,22 @@ src_compile() {
 }
 
 src_test() {
-	ln -rs \
-		../tools.namespace-${TOOLS_NAMESPACE_VER}/src/main/clojure/clojure/tools \
+	cp -r \
+		../tools.namespace-${TOOLS_NAMESPACE_VER}/src/main/clojure/clojure/tools/* \
 		src/clj/clojure/tools || die "Could not create symbolic link for tools-namespace"
-	mv \
+	cp -r \
 		../java.classpath-${JAVA_CLASSPATH_VER}/src/main/clojure/clojure/java/* \
 		src/clj/clojure/java || die "Could not move java-classpath"
-	mv \
+	cp -r \
 		../tools.reader-${TOOLS_READER_VER}/src/main/clojure/clojure/tools/* \
 		src/clj/clojure/tools || die "Could not move tools-reader"
-	mv \
+	cp -r \
 		../test.generative-${TEST_GENERATIVE_VER}/src/main/clojure/clojure/test/* \
 		src/clj/clojure/test || die "Could not move test-generative"
 	ln -rs \
 		../data.generators-${DATA_GENERATORS_VER}/src/main/clojure/clojure/data/ \
 		src/clj/clojure/data || die "Could not create symbolic link for data-generators"
-	mv \
+	cp -r \
 		../test.check-${TEST_CHECK_VER}/src/main/clojure/clojure/test/* \
 		src/clj/clojure/test || die "Could not move test-check"
 
