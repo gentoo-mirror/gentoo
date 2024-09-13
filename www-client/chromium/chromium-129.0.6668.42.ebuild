@@ -1147,6 +1147,8 @@ chromium_configure() {
 		sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' \
 			tools/generate_shim_headers/generate_shim_headers.py || die
 		# Req's LTO; TODO: not compatible with -fno-split-lto-unit
+		# split-lto-unit can be enabled with RUSTC_BOOTSTRAP=1 (and an updated compiler patch),
+		# however I still got weird linking errors with CFI _and_ the split unit LTO OOMed after using 100G.
 		myconf_gn+=" is_cfi=false"
 		# Don't add symbols to build
 		myconf_gn+=" symbol_level=0"
