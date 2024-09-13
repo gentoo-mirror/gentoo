@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit libtool
 
@@ -11,7 +11,7 @@ SRC_URI="https://launchpad.net/${PN}/trunk/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="dev-libs/libsigc++:2"
 DEPEND="${RDEPEND}"
@@ -23,10 +23,6 @@ src_prepare() {
 
 	# broken distfile, see https://bugs.gentoo.org/939532
 	touch config.h.in || die
-}
-
-src_configure() {
-	econf --disable-static
 }
 
 src_install() {
