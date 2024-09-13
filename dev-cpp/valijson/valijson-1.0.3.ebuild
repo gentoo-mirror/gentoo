@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,8 @@ SRC_URI="https://github.com/tristanpenman/valijson/archive/v${PV}.tar.gz -> ${P}
 
 LICENSE="BSD-2 Boost-1.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 RESTRICT="test"
-
-PATCHES=(
-	"${FILESDIR}"/${PV}-fix-macro-typos.patch
-)
 
 src_install() {
 	# there is no target for installing headers, so do it manually
