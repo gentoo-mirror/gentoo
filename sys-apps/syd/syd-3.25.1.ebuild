@@ -11,7 +11,6 @@ CRATES="
 	adler@1.0.2
 	ahash@0.8.11
 	aho-corasick@1.1.3
-	allocator-api2@0.2.18
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anes@0.1.6
@@ -30,8 +29,9 @@ CRATES="
 	bumpalo@3.16.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.1.14
+	cc@1.1.15
 	cfg-if@1.0.0
+	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
 	chrono@0.4.38
 	ciborium-io@0.2.2
@@ -46,26 +46,21 @@ CRATES="
 	crc32fast@1.4.2
 	criterion-plot@0.5.0
 	criterion@0.5.1
-	crossbeam-channel@0.5.13
-	crossbeam-deque@0.8.5
-	crossbeam-epoch@0.9.18
-	crossbeam-queue@0.3.11
-	crossbeam-utils@0.8.20
-	crossbeam@0.8.4
 	crunchy@0.2.2
 	cty@0.2.2
 	darling@0.20.10
 	darling_core@0.20.10
 	darling_macro@0.20.10
-	derive_builder@0.20.0
-	derive_builder_core@0.20.0
-	derive_builder_macro@0.20.0
+	derive_builder@0.20.1
+	derive_builder_core@0.20.1
+	derive_builder_macro@0.20.1
 	dirs-sys@0.4.1
 	dirs@5.0.1
 	either@1.13.0
 	equivalent@1.0.1
 	errno@0.3.9
 	error-chain@0.12.4
+	expiringmap@0.1.2
 	fastrand@2.1.1
 	fixedbitset@0.5.7
 	flate2@1.0.33
@@ -98,7 +93,7 @@ CRATES="
 	iana-time-zone@0.1.60
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.4.0
+	indexmap@2.5.0
 	io-uring@0.6.4
 	ipnetwork@0.20.0
 	is-terminal@0.4.13
@@ -109,10 +104,10 @@ CRATES="
 	lazy_static@1.5.0
 	lexis@0.2.3
 	libc@0.2.158
-	libcgroups@0.3.3
-	libcontainer@0.3.3
+	libcgroups@0.4.0
+	libcontainer@0.4.0
 	libloading@0.8.5
-	liboci-cli@0.3.3
+	liboci-cli@0.4.0
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
@@ -126,15 +121,15 @@ CRATES="
 	mimalloc2-rust@0.3.2
 	miniz_oxide@0.7.4
 	miniz_oxide@0.8.0
-	nc@0.8.23
-	nix@0.27.1
+	nc@0.9.3
+	nix@0.28.0
 	nix@0.29.0
 	nonempty@0.10.0
 	nu-ansi-term@0.46.0
 	num-traits@0.2.19
 	num_cpus@1.16.0
-	object@0.36.3
-	oci-spec@0.6.5
+	object@0.36.4
+	oci-spec@0.6.8
 	once_cell@1.19.0
 	oorandom@11.1.4
 	option-ext@0.2.0
@@ -156,7 +151,7 @@ CRATES="
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
-	quick_cache@0.6.5
+	quick_cache@0.6.6
 	quote@1.0.37
 	redox_syscall@0.5.3
 	redox_users@0.4.6
@@ -174,7 +169,7 @@ CRATES="
 	rust-criu@0.4.0
 	rustc-demangle@0.1.24
 	rustc-hash@2.0.0
-	rustix@0.38.34
+	rustix@0.38.35
 	rustversion@1.0.17
 	ryu@1.0.18
 	safe-path@0.1.0
@@ -191,13 +186,12 @@ CRATES="
 	shellexpand@3.1.0
 	shlex@1.3.0
 	slab@0.4.9
-	slotmap@1.0.7
 	smallvec@1.13.2
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
 	syn@1.0.109
-	syn@2.0.76
+	syn@2.0.77
 	tabwriter@1.4.0
 	tcmalloc@0.3.0
 	tempfile@3.12.0
