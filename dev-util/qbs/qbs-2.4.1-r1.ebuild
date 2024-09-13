@@ -33,10 +33,10 @@ BDEPEND="
 "
 
 CMAKE_SKIP_TESTS=(
-	# QBS does not inherit toolchain/flags knowlege from cmake, and
+	# QBS does not inherit toolchain/flags knowledge from cmake, and
 	# while can use ${BUILD_DIR}/bin/qbs-config to improve this it
 	# remains very fickle and will fail in varied ways with clang,
-	# musl, -native-symlinks, and libc++. After consideration it is
+	# musl, -native-symlinks, and libc++. After consideration it feels
 	# not worth worrying about affected tests here (even if notable).
 	tst_api
 	tst_blackbox # also skips blackbox-* (intended)
@@ -45,6 +45,7 @@ CMAKE_SKIP_TESTS=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.3.1-qtver.patch
+	"${FILESDIR}"/${PN}-2.4.1-ldconfig.patch
 )
 
 python_check_deps() {
@@ -62,8 +63,8 @@ src_configure() {
 	# needs fixing in qtbase as *64 usage comes from its headers' macros
 	use elibc_musl && append-lfs-flags
 
-	# fails to build with gcc:14 and -O3 (bug #933187)
-	tc-is-gcc && [[ $(gcc-major-version) -ge 14 ]] &&
+	# tests build failure w/ gcc:14 + -O3 (bug #933187, needs looking into)
+	use test && tc-is-gcc && [[ $(gcc-major-version) -ge 14 ]] &&
 		replace-flags -O3 -O2
 
 	local mycmakeargs=(
