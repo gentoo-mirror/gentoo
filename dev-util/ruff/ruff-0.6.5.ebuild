@@ -31,6 +31,7 @@ CRATES="
 	bincode@1.3.3
 	bitflags@1.3.2
 	bitflags@2.6.0
+	block-buffer@0.10.4
 	bstr@1.10.0
 	bumpalo@3.16.0
 	byteorder@1.5.0
@@ -65,6 +66,7 @@ CRATES="
 	console_log@1.0.0
 	core-foundation-sys@0.8.6
 	countme@3.0.1
+	cpufeatures@0.2.13
 	crc32fast@1.4.0
 	criterion-plot@0.5.0
 	criterion@0.5.1
@@ -75,6 +77,7 @@ CRATES="
 	crossbeam-utils@0.8.19
 	crossbeam@0.8.4
 	crunchy@0.2.2
+	crypto-common@0.1.6
 	ctrlc@3.4.5
 	darling@0.20.8
 	darling_core@0.20.8
@@ -82,6 +85,7 @@ CRATES="
 	dashmap@5.5.3
 	dashmap@6.0.1
 	diff@0.1.13
+	digest@0.10.7
 	dirs-sys@0.3.7
 	dirs-sys@0.4.1
 	dirs@4.0.0
@@ -103,6 +107,7 @@ CRATES="
 	form_urlencoded@1.2.1
 	fs-err@2.11.0
 	fsevent-sys@4.1.0
+	generic-array@0.14.7
 	getopts@0.2.21
 	getrandom@0.2.14
 	glob@0.3.1
@@ -191,6 +196,10 @@ CRATES="
 	pep440_rs@0.6.6
 	pep508_rs@0.3.0
 	percent-encoding@2.3.1
+	pest@2.7.11
+	pest_derive@2.7.11
+	pest_generator@2.7.11
+	pest_meta@2.7.11
 	phf@0.11.2
 	phf_codegen@0.11.2
 	phf_generator@0.11.2
@@ -202,8 +211,8 @@ CRATES="
 	pretty_assertions@1.4.0
 	proc-macro2@1.0.86
 	pyproject-toml@0.9.0
-	quick-junit@0.4.0
-	quick-xml@0.31.0
+	quick-junit@0.5.0
+	quick-xml@0.36.1
 	quote@1.0.37
 	rand@0.8.5
 	rand_chacha@0.3.1
@@ -244,6 +253,7 @@ CRATES="
 	serde_test@1.0.177
 	serde_with@3.9.0
 	serde_with_macros@3.9.0
+	sha2@0.10.8
 	sharded-slab@0.1.7
 	shellexpand@3.1.0
 	similar@2.5.0
@@ -285,6 +295,8 @@ CRATES="
 	tracing-tree@0.4.0
 	tracing@0.1.40
 	typed-arena@2.0.2
+	typenum@1.17.0
+	ucd-trie@0.1.6
 	unic-char-property@0.9.0
 	unic-char-range@0.9.0
 	unic-common@0.9.0
