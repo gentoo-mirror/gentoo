@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure prepare
-DEPEND=cairo? ( x11-libs/cairo ) >=sys-devel/gettext-0.20 sys-libs/ncurses:= virtual/libintl
+DEPEND=>=sys-devel/gettext-0.20 sys-libs/ncurses:= virtual/libintl cairo? ( x11-libs/cairo )
 DESCRIPTION=ncurses based sudoku game
 EAPI=8
 HOMEPAGE=https://jubalh.github.io/nudoku/
@@ -8,8 +8,8 @@ INHERIT=autotools
 IUSE=cairo
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=cairo? ( x11-libs/cairo ) >=sys-devel/gettext-0.20 sys-libs/ncurses:= virtual/libintl
+RDEPEND=>=sys-devel/gettext-0.20 sys-libs/ncurses:= virtual/libintl cairo? ( x11-libs/cairo )
 SLOT=0
-SRC_URI=https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz -> nudoku-2.1.0.tar.gz
+SRC_URI=https://github.com/jubalh/nudoku/archive/5.0.0.tar.gz -> nudoku-5.0.0.tar.gz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424
-_md5_=42c930f738885bb790bfa85e646d2ff4
+_md5_=46ee4a62fc44eeae94c1cf98774df919
