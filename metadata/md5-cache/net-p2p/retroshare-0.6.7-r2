@@ -1,0 +1,17 @@
+BDEPEND=dev-build/cmake dev-qt/qtcore:5 virtual/pkgconfig gui? ( x11-base/xorg-proto ) jsonapi? ( app-text/doxygen )
+DEFINED_PHASES=configure install postinst postrm preinst
+DEPEND=app-arch/bzip2 dev-libs/openssl:0= sys-libs/zlib gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 x11-libs/libX11 x11-libs/libXScrnSaver ) keyring? ( app-crypt/libsecret ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) plugins? ( media-libs/speex media-libs/speexdsp <media-video/ffmpeg-5 ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 ) gui? ( dev-qt/designer:5 ) jsonapi? ( >=dev-libs/rapidjson-1.1.0 )
+DESCRIPTION=Friend to Friend secure communication and sharing application
+EAPI=8
+HOMEPAGE=https://retroshare.cc
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=flag-o-matic desktop qmake-utils xdg
+IUSE=cli +gui +jsonapi keyring libupnp +miniupnp plugins +service +sqlcipher
+KEYWORDS=~amd64 ~x86
+LICENSE=AGPL-3 Apache-2.0 CC-BY-SA-4.0 GPL-2 GPL-3 LGPL-3
+RDEPEND=app-arch/bzip2 dev-libs/openssl:0= sys-libs/zlib gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 x11-libs/libX11 x11-libs/libXScrnSaver ) keyring? ( app-crypt/libsecret ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) plugins? ( media-libs/speex media-libs/speexdsp <media-video/ffmpeg-5 ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 )
+REQUIRED_USE=|| ( gui service ) ?? ( libupnp miniupnp ) plugins? ( gui ) service? ( || ( cli jsonapi ) )
+SLOT=0
+SRC_URI=https://download.opensuse.org/repositories/network:/retroshare/Debian_Testing/retroshare-common_0.6.7.orig.tar.gz -> retroshare-0.6.7.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	desktop	56973babb9c5f19cab0eeb53ece644c6	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	xdg	8d7d90c01b1b1c2602dab6fc6b177097
+_md5_=26f27a62a82a764507efe1d63f84f348
