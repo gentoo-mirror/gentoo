@@ -14,7 +14,7 @@ HOMEPAGE="
 	https://pypi.org/project/pyzotero/
 "
 
-LICENSE="MIT"
+LICENSE="BlueOak-1.0.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -27,6 +27,7 @@ RDEPEND="
 "
 
 BDEPEND="
+	>=dev-python/trove-classifiers-2024.7.2[${PYTHON_USEDEP}]
 	test? (
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/httpretty[${PYTHON_USEDEP}]

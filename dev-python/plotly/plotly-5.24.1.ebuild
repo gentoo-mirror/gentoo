@@ -33,6 +33,7 @@ RDEPEND="
 	>=dev-python/tenacity-6.2.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	dev-python/versioneer[${PYTHON_USEDEP}]
 	test? (
 		dev-python/ipykernel[${PYTHON_USEDEP}]
 		dev-python/ipython[${PYTHON_USEDEP}]
@@ -61,16 +62,18 @@ distutils_enable_tests pytest
 # README ends up a broken symlink
 DOCS=()
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-5.8.0-fix-versioneer-import.patch
-	# https://github.com/plotly/plotly.py/pull/4622
-	"${FILESDIR}/${P}-numpy-2.patch"
-)
-
 python_prepare_all() {
+	local PATCHES=(
+		# https://github.com/plotly/plotly.py/pull/4622
+		"${FILESDIR}/${PN}-5.23.0-numpy-2.patch"
+	)
+
+	distutils-r1_python_prepare_all
+
+	# unbundle versioneer
+	rm versioneer.py || die
 	# Do not try to fetch stuff with npm
 	export SKIP_NPM=1
-	distutils-r1_python_prepare_all
 }
 
 python_test() {
