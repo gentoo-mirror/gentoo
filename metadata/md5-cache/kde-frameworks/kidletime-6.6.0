@@ -1,0 +1,16 @@
+BDEPEND=wayland? ( >=dev-qt/qtwayland-6.6.2:6 ) app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( >=app-text/doxygen-1.8.13-r1 ) dev-qt/qttools:6[assistant] dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.6:*
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=>=dev-qt/qtbase-6.6.2:6[gui] wayland? ( dev-libs/wayland >=dev-qt/qtbase-6.6.2:6=[wayland] >=dev-qt/qtwayland-6.6.2:6 ) X? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libXext ) xscreensaver? ( >=dev-qt/qtbase-6.6.2:6[dbus] x11-libs/libXScrnSaver ) wayland? ( >=dev-libs/plasma-wayland-protocols-1.11.1 >=dev-libs/wayland-protocols-1.27:0 ) doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+DESCRIPTION=Framework for detection and notification of device idle time
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm frameworks.kde.org
+IUSE=wayland X xscreensaver debug doc
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=dev-qt/qtbase-6.6.2:6[gui] wayland? ( dev-libs/wayland >=dev-qt/qtbase-6.6.2:6=[wayland] >=dev-qt/qtwayland-6.6.2:6 ) X? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libXext ) xscreensaver? ( >=dev-qt/qtbase-6.6.2:6[dbus] x11-libs/libXScrnSaver ) >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+REQUIRED_USE=xscreensaver? ( X )
+SLOT=6/6.6
+SRC_URI=mirror://kde/stable/frameworks/6.6/kidletime-6.6.0.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	53fb93b5555470a64f14fde25cf1ad2c	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	frameworks.kde.org	6f08d32ca51c924680043f6d62f666c4
+_md5_=9788f5a760daf265d390444a028882bb
