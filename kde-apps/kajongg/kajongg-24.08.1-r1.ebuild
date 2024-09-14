@@ -36,6 +36,8 @@ RDEPEND="${DEPEND}
 	>=kde-apps/libkmahjongg-${PVCUT}:6
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-w-o-pyqt6.patch" ) # bug 939423
+
 pkg_setup() {
 	python-single-r1_pkg_setup
 	ecm_pkg_setup
