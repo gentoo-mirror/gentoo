@@ -1,16 +1,15 @@
 BDEPEND=test? ( media-libs/libsndfile ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 ) qt6? ( dev-qt/qtbase:6[gui] ) sndfile? ( media-libs/libsndfile media-libs/flac:= ) tiff? ( media-libs/tiff:=[lzma,zstd] app-arch/xz-utils app-arch/zstd:= ) vorbis? ( media-libs/libogg media-libs/libvorbis media-libs/opus ) zlib? ( sys-libs/zlib:= )
+DEPEND=gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) qt6? ( dev-qt/qtbase:6[gui] ) sndfile? ( media-libs/libsndfile media-libs/flac:= ) tiff? ( media-libs/tiff:=[lzma,zstd] app-arch/xz-utils app-arch/zstd:= ) vorbis? ( media-libs/libogg media-libs/libvorbis media-libs/opus ) zlib? ( sys-libs/zlib:= )
 DESCRIPTION=Image and video texturing library
 EAPI=8
 HOMEPAGE=https://github.com/coin3d/simage/
 INHERIT=cmake git-r3
-IUSE=gif jpeg png qt5 qt6 sndfile test tiff vorbis zlib
+IUSE=gif jpeg png qt6 sndfile test tiff vorbis zlib
 LICENSE=BSD-1
 PROPERTIES=live
-RDEPEND=gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 ) qt6? ( dev-qt/qtbase:6[gui] ) sndfile? ( media-libs/libsndfile media-libs/flac:= ) tiff? ( media-libs/tiff:=[lzma,zstd] app-arch/xz-utils app-arch/zstd:= ) vorbis? ( media-libs/libogg media-libs/libvorbis media-libs/opus ) zlib? ( sys-libs/zlib:= )
-REQUIRED_USE=qt5? ( !qt6 )
+RDEPEND=gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) qt6? ( dev-qt/qtbase:6[gui] ) sndfile? ( media-libs/libsndfile media-libs/flac:= ) tiff? ( media-libs/tiff:=[lzma,zstd] app-arch/xz-utils app-arch/zstd:= ) vorbis? ( media-libs/libogg media-libs/libvorbis media-libs/opus ) zlib? ( sys-libs/zlib:= )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=66dddfd426abb1f32f1ffe65294ecf34
+_md5_=d4ae37e0e2118aaba9bf8d5175a660cd
