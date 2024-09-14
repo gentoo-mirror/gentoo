@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic plocale xdg
 
-PLOCALES="ca_ES cs_CZ de_DE es_AR es_ES es_MX et_EE fi_FI fr_FR hu_HU id_ID it_IT ja_JP ko_KR nb_NO nl_NL pl_PL pt_BR ru_RU sv_SE tr_CY tr_TR uk_UA zh_CN zh_TW"
+PLOCALES="ca cs de es es_AR es_ES es_MX et fi fr hu id it ja ko nb nl pl pt_BR ru sv uk zh_CN"
 
 DESCRIPTION="Modern music player and library organizer based on Clementine and Qt"
 HOMEPAGE="https://www.strawberrymusicplayer.org/"
@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/strawberrymusicplayer/strawberry/releases/download/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm64 ~ppc64 x86"
 fi
 
 LICENSE="GPL-3"
@@ -46,7 +46,7 @@ COMMON_DEPEND="
 	)
 	qt6? (
 		dev-libs/kdsingleapplication[qt6(+)]
-		dev-qt/qtbase:6[concurrent,dbus,gui,network,ssl,sql,sqlite,widgets]
+		dev-qt/qtbase[concurrent,dbus,gui,network,ssl,sql,sqlite,widgets]
 	)
 	cdda? ( dev-libs/libcdio:= )
 	gstreamer? (
