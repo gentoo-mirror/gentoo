@@ -158,6 +158,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 PATCHES=(
 	"${FILESDIR}"/${PN}-prefix-2.patch
 	"${FILESDIR}"/${PN}-respect-cflags-3.patch
+	"${FILESDIR}"/${P}-sendrecv-poll.patch
 )
 
 src_prepare() {
