@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Docker CLI plugin to update container repository documentation
+EAPI=8
+HOMEPAGE=https://github.com/docker/buildx
+INHERIT=go-module
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=app-containers/docker-cli
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/christian-korneck/docker-pushrm/archive/refs/tags/v1.9.0.tar.gz -> docker-pushrm-1.9.0.tar.gz https://dev.gentoo.org/~xgqt/distfiles/deps/docker-pushrm-1.9.0-deps.tar.xz
+_eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	83fd3ed1657cfc316c93d6a37018290d
+_md5_=c6f402613024d52b8803f2c5c38e1f80
