@@ -161,6 +161,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.22.5-krunner-cwd-at-home.patch" # TODO upstream: KDE-bug 432975, bug 767478
+	"${FILESDIR}/${P}-fix-wayland-session-restore-saving.patch" # KDE-bug 436318
 )
 
 src_prepare() {
