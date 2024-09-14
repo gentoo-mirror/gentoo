@@ -16,7 +16,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo check-reqs
 
-CRATE_PV=0.4.2
+CRATE_PV=0.4.9
 DESCRIPTION="A Python package installer and resolver, written in Rust"
 HOMEPAGE="
 	https://github.com/astral-sh/uv/
@@ -93,13 +93,6 @@ src_prepare() {
 	reqmw=${reqmw#*;}
 	reqmw=${reqmw%;*}
 	sed -i -e "/^\[patch/,\$s@^\(reqwest-middleware = \).*@\1 { path = \"${WORKDIR}/reqwest-middleware-${reqmw}/reqwest-middleware\" }@" Cargo.toml || die
-
-	# https://github.com/vorot93/tokio-tar/pull/23
-	# (fortunately uv already depends on portable-atomic, so we don't
-	# have to fight Cargo.lock)
-	pushd "${ECARGO_VENDOR}/tokio-tar-0.3.1" >/dev/null || die
-	eapply "${FILESDIR}/tokio-tar-0.3.1-ppc.patch"
-	popd >/dev/null || die
 
 	# enable system libraries where supported
 	export ZSTD_SYS_USE_PKG_CONFIG=1
