@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="experimental +fluidsynth +munt new-dynarec +openal qt5 +qt6 +threads"
+IUSE="experimental +fluidsynth +munt new-dynarec +openal +qt6 +threads"
 
 DEPEND="
 	app-emulation/faudio
@@ -24,7 +24,6 @@ DEPEND="
 	media-libs/rtmidi
 	net-libs/libslirp
 	sys-libs/zlib
-	qt5? ( x11-libs/libXi )
 	qt6? ( x11-libs/libXi )
 "
 
@@ -33,15 +32,6 @@ RDEPEND="
 	fluidsynth? ( media-sound/fluidsynth )
 	munt? ( media-libs/munt-mt32emu )
 	openal? ( media-libs/openal )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtopengl:5
-		dev-qt/qttranslations:5
-		dev-qt/qtwidgets:5
-		kde-frameworks/extra-cmake-modules
-	)
 	qt6? (
 		dev-qt/qtbase:6[gui,network,opengl,widgets]
 		dev-qt/qttranslations:6
@@ -50,8 +40,6 @@ RDEPEND="
 "
 
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=( "${FILESDIR}/${PN}-4.2-gcc14.patch" )
 
 src_configure() {
 	# LTO needs to be filtered
@@ -71,7 +59,7 @@ src_configure() {
 		-DOPENAL="$(usex openal)"
 		-DPREFER_STATIC="OFF"
 		-DRTMIDI="ON"
-		-DQT="$(usex qt5 'ON' $(usex qt6))"
+		-DQT="$(usex qt6)"
 		-DRELEASE="ON"
 		$(usex qt6 '-DUSE_QT6=ON' '')
 	)
