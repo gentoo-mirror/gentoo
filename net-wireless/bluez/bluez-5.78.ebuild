@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit autotools flag-o-matic linux-info python-single-r1 systemd udev multilib-minimal #readme.gentoo-r1
 
@@ -12,7 +12,7 @@ SRC_URI="https://www.kernel.org/pub/linux/bluetooth/${P}.tar.xz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0/3"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~x86"
 IUSE="btpclient cups doc debug deprecated extra-tools experimental +mesh midi +obex +readline selinux systemd test test-programs +udev"
 
 # Since this release all remaining extra-tools need readline support, but this could
@@ -99,9 +99,6 @@ pkg_setup() {
 
 src_prepare() {
 	default
-
-	# https://github.com/bluez/bluez/issues/773
-	eapply "${FILESDIR}"/${PN}-5.73-configure-cups.patch
 
 	# https://github.com/bluez/bluez/issues/806
 	eapply "${FILESDIR}"/0001-Allow-using-obexd-without-systemd-in-the-user-session-r3.patch
@@ -247,7 +244,6 @@ multilib_src_install_all() {
 
 	# Setup auto enable as Fedora does for allowing to use
 	# keyboards/mouse as soon as possible
-	sed -i 's/#\[Policy\]$/\[Policy\]/; s/#AutoEnable=false/AutoEnable=true/' src/main.conf || die
 	insinto /etc/bluetooth
 	doins src/main.conf
 
@@ -258,6 +254,7 @@ multilib_src_install_all() {
 	use doc && dodoc doc/*.txt
 
 	# https://bugs.gentoo.org/929017
+	# https://github.com/bluez/bluez/issues/329#issuecomment-1102459104
 	fperms 0555 /etc/bluetooth
 
 	# https://bugs.gentoo.org/932172

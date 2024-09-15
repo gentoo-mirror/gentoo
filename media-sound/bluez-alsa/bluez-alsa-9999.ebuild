@@ -5,13 +5,13 @@ EAPI=8
 inherit autotools bash-completion-r1 multilib-minimal readme.gentoo-r1 systemd
 
 DESCRIPTION="Bluetooth Audio ALSA Backend"
-HOMEPAGE="https://github.com/Arkq/bluez-alsa"
+HOMEPAGE="https://github.com/arkq/bluez-alsa"
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/Arkq/${PN}"
+	EGIT_REPO_URI="https://github.com/arkq/${PN}"
 else
-	SRC_URI="https://github.com/Arkq/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/arkq/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
