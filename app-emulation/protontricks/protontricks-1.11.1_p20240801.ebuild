@@ -3,15 +3,19 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 pypi xdg-utils
+inherit distutils-r1 xdg-utils
+
+COMMIT="f7b1fa33b0438dbd72f7222703f8442e40edc510"
+export SETUPTOOLS_SCM_PRETEND_VERSION="${PV%_p*}"
 
 DESCRIPTION="app-emulation/winetricks wrapper for Proton (Steam Play) games"
 HOMEPAGE="https://github.com/Matoking/protontricks"
-
+SRC_URI="https://github.com/Matoking/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -22,7 +26,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/setuptools[${PYTHON_USEDEP}]
-		dev-python/vdf[${PYTHON_USEDEP}]
+		>=dev-python/vdf-3.4_p20240630[${PYTHON_USEDEP}]
 	')
 	gui? ( gnome-extra/zenity )"
 BDEPEND="$(python_gen_cond_dep '
