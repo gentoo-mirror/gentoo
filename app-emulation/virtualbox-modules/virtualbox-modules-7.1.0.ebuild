@@ -17,8 +17,7 @@ S="${WORKDIR}"
 
 LICENSE="GPL-3"
 SLOT="0/$(ver_cut 1-2)"
-# Still in beta
-#KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 
 CONFIG_CHECK="~!SPINLOCK JUMP_LABEL"
 

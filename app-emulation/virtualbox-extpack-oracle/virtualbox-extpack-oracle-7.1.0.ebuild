@@ -3,8 +3,8 @@
 
 EAPI=8
 
-MY_PV="$(ver_cut 1-3)"
-MY_PN="Oracle_VM_VirtualBox_Extension_Pack"
+MY_PV="${PV^^}"
+MY_PN="Oracle_VirtualBox_Extension_Pack"
 MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="PUEL extensions for VirtualBox"
@@ -12,15 +12,15 @@ HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.vbox-extpack -> ${MY_P}.tar.gz"
 S="${WORKDIR}"
 
-LICENSE="PUEL-11"
+LICENSE="PUEL-12"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
 	|| (
-		=app-emulation/virtualbox-${MY_PV}*
-		=app-emulation/virtualbox-kvm-${MY_PV}*
+		=app-emulation/virtualbox-${PV}*
+		=app-emulation/virtualbox-kvm-${PV}*
 	)
 "
 

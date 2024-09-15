@@ -6,22 +6,20 @@ EAPI=8
 inherit edo linux-mod-r1 readme.gentoo-r1 systemd toolchain-funcs udev
 
 MY_PN="VirtualBox"
-MY_P="${MY_PN}-${PV}"
+MY_PV=${PV^^}
+MY_P=${MY_PN}-${MY_PV}
 
 DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
 HOMEPAGE="https://www.virtualbox.org/"
-SRC_URI="https://download.virtualbox.org/virtualbox/${PV}/${MY_P}.tar.bz2
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.0.16.tar.bz2"
-S="${WORKDIR}/${MY_PN}-${PV}"
+SRC_URI="https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.1.0.tar.bz2"
+S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 # Reminder: see the LICENSE related comment in app-emulation/virtualbox-additions ebuild
 LICENSE="GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+dbus gui"
-
-# automount Error: VBoxServiceAutoMountWorker: Group "vboxsf" does not exist
-# TODO: find out what this is, remove comment if obsolete
 
 RDEPEND="
 	acct-group/vboxguest
@@ -115,7 +113,7 @@ src_prepare() {
 	# Respect LDFLAGS (bug #759100)
 	sed -i -e '/TEMPLATE_VBoxR3Exe_LDFLAGS.linux[    ]*=/ s/$/ $(CCLDFLAGS)/' Config.kmk || die
 
-	eapply "${WORKDIR}/virtualbox-patches-7.0.16/patches"
+	eapply "${WORKDIR}/virtualbox-patches-7.1.0/patches"
 	eapply_user
 }
 

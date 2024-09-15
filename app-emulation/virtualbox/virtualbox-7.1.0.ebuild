@@ -3,9 +3,6 @@
 
 EAPI=8
 
-# USE=doc does not work for now.
-#
-#
 # To add a new Python here:
 # 1. Patch src/libs/xpcom18a4/python/Makefile.kmk (copy the previous impl's logic)
 #    Do NOT skip this part. It'll end up silently not-building the Python extension
@@ -24,23 +21,21 @@ inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature p
 	python-single-r1 tmpfiles toolchain-funcs udev xdg
 
 MY_PN="VirtualBox"
-MY_PV=${PV^^}
-MY_P=${MY_PN}-${MY_PV}
-HELP_PV=7.0.20
+MY_P=${MY_PN}-${PV}
+HELP_PV=${PV}
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="
-	https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.1.0_beta1.tar.bz2
+	https://download.virtualbox.org/virtualbox/${PV}/${MY_P}.tar.bz2
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.1.0.tar.bz2
 	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${HELP_PV}.tar.xz ) )
 "
-S="${WORKDIR}/${MY_PN}-${MY_PV}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-# Beta version
-#KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl +udev vboxwebsrv vde +vmmraw vnc"
 
 unset WATCOM #856769
@@ -140,6 +135,7 @@ BDEPEND="
 	sys-power/iasl
 	virtual/pkgconfig
 	doc? (
+		app-doc/dita-ot-bin
 		app-text/docbook-sgml-dtd:4.4
 		app-text/docbook-xsl-ns-stylesheets
 		dev-texlive/texlive-basic
@@ -148,7 +144,8 @@ BDEPEND="
 		dev-texlive/texlive-latexextra
 		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-fontsextra
-		dev-qt/qthelp:5
+		dev-qt/qttools:6[assistant]
+		sys-libs/nss_wrapper
 	)
 	gui? ( dev-qt/qttools:6[linguist] )
 	nls? ( dev-qt/qttools:6[linguist] )
@@ -194,11 +191,8 @@ REQUIRED_USE="
 
 PATCHES=(
 	# Downloaded patchset
-	"${WORKDIR}"/virtualbox-patches-7.1.0_beta1/patches
-	"${FILESDIR}"/${PN}-7.1.0_beta1-link-with-mold.patch
+	"${WORKDIR}"/virtualbox-patches-7.1.0/patches
 )
-
-DOCS=()	# Don't install the default README file during einstalldocs
 
 pkg_pretend() {
 	if ! use gui; then
@@ -297,11 +291,8 @@ src_prepare() {
 	echo -e "\nVBOX_WITH_VBOX_IMG=1" >> LocalConfig.kmk || die
 
 	if tc-is-clang; then
-		# clang assembler chokes on comments starting with /
-		sed -i -e '/^\//d' src/libs/xpcom18a4/nsprpub/pr/src/md/unix/os_Linux_x86_64.s || die
-
 		# clang does not support this extension
-		eapply "${FILESDIR}"/${PN}-7.0.8-disable-rebuild-iPxeBiosBin.patch
+		eapply "${FILESDIR}"/${PN}-7.1.0-disable-rebuild-iPxeBiosBin.patch
 	fi
 
 	# fix doc generation
@@ -477,6 +468,20 @@ src_compile() {
 			TOOL_GXX32_AR="$(tc-getAR)"
 			TOOL_GXX32_OBJCOPY="$(tc-getOBJCOPY)"
 		)
+	fi
+
+	if use doc; then
+		# dita needs to write to ~/.fop and ~/.java
+		# but it ignores ${HOME} and tries to write to the real home of user portage
+		# resulting in a sandbox violation
+		# -Duser.home= does not work
+		# force using the temporary homedir with nss_wrapper
+		echo "${LOGNAME}::$(id -u):$(id -g):${USER}:${HOME}:/bin/bash" >> ~/passwd
+		echo "${LOGNAME}::$(id -g):" >> ~/group
+
+		local -x LD_PRELOAD=libnss_wrapper.so
+		local -x NSS_WRAPPER_PASSWD="${HOME}"/passwd
+		local -x NSS_WRAPPER_GROUP="${HOME}"/group
 	fi
 
 	MAKE="kmk" emake "${myemakeargs[@]}" all
@@ -720,7 +725,7 @@ pkg_postinst() {
 	elog "You must be in the vboxusers group to use VirtualBox."
 	elog ""
 	elog "The latest user manual is available for download at:"
-	elog "https://download.virtualbox.org/virtualbox/${MY_PV}/UserManual.pdf"
+	elog "https://download.virtualbox.org/virtualbox/${PV}/UserManual.pdf"
 	elog ""
 
 	optfeature "Advanced networking setups" net-misc/bridge-utils sys-apps/usermode-utilities
