@@ -68,6 +68,8 @@ src_configure() {
 src_install() {
 	ecm_src_install
 
-	rm -r "${ED}"/{etc,usr/{bin,share}} \
+	rm -r "${ED}"/{etc,usr/bin} \
+		"${ED}"/usr/share/{applications,doc,help,kconf_update,kglobalaccel,kio} \
+		"${ED}"/usr/share/{knsrcfiles,knotifications5,konsole,locale,qlogging-categories5,zsh} \
 		"${ED}"/usr/$(get_libdir)/kconf_update_bin || die
 }
