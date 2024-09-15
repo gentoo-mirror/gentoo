@@ -1,0 +1,17 @@
+BDEPEND=app-arch/unzip dev-lang/perl || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pyyaml[python_targets_python3_10(-)] ) ) app-alternatives/lex tiles? ( advpng? ( app-arch/advancecomp ) !advpng? ( media-gfx/pngcrush ) ) virtual/pkgconfig app-alternatives/yacc
+DEFINED_PHASES=compile install postinst postrm prepare setup test
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-db/sqlite:3 sys-libs/zlib !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl ) test? ( <dev-cpp/catch-3.0.0:0 ) tiles? ( sys-libs/ncurses:0 )
+DESCRIPTION=Role-playing roguelike game of exploration and treasure-hunting in dungeons
+EAPI=8
+HOMEPAGE=https://crawl.develz.org
+INHERIT=desktop python-any-r1 lua-single xdg-utils toolchain-funcs
+IUSE=advpng debug ncurses sound test +tiles +lua_single_target_lua5-1
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-db/sqlite:3 sys-libs/zlib !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl )
+REQUIRED_USE=^^ ( lua_single_target_lua5-1 )
+RESTRICT=!test? ( test )
+SLOT=0.32
+SRC_URI=https://github.com/crawl/crawl/archive/refs/tags/0.32.0.tar.gz -> stone-soup-0.32.0.tar.gz https://dev.gentoo.org/~stasibear/distfiles/stone-soup.png -> stone-soup-0.32.png https://dev.gentoo.org/~stasibear/distfiles/stone-soup.svg -> stone-soup-0.32.svg
+_eclasses_=desktop	56973babb9c5f19cab0eeb53ece644c6	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua-single	3ae43cac1bf8275a847245b9a475a54e	xdg-utils	5465aed08f1dfc2a75f14cbea4272961
+_md5_=bc855e9df8bd811caf7c4f11ca380200
