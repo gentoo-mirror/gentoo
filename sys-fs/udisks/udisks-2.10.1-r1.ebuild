@@ -61,6 +61,13 @@ BDEPEND="
 
 DOCS=( AUTHORS HACKING NEWS README.md )
 
+PATCHES=(
+	"${FILESDIR}"/${P}-BLKRRPART_harder.patch
+	"${FILESDIR}"/${P}-targetcli_config.json_netif_timeout.patch
+	"${FILESDIR}"/${P}-udiskslinuxmanager_use_after_free.patch
+	"${FILESDIR}"/${P}-udiskslinuxblock_survive_missing_fstab.patch
+)
+
 pkg_setup() {
 	# Listing only major arch's here to avoid tracking kernel's defconfig
 	if use amd64 || use arm || use ppc || use ppc64 || use x86; then
