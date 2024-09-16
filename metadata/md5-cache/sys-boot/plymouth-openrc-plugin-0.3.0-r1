@@ -1,6 +1,6 @@
 BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst test
-DEPEND=|| ( sys-apps/openrc sys-apps/openrc-navi )
+DEPEND=|| ( >=sys-apps/openrc-0.55 >=sys-apps/openrc-navi-0.60_beta3 )
 DESCRIPTION=Plymouth plugin for OpenRC
 EAPI=8
 HOMEPAGE=https://github.com/Kangie/plymouth-openrc-plugin
@@ -8,8 +8,8 @@ INHERIT=meson
 IUSE=debug
 KEYWORDS=~alpha ~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2+
-RDEPEND=|| ( sys-apps/openrc sys-apps/openrc-navi ) sys-boot/plymouth !sys-apps/systemd
+RDEPEND=|| ( >=sys-apps/openrc-0.55 >=sys-apps/openrc-navi-0.60_beta3 ) sys-boot/plymouth !sys-apps/systemd
 SLOT=0
-SRC_URI=https://github.com/Kangie/plymouth-openrc-plugin/archive/v0.2.0.tar.gz -> plymouth-openrc-plugin-0.2.0.tar.gz
+SRC_URI=https://github.com/Kangie/plymouth-openrc-plugin/archive/v0.3.0.tar.gz -> plymouth-openrc-plugin-0.3.0.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=fd972585b890f7dcd6c4ae44fc66e18f
+_md5_=db18d7ca2416f65d10b750b6974545b6
