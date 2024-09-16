@@ -1,7 +1,7 @@
 DEFINED_PHASES=-
 DESCRIPTION=Virtual for the internet super-server daemon
-EAPI=7
+EAPI=8
 KEYWORDS=~alpha amd64 arm arm64 hppa ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
-RDEPEND=|| ( sys-apps/xinetd sys-apps/netkit-base sys-apps/ucspi-tcp net-misc/ipsvd )
+RDEPEND=|| ( sys-apps/xinetd sys-apps/netkit-base sys-apps/ucspi-tcp net-misc/ipsvd net-misc/inetutils[inetd] )
 SLOT=0
-_md5_=36b682064175e24cdf1068cd8e0fc8b2
+_md5_=f6dd67c8c65db949dbe302a95417fa5e
