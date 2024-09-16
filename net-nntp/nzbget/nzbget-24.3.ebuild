@@ -44,24 +44,21 @@ BDEPEND="
 
 DOCS=( ChangeLog.md README.md nzbget.conf )
 
-PATCHES=(
-	"${FILESDIR}/${P}-fix-allocah.patch"
-)
-
 src_prepare() {
-	# Do not install a configuration file in /usr/etc
-	sed -i '\:install(FILES ${CMAKE_BINARY_DIR}/nzbget.conf DESTINATION ${CMAKE_INSTALL_PREFIX}/etc):d' cmake/install.cmake || die
 	cmake_src_prepare
 
-	sed -i 's:^ScriptDir=.*:ScriptDir=/usr/share/nzbget/ppscripts:' nzbget.conf || die
-
-	sed \
-		-e 's:^MainDir=.*:MainDir=/var/lib/nzbget:' \
-		-e 's:^LogFile=.*:LogFile=/var/log/nzbget/nzbget.log:' \
-		-e 's:^WebDir=.*:WebDir=/usr/share/nzbget/webui:' \
-		-e 's:^ConfigTemplate=.*:ConfigTemplate=/usr/share/nzbget/nzbget.conf:' \
+	# Update the main configuration file with the correct paths
+	sed -i nzbget.conf \
+		-e "s:^WebDir=.*:WebDir=${EPREFIX}/usr/share/nzbget/webui:" \
+		-e "s:^ConfigTemplate=.*:ConfigTemplate=${EPREFIX}/usr/share/nzbget/nzbget.conf:" \
+		|| die
+	# Update the daemon-specific configuration file (used by the OpenRC and
+	# systemd services)
+	sed nzbget.conf > nzbgetd.conf \
+		-e "s:^MainDir=.*:MainDir=${EPREFIX}/var/lib/nzbget:" \
+		-e "s:^LogFile=.*:LogFile=${EPREFIX}/var/log/nzbget/nzbget.log:" \
 		-e 's:^DaemonUsername=.*:DaemonUsername=nzbget:' \
-		nzbget.conf > nzbgetd.conf || die
+		|| die
 }
 
 src_configure() {
@@ -83,6 +80,12 @@ src_install() {
 	insinto /etc
 	doins nzbget.conf
 	doins nzbgetd.conf
+
+	# The configuration file's "ConfigTemplate" option points to this, we must
+	# make sure it exists as the Web UI reads it. It is not installed by
+	# default, see the "install-conf" target in cmake/install.cmake.
+	insinto /usr/share/nzbget
+	doins nzbget.conf
 
 	keepdir /var/log/nzbget
 
