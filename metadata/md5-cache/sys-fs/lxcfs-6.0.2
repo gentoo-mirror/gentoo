@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig || ( ( dev-lang/python:3.13 dev-python/jinja[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/jinja[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/jinja[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/jinja[python_targets_python3_10(-)] ) ) doc? ( sys-apps/help2man ) verify-sig? ( sec-keys/openpgp-keys-linuxcontainers ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=sys-fs/fuse:3
+DESCRIPTION=FUSE filesystem for LXC
+EAPI=8
+HOMEPAGE=https://linuxcontainers.org/lxcfs/introduction/ https://github.com/lxc/lxcfs/
+INHERIT=cmake meson python-any-r1 systemd verify-sig
+IUSE=doc test verify-sig
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=Apache-2.0 LGPL-2+
+RDEPEND=sys-fs/fuse:3
+RESTRICT=test
+SLOT=0
+SRC_URI=https://linuxcontainers.org/downloads/lxcfs/lxcfs-6.0.2.tar.gz verify-sig? ( https://linuxcontainers.org/downloads/lxcfs/lxcfs-6.0.2.tar.gz.asc )
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	systemd	0f241b5c9f3758c3d3423df59a7f655a	verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=555ddb3a51bdbe7a7deb54ae322faf06
