@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://nzbget.com/
 INHERIT=cmake systemd
 IUSE=gnutls ncurses +parcheck ssl test zlib
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/boost:= dev-libs/libxml2:= ncurses? ( sys-libs/ncurses:0= ) ssl? ( gnutls? ( net-libs/gnutls:= dev-libs/nettle:= ) !gnutls? ( dev-libs/openssl:0=[-bindist(-)] ) ) zlib? ( sys-libs/zlib:= ) acct-user/nzbget acct-group/nzbget
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/nzbgetcom/nzbget/archive/v24.2.tar.gz -> nzbget-24.2.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	systemd	0f241b5c9f3758c3d3423df59a7f655a
-_md5_=831719594a0cb5e7c23c26ae2610648a
+_md5_=15738d7cc4ade7807dbce5d3d714b1cc

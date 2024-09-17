@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/bpftrace/bpftrace
 INHERIT=llvm linux-info cmake
 IUSE=lldb test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=>=dev-libs/libbpf-1.1:= >=dev-util/bcc-0.25.0:= lldb? ( >=dev-debug/lldb-15 ) >=sys-devel/llvm-15[llvm_targets_BPF(+)] >=sys-devel/clang-15 <sys-devel/clang-19:= <sys-devel/llvm-19:=[llvm_targets_BPF(+)] sys-process/procps sys-libs/binutils-libs:= virtual/libelf:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/bpftrace/bpftrace/archive/v0.21.2.tar.gz -> bpftrace-0.21.2.gh.tar.gz https://github.com/bpftrace/bpftrace/releases/download/v0.21.2/man.tar.xz -> bpftrace-0.21.2-man.gh.tar.xz
 _eclasses_=llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	2a7c6c7a9370cedd74e77a53c4a5d655	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=afa9ef343c98e73468b76ffcd6c85867
+_md5_=a4f2e1a072f75939fa6026d3ec9bf330
