@@ -6,9 +6,8 @@ EAPI=8
 RESTRICT="test" # fails with sandbox
 
 CRATES="
-	addr2line@0.22.0
+	addr2line@0.24.1
 	adler2@2.0.0
-	adler@1.0.2
 	ahash@0.8.11
 	aho-corasick@1.1.3
 	android-tzdata@0.1.1
@@ -19,17 +18,17 @@ CRATES="
 	anstyle-query@1.1.1
 	anstyle-wincon@3.0.4
 	anstyle@1.0.8
-	anyhow@1.0.86
+	anyhow@1.0.89
 	argv@0.1.11
 	arrayvec@0.7.6
 	autocfg@1.3.0
-	backtrace@0.3.73
+	backtrace@0.3.74
 	bitflags@1.3.2
 	bitflags@2.6.0
 	bumpalo@3.16.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.1.15
+	cc@1.1.20
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
@@ -37,8 +36,8 @@ CRATES="
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.16
-	clap_builder@4.5.15
+	clap@4.5.17
+	clap_builder@4.5.17
 	clap_derive@4.5.13
 	clap_lex@0.7.2
 	colorchoice@1.0.2
@@ -76,8 +75,8 @@ CRATES="
 	futures@0.3.30
 	getargs@0.5.0
 	getrandom@0.2.15
-	getset@0.1.2
-	gimli@0.29.0
+	getset@0.1.3
+	gimli@0.31.0
 	goblin@0.8.2
 	gperftools@0.2.0
 	half@2.4.1
@@ -90,7 +89,7 @@ CRATES="
 	hex@0.4.3
 	home@0.5.9
 	iana-time-zone-haiku@0.1.2
-	iana-time-zone@0.1.60
+	iana-time-zone@0.1.61
 	ident_case@1.0.1
 	indexmap@1.9.3
 	indexmap@2.5.0
@@ -104,10 +103,10 @@ CRATES="
 	lazy_static@1.5.0
 	lexis@0.2.3
 	libc@0.2.158
-	libcgroups@0.4.0
-	libcontainer@0.4.0
+	libcgroups@0.4.1
+	libcontainer@0.4.1
 	libloading@0.8.5
-	liboci-cli@0.4.0
+	liboci-cli@0.4.1
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
@@ -119,7 +118,6 @@ CRATES="
 	memoffset@0.9.1
 	mimalloc2-rust-sys@2.1.7-source
 	mimalloc2-rust@0.3.2
-	miniz_oxide@0.7.4
 	miniz_oxide@0.8.0
 	nc@0.9.3
 	nix@0.28.0
@@ -142,8 +140,8 @@ CRATES="
 	pkg-config@0.3.30
 	plain@0.2.3
 	prctl@1.0.0
-	proc-macro-error-attr@1.0.4
-	proc-macro-error@1.0.4
+	proc-macro-error-attr2@2.0.0
+	proc-macro-error2@2.0.1
 	proc-macro2@1.0.86
 	procfs-core@0.16.0
 	procfs@0.16.0
@@ -151,9 +149,9 @@ CRATES="
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
-	quick_cache@0.6.5
+	quick_cache@0.6.9
 	quote@1.0.37
-	redox_syscall@0.5.3
+	redox_syscall@0.5.4
 	redox_users@0.4.6
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
@@ -169,7 +167,7 @@ CRATES="
 	rust-criu@0.4.0
 	rustc-demangle@0.1.24
 	rustc-hash@2.0.0
-	rustix@0.38.35
+	rustix@0.38.37
 	rustversion@1.0.17
 	ryu@1.0.18
 	safe-path@0.1.0
@@ -177,11 +175,10 @@ CRATES="
 	scopeguard@1.2.0
 	scroll@0.12.0
 	scroll_derive@0.12.0
-	secure-string@0.3.0
 	sendfd@0.4.3
-	serde@1.0.209
-	serde_derive@1.0.209
-	serde_json@1.0.127
+	serde@1.0.210
+	serde_derive@1.0.210
+	serde_json@1.0.128
 	sharded-slab@0.1.7
 	shellexpand@3.1.0
 	shlex@1.3.0
@@ -190,7 +187,6 @@ CRATES="
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
-	syn@1.0.109
 	syn@2.0.77
 	tabwriter@1.4.0
 	tcmalloc@0.3.0
@@ -205,7 +201,7 @@ CRATES="
 	tracing-log@0.2.0
 	tracing-subscriber@0.3.18
 	tracing@0.1.40
-	unicode-ident@1.0.12
+	unicode-ident@1.0.13
 	unicode-width@0.1.13
 	utf8parse@0.2.2
 	valuable@0.1.0
@@ -245,7 +241,6 @@ CRATES="
 	windows_x86_64_msvc@0.52.6
 	zerocopy-derive@0.7.35
 	zerocopy@0.7.35
-	zeroize@1.8.1
 "
 
 inherit cargo
