@@ -4033,7 +4033,7 @@ dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-debug/pwndbg 20240214 20240829 99999999: A GDB plug-in that makes debugging with GDB suck less
 dev-debug/scap-driver 0.17.2 0.17.3 0.29.3-r4 0.29.3-r5 0.29.3-r6: Kernel module for dev-debug/sysdig
-dev-debug/strace 6.6 6.7 6.8 6.9 6.10 9999: Useful diagnostic, instructional, and debugging tool
+dev-debug/strace 6.6 6.7 6.8 6.9 6.10 6.11 9999: Useful diagnostic, instructional, and debugging tool
 dev-debug/sysdig 0.29.3-r1 0.29.3-r2 0.38.1 0.38.1-r1: A system exploration and troubleshooting tool
 dev-debug/systemtap 4.8 5.0-r1 5.1 5.1-r1 9999: Linux trace/probe tool
 dev-debug/valgrind 3.21.0-r2 3.22.0-r2 3.23.0_p2 3.23.0_p3 9999: An open-source memory debugger for GNU/Linux
@@ -13252,7 +13252,7 @@ media-libs/libpagemaker 0.0.4-r1 9999: C++ Library that parses the file format o
 media-libs/libpano13 2.9.22: Helmut Dersch's panorama toolbox library
 media-libs/libpgf 7.21.7-r2: Library to load, handle and manipulate images in the PGF format
 media-libs/libplacebo 7.349.0 9999: Reusable library for GPU-accelerated image processing primitives
-media-libs/libpng 1.6.40-r1 1.6.42 1.6.43: Portable Network Graphics library
+media-libs/libpng 1.6.40-r1 1.6.42 1.6.43 1.6.44: Portable Network Graphics library
 media-libs/libpng-compat 1.2.59-r1 1.5.30-r1: Portable Network Graphics library
 media-libs/libpqstego 0.0.1-r1: Library for Perturbed Quantization Steganography
 media-libs/libprojectm 3.1.12-r2 4.1.1-r1 9999: A graphical music visualization plugin similar to milkdrop
@@ -16520,6 +16520,7 @@ sec-keys/openpgp-keys-signify 20211219: OpenPGP keys used to sign signify's sign
 sec-keys/openpgp-keys-spamassassin 20221226: OpenPGP keys used by spamassassin.apache.org
 sec-keys/openpgp-keys-squid 20240206: OpenPGP key used to sign squid releases
 sec-keys/openpgp-keys-stellarium 20221229: OpenPGP keys used to sign Stellarium releases
+sec-keys/openpgp-keys-strace 20151021: OpenPGP keys used by the strace project
 sec-keys/openpgp-keys-sudo 20220321: OpenPGP keys used by the sudo project
 sec-keys/openpgp-keys-sysvinit 20220413: OpenPGP keys used by the sysvinit project
 sec-keys/openpgp-keys-tar 20220406: OpenPGP keys used by GNU tar
@@ -17076,7 +17077,7 @@ sys-apps/systemctl-tui 0.3.4: A simple TUI for interacting with systemd services
 sys-apps/systemd 254.13 254.16 254.17 255.7-r1 255.10 255.11 256.1-r3 256.2 256.4 256.5 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-utils 254.13 254.16 254.17 255.10 255.11: Utilities split out from systemd for OpenRC users
-sys-apps/sysvinit 3.08 3.09: /sbin/init - parent of all processes
+sys-apps/sysvinit 3.08 3.09 3.10: /sbin/init - parent of all processes
 sys-apps/tas 1.8.0.231207: Supermicro Thin-Agent Service for monitoring through the BMC/IPMI
 sys-apps/tcp-wrappers 7.6.31 7.6.31-r1: TCP Wrappers
 sys-apps/texinfo 7.1-r1 7.1.1 9999: The GNU info program and utilities
@@ -17433,7 +17434,7 @@ sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration file
 sys-fs/cramfs 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 0.11.4: Encrypted FUSE filesystem that conceals metadata
 sys-fs/cryptmount 6.2.0 6.3.0: A utility for management and user-mode mounting of encrypted filesystems
-sys-fs/cryptsetup 2.6.1 2.7.2 2.7.3 2.7.4: Tool to setup encrypted devices with dm-crypt
+sys-fs/cryptsetup 2.6.1 2.7.2 2.7.3 2.7.4 2.7.5: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
 sys-fs/dd-rescue 1.99.13-r1: Similar to dd but can copy from source with errors

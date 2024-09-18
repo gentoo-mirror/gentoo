@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-strace-20151021 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare test unpack
 DEPEND=static? ( unwind? ( sys-libs/libunwind[static-libs(+)] ) elfutils? ( dev-libs/elfutils[static-libs(+)] ) selinux? ( sys-libs/libselinux[static-libs(+)] ) ) aio? ( >=dev-libs/libaio-0.3.106 ) sys-kernel/linux-headers
 DESCRIPTION=Useful diagnostic, instructional, and debugging tool
 EAPI=8
 HOMEPAGE=https://strace.io/
-INHERIT=autotools edo flag-o-matic toolchain-funcs git-r3
-IUSE=aio perl selinux static test unwind elfutils
+INHERIT=autotools edo flag-o-matic toolchain-funcs verify-sig git-r3
+IUSE=aio perl selinux static test unwind elfutils verify-sig
 LICENSE=LGPL-2.1+ test? ( GPL-2+ )
 PROPERTIES=live
 RDEPEND=!static? ( unwind? ( sys-libs/libunwind ) elfutils? ( dev-libs/elfutils ) selinux? ( sys-libs/libselinux ) ) perl? ( dev-lang/perl )
 REQUIRED_USE=?? ( unwind elfutils )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	edo	367e103a74bf77e6a8da7894d999fa3c	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=629048c669cc1d41870a186321c81824
+_eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	edo	367e103a74bf77e6a8da7894d999fa3c	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	verify-sig	a79ba011daaf532d71a219182474d150	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=13ea3296be4f6b086de904070286fca5
