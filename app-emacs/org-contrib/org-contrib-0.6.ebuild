@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,10 +6,11 @@ EAPI=8
 inherit elisp
 
 DESCRIPTION="Contributed packages to Org"
-HOMEPAGE="https://www.orgmode.org/"
+HOMEPAGE="https://orgmode.org/"
 
 if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://git.sr.ht/~bzg/${PN}"
 else
 	SRC_URI="https://git.sr.ht/~bzg/${PN}/archive/release_${PV}.tar.gz
@@ -22,7 +23,9 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-RDEPEND=">=app-emacs/org-mode-9.5"
+RDEPEND="
+	>=app-emacs/org-mode-9.5
+"
 
 DOCS=( ../README.org )
 SITEFILE="50${PN}-gentoo.el"
