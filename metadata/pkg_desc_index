@@ -2065,12 +2065,12 @@ app-emacs/highline 7.2.2: Minor mode to highlight current line in buffer
 app-emacs/hl-todo 3.8.0 3.8.1: Highlight TODO and similar keywords in comments and strings
 app-emacs/howm 1.5.0: Note-taking tool on Emacs
 app-emacs/ht 2.3: The missing hash table library for Emacs
-app-emacs/htmlize 1.56: HTML-ize font-lock buffers in Emacs
+app-emacs/htmlize 1.56 1.58: HTML-ize font-lock buffers in Emacs
 app-emacs/httpd 1.1: A HTTP server embedded in the Emacs
 app-emacs/hydra 0.15.0: Make Emacs bindings that stick around
 app-emacs/icicles 2018.02.13.23733 2018.10.15.23738: Minibuffer input completion and cycling
 app-emacs/igrep 2.113: An improved interface to "grep" and "find"
-app-emacs/indent-bars 0.2-r1: Fast, configurable indentation guide-bars for Emacs
+app-emacs/indent-bars 0.2-r1 0.7.4: Fast, configurable indentation guide-bars for Emacs
 app-emacs/inf-clojure 3.2.1: Major mode for Clojure code
 app-emacs/inform-mode 1.6.2: A major mode for editing Inform programs
 app-emacs/initsplit 1.8_pre20160919: Split customizations into different files
@@ -2144,7 +2144,7 @@ app-emacs/oauth2 0.16 0.17: OAuth 2.0 authorization protocol
 app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 1.1 1.2: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
-app-emacs/org-contrib 0.4.1 0.4.2 0.5: Contributed packages to Org
+app-emacs/org-contrib 0.5 0.6: Contributed packages to Org
 app-emacs/org-mode 9.7.9 9.7.10 9.7.11 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.5 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r1 2.2.2-r2 9999: Rudimentary Roam replica with Org-mode
@@ -5192,7 +5192,7 @@ dev-lang/perl 5.38.2-r3 5.38.2-r5 5.38.2-r6 5.40.0: Larry Wall's Practical Extra
 dev-lang/php 8.1.29 8.2.20 8.2.22 8.3.10: The PHP language runtime engine
 dev-lang/pico8 0.2.6b: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
-dev-lang/python 2.7.18_p16-r2 3.8.19_p2 3.8.19_p3 3.8.19_p4 3.8.20 3.9.19_p3 3.9.19_p4 3.9.19_p5 3.9.20 3.10.14_p1-r1 3.10.14_p2 3.10.14_p3 3.10.14_p3-r1 3.10.15 3.11.9-r1 3.11.9_p1 3.11.9_p2 3.11.9_p2-r1 3.11.10 3.12.3-r1 3.12.4_p3 3.12.5 3.12.5_p1 3.12.5_p1-r1 3.12.6 3.13.0_rc1_p2 3.13.0_rc1_p3 3.13.0_rc1_p3-r1 3.13.0_rc2 3.13.0_rc2_p1: An interpreted, interactive, object-oriented programming language
+dev-lang/python 2.7.18_p16-r2 3.8.19_p2 3.8.19_p3 3.8.19_p4 3.8.20 3.9.19_p3 3.9.19_p4 3.9.19_p5 3.9.20 3.10.14_p1-r1 3.10.14_p2 3.10.14_p3 3.10.14_p3-r1 3.10.15 3.10.15_p1 3.11.9-r1 3.11.9_p1 3.11.9_p2 3.11.9_p2-r1 3.11.10 3.11.10_p1 3.12.3-r1 3.12.4_p3 3.12.5 3.12.5_p1 3.12.5_p1-r1 3.12.6 3.12.6_p2 3.13.0_rc1_p2 3.13.0_rc1_p3 3.13.0_rc1_p3-r1 3.13.0_rc2 3.13.0_rc2_p1: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.2: Qore, the embeddable multithreaded scripting language
@@ -11355,7 +11355,7 @@ games-emulation/pcsx2_patches 0_p20240610 0_p20240714 9999: Collection of game p
 games-emulation/ppsspp 1.17.1-r1: A PSP emulator written in C++
 games-emulation/prosystem-jg 1.5.2 9999: Jolly Good Fork of ProSystem
 games-emulation/rmg 0.6.5 9999: Rosalie's Mupen GUI
-games-emulation/ryujinx 1.1.1221-r1: Experimental Nintendo Switch Emulator written in C#
+games-emulation/ryujinx 1.1.1221-r1 1.1.1388: Experimental Nintendo Switch Emulator written in C#
 games-emulation/sameboy-jg 0.16.2-r1 0.16.5 9999: Jolly Good Port of SameBoy
 games-emulation/snes9x 1.62.3: Super Nintendo Entertainment System (SNES) emulator
 games-emulation/stella 6.7.1: Multi-platform Atari 2600 VCS Emulator
@@ -17550,8 +17550,8 @@ sys-kernel/dkms 3.0.13-r1: Dynamic Kernel Module Support
 sys-kernel/dracut 059-r7 060_pre20231030-r2 060_pre20240104-r4 101 102 103-r2 103-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.10.6 6.10.7 6.10.8-r1 6.10.9 6.10.10: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.10.6 6.10.7 6.10.8-r1 6.10.9 6.10.10: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.10.6 6.10.7 6.10.8-r1 6.10.9 6.10.10 6.10.11: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.10.6 6.10.7 6.10.8-r1 6.10.9 6.10.10 6.10.11: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.1.111 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.6.52 6.10.6 6.10.7 6.10.8 6.10.9 6.10.10 6.10.11 6.11.0: Full sources including the Gentoo patchset for the 6.11 kernel tree
 sys-kernel/git-sources 6.11_rc1 6.11_rc2 6.11_rc3 6.11_rc4 6.11_rc5 6.11_rc6 6.11_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 48-r1: Gentoo fork of installkernel script from debianutils
@@ -17568,7 +17568,7 @@ sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p2020120
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405 6.6.31_p20240529 6.6.47_p20240902: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.317_p137 5.4.278_p91 5.10.223_p115 5.15.163_p78 6.0.5_p14 6.1.107_p39 6.5.2_p8 6.6.48_p40: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/ugrd 1.13.0 1.17.0 1.20.0 9999: Python based initramfs generator with TOML defintions
-sys-kernel/vanilla-kernel 5.10.224 5.10.225 5.10.226 5.10.9999 5.15.165 5.15.166 5.15.167 5.15.9999 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.6.9999 6.10.6 6.10.7 6.10.8 6.10.9 6.10.10: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.224 5.10.225 5.10.226 5.10.9999 5.15.165 5.15.166 5.15.167 5.15.9999 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.6.9999 6.10.6 6.10.7 6.10.8 6.10.9 6.10.10 6.10.11: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.322 5.4.284 5.10.226 5.15.167 6.1.111 6.6.52 6.10.11 6.11.0: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.10.8: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17757,7 +17757,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.10.6 6.10.7 6.10.8-r1 6.10.9 6.10.10: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.107 6.1.108 6.1.109 6.1.110 6.6.47 6.6.48 6.6.49 6.6.50 6.6.51 6.10.6 6.10.7 6.10.8-r1 6.10.9 6.10.10 6.10.11: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
