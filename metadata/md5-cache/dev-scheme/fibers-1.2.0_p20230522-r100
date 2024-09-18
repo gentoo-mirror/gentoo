@@ -1,16 +1,16 @@
-BDEPEND=dev-util/gperf virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
-DESCRIPTION=Simple framework for building readers for GNU Guile
+DESCRIPTION=Lightweight concurrency facility for Guile Scheme
 EAPI=8
-HOMEPAGE=https://www.nongnu.org/guile-reader/
-INHERIT=guile autotools
+HOMEPAGE=https://github.com/wingo/fibers/ https://github.com/wingo/fibers/wiki/Manual/
+INHERIT=autotools guile
 IUSE=guile_targets_2-2 guile_targets_3-0
 KEYWORDS=~amd64 ~x86
-LICENSE=GPL-3+
+LICENSE=LGPL-3+
 RDEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
 REQUIRED_USE=|| ( guile_targets_2-2 guile_targets_3-0 )
 SLOT=0
-SRC_URI=mirror://nongnu/guile-reader/guile-reader-0.6.3.tar.gz
+SRC_URI=https://github.com/wingo/fibers/archive/83712f630a976e3084329c9917c40bde19fcc7e5.tar.gz -> fibers-1.2.0_p20230522.tar.gz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	guile-utils	1818ab79f42a7929094eca2efd03e4ae	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	guile	9d3de4881dd316f121e837fd78741f11
-_md5_=a028ad94ec4df6b5cdfab62dbc6a48e8
+_md5_=d2bc527738432c57c74baa7b37e1295e

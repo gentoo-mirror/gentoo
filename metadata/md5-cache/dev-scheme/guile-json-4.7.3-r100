@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
+DESCRIPTION=JSON module for Guile
+EAPI=8
+HOMEPAGE=https://savannah.nongnu.org/projects/guile-json/
+INHERIT=guile
+IUSE=guile_targets_2-2 guile_targets_3-0
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
+REQUIRED_USE=|| ( guile_targets_2-2 guile_targets_3-0 )
+SLOT=0
+SRC_URI=http://download.savannah.nongnu.org/releases/guile-json/guile-json-4.7.3.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	guile-utils	1818ab79f42a7929094eca2efd03e4ae	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	guile	9d3de4881dd316f121e837fd78741f11
+_md5_=add465b771db650332c0d4d492aa226e

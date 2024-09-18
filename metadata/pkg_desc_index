@@ -2957,7 +2957,7 @@ app-office/dia2code 1.0.0-r1: Convert UML diagrams produced with Dia to various 
 app-office/drawio-desktop-bin 24.4.0 24.7.8: draw.io diagramming and whiteboarding desktop app
 app-office/endeavour 43.0-r1 9999: Personal task manager
 app-office/glabels 3.4.1-r1: Program for creating labels and business cards
-app-office/gnucash 4.13 5.1 5.3 5.4-r1 5.5 5.6 5.8: A personal finance manager
+app-office/gnucash 4.13 5.1 5.3 5.4-r1 5.5 5.6 5.8 5.8-r100: A personal finance manager
 app-office/gnumeric 1.12.57: The GNOME Spreadsheet
 app-office/grisbi 2.0.5 3.0.3 3.0.4: Grisbi is a personal accounting application for Linux
 app-office/gtg 0.6-r1: Personal organizer for the GNOME desktop environment
@@ -3084,7 +3084,7 @@ app-shells/esh 0.8.5-r3: A UNIX Shell with a simplified Scheme syntax
 app-shells/fish 3.4.0 3.6.1 3.7.1 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r1: F# Shell with integrated F# scripting
 app-shells/fzf 0.53.0 0.54.3 0.55.0: General-purpose command-line fuzzy finder, written in Golang
-app-shells/gash 0.3.0: POSIX-compatible shell written in Guile Scheme
+app-shells/gash 0.3.0 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
 app-shells/gentoo-bashcomp 20240625: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20220112 20230117 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
 app-shells/heirloom-sh 050706-r1: Heirloom Bourne Shell, derived from OpenSolaris code SVR4/SVID3
@@ -3819,7 +3819,7 @@ dev-build/netsurf-buildsystem 1.10: Build system used for netsurf and its librar
 dev-build/ninja 1.11.1-r5 1.12.1 9999: A small build system similar to make
 dev-build/pmake 1.111.3.3-r1: BSD build tool to create programs in parallel. Debian's version of NetBSD's make
 dev-build/qconf 2.5: ./configure like generator for qmake-based projects
-dev-build/remake 4.3.1.1.5 4.3.1.1.6: Patched version of GNU Make with improved error reporting, tracing and debugging
+dev-build/remake 4.3.1.1.5 4.3.1.1.6 4.3.1.1.6-r100: Patched version of GNU Make with improved error reporting, tracing and debugging
 dev-build/rocm-cmake 6.1.2: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
 dev-build/scons 4.7.0 4.8.0 4.8.1: Extensible Python-based build utility
@@ -4023,7 +4023,7 @@ dev-debug/drgn 0.0.27-r1: Programmable debugger
 dev-debug/dtrace 2.0.1.1-r2 9999: Dynamic BPF-based system-wide tracing tool
 dev-debug/duma 2.5.15-r3: DUMA (Detect Unintended Memory Access) is a memory debugging library
 dev-debug/edb-debugger 1.3.0-r1 9999: edb is a cross platform x86/x86-64 debugger, inspired by Ollydbg
-dev-debug/gdb 14.2 14.2-r1 15.1 9999: GNU debugger
+dev-debug/gdb 14.2 14.2-r1 15.1 15.1-r100 9999: GNU debugger
 dev-debug/gef 2023.08 2024.01 2024.06 9999: GDB Enhanced Features for exploit devs & reversers
 dev-debug/gprofng-gui 1.1 9999: Full-fledged graphical interface to operate gprofng
 dev-debug/kdbg 3.1.0: Graphical debugger interface
@@ -10405,9 +10405,9 @@ dev-ruby/yajl-ruby 1.4.3: Ruby C bindings to the Yajl JSON stream-based parser l
 dev-ruby/yard 0.9.36 0.9.37: Documentation generation tool for the Ruby programming language
 dev-ruby/zeitwerk 2.6.8 2.6.15 2.6.16 2.6.17 2.6.18: Efficient and thread-safe code loader for Ruby
 dev-ruby/zentest 4.12.1 4.12.2: Testing tools: zentest, unit_diff, autotest, multiruby, and Test::Rails
-dev-scheme/akku 1.1.0: Language package manager for Scheme
+dev-scheme/akku 1.1.0 1.1.0-r100: Language package manager for Scheme
 dev-scheme/bigloo 4.5b-r1: Practical Scheme Compiler with many extensions
-dev-scheme/bytestructures 2.0.1 2.0.2: Structured access to bytevector contents
+dev-scheme/bytestructures 2.0.1 2.0.2 2.0.2-r100: Structured access to bytevector contents
 dev-scheme/c-wrapper 0.6.1-r2: Foreign function interface for C and Objective-C libraries
 dev-scheme/chez 10.0.0: A programming language based on R6RS
 dev-scheme/chez-minikanren 2018.04.11: Canonical miniKanren implementation (on Chez Scheme)
@@ -10416,7 +10416,7 @@ dev-scheme/chicken 5.3.0 5.4.0: Scheme interpreter and native Scheme to C compil
 dev-scheme/cyclone 0.35.0 0.36.0 9999: R7RS Scheme to C compiler
 dev-scheme/elk 3.99.8-r1 3.99.8-r2: Scheme implementation designed to be embeddable extension to C/C++ applications
 dev-scheme/escm 1.1-r1: escm - Embedded Scheme Processor
-dev-scheme/fibers 1.2.0_p20230522: Lightweight concurrency facility for Guile Scheme
+dev-scheme/fibers 1.2.0_p20230522 1.2.0_p20230522-r100: Lightweight concurrency facility for Guile Scheme
 dev-scheme/gambit 4.9.4-r1 4.9.5: Gambit-C is a native Scheme to C compiler and interpreter
 dev-scheme/gauche 0.9.15: A Unix system friendly Scheme Interpreter
 dev-scheme/gauche-cdb 0.3.1-r1: CDB binding for Gauche
@@ -10425,30 +10425,30 @@ dev-scheme/gauche-gtk 0.6 0.6.1: GTK2 binding for Gauche
 dev-scheme/gauche-kakasi 0.1-r1: Kakasi binding for Gauche
 dev-scheme/gauche-mecab 1.0.2-r1: MeCab binding for Gauche
 dev-scheme/gauche-qdbm 0.2-r1: QDBM binding for Gauche
-dev-scheme/goosh 1.3-r2: Small process-control library for Guile
+dev-scheme/goosh 1.3-r2 1.3-r100: Small process-control library for Guile
 dev-scheme/guile 1.8.8-r4 2.2.7-r1 2.2.7-r2 2.2.7-r100 3.0.9 3.0.10 3.0.10-r100: GNU Ubiquitous Intelligent Language for Extensions
-dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
+dev-scheme/guile-colorized 0.1_p20191205 0.1_p20191205-r100 9999: Colorized REPL for GNU Guile
 dev-scheme/guile-commonmark 0.1.2_pre20240803: Implementation of CommonMark for Guile
-dev-scheme/guile-config 0.5.1: Guile application configuration parsing library
-dev-scheme/guile-dbd-postgresql 2.1.8: Guile DBI driver for PostgreSQL
-dev-scheme/guile-dbd-sqlite3 2.1.8: Guile DBI driver for SQLite
-dev-scheme/guile-dbi 2.1.8: An SQL database interface for Guile
-dev-scheme/guile-gcrypt 0.4.0-r1: Guile bindings of libgcrypt
-dev-scheme/guile-gi 0.3.2-r2 9999: Bindings for GObject Introspection and libgirepository for Guile
-dev-scheme/guile-git 0.6.0-r1 0.7.0: Guile bindings of git
-dev-scheme/guile-gnutls 4.0.0-r1: Guile-GnuTLS provides Guile bindings for the GnuTLS library
-dev-scheme/guile-hall 0.4.1: Guile tooling to create and publish projects
-dev-scheme/guile-json 4.7.3: JSON module for Guile
-dev-scheme/guile-lib 0.2.7: An accumulation place for pure-scheme Guile modules
-dev-scheme/guile-libyaml 20211124: Simple yaml module for Guile using the ffi-helper from nyacc
-dev-scheme/guile-lzlib 0.0.2-r2: GNU Guile library providing bindings to lzlib
-dev-scheme/guile-ncurses 3.1: Guile FFI to ncurses library for text-based console UI
-dev-scheme/guile-nyacc 1.06.7: Guile modules for generating parsers and lexical analyzers
+dev-scheme/guile-config 0.5.1 0.5.1-r100: Guile application configuration parsing library
+dev-scheme/guile-dbd-postgresql 2.1.8 2.1.9: Guile DBI driver for PostgreSQL
+dev-scheme/guile-dbd-sqlite3 2.1.8 2.1.9: Guile DBI driver for SQLite
+dev-scheme/guile-dbi 2.1.8 2.1.9: An SQL database interface for Guile
+dev-scheme/guile-gcrypt 0.4.0-r1 0.4.0-r100: Guile bindings of libgcrypt
+dev-scheme/guile-gi 0.3.2-r2 0.3.2-r100 9999: Bindings for GObject Introspection and libgirepository for Guile
+dev-scheme/guile-git 0.6.0-r1 0.7.0 0.7.0-r100: Guile bindings of git
+dev-scheme/guile-gnutls 4.0.0-r1 4.0.0-r100: Guile-GnuTLS provides Guile bindings for the GnuTLS library
+dev-scheme/guile-hall 0.4.1 0.4.1-r100: Guile tooling to create and publish projects
+dev-scheme/guile-json 4.7.3 4.7.3-r100: JSON module for Guile
+dev-scheme/guile-lib 0.2.7 0.2.7-r100: An accumulation place for pure-scheme Guile modules
+dev-scheme/guile-libyaml 20211124 20211124-r100: Simple yaml module for Guile using the ffi-helper from nyacc
+dev-scheme/guile-lzlib 0.0.2-r2 0.0.2-r100: GNU Guile library providing bindings to lzlib
+dev-scheme/guile-ncurses 3.1 3.1-r100: Guile FFI to ncurses library for text-based console UI
+dev-scheme/guile-nyacc 1.06.7 1.06.7-r100: Guile modules for generating parsers and lexical analyzers
 dev-scheme/guile-reader 0.6.3-r2 0.6.3-r100: Simple framework for building readers for GNU Guile
-dev-scheme/guile-sqlite3 0.1.3: Guile bindings of sqlite3
-dev-scheme/guile-ssh 0.16.4-r1: Library providing access to the SSH protocol for GNU Guile
-dev-scheme/guile-zlib 0.1.0-r3: GNU Guile library providing bindings to zlib
-dev-scheme/guile-zstd 0.1.1-r3: GNU Guile bindings to the zstd compression library
+dev-scheme/guile-sqlite3 0.1.3 0.1.3-r100: Guile bindings of sqlite3
+dev-scheme/guile-ssh 0.16.4-r1 0.16.4-r100: Library providing access to the SSH protocol for GNU Guile
+dev-scheme/guile-zlib 0.1.0-r3 0.1.0-r100: GNU Guile library providing bindings to zlib
+dev-scheme/guile-zstd 0.1.1-r3 0.1.1-r100: GNU Guile bindings to the zstd compression library
 dev-scheme/jscheme 7.2-r2: A Scheme dialect with a simple Java interface called Javadot notation
 dev-scheme/kawa 3.1.1-r3: Java-based Scheme system & Language Framework
 dev-scheme/mit-scheme 12.1-r1: Scheme interpreter, compiler, debugger and runtime library
@@ -10457,11 +10457,11 @@ dev-scheme/racket 8.13 8.14: General purpose, multi-paradigm Lisp-Scheme program
 dev-scheme/scm 5.5.6-r4: SCM is a Scheme implementation from the author of slib
 dev-scheme/scmxlate 20090410-r2: Scmxlate is a configuration tool for software packages written in Scheme
 dev-scheme/sigscheme 0.9.1: SigScheme is an R5RS Scheme interpreter for embedded use
-dev-scheme/skribilo 0.9.5 0.10.0: Document production tool written in Guile Scheme
+dev-scheme/skribilo 0.9.5 0.10.0 0.10.0-r100: Document production tool written in Guile Scheme
 dev-scheme/slib 3.2.5-r2 3.3.1-r100: Portable Scheme library for all standard Scheme implementations
 dev-scheme/stklos 2.00-r1: Fast and light Scheme implementation
 dev-scheme/tinyscheme 1.42: Lightweight scheme interpreter
-dev-scheme/xdgdirs 2.2: Displays names/values of XDG Basedir variables
+dev-scheme/xdgdirs 2.2 2.2-r100: Displays names/values of XDG Basedir variables
 dev-scheme/ypsilon 0.9.6_p3-r2: R6RS-compliant Scheme implementation for real-time applications
 dev-tcltk/blt 2.5.3-r3: Extension to Tk, adding new widgets, geometry managers, and misc commands
 dev-tcltk/bwidget 1.9.15 1.9.16: High-level widget set for Tcl/Tk
@@ -12866,7 +12866,7 @@ media-gfx/gphotofs 0.5-r1 0.5-r2: FUSE file system for interfacing with digital 
 media-gfx/gpicview 0.2.5-r3: A Simple and Fast Image Viewer for X
 media-gfx/graphicsmagick 1.3.42 1.3.43 1.3.43-r1 1.3.45-r1 9999: Collection of tools and libraries for many image formats
 media-gfx/graphite2 1.3.14_p20210810-r3: Library providing rendering capabilities for complex non-Roman writing systems
-media-gfx/graphviz 9.0.0 11.0.0 12.0.0: Open Source Graph Visualization Software
+media-gfx/graphviz 9.0.0 11.0.0 12.0.0 12.0.0-r100: Open Source Graph Visualization Software
 media-gfx/gscan2pdf 2.13.2 2.13.2-r1: Scan documents, perform OCR, produce PDFs and DjVus
 media-gfx/gthumb 3.12.6: Image viewer and browser for Gnome
 media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
@@ -13799,7 +13799,7 @@ media-sound/dcd 0.95: A simple command-line based CD Player
 media-sound/deadbeef 1.9.6-r1: DeaDBeeF is a modular audio player similar to foobar2000
 media-sound/deadbeef-mpris2-plugin 1.16: MPRISv2 plugin for the DeaDBeeF music player
 media-sound/declick 0.6.5-r1: Dynamic digital declicker for audio sample files
-media-sound/denemo 2.6.0-r2 2.6.0-r3: A music notation editor
+media-sound/denemo 2.6.0-r2 2.6.0-r3 2.6.0-r100: A music notation editor
 media-sound/denonavr-cli 3: A simple CLI for Denon AV receivers
 media-sound/din 58.1: a software musical instrument and audio synthesizer
 media-sound/dir2ogg 0.13-r2: Converts mp3, m4a, wma, and wav files to Ogg Vorbis format
@@ -13875,7 +13875,7 @@ media-sound/krecorder 24.05.2 24.08.1: Convergent audio recording application fo
 media-sound/lame 3.100-r3: LAME Ain't an MP3 Encoder
 media-sound/lash 0.5.4-r6: LASH Audio Session Handler
 media-sound/liblc3 1.0.3 1.0.4 1.0.4-r1 1.1.1 1.1.1-r1: LC3 is an efficient low latency audio codec
-media-sound/lilypond 2.24.3 2.24.4 9999: GNU Music Typesetter
+media-sound/lilypond 2.24.3 2.24.4 2.24.4-r100 9999: GNU Music Typesetter
 media-sound/lingot 1.1.1: Accurate, easy to use, and highly configurable musical instrument tuner
 media-sound/linux-show-player 0.6.3 0.6.4: A cue player designed for stage productions
 media-sound/linuxsampler 2.3.1 9999: Software audio sampler engine with professional grade features
@@ -14234,7 +14234,7 @@ media-video/xvattr 1.3-r3: X11 XVideo Querying/Setting Tool from Ogle project
 media-video/xvid4conf 1.12: GTK2-configuration dialog for xvid4
 media-video/yle-dl 20240806: Download media files from Yle Areena
 net-analyzer/2ping 4.5.1-r1: A bi-directional ping utility
-net-analyzer/alive 2.0.5-r1: Periodic ping program
+net-analyzer/alive 2.0.5-r1 2.0.5-r100: Periodic ping program
 net-analyzer/apinger 0.6.1: Alarm Pinger
 net-analyzer/argus 3.0.8.3-r2: network Audit Record Generation and Utilization System
 net-analyzer/argus-clients 3.0.8.4: Clients for net-analyzer/argus
@@ -14724,7 +14724,7 @@ net-irc/sic 1.2-r1: An extremely simple IRC client
 net-irc/soju 0.8.0 0.8.2: soju is a user-friendly IRC bouncer
 net-irc/telepathy-idle 0.2.2: Full-featured IRC connection manager for Telepathy
 net-irc/unrealircd 5.2.4-r1 6.0.4.2: An advanced Internet Relay Chat daemon
-net-irc/weechat 4.2.1 4.2.3 4.3.2-r1 4.3.4 4.3.6 4.4.1 4.4.2 9999: Portable and multi-interface IRC client
+net-irc/weechat 4.2.1 4.2.3 4.3.2-r1 4.3.4 4.3.4-r100 4.3.6 4.4.1 4.4.2 9999: Portable and multi-interface IRC client
 net-irc/znc 1.8.2-r2 1.9.0 1.9.1 9999: An advanced IRC Bouncer
 net-irc/znc-clientbuffer 1.0.48 1.0.48-r1: A ZNC module which provides client specific buffers
 net-irc/znc-igloo-push 20200520: A ZNC module which provides push notifications for Igloo client
@@ -14947,7 +14947,7 @@ net-mail/mailbox-count 0.0.6 0.0.8: Count mailboxes in a SQL database
 net-mail/mailfront 2.22-r1: Mail server network protocol front-ends
 net-mail/mailgraph 1.14-r3: A mail statistics RRDtool frontend for Postfix
 net-mail/mailshears 0.1.0: Mangle your mail garden
-net-mail/mailutils 3.17: A useful collection of mail servers, clients, and filters
+net-mail/mailutils 3.17 3.17-r100: A useful collection of mail servers, clients, and filters
 net-mail/mairix 0.24-r1: Indexes and searches Maildir/MH folders
 net-mail/mboxgrep 0.7.9-r3: Grep for mbox files
 net-mail/mess822 0.58-r3: Collection of utilities for parsing Internet mail messages
@@ -15839,7 +15839,7 @@ sci-electronics/espresso-ab 1.0-r3: POSIX compliant version of the espresso logi
 sci-electronics/fasthenry 3.0.20.07.17: Three dimensional inductance computation program, Whiteley Research version
 sci-electronics/fritzing 0.9.4-r3 0.9.6: Electronic Design Automation
 sci-electronics/gazebo 11.13.0 11.14.0: A 3D multiple robot simulator with dynamics
-sci-electronics/geda 1.10.2-r2: GPL Electronic Design Automation (gEDA):gaf core package
+sci-electronics/geda 1.10.2-r2 1.10.2-r100: GPL Electronic Design Automation (gEDA):gaf core package
 sci-electronics/geda-suite 20171223-r2: Metapackage for all components for a full-featured gEDA/gaf system
 sci-electronics/gerbv 2.7.0: A RS-274X (Gerber) and NC drill (Excellon) file viewer
 sci-electronics/ghdl 4.1.0 4.1.0-r1: Open-source analyzer, compiler, and simulator for VHDL 2008/93/87
@@ -15849,7 +15849,7 @@ sci-electronics/gsmc 1.1-r2 1.1-r3: A GTK program for doing Smith Chart calculat
 sci-electronics/gspeakers 0.11-r2: GTK based loudspeaker enclosure and crossovernetwork designer
 sci-electronics/gspiceui 1.2.87 1.3.30_pre20240321: GUI frontend for Ngspice and Gnucap
 sci-electronics/gtkwave 3.3.106 3.3.111: A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files
-sci-electronics/gwave 20190116: Analog waveform viewer for SPICE-like simulations
+sci-electronics/gwave 20190116 20190116-r100: Analog waveform viewer for SPICE-like simulations
 sci-electronics/irsim 9.7.93 9.7.93-r1: IRSIM is a "switch-level" simulator
 sci-electronics/iverilog 10.3 11.0 12.0 9999: A Verilog simulation and synthesis tool
 sci-electronics/kicad 7.0.10-r1 7.0.11-r1 8.0.3-r1 8.0.4 9999: Electronic Schematic and PCB design tools
@@ -16114,7 +16114,7 @@ sci-libs/libticonv 1.1.5-r1: Charset conversion library for TI calculators
 sci-libs/libtifiles2 1.1.7-r1: Library for TI calculator files
 sci-libs/libxc 5.1.7: A library of exchange-correlation functionals for use in DFT
 sci-libs/linbox 1.7.0-r1: C++ template library for integer and finite-field linear algebra
-sci-libs/linux-gpib 4.3.5 4.3.6-r3: Driver library for GPIB (IEEE 488.2) hardware
+sci-libs/linux-gpib 4.3.5 4.3.6-r3 4.3.6-r100: Driver library for GPIB (IEEE 488.2) hardware
 sci-libs/linux-gpib-modules 4.3.5-r3 4.3.6: Kernel modules for GPIB (IEEE 488.2) hardware
 sci-libs/lis 1.6.5-r1 2.1.3: Library of Iterative Solvers for Linear Systems
 sci-libs/lmfit 9.0-r1: library for Levenberg-Marquardt least-squares minimization and curve fitting
@@ -16137,7 +16137,7 @@ sci-libs/netcdf 4.9.2 4.9.2-r1: Scientific library and interface for array orien
 sci-libs/netcdf-cxx 4.2-r301 4.3.1 4.3.1-r1: C++ library for netCDF
 sci-libs/netcdf-fortran 4.5.4 4.5.4-r1 4.6.1: Scientific library and interface for array oriented data access
 sci-libs/nfft 3.5.2: library for nonequispaced discrete Fourier transformations
-sci-libs/nlopt 2.7.1-r1 2.7.1-r2: Non-linear optimization library
+sci-libs/nlopt 2.7.1-r1 2.7.1-r2 2.7.1-r100: Non-linear optimization library
 sci-libs/numkit 1.1.2-r1 1.2.3: Numerical first aid kit (with numpy/scipy)
 sci-libs/oc 2.0-r1: Network Data Access Protocol client C library
 sci-libs/octomap 1.9.8: An Efficient Probabilistic 3D Mapping Framework Based on Octrees
@@ -17336,7 +17336,7 @@ sys-cluster/vzctl 4.9.4-r1: OpenVZ ConTainers control utility
 sys-cluster/zetcd 0.0.4-r2: ZooKeeper personality for etcd
 sys-cluster/zookeeper-bin 3.8.4 3.9.2: A high-performance coordination service for distributed applications
 sys-cluster/zookeepercli 1.0.11: Simple, lightweight, dependable CLI for ZooKeeper
-sys-devel/autogen 5.18.16-r3 5.18.16-r4: Program and text file generation
+sys-devel/autogen 5.18.16-r3 5.18.16-r4 5.18.16-r100: Program and text file generation
 sys-devel/bc 1.07.1-r6: Handy console-based calculator utility
 sys-devel/bin86 0.16.21-r1 0.16.21-r2: Assembler and loader used to create kernel bootsector
 sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r9 2.41-r5 2.42-r1 2.42-r2 2.43 2.43-r1 2.43.9999 9999: Tools necessary to build programs
@@ -18026,7 +18026,7 @@ www-apps/xpra-html5 10.1 15: HTML5 client to connect to any xpra server
 www-apps/zeppelin-bin 0.10.1: Web-based interactive data analytics notebook launcher
 www-client/chromium 128.0.6613.113 128.0.6613.137 129.0.6668.58: Open-source version of Google Chrome web browser
 www-client/dillo 3.1.1 9999: Lean FLTK based web browser
-www-client/elinks 0.16.1.1-r2 0.16.1.1-r4 9999: Advanced and well-established text-mode web browser
+www-client/elinks 0.16.1.1-r2 0.16.1.1-r4 0.16.1.1-r100 9999: Advanced and well-established text-mode web browser
 www-client/epiphany 46.0 46.2: GNOME webbrowser based on Webkit
 www-client/falkon 24.05.2-r1 24.08.1: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
@@ -18538,7 +18538,7 @@ x11-misc/xautolock 2.2_p7: An automatic X screen-locker/screen-saver
 x11-misc/xautomation 1.09-r2: Control X from command line and find things on screen
 x11-misc/xbatt 1.3_rc1-r1: Notebook battery indicator for X
 x11-misc/xbattbar 1.4.9: Advanced Power Management battery status display for X
-x11-misc/xbindkeys 1.8.7-r2: Tool for launching commands on keystrokes
+x11-misc/xbindkeys 1.8.7-r2 1.8.7-r100: Tool for launching commands on keystrokes
 x11-misc/xbitmaps 1.1.3: X.Org bitmaps data
 x11-misc/xcalendar 4.0-r3: Simple interactive calendar program with a notebook capability
 x11-misc/xcalib 0.10: Tiny monitor calibration loader for X.org

@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/docbook-sgml-utils ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm prepare setup unpack
+DEPEND=sys-libs/readline:= tcl? ( dev-lang/tcl:0= ) guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) ) perl? ( dev-lang/perl:= ) php? ( dev-lang/php:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) firmware? ( sys-apps/fxload )
+DESCRIPTION=Driver library for GPIB (IEEE 488.2) hardware
+EAPI=8
+HOMEPAGE=https://linux-gpib.sourceforge.io/
+INHERIT=readme.gentoo-r1 autotools guile-single perl-functions python-single-r1 udev
+IUSE=pcmcia static guile perl php python tcl doc firmware guile_single_target_2-2 guile_single_target_3-0 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/readline:= tcl? ( dev-lang/tcl:0= ) guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) ) perl? ( dev-lang/perl:= ) php? ( dev-lang/php:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) firmware? ( sys-apps/fxload ) acct-group/gpib ~sci-libs/linux-gpib-modules-4.3.6
+REQUIRED_USE=guile? ( ^^ ( guile_single_target_2-2 guile_single_target_3-0 ) ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/linux-gpib/linux-gpib-4.3.6.tar.gz firmware? ( https://linux-gpib.sourceforge.io/firmware/gpib_firmware-2008-08-10.tar.gz )
+_eclasses_=readme.gentoo-r1	32b48460d813533d85f082897cec1b80	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	guile-utils	1818ab79f42a7929094eca2efd03e4ae	guile-single	3e66e76f70c51c2192a802547ce0e067	perl-functions	4deb7a19ff2e0a466d6f4c6c57099296	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	udev	3b4170e9c327a8ed17097484a016c0c8
+_md5_=326b524ca6d417b3b2fda8f9d498de31

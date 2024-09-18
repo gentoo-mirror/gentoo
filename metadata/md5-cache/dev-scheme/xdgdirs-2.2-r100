@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare setup test
+DEPEND=guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 )
+DESCRIPTION=Displays names/values of XDG Basedir variables
+EAPI=8
+HOMEPAGE=https://www.gnuvola.org/software/xdgdirs/
+INHERIT=guile-single
+IUSE=guile_single_target_2-2 guile_single_target_3-0
+KEYWORDS=~amd64 ~hppa ~x86
+LICENSE=GPL-3+ FDL-1.3
+RDEPEND=guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 )
+REQUIRED_USE=^^ ( guile_single_target_2-2 guile_single_target_3-0 )
+SLOT=0
+SRC_URI=https://www.gnuvola.org/software/xdgdirs/xdgdirs-2.2.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	guile-utils	1818ab79f42a7929094eca2efd03e4ae	guile-single	3e66e76f70c51c2192a802547ce0e067
+_md5_=830aa3a017c9af18989e593465aba11e

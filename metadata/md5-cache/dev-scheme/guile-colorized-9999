@@ -1,13 +1,15 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install prepare unpack
-DEPEND=>=dev-scheme/guile-2.0.9:=
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
 DESCRIPTION=Colorized REPL for GNU Guile
 EAPI=8
 HOMEPAGE=https://gitlab.com/NalaGinrut/guile-colorized/
-INHERIT=git-r3
+INHERIT=guile git-r3
+IUSE=guile_targets_2-2 guile_targets_3-0
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=>=dev-scheme/guile-2.0.9:=
+RDEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
+REQUIRED_USE=|| ( guile_targets_2-2 guile_targets_3-0 )
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=d9a72ed221f36ba169464350449f4fd3
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	guile-utils	1818ab79f42a7929094eca2efd03e4ae	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	guile	9d3de4881dd316f121e837fd78741f11	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=6b31b16d440dc124705e626b3e2b920b

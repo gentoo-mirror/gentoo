@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/texinfo virtual/pkgconfig
+DEFINED_PHASES=install prepare setup
+DEPEND=guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 )
+DESCRIPTION=POSIX-compatible shell written in Guile Scheme
+EAPI=8
+HOMEPAGE=https://savannah.nongnu.org/projects/gash/
+INHERIT=guile-single
+IUSE=guile_single_target_2-2 guile_single_target_3-0
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 )
+RESTRICT=strip
+SLOT=0
+SRC_URI=mirror://nongnu/gash/gash-0.3.0.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	guile-utils	1818ab79f42a7929094eca2efd03e4ae	guile-single	3e66e76f70c51c2192a802547ce0e067
+_md5_=48fbfefe5757a47562d590978032727d

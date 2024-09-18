@@ -1,16 +1,16 @@
-BDEPEND=dev-util/gperf virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
-DESCRIPTION=Simple framework for building readers for GNU Guile
+DESCRIPTION=Guile application configuration parsing library
 EAPI=8
-HOMEPAGE=https://www.nongnu.org/guile-reader/
-INHERIT=guile autotools
+HOMEPAGE=https://gitlab.com/a-sassmannshausen/guile-config/
+INHERIT=autotools guile
 IUSE=guile_targets_2-2 guile_targets_3-0
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
 REQUIRED_USE=|| ( guile_targets_2-2 guile_targets_3-0 )
 SLOT=0
-SRC_URI=mirror://nongnu/guile-reader/guile-reader-0.6.3.tar.gz
+SRC_URI=https://gitlab.com/a-sassmannshausen/guile-config/-/archive/0.5.1/guile-config-0.5.1.tar.bz2
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	guile-utils	1818ab79f42a7929094eca2efd03e4ae	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	guile	9d3de4881dd316f121e837fd78741f11
-_md5_=a028ad94ec4df6b5cdfab62dbc6a48e8
+_md5_=46a36af3fc681555847287422e9b54ce

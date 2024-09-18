@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
+DESCRIPTION=Colorized REPL for GNU Guile
+EAPI=8
+HOMEPAGE=https://gitlab.com/NalaGinrut/guile-colorized/
+INHERIT=guile
+IUSE=guile_targets_2-2 guile_targets_3-0
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=guile_targets_2-2? ( dev-scheme/guile:2.2 ) guile_targets_3-0? ( dev-scheme/guile:3.0 )
+REQUIRED_USE=|| ( guile_targets_2-2 guile_targets_3-0 )
+SLOT=0
+SRC_URI=https://gitlab.com/NalaGinrut/guile-colorized/-/archive/1625a79f0e31849ebd537e2a58793fb45678c58f.tar.bz2 -> guile-colorized-0.1_p20191205.tar.bz2
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	guile-utils	1818ab79f42a7929094eca2efd03e4ae	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	guile	9d3de4881dd316f121e837fd78741f11
+_md5_=6b31b16d440dc124705e626b3e2b920b
