@@ -17,10 +17,11 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-db/sqlite
-	dev-libs/quazip:0=[qt6(+)]
+	>=dev-libs/quazip-1.3:0=[qt6]
 	dev-qt/qt5compat:6[icu,qml]
+	dev-qt/qtbase[dbus,gui,icu,network,opengl,sql,widgets,xml]
 	dev-qt/qttools:6[assistant,linguist,opengl,qdbus,qml,widgets,zstd]
-	dev-qt/qtwebengine:6[widgets]
+	dev-qt/qtwebengine:6[qml,widgets]
 	sci-geosciences/routino
 	sci-libs/alglib
 	sci-libs/gdal:=
