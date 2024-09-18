@@ -41,7 +41,7 @@ RDEPEND="
 		>=sys-libs/gpm-1.20.0-r5
 	)
 	guile? ( ${GUILE_DEPS} )
-	idn? ( net-dns/libidn2:= )
+	idn? ( net-dns/libidn:= )
 	javascript? (
 		dev-cpp/libxmlpp:5.0
 		dev-lang/mujs:=
@@ -70,9 +70,15 @@ BDEPEND="
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
 	test? (
-		net-dns/libidn2
+		net-dns/libidn
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.16.1.1-ecmascript-implicit-declaration.patch
+	"${FILESDIR}"/${PN}-0.16.1.1-perl-5.38.patch
+	"${FILESDIR}"/${PN}-0.16.1.1-python-3.12.patch
+)
 
 pkg_setup() {
 	use guile && guile-single_pkg_setup
