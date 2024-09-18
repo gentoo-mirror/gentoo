@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic linux-info toolchain-funcs udev
 
@@ -10,13 +10,15 @@ MY_PV=${PV%_p*}
 
 DESCRIPTION="PCMCIA userspace utilities for Linux"
 HOMEPAGE="https://packages.qa.debian.org/pcmciautils"
-SRC_URI="mirror://debian/pool/main/${PN:0:1}/${PN}/${PN}_${MY_PV}.orig.tar.gz
-	mirror://debian/pool/main/${PN:0:1}/${PN}/${PN}_${MY_PV}-${DEB_REV}.debian.tar.gz"
+SRC_URI="
+	mirror://debian/pool/main/${PN:0:1}/${PN}/${PN}_${MY_PV}.orig.tar.gz
+	mirror://debian/pool/main/${PN:0:1}/${PN}/${PN}_${MY_PV}-${DEB_REV}.debian.tar.xz
+"
 S="${WORKDIR}"/${PN}-${MY_PV}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~loong ppc ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~riscv ~x86"
 IUSE="debug staticsocket"
 
 RDEPEND="sys-apps/kmod[tools]"
@@ -27,8 +29,9 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${WORKDIR}"/debian/patches/no-modprobe-rules.patch
 	"${WORKDIR}"/debian/patches/remove-libsysfs-dep.patch
-	"${FILESDIR}"/${P}-flex-2.6.3-fix.patch
+	"${FILESDIR}"/${PN}-018_p8-flex-2.6.3-fix.patch
 	"${FILESDIR}"/${PN}-018_p8-musl-unsigned-type.patch
+	"${WORKDIR}"/debian/patches/parallel-build.patch
 )
 
 pkg_setup() {
@@ -59,6 +62,7 @@ src_configure() {
 		V=true
 		udevdir="$(get_udevdir)"
 		CC="$(tc-getCC)"
+		HOSTCC="$(tc-getBUILD_CC)"
 		LD="$(tc-getCC)"
 		AR="$(tc-getAR)"
 		STRIP=true
@@ -75,4 +79,12 @@ src_install() {
 	emake "${mypcmciaopts[@]}" DESTDIR="${D}" install
 
 	dodoc doc/*.txt
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
