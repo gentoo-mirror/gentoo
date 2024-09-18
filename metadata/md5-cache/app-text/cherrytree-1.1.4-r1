@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-util/cpputest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/fribidi dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libsigc++:2 dev-libs/libxml2:2 >=dev-libs/spdlog-1.5 >=x11-libs/vte-0.70.2:2.91 net-misc/curl x11-libs/cairo[X] x11-libs/gtk+:3[X] x11-libs/pango[X]
+DEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/fribidi dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libsigc++:2 dev-libs/libxml2:2 >=dev-libs/spdlog-1.5:= >=x11-libs/vte-0.70.2:2.91 net-misc/curl x11-libs/cairo[X] x11-libs/gtk+:3[X] x11-libs/pango[X]
 DESCRIPTION=A hierarchical note taking application (C++ version)
 EAPI=8
 HOMEPAGE=https://www.giuspen.com/cherrytree/
@@ -9,9 +9,9 @@ INHERIT=cmake python-any-r1 xdg
 IUSE=nls test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3 LGPL-2.1 MIT
-RDEPEND=app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/fribidi dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libsigc++:2 dev-libs/libxml2:2 >=dev-libs/spdlog-1.5 >=x11-libs/vte-0.70.2:2.91 net-misc/curl x11-libs/cairo[X] x11-libs/gtk+:3[X] x11-libs/pango[X]
+RDEPEND=app-i18n/uchardet app-text/gspell:= >=dev-cpp/glibmm-2.64.2:2 dev-cpp/gtkmm:3.0 dev-cpp/gtksourceviewmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-db/sqlite:3 dev-libs/fribidi dev-libs/glib:2 dev-libs/libfmt:= dev-libs/libsigc++:2 dev-libs/libxml2:2 >=dev-libs/spdlog-1.5:= >=x11-libs/vte-0.70.2:2.91 net-misc/curl x11-libs/cairo[X] x11-libs/gtk+:3[X] x11-libs/pango[X]
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/giuspen/cherrytree/releases/download/v1.1.4/cherrytree_1.1.4.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	xdg	8d7d90c01b1b1c2602dab6fc6b177097
-_md5_=900d1e7b6099e5321ad50024702af232
+_md5_=4cc2e0d057e2bc399d99567c6c603b26

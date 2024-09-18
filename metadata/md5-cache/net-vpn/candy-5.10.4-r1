@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=dev-libs/poco dev-libs/openssl dev-libs/spdlog dev-libs/libfmt
+DEPEND=dev-libs/poco:= dev-libs/openssl:= dev-libs/spdlog:= dev-libs/libfmt:=
 DESCRIPTION=A reliable, low-latency, and anti-censorship virtual private network
 EAPI=8
 HOMEPAGE=https://github.com/lanthora/candy
 INHERIT=cmake systemd readme.gentoo-r1
 KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
-RDEPEND=dev-libs/poco dev-libs/openssl dev-libs/spdlog dev-libs/libfmt
+RDEPEND=dev-libs/poco:= dev-libs/openssl:= dev-libs/spdlog:= dev-libs/libfmt:=
 SLOT=0
-SRC_URI=https://github.com/lanthora/candy/archive/refs/tags/v5.10.3.tar.gz -> candy-5.10.3.gh.tar.gz
+SRC_URI=https://github.com/lanthora/candy/archive/refs/tags/v5.10.4.tar.gz -> candy-5.10.4.gh.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	systemd	0f241b5c9f3758c3d3423df59a7f655a	readme.gentoo-r1	32b48460d813533d85f082897cec1b80
-_md5_=67223b4e185d6d240ea1dfe23ebd28cb
+_md5_=eb1bfe04c8ecd8f50fa02ed971bda11a
