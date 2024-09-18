@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-db/sqlite dev-libs/quazip:0=[qt6(+)] dev-qt/qt5compat:6[icu,qml] dev-qt/qttools:6[assistant,linguist,opengl,qdbus,qml,widgets,zstd] dev-qt/qtwebengine:6[widgets] sci-geosciences/routino sci-libs/alglib sci-libs/gdal:= sci-libs/proj:=
+DEPEND=dev-db/sqlite >=dev-libs/quazip-1.3:0=[qt6] dev-qt/qt5compat:6[icu,qml] dev-qt/qtbase[dbus,gui,icu,network,opengl,sql,widgets,xml] dev-qt/qttools:6[assistant,linguist,opengl,qdbus,qml,widgets,zstd] dev-qt/qtwebengine:6[qml,widgets] sci-geosciences/routino sci-libs/alglib sci-libs/gdal:= sci-libs/proj:=
 DESCRIPTION=GPS mapping utility
 EAPI=8
 HOMEPAGE=https://github.com/Maproom/qmapshack/wiki
@@ -8,8 +8,8 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-db/sqlite dev-libs/quazip:0=[qt6(+)] dev-qt/qt5compat:6[icu,qml] dev-qt/qttools:6[assistant,linguist,opengl,qdbus,qml,widgets,zstd] dev-qt/qtwebengine:6[widgets] sci-geosciences/routino sci-libs/alglib sci-libs/gdal:= sci-libs/proj:=
+RDEPEND=dev-db/sqlite >=dev-libs/quazip-1.3:0=[qt6] dev-qt/qt5compat:6[icu,qml] dev-qt/qtbase[dbus,gui,icu,network,opengl,sql,widgets,xml] dev-qt/qttools:6[assistant,linguist,opengl,qdbus,qml,widgets,zstd] dev-qt/qtwebengine:6[qml,widgets] sci-geosciences/routino sci-libs/alglib sci-libs/gdal:= sci-libs/proj:=
 SLOT=0
 SRC_URI=https://github.com/kiozen/qmapshack/archive/1f009ac0be1d1c2a4c31aa1283f4009e88685d34.tar.gz -> qmapshack-1.17.1_p600.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	8d7d90c01b1b1c2602dab6fc6b177097
-_md5_=5f1fcbe68f7d1d3f7b78ce79dcee5d77
+_md5_=0cb0dfd7fdc40f2c78a93c207a5a4537
