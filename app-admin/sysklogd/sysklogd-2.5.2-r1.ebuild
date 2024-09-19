@@ -28,6 +28,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	logrotate? ( app-admin/logrotate )
+	!net-misc/inetutils[syslogd]
 "
 
 DOCS=( ChangeLog.md README.md )
