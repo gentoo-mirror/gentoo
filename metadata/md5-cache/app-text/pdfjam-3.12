@@ -1,7 +1,7 @@
 BDEPEND=test? ( app-arch/unzip )
 DEFINED_PHASES=install prepare test
 DEPEND=virtual/latex-base
-DESCRIPTION=Allows the manipulation of PDF files
+DESCRIPTION=Tool for manipulatiing PDF files
 EAPI=8
 HOMEPAGE=https://github.com/rrthomas/pdfjam
 IUSE=extra test
@@ -11,4 +11,4 @@ RDEPEND=virtual/latex-base !<dev-texlive/texlive-binextra-2023_p69527-r4
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rrthomas/pdfjam/releases/download/v3.12/pdfjam-3.12.tar.gz extra? ( https://github.com/rrthomas/pdfjam-extras/archive/622e03add59db004144c0b41722a09b3b29d6d3e.tar.gz -> pdfjam-extra-20191118.tar.gz )
-_md5_=fdcc763082bfb0c8aea957a467e2cd6d
+_md5_=20035e83ed2d2396788650f6ca072273
