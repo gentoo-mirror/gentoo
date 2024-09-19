@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-build/make >=dev-build/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-build/make >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/gmp:=
 DESCRIPTION=The Lean Theorem Prover
@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://leanprover-community.github.io/
 INHERIT=cmake flag-o-matic python-any-r1
 IUSE=debug source
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/gmp:=
 SLOT=0/4
-SRC_URI=https://github.com/leanprover/lean4/archive/refs/tags/v4.2.0.tar.gz -> lean-4.2.0.tar.gz
+SRC_URI=https://github.com/leanprover/lean4/archive/refs/tags/v4.11.0.tar.gz -> lean-4.11.0.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
-_md5_=7216989a3cfdb8830853c22baa3e7ad2
+_md5_=7c677d08b35dbf02eaff21e032bbfc04
