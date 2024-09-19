@@ -1,0 +1,14 @@
+BDEPEND=|| ( ( dev-lang/python:3.13 dev-python/pefile[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pefile[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pefile[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pefile[python_targets_python3_10(-)] ) ) sys-apps/uswid virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=>=sys-boot/gnu-efi-3.0.18
+DESCRIPTION=EFI executable for fwupd
+EAPI=8
+HOMEPAGE=https://fwupd.org
+INHERIT=meson python-any-r1 secureboot
+IUSE=secureboot
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+SLOT=0
+SRC_URI=https://github.com/fwupd/fwupd-efi/releases/download/1.6/fwupd-efi-1.6.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	secureboot	f695cce74d5a14f87f209a0ec363a01a
+_md5_=635f5f428aac3958af800f8f690604ba
