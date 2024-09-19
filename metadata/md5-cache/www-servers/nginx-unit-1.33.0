@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install prepare setup
+DEPEND=perl? ( dev-lang/perl:= ) php8-1? ( dev-lang/php:8.1[embed] ) php8-2? ( dev-lang/php:8.2[embed] ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) ruby? ( dev-lang/ruby:= dev-ruby/rubygems:= ) ssl? ( dev-libs/openssl:0= ) virtual/libcrypt:0=
+DESCRIPTION=Dynamic web and application server
+EAPI=8
+HOMEPAGE=https://unit.nginx.org
+INHERIT=flag-o-matic python-single-r1 systemd toolchain-funcs
+IUSE=perl python ruby php8-1 php8-2 perl ssl python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=perl? ( dev-lang/perl:= ) php8-1? ( dev-lang/php:8.1[embed] ) php8-2? ( dev-lang/php:8.2[embed] ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) ruby? ( dev-lang/ruby:= dev-ruby/rubygems:= ) ssl? ( dev-libs/openssl:0= ) virtual/libcrypt:0= acct-user/nginx-unit acct-group/nginx-unit
+REQUIRED_USE=|| ( perl python ruby php8-1 php8-2 perl ssl ) python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+SLOT=0
+SRC_URI=https://unit.nginx.org/download/unit-1.33.0.tar.gz -> nginx-unit-1.33.0.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	systemd	0f241b5c9f3758c3d3423df59a7f655a
+_md5_=937a6974191733300e0993ae8e0e3bf1
