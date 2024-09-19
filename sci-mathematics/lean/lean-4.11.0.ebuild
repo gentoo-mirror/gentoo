@@ -6,7 +6,7 @@ EAPI=8
 MAJOR="$(ver_cut 1)"
 
 CMAKE_MAKEFILE_GENERATOR="emake"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cmake flag-o-matic python-any-r1
 
@@ -22,7 +22,7 @@ else
 		-> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}${MAJOR}-${PV/_/-}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="Apache-2.0"
@@ -38,6 +38,9 @@ DEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 "
+
+# Built by lean's build tool.
+QA_FLAGS_IGNORED="usr/lib/lean/libInit_shared.so"
 
 pkg_setup() {
 	python-any-r1_pkg_setup
