@@ -25,7 +25,7 @@ CAL_FTS=( karbon sheets stage words )
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+charts +crypt +fontconfig gsl +import-filter +lcms okular +pdf phonon
+IUSE="+charts +fontconfig gsl +import-filter +lcms okular +pdf phonon
 	+truetype webengine X $(printf 'calligra_features_%s ' ${CAL_FTS[@]})"
 
 RESTRICT="test"
@@ -34,6 +34,7 @@ RESTRICT="test"
 # Required for the matlab/octave formula tool
 COMMON_DEPEND="
 	dev-lang/perl
+	dev-libs/openssl:=
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(-)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
@@ -64,7 +65,6 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	virtual/libiconv
 	charts? ( dev-libs/kdiagram:6 )
-	crypt? ( dev-libs/openssl:= )
 	fontconfig? ( media-libs/fontconfig )
 	gsl? ( sci-libs/gsl:= )
 	import-filter? (
@@ -129,7 +129,6 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_Cauchy=ON
 		-DPRODUCTSET="${myproducts[*]}"
 		$(cmake_use_find_package charts KChart6)
-		$(cmake_use_find_package crypt OpenSSL)
 		-DWITH_Fontconfig=$(usex fontconfig)
 		-DWITH_GSL=$(usex gsl)
 		-DWITH_LibEtonyek=$(usex import-filter)
