@@ -15,7 +15,7 @@ S="${WORKDIR}/lib${P}"
 
 LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="archive +curl doc dracut gnutls +gpg grub +http2 introspection libmount selinux sodium ssl +soup systemd zeroconf"
 RESTRICT="test"
 REQUIRED_USE="
@@ -67,8 +67,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/ostree-2023.3-dont-force-clang-introspection.patch
-	"${FILESDIR}"/${P}-curl.patch
+	"${FILESDIR}"/${PN}-2023.3-dont-force-clang-introspection.patch
+	"${FILESDIR}"/${PN}-2024.8-Werror.patch
 )
 
 src_prepare() {
@@ -96,7 +96,7 @@ src_configure() {
 		$(use_with soup soup3)
 		--without-soup # libsoup:2.4
 		$(use_with libmount)
-		$(use ssl && { use gnutls && echo --with-crypto=gnutls || echo --with-crypto=openssl; })
+		$(use ssl && usex gnutls --with-crypto=gnutls --with-crypto=openssl)
 		$(use_with sodium ed25519-libsodium)
 		$(use_with systemd libsystemd)
 		$(use_with zeroconf avahi)
@@ -112,7 +112,7 @@ src_configure() {
 
 src_install() {
 	default
-	find "${D}" -name '*.la' -delete || die
+	find "${D}" -name '*.la' -type f -delete || die
 }
 
 pkg_postinst() {
