@@ -22,6 +22,7 @@ IUSE="examples"
 RDEPEND="
 	>=dev-python/amqp-5.1.1[${PYTHON_USEDEP}]
 	<dev-python/amqp-6.0.0[${PYTHON_USEDEP}]
+	dev-python/tzdata[${PYTHON_USEDEP}]
 	dev-python/vine[${PYTHON_USEDEP}]
 "
 BDEPEND="
