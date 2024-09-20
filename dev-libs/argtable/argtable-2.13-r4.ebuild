@@ -3,11 +3,13 @@
 
 EAPI=8
 
+inherit libtool
+
 MY_PV="$(ver_rs 1 '-')"
 MY_P=${PN}${MY_PV}
 
 DESCRIPTION="An ANSI C library for parsing GNU-style command-line options with minimal fuss"
-HOMEPAGE="https://argtable.sourceforge.net"
+HOMEPAGE="https://argtable.sourceforge.io"
 SRC_URI="https://downloads.sourceforge.net/${PN}/${MY_P}.tar.gz"
 S="${WORKDIR}"/${MY_P}
 
@@ -20,6 +22,11 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.13-Fix-implicit-function-declaration.patch
 	"${FILESDIR}"/${PN}-2.13-Fix-undeclared-library-function.patch
 )
+
+src_prepare() {
+	default
+	elibtoolize
+}
 
 src_configure() {
 	econf \
