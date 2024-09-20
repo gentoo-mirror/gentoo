@@ -33,7 +33,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-gcc15-cstdint.patch
+	"${FILESDIR}"/${P}-gcc15-cstdint.patch # bug 937388
+	"${FILESDIR}"/${P}-fix-win32-ifdef.patch # bug 939807
 )
 
 pkg_setup() {
