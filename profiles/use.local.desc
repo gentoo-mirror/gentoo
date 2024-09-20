@@ -3534,7 +3534,6 @@ kde-apps/kate-addons:lspclient - Enable LSP (Language Server Protocol) client pl
 kde-apps/kate-addons:projects - Enable Project plugin for executing queries on SQL DBs
 kde-apps/kate-addons:snippets - Enable Snippets Tool View plugin to manage or download code snippets
 kde-apps/kate-addons:sql - Enable SQL plugin for executing queries on SQL DBs
-kde-apps/kate-lib:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
 kde-apps/kde-apps-meta:accessibility - Pull in kde-apps/kdeaccessibility-meta packages
 kde-apps/kde-apps-meta:admin - Pull in kde-apps/kdeadmin-meta packages
 kde-apps/kde-apps-meta:education - Pull in kde-apps/kdeedu-meta packages
@@ -3678,20 +3677,15 @@ kde-plasma/discover:webengine - Enable webflow support using dev-qt/qtwebview an
 kde-plasma/drkonqi:systemd - Enable Coredumpd integration
 kde-plasma/kde-cli-tools:kdesu - Build graphical frontend for kde-frameworks/kdesu
 kde-plasma/kdeplasma-addons:alternate-calendar - Support alternate calendar systems (currently Chinese or Indian) via dev-libs/icu
-kde-plasma/kdeplasma-addons:networkmanager - Disable wallpaper update when using metered connections
 kde-plasma/kdeplasma-addons:share - Enable applet for quickly sharing data to a variety of sources
 kde-plasma/kdeplasma-addons:webengine - Enable dictionary and web browser applets using dev-qt/qtwebengine
 kde-plasma/kinfocenter:usb - Show USB device information
 kde-plasma/ksystemstats:networkmanager - Enable improved backend for Network statistics using kde-frameworks/networkmanager-qt
 kde-plasma/kwin:lock - Enable screen locking via kde-plasma/kscreenlocker
-kde-plasma/kwin:multimedia - Enable effect video button in desktop effects KCM
 kde-plasma/kwin:screencast - Enable screencast portal using media-video/pipewire
 kde-plasma/kwin:shortcuts - Enable global shortcuts support via kde-plasma/kglobalacceld
-kde-plasma/libksysguard:designer - Build plugins for dev-qt/designer
-kde-plasma/libksysguard:webengine - Enable display of detailed memory information using dev-qt/qtwebengine.
 kde-plasma/libplasma:kf6compat - Disable components colliding with KF6, depend on KF6 components instead
 kde-plasma/plasma-desktop:ibus - Use ibus input method via app-i18n/ibus
-kde-plasma/plasma-desktop:kaccounts - Build the OpenDesktop integration plugin
 kde-plasma/plasma-desktop:scim - Enable applets that use app-i18n/scim
 kde-plasma/plasma-desktop:webengine - Build the OpenDesktop integration plugin
 kde-plasma/plasma-firewall:firewalld - Build net-firewall/firewalld backend
@@ -3700,7 +3694,6 @@ kde-plasma/plasma-meta:browser-integration - Enable integration with Chrome/Fire
 kde-plasma/plasma-meta:colord - Enable kde-plasma/kwin color management via x11-misc/colord
 kde-plasma/plasma-meta:crash-handler - Pull in kde-plasma/drkonqi for assisted upstream crash reports
 kde-plasma/plasma-meta:crypt - Pull in kde-plasma/plasma-vault for encrypted vaults integration
-kde-plasma/plasma-meta:desktop-portal - Enable sys-apps/xdg-desktop-portal backend implementation for Plasma
 kde-plasma/plasma-meta:discover - Pull in resources management GUI; a centralised GHNS alternative and optional sys-apps/fwupd frontend
 kde-plasma/plasma-meta:display-manager - Pull in a graphical display manager
 kde-plasma/plasma-meta:firewall - Pull in kde-plasma/plasma-firewall for system firewall administration
@@ -3708,7 +3701,6 @@ kde-plasma/plasma-meta:flatpak - Pull in kde-plasma/flatpak-kcm for flatpak perm
 kde-plasma/plasma-meta:grub - Pull in Breeze theme for sys-boot/grub
 kde-plasma/plasma-meta:gtk - Enable Breeze widget style and system settings module for GTK+
 kde-plasma/plasma-meta:kwallet - Enable support for KWallet auto-unlocking via kde-plasma/kwallet-pam
-kde-plasma/plasma-meta:legacy-systray - Add support for legacy applications using kde-plasma/xembed-sni-proxy
 kde-plasma/plasma-meta:oxygen-theme - Pull in Oxygen icons, sound theme and visual style for KDE Plasma
 kde-plasma/plasma-meta:plymouth - Pull in Breeze theme for sys-boot/plymouth
 kde-plasma/plasma-meta:pulseaudio - Install Plasma applet for PulseAudio volume management
@@ -3724,8 +3716,6 @@ kde-plasma/plasma-meta:webengine - Use kde-apps/khelpcenter to access the locall
 kde-plasma/plasma-meta:xwayland - Enable Wayland windows screensharing to XWayland applications via gui-apps/xwaylandvideobridge
 kde-plasma/plasma-nm:openconnect - Build support for the OpenConnect VPN client
 kde-plasma/plasma-nm:teamd - Enable Teamd control support
-kde-plasma/plasma-welcome:discover - Pull in resources management GUI; a centralised GHNS alternative and optional sys-apps/fwupd frontend
-kde-plasma/plasma-welcome:kaccounts - Build the OpenDesktop integration plugin
 kde-plasma/plasma-workspace:appstream - Enable AppStream software metadata support
 kde-plasma/plasma-workspace:geolocation - Enables dataengine providing location information
 kde-plasma/plasma-workspace:policykit - Enable locale generation and Users KCM using sys-auth/polkit and sys-apps/accountsservice
@@ -3734,7 +3724,6 @@ kde-plasma/plasma-workspace:telemetry - Enable User Feedback control module for 
 kde-plasma/plasma-workspace:wallpaper-metadata - Show metadata for image wallpaper plugin using kde-apps/libkexiv2
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
 kde-plasma/powerdevil:caps - Capabilities support for scheduled wakeup which can wake from suspend (CAP_WAKE_ALARM)
-kde-plasma/powerdevil:wireless - Enable wireless energy saving actions via kde-frameworks/bluez-qt and kde-frameworks/networkmanager-qt
 lxqt-base/liblxqt:backlight - Enable backlight control features.
 lxqt-base/lxqt-config:monitor - Build monitor settings tool
 lxqt-base/lxqt-config:touchpad - Build touchpad settings tool
