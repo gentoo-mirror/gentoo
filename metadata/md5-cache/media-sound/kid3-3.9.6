@@ -1,0 +1,18 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-qt/qttools:6[linguist] kde? ( kde-frameworks/extra-cmake-modules:0 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=dev-qt/qtbase:6[gui,network,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qtmultimedia:6 sys-libs/readline:= acoustid? ( media-libs/chromaprint:= media-video/ffmpeg:= ) flac? ( media-libs/flac:=[cxx] media-libs/libvorbis ) kde? ( kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 ) mp3? ( media-libs/id3lib ) mp4? ( media-libs/libmp4v2 ) mpris? ( dev-qt/qttools:6[qdbus] ) taglib? ( >=media-libs/taglib-1.9.1:= ) vorbis? ( media-libs/libogg media-libs/libvorbis )
+DESCRIPTION=Simple tag editor based on Qt
+EAPI=8
+HOMEPAGE=https://kid3.kde.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake kde.org python-any-r1 xdg
+IUSE=acoustid flac kde mp3 mp4 +mpris +taglib test vorbis
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-qt/qtbase:6[gui,network,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qtmultimedia:6 sys-libs/readline:= acoustid? ( media-libs/chromaprint:= media-video/ffmpeg:= ) flac? ( media-libs/flac:=[cxx] media-libs/libvorbis ) kde? ( kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kxmlgui:6 ) mp3? ( media-libs/id3lib ) mp4? ( media-libs/libmp4v2 ) mpris? ( dev-qt/qttools:6[qdbus] ) taglib? ( >=media-libs/taglib-1.9.1:= ) vorbis? ( media-libs/libogg media-libs/libvorbis ) !media-sound/kid3:5
+REQUIRED_USE=flac? ( vorbis )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://kde/stable/kid3/3.9.6/kid3-3.9.6.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	kde.org	5b717883256e9841ce52e6cad2fca427	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	xdg	8d7d90c01b1b1c2602dab6fc6b177097
+_md5_=84726a0be57c5f2e246d3ce2db3fbffb
