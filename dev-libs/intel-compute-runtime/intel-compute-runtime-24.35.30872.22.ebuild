@@ -27,7 +27,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-libs/intel-metrics-discovery:=
-	dev-libs/intel-metrics-library:=
+	>=dev-libs/intel-metrics-library-1.0.173:=
 	dev-libs/libnl:3
 	dev-libs/libxml2:2
 	>=dev-util/intel-graphics-system-controller-0.9.3:=
@@ -64,7 +64,6 @@ src_configure() {
 		-DBUILD_WITH_L0="$(usex l0)"
 		-DDISABLE_LIBVA="$(usex !vaapi)"
 		-DNEO_DISABLE_LTO="ON"
-		-DNEO_DISABLE_LD_GOLD="ON"
 		-DNEO__METRICS_LIBRARY_INCLUDE_DIR="${ESYSROOT}/usr/include"
 		-DKHRONOS_GL_HEADERS_DIR="${ESYSROOT}/usr/include"
 		-DOCL_ICD_VENDORDIR="${EPREFIX}/etc/OpenCL/vendors"
