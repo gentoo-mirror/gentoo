@@ -1,17 +1,17 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
-DEPEND=llvm? ( llvm_slot_18? ( sys-devel/clang:18 sys-devel/lld:18 sys-devel/llvm:18[zstd] ) )
+DEPEND=llvm? ( llvm_slot_19? ( sys-devel/clang:19 sys-devel/lld:19 sys-devel/llvm:19[zstd] ) )
 DESCRIPTION=A robust, optimal, and maintainable programming language
 EAPI=8
 HOMEPAGE=https://ziglang.org/
 IDEPEND=app-eselect/eselect-zig
 INHERIT=check-reqs cmake edo llvm-r1 toolchain-funcs git-r3
-IUSE=doc +llvm +llvm_slot_18
+IUSE=doc +llvm +llvm_slot_19
 LICENSE=MIT Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT ) || ( Apache-2.0-with-LLVM-exceptions Apache-2.0 MIT BSD-2 ) public-domain BSD-2 ZPL ISC HPND BSD inner-net LGPL-2.1+
 PROPERTIES=live
-RDEPEND=llvm? ( llvm_slot_18? ( sys-devel/clang:18 sys-devel/lld:18 sys-devel/llvm:18[zstd] ) )
-REQUIRED_USE=!llvm? ( !doc ) llvm? ( ^^ ( llvm_slot_18 ) )
+RDEPEND=llvm? ( llvm_slot_19? ( sys-devel/clang:19 sys-devel/lld:19 sys-devel/llvm:19[zstd] ) )
+REQUIRED_USE=!llvm? ( !doc ) llvm? ( ^^ ( llvm_slot_19 ) )
 RESTRICT=!llvm? ( test )
 SLOT=9999
 _eclasses_=check-reqs	f5db0b1ec36d0899adc2b41f8c447823	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=3a66d6cfeb63821d461cde2211569736
+_md5_=2679eda74f4570f523fbff80b9c6fc32
