@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://github.com/elogind/elogind
 INHERIT=linux-info meson pam python-any-r1 udev xdg-utils
 IUSE=+acl audit cgroup-hybrid debug doc +pam +policykit selinux test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=CC0-1.0 LGPL-2.1+ public-domain
 PDEPEND=sys-apps/dbus policykit? ( sys-auth/polkit )
 RDEPEND=audit? ( sys-process/audit ) sys-apps/util-linux sys-libs/libcap virtual/libudev:= acl? ( sys-apps/acl ) pam? ( sys-libs/pam ) selinux? ( sys-libs/libselinux ) !sys-apps/systemd
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/elogind/elogind/archive/v252.9.tar.gz -> elogind-252.9.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	pam	b56d0c9c20fc5b553f13c8ae165a10a5	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	udev	3b4170e9c327a8ed17097484a016c0c8	xdg-utils	5465aed08f1dfc2a75f14cbea4272961
-_md5_=f4a1a7754089d9beef5839494ed84b69
+_md5_=6fb37d26ac8f7c590b7acb2664efbf6b
