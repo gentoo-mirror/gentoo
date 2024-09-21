@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=llvm_slot_15? ( sys-devel/clang:15 ) llvm_slot_16? ( sys-devel/clang:16 ) llvm_slot_17? ( sys-devel/clang:17 ) llvm_slot_18? ( sys-devel/clang:18 ) llvm_slot_15? ( sys-devel/llvm:15 ) llvm_slot_16? ( sys-devel/llvm:16 ) llvm_slot_17? ( sys-devel/llvm:17 ) llvm_slot_18? ( sys-devel/llvm:18 )
+DESCRIPTION=Compiler plugin which allows clang to understand Qt semantics
+EAPI=8
+HOMEPAGE=https://apps.kde.org/clazy
+INHERIT=cmake llvm-r1 python-any-r1
+IUSE=test +llvm_slot_18 llvm_slot_15 llvm_slot_16 llvm_slot_17
+LICENSE=LGPL-2+
+RDEPEND=llvm_slot_15? ( sys-devel/clang:15 ) llvm_slot_16? ( sys-devel/clang:16 ) llvm_slot_17? ( sys-devel/clang:17 ) llvm_slot_18? ( sys-devel/clang:18 ) llvm_slot_15? ( sys-devel/llvm:15 ) llvm_slot_16? ( sys-devel/llvm:16 ) llvm_slot_17? ( sys-devel/llvm:17 ) llvm_slot_18? ( sys-devel/llvm:18 )
+REQUIRED_USE=^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://kde/stable/clazy/1.12/src/clazy-1.12.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
+_md5_=f96664cb8e6eb38ea9610eb6db533970
