@@ -1048,7 +1048,7 @@ app-admin/setools 4.4.4 4.5.1 9999: Policy Analysis Tools for SELinux
 app-admin/socklog 2.1.0-r1: Small secure replacement for syslogd with automatic log rotation
 app-admin/spectre-meltdown-checker 0.45 0.46 9999: Spectre & Meltdown vulnerability/mitigation checker for Linux
 app-admin/sshguard 2.4.3 99999: protects hosts from brute force attacks against ssh
-app-admin/stow 2.3.1 2.4.0: GNU Stow is a symlink farm manager
+app-admin/stow 2.3.1 2.4.0 2.4.1: GNU Stow is a symlink farm manager
 app-admin/su-exec 0.2: Switch user and group id and exec
 app-admin/sud 1.3-r2: A daemon to execute processes with special privileges in a nosuid environment
 app-admin/sudo 1.9.15_p5 9999: Allows users or groups to run commands as other users
@@ -8217,7 +8217,7 @@ dev-python/comm 0.2.2: Jupyter Python Comm implementation, for usage in ipykerne
 dev-python/commentjson 0.9.0-r2: Add Python and JavaScript style comments in your JSON files
 dev-python/commonmark 0.9.1-r1: Python parser for the CommonMark Markdown spec
 dev-python/configclass 0.2.0-r1: A Python to class to hold configuration values
-dev-python/configobj 5.0.8 5.0.9: Simple config file reader and writer
+dev-python/configobj 5.0.9: Simple config file reader and writer
 dev-python/configshell-fb 1.1.30 2.0.0: A Python library for building configuration shells
 dev-python/configupdater 3.2: Parser like ConfigParser but for updating configuration files
 dev-python/confusable-homoglyphs 3.3.1: Detect confusable usage of unicode homoglyphs, prevent homograph attacks
@@ -13412,7 +13412,7 @@ media-libs/taglib 1.13.1: Library for reading and editing audio meta data
 media-libs/taglib-extras 1.0.1-r1: Unofficial taglib plugins maintained by the Amarok team
 media-libs/tg_owt 0_pre20230921 0_pre20240804-r1: WebRTC build for Telegram
 media-libs/theoraplay 0_pre20180524-r1: Simple library to make decoding of Ogg Theora videos easier
-media-libs/tiff 4.5.0-r2 4.5.1 4.6.0 4.6.0-r1: Tag Image File Format (TIFF) library
+media-libs/tiff 4.5.0-r2 4.5.1 4.6.0 4.6.0-r1 4.7.0: Tag Image File Format (TIFF) library
 media-libs/tiff-compat 4.4.0-r1: Tag Image File Format (TIFF) library (compat package for libtiff.so.5)
 media-libs/tremor 0_pre20130223-r3: A fixed-point version of the Ogg Vorbis decoder (also known as libvorbisidec)
 media-libs/tse3 0.3.1-r2: TSE3 Sequencer library
@@ -15268,7 +15268,7 @@ net-misc/sshpass 1.09-r1 1.10: Tool for non-interactively performing password au
 net-misc/sshrc 0.6.2: Bring your .bashrc, .vimrc, etc. from your local machine when you ssh
 net-misc/sslh 1.22c-r1 2.1.1 2.1.2 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
 net-misc/sstp-client 1.0.17 1.0.18 1.0.18-r2: Client implementation of Secure Socket Tunneling Protocol (SSTP)
-net-misc/streamlink 6.7.3 6.7.4 6.8.1 6.8.3 6.9.0 9999: CLI for extracting streams from websites to a video player of your choice
+net-misc/streamlink 6.7.3 6.7.4 6.8.1 6.8.3 6.9.0 6.10.0 9999: CLI for extracting streams from websites to a video player of your choice
 net-misc/streamtuner 0.99.99-r6: Stream directory browser for browsing internet radio streams
 net-misc/stunnel 5.64-r2 5.65-r2 5.68 5.71 5.71-r1: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.16: Open source implementation of the STUN protocol
@@ -16872,7 +16872,7 @@ sys-apps/dmidecode 3.5-r2 3.5-r3 3.6: DMI (Desktop Management Interface) table r
 sys-apps/dnotify 0.18.0-r1: Execute a command when the contents of a directory change
 sys-apps/dog 1.7-r6: Dog is better than cat
 sys-apps/dstat 0.7.4-r2 0.7.4-r3: Versatile replacement for vmstat, iostat and ifstat
-sys-apps/dtc 1.6.0 1.7.0 9999: Open Firmware device tree compiler
+sys-apps/dtc 1.6.0 1.7.0 1.7.1 9999: Open Firmware device tree compiler
 sys-apps/duc 1.4.5 9999: Library and suite of tools for inspecting disk usage
 sys-apps/earlyoom 1.7-r1 9999: Early OOM Daemon for Linux
 sys-apps/ed 1.19-r1 1.20.2: Your basic line editor
@@ -16983,7 +16983,7 @@ sys-apps/minised 1.16: a smaller, cheaper and faster sed implementation
 sys-apps/miscfiles 1.5-r4: Miscellaneous files
 sys-apps/mlocate 0.26-r3: Merging locate is an utility to index and quickly search for files
 sys-apps/mlxup-bin 4.13.0: Mellanox Update and Query Utility
-sys-apps/moar 1.24.6 1.26.0 1.27.1: Pager designed to do the right thing without any configuration
+sys-apps/moar 1.24.6 1.26.0 1.27.1 1.27.2: Pager designed to do the right thing without any configuration
 sys-apps/moreutils 0.68 0.69: Collection of tools that nobody thought to write when Unix was young
 sys-apps/most 5.1.0 5.2.0: Paging program that displays, one windowful at a time, the contents of a file
 sys-apps/mount-gtk 1.4.5.1: GTK+ based UDisks2 frontend
@@ -17359,13 +17359,13 @@ sys-devel/distcc 3.4-r1 3.4-r2 3.4-r3 3.4-r4: Distribute compilation of C code a
 sys-devel/dwz 0.15-r1 9999: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1-r2 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r1 9.5.0 10.5.0 11.4.1_p20240501 11.5.0 12.3.1_p20240209 12.4.0 12.4.1_p20240829 12.4.1_p20240905 12.4.1_p20240912 12.4.1_p20240919 12.5.9999 13.2.0 13.2.1_p20240210 13.3.1_p20240614 13.3.1_p20240830 13.3.1_p20240906 13.3.1_p20240913 13.3.1_p20240920 13.4.9999 14.2.0 14.2.1_p20240817 14.2.1_p20240817-r1 14.2.1_p20240831 14.2.1_p20240907 14.2.1_p20240914 14.2.1_p20240921 14.3.9999 15.0.0_pre20240825 15.0.0_pre20240901 15.0.0_pre20240908 15.0.0_pre20240915 15.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r1 9.5.0 10.5.0 11.4.1_p20240501 11.5.0 12.4.0 12.4.1_p20240919 12.5.9999 13.3.1_p20240614 13.3.1_p20240920 13.4.9999 14.2.1_p20240817 14.2.1_p20240921 14.3.9999 15.0.0_pre20240908 15.0.0_pre20240915 15.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 9999: Utility to manage compilers
 sys-devel/gettext 0.21.1 0.22.4 0.22.5: GNU locale utilities
 sys-devel/gnuconfig 20230731 20240101 20240728 99999999: Updated config.sub and config.guess file from GNU
 sys-devel/icecream 1.4-r1: Distributed compiler with a central scheduler to share build load
-sys-devel/kgcc64 10.5.0 11.4.1_p20240501 11.5.0 12.3.1_p20240502 12.4.0 13.2.1_p20240503 13.3.1_p20240614 14.1.1_p20240511 14.2.1_p20240817: 64bit kernel compiler
+sys-devel/kgcc64 10.5.0 11.4.1_p20240501 11.5.0 12.3.1_p20240502 12.4.0 12.4.0_p20240919 13.2.1_p20240503 13.3.1_p20240614 13.3.1_p20240920 14.1.1_p20240511 14.2.1_p20240817 14.2.1_p20240921: 64bit kernel compiler
 sys-devel/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.0_rc4 19.1.0 20.0.0_pre20240830 20.0.0_pre20240910 20.0.0_pre20240917 20.0.0.9999: The LLVM linker (link editor)
 sys-devel/lld-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use LLD on binutils-free system
 sys-devel/llvm 15.0.7-r3 15.0.7-r6 15.0.7-r7 16.0.6 16.0.6-r5 17.0.6 17.0.6-r2 17.0.6-r3 18.1.8-r1 18.1.8-r4 19.1.0_rc4 19.1.0 20.0.0_pre20240830 20.0.0_pre20240910 20.0.0_pre20240917 20.0.0.9999: Low Level Virtual Machine
