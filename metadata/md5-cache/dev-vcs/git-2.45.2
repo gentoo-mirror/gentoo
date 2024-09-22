@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.git-scm.com/
 INHERIT=toolchain-funcs perl-module bash-completion-r1 optfeature plocale python-single-r1 systemd
 IUSE=+blksha1 +curl cgi doc keyring +gpg highlight +iconv mediawiki +nls +pcre perforce +perl +safe-directory selinux subversion tk +webdav xinetd cvs test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=dev-libs/openssl:= sys-libs/zlib curl? ( net-misc/curl webdav? ( dev-libs/expat ) ) keyring? ( app-crypt/libsecret dev-libs/glib:2 ) iconv? ( virtual/libiconv ) pcre? ( dev-libs/libpcre2:= ) perl? ( dev-lang/perl:=[-build(-)] ) tk? ( dev-lang/tk:= ) gpg? ( app-crypt/gnupg ) perl? ( dev-perl/Error dev-perl/MailTools dev-perl/Authen-SASL >=virtual/perl-libnet-3.110.0-r4[ssl] cgi? ( dev-perl/CGI highlight? ( app-text/highlight ) ) cvs? ( >=dev-vcs/cvsps-2.1:0 dev-perl/DBI dev-perl/DBD-SQLite ) mediawiki? ( dev-perl/DateTime-Format-ISO8601 dev-perl/HTML-Tree dev-perl/MediaWiki-API ) subversion? ( dev-vcs/subversion[-dso(-),perl] dev-perl/libwww-perl dev-perl/TermReadKey ) ) perforce? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) selinux? ( sec-policy/selinux-git )
 REQUIRED_USE=cgi? ( perl ) cvs? ( perl ) mediawiki? ( perl ) perforce? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ) subversion? ( perl ) webdav? ( curl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/software/scm/git/git-2.45.2.tar.xz https://www.kernel.org/pub/software/scm/git/git-manpages-2.45.2.tar.xz doc? ( https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.45.2.tar.xz )
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	perl-functions	4deb7a19ff2e0a466d6f4c6c57099296	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	bash-completion-r1	3047612be964ffd4a549447fc4289f12	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	plocale	950fbaec7deeba41b5bcc0572cca99b9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	systemd	0f241b5c9f3758c3d3423df59a7f655a
-_md5_=5c28250f210d1564408d612f196acfa3
+_md5_=886cbc8b4690683d022ea5b99fbafaec
