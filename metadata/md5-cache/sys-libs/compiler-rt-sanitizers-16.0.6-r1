@@ -1,6 +1,6 @@
-BDEPEND=clang? ( sys-devel/clang ) elibc_glibc? ( net-libs/libtirpc ) test? ( || ( ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ) =sys-devel/clang-17.0.6*:17 sys-libs/compiler-rt:17 ) !test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-18.1.6 ) app-alternatives/ninja >=dev-build/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=clang? ( sys-devel/clang:16 sys-libs/compiler-rt:16 ) elibc_glibc? ( net-libs/libtirpc ) test? ( || ( ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ) =sys-devel/clang-16.0.6*:16 ) !test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-18.1.6 ) app-alternatives/ninja >=dev-build/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
-DEPEND=sys-devel/llvm:17 virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?] !!sys-devel/llvm:0
+DEPEND=sys-devel/llvm:16 virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?] !!sys-devel/llvm:0
 DESCRIPTION=Compiler runtime libraries for clang (sanitizers & xray)
 EAPI=8
 HOMEPAGE=https://llvm.org/
@@ -10,7 +10,7 @@ KEYWORDS=amd64 arm arm64 ~loong ppc64 ~riscv x86 ~amd64-linux ~ppc-macos ~x64-ma
 LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
 REQUIRED_USE=|| ( asan dfsan lsan msan hwasan tsan ubsan safestack cfi scudo shadowcallstack gwp-asan libfuzzer orc profile xray ) test? ( cfi? ( ubsan ) gwp-asan? ( scudo ) )
 RESTRICT=!clang? ( test ) !test? ( test ) !test? ( test )
-SLOT=17
-SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/llvm-project-17.0.6.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/llvm-project-17.0.6.src.tar.xz.sig ) https://dev.gentoo.org/~mgorny/dist/llvm/llvm-gentoo-patchset-17.0.6-r3.tar.xz
+SLOT=16
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz.sig ) https://dev.gentoo.org/~mgorny/dist/llvm/llvm-gentoo-patchset-16.0.6-r5.tar.xz
 _eclasses_=check-reqs	f5db0b1ec36d0899adc2b41f8c447823	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	2a7c6c7a9370cedd74e77a53c4a5d655	verify-sig	a79ba011daaf532d71a219182474d150	llvm.org	ba7b26f566ea32b437bc8ac98fa9c4e2	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
-_md5_=b382f679877613fbbd4dc46230eecfe0
+_md5_=e327cb70dc7d985744d209e13f8f3755
