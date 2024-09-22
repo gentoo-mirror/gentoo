@@ -66,7 +66,7 @@ CRATES="
 	async-std@1.12.0
 	async-stream-impl@0.3.5
 	async-stream@0.3.5
-	async-stripe@0.38.1
+	async-stripe@0.39.1
 	async-tar@0.5.0
 	async-task@4.7.1
 	async-trait@0.1.81
@@ -509,7 +509,6 @@ CRATES="
 	ndk-sys@0.5.0+25.2.9519653
 	ndk@0.8.0
 	new_debug_unreachable@1.0.6
-	nix@0.28.0
 	nix@0.29.0
 	nom@7.1.3
 	noop_proc_macro@0.3.0
@@ -628,6 +627,7 @@ CRATES="
 	ptr_meta_derive@0.1.4
 	pulldown-cmark-escape@0.10.1
 	pulldown-cmark@0.10.3
+	pulldown-cmark@0.12.1
 	qoi@0.4.1
 	quick-error@2.0.1
 	quick-xml@0.32.0
@@ -1098,7 +1098,12 @@ SRC_URI="
 	https://github.com/zed-industries/zed/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
-LICENSE="0BSD AGPL-3+ Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 GPL-3+ ISC LGPL-3 MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
+LICENSE="GPL-3+"
+# Dependent crate licenses
+LICENSE+="
+	0BSD AGPL-3+ Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2
+	Boost-1.0 CC0-1.0 GPL-3+ ISC LGPL-3 MIT MPL-2.0 Unicode-DFS-2016
+	Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 CHECKREQS_DISK_BUILD="8G"
