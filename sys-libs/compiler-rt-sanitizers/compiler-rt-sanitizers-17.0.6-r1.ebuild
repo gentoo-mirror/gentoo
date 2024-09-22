@@ -39,12 +39,14 @@ DEPEND="
 	virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?]
 "
 BDEPEND="
-	clang? ( sys-devel/clang )
+	clang? (
+		sys-devel/clang:${LLVM_MAJOR}
+		sys-libs/compiler-rt:${LLVM_MAJOR}
+	)
 	elibc_glibc? ( net-libs/libtirpc )
 	test? (
 		$(python_gen_any_dep ">=dev-python/lit-15[\${PYTHON_USEDEP}]")
 		=sys-devel/clang-${LLVM_VERSION}*:${LLVM_MAJOR}
-		sys-libs/compiler-rt:${LLVM_MAJOR}
 	)
 	!test? (
 		${PYTHON_DEPS}
@@ -52,7 +54,7 @@ BDEPEND="
 "
 
 LLVM_COMPONENTS=( compiler-rt cmake llvm/cmake )
-LLVM_PATCHSET=${PV}-r5
+LLVM_PATCHSET=${PV}-r3
 LLVM_TEST_COMPONENTS=( llvm/lib/Testing/Support third-party )
 llvm.org_set_globals
 
@@ -100,13 +102,8 @@ src_prepare() {
 	if use ubsan && ! use cfi; then
 		> test/cfi/CMakeLists.txt || die
 	fi
-
-	if has_version -b ">=sys-libs/glibc-2.37"; then
-		# known failures with glibc-2.37
-		# https://github.com/llvm/llvm-project/issues/60678
-		rm test/dfsan/custom.cpp || die
-		rm test/dfsan/release_shadow_space.c || die
-	fi
+	# hangs, sigh
+	rm test/tsan/getline_nohang.cpp || die
 
 	llvm.org_src_prepare
 }
