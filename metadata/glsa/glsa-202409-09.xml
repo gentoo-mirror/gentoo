@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-09">
+    <title>Exo: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Exo, which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">exo</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>851201</bug>
+    <access>remote</access>
+    <affected>
+        <package name="xfce-base/exo" auto="yes" arch="*">
+            <unaffected range="ge">4.17.2</unaffected>
+            <vulnerable range="lt">4.17.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Exo is an Xfce library targeted at application development, originally developed by os-cillation. It contains various custom widgets and APIs extending the functionality of GLib and GTK. It also has some helper applications that are used throughout the entire Xfce desktop to manage preferred applications and edit .desktop files.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Exo. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Exo executes remote desktop files which may lead to unexpected arbitrary code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Exo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=xfce-base/exo-4.17.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32278">CVE-2022-32278</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T06:39:07.184860Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T06:39:07.187259Z">graaff</metadata>
+</glsa>
