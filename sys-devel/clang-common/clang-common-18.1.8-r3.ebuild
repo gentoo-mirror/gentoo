@@ -10,16 +10,15 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos"
+KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos"
 IUSE="
 	default-compiler-rt default-libcxx default-lld
 	bootstrap-prefix cet hardened llvm-libunwind
 "
 
 PDEPEND="
-	sys-devel/clang:*
 	default-compiler-rt? (
-		sys-devel/clang-runtime[compiler-rt]
+		sys-devel/clang-runtime:${LLVM_MAJOR}[compiler-rt]
 		llvm-libunwind? ( sys-libs/llvm-libunwind[static-libs] )
 		!llvm-libunwind? ( sys-libs/libunwind[static-libs] )
 	)
