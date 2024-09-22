@@ -11,13 +11,14 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
-IUSE="doc samples test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="collada doc samples test"
 
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	sys-libs/zlib[minizip]
+	collada? ( media-libs/opencollada )
 	doc? ( app-text/doxygen )
 	samples? (
 		media-libs/freeglut
@@ -89,9 +90,8 @@ src_configure() {
 		# -DASSIMP_UBSAN=yes # Enable Undefined Behavior sanitizer.
 		-DASSIMP_WARNINGS_AS_ERRORS=no # Treat all warnings as errors.
 		# -DBUILD_SHARED_LIBS=yes # Build package with shared libraries.
-		# bug #891787 (CVE-2022-45748), intentionally not in alphabetic ordering
-		-DASSIMP_BUILD_COLLADA_IMPORTER=OFF
-		-DASSIMP_BUILD_COLLADA_EXPORTER=OFF
+		-DASSIMP_BUILD_COLLADA_IMPORTER="$(use collada)"
+		-DASSIMP_BUILD_COLLADA_EXPORTER="$(use collada)"
 	)
 
 	if use doc; then
@@ -106,7 +106,9 @@ src_configure() {
 	fi
 	if use test; then
 		# adds the target headercheck which compiles every header file, default disabled because it adds many targets
-		-DASSIMP_HEADERCHECK=$(usex test)
+		mycmakeargs+=(
+			-DASSIMP_HEADERCHECK="$(usex test)"
+		)
 	fi
 
 	cmake_src_configure
