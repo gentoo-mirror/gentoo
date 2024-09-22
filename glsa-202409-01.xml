@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-01">
+    <title>Portage: Unverified PGP Signatures</title>
+    <synopsis>A vulnerability has been discovered in Portage, where PGP signatures would not be verified.</synopsis>
+    <product type="ebuild">portage</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>905356</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/portage" auto="yes" arch="*">
+            <unaffected range="ge">3.0.47</unaffected>
+            <vulnerable range="lt">3.0.47</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Portage is the default Gentoo package management system.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Portage. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>When using the webrsync mechanism to sync the tree the PGP signatures that protect the integrity of the data in the tree would not be verified. This would allow a man-in-the-middle attack to inject arbitrary content into the tree.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Portage users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/portage-3.0.47"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2016-20021">CVE-2016-20021</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T05:36:27.160412Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T05:36:27.162654Z">graaff</metadata>
+</glsa>
