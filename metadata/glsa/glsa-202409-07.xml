@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-07">
+    <title>Rust: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Rust, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">rust,rust-bin</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>890371</bug>
+    <bug>911685</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/rust" auto="yes" arch="*">
+            <unaffected range="ge">1.71.1</unaffected>
+            <vulnerable range="lt">1.71.1</vulnerable>
+        </package>
+        <package name="dev-lang/rust-bin" auto="yes" arch="*">
+            <unaffected range="ge">1.71.1</unaffected>
+            <vulnerable range="lt">1.71.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Rust. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Rust binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/rust-bin-1.71.1"
+        </code>
+        
+        <p>All Rust users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/rust-1.71.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46176">CVE-2022-46176</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38497">CVE-2023-38497</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T06:09:00.541000Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T06:09:00.543705Z">graaff</metadata>
+</glsa>
