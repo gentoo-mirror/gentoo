@@ -11,14 +11,14 @@ SRC_URI="https://www.musicpd.org/download/${PN}/${PV%.*}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+alsa ao +audiofile bzip2 cdio chromaprint +cue +curl doc +dbus
-	+eventfd expat faad +ffmpeg +fifo flac fluidsynth gme +icu +id3tag +inotify
+	+eventfd expat faad +ffmpeg +fifo flac fluidsynth gme +icu +id3tag +inotify +io-uring
 	jack lame libmpdclient libsamplerate libsoxr +mad mikmod mms
 	modplug mpg123 musepack +network nfs openal openmpt opus oss pipe pipewire pulseaudio qobuz
 	recorder samba selinux sid signalfd snapcast sndfile sndio soundcloud sqlite systemd
 	test twolame udisks vorbis wavpack webdav wildmidi upnp
-	zeroconf zip zlib"
+	yajl zeroconf zip zlib"
 
 OUTPUT_PLUGINS="alsa ao fifo jack network openal oss pipe pipewire pulseaudio snapcast sndio recorder"
 DECODER_PLUGINS="audiofile faad ffmpeg flac fluidsynth mad mikmod
@@ -31,7 +31,8 @@ REQUIRED_USE="
 	network? ( || ( ${ENCODER_PLUGINS} ) )
 	recorder? ( || ( ${ENCODER_PLUGINS} ) )
 	qobuz? ( curl soundcloud )
-	soundcloud? ( curl qobuz )
+	snapcast? ( yajl )
+	soundcloud? ( curl qobuz yajl )
 	udisks? ( dbus )
 	upnp? ( curl expat )
 	webdav? ( curl expat )
@@ -44,7 +45,6 @@ RDEPEND="
 	dev-libs/libfmt:=
 	dev-libs/libpcre2
 	media-libs/libogg
-	sys-libs/liburing:=
 	alsa? (
 		media-libs/alsa-lib
 		media-sound/alsa-utils
@@ -71,6 +71,7 @@ RDEPEND="
 		virtual/libiconv
 	)
 	id3tag? ( media-libs/libid3tag:= )
+	io-uring? ( sys-libs/liburing:= )
 	jack? ( virtual/jack )
 	lame? ( network? ( media-sound/lame ) )
 	libmpdclient? ( media-libs/libmpdclient )
@@ -99,7 +100,6 @@ RDEPEND="
 	snapcast? ( media-sound/snapcast )
 	sndfile? ( media-libs/libsndfile )
 	sndio? ( media-sound/sndio )
-	soundcloud? ( >=dev-libs/yajl-2:= )
 	sqlite? ( dev-db/sqlite:3 )
 	systemd? ( sys-apps/systemd:= )
 	twolame? ( media-sound/twolame )
@@ -108,19 +108,19 @@ RDEPEND="
 	vorbis? ( media-libs/libvorbis )
 	wavpack? ( media-sound/wavpack )
 	wildmidi? ( media-sound/wildmidi )
+	yajl? ( >=dev-libs/yajl-2:= )
 	zeroconf? ( net-dns/avahi[dbus] )
 	zip? ( dev-libs/zziplib:= )
-	zlib? ( sys-libs/zlib:= )"
+	zlib? ( sys-libs/zlib:= )
+"
 
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	dev-libs/boost:=
-	test? ( dev-cpp/gtest )"
+	test? ( dev-cpp/gtest )
+"
 
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.23.13-ffmpeg-6.1.patch
-)
 
 pkg_setup() {
 	if use eventfd; then
@@ -138,31 +138,23 @@ pkg_setup() {
 		ERROR_INOTIFY_USER="${P} requires inotify in-kernel support."
 	fi
 
-	if use eventfd || use signalfd || use inotify; then
-		linux-info_pkg_setup
+	if use io-uring; then
+		CONFIG_CHECK+=" ~IO_URING"
+		ERROR_IO_URING="${P} requires io-uring in-kernel support."
 	fi
 
-	elog "If you will be starting mpd via ${EROOT}/etc/init.d/mpd, please make sure that MPD's pid_file is _set_."
-}
-
-src_prepare() {
-	 sed -i \
-		-e 's:^#filesystem_charset.*$:filesystem_charset "UTF-8":' \
-		-e 's:^#user.*$:user "mpd":' \
-		-e 's:^#bind_to_address.*any.*$:bind_to_address "localhost":' \
-		-e 's:^#bind_to_address.*$:bind_to_address "/var/lib/mpd/socket":' \
-		-e 's:^#music_directory.*$:music_directory "/var/lib/mpd/music":' \
-		-e 's:^#playlist_directory.*$:playlist_directory "/var/lib/mpd/playlists":' \
-		-e 's:^#db_file.*$:db_file "/var/lib/mpd/database":' \
-		-e 's:^#log_file.*$:log_file "/var/lib/mpd/log":' \
-		-e 's:^#pid_file.*$:pid_file "/var/lib/mpd/pid":' \
-		-e 's:^#state_file.*$:state_file "/var/lib/mpd/state":' \
-		doc/mpdconf.example || die
-	default
+	if use eventfd || use signalfd || use inotify || use io-uring; then
+		linux-info_pkg_setup
+	fi
 }
 
 src_configure() {
 	local emesonargs=(
+		# media-libs/adplug is not packaged anymore
+		-Dadplug=disabled
+		$(meson_feature alsa)
+		$(meson_feature ao)
+		$(meson_feature audiofile)
 		$(meson_feature bzip2)
 		$(meson_feature cdio cdio_paranoia)
 		$(meson_feature chromaprint)
@@ -171,42 +163,72 @@ src_configure() {
 		$(meson_feature dbus)
 		$(meson_use eventfd)
 		$(meson_feature expat)
+		$(meson_feature faad)
+		$(meson_feature ffmpeg)
+		$(meson_use fifo)
+		$(meson_feature flac)
+		$(meson_feature fluidsynth)
+		$(meson_feature gme)
 		$(meson_feature icu)
 		$(meson_feature id3tag)
 		$(meson_use inotify)
 		-Dipv6=enabled
 		$(meson_feature cdio iso9660)
+		$(meson_feature io-uring io_uring)
+		$(meson_feature jack)
 		$(meson_feature libmpdclient)
 		$(meson_feature libsamplerate)
+		$(meson_feature mad)
+		$(meson_feature mikmod)
 		$(meson_feature mms)
+		$(meson_feature modplug)
+		$(meson_feature musepack mpcdec)
+		$(meson_feature mpg123)
 		$(meson_feature nfs)
+		$(meson_feature openal)
+		$(meson_feature openmpt)
+		$(meson_feature opus)
+		$(meson_feature oss)
+		$(meson_use pipe)
+		$(meson_feature pipewire)
+		$(meson_feature pulseaudio pulse)
+		$(meson_feature qobuz)
+		$(meson_use recorder)
 		$(meson_use signalfd)
 		$(meson_feature samba smbclient)
+		$(meson_use snapcast)
+		$(meson_feature sid sidplay)
+		$(meson_feature sndfile)
+		$(meson_feature sndio)
+		$(meson_feature soundcloud)
 		$(meson_feature libsoxr soxr)
 		$(meson_feature sqlite)
 		$(meson_feature systemd)
 		$(meson_use test)
 		$(meson_feature udisks)
 		-Dupnp=$(usex upnp pupnp disabled)
+		$(meson_feature vorbis)
+		$(meson_feature wavpack)
+		$(meson_feature wildmidi)
 		$(meson_feature webdav)
+		$(meson_feature yajl)
 		-Dzeroconf=$(usex zeroconf avahi disabled)
 		$(meson_feature zlib)
 		$(meson_feature zip zzip)
-	)
 
-	emesonargs+=(
-		$(meson_feature alsa)
-		$(meson_feature ao)
-		$(meson_use fifo)
-		$(meson_feature jack)
-		$(meson_feature openal)
-		$(meson_feature oss)
-		$(meson_use pipe)
-		$(meson_feature pipewire)
-		$(meson_feature pulseaudio pulse)
-		$(meson_use recorder)
-		$(meson_use snapcast)
-		$(meson_feature sndio)
+		--libdir="/usr/$(get_libdir)"
+		$(meson_feature doc documentation)
+		-Dsolaris_output=disabled
+
+		-Ddatabase=true
+		-Ddaemon=true
+		-Ddsd=true
+		-Dtcp=true
+
+		-Dsystemd_system_unit_dir="$(systemd_get_systemunitdir)"
+		-Dsystemd_user_unit_dir="$(systemd_get_userunitdir)"
+
+		$(meson_feature icu iconv)
 	)
 
 	if use samba || use upnp; then
@@ -228,46 +250,6 @@ src_configure() {
 		)
 	fi
 
-	emesonargs+=(
-		# media-libs/adplug is not packaged anymore
-		-Dadplug=disabled
-		$(meson_feature audiofile)
-		$(meson_feature faad)
-		$(meson_feature ffmpeg)
-		$(meson_feature flac)
-		$(meson_feature fluidsynth)
-		$(meson_feature gme)
-		$(meson_feature mad)
-		$(meson_feature mikmod)
-		$(meson_feature modplug)
-		$(meson_feature musepack mpcdec)
-		$(meson_feature mpg123)
-		$(meson_feature openmpt)
-		$(meson_feature opus)
-		$(meson_feature sid sidplay)
-		$(meson_feature sndfile)
-		$(meson_feature vorbis)
-		$(meson_feature wavpack)
-		$(meson_feature wildmidi)
-		$(meson_feature qobuz)
-		$(meson_feature soundcloud)
-
-		--libdir="/usr/$(get_libdir)"
-		$(meson_feature doc documentation)
-		-Dsolaris_output=disabled
-
-		-Ddatabase=true
-		-Ddaemon=true
-		-Ddsd=true
-		-Dio_uring=enabled
-		-Dtcp=true
-
-		-Dsystemd_system_unit_dir="$(systemd_get_systemunitdir)"
-		-Dsystemd_user_unit_dir="$(systemd_get_userunitdir)"
-
-		$(meson_feature icu iconv)
-	)
-
 	meson_src_configure
 }
 
@@ -277,18 +259,33 @@ src_install() {
 	insinto /etc
 	newins doc/mpdconf.example mpd.conf
 
+	# When running MPD as system service, better switch to the user we provide
+	sed -i \
+		-e 's:^#user.*$:user "mpd":' \
+		-e 's:^#group.*$:group "audio":' \
+		"${ED}/etc/mpd.conf" || die
+
+	if ! use systemd; then
+		# Extra options for running MPD under OpenRC
+		# (options that should not be set when using systemd)
+		sed -i \
+			-e 's:^#log_file.*$:log_file "/var/log/mpd/mpd.log":' \
+			-e 's:^#pid_file.*$:pid_file "/run/mpd/mpd.pid":' \
+			"${ED}/etc/mpd.conf" || die
+	fi
+
 	insinto /etc/logrotate.d
-	newins "${FILESDIR}"/${PN}-0.21.1.logrotate ${PN}
+	newins "${FILESDIR}/${P}.logrotate" "${PN}"
 
-	newinitd "${FILESDIR}"/${PN}-0.21.4.init ${PN}
-
-	sed -i -e 's:^#filesystem_charset.*$:filesystem_charset "UTF-8":' "${ED}"/etc/mpd.conf || die "sed failed"
+	newinitd "${FILESDIR}/${P}.init-r1" "${PN}"
 
 	keepdir /var/lib/mpd
 	keepdir /var/lib/mpd/music
 	keepdir /var/lib/mpd/playlists
+	keepdir /var/log/mpd
 
 	rm -r "${ED}"/usr/share/doc/mpd || die
 
 	fowners mpd:audio -R /var/lib/mpd
+	fowners mpd:audio -R /var/log/mpd
 }
