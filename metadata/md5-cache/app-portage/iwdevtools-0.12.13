@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/help2man || ( sys-apps/util-linux app-misc/getopt ) test? ( app-misc/pax-utils app-portage/portage-utils >=app-shells/bash-5.1:0[readline] dev-libs/libxml2:2 sys-apps/coreutils sys-apps/diffutils sys-apps/file sys-apps/portage || ( sys-apps/util-linux app-misc/getopt ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DESCRIPTION=Small tools to aid with Gentoo development, primarily intended for QA
+EAPI=8
+HOMEPAGE=https://github.com/ionenwks/iwdevtools/
+INHERIT=meson optfeature
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos
+LICENSE=BSD-2
+RDEPEND=app-misc/pax-utils app-portage/portage-utils >=app-shells/bash-5.1:0[readline] dev-libs/libxml2:2 sys-apps/coreutils sys-apps/diffutils sys-apps/file sys-apps/portage || ( sys-apps/util-linux app-misc/getopt )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ionenwks/iwdevtools/archive/refs/tags/v0.12.13.tar.gz -> iwdevtools-0.12.13.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=3962bab11f0e7d25f3b9afebe3f2692b
