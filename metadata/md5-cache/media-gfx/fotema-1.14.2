@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/glib:2 >=virtual/rust-1.53 >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm test unpack
+DEPEND=>=dev-libs/glib-2.66:2 >=gui-libs/gtk-4.0.0:4 dev-libs/openssl:= gui-libs/libadwaita media-libs/fontconfig media-libs/graphene media-libs/lcms:2 media-libs/libshumate:= media-libs/opencv:=[contribdnn] media-video/ffmpeg:= sci-libs/onnx sys-libs/libseccomp x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/pango
+DESCRIPTION=Photo gallery for Linux
+EAPI=8
+HOMEPAGE=https://github.com/blissd/fotema
+INHERIT=cargo gnome2-utils meson xdg-utils
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=CC-BY-2.0 CC-BY-4.0 CC-BY-NC-SA-4.0 CC-BY-SA-4.0 CC0-1.0 FDL-1.3+ GPL-3+ MIT
+RDEPEND=>=dev-libs/glib-2.66:2 >=gui-libs/gtk-4.0.0:4 dev-libs/openssl:= gui-libs/libadwaita media-libs/fontconfig media-libs/graphene media-libs/lcms:2 media-libs/libshumate:= media-libs/opencv:=[contribdnn] media-video/ffmpeg:= sci-libs/onnx sys-libs/libseccomp x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/pango media-libs/glycin-loaders
+SLOT=0
+SRC_URI=https://github.com/blissd/fotema/releases/download/v1.14.2/fotema-1.14.2.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	c806360bab90e2b49223df1810172c2b	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=bdbb6d02b13eca814c486ee5b94170f5
