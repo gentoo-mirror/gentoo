@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 <x11-libs/qwt-6.2:6=[designer,qt5(+),svg,-polar(-)] dev-qt/qtconcurrent:5
+DESCRIPTION=Library for displaying values on a polar coordinate system
+EAPI=8
+HOMEPAGE=https://qwtpolar.sourceforge.io/
+INHERIT=qmake-utils
+KEYWORDS=~amd64 ~x86
+LICENSE=qwt
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 <x11-libs/qwt-6.2:6=[designer,qt5(+),svg,-polar(-)]
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=87ed1ad0b154df8f4e695a87a59a7ebe
