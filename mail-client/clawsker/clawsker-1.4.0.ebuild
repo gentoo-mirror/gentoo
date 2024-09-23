@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit xdg-utils
+inherit xdg
 
 DESCRIPTION="Applet to edit Claws Mail's hidden preferences"
 HOMEPAGE="https://www.claws-mail.org/clawsker.php"
@@ -11,7 +11,7 @@ SRC_URI="https://www.claws-mail.org/tools/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -22,16 +22,15 @@ RDEPEND="
 	>=dev-perl/File-Which-1.210
 	mail-client/claws-mail
 "
-DEPEND="test? ( dev-perl/Test-Exception )"
+BDEPEND="test? (
+	dev-perl/Test-Exception
+	dev-perl/Test-Perl-Critic )"
+
+PATCHES=(
+	# TODO: add Test::NeedsDisplay Perl package and remove this patch (bug #841707)
+	"${FILESDIR}/${PN}-remove-get_screen_height-test.patch"
+)
 
 src_install() {
 	emake install DESTDIR="${D}" PREFIX=/usr
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
 }
