@@ -1,27 +1,24 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-DESCRIPTION="command-line program for basic numeric, textual and statistical operations"
+DESCRIPTION="Command-line program for basic numeric, textual and statistical operations"
 HOMEPAGE="https://www.gnu.org/software/datamash/"
 SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="linux-crypto nls openssl"
 
-CDEPEND="
+RDEPEND="
+	nls? ( virtual/libintl )
 	openssl? ( dev-libs/openssl:= )
 "
-RDEPEND="
-	${CDEPEND}
-	nls? ( virtual/libintl )
-"
 BDEPEND="
-	${CDEPEND}
 	nls? ( sys-devel/gettext )
+	openssl? ( dev-libs/openssl:= )
 "
 
 src_configure() {
