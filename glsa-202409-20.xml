@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-20">
+    <title>curl: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in curl, the worst of which could lead to information disclosure.</synopsis>
+    <product type="ebuild">curl</product>
+    <announced>2024-09-23</announced>
+    <revised count="1">2024-09-23</revised>
+    <bug>919325</bug>
+    <bug>919889</bug>
+    <bug>923413</bug>
+    <bug>927960</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/curl" auto="yes" arch="*">
+            <unaffected range="ge">8.7.1</unaffected>
+            <vulnerable range="lt">8.7.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A command line tool and library for transferring data with URLs.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in curl. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All curl users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/curl-8.7.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-42619">CVE-2023-42619</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46218">CVE-2023-46218</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46219">CVE-2023-46219</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0853">CVE-2024-0853</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2004">CVE-2024-2004</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2398">CVE-2024-2398</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2466">CVE-2024-2466</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-23T05:53:30.922445Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-23T05:53:30.926884Z">graaff</metadata>
+</glsa>
