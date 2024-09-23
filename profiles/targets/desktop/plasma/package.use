@@ -1,10 +1,6 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Alfred Wingate <parona@protonmail.com> (2023-12-25)
-# Prefer wayland over X with REQUIRED_USE: ^^ ( gbm wayland X )
->=media-tv/kodi-20.2 wayland -X
-
 # Marek Szuba <marecki@gentoo.org> (2023-11-12)
 # FUSE cannot be built with multiple audio drivers, and desktop/gnome
 # profiles set both USE=pulseaudio (directly) and USE=alsa (inherited
@@ -40,13 +36,6 @@ kde-plasma/kde-cli-tools kdesu
 
 # Required by media-gfx/graphviz which is required by kde-apps/kcachegrind
 media-libs/gd fontconfig
-
-# Needed by a global USE=wayland right now
-media-libs/libsdl2 gles2
-
-# Required by kde-plasma/kwin
-media-libs/mesa wayland
-x11-base/xwayland libei
 
 # Required by kde-apps/kdenlive
 media-libs/mlt ffmpeg frei0r rubberband
