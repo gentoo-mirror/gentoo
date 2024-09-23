@@ -1,11 +1,11 @@
-BDEPEND=dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
-DEFINED_PHASES=compile configure install prepare test
+BDEPEND=dev-util/wayland-scanner virtual/pkgconfig openmp? ( || ( sys-devel/gcc[openmp] sys-devel/clang-runtime[openmp] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=dev-cpp/nlohmann_json dev-libs/glib:2 dev-libs/libevdev dev-libs/libinput:= dev-libs/wayland >=dev-libs/wayland-protocols-1.12 gui-libs/wf-config:0/0.9 gui-libs/wlroots:0/17[drm(+),libinput(+),x11-backend,X?] media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman dbus? ( sys-apps/dbus ) X? ( x11-libs/libxcb:= ) test? ( dev-cpp/doctest )
 DESCRIPTION=compiz like 3D wayland compositor
 EAPI=8
 HOMEPAGE=https://github.com/WayfireWM/wayfire
-INHERIT=meson
-IUSE=+dbus +gles3 test X
+INHERIT=meson toolchain-funcs
+IUSE=X +dbus +gles3 openmp test
 KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=MIT
 RDEPEND=dev-cpp/nlohmann_json dev-libs/glib:2 dev-libs/libevdev dev-libs/libinput:= dev-libs/wayland >=dev-libs/wayland-protocols-1.12 gui-libs/wf-config:0/0.9 gui-libs/wlroots:0/17[drm(+),libinput(+),x11-backend,X?] media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman dbus? ( sys-apps/dbus ) X? ( x11-libs/libxcb:= ) x11-misc/xkeyboard-config
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.9
 SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.9.0/wayfire-0.9.0.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=367f94ce87c6cea51cc91e8bbbbfa0cd
+_md5_=39abf9f390551a11c7c694e90ec0c30d
