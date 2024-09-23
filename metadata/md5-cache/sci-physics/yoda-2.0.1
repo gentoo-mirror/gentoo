@@ -1,0 +1,17 @@
+BDEPEND=python? ( python_single_target_python3_11? ( >=dev-python/cython-0.29.24[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/cython-0.29.24[python_targets_python3_12(-)] ) test? ( python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/matplotlib[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] dev-python/matplotlib[python_targets_python3_12(-)] ) ) )
+DEFINED_PHASES=configure install postinst setup test
+DEPEND=root? ( sci-physics/root:=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) zlib? ( sys-libs/zlib )
+DESCRIPTION=Yet more Objects for (High Energy Physics) Data Analysis
+EAPI=8
+HOMEPAGE=https://yoda.hepforge.org/
+INHERIT=bash-completion-r1 python-single-r1 optfeature
+IUSE=root test +python +zlib python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=root? ( sci-physics/root:=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) zlib? ( sys-libs/zlib )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 ) ) root? ( python )
+RESTRICT=!test? ( test )
+SLOT=0/2.0.1
+SRC_URI=https://yoda.hepforge.org/downloads?f=YODA-2.0.1.tar.bz2 -> YODA-2.0.1.tar.bz2
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	bash-completion-r1	3047612be964ffd4a549447fc4289f12	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=a5451971a548ec935bad4d625f19eb83
