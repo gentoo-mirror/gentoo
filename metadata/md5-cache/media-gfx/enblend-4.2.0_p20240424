@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://enblend.sourceforge.net/
 INHERIT=cmake
 IUSE=cpu_flags_x86_sse2 debug doc openmp tcmalloc
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 arm64 ~x86
 LICENSE=GPL-2+ FDL-1.2+
 RDEPEND=media-libs/lcms:2 media-libs/openexr:= media-libs/tiff:= media-libs/vigra[openexr] sci-libs/gsl:= debug? ( dev-libs/dmalloc[threads] ) tcmalloc? ( dev-util/google-perftools )
 REQUIRED_USE=tcmalloc? ( !debug )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~dilfridge/distfiles/enblend-4.2.0_p20240424.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=034b2e8094e829f5e915a2db7fb94336
+_md5_=55f240e7ab4791ec55bcdea33d8f4f9b
