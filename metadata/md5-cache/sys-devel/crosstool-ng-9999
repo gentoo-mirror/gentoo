@@ -1,14 +1,14 @@
-BDEPEND=app-arch/unzip >=app-shells/bash-3.1 sys-apps/help2man >=sys-apps/sed-4.0 sys-apps/gawk sys-apps/texinfo sys-apps/which sys-devel/bison sys-devel/flex curl? ( net-misc/curl ) cvs? ( dev-vcs/cvs ) dtc? ( sys-apps/dtc ) git? ( dev-vcs/git ) lzip? ( app-arch/lzip ) meson? ( dev-build/meson ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) ninja? ( app-alternatives/ninja ) rsync? ( net-misc/rsync ) subversion? ( dev-vcs/subversion ) wget? ( net-misc/wget ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install setup unpack
+BDEPEND=app-arch/unzip >=app-shells/bash-3.1 sys-apps/help2man >=sys-apps/sed-4.0 sys-apps/gawk sys-apps/texinfo sys-apps/which sys-devel/bison sys-devel/flex curl? ( net-misc/curl ) cvs? ( dev-vcs/cvs ) dtc? ( sys-apps/dtc ) git? ( dev-vcs/git ) lzip? ( app-arch/lzip ) meson? ( dev-build/meson ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) ninja? ( app-alternatives/ninja ) rsync? ( net-misc/rsync ) subversion? ( dev-vcs/subversion ) wget? ( net-misc/wget ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install prepare setup unpack
 DESCRIPTION=Versatile (cross-)toolchain generator
 EAPI=8
 HOMEPAGE=https://crosstool-ng.github.io/
-INHERIT=python-single-r1 git-r3
+INHERIT=python-single-r1 autotools git-r3
 IUSE=curl cvs doc dtc git lzip meson ninja python rsync subversion wget python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
 LICENSE=GPL-2 doc? ( CC-BY-SA-2.5 )
 PROPERTIES=live
 RDEPEND=app-arch/unzip >=app-shells/bash-3.1 sys-apps/help2man >=sys-apps/sed-4.0 sys-apps/gawk sys-apps/texinfo sys-apps/which sys-devel/bison sys-devel/flex curl? ( net-misc/curl ) cvs? ( dev-vcs/cvs ) dtc? ( sys-apps/dtc ) git? ( dev-vcs/git ) lzip? ( app-arch/lzip ) meson? ( dev-build/meson ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) ninja? ( app-alternatives/ninja ) rsync? ( net-misc/rsync ) subversion? ( dev-vcs/subversion ) wget? ( net-misc/wget )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
-_eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=8b45679f243c98bab9529b3ae826e277
+_eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	61927ff6474f1d141b4ea4a5b9870424	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=b39c7f3c750365f2c464ccbcb2cf0a7a

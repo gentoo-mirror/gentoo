@@ -1,5 +1,5 @@
 BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) app-emacs/anaphora app-emacs/dash app-emacs/deferred app-emacs/polymode app-emacs/request app-emacs/websocket app-emacs/with-editor python_single_target_python3_10? ( dev-python/ipython[python_targets_python3_10(-)] dev-python/notebook[python_targets_python3_10(-)] dev-python/tornado[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/ipython[python_targets_python3_11(-)] dev-python/notebook[python_targets_python3_11(-)] dev-python/tornado[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/ipython[python_targets_python3_12(-)] dev-python/notebook[python_targets_python3_12(-)] dev-python/tornado[python_targets_python3_12(-)] ) test? ( app-emacs/ert-runner app-emacs/mocker ) >=app-editors/emacs-25.3:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Jupyter notebook client in Emacs
 EAPI=8
 HOMEPAGE=https://github.com/millejoh/emacs-ipython-notebook/
@@ -12,5 +12,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/millejoh/emacs-ipython-notebook/archive/998ba22660be2035cd23bed1555e47748c4da8a2.tar.gz -> emacs-ipython-notebook-0.17.1_pre20230826.tar.gz
-_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1
 _md5_=8811e91b33efe801a02c061fc987b41e

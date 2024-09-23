@@ -1,5 +1,5 @@
 BDEPEND=test? ( app-emacs/mocker ) >=app-editors/emacs-25.3:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Python virtual environment interface for Emacs
 EAPI=8
 HOMEPAGE=https://github.com/jorgenschaefer/pyvenv/
@@ -11,5 +11,5 @@ RDEPEND=>=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jorgenschaefer/pyvenv/archive/v1.21.tar.gz -> pyvenv-1.21.tar.gz
-_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6
 _md5_=668c7edae54687cf6869324e5b2c770e
