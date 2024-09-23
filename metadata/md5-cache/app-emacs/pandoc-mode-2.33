@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/dash app-emacs/hydra >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DESCRIPTION=GNU Emacs minor mode for interacting with Pandoc
+EAPI=8
+HOMEPAGE=https://joostkremers.github.io/pandoc-mode/ https://github.com/joostkremers/pandoc-mode/
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=app-emacs/dash app-emacs/hydra virtual/pandoc >=app-editors/emacs-25.3:*
+SLOT=0
+SRC_URI=https://github.com/joostkremers/pandoc-mode/archive/2.33.tar.gz -> pandoc-mode-2.33.tar.gz
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	fbefa95f5e9ab880a34bc69832b7c0d7
+_md5_=e9370b6527904eae8bba902f02bf4a7e
