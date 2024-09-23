@@ -222,6 +222,10 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	selinux? ( sec-policy/selinux-clamav )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-1.0.7-cmake-python-version.patch"
+)
+
 python_check_deps() {
 	python_has_version -b "dev-python/pytest[${PYTHON_USEDEP}]"
 }
