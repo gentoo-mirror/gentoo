@@ -1,10 +1,11 @@
 DEFINED_PHASES=install prepare
+DEPEND=net-analyzer/wireshark:=[lua] net-misc/curl
 DESCRIPTION=Easily upload your wireshark captures to CloudShark
 EAPI=8
 HOMEPAGE=https://cloudshark.io/articles/wireshark-plugin/ https://github.com/cloudshark/wireshark-plugin
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-2
-PDEPEND=net-analyzer/wireshark:=[lua] net-misc/curl
+RDEPEND=net-analyzer/wireshark:=[lua] net-misc/curl
 SLOT=0
 SRC_URI=https://github.com/cloudshark/wireshark-plugin/archive/1.0.4.tar.gz -> cloudshark-1.0.4.tar.gz
-_md5_=4892e5aef27b02643ead5206757537b5
+_md5_=2b4e8159b86f1eaaf96a66cee77e60ac
