@@ -10,24 +10,33 @@ HOMEPAGE="https://github.com/Maproom/qmapshack/wiki"
 COMMIT="1f009ac0be1d1c2a4c31aa1283f4009e88685d34"
 SRC_URI="https://github.com/kiozen/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}"/${PN}-${COMMIT}
-
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="dbus"
 
 RDEPEND="
 	dev-db/sqlite
 	>=dev-libs/quazip-1.3:0=[qt6]
-	dev-qt/qt5compat:6[icu,qml]
-	dev-qt/qtbase[dbus,gui,icu,network,opengl,sql,widgets,xml]
-	dev-qt/qttools:6[assistant,linguist,opengl,qdbus,qml,widgets,zstd]
-	dev-qt/qtwebengine:6[qml,widgets]
+	dev-qt/qt5compat:6
+	dev-qt/qtbase:6[dbus,gui,network,sql,widgets,xml]
+	dev-qt/qtdeclarative:6
+	dev-qt/qttools:6[assistant,widgets]
+	dev-qt/qtwebengine:6[widgets]
 	sci-geosciences/routino
 	sci-libs/alglib
 	sci-libs/gdal:=
 	sci-libs/proj:=
 "
 DEPEND="${RDEPEND}"
+BDEPEND="dev-qt/qttools:6[linguist]"
+
+PATCHES=( "${FILESDIR}"/dbus.patch )
+
+src_configure() {
+	local mycmakeargs=( -DUSE_QT6DBus=$(usex dbus) )
+	cmake_src_configure
+}
 
 src_install() {
 	docompress -x /usr/share/doc/${PF}/html
