@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit elisp-common
+VIRTUALX_REQUIRED="doc"
+inherit virtualx elisp-common
 
 DESCRIPTION="FriCAS is a fork of Axiom computer algebra system"
 HOMEPAGE="https://fricas.sourceforge.net/
@@ -14,7 +15,7 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+sbcl cmucl gcl ecl clisp clozurecl X emacs gmp"
+IUSE="+sbcl cmucl gcl ecl clisp clozurecl X emacs gmp doc"
 REQUIRED_USE="^^ ( sbcl cmucl gcl ecl clisp clozurecl )
 	gmp? ( ^^ ( sbcl clozurecl ) )"
 RDEPEND="sbcl? ( dev-lisp/sbcl:= )
@@ -26,10 +27,18 @@ RDEPEND="sbcl? ( dev-lisp/sbcl:= )
 	X? ( x11-libs/libXpm x11-libs/libICE )
 	emacs? ( >=app-editors/emacs-23.1:* )
 	gmp? ( dev-libs/gmp:= )"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	doc? ( dev-texlive/texlive-basic
+		dev-texlive/texlive-latex
+		dev-texlive/texlive-latexrecommended
+		dev-texlive/texlive-latexextra
+		dev-texlive/texlive-mathscience
+		dev-tex/pgf )"
 
 # necessary for clisp and gcl
 RESTRICT="strip"
+
+PATCHES=( "${FILESDIR}"/${P}-doc.patch )
 
 src_configure() {
 	local LISP GMP
@@ -41,12 +50,21 @@ src_configure() {
 	use clozurecl && LISP=ccl
 
 	if use sbcl || use clozurecl
-	then GMP=$(use_with gmp)
+	then GMP=$(use_enable gmp)
 	else GMP=''
 	fi
 
 	# aldor is not yet in portage
 	econf --disable-aldor --with-lisp="${LISP}" $(use_with X x) ${GMP}
+}
+
+src_compile() {
+	default
+	if use doc; then
+		pushd src/doc > /dev/null || die "pushd src/doc failed"
+		virtx emake book
+		popd > /dev/null
+	fi
 }
 
 src_test() {
@@ -67,6 +85,10 @@ src_install() {
 		rm "${D}"/usr/bin/efricas || die "rm efricas failed"
 	fi
 	rm -r "${D}"/usr/$(get_libdir)/${PN}/emacs || die "rm -r emacs failed"
+
+	if use doc; then
+		dodoc src/doc/book.pdf
+	fi
 }
 
 pkg_postinst() {
