@@ -1,6 +1,6 @@
 BDEPEND=x11-base/xorg-proto app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=app-text/ghostscript-gpl <dev-scheme/guile-1.9[debug?,deprecated] media-libs/freetype x11-apps/xmodmap x11-libs/libXext virtual/latex-base >=dev-qt/qtcore-5.9.1:5 >=dev-qt/qtgui-5.9.1:5 >=dev-qt/qtwidgets-5.9.1:5 >=dev-qt/qtprintsupport-5.9.1:5 sqlite? ( dev-db/sqlite ) jpeg? ( virtual/imagemagick-tools[jpeg] ) netpbm? ( media-libs/netpbm ) spell? ( app-text/aspell ) svg? ( || ( media-gfx/inkscape gnome-base/librsvg:2 ) )
+DEPEND=app-text/ghostscript-gpl <dev-scheme/guile-1.9:12[debug?,deprecated] media-libs/freetype x11-apps/xmodmap x11-libs/libXext virtual/latex-base >=dev-qt/qtcore-5.9.1:5 >=dev-qt/qtgui-5.9.1:5 >=dev-qt/qtwidgets-5.9.1:5 >=dev-qt/qtprintsupport-5.9.1:5 sqlite? ( dev-db/sqlite ) jpeg? ( virtual/imagemagick-tools[jpeg] ) netpbm? ( media-libs/netpbm ) spell? ( app-text/aspell ) svg? ( || ( media-gfx/inkscape gnome-base/librsvg:2 ) )
 DESCRIPTION=Wysiwyg text processor with high-quality maths
 EAPI=7
 HOMEPAGE=https://www.texmacs.org/
@@ -8,8 +8,8 @@ INHERIT=cmake xdg-utils
 IUSE=debug jpeg netpbm sqlite svg spell
 KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-3
-RDEPEND=app-text/ghostscript-gpl <dev-scheme/guile-1.9[debug?,deprecated] media-libs/freetype x11-apps/xmodmap x11-libs/libXext virtual/latex-base >=dev-qt/qtcore-5.9.1:5 >=dev-qt/qtgui-5.9.1:5 >=dev-qt/qtwidgets-5.9.1:5 >=dev-qt/qtprintsupport-5.9.1:5 sqlite? ( dev-db/sqlite ) jpeg? ( virtual/imagemagick-tools[jpeg] ) netpbm? ( media-libs/netpbm ) spell? ( app-text/aspell ) svg? ( || ( media-gfx/inkscape gnome-base/librsvg:2 ) )
+RDEPEND=app-text/ghostscript-gpl <dev-scheme/guile-1.9:12[debug?,deprecated] media-libs/freetype x11-apps/xmodmap x11-libs/libXext virtual/latex-base >=dev-qt/qtcore-5.9.1:5 >=dev-qt/qtgui-5.9.1:5 >=dev-qt/qtwidgets-5.9.1:5 >=dev-qt/qtprintsupport-5.9.1:5 sqlite? ( dev-db/sqlite ) jpeg? ( virtual/imagemagick-tools[jpeg] ) netpbm? ( media-libs/netpbm ) spell? ( app-text/aspell ) svg? ( || ( media-gfx/inkscape gnome-base/librsvg:2 ) )
 SLOT=0
 SRC_URI=https://www.texmacs.org/Download/ftp/tmftp/source/TeXmacs-2.1-src.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=52651ebdc2f06c7c678c9580a5470f34
+_md5_=efbdd8cb43e12c8a944eab04f1423d49
