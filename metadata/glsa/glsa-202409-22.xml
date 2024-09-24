@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-22">
+    <title>GCC: Flawed Code Generation</title>
+    <synopsis>A vulnerability has been discovered in GCC, which can lead to flawed code generation.</synopsis>
+    <product type="ebuild">gcc</product>
+    <announced>2024-09-24</announced>
+    <revised count="1">2024-09-24</revised>
+    <bug>719466</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-devel/gcc" auto="yes" arch="ppc  ppc64">
+            <unaffected range="ge">10.0</unaffected>
+            <vulnerable range="lt">10.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, D and Modula-2 as well as libraries for these languages (libstdc++,...).</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in GCC. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>The POWER9 backend in GNU Compiler Collection (GCC) could optimize multiple calls of the __builtin_darn intrinsic into a single call, thus reducing the entropy of the random number generator. This occurred because a volatile operation was not specified. For example, within a single execution of a program, the output of every __builtin_darn() call may be the same.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GCC users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-devel/gcc-10.0"
+        </code>
+        
+        <p>And then select it with gcc-config:</p>
+        
+        <code>
+          # gcc-config latest
+        </code>
+        
+        <p>In this case, users should also rebuild all affected packages with emerge -e, e.g.:</p>
+        
+        <code>
+          # emerge --usepkg=n --emptytree @world
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-15847">CVE-2019-15847</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-24T05:11:59.047098Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-24T05:11:59.050051Z">graaff</metadata>
+</glsa>
