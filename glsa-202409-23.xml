@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-23">
+    <title>ZNC: Remote Code Execution</title>
+    <synopsis>A vulnerability has been found in ZNC which could result in remote code execution.</synopsis>
+    <product type="ebuild">znc</product>
+    <announced>2024-09-24</announced>
+    <revised count="1">2024-09-24</revised>
+    <bug>935422</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-irc/znc" auto="yes" arch="*">
+            <unaffected range="ge">1.9.1</unaffected>
+            <vulnerable range="lt">1.9.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ZNC is an advanced IRC bouncer.</p>
+    </background>
+    <description>
+        <p>ZNC&#39;s modtcl could allow for remote code execution via a KICK.</p>
+    </description>
+    <impact type="normal">
+        <p>A vulnerable ZNC with the modtcl module loaded could be exploited for remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>Unload the mod_tcl module.</p>
+    </workaround>
+    <resolution>
+        <p>All ZNC users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-irc/znc-1.9.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39844">CVE-2024-39844</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-24T05:14:03.149211Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-24T05:14:03.152374Z">graaff</metadata>
+</glsa>
