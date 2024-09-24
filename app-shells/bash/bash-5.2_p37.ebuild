@@ -15,14 +15,14 @@ MY_PV=${MY_PV/_/-}
 MY_P=${PN}-${MY_PV}
 MY_PATCHES=()
 
-# Determine the patchlevel.
+# Determine the patchlevel. See ftp://ftp.gnu.org/gnu/bash/bash-5.2-patches/.
 case ${PV} in
+	*_p*)
+		PLEVEL=${PV##*_p}
+		;;
 	9999|*_alpha*|*_beta*|*_rc*)
 		# Set a negative patchlevel to indicate that it's a pre-release.
 		PLEVEL=-1
-		;;
-	*_p*)
-		PLEVEL=${PV##*_p}
 		;;
 	*)
 		PLEVEL=0
@@ -30,7 +30,7 @@ esac
 
 # The version of readline this bash normally ships with. Note that we only use
 # the bundled copy of readline for pre-releases.
-READLINE_VER="8.3_alpha"
+READLINE_VER="8.2_p1"
 
 DESCRIPTION="The standard GNU Bourne again shell"
 HOMEPAGE="https://tiswww.case.edu/php/chet/bash/bashtop.html https://git.savannah.gnu.org/cgit/bash.git"
@@ -39,15 +39,6 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/bash.git"
 	EGIT_BRANCH=devel
 	inherit git-r3
-elif (( PLEVEL < 0 )) && [[ ${PV} == *_p* ]] ; then
-	# It can be useful to have snapshots in the pre-release period once
-	# the first alpha is out, as various bugs get reported and fixed from
-	# the alpha, and the next pre-release is usually quite far away.
-	#
-	# i.e. if it's worth packaging the alpha, it's worth packaging a followup.
-	BASH_COMMIT="cf694865de527e597de5a906643a74037341a431"
-	SRC_URI="https://git.savannah.gnu.org/cgit/bash.git/snapshot/bash-${BASH_COMMIT}.tar.xz -> ${P}-${BASH_COMMIT}.tar.xz"
-	S=${WORKDIR}/${PN}-${BASH_COMMIT}
 else
 	my_urls=( {'mirror://gnu/bash','ftp://ftp.cwru.edu/pub/bash'}/"${MY_P}.tar.gz" )
 
@@ -61,7 +52,6 @@ else
 	done
 
 	SRC_URI="${my_urls[*]} verify-sig? ( ${my_urls[*]/%/.sig} )"
-	S=${WORKDIR}/${MY_P}
 
 	unset -v my_urls my_p my_patch_idx my_patch_ver
 fi
@@ -69,6 +59,8 @@ fi
 if [[ ${GENTOO_PATCH_VER} ]]; then
 	SRC_URI+=" https://dev.gentoo.org/~${GENTOO_PATCH_DEV:?}/distfiles/${CATEGORY}/${PN}/${PN}-${GENTOO_PATCH_VER:?}-patches.tar.xz"
 fi
+
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -101,6 +93,11 @@ PATCHES=(
 
 	# Patches to or from Chet, posted to the bug-bash mailing list.
 	"${FILESDIR}/${PN}-5.0-syslog-history-extern.patch"
+	"${FILESDIR}/${PN}-5.2_p15-random-ub.patch"
+	"${FILESDIR}/${PN}-5.2_p15-configure-clang16.patch"
+	"${FILESDIR}/${PN}-5.2_p21-wpointer-to-int.patch"
+	"${FILESDIR}/${PN}-5.2_p32-memory-leaks.patch"
+	"${FILESDIR}/${PN}-5.2_p32-read-delimiter-in-invalid-mbchar.patch"
 )
 
 pkg_setup() {
@@ -122,8 +119,6 @@ src_unpack() {
 
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
-	elif (( PLEVEL < 0 )) && [[ ${PV} == *_p* ]] ; then
-		default
 	else
 		if use verify-sig; then
 			verify-sig_verify_detached "${DISTDIR}/${MY_P}.tar.gz"{,.sig}
@@ -178,10 +173,6 @@ src_configure() {
 	# configure warns on use of non-Bison but doesn't abort. The result
 	# may misbehave at runtime.
 	unset -v YACC
-
-	# wcsnwidth(), substring() issues with -Wlto-type-mismatch, reported
-	# upstream to Chet by email.
-	filter-lto
 
 	myconf=(
 		--disable-profiling

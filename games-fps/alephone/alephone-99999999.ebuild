@@ -12,7 +12,7 @@ if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/Aleph-One-Marathon/alephone/"
 	EGIT_SUBMODULES=() # Upstream includes game data as submodules, we only want the engine
 else
-	SRC_URI="https://github.com/Aleph-One-Marathon/alephone/archive/refs/tags/release-${PV}.tar.gz"
+	SRC_URI="https://github.com/Aleph-One-Marathon/alephone/archive/refs/tags/release-${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-release-${PV}"
 	KEYWORDS="~amd64"
 fi
@@ -20,19 +20,15 @@ fi
 LICENSE="GPL-3+ BitstreamVera OFL-1.1"
 SLOT="0"
 
-IUSE="alsa curl speex upnp"
+IUSE="curl upnp"
 
-# ffmpeg covers most audio/video use cases and the package doesn't configure
-# with alternatives enabled (media-libs/smpeg)
-# When resolved upstream,
-# !ffmpeg ( media-libs/libmad media-libs/libsndfile media-libs/libvorbis media-libs/smpeg )
-# with an appropriate REQUIRED_USE may be added.
-# See https://github.com/Aleph-One-Marathon/alephone/issues/85
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/zziplib:=
+	media-libs/openal
 	media-libs/libpng
 	media-libs/libsdl2
+	media-libs/libsndfile
 	media-libs/sdl2-image[png]
 	media-libs/sdl2-net
 	media-libs/sdl2-ttf
@@ -40,12 +36,7 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/opengl
 	virtual/glu
-	alsa? ( media-libs/alsa-lib )
 	curl? ( net-misc/curl )
-	speex? (
-		media-libs/speex
-		media-libs/speexdsp
-	)
 	upnp? ( net-libs/miniupnpc )
 "
 
@@ -63,23 +54,19 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=odr
-	# https://bugs.gentoo.org/873298
-	# https://github.com/Aleph-One-Marathon/alephone/issues/475
+	# With LTO enabled enemies are not visible
+	# https://github.com/Aleph-One-Marathon/alephone/issues/518
 	filter-lto
-
-	econf \
-		--enable-lua \
-		--enable-opengl \
-		--with-ffmpeg \
-		--without-mad \
-		--without-smpeg \
-		--without-sndfile \
-		--without-vorbis \
-		$(use_with alsa) \
-		$(use_with curl) \
-		$(use_with speex) \
+	my_econf=(
+		--enable-opengl
+		--with-ffmpeg
+		--with-png
+		--with-sdl_image
+		--with-zzip
+		$(use_with curl)
 		$(use_with upnp miniupnpc)
+	)
+	econf "${my_econf[@]}"
 }
 
 src_compile() {

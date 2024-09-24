@@ -45,7 +45,7 @@ elif (( PLEVEL < 0 )) && [[ ${PV} == *_p* ]] ; then
 	# the alpha, and the next pre-release is usually quite far away.
 	#
 	# i.e. if it's worth packaging the alpha, it's worth packaging a followup.
-	BASH_COMMIT="5576c26da8e0ad74048203398acb493c65fd3476"
+	BASH_COMMIT="8d74195d7f379c6adaee217f50d60d0c8f79ad8c"
 	SRC_URI="https://git.savannah.gnu.org/cgit/bash.git/snapshot/bash-${BASH_COMMIT}.tar.xz -> ${P}-${BASH_COMMIT}.tar.xz"
 	S=${WORKDIR}/${PN}-${BASH_COMMIT}
 else

@@ -1,14 +1,14 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop
 
-DESCRIPTION="Aleph One - Marathon (M1A1)"
+DESCRIPTION="Aleph One - Marathon Infinity"
 HOMEPAGE="https://alephone.lhowon.org/"
-SRC_URI="https://github.com/Aleph-One-Marathon/alephone/releases/download/release-${PV}/Marathon-${PV}-Data.zip"
-S="${WORKDIR}/Marathon"
+SRC_URI="https://github.com/Aleph-One-Marathon/alephone/releases/download/release-${PV}/MarathonInfinity-${PV}-Data.zip"
+S="${WORKDIR}/Marathon Infinity"
 
 LICENSE="bungie-marathon"
 SLOT="0"
@@ -18,7 +18,7 @@ RESTRICT="mirror"
 RDEPEND="games-fps/alephone"
 BDEPEND="app-arch/unzip"
 
-MY_NAME="marathon"
+MY_NAME="infinity"
 MY_DIR="/usr/share/alephone-${MY_NAME}"
 
 src_install() {
