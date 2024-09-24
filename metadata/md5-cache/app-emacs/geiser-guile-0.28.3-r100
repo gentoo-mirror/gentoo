@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/geiser app-emacs/transient >=app-editors/emacs-25.3:* virtual/pkgconfig
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Guile's implementation of the Geiser protocols
+EAPI=8
+HOMEPAGE=https://gitlab.com/emacs-geiser/guile/
+INHERIT=elisp guile-single
+IUSE=guile_single_target_2-2 guile_single_target_3-0
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=app-emacs/geiser app-emacs/transient guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) >=app-editors/emacs-25.3:*
+REQUIRED_USE=^^ ( guile_single_target_2-2 guile_single_target_3-0 )
+SLOT=0
+SRC_URI=https://gitlab.com/emacs-geiser/guile/-/archive/0.28.3/guile-0.28.3.tar.bz2 -> geiser-guile-0.28.3.tar.bz2
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	guile-utils	1818ab79f42a7929094eca2efd03e4ae	guile-single	3e66e76f70c51c2192a802547ce0e067
+_md5_=96d3e18378755756038ac296560cef33

@@ -1112,7 +1112,7 @@ app-arch/cfv 3.0.0 3.1.0: Command-line File Verify - versatile file checksum cre
 app-arch/cksfv 1.3.15: SFV checksum utility (simple file verification)
 app-arch/clzip 1.14: C language version of lzip
 app-arch/cpio 2.13-r5 2.14 2.15: File archival tool which can also read and write tar files
-app-arch/createrepo_c 1.1.2 1.1.3 9999: C implementation of createrepo
+app-arch/createrepo_c 1.1.2 1.1.3 1.1.4 9999: C implementation of createrepo
 app-arch/csnappy 0_pre20220804: Google's snappy compression library for the Linux Kernel
 app-arch/deb2targz 1-r3: Convert a .deb file to a .tar.gz archive
 app-arch/dpkg 1.20.9-r1 1.20.12-r1 1.21.1 1.21.15-r2 1.21.15-r3 1.21.19 1.21.19-r1: Package maintenance system for Debian
@@ -1198,7 +1198,7 @@ app-arch/xar 1.8.0.0.487.100.1 1.8.0.0.498: An easily extensible archive format
 app-arch/xarchiver 0.5.4.23: A GTK+ archive manager that can be used with Thunar
 app-arch/xdms 1.3.2-r2: xDMS - Amiga DMS disk image decompressor
 app-arch/xz-utils 5.4.2 5.4.7-r1 5.6.2-r1 9999: Utils for managing LZMA compressed files
-app-arch/zchunk 1.3.2 1.4.0 9999: File format designed for highly efficient deltas with good compression
+app-arch/zchunk 1.3.2 1.4.0 1.5.1 9999: File format designed for highly efficient deltas with good compression
 app-arch/zip 3.0-r7: Info ZIP (encryption support)
 app-arch/zoo 2.10-r6: Manipulate archives of files in compressed form
 app-arch/zopfli 1.0.3: Very good, but slow, deflate or zlib compression
@@ -2029,7 +2029,7 @@ app-emacs/flashcard 2.3.3: An Emacs Lisp package for drilling on questions and a
 app-emacs/flim 1.14.9_p20231218: A library to provide basic features about message representation or encoding
 app-emacs/flycheck 34.1: Modern on-the-fly syntax checking extension for GNU Emacs
 app-emacs/flycheck-clang-tidy 0.3.0_p20201116: Flycheck syntax checker using clang-tidy
-app-emacs/flycheck-guile 0.5: Flycheck checker for the GNU Guile Scheme implementation
+app-emacs/flycheck-guile 0.5 0.5-r100: Flycheck checker for the GNU Guile Scheme implementation
 app-emacs/flycheck-inline 0_pre20200808: Display Flycheck errors inline
 app-emacs/flycheck-nimsuggest 0.8.1_p20171027-r1: Emacs Flycheck backend for Nim language using nimsuggest
 app-emacs/flycheck-package 0.14: Flycheck checker for Emacs Lisp package metadata
@@ -2040,7 +2040,7 @@ app-emacs/geiser 0.31 0.31.1: Generic interaction mode between Emacs and differe
 app-emacs/geiser-chez 0.18: Chez Scheme's implementation of the Geiser protocols
 app-emacs/geiser-chicken 0.17: Chicken Scheme's implementation of the Geiser protocols
 app-emacs/geiser-gambit 0.18.1: Gambit Scheme's implementation of the Geiser protocols
-app-emacs/geiser-guile 0.28.1 0.28.2 0.28.3: Guile's implementation of the Geiser protocols
+app-emacs/geiser-guile 0.28.1 0.28.2 0.28.3 0.28.3-r100: Guile's implementation of the Geiser protocols
 app-emacs/geiser-mit 0.15: MIT/GNU Scheme's implementation of the Geiser protocols
 app-emacs/ghub 4.0.0 4.1.0: Minuscule client library for the Git forge APIs
 app-emacs/git-modes 1.4.4 9999: Emacs major modes for editing Git configuration files
@@ -2706,7 +2706,7 @@ app-misc/dvtm 0.15-r6 9999: Dynamic virtual terminal manager
 app-misc/ebusd 23.3-r2: Daemon for communication with eBUS heating systems
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
-app-misc/elasticsearch 7.17.16 8.14.3: Free and Open, Distributed, RESTful Search Engine
+app-misc/elasticsearch 7.17.16 8.15.1: Free and Open, Distributed, RESTful Search Engine
 app-misc/empty 0.6.23c: Small shell utility, similar to expect(1)
 app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
@@ -3072,7 +3072,7 @@ app-portage/ufed 0.96 9999: Gentoo Linux USE flags editor
 app-portage/unsymlink-lib 20: Convert your system to SYMLINK_LIB=no
 app-shells/atuin 18.2.0 18.3.0-r1: Shell history manager supporting encrypted synchronisation
 app-shells/autojump 22.5.3-r3: change directory command that learns
-app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r2 5.1_p16-r13 5.2_p26-r6 5.2_p26-r8 5.2_p32 5.2_p32-r1 5.3_alpha-r5 5.3_alpha_p20240815 5.3_alpha_p20240821 5.3_alpha_p20240823 5.3_alpha_p20240828 5.3_alpha_p20240904 5.3_alpha_p20240911 9999: The standard GNU Bourne again shell
+app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r2 5.1_p16-r13 5.2_p26-r6 5.2_p26-r8 5.2_p32 5.2_p32-r1 5.2_p37 5.3_alpha-r5 5.3_alpha_p20240911 5.3_alpha_p20240920 9999: The standard GNU Bourne again shell
 app-shells/bash-completion 2.14.0 2.14.0-r1 9999: Programmable Completion for bash
 app-shells/bashdb 5.0.1.1.2: bash source code debugging
 app-shells/bashish 2.2.4: Text console theme engine
@@ -8044,7 +8044,7 @@ dev-python/aiocache 0.12.2: Asyncio cache manager
 dev-python/aiodns 3.2.0: Simple DNS resolver for asyncio
 dev-python/aiofiles 24.1.0: File support for asyncio
 dev-python/aiohappyeyeballs 2.4.0: Happy Eyeballs for pre-resolved hosts
-dev-python/aiohttp 3.9.5 3.10.5: HTTP client/server for asyncio
+dev-python/aiohttp 3.9.5 3.10.5 3.10.6_rc2: HTTP client/server for asyncio
 dev-python/aiohttp-cors 0.7.0-r2: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-oauthlib 0.1.0: This project provides first-class OAuth library support for aiohttp
 dev-python/aiohttp-socks 0.9.0: SOCKS proxy connector for aiohttp
@@ -8059,7 +8059,7 @@ dev-python/aiostream 0.6.1 0.6.2: Generator-based operators for asynchronous ite
 dev-python/aiounittest 1.4.2: Test asyncio code more easily
 dev-python/ajsonrpc 1.2.0: Async JSON-RPC 2.0 protocol + server powered by asyncio
 dev-python/alabaster 1.0.0: A configurable sidebar-enabled Sphinx theme
-dev-python/alembic 1.13.2: Database migrations tool, written by the author of SQLAlchemy
+dev-python/alembic 1.13.2 1.13.3: Database migrations tool, written by the author of SQLAlchemy
 dev-python/allpairspy 2.5.1: Pairwise test combinations generator
 dev-python/amodem 1.15.4: Transmit data between two computers using audio
 dev-python/amqp 5.2.0: Low-level AMQP client for Python (fork of amqplib)
@@ -8116,7 +8116,7 @@ dev-python/backports-ssl-match-hostname 3.7.0.1: The ssl.match_hostname() functi
 dev-python/backports-strenum 1.3.1: Create enumerated constants that are also subclasses of str
 dev-python/backports-tarfile 1.2.0: Backport of CPython tarfile module (from Python 3.12)
 dev-python/backrefs 5.7_p1: Wrapper around re or regex that adds additional back references
-dev-python/bandit 1.7.9: A security linter from OpenStack Security
+dev-python/bandit 1.7.9 1.7.10: A security linter from OpenStack Security
 dev-python/bareos 22.1.5 22.1.6 23.0.3 23.0.4: python bindings for bareos network backup suite
 dev-python/bashate 2.1.1: A pep8 equivalent for bash scripts
 dev-python/basho-erlastic 2.1.1-r1: Erlang binary term codec and port interface
@@ -8173,7 +8173,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0 1.17.0_pre20240424 1.17.0_rc1 1.17.0 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.11.1 1.12.4 1.13.0 1.14.0 1.14.1 1.14.2: CloudFormation Linter
+dev-python/cfn-lint 1.11.1 1.12.4 1.13.0 1.14.0 1.14.1 1.14.2 1.15.0: CloudFormation Linter
 dev-python/cftime 1.6.4: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4: Fast HTML/XML template compiler for Python
@@ -8267,7 +8267,7 @@ dev-python/deepdiff 7.0.1 8.0.1: A library for comparing dictionaries, iterables
 dev-python/deepmerge 1.1.1 2.0: Tools to handle merging of nested data structures in python
 dev-python/defusedxml 0.7.1-r1 0.8.0_rc2: XML bomb protection for Python stdlib modules, an xml serialiser
 dev-python/denonavr 0.11.6: Automation Library for Denon AVR receivers
-dev-python/dep-logic 0.4.6: Python dependency specifications supporting logical operations
+dev-python/dep-logic 0.4.6 0.4.9: Python dependency specifications supporting logical operations
 dev-python/deprecated 1.2.14: Python @deprecated decorator to deprecate old API
 dev-python/deprecation 2.1.0-r1: A library to handle automated deprecations
 dev-python/dict2xml 1.7.6: Small utility to convert a python dictionary into an XML string
@@ -8331,7 +8331,7 @@ dev-python/elasticsearch 8.14.0 8.15.0 8.15.1: Official Elasticsearch client lib
 dev-python/elementpath 4.4.0 4.5.0: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/email-validator 2.2.0: A robust email syntax and deliverability validation library
 dev-python/emcee 3.1.4 3.1.5 3.1.6: Python ensemble sampling toolkit for affine-invariant MCMC
-dev-python/emoji 2.12.1 2.13.0: Emoji for Python
+dev-python/emoji 2.12.1 2.13.0 2.13.2: Emoji for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 24.0 24.1 24.1.1 24.1.2 24.2: Shared pip wheel for ensurepip Python module
 dev-python/ensurepip-setuptools 73.0.1 74.1.2 74.1.3 75.0.0 75.1.0: Shared setuptools wheel for ensurepip Python module
@@ -8396,7 +8396,7 @@ dev-python/flit 3.9.0-r1: Simplified packaging of Python modules
 dev-python/flit-core 3.9.0: Simplified packaging of Python modules (core module)
 dev-python/flit_scm 1.7.0: A PEP 518 build backend combining flit with setuptools_scm
 dev-python/flufl-lock 8.1.0: NFS-safe file locking with timeouts for POSIX systems
-dev-python/fonttools 4.53.0 4.53.1: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
+dev-python/fonttools 4.53.0 4.53.1 4.54.0: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/fpylll 0.6.1: Python bindings for sci-libs/fplll
 dev-python/fqdn 1.5.1-r2: RFC-compliant FQDN validation and manipulation for Python
 dev-python/freetype-py 2.4.0-r1 2.5.1: FreeType Python bindings
@@ -8837,7 +8837,7 @@ dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.0.0 6.1.0: Inject some useful and sensible default behaviors into setuptools
 dev-python/pbs-installer 2024.4.24: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
-dev-python/pdm 2.18.1 2.18.2: Python package and dependency manager supporting the latest PEP standards
+dev-python/pdm 2.18.2 2.19.1: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.3.3 2.4.0 2.4.1: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdoc3 0.10.0-r2: Auto-generate API documentation for Python projects
 dev-python/pebble 5.0.7: Threading and multiprocessing eye-candy
@@ -9097,7 +9097,7 @@ dev-python/pytest-helpers-namespace 2021.12.29-r1: Provides a helpers pytest nam
 dev-python/pytest-home 0.6.0: Home directory fixtures
 dev-python/pytest-httpbin 2.0.0-r1 2.1.0: Easily test your HTTP library against a local copy of httpbin
 dev-python/pytest-httpserver 1.1.0: HTTP server for pytest to test HTTP clients
-dev-python/pytest-httpx 0.30.0 0.31.0 0.31.1: Send responses to HTTPX using pytest
+dev-python/pytest-httpx 0.30.0 0.31.0 0.31.1 0.31.2: Send responses to HTTPX using pytest
 dev-python/pytest-import-check 0.0.4: pytest plugin to check whether Python modules can be imported
 dev-python/pytest-jupyter 0.10.1: Pytest plugin for testing Jupyter libraries and extensions
 dev-python/pytest-lazy-fixture 0.6.3-r1: It helps to use fixtures in pytest.mark.parametrize
@@ -9141,7 +9141,7 @@ dev-python/python-augeas 1.1.0-r1: Python bindings for Augeas
 dev-python/python-axolotl 0.2.3-r3: A python module for the axolotl protocol
 dev-python/python-axolotl-curve25519 0.4.1_p2-r4: A python wrapper for the curve25519 library with ed25519 signatures
 dev-python/python-box 7.2.0: Python dictionaries with advanced dot notation access
-dev-python/python-bugzilla 3.2.0-r1: A python module for interacting with Bugzilla over XMLRPC
+dev-python/python-bugzilla 3.2.0-r1 3.3.0: A python module for interacting with Bugzilla over XMLRPC
 dev-python/python-caja 1.26.0 1.28.0: Python bindings for the Caja file manager
 dev-python/python-cinderclient 9.6.0: A client for the OpenStack Cinder API
 dev-python/python-constraint 1.4.0: Constraint Solving Problem resolver for Python
@@ -9246,7 +9246,7 @@ dev-python/quart-trio 0.11.1: A Quart extension to provide trio support
 dev-python/radon 6.0.1: Code Metrics in Python
 dev-python/raet 0.6.8-r6: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.2: Python 2.7 random module ported to Python 3
-dev-python/rapidfuzz 3.9.6 3.9.7: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 3.9.6 3.9.7 3.10.0: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rarfile 4.2: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
 dev-python/rdflib 7.0.0: RDF library containing a triple store and parser/serializer
@@ -9443,7 +9443,7 @@ dev-python/sshtunnel 0.3.1 0.4.0: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
 dev-python/stack-data 0.6.3: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20220330-r4: Suite of tools for PDF files manipulation written in Python
-dev-python/starlette 0.38.2 0.38.4 0.38.5 0.38.6: The little ASGI framework that shines
+dev-python/starlette 0.38.2 0.38.4 0.38.5 0.38.6 0.39.0: The little ASGI framework that shines
 dev-python/statsd 4.0.1: A simple statsd client
 dev-python/statsmodels 0.14.2 0.14.3: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1-r1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -9518,7 +9518,7 @@ dev-python/tpm2-pytss 2.2.1 2.3.0: Python bindings for TSS
 dev-python/tqdm 4.66.5: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
 dev-python/transitions 0.9.2: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.13.3: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.13.3 3.13.4: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.21.3 0.22.3-r2 0.23.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 23.11.0 24.9.1: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.4.9: Python library for loading and using triangular meshes
@@ -9637,7 +9637,7 @@ dev-python/yapf 0.40.2: A formatter for Python files
 dev-python/yappi 1.6.0: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
 dev-python/yara-python 4.5.0 9999: Python interface for a malware identification and classification tool
-dev-python/yarl 1.9.4 1.9.11 1.10.0 1.11.0 1.11.1: Yet another URL library
+dev-python/yarl 1.9.4 1.9.11 1.10.0 1.11.0 1.11.1 1.12.1: Yet another URL library
 dev-python/yaswfp 0.9.3-r2: Yet Another SWF Parser
 dev-python/yattag 1.16.0: Python library to generate HTML or XML in a readable, concise and pythonic way
 dev-python/yaxmldiff 0.1.0: Yet Another XML Differ
@@ -10426,7 +10426,7 @@ dev-scheme/gauche-kakasi 0.1-r1: Kakasi binding for Gauche
 dev-scheme/gauche-mecab 1.0.2-r1: MeCab binding for Gauche
 dev-scheme/gauche-qdbm 0.2-r1: QDBM binding for Gauche
 dev-scheme/goosh 1.3-r2 1.3-r100: Small process-control library for Guile
-dev-scheme/guile 1.8.8-r5 1.8.8-r100 2.2.7-r1 2.2.7-r2 2.2.7-r100 3.0.9 3.0.10 3.0.10-r100: GNU Ubiquitous Intelligent Language for Extensions
+dev-scheme/guile 1.8.8-r5 1.8.8-r101 2.2.7-r1 2.2.7-r2 2.2.7-r100 3.0.9 3.0.10 3.0.10-r100: GNU Ubiquitous Intelligent Language for Extensions
 dev-scheme/guile-colorized 0.1_p20191205 0.1_p20191205-r100 9999: Colorized REPL for GNU Guile
 dev-scheme/guile-commonmark 0.1.2_pre20240803: Implementation of CommonMark for Guile
 dev-scheme/guile-config 0.5.1 0.5.1-r100: Guile application configuration parsing library
@@ -11388,10 +11388,10 @@ games-engines/solarus 1.6.5 9999: An open-source Zelda-like 2D game engine
 games-engines/stratagus 3.3.2-r1: A realtime strategy game engine
 games-engines/xzip 1.8.2-r4: X interface to Z-code based text games
 games-engines/zoom 1.1.5-r2: Fast, clean, modern Z-code interpreter for X
-games-fps/alephone 20230119 99999999: An enhanced version of the game engine from the classic Mac game, Marathon
-games-fps/alephone-durandal 20221126: Aleph One - Marathon 2 (Durandal)
-games-fps/alephone-infinity 20221126: Aleph One - Marathon Infinity
-games-fps/alephone-marathon 20221126: Aleph One - Marathon (M1A1)
+games-fps/alephone 20240822 99999999: An enhanced version of the game engine from the classic Mac game, Marathon
+games-fps/alephone-durandal 20240822: Aleph One - Marathon 2 (Durandal)
+games-fps/alephone-infinity 20240822: Aleph One - Marathon Infinity
+games-fps/alephone-marathon 20240822: Aleph One - Marathon (M1A1)
 games-fps/alienarena 7.66: Fast-paced multiplayer deathmatch game
 games-fps/avp 20150214-r1: Linux port of Aliens vs Predator
 games-fps/blackshades 20070723-r1: You control a psychic bodyguard, and try to protect the VIP
@@ -12668,7 +12668,7 @@ media-fonts/ibm-plex 5.1.3: The package of IBM's typeface
 media-fonts/inconsolata 20140821: Sans-serif monotype font for code listings
 media-fonts/inconsolata-hellenic 1.19-r1: Hellenisation of the wonderful, monospace, open/free font Inconsolata
 media-fonts/inconsolata-lgc 1.3.0: Modified version of Inconsolata Hellenic adding the Cyrillic alphabet
-media-fonts/intel-one-mono 1.3.0: Intel One Mono font family
+media-fonts/intel-one-mono 1.4.0: Intel One Mono font family
 media-fonts/intlfonts 1.4.1 1.4.2: International X11 fixed fonts
 media-fonts/iosevka 29.2.1 30.1.2 31.3.0 31.4.0 31.5.0 31.7.1: Slender typeface for code, from code
 media-fonts/ipaex 004.01: Japanese IPA extended TrueType fonts

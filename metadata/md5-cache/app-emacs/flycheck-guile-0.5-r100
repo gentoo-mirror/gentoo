@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/flycheck app-emacs/geiser-guile >=app-editors/emacs-25.3:* virtual/pkgconfig
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Flycheck checker for the GNU Guile Scheme implementation
+EAPI=8
+HOMEPAGE=https://github.com/flatwhatson/flycheck-guile/
+INHERIT=elisp guile-single
+IUSE=guile_single_target_2-2 guile_single_target_3-0
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=app-emacs/flycheck app-emacs/geiser-guile guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) >=app-editors/emacs-25.3:*
+REQUIRED_USE=^^ ( guile_single_target_2-2 guile_single_target_3-0 )
+SLOT=0
+SRC_URI=https://github.com/flatwhatson/flycheck-guile/archive/0.5.tar.gz -> flycheck-guile-0.5.tar.gz
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	guile-utils	1818ab79f42a7929094eca2efd03e4ae	guile-single	3e66e76f70c51c2192a802547ce0e067
+_md5_=d23984b9c77f0e74e2414a3ab1df8ef7
