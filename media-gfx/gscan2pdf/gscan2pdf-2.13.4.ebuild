@@ -13,7 +13,7 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -47,7 +47,7 @@ RDEPEND="
 	virtual/perl-threads-shared
 	media-gfx/imagemagick[png,tiff,perl]
 	media-gfx/sane-backends
-	media-libs/tiff"
+	>=media-libs/tiff-4.7.0"
 
 BDEPEND="
 	test? (
@@ -58,12 +58,17 @@ BDEPEND="
 
 		app-text/djvu[jpeg,tiff]
 		app-text/poppler[utils]
-		app-text/tesseract[-opencl,osd(+),png,tiff]
+		app-text/tesseract[-opencl(-),png,tiff]
 		app-text/unpaper
 		media-gfx/imagemagick[djvu,jpeg,png,tiff,perl,postscript,truetype]
 		media-gfx/sane-backends[sane_backends_test]
 		media-gfx/sane-frontends
 	)"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-2.13.2-t1161.patch"
+	"${FILESDIR}/${PN}-2.13.4-t3722.patch"
+)
 
 PERL_RM_FILES=( t/{90_MANIFEST,91_critic,99_pod,169_import_scan}.t )
 
