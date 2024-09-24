@@ -1,0 +1,14 @@
+BDEPEND=>=dev-ruby/asciidoctor-2.0.12 >=app-text/dblatex-0.3.10 >=app-text/po4a-0.45 >=sys-devel/gettext-0.18 dev-perl/Unicode-LineBreak dev-util/source-highlight l10n_ca? ( dev-texlive/texlive-langspanish ) l10n_de? ( dev-texlive/texlive-langgerman ) l10n_en? ( dev-texlive/texlive-langenglish ) l10n_es? ( dev-texlive/texlive-langspanish ) l10n_fr? ( dev-texlive/texlive-langfrench ) l10n_it? ( dev-texlive/texlive-langitalian ) l10n_ja? ( dev-texlive/texlive-langjapanese media-fonts/vlgothic ) l10n_pl? ( dev-texlive/texlive-langpolish ) l10n_ru? ( dev-texlive/texlive-langcyrillic ) l10n_zh? ( dev-texlive/texlive-langchinese ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Electronic Schematic and PCB design tools manuals
+EAPI=8
+HOMEPAGE=https://docs.kicad.org/
+INHERIT=cmake
+IUSE=+html pdf l10n_ca l10n_de l10n_en l10n_es l10n_fr l10n_id l10n_it l10n_ja l10n_pl l10n_ru l10n_zh
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=|| ( GPL-3+ CC-BY-3.0 ) GPL-2
+REQUIRED_USE=|| ( html pdf ) ^^ ( l10n_ca l10n_de l10n_en l10n_es l10n_fr l10n_id l10n_it l10n_ja l10n_pl l10n_ru l10n_zh )
+SLOT=0
+SRC_URI=https://gitlab.com/kicad/services/kicad-doc/-/archive/8.0.5/kicad-doc-8.0.5.tar.bz2
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=650a6675f483ba240e4711d18ce0e1eb
