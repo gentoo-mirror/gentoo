@@ -14,40 +14,38 @@ CRATES="
 	anstyle-wincon@3.0.3
 	anstyle@1.0.7
 	anyhow@1.0.86
-	arbitrary@1.3.2
 	autocfg@1.3.0
 	automod@1.0.14
-	base64@0.13.1
 	base64@0.21.7
 	base64@0.22.1
 	bitflags@1.3.2
 	bitflags@2.5.0
 	block-buffer@0.10.4
-	bstr@1.9.1
+	bstr@1.10.0
 	byteorder@1.5.0
 	bytesize@1.3.0
-	bytes@1.6.0
+	bytes@1.7.1
 	bzip2-sys@0.1.11+1.0.8
 	bzip2@0.4.4
 	cab@0.5.0
-	camino@1.1.7
+	camino@1.1.9
 	cargo-config2@0.1.26
 	cargo-options@0.7.4
 	cargo-platform@0.1.8
 	cargo-xwin@0.16.5
-	cargo-zigbuild@0.18.4
+	cargo-zigbuild@0.19.3
 	cargo_metadata@0.18.1
 	cbindgen@0.26.0
-	cc@1.0.104
+	cc@1.1.21
 	cfb@0.9.0
 	cfg-if@1.0.0
-	charset@0.1.3
+	charset@0.1.5
 	chumsky@0.9.3
 	clap@4.5.7
 	clap_builder@4.5.7
 	clap_complete@4.5.5
-	clap_complete_command@0.5.1
-	clap_complete_nushell@0.1.11
+	clap_complete_command@0.6.1
+	clap_complete_nushell@4.5.2
 	clap_derive@4.5.5
 	clap_lex@0.7.1
 	cli-table@0.4.7
@@ -59,6 +57,8 @@ CRATES="
 	core-foundation@0.9.4
 	cpufeatures@0.2.12
 	crc32fast@1.4.2
+	crc-catalog@2.4.0
+	crc@3.2.1
 	crossbeam-channel@0.5.13
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
@@ -67,17 +67,15 @@ CRATES="
 	data-encoding@2.6.0
 	deranged@0.3.11
 	derivative@2.2.0
-	derive_arbitrary@1.3.2
 	dialoguer@0.11.0
 	diff@0.1.13
 	digest@0.10.7
 	dirs-sys@0.4.1
 	dirs@5.0.1
-	displaydoc@0.2.4
 	dissimilar@1.0.9
-	dunce@1.0.4
+	dunce@1.0.5
 	dyn-clone@1.0.17
-	either@1.12.0
+	either@1.13.0
 	encode_unicode@0.3.6
 	encoding_rs@0.8.34
 	equivalent@1.0.1
@@ -117,7 +115,7 @@ CRATES="
 	idna@0.5.0
 	ignore@0.4.22
 	indexmap@1.9.3
-	indexmap@2.2.6
+	indexmap@2.4.0
 	indicatif@0.17.8
 	indoc@2.0.5
 	instant@0.1.13
@@ -127,7 +125,7 @@ CRATES="
 	keyring@2.3.3
 	lazy_static@1.4.0
 	lddtree@0.3.5
-	libc@0.2.155
+	libc@0.2.158
 	libmimalloc-sys@0.1.38
 	libredox@0.1.3
 	linux-keyutils@0.2.4
@@ -152,14 +150,12 @@ CRATES="
 	normpath@1.2.0
 	number_prefix@0.4.0
 	num-conv@0.1.0
-	num_enum@0.7.2
-	num_enum_derive@0.7.2
 	nu-ansi-term@0.46.0
 	once_cell@1.19.0
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
-	openssl-sys@0.9.102
-	openssl@0.10.64
+	openssl-sys@0.9.103
+	openssl@0.10.66
 	option-ext@0.2.0
 	os_pipe@1.2.0
 	overload@0.1.1
@@ -167,8 +163,8 @@ CRATES="
 	parking_lot_core@0.9.10
 	paste@1.0.15
 	path-slash@0.2.1
-	pep440_rs@0.5.0
-	pep508_rs@0.4.2
+	pep440_rs@0.6.0
+	pep508_rs@0.6.0
 	percent-encoding@2.3.1
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
@@ -182,7 +178,7 @@ CRATES="
 	proc-macro2@1.0.85
 	proc-macro-crate@3.1.0
 	psm@0.1.21
-	pyproject-toml@0.10.0
+	pyproject-toml@0.11.0
 	python-pkginfo@0.6.2
 	quoted_printable@0.5.0
 	quote@1.0.36
@@ -205,6 +201,7 @@ CRATES="
 	rstest@0.21.0
 	rstest_macros@0.21.0
 	rustc_version@0.4.0
+	rustflags@0.1.6
 	rustix@0.38.34
 	rustls-pemfile@2.1.2
 	rustls-pki-types@1.7.0
@@ -222,10 +219,10 @@ CRATES="
 	security-framework-sys@2.11.0
 	security-framework@2.11.0
 	semver@1.0.23
-	serde@1.0.204
-	serde_derive@1.0.204
+	serde@1.0.210
+	serde_derive@1.0.210
 	serde_derive_internals@0.29.1
-	serde_json@1.0.120
+	serde_json@1.0.128
 	serde_spanned@0.6.6
 	sha2@0.10.8
 	sharded-slab@0.1.7
@@ -244,8 +241,8 @@ CRATES="
 	strsim@0.11.1
 	subtle@2.5.0
 	syn@1.0.109
-	syn@2.0.66
-	target-lexicon@0.12.14
+	syn@2.0.76
+	target-lexicon@0.12.16
 	tar@0.4.41
 	tempfile@3.10.1
 	termcolor@1.4.1
@@ -331,11 +328,15 @@ CRATES="
 	zerocopy@0.7.34
 	zeroize@1.8.1
 	zip@0.6.6
-	zip@1.1.4
 "
 # additional crates used by test-crates/* test packages,
 # `grep test-crates tests/run.rs` to see which are needed
 CRATES_TEST="
+	anstream@0.6.15
+	anstyle-parse@0.2.5
+	anstyle-query@1.1.1
+	anstyle-wincon@3.0.4
+	anstyle@1.0.8
 	askama@0.12.1
 	askama_derive@0.12.5
 	askama_escape@0.10.3
@@ -343,48 +344,92 @@ CRATES_TEST="
 	autocfg@1.1.0
 	basic-toml@0.1.9
 	bincode@1.3.3
+	bytes@1.6.0
+	camino@1.1.7
 	cargo_metadata@0.15.4
 	cc@1.0.73
 	cc@1.0.81
 	cc@1.0.83
+	clap@4.5.16
+	clap_builder@4.5.15
+	clap_derive@4.5.13
+	clap_lex@0.7.2
+	colorchoice@1.0.2
 	getrandom@0.2.10
 	indoc@2.0.4
+	is_terminal_polyfill@1.70.1
 	libc@0.2.134
 	libc@0.2.147
 	libc@0.2.149
+	libc@0.2.155
+	log@0.4.22
 	memchr@2.7.4
 	memoffset@0.9.0
+	memoffset@0.9.1
+	mime_guess@2.0.5
 	once_cell@1.15.0
 	once_cell@1.18.0
+	portable-atomic@1.7.0
 	proc-macro2@1.0.86
 	pyo3-build-config@0.18.3
 	pyo3-build-config@0.22.0
+	pyo3-build-config@0.22.2
 	pyo3-ffi@0.18.3
 	pyo3-ffi@0.22.0
+	pyo3-ffi@0.22.2
 	pyo3-macros-backend@0.22.0
+	pyo3-macros-backend@0.22.2
 	pyo3-macros@0.22.0
+	pyo3-macros@0.22.2
 	pyo3@0.22.0
+	pyo3@0.22.2
 	python3-dll-a@0.2.6
 	python3-dll-a@0.2.9
 	serde@1.0.203
+	serde@1.0.209
 	serde_derive@1.0.203
+	serde_derive@1.0.209
 	serde_json@1.0.118
+	serde_json@1.0.127
 	siphasher@0.3.11
 	syn@2.0.68
+	syn@2.0.72
 	target-lexicon@0.12.11
+	target-lexicon@0.12.14
+	thiserror-impl@1.0.63
+	thiserror@1.0.63
 	unicode-ident@1.0.5
 	unicode-ident@1.0.11
 	uniffi@0.28.0
+	uniffi@0.28.1
 	uniffi_bindgen@0.28.0
+	uniffi_bindgen@0.28.1
 	uniffi_build@0.28.0
+	uniffi_build@0.28.1
 	uniffi_checksum_derive@0.28.0
+	uniffi_checksum_derive@0.28.1
 	uniffi_core@0.28.0
+	uniffi_core@0.28.1
 	uniffi_macros@0.28.0
+	uniffi_macros@0.28.1
 	uniffi_meta@0.28.0
+	uniffi_meta@0.28.1
 	uniffi_testing@0.28.0
+	uniffi_testing@0.28.1
 	uniffi_udl@0.28.0
+	uniffi_udl@0.28.1
 	unindent@0.2.3
+	version_check@0.9.5
 	weedle2@5.0.0
+	windows-targets@0.52.6
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_msvc@0.52.6
+	windows_i686_gnullvm@0.52.6
+	windows_i686_gnu@0.52.6
+	windows_i686_msvc@0.52.6
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_msvc@0.52.6
 "
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{10..13} )
@@ -399,14 +444,14 @@ SRC_URI="
 	test? ( $(cargo_crate_uris ${CRATES_TEST}) )
 "
 
-# note: ring is unused, so openssl license can be skipped
+# note: rustls+ring is unused, so openssl license can be skipped
 LICENSE="|| ( Apache-2.0 MIT ) doc? ( CC-BY-4.0 OFL-1.1 )"
 LICENSE+="
 	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT MPL-2.0
 	Unicode-DFS-2016
 " # crates
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~loong ~ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc +ssl test"
 RESTRICT="!test? ( test )"
 
