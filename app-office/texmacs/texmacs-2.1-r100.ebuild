@@ -1,9 +1,11 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake xdg-utils
+GUILE_COMPAT=( 1-8 )
+GUILE_REQ_USE="debug?,deprecated"
+inherit cmake xdg guile-single
 
 MY_P=${P/tex/TeX}-src
 
@@ -11,14 +13,17 @@ DESCRIPTION="Wysiwyg text processor with high-quality maths"
 HOMEPAGE="https://www.texmacs.org/"
 SRC_URI="https://www.texmacs.org/Download/ftp/tmftp/source/${MY_P}.tar.gz"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="debug jpeg netpbm sqlite svg spell"
 KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux"
+IUSE="debug jpeg netpbm sqlite svg spell"
+REQUIRED_USE="${GUILE_REQUIRED_USE}"
 
 RDEPEND="
+	${GUILE_DEPS}
 	app-text/ghostscript-gpl
-	<dev-scheme/guile-1.9:12[debug?,deprecated]
 	media-libs/freetype
 	x11-apps/xmodmap
 	x11-libs/libXext
@@ -36,7 +41,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="x11-base/xorg-proto"
 
-S="${WORKDIR}/${MY_P}"
+src_prepare() {
+	cmake_src_prepare
+	guile_bump_sources
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -46,14 +54,9 @@ src_configure() {
 	cmake_src_configure
 }
 
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
-}
+src_install() {
+	cmake_src_install
 
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
+	# guile-single_src_install not needed, Guile 1.8 does not have .go
+	# files...
 }
