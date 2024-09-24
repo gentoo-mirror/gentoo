@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature xdg #virtualx
 
 # Commit of documentation to fetch
-DOCS_PV="6951e02799fc7cd1f29456f1d93cfdcb570dad27"
+DOCS_PV="d153e129b426b4fc95b1d66e692bf8a78cf40790"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -57,7 +57,7 @@ RDEPEND="
 	<dev-python/qtawesome-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/qtconsole-5.6.0[${PYTHON_USEDEP}]
 	<dev-python/qtconsole-5.7.0[${PYTHON_USEDEP}]
-	>=dev-python/QtPy-2.4.0[${PYTHON_USEDEP},svg,webengine]
+	>=dev-python/QtPy-2.4.0[${PYTHON_USEDEP},quick,svg,webengine]
 	>=dev-python/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
 	>=dev-python/spyder-kernels-3.0.0[${PYTHON_USEDEP}]
