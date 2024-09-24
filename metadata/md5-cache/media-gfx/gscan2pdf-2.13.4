@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-perl/Config-General dev-perl/Data-UUID dev-perl/Date-Calc dev-perl/Filesys-Df dev-perl/glib-perl dev-perl/GooCanvas2 dev-perl/Gtk3 >=dev-perl/Gtk3-ImageView-10.0.0 dev-perl/Gtk3-SimpleList dev-perl/HTML-Parser dev-perl/Image-Sane dev-perl/List-MoreUtils dev-perl/Locale-Codes dev-perl/Locale-gettext dev-perl/Log-Log4perl >=dev-perl/PDF-Builder-3.23.0 dev-perl/Proc-ProcessTable dev-perl/Readonly dev-perl/Set-IntSpan dev-perl/Try-Tiny virtual/perl-Archive-Tar virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-Getopt-Long virtual/perl-threads virtual/perl-threads-shared media-gfx/imagemagick[png,tiff,perl] media-gfx/sane-backends >=media-libs/tiff-4.7.0 dev-perl/IPC-System-Simple dev-perl/Sub-Override media-libs/fontconfig app-text/djvu[jpeg,tiff] app-text/poppler[utils] app-text/tesseract[-opencl(-),png,tiff] app-text/unpaper media-gfx/imagemagick[djvu,jpeg,png,tiff,perl,postscript,truetype] media-gfx/sane-backends[sane_backends_test] media-gfx/sane-frontends ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 ) test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Scan documents, perform OCR, produce PDFs and DjVus
+EAPI=8
+HOMEPAGE=http://gscan2pdf.sourceforge.net/
+INHERIT=optfeature perl-module virtualx xdg-utils
+IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath test test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-perl/Config-General dev-perl/Data-UUID dev-perl/Date-Calc dev-perl/Filesys-Df dev-perl/glib-perl dev-perl/GooCanvas2 dev-perl/Gtk3 >=dev-perl/Gtk3-ImageView-10.0.0 dev-perl/Gtk3-SimpleList dev-perl/HTML-Parser dev-perl/Image-Sane dev-perl/List-MoreUtils dev-perl/Locale-Codes dev-perl/Locale-gettext dev-perl/Log-Log4perl >=dev-perl/PDF-Builder-3.23.0 dev-perl/Proc-ProcessTable dev-perl/Readonly dev-perl/Set-IntSpan dev-perl/Try-Tiny virtual/perl-Archive-Tar virtual/perl-Carp virtual/perl-Data-Dumper virtual/perl-File-Temp virtual/perl-Getopt-Long virtual/perl-threads virtual/perl-threads-shared media-gfx/imagemagick[png,tiff,perl] media-gfx/sane-backends >=media-libs/tiff-4.7.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/gscan2pdf/gscan2pdf-2.13.4.tar.xz
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	perl-functions	4deb7a19ff2e0a466d6f4c6c57099296	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	virtualx	53fb93b5555470a64f14fde25cf1ad2c	xdg-utils	5465aed08f1dfc2a75f14cbea4272961
+_md5_=449ddd7a76e746ae226468b3e8eef25a
