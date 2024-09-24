@@ -52,6 +52,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.9.0-mtu.patch # bug #291907
 	"${FILESDIR}"/${PN}-6.8.0-configure-nomagic-nolibbsd.patch # bug #643722 & #911727
 	"${FILESDIR}"/${PN}-6.8.0-disable-libbsd-fallback.patch # bug #911727
+	"${FILESDIR}"/${PN}-6.11.0-musl-fixes.patch # bug #939811
 )
 
 src_prepare() {
