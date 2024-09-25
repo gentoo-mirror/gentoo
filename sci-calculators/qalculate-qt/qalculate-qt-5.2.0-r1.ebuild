@@ -1,11 +1,11 @@
-# Copyright 2022-2023 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # Bump with sci-libs/libqalculate and sci-calculators/qalculate-gtk!
 
-inherit qmake-utils
+inherit qmake-utils xdg
 
 DESCRIPTION="Qt-based UI for libqalculate"
 HOMEPAGE="https://github.com/Qalculate/qalculate-qt"
@@ -16,18 +16,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	>=sci-libs/libqalculate-${PV}
+	dev-qt/qtbase:6[gui,network,widgets]
+	>=sci-libs/libqalculate-${PV}:=
 "
 RDEPEND="${DEPEND}"
-BDEPEND="dev-qt/linguist-tools:5"
+BDEPEND="dev-qt/qttools:6[linguist]"
 
-src_prepare() {
-	default
-	eqmake5 PREFIX="${EPREFIX}/usr"
+src_configure() {
+	eqmake6 PREFIX="${EPREFIX}/usr"
+
 }
 
 src_install() {
