@@ -1,17 +1,17 @@
-BDEPEND=sys-devel/gettext test? ( dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] || ( >=gui-libs/gtk-4.6.9[introspection] >=x11-libs/gtk+-3.22.20:3[introspection] ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=sys-devel/gettext test? ( dev-python/pytest || ( >=gui-libs/gtk-4.6.9[broadway] >=x11-libs/gtk+-3.22.20:3[broadway] ) ) test? ( dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] || ( >=gui-libs/gtk-4.6.9[introspection] >=x11-libs/gtk+-3.22.20:3[introspection] ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DESCRIPTION=Graphical client for the Soulseek peer to peer network written in Python
 EAPI=8
 HOMEPAGE=https://nicotine-plus.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=distutils-r1 optfeature xdg
-IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=test test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-3+
 RDEPEND=dev-python/pygobject:3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] || ( >=gui-libs/gtk-4.6.9[introspection] >=x11-libs/gtk+-3.22.20:3[introspection] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
-RESTRICT=!test? ( test )
+RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Nicotine-Plus/nicotine-plus/archive/3.3.4.tar.gz -> nicotine+-3.3.4.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c	distutils-r1	515591e76fa89a2359ed45d26bf9c774	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	xdg	854eae304447322625df5991e20ed18f
-_md5_=8d7f599f7d0d3307e61ec6f8114d2ed3
+_md5_=f0ed947388e15142c24cc5a5d00edcf8
