@@ -1893,7 +1893,7 @@ app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
 app-emacs/cfrs 1.6.0-r1: Child Frame Read String, alternative to read-string
 app-emacs/chess 2.0.5: A chess client and library for Emacs
-app-emacs/cider 1.15.1: Clojure Interactive Development Environment for GNU Emacs
+app-emacs/cider 1.15.1 1.16.0: Clojure Interactive Development Environment for GNU Emacs
 app-emacs/circe 2.13: A great IRC client for Emacs
 app-emacs/citar 1.4.0: Emacs package to quickly find and act on bibliographic references
 app-emacs/citeproc-el 0.9.4-r1: CSL 1.0.2 Citation Processor for Emacs
@@ -2153,7 +2153,7 @@ app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mod
 app-emacs/osm 1.4 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
-app-emacs/package-lint 0.22 0.23: Linting library for Emacs Lisp package metadata
+app-emacs/package-lint 0.23 0.24: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.32-r1 2.33: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
@@ -2243,7 +2243,7 @@ app-emacs/stripes 0.3.1.1: An Emacs mode that alternates the background color of
 app-emacs/sumibi 0.7.4: Statistical Japanese input method using the Internet as a large corpus
 app-emacs/sunrise-commander 6_p20210927: Twin-pane file manager for Emacs inspired by Midnight Commander
 app-emacs/svg-lib 0.2.8 0.3: SVG tags, progress bars & icons
-app-emacs/swift-mode 9.0.0 9.1.0: Emacs support for Apple's Swift programming language
+app-emacs/swift-mode 9.1.0 9.2.0: Emacs support for Apple's Swift programming language
 app-emacs/swiper 0.14.2: Alternative to isearch that uses ivy to show overview of all matches
 app-emacs/switch-window 1.6.2_p20210808: Offer a customizable visual way to choose a window to switch to
 app-emacs/system-packages 1.1.0: Manage your installed packages with Emacs
@@ -4047,8 +4047,8 @@ dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.31 6.0.32 6.0.33 7.0.14-r1 7.0.20
 dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.107: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.106 8.0.107 8.0.108 8.0.401: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/fable 4.19.3: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
-dev-dotnet/fantomas 6.3.10 6.3.11 6.3.12 6.3.13: FSharp source code formatter
+dev-dotnet/fable 4.19.3 4.20.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
+dev-dotnet/fantomas 6.3.10 6.3.11 6.3.12 6.3.13 6.3.15: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.73.2 0.74.0 0.74.1: F# language server using the Language Server Protocol
 dev-dotnet/gentoo-dotnet-maintainer-tools 2.4.1 2.9999: Gentoo tools for .NET packages maintenance
 dev-dotnet/libgdiplus 6.0.2-r4: Library for using System.Drawing with Mono
@@ -5117,7 +5117,7 @@ dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.11.4 1.12.0: General-purpose programming language with an emphasis on functional programming
 dev-lang/closure-compiler-bin 20240317: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
-dev-lang/crystal 1.13.1 1.13.2: The Crystal Programming Language
+dev-lang/crystal 1.13.1 1.13.2 1.13.3: The Crystal Programming Language
 dev-lang/cue 0.7.0: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r2: A WAM based Prolog system
 dev-lang/dafny 4.7.0 4.8.0 4.8.1: Dafny is a verification-aware programming language
@@ -11023,7 +11023,7 @@ dev-vcs/rcsi 0.5: A program to give information about RCS files
 dev-vcs/repo 2.37 2.40 2.45 2.46: Google tool for managing git, particularly multiple repos
 dev-vcs/reposurgeon 4.27: Tool for editing VCS repositories and translating among different systems
 dev-vcs/rsvndump 0.6-r1 0.6.1 0.6.1-r1 0.6.2: Dump a remote Subversion repository
-dev-vcs/sourcegit 8.30.1: Open Source Git GUI client using .NET AvaloniaUI
+dev-vcs/sourcegit 8.30.1 8.31: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
 dev-vcs/stgit 2.4.6 2.4.11 2.4.12: Stack-based patch management for Git
 dev-vcs/subversion 1.14.2-r1 1.14.3: Advanced version control system
@@ -14650,7 +14650,7 @@ net-im/gajim 1.7.3 1.7.3-r1 1.8.0 1.8.1 1.8.4 1.9.3: XMPP client written in PyGT
 net-im/gitter-bin 5.0.1-r1 5.0.1-r2: Chat and network platform
 net-im/libcommuni 3.7.0-r1: A cross-platform IRC framework written with Qt
 net-im/mattermost-desktop-bin 5.8.1 5.9.0: Mattermost Desktop application
-net-im/neochat 24.05.2 24.08.1: Client for Matrix, the decentralized communication protocol
+net-im/neochat 24.05.2-r1 24.08.1-r1: Client for Matrix, the decentralized communication protocol
 net-im/openmittsu 0.10.0.0: Open source chat client for Threema-style end-to-end encrypted chat networks
 net-im/pidgin 2.14.10-r1 2.14.12 2.14.13: GTK Instant Messenger client
 net-im/poezio 0.14 9999: Console XMPP client that looks like most famous IRC clients
@@ -15866,7 +15866,7 @@ sci-electronics/librepcb 1.1.0-r1: Free EDA software to develop printed circuit 
 sci-electronics/magic 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 36 40: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.13.2 1.13.3: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.13.3 1.14.0: NVC is a VHDL compiler and simulator
 sci-electronics/osqoop 1.2.0_pre20170131: Multi-platform open source software oscilloscope based on Qt
 sci-electronics/pcb 4.2.2 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
@@ -18862,7 +18862,7 @@ x11-themes/human-icon-theme 0.36: A nice and well polished icon theme
 x11-themes/iceicons 0.10.0-r2: IceWM Icons is a set of XPM 16x16, 32x32, and 48x48 XPM and PNG icons for IceWM
 x11-themes/icewm-extra-themes 1.2: Extra themes for IceWM
 x11-themes/kfaenza 0.8.9-r3: Faenza-Cupertino icon theme for KDE Plasma
-x11-themes/kvantum 1.0.10 1.1.2-r1: SVG-based theme engine for Qt5, KDE Plasma and LXQt
+x11-themes/kvantum 1.1.2-r2: SVG-based theme engine for Qt, KDE Plasma and LXQt
 x11-themes/larry-backgrounds 20110822-r2: Wallpapers featuring Gentoo mascot Larry the cow
 x11-themes/laughlin-backgrounds 14.1.0.3-r2: Fedora 14 official background artwork
 x11-themes/leonidas-backgrounds 11.0.0.2-r2: Fedora 11 official background artwork
