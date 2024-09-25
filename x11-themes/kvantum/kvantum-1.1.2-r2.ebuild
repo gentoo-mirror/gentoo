@@ -4,13 +4,11 @@
 EAPI=8
 
 # taken from Kvantum/style/CMakeLists.txt
-QT5MIN="5.15.0"
-QT6MIN="6.2.0"
-KF5MIN="5.82.0"
-
+QTMIN="6.2.0"
+KFMIN="6.0.0"
 inherit cmake multibuild xdg
 
-DESCRIPTION="SVG-based theme engine for Qt5, KDE Plasma and LXQt"
+DESCRIPTION="SVG-based theme engine for Qt, KDE Plasma and LXQt"
 HOMEPAGE="https://github.com/tsujan/Kvantum"
 SRC_URI="https://github.com/tsujan/${PN^}/archive/V${PV}.tar.gz -> ${P}.tar.gz"
 S=${WORKDIR}/${PN^}-${PV}/${PN^}
@@ -18,21 +16,22 @@ S=${WORKDIR}/${PN^}-${PV}/${PN^}
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="kde +qt5"
-REQUIRED_USE="kde? ( qt5 )"
+IUSE="kde qt5"
+
 RESTRICT="test" # no tests
 
 RDEPEND="
-	>=dev-qt/qtbase-${QT6MIN}:6[gui,widgets]
-	>=dev-qt/qtsvg-${QT6MIN}:6
+	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets,X]
+	>=dev-qt/qtsvg-${QTMIN}:6
 	x11-libs/libX11
+	kde? ( >=kde-frameworks/kwindowsystem-${KFMIN}:6 )
 	qt5? (
-		>=dev-qt/qtcore-${QT5MIN}:5
-		>=dev-qt/qtgui-${QT5MIN}:5
-		>=dev-qt/qtsvg-${QT5MIN}:5
-		>=dev-qt/qtwidgets-${QT5MIN}:5
-		>=dev-qt/qtx11extras-${QT5MIN}:5
-		kde? ( >=kde-frameworks/kwindowsystem-${KF5MIN}:5 )
+		>=dev-qt/qtcore-5.15.9:5
+		>=dev-qt/qtgui-5.15.9:5
+		>=dev-qt/qtsvg-5.15.9:5
+		>=dev-qt/qtwidgets-5.15.9:5
+		>=dev-qt/qtx11extras-5.15.9:5
+		kde? ( >=kde-frameworks/kwindowsystem-5.115.0:5 )
 	)
 "
 DEPEND="${RDEPEND}
@@ -60,7 +59,7 @@ src_configure() {
 		elif [[ ${MULTIBUILD_VARIANT} = qt6 ]]; then
 			mycmakeargs+=(
 				-DENABLE_QT5=OFF
-				-DWITHOUT_KF=ON
+				-DWITHOUT_KF=$(usex !kde)
 			)
 		fi
 		cmake_src_configure

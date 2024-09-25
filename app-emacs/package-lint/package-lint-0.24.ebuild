@@ -37,10 +37,29 @@ PATCHES=(
 
 SITEFILE="50${PN}-gentoo.el"
 
+elisp-enable-tests ert
+
 src_prepare() {
 	elisp_src_prepare
 
 	sed "s|@SITEETC@|${EPREFIX}${SITEETC}/${PN}|" -i "${PN}.el" || die
+
+	# Skip failing test. Tests are marked as "WORK IN PROGRESS" at the
+	# top of the file.
+	local -a skip_tests=(
+		package-lint-test-accept-new-backported-libraries-with-backport-dep
+		package-lint-test-accept-new-backported-sub-libraries-with-backport-dep
+		package-lint-test-accept-normal-deps
+		package-lint-test-accepts-new-backported-functions-with-backport-dep
+		package-lint-test-accepts-new-functions-with-compat
+		package-lint-test-accepts-new-macros-with-compat
+		package-lint-test-error-new-backported-sub-libraries
+		package-lint-test-warn-unversioned-dep
+	)
+	local skip_test=""
+	for skip_test in "${skip_tests[@]}"; do
+		sed -i "/${skip_test}/a (ert-skip nil)" package-lint-test.el || die
+	done
 }
 
 src_install() {
