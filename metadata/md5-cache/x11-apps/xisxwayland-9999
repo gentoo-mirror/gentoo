@@ -1,13 +1,13 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
-DEFINED_PHASES=compile configure install test unpack
+BDEPEND=>=app-portage/elt-patches-20240116 >=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=x11-libs/libX11 x11-libs/libXrandr x11-base/xorg-proto
 DESCRIPTION=Tool to determine whether the X server in use is Xwayland
 EAPI=8
-HOMEPAGE=https://gitlab.freedesktop.org/xorg/app/xisxwayland
-INHERIT=git-r3 meson
+HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/app/xisxwayland
+INHERIT=xorg-3 meson
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=x11-libs/libX11 x11-libs/libXrandr
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=08a141b24396a36f38d5cadaa8d82630
+_eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	git-r3	875eb471682d3e1f18da124be97dcc81	xorg-3	fc35203be4efc2a0ebc64ed0543d8e17	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=d4d3935bab4bab10f66dca0d9241ee92
