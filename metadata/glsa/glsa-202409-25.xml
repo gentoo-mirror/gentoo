@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-25">
+    <title>Xpdf: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Xpdf, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">xpdf</product>
+    <announced>2024-09-25</announced>
+    <revised count="1">2024-09-25</revised>
+    <bug>845027</bug>
+    <bug>908037</bug>
+    <bug>936407</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-text/xpdf" auto="yes" arch="*">
+            <unaffected range="ge">4.05</unaffected>
+            <vulnerable range="lt">4.05</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Xpdf is an X viewer for PDF files.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Xpdf. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Xpdf users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/xpdf-4.05"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-7453">CVE-2018-7453</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-16369">CVE-2018-16369</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30524">CVE-2022-30524</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30775">CVE-2022-30775</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-33108">CVE-2022-33108</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36561">CVE-2022-36561</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38222">CVE-2022-38222</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38334">CVE-2022-38334</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38928">CVE-2022-38928</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41842">CVE-2022-41842</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41843">CVE-2022-41843</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41844">CVE-2022-41844</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43071">CVE-2022-43071</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43295">CVE-2022-43295</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45586">CVE-2022-45586</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45587">CVE-2022-45587</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2662">CVE-2023-2662</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2663">CVE-2023-2663</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2664">CVE-2023-2664</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-3044">CVE-2023-3044</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-3436">CVE-2023-3436</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-25T06:29:33.984023Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-25T06:29:33.987005Z">graaff</metadata>
+</glsa>
