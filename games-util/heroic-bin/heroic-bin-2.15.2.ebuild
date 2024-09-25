@@ -8,7 +8,7 @@ CHROMIUM_LANGS="
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit chromium-2 desktop python-single-r1 xdg
 
