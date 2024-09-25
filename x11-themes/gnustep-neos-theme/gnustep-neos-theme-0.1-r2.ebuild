@@ -1,20 +1,18 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit gnustep-2 vcs-clean
 
 DESCRIPTION="GNUstep theme closely following the original NeXT look and feel"
-HOMEPAGE="http://gap.nongnu.org/themes/index.html"
-SRC_URI="https://savannah.nongnu.org/download/gap/Neos-${PV}.theme.tar.gz"
+HOMEPAGE="https://gap.nongnu.org/themes/index.html"
+SRC_URI="https://download.savannah.gnu.org/releases/gap/Neos-${PV}.theme.tar.gz"
+S=${WORKDIR}
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
-S=${WORKDIR}
 
 RESTRICT="binchecks strip"
 
