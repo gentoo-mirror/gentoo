@@ -1,12 +1,12 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
 DESCRIPTION="a backup program for disk array for home media centers"
-HOMEPAGE="http://snapraid.it/"
+HOMEPAGE="https://www.snapraid.it/"
 SRC_URI="https://github.com/amadvance/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3"
