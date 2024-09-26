@@ -4,7 +4,7 @@
 EAPI=8
 
 CRATES="
-	adler@1.0.2
+	adler2@2.0.0
 	ahash@0.8.11
 	aho-corasick@1.1.3
 	allocator-api2@0.2.18
@@ -13,7 +13,7 @@ CRATES="
 	anstyle-query@1.1.0
 	anstyle-wincon@3.0.3
 	anstyle@1.0.7
-	anyhow@1.0.86
+	anyhow@1.0.89
 	autocfg@1.3.0
 	automod@1.0.14
 	base64@0.21.7
@@ -84,7 +84,7 @@ CRATES="
 	fastrand@2.1.0
 	fat-macho@0.4.8
 	filetime@0.2.23
-	flate2@1.0.30
+	flate2@1.0.33
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
@@ -102,7 +102,7 @@ CRATES="
 	futures@0.3.30
 	generic-array@0.14.7
 	getrandom@0.2.15
-	globset@0.4.14
+	globset@0.4.15
 	glob@0.3.1
 	goblin@0.8.2
 	hashbrown@0.12.3
@@ -113,9 +113,9 @@ CRATES="
 	humantime-serde@1.1.1
 	humantime@2.1.0
 	idna@0.5.0
-	ignore@0.4.22
+	ignore@0.4.23
 	indexmap@1.9.3
-	indexmap@2.4.0
+	indexmap@2.5.0
 	indicatif@0.17.8
 	indoc@2.0.5
 	instant@0.1.13
@@ -141,7 +141,7 @@ CRATES="
 	mime_guess@2.0.4
 	minijinja@1.0.21
 	minimal-lexical@0.2.1
-	miniz_oxide@0.7.3
+	miniz_oxide@0.8.0
 	msi@0.7.0
 	multipart@0.18.0
 	native-tls@0.2.12
@@ -163,8 +163,8 @@ CRATES="
 	parking_lot_core@0.9.10
 	paste@1.0.15
 	path-slash@0.2.1
-	pep440_rs@0.6.0
-	pep508_rs@0.6.0
+	pep440_rs@0.6.6
+	pep508_rs@0.6.1
 	percent-encoding@2.3.1
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
@@ -174,12 +174,12 @@ CRATES="
 	portable-atomic@1.6.0
 	powerfmt@0.2.0
 	ppv-lite86@0.2.17
-	pretty_assertions@1.4.0
+	pretty_assertions@1.4.1
 	proc-macro2@1.0.85
 	proc-macro-crate@3.1.0
 	psm@0.1.21
 	pyproject-toml@0.11.0
-	python-pkginfo@0.6.2
+	python-pkginfo@0.6.3
 	quoted_printable@0.5.0
 	quote@1.0.36
 	rand@0.8.5
@@ -194,16 +194,16 @@ CRATES="
 	regex-automata@0.4.7
 	regex-syntax@0.6.29
 	regex-syntax@0.8.4
-	regex@1.10.5
+	regex@1.10.6
 	relative-path@1.9.3
 	rfc2047-decoder@1.0.5
 	ring@0.17.8
-	rstest@0.21.0
-	rstest_macros@0.21.0
-	rustc_version@0.4.0
+	rstest@0.22.0
+	rstest_macros@0.22.0
+	rustc_version@0.4.1
 	rustflags@0.1.6
 	rustix@0.38.34
-	rustls-pemfile@2.1.2
+	rustls-pemfile@2.1.3
 	rustls-pki-types@1.7.0
 	rustls-webpki@0.102.4
 	rustls@0.22.4
@@ -232,8 +232,8 @@ CRATES="
 	slab@0.4.9
 	smallvec@1.13.2
 	smawk@0.3.2
-	snapbox-macros@0.3.9
-	snapbox@0.6.10
+	snapbox-macros@0.3.10
+	snapbox@0.6.16
 	socks@0.3.4
 	spin@0.9.8
 	stacker@0.1.15
@@ -243,13 +243,13 @@ CRATES="
 	syn@1.0.109
 	syn@2.0.76
 	target-lexicon@0.12.16
-	tar@0.4.41
-	tempfile@3.10.1
+	tar@0.4.42
+	tempfile@3.11.0
 	termcolor@1.4.1
 	terminal_size@0.3.0
 	textwrap@0.16.1
-	thiserror-impl@1.0.61
-	thiserror@1.0.61
+	thiserror-impl@1.0.64
+	thiserror@1.0.64
 	thread_local@1.1.8
 	time-core@0.1.2
 	time-macros@0.2.18
@@ -257,17 +257,17 @@ CRATES="
 	tinyvec@1.7.0
 	tinyvec_macros@0.1.1
 	toml@0.5.11
-	toml@0.8.14
+	toml@0.8.15
 	toml_datetime@0.6.6
 	toml_edit@0.21.1
-	toml_edit@0.22.14
+	toml_edit@0.22.16
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
 	tracing-log@0.2.0
 	tracing-serde@0.1.3
 	tracing-subscriber@0.3.18
 	tracing@0.1.40
-	trycmd@0.15.4
+	trycmd@0.15.6
 	twox-hash@1.6.3
 	typenum@1.17.0
 	unicase@2.7.0
@@ -276,7 +276,7 @@ CRATES="
 	unicode-linebreak@0.1.5
 	unicode-normalization@0.1.23
 	unicode-width@0.1.13
-	unicode-xid@0.2.4
+	unicode-xid@0.2.6
 	unscanny@0.1.0
 	untrusted@0.9.0
 	ureq@2.9.7
@@ -293,7 +293,7 @@ CRATES="
 	wasi@0.11.0+wasi-snapshot-preview1
 	webpki-roots@0.26.2
 	which@5.0.0
-	which@6.0.1
+	which@6.0.3
 	wild@2.2.1
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.8
@@ -323,7 +323,7 @@ CRATES="
 	winsafe@0.0.19
 	xattr@1.3.1
 	xwin@0.5.1
-	yansi@0.5.1
+	yansi@1.0.1
 	zerocopy-derive@0.7.34
 	zerocopy@0.7.34
 	zeroize@1.8.1
@@ -337,6 +337,7 @@ CRATES_TEST="
 	anstyle-query@1.1.1
 	anstyle-wincon@3.0.4
 	anstyle@1.0.8
+	anyhow@1.0.86
 	askama@0.12.1
 	askama_derive@0.12.5
 	askama_escape@0.10.3
@@ -396,7 +397,9 @@ CRATES_TEST="
 	syn@2.0.72
 	target-lexicon@0.12.11
 	target-lexicon@0.12.14
+	thiserror-impl@1.0.61
 	thiserror-impl@1.0.63
+	thiserror@1.0.61
 	thiserror@1.0.63
 	unicode-ident@1.0.5
 	unicode-ident@1.0.11
