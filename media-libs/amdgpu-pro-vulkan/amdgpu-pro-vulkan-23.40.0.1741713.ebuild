@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,27 +10,31 @@ MY_PV_MIDDLE=$(ver_cut 2)
 MY_PV_LOW=$(ver_cut 3)
 MY_PV_REV=$(ver_cut 4)
 
-MY_PV="${MY_PV_HIGH}.${MY_PV_MIDDLE}.${MY_PV_LOW}"
+MY_PV="${MY_PV_HIGH}.${MY_PV_MIDDLE}"
+
+INTERNAL_VER="6.0.3"
+
 MY_PV_FULL="${MY_PV}-${MY_PV_REV}"
 
 MY_PN="vulkan-amdgpu-pro"
+MY_LINK="https://repo.radeon.com/amdgpu/${INTERNAL_VER}/ubuntu/pool/proprietary/v/${MY_PN}"
 
-MY_LINK="https://repo.radeon.com/amdgpu/${MY_PV}/ubuntu/pool/proprietary/v/${MY_PN}"
+UBUNTU_VER="22.04"
 
 DESCRIPTION="AMD's closed source vulkan driver, from Radeon Software for Linux"
 HOMEPAGE="https://www.amd.com/en/support"
 SRC_URI="
-	abi_x86_64? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}_amd64.deb -> ${P}-amd64.deb )
-	abi_x86_32? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}_i386.deb -> ${P}-i386.deb )
+	abi_x86_64? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}.${UBUNTU_VER}_amd64.deb -> ${P}-amd64.deb )
+	abi_x86_32? ( ${MY_LINK}/${MY_PN}_${MY_PV_FULL}.${UBUNTU_VER}_i386.deb -> ${P}-i386.deb )
 "
 S="${WORKDIR}"
 
-RESTRICT="bindist mirror"
-
 LICENSE="AMD-GPU-PRO-EULA"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 ~x86"
 IUSE="abi_x86_32 abi_x86_64 video_cards_amdgpu"
+
+RESTRICT="bindist mirror"
 
 REQUIRED_USE="video_cards_amdgpu"
 
@@ -60,8 +64,12 @@ src_unpack() {
 src_prepare() {
 	if use abi_x86_64 ; then
 		cd "${S}/${PN}-amd64/opt/amdgpu-pro/lib/x86_64-linux-gnu/" || die
-		mv amdvlk64.so.1.0 amdvlkpro64.so.1.0 || die
-		patchelf --set-soname amdvlkpro64.so.1.0 "${PWD}"/amdvlkpro64.so.1.0 || die
+
+		# Add "pro" in the .so file's name
+		mv amdvlk64.so amdvlkpro64.so || die
+
+		# same with the SONAME
+		patchelf --set-soname amdvlkpro64.so "${PWD}"/amdvlkpro64.so || die
 
 		cd "${S}/${PN}-amd64/opt/amdgpu-pro/etc/vulkan/icd.d/" || die
 		eapply "${FILESDIR}"/icd_amd64.patch
@@ -70,8 +78,12 @@ src_prepare() {
 
 	if use abi_x86_32 ; then
 		cd "${S}/${PN}-i386/opt/amdgpu-pro/lib/i386-linux-gnu/" || die
-		mv amdvlk32.so.1.0 amdvlkpro32.so.1.0 || die
-		patchelf --set-soname amdvlkpro32.so.1.0 "${PWD}"/amdvlkpro32.so.1.0 || die
+
+		# Add "pro" in the .so file's name
+		mv amdvlk32.so amdvlkpro32.so || die
+
+		# same with the SONAME
+		patchelf --set-soname amdvlkpro32.so "${PWD}"/amdvlkpro32.so || die
 
 		cd "${S}/${PN}-i386/opt/amdgpu-pro/etc/vulkan/icd.d/" || die
 		eapply "${FILESDIR}"/icd_x86.patch
@@ -83,12 +95,9 @@ src_prepare() {
 
 src_install() {
 	if use abi_x86_64 ; then
+		# Vulkan driver
 		insinto /usr/lib64
-
-		# Vulkan
-		doins "${S}"/"${PN}"-amd64/opt/amdgpu-pro/lib/x86_64-linux-gnu/amdvlkpro64.so.1.0
-		dosym amdvlkpro64.so.1.0 /usr/lib64/amdvlkpro64.so
-		dosym amdvlkpro64.so.1.0 /usr/lib64/amdvlkpro64.so.1
+		doins "${S}"/"${PN}"-amd64/opt/amdgpu-pro/lib/x86_64-linux-gnu/amdvlkpro64.so
 
 		# ICD loader
 		insinto /usr/share/vulkan/icd.d
@@ -96,12 +105,9 @@ src_install() {
 	fi
 
 	if use abi_x86_32 ; then
+		# Vulkan driver
 		insinto /usr/lib
-
-		# Vulkan
-		doins "${S}"/"${PN}"-i386/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlkpro32.so.1.0
-		dosym amdvlkpro32.so.1.0 /usr/lib/amdvlkpro32.so
-		dosym amdvlkpro32.so.1.0 /usr/lib/amdvlkpro32.so.1
+		doins "${S}"/"${PN}"-i386/opt/amdgpu-pro/lib/i386-linux-gnu/amdvlkpro32.so
 
 		# ICD loader
 		insinto /usr/share/vulkan/icd.d

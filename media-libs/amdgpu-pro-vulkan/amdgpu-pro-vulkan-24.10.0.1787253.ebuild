@@ -12,7 +12,7 @@ MY_PV_REV=$(ver_cut 4)
 
 MY_PV="${MY_PV_HIGH}.${MY_PV_MIDDLE}"
 
-INTERNAL_VER="6.0.2"
+INTERNAL_VER="6.1.3"
 
 MY_PV_FULL="${MY_PV}-${MY_PV_REV}"
 
@@ -29,12 +29,12 @@ SRC_URI="
 "
 S="${WORKDIR}"
 
-RESTRICT="bindist mirror"
-
 LICENSE="AMD-GPU-PRO-EULA"
 SLOT="0"
 KEYWORDS="-* amd64 ~x86"
 IUSE="abi_x86_32 abi_x86_64 video_cards_amdgpu"
+
+RESTRICT="bindist mirror"
 
 REQUIRED_USE="video_cards_amdgpu"
 
@@ -65,11 +65,8 @@ src_prepare() {
 	if use abi_x86_64 ; then
 		cd "${S}/${PN}-amd64/opt/amdgpu-pro/lib/x86_64-linux-gnu/" || die
 
-		# Make sure there's only one file in the folder, to prevent unexpected behavior of the next command
-		[[ "$(ls | wc -l)" = '1' ]] || die "more than one file in opt/amdgpu-pro/lib/x86_64-linux-gnu/"
-
-		# Add "pro" in the .so file's name, and remove any numeric extension "e.g. amdvlk64.so.1"
-		mv amdvlk64.so* amdvlkpro64.so || die
+		# Add "pro" in the .so file's name
+		mv amdvlk64.so amdvlkpro64.so || die
 
 		# same with the SONAME
 		patchelf --set-soname amdvlkpro64.so "${PWD}"/amdvlkpro64.so || die
@@ -82,11 +79,8 @@ src_prepare() {
 	if use abi_x86_32 ; then
 		cd "${S}/${PN}-i386/opt/amdgpu-pro/lib/i386-linux-gnu/" || die
 
-		# Make sure there's only one file in the folder, to prevent unexpected behavior of the next command
-		[[ "$(ls | wc -l)" = '1' ]] || die "more than one file in opt/amdgpu-pro/lib/i386-linux-gnu/"
-
-		# Add "pro" in the .so file's name, and remove any numeric extension "e.g. amdvlk32.so.1"
-		mv amdvlk32.so* amdvlkpro32.so || die
+		# Add "pro" in the .so file's name
+		mv amdvlk32.so amdvlkpro32.so || die
 
 		# same with the SONAME
 		patchelf --set-soname amdvlkpro32.so "${PWD}"/amdvlkpro32.so || die
