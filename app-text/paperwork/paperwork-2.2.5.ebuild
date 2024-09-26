@@ -12,7 +12,7 @@ DESCRIPTION="a personal document manager for scanned documents (and PDFs)"
 HOMEPAGE="https://gitlab.gnome.org/World/OpenPaperwork"
 # Update from release hash at:
 # https://gitlab.gnome.org/World/OpenPaperwork/paperwork/-/tags
-REL_HASH="3f51346f"
+REL_HASH="620eb580"
 SRC_URI="https://gitlab.gnome.org/World/OpenPaperwork/paperwork/-/archive/${PV}/paperwork-${PV}.tar.bz2
 	https://download.openpaper.work/data/paperwork/master_${REL_HASH}/data.tar.gz -> paperwork-data-${PV}.tar.gz"
 S=${WORKDIR}/paperwork-${PV}/${PN}-gtk

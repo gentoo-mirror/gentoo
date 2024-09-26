@@ -50,12 +50,6 @@ distutils_enable_tests unittest
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
-src_prepare() {
-	default
-	cd "${WORKDIR}"/paperwork-${PV} || die
-	eapply "${FILESDIR}"/${P}-scipy.patch
-}
-
 python_compile() {
 	emake l10n_compile
 
