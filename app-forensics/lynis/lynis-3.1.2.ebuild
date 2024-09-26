@@ -7,9 +7,8 @@ inherit bash-completion-r1 systemd
 
 DESCRIPTION="Security and system auditing tool"
 HOMEPAGE="https://cisofy.com/lynis/"
-SRC_URI="https://cisofy.com/files/${P}.tar.gz"
+SRC_URI="https://github.com/CISOfy/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/${PN}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
