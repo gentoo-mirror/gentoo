@@ -1,0 +1,12 @@
+DEFINED_PHASES=install test
+DEPEND=tk? ( >=dev-lang/tk-8.5 dev-tcltk/tcllib ) dev-perl/Cairo dev-perl/JSON-MaybeXS dev-perl/Pango virtual/perl-Getopt-Long
+DESCRIPTION=Ridiculously functional reminder program
+EAPI=8
+HOMEPAGE=https://dianne.skoll.ca/projects/remind/
+IUSE=tk
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=tk? ( >=dev-lang/tk-8.5 dev-tcltk/tcllib )
+SLOT=0
+SRC_URI=https://salsa.debian.org/dskoll/remind/-/archive/05.00.06/remind-05.00.06.tar.bz2
+_md5_=11c790e33f5fc1d7139f641492ec756f
