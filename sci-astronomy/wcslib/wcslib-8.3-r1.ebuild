@@ -11,14 +11,19 @@ DESCRIPTION="Astronomical World Coordinate System transformations library"
 HOMEPAGE="https://www.atnf.csiro.au/people/mcalabre/WCS/"
 SRC_URI="ftp://ftp.atnf.csiro.au/pub/software/${PN}/${P}.tar.bz2"
 
-SLOT="0/7"
+SLOT="0/$(ver_cut 1)"
 LICENSE="LGPL-3"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc fortran fits pgplot static-libs +tools"
 
 RDEPEND="
-	fits? ( sci-libs/cfitsio:0= )
-	pgplot? ( sci-libs/pgplot:0= )"
+	fits? (
+		!sci-astronomy/montage
+		sci-libs/cfitsio:0=
+	)
+	pgplot? ( sci-libs/pgplot:0= )
+"
+
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-alternatives/lex
@@ -33,6 +38,7 @@ src_configure() {
 		--htmldir="${EPREFIX}"/usr/share/doc/${PF}
 		$(use_enable fortran)
 		$(use_enable tools utils)
+		--with-bindc
 	)
 	# hacks because cfitsio and pgplot directories are hard-coded
 	if use fits; then
@@ -59,8 +65,15 @@ src_install () {
 	default
 	# static libs share the same symbols as shared (i.e. compiled with PIC)
 	# so they are not compiled twice
-	use static-libs || rm "${ED}"/usr/$(get_libdir)/lib*.a
-	use doc || rm -r \
-		"${ED}"/usr/share/doc/${PF}/html \
-		"${ED}"/usr/share/doc/${PF}/*.pdf
+	if ! use static-libs; then
+		rm "${ED}"/usr/$(get_libdir)/lib*.a || die
+	fi
+
+	if ! use doc; then
+		rm -r \
+			"${ED}"/usr/share/doc/${PF}/html \
+			"${ED}"/usr/share/doc/${PF}/*.pdf || die
+	fi
+	# always creates this symlink
+	rm "${ED}"/usr/share/doc/${PN} || die
 }

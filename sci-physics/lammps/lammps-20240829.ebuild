@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517=setuptools
 CMAKE_MAKEFILE_GENERATOR=emake
@@ -22,17 +22,22 @@ convert_month() {
 }
 
 MY_PV="$((10#${PV:6:2}))$(convert_month ${PV:4:2})${PV:0:4}"
-MY_P="${PN}-${MY_PV}"
+MY_P="${PN}-stable_${MY_PV}"
 
 DESCRIPTION="Large-scale Atomic/Molecular Massively Parallel Simulator"
-HOMEPAGE="https://lammps.sandia.gov/"
-SRC_URI="https://download.lammps.org/tars/${MY_P}.tar.gz"
+HOMEPAGE="https://www.lammps.org"
+SRC_URI="
+	https://github.com/lammps/lammps/archive/refs/tags/stable_${MY_PV}.tar.gz
+	test? (
+		https://github.com/google/googletest/archive/release-1.12.1.tar.gz -> ${PN}-gtest-1.12.1.tar.gz
+	)
+"
 S="${WORKDIR}/${MY_P}/cmake"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
-IUSE="cuda examples gzip hip lammps-memalign mpi opencl python test"
+KEYWORDS="~amd64 ~x86"
+IUSE="cuda examples extra gzip hip lammps-memalign mpi opencl openmp python test"
 # Requires write access to /dev/dri/renderD...
 RESTRICT="test"
 
@@ -52,7 +57,10 @@ RDEPEND="
 	sci-libs/netcdf:=
 	cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= )
 	opencl? ( virtual/opencl )
-	hip? ( dev-util/hip:= )
+	hip? (
+		dev-util/hip:=
+		sci-libs/hipCUB:=
+	)
 	dev-cpp/eigen:3
 	"
 	# Kokkos-3.5 not in tree atm
@@ -61,6 +69,7 @@ BDEPEND="${DISTUTILS_DEPS}"
 DEPEND="${RDEPEND}
 	test? (
 		dev-cpp/gtest
+		dev-libs/libyaml
 	)
 "
 
@@ -74,7 +83,11 @@ src_prepare() {
 	if use python; then
 		pushd ../python || die
 		distutils-r1_src_prepare
-		popd
+		popd || die
+	fi
+	if use test; then
+		mkdir "${BUILD_DIR}/_deps"
+		cp "${DISTDIR}/${PN}-gtest-1.12.1.tar.gz" "${BUILD_DIR}/_deps/release-1.12.1.tar.gz"
 	fi
 }
 
@@ -93,6 +106,11 @@ src_configure() {
 		-DPKG_COMPRESS=ON
 		-DPKG_CORESHELL=ON
 		-DPKG_DIPOLE=ON
+		-DPKG_EXTRA-COMPUTE=$(usex extra)
+		-DPKG_EXTRA-DUMP=$(usex extra)
+		-DPKG_EXTRA-FIX=$(usex extra)
+		-DPKG_EXTRA-MOLECULE=$(usex extra)
+		-DPKG_EXTRA-PAIR=$(usex extra)
 		-DPKG_GRANULAR=ON
 		-DPKG_KSPACE=ON
 		-DFFT=FFTW3
@@ -104,6 +122,7 @@ src_configure() {
 		-DPKG_MEAM=ON
 		-DPKG_MISC=ON
 		-DPKG_MOLECULE=ON
+		-DPKG_OPENMP=$(usex openmp)
 		-DPKG_PERI=ON
 		-DPKG_QEQ=ON
 		-DPKG_REPLICA=ON
@@ -118,7 +137,7 @@ src_configure() {
 		mycmakeargs+=( -DPKG_GPU=ON )
 		use cuda && mycmakeargs+=( -DGPU_API=cuda )
 		use opencl && mycmakeargs+=( -DGPU_API=opencl -DUSE_STATIC_OPENCL_LOADER=OFF )
-		use hip && mycmakeargs+=( -DGPU_API=hip )
+		use hip && mycmakeargs+=( -DGPU_API=hip -DHIP_PATH="${EPREFIX}/usr" )
 	else
 		mycmakeargs+=( -DPKG_GPU=OFF )
 	fi
@@ -126,7 +145,7 @@ src_configure() {
 	if use python; then
 		pushd ../python || die
 		distutils-r1_src_configure
-		popd
+		popd || die
 	fi
 }
 
@@ -135,7 +154,7 @@ src_compile() {
 	if use python; then
 		pushd ../python || die
 		distutils-r1_src_compile
-		popd
+		popd || die
 	fi
 }
 
@@ -144,16 +163,21 @@ src_test() {
 	if use python; then
 		pushd ../python || die
 		distutils-r1_src_test
-		popd
+		popd || die
 	fi
 }
 
 src_install() {
 	cmake_src_install
+
+	if use opencl; then
+		dobin "${BUILD_DIR}/ocl_get_devices"
+	fi
+
 	if use python; then
 		pushd ../python || die
 		distutils-r1_src_install
-		popd
+		popd || die
 	fi
 
 	if use examples; then
