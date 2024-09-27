@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DESCRIPTION=A fast, compliant alternative implementation of the Python (3.10) language
+EAPI=8
+HOMEPAGE=https://pypy.org/ https://foss.heptapod.net/pypy/pypy/
+INHERIT=python-utils-r1
+IUSE=+gdbm ncurses sqlite +test-install tk
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND==dev-python/pypy3_10-7.3.17*:0/pypy310-pp73-384[gdbm?,ncurses?,sqlite?,test-install(+)?,tk?]
+SLOT=0/pypy310-pp73-384
+_eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e
+_md5_=3180c4a1002c4685abf67910c3a1bf83
