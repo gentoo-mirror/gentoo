@@ -20,6 +20,8 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="pipewire pulseaudio"
 
+PATCHES=( "${FILESDIR}/${P}-fix-build-with-no-audio.patch")
+
 DEPEND="
 	dev-libs/wayland
 	media-libs/mesa[opengl,wayland]
