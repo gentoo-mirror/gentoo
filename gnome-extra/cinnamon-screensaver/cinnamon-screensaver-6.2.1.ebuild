@@ -1,9 +1,9 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit meson python-single-r1 xdg
 
@@ -13,14 +13,14 @@ SRC_URI="https://github.com/linuxmint/cinnamon-screensaver/archive/${PV}.tar.gz 
 
 LICENSE="GPL-2+ LGPL-2+ MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="systemd xinerama"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
 	>=dev-libs/glib-2.37.3:2[dbus]
-	>=gnome-extra/cinnamon-desktop-6.0
+	>=gnome-extra/cinnamon-desktop-6.2
 	sys-libs/pam
 	>=x11-libs/gtk+-3.22:3[introspection]
 	x11-libs/cairo
@@ -43,7 +43,7 @@ RDEPEND="
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		dev-python/setproctitle[${PYTHON_USEDEP}]
-		>=dev-python/python3-xapp-2.4.1[${PYTHON_USEDEP}]
+		>=dev-python/python3-xapp-2.4.2[${PYTHON_USEDEP}]
 	')
 
 	systemd? ( >=sys-apps/systemd-31 )
