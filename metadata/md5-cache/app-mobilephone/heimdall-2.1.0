@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://git.sr.ht/~grimler/Heimdall https://glassechidna.com.au/heimdall/ https://github.com/Benjamin-Dobell/Heimdall
 INHERIT=cmake udev
 IUSE=gui
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=MIT
 RDEPEND=sys-libs/zlib virtual/libusb:1= gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 )
 SLOT=0
 SRC_URI=https://git.sr.ht/~grimler/Heimdall/archive/v2.1.0.tar.gz -> heimdall-2.1.0.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	udev	3b4170e9c327a8ed17097484a016c0c8
-_md5_=834674177cdf567a598eaa17af97a40a
+_md5_=704c045f8cac4dd5bd47f8eace54e642
