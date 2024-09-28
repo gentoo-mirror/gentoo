@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-28">
+    <title>HashiCorp Consul: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in HashiCorp Consul, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">consul</product>
+    <announced>2024-09-28</announced>
+    <revised count="1">2024-09-28</revised>
+    <bug>885997</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-admin/consul" auto="yes" arch="*">
+            <unaffected range="ge">1.15.10</unaffected>
+            <vulnerable range="lt">1.15.10</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>HashiCorp Consul is a tool for service discovery, monitoring and configuration.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been found in HashiCorp Consul. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the CVE identifiers referenced below for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All HashiCorp Consul users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/consul-1.15.10"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41717">CVE-2022-41717</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-28T07:08:23.818242Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-28T07:08:23.822296Z">graaff</metadata>
+</glsa>
