@@ -16,7 +16,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo check-reqs
 
-CRATE_PV=0.4.11
+CRATE_PV=0.4.16
 DESCRIPTION="A Python package installer and resolver, written in Rust"
 HOMEPAGE="
 	https://github.com/astral-sh/uv/
@@ -96,7 +96,6 @@ src_prepare() {
 
 	# enable system libraries where supported
 	export ZSTD_SYS_USE_PKG_CONFIG=1
-	sed -i -e 's:"static"::' crates/uv-extract/Cargo.toml || die
 	# TODO: unbundle libz-ng-sys, tikv-jemalloc-sys?
 
 	# remove unbundled sources, just in case
@@ -112,6 +111,16 @@ src_prepare() {
 		Description:
 		Libs: -lbz2
 	EOF
+}
+
+src_configure() {
+	local myfeatures=(
+		git
+		pypi
+		python
+	)
+
+	cargo_src_configure --no-default-features
 }
 
 src_compile() {
