@@ -13,19 +13,26 @@ S="${WORKDIR}/dune-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV}"
-KEYWORDS="amd64 arm arm64 ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+ocamlopt"
 RESTRICT="test"
 
 BDEPEND=">=dev-ml/dune-3.12"
 DEPEND="
 	dev-ml/csexp:=[ocamlopt?]
+	>=dev-ml/pp-1.2.0:=[ocamlopt?]
 "
 RDEPEND="${DEPEND}
 	!dev-ml/stdune
 	!dev-ml/dyn
 	!dev-ml/ordering
 "
+
+src_prepare() {
+	default
+
+	rm -r vendor/{csexp,pp} || die
+}
 
 src_configure() {
 	:
