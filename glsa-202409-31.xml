@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-31">
+    <title>Apache HTTPD: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Apache HTTPD, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">apache</product>
+    <announced>2024-09-28</announced>
+    <revised count="1">2024-09-28</revised>
+    <bug>928540</bug>
+    <bug>935296</bug>
+    <bug>935427</bug>
+    <bug>936257</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-servers/apache" auto="yes" arch="*">
+            <unaffected range="ge">2.4.62</unaffected>
+            <vulnerable range="lt">2.4.62</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The Apache HTTP server is one of the most popular web servers on the Internet.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Apache HTTPD. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apache HTTPD users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/apache-2.4.62"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38709">CVE-2023-38709</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24795">CVE-2024-24795</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-27316">CVE-2024-27316</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-36387">CVE-2024-36387</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38472">CVE-2024-38472</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38473">CVE-2024-38473</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38474">CVE-2024-38474</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38475">CVE-2024-38475</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38476">CVE-2024-38476</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38477">CVE-2024-38477</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39573">CVE-2024-39573</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39884">CVE-2024-39884</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-40725">CVE-2024-40725</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-40898">CVE-2024-40898</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-28T08:01:45.203406Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-28T08:01:45.208096Z">graaff</metadata>
+</glsa>
