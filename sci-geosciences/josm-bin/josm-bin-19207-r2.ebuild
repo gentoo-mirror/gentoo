@@ -51,6 +51,7 @@ src_install() {
 		newicon -s ${icon_size} -t locolor \
 			images/logo_${icon_size}x${icon_size}x8.png "org.openstreetmap.${PN}.png"
 	done
+	newicon -s scalable images/logo.svg "org.openstreetmap.${PN}.svg"
 	domenu "${WORKDIR}/org.openstreetmap.${PN}.desktop"
 	insinto /usr/share/mime/packages
 	newins "${DISTDIR}/${P}.mime.xml" "${PN}.xml"
