@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake
 
 DESCRIPTION="Gradually typed embeddable scripting language derived from Lua"
-HOMEPAGE="https://luau-lang.org/
+HOMEPAGE="https://luau.org/
 	https://github.com/luau-lang/luau/"
 
 if [[ "${PV}" == *9999* ]] ; then
@@ -17,7 +17,7 @@ else
 	SRC_URI="https://github.com/luau-lang/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MIT"

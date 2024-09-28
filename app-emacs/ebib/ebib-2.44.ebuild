@@ -3,8 +3,6 @@
 
 EAPI=8
 
-NEED_EMACS=26.1
-
 inherit elisp
 
 DESCRIPTION="BibTeX database manager for Emacs"
@@ -19,14 +17,14 @@ else
 	SRC_URI="https://github.com/joostkremers/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-29.1.4.4
+	>=app-emacs/compat-30.0.0.0
 	app-emacs/parsebib
 "
 BDEPEND="
