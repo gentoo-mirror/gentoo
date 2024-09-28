@@ -3,8 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
-inherit libtool python-single-r1
+GUILE_COMPAT=( 2-2 3-0 )
+PYTHON_COMPAT=( python3_{10..13} )
+inherit guile-single libtool python-single-r1
 
 DESCRIPTION="Open Source Graph Visualization Software"
 HOMEPAGE="https://www.graphviz.org/ https://gitlab.com/graphviz/graphviz/"
@@ -14,11 +15,12 @@ SRC_URI="https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-re
 
 LICENSE="CPL-1.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="+cairo devil doc examples gtk2 gts guile lasi nls pdf perl postscript python qt5 ruby svg tcl webp X"
 
 REQUIRED_USE="
 	!cairo? ( !X !gtk2 !postscript !lasi )
+	guile? ( ${GUILE_REQUIRED_USE} )
 	pdf? ( cairo )
 	python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -45,7 +47,7 @@ RDEPEND="
 		x11-libs/gtk+:2
 	)
 	gts? ( sci-libs/gts )
-	guile? ( dev-scheme/guile )
+	guile? ( ${GUILE_DEPS} )
 	lasi? ( media-libs/lasi )
 	pdf? ( app-text/poppler )
 	perl? ( dev-lang/perl:= )
@@ -74,7 +76,7 @@ BDEPEND="
 	)
 	guile? (
 		dev-lang/swig
-		dev-scheme/guile
+		${GUILE_DEPS}
 	)
 	nls? ( >=sys-devel/gettext-0.14.5 )
 	perl? ( dev-lang/swig )
@@ -138,11 +140,16 @@ BDEPEND="
 #   with flags enabled at configure time
 
 pkg_setup() {
+	use guile && guile-single_pkg_setup
 	use python && python-single-r1_pkg_setup
 }
 
 src_prepare() {
-	default
+	if use guile; then
+		guile-single_src_prepare
+	else
+		default
+	fi
 	elibtoolize
 }
 
@@ -194,13 +201,18 @@ src_configure() {
 		--disable-ltdl-install
 		QMAKE=$(usev qt5 qmake5)
 	)
-	econf "${myconf[@]}"
+	# XXX: Temporary bash for bug #926600. It's been reverted upstream
+	# on master already:
+	# https://gitlab.com/graphviz/graphviz/-/merge_requests/3636
+	CONFIG_SHELL="${BROOT}"/bin/bash econf "${myconf[@]}"
 }
 
 src_install() {
 	default
 
 	find "${ED}" -name '*.la' -delete || die
+
+	use guile && guile_unstrip_ccache
 
 	use python && python_optimize \
 		"${D}"$(python_get_sitedir) \
