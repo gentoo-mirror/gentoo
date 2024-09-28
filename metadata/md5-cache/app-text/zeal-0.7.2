@@ -1,0 +1,15 @@
+BDEPEND=kde-frameworks/extra-cmake-modules app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=app-arch/libarchive:= dev-cpp/cpp-httplib:= dev-db/sqlite:3 dev-qt/qtbase:6[concurrent,gui,network,widgets] dev-qt/qtwebchannel:6 dev-qt/qtwebengine:6[widgets] X? ( x11-libs/libX11 x11-libs/libxcb:= x11-libs/xcb-util-keysyms )
+DESCRIPTION=Offline documentation browser inspired by Dash
+EAPI=8
+HOMEPAGE=https://zealdocs.org/
+INHERIT=cmake xdg-utils
+IUSE=+X
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-arch/libarchive:= dev-cpp/cpp-httplib:= dev-db/sqlite:3 dev-qt/qtbase:6[concurrent,gui,network,widgets] dev-qt/qtwebchannel:6 dev-qt/qtwebengine:6[widgets] X? ( x11-libs/libX11 x11-libs/libxcb:= x11-libs/xcb-util-keysyms ) x11-themes/hicolor-icon-theme
+SLOT=0
+SRC_URI=https://github.com/zealdocs/zeal/releases/download/v0.7.2/zeal-0.7.2.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=5d5702fe2979ff21568d3d5a748b69bf
