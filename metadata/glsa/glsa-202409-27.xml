@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-27">
+    <title>tmux: Null Pointer Dereference</title>
+    <synopsis>A vulnerability has been found in tmux which could result in application crash.</synopsis>
+    <product type="ebuild">tmux</product>
+    <announced>2024-09-28</announced>
+    <revised count="1">2024-09-28</revised>
+    <bug>891783</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-misc/tmux" auto="yes" arch="*">
+            <unaffected range="ge">3.4</unaffected>
+            <vulnerable range="lt">3.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>tmux is a terminal multiplexer.</p>
+    </background>
+    <description>
+        <p>A null pointer dereference issue was discovered in function window_pane_set_event in window.c in which allows attackers to cause denial of service or other unspecified impacts.</p>
+    </description>
+    <impact type="normal">
+        <p>Manipulating tmux window state could result in a null pointer dereference.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All tmux users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-misc/tmux-3.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-47016">CVE-2022-47016</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-28T07:06:23.951339Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-28T07:06:23.955977Z">graaff</metadata>
+</glsa>
