@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-30">
+    <title>yt-dlp: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in yt-dlp, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">yt-dlp</product>
+    <announced>2024-09-28</announced>
+    <revised count="1">2024-09-28</revised>
+    <bug>909780</bug>
+    <bug>917355</bug>
+    <bug>935316</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/yt-dlp" auto="yes" arch="*">
+            <unaffected range="ge">2024.07.01</unaffected>
+            <vulnerable range="lt">2024.07.01</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>yt-dlp is a youtube-dl fork with additional features and fixes.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been found in yt-dlp. Please review the referenced CVE identifiers for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All yt-dlp users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/yt-dlp-2024.07.01"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-35934">CVE-2023-35934</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46121">CVE-2023-46121</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38519">CVE-2024-38519</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-28T07:39:28.885110Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-28T07:39:28.889248Z">graaff</metadata>
+</glsa>
