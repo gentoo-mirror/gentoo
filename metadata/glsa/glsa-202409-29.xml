@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-29">
+    <title>Docker: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Docker, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">docker</product>
+    <announced>2024-09-28</announced>
+    <revised count="1">2024-09-28</revised>
+    <bug>816273</bug>
+    <bug>869407</bug>
+    <bug>877653</bug>
+    <bug>886509</bug>
+    <bug>903804</bug>
+    <bug>905336</bug>
+    <bug>925022</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-containers/docker" auto="yes" arch="*">
+            <unaffected range="ge">25.0.4</unaffected>
+            <vulnerable range="lt">25.0.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Docker contains the the core functions you need to create Docker images and run Docker containers</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Docker. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Docker users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/docker-25.0.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41089">CVE-2021-41089</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41091">CVE-2021-41091</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36109">CVE-2022-36109</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41717">CVE-2022-41717</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-26054">CVE-2023-26054</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28840">CVE-2023-28840</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28841">CVE-2023-28841</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28842">CVE-2023-28842</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23650">CVE-2024-23650</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23651">CVE-2024-23651</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23652">CVE-2024-23652</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23653">CVE-2024-23653</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24557">CVE-2024-24557</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-28T07:32:55.226701Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-28T07:32:55.232252Z">graaff</metadata>
+</glsa>
