@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} pypy3 )
 
 inherit desktop python-single-r1 go-module qmake-utils virtualx xdg
 
