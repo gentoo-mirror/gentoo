@@ -27,6 +27,7 @@ RESTRICT="!test? ( test )"
 # make sure to crank yyjson minimum version to match bundled version
 RDEPEND="
 	>=dev-libs/yyjson-0.10.0
+	sys-apps/hwdata
 	sys-libs/zlib
 	X? ( x11-libs/libX11 )
 	chafa? ( media-gfx/chafa )
