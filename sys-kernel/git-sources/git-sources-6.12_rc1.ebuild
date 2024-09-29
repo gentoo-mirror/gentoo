@@ -7,7 +7,7 @@ K_NOUSENAME="yes"
 K_NOSETEXTRAVERSION="yes"
 K_NOUSEPR="yes"
 K_SECURITY_UNSUPPORTED="1"
-K_BASE_VER="6.10"
+K_BASE_VER="6.11"
 K_EXP_GENPATCHES_NOUSE="1"
 K_FROM_GIT="yes"
 K_NODRYRUN="yes"
@@ -32,7 +32,7 @@ developers at https://bugzilla.kernel.org and on the linux-kernel mailing list t
 report the problem so it can be fixed in time for the next kernel release."
 
 DEPEND="${RDEPEND}
-	>=sys-devel/patch-2.7.6-r4"
+	>=sys-devel/patch-2.7.6-r5"
 
 pkg_postinst() {
 	postinst_sources
