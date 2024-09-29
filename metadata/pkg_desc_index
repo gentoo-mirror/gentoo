@@ -1376,7 +1376,7 @@ app-containers/snapd 2.58 2.61 2.63: Service and tools for management of snap pa
 app-containers/syft 0.75.0 0.76.0 0.94.0 0.95.0 1.9.0: Generate a Software Bill of Materials from container images and filesystems
 app-containers/umoci 0.4.6: Manipulation tool for OCI images
 app-crypt/acme 2.10.0 2.11.0 9999: An implementation of the ACME protocol
-app-crypt/acme-sh 3.0.7 3.0.8 9999: A pure Unix shell script implementing ACME client protocol
+app-crypt/acme-sh 3.0.9 9999: A pure Unix shell script implementing ACME client protocol
 app-crypt/acme-tiny 5.0.1-r1 5.0.1-r2: A tiny, auditable script for Let's Encrypt's ACME Protocol
 app-crypt/acr38u 1.7.11-r4: Non CCID driver for ACR38 AC1038-based Smart Card Reader
 app-crypt/adcli 0.9.2: Tool for performing actions on an Active Directory domain
@@ -2798,7 +2798,7 @@ app-misc/liquidctl 1.11.1 1.12.1 1.13.0: Cross-platform tool and drivers for liq
 app-misc/lirc 0.10.1-r4 0.10.1_p7 0.10.2: decode and send infra-red signals of many commonly used remote controls
 app-misc/livecd-tools 2.9 2.10-r1 2.11 9999: Gentoo LiveCD tools for autoconfiguration of hardware
 app-misc/lockfile-progs 0.1.17 0.1.19: Programs to safely lock/unlock files and mailboxes
-app-misc/logiops 0.3.4: An unofficial userspace driver for HID++ Logitech devices
+app-misc/logiops 0.3.5: An unofficial userspace driver for HID++ Logitech devices
 app-misc/lsx 0.1-r1: list executables
 app-misc/ltunify 0.3: Tool for working with Logitech Unifying receivers and devices
 app-misc/lxsplit 0.2.4-r1: Command-line file splitter/joiner for Linux
@@ -5380,9 +5380,9 @@ dev-libs/immer 0.8.1-r1: Library of persistent and immutable data structures wri
 dev-libs/inih 57-r1 58: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 3.1-r3 4.1-r1 4.2.2: A free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 24.22.29735.21-r1 24.31.30508.7 24.35.30872.22: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
-dev-libs/intel-metrics-discovery 1.12.172 1.13.176: A user mode library that provides access to GPU performance data
-dev-libs/intel-metrics-library 1.0.166 1.0.173: User mode driver helper library that provides access to GPU performance counters
+dev-libs/intel-compute-runtime 24.35.30872.22 24.35.30872.25: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-metrics-discovery 1.13.176: A user mode library that provides access to GPU performance data
+dev-libs/intel-metrics-library 1.0.173: User mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.19.0: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.30.0-r1 2.31.0: Intelligent Storage Acceleration Library
 dev-libs/isa-l_crypto 2.24.0: Intelligent Storage Acceleration Library - cryptographic components
@@ -5415,7 +5415,7 @@ dev-libs/ktextaddons 1.2.1 1.5.4: Various text handling addons
 dev-libs/kweathercore 0.8.0 24.08.1: Library for retrieval of weather information including forecasts and alerts
 dev-libs/lager 0.1.1-r1: Library to assist value-oriented design
 dev-libs/leatherman 1.12.13: A C++ toolkit
-dev-libs/level-zero 1.17.19 1.17.28 1.17.42: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.17.42: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.20 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 0.3.113-r1 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5652,7 +5652,7 @@ dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ progr
 dev-libs/marisa 0.2.6 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.7-r1 3.2.2-r2: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/mdns 1.4.3: Public domain mDNS/DNS-SD library in C
-dev-libs/metee 4.2.0 4.2.1: Cross-platform access library for Intel CSME HECI interface
+dev-libs/metee 4.2.1: Cross-platform access library for Intel CSME HECI interface
 dev-libs/mimalloc 2.1.2 2.1.4 2.1.6 2.1.7: A compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniaudio 0.11.11 0.11.15: Single file library for audio playback and capture
@@ -5683,7 +5683,7 @@ dev-libs/olm 3.2.15 3.2.16: Implementation of the Double Ratchet cryptographic r
 dev-libs/oneDNN 3.3.6 3.4 3.4.3 3.5 3.5.2: oneAPI Deep Neural Network Library
 dev-libs/onigmo 6.2.0-r1: Onigmo is a regular expressions library forked from Oniguruma
 dev-libs/oniguruma 6.9.8 6.9.9 9999: Regular expression library for different character encodings
-dev-libs/opencl-clang 15.0.0-r1 16.0.0-r2 17.0.0 18.1.0: OpenCL-oriented thin wrapper library around clang
+dev-libs/opencl-clang 15.0.0-r1 16.0.0-r2 17.0.0 18.1.0 19.1.0: OpenCL-oriented thin wrapper library around clang
 dev-libs/opencl-icd-loader 2023.12.14 2024.05.08: Official Khronos OpenCL ICD Loader
 dev-libs/opencryptoki 3.6.1-r1: PKCS#11 provider cryptographic hardware
 dev-libs/openct 0.6.20-r5: library for accessing smart card terminals
@@ -5884,7 +5884,7 @@ dev-lua/lua-term 0.8: Terminal operations for Lua
 dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.5: A UTF-8 support module for Lua and LuaJIT
 dev-lua/lua-zlib 1.2-r1: Simple streaming interface to zlib for Lua
-dev-lua/lua_cliargs 3.0_p2-r1 3.0.2: A command-line argument parsing module for Lua
+dev-lua/lua_cliargs 3.0.2: A command-line argument parsing module for Lua
 dev-lua/luacheck 1.2.0: A tool for linting and static analysis of Lua code
 dev-lua/luacov 0.15.0: A simple coverage analyzer for Lua scripts
 dev-lua/luadbi 0.7.3: A database interface library for Lua
@@ -10787,8 +10787,8 @@ dev-util/idea-community 2024.2.3: A complete toolset for web, mobile and enterpr
 dev-util/imediff2 1.1.2.1: An interactive, user friendly 2-way merge tool in text mode
 dev-util/include-what-you-use 0.20 0.21 0.22: Find unused include directives in C/C++ programs
 dev-util/indent 2.2.13: Indent program source files
-dev-util/intel-graphics-compiler 1.0.17193.2 1.0.17537.1 1.0.17537.20: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
-dev-util/intel-graphics-system-controller 0.8.16 0.9.3: Intel graphics system controller firmware update library
+dev-util/intel-graphics-compiler 1.0.17537.20 1.0.17657.8: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
+dev-util/intel-graphics-system-controller 0.9.3: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015: Intel's implementation of the OpenCL standard
 dev-util/intel_clc 24.1.7 24.2.3 9999: intel_clc tool used for building OpenCL C to SPIR-V
 dev-util/intltool 0.51.0-r3: Internationalization Tool Collection
@@ -17447,7 +17447,7 @@ sys-fs/compsize 1.5 9999: Utility to find btrfs compression type/ratio on a file
 sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration files
 sys-fs/cramfs 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 0.11.4: Encrypted FUSE filesystem that conceals metadata
-sys-fs/cryptmount 6.2.0 6.3.0: A utility for management and user-mode mounting of encrypted filesystems
+sys-fs/cryptmount 6.3.0: A utility for management and user-mode mounting of encrypted filesystems
 sys-fs/cryptsetup 2.6.1 2.7.2 2.7.3 2.7.4 2.7.5: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
