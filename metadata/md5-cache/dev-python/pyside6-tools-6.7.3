@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) =dev-python/shiboken6-6.7.3*:6[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,llvm_slot_15(-)?,llvm_slot_16(-)?,llvm_slot_17(-)?,llvm_slot_18(-)?] =dev-python/pyside6-6.7.3*:6[quick,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,llvm_slot_15(-)?,llvm_slot_16(-)?,llvm_slot_17(-)?,llvm_slot_18(-)?] !dev-python/pyside6-tools:0 llvm_slot_15? ( sys-devel/clang:15 sys-devel/llvm:15 ) llvm_slot_16? ( sys-devel/clang:16 sys-devel/llvm:16 ) llvm_slot_17? ( sys-devel/clang:17 sys-devel/llvm:17 ) llvm_slot_18? ( sys-devel/clang:18 sys-devel/llvm:18 )
+DESCRIPTION=PySide development tools (pyside6-lupdate with support for Python)
+EAPI=8
+HOMEPAGE=https://wiki.qt.io/PySide6
+INHERIT=cmake llvm-r1 python-r1
+IUSE=+llvm_slot_18 llvm_slot_15 llvm_slot_16 llvm_slot_17 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) =dev-python/shiboken6-6.7.3*:6[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,llvm_slot_15(-)?,llvm_slot_16(-)?,llvm_slot_17(-)?,llvm_slot_18(-)?] =dev-python/pyside6-6.7.3*:6[quick,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,llvm_slot_15(-)?,llvm_slot_16(-)?,llvm_slot_17(-)?,llvm_slot_18(-)?] !dev-python/pyside6-tools:0
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 )
+SLOT=6/6.7.3
+SRC_URI=https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.7.3-src/pyside-setup-everywhere-src-6.7.3.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c
+_md5_=f015499eb9560dc4735e5aa1bc0529db
