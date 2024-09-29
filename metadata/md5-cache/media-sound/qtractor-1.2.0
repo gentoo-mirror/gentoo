@@ -7,11 +7,11 @@ HOMEPAGE=https://qtractor.sourceforge.io https://github.com/rncbc/qtractor
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
 IUSE=aubio cpu_flags_x86_sse debug dssi ladspa libsamplerate mad osc rubberband vorbis zlib
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 dev-qt/qtx11extras:5 media-libs/alsa-lib media-libs/libsndfile media-libs/lilv media-libs/lv2 media-libs/suil virtual/jack x11-libs/libxcb:= aubio? ( media-libs/aubio:= ) dssi? ( media-libs/dssi ) ladspa? ( media-libs/ladspa-sdk ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) osc? ( media-libs/liblo ) rubberband? ( media-libs/rubberband ) vorbis? ( media-libs/libogg media-libs/libvorbis ) zlib? ( sys-libs/zlib )
 REQUIRED_USE=dssi? ( ladspa )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/qtractor/qtractor-1.2.0.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	854eae304447322625df5991e20ed18f
-_md5_=3030e28f92ee52538ce19fc2052e7ed9
+_md5_=13c27b1fc92645f3586ff2337f717c29
