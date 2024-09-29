@@ -16,24 +16,24 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="+l0 +vaapi"
 
 RDEPEND="
-	>=dev-util/intel-graphics-compiler-1.0.17193.2
-	>=media-libs/gmmlib-22.3.19:=
+	>=dev-util/intel-graphics-compiler-1.0.17657.8
+	>=media-libs/gmmlib-22.5.2:=
 "
 
 DEPEND="
 	${RDEPEND}
 	dev-libs/intel-metrics-discovery:=
-	dev-libs/intel-metrics-library:=
+	>=dev-libs/intel-metrics-library-1.0.173:=
 	dev-libs/libnl:3
 	dev-libs/libxml2:2
-	>=dev-util/intel-graphics-system-controller-0.8.16:=
+	>=dev-util/intel-graphics-system-controller-0.9.3:=
 	media-libs/mesa
 	>=virtual/opencl-3
-	l0? ( >=dev-libs/level-zero-1.17.6:= )
+	l0? ( >=dev-libs/level-zero-1.17.42:= )
 	vaapi? (
 		x11-libs/libdrm[video_cards_intel]
 		media-libs/libva
@@ -43,10 +43,6 @@ DEPEND="
 BDEPEND="virtual/pkgconfig"
 
 DOCS=( "README.md" "FAQ.md" )
-
-PATCHES=(
-	"${FILESDIR}/${PN}-22.24.23453-remove-fortify-sources.patch"
-)
 
 src_prepare() {
 	# Remove '-Werror' from default
@@ -68,7 +64,6 @@ src_configure() {
 		-DBUILD_WITH_L0="$(usex l0)"
 		-DDISABLE_LIBVA="$(usex !vaapi)"
 		-DNEO_DISABLE_LTO="ON"
-		-DNEO_DISABLE_LD_GOLD="ON"
 		-DNEO__METRICS_LIBRARY_INCLUDE_DIR="${ESYSROOT}/usr/include"
 		-DKHRONOS_GL_HEADERS_DIR="${ESYSROOT}/usr/include"
 		-DOCL_ICD_VENDORDIR="${EPREFIX}/etc/OpenCL/vendors"

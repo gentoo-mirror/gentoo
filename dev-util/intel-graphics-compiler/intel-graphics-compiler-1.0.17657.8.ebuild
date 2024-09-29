@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="debug vc"
 
 DEPEND="
@@ -29,7 +29,7 @@ DEPEND="
 		sys-devel/llvm:${LLVM_SLOT}
 	')
 	vc? (
-		>=dev-libs/intel-vc-intrinsics-0.18.0[${LLVM_USEDEP}]
+		>=dev-libs/intel-vc-intrinsics-0.19.0[${LLVM_USEDEP}]
 		dev-util/spirv-llvm-translator:15=
 	)
 "
@@ -38,12 +38,14 @@ RDEPEND="${DEPEND}"
 
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/mako[${PYTHON_USEDEP}]')
+	$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]')
 	$(llvm_gen_dep 'sys-devel/lld:${LLVM_SLOT}')
 	${PYTHON_DEPS}
 "
 
 python_check_deps() {
 	python_has_version "dev-python/mako[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
 }
 
 PATCHES=(
