@@ -775,7 +775,6 @@ tc_enable_hardened_gcc() {
 	sed -i \
 		-e "/^HARD_CFLAGS = /s|=|= ${hardened_gcc_flags} |" \
 		"${S}"/gcc/Makefile.in || die
-
 }
 
 # This is a historical wart.  The original Gentoo/amd64 port used:
@@ -1813,7 +1812,7 @@ gcc_do_filter_flags() {
 	declare -A l1_cache_sizes=()
 	# Workaround for inconsistent cache sizes on hybrid P/E cores
 	# See PR111768 (and bug #904426, bug #908523, and bug #915389)
-	if [[ ${CBUILD} == @(x86_64|i?86)* ]] && [[ ${CFLAGS} == *-march=native* ]] && tc-is-gcc ; then
+	if [[ ${CBUILD} == @(x86_64|i?86)* ]] && [[ "${CFLAGS}${CXXFLAGS}" == *-march=native* ]] && tc-is-gcc ; then
 		local x
 		local l1_cache_size
 		# Iterate over all cores and find their L1 cache size
@@ -2023,13 +2022,25 @@ gcc_do_make() {
 		# We only want to use the system's CFLAGS if not building a
 		# cross-compiler.
 		STAGE1_CFLAGS=${STAGE1_CFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CFLAGS}"}
+		# multilib.eclass lacks get_abi_CXXFLAGS (bug #940501)
+		STAGE1_CXXFLAGS=${STAGE1_CXXFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CXXFLAGS}"}
 		STAGE1_LDFLAGS=${STAGE1_LDFLAGS-"${abi_ldflags} ${LDFLAGS}"}
 		BOOT_CFLAGS=${BOOT_CFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CFLAGS}"}
 		BOOT_LDFLAGS=${BOOT_LDFLAGS-"${abi_ldflags} ${LDFLAGS}"}
 		LDFLAGS_FOR_TARGET="${LDFLAGS_FOR_TARGET:-${LDFLAGS}}"
 
+		# If we need to in future, we could really simplify this
+		# to just be unconditional for stage1. It doesn't really
+		# matter there. If we want to go in the other direction
+		# and make this more conditional, we could check if
+		# the bootstrap compiler is < GCC 12. See bug #940470.
+		if _tc_use_if_iuse d && use hardened ; then
+			STAGE1_CXXFLAGS+=" -U_GLIBCXX_ASSERTIONS"
+		fi
+
 		emakeargs+=(
 			STAGE1_CFLAGS="${STAGE1_CFLAGS}"
+			STAGE1_CXXFLAGS="${STAGE1_CXXFLAGS}"
 			STAGE1_LDFLAGS="${STAGE1_LDFLAGS}"
 			BOOT_CFLAGS="${BOOT_CFLAGS}"
 			BOOT_LDFLAGS="${BOOT_LDFLAGS}"
