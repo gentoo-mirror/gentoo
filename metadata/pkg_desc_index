@@ -3800,7 +3800,7 @@ dev-build/b2 5.0.0 5.2.1: A system for large project software construction, simp
 dev-build/bazelisk 1.20.0 1.21.0: A user-friendly launcher for Bazel written in Go
 dev-build/bmake 20240602 20240808: NetBSD's portable make
 dev-build/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
-dev-build/cmake 3.28.5 3.29.7 3.30.2 3.30.3 9999: Cross platform Make
+dev-build/cmake 3.28.5 3.29.7 3.30.2 3.30.3 3.30.4 9999: Cross platform Make
 dev-build/cmake-fedora 2.9.3: Provides cmake helper macros and targets for linux, especially fedora developers
 dev-build/dagger 0.9.8: ci/cd as code that runs anywhere
 dev-build/gn 0.2122 0.2143 0.2154 0.2157 0.2165 9999: GN is a meta-build system that generates build files for Ninja
@@ -14611,7 +14611,7 @@ net-fs/autofs 5.1.9-r1: Kernel based automounter
 net-fs/btfs 2.24: a bittorrent filesystem based on FUSE
 net-fs/cifs-utils 7.0 7.0-r1: Tools for Managing Linux CIFS Client Filesystems
 net-fs/curlftpfs 0.9.2-r5: File system for accessing ftp hosts based on FUSE
-net-fs/cvmfs 2.11.3 2.11.4: HTTP read-only file system for distributing software
+net-fs/cvmfs 2.11.3 2.11.5: HTTP read-only file system for distributing software
 net-fs/davfs2 1.6.0-r2 1.6.1-r3 1.7.0-r1: Linux FUSE (or coda) driver that allows you to mount a WebDAV resource
 net-fs/ksmbd-tools 3.4.8 3.5.2: cifsd/ksmbd kernel server userspace utilities
 net-fs/libnfs 5.0.2 5.0.3 9999: Client library for accessing NFS shares over a network
@@ -14926,7 +14926,7 @@ net-libs/webkit-gtk 2.44.1 2.44.1-r410 2.44.1-r600 2.44.4 2.44.4-r410 2.44.4-r60
 net-libs/wslay 1.1.1_p20210115: WebSocket library in C
 net-libs/wvstreams 4.6.1_p14-r2: A network programming library in C++
 net-libs/xdp-tools 1.4.2 1.4.3: The libxdp library and various tools for use with XDP
-net-libs/xrootd 5.6.7 5.6.9 5.7.0: Extended ROOT remote file server
+net-libs/xrootd 5.6.7 5.6.9 5.7.0 5.7.1: Extended ROOT remote file server
 net-libs/zeromq 4.3.5-r1: High-performance asynchronous messaging library
 net-libs/zmqpp 4.2.0-r1: ZeroMQ 'highlevel' C++ bindings
 net-mail/altermime 0.3.12: alterMIME is a small program which is used to alter your mime-encoded mailpacks
@@ -16357,7 +16357,7 @@ sci-physics/clhep 2.4.7.1: High Energy Physics C++ library
 sci-physics/espresso 4.2.0 9999: Extensible Simulation Package for Research on Soft matter
 sci-physics/fastjet 3.4.0-r1 3.4.2 3.4.3 9999: A software package for jet finding in pp and e+e- collisions
 sci-physics/fastjet-contrib 1.049-r2 1.053 1.055: 3rd party extensions of FastJet.
-sci-physics/geant 4.11.2.0-r1 4.11.2.1-r1: Toolkit for simulation of passage of particles through matter
+sci-physics/geant 4.11.2.0-r1 4.11.2.1-r1 4.11.2.2: Toolkit for simulation of passage of particles through matter
 sci-physics/geant-data 4.11.2.0: Data files for Geant4 physical processes
 sci-physics/geant4_vmc 6.3_p2-r1 6.5 6.6_p1 9999: Virtual Monte Carlo Geant4 implementation
 sci-physics/hepmc 2.06.11 3.2.5_p20230225-r1 3.2.6 3.2.7 3.3.0 9999: Event Record for Monte Carlo Generators
@@ -16370,7 +16370,7 @@ sci-physics/pythia 6.4.28-r2 8.2.45-r2 8.3.07-r1 8.3.09 8.3.11 9999: Lund Monte 
 sci-physics/qmeq 1.1: Quantum master equation package for Quantum dot transport calculations
 sci-physics/reduze 2.4-r1: Program for reducing Feynman integrals
 sci-physics/rivet 3.1.9 3.1.10 4.0.1 9999: Rivet toolkit (Robust Independent Validation of Experiment and Theory)
-sci-physics/root 6.30.08 6.32.04 6.32.9999 9999: C++ data analysis framework and interpreter from CERN
+sci-physics/root 6.30.08 6.32.06 6.32.9999 9999: C++ data analysis framework and interpreter from CERN
 sci-physics/siscone 3.0.5: Hadron Seedless Infrared-Safe Cone jet algorithm
 sci-physics/thepeg 2.2.2-r1 2.2.3-r1 2.3.0: Toolkit for High Energy Physics Event Generation
 sci-physics/vgm 5.2-r1 9999: Virtual Geometry Model for High Energy Physics Experiments
@@ -17998,7 +17998,7 @@ www-apps/jellyfin-bin 10.9.9 10.9.10 10.9.11: Jellyfin puts you in control of ma
 www-apps/karma-bin 0.90: Alerts dashboard for Prometheus Alertmanager
 www-apps/kibana-bin 7.17.16: Analytics and search dashboard for Elasticsearch
 www-apps/klaus 2.0.3 3.0.1: A simple, easy-to-set-up Git web viewer
-www-apps/lidarr-bin 2.6.1.4370: Looks and smells like Sonarr but made for music
+www-apps/lidarr-bin 2.6.2.4379: Looks and smells like Sonarr but made for music
 www-apps/liquid_feedback_core 4.2.2: Internet platforms for proposition development and decision making
 www-apps/liquid_feedback_frontend 4.0.0: Internet platforms for proposition development and decision making
 www-apps/mediawiki 1.39.8 1.41.2 1.42.1: The MediaWiki wiki web application (as used on wikipedia.org)
@@ -18020,16 +18020,16 @@ www-apps/phpBB 3.3.12: An open-source PHP-based bulletin board package
 www-apps/phpsysinfo 3.4.3-r1: A customizable PHP script that displays information about your system nicely
 www-apps/piwigo 14.3.0 14.4.0 14.5.0: a photo gallery software for the web
 www-apps/postfixadmin 3.3.13: Web Based Management tool for Postfix style virtual domains and users
-www-apps/prowlarr-bin 1.24.3.4754: An indexer manager/proxy to integrate with your various PVR apps
-www-apps/radarr-bin 5.11.0.9244: A fork of Sonarr to work with movies a la Couchpotato
+www-apps/prowlarr-bin 1.25.0.4759: An indexer manager/proxy to integrate with your various PVR apps
+www-apps/radarr-bin 5.12.0.9255: A fork of Sonarr to work with movies a la Couchpotato
 www-apps/radicale 3.2.2 3.2.3: A simple CalDAV calendar server
-www-apps/readarr-bin 0.3.32.2587: An ebook and audiobook collection manager for Usenet and BitTorrent users
+www-apps/readarr-bin 0.4.0.2634: An ebook and audiobook collection manager for Usenet and BitTorrent users
 www-apps/redmine 5.0.6 5.1.0: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.2.0 2.3.0: Issue-tracking system with command-line, web, and e-mail interfaces
 www-apps/rutorrent 4.3.6 4.3.7 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
 www-apps/selfoss 2.20_pre20230730: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/sfpg 4.11.0: A web gallery in one single PHP file
-www-apps/sonarr-bin 4.0.9.2421: Sonarr is a Smart PVR for newsgroup and bittorrent users
+www-apps/sonarr-bin 4.0.9.2457: Sonarr is a Smart PVR for newsgroup and bittorrent users
 www-apps/trickster 1.1.5: Dashboard Accelerator for Prometheus
 www-apps/tt-rss 20230901 99999999: Tiny Tiny RSS - A web-based news feed (RSS/Atom) aggregator using AJAX
 www-apps/ttyd 1.7.7 9999: ttyd, a simple command-line tool for sharing terminal over the web

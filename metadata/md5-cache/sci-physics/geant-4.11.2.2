@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Toolkit for simulation of passage of particles through matter
+EAPI=8
+HOMEPAGE=https://geant4.web.cern.ch/
+INHERIT=cmake
+IUSE=+data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl qt5 raytracerx static-libs tbb threads trajectories vtk
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=geant4
+RDEPEND=dev-libs/expat >=sci-physics/clhep-2.4.7.1:2=[threads?] data? ( ~sci-physics/geant-data-4.11.2.0 ) doc? ( app-doc/geant-docs ) gdml? ( dev-libs/xerces-c ) hdf5? ( sci-libs/hdf5:=[threads?] ) inventor? ( media-libs/SoXt ) motif? ( x11-libs/motif:0 ) opengl? ( virtual/opengl ) qt5? ( dev-qt/qt3d:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 opengl? ( dev-qt/qtopengl:5 ) ) raytracerx? ( x11-libs/libX11 x11-libs/libXmu ) vtk? ( sci-libs/vtk:=[qt5] )
+REQUIRED_USE=inventor? ( opengl ) motif? ( opengl ) qt5? ( opengl ) tbb? ( threads ) vtk? ( qt5 )
+SLOT=4/4.11.2.2
+SRC_URI=https://geant4-data.web.cern.ch/geant4-data/releases/geant4-v11.2.2.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=78db0f0a7394bdb9d36ee69e0c565a04
