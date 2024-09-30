@@ -1,0 +1,16 @@
+BDEPEND=doc? ( dev-tex/latexmk dev-python/sphinx dev-python/sphinx-rtd-theme dev-texlive/texlive-latexextra )
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_15(-)]
+DESCRIPTION=Set of modules that provide a simple manipulation of XML streams
+EAPI=8
+HOMEPAGE=http://libre.adacore.com/
+INHERIT=ada multiprocessing
+IUSE=doc +shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] )
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 )
+SLOT=0/24.0.0
+SRC_URI=https://github.com/AdaCore/xmlada/archive/refs/tags/v24.0.0.tar.gz -> xmlada-24.0.0.tar.gz
+_eclasses_=ada	1f86f5e9748b10218fed33ab29c39861	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9
+_md5_=4800c6a3de1d8bedb90f6b0650bfc2f0
