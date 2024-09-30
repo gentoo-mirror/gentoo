@@ -16,6 +16,7 @@ avalonia.fonts.inter@11.1.3
 avalonia.freedesktop@11.1.3
 avalonia.native@11.1.3
 avalonia.remote.protocol@11.1.3
+avalonia.skia@11.0.0
 avalonia.skia@11.1.3
 avalonia.themes.fluent@11.1.3
 avalonia.themes.simple@11.1.3
@@ -24,17 +25,31 @@ avalonia.x11@11.1.3
 avalonia@11.1.3
 avaloniaedit.textmate@11.1.0
 communitytoolkit.mvvm@8.2.2
+harfbuzzsharp.nativeassets.linux@2.8.2.3
 harfbuzzsharp.nativeassets.linux@7.3.0.2
+harfbuzzsharp.nativeassets.macos@2.8.2.3
 harfbuzzsharp.nativeassets.macos@7.3.0.2
+harfbuzzsharp.nativeassets.webassembly@2.8.2.3
 harfbuzzsharp.nativeassets.webassembly@7.3.0.2
+harfbuzzsharp.nativeassets.win32@2.8.2.3
 harfbuzzsharp.nativeassets.win32@7.3.0.2
+harfbuzzsharp@2.8.2.3
 harfbuzzsharp@7.3.0.2
+livechartscore.skiasharpview.avalonia@2.0.0-rc3.3
+livechartscore.skiasharpview@2.0.0-rc3.3
+livechartscore@2.0.0-rc3.3
 microcom.runtime@0.11.0
 onigwrap@1.0.6
+skiasharp.harfbuzz@2.88.8
+skiasharp.nativeassets.linux@2.88.3
 skiasharp.nativeassets.linux@2.88.8
+skiasharp.nativeassets.macos@2.88.3
 skiasharp.nativeassets.macos@2.88.8
+skiasharp.nativeassets.webassembly@2.88.3
 skiasharp.nativeassets.webassembly@2.88.8
+skiasharp.nativeassets.win32@2.88.3
 skiasharp.nativeassets.win32@2.88.8
+skiasharp@2.88.3
 skiasharp@2.88.8
 system.io.pipelines@6.0.0
 system.numerics.vectors@4.5.0
@@ -86,6 +101,14 @@ DOTNET_PKG_PROJECTS=( src/SourceGit.csproj )
 pkg_setup() {
 	check-reqs_pkg_setup
 	dotnet-pkg_pkg_setup
+}
+
+src_unpack() {
+	dotnet-pkg_src_unpack
+
+	if [[ -n "${EGIT_REPO_URI}" ]] ; then
+		git-r3_src_unpack
+	fi
 }
 
 src_prepare() {
