@@ -5,12 +5,12 @@ DESCRIPTION=Open-source analyzer, compiler, and simulator for VHDL 2008/93/87
 EAPI=8
 HOMEPAGE=https://ghdl.github.io/ghdl/ https://github.com/ghdl/ghdl/
 INHERIT=ada edo llvm-r1 toolchain-funcs
-IUSE=llvm +static-libs ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 +llvm_slot_17 llvm_slot_16
+IUSE=llvm +static-libs ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 +llvm_slot_17 llvm_slot_16
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) llvm? ( llvm_slot_16? ( sys-devel/llvm:16= ) llvm_slot_17? ( sys-devel/llvm:17= ) )
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_13 ) llvm? ( static-libs ) ^^ ( llvm_slot_16 llvm_slot_17 )
 SLOT=0
 SRC_URI=https://github.com/ghdl/ghdl/archive/v4.1.0.tar.gz -> ghdl-4.1.0.tar.gz
-_eclasses_=ada	f59e3151d12cf89115ffac32a03e7d31	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991
+_eclasses_=ada	1f86f5e9748b10218fed33ab29c39861	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991
 _md5_=0460797428878833296a41f294156dca

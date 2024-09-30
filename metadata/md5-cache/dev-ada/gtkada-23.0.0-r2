@@ -1,16 +1,16 @@
 BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?]
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gcc_14(-),-ada_target_gcc_15(-)]
 DESCRIPTION=A complete Ada graphical toolkit
 EAPI=8
 HOMEPAGE=http://libre.adacore.com//tools/gtkada/
 INHERIT=ada autotools multiprocessing
-IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13
+IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
 RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
 SLOT=0/23.0.0
 SRC_URI=https://github.com/AdaCore/gtkada/archive/refs/tags/v23.0.0.tar.gz -> gtkada-23.0.0.tar.gz
-_eclasses_=ada	f59e3151d12cf89115ffac32a03e7d31	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9
+_eclasses_=ada	1f86f5e9748b10218fed33ab29c39861	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9
 _md5_=2be8960949f4831b78c7f8d4992922c0
