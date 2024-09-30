@@ -998,18 +998,13 @@ toolchain_src_configure() {
 	gcc_do_filter_flags
 
 	if ! tc_version_is_at_least 11 && [[ $(gcc-major-version) -ge 12 ]] ; then
-		# https://gcc.gnu.org/PR105695
-		# bug #849359
+		# https://gcc.gnu.org/PR105695 (bug #849359)
 		export ac_cv_std_swap_in_utility=no
 	fi
 
 	einfo "CFLAGS=\"${CFLAGS}\""
 	einfo "CXXFLAGS=\"${CXXFLAGS}\""
 	einfo "LDFLAGS=\"${LDFLAGS}\""
-
-	# Force internal zip based jar script to avoid random
-	# issues with 3rd party jar implementations. bug #384291
-	export JAR=no
 
 	local confgcc=( --host=${CHOST} )
 
