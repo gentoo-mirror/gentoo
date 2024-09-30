@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,14 +8,13 @@ inherit toolchain-funcs multilib-minimal
 DESCRIPTION="A flexible, cross-platform scripting library"
 HOMEPAGE="http://www.angelcode.com/angelscript/"
 SRC_URI="http://www.angelcode.com/angelscript/sdk/files/angelscript_${PV}.zip"
+S="${WORKDIR}/sdk"
 LICENSE="ZLIB"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="doc static-libs"
 
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}/sdk"
 
 pkg_setup() {
 	tc-export CXX AR RANLIB
