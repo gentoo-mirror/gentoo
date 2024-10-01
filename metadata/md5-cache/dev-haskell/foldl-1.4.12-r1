@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://hackage.haskell.org/package/foldl
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=>=dev-haskell/comonad-4.0:=[profile?] <dev-haskell/comonad-6:=[profile?] <dev-haskell/contravariant-1.6:=[profile?] <dev-haskell/hashable-1.5:=[profile?] <dev-haskell/primitive-0.8:=[profile?] <dev-haskell/profunctors-5.7:=[profile?] >=dev-haskell/random-1.2:=[profile?] <dev-haskell/random-1.3:=[profile?] >=dev-haskell/semigroupoids-1.0:=[profile?] <dev-haskell/semigroupoids-5.4:=[profile?] <dev-haskell/unordered-containers-0.3:=[profile?] >=dev-haskell/vector-0.7:=[profile?] <dev-haskell/vector-0.14:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/1.4.12
 SRC_URI=https://hackage.haskell.org/package/foldl-1.4.12/foldl-1.4.12.tar.gz https://hackage.haskell.org/package/foldl-1.4.12/revision/5.cabal -> foldl-1.4.12-rev5.cabal
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=15b6dd44a1d249c585cd728e93517a41
+_md5_=2fe5738a503bcff8fdfef842efaa1d21

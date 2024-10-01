@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/yesodweb/Shelly.hs
 INHERIT=ghc-package haskell-cabal
 IUSE=examples lifted doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=dev-haskell/async:=[profile?] dev-haskell/enclosed-exceptions:=[profile?] dev-haskell/lifted-async:=[profile?] dev-haskell/lifted-base:=[profile?] >=dev-haskell/monad-control-0.3.2:=[profile?] <dev-haskell/monad-control-1.1:=[profile?] dev-haskell/text:=[profile?] dev-haskell/transformers-base:=[profile?] <dev-haskell/unix-compat-0.6:=[profile?] >=dev-lang/ghc-9.0.2:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/1.9.0
 SRC_URI=https://hackage.haskell.org/package/shelly-1.9.0/shelly-1.9.0.tar.gz https://hackage.haskell.org/package/shelly-1.9.0/revision/3.cabal -> shelly-1.9.0-rev3.cabal
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=ab3b55990fc271b9108e8f9c7d3fdda2
+_md5_=423eaa296bffae1f4fa94576680ec1e2

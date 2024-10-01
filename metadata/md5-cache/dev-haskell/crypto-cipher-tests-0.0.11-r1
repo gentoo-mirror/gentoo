@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/vincenthz/hs-crypto-cipher
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=>=dev-haskell/byteable-0.1.1:=[profile?] <dev-haskell/byteable-0.2:=[profile?] >=dev-haskell/crypto-cipher-types-0.0.8:=[profile?] <dev-haskell/crypto-cipher-types-0.1:=[profile?] dev-haskell/hunit:=[profile?] dev-haskell/mtl:=[profile?] >=dev-haskell/quickcheck-2:=[profile?] >=dev-haskell/securemem-0.1.1:=[profile?] <dev-haskell/securemem-0.2:=[profile?] dev-haskell/test-framework:=[profile?] dev-haskell/test-framework-hunit:=[profile?] dev-haskell/test-framework-quickcheck2:=[profile?] >=dev-lang/ghc-7.4.1:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.0.11
 SRC_URI=https://hackage.haskell.org/package/crypto-cipher-tests-0.0.11/crypto-cipher-tests-0.0.11.tar.gz
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=ad301ef52fc7b80acbc0b87a7c49de83
+_md5_=b3e407653454c7f822deb34a6e437c3b

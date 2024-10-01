@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://jaspervdj.be/blaze
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=>=dev-haskell/blaze-builder-0.3:=[profile?] <dev-haskell/blaze-builder-0.5:=[profile?] >=dev-haskell/blaze-markup-0.8:=[profile?] <dev-haskell/blaze-markup-0.9:=[profile?] >=dev-lang/ghc-8.4.3:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.9.1.2
 SRC_URI=https://hackage.haskell.org/package/blaze-html-0.9.1.2/blaze-html-0.9.1.2.tar.gz https://hackage.haskell.org/package/blaze-html-0.9.1.2/revision/2.cabal -> blaze-html-0.9.1.2-rev2.cabal
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=f626fc1204987abe15b97f8eb87987c0
+_md5_=bdea628b7de364f9014d87cba31efae2

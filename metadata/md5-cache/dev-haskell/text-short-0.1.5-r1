@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://hackage.haskell.org/package/text-short
 INHERIT=haskell-cabal
 IUSE=debug doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=>=dev-haskell/hashable-1.2.6:=[profile?] <dev-haskell/hashable-1.5:=[profile?] >=dev-lang/ghc-8.8.1:= || ( ( >=dev-haskell/text-1.0 <dev-haskell/text-1.3 ) ( >=dev-haskell/text-2.0 <dev-haskell/text-2.1 ) ) dev-haskell/text:=[profile?] dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.1.5
 SRC_URI=https://hackage.haskell.org/package/text-short-0.1.5/text-short-0.1.5.tar.gz https://hackage.haskell.org/package/text-short-0.1.5/revision/2.cabal -> text-short-0.1.5-rev2.cabal
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=66a8b18f4e5bda48b9122042963b6522
+_md5_=2b898be51e7b58b24f5e5af0f67c352f

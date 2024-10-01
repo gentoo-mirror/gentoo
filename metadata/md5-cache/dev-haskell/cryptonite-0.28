@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/haskell-crypto/cryptonite
 INHERIT=flag-o-matic haskell-cabal
 IUSE=cpu_flags_x86_rdrand cpu_flags_x86_aes cpu_flags_x86_sse cpu_flags_x86_sse4_1 +integer-gmp +target-attributes doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=>=dev-haskell/basement-0.0.6:=[profile?] >=dev-haskell/memory-0.14.18:=[profile?] >=dev-lang/ghc-8.4.3:= <dev-lang/ghc-9.1 virtual/libc dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.28
 SRC_URI=https://hackage.haskell.org/package/cryptonite-0.28/cryptonite-0.28.tar.gz https://github.com/haskell-crypto/cryptonite/pull/338.patch -> cryptonite-338.patch
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=76e69f5947c0a67b83ad4291063e4506
+_md5_=b060984118e23d4ee65041a0f12a5360

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/jgm/texmath
 INHERIT=haskell-cabal
 IUSE=executable server doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-haskell/pandoc-types-1.20:=[profile?] <dev-haskell/pandoc-types-1.23:=[profile?] dev-haskell/split:=[profile?] >=dev-haskell/syb-0.4.2:=[profile?] <dev-haskell/syb-0.8:=[profile?] dev-haskell/xml:=[profile?] >=dev-lang/ghc-8.4.3:= executable? ( dev-haskell/aeson:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] dev-haskell/pretty-show:=[profile?] ) !executable? ( server? ( dev-haskell/aeson:=[profile?] ) ) server? ( dev-haskell/optparse-applicative:=[profile?] dev-haskell/safe:=[profile?] dev-haskell/servant-server:=[profile?] dev-haskell/wai:=[profile?] dev-haskell/wai-logger:=[profile?] dev-haskell/warp:=[profile?] ) dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.12.5.1
 SRC_URI=https://hackage.haskell.org/package/texmath-0.12.5.1/texmath-0.12.5.1.tar.gz
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=dd886be7d9ca51a27f55ab5f894fec9b
+_md5_=a876b7fa0a4b29a6a802f7a10f47f914

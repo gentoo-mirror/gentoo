@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/commercialhaskell/rio#readme
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=dev-haskell/hashable:=[profile?] dev-haskell/microlens:=[profile?] dev-haskell/microlens-mtl:=[profile?] dev-haskell/primitive:=[profile?] >=dev-haskell/typed-process-0.2.5.0:=[profile?] >=dev-haskell/unliftio-0.2.14:=[profile?] dev-haskell/unliftio-core:=[profile?] dev-haskell/unordered-containers:=[profile?] dev-haskell/vector:=[profile?] >=dev-lang/ghc-8.10.1:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.1.21.0
 SRC_URI=https://hackage.haskell.org/package/rio-0.1.21.0/rio-0.1.21.0.tar.gz
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=3daee6270fc1703cdb63c2b794e2c43d
+_md5_=c78d48003cff79262a9722a7e4a7882d

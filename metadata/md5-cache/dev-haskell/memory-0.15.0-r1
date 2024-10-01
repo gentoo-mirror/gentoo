@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/vincenthz/hs-memory
 INHERIT=haskell-cabal
 IUSE=doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=>=dev-haskell/basement-0.0.7:=[profile?] >=dev-lang/ghc-8.0.1:= <dev-lang/ghc-9.1 dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.15.0
 SRC_URI=https://hackage.haskell.org/package/memory-0.15.0/memory-0.15.0.tar.gz https://patch-diff.githubusercontent.com/raw/vincenthz/hs-memory/pull/81.patch -> memory-81.patch
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=0907558a35ea73f56d2e641266bcee14
+_md5_=95810c4cd335378f4f0d09a9ad89f23a

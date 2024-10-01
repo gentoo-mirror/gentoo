@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.yesodweb.com/book/persistent
 INHERIT=haskell-cabal
 IUSE=build-sanity-exe doc hscolour profile test
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=>=dev-db/sqlite-3.0 >=dev-haskell/aeson-1.0:=[profile?] >=dev-haskell/conduit-1.2.12:=[profile?] >=dev-haskell/microlens-th-0.4.1.1:=[profile?] >=dev-haskell/monad-logger-0.3.25:=[profile?] >=dev-haskell/persistent-2.13.3:=[profile?] <dev-haskell/persistent-3:=[profile?] dev-haskell/resource-pool:=[profile?] >=dev-haskell/resourcet-1.1.9:=[profile?] dev-haskell/unliftio-core:=[profile?] dev-haskell/unordered-containers:=[profile?] >=dev-lang/ghc-8.4.3:= virtual/libc dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/2.13.1.0
 SRC_URI=https://hackage.haskell.org/package/persistent-sqlite-2.13.1.0/persistent-sqlite-2.13.1.0.tar.gz
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	haskell-cabal	7a05e05c4a785428f7c2f31e22667fea
-_md5_=cacea1c5bcf607d667deaff2bd4cf2ad
+_md5_=1e008b5d1cb590c75471f5a34c6a2f7a
