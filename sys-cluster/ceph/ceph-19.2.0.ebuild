@@ -16,12 +16,13 @@ HOMEPAGE="https://ceph.com/"
 
 SRC_URI="
 	https://download.ceph.com/tarballs/${P}.tar.gz
-	parquet? ( https://github.com/xtensor-stack/xsimd/archive/${XSIMD_HASH}.tar.gz -> ceph-xsimd-${PV}.tar.gz )
+	parquet? ( https://github.com/xtensor-stack/xsimd/archive/${XSIMD_HASH}.tar.gz -> ceph-xsimd-${PV}.tar.gz
+		mirror://apache/arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz )
 "
 
 LICENSE="Apache-2.0 LGPL-2.1 CC-BY-SA-3.0 GPL-2 GPL-2+ LGPL-2+ LGPL-2.1 LGPL-3 GPL-3 BSD Boost-1.0 MIT public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64"
+KEYWORDS=""
 
 CPU_FLAGS_X86=(avx2 avx512f pclmul sse{,2,3,4_1,4_2} ssse3)
 
@@ -29,7 +30,7 @@ IUSE="
 	babeltrace +cephfs custom-cflags diskprediction dpdk fuse grafana
 	jemalloc jaeger kafka kerberos ldap lttng +mgr +parquet pmdk rabbitmq
 	+radosgw rbd-rwl rbd-ssd rdma rgw-lua selinux +ssl spdk +sqlite +system-boost
-	systemd +tcmalloc test +uring xfs zbd zfs
+	systemd +tcmalloc test +uring xfs zbd
 "
 
 IUSE+="$(printf "cpu_flags_x86_%s\n" ${CPU_FLAGS_X86[@]})"
@@ -48,6 +49,7 @@ DEPEND="
 	app-shells/bash:0
 	app-misc/jq:=
 	dev-cpp/gflags:=
+	dev-db/lmdb:=
 	dev-lang/jsonnet:=
 	dev-libs/libaio:=
 	dev-libs/libnl:3=
@@ -62,6 +64,7 @@ DEPEND="
 	dev-cpp/yaml-cpp:=
 	dev-python/natsort[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-vcs/git
 	net-dns/c-ares:=
 	net-libs/gnutls:=
 	sys-auth/oath-toolkit:=
@@ -87,7 +90,11 @@ DEPEND="
 	kerberos? ( virtual/krb5 )
 	ldap? ( net-nds/openldap:= )
 	lttng? ( dev-util/lttng-ust:= )
-	parquet? ( dev-libs/re2:= )
+	parquet? (
+		>=app-arch/lz4-1.10
+		dev-cpp/xsimd
+		dev-libs/re2:=
+	)
 	pmdk? (
 		>=dev-libs/pmdk-1.10.0:=
 		sys-block/ndctl:=
@@ -106,7 +113,6 @@ DEPEND="
 	uring? ( sys-libs/liburing:= )
 	xfs? ( sys-fs/xfsprogs:= )
 	zbd? ( sys-block/libzbd:= )
-	zfs? ( sys-fs/zfs:= )
 "
 BDEPEND="
 	amd64? ( dev-lang/nasm )
@@ -199,14 +205,12 @@ CMAKE_WARN_UNUSED_CLI=no
 PATCHES=(
 	"${FILESDIR}/ceph-12.2.0-use-provided-cpu-flag-values.patch"
 	"${FILESDIR}/ceph-14.2.0-cflags.patch"
-	"${FILESDIR}/ceph-12.2.4-boost-build-none-options.patch"
 	"${FILESDIR}/ceph-17.2.1-no-virtualenvs.patch"
 	"${FILESDIR}/ceph-13.2.2-dont-install-sysvinit-script.patch"
 	"${FILESDIR}/ceph-14.2.0-dpdk-cflags.patch"
 	"${FILESDIR}/ceph-16.2.0-rocksdb-cmake.patch"
 	"${FILESDIR}/ceph-16.2.0-spdk-tinfo.patch"
 	"${FILESDIR}/ceph-16.2.0-jaeger-system-boost.patch"
-	"${FILESDIR}/ceph-16.2.0-liburing.patch"
 	"${FILESDIR}/ceph-17.2.0-pybind-boost-1.74.patch"
 	"${FILESDIR}/ceph-17.2.0-findre2.patch"
 	"${FILESDIR}/ceph-18.2.0-system-opentelemetry.patch"
@@ -216,9 +220,6 @@ PATCHES=(
 	# https://bugs.gentoo.org/866165
 	"${FILESDIR}/ceph-17.2.5-suppress-cmake-warning.patch"
 	"${FILESDIR}/ceph-17.2.5-gcc13-deux.patch"
-	"${FILESDIR}/ceph-17.2.5-boost-1.81.patch"
-	# https://bugs.gentoo.org/901403
-	"${FILESDIR}/ceph-17.2.6-link-boost-context.patch"
 	# https://bugs.gentoo.org/905626
 	"${FILESDIR}/ceph-17.2.6-arrow-flatbuffers-c++14.patch"
 	# https://bugs.gentoo.org/868891
@@ -228,7 +229,7 @@ PATCHES=(
 	"${FILESDIR}/ceph-18.2.0-cython3.patch"
 	# https://bugs.gentoo.org/936889
 	"${FILESDIR}/ceph-18.2.1-gcc14.patch"
-	"${FILESDIR}/ceph-18.2.1-gcc14-2.patch"
+	"${FILESDIR}/ceph-18.2.4-liburing.patch"
 )
 
 check-reqs_export_vars() {
@@ -292,6 +293,20 @@ src_prepare() {
 
 	# remove tests that need root access
 	rm src/test/cli/ceph-authtool/cap*.t || die
+
+	if use parquet; then
+		# hammer in newer version of parquet/arrow
+		rm -rf src/arrow/
+		mv "${WORKDIR}/apache-arrow-17.0.0" src/arrow || die
+	fi
+
+	# newer boost don't support no header-only
+	sed -i -e 's~#include <boost/url/src.hpp>~#include <boost/url.hpp>~' src/mds/BoostUrlImpl.cc || die
+
+	# everyone forgot to link to boost_url
+	sed -i -e 's~target_link_libraries(ceph-mds mds ${CMAKE_DL_LIBS} global-static ceph-common~target_link_libraries(ceph-mds mds ${CMAKE_DL_LIBS} global-static ceph-common boost_url~' src/CMakeLists.txt || die
+	sed -i -e 's/target_link_libraries(journal cls_journal_client)/target_link_libraries(journal cls_journal_client boost_url)/' src/journal/CMakeLists.txt || die
+	sed -i -e 's/${BLKID_LIBRARIES} ${CMAKE_DL_LIBS})/${BLKID_LIBRARIES} ${CMAKE_DL_LIBS} boost_url)/g' src/tools/cephfs/CMakeLists.txt || die
 }
 
 ceph_src_configure() {
@@ -323,7 +338,6 @@ ceph_src_configure() {
 		-DWITH_LIBCEPHSQLITE:BOOL=$(usex sqlite)
 		-DWITH_XFS:BOOL=$(usex xfs)
 		-DWITH_ZBD:BOOL=$(usex zbd)
-		-DWITH_ZFS:BOOL=$(usex zfs)
 		-DENABLE_SHARED:BOOL=ON
 		-DALLOCATOR:STRING=$(usex tcmalloc 'tcmalloc' "$(usex jemalloc 'jemalloc' 'libc')")
 		-DWITH_SYSTEM_PMDK:BOOL=$(usex pmdk 'YES' "$(usex rbd-rwl '')")
@@ -336,6 +350,7 @@ ceph_src_configure() {
 		# use the bundled libfmt for now since they seem to constantly break their API
 		-DCMAKE_DISABLE_FIND_PACKAGE_fmt=ON
 		-Wno-dev
+		-DCEPHADM_BUNDLED_DEPENDENCIES=none
 	)
 
 	# this breaks when re-configuring for python impl

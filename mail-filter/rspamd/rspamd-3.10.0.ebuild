@@ -69,12 +69,12 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/rspamd-3.6-cmake-lua-version.patch"
-	"${FILESDIR}/rspamd-3.6-unbundle-lua.patch"
-	"${FILESDIR}/rspamd-3.6-unbundle-snowball.patch"
+	"${FILESDIR}/${PN}-3.6-cmake-lua-version.patch"
+	"${FILESDIR}/${PN}-3.6-unbundle-lua.patch"
+	"${FILESDIR}/${PN}-3.6-unbundle-snowball.patch"
 
 	# backward compatibility with <dev-libs/libfmt-11
-	"${FILESDIR}/${P}-older-libfmt.patch"
+	"${FILESDIR}/${PN}-3.9.0-older-libfmt.patch"
 )
 
 src_prepare() {
