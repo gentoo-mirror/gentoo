@@ -97,6 +97,7 @@ src_test() {
 		--clients "$(makeopts_jobs)" # see bug #649868
 
 		--skiptest "Active defrag eval scripts" # see bug #851654
+		--skiptest "FUNCTION - redict version api" # test fails due to release mishap on 7.3.1, remove on bump
 	)
 
 	if has usersandbox ${FEATURES} || ! has userpriv ${FEATURES}; then
