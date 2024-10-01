@@ -134,7 +134,7 @@ src_configure() {
 	local adabdir=/usr/lib/${PN}
 	local prefix=${EPREFIX}${adabdir}
 
-	export PATH=${GNATDIR}/bin:${PWD}/bin:${PATH}
+	export PATH="${WORKDIR}"/${BTSTRP}/bin:"${WORKDIR}"/${GNATDIR}/bin:${PWD}/bin:${PATH}
 
 	# This version is GCC 4.7.4 with a bolted-on newer GNAT; be very
 	# conservative, we just want it to build for bootstrapping proper
@@ -149,16 +149,20 @@ src_configure() {
 		--{doc,info,man}dir=/.skip # let the real gcc handle docs
 		MAKEINFO=: #922230
 		--prefix="${prefix}"
+		--disable-analyzer
 		--disable-bootstrap
 		--disable-cc1
 		--disable-cet
 		--disable-gcov #843989
 		--disable-gomp
+		--disable-objc-gc
 		--disable-nls # filename collisions
 		--disable-libcc1
+		--disable-libgomp
 		--disable-libquadmath
 		--disable-libsanitizer
 		--disable-libssp
+		--disable-libstdcxx-pch
 		--disable-libvtv
 		--disable-shared
 		--disable-werror
@@ -166,6 +170,7 @@ src_configure() {
 		--with-gcc-major-version-only
 		--with-system-zlib
 		--without-isl
+		--without-python-dir
 		--without-zstd
 		--disable-multilib
 	)
