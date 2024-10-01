@@ -3,7 +3,9 @@
 
 EAPI=8
 
-NEED_EMACS=29
+COMMIT="016bd286a1ba4628f833a626f8b9d497882ecdf3"
+
+NEED_EMACS="29"
 
 inherit elisp
 
@@ -15,8 +17,9 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/renzmann/${PN}.git"
 else
-	SRC_URI="https://github.com/renzmann/${PN}/archive/v${PV}.tar.gz
+	SRC_URI="https://github.com/renzmann/${PN}/archive/${COMMIT}.tar.gz
 		-> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -24,5 +27,12 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-DOCS=( README.org )
+RDEPEND="
+	app-editors/emacs[tree-sitter(+)]
+"
+BDEPEND="
+	${RDEPEND}
+"
+
+DOCS=( CONTRIBUTING.org README.org )
 SITEFILE="50${PN}-gentoo.el"
