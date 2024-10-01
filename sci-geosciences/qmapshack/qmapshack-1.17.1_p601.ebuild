@@ -7,8 +7,8 @@ inherit cmake xdg
 
 DESCRIPTION="GPS mapping utility"
 HOMEPAGE="https://github.com/Maproom/qmapshack/wiki"
-COMMIT="1f009ac0be1d1c2a4c31aa1283f4009e88685d34"
-SRC_URI="https://github.com/kiozen/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+COMMIT="b53959a305587f0a7f2330b99267b3b24abb76f4"
+SRC_URI="https://github.com/Maproom/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}"/${PN}-${COMMIT}
 LICENSE="GPL-3+"
 SLOT="0"
@@ -31,7 +31,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/qttools:6[linguist]"
 
-PATCHES=( "${FILESDIR}"/dbus.patch )
+PATCHES=( "${FILESDIR}"/dbus-r1.patch )
 
 src_configure() {
 	local mycmakeargs=( -DUSE_QT6DBus=$(usex dbus) )
