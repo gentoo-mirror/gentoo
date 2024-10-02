@@ -1,13 +1,15 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=dev-libs/rapidjson <sys-devel/clang-19:= !!sys-devel/llvm:0
+DEPEND=dev-libs/rapidjson llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= ) llvm_slot_19? ( sys-devel/clang:19= sys-devel/llvm:19= )
 DESCRIPTION=C/C++/ObjC language server
 EAPI=8
 HOMEPAGE=https://github.com/MaskRay/ccls
-INHERIT=cmake llvm git-r3
+INHERIT=cmake llvm-r1 git-r3
+IUSE=+llvm_slot_18 llvm_slot_19
 LICENSE=Apache-2.0
 PROPERTIES=live
-RDEPEND=dev-libs/rapidjson <sys-devel/clang-19:=
+RDEPEND=dev-libs/rapidjson llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= ) llvm_slot_19? ( sys-devel/clang:19= sys-devel/llvm:19= )
+REQUIRED_USE=^^ ( llvm_slot_18 llvm_slot_19 )
 SLOT=0
-_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm	2a7c6c7a9370cedd74e77a53c4a5d655	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=f1b8c62100fc7c989673d32c215adb6c
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	e59dc622da7e7e7f16879105bed34858	llvm-r1	aee9ccb15d2aee00819d8784fa242ac3	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=0d786f4d647ba2dc5dcca5962e7f4b19
