@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig doc? ( app-text/doxygen[dot] )
+DEFINED_PHASES=compile configure install postinst setup
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= dev-libs/boost:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) odbc? ( dev-db/unixODBC ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) )
+DESCRIPTION=The PowerDNS Daemon
+EAPI=8
+HOMEPAGE=https://www.powerdns.com/
+INHERIT=flag-o-matic lua-single python-any-r1
+IUSE=debug doc geoip ldap lmdb lua-records mysql odbc postgres remote sodium sqlite systemd tools tinydns test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= dev-libs/boost:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) odbc? ( dev-db/unixODBC ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) ) acct-user/pdns acct-group/pdns
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.powerdns.com/releases/pdns-4.9.2.tar.bz2
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua-single	3ae43cac1bf8275a847245b9a475a54e	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
+_md5_=18977d80afe783e0120500b02312cf24
