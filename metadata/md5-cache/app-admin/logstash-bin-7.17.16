@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile install postinst preinst prepare setup
+DEFINED_PHASES=install postinst preinst prepare setup
 DEPEND=>=dev-java/java-config-2.2.0-r3
 DESCRIPTION=Tool for managing events and logs
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=acct-group/logstash acct-user/logstash virtual/jre >=dev-java/java-confi
 RESTRICT=strip
 SLOT=0
 SRC_URI=x-pack? ( https://artifacts.elastic.co/downloads/logstash/logstash-7.17.16-linux-x86_64.tar.gz ) !x-pack? ( https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.17.16-linux-x86_64.tar.gz )
-_eclasses_=java-utils-2	505f237da61d30569dcc6d5df8c51262	java-pkg-2	72587187cd548a5dcdb6a13453a3614d
+_eclasses_=java-utils-2	f1da644b1cb86c9aca40b31a544a9906	java-pkg-2	cc4b7c2e885aaf57a8bbea685bd9fbe3
 _md5_=d20b5f2cba87e940d3fc7a8755e0a92f
