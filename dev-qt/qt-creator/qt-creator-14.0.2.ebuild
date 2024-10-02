@@ -6,8 +6,7 @@ EAPI=8
 LLVM_COMPAT=( {15..18} )
 LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3_{10..13} )
-inherit cmake edo flag-o-matic go-env llvm-r1 multiprocessing
-inherit python-any-r1 readme.gentoo-r1 xdg
+inherit cmake flag-o-matic llvm-r1 python-any-r1 readme.gentoo-r1 xdg
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -24,10 +23,7 @@ else
 	QTC_PV=${PV/_/-}
 	QTC_P=${PN}-opensource-src-${QTC_PV}
 	[[ ${QTC_PV} == ${PV} ]] && QTC_REL=official || QTC_REL=development
-	SRC_URI="
-		https://download.qt.io/${QTC_REL}_releases/qtcreator/$(ver_cut 1-2)/${PV/_/-}/${QTC_P}.tar.xz
-		https://dev.gentoo.org/~ionen/distfiles/${P}-vendor.tar.xz
-	"
+	SRC_URI="https://download.qt.io/${QTC_REL}_releases/qtcreator/$(ver_cut 1-2)/${PV/_/-}/${QTC_P}.tar.xz"
 	S=${WORKDIR}/${QTC_P}
 	KEYWORDS="~amd64"
 fi
@@ -36,7 +32,6 @@ DESCRIPTION="Lightweight IDE for C++/QML development centering around Qt"
 HOMEPAGE="https://www.qt.io/product/development-tools"
 
 LICENSE="GPL-3"
-LICENSE+=" BSD MIT" # go
 SLOT="0"
 IUSE="
 	+clang designer doc +help keyring plugin-dev qmldesigner
@@ -88,35 +83,21 @@ RDEPEND="
 	qmldesigner? ( >=dev-qt/qtquicktimeline-${QT_PV} )
 "
 DEPEND="${COMMON_DEPEND}"
-# intentionally skipping := on go (unlike go-module.eclass) given not
-# worth a massive rebuild every time for the minor go usage
 BDEPEND="
 	${PYTHON_DEPS}
-	>=dev-lang/go-1.21.7
 	>=dev-qt/qttools-${QT_PV}[linguist]
 	doc? ( >=dev-qt/qttools-${QT_PV}[qdoc,qtattributionsscanner] )
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-15.0.0-musl-no-execinfo.patch
+	"${FILESDIR}"/${PN}-11.0.2-musl-no-execinfo.patch
 	"${FILESDIR}"/${PN}-12.0.0-musl-no-malloc-trim.patch
+	"${FILESDIR}"/${PN}-14.0.1-clang19.patch
 )
-
-QA_FLAGS_IGNORED="usr/libexec/qtcreator/cmdbridge-.*" # written in Go
 
 pkg_setup() {
 	python-any-r1_pkg_setup
 	use clang && llvm-r1_pkg_setup
-}
-
-src_unpack() {
-	if [[ ${PV} == 9999 ]]; then
-		git-r3_src_unpack
-		cd "${S}/src/libs/gocmdbridge/server" || die
-		edo go mod vendor
-	else
-		default
-	fi
 }
 
 src_prepare() {
@@ -136,9 +117,6 @@ src_prepare() {
 }
 
 src_configure() {
-	go-env_set_compile_environment
-	local -x GOFLAGS="-p=$(makeopts_jobs) -v -x -buildvcs=false -buildmode=pie"
-
 	# -Werror=lto-type-mismatch issues, needs looking into
 	filter-lto
 
