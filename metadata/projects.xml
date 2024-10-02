@@ -3212,6 +3212,22 @@
     </member>
   </project>
   <project>
+    <email>vulkan@gentoo.org</email>
+    <name>Vulkan</name>
+    <url>https://wiki.gentoo.org/wiki/Project:Vulkan</url>
+    <description>The Gentoo Vulkan Project maintains packages related to the [https://en.wikipedia.org/wiki/Vulkan Vulkan API].</description>
+    <member>
+      <email>mattst88@gentoo.org</email>
+      <name>Matt Turner</name>
+      <role>Member</role>
+    </member>
+    <member>
+      <email>sarnex@gentoo.org</email>
+      <name>Nick Sarnie</name>
+      <role>Member</role>
+    </member>
+  </project>
+  <project>
     <email>www@gentoo.org</email>
     <name>Website maintainers</name>
     <url>https://wiki.gentoo.org/wiki/Project:Website</url>
@@ -3295,6 +3311,7 @@
     <name>X11 Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:X11</url>
     <description>The X11 project manages the X implementations and related packages in Portage.</description>
+    <subproject ref="vulkan@gentoo.org"/>
     <member is-lead="1">
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
