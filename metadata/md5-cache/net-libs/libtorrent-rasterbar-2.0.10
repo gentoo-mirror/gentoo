@@ -1,17 +1,17 @@
-BDEPEND=dev-util/patchelf python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) ) test? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=dev-util/patchelf python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/setuptools[python_targets_python3_13(-)] ) ) test? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/boost:= ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) )
 DESCRIPTION=C++ BitTorrent implementation focusing on efficiency and scalability
 EAPI=8
 HOMEPAGE=https://libtorrent.org/ https://github.com/arvidn/libtorrent
 INHERIT=cmake python-single-r1
-IUSE=+dht debug examples gnutls python ssl test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=+dht debug examples gnutls python ssl test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=BSD
-RDEPEND=dev-libs/boost:= ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-libs/boost[python,python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+RDEPEND=dev-libs/boost:= ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_10? ( dev-libs/boost[python,python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost[python,python_targets_python3_13(-)] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
 RESTRICT=!test? ( test )
 SLOT=0/2.0
 SRC_URI=https://github.com/arvidn/libtorrent/releases/download/v2.0.10/libtorrent-rasterbar-2.0.10.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1
-_md5_=3300af68d6a083d889f09c291e6c1419
+_md5_=5a66e2d36394b7a40760ea21e9960a34
