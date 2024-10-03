@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=perl? ( dev-lang/perl test? ( virtual/perl-Test-Simple ) )
 DESCRIPTION=An ISO-C:1999 API with CLI for generating DCE, ISO/IEC and RFC compliant UUID
 EAPI=8
-HOMEPAGE=http://www.ossp.org/pkg/lib/uuid/
+HOMEPAGE=https://sr.ht/~nabijaczleweli/ossp
 INHERIT=perl-module
 IUSE=+cxx perl static-libs test
 KEYWORDS=~alpha amd64 arm ~hppa ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos
@@ -11,6 +11,6 @@ LICENSE=ISC
 RDEPEND=perl? ( dev-lang/perl:= )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=ftp://ftp.ossp.org/pkg/lib/uuid/uuid-1.6.2.tar.gz
+SRC_URI=https://lfs.nabijaczleweli.xyz/0022-OSSP.org-mirror/ftp.ossp.org/ossp-ftp/pkg/lib/uuid/uuid-1.6.2.tar.gz
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	perl-functions	4deb7a19ff2e0a466d6f4c6c57099296	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=049d52a5f4406d55b4a3bbc56c7cfb33
+_md5_=a297bd72b971214667bd57c6b8fe52af
