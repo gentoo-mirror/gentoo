@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,8 @@ GENTOO_DEPEND_ON_PERL="no"
 inherit perl-module
 
 DESCRIPTION="An ISO-C:1999 API with CLI for generating DCE, ISO/IEC and RFC compliant UUID"
-HOMEPAGE="http://www.ossp.org/pkg/lib/uuid/"
-SRC_URI="ftp://ftp.ossp.org/pkg/lib/uuid/${MY_P}.tar.gz"
+HOMEPAGE="https://sr.ht/~nabijaczleweli/ossp"
+SRC_URI="https://lfs.nabijaczleweli.xyz/0022-OSSP.org-mirror/ftp.ossp.org/ossp-ftp/pkg/lib/uuid/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="ISC"
