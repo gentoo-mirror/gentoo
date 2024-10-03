@@ -11,7 +11,7 @@ RUBY_FAKEGEM_NAME="cool.io"
 
 RUBY_FAKEGEM_GEMSPEC="cool.io.gemspec"
 
-RUBY_FAKEGEM_EXTENSIONS=(ext/cool.io/extconf.rb ext/iobuffer/extconf.rb)
+RUBY_FAKEGEM_EXTENSIONS=(ext/cool.io/extconf.rb)
 
 inherit flag-o-matic ruby-fakegem
 
@@ -21,7 +21,6 @@ HOMEPAGE="https://coolio.github.io/"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 # cool.io includes a bundled version of libev that is patched to work correctly with ruby.
 
@@ -30,7 +29,7 @@ all_ruby_prepare() {
 	filter-lto
 	append-flags -fno-strict-aliasing
 
-	rm -r Gemfile* lib/.gitignore || die
+	rm -r lib/.gitignore || die
 
 	sed -i -e '/[Bb]undler/d' Rakefile || die
 	sed -i -e '28i  s.add_dependency "iobuffer"' ${RUBY_FAKEGEM_GEMSPEC} || die
