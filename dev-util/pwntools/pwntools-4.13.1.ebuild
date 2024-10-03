@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DISTUTILS_USE_PEP517=setuptools
 inherit bash-completion-r1 distutils-r1
 
@@ -35,7 +35,7 @@ RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/paramiko-1.15.2[${PYTHON_USEDEP}]
 	>=dev-python/psutil-3.3.0[${PYTHON_USEDEP}]
-	>=dev-python/pyelftools-0.29[${PYTHON_USEDEP}]
+	>=dev-python/pyelftools-0.24[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.0[${PYTHON_USEDEP}]
 	>=dev-python/pyserial-2.7[${PYTHON_USEDEP}]
 	dev-python/PySocks[${PYTHON_USEDEP}]
