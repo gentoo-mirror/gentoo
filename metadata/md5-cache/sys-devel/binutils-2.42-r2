@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://sourceware.org/binutils/
 INHERIT=libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
 IUSE=cet debuginfod doc gold gprofng hardened multitarget +nls pgo +plugins static-libs test vanilla zstd
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=GPL-3+
 RDEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= )
 RESTRICT=!test? ( test )
 SLOT=2.42
 SRC_URI=mirror://gnu/binutils/binutils-2.42.tar.xz https://sourceware.org/pub/binutils/releases/binutils-2.42.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.42.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.42-patches-6.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	strip-linguas	fb8451f811e086c24779a594303ff347
-_md5_=b5ac8a97094dc683a610cc142c2a1dec
+_md5_=51324cad267b3c09adb7b624ef1e500c
