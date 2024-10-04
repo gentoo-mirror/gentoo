@@ -1,0 +1,15 @@
+BDEPEND=clang? ( sys-devel/clang:20 sys-libs/compiler-rt:20 ) elibc_glibc? ( net-libs/libtirpc ) test? ( || ( ( dev-lang/python:3.13 >=dev-python/lit-15[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ) =sys-devel/clang-20.0.0*:20 ) !test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=sys-devel/llvm:20 virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?]
+DESCRIPTION=Compiler runtime libraries for clang (sanitizers & xray)
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=check-reqs cmake flag-o-matic llvm.org llvm-utils python-any-r1
+IUSE=+abi_x86_32 abi_x86_64 +clang +debug test +ctx-profile +libfuzzer +memprof +orc +profile +xray +asan +dfsan +lsan +msan +hwasan +tsan +ubsan +safestack +cfi +scudo +shadowcallstack +gwp-asan +nsan +rtsan test
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+REQUIRED_USE=|| ( asan dfsan lsan msan hwasan tsan ubsan safestack cfi scudo shadowcallstack gwp-asan nsan rtsan libfuzzer orc profile xray ) test? ( cfi? ( ubsan ) gwp-asan? ( scudo ) )
+RESTRICT=!clang? ( test ) !test? ( test ) !test? ( test )
+SLOT=20
+SRC_URI=https://github.com/llvm/llvm-project/archive/b837c9e289dab93c7f8a06876e3f70b6864f40ab.tar.gz -> llvm-project-b837c9e289dab93c7f8a06876e3f70b6864f40ab.tar.gz
+_eclasses_=check-reqs	f5db0b1ec36d0899adc2b41f8c447823	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm.org	b9d72ed758adf5faf238e4d0349bb533	llvm-utils	e59dc622da7e7e7f16879105bed34858	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
+_md5_=6819ae26b046d1bef649dc363facfd52
