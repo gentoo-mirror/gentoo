@@ -14,13 +14,16 @@ DESCRIPTION="Java/Scala artifact fetching, bundling and deploying"
 HOMEPAGE="https://get-coursier.io/"
 SRC_URI="https://github.com/coursier/coursier/releases/download/v$(get_orig_coursier_pv)/cs-x86_64-pc-linux.gz -> ${P}.gz"
 
-KEYWORDS="amd64"
+S="${WORKDIR}"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-S="${WORKDIR}"
+KEYWORDS="~amd64"
 
-RDEPEND=">=virtual/jre-8"
+RDEPEND="
+	sys-libs/zlib
+	>=virtual/jre-8
+"
 
 QA_FLAGS_IGNORED="usr/bin/coursier"
 QA_TEXTRELS="usr/bin/coursier"
