@@ -1,17 +1,17 @@
-BDEPEND=sys-devel/gettext doc? ( dev-util/gtk-doc virtual/pkgconfig ) test? ( dev-python/pocketlint[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/polib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=sys-devel/gettext doc? ( dev-util/gtk-doc virtual/pkgconfig ) test? ( dev-python/pocketlint[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/polib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/gmp:= dev-libs/mpfr:= dev-libs/libpcre2:= python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+DEPEND=dev-libs/gmp:= dev-libs/mpfr:= dev-libs/libpcre2:= python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
 DESCRIPTION=Tiny library providing a C "class" for working with arbitrary big byte sizes
 EAPI=8
 HOMEPAGE=https://github.com/storaged-project/libbytesize
 INHERIT=autotools python-r1
-IUSE=doc python test tools python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=doc python test tools python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=LGPL-2+
-RDEPEND=dev-libs/gmp:= dev-libs/mpfr:= dev-libs/libpcre2:= python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) ) tools? ( python )
+RDEPEND=dev-libs/gmp:= dev-libs/mpfr:= dev-libs/libpcre2:= python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) ) tools? ( python )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/storaged-project/libbytesize/releases/download/2.11/libbytesize-2.11.tar.gz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c
-_md5_=1f16f7ef676bed39d7049a7c88a90ef8
+_md5_=127b84680713d6b3163d0e53b33dd8df
