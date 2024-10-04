@@ -1,16 +1,15 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5[ssl] ) qt6? ( dev-qt/qtbase:6[network,ssl] ) >=net-libs/signond-8.61-r100[qt5=,qt6=] test? ( qt5? ( dev-qt/qttest:5 ) )
+DEPEND=dev-qt/qtbase:6[network,ssl] >=net-libs/signond-8.61-r100[qt6(+)]
 DESCRIPTION=OAuth2 plugin for Signon daemon
 EAPI=8
 HOMEPAGE=https://gitlab.com/accounts-sso/signon-plugin-oauth2
 INHERIT=qmake-utils
-IUSE=+qt5 qt6 test
-KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1
-RDEPEND=qt5? ( dev-qt/qtcore:5 dev-qt/qtnetwork:5[ssl] ) qt6? ( dev-qt/qtbase:6[network,ssl] ) >=net-libs/signond-8.61-r100[qt5=,qt6=]
-REQUIRED_USE=|| ( qt5 qt6 )
+RDEPEND=dev-qt/qtbase:6[network,ssl] >=net-libs/signond-8.61-r100[qt6(+)]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/signon-plugin-oauth2/-/archive/d759439066f0a34e5ad352ebab0b3bb2790d429e/signon-plugin-oauth2-d759439066f0a34e5ad352ebab0b3bb2790d429e.tar.bz2 -> signon-oauth2-0.25_p20210102.tar.bz2
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=75fc0206d53b64eaecfa977efc4ae887
+_md5_=a69dac44c87a77f89d7c169f0be54edb
