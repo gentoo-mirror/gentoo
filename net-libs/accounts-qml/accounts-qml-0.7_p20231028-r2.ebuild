@@ -20,7 +20,7 @@ else
 		"
 		S="${WORKDIR}/${PN}-module-VERSION_${PV}"
 	fi
-	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="QML bindings for accounts-qt and signond"
@@ -28,31 +28,28 @@ HOMEPAGE="https://accounts-sso.gitlab.io/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE="doc +qt5 qt6 test"
-REQUIRED_USE="|| ( qt5 qt6 )"
+IUSE="doc qt5 test"
 
 # dbus problems
 RESTRICT="test"
 
 RDEPEND="
+	dev-qt/qtbase:6
+	dev-qt/qtdeclarative:6
+	>=net-libs/accounts-qt-1.17[qt5(-)?,qt6(+)]
+	>=net-libs/signond-8.61-r100[qt5(-)?,qt6(+)]
 	qt5? (
 		dev-qt/qtcore:5
 		dev-qt/qtdeclarative:5
 	)
-	qt6? (
-		dev-qt/qtbase:6
-		dev-qt/qtdeclarative:6
-	)
-	>=net-libs/accounts-qt-1.16_p20220803[qt5?,qt6?]
-	>=net-libs/signond-8.61-r100[qt5?,qt6?]
 "
 DEPEND="${RDEPEND}
 	test? (
+		dev-qt/qtbase:6[gui]
 		qt5? (
 			dev-qt/qtgui:5
 			dev-qt/qttest:5
 		)
-		qt6? ( dev-qt/qtbase:6[gui] )
 	)
 "
 BDEPEND="
@@ -71,7 +68,7 @@ BDEPEND="
 DOCS=( README.md )
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usev qt5) $(usev qt6) )
+	MULTIBUILD_VARIANTS=( $(usev qt5) qt6 )
 }
 
 src_prepare() {
@@ -85,7 +82,7 @@ src_configure() {
 		cd "${BUILD_DIR}" || die
 
 		local myqmakeargs=(
-			CONFIG+=no_docs \
+			CONFIG+=no_docs
 			PREFIX="${EPREFIX}"/usr
 		)
 
