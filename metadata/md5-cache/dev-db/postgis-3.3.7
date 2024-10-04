@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://postgis.net
 INHERIT=autotools postgres-multi toolchain-funcs
 IUSE=address-standardizer doc gtk static-libs topology postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-4.9.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre2 ) gtk? ( x11-libs/gtk+:2 )
 REQUIRED_USE=|| ( postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://download.osgeo.org/postgis/source/postgis-3.3.7.tar.gz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	postgres	9df4142e5ccc7da40ed631d5f22527ce	postgres-multi	7140a1e9480de59ab4172274608bffce
-_md5_=cc5b7e21998d8a12fb0fee60936c5ab4
+_md5_=db9141a3d3e157d49e9d36501d17e720

@@ -1390,7 +1390,7 @@ app-crypt/asekey 3.7-r1: ASEKey USB SIM Card Reader
 app-crypt/badkeys 0.0.11 0.0.12: Check cryptographic keys for known weaknesses
 app-crypt/bcwipe 1.9.13: Secure file removal utility
 app-crypt/bsign 0.4.5-r1: embed secure hashes (SHA1) and digital signatures (GNU Privacy Guard) into files
-app-crypt/ccid 1.5.1 1.5.4 1.5.5: CCID free software driver
+app-crypt/ccid 1.5.5: CCID free software driver
 app-crypt/ccrypt 1.11-r4: Encryption and decryption
 app-crypt/certbot 2.10.0 2.11.0 9999: Let’s Encrypt client to automate deployment of X.509 certificates
 app-crypt/certbot-apache 2.10.0 9999: Apache plugin for Certbot (Let’s Encrypt client)
@@ -2878,7 +2878,7 @@ app-misc/smtm 1.6.10-r2: Stock ticker, profit/loss calculator and chart tool
 app-misc/socnetv 2.2-r1: Qt Social Network Visualizer
 app-misc/solaar 1.1.8-r1 1.1.9 1.1.13 9999: Linux Device Manager for Logitech Unifying Receivers and Paired Devices
 app-misc/sonypid 1.9.1: Tool to use the Sony Vaios jog-dial as a mouse-wheel
-app-misc/spacenavd 0.8 1.1 1.2 1.3: The spacenavd daemon provides free alternative to the 3dxserv daemon
+app-misc/spacenavd 1.2 1.3: The spacenavd daemon provides free alternative to the 3dxserv daemon
 app-misc/sphinx 2.2.11-r5: Full-text search engine with support for MySQL and PostgreSQL
 app-misc/spire 1.3.3 1.7.1 1.8.7: the spiffe runtime environment
 app-misc/splitvt 1.6.6_p7: Splitting terminals into two shells
@@ -2977,7 +2977,7 @@ app-office/libreoffice-bin 7.6.7.2: A full office productivity suite. Binary pac
 app-office/libreoffice-bin-debug 7.6.7.2: LibreOffice, a full office productivity suite. Binary package, debug info
 app-office/libreoffice-l10n 7.6.7.2 24.2.4.2 24.2.6.2: Translations for the Libreoffice suite
 app-office/libreoffice-voikko 5.0-r1: Free Finnish spell checking and hyphenation for LibreOffice
-app-office/lyx 2.4.1: WYSIWYM (What You See Is What You Mean) document processor based on LaTeX
+app-office/lyx 2.4.1 2.4.2.1: WYSIWYM (What You See Is What You Mean) document processor based on LaTeX
 app-office/magicpoint 1.13a_p20121015-r2: X11 based presentation tool
 app-office/mdbtools 1.0.0: Set of libraries and utilities for reading Microsoft Access database (MDB) files
 app-office/merkuro 24.05.2 24.08.1: Calendar application using Akonadi
@@ -2993,7 +2993,7 @@ app-office/scribus 1.6.2 1.6.9999 9999: Desktop publishing (DTP) and layout prog
 app-office/skrooge 2.32.0: Personal finances manager, aiming at being simple and intuitive
 app-office/texmacs 2.1-r1 2.1-r100: Wysiwyg text processor with high-quality maths
 app-office/texmaker 5.1.4: Powerful LaTeX-IDE
-app-office/texstudio 4.3.1-r1 4.7.1 4.8.4: Free cross-platform LaTeX editor (fork from texmakerX)
+app-office/texstudio 4.7.1 4.8.4: Free cross-platform LaTeX editor (fork from texmakerX)
 app-office/unoconv 0.9.0-r1: Convert between document formats supported by LibreOffice
 app-office/worklog-assistant-bin 2.3.3900: Hassle-free time tracking for JIRA self-hosted and OnDemand
 app-office/wps-office 11.1.0.11719 11.1.0.11723: WPS Office is an office productivity suite
@@ -3277,7 +3277,7 @@ app-text/libmspub 0.1.4 9999: Library parsing Microsoft Publisher documents
 app-text/libmwaw 0.3.22 9999: Library parsing many pre-OSX MAC text formats
 app-text/libnumbertext 1.0.11: Number to number name and money text conversion libraries
 app-text/libodfgen 0.1.8 9999: Library to generate ODF documents from libwpd and libwpg
-app-text/libpaper 1.1.28 2.1.2 2.1.3: Library for handling paper characteristics
+app-text/libpaper 2.1.2 2.1.3: Library for handling paper characteristics
 app-text/libqxp 0.0.2: Library parsing QuarkXpress documents
 app-text/libspectre 0.2.11 0.2.12: Library for rendering Postscript documents
 app-text/libstaroffice 0.0.7 9999: Import filter for old StarOffice documents
@@ -3971,7 +3971,7 @@ dev-db/pgFormatter 5.0 5.1: PostgreSQL SQL syntax beautifier
 dev-db/pgLatLon 0.15: Spatial database extension for the PostgreSQL
 dev-db/pg_activity 3.5.1: Realtime PostgreSQL database server monitoring tool
 dev-db/pg_background 1.2: Postgres Background Worker
-dev-db/pg_top 4.0.0-r3 4.1.1: 'top' for PostgreSQL
+dev-db/pg_top 4.1.1: 'top' for PostgreSQL
 dev-db/pgagent 4.2.1: pgAgent is a job scheduler for PostgreSQL
 dev-db/pgbadger 12.1 12.2 12.4: pgBadger is a PostgreSQL log analyzer
 dev-db/pgbouncer 1.16.1 1.22.0 1.22.1: Lightweight connection pooler for PostgreSQL
@@ -5221,9 +5221,9 @@ dev-lang/starlark-rust 0.8.0: A Rust implementation of the Starlark language
 dev-lang/swi-prolog 9.1.2-r1: Versatile implementation of the Prolog programming language
 dev-lang/swig 4.1.1-r1 4.2.0 4.2.1: Simplified Wrapper and Interface Generator
 dev-lang/tcc 0.9.27_p20211022 0.9.27_p20230223 9999: A very small C compiler for ix86/amd64
-dev-lang/tcl 8.6.11 8.6.12-r1 8.6.13-r1 8.6.14 8.6.15: Tool Command Language
+dev-lang/tcl 8.6.13-r1 8.6.14 8.6.15: Tool Command Language
 dev-lang/teyjus 2.1-r2: Higher-order logic programming language Lambda Prolog
-dev-lang/tk 8.6.11.1 8.6.12 8.6.13 8.6.14 8.6.15: Tk Widget Set
+dev-lang/tk 8.6.13 8.6.14 8.6.15: Tk Widget Set
 dev-lang/tuprolog 3.2.0-r3: tuProlog is a light-weight Prolog for Internet applications and infrastructures
 dev-lang/typescript 5.5.4 5.6.2: Superset of JavaScript with optional static typing, classes and interfaces
 dev-lang/uasm 2.56.2: UASM is a free MASM-compatible assembler
@@ -5511,7 +5511,7 @@ dev-libs/libisoburn 1.5.6-r1: Creation/expansion of ISO-9660 filesystems on CD/D
 dev-libs/libisofs 1.5.6_p1-r1: Open-source library for reading, mastering and writing optical discs
 dev-libs/libite 2.6.1: A collection of useful BSD APIs
 dev-libs/libixion 0.19.0-r1 9999: General purpose formula parser & interpreter
-dev-libs/libjcat 0.1.14 0.2.1: Library and tool for reading and writing Jcat files
+dev-libs/libjcat 0.2.1: Library and tool for reading and writing Jcat files
 dev-libs/libjodycode 3.1 3.1.1: Shared code used by several utilities written by Jody Bruchon
 dev-libs/libjwt 1.15.3: JWT C Library
 dev-libs/libkdumpfile 0.5.4-r1: Kernel coredump file access
@@ -5544,7 +5544,7 @@ dev-libs/libmpack 1.0.5-r5: Simple implementation of msgpack in C
 dev-libs/libmspack 0.10.1_alpha-r1 0.11_alpha 9999: A library for Microsoft compression formats
 dev-libs/libnatspec 0.3.0: library to smooth charset/localization issues
 dev-libs/libnfc 1.8.0-r1: Near Field Communications (NFC) library
-dev-libs/libnl 3.7.0 3.8.0 3.9.0 3.10.0 9999: Libraries providing APIs to netlink protocol based Linux kernel interfaces
+dev-libs/libnl 3.8.0 3.9.0 3.10.0 9999: Libraries providing APIs to netlink protocol based Linux kernel interfaces
 dev-libs/libnop 2021.11.03: C++ Native Object Protocols
 dev-libs/libnsfb 0.2.2-r1: C library for framebuffer abstraction
 dev-libs/libnsutils 0.1.1 9999: C library for base64 and time
@@ -5587,7 +5587,7 @@ dev-libs/libsigc++ 2.12.0 3.6.0: Typesafe callback system for standard C++
 dev-libs/libsigsegv 2.13 2.14 2.14-r1: Library for handling page faults in user mode
 dev-libs/libslz 1.2.0-r1: Stateless, zlib-compatible, and very fast compression library
 dev-libs/libsodium 1.0.19_p20240117 1.0.20: Portable fork of NaCl, a higher-level cryptographic library
-dev-libs/libspnav 0.2.3-r1 1.0-r1 1.1: libspnav is a replacement for the magellan library with a cleaner API
+dev-libs/libspnav 1.1: libspnav is a replacement for the magellan library with a cleaner API
 dev-libs/libspt 1.1-r4: Library for handling root privilege
 dev-libs/libstroke 0.5.1-r2: Stroke and Gesture recognition Library
 dev-libs/libstrophe 0.12.2 0.12.3 0.13.0 0.13.1: A simple, lightweight C library for writing XMPP clients
@@ -5610,7 +5610,7 @@ dev-libs/libucl 0.9.2 9999: Universal configuration library parser
 dev-libs/libudfread 1.1.2 9999: Library for reading UDF from raw devices and image files
 dev-libs/libuev 2.3.2-r1 2.4.0 2.4.1: Lightweight event loop library for Linux epoll() family APIs
 dev-libs/libugpio 0.0.7-r1: Lib for the use of linux kernel's sysfs gpio interface from C programs
-dev-libs/libunibreak 5.1 6.1: Line and word breaking library
+dev-libs/libunibreak 6.1: Line and word breaking library
 dev-libs/libuninum 2.7-r3: A library for converting unicode strings to numbers and vice versa
 dev-libs/libunique 1.1.6-r3 3.0.2-r2: A library for writing single instance application
 dev-libs/libunistring 0.9.10-r1 1.0 1.1-r1 1.2: Library for manipulating Unicode and C strings according to Unicode standard
@@ -5634,7 +5634,7 @@ dev-libs/libxdiff 0.23-r3: Library for creating diff files
 dev-libs/libxls 1.6.2-r1: A library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.5-r1: C library for creating Excel XLSX files
 dev-libs/libxml2 2.11.7 2.11.8 2.12.5 2.12.6 2.12.7 2.12.8 2.13.1 9999: XML C parser and toolkit
-dev-libs/libxmlb 0.3.14 0.3.18 0.3.19: Library to help create and query binary XML blobs
+dev-libs/libxmlb 0.3.19: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.39 1.1.41 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
 dev-libs/libzia 4.59 4.60 4.61: Platform abstraction code for tucnak package
@@ -5771,7 +5771,7 @@ dev-libs/teakra 20220224: Emulator, assembler, etc for XpertTeak, the DSP used b
 dev-libs/template-glib 3.36.2: Templating library for GLib
 dev-libs/thrift 0.16.0-r2 0.18.1-r1 0.20.0: C++ bindings for Apache Thrift
 dev-libs/tinyxml 2.6.2-r4 2.6.2-r5: Simple and small C++ XML parser
-dev-libs/tinyxml2 9.0.0-r1 10.0.0: A simple, small, efficient, C++ XML parser
+dev-libs/tinyxml2 10.0.0: A simple, small, efficient, C++ XML parser
 dev-libs/tllist 1.0.5-r1 1.1.0: Header-only implementation of a typed linked list in C
 dev-libs/tlsh 4.8.2 4.8.2-r2: Fuzzy matching library
 dev-libs/tntnet 3.0: Modular, multithreaded web application server extensible with C++
@@ -13038,10 +13038,10 @@ media-libs/a52dec 0.7.4-r8: Library for decoding ATSC A/52 streams used in DVD
 media-libs/aalib 1.4_rc5-r10: A ASCII-Graphics Library
 media-libs/aften 0.0.8-r2: A/52 (AC-3) audio encoder
 media-libs/allegro 4.4.3.1-r1 5.2.7.0-r2: Cross-platform library aimed at video game and multimedia programming
-media-libs/alsa-lib 1.2.10-r2 1.2.10-r3 1.2.11 1.2.12: Advanced Linux Sound Architecture Library
+media-libs/alsa-lib 1.2.11 1.2.12: Advanced Linux Sound Architecture Library
 media-libs/alsa-oss 1.1.8: Advanced Linux Sound Architecture OSS compatibility layer
 media-libs/alsa-topology-conf 1.2.5.1: ALSA topology configuration files
-media-libs/alsa-ucm-conf 1.2.10-r1 1.2.11 1.2.12: ALSA ucm configuration files
+media-libs/alsa-ucm-conf 1.2.11 1.2.12: ALSA ucm configuration files
 media-libs/alure 1.2-r4: The OpenAL Utility Toolkit
 media-libs/amdgpu-pro-vulkan 22.40.6.1580631-r1 23.40.0.1741713 24.10.0.1787253: AMD's closed source vulkan driver, from Radeon Software for Linux
 media-libs/amf-headers 1.4.33 1.4.34: The Advanced Media Framework (AMF) SDK
@@ -13068,14 +13068,14 @@ media-libs/coin 4.0.2: A high-level 3D graphics toolkit, fully compatible with S
 media-libs/compface 1.5.2 1.5.2-r1: Utilities and library to convert to/from X-Face format
 media-libs/ctl 1.5.2_p20221224 1.5.3: AMPAS' Color Transformation Language
 media-libs/cubeb 0.2_p20231121: Cross-platform audio library
-media-libs/dav1d 1.2.1 1.3.0 1.4.0 1.4.1 1.4.2 9999: dav1d is an AV1 Decoder :)
+media-libs/dav1d 1.4.2 9999: dav1d is an AV1 Decoder :)
 media-libs/devil 1.7.8-r6: DevIL image library
 media-libs/dssi 1.1.1-r2: Plugin API for software instruments with user interfaces
 media-libs/dumb 2.0.3: Module/tracker based music format parser and player library
 media-libs/elles_icc_profiles 20160501.0932-r1: Elle Stone's well-behaved RGB and grey ICC profiles
 media-libs/embree 3.13.4 3.13.5-r1 4.3.1-r1 4.3.3: Collection of high-performance ray tracing kernels
 media-libs/esdl 1.3.1-r1: Erlang bindings for the SDL library
-media-libs/exempi 2.6.3 2.6.5: Port of the Adobe XMP SDK to work on UNIX
+media-libs/exempi 2.6.5: Port of the Adobe XMP SDK to work on UNIX
 media-libs/exiftool 12.76: Read and write meta information in image, audio and video files
 media-libs/faac 1.30: Free MPEG-4 audio codecs by AudioCoding.com
 media-libs/faad2 2.11.1: AAC audio decoding library
@@ -13154,10 +13154,10 @@ media-libs/lib3mf 2.2.0: Implementation of the 3D Manufacturing Format file stan
 media-libs/libaacs 0.11.1-r1: Open implementation of the Advanced Access Content System (AACS) specification
 media-libs/libafterimage 1.20-r6: Afterstep's standalone generic image manipulation library
 media-libs/libao 1.2.2-r3: The Audio Output library
-media-libs/libaom 3.5.0 3.7.0-r2 3.8.1 3.9.0 3.9.1 9999: Alliance for Open Media AV1 Codec SDK
+media-libs/libaom 3.8.1 3.9.1 9999: Alliance for Open Media AV1 Codec SDK
 media-libs/libart_lgpl 2.3.21-r3: A LGPL version of libart
 media-libs/libass 0.17.1 0.17.1-r1: Library for SSA/ASS subtitles rendering
-media-libs/libavif 0.10.1 0.11.1 1.0.4 1.1.1 9999: Library for encoding and decoding .avif files
+media-libs/libavif 1.1.1 9999: Library for encoding and decoding .avif files
 media-libs/libbdplus 0.2.0 9999: Blu-ray library for BD+ decryption
 media-libs/libbluray 1.3.4-r1 9999: Blu-ray playback libraries
 media-libs/libbs2b 3.1.0-r2: Bauer stereophonic-to-binaural DSP library
@@ -13203,7 +13203,7 @@ media-libs/libggiwmh 0.3.2-r1: Window manager hints extensions for libggi
 media-libs/libgig 4.3.0 4.4.1 9999: C++ library for loading Gigasampler and DLS level 1/2 files
 media-libs/libgii 1.0.2-r3: Easy to use, but yet powerful, API for all possible input sources
 media-libs/libglvnd 1.7.0 9999: The GL Vendor-Neutral Dispatch library
-media-libs/libgphoto2 2.5.31-r1 2.5.31-r2: Library that implements support for numerous digital cameras
+media-libs/libgphoto2 2.5.31-r2: Library that implements support for numerous digital cameras
 media-libs/libgpod 0.8.3-r6 0.8.3-r7: Shared library to access the contents of an iPod
 media-libs/libharu 2.4.2-r1: C/C++ library for PDF generation
 media-libs/libhdhomerun 20190621 20200521: SiliconDust HDHomeRun Utilties
@@ -13216,7 +13216,7 @@ media-libs/libilbc 3.0.4: Packaged version of iLBC codec from the WebRTC project
 media-libs/libinsane 1.0.9 1.0.10: Crossplatform access to image scanners
 media-libs/libiptcdata 1.0.5-r1: Library for International Press Telecommunications Council (IPTC) metadata
 media-libs/libirman 0.4.5: library for Irman control of Unix software
-media-libs/libjpeg-turbo 2.1.5.1 3.0.0 3.0.3-r1: MMX, SSE, and SSE2 SIMD accelerated JPEG library
+media-libs/libjpeg-turbo 2.1.5.1 3.0.3-r1: MMX, SSE, and SSE2 SIMD accelerated JPEG library
 media-libs/libjsw 1.5.8: provide a uniform API and user configuration for joysticks and game controllers
 media-libs/libjxl 0.8.3 0.9.3 0.10.3 0.11.0 9999: JPEG XL image format reference implementation
 media-libs/libkate 0.4.1-r4: Codec for karaoke and text encapsulation for Ogg
@@ -13299,7 +13299,7 @@ media-libs/libtiger 0.3.4-r1: A rendering library for Kate streams using Pango a
 media-libs/libtimidity 0.2.7: MIDI to WAVE converter library
 media-libs/libuninameslist 20221022 20230916: Library of unicode annotation data
 media-libs/libuvc 0.0.6-r2 0.0.7: A cross-platform library for USB video devices, built atop libusb
-media-libs/libv4l 1.22.1 1.26.1 1.28.1: v4l-utils libraries and optional utilities
+media-libs/libv4l 1.28.1: v4l-utils libraries and optional utilities
 media-libs/libva 2.21.0 2.22.0 9999: Video Acceleration (VA) API for Linux
 media-libs/libva-compat 1.8.3-r2: Video Acceleration (VA) API for Linux
 media-libs/libva-intel-driver 2.4.1-r4 9999: HW video decode support for Intel integrated graphics
@@ -13345,7 +13345,7 @@ media-libs/opencolorio 2.1.3 2.2.1 2.3.0 2.3.2: Color management framework for v
 media-libs/opencore-amr 0.1.6: Implementation of Adaptive Multi Rate Narrowband and Wideband speech codec
 media-libs/openctm 1.0.3-r1: OpenCTM - the Open Compressed Triangle Mesh
 media-libs/opencv 4.8.1-r2 4.9.0-r1 4.9.0-r2: A collection of algorithms and sample code for various computer vision problems
-media-libs/openexr 3.1.5-r1 3.1.7 3.1.11 3.1.12 3.2.3-r2 3.2.4-r2: ILM's OpenEXR high dynamic-range image file format libraries
+media-libs/openexr 3.2.3-r2 3.2.4-r2: ILM's OpenEXR high dynamic-range image file format libraries
 media-libs/openfec 1.4.2.9 1.4.2.11: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.3.1-r3 2.4.1: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
@@ -13749,7 +13749,7 @@ media-sound/alac_decoder 0.2.0-r2: Basic decoder for Apple Lossless Audio Codec 
 media-sound/alacenc 0.4.0: Encodes audio into the Apple Lossless Audio Codec (ALAC) format
 media-sound/alsa-scarlett-gui 0.4.0: A UI for Focusrite Scarlett and Clarett audio interfaces
 media-sound/alsa-tools 1.2.5-r1 1.2.11: Advanced Linux Sound Architecture tools
-media-sound/alsa-utils 1.2.10-r1 1.2.11 1.2.12: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
+media-sound/alsa-utils 1.2.11 1.2.12: Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)
 media-sound/alsamixer-app 0.1-r1: simple alsa mixer dockapp
 media-sound/alsamixergui 0.9.0.1.2-r4: FLTK based amixer Frontend
 media-sound/alsaplayer 0.99.81-r4 0.99.82: A heavily multi-threaded pluggable audio player
@@ -14234,7 +14234,7 @@ media-video/vidcutter 6.0.5.1_p20230201 9999: FFmpeg-based simple video cutter &
 media-video/videotrans 1.6.1-r2: A package to convert movies to DVD format and to build DVDs with
 media-video/vidify 2.2.6-r3: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0-r2: Audio synchronization feature for vidify
-media-video/vlc 3.0.20-r11 3.0.21 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
+media-video/vlc 3.0.21 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
 media-video/vobcopy 1.2.1: Copies DVD .vob files to harddisk, decrypting them on the way
 media-video/webcamoid 9.0.0-r1 9.1.1 9999: Full featured webcam capture application
 media-video/wireplumber 0.5.3 0.5.6-r1 9999: Replacement for pipewire-media-session
@@ -14886,7 +14886,7 @@ net-libs/net6 1.3.14-r2: Network access framework for IPv4/IPv6 written in C++
 net-libs/netwib 5.39.0-r1: Library of Ethernet, IP, UDP, TCP, ICMP, ARP and RARP protocols
 net-libs/nghttp2 1.61.0 1.62.0 1.62.1 1.63.0 9999: HTTP/2 C Library
 net-libs/nghttp3 1.3.0 1.4.0 1.5.0 9999: HTTP/3 library written in C
-net-libs/ngtcp2 0.14.1 1.1.0 1.2.0 1.3.0 1.4.0 1.5.0 1.6.0 1.7.0 9999: Implementation of the IETF QUIC Protocol
+net-libs/ngtcp2 1.5.0 1.7.0 9999: Implementation of the IETF QUIC Protocol
 net-libs/nodejs 18.20.4 20.15.1 20.17.0 22.4.1-r1 22.7.0 22.8.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
 net-libs/ntirpc 5.0 6.0.1: Transport Independent RPC library for nfs-ganesha
 net-libs/pacparser 1.4.0 1.4.2 1.4.3 1.4.5: Library to parse proxy auto-config files
@@ -15605,9 +15605,9 @@ net-wireless/urh 2.9.6_p20240428 9999: Universal Radio Hacker: investigate wirel
 net-wireless/wavemon 0.9.3-r1 0.9.5 0.9.6: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r6: WLAN tool for breaking 802.11 WEP keys
 net-wireless/wepdecrypt 0.8-r2: Enhanced version of WepAttack a tool for breaking 802.11 WEP keys
-net-wireless/wireless-regdb 20220606 20230503-r2 20240508: Wireless Regulatory database for Linux
+net-wireless/wireless-regdb 20240508: Wireless Regulatory database for Linux
 net-wireless/wireless-tools 30_pre9-r1: A collection of tools to configure IEEE 802.11 wireless LAN cards
-net-wireless/wpa_supplicant 2.10-r4 2.10-r5 9999: IEEE 802.1X/WPA supplicant for secure wireless transfers
+net-wireless/wpa_supplicant 2.10-r5 9999: IEEE 802.1X/WPA supplicant for secure wireless transfers
 perl-core/CPAN 2.290.0-r1: Query, download and build perl modules from CPAN sites
 perl-core/Compress-Raw-Zlib 2.206.0 2.212.0: Low-Level Interface to zlib compression library
 perl-core/Encode 3.190.0 3.210.0: Character encodings in Perl
@@ -15654,7 +15654,7 @@ sci-astronomy/stellarium 24.1 24.2: 3D photo-realistic skies in real time
 sci-astronomy/stiff 2.4.0-r1: Converts astronomical FITS images to the TIFF format
 sci-astronomy/stuff 1.26.0: Tool for automatic generation of astronomical catalogs
 sci-astronomy/swarp 2.41.5: Resample and coadd astronomical FITS images
-sci-astronomy/wcslib 7.12 8.3-r1: Astronomical World Coordinate System transformations library
+sci-astronomy/wcslib 8.3-r1: Astronomical World Coordinate System transformations library
 sci-astronomy/wcstools 3.9.5-r1: World Coordinate System library for astronomical FITS images
 sci-astronomy/weightwatcher 1.12: Combine weight maps and polygon for astronomical images weighting
 sci-astronomy/xephem 3.7.7-r1 4.1.0-r1: Interactive tool for astronomical ephemeris and sky simulation
@@ -15781,7 +15781,7 @@ sci-calculators/hexcalc 1.11-r4: Simple hex calculator for X
 sci-calculators/keurocalc 1.3.0: Universal currency converter and calculator
 sci-calculators/orpie 1.6.1: A fullscreen RPN calculator for the console
 sci-calculators/pcalc 4 5: the programmers calculator
-sci-calculators/qalculate-gtk 4.5.0 4.6.1 4.7.0 4.8.0 4.8.1 5.0.0 5.2.0: Modern multi-purpose calculator
+sci-calculators/qalculate-gtk 5.2.0: Modern multi-purpose calculator
 sci-calculators/qalculate-qt 5.2.0-r1: Qt-based UI for libqalculate
 sci-calculators/speedcrunch 0.12.0-r1: Fast and usable calculator for power users
 sci-calculators/tiemu 3.03-r2: Texas Instruments hand-helds emulator
@@ -16111,7 +16111,7 @@ sci-libs/libnova 0.16.0: Celestial Mechanics and Astronomical Calculation Librar
 sci-libs/liborigin 3.0.1_p20210828-r1: Library for reading OriginLab OPJ project files
 sci-libs/libpdb 991112-r2: PDB Record I/O Libraries -- c version
 sci-libs/libpdb++ 040728-r2: PDB Record I/O Libraries -- c++ version
-sci-libs/libqalculate 4.5.0 4.6.1 4.7.0 4.8.0 4.8.1 5.0.0 5.0.0b 5.2.0: A modern multi-purpose calculator library
+sci-libs/libqalculate 5.2.0: A modern multi-purpose calculator library
 sci-libs/libsc 2.3.6 2.8.5-r3 2.8.6: Support for parallel scientific applications
 sci-libs/libsemigroups 2.7.3-r1: C++ library for semigroups and monoids
 sci-libs/libsigrok 0.5.2-r5 9999: Basic hardware drivers for logic analyzers and input/output file format support
@@ -16906,7 +16906,7 @@ sys-apps/fix-gnustack 0.1-r1: Utility to report and remove the executable flag f
 sys-apps/flashrom 1.3.0-r1 1.3.0-r3: Utility for reading, writing, erasing and verifying flash ROM chips
 sys-apps/flatpak 1.12.8 1.14.4-r3 1.14.6 1.14.8 1.14.10: Linux application sandboxing and distribution framework
 sys-apps/fwts 22.03.00 23.11.00 24.03.00: Firmware Test Suite
-sys-apps/fwupd 1.9.20 1.9.23 1.9.24: Aims to make updating firmware on Linux automatic, safe and reliable
+sys-apps/fwupd 1.9.23 1.9.24: Aims to make updating firmware on Linux automatic, safe and reliable
 sys-apps/fwupd-efi 1.6 1.6-r1: EFI executable for fwupd
 sys-apps/fxload 20081013-r1: USB firmware uploader
 sys-apps/gawk 5.2.2 5.3.0-r1 5.3.1: GNU awk pattern-matching language
@@ -17449,7 +17449,7 @@ sys-fs/cryptsetup 2.6.1 2.7.2 2.7.3 2.7.4 2.7.5: Tool to setup encrypted devices
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
 sys-fs/dd-rescue 1.99.13-r1: Similar to dd but can copy from source with errors
-sys-fs/ddrescue 1.27 1.28: Copy data from one file or block device to another with read-error recovery
+sys-fs/ddrescue 1.28: Copy data from one file or block device to another with read-error recovery
 sys-fs/dfc 3.1.1: A simple CLI tool that display file system usage, with colors
 sys-fs/diskdev_cmds 332.14_p1-r4: HFS and HFS+ utils ported from OSX, supplies mkfs and fsck
 sys-fs/dislocker 0.7.3 9999: Dislocker is used to read BitLocker encrypted partitions
@@ -17603,7 +17603,7 @@ sys-libs/kpmcore 24.05.2 24.08.1: Library for managing partitions
 sys-libs/ldb 2.7.2 2.8.0 2.8.1 2.9.0 2.9.1: LDAP-like embedded database
 sys-libs/libapparmor 3.1.4 3.1.4-r2: Library to support AppArmor userspace utilities
 sys-libs/libavc1394 0.5.4-r2: Library for the 1394 AV/C (Audio/Video Control) Digital Interface Command Set
-sys-libs/libblockdev 2.28-r1 2.29 3.0.3 3.0.4 3.1.1: A library for manipulating block devices
+sys-libs/libblockdev 2.28-r1 2.29 3.1.1: A library for manipulating block devices
 sys-libs/libcap 2.69-r1 2.70 9999: POSIX 1003.1e capabilities
 sys-libs/libcap-ng 0.8.4-r1 0.8.5: POSIX 1003.1e capabilities
 sys-libs/libchipcard 5.1.6-r1: Library for accessing chip cards via chip card readers (terminals)
@@ -18325,7 +18325,7 @@ x11-libs/spread-sheet-widget 0.7 0.8: GNU Spread Sheet Widget
 x11-libs/startup-notification 0.12-r2: Application startup notification and feedback library
 x11-libs/tslib 1.22: Touchscreen Access Library
 x11-libs/vte 0.68.0 0.74.2 0.76.3: Library providing a virtual terminal emulator widget
-x11-libs/wxGTK 3.0.4-r5 3.0.5.1-r1 3.0.5.1-r2 3.0.5.1-r3 3.2.2.1-r3 3.2.2.1-r4 3.2.2.1-r5 3.2.5: GTK version of wxWidgets, a cross-platform C++ GUI toolkit
+x11-libs/wxGTK 3.0.4-r5 3.0.5.1-r1 3.0.5.1-r3 3.2.2.1-r5 3.2.5: GTK version of wxWidgets, a cross-platform C++ GUI toolkit
 x11-libs/xapp 2.8.5: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4 4.60.4-r1: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-imdkit 1.0.8 1.0.9: Input method development support for xcb
@@ -18508,7 +18508,7 @@ x11-misc/slim 1.4.0 9999: Simple Login Manager resurrected
 x11-misc/slock 1.5: simple X display locker
 x11-misc/slop 7.6-r1: Application that queries the user for a selection for printing
 x11-misc/snixembed 0.3.0 0.3.3: Proxy StatusNotifierItems as XEmbedded systemtray-spec icons
-x11-misc/spacefm 1.0.6-r2 1.0.6-r4: A multi-panel tabbed file manager
+x11-misc/spacefm 1.0.6-r4: A multi-panel tabbed file manager
 x11-misc/splatmoji 1.1.1 1.2.0: Quickly look up and input emoji and/or emoticons
 x11-misc/spnavcfg 0.3.1 1.0 1.1: Qt-based GUI to configure a space navigator device
 x11-misc/stalonetray 0.8.4 0.8.5: System tray utility including support for KDE system tray icons
