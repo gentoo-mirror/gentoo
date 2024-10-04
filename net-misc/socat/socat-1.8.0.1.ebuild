@@ -23,11 +23,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Tests are a large bash script
-# Hard to disable individual tests needing network or privileges
-# in 1.7.4.2: FAILED:  59 329
-#RESTRICT="test"
-
 DOCS=( BUGREPORTS CHANGES DEVELOPMENT EXAMPLES FAQ FILES PORTING README SECURITY )
 
 src_configure() {
