@@ -1,10 +1,11 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
-inherit bash-completion-r1 estack flag-o-matic llvm toolchain-funcs python-r1 linux-info
+LLVM_COMPAT=( {16..19} )
+PYTHON_COMPAT=( python3_{10..13} )
+inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r1 toolchain-funcs python-r1
 
 DESCRIPTION="Userland tools for Linux Performance Counters"
 HOMEPAGE="https://perf.wiki.kernel.org/"
@@ -33,10 +34,12 @@ S="${S_K}/tools/perf"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
-IUSE="audit babeltrace clang crypt debug +doc gtk java libpfm lzma numa perl python slang systemtap unwind zlib zstd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 audit babeltrace capstone big-endian bpf caps crypt debug +doc gtk java libpfm +libtraceevent +libtracefs lzma numa perl python slang systemtap tcmalloc unwind zstd"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+"
 
 # setuptools (and Python) are always needed even if not building Python bindings
 BDEPEND="
@@ -55,34 +58,45 @@ BDEPEND="
 	)
 "
 
-RDEPEND="audit? ( sys-process/audit )
-	babeltrace? ( dev-util/babeltrace )
-	crypt? ( virtual/libcrypt:= )
-	clang? (
-		sys-devel/clang:=
-		sys-devel/llvm:=
+RDEPEND="
+	audit? ( sys-process/audit )
+	babeltrace? ( dev-util/babeltrace:0/1 )
+	bpf? (
+		dev-libs/libbpf
+		dev-util/bpftool
+		dev-util/pahole
+		$(llvm_gen_dep '
+			sys-devel/clang:${LLVM_SLOT}=
+			sys-devel/llvm:${LLVM_SLOT}=
+		')
 	)
+	caps? ( sys-libs/libcap )
+	capstone? ( dev-libs/capstone )
+	crypt? ( dev-libs/openssl:= )
 	gtk? ( x11-libs/gtk+:2 )
 	java? ( virtual/jre:* )
-	libpfm? ( dev-libs/libpfm )
+	libpfm? ( dev-libs/libpfm:= )
+	libtraceevent? ( dev-libs/libtraceevent )
+	libtracefs? ( dev-libs/libtracefs )
 	lzma? ( app-arch/xz-utils )
 	numa? ( sys-process/numactl )
 	perl? ( dev-lang/perl:= )
 	python? ( ${PYTHON_DEPS} )
 	slang? ( sys-libs/slang )
 	systemtap? ( dev-debug/systemtap )
-	unwind? ( sys-libs/libunwind )
-	zlib? ( sys-libs/zlib )
-	zstd? ( app-arch/zstd )
+	tcmalloc? ( dev-util/google-perftools )
+	unwind? ( sys-libs/libunwind:= )
+	zstd? ( app-arch/zstd:= )
 	dev-libs/elfutils
-	sys-libs/binutils-libs:="
+	sys-libs/binutils-libs:=
+	sys-libs/zlib
+	virtual/libcrypt
+"
 
 DEPEND="${RDEPEND}
 	>=sys-kernel/linux-headers-5.10
 	java? ( virtual/jdk )
 "
-
-CONFIG_CHECK="~PERF_EVENTS ~KALLSYMS"
 
 QA_FLAGS_IGNORED=(
 	'usr/bin/perf-read-vdso32' # not linked with anything except for libc
@@ -98,18 +112,40 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	use clang && llvm_pkg_setup
+	local CONFIG_CHECK="
+		~DEBUG_INFO
+		~FTRACE
+		~FTRACE_SYSCALLS
+		~FUNCTION_TRACER
+		~KALLSYMS
+		~KALLSYMS_ALL
+		~KPROBES
+		~KPROBE_EVENTS
+		~PERF_EVENTS
+		~UPROBES
+		~UPROBE_EVENTS
+	"
+
+	use bpf && llvm-r1_pkg_setup
 	# We enable python unconditionally as libbpf always generates
 	# API headers using python script
 	python_setup
+
+	if use bpf ; then
+		CONFIG_CHECK+="~BPF ~BPF_EVENTS ~BPF_SYSCALL ~DEBUG_INFO_BTF ~HAVE_EBPF_JIT"
+	fi
+
+	linux-info_pkg_setup
 }
 
 # src_unpack and src_prepare are copied to dev-util/bpftool since
 # it's building from the same tarball, please keep it in sync with bpftool
 src_unpack() {
 	local paths=(
-		tools/arch tools/build tools/include tools/lib tools/perf tools/scripts
-		scripts include lib "arch/*/lib"
+		'arch/*/include/*' 'arch/*/lib/*' 'arch/*/tools/*' 'include/*'
+		'kernel/bpf/*' 'lib/*' 'scripts/*' 'tools/arch/*' 'tools/bpf/*'
+		'tools/build/*' 'tools/include/*' 'tools/lib/*' 'tools/perf/*'
+		'tools/scripts/*'
 	)
 
 	# We expect the tar implementation to support the -j option (both
@@ -121,9 +157,10 @@ src_unpack() {
 	if [[ -n ${LINUX_PATCH} ]] ; then
 		eshopts_push -o noglob
 		ebegin "Filtering partial source patch"
-		filterdiff -p1 ${paths[@]/#/-i } -z "${DISTDIR}"/${LINUX_PATCH} \
-			> ${P}.patch
+		xzcat "${DISTDIR}"/${LINUX_PATCH} | filterdiff -p1 ${paths[@]/#/-i} > ${P}.patch
+		assert -n "Unpacking to ${P} from ${DISTDIR}/${LINUX_PATCH} failed"
 		eend $? || die "filterdiff failed"
+		test -s ${P}.patch || die "patch is empty?!"
 		eshopts_pop
 	fi
 
@@ -144,8 +181,7 @@ src_prepare() {
 	fi
 
 	pushd "${S_K}" >/dev/null || die
-	eapply "${FILESDIR}"/perf-6.0-clang.patch
-	eapply "${FILESDIR}"/perf-6.0-c++17.patch
+	eapply "${FILESDIR}"/perf-6.11-bpf-capstone.patch
 	popd || die
 
 	# Drop some upstream too-developer-oriented flags and fix the
@@ -166,7 +202,7 @@ src_prepare() {
 	find -name '*.S' -exec sed -i '$a.section .note.GNU-stack,"",%progbits' {} +
 }
 
-puse() { usex $1 "" no; }
+puse() { usex $1 "" 1; }
 perf_make() {
 	# The arch parsing is a bit funky.  The perf tools package is integrated
 	# into the kernel, so it wants an ARCH that looks like the kernel arch,
@@ -187,62 +223,88 @@ perf_make() {
 	   ! use arm64 && \
 	   ! use ppc && ! use ppc64 \
 	   ! use s390 && \
-	   ! use riscv
+	   ! use riscv && \
+	   ! use loong
 	then
 		disable_libdw=1
 	fi
 
+	# perf directly invokes LD for linking without going through CC, on mips
+	# it is required to specify the emulation.  port of below buildroot patch
+	# https://patchwork.ozlabs.org/project/buildroot/patch/20170217105905.32151-1-Vincent.Riera@imgtec.com/
+	local linker="$(tc-getLD)"
+	if use mips
+	then
+		if use big-endian
+		then
+			use abi_mips_n64 && linker+=" -m elf64btsmip"
+			use abi_mips_n32 && linker+=" -m elf32btsmipn32"
+			use abi_mips_o32 && linker+=" -m elf32btsmip"
+		else
+			use abi_mips_n64 && linker+=" -m elf64ltsmip"
+			use abi_mips_n32 && linker+=" -m elf32ltsmipn32"
+			use abi_mips_o32 && linker+=" -m elf32ltsmip"
+		fi
+	fi
+
 	# FIXME: NO_CORESIGHT
-	emake V=1 VF=1 \
-		HOSTCC="$(tc-getBUILD_CC)" HOSTLD="$(tc-getBUILD_LD)" \
-		CC="$(tc-getCC)" CXX="$(tc-getCXX)" AR="$(tc-getAR)" LD="$(tc-getLD)" NM="$(tc-getNM)" \
-		CLANG="${CHOST}-clang" \
-		PKG_CONFIG="$(tc-getPKG_CONFIG)" \
-		prefix="${EPREFIX}/usr" bindir_relative="bin" \
-		tipdir="share/doc/${PF}" \
-		EXTRA_CFLAGS="${CFLAGS}" \
-		EXTRA_LDFLAGS="${LDFLAGS}" \
-		ARCH="${arch}" \
-		JDIR="${java_dir}" \
-		LIBCLANGLLVM=$(usex clang 1 "") \
-		LIBPFM4=$(usex libpfm 1 "") \
-		NO_AUXTRACE="" \
-		NO_BACKTRACE="" \
-		NO_CORESIGHT=1 \
-		NO_DEMANGLE= \
-		GTK2=$(usex gtk 1 "") \
-		feature-gtk2-infobar=$(usex gtk 1 "") \
-		NO_JVMTI=$(puse java) \
-		NO_LIBAUDIT=$(puse audit) \
-		NO_LIBBABELTRACE=$(puse babeltrace) \
-		NO_LIBBIONIC=1 \
-		NO_LIBBPF= \
-		NO_LIBCRYPTO=$(puse crypt) \
-		NO_LIBDW_DWARF_UNWIND="${disable_libdw}" \
-		NO_LIBELF= \
-		NO_LIBNUMA=$(puse numa) \
-		NO_LIBPERL=$(puse perl) \
-		NO_LIBPYTHON=$(puse python) \
-		NO_LIBUNWIND=$(puse unwind) \
-		NO_LIBZSTD=$(puse zstd) \
-		NO_SDT=$(puse systemtap) \
-		NO_SLANG=$(puse slang) \
-		NO_LZMA=$(puse lzma) \
-		NO_ZLIB=$(puse zlib) \
-		WERROR=0 \
-		LIBDIR="/usr/libexec/perf-core" \
-		libdir="${EPREFIX}/usr/$(get_libdir)" \
-		plugindir="${EPREFIX}/usr/$(get_libdir)/perf/plugins" \
+	local emakeargs=(
+		V=1 VF=1
+		HOSTCC="$(tc-getBUILD_CC)" HOSTLD="$(tc-getBUILD_LD)"
+		CC="$(tc-getCC)" CXX="$(tc-getCXX)" AR="$(tc-getAR)" LD="${linker}" NM="$(tc-getNM)"
+		CLANG="${CHOST}-clang"
+		PKG_CONFIG="$(tc-getPKG_CONFIG)"
+		prefix="${EPREFIX}/usr" bindir_relative="bin"
+		tipdir="share/doc/${PF}"
+		EXTRA_CFLAGS="${CFLAGS}"
+		EXTRA_LDFLAGS="${LDFLAGS}"
+		ARCH="${arch}"
+		BUILD_BPF_SKEL=$(usex bpf 1 "") \
+		BUILD_NONDISTRO=1
+		JDIR="${java_dir}"
+		CORESIGHT=
+		GTK2=$(usex gtk 1 "")
+		feature-gtk2-infobar=$(usex gtk 1 "")
+		NO_AUXTRACE=
+		NO_BACKTRACE=
+		NO_CAPSTONE=$(puse capstone)
+		NO_DEMANGLE=
+		NO_JEVENTS=$(puse python)
+		NO_JVMTI=$(puse java)
+		NO_LIBAUDIT=$(puse audit)
+		NO_LIBBABELTRACE=$(puse babeltrace)
+		NO_LIBBIONIC=1
+		NO_LIBBPF=$(puse bpf)
+		NO_LIBCAP=$(puse caps)
+		NO_LIBCRYPTO=$(puse crypt)
+		NO_LIBDW_DWARF_UNWIND="${disable_libdw}"
+		NO_LIBELF=
+		NO_LIBNUMA=$(puse numa)
+		NO_LIBPERL=$(puse perl)
+		NO_LIBPFM4=$(puse libpfm)
+		NO_LIBPYTHON=$(puse python)
+		NO_LIBTRACEEVENT=$(puse libtraceevent)
+		NO_LIBUNWIND=$(puse unwind)
+		NO_LIBZSTD=$(puse zstd)
+		NO_SDT=$(puse systemtap)
+		NO_SHELLCHECK=1
+		NO_SLANG=$(puse slang)
+		NO_LZMA=$(puse lzma)
+		NO_ZLIB=
+		TCMALLOC=$(usex tcmalloc 1 "")
+		WERROR=0
+		DEBUG=$(usex debug 1 "")
+		LIBDIR="/usr/libexec/perf-core"
+		libdir="${EPREFIX}/usr/$(get_libdir)"
+		plugindir="${EPREFIX}/usr/$(get_libdir)/perf/plugins"
 		"$@"
+	)
+	emake "${emakeargs[@]}"
 }
 
 src_compile() {
 	filter-lto
 
-	# test-clang.bin not build with g++
-	if use clang; then
-		make -C "${S_K}/tools/build/feature" V=1 CXX=${CHOST}-clang++ test-clang.bin || die
-	fi
 	perf_make -f Makefile.perf
 	use doc && perf_make -C Documentation man
 }
