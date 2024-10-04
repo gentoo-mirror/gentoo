@@ -16,8 +16,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA MIT"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~arm64-macos ~x64-macos"
-IUSE="debug doc +extra ieee-long-double +pie +static-analyzer test xml"
+IUSE="+debug doc +extra ieee-long-double +pie +static-analyzer test xml"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
 
@@ -138,9 +137,10 @@ check_distribution_components() {
 		done
 
 		if [[ ${#add[@]} -gt 0 || ${#remove[@]} -gt 0 ]]; then
-			eqawarn "get_distribution_components() is outdated!"
-			eqawarn "   Add: ${add[*]}"
-			eqawarn "Remove: ${remove[*]}"
+			eerror "get_distribution_components() is outdated!"
+			eerror "   Add: ${add[*]}"
+			eerror "Remove: ${remove[*]}"
+			die "Update get_distribution_components()!"
 		fi
 		cd - >/dev/null || die
 	fi
@@ -200,7 +200,6 @@ get_distribution_components() {
 			clang-offload-packager
 			clang-refactor
 			clang-repl
-			clang-rename
 			clang-scan-deps
 			diagtool
 			hmaptool
@@ -219,7 +218,6 @@ get_distribution_components() {
 				clang-include-cleaner
 				clang-include-fixer
 				clang-move
-				clang-pseudo
 				clang-query
 				clang-reorder-fields
 				clang-tidy
