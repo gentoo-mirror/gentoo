@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,6 +10,7 @@ MY_P="Argyll_V${PV}"
 DESCRIPTION="Open source, ICC compatible color management system"
 HOMEPAGE="http://www.argyllcms.com/"
 SRC_URI="http://www.argyllcms.com/${MY_P}_src.zip"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -33,8 +34,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip
 	dev-util/ftjam"
-
-S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	# Make it respect LDFLAGS
@@ -68,7 +67,7 @@ src_install() {
 	done
 	popd > /dev/null
 
-	dodoc log.txt Readme.txt
+	dodoc log.txt ReadMe.txt
 	if use doc;  then
 		docinto html
 		dodoc doc/*html doc/*jpg doc/*gif

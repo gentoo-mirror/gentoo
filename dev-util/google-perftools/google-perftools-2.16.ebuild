@@ -9,6 +9,7 @@ inherit flag-o-matic autotools vcs-snapshot multilib-minimal
 DESCRIPTION="Fast, multi-threaded malloc() and nifty performance analysis tools"
 HOMEPAGE="https://github.com/gperftools/gperftools"
 SRC_URI="https://github.com/gperftools/gperftools/archive/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0/4"
@@ -17,9 +18,10 @@ SLOT="0/4"
 # linux amd64/arm/arm64/ppc/ppc64/riscv/x86
 # OSX ppc/amd64
 # AIX ppc/ppc64
-KEYWORDS="-* amd64 arm arm64 ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+KEYWORDS="-* ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 
-IUSE="largepages largepages64k +debug llvm-libunwind minimal optimisememory test static-libs"
+IUSE="pagesize-16k pagesize-32k pagesize-64k pagesize-128k pagesize-256k +debug llvm-libunwind minimal optimisememory test static-libs"
+REQUIRED_USE="?? ( pagesize-16k pagesize-32k pagesize-64k pagesize-128k pagesize-256k )"
 
 RESTRICT="!test? ( test )"
 
@@ -28,14 +30,6 @@ DEPEND="
 	!llvm-libunwind? ( sys-libs/libunwind:= )
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${MY_P}"
-
-PATCHES=(
-	# Please keep this if possible on bumps, check Fedora if needs rebasing
-	# Allows correct functionality on e.g. arm64, bug #818871
-	"${FILESDIR}"/${PN}-2.9.1-disable-generic-dynamic-tls.patch
-)
 
 pkg_setup() {
 	# set up the make options in here so that we can actually make use
@@ -57,9 +51,12 @@ src_prepare() {
 }
 
 multilib_src_configure() {
-	use largepages && append-cppflags -DTCMALLOC_LARGE_PAGES
-	use largepages64k && append-cppflags -DTCMALLOC_LARGE_PAGES64K
 	use optimisememory && append-cppflags -DTCMALLOC_SMALL_BUT_SLOW
+	use pagesize-16k && append-cppflags -DTCMALLOC_PAGE_SIZE_SHIFT=14
+	use pagesize-32k && append-cppflags -DTCMALLOC_PAGE_SIZE_SHIFT=15
+	use pagesize-64k && append-cppflags -DTCMALLOC_PAGE_SIZE_SHIFT=16
+	use pagesize-128k && append-cppflags -DTCMALLOC_PAGE_SIZE_SHIFT=17
+	use pagesize-256k && append-cppflags -DTCMALLOC_PAGE_SIZE_SHIFT=18
 	append-flags -fno-strict-aliasing -fno-omit-frame-pointer
 
 	local myeconfargs=(
@@ -85,12 +82,6 @@ multilib_src_configure() {
 }
 
 src_test() {
-	if has sandbox ${FEATURES}; then
-		ewarn "Unable to run tests when sandbox is enabled."
-		ewarn "See https://bugs.gentoo.org/290249"
-		return 0
-	fi
-
 	multilib-minimal_src_test
 }
 
