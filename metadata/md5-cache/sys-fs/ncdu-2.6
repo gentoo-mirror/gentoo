@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/zig:0.13 dev-lang/zig-bin:0.13 ) virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-yorhel ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install test unpack
+DEPEND=app-arch/zstd sys-libs/ncurses:=[unicode(+)]
+DESCRIPTION=NCurses Disk Usage
+EAPI=8
+HOMEPAGE=https://dev.yorhel.nl/ncdu
+INHERIT=verify-sig edo
+IUSE=verify-sig
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-arch/zstd sys-libs/ncurses:=[unicode(+)]
+SLOT=0
+SRC_URI=https://dev.yorhel.nl/download/ncdu-2.6.tar.gz verify-sig? ( https://dev.yorhel.nl/download/ncdu-2.6.tar.gz.asc )
+_eclasses_=verify-sig	a79ba011daaf532d71a219182474d150	edo	367e103a74bf77e6a8da7894d999fa3c
+_md5_=1705bd905013e75046853fb8770e9436
