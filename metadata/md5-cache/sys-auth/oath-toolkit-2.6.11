@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.nongnu.org/oath-toolkit/
 INHERIT=pam
 IUSE=pam static-libs test
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ppc64 ~riscv x86
 LICENSE=GPL-3 LGPL-2.1
 RDEPEND=dev-libs/icu:= dev-libs/libxml2 dev-libs/xmlsec:= pam? ( sys-libs/pam )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://nongnu/oath-toolkit/oath-toolkit-2.6.11.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	pam	b56d0c9c20fc5b553f13c8ae165a10a5
-_md5_=693e113a6150a4499dfdead6c740bea4
+_md5_=4f4be1ed5676fe118f2e668abe5e74cd
