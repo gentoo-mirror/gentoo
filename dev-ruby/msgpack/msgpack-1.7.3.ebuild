@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_EXTRADOC="ChangeLog README.md"
@@ -11,19 +11,17 @@ RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_EXTENSIONS=(ext/msgpack/extconf.rb)
 RUBY_FAKEGEM_EXTENSION_LIBDIR="lib/msgpack"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
-RUBY_S="${PN}-ruby-${PV}"
+
 inherit ruby-fakegem
 
 DESCRIPTION="Binary-based efficient data interchange format for ruby binding"
 HOMEPAGE="https://msgpack.org/"
-# In 1.6.1, they stopped shipping the specs in the gem :(
-# https://github.com/msgpack/msgpack-ruby/commit/9cbcd0b28527af5ca755f34dfb370e3f4474d129 
-# (https://github.com/msgpack/msgpack-ruby/pull/311)
 SRC_URI="https://github.com/msgpack/msgpack-ruby/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+RUBY_S="${PN}-ruby-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc"
 
 all_ruby_prepare() {
@@ -32,5 +30,5 @@ all_ruby_prepare() {
 	# Remove jruby-specific specs that are run also for other rubies.
 	rm -rf spec/jruby || die
 
-	sed -i -e 's/git ls-files/find * -print/' msgpack.gemspec || die
+	sed -i -e 's/git ls-files -z/find * -print0/' msgpack.gemspec || die
 }
