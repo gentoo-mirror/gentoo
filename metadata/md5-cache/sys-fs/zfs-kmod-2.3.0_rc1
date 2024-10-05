@@ -7,12 +7,11 @@ HOMEPAGE=https://github.com/openzfs/zfs
 IDEPEND=sys-apps/kmod[tools] initramfs? ( sys-kernel/installkernel )
 INHERIT=autotools flag-o-matic linux-mod-r1 multiprocessing verify-sig
 IUSE=custom-cflags debug +rootfs +dist-kernel-cap dist-kernel modules-compress modules-sign +strip +initramfs verify-sig
-KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv ~sparc
 LICENSE=CDDL MIT debug? ( GPL-2+ )
-PDEPEND=dist-kernel? ( ~sys-fs/zfs-2.2.2[dist-kernel] )
-RDEPEND=dist-kernel-cap? ( dist-kernel? ( <virtual/dist-kernel-6.7 ) ) sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+PDEPEND=dist-kernel? ( ~sys-fs/zfs-2.3.0_rc1[dist-kernel] )
+RDEPEND=dist-kernel-cap? ( dist-kernel? ( <virtual/dist-kernel-6.12 ) ) sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 RESTRICT=test
-SLOT=0/2.2.2
-SRC_URI=https://github.com/openzfs/zfs/releases/download/zfs-2.2.2/zfs-2.2.2.tar.gz verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-2.2.2/zfs-2.2.2.tar.gz.asc )
+SLOT=0/2.3.0_rc1
+SRC_URI=https://github.com/openzfs/zfs/releases/download/zfs-2.3.0-rc1/zfs-2.3.0-rc1.tar.gz verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-2.3.0-rc1/zfs-2.3.0-rc1.tar.gz.asc )
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	mount-boot-utils	69218c024651aa10db01df7e8a5b63e0	dist-kernel-utils	55a979ee597f57f3b478d503f9af23e4	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	linux-mod-r1	c3684e27e002b9857ed37bc4e877e47a	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=89e816a171016aa846cfb5506b5af4f8
+_md5_=ba1425ecd1fa7e62ba1c0681ab2f7865
