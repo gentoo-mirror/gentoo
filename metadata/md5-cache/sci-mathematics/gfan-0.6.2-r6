@@ -1,4 +1,4 @@
-BDEPEND=doc? ( dev-texlive/texlive-plaingeneric virtual/latex-base )
+BDEPEND=doc? ( app-text/ghostscript-gpl dev-texlive/texlive-plaingeneric virtual/latex-base )
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=dev-libs/gmp:0=[cxx(+)] sci-libs/cddlib:0=
 DESCRIPTION=Compute Groebner fans and tropical varieties
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/gmp:0=[cxx(+)] sci-libs/cddlib:0=
 SLOT=0
 SRC_URI=https://users-math.au.dk/~jensen/software/gfan/gfan0.6.2.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94
-_md5_=0ee65710724084930e14343c73319c67
+_md5_=c7125309729bbcf49b552230d41cd691
