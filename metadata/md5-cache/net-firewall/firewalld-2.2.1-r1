@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://firewalld.org/
 INHERIT=bash-completion-r1 gnome2-utils linux-info optfeature plocale python-single-r1 systemd xdg-utils
 IUSE=gui selinux test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ppc64 ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) || ( >=sys-apps/openrc-0.11.5 sys-apps/openrc-navi sys-apps/systemd ) python_single_target_python3_10? ( dev-python/dbus-python[python_targets_python3_10(-)] dev-python/pygobject:3[python_targets_python3_10(-)] >=net-firewall/nftables-0.9.4[python,json,python_targets_python3_10(-)] gui? ( x11-libs/gtk+:3 dev-python/PyQt6[gui,widgets,python_targets_python3_10(-)] ) ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/pygobject:3[python_targets_python3_11(-)] >=net-firewall/nftables-0.9.4[python,json,python_targets_python3_11(-)] gui? ( x11-libs/gtk+:3 dev-python/PyQt6[gui,widgets,python_targets_python3_11(-)] ) ) python_single_target_python3_12? ( dev-python/dbus-python[python_targets_python3_12(-)] dev-python/pygobject:3[python_targets_python3_12(-)] >=net-firewall/nftables-0.9.4[python,json,python_targets_python3_12(-)] gui? ( x11-libs/gtk+:3 dev-python/PyQt6[gui,widgets,python_targets_python3_12(-)] ) ) python_single_target_python3_13? ( dev-python/dbus-python[python_targets_python3_13(-)] dev-python/pygobject:3[python_targets_python3_13(-)] >=net-firewall/nftables-0.9.4[python,json,python_targets_python3_13(-)] gui? ( x11-libs/gtk+:3 dev-python/PyQt6[gui,widgets,python_targets_python3_13(-)] ) ) net-firewall/nftables[xtables(+)] selinux? ( sec-policy/selinux-firewalld )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/firewalld/firewalld/releases/download/v2.2.1/firewalld-2.2.1.tar.bz2
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	bash-completion-r1	3047612be964ffd4a549447fc4289f12	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	plocale	950fbaec7deeba41b5bcc0572cca99b9	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	systemd	0f241b5c9f3758c3d3423df59a7f655a
-_md5_=4b395bd3bf451a651e4bea0991f10e16
+_md5_=e65005ff9be3f16a65ab02b15a1316e3
