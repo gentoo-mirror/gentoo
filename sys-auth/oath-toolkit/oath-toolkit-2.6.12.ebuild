@@ -27,12 +27,24 @@ BDEPEND="
 	test? ( dev-libs/libxml2 )
 "
 
+# fpurge is from gnulib, and unused as of 2.6.11
 QA_CONFIG_IMPL_DECL_SKIP=(
 	MIN # glibc fp
-	unreachable
 	alignof
+	fpurge
 	static_assert
+	unreachable
 )
+
+src_prepare() {
+	default
+
+	# After patching, we have to fix the mtime on libpskc/global.c so
+	# that it doesn't cause Makefile.gdoc to be rebuilt so that it
+	# doesn't cause Makefile.in to be rebuilt so that it doesn't try to
+	# run automake-1.16.5 for no reason. Bug 936309.
+	touch --reference=libpskc/errors.c libpskc/global.c || die
+}
 
 src_configure() {
 	local myeconfargs=(
@@ -48,9 +60,9 @@ src_configure() {
 }
 
 src_test() {
-	# Without keep-going, it will bail out after the first testsuite failure,
+	# Without -k, it will bail out after the first testsuite failure,
 	# skipping the other testsuites. as they are mostly independent, this sucks.
-	emake --keep-going check
+	emake -k check
 
 	# Avoid errant QA notice for no tests run on these
 	rm -f libpskc/gtk-doc/test-suite.log liboath/gtk-doc/test-suite.log || die
