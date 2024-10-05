@@ -7,7 +7,7 @@ HOMEPAGE=https://github.com/brndnmtthws/conky
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake linux-info lua-single python-any-r1 readme.gentoo-r1 xdg
 IUSE=apcupsd bundled-toluapp cmus colour-name-map curl doc extras hddtemp ical iconv imlib intel-backlight iostats irc lua-cairo lua-cairo-xlib lua-imlib lua-rsvg math moc mouse-events mpd mysql ncurses nvidia +portmon pulseaudio rss systemd test thinkpad truetype wayland webserver wifi X xinerama xinput xmms2 +lua_single_target_lua5-4
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=GPL-3 BSD LGPL-2.1 MIT
 RDEPEND=curl? ( net-misc/curl ) ical? ( dev-libs/libical:= ) iconv? ( virtual/libiconv ) imlib? ( >=media-libs/imlib2-1.11.0[X] ) irc? ( net-libs/libircclient ) lua-cairo? ( x11-libs/cairo[X?] ) lua-cairo-xlib? ( x11-libs/cairo[X] ) lua-imlib? ( >=media-libs/imlib2-1.11.0[X] ) lua-rsvg? ( gnome-base/librsvg ) mysql? ( dev-db/mysql-connector-c ) ncurses? ( sys-libs/ncurses:= ) nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] ) pulseaudio? ( media-libs/libpulse ) rss? ( dev-libs/libxml2 dev-libs/glib:2 ) systemd? ( sys-apps/systemd ) truetype? ( x11-libs/libXft >=media-libs/freetype-2 ) wayland? ( dev-libs/wayland x11-libs/pango ) wifi? ( net-wireless/wireless-tools ) webserver? ( net-libs/libmicrohttpd:= ) X? ( x11-libs/libXdamage x11-libs/libXfixes x11-libs/libXext x11-libs/libXi x11-libs/libX11 ) xinerama? ( x11-libs/libXinerama ) xmms2? ( media-sound/xmms2 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) apcupsd? ( sys-power/apcupsd ) cmus? ( media-sound/cmus ) hddtemp? ( app-admin/hddtemp ) moc? ( media-sound/moc )
 REQUIRED_USE=^^ ( lua_single_target_lua5-4 ) imlib? ( X ) lua-cairo? ( || ( X wayland ) bundled-toluapp ) lua-cairo-xlib? ( X bundled-toluapp ) lua-imlib? ( X bundled-toluapp ) lua-rsvg? ( || ( X wayland ) bundled-toluapp ) mouse-events? ( X wayland ) nvidia? ( X ) rss? ( curl ) truetype? ( X ) xinerama? ( X ) xinput? ( X )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/brndnmtthws/conky/archive/v1.21.7.tar.gz -> conky-1.21.7.tar.gz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	lua-utils	1f91de68f9a26642216e45d7765fd4fb	lua-single	3ae43cac1bf8275a847245b9a475a54e	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	readme.gentoo-r1	32b48460d813533d85f082897cec1b80	xdg	854eae304447322625df5991e20ed18f
-_md5_=ec51d7cab79833dca24d47ee884bb081
+_md5_=d24fe160f7b7103cb2ae798b449f45e2
