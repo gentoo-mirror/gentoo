@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://accounts-sso.gitlab.io
 INHERIT=qmake-utils multibuild
 IUSE=doc qt5 test
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/glib:2 dev-qt/qtbase:6[xml] qt5? ( dev-qt/qtcore:5 dev-qt/qtxml:5 ) >=net-libs/libaccounts-glib-1.23:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/libaccounts-qt/-/archive/VERSION_1.17/libaccounts-qt-VERSION_1.17.tar.bz2 -> accounts-qt-1.17.tar.bz2
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a
-_md5_=7a23487e8da1d28df52b2a7eaf82f9ef
+_md5_=d9b5b536837b1246613dcad2d67dc004

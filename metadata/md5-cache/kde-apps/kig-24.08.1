@@ -7,7 +7,7 @@ HOMEPAGE=https://apps.kde.org/kig/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=python-single-r1 ecm gear.kde.org
 IUSE=geogebra scripting python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 debug +handbook test
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) >=dev-qt/qtgui-5.15.12:5 >=dev-qt/qtprintsupport-5.15.12:5 >=dev-qt/qtsvg-5.15.12:5 >=dev-qt/qtwidgets-5.15.12:5 >=dev-qt/qtxml-5.15.12:5 >=kde-frameworks/karchive-5.115.0:5 >=kde-frameworks/kcompletion-5.115.0:5 >=kde-frameworks/kconfig-5.115.0:5 >=kde-frameworks/kconfigwidgets-5.115.0:5 >=kde-frameworks/kcoreaddons-5.115.0:5 >=kde-frameworks/kcrash-5.115.0:5 >=kde-frameworks/ki18n-5.115.0:5 >=kde-frameworks/kiconthemes-5.115.0:5 >=kde-frameworks/kparts-5.115.0:5 >=kde-frameworks/kservice-5.115.0:5 >=kde-frameworks/kwidgetsaddons-5.115.0:5 >=kde-frameworks/kxmlgui-5.115.0:5 geogebra? ( >=dev-qt/qtxmlpatterns-5.15.12:5 ) scripting? ( python_single_target_python3_10? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_12(-)] ) ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=mirror://kde/stable/release-service/24.08.1/src/kig-24.08.1.tar.xz
 _eclasses_=multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-single-r1	f7abe75c203a988aa9b5c460b6c7d0f1	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	53fb93b5555470a64f14fde25cf1ad2c	xdg	854eae304447322625df5991e20ed18f	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	gear.kde.org	9eaba1558ae60129a59a7243175a309d
-_md5_=1ecc3a48398138dd514ac02331f898e4
+_md5_=aad0793ac985c378a3b2788a920040c6
