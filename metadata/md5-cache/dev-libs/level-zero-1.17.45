@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/spdlog:=
+DESCRIPTION=oneAPI Level Zero headers, loader and validation layer
+EAPI=8
+HOMEPAGE=https://github.com/oneapi-src/level-zero
+INHERIT=cmake
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/spdlog:=
+SLOT=0/1.17.45
+SRC_URI=https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.17.45.tar.gz -> level-zero-1.17.45.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=474762aaf5a2f35b994e5c96db8f7e43
