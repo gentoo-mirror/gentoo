@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=>=media-libs/libmpeg2-0.4.0 dev-qt/qtbase:6 dev-qt/qtbase:6[gui] dev-qt/qtbase:6[opengl] dev-qt/qtbase:6[widgets] virtual/glu virtual/opengl
+DESCRIPTION=Tool for cutting MPEG files especially for removing commercials
+EAPI=8
+HOMEPAGE=https://github.com/baltendorf/ttcut
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop qmake-utils xdg
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=media-libs/libmpeg2-0.4.0 dev-qt/qtbase:6 dev-qt/qtbase:6[gui] dev-qt/qtbase:6[opengl] dev-qt/qtbase:6[widgets] virtual/glu virtual/opengl media-video/mjpegtools media-video/mplayer >=media-video/ffmpeg-1.0.8[encode]
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~billie/distfiles/ttcut-0.19.6_p2.tar.gz
+_eclasses_=desktop	56973babb9c5f19cab0eeb53ece644c6	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	xdg	854eae304447322625df5991e20ed18f
+_md5_=6af5d755be36b2c8a124390845b060b4
