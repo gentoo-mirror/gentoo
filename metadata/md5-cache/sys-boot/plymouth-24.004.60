@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/docbook-xsl-stylesheets dev-libs/libxslt ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/libevdev >=media-libs/libpng-1.2.16:= x11-libs/libxkbcommon x11-misc/xkeyboard-config drm? ( x11-libs/libdrm ) freetype? ( media-libs/freetype:2 ) gtk? ( dev-libs/glib:2 x11-libs/cairo >=x11-libs/gtk+-3.14:3[X] ) pango? ( x11-libs/cairo >=x11-libs/pango-1.21 ) systemd? ( sys-apps/systemd ) udev? ( virtual/libudev ) elibc_musl? ( sys-libs/rpmatch-standalone )
+DESCRIPTION=Graphical boot animation (splash) and logger
+EAPI=8
+HOMEPAGE=https://cgit.freedesktop.org/plymouth/
+INHERIT=meson readme.gentoo-r1 flag-o-matic
+IUSE=debug +drm +gtk +pango selinux freetype +split-usr +udev doc systemd
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libevdev >=media-libs/libpng-1.2.16:= x11-libs/libxkbcommon x11-misc/xkeyboard-config drm? ( x11-libs/libdrm ) freetype? ( media-libs/freetype:2 ) gtk? ( dev-libs/glib:2 x11-libs/cairo >=x11-libs/gtk+-3.14:3[X] ) pango? ( x11-libs/cairo >=x11-libs/pango-1.21 ) systemd? ( sys-apps/systemd ) udev? ( virtual/libudev ) selinux? ( sec-policy/selinux-plymouthd ) udev? ( virtual/udev )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~aidecoe/distfiles/sys-boot/plymouth/gentoo-logo.png https://www.freedesktop.org/software/plymouth/releases/plymouth-24.004.60.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	readme.gentoo-r1	32b48460d813533d85f082897cec1b80
+_md5_=7e4127f6815425244d8a7cdf3a4ccd97
