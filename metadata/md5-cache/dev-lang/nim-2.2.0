@@ -1,0 +1,14 @@
+BDEPEND=sys-process/parallel test? ( dev-db/sqlite:3 dev-libs/boehm-gc dev-libs/libffi dev-libs/libpcre:3 dev-libs/openssl media-libs/libsdl media-libs/libsfml test-js? ( net-libs/nodejs ) )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Compiled, garbage-collected systems programming language
+EAPI=8
+HOMEPAGE=https://nim-lang.org/ https://github.com/nim-lang/Nim/
+INHERIT=bash-completion-r1 edo multiprocessing toolchain-funcs xdg-utils
+IUSE=test-js test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://nim-lang.org/download/nim-2.2.0.tar.xz https://github.com/nim-lang/atlas/archive/refs/tags/0.8.0.tar.gz -> nim-atlas-0.8.0.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	bash-completion-r1	3047612be964ffd4a549447fc4289f12	edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	xdg-utils	5465aed08f1dfc2a75f14cbea4272961
+_md5_=42b604f07cdb3793ec19c085e528f39d
