@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.tcpdump.org/ https://github.com/the-tcpdump-group/tcpdump
 INHERIT=autotools verify-sig
 IUSE=+caps +smi +ssl +samba suid test verify-sig
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=>=net-libs/libpcap-1.10.1 caps? ( acct-group/pcap acct-user/pcap sys-libs/libcap-ng ) smi? ( net-libs/libsmi ) ssl? ( >=dev-libs/openssl-0.9.6m:= ) suid? ( acct-group/pcap acct-user/pcap )
 REQUIRED_USE=test? ( samba )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.tcpdump.org/release/tcpdump-4.99.5.tar.gz verify-sig? ( https://www.tcpdump.org/release/tcpdump-4.99.5.tar.gz.sig )
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=f41c4cd32529f17e9f271002ef23c225
+_md5_=e512ddf9c653fed69029f9a7c48d9072
