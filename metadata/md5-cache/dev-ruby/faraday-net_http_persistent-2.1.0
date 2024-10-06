@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/lostisland/faraday-net_http_persistent
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 doc test test
-KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby31? ( >=dev-ruby/faraday-2.5:2[ruby_targets_ruby31(-)] dev-ruby/net-http-persistent:4[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/faraday-2.5:2[ruby_targets_ruby32(-)] dev-ruby/net-http-persistent:4[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/faraday-2.5:2[ruby_targets_ruby33(-)] dev-ruby/net-http-persistent:4[ruby_targets_ruby33(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=2
 SRC_URI=https://github.com/lostisland/faraday-net_http_persistent/archive/v2.1.0.tar.gz -> faraday-net_http_persistent-2.1.0.tar.gz
 _eclasses_=multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	ruby-utils	ec73f640a49f4fb6394ef1d90fbb3b3c	ruby-ng	a6e22e2e4ba7527ba0590c8df492c1c0	ruby-fakegem	c15e9262e9d714e53eb7e03047d12643
-_md5_=c41052886cf5dc6be2f8e71a1baa63b0
+_md5_=80b9fed7645e1af89bf7fa28eab2102a

@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.nlnetlabs.nl/projects/nsd
 INHERIT=autotools systemd tmpfiles
 IUSE=bind8-stats debug +default-znow dnstap +ipv6 +largefile libevent +lto memclean minimal-responses mmap munin +nsec3 packed +pie +radix-tree ratelimit recvmmsg +simdzone ssl systemd +tfo year2038
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=BSD
 RDEPEND=acct-group/nsd acct-user/nsd dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) libevent? ( dev-libs/libevent ) munin? ( net-analyzer/munin ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) virtual/tmpfiles
 SLOT=0
 SRC_URI=https://www.nlnetlabs.nl/downloads/nsd/nsd-4.10.1.tar.gz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	systemd	0f241b5c9f3758c3d3423df59a7f655a	tmpfiles	abdfd90f8841c1cb4b94575d5d109952
-_md5_=c2a710e8b3740bef74f6ec387fa146dd
+_md5_=993825865a813436e408e22698afacda
