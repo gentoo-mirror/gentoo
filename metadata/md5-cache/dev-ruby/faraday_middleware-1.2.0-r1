@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/lostisland/faraday_middleware
 INHERIT=ruby-fakegem
 IUSE=brotli +parsexml +oauth +mashify +rashify test ruby_targets_ruby31 ruby_targets_ruby32 doc test test
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby31? ( dev-ruby/faraday:1[ruby_targets_ruby31(-)] brotli? ( dev-ruby/brotli[ruby_targets_ruby31(-)] ) parsexml? ( >=dev-ruby/multi_xml-0.5.3[ruby_targets_ruby31(-)] ) oauth? ( >=dev-ruby/simple_oauth-0.1[ruby_targets_ruby31(-)] ) mashify? ( >=dev-ruby/hashie-1.2:*[ruby_targets_ruby31(-)] ) rashify? ( >=dev-ruby/rash_alt-0.4.3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( dev-ruby/faraday:1[ruby_targets_ruby32(-)] brotli? ( dev-ruby/brotli[ruby_targets_ruby32(-)] ) parsexml? ( >=dev-ruby/multi_xml-0.5.3[ruby_targets_ruby32(-)] ) oauth? ( >=dev-ruby/simple_oauth-0.1[ruby_targets_ruby32(-)] ) mashify? ( >=dev-ruby/hashie-1.2:*[ruby_targets_ruby32(-)] ) rashify? ( >=dev-ruby/rash_alt-0.4.3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=1
 SRC_URI=https://github.com/lostisland/faraday_middleware/archive/v1.2.0.tar.gz -> faraday_middleware-1.2.0.tar.gz
 _eclasses_=multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	ruby-utils	ec73f640a49f4fb6394ef1d90fbb3b3c	ruby-ng	a6e22e2e4ba7527ba0590c8df492c1c0	ruby-fakegem	c15e9262e9d714e53eb7e03047d12643
-_md5_=135318f597fb3549f880032cefdfde5e
+_md5_=28239675bd4ac47ea8464d096ee59842
