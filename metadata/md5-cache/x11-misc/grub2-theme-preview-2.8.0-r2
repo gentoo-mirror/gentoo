@@ -1,0 +1,17 @@
+BDEPEND=test? ( app-emulation/qemu dev-libs/libisoburn sys-fs/mtools grub_platforms_efi-64? ( sys-boot/grub:2[grub_platforms_efi-64] || ( sys-firmware/edk2-ovmf sys-firmware/edk2-ovmf-bin ) ) grub_platforms_efi-32? ( sys-boot/grub:2[grub_platforms_efi-32] || ( sys-firmware/edk2-ovmf sys-firmware/edk2-ovmf-bin ) ) !grub_platforms_efi-32? ( !grub_platforms_efi-64? ( sys-boot/grub:2[grub_platforms_pc] ) ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-python/parameterized[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+DESCRIPTION=Preview a GRUB 2.x theme using KVM/QEMU
+EAPI=8
+HOMEPAGE=https://github.com/hartwork/grub2-theme-preview
+INHERIT=distutils-r1
+IUSE=grub_platforms_efi-32 grub_platforms_efi-64 test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=app-emulation/qemu dev-libs/libisoburn sys-fs/mtools grub_platforms_efi-64? ( sys-boot/grub:2[grub_platforms_efi-64] || ( sys-firmware/edk2-ovmf sys-firmware/edk2-ovmf-bin ) ) grub_platforms_efi-32? ( sys-boot/grub:2[grub_platforms_efi-32] || ( sys-firmware/edk2-ovmf sys-firmware/edk2-ovmf-bin ) ) !grub_platforms_efi-32? ( !grub_platforms_efi-64? ( sys-boot/grub:2[grub_platforms_pc] ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hartwork/grub2-theme-preview/archive/2.8.0.tar.gz -> grub2-theme-preview-2.8.0.tar.gz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c	distutils-r1	515591e76fa89a2359ed45d26bf9c774
+_md5_=73cac8feb04d0f7cc6f79350e42a4984
