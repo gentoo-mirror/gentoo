@@ -1,7 +1,7 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
@@ -24,7 +24,7 @@ RDEPEND="
 	sys-libs/zlib
 	expat? ( dev-libs/expat )
 	jpeg? ( media-libs/libjpeg-turbo:= )
-	jpegxl? ( <media-libs/libjxl-0.9:= )
+	jpegxl? ( media-libs/libjxl:= )
 	lua? ( ${LUA_DEPS} )
 	openexr? ( media-libs/openexr:= )
 	perl? ( dev-lang/perl )
@@ -47,6 +47,7 @@ BDEPEND="virtual/pkgconfig"
 PATCHES=(
 	"${FILESDIR}"/${P}-gcc6.patch
 	"${FILESDIR}"/${PN}-1.0.2-g++.patch
+	"${FILESDIR}"/${P}-libjxl-9.patch
 )
 
 src_prepare() {
