@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+EAPI=8
+HOMEPAGE=https://vscodium.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop pax-utils xdg optfeature
+IUSE=egl kerberos wayland
+KEYWORDS=-* amd64 ~arm ~arm64
+LICENSE=Apache-2.0 BSD BSD-1 BSD-2 BSD-4 CC-BY-4.0 ISC LGPL-2.1+ MIT MPL-2.0 openssl PYTHON TextMate-bundle Unlicense UoI-NCSA W3C
+RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 app-crypt/libsecret[crypt] app-misc/ca-certificates dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/libglvnd media-libs/mesa net-misc/curl net-print/cups sys-apps/dbus sys-libs/zlib sys-process/lsof x11-libs/cairo x11-libs/gtk+:3 x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libxkbfile x11-libs/libXrandr x11-libs/libXScrnSaver x11-libs/pango x11-misc/xdg-utils kerberos? ( app-crypt/mit-krb5 )
+RESTRICT=strip bindist
+SLOT=0
+SRC_URI=amd64? ( https://github.com/VSCodium/vscodium/releases/download/1.93.1.24256/VSCodium-linux-x64-1.93.1.24256.tar.gz -> vscodium-1.93.1.24256-amd64.tar.gz ) arm? ( https://github.com/VSCodium/vscodium/releases/download/1.93.1.24256/VSCodium-linux-armhf-1.93.1.24256.tar.gz -> vscodium-1.93.1.24256-arm.tar.gz ) arm64? ( https://github.com/VSCodium/vscodium/releases/download/1.93.1.24256/VSCodium-linux-arm64-1.93.1.24256.tar.gz -> vscodium-1.93.1.24256-arm64.tar.gz )
+_eclasses_=desktop	56973babb9c5f19cab0eeb53ece644c6	pax-utils	6285e04fab2343992d2df0df4edf6003	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	xdg	854eae304447322625df5991e20ed18f	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=a36d321e32b8a5158676bf63eea3e0d9
