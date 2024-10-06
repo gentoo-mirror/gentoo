@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://dry-rb.org/gems/dry-monads/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 doc test test
-KEYWORDS=~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby31? ( dev-ruby/concurrent-ruby:1[ruby_targets_ruby31(-)] dev-ruby/dry-core:1[ruby_targets_ruby31(-)] >=dev-ruby/zeitwerk-2.6:2[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( dev-ruby/concurrent-ruby:1[ruby_targets_ruby32(-)] dev-ruby/dry-core:1[ruby_targets_ruby32(-)] >=dev-ruby/zeitwerk-2.6:2[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/concurrent-ruby:1[ruby_targets_ruby33(-)] dev-ruby/dry-core:1[ruby_targets_ruby33(-)] >=dev-ruby/zeitwerk-2.6:2[ruby_targets_ruby33(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=1
 SRC_URI=https://github.com/dry-rb/dry-monads/archive/v1.6.0.tar.gz -> dry-monads-1.6.0.tar.gz
 _eclasses_=multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	ruby-utils	ec73f640a49f4fb6394ef1d90fbb3b3c	ruby-ng	a6e22e2e4ba7527ba0590c8df492c1c0	ruby-fakegem	c15e9262e9d714e53eb7e03047d12643
-_md5_=108ed9e600041a6126b5f279dad30d38
+_md5_=9c04f12ed8dfbe0a5150eaa53e0e8050
