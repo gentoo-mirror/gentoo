@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure info install postinst postrm prepare setup test
 DESCRIPTION=Emacs command line parser
 EAPI=8
 HOMEPAGE=https://github.com/rejeep/commander.el/
-INHERIT=elisp
+INHERIT=elisp edo
 IUSE=test
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-3+
@@ -11,5 +11,5 @@ RDEPEND=app-emacs/dash app-emacs/f app-emacs/s >=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rejeep/commander.el/archive/v0.7.0.tar.gz -> commander-0.7.0.tar.gz
-_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6
-_md5_=db06b1cf9861af667d77a966222c71a7
+_eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6	edo	367e103a74bf77e6a8da7894d999fa3c
+_md5_=4813fe5f7530ce56cfe79778c6d84359

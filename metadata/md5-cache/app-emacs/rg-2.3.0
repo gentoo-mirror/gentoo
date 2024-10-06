@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/transient app-emacs/wgrep test? ( app-emacs/ert-runner app-emacs/s app-emacs/undercover ) >=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/transient app-emacs/wgrep test? ( app-emacs/s app-emacs/undercover ) test? ( app-emacs/ert-runner ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=GNU Emacs search tool based on ripgrep
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dajva/rg.el/archive/2.3.0.tar.gz -> rg-2.3.0.tar.gz
 _eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6
-_md5_=55d8f4905f25d8977f3c47924a7905db
+_md5_=da8d7f994d2f8f28caa27f4d3597a3b7

@@ -4,12 +4,12 @@ DESCRIPTION=Emacs major mode for editing Elixir files
 EAPI=8
 HOMEPAGE=https://github.com/elixir-editors/emacs-elixir/
 INHERIT=elisp
-IUSE=test test
+IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=>=app-editors/emacs-25.3:*
-RESTRICT=!test? ( test ) !test? ( test )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/elixir-editors/emacs-elixir/archive/v2.5.0.tar.gz -> elixir-mode-2.5.0.tar.gz
 _eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6
-_md5_=5d17ebd37fa57d1585879bbe955f8895
+_md5_=963d483bc177017b8c2077567e41063c

@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-emacs/assess app-emacs/ert-runner ) >=app-editors/emacs-25.3:*
+BDEPEND=test? ( app-emacs/assess ) test? ( app-emacs/ert-runner ) >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Major mode for editing Cask files for Emacs
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Wilfred/cask-mode/archive/0.1.tar.gz -> cask-mode-0.1.tar.gz
 _eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6
-_md5_=8337923bb9935f06018b4054e147e823
+_md5_=65b64b8b5d0de0c03c88f529bcf02b28
