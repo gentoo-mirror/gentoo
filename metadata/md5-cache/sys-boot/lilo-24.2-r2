@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=>=sys-devel/bin86-0.15.5
+DESCRIPTION=LInux LOader, the original Linux bootloader
+EAPI=8
+HOMEPAGE=https://www.joonet.de/lilo/
+INHERIT=optfeature toolchain-funcs
+IUSE=static minimal pxeserial device-mapper
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=BSD GPL-2
+RDEPEND=device-mapper? ( >=sys-fs/lvm2-2.02.45 )
+SLOT=0
+SRC_URI=https://www.joonet.de/lilo/ftp/sources/lilo-24.2.tar.gz mirror://gentoo/dolilo-0.6.tar.bz2
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991
+_md5_=ce6dc2bd4b2186910da0bd05d280e20c
