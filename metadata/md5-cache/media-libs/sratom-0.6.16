@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen dev-python/sphinx dev-python/sphinx-lv2-theme dev-python/sphinxygen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=>=dev-libs/serd-0.30.10 >=dev-libs/sord-0.16.16 >=media-libs/lv2-1.18.4 || ( dev-lang/python:3.12[threads(+)] dev-lang/python:3.11[threads(+)] dev-lang/python:3.10[threads(+)] )
+DEPEND=>=dev-libs/serd-0.30.10 >=dev-libs/sord-0.16.16 >=media-libs/lv2-1.18.4 || ( dev-lang/python:3.13[threads(+)] dev-lang/python:3.12[threads(+)] dev-lang/python:3.11[threads(+)] dev-lang/python:3.10[threads(+)] )
 DESCRIPTION=Library for serialising LV2 atoms to/from RDF, particularly the Turtle syntax
 EAPI=8
 HOMEPAGE=https://drobilla.net/software/sratom.html
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.drobilla.net/sratom-0.6.16.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multilib-build	8cdc28ee17e24f9f57730a28fe166a21	multilib-minimal	b93489cf816ff90770a3c1c61b25db44	meson-multilib	8989922d980e5e870cc3de949d1b2586	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a
-_md5_=dd862ae94dc36dd9ff9e9084416e3c9f
+_md5_=e2b4b278fc073106871f37b3485472ba

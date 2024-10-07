@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-build/autoconf-archive virtual/pkgconfig doc? ( app-text/doxygen[dot] ) verify-sig? ( >=sec-keys/openpgp-keys-icu-20221020 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-build/autoconf-archive virtual/pkgconfig doc? ( app-text/doxygen[dot] ) verify-sig? ( >=sec-keys/openpgp-keys-icu-20221020 ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=International Components for Unicode
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0/75
 SRC_URI=https://github.com/unicode-org/icu/releases/download/release-75-1/icu4c-75_1-src.tgz verify-sig? ( https://github.com/unicode-org/icu/releases/download/release-75-1/icu4c-75_1-src.tgz.asc )
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multilib-build	8cdc28ee17e24f9f57730a28fe166a21	multilib-minimal	b93489cf816ff90770a3c1c61b25db44	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=6c1b9954d35b1079b7424ab0f9b44045
+_md5_=e01f39cdb34ceb202d3b9fb57b6147ac

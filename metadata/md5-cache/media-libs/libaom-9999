@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-lang/perl abi_x86_32? ( dev-lang/yasm ) abi_x86_64? ( dev-lang/yasm ) abi_x86_x32? ( dev-lang/yasm ) doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-lang/perl abi_x86_32? ( dev-lang/yasm ) abi_x86_64? ( dev-lang/yasm ) abi_x86_x32? ( dev-lang/yasm ) doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=Alliance for Open Media AV1 Codec SDK
 EAPI=8
@@ -11,4 +11,4 @@ REQUIRED_USE=cpu_flags_x86_sse2? ( cpu_flags_x86_mmx ) cpu_flags_x86_ssse3? ( cp
 RESTRICT=!test? ( test )
 SLOT=0/3
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multilib-build	8cdc28ee17e24f9f57730a28fe166a21	multilib-minimal	b93489cf816ff90770a3c1c61b25db44	cmake-multilib	37d23064f303dcf23453353ab8c77059	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=ba09c4b964374737a7209b5ac0617c09
+_md5_=74bfae9dfa2a269dfb2db145c7dfb585
