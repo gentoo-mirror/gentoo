@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=dev-util/intltool sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst postrm preinst prepare
 DEPEND=media-libs/libsndfile:= sys-libs/zlib:= alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac:= ) gtk? ( >=x11-libs/gtk+-2.10:2 ) id3tag? ( media-libs/libid3tag:= ) jack? ( virtual/jack ) mad? ( media-libs/libmad ) mikmod? ( media-libs/libmikmod:0 ) nas? ( media-libs/nas ) ogg? ( media-libs/libogg ) opengl? ( virtual/opengl ) vorbis? ( media-libs/libvorbis ) xosd? ( x11-libs/xosd ) oss? ( virtual/os-headers )
 DESCRIPTION=A heavily multi-threaded pluggable audio player
@@ -14,4 +14,4 @@ REQUIRED_USE=|| ( alsa jack nas oss )
 SLOT=0
 SRC_URI=https://github.com/alsaplayer/alsaplayer/archive/refs/tags/0.99.82.tar.gz -> alsaplayer-0.99.82.tar.gz
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	desktop	56973babb9c5f19cab0eeb53ece644c6	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	xdg	854eae304447322625df5991e20ed18f
-_md5_=19b8dfcdb9a3ba4ae33fcb25bb8f4805
+_md5_=1f8f944b7e242d9349ff8ced25accad4
