@@ -46,7 +46,6 @@ DEPEND="
 		>=kde-frameworks/kio-${KFMIN}:5
 		>=kde-frameworks/knewstuff-${KFMIN}:5
 		>=kde-frameworks/kparts-${KFMIN}:5
-		>=kde-frameworks/krunner-${KFMIN}:5
 		>=kde-frameworks/kservice-${KFMIN}:5
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
@@ -69,6 +68,8 @@ src_prepare() {
 
 	rm -rf src/3rdparty/zlib || die "Failed to remove bundled libs"
 
+	cmake_run_in src cmake_comment_add_subdirectory plasma
+	cmake_run_in src cmake_comment_add_subdirectory plasmarunner
 	use kde && cmake_run_in src/apps cmake_comment_add_subdirectory marble-qt
 }
 
@@ -77,6 +78,7 @@ src_configure() {
 		$(cmake_use_find_package aprs Perl)
 		$(cmake_use_find_package geolocation Qt5Positioning)
 		-DBUILD_MARBLE_TESTS=$(usex test)
+		-DBUILD_WITH_DBUS=$(usex dbus)
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
 		-DWITH_KF5=$(usex kde)

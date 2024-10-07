@@ -46,7 +46,7 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6[qml]
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
 	media-libs/kquickimageeditor:6
-	>=net-libs/libquotient-0.8.1.2-r1:=[qt6]
+	>=net-libs/libquotient-0.8.1.2-r1:=[qt6(+)]
 "
 RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]

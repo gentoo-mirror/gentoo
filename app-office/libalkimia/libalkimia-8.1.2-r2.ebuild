@@ -20,7 +20,7 @@ https://community.kde.org/Alkimia"
 
 LICENSE="LGPL-2.1"
 SLOT="0/8"
-IUSE="doc plasma webengine"
+IUSE="doc webengine"
 
 DEPEND="
 	dev-libs/gmp:0=[cxx(+)]
@@ -40,10 +40,6 @@ DEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
-	plasma? (
-		>=kde-frameworks/kpackage-${KFMIN}:5
-		>=kde-plasma/libplasma-${KFMIN}:5
-	)
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:5 )
 "
 RDEPEND="${DEPEND}"
@@ -61,7 +57,7 @@ src_configure() {
 		-DBUILD_WITH_WEBKIT=OFF
 		$(cmake_use_find_package doc Doxygen)
 		-DCMAKE_DISABLE_FIND_PACKAGE_MPIR=ON
-		-DBUILD_APPLETS=$(usex plasma)
+		-DBUILD_APPLETS=OFF
 		-DBUILD_WITH_WEBENGINE=$(usex webengine)
 	)
 	ecm_src_configure

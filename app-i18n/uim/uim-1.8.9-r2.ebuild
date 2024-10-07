@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.bz2"
 LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~hppa ppc ppc64 ~riscv x86"
-IUSE="X +anthy curl eb emacs expat libffi gtk gtk2 kde l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW libedit libnotify m17n-lib ncurses nls qt5 skk sqlite ssl static-libs xft"
+IUSE="X +anthy curl eb emacs expat libffi gtk gtk2 l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW libedit libnotify m17n-lib ncurses nls qt5 skk sqlite ssl static-libs xft"
 RESTRICT="test"
 REQUIRED_USE="gtk? ( X )
 	gtk2? ( X )
@@ -37,7 +37,6 @@ CDEPEND="X? (
 	expat? ( dev-libs/expat )
 	gtk? ( x11-libs/gtk+:3 )
 	gtk2? ( x11-libs/gtk+:2 )
-	kde? ( kde-plasma/libplasma:5 )
 	libedit? ( dev-libs/libedit )
 	libffi? ( dev-libs/libffi:= )
 	libnotify? ( x11-libs/libnotify )
@@ -80,7 +79,6 @@ RDEPEND="${CDEPEND}
 BDEPEND="gnome-base/librsvg
 	sys-devel/gettext
 	virtual/pkgconfig
-	kde? ( dev-build/cmake )
 	nls? ( dev-util/intltool )"
 
 PATCHES=(
@@ -121,7 +119,6 @@ src_configure() {
 		$(use_enable emacs)
 		$(use_with emacs lispdir "${SITELISP}")
 		$(use_with expat)
-		$(use_enable kde kde5-applet)
 		$(use_with libedit)
 		$(use_with libffi ffi)
 		$(use_with gtk gtk3)
@@ -144,6 +141,7 @@ src_configure() {
 		--disable-gnome3-applet
 		--disable-kde-applet
 		--disable-kde4-applet
+		--disable-kde5-applet
 		--without-mana
 		--enable-maintainer-mode
 		--without-prime

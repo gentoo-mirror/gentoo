@@ -46,7 +46,6 @@ DEPEND="
 		>=kde-frameworks/kio-${KFMIN}:5
 		>=kde-frameworks/knewstuff-${KFMIN}:5
 		>=kde-frameworks/kparts-${KFMIN}:5
-		>=kde-frameworks/krunner-${KFMIN}:5
 		>=kde-frameworks/kservice-${KFMIN}:5
 		>=kde-frameworks/kwallet-${KFMIN}:5
 	)
@@ -69,6 +68,8 @@ src_prepare() {
 
 	rm -rf src/3rdparty/zlib || die "Failed to remove bundled libs"
 
+	cmake_run_in src cmake_comment_add_subdirectory plasma
+	cmake_run_in src cmake_comment_add_subdirectory plasmarunner
 	use kde && cmake_run_in src/apps cmake_comment_add_subdirectory marble-qt
 }
 
