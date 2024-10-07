@@ -1000,8 +1000,17 @@ toolchain_setup_ada() {
 # Determine the most suitable GDC (D compiler) for bootstrapping
 # and setup the environment for building.
 toolchain_setup_d() {
-	local latest_gcc=$(best_version -b "sys-devel/gcc")
-	latest_gcc="${latest_gcc#sys-devel/gcc-}"
+	local gcc_pkg gcc_bin_base
+	if tc-is-cross-compiler ; then
+		gcc_pkg=cross-${CHOST}/gcc
+		gcc_bin_base=${BROOT}/usr/${CBUILD}/${CHOST}/gcc-bin
+	else
+		gcc_pkg=sys-devel/gcc
+		gcc_bin_base=${BROOT}/usr/${CHOST}/gcc-bin
+	fi
+
+	local latest_gcc=$(best_version -b "${gcc_pkg}")
+	latest_gcc="${latest_gcc#${gcc_pkg}-}"
 	latest_gcc=$(ver_cut 1 ${latest_gcc})
 
 	local d_bootstrap
@@ -1011,10 +1020,10 @@ toolchain_setup_d() {
 	# 2) Iterate downwards from the version being built;
 	# 3) Iterate upwards from the version being built to the greatest version installed.
 	for d_candidate in ${SLOT} $(seq $((${SLOT} - 1)) -1 10) $(seq $((${SLOT} + 1)) ${latest_gcc}) ; do
-		has_version -b "sys-devel/gcc:${d_candidate}" || continue
+		has_version -b "${gcc_pkg}:${d_candidate}" || continue
 
-		ebegin "Testing sys-devel/gcc:${d_candidate} for D"
-		if has_version -b "sys-devel/gcc:${d_candidate}[d(-)]" ; then
+		ebegin "Testing ${gcc_pkg}:${d_candidate} for D"
+		if has_version -b "${gcc_pkg}:${d_candidate}[d(-)]" ; then
 			d_bootstrap=${d_candidate}
 
 			eend 0
@@ -1023,9 +1032,24 @@ toolchain_setup_d() {
 		eend 1
 	done
 
-	if [[ -n ${d_bootstrap} ]] ; then
-		export GDC="${BROOT}/usr/${CTARGET}/gcc-bin/${d_bootstrap}/gdc"
+	if [[ -z ${d_bootstrap} ]] ; then
+		if tc-is-cross-compiler ; then
+			# We can't add cross-${CHOST}/gcc[d] to BDEPEND but we can
+			# print a useful message to the user.
+			eerror "No ${gcc_pkg}[d] was found installed."
+			eerror "When cross-compiling GDC a bootstrap GDC is required."
+			eerror "Either disable the d USE flag or add:"
+			eerror ""
+			eerror "    ${gcc_pkg} d"
+			eerror ""
+			eerror "In your package.use and re-emerge it."
+			eerror ""
+		fi
+
+		die "Did not find any appropriate GDC compiler installed"
 	fi
+
+	export GDC=${gcc_bin_base}/${d_bootstrap}/${CHOST}-gdc
 }
 
 #---->> src_configure <<----
@@ -1120,9 +1144,12 @@ toolchain_src_configure() {
 
 		_tc_use_if_iuse ada
 	}
+	_need_d_bootstrap() {
+		_tc_use_if_iuse d && [[ ${GCCMAJOR} -ge 12 ]]
+	}
 
 	_need_ada_bootstrap_mangling && toolchain_setup_ada
-	_tc_use_if_iuse d && toolchain_setup_d
+	_need_d_bootstrap && toolchain_setup_d
 
 	confgcc+=( --enable-languages=${GCC_LANG} )
 
@@ -1948,6 +1975,7 @@ gcc_do_filter_flags() {
 		CFLAGS="-O2 -pipe"
 		FFLAGS=${CFLAGS}
 		FCFLAGS=${CFLAGS}
+		GDCFLAGS=${CFLAGS}
 
 		# "hppa2.0-unknown-linux-gnu" -> hppa2_0_unknown_linux_gnu
 		local VAR="CFLAGS_"${CTARGET//[-.]/_}
