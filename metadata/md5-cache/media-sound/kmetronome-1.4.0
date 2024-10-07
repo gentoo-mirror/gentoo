@@ -1,0 +1,15 @@
+BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtbase:6[dbus,gui,widgets] dev-qt/qtsvg:6 media-libs/alsa-lib >=media-sound/drumstick-2.9.1[alsa]
+DESCRIPTION=MIDI based metronome using ALSA sequencer
+EAPI=8
+HOMEPAGE=https://kmetronome.sourceforge.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtbase:6[dbus,gui,widgets] dev-qt/qtsvg:6 media-libs/alsa-lib >=media-sound/drumstick-2.9.1[alsa]
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/kmetronome/kmetronome-1.4.0.tar.bz2
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	854eae304447322625df5991e20ed18f
+_md5_=f6887f79ce63bcaa8a260170377bcb2e
