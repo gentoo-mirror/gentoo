@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-libs/libgcrypt:0= sys-fs/cryptsetup:= keyring? ( app-crypt/libsecret ) qt5? ( dev-libs/libpwquality dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 kwallet? ( kde-frameworks/kwallet:5 ) )
+DEPEND=dev-libs/libgcrypt:0= sys-fs/cryptsetup:= keyring? ( app-crypt/libsecret ) qt6? ( dev-libs/libpwquality dev-qt/qtbase:6[gui,network,widgets] kwallet? ( kde-frameworks/kwallet:6 ) )
 DESCRIPTION=Front end to cryptsetup
 EAPI=8
 HOMEPAGE=https://mhogomchungu.github.io/zuluCrypt/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake xdg
-IUSE=keyring kwallet +qt5 udev
+IUSE=keyring kwallet +qt6 udev
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/libgcrypt:0= sys-fs/cryptsetup:= keyring? ( app-crypt/libsecret ) qt5? ( dev-libs/libpwquality dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 kwallet? ( kde-frameworks/kwallet:5 ) ) udev? ( virtual/udev )
-REQUIRED_USE=kwallet? ( qt5 )
+RDEPEND=dev-libs/libgcrypt:0= sys-fs/cryptsetup:= keyring? ( app-crypt/libsecret ) qt6? ( dev-libs/libpwquality dev-qt/qtbase:6[gui,network,widgets] kwallet? ( kde-frameworks/kwallet:6 ) ) udev? ( virtual/udev )
+REQUIRED_USE=kwallet? ( qt6 )
 SLOT=0
-SRC_URI=https://github.com/mhogomchungu/zuluCrypt/archive/76637bb05af13744bf1734b56f67d6d5cc2343b1.tar.gz -> zulucrypt-5.5.0_pre20180223.tar.gz
+SRC_URI=https://github.com/mhogomchungu/zulucrypt/releases/download/7.0.0/zulucrypt-7.0.0.tar.xz
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	854eae304447322625df5991e20ed18f
-_md5_=4fbd70a1aa97425768af9cbad205a777
+_md5_=ba72df5afd376139a084a9a3f6d24a37
