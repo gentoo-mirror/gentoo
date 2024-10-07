@@ -1,6 +1,6 @@
 BDEPEND=libh2o? ( virtual/pkgconfig ) mruby? ( app-alternatives/yacc virtual/pkgconfig ) dev-build/make >=dev-build/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/zlib libh2o? ( dev-libs/libuv ) mruby? ( || ( ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) || ( dev-libs/onigmo dev-libs/oniguruma ) )
+DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/zlib libh2o? ( dev-libs/libuv ) mruby? ( || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ) || ( dev-libs/onigmo dev-libs/oniguruma ) )
 DESCRIPTION=H2O - the optimized HTTP/1, HTTP/2 server
 EAPI=8
 HOMEPAGE=https://h2o.examp1e.net/
@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/zlib libh2o? ( dev-libs/libuv )
 SLOT=0
 SRC_URI=https://github.com/h2o/h2o/archive/v2.2.6.tar.gz -> h2o-2.2.6.tar.gz
-_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	ruby-utils	ec73f640a49f4fb6394ef1d90fbb3b3c	ruby-single	e045ee439d34b230e588900a87a11904	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	0f241b5c9f3758c3d3423df59a7f655a
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	ruby-utils	b8263e6071c7a20b6afceaae3725827b	ruby-single	e045ee439d34b230e588900a87a11904	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	0f241b5c9f3758c3d3423df59a7f655a
 _md5_=2cdf9e85de39e83937c5f23dda6fd68c
