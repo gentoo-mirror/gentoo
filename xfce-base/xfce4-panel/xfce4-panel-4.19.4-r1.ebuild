@@ -29,7 +29,7 @@ DEPEND="
 	>=xfce-base/garcon-4.17.0:=
 	>=xfce-base/libxfce4ui-4.17.1:=
 	>=xfce-base/libxfce4util-4.17.2:=[introspection?,vala?]
-	>=xfce-base/libxfce4windowing-4.19.3:=[X?]
+	>=xfce-base/libxfce4windowing-4.19.3:0/0[X?]
 	>=xfce-base/xfconf-4.13.2:=
 	dbusmenu? ( >=dev-libs/libdbusmenu-16.04.0[gtk3] )
 	introspection? ( >=dev-libs/gobject-introspection-1.66:= )
@@ -53,6 +53,12 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# fix build with USE=-wayland
+	# https://gitlab.xfce.org/xfce/xfce4-panel/-/issues/833
+	"${FILESDIR}/${P}-build.patch"
+)
 
 src_configure() {
 	local myconf=(

@@ -1,16 +1,24 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit autotools
 
-if [[ ${PV} == *9999 ]] ; then
+if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/sahlberg/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/sahlberg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-remove-ld-iscsi.patch.bz2"
+	if [[ ${PV} == *_p* ]]; then
+		# The S path is too long for the test suite otherwise.
+		inherit vcs-snapshot
+
+		MY_COMMIT=""
+		SRC_URI="https://github.com/sahlberg/libiscsi/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+	else
+		SRC_URI="https://github.com/sahlberg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	fi
+
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
@@ -20,8 +28,7 @@ HOMEPAGE="https://github.com/sahlberg/libiscsi"
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 IUSE="rdma test"
-# test_9000_compareandwrite.sh failure needs investigation
-RESTRICT="!test? ( test ) test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/libgcrypt:=
@@ -31,26 +38,29 @@ DEPEND="
 	${RDEPEND}
 	test? ( dev-util/cunit )
 "
+BDEPEND="test? ( >=sys-block/tgt-1.0.58 )"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.18.0-fno-common.patch
-	"${FILESDIR}"/${PN}-1.18.0-fno-common-2.patch
-	"${FILESDIR}"/${PN}-1.18.0-fno-common-3.patch
-	"${FILESDIR}"/${PN}-1.19.0-fix-rdma-automagic.patch
-	"${WORKDIR}"/${P}-remove-ld-iscsi.patch
+	"${FILESDIR}"/${PN}-1.19.0_p20230208-fix-rdma-automagic.patch
 )
 
 src_prepare() {
 	default
+
+	# bug #906063
+	rm tests/test_0600_ipv6.sh || die
+
 	eautoreconf
 }
 
 src_configure() {
-	econf \
-		--enable-manpages \
-		$(use_with rdma) \
-		--disable-werror \
+	local myeconfargs=(
+		--enable-manpages
+		--disable-werror
+		$(use_with rdma)
 		$(use_enable test tests)
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {
