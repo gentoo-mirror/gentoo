@@ -8,11 +8,11 @@ inherit go-module shell-completion
 DESCRIPTION="A backup program that is fast, efficient and secure"
 HOMEPAGE="https://restic.github.io/"
 SRC_URI="https://github.com/restic/restic/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
+SRC_URI+=" https://gentoo.kropotkin.rocks/go-pkgs/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 LGPL-3-with-linking-exception MIT"
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="sys-fs/fuse:0"
 DEPEND="${RDEPEND}"

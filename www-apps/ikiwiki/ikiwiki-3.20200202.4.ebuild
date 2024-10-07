@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,13 +7,13 @@ DIST_TEST="do"
 inherit perl-module
 
 DESCRIPTION="A wiki compiler"
-HOMEPAGE="http://ikiwiki.info/"
+HOMEPAGE="https://ikiwiki.info/"
 SRC_URI="mirror://debian/pool/main/i/ikiwiki/${PN}_${PV}.orig.tar.xz"
 S="${WORKDIR}/ikiwiki-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="extras minimal test"
 RESTRICT="!test? ( test )"
 
@@ -44,7 +44,10 @@ SUGGESTED_RDEPEND="
 	dev-perl/Mail-Sendmail
 	dev-perl/Term-ReadLine-Gnu
 	dev-perl/XML-Simple
-	media-gfx/imagemagick[perl]
+	|| (
+		media-gfx/imagemagick[perl]
+		media-gfx/graphicsmagick[perl]
+	)
 "
 
 TEST_DEPEND="
@@ -71,17 +74,14 @@ DEPEND="
 	dev-perl/TimeDate
 	dev-perl/YAML-LibYAML
 "
-
 RDEPEND="${DEPEND}
 	!minimal? (
 		${SUGGESTED_RDEPEND}
-		extras? (
-			${EXTRA_RDEPEND}
-		)
+		extras? ( ${EXTRA_RDEPEND} )
 	)
 "
-
-BDEPEND="test? ( ${TEST_DEPEND} )"
+BDEPEND="app-text/ghostscript-gpl
+	test? ( ${TEST_DEPEND} )"
 
 src_prepare() {
 	default
