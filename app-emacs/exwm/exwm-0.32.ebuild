@@ -3,10 +3,12 @@
 
 EAPI=8
 
+NEED_EMACS="27.1"
+
 inherit elisp
 
-DESCRIPTION="X protocol Emacs Lisp Binding"
-HOMEPAGE="https://github.com/emacs-exwm/xelb/"
+DESCRIPTION="Emacs X Window Manager"
+HOMEPAGE="https://github.com/emacs-exwm/exwm/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -22,9 +24,13 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
+BDEPEND="
+	>=app-emacs/compat-30.0.0.0
+	>=app-emacs/xelb-0.20
+"
 RDEPEND="
-	app-editors/emacs[gui]
-	x11-apps/xauth
+	${BDEPEND}
+	x11-apps/xrandr
 "
 
 DOCS=( README.md )
