@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare setup test unpack
 DEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) static? ( acl? ( sys-apps/acl[static-libs] ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:=[static-libs] ) openssl? ( dev-libs/openssl:=[static-libs] ) xattr? ( sys-apps/attr[static-libs] ) )
 DESCRIPTION=Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/coreutils/coreutils-9.5.tar.xz verify-sig? ( mirror://gnu/coreutils/coreutils-9.5.tar.xz.sig ) !vanilla? ( https://dev.gentoo.org/~sam/distfiles/sys-apps/coreutils/coreutils-9.5-patches.tar.xz )
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=f00658536e983dc9ac1a06037dc4d5fa
+_md5_=166ad58656d388f603e2454983765b02

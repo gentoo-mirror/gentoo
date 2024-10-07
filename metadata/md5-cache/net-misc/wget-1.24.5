@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) app-arch/xz-utils dev-lang/perl sys-apps/texinfo virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-perl/HTTP-Daemon-6.60.0 dev-perl/HTTP-Message dev-perl/IO-Socket-SSL ) verify-sig? ( >=sec-keys/openpgp-keys-wget-20240415 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) app-arch/xz-utils dev-lang/perl sys-apps/texinfo virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-perl/HTTP-Daemon-6.60.0 dev-perl/HTTP-Message dev-perl/IO-Socket-SSL ) verify-sig? ( >=sec-keys/openpgp-keys-wget-20240415 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure prepare setup unpack
 DEPEND=!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:= ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme media-libs/libmetalink ) pcre? ( dev-libs/libpcre2 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid? ( sys-apps/util-linux ) zlib? ( sys-libs/zlib ) ) static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:=[static-libs(+)] ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme media-libs/libmetalink ) pcre? ( dev-libs/libpcre2[static-libs(+)] ) ssl? ( gnutls? ( net-libs/gnutls:=[static-libs(+)] ) !gnutls? ( dev-libs/openssl:=[static-libs(+)] ) ) uuid? ( sys-apps/util-linux[static-libs(+)] ) zlib? ( sys-libs/zlib[static-libs(+)] ) )
 DESCRIPTION=Network utility to retrieve files from the WWW
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/wget/wget-1.24.5.tar.lz verify-sig? ( mirror://gnu/wget/wget-1.24.5.tar.lz.sig )
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-any-r1	5af215c3da6aef17a2d5e02968df1d5a	unpacker	fb4b84181244b3b9990fa0bf40232dd2	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=2a232c08c8f1db592dc43dee45037088
+_md5_=aaa7694899f7853810b247e6b583576d
