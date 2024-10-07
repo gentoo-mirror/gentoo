@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://zeroc.com/products/ice
 INHERIT=php-ext-source-r3 python-r1 ruby-ng toolchain-funcs
 IUSE=debug doc examples php python ruby test php_targets_php8-1 php_targets_php8-2 php_targets_php8-3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ruby_targets_ruby32
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=GPL-2
 RDEPEND=>=app-arch/bzip2-1.0.5 >=dev-libs/expat-2.0.1 dev-libs/libedit dev-cpp/libmcpp dev-db/lmdb:= dev-libs/openssl:0= virtual/libcrypt:= python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) ruby? ( dev-lang/ruby:3.2 ) php? ( php_targets_php8-1? ( dev-lang/php:8.1 ) php_targets_php8-2? ( dev-lang/php:8.2 ) php_targets_php8-3? ( dev-lang/php:8.3 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) ) php? ( || ( php_targets_php8-1 php_targets_php8-2 php_targets_php8-3 ) )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/37
 SRC_URI=https://github.com/zeroc-ice/ice/archive/v3.7.10.tar.gz -> Ice-3.7.10.tar.gz doc? ( https://download.zeroc.com/Ice/3.7/Ice-3.7.1.pdf )
 _eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	php-ext-source-r3	57493651a3540d6ef7bff5e1c97c8dd3	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	python-utils-r1	6881b056477c23167d9a6b33e146374e	python-r1	c1fc393cd1e72f093b4838e29d27918c	ruby-utils	b8263e6071c7a20b6afceaae3725827b	ruby-ng	a6e22e2e4ba7527ba0590c8df492c1c0
-_md5_=6fe5a8a90070831c3411dc3d503d7d36
+_md5_=1d021cd44ec693191732090dfe483dca
