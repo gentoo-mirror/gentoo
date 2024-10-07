@@ -5,33 +5,34 @@ EAPI=8
 
 inherit cmake xdg
 
-DESCRIPTION="MIDI based metronome using ALSA sequencer"
-HOMEPAGE="https://kmetronome.sourceforge.io/"
+DESCRIPTION="MIDI monitor for ALSA sequencer"
+HOMEPAGE="https://kmidimon.sourceforge.io/"
 SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="5"
+SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
+IUSE="debug"
 
-DEPEND="
+RDEPEND="
 	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
 	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	media-libs/alsa-lib
-	>=media-sound/drumstick-2.0.0
+	<media-sound/drumstick-2.7.0
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 BDEPEND="
+	app-arch/unzip
 	dev-qt/linguist-tools:5
-	virtual/pkgconfig
 "
+
+PATCHES=( "${FILESDIR}/${PN}-1.2.0-fix-cmake-pathvar.patch" )
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_DOCS=OFF
+		-DCMAKE_INSTALL_DOCDIR="${EPREFIX}"/usr/share/doc/${PF}/html
 		-DUSE_QT=5
 	)
 	cmake_src_configure
