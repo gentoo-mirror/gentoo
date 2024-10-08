@@ -1,16 +1,16 @@
 BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=test? ( sys-apps/portage[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+DEPEND=test? ( sys-apps/portage[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] )
 DESCRIPTION=Java environment configuration query tool
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Java
 INHERIT=meson python-r1 git-r3
-IUSE=+compat test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=+compat test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) sys-apps/baselayout-java sys-apps/portage[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) sys-apps/baselayout-java sys-apps/portage[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=2
 _eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	6881b056477c23167d9a6b33e146374e	meson	99466844dd8d4fcfb07578a76f5a9922	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	multibuild	45df57b1877333d70a9e894f6c8fdb3a	python-r1	c1fc393cd1e72f093b4838e29d27918c	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=945df868ec5fd85787a8865f1d1d6bdf
+_md5_=312c423f5b10196860a05a6578f938c0
