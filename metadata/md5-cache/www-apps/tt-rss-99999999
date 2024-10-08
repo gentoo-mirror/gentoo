@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=daemon? ( acl? ( sys-apps/acl ) ) daemon? ( acct-user/ttrssd acct-group/ttrssd || ( ( virtual/httpd-php:8.3 dev-lang/php:8.3[gd?,mysqli?,postgres?,curl,fileinfo,intl,json(+),pdo,unicode,xml,cli,pcntl] ) ) ) !daemon? ( || ( ( virtual/httpd-php:8.3 dev-lang/php:8.3[gd?,mysqli?,postgres?,curl,fileinfo,intl,json(+),pdo,unicode,xml] ) ) ) app-admin/webapp-config
 REQUIRED_USE=|| ( mysqli postgres )
 SLOT=99999999
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	webapp	ec35e2e7054fc885ca6bba50f7dfc225
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	webapp	5fa840db95fc7348dfd53b8526ed05f5
 _md5_=d75370a6c08ca266b4ff64caac801d23

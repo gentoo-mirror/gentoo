@@ -11,5 +11,5 @@ LICENSE=ISC BSD BSD-1 BSD-2 BSD-4
 RDEPEND=dev-libs/libbsd dev-libs/libevent:= dev-libs/openssl:= sys-libs/zlib:= virtual/libcrypt:= berkdb? ( sys-libs/db:= ) elibc_musl? ( sys-libs/fts-standalone ) pam? ( sys-libs/pam ) acct-user/smtpd acct-user/smtpq app-misc/ca-certificates net-mail/mailbase !mail-client/mailx-support !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/postfix !mail-mta/sendmail !mail-mta/ssmtp[mta]
 SLOT=0
 SRC_URI=https://www.opensmtpd.org/archives/opensmtpd-7.5.0p0.tar.gz verify-sig? ( https://www.opensmtpd.org/archives/opensmtpd-7.5.0p0.sum.sig )
-_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	0f241b5c9f3758c3d3423df59a7f655a	verify-sig	a79ba011daaf532d71a219182474d150
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	54bd206bb5c4efac6ae28b6b006713b0	verify-sig	a79ba011daaf532d71a219182474d150
 _md5_=4fcf884504d9ec6df3fa41e9b3bf453f

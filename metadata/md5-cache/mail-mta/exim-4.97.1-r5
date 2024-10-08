@@ -12,5 +12,5 @@ RDEPEND=>=sys-apps/sed-4.0.5 dev-libs/libpcre2:= tdb? ( sys-libs/tdb:= ) !tdb? (
 REQUIRED_USE=arc? ( dkim spf ) dane? ( ssl !gnutls ) !dane? ( ssl? ( gnutls ) ) dmarc? ( dkim spf ) dkim? ( ssl !gnutls ) gnutls? ( ssl ) pkcs11? ( ssl ) || ( berkdb gdbm tdb )
 SLOT=0
 SRC_URI=https://downloads.exim.org/exim4/exim-4.97.1.tar.xz mirror://gentoo/system_filter.exim.gz doc? ( https://downloads.exim.org/exim4/exim-pdf-4.97.1.tar.xz )
-_eclasses_=multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	0f241b5c9f3758c3d3423df59a7f655a
+_eclasses_=multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	54bd206bb5c4efac6ae28b6b006713b0
 _md5_=8db8c051960d18476e455782fb56ec52
