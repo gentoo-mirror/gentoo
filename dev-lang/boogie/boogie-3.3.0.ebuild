@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT=8.0
+DOTNET_PKG_COMPAT="8.0"
 NUGETS="
 microsoft.bcl.asyncinterfaces@6.0.0
 microsoft.codecoverage@16.2.0
@@ -210,7 +210,7 @@ else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -257,10 +257,13 @@ src_prepare() {
 		civl/inductive-sequentialization/BroadcastConsensus.bpl
 		civl/inductive-sequentialization/ChangRoberts.bpl
 		civl/inductive-sequentialization/PingPong.bpl
+		civl/inductive-sequentialization/distributed-snapshot.bpl
 		civl/large-samples/GC.bpl
+		civl/large-samples/verified-ft.bpl
 		civl/paxos/is.sh
 		civl/samples/reserve.bpl
 		civl/samples/treiber-stack.bpl
+		havoc0/MouseClassFindMorePorts.bpl
 		inst/vector-generic.bpl
 		livevars/stack_overflow.bpl
 		prover/cvc5-offline.bpl
@@ -269,10 +272,9 @@ src_prepare() {
 		prover/z3-hard-timeout.bpl
 		prover/z3mutl.bpl
 		snapshots/runtest.snapshot
-		test0/AssumeFalseSplit/AssumeFalseSplit.bpl
-		test0/Split/Split.bpl
 		test15/CaptureInlineUnroll.bpl
 		test2/Timeouts0.bpl
+		test2/git-issue-366.bpl
 		test21/InterestingExamples4.bpl
 	)
 	local bad_test
@@ -290,9 +292,9 @@ src_prepare() {
 src_test() {
 	einfo "Starting tests using the lit test tool."
 	local -a lit_opts=(
-		--order=lexical
+		--order="lexical"
 		--time-tests
-		--timeout 1800            # Let one test take no more than half a hour.
+		--timeout="1800"          # Let one test take no more than half a hour.
 		--verbose
 		--workers="$(makeopts_jobs)"
 	)
@@ -301,7 +303,7 @@ src_test() {
 
 src_install() {
 	dotnet-pkg-base_install
-	dotnet-pkg-base_dolauncher "/usr/share/${P}/BoogieDriver" boogie
+	dotnet-pkg-base_dolauncher "/usr/share/${P}/BoogieDriver" "${PN}"
 
 	einstalldocs
 }
