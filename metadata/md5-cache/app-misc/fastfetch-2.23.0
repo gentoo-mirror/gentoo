@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/fastfetch-cli/fastfetch
 INHERIT=cmake flag-o-matic
 IUSE=X chafa dbus ddcutil drm elf gnome imagemagick opencl opengl osmesa pulseaudio sqlite test vulkan wayland xcb xfce xrandr
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/yyjson-0.10.0 sys-libs/zlib X? ( x11-libs/libX11 ) chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) elf? ( virtual/libelf:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X] ) osmesa? ( media-libs/mesa[osmesa] ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
 REQUIRED_USE=xrandr? ( X ) chafa? ( imagemagick )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.23.0.tar.gz -> fastfetch-2.23.0.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=5d7513cd9d668f843a7a2edd1d338ffe
+_md5_=a2a7f9f419c6cf09c2078883c6baa4e6
