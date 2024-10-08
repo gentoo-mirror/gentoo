@@ -1,0 +1,14 @@
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=media-libs/hamlib:= dev-libs/glib:2 x11-libs/gtk+:2 media-libs/libpng:0 sys-devel/gettext virtual/pkgconfig
+DESCRIPTION=An amateur radio logging program
+EAPI=8
+HOMEPAGE=https://www.nongnu.org/xlog
+INHERIT=autotools toolchain-funcs xdg-utils
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=media-libs/hamlib:= dev-libs/glib:2 x11-libs/gtk+:2
+SLOT=0
+SRC_URI=https://download.savannah.gnu.org/releases/xlog/xlog-2.0.25.tar.gz
+_eclasses_=gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	libtool	f9e6905c12590c1cac06d85371a0819a	autotools	88360f474e629ee45f99b739f02b7d2d	xdg-utils	5465aed08f1dfc2a75f14cbea4272961
+_md5_=c0a09790369491ba3c5f12fd59827cfe
