@@ -1,0 +1,16 @@
+BDEPEND=dev-util/wayland-scanner app-alternatives/ninja >=dev-build/cmake-3.20.5 dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-libs/wayland ~dev-qt/qtbase-6.8.0:6[accessibility=,gui,opengl,vulkan=,wayland] media-libs/libglvnd x11-libs/libxkbcommon compositor? ( qml? ( ~dev-qt/qtdeclarative-6.8.0:6 ) ) gnome? ( ~dev-qt/qtbase-6.8.0:6[dbus] ~dev-qt/qtsvg-6.8.0:6 ) vulkan? ( dev-util/vulkan-headers )
+DESCRIPTION=Wayland platform plugin for Qt
+EAPI=8
+HOMEPAGE=https://www.qt.io/
+INHERIT=qt6-build
+IUSE=accessibility compositor gnome qml vulkan test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND=dev-libs/wayland ~dev-qt/qtbase-6.8.0:6[accessibility=,gui,opengl,vulkan=,wayland] media-libs/libglvnd x11-libs/libxkbcommon compositor? ( qml? ( ~dev-qt/qtdeclarative-6.8.0:6 ) ) gnome? ( ~dev-qt/qtbase-6.8.0:6[dbus] ~dev-qt/qtsvg-6.8.0:6 )
+RESTRICT=!test? ( test )
+SLOT=6/6.8.0
+SRC_URI=https://download.qt.io/official_releases/qt/6.8/6.8.0/submodules/qtwayland-everywhere-src-6.8.0.tar.xz
+_eclasses_=toolchain-funcs	948855ec7ad9f11351edf9066708dfa9	multilib	7e1347c006a76bb812f3a9f663b79991	flag-o-matic	fa33e3696fe4689dda7e9affe92e2c94	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	5465aed08f1dfc2a75f14cbea4272961	cmake	10a50dfaf728b802fcfd37f8d0da9056	qt6-build	fc1014e5a0d2e29e4a2033f69efa58f6
+_md5_=cdf1d566852cccd3b0250c4ddc1311d9
