@@ -13,7 +13,7 @@ SRC_URI="
 	https://github.com/yt-dlp/yt-dlp/releases/download/${PV}/${PN}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/${PN}"
+S=${WORKDIR}/${PN}
 
 LICENSE="Unlicense"
 SLOT="0"
