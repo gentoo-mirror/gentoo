@@ -8,7 +8,7 @@
 # @AUTHOR:
 # Mike Gilbert <floppym@gentoo.org>
 # William Hubbs <williamh@gentoo.org>
-# @SUPPORTED_EAPIS: 5 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Functions related to tmpfiles.d files
 # @DESCRIPTION:
 # This eclass provides functionality related to installing and
@@ -32,7 +32,7 @@
 # Typical usage of this eclass:
 #
 # @CODE
-#	EAPI=6
+#	EAPI=8
 #	inherit tmpfiles
 #
 #	...
@@ -56,10 +56,6 @@ if [[ -z ${_TMPFILES_ECLASS} ]]; then
 _TMPFILES_ECLASS=1
 
 case ${EAPI} in
-	5|6)
-		ewarn "${CATEGORY}/${PF}: ebuild uses ${ECLASS} with deprecated EAPI ${EAPI}!"
-		ewarn "${CATEGORY}/${PF}: Support will be removed on 2024-10-08. Please port to newer EAPI."
-		;;
 	7|8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
@@ -80,7 +76,7 @@ fi
 # @DESCRIPTION:
 # Install one or more tmpfiles.d files into /usr/lib/tmpfiles.d.
 dotmpfiles() {
-	debug-print-function "${FUNCNAME}" "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	local f
 	for f; do
@@ -101,7 +97,7 @@ dotmpfiles() {
 # @DESCRIPTION:
 # Install a tmpfiles.d file in /usr/lib/tmpfiles.d under a new name.
 newtmpfiles() {
-	debug-print-function "${FUNCNAME}" "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ $2 != *.conf ]]; then
 		die "tmpfiles.d files must end with .conf"
@@ -120,7 +116,7 @@ newtmpfiles() {
 # Call a tmpfiles.d implementation to create new volatile and temporary
 # files and directories.
 tmpfiles_process() {
-	debug-print-function "${FUNCNAME}" "$@"
+	debug-print-function ${FUNCNAME} "$@"
 
 	[[ ${EBUILD_PHASE} == postinst ]] || die "${FUNCNAME}: Only valid in pkg_postinst"
 	[[ ${#} -gt 0 ]] || die "${FUNCNAME}: Must specify at least one filename"

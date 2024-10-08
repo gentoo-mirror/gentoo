@@ -4,7 +4,7 @@
 # @ECLASS: apache-module.eclass
 # @MAINTAINER:
 # apache-bugs@gentoo.org
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Provides a common set of functions for apache modules
 # @DESCRIPTION:
 # This eclass handles apache modules in a sane way.
@@ -44,15 +44,10 @@
 # </IfDefine>
 # @CODE
 
-
 if [[ -z ${_APACHE_MODULE_ECLASS} ]]; then
 _APACHE_MODULE_ECLASS=1
 
 case ${EAPI} in
-	6)
-		ewarn "${CATEGORY}/${PF}: ebuild uses ${ECLASS} with deprecated EAPI ${EAPI}!"
-		ewarn "${CATEGORY}/${PF}: Support will be removed on 2024-10-08. Please port to newer EAPI."
-		;;
 	7|8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
@@ -110,7 +105,7 @@ inherit depend.apache
 
 # Internal function to construct the default ${APXS2_S} path if required.
 apache_cd_dir() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	local CD_DIR="${APXS2_S}"
 
@@ -128,7 +123,7 @@ apache_cd_dir() {
 
 # Internal function to construct the default ${APACHE2_MOD_FILE} if required.
 apache_mod_file() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	local MOD_FILE="${APACHE2_MOD_FILE:-$(apache_cd_dir)/.libs/${PN}.so}"
 
@@ -140,7 +135,7 @@ apache_mod_file() {
 # optional first argument `html'; if the first argument is equals `html', only
 # html files are returned, otherwise normal (non-html) docs are returned.
 apache_doc_magic() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	local DOCS=
 
@@ -166,7 +161,7 @@ apache_doc_magic() {
 # module requires a different build setup than this, use ${APXS} in your own
 # src_compile routine.
 apache-module_src_compile() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	local CD_DIR=$(apache_cd_dir)
 	cd "${CD_DIR}" || die "cd ${CD_DIR} failed"
@@ -185,7 +180,7 @@ apache-module_src_compile() {
 # 55_mod_foo.conf, APACHE2_MOD_CONF would be 55_mod_foo. ${DOCFILES} contains
 # the list of files you want filed as documentation.
 apache-module_src_install() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	local CD_DIR=$(apache_cd_dir)
 	pushd "${CD_DIR}" >/dev/null || die "cd ${CD_DIR} failed"
@@ -227,7 +222,7 @@ apache-module_src_install() {
 # @DESCRIPTION:
 # This prints out information about the installed module and how to enable it.
 apache-module_pkg_postinst() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ -n "${APACHE2_MOD_DEFINE}" ]] ; then
 		local my_opts="-D ${APACHE2_MOD_DEFINE// / -D }"

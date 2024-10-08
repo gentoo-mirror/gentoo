@@ -4,7 +4,7 @@
 # @ECLASS: depend.apache.eclass
 # @MAINTAINER:
 # apache-bugs@gentoo.org
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 7 8
 # @BLURB: Functions to allow ebuilds to depend on apache
 # @DESCRIPTION:
 # This eclass handles depending on apache in a sane way and provides information
@@ -40,11 +40,10 @@
 # }
 # @CODE
 
+if [[ -z ${_DEPEND_APACHE_ECLASS} ]]; then
+_DEPEND_APACHE_ECLASS=1
+
 case ${EAPI} in
-	6)
-		ewarn "${CATEGORY}/${PF}: ebuild uses ${ECLASS} with deprecated EAPI ${EAPI}!"
-		ewarn "${CATEGORY}/${PF}: Support will be removed on 2024-10-08. Please port to newer EAPI."
-		;;
 	7|8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
@@ -124,7 +123,7 @@ APACHE2_4_DEPEND="=www-servers/apache-2.4*"
 # ==============================================================================
 
 _init_apache2() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	# WARNING: Do not use these variables with anything that is put
 	# into the dependency cache (DEPEND/RDEPEND/etc)
@@ -144,7 +143,7 @@ _init_apache2_late() {
 }
 
 _init_no_apache() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 	APACHE_VERSION="0"
 }
 
@@ -159,7 +158,7 @@ _init_no_apache() {
 # apache-2.x support. If the myiuse parameter is not given it defaults to
 # apache2.
 depend.apache_pkg_setup() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	if [[ "${EBUILD_PHASE}" != "setup" ]]; then
 		die "$FUNCNAME() should be called in pkg_setup()"
@@ -185,7 +184,7 @@ depend.apache_pkg_setup() {
 # An ebuild should additionally call depend.apache_pkg_setup() in pkg_setup()
 # with the same myiuse parameter.
 want_apache() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 	want_apache2 "$@"
 }
 
@@ -197,7 +196,7 @@ want_apache() {
 # An ebuild should additionally call depend.apache_pkg_setup() in pkg_setup()
 # with the same myiuse parameter.
 want_apache2() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	local myiuse=${1:-apache2}
 	IUSE="${IUSE} ${myiuse}"
@@ -214,10 +213,10 @@ want_apache2() {
 # An ebuild should additionally call depend.apache_pkg_setup() in pkg_setup()
 # with the same myiuse parameter.
 want_apache2_2() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
-	case ${EAPI:-0} in
-		6|7)
+	case ${EAPI} in
+		7)
 			local myiuse=${1:-apache2}
 			IUSE="${IUSE} ${myiuse}"
 			DEPEND="${DEPEND} ${myiuse}? ( ${APACHE2_2_DEPEND} )"
@@ -238,7 +237,7 @@ want_apache2_2() {
 # An ebuild should additionally call depend.apache_pkg_setup() in pkg_setup()
 # with the same myiuse parameter.
 want_apache2_4() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	local myiuse=${1:-apache2}
 	IUSE="${IUSE} ${myiuse}"
@@ -250,7 +249,7 @@ want_apache2_4() {
 # @DESCRIPTION:
 # An ebuild calls this to get the dependency information for apache.
 need_apache() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 	need_apache2
 }
 
@@ -258,7 +257,7 @@ need_apache() {
 # @DESCRIPTION:
 # An ebuild calls this to get the dependency information for apache-2.x.
 need_apache2() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	DEPEND="${DEPEND} ${APACHE2_DEPEND}"
 	RDEPEND="${RDEPEND} ${APACHE2_DEPEND}"
@@ -269,10 +268,10 @@ need_apache2() {
 # @DESCRIPTION:
 # An ebuild calls this to get the dependency information for apache-2.2.x.
 need_apache2_2() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
-	case ${EAPI:-0} in
-		6|7)
+	case ${EAPI} in
+		7)
 			DEPEND="${DEPEND} ${APACHE2_2_DEPEND}"
 			RDEPEND="${RDEPEND} ${APACHE2_2_DEPEND}"
 			_init_apache2
@@ -287,7 +286,7 @@ need_apache2_2() {
 # @DESCRIPTION:
 # An ebuild calls this to get the dependency information for apache-2.4.x.
 need_apache2_4() {
-        debug-print-function $FUNCNAME $*
+        debug-print-function ${FUNCNAME} "$@"
 
         DEPEND="${DEPEND} ${APACHE2_4_DEPEND}"
         RDEPEND="${RDEPEND} ${APACHE2_4_DEPEND}"
@@ -300,7 +299,7 @@ need_apache2_4() {
 # dependency without USE-flag, in which case want_apache does not work.
 # DO NOT call this function in global scope.
 has_apache() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	if has_version '>=www-servers/apache-2'; then
 		_init_apache2
@@ -316,7 +315,7 @@ has_apache() {
 # built with a threaded MPM. If the myflag parameter is not given it defaults to
 # threads.
 has_apache_threads() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	if ! has_version 'www-servers/apache[threads]'; then
 		return
@@ -339,7 +338,7 @@ has_apache_threads() {
 # package if apache has been built with a threaded MPM. If the myflag parameter
 # is not given it defaults to threads.
 has_apache_threads_in() {
-	debug-print-function $FUNCNAME $*
+	debug-print-function ${FUNCNAME} "$@"
 
 	if ! has_version 'www-servers/apache[threads]'; then
 		return
@@ -356,5 +355,7 @@ has_apache_threads_in() {
 		die "Need missing USE flag '${myflag}' in ${myforeign}"
 	fi
 }
+
+fi
 
 EXPORT_FUNCTIONS pkg_setup
