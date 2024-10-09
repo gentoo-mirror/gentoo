@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=app-arch/lz4:= dev-java/mvel:2.5 dev-libs/xxhash:0 >=virtual/jdk-1.8:* test? ( dev-java/randomized-runner:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=app-arch/lz4:= dev-java/mvel:0 dev-libs/xxhash:0 >=virtual/jdk-1.8:* test? ( dev-java/randomized-runner:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=LZ4 compression for Java
 EAPI=8
 HOMEPAGE=https://github.com/lz4/lz4-java
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/lz4/lz4-java/archive/1.8.0.tar.gz -> lz4-java-1.8.0.tar.gz
 _eclasses_=java-utils-2	4b88d12e899778ff681b67d7bcbb54f0	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=79db1b73c2c3806a37786c717ebd98d0
+_md5_=67e6fd749f233fc75d08240f42ce4421
