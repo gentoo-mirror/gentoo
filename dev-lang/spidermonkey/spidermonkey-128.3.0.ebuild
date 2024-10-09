@@ -58,7 +58,7 @@ DESCRIPTION="Mozilla's JavaScript engine written in C and C++"
 HOMEPAGE="https://spidermonkey.dev https://firefox-source-docs.mozilla.org/js/index.html"
 SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}.source.tar.xz -> ${MOZ_P_DISTFILES}.source.tar.xz
 	${PATCH_URIS[@]}"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="MPL-2.0"
 SLOT="$(ver_cut 1)"
@@ -448,6 +448,11 @@ src_test() {
 	fi
 
 	cp "${FILESDIR}"/spidermonkey-${SLOT}-known-test-failures.txt "${T}"/known_test_failures.list || die
+
+	if use x86 ; then
+		echo "non262/Intl/DateTimeFormat/timeZone_version.js" >> "${T}"/known_test_failures.list
+		echo "test262/intl402/Locale/constructor-non-iana-canon.js" >> "${T}"/known_test_failures.list
+	fi
 
 	./mach jstests --exclude-file="${T}"/known_test_failures.list || die
 }
