@@ -6,9 +6,8 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
-MY_P="kas-${PV}"
 DESCRIPTION="Setup tool for bitbake based projects"
 HOMEPAGE="
 	https://github.com/siemens/kas
@@ -18,7 +17,7 @@ HOMEPAGE="
 # pypi does not package tests
 SRC_URI="
 	https://github.com/siemens/kas/archive/refs/tags/${PV}.tar.gz
-		-> ${MY_P}.gh.tar.gz
+		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
@@ -48,3 +47,9 @@ BDEPEND="
 PROPERTIES="test_network"
 
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	optfeature_header "Install optional tools to clone repositories:"
+	optfeature "git repository support" dev-vcs/git
+	optfeature "mercurial repository support" dev-vcs/mercurial
+}
