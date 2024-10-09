@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( pypy3 python3_{10..12} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1 virtualx xdg-utils
 
@@ -18,7 +18,7 @@ SRC_URI="https://github.com/pyglet/pyglet/archive/v${PV}.tar.gz -> ${P}.gh.tar.g
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~riscv x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="examples image +sound"
 
 RDEPEND="

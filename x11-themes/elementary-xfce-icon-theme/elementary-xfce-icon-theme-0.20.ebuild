@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,13 @@ HOMEPAGE="https://github.com/shimmerproject/elementary-xfce"
 SRC_URI="https://github.com/shimmerproject/elementary-xfce/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
-LICENSE="public-domain GPL-1 GPL-2 GPL-3"
+# see AUTHORS
+LICENSE="
+	GPL-2+
+	Apache-2.0
+	CC-BY-4.0 CC-BY-NC-SA-4.0 CC-BY-SA-4.0
+	public-domain
+"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv ~x86"
 
@@ -23,6 +29,8 @@ BDEPEND="
 src_prepare() {
 	sed -i -e 's:-Werror -O0 -pipe:${CFLAGS} ${CPPFLAGS} ${LDFLAGS}:' \
 		svgtopng/Makefile || die
+	# https://dart.dev/brand ; unclear if we should redistribute that
+	find -name application-vnd.dart.svg -delete || die
 	default
 }
 

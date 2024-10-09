@@ -4,7 +4,6 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 pypi
@@ -22,7 +21,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/django-2.2[${PYTHON_USEDEP}]
+	>=dev-python/django-3.2[${PYTHON_USEDEP}]
 	>=dev-python/python-ldap-3.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
