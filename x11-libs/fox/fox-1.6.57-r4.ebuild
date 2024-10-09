@@ -10,9 +10,9 @@ HOMEPAGE="http://www.fox-toolkit.org/"
 SRC_URI="ftp://ftp.fox-toolkit.org/pub/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
-SLOT="1.7"
+SLOT="1.6"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86"
-IUSE="+bzip2 +jpeg +opengl +png tiff +truetype +zlib debug doc profile tools"
+IUSE="+bzip2 +jpeg +opengl +png tiff +truetype +zlib debug doc profile"
 
 RDEPEND="
 	x11-libs/fox-wrapper
@@ -33,27 +33,13 @@ DEPEND="${RDEPEND}
 	x11-libs/libXt"
 BDEPEND="doc? ( app-text/doxygen )"
 
-PATCHES=(
-	"${FILESDIR}"/"${PN}"-1.7.67-no-truetype.patch
-	"${FILESDIR}"/"${PN}"-1.7.67-pthread_rwlock_prefer_writer_np-musl.patch
-)
-
 src_prepare() {
 	default
 
-	sed -i '/#define REXDEBUG 1/d' lib/FXRex.cpp || die "Unable to remove spurious debug line."
-	sed -i -e "s:windows::" Makefile.am || die
-	sed -i -e 's/register //g' lib/*.cpp || die "Unable remove register keywords from sources under lib folder"
-	sed -i -e 's/register //g' shutterbug/*.cpp || die "Unable remove register keywords from sources under shutterbug folder"
-	sed -i -e 's/register //g' calculator/*.cpp || die "Unable remove register keywords from sources under calculator folder"
-	sed -i -e 's/register //g' glviewer/*.cpp || die "Unable remove register keywords from sources under glviewer folder"
-	sed -i -e 's/register //g' chart/*.cpp || die "Unable remove register keywords from sources under chart folder"
-	if ! use tools; then
-		local d
-		for d in adie calculator pathfinder shutterbug; do
-			sed -i -e "s:${d}::" Makefile.am || die
-		done
-	fi
+	local d
+	for d in utils windows adie calculator pathfinder shutterbug; do
+		sed -i -e "s:${d}::" Makefile.am || die
+	done
 
 	# Respect system CXXFLAGS
 	sed -i -e 's:CXXFLAGS=""::' configure.ac || die "Unable to force cxxflags."
@@ -65,18 +51,18 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=strict-aliasing
-	# https://bugs.gentoo.org/864412
-	# Fixed in 1.7.84
-	#
+	# -Werror=strict-aliasing (bug #864412, bug #940648)
 	# Do not trust it for LTO either.
 	append-flags -fno-strict-aliasing
 	filter-lto
 
+	use debug || append-cppflags -DNDEBUG
+
+	# Not using --enable-release because of the options it sets like no SSP
 	econf \
 		--disable-static \
-		--enable-$(usex debug debug release) \
 		$(use_enable bzip2 bz2lib) \
+		$(use_enable debug) \
 		$(use_enable jpeg) \
 		$(use_with opengl) \
 		$(use_enable png) \
