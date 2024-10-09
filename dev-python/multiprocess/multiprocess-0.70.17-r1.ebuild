@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -29,6 +29,21 @@ BDEPEND="
 	)
 "
 
+distutils_enable_tests unittest
+
+src_prepare() {
+	local PATCHES=(
+		# https://github.com/uqfoundation/multiprocess/pull/197
+		"${FILESDIR}/${P}-wheel-tag.patch"
+	)
+
+	distutils-r1_src_prepare
+
+	# https://github.com/uqfoundation/multiprocess/issues/196
+	sed -i -e '/python-tag/d' setup.cfg || die
+}
+
 python_test() {
-	"${EPYTHON}" py${EPYTHON#python}/multiprocess/tests/__main__.py -v || die
+	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
+	eunittest
 }
