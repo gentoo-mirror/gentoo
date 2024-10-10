@@ -56,7 +56,7 @@ src_prepare() {
 	default
 
 	# Don't hardcode FORTIFY_SOURCE
-	sed -e '/-D_FORTIFY_SOURCE=2/d' -i configure.ac || die
+	sed -e '/-D_FORTIFY_SOURCE=2/d' -i configure || die
 
 	[[ "${PV}" == 9999 ]] && eautoreconf
 }
