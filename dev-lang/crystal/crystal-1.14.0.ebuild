@@ -6,9 +6,9 @@ EAPI=8
 BV="${PV}-1"
 BV_AMD64="${BV}-linux-x86_64"
 
-LLVM_MAX_SLOT=17
+LLVM_COMPAT=( {16..18} )
 
-inherit bash-completion-r1 llvm multiprocessing toolchain-funcs
+inherit bash-completion-r1 llvm-r1 multiprocessing toolchain-funcs
 
 DESCRIPTION="The Crystal Programming Language"
 HOMEPAGE="https://crystal-lang.org/
@@ -23,20 +23,22 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc debug llvm-libunwind"
 
 # Upstream test suite not reliable
 RESTRICT="test"
 
 DEPEND="
-	<sys-devel/llvm-$((${LLVM_MAX_SLOT} + 1)):=
 	dev-libs/boehm-gc:=[threads]
 	dev-libs/gmp:=
 	dev-libs/libatomic_ops:=
 	dev-libs/libevent:=
 	dev-libs/libpcre2:=[unicode]
 	dev-libs/pcl:=
+	$(llvm_gen_dep '
+		sys-devel/llvm:${LLVM_SLOT}=
+	')
 	llvm-libunwind? (
 		sys-libs/llvm-libunwind:=
 	)
@@ -81,7 +83,7 @@ src_configure() {
 		AR="$(tc-getAR)"
 		CC="$(tc-getCC)"
 		CXX="$(tc-getCXX)"
-		LLVM_CONFIG="$(get_llvm_prefix "${LLVM_MAX_SLOT}")/bin/llvm-config"
+		LLVM_CONFIG="$(get_llvm_prefix -d)/bin/llvm-config"
 	)
 }
 
