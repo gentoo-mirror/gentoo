@@ -9075,7 +9075,7 @@ dev-python/pyside6 6.7.2 6.7.3: Python bindings for the Qt framework
 dev-python/pyside6-tools 6.7.2 6.7.3: PySide development tools (pyside6-lupdate with support for Python)
 dev-python/pysimdjson 6.0.2: Python bindings for simdjson
 dev-python/pysmi 1.5.0: Pure-Python implementation of SNMP/SMI MIB parsing and conversion library
-dev-python/pysnmp 7.0.3: Python SNMP library
+dev-python/pysnmp 7.0.3 7.1.5: Python SNMP library
 dev-python/pysnmp-mibs 0.1.6: SNMP framework in Python - MIBs
 dev-python/pysnmpcrypto 0.0.4: Strong cryptography support for PySNMP (SNMP library for Python)
 dev-python/pysol-cards 0.18.0: Deal PySol FreeCell cards
@@ -17561,8 +17561,8 @@ sys-kernel/dkms 3.0.13-r1 3.1.0: Dynamic Kernel Module Support
 sys-kernel/dracut 060_pre20240104-r4 103-r2 103-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.226 5.15.167 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.10.11 6.10.12 6.10.13 6.11.2: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.226 5.15.167 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.10.11 6.10.12 6.10.13 6.11.2: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.226 5.15.167 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.6.56 6.10.11 6.10.12 6.10.13 6.10.14 6.11.2 6.11.3: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.226 5.15.167 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.6.56 6.10.11 6.10.12 6.10.13 6.10.14 6.11.2 6.11.3: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.224 5.10.225 5.10.226 5.15.165 5.15.166 5.15.167 6.1.106 6.1.109 6.1.110 6.1.111 6.1.112 6.6.47 6.6.50 6.6.51 6.6.52 6.6.53 6.6.54 6.6.56 6.10.9 6.10.10 6.10.11 6.10.12 6.10.13 6.10.14 6.11.0 6.11.1 6.11.2 6.11.3: Full sources including the Gentoo patchset for the 6.11 kernel tree
 sys-kernel/git-sources 6.12_rc1 6.12_rc2: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 48-r1: Gentoo fork of installkernel script from debianutils
@@ -17580,7 +17580,7 @@ sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230
 sys-kernel/rt-sources 4.14.336_p159 4.19.317_p137 5.4.278_p91 5.10.225_p117 5.15.163_p78 6.0.5_p14 6.1.111_p42 6.5.2_p8 6.6.52_p43: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/scx 1.0.5: sched_ext schedulers and tools
 sys-kernel/ugrd 1.13.0 1.17.0 1.20.0 1.22.0 1.23.0 9999: Python based initramfs generator with TOML defintions
-sys-kernel/vanilla-kernel 5.10.226 5.10.9999 5.15.167 5.15.9999 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.6.9999 6.10.11 6.10.12 6.10.13 6.11.2: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.226 5.10.9999 5.15.167 5.15.9999 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.6.56 6.6.9999 6.10.11 6.10.12 6.10.13 6.10.14 6.11.2 6.11.3: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.322 5.4.284 5.10.226 5.15.167 6.1.112 6.6.56 6.10.14 6.11.3: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.10.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17769,7 +17769,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.226 5.15.167 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.10.11 6.10.12 6.10.13 6.11.2: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.226 5.15.167 6.1.110 6.1.111 6.1.112 6.6.51 6.6.52 6.6.53 6.6.54 6.6.56 6.10.11 6.10.12 6.10.13 6.10.14 6.11.2 6.11.3: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
