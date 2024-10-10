@@ -1,18 +1,17 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools flag-o-matic gnome2
 
 DESCRIPTION="GTK based loudspeaker enclosure and crossovernetwork designer"
-HOMEPAGE="http://gspeakers.sourceforge.net/"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
+HOMEPAGE="https://gspeakers.sourceforge.net/"
+SRC_URI="https://downloads.sourceforge.net/project/gspeakers/${PN}/${P}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE=""
 
 RDEPEND="
 	dev-cpp/gtkmm:2.4
@@ -25,9 +24,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-cxxflags.patch
