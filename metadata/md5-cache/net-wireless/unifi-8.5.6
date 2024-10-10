@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst preinst prepare setup
+DEPEND=>=dev-java/java-config-2.2.0-r3
+DESCRIPTION=A Management Controller for Ubiquiti Networks UniFi APs
+EAPI=8
+HOMEPAGE=https://www.ubnt.com
+INHERIT=java-pkg-2 readme.gentoo-r1 systemd
+IUSE=systemd system-mongodb
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=Apache-1.0 Apache-2.0 BSD-1 BSD-2 BSD CDDL EPL-1.0 GPL-2 LGPL-2.1 LGPL-3 MIT ubiquiti
+RDEPEND=acct-group/unifi acct-user/unifi dev-db/mongodb virtual/jre:17 >=dev-java/java-config-2.2.0-r3
+RESTRICT=bindist mirror
+SLOT=0/8.5
+SRC_URI=https://dl.ui.com/unifi/8.5.6/UniFi.unix.zip -> unifi-8.5.6.zip
+_eclasses_=java-utils-2	4b88d12e899778ff681b67d7bcbb54f0	java-pkg-2	6e6478d8b78f18251c008bad32994df9	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=1c21bc23d733ddcdda104b7061ececb2

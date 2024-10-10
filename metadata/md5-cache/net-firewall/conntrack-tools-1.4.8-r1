@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) verify-sig? ( sec-keys/openpgp-keys-netfilter ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install prepare setup unpack
+DEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.9 >=net-libs/libnetfilter_queue-1.0.2 >=net-libs/libnfnetlink-1.0.1 net-libs/libtirpc cthelper? ( >=net-libs/libnetfilter_cthelper-1.0.0 ) cttimeout? ( >=net-libs/libnetfilter_cttimeout-1.0.0 ) systemd? ( >=sys-apps/systemd-227 )
+DESCRIPTION=Connection tracking userspace tools
+EAPI=8
+HOMEPAGE=https://conntrack-tools.netfilter.org
+INHERIT=linux-info systemd verify-sig
+IUSE=doc +cthelper +cttimeout systemd verify-sig
+KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.9 >=net-libs/libnetfilter_queue-1.0.2 >=net-libs/libnfnetlink-1.0.1 net-libs/libtirpc cthelper? ( >=net-libs/libnetfilter_cthelper-1.0.0 ) cttimeout? ( >=net-libs/libnetfilter_cttimeout-1.0.0 ) systemd? ( >=sys-apps/systemd-227 )
+SLOT=0
+SRC_URI=https://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-1.4.8.tar.xz verify-sig? ( https://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-1.4.8.tar.xz.sig )
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	systemd	54bd206bb5c4efac6ae28b6b006713b0	verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=571079a9e6aa5577cb8cfd56f32e3c8e

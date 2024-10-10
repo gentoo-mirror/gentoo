@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) verify-sig? ( sec-keys/openpgp-keys-netfilter ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install setup unpack
+DEPEND=>=net-libs/libnfnetlink-1.0.0 >=net-libs/libmnl-1.0.3
+DESCRIPTION=Interface to packets that have been logged by the kernel packet filter
+EAPI=8
+HOMEPAGE=https://www.netfilter.org/projects/libnetfilter_log/
+INHERIT=linux-info verify-sig
+IUSE=doc verify-sig
+KEYWORDS=~amd64 ~ppc ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=>=net-libs/libnfnetlink-1.0.0 >=net-libs/libmnl-1.0.3
+SLOT=0
+SRC_URI=https://www.netfilter.org/projects/libnetfilter_log/files/libnetfilter_log-1.0.2.tar.bz2 verify-sig? ( https://www.netfilter.org/projects/libnetfilter_log/files/libnetfilter_log-1.0.2.tar.bz2.sig )
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	verify-sig	a79ba011daaf532d71a219182474d150
+_md5_=6f7145338694f3437427adf0ec7876d7
