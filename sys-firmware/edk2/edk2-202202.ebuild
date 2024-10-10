@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,10 +19,10 @@ BUNDLED_BROTLI_SUBMODULE_SHA="f4153a09f87cbb9c826d8fc12c74642bb2d879ea"
 # TODO: the binary 202105 package currently lacks the preseeded
 #       OVMF_VARS.secboot.fd file (that we typically get from fedora)
 
-SRC_URI="https://github.com/tianocore/edk2/archive/edk2-stable${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/tianocore/edk2/archive/edk2-stable${PV}.tar.gz -> edk2-ovmf-${PV}.tar.gz
 	https://github.com/openssl/openssl/archive/${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz -> openssl-${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz
 	https://github.com/google/brotli/archive/${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz -> brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz
-	https://dev.gentoo.org/~ajak/distfiles/${P}-qemu-firmware.tar.xz"
+	https://dev.gentoo.org/~ajak/distfiles/edk2-ovmf-${PV}-qemu-firmware.tar.xz"
 
 LICENSE="BSD-2 MIT"
 SLOT="0"
@@ -30,9 +30,10 @@ KEYWORDS="-* amd64"
 
 BDEPEND="app-emulation/qemu
 	>=dev-lang/nasm-2.0.7
+	sys-apps/which
 	>=sys-power/iasl-20160729
 	${PYTHON_DEPS}"
-RDEPEND="!sys-firmware/edk2-ovmf-bin"
+RDEPEND="!sys-firmware/edk2-bin"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-202105-werror.patch"
@@ -49,16 +50,11 @@ virtual machines. The firmware is located under
 	/usr/share/edk2-ovmf/OVMF_VARS.fd
 	/usr/share/edk2-ovmf/OVMF_CODE.secboot.fd
 
-If USE=binary is enabled, we also install an OVMF variables file (coming from
-fedora) that contains secureboot default keys
-
-	/usr/share/edk2-ovmf/OVMF_VARS.secboot.fd
-
-If you have compiled this package by hand, you need to either populate all
-necessary EFI variables by hand by booting
-	/usr/share/edk2-ovmf/UefiShell.(iso|img)
+To use Secure Boot, you need to either populate the necessary EFI
+variables by booting:
+	/usr/share/edk2-ovmf/UefiShell.img
 or creating OVMF_VARS.secboot.fd by hand:
-	https://github.com/puiterwijk/qemu-ovmf-secureboot
+	https://github.com/rhuefi/qemu-ovmf-secureboot
 
 The firmware does not support csm (due to no free csm implementation
 available). If you need a firmware with csm support you have to download
@@ -144,7 +140,7 @@ src_compile() {
 }
 
 src_install() {
-	insinto /usr/share/${PN}
+	insinto /usr/share/edk2-ovmf
 	doins ovmf/*
 
 	insinto /usr/share/qemu/firmware

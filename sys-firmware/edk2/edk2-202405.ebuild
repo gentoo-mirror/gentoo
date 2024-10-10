@@ -17,13 +17,13 @@ BUNDLED_MIPI_SYS_T_SUBMODULE_SHA="370b5944c046bab043dd8b133727b2135af7747a"
 BUNDLED_MBEDTLS_SUBMODULE_SHA="8c89224991adff88d53cd380f42a2baa36f91454"
 BUNDLED_LIBSPDM_SUBMODULE_SHA="828ef62524bcaeca4e90d0c021221e714872e2b5"
 
-SRC_URI="https://github.com/tianocore/edk2/archive/edk2-stable${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/tianocore/edk2/archive/edk2-stable${PV}.tar.gz -> edk2-ovmf-${PV}.tar.gz
 	https://github.com/openssl/openssl/archive/${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz -> openssl-${BUNDLED_OPENSSL_SUBMODULE_SHA}.tar.gz
 	https://github.com/google/brotli/archive/${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz -> brotli-${BUNDLED_BROTLI_SUBMODULE_SHA}.tar.gz
 	https://github.com/MIPI-Alliance/public-mipi-sys-t/archive/${BUNDLED_MIPI_SYS_T_SUBMODULE_SHA}.tar.gz -> mipi-sys-t-${BUNDLED_MIPI_SYS_T_SUBMODULE_SHA}.tar.gz
 	https://github.com/Mbed-TLS/mbedtls/archive/${BUNDLED_MBEDTLS_SUBMODULE_SHA}.tar.gz -> mbedtls-${BUNDLED_MIPI_SYS_T_SUBMODULE_SHA}.tar.gz
 	https://github.com/DMTF/libspdm/archive/${BUNDLED_LIBSPDM_SUBMODULE_SHA}.tar.gz -> libspdm-${BUNDLED_MIPI_SYS_T_SUBMODULE_SHA}.tar.gz
-	https://dev.gentoo.org/~ajak/distfiles/${PN}-202202-qemu-firmware.tar.xz"
+	https://dev.gentoo.org/~ajak/distfiles/edk2-ovmf-202202-qemu-firmware.tar.xz"
 
 S="${WORKDIR}/edk2-edk2-stable${PV}"
 
@@ -33,9 +33,15 @@ KEYWORDS="-* ~amd64"
 
 BDEPEND="app-emulation/qemu
 	>=dev-lang/nasm-2.0.7
+	sys-apps/which
 	>=sys-power/iasl-20160729
 	${PYTHON_DEPS}"
-RDEPEND="!sys-firmware/edk2-ovmf-bin"
+RDEPEND="!sys-firmware/edk2-bin"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-202408-werror.patch"
+	"${FILESDIR}/${PN}-202408-binutils-2.41-textrels.patch"
+)
 
 DISABLE_AUTOFORMATTING=true
 DOC_CONTENTS="This package contains the tianocore edk2 UEFI firmware for 64-bit x86
@@ -44,16 +50,11 @@ virtual machines. The firmware is located under
 	/usr/share/edk2-ovmf/OVMF_VARS.fd
 	/usr/share/edk2-ovmf/OVMF_CODE.secboot.fd
 
-If USE=binary is enabled, we also install an OVMF variables file (coming from
-fedora) that contains secureboot default keys
-
-	/usr/share/edk2-ovmf/OVMF_VARS.secboot.fd
-
-If you have compiled this package by hand, you need to either populate all
-necessary EFI variables by hand by booting
-	/usr/share/edk2-ovmf/UefiShell.(iso|img)
+To use Secure Boot, you need to either populate the necessary EFI
+variables by booting:
+	/usr/share/edk2-ovmf/UefiShell.img
 or creating OVMF_VARS.secboot.fd by hand:
-	https://github.com/puiterwijk/qemu-ovmf-secureboot
+	https://github.com/rhuefi/qemu-ovmf-secureboot
 
 The firmware does not support csm (due to no free csm implementation
 available). If you need a firmware with csm support you have to download
@@ -144,7 +145,7 @@ src_compile() {
 }
 
 src_install() {
-	insinto /usr/share/${PN}
+	insinto /usr/share/edk2-ovmf
 	doins ovmf/*
 
 	insinto /usr/share/qemu/firmware
