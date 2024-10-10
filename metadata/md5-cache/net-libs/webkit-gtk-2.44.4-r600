@@ -7,7 +7,7 @@ HOMEPAGE=https://www.webkitgtk.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=check-reqs flag-o-matic gnome2 optfeature python-any-r1 ruby-single toolchain-funcs cmake
 IUSE=aqua avif examples gamepad keyring +gstreamer +introspection pdf jpegxl +jumbo-build lcms seccomp spell systemd wayland X
-KEYWORDS=amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86
 LICENSE=LGPL-2+ BSD
 RDEPEND=>=x11-libs/cairo-1.16.0[X?] >=media-libs/fontconfig-2.13.0:1.0 >=media-libs/freetype-2.9.0:2 >=dev-libs/libgcrypt-1.7.0:0= dev-libs/libtasn1:= >=gui-libs/gtk-4.6.0:4[aqua?,introspection?,wayland?,X?] >=media-libs/harfbuzz-1.4.2:=[icu(+)] >=dev-libs/icu-61.2:= media-libs/libjpeg-turbo:0= >=media-libs/libepoxy-1.5.4[egl(+)] >=net-libs/libsoup-3.0.8:3.0[introspection?] >=dev-libs/libxml2-2.8.0:2 >=media-libs/libpng-1.4:0= dev-db/sqlite:3 sys-libs/zlib:0 media-libs/libwebp:= >=app-accessibility/at-spi2-core-2.46.0:2 >=dev-libs/glib-2.70.0:2 >=dev-libs/libxslt-1.1.7 media-libs/woff2 keyring? ( app-crypt/libsecret ) introspection? ( >=dev-libs/gobject-introspection-1.59.1:= ) x11-libs/libdrm media-libs/mesa spell? ( >=app-text/enchant-0.22:2 ) gstreamer? ( >=media-libs/gstreamer-1.20:1.0 >=media-libs/gst-plugins-base-1.20:1.0[egl,X?] media-libs/gst-plugins-base:1.0[opengl] >=media-plugins/gst-plugins-opus-1.20:1.0 >=media-libs/gst-plugins-bad-1.20:1.0 ) X? ( x11-libs/libX11 ) dev-libs/hyphen jpegxl? ( >=media-libs/libjxl-0.7.0:= ) avif? ( >=media-libs/libavif-0.9.0:= ) lcms? ( media-libs/lcms:2 ) media-libs/libglvnd wayland? ( >=dev-libs/wayland-1.20 >=dev-libs/wayland-protocols-1.24 ) seccomp? ( >=sys-apps/bubblewrap-0.3.1 sys-libs/libseccomp sys-apps/xdg-dbus-proxy ) systemd? ( sys-apps/systemd:= ) gamepad? ( >=dev-libs/libmanette-0.2.4 ) !<net-libs/webkit-gtk-2.38:4 !<net-libs/webkit-gtk-2.44:4.1
 REQUIRED_USE=|| ( aqua wayland X )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=6/0
 SRC_URI=https://www.webkitgtk.org/releases/webkitgtk-2.44.4.tar.xz
 _eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	libtool	6b28392a775f807c8be5fc7ec9a605b9	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	c356a67b8e93889de6efff7d50599102	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	ruby-utils	8c235870eceb33155907ba2ef7b6592f	ruby-single	d1b60f2dbb45623756c128d02b2d3497	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=e7564b9339596f3b44b4bc332fedb49f
+_md5_=2ed87bfa64579d14ffe380232d331510
