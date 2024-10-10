@@ -1,0 +1,14 @@
+BDEPEND=secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+DEFINED_PHASES=install postinst preinst prepare setup unpack
+DESCRIPTION=TianoCore EDK II UEFI firmware for virtual machines
+EAPI=8
+HOMEPAGE=https://github.com/tianocore/edk2
+INHERIT=readme.gentoo-r1 secureboot
+IUSE=secureboot
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=BSD-2 MIT
+RDEPEND=!sys-firmware/edk2
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~chewi/distfiles/edk2-202408-1-amd64.xpak https://dev.gentoo.org/~chewi/distfiles/edk2-202408-1-arm64.xpak
+_eclasses_=readme.gentoo-r1	b045f3acf546393ab6b3170781875358	secureboot	b77b70edf988076b4776734f77b4f8c9
+_md5_=9909b9b587dba333257b0c85105dbb3c

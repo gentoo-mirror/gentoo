@@ -1,4 +1,4 @@
-BDEPEND=app-emulation/qemu >=dev-lang/nasm-2.0.7 >=sys-power/iasl-20160729 || ( dev-lang/python:3.12[sqlite] ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+BDEPEND=app-emulation/qemu >=dev-lang/nasm-2.0.7 sys-apps/which >=sys-power/iasl-20160729 || ( dev-lang/python:3.12[sqlite] ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
 DEFINED_PHASES=compile install postinst prepare setup
 DESCRIPTION=UEFI firmware for 64-bit x86 virtual machines
 EAPI=8
@@ -7,8 +7,8 @@ INHERIT=python-any-r1 readme.gentoo-r1 secureboot
 IUSE=secureboot
 KEYWORDS=-* ~amd64
 LICENSE=BSD-2 MIT
-RDEPEND=!sys-firmware/edk2-ovmf-bin
+RDEPEND=!sys-firmware/edk2-bin
 SLOT=0
 SRC_URI=https://github.com/tianocore/edk2/archive/edk2-stable202405.tar.gz -> edk2-ovmf-202405.tar.gz https://github.com/openssl/openssl/archive/de90e54bbe82e5be4fb9608b6f5c308bb837d355.tar.gz -> openssl-de90e54bbe82e5be4fb9608b6f5c308bb837d355.tar.gz https://github.com/google/brotli/archive/f4153a09f87cbb9c826d8fc12c74642bb2d879ea.tar.gz -> brotli-f4153a09f87cbb9c826d8fc12c74642bb2d879ea.tar.gz https://github.com/MIPI-Alliance/public-mipi-sys-t/archive/370b5944c046bab043dd8b133727b2135af7747a.tar.gz -> mipi-sys-t-370b5944c046bab043dd8b133727b2135af7747a.tar.gz https://github.com/Mbed-TLS/mbedtls/archive/8c89224991adff88d53cd380f42a2baa36f91454.tar.gz -> mbedtls-370b5944c046bab043dd8b133727b2135af7747a.tar.gz https://github.com/DMTF/libspdm/archive/828ef62524bcaeca4e90d0c021221e714872e2b5.tar.gz -> libspdm-370b5944c046bab043dd8b133727b2135af7747a.tar.gz https://dev.gentoo.org/~ajak/distfiles/edk2-ovmf-202202-qemu-firmware.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	c356a67b8e93889de6efff7d50599102	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	secureboot	b77b70edf988076b4776734f77b4f8c9
-_md5_=24912b610928c3f634997181f59a1a70
+_md5_=5e3977cbfa045f43e9aa6b4ee22d49dc
