@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare pretend setup test unpack
+DEPEND=>=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Java cryptography APIs
+EAPI=8
+HOMEPAGE=https://www.bouncycastle.org/java.html
+INHERIT=java-pkg-2 java-pkg-simple check-reqs
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bcgit/bc-java/archive/r1rv78v1.tar.gz -> bc-java-r1rv78v1.tar.gz test? ( https://github.com/bcgit/bc-test-data/archive/r1rv78v1.tar.gz -> bc-test-data-r1rv78v1.tar.gz )
+_eclasses_=java-utils-2	4b88d12e899778ff681b67d7bcbb54f0	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4	check-reqs	2a9731073c152554078a9a8df8fc0f1b
+_md5_=83461687d394b5d3f3a651de8488a260

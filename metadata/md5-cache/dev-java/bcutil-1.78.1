@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=~dev-java/bcprov-1.78.1:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Java APIs for ASN.1 extension and utility APIs used to support bcpkix and bctls
+EAPI=8
+HOMEPAGE=https://www.bouncycastle.org/java.html
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=BSD
+RDEPEND=~dev-java/bcprov-1.78.1:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bcgit/bc-java/archive/r1rv78v1.tar.gz -> bc-java-r1rv78v1.tar.gz
+_eclasses_=java-utils-2	4b88d12e899778ff681b67d7bcbb54f0	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
+_md5_=643013ea140f4245067a7599b4db2f70
