@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=kde-frameworks/extra-cmake-modules-6.0.0:* kde-apps/kaccounts-integration:6 kde-frameworks/ki18n:6 handbook? ( kde-frameworks/kdoctools:6 )
+DEFINED_PHASES=compile configure install nofetch prepare setup test unpack
+DESCRIPTION=Common files for kio-gdrive
+EAPI=8
+HOMEPAGE=https://apps.kde.org/
+INHERIT=ecm-common gear.kde.org
+IUSE=+handbook
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2+
+RDEPEND=!<kde-misc/kio-gdrive-23.08.5-r2:5 !<kde-misc/kio-gdrive-24.05.2-r1:6
+SLOT=0
+SRC_URI=mirror://kde/stable/release-service/24.08.2/src/kio-gdrive-24.08.2.tar.xz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	ecm-common	aa0b6fe78a08ad602b3a37a93a376ec6	kde.org	5b717883256e9841ce52e6cad2fca427	gear.kde.org	9eaba1558ae60129a59a7243175a309d
+_md5_=4ae8881c825fd518924d26317c90d525

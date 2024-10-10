@@ -1,0 +1,18 @@
+BDEPEND=app-alternatives/lex app-alternatives/yacc app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( >=app-text/doxygen-1.8.13-r1 ) dev-qt/qttools:6[assistant] dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.5.0:*
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=>=dev-libs/kpublictransport-24.08.2:6 >=dev-qt/qtdeclarative-6.7.2:6 >=kde-frameworks/kholidays-6.5.0:6 >=kde-frameworks/ki18n-6.5.0:6 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_12(-)] ) ) doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+DESCRIPTION=Library for parsing and evaluating OSM opening hours expressions
+EAPI=8
+HOMEPAGE=https://api.kde.org/kopeninghours/html/index.html https://invent.kde.org/libraries/kopeninghours
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm gear.kde.org python-single-r1
+IUSE=python debug doc test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm64
+LICENSE=LGPL-2+
+RDEPEND=>=dev-libs/kpublictransport-24.08.2:6 >=dev-qt/qtdeclarative-6.7.2:6 >=kde-frameworks/kholidays-6.5.0:6 >=kde-frameworks/ki18n-6.5.0:6 sys-libs/zlib python? ( python_single_target_python3_10? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_10(-)] ) python_single_target_python3_11? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-libs/boost-1.70:=[python,python_targets_python3_12(-)] ) ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6 !dev-libs/kopeninghours:5
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+RESTRICT=!test? ( test )
+SLOT=6
+SRC_URI=mirror://kde/stable/release-service/24.08.2/src/kopeninghours-24.08.2.tar.xz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	gear.kde.org	9eaba1558ae60129a59a7243175a309d	python-utils-r1	c356a67b8e93889de6efff7d50599102	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=f8a6616541f6c33f3407de8f6f05896c
