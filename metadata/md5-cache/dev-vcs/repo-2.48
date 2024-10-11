@@ -1,6 +1,6 @@
 DEFINED_PHASES=install
 DESCRIPTION=Google tool for managing git, particularly multiple repos
-EAPI=7
+EAPI=8
 HOMEPAGE=https://gerrit.googlesource.com/git-repo
 INHERIT=bash-completion-r1 python-r1
 IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
@@ -9,6 +9,6 @@ LICENSE=Apache-2.0
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) !app-admin/radmind
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
-SRC_URI=https://github.com/GerritCodeReview/git-repo/archive/refs/tags/v2.40.tar.gz -> repo-2.40.tar.gz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	c356a67b8e93889de6efff7d50599102	python-r1	29d0f02945a76b891430bbda185a5574
-_md5_=713a1acd5e16a9ac397d07457982d176
+SRC_URI=https://github.com/GerritCodeReview/git-repo/archive/refs/tags/v2.48.tar.gz -> repo-2.48.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	c356a67b8e93889de6efff7d50599102	python-r1	29d0f02945a76b891430bbda185a5574
+_md5_=78e3e9d11c2c7daa1ed203523d929821
