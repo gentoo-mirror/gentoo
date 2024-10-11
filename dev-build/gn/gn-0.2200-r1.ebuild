@@ -26,7 +26,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/gn-gen-r6.patch
+	"${FILESDIR}"/gn-gen-r7.patch
 )
 
 pkg_setup() {

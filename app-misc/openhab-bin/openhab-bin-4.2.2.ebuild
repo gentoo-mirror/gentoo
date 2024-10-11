@@ -3,26 +3,29 @@
 
 EAPI=8
 
-inherit systemd tmpfiles
+inherit edo systemd tmpfiles
 
 MY_PN=${PN%-bin}
 MY_P=${MY_PN}-${PV}
+MY_CLI_VER=2024-01-14
 
 DESCRIPTION="An open-source automation software for your home"
 HOMEPAGE="https://www.openhab.org/"
 SRC_URI="
-	https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_P}.zip
+	https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_P}.tar.gz
 	https://raw.githubusercontent.com/openhab/openhab-linuxpkg/10061acd36524afb12a033fea6dcf142b399bf56/resources/usr/bin/openhab-cli
-		 -> openhab-cli-2024-01-14
+		 -> openhab-cli-${MY_CLI_VER}
 "
-KEYWORDS="amd64 arm64"
 
+S="${WORKDIR}"
 LICENSE="EPL-2.0"
 SLOT="0"
 
+KEYWORDS="~amd64 ~arm64"
+
 MY_JAVA_DEPEND=">=virtual/jre-17"
 
-# app-arch/zip: openhab-cli backup
+# app-arch/zip: used by "openhab-cli backup"
 RDEPEND="
 	${MY_JAVA_DEPEND}
 	acct-user/openhab
@@ -31,8 +34,6 @@ RDEPEND="
 "
 
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
 
 src_compile() {
 	:
@@ -95,9 +96,41 @@ fi
 export JAVA_HOME
 exec /usr/share/openhab/runtime/bin/karaf "\$@"
 EOF
-	newbin "${DISTDIR}"/openhab-cli-2024-01-14 openhab-cli
+	newbin "${DISTDIR}"/openhab-cli-${MY_CLI_VER} openhab-cli
+
+	newinitd "${FILESDIR}"/openhab.initd openhab
 }
 
 pkg_postinst() {
 	tmpfiles_process openhab.conf
+
+	if [[ -z ${REPLACING_VERSIONS} && -z ${OPENHAB_POSTINST_UPDATE} ]]; then
+	   return
+	fi
+
+	if [[ -d "${EROOT}"/run/systemd/system ]]; then
+		if systemctl is-active --quiet openhab; then
+			local openhab_service_active=1
+			einfo "Restarting OpenHAB service due to version update"
+			edob systemctl daemon-reload
+			edob systemctl stop openhab
+		fi
+
+		echo y | edob -m "Cleaning OpenHAB cache" \
+					  openhab-cli clean-cache
+		assert "Failed to clean OpenHAB cache"
+
+		if [[ -v openhab_service_active ]]; then
+			edob systemctl start openhab
+		fi
+	elif [[ -d /run/openrc ]]; then
+		einfo "Follow these steps to complete the update of OpenHAB:"
+		einfo
+		einfo "1. Stop the OpenHAB's service"
+		einfo "$ rc-service openhab stop"
+		einfo "2. Clean OpenHAB's cache"
+		einfo "$ openahb-cli clean-cache"
+		einfo "3. Restart OpenHAB's service"
+		einfo "$ rc-service openhab start"
+	fi
 }
