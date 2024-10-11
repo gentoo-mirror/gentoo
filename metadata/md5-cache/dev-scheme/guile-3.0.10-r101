@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig dev-build/libtool sys-devel/gettext
+DEFINED_PHASES=configure install
+DEPEND=>=dev-libs/boehm-gc-7.0[threads?] dev-libs/gmp:= dev-libs/libffi:= dev-libs/libatomic_ops dev-libs/libunistring:= sys-libs/ncurses:= sys-libs/readline:= virtual/libcrypt:= !dev-scheme/guile:12
+DESCRIPTION=GNU Ubiquitous Intelligent Language for Extensions
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/guile/
+IUSE=debug debug-malloc +deprecated +jit +networking +nls +regex +threads
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos
+LICENSE=LGPL-3+
+RDEPEND=>=dev-libs/boehm-gc-7.0[threads?] dev-libs/gmp:= dev-libs/libffi:= dev-libs/libatomic_ops dev-libs/libunistring:= sys-libs/ncurses:= sys-libs/readline:= virtual/libcrypt:= !dev-scheme/guile:12
+REQUIRED_USE=regex
+RESTRICT=strip
+SLOT=3.0
+SRC_URI=mirror://gnu/guile/guile-3.0.10.tar.xz
+_md5_=60f916925e53a0bed0c179ba1907a81d
