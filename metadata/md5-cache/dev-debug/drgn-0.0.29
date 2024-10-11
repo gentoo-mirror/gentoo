@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( dev-libs/check ) test? ( >=dev-libs/elfutils-0.165 dev-libs/libkdumpfile python_targets_python3_10? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=>=dev-libs/elfutils-0.165 dev-libs/libkdumpfile python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+DESCRIPTION=Programmable debugger
+EAPI=8
+HOMEPAGE=https://github.com/osandov/drgn https://pypi.org/project/drgn/ https://drgn.readthedocs.io/en/latest/
+INHERIT=distutils-r1 multiprocessing pypi toolchain-funcs
+IUSE=openmp test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-libs/elfutils-0.165 dev-libs/libkdumpfile python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/d/drgn/drgn-0.0.29.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	c356a67b8e93889de6efff7d50599102	python-r1	29d0f02945a76b891430bbda185a5574	distutils-r1	93639283f77f66c489f257b138606c68	pypi	ad1b21f87d117ae9bb089bdb65b8f013
+_md5_=45d490ea3553b996c108d7f2268c83d5
