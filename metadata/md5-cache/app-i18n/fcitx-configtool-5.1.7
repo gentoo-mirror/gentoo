@@ -1,0 +1,16 @@
+BDEPEND=app-arch/zstd kde-frameworks/extra-cmake-modules:0 sys-devel/gettext virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=app-i18n/fcitx-5.1.6:5 >=app-i18n/fcitx-qt-5.1.4:5[qt6(+),-onlyplugin] app-text/iso-codes dev-qt/qtbase:6[concurrent,dbus,gui,widgets] dev-qt/qtsvg:6 kde-frameworks/kwidgetsaddons:6 sys-devel/gettext virtual/libintl x11-libs/libX11 x11-libs/libxkbfile x11-misc/xkeyboard-config config-qt? ( kde-frameworks/kitemviews:6 ) kcm? ( dev-qt/qtdeclarative:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdeclarative:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kirigami:6 kde-frameworks/kpackage:6 kde-frameworks/ksvg:6 kde-frameworks/kcmutils:6 kde-plasma/libplasma:6 x11-libs/libxkbcommon )
+DESCRIPTION=Configuration module for Fcitx
+EAPI=8
+HOMEPAGE=https://fcitx-im.org/ https://github.com/fcitx/fcitx5-configtool
+INHERIT=cmake unpacker
+IUSE=kcm +config-qt test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=>=app-i18n/fcitx-5.1.6:5 >=app-i18n/fcitx-qt-5.1.4:5[qt6(+),-onlyplugin] app-text/iso-codes dev-qt/qtbase:6[concurrent,dbus,gui,widgets] dev-qt/qtsvg:6 kde-frameworks/kwidgetsaddons:6 sys-devel/gettext virtual/libintl x11-libs/libX11 x11-libs/libxkbfile x11-misc/xkeyboard-config config-qt? ( kde-frameworks/kitemviews:6 ) kcm? ( dev-qt/qtdeclarative:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdeclarative:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kirigami:6 kde-frameworks/kpackage:6 kde-frameworks/ksvg:6 kde-frameworks/kcmutils:6 kde-plasma/libplasma:6 x11-libs/libxkbcommon )
+RESTRICT=!test? ( test )
+SLOT=5
+SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-configtool/fcitx5-configtool-5.1.7.tar.zst -> fcitx-configtool-5.1.7.tar.zst
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	unpacker	fb4b84181244b3b9990fa0bf40232dd2
+_md5_=4990b547d5a0a992591251421d347122
