@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-lang/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris
+KEYWORDS=amd64 ~arm ~arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=3.6
 SRC_URI=https://archive.apache.org/dist/commons/lang/source/commons-lang3-3.17.0-src.tar.gz -> commons-lang-3.17.0-src.tar.gz verify-sig? ( https://downloads.apache.org/commons/lang/source/commons-lang3-3.17.0-src.tar.gz.asc -> commons-lang-3.17.0-src.tar.gz.asc )
 _eclasses_=java-utils-2	4b88d12e899778ff681b67d7bcbb54f0	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4	verify-sig	a79ba011daaf532d71a219182474d150
-_md5_=2aca9a37e5dcc837705977326c53609a
+_md5_=520f6820bd405ca0409cd5882205e3e9
