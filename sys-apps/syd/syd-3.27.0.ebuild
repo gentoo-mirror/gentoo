@@ -6,7 +6,7 @@ EAPI=8
 RESTRICT="test" # fails with sandbox
 
 CRATES="
-	addr2line@0.24.1
+	addr2line@0.24.2
 	adler2@2.0.0
 	ahash@0.8.11
 	aho-corasick@1.1.3
@@ -21,14 +21,14 @@ CRATES="
 	anyhow@1.0.89
 	argv@0.1.11
 	arrayvec@0.7.6
-	autocfg@1.3.0
+	autocfg@1.4.0
 	backtrace@0.3.74
 	bitflags@1.3.2
 	bitflags@2.6.0
 	bumpalo@3.16.0
 	caps@0.5.5
 	cast@0.3.0
-	cc@1.1.20
+	cc@1.1.29
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
@@ -36,9 +36,9 @@ CRATES="
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.17
-	clap_builder@4.5.17
-	clap_derive@4.5.13
+	clap@4.5.20
+	clap_builder@4.5.20
+	clap_derive@4.5.18
 	clap_lex@0.7.2
 	colorchoice@1.0.2
 	core-foundation-sys@0.8.7
@@ -50,9 +50,9 @@ CRATES="
 	darling@0.20.10
 	darling_core@0.20.10
 	darling_macro@0.20.10
-	derive_builder@0.20.1
-	derive_builder_core@0.20.1
-	derive_builder_macro@0.20.1
+	derive_builder@0.20.2
+	derive_builder_core@0.20.2
+	derive_builder_macro@0.20.2
 	dirs-sys@0.4.1
 	dirs@5.0.1
 	either@1.13.0
@@ -62,21 +62,21 @@ CRATES="
 	expiringmap@0.1.2
 	fastrand@2.1.1
 	fixedbitset@0.5.7
-	flate2@1.0.33
+	flate2@1.0.34
 	fnv@1.0.7
-	futures-channel@0.3.30
-	futures-core@0.3.30
-	futures-executor@0.3.30
-	futures-io@0.3.30
-	futures-macro@0.3.30
-	futures-sink@0.3.30
-	futures-task@0.3.30
-	futures-util@0.3.30
-	futures@0.3.30
+	futures-channel@0.3.31
+	futures-core@0.3.31
+	futures-executor@0.3.31
+	futures-io@0.3.31
+	futures-macro@0.3.31
+	futures-sink@0.3.31
+	futures-task@0.3.31
+	futures-util@0.3.31
+	futures@0.3.31
 	getargs@0.5.0
 	getrandom@0.2.15
 	getset@0.1.3
-	gimli@0.31.0
+	gimli@0.31.1
 	goblin@0.8.2
 	gperftools@0.2.0
 	half@2.4.1
@@ -94,15 +94,16 @@ CRATES="
 	indexmap@1.9.3
 	indexmap@2.5.0
 	io-uring@0.6.4
-	ipnetwork@0.20.0
+	ipnet@2.10.1
+	iprange@0.6.7
 	is-terminal@0.4.13
 	is_terminal_polyfill@1.70.1
 	itertools@0.10.5
 	itoa@1.0.11
-	js-sys@0.3.70
+	js-sys@0.3.72
 	lazy_static@1.5.0
 	lexis@0.2.3
-	libc@0.2.158
+	libc@0.2.159
 	libcgroups@0.4.1
 	libcontainer@0.4.1
 	libloading@0.8.5
@@ -119,14 +120,14 @@ CRATES="
 	mimalloc2-rust-sys@2.1.7-source
 	mimalloc2-rust@0.3.2
 	miniz_oxide@0.8.0
-	nc@0.9.3
+	nc@0.9.4
 	nix@0.28.0
 	nix@0.29.0
 	nonempty@0.10.0
 	nu-ansi-term@0.46.0
 	num-traits@0.2.19
 	num_cpus@1.16.0
-	object@0.36.4
+	object@0.36.5
 	oci-spec@0.6.8
 	once_cell@1.19.0
 	oorandom@11.1.4
@@ -137,12 +138,12 @@ CRATES="
 	parse-size@1.0.0
 	pin-project-lite@0.2.14
 	pin-utils@0.1.0
-	pkg-config@0.3.30
+	pkg-config@0.3.31
 	plain@0.2.3
 	prctl@1.0.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.86
+	proc-macro2@1.0.87
 	procfs-core@0.16.0
 	procfs@0.16.0
 	protobuf-codegen@3.2.0
@@ -151,10 +152,10 @@ CRATES="
 	protobuf@3.2.0
 	quick_cache@0.6.9
 	quote@1.0.37
-	redox_syscall@0.5.4
+	redox_syscall@0.5.7
 	redox_users@0.4.6
-	regex-automata@0.4.7
-	regex-syntax@0.8.4
+	regex-automata@0.4.8
+	regex-syntax@0.8.5
 	regex@1.10.6
 	rs_hasher_ctx@0.1.3
 	rs_internal_hasher@0.1.3
@@ -187,12 +188,12 @@ CRATES="
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
-	syn@2.0.77
+	syn@2.0.79
 	tabwriter@1.4.0
 	tcmalloc@0.3.0
-	tempfile@3.12.0
-	thiserror-impl@1.0.63
-	thiserror@1.0.63
+	tempfile@3.13.0
+	thiserror-impl@1.0.64
+	thiserror@1.0.64
 	thread_local@1.1.8
 	tick_counter@0.4.5
 	tinytemplate@1.2.1
@@ -202,17 +203,17 @@ CRATES="
 	tracing-subscriber@0.3.18
 	tracing@0.1.40
 	unicode-ident@1.0.13
-	unicode-width@0.1.13
+	unicode-width@0.1.14
 	utf8parse@0.2.2
 	valuable@0.1.0
 	version_check@0.9.5
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.93
-	wasm-bindgen-macro-support@0.2.93
-	wasm-bindgen-macro@0.2.93
-	wasm-bindgen-shared@0.2.93
-	wasm-bindgen@0.2.93
+	wasm-bindgen-backend@0.2.95
+	wasm-bindgen-macro-support@0.2.95
+	wasm-bindgen-macro@0.2.95
+	wasm-bindgen-shared@0.2.95
+	wasm-bindgen@0.2.95
 	which@4.4.2
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.9
