@@ -1,8 +1,8 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md ../README.md"
 
@@ -18,11 +18,14 @@ SRC_URI="https://github.com/denisdefreyne/adsf/archive/${PV}.tar.gz -> ${P}.tar.
 RUBY_S="${P}/adsf"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 ~riscv"
 SLOT="0"
-IUSE=""
+KEYWORDS="~amd64 ~riscv"
+IUSE="test"
 
-ruby_add_rdepend ">=dev-ruby/rack-1.0.0:* >=dev-ruby/rackup-2.1:2"
+ruby_add_rdepend "
+	|| ( dev-ruby/rack:3.1 dev-ruby/rack:3.0 dev-ruby/rack:2.2 )
+	>=dev-ruby/rackup-2.1:2
+"
 
 ruby_add_bdepend "test? ( dev-ruby/rack-test )"
 
@@ -32,6 +35,7 @@ all_ruby_prepare() {
 	sed -e '/test_receives_update/,/^  end/ s:^:#:' \
 		-e '/test_non_local_interfaces/askip "networking"' \
 		-e '/test_default_config__serve_index_html_in_subdir_missing_slash/askip "encoding"' \
+		-e /'test_auto_extenion__defers_to_subdir_with_index/askip "encoding"' \
 		-i test/test_server.rb || die
 	sed -i -e '/rubocop/I s:^:#:' Rakefile || die
 	rm -f test/test_version.rb || die
