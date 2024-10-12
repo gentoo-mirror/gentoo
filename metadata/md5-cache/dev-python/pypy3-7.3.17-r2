@@ -4,9 +4,9 @@ EAPI=8
 HOMEPAGE=https://pypy.org/ https://foss.heptapod.net/pypy/pypy/
 INHERIT=python-utils-r1
 IUSE=+gdbm ncurses sqlite +test-install tk
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND==dev-python/pypy3_10-7.3.17*:0/pypy310-pp73-384[gdbm?,ncurses?,sqlite?,test-install(+)?,tk?]
 SLOT=0/pypy310-pp73-384
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	c356a67b8e93889de6efff7d50599102
-_md5_=3180c4a1002c4685abf67910c3a1bf83
+_md5_=b172f830aa61cdb471b9c0910293d207
