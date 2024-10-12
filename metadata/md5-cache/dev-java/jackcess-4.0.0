@@ -5,11 +5,11 @@ EAPI=7
 HOMEPAGE=https://jackcess.sourceforge.io
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 arm64 ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/commons-lang-3.11:3.6 >=dev-java/commons-logging-1.2:0 >=dev-java/poi-5.0.0:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=1
 SRC_URI=https://github.com/jahlborn/jackcess/archive/refs/tags/jackcess-4.0.0.tar.gz -> jackcess-4.0.0-sources.tar.gz
 _eclasses_=java-utils-2	4b88d12e899778ff681b67d7bcbb54f0	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
-_md5_=fd99cefd0c2a4a69979b4f073dad2243
+_md5_=b78a9229c9043d5a06de8394620bee80
