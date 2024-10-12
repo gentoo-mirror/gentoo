@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/enkessler/childprocess
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 doc test test
-KEYWORDS=~amd64 arm ~arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86
+KEYWORDS=~amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby31? ( >=dev-ruby/ffi-1.0.11[ruby_targets_ruby31(-)] >=dev-ruby/logger-1.5:0[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/ffi-1.0.11[ruby_targets_ruby32(-)] >=dev-ruby/logger-1.5:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/ffi-1.0.11[ruby_targets_ruby33(-)] >=dev-ruby/logger-1.5:0[ruby_targets_ruby33(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=5
 SRC_URI=https://rubygems.org/gems/childprocess-5.1.0.gem
 _eclasses_=multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	ruby-utils	8c235870eceb33155907ba2ef7b6592f	ruby-ng	f0dedda0b5f19492ca5de91d98bc1708	ruby-fakegem	1e3722efee9adc0f27d1b2b8e4b9860b
-_md5_=5fc2f64bab1c8effb568a2dd3acda3bc
+_md5_=cc6db75a5aa561e374a05853759a6d72
