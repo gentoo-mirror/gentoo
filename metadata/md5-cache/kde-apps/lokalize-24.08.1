@@ -7,7 +7,7 @@ HOMEPAGE=https://apps.kde.org/lokalize/ https://l10n.kde.org/tools/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=python-single-r1 ecm gear.kde.org optfeature
 IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 debug +handbook test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) >=app-text/hunspell-1.2.8:= >=dev-qt/qtbase-6.7.2:6[dbus,gui,sql,widgets,xml] >=kde-frameworks/kcompletion-6.5.0:6 >=kde-frameworks/kconfig-6.5.0:6 >=kde-frameworks/kconfigwidgets-6.5.0:6 >=kde-frameworks/kcoreaddons-6.5.0:6 >=kde-frameworks/kcrash-6.5.0:6 >=kde-frameworks/kdbusaddons-6.5.0:6 >=kde-frameworks/ki18n-6.5.0:6 >=kde-frameworks/kio-6.5.0:6 >=kde-frameworks/kitemviews-6.5.0:6 >=kde-frameworks/knotifications-6.5.0:6 >=kde-frameworks/kparts-6.5.0:6 >=kde-frameworks/ktextwidgets-6.5.0:6 >=kde-frameworks/kwidgetsaddons-6.5.0:6 >=kde-frameworks/kxmlgui-6.5.0:6 >=kde-frameworks/sonnet-6.5.0:6 python_single_target_python3_10? ( dev-python/translate-toolkit[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/translate-toolkit[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/translate-toolkit[python_targets_python3_12(-)] ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/lokalize:5
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
@@ -15,4 +15,4 @@ RESTRICT=test !test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/release-service/24.08.1/src/lokalize-24.08.1.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	c356a67b8e93889de6efff7d50599102	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575	ecm	fe5d0f686a62c5a29db9433ce94c2e31	kde.org	5b717883256e9841ce52e6cad2fca427	gear.kde.org	9eaba1558ae60129a59a7243175a309d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=8d75894a163fa6d9f9a7c8331699ec2a
+_md5_=06ec2dc8dbb60fcb9d4ebe54fc9d53e6
