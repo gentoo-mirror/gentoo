@@ -1,0 +1,16 @@
+BDEPEND=app-text/docbook-xml-dtd:4.1.2 app-text/xmlto dev-libs/nss sys-devel/bison sys-devel/flex virtual/pkgconfig test? ( dev-python/setproctitle ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/gmp:0= dev-libs/libevent:0= dev-libs/nspr >=dev-libs/nss-3.42 >=sys-kernel/linux-headers-4.19 virtual/libcrypt:= caps? ( sys-libs/libcap-ng ) curl? ( net-misc/curl ) dnssec? ( >=net-dns/unbound-1.9.1-r1:= net-libs/ldns:= net-dns/dnssec-root ) ldap? ( net-nds/openldap:= ) pam? ( sys-libs/pam ) seccomp? ( sys-libs/libseccomp ) selinux? ( sys-libs/libselinux ) systemd? ( sys-apps/systemd:0= ) elibc_musl? ( sys-libs/queue-standalone )
+DESCRIPTION=IPsec implementation for Linux, fork of Openswan
+EAPI=8
+HOMEPAGE=https://libreswan.org/
+INHERIT=systemd flag-o-matic toolchain-funcs tmpfiles
+IUSE=caps curl dnssec +ikev1 ldap networkmanager pam seccomp selinux systemd test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+LICENSE=GPL-2 BSD-4 RSA DES
+RDEPEND=dev-libs/gmp:0= dev-libs/libevent:0= dev-libs/nspr >=dev-libs/nss-3.42 >=sys-kernel/linux-headers-4.19 virtual/libcrypt:= caps? ( sys-libs/libcap-ng ) curl? ( net-misc/curl ) dnssec? ( >=net-dns/unbound-1.9.1-r1:= net-libs/ldns:= net-dns/dnssec-root ) ldap? ( net-nds/openldap:= ) pam? ( sys-libs/pam ) seccomp? ( sys-libs/libseccomp ) selinux? ( sys-libs/libselinux ) systemd? ( sys-apps/systemd:0= ) dev-libs/nss[utils(+)] sys-apps/iproute2 !net-vpn/strongswan selinux? ( sec-policy/selinux-ipsec ) virtual/tmpfiles
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.libreswan.org/libreswan-5.1.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=9075ada08bd4d2e2d8a262a8babfba07
