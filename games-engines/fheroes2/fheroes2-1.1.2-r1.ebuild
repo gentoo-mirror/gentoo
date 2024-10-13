@@ -27,7 +27,6 @@ RDEPEND="
 	${DEPEND}
 	${PYTHON_DEPS}
 	app-arch/libarchive
-	dev-lang/python
 	virtual/libintl
 "
 BDEPEND="
