@@ -1349,6 +1349,7 @@ dev-cpp/eigen:superlu - Add test support for SuperLU (sci-libs/superlu)
 dev-cpp/eigen:umfpack - Add test support for UMFPACK (sci-libs/umfpack)
 dev-cpp/glog:gflags - Use dev-cpp/gflags for flag parsing
 dev-cpp/glog:libunwind - Use libunwind library (sys-libs/libunwind or sys-libs/llvm-libunwind) instead of built-in fallback implementation for stack unwinding
+dev-cpp/gtest:abseil - Build with functionality provided by dev-cpp/abseil-cpp and dev-libs/re2
 dev-cpp/jwt-cpp:picojson - Enable use of dev-cpp/picojson
 dev-cpp/libcmis:tools - Build client tool for testing and viewing features
 dev-cpp/libjson-rpc-cpp:http-client - Build support for HTTP client using net-misc/curl
@@ -7320,7 +7321,7 @@ sci-libs/hipSOLVER:sparse - Build hipSOLVER with sparse functionality (sci-libs/
 sci-libs/hypre:int64 - Build the 64 bits integer library
 sci-libs/indilib:rtlsdr - Enable support for devices supported by net-wireless/rtl-sdr
 sci-libs/indilib:websocket - Enable support for WebSocket protocol
-sci-libs/ipopt:hsl - hsl
+sci-libs/ipopt:asl - AMPL Solver Library support and build the 'ipopt' binary
 sci-libs/ipopt:mumps - Enable sci-libs/mumps support
 sci-libs/kissfft:alloca - Use alloca(3) instead of malloc(3) for memory management
 sci-libs/kissfft:tools - Build command line tools
