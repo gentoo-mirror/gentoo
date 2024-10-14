@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit autotools
+
 DESCRIPTION="Server for Mednafen emulator"
 HOMEPAGE="https://mednafen.github.io/releases/"
 SRC_URI="https://mednafen.github.io/releases/files/${P}.tar.xz"
@@ -12,8 +14,13 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-m4-macro-include.patch
+)
+
 src_prepare() {
 	default
+	eautoreconf
 
 	mv standard.conf standard.conf.example || die
 	mv run.sh run.sh.example || die
