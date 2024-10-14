@@ -21,7 +21,7 @@ fi
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="0/2.10.0"
 IUSE="acl addc ads ceph client cluster cups debug fam glusterfs gpg"
 IUSE+=" iprint json ldap llvm-libunwind pam profiling-data python quota +regedit selinux"
 IUSE+=" snapper spotlight syslog system-heimdal +system-mitkrb5 systemd test unwind winbind"
@@ -69,8 +69,7 @@ COMMON_DEPEND="
 	dev-perl/Parse-Yapp
 	>=net-libs/gnutls-3.4.7:=[${MULTILIB_USEDEP}]
 	>=sys-fs/e2fsprogs-1.46.4-r51[${MULTILIB_USEDEP}]
-	>=sys-libs/ldb-2.9.1:=[ldap(+)?,${MULTILIB_USEDEP}]
-	<sys-libs/ldb-2.10.0:=[ldap(+)?,${MULTILIB_USEDEP}]
+	!sys-libs/ldb
 	sys-libs/libcap[${MULTILIB_USEDEP}]
 	sys-libs/liburing:=[${MULTILIB_USEDEP}]
 	sys-libs/ncurses:=
@@ -292,6 +291,7 @@ multilib_src_configure() {
 		$(use_with debug lttng)
 		$(use_with ldap)
 		$(use_with profiling-data)
+		--private-libraries='!ldb'
 		# bug #683148
 		--jobs 1
 	)
