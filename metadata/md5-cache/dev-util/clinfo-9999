@@ -1,13 +1,13 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
-DEPEND=>=virtual/opencl-3
+DEPEND=>=virtual/opencl-3 dev-util/opencl-headers
 DESCRIPTION=A tool to display info about the system's OpenCL capabilities
 EAPI=8
 HOMEPAGE=https://github.com/Oblomov/clinfo
 INHERIT=git-r3
 LICENSE=CC0-1.0
 PROPERTIES=live
-RDEPEND=>=virtual/opencl-3
+RDEPEND=>=virtual/opencl-3 dev-util/opencl-headers
 SLOT=0
 _eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=e59f075d29083ddc8e496df67ae7ba25
+_md5_=c5b7ab80142da4c363d3fef97ea4fd5b
