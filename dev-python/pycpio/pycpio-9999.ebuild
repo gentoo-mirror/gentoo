@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..12} )
+
 inherit distutils-r1 git-r3
 
 DESCRIPTION="Python CPIO library"
@@ -14,10 +15,12 @@ EGIT_REPO_URI="https://github.com/desultory/${PN}"
 LICENSE="GPL-2"
 SLOT="0"
 
-RDEPEND=">=dev-python/zenlib-9999[${PYTHON_USEDEP}]"
+RDEPEND="
+	>=dev-python/zenlib-2.3.0[${PYTHON_USEDEP}]
+"
 
 distutils_enable_tests unittest
 
 python_test() {
-	eunittest tests/
+	eunittest tests
 }
