@@ -50,6 +50,7 @@ RDEPEND="
 	>=kde-plasma/plasma-activities-stats-${PV}:${SLOT}
 	>=kde-plasma/plasma-desktop-${PV}:${SLOT}
 	>=kde-plasma/plasma-integration-${PV}:${SLOT}[qt5?]
+	>=kde-plasma/plasma-login-sessions-${PV}:${SLOT}
 	>=kde-plasma/plasma-systemmonitor-${PV}:${SLOT}
 	>=kde-plasma/plasma-welcome-${PV}:${SLOT}
 	>=kde-plasma/plasma-workspace-${PV}:${SLOT}

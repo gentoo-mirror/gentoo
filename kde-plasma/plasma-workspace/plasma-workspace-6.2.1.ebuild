@@ -147,6 +147,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-plasma/kdesu-gui-${PVCUT}:*
 	>=kde-plasma/milou-${PVCUT}:6
 	>=kde-plasma/plasma-integration-${PVCUT}:6
+	>=kde-plasma/plasma-login-sessions-${PVCUT}:6
 	sys-apps/dbus
 	x11-apps/xmessage
 	x11-apps/xprop
@@ -168,6 +169,8 @@ PATCHES=(
 
 src_prepare() {
 	ecm_src_prepare
+
+	cmake_comment_add_subdirectory login-sessions
 
 	# TODO: try to get a build switch upstreamed
 	if ! use screencast; then
