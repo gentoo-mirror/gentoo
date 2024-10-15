@@ -4,8 +4,8 @@
 EAPI=8
 
 WANT_AUTOMAKE="none"
-
-inherit autotools flag-o-matic multilib systemd
+POSTGRES_COMPAT=( {15..17} )
+inherit autotools flag-o-matic multilib postgres systemd
 
 DESCRIPTION="The PHP language runtime engine"
 HOMEPAGE="https://www.php.net/"
@@ -59,6 +59,7 @@ REQUIRED_USE="
 	firebird? ( pdo )
 	mssql? ( pdo )
 	test? ( cli )
+	postgres? ( ${POSTGRES_REQ_USE} )
 "
 
 RESTRICT="!test? ( test )"
@@ -97,7 +98,7 @@ COMMON_DEPEND="
 	mssql? ( dev-db/freetds[mssql] )
 	nls? ( sys-devel/gettext )
 	odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) )
-	postgres? ( dev-db/postgresql:* )
+	postgres? ( ${POSTGRES_DEP} )
 	qdbm? ( dev-db/qdbm )
 	readline? ( sys-libs/readline:0= )
 	session-mm? ( dev-libs/mm )
@@ -352,7 +353,7 @@ src_configure() {
 		$(use_enable pdo)
 		$(use_enable opcache)
 		$(use_enable opcache-jit)
-		$(use_with postgres pgsql "${EPREFIX}/usr")
+		$(use_with postgres pgsql "$("${PG_CONFIG:-true}" --bindir)/..")
 		$(use_enable posix)
 		$(use_with selinux fpm-selinux)
 		$(use_with spell pspell "${EPREFIX}/usr")
