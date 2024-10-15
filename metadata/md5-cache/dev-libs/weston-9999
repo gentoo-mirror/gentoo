@@ -9,8 +9,8 @@ IUSE=+desktop +drm editor examples fullscreen +gles2 headless ivi jpeg kiosk lcm
 LICENSE=MIT CC-BY-SA-3.0
 PROPERTIES=live
 RDEPEND=>=dev-libs/libinput-1.2.0 >=dev-libs/wayland-1.22.0 media-libs/libpng:0= sys-auth/seatd:= >=x11-libs/cairo-1.11.3 >=x11-libs/libdrm-2.4.108 >=x11-libs/libxkbcommon-0.5.0 >=x11-libs/pixman-0.25.2 x11-misc/xkeyboard-config drm? ( <media-libs/libdisplay-info-0.3.0:= >=media-libs/mesa-17.1[gbm(+)] >=sys-libs/mtdev-1.1.0 >=virtual/udev-136 ) editor? ( x11-libs/pango ) examples? ( x11-libs/pango ) gles2? ( media-libs/libglvnd ) jpeg? ( media-libs/libjpeg-turbo:0= ) lcms? ( >=media-libs/lcms-2.9:2 ) pipewire? ( >=media-video/pipewire-0.3:= ) rdp? ( >=net-misc/freerdp-2.3.0:2=[server] ) remoting? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) systemd? ( sys-apps/systemd ) vnc? ( =dev-libs/aml-0.3* =gui-libs/neatvnc-0.8* sys-libs/pam ) webp? ( media-libs/libwebp:0= ) X? ( >=x11-libs/libxcb-1.9 x11-libs/libX11 ) xwayland? ( x11-base/xwayland x11-libs/cairo[X,xcb(+)] >=x11-libs/libxcb-1.9 x11-libs/libXcursor >=x11-libs/xcb-util-cursor-0.1.4 )
-REQUIRED_USE=drm? ( gles2 ) pipewire? ( drm ) remoting? ( drm gles2 ) screen-sharing? ( rdp ) test? ( desktop headless lcms xwayland ) wayland-compositor? ( gles2 ) || ( drm headless rdp vnc wayland-compositor X )
+REQUIRED_USE=drm? ( gles2 ) pipewire? ( drm ) remoting? ( drm gles2 ) screen-sharing? ( rdp ) test? ( headless ) wayland-compositor? ( gles2 ) || ( drm headless rdp vnc wayland-compositor X )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	2fee95c11e5f883024588d4837db6802	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=0139fc8ff04aa9fb1c146889e8d4d844
+_md5_=7a9441036d04c8f47b6db34a1d4ef57e
