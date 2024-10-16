@@ -18,15 +18,15 @@ CRATES="
 	bindgen@0.69.4
 	bitflags@1.3.2
 	bitflags@2.6.0
-	bytemuck@1.16.1
+	bytemuck@1.16.3
 	byteorder@1.5.0
 	cassowary@0.3.0
 	cexpr@0.6.0
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	clang-sys@1.8.1
-	clap@4.5.11
-	clap_builder@4.5.11
+	clap@4.5.13
+	clap_builder@4.5.13
 	clap_lex@0.7.2
 	colorchoice@1.0.2
 	console@0.15.8
@@ -46,7 +46,7 @@ CRATES="
 	exitcode@1.1.2
 	fastrand@2.1.0
 	fixedbitset@0.4.2
-	flate2@1.0.30
+	flate2@1.0.31
 	fragile@2.0.0
 	getrandom@0.2.15
 	glob@0.3.1
@@ -78,10 +78,10 @@ CRATES="
 	number_prefix@0.4.0
 	numtoa@0.1.0
 	once_cell@1.19.0
-	os_pipe@1.2.0
+	os_pipe@1.2.1
 	pkg-config@0.3.30
 	portable-atomic@1.7.0
-	ppv-lite86@0.2.19
+	ppv-lite86@0.2.20
 	predicates-core@1.0.8
 	predicates-tree@1.0.11
 	predicates@3.1.2
@@ -98,7 +98,7 @@ CRATES="
 	redox_termios@0.1.3
 	regex-automata@0.4.7
 	regex-syntax@0.8.4
-	regex@1.10.5
+	regex@1.10.6
 	retry@2.0.0
 	roaring@0.10.6
 	rustc-hash@1.1.0
@@ -108,12 +108,12 @@ CRATES="
 	semver@1.0.23
 	serde@1.0.204
 	serde_derive@1.0.204
-	shared_child@1.0.0
+	shared_child@1.0.1
 	shlex@1.3.0
 	strsim@0.11.1
 	syn@1.0.109
 	syn@2.0.72
-	tempfile@3.10.1
+	tempfile@3.11.0
 	termion@1.5.6
 	termtree@0.4.1
 	thiserror-impl@1.0.63
@@ -130,6 +130,7 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-sys@0.52.0
+	windows-sys@0.59.0
 	windows-targets@0.52.6
 	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_msvc@0.52.6
