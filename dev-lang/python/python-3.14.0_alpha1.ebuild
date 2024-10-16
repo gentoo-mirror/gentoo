@@ -14,7 +14,7 @@ inherit verify-sig
 MY_PV=${PV/_alpha/a}
 MY_P="Python-${MY_PV%_p*}"
 PYVER=$(ver_cut 1-2)
-PATCHSET="python-gentoo-patches-${MY_PV}"
+PATCHSET="python-gentoo-patches-${MY_PV}-r2"
 
 DESCRIPTION="An interpreted, interactive, object-oriented programming language"
 HOMEPAGE="
@@ -116,7 +116,7 @@ QA_PKGCONFIG_VERSION=${PYVER}
 # false positives -- functions specific to *BSD
 QA_CONFIG_IMPL_DECL_SKIP=( chflags lchflags )
 
-declare -rA PYTHON_KERNEL_CHECKS=(
+declare -rgA PYTHON_KERNEL_CHECKS=(
 	["CROSS_MEMORY_ATTACH"]="test_external_inspection" #bug 938589
 	["DNOTIFY"]="test_fcntl" # bug 938662
 )
@@ -372,6 +372,7 @@ src_configure() {
 
 			# Fails in profiling run, passes in src_test().
 			-x test_capi
+			-x test_embed
 		)
 
 		# Arch-specific skips.  See #931888 for a collection of these.
