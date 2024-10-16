@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.percona.com/software/mysql-tools/percona-toolkit
 INHERIT=go-module perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=|| ( GPL-2 Artistic )
 RDEPEND=dev-perl/DBI dev-perl/DBD-mysql virtual/perl-Time-HiRes dev-perl/JSON dev-perl/libwww-perl dev-perl/Role-Tiny virtual/perl-File-Path virtual/perl-Getopt-Long virtual/perl-Time-Local virtual/perl-Digest-MD5 virtual/perl-IO-Compress virtual/perl-File-Temp virtual/perl-File-Spec virtual/perl-Scalar-List-Utils dev-perl/TermReadKey >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=strip !test? ( test )
 SLOT=0
 SRC_URI=https://www.percona.com/downloads/percona-toolkit/3.5.7/source/tarball/percona-toolkit-3.5.7.tar.gz https://github.com/hydrapolic/gentoo-dist/releases/download/percona-toolkit-3.5.7/percona-toolkit-3.5.7-deps.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=316b84bc1419a62b496020f93065d171
+_md5_=ac3b9510233f84921ca82ccb4524a05c
