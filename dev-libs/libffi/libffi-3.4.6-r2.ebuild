@@ -33,10 +33,16 @@ RESTRICT="!test? ( test )"
 BDEPEND="test? ( dev-util/dejagnu )"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-arm64-cfi.patch
+	"${FILESDIR}"/${P}-arm64-bti.patch
+	"${FILESDIR}"/${P}-arm64-bti-spelling.patch
+	"${FILESDIR}"/${P}-arm64-support-pac.patch
+	"${FILESDIR}"/${P}-arm64-fix-build.patch
 	"${FILESDIR}"/${P}-sparc-struct-targs.patch
 	"${FILESDIR}"/${P}-test-typo.patch
 	"${FILESDIR}"/${P}-x86-sse.patch
+	"${FILESDIR}"/${P}-arm64-cfi.patch
+	"${FILESDIR}"/${P}-asan.patch
+	"${FILESDIR}"/${P}-regenerate-autotools.patch
 )
 
 src_prepare() {
