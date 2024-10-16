@@ -9,17 +9,17 @@ CRATES="
 	alloc-no-stdlib@2.0.4
 	alloc-stdlib@0.2.2
 	atty@0.2.14
-	autocfg@1.3.0
+	autocfg@1.4.0
 	bitflags@1.3.2
 	bitflags@2.6.0
-	blosc2-rs@0.2.6+2.14.3
-	blosc2-sys@0.2.6+2.14.3
-	brotli-decompressor@2.5.1
-	brotli@3.5.0
+	blosc2-rs@0.3.1+2.15.1
+	blosc2-sys@0.3.1+2.15.1
+	brotli-decompressor@4.0.1
+	brotli@7.0.0
 	bzip2-sys@0.1.11+1.0.8
 	bzip2@0.4.4
 	cbindgen@0.24.5
-	cc@1.1.16
+	cc@1.1.30
 	cfg-if@1.0.0
 	clap@3.2.25
 	clap_lex@0.2.4
@@ -28,62 +28,64 @@ CRATES="
 	crc32fast@1.4.2
 	errno@0.3.9
 	fastrand@2.1.1
-	flate2@1.0.33
+	flate2@1.0.34
 	hashbrown@0.12.3
 	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.1.19
 	indexmap@1.9.3
 	indoc@2.0.5
+	isal-rs@0.5.3+496255c
+	isal-sys@0.5.3+496255c
 	itoa@1.0.11
 	jobserver@0.1.32
-	libc@0.2.158
-	libcramjam@0.4.2
+	libc@0.2.159
+	libcramjam@0.6.0
 	libdeflate-sys@1.19.3
 	libdeflater@1.19.3
 	linux-raw-sys@0.4.14
 	lock_api@0.4.12
 	log@0.4.22
-	lz4-sys@1.10.0
-	lz4@1.26.0
+	lz4-sys@1.11.1+lz4-1.10.0
+	lz4@1.28.0
 	lzma-sys@0.1.20
 	memchr@2.7.4
 	memoffset@0.9.1
 	miniz_oxide@0.8.0
-	once_cell@1.19.0
+	once_cell@1.20.2
 	os_str_bytes@6.6.1
 	parking_lot@0.12.3
 	parking_lot_core@0.9.10
-	pkg-config@0.3.30
-	portable-atomic@1.7.0
-	proc-macro2@1.0.86
-	pyo3-build-config@0.22.2
-	pyo3-ffi@0.22.2
-	pyo3-macros-backend@0.22.2
-	pyo3-macros@0.22.2
-	pyo3@0.22.2
+	pkg-config@0.3.31
+	portable-atomic@1.9.0
+	proc-macro2@1.0.87
+	pyo3-build-config@0.22.5
+	pyo3-ffi@0.22.5
+	pyo3-macros-backend@0.22.5
+	pyo3-macros@0.22.5
+	pyo3@0.22.5
 	python3-dll-a@0.2.10
 	quote@1.0.37
-	redox_syscall@0.5.3
-	rustix@0.38.36
+	redox_syscall@0.5.7
+	rustix@0.38.37
 	ryu@1.0.18
 	same-file@1.0.6
 	scopeguard@1.2.0
-	serde@1.0.209
-	serde_derive@1.0.209
+	serde@1.0.210
+	serde_derive@1.0.210
 	serde_json@1.0.128
 	shlex@1.3.0
 	smallvec@1.13.2
 	snap@1.1.1
 	strsim@0.10.0
 	syn@1.0.109
-	syn@2.0.77
+	syn@2.0.79
 	target-lexicon@0.12.16
-	tempfile@3.12.0
+	tempfile@3.13.0
 	termcolor@1.4.1
 	textwrap@0.16.1
 	toml@0.5.11
-	unicode-ident@1.0.12
+	unicode-ident@1.0.13
 	unindent@0.2.3
 	walkdir@2.5.0
 	winapi-i686-pc-windows-gnu@0.4.0
@@ -138,6 +140,7 @@ DEPEND="
 	app-arch/xz-utils:=
 	app-arch/zstd:=
 	dev-libs/c-blosc2:=
+	dev-libs/isa-l:=
 "
 RDEPEND="
 	${DEPEND}
@@ -158,23 +161,24 @@ src_prepare() {
 	distutils-r1_src_prepare
 	export UNSAFE_PYO3_SKIP_VERSION_CHECK=1
 
-	# strip all the bundled, old, broken C libraries
-	find "${ECARGO_VENDOR}"/*-sys-* -name '*.c' -delete || die
+	# strip all the bundled C libraries
+	find "${ECARGO_VENDOR}"/*-sys-* \
+		-name '*.c' -delete || die
 
 	# https://github.com/10XGenomics/lz4-rs/pull/39
 	pushd "${ECARGO_VENDOR}"/lz4-sys* >/dev/null || Die
 	eapply -p2 "${FILESDIR}/lz4-sys-unbundle-lz4.patch"
 	popd >/dev/null || die
 
+	# https://github.com/milesgranger/isal-rs/pull/25 (cheap workaround)
+	sed -i -e '/default/d' "${ECARGO_VENDOR}"/isal-sys*/Cargo.toml || die
+
 	# enable system libraries where supported
 	export ZSTD_SYS_USE_PKG_CONFIG=1
-	pushd "${ECARGO_VENDOR}"/libcramjam* >/dev/null || Die
-	eapply "${FILESDIR}/libcramjam-unbundle.patch"
-	popd >/dev/null || die
 
 	# unpin C library versions
 	sed -i -e '/exactly_version/d' \
-		"${ECARGO_VENDOR}"/{blosc2,libdeflate}-sys-*/build.rs || die
+		"${ECARGO_VENDOR}"/libdeflate-sys-*/build.rs || die
 
 	# bzip2-sys requires a pkg-config file
 	# https://github.com/alexcrichton/bzip2-rs/issues/104
@@ -187,8 +191,31 @@ src_prepare() {
 		Libs: -lbz2
 	EOF
 
+	local features=(
+		extension-module
+
+		snappy
+		lz4
+		bzip2
+		brotli
+		zstd
+
+		xz-shared
+		igzip-shared
+		ideflate-shared
+		izlib-shared
+		use-system-isal-shared
+		gzip-shared
+		zlib-shared
+		deflate-shared
+		blosc2-shared
+		use-system-blosc2-shared
+	)
+	local features_s=${features[*]}
+
 	DISTUTILS_ARGS=(
-		--features=use-system-blosc2
+		--no-default-features
+		--features="${features_s// /,}"
 	)
 }
 
