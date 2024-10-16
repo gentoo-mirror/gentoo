@@ -1,0 +1,13 @@
+BDEPEND=test? ( dev-python/sigstore sys-apps/diffutils )
+DEFINED_PHASES=install test
+DESCRIPTION=trusted-root.json for dev-python/sigstore
+EAPI=8
+HOMEPAGE=https://www.sigstore.dev/
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=test
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~mgorny/dist/sigstore-trusted-root-0_p20241016.tar.xz test? ( https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tar.xz.sigstore )
+_md5_=bbc99db6ad8e8439713aef06de4cbf57
