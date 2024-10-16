@@ -1,0 +1,15 @@
+DEFINED_PHASES=install nofetch postinst postrm preinst prepare unpack
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Wolfram Mathematica
+EAPI=7
+HOMEPAGE=https://www.wolfram.com/mathematica/
+INHERIT=desktop multilib xdg
+IUSE=+doc
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=media-libs/freetype media-libs/harfbuzz
+RESTRICT=strip mirror bindist fetch
+SLOT=0
+SRC_URI=Mathematica_10.3.1_LINUX.sh
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=20de9db3c8e1a4f2b56850737627f252
