@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
-inherit cmake desktop flag-o-matic python-any-r1 xdg verify-sig virtualx
+PYTHON_COMPAT=( python3_{10..13} )
+inherit cmake desktop flag-o-matic python-any-r1 toolchain-funcs xdg verify-sig virtualx
 
 DESCRIPTION="3D photo-realistic skies in real time"
 HOMEPAGE="https://stellarium.org/ https://github.com/Stellarium/stellarium"
@@ -33,8 +33,8 @@ SRC_URI="
 
 LICENSE="GPL-2+ SGI-B-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ppc64 ~riscv ~x86"
-IUSE="debug deep-sky doc gps +lens-distortion media nls qt6 +scripting +show-my-sky stars telescope test webengine +xlsx"
+KEYWORDS="~amd64"
+IUSE="debug deep-sky doc gps +lens-distortion libcxx media nls qt6 +scripting +show-my-sky stars telescope test webengine +xlsx"
 
 # Python interpreter is used while building RemoteControl plugin
 BDEPEND="
@@ -47,7 +47,9 @@ BDEPEND="
 	)
 	verify-sig? ( sec-keys/openpgp-keys-stellarium )
 "
+# TODO: review need for dev-cpp/tbb after several releases of gcc and clang
 RDEPEND="
+	dev-cpp/tbb:=
 	media-fonts/dejavu
 	sys-libs/zlib
 	gps? ( sci-geosciences/gpsd:=[cxx] )
@@ -58,6 +60,7 @@ RDEPEND="
 	media? ( virtual/opengl )
 	!qt6? (
 		dev-qt/qtcharts:5
+		dev-qt/qtconcurrent:5
 		dev-qt/qtcore:5
 		dev-qt/qtgui:5=
 		dev-qt/qtnetwork:5
@@ -77,7 +80,7 @@ RDEPEND="
 		xlsx? ( dev-libs/qxlsx:=[qt5] )
 	)
 	qt6? (
-		dev-qt/qtbase:6=[gui,network,widgets]
+		dev-qt/qtbase:6=[concurrent,gui,network,widgets]
 		dev-qt/qtcharts:6
 		>=sci-astronomy/calcmysky-0.3.0:=[qt6]
 		gps? (
@@ -94,20 +97,28 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	libcxx? ( dev-cpp/fast_float )
 	!qt6? (
-		dev-qt/qtconcurrent:5
 		test? ( dev-qt/qttest:5 )
 	)
-	qt6? ( dev-qt/qtbase:6=[concurrent] )
 "
 
 RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/stellarium-0.23.4-unbundle-zlib.patch"
+	"${FILESDIR}/stellarium-0.24.3-fast_float.patch"
+	"${FILESDIR}/stellarium-0.24.3-tbb-emit.patch"
 )
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/stellarium.asc
+
+pkg_setup() {
+	if tc-is-clang && ! use libcxx && [[ $(tc-get-cxx-stdlib) == libc++ ]]; then
+		die "When using libc++, please enable USE=libcxx"
+	fi
+}
+
 src_unpack() {
 	# stars-2.0 are not signed
 	if use verify-sig; then
@@ -127,6 +138,7 @@ src_prepare() {
 	cmake_src_prepare
 	use debug || append-cppflags -DQT_NO_DEBUG #415769
 
+	rm -r src/external/qtcompress/ || die
 	rm -r src/external/zlib/ || die
 
 	# for glues_stel aka libtess I couldn't find an upstream with the same API
@@ -143,6 +155,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCCACHE_PROGRAM=no
 		-DCPM_LOCAL_PACKAGES_ONLY=yes
+		-DUSE_BUNDLED_QTCOMPRESS=no
 		-DENABLE_GPS="$(usex gps)"
 		-DENABLE_MEDIA="$(usex media)"
 		-DENABLE_NLS="$(usex nls)"
