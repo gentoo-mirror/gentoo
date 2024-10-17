@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/perl-5.14
+DEFINED_PHASES=configure prepare
+DEPEND=berkdb? ( >=sys-libs/db-4.2:= ) sasl? ( dev-libs/cyrus-sasl ) ssl? ( >=dev-libs/openssl-0.9.6:0= ) zlib? ( sys-libs/zlib:0= )
+DESCRIPTION=MailDir mailbox synchronizer
+EAPI=8
+HOMEPAGE=https://isync.sourceforge.io/
+IUSE=berkdb sasl ssl zlib
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=berkdb? ( >=sys-libs/db-4.2:= ) sasl? ( dev-libs/cyrus-sasl ) ssl? ( >=dev-libs/openssl-0.9.6:0= ) zlib? ( sys-libs/zlib:0= )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/isync/isync/1.5.0/isync-1.5.0.tar.gz
+_md5_=0b552b3d3d043f423dc9b0f1fce483d7
