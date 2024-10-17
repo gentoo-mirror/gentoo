@@ -2051,7 +2051,7 @@ app-emacs/gnuserv 3.12.8-r8: Attach to an already running Emacs
 app-emacs/go-mode 1.6.0: An improved Go mode for emacs
 app-emacs/god-mode 2.18.0: Minor mode for God-like command entering in GNU Emacs
 app-emacs/google-c-style 20140929: Provides the google C/C++ coding style
-app-emacs/gptel 0.9.0 0.9.5: Simple Large Language Model chat client for GNU Emacs
+app-emacs/gptel 0.9.0 0.9.5 0.9.6: Simple Large Language Model chat client for GNU Emacs
 app-emacs/graphql 0.1.2: GraphQL utilities
 app-emacs/graphviz-dot-mode 0.4 0.4.20181118: Emacs mode for editing and previewing Graphviz dot graphs
 app-emacs/groovy-emacs-modes 2.1: Groovy major mode, grails minor mode, and a groovy inferior mode
@@ -2159,7 +2159,7 @@ app-emacs/package-lint 0.23 0.24: Linting library for Emacs Lisp package metadat
 app-emacs/pandoc-mode 2.32-r1 2.33: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
-app-emacs/parsebib 4.3: Emacs Lisp library for reading .bib files
+app-emacs/parsebib 4.3 4.6: Emacs Lisp library for reading .bib files
 app-emacs/parseclj 1.1.1: Clojure Parser for Emacs Lisp
 app-emacs/parseedn 1.2.1: EDN parser for Emacs Lisp
 app-emacs/pdf-tools 1.0.0 1.1.0: Emacs Lisp support library for PDF documents
@@ -3129,7 +3129,7 @@ app-shells/starship 1.19.0 1.20.1: The minimal, blazing-fast, and infinitely cus
 app-shells/tcsh 6.24.01-r1 6.24.10 6.24.12: Enhanced version of the Berkeley C shell (csh)
 app-shells/thefuck 3.32-r1 3.32-r2: Magnificent app which corrects your previous console command
 app-shells/tmux-bash-completion 9999: bash-completion scripts for tmux
-app-shells/ugit 0.4.4: PowerShell wrapper for git, automate repos and output git as objects
+app-shells/ugit 0.4.4 0.4.5: PowerShell wrapper for git, automate repos and output git as objects
 app-shells/yash 2.57: Yash is a POSIX-compliant command line shell
 app-shells/zoxide 0.9.4 0.9.6: A smarter cd command for your terminal
 app-shells/zsh 5.9-r3 5.9-r4 5.9-r5 5.9-r6 9999: UNIX Shell similar to the Korn shell
@@ -3315,7 +3315,7 @@ app-text/opensp 1.5.2-r9 1.5.2-r10: A free, object-oriented toolkit for SGML par
 app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
 app-text/pandoc-bin 3.3 3.4 3.5: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
-app-text/paper-clip 5.0 5.5-r1 9999: Edit the title, author, keywords and more details of PDF documents
+app-text/paper-clip 5.5-r1 5.5.1 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/paperwork 2.2.3 2.2.5: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.2.3 2.2.5: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.6.8-r2: Unicode-aware text to PostScript converter
@@ -4058,12 +4058,12 @@ dev-dotnet/dotnet-script 1.5.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.107: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.106 8.0.107 8.0.108 8.0.402 9.0.100.1.24452.12_rc: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.19.3 4.20.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
-dev-dotnet/fantomas 6.3.11 6.3.12 6.3.13 6.3.15: FSharp source code formatter
+dev-dotnet/fantomas 6.3.12 6.3.13 6.3.15: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.73.2 0.74.0 0.74.1: F# language server using the Language Server Protocol
 dev-dotnet/gentoo-dotnet-maintainer-tools 2.4.1 2.9999: Gentoo tools for .NET packages maintenance
 dev-dotnet/libgdiplus 6.0.2-r4: Library for using System.Drawing with Mono
 dev-dotnet/nake 3.0.0-r1: C# scripting build automation task runner
-dev-dotnet/netcoredbg 3.0.0.1018-r1 3.1.0.1031: NetCoreDbg is a managed code debugger with MI interface for CoreCLR
+dev-dotnet/netcoredbg 3.1.0.1031: NetCoreDbg is a managed code debugger with MI interface for CoreCLR
 dev-dotnet/nuget-license 3.0.0: .NET Core tool to print or save all the licenses of a project
 dev-dotnet/omnisharp-roslyn 1.39.12: OmniSharp server (HTTP, STDIO) based on Roslyn workspaces
 dev-dotnet/pe-format 2.1.2-r1 9999: Intelligent PE executable wrapper for binfmt_misc
@@ -5114,7 +5114,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.3.1-r1 4.3.2-r1 4.4.1: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1: GNAT Ada Compiler - GPL version
-dev-lang/algol68g 3.5.5 3.5.7 3.5.8: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.5.5 3.5.7 3.5.9: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.9 2.5.11: Scala language-based scripting and REPL
 dev-lang/arc 3.2: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2: Functional programming language with dependent types
@@ -18003,7 +18003,7 @@ www-apps/jekyll-coffeescript 2.0.0: A CoffeeScript Converter for Jekyll
 www-apps/jekyll-sass-converter 2.2.0: A basic Sass converter for Jekyll
 www-apps/jekyll-sitemap 1.4.0-r1: Automatically generate a sitemap.xml for your Jekyll site
 www-apps/jekyll-watch 2.2.1-r1: Rebuild your Jekyll site when a file changes with the --watch switch
-www-apps/jellyfin-bin 10.9.9 10.9.10 10.9.11: Jellyfin puts you in control of managing and streaming your media
+www-apps/jellyfin-bin 10.9.11 10.9.11-r1: Jellyfin puts you in control of managing and streaming your media
 www-apps/karma-bin 0.90: Alerts dashboard for Prometheus Alertmanager
 www-apps/kibana-bin 7.17.16: Analytics and search dashboard for Elasticsearch
 www-apps/klaus 2.0.3 3.0.1: A simple, easy-to-set-up Git web viewer
