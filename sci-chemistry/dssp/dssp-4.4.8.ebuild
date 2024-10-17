@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,14 +18,15 @@ KEYWORDS="~amd64 ~x86"
 CDEPEND="
 	dev-libs/boost:=[zlib]
 	>=dev-libs/libmcfp-1.2.2
-	>=sci-libs/libcifpp-5.2.0
+	>=sci-libs/libcifpp-7.0.3
 "
-BDEPEND="${CDEPEND}"
+BDEPEND="${CDEPEND}
+	dev-cpp/catch:0
+"
 #	doc? (
 #		|| ( app-text/pandoc-bin[pandoc-symlink] app-text/pandoc )
 #		dev-python/weasyprint
 #	)
-DEPEND=""
 RDEPEND="${CDEPEND}"
 
 #src_prepare() {
