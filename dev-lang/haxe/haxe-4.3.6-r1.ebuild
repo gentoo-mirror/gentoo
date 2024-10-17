@@ -15,7 +15,7 @@ else
 	# Haxe-debian is a distribution variant that contains the required git modules.
 	SRC_URI="https://github.com/HaxeFoundation/haxe-debian/archive/upstream/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}/haxe-debian-upstream-${PV}"
+	S="${WORKDIR}/haxe-debian-upstream"
 
 	KEYWORDS="~amd64"
 fi
@@ -26,9 +26,10 @@ IUSE="+ocamlopt"
 RESTRICT="strip"
 
 RDEPEND="
+	<=dev-ml/extlib-1.7.9:=
 	>=dev-lang/ocaml-4:=[ocamlopt?]
-	>=dev-ml/luv-0.5.12:=
-	dev-ml/extlib:=
+	~dev-ml/luv-0.5.12:=
+
 	dev-ml/ocaml-sha:=
 	dev-ml/ptmap:=
 	dev-ml/sedlex:=
