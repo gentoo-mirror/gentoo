@@ -38,12 +38,6 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-PATCHES=(
-	# https://github.com/MagicStack/httptools/issues/111
-	# https://github.com/MagicStack/httptools/pull/112
-	"${FILESDIR}/${P}-llhttp-9.patch"
-)
-
 src_configure() {
 	cat > setup.cfg <<-EOF || die
 		[build_ext]
