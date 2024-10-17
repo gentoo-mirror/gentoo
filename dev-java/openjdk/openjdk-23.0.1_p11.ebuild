@@ -45,8 +45,7 @@ SRC_URI="
 S="${WORKDIR}/jdk${SLOT}u-jdk-${MY_PV//+/-}"
 
 LICENSE="GPL-2-with-classpath-exception"
-#	SLOT="${MY_PV%%[.+]*}"
-SLOT="23"
+SLOT="${MY_PV%%[.+]*}"
 #	KEYWORDS="" # not LTS
 
 # lto temporarily disabled due to https://bugs.gentoo.org/916735
