@@ -12,7 +12,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit distutils-r1 verify-sig
 
 if [[ ${PV} == *9999* ]]; then
@@ -30,8 +30,6 @@ fi
 DESCRIPTION="libvirt Python bindings"
 HOMEPAGE="https://www.libvirt.org"
 
-S="${WORKDIR}/${P%_rc*}"
-
 LICENSE="LGPL-2"
 SLOT="0"
 IUSE="examples test"
@@ -45,6 +43,7 @@ BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-libvirt )
 "
 
+S="${WORKDIR}/${P%_rc*}"
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/libvirt.org.asc
 
 distutils_enable_tests pytest
@@ -61,5 +60,4 @@ python_install_all() {
 	fi
 
 	distutils-r1_python_install_all
-
 }
