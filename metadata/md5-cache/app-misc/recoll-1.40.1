@@ -1,0 +1,16 @@
+BDEPEND=qt6? ( dev-qt/qttools:6[linguist] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] webengine? ( dev-qt/qtwebengine:6[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+DESCRIPTION=Personal full text search package
+EAPI=8
+HOMEPAGE=https://www.recoll.org
+INHERIT=linux-info optfeature python-single-r1 qmake-utils meson systemd
+IUSE=camelcase chm +inotify qt6 session +spell systemd webengine python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] webengine? ( dev-qt/qtwebengine:6[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) app-arch/unzip
+REQUIRED_USE=session? ( inotify ) webengine? ( qt6 ) ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=0
+SRC_URI=https://www.recoll.org/recoll-1.40.1.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=ea0ec5c35adddad8c2b198a47959b9f1
