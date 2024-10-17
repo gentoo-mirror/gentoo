@@ -22,10 +22,10 @@ S=${WORKDIR}/py-${P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 # setuptools is needed for distutils import
-DEPEND=">=dev-libs/tree-sitter-0.23.0:="
+DEPEND=">=dev-libs/tree-sitter-0.24.0:="
 RDEPEND="${DEPEND}
 	$(python_gen_cond_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]
@@ -33,11 +33,11 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	test? (
-		>=dev-libs/tree-sitter-html-0.20.4[python,${PYTHON_USEDEP}]
-		>=dev-libs/tree-sitter-javascript-0.21.0[python,${PYTHON_USEDEP}]
-		>=dev-libs/tree-sitter-json-0.20.3[python,${PYTHON_USEDEP}]
+		>=dev-libs/tree-sitter-html-0.23.0[python,${PYTHON_USEDEP}]
+		>=dev-libs/tree-sitter-javascript-0.23.0[python,${PYTHON_USEDEP}]
+		>=dev-libs/tree-sitter-json-0.23.0[python,${PYTHON_USEDEP}]
 		>=dev-libs/tree-sitter-python-0.23.0[python,${PYTHON_USEDEP}]
-		>=dev-libs/tree-sitter-rust-0.21.2[python,${PYTHON_USEDEP}]
+		>=dev-libs/tree-sitter-rust-0.23.0[python,${PYTHON_USEDEP}]
 	)
 "
 
@@ -50,12 +50,6 @@ PATCHES=(
 src_unpack() {
 	default
 	rmdir "${S}/tree_sitter/core" || die
-}
-
-src_prepare() {
-	default
-
-	sed -i tree_sitter/binding/query.c -e 's/_PyErr_FormatFromCause/PyErr_Format/' || die
 }
 
 src_test() {
