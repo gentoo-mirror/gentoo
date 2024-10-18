@@ -47,8 +47,4 @@ all_ruby_prepare() {
 		tests/{batch-requests,complete_responses}.rb \
 		tests/middlewares/{decompress,mock}_tests.rb  || die
 	rm -f spec/requests/eof_requests_spec.rb spec/excon/error_spec.rb || die
-
-	# Use a rackup version compatible with sinatra
-	sed -i -e '/launch_process/ s/"rackup"/"rackup-2"/' tests/test_helper.rb || die
-	sed -i -e '/open_process/ s/rackup/rackup-2/' lib/excon/test/plugin/server/webrick.rb || die
 }
