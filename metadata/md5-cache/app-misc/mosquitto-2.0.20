@@ -1,0 +1,17 @@
+BDEPEND=test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.13 dev-python/psutil[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/psutil[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/psutil[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/psutil[python_targets_python3_10(-)] ) ) ) virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare setup test
+DEPEND=acct-user/mosquitto acct-group/mosquitto dev-libs/cJSON srv? ( net-dns/c-ares:= ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) websockets? ( net-libs/libwebsockets[lejp] ) test? ( dev-util/cunit )
+DESCRIPTION=An Open Source MQTT v3 Broker
+EAPI=8
+HOMEPAGE=https://mosquitto.org/ https://github.com/eclipse/mosquitto
+INHERIT=python-any-r1 systemd toolchain-funcs
+IUSE=+bridge examples +persistence +srv ssl systemd tcpd test websockets
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=EPL-1.0
+RDEPEND=acct-user/mosquitto acct-group/mosquitto dev-libs/cJSON srv? ( net-dns/c-ares:= ) ssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) websockets? ( net-libs/libwebsockets[lejp] )
+REQUIRED_USE=test? ( bridge )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://mosquitto.org/files/source/mosquitto-2.0.20.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=06a1b8e6b0d87b1454fca36a11497322
