@@ -5,17 +5,16 @@ EAPI=8
 
 inherit rebar
 
-DESCRIPTION="In-memory cache Erlang and Elixir library"
-HOMEPAGE="https://github.com/processone/cache_tab"
-SRC_URI="https://github.com/processone/${PN}/archive/${PV}.tar.gz
-	-> ${P}.tar.gz"
+DESCRIPTION="STUN and TURN library for Erlang and Elixir"
+HOMEPAGE="https://github.com/processone/stun"
+SRC_URI="https://github.com/processone/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apache-2.0"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~sparc ~x86"
 
 DEPEND="
-	>=dev-lang/erlang-17.1
+	>=dev-erlang/fast_tls-1.1.21
 	>=dev-erlang/p1_utils-1.0.26
 "
 RDEPEND="${DEPEND}"

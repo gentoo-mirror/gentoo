@@ -3,18 +3,21 @@
 
 EAPI=8
 
-inherit rebar3
+inherit rebar
 
-DESCRIPTION="Erlang utility modules from ProcessOne"
-HOMEPAGE="https://github.com/processone/p1_utils"
+DESCRIPTION="Fast Expat based Erlang XML parsing library"
+HOMEPAGE="https://github.com/processone/fast_xml"
 SRC_URI="https://github.com/processone/${PN}/archive/${PV}.tar.gz
 	-> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~sparc ~x86"
 
-DEPEND=">=dev-lang/erlang-17.1:="
+DEPEND="
+	>=dev-erlang/p1_utils-1.0.26
+	dev-libs/expat
+"
 RDEPEND="${DEPEND}"
 
 DOCS=( CHANGELOG.md README.md )

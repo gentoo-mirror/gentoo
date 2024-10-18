@@ -3,12 +3,11 @@
 
 EAPI=8
 
-inherit rebar
+inherit rebar3
 
-DESCRIPTION="In-memory cache Erlang and Elixir library"
-HOMEPAGE="https://github.com/processone/cache_tab"
-SRC_URI="https://github.com/processone/${PN}/archive/${PV}.tar.gz
-	-> ${P}.tar.gz"
+DESCRIPTION="YAML configuration processor"
+HOMEPAGE="https://github.com/processone/yconf"
+SRC_URI="https://github.com/processone/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -16,7 +15,7 @@ KEYWORDS="~amd64 ~arm ~sparc ~x86"
 
 DEPEND="
 	>=dev-lang/erlang-17.1
-	>=dev-erlang/p1_utils-1.0.26
+	>=dev-erlang/fast_yaml-1.0.37
 "
 RDEPEND="${DEPEND}"
 

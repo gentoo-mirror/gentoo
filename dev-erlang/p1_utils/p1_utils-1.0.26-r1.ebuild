@@ -5,19 +5,16 @@ EAPI=8
 
 inherit rebar
 
-DESCRIPTION="In-memory cache Erlang and Elixir library"
-HOMEPAGE="https://github.com/processone/cache_tab"
+DESCRIPTION="Erlang utility modules from ProcessOne"
+HOMEPAGE="https://github.com/processone/p1_utils"
 SRC_URI="https://github.com/processone/${PN}/archive/${PV}.tar.gz
 	-> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~ppc64 ~sparc ~x86"
 
-DEPEND="
-	>=dev-lang/erlang-17.1
-	>=dev-erlang/p1_utils-1.0.26
-"
+DEPEND=">=dev-lang/erlang-17.1:="
 RDEPEND="${DEPEND}"
 
 DOCS=( CHANGELOG.md README.md )
