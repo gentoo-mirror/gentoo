@@ -4124,14 +4124,14 @@ dev-embedded/xa 2.4.1: High-speed, two-pass portable 6502 cross-assembler
 dev-embedded/zmac 1.3-r1: Z80 macro cross-assembler
 dev-erlang/base64url 1.0.1-r1: URL safe base64-compatible codec
 dev-erlang/cache_tab 1.0.30 1.0.31: In-memory cache Erlang and Elixir library
-dev-erlang/eimp 1.0.22: Erlang Image Manipulation Process
+dev-erlang/eimp 1.0.22 1.0.23: Erlang Image Manipulation Process
 dev-erlang/epam 1.0.12 1.0.14: epam for ejabberd to help with PAM authentication support
 dev-erlang/eredis 1.2.0-r1: Erlang Redis client
-dev-erlang/esip 1.0.47 1.0.48 1.0.49 1.0.50 1.0.52: ProcessOne SIP server component
-dev-erlang/ezlib 1.0.12: Native zlib driver for Erlang and Elixir
-dev-erlang/fast_tls 1.1.16 1.1.19: TLS/SSL native driver for Erlang and Elixir
-dev-erlang/fast_xml 1.1.49 1.1.51: Fast Expat based Erlang XML parsing library
-dev-erlang/fast_yaml 1.0.32 1.0.33 1.0.34 1.0.36: Fast Yaml native library for Erlang and Elixir
+dev-erlang/esip 1.0.47 1.0.48 1.0.49 1.0.50 1.0.52 1.0.54: ProcessOne SIP server component
+dev-erlang/ezlib 1.0.12 1.0.13: Native zlib driver for Erlang and Elixir
+dev-erlang/fast_tls 1.1.16 1.1.19 1.1.21: TLS/SSL native driver for Erlang and Elixir
+dev-erlang/fast_xml 1.1.49 1.1.51 1.1.52: Fast Expat based Erlang XML parsing library
+dev-erlang/fast_yaml 1.0.32 1.0.33 1.0.34 1.0.36 1.0.37: Fast Yaml native library for Erlang and Elixir
 dev-erlang/goldrush 0.2.0-r1: Small Erlang app that provides fast event stream processing
 dev-erlang/hamcrest 0.1.0_p20160709: Erlang port of Hamcrest
 dev-erlang/idna 6.0.0-r2: Erlang IDNA implementation
@@ -4140,19 +4140,19 @@ dev-erlang/jose 1.11.2 1.11.5 1.11.10: JSON Object Signing and Encryption (JOSE)
 dev-erlang/lager 3.9.1: Logging framework for Erlang/OTP
 dev-erlang/luerl 1.2: Lua in Erlang
 dev-erlang/meck 0.9.2: Mocking library for Erlang
-dev-erlang/mqtree 1.0.15 1.0.16: Index tree for MQTT topic filters
-dev-erlang/p1_acme 1.0.19 1.0.20 1.0.22: ACME client library for Erlang
-dev-erlang/p1_mysql 1.0.19 1.0.20 1.0.21 1.0.22 1.0.23: Pure Erlang MySQL driver
+dev-erlang/mqtree 1.0.15 1.0.16 1.0.17: Index tree for MQTT topic filters
+dev-erlang/p1_acme 1.0.19 1.0.20 1.0.22 1.0.23: ACME client library for Erlang
+dev-erlang/p1_mysql 1.0.19 1.0.20 1.0.21 1.0.22 1.0.23 1.0.24: Pure Erlang MySQL driver
 dev-erlang/p1_oauth2 0.6.11 0.6.14: Erlang OAuth 2.0 implementation
-dev-erlang/p1_pgsql 1.1.18 1.1.19 1.1.20 1.1.22 1.1.23 1.1.25: Pure Erlang PostgreSQL driver
-dev-erlang/p1_utils 1.0.25 1.0.26: Erlang utility modules from ProcessOne
-dev-erlang/pkix 1.0.9: PKIX certificates management library for Erlang
+dev-erlang/p1_pgsql 1.1.18 1.1.19 1.1.20 1.1.22 1.1.23 1.1.25 1.1.27: Pure Erlang PostgreSQL driver
+dev-erlang/p1_utils 1.0.25 1.0.26-r1: Erlang utility modules from ProcessOne
+dev-erlang/pkix 1.0.9 1.0.10: PKIX certificates management library for Erlang
 dev-erlang/proper 1.4: QuickCheck-inspired property-based testing tool for Erlang
-dev-erlang/sqlite3 1.1.13 1.1.14: SQLite gen_server port for Erlang
-dev-erlang/stringprep 1.0.28 1.0.29: Fast Stringprep implementation for Erlang and Elixir
-dev-erlang/stun 1.0.47 1.2.2 1.2.6 1.2.7 1.2.10 1.2.12: STUN and TURN library for Erlang and Elixir
-dev-erlang/xmpp 1.6.1 1.6.2 1.7.0 1.8.1: XMPP parsing and serialization library on top of Fast XML
-dev-erlang/yconf 1.0.14 1.0.15: YAML configuration processor
+dev-erlang/sqlite3 1.1.13 1.1.14 1.1.15: SQLite gen_server port for Erlang
+dev-erlang/stringprep 1.0.28 1.0.29 1.0.30: Fast Stringprep implementation for Erlang and Elixir
+dev-erlang/stun 1.0.47 1.2.2 1.2.6 1.2.7 1.2.10 1.2.12 1.2.14: STUN and TURN library for Erlang and Elixir
+dev-erlang/xmpp 1.6.1 1.6.2 1.7.0 1.8.1 1.8.3: XMPP parsing and serialization library on top of Fast XML
+dev-erlang/yconf 1.0.14 1.0.15 1.0.16: YAML configuration processor
 dev-games/KXL 1.1.7_p17: Development Library for making games for X
 dev-games/aseprite 1.2.40 1.3.5: Animated sprite editor & pixel art tool
 dev-games/clanlib 0.8.1-r2 0.8.1-r3 2.3.7-r3 2.3.7-r4 4.1.0 4.1.0-r1: Multi-platform game development library
@@ -10771,7 +10771,7 @@ dev-util/gitlab-runner 17.1.1 17.2.1 17.3.1: The official GitLab Runner, written
 dev-util/glade 3.40.0-r1: A user interface designer for GTK+ and GNOME
 dev-util/glib-utils 2.76.4 2.78.3 2.78.4 2.78.6 2.80.4: Build utilities for GLib using projects
 dev-util/global 6.6.4 6.6.10 6.6.13: Tag system to find an object location in various sources
-dev-util/glslang 1.3.290.0 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
+dev-util/glslang 1.3.290.0 1.3.296.0 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
 dev-util/gnome-builder 44.2-r1: An IDE for writing GNOME-based software
 dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME desktop environment
 dev-util/gob 2.0.20-r1: Preprocessor for making GTK+ objects with inline C code
@@ -10936,9 +10936,9 @@ dev-util/shunit2 2.1.8: Unit-test framework for Bourne-based shell scripts
 dev-util/smem 1.5-r2: A tool that can give numerous reports on memory usage on Linux systems
 dev-util/snakeviz 2.2.0: A web-based viewer for Python profiler output
 dev-util/source-highlight 3.1.9-r1 3.1.9-r2: Generate highlighted source code as an (x)html document
-dev-util/spirv-headers 1.3.290.0 9999: Machine-readable files for the SPIR-V Registry
+dev-util/spirv-headers 1.3.290.0 1.3.296.0 9999: Machine-readable files for the SPIR-V Registry
 dev-util/spirv-llvm-translator 15.0.0-r1 15.0.4-r1 16.0.0-r1 16.0.4-r1 17.0.0-r2 17.0.4-r1 18.1.3 18.1.4 19.1.0: Bi-directional translator between SPIR-V and LLVM IR
-dev-util/spirv-tools 1.3.290.0 9999: Provides an API and commands for processing SPIR-V modules
+dev-util/spirv-tools 1.3.290.0 1.3.296.0 9999: Provides an API and commands for processing SPIR-V modules
 dev-util/splint 3.1.2-r2: Check C programs for vulnerabilities and programming mistakes
 dev-util/squashdelta 0.1.1 0.1.2 9999: Efficient (partially uncompressed) SquashFS binary delta tool
 dev-util/squashmerge 0.1 9999: dev-util/squashdelta delta merge tool
@@ -10970,11 +10970,11 @@ dev-util/vint 0.3.21 0.3.21-r1: Lint tool for Vim script language
 dev-util/visual-regexp 3.0-r1 3.1: Type the regexp and visualize it on a sample of your choice
 dev-util/visualvm 2.1.9-r1 2.1.10: Integrates commandline JDK tools and profiling capabilities
 dev-util/vmtouch 1.3.1: Virtual Memory Toucher, portable file system cache diagnostics and control
-dev-util/volk 1.3.290.0 9999: Meta loader for Vulkan API
+dev-util/volk 1.3.290.0 1.3.296.0 9999: Meta loader for Vulkan API
 dev-util/vtable-dumper 1.2-r1: A tool to list content of virtual tables in a shared library
-dev-util/vulkan-headers 1.3.290.0-r1 9999: Vulkan Header files and API registry
-dev-util/vulkan-tools 1.3.290.0 9999: Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS
-dev-util/vulkan-utility-libraries 1.3.290.0 9999: Share code across various Vulkan repositories
+dev-util/vulkan-headers 1.3.290.0-r1 1.3.296.0 9999: Vulkan Header files and API registry
+dev-util/vulkan-tools 1.3.290.0 1.3.296.0 9999: Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS
+dev-util/vulkan-utility-libraries 1.3.290.0 1.3.296.0 9999: Share code across various Vulkan repositories
 dev-util/wachy 0.1.0_alpha6-r1: A dynamic tracing profiler for Linux
 dev-util/wasm3 0.5.0: A fast WebAssembly interpreter and the most universal WASM runtime
 dev-util/wasmer 0.11.0: Universal web assembly runtime
@@ -13407,7 +13407,7 @@ media-libs/sdl2-ttf 2.20.0 2.20.2 2.22.0: Library that allows you to use TrueTyp
 media-libs/sdl_audiolib 0_p20220622-r1 9999: Audio decoding, resampling and mixing library for SDL
 media-libs/sg 1.5: Socket Graphics tool for displaying polygons
 media-libs/sge 030809-r1: Graphics extensions library for SDL
-media-libs/shaderc 2024.1-r1: Collection of tools, libraries and tests for shader compilation
+media-libs/shaderc 2024.1-r1 2024.3: Collection of tools, libraries and tests for shader compilation
 media-libs/simage 1.8.3 9999: Image and video texturing library
 media-libs/smpeg 0.4.4-r11 0.4.4-r12: SDL MPEG Player Library
 media-libs/smpeg2 2.0.0-r4: SDL MPEG Player Library
@@ -13443,8 +13443,8 @@ media-libs/vkroots 0_p20240430: Simple framework for writing Vulkan layers
 media-libs/vo-aacenc 0.1.3 9999: VisualOn AAC encoder library
 media-libs/vo-amrwbenc 0.1.3 9999: VisualOn AMR-WB encoder library
 media-libs/volpack 1.0_p7-r2: Volume rendering library
-media-libs/vulkan-layers 1.3.290.0 9999: Vulkan Validation Layers
-media-libs/vulkan-loader 1.3.290.0 9999: Vulkan Installable Client Driver (ICD) Loader
+media-libs/vulkan-layers 1.3.290.0 1.3.296.0 9999: Vulkan Validation Layers
+media-libs/vulkan-loader 1.3.290.0 1.3.296.0 9999: Vulkan Installable Client Driver (ICD) Loader
 media-libs/waffle 1.8.1 9999: Library that allows selection of GL API and of window system at runtime
 media-libs/webrtc-audio-processing 0.3.1 0.3.1-r1 1.3-r1 1.3-r2 1.3-r3: AudioProcessing library from the webrtc.org codebase
 media-libs/woff2 1.0.2-r5 1.0.2-r6: Encode/decode WOFF2 font format
@@ -14658,7 +14658,7 @@ net-im/cpop 0.0.4-r2: GTK+ network popup message client. Compatible with the jpo
 net-im/dianara 1.4.2: Qt-based client for the pump.io distributed social network
 net-im/dino 0.4.2-r2 0.4.3 0.4.3-r1 0.4.4 9999: Modern Jabber/XMPP Client using GTK+/Vala
 net-im/discord 0.0.71: All-in-one voice and text chat for gamers
-net-im/ejabberd 23.01 23.04 23.10-r1 24.02-r1: Robust, scalable and extensible XMPP server
+net-im/ejabberd 23.01 23.04 23.10-r1 24.02-r1 24.07: Robust, scalable and extensible XMPP server
 net-im/element-desktop-bin 1.11.76: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
 net-im/fractal 8: Matrix messaging app for GNOME written in Rust
