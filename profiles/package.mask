@@ -55,7 +55,7 @@ app-emacs/quilt-el
 
 # Alfredo Tupone <tupone@gentoo.org> (2024-10-14)
 # These packages are no more needed.
-# Use dev-ml/opam, dev-ml/opam-file-format, 
+# Use dev-ml/opam, dev-ml/opam-file-format,
 # dev-ml/opam-installer
 # that include these
 # remove on 2024-11-14.
@@ -250,39 +250,13 @@ dev-util/cucumber-compatibility-kit:10
 dev-util/cucumber-core:12
 dev-util/cucumber-gherkin:22
 
-# Hans de Graaff <graaff@gentoo.org> (2024-09-14)
-# Old slots that are not compatible with ruby32. Use the newer slots
-# instead. Removal on 2024-10-14.
-dev-ruby/hiera-eyaml:3
-dev-util/aruba:0
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-09-10)
-# ia64 only package. Since we drop ia64, we can remove this package.
-# Removal on 2024-10-10.  Bug #939298.
-sys-apps/salinfo
-
 # Ulrich Müller <ulm@gentoo.org> (2024-09-12)
 # Pretest versions, masked for testing.
 <app-editors/emacs-30.0.9999:30-vcs
 
-# Eli Schwartz <eschwartz@gentoo.org> (2024-09-09)
-# Upstream has dropped this package since MATE 1.28.
-# Removal on 2024-10-09.  Bug #932568.
-mate-extra/mate-netbook
-
-# Eli Schwartz <eschwartz@gentoo.org> (2024-09-09)
-# Fails to build with modern C. Unmaintained for 20 years.
-# Removal on 2024-10-09.  Bug #877105, #927389.
-sci-chemistry/mopac7
-
 # Sam James <sam@gentoo.org> (2024-09-10)
 # Breaks libstdc++ with a casing issue: https://gcc.gnu.org/PR116657
 =sys-libs/timezone-data-2024b
-
-# Michał Górny <mgorny@gentoo.org> (2024-09-08)
-# Does not build anymore.  No upstream activity since 2021.
-# Removal on 2024-10-08.  Bug #932532.
-sci-physics/qmeq
 
 # Fabian Groffen <grobian@gentoo.org> (2024-09-02)
 # exim_tinydb utility crashes due to invalid free() (used in startup script)
