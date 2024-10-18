@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst setup unpack
+DESCRIPTION=G.729 codec and supporting files for asterisk
+EAPI=7
+HOMEPAGE=https://www.asterisk.org/products/add-ons/g729-codec/
+KEYWORDS=-* ~amd64
+LICENSE=Digium
+RDEPEND==net-misc/asterisk-21*
+RESTRICT=mirror strip
+SLOT=0/21.0
+SRC_URI=https://downloads.digium.com/pub/telephony/codec_g729/asterisk-21.0/x86-64/codec_g729a-21.0_3.1.10-x86_64.tar.gz https://downloads.digium.com/pub/register/x86-64/register -> astregister-x86_64 https://downloads.digium.com/pub/register/x86-64/asthostid -> asthostid-x86_64
+_md5_=bee66a65eb268b153ded5f9e3069194d
