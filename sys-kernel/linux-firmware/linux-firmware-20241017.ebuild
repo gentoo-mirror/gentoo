@@ -14,10 +14,11 @@ if [[ ${PV} == 99999999* ]]; then
 	EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/${PN}.git"
 else
 	if [[ -n "${MY_COMMIT}" ]]; then
-		SRC_URI="https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/snapshot/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+		SRC_URI="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${MY_COMMIT}"
 	else
-		SRC_URI="https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/${P}.tar.xz"
+		EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/${PN}.git"
+		EGIT_BRANCH="${PV}"
 	fi
 
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
@@ -30,12 +31,13 @@ LICENSE="GPL-2 GPL-2+ GPL-3 BSD MIT || ( MPL-1.1 GPL-2 )
 	redistributable? ( linux-fw-redistributable BSD-2 BSD BSD-4 ISC MIT )
 	unknown-license? ( all-rights-reserved )"
 SLOT="0"
-IUSE="compress-xz compress-zstd deduplicate dist-kernel +initramfs +redistributable savedconfig unknown-license"
+IUSE="bindist compress-xz compress-zstd deduplicate dist-kernel +initramfs +redistributable savedconfig unknown-license"
 REQUIRED_USE="initramfs? ( redistributable )
 	?? ( compress-xz compress-zstd )
 	savedconfig? ( !deduplicate )"
 
 RESTRICT="binchecks strip test
+	!bindist? ( bindist )
 	unknown-license? ( bindist )"
 
 BDEPEND="initramfs? ( app-alternatives/cpio )
@@ -72,6 +74,7 @@ IDEPEND="
 "
 
 QA_PREBUILT="*"
+PATCHES=( "${FILESDIR}"/${PN}-copy-firmware-r5.patch )
 
 pkg_pretend() {
 	if use initramfs; then
@@ -126,8 +129,7 @@ src_prepare() {
 
 	chmod +x "${S}"/{copy-firmware.sh,dedup-firmware.sh,check_whence.py,build_packages.py} || die
 	chmod +x "${S}"/{carl9170fw/autogen.sh,carl9170fw/genapi.sh} || die
-	chmod +x "${S}"/contrib/process_linux_firmware.py || die
-
+	chmod +x "${S}"/contrib/process_linux_firmware.py || di
 	cp "${FILESDIR}/${PN}-make-amd-ucode-img.bash" "${T}/make-amd-ucode-img" || die
 	chmod +x "${T}/make-amd-ucode-img" || die
 
@@ -148,6 +150,7 @@ src_prepare() {
 		check_whence.py
 		WHENCE
 		README
+		LICEN[CS]E.*
 	)
 
 	# whitelist of images with a free software license
@@ -215,40 +218,6 @@ src_prepare() {
 		mellanox/mlxsw_spectrum-13.2000.1122.mfa2
 	)
 
-	if use !redistributable; then
-		# remove files _not_ in the free_software or unknown_license lists
-		# everything else is confirmed (or assumed) to be redistributable
-		# based on upstream acceptance policy
-		einfo "Removing non-redistributable files ..."
-		local OLDIFS="${IFS}"
-		local IFS=$'\n'
-		set -o pipefail
-		find ! -type d -printf "%P\n" \
-			| grep -Fvx -e "${misc_files[*]}" -e "${free_software[*]}" -e "${unknown_license[*]}" \
-			| xargs -d '\n' --no-run-if-empty rm -v
-
-		[[ ${?} -ne 0 ]] && die "Failed to remove non-redistributable files"
-
-		IFS="${OLDIFS}"
-	fi
-
-	restore_config ${PN}.conf
-}
-
-src_install() {
-
-	local FW_OPTIONS=( "-v" )
-	git config --global --add safe.directory "${S}" || die
-
-	if use compress-xz; then
-		FW_OPTIONS+=( "--xz" )
-	elif use compress-zstd; then
-		FW_OPTIONS+=( "--zstd" )
-	fi
-	FW_OPTIONS+=( "${ED}/lib/firmware" )
-	./copy-firmware.sh "${FW_OPTIONS[@]}" || die
-	use deduplicate && { ./dedup-firmware.sh "${ED}/lib/firmware" || die; }
-
 	# blacklist of images with unknown license
 	local unknown_license=(
 		korg/k1212.dsp
@@ -298,34 +267,57 @@ src_install() {
 		einfo "Removing files with unknown license ..."
 		rm -v "${unknown_license[@]}" || die
 	fi
+
+	if use !redistributable; then
+		# remove files _not_ in the free_software or unknown_license lists
+		# everything else is confirmed (or assumed) to be redistributable
+		# based on upstream acceptance policy
+		einfo "Removing non-redistributable files ..."
+		local OLDIFS="${IFS}"
+		local IFS=$'\n'
+		set -o pipefail
+		find ! -type d -printf "%P\n" \
+			| grep -Fvx -e "${misc_files[*]}" -e "${free_software[*]}" -e "${unknown_license[*]}" \
+			| xargs -d '\n' --no-run-if-empty rm -v
+
+		[[ ${?} -ne 0 ]] && die "Failed to remove non-redistributable files"
+
+		IFS="${OLDIFS}"
+	fi
+
+	restore_config ${PN}.conf
+}
+
+src_install() {
+
+	local FW_OPTIONS=( "-v" )
+	local files_to_keep=
+	git config --global --add safe.directory "${S}" || die
+
+	if use savedconfig; then
+		if [[ -s "${S}/${PN}.conf" ]]; then
+			files_to_keep="${T}/files_to_keep.lst"
+			grep -v '^#' "${S}/${PN}.conf" 2>/dev/null > "${files_to_keep}" || die
+			[[ -s "${files_to_keep}" ]] || die "grep failed, empty config file?"
+			FW_OPTIONS+=( "--firmware-list" "${files_to_keep}" )
+		fi
+	fi
+
+	if use compress-xz; then
+		FW_OPTIONS+=( "--xz" )
+	elif use compress-zstd; then
+		FW_OPTIONS+=( "--zstd" )
+	fi
+	! use deduplicate && FW_OPTIONS+=( "--ignore-duplicates" )
+	FW_OPTIONS+=( "${ED}/lib/firmware" )
+	./copy-firmware.sh "${FW_OPTIONS[@]}" || die
+	use deduplicate && { ./dedup-firmware.sh "${ED}/lib/firmware" || die; }
+
 	pushd "${ED}/lib/firmware" &>/dev/null || die
 
 	# especially use !redistributable will cause some broken symlinks
 	einfo "Removing broken symlinks ..."
 	find * -xtype l -print -delete || die
-
-	if use savedconfig; then
-		if [[ -s "${S}/${PN}.conf" ]]; then
-			local files_to_keep="${T}/files_to_keep.lst"
-			grep -v '^#' "${S}/${PN}.conf" 2>/dev/null > "${files_to_keep}" || die
-			[[ -s "${files_to_keep}" ]] || die "grep failed, empty config file?"
-
-			einfo "Applying USE=savedconfig; Removing all files not listed in config ..."
-			find ! -type d -printf "%P\n" \
-				| grep -Fvx -f "${files_to_keep}" \
-				| xargs -d '\n' --no-run-if-empty rm -v
-
-			if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-				die "Find failed to print installed files"
-			elif [[ ${PIPESTATUS[1]} -eq 2 ]]; then
-				# grep returns exit status 1 if no lines were selected
-				# which is the case when we want to keep all files
-				die "Grep failed to select files to keep"
-			elif [[ ${PIPESTATUS[2]} -ne 0 ]]; then
-				die "Failed to remove files not listed in config"
-			fi
-		fi
-	fi
 
 	# remove empty directories, bug #396073
 	find -type d -empty -delete || die
@@ -365,6 +357,10 @@ src_install() {
 		insinto /boot
 		doins "${S}"/amd-uc.img
 	fi
+
+	dodoc README.md
+	# some licenses require copyright and permission notice to be included
+	use bindist && dodoc WHENCE LICEN[CS]E.*
 }
 
 pkg_preinst() {
@@ -379,7 +375,6 @@ pkg_preinst() {
 
 	# Make sure /boot is available if needed.
 	use initramfs && ! use dist-kernel && mount-boot_pkg_preinst
-
 }
 
 pkg_postinst() {
@@ -411,7 +406,6 @@ pkg_prerm() {
 	# Make sure /boot is mounted so that we can remove /boot/amd-uc.img!
 	use initramfs && ! use dist-kernel && mount-boot_pkg_prerm
 }
-
 pkg_postrm() {
 	# Don't forget to umount /boot if it was previously mounted by us.
 	use initramfs && ! use dist-kernel && mount-boot_pkg_postrm
