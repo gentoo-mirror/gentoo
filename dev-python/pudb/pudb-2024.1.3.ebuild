@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 pypi optfeature
@@ -20,9 +20,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
+	>=dev-python/jedi-0.18[${PYTHON_USEDEP}]
+	>=dev-python/packaging-20.0[${PYTHON_USEDEP}]
+	>=dev-python/pygments-2.7.4[${PYTHON_USEDEP}]
 	>=dev-python/urwid-2.4[${PYTHON_USEDEP}]
 	dev-python/urwid-readline[${PYTHON_USEDEP}]
-	dev-python/pygments[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (

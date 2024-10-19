@@ -23,7 +23,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	>=dev-python/numpy-1.24.2[${PYTHON_USEDEP}]
+	>=dev-python/numpy-2.0.0[${PYTHON_USEDEP}]
 "
 RDEPEND="
 	${DEPEND}
