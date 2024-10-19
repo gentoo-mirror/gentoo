@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] ) dev-ada/gprbuild[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_15(-)]
+DESCRIPTION=GNAT Component Collection
+EAPI=8
+HOMEPAGE=http://libre.adacore.com
+INHERIT=ada multiprocessing python-single-r1
+IUSE=gmp iconv lzma openmp python readline +shared static-libs static-pic syslog ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/gnatcoll-core:=[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( dev-lang/gnat-gpl:=[openmp] )
+REQUIRED_USE=|| ( shared static-libs static-pic ) || ( gmp iconv lzma openmp python readline syslog ) ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) ^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 )
+SLOT=0/24.0.0
+SRC_URI=https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v24.0.0.tar.gz -> gnatcoll-bindings-24.0.0.tar.gz
+_eclasses_=ada	52be8ce94a99ffc6c79fa19238c690f2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=b1dbd5e4d798e467fe42c30bf3a54840
