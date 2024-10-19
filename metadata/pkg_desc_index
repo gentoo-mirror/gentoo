@@ -8188,7 +8188,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.16.0 1.17.0_pre20240424 1.17.0_rc1 1.17.0 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.14.2 1.15.2 1.16.1 1.17.0 1.17.1: CloudFormation Linter
+dev-python/cfn-lint 1.14.2 1.15.2 1.16.1 1.17.0 1.17.1 1.17.2: CloudFormation Linter
 dev-python/cftime 1.6.4: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4: Fast HTML/XML template compiler for Python
@@ -8454,7 +8454,7 @@ dev-python/greenlet 3.1.1: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.0.2: Python 3 client for the beanstalkd work queue
 dev-python/griffe 1.4.1 1.5.0 1.5.1: Signature generator for Python programs
 dev-python/grpclib 0.4.7-r1: Pure-Python gRPC implementation for asyncio
-dev-python/gsd 3.3.1 3.3.2: GSD - file format specification and a library to read and write it
+dev-python/gsd 3.3.2 3.4.0: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.8.3-r1 1.9.0: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.22.11: A Python Interface to GStreamer
 dev-python/guessit 3.8.0: Python library for guessing information from video filenames
@@ -8926,7 +8926,7 @@ dev-python/psutil 5.9.8 6.0.0 6.0.0-r1 6.1.0: Retrieve information on running pr
 dev-python/psycopg 2.9.4 2.9.9 2.9.9-r1 2.9.10 3.1.19 3.2.0 3.2.1 3.2.2 3.2.3: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0-r1: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix 2.20191221-r2: Get a public suffix for a domain name using the Public Suffix List
-dev-python/pudb 2024.1.1 2024.1.2: A full-screen, console-based Python debugger
+dev-python/pudb 2024.1.2 2024.1.3: A full-screen, console-based Python debugger
 dev-python/pulsectl 24.8.0: Python high-level interface and ctypes-based bindings for PulseAudio (libpulse)
 dev-python/pulsectl-asyncio 1.2.1: Asyncio frontend for pulsectl, Python bindings of libpulse
 dev-python/pure-eval 0.2.3: Safely evaluate AST nodes without side effects
@@ -9141,7 +9141,7 @@ dev-python/pytest-rerunfailures 14.0: pytest plugin to re-run tests to eliminate
 dev-python/pytest-reserial 0.4.2: Pytest plugin for recording and replaying serial port traffic during tests
 dev-python/pytest-salt-factories 1.0.0_rc20-r1 1.0.0_rc23 1.0.0_rc28 1.0.0_rc29 1.0.1: The new generation of the pytest-salt Plugin
 dev-python/pytest-services 2.2.1-r1: Collection of fixtures and utility functions to run service processes for pytest
-dev-python/pytest-shell-utilities 1.9.3 1.9.4: pytest plugin: fixtures and code to help with running shell commands on tests
+dev-python/pytest-shell-utilities 1.9.3 1.9.4 1.9.6: pytest plugin: fixtures and code to help with running shell commands on tests
 dev-python/pytest-skip-markers 1.5.2: A Pytest plugin which implements a few useful skip markers
 dev-python/pytest-subprocess 1.5.2: A plugin to fake subprocess for pytest
 dev-python/pytest-subtests 0.13.1: Unittest subTest() support and subtests fixture
@@ -9475,7 +9475,7 @@ dev-python/stestr 4.1.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.3.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.2: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 10.12.0 11.0.0 11.1.0: Stripe Python bindings
+dev-python/stripe 10.12.0 11.0.0 11.1.0 11.1.1: Stripe Python bindings
 dev-python/structlog 24.4.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/subunit 1.4.4: A streaming protocol for test results
@@ -9565,7 +9565,7 @@ dev-python/typeguard 4.3.0: Run-time type checker for Python
 dev-python/types-docutils 0.21.0.20240907 0.21.0.20241005: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.20240704 15.0.0.20241015: Typing stubs for gdb
 dev-python/types-psutil 6.0.0.20240901 6.0.0.20241011: Typing stubs for psutil
-dev-python/types-setuptools 74.1.0.20240907 75.1.0.20240917 75.1.0.20241014 75.2.0.20241018: Typing stubs for setuptools
+dev-python/types-setuptools 74.1.0.20240907 75.1.0.20240917 75.1.0.20241014 75.2.0.20241018 75.2.0.20241019: Typing stubs for setuptools
 dev-python/typing-extensions 4.12.2: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
@@ -9662,7 +9662,7 @@ dev-python/yapf 0.40.2: A formatter for Python files
 dev-python/yappi 1.6.0: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
 dev-python/yara-python 4.5.0 9999: Python interface for a malware identification and classification tool
-dev-python/yarl 1.9.4 1.12.1 1.13.1 1.14.0 1.15.3 1.15.4: Yet another URL library
+dev-python/yarl 1.9.4 1.12.1 1.13.1 1.14.0 1.15.3 1.15.4 1.15.5: Yet another URL library
 dev-python/yaswfp 0.9.3-r2: Yet Another SWF Parser
 dev-python/yattag 1.16.0: Python library to generate HTML or XML in a readable, concise and pythonic way
 dev-python/yaxmldiff 0.1.0 0.2.0: Yet Another XML Differ
@@ -10945,7 +10945,7 @@ dev-util/squashmerge 0.1 9999: dev-util/squashdelta delta merge tool
 dev-util/src-cli 4.4.0 4.5.0 5.0.2-r1 5.1.2 5.2.0: command line interface for the Sourcegraph code search tool
 dev-util/statifier 1.7.4-r2: Statifier is a tool for creating portable, self-containing Linux executables
 dev-util/stressapptest 1.0.9-r1 1.0.11: Stressful Application Test
-dev-util/stripe-mock 0.188.0 0.190.0: Mock HTTP server that responds like the real Stripe API
+dev-util/stripe-mock 0.188.0 0.190.0 0.191.0: Mock HTTP server that responds like the real Stripe API
 dev-util/sysprof 3.48.0: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r1 3.48.0: Static library for sysprof capture data generation
 dev-util/sysprof-common 3.48.0: Static library for sysprof capture data generation
