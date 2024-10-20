@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://web.archive.org/web/20181115131216/http://www.dcc.fc.up.pt/~vsc/Yap/
 INHERIT=cmake python-single-r1
 IUSE=R debug doc examples java mpi mysql odbc postgres python raptor readline sqlite static threads xml python_single_target_python3_10 python_single_target_python3_11
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=Artistic LGPL-2
 RDEPEND=dev-libs/libutf8proc sys-libs/zlib dev-libs/gmp:0[cxx] java? ( >=virtual/jdk-1.8:* ) mpi? ( virtual/mpi ) mysql? ( dev-db/mysql-connector-c:0= ) odbc? ( dev-db/unixODBC ) postgres? ( dev-db/postgresql:= ) R? ( dev-lang/R ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-python/wheel dev-python/numpy ) raptor? ( media-libs/raptor ) readline? ( sys-libs/readline:= sys-libs/ncurses:= ) sqlite? ( dev-db/sqlite ) xml? ( dev-libs/libxml2 )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/vscosta/yap/archive/77bb2ba5eadfb95b67abccd22b298cfb75dd3328.tar.gz -> yap-77bb2ba5eadfb95b67abccd22b298cfb75dd3328.tar.gz https://dev.gentoo.org/~keri/distfiles/yap/yap-7.1.0-gentoo-patchset-3.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=92894e71f79e20b205fb6a5a8239f3e5
+_md5_=2c93710f61cae6a6e165eac412c09c15
