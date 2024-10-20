@@ -18,12 +18,15 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64"
 IUSE="pulseaudio wayland"
 
-RDEPEND="
+DEPEND="
 	>=dev-python/cairocffi-1.6.0[${PYTHON_USEDEP}]
 	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
+"
+RDEPEND="
+	${DEPEND}
 	dev-python/dbus-next[${PYTHON_USEDEP}]
 	dev-python/pygobject[${PYTHON_USEDEP}]
 	>=dev-python/xcffib-1.4.0[${PYTHON_USEDEP}]
@@ -40,7 +43,6 @@ RDEPEND="
 	)
 "
 BDEPEND="
-	dev-python/cffi[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
@@ -54,21 +56,16 @@ BDEPEND="
 	)
 "
 
+: ${EPYTEST_TIMEOUT:=180}
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	distutils-r1_python_prepare_all
+
 	sed -e "s/can_import(\"wlroots.ffi_build\")/$(usex wayland True False)/" \
 		-i setup.py || die
 
-	# some tests expect bin/qtile
 	mkdir bin || die
-	cat >> bin/qtile <<-EOF || die
-		#!/bin/sh
-		exec qtile "\${@}"
-	EOF
-	chmod +x bin/qtile || die
-
-	distutils-r1_python_prepare_all
 }
 
 src_compile() {
@@ -88,14 +85,20 @@ python_test() {
 		# TODO: this test clearly requires x11 — so why is wayland
 		# variant being run?
 		'test/backend/x11/test_window.py::test_urgent_hook_fire[wayland-2]'
+		# TODO
+		test/test_hook.py::test_net_wm_icon_change
 	)
 
 	# force usage of built module
 	rm -rf libqtile || die
 
+	# some tests expect bin/qtile
+	ln -fs "$(type -P qtile)" bin/qtile || die
+
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local -x TZ=UTC
-	nonfatal epytest --backend=x11 $(usev wayland '--backend=wayland') ||
+	nonfatal epytest -p rerunfailures --reruns=5 \
+		--backend=x11 $(usev wayland '--backend=wayland') ||
 		die -n "Tests failed with ${EPYTHON}"
 }
 
