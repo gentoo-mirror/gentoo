@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.08 dev-ml/hmap:= dev-ml/iostream:=[ocamlopt?] dev-ml/logs:=[ocamlopt?] dev-ml/result:=[ocamlopt?] camlzip? ( >=dev-ml/camlzip-1.06:=[ocamlopt?] ) test? ( dev-ml/qtest dev-ml/ounit2 dev-ml/ptime dev-ml/qcheck net-misc/curl ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Minimal HTTP server with a small request router
+EAPI=8
+HOMEPAGE=https://github.com/c-cube/tiny_httpd https://opam.ocaml.org/packages/tiny_httpd
+INHERIT=dune multiprocessing
+IUSE=camlzip ocamlopt test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-4.08 dev-ml/hmap:= dev-ml/iostream:=[ocamlopt?] dev-ml/logs:=[ocamlopt?] dev-ml/result:=[ocamlopt?] camlzip? ( >=dev-ml/camlzip-1.06:=[ocamlopt?] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( camlzip )
+RESTRICT=!test? ( test )
+SLOT=0/0.17.0
+SRC_URI=https://github.com/c-cube/tiny_httpd/archive/refs/tags/v0.17.0.tar.gz -> tiny_httpd-0.17.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=ac4433a1bfd0b253d4f7ddf591fafe06

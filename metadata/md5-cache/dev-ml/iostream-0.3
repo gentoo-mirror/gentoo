@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/camlzip:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Generic, composable IO input and output streams
+EAPI=8
+HOMEPAGE=https://github.com/c-cube/ocaml-iostream
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/camlzip:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/c-cube/ocaml-iostream/releases/download/v0.3/iostream-0.3.tbz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=8ab15876714582153754b92d11b7b10e
