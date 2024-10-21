@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl virtual/pkgconfig doc? ( app-text/doxygen[dot] glib? ( dev-util/gtk-doc ) ) introspection? ( dev-libs/gobject-introspection ) test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) glib? ( || ( ( dev-lang/python:3.12 dev-python/pygobject:3[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pygobject:3[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pygobject:3[python_targets_python3_10(-)] ) ) ) ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=dev-lang/perl virtual/pkgconfig doc? ( app-text/doxygen[dot] glib? ( dev-util/gtk-doc ) ) introspection? ( dev-libs/gobject-introspection ) test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) glib? ( || ( ( dev-lang/python:3.13 dev-python/pygobject:3[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pygobject:3[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pygobject:3[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pygobject:3[python_targets_python3_10(-)] ) ) ) ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/icu:= glib? ( dev-libs/glib:2 ) glib? ( dev-libs/libxml2:2 )
 DESCRIPTION=Implementation of basic iCAL protocols
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://github.com/libical/libical/releases/download/v3.0.18/libical-3.0.18.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	vala	e477903dbe0105930c51f170a592dc16
-_md5_=2c84a3b2d5181de13124a201c5e9c307
+_md5_=7c6f79d613196d529108bc0fe0ae5fda
