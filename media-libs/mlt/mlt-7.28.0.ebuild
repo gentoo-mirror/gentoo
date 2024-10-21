@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit python-single-r1 cmake flag-o-matic
 
 DESCRIPTION="Open source multimedia framework for television broadcasting"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/mltframework/${PN}/releases/download/v${PV}/${P}.tar
 LICENSE="GPL-3"
 SLOT="0/7"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug ffmpeg frei0r gtk jack libsamplerate opencv opengl python qt5 qt6 rtaudio rubberband sdl test vdpau vidstab xine xml"
+IUSE="debug ffmpeg frei0r gtk jack libsamplerate opencv opengl python qt6 rtaudio rubberband sdl test vdpau vidstab xine xml"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -38,22 +38,18 @@ DEPEND="
 		virtual/jack
 	)
 	libsamplerate? ( >=media-libs/libsamplerate-0.1.2 )
-	opencv? ( >=media-libs/opencv-4.5.1:=[contrib] )
+	opencv? (
+		>=media-libs/opencv-4.5.1:=[contrib]
+		|| (
+			media-libs/opencv[ffmpeg]
+			media-libs/opencv[gstreamer]
+		)
+	)
 	opengl? (
 		media-libs/libglvnd
 		media-video/movit
 	)
 	python? ( ${PYTHON_DEPS} )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtsvg:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtxml:5
-		media-libs/libexif
-		x11-libs/libX11
-	)
 	qt6? (
 		dev-qt/qt5compat:6
 		dev-qt/qtbase:6[gui,network,opengl,widgets,xml]
@@ -93,7 +89,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.10.0-swig-underlinking.patch
 	"${FILESDIR}"/${PN}-6.22.1-no_lua_bdepend.patch
 	"${FILESDIR}"/${PN}-7.0.1-cmake-symlink.patch
-	"${FILESDIR}"/${PN}-7.24.0-musl-build-fix.patch
+	# in git master, https://github.com/mltframework/mlt/issues/1020
+	"${FILESDIR}"/${P}-fix-32bit.patch
 )
 
 pkg_setup() {
@@ -119,29 +116,31 @@ src_configure() {
 		-DCLANG_FORMAT=OFF
 		-DGPL=ON
 		-DGPL3=ON
-		-DBUILD_TESTING=$(usex test)
+		-DMOD_QT=OFF
+		-DMOD_GLAXNIMATE=OFF
 		-DMOD_KDENLIVE=ON
-		-DMOD_SDL1=OFF
-		-DMOD_SDL2=$(usex sdl)
-		-DMOD_AVFORMAT=$(usex ffmpeg)
 		-DMOD_PLUS=ON
+		-DMOD_SDL1=OFF
+		-DMOD_SOX=OFF
+		-DMOD_SPATIALAUDIO=OFF # TODO: package libspatialaudio
+		-DUSE_LV2=OFF	# TODO
+		-DUSE_VST2=OFF	# TODO
+		-DMOD_AVFORMAT=$(usex ffmpeg)
 		-DMOD_FREI0R=$(usex frei0r)
 		-DMOD_GDK=$(usex gtk)
 		-DMOD_JACKRACK=$(usex jack)
 		-DMOD_RESAMPLE=$(usex libsamplerate)
 		-DMOD_OPENCV=$(usex opencv)
-		-DMOD_SPATIALAUDIO=OFF # TODO: package libspatialaudio
 		-DMOD_MOVIT=$(usex opengl)
-		-DMOD_QT=$(usex qt5)
-		-DMOD_GLAXNIMATE=$(usex qt5)
 		-DMOD_QT6=$(usex qt6)
 		-DMOD_GLAXNIMATE_QT6=$(usex qt6)
 		-DMOD_RTAUDIO=$(usex rtaudio)
 		-DMOD_RUBBERBAND=$(usex rubberband)
+		-DMOD_SDL2=$(usex sdl)
+		-DBUILD_TESTING=$(usex test)
 		-DMOD_VIDSTAB=$(usex vidstab)
 		-DMOD_XINE=$(usex xine)
 		-DMOD_XML=$(usex xml)
-		-DMOD_SOX=OFF
 	)
 
 	# TODO: rework upstream CMake to allow controlling MMX/SSE/SSE2
