@@ -10,17 +10,17 @@ inherit meson python-any-r1 vala xdg-utils
 
 DESCRIPTION="Library and tool for reading and writing Jcat files"
 HOMEPAGE="https://github.com/hughsie/libjcat"
-SRC_URI="https://github.com/hughsie/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/hughsie/libjcat/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="+ed25519 +gpg gtk-doc +introspection +man +pkcs7 test vala"
 
-RDEPEND="dev-libs/glib:2
+RDEPEND="
+	dev-libs/glib:2
 	dev-libs/json-glib:=
 	ed25519? (
-		dev-libs/nettle:=
 		net-libs/gnutls:=
 	)
 	gpg? (
@@ -29,15 +29,18 @@ RDEPEND="dev-libs/glib:2
 	)
 	introspection? ( dev-libs/gobject-introspection:= )
 	pkcs7? ( net-libs/gnutls:= )
-	vala? ( dev-lang/vala:= )"
+	vala? ( dev-lang/vala:= )
+"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
+BDEPEND="
+	virtual/pkgconfig
 	$(python_gen_any_dep '
 		dev-python/setuptools[${PYTHON_USEDEP}]
 	')
 	gtk-doc? ( dev-util/gtk-doc )
 	man? ( sys-apps/help2man )
-	test? ( net-libs/gnutls[tools] )"
+	test? ( net-libs/gnutls[tools] )
+"
 
 RESTRICT="!test? ( test )"
 
