@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-text/doxygen qch? ( || ( dev-qt/qttools:6[assistant] dev-qt/qthelp:5 ) ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/bzip2 dev-libs/expat media-libs/fontconfig media-libs/freetype:2 media-libs/simage sys-libs/zlib virtual/opengl virtual/glu x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext openal? ( media-libs/openal ) dev-libs/boost:0 x11-base/xorg-proto
+DESCRIPTION=High-level 3D graphics toolkit, fully compatible with SGI Open Inventor 2.1
+EAPI=8
+HOMEPAGE=https://github.com/coin3d/coin/wiki
+INHERIT=cmake flag-o-matic
+IUSE=debug doc +exceptions openal qch test threads
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=|| ( GPL-2 PEL )
+RDEPEND=app-arch/bzip2 dev-libs/expat media-libs/fontconfig media-libs/freetype:2 media-libs/simage sys-libs/zlib virtual/opengl virtual/glu x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext openal? ( media-libs/openal )
+REQUIRED_USE=qch? ( doc )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/coin3d/coin/releases/download/v4.0.3/coin-4.0.3-src.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=2d769481554b63b86b2bf0392fa51c1c
