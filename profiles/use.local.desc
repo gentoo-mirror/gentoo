@@ -451,7 +451,7 @@ app-editors/emacs:source - Install C source files and make them available for fi
 app-editors/emacs:threads - Add elisp threading support
 app-editors/emacs:toolkit-scroll-bars - Use the selected toolkit's scrollbars in preference to Emacs' own scrollbars
 app-editors/emacs:tree-sitter - Support the dev-libs/tree-sitter parsing library
-app-editors/emacs:wide-int - Prefer wide Emacs integers (typically 62-bit). This option has an effect only on architectures where "long" and "long long" types have different size.
+app-editors/emacs:wide-int - Prefer wide Emacs integers (typically 62-bit). This option has an effect only on 32-bit systems, where it increases the maximum buffer size from 0.5 to 2 GiB, at the cost of 10% to 30% Lisp slowdown.
 app-editors/fe:sendmail - Send mail after editor abend
 app-editors/featherpad:X - Link application against X11 libraries which adds support for virtual desktop awareness and tab DND
 app-editors/gedit-plugins:charmap - Insert special characters just by clicking on them
