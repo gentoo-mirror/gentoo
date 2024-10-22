@@ -3,22 +3,21 @@
 
 EAPI=8
 
-NEED_EMACS=27.1
+NEED_EMACS="28.1"
 
 inherit elisp
 
-DESCRIPTION="Emacs client for Mastodon, federated microblogging social network"
-HOMEPAGE="https://codeberg.org/martianh/mastodon.el/"
+DESCRIPTION="Utilities to create transient menus for POSTing to an API for GNU Emacs"
+HOMEPAGE="https://codeberg.org/martianh/tp.el/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://codeberg.org/martianh/mastodon.el.git"
-	S="${WORKDIR}/${P}/lisp"
+	EGIT_REPO_URI="https://codeberg.org/martianh/${PN}.el.git"
 else
 	SRC_URI="https://codeberg.org/martianh/${PN}.el/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}.el/lisp"
+	S="${WORKDIR}/${PN}.el"
 
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -27,13 +26,15 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	app-emacs/persist
-	app-emacs/request
+	app-emacs/transient
+	|| (
+		>=app-editors/emacs-31.0
+		>=app-editors/emacs-${NEED_EMACS}[json]
+	)
 "
 BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( ../README.org )
-ELISP_TEXINFO="../${PN}.texi"
+DOCS=( readme.org )
 SITEFILE="50${PN}-gentoo.el"

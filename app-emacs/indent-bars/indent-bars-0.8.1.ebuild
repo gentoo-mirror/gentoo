@@ -15,7 +15,8 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/jdtsmith/${PN}.git"
 else
-	SRC_URI="https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}.tar.xz"
+	SRC_URI="https://github.com/jdtsmith/${PN}/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -30,5 +31,5 @@ BDEPEND="
 	${RDEPEND}
 "
 
-SITEFILE="50${PN}-gentoo.el"
 DOCS=( README.md examples.md )
+SITEFILE="50${PN}-gentoo.el"
