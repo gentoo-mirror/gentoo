@@ -24,7 +24,10 @@ S=${WORKDIR}
 
 LICENSE="NVIDIA-r2 Apache-2.0 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* amd64 ~arm64"
+# beta drivers do not get keyworded, opt-in at your own risks if wanted
+#KEYWORDS="-* ~amd64 ~arm64"
+# note: kernel-open is an upstream default in >=560 if all GPUs on the system
+# support it but, since no automagic here, keeping it off for the wider support
 IUSE="+X abi_x86_32 abi_x86_64 kernel-open persistenced powerd +static-libs +tools wayland"
 REQUIRED_USE="kernel-open? ( modules )"
 
@@ -54,14 +57,18 @@ RDEPEND="
 	dev-libs/openssl:0/3
 	sys-libs/glibc
 	X? (
+		>=gui-libs/egl-gbm-1.1.1-r2[abi_x86_32(-)?]
 		media-libs/libglvnd[X,abi_x86_32(-)?]
+		media-libs/mesa[gbm(+),abi_x86_32(-)?]
 		x11-libs/libX11[abi_x86_32(-)?]
 		x11-libs/libXext[abi_x86_32(-)?]
+		x11-libs/libdrm[abi_x86_32(-)?]
+		x11-libs/libxcb:=[abi_x86_32(-)?]
 	)
 	powerd? ( sys-apps/dbus[abi_x86_32(-)?] )
 	wayland? (
-		gui-libs/egl-gbm
-		>=gui-libs/egl-wayland-1.1.10
+		>=gui-libs/egl-gbm-1.1.1-r2[abi_x86_32(-)?]
+		>=gui-libs/egl-wayland-1.1.13.1[abi_x86_32(-)?]
 	)
 "
 DEPEND="
@@ -72,6 +79,7 @@ DEPEND="
 		x11-libs/libXext
 	)
 	tools? (
+		dev-util/vulkan-headers
 		media-libs/libglvnd
 		sys-apps/dbus
 		x11-base/xorg-proto
@@ -157,7 +165,7 @@ src_prepare() {
 	use X || sed -i 's/"libGLX/"libEGL/' nvidia_{layers,icd}.json || die
 
 	# enable nvidia-drm.modeset=1 by default with USE=wayland
-	cp "${FILESDIR}"/nvidia-545.conf "${T}"/nvidia.conf || die
+	cp "${FILESDIR}"/nvidia-555.conf "${T}"/nvidia.conf || die
 	use !wayland || sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
 
 	# makefile attempts to install wayland library even if not built
@@ -195,6 +203,8 @@ src_compile() {
 			filter-flags -fno-plt #912949
 			filter-lto
 			CC=${KERNEL_CC} CXX=${KERNEL_CXX} strip-unsupported-flags
+
+			LDFLAGS=$(raw-ldflags)
 		fi
 
 		local modlist=( nvidia{,-drm,-modeset,-peermem,-uvm}=${modlistargs} )
@@ -239,6 +249,7 @@ src_install() {
 		[GLVND_EGL_ICD_JSON]=/usr/share/glvnd/egl_vendor.d
 		[OPENGL_DATA]=/usr/share/nvidia
 		[VULKAN_ICD_JSON]=/usr/share/vulkan
+		[VULKANSC_ICD_JSON]=/usr/share/vulkansc
 		[WINE_LIB]=/usr/${libdir}/nvidia/wine
 		[XORG_OUTPUTCLASS_CONFIG]=/usr/share/X11/xorg.conf.d
 
@@ -248,7 +259,10 @@ src_install() {
 	)
 
 	local skip_files=(
-		$(usev !X "libGLX_nvidia libglxserver_nvidia")
+		$(usev !X "
+			libGLX_nvidia libglxserver_nvidia
+			libnvidia-egl-xcb libnvidia-egl-xlib
+		")
 		libGLX_indirect # non-glvnd unused fallback
 		libnvidia-{gtk,wayland-client} nvidia-{settings,xconfig} # from source
 		libnvidia-egl-gbm 15_nvidia_gbm # gui-libs/egl-gbm
@@ -384,8 +398,9 @@ documentation that is installed alongside this README."
 			dosym ${m[4]} ${into}/${m[0]}
 			continue
 		fi
-		[[ ${m[0]} =~ ^libnvidia-ngx.so|^libnvidia-egl-gbm.so ]] &&
-			dosym ${m[0]} ${into}/${m[0]%.so*}.so.1 # soname not in .manifest
+		# avoid portage warning due to missing soname links in manifest
+		[[ ${m[0]} =~ .*((libnvidia-ngx.so|libnvidia-egl-(gbm|xcb|xlib).so).*) ]] &&
+			dosym ${BASH_REMATCH[1]} ${into}/${BASH_REMATCH[2]}.1
 
 		printf -v m[1] %o $((m[1] | 0200)) # 444->644
 		insopts -m${m[1]}
@@ -463,6 +478,7 @@ pkg_preinst() {
 	sed -i "s/@VIDEOGID@/${g}/" "${ED}"/etc/modprobe.d/nvidia.conf || die
 
 	# try to find driver mismatches using temporary supported-gpus.json
+	# TODO?: automatically check "kernelopen" bit for USE=kernel-open compat
 	for g in $(grep -l 0x10de /sys/bus/pci/devices/*/vendor 2>/dev/null); do
 		g=$(grep -io "\"devid\":\"$(<${g%vendor}device)\"[^}]*branch\":\"[0-9]*" \
 			"${ED}"/usr/share/nvidia/supported-gpus.json 2>/dev/null)
@@ -519,9 +535,9 @@ pkg_postinst() {
 
 	if use kernel-open && [[ ! -v NV_HAD_KERNEL_OPEN ]]; then
 		ewarn
-		ewarn "Open source variant of ${PN} was selected, be warned it is experimental"
-		ewarn "and only for modern GPUs (e.g. GTX 1650+). Try to disable if run into issues."
-		ewarn "Please also see: ${EROOT}/usr/share/doc/${PF}/html/kernel_open.html"
+		ewarn "Open source variant of ${PN} was selected, note that it requires"
+		ewarn "Turing/Ampere+ GPUs (aka GTX 1650+). Try disabling if run into issues."
+		ewarn "Also see: ${EROOT}/usr/share/doc/${PF}/html/kernel_open.html"
 	fi
 
 	if use wayland && use modules && [[ ! -v NV_HAD_WAYLAND ]]; then
@@ -532,6 +548,15 @@ pkg_postinst() {
 		elog
 		elog "If you experience issues, either disable wayland or edit nvidia.conf."
 		elog "Of note, may possibly cause issues with SLI and Reverse PRIME."
+	fi
+
+	if use !kernel-open && [[ ${REPLACING_VERSIONS##* } ]] &&
+		ver_test ${REPLACING_VERSIONS##* } -lt 555
+	then
+		elog
+		elog "If using a Turing/Ampere+ GPU (aka GTX 1650+), note that >=nvidia-drivers-555"
+		elog "enables the use of the GSP firmware by default. *If* experience regressions,"
+		elog "please see '${EROOT}/etc/modprobe.d/nvidia.conf' to optionally disable."
 	fi
 
 	# these can be removed after some time, only to help the transition
@@ -560,7 +585,7 @@ pkg_postinst() {
 		ewarn "scripts can be used together. The warning will be removed in the future."
 	fi
 	if [[ ${REPLACING_VERSIONS##* } ]] &&
-		ver_test ${REPLACING_VERSIONS##* } -lt 550.107.02-r1 # may get repeated
+		ver_test ${REPLACING_VERSIONS##* } -lt 560.35.03-r1 # may get repeated
 	then
 		elog
 		elog "For suspend/sleep, 'NVreg_PreserveVideoMemoryAllocations=1' is now default"
