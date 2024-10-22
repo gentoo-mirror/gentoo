@@ -24,7 +24,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	>=dev-python/tokenize-rt-5.2.0[${PYTHON_USEDEP}]
+	>=dev-python/tokenize-rt-6.1.0[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
