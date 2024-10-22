@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install
-DEPEND=!app-arch/arc dev-scheme/racket:=
+DEPEND=!app-arch/arc dev-scheme/racket:=[-minimal]
 DESCRIPTION=New dialect of Lisp, works well for web applications
 EAPI=8
 HOMEPAGE=http://www.arclanguage.org/
 INHERIT=wrapper
 KEYWORDS=~amd64 ~x86
 LICENSE=Artistic-2
-RDEPEND=!app-arch/arc dev-scheme/racket:=
+RDEPEND=!app-arch/arc dev-scheme/racket:=[-minimal]
 SLOT=0
 SRC_URI=http://www.arclanguage.org/arc3.2.tar -> arc-3.2.tar
 _eclasses_=wrapper	11a2a3bd712784986679b60a0cab34a0
-_md5_=9da0c4fefc2d6d4842e15e0dd68d461b
+_md5_=fd4bccfa25f344c0c1841f4518d896ae
