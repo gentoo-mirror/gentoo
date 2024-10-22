@@ -7,7 +7,7 @@ HOMEPAGE=https://www.qt.io/product/development-tools
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic llvm-r1 python-any-r1 readme.gentoo-r1 xdg
 IUSE=+clang designer doc +help keyring plugin-dev qmldesigner serialterminal +svg test +tracing webengine +llvm_slot_18 llvm_slot_15 llvm_slot_16 llvm_slot_17
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-3
 RDEPEND=dev-cpp/yaml-cpp:= >=dev-qt/qt5compat-6.5.4:6 >=dev-qt/qtbase-6.5.4:6=[concurrent,dbus,gui,network,widgets,xml] >=dev-qt/qtdeclarative-6.5.4:6= clang? ( llvm_slot_15? ( sys-devel/clang:15= sys-devel/llvm:15= ) llvm_slot_16? ( sys-devel/clang:16= sys-devel/llvm:16= ) llvm_slot_17? ( sys-devel/clang:17= sys-devel/llvm:17= ) llvm_slot_18? ( sys-devel/clang:18= sys-devel/llvm:18= ) ) designer? ( >=dev-qt/qttools-6.5.4:6[designer] ) help? ( >=dev-qt/qttools-6.5.4:6[assistant] webengine? ( >=dev-qt/qtwebengine-6.5.4:6 ) ) keyring? ( app-crypt/libsecret dev-libs/glib:2 ) qmldesigner? ( >=dev-qt/qtquick3d-6.5.4:6= >=dev-qt/qtsvg-6.5.4:6 ) serialterminal? ( >=dev-qt/qtserialport-6.5.4:6 ) svg? ( >=dev-qt/qtsvg-6.5.4:6 ) tracing? ( app-arch/zstd:= dev-libs/elfutils >=dev-qt/qtcharts-6.5.4:6 >=dev-qt/qtshadertools-6.5.4:6 ) help? ( >=dev-qt/qtimageformats-6.5.4:6 ) qmldesigner? ( >=dev-qt/qtquicktimeline-6.5.4:6 )
 REQUIRED_USE=clang? ( ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 ) )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.qt.io/official_releases/qtcreator/14.0/14.0.2/qt-creator-opensource-src-14.0.2.tar.xz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	c6f5dcc9d729a7028f3884ff342d280c	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=679d8f6bd9ba98bced3f7ab3d402e936
+_md5_=a7b0f5789c74f69fcf6f159323c7c03b
