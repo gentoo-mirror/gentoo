@@ -1,6 +1,6 @@
 BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-tor-20230727 ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare setup test unpack
-DEPEND=>=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) test? ( >=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) )
+DEPEND=acct-user/tor acct-group/tor >=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) test? ( acct-user/tor acct-group/tor >=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) )
 DESCRIPTION=Anonymizing overlay network for TCP
 EAPI=8
 HOMEPAGE=https://www.torproject.org/ https://gitlab.torproject.org/tpo/core/tor/
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.torproject.org/dist/tor-0.4.8.12.tar.gz https://archive.torproject.org/tor-package-archive/tor-0.4.8.12.tar.gz verify-sig? ( https://dist.torproject.org/tor-0.4.8.12.tar.gz.sha256sum https://dist.torproject.org/tor-0.4.8.12.tar.gz.sha256sum.asc )
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	54bd206bb5c4efac6ae28b6b006713b0	verify-sig	745dccb7d4656514f1e966cce314d7db
-_md5_=cd4f20cfc068db641b955409e7c53b7e
+_md5_=951fb90e8bcc67da93efafb6cf68e896
