@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-text/scdoc virtual/pkgconfig examples? ( dev-util/wayland-scanner ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=media-libs/fontconfig media-libs/freetype x11-libs/pixman examples? ( dev-libs/libutf8proc:= dev-libs/wayland ) harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libutf8proc? ( dev-libs/libutf8proc:= ) app-i18n/unicode-data dev-libs/tllist examples? ( dev-libs/wayland-protocols ) test? ( dev-libs/check harfbuzz? ( media-fonts/noto-emoji ) )
+DESCRIPTION=Simple library for font loading and glyph rasterization
+EAPI=8
+HOMEPAGE=https://codeberg.org/dnkl/fcft
+INHERIT=meson python-any-r1
+IUSE=examples +harfbuzz +libutf8proc test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=MIT ZLIB
+RDEPEND=media-libs/fontconfig media-libs/freetype x11-libs/pixman examples? ( dev-libs/libutf8proc:= dev-libs/wayland ) harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libutf8proc? ( dev-libs/libutf8proc:= )
+REQUIRED_USE=libutf8proc? ( harfbuzz ) examples? ( libutf8proc )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://codeberg.org/dnkl/fcft/archive/3.1.9.tar.gz -> fcft-3.1.9.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	2fee95c11e5f883024588d4837db6802	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7
+_md5_=241325b7f6b373195f396264e017d01c
