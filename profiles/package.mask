@@ -220,42 +220,16 @@ dev-python/brython
 # Nothing depends on it. Removal on 2024-10-28.
 dev-java/ant-core
 
-# Eli Schwartz <eschwartz@gentoo.org> (2024-09-22)
-# Unmaintained, abandoned upstream, does not compile with GCC 14.
-# Removal on 2024-10-22.  Bug #874732.
-dev-util/biew
-
 # Robin H. Johnson <robbat2@gentoo.org> (2024-09-22)
 # Upstream testing release; fails some tests as well here
 # Beware that if you upgrade to it, you may need to reset your keyrings.
 >=app-crypt/gnupg-2.5
-
-# Michał Górny <mgorny@gentoo.org> (2024-09-21)
-# Discontinued upstream.  Since 7.3.17, only 2.7 and 3.10 are released.
-# Vulnerable.
-# Removal on 2024-10-21.  Bug #939951.
-dev-python/pypy3_9
-dev-python/pypy3_9-exe
-dev-python/pypy3_9-exe-bin
-
-# Michał Górny <mgorny@gentoo.org> (2024-09-21)
-# Unmaintained.  Broken with >=dev-python/pytest-8.
-# Replaced by dev-python/pytest-lazy-fixtures.  No revdeps left.
-# Removal on 2024-10-21.  Bug #939420.
-dev-python/pytest-lazy-fixture
 
 # Eli Schwartz <eschwartz@gentoo.org> (2024-09-19)
 # Breaks parallel builds with fatal compiler errors.
 # Bug #939798, #939875.
 >=dev-python/ensurepip-setuptools-75.1.0
 >=dev-python/setuptools-75.1.0
-
-# Hans de Graaff <graaff@gentoo.org> (2024-09-14)
-# Obsolete slots that were used for older cucumber version but that no
-# longer have reverse dependencies. Removal on 2024-10-14.
-dev-util/cucumber-compatibility-kit:10
-dev-util/cucumber-core:12
-dev-util/cucumber-gherkin:22
 
 # Ulrich Müller <ulm@gentoo.org> (2024-09-12)
 # Pretest versions, masked for testing.
