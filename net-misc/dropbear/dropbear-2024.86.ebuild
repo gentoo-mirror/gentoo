@@ -18,7 +18,7 @@ SRC_URI+=" verify-sig? (
 
 LICENSE="MIT GPL-2" # (init script is GPL-2 #426056)
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="bsdpty minimal multicall pam +shadow static +syslog test zlib"
 RESTRICT="!test? ( test )"
 
@@ -45,6 +45,7 @@ BDEPEND="
 	test? (
 		sys-libs/nss_wrapper
 		$(python_gen_any_dep '
+			dev-python/asyncssh[${PYTHON_USEDEP}]
 			dev-python/attrs[${PYTHON_USEDEP}]
 			dev-python/iniconfig[${PYTHON_USEDEP}]
 			dev-python/packaging[${PYTHON_USEDEP}]
@@ -62,9 +63,8 @@ REQUIRED_USE="pam? ( !static )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2024.84-dbscp.patch
-	"${FILESDIR}"/${PN}-2024.84-tests.patch
+	"${FILESDIR}"/${PN}-2024.86-tests.patch
 	"${FILESDIR}"/${PN}-2024.84-test-bg-sleep.patch
-	"${FILESDIR}"/${PN}-2024.84-fix-aslr-test-no-venv.patch
 )
 
 set_options() {
@@ -78,7 +78,8 @@ set_options() {
 }
 
 python_check_deps() {
-	python_has_version "dev-python/attrs[${PYTHON_USEDEP}]" && \
+	python_has_version "dev-python/asyncssh[${PYTHON_USEDEP}]" && \
+		python_has_version "dev-python/attrs[${PYTHON_USEDEP}]" && \
 		python_has_version "dev-python/iniconfig[${PYTHON_USEDEP}]" && \
 		python_has_version "dev-python/packaging[${PYTHON_USEDEP}]" && \
 		python_has_version "dev-python/pluggy[${PYTHON_USEDEP}]" && \
@@ -117,9 +118,10 @@ src_prepare() {
 
 	use test && python_fix_shebang test/parent_dropbear_map.py
 
-	# dropbearconver is not built with USE minimal
+	# dropbearconvert is not built with USE minimal
+	# test_concurrent needs dropbearconvert to convert the key before running
 	if use minimal; then
-		rm test/test_dropbearconvert.py || die
+		rm test/test_dropbearconvert.py test/test_concurrent.py || die
 	fi
 
 	# bsdpty requires CONFIG_LEGACY_PTYS in kernel; disable tests.
