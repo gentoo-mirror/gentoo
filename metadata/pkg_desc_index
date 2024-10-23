@@ -11852,18 +11852,18 @@ gnome-base/dconf 0.40.0: Simple low-level configuration system
 gnome-base/dconf-editor 3.38.3 45.0.1: Graphical tool for editing the dconf configuration database
 gnome-base/gdm 45.0.1-r1 46.2: GNOME Display Manager for managing graphical display servers and user logins
 gnome-base/gnome 45.2: Meta package for GNOME, merge this package to install
-gnome-base/gnome-applets 3.46.0 3.50.0 3.52.0: Applets for the GNOME Flashback Panel
+gnome-base/gnome-applets 3.46.0 3.50.0 3.52.0 3.54.0: Applets for the GNOME Flashback Panel
 gnome-base/gnome-common 3.18.0-r2: Common files for development of Gnome packages
 gnome-base/gnome-control-center 45.3 45.4 46.2 46.4: GNOME's main interface to configure various aspects of the desktop
 gnome-base/gnome-core-apps 45.2: Sub-meta package for the core applications integrated with GNOME
 gnome-base/gnome-core-libs 45.2: Sub-meta package for the core libraries of GNOME
 gnome-base/gnome-desktop 44.0-r300 44.0-r400 44.1-r300 44.1-r400: Library with common API for various GNOME modules
 gnome-base/gnome-extra-apps 45.2: Sub-meta package for the applications of GNOME
-gnome-base/gnome-flashback 3.52.1: GNOME Flashback session
+gnome-base/gnome-flashback 3.52.1 3.54.0: GNOME Flashback session
 gnome-base/gnome-keyring 42.1-r2 46.2: Password and keyring managing daemon
 gnome-base/gnome-light 45.2: Meta package for GNOME-Light, merge this package to install
 gnome-base/gnome-menus 3.36.0-r1: Library and layout configuration for the Desktop Menu fd.o specification
-gnome-base/gnome-panel 3.46.0 3.50.0 3.52.0: The GNOME Flashback Panel
+gnome-base/gnome-panel 3.46.0 3.50.0 3.52.0 3.54.0: The GNOME Flashback Panel
 gnome-base/gnome-session 45.0-r1 46.0-r1: Gnome session manager
 gnome-base/gnome-settings-daemon 45.1 46.0-r1: Gnome Settings Daemon
 gnome-base/gnome-shell 45.5 45.6-r1 46.4: Provides core UI functions for the GNOME desktop
@@ -15198,7 +15198,7 @@ net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
 net-misc/netsed 0.01b-r1 1.3-r1: Small tool for altering forwarded network data in real time
 net-misc/netstat-nat 1.4.10-r1: Display NAT connections
 net-misc/networkmanager 1.46.0-r1 1.48.4: A set of co-operative tools that make networking simple and straightforward
-net-misc/nextcloud-client 3.9.4 3.11.1 3.12.6 3.13.2: Desktop Syncing Client for Nextcloud
+net-misc/nextcloud-client 3.9.4 3.11.1 3.12.6 3.13.2 3.14.3: Desktop Syncing Client for Nextcloud
 net-misc/nicstat 1.95: Network traffic statics utility for Solaris and Linux
 net-misc/ntp 4.2.8_p15-r6 4.2.8_p17-r1 4.2.8_p17-r2 4.2.8_p18: Network Time Protocol suite/programs
 net-misc/ntpsec 1.2.2a 1.2.2a-r1 1.2.3 1.2.3-r1 9999: The NTP reference implementation, refactored
@@ -17317,14 +17317,14 @@ sys-cluster/keepalived 2.2.7 2.2.8: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.28.2 1.30.0: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23 1.25: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.31.0 1.31.1: Kubernetes API server
-sys-cluster/kube-controller-manager 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.31.0 1.31.1: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.31.0 1.31.1: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1: Kubernetes API server
+sys-cluster/kube-controller-manager 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0 1.6.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.31.0 1.31.1: Kubernetes Scheduler
-sys-cluster/kubeadm 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.31.0 1.31.1: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.31.0 1.31.1: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.31.0 1.31.1: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1: Kubernetes Scheduler
+sys-cluster/kubeadm 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.28.11 1.28.12 1.28.13 1.29.6 1.29.7 1.29.8 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.6 1.12: A client for kubelet
 sys-cluster/kubelogin 1.28.1 1.30.1: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.24.5 0.27.0: Client-side utility for one-way encrypted secrets in kubernetes
@@ -18968,7 +18968,7 @@ x11-wm/lumina 1.6.2 1.6.2-r1: Lumina desktop environment
 x11-wm/lwm 1.2.4: The ultimate lightweight window manager
 x11-wm/marco 1.28.1-r1: MATE default window manager
 x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager with titlebars and frames
-x11-wm/metacity 3.52.0: GNOME Flashback window manager
+x11-wm/metacity 3.52.0 3.54.0: GNOME Flashback window manager
 x11-wm/muffin 6.2.0: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
 x11-wm/mutter 45.5 45.6 46.4 9999: GNOME compositing window manager based on Clutter
