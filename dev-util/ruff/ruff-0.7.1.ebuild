@@ -10,7 +10,6 @@ CRATES="
 	adler@1.0.2
 	ahash@0.8.11
 	aho-corasick@1.1.3
-	allocator-api2@0.2.16
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anes@0.1.6
@@ -21,7 +20,7 @@ CRATES="
 	anstyle-query@1.0.2
 	anstyle-wincon@3.0.2
 	anstyle@1.0.8
-	anyhow@1.0.89
+	anyhow@1.0.90
 	append-only-vec@0.1.5
 	arc-swap@1.7.1
 	argfile@0.2.1
@@ -49,8 +48,8 @@ CRATES="
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.18
-	clap_builder@4.5.18
+	clap@4.5.20
+	clap_builder@4.5.20
 	clap_complete@4.5.2
 	clap_complete_command@0.6.1
 	clap_complete_nushell@4.5.2
@@ -88,6 +87,8 @@ CRATES="
 	diff@0.1.13
 	difflib@0.4.0
 	digest@0.10.7
+	dir-test-macros@0.3.0
+	dir-test@0.3.0
 	dirs-sys@0.3.7
 	dirs-sys@0.4.1
 	dirs@4.0.0
@@ -103,7 +104,7 @@ CRATES="
 	errno@0.3.8
 	etcetera@0.8.0
 	fastrand@2.1.1
-	fern@0.6.2
+	fern@0.7.0
 	filetime@0.2.25
 	flate2@1.0.28
 	fnv@1.0.7
@@ -118,6 +119,7 @@ CRATES="
 	globwalk@0.9.1
 	half@2.4.1
 	hashbrown@0.14.5
+	hashbrown@0.15.0
 	hashlink@0.9.1
 	heck@0.5.0
 	hermit-abi@0.3.9
@@ -147,12 +149,12 @@ CRATES="
 	itoa@1.0.11
 	jobserver@0.1.32
 	jod-thread@0.1.2
-	js-sys@0.3.70
+	js-sys@0.3.72
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	lazy_static@1.4.0
-	libc@0.2.159
-	libcst@1.4.0
+	libc@0.2.161
+	libcst@1.5.0
 	libcst_derive@1.4.0
 	libmimalloc-sys@0.1.39
 	libredox@0.1.3
@@ -180,7 +182,7 @@ CRATES="
 	nu-ansi-term@0.50.1
 	num-traits@0.2.18
 	number_prefix@0.4.0
-	once_cell@1.19.0
+	once_cell@1.20.2
 	oorandom@11.1.3
 	option-ext@0.2.0
 	ordermap@0.5.3
@@ -188,16 +190,16 @@ CRATES="
 	overload@0.1.1
 	parking_lot@0.12.3
 	parking_lot_core@0.9.9
-	paste@1.0.14
+	paste@1.0.15
 	path-absolutize@3.1.1
 	path-dedot@3.1.1
 	path-slash@0.2.1
-	pathdiff@0.2.1
-	peg-macros@0.8.2
-	peg-runtime@0.8.2
-	peg@0.8.2
+	pathdiff@0.2.2
+	peg-macros@0.8.4
+	peg-runtime@0.8.3
+	peg@0.8.4
 	pep440_rs@0.4.0
-	pep440_rs@0.6.6
+	pep440_rs@0.7.1
 	pep508_rs@0.3.0
 	percent-encoding@2.3.1
 	pest@2.7.11
@@ -216,7 +218,7 @@ CRATES="
 	predicates-tree@1.0.11
 	predicates@3.1.2
 	pretty_assertions@1.4.1
-	proc-macro2@1.0.86
+	proc-macro2@1.0.88
 	pyproject-toml@0.9.0
 	quick-junit@0.5.0
 	quick-xml@0.36.1
@@ -254,12 +256,12 @@ CRATES="
 	serde@1.0.210
 	serde_derive@1.0.210
 	serde_derive_internals@0.29.0
-	serde_json@1.0.128
+	serde_json@1.0.132
 	serde_repr@0.1.19
 	serde_spanned@0.6.7
 	serde_test@1.0.177
-	serde_with@3.9.0
-	serde_with_macros@3.9.0
+	serde_with@3.11.0
+	serde_with_macros@3.11.0
 	sha2@0.10.8
 	sharded-slab@0.1.7
 	shellexpand@3.1.0
@@ -274,10 +276,11 @@ CRATES="
 	strum@0.26.3
 	strum_macros@0.26.4
 	subtle@2.5.0
-	syn@2.0.79
+	syn@1.0.109
+	syn@2.0.82
 	synstructure@0.13.1
 	tempfile@3.13.0
-	terminal_size@0.3.0
+	terminal_size@0.4.0
 	terminfo@0.8.0
 	termtree@0.4.1
 	test-case-core@3.3.1
@@ -314,6 +317,7 @@ CRATES="
 	unicode-ident@1.0.13
 	unicode-normalization@0.1.24
 	unicode-width@0.1.13
+	unicode-width@0.2.0
 	unicode_names2@1.3.0
 	unicode_names2_generator@1.3.0
 	unscanny@0.1.0
@@ -321,8 +325,8 @@ CRATES="
 	ureq@2.10.1
 	url@2.5.2
 	utf8parse@0.2.1
-	uuid-macro-internal@1.10.0
-	uuid@1.10.0
+	uuid-macro-internal@1.11.0
+	uuid@1.11.0
 	valuable@0.1.0
 	version_check@0.9.4
 	vt100@0.15.2
@@ -330,14 +334,14 @@ CRATES="
 	vte_generate_state_changes@0.1.1
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.93
-	wasm-bindgen-futures@0.4.43
-	wasm-bindgen-macro-support@0.2.93
-	wasm-bindgen-macro@0.2.93
-	wasm-bindgen-shared@0.2.93
-	wasm-bindgen-test-macro@0.3.43
-	wasm-bindgen-test@0.3.43
-	wasm-bindgen@0.2.93
+	wasm-bindgen-backend@0.2.95
+	wasm-bindgen-futures@0.4.45
+	wasm-bindgen-macro-support@0.2.95
+	wasm-bindgen-macro@0.2.95
+	wasm-bindgen-shared@0.2.95
+	wasm-bindgen-test-macro@0.3.45
+	wasm-bindgen-test@0.3.45
+	wasm-bindgen@0.2.95
 	web-sys@0.3.69
 	web-time@1.1.0
 	webpki-roots@0.26.1
@@ -383,9 +387,9 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;4a7c955255e707e64e43f3ce5eabb771ae067768;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/salsa-rs/salsa;4a7c955255e707e64e43f3ce5eabb771ae067768;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/salsa-rs/salsa;4a7c955255e707e64e43f3ce5eabb771ae067768;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;254c749b02cde2fd29852a7463a33e800b771758;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;254c749b02cde2fd29852a7463a33e800b771758;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;254c749b02cde2fd29852a7463a33e800b771758;salsa-%commit%'
 )
 
 inherit shell-completion cargo
@@ -403,28 +407,20 @@ SRC_URI="
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016
+	Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 PSF-2 Unicode-DFS-2016
 	WTFPL-2
 "
 # ring
 LICENSE+="
 	ISC SSLeay openssl MIT
 "
-# libcst
-LICENSE+="
-	MIT PSF-2 Apache-2.0
-"
 # libcst_derive
 LICENSE+="
 	MIT PSF-2 Apache-2.0
 "
-# salsa-macro-rules
-LICENSE+="
-	|| ( MIT Apache-2.0 )
-"
 
 SLOT="0"
-KEYWORDS="~amd64 ~loong"
+KEYWORDS="~amd64 ~loong ~riscv"
 
 BDEPEND="
 	>=virtual/rust-1.76
