@@ -6,16 +6,15 @@ EAPI=8
 MY_PN=${PN%-bin}
 
 DESCRIPTION="A Java/Scala build tool"
-HOMEPAGE="https://com-lihaoyi.github.io/mill/"
+HOMEPAGE="https://mill-build.org/"
 SRC_URI="https://github.com/com-lihaoyi/${MY_PN}/releases/download/${PV}/${PV}-assembly -> ${P}"
-KEYWORDS="amd64"
+S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND=">=virtual/jre-1.8:*"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	:
