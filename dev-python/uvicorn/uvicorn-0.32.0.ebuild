@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~mips ~ppc64 ~riscv ~sparc"
+KEYWORDS="~amd64 ~mips ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test-rust"
 
 RDEPEND="
@@ -42,6 +42,7 @@ BDEPEND="
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/python-dotenv[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-python/typing-extensions[${PYTHON_USEDEP}]
 		>=dev-python/websockets-10.4[${PYTHON_USEDEP}]
 		dev-python/wsproto[${PYTHON_USEDEP}]
 		test-rust? (
