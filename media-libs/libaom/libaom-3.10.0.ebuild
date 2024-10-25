@@ -3,29 +3,20 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit cmake-multilib flag-o-matic multiprocessing python-any-r1
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://aomedia.googlesource.com/aom"
 else
-	# To update test data tarball, follow these steps:
-	# 1.  Clone the upstream repo and check out the relevant tag,
-	#	  or download the release tarball
-	# 2.  Regular cmake configure (options don't matter here):
-	#     cd build && cmake ..
-	# 3.  Set LIBAOM_TEST_DATA_PATH to the directory you want and
-	#     run the "make testdata" target:
-	#     LIBAOM_TEST_DATA_PATH=../libaom-3.7.1-testdata make testdata
-	#     This will download the test data from the internet.
-	# 4.  Create a tarball out of that directory.
-	#     cd .. && tar cvaf libaom-3.7.1-testdata.tar.xz libaom-3.7.1-testdata
+	# To update test data tarball,
+	# chromium-tools.git/generate-libaom-test-tarball.sh
 	SRC_URI="
 		https://storage.googleapis.com/aom-releases/${P}.tar.gz
-		test? ( https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-testdata.tar.xz )
+		test? ( https://deps.gentoo.zip/${CATEGORY}/${P}-testdata.tar.xz )
 	"
-	KEYWORDS="~alpha amd64 arm arm64 ~loong ppc64 ~riscv x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Alliance for Open Media AV1 Codec SDK"

@@ -12,7 +12,7 @@ HOMEPAGE="https://www.asterisk.org/"
 SRC_URI="https://downloads.asterisk.org/pub/telephony/asterisk/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0/${PV%%.*}"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 IUSE_VOICEMAIL_STORAGE=(
 	voicemail_storage_odbc
@@ -73,7 +73,7 @@ DEPEND="acct-user/asterisk
 		media-libs/speex
 		media-libs/speexdsp
 	)
-	srtp? ( net-libs/libsrtp:0 )
+	srtp? ( net-libs/libsrtp:= )
 	ssl? (
 		dev-libs/openssl:0=
 	)
@@ -99,6 +99,10 @@ PDEPEND="net-misc/asterisk-base"
 BDEPEND="dev-libs/libxml2:2
 	virtual/pkgconfig"
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	htonll
+	ntohll
+)
 QA_DT_NEEDED="/usr/lib.*/libasteriskssl[.]so[.][0-9]\+"
 
 ast_make() {
