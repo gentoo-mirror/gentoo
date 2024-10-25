@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/gpoore/pythontex
 INHERIT=latex-package python-r1
 IUSE=doc highlighting python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=amd64 ~ppc ~riscv ~x86
+KEYWORDS=amd64 ~ppc ~riscv x86
 LICENSE=LPPL-1.3 BSD
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf dev-python/pygments[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] virtual/latex-base
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://github.com/gpoore/pythontex/archive/v0.18.tar.gz -> pythontex-0.18.tar.gz
 _eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	latex-package	b4107369f908088e98dd16d3459a8669	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-r1	2def7a4ce233dfa344f613025c619a23
-_md5_=7528c4ce49a60bbb6673b668b4f7fdf9
+_md5_=3aaa41fceab0637197770c63ed05a8dc
