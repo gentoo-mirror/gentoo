@@ -15,16 +15,15 @@ RUBY_FAKEGEM_EXTENSION_LIBDIR=lib/json/ext
 inherit ruby-fakegem
 
 DESCRIPTION="A JSON implementation as a Ruby extension"
-HOMEPAGE="https://github.com/flori/json"
-SRC_URI="https://github.com/flori/json/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/ruby/json"
+SRC_URI="https://github.com/ruby/json/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="|| ( BSD-2 Ruby )"
 
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 SLOT="$(ver_cut 1)"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="doc test"
 
-DEPEND="${DEPEND}
-	=dev-util/ragel-6*"
+DEPEND="dev-util/ragel"
 
 ruby_add_bdepend "dev-ruby/rake
 	doc? ( dev-ruby/rdoc )
@@ -48,5 +47,5 @@ all_ruby_prepare() {
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	# Avoid setting gem since it will not be available yet when installing
-	sed -i -e '/gem/ s:^:#:' tests/test_helper.rb || die
+	sed -i -e '/gem/ s:^:#:' test/json/test_helper.rb || die
 }
