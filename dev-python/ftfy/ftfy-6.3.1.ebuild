@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 inherit distutils-r1 pypi
@@ -20,20 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	<dev-python/wcwidth-0.3[${PYTHON_USEDEP}]
-	>=dev-python/wcwidth-0.2.12[${PYTHON_USEDEP}]
+	dev-python/wcwidth[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	local PATCHES=(
-		# https://github.com/rspeer/python-ftfy/pull/204
-		"${FILESDIR}/${P}-poetry.patch"
-	)
-
-	# https://github.com/rspeer/python-ftfy/pull/205
-	sed -i -e "s:'poetry', 'run',::" tests/test_cli.py || die
-
-	distutils-r1_src_prepare
-}
