@@ -1,0 +1,14 @@
+BDEPEND=dev-util/rebar:0 >=sys-apps/gawk-4.1
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=dev-lang/erlang-21.0 dev-lang/erlang:=
+DESCRIPTION=Erlang IDNA implementation
+EAPI=8
+HOMEPAGE=https://github.com/benoitc/erlang-idna
+INHERIT=rebar
+KEYWORDS=~amd64 ~arm ~sparc ~x86
+LICENSE=MIT
+RDEPEND=dev-lang/erlang:=
+SLOT=0
+SRC_URI=https://github.com/benoitc/erlang-idna/archive/6.1.1.tar.gz -> idna-6.1.1.tar.gz https://github.com/benoitc/erlang-idna/commit/230a9175a5edb1b1a47fb09af2f4341eab93b1b0.patch -> idna-6.1.1-remove-unicode_util_compat.patch
+_eclasses_=rebar-utils	6ff3a08a9fb43ffe130089e51bd1cbf0	rebar	4a4d05b95ca1c02f225eba9c931e71de
+_md5_=993cc2fa4ddcd15a612776b55ad62bec
