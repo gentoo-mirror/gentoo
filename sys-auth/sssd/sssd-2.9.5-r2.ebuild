@@ -37,7 +37,7 @@ DEPEND="
 	>=dev-libs/cyrus-sasl-2.1.25-r3[kerberos]
 	dev-libs/jansson:=
 	dev-libs/libpcre2:=
-	dev-libs/libunistring:=
+	dev-libs/libunistring:=[${MULTILIB_USEDEP}]
 	>=dev-libs/popt-1.16
 	>=dev-libs/openssl-1.0.2:=
 	>=net-dns/bind-tools-9.9[gssapi]
@@ -219,6 +219,9 @@ multilib_src_configure() {
 		$(multilib_native_use_with python python3-bindings)
 		# Annoyingly configure requires that you pick systemd XOR sysv
 		--with-initscript=$(usex systemd systemd sysv)
+		KRB5_CONFIG="${ESYSROOT}"/usr/bin/krb5-config
+		# Needed for Samba 4.21
+		CPPFLAGS="${CPPFLAGS} -I${ESYSROOT}/usr/include/samba-4.0"
 	)
 
 	use systemd && myconf+=(
