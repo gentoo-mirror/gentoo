@@ -207,10 +207,6 @@ src_install() {
 
 		systemd_douserunit unix/vncserver/vncserver@.service
 
-		# comment out pam_selinux.so, the server does not start if missing
-		# part of bug #746227
-		sed -i -e '/pam_selinux/s/^/#/' "${ED}"/etc/pam.d/tigervnc || die
-
 		# install vncserver to /usr/bin too, see bug #836620
 		dosym -r /usr/libexec/vncserver /usr/bin/vncserver
 	fi
