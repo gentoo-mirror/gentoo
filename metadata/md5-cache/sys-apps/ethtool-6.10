@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils
+BDEPEND=app-arch/xz-utils netlink? ( virtual/pkgconfig )
 DEFINED_PHASES=configure
 DEPEND=netlink? ( net-libs/libmnl )
 DESCRIPTION=Utility for examining and tuning ethernet-based network interfaces
@@ -10,4 +10,4 @@ LICENSE=GPL-2
 RDEPEND=netlink? ( net-libs/libmnl )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/software/network/ethtool/ethtool-6.10.tar.xz
-_md5_=4d891d74797b7ee1a1791d1916e6cdb1
+_md5_=93b83ea9097115b5fb503947a473780b
