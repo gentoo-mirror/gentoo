@@ -20,7 +20,7 @@ IUSE="proxy"
 
 DEPEND="
 	dev-libs/openssl:=
-	<dev-libs/libassuan-3:=
+	dev-libs/libassuan:=
 	dev-libs/libgcrypt:=
 	dev-libs/libgpg-error:=
 	dev-libs/pkcs11-helper:=
