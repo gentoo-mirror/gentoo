@@ -3,7 +3,9 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT=8.0
+DOTNET_PKG_COMPAT="8.0"
+
+# Required tools are on top, they are listed in ".config/dotnet-tools.json".
 NUGETS="
 dotnet-fsharplint@0.19.2
 fantomas@6.3.9
@@ -20,8 +22,8 @@ fparsec@1.1.1
 fscheck@2.16.5
 fsharp.analyzers.build@0.3.0
 fsharp.core@5.0.1
-fsharp.core@6.0.7
-fsharp.core@8.0.101
+fsharp.core@6.0.1
+fsharp.core@8.0.102
 fsharp.data.csv.core@6.3.0
 fsharp.data.html.core@6.3.0
 fsharp.data.http@6.3.0
@@ -225,18 +227,19 @@ else
 	SRC_URI="https://github.com/fsprojects/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
 
+# See file "Directory.Build.props" -> tag "FCSCommitHash".
 FCS_COMMIT="836d4e0603442d6053c8d439993a022501cae494"
 SRC_URI+="
 	https://github.com/dotnet/fsharp/archive/${FCS_COMMIT}.tar.gz
 		-> fsharp-${FCS_COMMIT}.tar.gz
 "
 
-LICENSE="MIT"
+LICENSE="Apache-2.0 MIT"
 SLOT="0"
 
 CHECKREQS_DISK_BUILD="2G"
@@ -287,7 +290,6 @@ src_test() {
 	)
 	local test_project
 	for test_project in "${test_projects[@]}" ; do
-		dotnet-pkg-base_test "src/${test_project}/${test_project}.fsproj" \
-			-p:RollForward=Major
+		dotnet-pkg-base_test "${S}/src/${test_project}" -p:RollForward=Major
 	done
 }
