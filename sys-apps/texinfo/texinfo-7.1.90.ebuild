@@ -27,7 +27,7 @@ elif [[ $(ver_cut 3) -ge 90 || $(ver_cut 4) -ge 90 ]] ; then
 	REGEN_BDEPEND=""
 else
 	SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 	REGEN_BDEPEND=""
 fi
 
@@ -52,11 +52,6 @@ BDEPEND="
 	${REGEN_BDEPEND}
 	nls? ( >=sys-devel/gettext-0.19.6 )
 "
-
-PATCHES=(
-	# Backports from the release/7.1 branch
-	"${FILESDIR}"/7.1
-)
 
 src_prepare() {
 	default
