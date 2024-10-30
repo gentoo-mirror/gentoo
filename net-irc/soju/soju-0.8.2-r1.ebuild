@@ -2,12 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
-inherit go-module systemd
+inherit go-module systemd tmpfiles
 
 DESCRIPTION="soju is a user-friendly IRC bouncer"
 HOMEPAGE="https://soju.im/"
-SRC_URI="https://git.sr.ht/~emersion/${PN}/refs/download/v${PV}/${P}.tar.gz"
+SRC_URI="https://codeberg.org/emersion/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/alfredfo/${PN}-deps/raw/master/${P}-deps.tar.xz"
+S="${WORKDIR}/soju"
 
 LICENSE="AGPL-3 Apache-2.0 MIT BSD"
 SLOT="0"
@@ -60,6 +61,9 @@ src_install() {
 	doman doc/soju.1
 	doman doc/sojuctl.1
 	systemd_dounit contrib/soju.service
+
+	newtmpfiles "${FILESDIR}/soju.tmpfiles" soju.conf
+
 	keepdir /etc/soju
 	insinto /etc/soju
 	newins config.in config
@@ -68,6 +72,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	tmpfiles_process soju.conf
+
 	elog "${PN} requires a user database for authenticating clients."
 	elog "As the soju user, create a database using:"
 	elog "$ sojudb -config ${EROOT}/etc/soju/config create-user <username> [-admin]"
