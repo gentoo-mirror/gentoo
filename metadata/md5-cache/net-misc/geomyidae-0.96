@@ -1,0 +1,14 @@
+BDEPEND=acct-group/gopherd
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/libretls:0=
+DESCRIPTION=A daemon to serve the gopher protocol
+EAPI=8
+HOMEPAGE=https://r-36.net/scm/geomyidae/
+INHERIT=flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=MIT
+RDEPEND=acct-group/gopherd dev-libs/libretls:0= acct-user/gopherd
+SLOT=0
+SRC_URI=ftp://bitreich.org/releases/geomyidae/geomyidae-v0.96.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe
+_md5_=6789f9f52e3026d82ebcfff6d221f5a8
