@@ -24,7 +24,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/asgiref-3.6[${PYTHON_USEDEP}]
-	>=dev-python/django-3.2[${PYTHON_USEDEP}]
+	>=dev-python/django-4.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
