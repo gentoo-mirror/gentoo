@@ -153,7 +153,7 @@ RDEPEND="
 	dev-python/service-identity[${PYTHON_USEDEP}]
 	dev-python/signedjson[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
-	dev-python/treq[${PYTHON_USEDEP}]
+	<dev-python/treq-24.9.1-r1[${PYTHON_USEDEP}]
 	<dev-python/twisted-24.10[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
