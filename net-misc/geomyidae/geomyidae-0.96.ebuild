@@ -1,43 +1,39 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit toolchain-funcs
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="A daemon to serve the gopher protocol"
-HOMEPAGE="http://r-36.net/scm/geomyidae/"
-SRC_URI="ftp://bitreich.org/releases/geomyidae/${PN}-v${PV}.tgz"
+HOMEPAGE="https://r-36.net/scm/geomyidae/"
+SRC_URI="ftp://bitreich.org/releases/geomyidae/${PN}-v${PV}.tar.gz"
+
 S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 
+BDEPEND="acct-group/gopherd"
+DEPEND="dev-libs/libretls:0="
 RDEPEND="
-	acct-group/gopherd
+	${BDEPEND}
+	${DEPEND}
 	acct-user/gopherd
 "
-DEPEND="${RDEPEND}"
 
 src_prepare() {
-	# enable verbose build
-	# respect CFLAGS
 	# remove /usr/lib from LDFLAGS, bug #731672
 	sed -i \
-		-e 's/@${CC}/${CC}/g' \
-		-e '/CFLAGS/s/=/?=/' \
 		-e '/GEOM_LDFLAGS/s:-L/usr/lib ::' \
 		Makefile || die 'sed on Makefile failed'
-	# fix path for pid file
-	sed -i \
-		-e 's:/var/run:/run:g' \
-		rc.d/Gentoo.init.d || die
 
 	eapply_user
 }
 
 src_compile() {
+	append-cflags -D_FILE_OFFSET_BITS=64 # bug 927733
 	emake CC="$(tc-getCC)"
 }
 
@@ -49,9 +45,9 @@ src_install() {
 
 	insinto /var/gopher
 	doins index.gph
-	fowners -R root.gopherd /var/gopher
+	fowners -R root:gopherd /var/gopher
 	fperms -R g=rX,o=rX /var/gopher
 
 	doman ${PN}.8
-	dodoc CGI README
+	dodoc CGI.md README
 }
