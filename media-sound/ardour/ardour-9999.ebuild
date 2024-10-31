@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..13} )
+PYTHON_COMPAT=( python3_{9..13} python3_13t )
 PYTHON_REQ_USE='threads(+)'
 PLOCALES="ca cs de el en_GB es eu fr it ja ko nn pl pt pt_PT ru sv zh"
 inherit toolchain-funcs flag-o-matic plocale python-any-r1 waf-utils desktop xdg
@@ -27,6 +27,7 @@ IUSE="doc jack nls phonehome pulseaudio cpu_flags_ppc_altivec cpu_flags_x86_sse 
 RDEPEND="
 	dev-cpp/cairomm:0
 	dev-cpp/glibmm:2
+	dev-cpp/pangomm:1.4
 	dev-libs/boost:=
 	dev-libs/glib:2
 	dev-libs/libsigc++:2
