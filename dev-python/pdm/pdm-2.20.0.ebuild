@@ -30,7 +30,7 @@ RDEPEND="
 	dev-python/msgpack[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
 	dev-python/filelock[${PYTHON_USEDEP}]
-	dev-python/hishel[${PYTHON_USEDEP}]
+	>=dev-python/hishel-0.0.32[${PYTHON_USEDEP}]
 	>=dev-python/pbs-installer-2024.4.18[${PYTHON_USEDEP}]
 	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
 	>=dev-python/unearth-0.17.0[${PYTHON_USEDEP}]
@@ -39,7 +39,7 @@ RDEPEND="
 	dev-python/tomlkit[${PYTHON_USEDEP}]
 	dev-python/shellingham[${PYTHON_USEDEP}]
 	dev-python/python-dotenv[${PYTHON_USEDEP}]
-	>=dev-python/resolvelib-1.0.1[${PYTHON_USEDEP}]
+	>=dev-python/resolvelib-1.1[${PYTHON_USEDEP}]
 	dev-python/installer[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/tomli[${PYTHON_USEDEP}]
