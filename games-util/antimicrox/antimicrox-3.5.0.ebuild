@@ -16,7 +16,7 @@ else
 	SRC_URI="https://github.com/AntiMicroX/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -27,11 +27,7 @@ IUSE="doc"
 RESTRICT="test"
 
 RDEPEND="
-	dev-qt/qtconcurrent:5
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
+	dev-qt/qtbase:6[concurrent,gui,network,widgets]
 	media-libs/libsdl2[X,joystick]
 	virtual/udev
 	x11-libs/libX11
@@ -42,16 +38,15 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/qttools:6[linguist]
 	kde-frameworks/extra-cmake-modules
 	doc? (
 		app-text/doxygen[dot]
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-man_gz.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-man_gz.patch" )
+
 DOCS=( CHANGELOG.md README.md )
 
 src_configure() {
@@ -59,6 +54,7 @@ src_configure() {
 		-DAPPDATA=OFF
 		-DCHECK_FOR_UPDATES=OFF
 		-DINSTALL_UINPUT_UDEV_RULES=OFF  # Install in src_install
+		-DUSE_QT6_BY_DEFAULT=ON
 		-DWITH_TESTS=OFF
 		-DWITH_UINPUT=ON
 		-DWITH_X11=ON

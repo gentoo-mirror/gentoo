@@ -11,7 +11,7 @@ S="${WORKDIR}/dafny"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 REQUIRED_USE="elibc_glibc"
 RESTRICT="strip"
 
@@ -39,18 +39,18 @@ src_prepare() {
 }
 
 src_install() {
-	local dest=/opt/dafny
+	local dest="/opt/dafny"
 
-	insinto ${dest}
+	insinto "${dest}"
 	# Maybe too general, but this installation mode matched how it arrives.
 	insopts -m0755
 	doins "${S}"/*
 
 	local bin
 	for bin in DafnyServer dafny ; do
-		dosym ../../${dest}/${bin} /usr/bin/${bin}
+		dosym "../../${dest}/${bin}" "/usr/bin/${bin}"
 	done
 
 	# Make "dafny-server" clients happy.
-	dosym -r /${dest}/DafnyServer /usr/bin/dafny-server
+	dosym -r "/${dest}/DafnyServer" /usr/bin/dafny-server
 }
