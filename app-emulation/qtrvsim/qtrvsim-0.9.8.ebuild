@@ -11,7 +11,7 @@ SRC_URI="https://github.com/cvut/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.t
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-qt/qtbase:6[gui,widgets]
@@ -19,7 +19,9 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-CMAKE_SKIP_TESTS=(
-	# Fails in 0.9.7, but not in master.
-	cli_stalls
-)
+src_configure() {
+	local mycmakeargs=(
+		-DQT_VERSION_MAJOR=6
+	)
+	cmake_src_configure
+}
