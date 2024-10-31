@@ -11,11 +11,11 @@ SRC_URI="https://github.com/linux-nvme/nvme-cli/archive/v${PV}.tar.gz -> ${P}.gh
 
 LICENSE="GPL-2 GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~sparc x86"
-IUSE="+json"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~sparc ~x86"
+IUSE="+json pdc"
 
 RDEPEND="
-	>=sys-libs/libnvme-1.8:=[json?]
+	>=sys-libs/libnvme-1.11:=[json?]
 	json? ( dev-libs/json-c:= )
 	sys-libs/zlib:=
 "
@@ -35,6 +35,7 @@ src_configure() {
 		-Dsystemddir="$(systemd_get_systemunitdir)"
 		-Dudevrulesdir="${EPREFIX}$(get_udevdir)/rules.d"
 		$(meson_feature json json-c)
+		$(meson_use pdc pdc-enabled)
 	)
 	meson_src_configure
 }
