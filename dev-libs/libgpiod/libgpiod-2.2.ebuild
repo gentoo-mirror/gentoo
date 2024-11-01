@@ -16,10 +16,12 @@ KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="+tools cxx python test"
 RESTRICT="!test? ( test )"
 
+#  --enable-dbus #glib-2.80 masked
 #  --enable-tests          enable libgpiod tests [default=no]
 #  --enable-bindings-cxx   enable C++ bindings [default=no]
 #  --enable-bindings-python
 #  --enable-bindings-rust
+#  --enable-bindings-glib
 DEPEND="
 	test? (
 		>=dev-libs/glib-2.50
@@ -47,8 +49,10 @@ src_configure() {
 		$(use_enable test tests)
 		$(use_enable python bindings-python)
 		--enable-examples
+		--disable-dbus
 		--disable-profiling
 		--disable-bindings-rust
+		--disable-bindings-glib
 	)
 
 	econf "${myconf[@]}"
