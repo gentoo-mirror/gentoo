@@ -61,7 +61,7 @@ COMMON_DEPEND="
 # is missing and it is fairly small (installs a ~1.5MB patches.zip)
 RDEPEND="
 	${COMMON_DEPEND}
-	>=games-emulation/pcsx2_patches-0_p20230917
+	<games-emulation/pcsx2_patches-0_p20241020
 "
 DEPEND="
 	${COMMON_DEPEND}
@@ -118,7 +118,7 @@ src_configure() {
 		-DDISABLE_ADVANCE_SIMD=yes
 		-DENABLE_TESTS=$(usex test)
 		-DUSE_LINKED_FFMPEG=yes
-		-DUSE_VTUNE=no
+		-DUSE_VTUNE=no # not packaged
 		-DUSE_VULKAN=$(usex vulkan)
 
 		# note that upstream hardly support native wayland, may or may not work
@@ -167,13 +167,4 @@ pkg_postinst() {
 	optfeature "UI sound effects support" \
 		media-sound/alsa-utils \
 		media-libs/gst-plugins-base:1.0
-
-	if [[ ${REPLACING_VERSIONS##* } ]] &&
-		ver_test ${REPLACING_VERSIONS##* } -lt 1.7; then
-		elog ">=${PN}-1.7 has received several changes since <=${PN}-1.6.0, and is"
-		elog "notably now a 64bit build using Qt6. Just-in-case it is recommended"
-		elog "to backup configs, save states, and memory cards before using."
-		elog
-		elog "The executable was also renamed from 'PCSX2' to 'pcsx2'."
-	fi
 }

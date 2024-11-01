@@ -3,6 +3,9 @@
 
 EAPI=8
 
+# note: not "required" but should typically be bumped at same
+# time as pcsx2 to match the patches.zip shipped with it
+
 PYTHON_COMPAT=( python3_{10..13} )
 inherit python-any-r1
 
@@ -10,13 +13,13 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PCSX2/pcsx2_patches.git"
 else
-	HASH_PCSX2_PATCHES=fcb11f6b699fd68e41977bffe53b8e8031ccb578
+	HASH_PCSX2_PATCHES=f193d7d41f63a8a6efa190b80096c0450c368c9b
 	SRC_URI="
 		https://github.com/PCSX2/pcsx2_patches/archive/${HASH_PCSX2_PATCHES}.tar.gz
 			-> ${P}.tar.gz
 	"
 	S=${WORKDIR}/${PN}-${HASH_PCSX2_PATCHES}
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Collection of game patches for use with PCSX2 (e.g. widescreen hacks)"
@@ -48,7 +51,7 @@ src_compile() {
 }
 
 src_install() {
-	insinto /usr/lib/pcsx2/resources
+	insinto /usr/share/PCSX2/resources
 	doins patches.zip
 
 	einstalldocs
