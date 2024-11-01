@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/snapshot/${PN}-v${PV}.tar.gz"
-	KEYWORDS="amd64 ~arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
@@ -29,8 +29,7 @@ RESTRICT="!test? ( test ) test"
 
 RDEPEND="
 	>=app-arch/zstd-1.4
-	!<dev-libs/libtracefs-1.6.1
-	>=dev-libs/libtracefs-1.6.1-r1
+	>=dev-libs/libtracefs-1.8
 	>=dev-libs/libtraceevent-1.6.3
 	sys-libs/zlib
 	sys-process/audit
