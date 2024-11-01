@@ -20,7 +20,7 @@ SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="test"
 
-ruby_add_rdepend ">=dev-ruby/i18n-1.8.11:1 !<dev-ruby/faker-2.23.0-r1"
+ruby_add_rdepend ">=dev-ruby/i18n-1.8.11:1"
 
 ruby_add_bdepend "test? ( dev-ruby/timecop )"
 

@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_EXTRADOC="README.md"
 RUBY_FAKEGEM_GEMSPEC="docker-api.gemspec"
@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 ruby_add_rdepend "
-	>=dev-ruby/excon-0.47.0
+	>=dev-ruby/excon-0.64.0
 	dev-ruby/multi_json
 "
 
