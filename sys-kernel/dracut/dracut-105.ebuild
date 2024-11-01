@@ -99,6 +99,8 @@ PATCHES=(
 	"${FILESDIR}"/gentoo-ldconfig-paths-r1.patch
 	# Gentoo specific acct-user and acct-group conf adjustments
 	"${FILESDIR}"/${PN}-103-acct-user-group-gentoo.patch
+	# https://github.com/dracut-ng/dracut-ng/pull/834
+	"${FILESDIR}"/${PN}-105-ensure-abs-args-for-objcopy.patch
 )
 
 src_configure() {
