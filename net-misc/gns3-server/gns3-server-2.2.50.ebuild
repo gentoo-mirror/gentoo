@@ -21,12 +21,12 @@ RDEPEND="
 	acct-user/gns3
 	app-emulation/dynamips
 	>=dev-python/aiofiles-24.1.0[${PYTHON_USEDEP}]
-	>=dev-python/aiohttp-3.9.5[${PYTHON_USEDEP}]
+	>=dev-python/aiohttp-3.10.3[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-cors-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/async-timeout-4.0.3[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.9.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-3.1.4[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-4.22.0[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-4.23.0[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-2.4.0[${PYTHON_USEDEP}]
 	>=dev-python/psutil-6.0.0[${PYTHON_USEDEP}]
 	>=dev-python/py-cpuinfo-9.0.0[${PYTHON_USEDEP}]
