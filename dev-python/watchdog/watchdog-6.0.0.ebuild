@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -29,11 +29,6 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-src_prepare() {
-	sed -e '/--cov/d' -i setup.cfg || die
-	default
-}
-
 python_test() {
 	local EPYTEST_DESELECT=(
 		# known flaky
@@ -42,7 +37,10 @@ python_test() {
 		tests/test_inotify_buffer.py::test_unmount_watched_directory_filesystem
 	)
 
-	epytest -p no:django
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	# there's a test opening 2048 files
+	ulimit -n 4096 || die
+	epytest -o addopts=
 }
 
 pkg_postinst() {
