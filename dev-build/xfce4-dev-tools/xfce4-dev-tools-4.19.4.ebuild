@@ -15,13 +15,15 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris"
 
 DEPEND="
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.72.0
 "
 RDEPEND="
 	${DEPEND}
+	dev-build/meson
 "
 # libxslt for xsltproc
 BDEPEND="
+	dev-build/meson
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
