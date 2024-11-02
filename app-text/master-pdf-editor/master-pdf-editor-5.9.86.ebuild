@@ -7,7 +7,7 @@ inherit desktop xdg
 
 DESCRIPTION="A complete solution for viewing and editing PDF files"
 HOMEPAGE="https://code-industry.net/free-pdf-editor/"
-SRC_URI="https://code-industry.net/public/${P}.x86_64-qt5_include.tar.gz"
+SRC_URI="https://code-industry.net/public/${P}-qt5.x86_64-qt_include.tar.gz"
 S="${WORKDIR}/${PN}-${PV%%.*}"
 
 LICENSE="master-pdf-editor"
