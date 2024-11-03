@@ -20,7 +20,6 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/httpx[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 
 BDEPEND="

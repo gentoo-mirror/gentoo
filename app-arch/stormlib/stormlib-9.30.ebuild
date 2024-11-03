@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,10 +27,6 @@ RDEPEND="
 	sys-libs/zlib:=
 "
 DEPEND=${RDEPEND}
-
-PATCHES=(
-	"${FILESDIR}"/stormlib-9.24-gnuinstalldirs.patch
-)
 
 src_configure() {
 	local mycmakeargs=(
