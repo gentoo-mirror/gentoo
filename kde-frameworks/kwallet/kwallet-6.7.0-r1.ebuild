@@ -34,6 +34,8 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:6 )"
 
+PATCHES=( "${FILESDIR}/${P}-no-exclude-deprecated.patch" ) # KDE-bug 493356
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package gpg Gpgmepp)
