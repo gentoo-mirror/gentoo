@@ -1,0 +1,15 @@
+BDEPEND=test? ( sys-apps/ed ) verify-sig? ( sec-keys/openpgp-keys-patch ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install test unpack
+DEPEND=xattr? ( sys-apps/attr )
+DESCRIPTION=Utility to apply diffs to files
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/patch/patch.html
+INHERIT=flag-o-matic verify-sig
+IUSE=static test xattr verify-sig
+LICENSE=GPL-3+
+RDEPEND=xattr? ( sys-apps/attr )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://meyering.net/patch/patch-2.7.6.200-be8b.tar.xz -> patch-2.7.6_p20241103.tar.xz verify-sig? ( https://meyering.net/patch/patch-2.7.6.200-be8b.tar.xz.sig -> patch-2.7.6_p20241103.tar.xz.sig )
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	verify-sig	745dccb7d4656514f1e966cce314d7db
+_md5_=a885ac30439f5b1d4bb36c8238556fca
