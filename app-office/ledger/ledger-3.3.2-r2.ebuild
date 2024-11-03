@@ -1,11 +1,11 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10,11} )
+PYTHON_COMPAT=( python3_{10,11,12,13} )
 CMAKE_REMOVE_MODULES_LIST=( FindPython Support )
-inherit bash-completion-r1 check-reqs cmake python-single-r1
+inherit bash-completion-r1 check-reqs cmake optfeature python-single-r1
 
 DESCRIPTION="Double-entry accounting system with a command-line reporting interface"
 HOMEPAGE="https://www.ledger-cli.org/"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="debug doc python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -67,6 +67,10 @@ src_prepare() {
 	mv doc/ledger{3,}.texi || die "Failed to rename info file name"
 
 	rm -r lib/utfcpp || die
+
+	eapply "${FILESDIR}/convenience.patch"
+	eapply "${FILESDIR}/sha1sum.patch"
+	eapply_user
 }
 
 src_configure() {
@@ -98,6 +102,10 @@ src_compile() {
 src_install() {
 	cmake_src_install
 
+	# Requires gnuplot
+	exeinto /usr/bin
+	doexe contrib/report
+
 	newbashcomp contrib/${PN}-completion.bash ${PN}
 }
 
@@ -105,9 +113,13 @@ pkg_postinst() {
 	elog
 	elog "Since version 3, vim support is released separately."
 	elog "See https://github.com/ledger/vim-ledger"
-	elog
-	elog "For Emacs mode, emerge app-emacs/ledger-mode"
+	optfeature_header \
+		"Install the following packages for additional features:"
+	optfeature "Emacs support" "app-emacs/ledger-mode"
+	optfeature "Plot visualization" "sci-visualization/gnuplot"
+	optfeature "Graph visualization" "media-gfx/graphviz"
 }
 
 # rainy day TODO:
 # - IUSE test
+# - create vim-ledger ebuild
