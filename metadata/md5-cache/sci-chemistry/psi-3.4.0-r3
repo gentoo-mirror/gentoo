@@ -2,7 +2,7 @@ BDEPEND=dev-util/byacc virtual/pkgconfig test? ( dev-lang/perl ) >=app-portage/e
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=!sci-visualization/extrema virtual/blas virtual/lapack >=sci-libs/libint-1.1.4:1 virtual/fortran
 DESCRIPTION=Suite for ab initio quantum chemistry computing various molecular properties
-EAPI=7
+EAPI=8
 HOMEPAGE=http://www.psicode.org/
 INHERIT=autotools fortran-2 toolchain-funcs
 IUSE=test
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/psicode/psi-3.4.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	fortran-2	54fcb693257134adae26819685891ecc
-_md5_=bc48e6e9f06a6ea7626b193b3d4cf3f6
+_md5_=79b3c87ae09f9ede18d76439399f2e4f
