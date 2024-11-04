@@ -1,0 +1,17 @@
+BDEPEND=app-text/docbook-xml-dtd:4.3 dev-libs/appstream-glib dev-util/itstool >=sys-devel/gettext-0.19.6 virtual/pkgconfig >=app-portage/elt-patches-20240116 app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=dev-libs/glib-2.49.5:2[dbus] >=x11-libs/gtk+-3.21.6:3 || ( media-libs/libcanberra-gtk3 media-libs/libcanberra[gtk3(-)] ) gnome-base/gsettings-desktop-schemas >=app-cdr/brasero-2.90 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0[vorbis?] >=media-libs/musicbrainz-5.0.1:5= app-text/iso-codes >=media-libs/libdiscid-0.4.0 sys-apps/dbus flac? ( media-plugins/gst-plugins-flac:1.0 )
+DESCRIPTION=CD ripper for GNOME
+EAPI=8
+HOMEPAGE=https://wiki.gnome.org/Apps/SoundJuicer
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2 meson
+IUSE=flac vorbis
+KEYWORDS=amd64 ~arm arm64 ~loong ppc ppc64 ~riscv x86
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.49.5:2[dbus] >=x11-libs/gtk+-3.21.6:3 || ( media-libs/libcanberra-gtk3 media-libs/libcanberra[gtk3(-)] ) gnome-base/gsettings-desktop-schemas >=app-cdr/brasero-2.90 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0[vorbis?] >=media-libs/musicbrainz-5.0.1:5= app-text/iso-codes >=media-libs/libdiscid-0.4.0 sys-apps/dbus flac? ( media-plugins/gst-plugins-flac:1.0 ) gnome-base/gvfs[cdda,udev] || ( media-plugins/gst-plugins-cdparanoia:1.0 media-plugins/gst-plugins-cdio:1.0 ) media-plugins/gst-plugins-meta:1.0
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://gnome/sources/sound-juicer/3.40/sound-juicer-3.40.0.tar.xz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	2fee95c11e5f883024588d4837db6802	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=8f0c2d90feaa7a99596e8507a22c6c36
