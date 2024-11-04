@@ -102,9 +102,12 @@ python_test() {
 		# python_on_whales is not packaged
 		tests/autobahn/test_autobahn.py
 		# benchmarks
+		tests/test_benchmarks_client.py
 		tests/test_benchmarks_client_request.py
+		tests/test_benchmarks_client_ws.py
 		tests/test_benchmarks_cookiejar.py
 		tests/test_benchmarks_http_websocket.py
+		tests/test_benchmarks_http_writer.py
 	)
 
 	local EPYTEST_DESELECT=(
