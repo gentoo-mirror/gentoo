@@ -23,8 +23,8 @@ SLOT="1"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="test"
 
-RDEPEND+=" dev-db/postgresql:*"
-DEPEND+=" dev-db/postgresql
+RDEPEND="dev-db/postgresql:*"
+DEPEND="dev-db/postgresql
 	test? ( >=dev-db/postgresql-9.4[server(+),threads(+)] )"
 
 all_ruby_prepare() {
@@ -43,8 +43,10 @@ all_ruby_prepare() {
 
 	# Don't allow sudo calls that try to tinker with /etc/hosts (bug #933234)
 	sed -e '/sudo/ s:^:#:' -i spec/helpers.rb || die
-	sed -e '/refreshs DNS address while conn.reset/ s/it/xit/' \
+	sed -e '/refreshes DNS address while conn.reset/ s/it/xit/' \
 		-i spec/pg/connection_spec.rb || die
+	sed -e '/doesn.t duplicate hosts in conn.reset/ s/it/xit/' \
+		-i spec/pg/connection_async_spec.rb || die
 
 	# Avoid tests that assume IPv4
 	sed -i -e '/expect.*hostaddr/ s:^:#:' spec/pg/connection_spec.rb || die
