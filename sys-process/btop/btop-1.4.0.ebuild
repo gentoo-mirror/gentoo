@@ -3,22 +3,23 @@
 
 EAPI=8
 
-inherit toolchain-funcs optfeature xdg cmake
+inherit cmake optfeature toolchain-funcs xdg
 
 DESCRIPTION="A monitor of resources"
 HOMEPAGE="https://github.com/aristocratos/btop"
 SRC_URI="
-	https://github.com/aristocratos/btop/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/aristocratos/btop/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
 "
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
-PATCHES=(
-	# Backport of upstream PR 648. Remove after 1.3.0
-	"${FILESDIR}/${P}-configurable-fortification.patch"
-)
+BDEPEND="
+	app-text/lowdown
+"
+
+DOCS=( "README.md" "CHANGELOG.md" )
 
 pkg_setup() {
 	if [[ "${MERGE_TYPE}" != "binary" ]]; then
@@ -36,8 +37,12 @@ src_configure() {
 	local mycmakeargs=(
 		-DBTOP_GPU=true
 		-DBTOP_RSMI_STATIC=false
-		# Fortification can be set in CXXFLAGS instead
+		-DBTOP_STATIC=false
+		# These settings can be controlled in make.conf CFLAGS/CXXFLAGS
 		-DBTOP_FORTIFY=false
+		-DBTOP_LTO=false
+		-DBTOP_WERROR=false
+		-DBTOP_USE_MOLD=false
 	)
 	cmake_src_configure
 }
