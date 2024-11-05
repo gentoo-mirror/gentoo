@@ -28,8 +28,8 @@ SLOT="0"
 
 distutils_enable_tests pytest
 
-EPYTEST_IGNORE=(
-	tests/pylint
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.9.3-color-crash-fix.patch
 )
 
 src_prepare() {
