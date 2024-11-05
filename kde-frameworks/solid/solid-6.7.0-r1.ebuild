@@ -32,6 +32,8 @@ BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-crash-on-eject.patch" ) # KDE-bug 464149
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package ios IMobileDevice)
