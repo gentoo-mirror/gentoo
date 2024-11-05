@@ -4,41 +4,44 @@
 EAPI=8
 
 JAVA_PKG_IUSE="doc source test"
-MAVEN_ID="org.apache.velocity:velocity-engine-core:2.3"
+MAVEN_ID="org.apache.velocity:velocity-engine-core:2.4.1"
 JAVA_TESTING_FRAMEWORKS="junit-4"
 
 inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="Apache Velocity is a general purpose template engine"
 HOMEPAGE="https://velocity.apache.org"
-MY_COMMIT="86cfcf41105f8a25db11ca6483e33c20fc0804d9"
-SRC_URI="https://github.com/apache/${PN}-engine/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-engine-${MY_COMMIT}/${PN}-engine-core"
+SRC_URI="https://github.com/apache/${PN}-engine/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-engine-${PV}/${PN}-engine-core"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 
 CP_DEPEND="
-	>=dev-java/commons-io-2.8.0:1
-	>=dev-java/commons-lang-3.11:3.6
-	>=dev-java/slf4j-api-1.7.30:0
+	dev-java/commons-lang:3.6
+	dev-java/slf4j-api:0
 "
+
 DEPEND="
-	>=virtual/jdk-1.8:*
 	${CP_DEPEND}
+	>=dev-java/commons-io-2.17.0:1
+	>=virtual/jdk-1.8:*
 	test? (
-		dev-db/hsqldb:0
-		>=dev-java/slf4j-simple-1.7.30:0
+		>=dev-db/hsqldb-2.4.1:0
+		dev-java/slf4j-simple:0
 	)
 "
+
 RDEPEND="
-	>=virtual/jre-1.8:*
 	${CP_DEPEND}
+	>=virtual/jre-1.8:*
 "
+
 JAVACC_SLOT="7.0.13"
 BDEPEND="dev-java/javacc:${JAVACC_SLOT}"
 
+JAVA_CLASSPATH_EXTRA="commons-io-1"
 JAVA_RESOURCE_DIRS="src/main/resources"
 JAVA_SRC_DIR="src/main/java"
 JAVA_TEST_EXTRA_ARGS="-Dtest.compare.dir=target/test-classes -Dtest.result.dir=results"
@@ -48,6 +51,8 @@ JAVA_TEST_SRC_DIR="src/test/java"
 
 src_prepare() {
 	java-pkg-2_src_prepare
+
+	cp -r src/main/{,resources/org/apache/velocity/runtime}/parser || die
 
 	sed -e "s/\${project.version}/${PV}/" \
 		src/main/java-templates/org/apache/velocity/runtime/VelocityEngineVersion.java > \
