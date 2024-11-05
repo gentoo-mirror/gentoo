@@ -3,8 +3,8 @@
 
 EAPI=8
 
-KFMIN=5.106.0
-QTMIN=5.15.9
+KFMIN=5.115.0
+QTMIN=5.15.12
 inherit ecm flag-o-matic plasma.kde.org
 
 DESCRIPTION="Provides KWindowSystem integration plugin for Wayland"
@@ -12,7 +12,7 @@ HOMEPAGE="https://invent.kde.org/plasma/kwayland-integration"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
-KEYWORDS="amd64 ~arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
 # dev-qt/qtgui: QtXkbCommonSupport is provided by either IUSE libinput or X
@@ -20,7 +20,7 @@ IUSE=""
 # dev-qt/qtgui: QtXkbCommonSupportPrivate
 # dev-qt/qtwayland: Qt::WaylandClientPrivate (private/qwayland*_p.h) stuff
 # kde-frameworks/kwindowsystem: Various private headers
-DEPEND="
+RDEPEND="
 	>=dev-libs/wayland-1.15
 	>=dev-qt/qtgui-${QTMIN}:5=
 	|| (
@@ -33,17 +33,16 @@ DEPEND="
 	>=kde-plasma/kwayland-${KFMIN}:5
 	x11-libs/libxkbcommon
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/plasma-wayland-protocols
+"
 BDEPEND="
 	>=dev-qt/qtwaylandscanner-${QTMIN}:5
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
 
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_kf_module IdleTime
-	cmake_comment_add_subdirectory autotests # only contains idletime test
-	cmake_run_in src cmake_comment_add_subdirectory idletime
+src_configure() {
 	filter-lto # bug 921430
+	ecm_src_configure
 }
