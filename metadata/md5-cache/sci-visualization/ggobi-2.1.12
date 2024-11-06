@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=dev-libs/libxml2:2 media-gfx/graphviz x11-libs/gtk+:2
+DESCRIPTION=Visualization program for exploring high-dimensional data
+EAPI=8
+HOMEPAGE=http://www.ggobi.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
+IUSE=doc minimal nls
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=CPL-1.0
+RDEPEND=dev-libs/libxml2:2 media-gfx/graphviz x11-libs/gtk+:2
+SLOT=0
+SRC_URI=https://github.com/ggobi/ggobi/releases/download/2.1.12/ggobi-2.1.12.tar.gz
+_eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=2c7f669cfdd64d64846190ac3fa91f7c
