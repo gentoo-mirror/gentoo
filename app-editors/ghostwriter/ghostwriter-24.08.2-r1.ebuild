@@ -38,3 +38,7 @@ BDEPEND="
 "
 
 DOCS=( CHANGELOG.md README.md )
+
+# Picked for 24.08.3, hopefully to be respun:
+# https://invent.kde.org/office/ghostwriter/-/merge_requests/46
+PATCHES=( "${FILESDIR}/${P}-fix-segfault.patch" ) # bug 942928

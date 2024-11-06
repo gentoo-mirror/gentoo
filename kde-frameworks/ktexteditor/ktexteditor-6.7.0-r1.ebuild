@@ -43,6 +43,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="test? ( >=kde-frameworks/kservice-${PVCUT}:6 )"
 
+PATCHES=( "${FILESDIR}/${P}-fix-segfault.patch" ) # KDE-bug 494826
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package editorconfig EditorConfig)
