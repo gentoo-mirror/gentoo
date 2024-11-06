@@ -2,10 +2,10 @@ BDEPEND=java? ( virtual/jdk ) virtual/pkgconfig >=app-portage/elt-patches-202401
 DEFINED_PHASES=configure install prepare
 DEPEND=gmp? ( dev-libs/gmp:0= ) java? ( virtual/jdk ) test-openssl? ( dev-libs/openssl:0 )
 DESCRIPTION=Optimized C library for EC operations on curve secp256k1
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/bitcoin-core/secp256k1
 INHERIT=autotools
-IUSE=+asm ecdh endomorphism experimental gmp java +recovery test test-openssl
+IUSE=asm ecdh endomorphism experimental gmp java +recovery test test-openssl
 KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=gmp? ( dev-libs/gmp:0= )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin-core/secp256k1/archive/b19c000063be11018b4d1a6b0a85871ab9d0bdcf.tar.gz -> libsecp256k1-v0.1_pre20190401.tgz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe
-_md5_=0c0919ab469877a51c6e51dddbd8ed5e
+_md5_=6a3857eee00127e677404085f174a5e4
