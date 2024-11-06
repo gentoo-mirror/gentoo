@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202411-01">
+    <title>Neat VNC: Authentication Bypass</title>
+    <synopsis>A vulnerability has been discovered in Neat VNC, which can lead to authentication bypass.</synopsis>
+    <product type="ebuild">neatvnc</product>
+    <announced>2024-11-06</announced>
+    <revised count="1">2024-11-06</revised>
+    <bug>937140</bug>
+    <access>remote</access>
+    <affected>
+        <package name="gui-libs/neatvnc" auto="yes" arch="*">
+            <unaffected range="ge">0.8.1</unaffected>
+            <vulnerable range="lt">0.8.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Neat VNC is a liberally licensed VNC server library that&#39;s intended to be fast and neat.</p>
+    </background>
+    <description>
+        <p>Neat VNC allows remote attackers to bypass authentication via a request in which the client specifies an insecure security type such as &#34;Type 1 - None&#34;, which is accepted even if it is not offered by the server, as originally demonstrated using a long password.</p>
+    </description>
+    <impact type="high">
+        <p>A remote attacker can opt not to use any authentication method and access the VNC server.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Neat VNC users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=gui-libs/neatvnc-0.8.1"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-11-06T10:04:44.010327Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-11-06T10:04:44.016422Z">graaff</metadata>
+</glsa>
