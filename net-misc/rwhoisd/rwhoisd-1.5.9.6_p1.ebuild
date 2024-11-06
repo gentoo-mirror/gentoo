@@ -1,20 +1,30 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit flag-o-matic
+inherit autotools flag-o-matic
+
+MY_PV="${PV%%_p*}"
+MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="ARIN rwhois daemon"
-HOMEPAGE="http://projects.arin.net/rwhois/"
-SRC_URI="https://github.com/arineng/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${P}/${PN}"
+HOMEPAGE="https://projects.arin.net/rwhois/"
+SRC_URI="
+	https://github.com/arineng/${PN}/archive/${MY_PV}.tar.gz
+		-> ${MY_P}.tar.gz
+	https://dev.gentoo.org/~arkamar/distfiles/${MY_P}-patches-${PV##*_p}.tar.xz
+"
+S="${WORKDIR}/${MY_P}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="virtual/libcrypt:="
+DEPEND="
+	sys-apps/tcp-wrappers
+	virtual/libcrypt:=
+"
 RDEPEND="
 	${DEPEND}
 	acct-group/rwhoisd
@@ -25,12 +35,15 @@ BDEPEND="
 	app-alternatives/yacc
 "
 
-src_compile() {
-	append-cflags -DNEW_STYLE_BIN_SORT
+PATCHES=( "${WORKDIR}"/patches )
 
-	emake -C common
-	emake -C regexp
-	emake -C mkdb
+src_prepare() {
+	default
+	eautoreconf #893906
+}
+
+src_compile() {
+	append-cflags -DNEW_STYLE_BIN_SORT -std=gnu89
 
 	default
 }
