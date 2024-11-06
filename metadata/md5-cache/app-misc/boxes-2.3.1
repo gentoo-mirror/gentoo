@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/yacc app-alternatives/lex test? ( app-editors/vim-core )
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/libpcre2:=[pcre32] dev-libs/libunistring:= sys-libs/ncurses:=
+DESCRIPTION=Draw any kind of boxes around your text
+EAPI=8
+HOMEPAGE=https://boxes.thomasjensen.com/ https://github.com/ascii-boxes/boxes
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~mips ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/libpcre2:=[pcre32] dev-libs/libunistring:= sys-libs/ncurses:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ascii-boxes/boxes/archive/refs/tags/v2.3.1.tar.gz -> boxes-2.3.1.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=7246ad33856e42a6c1697673611f94f0
