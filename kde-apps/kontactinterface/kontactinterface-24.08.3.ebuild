@@ -18,7 +18,7 @@ IUSE=""
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,X,xml]
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6

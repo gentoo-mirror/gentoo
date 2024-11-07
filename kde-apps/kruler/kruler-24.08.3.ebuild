@@ -26,10 +26,10 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	X? (
-		>=dev-qt/qtbase-${QTMIN}:6=[gui]
+		>=dev-qt/qtbase-${QTMIN}:6=[X]
 		x11-libs/libxcb
 	)
 "

@@ -22,7 +22,7 @@ RESTRICT="test"
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,widgets,X,xml]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
@@ -46,7 +46,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	sys-libs/zlib

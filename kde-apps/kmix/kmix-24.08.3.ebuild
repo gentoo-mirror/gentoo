@@ -46,6 +46,7 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	# TODO: upstream
 	"${FILESDIR}/${PN}-23.04.2-autostart_disable.patch"
+	# Pending: https://invent.kde.org/multimedia/kmix/-/merge_requests/29
 	"${FILESDIR}/${PN}-24.05.2-revert-kcm_pulseaudio-dep.patch"
 )
 

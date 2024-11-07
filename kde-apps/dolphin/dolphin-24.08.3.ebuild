@@ -20,7 +20,7 @@ IUSE="semantic-desktop telemetry"
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,widgets,xml]
+	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,widgets,X,xml]
 	>=kde-frameworks/kbookmarks-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcodecs-${KFMIN}:6

@@ -51,8 +51,6 @@ RDEPEND="${COMMON_DEPEND}
 	postgres? ( dev-db/postgresql )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-21.03.80-mysql56-crash.patch" )
-
 pkg_setup() {
 	# Set default storage backend in order: MySQL, PostgreSQL, SQLite
 	# reverse driver check to keep the order
