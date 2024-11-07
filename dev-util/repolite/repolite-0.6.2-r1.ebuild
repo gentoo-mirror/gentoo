@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1 optfeature
 
-DESCRIPTION="Manage a small set of git repository dependencies with YAML."
+DESCRIPTION="Manage a small set of git repository dependencies with YAML"
 HOMEPAGE="https://github.com/sarnold/repolite"
 
 if [[ ${PV} = 9999* ]]; then
@@ -23,11 +23,14 @@ fi
 LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE="doc"
-RESTRICT="test" # no tests :(
+# tests use git_dummy python package which is not packaged
+# https://github.com/initialcommit-com/git-dummy
+RESTRICT="test"
 
 RDEPEND="
-	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/munch[${PYTHON_USEDEP}]
+	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-python/sphinx[${PYTHON_USEDEP}]
 	dev-vcs/git
 "
 # needs versioningit if building from git repo source
