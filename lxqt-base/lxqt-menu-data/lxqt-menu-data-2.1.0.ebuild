@@ -1,11 +1,13 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+MY_PV="$(ver_cut 1-2)"
+
 inherit cmake
 
-DESCRIPTION="Qt terminal emulator widget"
+DESCRIPTION="LXQt Menu Files and Translations for Menu Categories"
 HOMEPAGE="https://lxqt-project.org/"
 
 if [[ ${PV} == 9999 ]]; then
@@ -16,14 +18,10 @@ else
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-LICENSE="BSD GPL-2 LGPL-2+"
-SLOT="0/${PV}"
+LICENSE="LGPL-2.1"
+SLOT="0"
 
 BDEPEND="
 	>=dev-qt/qttools-6.6:6[linguist]
 	>=dev-util/lxqt-build-tools-2.1.0
 "
-DEPEND="
-	>=dev-qt/qtbase-6.6:6[gui,widgets]
-"
-RDEPEND="${DEPEND}"

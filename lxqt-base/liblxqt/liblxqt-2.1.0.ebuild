@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Qt terminal emulator widget"
+DESCRIPTION="Common base library for the LXQt desktop environment"
 HOMEPAGE="https://lxqt-project.org/"
 
 if [[ ${PV} == 9999 ]]; then
@@ -16,14 +16,28 @@ else
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-LICENSE="BSD GPL-2 LGPL-2+"
-SLOT="0/${PV}"
+LICENSE="LGPL-2.1+ BSD"
+SLOT="0/$(ver_cut 1-2)"
+IUSE="+backlight"
 
 BDEPEND="
 	>=dev-qt/qttools-6.6:6[linguist]
 	>=dev-util/lxqt-build-tools-2.1.0
 "
 DEPEND="
-	>=dev-qt/qtbase-6.6:6[gui,widgets]
+	>=dev-libs/libqtxdg-4.1.0
+	>=dev-qt/qtbase-6.6:6[dbus,gui,widgets,xml]
+	kde-frameworks/kwindowsystem:6[X]
+	x11-libs/libX11
+	x11-libs/libXScrnSaver
+	backlight? ( >=sys-auth/polkit-qt-0.200.0[qt6] )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_BACKLIGHT_LINUX_BACKEND=$(usex backlight)
+	)
+
+	cmake_src_configure
+}

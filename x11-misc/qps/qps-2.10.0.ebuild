@@ -3,9 +3,9 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake xdg
 
-DESCRIPTION="Qt terminal emulator widget"
+DESCRIPTION="Qt GUI Process Manager"
 HOMEPAGE="https://lxqt-project.org/"
 
 if [[ ${PV} == 9999 ]]; then
@@ -16,8 +16,8 @@ else
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-LICENSE="BSD GPL-2 LGPL-2+"
-SLOT="0/${PV}"
+LICENSE="GPL-2 GPL-2+ LGPL-2.1+ QPL-1.0"
+SLOT="0"
 
 BDEPEND="
 	>=dev-qt/qttools-6.6:6[linguist]
@@ -25,5 +25,6 @@ BDEPEND="
 "
 DEPEND="
 	>=dev-qt/qtbase-6.6:6[gui,widgets]
+	>=lxqt-base/liblxqt-2.1:=
 "
 RDEPEND="${DEPEND}"

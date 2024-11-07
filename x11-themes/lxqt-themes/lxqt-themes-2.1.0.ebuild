@@ -3,9 +3,9 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake xdg
 
-DESCRIPTION="Qt terminal emulator widget"
+DESCRIPTION="LXQt Themes"
 HOMEPAGE="https://lxqt-project.org/"
 
 if [[ ${PV} == 9999 ]]; then
@@ -16,14 +16,7 @@ else
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-LICENSE="BSD GPL-2 LGPL-2+"
-SLOT="0/${PV}"
+LICENSE="LGPL-2.1+"
+SLOT="0"
 
-BDEPEND="
-	>=dev-qt/qttools-6.6:6[linguist]
-	>=dev-util/lxqt-build-tools-2.1.0
-"
-DEPEND="
-	>=dev-qt/qtbase-6.6:6[gui,widgets]
-"
-RDEPEND="${DEPEND}"
+BDEPEND=">=dev-util/lxqt-build-tools-2.1.0"

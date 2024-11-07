@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Qt terminal emulator widget"
+DESCRIPTION="Backend implementation for xdg-desktop-portal using Qt/KF5/libfm-qt"
 HOMEPAGE="https://lxqt-project.org/"
 
 if [[ ${PV} == 9999 ]]; then
@@ -16,14 +16,15 @@ else
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
-LICENSE="BSD GPL-2 LGPL-2+"
-SLOT="0/${PV}"
+LICENSE="LGPL-2.1"
+SLOT="0"
 
-BDEPEND="
-	>=dev-qt/qttools-6.6:6[linguist]
-	>=dev-util/lxqt-build-tools-2.1.0
-"
+BDEPEND=">=dev-util/lxqt-build-tools-2.1.0"
 DEPEND="
-	>=dev-qt/qtbase-6.6:6[gui,widgets]
+	>=dev-qt/qtbase-6.6:6[dbus,gui,widgets]
+	kde-frameworks/kwindowsystem:6
+	>=x11-libs/libfm-qt-2.1:=
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	sys-apps/xdg-desktop-portal
+"
