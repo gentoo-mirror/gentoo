@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Hans de Graaff <graaff@gentoo.org> (2024-11-08)
+# Obsolete slot. Use a newer slot instead. The included jquery-ui
+# version is no longer supported upstream. Removal on 2024-12-08.
+dev-ruby/jquery-ui-rails:6
+
 # Alfredo Tupone <tupone@gentoo.org> (2024-11-07)
 # No more used (caffe2 used to)
 # Removal on 2024-12-07.  Bug #942972.
@@ -271,11 +276,6 @@ app-i18n/kcm-fcitx
 =dev-qt/qtwebengine-6.8.0*
 =dev-qt/qtwebsockets-6.8.0*
 =dev-qt/qtwebview-6.8.0*
-
-# Hans de Graaff <graaff@gentoo.org> (2024-10-06)
-# Obsolete slot without reverse dependencies. Use the newer slot
-# instead. Removal on 2024-11-08.
-dev-ruby/base64:0.1
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2024-10-05)
 # This version is known to break on certain systems. At the
