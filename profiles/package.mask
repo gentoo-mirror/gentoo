@@ -288,29 +288,12 @@ app-i18n/kcm-fcitx
 # See also: https://github.com/gentoo/gentoo/pull/36091
 ~sys-boot/plymouth-24.004.60
 
-# Sebastian Pipping <sping@gentoo.org> (2024-10-03)
-# Masked for removal in 30 days.  Last release in 2021,
-# last commit two years ago, has open bugs, .. (bug #940725).
-# Also removing its two dependencies that have no other
-# reverse dependencies in Gentoo or known use outside of Lurch.
-net-libs/libaxc
-net-libs/libomemo
-x11-plugins/lurch
-
 # Sam James <sam@gentoo.org> (2024-09-30)
 # GCC 10 and older no longer receive upstream support or fixes for
 # bugs. Please switch to a newer GCC version using gcc-config.
 # The lowest supported version of GCC is GCC 11.
 <sys-devel/gcc-11
 <sys-devel/kgcc64-11
-
-# Michał Górny <mgorny@gentoo.org> (2024-09-29)
-# This package has not been updated since Python 3.11.2.  It bundles
-# part of Python stdlib that's most likely vulnerable by now, as well
-# as some third-party packages.  And it really needs a dedicated
-# maintainer.
-# Removal on 2024-10-29.  Bug #910612.
-dev-python/brython
 
 # Robin H. Johnson <robbat2@gentoo.org> (2024-09-22)
 # Upstream testing release; fails some tests as well here
