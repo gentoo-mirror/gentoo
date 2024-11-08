@@ -1,5 +1,5 @@
 BDEPEND=app-text/asciidoc app-text/docbook-xml-dtd:4.5 >=app-text/docbook-xsl-stylesheets-1.75.2 >=dev-libs/libxslt-1.1.26 virtual/pkgconfig test? ( net-nds/rpcbind net-fs/nfs-utils sys-block/open-iscsi sys-fs/btrfs-progs sys-fs/dmraid sys-fs/lvm2[lvm,thin] sys-fs/mdadm sys-fs/multipath-tools alpha? ( app-emulation/qemu[qemu_softmmu_targets_alpha] ) amd64? ( app-emulation/qemu[qemu_softmmu_targets_x86_64] ) arm? ( app-emulation/qemu[qemu_softmmu_targets_arm] ) arm64? ( app-emulation/qemu[qemu_softmmu_targets_aarch64] ) hppa? ( app-emulation/qemu[qemu_softmmu_targets_hppa] ) loong? ( app-emulation/qemu[qemu_softmmu_targets_loongarch64] ) mips? ( || ( app-emulation/qemu[qemu_softmmu_targets_mips] app-emulation/qemu[qemu_softmmu_targets_mips64] app-emulation/qemu[qemu_softmmu_targets_mips64el] ) ) ppc? ( app-emulation/qemu[qemu_softmmu_targets_ppc] ) ppc64? ( app-emulation/qemu[qemu_softmmu_targets_ppc64] ) riscv? ( || ( app-emulation/qemu[qemu_softmmu_targets_riscv32] app-emulation/qemu[qemu_softmmu_targets_riscv64] ) ) sparc? ( || ( app-emulation/qemu[qemu_softmmu_targets_sparc] app-emulation/qemu[qemu_softmmu_targets_sparc64] ) ) x86? ( app-emulation/qemu[qemu_softmmu_targets_i386] ) ) virtual/pkgconfig
-DEFINED_PHASES=configure install postinst test
+DEFINED_PHASES=configure install postinst preinst test
 DEPEND=>=sys-apps/kmod-23 elibc_musl? ( sys-libs/fts-standalone )
 DESCRIPTION=Generic initramfs generation tool
 EAPI=8
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/dracut-ng/dracut-ng/archive/refs/tags/105.tar.gz -> dracut-105.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	bash-completion-r1	767861f3744f589ee5291c1698b1c082	edo	367e103a74bf77e6a8da7894d999fa3c	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=6cf28bea23ce3f157e95911b953404aa
+_md5_=042a4a6fe578e7a6457616cf12232381
