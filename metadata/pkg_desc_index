@@ -2742,7 +2742,7 @@ app-misc/geekcode 1.7.3-r1: Geek code generator
 app-misc/geneweb 7.0.0_p1-r2 7.0.1_alpha2-r1: Genealogy software program with a Web interface
 app-misc/gentoo 0.20.7-r1: Graphical file manager for Unix-like systems, using GTK+
 app-misc/gentoo-elections 0_p20190710: Gentoo election control data and scripts
-app-misc/geoclue 2.7.1: Location information D-Bus service
+app-misc/geoclue 2.7.1 2.7.2: Location information D-Bus service
 app-misc/getopt 1.1.6-r1: getopt(1) replacement supporting GNU-style long options
 app-misc/glastree 1.04_p20150525: glastree is a poor mans snapshot utility using hardlinks written in perl
 app-misc/glcdprocdriver 0.1.2-r1: A glue between the graphlcd-base library from the GraphLCD project
@@ -4129,10 +4129,10 @@ dev-erlang/cache_tab 1.0.30 1.0.31: In-memory cache Erlang and Elixir library
 dev-erlang/eimp 1.0.22 1.0.23: Erlang Image Manipulation Process
 dev-erlang/epam 1.0.12 1.0.14: epam for ejabberd to help with PAM authentication support
 dev-erlang/eredis 1.2.0-r1: Erlang Redis client
-dev-erlang/esip 1.0.52 1.0.54: ProcessOne SIP server component
+dev-erlang/esip 1.0.52 1.0.54 1.0.55 1.0.56: ProcessOne SIP server component
 dev-erlang/ezlib 1.0.12 1.0.13: Native zlib driver for Erlang and Elixir
-dev-erlang/fast_tls 1.1.19 1.1.21: TLS/SSL native driver for Erlang and Elixir
-dev-erlang/fast_xml 1.1.51 1.1.52: Fast Expat based Erlang XML parsing library
+dev-erlang/fast_tls 1.1.19 1.1.21 1.1.22: TLS/SSL native driver for Erlang and Elixir
+dev-erlang/fast_xml 1.1.51 1.1.52 1.1.53: Fast Expat based Erlang XML parsing library
 dev-erlang/fast_yaml 1.0.36 1.0.37: Fast Yaml native library for Erlang and Elixir
 dev-erlang/goldrush 0.2.0-r1: Small Erlang app that provides fast event stream processing
 dev-erlang/hamcrest 0.1.0_p20160709: Erlang port of Hamcrest
@@ -4143,17 +4143,17 @@ dev-erlang/lager 3.9.1: Logging framework for Erlang/OTP
 dev-erlang/luerl 1.2: Lua in Erlang
 dev-erlang/meck 0.9.2: Mocking library for Erlang
 dev-erlang/mqtree 1.0.16 1.0.17: Index tree for MQTT topic filters
-dev-erlang/p1_acme 1.0.22 1.0.23: ACME client library for Erlang
-dev-erlang/p1_mysql 1.0.23 1.0.24: Pure Erlang MySQL driver
+dev-erlang/p1_acme 1.0.22 1.0.23 1.0.24: ACME client library for Erlang
+dev-erlang/p1_mysql 1.0.23 1.0.24 1.0.25: Pure Erlang MySQL driver
 dev-erlang/p1_oauth2 0.6.11 0.6.14: Erlang OAuth 2.0 implementation
-dev-erlang/p1_pgsql 1.1.25 1.1.27: Pure Erlang PostgreSQL driver
+dev-erlang/p1_pgsql 1.1.25 1.1.27 1.1.28: Pure Erlang PostgreSQL driver
 dev-erlang/p1_utils 1.0.25 1.0.26-r1: Erlang utility modules from ProcessOne
 dev-erlang/pkix 1.0.9 1.0.10: PKIX certificates management library for Erlang
 dev-erlang/proper 1.4: QuickCheck-inspired property-based testing tool for Erlang
 dev-erlang/sqlite3 1.1.14 1.1.15: SQLite gen_server port for Erlang
 dev-erlang/stringprep 1.0.29 1.0.30: Fast Stringprep implementation for Erlang and Elixir
-dev-erlang/stun 1.2.12 1.2.14: STUN and TURN library for Erlang and Elixir
-dev-erlang/xmpp 1.8.1 1.8.3: XMPP parsing and serialization library on top of Fast XML
+dev-erlang/stun 1.2.12 1.2.14 1.2.15: STUN and TURN library for Erlang and Elixir
+dev-erlang/xmpp 1.8.1 1.8.3 1.9.0: XMPP parsing and serialization library on top of Fast XML
 dev-erlang/yconf 1.0.15 1.0.16: YAML configuration processor
 dev-games/KXL 1.1.7_p17: Development Library for making games for X
 dev-games/aseprite 1.2.40 1.3.5: Animated sprite editor & pixel art tool
@@ -8152,7 +8152,7 @@ dev-python/black 24.10.0: The uncompromising Python code formatter
 dev-python/blake3 0.4.1: Python bindings for the BLAKE3 cryptographic hash function
 dev-python/bleach 6.1.0 6.2.0: An easy whitelist-based HTML-sanitizing tool
 dev-python/blessed 1.20.0: Library for making terminal apps using colors, keyboard input and positioning
-dev-python/blinker 1.8.2: Fast, simple object-to-object and broadcast signaling
+dev-python/blinker 1.8.2 1.9.0: Fast, simple object-to-object and broadcast signaling
 dev-python/blosc 1.11.2: High performance compressor optimized for binary data
 dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using coroutines
 dev-python/blurb 1.1.0 1.2.0 1.2.1 1.3.0: Tool to create and manage NEWS blurbs for CPython
@@ -8314,7 +8314,7 @@ dev-python/django-otp 1.5.3 1.5.4: Django framework adding two-factor authentica
 dev-python/django-polymorphic 3.1-r1: Seamless Polymorphic Inheritance for Django Models
 dev-python/django-prometheus 2.3.1: Library to export Django metrics for Prometheus
 dev-python/django-redis 5.4.0: Full featured redis cache backend for Django
-dev-python/django-registration 3.4-r1: user-registration application for Django
+dev-python/django-registration 3.4-r1 5.1.0: user-registration application for Django
 dev-python/django-sortedm2m 3.1.1-r2 4.0.0: Drop-in replacement for django's many to many field with sorted relations
 dev-python/django-tables2 2.7.0: Table/data-grid framework for Django
 dev-python/django-taggit 5.0.1 6.1.0: Simple tagging for Django
@@ -8336,7 +8336,7 @@ dev-python/doit-py 0.5.0-r1: doit tasks for python stuff
 dev-python/dominate 2.9.1: Library for creating and manipulating HTML documents using an elegant DOM API
 dev-python/doublex 1.9.6.1: Python test doubles
 dev-python/doublex-expects 0.7.1-r1: Expects matchers for Doublex test doubles assertions
-dev-python/dparse 0.6.4_beta0: A parser for Python dependency files
+dev-python/dparse 0.6.4_beta0 0.6.4: A parser for Python dependency files
 dev-python/dulwich 0.21.7-r1 0.22.4 0.22.5: Pure-Python implementation of the Git file formats and protocols
 dev-python/easy-thumbnails 2.9 2.10: Easy thumbnails for Django
 dev-python/easyprocess 1.1-r1: Easy to use Python subprocess interface
@@ -8733,7 +8733,7 @@ dev-python/mkdocs-monorepo-plugin 1.1.0: Build multiple documentation folders in
 dev-python/mkdocs-pymdownx-material-extras 2.6: Custom alterations based on Mkdocs-Material
 dev-python/mkdocs-redirects 1.2.1-r1 1.2.2: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.2.3: MkDocs i18n plugin using static translation markdown files
-dev-python/mkdocstrings 0.26.0 0.26.1 0.26.2: Automatic documentation from sources, for MkDocs
+dev-python/mkdocstrings 0.26.2: Automatic documentation from sources, for MkDocs
 dev-python/mkdocstrings-python 1.12.0 1.12.1 1.12.2: Python handler for dev-python/mkdocstrings
 dev-python/ml-dtypes 0.5.0: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
@@ -8808,9 +8808,9 @@ dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 2.3.0 2.7.1: Python client for OpenSearch
 dev-python/openstackdocstheme 3.3.0 3.4.0: Theme and extension support for Sphinx documentation
 dev-python/openstacksdk 4.1.0: A collection of libraries for building applications to work with OpenStack
-dev-python/opentelemetry-api 1.27.0 1.28.0: OpenTelemetry Python API
-dev-python/opentelemetry-sdk 1.27.0 1.28.0: OpenTelemetry Python SDK
-dev-python/opentelemetry-semantic-conventions 1.27.0 1.28.0: OpenTelemetry Semantic Conventions
+dev-python/opentelemetry-api 1.27.0 1.28.0 1.28.1: OpenTelemetry Python API
+dev-python/opentelemetry-sdk 1.27.0 1.28.0 1.28.1: OpenTelemetry Python SDK
+dev-python/opentelemetry-semantic-conventions 1.27.0 1.28.0 1.28.1: OpenTelemetry Semantic Conventions
 dev-python/opt-einsum 3.4.0: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.1.0: A mutable set that remembers the order of its entries
 dev-python/orderly-set 5.2.2 5.2.3: A package containing multiple implementations of Ordered Set
@@ -8830,7 +8830,7 @@ dev-python/outcome 1.3.0_p0: Capture the outcome of Python function calls
 dev-python/overrides 7.7.0: A decorator to automatically detect mismatch when overriding a method.
 dev-python/ovs 2.17.1_p1 2.17.9: OVS bindings for python
 dev-python/owslib 0.31.0 0.32.0: Library for client programming with Open Geospatial Consortium web service
-dev-python/packaging 23.2-r1 24.0 24.1: Core utilities for Python packages
+dev-python/packaging 23.2-r1 24.0 24.1 24.2: Core utilities for Python packages
 dev-python/paginate 0.5.7: Divides large result sets into pages for easier browsing
 dev-python/paho-mqtt 1.6.1-r1 2.1.0: MQTT version 5.0/3.1.1 client class
 dev-python/pallets-sphinx-themes 2.1.3 2.2.0 2.3.0: Sphinx themes for Pallets and related projects
@@ -9284,7 +9284,7 @@ dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.35.1: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
 dev-python/reflink 0.2.2: Python wrapper around the reflink system calls
 dev-python/regex 2024.7.24 2024.9.11 2024.11.6: Alternative regular expression module to replace re
-dev-python/regress 0.4.5 2024.8.1: Python bindings to the Rust regress crate
+dev-python/regress 2024.8.1 2024.11.1: Python bindings to the Rust regress crate
 dev-python/rencode 1.0.6-r3: similar to bencode from the BitTorrent project
 dev-python/reno 4.1.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 4.2.5: Tools for generating printable PDF documents from any data source
@@ -9385,7 +9385,7 @@ dev-python/simpleeval 1.0.0 1.0.1 1.0.2 1.0.3: A simple, safe single expression 
 dev-python/simplejson 3.19.2 3.19.3: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
 dev-python/simpy 4.1.1: Object-oriented, process-based discrete-event simulation language
-dev-python/simsimd 5.9.11 6.0.0 6.0.1: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
+dev-python/simsimd 5.9.11 6.0.0 6.0.1 6.0.2: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
 dev-python/sip 6.8.6-r1: Python bindings generator for C/C++ libraries
 dev-python/siphash24 1.7: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.16.0-r1: Python 2 and 3 compatibility library
@@ -9635,7 +9635,7 @@ dev-python/websocket-client 1.8.0: WebSocket client for python with hybi13 suppo
 dev-python/websockets 12.0 13.0.1 13.1: Library for building WebSocket servers and clients in Python
 dev-python/websockify 0.12.0: WebSockets support for any application/server
 dev-python/webtest 3.0.1: Helper to test WSGI applications
-dev-python/werkzeug 3.0.6 3.1.0 3.1.1 3.1.2: Collection of various utilities for WSGI applications
+dev-python/werkzeug 3.0.6 3.1.2 3.1.3: Collection of various utilities for WSGI applications
 dev-python/whatever 0.7: Easy anonymous functions by partial application of operators
 dev-python/whatthepatch 1.0.6: A patch parsing and application library.
 dev-python/wheel 0.44.0: A built-package format for Python
@@ -11927,7 +11927,7 @@ gnome-extra/gnome-weather 45.0 46.0: A weather application for GNOME
 gnome-extra/gucharmap 15.1.2 16.0.1: Unicode character map viewer and library
 gnome-extra/krb5-auth-dialog 43.0-r1: An application to acquire and list Kerberos tickets.
 gnome-extra/libgda 5.2.9-r2: GNOME database access library
-gnome-extra/libgsf 1.14.52: The GNOME Structured File Library
+gnome-extra/libgsf 1.14.52 1.14.53: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0-r1: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2020.03.04-r1 2024.04.17: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6-r1: A nautilus extension for sending files to locations
@@ -14662,7 +14662,7 @@ net-im/cpop 0.0.4-r2: GTK+ network popup message client. Compatible with the jpo
 net-im/dianara 1.4.2: Qt-based client for the pump.io distributed social network
 net-im/dino 0.4.4-r1 9999: Modern Jabber/XMPP Client using GTK+/Vala
 net-im/discord 0.0.73-r1: All-in-one voice and text chat for gamers
-net-im/ejabberd 24.02-r1 24.07: Robust, scalable and extensible XMPP server
+net-im/ejabberd 24.02-r1 24.07 24.10: Robust, scalable and extensible XMPP server
 net-im/element-desktop-bin 1.11.82: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
 net-im/fractal 8: Matrix messaging app for GNOME written in Rust
@@ -14828,7 +14828,7 @@ net-libs/libmicrohttpd 0.9.76 0.9.76-r1 0.9.77 0.9.77-r1 1.0.1 1.0.1-r1: Small C
 net-libs/libmnl 1.0.5: Minimalistic netlink library
 net-libs/libmrss 0.19.2-r1: A C-library for parsing and writing RSS 0.91/0.92/1.0/2.0 files or streams
 net-libs/libnatpmp 20230423-r1: An alternative protocol to UPnP IGD specification
-net-libs/libndp 1.8: Library for Neighbor Discovery Protocol
+net-libs/libndp 1.8 1.9: Library for Neighbor Discovery Protocol
 net-libs/libnet 1.3-r1: Library for commonly used low-level network functions
 net-libs/libnetconf2 2.1.31: C library for building NETCONF servers and clients
 net-libs/libnetfilter_acct 1.0.3: Library providing interface to extended accounting infrastructure
