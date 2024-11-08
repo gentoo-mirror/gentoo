@@ -8,45 +8,35 @@ DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
 CRATES="
-	ahash@0.8.3
+	ahash@0.8.11
+	allocator-api2@0.2.18
 	autocfg@1.1.0
-	bitflags@1.3.2
+	cc@1.1.7
 	cfg-if@1.0.0
-	hashbrown@0.13.2
-	heck@0.4.1
+	hashbrown@0.14.5
+	heck@0.5.0
 	indoc@2.0.4
 	libc@0.2.140
-	lock_api@0.4.9
 	memchr@2.5.0
 	memoffset@0.9.0
-	once_cell@1.17.1
-	parking_lot@0.12.1
-	parking_lot_core@0.9.7
-	proc-macro2@1.0.52
-	pyo3-build-config@0.20.0
-	pyo3-ffi@0.20.0
-	pyo3-macros-backend@0.20.0
-	pyo3-macros@0.20.0
-	pyo3@0.20.0
-	quote@1.0.26
-	redox_syscall@0.2.16
-	regress@0.7.1
-	scopeguard@1.1.0
-	smallvec@1.10.0
-	syn@2.0.12
-	target-lexicon@0.12.6
+	once_cell@1.19.0
+	portable-atomic@1.6.0
+	proc-macro2@1.0.86
+	pyo3-build-config@0.22.5
+	pyo3-ffi@0.22.5
+	pyo3-macros-backend@0.22.5
+	pyo3-macros@0.22.5
+	pyo3@0.22.5
+	python3-dll-a@0.2.10
+	quote@1.0.36
+	regress@0.10.1
+	syn@2.0.72
+	target-lexicon@0.12.16
 	unicode-ident@1.0.8
 	unindent@0.2.3
 	version_check@0.9.4
-	windows-sys@0.45.0
-	windows-targets@0.42.2
-	windows_aarch64_gnullvm@0.42.2
-	windows_aarch64_msvc@0.42.2
-	windows_i686_gnu@0.42.2
-	windows_i686_msvc@0.42.2
-	windows_x86_64_gnu@0.42.2
-	windows_x86_64_gnullvm@0.42.2
-	windows_x86_64_msvc@0.42.2
+	zerocopy-derive@0.7.35
+	zerocopy@0.7.35
 "
 
 inherit cargo distutils-r1
