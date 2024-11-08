@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://keepassxc.org/ https://github.com/keepassxreboot/keepassxc/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic xdg
-IUSE=X autotype browser doc keeshare +network test yubikey
+IUSE=X autotype browser doc keeshare +keyring +network +ssh-agent test yubikey
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1 GPL-2 GPL-3
 RDEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= sys-libs/zlib:=[minizip] X? ( dev-qt/qtx11extras:5 ) autotype? ( x11-libs/libX11 x11-libs/libXtst ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/keepassxreboot/keepassxc/releases/download/2.7.9/keepassxc-2.7.9-src.tar.xz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=a70e66e3082d187ae67f19cb5ef6639b
+_md5_=662b9bb198bb2833561dd2e209bac2d1
