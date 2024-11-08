@@ -8168,7 +8168,6 @@ dev-python/braintree 4.30.0 4.31.0: Braintree Python Library
 dev-python/breathe 4.35.0-r1: Sphinx Doxygen renderer
 dev-python/brotlicffi 1.1.0.0: Python binding to the Brotli library
 dev-python/browser-cookie3 0.18.1 0.19.1: Loads cookies from your browser into a cookiejar object
-dev-python/brython 3.10.5 3.11 3.11.2: Python 3 implementation for client-side web programming
 dev-python/btrfs 14.1: Python module to inspect btrfs filesystems
 dev-python/btrfsutil 6.9.2 6.10.1 6.11: Library for managing Btrfs filesystems
 dev-python/build 1.2.2_p1: A simple, correct PEP517 package builder
@@ -14792,7 +14791,6 @@ net-libs/libaccounts-glib 1.27: Accounts SSO (Single Sign-On) management library
 net-libs/libad9361-iio 0.2-r1 0.3 9999: IIO AD9361 library for filter design and handling, multi-chip sync, etc
 net-libs/libasr 1.0.4: Async Resolver Library from OpenBSD/OpenSMTPD
 net-libs/libasyncns 0.8-r4: C library for executing name service queries asynchronously
-net-libs/libaxc 0.3.4-r2 0.3.5 0.3.6 0.3.7 0.3.7-r1: Client library for libsignal-protocol-c
 net-libs/libbitcoinconsensus 25.1: Transitional package for net-p2p/bitcoin-core[libs]
 net-libs/libblkmaker 0.6.0-r2: C implementation of Bitcoin's getblocktemplate interface
 net-libs/libbloom 1.6: A simple and small bloom filter implementation in plain C
@@ -14848,7 +14846,6 @@ net-libs/libnsl 0-r2 1.3.0-r2 2.0.0-r1 2.0.1: Public client interface for NIS(YP
 net-libs/libntlm 1.6: Microsoft's NTLM authentication (libntlm) library
 net-libs/libnxml 0.18.3-r1: A C-library for parsing and writing XML 1.0/1.1 files or streams
 net-libs/liboauth 1.0.3-r4: C library implementing the OAuth secure authentication protocol
-net-libs/libomemo 0.8.1-r1: Implementation of OMEMO (XEP-0384) in C
 net-libs/libomemo-c 0.5.0: XMPP fork of Signal Protocol C Library supporting XEP-0384 OMEMO
 net-libs/liboping 1.10.0-r3: Protocol independent ANSI-C ping library and command line utility
 net-libs/libosmo-dsp 0.4.0 9999: Library with SDR DSP primitives
@@ -17573,8 +17570,8 @@ sys-kernel/dkms 3.0.13-r1 3.1.0-r1 3.1.1: Dynamic Kernel Module Support
 sys-kernel/dracut 060_pre20240104-r4 103-r2 103-r4 105-r1 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.228 5.15.169 5.15.170 6.1.114 6.1.115 6.6.58-r1 6.6.59 6.11.5-r1 6.11.6: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.228 5.15.169 5.15.170 6.1.114 6.1.115 6.6.58-r2 6.6.59 6.11.5-r1 6.11.6: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.228 5.10.229 5.15.169 5.15.170 5.15.171 6.1.114 6.1.115 6.1.116 6.6.58-r1 6.6.59 6.6.60 6.11.5-r1 6.11.6 6.11.7: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.228 5.10.229 5.15.169 5.15.170 5.15.171 6.1.114 6.1.115 6.1.116 6.6.58-r2 6.6.59 6.6.60 6.11.5-r1 6.11.6 6.11.7: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.226 5.10.227 5.10.228 5.10.229 5.15.167 5.15.168 5.15.169 5.15.170 5.15.171 6.1.111 6.1.112 6.1.113 6.1.114 6.1.115 6.1.116 6.6.52 6.6.57 6.6.58 6.6.58-r1 6.6.59 6.6.60 6.11.4 6.11.5 6.11.5-r1 6.11.6 6.11.7: Full sources including the Gentoo patchset for the 6.11 kernel tree
 sys-kernel/git-sources 6.12_rc1 6.12_rc2 6.12_rc3 6.12_rc4 6.12_rc5 6.12_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 48-r1: Gentoo fork of installkernel script from debianutils
@@ -17592,7 +17589,7 @@ sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230
 sys-kernel/rt-sources 4.14.336_p159 4.19.317_p137 5.4.278_p91 5.10.225_p117 5.15.163_p78 6.0.5_p14 6.1.111_p42 6.5.2_p8 6.6.52_p43: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/scx 1.0.5-r1 1.0.6: sched_ext schedulers and tools
 sys-kernel/ugrd 1.13.0 1.17.0 1.20.0 1.22.0 1.24.2 1.25.0 1.26.0 1.27.1 9999: Python based initramfs generator with TOML defintions
-sys-kernel/vanilla-kernel 5.10.228 5.10.9999 5.15.169 5.15.170 5.15.9999 6.1.114 6.1.115 6.6.58 6.6.59 6.6.9999 6.11.5 6.11.6: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.228 5.10.229 5.10.9999 5.15.169 5.15.170 5.15.171 5.15.9999 6.1.114 6.1.115 6.1.116 6.6.58 6.6.59 6.6.60 6.6.9999 6.11.5 6.11.6 6.11.7: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 4.19.323 5.4.285 5.10.229 5.15.171 6.1.116 6.6.60 6.11.7: Full sources for the Linux kernel
 sys-kernel/zen-sources 6.10.10: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
@@ -17781,7 +17778,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.228 5.15.169 5.15.170 6.1.114 6.1.115 6.6.58-r1 6.6.59 6.11.5-r1 6.11.6: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.228 5.10.229 5.15.169 5.15.170 5.15.171 6.1.114 6.1.115 6.1.116 6.6.58-r1 6.6.59 6.6.60 6.11.5-r1 6.11.6 6.11.7: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18675,7 +18672,6 @@ x11-plugins/gkrellweather 2.0.8-r2: GKrellM2 Plugin that monitors a METAR statio
 x11-plugins/gkwebmon 0.2.1: A web monitor plugin for GKrellM2
 x11-plugins/guifications 2.16-r1: Guifications is a graphical notification plugin for pidgin
 x11-plugins/i8krellm 2.5-r3: GKrellM2 Plugin for the Dell Inspiron and Latitude notebooks
-x11-plugins/lurch 0.6.8-r3 0.7.0-r1: OMEMO encryption for libpurple (XEP-0384)
 x11-plugins/pidgin-birthday-reminder 1.13: Plugin for Pidgin that reminds you of your buddies birthdays
 x11-plugins/pidgin-bot-sentry 1.3.0-r1: Bot Sentry is a Pidgin plugin to prevent Instant Message (IM) spam
 x11-plugins/pidgin-encryption 3.1-r1: Pidgin IM Encryption PlugIn
