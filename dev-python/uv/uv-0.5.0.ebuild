@@ -8,11 +8,11 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[async_zip]='https://github.com/charliermarsh/rs-async-zip;011b24604fa7bc223daaad7712c0694bac8f0a87;rs-async-zip-%commit%'
-	[pubgrub]='https://github.com/astral-sh/pubgrub;7243f4faf8e54837aa8a401a18406e7173de4ad5;pubgrub-%commit%'
+	[pubgrub]='https://github.com/astral-sh/pubgrub;95e1390399cdddee986b658be19587eb1fdb2d79;pubgrub-%commit%'
 	[reqwest-middleware]='https://github.com/TrueLayer/reqwest-middleware;d95ec5a99fcc9a4339e1850d40378bbfe55ab121;reqwest-middleware-%commit%/reqwest-middleware'
 	[reqwest-retry]='https://github.com/TrueLayer/reqwest-middleware;d95ec5a99fcc9a4339e1850d40378bbfe55ab121;reqwest-middleware-%commit%/reqwest-retry'
-	[rust-netrc]='https://github.com/gribouille/netrc;544f3890b621f0dc30fcefb4f804269c160ce2e9;netrc-%commit%'
 	[tl]='https://github.com/charliermarsh/tl;6e25b2ee2513d75385101a8ff9f591ef51f314ec;tl-%commit%'
+	[version-ranges]='https://github.com/astral-sh/pubgrub;95e1390399cdddee986b658be19587eb1fdb2d79;pubgrub-%commit%/version-ranges'
 )
 
 inherit cargo check-reqs
@@ -142,4 +142,25 @@ src_test() {
 src_install() {
 	cd crates/uv || die
 	cargo_src_install
+
+	insinto /etc/uv
+	newins - uv.toml <<-EOF || die
+		# By default ("automatic"), uv downloads missing Python versions
+		# automatically and keeps them in the user's home directory.
+		# Once installed, they are preferred over system Python install.
+		# Disable that because 1) autodownloading software is bad,
+		# 2) we do not want automatically downloaded Pythons to override
+		# system Pythons installed later.
+		#
+		# The user can still manually have uv download and install
+		# Python via "uv python install".  We are not switching
+		# "python-preference" to allow the user to override the system
+		# Python with these explicit installs.
+		#
+		# Relevant docs:
+		# https://docs.astral.sh/uv/reference/settings/#python-downloads
+		# https://docs.astral.sh/uv/reference/settings/#python-preference
+
+		python-downloads = "manual"
+	EOF
 }
