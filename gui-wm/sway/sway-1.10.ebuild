@@ -52,8 +52,8 @@ if [[ ${PV} == 9999 ]]; then
 	DEPEND+="~gui-libs/wlroots-9999:=[X?]"
 else
 	DEPEND+="
-		>=gui-libs/wlroots-0.19:=[X?]
-		<gui-libs/wlroots-0.20:=[X?]
+		>=gui-libs/wlroots-0.18:=[X?]
+		<gui-libs/wlroots-0.19:=[X?]
 	"
 fi
 RDEPEND="
@@ -62,10 +62,14 @@ RDEPEND="
 "
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
-	>=dev-build/meson-1.3
+	>=dev-build/meson-0.60.0
 	virtual/pkgconfig
-	man? ( >=app-text/scdoc-1.11.3 )
 "
+if [[ ${PV} == 9999 ]]; then
+	BDEPEND+="man? ( ~app-text/scdoc-9999 )"
+else
+	BDEPEND+="man? ( >=app-text/scdoc-1.9.3 )"
+fi
 
 FILECAPS=(
 	cap_sys_nice usr/bin/${PN} # bug 919298
