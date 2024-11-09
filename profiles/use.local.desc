@@ -383,7 +383,8 @@ app-crypt/johntheripper-jumbo:pcap - Build with pcap support
 app-crypt/keybase:fuse - Enable app-crypt/kbfs support
 app-crypt/kstart:afs - Enables afs support which means you can acquire an afs token and set PAGs. It's recommended to set this USE if you need authenticated access to an AFS cell for your daemon/app.
 app-crypt/libb2:native-cflags - Use CFLAGS as determined by configure script. These flags will enable all CPU specific features it find available, to further optimise the implementation. This discards any existing CFLAGS set in make.conf or similar.
-app-crypt/libsecret:crypt - Enable Backend library to implement transport encryption via dev-libs/libgcrypt
+app-crypt/libsecret:crypt - Enable transport encryption
+app-crypt/libsecret:gcrypt - Enable Backend library to implement transport encryption via dev-libs/libgcrypt
 app-crypt/libsecret:gnutls - Enable Backend library to implement transport encryption via net-libs/gnutls
 app-crypt/libsecret:pam - Build PAM module
 app-crypt/libsecret:tpm - Enable Trusted Platform Module support via app-crypt/tpm2-tss
