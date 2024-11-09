@@ -1,14 +1,14 @@
-BDEPEND=llvm_slot_17? ( sys-devel/clang:17 ) llvm_slot_18? ( sys-devel/clang:18 ) >=virtual/rust-1.76 test? ( dev-util/cargo-nextest ) >=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=llvm_slot_17? ( sys-devel/clang:17 ) llvm_slot_18? ( sys-devel/clang:18 ) test? ( dev-util/cargo-nextest ) || ( dev-lang/rust:1.82.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.80.1 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.79.0 dev-lang/rust-bin:1.79.0 dev-lang/rust:1.77.1 dev-lang/rust-bin:1.77.1 dev-lang/rust:1.75.0 dev-lang/rust-bin:1.75.0 dev-lang/rust:1.74.1 dev-lang/rust-bin:1.74.1 dev-lang/rust:1.71.1 dev-lang/rust-bin:1.71.1 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=pkgcraft-based tools for Gentoo
 EAPI=8
 HOMEPAGE=https://pkgcraft.github.io/
-INHERIT=edo cargo llvm-r1 git-r3
-IUSE=test debug +llvm_slot_18 llvm_slot_17
+INHERIT=edo llvm-r1 cargo git-r3
+IUSE=test +llvm_slot_18 llvm_slot_17 debug
 LICENSE=MIT Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3+ ISC MIT Unicode-DFS-2016
 PROPERTIES=live
 REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	aed68000b8e49b4c4dd13a256149971f	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	c6f5dcc9d729a7028f3884ff342d280c	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=03f23410f676af571bec6c41527047aa
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	c6f5dcc9d729a7028f3884ff342d280c	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	d7d1bd6721f1f19d83514ebb57dd85c4	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	b586dbead117ba8254f79b1b79533f54	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=b8a8640fb0a43c55df1b9ba33aa592d2
