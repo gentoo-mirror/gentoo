@@ -27,6 +27,7 @@ BDEPEND="
 QA_FLAGS_IGNORED="usr/bin/bite"
 
 pkg_setup() {
+	rust_pkg_setup
 	if [[ ${MERGE_TYPE} != binary ]] && use static ; then
 		local rust_target=$( rustc -vV 2>/dev/null | sed -n 's|^host: ||p' )
 		[[ -z ${rust_target} ]] && die "Failed to read host target from rustc!"
@@ -39,7 +40,7 @@ src_configure() {
 	local myfeatures=(
 		$(usev openssl native-tls)
 	)
-		cargo_src_configure --no-default-features ${static_stuff}
+	cargo_src_configure --no-default-features ${static_stuff}
 }
 
 src_test() {
