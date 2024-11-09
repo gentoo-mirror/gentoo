@@ -13,10 +13,13 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/nashamri/${PN}.git"
 else
-	SRC_URI="https://github.com/nashamri/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+	[[ "${PV}" == *p20241101 ]] && COMMIT="6c74684c4d55713c8359bedf1936e429918a8c33"
 
-	KEYWORDS="amd64 ~x86"
+	SRC_URI="https://github.com/nashamri/${PN}/archive/${COMMIT}.tar.gz
+		-> ${P}.gh.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
+
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -26,5 +29,4 @@ ELISP_REMOVE="
 	spacemacs-theme-pkg.el
 "
 
-DOCS=( README.md img )
 SITEFILE="50${PN}-gentoo.el"
