@@ -9,7 +9,8 @@ DOCS_DEPEND="
 	media-gfx/imagemagick
 	virtual/latex-base
 "
-inherit autotools docs xdg
+GUILE_COMPAT=( 2-2 )
+inherit autotools docs guile-single xdg
 
 MY_PN=${PN}-gaf
 MY_P=${MY_PN}-${PV}
@@ -22,19 +23,18 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc ~x86"
-IUSE="debug fam nls"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE="debug nls"
+REQUIRED_USE="${GUILE_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}
+RDEPEND="
+	${GUILE_DEPS}
 	dev-libs/glib:2
-	dev-scheme/guile
 	sci-electronics/electronics-menu
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:2
 	x11-libs/pango
 	nls? ( virtual/libintl )
-	fam? ( app-admin/gamin )
 "
 
 DEPEND="${RDEPEND}
@@ -53,8 +53,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.10.2-fix-gtk-sheet.patch"
 )
 
+pkg_setup() {
+	guile-single_pkg_setup
+}
+
 src_prepare() {
-	default
+	guile-single_src_prepare
 	rm -r xorn || die
 
 	# remove compressed files, compressed by portage in install phase
@@ -76,8 +80,16 @@ src_configure() {
 		$(use_enable doc doxygen)
 		$(use_enable debug assert)
 		$(use_enable nls)
-		$(use_with fam libfam)
+		--without-libfam
 	)
 
+	local -x GUILE_SNARF="${GUILESNARF}"
+
 	econf "${myconf[@]}"
+}
+
+src_install() {
+	guile_src_install
+
+	find "${D}" -name '*.la' -delete || die
 }
