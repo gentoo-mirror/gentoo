@@ -22,7 +22,7 @@ RDEPEND="
 	acct-group/wesnoth
 	acct-user/wesnoth
 	dev-libs/boost:=[bzip2,context,icu,nls]
-	>=media-libs/libsdl2-2.0.4:0[joystick,video,X]
+	>=media-libs/libsdl2-2.0.18:0[joystick,video,X]
 	!dedicated? (
 		dev-libs/glib:2
 		dev-libs/openssl:0=
@@ -42,10 +42,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/wesnoth-1.18.0-boost-1.85.patch
-)
 
 src_prepare() {
 	cmake_src_prepare

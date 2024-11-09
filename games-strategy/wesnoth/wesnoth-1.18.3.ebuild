@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit cmake flag-o-matic xdg
 DESCRIPTION="Battle for Wesnoth - A fantasy turn-based strategy game"
 HOMEPAGE="http://www.wesnoth.org
 	https://github.com/wesnoth/wesnoth"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,12 +22,12 @@ RDEPEND="
 	acct-group/wesnoth
 	acct-user/wesnoth
 	dev-libs/boost:=[bzip2,context,icu,nls]
-	>=media-libs/libsdl2-2.0.4:0[joystick,video,X]
+	>=media-libs/libsdl2-2.0.10:0[joystick,video,X]
 	!dedicated? (
 		dev-libs/glib:2
 		dev-libs/openssl:0=
 		>=media-libs/fontconfig-2.4.1
-		>=media-libs/sdl2-image-2.0.0[jpeg,png]
+		>=media-libs/sdl2-image-2.0.0[jpeg,png,webp]
 		>=media-libs/sdl2-mixer-2.0.0[vorbis]
 		media-libs/libvorbis
 		>=x11-libs/pango-1.22.0
@@ -42,10 +42,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.16.10-boost-1.83.patch #912385
-)
 
 src_prepare() {
 	cmake_src_prepare
@@ -94,6 +90,11 @@ src_configure() {
 		-DENABLE_STRICT_COMPILATION="OFF"
 		)
 	cmake_src_configure
+}
+
+src_test() {
+	# Allow SDL_Mixer test to pass, bug #931551
+	SDL_AUDIODRIVER=dummy cmake_src_test
 }
 
 src_install() {
