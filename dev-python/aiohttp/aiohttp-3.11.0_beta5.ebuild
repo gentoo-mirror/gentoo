@@ -31,7 +31,7 @@ RDEPEND="
 	>=dev-python/propcache-0.2.0[${PYTHON_USEDEP}]
 	>=dev-python/yarl-1.17.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
-		<dev-python/async-timeout-5[${PYTHON_USEDEP}]
+		<dev-python/async-timeout-6[${PYTHON_USEDEP}]
 		>=dev-python/async-timeout-4.0[${PYTHON_USEDEP}]
 	' 3.10)
 "
@@ -64,7 +64,7 @@ src_prepare() {
 	# increase the timeout a little
 	sed -e '/abs=/s/0.001/0.01/' -i tests/test_helpers.py || die
 	# xfail_strict fails on py3.10
-	sed -i -e '/--cov/d' -e '/xfail_strict/d' setup.cfg || die
+	sed -i -e '/--cov/d' -e '/pytest_cov/d' -e '/xfail_strict/d' setup.cfg || die
 	sed -i -e 's:-Werror::' Makefile || die
 
 	distutils-r1_src_prepare
