@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/ktorrent/ https://userbase.kde.org/KTorrent"
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE=""
+IUSE="xfs"
 
 COMMON_DEPEND="
 	>=app-crypt/qca-2.3.7:2[qt6]
@@ -30,6 +30,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
+	xfs? ( sys-fs/xfsprogs )
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/boost-1.71
@@ -49,11 +50,17 @@ src_prepare() {
 		KTorrent6Config.cmake.in || die
 }
 
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_XFS=$(usex xfs)
+	)
+	ecm_src_configure
+}
+
 src_test() {
 	# failing network tests
 	local myctestargs=(
 		-E "(fin|packetloss|send|superseedtest|transmit|utppolltest)"
 	)
-
 	ecm_src_test
 }

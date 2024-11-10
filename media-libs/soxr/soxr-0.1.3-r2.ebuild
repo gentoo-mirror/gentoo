@@ -1,14 +1,15 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-inherit cmake-multilib
+EAPI=8
 
 MY_P="${P}-Source"
+inherit cmake-multilib
+
 DESCRIPTION="SoX Resampler library"
 HOMEPAGE="https://sourceforge.net/p/soxr/wiki/Home/"
 SRC_URI="https://downloads.sourceforge.net/soxr/${MY_P}.tar.xz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -18,8 +19,6 @@ IUSE="examples test"
 # CMakeLists.txt builds examples if either test or examples USE flag is enabled.
 REQUIRED_USE="test? ( examples )"
 RESTRICT="!test? ( test )"
-
-S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.1.1-nodoc.patch"
