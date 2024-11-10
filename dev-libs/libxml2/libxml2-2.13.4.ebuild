@@ -7,7 +7,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="xml(+)"
-inherit python-r1 multilib-minimal
+inherit autotools python-r1 multilib-minimal
 
 XSTS_HOME="http://www.w3.org/XML/2004/xml-schema-test-suite"
 XSTS_NAME_1="xmlschema2002-01-16"
@@ -20,9 +20,9 @@ DESCRIPTION="XML C parser and toolkit"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home"
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/libxml2"
-	inherit autotools git-r3
+	inherit git-r3
 else
-	inherit gnome.org libtool
+	inherit gnome.org
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
@@ -60,6 +60,10 @@ MULTILIB_CHOST_TOOLS=(
 	/usr/bin/xml2-config
 )
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.12.9-icu-pkgconfig.patch
+)
+
 src_unpack() {
 	if [[ ${PV} == 9999 ]] ; then
 		git-r3_src_unpack
@@ -89,13 +93,11 @@ src_unpack() {
 src_prepare() {
 	default
 
-	if [[ ${PV} == 9999 ]] ; then
-		eautoreconf
-	else
-		# Please do not remove, as else we get references to PORTAGE_TMPDIR
-		# in /usr/lib/python?.?/site-packages/libxml2mod.la among things.
-		elibtoolize
-	fi
+	# Please do not remove, as else we get references to PORTAGE_TMPDIR
+	# in /usr/lib/python?.?/site-packages/libxml2mod.la among things.
+	#elibtoolize
+
+	eautoreconf
 }
 
 multilib_src_configure() {

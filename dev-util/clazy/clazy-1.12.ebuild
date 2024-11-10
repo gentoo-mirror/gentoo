@@ -25,7 +25,11 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
 		${PYTHON_DEPS}
+		dev-qt/qtbase:6[network,xml]
+		dev-qt/qtmultimedia:6
 		dev-qt/qtnetworkauth:6
+		dev-qt/qtscxml:6[qml]
+		dev-qt/qtsvg:6
 	)
 "
 
@@ -39,6 +43,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-LIBRARY_DIRS.patch
 	"${FILESDIR}"/${P}-INCLUDE_DIRS.patch
 	"${FILESDIR}"/${P}-standalone-install-location.patch
+	"${FILESDIR}"/${P}-clazy-install-location.patch
 )
 
 pkg_setup() {
@@ -74,29 +79,10 @@ src_test() {
 
 	# Run tests against built copy, not installed
 	# bug #811723
-	local -x PATH="${BUILD_DIR}/${LLVM_ROOT}/bin:${BUILD_DIR}/bin:${BUILD_DIR}:${PATH}"
+	local -x PATH="${BUILD_DIR}/${LLVM_ROOT}/bin:${BUILD_DIR}/bin:${PATH}"
 	local -x LD_LIBRARY_PATH="${BUILD_DIR}/lib"
 
-	# NOTE or DEPEND on "test? ( dev-qt/qtscxml:6[qml] )"
-	local -x CMAKE_SKIP_TESTS=()
-
-	chmod +x "${BUILD_DIR}"/clazy || die
-
-	if ! has_version dev-qt/qtscxml:6; then
-		CMAKE_SKIP_TESTS+=(
-			# cannot find -lQt6StateMachine: No such file or directory
-			"old-style-connect"
-		)
-	fi
-
-	if ! has_version dev-qt/qtdeclarative:6; then
-		CMAKE_SKIP_TESTS+=(
-			# lowercase-qml-type-name/main.cpp:3:10: fatal error: 'QtQml/QQmlEngine' file not found
-			"lowercase-qml-type-name"
-			# no-module-include/main.cpp:5:10: fatal error: 'QtQml/QtQml' file not found
-			"no-module-include"
-		)
-	fi
+	chmod +x "${BUILD_DIR}/bin/clazy" || die
 
 	cmake_src_test
 }
