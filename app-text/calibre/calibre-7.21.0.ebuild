@@ -36,7 +36,7 @@ LICENSE="
 	PSF-2
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="+font-subsetting ios speech +system-mathjax test +udisks unrar"
 
 RESTRICT="!test? ( test )"
@@ -89,6 +89,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	>=media-libs/freetype-2:=
 	>=media-libs/libmtp-1.1.11:=
 	>=media-gfx/optipng-0.7.6
+	>=media-video/ffmpeg-6:=
 	virtual/libusb:1=
 	x11-misc/shared-mime-info
 	>=x11-misc/xdg-utils-1.0.2-r2
@@ -124,8 +125,6 @@ PATCHES=(
 	# We don't (yet?) package libjxr and it seems to be dead upstream
 	# (last commit in 2017)
 	"${FILESDIR}/${PN}-7.0.0-jxr-test.patch"
-	# fix tests with pillow 11
-	"${FILESDIR}"/0001-PIL-11.0-changes-its-webp-features-output.patch
 )
 
 src_prepare() {
