@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit meson python-single-r1 vala udev xdg
 
@@ -13,18 +13,14 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ppc64 ~riscv x86"
-IUSE="amdgpu amt +archive bash-completion bluetooth cbor elogind fastboot flashrom gnutls gtk-doc +gusb introspection logitech lzma minimal modemmanager nvme policykit spi +sqlite synaptics systemd test test-full tpm uefi"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="amdgpu amt +archive bash-completion bluetooth cbor elogind fastboot flashrom gnutls gtk-doc introspection logitech lzma minimal modemmanager nvme policykit spi +sqlite synaptics systemd test tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
-	fastboot? ( gusb )
-	logitech? ( gusb )
 	minimal? ( !introspection )
-	modemmanager? ( gusb )
 	spi? ( lzma )
 	synaptics? ( gnutls )
-	test? ( archive gusb )
-	test-full? ( test )
+	test? ( archive )
 	uefi? ( gnutls )
 "
 RESTRICT="!test? ( test )"
@@ -33,7 +29,7 @@ BDEPEND="$(vala_depend)
 	$(python_gen_cond_dep '
 		dev-python/jinja[${PYTHON_USEDEP}]
 	')
-	>=dev-build/meson-0.60.0
+	>=dev-build/meson-1.3.2
 	virtual/pkgconfig
 	gtk-doc? (
 		$(python_gen_cond_dep '
@@ -45,17 +41,15 @@ BDEPEND="$(vala_depend)
 	introspection? ( dev-libs/gobject-introspection )
 	test? (
 		net-libs/gnutls[tools]
-		test-full? ( dev-util/umockdev )
 	)
 "
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=app-arch/gcab-1.0
 	app-arch/xz-utils
-	>=dev-libs/glib-2.68:2
+	>=dev-libs/glib-2.72:2
 	>=dev-libs/json-glib-1.6.0
-	>=dev-libs/libgudev-232:=
 	>=dev-libs/libjcat-0.1.4[gpg,pkcs7]
-	>=dev-libs/libxmlb-0.3.6:=[introspection?]
+	>=dev-libs/libxmlb-0.3.19:=[introspection?]
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
 	')
@@ -65,7 +59,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	elogind? ( >=sys-auth/elogind-211 )
 	flashrom? ( >=sys-apps/flashrom-1.2-r3 )
 	gnutls? ( >=net-libs/gnutls-3.6.0 )
-	gusb? ( >=dev-libs/libgusb-0.3.8[introspection?] )
+	virtual/libusb:1
 	logitech? ( dev-libs/protobuf-c:= )
 	lzma? ( app-arch/xz-utils )
 	modemmanager? ( net-misc/modemmanager[mbim,qmi] )
@@ -94,20 +88,6 @@ DEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.9.6-fragile_tests.patch
-)
-
-pkg_pretend() {
-	if [[ ${MERGE_TYPE} != buildonly ]]; then
-		if use test-full && has sandbox ${FEATURES}; then
-			ewarn "Certain ${PN} tests are fragile with sandboxing enabled,"
-			ewarn "see https://github.com/fwupd/fwupd/issues/1414."
-			ewarn "When in doubt, emerge ${PN} with USE=-test-full."
-		fi
-	fi
-}
-
 src_prepare() {
 	default
 
@@ -122,15 +102,14 @@ src_prepare() {
 src_configure() {
 	local plugins=(
 		-Dplugin_gpio="enabled"
+		-Dplugin_uf2="enabled"
 		$(meson_feature amdgpu plugin_amdgpu)
 		$(meson_feature amt plugin_intel_me)
 		$(meson_feature fastboot plugin_fastboot)
 		$(meson_feature flashrom plugin_flashrom)
-		$(meson_feature gusb plugin_uf2)
 		$(meson_feature logitech plugin_logitech_bulkcontroller)
 		$(meson_feature modemmanager plugin_modem_manager)
 		$(meson_feature nvme plugin_nvme)
-		$(meson_use spi plugin_intel_spi)
 		$(meson_feature synaptics plugin_synaptics_mst)
 		$(meson_feature synaptics plugin_synaptics_rmi)
 		$(meson_feature tpm plugin_tpm)
@@ -151,7 +130,6 @@ src_configure() {
 		-Dman="true"
 		-Dsupported_build="enabled"
 		-Dsystemd_unit_user=""
-		-Dudevdir="${EPREFIX}$(get_udevdir)"
 		$(meson_feature archive libarchive)
 		$(meson_use bash-completion bash_completion)
 		$(meson_feature bluetooth bluez)
@@ -159,14 +137,12 @@ src_configure() {
 		$(meson_feature elogind)
 		$(meson_feature gnutls)
 		$(meson_feature gtk-doc docs)
-		$(meson_feature gusb)
 		$(meson_feature lzma)
 		$(meson_feature introspection)
 		$(meson_feature policykit polkit)
 		$(meson_feature sqlite)
 		$(meson_feature systemd)
 		$(meson_use test tests)
-		$(meson_use test-full)
 
 		${plugins[@]}
 	)
