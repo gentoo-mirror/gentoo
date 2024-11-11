@@ -1,16 +1,17 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit gnome2
 
 MY_P=${P/terminatorx/terminatorX}
+inherit gnome2
 
 DESCRIPTION="Realtime audio synthesizer allowing you to 'scratch' on sampled audio data"
 HOMEPAGE="https://terminatorx.org/"
 # this is the original location but there is an issue with their certificate so mirroring the file
 #SRC_URI="https://terminatorx.org/dist/${MY_P}.tar.bz2"
 SRC_URI="https://dev.gentoo.org/~fordfrog/distfiles/${MY_P}.tar.bz2"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,13 +28,13 @@ RDEPEND="
 	media-libs/ladspa-sdk
 	media-libs/liblrdf
 	media-plugins/cmt-plugins
-	x11-libs/gtk+:3
+	x11-libs/gtk+:3[X]
 	x11-libs/libXi
 	x11-libs/libXxf86dga
 	alsa? ( media-libs/alsa-lib )
 	jack? ( virtual/jack )
 	mad? ( media-sound/madplay )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	vorbis? ( media-libs/libvorbis )
 	sox? (
 		media-sound/sox
@@ -48,11 +49,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/${MY_P}"
-
-PATCHES=(
-	"${FILESDIR}/${P}-metadata-dir.patch"
-)
+PATCHES=( "${FILESDIR}/${P}-metadata-dir.patch" )
 
 src_configure() {
 	gnome2_src_configure \
