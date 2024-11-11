@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip verify-sig? ( sec-keys/openpgp-keys-apache-pdfbox ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install preinst prepare setup test unpack
+DEPEND=dev-java/commons-logging:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=An open source Java library for parsing font files
+EAPI=8
+HOMEPAGE=https://pdfbox.apache.org/
+INHERIT=java-pkg-2 java-pkg-simple verify-sig
+IUSE=doc source test verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=Apache-2.0
+RDEPEND=dev-java/commons-logging:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://apache/pdfbox/2.0.32/pdfbox-2.0.32-src.zip test? ( https://issues.apache.org/jira/secure/attachment/12684264/SourceSansProBold.otf https://issues.apache.org/jira/secure/attachment/12809395/DejaVuSansMono.ttf https://issues.apache.org/jira/secure/attachment/12896461/NotoEmoji-Regular.ttf https://issues.apache.org/jira/secure/attachment/13036376/NotoSansSC-Regular.otf https://issues.apache.org/jira/secure/attachment/13064282/DejaVuSerifCondensed.pfb https://issues.apache.org/jira/secure/attachment/13065025/NotoMono-Regular.ttf https://mirrors.ctan.org/fonts/opensans/type1/OpenSans-Regular.pfb https://moji.or.jp/wp-content/ipafont/IPAfont/ipag00303.zip ) verify-sig? ( https://downloads.apache.org/pdfbox/2.0.32/pdfbox-2.0.32-src.zip.asc )
+_eclasses_=java-utils-2	df5a29aeeb243804a2f5ef024c8467a9	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4	verify-sig	745dccb7d4656514f1e966cce314d7db
+_md5_=4554ccfe47ccf5bb83d9c1a072b3640c
