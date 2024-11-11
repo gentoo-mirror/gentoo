@@ -10,6 +10,7 @@ EAPI=8
 
 GN_MIN_VER=0.2165
 # chromium-tools/get-chromium-toolchain-strings.py
+TEST_FONT=f26f29c9d3bfae588207bbc9762de8d142e58935c62a86f67332819b15203b35
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -18,7 +19,6 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu
 	sv sw ta te th tr uk ur vi zh-CN zh-TW"
 
 LLVM_COMPAT=( 18 19 )
-RUST_NEEDS_LLVM="yes please"
 PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="xml(+)"
 RUST_MIN_VER=1.78.0
@@ -29,8 +29,7 @@ inherit python-any-r1 qmake-utils readme.gentoo-r1 rust systemd toolchain-funcs 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
-TEST_FONT=f26f29c9d3bfae588207bbc9762de8d142e58935c62a86f67332819b15203b35
-PATCH_V="${PV%%\.*}-2"
+PATCH_V="${PV%%\.*}-1"
 SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}.tar.xz -> ${P}-gentoo.tar.xz
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 	test? (
@@ -47,13 +46,12 @@ SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="~amd64 ~arm64 ~ppc64"
+	KEYWORDS="~amd64 ~arm64"
 fi
-
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos +official pax-kernel pgo +proprietary-codecs pulseaudio"
-IUSE+=" qt5 qt6 +screencast selinux test +vaapi +wayland +widevine cpu_flags_ppc_vsx3"
+IUSE+=" qt5 qt6 +screencast selinux test +vaapi +wayland +widevine"
 RESTRICT="
 	!bindist? ( bindist )
 	!test? ( test )
@@ -176,11 +174,11 @@ BDEPEND="
 		qt5? ( dev-qt/qtcore:5 )
 		qt6? ( dev-qt/qtbase:6 )
 	)
-	$(llvm_gen_dep "
-		sys-devel/clang:\${LLVM_SLOT}
-		sys-devel/llvm:\${LLVM_SLOT}
-		sys-devel/lld:\${LLVM_SLOT}
-	")
+	$(llvm_gen_dep '
+		sys-devel/clang:${LLVM_SLOT}
+		sys-devel/llvm:${LLVM_SLOT}
+		sys-devel/lld:${LLVM_SLOT}
+	')
 	pgo? (
 		>=dev-python/selenium-3.141.0
 		>=dev-util/web_page_replay_go-20220314
@@ -281,7 +279,10 @@ pkg_setup() {
 		pre_build_checks
 
 		# The linux:unbundle toolchain in GN grabs CC, CXX, CPP (etc) from the environment
+		# We'll set these to clang here then use llvm-utils functions to very explicitly set these
+		# to a sane value.
 		# This is effectively the 'force-clang' path if GCC support is re-added.
+		# TODO: check if the user has already selected a specific impl via make.conf and respect that.
 		use_lto="false"
 		if tc-is-lto; then
 			use_lto="true"
@@ -309,7 +310,7 @@ pkg_setup() {
 			die "Please switch to a different linker."
 		fi
 
-		# We're forcing Clang here. User choice is respected via llvm_slot_# USE flags.
+		# Forcing clang; user choice respected by llvm_slot_x USE
 		AR=llvm-ar
 		CPP="${CHOST}-clang++ -E"
 		NM=llvm-nm
@@ -323,9 +324,6 @@ pkg_setup() {
 
 		llvm-r1_pkg_setup
 		rust_pkg_setup
-
-		einfo "Using LLVM/Clang slot ${LLVM_SLOT} to build"
-		einfo "Using Rust slot ${RUST_SLOT}, ${RUST_TYPE} to build"
 
 		# I hate doing this but upstream Rust have yet to come up with a better solution for
 		# us poor packagers. Required for Split LTO units, which are required for CFI.
@@ -353,11 +351,13 @@ src_unpack() {
 		unpack ${P}-testdata-gentoo.tar.xz
 		# This just contains a bunch of font files that need to be unpacked (or moved) to the correct location.
 		local testfonts_dir="${WORKDIR}/${P}/third_party/test_fonts"
-		tar xf "${DISTDIR}/${P%%\.*}-testfonts.tar.gz" -C "${testfonts_dir}" || die "Failed to unpack testfonts"
+		local testfonts_tar="${DISTDIR}/chromium-testfonts-${TEST_FONT:0:10}.tar.gz"
+		tar xf "${testfonts_tar}" -C "${testfonts_dir}" || die "Failed to unpack testfonts"
 	fi
 
 	if use ppc64; then
-		unpack chromium-openpower-${PPC64_HASH:0:10}.tar.bz2
+		unpack chromium_${PATCHSET_PPC64}.debian.tar.xz
+		unpack chromium-ppc64le-gentoo-patches-1.tar.xz
 	fi
 }
 
@@ -374,45 +374,29 @@ src_prepare() {
 		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
-		"${FILESDIR}/chromium-126-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-127-bindgen-custom-toolchain.patch"
+		"${FILESDIR}/chromium-131-unbundle-icu-target.patch"
+		"${FILESDIR}/chromium-131-oauth2-client-switches.patch"
+		"${FILESDIR}/chromium-131-const-atomicstring-conversion.patch"
 	)
 
-	shopt -s globstar nullglob
-	# 130: moved the PPC64 patches into the chromium-patches repo
-	local patch
-	for patch in "${WORKDIR}/chromium-patches-${PATCH_V}"/**/*.patch; do
-		elog "Applying patch: ${patch}"
-		if [[ ${patch} == *"ppc64le"* ]]; then
-			use ppc64 && PATCHES+=( "${patch}" )
-		else
-			PATCHES+=( "${patch}" )
-		fi
-	done
-
+	PATCHES+=( "${WORKDIR}/chromium-patches-${PATCH_V}" )
 	# We can't use the bundled compiler builtins with the system toolchain
 	# `grep` is a development convenience to ensure we fail early when google changes something.
 	local builtins_match="if (is_clang && !is_nacl && !is_cronet_build) {"
 	grep -q "${builtins_match}" build/config/compiler/BUILD.gn || die "Failed to disable bundled compiler builtins"
 	sed -i -e "/${builtins_match}/,+2d" build/config/compiler/BUILD.gn
 
-	if use ppc64; then
-		# Above this level there are ungoogled-chromium patches that we can't apply
-		local patchset_dir="${WORKDIR}/openpower-patches-${PPC64_HASH}/patches/ppc64le"
-		# Apply the OpenPOWER patches
-		local power9_patch="patches/ppc64le/core/baseline-isa-3-0.patch"
-		for patch in ${patchset_dir}/**/*.{patch,diff}; do
-			if [[ ${patch} == *"${power9_patch}" ]]; then
-				use cpu_flags_ppc_vsx3 && PATCHES+=( "${patch}" )
-			else
-				PATCHES+=( "${patch}" )
+	if use ppc64 ; then
+		local p
+		for p in $(grep -v "^#" "${WORKDIR}"/debian/patches/series | grep "^ppc64le" || die); do
+			if [[ ! $p =~ "fix-breakpad-compile.patch" ]]; then
+				eapply "${WORKDIR}/debian/patches/${p}"
 			fi
 		done
-
-		PATCHES+=( "${WORKDIR}/openpower-patches-${PPC64_HASH}/patches/upstream/blink-fix-size-assertions.patch" )
+		PATCHES+=( "${WORKDIR}/ppc64le" )
+		PATCHES+=( "${WORKDIR}/debian/patches/fixes/rust-clanglib.patch" )
 	fi
-
-	shopt -u globstar nullglob
 
 	default
 
@@ -497,9 +481,9 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/diff
 		third_party/devtools-frontend/src/front_end/third_party/i18n
 		third_party/devtools-frontend/src/front_end/third_party/intl-messageformat
+		third_party/devtools-frontend/src/front_end/third_party/json5
 		third_party/devtools-frontend/src/front_end/third_party/lighthouse
 		third_party/devtools-frontend/src/front_end/third_party/lit
-		third_party/devtools-frontend/src/front_end/third_party/lodash-isequal
 		third_party/devtools-frontend/src/front_end/third_party/marked
 		third_party/devtools-frontend/src/front_end/third_party/puppeteer
 		third_party/devtools-frontend/src/front_end/third_party/puppeteer/package/lib/esm/third_party/mitt
@@ -532,6 +516,17 @@ src_prepare() {
 		third_party/highway
 		third_party/hunspell
 		third_party/iccjpeg
+		third_party/ink_stroke_modeler/src/ink_stroke_modeler
+		third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal
+		third_party/ink/src/ink/brush
+		third_party/ink/src/ink/color
+		third_party/ink/src/ink/geometry
+		third_party/ink/src/ink/rendering
+		third_party/ink/src/ink/rendering/skia/common_internal
+		third_party/ink/src/ink/rendering/skia/native
+		third_party/ink/src/ink/rendering/skia/native/internal
+		third_party/ink/src/ink/strokes
+		third_party/ink/src/ink/types
 		third_party/inspector_protocol
 		third_party/ipcz
 		third_party/jinja2
@@ -642,8 +637,10 @@ src_prepare() {
 		third_party/tflite/src/third_party/eigen3
 		third_party/tflite/src/third_party/fft2d
 		third_party/tflite/src/third_party/xla/third_party/tsl
-		third_party/tflite/src/third_party/xla/xla/tsl/util
 		third_party/tflite/src/third_party/xla/xla/tsl/framework
+		third_party/tflite/src/third_party/xla/xla/tsl/lib/random
+		third_party/tflite/src/third_party/xla/xla/tsl/protobuf
+		third_party/tflite/src/third_party/xla/xla/tsl/util
 		third_party/ukey2
 		third_party/unrar
 		third_party/utf
@@ -831,7 +828,6 @@ chromium_configure() {
 	# to where system clang lives sot that bindgen can find system headers (e.g. stddef.h)
 	myconf_gn+=" clang_base_path=\"${EPREFIX}/usr/lib/clang/${LLVM_SLOT}/\""
 
-	# We need to provide this to GN in both the path to rust _and_ the version
 	myconf_gn+=" rust_sysroot_absolute=\"$(get_rust_prefix)\""
 	myconf_gn+=" rustc_version=\"${RUST_SLOT}\""
 
@@ -882,6 +878,13 @@ chromium_configure() {
 	fi
 
 	build/linux/unbundle/replace_gn_files.py --system-libraries "${gn_system_libraries[@]}" || die
+
+	# TODO 131: The above call clobbers `enable_freetype = true` in the freetype gni file
+	# drop the last line, then append the freetype line and a new curly brace to end the block
+	local freetype_gni="build/config/freetype/freetype.gni"
+	sed -i -e '$d' ${freetype_gni} || die
+	echo "  enable_freetype = true" >> ${freetype_gni} || die
+	echo "}" >> ${freetype_gni} || die
 
 	# See dependency logic in third_party/BUILD.gn
 	myconf_gn+=" use_system_harfbuzz=$(usex system-harfbuzz true false)"
@@ -1023,6 +1026,11 @@ chromium_configure() {
 	# Don't need nocompile checks and GN crashes with our config
 	myconf_gn+=" enable_nocompile_tests=false"
 
+	# 131 began laying the groundwork for replacing freetype with
+	# "Rust-based Fontations set of libraries plus Skia path rendering"
+	# We now need to opt-in
+	myconf_gn+=" enable_freetype=true"
+
 	# Enable ozone wayland and/or headless support
 	myconf_gn+=" use_ozone=true ozone_auto_platforms=false"
 	myconf_gn+=" ozone_platform_headless=true"
@@ -1108,6 +1116,7 @@ src_configure() {
 }
 
 chromium_compile() {
+
 	# Final link uses lots of file descriptors.
 	ulimit -n 2048
 
@@ -1245,6 +1254,7 @@ src_test() {
 		CheckExitCodeAfterSignalHandlerDeathTest.CheckSIGSEGV
 		CheckExitCodeAfterSignalHandlerDeathTest.CheckSIGSEGVNonCanonicalAddress
 		FilePathTest.FromUTF8Unsafe_And_AsUTF8Unsafe
+		FileTest.GetInfoForCreationTime
 		ICUStringConversionsTest.ConvertToUtf8AndNormalize
 		NumberFormattingTest.FormatPercent
 		PathServiceTest.CheckedGetFailure
