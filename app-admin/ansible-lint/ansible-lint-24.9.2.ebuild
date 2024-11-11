@@ -21,7 +21,7 @@ RESTRICT="test"
 
 RDEPEND="
 	>=app-admin/ansible-core-2.13.0[${PYTHON_USEDEP}]
-	>=dev-python/ansible-compat-24.5.0[${PYTHON_USEDEP}]
+	>=dev-python/ansible-compat-24.9.1[${PYTHON_USEDEP}]
 	>=dev-python/black-24.3.0[${PYTHON_USEDEP}]
 	>=dev-python/filelock-3.8.0[${PYTHON_USEDEP}]
 	dev-python/importlib-metadata[${PYTHON_USEDEP}]
@@ -43,6 +43,10 @@ BDEPEND="
 		>=dev-python/pytest-plus-0.6[${PYTHON_USEDEP}]
 		>=dev-python/pytest-xdist-2.5.0[${PYTHON_USEDEP}]
 	)"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-24.7.0-warnings.patch
+)
 
 # test_call_from_outside_venv doesn't play nicely with the sandbox
 # irrespective of whether Internet access is allowed or not
