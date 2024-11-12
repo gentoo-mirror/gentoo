@@ -5,6 +5,7 @@ EAPI=8
 
 USE_RUBY="ruby31 ruby32 ruby33"
 
+RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_TASK_DOC="faq"
 RUBY_FAKEGEM_DOCDIR="doc faq"
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
@@ -26,8 +27,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~
 IUSE="doc test"
 
 # We track the bundled sqlite version here
-RDEPEND=" >=dev-db/sqlite-3.46.1:3"
-DEPEND=" >=dev-db/sqlite-3.46.1:3"
+RDEPEND=" >=dev-db/sqlite-3.47.0:3"
+DEPEND=" >=dev-db/sqlite-3.47.0:3"
 
 ruby_add_bdepend "
 	doc? ( dev-ruby/rdoc )
@@ -39,7 +40,10 @@ all_ruby_prepare() {
 
 	# Remove the runtime dependency on mini_portile2. We build without
 	# it and it is not a runtime dependency for us.
-	sed -i -e '/mini_portile2/ s:^:#:' ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -e '/mini_portile2/ s:^:#:' \
+		-e '/WARNING/ s:^:#:' \
+		-e "s/0.0.0/${PV}/" \
+		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 
 	# Avoid a failing spec for reprepares stats. Upstream indicates that
 	# the stats data should not be relied on other than for human
