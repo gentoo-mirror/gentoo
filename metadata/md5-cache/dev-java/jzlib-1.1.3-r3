@@ -1,15 +1,15 @@
-BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-DESCRIPTION=Brotli decompressor
-EAPI=7
-HOMEPAGE=https://brotli.org/ https://github.com/google/brotli
+DESCRIPTION=JZlib is a re-implementation of zlib in pure Java
+EAPI=8
+HOMEPAGE=http://www.jcraft.com/jzlib/
 INHERIT=java-pkg-2 java-pkg-simple
-IUSE=doc source
-KEYWORDS=amd64 arm64 ppc64
-LICENSE=MIT
+IUSE=examples source test
+KEYWORDS=amd64 arm64 ppc64 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=BSD
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
 SLOT=0
-SRC_URI=https://repo1.maven.org/maven2/org/brotli/dec/0.1.2/dec-0.1.2-sources.jar -> brotli-dec-0.1.2-sources.jar
+SRC_URI=https://github.com/ymnk/jzlib/archive/1.1.3.tar.gz -> jzlib-1.1.3.tar.gz
 _eclasses_=java-utils-2	df5a29aeeb243804a2f5ef024c8467a9	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
-_md5_=c5023cf379dd00361a8c96b9a9518b18
+_md5_=22788bf49b3f0f224a2e2312ea4ecf2d
