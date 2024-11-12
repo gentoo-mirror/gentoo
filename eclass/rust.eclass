@@ -130,7 +130,7 @@ declare -a -g -r _RUST_SLOTS_ORDERED=(
 # @DESCRIPTION:
 # This is an eclass-generated Rust dependency string, filtered by
 # RUST_MAX_VER and RUST_MIN_VER. If RUST_NEEDS_LLVM is set, this
-# is gropeda and gated by an appropriate `llvm_slot_x` USE for all
+# is grouped and gated by an appropriate `llvm_slot_x` USE for all
 # implementations listed in LLVM_COMPAT.
 
 # @ECLASS_VARIABLE: RUST_OPTIONAL
@@ -193,7 +193,7 @@ _rust_set_globals() {
 	local rust_dep=()
 	local llvm_slot
 	local rust_slot
-	local usedep
+	local usedep="${RUST_REQ_USE+[${RUST_REQ_USE}]}"
 
 	# If we're not using LLVM, we can just generate a simple Rust dependency
 	if [[ -z "${RUST_NEEDS_LLVM}" ]]; then
@@ -209,7 +209,6 @@ _rust_set_globals() {
 			# depend on each slot between RUST_MIN_VER and RUST_MAX_VER; it's a bit specific but
 			# won't hurt as we only ever add newer Rust slots.
 			for slot in "${_RUST_SLOTS[@]}"; do
-				usedep="${RUST_REQ_USE+[${RUST_REQ_USE}]}"
 				rust_dep+=(
 					"dev-lang/rust-bin:${slot}${usedep}"
 					"dev-lang/rust:${slot}${usedep}"
