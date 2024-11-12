@@ -89,12 +89,6 @@ src_unpack() {
 	cargo_src_unpack
 }
 
-src_prepare() {
-	# remove fragile timing check
-	sed -i -e '/assertLessEqual(time\.time/d' tests/test_parser.py || die
-	distutils-r1_src_prepare
-}
-
 python_compile() {
 	distutils-r1_python_compile
 
