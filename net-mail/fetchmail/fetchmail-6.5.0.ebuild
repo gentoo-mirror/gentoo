@@ -8,10 +8,11 @@ inherit autotools systemd tmpfiles toolchain-funcs
 DESCRIPTION="the legendary remote-mail retrieval and forwarding utility"
 HOMEPAGE="https://www.fetchmail.info/"
 SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.xz"
+S=${WORKDIR}/${P/_/.}
 
 LICENSE="GPL-2 public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris"
 IUSE="ssl nls kerberos tk selinux socks"
 
 RDEPEND="acct-user/fetchmail
@@ -33,7 +34,6 @@ HTML_DOCS="*.html"
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.3.26-python-optional.patch
 )
-S=${WORKDIR}/${P/_/.}
 
 src_prepare() {
 	default

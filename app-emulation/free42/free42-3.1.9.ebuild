@@ -10,10 +10,11 @@ MY_PV="${PN}-nologo-${PV}"
 DESCRIPTION="An HP-42S Calculator Simulator"
 HOMEPAGE="https://thomasokken.com/free42/"
 SRC_URI="https://thomasokken.com/free42/upstream/${MY_PV}.tgz"
+S=${WORKDIR}/${MY_PV}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+alsa"
 
 DEPEND="app-accessibility/at-spi2-core
@@ -21,11 +22,9 @@ DEPEND="app-accessibility/at-spi2-core
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
 	alsa? ( media-libs/alsa-lib )"
-
 RDEPEND="${DEPEND}"
 
 DOCS=( CREDITS HISTORY README )
-S="${WORKDIR}/${MY_PV}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0.14-fix-makefile.patch"
