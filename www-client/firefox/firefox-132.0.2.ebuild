@@ -3,11 +3,13 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-132-patches-01.tar.xz"
+FIREFOX_PATCHSET="firefox-132-patches-02.tar.xz"
 
 LLVM_COMPAT=( 17 18 19 )
+
 # This will also filter rust versions that don't match LLVM_COMPAT in the non-clang path; this is fine.
 RUST_NEEDS_LLVM=1
+
 # If not building with clang we need at least rust 1.76
 RUST_MIN_VER=1.77.1
 
@@ -68,16 +70,14 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 IUSE="clang dbus debug eme-free hardened hwaccel jack +jumbo-build libproxy openh264 pgo"
 IUSE+=" pulseaudio sndio selinux +system-av1 +system-harfbuzz +system-icu +system-jpeg"
-IUSE+=" +system-jpeg +system-libevent +system-libvpx system-png +system-webp +telemetry valgrind"
-IUSE+=" wayland wifi +X"
+IUSE+=" +system-jpeg +system-libevent +system-libvpx system-png +system-webp valgrind wayland"
+IUSE+=" wifi +X"
 
 # Firefox-only IUSE
-IUSE+=" +gmp-autoupdate gnome-shell"
+IUSE+=" +gmp-autoupdate gnome-shell +telemetry"
 
-# !jumbo-build? ( clang ) -> bmo#1914774, bgo#939004 - causes seemingly random compile crashes with gcc.
 REQUIRED_USE="|| ( X wayland )
 	debug? ( !system-av1 )
-	!jumbo-build? ( clang )
 	wayland? ( dbus )
 	wifi? ( dbus )
 "
@@ -90,8 +90,8 @@ BDEPEND="${PYTHON_DEPS}
 		sys-devel/llvm:${LLVM_SLOT}
 		clang? (
 			sys-devel/lld:${LLVM_SLOT}
+			pgo? ( sys-libs/compiler-rt-sanitizers:${LLVM_SLOT}[profile] )
 		)
-		pgo? ( sys-libs/compiler-rt-sanitizers:${LLVM_SLOT}[profile] )
 	')
 	app-alternatives/awk
 	app-arch/unzip
@@ -447,10 +447,12 @@ pkg_pretend() {
 		fi
 
 		# Ensure we have enough disk space to compile
-		if use pgo || tc-is-lto || use debug ; then
-			CHECKREQS_DISK_BUILD="13500M"
+		if use pgo || use debug ; then
+			CHECKREQS_DISK_BUILD="14300M"
+		elif tc-is-lto ; then
+			CHECKREQS_DISK_BUILD="10600M"
 		else
-			CHECKREQS_DISK_BUILD="6600M"
+			CHECKREQS_DISK_BUILD="6800"
 		fi
 
 		check-reqs_pkg_pretend
@@ -471,11 +473,6 @@ pkg_setup() {
 		fi
 
 		if use pgo ; then
-			if [[ ${use_lto} == "no" ]] ; then
-				elog "Building ${PN} with USE=pgo requires LTO, however this was not detected in your environment."
-				elog "Forcing LTO, however it is recommended to enable LTO explicitly."
-				use_lto=yes
-			fi
 			if ! has userpriv ${FEATURES} ; then
 				eerror "Building ${PN} with USE=pgo and FEATURES=-userpriv is not supported!"
 			fi
@@ -488,24 +485,17 @@ pkg_setup() {
 		fi
 
 		# Ensure we have enough disk space to compile
-		if [[ ${use_lto} == "yes" ]] || use pgo || use debug ; then
-			CHECKREQS_DISK_BUILD="13500M"
+		if use pgo || use debug ; then
+			CHECKREQS_DISK_BUILD="14300M"
+		elif [[ ${use_lto} == "yes" ]] ; then
+			CHECKREQS_DISK_BUILD="10600M"
 		else
-			CHECKREQS_DISK_BUILD="6400M"
+			CHECKREQS_DISK_BUILD="6800"
 		fi
 
 		check-reqs_pkg_setup
-
 		llvm-r1_pkg_setup
 		rust_pkg_setup
-
-		if [[ ${use_lto} == "yes" ]] && use clang; then
-			if ! (tc-ld-is-lld || tc-ld-is-mold) ; then
-				eerror "Building ${PN} with LTO and Clang requires the sys-devel/lld or sys-devel/mold linker!"
-				die "Please fix your toolchain configuration."
-			fi
-		fi
-
 		python-any-r1_pkg_setup
 
 		# Avoid PGO profiling problems due to enviroment leakage
@@ -924,14 +914,6 @@ src_configure() {
 			mozconfig_add_options_ac "linker is set to bfd" --enable-linker=bfd
 		fi
 
-		if use pgo ; then
-			mozconfig_add_options_ac '+pgo' MOZ_PGO=1
-
-			if use clang ; then
-				# Used in build/pgo/profileserver.py
-				export LLVM_PROFDATA="llvm-profdata"
-			fi
-		fi
 	else
 		# Avoid auto-magic on linker
 		if use clang ; then
@@ -948,6 +930,16 @@ src_configure() {
 			else
 				mozconfig_add_options_ac "linker is set to bfd due to USE=-clang" --enable-linker=bfd
 			fi
+		fi
+	fi
+
+	# PGO was moved outside lto block to allow building pgo without lto.
+	if use pgo ; then
+		mozconfig_add_options_ac '+pgo' MOZ_PGO=1
+
+		if use clang ; then
+			# Used in build/pgo/profileserver.py
+			export LLVM_PROFDATA="llvm-profdata"
 		fi
 	fi
 
