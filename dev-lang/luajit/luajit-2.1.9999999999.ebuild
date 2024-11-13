@@ -31,7 +31,7 @@ if [[ ${PV} == 2.1.9999999999 ]]; then
 	inherit git-r3
 else
 	# Update this commit hash to bump a pinned-commit ebuild.
-	GIT_COMMIT=97813fb924edf822455f91a5fbbdfdb349e5984f
+	GIT_COMMIT=""
 	SRC_URI="https://github.com/LuaJIT/LuaJIT/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/LuaJIT-${GIT_COMMIT}"
 
