@@ -20,11 +20,11 @@ RDEPEND="
 	>=dev-python/jinja2-2.7.1[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-0.13.1[${PYTHON_USEDEP}]
 	>=dev-python/chardet-3.0.0[${PYTHON_USEDEP}]
-	>=dev-python/tomli-1.2.1
-	"
-	BDEPEND="
+	>=dev-python/tomli-1.2.1[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/pytest-mock[${PYTHON_USEDEP}]
 	)
 "
 
