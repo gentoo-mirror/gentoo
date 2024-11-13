@@ -1861,7 +1861,7 @@ app-emacs/anaphora 1.0.4: Anaphoric expressions for Emacs Lisp, providing implic
 app-emacs/ansi 0.4.1_p20211104: Emacs library to convert strings into ansi
 app-emacs/apache-mode 2.2.0: Major mode for editing Apache configuration files
 app-emacs/apel 10.8_p20220721: A Portable Emacs Library is a library for making portable Emacs Lisp programs
-app-emacs/apheleia 4.2: Reformat GNU Emacs buffers stably without moving point
+app-emacs/apheleia 4.2 4.3: Reformat GNU Emacs buffers stably without moving point
 app-emacs/assess 0.6 0.7: Test support functions for Emacs
 app-emacs/async 1.9.8 1.9.9 9999: Simple library for asynchronous processing in Emacs
 app-emacs/atomic-chrome 2.0.0-r1: Edit text area on Chrome with Emacs using Atomic Chrome
@@ -2151,7 +2151,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 1.1 1.2: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.5 0.6: Contributed packages to Org
-app-emacs/org-mode 9.7.11 9.7.12 9.7.13 9.7.14 9.7.15 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.7.11 9.7.12 9.7.15 9.7.16 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.5 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r1 2.2.2-r2 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
@@ -2288,7 +2288,7 @@ app-emacs/vue-html-mode 0.2 9999: Major Emacs mode for editing Vue.js templates
 app-emacs/vue-mode 0.4 9999: Major Emacs mode for vue component based on mmm-mode
 app-emacs/w3mnav 0.5-r3: Add Info-like navigation keys to the emacs-w3m web browser
 app-emacs/wanderlust 2.15.9_p20230624: Yet Another Message Interface on Emacsen
-app-emacs/web-mode 17.3.13: Web template editing mode for Emacs
+app-emacs/web-mode 17.3.13 17.3.20: Web template editing mode for Emacs
 app-emacs/web-server 0.1.2_p20210708-r1: Web server running Emacs Lisp handlers
 app-emacs/webpaste 3.2.2-r1: Paste parts of buffers to several pastebin-like services from Emacs
 app-emacs/websocket 1.14_p20230305 1.15: A websocket implementation in elisp
@@ -2371,7 +2371,7 @@ app-emulation/spice-protocol 0.14.1 0.14.3 0.14.4 9999: Headers defining the SPI
 app-emulation/spice-vdagent 0.22.1: SPICE VD Linux Guest Agent
 app-emulation/spim 8.0-r3: MIPS Simulator
 app-emulation/uade 2.13-r2: Unix Amiga Delitracker Emulator - plays old Amiga tunes through UAE emulation
-app-emulation/uxn 0_p20240304 9999: An assembler and emulator for the Uxn stack-machine, written in ANSI C
+app-emulation/uxn 0_p20240304 0_p20241112 9999: An assembler and emulator for the Uxn stack-machine, written in ANSI C
 app-emulation/vagrant 2.4.0-r1 2.4.1: A tool for building and distributing development environments
 app-emulation/vendor-reset 0.1.1_pre20221205 0.1.1_pre20221205-r1 0.1.1_pre20221205-r2 9999: Linux kernel vendor specific hardware reset module
 app-emulation/vice 3.8-r1: Versatile Commodore Emulator
@@ -2970,7 +2970,7 @@ app-office/grisbi 2.0.5 3.0.3 3.0.4: Grisbi is a personal accounting application
 app-office/gtg 0.6-r1: Personal organizer for the GNOME desktop environment
 app-office/homebank 5.8.3 5.8.5: Free, easy, personal accounting for everyone
 app-office/impressive 0.13.1 0.13.2: Stylish way of giving presentations with Python
-app-office/joplin-desktop 3.1.3-r1 3.1.20-r1 3.1.23: Secure note taking and to-do app with synchronization capabilities
+app-office/joplin-desktop 3.1.3-r1 3.1.20-r1 3.1.23 3.1.24: Secure note taking and to-do app with synchronization capabilities
 app-office/kmymoney 5.1.3: Personal finance manager based on KDE Frameworks
 app-office/kraft 1.0: Software to manage quotes and invoices in small enterprises
 app-office/ktimetracker 5.0.1-r1: Todo management and time tracker
@@ -4047,7 +4047,7 @@ dev-debug/gef 2023.08 2024.01 2024.06 9999: GDB Enhanced Features for exploit de
 dev-debug/gprofng-gui 1.1 9999: Full-fledged graphical interface to operate gprofng
 dev-debug/kdbg 3.1.0: Graphical debugger interface
 dev-debug/leaktracer 2.4-r3: Trace and analyze memory leaks in C++ programs
-dev-debug/lldb 15.0.7 16.0.6 16.0.6-r1 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: The LLVM debugger
+dev-debug/lldb 15.0.7 16.0.6 16.0.6-r1 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: The LLVM debugger
 dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-debug/pwndbg 20240214 20240829 99999999: A GDB plug-in that makes debugging with GDB suck less
@@ -4057,7 +4057,7 @@ dev-debug/sysdig 0.38.1-r1 0.39.0: A system exploration and troubleshooting tool
 dev-debug/systemtap 4.8 5.0-r1 5.1 5.1-r1 9999: Linux trace/probe tool
 dev-debug/valgrind 3.22.0-r2 3.23.0_p2 3.23.0_p3 3.24.0 9999: An open-source memory debugger for GNU/Linux
 dev-dotnet/avalonia-ilspy 7.2_rc-r1: Avalonia-based .NET Decompiler, port of ILSpy
-dev-dotnet/cake 4.0.0-r1: Cake (C# Make) is a cross platform build automation system
+dev-dotnet/cake 4.0.0-r1 4.2.0: Cake (C# Make) is a cross platform build automation system with a C# DSL
 dev-dotnet/coco 2014.12.24-r3: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 1.1.1-r1: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.14.0 0.15.0: Roslyn-based LSP language server for C#
@@ -5145,7 +5145,7 @@ dev-lang/dafny 4.8.0 4.8.1 4.9.0: Dafny is a verification-aware programming lang
 dev-lang/dafny-bin 4.8.1 4.9.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 5.31 5.33 5.35 5.36 9999: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 5.31 5.33 5.35 5.36 5.37 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.14.5-r2 1.15.7 1.15.8 1.16.2 1.16.3 1.17.2 1.17.3: Elixir programming language
 dev-lang/elpi 1.17.4 1.18.2: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 26.2.1 26.2.2 26.2.4 27.0 27.0.1: Erlang programming language, runtime environment and libraries (OTP)
@@ -5202,7 +5202,7 @@ dev-lang/nasm 2.16.03: groovy little assembler
 dev-lang/neko 2.3.0-r2 2.4.0: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.0.8 2.2.0: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 3.36: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nprolog 3.36 3.40: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2024.05 2024.08 2024.10 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.1 4.14.2 5.2.0: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.0.0: Open source implementation of Object Rexx
@@ -5457,7 +5457,7 @@ dev-libs/libcdio 2.1.0-r2: A library to encapsulate CD-ROM reading and control
 dev-libs/libcdio-paranoia 2.0.1: an advanced CDDA reader with error correction
 dev-libs/libcec 6.0.2-r1 6.0.2-r2: Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor
 dev-libs/libcgroup 0.41-r6 3.0.0 3.0.0-r1 3.1.0: Tools and libraries to configure and manage kernel control groups
-dev-libs/libclc 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: OpenCL C library
+dev-libs/libclc 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: OpenCL C library
 dev-libs/libclthreads 2.4.2: POSIX threads C++ access library
 dev-libs/libconfig 1.7.3: Libconfig is a simple library for manipulating structured configuration files
 dev-libs/libcpuid 0.6.4 0.6.5 0.7.0-r1: A small C library for x86 (and x86_64) CPU detection and feature extraction
@@ -6006,7 +6006,7 @@ dev-ml/lablgtk 2.18.13 3.1.5-r1: OCaml bindings to GTK-3
 dev-ml/lablgtk-sourceview 3.1.5: OCaml bindings to GTK-3
 dev-ml/labltk 8.06.7-r1 8.06.10-r1 8.06.11-r1 8.06.12-r2 8.06.14: OCaml interface to the Tcl/Tk GUI framework
 dev-ml/lambda-term 3.1.0 3.3.1-r1 3.3.2: Terminal manipulation library for OCaml
-dev-ml/llvm-ocaml 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: OCaml bindings for LLVM
+dev-ml/llvm-ocaml 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: OCaml bindings for LLVM
 dev-ml/logs 0.7.0-r1: Logging infrastructure for OCaml
 dev-ml/luv 0.5.10-r3 0.5.11-r2 0.5.12 0.5.14-r1: Binding to libuv: cross-platform asynchronous I/O
 dev-ml/lwt 5.3.0-r1 5.6.1 5.7.0 5.8.0: Cooperative light-weight thread library for OCaml
@@ -8210,7 +8210,7 @@ dev-python/cheroot 10.0.1: High-performance, pure-Python HTTP server used by Che
 dev-python/cherrypy 18.10.0: CherryPy is a pythonic, object-oriented HTTP framework
 dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
-dev-python/clang-python 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Python bindings for sys-devel/clang
+dev-python/clang-python 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Python bindings for sys-devel/clang
 dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
 dev-python/cli-helpers 2.3.1 9999: Python helpers for common CLI tasks
 dev-python/cli-ui 0.17.2: Python library for better command line interfaces
@@ -8653,7 +8653,7 @@ dev-python/license-expression 30.4.0: Parse, compare, simplify and normalize lic
 dev-python/line-profiler 4.1.3: Line-by-line profiler
 dev-python/linkify-it-py 2.0.3: Links recognition library with full unicode support
 dev-python/linode-metadata 0.3.0: Python bindings for the Linode Metadata Service
-dev-python/lit 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: A stand-alone install of the LLVM suite testing tool
+dev-python/lit 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: A stand-alone install of the LLVM suite testing tool
 dev-python/littleutils 0.2.4: Small personal collection of Python utility functions
 dev-python/livereload 2.7.0: livereload server in Python
 dev-python/llfuse 1.5.1: Python bindings for the low-level FUSE API
@@ -11064,7 +11064,7 @@ dev-vcs/rcsi 0.5: A program to give information about RCS files
 dev-vcs/repo 2.45 2.46 2.48: Google tool for managing git, particularly multiple repos
 dev-vcs/reposurgeon 4.27: Tool for editing VCS repositories and translating among different systems
 dev-vcs/rsvndump 0.6-r1 0.6.1 0.6.1-r1 0.6.2: Dump a remote Subversion repository
-dev-vcs/sourcegit 8.31 8.32 8.35 8.36 8.37 9999: Open Source Git GUI client using .NET AvaloniaUI
+dev-vcs/sourcegit 8.31 8.32 8.37 8.38 9999: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
 dev-vcs/stgit 2.4.6-r1 2.4.11-r1 2.4.12-r1: Stack-based patch management for Git
 dev-vcs/subversion 1.14.3: Advanced version control system
@@ -14469,7 +14469,7 @@ net-analyzer/siphon 666-r2: A portable passive network mapping suite
 net-analyzer/slurm 0.4.3: Realtime network interface monitor based on FreeBSD's pppstatus
 net-analyzer/snallygaster 0.0.12-r2 0.0.13: Finds file leaks and other security problems on HTTP servers
 net-analyzer/sngrep 1.6.0-r1 1.7.0 1.8.2: Ncurses SIP Messages flow viewer
-net-analyzer/sniffit 0.5-r1: Interactive Packet Sniffer
+net-analyzer/sniffit 0.5-r1 0.6_p20240924: Interactive Packet Sniffer
 net-analyzer/snmpclitools 0.6.4-r1 0.7.2: Pure-Python SNMP management tools
 net-analyzer/snmptt 1.4.2: SNMP Trap Translator
 net-analyzer/snort 2.9.20: The de facto standard for intrusion detection/prevention
@@ -15071,7 +15071,7 @@ net-misc/connman-gtk 1.1.1-r2: GTK GUI for Connman
 net-misc/connman-json-client 1.0_p20150721-r3: An ncurses UI for connman
 net-misc/connman-notify 0_pre20191003-r3: Desktop notification integration for connman
 net-misc/connman-ui 0_p20150622-r1: A full-featured GTK based trayicon UI for ConnMan
-net-misc/croc 10.0.12 10.0.13: Easily and securely send things from one computer to another
+net-misc/croc 10.0.12 10.0.13 10.1.0: Easily and securely send things from one computer to another
 net-misc/curl 8.7.1-r4 8.8.0-r1 8.9.1-r1 8.10.1-r1 8.11.0 9999: A Client that groks URLs
 net-misc/datapipe 1.0-r2: Bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
@@ -17030,7 +17030,7 @@ sys-apps/nosig 2: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 2.9.1 2.10.2 2.11: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
-sys-apps/openrazer 3.8.0 3.9.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
+sys-apps/openrazer 3.8.0-r1 3.9.0-r1: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.54.2 0.55.1 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/openrc-navi 0.60_beta4 9999: OpenRC fork with user services support
 sys-apps/osinfo-db 20240523 20240701: osinfo database files
@@ -17377,10 +17377,10 @@ sys-devel/binutils-config 5.5 5.5.2 9999: Utility to change the binutils version
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r1 2.43-r2: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
 sys-devel/bpf-toolchain 14.2.0_p1: All-in-one bpf toolchain for building DTrace and systemd without crossdev
-sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8 18.1.8-r6 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: C language family frontend for LLVM
-sys-devel/clang-common 15.0.7-r10 16.0.6-r6 17.0.6-r9 17.0.6-r10 18.1.8-r3 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Common files shared between multiple slots of clang
+sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8 18.1.8-r6 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: C language family frontend for LLVM
+sys-devel/clang-common 15.0.7-r10 16.0.6-r6 17.0.6-r9 17.0.6-r10 18.1.8-r3 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Common files shared between multiple slots of clang
 sys-devel/clang-crossdev-wrappers 16 17 18 19: Symlinks to a Clang crosscompiler
-sys-devel/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Meta-ebuild for clang runtime libraries
+sys-devel/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Meta-ebuild for clang runtime libraries
 sys-devel/clang-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use Clang on GCC-free system
 sys-devel/cproc 0_pre20240413 9999: C11 compiler using QBE as backend
 sys-devel/crossdev 20240921 99999999: Gentoo Cross-toolchain generator
@@ -17397,10 +17397,10 @@ sys-devel/gettext 0.21.1 0.22.4 0.22.5: GNU locale utilities
 sys-devel/gnuconfig 20230731 20240101 20240728 99999999: Updated config.sub and config.guess file from GNU
 sys-devel/icecream 1.4-r1: Distributed compiler with a central scheduler to share build load
 sys-devel/kgcc64 10.5.0 11.5.0 12.3.1_p20240502 12.4.0 12.4.0_p20240919 12.4.1_p20241031 13.2.1_p20240503 13.3.1_p20240614 13.3.1_p20240920 13.3.1_p20241025 14.2.1_p20240817 14.2.1_p20240921 14.2.1_p20241026: 64bit kernel compiler
-sys-devel/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: The LLVM linker (link editor)
+sys-devel/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: The LLVM linker (link editor)
 sys-devel/lld-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use LLD on binutils-free system
-sys-devel/llvm 15.0.7-r3 15.0.7-r7 16.0.6 16.0.6-r5 17.0.6 17.0.6-r3 18.1.8-r1 18.1.8-r4 18.1.8-r6 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Low Level Virtual Machine
-sys-devel/llvm-common 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Common files shared between multiple slots of LLVM
+sys-devel/llvm 15.0.7-r3 15.0.7-r7 16.0.6 16.0.6-r5 17.0.6 17.0.6-r3 18.1.8-r1 18.1.8-r4 18.1.8-r6 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Low Level Virtual Machine
+sys-devel/llvm-common 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Common files shared between multiple slots of LLVM
 sys-devel/llvm-toolchain-symlinks 15-r1 16-r1 17-r1 18-r1 19 20: Symlinks to use LLVM on binutils-free system
 sys-devel/llvmgold 15 16 17 18 19 20: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19-r2: GNU macro processor
@@ -17608,8 +17608,8 @@ sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1 0.2.1: The sd-bus library, extracted from systemd
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r2 2.43-r3 9999: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
 sys-libs/blocksruntime 0_pre20171027-r2: BlocksRuntime library needed for clang's -fblocks support
-sys-libs/compiler-rt 15.0.7-r1 15.0.7-r2 16.0.6-r5 16.0.6-r6 17.0.6-r1 17.0.6-r2 18.1.8-r1 18.1.8-r2 19.1.3 19.1.3-r1 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Compiler runtime library for clang (built-in part)
-sys-libs/compiler-rt-sanitizers 15.0.7-r1 16.0.6-r1 17.0.6-r1 18.1.8-r1 18.1.8-r6 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
+sys-libs/compiler-rt 15.0.7-r1 15.0.7-r2 16.0.6-r5 16.0.6-r6 17.0.6-r1 17.0.6-r2 18.1.8-r1 18.1.8-r2 19.1.3 19.1.3-r1 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Compiler runtime library for clang (built-in part)
+sys-libs/compiler-rt-sanitizers 15.0.7-r1 16.0.6-r1 17.0.6-r1 18.1.8-r1 18.1.8-r6 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
 sys-libs/cracklib 2.9.11 2.10.2: Password Checking Library
 sys-libs/csu 85-r1: Darwin Csu (crt1.o) - Mac OS X 10.10 version
 sys-libs/db 4.8.30-r8 4.8.30-r9 5.3.28-r9 5.3.28-r10 6.0.35-r4 6.0.35-r5: Oracle Berkeley DB
@@ -17629,8 +17629,8 @@ sys-libs/libblockdev 2.28-r1 2.29 3.1.1: A library for manipulating block device
 sys-libs/libcap 2.69-r1 2.70 2.71 9999: POSIX 1003.1e capabilities
 sys-libs/libcap-ng 0.8.4-r1 0.8.5: POSIX 1003.1e capabilities
 sys-libs/libchipcard 5.1.6-r1: Library for accessing chip cards via chip card readers (terminals)
-sys-libs/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: New implementation of the C++ standard library, targeting C++11
-sys-libs/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: Low level support for a standard C++ library
+sys-libs/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: New implementation of the C++ standard library, targeting C++11
+sys-libs/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: Low level support for a standard C++ library
 sys-libs/libfaketime 0.9.6-r4 0.9.9 0.9.10: Report faked system time to programs
 sys-libs/libhx 4.23 4.24: Platform independent library providing basic system functions
 sys-libs/libieee1284 0.2.11-r9: Library to query devices using IEEE1284
@@ -17638,7 +17638,7 @@ sys-libs/libixp 0.5_p20110208-r3: A stand-alone client/server 9P library includi
 sys-libs/libmodulemd 2.15.0 9999: C Library for manipulating Fedora Modularity metadata files
 sys-libs/libnbd 1.14.1 1.16.1-r1 1.18.1 1.18.1-r1: NBD client library in userspace
 sys-libs/libnvme 1.9 1.10 1.11: C Library for NVM Express on Linux
-sys-libs/libomp 15.0.7-r6 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: OpenMP runtime library for LLVM/clang compiler
+sys-libs/libomp 15.0.7-r6 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: OpenMP runtime library for LLVM/clang compiler
 sys-libs/libosinfo 1.10.0-r1 1.11.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
@@ -17659,7 +17659,7 @@ sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utm
 sys-libs/libuuid 1.0.3-r1: Portable uuid C library
 sys-libs/libvpd 2.2.9: Library implementation for listing Vital Product Data
 sys-libs/libxcrypt 4.4.36 4.4.36-r2 4.4.36-r3: Extended crypt library for descrypt, md5crypt, bcrypt, and others
-sys-libs/llvm-libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0.9999: C++ runtime stack unwinder from LLVM
+sys-libs/llvm-libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0.9999: C++ runtime stack unwinder from LLVM
 sys-libs/lwp 2.8: Light-weight process library (used by Coda)
 sys-libs/minizip-ng 4.0.5 4.0.7: Fork of the popular zip manipulation library found in the zlib distribution
 sys-libs/mtdev 1.1.7: Multitouch Protocol Translation Library
