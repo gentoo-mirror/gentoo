@@ -3425,6 +3425,7 @@ gnome-extra/evolution-data-server:berkdb - sys-libs/db support needed to migrate
 gnome-extra/evolution-data-server:gnome-online-accounts - Enable net-libs/gnome-online-accounts based Google authentication support
 gnome-extra/evolution-data-server:oauth-gtk3 - Enable internal OAuth2 authentication for GTK+3 applications (libedataserverui-*.so) support for Google and Outlook.com. If gnome-online-accounts is enabled and used, this is not necessary, but both can be supported at the same time with different setup at runtime
 gnome-extra/evolution-data-server:oauth-gtk4 - Enable internal OAuth2 authentication for GTK 4 applications (libedataserverui4-*.so) support for Google and Outlook.com. If gnome-online-accounts is enabled and used, this is not necessary, but both can be supported at the same time with different setup at runtime
+gnome-extra/evolution-data-server:sound - Sound notification support through media-libs/libcanberra-gtk3 (does nothing without USE=gtk)
 gnome-extra/evolution-data-server:weather - Enable optional weather calendar support
 gnome-extra/gnome-commander:gsf - Add metadata support for OLE, OLE2 and ODF
 gnome-extra/gnome-commander:pdf - Add metadata support for PDF
@@ -3790,6 +3791,8 @@ mail-client/evolution:bogofilter - Build mail-filter/bogofilter plugin
 mail-client/evolution:geolocation - Enable support for displaying contacts on a map inside evolution using media-libs/libchamplain
 mail-client/evolution:highlight - Enable text highlighting plugin
 mail-client/evolution:ldap - Enable support for fetching contacts from an LDAP or Active Directory server using net-nds/openldap
+mail-client/evolution:libnotify - Enable desktop notifications through x11-libs/libnotify
+mail-client/evolution:sound - Enable sound notifications using media-libs/libcanberra-gtk3
 mail-client/evolution:spamassassin - Build mail-filter/spamassassin plugin
 mail-client/evolution:weather - Enable optional weather calendar support
 mail-client/evolution:ytnef - Enable optional TNEF attachments parser support using net-mail/ytnef
