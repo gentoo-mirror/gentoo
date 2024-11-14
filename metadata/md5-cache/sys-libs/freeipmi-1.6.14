@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/freeipmi/
 INHERIT=toolchain-funcs
 IUSE=debug doc nagios without-root
-KEYWORDS=~amd64 ~arm64 ~hppa ~ppc64 x86
+KEYWORDS=amd64 ~arm64 ~hppa ~ppc64 x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/libgcrypt:= nagios? ( || ( net-analyzer/icinga net-analyzer/nagios ) dev-lang/perl )
 SLOT=0
 SRC_URI=mirror://gnu/freeipmi/freeipmi-1.6.14.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=0765483646f7a862c7169bf4cfe6848e
+_md5_=e4988013c9df83e29d5c1352956dc701
