@@ -62,6 +62,10 @@ SLOT="0"
 # sparc support should be there but is untested
 KEYWORDS="~amd64 ~ppc ~x86"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-110.99.4-shuffle.patch"
+)
+
 src_unpack() {
 	mkdir -p "${S}" || die
 	local file
@@ -81,8 +85,6 @@ src_unpack() {
 
 	# Unpack asdl to fix autoconf linker check
 	unpack "${S}"/asdl.tgz
-
-	eapply "${FILESDIR}"/${P}-shuffle.patch
 }
 
 src_prepare() {
@@ -114,7 +116,7 @@ src_compile() {
 }
 
 src_install() {
-	local DIR=/usr/$(get_libdir)/${PN}
+	local DIR="/usr/$(get_libdir)/${PN}"
 	local i
 
 	local file
@@ -125,8 +127,10 @@ src_install() {
 				-i ${file}
 	done
 
-	newbin ./config/_heap2exec heap2exec
-	exeinto ${DIR}/bin
+	exeinto /usr/bin
+	newexe ./config/_heap2exec heap2exec
+
+	exeinto "${DIR}/bin"
 	pushd bin || die
 	for i in {*,.*} ; do
 		[[ -f ${i} ]] && doexe ${i}

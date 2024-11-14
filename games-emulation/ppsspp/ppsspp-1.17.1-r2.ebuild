@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit flag-o-matic python-any-r1 xdg cmake
 
@@ -55,6 +55,7 @@ BDEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}/${PN}-1.17.1-SpvBuilder-cstdint.patch"
 	"${FILESDIR}/${PN}-1.17.1-avcodec-18825.patch"
 	"${FILESDIR}/${PN}-1.17.1-ccache-18826.patch"
 	"${FILESDIR}/${PN}-1.17.1-cmake-cxx.patch"
