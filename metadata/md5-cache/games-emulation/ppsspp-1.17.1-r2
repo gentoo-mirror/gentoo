@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=app-arch/snappy:= app-arch/zstd:= dev-libs/libzip:= media-libs/glew:= media-libs/libpng:= media-libs/libsdl2[joystick] media-video/ffmpeg:0/58.60.60 sys-libs/zlib:= virtual/opengl qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5[-gles2-only] dev-qt/qtmultimedia:5[-gles2-only] dev-qt/qtopengl:5[-gles2-only] dev-qt/qtwidgets:5[-gles2-only] ) !qt5? ( media-libs/libsdl2[X,opengl,sound,video,wayland?] )
 DESCRIPTION=A PSP emulator written in C++
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/hrydgard/ppsspp/releases/download/v1.17.1/ppsspp-1.17.1.tar.xz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=85fe7ec7351a454a167adda0c8e75706
+_md5_=7b16fb0d8b530b208650b694355a838f
