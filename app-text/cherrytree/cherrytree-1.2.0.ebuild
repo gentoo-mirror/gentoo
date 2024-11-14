@@ -10,7 +10,7 @@ inherit cmake python-any-r1 xdg
 DESCRIPTION="A hierarchical note taking application (C++ version)"
 HOMEPAGE="https://www.giuspen.com/cherrytree/"
 
-SRC_URI="https://github.com/giuspen/${PN}/releases/download/v$PV/${P/-/_}.tar.xz"
+SRC_URI="https://github.com/giuspen/${PN}/releases/download/v${PV}/${P/-/_}.tar.xz"
 S="${WORKDIR}"/${P/-/_}
 
 # GPL-3 — future/src/ct (CherryTree)
@@ -31,7 +31,7 @@ RDEPEND="app-i18n/uchardet
 	app-text/gspell:=
 	>=dev-cpp/glibmm-2.64.2:2
 	dev-cpp/gtkmm:3.0
-	dev-cpp/gtksourceviewmm:3.0
+	x11-libs/gtksourceview:4
 	dev-cpp/libxmlpp:2.6
 	dev-cpp/pangomm:1.4
 	dev-db/sqlite:3
