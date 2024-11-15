@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 
@@ -38,6 +38,7 @@ ruby_add_bdepend "test? (
 	>=dev-ruby/capybara-2.2.0
 	>=dev-ruby/ammeter-1.1.5
 	~dev-ruby/rspec-rails-${PV}
+	dev-ruby/selenium-webdriver
 )"
 
 all_ruby_prepare() {
