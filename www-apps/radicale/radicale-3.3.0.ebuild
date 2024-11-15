@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 optfeature systemd
 
@@ -29,7 +29,6 @@ RDEPEND="
 	dev-python/passlib[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/vobject[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	sys-apps/util-linux
 "
 
@@ -89,4 +88,5 @@ pkg_postinst() {
 	fi
 
 	optfeature "Publish changes to rabbitmq" dev-python/pika
+	optfeature "LDAP/LDAPS authentication" dev-python/ldap3 dev-python/python-ldap
 }
