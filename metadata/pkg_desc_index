@@ -4003,7 +4003,7 @@ dev-db/phpmyadmin 5.2.1: Web-based administration for MySQL database in PHP
 dev-db/phppgadmin 7.14.5 7.14.7: Web-based administration for Postgres database in php
 dev-db/plr 8.4.5 8.4.6: R language extension for postgresql database
 dev-db/postgis 3.3.7 3.4.3 3.5.0: Geographic Objects for PostgreSQL
-dev-db/postgresql 12.20 12.21 13.16 13.17 14.13 14.14 15.8 15.9 16.4 16.5 17.0-r1 17.1 9999: PostgreSQL RDBMS
+dev-db/postgresql 12.21 13.17 14.14 15.9 16.5 17.1 9999: PostgreSQL RDBMS
 dev-db/pspg 5.5.4 5.5.8 5.8.1 5.8.5 5.8.7: A better pager for CLI database clients and can be used in place of psql
 dev-db/psqlodbc 11.01.0000 13.00.0000 15.00.0000 16.00.0000: Official ODBC driver for PostgreSQL
 dev-db/qdbm 1.8.78-r5: Quick Database Manager
@@ -8693,7 +8693,7 @@ dev-python/markdown2 2.5.1: Python Markdown language reimplementation
 dev-python/markups 4.0.0: A wrapper around various text markups
 dev-python/markupsafe 2.1.5 3.0.2: Implements a XML/HTML/XHTML Markup safe string for Python
 dev-python/marshmallow 3.23.0 3.23.1: A library for converting to and from native Python datatypes
-dev-python/matplotlib 3.9.0-r1 3.9.1 3.9.2: Pure python plotting library with matlab like syntax
+dev-python/matplotlib 3.9.0-r1 3.9.1 3.9.2 3.10.0_rc1: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.7: Inline Matplotlib backend for Jupyter
 dev-python/matrix-common 1.3.0-r1: Common code for Synapse, Sydent and Sygnal
 dev-python/matterhook 0.2-r2: Interact with Mattermost incoming webhooks easily
@@ -12326,11 +12326,11 @@ kde-frameworks/kholidays 5.116.0 6.6.0 6.7.0 6.8.0: Library to determine holiday
 kde-frameworks/ki18n 5.116.0 6.6.0 6.7.0 6.8.0: Framework based on Gettext for internationalizing user interface text
 kde-frameworks/kiconthemes 5.116.0 6.6.0 6.7.0 6.8.0: Framework for icon theming and configuration
 kde-frameworks/kidletime 5.116.0 6.6.0 6.7.0 6.8.0: Framework for detection and notification of device idle time
-kde-frameworks/kimageformats 5.116.0 6.6.0 6.7.0 6.8.0: Framework providing additional format plugins for Qt's image I/O system
+kde-frameworks/kimageformats 5.116.0 5.116.0-r1 6.6.0 6.7.0 6.8.0: Framework providing additional format plugins for Qt's image I/O system
 kde-frameworks/kinit 5.116.0: Helper library to speed up start of applications on KDE workspaces
-kde-frameworks/kio 5.116.0-r2 6.6.0 6.7.0 6.8.0: Framework providing transparent file and data management
+kde-frameworks/kio 5.116.0-r2 5.116.0-r3 6.6.0 6.7.0 6.8.0: Framework providing transparent file and data management
 kde-frameworks/kio-trash-desktop-file 5.116.0: KIO Trash KCM service desktop file
-kde-frameworks/kirigami 5.116.0-r1 6.6.0 6.7.0 6.8.0: Lightweight user interface framework for mobile and convergent applications
+kde-frameworks/kirigami 5.116.0-r1 5.116.0-r2 6.6.0 6.7.0 6.8.0: Lightweight user interface framework for mobile and convergent applications
 kde-frameworks/kitemmodels 5.116.0 6.6.0 6.7.0 6.8.0: Framework providing data models to help with tasks such as sorting and filtering
 kde-frameworks/kitemviews 5.116.0 6.6.0 6.7.0 6.8.0: Framework providing additional widgets for item models
 kde-frameworks/kjobwidgets 5.116.0 6.6.0 6.7.0-r1 6.8.0: Framework providing assorted widgets for showing the progress of jobs
@@ -12363,7 +12363,7 @@ kde-frameworks/prison 5.116.0 6.6.0 6.7.0 6.8.0: QRCode and data matrix barcode 
 kde-frameworks/purpose 5.116.0-r2 6.6.0-r1 6.7.0 6.8.0: Library for providing abstractions to get the developer's purposes fulfilled
 kde-frameworks/purpose-kaccounts-services 6.6.0 6.7.0 6.8.0: KAccounts generated service files for nextcloud and google services
 kde-frameworks/qqc2-desktop-style 5.116.1 6.6.0 6.7.0 6.8.0: Style for QtQuickControls 2 that uses QWidget's QStyle for painting
-kde-frameworks/solid 5.116.0 6.6.0 6.7.0-r1 6.8.0: Provider for platform independent hardware discovery, abstraction and management
+kde-frameworks/solid 5.116.0 5.116.0-r1 6.6.0 6.7.0-r1 6.8.0: Provider for platform independent hardware discovery, abstraction and management
 kde-frameworks/sonnet 5.116.0 6.6.0 6.7.0 6.8.0: Framework for providing spell-checking through abstraction of popular backends
 kde-frameworks/syndication 5.116.0 6.6.0 6.7.0 6.8.0: Library for parsing RSS and Atom feeds
 kde-frameworks/syntax-highlighting 5.116.0 6.6.0 6.7.0 6.8.0: Framework for syntax highlighting
@@ -18399,7 +18399,7 @@ x11-misc/clipmenu 6.2.0-r1: Clipboard management
 x11-misc/clipnotify 1.0.2: Notify on new X clipboard events
 x11-misc/colord 1.4.7-r1: System service to accurately color manage input and output devices
 x11-misc/compose-tables 1.8.10: X.Org Compose Key tables from libX11
-x11-misc/copyq 7.1.0-r1: Clipboard manager with advanced features
+x11-misc/copyq 7.1.0-r1 9.1.0: Clipboard manager with advanced features
 x11-misc/dclock 2.2.2_p12: Digital clock for the X window system
 x11-misc/devilspie 0.23-r2: Window matching utility similar to Sawfish's Matched Windows
 x11-misc/devilspie2 0.44 0.45: Window matching utility with Lua scripting
