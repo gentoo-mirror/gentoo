@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="MIT Unlicense"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa jack +ncurses pipewire portaudio pulseaudio sdl sndio"
 
 RDEPEND="
@@ -46,15 +46,21 @@ BDEPEND="
 
 src_prepare() {
 	# TODO: depend on >=4.2.2 and remove after 4.2.2 is stable unless bug
-	# #933610 reintroduces slotting hacks (also drop GENTOO_SYSROOT below)
-	has_version '<dev-libs/iniparser-4.2.2:4' &&
-		eapply "${FILESDIR}"/${PN}-0.8.0-gentoo-iniparser4.patch
+	# #933610 reintroduces slotting hacks (also drop ${inip} below)
+	local inip=
+	if has_version '<dev-libs/iniparser-4.2.2:4'; then
+		inip=4
+		eapply "${FILESDIR}"/${PN}-0.10.3-gentoo-iniparser4.patch
+	fi
 
 	default
 
 	# TODO: drop this when autoconf-archive is fixed (bug #941845), this is
 	# to handle the USE=-sdl case given it breaks it present
 	use sdl || sed -i 's/AX_CHECK_GL/&_DISABLED/' configure.ac || die
+
+	# respect both ESYSROOT+slotting (can't use CPPFLAGS, comes before)
+	sed -i "s|/usr/include/iniparser|${ESYSROOT}&${inip} |" configure.ac || die
 
 	echo ${PV} > version || die
 	eautoreconf
@@ -74,8 +80,6 @@ src_configure() {
 		# note: not behind USE=opengl and sdl2[opengl?] given have not gotten
 		# normal output-sdl to work without USE=opengl on sdl either way
 		$(use_enable sdl output-sdl_glsl)
-
-		GENTOO_SYSROOT="${ESYSROOT}" # see iniparser4.patch
 	)
 
 	# autoconf-archive (currently) does not support -lOpenGL for libglvnd[-X]
@@ -89,8 +93,5 @@ pkg_postinst() {
 		elog "A default ~/.config/cava/config will be created after initial"
 		elog "use of ${PN}, see it and ${EROOT}/usr/share/doc/${PF}/README*"
 		elog "for configuring audio input and more."
-	elif ver_test ${REPLACING_VERSIONS##* } -lt 0.9; then
-		elog "If used, the noise_reduction config option in ~/.config/cava/config needs"
-		elog "to be updated from taking a float to integer (e.g. replace 0.77 with 77)."
 	fi
 }
