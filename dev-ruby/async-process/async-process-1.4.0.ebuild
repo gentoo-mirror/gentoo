@@ -11,23 +11,25 @@ RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
 inherit ruby-fakegem
 
-DESCRIPTION="A singleplex and multiplex resource pool for implementing robust clients"
-HOMEPAGE="https://github.com/socketry/async-pool"
-SRC_URI="https://github.com/socketry/async-pool/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Abstract container-based parallelism using threads and processes"
+HOMEPAGE="https://github.com/socketry/async-process"
+SRC_URI="https://github.com/socketry/async-process/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 
-ruby_add_rdepend ">=dev-ruby/async-1.25:*"
+ruby_add_rdepend "dev-ruby/async:2"
 
 ruby_add_bdepend "test? (
-	dev-ruby/sus-fixtures-async
+	>=dev-ruby/async-rspec-1.1:1
 )"
 
 all_ruby_prepare() {
 	sed -i -E 's/require_relative "(.+)"/require File.expand_path("\1")/g' "${RUBY_FAKEGEM_GEMSPEC}" || die
+
+	rm gems.rb || die
 
 	# Avoid test dependency on unpackaged covered
 	rm -f config/sus.rb || die
