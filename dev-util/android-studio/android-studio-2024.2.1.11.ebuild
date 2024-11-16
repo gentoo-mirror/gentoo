@@ -77,6 +77,14 @@ src_prepare() {
 	rm "${S}"/plugins/android/resources/screen-sharing-agent/{arm64-v8a,armeabi-v7a,x86}/*
 	rm "${S}"/plugins/android/resources/transport/{arm64-v8a,armeabi-v7a,x86}/*
 	rm "${S}"/plugins/android/resources/transport/native/agent/{arm64-v8a,armeabi-v7a,x86}/*
+
+	cat <<-EOF >> bin/idea.properties || die
+	#-----------------------------------------------------------------------
+	# Disable automatic updates as these are handled through Gentoo's
+	# package manager.
+	#-----------------------------------------------------------------------
+	ide.no.platform.update=Gentoo
+	EOF
 }
 
 src_compile() {
