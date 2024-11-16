@@ -2,28 +2,33 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
-CMAKE_MAKEFILE_GENERATOR="emake"
 SSL_DEPS_SKIP=1
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby31 ruby32 ruby33"
 
-inherit cmake ruby-single ssl-cert systemd toolchain-funcs
+inherit cmake ruby-single ssl-cert systemd toolchain-funcs vcs-snapshot
+
+EGIT_COMMIT="1bafd5e6f2638d4967a464ddbc828d40f69cb322"
 
 DESCRIPTION="H2O - the optimized HTTP/1, HTTP/2 server"
 HOMEPAGE="https://h2o.examp1e.net/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="libh2o +mruby"
 
 RDEPEND="acct-group/h2o
 	acct-user/h2o
 	dev-lang/perl
+	dev-libs/openssl:0=
 	!sci-libs/libh2o
+	sys-libs/libcap
 	sys-libs/zlib
-	libh2o? ( dev-libs/libuv )
-	dev-libs/openssl:0="
+	libh2o? (
+		app-arch/brotli
+		dev-libs/libuv
+	)"
 DEPEND="${RDEPEND}
 	mruby? (
 		${RUBY_DEPS}
@@ -32,17 +37,10 @@ DEPEND="${RDEPEND}
 			dev-libs/oniguruma
 		)
 	)"
-BDEPEND="libh2o? ( virtual/pkgconfig )
-	mruby? (
-		app-alternatives/yacc
-		virtual/pkgconfig
-	)"
+BDEPEND="virtual/pkgconfig
+	mruby? ( app-alternatives/yacc )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.2-libressl.patch #903001
-	"${FILESDIR}"/${PN}-2.2-mruby.patch
-	"${FILESDIR}"/${PN}-2.2-ruby30.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-2.3-mruby.patch )
 
 src_prepare() {
 	cmake_src_prepare
@@ -72,6 +70,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}"/etc/${PN}
+		-DWITH_CCACHE=OFF
 		-DWITH_MRUBY=$(usex mruby)
 		-DWITHOUT_LIBS=$(usex !libh2o)
 		-DBUILD_SHARED_LIBS=$(usex libh2o)
