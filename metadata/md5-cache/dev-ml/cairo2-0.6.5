@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=x11-libs/cairo:=[svg(+)] dev-ml/dune-configurator:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Binding to Cairo, a 2D Vector Graphics Library
+EAPI=8
+HOMEPAGE=https://github.com/Chris00/ocaml-cairo
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=LGPL-3
+RDEPEND=x11-libs/cairo:=[svg(+)] dev-ml/dune-configurator:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/0.6.5
+SRC_URI=https://github.com/Chris00/ocaml-cairo/releases/download/0.6.5/cairo2-0.6.5.tbz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=7a8c0c8097ac09425c281f306a75ca1d

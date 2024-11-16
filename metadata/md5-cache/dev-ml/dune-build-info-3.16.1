@@ -1,16 +1,16 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile configure install test
-DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-ml/dune-3.12 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Embed locations informations inside executable and libraries
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/ocaml/dune
 INHERIT=dune
 IUSE=+ocamlopt
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-ml/dune-3.12 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
-SLOT=0/2.9.1
-SRC_URI=https://github.com/ocaml/dune/archive/2.9.1.tar.gz -> dune-2.9.1.tar.gz
+SLOT=0/3.16.1
+SRC_URI=https://github.com/ocaml/dune/archive/3.16.1.tar.gz -> dune-3.16.1.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=644a9f9317c486921aec001c26ec6d40
+_md5_=1ba62b6833e49dfcd5e54518989bfe16
