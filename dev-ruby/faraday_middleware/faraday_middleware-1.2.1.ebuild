@@ -19,11 +19,12 @@ SRC_URI="https://github.com/lostisland/faraday_middleware/archive/v${PV}.tar.gz 
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64"
-IUSE="+parsexml +oauth +mashify +rashify"
+KEYWORDS="~amd64"
+IUSE="brotli +parsexml +oauth +mashify +rashify"
 
 ruby_add_rdepend "
 	dev-ruby/faraday:1
+	brotli? ( dev-ruby/brotli )
 	parsexml? ( >=dev-ruby/multi_xml-0.5.3 )
 	oauth? ( >=dev-ruby/simple_oauth-0.1 )
 	mashify? ( >=dev-ruby/hashie-1.2:* )
@@ -34,7 +35,6 @@ ruby_add_rdepend "
 ruby_add_bdepend "test? (
 	>=dev-ruby/brotli-0.1.8
 	dev-ruby/bundler
-	dev-ruby/addressable
 	>=dev-ruby/rake-12.3.3
 	dev-ruby/webmock:3
 	dev-ruby/json

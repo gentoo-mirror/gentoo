@@ -22,13 +22,15 @@ SRC_URI="https://github.com/lostisland/faraday/archive/v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
 IUSE="test"
 
 DEPEND+=" test? ( sys-process/lsof )"
 
 ruby_add_rdepend "
-	|| ( <dev-ruby/faraday-net_http-3.2:3 dev-ruby/faraday-net_http:2 )
+	|| ( <dev-ruby/faraday-net_http-3.5:3 dev-ruby/faraday-net_http:2 )
+	dev-ruby/json
+	dev-ruby/logger
 "
 ruby_add_bdepend "test? (
 		>=dev-ruby/test-unit-2.4

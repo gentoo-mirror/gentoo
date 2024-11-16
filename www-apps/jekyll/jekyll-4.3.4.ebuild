@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby30 ruby31"
+USE_RUBY="ruby31"
 
 inherit ruby-fakegem
 
@@ -26,10 +26,10 @@ ruby_add_rdepend "
 	>=dev-ruby/colorator-1.0
 	>=dev-ruby/em-websocket-0.5
 	dev-ruby/i18n:1
-	>=dev-ruby/kramdown-2.3:2
+	>=dev-ruby/kramdown-2.3.1:2
 	dev-ruby/kramdown-parser-gfm:1
 	dev-ruby/liquid:4
-	>=dev-ruby/mercenary-0.4.0
+	=dev-ruby/mercenary-0.4*
 	>=dev-ruby/pathutil-0.9
 	|| ( dev-ruby/rouge:4 dev-ruby/rouge:2 )
 	|| ( dev-ruby/terminal-table:3 dev-ruby/terminal-table:2 )
@@ -53,7 +53,7 @@ ruby_add_bdepend "
 
 all_ruby_prepare() {
 	eapply "${FILESDIR}"/jekyll-3.6.0-test-helper.patch
-	eapply -R "${FILESDIR}/${P}-sass.patch"
+	eapply -R "${FILESDIR}/jekyll-4.3.2-sass.patch"
 	eapply "${FILESDIR}"/jekyll-4.3.2-no-safe_yaml.patch
 
 	# Drop tests requiring bundler
@@ -68,6 +68,8 @@ all_ruby_prepare() {
 		-e 's:_relative ": "./:' \
 		-i $RUBY_FAKEGEM_GEMSPEC || die
 
+	sed -e '3igem "liquid", "~> 4.0"' -i test/helper.rb || die
+
 	# FIXMEs:
 	# fails to find fixtures because this requires bundler
 	rm -f test/test_theme.rb || die
@@ -80,7 +82,6 @@ all_ruby_prepare() {
 	rm test/test_configuration.rb || die
 	# pygments tests fail because of line numbering
 	sed -i -e '/^  context.*pygments/,/^  end$/d' test/test_tags.rb || die
-	#sed -i -e '/^    context.*pygments/,/^    end$/d' test/test_redcarpet.rb || die
 
 	# Tries to use bundler and install packages.
 	rm -f test/test_new_command.rb || die
