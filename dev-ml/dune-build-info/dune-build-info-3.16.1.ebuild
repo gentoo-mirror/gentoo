@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit dune
 
@@ -12,14 +12,17 @@ S="${WORKDIR}/dune-${PV}"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="+ocamlopt"
 RESTRICT="test"
+
+RDEPEND=">=dev-ml/dune-3.12"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	:
 }
 
 src_compile() {
-	dune build -p ${PN} @install || die
+	dune-compile ${PN}
 }
