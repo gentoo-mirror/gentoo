@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202411-07">
+    <title>Pillow: Arbitrary code execution</title>
+    <synopsis>A vulnerability has been discovered in Pillow, which may lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">pillow</product>
+    <announced>2024-11-17</announced>
+    <revised count="1">2024-11-17</revised>
+    <bug>928391</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-python/pillow" auto="yes" arch="*">
+            <unaffected range="ge">10.3.0</unaffected>
+            <vulnerable range="lt">10.3.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The friendly PIL fork.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Pillow. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Pillow users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/pillow-10.3.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-28219">CVE-2024-28219</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-11-17T09:47:11.089899Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-11-17T09:47:11.092222Z">graaff</metadata>
+</glsa>

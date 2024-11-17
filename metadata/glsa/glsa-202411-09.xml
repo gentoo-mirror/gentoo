@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202411-09">
+    <title>Perl: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Perl, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">perl</product>
+    <announced>2024-11-17</announced>
+    <revised count="1">2024-11-17</revised>
+    <bug>807307</bug>
+    <bug>905296</bug>
+    <bug>918612</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/perl" auto="yes" arch="*">
+            <unaffected range="ge">5.38.2</unaffected>
+            <vulnerable range="lt">5.38.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Perl is Larry Wall’s Practical Extraction and Report Language.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Perl. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Perl users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/perl-5.38.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-36770">CVE-2021-36770</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-31486">CVE-2023-31486</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-47038">CVE-2023-47038</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-11-17T09:51:20.109847Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-11-17T09:51:20.112367Z">graaff</metadata>
+</glsa>
