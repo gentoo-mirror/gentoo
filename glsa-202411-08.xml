@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202411-08">
+    <title>X.Org X server, XWayland: Multiple Vulnerabilities</title>
+    <synopsis>A vulnerability has been discovered in the Xorg Server and XWayland, the worst of which can result in privilege escalation.</synopsis>
+    <product type="ebuild">xorg-server,xwayland</product>
+    <announced>2024-11-17</announced>
+    <revised count="1">2024-11-17</revised>
+    <bug>928531</bug>
+    <bug>942465</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-base/xorg-server" auto="yes" arch="*">
+            <unaffected range="ge">21.1.14</unaffected>
+            <vulnerable range="lt">21.1.14</vulnerable>
+        </package>
+        <package name="x11-base/xwayland" auto="yes" arch="*">
+            <unaffected range="ge">24.1.4</unaffected>
+            <vulnerable range="lt">24.1.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The X Window System is a graphical windowing system based on a client/server model.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in X.Org X server and XWayland. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All X.Org X server users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xorg-server-21.1.14"
+        </code>
+        
+        <p>All XWayland users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xwayland-24.1.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9632">CVE-2024-9632</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31080">CVE-2024-31080</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31081">CVE-2024-31081</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31082">CVE-2024-31082</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31083">CVE-2024-31083</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-11-17T09:49:25.879517Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-11-17T09:49:25.883830Z">graaff</metadata>
+</glsa>
