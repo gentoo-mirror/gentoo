@@ -122,7 +122,7 @@ CRATES="
 	keccak@0.1.5
 	lazy_static@1.5.0
 	lexis@0.2.3
-	libc@0.2.162
+	libc@0.2.164
 	libcgroups@0.4.1
 	libcontainer@0.4.1
 	libloading@0.8.5
@@ -203,7 +203,7 @@ CRATES="
 	sendfd@0.4.3
 	serde@1.0.215
 	serde_derive@1.0.215
-	serde_json@1.0.132
+	serde_json@1.0.133
 	sha1@0.10.6
 	sha3@0.10.8
 	sharded-slab@0.1.7
@@ -299,8 +299,7 @@ src_configure() {
 		export LIBSECCOMP_LINK_TYPE="static"
 		export LIBSECCOMP_LIB_PATH=$(pkgconf --variable=libdir libseccomp)
 		export RUSTFLAGS+="-Clink-args=-static -Clink-args=-no-pie -Clink-args=-Wl,-Bstatic -Ctarget-feature=+crt-static"
-		local myfeatures=( "log,uring,utils" )
-		cargo_src_configure --no-default-features
+		cargo_src_configure
 	else
 		local myfeatures=( "oci" )
 		cargo_src_configure
