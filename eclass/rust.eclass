@@ -13,8 +13,10 @@
 # a given Rust slot. To use the eclass:
 #
 # 1. If required, set RUST_{MAX,MIN}_SLOT to the range of supported slots.
+#
 # 2. If rust is optional, set RUST_OPTIONAL to a non-empty value then
-#     appropriately gate ${RUST_DEPEND}
+#    appropriately gate ${RUST_DEPEND}
+#
 # 3. Use rust_pkg_setup, get_rust_prefix or RUST_SLOT.
 
 # Example use for a package supporting Rust 1.72.0 to 1.82.0:
@@ -106,7 +108,7 @@ declare -a -g -r _RUST_SLOTS_ORDERED=(
 # Lowest Rust slot supported by the package. Needs to be set before
 # rust_pkg_setup is called. If unset, no lower bound is assumed.
 
-# @eclass-variable: RUST_NEEDS_LLVM
+# @ECLASS_VARIABLE: RUST_NEEDS_LLVM
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If set to a non-empty value generate a llvm_slot_${llvm_slot}? gated
@@ -118,7 +120,7 @@ declare -a -g -r _RUST_SLOTS_ORDERED=(
 # an invalid combination of RUST and LLVM slots is detected; this probably
 # means that a LLVM slot in LLVM_COMPAT has had all of its Rust slots filtered.
 
-# @eclass-variable: RUST_MULTILIB
+# @ECLASS_VARIABLE: RUST_MULTILIB
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If set to a non-empty value insert MULTILIB_USEDEP into the generated
