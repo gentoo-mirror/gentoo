@@ -6,6 +6,8 @@ EAPI=8
 REAL_PN="melonDS"
 REAL_P="${REAL_PN}-${PV}"
 
+[[ "${PV}" == *p20241113 ]] && COMMIT="5e8beb3ab7277e0fae9a9a1cae8d26a357c570e5"
+
 inherit cmake readme.gentoo-r1 toolchain-funcs xdg
 
 DESCRIPTION="Nintendo DS emulator, sorta"
@@ -17,9 +19,9 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/Arisotura/${REAL_PN}.git"
 else
-	SRC_URI="https://github.com/Arisotura/${REAL_PN}/archive/${PV}.tar.gz
+	SRC_URI="https://github.com/Arisotura/${REAL_PN}/archive/${COMMIT}.tar.gz
 		-> ${REAL_P}.tar.gz"
-	S="${WORKDIR}/${REAL_P}"
+	S="${WORKDIR}/${REAL_PN}-${COMMIT}"
 
 	KEYWORDS="~amd64"
 fi

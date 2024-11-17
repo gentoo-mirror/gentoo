@@ -38,8 +38,11 @@ DEPEND_COMMON="
 RDEPEND="
 	${DEPEND_COMMON}
 	>=sys-apps/baselayout-2.2
+	lvm? ( virtual/tmpfiles )
+"
+
+PDEPEND="
 	lvm? (
-		virtual/tmpfiles
 		thin? ( >=sys-block/thin-provisioning-tools-1.0.6 )
 	)
 "
@@ -70,6 +73,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.03.20-freopen-musl.patch
 	"${FILESDIR}"/${PN}-2.03.22-autoconf-2.72-egrep.patch
 	"${FILESDIR}"/${PN}-2.03.22-thin-version-checking.patch
+	"${FILESDIR}"/${PN}-2.03.22-thin-autodetect.patch
 )
 
 pkg_setup() {
@@ -133,7 +137,12 @@ src_configure() {
 	)
 
 	if use lvm && use thin; then
-		myeconfargs+=( --with-thin=internal --with-cache=internal )
+		myeconfargs+=(
+			--with-thin=internal
+			--enable-thin_check_needs_check
+			--with-cache=internal
+			--enable-cache_check_needs_check
+		)
 		local texec
 		for texec in check dump repair restore; do
 			myeconfargs+=( --with-thin-${texec}="${EPREFIX}"/usr/sbin/thin_${texec} )
