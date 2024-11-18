@@ -29,7 +29,7 @@ done
 
 LICENSE="Sleepycat"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~alpha ~amd64 arm arm64 ~hppa ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc cxx tcl test"
 
 REQUIRED_USE="test? ( tcl )"
@@ -60,7 +60,7 @@ PATCHES=(
 
 	# Needed when compiling with clang
 	"${FILESDIR}"/${PN}-5.1.29-rename-atomic-compare-exchange.patch
-	"${FILESDIR}"/${PN}-5.3.28-clang16.patch
+	"${FILESDIR}"/${PN}-5.3.28-modern-c.patch
 	"${FILESDIR}"/${PN}-4.8.30-tls-configure.patch
 )
 
