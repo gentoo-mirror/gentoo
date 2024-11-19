@@ -905,7 +905,7 @@ app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.35.20 1.35.23 1.36.4: Universal Command Line Environment for AWS
+app-admin/awscli 1.35.20 1.35.23 1.36.4 1.36.5: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.9.0-r1: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2: Distribution-independent installer framework
@@ -8033,7 +8033,7 @@ dev-python/GridDataFormats 1.0.2: Reading and writing of data on regular grids i
 dev-python/IPy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/Levenshtein 0.26.1: Functions for fast computation of Levenshtein distance, and edit operations
 dev-python/MechanicalSoup 1.3.0: A Python library for automating interaction with websites
-dev-python/Nuitka 2.4.11 2.5: Python to native compiler
+dev-python/Nuitka 2.4.11 2.5 2.5.1: Python to native compiler
 dev-python/Opcodes 0.3.14-r1: Opcodes Project
 dev-python/OutputCheck 0.4.2-r2: A tool for checking the output of console programs inspired by LLVM's FileCheck
 dev-python/PeachPy 2022.11.13-r2: Portable Efficient Assembly Code-generator in Higher-level Python
@@ -8062,7 +8062,7 @@ dev-python/aiocache 0.12.2 0.12.3: Asyncio cache manager
 dev-python/aiodns 3.2.0: Simple DNS resolver for asyncio
 dev-python/aiofiles 24.1.0: File support for asyncio
 dev-python/aiohappyeyeballs 2.4.3: Happy Eyeballs for pre-resolved hosts
-dev-python/aiohttp 3.10.10 3.11.0_rc0 3.11.0_rc1 3.11.0_rc2 3.11.0 3.11.2: HTTP client/server for asyncio
+dev-python/aiohttp 3.10.10 3.11.0_rc0 3.11.0_rc1 3.11.0_rc2 3.11.0 3.11.2 3.11.3: HTTP client/server for asyncio
 dev-python/aiohttp-cors 0.7.0-r2: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-oauthlib 0.1.0: This project provides first-class OAuth library support for aiohttp
 dev-python/aiohttp-socks 0.9.0: SOCKS proxy connector for aiohttp
@@ -8162,8 +8162,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0 1.2.0 1.2.1 1.3.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.35.54 1.35.57 1.35.63: The AWS SDK for Python
-dev-python/botocore 1.35.54 1.35.57 1.35.63: Low-level, data-driven core of boto 3
+dev-python/boto3 1.35.54 1.35.57 1.35.63 1.35.64: The AWS SDK for Python
+dev-python/botocore 1.35.54 1.35.57 1.35.63 1.35.64: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8191,7 +8191,7 @@ dev-python/cerberus 1.3.5: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.17.2 1.18.3 1.18.4 1.19.0: CloudFormation Linter
+dev-python/cfn-lint 1.17.2 1.18.3 1.18.4 1.19.0 1.20.0: CloudFormation Linter
 dev-python/cftime 1.6.4_p1: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4: Fast HTML/XML template compiler for Python
@@ -8205,7 +8205,7 @@ dev-python/cherrypy 18.10.0: CherryPy is a pythonic, object-oriented HTTP framew
 dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
 dev-python/clang-python 15.0.7 16.0.6 17.0.6 18.1.8 19.1.3 20.0.0_pre20241029 20.0.0_pre20241106 20.0.0_pre20241113 20.0.0_pre20241118 20.0.0.9999: Python bindings for sys-devel/clang
-dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
+dev-python/cleo 2.1.0 2.2.1: Python tool for building testable command-line interfaces
 dev-python/cli-helpers 2.3.1 9999: Python helpers for common CLI tasks
 dev-python/cli-ui 0.17.2: Python library for better command line interfaces
 dev-python/click 8.1.7: A Python package for creating beautiful command line interfaces
@@ -8638,7 +8638,7 @@ dev-python/legacy-cgi 2.6.1: Fork of the standard library cgi and cgitb modules 
 dev-python/lesscpy 0.15.1: A compiler written in Python for the LESS language
 dev-python/lhafile 0.3.0-r1: LHA archive support for Python
 dev-python/libarchive-c 5.1: A Python interface to libarchive
-dev-python/libcst 1.5.0-r1: A concrete syntax tree with AST-like properties for Python
+dev-python/libcst 1.5.0-r1 1.5.1: A concrete syntax tree with AST-like properties for Python
 dev-python/libevdev 0.11: Python wrappers for the libevdev library
 dev-python/liblarch 3.2.0: Library to handle directed acyclic graphs
 dev-python/libnacl 2.1.0: Python ctypes wrapper for libsodium
@@ -8813,9 +8813,9 @@ dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 2.3.0 2.7.1: Python client for OpenSearch
 dev-python/openstackdocstheme 3.4.0: Theme and extension support for Sphinx documentation
 dev-python/openstacksdk 4.1.0: A collection of libraries for building applications to work with OpenStack
-dev-python/opentelemetry-api 1.27.0 1.28.0 1.28.1: OpenTelemetry Python API
-dev-python/opentelemetry-sdk 1.27.0 1.28.0 1.28.1: OpenTelemetry Python SDK
-dev-python/opentelemetry-semantic-conventions 1.27.0 1.28.0 1.28.1: OpenTelemetry Semantic Conventions
+dev-python/opentelemetry-api 1.27.0 1.28.0 1.28.1 1.28.2: OpenTelemetry Python API
+dev-python/opentelemetry-sdk 1.27.0 1.28.0 1.28.1 1.28.2: OpenTelemetry Python SDK
+dev-python/opentelemetry-semantic-conventions 1.27.0 1.28.0 1.28.1 1.28.2: OpenTelemetry Semantic Conventions
 dev-python/opt-einsum 3.4.0: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.1.0: A mutable set that remembers the order of its entries
 dev-python/orderly-set 5.2.2 5.2.3: A package containing multiple implementations of Ordered Set
@@ -8915,7 +8915,7 @@ dev-python/poetry-core 1.9.1: Poetry PEP 517 Build Backend
 dev-python/poetry-plugin-export 1.7.1 1.8.0: A plugin that allows the export of locked packages to various formats
 dev-python/polib 1.2.0: A library to manipulate gettext files (.po and .mo files)
 dev-python/pooch 1.8.2: Manage your Python library's sample data files
-dev-python/portalocker 2.10.1: A library for Python file locking
+dev-python/portalocker 2.10.1 3.0.0: A library for Python file locking
 dev-python/portend 3.2.0: TCP port monitoring utilities
 dev-python/poyo 0.5.0-r1: A lightweight YAML Parser for Python
 dev-python/pplpy 0.8.10: Python bindings for the Parma Polyhedra Library (PPL)
@@ -9126,7 +9126,7 @@ dev-python/pytest-helpers-namespace 2021.12.29-r1: Provides a helpers pytest nam
 dev-python/pytest-home 0.6.0: Home directory fixtures
 dev-python/pytest-httpbin 2.1.0: Easily test your HTTP library against a local copy of httpbin
 dev-python/pytest-httpserver 1.1.0: HTTP server for pytest to test HTTP clients
-dev-python/pytest-httpx 0.33.0: Send responses to HTTPX using pytest
+dev-python/pytest-httpx 0.33.0 0.34.0: Send responses to HTTPX using pytest
 dev-python/pytest-import-check 0.0.4: pytest plugin to check whether Python modules can be imported
 dev-python/pytest-jupyter 0.10.1: Pytest plugin for testing Jupyter libraries and extensions
 dev-python/pytest-lazy-fixtures 1.1.1: Allows you to use fixtures in @pytest.mark.parametrize
@@ -9391,7 +9391,7 @@ dev-python/simpleeval 1.0.2 1.0.3: A simple, safe single expression evaluator li
 dev-python/simplejson 3.19.2 3.19.3: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
 dev-python/simpy 4.1.1: Object-oriented, process-based discrete-event simulation language
-dev-python/simsimd 5.9.11 6.0.3 6.0.5: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
+dev-python/simsimd 5.9.11 6.0.3 6.0.5 6.0.6: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
 dev-python/sip 6.8.6-r1: Python bindings generator for C/C++ libraries
 dev-python/siphash24 1.7: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.16.0-r1: Python 2 and 3 compatibility library
@@ -9475,7 +9475,7 @@ dev-python/sshtunnel 0.3.1 0.4.0: Pure Python SSH tunnels
 dev-python/ssl-fetch 0.4-r1 9999: Small convenience library for fetching files securely
 dev-python/stack-data 0.6.3: Extract data from Python tracebacks for informative displays
 dev-python/stapler 1.0.0_p20220330-r4: Suite of tools for PDF files manipulation written in Python
-dev-python/starlette 0.39.2-r1 0.41.2: The little ASGI framework that shines
+dev-python/starlette 0.39.2-r1 0.41.2 0.41.3: The little ASGI framework that shines
 dev-python/statsd 4.0.1: A simple statsd client
 dev-python/statsmodels 0.14.4: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1-r1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -9573,7 +9573,7 @@ dev-python/typeguard 4.3.0 4.4.0 4.4.1: Run-time type checker for Python
 dev-python/types-docutils 0.21.0.20240907 0.21.0.20241005: Typing stubs for docutils
 dev-python/types-gdb 12.1.4.20240704 15.0.0.20241015: Typing stubs for gdb
 dev-python/types-psutil 6.1.0.20241102: Typing stubs for psutil
-dev-python/types-setuptools 75.2.0.20241025 75.3.0.20241105 75.3.0.20241107 75.3.0.20241112 75.4.0.20241115 75.5.0.20241116: Typing stubs for setuptools
+dev-python/types-setuptools 75.2.0.20241025 75.3.0.20241105 75.3.0.20241107 75.3.0.20241112 75.4.0.20241115 75.5.0.20241116 75.5.0.20241119: Typing stubs for setuptools
 dev-python/typing-extensions 4.12.2: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
