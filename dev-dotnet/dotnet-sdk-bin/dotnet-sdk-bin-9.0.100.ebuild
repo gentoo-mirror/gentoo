@@ -3,8 +3,6 @@
 
 EAPI=8
 
-REAL_PV="$(ver_cut 1-3)-rc.$(ver_cut 4-6)"
-
 SDK_SLOT="$(ver_cut 1-2)"
 RUNTIME_SLOT="${SDK_SLOT}.0"
 
@@ -14,26 +12,26 @@ HOMEPAGE="https://dotnet.microsoft.com/
 SRC_URI="
 amd64? (
 	elibc_glibc? (
-		https://dotnetcli.azureedge.net/dotnet/Sdk/${REAL_PV}/dotnet-sdk-${REAL_PV}-linux-x64.tar.gz
+		https://dotnetcli.azureedge.net/dotnet/Sdk/${PV}/dotnet-sdk-${PV}-linux-x64.tar.gz
 	)
 	elibc_musl? (
-		https://dotnetcli.azureedge.net/dotnet/Sdk/${REAL_PV}/dotnet-sdk-${REAL_PV}-linux-musl-x64.tar.gz
+		https://dotnetcli.azureedge.net/dotnet/Sdk/${PV}/dotnet-sdk-${PV}-linux-musl-x64.tar.gz
 	)
 )
 arm? (
 	elibc_glibc? (
-		https://dotnetcli.azureedge.net/dotnet/Sdk/${REAL_PV}/dotnet-sdk-${REAL_PV}-linux-arm.tar.gz
+		https://dotnetcli.azureedge.net/dotnet/Sdk/${PV}/dotnet-sdk-${PV}-linux-arm.tar.gz
 	)
 	elibc_musl? (
-		https://dotnetcli.azureedge.net/dotnet/Sdk/${REAL_PV}/dotnet-sdk-${REAL_PV}-linux-musl-arm.tar.gz
+		https://dotnetcli.azureedge.net/dotnet/Sdk/${PV}/dotnet-sdk-${PV}-linux-musl-arm.tar.gz
 	)
 )
 arm64? (
 	elibc_glibc? (
-		https://dotnetcli.azureedge.net/dotnet/Sdk/${REAL_PV}/dotnet-sdk-${REAL_PV}-linux-arm64.tar.gz
+		https://dotnetcli.azureedge.net/dotnet/Sdk/${PV}/dotnet-sdk-${PV}-linux-arm64.tar.gz
 	)
 	elibc_musl? (
-		https://dotnetcli.azureedge.net/dotnet/Sdk/${REAL_PV}/dotnet-sdk-${REAL_PV}-linux-musl-arm64.tar.gz
+		https://dotnetcli.azureedge.net/dotnet/Sdk/${PV}/dotnet-sdk-${PV}-linux-musl-arm64.tar.gz
 	)
 )
 "
@@ -42,20 +40,19 @@ S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
 # See bug https://bugs.gentoo.org/932377
-# KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64"
 
 # STRIP="llvm-strip" corrupts some executables when using the patchelf hack,
 # bug https://bugs.gentoo.org/923430
 RESTRICT="splitdebug strip"
 
-# Currently unsupported in ::gentoo.
-# CURRENT_NUGETS_DEPEND="
-# 	~dev-dotnet/dotnet-runtime-nugets-${RUNTIME_SLOT}
-# "
+CURRENT_NUGETS_DEPEND="
+	~dev-dotnet/dotnet-runtime-nugets-${RUNTIME_SLOT}
+"
 EXTRA_NUGETS_DEPEND="
-	~dev-dotnet/dotnet-runtime-nugets-6.0.33
+	~dev-dotnet/dotnet-runtime-nugets-6.0.36
 	~dev-dotnet/dotnet-runtime-nugets-7.0.20
-	~dev-dotnet/dotnet-runtime-nugets-8.0.8
+	~dev-dotnet/dotnet-runtime-nugets-8.0.11
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}

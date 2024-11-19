@@ -3,35 +3,35 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="8.0"
+DOTNET_PKG_COMPAT="9.0"
 NUGETS="
 argon@0.15.0
-argon@0.22.0
+argon@0.24.2
 autofac@8.1.1
-basic.reference.assemblies.net60@1.7.9
-basic.reference.assemblies.net70@1.7.9
 basic.reference.assemblies.net80@1.7.9
+basic.reference.assemblies.net90@1.7.9
 castle.core@5.1.1
 diffengine@15.1.1
 diffengine@15.5.3
 emptyfiles@8.1.0
 emptyfiles@8.5.0
-microsoft.bcl.asyncinterfaces@8.0.0
+microsoft.bcl.cryptography@9.0.0
 microsoft.bcl.timeprovider@8.0.1
 microsoft.build.tasks.git@8.0.0
 microsoft.codeanalysis.analyzers@3.3.4
 microsoft.codeanalysis.common@4.11.0
-microsoft.codeanalysis.csharp.scripting@4.11.0
-microsoft.codeanalysis.csharp@4.11.0
-microsoft.codeanalysis.scripting.common@4.11.0
+microsoft.codeanalysis.common@4.12.0-3.final
+microsoft.codeanalysis.csharp.scripting@4.12.0-3.final
+microsoft.codeanalysis.csharp@4.12.0-3.final
+microsoft.codeanalysis.scripting.common@4.12.0-3.final
 microsoft.codecoverage@17.11.1
 microsoft.csharp@4.7.0
-microsoft.extensions.dependencyinjection.abstractions@8.0.2
-microsoft.extensions.dependencyinjection@8.0.1
-microsoft.identitymodel.abstractions@8.1.2
-microsoft.identitymodel.jsonwebtokens@8.1.2
-microsoft.identitymodel.logging@8.1.2
-microsoft.identitymodel.tokens@8.1.2
+microsoft.extensions.dependencyinjection.abstractions@9.0.0
+microsoft.extensions.dependencyinjection@9.0.0
+microsoft.identitymodel.abstractions@8.2.0
+microsoft.identitymodel.jsonwebtokens@8.2.0
+microsoft.identitymodel.logging@8.2.0
+microsoft.identitymodel.tokens@8.2.0
 microsoft.net.test.sdk@17.11.1
 microsoft.netcore.platforms@7.0.4
 microsoft.sourcelink.common@8.0.0
@@ -40,7 +40,7 @@ microsoft.testplatform.objectmodel@17.11.1
 microsoft.testplatform.testhost@17.11.1
 microsoft.win32.registry@5.0.0
 newtonsoft.json@13.0.3
-nsubstitute@5.1.0
+nsubstitute@5.3.0
 nuget.common@6.11.1
 nuget.configuration@6.11.1
 nuget.frameworks@6.11.1
@@ -54,29 +54,21 @@ spectre.console.cli@0.49.1
 spectre.console@0.49.1
 spectre.verify.extensions@22.3.1
 stylecop.analyzers@1.1.118
-system.buffers@4.5.1
-system.codedom@6.0.0
 system.codedom@8.0.0
-system.collections.immutable@8.0.0
+system.collections.immutable@9.0.0
 system.diagnostics.diagnosticsource@8.0.1
 system.diagnostics.eventlog@6.0.0
-system.formats.asn1@6.0.0
+system.formats.asn1@9.0.0
 system.io.hashing@8.0.0
-system.management@6.0.2
 system.management@8.0.0
-system.memory@4.5.5
-system.numerics.vectors@4.5.0
-system.reflection.metadata@8.0.1
-system.runtime.compilerservices.unsafe@6.0.0
+system.reflection.metadata@9.0.0
 system.security.accesscontrol@5.0.0
-system.security.cryptography.pkcs@6.0.4
+system.security.cryptography.pkcs@9.0.0
 system.security.cryptography.protecteddata@4.4.0
 system.security.principal.windows@5.0.0
-system.text.encoding.codepages@7.0.0
-system.threading.tasks.extensions@4.5.4
-verify.xunit@27.0.1
+verify.xunit@28.2.0
 verify@23.0.0
-verify@27.0.1
+verify@28.2.0
 xunit.abstractions@2.0.3
 xunit.analyzers@1.16.0
 xunit.assert@2.9.2
@@ -126,7 +118,7 @@ src_prepare() {
 	dotnet-pkg_src_prepare
 
 	sed -i \
-		-e "s|net.*;net8.0|net${DOTNET_PKG_COMPAT}|" \
+		-e "s|net.*;net9.0|net${DOTNET_PKG_COMPAT}|" \
 		src/Shared.msbuild \
 		tests/integration/Cake.Frosting/build/Build.csproj \
 		|| die
