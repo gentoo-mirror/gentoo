@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2024-11-18)
+# All classes were moved to >=x11-libs/qwt-6.2.0. No revdeps.
+# Removal on 2024-12-18.
+x11-libs/qwtpolar
+
 # Robin H. Johnson <robbat2@gentoo.org> (2024-11-17)
 # bug 943698
 # Poor upstream code quality, unmaintained upstream;
@@ -51,10 +56,6 @@ dev-libs/libg15render
 # Superseded by dev-lang/pypy:3.10.  This version is vulnerable.
 # Removal on 2024-12-01.
 dev-python/pypy3_10
-
-# Alfredo Tupone <tupone@gentoo.org> (2024-11-17)
-# Masked for testing
->=dev-ml/findlib-1.9.7
 
 # Alfredo Tupone <tupone@gentoo.org> (2024-11-17)
 # Included in dev-ml/odoc, the only rdep
