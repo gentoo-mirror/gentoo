@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://www.clifford.at/stfl/
 INHERIT=perl-module python-r1 toolchain-funcs
 IUSE=examples perl python ruby static-libs python_targets_python3_10 python_targets_python3_11
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ppc ~ppc64 x86
 LICENSE=LGPL-3
 RDEPEND=sys-libs/ncurses:=[unicode(+)] perl? ( dev-lang/perl:= ) ruby? ( dev-lang/ruby:* ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=http://www.clifford.at/stfl/stfl-0.24.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-r1	2def7a4ce233dfa344f613025c619a23
-_md5_=119645b4271ed2f234846bfc97ae9a3d
+_md5_=72b434ec3ede317f19d23358f735b44e
