@@ -8208,6 +8208,7 @@ sys-devel/gcc:go - Build the GCC Go language frontend.
 sys-devel/gcc:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
 sys-devel/gcc:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
 sys-devel/gcc:jit - Enable libgccjit so other applications can embed gcc for Just-In-Time compilation.
+sys-devel/gcc:libdiagnostics - Provide libdiagnostics (https://gcc.gnu.org/wiki/libdiagnostics). This also installs the 'sarif-replay' tool.
 sys-devel/gcc:libssp - Build SSP support into a dedicated library rather than use the code in the C library (DO NOT ENABLE THIS IF YOU DON'T KNOW WHAT IT DOES)
 sys-devel/gcc:lto - Build using Link Time Optimizations (LTO). Note that GCC is always built with support for building other programs with LTO. This USE flag is for whether GCC itself is built and optimized with LTO.
 sys-devel/gcc:modula2 - Build the GCC Modula-2 language frontend.
