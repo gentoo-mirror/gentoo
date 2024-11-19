@@ -3,8 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
-inherit bash-completion-r1 estack flag-o-matic linux-info llvm toolchain-funcs python-r1
+LLVM_COMPAT=( {16..19} )
+PYTHON_COMPAT=( python3_{10..13} python3_13t)
+inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r1 toolchain-funcs python-r1
 
 DESCRIPTION="Userland tools for Linux Performance Counters"
 HOMEPAGE="https://perf.wiki.kernel.org/"
@@ -64,8 +65,10 @@ RDEPEND="
 		dev-libs/libbpf
 		dev-util/bpftool
 		dev-util/pahole
-		sys-devel/clang:=
-		sys-devel/llvm:=
+		$(llvm_gen_dep '
+			sys-devel/clang:${LLVM_SLOT}=
+			sys-devel/llvm:${LLVM_SLOT}=
+		')
 	)
 	caps? ( sys-libs/libcap )
 	capstone? ( dev-libs/capstone )
@@ -110,7 +113,9 @@ pkg_pretend() {
 
 pkg_setup() {
 	local CONFIG_CHECK="
+		~!SCHED_OMIT_FRAME_POINTER
 		~DEBUG_INFO
+		~FRAME_POINTER
 		~FTRACE
 		~FTRACE_SYSCALLS
 		~FUNCTION_TRACER
@@ -119,17 +124,19 @@ pkg_setup() {
 		~KPROBES
 		~KPROBE_EVENTS
 		~PERF_EVENTS
+		~STACKTRACE
+		~TRACEPOINTS
 		~UPROBES
 		~UPROBE_EVENTS
 	"
 
-	use bpf && llvm_pkg_setup
+	use bpf && llvm-r1_pkg_setup
 	# We enable python unconditionally as libbpf always generates
 	# API headers using python script
 	python_setup
 
 	if use bpf ; then
-		CONFIG_CHECK+="~BPF ~BPF_EVENTS ~BPF_SYSCALL ~DEBUG_INFO_BTF ~HAVE_EBPF_JIT"
+		CONFIG_CHECK+="~BPF ~BPF_EVENTS ~BPF_SYSCALL ~DEBUG_INFO_BTF ~HAVE_EBPF_JIT ~UNWINDER_FRAME_POINTER"
 	fi
 
 	linux-info_pkg_setup
@@ -139,8 +146,10 @@ pkg_setup() {
 # it's building from the same tarball, please keep it in sync with bpftool
 src_unpack() {
 	local paths=(
-		kernel/bpf tools/{arch,bpf,build,include,lib,perf,scripts}
-		scripts include lib "arch/*/include" "arch/*/lib" "arch/*/tools"
+		'arch/*/include/*' 'arch/*/lib/*' 'arch/*/tools/*' 'include/*'
+		'kernel/bpf/*' 'lib/*' 'scripts/*' 'tools/arch/*' 'tools/bpf/*'
+		'tools/build/*' 'tools/include/*' 'tools/lib/*' 'tools/perf/*'
+		'tools/scripts/*'
 	)
 
 	# We expect the tar implementation to support the -j option (both
@@ -152,9 +161,10 @@ src_unpack() {
 	if [[ -n ${LINUX_PATCH} ]] ; then
 		eshopts_push -o noglob
 		ebegin "Filtering partial source patch"
-		filterdiff -p1 ${paths[@]/#/-i } -z "${DISTDIR}"/${LINUX_PATCH} \
-			> ${P}.patch
+		xzcat "${DISTDIR}"/${LINUX_PATCH} | filterdiff -p1 ${paths[@]/#/-i} > ${P}.patch
+		assert -n "Unpacking to ${P} from ${DISTDIR}/${LINUX_PATCH} failed"
 		eend $? || die "filterdiff failed"
+		test -s ${P}.patch || die "patch is empty?!"
 		eshopts_pop
 	fi
 
@@ -175,9 +185,7 @@ src_prepare() {
 	fi
 
 	pushd "${S_K}" >/dev/null || die
-	eapply "${FILESDIR}"/perf-6.4-libtracefs.patch
-	eapply "${FILESDIR}"/perf-6.10-bpf-capstone.patch
-	eapply "${FILESDIR}"/perf-6.10-expr.patch
+	# Gentoo patches go here
 	popd || die
 
 	# Drop some upstream too-developer-oriented flags and fix the
