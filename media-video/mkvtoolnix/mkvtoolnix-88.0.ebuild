@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic multiprocessing qmake-utils xdg
+inherit autotools flag-o-matic multiprocessing prefix qmake-utils xdg
 
 if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
@@ -17,7 +17,7 @@ else
 		https://mkvtoolnix.download/sources/${P}.tar.xz
 		verify-sig? ( https://mkvtoolnix.download/sources/${P}.tar.xz.sig )
 	"
-	KEYWORDS="amd64 ppc ppc64 x86"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/mkvtoolnix.asc"
 fi
@@ -33,7 +33,6 @@ RESTRICT="!test? ( test )"
 # check NEWS.md for build system changes entries for boost/libebml/libmatroska
 # version requirement updates and other packaging info
 RDEPEND="
-	app-text/cmark:0=
 	dev-libs/boost:=
 	dev-libs/gmp:=
 	>=dev-libs/libebml-1.4.5:=
@@ -47,9 +46,11 @@ RDEPEND="
 	sys-libs/zlib
 	dvd? ( media-libs/libdvdread:= )
 	gui? (
+		app-text/cmark:0=
 		>=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets]
 		>=dev-qt/qtmultimedia-6.2:6
 		>=dev-qt/qtsvg-6.2:6
+		media-libs/libglvnd
 	)
 "
 DEPEND="${RDEPEND}
@@ -72,11 +73,6 @@ if [[ ${PV} != *9999 ]] ; then
 	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-mkvtoolnix )"
 fi
 
-PATCHES=(
-	# https://bugs.gentoo.org/927380
-	"${FILESDIR}"/mkvtoolnix-83.0.0-fix-disable-gui.patch
-)
-
 src_prepare() {
 	default
 
@@ -86,6 +82,9 @@ src_prepare() {
 
 	# bug #692018
 	sed -i -e 's/pandoc/diSaBlEd/' ac/pandoc.m4 || die
+
+	# bug #928463
+	hprefixify "${S}/ac/ax_docbook.m4"
 
 	eautoreconf
 
