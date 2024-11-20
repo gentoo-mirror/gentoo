@@ -11,16 +11,15 @@ DESCRIPTION="QT based Computer Aided Design application"
 HOMEPAGE="https://www.freecad.org/ https://github.com/FreeCAD/FreeCAD"
 
 MY_PN=FreeCAD
-MY_PV="${PV/_/}"
 
 if [[ ${PV} = *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${MY_PN}/${MY_PN}.git"
 	S="${WORKDIR}/freecad-${PV}"
 else
-	SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/FreeCAD-${MY_PV}"
+	S="${WORKDIR}/FreeCAD-${PV}"
 fi
 
 # code is licensed LGPL-2
@@ -90,14 +89,13 @@ RDEPEND="
 			dev-qt/qtopengl:5
 			dev-qt/qtprintsupport:5
 			dev-qt/qtsvg:5
-			dev-qt/qtwebengine:5[widgets]
 			dev-qt/qtwidgets:5
 			dev-qt/qtx11extras:5
 			pcl? ( sci-libs/pcl[qt5] )
 			$(python_gen_cond_dep '
 				dev-python/matplotlib[${PYTHON_USEDEP}]
 				>=dev-python/pivy-0.6.5[${PYTHON_USEDEP}]
-				dev-python/pyside2:=[gui,svg,webchannel,webengine,${PYTHON_USEDEP}]
+				dev-python/pyside2:=[gui,svg,webchannel,${PYTHON_USEDEP}]
 				dev-python/shiboken2:=[${PYTHON_USEDEP}]
 			' python3_{10..11} )
 		)
@@ -107,12 +105,11 @@ RDEPEND="
 			dev-qt/qttools:6[widgets]
 			dev-qt/qtbase:6[gui,opengl,widgets]
 			dev-qt/qtsvg:6
-			dev-qt/qtwebengine:6[widgets]
 			pcl? ( sci-libs/pcl[-qt5,qt6(-)] )
 			$(python_gen_cond_dep '
 				dev-python/matplotlib[${PYTHON_USEDEP}]
 				>=dev-python/pivy-0.6.5[${PYTHON_USEDEP}]
-				dev-python/pyside6:=[gui,svg,webchannel,webengine,${PYTHON_USEDEP}]
+				dev-python/pyside6:=[gui,svg,webchannel,${PYTHON_USEDEP}]
 				dev-python/shiboken6:=[${PYTHON_USEDEP}]
 			' )
 		)
@@ -172,7 +169,7 @@ REQUIRED_USE="
 # There is no py3.12 support planned for pyside2
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9999-Gentoo-specific-don-t-check-vcs.patch
+	"${FILESDIR}"/${PN}-1.0.0-Gentoo-specific-don-t-check-vcs.patch
 	"${FILESDIR}"/${PN}-0.21.0-0001-Gentoo-specific-disable-ccache-usage.patch
 	"${FILESDIR}"/${PN}-9999-tests-src-Qt-only-build-test-for-BUILD_GUI-ON.patch
 )
@@ -264,7 +261,6 @@ src_configure() {
 		-DFREECAD_USE_PCL=$(usex pcl)
 		-DFREECAD_USE_PYBIND11=ON
 		-DFREECAD_USE_QT_FILEDIALOG=ON
-		-DFREECAD_USE_QTWEBMODULE:STRING="Qt WebEngine"
 
 		# install python modules to site-packages' dir. True only for the main package,
 		# sub-packages will still be installed inside /usr/lib64/freecad
