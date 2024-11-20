@@ -5,17 +5,26 @@ EAPI=8
 
 inherit autotools flag-o-matic
 
+MY_PV="${PV%%_p*}"
+MY_P="${PN}-${MY_PV}"
+
 DESCRIPTION="ARIN rwhois daemon"
 HOMEPAGE="https://projects.arin.net/rwhois/"
-SRC_URI="https://github.com/arineng/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/rwhoisd-1.5.9.6-fix-build-for-clang16.patch.xz"
-S="${WORKDIR}/${P}/${PN}"
+SRC_URI="
+	https://github.com/arineng/${PN}/archive/${MY_PV}.tar.gz
+		-> ${MY_P}.tar.gz
+	https://dev.gentoo.org/~arkamar/distfiles/${MY_P}-patches-${PV##*_p}.tar.xz
+"
+S="${WORKDIR}/${MY_P}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="virtual/libcrypt:="
+DEPEND="
+	sys-apps/tcp-wrappers
+	virtual/libcrypt:=
+"
 RDEPEND="
 	${DEPEND}
 	acct-group/rwhoisd
@@ -26,12 +35,7 @@ BDEPEND="
 	app-alternatives/yacc
 "
 
-# upstream PR: https://github.com/arineng/rwhoisd/pull/2
-PATCHES=(
-	"${WORKDIR}/${P}-fix-build-for-clang16.patch"
-	"${FILESDIR}/${P}-fix-direct-ar-call.patch"
-	"${FILESDIR}/${P}-c99.patch"
-)
+PATCHES=( "${WORKDIR}"/patches )
 
 src_prepare() {
 	default
@@ -40,10 +44,6 @@ src_prepare() {
 
 src_compile() {
 	append-cflags -DNEW_STYLE_BIN_SORT -std=gnu89
-
-	emake -C common
-	emake -C regexp
-	emake -C mkdb
 
 	default
 }
