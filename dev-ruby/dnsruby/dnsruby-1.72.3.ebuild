@@ -13,12 +13,12 @@ inherit ruby-fakegem
 DESCRIPTION="A pure Ruby DNS client library"
 HOMEPAGE="https://github.com/alexdalitz/dnsruby"
 
-KEYWORDS="~amd64 ~arm ~x86"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE=""
+KEYWORDS="~amd64 ~arm ~x86"
+IUSE="test"
 
-ruby_add_rdepend ">=dev-ruby/simpleidn-0.1:0"
+ruby_add_rdepend "dev-ruby/base64:0.2 >=dev-ruby/simpleidn-0.2.1:0 =dev-ruby/simpleidn-0.2*:0"
 
 ruby_add_bdepend "test? ( >=dev-ruby/minitest-5.4:5 )"
 
@@ -30,6 +30,6 @@ all_ruby_prepare() {
 
 each_ruby_test() {
 	# only run offline tests
-	#${RUBY} -I .:lib test/ts_dnsruby.rb || die "test failed"
+	# ${RUBY} -I .:lib test/ts_dnsruby.rb || die "test failed"
 	${RUBY} -I .:lib test/ts_offline.rb || die "test failed"
 }
