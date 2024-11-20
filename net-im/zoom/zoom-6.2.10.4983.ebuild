@@ -104,7 +104,7 @@ src_install() {
 	doins -r calendar cef chatapp email json ringtone scheduler sip \
 		timezones translations
 	doins *.pcm Embedded.properties version.txt
-	doexe zoom zopen ZoomLauncher *.sh \
+	doexe zoom zopen ZoomLauncher ZoomWebviewHost *.sh \
 		aomhost libaomagent.so libdvf.so libmkldnn.so \
 		libavcodec.so* libavformat.so* libavutil.so* libswresample.so*
 	fperms a+x /opt/zoom/cef/chrome-sandbox
@@ -133,7 +133,7 @@ src_install() {
 				plugins/platforms/libqeglfs.so \
 				plugins/platforms/libqlinuxfb.so \
 				plugins/platformthemes/libqgtk3.so \
-				qml/QtQml/RemoteObjects \
+				qml/Qt/labs/lottieqt qml/QtQml/RemoteObjects \
 				qml/QtQuick/LocalStorage qml/QtQuick/Particles.2 \
 				qml/QtQuick/Scene2D qml/QtQuick/Scene3D \
 				qml/QtQuick/XmlListModel || die
@@ -152,12 +152,13 @@ src_install() {
 
 	use zoom-symlink && dosym -r /opt/zoom/ZoomLauncher /usr/bin/zoom
 
-	make_desktop_entry "zoom %U" Zoom videoconference-zoom \
-		"Network;VideoConference;" \
+	make_desktop_entry "${EPREFIX}/opt/zoom/ZoomLauncher %U" Zoom \
+		videoconference-zoom "Network;VideoConference;" \
 		"MimeType=$(printf '%s;' \
 			x-scheme-handler/zoommtg \
 			x-scheme-handler/zoomus \
 			application/x-zoom)"
+	mv "${ED}"/usr/share/applications/{ZoomLauncher-,}zoom.desktop || die
 	doicon videoconference-zoom.svg
 	doicon -s scalable videoconference-zoom.svg
 
