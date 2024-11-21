@@ -43,6 +43,7 @@ RDEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	media-libs/qhull:=
+	net-libs/webkit-gtk:4.1
 	sci-libs/libigl
 	sci-libs/nlopt
 	sci-libs/opencascade:=
@@ -62,20 +63,26 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-2.6.0-dont-force-link-to-wayland-and-x11.patch"
 	"${FILESDIR}/${PN}-2.8.0-missing-includes.patch"
-	"${FILESDIR}/${PN}-2.8.0-fixed-linking.patch"
 	"${FILESDIR}/${PN}-2.8.0-wxwidgets-3.2.4.patch"
-	"${FILESDIR}/${PN}-2.8.0-cgal-6.0.patch"
+	"${FILESDIR}/${PN}-2.8.1-fixed-linking.patch"
+	"${FILESDIR}/${PN}-2.8.1-cgal-6.0.patch"
+	"${FILESDIR}/${PN}-2.8.1-fstream.patch"
+	"${FILESDIR}/${PN}-2.8.1-fix-libsoup-double-linking.patch"
 )
 
 src_prepare() {
 	if has_version ">=sci-libs/opencascade-7.8.0"; then
-		eapply "${FILESDIR}/prusaslicer-2.7.2-opencascade-7.8.0.patch"
+		eapply "${FILESDIR}/prusaslicer-2.8.1-opencascade-7.8.0.patch"
 	fi
 
 	sed -i -e 's/PrusaSlicer-${SLIC3R_VERSION}+UNKNOWN/PrusaSlicer-${SLIC3R_VERSION}+Gentoo/g' version.inc || die
 
-	sed -i -e 's/find_package(OpenCASCADE 7.6.2 REQUIRED)/find_package(OpenCASCADE REQUIRED)/g' \
+	sed -i -e 's/find_package(OpenCASCADE 7.6.[0-9] REQUIRED)/find_package(OpenCASCADE REQUIRED)/g' \
 		src/occt_wrapper/CMakeLists.txt || die
+
+	# remove broken cmake find file: https://github.com/prusa3d/PrusaSlicer/issues/13608
+	rm cmake/modules/FindEigen3.cmake || die
+
 	cmake_src_prepare
 }
 
