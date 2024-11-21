@@ -1,6 +1,6 @@
-BDEPEND=test? ( dev-util/dejagnu ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=python_single_target_pypy3? ( dev-python/setuptools[python_targets_pypy3(-)] ) python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) test? ( dev-util/dejagnu ) >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
-DEPEND=python_single_target_pypy3? ( dev-python/pypy3:= ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/boost:= >=dev-libs/elfutils-0.142 dev-libs/json-c:= sys-libs/ncurses:= sys-libs/readline:= libvirt? ( >=app-emulation/libvirt-1.0.2 ) selinux? ( sys-libs/libselinux ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/nspr dev-libs/nss ) zeroconf? ( net-dns/avahi ) app-alternatives/cpio app-text/xmlto python_single_target_pypy3? ( dev-python/setuptools[python_targets_pypy3(-)] ) python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) >=sys-devel/gettext-0.18.2 libvirt? ( dev-libs/libxml2 )
+DEPEND=python_single_target_pypy3? ( dev-python/pypy3:= ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) dev-libs/boost:= >=dev-libs/elfutils-0.142 dev-libs/json-c:= sys-libs/ncurses:= sys-libs/readline:= libvirt? ( >=app-emulation/libvirt-1.0.2 ) selinux? ( sys-libs/libselinux ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/nspr dev-libs/nss ) zeroconf? ( net-dns/avahi ) app-alternatives/cpio app-text/xmlto >=sys-devel/gettext-0.18.2 libvirt? ( dev-libs/libxml2 )
 DESCRIPTION=Linux trace/probe tool
 EAPI=8
 HOMEPAGE=https://sourceware.org/systemtap/
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://sourceware.org/ftp/systemtap/releases/systemtap-4.8.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=e29c0f7bd81181fcdaf5db1c08d9eacc
+_md5_=bb71d4b402eea90cfc3dc07694454933
