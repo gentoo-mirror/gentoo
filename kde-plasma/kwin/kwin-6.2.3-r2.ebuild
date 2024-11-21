@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
-PATCHSET="${P}-patchset-1"
+PATCHSET="${P}-patchset-2"
 KFMIN=6.6.0
 PVCUT=$(ver_cut 1-3)
 QTMIN=6.7.2
