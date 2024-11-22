@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="false"
 PVCUT=$(ver_cut 1-2)
-QTMIN=6.7.2
+QTMIN=6.6.2
 inherit ecm frameworks.kde.org
 
 DESCRIPTION="Style for QtQuickControls 2 that uses QWidget's QStyle for painting"
@@ -29,6 +29,10 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qt5compat-${QTMIN}:6
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
+
+PATCHES=(
+	"${FILESDIR}/${P}-use-qt-textrendering-w-highdpi.patch" # KDE-bug #479891
+)
 
 CMAKE_SKIP_TESTS=(
 	# bug 926509
