@@ -1,15 +1,16 @@
-BDEPEND=dev-lang/ocaml dev-ml/dune
+BDEPEND=test? ( dev-ml/alcotest ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile configure install test
 DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Opam solver using 0install backend using the CUDF interface
 EAPI=8
 HOMEPAGE=https://github.com/ocaml-opam/opam-0install-cudf
 INHERIT=dune
-IUSE=+ocamlopt
+IUSE=+ocamlopt test
 KEYWORDS=~amd64
 LICENSE=ISC
 RDEPEND=dev-ml/0install:=[ocamlopt?] dev-ml/cudf:=[ocamlopt?] dev-ml/extlib:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ocaml-opam/opam-0install-cudf/releases/download/v0.5.0/opam-0install-cudf-0.5.0.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=0eca35a571155f1f4f09ae70cacea883
+_md5_=bd7e822797e455c7cd18eca0843845cc
