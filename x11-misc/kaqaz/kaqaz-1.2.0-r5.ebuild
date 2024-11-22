@@ -1,40 +1,35 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit qmake-utils
 
-DESCRIPTION="Modern note manager"
+DESCRIPTION="Note manager"
 HOMEPAGE="https://github.com/sialan-labs/kaqaz/"
-if [[ ${PV} = *9999* ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/sialan-labs/kaqaz.git"
-else
-	SRC_URI="https://github.com/sialan-labs/kaqaz/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+SRC_URI="https://github.com/sialan-labs/kaqaz/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
-	dev-qt/qtgraphicaleffects:5
 	dev-qt/qtgui:5
 	dev-qt/qtmultimedia:5[qml]
 	dev-qt/qtnetwork:5[ssl]
 	dev-qt/qtpositioning:5
-	dev-qt/qtsingleapplication[qt5(+),X]
-	dev-qt/qtsensors:5
+	dev-qt/qtsingleapplication[X]
 	dev-qt/qtsql:5[sqlite]
-	dev-qt/qtquickcontrols:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	dev-qt/qtgraphicaleffects:5
+	dev-qt/qtquickcontrols:5
+"
 
 PATCHES=(
 	"${FILESDIR}/${P}-qt55.patch"
