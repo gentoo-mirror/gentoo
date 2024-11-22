@@ -31,7 +31,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	>=sys-kernel/linux-headers-2.6.34
+	>=sys-kernel/linux-headers-5
 	test? ( dev-libs/check )
 "
 BDEPEND="
@@ -95,6 +95,9 @@ multilib_src_configure() {
 
 		python_foreach_impl python_configure
 	fi
+
+	# Make target bindings/python/auparse_python.c doesn't get copied to ${BUILD_DIR}. bug #944338
+	ln -s "${S}/bindings/python/auparse_python.c" "${BUILD_DIR}/bindings/python/auparse_python.c" || die
 }
 
 src_configure() {
