@@ -1,4 +1,4 @@
-BDEPEND=>=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/compat >=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Interactive macro-expander for Emacs
 EAPI=8
@@ -6,8 +6,8 @@ HOMEPAGE=https://github.com/joddie/macrostep/ https://github.com/emacsorphanage/
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=>=app-editors/emacs-25.3:*
+RDEPEND=app-emacs/compat >=app-editors/emacs-25.3:*
 SLOT=0
 SRC_URI=https://github.com/emacsorphanage/macrostep/archive/0.9.4.tar.gz -> macrostep-0.9.4.tar.gz
 _eclasses_=elisp-common	abb2dda42f680fce87602c8273f832c7	elisp	e7149f29f0c141396a0cec7cc59947a6
-_md5_=4021a903faeb5e5355ef9de45fefc90a
+_md5_=9cc87e393ebea5bf202105e64ee04d8b
