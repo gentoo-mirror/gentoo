@@ -5,8 +5,17 @@ EAPI=8
 
 # PACKAGING NOTES
 
-# This uses a gentoo-created tarball due to Google CI Failures.
-# Use 133(?) as a base for new official tarballs.
+# Since m133 (and backported a bit...) we are using CI-generated tarballs from
+# https://github.com/chromium-linux-tarballs/chromium-tarballs/ (uploaded to S3
+# and made available via https://chromium-tarballs.distfiles.gentoo.org/).
+
+# We do this because upstream tarballs weigh in at about 3.5x the size of our
+# new "Distro tarballs" and include binaries (etc) that are not useful for
+# downstream consumers (like distributions).
+
+# It is probably still possible to download the google Rust and Clang toolchains
+# and use them to build this package, however we removed this when upstream CI
+# broke for m131 and haven't re-added it.
 
 GN_MIN_VER=0.2165
 # chromium-tools/get-chromium-toolchain-strings.py
@@ -31,10 +40,10 @@ DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
 PATCH_V="${PV%%\.*}-1"
-SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}.tar.xz -> ${P}-gentoo.tar.xz
+SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 	test? (
-		https://chromium-tarballs.distfiles.gentoo.org/${P}-testdata.tar.xz -> ${P}-testdata-gentoo.tar.xz
+		https://chromium-tarballs.distfiles.gentoo.org/${P}-linux-testdata.tar.xz
 		https://chromium-fonts.storage.googleapis.com/${TEST_FONT} -> chromium-testfonts-${TEST_FONT:0:10}.tar.gz
 	)
 	ppc64? (
@@ -52,7 +61,7 @@ fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos +official pax-kernel pgo +proprietary-codecs pulseaudio"
-IUSE+=" qt5 qt6 +screencast selinux test +vaapi +wayland +widevine"
+IUSE+=" qt5 qt6 +screencast selinux test +vaapi +wayland +widevine cpu_flags_ppc_vsx3"
 RESTRICT="
 	!bindist? ( bindist )
 	!test? ( test )
@@ -339,7 +348,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack ${P}-gentoo.tar.xz
+	unpack ${P}-linux.tar.xz
 	unpack chromium-patches-${PATCH_V}.tar.bz2
 
 	use pgo && unpack chromium-profiler-0.2.tar
@@ -348,7 +357,7 @@ src_unpack() {
 		# A new testdata tarball is available for each release; but testfonts tend to remain stable
 		# for the duration of a release.
 		# This unpacks directly into/over ${WORKDIR}/${P} so we can just use `unpack`.
-		unpack ${P}-testdata-gentoo.tar.xz
+		unpack ${P}-linux-testdata.tar.xz
 		# This just contains a bunch of font files that need to be unpacked (or moved) to the correct location.
 		local testfonts_dir="${WORKDIR}/${P}/third_party/test_fonts"
 		local testfonts_tar="${DISTDIR}/chromium-testfonts-${TEST_FONT:0:10}.tar.gz"
@@ -407,8 +416,8 @@ src_prepare() {
 		for patch in "${openpower_patches[@]}"; do
 			PATCHES+=( "${patchset_dir}/${patch}" )
 		done
-		if [[ $(getconf PAGESIZE) != 65536 ]]; then
-				PATCHES+=( "${patchset_dir}/${page_size_patch}" )
+		if [[ $(getconf PAGESIZE) == 65536 ]]; then
+			PATCHES+=( "${patchset_dir}/${page_size_patch}" )
 		fi
 		# We use vsx3 as a proxy for 'want isa3.0' (POWER9)
 		if use cpu_flags_ppc_vsx3 ; then
