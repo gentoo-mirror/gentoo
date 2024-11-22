@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs
+inherit flag-o-matic autotools toolchain-funcs
 
 # Upstream maintains 3 release channels: https://xmlrpc-c.sourceforge.net/release.html
 # 1. Only the "Super Stable" series is released as a tarball
@@ -29,7 +29,12 @@ RDEPEND="
 	libxml2? ( dev-libs/libxml2 )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+
+# configure calls curl-config, hence curl in BDEPEND
+BDEPEND="
+	virtual/pkgconfig
+	curl? ( net-misc/curl )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.51.06-pkg-config-libxml2.patch
@@ -53,6 +58,9 @@ src_prepare() {
 
 src_configure() {
 	tc-export PKG_CONFIG
+
+	# xmlrpc-c uses std::auto_ptr which has been removed in C++17
+	append-cxxflags "-std=c++14"
 
 	econf \
 		--disable-libwww-client \
