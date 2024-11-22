@@ -1592,7 +1592,7 @@ app-dicts/aspell-no 0.50.2-r2: Aspell (Norwegian) language dictionary
 app-dicts/aspell-ny 0.01.0-r1: Aspell (Chichewa) language dictionary
 app-dicts/aspell-or 0.03.1-r1: Aspell (Oriya) language dictionary
 app-dicts/aspell-pa 0.01.1-r1: Aspell (Punjabi) language dictionary
-app-dicts/aspell-pl 6.0.20241001.0: Aspell (Polish) language dictionary
+app-dicts/aspell-pl 6.0.20241001.0 6.0.20241101.0: Aspell (Polish) language dictionary
 app-dicts/aspell-pt 20220621: Aspell (Portuguese) language dictionary
 app-dicts/aspell-pt-br 20131030.12.0-r1: Aspell (Brazilian Portuguese) language dictionary
 app-dicts/aspell-qu 0.02.0-r1: Aspell (Quechua Runasimi) language dictionary
@@ -1674,7 +1674,7 @@ app-dicts/myspell-ms 20100407: Malay dictionaries for myspell/hunspell
 app-dicts/myspell-nb 2.0.10-r1: Norwegian dictionaries for myspell/hunspell
 app-dicts/myspell-nl 2.10g-r2: Dutch dictionaries for myspell/hunspell
 app-dicts/myspell-nn 2.0.10: Norwegian dictionaries for myspell/hunspell
-app-dicts/myspell-pl 20241001: Polish dictionaries for myspell/hunspell
+app-dicts/myspell-pl 20241001 20241101: Polish dictionaries for myspell/hunspell
 app-dicts/myspell-pt 20120420: Portuguese dictionaries for myspell/hunspell
 app-dicts/myspell-pt-br 3.2.0: Brazilian dictionaries for myspell/hunspell
 app-dicts/myspell-ro 3.3.10: Romanian dictionaries for myspell/hunspell
@@ -3303,7 +3303,7 @@ app-text/mathtex 1.05: Lets you easily embed LaTeX math in your own html pages, 
 app-text/mdbook 0.4.40-r1 0.4.42-r1: Create a book from markdown files
 app-text/mecab 0.996-r1 0.996-r2: Yet Another Part-of-Speech and Morphological Analyzer
 app-text/mpage 2.5.6-r1: Many to one page printing utility
-app-text/msort 8.53-r2: A program for sorting files in sophisticated ways
+app-text/msort 8.53-r2 8.53-r3: A program for sorting files in sophisticated ways
 app-text/multitail 7.0.0 7.1.2: Tail with multiple windows
 app-text/mupdf 1.24.1 1.24.8: A lightweight PDF viewer and toolkit written in portable C
 app-text/mythes 1.2.5: Simple thesaurus for LibreOffice
@@ -4189,7 +4189,7 @@ dev-games/openscenegraph 3.6.5-r114 3.6.5-r115: Open source high performance 3D 
 dev-games/openscenegraph-openmw 3.6_p20221115-r1: OpenMW-specific fork of OpenSceneGraph
 dev-games/openscenegraph-qt 3.5.7-r1: Qt support for OpenSceneGraph
 dev-games/paklib 0.3: library for accessing Quake pak files
-dev-games/physfs 3.0.2-r1 9999: Abstraction layer for filesystem and archive access
+dev-games/physfs 3.0.2-r1 3.2.0 9999: Abstraction layer for filesystem and archive access
 dev-games/ps2-packer 0.4.4-r1: Another ELF packer for the PS2
 dev-games/quake4-sdk 1.4.2-r1: Quake4 SDK
 dev-games/recastnavigation 1.6.0: Navigation mesh construction toolset for games
@@ -10971,7 +10971,7 @@ dev-util/tbump 6.11.0: tbump helps you bump the version of your project easily
 dev-util/tea 0.9.2-r1: Command line tool to interact with Gitea server
 dev-util/tinlink 1.0.0-r2: Tool to create very small elf binary from pure binary files
 dev-util/tkdiff 5.5.2 5.6 5.7: Graphical front end to the diff program
-dev-util/tmake 2.12-r2: A Cross platform Makefile tool
+dev-util/tmake 2.12-r2: Cross platform Makefile tool
 dev-util/trace-cmd 3.3 3.3.1: User-space front-end for Ftrace
 dev-util/tree-sitter-cli 0.22.6-r1 0.23.0-r1 0.23.2-r1 0.24.3-r1: Command-line tool for creating and testing tree-sitter grammars
 dev-util/treecc 0.3.10-r1 0.3.10-r2: Compiler-compiler tool for aspect-oriented programming
@@ -11220,7 +11220,7 @@ games-arcade/jazz2-data 0-r20200327: Jazz Jackrabbit 2 data files imported for g
 games-arcade/jumpnbump 1.61_p20210421: Funny multiplayer game about cute little fluffy bunnies
 games-arcade/jvgs 0.5-r100: Open-source platform game with a sketched and minimalistic look
 games-arcade/kajaani-kombat 0.7-r2: Rampart-like game set in space
-games-arcade/kobodeluxe 0.5.1-r4: An SDL port of xkobo, a addictive space shoot-em-up
+games-arcade/kobodeluxe 0.5.1-r5: An SDL port of xkobo, a addictive space shoot-em-up
 games-arcade/komi 1.04-r2: Komi the Space Frog - a simple SDL game
 games-arcade/late 0.1.0-r2: Game similar to Barrack by Ambrosia Software
 games-arcade/lbreakout 010315-r1: Breakout clone written with the SDL library
@@ -13997,7 +13997,7 @@ media-sound/pnmixer 0.7.2-r1: Volume mixer for the system tray
 media-sound/poc 0.4.1: mp3 and ogg streamer (include mp3cue and mp3cut)
 media-sound/podcatcher 3.1.6: Podcast client for the command-line written in Ruby
 media-sound/podget 0.8.2-r1: A simple podcast aggregator optimized for running as a scheduled job
-media-sound/podracer 1.4-r3: A simple podcast aggregator, designed for cron
+media-sound/podracer 1.4-r3: Simple podcast aggregator, designed for cron
 media-sound/ptabtools 0.5.0: Utilities for PowerTab Guitar files (.ptb)
 media-sound/puddletag 2.3.0 2.4.0: Audio tag editor
 media-sound/pulseaudio 16.1: A meta package for PulseAudio (networked sound server)
@@ -15117,8 +15117,8 @@ net-misc/gerbera 2.2.0 2.3.0 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
 net-misc/gnome-connections 45.0-r2 46.0: A remote desktop client for the GNOME desktop environment
 net-misc/gnome-remote-desktop 45.1-r1 46.3: Remote desktop daemon for GNOME using pipewire
-net-misc/gns3-gui 2.2.49-r1 2.2.50: Graphical Network Simulator
-net-misc/gns3-server 2.2.49-r1 2.2.50: GNS3 server to asynchronously manage emulators
+net-misc/gns3-gui 2.2.49-r1 2.2.50 2.2.51: Graphical Network Simulator
+net-misc/gns3-server 2.2.49-r1 2.2.50 2.2.51: GNS3 server to asynchronously manage emulators
 net-misc/gofish 1.2-r2: Gofish gopher server
 net-misc/grive 0.5.2_pre20211128-r1: An open source Linux client for Google Drive
 net-misc/gsasl 2.0.1 2.0.1-r2 2.2.0 2.2.1: The GNU SASL client, server, and library
@@ -18134,7 +18134,7 @@ www-servers/kore 4.2.3: Web application platform for writing scalable, concurren
 www-servers/lighttpd 1.4.75 1.4.75-r1 1.4.76 1.4.76-r1 9999: Lightweight high-performance web server
 www-servers/mongrel2 1.11.0-r2: A language agnostic web server focused on web applications
 www-servers/moonbridge 1.1.3-r1: Network Server for Lua Applications
-www-servers/nginx 1.26.2-r6 1.27.2-r3: Robust, small and high performance http and reverse proxy server
+www-servers/nginx 1.26.2-r6 1.27.2-r3 1.27.2-r4: Robust, small and high performance http and reverse proxy server
 www-servers/nginx-unit 1.32.1 1.33.0: Dynamic web and application server
 www-servers/pound 3.0.2 4.10: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.3: Pretty small HTTP server -- a command-line tool to share files
