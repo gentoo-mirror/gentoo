@@ -1,8 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit desktop xdg
+
+inherit desktop xdg toolchain-funcs
 
 MY_P="KoboDeluxe-${PV/_/}"
 DESCRIPTION="An SDL port of xkobo, a addictive space shoot-em-up"
@@ -53,6 +54,10 @@ src_prepare() {
 
 src_configure() {
 	econf $(use_enable opengl)
+}
+
+src_compile() {
+	emake AR="$(tc-getAR)" #bug 761694
 }
 
 src_install() {

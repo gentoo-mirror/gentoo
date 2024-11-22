@@ -13,7 +13,8 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/icculus/physfs.git"
 else
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
-	SRC_URI="https://icculus.org/physfs/downloads/${P}.tar.bz2"
+	SRC_URI="https://github.com/icculus/${PN}/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-release-${PV}"
 fi
 
 LICENSE="ZLIB"
