@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake-multilib
 
 DESCRIPTION="Fast C++ logging library"
 HOMEPAGE="https://github.com/gabime/spdlog"
@@ -13,12 +13,12 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/gabime/${PN}"
 else
 	SRC_URI="https://github.com/gabime/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="test"
+IUSE="test static-libs"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -28,26 +28,25 @@ BDEPEND="
 	)
 "
 DEPEND="
-	>=dev-libs/libfmt-8.0.0:=
+	dev-libs/libfmt:=[${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-force_external_fmt.patch"
-	"${FILESDIR}/${P}-fix-tests.patch"
 )
 
-src_prepare() {
+multilib_src_prepare() {
 	cmake_src_prepare
 	rm -r include/spdlog/fmt/bundled || die "Failed to delete bundled libfmt"
 }
 
-src_configure() {
+multilib_src_configure() {
 	local mycmakeargs=(
 		-DSPDLOG_BUILD_BENCH=no
 		-DSPDLOG_BUILD_EXAMPLE=no
 		-DSPDLOG_FMT_EXTERNAL=yes
-		-DSPDLOG_BUILD_SHARED=yes
+		-DSPDLOG_BUILD_SHARED=$(usex static-libs)
 		-DSPDLOG_BUILD_TESTS=$(usex test)
 	)
 
