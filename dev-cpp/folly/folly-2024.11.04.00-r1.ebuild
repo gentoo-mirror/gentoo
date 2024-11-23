@@ -13,7 +13,7 @@ EAPI=8
 # dev-cpp/wangle
 # dev-util/watchman
 
-inherit cmake
+inherit flag-o-matic cmake
 
 DESCRIPTION="An open-source C++ library developed and used at Facebook"
 HOMEPAGE="https://github.com/facebook/folly"
@@ -75,6 +75,9 @@ src_configure() {
 		-DCMAKE_LIBRARY_ARCHITECTURE=$(usex amd64 x86_64 ${ARCH})
 	)
 
+	# https://github.com/facebook/folly/issues/1984
+	use arm64 && append-cxxflags "-flax-vector-conversions"
+
 	cmake_src_configure
 }
 
@@ -86,6 +89,16 @@ src_test() {
 		# TODO: All SIGSEGV, report upstream!
 		'concurrency_concurrent_hash_map_test.*'
 	)
+
+	if use arm64; then
+		CMAKE_SKIP_TESTS+=(
+			# Tests are flaky/timing dependent on both QEMU chroot and real hardware
+			io_async_hh_wheel_timer_test.HHWheelTimerTest
+			# Times out on real hardware
+			concurrent_skip_list_test.ConcurrentSkipList
+			futures_retrying_test.RetryingTest.largeRetries
+		)
+	fi
 
 	cmake_src_test
 }
