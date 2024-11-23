@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/spyder-ide/spyder-terminal
 INHERIT=distutils-r1 pypi
 IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64
 LICENSE=MIT BSD Apache-2.0 BSD-2 ISC CC-BY-4.0 ZLIB WTFPL-2
 RDEPEND=dev-python/coloredlogs[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/requests[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/spyder-5.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] <dev-python/spyder-6[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/terminado-0.13.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/tornado[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/s/spyder-terminal/spyder-terminal-1.2.2.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	db6e4e998c9effc162bd2aa3b0d8f855	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=a0f4ac057fd99d3d0350987d57b3b0f3
+_md5_=df43596a151c71a993968e46725b7e2f

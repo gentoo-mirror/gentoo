@@ -1,0 +1,16 @@
+BDEPEND=dev-qt/qttools:6[assistant,linguist] app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[gui,network,widgets,X,xml] x11-libs/libX11 ssh? ( dev-libs/openssl:= ) x11-base/xorg-proto
+DESCRIPTION=BBS client based on Qt
+EAPI=8
+HOMEPAGE=https://github.com/qterm/qterm
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=ssh
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[gui,network,widgets,X,xml] x11-libs/libX11 ssh? ( dev-libs/openssl:= )
+SLOT=0
+SRC_URI=https://github.com/qterm/qterm/archive/0.8.2.tar.gz -> qterm-0.8.2.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=0c3adb5d6f6af4016b48665c6c5baf68
