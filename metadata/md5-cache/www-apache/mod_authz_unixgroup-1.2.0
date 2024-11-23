@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst setup
+DEPEND==www-servers/apache-2.4*
+DESCRIPTION=An Apache2 authorization DSO using unix groups
+EAPI=8
+HOMEPAGE=https://github.com/phokz/mod-auth-external
+INHERIT=apache-module
+KEYWORDS=amd64
+LICENSE=Apache-1.1
+RDEPEND==www-servers/apache-2.4*
+SLOT=0
+SRC_URI=https://github.com/phokz/mod-auth-external/archive/mod_authz_unixgroup-1.2.0.tar.gz
+_eclasses_=depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1
+_md5_=e05473b8c84c86f212b9028123af2d88
