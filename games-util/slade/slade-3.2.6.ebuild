@@ -6,7 +6,7 @@ EAPI=8
 LUA_COMPAT=( lua5-{1..3} )
 WX_GTK_VER="3.2-gtk3"
 
-inherit cmake lua-single wxwidgets
+inherit cmake lua-single wxwidgets xdg
 
 MY_PV="${PV/beta/b}"
 DESCRIPTION="Modern editor for Doom-engine based games and source ports"
@@ -31,7 +31,7 @@ DEPEND="
 	media-sound/mpg123
 	net-misc/curl
 	sys-libs/zlib
-	x11-libs/wxGTK:${WX_GTK_VER}[opengl,webkit?,X]
+	x11-libs/wxGTK:${WX_GTK_VER}[curl(+),opengl,webkit?,X]
 	fluidsynth? ( media-sound/fluidsynth:= )
 "
 
@@ -48,7 +48,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.2.0_beta2-fluidsynth-driver.patch
 	"${FILESDIR}"/${PN}-3.2.2-wayland.patch
-	"${FILESDIR}"/${PN}-3.2.4-compile.patch
+	"${FILESDIR}"/${PN}-3.2.6-fix-sol.patch
 )
 
 src_prepare() {
