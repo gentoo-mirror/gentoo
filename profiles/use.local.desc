@@ -623,7 +623,6 @@ app-emulation/qemu:glusterfs - Enables GlusterFS cluster fileystem via sys-clust
 app-emulation/qemu:gnutls - Enable TLS support for the VNC console server. For 1.4 and newer this also enables WebSocket support. For 2.0 through 2.3 also enables disk quorum support.
 app-emulation/qemu:io-uring - Enable efficient I/O via sys-libs/liburing.
 app-emulation/qemu:iscsi - Enable direct iSCSI support via net-libs/libiscsi instead of indirectly via the Linux block layer that sys-block/open-iscsi does.
-app-emulation/qemu:jemalloc - Enable jemalloc allocator support
 app-emulation/qemu:jpeg - Enable jpeg image support for the VNC console server
 app-emulation/qemu:keyutils - Support Linux keyrings via sys-apps/keyutils
 app-emulation/qemu:multipath - Enable multipath persistent reservation passthrough via sys-fs/multipath-tools.
@@ -7367,7 +7366,6 @@ sci-libs/opencascade:eigen - Enable support for eigenvalues through the header-o
 sci-libs/opencascade:freeimage - Enable support for image i/o via media-libs/freeimage
 sci-libs/opencascade:freetype - Enable media-libs/freetype support
 sci-libs/opencascade:inspector - Build Inspector tool
-sci-libs/opencascade:jemalloc - Enable jemalloc allocator support via dev-libs/jemalloc
 sci-libs/opencascade:json - Enable JSON support through dev-libs/rapidjson
 sci-libs/opencascade:optimize - Don't clear allocated memory. Use optimized memory manager unlesstbb USE flag is set.
 sci-libs/opencascade:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb

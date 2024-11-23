@@ -1170,7 +1170,7 @@ app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par 
 app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
 app-arch/rar 7.01: RAR compressor/uncompressor
-app-arch/rpm 4.18.1 4.19.1.1: The RPM Package Manager
+app-arch/rpm 4.19.1.1 4.20.0: The RPM Package Manager
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
 app-arch/sharutils 4.15.2-r2: Tools to deal with shar archives
@@ -2465,7 +2465,7 @@ app-forensics/sleuthkit 4.12.1-r2: A collection of file system and media managem
 app-forensics/unhide 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.5.2 2.7.0: Framework for analyzing volatile memory
 app-forensics/yara 4.5.1 4.5.2 9999: A malware identification and classification tool
-app-forensics/yara-x 0.5.0-r1 0.6.0-r1 0.7.0-r1: A malware identification and classification tool
+app-forensics/yara-x 0.5.0-r1 0.6.0-r1 0.7.0-r1 0.10.0: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -3900,7 +3900,7 @@ dev-cpp/ms-gsl 4.0.0 4.1.0 9999: Guideline Support Library implementation by Mic
 dev-cpp/msgpack-cxx 5.0.0 6.0.0 6.1.0 6.1.1: MessagePack for C++
 dev-cpp/muParser 2.3.3-r2 2.3.4-r1: Library for parsing mathematical expressions
 dev-cpp/muParserX 4.0.11: Parsing Expressions with Strings, Complex Numbers, Vectors, Matrices and more
-dev-cpp/mvfst 2024.11.04.00: An implementation of the QUIC transport protocol
+dev-cpp/mvfst 2024.11.04.00-r1: An implementation of the QUIC transport protocol
 dev-cpp/nlohmann_json 3.10.2 3.11.2 3.11.2-r1 3.11.3: JSON for Modern C++
 dev-cpp/notcurses 3.0.5-r1 3.0.8: Blingful TUIs and character graphics
 dev-cpp/opentelemetry-cpp 1.3.0-r2 1.4.0 1.6.0: The OpenTelemetry C++ Client
@@ -4023,7 +4023,7 @@ dev-db/sqlite 3.46.1 3.47.0-r1 9999: SQL database engine
 dev-db/sqlitebrowser 3.13.0 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r6: Powerful GUI manager for the Sqlite3 database
 dev-db/sqlitestudio 3.4.4-r1: Powerful cross-platform SQLite database manager
-dev-db/sqlmap 1.8.8 1.8.9 9999: An automatic SQL injection and database takeover tool
+dev-db/sqlmap 1.8.9 1.8.11 9999: An automatic SQL injection and database takeover tool
 dev-db/textsearch_ja 9.0.0: Integrated Full-Text-Search for Japanese language using morphological analyze
 dev-db/timescaledb 2.16.1 2.17.0 2.17.1 2.17.2: Open-source time-series SQL database
 dev-db/tinycdb 0.81: A very fast and simple package for creating and reading constant data bases
@@ -5857,7 +5857,7 @@ dev-libs/xapian-bindings 1.4.25 1.4.26-r1: SWIG and JNI bindings for Xapian
 dev-libs/xbyak 5.73: JIT assembler for x86(IA-32)/x64(AMD64, x86-64)
 dev-libs/xerces-c 3.2.5 9999: Validating XML parser written in a portable subset of C++
 dev-libs/xmlrpc-c 1.54.05-r3 1.54.06-r1 1.59.03: A lightweight RPC library based on XML and HTTP
-dev-libs/xmlsec 1.3.4 1.3.5: Command line tool for signing, verifying, encrypting and decrypting XML
+dev-libs/xmlsec 1.3.4 1.3.5 1.3.6: Command line tool for signing, verifying, encrypting and decrypting XML
 dev-libs/xxhash 0.8.1 0.8.2: Extremely fast non-cryptographic hash algorithm
 dev-libs/yajl 2.1.0-r4 2.1.0-r5: Small event-driven (SAX-style) JSON parser
 dev-libs/yaz 5.34.0: C/C++ toolkit for Z39.50v3 clients and servers
@@ -10855,7 +10855,7 @@ dev-util/lttng-tools 2.13.9 2.13.14: Linux Trace Toolkit - next generation
 dev-util/lttng-ust 2.12.0 2.12.1 2.12.9 2.13.6 2.13.8: Linux Trace Toolkit - UST library
 dev-util/lv2lint 0.16.2: Check whether a given LV2 plugin is up to the specification
 dev-util/lxqt-build-tools 0.13.0 2.0.0-r1 2.1.0: LXQt Build Tools
-dev-util/makeheaders 0_p20240202: Tool that automatically generates .h files for a C or C++ programming project
+dev-util/makeheaders 0_p20240202 0_p20240823: Tool that automatically generates .h files for a C or C++ programming project
 dev-util/makepp 2.0.99.2: GNU make replacement
 dev-util/marksman 2023.12.09 2024.10.07: LSP language server for editing Markdown files
 dev-util/massif-visualizer 24.08.1 24.08.3: Tool visualising massif data
@@ -13904,7 +13904,7 @@ media-sound/jamin 0.98.9_pre20170111: Audio mastering interface for JACK Audio C
 media-sound/justeport 0.2: Stream audio to your AirPort Express
 media-sound/kasts 24.08.1 24.08.3: Convergent podcast application for desktop and mobile
 media-sound/kid3 3.9.6: Simple tag editor based on Qt
-media-sound/klick 0.12.2-r4: An advanced command-line based metronome for JACK
+media-sound/klick 0.12.2-r4 0.12.2-r5: An advanced command-line based metronome for JACK
 media-sound/kmetronome 1.4.0: MIDI based metronome using ALSA sequencer
 media-sound/kmidimon 1.4.0: MIDI monitor for ALSA sequencer
 media-sound/krecorder 24.08.1 24.08.3: Convergent audio recording application for Plasma
@@ -14707,7 +14707,7 @@ net-im/spectrum2 2.2.1: An open source instant messaging transport
 net-im/swift 4.0.3-r2: An elegant, secure, adaptable and intuitive XMPP Client
 net-im/synapse 1.116.0-r5 1.116.0-r6 1.117.0-r1 1.118.0-r1 1.119.0: Reference implementation of Matrix homeserver
 net-im/telegram-desktop 5.5.5 5.6.3 5.7.2: Official desktop client for Telegram
-net-im/telegram-desktop-bin 5.7.1 5.7.2: Official desktop client for Telegram (binary package)
+net-im/telegram-desktop-bin 5.7.2 5.8.2: Official desktop client for Telegram (binary package)
 net-im/telepathy-logger 0.8.2-r1: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
 net-im/tkabber 1.1.2: A jabber client written in Tcl/Tk
@@ -15418,7 +15418,7 @@ net-p2p/ktorrent 24.08.1 24.08.3: Powerful BitTorrent client based on KDE Framew
 net-p2p/kubo 0.28.0 0.29.0-r1 0.30.0: Main implementation of IPFS
 net-p2p/mktorrent 1.1_p20180912 1.1_p20210130: Simple command line utility to create BitTorrent metainfo files
 net-p2p/mldonkey 3.1.7-r4 3.2.1: Multi-network P2P application written in Ocaml, with Gtk, web & telnet interface
-net-p2p/ncdc 1.24-r1 1.24.1: Lightweight direct connect client with a friendly ncurses interface
+net-p2p/ncdc 1.24.1: Lightweight direct connect client with a friendly ncurses interface
 net-p2p/nicotine+ 3.2.9-r1 3.3.4 3.3.5: Graphical client for the Soulseek peer to peer network written in Python
 net-p2p/qbittorrent 4.6.7 5.0.1 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.7.3.1381 9999: Resilient, fast and scalable file synchronization tool
@@ -17174,7 +17174,7 @@ sys-auth/nss-mdns 0.15.1 9999: Name Service Switch module for Multicast DNS
 sys-auth/nss-myhostname 0.3-r1: Name Service Switch module for resolving the local hostname
 sys-auth/nss-pam-ldapd 0.9.12-r2 0.9.12-r3 0.9.12-r4: NSS module for name lookups using LDAP
 sys-auth/nss_ldap 265-r11: NSS LDAP Module
-sys-auth/oath-toolkit 2.6.11 2.6.12: Toolkit for using one-time password authentication with HOTP/TOTP algorithms
+sys-auth/oath-toolkit 2.6.12: Toolkit for using one-time password authentication with HOTP/TOTP algorithms
 sys-auth/otpcalc 0.97.9 0.98 0.98.1: A One Time Password and S/Key calculator for GTK+
 sys-auth/pam-pgsql 0.7.3.2-r2: PAM module to authenticate users via PostgreSQL
 sys-auth/pam-script 1.1.9: PAM module for running scripts during authorization, password change and session
