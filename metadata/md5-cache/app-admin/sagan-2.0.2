@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/quadrantsec/sagan
 INHERIT=autotools flag-o-matic tmpfiles systemd
 IUSE=geoip +libdnet mysql redis +pcap smtp
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 x86
 LICENSE=GPL-2
 RDEPEND=acct-group/sagan acct-user/sagan app-admin/sagan-rules dev-libs/libestr dev-libs/libfastjson:= dev-libs/liblognorm dev-libs/libpcre dev-libs/libyaml geoip? ( dev-libs/geoip ) redis? ( dev-libs/hiredis:= ) pcap? ( net-libs/libpcap ) smtp? ( net-libs/libesmtp:= ) mysql? ( net-analyzer/barnyard2[mysql] ) virtual/tmpfiles
 REQUIRED_USE=mysql? ( libdnet )
 SLOT=0
 SRC_URI=https://github.com/quadrantsec/sagan/archive/refs/tags/v,2,0.2.tar.gz -> sagan-2.0.2.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=62688b0a74c91ad219d440d0eba4214e
+_md5_=8ca443c1b2e0f35860fa5b1b9febce24
