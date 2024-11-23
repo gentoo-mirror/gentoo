@@ -28,39 +28,35 @@ RDEPEND="
 	sys-apps/ucspi-tcp
 "
 
-PATCHES=(
-	"${FILESDIR}/tinyssh-20240101_c99.patch"
-	"${FILESDIR}/tinyssh-20240101_conf_cflags.patch"
-)
-
 src_prepare() {
-	# Use make-tinysshcc.sh script, which has no tests and doesn't execute
-	# binaries. See https://github.com/janmojzis/tinyssh/issues/2
-	sed -i 's/make-tinyssh\.sh/make-tinysshcc.sh/g' ./Makefile || die
-
 	default
+
+	echo 'gentoo-autoheaders: $(AUTOHEADERS)' >> Makefile || die
 }
 
-src_compile() {
-	tc-export PKG_CONFIG
+src_configure() {
+	tc-export PKG_CONFIG CC
 
 	if use sodium
 	then
-		# -I${includedir}/sodium needed as tinyssh uses `#include "crypto_auth_hmacsha256.h"` rather than `#include <sodium.h>`
-		emake \
-			CC="$(tc-getCC)" \
-			LIBS="$("${PKG_CONFIG}" --libs libsodium)" \
-			CFLAGS="${CFLAGS} $("${PKG_CONFIG}" --cflags libsodium) -I$("${PKG_CONFIG}" --variable=includedir libsodium)/sodium/" \
-			LDFLAGS="${LDFLAGS}"
-	else
-		emake CC="$(tc-getCC)"
+		# -I${includedir}/sodium needed as tinyssh uses `#include <randombytes.h>` rather than `#include <sodium.h>`
+		export CFLAGS="${CFLAGS} $("${PKG_CONFIG}" --cflags libsodium) -I$("${PKG_CONFIG}" --variable=includedir libsodium)/sodium/"
+		export LDFLAGS="${LDFLAGS} $("${PKG_CONFIG}" --libs libsodium)"
 	fi
+
+	emake gentoo-autoheaders
+
+	local i
+	for i in has*.log
+	do
+		einfo "$i"
+		cat "$i"
+	done
 }
 
 src_install() {
-	dosbin build/bin/tinysshd{,-makekey}
-	dobin build/bin/tinysshd-printkey
-	doman man/*
+	einstalldocs
+	emake install DESTDIR="${D}" PREFIX=/usr
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
