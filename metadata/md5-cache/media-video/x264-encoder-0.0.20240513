@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.videolan.org/developers/x264.html
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=avs custom-cflags ffmpeg ffmpegsource +interlaced mp4 +threads
-KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=~media-libs/x264-0.0.20240513[interlaced=,threads=] ffmpeg? ( media-video/ffmpeg:= ) ffmpegsource? ( media-libs/ffmpegsource ) mp4? ( >=media-video/gpac-0.5.2:= )
 REQUIRED_USE=ffmpegsource? ( ffmpeg )
 SLOT=0
 SRC_URI=https://code.videolan.org/videolan/x264/-/archive/4613ac3c15fd75cebc4b9f65b7fb95e70a3acce1/x264-4613ac3c15fd75cebc4b9f65b7fb95e70a3acce1.tar.bz2 -> x264-0.0.20240513.tar.bz2
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe
-_md5_=d5888a8e6f37465ee6c150cb4b62269d
+_md5_=1130c637b5846010502f43f826f5ba7d
