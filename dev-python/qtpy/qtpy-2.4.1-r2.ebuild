@@ -73,20 +73,20 @@ REQUIRED_USE="
 RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	pyqt5? (
-		dev-python/PyQt5[${PYTHON_USEDEP}]
-		dev-python/PyQt5[designer?,gui?,help?,multimedia?,network?,opengl?]
-		dev-python/PyQt5[positioning?,printsupport?,sensors?,serialport?,speech?,sql?,svg?]
-		dev-python/PyQt5[testlib?,webchannel?,websockets?,widgets?,xml(+)?]
-		qml? ( dev-python/PyQt5[declarative] )
-		quick? ( dev-python/PyQt5[declarative] )
-		webengine? ( dev-python/PyQtWebEngine[${PYTHON_USEDEP}] )
+		dev-python/pyqt5[${PYTHON_USEDEP}]
+		dev-python/pyqt5[designer?,gui?,help?,multimedia?,network?,opengl?]
+		dev-python/pyqt5[positioning?,printsupport?,sensors?,serialport?,speech?,sql?,svg?]
+		dev-python/pyqt5[testlib?,webchannel?,websockets?,widgets?,xml(+)?]
+		qml? ( dev-python/pyqt5[declarative] )
+		quick? ( dev-python/pyqt5[declarative] )
+		webengine? ( dev-python/pyqtwebengine[${PYTHON_USEDEP}] )
 	)
 	pyqt6? (
-		dev-python/PyQt6[${PYTHON_USEDEP}]
-		dev-python/PyQt6[designer?,gui?,help?,multimedia?,network?,opengl?]
-		dev-python/PyQt6[positioning?,printsupport?,qml?,quick?,sensors?,serialport?,sql?]
-		dev-python/PyQt6[speech?,svg?,testlib?,webchannel?,websockets?,widgets?,xml?]
-		webengine? ( dev-python/PyQt6-WebEngine[${PYTHON_USEDEP},widgets?,quick?] )
+		dev-python/pyqt6[${PYTHON_USEDEP}]
+		dev-python/pyqt6[designer?,gui?,help?,multimedia?,network?,opengl?]
+		dev-python/pyqt6[positioning?,printsupport?,qml?,quick?,sensors?,serialport?,sql?]
+		dev-python/pyqt6[speech?,svg?,testlib?,webchannel?,websockets?,widgets?,xml?]
+		webengine? ( dev-python/pyqt6-webengine[${PYTHON_USEDEP},widgets?,quick?] )
 
 	)
 	pyside2? (
@@ -114,21 +114,21 @@ BDEPEND="
 	test? (
 		dev-python/pytest-qt[${PYTHON_USEDEP}]
 		pyqt5? (
-			dev-python/PyQt5[${PYTHON_USEDEP}]
-			dev-python/PyQt5[bluetooth,dbus,declarative,designer,gui,help,location]
-			dev-python/PyQt5[multimedia,network,opengl,positioning,printsupport]
-			dev-python/PyQt5[sensors,serialport,speech(-),sql,svg,testlib,webchannel]
-			dev-python/PyQt5[websockets,widgets,x11extras,xml(+),xmlpatterns]
-			dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
+			dev-python/pyqt5[${PYTHON_USEDEP}]
+			dev-python/pyqt5[bluetooth,dbus,declarative,designer,gui,help,location]
+			dev-python/pyqt5[multimedia,network,opengl,positioning,printsupport]
+			dev-python/pyqt5[sensors,serialport,speech(-),sql,svg,testlib,webchannel]
+			dev-python/pyqt5[websockets,widgets,x11extras,xml(+),xmlpatterns]
+			dev-python/pyqtwebengine[${PYTHON_USEDEP}]
 			dev-qt/qtsql:5[sqlite]
 		)
 		pyqt6? (
-			dev-python/PyQt6[${PYTHON_USEDEP}]
-			dev-python/PyQt6[dbus,designer,gui,help,multimedia,network,nfc,opengl]
-			dev-python/PyQt6[pdfium(-),positioning,printsupport,qml,quick,quick3d,serialport]
-			dev-python/PyQt6[sensors(-),spatialaudio(-),speech(-),sql,ssl,svg,testlib,webchannel]
-			dev-python/PyQt6[websockets,widgets,xml]
-			dev-python/PyQt6-WebEngine[${PYTHON_USEDEP},widgets,quick]
+			dev-python/pyqt6[${PYTHON_USEDEP}]
+			dev-python/pyqt6[dbus,designer,gui,help,multimedia,network,nfc,opengl]
+			dev-python/pyqt6[pdfium(-),positioning,printsupport,qml,quick,quick3d,serialport]
+			dev-python/pyqt6[sensors(-),spatialaudio(-),speech(-),sql,ssl,svg,testlib,webchannel]
+			dev-python/pyqt6[websockets,widgets,xml]
+			dev-python/pyqt6-webengine[${PYTHON_USEDEP},widgets,quick]
 			dev-qt/qtbase:6[sqlite]
 		)
 		pyside2? (

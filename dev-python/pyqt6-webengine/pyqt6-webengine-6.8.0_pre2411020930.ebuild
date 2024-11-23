@@ -10,31 +10,36 @@ PYPI_NO_NORMALIZE=1
 PYPI_PN=PyQt6_WebEngine
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit distutils-r1 flag-o-matic multiprocessing pypi qmake-utils
+inherit distutils-r1 flag-o-matic multiprocessing qmake-utils # pypi
 
 QT_PV=$(ver_cut 1-2):6
 
 DESCRIPTION="Python bindings for QtWebEngine"
 HOMEPAGE="https://www.riverbankcomputing.com/software/pyqtwebengine/"
 
+# TODO: drop this and uncomment 'pypi' on a proper bump
+MY_P=${PYPI_PN}-$(ver_cut 1-3).dev$(ver_cut 5)
+SRC_URI="https://www.riverbankcomputing.com/pypi/packages/PyQt6-WebEngine/${MY_P}.tar.gz"
+S=${WORKDIR}/${MY_P}
+
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="debug quick +widgets"
 
 RDEPEND="
-	>=dev-python/PyQt6-${QT_PV%:*}[gui,ssl,${PYTHON_USEDEP}]
+	>=dev-python/pyqt6-${QT_PV%:*}[gui,ssl,${PYTHON_USEDEP}]
 	>=dev-qt/qtbase-${QT_PV}[gui,widgets?]
 	>=dev-qt/qtwebengine-${QT_PV}[widgets]
 	quick? (
-		dev-python/PyQt6[qml]
+		dev-python/pyqt6[qml]
 		>=dev-qt/qtwebengine-${QT_PV}[qml]
 	)
-	widgets? ( dev-python/PyQt6[network,printsupport,webchannel,widgets] )
+	widgets? ( dev-python/pyqt6[network,printsupport,webchannel,widgets] )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	>=dev-python/PyQt-builder-1.11[${PYTHON_USEDEP}]
+	>=dev-python/pyqt-builder-1.11[${PYTHON_USEDEP}]
 	>=dev-python/sip-6.8[${PYTHON_USEDEP}]
 	>=dev-qt/qtbase-${QT_PV}
 "

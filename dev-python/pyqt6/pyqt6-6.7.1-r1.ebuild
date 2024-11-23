@@ -84,10 +84,10 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	>=dev-python/PyQt6-sip-13.8[${PYTHON_USEDEP}]
+	>=dev-python/pyqt6-sip-13.8[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/PyQt-builder-1.15[${PYTHON_USEDEP}]
+	>=dev-python/pyqt-builder-1.15[${PYTHON_USEDEP}]
 	>=dev-python/sip-6.8.6[${PYTHON_USEDEP}]
 	>=dev-qt/qtbase-${QT_PV}
 	dbus? ( virtual/pkgconfig )

@@ -16,11 +16,11 @@ HOMEPAGE="https://www.riverbankcomputing.com/software/pyqtwebengine/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="amd64 arm64"
 IUSE="debug"
 
 DEPEND="
-	>=dev-python/PyQt5-5.15.5[gui,network,printsupport,ssl,webchannel,widgets,${PYTHON_USEDEP}]
+	>=dev-python/pyqt5-5.15.5[gui,network,printsupport,ssl,webchannel,widgets,${PYTHON_USEDEP}]
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
@@ -29,10 +29,10 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	>=dev-python/PyQt5-sip-12.15:=[${PYTHON_USEDEP}]
+	>=dev-python/pyqt5-sip-12.15:=[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/PyQt-builder-1.9[${PYTHON_USEDEP}]
+	>=dev-python/pyqt-builder-1.9[${PYTHON_USEDEP}]
 	>=dev-python/sip-6.8.6[${PYTHON_USEDEP}]
 	dev-qt/qtcore:5
 "
