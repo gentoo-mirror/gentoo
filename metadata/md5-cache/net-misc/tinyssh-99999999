@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst prepare unpack
+DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=sodium? ( dev-libs/libsodium:= )
 DESCRIPTION=A small SSH server with state-of-the-art cryptography
 EAPI=8
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=sodium? ( dev-libs/libsodium:= ) sys-apps/ucspi-tcp
 SLOT=0
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=0c7ecd12c919d0f90759bf33b1f2ee10
+_md5_=395a06491d50ec9280eb5c0db3a07d88

@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=compile install postinst prepare
+DEFINED_PHASES=configure install postinst prepare
 DEPEND=sodium? ( dev-libs/libsodium:= )
 DESCRIPTION=A small SSH server with state-of-the-art cryptography
 EAPI=8
@@ -10,6 +10,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
 RDEPEND=sodium? ( dev-libs/libsodium:= ) sys-apps/ucspi-tcp
 SLOT=0
-SRC_URI=https://github.com/janmojzis/tinyssh/archive/20240101.tar.gz -> tinyssh-20240101.tar.gz
+SRC_URI=https://github.com/janmojzis/tinyssh/archive/20241111.tar.gz -> tinyssh-20241111.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=defc8c77f936874aa9773cceafa4197c
+_md5_=395a06491d50ec9280eb5c0db3a07d88
