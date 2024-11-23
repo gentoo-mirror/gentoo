@@ -16,7 +16,7 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="MIT"
 SLOT="0/6" # subslot = soname version
-KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ppc ppc64 ~s390 sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="examples unicode"
 
 DEPEND="sys-libs/ncurses:=[unicode(+)?]"
@@ -41,6 +41,8 @@ src_configure() {
 		--enable-const \
 		--with-shared \
 		--with-pkg-config \
+		--enable-pc-files \
+		--with-pkg-config-libdir="${EPREFIX}/usr/$(get_libdir)/pkgconfig" \
 		--with-ncurses$(usex unicode "w" "")
 }
 
