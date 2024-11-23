@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.ntpsec.org/
 INHERIT=distutils-r1 flag-o-matic multiprocessing waf-utils systemd verify-sig
 IUSE=oncore trimble truetime gpsd jjy generic spectracom shm pps hpgps zyfer arbiter nmea modem local debug doc early heat libbsd nist ntpviz samba seccomp smear test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug verify-sig
-KEYWORDS=~amd64 arm arm64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~riscv ~x86
 LICENSE=HPND MIT BSD-2 BSD CC-BY-SA-4.0
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] ) dev-libs/openssl:= dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] sys-libs/libcap libbsd? ( dev-libs/libbsd:0= ) seccomp? ( sys-libs/libseccomp ) oncore? ( net-misc/pps-tools ) pps? ( net-misc/pps-tools ) !net-misc/ntp !net-misc/openntpd acct-group/ntp acct-user/ntp ntpviz? ( media-fonts/liberation-fonts sci-visualization/gnuplot ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) nist? ( local ) || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://ftp.ntpsec.org/pub/releases/ntpsec-1.2.3.tar.gz verify-sig? ( https://ftp.ntpsec.org/pub/releases/ntpsec-1.2.3.tar.gz.asc )
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	2fee95c11e5f883024588d4837db6802	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	db6e4e998c9effc162bd2aa3b0d8f855	waf-utils	1d6e4c1706086040b1ebd9e6aa170341	systemd	54bd206bb5c4efac6ae28b6b006713b0	verify-sig	745dccb7d4656514f1e966cce314d7db
-_md5_=134ae7c9ee61ffb03c6cea04c2becaa9
+_md5_=8175f98d53dab154a1f8940ec61b9bd0
