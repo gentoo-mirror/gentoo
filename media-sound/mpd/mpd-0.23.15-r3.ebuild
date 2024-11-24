@@ -13,12 +13,12 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
 IUSE="+alsa ao +audiofile bzip2 cdio chromaprint +cue +curl doc +dbus
-	+eventfd expat faad +ffmpeg +fifo flac fluidsynth gme +icu +id3tag +inotify
+	+eventfd expat faad +ffmpeg +fifo flac fluidsynth gme +icu +id3tag +inotify +io-uring
 	jack lame libmpdclient libsamplerate libsoxr +mad mikmod mms
 	modplug mpg123 musepack +network nfs openal openmpt opus oss pipe pipewire pulseaudio qobuz
 	recorder samba selinux sid signalfd snapcast sndfile sndio soundcloud sqlite systemd
 	test twolame udisks vorbis wavpack webdav wildmidi upnp
-	zeroconf zip zlib"
+	yajl zeroconf zip zlib"
 
 OUTPUT_PLUGINS="alsa ao fifo jack network openal oss pipe pipewire pulseaudio snapcast sndio recorder"
 DECODER_PLUGINS="audiofile faad ffmpeg flac fluidsynth mad mikmod
@@ -31,7 +31,8 @@ REQUIRED_USE="
 	network? ( || ( ${ENCODER_PLUGINS} ) )
 	recorder? ( || ( ${ENCODER_PLUGINS} ) )
 	qobuz? ( curl soundcloud )
-	soundcloud? ( curl qobuz )
+	snapcast? ( yajl )
+	soundcloud? ( curl qobuz yajl )
 	udisks? ( dbus )
 	upnp? ( curl expat )
 	webdav? ( curl expat )
@@ -39,12 +40,12 @@ REQUIRED_USE="
 
 RESTRICT="!test? ( test )"
 
+# <libfmt-11 https://github.com/MusicPlayerDaemon/MPD/issues/2141
 RDEPEND="
 	acct-user/mpd
-	dev-libs/libfmt:=
+	<dev-libs/libfmt-11:=
 	dev-libs/libpcre2
 	media-libs/libogg
-	sys-libs/liburing:=
 	alsa? (
 		media-libs/alsa-lib
 		media-sound/alsa-utils
@@ -71,6 +72,7 @@ RDEPEND="
 		virtual/libiconv
 	)
 	id3tag? ( media-libs/libid3tag:= )
+	io-uring? ( sys-libs/liburing:= )
 	jack? ( virtual/jack )
 	lame? ( network? ( media-sound/lame ) )
 	libmpdclient? ( media-libs/libmpdclient )
@@ -99,7 +101,6 @@ RDEPEND="
 	snapcast? ( media-sound/snapcast )
 	sndfile? ( media-libs/libsndfile )
 	sndio? ( media-sound/sndio )
-	soundcloud? ( >=dev-libs/yajl-2:= )
 	sqlite? ( dev-db/sqlite:3 )
 	systemd? ( sys-apps/systemd:= )
 	twolame? ( media-sound/twolame )
@@ -108,6 +109,7 @@ RDEPEND="
 	vorbis? ( media-libs/libvorbis )
 	wavpack? ( media-sound/wavpack )
 	wildmidi? ( media-sound/wildmidi )
+	yajl? ( >=dev-libs/yajl-2:= )
 	zeroconf? ( net-dns/avahi[dbus] )
 	zip? ( dev-libs/zziplib:= )
 	zlib? ( sys-libs/zlib:= )
@@ -137,7 +139,12 @@ pkg_setup() {
 		ERROR_INOTIFY_USER="${P} requires inotify in-kernel support."
 	fi
 
-	if use eventfd || use signalfd || use inotify; then
+	if use io-uring; then
+		CONFIG_CHECK+=" ~IO_URING"
+		ERROR_IO_URING="${P} requires io-uring in-kernel support."
+	fi
+
+	if use eventfd || use signalfd || use inotify || use io-uring; then
 		linux-info_pkg_setup
 	fi
 }
@@ -168,6 +175,7 @@ src_configure() {
 		$(meson_use inotify)
 		-Dipv6=enabled
 		$(meson_feature cdio iso9660)
+		$(meson_feature io-uring io_uring)
 		$(meson_feature jack)
 		$(meson_feature libmpdclient)
 		$(meson_feature libsamplerate)
@@ -204,6 +212,7 @@ src_configure() {
 		$(meson_feature wavpack)
 		$(meson_feature wildmidi)
 		$(meson_feature webdav)
+		$(meson_feature yajl)
 		-Dzeroconf=$(usex zeroconf avahi disabled)
 		$(meson_feature zlib)
 		$(meson_feature zip zzip)
@@ -215,7 +224,6 @@ src_configure() {
 		-Ddatabase=true
 		-Ddaemon=true
 		-Ddsd=true
-		-Dio_uring=enabled
 		-Dtcp=true
 
 		-Dsystemd_system_unit_dir="$(systemd_get_systemunitdir)"
@@ -270,7 +278,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${P}.logrotate" "${PN}"
 
-	newinitd "${FILESDIR}/${P}.init" "${PN}"
+	newinitd "${FILESDIR}/${P}.init-r1" "${PN}"
 
 	keepdir /var/lib/mpd
 	keepdir /var/lib/mpd/music
