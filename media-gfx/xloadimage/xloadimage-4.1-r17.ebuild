@@ -16,7 +16,7 @@ S="${WORKDIR}"/${P/-/.}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="tiff jpeg png"
 
 RDEPEND="x11-libs/libX11
@@ -24,7 +24,8 @@ RDEPEND="x11-libs/libX11
 	png? ( media-libs/libpng:= )
 	jpeg? ( media-libs/libjpeg-turbo:= )
 	!media-gfx/xli"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	x11-base/xorg-proto"
 
 PATCHES=(
 	"${WORKDIR}"/${P}-gentoo-r1.diff
