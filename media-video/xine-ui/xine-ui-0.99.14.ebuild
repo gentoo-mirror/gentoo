@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools xdg
+inherit autotools flag-o-matic xdg
 
 DESCRIPTION="Xine movie player"
 HOMEPAGE="https://xine-project.org/home"
@@ -11,14 +11,14 @@ SRC_URI="https://downloads.sourceforge.net/xine/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~hppa ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE="aalib curl debug libcaca lirc nls readline vdr X xinerama"
 
 RDEPEND="
 	|| ( app-arch/tar app-arch/libarchive )
 	media-libs/libpng:0=
 	>=media-libs/xine-lib-1.2:=[aalib?,libcaca?]
-	virtual/jpeg:0
+	media-libs/libjpeg-turbo:=
 	aalib? ( media-libs/aalib:= )
 	curl? ( >=net-misc/curl-7.10.2:= )
 	libcaca? ( media-libs/libcaca:= )
@@ -50,7 +50,7 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.99.10-desktop.patch
-	"${FILESDIR}"/${P}-build.patch
+	"${FILESDIR}"/${PN}-0.99.14-configure-c99.patch
 )
 
 src_prepare() {
@@ -60,6 +60,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #944213
+	append-cflags -std=gnu17
+
 	econf \
 		$(use_enable nls) \
 		$(use_enable xinerama) \

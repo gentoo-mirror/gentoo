@@ -11,7 +11,7 @@ SRC_URI="https://github.com/xelerance/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~mips ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+kernel"
 
 DEPEND="
@@ -26,6 +26,8 @@ DOCS=( CREDITS README.md BUGS CHANGES TODO doc/README.patents )
 
 PATCHES=(
 	"${FILESDIR}/xl2tpd-1.3.18-r1-close-calls-when-pppd-terminates.patch"
+	"${FILESDIR}/xl2tpd-1.3.18-r2-Pass-remotenumber-to-pppd.patch"
+	"${FILESDIR}/xl2tpd-1.3.18-r3-Fix-compiling-with-C23.patch"
 )
 
 src_prepare() {
