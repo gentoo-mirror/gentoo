@@ -2387,7 +2387,7 @@ app-emulation/virtualbox-extpack-oracle 6.1.50 7.0.20 7.0.22 7.1.2 7.1.4: PUEL e
 app-emulation/virtualbox-guest-additions 6.1.50-r1 7.0.20 7.0.22 7.1.2 7.1.4: VirtualBox kernel modules and user-space tools for Gentoo guests
 app-emulation/virtualbox-kvm 7.0.20_pre20240828 7.0.22_pre20240828: Family of powerful x86 virtualization products for enterprise and home use
 app-emulation/virtualbox-modules 6.1.50-r2 7.0.20 7.0.22 7.1.2 7.1.4: Kernel Modules for Virtualbox
-app-emulation/vkd3d 1.13: D3D12 to Vulkan translation library
+app-emulation/vkd3d 1.13 1.14: D3D12 to Vulkan translation library
 app-emulation/vkd3d-proton 2.6-r1 2.12 2.13 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r1: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.2 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
@@ -9934,7 +9934,7 @@ dev-ruby/erubis 2.7.0-r4: Erubis is an implementation of eRuby
 dev-ruby/ethon 0.16.0: Very lightweight libcurl wrapper
 dev-ruby/evented-spec 0.9.0-r1: A set of helpers to help you test your asynchronous code
 dev-ruby/eventmachine 1.2.7-r4: EventMachine is a fast, simple event-processing library for Ruby programs
-dev-ruby/excon 0.104.0 0.112.0: EXtended http(s) CONnections
+dev-ruby/excon 0.104.0 0.112.0 1.2.1: EXtended http(s) CONnections
 dev-ruby/execjs 2.9.1 2.10.0: ExecJS lets you run JavaScript code from Ruby
 dev-ruby/exifr 1.4.0: A library to read EXIF info from JPEG and TIFF images
 dev-ruby/facter 3.14.24 4.4.1 4.4.3-r1 4.5.0 4.5.1 4.5.2 4.7.0 4.7.0-r1: A cross-platform ruby library for retrieving facts from operating systems
@@ -11327,7 +11327,7 @@ games-board/pioneers 15.6: Clone of the popular board game The Settlers of Catan
 games-board/pokerth 1.1.2-r1: Texas Hold'em poker game
 games-board/polyglot 1.4.70b-r3: Protocol adapter to run UCI chess engines under xboard
 games-board/pychess 1.0.4 1.0.5: GTK chess client
-games-board/pysolfc 3.0.0: Exciting collection of more than 1000 solitaire card games
+games-board/pysolfc 3.0.0 3.1.0: Exciting collection of more than 1000 solitaire card games
 games-board/scid 4.7.0-r1 5.0.2: Shane's Chess Information Database
 games-board/simsu 1.3.9: Basic sudoku game
 games-board/sjeng 11.2_p8_p1: Console based chess interface
@@ -11405,7 +11405,7 @@ games-emulation/rmg 0.6.5-r1 0.6.6-r1 9999: Rosalie's Mupen GUI
 games-emulation/ryujinx 1.1.1388 1.1.1403: Experimental Nintendo Switch Emulator written in C#
 games-emulation/sameboy-jg 0.16.5 0.16.6 9999: Jolly Good Port of SameBoy
 games-emulation/snes9x 1.62.3: Super Nintendo Entertainment System (SNES) emulator
-games-emulation/stella 6.7.1: Multi-platform Atari 2600 VCS Emulator
+games-emulation/stella 6.7.1 7.0: Multi-platform Atari 2600 VCS Emulator
 games-emulation/vbam 2.1.7 2.1.9 9999: Game Boy, GBC, and GBA emulator forked from VisualBoyAdvance
 games-emulation/vecx-jg 1.2.2 9999: Jolly Good Fork of vecx
 games-emulation/vgba 4.8-r1: Gameboy Advance (GBA) emulator for Linux
@@ -13035,7 +13035,7 @@ media-gfx/ttfautohint 1.8.4-r3: Application and libary for hinting TrueType font
 media-gfx/ttygif 1.6.0: Convert terminal recordings to animated gifs
 media-gfx/tuxpaint 0.9.31 0.9.31-r1: Drawing program designed for young children
 media-gfx/tuxpaint-stamps 20090628-r1 20211125 20220604 20230402: Set of 'Rubber Stamp' images which can be used within Tux Paint
-media-gfx/ueberzug 18.2.3 18.3.0: Command line util to draw images on terminals by using child windows
+media-gfx/ueberzug 18.2.3 18.3.0 18.3.1: Command line util to draw images on terminals by using child windows
 media-gfx/ueberzugpp 2.9.6: Drop in replacement for ueberzug written in C++
 media-gfx/valentina 0.6.1-r1 0.7.52 9999: Cloth patternmaking software
 media-gfx/viewer 0.8.0-r2: A stereo pair image viewer (supports ppm's only)
@@ -13454,7 +13454,7 @@ media-libs/urt 3.1b-r3: the Utah Raster Toolkit is a library for dealing with ra
 media-libs/vamp-plugin-sdk 2.10: Audio processing system for plugins to extract information from audio data
 media-libs/vidstab 1.1.1 1.1.1-r1 9999: Video stabilization library
 media-libs/vigra 1.11.2_p20240505 9999: C++ computer vision library emphasizing customizable algorithms and structures
-media-libs/vips 8.15.2 8.15.5: VIPS Image Processing Library
+media-libs/vips 8.15.2 8.15.5 8.16.0: VIPS Image Processing Library
 media-libs/virglrenderer 0.10.1 0.10.4 1.0.1 9999: library used implement a virtual 3D GPU used by qemu
 media-libs/vitamtp 2.5.9_pre20160829 9999: Library to interact with PS Vita's USB MTP protocol
 media-libs/vkroots 0_p20240430: Simple framework for writing Vulkan layers
@@ -14108,7 +14108,7 @@ media-sound/wildmidi 0.4.5 0.4.6: MIDI processing library and player using the G
 media-sound/wmsound-data 1.0.0: A bunch of sounds for WindowMaker Sound Server
 media-sound/xfmpc 0.3.1: Music Player Daemon (MPD) client for the Xfce desktop environment
 media-sound/xineadump 0.1-r2: Utility for Xine decoding support in transKode
-media-sound/xmms2 0.9.4: X(cross)platform Music Multiplexing System, next generation of the XMMS player
+media-sound/xmms2 0.9.5: X(cross)platform Music Multiplexing System, next generation of the XMMS player
 media-sound/xwax 1.9: Digital vinyl emulation software
 media-sound/yarock 1.4.0-r3: Qt-based music player
 media-sound/yoshimi 2.3.3.1: Software synthesizer based on ZynAddSubFX
