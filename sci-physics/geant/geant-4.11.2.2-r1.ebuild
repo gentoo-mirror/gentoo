@@ -30,14 +30,14 @@ SLOT="4/$(ver_cut 1-4)"
 
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl
-	qt5 raytracerx static-libs tbb threads trajectories vtk"
+	qt6 raytracerx static-libs tbb threads trajectories vtk"
 
 REQUIRED_USE="
 	inventor? ( opengl )
 	motif? ( opengl )
-	qt5? ( opengl )
+	qt6? ( opengl )
 	tbb? ( threads )
-	vtk? ( qt5 )
+	vtk? ( qt6 )
 "
 
 RDEPEND="
@@ -50,24 +50,20 @@ RDEPEND="
 	inventor? ( media-libs/SoXt )
 	motif? ( x11-libs/motif:0 )
 	opengl? ( virtual/opengl )
-	qt5? (
-		dev-qt/qt3d:5
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		opengl? ( dev-qt/qtopengl:5 )
+	qt6? (
+		dev-qt/qt3d:6
+		dev-qt/qtbase:6[gui,opengl?,widgets]
 	)
 	raytracerx? (
 		x11-libs/libX11
 		x11-libs/libXmu
 	)
-	vtk? (
-		sci-libs/vtk:=[qt5]
-	)"
+	vtk? ( sci-libs/vtk:=[qt6] )
+"
+DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.11.0.2-musl-avoid-execinfo.patch
-	"${FILESDIR}"/${PN}-4.11.2.1-find-soxt-noversion.patch
 )
 
 src_configure() {
@@ -88,7 +84,8 @@ src_configure() {
 		-DGEANT4_USE_HDF5=$(usex hdf5)
 		-DGEANT4_USE_INVENTOR=$(usex inventor)
 		-DGEANT4_USE_OPENGL_X11=$(usex opengl)
-		-DGEANT4_USE_QT=$(usex qt5)
+		-DGEANT4_USE_QT=$(usex qt6)
+		-DGEANT4_USE_QT_QT6=$(usex qt6)
 		-DGEANT4_USE_RAYTRACER_X11=$(usex raytracerx)
 		-DGEANT4_USE_SYSTEM_CLHEP=ON
 		-DGEANT4_USE_SYSTEM_EXPAT=ON

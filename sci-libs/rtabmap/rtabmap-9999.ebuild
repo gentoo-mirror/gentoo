@@ -3,45 +3,38 @@
 
 EAPI=8
 
-SCM=""
-if [ "${PV#9999}" != "${PV}" ] ; then
-	SCM="git-r3"
-	EGIT_REPO_URI="https://github.com/introlab/rtabmap"
-fi
-
-inherit ${SCM} cmake multilib
-
 VER_SUFFIX=noetic
+inherit cmake
 
-if [ "${PV#9999}" != "${PV}" ] ; then
-	SRC_URI=""
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/introlab/rtabmap"
 else
-	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/introlab/rtabmap/archive/refs/tags/${PV}-${VER_SUFFIX}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${P}-${VER_SUFFIX}"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Real-Time Appearance-Based Mapping (RGB-D Graph SLAM)"
-HOMEPAGE="http://introlab.github.io/rtabmap/"
+HOMEPAGE="https://introlab.github.io/rtabmap/"
+
 LICENSE="BSD"
 SLOT="0"
-IUSE="examples ieee1394 openni2 qt5"
+IUSE="examples ieee1394 openni2 qt6"
 
 RDEPEND="
-	media-libs/opencv:=[qt5(-)?]
-	sci-libs/pcl:=[openni,vtk,qt5(-)?]
-	sci-libs/vtk:=[qt5(-)?]
-	sys-libs/zlib
-	sci-libs/octomap:=
-	dev-libs/boost:=
 	dev-cpp/yaml-cpp:=
+	dev-libs/boost:=
+	media-libs/opencv:=[qt6(-)?]
+	sci-libs/octomap:=
+	sci-libs/pcl:=[openni,vtk,qt6(-)?]
+	sci-libs/vtk:=[qt6(-)?]
+	sys-libs/zlib
 	ieee1394? ( media-libs/libdc1394:2= )
 	openni2? ( dev-libs/OpenNI2 )
-	qt5? (
-		dev-qt/qtwidgets:5
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtsvg:5
+	qt6? (
+		dev-qt/qtbase:6[gui,widgets]
+		dev-qt/qtsvg:6
 	)
 "
 DEPEND="${RDEPEND}"
@@ -49,10 +42,11 @@ BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
-		"-DWITH_QT=$(usex qt5 ON OFF)"
-		"-DWITH_DC1394=$(usex ieee1394 ON OFF)"
-		"-DWITH_OPENNI2=$(usex openni2 ON OFF)"
-		"-DBUILD_EXAMPLES=$(usex examples ON OFF)"
+		-DRTABMAP_QT_VERSION=6
+		-DWITH_QT=$(usex qt6)
+		-DWITH_DC1394=$(usex ieee1394)
+		-DWITH_OPENNI2=$(usex openni2)
+		-DBUILD_EXAMPLES=$(usex examples)
 	)
 	cmake_src_configure
 }
