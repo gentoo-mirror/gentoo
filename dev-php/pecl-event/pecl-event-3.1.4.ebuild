@@ -8,25 +8,20 @@ PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
 DOCS=( README.md )
 
-USE_PHP="php8-1 php8-2"
+USE_PHP="php8-2 php8-3"
 PHP_EXT_NEEDED_USE="sockets(-)?"
 
 inherit php-ext-pecl-r3
 
-KEYWORDS="amd64 x86"
-LICENSE="PHP-3.01"
-
 DESCRIPTION="PHP wrapper for libevent2"
+HOMEPAGE="https://pecl.php.net/package/event"
+LICENSE="PHP-3.01"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug examples +extra +sockets +ssl threads"
-
-DEPEND="
-	>=dev-libs/libevent-2.0.2
-	ssl? ( dev-libs/openssl:0= )"
-
-RDEPEND="
-	${DEPEND}
-	!dev-php/pecl-libevent"
+DEPEND=">=dev-libs/libevent-2.0.2[ssl?]
+	ssl? ( dev-libs/openssl:= )"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local PHP_EXT_ECONF_ARGS=(

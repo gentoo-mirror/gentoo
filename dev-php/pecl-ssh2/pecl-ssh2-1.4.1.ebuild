@@ -6,15 +6,14 @@ EAPI="8"
 PHP_EXT_NAME="ssh2"
 
 USE_PHP="php8-2 php8-3"
-EGIT_REPO_URI="https://github.com/php/pecl-networking-ssh2.git"
 
-inherit php-ext-source-r3 git-r3
+inherit php-ext-pecl-r3
 
 DESCRIPTION="PHP bindings for the libssh2 library"
 HOMEPAGE="https://pecl.php.net/package/ssh2"
 LICENSE="PHP-3.01"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 # Upstream notes say there are errors with gcrypt backend
 DEPEND=">=net-libs/libssh2-1.2[-gcrypt]"
 RDEPEND="${DEPEND}"
