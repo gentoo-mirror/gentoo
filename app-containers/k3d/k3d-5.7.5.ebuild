@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit go-module
 DESCRIPTION="k3d creates k3s clusters in docker"
 HOMEPAGE="https://github.com/rancher/k3d"
 
-K3D_K3S_TAG=v1.24.12-k3s1
+K3D_K3S_TAG=v1.31.2-k3s1
 SRC_URI="https://github.com/rancher/k3d/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT Apache-2.0 BSD BSD-2 MPL-2.0 ISC"
 SLOT="0"
@@ -21,12 +21,16 @@ src_prepare() {
 }
 
 src_compile() {
-	GOWORK=off \
+	local extra_ldflags=(
+		-X "github.com/k3d-io/k3d/v5/version.Version=v${PV}"
+		-X "github.com/k3d-io/k3d/v5/version.K3sVersion=${K3D_K3S_TAG}"
+	)
+	env -u GOWORK \
 	CGO_ENABLED=0 \
 		go build \
 		-mod=vendor \
-		-ldflags "-w -s -X github.com/k3d-io/k3d/v5/version.Version=v${PV} -X github.com/k3d-io/k3d/v5/version.K3sVersion=${K3D_K3S_TAG}" \
-		-o bin/k3d
+		-ldflags "-w -s ${extra_ldflags[*]}" \
+		-o bin/k3d || die
 }
 
 src_install() {
