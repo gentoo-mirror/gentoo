@@ -1122,7 +1122,7 @@ app-arch/drpm 0.5.2 9999: A library for making, reading and applying deltarpm pa
 app-arch/dtrx 8.5.3-r1 9999: Do The Right eXtraction - extracts archives of different formats
 app-arch/duff 0.5.2: Command-line utility for quickly finding duplicates in a given set of files
 app-arch/dump 0.4.47-r1 0.4.47-r2 0.4.47-r3: Dump/restore ext2fs backup utilities
-app-arch/engrampa 1.28.1: Engrampa archive manager for MATE
+app-arch/engrampa 1.28.1 1.28.2: Engrampa archive manager for MATE
 app-arch/file-roller 44 44.1 44.3: Archive manager for GNOME
 app-arch/funzix 1.0-r1: Unpacker for the bogus ZIX format
 app-arch/gcab 1.6: Library and tool for working with Microsoft Cabinet (CAB) files
@@ -1326,7 +1326,7 @@ app-cdr/xcdroast 1.19-r1: Lightweight cdrtools front-end for CD and DVD writing
 app-cdr/xfburn 0.7.2: GTK+ based CD and DVD burning application
 app-containers/aardvark-dns 1.9.0-r1 1.10.0-r1 1.11.0-r1 1.12.2-r1 9999: A container-focused DNS server
 app-containers/apptainer 1.3.2: The container system for secure high-performance computing
-app-containers/buildah 1.33.7 1.34.3 1.35.3 1.35.4 1.36.0 1.37.5 1.38.0 9999: A tool that facilitates building OCI images
+app-containers/buildah 1.37.5 1.38.0 9999: A tool that facilitates building OCI images
 app-containers/cadvisor 0.36.0: Analyzes resource usage and performance characteristics of running containers
 app-containers/catatonit 0.2.0 9999: A container init that is so simple it's effectively brain-dead
 app-containers/cni-plugins 1.2.0 1.3.0 1.5.1: Standard networking plugins for container networking
@@ -12582,7 +12582,7 @@ mate-base/mate-common 1.28.0: Common files for development of MATE packages
 mate-base/mate-control-center 1.28.0-r1: The MATE Desktop configuration tool
 mate-base/mate-desktop 1.28.2: Libraries for the MATE desktop that are not part of the UI
 mate-base/mate-menus 1.28.0: MATE menu system, implementing the F.D.O cross-desktop spec
-mate-base/mate-panel 1.28.1: The MATE panel
+mate-base/mate-panel 1.28.1 1.28.4: The MATE panel
 mate-base/mate-session-manager 1.28.0-r1: MATE session manager
 mate-base/mate-settings-daemon 1.28.0-r1: MATE Settings Daemon
 mate-extra/caja-actions 1.28.0: Caja Actions
@@ -12596,7 +12596,7 @@ mate-extra/mate-polkit 1.28.1: A MATE specific DBUS service that is used to brin
 mate-extra/mate-power-manager 1.28.1-r1: Session daemon for MATE that makes it easy to manage your laptop or desktop
 mate-extra/mate-screensaver 1.28.0: Replaces xscreensaver, integrating with the MATE desktop
 mate-extra/mate-sensors-applet 1.28.0: MATE panel applet to display readings from hardware sensors
-mate-extra/mate-system-monitor 1.28.0: The MATE System Monitor
+mate-extra/mate-system-monitor 1.28.0 1.28.1: The MATE System Monitor
 mate-extra/mate-tweak 22.10.0: Tweak tool for the MATE Desktop
 mate-extra/mate-user-guide 1.28.0: User documentation for MATE Desktop
 mate-extra/mate-user-share 1.28.0-r1: Personal file sharing for the MATE desktop
@@ -17336,14 +17336,14 @@ sys-cluster/keepalived 2.2.7 2.2.8: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.28.2 1.30.0: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23 1.25: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.29.6 1.29.7 1.29.8 1.29.10 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1 1.31.2: Kubernetes API server
-sys-cluster/kube-controller-manager 1.29.6 1.29.7 1.29.8 1.29.10 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1 1.31.2: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.29.6 1.29.7 1.29.8 1.29.10 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1 1.31.2: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.29.6 1.29.7 1.29.8 1.29.10 1.29.11 1.30.2 1.30.3 1.30.4 1.30.6 1.30.7 1.31.0 1.31.1 1.31.2 1.31.3: Kubernetes API server
+sys-cluster/kube-controller-manager 1.29.6 1.29.7 1.29.8 1.29.10 1.29.11 1.30.2 1.30.3 1.30.4 1.30.6 1.30.7 1.31.0 1.31.1 1.31.2 1.31.3: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.29.6 1.29.7 1.29.8 1.29.10 1.29.11 1.30.2 1.30.3 1.30.4 1.30.6 1.30.7 1.31.0 1.31.1 1.31.2 1.31.3: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0 1.6.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.29.6 1.29.7 1.29.8 1.29.10 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1 1.31.2: Kubernetes Scheduler
-sys-cluster/kubeadm 1.29.6 1.29.7 1.29.8 1.29.10 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1 1.31.2: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.29.6 1.29.7 1.29.8 1.29.10 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1 1.31.2: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.29.6 1.29.7 1.29.8 1.29.10 1.30.2 1.30.3 1.30.4 1.30.6 1.31.0 1.31.1 1.31.2: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.29.6 1.29.7 1.29.8 1.29.10 1.29.11 1.30.2 1.30.3 1.30.4 1.30.6 1.30.7 1.31.0 1.31.1 1.31.2 1.31.3: Kubernetes Scheduler
+sys-cluster/kubeadm 1.29.6 1.29.7 1.29.8 1.29.10 1.29.11 1.30.2 1.30.3 1.30.4 1.30.6 1.30.7 1.31.0 1.31.1 1.31.2 1.31.3: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.29.6 1.29.7 1.29.8 1.29.10 1.29.11 1.30.2 1.30.3 1.30.4 1.30.6 1.30.7 1.31.0 1.31.1 1.31.2 1.31.3: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.29.6 1.29.7 1.29.8 1.29.10 1.29.11 1.30.2 1.30.3 1.30.4 1.30.6 1.30.7 1.31.0 1.31.1 1.31.2 1.31.3: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.6 1.12: A client for kubelet
 sys-cluster/kubelogin 1.30.1 1.31.0: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.27.0 0.27.2: Client-side utility for one-way encrypted secrets in kubernetes
@@ -18481,7 +18481,7 @@ x11-misc/menumaker 0.99.14: Utility that scans through the system and generates 
 x11-misc/meteo 0.9.9.1-r3 0.9.9.2: Forecast application using OpenWeatherMap API
 x11-misc/mgm 1.2-r2: Moaning Goat Meter: load and status meter written in Perl
 x11-misc/mixer_app 1.8.0-r1: mixer_app has volume controllers that can be configured to handle sound sources
-x11-misc/mozo 1.26.2 1.28.0: Mozo menu editor for MATE
+x11-misc/mozo 1.28.0: Mozo menu editor for MATE
 x11-misc/mugshot 0.4.3-r2: A lightweight user-configuration application
 x11-misc/mygestures 2.0-r1: Mouse gestures for X
 x11-misc/netwmpager 2.05: Pager that works with Openbox and other EWMH compliant window managers
@@ -18914,7 +18914,7 @@ x11-themes/lxqt-themes 1.3.0 2.0.0 2.1.0: LXQt Themes
 x11-themes/mate-backgrounds 1.28.0: A set of backgrounds packaged with the MATE desktop
 x11-themes/mate-icon-theme 1.28.0: MATE default icon themes
 x11-themes/mate-icon-theme-faenza 1.20.0: Faenza icon theme that was adapted for MATE desktop
-x11-themes/mate-themes 3.22.24-r1: A set of MATE themes, with sets for users with limited or low vision
+x11-themes/mate-themes 3.22.24-r1 3.22.26: A set of MATE themes, with sets for users with limited or low vision
 x11-themes/murrine-themes 0.98.11-r1: Themes for the Murrine GTK+2 Cairo Engine
 x11-themes/neutral-xcursors 20150106-r2: A family of smoothed and shadowed cursors that resemble the standard X ones
 x11-themes/notify-osd-icons 0.7-r1: Icons for on-screen-display notification agent
