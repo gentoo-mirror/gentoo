@@ -17,7 +17,11 @@ IUSE="systemd"
 
 RDEPEND="systemd? ( sys-apps/systemd )"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+# Can drop docutils dep if/when release tarballs return
+BDEPEND="
+	dev-python/docutils
+	virtual/pkgconfig
+"
 
 DOCS=( ChangeLog )
 
