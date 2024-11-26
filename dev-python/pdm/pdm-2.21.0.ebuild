@@ -20,27 +20,29 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	dev-python/blinker[${PYTHON_USEDEP}]
+	dev-python/certifi[${PYTHON_USEDEP}]
 	>=dev-python/dep-logic-0.4.4[${PYTHON_USEDEP}]
-	dev-python/packaging[${PYTHON_USEDEP}]
-	dev-python/platformdirs[${PYTHON_USEDEP}]
-	dev-python/rich[${PYTHON_USEDEP}]
-	>=dev-python/truststore-0.9[${PYTHON_USEDEP}]
-	dev-python/virtualenv[${PYTHON_USEDEP}]
-	dev-python/msgpack[${PYTHON_USEDEP}]
-	dev-python/httpx[${PYTHON_USEDEP}]
-	dev-python/filelock[${PYTHON_USEDEP}]
-	>=dev-python/hishel-0.0.32[${PYTHON_USEDEP}]
-	>=dev-python/pbs-installer-2024.4.18[${PYTHON_USEDEP}]
-	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
-	>=dev-python/unearth-0.17.0[${PYTHON_USEDEP}]
 	<dev-python/findpython-1[${PYTHON_USEDEP}]
 	>=dev-python/findpython-0.6.0[${PYTHON_USEDEP}]
-	dev-python/tomlkit[${PYTHON_USEDEP}]
-	dev-python/shellingham[${PYTHON_USEDEP}]
-	dev-python/python-dotenv[${PYTHON_USEDEP}]
-	>=dev-python/resolvelib-1.0.1[${PYTHON_USEDEP}]
+	dev-python/blinker[${PYTHON_USEDEP}]
+	dev-python/filelock[${PYTHON_USEDEP}]
+	>=dev-python/hishel-0.0.32[${PYTHON_USEDEP}]
+	>=dev-python/httpcore-1.0.6[${PYTHON_USEDEP}]
+	dev-python/httpx[${PYTHON_USEDEP}]
 	dev-python/installer[${PYTHON_USEDEP}]
+	dev-python/msgpack[${PYTHON_USEDEP}]
+	dev-python/packaging[${PYTHON_USEDEP}]
+	>=dev-python/pbs-installer-2024.4.18[${PYTHON_USEDEP}]
+	dev-python/platformdirs[${PYTHON_USEDEP}]
+	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
+	dev-python/python-dotenv[${PYTHON_USEDEP}]
+	>=dev-python/resolvelib-1.1[${PYTHON_USEDEP}]
+	dev-python/rich[${PYTHON_USEDEP}]
+	dev-python/shellingham[${PYTHON_USEDEP}]
+	dev-python/tomlkit[${PYTHON_USEDEP}]
+	>=dev-python/truststore-0.9[${PYTHON_USEDEP}]
+	>=dev-python/unearth-0.17.0[${PYTHON_USEDEP}]
+	dev-python/virtualenv[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/tomli[${PYTHON_USEDEP}]
 	' 3.10)
@@ -54,6 +56,13 @@ BDEPEND="
 "
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# unpin deps
+	sed -i -e 's:,<[0-9.a]*::' pyproject.toml || die
+}
 
 python_test() {
 	local EPYTEST_DESELECT=(
