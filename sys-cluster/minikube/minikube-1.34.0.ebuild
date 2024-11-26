@@ -3,13 +3,14 @@
 
 EAPI=8
 inherit bash-completion-r1 go-module toolchain-funcs
-GIT_COMMIT=8220a6eb95f0a4d75f7f2d7b14cef975f050512d
+GIT_COMMIT=210b148df93a80eb872ecbeb7e35281b3c582c61
 GIT_COMMIT_SHORT=${GIT_COMMIT:0:9}
 
 DESCRIPTION="Single Node Kubernetes Cluster"
 HOMEPAGE="https://github.com/kubernetes/minikube https://kubernetes.io"
 
-SRC_URI="https://github.com/zmedico/minikube/archive/refs/tags/v${PV}-vendor.tar.gz -> ${P}-vendor.tar.gz"
+SRC_URI="https://github.com/kubernetes/minikube/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 CC-BY-4.0 CC-BY-SA-4.0 CC0-1.0 GPL-2 ISC LGPL-3 MIT MPL-2.0 WTFPL-2 ZLIB || ( LGPL-3+ GPL-2 ) || ( Apache-2.0 LGPL-3+ ) || ( Apache-2.0 CC-BY-4.0 )"
 SLOT="0"
@@ -22,7 +23,15 @@ RDEPEND="${COMMON_DEPEND}"
 BDEPEND="dev-go/go-bindata"
 
 RESTRICT="test"
-S=${WORKDIR}/${P}-vendor
+
+src_unpack() {
+	default
+}
+
+src_prepare() {
+	ln -sv ../vendor ./ || die
+	default
+}
 
 src_configure() {
 	case "${ARCH}" in
