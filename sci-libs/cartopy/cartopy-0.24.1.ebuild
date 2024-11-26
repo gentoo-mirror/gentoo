@@ -55,9 +55,6 @@ BDEPEND="
 		')
 	)
 "
-PATCHES=(
-	"${FILESDIR}"/${P}-backport-test-fixes.patch
-)
 
 EPYTEST_IGNORE=(
 	# Require network access, not covered by markers
