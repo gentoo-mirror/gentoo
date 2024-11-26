@@ -1,13 +1,13 @@
 BDEPEND=app-alternatives/lex app-alternatives/yacc >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
-DEFINED_PHASES=install prepare test
+DEFINED_PHASES=configure install prepare test
 DESCRIPTION=A Library to Access SMI MIB Information
 EAPI=8
 HOMEPAGE=https://www.ibr.cs.tu-bs.de/projects/libsmi/ https://gitlab.ibr.cs.tu-bs.de/nm/libsmi
-INHERIT=autotools
+INHERIT=autotools flag-o-matic
 KEYWORDS=~alpha amd64 arm ~hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 sparc x86
 LICENSE=BSD
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.ibr.cs.tu-bs.de/projects/libsmi/download/libsmi-0.5.0.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe
-_md5_=2eb16049fb0d68bbd24c634fdbc24b8e
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe
+_md5_=4f7190630546319d4ef6070ceb11cf24
