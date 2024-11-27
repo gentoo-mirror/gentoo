@@ -66,7 +66,13 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[libproxy]
 	sys-power/switcheroo-control
 "
-PDEPEND=">=kde-frameworks/kded-${PVCUT}:6"
+# bug 944812: File Properties is accessible from KFileWidget (KIO); this
+# provides access to keditfiletype binary via KWidgetsAddons (Tier1)
+# Typical KIO revdeps (dolphin, krusader et al.) can rely on this dep
+PDEPEND="
+	>=kde-frameworks/kded-${PVCUT}:6
+	kde-plasma/keditfiletype
+"
 
 src_configure() {
 	local mycmakeargs=(
