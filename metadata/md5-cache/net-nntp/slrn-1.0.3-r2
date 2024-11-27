@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=app-arch/sharutils >=sys-libs/slang-2.2.3 virtual/mta canlock? ( net-libs/canlock:=[legacy(+)] ) ssl? ( dev-libs/openssl:0= ) uudeview? ( dev-libs/uulib ) nls? ( sys-devel/gettext )
+DESCRIPTION=A s-lang based newsreader
+EAPI=8
+HOMEPAGE=https://slrn.sourceforge.net/ https://github.com/jedsoft/slrn
+IUSE=canlock nls selinux ssl uudeview
+KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=app-arch/sharutils >=sys-libs/slang-2.2.3 virtual/mta canlock? ( net-libs/canlock:=[legacy(+)] ) ssl? ( dev-libs/openssl:0= ) uudeview? ( dev-libs/uulib ) selinux? ( sec-policy/selinux-slrnpull )
+SLOT=0
+SRC_URI=https://jedsoft.org/releases/slrn/slrn-1.0.3a.tar.bz2
+_md5_=2529906d3ad30a5c865cf44b58bc8982
