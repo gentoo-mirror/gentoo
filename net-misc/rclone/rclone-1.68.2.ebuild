@@ -11,12 +11,12 @@ HOMEPAGE="https://rclone.org/
 SRC_URI="
 	https://github.com/rclone/rclone/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz
-	https://dev.gentoo.org/~xgqt/distfiles/deps/${P}-deps.tar.xz
+	https://dev.gentoo.org/~xgqt/distfiles/deps/${PN}-1.68.2-deps.tar.xz
 "
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	sys-fs/fuse:3
@@ -37,7 +37,7 @@ src_compile() {
 		-mod=readonly
 		-o ./
 	)
-	ego build "${go_buildargs[@]}" .
+	ego build "${go_buildargs[@]}"
 
 	edob ./rclone genautocomplete bash "${PN}.bash"
 	edob ./rclone genautocomplete zsh "${PN}.zsh"
