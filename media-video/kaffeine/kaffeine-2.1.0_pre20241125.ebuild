@@ -4,22 +4,17 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
+KDE_ORG_COMMIT=45fd36276dcfba243303d44e0b18a8aa9b05a9a9
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm kde.org
-
-if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	MY_P="${PN}-v${PV}"
-	SRC_URI="https://invent.kde.org/multimedia/${PN}/-/archive/v${PV}/${MY_P}.tar.bz2"
-	S="${WORKDIR}/${MY_P}"
-	KEYWORDS="~amd64 ~x86"
-fi
 
 DESCRIPTION="Media player with digital TV support by KDE"
 HOMEPAGE="https://apps.kde.org/kaffeine/ https://userbase.kde.org/Kaffeine"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.3 )"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="dvb"
 
 DEPEND="
