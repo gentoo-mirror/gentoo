@@ -20,11 +20,18 @@ SRC_URI="
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/icalendar-5.0.11[${PYTHON_USEDEP}]
-	dev-python/pytz[${PYTHON_USEDEP}]
+	dev-python/click[${PYTHON_USEDEP}]
+	>=dev-python/icalendar-6.1.0[${PYTHON_USEDEP}]
+	dev-python/tzdata[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		dev-python/pytest-click[${PYTHON_USEDEP}]
+		dev-python/pytz[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest

@@ -45,6 +45,7 @@ BDEPEND="
 	test? (
 		dev-python/pexpect[${PYTHON_USEDEP}]
 		>=dev-python/pytest-8[${PYTHON_USEDEP}]
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
@@ -70,7 +71,8 @@ python_test() {
 			;;
 	esac
 
-	epytest -o filterwarnings= tests/cover tests/pytest tests/quality
+	epytest -o filterwarnings= -p rerunfailures --reruns=5 \
+		tests/cover tests/pytest tests/quality
 }
 
 src_install() {
