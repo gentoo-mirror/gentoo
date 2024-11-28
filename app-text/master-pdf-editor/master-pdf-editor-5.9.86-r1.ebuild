@@ -16,16 +16,20 @@ KEYWORDS="~amd64"
 RESTRICT="mirror"
 
 RDEPEND="
-	sys-libs/glibc
 	dev-libs/pkcs11-helper
-	>=dev-qt/qtcore-5.12.9:5
-	>=dev-qt/qtgui-5.12.9:5
-	>=dev-qt/qtnetwork-5.12.9:5
-	>=dev-qt/qtprintsupport-5.12.9:5
-	>=dev-qt/qtsvg-5.12.9:5
+	dev-qt/qtconcurrent:5
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
+	dev-qt/qtxml:5
+	media-libs/freetype
 	media-libs/libglvnd
-	>=media-gfx/sane-backends-1.0
+	media-gfx/sane-backends
+	sys-libs/glibc
+	sys-libs/zlib
 "
 
 QA_PREBUILT="opt/${PN}/masterpdfeditor5"
