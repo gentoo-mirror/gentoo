@@ -2589,7 +2589,7 @@ app-laptop/tiny-dfr 0.3.0-r1 0.3.1-r1 0.3.3: The most basic dynamic function row
 app-laptop/tp_smapi 0.44: IBM ThinkPad SMAPI BIOS driver
 app-laptop/tpacpi-bat 3.1-r1 9999: Control battery thresholds of recent ThinkPads, not supported by tp_smapi
 app-laptop/tpb 0.6.4-r1: IBM ThinkPad buttons utility
-app-laptop/tuxedo-control-center-bin 2.0.2 2.0.8-r1 2.1.8: Tool to control performance, energy, fan and comfort settings on TUXEDO laptops
+app-laptop/tuxedo-control-center-bin 2.0.2 2.0.8-r1 2.1.8 2.1.14: Tool to control performance, energy, fan and comfort settings on TUXEDO laptops
 app-laptop/tuxedo-drivers 3.2.14 4.5.0 4.6.1: Kernel modules for TUXEDO laptops
 app-metrics/alertmanager 0.24.0 0.26.0: Alertmanager for alerts sent by client applications such as Prometheus
 app-metrics/bind_exporter 0.6.1-r1: Prometheus exporter for BIND
@@ -5292,7 +5292,7 @@ dev-libs/boron 2.1.0: A scripting language similar to REBOL
 dev-libs/botan 2.19.3-r2 2.19.4 3.1.1 3.2.0-r1 3.2.0-r2 3.3.0: C++ crypto library
 dev-libs/boxfort 0.1.4 0.1.4-r1: Convenient & cross-platform sandboxing C library
 dev-libs/c-blosc 1.21.6: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.15.1: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.15.1 2.15.2: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/c-siphash 1.1.0: Streaming-capable SipHash Implementation
 dev-libs/c-stdaux 1.5.0: Auxiliary macros and functions for the C standard library
@@ -8226,7 +8226,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.0 1.3.1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.6.2 7.6.3 7.6.4 7.6.5 7.6.7 7.6.8: Code coverage measurement for Python
+dev-python/coverage 7.6.4 7.6.5 7.6.7 7.6.8: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.2.1-r1 1.3.0: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.8.3-r1 2.8.4-r1 2.9.0-r1: Thin Python bindings to de/compression algorithms in Rust
@@ -8265,7 +8265,7 @@ dev-python/decorator 5.1.1-r1: Simplifies the usage of decorators for the averag
 dev-python/deepdiff 7.0.1 8.0.1: A library for comparing dictionaries, iterables, strings and other objects
 dev-python/deepmerge 2.0: Tools to handle merging of nested data structures in python
 dev-python/defusedxml 0.7.1-r1 0.8.0_rc2: XML bomb protection for Python stdlib modules, an xml serialiser
-dev-python/denonavr 0.11.6 1.0.0: Automation Library for Denon AVR receivers
+dev-python/denonavr 1.0.0 1.0.1: Automation Library for Denon AVR receivers
 dev-python/dep-logic 0.4.6 0.4.9: Python dependency specifications supporting logical operations
 dev-python/deprecated 1.2.14 1.2.15: Python @deprecated decorator to deprecate old API
 dev-python/deprecation 2.1.0-r1: A library to handle automated deprecations
@@ -8487,14 +8487,14 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.116.0 6.118.9 6.119.4 6.120.0: A library for property based testing
+dev-python/hypothesis 6.116.0 6.118.9 6.119.4 6.120.0 6.121.1: A library for property based testing
 dev-python/icalendar 5.0.13 6.0.1 6.1.0: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.4.0: A tool for generating OIDC identities
 dev-python/identify 2.6.1 2.6.2 2.6.3: File identification library for Python
 dev-python/idna 3.10: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.3.0: Iterative JSON parser with a Pythonic interface
-dev-python/imageio 2.35.1 2.36.0: Python library for reading and writing image data
+dev-python/imageio 2.36.0 2.36.1: Python library for reading and writing image data
 dev-python/imageio-ffmpeg 0.4.9-r1 0.5.0 0.5.1: FFMPEG wrapper for Python
 dev-python/imagesize 1.4.1: Pure Python module for getting image size from png/jpeg/jpeg2000/gif files
 dev-python/imapclient 3.0.1: easy-to-use, pythonic, and complete IMAP client library
@@ -8742,7 +8742,7 @@ dev-python/mrcfile 1.5.1 1.5.2 1.5.3: MRC2014 file format I/O library
 dev-python/msgpack 1.0.8 1.1.0: MessagePack (de)serializer for Python
 dev-python/mss 9.0.2 10.0.0: An ultra fast cross-platform multiple screenshots module in python using ctypes
 dev-python/multidict 6.1.0: multidict implementation
-dev-python/multipart 1.1.0: Parser for multipart/form-data
+dev-python/multipart 1.1.0 1.2.0: Parser for multipart/form-data
 dev-python/multipledispatch 1.0.0: Multiple dispatch
 dev-python/multiprocess 0.70.16 0.70.17-r1: Better multiprocessing and multithreading in Python
 dev-python/munch 4.0.0: A dot-accessible dictionary (a la JavaScript objects)
@@ -8955,7 +8955,7 @@ dev-python/pyaudio 0.2.13-r2: Python bindings for PortAudio
 dev-python/pybind11 2.13.6: AST-based Python refactoring library
 dev-python/pybtex 0.24.0-r1: BibTeX-compatible bibliography processor
 dev-python/pybtex-docutils 1.0.3: A docutils backend for pybtex
-dev-python/pycairo 1.26.1 1.27.0: Python bindings for the cairo library
+dev-python/pycairo 1.27.0: Python bindings for the cairo library
 dev-python/pycares 4.4.0 4.5.0: Python interface for c-ares
 dev-python/pycdio 2.1.1-r1: Python OO interface to libcdio (CD Input and Control library)
 dev-python/pychm 0.8.6-r1: Python bindings for the chmlib library
@@ -9210,7 +9210,7 @@ dev-python/python-memcached 1.62: Pure python memcached client
 dev-python/python-mimeparse 2.0.0: Basic functions for handling mime-types in python
 dev-python/python-mpd2 3.1.1: Python MPD client library
 dev-python/python-mpv 1.0.7: Python interface to the mpv media player
-dev-python/python-multipart 0.0.12 0.0.17: A streaming multipart parser for Python
+dev-python/python-multipart 0.0.12 0.0.17 0.0.18: A streaming multipart parser for Python
 dev-python/python-neutronclient 11.3.1: A client for the OpenStack Quantum API
 dev-python/python-novaclient 18.7.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 7.2.1: A client for the OpenStack APIs
@@ -9698,7 +9698,7 @@ dev-python/zope-event 5.0: Event publishing / dispatch, used by Zope Component A
 dev-python/zope-exceptions 5.1 5.2: General purpose exceptions for Zope packages
 dev-python/zope-hookable 7.0: Efficient creation of 'hookable' objects
 dev-python/zope-i18nmessageid 7.0: Zope support for i18nmessageid (tagging source of i18n strings)
-dev-python/zope-interface 7.1.1: Interfaces for Python
+dev-python/zope-interface 7.1.1 7.2: Interfaces for Python
 dev-python/zope-schema 7.0.1: Zope schema Architecture
 dev-python/zope-testing 5.0.1: Zope testing helpers
 dev-python/zstandard 0.23.0: Zstandard Bindings for Python
@@ -18057,21 +18057,21 @@ www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
 www-client/firefox 115.16.1-r1 128.4.0-r1 128.5.0 132.0.1-r1 132.0.2 133.0: Firefox Web Browser
 www-client/firefox-bin 115.16.1 128.4.0 128.5.0 132.0.2 133.0: Firefox Web Browser
 www-client/google-chrome 131.0.6778.85: The web browser from Google
-www-client/google-chrome-beta 132.0.6834.6: The web browser from Google
-www-client/google-chrome-unstable 133.0.6835.3: The web browser from Google
+www-client/google-chrome-beta 132.0.6834.15: The web browser from Google
+www-client/google-chrome-unstable 133.0.6847.2: The web browser from Google
 www-client/httrack 3.49.5: HTTrack Website Copier, Open Source Offline Browser
 www-client/jd 2.8.9_p150226-r2: gtk2 based 2ch browser written in C++
 www-client/links 2.29-r1 2.30: A fast and lightweight web browser running in both graphics and text mode
 www-client/luakit 2.3.3-r1 2.3.6: A fast, extensible, and customizable web browser
 www-client/lynx 2.9.0 2.9.2: An excellent console-based web browser with ssl support
-www-client/microsoft-edge 131.0.2903.51: The web browser from Microsoft
-www-client/microsoft-edge-beta 131.0.2903.45 131.0.2903.48 131.0.2903.51: The web browser from Microsoft
-www-client/microsoft-edge-dev 132.0.2917.0 132.0.2931.1 132.0.2945.0: The web browser from Microsoft
+www-client/microsoft-edge 131.0.2903.70: The web browser from Microsoft
+www-client/microsoft-edge-beta 131.0.2903.48 131.0.2903.51 132.0.2957.11: The web browser from Microsoft
+www-client/microsoft-edge-dev 132.0.2945.0 132.0.2957.7 132.0.2957.11: The web browser from Microsoft
 www-client/netrik 1.16.1-r3: A text based web browser with no ssl support
 www-client/netsurf 3.11 9999: A free, open source web browser
-www-client/opera 114.0.5282.185: A fast and secure web browser
+www-client/opera 115.0.5322.68: A fast and secure web browser
 www-client/opera-beta 114.0.5282.101 115.0.5322.36 115.0.5322.58: A fast and secure web browser
-www-client/opera-developer 116.0.5341.0 116.0.5351.0 116.0.5356.0: A fast and secure web browser
+www-client/opera-developer 116.0.5351.0 116.0.5356.0-r1 116.0.5362.0: A fast and secure web browser
 www-client/otter 1.0.03-r1 9999: Project aiming to recreate classic Opera (12.x) UI using Qt5
 www-client/pybugz 0.13-r2 0.13-r3 0.14 9999: Command line interface to (Gentoo) Bugzilla
 www-client/qutebrowser 3.3.1 9999: Keyboard-driven, vim-like browser based on Python and Qt
@@ -18099,7 +18099,7 @@ www-misc/urlwatch 2.28-r1: A tool for monitoring webpages for updates
 www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
 www-plugins/browserpass 3.1.0: WebExtension host binary for app-admin/pass, a UNIX password manager
-www-plugins/chrome-binary-plugins 131.0.6778.85 132.0.6834.6_beta 133.0.6835.3_alpha: Binary plugins from Google Chrome for use in Chromium
+www-plugins/chrome-binary-plugins 131.0.6778.85 132.0.6834.15_beta 133.0.6847.2_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/lightspark 0.8.6.1-r1 0.8.7-r1: High performance flash player
 www-plugins/passff-host 1.2.4: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.6.82 4.7.76 4.8.69: A PDF reader in JavaScript

@@ -1,0 +1,15 @@
+BDEPEND=app-arch/xz-utils[extra-filters(+)] app-arch/rpm2targz virtual/pkgconfig
+DEFINED_PHASES=config install postinst postrm prepare unpack
+DEPEND=>=app-laptop/tuxedo-drivers-3.2.14
+DESCRIPTION=Tool to control performance, energy, fan and comfort settings on TUXEDO laptops
+EAPI=8
+HOMEPAGE=https://github.com/tuxedocomputers/tuxedo-control-center
+INHERIT=rpm systemd xdg-utils
+KEYWORDS=-* ~amd64
+LICENSE=GPL-3
+RDEPEND=>=app-laptop/tuxedo-drivers-3.2.14 app-accessibility/at-spi2-core dev-libs/nss dev-libs/nspr media-libs/alsa-lib media-libs/mesa[X(+)] net-print/cups x11-libs/gdk-pixbuf x11-libs/gtk+:3[X] x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes x11-libs/libXrandr x11-libs/libdrm x11-libs/libxkbcommon x11-libs/libxshmfence x11-libs/pango
+RESTRICT=strip splitdebug
+SLOT=0
+SRC_URI=https://rpm.tuxedocomputers.com/opensuse/15.4/x86_64/tuxedo-control-center_2.1.14.rpm
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7828cd38ff559545ca52f92064d0f8f4	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=c37f35b4dac5466934e7e8ee8cc07be9
