@@ -271,7 +271,7 @@ _distutils_set_globals() {
 				;;
 			maturin)
 				bdep+='
-					>=dev-util/maturin-1.4.0[${PYTHON_USEDEP}]
+					>=dev-util/maturin-1.7.4[${PYTHON_USEDEP}]
 				'
 				;;
 			no)
@@ -1257,13 +1257,20 @@ distutils_pep517_install() {
 		cmd+=( cargo_env )
 	fi
 
+	# set it globally in case we were using "standalone" wrapper
+	local -x HATCH_METADATA_CLASSIFIERS_NO_VERIFY=1
+	local -x GENTOO_VALIDATE_PYPROJECT_NO_TROVE_CLASSIFIERS=1
+	if in_iuse debug && use debug; then
+		local -x SETUPTOOLS_RUST_CARGO_PROFILE=dev
+	fi
+
 	case ${DISTUTILS_USE_PEP517} in
 		maturin)
 			# `maturin pep517 build-wheel --help` for options
 			local maturin_args=(
 				"${DISTUTILS_ARGS[@]}"
+				--auditwheel=skip # see bug #831171
 				--jobs="$(makeopts_jobs)"
-				--skip-auditwheel # see bug #831171
 				$(in_iuse debug && usex debug '--profile=dev' '')
 			)
 
@@ -1348,9 +1355,6 @@ distutils_pep517_install() {
 			)
 			;;
 		setuptools)
-			if in_iuse debug && use debug; then
-				local -x SETUPTOOLS_RUST_CARGO_PROFILE=dev
-			fi
 			if [[ -n ${DISTUTILS_ARGS[@]} ]]; then
 				config_settings=$(
 					"${EPYTHON}" - "${DISTUTILS_ARGS[@]}" <<-EOF || die
