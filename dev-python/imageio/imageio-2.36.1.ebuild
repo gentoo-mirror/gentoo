@@ -8,6 +8,7 @@ PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1
 
+# teh test suite always clones the newest version
 TEST_IMAGES_COMMIT=1121036015c70cdbb3015e5c5ba0aaaf7d3d6021
 DESCRIPTION="Python library for reading and writing image data"
 HOMEPAGE="
