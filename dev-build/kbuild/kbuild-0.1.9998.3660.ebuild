@@ -3,14 +3,18 @@
 
 EAPI=8
 
-inherit autotools subversion toolchain-funcs
+inherit autotools toolchain-funcs
 
 DESCRIPTION="A makefile framework for writing simple makefiles for complex tasks"
 HOMEPAGE="https://trac.netlabs.org/kbuild/wiki"
-ESVN_REPO_URI="http://svn.netlabs.org/repos/kbuild/trunk"
+SRC_URI="
+	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}-src.tar.xz
+	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-0.1.9998.3660-fix-clang-16.patch.bz2
+"
 
 LICENSE="GPL-3+"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	sys-apps/texinfo
@@ -29,6 +33,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.1.9998.3660-int-conversion.patch"
 	"${FILESDIR}/${PN}-0.1.9998.3499-fix-CC.patch"
 	"${FILESDIR}/${PN}-0.1.9998.3660-gcc-15.patch"
+
+	"${WORKDIR}/${PN}-0.1.9998.3660-fix-clang-16.patch"
 )
 
 pkg_setup() {
@@ -39,11 +45,12 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	if [[ "${PV}" != *9999 ]] ; then
-		# Add a file with the svn revision this package was pulled from
-		printf '%s\n' "KBUILD_SVN_REV := $(ver_cut 4)" \
-			> SvnInfo.kmk || die
-	fi
+	# 905419 - build fails if /bin/sh is something other than bash
+	sed 's:ln -s /bin/sh:ln -s /bin/bash:' -i bootstrap.gmk || die
+
+	# Add a file with the svn revision this package was pulled from
+	printf '%s\n' "KBUILD_SVN_REV := $(ver_cut 4)" \
+		> SvnInfo.kmk || die
 
 	cd "${S}/src/kmk" || die
 	eautoreconf
