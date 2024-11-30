@@ -19,7 +19,7 @@ SRC_URI+=" verify-sig? (
 LICENSE="MIT GPL-2" # (init script is GPL-2 #426056)
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
-IUSE="bsdpty minimal multicall pam +shadow static +syslog test zlib"
+IUSE="bsdpty legacy-ciphers minimal multicall pam +shadow static +syslog test +test-async zlib"
 RESTRICT="!test? ( test )"
 
 LIB_DEPEND="
@@ -45,7 +45,6 @@ BDEPEND="
 	test? (
 		sys-libs/nss_wrapper
 		$(python_gen_any_dep '
-			dev-python/asyncssh[${PYTHON_USEDEP}]
 			dev-python/attrs[${PYTHON_USEDEP}]
 			dev-python/iniconfig[${PYTHON_USEDEP}]
 			dev-python/packaging[${PYTHON_USEDEP}]
@@ -55,6 +54,11 @@ BDEPEND="
 			dev-python/pytest[${PYTHON_USEDEP}]
 			dev-python/psutil[${PYTHON_USEDEP}]
 		')
+		test-async? (
+			$(python_gen_any_dep '
+				dev-python/asyncssh[${PYTHON_USEDEP}]
+			')
+		)
 	)
 	verify-sig? ( sec-keys/openpgp-keys-dropbear )
 "
@@ -78,8 +82,11 @@ set_options() {
 }
 
 python_check_deps() {
-	python_has_version "dev-python/asyncssh[${PYTHON_USEDEP}]" && \
-		python_has_version "dev-python/attrs[${PYTHON_USEDEP}]" && \
+	if use test-async; then
+		 python_has_version "dev-python/asyncssh[${PYTHON_USEDEP}]"
+	fi
+
+	python_has_version "dev-python/attrs[${PYTHON_USEDEP}]" && \
 		python_has_version "dev-python/iniconfig[${PYTHON_USEDEP}]" && \
 		python_has_version "dev-python/packaging[${PYTHON_USEDEP}]" && \
 		python_has_version "dev-python/pluggy[${PYTHON_USEDEP}]" && \
@@ -110,6 +117,7 @@ src_prepare() {
 	sed \
 		-e '/SFTPSERVER_PATH/s:".*":"/usr/lib/misc/sftp-server":' \
 		-e '/DROPBEAR_X11FWD/s:0:1:' \
+		-e "/DROPBEAR_DSS/s:0: "$(usex legacy-ciphers 1 0)":" \
 		src/default_options.h > localoptions.h || die
 	sed \
 		-e '/pam_start/s:sshd:dropbear:' \
@@ -122,6 +130,9 @@ src_prepare() {
 	# test_concurrent needs dropbearconvert to convert the key before running
 	if use minimal; then
 		rm test/test_dropbearconvert.py test/test_concurrent.py || die
+	elif ! use test-async; then
+		# remove this test on platforms where dev-python/asyncssh is not available
+		rm test/test_concurrent.py || die
 	fi
 
 	# bsdpty requires CONFIG_LEGACY_PTYS in kernel; disable tests.
