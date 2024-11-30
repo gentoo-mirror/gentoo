@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] ) ( dev-python/pypy3 dev-python/pytest[python_targets_pypy3(-)] ) ) )
+BDEPEND=test? ( || ( ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] ) ( >=dev-lang/pypy-3.10[symlink] dev-python/pytest[python_targets_pypy3(-)] ) ) )
 DEFINED_PHASES=configure install setup test
 DESCRIPTION=Python script wrapper
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=dev-lang/python-exec-conf !<=dev-lang/python-2.7.18-r3:2.7
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://github.com/projg2/python-exec/releases/download/v2.4.10/python-exec-2.4.10.tar.bz2
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	b5b2c146634108c3b50cf26eb05b848a	python-any-r1	f7b9a2fa38c69a9c2a7ad8fc9283ccf7
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
 _md5_=290181a97ff116caeedb53d6f3e5e5eb
