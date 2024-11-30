@@ -13,6 +13,8 @@ else
 	KEYWORDS="amd64"
 	S="${WORKDIR}/mod-auth-external-${P}"
 fi
+DEPEND="dev-libs/libbsd"
+RDEPEND="dev-libs/libbsd"
 
 DESCRIPTION="An Apache2 authorization DSO using unix groups"
 HOMEPAGE="https://github.com/phokz/mod-auth-external"
@@ -23,6 +25,7 @@ need_apache2_4
 
 DOCFILES="CHANGES INSTALL README"
 
+APXS2_ARGS="-c ${PN}.c -lbsd"
 APACHE2_MOD_CONF="10_${PN}"
 APACHE2_MOD_DEFINE="AUTHZ_UNIXGROUP"
 
