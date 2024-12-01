@@ -366,6 +366,7 @@ acct-group/sqlgrey 0-r3: Group for SQLGrey
 acct-group/squid 0-r3: System group: squid
 acct-group/sshd 0-r3: System group: sshd
 acct-group/ssmtp 0-r2: Group for mail-mta/ssmtp
+acct-group/sssd 0: A group for sys-login/sssd
 acct-group/sstpc 0-r2: Group for net-misc/sstp-client
 acct-group/stapdev 0-r2: System group: stapdev
 acct-group/stapsys 0-r2: System group: stapsys
@@ -799,6 +800,7 @@ acct-user/spire 0-r3: user for spiffe runtime environment
 acct-user/sqlgrey 0-r3: User for SQLGrey
 acct-user/squid 0-r3: A user for squid web proxy cache
 acct-user/sshd 0-r3: User for ssh
+acct-user/sssd 0: A user for sys-auth/sssd
 acct-user/sstpc 0-r2: User for net-misc/sstp-client
 acct-user/stdiscosrv 1-r1: User for the Syncthing discovery server
 acct-user/steamcmd 0-r3: A user for the SteamCMD server
@@ -1052,7 +1054,7 @@ app-admin/sshguard 2.4.3 99999: protects hosts from brute force attacks against 
 app-admin/stow 2.3.1 2.4.0 2.4.1: GNU Stow is a symlink farm manager
 app-admin/su-exec 0.2: Switch user and group id and exec
 app-admin/sud 1.3-r2: A daemon to execute processes with special privileges in a nosuid environment
-app-admin/sudo 1.9.15_p5 1.9.16-r1 1.9.16_p1 1.9.16_p2 9999: Allows users or groups to run commands as other users
+app-admin/sudo 1.9.15_p5-r1 1.9.16-r2 1.9.16_p1-r1 1.9.16_p2 9999: Allows users or groups to run commands as other users
 app-admin/superadduser 1.15: Interactive adduser script from Slackware
 app-admin/supervisor 4.2.5 4.2.5-r1: A system for controlling process state under UNIX
 app-admin/sxid 4.2-r3 4.20130802: suid, sgid file and directory checking
@@ -2719,7 +2721,7 @@ app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
 app-misc/evtest 1.35: test program for capturing input device events
 app-misc/faq 0.0.7: Format agnostic jQ
-app-misc/fastfetch 0.1.9999 0.2.9999 2.27.1 2.28.0 2.29.0 2.30.1: Fast neofetch-like system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 2.28.0 2.29.0 2.30.1: Fast neofetch-like system information tool
 app-misc/fdupes 2.3.2 9999: Identify/delete duplicate files residing within specified directories
 app-misc/fdutils 5.6_p2: Utilities for configuring and debugging the Linux floppy driver
 app-misc/fhem 6.3: A GPL'd perl server for house automation
@@ -3903,7 +3905,7 @@ dev-cpp/muParserX 4.0.11: Parsing Expressions with Strings, Complex Numbers, Vec
 dev-cpp/mvfst 2024.11.04.00-r1: An implementation of the QUIC transport protocol
 dev-cpp/nlohmann_json 3.10.2 3.11.2 3.11.2-r1 3.11.3: JSON for Modern C++
 dev-cpp/notcurses 3.0.5-r1 3.0.8: Blingful TUIs and character graphics
-dev-cpp/opentelemetry-cpp 1.3.0-r2 1.4.0 1.6.0: The OpenTelemetry C++ Client
+dev-cpp/opentelemetry-cpp 1.3.0-r2 1.4.0 1.6.0-r1 1.16.1: The OpenTelemetry C++ Client
 dev-cpp/pangomm 2.46.3 2.50.1: C++ interface for pango
 dev-cpp/picojson 1.3.0: Header-file-only, JSON parser serializer in C++
 dev-cpp/popl 1.2.0-r1: Header-only C++ program options parser library
@@ -15319,8 +15321,8 @@ net-misc/teamviewer 15.53.6 15.55.3: All-In-One Solution for Remote Access and S
 net-misc/telnet-bsd 1.2-r5: Telnet and telnetd ported from OpenBSD with IPv6 support
 net-misc/throttle 1.2-r1 1.2-r2: Bandwidth limiting pipe
 net-misc/tiers 1.1: Random network topography generator
-net-misc/tigervnc 1.14.0-r2 1.14.1-r2 9999: Remote desktop viewer display system
-net-misc/tigervnc-xorg-module 1.14.0 1.14.1: Metapackage for the xorg module provided by tigervnc
+net-misc/tigervnc 1.14.1-r2 9999: Remote desktop viewer display system
+net-misc/tigervnc-xorg-module 1.14.1: Metapackage for the xorg module provided by tigervnc
 net-misc/tinyssh 20241111 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tipcutils 3.0.6: Utilities for TIPC (Transparent Inter-Process Communication)
 net-misc/trurl 0.16 9999: Command line tool for URL parsing and manipulation
@@ -17185,7 +17187,7 @@ sys-auth/skey 1.1.5-r14: Linux Port of OpenBSD Single-key Password System
 sys-auth/solo1 0.1.1-r1: CLI and Python library for SoloKeys Solo 1
 sys-auth/ssh-import-id 5.11-r1: Utility to securely retrieve an SSH public key and install it locally
 sys-auth/ssh-ldap-pubkey 1.4.0: Utility to manage SSH public keys stored in LDAP
-sys-auth/sssd 2.9.5 2.9.5-r2: System Security Services Daemon provides access to identity and authentication
+sys-auth/sssd 2.9.5 2.9.5-r2 2.10.0: System Security Services Daemon provides access to identity and authentication
 sys-auth/thinkfinger 0.3-r3: Support for the UPEK/SGS Thomson fingerprint reader, common in Thinkpads
 sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykpers 1.20.0-r1: Library and tool for personalization of Yubico's YubiKey
@@ -17292,7 +17294,7 @@ sys-boot/yaboot 1.3.17-r4: PPC Bootloader
 sys-boot/yaboot-static 1.3.17-r2: Static yaboot ppc boot loader for machines with open firmware
 sys-cluster/ampi 0_pre20140616: MPI library for algorithmic differentiation
 sys-cluster/c3 4.0.1: The Cluster Command and Control (C3) tool suite
-sys-cluster/ceph 18.2.4-r2 19.2.0 19.2.0-r1: Ceph distributed filesystem
+sys-cluster/ceph 18.2.4-r3 19.2.0-r2: Ceph distributed filesystem
 sys-cluster/charliecloud 0.38 9999: Lightweight user-defined software stacks for high-performance computing
 sys-cluster/charm 6.8.2: Message-passing parallel language and runtime system
 sys-cluster/charmdebug 6.2.0-r2: A debugger for Charm++ applications
