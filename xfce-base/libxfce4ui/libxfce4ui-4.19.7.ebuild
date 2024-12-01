@@ -22,7 +22,7 @@ REQUIRED_USE="
 "
 
 DEPEND="
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.72.0
 	>=x11-libs/gtk+-3.24.0:3[introspection?,wayland?,X?]
 	>=xfce-base/libxfce4util-4.17.2:=[introspection?,vala?]
 	>=xfce-base/xfconf-4.12.0:=

@@ -18,12 +18,12 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64
 IUSE="curl epub ffmpeg gstreamer jpeg odf pdf raw"
 
 DEPEND="
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.72.0
 	media-libs/freetype:2=
 	media-libs/libpng:0=
 	>=sys-apps/dbus-1.6
 	>=xfce-base/libxfce4util-4.17.1:=
-	>=x11-libs/gdk-pixbuf-2.40.0
+	>=x11-libs/gdk-pixbuf-2.42.8
 	curl? ( >=net-misc/curl-7.32.0:= )
 	epub? ( app-text/libgepub )
 	ffmpeg? ( >=media-video/ffmpegthumbnailer-2.0.8:= )

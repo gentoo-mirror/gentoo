@@ -19,7 +19,7 @@ IUSE="X nls policykit wayland +xscreensaver"
 REQUIRED_USE="|| ( X wayland )"
 
 DEPEND="
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.72.0
 	>=x11-libs/gtk+-3.24.0:3[X?,wayland?]
 	>=xfce-base/libxfce4util-4.19.2:=
 	>=xfce-base/libxfce4ui-4.18.4:=

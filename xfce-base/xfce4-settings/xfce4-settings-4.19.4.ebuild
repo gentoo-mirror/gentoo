@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit autotools python-single-r1 xdg-utils
+inherit python-single-r1 xdg-utils
 
 DESCRIPTION="Configuration system for the Xfce desktop environment"
 HOMEPAGE="
@@ -25,7 +25,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	${PYTHON_DEPS}
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.72.0
 	>=x11-libs/gtk+-3.24.0:3[X?,wayland?]
 	>=xfce-base/garcon-0.1.10:=
 	>=xfce-base/exo-0.11.0:=
@@ -34,7 +34,7 @@ RDEPEND="
 	>=xfce-base/xfconf-4.13.0:=
 	colord? ( >=x11-misc/colord-1.0.2:= )
 	libcanberra? ( >=media-libs/libcanberra-0.25[sound(+)] )
-	upower? ( >=sys-power/upower-0.9.8 )
+	upower? ( >=sys-power/upower-0.99.10 )
 
 	X? (
 		>=media-libs/fontconfig-2.6.0
@@ -43,11 +43,11 @@ RDEPEND="
 		>=x11-libs/libXi-1.2.0
 		>=x11-libs/libXrandr-1.5.0
 		input_devices_libinput? ( >=x11-drivers/xf86-input-libinput-0.6.0 )
-		libnotify? ( >=x11-libs/libnotify-0.1.3 )
+		libnotify? ( >=x11-libs/libnotify-0.7.8 )
 		xklavier? ( >=x11-libs/libxklavier-5.0 )
 	)
 	wayland? (
-		>=dev-libs/wayland-1.15
+		>=dev-libs/wayland-1.20
 		>=gui-libs/gtk-layer-shell-0.7.0
 	)
 "
@@ -65,7 +65,6 @@ BDEPEND="
 
 src_prepare() {
 	default
-	eautomake
 	python_fix_shebang dialogs/mime-settings/helpers/xfce4-compose-mail
 }
 

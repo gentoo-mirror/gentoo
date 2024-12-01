@@ -19,8 +19,8 @@ IUSE="+introspection vala"
 REQUIRED_USE="vala? ( introspection )"
 
 DEPEND="
-	>=dev-libs/glib-2.66.0
-	introspection? ( >=dev-libs/gobject-introspection-1.66:= )
+	>=dev-libs/glib-2.72.0
+	introspection? ( >=dev-libs/gobject-introspection-1.72.0:= )
 "
 RDEPEND="
 	${DEPEND}
