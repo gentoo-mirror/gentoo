@@ -12,26 +12,31 @@ MY_PN="MediaInfo"
 inherit autotools edos2unix flag-o-matic
 
 DESCRIPTION="MediaInfo libraries"
-HOMEPAGE="https://mediaarea.net/mediainfo/ https://github.com/MediaArea/MediaInfoLib"
+HOMEPAGE="https://mediaarea.net/en/MediaInfo https://github.com/MediaArea/MediaInfoLib"
 SRC_URI="https://mediaarea.net/download/source/${PN}/${PV}/${P/-/_}.tar.xz"
 S="${WORKDIR}"/${MY_PN}Lib/Project/GNU/Library
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="curl doc mms"
 
 # Tests try to fetch data from online sources
 RESTRICT="test"
 
-RDEPEND="dev-libs/tinyxml2:=
-	>=media-libs/libzen-0.4.37
+# The libzen dep usually needs to be bumped for each release!
+RDEPEND="
+	dev-libs/tinyxml2:=
+	>=media-libs/libzen-0.4.41
 	sys-libs/zlib
 	curl? ( net-misc/curl )
-	mms? ( >=media-libs/libmms-0.6.1 )"
+	mms? ( >=media-libs/libmms-0.6.1 )
+"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
-	doc? ( app-text/doxygen )"
+BDEPEND="
+	virtual/pkgconfig
+	doc? ( app-text/doxygen )
+"
 
 src_prepare() {
 	default
