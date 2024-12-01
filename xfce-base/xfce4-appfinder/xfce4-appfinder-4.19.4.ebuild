@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 DEPEND="
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.72.0
 	>=x11-libs/gtk+-3.24.0:3
 	>=xfce-base/garcon-4.18.0:=
 	>=xfce-base/libxfce4util-4.18.0:=

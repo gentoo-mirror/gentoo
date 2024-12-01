@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris"
 
 DEPEND="
-	>=dev-libs/glib-2.66.0
+	>=dev-libs/glib-2.72.0
 	>=x11-libs/gtk+-3.24.0:3
 	>=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)]
 	>=xfce-base/libxfce4util-4.17.2:=
@@ -29,13 +29,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 "
-
-src_prepare() {
-	# stray include, breaks USE=-X
-	# https://gitlab.xfce.org/xfce/exo/-/issues/111
-	sed -i -e '/gdkx\.h/d' exo-open/main.c || die
-	default
-}
 
 src_install() {
 	default
