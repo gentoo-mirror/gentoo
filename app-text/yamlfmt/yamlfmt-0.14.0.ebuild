@@ -4,6 +4,7 @@
 EAPI=8
 inherit go-module
 
+EGIT_COMMIT=dd8547d
 DESCRIPTION="An extensible command line tool or library to format yaml files"
 HOMEPAGE="https://github.com/google/yamlfmt"
 SRC_URI="https://github.com/google/yamlfmt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
@@ -14,8 +15,17 @@ LICENSE+=" BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+src_unpack() {
+	default
+}
+
+src_prepare() {
+	ln -sv ../vendor ./ || die
+	default
+}
+
 src_compile() {
-	CGO_ENABLED=0 ego build -ldflags "-X main.version=${PV} -s -w" \
+	CGO_ENABLED=0 ego build -ldflags "-X main.version=${PV} -X main.commit=${EGIT_COMMIT} -s -w" \
 		-o yamlfmt ./cmd/yamlfmt
 }
 
