@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/flex sys-devel/bison
 DEFINED_PHASES=compile install postinst
-DEPEND=>=sys-libs/libsepol-3.6:=[static-libs(+)]
+DEPEND=~sys-libs/libsepol-3.6
 DESCRIPTION=SELinux policy compiler
 EAPI=7
 HOMEPAGE=http://userspace.selinuxproject.org
@@ -8,8 +8,8 @@ INHERIT=toolchain-funcs
 IUSE=debug
 KEYWORDS=amd64 arm arm64 ~mips ~riscv x86
 LICENSE=GPL-2
-RDEPEND=>=sys-libs/libsepol-3.6:=[static-libs(+)]
+RDEPEND=~sys-libs/libsepol-3.6
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.6/checkpolicy-3.6.tar.gz
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=4128bae61bc9e405cfb5dc7bab2d9260
+_md5_=e7f73c8b1485bf3c109f47f6820ef725

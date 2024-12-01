@@ -456,7 +456,7 @@ acct-user/amanda 0-r2: System user: amanda
 acct-user/amavis 0-r3: User for mail-filter/amavisd-new
 acct-user/amule 0-r3: User for net-p2p/amule
 acct-user/anope 0-r2: User for Anope IRC services
-acct-user/apache 0-r3: System user: apache
+acct-user/apache 0-r4: System user: apache
 acct-user/apt-cacher-ng 0-r2: User for apt-cacher-ng
 acct-user/argus 0-r2: uid for net-analyzer/argus
 acct-user/arpwatch 0-r2: A user for net-analyzer/arpwatch
@@ -662,7 +662,7 @@ acct-user/nagios 0-r3: System user: nagios
 acct-user/named 0-r3: User for net-dns/bind
 acct-user/netdata 1-r2: user for netdata
 acct-user/netperf 0-r2: A user for net-analyzer/netperf
-acct-user/nginx 0-r1: System user: nginx
+acct-user/nginx 0-r2: System user: nginx
 acct-user/nginx-unit 0-r1: System user: nginx-unit
 acct-user/nginx-vts-exporter 0-r3: user for nginx-vts-exporter
 acct-user/ngircd 0-r2: User for ngircd (IRC daemon)
@@ -850,7 +850,7 @@ acct-user/varnish 0-r3: user for varnish
 acct-user/vault 0-r3: User for vault
 acct-user/vault_exporter 0-r2: A user for app-metrics/vault_exporter
 acct-user/vboxguest 0-r3: user for virtualbox-guest-additions
-acct-user/vdr 0-r2: VDR (VideoDiskRecorder) service user
+acct-user/vdr 0-r3: VDR (VideoDiskRecorder) service user
 acct-user/vdradmin 0-r3: User for www-misc/vdradmin-am
 acct-user/vnstat 0-r1: User for vnstat network monitoring
 acct-user/vpopmail 0-r3: user for vpopmail
@@ -2465,7 +2465,7 @@ app-forensics/sleuthkit 4.12.1-r2: A collection of file system and media managem
 app-forensics/unhide 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.5.2 2.7.0: Framework for analyzing volatile memory
 app-forensics/yara 4.5.1 4.5.2 9999: A malware identification and classification tool
-app-forensics/yara-x 0.5.0-r1 0.6.0-r1 0.7.0-r1 0.10.0: A malware identification and classification tool
+app-forensics/yara-x 0.5.0-r1 0.10.0 0.11.1: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -3867,11 +3867,11 @@ dev-cpp/edencommon 2023.06.19.00 2024.11.04.00: Shared library for Watchman and 
 dev-cpp/eigen 3.4.0-r1 3.4.0-r2 3.4.0-r3 9999: C++ template library for linear algebra
 dev-cpp/elfio 3.12: ELF reader/producer header-only C++ library
 dev-cpp/expected-lite 0.6.3: Expected objects in C++11 and later in a single-file header-only library
-dev-cpp/fast_float 6.1.6: Fast and exact implementation of the C++ from_chars functions for number types
+dev-cpp/fast_float 7.0.0: Fast and exact implementation of the C++ from_chars functions for number types
 dev-cpp/fb303 2024.11.04.00: Core set of Thrift functions querying stats and other information from a service
 dev-cpp/fbthrift 2024.11.04.00: Facebook's branch of Apache Thrift (C++ bindings)
 dev-cpp/fizz 2024.11.04.00: C++14 implementation of the TLS-1.3 standard
-dev-cpp/folly 2023.06.19.00-r1 2024.11.04.00-r1: An open-source C++ library developed and used at Facebook
+dev-cpp/folly 2023.06.19.00-r1 2024.11.04.00-r2: An open-source C++ library developed and used at Facebook
 dev-cpp/frugally-deep 0.15.30: Header-only library for using Keras models in C++
 dev-cpp/functional-plus 0.2.22: Functional Programming Library for C++
 dev-cpp/gemmlowp 2021.12.20: Low-precision matrix multiplication
@@ -4051,9 +4051,9 @@ dev-debug/lldb 15.0.7 16.0.6 16.0.6-r1 17.0.6 18.1.8 19.1.4 20.0.0_pre20241118 2
 dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-debug/pwndbg 20240214 20240829 99999999: A GDB plug-in that makes debugging with GDB suck less
-dev-debug/scap-driver 0.17.3 0.18.1: Kernel module for dev-debug/sysdig
+dev-debug/scap-driver 0.17.3 0.19.0: Kernel module for dev-debug/sysdig
 dev-debug/strace 6.6 6.7 6.8 6.9 6.10 6.11 6.12 9999: Useful diagnostic, instructional, and debugging tool
-dev-debug/sysdig 0.38.1-r1 0.39.0: A system exploration and troubleshooting tool
+dev-debug/sysdig 0.38.1-r1 0.39.0-r1: A system exploration and troubleshooting tool
 dev-debug/systemtap 4.8 5.0-r1 5.1 5.1-r1 5.2 9999: Linux trace/probe tool
 dev-debug/valgrind 3.23.0_p3 3.24.0 3.24.0_p1 9999: An open-source memory debugger for GNU/Linux
 dev-dotnet/avalonia-ilspy 7.2_rc-r1: Avalonia-based .NET Decompiler, port of ILSpy
@@ -5166,7 +5166,7 @@ dev-lang/go 1.22.6 1.22.7 1.22.8 1.22.9 1.23.1 1.23.2 1.23.3 9999: A concurrent 
 dev-lang/go-bootstrap 1.20.14: Bootstrap package for dev-lang/go
 dev-lang/gprolog 1.5.0-r1: Native Prolog compiler with constraint solving over finite domains (FD)
 dev-lang/haxe 4.3.6-r1: Multi-target universal programming language
-dev-lang/icon 9.5.22e: Very high level language
+dev-lang/icon 9.5.22e 9.5.24b: Very high level language
 dev-lang/idris2 0.6.0 0.7.0: Purely functional programming language with first class types
 dev-lang/inform 6.33.1_p2 6.35_p4 6.42_p4: Design system for interactive fiction
 dev-lang/interprolog 2.1.2-r3: InterProlog is a Java front-end and enhancement for Prolog
@@ -5377,7 +5377,7 @@ dev-libs/gom 0.4 0.5.1 0.5.2: GObject to SQLite object mapper library
 dev-libs/gost-engine 3.0.1 3.0.1-r1 3.0.2 3.0.3 9999: A reference implementation of the Russian GOST crypto algorithms for OpenSSL
 dev-libs/granite 6.2.0: Elementary OS library that extends GTK+
 dev-libs/grantlee 5.3.0: C++ string template engine based on the Django template system
-dev-libs/gumbo 0.10.1 0.11.0 0.12.1: The HTML5 parsing algorithm implemented as a pure C99 library
+dev-libs/gumbo 0.12.1 0.12.2: The HTML5 parsing algorithm implemented as a pure C99 library
 dev-libs/half 1.12.0-r1: Half-precision floating-point library
 dev-libs/heatshrink 0.4.1: A data compression/decompression library for embedded/real-time systems
 dev-libs/hidapi 0.13.1-r1 0.14.0: A multi-platform library for USB and Bluetooth HID-Class devices
@@ -5595,7 +5595,7 @@ dev-libs/libretls 3.8.1: Port of libtls from LibreSSL to OpenSSL
 dev-libs/librevenge 0.0.5 9999: Helper library for REVerse ENGineered formats filters
 dev-libs/libsass 3.6.5-r1 3.6.6 9999: A C/C++ implementation of a Sass CSS compiler
 dev-libs/libscfg 0.1.1: C library for a simple configuration file format
-dev-libs/libsecp256k1 0.1_pre20190401 0.1_pre20201028-r1 0.3.0 0.3.1 0.3.2 0.4.0 0.4.1 0.5.0 0.5.1 0.6.0: Optimized C library for EC operations on curve secp256k1
+dev-libs/libsecp256k1 0.5.1 0.6.0: Optimized C library for EC operations on curve secp256k1
 dev-libs/libserdes 5.4.0-r1: Avro SerializationDeserialization w/ Confluent schema-registry support
 dev-libs/libserialport 0.1.1-r1 0.1.2 9999: Cross platform serial port access library
 dev-libs/libsigc++ 2.12.0 3.6.0: Typesafe callback system for standard C++
@@ -7971,7 +7971,7 @@ dev-php/pecl-memcached 3.3.0: Interface PHP with memcached via libmemcached libr
 dev-php/pecl-mongodb 1.16.2: MongoDB database driver for PHP
 dev-php/pecl-oauth 2.0.7: OAuth is an authorization protocol built on top of HTTP
 dev-php/pecl-pam 2.2.3 2.2.4: This extension provides PAM (Pluggable Authentication Modules) integration
-dev-php/pecl-parallel 1.2.0 1.2.1: A succint parallel concurrency API for PHP
+dev-php/pecl-parallel 1.2.1 1.2.5: A succint parallel concurrency API for PHP
 dev-php/pecl-ps 1.4.4: PHP extension for creating PostScript files
 dev-php/pecl-psr 1.2.0: Provides the accepted PSR interfaces, so they can be used in an extension
 dev-php/pecl-radius 1.4.0_beta1-r3 1.4.0_beta1-r4: Provides support for RADIUS authentication (RFC 2865) and accounting (RFC 2866)
@@ -10882,7 +10882,7 @@ dev-util/oprofile 1.4.0: A transparent low-overhead system-wide profiler
 dev-util/ostree 2023.1-r1 2023.2-r1 2023.3-r2 2023.3-r3 2023.5 2024.3 2024.3-r1 2024.8: Operating system and container binary deployment and upgrades
 dev-util/packer 1.9.5 1.11.0: A tool to create identical machine images for multiple platforms
 dev-util/pahole 1.24_p20221024 1.25 1.26 1.26-r1 1.27 1.27-r1 9999: pahole (Poke-a-Hole) and other DWARF utilities
-dev-util/patchelf 0.17.2 0.18.0: Small utility to modify the dynamic linker and RPATH of ELF executables
+dev-util/patchelf 0.17.2 0.17.2-r1 0.18.0: Small utility to modify the dynamic linker and RPATH of ELF executables
 dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
 dev-util/patdiff 0.14.0-r2 0.15.0: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.18: Recursive-descent parser generators for C
@@ -11037,7 +11037,7 @@ dev-vcs/git-delete-merged-branches 7.4.1 7.4.1-r1: Command-line tool to delete m
 dev-vcs/git-extras 7.1.0 7.2.0 7.3.0: Git utilities -- repo summary, repl, changelog population, and many more
 dev-vcs/git-filter-repo 2.45.0: Quickly rewrite git repository history (filter-branch replacement)
 dev-vcs/git-flow 1.12.3-r2: Git extensions to provide high-level repository operations
-dev-vcs/git-lfs 3.4.0-r1 3.5.1 9999: Command line extension and specification for managing large files with git
+dev-vcs/git-lfs 3.5.1 3.6.0 9999: Command line extension and specification for managing large files with git
 dev-vcs/git-machete 3.20.0 3.24.2 3.25.2: Probably the sharpest git repo organizer & rebase/merge workflow automation tool
 dev-vcs/git-mailz 0.14: Send a collection of patches as emails
 dev-vcs/git-mantle 0.6: Generate an overview of changes on a branch
@@ -13706,14 +13706,14 @@ media-plugins/vdr-pvr350 1.7.5: VDR plugin: use a PVR350 as output device
 media-plugins/vdr-radio 1.1.0-r1: VDR plugin: show background image for radio and decode RDS Text
 media-plugins/vdr-rcu 2.2.0: VDR plugin: Remote Control Unit consists mainly of an IR receiver, PIC 16C84
 media-plugins/vdr-recsearch 0.3.7: VDR Plugin: Search through your recordings and find the one you are looking for
-media-plugins/vdr-remote 0.7.0-r1: VDR Plugin: use various devices for controlling vdr (keyboards, lirc...)
+media-plugins/vdr-remote 0.7.0-r2: VDR Plugin: use various devices for controlling vdr (keyboards, lirc...)
 media-plugins/vdr-remoteosd 1.0.0 1.0.0-r1 1.0.1: VDR Plugin: server/client remoteosd
 media-plugins/vdr-rpihddevice 1.0.3 1.0.5: VDR Plugin: Output Device for Raspberry Pi
 media-plugins/vdr-rssreader 2.4.0-r1: VDR Plugin: RSS reader
 media-plugins/vdr-satip 2.2.5 2.4.1: VDR Plugin: integrates SAT>IP network devices seamlessly into VDR
 media-plugins/vdr-scheduler 0.1.6: VDR plugin: allows to control externel jobs from within VDR
 media-plugins/vdr-screenshot 0.0.15: VDR Plugin: takes screenshots of the current video or tv screen
-media-plugins/vdr-serial 0.0.6a-r1: VDR Plugin: attach some buttons with diodes to the serial port
+media-plugins/vdr-serial 0.0.6a-r2: VDR Plugin: attach some buttons with diodes to the serial port
 media-plugins/vdr-skincurses 2.2.0: VDR plugin: show content of menu in a shell window
 media-plugins/vdr-skinelchi 0.3.0-r2: VDR Skin Plugin: skinelchi
 media-plugins/vdr-skinsoppalusikka 2.4.0: VDR Skin Plugin: soppalusikka
@@ -14128,7 +14128,7 @@ media-tv/kodi 21.1 21.9999 9999: A free and open source media-player and enterta
 media-tv/linuxtv-dvb-apps 1.1.1.20140321-r2: Small utils for DVB to scan, zap, view signal strength
 media-tv/mythtv 33.1-r2: Open Source DVR and media center hub
 media-tv/mythtv-status 1.0.1 1.1.0: Displays the current status of MythTV at the command prompt
-media-tv/plex-media-server 1.40.5.8921 1.41.0.8994: Free media library that is intended for use with a plex client
+media-tv/plex-media-server 1.40.5.8921 1.41.0.8994 1.41.2.9200: Free media library that is intended for use with a plex client
 media-tv/shoutcast2vdr 0.0.8-r1: VDR script: generate shoutcast playlists
 media-tv/tvbrowser-bin 4.2.7: Themeable and easy to use TV Guide - written in Java
 media-tv/tvheadend 4.3_p20240618 9999: Tvheadend is a TV streaming server and digital video recorder
@@ -14732,7 +14732,7 @@ net-irc/epic5 2.0.1-r2: Epic5 IRC Client
 net-irc/ergo 2.13.0 2.13.1 2.14.0: A modern IRC server written in Go
 net-irc/hexchat 2.16.1-r1 2.16.2 9999: Graphical IRC client based on XChat
 net-irc/ii 1.9 2.0 9999: A minimalist FIFO and filesystem-based IRC client
-net-irc/inspircd 3.17.1 4.2.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
+net-irc/inspircd 3.17.1 4.2.0 4.4.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
 net-irc/irccloud-desktop-bin 0.16.0-r1: IRCCloud Desktop Client
 net-irc/ircii 20240111 20240918: An IRC and ICB client that runs under most UNIX platforms
 net-irc/ircmap 0.99-r1: Scripts to treate diagrams of IRC networks using the LINKS command
@@ -14982,7 +14982,7 @@ net-mail/list-remote-forwards 0.0.3 0.0.4: List all remote forwards for mail acc
 net-mail/mailbase 1.8.1: MTA layout package
 net-mail/mailbox-count 0.0.6 0.0.8: Count mailboxes in a SQL database
 net-mail/mailfront 2.22-r1: Mail server network protocol front-ends
-net-mail/mailgraph 1.14-r3: A mail statistics RRDtool frontend for Postfix
+net-mail/mailgraph 1.14-r4: A mail statistics RRDtool frontend for Postfix
 net-mail/mailshears 0.1.0: Mangle your mail garden
 net-mail/mailutils 3.17-r100: A useful collection of mail servers, clients, and filters
 net-mail/mairix 0.24-r1: Indexes and searches Maildir/MH folders
@@ -15414,7 +15414,7 @@ net-p2p/eiskaltdcpp 2.4.2 9999: Qt/DC++ based client for DirectConnect and ADC p
 net-p2p/energi3 3.0.8 3.1.0 9999: Official golang implementation of the Energi Core
 net-p2p/fms 0.3.84: Spam-resistant message board application for Freenet
 net-p2p/freenet 0.7.5_p1498: An encrypted network without censorship
-net-p2p/go-ethereum 1.10.18 1.13.14 1.14.7 1.14.8 1.14.11: Official golang implementation of the Ethereum protocol
+net-p2p/go-ethereum 1.10.18 1.13.14 1.14.7 1.14.8 1.14.11 1.14.12: Official golang implementation of the Ethereum protocol
 net-p2p/gtk-gnutella 1.2.2-r1 1.2.3: GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b-r1: A GTK2-based viewer and editor for BitTorrent meta files
 net-p2p/ktorrent 24.08.1 24.08.3: Powerful BitTorrent client based on KDE Frameworks
@@ -16053,7 +16053,7 @@ sci-libs/galib 2.4.7-r2: Library for genetic algorithms in C++ programs
 sci-libs/gamer 1.5-r2: Geometry-preserving Adaptive MeshER
 sci-libs/gaul-devel 0.1849-r2: Genetic Algorithm Utility Library
 sci-libs/gdal 3.8.0-r1 3.8.5 3.9.0 3.9.1 3.9.1-r1: Translator library for raster geospatial data formats (includes OGR support)
-sci-libs/geos 3.11.0 3.11.1 3.11.2 3.12.0 3.12.1: Geometry engine library for Geographic Information Systems
+sci-libs/geos 3.11.2 3.12.1 3.13.0: Geometry engine library for Geographic Information Systems
 sci-libs/gerris 20131206-r1: Gerris Flow Solver
 sci-libs/getdata 0.11.0 0.11.0-r2: Reference implementation of the Dirfile, format for time-ordered binary data
 sci-libs/ginkgo 1.4.0-r3 1.6.0 1.8.0: Numerical linear algebra software package
@@ -16167,7 +16167,7 @@ sci-libs/p4est 2.8.6: Scalable Algorithms for Parallel Adaptive Mesh Refinement 
 sci-libs/parmetis 4.0.3-r2 4.0.3_p20230326-r1: Parallel (MPI) unstructured graph partitioning library
 sci-libs/pastix 6.0.3: Parallel solver for very large sparse linear systems
 sci-libs/pcl 1.14.1-r1 9999: 2D/3D image and point cloud processing
-sci-libs/pdal 2.5.3-r1 2.6.2 2.7.2 2.8.0 2.8.1: A C++ library for translating and manipulating point cloud data
+sci-libs/pdal 2.8.0 2.8.1: A C++ library for translating and manipulating point cloud data
 sci-libs/pgplot 5.2.2-r8: FORTRAN/C device-independent scientific graphic library
 sci-libs/plplot 5.15.0_p6-r1: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r3: Small, fast library to generate primes in order
@@ -17992,7 +17992,7 @@ www-apps/grafana-bin 10.2.3 10.2.9 10.3.1 10.3.7 11.1.0 11.1.3 11.3.0: Gorgeous 
 www-apps/haunt 0.3.0: Haunt is a simple, functional, hackable static site generator
 www-apps/hugo 0.127.0 0.129.0 0.131.0: Fast static HTML and CSS website generator
 www-apps/icingadb-web 1.1.1 1.1.2 1.1.3: UI for Icinga DB
-www-apps/icingaweb2 2.11.4-r1 2.12.1 2.12.1-r1 9999: Icinga Web 2 - Frontend for icinga2
+www-apps/icingaweb2 2.12.1-r1 2.12.1-r2 9999: Icinga Web 2 - Frontend for icinga2
 www-apps/icingaweb2-module-director 1.11.1 9999: Icinga Web 2 plugin for configuration
 www-apps/icingaweb2-module-graphite 1.1.0 1.2.1 9999: Icinga Web 2 plugin for Graphite
 www-apps/icingaweb2-module-incubator 0.22.0: Bleeding edge Icinga Web 2 libraries
