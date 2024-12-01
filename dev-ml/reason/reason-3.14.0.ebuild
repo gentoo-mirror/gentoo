@@ -9,12 +9,14 @@ DESCRIPTION="Simple, fast & type safe language that leverages JavaScript and OCa
 HOMEPAGE="https://reasonml.github.io/
 	https://github.com/reasonml/reason/"
 
-if [[ ${PV} == *9999* ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/reasonml/${PN}.git"
 else
 	SRC_URI="https://github.com/reasonml/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
+
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -31,12 +33,12 @@ RDEPEND="
 	dev-ml/ppxlib:=[ocamlopt?]
 	dev-ml/utop:=[ocamlopt?]
 "
-DEPEND="${RDEPEND}"
-
-PATCHES=( "${FILESDIR}/${P}-fake-git-version.patch" )
+DEPEND="
+	${RDEPEND}
+"
 
 src_install() {
 	dune-install reason rtop
 
-	dodoc *.md docs/*.md
+	dodoc ./*.md ./docs/*.md
 }
