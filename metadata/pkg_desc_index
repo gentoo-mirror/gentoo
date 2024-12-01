@@ -1241,7 +1241,7 @@ app-backup/rdumpfs 0.1: a rsync-based dump file system backup tool
 app-backup/rdup 1.1.15-r1: Generate a file list suitable for full or incremental backups
 app-backup/rear 2.6 2.7: Relax-and-Recover is a setup-and-forget bare metal disaster recovery solution
 app-backup/reoback 1.0_p3-r1: Reoback Backup Solution
-app-backup/restic 0.16.5 0.17.0 0.17.1: A backup program that is fast, efficient and secure
+app-backup/restic 0.16.5 0.17.0 0.17.1 0.17.2: A backup program that is fast, efficient and secure
 app-backup/rsnapshot 1.4.4-r1 1.4.5-r1: A filesystem backup utility based on rsync
 app-backup/sarab 1.0.0-r1: SaraB is a powerful and automated backup scheduling system based on DAR
 app-backup/simplebackup 1.8.1-r2: Cross-platform backup program
@@ -3966,7 +3966,7 @@ dev-db/mariadb-connector-c 3.2.7 3.3.4 3.3.8 9999: C client library for MariaDB/
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 4.4.29 5.0.26: A high-performance, open source, schema-free document-oriented database
 dev-db/mycli 1.27.2: CLI for MySQL Database with auto-completion and syntax highlighting
-dev-db/mydumper 0.15.2.8-r1: A high-performance multi-threaded backup (and restore) toolset for MySQL
+dev-db/mydumper 0.15.2.8-r1 0.16.7.5: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 5.7.41 8.0.27-r1 8.0.31-r2 8.0.32-r2 8.0.34 8.0.36 8.0.37: A fast, multi-threaded, multi-user SQL database server
 dev-db/mysql++ 3.3.0: C++ API interface to the MySQL database
@@ -4020,7 +4020,7 @@ dev-db/sqlcipher 4.5.5 4.6.1: Full Database Encryption for SQLite
 dev-db/sqlcl-bin 24.1.0.087.0929: Oracle SQLcl is the new SQL*Plus
 dev-db/sqldeveloper 23.1.1.345.2114: Oracle SQL Developer is a graphical tool for database development
 dev-db/sqlite 3.46.1 3.47.0-r1 9999: SQL database engine
-dev-db/sqlitebrowser 3.13.0 9999: A light GUI editor for SQLite databases
+dev-db/sqlitebrowser 3.13.0 3.13.1 9999: A light GUI editor for SQLite databases
 dev-db/sqliteman 1.2.2-r6: Powerful GUI manager for the Sqlite3 database
 dev-db/sqlitestudio 3.4.4-r1: Powerful cross-platform SQLite database manager
 dev-db/sqlmap 1.8.9 1.8.11 9999: An automatic SQL injection and database takeover tool
@@ -11417,7 +11417,7 @@ games-emulation/zsnes 2.0.10 2.0.12: Fork of the classic Super Nintendo emulator
 games-engines/box2d 2.4.1: C++ engine for simulating rigid bodies in 2D games
 games-engines/dMagnetic 0.37: A Magnetic Scrolls Interpreter for playing a collection of old text adventures
 games-engines/devilutionx 1.5.3: Diablo engine for modern operating systems
-games-engines/exult 1.8: Ultima 7 game engine that runs on modern operating systems
+games-engines/exult 1.10.1: Ultima 7 game engine that runs on modern operating systems
 games-engines/fheroes2 1.1.3: Recreation of HoMM2 game engine
 games-engines/frobtads 2.0: Curses-based interpreter and dev tools for TADS 2 and TADS 3 text adventures
 games-engines/frotz 2.55_pre20240518: Interpreter for Z-code based text games
@@ -11442,7 +11442,7 @@ games-fps/alephone-marathon 20240822: Aleph One - Marathon (M1A1)
 games-fps/alienarena 7.66: Fast-paced multiplayer deathmatch game
 games-fps/avp 20150214-r1: Linux port of Aliens vs Predator
 games-fps/blackshades 20070723-r1: You control a psychic bodyguard, and try to protect the VIP
-games-fps/chocolate-doom 3.0.1-r2: A Doom source port that is minimalist and historically accurate
+games-fps/chocolate-doom 3.1.0: A Doom source port that is minimalist and historically accurate
 games-fps/darkplaces 20140513-r2: Enhanced engine for iD Software's Quake 1
 games-fps/doom-data 1.9: The IWAD used by the shareware version of Doom
 games-fps/doom-data-gog 1.9: Data files for The Ultimate DOOM from gog.com
@@ -11479,7 +11479,7 @@ games-fps/quakeforge 0.7.2_p20210722-r2 9999: 3D engine based on id Software's Q
 games-fps/red-blue-quake2 0.1-r1: Red-blue Quake II! Play quake2 with 3D glasses!
 games-fps/redeclipse 2.0.0-r1: First-person ego-shooter, built as a total conversion of Cube Engine 2
 games-fps/rott 1.1.2-r1: Rise of the Triad for Linux!
-games-fps/sauerbraten 2020.12.27: Sauerbraten is a FOSS game engine (Cube 2) with freeware game data (Sauerbraten)
+games-fps/sauerbraten 2020.12.29: Sauerbraten is a FOSS game engine (Cube 2) with freeware game data (Sauerbraten)
 games-fps/serioussam 1.10.6c 1.10.6d: Linux port of Serious Sam Classic with Vulkan support
 games-fps/serioussam-tfe-data 1.5-r1: Croteam's Serious Sam Classic The First Encounter ... the data files
 games-fps/serioussam-tse-data 1.7-r1: Croteam's Serious Sam Classic The Second Encounter ... the data files
@@ -14583,7 +14583,7 @@ net-dns/dnsviz 0.10.0: Tool suite for analysis and visualization of DNS and DNSS
 net-dns/doggo 1.0.4 1.0.5: Command-line DNS Client for Humans
 net-dns/ez-ipupdate 3.0.11.13.3_beta8-r5: Dynamic DNS client for lots of dynamic dns services
 net-dns/fpdns 0.10.0_pre20130404-r1 20190131: Fingerprinting DNS servers
-net-dns/getdns 1.7.2-r1: Modern asynchronous DNS API
+net-dns/getdns 1.7.2-r1 1.7.3: Modern asynchronous DNS API
 net-dns/hash-slinger 3.3: Various tools to generate DNS records like SSHFP, TLSA, OPENPGPKEY, IPSECKEY
 net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r1: Toolkit for Internationalized Domain Names (IDN)
@@ -15223,7 +15223,7 @@ net-misc/nx 3.5.99.26 3.5.99.27: NX compression technology core libraries
 net-misc/nxplayer 7.6.2.4-r1: Client for NoMachine remote servers
 net-misc/nyx 2.1.0-r7: Utility to monitor real time Tor status information
 net-misc/ofono 2.1 2.3 2.9: Open Source mobile telephony (GSM/UMTS) daemon
-net-misc/oidc-agent 4.5.2 5.0.1 5.1.0 5.2.2: Agent and tools for managing OpenID Connect tokens on the command line
+net-misc/oidc-agent 4.5.2 5.0.1 5.1.0 5.2.2 5.2.3: Agent and tools for managing OpenID Connect tokens on the command line
 net-misc/oidentd 3.0.0-r1 3.1.0: Another (RFC1413 compliant) ident daemon
 net-misc/olsrd 0.9.8_p20210612-r1 0.9.8_p20241102: An implementation of the Optimized Link State Routing protocol
 net-misc/omniORB 4.3.0: A robust, high-performance CORBA 2 ORB
@@ -15356,7 +15356,7 @@ net-misc/x2goserver 4.1.0.3-r2 4.1.0.5 4.1.0.6: The X2Go server
 net-misc/xmrig 6.21.1 6.21.3 6.22.0 6.22.1 6.22.2 9999: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
 net-misc/yandex-disk 0.1.6.1080_p1: CLI to access Yandex Disk file storage service
 net-misc/you-get 0.4.1650-r1 0.4.1700: Utility to download media contents from the web
-net-misc/youtube-viewer 3.11.2 9999: A command line utility for viewing youtube-videos in Mplayer
+net-misc/youtube-viewer 3.11.2 3.11.3 9999: A command line utility for viewing youtube-videos in Mplayer
 net-misc/yt-dlp 2024.11.04 2024.11.18 9999: youtube-dl fork with additional features and fixes
 net-misc/ytfzf 2.6.2: Posix script to find and watch youtube videos from the terminal
 net-misc/ytmdl 2024.08.15.1: Simple app to get songs from youtube in mp3 format
@@ -15885,7 +15885,7 @@ sci-electronics/gnucap 20210107: GNUCap is the GNU Circuit Analysis Package
 sci-electronics/gsmc 1.1-r2 1.1-r3: A GTK program for doing Smith Chart calculations
 sci-electronics/gspeakers 0.11-r3: GTK based loudspeaker enclosure and crossovernetwork designer
 sci-electronics/gspiceui 1.2.87 1.3.30_pre20240321: GUI frontend for Ngspice and Gnucap
-sci-electronics/gtkwave 3.3.106 3.3.111: A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files
+sci-electronics/gtkwave 3.3.106 3.3.111 3.3.121: A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files
 sci-electronics/gwave 20190116-r100: Analog waveform viewer for SPICE-like simulations
 sci-electronics/irsim 9.7.93 9.7.93-r1: IRSIM is a "switch-level" simulator
 sci-electronics/iverilog 10.3 11.0 12.0 9999: A Verilog simulation and synthesis tool
@@ -15901,7 +15901,7 @@ sci-electronics/labone 21.08.20515-r2 23.02.42414: Platform independent instrume
 sci-electronics/librepcb 1.1.0-r1: Free EDA software to develop printed circuit boards
 sci-electronics/magic 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
-sci-electronics/ngspice 40: The Next Generation Spice (Electronic Circuit Simulator)
+sci-electronics/ngspice 40 43: The Next Generation Spice (Electronic Circuit Simulator)
 sci-electronics/nvc 1.14.1 1.14.2: NVC is a VHDL compiler and simulator
 sci-electronics/osqoop 1.2.0_pre20170131-r1: Multi-platform open source software oscilloscope based on Qt
 sci-electronics/pcb 4.2.2 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
@@ -16410,6 +16410,7 @@ sec-keys/openpgp-keys-aacid 20230907: OpenPGP keys used by Albert Astals Cid
 sec-keys/openpgp-keys-adamspiers 20210426: OpenPGP keys used by Adam Spiers
 sec-keys/openpgp-keys-akallabeth 20240521: OpenPGP key for Github user akallabeth
 sec-keys/openpgp-keys-alejandro-colomar 20231031: OpenPGP keys used by Alejandro Colomar
+sec-keys/openpgp-keys-alexanderneumann 20241028: OpenPGP keys used by Alexander Neumann
 sec-keys/openpgp-keys-alexbarton 20210416: OpenPGP keys used by Alex Barton
 sec-keys/openpgp-keys-andresimon 20240906: OpenPGP keys used by Andre Simon
 sec-keys/openpgp-keys-antoniodiazdiaz 20220406: OpenPGP keys used by Antonio Diaz Diaz
@@ -17027,7 +17028,7 @@ sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32,
 sys-apps/paxctld 1.2.5-r1: PaX flags maintenance daemon
 sys-apps/pciutils 3.10.0 3.12.0 3.13.0: Various utilities dealing with the PCI bus
 sys-apps/pcmciautils 018_p18: PCMCIA userspace utilities for Linux
-sys-apps/pcsc-lite 2.0.1-r1: PC/SC Architecture smartcard middleware library
+sys-apps/pcsc-lite 2.0.1-r1 2.3.0: PC/SC Architecture smartcard middleware library
 sys-apps/pcsc-slb-rf72-drv 1.1.0-r2: Schlumberger Reflex 72 Serial Smartcard Reader
 sys-apps/pcsc-tools 1.6.2 1.7.0 1.7.1: PC/SC Architecture smartcard tools
 sys-apps/pick 4.0.0-r1: A fuzzy search tool for the command-line
@@ -17964,7 +17965,7 @@ www-apache/mod_nss 1.0.18: SSL/TLS module for the Apache HTTP server
 www-apache/mod_perl 2.0.13-r1: An embedded Perl interpreter for Apache2
 www-apache/mod_qos 11.75: A QOS module for the apache webserver
 www-apache/mod_rpaf 0.8.4: Reverse proxy add forward module
-www-apache/mod_security 2.9.7: Application firewall and intrusion detection for Apache
+www-apache/mod_security 2.9.7 2.9.8: Application firewall and intrusion detection for Apache
 www-apache/mod_whatkilledus 2.01-r1: Debug segmentation faults in Apache threads
 www-apache/mod_wsgi 5.0.0: An Apache2 module for running Python WSGI applications
 www-apache/mod_xsendfile 1.0_beta1-r2 1.0_beta1-r3: Apache module that processes X-SENDFILE headers registered by the output handler
