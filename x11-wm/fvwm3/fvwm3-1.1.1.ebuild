@@ -8,9 +8,9 @@ EAPI=8
 # Scripting for this is in sam-gentoo-scripts.
 : ${FVWM3_DOCS_PREBUILT:=1}
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 GO_OPTIONAL=1
-inherit autotools desktop flag-o-matic go-module python-single-r1 toolchain-funcs
+inherit flag-o-matic go-module meson optfeature python-single-r1
 
 DESCRIPTION="A multiple large virtual desktop window manager derived from fvwm"
 HOMEPAGE="https://www.fvwm.org/"
@@ -19,6 +19,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/fvwmorg/fvwm3.git"
 	EGIT_BRANCH="main"
+	FVWM3_DOCS_PREBUILT=0
 else
 	SRC_URI="https://github.com/fvwmorg/fvwm3/releases/download/${PV}/${P}.tar.gz"
 	if [[ ${FVWM3_DOCS_PREBUILT} == 1 ]]; then
@@ -30,9 +31,10 @@ fi
 LICENSE="GPL-2+ FVWM
 	go? ( Apache-2.0 BSD MIT )"
 SLOT="0"
-IUSE="bidi debug +go netpbm nls perl readline stroke svg tk lock"
-REQUIRED_USE="
-	${PYTHON_REQUIRED_USE}"
+IUSE="bidi +go nls readline svg"
+# Strictly speaking readline is not required for go,
+# but as most systems already have it installed we don't users to stub their toe on REQUIRED_USE
+REQUIRED_USE="${PYTHON_REQUIRED_USE} !go? ( readline )"
 
 DOCS=( NEWS )
 
@@ -50,72 +52,60 @@ fi
 BDEPEND="
 	virtual/pkgconfig
 	app-arch/unzip
-	go? ( >=dev-lang/go-1.14 )
+	go? ( >=dev-lang/go-1.20 )
 "
 
-if [[ ${FVWM3_DOCS_PREBUILT} == 0 ]]; then
+if [[ ${FVWM3_DOCS_PREBUILT} -ne 1 ]]; then
 	BDEPEND+="
 		dev-libs/libxslt
 		dev-ruby/asciidoctor
 	"
 fi
 
-RDEPEND="${PYTHON_DEPS}
-	${COMMON_DEPEND}
-	!x11-wm/fvwm
+COMMON_DEPEND="
 	dev-lang/perl
 	dev-libs/glib:2
 	dev-libs/libevent:=
 	media-libs/fontconfig
 	media-libs/libpng:=
-	sys-libs/zlib
+	x11-base/xorg-proto
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
-	x11-libs/libXau
 	x11-libs/libxcb
 	x11-libs/libXcursor
-	x11-libs/libXdmcp
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXft
+	x11-libs/libxkbcommon
 	x11-libs/libXpm
 	x11-libs/libXrandr
 	x11-libs/libXrender
+	x11-libs/xtrans
+	x11-libs/libXfixes
 	bidi? ( dev-libs/fribidi )
-	lock? ( x11-misc/xlockmore )
-	netpbm? ( media-libs/netpbm )
-	perl? ( tk? (
-			dev-lang/tk
-			dev-perl/Tk
-			>=dev-perl/X11-Protocol-0.56
-		)
-	)
 	readline? (
-		sys-libs/ncurses:=
 		sys-libs/readline:=
 	)
-	stroke? ( dev-libs/libstroke )
 	svg? (
 		gnome-base/librsvg:2
 		x11-libs/cairo
-	)"
+	)
+"
 
-DEPEND="${COMMON_DEPEND}
-	x11-base/xorg-proto"
+RDEPEND="
+	${COMMON_DEPEND}
+	${PYTHON_DEPS}
+	!x11-wm/fvwm
+"
 
-src_prepare() {
-	default
-	use go && ( sed -e 's/GOFLAGS=-ldflags="-s -w"/GOFLAGS=/' \
-		-i bin/FvwmPrompt/Makefile.am || die )
+DEPEND="${COMMON_DEPEND}"
 
-	eautoreconf
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-desk-init.patch
+)
 
 src_configure() {
-	# Non-upstream email where bugs should be sent; used in fvwm-bug.
-	export FVWM_BUGADDR="desktop-wm@nogentoo.org"
-
 	# Recommended by upstream for release. Doesn't really matter for live ebuilds.
 	append-flags -fno-strict-aliasing
 
@@ -124,68 +114,57 @@ src_configure() {
 		use $arch && append-flags -fsigned-chars
 	done
 
-	local myconf=(
-		--with-imagepath=/usr/include/X11/bitmaps:/usr/include/X11/pixmaps:/usr/share/icons/fvwm
-		--enable-package-subdirs
-		$(use_enable bidi)
-		$(use_enable go golang)
-		$(use_enable nls)
-		$(use_enable nls iconv)
-		$(use_enable perl perllib)
-		$(use_with readline readline-library)
-		$(use_enable svg rsvg)
-		--enable-png
+	local emesonargs=(
+		"-Dpng=enabled"
+		"-Dsm=enabled"
+		"-Dxcursor=enabled"
+		"-Dxfixes=enabled"
+		"-Dxpm=enabled"
+		"-Dxrender=enabled"
+		$(meson_feature bidi)
+		$(meson_feature go golang)
+		$(meson_feature nls iconv)
+		$(meson_feature nls)
+		$(meson_feature readline) # not required for go but it won't hurt to enable it
+		$(meson_feature svg cairo) # Pick 1 of 'cairo', 'cairo-svg', or 'libsvg-cairo'; add the appropriate dependency
+		$(meson_feature svg)
+		"-Dcairo-svg=disabled"
+		"-Dlibsvg-cairo=disabled"
+		"-Ddocdir=${EPREFIX}/usr/share/doc/${PF}"
 	)
 
-	if [[ ${FVWM3_DOCS_PREBUILT} == 0 ]]; then
-		myconf+=(
-			--enable-mandoc
-			--enable-htmldoc
+	if [[ ${FVWM3_DOCS_PREBUILT} -ne 1 ]]; then
+		emesonargs+=(
+			"-Dhtmldoc=true"
+			"-Dmandoc=true"
 		)
 	else
 		# Probably not required, but let's be safe
-		myconf+=(
-			--disable-mandoc
-			--disable-htmldoc
+		emesonargs+=(
+			"-Dhtmldoc=false"
+			"-Dmandoc=false"
 		)
 	fi
 
-	use readline && myconf+=( --without-termcap-library )
-
-	econf "${myconf[@]}"
-}
-
-src_compile() {
-	PREFIX="${EPREFIX}/usr" emake AR="$(tc-getAR)"
+	meson_src_configure
 }
 
 src_install() {
 	# Since we're manually handling docs installation, let's do that first
-	# and then install the rest of the files via emake
+	# and then install the rest of the files "normally".
 	local HTML_DOCS
 	if [[ ${FVWM3_DOCS_PREBUILT} == 1 ]] ; then
 		doman "${WORKDIR}"/${P}-docs/man/**/*.[0-8]
 		HTML_DOCS="${WORKDIR}"/${P}-docs/html/*
-	else
-		HTML_DOCS="${S}"/doc/*.html
-		doman "${S}"/doc/*.[0-8]
 	fi
-
 	einstalldocs
 
-	emake DESTDIR="${ED}" prefix="/usr" exec_prefix="/usr" datarootdir="/usr/share" install
+	meson_src_install
 
-	exeinto /etc/X11/Sessions
-	newexe - ${PN} <<-EOF
-	#!/bin/sh
-	${PN}
-	EOF
-
-	python_scriptinto "/usr/bin"
-	python_doscript "${ED}/usr/bin/FvwmCommand" "${ED}/usr/bin/fvwm-menu-desktop"
-
-	make_session_desktop fvwm3 /usr/bin/fvwm3
-
+	if ! use go; then
+		python_scriptinto "/usr/bin"
+		python_doscript "${ED}/usr/bin/FvwmCommand" "${ED}/usr/bin/fvwm-menu-desktop"
+	fi
 }
 
 pkg_postinst() {
@@ -199,4 +178,8 @@ pkg_postinst() {
 		ewarn "If you need FvwmPrompt or FvwmCommand, install ${PN} with USE=\"go\"."
 		ewarn "In that case, FvwmPrompt will replace FvwmConsole and provide the same functionality in a more flexible way."
 	fi
+
+	optfeature_header "Useful optional features:"
+	optfeature "Screen locking" x11-misc/xlockmore
+	optfeature "NetPBM support (used by FvwmScript-ScreenDump)" media-libs/netpbm
 }
