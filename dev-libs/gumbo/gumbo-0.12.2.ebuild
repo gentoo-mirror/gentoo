@@ -1,32 +1,27 @@
 # Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
 DESCRIPTION="The HTML5 parsing algorithm implemented as a pure C99 library"
-HOMEPAGE="https://github.com/google/gumbo-parser#readme"
-SRC_URI="https://github.com/google/gumbo-parser/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://codeberg.org/grisha/gumbo-parser"
+SRC_URI="https://codeberg.org/grisha/gumbo-parser/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/gumbo-parser"
 
 LICENSE="Apache-2.0"
-SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~ppc-macos ~x64-macos ~x64-solaris"
+SLOT="0/2" # gumbo SONAME
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 DEPEND="test? ( dev-cpp/gtest )"
 BDEPEND="doc? ( app-text/doxygen )"
 
-S="${WORKDIR}/gumbo-parser-${PV}"
-
 src_prepare() {
 	default
 	eautoreconf
-}
-
-src_configure() {
-	econf --disable-static
 }
 
 src_compile() {
