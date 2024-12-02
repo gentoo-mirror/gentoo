@@ -13,16 +13,12 @@ SRC_URI+=" https://dev.gentoo.org/~ajak/distfiles/${CATEGORY}/${PN}/${P}-deps.ta
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 BDEPEND="app-text/asciidoc
 	verify-sig? ( sec-keys/openpgp-keys-foxboron )"
 
 VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/foxboron.asc"
-
-PATCHES=(
-	"${FILESDIR}/sbctl-0.14-installkernel-bashism.patch"
-)
 
 src_unpack() {
 	if use verify-sig; then
