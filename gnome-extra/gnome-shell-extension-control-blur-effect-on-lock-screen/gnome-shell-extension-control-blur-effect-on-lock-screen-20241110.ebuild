@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,13 +6,15 @@ inherit gnome2-utils
 
 DESCRIPTION="Control the blur effect on gnome-shell lock screen"
 HOMEPAGE="https://github.com/PRATAP-KUMAR/Control_Blur_Effect_On_Lock_Screen"
-COMMIT="53b17ccf60dedd815be4657d6e3655d838a984df"
+COMMIT="379f33565bacdbdee42ad72775659a6b3061debc"
 SRC_URI="https://github.com/PRATAP-KUMAR/Control_Blur_Effect_On_Lock_Screen/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+
+extension_uuid="ControlBlurEffectOnLockScreen@pratap.fastmail.fm"
+S="${WORKDIR}/control-blur-effect-on-lockscreen-${COMMIT}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
 
 # glib for glib-compile-schemas at build time, needed at runtime anyways
 COMMON_DEPEND="
@@ -20,13 +22,9 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-44
+	>=gnome-base/gnome-shell-45
 "
 DEPEND="${COMMON_DEPEND}"
-BDEPEND=""
-
-extension_uuid="ControlBlurEffectOnLockScreen@pratap.fastmail.fm"
-S="${WORKDIR}/${PN/gnome-shell-extension-/}-${COMMIT}"
 
 src_compile() { :; }
 

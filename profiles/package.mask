@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Pacho Ramos <pacho@gentoo.org> (2024-12-02)
+# Dead for ages, not ported to wxGTK 3.2
+# Removal on 2024-12-31.  Bug #929140.
+games-board/blokish
+
 # Michał Górny <mgorny@gentoo.org> (2024-12-01)
 # Superseded by dev-lang/pypy:2.7.
 # Removal on 2024-12-15.
@@ -47,7 +52,6 @@ dev-python/pypy
 >=dev-libs/rocm-opencl-runtime-6.2
 >=dev-util/hipcc-6.2
 >=dev-util/hip-6.2
-
 
 # Florian Schmaus <flow@gentoo.org> (2024-11-29)
 # TeX Live 2024 is currently masked for testing.
@@ -455,20 +459,6 @@ app-i18n/kcm-fcitx
 # Fabian Groffen <grobian@gentoo.org> (2024-09-02)
 # exim_tinydb utility crashes due to invalid free() (used in startup script)
 =mail-mta/exim-4.98
-
-# Pacho Ramos <pacho@gentoo.org> (2024-08-09)
-# Mask until we find out a way to deal better with the upstream
-# introduced circular dep, bug #937616
->=dev-libs/glib-2.80
->=dev-util/glib-utils-2.80
->=dev-util/gdbus-codegen-2.80
->=gnome-base/gnome-shell-46
->=gnome-extra/gnome-shell-extensions-46
->=gnome-extra/gnome-shell-frippery-46
->=gnome-base/nautilus-46
->=dev-libs/gobject-introspection-1.80
->=dev-libs/gobject-introspection-common-1.80
->=x11-terms/ptyxis-46
 
 # Leonardo Hernández Hernández <leohdz172@proton.me> (2024-07-07)
 # New major ffmpeg version. Tracker bug #928905.
