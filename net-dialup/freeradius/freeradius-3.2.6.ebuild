@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} python3_13t )
 AUTOTOOLS_DEPEND=">=dev-build/autoconf-2.69"
 inherit autotools pam python-single-r1 systemd
 
@@ -12,13 +12,13 @@ MY_P=${MY_PN}-${PV}
 MY_PV=$(ver_rs 1- "_")
 
 DESCRIPTION="Highly configurable free RADIUS server"
-HOMEPAGE="https://freeradius.org/"
+HOMEPAGE="https://www.freeradius.org/"
 SRC_URI="https://github.com/FreeRADIUS/freeradius-server/releases/download/release_${MY_PV}/${MY_P}.tar.bz2"
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 
 IUSE="
 	debug firebird iodbc kerberos ldap memcached mysql mongodb odbc oracle pam
@@ -40,7 +40,6 @@ RESTRICT="firebird? ( bindist )"
 DEPEND="
 	acct-group/radius
 	acct-user/radius
-	!net-dialup/cistronradius
 	dev-libs/libltdl
 	dev-libs/libpcre
 	dev-libs/json-c:=
@@ -80,8 +79,15 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 # bug #721040
 QA_SONAME="usr/lib.*/libfreeradius-.*.so"
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# Not available on Linux (bug #900048)
+	htonll
+	htonlll
+)
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.20-systemd-service.patch
+	"${FILESDIR}"/${PN}-3.2.3-configure-c99.patch
 )
 
 pkg_setup() {
