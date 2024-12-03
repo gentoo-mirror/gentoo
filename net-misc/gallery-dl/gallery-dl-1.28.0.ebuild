@@ -20,7 +20,7 @@ else
 	SRC_URI="https://github.com/mikf/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 arm arm64 hppa ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -34,7 +34,7 @@ distutils_enable_tests unittest
 
 src_prepare() {
 	# Tests against real servers, some tests always fail and some are subject to change.
-	rm test/test_results.py || die
+	rm test/test_extractor.py test/test_results.py || die
 
 	distutils-r1_src_prepare
 }
