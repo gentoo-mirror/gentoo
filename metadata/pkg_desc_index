@@ -947,7 +947,7 @@ app-admin/exo 1.81.0: Command-line tool for everything at Exoscale: compute, sto
 app-admin/fam 2.7.0_p17_p3: FAM, the File Alteration Monitor
 app-admin/fetchlog 1.4-r2: Displays the last new messages of a logfile
 app-admin/fifo-cronolog 1.2.3-r1: cronolog wrapper for use with dumb daemons like squid, varnish and so on
-app-admin/filebeat 7.17.16: Lightweight log shipper for Logstash and Elasticsearch
+app-admin/filebeat 7.17.16 7.17.25: Lightweight log shipper for Logstash and Elasticsearch
 app-admin/filewatcher 2.4.6-r1: File control configuration system and IDS
 app-admin/fluentd 1.16.3: data collector and unified logging layer (project under CNCF)
 app-admin/fsvs 1.2.12: Backup/restore for subversion backends
@@ -990,7 +990,7 @@ app-admin/logmon 0.4.4-r1 0.4.4-r2: Split-screen terminal/ncurses based log view
 app-admin/logrotate 3.21.0 3.22.0: Rotates, compresses, and mails system logs
 app-admin/logsentry 1.1.1-r3: Automatically monitor system logs and mail security violations
 app-admin/logstalgia 1.1.4: Replays or streams an access_log as a retro arcade game-like simulation
-app-admin/logstash-bin 7.17.16: Tool for managing events and logs
+app-admin/logstash-bin 7.17.25: Tool for managing events and logs
 app-admin/logsurfer+ 1.8-r5: Real Time Log Monitoring and Alerting
 app-admin/lsyncd 2.2.3 2.3.1: Live Syncing (Mirror) Daemon
 app-admin/makepasswd 1.10-r1: Random password generator
@@ -2715,7 +2715,7 @@ app-misc/dvtm 0.15-r6 9999: Dynamic virtual terminal manager
 app-misc/ebusd 23.3-r2 24.1: Daemon for communication with eBUS heating systems
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
-app-misc/elasticsearch 7.17.16 8.15.1: Free and Open, Distributed, RESTful Search Engine
+app-misc/elasticsearch 7.17.25 8.15.1: Free and Open, Distributed, RESTful Search Engine
 app-misc/empty 0.6.23c: Small shell utility, similar to expect(1)
 app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
@@ -3982,7 +3982,7 @@ dev-db/ocp 0.3 9999: Oracle copy tool
 dev-db/opendbx 1.4.6-r6: OpenDBX - A database abstraction layer
 dev-db/oracle-instantclient 21.3.0.0.0 21.13.0.0.0: Oracle 21c Instant Client with SDK
 dev-db/percona-server 8.0.26.16-r2: Fully compatible, enhanced and open source drop-in replacement for MySQL
-dev-db/percona-toolkit 3.5.5 3.5.7: Advanced command-line tools to perform a variety of MySQL and system tasks
+dev-db/percona-toolkit 3.5.5 3.5.7 3.6.0: Advanced command-line tools to perform a variety of MySQL and system tasks
 dev-db/percona-xtrabackup 8.0.30.23-r1 8.3.0.1: Hot backup utility for MySQL based servers
 dev-db/pg-gvm 22.6.4: Greenbone Library for helper functions in PostgreSQL
 dev-db/pgFormatter 5.0 5.1: PostgreSQL SQL syntax beautifier
@@ -16143,7 +16143,7 @@ sci-libs/m4rie 20200115-r1: Fast dense matrix arithmetic over GF(2^e) for 2 <= e
 sci-libs/mathgl 8.0.1-r1: Math Graphics Library
 sci-libs/matio 1.5.23: Library for reading and writing matlab files
 sci-libs/mc 1.5: 2D/3D AFEM code for nonlinear geometric PDE
-sci-libs/med 4.1.1-r1 4.1.1-r3: A library to store and exchange meshed data or computation results
+sci-libs/med 4.1.1-r1 4.1.1-r3 4.1.1-r4: A library to store and exchange meshed data or computation results
 sci-libs/metis 5.2.1-r2: A package for unstructured serial graph partitioning
 sci-libs/miopen 5.1.3-r1 5.7.1-r1 6.1.1: AMD's Machine Intelligence Library
 sci-libs/mkl 2020.4.304 2022.2.1.16993-r1 2023.0.0.25398 2023.1.0.46342: Intel Math Kernel Library
@@ -17974,7 +17974,7 @@ www-apache/mod_security 2.9.7 2.9.8: Application firewall and intrusion detectio
 www-apache/mod_whatkilledus 2.01-r1: Debug segmentation faults in Apache threads
 www-apache/mod_wsgi 5.0.0: An Apache2 module for running Python WSGI applications
 www-apache/mod_xsendfile 1.0_beta1-r2 1.0_beta1-r3: Apache module that processes X-SENDFILE headers registered by the output handler
-www-apache/modsecurity-crs 3.3.5 3.3.6 4.0.0 4.7.0: OWASP ModSecurity Core Rule Set
+www-apache/modsecurity-crs 3.3.6 3.3.7 4.7.0 4.8.0: OWASP ModSecurity Core Rule Set
 www-apache/mpm_itk 2.4.7_p4-r2: Run virtual hosts under separate users/groups
 www-apache/passenger 6.0.23: Passenger makes deployment of Ruby on Rails applications a breeze
 www-apache/pwauth 2.3.10-r2: A Unix Web Authenticator
@@ -18012,7 +18012,7 @@ www-apps/jekyll-sitemap 1.4.0-r1: Automatically generate a sitemap.xml for your 
 www-apps/jekyll-watch 2.2.1-r1: Rebuild your Jekyll site when a file changes with the --watch switch
 www-apps/jellyfin-bin 10.10.3: Jellyfin puts you in control of managing and streaming your media
 www-apps/karma-bin 0.90: Alerts dashboard for Prometheus Alertmanager
-www-apps/kibana-bin 7.17.16: Analytics and search dashboard for Elasticsearch
+www-apps/kibana-bin 7.17.25: Analytics and search dashboard for Elasticsearch
 www-apps/klaus 2.0.3 3.0.1: A simple, easy-to-set-up Git web viewer
 www-apps/lidarr-bin 2.8.0.4431: Looks and smells like Sonarr but made for music
 www-apps/liquid_feedback_core 4.2.2: Internet platforms for proposition development and decision making
@@ -18061,8 +18061,8 @@ www-client/elinks 0.16.1.1-r100 0.17.1.1 9999: Advanced and well-established tex
 www-client/epiphany 46.0 46.2 46.4: GNOME webbrowser based on Webkit
 www-client/falkon 24.08.1 24.08.3: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
-www-client/firefox 115.16.1-r1 128.4.0-r1 128.5.0 128.5.1 132.0.1-r1 132.0.2 133.0: Firefox Web Browser
-www-client/firefox-bin 115.16.1 128.5.1 133.0: Firefox Web Browser
+www-client/firefox 128.5.0 128.5.1 133.0: Firefox Web Browser
+www-client/firefox-bin 128.5.1 133.0: Firefox Web Browser
 www-client/google-chrome 131.0.6778.108: The web browser from Google
 www-client/google-chrome-beta 132.0.6834.15: The web browser from Google
 www-client/google-chrome-unstable 133.0.6847.2: The web browser from Google
