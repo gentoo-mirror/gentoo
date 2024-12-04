@@ -23,8 +23,8 @@ RDEPEND="
 	dev-libs/expat
 	dev-libs/nspr
 	dev-libs/nss
-	>=net-libs/nodejs-18.17.1
-	<net-libs/nodejs-20
+	>=net-libs/nodejs-20.15.1
+	<net-libs/nodejs-22
 	sys-libs/glibc
 "
 
@@ -84,7 +84,7 @@ src_install() {
 
 pkg_postinst() {
 	elog "This version of Kibana is compatible with Elasticsearch $(ver_cut 1-2) and"
-	elog "Node.js 18. Some plugins may fail with other versions of Node.js (Bug #656008)."
+	elog "Node.js 20. Some plugins may fail with other versions of Node.js (Bug #656008)."
 	elog
 	elog "To set a customized Elasticsearch instance:"
 	elog "  OpenRC: set ES_INSTANCE in /etc/conf.d/${MY_PN}"
