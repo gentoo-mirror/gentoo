@@ -23,19 +23,15 @@ IUSE="+openal sdl"
 
 DEPEND="
 	sys-libs/zlib:=
+	media-libs/libglvnd
 	openal? (
 		media-libs/libopenmpt
 		media-libs/openal
 	)
-	!sdl? ( media-libs/glfw:= )
-	sdl? ( media-libs/libsdl2:= )
+	!sdl? ( media-libs/glfw )
+	sdl? ( media-libs/libsdl2 )
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${P}-about-section.patch"
-	"${FILESDIR}/${P}-strict-aliasing.patch" #940326
-)
 
 src_prepare() {
 	# We need to install README.md to a different directory, default

@@ -13,7 +13,8 @@ CRATES="
 	anstyle-query@1.1.0
 	anstyle-wincon@3.0.3
 	anstyle@1.0.7
-	anyhow@1.0.93
+	anyhow@1.0.89
+	arbitrary@1.4.1
 	autocfg@1.3.0
 	automod@1.0.14
 	base64@0.21.7
@@ -22,22 +23,23 @@ CRATES="
 	bitflags@2.5.0
 	block-buffer@0.10.4
 	bstr@1.10.0
+	bumpalo@3.16.0
 	byteorder@1.5.0
 	bytesize@1.3.0
 	bytes@1.7.1
 	bzip2-sys@0.1.11+1.0.8
 	bzip2@0.4.4
-	cab@0.5.0
+	cab@0.6.0
 	camino@1.1.9
 	cargo-config2@0.1.26
 	cargo-options@0.7.4
 	cargo-platform@0.1.8
-	cargo-xwin@0.16.5
-	cargo-zigbuild@0.19.4
-	cargo_metadata@0.18.1
-	cbindgen@0.26.0
-	cc@1.2.1
-	cfb@0.9.0
+	cargo-xwin@0.17.5
+	cargo-zigbuild@0.19.5
+	cargo_metadata@0.19.0
+	cbindgen@0.27.0
+	cc@1.1.21
+	cfb@0.10.0
 	cfg-if@1.0.0
 	charset@0.1.5
 	chumsky@0.9.3
@@ -67,6 +69,7 @@ CRATES="
 	data-encoding@2.6.0
 	deranged@0.3.11
 	derivative@2.2.0
+	derive_arbitrary@1.4.1
 	dialoguer@0.11.0
 	diff@0.1.13
 	digest@0.10.7
@@ -85,49 +88,37 @@ CRATES="
 	fastrand@2.1.0
 	fat-macho@0.4.9
 	filetime@0.2.23
-	flate2@1.0.35
+	flate2@1.0.33
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.1
 	fs4@0.11.1
 	fs-err@2.11.0
+	fs-err@3.0.0
 	futures-channel@0.3.31
 	futures-core@0.3.31
-	futures-executor@0.3.31
+	futures-executor@0.3.30
 	futures-io@0.3.31
 	futures-macro@0.3.31
 	futures-sink@0.3.31
 	futures-task@0.3.31
 	futures-timer@3.0.3
 	futures-util@0.3.31
-	futures@0.3.31
+	futures@0.3.30
 	generic-array@0.14.7
 	getrandom@0.2.15
 	globset@0.4.15
 	glob@0.3.1
 	goblin@0.9.2
-	hashbrown@0.12.3
 	hashbrown@0.14.5
 	heck@0.4.1
 	heck@0.5.0
 	home@0.5.9
 	humantime-serde@1.1.1
 	humantime@2.1.0
-	icu_collections@1.5.0
-	icu_locid@1.5.0
-	icu_locid_transform@1.5.0
-	icu_locid_transform_data@1.5.0
-	icu_normalizer@1.5.0
-	icu_normalizer_data@1.5.0
-	icu_properties@1.5.1
-	icu_properties_data@1.5.0
-	icu_provider@1.5.0
-	icu_provider_macros@1.5.0
-	idna@1.0.3
-	idna_adapter@1.2.0
+	idna@0.5.0
 	ignore@0.4.23
-	indexmap@1.9.3
 	indexmap@2.5.0
 	indicatif@0.17.8
 	indoc@2.0.5
@@ -137,13 +128,14 @@ CRATES="
 	itoa@1.0.11
 	keyring@2.3.3
 	lazy_static@1.4.0
-	lddtree@0.3.6
+	lddtree@0.3.7
 	libc@0.2.158
 	libmimalloc-sys@0.1.38
 	libredox@0.1.3
 	linux-keyutils@0.2.4
 	linux-raw-sys@0.4.14
-	litemap@0.7.4
+	litemap@0.7.3
+	lockfree-object-pool@0.1.6
 	lock_api@0.4.12
 	log@0.4.21
 	lzxd@0.2.5
@@ -153,10 +145,10 @@ CRATES="
 	mimalloc@0.1.42
 	mime@0.3.17
 	mime_guess@2.0.4
-	minijinja@1.0.21
+	minijinja@2.5.0
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.0
-	msi@0.7.0
+	msi@0.8.0
 	multipart@0.18.0
 	native-tls@0.2.12
 	nom@7.1.3
@@ -165,7 +157,7 @@ CRATES="
 	number_prefix@0.4.0
 	num-conv@0.1.0
 	nu-ansi-term@0.46.0
-	once_cell@1.20.2
+	once_cell@1.19.0
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
 	openssl-sys@0.9.103
@@ -184,12 +176,12 @@ CRATES="
 	pin-utils@0.1.0
 	pkg-config@0.3.30
 	plain@0.2.3
-	platform-info@2.0.4
+	platform-info@2.0.3
 	portable-atomic@1.6.0
 	powerfmt@0.2.0
 	ppv-lite86@0.2.17
 	pretty_assertions@1.4.1
-	proc-macro2@1.0.92
+	proc-macro2@1.0.85
 	proc-macro-crate@3.1.0
 	psm@0.1.21
 	pyproject-toml@0.11.0
@@ -205,10 +197,10 @@ CRATES="
 	redox_syscall@0.5.1
 	redox_users@0.4.5
 	regex-automata@0.1.10
-	regex-automata@0.4.9
+	regex-automata@0.4.7
 	regex-syntax@0.6.29
-	regex-syntax@0.8.5
-	regex@1.11.1
+	regex-syntax@0.8.4
+	regex@1.10.6
 	relative-path@1.9.3
 	rfc2047-decoder@1.0.5
 	ring@0.17.8
@@ -218,10 +210,10 @@ CRATES="
 	rustflags@0.1.6
 	rustix@0.38.34
 	rustls-pemfile@2.1.3
-	rustls-pki-types@1.7.0
-	rustls-webpki@0.102.4
-	rustls@0.22.4
-	rustversion@1.0.18
+	rustls-pki-types@1.10.0
+	rustls-webpki@0.102.8
+	rustls@0.23.19
+	rustversion@1.0.17
 	ryu@1.0.18
 	same-file@1.0.6
 	schannel@0.1.23
@@ -233,21 +225,22 @@ CRATES="
 	security-framework-sys@2.11.0
 	security-framework@2.11.0
 	semver@1.0.23
-	serde@1.0.215
-	serde_derive@1.0.215
+	serde@1.0.210
+	serde_derive@1.0.210
 	serde_derive_internals@0.29.1
-	serde_json@1.0.133
+	serde_json@1.0.128
 	serde_spanned@0.6.6
 	sha2@0.10.8
 	sharded-slab@0.1.7
 	shell-words@1.1.0
 	shlex@1.3.0
+	simd-adler32@0.3.7
 	similar@2.5.0
 	slab@0.4.9
 	smallvec@1.13.2
 	smawk@0.3.2
 	snapbox-macros@0.3.10
-	snapbox@0.6.20
+	snapbox@0.6.16
 	socks@0.3.4
 	spin@0.9.8
 	stable_deref_trait@1.2.0
@@ -255,23 +248,24 @@ CRATES="
 	static_assertions@1.1.0
 	strsim@0.11.1
 	subtle@2.5.0
-	synstructure@0.13.1
 	syn@1.0.109
-	syn@2.0.89
+	syn@2.0.87
 	target-lexicon@0.12.16
-	tar@0.4.43
+	tar@0.4.42
 	tempfile@3.11.0
 	termcolor@1.4.1
 	terminal_size@0.3.0
 	textwrap@0.16.1
 	thiserror-impl@1.0.64
+	thiserror-impl@2.0.3
 	thiserror@1.0.64
+	thiserror@2.0.3
 	thread_local@1.1.8
 	time-core@0.1.2
 	time-macros@0.2.18
 	time@0.3.36
-	tinystr@0.7.6
-	toml@0.5.11
+	tinyvec@1.7.0
+	tinyvec_macros@0.1.1
 	toml@0.8.15
 	toml_datetime@0.6.6
 	toml_edit@0.21.1
@@ -282,22 +276,22 @@ CRATES="
 	tracing-serde@0.1.3
 	tracing-subscriber@0.3.18
 	tracing@0.1.40
-	trycmd@0.15.7
+	trycmd@0.15.6
 	twox-hash@1.6.3
 	typenum@1.17.0
 	unicase@2.7.0
+	unicode-bidi@0.3.15
 	unicode-ident@1.0.12
 	unicode-linebreak@0.1.5
+	unicode-normalization@0.1.23
 	unicode-width@0.1.13
 	unicode-xid@0.2.6
 	unscanny@0.1.0
 	untrusted@0.9.0
-	ureq@2.9.7
+	ureq@2.11.0
 	urlencoding@2.1.3
-	url@2.5.4
+	url@2.5.2
 	utf8parse@0.2.2
-	utf8_iter@1.0.4
-	utf16_iter@1.0.5
 	uuid@1.8.0
 	valuable@0.1.0
 	vcpkg@0.2.15
@@ -307,8 +301,7 @@ CRATES="
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
 	webpki-roots@0.26.2
-	which@5.0.0
-	which@6.0.3
+	which@7.0.0
 	wild@2.2.1
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.8
@@ -316,42 +309,37 @@ CRATES="
 	winapi@0.3.9
 	windows-sys@0.48.0
 	windows-sys@0.52.0
-	windows-sys@0.59.0
 	windows-targets@0.48.5
-	windows-targets@0.52.6
+	windows-targets@0.52.5
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.52.5
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.6
-	windows_i686_gnullvm@0.52.6
+	windows_aarch64_msvc@0.52.5
+	windows_i686_gnullvm@0.52.5
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.52.5
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.52.5
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.52.5
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.52.5
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.52.5
 	winnow@0.5.40
 	winnow@0.6.13
 	winsafe@0.0.19
-	write16@1.0.0
-	writeable@0.5.5
 	xattr@1.3.1
-	xwin@0.5.1
+	xwin@0.6.5
 	yansi@1.0.1
-	yoke-derive@0.7.5
-	yoke@0.7.5
+	yoke@0.7.4
 	zerocopy-derive@0.7.34
 	zerocopy@0.7.34
-	zerofrom-derive@0.1.5
-	zerofrom@0.1.5
+	zerofrom@0.1.4
 	zeroize@1.8.1
-	zerovec-derive@0.10.3
-	zerovec@0.10.4
 	zip@0.6.6
+	zip@2.1.6
+	zopfli@0.8.1
 "
 # additional crates used by test-crates/* test packages,
 # `grep test-crates tests/run.rs` to see which are needed
@@ -397,11 +385,12 @@ CRATES_TEST="
 	mime_guess@2.0.5
 	once_cell@1.15.0
 	once_cell@1.18.0
-	once_cell@1.19.0
+	once_cell@1.20.2
 	portable-atomic@1.7.0
 	portable-atomic@1.9.0
 	proc-macro2@1.0.86
 	proc-macro2@1.0.88
+	proc-macro2@1.0.92
 	pyo3-build-config@0.18.3
 	pyo3-build-config@0.23.1
 	pyo3-ffi@0.18.3
@@ -411,6 +400,7 @@ CRATES_TEST="
 	pyo3@0.23.1
 	python3-dll-a@0.2.6
 	python3-dll-a@0.2.9
+	python3-dll-a@0.2.11
 	quote@1.0.37
 	serde@1.0.203
 	serde@1.0.209
@@ -422,12 +412,14 @@ CRATES_TEST="
 	syn@2.0.68
 	syn@2.0.72
 	syn@2.0.79
+	syn@2.0.89
 	target-lexicon@0.12.11
 	target-lexicon@0.12.14
 	thiserror-impl@1.0.61
 	thiserror-impl@1.0.63
 	thiserror@1.0.61
 	thiserror@1.0.63
+	toml@0.5.11
 	unicode-ident@1.0.5
 	unicode-ident@1.0.11
 	unicode-ident@1.0.13
@@ -453,15 +445,15 @@ CRATES_TEST="
 	unindent@0.2.3
 	version_check@0.9.5
 	weedle2@5.0.0
-	windows-targets@0.52.5
-	windows_aarch64_gnullvm@0.52.5
-	windows_aarch64_msvc@0.52.5
-	windows_i686_gnullvm@0.52.5
-	windows_i686_gnu@0.52.5
-	windows_i686_msvc@0.52.5
-	windows_x86_64_gnullvm@0.52.5
-	windows_x86_64_gnu@0.52.5
-	windows_x86_64_msvc@0.52.5
+	windows-targets@0.52.6
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_msvc@0.52.6
+	windows_i686_gnullvm@0.52.6
+	windows_i686_gnu@0.52.6
+	windows_i686_msvc@0.52.6
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_msvc@0.52.6
 "
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{10..13} )
@@ -480,8 +472,8 @@ SRC_URI="
 # note: rustls+ring is unused, so openssl license can be skipped
 LICENSE="|| ( Apache-2.0 MIT ) doc? ( CC-BY-4.0 OFL-1.1 )"
 LICENSE+="
-	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT MPL-2.0
-	openssl Unicode-3.0 Unicode-DFS-2016
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC
+	MIT MPL-2.0 openssl Unicode-3.0 Unicode-DFS-2016
 " # crates
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
