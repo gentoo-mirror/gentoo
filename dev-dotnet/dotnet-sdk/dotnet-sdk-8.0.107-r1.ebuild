@@ -3,14 +3,14 @@
 
 # Pre-build (and distribution preparation)
 # Build the tarball:
-#  git clone --depth 1 -b v9.0.0 https://github.com/dotnet/dotnet ./dotnet-sdk-9.0.0
-#  cd ./dotnet-sdk-9.0.0
+#  git clone --depth 1 -b v8.0.7 https://github.com/dotnet/dotnet dotnet-sdk-8.0.7
+#  cd dotnet-sdk-8.0.7
 #  git rev-parse HEAD
-#  bash ./prep-source-build.sh
-#  rm -f -r ./.git
+#  ./prep.sh
+#  rm -fr .git
 #  cd ..
-#  tar -acf dotnet-sdk-9.0.100-prepared-gentoo-amd64.tar.xz dotnet-sdk-9.0.0
-# Upload "dotnet-sdk-9.0.100-prepared-gentoo-amd64.tar.xz".
+#  tar -acf dotnet-sdk-8.0.107-prepared-gentoo-amd64.tar.xz dotnet-sdk-8.0.7
+# Upload dotnet-sdk-8.0.107-prepared-gentoo-amd64.tar.xz
 
 # Build ("src_compile")
 # To learn about arguments that are passed to the "build.sh" script see:
@@ -19,9 +19,9 @@
 
 EAPI=8
 
-COMMIT="a2bc464e40415d625118f38fbb0556d1803783ff"
+COMMIT="8be139ddde52d33e24c7d82f813248ff9fc54b97"
 SDK_SLOT="$(ver_cut 1-2)"
-RUNTIME_SLOT="${SDK_SLOT}.0"
+RUNTIME_SLOT="${SDK_SLOT}.7"
 
 LLVM_COMPAT=( {17..18} )
 PYTHON_COMPAT=( python3_{11..13} )
@@ -36,13 +36,16 @@ amd64? (
 	elibc_glibc? (
 		https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz
 	)
+	elibc_musl? (
+		https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-musl-amd64.tar.xz
+	)
 )
 "
 S="${WORKDIR}/${PN}-${RUNTIME_SLOT}"
 
 LICENSE="MIT"
 SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
-# KEYWORDS="~amd64"  # KEYWORD-less for testing and since musl is not prepared yet.
+KEYWORDS="amd64"
 
 # STRIP="llvm-strip" corrupts some executables when using the patchelf hack.
 # Be safe and restrict it for source-built too, bug https://bugs.gentoo.org/923430
@@ -52,9 +55,8 @@ CURRENT_NUGETS_DEPEND="
 	~dev-dotnet/dotnet-runtime-nugets-${RUNTIME_SLOT}
 "
 EXTRA_NUGETS_DEPEND="
-	~dev-dotnet/dotnet-runtime-nugets-6.0.36
+	~dev-dotnet/dotnet-runtime-nugets-6.0.32
 	~dev-dotnet/dotnet-runtime-nugets-7.0.20
-	~dev-dotnet/dotnet-runtime-nugets-8.0.11
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}
@@ -87,37 +89,27 @@ PDEPEND="
 "
 
 CHECKREQS_DISK_BUILD="20G"
-CHECKREQS_DISK_USR="1200M"
 
 # Created by dotnet itself:
 QA_PREBUILT="
 usr/lib.*/dotnet-sdk-.*/dotnet
-.*/ilc
 "
 
 # .NET runtime, better to not touch it if they want some specific flags.
 QA_FLAGS_IGNORED="
 .*/apphost
 .*/createdump
-.*/ilc
 .*/libSystem.Globalization.Native.so
 .*/libSystem.IO.Compression.Native.so
 .*/libSystem.Native.so
 .*/libSystem.Net.Security.Native.so
 .*/libSystem.Security.Cryptography.Native.OpenSsl.so
 .*/libclrgc.so
-.*/libclrgcexp.so
 .*/libclrjit.so
-.*/libclrjit_universal_arm64_x64.so
-.*/libclrjit_universal_arm_x64.so
-.*/libclrjit_unix_x64_x64.so
-.*/libclrjit_win_x64_x64.so
-.*/libclrjit_win_x86_x64.so
 .*/libcoreclr.so
 .*/libcoreclrtraceptprovider.so
 .*/libhostfxr.so
 .*/libhostpolicy.so
-.*/libjitinterface_x64.so
 .*/libmscordaccore.so
 .*/libmscordbi.so
 .*/libnethost.so
@@ -172,10 +164,8 @@ src_prepare() {
 	unset NUGET_PACKAGES
 
 	export DOTNET_CLI_TELEMETRY_OPTOUT="1"
-	export DOTNET_NUGET_SIGNATURE_VERIFICATION="false"
 	export DOTNET_SKIP_FIRST_TIME_EXPERIENCE="1"
 	export MSBUILDDISABLENODEREUSE="1"
-	export MSBUILDTERMINALLOGGER="off"
 	export UseSharedCompilation="false"
 
 	local dotnet_sdk_tmp_directory="${WORKDIR}/dotnet-sdk-tmp"
@@ -201,26 +191,17 @@ src_compile() {
 
 	ebegin "Building the .NET SDK ${SDK_SLOT}"
 	local -a buildopts=(
-		# URLs, version specification, etc. ...
+		--clean-while-building
 		--source-repository "${source_repository}"
 		--source-version "${COMMIT}"
 
-		# How it should be built.
-		--source-build
-		--clean-while-building
-		--with-system-libs "+brotli+libunwind+rapidjson+zlib+"
-		--configuration "Release"
-
-		# Auxiliary options.
 		--
 		-maxCpuCount:"$(makeopts_jobs)"
-		-p:ContinueOnPrebuiltBaselineError="true"
-
-		# Verbosity settings.
 		-verbosity:"${verbosity}"
+		-p:ContinueOnPrebuiltBaselineError="true"
 		-p:LogVerbosity="${verbosity}"
-		-p:verbosity="${verbosity}"
 		-p:MinimalConsoleLogOutput="false"
+		-p:verbosity="${verbosity}"
 	)
 	bash ./build.sh	"${buildopts[@]}"
 	eend ${?} || die "build failed"
