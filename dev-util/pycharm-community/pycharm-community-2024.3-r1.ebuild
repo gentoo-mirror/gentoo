@@ -143,7 +143,7 @@ src_prepare() {
 		else
 			rm -vr "${S}"/plugins/remote-dev-server/selfcontained || die
 			sed '/export REMOTE_DEV_SERVER_IS_NATIVE_LAUNCHER/a export REMOTE_DEV_SERVER_USE_SELF_CONTAINED_LIBS=1' \
-				-i bin/remote-dev-server.sh || die
+			  -i bin/remote-dev-server.sh || die
 		fi
 	fi
 }
@@ -174,7 +174,6 @@ src_install() {
 		if use bundled-xvfb; then
 			fperms 755 "${DIR}"/plugins/remote-dev-server/selfcontained/bin/{Xvfb,xkbcomp}
 		fi
-		fperms 755 "${DIR}" "${DIR}"/bin/remote-dev-server{,.sh}
 	fi
 
 	make_wrapper "${PN}" "${DIR}/bin/pycharm"
@@ -186,7 +185,7 @@ src_install() {
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	dodir /usr/lib/sysctl.d
 	cat > "${ED}/usr/lib/sysctl.d/30-${PN}-inotify-watches.conf" <<-EOF || die
-		fs.inotify.max_user_watches = 524288"
+		fs.inotify.max_user_watches = 524288
 	EOF
 }
 
