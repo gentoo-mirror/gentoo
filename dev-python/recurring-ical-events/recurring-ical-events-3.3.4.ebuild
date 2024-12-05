@@ -28,7 +28,7 @@ RDEPEND="
 	<dev-python/icalendar-7[${PYTHON_USEDEP}]
 	>=dev-python/icalendar-5.0.9[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.8.1[${PYTHON_USEDEP}]
-	<dev-python/x-wr-timezone-2.0.0[${PYTHON_USEDEP}]
+	<dev-python/x-wr-timezone-3[${PYTHON_USEDEP}]
 	>=dev-python/x-wr-timezone-1.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
