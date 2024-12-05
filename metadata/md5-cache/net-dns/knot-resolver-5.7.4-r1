@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.knot-resolver.cz https://gitlab.nic.cz/knot/knot-resolver
 INHERIT=lua-single meson tmpfiles verify-sig
 IUSE=caps dnstap jemalloc kresc nghttp2 systemd test xdp +lua_single_target_luajit verify-sig
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=Apache-2.0 BSD CC0-1.0 GPL-3+ LGPL-2.1+ MIT
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) acct-group/knot-resolver acct-user/knot-resolver dev-db/lmdb:= net-dns/knot:= dev-libs/libuv:= net-libs/gnutls:= caps? ( sys-libs/libcap-ng ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= ) jemalloc? ( dev-libs/jemalloc:= ) kresc? ( dev-libs/libedit ) nghttp2? ( net-libs/nghttp2:= ) systemd? ( sys-apps/systemd:= ) xdp? ( net-dns/knot:=[xdp] ) virtual/tmpfiles
 REQUIRED_USE=^^ ( lua_single_target_luajit )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://knot-resolver.nic.cz/release/knot-resolver-5.7.4.tar.xz verify-sig? ( https://knot-resolver.nic.cz/release/knot-resolver-5.7.4.tar.xz.asc )
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	verify-sig	745dccb7d4656514f1e966cce314d7db
-_md5_=1031be4d86e2c5f0698bc95d03f6b08b
+_md5_=b386b9da02f4e1f0a4f7091e5fc6581d
