@@ -108,6 +108,7 @@ python_test() {
 		tests/test_benchmarks_cookiejar.py
 		tests/test_benchmarks_http_websocket.py
 		tests/test_benchmarks_http_writer.py
+		tests/test_benchmarks_web_fileresponse.py
 		tests/test_benchmarks_web_middleware.py
 		tests/test_benchmarks_web_response.py
 		tests/test_benchmarks_web_urldispatcher.py
