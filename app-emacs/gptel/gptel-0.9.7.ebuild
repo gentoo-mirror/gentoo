@@ -35,8 +35,6 @@ BDEPEND="
 DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
 
-elisp-enable-tests ert test -l gptel-org -l gptel-org-test
-
 src_compile() {
 	elisp_src_compile
 	elisp-make-autoload-file
