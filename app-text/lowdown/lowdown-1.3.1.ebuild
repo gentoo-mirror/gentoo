@@ -13,7 +13,7 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="ISC"
 SLOT="0/2"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~x86"
 
 DEPEND="
 	virtual/libcrypt:=
@@ -42,7 +42,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 
 PATCHES=(
 	"${FILESDIR}/lowdown-0.10.0-pkgconfig-libmd.patch"
-	"${FILESDIR}/lowdown-1.1.0-shared-linking.patch"
+	"${FILESDIR}/lowdown-1.3.0-shared-linking.patch"
 )
 
 src_configure() {
