@@ -49,7 +49,7 @@ else
 
 		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 
-		BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-bradking-20240902 )"
+		BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-bradking-20230817 )"
 	fi
 fi
 
@@ -229,13 +229,12 @@ src_test() {
 		"${S}"/Tests/{OutDir,CMakeOnly/SelectLibraryConfigurations}/CMakeLists.txt \
 		|| die
 
-	# TODO: Still relevant after https://gitlab.kitware.com/cmake/cmake/-/merge_requests/10070?
-	unset CMAKE_COMPILER_COLOR_DIAGNOSTICS CMAKE_COLOR_DIAGNOSTICS
+	unset CLICOLOR CLICOLOR_FORCE CMAKE_COMPILER_COLOR_DIAGNOSTICS CMAKE_COLOR_DIAGNOSTICS
 
 	pushd "${BUILD_DIR}" > /dev/null || die
 
 	# Excluded tests:
-	#    BootstrapTest: we actually bootstrap it every time so why test it?
+	#    BootstrapTest: we actualy bootstrap it every time so why test it.
 	#    BundleUtilities: bundle creation broken
 	#    CMakeOnly.AllFindModules: pthread issues
 	#    CTest.updatecvs: which fails to commit as root
