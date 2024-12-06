@@ -1,26 +1,18 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit optfeature
 
-MY_PN="${PN/f/F}"
-
 DESCRIPTION="Bash Screenshot Information Tool"
 HOMEPAGE="https://github.com/KittyKatt/screenFetch"
-
-if [[ ${PV} == *9999 ]] ; then
-	EGIT_REPO_URI="https://github.com/KittyKatt/screenFetch.git"
-	inherit git-r3
-else
-	KEYWORDS="~amd64 ~arm ~loong ~x86 ~x64-macos"
-	SRC_URI="https://github.com/KittyKatt/screenFetch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${MY_PN}-${PV}"
-fi
+SRC_URI="https://github.com/KittyKatt/screenFetch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S=${WORKDIR}/${PN/f/F}-${PV}
 
 LICENSE="GPL-3+"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~loong ~riscv ~x86 ~x64-macos"
 
 src_install() {
 	newbin ${PN}-dev ${PN}
