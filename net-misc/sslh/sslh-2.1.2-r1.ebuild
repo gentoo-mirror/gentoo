@@ -43,13 +43,6 @@ src_prepare() {
 src_compile() {
 	append-lfs-flags
 
-	# On older versions of GCC, the default gnu89 variant
-	# will reject within-for-loop initializers, bug #595426
-	# Furthermore, we need to use the gnu variant (gnu99) instead
-	# of the ISO (c99) variant, as we want the __USE_XOPEN2K macro
-	# to be defined.
-	append-cflags -std=gnu99
-
 	emake \
 		CC="$(tc-getCC)" \
 		USELIBCAP=$(usev caps) \
@@ -76,8 +69,7 @@ src_install() {
 
 	if use systemd; then
 		# Gentoo puts the binaries in /usr/sbin, but upstream puts them in /usr/bin
-		sed -i -e 's~/usr/bin/~/usr/sbin/~g' scripts/systemd.sslh.service || die
-		systemd_newunit scripts/systemd.sslh.service sslh.service
+		systemd_newunit "${FILESDIR}/sslh.service" sslh.service
 		exeinto /usr/lib/systemd/system-generators/
 		doexe systemd-sslh-generator
 	fi
