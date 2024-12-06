@@ -386,48 +386,15 @@ dev-python/mkdocs-macros-plugin
 # Removal on 2024-11-22.  Bugs #942026, #934381, #724162, #930011.
 dev-util/cargo-ebuild
 
-# Arthur Zamarin <arthurzam@gentoo.org> (2024-10-20)
-# Maintainer-needed, no reverse dependencies, EAPI=7, many modern C
-# bugs. Many other IRC clients can be replacement. Awaits version
-# bump.
-# Removal on 2024-11-19.  Bugs #941899, #900078, #934184, #874669, #834035, #745762.
-net-irc/epic5
-
 # Viorel Munteanu <ceamac@gentoo.org> (2024-10-18)
 # Experimental version, for testing purposes only.
 # Bug #941566.
 app-emulation/virtualbox-kvm
 
-# Michał Górny <mgorny@gentoo.org> (2024-10-18)
-# Low-quality, test-restricted package with multiple unresolved bugs
-# and version bump pending.  Removal requested by the maintainer.
-# Removal on 2024-11-17.  Bug #941436.
-net-misc/electron-cash
-
-# Michał Górny <mgorny@gentoo.org> (2024-10-18)
-# Causing issues since forever.  We are already deselecting a lot
-# of tests because of cryptic failures.  On top of that, upstream shows
-# no interest in porting to >=dev-python/pytest-8.  No (non-optional)
-# revdeps left.
-# Removal on 2024-11-17.  Bug #937896.
-dev-python/sentry-sdk
-
-# Ulrich Müller <ulm@gentoo.org> (2024-10-15)
-# No longer provided as a separate package; the Emacs mode is now
-# installed by dev-util/quilt with USE=emacs.
-# Removal on 2024-11-14. Bug #247500.
-app-emacs/quilt-el
-
 # Holger Hoffstätte <holger@applied-asynchrony.com> (2024-10-11)
 # Vendors an unreleased libbpf version and generates ABI-breaking code.
 # Bug #941185. Removal on 2024-12-03.
 =dev-util/bpftool-7.5.0-r2
-
-# Michał Górny <mgorny@gentoo.org> (2024-10-10)
-# Gentoo package not updated for 4 years now.  No tests upstream.
-# No revdeps.
-# Removal on 2024-11-09.  Bug #941245.
-dev-python/beagle
 
 # Yongxiang Liang <tanekliang@gmail.org> (2024-10-10)
 # Fcitx 4 has been archived. Users can upgrade to Fcitx 5
