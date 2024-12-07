@@ -8175,6 +8175,7 @@ sys-devel/clang-common:default-lld - Use lld as the default linker for clang
 sys-devel/clang-common:stricter - Default to stricter behavior known from newer clang versions, turning more warnings into errors
 sys-devel/clang-runtime:compiler-rt - Install sys-libs/compiler-rt for -rtlib=compiler-rt
 sys-devel/clang-runtime:libcxx - Install sys-libs/libcxx for -stdlib=libc++
+sys-devel/clang-runtime:offload - Install sys-libs/llvm-offload for -fopenmp GPU offloading
 sys-devel/clang-runtime:openmp - Install sys-libs/libomp for -fopenmp support
 sys-devel/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) support
 sys-devel/clang-toolchain-symlinks:gcc-symlinks - Install symlinks for 'gcc' and 'g++' for extra compatibility.
@@ -8448,6 +8449,7 @@ sys-libs/libxcrypt:compat - Build with compatibility interfaces for other crypt 
 sys-libs/libxcrypt:headers-only - Build and install only the headers.
 sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alternate directory (will collide with sys-libs/glibc's version)
 sys-libs/llvm-libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
+sys-libs/llvm-offload:ompt - Enable OpenMP Tools Interface support
 sys-libs/minizip-ng:compat - Enable compatibility with sys-libs/zlib's USE=minizip
 sys-libs/minizip-ng:openssl - Use dev-libs/openssl for further encryption capabilities
 sys-libs/musl-nscd:minimal - Only installs the header files
