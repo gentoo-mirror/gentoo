@@ -3,14 +3,14 @@
 
 # Pre-build (and distribution preparation)
 # Build the tarball:
-#  git clone --depth 1 -b v8.0.7 https://github.com/dotnet/dotnet dotnet-sdk-8.0.7
-#  cd dotnet-sdk-8.0.7
+#  git clone --depth 1 -b v9.0.0 https://github.com/dotnet/dotnet ./dotnet-sdk-9.0.0
+#  cd ./dotnet-sdk-9.0.0
 #  git rev-parse HEAD
-#  ./prep.sh
-#  rm -fr .git
+#  bash ./prep-source-build.sh
+#  rm -f -r ./.git
 #  cd ..
-#  tar -acf dotnet-sdk-8.0.107-prepared-gentoo-amd64.tar.xz dotnet-sdk-8.0.7
-# Upload dotnet-sdk-8.0.107-prepared-gentoo-amd64.tar.xz
+#  tar -acf dotnet-sdk-9.0.100-prepared-gentoo-amd64.tar.xz dotnet-sdk-9.0.0
+# Upload "dotnet-sdk-9.0.100-prepared-gentoo-amd64.tar.xz".
 
 # Build ("src_compile")
 # To learn about arguments that are passed to the "build.sh" script see:
@@ -19,9 +19,9 @@
 
 EAPI=8
 
-COMMIT="8be139ddde52d33e24c7d82f813248ff9fc54b97"
+COMMIT="a2bc464e40415d625118f38fbb0556d1803783ff"
 SDK_SLOT="$(ver_cut 1-2)"
-RUNTIME_SLOT="${SDK_SLOT}.7"
+RUNTIME_SLOT="${SDK_SLOT}.0"
 
 LLVM_COMPAT=( {17..18} )
 PYTHON_COMPAT=( python3_{11..13} )
@@ -32,20 +32,20 @@ DESCRIPTION=".NET is a free, cross-platform, open-source developer platform"
 HOMEPAGE="https://dotnet.microsoft.com/
 	https://github.com/dotnet/dotnet/"
 SRC_URI="
-amd64? (
-	elibc_glibc? (
-		https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz
+	amd64? (
+		elibc_glibc? (
+			https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz
+		)
+		elibc_musl? (
+			https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-musl-amd64.tar.xz
+		)
 	)
-	elibc_musl? (
-		https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-musl-amd64.tar.xz
-	)
-)
 "
 S="${WORKDIR}/${PN}-${RUNTIME_SLOT}"
 
 LICENSE="MIT"
 SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 # STRIP="llvm-strip" corrupts some executables when using the patchelf hack.
 # Be safe and restrict it for source-built too, bug https://bugs.gentoo.org/923430
@@ -55,12 +55,16 @@ CURRENT_NUGETS_DEPEND="
 	~dev-dotnet/dotnet-runtime-nugets-${RUNTIME_SLOT}
 "
 EXTRA_NUGETS_DEPEND="
-	~dev-dotnet/dotnet-runtime-nugets-6.0.32
+	~dev-dotnet/dotnet-runtime-nugets-6.0.36
 	~dev-dotnet/dotnet-runtime-nugets-7.0.20
+	~dev-dotnet/dotnet-runtime-nugets-8.0.11
 "
 NUGETS_DEPEND="
 	${CURRENT_NUGETS_DEPEND}
 	${EXTRA_NUGETS_DEPEND}
+"
+PDEPEND="
+	${NUGETS_DEPEND}
 "
 RDEPEND="
 	app-arch/brotli
@@ -71,6 +75,9 @@ RDEPEND="
 	dev-util/lttng-ust:=
 	sys-libs/libunwind
 	sys-libs/zlib:0/1
+"
+DEPEND="
+	${RDEPEND}
 "
 BDEPEND="
 	${PYTHON_DEPS}
@@ -84,32 +91,40 @@ BDEPEND="
 IDEPEND="
 	app-eselect/eselect-dotnet
 "
-PDEPEND="
-	${NUGETS_DEPEND}
-"
 
 CHECKREQS_DISK_BUILD="20G"
+CHECKREQS_DISK_USR="1200M"
 
 # Created by dotnet itself:
 QA_PREBUILT="
-usr/lib.*/dotnet-sdk-.*/dotnet
+.*/dotnet
+.*/ilc
 "
 
 # .NET runtime, better to not touch it if they want some specific flags.
 QA_FLAGS_IGNORED="
 .*/apphost
 .*/createdump
+.*/dotnet
+.*/ilc
 .*/libSystem.Globalization.Native.so
 .*/libSystem.IO.Compression.Native.so
 .*/libSystem.Native.so
 .*/libSystem.Net.Security.Native.so
 .*/libSystem.Security.Cryptography.Native.OpenSsl.so
 .*/libclrgc.so
+.*/libclrgcexp.so
 .*/libclrjit.so
+.*/libclrjit_universal_arm64_x64.so
+.*/libclrjit_universal_arm_x64.so
+.*/libclrjit_unix_x64_x64.so
+.*/libclrjit_win_x64_x64.so
+.*/libclrjit_win_x86_x64.so
 .*/libcoreclr.so
 .*/libcoreclrtraceptprovider.so
 .*/libhostfxr.so
 .*/libhostpolicy.so
+.*/libjitinterface_x64.so
 .*/libmscordaccore.so
 .*/libmscordbi.so
 .*/libnethost.so
@@ -163,9 +178,14 @@ src_prepare() {
 	unset DOTNET_ROOT
 	unset NUGET_PACKAGES
 
+	unset CLR_ICU_VERSION_OVERRIDE
+	unset USER_CLR_ICU_VERSION_OVERRIDE
+
 	export DOTNET_CLI_TELEMETRY_OPTOUT="1"
+	export DOTNET_NUGET_SIGNATURE_VERIFICATION="false"
 	export DOTNET_SKIP_FIRST_TIME_EXPERIENCE="1"
 	export MSBUILDDISABLENODEREUSE="1"
+	export MSBUILDTERMINALLOGGER="off"
 	export UseSharedCompilation="false"
 
 	local dotnet_sdk_tmp_directory="${WORKDIR}/dotnet-sdk-tmp"
@@ -191,17 +211,27 @@ src_compile() {
 
 	ebegin "Building the .NET SDK ${SDK_SLOT}"
 	local -a buildopts=(
-		--clean-while-building
+		# URLs, version specification, etc. ...
 		--source-repository "${source_repository}"
 		--source-version "${COMMIT}"
 
+		# How it should be built.
+		--source-build
+		--clean-while-building
+		--with-system-libs "+brotli+icu+libunwind+rapidjson+zlib+"
+		--configuration "Release"
+
+		# Auxiliary options.
 		--
 		-maxCpuCount:"$(makeopts_jobs)"
-		-verbosity:"${verbosity}"
+		-p:MaxCpuCount="$(makeopts_jobs)"
 		-p:ContinueOnPrebuiltBaselineError="true"
+
+		# Verbosity settings.
+		-verbosity:"${verbosity}"
 		-p:LogVerbosity="${verbosity}"
-		-p:MinimalConsoleLogOutput="false"
 		-p:verbosity="${verbosity}"
+		-p:MinimalConsoleLogOutput="false"
 	)
 	bash ./build.sh	"${buildopts[@]}"
 	eend ${?} || die "build failed"
@@ -212,11 +242,14 @@ src_install() {
 	dodir "${dest}"
 
 	ebegin "Extracting the .NET SDK archive"
-	tar xzf artifacts/*/Release/${PN}-${SDK_SLOT}.*.tar.gz -C "${ED}/${dest}"
+	tar xzf ./artifacts/*/Release/${PN}-${SDK_SLOT}.*.tar.gz -C "${ED}/${dest}"
 	eend ${?} || die "extraction failed"
 
 	fperms 0755 "${dest}"
 	dosym -r "${dest}/dotnet" "/usr/bin/dotnet-${SDK_SLOT}"
+
+	# Fix permissions again for what is already marked as executable.
+	find "${ED}" -type f -executable -exec chmod +x {} + || die
 }
 
 pkg_postinst() {
