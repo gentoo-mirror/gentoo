@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-08">
+    <title>icinga2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Icinga2, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">icinga2</product>
+    <announced>2024-12-07</announced>
+    <revised count="1">2024-12-07</revised>
+    <bug>760660</bug>
+    <bug>943329</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-analyzer/icinga2" auto="yes" arch="*">
+            <unaffected range="ge">2.14.3</unaffected>
+            <vulnerable range="lt">2.14.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Icinga2 is a distributed, general purpose, network monitoring engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Icinga2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Icinga2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-analyzer/icinga2-2.14.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29663">CVE-2020-29663</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32739">CVE-2021-32739</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32743">CVE-2021-32743</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37698">CVE-2021-37698</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-49369">CVE-2024-49369</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-07T10:38:13.796029Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-07T10:38:13.799855Z">graaff</metadata>
+</glsa>
