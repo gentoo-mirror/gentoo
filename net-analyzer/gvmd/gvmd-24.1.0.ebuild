@@ -11,7 +11,7 @@ SRC_URI="https://github.com/greenbone/gvmd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
@@ -20,9 +20,10 @@ DEPEND="
 	app-crypt/gpgme:1=
 	dev-libs/libbsd
 	>=dev-db/postgresql-9.6:=[uuid]
+	>=dev-libs/cJSON-1.7.14
 	>=dev-libs/glib-2.42:2
 	>=dev-libs/libical-1.0.0:=
-	>=net-analyzer/gvm-libs-22.9
+	>=net-analyzer/gvm-libs-22.12
 	>=net-libs/gnutls-3.2.15:=[tools]
 "
 
