@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-09">
+    <title>Salt: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Salt, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">salt</product>
+    <announced>2024-12-07</announced>
+    <revised count="1">2024-12-07</revised>
+    <bug>916512</bug>
+    <bug>925021</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-admin/salt" auto="yes" arch="*">
+            <unaffected range="ge">3006.6</unaffected>
+            <vulnerable range="lt">3006.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Salt is a fast, intelligent and scalable automation engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Salt. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Salt users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/salt-3006.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-20897">CVE-2023-20897</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-20898">CVE-2023-20898</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34049">CVE-2023-34049</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-22231">CVE-2024-22231</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-22232">CVE-2024-22232</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-07T11:25:36.905520Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-07T11:25:36.909137Z">graaff</metadata>
+</glsa>
