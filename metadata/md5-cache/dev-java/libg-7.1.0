@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/slf4j-api:0 ~dev-java/bnd-annotation-7.1.0:0 dev-java/eclipse-jdt-annotation:0 dev-java/osgi-cmpn:8 >=virtual/jdk-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=A library to be statically linked. Contains many small utilities
+EAPI=8
+HOMEPAGE=https://bnd.bndtools.org/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 EPL-2.0
+RDEPEND=dev-java/slf4j-api:0 >=virtual/jre-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bndtools/bnd/archive/7.1.0.tar.gz -> aQute.bnd-7.1.0.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
+_md5_=ed8d606f327b77df2c12e95ef5f81463
