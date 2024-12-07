@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/cargo-c-0.9.14 || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 dev-lang/rust-bin:1.79.0 dev-lang/rust:1.79.0 dev-lang/rust-bin:1.77.1 dev-lang/rust:1.77.1 dev-lang/rust-bin:1.75.0 dev-lang/rust:1.75.0 dev-lang/rust-bin:1.74.1 dev-lang/rust:1.74.1 dev-lang/rust-bin:1.71.1 dev-lang/rust:1.71.1 )
+BDEPEND=>=dev-util/cargo-c-0.9.14 || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 dev-lang/rust-bin:1.79.0 dev-lang/rust:1.79.0 dev-lang/rust-bin:1.78.0 dev-lang/rust:1.78.0 dev-lang/rust-bin:1.77.1 dev-lang/rust:1.77.1 dev-lang/rust-bin:1.75.0 dev-lang/rust:1.75.0 dev-lang/rust-bin:1.74.1 dev-lang/rust:1.74.1 dev-lang/rust-bin:1.71.1 dev-lang/rust:1.71.1 )
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=Palette quantization library that powers pngquant and other PNG optimizers
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=amd64 ~arm ~arm64 ~loong ppc ppc64 ~s390 sparc
 LICENSE=GPL-3+ MIT Unicode-DFS-2016 ZLIB
 SLOT=0/0
 SRC_URI=https://github.com/ImageOptim/libimagequant/archive/4.3.0.tar.gz -> libimagequant-4.3.0.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/media-gfx/libimagequant/imagequant-4.3.0-crates.tar.xz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	34c01e04a384273d9460a608f9191d9f	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	e6cfec50f283cbb9c8ffcbeaeb4aaf0f
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	1fb4c4490469d2989085a52c6216eb61	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	e6cfec50f283cbb9c8ffcbeaeb4aaf0f
 _md5_=a5e958fa7208d22035861a807b39a8a8
