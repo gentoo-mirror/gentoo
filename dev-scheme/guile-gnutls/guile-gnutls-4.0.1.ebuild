@@ -27,10 +27,9 @@ SLOT="0"
 
 REQUIRED_USE="${GUILE_REQUIRED_USE}"
 
-# <gnutls-3.8.4: https://bugs.gentoo.org/930665 https://gitlab.com/gnutls/guile/-/issues/25
 RDEPEND="
 	${GUILE_DEPS}
-	<net-libs/gnutls-3.8.4:=[-guile(-)]
+	net-libs/gnutls:=
 "
 DEPEND="
 	${RDEPEND}
