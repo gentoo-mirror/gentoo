@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=>=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.6
+DESCRIPTION=Greenbone Library for helper functions in PostgreSQL
+EAPI=8
+HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/pg-gvm
+INHERIT=cmake readme.gentoo-r1
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.6 >=dev-db/postgresql-9.6:=[uuid]
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/greenbone/pg-gvm/archive/refs/tags/v22.6.6.tar.gz -> pg-gvm-22.6.6.tar.gz
+_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_md5_=7e58892702549a803d687d54480d5336
