@@ -8,9 +8,9 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[async_zip]='https://github.com/charliermarsh/rs-async-zip;c909fda63fcafe4af496a07bfda28a5aae97e58d;rs-async-zip-%commit%'
-	[pubgrub]='https://github.com/astral-sh/pubgrub;57afc831bf2551f164617a10383cf288bf5d190d;pubgrub-%commit%'
+	[pubgrub]='https://github.com/astral-sh/pubgrub;57832d0588fbb7aab824813481104761dc1c7740;pubgrub-%commit%'
 	[tl]='https://github.com/astral-sh/tl;6e25b2ee2513d75385101a8ff9f591ef51f314ec;tl-%commit%'
-	[version-ranges]='https://github.com/astral-sh/pubgrub;57afc831bf2551f164617a10383cf288bf5d190d;pubgrub-%commit%/version-ranges'
+	[version-ranges]='https://github.com/astral-sh/pubgrub;57832d0588fbb7aab824813481104761dc1c7740;pubgrub-%commit%/version-ranges'
 )
 
 RUST_MIN_VER="1.80.1"

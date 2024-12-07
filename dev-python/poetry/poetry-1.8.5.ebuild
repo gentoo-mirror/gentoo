@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/poetry-core-1.9.0[${PYTHON_USEDEP}]
+	>=dev-python/poetry-core-1.9.1[${PYTHON_USEDEP}]
 	>=dev-python/poetry-plugin-export-1.6.0[${PYTHON_USEDEP}]
 	>=dev-python/build-1.0.3[${PYTHON_USEDEP}]
 	>=dev-python/cachecontrol-0.14.0[${PYTHON_USEDEP}]
@@ -32,7 +32,7 @@ RDEPEND="
 	>=dev-python/keyring-24.0.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-23.1[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.7.0[${PYTHON_USEDEP}]
-	>=dev-python/pkginfo-1.10[${PYTHON_USEDEP}]
+	>=dev-python/pkginfo-1.12[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.26[${PYTHON_USEDEP}]
 	>=dev-python/requests-toolbelt-1.0.0[${PYTHON_USEDEP}]
@@ -40,7 +40,7 @@ RDEPEND="
 	>=dev-python/tomlkit-0.11.6[${PYTHON_USEDEP}]
 	>=dev-python/trove-classifiers-2022.5.19[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-1.26.0[${PYTHON_USEDEP}]
-	>=dev-python/virtualenv-20.23.0[${PYTHON_USEDEP}]
+	>=dev-python/virtualenv-20.26.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
 	' 3.10)
@@ -48,10 +48,9 @@ RDEPEND="
 
 BDEPEND="
 	test? (
-			>=dev-python/deepdiff-6.3.1[${PYTHON_USEDEP}]
-			>=dev-python/httpretty-1.0[${PYTHON_USEDEP}]
-			>=dev-python/pytest-mock-3.9[${PYTHON_USEDEP}]
-			>=dev-python/pytest-xdist-3.1[${PYTHON_USEDEP}]
+		>=dev-python/deepdiff-6.3.1[${PYTHON_USEDEP}]
+		>=dev-python/httpretty-1.0[${PYTHON_USEDEP}]
+		>=dev-python/pytest-mock-3.9[${PYTHON_USEDEP}]
 	)
 "
 
@@ -66,22 +65,6 @@ src_prepare() {
 }
 
 EPYTEST_DESELECT=(
-	# Tests require network (they run `pip install ...`)
-	tests/installation/test_chef.py::test_isolated_env_install_success
-	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_directories
-	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_git
-	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_git_with_subdirectories
-	tests/installation/test_executor.py::test_executor_should_write_pep610_url_references_for_non_wheel_files
-	tests/installation/test_installer.py::test_installer_with_pypi_repository
-	tests/installation/test_pip_installer.py::test_uninstall_git_package_nspkg_pth_cleanup
-	tests/masonry/builders/test_editable_builder.py::test_builder_setup_generation_runs_with_pip_editable
-
-	# Works with network, but otherwise: Backend 'poetry.core.masonry.api' is not available.
-	tests/installation/test_chef.py::test_prepare_sdist
-	tests/installation/test_chef.py::test_prepare_directory
-	tests/installation/test_chef.py::test_prepare_directory_with_extensions
-	tests/installation/test_chef.py::test_prepare_directory_editable
-
 	# Internal test for lockfile being up-to-date
 	# Meaningless, also sdist does not include lockfile
 	tests/installation/test_installer.py::test_not_fresh_lock
@@ -91,4 +74,10 @@ EPYTEST_DESELECT=(
 	tests/utils/env/test_env_manager.py::test_create_venv_finds_no_python_executable
 )
 
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
+
+python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest -m "not network" -p pytest_mock
+}
