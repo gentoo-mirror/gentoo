@@ -3,19 +3,19 @@
 
 EAPI=8
 
-POSTGRES_COMPAT=( 14 15 )
+POSTGRES_COMPAT=( 14 15 16 )
 
-inherit postgres-multi
+inherit git-r3 postgres-multi
 
 DESCRIPTION="Open-source postgresql extension for clustering/multi-node setups"
 HOMEPAGE="https://www.citusdata.com/"
 
-SRC_URI="https://github.com/citusdata/citus/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/citusdata/citus.git"
 
 IUSE=""
 LICENSE="POSTGRESQL AGPL-3"
 
-KEYWORDS="~amd64"
+KEYWORDS=""
 
 SLOT=0
 
