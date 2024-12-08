@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1
 
@@ -15,19 +15,21 @@ S="${WORKDIR}/rbtools-release-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
+IUSE="test"
 
 RDEPEND="
 	>=dev-python/certifi-2023.5.7[${PYTHON_USEDEP}]
-	>=dev-python/importlib-metadata-4.12[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
-	>=dev-python/pydiffx-1.1[${PYTHON_USEDEP}]
+	>=dev-python/housekeeping-1.1[${PYTHON_USEDEP}]
+	=dev-python/housekeeping-1*[${PYTHON_USEDEP}]
+	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
+	dev-python/puremagic[${PYTHON_USEDEP}]
 	=dev-python/pydiffx-1.1*[${PYTHON_USEDEP}]
-	>=dev-python/six-1.8.0[${PYTHON_USEDEP}]
 	dev-python/texttable[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.3.0[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
+	>=dev-python/importlib-metadata-5.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
@@ -38,6 +40,8 @@ BDEPEND="
 		dev-vcs/mercurial
 	)
 "
+
+PATCHES=( "${FILESDIR}/${PN}-5.0-importlib-resources.patch" )
 
 DOCS=( AUTHORS NEWS README.md )
 
