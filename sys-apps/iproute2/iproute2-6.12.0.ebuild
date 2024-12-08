@@ -24,11 +24,10 @@ RESTRICT="test"
 
 # We could make libmnl optional, but it's tiny, so eh
 RDEPEND="
-	!net-misc/arpd
 	!minimal? ( net-libs/libmnl:= )
 	atm? ( net-dialup/linux-atm )
 	berkdb? ( sys-libs/db:= )
-	bpf? ( dev-libs/libbpf:= )
+	bpf? ( >=dev-libs/libbpf-0.6:= )
 	caps? ( sys-libs/libcap )
 	elf? ( virtual/libelf:= )
 	iptables? ( >=net-firewall/iptables-1.4.20:= )
@@ -112,7 +111,8 @@ src_configure() {
 
 	# run "configure" script first which will create "config.mk"...
 	# Using econf breaks since 5.14.0 (a9c3d70d902a0473ee5c13336317006a52ce8242)
-	edo ./configure --color=auto --libbpf_force $(usex bpf on off)
+	eval "local -a EXTRA_ECONF=(${EXTRA_ECONF})"
+	edo ./configure --libbpf_force $(usex bpf on off) "${EXTRA_ECONF[@]}"
 
 	# Remove the definitions made by configure and allow them to be overridden
 	# by USE flags below.
