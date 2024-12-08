@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1
 
@@ -28,14 +28,14 @@ REQUIRED_USE="test? ( opengl svg )"
 
 RDEPEND="
 	>=dev-python/numpy-1.22[${PYTHON_USEDEP}]
+	dev-python/pyqt6[gui,widgets,opengl=,svg=,${PYTHON_USEDEP}]
 	dev-python/scipy[${PYTHON_USEDEP}]
-	dev-python/pyqt5[gui,widgets,opengl=,svg=,${PYTHON_USEDEP}]
 	opengl? ( dev-python/pyopengl[${PYTHON_USEDEP}] )
 "
 BDEPEND="
 	test? (
 		dev-python/h5py[${PYTHON_USEDEP}]
-		dev-python/pyqt5[testlib,${PYTHON_USEDEP}]
+		dev-python/pyqt6[testlib,${PYTHON_USEDEP}]
 		dev-python/pytest-xvfb[${PYTHON_USEDEP}]
 		dev-vcs/git
 	)
@@ -49,6 +49,29 @@ python_prepare_all() {
 
 	if ! use opengl; then
 		rm -r pyqtgraph/opengl || die
+	fi
+
+	# pyqtgraph will automatically use any QT bindings it finds,
+	# Since we only want qt6, hardcode this where upstream allows an envvar to pick.
+	sed -i "s/QT_LIB = os.getenv('PYQTGRAPH_QT_LIB')/QT_LIB = 'PyQt6'/" pyqtgraph/Qt/__init__.py ||
+		die "Failed to set QT_LIB"
+
+	# We only want to run tests for qt6 so don't try other frontends if they're installed.
+	if use test; then
+		awk -i inplace '
+		/frontends = {/ {
+			i = 6 # length of frontends
+
+		print "frontends = {"
+		print "    Qt.PYQT6: False,"
+		print "}"
+		}
+		i > 0 {
+			i--
+			next
+		}
+		{ print }
+		' pyqtgraph/examples/test_examples.py || die "Failed to patch test frontends"
 	fi
 }
 
