@@ -5,7 +5,7 @@ DESCRIPTION=The extensible, customizable, self-documenting real-time display edi
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/emacs/
 IDEPEND=app-eselect/eselect-emacs
-INHERIT=autotools elisp-common flag-o-matic readme.gentoo-r1 toolchain-funcs
+INHERIT=autotools eapi9-pipestatus elisp-common flag-o-matic readme.gentoo-r1 toolchain-funcs
 IUSE=acl alsa aqua athena cairo dbus dynamic-loading games gfile gif +gmp gpm gsettings gtk gui gzip-el harfbuzz imagemagick +inotify jpeg json kerberos lcms libxml2 livecd m17n-lib mailutils motif png selinux sound source ssl svg systemd +threads tiff toolkit-scroll-bars valgrind wide-int Xaw3d xft +xpm zlib
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=GPL-3+ FDL-1.3+ BSD HPND MIT W3C unicode PSF-2
@@ -13,5 +13,5 @@ RDEPEND=app-emacs/emacs-common[games?,gui(-)?] sys-libs/ncurses:0= acl? ( virtua
 RESTRICT=test
 SLOT=27
 SRC_URI=mirror://gnu/emacs/emacs-27.2.tar.xz https://dev.gentoo.org/~ulm/emacs/emacs-27.2-patches-11.tar.xz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	elisp-common	abb2dda42f680fce87602c8273f832c7	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=08ebd2eebe78cbd3a34b9c038e4bed1b
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	elisp-common	abb2dda42f680fce87602c8273f832c7	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_md5_=282e9dde193846155d4ce179cc4a8b19
