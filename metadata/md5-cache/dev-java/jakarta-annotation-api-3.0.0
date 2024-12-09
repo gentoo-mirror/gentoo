@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Jakarta Annotations API
+EAPI=8
+HOMEPAGE=https://projects.eclipse.org/projects/ee4j.ca
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=EPL-2.0 GPL-2-with-classpath-exception
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://github.com/jakartaee/common-annotations-api/archive/3.0.0.tar.gz -> jakarta-annotation-api-3.0.0.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
+_md5_=b9b7170037cddb0b6bb3566d54a7add2

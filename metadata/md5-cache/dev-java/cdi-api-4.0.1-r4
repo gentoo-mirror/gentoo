@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=dev-java/injection-api:0 dev-java/jakarta-annotations-api:0 dev-java/jakarta-el-api:5.0 dev-java/jakarta-interceptors:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/testng:0 )
+DEPEND=dev-java/injection-api:0 dev-java/jakarta-annotation-api:0 dev-java/jakarta-el-api:5.0 dev-java/jakarta-interceptors:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/testng:0 )
 DESCRIPTION=APIs for CDI (Contexts and Dependency Injection for Java)
 EAPI=8
 HOMEPAGE=https://projects.eclipse.org/projects/ee4j.cdi
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jakartaee/cdi/archive/4.0.1.tar.gz -> cdi-api-4.0.1.tar.gz
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
-_md5_=b8d39d6bd225c5065b39315a12f5174d
+_md5_=4b60cca2d818a0529c21a7527528de65
