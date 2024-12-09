@@ -3,11 +3,14 @@
 
 EAPI=8
 
-inherit multilib prefix rust-toolchain toolchain-funcs verify-sig multilib-minimal optfeature
+LLVM_COMPAT=( 18 )
+LLVM_OPTIONAL="yes"
+
+inherit llvm-r1 multilib prefix rust-toolchain toolchain-funcs verify-sig multilib-minimal
 
 MY_P="rust-${PV}"
 # curl -L static.rust-lang.org/dist/channel-rust-${PV}.toml 2>/dev/null | grep "xz_url.*rust-src"
-MY_SRC_URI="${RUST_TOOLCHAIN_BASEURL%/}/2024-10-17/rust-src-${PV}.tar.xz"
+MY_SRC_URI="${RUST_TOOLCHAIN_BASEURL%/}/2024-06-13/rust-src-${PV}.tar.xz"
 GENTOO_BIN_BASEURI="https://dev.gentoo.org/~arthurzam/distfiles/${CATEGORY}/${PN}" # omit leading slash
 
 DESCRIPTION="Systems programming language from Mozilla"
@@ -30,25 +33,23 @@ SRC_URI+=" mips? (
 SRC_URI+=" riscv? (
 	elibc_musl? ( ${GENTOO_BIN_BASEURI}/${MY_P}-riscv64gc-unknown-linux-musl.tar.xz )
 )"
-SRC_URI+=" ppc64? ( elibc_musl? (
-	big-endian?  ( ${GENTOO_BIN_BASEURI}/${MY_P}-powerpc64-unknown-linux-musl.tar.xz )
-	!big-endian? ( ${GENTOO_BIN_BASEURI}/${MY_P}-powerpc64le-unknown-linux-musl.tar.xz )
-) )"
 
 LICENSE="|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4"
-SLOT="stable"
+SLOT="${PV}"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="big-endian clippy cpu_flags_x86_sse2 doc prefix rust-analyzer rust-src rustfmt"
+IUSE="big-endian clippy cpu_flags_x86_sse2 doc prefix llvm-libunwind rust-analyzer rust-src rustfmt"
 
 RDEPEND="
 	>=app-eselect/eselect-rust-20190311
 	dev-libs/openssl
 	sys-apps/lsb-release
-	sys-devel/gcc:*
+	!llvm-libunwind? ( sys-devel/gcc:* )
+	!dev-lang/rust:stable
+	!dev-lang/rust-bin:stable
 "
-
 BDEPEND="
 	prefix? ( dev-util/patchelf )
+	llvm-libunwind? ( dev-util/patchelf )
 	verify-sig? ( sec-keys/openpgp-keys-rust )
 "
 
@@ -113,7 +114,7 @@ multilib_src_install() {
 	local analysis std
 	analysis="$(grep 'analysis' ./components)"
 	std="$(grep 'std' ./components)"
-	local components="rustc,cargo,${std}"
+	local components="rustc,cargo,rust-demangler-preview,${std}"
 	use doc && components="${components},rust-docs"
 	use clippy && components="${components},clippy-preview"
 	use rustfmt && components="${components},rustfmt-preview"
@@ -133,8 +134,6 @@ multilib_src_install() {
 		--disable-ldconfig \
 		|| die
 
-	docompress /opt/${P}/man/
-
 	if use prefix; then
 		local interpreter=$(patchelf --print-interpreter "${EPREFIX}"/bin/bash)
 		ebegin "Changing interpreter to ${interpreter} for Gentoo prefix at ${ED}/opt/${P}/bin"
@@ -142,13 +141,24 @@ multilib_src_install() {
 			while IFS=  read -r -d '' filename; do
 				patchelf_for_bin ${filename} ${interpreter} \; || die
 			done
-		eend $?
+		eend ${PIPESTATUS[0]}
+	fi
+
+	if use llvm-libunwind; then
+		ebegin "Replacing libgcc_s with libunwind"
+		find "${ED}/opt/${P}"/{bin,lib,libexec} -type f -print0 | \
+			while IFS=  read -r -d '' filename; do
+				# just ignore wrong filetype error, instead of checking redundantly
+				patchelf --replace-needed libgcc_s.so.1 libunwind.so.1 ${filename} 2>/dev/null
+			done
+		eend ${PIPESTATUS[0]}
 	fi
 
 	local symlinks=(
 		cargo
 		rustc
 		rustdoc
+		rust-demangler
 		rust-gdb
 		rust-gdbgui
 		rust-lldb
@@ -179,8 +189,8 @@ multilib_src_install() {
 	CARGO_TRIPLET="${CARGO_TRIPLET//-/_}"
 	CARGO_TRIPLET="${CARGO_TRIPLET^^}"
 	cat <<-_EOF_ > "${T}/50${P}"
-	LDPATH="${EPREFIX}/usr/lib/rust/lib"
-	MANPATH="${EPREFIX}/usr/lib/rust/man"
+	LDPATH="${EPREFIX}/usr/lib/rust/lib-bin-${PV}"
+	MANPATH="${EPREFIX}/usr/lib/rust/man-bin-${PV}"
 	$(usev elibc_musl "CARGO_TARGET_${CARGO_TRIPLET}_RUSTFLAGS=\"-C target-feature=-crt-static\"")
 	_EOF_
 	doenvd "${T}/50${P}"
@@ -189,6 +199,7 @@ multilib_src_install() {
 	cat <<-_EOF_ > "${T}/provider-${P}"
 	/usr/bin/cargo
 	/usr/bin/rustdoc
+	/usr/bin/rust-demangler
 	/usr/bin/rust-gdb
 	/usr/bin/rust-gdbgui
 	/usr/bin/rust-lldb
@@ -230,15 +241,17 @@ multilib_src_install() {
 pkg_postinst() {
 	eselect rust update
 
-	elog "Rust installs a helper script for calling GDB now,"
-	elog "for your convenience it is installed under /usr/bin/rust-gdb-bin-${PV}."
+	if has_version dev-debug/gdb || has_version dev-debug/lldb; then
+		elog "Rust installs helper scripts for calling GDB and LLDB,"
+		elog "for convenience they are installed under /usr/bin/rust-{gdb,lldb}-${PV}."
+	fi
 
 	if has_version app-editors/emacs; then
-		optfeature "emacs support for rust" app-emacs/rust-mode
+		elog "install app-emacs/rust-mode to get emacs support for rust."
 	fi
 
 	if has_version app-editors/gvim || has_version app-editors/vim; then
-		optfeature "vim support for rust" app-vim/rust-vim
+		elog "install app-vim/rust-vim to get vim support for rust."
 	fi
 }
 
