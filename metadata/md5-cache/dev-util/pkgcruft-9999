@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/clang test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/clang test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=QA library and tools based on pkgcraft
 EAPI=8
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	55e231f09fddb09cbbaa254cf234368b	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	b5f350ebe96460cff090d0f2ae7e698a	edo	367e103a74bf77e6a8da7894d999fa3c	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=48ced008c1a508be41431438d356d527
+_md5_=3dde0a0fa52f4fd1fc3840eea92eee79
