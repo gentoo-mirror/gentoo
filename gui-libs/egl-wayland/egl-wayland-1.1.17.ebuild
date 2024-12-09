@@ -5,15 +5,12 @@ EAPI=8
 
 inherit meson-multilib
 
-HASH_EGLWAYLAND=eeb29e10e5e7bedb0ce81cfff34683eda960bc80
-
 DESCRIPTION="NVIDIA wayland EGL external platform library"
 HOMEPAGE="https://github.com/NVIDIA/egl-wayland/"
 SRC_URI="
-	https://github.com/NVIDIA/egl-wayland/archive/${HASH_EGLWAYLAND}.tar.gz
+	https://github.com/NVIDIA/egl-wayland/archive/refs/tags/${PV}.tar.gz
 		-> ${P}.tar.gz
 "
-S=${WORKDIR}/${PN}-${HASH_EGLWAYLAND}
 
 LICENSE="MIT"
 SLOT="0"
