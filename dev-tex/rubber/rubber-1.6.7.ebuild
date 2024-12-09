@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
-DISTUTILS_USE_SETUPTOOLS="no"
+PYTHON_COMPAT=( python3_{10..12} )
+DISTUTILS_USE_PEP517=hatchling
 
 inherit distutils-r1
 
@@ -12,10 +12,9 @@ if [[ ${PV} == "9999" ]] || [[ -n "${EGIT_COMMIT_ID}" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/latex-rubber/${PN}.git"
 else
-	UPSTREAM_PV=$(ver_rs 3 -)
-	SRC_URI="https://gitlab.com/latex-rubber/${PN}/-/archive/${UPSTREAM_PV}/${PN}-${UPSTREAM_PV}.tar.bz2"
-	S="${WORKDIR}/${PN}-${UPSTREAM_PV}"
-	KEYWORDS="amd64 ~ppc ~riscv ~x86"
+	# NOTE: Cannot be "PYPI_PN=latex-rubber" + "inherit pypi" due to missing files
+	SRC_URI="https://gitlab.com/latex-rubber/${PN}/-/archive/${PV}/${P}.tar.bz2"
+	KEYWORDS="~amd64 ~ppc ~riscv ~x86"
 fi
 
 DESCRIPTION="A LaTeX wrapper for automatically building documents"
@@ -48,6 +47,10 @@ BDEPEND="
 		media-gfx/asymptote
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.6.4-pythontex.patch
+)
 
 pkg_setup() {
 	# https://bugs.gentoo.org/727996
@@ -90,19 +93,12 @@ python_test() {
 	./run.sh * || die "Tests failed with ${EPYTHON}"
 }
 
-python_install() {
-	local my_install_args=(
-		--mandir="${EPREFIX}/usr/share/man"
-		--infodir="${EPREFIX}/usr/share/info"
-		--docdir="${EPREFIX}/usr/share/doc/${PF}"
-	)
-
-	distutils-r1_python_install "${my_install_args[@]}"
-}
-
 src_install() {
-	insinto /usr/share/zsh/site-functions
-	newins misc/zsh-completion _rubber
-
 	distutils-r1_src_install
+
+	# Move misplaced files to correct location
+	doinfo doc/${PN}/${PN}.info
+	rm "${ED}"/usr/share/doc/${PN}/${PN}.{texi,info} || die
+	mv "${ED}"/usr/share/doc/{${PN}/*,${PF}/} || die
+	rmdir "${ED}"/usr/share/doc/${PN} || die
 }
