@@ -37,8 +37,15 @@ REQUIRED_USE="jdbc? ( extraengine server !static )
 
 # Be warned, *DEPEND are version-dependant
 # These are used for both runtime and compiletime
+#
+# libfmt-10 contains a bug which was fixed in libfmt-11, see
+# https://jira.mariadb.org/browse/MDEV-32815, bug 946074
 COMMON_DEPEND="
 	dev-libs/libfmt:=
+	|| (
+		<dev-libs/libfmt-10
+		>=dev-libs/libfmt-11
+	)
 	>=dev-libs/libpcre2-10.34:=
 	>=sys-apps/texinfo-4.7-r1
 	sys-libs/ncurses:0=
@@ -353,6 +360,12 @@ src_configure() {
 		mycmakeargs+=( -DWITH_SSL=system -DCLIENT_PLUGIN_SHA256_PASSWORD=STATIC )
 	else
 		mycmakeargs+=( -DWITH_SSL=bundled )
+	fi
+
+	if use systemtap && has_version "dev-debug/systemtap[-dtrace-symlink(+)]" ; then
+		mycmakeargs+=(
+			-DDTRACE="${BROOT}"/usr/bin/stap-dtrace
+		)
 	fi
 
 	# bfd.h is only used starting with 10.1 and can be controlled by NOT_FOR_DISTRIBUTION
@@ -847,7 +860,7 @@ pkg_config() {
 		local n_X
 		let n_X=${#template}-${#template_wo_X}
 		if [[ ${n_X} -lt 3 ]] ; then
-			echo "${FUNCNAME[0]}: too few X's in template ‘${template}’" >&2
+			echo "${FUNCNAME[0]}: too few X's in template '${template}'" >&2
 			return
 		fi
 
