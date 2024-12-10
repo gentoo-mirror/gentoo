@@ -23,7 +23,7 @@ COMMIT="a2bc464e40415d625118f38fbb0556d1803783ff"
 SDK_SLOT="$(ver_cut 1-2)"
 RUNTIME_SLOT="${SDK_SLOT}.0"
 
-LLVM_COMPAT=( {17..18} )
+LLVM_COMPAT=( {18..19} )
 PYTHON_COMPAT=( python3_{11..13} )
 
 inherit check-reqs flag-o-matic llvm-r1 multiprocessing python-any-r1
@@ -34,14 +34,14 @@ HOMEPAGE="https://dotnet.microsoft.com/
 SRC_URI="
 	amd64? (
 		elibc_glibc? (
-			https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-amd64.tar.xz
+			https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-glibc-amd64.tar.xz
 		)
 		elibc_musl? (
 			https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}-prepared-gentoo-musl-amd64.tar.xz
 		)
 	)
 "
-S="${WORKDIR}/${PN}-${RUNTIME_SLOT}"
+S="${WORKDIR}/${P}"
 
 LICENSE="MIT"
 SLOT="${SDK_SLOT}/${RUNTIME_SLOT}"
@@ -194,6 +194,19 @@ src_prepare() {
 	# This should fix the "PackageVersions.props" problem,
 	# see below, in src_compile.
 	sed -e "s|/tmp|${dotnet_sdk_tmp_directory}|g" -i build.sh || die
+
+	# Some .NET SDK build scripts use "nproc" to determine
+	# a number of processors. So, we create fake "nproc" command that in fact
+	# reports the number of "--jobs" value.
+	local fake_bin="${T}/fake_bin"
+	mkdir -p "${fake_bin}" || die
+	export PATH="${fake_bin}:${PATH}"
+
+	cat <<-EOF > "${fake_bin}/nproc" || die
+#!/bin/sh
+echo "$(makeopts_jobs)"
+EOF
+	chmod +x "${fake_bin}/nproc" || die
 }
 
 src_compile() {

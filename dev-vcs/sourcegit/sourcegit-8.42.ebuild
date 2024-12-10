@@ -3,46 +3,54 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="8.0"
+DOTNET_PKG_COMPAT="9.0"
 NUGETS="
 avalonia.angle.windows.natives@2.1.22045.20230930
 avalonia.avaloniaedit@11.1.0
 avalonia.buildservices@0.0.29
-avalonia.controls.colorpicker@11.1.3
-avalonia.controls.datagrid@11.1.3
-avalonia.desktop@11.1.3
-avalonia.diagnostics@11.1.3
-avalonia.fonts.inter@11.1.3
-avalonia.freedesktop@11.1.3
-avalonia.native@11.1.3
-avalonia.remote.protocol@11.1.3
-avalonia.skia@11.1.3
-avalonia.themes.fluent@11.1.3
-avalonia.themes.simple@11.1.3
-avalonia.win32@11.1.3
-avalonia.x11@11.1.3
-avalonia@11.1.3
+avalonia.controls.colorpicker@11.2.2
+avalonia.controls.datagrid@11.2.2
+avalonia.desktop@11.2.2
+avalonia.diagnostics@11.2.2
+avalonia.fonts.inter@11.2.2
+avalonia.freedesktop@11.2.2
+avalonia.native@11.2.2
+avalonia.remote.protocol@11.2.2
+avalonia.skia@11.0.0
+avalonia.skia@11.2.2
+avalonia.themes.fluent@11.2.2
+avalonia.themes.simple@11.2.2
+avalonia.win32@11.2.2
+avalonia.x11@11.2.2
+avalonia@11.0.0
+avalonia@11.2.2
 avaloniaedit.textmate@11.1.0
-communitytoolkit.mvvm@8.2.2
-harfbuzzsharp.nativeassets.linux@7.3.0.2
-harfbuzzsharp.nativeassets.macos@7.3.0.2
-harfbuzzsharp.nativeassets.webassembly@7.3.0.2
-harfbuzzsharp.nativeassets.win32@7.3.0.2
+communitytoolkit.mvvm@8.3.2
+harfbuzzsharp.nativeassets.linux@7.3.0.3
+harfbuzzsharp.nativeassets.macos@7.3.0.3
+harfbuzzsharp.nativeassets.webassembly@7.3.0.3
+harfbuzzsharp.nativeassets.win32@7.3.0.3
 harfbuzzsharp@7.3.0.2
+harfbuzzsharp@7.3.0.3
+livechartscore.skiasharpview.avalonia@2.0.0-rc4.5
+livechartscore.skiasharpview@2.0.0-rc4.5
+livechartscore@2.0.0-rc4.5
 microcom.runtime@0.11.0
 onigwrap@1.0.6
-skiasharp.nativeassets.linux@2.88.8
-skiasharp.nativeassets.macos@2.88.8
-skiasharp.nativeassets.webassembly@2.88.8
-skiasharp.nativeassets.win32@2.88.8
+skiasharp.harfbuzz@2.88.8
+skiasharp.nativeassets.linux@2.88.9
+skiasharp.nativeassets.macos@2.88.9
+skiasharp.nativeassets.webassembly@2.88.9
+skiasharp.nativeassets.win32@2.88.9
 skiasharp@2.88.8
-system.io.pipelines@6.0.0
-system.numerics.vectors@4.5.0
-system.text.encodings.web@8.0.0
-system.text.json@8.0.4
-textmatesharp.grammars@1.0.63
-textmatesharp@1.0.63
-tmds.dbus.protocol@0.16.0
+skiasharp@2.88.9
+system.io.pipelines@8.0.0
+system.text.json@8.0.5
+textmatesharp.grammars@1.0.59
+textmatesharp.grammars@1.0.64
+textmatesharp@1.0.59
+textmatesharp@1.0.64
+tmds.dbus.protocol@0.20.0
 "
 
 inherit check-reqs dotnet-pkg desktop xdg
@@ -58,7 +66,7 @@ else
 	SRC_URI="https://github.com/sourcegit-scm/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -82,10 +90,19 @@ RDEPEND="
 
 CHECKREQS_DISK_BUILD="1G"
 DOTNET_PKG_PROJECTS=( src/SourceGit.csproj )
+PATCHES=( "${FILESDIR}/sourcegit-8.40-Preference-no-check4Updates.patch" )
 
 pkg_setup() {
 	check-reqs_pkg_setup
 	dotnet-pkg_pkg_setup
+}
+
+src_unpack() {
+	dotnet-pkg_src_unpack
+
+	if [[ -n "${EGIT_REPO_URI}" ]] ; then
+		git-r3_src_unpack
+	fi
 }
 
 src_prepare() {
