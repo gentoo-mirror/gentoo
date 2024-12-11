@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 CMAKE_BUILD_TYPE="None"
 inherit cmake desktop python-single-r1 virtualx xdg-utils
@@ -37,6 +37,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	dtv? ( filter analog fec )
 	modtool? ( utils )
 	qt5? ( filter )
+	test? ( channels )
 	trellis? ( analog digital )
 	uhd? ( filter analog )
 	vocoder? ( filter analog )
@@ -64,7 +65,7 @@ RDEPEND="${PYTHON_DEPS}
 	)
 	filter? (
 		dev-python/scipy
-		$(python_gen_cond_dep 'dev-python/pyqtgraph[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep 'dev-python/pyqtgraph[qt5,${PYTHON_USEDEP}]')
 	)
 	grc? (
 		$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]
@@ -77,7 +78,6 @@ RDEPEND="${PYTHON_DEPS}
 	iio? (
 		net-libs/libiio:=
 		net-libs/libad9361-iio:=
-		!net-wireless/gr-iio
 	)
 	jack? ( virtual/jack )
 	portaudio? ( >=media-libs/portaudio-19_pre )
@@ -124,7 +124,10 @@ DEPEND="${RDEPEND}
 	grc? ( x11-misc/xdg-utils )
 	modtool? ( $(python_gen_cond_dep 'dev-python/pygccxml[${PYTHON_USEDEP}]') )
 	oss? ( virtual/os-headers )
-	test? ( >=dev-util/cppunit-1.9.14 )
+	test? (
+		>=dev-util/cppunit-1.9.14
+		dev-python/pyzmq
+	)
 	zeromq? ( net-libs/cppzmq )
 "
 
@@ -138,6 +141,13 @@ src_prepare() {
 	use !oss && sed -i 's#soundcard.h#oss-nonexistent.h#g' cmake/Modules/FindOSS.cmake
 	use !portaudio && sed -i 's#portaudio.h#portaudio-nonexistent.h#g' cmake/Modules/FindPORTAUDIO.cmake
 
+	# remove empty test case (see https://github.com/gnuradio/gnuradio/commit/21df528)
+	# fails with Python 3.12
+	rm "${S}"/gr-digital/python/digital/qa_digital.py || die
+	# fix test failure due to deprecated syntax for numpy
+	# see https://github.com/gnuradio/gnuradio/commit/a306e11
+	sed -i -e "s/np.alltrue/np.all/g" \
+		"${S}"/gnuradio-runtime/python/pmt/qa_pmt_to_python.py || die
 	cmake_src_prepare
 }
 
