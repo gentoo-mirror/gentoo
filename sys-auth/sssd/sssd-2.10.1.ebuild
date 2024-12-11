@@ -103,8 +103,6 @@ CONFIG_CHECK="~KEYS"
 PATCHES=(
 	"${FILESDIR}/${PN}-2.8.2-krb5_pw_locked.patch"
 	"${FILESDIR}/${PN}-2.10.0_beta2-fix-systemd-systemconfdir.patch"
-	"${FILESDIR}/${PN}-2.10.0-build-remove-superfluous-WITH_IFP-leftover.patch"
-	"${FILESDIR}/${PN}-2.10.0-build-stop-overriding-CFLAGS.patch"
 )
 
 MULTILIB_WRAPPED_HEADERS=(
