@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-16">
+    <title>libvirt: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libvirt, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">libvirt</product>
+    <announced>2024-12-11</announced>
+    <revised count="1">2024-12-11</revised>
+    <bug>908042</bug>
+    <bug>916497</bug>
+    <bug>929966</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/libvirt" auto="yes" arch="*">
+            <unaffected range="ge">10.2.0</unaffected>
+            <vulnerable range="lt">10.2.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libvirt is a C toolkit for manipulating virtual machines.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libvirt. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libvirt users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/libvirt-10.2.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2700">CVE-2023-2700</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-3750">CVE-2023-3750</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2494">CVE-2024-2494</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-11T08:41:12.324140Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-11T08:41:12.327199Z">graaff</metadata>
+</glsa>
