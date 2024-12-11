@@ -25,8 +25,8 @@ DEPEND="
 	dev-libs/opencl-clang:15[${LLVM_USEDEP}]
 	dev-util/spirv-tools
 	$(llvm_gen_dep '
-		sys-devel/lld:${LLVM_SLOT}
-		sys-devel/llvm:${LLVM_SLOT}
+		llvm-core/lld:${LLVM_SLOT}
+		llvm-core/llvm:${LLVM_SLOT}
 	')
 	vc? (
 		>=dev-libs/intel-vc-intrinsics-0.19.0[${LLVM_USEDEP}]
@@ -39,7 +39,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 	$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]')
-	$(llvm_gen_dep 'sys-devel/lld:${LLVM_SLOT}')
+	$(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}')
 	${PYTHON_DEPS}
 "
 
@@ -68,7 +68,7 @@ src_prepare() {
 
 src_configure() {
 	# Get LLVM version
-	local llvm_version="$(best_version -d sys-devel/llvm:${LLVM_SLOT})"
+	local llvm_version="$(best_version -d llvm-core/llvm:${LLVM_SLOT})"
 	local llvm_version="${llvm_version%%-r*}"
 
 	# See https://github.com/intel/intel-graphics-compiler/issues/212

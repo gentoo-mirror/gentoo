@@ -29,13 +29,13 @@ IUSE="debug profile"
 
 DEPEND="
 	>=dev-util/rocminfo-5
-	sys-devel/clang:${LLVM_MAX_SLOT}
+	llvm-core/clang:${LLVM_MAX_SLOT}
 	dev-libs/rocm-comgr:${SLOT}
 	virtual/opengl
 "
 RDEPEND="${DEPEND}
 	dev-perl/URI-Encode
-	sys-devel/clang-runtime:=
+	llvm-core/clang-runtime:=
 	>=dev-libs/roct-thunk-interface-5"
 BDEPEND="profile? ( $(python_gen_any_dep '
 	dev-python/cppheaderparser[${PYTHON_USEDEP}]

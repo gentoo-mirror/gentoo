@@ -16,7 +16,7 @@ gui-libs/neatvnc tracing
 gui-apps/wayvnc tracing
 
 # Mattéo Rossillol‑‑Laruelle <beatussum@protonmail.com> (2024-08-06)
-# Requires sys-libs/libcxx.
+# Requires llvm-runtimes/libcxx.
 dev-cpp/benchmark libcxx
 
 # Nowa Ammerlaan <nowa@gentoo.org> (2024-07-25)
@@ -71,7 +71,7 @@ dev-qt/qtbase renderdoc
 dev-debug/gdb cet
 sys-devel/binutils cet
 sys-devel/binutils-hppa64 cet
-sys-devel/clang-common cet
+llvm-core/clang-common cet
 sys-devel/gcc cet
 sys-libs/binutils-libs cet
 sys-libs/glibc cet
@@ -209,7 +209,7 @@ sys-apps/util-linux nls
 # Sam James <sam@gentoo.org> (2021-11-07)
 # Disable some sanitizers for LLVM, see bug #753935
 # Needs libexecinfo on musl, not yet packaged
-sys-libs/compiler-rt-sanitizers gwp-asan
+llvm-runtimes/compiler-rt-sanitizers gwp-asan
 
 # Sergei Trofimovich <slyfox@gentoo.org> (2020-03-19)
 # check does not work on musl, bug #713138

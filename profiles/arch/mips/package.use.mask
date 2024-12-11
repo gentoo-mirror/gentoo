@@ -37,8 +37,8 @@ gnome-base/gvfs google test
 
 # Michał Górny <mgorny@gentoo.org> (2024-09-08)
 # libcxx is broken on mips, https://bugs.gentoo.org/939297#c2
-sys-devel/clang-common default-libcxx
-sys-devel/clang-runtime libcxx
+llvm-core/clang-common default-libcxx
+llvm-core/clang-runtime libcxx
 
 # Hans de Graaff <graaff@gentoo.org> (2024-09-08)
 # Requires large parts of dev-ruby/rails to be keyworded
@@ -133,7 +133,7 @@ dev-lang/python jit
 
 # matoro <matoro_gentoo@matoro.tk> (2024-05-01)
 # Sanitizers supported on both 32-bit and 64-bit mips, #779742
-sys-libs/compiler-rt-sanitizers -asan -profile -ubsan -safestack -scudo -xray
+llvm-runtimes/compiler-rt-sanitizers -asan -profile -ubsan -safestack -scudo -xray
 
 # matoro <matoro_gentoo@matoro.tk> (2024-03-21)
 # Test suite is very fragile and doesn't even run on amd64.
@@ -341,7 +341,7 @@ dev-qt/qtchooser test
 dev-python/numpydoc test
 
 # Matthias Maier <tamiko@gentoo.org> (2014-12-24)
-# sys-devel/clang is not keyworded
+# llvm-core/clang is not keyworded
 app-text/doxygen clang
 
 # Ryan Hill <dirtyepic@gentoo.org> (2014-01-07)

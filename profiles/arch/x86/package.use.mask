@@ -92,8 +92,8 @@ media-libs/libplacebo -shaderc
 
 # Michał Górny <mgorny@gentoo.org> (2023-09-19)
 # dev-cpp/cpp-httplib is keyworded here.
-dev-debug/lldb -debuginfod
-sys-devel/llvm -debuginfod
+llvm-core/lldb -debuginfod
+llvm-core/llvm -debuginfod
 
 # Jon Janzen <jon@jonjanzen.com> (2023-09-11)
 # librttopo has not been tested on this arch
@@ -257,11 +257,11 @@ app-text/pdfpc gstreamer
 
 # Michał Górny <mgorny@gentoo.org> (2020-12-21)
 # Sanitizers supported on this architecture.
-sys-libs/compiler-rt-sanitizers -asan -lsan
-sys-libs/compiler-rt-sanitizers -ubsan -safestack -cfi -scudo
-sys-libs/compiler-rt-sanitizers -gwp-asan
-sys-libs/compiler-rt-sanitizers -profile
->=sys-libs/compiler-rt-sanitizers-16 -libfuzzer
+llvm-runtimes/compiler-rt-sanitizers -asan -lsan
+llvm-runtimes/compiler-rt-sanitizers -ubsan -safestack -cfi -scudo
+llvm-runtimes/compiler-rt-sanitizers -gwp-asan
+llvm-runtimes/compiler-rt-sanitizers -profile
+>=llvm-runtimes/compiler-rt-sanitizers-16 -libfuzzer
 
 # Thomas Deutschmann <whissi@gentoo.org> (2020-10-06)
 # - aesni plugin is supported on x86
@@ -523,7 +523,7 @@ www-client/links -suid
 >=media-video/mplayer-1.0_rc4_p20101219 -bluray
 
 # Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org> (2010-11-28)
-# sys-devel/llvm is keyworded on x86
+# llvm-core/llvm is keyworded on x86
 media-libs/mesa -llvm
 
 # Jean-Noël Rivasseau <elvanor@gentoo.org> (2009-09-23)

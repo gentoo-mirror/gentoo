@@ -104,7 +104,7 @@ WINE_COMMON_DEPEND="
 	smartcard? ( sys-apps/pcsc-lite[${MULTILIB_USEDEP}] )
 	udev? ( virtual/libudev:=[${MULTILIB_USEDEP}] )
 	unwind? (
-		llvm-libunwind? ( sys-libs/llvm-libunwind[${MULTILIB_USEDEP}] )
+		llvm-libunwind? ( llvm-runtimes/libunwind[${MULTILIB_USEDEP}] )
 		!llvm-libunwind? ( sys-libs/libunwind:=[${MULTILIB_USEDEP}] )
 	)
 	usb? ( dev-libs/libusb:1[${MULTILIB_USEDEP}] )
@@ -147,7 +147,7 @@ BDEPEND="
 	${PYTHON_DEPS}
 	|| (
 		sys-devel/binutils
-		sys-devel/lld
+		llvm-core/lld
 	)
 	dev-lang/perl
 	dev-vcs/git

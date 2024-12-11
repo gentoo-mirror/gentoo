@@ -52,9 +52,9 @@ BUILD_DIR="${S}/build"
 # You can check https://github.com/ziglang/zig-bootstrap in future, to see
 # options that are passed to LLVM CMake building (excluding "static" ofc).
 DEPEND="
-	sys-devel/clang:${LLVM_MAX_SLOT}=
-	sys-devel/lld:${LLVM_MAX_SLOT}=
-	sys-devel/llvm:${LLVM_MAX_SLOT}=[zstd]
+	llvm-core/clang:${LLVM_MAX_SLOT}=
+	llvm-core/lld:${LLVM_MAX_SLOT}=
+	llvm-core/llvm:${LLVM_MAX_SLOT}=[zstd]
 "
 
 RDEPEND="
@@ -78,7 +78,7 @@ PATCHES=(
 )
 
 llvm_check_deps() {
-	has_version "sys-devel/clang:${LLVM_SLOT}"
+	has_version "llvm-core/clang:${LLVM_SLOT}"
 }
 
 ctarget_to_zigtarget() {

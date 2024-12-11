@@ -50,8 +50,8 @@ COMMON_DEPEND="
 	>=dev-qt/qtdeclarative-${QT_PV}=
 	clang? (
 		$(llvm_gen_dep '
-			sys-devel/clang:${LLVM_SLOT}=
-			sys-devel/llvm:${LLVM_SLOT}=
+			llvm-core/clang:${LLVM_SLOT}=
+			llvm-core/llvm:${LLVM_SLOT}=
 		')
 	)
 	designer? ( >=dev-qt/qttools-${QT_PV}[designer] )

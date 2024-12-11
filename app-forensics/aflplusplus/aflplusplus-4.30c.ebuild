@@ -27,8 +27,8 @@ RESTRICT="test"
 RDEPEND="
 	${PYTHON_DEPS}
 	$(llvm_gen_dep '
-		sys-devel/clang:${LLVM_SLOT}=
-		sys-devel/llvm:${LLVM_SLOT}=
+		llvm-core/clang:${LLVM_SLOT}=
+		llvm-core/llvm:${LLVM_SLOT}=
 	')
 	!app-forensics/afl
 "
@@ -92,6 +92,6 @@ src_install() {
 
 pkg_postinst() {
 	# TODO: Any others?
-	optfeature "fuzzing with AFL_USE_ASAN" sys-libs/compiler-rt-sanitizers[asan]
-	optfeature "fuzzing with AFL_USE_MSAN" sys-libs/compiler-rt-sanitizers[msan]
+	optfeature "fuzzing with AFL_USE_ASAN" llvm-runtimes/compiler-rt-sanitizers[asan]
+	optfeature "fuzzing with AFL_USE_MSAN" llvm-runtimes/compiler-rt-sanitizers[msan]
 }

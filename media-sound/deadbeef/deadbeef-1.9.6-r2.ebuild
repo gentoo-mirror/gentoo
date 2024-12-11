@@ -65,9 +65,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-util/intltool
-	sys-devel/clang
+	llvm-core/clang
 	>=sys-devel/gettext-0.21
-	sys-devel/llvm
+	llvm-core/llvm
 	virtual/pkgconfig
 "
 

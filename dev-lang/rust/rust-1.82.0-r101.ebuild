@@ -47,16 +47,16 @@ IUSE="big-endian clippy cpu_flags_x86_sse2 debug dist doc llvm-libunwind lto mir
 LLVM_DEPEND=()
 # splitting usedeps needed to avoid CI/pkgcheck's UncheckableDep limitation
 for _x in "${ALL_LLVM_TARGETS[@]}"; do
-	LLVM_DEPEND+=( "	${_x}? ( $(llvm_gen_dep "sys-devel/llvm:\${LLVM_SLOT}[${_x}]") )" )
+	LLVM_DEPEND+=( "	${_x}? ( $(llvm_gen_dep "llvm-core/llvm:\${LLVM_SLOT}[${_x}]") )" )
 done
-LLVM_DEPEND+=( "	wasm? ( $(llvm_gen_dep 'sys-devel/lld:${LLVM_SLOT}') )" )
-LLVM_DEPEND+=( "	$(llvm_gen_dep 'sys-devel/llvm:${LLVM_SLOT}')" )
+LLVM_DEPEND+=( "	wasm? ( $(llvm_gen_dep 'llvm-core/lld:${LLVM_SLOT}') )" )
+LLVM_DEPEND+=( "	$(llvm_gen_dep 'llvm-core/llvm:${LLVM_SLOT}')" )
 
 BDEPEND="${PYTHON_DEPS}
 	app-eselect/eselect-rust
 	|| (
 		>=sys-devel/gcc-4.7
-		>=sys-devel/clang-3.5
+		>=llvm-core/clang-3.5
 	)
 	!system-llvm? (
 		>=dev-build/cmake-3.13.4
@@ -73,7 +73,7 @@ DEPEND="
 	dev-libs/openssl:0=
 	system-llvm? (
 		${LLVM_DEPEND[*]}
-		llvm-libunwind? ( sys-libs/llvm-libunwind:= )
+		llvm-libunwind? ( llvm-runtimes/libunwind:= )
 	)
 	!system-llvm? (
 		!llvm-libunwind? (
@@ -175,7 +175,7 @@ pre_build_checks() {
 }
 
 llvm_check_deps() {
-	has_version -r "sys-devel/llvm:${LLVM_SLOT}[${LLVM_TARGET_USEDEPS// /,}]"
+	has_version -r "llvm-core/llvm:${LLVM_SLOT}[${LLVM_TARGET_USEDEPS// /,}]"
 }
 
 # Is LLVM being linked against libc++?
@@ -733,7 +733,7 @@ pkg_postinst() {
 
 	eselect rust update
 
-	if has_version dev-debug/gdb || has_version dev-debug/lldb; then
+	if has_version dev-debug/gdb || has_version llvm-core/lldb; then
 		elog "Rust installs helper scripts for calling GDB and LLDB,"
 		elog "for convenience they are installed under /usr/bin/rust-{gdb,lldb}-${PV}."
 	fi

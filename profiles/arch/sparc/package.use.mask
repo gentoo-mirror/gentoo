@@ -236,7 +236,7 @@ app-admin/conky doc
 dev-util/pkgcheck emacs
 
 # Sam James <sam@gentoo.org> (2022-07-27)
-# sys-devel/lld is not keyworded on sparc
+# llvm-core/lld is not keyworded on sparc
 >=dev-lang/spidermonkey-78 lto
 >=dev-lang/spidermonkey-115 clang
 
@@ -245,7 +245,7 @@ dev-util/pkgcheck emacs
 net-misc/modemmanager qrtr
 
 # Sam James <sam@gentoo.org> (2022-06-25)
-# sys-devel/lld lacks sparc support right now
+# llvm-core/lld lacks sparc support right now
 dev-lang/rust wasm
 
 # Sam James <sam@gentoo.org> (2022-06-25)
@@ -320,9 +320,9 @@ dev-cpp/eigen test
 
 # Sam James <sam@gentoo.org> (2021-04-27)
 # Deps not yet tested/keyworded.
-sys-devel/clang-common default-compiler-rt default-lld
-sys-devel/clang-runtime compiler-rt
-sys-devel/llvm z3
+llvm-core/clang-common default-compiler-rt default-lld
+llvm-core/clang-runtime compiler-rt
+llvm-core/llvm z3
 
 # Sam James <sam@gentoo.org> (2021-03-19)
 # On sparc, we have to force sys-apps/grep[libsigsegv]
@@ -432,7 +432,7 @@ net-im/pidgin gstreamer
 x11-libs/qwt designer
 
 # Rolf Eike Beer <eike@sf-mail.de> (2020-04-15)
-# USE=bpf depends on sys-devel/clang which is not keyworded on sparc
+# USE=bpf depends on llvm-core/clang which is not keyworded on sparc
 media-libs/libv4l bpf
 
 # Rolf Eike Beer <eike@sf-mail.de> (2020-04-14)
@@ -551,7 +551,7 @@ xfce-base/xfwm4 xpresent
 
 # Michał Górny <mgorny@gentoo.org> (2017-03-23)
 # Most of clang runtimes are not supported here
-sys-devel/clang-runtime openmp sanitize
+llvm-core/clang-runtime openmp sanitize
 
 # Pacho Ramos <pacho@gentoo.org> (2017-02-04)
 # Missing keywords, bug #599572
