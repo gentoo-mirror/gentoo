@@ -1,0 +1,16 @@
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3 sys-devel/m4 dev-build/libtool php_targets_php8-1? ( dev-lang/php:8.1 ) php_targets_php8-2? ( dev-lang/php:8.2 ) php_targets_php8-3? ( dev-lang/php:8.3 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=php_targets_php8-1? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-raphf-2.0.1:7[php_targets_php8-1(-)?] net-dns/libidn2 sys-libs/zlib ssl? ( net-misc/curl[ssl,curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=] ) !ssl? ( net-misc/curl[-ssl] ) dev-lang/php:8.1[session(-),iconv(-)] ) php_targets_php8-2? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-raphf-2.0.1:7[php_targets_php8-1(-)?] net-dns/libidn2 sys-libs/zlib ssl? ( net-misc/curl[ssl,curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=] ) !ssl? ( net-misc/curl[-ssl] ) dev-lang/php:8.2[session(-),iconv(-)] ) php_targets_php8-3? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-raphf-2.0.1:7[php_targets_php8-1(-)?] net-dns/libidn2 sys-libs/zlib ssl? ( net-misc/curl[ssl,curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=] ) !ssl? ( net-misc/curl[-ssl] ) dev-lang/php:8.3[session(-),iconv(-)] ) php_targets_php8-1? ( dev-lang/php:8.1 ) php_targets_php8-2? ( dev-lang/php:8.2 ) php_targets_php8-3? ( dev-lang/php:8.3 )
+DESCRIPTION=Extended HTTP Support for PHP
+EAPI=8
+HOMEPAGE=https://pecl.php.net/pecl_http
+INHERIT=php-ext-pecl-r3
+IUSE=ssl curl_ssl_gnutls +curl_ssl_openssl php_targets_php8-1 php_targets_php8-2 php_targets_php8-3
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2 MIT
+RDEPEND=php_targets_php8-1? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-raphf-2.0.1:7[php_targets_php8-1(-)?] net-dns/libidn2 sys-libs/zlib ssl? ( net-misc/curl[ssl,curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=] ) !ssl? ( net-misc/curl[-ssl] ) dev-lang/php:8.1[session(-),iconv(-)] ) php_targets_php8-2? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-raphf-2.0.1:7[php_targets_php8-1(-)?] net-dns/libidn2 sys-libs/zlib ssl? ( net-misc/curl[ssl,curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=] ) !ssl? ( net-misc/curl[-ssl] ) dev-lang/php:8.2[session(-),iconv(-)] ) php_targets_php8-3? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-raphf-2.0.1:7[php_targets_php8-1(-)?] net-dns/libidn2 sys-libs/zlib ssl? ( net-misc/curl[ssl,curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=] ) !ssl? ( net-misc/curl[-ssl] ) dev-lang/php:8.3[session(-),iconv(-)] ) php_targets_php8-1? ( dev-lang/php:8.1 ) php_targets_php8-2? ( dev-lang/php:8.2 ) php_targets_php8-3? ( dev-lang/php:8.3 )
+REQUIRED_USE=|| ( php_targets_php8-1 php_targets_php8-2 php_targets_php8-3 )
+SLOT=8
+SRC_URI=https://pecl.php.net/get/pecl_http-4.2.6.tgz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	php-ext-source-r3	57493651a3540d6ef7bff5e1c97c8dd3	php-ext-pecl-r3	4ca93611caa4190394eb13cc22aedbd0
+_md5_=20f16cb501f9e97d08805cce0fc14a65
