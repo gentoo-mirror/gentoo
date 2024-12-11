@@ -8,9 +8,10 @@ HOMEPAGE="
 	https://gitlab.winehq.org/wine/wine/-/wikis/Wine-Mono/
 	https://gitlab.winehq.org/mono/wine-mono/
 "
+# (this release wasn't uploaded to winehq/gitlab and is only on github)
 SRC_URI="
-	shared? ( https://dl.winehq.org/wine/${PN}/${PV}/${P}-x86.tar.xz )
-	!shared? ( https://dl.winehq.org/wine/${PN}/${PV}/${P}-x86.msi )
+	shared? ( https://github.com/madewokherd/wine-mono/releases/download/${P}/${P}-x86.tar.xz )
+	!shared? ( https://github.com/madewokherd/wine-mono/releases/download/${P}/${P}-x86.msi )
 "
 S=${WORKDIR}
 
