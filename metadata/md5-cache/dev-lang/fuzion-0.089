@@ -1,4 +1,4 @@
-BDEPEND=test? ( sys-devel/clang:* )
+BDEPEND=test? ( llvm-core/clang:* )
 DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=virtual/jdk:21 >=dev-java/java-config-2.2.0-r3
 DESCRIPTION=A language with a focus on simplicity, safety and correctness
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tokiwa-software/fuzion/archive/refs/tags/v0.089.tar.gz -> fuzion-0.089.tar.gz
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	6e6478d8b78f18251c008bad32994df9
-_md5_=27819ba537ffbf9d3913062b2545a011
+_md5_=452d4dd7e0cc8ac814856b6ced2014b4

@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) =dev-qt/qtcore-5.15.14*:5 llvm_slot_15? ( sys-devel/clang:15 sys-devel/llvm:15 ) docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 =dev-qt/qtxml-5.15.14*:5 =dev-qt/qtxmlpatterns-5.15.14*:5 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers ) !dev-python/shiboken2:0 test? ( =dev-qt/qttest-5.15.14*:5 )
+DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) =dev-qt/qtcore-5.15.14*:5 llvm_slot_15? ( llvm-core/clang:15 llvm-core/llvm:15 ) docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 =dev-qt/qtxml-5.15.14*:5 =dev-qt/qtxmlpatterns-5.15.14*:5 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers ) !dev-python/shiboken2:0 test? ( =dev-qt/qttest-5.15.14*:5 )
 DESCRIPTION=Python binding generator for C++ libraries
 EAPI=8
 HOMEPAGE=https://wiki.qt.io/PySide2
@@ -8,10 +8,10 @@ INHERIT=cmake llvm-r1 python-r1 toolchain-funcs
 IUSE=+docstrings numpy test vulkan +llvm_slot_15 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv x86
 LICENSE=|| ( GPL-2 GPL-3+ LGPL-3 ) GPL-3
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) =dev-qt/qtcore-5.15.14*:5 llvm_slot_15? ( sys-devel/clang:15 sys-devel/llvm:15 ) docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 =dev-qt/qtxml-5.15.14*:5 =dev-qt/qtxmlpatterns-5.15.14*:5 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers ) !dev-python/shiboken2:0
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) =dev-qt/qtcore-5.15.14*:5 llvm_slot_15? ( llvm-core/clang:15 llvm-core/llvm:15 ) docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 =dev-qt/qtxml-5.15.14*:5 =dev-qt/qtxmlpatterns-5.15.14*:5 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) vulkan? ( dev-util/vulkan-headers ) !dev-python/shiboken2:0
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 ) ^^ ( llvm_slot_15 )
 RESTRICT=test
 SLOT=5/5.15.14
 SRC_URI=https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.14-src/pyside-setup-opensource-src-5.15.14.tar.xz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	46caa2e787d84171daa2bb798034426e	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23
-_md5_=2581968fc7fcffc4ad234e215a7d3309
+_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	82e169a45855e1a973292c8208318140	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23
+_md5_=e191e684a373bac47ec02f3bb638cbcf

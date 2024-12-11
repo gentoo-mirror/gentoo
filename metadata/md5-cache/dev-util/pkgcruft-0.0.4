@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/clang test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 )
+BDEPEND=llvm-core/clang test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 )
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=QA library and tools based on pkgcraft
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=MIT Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3+ ISC MIT MPL-2.0 Unicode-DFS-2016
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pkgcraft/pkgcraft/releases/download/pkgcruft-0.0.4/pkgcruft-0.0.4.tar.xz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	55e231f09fddb09cbbaa254cf234368b	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	b5f350ebe96460cff090d0f2ae7e698a	edo	367e103a74bf77e6a8da7894d999fa3c
-_md5_=48ced008c1a508be41431438d356d527
+_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	55e231f09fddb09cbbaa254cf234368b	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	b5f350ebe96460cff090d0f2ae7e698a	edo	367e103a74bf77e6a8da7894d999fa3c
+_md5_=9906bf7fdbc80a33dc58361217d0eeb4

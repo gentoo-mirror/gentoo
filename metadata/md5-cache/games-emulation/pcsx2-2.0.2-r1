@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/qttools:6[linguist] clang? ( sys-devel/clang:* ) wayland? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=dev-qt/qttools:6[linguist] clang? ( llvm-core/clang:* ) wayland? ( dev-util/wayland-scanner kde-frameworks/extra-cmake-modules ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=app-arch/lz4:= app-arch/zstd:= dev-qt/qtbase:6[concurrent,gui,widgets] dev-qt/qtsvg:6 media-libs/freetype media-libs/libglvnd[X] media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libsdl2[haptic,joystick] media-libs/libwebp:= media-video/ffmpeg:= net-libs/libpcap net-misc/curl sys-apps/dbus sys-libs/zlib:= virtual/libudev:= x11-libs/libXrandr alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) vulkan? ( media-libs/shaderc media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) x11-base/xorg-proto
 DESCRIPTION=PlayStation 2 emulator
@@ -14,5 +14,5 @@ REQUIRED_USE=cpu_flags_x86_sse4_1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/PCSX2/pcsx2/archive/refs/tags/v2.0.2.tar.gz -> pcsx2-2.0.2.tar.gz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	fcaps	27152c9e4da035accb14a2d7879744ef	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
-_md5_=bf7c8bb33aca5dded5482b49f18b550a
+_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	fcaps	27152c9e4da035accb14a2d7879744ef	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=00bcec7ae78873154bed96b7db867fe9

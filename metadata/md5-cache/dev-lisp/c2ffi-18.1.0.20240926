@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=sys-devel/clang:18 sys-devel/llvm:18 !!sys-devel/llvm:0
+DEPEND=llvm-core/clang:18 llvm-core/llvm:18 !!llvm-core/llvm:0
 DESCRIPTION=Clang-based FFI wrapper generator for Common Lisp
 EAPI=8
 HOMEPAGE=https://github.com/rpav/c2ffi
 INHERIT=cmake llvm
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
-RDEPEND=sys-devel/clang:18 sys-devel/llvm:18
+RDEPEND=llvm-core/clang:18 llvm-core/llvm:18
 SLOT=0
 SRC_URI=https://github.com/rpav/c2ffi/archive/0de81efb64acc82c08c5eee4a7108ddcb1b00d86.tar.gz -> c2ffi-18.1.0.20240926.tar.gz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm	3d5c454d29edd5647925b304200c368b
-_md5_=f70239be3ed5a5cde784d1e651393149
+_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm	df1cea363f19e80316ea702563b607be
+_md5_=9ee57b40e604ac5289dd63bfbbd94a5c

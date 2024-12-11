@@ -4050,7 +4050,6 @@ dev-debug/gef 2023.08 2024.01 2024.06 9999: GDB Enhanced Features for exploit de
 dev-debug/gprofng-gui 1.1 9999: Full-fledged graphical interface to operate gprofng
 dev-debug/kdbg 3.1.0: Graphical debugger interface
 dev-debug/leaktracer 2.4-r3: Trace and analyze memory leaks in C++ programs
-dev-debug/lldb 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: The LLVM debugger
 dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-debug/pwndbg 20240214 20240829 99999999: A GDB plug-in that makes debugging with GDB suck less
@@ -5460,7 +5459,6 @@ dev-libs/libcdio 2.1.0-r2: A library to encapsulate CD-ROM reading and control
 dev-libs/libcdio-paranoia 2.0.1: an advanced CDDA reader with error correction
 dev-libs/libcec 6.0.2-r1 6.0.2-r2: Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor
 dev-libs/libcgroup 0.41-r6 3.0.0 3.0.0-r1 3.1.0: Tools and libraries to configure and manage kernel control groups
-dev-libs/libclc 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: OpenCL C library
 dev-libs/libclthreads 2.4.2: POSIX threads C++ access library
 dev-libs/libconfig 1.7.3: Libconfig is a simple library for manipulating structured configuration files
 dev-libs/libcpuid 0.6.4 0.6.5 0.7.0-r1 0.7.1: A small C library for x86 (and x86_64) CPU detection and feature extraction
@@ -6018,7 +6016,7 @@ dev-ml/lablgtk 3.1.5-r1: OCaml bindings to GTK-3
 dev-ml/lablgtk-sourceview 3.1.5: OCaml bindings to GTK-3
 dev-ml/labltk 8.06.7-r1 8.06.10-r1 8.06.11-r1 8.06.12-r2 8.06.14: OCaml interface to the Tcl/Tk GUI framework
 dev-ml/lambda-term 3.1.0 3.3.1-r1 3.3.2: Terminal manipulation library for OCaml
-dev-ml/llvm-ocaml 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: OCaml bindings for LLVM
+dev-ml/llvm 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: OCaml bindings for LLVM
 dev-ml/logs 0.7.0-r1: Logging infrastructure for OCaml
 dev-ml/luv 0.5.10-r3 0.5.11-r2 0.5.12 0.5.14-r1: Binding to libuv: cross-platform asynchronous I/O
 dev-ml/lwt 5.3.0-r1 5.7.0 5.8.0 5.9.0: Cooperative light-weight thread library for OCaml
@@ -8193,7 +8191,7 @@ dev-python/cheroot 10.0.1: High-performance, pure-Python HTTP server used by Che
 dev-python/cherrypy 18.10.0: CherryPy is a pythonic, object-oriented HTTP framework
 dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
-dev-python/clang-python 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Python bindings for sys-devel/clang
+dev-python/clang 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Python bindings for llvm-core/clang
 dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
 dev-python/cli-helpers 2.3.1 9999: Python helpers for common CLI tasks
 dev-python/cli-ui 0.17.2: Python library for better command line interfaces
@@ -12469,6 +12467,25 @@ kde-plasma/sddm-kcm 6.2.4: KDE Plasma control module for SDDM
 kde-plasma/systemsettings 6.2.4: Control Center to configure KDE Plasma desktop
 kde-plasma/wacomtablet 6.2.4: Wacom system settings module that supports different button/pen layout profiles
 kde-plasma/xdg-desktop-portal-kde 6.2.4: Backend implementation for xdg-desktop-portal that is using Qt/KDE Frameworks
+llvm-core/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: C language family frontend for LLVM
+llvm-core/clang-common 15.0.7-r10 16.0.6-r6 17.0.6-r9 17.0.6-r10 18.1.8-r3 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Common files shared between multiple slots of clang
+llvm-core/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Meta-ebuild for clang runtime libraries
+llvm-core/clang-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use Clang on GCC-free system
+llvm-core/libclc 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: OpenCL C library
+llvm-core/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: The LLVM linker (link editor)
+llvm-core/lld-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use LLD on binutils-free system
+llvm-core/lldb 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: The LLVM debugger
+llvm-core/llvm 15.0.7-r7 16.0.6-r5 17.0.6-r3 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Low Level Virtual Machine
+llvm-core/llvm-common 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Common files shared between multiple slots of LLVM
+llvm-core/llvm-toolchain-symlinks 15-r1 16-r1 17-r1 18-r1 19 20: Symlinks to use LLVM on binutils-free system
+llvm-core/llvmgold 15 16 17 18 19 20: LLVMgold plugin symlink for autoloading
+llvm-runtimes/compiler-rt 15.0.7-r1 15.0.7-r2 16.0.6-r5 16.0.6-r6 17.0.6-r1 17.0.6-r2 18.1.8-r1 18.1.8-r2 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Compiler runtime library for clang (built-in part)
+llvm-runtimes/compiler-rt-sanitizers 15.0.7-r1 16.0.6-r1 17.0.6-r1 18.1.8-r1 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
+llvm-runtimes/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: New implementation of the C++ standard library, targeting C++11
+llvm-runtimes/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Low level support for a standard C++ library
+llvm-runtimes/libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: C++ runtime stack unwinder from LLVM
+llvm-runtimes/offload 20.0.0_pre20241207 20.0.0.9999: OpenMP offloading support
+llvm-runtimes/openmp 15.0.7-r6 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: OpenMP runtime library for LLVM/clang compiler
 lxde-base/lxappearance 0.6.3-r3: LXDE GTK+ theme switcher
 lxde-base/lxappearance-obconf 0.2.3-r2: LXAppearance plugin for configuring OpenBox
 lxde-base/lxde-common 0.99.2-r1: LXDE Session default configuration files and nuoveXT2 iconset
@@ -17374,11 +17391,7 @@ sys-devel/binutils-config 5.5 5.5.2 9999: Utility to change the binutils version
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r1 2.43-r2: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
 sys-devel/bpf-toolchain 14.2.0_p1: All-in-one bpf toolchain for building DTrace and systemd without crossdev
-sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: C language family frontend for LLVM
-sys-devel/clang-common 15.0.7-r10 16.0.6-r6 17.0.6-r9 17.0.6-r10 18.1.8-r3 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Common files shared between multiple slots of clang
 sys-devel/clang-crossdev-wrappers 16 17 18 19: Symlinks to a Clang crosscompiler
-sys-devel/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Meta-ebuild for clang runtime libraries
-sys-devel/clang-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use Clang on GCC-free system
 sys-devel/cproc 0_pre20240413 9999: C11 compiler using QBE as backend
 sys-devel/crossdev 20240921 20241202 99999999: Gentoo Cross-toolchain generator
 sys-devel/crosstool-ng 1.26.0-r1 9999: Versatile (cross-)toolchain generator
@@ -17394,12 +17407,6 @@ sys-devel/gettext 0.21.1 0.22.4 0.22.5 0.22.5-r1 0.23: GNU locale utilities
 sys-devel/gnuconfig 20230731 20240101 20240728 99999999: Updated config.sub and config.guess file from GNU
 sys-devel/icecream 1.4-r1: Distributed compiler with a central scheduler to share build load
 sys-devel/kgcc64 10.5.0 11.5.0 12.4.0 12.4.1_p20241031 12.4.1_p20241114 13.3.1_p20241025 13.3.1_p20241115 14.2.1_p20241116: 64bit kernel compiler
-sys-devel/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: The LLVM linker (link editor)
-sys-devel/lld-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use LLD on binutils-free system
-sys-devel/llvm 15.0.7-r7 16.0.6-r5 17.0.6-r3 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Low Level Virtual Machine
-sys-devel/llvm-common 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Common files shared between multiple slots of LLVM
-sys-devel/llvm-toolchain-symlinks 15-r1 16-r1 17-r1 18-r1 19 20: Symlinks to use LLVM on binutils-free system
-sys-devel/llvmgold 15 16 17 18 19 20: LLVMgold plugin symlink for autoloading
 sys-devel/m4 1.4.19-r2: GNU macro processor
 sys-devel/mold 2.1.0 2.34.1-r1 2.35.0 9999: A Modern Linker
 sys-devel/multilib-gcc-wrapper 0-r2: Wrappers for gcc tools to be used on non-native CHOSTs
@@ -17587,7 +17594,7 @@ sys-kernel/installkernel 48-r1: Gentoo fork of installkernel script from debianu
 sys-kernel/kergen 0.1.5-r1: Kernel config generator
 sys-kernel/kpatch 0.9.7 0.9.8 9999: Dynamic kernel patching for Linux
 sys-kernel/linux-docs 6.12.1: Developer documentation generated from the Linux kernel
-sys-kernel/linux-firmware 20240811-r1 20240909-r1 20241017-r3 20241110 99999999: Linux firmware files
+sys-kernel/linux-firmware 20241017-r3 20241110 20241210 99999999: Linux firmware files
 sys-kernel/linux-headers 3.18-r1 4.4-r1 4.9-r1 4.14-r2 4.19-r1 5.4-r2 5.10-r2 5.15-r3 6.1 6.6-r1 6.8-r1 6.9 6.10 6.11 6.12: Linux system headers
 sys-kernel/linux-next 9999: Linux kernel and patches aimed at the next kernel merge window
 sys-kernel/mips-sources 4.19.319 5.4.281: Kernel.org sources for MIPS-based machines
@@ -17605,8 +17612,6 @@ sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.0 0.2.0-r1 0.2.1: The sd-bus library, extracted from systemd
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r2 2.43-r3 9999: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
 sys-libs/blocksruntime 0_pre20171027-r2: BlocksRuntime library needed for clang's -fblocks support
-sys-libs/compiler-rt 15.0.7-r1 15.0.7-r2 16.0.6-r5 16.0.6-r6 17.0.6-r1 17.0.6-r2 18.1.8-r1 18.1.8-r2 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Compiler runtime library for clang (built-in part)
-sys-libs/compiler-rt-sanitizers 15.0.7-r1 16.0.6-r1 17.0.6-r1 18.1.8-r1 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
 sys-libs/cracklib 2.9.11 2.10.2: Password Checking Library
 sys-libs/csu 85-r1: Darwin Csu (crt1.o) - Mac OS X 10.10 version
 sys-libs/db 4.8.30-r8 4.8.30-r9 5.3.28-r9 5.3.28-r10 5.3.28-r11 6.0.35-r4 6.0.35-r5: Oracle Berkeley DB
@@ -17627,8 +17632,6 @@ sys-libs/libblockdev 2.28-r1 2.29 3.1.1: A library for manipulating block device
 sys-libs/libcap 2.69-r1 2.70 2.71 9999: POSIX 1003.1e capabilities
 sys-libs/libcap-ng 0.8.4-r1 0.8.5: POSIX 1003.1e capabilities
 sys-libs/libchipcard 5.1.6-r1: Library for accessing chip cards via chip card readers (terminals)
-sys-libs/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: New implementation of the C++ standard library, targeting C++11
-sys-libs/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: Low level support for a standard C++ library
 sys-libs/libfaketime 0.9.6-r4 0.9.9 0.9.10: Report faked system time to programs
 sys-libs/libhx 4.23 4.24: Platform independent library providing basic system functions
 sys-libs/libieee1284 0.2.11-r9: Library to query devices using IEEE1284
@@ -17637,7 +17640,6 @@ sys-libs/libmodulemd 2.15.0-r1 9999: C Library for manipulating Fedora Modularit
 sys-libs/libnbd 1.14.1 1.16.1-r1 1.18.1 1.18.1-r1: NBD client library in userspace
 sys-libs/libnvidia-container 1.17.2 9999: NVIDIA container runtime library
 sys-libs/libnvme 1.9 1.10 1.11 1.11.1: C Library for NVM Express on Linux
-sys-libs/libomp 15.0.7-r6 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: OpenMP runtime library for LLVM/clang compiler
 sys-libs/libosinfo 1.10.0-r1 1.11.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
@@ -17658,8 +17660,6 @@ sys-libs/libutempter 1.2.1: Library that allows non-privileged apps to write utm
 sys-libs/libuuid 1.0.3-r1: Portable uuid C library
 sys-libs/libvpd 2.2.9: Library implementation for listing Vital Product Data
 sys-libs/libxcrypt 4.4.36 4.4.36-r2 4.4.36-r3: Extended crypt library for descrypt, md5crypt, bcrypt, and others
-sys-libs/llvm-libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241207 20.0.0.9999: C++ runtime stack unwinder from LLVM
-sys-libs/llvm-offload 20.0.0_pre20241207 20.0.0.9999: OpenMP offloading support
 sys-libs/lwp 2.8: Light-weight process library (used by Coda)
 sys-libs/minizip-ng 4.0.5 4.0.7: Fork of the popular zip manipulation library found in the zlib distribution
 sys-libs/mtdev 1.1.7: Multitouch Protocol Translation Library

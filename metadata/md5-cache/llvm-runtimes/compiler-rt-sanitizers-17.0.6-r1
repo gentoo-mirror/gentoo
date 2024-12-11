@@ -1,0 +1,16 @@
+BDEPEND=clang? ( llvm-core/clang:17 llvm-runtimes/compiler-rt:17 ) elibc_glibc? ( net-libs/libtirpc ) test? ( || ( ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/lit-15[python_targets_python3_10(-)] ) ) =llvm-core/clang-17.0.6*:17 ) !test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-18.1.6 ) app-alternatives/ninja >=dev-build/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=llvm-core/llvm:17 virtual/libcrypt[abi_x86_32(-)?,abi_x86_64(-)?] !!llvm-core/llvm:0
+DESCRIPTION=Compiler runtime libraries for clang (sanitizers & xray)
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=check-reqs cmake flag-o-matic llvm llvm.org python-any-r1
+IUSE=+abi_x86_32 abi_x86_64 +clang debug test +libfuzzer +memprof +orc +profile +xray +asan +dfsan +lsan +msan +hwasan +tsan +ubsan +safestack +cfi +scudo +shadowcallstack +gwp-asan test verify-sig
+KEYWORDS=amd64 arm arm64 ~loong ppc64 ~riscv x86 ~amd64-linux ~ppc-macos ~x64-macos
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+REQUIRED_USE=|| ( asan dfsan lsan msan hwasan tsan ubsan safestack cfi scudo shadowcallstack gwp-asan libfuzzer orc profile xray ) test? ( cfi? ( ubsan ) gwp-asan? ( scudo ) )
+RESTRICT=!clang? ( test ) !test? ( test ) !test? ( test )
+SLOT=17
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/llvm-project-17.0.6.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/llvm-project-17.0.6.src.tar.xz.sig ) https://dev.gentoo.org/~mgorny/dist/llvm/llvm-gentoo-patchset-17.0.6-r3.tar.xz
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm	df1cea363f19e80316ea702563b607be	verify-sig	745dccb7d4656514f1e966cce314d7db	llvm.org	ec44f4aea122b81e7059f0c96ed15f50	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=d02cefdab11f817f3ff2064eaea00ea6

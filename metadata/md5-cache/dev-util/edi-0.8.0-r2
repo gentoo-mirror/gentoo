@@ -1,6 +1,6 @@
 BDEPEND=virtual/libintl virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=|| ( dev-libs/efl[X] dev-libs/efl[wayland] ) >=dev-libs/efl-1.22.0[eet] clang? ( dev-util/bear sys-devel/clang:= ) dev-libs/check !!sys-devel/llvm:0 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=|| ( dev-libs/efl[X] dev-libs/efl[wayland] ) >=dev-libs/efl-1.22.0[eet] clang? ( dev-util/bear llvm-core/clang:= ) dev-libs/check !!llvm-core/llvm:0 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=An EFL-based IDE
 EAPI=7
 HOMEPAGE=https://www.enlightenment.org/about-edi https://phab.enlightenment.org/w/projects/edi/ https://github.com/Enlightenment/edi
@@ -8,8 +8,8 @@ INHERIT=llvm meson xdg
 IUSE=clang
 KEYWORDS=amd64 x86
 LICENSE=GPL-2 GPL-3 LGPL-2.1-with-linking-exception
-RDEPEND=|| ( dev-libs/efl[X] dev-libs/efl[wayland] ) >=dev-libs/efl-1.22.0[eet] clang? ( dev-util/bear sys-devel/clang:= )
+RDEPEND=|| ( dev-libs/efl[X] dev-libs/efl[wayland] ) >=dev-libs/efl-1.22.0[eet] clang? ( dev-util/bear llvm-core/clang:= )
 SLOT=0
 SRC_URI=https://github.com/Enlightenment/edi/archive/v0.8.0.tar.gz -> edi-0.8.0.tar.gz
-_eclasses_=llvm-utils	c989cff79c0976415f459e367a83dff9	llvm	3d5c454d29edd5647925b304200c368b	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=ddd3a97b6655584c83a5e39742243b5e
+_eclasses_=llvm-utils	c989cff79c0976415f459e367a83dff9	llvm	df1cea363f19e80316ea702563b607be	toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=09a1b01f8cc5fd04d63cce6b9e3d4399

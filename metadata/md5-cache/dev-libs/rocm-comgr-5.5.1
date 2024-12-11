@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=>=dev-libs/rocm-device-libs-5.5.1 sys-devel/clang:16= sys-devel/clang-runtime:= sys-devel/lld:16= !!sys-devel/llvm:0
+DEPEND=>=dev-libs/rocm-device-libs-5.5.1 llvm-core/clang:16= llvm-core/clang-runtime:= llvm-core/lld:16= !!llvm-core/llvm:0
 DESCRIPTION=Radeon Open Compute Code Object Manager
 EAPI=8
 HOMEPAGE=https://github.com/RadeonOpenCompute/ROCm-CompilerSupport
@@ -8,9 +8,9 @@ INHERIT=cmake llvm prefix
 IUSE=test
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=>=dev-libs/rocm-device-libs-5.5.1 sys-devel/clang:16= sys-devel/clang-runtime:= sys-devel/lld:16=
+RDEPEND=>=dev-libs/rocm-device-libs-5.5.1 llvm-core/clang:16= llvm-core/clang-runtime:= llvm-core/lld:16=
 RESTRICT=!test? ( test )
 SLOT=0/5.5
 SRC_URI=https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/archive/rocm-5.5.1.tar.gz -> rocm-comgr-5.5.1.tar.gz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm	3d5c454d29edd5647925b304200c368b	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
-_md5_=a36c53d388458c175fe52f5512d42f2c
+_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm	df1cea363f19e80316ea702563b607be	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=ee05b6a46ac6f3cd549033eeb9f05ab2

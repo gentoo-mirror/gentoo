@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prepare setup
-DEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=dev-build/make-3.75 libobjc2? ( gnustep-base/libobjc2 sys-devel/clang:* ) !libobjc2? ( !!gnustep-base/libobjc2 || ( sys-devel/gcc:*[objc] sys-devel/clang:* ) )
+DEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=dev-build/make-3.75 libobjc2? ( gnustep-base/libobjc2 llvm-core/clang:* ) !libobjc2? ( !!gnustep-base/libobjc2 || ( sys-devel/gcc:*[objc] llvm-core/clang:* ) )
 DESCRIPTION=GNUstep Makefile Package
 EAPI=7
 HOMEPAGE=https://gnustep.github.io
@@ -7,8 +7,8 @@ INHERIT=gnustep-base prefix toolchain-funcs
 IUSE=libobjc2 native-exceptions debug doc
 KEYWORDS=~alpha amd64 ppc ppc64 sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=dev-build/make-3.75 libobjc2? ( gnustep-base/libobjc2 sys-devel/clang:* ) !libobjc2? ( !!gnustep-base/libobjc2 || ( sys-devel/gcc:*[objc] sys-devel/clang:* ) )
+RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=dev-build/make-3.75 libobjc2? ( gnustep-base/libobjc2 llvm-core/clang:* ) !libobjc2? ( !!gnustep-base/libobjc2 || ( sys-devel/gcc:*[objc] llvm-core/clang:* ) )
 SLOT=0
 SRC_URI=ftp://ftp.gnustep.org/pub/gnustep/core/gnustep-make-2.9.0.tar.gz
-_eclasses_=toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	gnustep-base	2b9571bc4b56a107f4efee592fa2f2a8	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
-_md5_=6155e79b66e1777c38a271da5ffc6592
+_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	gnustep-base	2b9571bc4b56a107f4efee592fa2f2a8	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=2d0ce0f52c31ae7d7c2bf435d06733a4

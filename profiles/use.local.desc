@@ -1154,7 +1154,7 @@ app-text/dictd:minimal - Don't build server but dict client, dictzip and dictfmt
 app-text/docbook-sgml-utils:jadetex - Add support for processing tex files produced by the TeX backend of Jade
 app-text/docbook-xsl-ns-stylesheets:ruby - Install the Ruby-based dbtoepub script; requires an interpreter compatible with app-eselect/eselect-ruby.
 app-text/docbook-xsl-stylesheets:ruby - Install the Ruby-based dbtoepub script; requires an interpreter compatible with app-eselect/eselect-ruby.
-app-text/doxygen:clang - support for sys-devel/clang assisted parsing
+app-text/doxygen:clang - support for llvm-core/clang assisted parsing
 app-text/doxygen:dot - allow to create dot graphs using media-gfx/graphviz
 app-text/doxygen:doxysearch - build doxyindexer and doxysearch.cgi
 app-text/ebook-tools:lit2epub - Install lit2epub script
@@ -1327,7 +1327,7 @@ dev-build/cmake:dap - Build debugger for CMake with Debug Adapter Protocol suppo
 dev-build/muon:archive - Enable extracting wraps using app-arch/libarchive.
 dev-build/muon:libpkgconf - Enable looking up packages via dev-util/pkgconf.
 dev-cpp/benchmark:exceptions - Enable the use of exceptions in the benchmark library
-dev-cpp/benchmark:libcxx - Use sys-libs/libcxx instead of libstdc++ as the default stdlib
+dev-cpp/benchmark:libcxx - Use llvm-runtimes/libcxx instead of libstdc++ as the default stdlib
 dev-cpp/benchmark:libpfm - Enable dev-libs/libpfm support
 dev-cpp/benchmark:tools - Install some additional Python tools
 dev-cpp/eigen:adolc - Add test support for Adolc (sci-libs/adolc)
@@ -1347,7 +1347,7 @@ dev-cpp/eigen:spqr - Add test support for SPQR (sci-libs/spqr)
 dev-cpp/eigen:superlu - Add test support for SuperLU (sci-libs/superlu)
 dev-cpp/eigen:umfpack - Add test support for UMFPACK (sci-libs/umfpack)
 dev-cpp/glog:gflags - Use dev-cpp/gflags for flag parsing
-dev-cpp/glog:libunwind - Use libunwind library (sys-libs/libunwind or sys-libs/llvm-libunwind) instead of built-in fallback implementation for stack unwinding
+dev-cpp/glog:libunwind - Use libunwind library (sys-libs/libunwind or llvm-runtimes/libunwind) instead of built-in fallback implementation for stack unwinding
 dev-cpp/gtest:abseil - Build with functionality provided by dev-cpp/abseil-cpp and dev-libs/re2
 dev-cpp/jwt-cpp:picojson - Enable use of dev-cpp/picojson
 dev-cpp/libcmis:tools - Build client tool for testing and viewing features
@@ -1444,7 +1444,7 @@ dev-db/timescaledb:proprietary-extensions - Enable proprietary features/extensio
 dev-db/unixODBC:minimal - Disable bundled drivers and extra libraries (most users don't need these)
 dev-db/unixODBC:odbcmanual - Administrator, Internal Structure, Programmer and User documentation
 dev-debug/bpftrace:fuzzing - Build bpftrace for fuzzing
-dev-debug/bpftrace:lldb - Parse debug info usingdev-debug/lldb
+dev-debug/bpftrace:lldb - Parse debug info usingllvm-core/lldb
 dev-debug/dtrace:test-install - Install the testsuite for manual use. It is not suitable for automatic execution within the ebuild because it requires root privlieges.
 dev-debug/gdb:cet - Enable Intel Control-flow Enforcement Technology.
 dev-debug/gdb:debuginfod - Enable debuginfod support via dev-libs/elfutils libdebuginfod
@@ -1457,7 +1457,6 @@ dev-debug/gdb:sim - Build gdb's simulators for various hardware platforms. See h
 dev-debug/gdb:source-highlight - Enable listing highlighting via dev-util/source-highlight
 dev-debug/gdb:xml - Support parsing XML data files needed (at least) for cpu features, memory maps, and syscall tracing
 dev-debug/gdb:xxhash - Use dev-libs/xxhash to speed up internal hashing.
-dev-debug/lldb:debuginfod - Expose the transitive dependencies on net-misc/curl and dev-cpp/cpp-httplib) to match sys-devel/llvm.
 dev-debug/ltrace:elfutils - Use libdwfl from dev-libs/elfutils for frame unwinding support
 dev-debug/ltrace:unwind - Use sys-libs/libunwind for frame unwinding support
 dev-debug/strace:aio - Enable dev-libs/libaio support for tracing Asynchronous I/O operations
@@ -1782,7 +1781,7 @@ dev-lang/ghc:elfutils - Enable DWARF-based backtraces using dev-libs/elfutils.
 dev-lang/ghc:ghcbootstrap - Internal: Bootstrap GHC from an existing GHC installation.
 dev-lang/ghc:ghcmakebinary - Internal: Build binary friendly for redistribution.
 dev-lang/ghc:gmp - Use dev-libs/gmp for integer operations (works faster, but an external depend).
-dev-lang/ghc:llvm - Pull in dependencies for the sys-devel/llvm codegen backend.
+dev-lang/ghc:llvm - Pull in dependencies for the llvm-core/llvm codegen backend.
 dev-lang/ghc:numa - Enable NUMA thread balancing policy using sys-process/numactl.
 dev-lang/ghc:unregisterised - Create an unregisterised build in which only the C codegen backend will be available.
 dev-lang/gnat-gpl:ada - Build the ADA language (GNAT) frontend
@@ -2036,7 +2035,6 @@ dev-libs/libcec:udev - Enable detection of USB-CEC port by udev
 dev-libs/libcec:xrandr - Enable detection of active HDMI using xrandr extensions
 dev-libs/libcgroup:daemon - Install the configuration tools and init/config files.
 dev-libs/libcgroup:tools - Install the cgroup rules processing daemon and init/config files.
-dev-libs/libclc:spirv - Build SPIRV targets
 dev-libs/libdbusmenu:gtk - Enable support for GTK+2
 dev-libs/libdbusmenu:gtk3 - Enable support for GTK+3
 dev-libs/libdex:eventfd - Allow use of eventfd
@@ -2836,8 +2834,8 @@ dev-util/Tensile:client - Build and install tensile_client executable to run ben
 dev-util/babeltrace:elfutils - Build the dev-util/lttng-ust debug information filter component class
 dev-util/babeltrace:plugins - Build support for Babeltrace 2 Python plugins
 dev-util/bpftool:caps - Use sys-libs/libcap to enable unprivileged run support
-dev-util/bpftool:clang - Use sys-devel/clang instead of sys-devel/bpf-toolchain for BPF CO-RE support
-dev-util/bpftool:llvm - Use sys-devel/llvm instead of libbfd (sys-libs/binutils-libs) for JIT disassembly
+dev-util/bpftool:clang - Use llvm-core/clang instead of sys-devel/bpf-toolchain for BPF CO-RE support
+dev-util/bpftool:llvm - Use llvm-core/llvm instead of libbfd (sys-libs/binutils-libs) for JIT disassembly
 dev-util/breakpad:tools - Build tools
 dev-util/bugbite-cli:openssl - Use dev-libs/openssl as a crypto backend
 dev-util/buildbot:docker - Add support for worker docker command steps
@@ -2874,7 +2872,7 @@ dev-util/diffoscope:haskell - Use dev-lang/ghc
 dev-util/diffoscope:hdf5 - Use sci-libs/hdf5
 dev-util/diffoscope:hex - Use app-editors/vim-core
 dev-util/diffoscope:iso - Use app-cdr/cdrtools
-dev-util/diffoscope:llvm - Use sys-devel/llvm
+dev-util/diffoscope:llvm - Use llvm-core/llvm
 dev-util/diffoscope:opendocument - Use app-text/odt2txt
 dev-util/diffoscope:pascal - Use dev-lang/fpc
 dev-util/diffoscope:rpm - Use app-arch/rpm
@@ -2884,7 +2882,7 @@ dev-util/diffoscope:tar - Use app-arch/tar
 dev-util/diffoscope:tcpdump - Use net-analyzer/tcpdump
 dev-util/diffoscope:zip - Use app-arch/unzip
 dev-util/dropwatch:bfd - Add support for Binary File Descriptor
-dev-util/edi:clang - Provide integration with sys-devel/clang and dev-util/bear for autocompletion, inline errors and information about compilation units.
+dev-util/edi:clang - Provide integration with llvm-core/clang and dev-util/bear for autocompletion, inline errors and information about compilation units.
 dev-util/flatpak-builder:yaml - Use libyaml for yaml support
 dev-util/geany:vte - Enable Terminal support (x11-libs/vte)
 dev-util/geany-plugins:ctags - Enable ctags plugin
@@ -2900,7 +2898,7 @@ dev-util/geany-plugins:workbench - Enable workbench plugin
 dev-util/glade:gjs - Build catalog support for dev-libs/gjs widgets.
 dev-util/glade:webkit - Build catalog support for net-libs/webkit-gtk:4 widgets.
 dev-util/global:vim - Integrate the GNU GLOBAL source code tag system with Vim
-dev-util/gnome-builder:clang - Provide integration with sys-devel/clang for best possible C/C++ autocompletion, semantic highlighting, symbol resolving, and diagnostics support
+dev-util/gnome-builder:clang - Provide integration with llvm-core/clang for best possible C/C++ autocompletion, semantic highlighting, symbol resolving, and diagnostics support
 dev-util/gnome-builder:d-spy - Provide D-Bus debugging functionality via dev-debug/d-spy
 dev-util/gnome-builder:flatpak - Enable support for flatpak applications using sys-apps/flatpak
 dev-util/gnome-builder:git - Provide support for the Git version control system via dev-libs/libgit2-glib (such as setup of Git for New Project, direct cloning for Open Project and changed lines indicators in the editor gutter)
@@ -3448,7 +3446,7 @@ gnustep-apps/sogo:sodium - Enable support for Argon2 password schemes using dev-
 gnustep-base/gnustep-back-art:xim - Enable X11 XiM input method
 gnustep-base/gnustep-back-cairo:xim - Enable X11 XiM input method
 gnustep-base/gnustep-back-xlib:xim - Enable X11 XiM input method
-gnustep-base/gnustep-make:libobjc2 - Enables use of the GNUstep Objective-C runtime (gnustep-base/libobjc2) with non-fragile ABI and sys-devel/clang compiler
+gnustep-base/gnustep-make:libobjc2 - Enables use of the GNUstep Objective-C runtime (gnustep-base/libobjc2) with non-fragile ABI and llvm-core/clang compiler
 gnustep-base/gnustep-make:native-exceptions - Enables use of the native Objective-C exception support (@try/@catch/@finally) built-in objective-c exceptions with compilers that support it
 gui-apps/foot:grapheme-clustering - Enable grapheme clustering support
 gui-apps/grim:jpeg - Enable JPEG support.
@@ -3719,6 +3717,68 @@ kde-plasma/plasma-workspace:screencast - Enable screencast portal using kde-plas
 kde-plasma/plasma-workspace:telemetry - Enable User Feedback control module for kde-plasma/systemsettings
 kde-plasma/plasma-workspace:wallpaper-metadata - Show metadata for image wallpaper plugin using kde-apps/libkexiv2
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
+llvm-core/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
+llvm-core/clang:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
+llvm-core/clang:static-analyzer - Install the Clang static analyzer
+llvm-core/clang-common:bootstrap-prefix - !!internal use only!! DO NOT SET THIS FLAG YOURSELF!, used for bootstrapping Gentoo Prefix
+llvm-core/clang-common:cet - Enable support for control flow hijacking protection. On amd64, this provides Intel Control Flow Enforcement Technology (CET). Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either.
+llvm-core/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
+llvm-core/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
+llvm-core/clang-common:default-lld - Use lld as the default linker for clang
+llvm-core/clang-common:stricter - Default to stricter behavior known from newer clang versions, turning more warnings into errors
+llvm-core/clang-runtime:compiler-rt - Install llvm-runtimes/compiler-rt for -rtlib=compiler-rt
+llvm-core/clang-runtime:libcxx - Install llvm-runtimes/libcxx for -stdlib=libc++
+llvm-core/clang-runtime:offload - Install llvm-runtimes/offload for -fopenmp GPU offloading
+llvm-core/clang-runtime:openmp - Install llvm-runtimes/openmp for -fopenmp support
+llvm-core/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) support
+llvm-core/clang-toolchain-symlinks:gcc-symlinks - Install symlinks for 'gcc' and 'g++' for extra compatibility.
+llvm-core/clang-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
+llvm-core/clang-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'cc' and 'c++', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/gcc-config but they can be helpful for GCC-free setups.
+llvm-core/libclc:spirv - Build SPIRV targets
+llvm-core/lld-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
+llvm-core/lld-toolchain-symlinks:native-symlinks - Install generic 'ld' symlink, as well as ${CTARGET}-ld. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
+llvm-core/lldb:debuginfod - Expose the transitive dependencies on net-misc/curl and dev-cpp/cpp-httplib) to match llvm-core/llvm.
+llvm-core/llvm:binutils-plugin - Build the binutils plugin
+llvm-core/llvm:debuginfod - Install llvm-debuginfod (requires net-misc/curl and dev-cpp/cpp-httplib)
+llvm-core/llvm:doc - Build and install the HTML documentation and regenerate the man pages
+llvm-core/llvm:exegesis - Enable performance counter support for llvm-exegesis tool that can be used to measure host machine instruction characteristics
+llvm-core/llvm:ncurses - Support querying terminal properties using ncurses' terminfo
+llvm-core/llvm:xar - Support dumping LLVM bitcode sections in Mach-O files (uses app-arch/xar)
+llvm-core/llvm:z3 - Enable support for sci-mathematics/z3 constraint solver
+llvm-core/llvm-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
+llvm-core/llvm-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'objdump' and 'ranlib', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
+llvm-runtimes/compiler-rt:atomic-builtins - Compile atomic builtins into compiler-rt.builtins. This is needed on systems without GCC/libatomic, but requires using Clang to build.
+llvm-runtimes/compiler-rt:clang - Force building using installed clang (rather than the default CC/CXX).
+llvm-runtimes/compiler-rt-sanitizers:asan - Build Address Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:cfi - Build Control Flow Integrity runtime.
+llvm-runtimes/compiler-rt-sanitizers:clang - Force building using installed clang (rather than the default CC/CXX).
+llvm-runtimes/compiler-rt-sanitizers:ctx-profile - Build ctx profiling runtime.
+llvm-runtimes/compiler-rt-sanitizers:dfsan - Build Data Flow Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:gwp-asan - Build GWP-ASAN runtime.
+llvm-runtimes/compiler-rt-sanitizers:hwasan - Build Hardware ASAN runtime.
+llvm-runtimes/compiler-rt-sanitizers:libfuzzer - Build fuzzing runtime.
+llvm-runtimes/compiler-rt-sanitizers:lsan - Build Leak Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:memprof - Build memory profiler runtime.
+llvm-runtimes/compiler-rt-sanitizers:msan - Build Memory Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:nsan - Build Numerical Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:orc - Build ORC runtime.
+llvm-runtimes/compiler-rt-sanitizers:profile - Build profiling runtime.
+llvm-runtimes/compiler-rt-sanitizers:rtsan - Build Realtime Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:safestack - Build SafeStack runtime.
+llvm-runtimes/compiler-rt-sanitizers:scudo - Build Scudo Hardened Allocator.
+llvm-runtimes/compiler-rt-sanitizers:shadowcallstack - Build ShadowCallStack.
+llvm-runtimes/compiler-rt-sanitizers:tsan - Build Thread Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:ubsan - Build Undefined Behavior Sanitizer runtime.
+llvm-runtimes/compiler-rt-sanitizers:xray - Build XRay runtime.
+llvm-runtimes/libcxx:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
+llvm-runtimes/libcxx:libcxxabi - Build on top of llvm-runtimes/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
+llvm-runtimes/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
+llvm-runtimes/libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
+llvm-runtimes/offload:ompt - Enable OpenMP Tools Interface support
+llvm-runtimes/openmp:gdb-plugin - Build OMPD GDB plugin
+llvm-runtimes/openmp:hwloc - Enable CPU affinity support via hwloc
+llvm-runtimes/openmp:offload - Support offloading OpenMP using libomptarget
+llvm-runtimes/openmp:ompt - Enable OpenMP Tools Interface support
 lxqt-base/liblxqt:backlight - Enable backlight control features.
 lxqt-base/lxqt-config:monitor - Build monitor settings tool
 lxqt-base/lxqt-config:touchpad - Build touchpad settings tool
@@ -4441,7 +4501,7 @@ media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
 media-libs/opusfile:http - Enable http connections
 media-libs/osl:gui - Build the osltoy binary (with Qt5)
-media-libs/osl:libcxx - Build against sys-libs/libcxx when using clang
+media-libs/osl:libcxx - Build against llvm-runtimes/libcxx when using clang
 media-libs/osl:nofma - Do not use Fuse-Multiply-Add operations
 media-libs/osl:optix - Add support for NVIDIA's OptiX Raytracing Engine
 media-libs/osl:partio - Use media-libs/partio
@@ -4887,7 +4947,7 @@ media-sound/supercollider:gpl3 - Build GPL-3 licensed code (recommended)
 media-sound/supercollider:server - Build with internal server
 media-sound/supercollider:vim - Enable the SCVIM user interface
 media-sound/supercollider:webengine - Enable the internal help system using QtWebengine
-media-sound/teamspeak-client:system-libcxx - Use sys-libs/libcxx instead of shipped libs.
+media-sound/teamspeak-client:system-libcxx - Use llvm-runtimes/libcxx instead of shipped libs.
 media-sound/teamspeak-client:system-quazip - Use dev-libs/quazip instead of shipped libs.
 media-sound/teamspeak-server:tsdns - Install TeamSpeaks own DNS service for handling multiple virtual servers.
 media-sound/upmpdcli:thirdparty - Enable streaming from Qobuz and Tidal external services
@@ -7612,7 +7672,7 @@ sci-physics/root:fortran - Compile included Fortran programs
 sci-physics/root:gdml - Enable GDML writer and reader
 sci-physics/root:http - Enable http server support including but not limited to fastcgi support
 sci-physics/root:jupyter - Install dependencies to enable ROOT's C++ kernel in Jupyter notebooks
-sci-physics/root:libcxx - Build ROOT against sys-libs/libcxx
+sci-physics/root:libcxx - Build ROOT against llvm-runtimes/libcxx
 sci-physics/root:minuit - Build ROOT's internal versions of minuit (fortran) and minuit2 (C++)
 sci-physics/root:pythia6 - Build the interface for sci-physics/pythia version 6.x
 sci-physics/root:pythia8 - Build the interface for sci-physics/pythia version 8.x
@@ -8164,23 +8224,6 @@ sys-devel/binutils-hppa64:multitarget - Adds support to binutils for cross compi
 sys-devel/binutils-hppa64:pgo - Build binutils with Profile Guided Optimization (PGO) and LTO
 sys-devel/binutils-hppa64:plugins - Enable plugin support in tools
 sys-devel/bpf-toolchain:bin-symlinks - Symlink executables to usr/bin to be in default PATH (conflicts with crossdev bpf, and crossdev is preferable for a fully featured toolchain)
-sys-devel/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
-sys-devel/clang:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
-sys-devel/clang:static-analyzer - Install the Clang static analyzer
-sys-devel/clang-common:bootstrap-prefix - !!internal use only!! DO NOT SET THIS FLAG YOURSELF!, used for bootstrapping Gentoo Prefix
-sys-devel/clang-common:cet - Enable support for control flow hijacking protection. On amd64, this provides Intel Control Flow Enforcement Technology (CET). Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either.
-sys-devel/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
-sys-devel/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
-sys-devel/clang-common:default-lld - Use lld as the default linker for clang
-sys-devel/clang-common:stricter - Default to stricter behavior known from newer clang versions, turning more warnings into errors
-sys-devel/clang-runtime:compiler-rt - Install sys-libs/compiler-rt for -rtlib=compiler-rt
-sys-devel/clang-runtime:libcxx - Install sys-libs/libcxx for -stdlib=libc++
-sys-devel/clang-runtime:offload - Install sys-libs/llvm-offload for -fopenmp GPU offloading
-sys-devel/clang-runtime:openmp - Install sys-libs/libomp for -fopenmp support
-sys-devel/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) support
-sys-devel/clang-toolchain-symlinks:gcc-symlinks - Install symlinks for 'gcc' and 'g++' for extra compatibility.
-sys-devel/clang-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
-sys-devel/clang-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'cc' and 'c++', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/gcc-config but they can be helpful for GCC-free setups.
 sys-devel/crosstool-ng:dtc - Require sys-apps/dtc
 sys-devel/crosstool-ng:lzip - Require app-arch/lzip
 sys-devel/crosstool-ng:meson - Require dev-build/meson
@@ -8218,17 +8261,6 @@ sys-devel/gcc-apple:objc++ - Build support for the Objective C++ language
 sys-devel/gcc-config:cc-wrappers - Install and manage 'cc' and 'f77' wrappers in /usr/bin. Otherwise ignore them.
 sys-devel/gcc-config:native-symlinks - Install native symlinks like 'gcc' or 'g++' to /usr/bin. Otherwise keep only ${CTARGET}-gcc and friends.
 sys-devel/gettext:git - When running `autopoint`, use git to store the internal development files; this requires git at runtime, but will be faster/smaller than raw archives
-sys-devel/lld-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
-sys-devel/lld-toolchain-symlinks:native-symlinks - Install generic 'ld' symlink, as well as ${CTARGET}-ld. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
-sys-devel/llvm:binutils-plugin - Build the binutils plugin
-sys-devel/llvm:debuginfod - Install llvm-debuginfod (requires net-misc/curl and dev-cpp/cpp-httplib)
-sys-devel/llvm:doc - Build and install the HTML documentation and regenerate the man pages
-sys-devel/llvm:exegesis - Enable performance counter support for llvm-exegesis tool that can be used to measure host machine instruction characteristics
-sys-devel/llvm:ncurses - Support querying terminal properties using ncurses' terminfo
-sys-devel/llvm:xar - Support dumping LLVM bitcode sections in Mach-O files (uses app-arch/xar)
-sys-devel/llvm:z3 - Enable support for sci-mathematics/z3 constraint solver
-sys-devel/llvm-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
-sys-devel/llvm-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'objdump' and 'ranlib', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
 sys-devel/sparse:gtk - Build the test-inspect utility (requires x11-libs/gtk+:3)
 sys-devel/sparse:llvm - Build the sparse-llvm utility
 sys-devel/sparse:xml - Build the c2xml utility (requires dev-libs/libxml2)
@@ -8371,29 +8403,6 @@ sys-kernel/vanilla-kernel:initramfs - Build initramfs along with the kernel.
 sys-libs/binutils-libs:64-bit-bfd - Support 64-bit targets even on 32-bit hosts (is ignored on 64-bit hosts)
 sys-libs/binutils-libs:cet - Enable Intel Control-flow Enforcement Technology.
 sys-libs/binutils-libs:multitarget - Enable all possible targets in libbfd
-sys-libs/compiler-rt:atomic-builtins - Compile atomic builtins into compiler-rt.builtins. This is needed on systems without GCC/libatomic, but requires using Clang to build.
-sys-libs/compiler-rt:clang - Force building using installed clang (rather than the default CC/CXX).
-sys-libs/compiler-rt-sanitizers:asan - Build Address Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:cfi - Build Control Flow Integrity runtime.
-sys-libs/compiler-rt-sanitizers:clang - Force building using installed clang (rather than the default CC/CXX).
-sys-libs/compiler-rt-sanitizers:ctx-profile - Build ctx profiling runtime.
-sys-libs/compiler-rt-sanitizers:dfsan - Build Data Flow Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:gwp-asan - Build GWP-ASAN runtime.
-sys-libs/compiler-rt-sanitizers:hwasan - Build Hardware ASAN runtime.
-sys-libs/compiler-rt-sanitizers:libfuzzer - Build fuzzing runtime.
-sys-libs/compiler-rt-sanitizers:lsan - Build Leak Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:memprof - Build memory profiler runtime.
-sys-libs/compiler-rt-sanitizers:msan - Build Memory Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:nsan - Build Numerical Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:orc - Build ORC runtime.
-sys-libs/compiler-rt-sanitizers:profile - Build profiling runtime.
-sys-libs/compiler-rt-sanitizers:rtsan - Build Realtime Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:safestack - Build SafeStack runtime.
-sys-libs/compiler-rt-sanitizers:scudo - Build Scudo Hardened Allocator.
-sys-libs/compiler-rt-sanitizers:shadowcallstack - Build ShadowCallStack.
-sys-libs/compiler-rt-sanitizers:tsan - Build Thread Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:ubsan - Build Undefined Behavior Sanitizer runtime.
-sys-libs/compiler-rt-sanitizers:xray - Build XRay runtime.
 sys-libs/freeipmi:nagios - Install a nagios plugin to check sensors' status.
 sys-libs/freeipmi:without-root - Configure whether or not to check for root access in ipmi tools.
 sys-libs/gdbm:berkdb - enable compatibility layer for UNIX-like dbm and ndbm interfaces
@@ -8429,27 +8438,18 @@ sys-libs/libblockdev:nvme - Add nvme support via sys-libs/libnvme
 sys-libs/libblockdev:tools - Build tools
 sys-libs/libblockdev:vdo - Enable Virtual Data Optimizer support.
 sys-libs/libcap:tools - Install captree, which requires dev-lang/go
-sys-libs/libcxx:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
-sys-libs/libcxx:libcxxabi - Build on top of sys-libs/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
-sys-libs/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 sys-libs/libnbd:fuse - Install the sys-fs/fuse powered nbdfuse.
 sys-libs/libnbd:go - Build bindings for dev-lang/go
 sys-libs/libnbd:uri-support - Enable nbd:// URI support via dev-libs/libxml2.
 sys-libs/libnvme:json - Support JSON output via dev-libs/json-c
 sys-libs/libnvme:keyutils - Add support for sys-apps/keyutils
 sys-libs/libnvme:uuid - UUID support via sys-apps/util-linux
-sys-libs/libomp:gdb-plugin - Build OMPD GDB plugin
-sys-libs/libomp:hwloc - Enable CPU affinity support via hwloc
-sys-libs/libomp:offload - Support offloading OpenMP using libomptarget
-sys-libs/libomp:ompt - Enable OpenMP Tools Interface support
 sys-libs/libseccomp:experimental-loong - Add experimental LoongArch patchset
 sys-libs/libunwind:debug-frame - Adds support for DWARF .debug_frame section: Use the information from this section if available
 sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operations
 sys-libs/libxcrypt:compat - Build with compatibility interfaces for other crypt implementations
 sys-libs/libxcrypt:headers-only - Build and install only the headers.
 sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alternate directory (will collide with sys-libs/glibc's version)
-sys-libs/llvm-libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
-sys-libs/llvm-offload:ompt - Enable OpenMP Tools Interface support
 sys-libs/minizip-ng:compat - Enable compatibility with sys-libs/zlib's USE=minizip
 sys-libs/minizip-ng:openssl - Use dev-libs/openssl for further encryption capabilities
 sys-libs/musl-nscd:minimal - Only installs the header files

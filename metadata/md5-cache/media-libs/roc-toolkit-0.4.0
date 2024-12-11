@@ -1,6 +1,6 @@
 BDEPEND=dev-util/ragel virtual/pkgconfig test? ( dev-util/cpputest ) tools? ( dev-util/gengetopt ) || ( ( dev-lang/python:3.13 >=dev-build/scons-4.4.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-build/scons-4.4.0[python_targets_python3_10(-)] ) )
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=>=dev-libs/libuv-1.35.0:= >=media-libs/openfec-1.4.2.9 >=media-libs/speexdsp-1.2.0 alsa? ( >=media-libs/alsa-lib-1.1.9 ) pulseaudio? ( >=media-libs/libpulse-12.2 ) sox? ( >=media-sound/sox-14.4.2 ) sndfile? ( >=media-libs/libsndfile-1.0.28 ) ssl? ( >=dev-libs/openssl-3.0.8:= ) unwind? ( llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( >=sys-libs/libunwind-1.2.1:= ) )
+DEPEND=>=dev-libs/libuv-1.35.0:= >=media-libs/openfec-1.4.2.9 >=media-libs/speexdsp-1.2.0 alsa? ( >=media-libs/alsa-lib-1.1.9 ) pulseaudio? ( >=media-libs/libpulse-12.2 ) sox? ( >=media-sound/sox-14.4.2 ) sndfile? ( >=media-libs/libsndfile-1.0.28 ) ssl? ( >=dev-libs/openssl-3.0.8:= ) unwind? ( llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( >=sys-libs/libunwind-1.2.1:= ) )
 DESCRIPTION=Real-time audio streaming over the network
 EAPI=8
 HOMEPAGE=https://roc-streaming.org/toolkit/docs/ https://github.com/roc-streaming/roc-toolkit/
@@ -8,9 +8,9 @@ INHERIT=python-any-r1 scons-utils toolchain-funcs
 IUSE=alsa llvm-libunwind pulseaudio sox sndfile ssl tools test unwind
 KEYWORDS=amd64
 LICENSE=MPL-2.0
-RDEPEND=>=dev-libs/libuv-1.35.0:= >=media-libs/openfec-1.4.2.9 >=media-libs/speexdsp-1.2.0 alsa? ( >=media-libs/alsa-lib-1.1.9 ) pulseaudio? ( >=media-libs/libpulse-12.2 ) sox? ( >=media-sound/sox-14.4.2 ) sndfile? ( >=media-libs/libsndfile-1.0.28 ) ssl? ( >=dev-libs/openssl-3.0.8:= ) unwind? ( llvm-libunwind? ( sys-libs/llvm-libunwind:= ) !llvm-libunwind? ( >=sys-libs/libunwind-1.2.1:= ) )
+RDEPEND=>=dev-libs/libuv-1.35.0:= >=media-libs/openfec-1.4.2.9 >=media-libs/speexdsp-1.2.0 alsa? ( >=media-libs/alsa-lib-1.1.9 ) pulseaudio? ( >=media-libs/libpulse-12.2 ) sox? ( >=media-sound/sox-14.4.2 ) sndfile? ( >=media-libs/libsndfile-1.0.28 ) ssl? ( >=dev-libs/openssl-3.0.8:= ) unwind? ( llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( >=sys-libs/libunwind-1.2.1:= ) )
 RESTRICT=!test? ( test )
 SLOT=0/0.4
 SRC_URI=https://github.com/roc-streaming/roc-toolkit/archive/refs/tags/v0.4.0.tar.gz -> roc-toolkit-0.4.0.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	scons-utils	87365f855ad8a7c4572ad0f0adcb8eee
-_md5_=48bb431e67be93642158dd0111d79eac
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	scons-utils	87365f855ad8a7c4572ad0f0adcb8eee
+_md5_=2e53d8c9f85e48ff8cb0da54a5126964
