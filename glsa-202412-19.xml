@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-19">
+    <title>eza: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in eza, which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">eza</product>
+    <announced>2024-12-11</announced>
+    <revised count="1">2024-12-11</revised>
+    <bug>926532</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/eza" auto="yes" arch="*">
+            <unaffected range="ge">0.18.6</unaffected>
+            <vulnerable range="lt">0.18.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>eza is a modern, maintained replacement for ls, written in rust.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in eza. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A buffer overflow vulnerability in eza allows local attackers to execute arbitrary code via the .git/HEAD, .git/refs, and .git/objects components.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All eza users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/eza-0.18.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-25817">CVE-2024-25817</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-11T12:01:47.731410Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-11T12:01:47.734155Z">graaff</metadata>
+</glsa>
