@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-18">
+    <title>Distrobox: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Distrobox, which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">distrobox</product>
+    <announced>2024-12-11</announced>
+    <revised count="1">2024-12-11</revised>
+    <bug>927742</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-containers/distrobox" auto="yes" arch="*">
+            <unaffected range="ge">1.7.0.1</unaffected>
+            <vulnerable range="lt">1.7.0.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Use any Linux distribution inside your terminal. Enable both backward and forward compatibility with software and freedom to use whatever distribution you’re more comfortable with. Distrobox uses podman, docker or lilipod to create containers using the Linux distribution of your choice. The created container will be tightly integrated with the host, allowing sharing of the HOME directory of the user, external storage, external USB devices and graphical apps (X11/Wayland), and audio.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Distrobox. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Distrobox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/distrobox-1.7.0.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-29864">CVE-2024-29864</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-11T11:59:52.896177Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-11T11:59:52.901538Z">graaff</metadata>
+</glsa>
