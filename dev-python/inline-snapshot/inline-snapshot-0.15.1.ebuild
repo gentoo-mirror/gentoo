@@ -39,7 +39,7 @@ BDEPEND="
 		' 'python*')
 		dev-python/pydantic[${PYTHON_USEDEP}]
 		>=dev-python/pytest-freezer-0.4.8[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
+		>=dev-python/pytest-mock-3.14.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-subtests-0.11.0[${PYTHON_USEDEP}]
 	)
 "
