@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Replacement for the .NET runtime and class libraries in Wine
+EAPI=8
+HOMEPAGE=https://gitlab.winehq.org/wine/wine/-/wikis/Wine-Mono/ https://gitlab.winehq.org/mono/wine-mono/
+IUSE=+shared
+KEYWORDS=amd64 x86
+LICENSE=BSD-2 GPL-2 LGPL-2.1 MIT MPL-1.1
+SLOT=9.3.1
+SRC_URI=shared? ( https://github.com/madewokherd/wine-mono/releases/download/wine-mono-9.3.1/wine-mono-9.3.1-x86.tar.xz ) !shared? ( https://github.com/madewokherd/wine-mono/releases/download/wine-mono-9.3.1/wine-mono-9.3.1-x86.msi )
+_md5_=4d7042da002e027055dd9b5874fc2964
