@@ -907,7 +907,7 @@ app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.36.9 1.36.12 1.36.17 1.36.18: Universal Command Line Environment for AWS
+app-admin/awscli 1.36.9 1.36.12 1.36.17 1.36.18 1.36.19: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.9.0-r1 2024.11.2: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2: Distribution-independent installer framework
@@ -4050,7 +4050,7 @@ dev-debug/gef 2023.08 2024.01 2024.06 9999: GDB Enhanced Features for exploit de
 dev-debug/gprofng-gui 1.1 9999: Full-fledged graphical interface to operate gprofng
 dev-debug/kdbg 3.1.0: Graphical debugger interface
 dev-debug/leaktracer 2.4-r3: Trace and analyze memory leaks in C++ programs
-dev-debug/lldb 15.0.7 16.0.6 16.0.6-r1 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: The LLVM debugger
+dev-debug/lldb 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: The LLVM debugger
 dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
 dev-debug/pwndbg 20240214 20240829 99999999: A GDB plug-in that makes debugging with GDB suck less
@@ -8151,8 +8151,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0 1.2.0 1.2.1 1.3.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.35.68 1.35.71 1.35.76 1.35.77: The AWS SDK for Python
-dev-python/botocore 1.35.68 1.35.71 1.35.76 1.35.77: Low-level, data-driven core of boto 3
+dev-python/boto3 1.35.68 1.35.71 1.35.76 1.35.77 1.35.78: The AWS SDK for Python
+dev-python/botocore 1.35.68 1.35.71 1.35.76 1.35.77 1.35.78: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8410,7 +8410,7 @@ dev-python/flit 3.10.1: Simplified packaging of Python modules
 dev-python/flit-core 3.10.1: Simplified packaging of Python modules (core module)
 dev-python/flit-scm 1.7.0: A PEP 518 build backend combining flit with setuptools_scm
 dev-python/flufl-lock 8.1.0: NFS-safe file locking with timeouts for POSIX systems
-dev-python/fonttools 4.53.0 4.53.1 4.54.0 4.54.1 4.55.0 4.55.1 4.55.2: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
+dev-python/fonttools 4.53.0 4.53.1 4.54.0 4.54.1 4.55.0 4.55.1 4.55.2 4.55.3: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/fpylll 0.6.1: Python bindings for sci-libs/fplll
 dev-python/fqdn 1.5.1-r2: RFC-compliant FQDN validation and manipulation for Python
 dev-python/freetype-py 2.4.0-r1 2.5.1: FreeType Python bindings
@@ -17373,7 +17373,7 @@ sys-devel/binutils-config 5.5 5.5.2 9999: Utility to change the binutils version
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r1 2.43-r2: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2: A general-purpose (yacc-compatible) parser generator
 sys-devel/bpf-toolchain 14.2.0_p1: All-in-one bpf toolchain for building DTrace and systemd without crossdev
-sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: C language family frontend for LLVM
+sys-devel/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: C language family frontend for LLVM
 sys-devel/clang-common 15.0.7-r10 16.0.6-r6 17.0.6-r9 17.0.6-r10 18.1.8-r3 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: Common files shared between multiple slots of clang
 sys-devel/clang-crossdev-wrappers 16 17 18 19: Symlinks to a Clang crosscompiler
 sys-devel/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: Meta-ebuild for clang runtime libraries
@@ -17395,7 +17395,7 @@ sys-devel/icecream 1.4-r1: Distributed compiler with a central scheduler to shar
 sys-devel/kgcc64 10.5.0 11.5.0 12.4.0 12.4.1_p20241031 12.4.1_p20241114 13.3.1_p20241025 13.3.1_p20241115 14.2.1_p20241116: 64bit kernel compiler
 sys-devel/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: The LLVM linker (link editor)
 sys-devel/lld-toolchain-symlinks 15-r2 16-r2 17 18 19 20: Symlinks to use LLD on binutils-free system
-sys-devel/llvm 15.0.7-r3 15.0.7-r7 16.0.6 16.0.6-r5 17.0.6 17.0.6-r3 18.1.8-r1 18.1.8-r4 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: Low Level Virtual Machine
+sys-devel/llvm 15.0.7-r7 16.0.6-r5 17.0.6-r3 18.1.8-r6 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: Low Level Virtual Machine
 sys-devel/llvm-common 15.0.7 16.0.6 17.0.6 18.1.8 19.1.4 19.1.5 20.0.0_pre20241130 20.0.0_pre20241207 20.0.0.9999: Common files shared between multiple slots of LLVM
 sys-devel/llvm-toolchain-symlinks 15-r1 16-r1 17-r1 18-r1 19 20: Symlinks to use LLVM on binutils-free system
 sys-devel/llvmgold 15 16 17 18 19 20: LLVMgold plugin symlink for autoloading
