@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install postinst pretend setup unpack
+DESCRIPTION=Default Akonadi storage backend configuration
+EAPI=8
+HOMEPAGE=https://userbase.kde.org/Tutorials/Shared_Database#Akonadi
+INHERIT=optfeature
+IUSE=+mysql postgres sqlite
+KEYWORDS=~amd64 ~arm64
+LICENSE=public-domain
+RDEPEND=!<kde-apps/akonadi-24.11.80 dev-qt/qtbase:6[mysql?,postgres?,sqlite?] mysql? ( virtual/mysql ) postgres? ( dev-db/postgresql )
+REQUIRED_USE=|| ( mysql postgres sqlite )
+SLOT=0
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54
+_md5_=44101e9265253b5c7b3d5c9f5966d9ea
