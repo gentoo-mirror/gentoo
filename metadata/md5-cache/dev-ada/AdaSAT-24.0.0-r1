@@ -1,3 +1,4 @@
+BDEPEND=test? ( dev-ada/e3-testsuite )
 DEFINED_PHASES=compile install setup test
 DEPEND=dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_14(-),-ada_target_gcc_15(-)]
 DESCRIPTION=Implementation of a DPLL-based SAT solver in Ada
@@ -12,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/AdaSAT/archive/refs/tags/v24.0.0.tar.gz -> AdaSAT-24.0.0.tar.gz
 _eclasses_=ada	52be8ce94a99ffc6c79fa19238c690f2	multiprocessing	1e32df7deee68372153dca65f4a7c21f
-_md5_=49bfdae61551c0d66b74eb5c4824e13d
+_md5_=086610e0b2af27554c0629266316cdb0
