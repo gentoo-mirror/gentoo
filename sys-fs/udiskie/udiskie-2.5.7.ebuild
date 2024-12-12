@@ -1,8 +1,8 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi xdg-utils
 
@@ -20,7 +20,8 @@ RDEPEND="dev-python/docopt[${PYTHON_USEDEP}]
 	sys-fs/udisks:2
 	libnotify? ( x11-libs/libnotify[introspection] )"
 DEPEND="app-text/asciidoc
-	test? ( dev-python/keyutils[${PYTHON_USEDEP}] )"
+	test? ( dev-python/keyutils[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
 
