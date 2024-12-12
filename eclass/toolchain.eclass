@@ -204,7 +204,7 @@ GCCMICRO=$(ver_cut 3 ${GCC_PV})
 # @INTERNAL
 # @DESCRIPTION:
 # Controls whether fixincludes should be used.
-GCC_RUN_FIXINCLUDES=0
+: "${GCC_RUN_FIXINCLUDES:=0}"
 
 tc_use_major_version_only() {
 	local use_major_version_only=0
@@ -2494,11 +2494,7 @@ toolchain_src_install() {
 
 	if [[ ${GCC_RUN_FIXINCLUDES} == 0 ]] ; then
 		# We remove the generated fixincludes, as they can cause things to break
-		# (ncurses, openssl, etc).  We do not prevent them from being built, as
-		# in the following commit which we revert:
-		# https://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/eclass/toolchain.eclass?r1=1.647&r2=1.648
-		# This is because bsd userland needs fixedincludes to build gcc, while
-		# linux does not.  Both can dispose of them afterwards.
+		# (ncurses, openssl, etc).
 		while read x ; do
 			grep -q 'It has been auto-edited by fixincludes from' "${x}" \
 				&& rm -f "${x}"
@@ -2518,8 +2514,6 @@ toolchain_src_install() {
 		pushd "${WORKDIR}"/build-jit > /dev/null || die
 		S="${WORKDIR}"/build-jit emake DESTDIR="${D}" -j1 install
 
-		# Punt some tools which are really only useful while building gcc
-		find "${ED}" -name install-tools -prune -type d -exec rm -rf "{}" \; || die
 		# This one comes with binutils
 		find "${ED}" -name libiberty.a -delete || die
 
@@ -2542,8 +2536,6 @@ toolchain_src_install() {
 	# - https://gcc.gnu.org/PR109898
 	S="${WORKDIR}"/build emake DESTDIR="${D}" -j1 install
 
-	# Punt some tools which are really only useful while building gcc
-	find "${ED}" -name install-tools -prune -type d -exec rm -rf "{}" \; || die
 	# This one comes with binutils
 	find "${ED}" -name libiberty.a -delete || die
 
