@@ -1,0 +1,16 @@
+BDEPEND=>=dev-python/pyqt-builder-1.17[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/sip-6.9[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-qt/qtbase-6.8:6 python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/sip-6.8.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-python/pyqt6-6.8[gui,ssl,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-qt/qtbase-6.8:6[gui,widgets?] >=dev-qt/qtwebengine-6.8:6[widgets] quick? ( dev-python/pyqt6[qml] >=dev-qt/qtwebengine-6.8:6[qml] ) widgets? ( dev-python/pyqt6[network,printsupport,webchannel,widgets] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+DESCRIPTION=Python bindings for QtWebEngine
+EAPI=8
+HOMEPAGE=https://www.riverbankcomputing.com/software/pyqtwebengine/
+INHERIT=distutils-r1 flag-o-matic multiprocessing pypi qmake-utils
+IUSE=debug quick +widgets python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3
+RDEPEND=>=dev-python/pyqt6-6.8[gui,ssl,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-qt/qtbase-6.8:6[gui,widgets?] >=dev-qt/qtwebengine-6.8:6[widgets] quick? ( dev-python/pyqt6[qml] >=dev-qt/qtwebengine-6.8:6[qml] ) widgets? ( dev-python/pyqt6[network,printsupport,webchannel,widgets] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/P/PyQt6_WebEngine/PyQt6_WebEngine-6.8.0.tar.gz
+_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df	pypi	ad1b21f87d117ae9bb089bdb65b8f013	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=1db6d2293cb393858616b4dfa9c63e98
