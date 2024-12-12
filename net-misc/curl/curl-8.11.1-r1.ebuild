@@ -158,6 +158,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 PATCHES=(
 	"${FILESDIR}/${PN}-prefix-3.patch"
 	"${FILESDIR}/${PN}-respect-cflags-3.patch"
+	"${FILESDIR}/${P}-async-thread-close-eventfd.patch"
 )
 
 src_prepare() {
