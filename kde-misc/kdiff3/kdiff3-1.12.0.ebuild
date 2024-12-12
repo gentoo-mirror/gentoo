@@ -4,8 +4,8 @@
 EAPI=8
 
 ECM_HANDBOOK="optional"
-KFMIN=6.3.0
-QTMIN=6.6.2
+KFMIN=6.6.0
+QTMIN=6.7.2
 inherit ecm kde.org
 
 DESCRIPTION="Frontend to diff3 based on KDE Frameworks"
@@ -14,11 +14,11 @@ SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE=""
 
 COMMON_DEPEND="
-	>=dev-qt/qt5compat-${QTMIN}:6
+	>=dev-libs/icu-70.0:=
 	>=dev-qt/qtbase-${QTMIN}:6[gui,widgets]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -38,10 +38,6 @@ RDEPEND="${COMMON_DEPEND}
 	sys-apps/diffutils
 "
 
-src_configure() {
-	local mycmakeargs=(
-		-DBUILD_WITH_QT6=ON
-		# TODO: -DENABLE_GDBINDEX?
-	)
-	ecm_src_configure
-}
+PATCHES=( "${FILESDIR}/${P}-bogus-dep.patch" )
+
+# TODO: -DENABLE_GDBINDEX?
