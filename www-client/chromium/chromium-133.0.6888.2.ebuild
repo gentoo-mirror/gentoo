@@ -373,11 +373,6 @@ src_prepare() {
 	# Calling this here supports resumption via FEATURES=keepwork
 	python_setup
 
-	# disable global media controls, crashes with libstdc++
-	sed -i -e \
-		"/\"GlobalMediaControlsCastStartStop\"/,+4{s/ENABLED/DISABLED/;}" \
-		"chrome/browser/media/router/media_router_feature.cc"
-
 	local PATCHES=(
 		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/chromium-109-system-zlib.patch"
@@ -385,7 +380,6 @@ src_prepare() {
 		"${FILESDIR}/chromium-131-unbundle-icu-target.patch"
 		"${FILESDIR}/chromium-131-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-132-bindgen-custom-toolchain.patch"
-		"${FILESDIR}/chromium-133-openh264-decoder-source-set.patch"
 	)
 
 	shopt -s globstar nullglob
@@ -654,6 +648,7 @@ src_prepare() {
 		third_party/sentencepiece
 		third_party/sentencepiece/src/third_party/darts_clone
 		third_party/shell-encryption
+		third_party/simdutf
 		third_party/simplejson
 		third_party/six
 		third_party/skia

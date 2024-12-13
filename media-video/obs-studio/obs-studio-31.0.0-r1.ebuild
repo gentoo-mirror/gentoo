@@ -67,7 +67,7 @@ DEPEND="
 	media-libs/libva
 	media-libs/rnnoise
 	media-libs/x264:=
-	media-video/ffmpeg:=[nvenc?,opus,x264]
+	>=media-video/ffmpeg-6.1:=[nvenc?,opus,x264]
 	net-misc/curl
 	net-libs/mbedtls:=
 	sys-apps/dbus
