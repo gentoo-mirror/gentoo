@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-text/scdoc virtual/pkgconfig test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-text/scdoc virtual/pkgconfig test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-debug/systemtap ) vaapi? ( media-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
 DESCRIPTION=Transparent network proxy for Wayland compositors
@@ -13,4 +13,4 @@ REQUIRED_USE=vaapi? ( ffmpeg )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=bd6aa8bb884d212e2408f7b7ee57ee94
+_md5_=6af3d2d91af587373e07238fb2b53c75
