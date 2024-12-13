@@ -10,12 +10,12 @@ HOMEPAGE="https://github.com/bazelbuild/bazelisk/"
 SRC_URI="
 	https://github.com/bazelbuild/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.tar.gz
-	https://dev.gentoo.org/~xgqt/distfiles/deps/${P}-deps.tar.xz
+	https://dev.gentoo.org/~xgqt/distfiles/deps/${PN}-1.25.0-deps.tar.xz
 "
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+bazel-symlink"
 
 DOCS=( CONTRIBUTING.md README.md )

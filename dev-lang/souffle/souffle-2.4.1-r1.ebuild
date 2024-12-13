@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit bash-completion-r1 cmake java-pkg-opt-2 python-single-r1
 
@@ -19,7 +19,7 @@ else
 	SRC_URI="https://github.com/souffle-lang/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="UPL-1.0"
