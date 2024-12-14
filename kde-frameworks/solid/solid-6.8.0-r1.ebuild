@@ -32,6 +32,8 @@ BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 "
 
+PATCHES=( "${FILESDIR}/${PN}-6.7.0-crashfix.patch" ) # KDE-bugs 497299, 492578
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package ios IMobileDevice)
