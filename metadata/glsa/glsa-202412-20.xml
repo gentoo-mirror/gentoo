@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-20">
+    <title>NVIDIA Drivers: Privilege Escalation</title>
+    <synopsis>Multiple vulnerabilities have been discovered in NVIDIA Drivers, the worst of which could result in privilege escalation.</synopsis>
+    <product type="ebuild">nvidia-drivers</product>
+    <announced>2024-12-14</announced>
+    <revised count="1">2024-12-14</revised>
+    <bug>942031</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-drivers/nvidia-drivers" auto="yes" arch="*">
+            <unaffected range="ge">535.216.01</unaffected>
+            <unaffected range="ge">550.127.05</unaffected>
+            <vulnerable range="lt">535.216.01</vulnerable>
+            <vulnerable range="lt">550.127.05</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>NVIDIA Drivers are NVIDIA&#39;s accelerated graphics driver.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in NVIDIA Drivers. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All NVIDIA Drivers 535 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-535.216.01:0/535"
+        </code>
+        
+        <p>All NVIDIA Drivers 550 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-550.127.05:0/550"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0126">CVE-2024-0126</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-14T11:01:53.093210Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-14T11:01:53.097240Z">graaff</metadata>
+</glsa>
