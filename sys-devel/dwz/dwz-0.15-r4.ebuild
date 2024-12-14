@@ -27,7 +27,7 @@ RDEPEND="
 	dev-libs/elfutils
 	dev-libs/xxhash
 	elibc_musl? (
-		<sys-libs/error-standalone-2.0
+		>=sys-libs/error-standalone-2.0
 		sys-libs/obstack-standalone
 	)
 "
@@ -56,8 +56,8 @@ src_compile() {
 
 	export LIBS="-lelf"
 	if use elibc_musl; then
-		export CFLAGS="${CFLAGS} $(${PKG_CONFIG} --cflags obstack-standalone)"
-		export LIBS="${LIBS} $(${PKG_CONFIG} --libs obstack-standalone)"
+		export CFLAGS="${CFLAGS} $(${PKG_CONFIG} --cflags obstack-standalone error-standalone)"
+		export LIBS="${LIBS} $(${PKG_CONFIG} --libs obstack-standalone error-standalone)"
 	fi
 
 	emake CFLAGS="${CFLAGS}" LIBS="${LIBS}" srcdir="${S}"

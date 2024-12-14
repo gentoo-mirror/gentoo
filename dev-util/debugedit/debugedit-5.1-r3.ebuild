@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit multiprocessing verify-sig
+inherit multiprocessing verify-sig toolchain-funcs
 
 DESCRIPTION="Create debuginfo and source file distributions"
 HOMEPAGE="https://sourceware.org/debugedit/"
@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 DEPEND="
 	>=dev-libs/elfutils-0.176-r1:=
 	>=dev-libs/xxhash-0.8:=
-	elibc_musl? ( <sys-libs/error-standalone-2.0 )
+	elibc_musl? ( >=sys-libs/error-standalone-2.0 )
 "
 RDEPEND="
 	${DEPEND}
@@ -44,6 +44,13 @@ src_prepare() {
 }
 
 src_configure() {
+	tc-export PKG_CONFIG
+
+	if use elibc_musl; then
+		export CFLAGS="${CFLAGS} $(${PKG_CONFIG} --cflags error-standalone)"
+		export LIBS="${LIBS} $(${PKG_CONFIG} --libs error-standalone)"
+	fi
+
 	local myconf=(
 		# avoid BDEP on dwz
 		DWZ=dwz
