@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KDE_ORG_COMMIT=216b664c2c574365c4cb818099c9a9b71b6d9142
+KDE_ORG_COMMIT=066e1474850994d00ce03c52194136eebd3ef65d
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm kde.org optfeature
@@ -27,6 +27,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
+	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
