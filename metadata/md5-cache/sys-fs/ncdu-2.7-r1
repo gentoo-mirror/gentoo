@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-yorhel ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) || ( dev-lang/zig:0.13 dev-lang/zig-bin:0.13 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=app-arch/zstd:= sys-libs/ncurses:=[unicode(+)]
+DESCRIPTION=NCurses Disk Usage
+EAPI=8
+HOMEPAGE=https://dev.yorhel.nl/ncdu https://code.blicky.net/yorhel/ncdu
+INHERIT=verify-sig zig
+IUSE=verify-sig
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-arch/zstd:= sys-libs/ncurses:=[unicode(+)]
+SLOT=0
+SRC_URI=https://dev.yorhel.nl/download/ncdu-2.7.tar.gz verify-sig? ( https://dev.yorhel.nl/download/ncdu-2.7.tar.gz.asc )
+_eclasses_=verify-sig	745dccb7d4656514f1e966cce314d7db	multiprocessing	1e32df7deee68372153dca65f4a7c21f	edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	zig-utils	52d461a2abcfdeb90344b40e902c0f6e	zig	f80fe3fcec92cab551ff46f36f74ca77
+_md5_=39ab71965debd36f43f7a73c79e14f66

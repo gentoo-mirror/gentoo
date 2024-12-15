@@ -1,17 +1,16 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=llvm? ( llvm_slot_19? ( llvm-core/clang:19 llvm-core/lld:19 llvm-core/llvm:19[zstd] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
 DEPEND=llvm? ( llvm_slot_19? ( llvm-core/clang:19 llvm-core/lld:19 llvm-core/llvm:19[zstd] ) )
 DESCRIPTION=A robust, optimal, and maintainable programming language
 EAPI=8
-HOMEPAGE=https://ziglang.org/
+HOMEPAGE=https://ziglang.org/ https://github.com/ziglang/zig/
 IDEPEND=app-eselect/eselect-zig
-INHERIT=check-reqs cmake edo llvm-r1 toolchain-funcs git-r3
+INHERIT=check-reqs cmake flag-o-matic edo llvm-r1 toolchain-funcs zig git-r3
 IUSE=doc +llvm +llvm_slot_19
 LICENSE=MIT Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT ) || ( Apache-2.0-with-LLVM-exceptions Apache-2.0 MIT BSD-2 ) public-domain BSD-2 ZPL ISC HPND BSD inner-net LGPL-2.1+
 PROPERTIES=live
 RDEPEND=llvm? ( llvm_slot_19? ( llvm-core/clang:19 llvm-core/lld:19 llvm-core/llvm:19[zstd] ) )
 REQUIRED_USE=!llvm? ( !doc ) llvm? ( ^^ ( llvm_slot_19 ) )
-RESTRICT=!llvm? ( test )
 SLOT=9999
-_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	82e169a45855e1a973292c8208318140	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=860bbf829ce44d39d3a6c9d6a67ae05d
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	c989cff79c0976415f459e367a83dff9	llvm-r1	82e169a45855e1a973292c8208318140	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	zig-utils	52d461a2abcfdeb90344b40e902c0f6e	zig	f80fe3fcec92cab551ff46f36f74ca77	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=e07fc250eccea14649be42a4d97be1f9
