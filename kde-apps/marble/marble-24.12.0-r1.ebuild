@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="optional" # see src/apps/marble-kde/CMakeLists.txt
-ECM_TEST="forceoptional"
+ECM_TEST="true"
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm gear.kde.org
@@ -38,11 +38,8 @@ DEPEND="
 		>=kde-frameworks/kcrash-${KFMIN}:6
 		>=kde-frameworks/ki18n-${KFMIN}:6
 		>=kde-frameworks/kio-${KFMIN}:6
-		>=kde-frameworks/knewstuff-${KFMIN}:6
 		>=kde-frameworks/kparts-${KFMIN}:6
 		>=kde-frameworks/krunner-${KFMIN}:6
-		>=kde-frameworks/kservice-${KFMIN}:6
-		>=kde-frameworks/kwallet-${KFMIN}:6
 	)
 	pbf? ( dev-libs/protobuf:= )
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
@@ -52,27 +49,36 @@ DEPEND="
 		>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	kde? (
+		dev-libs/kirigami-addons:6
+		>=dev-qt/qt5compat-${QTMIN}:6[qml]
+		>=kde-frameworks/kirigami-${KFMIN}:6
+	)
+"
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]
 	aprs? ( dev-lang/perl )
 "
 
+PATCHES=( # bug 946470
+	"${FILESDIR}/${P}-cmake-drop-qt_policy.patch"
+	"${FILESDIR}/${P}-cmake-behaim-marble-maps-kf6-conditional.patch"
+)
+
 src_prepare() {
 	ecm_src_prepare
 
-	rm -rf src/3rdparty/zlib || die "Failed to remove bundled libs"
+	rm -r src/3rdparty/zlib || die "Failed to remove bundled libs"
 }
 
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package aprs Perl)
 		$(cmake_use_find_package geolocation Qt6Positioning)
-		-DBUILD_MARBLE_TESTS=$(usex test)
 		-DBUILD_WITH_DBUS=$(usex dbus)
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
-		-DWITH_KF6=$(usex kde)
 		$(cmake_use_find_package pbf Protobuf)
 		-DWITH_Phonon4Qt6=$(usex phonon)
 		-DWITH_libshp=$(usex shapefile)
@@ -81,9 +87,10 @@ src_configure() {
 		# bug 608890
 		-DKDE_INSTALL_CONFDIR="/etc/xdg"
 	)
-	if use kde; then
-		ecm_src_configure
-	else
-		cmake_src_configure
-	fi
+	# KF6KIO: src/thumbnailer/CMakeLists.txt
+	# KF6Runner: src/plasmarunner/CMakeLists.txt
+	for x in CoreAddons I18n Config Crash KIO Parts Runner; do
+		mycmakeargs+=( $(cmake_use_find_package kde KF6${x}) )
+	done
+	ecm_src_configure
 }
