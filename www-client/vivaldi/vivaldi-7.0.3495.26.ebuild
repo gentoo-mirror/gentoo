@@ -133,7 +133,7 @@ RDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libxkbcommon
 	x11-libs/libXrandr
-	x11-libs/pango[X]
+	x11-libs/pango
 	gtk? ( gui-libs/gtk:4 x11-libs/gtk+:3 )
 	proprietary-codecs? (
 		!ffmpeg-chromium? ( >=media-video/ffmpeg-6.1-r1:0/58.60.60[chromium] )
