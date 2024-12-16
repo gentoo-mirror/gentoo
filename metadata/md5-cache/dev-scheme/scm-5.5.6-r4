@@ -3,7 +3,7 @@ DEFINED_PHASES=compile config install postinst prepare test
 DEPEND=>=dev-scheme/slib-3.1.5 dev-util/cproto ncurses? ( sys-libs/ncurses:0= ) readline? ( sys-libs/libtermcap-compat )
 DESCRIPTION=SCM is a Scheme implementation from the author of slib
 EAPI=8
-HOMEPAGE=http://swiss.csail.mit.edu/~jaffer/SCM
+HOMEPAGE=https://people.csail.mit.edu/jaffer/SCM.html
 INHERIT=toolchain-funcs
 IUSE=arrays bignums cautious dynamic-linking engineering-notation gsubr inexact ioext libscm macro ncurses posix readline regex sockets unix
 KEYWORDS=amd64 x86 ~amd64-linux
@@ -12,4 +12,4 @@ RDEPEND=>=dev-scheme/slib-3.1.5 dev-util/cproto ncurses? ( sys-libs/ncurses:0= )
 SLOT=0
 SRC_URI=http://groups.csail.mit.edu/mac/ftpdir/scm/scm-5e6.zip
 _eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=07017395446c4cc2cdbf118de46a1f7b
+_md5_=60c3ca0afe060a0d66bc900edc972f57
