@@ -29,7 +29,7 @@ esac
 if [[ -z ${_ECM_ECLASS} ]]; then
 _ECM_ECLASS=1
 
-inherit cmake flag-o-matic toolchain-funcs
+inherit cmake flag-o-matic
 
 if [[ ${EAPI} == 8 ]]; then
 # @ECLASS_VARIABLE: VIRTUALX_REQUIRED
@@ -39,23 +39,18 @@ if [[ ${EAPI} == 8 ]]; then
 # for tests you should proceed with setting VIRTUALX_REQUIRED=test.
 : "${VIRTUALX_REQUIRED:=manual}"
 
-inherit virtualx
+inherit toolchain-funcs virtualx
 fi
 
 # @ECLASS_VARIABLE: ECM_NONGUI
-# @DEFAULT_UNSET
 # @DESCRIPTION:
 # By default, for all CATEGORIES except kde-frameworks, assume we are building
 # a GUI application. Add dependency on kde-frameworks/breeze-icons or
-# kde-frameworks/oxygen-icons and run the xdg.eclass routines for pkg_preinst,
-# pkg_postinst and pkg_postrm. If set to "true", do nothing.
-if [[ ${CATEGORY} = kde-frameworks ]] ; then
-	: "${ECM_NONGUI:=true}"
-fi
+# kde-frameworks/oxygen-icons. With KFMIN lower than 6.9.0, inherit xdg.eclass,
+# run pkg_preinst, pkg_postinst and pkg_postrm. If set to "true", do nothing.
 : "${ECM_NONGUI:=false}"
-
-if [[ ${ECM_NONGUI} = false ]] ; then
-	inherit xdg
+if [[ ${CATEGORY} == kde-frameworks ]]; then
+	ECM_NONGUI=true
 fi
 
 # @ECLASS_VARIABLE: ECM_KDEINSTALLDIRS
@@ -181,6 +176,10 @@ if [[ ${CATEGORY} = kde-frameworks ]]; then
 fi
 : "${KFMIN:=5.116.0}"
 
+if ver_test ${KFMIN} -lt 6.9 && [[ ${ECM_NONGUI} == false ]]; then
+	inherit xdg
+fi
+
 # @ECLASS_VARIABLE: _KFSLOT
 # @INTERNAL
 # @DESCRIPTION:
@@ -196,6 +195,14 @@ else
 		_KFSLOT=6
 	fi
 fi
+
+# @ECLASS_VARIABLE: KDE_GCC_MINIMAL
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Minimum version of active GCC to require. This is checked in
+# ecm_pkg_pretend and ecm_pkg_setup.
+[[ ${KDE_GCC_MINIMAL} ]] && ver_test ${KFMIN} -ge 6.9 &&
+	die "KDE_GCC_MINIMAL has been banned with KFMIN >=6.9.0."
 
 case ${ECM_NONGUI} in
 	true) ;;
@@ -326,30 +333,6 @@ fi
 DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
-
-# @ECLASS_VARIABLE: KDE_GCC_MINIMAL
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Minimum version of active GCC to require. This is checked in
-# ecm_pkg_pretend and ecm_pkg_setup.
-
-# @FUNCTION: _ecm_check_gcc_version
-# @INTERNAL
-# @DESCRIPTION:
-# Determine if the current GCC version is acceptable, otherwise die.
-_ecm_check_gcc_version() {
-	if [[ ${MERGE_TYPE} != binary && -v KDE_GCC_MINIMAL ]] && tc-is-gcc; then
-
-		local version=$(gcc-version)
-
-		debug-print "GCC version check activated"
-		debug-print "Version detected: ${version}"
-		debug-print "Version required: ${KDE_GCC_MINIMAL}"
-
-		ver_test ${version} -lt ${KDE_GCC_MINIMAL} &&
-			die "Sorry, but gcc-${KDE_GCC_MINIMAL} or later is required for this package (found ${version})."
-	fi
-}
 
 # @FUNCTION: _ecm_strip_handbook_translations
 # @INTERNAL
@@ -496,22 +479,49 @@ ecm_punt_po_install() {
 		-i CMakeLists.txt || die
 }
 
+if [[ ${EAPI} == 8 ]]; then
+# @FUNCTION: _ecm_deprecated_check_gcc_version
+# @INTERNAL
+# @DESCRIPTION:
+# Determine if the current GCC version is acceptable, otherwise die.
+_ecm_deprecated_check_gcc_version() {
+	if ver_test ${KFMIN} -ge 6.9; then
+		eqawarn "QA notice: ecm_pkg_${1} has become a no-op."
+		eqawarn "It is no longer being exported with KFMIN >=6.9.0."
+		return
+	fi
+	if [[ ${MERGE_TYPE} != binary && -v KDE_GCC_MINIMAL ]] && tc-is-gcc; then
+
+		local version=$(gcc-version)
+
+		debug-print "GCC version check activated"
+		debug-print "Version detected: ${version}"
+		debug-print "Version required: ${KDE_GCC_MINIMAL}"
+
+		ver_test ${version} -lt ${KDE_GCC_MINIMAL} &&
+			die "Sorry, but gcc-${KDE_GCC_MINIMAL} or later is required for this package (found ${version})."
+	fi
+}
+
 # @FUNCTION: ecm_pkg_pretend
 # @DESCRIPTION:
 # Checks if the active compiler meets the minimum version requirements.
-# phase function is only exported if KDE_GCC_MINIMAL is defined.
+# Phase function is only exported if KFMIN is <6.9.0 and KDE_GCC_MINIMAL
+# is defined.
 ecm_pkg_pretend() {
 	debug-print-function ${FUNCNAME} "$@"
-	_ecm_check_gcc_version
+	_ecm_deprecated_check_gcc_version pretend
 }
 
 # @FUNCTION: ecm_pkg_setup
 # @DESCRIPTION:
 # Checks if the active compiler meets the minimum version requirements.
+# Phase function is only exported if KFMIN is <6.9.0.
 ecm_pkg_setup() {
 	debug-print-function ${FUNCNAME} "$@"
-	_ecm_check_gcc_version
+	_ecm_deprecated_check_gcc_version setup
 }
+fi
 
 # @FUNCTION: ecm_src_prepare
 # @DESCRIPTION:
@@ -579,7 +589,7 @@ ecm_src_prepare() {
 				diff -Naur ${f}.old ${f} 1>>${pf}
 				rm ${f}.old || die "Failed to clean up"
 			done
-			eqawarn "Build system was modified by ECM_TEST=forceoptional-recursive."
+			eqawarn "QA notice: Build system modified by ECM_TEST=forceoptional-recursive."
 			eqawarn "Unified diff file ready for pickup in:"
 			eqawarn "  ${pf}"
 			eqawarn "Push it upstream to make this message go away."
@@ -760,46 +770,58 @@ ecm_src_install() {
 	done
 }
 
+if [[ ${EAPI} == 8 ]]; then
+# @FUNCTION: _ecm_nongui_deprecated
+# @INTERNAL
+# @DESCRIPTION:
+# Carryall for ecm_pkg_preinst, ecm_pkg_postinst and ecm_pkg_postrm.
+_ecm_nongui_deprecated() {
+	if ver_test ${KFMIN} -ge 6.9; then
+		eqawarn "QA notice: ecm_pkg_${1} has become a no-op."
+		eqawarn "It is no longer being exported with KFMIN >=6.9.0."
+	else
+		case ${ECM_NONGUI} in
+			false) xdg_pkg_${1} ;;
+			*) ;;
+		esac
+	fi
+}
+
 # @FUNCTION: ecm_pkg_preinst
 # @DESCRIPTION:
 # Sets up environment variables required in ecm_pkg_postinst.
+# Phase function is only exported if KFMIN is <6.9.0.
 ecm_pkg_preinst() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	case ${ECM_NONGUI} in
-		false) xdg_pkg_preinst ;;
-		*) ;;
-	esac
+	_ecm_nongui_deprecated preinst
 }
 
 # @FUNCTION: ecm_pkg_postinst
 # @DESCRIPTION:
 # Updates the various XDG caches (icon, desktop, mime) if necessary.
+# Phase function is only exported if KFMIN is <6.9.0.
 ecm_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	case ${ECM_NONGUI} in
-		false) xdg_pkg_postinst ;;
-		*) ;;
-	esac
+	_ecm_nongui_deprecated postinst
 }
 
 # @FUNCTION: ecm_pkg_postrm
 # @DESCRIPTION:
 # Updates the various XDG caches (icon, desktop, mime) if necessary.
+# Phase function is only exported if KFMIN is <6.9.0.
 ecm_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	case ${ECM_NONGUI} in
-		false) xdg_pkg_postrm ;;
-		*) ;;
-	esac
+	_ecm_nongui_deprecated postrm
 }
+fi
 
 fi
 
-if [[ -v ${KDE_GCC_MINIMAL} ]]; then
-	EXPORT_FUNCTIONS pkg_pretend
+if ver_test ${KFMIN} -lt 6.9; then
+	EXPORT_FUNCTIONS pkg_setup pkg_preinst pkg_postinst pkg_postrm
+	if [[ -v ${KDE_GCC_MINIMAL} ]]; then
+		EXPORT_FUNCTIONS pkg_pretend
+	fi
 fi
 
-EXPORT_FUNCTIONS pkg_setup src_prepare src_configure src_test src_install pkg_preinst pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS src_prepare src_configure src_test src_install
