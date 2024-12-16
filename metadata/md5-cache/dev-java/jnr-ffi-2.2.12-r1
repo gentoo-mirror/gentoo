@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=dev-java/asm:9 >=dev-java/jffi-1.3.8:1.3 dev-java/jnr-a64asm:2 dev-java/jnr-x86asm:1.0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=dev-java/asm:9 >=dev-java/jffi-1.3.10-r1:0 dev-java/jnr-a64asm:2 dev-java/jnr-x86asm:1.0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=A library for invoking native functions from java
 EAPI=8
 HOMEPAGE=https://github.com/jnr/jnr-ffi
@@ -7,8 +7,8 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
 KEYWORDS=amd64 arm64 ppc64
 LICENSE=Apache-2.0
-RDEPEND=dev-java/asm:9 >=dev-java/jffi-1.3.8:1.3 dev-java/jnr-a64asm:2 dev-java/jnr-x86asm:1.0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-SLOT=2
+RDEPEND=dev-java/asm:9 >=dev-java/jffi-1.3.10-r1:0 dev-java/jnr-a64asm:2 dev-java/jnr-x86asm:1.0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
 SRC_URI=https://github.com/jnr/jnr-ffi/archive/jnr-ffi-2.2.12.tar.gz
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
-_md5_=6ad3728ad60ada26d76ddc11c2f1965c
+_md5_=b0493ab6a1b19728e49a0bb2d527fee0
