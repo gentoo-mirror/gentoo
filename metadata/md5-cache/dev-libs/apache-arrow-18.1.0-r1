@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
 RESTRICT=!test? ( test )
 SLOT=0/18
 SRC_URI=mirror://apache/arrow/arrow-18.1.0/apache-arrow-18.1.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/cb7a9674142c137367bf75a01b79c6e214a73199.tar.gz -> parquet-testing-cb7a9674142c137367bf75a01b79c6e214a73199.tar.gz https://github.com/apache/arrow-testing/archive/4d209492d514c2d3cb2d392681b9aa00e6d8da1c.tar.gz -> arrow-testing-4d209492d514c2d3cb2d392681b9aa00e6d8da1c.tar.gz )
-_eclasses_=toolchain-funcs	fa554cc3cff825d21dfe3f24841e29cf	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
 _md5_=3a1732ec177577ceed5459379850b3ab
