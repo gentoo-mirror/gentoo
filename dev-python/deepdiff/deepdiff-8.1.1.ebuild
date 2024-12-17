@@ -19,8 +19,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 	>=dev-python/click-8.1.3[${PYTHON_USEDEP}]
+	<dev-python/orderly-set-6[${PYTHON_USEDEP}]
+	>=dev-python/orderly-set-5.2.2[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 "
 
 DEPEND="
@@ -39,16 +41,12 @@ DEPEND="
 distutils_enable_tests pytest
 
 python_test() {
-	local EPYTEST_DESELECT=()
-
-	case ${EPYTHON} in
-		python3.13)
-			EPYTEST_DESELECT+=(
-				# changed exception message
-				"tests/test_command.py::TestCommands::test_diff_command[t1_corrupt.json-t2.json-Expecting property name enclosed in double quotes-1]"
-			)
-			;;
-	esac
+	local EPYTEST_DESELECT=(
+		# benchmarks
+		tests/test_lfucache.py::TestLFUcache::test_lfu
+		# requires polars
+		tests/test_hash.py::TestDeepHashPrep::test_polars
+	)
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest
