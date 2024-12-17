@@ -3,23 +3,24 @@
 
 EAPI=8
 
-LLVM_MAX_SLOT=17
+LLVM_COMPAT=( {15..19} )
 
-inherit llvm linux-info cmake
+inherit cmake linux-info llvm-r1
 
 DESCRIPTION="High-level tracing language for eBPF"
-HOMEPAGE="https://github.com/iovisor/bpftrace"
+HOMEPAGE="https://github.com/bpftrace/bpftrace"
 MY_PV="${PV//_/}"
-SRC_URI="https://github.com/iovisor/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
+# the man page version may trail the release
+MAN_V="0.21.2"
+SRC_URI="https://github.com/bpftrace/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI+=" https://github.com/bpftrace/${PN}/releases/download/v${MAN_V}/man.tar.xz -> ${P}-man.gh.tar.xz"
 S="${WORKDIR}/${PN}-${MY_PV:-${PV}}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 
-# remove keywords until build works:
-# https://github.com/iovisor/bpftrace/issues/2349
-KEYWORDS="amd64 ~arm64 ~x86"
-IUSE="fuzzing test"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="lldb test"
 
 # lots of fixing needed
 RESTRICT="test"
@@ -27,10 +28,11 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-libs/libbpf-1.1:=
 	>=dev-util/bcc-0.25.0:=
-	>=llvm-core/llvm-10[llvm_targets_BPF(+)]
-	>=llvm-core/clang-10
-	<llvm-core/clang-$((${LLVM_MAX_SLOT} + 1)):=
-	<llvm-core/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
+	$(llvm_gen_dep '
+		lldb? ( =llvm-core/lldb-${LLVM_SLOT}* )
+		llvm-core/clang:${LLVM_SLOT}=
+		llvm-core/llvm:${LLVM_SLOT}=[llvm_targets_BPF(+)]
+	')
 	sys-process/procps
 	sys-libs/binutils-libs:=
 	virtual/libelf:=
@@ -51,16 +53,12 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-QA_DT_NEEDED="
-	usr/lib.*/libbpftraceresources.so
-	usr/lib.*/libcxxdemangler_llvm.so
-"
-
 PATCHES=(
-	"${FILESDIR}/bpftrace-0.20.0-install-libs.patch"
-	"${FILESDIR}/bpftrace-0.15.0-dont-compress-man.patch"
 	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
-	"${FILESDIR}/bpftrace-0.20.1-fuzzer.patch"
+	"${FILESDIR}/bpftrace-0.21.0-dont-compress-man.patch"
+	"${FILESDIR}/bpftrace-0.21.3-allow-llvm-19.patch"
+	"${FILESDIR}/bpftrace-0.21.3-cstdint.patch"
+	"${FILESDIR}/bpftrace-0.21.3-odr.patch"
 )
 
 pkg_pretend() {
@@ -76,16 +74,17 @@ pkg_pretend() {
 	check_extra_config
 }
 
-pkg_setup() {
-	llvm_pkg_setup
-}
-
 src_configure() {
 	local mycmakeargs=(
+		# prevent automagic lldb use
+		$(cmake_use_find_package lldb LLDB)
+		# DO NOT build the internal libs as shared
+		-DBUILD_SHARED_LIBS=OFF
+		# DO dynamically link the bpftrace executable
 		-DSTATIC_LINKING:BOOL=OFF
 		# bug 809362, 754648
 		-DBUILD_TESTING:BOOL=$(usex test)
-		-DBUILD_FUZZ:BOOL=$(usex fuzzing)
+		-DBUILD_FUZZ:BOOL=OFF
 		-DENABLE_MAN:BOOL=OFF
 	)
 
@@ -94,7 +93,7 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	# bug 809362
-	dostrip -x /usr/bin/bpftrace
 	doman man/man8/*.?
+	gunzip "${WORKDIR}/man/man8/bpftrace.8.gz" || die
+	doman "${WORKDIR}/man/man8/bpftrace.8"
 }
