@@ -39,6 +39,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="wayland? ( >=dev-qt/qtwayland-${QTMIN}:6 )"
 
+PATCHES=( "${FILESDIR}/${P}-crashfix.patch" ) # KDE-bug 497457
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_GEO_SCHEME_HANDLER=ON
