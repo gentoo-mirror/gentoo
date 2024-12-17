@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install unpack
+DESCRIPTION=Style and Grammar Checker for LibreOffice
+EAPI=8
+HOMEPAGE=https://languagetool.org/
+INHERIT=office-ext-r1
+IUSE=office_implementation_libreoffice
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=>=virtual/jre-1.8 office_implementation_libreoffice? ( || ( app-office/libreoffice[java] app-office/libreoffice-bin[java] ) )
+REQUIRED_USE=|| ( office_implementation_libreoffice )
+SLOT=0
+SRC_URI=https://languagetool.org/download/LanguageTool-6.4.oxt
+_eclasses_=office-ext-r1	8e01fb1d51cef6a0c3433dafb7760618
+_md5_=25c50e5387f78db3970d7c12d9c31f8b
