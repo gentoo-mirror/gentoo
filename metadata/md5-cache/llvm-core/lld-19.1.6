@@ -4,7 +4,7 @@ DEPEND=~llvm-core/llvm-19.1.6[debug=,zstd=] sys-libs/zlib:= zstd? ( app-arch/zst
 DESCRIPTION=The LLVM linker (link editor)
 EAPI=8
 HOMEPAGE=https://llvm.org/
-INHERIT=cmake flag-o-matic llvm.org llvm-utils python-any-r1 toolchain-funcs
+INHERIT=cmake flag-o-matic llvm.org python-any-r1 toolchain-funcs
 IUSE=debug test zstd verify-sig
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos
 LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
@@ -13,5 +13,5 @@ RDEPEND=~llvm-core/llvm-19.1.6[debug=,zstd=] sys-libs/zlib:= zstd? ( app-arch/zs
 RESTRICT=!test? ( test )
 SLOT=19/19.1
 SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.6/llvm-project-19.1.6.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.6/llvm-project-19.1.6.src.tar.xz.sig )
-_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	verify-sig	745dccb7d4656514f1e966cce314d7db	llvm.org	280f235fb897d812bf717e989da3d424	llvm-utils	c989cff79c0976415f459e367a83dff9	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
-_md5_=6c816ae6b83db0ad6ff62f264fc807e8
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	verify-sig	745dccb7d4656514f1e966cce314d7db	llvm.org	280f235fb897d812bf717e989da3d424	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=e9b1b56a848c73442afd1883e570e14c
