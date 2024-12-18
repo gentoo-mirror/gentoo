@@ -32,6 +32,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		dev-python/attrs[${PYTHON_USEDEP}]
 		>=dev-python/dirty-equals-0.7.0[${PYTHON_USEDEP}]
 		>=dev-python/hypothesis-6.75.5[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
