@@ -3,10 +3,10 @@ DESCRIPTION=Binary bootstrap compiler for GNAT (Ada compiler)
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Ada
 INHERIT=unpacker
-KEYWORDS=-* ~arm ~arm64 ~ppc ~ppc64 ~sparc
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc
 LICENSE=GPL-2 GPL-3
 RDEPEND=>=dev-libs/gmp-4.3.2:= >=dev-libs/mpfr-2.4.2:= >=dev-libs/mpc-0.8.1:= sys-libs/zlib virtual/libiconv
 SLOT=0
 SRC_URI=amd64? ( https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-x86_64-pc-linux-gnu.gpkg.tar ) arm64? ( https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-aarch64-unknown-linux-gnu.gpkg.tar ) arm? ( https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-armv6j-softfp-linux-gnueabi.gpkg.tar https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-armv6j-unknown-linux-gnueabihf.gpkg.tar https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-armv7a-softfp-linux-gnueabi.gpkg.tar https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-armv7a-unknown-linux-gnueabihf.gpkg.tar ) ppc? ( https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-powerpc-unknown-linux-gnu.gpkg.tar ) ppc64? ( https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-powerpc64le-unknown-linux-gnu.gpkg.tar https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-powerpc64-unknown-linux-gnu.gpkg.tar ) sparc? ( https://dev.gentoo.org/~sam/distfiles/dev-lang/ada-bootstrap/ada-bootstrap-14-sparc64-unknown-linux-gnu.gpkg.tar )
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	unpacker	fb4b84181244b3b9990fa0bf40232dd2
-_md5_=3a55195d3cf053b6d5a7b0e0ebef264f
+_md5_=8342ab5f8022c4b4e948ceceecc7ba24
