@@ -12,7 +12,7 @@ S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ppc ~riscv ~x86"
 
 DEPEND="
 	dev-db/mysql-connector-c
@@ -29,14 +29,15 @@ RDEPEND="${DEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/format-security.patch
-	"${FILESDIR}"/ndoutils-2.0.0-asprintf.patch
 	"${FILESDIR}"/sample-config-piddir.patch
 	"${FILESDIR}"/openrc-init.patch
-	"${FILESDIR}"/secure-install-permissions.patch
+	"${FILESDIR}"/c23-compatibility.patch
 )
 
 src_prepare() {
 	default
+
+	# ./configure is ancient and doesn't know that e.g. riscv exists
 	eautoreconf
 }
 
