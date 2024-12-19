@@ -22,11 +22,13 @@ if [[ ${PV} == "9999" ]]; then
 	UPDATE_VERSION="yes"
 	inherit git-r3
 else
-	inherit pypi
-	MY_PV=${PV/_beta/-beta.}
-	MY_P=${PN}-${MY_PV}
-	KEYWORDS="amd64 ~x86"
-	S="${WORKDIR}/${MY_P}"
+	# The 2.2.0 pypi tarball does not include zsh completions
+	# https://github.com/beetbox/beets/issues/5531
+	IS_VCS_SOURCE="yes"
+	# The 2.2.0 tarball calls itself 2.1.0 for some reason?
+	UPDATE_VERSION="yes"
+	SRC_URI="https://github.com/beetbox/beets/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Media library management system for obsessive music geeks"
