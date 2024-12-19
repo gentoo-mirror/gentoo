@@ -47,6 +47,8 @@ DEPEND="${RDEPEND}
 
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}"/${PN}-1.2.0_do-not-fortify-source.patch )
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON

@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake-multilib optfeature flag-o-matic
 
 DESCRIPTION="Intel Video Processing Library dispatcher"
-HOMEPAGE="https://github.com/intel/libvpl/"
+HOMEPAGE="https://github.com/intel/libvpl"
 SRC_URI="https://github.com/intel/libvpl/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
@@ -21,6 +21,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=( "${FILESDIR}"/${PN}-2.13.0_do-not-fortify-source.patch )
 
 src_prepare() {
 	filter-lto
