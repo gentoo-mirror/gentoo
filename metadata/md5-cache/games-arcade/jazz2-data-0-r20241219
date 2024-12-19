@@ -1,0 +1,15 @@
+BDEPEND=demo? ( app-arch/unzip ) !demo? ( app-arch/innoextract )
+DEFINED_PHASES=install nofetch unpack
+DESCRIPTION=Jazz Jackrabbit 2 data files for games-arcade/jazz2
+EAPI=8
+HOMEPAGE=https://www.gog.com/game/jazz_jackrabbit_2_collection
+INHERIT=estack
+IUSE=+cc demo
+KEYWORDS=~amd64
+LICENSE=free-noncomm GOG-EULA
+RDEPEND=>=games-arcade/jazz2-3.0.0-r1
+RESTRICT=!demo? ( bindist fetch )
+SLOT=0
+SRC_URI=demo? ( https://deat.tk/jazz2/misc/shareware-demo.zip -> jazz2-shareware-demo.zip ) !demo? ( setup_jazz_jackrabbit_2_1.24hf_(16886).exe cc? ( setup_jazz_jackrabbit_2_cc_1.2x_(16742).exe ) )
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804
+_md5_=ff0fe6406a8e39a28a5d18e3f17dfb9b
