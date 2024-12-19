@@ -19,11 +19,12 @@ SRC_URI="
 "
 S="${WORKDIR}/python-${P}"
 
-LICENSE="MIT"
+LICENSE="|| ( BSD LGPL-3 )"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	>=dev-python/pylatexenc-2.10[${PYTHON_USEDEP}]
+	dev-python/pyparsing[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
