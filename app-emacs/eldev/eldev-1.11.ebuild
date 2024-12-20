@@ -3,21 +3,21 @@
 
 EAPI=8
 
-inherit elisp
+inherit edo elisp
 
 DESCRIPTION="Emacs Lisp Development Tool"
 HOMEPAGE="https://emacs-eldev.github.io/eldev/
-	https://github.com/doublep/eldev/"
+	https://github.com/emacs-eldev/eldev/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
 	EGIT_REPO_URI="https://github.com/doublep/${PN}.git"
 else
-	SRC_URI="https://github.com/doublep/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+	SRC_URI="https://github.com/emacs-eldev/${PN}/archive/refs/tags/${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -31,7 +31,9 @@ DOCS=( README.adoc )
 SITEFILE="50${PN}-gentoo.el"
 
 src_test() {
-	ELDEV_LOCAL="${S}" "./bin/${PN}" test
+	local -x ELDEV_LOCAL="${S}"
+
+	edo "./bin/${PN}" test
 }
 
 src_install() {
