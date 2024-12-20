@@ -12,6 +12,7 @@ inherit ecm gear.kde.org optfeature
 
 DESCRIPTION="Plasma filemanager focusing on usability"
 HOMEPAGE="https://apps.kde.org/dolphin/ https://userbase.kde.org/Dolphin"
+SRC_URI="mirror://kde/stable/release-service/${PVCUT}/src/${KDE_ORG_TAR_PN}-${PV}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
