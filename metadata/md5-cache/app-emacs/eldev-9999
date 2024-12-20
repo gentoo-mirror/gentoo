@@ -2,11 +2,11 @@ BDEPEND=>=app-editors/emacs-25.3:* >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs Lisp Development Tool
 EAPI=8
-HOMEPAGE=https://github.com/doublep/eldev/
-INHERIT=elisp git-r3
+HOMEPAGE=https://emacs-eldev.github.io/eldev/ https://github.com/emacs-eldev/eldev/
+INHERIT=edo elisp git-r3
 LICENSE=GPL-3+
 PROPERTIES=live
 RDEPEND=>=app-editors/emacs-25.3:*
 SLOT=0
-_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	e7149f29f0c141396a0cec7cc59947a6	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=aef7a21fb0b8d260fe1e5f30784f74d4
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	e7149f29f0c141396a0cec7cc59947a6	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=25c84c12359cd63b8076e194effff3d9

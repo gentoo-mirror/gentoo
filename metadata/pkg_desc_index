@@ -1980,7 +1980,7 @@ app-emacs/ef-themes 1.8.0 1.9.0 9999: Colourful and legible themes for GNU Emacs
 app-emacs/eglot 1.17: A minimal Emacs LSP client for GNU Emacs
 app-emacs/eimp 1.4.0-r1: Emacs Image Manipulation Package
 app-emacs/el-mock 1.25.1: Mocking library for Emacs
-app-emacs/eldev 1.10.2 1.10.3 9999: Emacs Lisp Development Tool
+app-emacs/eldev 1.10.3 1.11 9999: Emacs Lisp Development Tool
 app-emacs/eldoc-box 1.11.1 1.12.1 9999: Child frame doc for Eglot and anything that uses ElDoc
 app-emacs/elfeed 3.4.2: Emacs web feeds client
 app-emacs/elfeed-protocol 0.9.0 0.9.1: Provide extra news client subscription protocols for elfeed
@@ -2170,13 +2170,13 @@ app-emacs/package-lint 0.24: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.32-r1 2.33: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26-r1: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
-app-emacs/parsebib 4.7 6.2: Emacs Lisp library for reading .bib files
+app-emacs/parsebib 4.7 6.2 6.3: Emacs Lisp library for reading .bib files
 app-emacs/parseclj 1.1.1: Clojure Parser for Emacs Lisp
 app-emacs/parseedn 1.2.1: EDN parser for Emacs Lisp
 app-emacs/pdf-tools 1.0.0 1.1.0: Emacs Lisp support library for PDF documents
 app-emacs/persist 0.6.1: Persist variables between Emacs sessions
 app-emacs/pfuture 1.10.3: Simple wrapper around asynchronous processes
-app-emacs/php-mode 1.26.1 9999: GNU Emacs major mode for editing PHP code
+app-emacs/php-mode 1.26.1 1.27.0 9999: GNU Emacs major mode for editing PHP code
 app-emacs/pinentry 0.1_p20231126: GnuPG Pinentry server implementation for Emacs
 app-emacs/pkg-info 0.6: Provide information about Emacs packages
 app-emacs/planner 3.42-r1: Maintain a local Wiki using Emacs-friendly markup
@@ -5152,7 +5152,7 @@ dev-lang/dafny 4.8.0 4.8.1 4.9.0: Dafny is a verification-aware programming lang
 dev-lang/dafny-bin 4.9.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 5.36 5.37 5.38 9999: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 5.36 5.37 5.38 5.39 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.14.5-r2 1.15.7 1.15.8 1.16.2 1.16.3 1.17.2 1.17.3: Elixir programming language
 dev-lang/elpi 1.18.2 1.19.6: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 26.2.1 26.2.2 26.2.4 27.0 27.0.1: Erlang programming language, runtime environment and libraries (OTP)
@@ -9696,7 +9696,7 @@ dev-python/yaswfp 0.9.3-r2: Yet Another SWF Parser
 dev-python/yattag 1.16.1: Python library to generate HTML or XML in a readable, concise and pythonic way
 dev-python/yaxmldiff 0.2.0: Yet Another XML Differ
 dev-python/youtube-search-python 1.6.6-r1: Get YouTube video information using link WITHOUT YouTube Data API v3
-dev-python/ytmusicapi 1.8.2: Unofficial API for YouTube Music
+dev-python/ytmusicapi 1.8.2 1.9.0: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.1: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.3.1: A modern/fast Python SOAP client based on lxml / requests
@@ -9793,16 +9793,16 @@ dev-ruby/acme-client 2.0.17 2.0.18 2.0.19: A Ruby client for the letsencrypt's A
 dev-ruby/actioncable 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Integrated WebSockets for Rails
 dev-ruby/actionmailbox 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Framework for designing email-service layers
 dev-ruby/actionmailer 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Framework for designing email-service layers
-dev-ruby/actionpack 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Eases web-request routing, handling, and response
+dev-ruby/actionpack 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 7.2.2.1 8.0.0: Eases web-request routing, handling, and response
 dev-ruby/actionpack-action_caching 1.2.2-r1: Action caching for Action Pack (removed from core in Rails 4.0)
 dev-ruby/actionpack-xml_parser 2.0.1-r3: XML parameters parser for Action Pack (removed from core in Rails 4.0)
 dev-ruby/actiontext 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Edit and display rich text in Rails applications
-dev-ruby/actionview 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Simple, battle-tested conventions and helpers for building web pages
-dev-ruby/activejob 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Job framework with pluggable queues
+dev-ruby/actionview 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 7.2.2.1 8.0.0: Simple, battle-tested conventions and helpers for building web pages
+dev-ruby/activejob 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 7.2.2.1 8.0.0: Job framework with pluggable queues
 dev-ruby/activeldap 6.1.0-r1 7.0.0 7.2.1: ActiveLDAP provides an activerecord inspired object oriented interface to LDAP
-dev-ruby/activemodel 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Toolkit for building modeling frameworks like Active Record and Active Resource
+dev-ruby/activemodel 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 7.2.2.1 8.0.0: Toolkit for building modeling frameworks like Active Record and Active Resource
 dev-ruby/activemodel-serializers-xml 1.0.3: XML serialization for your Active Model objects and Active Record models
-dev-ruby/activerecord 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
+dev-ruby/activerecord 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 7.2.2.1 8.0.0: Implements the ActiveRecord pattern (Fowler, PoEAA) for ORM
 dev-ruby/activestorage 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Attach cloud and local files in Rails applications
 dev-ruby/activesupport 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.2 7.1.4.2 7.1.5 7.1.5-r1 7.1.5.1 7.2.1.2 7.2.2 7.2.2-r1 7.2.2.1 8.0.0: Utility Classes and Extension to the Standard Library
 dev-ruby/acts_as_list 1.2.2 1.2.3 1.2.4: Capabilities for sorting and reordering a number of objects in a list
@@ -10214,7 +10214,7 @@ dev-ruby/radius 0.7.5-r1: Powerful tag-based template system
 dev-ruby/rails 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: ruby on rails is a web-application and persistence framework
 dev-ruby/rails-dom-testing 2.2.0: Compare doms and assert certain elements exists in doms using Nokogiri
 dev-ruby/rails-html-sanitizer 1.6.0 1.6.1 1.6.2: Sanitize HTML fragments in Rails applications
-dev-ruby/railties 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.4-r1 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 8.0.0: Tools for creating, working with, and running Rails applications
+dev-ruby/railties 6.1.7.8 6.1.7.9 6.1.7.10 7.0.8.4 7.0.8.4-r1 7.0.8.5 7.0.8.6 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.1.2 7.2.2 7.2.2.1 8.0.0: Tools for creating, working with, and running Rails applications
 dev-ruby/rainbow 3.1.1: Colorize printed text on ANSI terminals
 dev-ruby/rake 13.0.6-r2 13.2.1: Make-like scripting in Ruby
 dev-ruby/rake-compiler 1.2.3 1.2.7 1.2.8: Provide a standard and simplified way to build and package Ruby extensions
@@ -10630,7 +10630,7 @@ dev-texlive/texlive-plaingeneric 2023_p68675-r1 2024_p72878: TeXLive Plain (La)T
 dev-texlive/texlive-pstricks 2023_p65367 2024_p65367: TeXLive PSTricks
 dev-texlive/texlive-publishers 2023_p69759-r1 2024_p72771: TeXLive Publisher styles, theses, etc.
 dev-texlive/texlive-xetex 2023_p69452-r1 2024_p71515: TeXLive XeTeX and packages
-dev-util/0xtools 2.0.3-r2 9999: Always-on profiling for production systems
+dev-util/0xtools 2.0.3-r3 9999: Always-on profiling for production systems
 dev-util/App-SVN-Bisect 1.1-r2: Binary search through svn revisions
 dev-util/FlameGraph 1.0 1.0_p20210830 1.0_p20220918 9999: Visualization of hierarchical data, especially profiled stack traces
 dev-util/ROPgadget 7.4 7.5 9999: Search for gadgets in binaries to facilitate your ROP exploitation
