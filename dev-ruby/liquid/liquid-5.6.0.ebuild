@@ -11,14 +11,19 @@ RUBY_FAKEGEM_GEMSPEC="liquid.gemspec"
 
 inherit ruby-fakegem
 
-SRC_URI="https://github.com/Shopify/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="Template engine for Ruby"
 HOMEPAGE="https://shopify.github.io/liquid/"
+SRC_URI="https://github.com/Shopify/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~arm64"
 IUSE="test"
+
+ruby_add_rdepend "
+	dev-ruby/bigdecimal
+	dev-ruby/strscan
+"
 
 ruby_add_bdepend "test? ( dev-ruby/minitest )"
 
