@@ -11,6 +11,7 @@ CRATES="
 	aho-corasick@1.1.3
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
+	anes@0.1.6
 	annotate-snippets@0.6.1
 	annotate-snippets@0.9.2
 	anstream@0.6.13
@@ -18,59 +19,77 @@ CRATES="
 	anstyle-query@1.0.2
 	anstyle-wincon@3.0.2
 	anstyle@1.0.8
-	anyhow@1.0.93
+	anyhow@1.0.94
 	append-only-vec@0.1.5
 	arc-swap@1.7.1
 	argfile@0.2.1
+	arrayvec@0.7.4
 	assert_fs@1.1.2
 	autocfg@1.2.0
+	base64@0.13.1
+	base64@0.22.0
 	bincode@1.3.3
 	bitflags@1.3.2
 	bitflags@2.6.0
 	block-buffer@0.10.4
 	boxcar@0.2.7
-	bstr@1.11.0
+	bstr@1.11.1
 	bumpalo@3.16.0
 	byteorder@1.5.0
 	cachedir@0.3.1
 	camino@1.1.9
+	cast@0.3.0
 	castaway@0.2.3
-	cc@1.0.95
+	cc@1.2.2
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
+	cfg_aliases@0.2.1
 	chic@1.2.2
-	chrono@0.4.38
-	clap@4.5.21
-	clap_builder@4.5.21
+	chrono@0.4.39
+	ciborium-io@0.2.2
+	ciborium-ll@0.2.2
+	ciborium@0.2.2
+	clap@4.5.23
+	clap_builder@4.5.23
 	clap_complete@4.5.2
 	clap_complete_command@0.6.1
 	clap_complete_nushell@4.5.2
 	clap_derive@4.5.18
-	clap_lex@0.7.0
+	clap_lex@0.7.4
 	clearscreen@3.0.0
+	codspeed-criterion-compat@2.7.2
+	codspeed@2.7.2
 	colorchoice@1.0.0
-	colored@2.1.0
+	colored@2.2.0
 	compact_str@0.8.0
 	console@0.15.8
+	console_error_panic_hook@0.1.7
+	console_log@1.0.0
 	core-foundation-sys@0.8.6
 	countme@3.0.1
 	cpufeatures@0.2.13
 	crc32fast@1.4.0
+	criterion-plot@0.5.0
+	criterion@0.5.1
 	crossbeam-channel@0.5.12
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
 	crossbeam-queue@0.3.11
 	crossbeam-utils@0.8.19
 	crossbeam@0.8.4
+	crunchy@0.2.2
 	crypto-common@0.1.6
+	ctrlc@3.4.5
 	darling@0.20.8
 	darling_core@0.20.8
 	darling_macro@0.20.8
+	dashmap@5.5.3
 	dashmap@6.1.0
+	diff@0.1.13
 	difflib@0.4.0
 	digest@0.10.7
-	dir-test-macros@0.3.0
-	dir-test@0.3.0
+	dir-test-macros@0.4.1
+	dir-test@0.4.1
 	dirs-sys@0.3.7
 	dirs-sys@0.4.1
 	dirs@4.0.0
@@ -88,7 +107,7 @@ CRATES="
 	errno@0.3.8
 	etcetera@0.8.0
 	fastrand@2.1.1
-	fern@0.7.0
+	fern@0.7.1
 	filetime@0.2.25
 	flate2@1.0.28
 	fnv@1.0.7
@@ -101,8 +120,9 @@ CRATES="
 	glob@0.3.1
 	globset@0.4.15
 	globwalk@0.9.1
+	half@2.4.1
 	hashbrown@0.14.5
-	hashbrown@0.15.1
+	hashbrown@0.15.2
 	hashlink@0.9.1
 	heck@0.5.0
 	hermit-abi@0.3.9
@@ -124,8 +144,10 @@ CRATES="
 	idna@1.0.3
 	idna_adapter@1.2.0
 	ignore@0.4.23
+	imara-diff@0.1.7
 	imperative@1.0.6
-	indexmap@2.6.0
+	indexmap@2.7.0
+	indicatif@0.17.9
 	indoc@2.0.5
 	inotify-sys@0.1.5
 	inotify@0.10.2
@@ -134,17 +156,19 @@ CRATES="
 	instant@0.1.12
 	is-docker@0.2.0
 	is-macro@0.3.7
+	is-terminal@0.4.12
 	is-wsl@0.4.0
+	itertools@0.10.5
 	itertools@0.13.0
 	itoa@1.0.11
 	jobserver@0.1.32
 	jod-thread@0.1.2
-	js-sys@0.3.72
+	js-sys@0.3.74
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	lazy_static@1.4.0
-	libc@0.2.164
-	libcst@1.5.0
+	libc@0.2.168
+	libcst@1.5.1
 	libcst_derive@1.4.0
 	libmimalloc-sys@0.1.39
 	libredox@0.1.3
@@ -159,32 +183,38 @@ CRATES="
 	matchit@0.8.5
 	memchr@2.7.4
 	mimalloc@0.1.43
+	minicov@0.3.5
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.2
 	mio@1.0.2
 	natord@1.0.9
-	newtype-uuid@1.1.0
+	newtype-uuid@1.1.3
 	nix@0.28.0
+	nix@0.29.0
 	nom@7.1.3
 	notify-types@1.0.0
 	notify@7.0.0
+	nu-ansi-term@0.46.0
 	nu-ansi-term@0.50.1
 	num-traits@0.2.18
+	number_prefix@0.4.0
 	once_cell@1.20.2
+	oorandom@11.1.3
 	option-ext@0.2.0
-	ordermap@0.5.3
+	ordermap@0.5.4
 	os_str_bytes@7.0.0
+	overload@0.1.1
 	parking_lot@0.12.3
 	parking_lot_core@0.9.9
 	paste@1.0.15
 	path-absolutize@3.1.1
 	path-dedot@3.1.1
 	path-slash@0.2.1
-	pathdiff@0.2.2
+	pathdiff@0.2.3
 	peg-macros@0.8.4
 	peg-runtime@0.8.3
 	peg@0.8.4
-	pep440_rs@0.7.2
+	pep440_rs@0.7.3
 	pep508_rs@0.9.1
 	percent-encoding@2.3.1
 	pest@2.7.11
@@ -197,14 +227,18 @@ CRATES="
 	phf_shared@0.11.2
 	pin-project-lite@0.2.14
 	pkg-config@0.3.30
+	portable-atomic@1.6.0
 	ppv-lite86@0.2.17
 	predicates-core@1.0.8
 	predicates-tree@1.0.11
 	predicates@3.1.2
-	proc-macro2@1.0.89
+	pretty_assertions@1.4.1
+	proc-macro2@1.0.92
 	pyproject-toml@0.13.4
-	quick-junit@0.5.0
-	quick-xml@0.36.1
+	quick-junit@0.5.1
+	quick-xml@0.37.1
+	quickcheck@1.0.3
+	quickcheck_macros@1.0.0
 	quote@1.0.37
 	rand@0.8.5
 	rand_chacha@0.3.1
@@ -219,18 +253,26 @@ CRATES="
 	regex-syntax@0.6.29
 	regex-syntax@0.8.5
 	regex@1.11.1
+	ring@0.17.8
+	ron@0.7.1
 	rust-stemmers@1.2.0
-	rustc-hash@2.0.0
+	rustc-hash@1.1.0
+	rustc-hash@2.1.0
 	rustix@0.38.40
+	rustls-pki-types@1.10.0
+	rustls-webpki@0.102.8
+	rustls@0.23.19
 	rustversion@1.0.15
 	ryu@1.0.17
 	same-file@1.0.6
 	schemars@0.8.21
 	schemars_derive@0.8.21
+	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	seahash@4.1.0
-	serde@1.0.215
-	serde_derive@1.0.215
+	serde-wasm-bindgen@0.6.5
+	serde@1.0.216
+	serde_derive@1.0.216
 	serde_derive_internals@0.29.0
 	serde_json@1.0.133
 	serde_repr@0.1.19
@@ -241,9 +283,11 @@ CRATES="
 	sha2@0.10.8
 	sharded-slab@0.1.7
 	shellexpand@3.1.0
-	similar@2.5.0
+	shlex@1.3.0
+	similar@2.6.0
 	siphasher@0.3.11
 	smallvec@1.13.2
+	spin@0.9.8
 	stable_deref_trait@1.2.0
 	static_assertions@1.1.0
 	strip-ansi-escapes@0.2.0
@@ -251,8 +295,9 @@ CRATES="
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
+	subtle@2.5.0
 	syn@1.0.109
-	syn@2.0.87
+	syn@2.0.90
 	synstructure@0.13.1
 	tempfile@3.14.0
 	terminal_size@0.4.0
@@ -262,24 +307,27 @@ CRATES="
 	test-case-macros@3.3.1
 	test-case@3.3.1
 	thiserror-impl@1.0.67
-	thiserror-impl@2.0.3
+	thiserror-impl@2.0.7
 	thiserror@1.0.67
-	thiserror@2.0.3
+	thiserror@2.0.7
 	thread_local@1.1.8
 	tikv-jemalloc-sys@0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
 	tikv-jemallocator@0.6.0
 	tinystr@0.7.6
+	tinytemplate@1.2.1
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
 	toml@0.8.19
 	toml_datetime@0.6.8
 	toml_edit@0.22.20
-	tracing-attributes@0.1.27
-	tracing-core@0.1.32
+	tracing-attributes@0.1.28
+	tracing-core@0.1.33
+	tracing-flame@0.2.0
+	tracing-indicatif@0.3.8
 	tracing-log@0.2.0
-	tracing-subscriber@0.3.18
+	tracing-subscriber@0.3.19
 	tracing-tree@0.4.0
-	tracing@0.1.40
+	tracing@0.1.41
 	typed-arena@2.0.2
 	typenum@1.17.0
 	ucd-trie@0.1.6
@@ -288,14 +336,16 @@ CRATES="
 	unic-common@0.9.0
 	unic-ucd-category@0.9.0
 	unic-ucd-version@0.9.0
-	unicode-ident@1.0.13
+	unicode-ident@1.0.14
 	unicode-normalization@0.1.24
 	unicode-width@0.1.13
 	unicode-width@0.2.0
 	unicode_names2@1.3.0
 	unicode_names2_generator@1.3.0
 	unscanny@0.1.0
-	url@2.5.3
+	untrusted@0.9.0
+	ureq@2.12.1
+	url@2.5.4
 	urlencoding@2.1.3
 	utf16_iter@1.0.5
 	utf8_iter@1.0.4
@@ -305,16 +355,22 @@ CRATES="
 	valuable@0.1.0
 	version-ranges@0.1.1
 	version_check@0.9.4
+	vt100@0.15.2
 	vte@0.11.1
 	vte_generate_state_changes@0.1.1
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.95
-	wasm-bindgen-macro-support@0.2.95
-	wasm-bindgen-macro@0.2.95
-	wasm-bindgen-shared@0.2.95
-	wasm-bindgen@0.2.95
+	wasm-bindgen-backend@0.2.97
+	wasm-bindgen-futures@0.4.47
+	wasm-bindgen-macro-support@0.2.97
+	wasm-bindgen-macro@0.2.97
+	wasm-bindgen-shared@0.2.97
+	wasm-bindgen-test-macro@0.3.47
+	wasm-bindgen-test@0.3.47
+	wasm-bindgen@0.2.97
+	web-sys@0.3.74
 	web-time@1.1.0
+	webpki-roots@0.26.1
 	which@6.0.1
 	wild@2.2.1
 	winapi-i686-pc-windows-gnu@0.4.0
@@ -347,12 +403,14 @@ CRATES="
 	write16@1.0.0
 	writeable@0.5.5
 	yansi-term@0.1.2
+	yansi@1.0.1
 	yoke-derive@0.7.4
 	yoke@0.7.4
 	zerocopy-derive@0.7.32
 	zerocopy@0.7.32
 	zerofrom-derive@0.1.4
 	zerofrom@0.1.4
+	zeroize@1.7.0
 	zerovec-derive@0.10.3
 	zerovec@0.10.4
 	zip@0.6.6
@@ -363,9 +421,9 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;254c749b02cde2fd29852a7463a33e800b771758;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/salsa-rs/salsa;254c749b02cde2fd29852a7463a33e800b771758;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/salsa-rs/salsa;254c749b02cde2fd29852a7463a33e800b771758;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;3c7f1694c9efba751dbeeacfbc93b227586e316a;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;3c7f1694c9efba751dbeeacfbc93b227586e316a;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;3c7f1694c9efba751dbeeacfbc93b227586e316a;salsa-%commit%'
 )
 
 RUST_MIN_VER="1.80.0"
@@ -417,11 +475,6 @@ DOCS=(
 	README.md
 	assets
 	docs
-)
-
-PATCHES=(
-	# backport fix for test asserts with USE="-debug"
-	"${FILESDIR}"/0001-red-knot-Fix-unit-tests-in-release-mode-14604.patch
 )
 
 src_prepare() {
