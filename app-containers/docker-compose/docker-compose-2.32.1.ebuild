@@ -1,4 +1,4 @@
-# Copyright 2018-2023 Gentoo Authors
+# Copyright 2018-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,12 +12,13 @@ SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0"
 SLOT="2"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
+BDEPEND=">=dev-lang/go-1.21"
 RDEPEND=">=app-containers/docker-cli-23.0.0"
 
-RESTRICT="test"
 S="${WORKDIR}/compose-${MY_PV}"
+RESTRICT="test"
 
 src_prepare() {
 	default
