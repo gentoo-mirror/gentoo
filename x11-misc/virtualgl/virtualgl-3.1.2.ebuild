@@ -12,21 +12,17 @@ else
 	MY_PN="VirtualGL"
 	MY_P="${MY_PN}-${PV}"
 	S="${WORKDIR}/${MY_P}"
-	SRC_URI="https://downloads.sourceforge.net/project/${PN}/${PV}/${MY_P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	SRC_URI="https://github.com/VirtualGL/${PN}/releases/download/${PV}/${MY_P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 DESCRIPTION="Run OpenGL applications remotely with full 3D hardware acceleration"
 HOMEPAGE="https://www.virtualgl.org/"
+LICENSE="LGPL-2.1 wxWinLL-3.1 FLTK"
 
 SLOT="0"
-LICENSE="LGPL-2.1 wxWinLL-3.1 FLTK"
-IUSE="ssl"
 
 RDEPEND="
-	ssl? (
-		dev-libs/openssl:0=[${MULTILIB_USEDEP}]
-	)
 	media-libs/libjpeg-turbo[${MULTILIB_USEDEP}]
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libXext[${MULTILIB_USEDEP}]
@@ -65,7 +61,6 @@ src_configure() {
 
 	abi_configure() {
 		local mycmakeargs=(
-			-DVGL_USESSL="$(usex ssl)"
 			-DCMAKE_INSTALL_DOCDIR=/usr/share/doc/"${PF}"
 			-DTJPEG_INCLUDE_DIR=/usr/include
 			-DCMAKE_INSTALL_LIBDIR=/usr/$(get_libdir)/VirtualGL
