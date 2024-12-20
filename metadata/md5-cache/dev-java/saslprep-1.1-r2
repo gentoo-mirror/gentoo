@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/stringprep:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=>=virtual/jdk-1.8:* ~dev-java/stringprep-1.1:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=SASLprep: Stringprep Profile for User Names and Passwords
 EAPI=8
 HOMEPAGE=https://gitlab.com/ongresinc/stringprep
@@ -7,8 +7,8 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source
 KEYWORDS=amd64 ppc64
 LICENSE=BSD-2
-RDEPEND=>=virtual/jre-1.8:* dev-java/stringprep:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.8:* ~dev-java/stringprep-1.1:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=https://repo1.maven.org/maven2/com/ongres/stringprep/saslprep/1.1/saslprep-1.1-sources.jar
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	6e6478d8b78f18251c008bad32994df9	java-pkg-simple	8221818a4df90800de803a44fd0875b4
-_md5_=ce1db77f61fd9ba5199ed568f35a70b2
+_md5_=1a329f048416856d7cf5f81f3d3471a0
