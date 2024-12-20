@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature xdg #virtualx
 
 # Commit of documentation to fetch
-DOCS_PV="fa91f0e9c8c2da33e7ec974e6b0e2a5ed6f04b10"
+DOCS_PV="6951e02799fc7cd1f29456f1d93cfdcb570dad27"
 
 DESCRIPTION="The Scientific Python Development Environment"
 HOMEPAGE="
@@ -24,12 +24,9 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	>=dev-python/aiohttp-3.9.3[${PYTHON_USEDEP}]
-	>=dev-python/asyncssh-2.14.0[${PYTHON_USEDEP}]
-	<dev-python/asyncssh-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/atomicwrites-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/chardet-2.0.0[${PYTHON_USEDEP}]
 	>=dev-util/cookiecutter-1.6.0[${PYTHON_USEDEP}]
@@ -43,31 +40,28 @@ RDEPEND="
 	>=dev-python/pexpect-4.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pickleshare-0.4[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.3[${PYTHON_USEDEP}]
-	>=dev-python/pygithub-2.3.0[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.0[${PYTHON_USEDEP}]
 	>=dev-python/pylint-venv-3.0.2[${PYTHON_USEDEP}]
 	>=dev-python/python-lsp-black-2.0.0[${PYTHON_USEDEP}]
-	<dev-python/python-lsp-black-3.0.0[${PYTHON_USEDEP}]
+	<dev-python/python-lsp-black-3[${PYTHON_USEDEP}]
 	>=dev-python/pyls-spyder-0.4.0[${PYTHON_USEDEP}]
-	>=dev-python/pyuca-1.2[${PYTHON_USEDEP}]
-	>=dev-python/qdarkstyle-3.2.0[${PYTHON_USEDEP}]
-	<dev-python/qdarkstyle-3.3.0[${PYTHON_USEDEP}]
+	>=dev-python/pyxdg-0.26[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-24.0.0[${PYTHON_USEDEP}]
+	>=dev-python/qdarkstyle-3.2[${PYTHON_USEDEP}]
+	<dev-python/qdarkstyle-3.3[${PYTHON_USEDEP}]
 	>=dev-python/qstylizer-0.2.2[${PYTHON_USEDEP}]
 	>=dev-python/qtawesome-1.3.1[${PYTHON_USEDEP}]
 	<dev-python/qtawesome-1.4.0[${PYTHON_USEDEP}]
-	>=dev-python/qtconsole-5.6.1[${PYTHON_USEDEP}]
-	<dev-python/qtconsole-5.7.0[${PYTHON_USEDEP}]
-	>=dev-python/qtpy-2.4.0[${PYTHON_USEDEP},quick,svg,webengine]
+	>=dev-python/qtconsole-5.5.1[${PYTHON_USEDEP}]
+	<dev-python/qtconsole-5.6.0[${PYTHON_USEDEP}]
+	>=dev-python/qtpy-2.1.0[${PYTHON_USEDEP},pyqt5(-),svg,webengine]
 	>=dev-python/rtree-0.9.7[${PYTHON_USEDEP}]
 	>=dev-python/sphinx-0.6.6[${PYTHON_USEDEP}]
-	>=dev-python/spyder-kernels-3.0.0[${PYTHON_USEDEP}]
-	<dev-python/spyder-kernels-3.2.0[${PYTHON_USEDEP}]
-	>=dev-python/superqt-0.6.2[${PYTHON_USEDEP}]
-	<dev-python/superqt-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/spyder-kernels-2.5.2[${PYTHON_USEDEP}]
+	<dev-python/spyder-kernels-2.6.0[${PYTHON_USEDEP}]
 	>=dev-python/textdistance-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/three-merge-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-0.10.3[${PYTHON_USEDEP}]
-	>=dev-python/yarl-1.9.4[${PYTHON_USEDEP}]
 "
 
 # BDEPEND="
@@ -83,7 +77,7 @@ RDEPEND="
 # 		dev-python/pytest-qt[${PYTHON_USEDEP}]
 # 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 # 		dev-python/pyyaml[${PYTHON_USEDEP}]
-# 		dev-python/qtpy[${PYTHON_USEDEP}]
+# 		dev-python/qtpy[${PYTHON_USEDEP},pyside2,pyqt5]
 # 		dev-python/scipy[${PYTHON_USEDEP}]
 # 		dev-python/sympy[${PYTHON_USEDEP}]
 # 	)"
@@ -145,6 +139,7 @@ python_prepare_all() {
 		-e "/'pylint[ 0-9<=>.,]*',/d" \
 			setup.py || die
 		# -e "/'ipython[ 0-9<=>.,]*',/d" \
+
 	sed -i \
 		-e "/^PYLS_REQVER/c\PYLS_REQVER = '>=0.0.1'" \
 		-e "/^PYLSP_REQVER/c\PYLSP_REQVER = '>=0.0.1'" \
@@ -157,6 +152,9 @@ python_prepare_all() {
 	# do not check deps, fails because we removed dependencies above
 	sed -i -e 's:test_dependencies_for_spyder_setup_install_requires_in_sync:_&:' \
 		spyder/tests/test_dependencies_in_sync.py || die
+
+	# can't check for update, need network
+	rm spyder/workers/tests/test_update.py || die
 
 	# skip online test
 	rm spyder/widgets/github/tests/test_github_backend.py || die
