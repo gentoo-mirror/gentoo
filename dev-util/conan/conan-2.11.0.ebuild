@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1
@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-python/distro-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.15.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja2-3.0[${PYTHON_USEDEP}]
-	>=dev-python/patch-ng-1.17.4[${PYTHON_USEDEP}]
+	>=dev-python/patch-ng-1.18.0[${PYTHON_USEDEP}]
 	>=dev-python/pluginbase-0.5[${PYTHON_USEDEP}]
 	>=dev-python/pyjwt-2.4[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.8.0[${PYTHON_USEDEP}]
