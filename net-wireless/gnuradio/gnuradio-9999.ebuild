@@ -4,7 +4,6 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{10..13} )
 
-CMAKE_BUILD_TYPE="None"
 inherit cmake desktop python-single-r1 virtualx xdg-utils
 
 DESCRIPTION="Toolkit that provides signal processing blocks to implement software radios"
@@ -81,7 +80,6 @@ RDEPEND="${PYTHON_DEPS}
 	iio? (
 		net-libs/libiio:=
 		net-libs/libad9361-iio:=
-		!net-wireless/gr-iio
 	)
 	jack? ( virtual/jack )
 	portaudio? ( >=media-libs/portaudio-19_pre )
