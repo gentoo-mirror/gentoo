@@ -18,9 +18,10 @@ HOMEPAGE="https://github.com/rails/importmap-rails"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 ruby_add_rdepend "
 	>=dev-ruby/actionpack-6.0.0:*
+	>=dev-ruby/activesupport-6.0.0:*
 	>=dev-ruby/railties-6.0.0:*
 "
