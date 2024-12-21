@@ -907,7 +907,7 @@ app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.36.12 1.36.17 1.36.22 1.36.23 1.36.24 1.36.25 1.36.26: Universal Command Line Environment for AWS
+app-admin/awscli 1.36.12 1.36.17 1.36.22 1.36.23 1.36.24 1.36.25 1.36.26 1.36.27: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.9.0-r1 2024.11.2: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2: Distribution-independent installer framework
@@ -8050,7 +8050,7 @@ dev-python/aiohappyeyeballs 2.4.3 2.4.4: Happy Eyeballs for pre-resolved hosts
 dev-python/aiohttp 3.10.10 3.11.9 3.11.10 3.11.11: HTTP client/server for asyncio
 dev-python/aiohttp-cors 0.7.0-r2: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-oauthlib 0.1.0: This project provides first-class OAuth library support for aiohttp
-dev-python/aiohttp-socks 0.9.1: SOCKS proxy connector for aiohttp
+dev-python/aiohttp-socks 0.9.1 0.9.2: SOCKS proxy connector for aiohttp
 dev-python/aiohttp-theme 0.1.7: Sphinx theme for aiohttp
 dev-python/aioitertools 0.12.0: itertools and builtins for AsyncIO and mixed iterables
 dev-python/aiopylgtv 0.4.1-r1: Python library to control webOS-based LG TV devices
@@ -8150,8 +8150,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0 1.2.0 1.2.1 1.3.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.35.71 1.35.76 1.35.81 1.35.82 1.35.83 1.35.84 1.35.85: The AWS SDK for Python
-dev-python/botocore 1.35.71 1.35.76 1.35.81 1.35.82 1.35.83 1.35.84 1.35.85: Low-level, data-driven core of boto 3
+dev-python/boto3 1.35.71 1.35.76 1.35.81 1.35.82 1.35.83 1.35.84 1.35.85 1.35.86: The AWS SDK for Python
+dev-python/botocore 1.35.71 1.35.76 1.35.81 1.35.82 1.35.83 1.35.84 1.35.85 1.35.86: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8337,7 +8337,7 @@ dev-python/editables 0.5: A Python library for creating 'editable wheels'
 dev-python/editorconfig 0.12.4-r1 0.17.0: Clone of EditorConfig core written in Python
 dev-python/elastic-transport 8.15.1: Transport classes and utilities shared among Python Elastic client libraries
 dev-python/elasticsearch 8.14.0 8.15.0 8.15.1 8.16.0 8.17.0: Official Elasticsearch client library for Python
-dev-python/elementpath 4.6.0: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
+dev-python/elementpath 4.6.0 4.7.0: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/email-validator 2.2.0: A robust email syntax and deliverability validation library
 dev-python/emcee 3.1.4 3.1.5 3.1.6: Python ensemble sampling toolkit for affine-invariant MCMC
 dev-python/emoji 2.14.0: Emoji for Python
@@ -8496,7 +8496,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.119.4 6.122.1 6.122.3 6.122.4: A library for property based testing
+dev-python/hypothesis 6.119.4 6.122.1 6.122.3 6.122.4 6.122.5: A library for property based testing
 dev-python/icalendar 6.1.0: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.4.0 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.3: File identification library for Python
@@ -8531,7 +8531,7 @@ dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.29.5: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.0: Interactive Parallel Computing with IPython
-dev-python/ipython 8.30.0-r1: Advanced interactive shell for Python
+dev-python/ipython 8.30.0-r1 8.31.0: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
 dev-python/ipywidgets 8.1.5: IPython HTML widgets for Jupyter
 dev-python/irc 20.5.0: IRC client framework written in Python
@@ -8642,7 +8642,7 @@ dev-python/libevdev 0.11: Python wrappers for the libevdev library
 dev-python/liblarch 3.2.0: Library to handle directed acyclic graphs
 dev-python/libnacl 2.1.0: Python ctypes wrapper for libsodium
 dev-python/libsass 0.23.0: A straightforward binding of libsass for Python
-dev-python/libtmux 0.36.0 0.37.0 0.38.1 0.39.0: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
+dev-python/libtmux 0.36.0 0.37.0 0.38.1 0.39.0 0.40.0: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
 dev-python/libvirt-python 9.8.0 9.9.0 10.1.0 10.3.0 10.5.0 10.6.0 10.8.0 10.10.0 9999: libvirt Python bindings
 dev-python/license-expression 30.4.0: Parse, compare, simplify and normalize license expressions
 dev-python/line-profiler 4.1.3 4.2.0: Line-by-line profiler
@@ -8757,7 +8757,7 @@ dev-python/munch 4.0.0: A dot-accessible dictionary (a la JavaScript objects)
 dev-python/munkres 1.1.4-r1: Module implementing munkres algorithm for the Assignment Problem
 dev-python/musicbrainzngs 0.7.1-r1: Python bindings for the MusicBrainz NGS and the Cover Art Archive webservices
 dev-python/mygpoclient 1.9-r1 1.10: A gpodder.net client library
-dev-python/mypy 1.13.0: Optional static typing for Python
+dev-python/mypy 1.13.0 1.14.0: Optional static typing for Python
 dev-python/mypy-extensions 1.0.0: Type system extensions for programs checked with mypy
 dev-python/mysqlclient 2.2.6: Python interface to MySQL
 dev-python/myst-parser 4.0.0: Extended commonmark compliant parser, with bridges to Sphinx
@@ -8780,7 +8780,7 @@ dev-python/netcdf4 1.7.2: Python/numpy interface to the netCDF C library
 dev-python/netifaces 0.11.0-r2: Portable network interface information
 dev-python/netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/networkx 3.4.2: Python tools to manipulate graphs and complex networks
-dev-python/nextinspace 2.0.5-r1 3.0.0 9999: A command-line tool for seeing the latest in space
+dev-python/nextinspace 2.0.5-r1 3.0.0 3.0.1 9999: A command-line tool for seeing the latest in space
 dev-python/nh3 0.2.18-r1 0.2.19 0.2.20: Ammonia HTML sanitizer Python binding
 dev-python/nnpy 1.4.2-r1: cffi-based Python bindings for nanomsg
 dev-python/node-semver 0.9.0: Python version of node-semver, the semantic versioner for npm
@@ -9301,7 +9301,7 @@ dev-python/readthedocs-sphinx-ext 2.2.5: Code specific for Read the Docs and Sph
 dev-python/readtime 3.0.0: Calculates the time some text takes the average human to read
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
-dev-python/recurring-ical-events 3.3.3 3.3.4: Repeat ICalendar events by RRULE, RDATE and EXDATE
+dev-python/recurring-ical-events 3.3.3 3.3.4 3.4.0: Repeat ICalendar events by RRULE, RDATE and EXDATE
 dev-python/redis 5.2.0 5.2.1: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.35.1: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
@@ -9567,7 +9567,7 @@ dev-python/tpm2-pytss 2.3.0: Python bindings for TSS
 dev-python/tqdm 4.67.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
 dev-python/transitions 0.9.2: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.14.1 3.14.2 3.14.3: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.14.1 3.14.2 3.14.3 3.14.4: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.22.3-r2 0.23.0-r1 0.23.1: Python bindings to the Tree-sitter parsing library
 dev-python/treq 24.9.1-r1: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.5.3: Python library for loading and using triangular meshes
@@ -9589,7 +9589,7 @@ dev-python/txtorcon 23.11.0 24.8.0: Twisted-based Tor controller client, with st
 dev-python/typeguard 4.4.1: Run-time type checker for Python
 dev-python/types-docutils 0.21.0.20241005 0.21.0.20241128: Typing stubs for docutils
 dev-python/types-gdb 15.0.0.20241015 15.0.0.20241204: Typing stubs for gdb
-dev-python/types-psutil 6.1.0.20241102: Typing stubs for psutil
+dev-python/types-psutil 6.1.0.20241102 6.1.0.20241221: Typing stubs for psutil
 dev-python/types-setuptools 75.6.0.20241126: Typing stubs for setuptools
 dev-python/typing-extensions 4.12.2: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typogrify 2.0.7-r1: Filters for web typography, supporting Django & Jinja templates
@@ -19050,7 +19050,7 @@ xfce-extra/xfce4-notifyd 0.9.6-r1: Notification daemon for the Xfce desktop envi
 xfce-extra/xfce4-panel-profiles 1.0.14: Simple application to manage Xfce panel layouts
 xfce-extra/xfce4-places-plugin 1.8.3: A panel plug-in to provide quick access to files, folders and removable media
 xfce-extra/xfce4-pulseaudio-plugin 0.4.8 0.4.9: A panel plug-in for PulseAudio volume control
-xfce-extra/xfce4-screensaver 4.18.3: Screen saver and locker (port of MATE screensaver)
+xfce-extra/xfce4-screensaver 4.18.3 4.18.4: Screen saver and locker (port of MATE screensaver)
 xfce-extra/xfce4-screenshooter 1.11.1: Xfce4 screenshooter application and panel plugin
 xfce-extra/xfce4-sensors-plugin 1.4.4: A panel plug-in for acpi, lm-sensors and hddtemp sensors
 xfce-extra/xfce4-smartbookmark-plugin 0.5.2-r1: Smart bookmark plug-in for the Xfce desktop environment
