@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="sqlite"
 
 inherit autotools python-single-r1
@@ -32,13 +32,13 @@ RDEPEND="${PYTHON_DEPS}
 	dev-libs/libyaml
 	dev-libs/openssl:=
 	$(python_gen_cond_dep '
-	dev-python/bcrypt[${PYTHON_USEDEP}]
-	dev-python/cryptography[${PYTHON_USEDEP}]
-	dev-python/pyasn1[${PYTHON_USEDEP}]
-	dev-python/pyasn1-modules[${PYTHON_USEDEP}]
-	dev-python/pyyaml[${PYTHON_USEDEP}]
-	dev-python/tpm2-pytss[${PYTHON_USEDEP}]
-	')
+		dev-python/bcrypt[${PYTHON_USEDEP}]
+		dev-python/cryptography[${PYTHON_USEDEP}]
+		dev-python/pyasn1[${PYTHON_USEDEP}]
+		dev-python/pyasn1-modules[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-python/tpm2-pytss[${PYTHON_USEDEP}]
+		')
 "
 
 DEPEND="test? ( dev-util/cmocka )
@@ -48,7 +48,7 @@ BDEPEND="${PYTHON_DEPS}
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.9.0-Remove-incorrect-append-in-configure-ac.patch"
+	"${FILESDIR}/${PN}-1.9.1-Fix-prefix-install-variable.patch"
 )
 
 src_prepare() {
@@ -58,7 +58,7 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_enable fapi) \
+		$(use_with fapi) \
 		$(use_enable test unit)
 }
 
