@@ -1271,7 +1271,7 @@ app-benchmarks/hyperfine 1.18.0-r1: A command-line benchmarking tool (runs other
 app-benchmarks/i7z 93_p20131012-r2: A better i7 (and now i3, i5) reporting tool for Linux
 app-benchmarks/interbench 0.31-r1: A Linux interactivity benchmark
 app-benchmarks/ioping 1.1 1.2 1.3: Simple disk I/0 latency measuring tool
-app-benchmarks/iozone 3.488 3.506: Filesystem benchmarking program
+app-benchmarks/iozone 3.488 3.506 3.506-r1: Filesystem benchmarking program
 app-benchmarks/libc-bench 20110206: Time and memory-efficiency tests of various C/POSIX standard library functions
 app-benchmarks/nbench 2.2.3-r2: Linux/Unix of release 2 of BYTE Magazine's BYTEmark benchmark
 app-benchmarks/pipebench 0.40-r3: Measures the speed of stdin/stdout communication
@@ -1906,7 +1906,7 @@ app-emacs/citar 1.4.0: Emacs package to quickly find and act on bibliographic re
 app-emacs/citeproc-el 0.9.4-r1: CSL 1.0.2 Citation Processor for Emacs
 app-emacs/cldoc 1.16: Show Common Lisp operators and variables information in echo area
 app-emacs/clojure-mode 5.19.0: Major mode for Clojure code
-app-emacs/closql 2.0.0 9999: Store EIEIO objects using EmacSQL
+app-emacs/closql 2.0.0 2.1.0 9999: Store EIEIO objects using EmacSQL
 app-emacs/cmake-font-lock 0.1.13-r1: Advanced, type aware, highlight support for CMake
 app-emacs/cmake-mode 3.29.1 3.30.3: GNU Emacs mode for handling CMake build files
 app-emacs/color-browser 0.3-r1: A utility for designing Emacs color themes
@@ -1934,7 +1934,7 @@ app-emacs/ctable 0.1.3: Table Component for Emacs Lisp
 app-emacs/cycle-buffer 2.16-r1: Select buffer by cycling through
 app-emacs/d-mode 2.0.12: Emacs major mode for editing D code
 app-emacs/dap-mode 0.8: Debug Adapter Protocol mode
-app-emacs/dape 0.18.0-r1: Debug Adapter Protocol for Emacs
+app-emacs/dape 0.18.0-r1 0.19.0: Debug Adapter Protocol for Emacs
 app-emacs/dash 2.19.1: A modern list library for Emacs
 app-emacs/dashboard 1.8.0 9999: Extensible Emacs dashboard, with sections like bookmarks, agenda and more
 app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
@@ -2090,7 +2090,7 @@ app-emacs/ivy 0.14.2: Generic completion mechanism for Emacs
 app-emacs/ivy-rich 0.1.7: More friendly interface for ivy
 app-emacs/jam-mode 0.3: An Emacs major mode for editing Jam files
 app-emacs/jasmin 1.2-r2: An Emacs major mode for editing Jasmin Java bytecode assembler files
-app-emacs/jinx 1.10: Enchanted Spell Checker for GNU Emacs
+app-emacs/jinx 1.10 1.11: Enchanted Spell Checker for GNU Emacs
 app-emacs/jq-mode 0.5.0_p20220610: Emacs major mode for editing jq queries
 app-emacs/js-comint 1.2.0: Run a JavaScript interpreter in an Emacs inferior process window
 app-emacs/js2-mode 20230408 20231224: Improved JavaScript editing mode for GNU Emacs
@@ -3014,13 +3014,13 @@ app-officeext/sun-templates 1.0.0-r1: Collection of sun templates for various co
 app-officeext/texmaths 0.48.2: LaTeX Equation Editor for LibreOffice
 app-pda/dynamite 0.1.1_p20120512: A tool for decompressing data compressed with PKWARE Data Compression Library
 app-pda/gtkpod 2.1.5-r5: A graphical user interface to the Apple productline
-app-pda/ideviceinstaller 1.1.0 1.1.1: A tool to interact with the installation_proxy of an Apple's iDevice
+app-pda/ideviceinstaller 1.1.1: A tool to interact with the installation_proxy of an Apple's iDevice
 app-pda/ifuse 1.1.4: Mount Apple iPhone/iPod Touch file systems for backup purposes
 app-pda/jpilot 1.8.2-r1 2.0.1: Desktop Organizer Software for the Palm Pilot
 app-pda/libimobiledevice 1.3.0_p20240201: Support library to communicate with Apple iPhone/iPod Touch devices
-app-pda/libimobiledevice-glue 1.1.0 1.3.0: Support library for libimobiledevice projects
-app-pda/libplist 2.3.0-r2 2.6.0: Support library to deal with Apple Property Lists (Binary & XML)
-app-pda/libusbmuxd 2.0.2-r2 2.1.0: USB multiplex daemon for use with Apple iPhone/iPod Touch devices
+app-pda/libimobiledevice-glue 1.3.0: Support library for libimobiledevice projects
+app-pda/libplist 2.6.0: Support library to deal with Apple Property Lists (Binary & XML)
+app-pda/libusbmuxd 2.1.0: USB multiplex daemon for use with Apple iPhone/iPod Touch devices
 app-pda/pilot-link 0.12.5-r4: Suite of tools for moving data between a Palm device and a desktop
 app-pda/usbmuxd 1.1.1_p20231011 1.1.1_p20240915: USB multiplex daemon for use with Apple iPhone/iPod Touch devices
 app-portage/cfg-update 1.8.9-r2: Easy to use GUI & CLI alternative for etc-update
@@ -13261,7 +13261,7 @@ media-libs/libgig 4.3.0 4.4.1 9999: C++ library for loading Gigasampler and DLS 
 media-libs/libgii 1.0.2-r4: Easy to use, but yet powerful, API for all possible input sources
 media-libs/libglvnd 1.7.0 9999: The GL Vendor-Neutral Dispatch library
 media-libs/libgphoto2 2.5.31-r2: Library that implements support for numerous digital cameras
-media-libs/libgpod 0.8.3-r6 0.8.3-r7 0.8.3-r8: Shared library to access the contents of an iPod
+media-libs/libgpod 0.8.3-r8: Shared library to access the contents of an iPod
 media-libs/libharu 2.4.2-r1: C/C++ library for PDF generation
 media-libs/libhdhomerun 20190621 20200521: SiliconDust HDHomeRun Utilties
 media-libs/libheif 1.18.2-r1 9999: ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
