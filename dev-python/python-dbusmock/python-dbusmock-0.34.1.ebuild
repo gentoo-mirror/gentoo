@@ -4,7 +4,6 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="xml(+)"
 
@@ -18,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/dbus-python[${PYTHON_USEDEP}]

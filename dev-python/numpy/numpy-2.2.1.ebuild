@@ -44,6 +44,7 @@ BDEPEND="
 		' 'python*')
 		dev-python/charset-normalizer[${PYTHON_USEDEP}]
 		>=dev-python/hypothesis-5.8.0[${PYTHON_USEDEP}]
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	)
 "
@@ -160,25 +161,6 @@ python_test() {
 		)
 	fi
 
-	case ${EPYTHON} in
-		python3.13)
-			EPYTEST_DESELECT+=(
-				numpy/_core/tests/test_nditer.py::test_iter_refcount
-				numpy/_core/tests/test_limited_api.py::test_limited_api
-				numpy/f2py/tests/test_f2py2e.py::test_gh22819_cli
-			)
-			;&
-		python3.12)
-			EPYTEST_DESELECT+=(
-				# flaky
-				numpy/f2py/tests/test_crackfortran.py
-				numpy/f2py/tests/test_data.py::TestData::test_crackedlines
-				numpy/f2py/tests/test_data.py::TestDataF77::test_crackedlines
-				numpy/f2py/tests/test_f2py2e.py::test_gen_pyf
-			)
-			;;
-	esac
-
 	if ! has_version -b "~${CATEGORY}/${P}[${PYTHON_USEDEP}]" ; then
 		# depends on importing numpy.random from system namespace
 		EPYTEST_DESELECT+=(
@@ -200,7 +182,7 @@ python_test() {
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	epytest
+	epytest -p rerunfailures --reruns=5
 }
 
 python_install_all() {
