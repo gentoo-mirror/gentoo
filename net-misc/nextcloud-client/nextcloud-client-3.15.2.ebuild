@@ -10,12 +10,14 @@ HOMEPAGE="https://github.com/nextcloud/desktop"
 SRC_URI="
 	https://github.com/nextcloud/desktop/archive/v${PV/_/-}.tar.gz
 		-> ${P}.tar.gz
+	https://github.com/nextcloud/desktop/commit/49a7c8d7874643da2550793877115c7f3dbd2d05.patch
+		-> ${PN}-3.15.2-fix-macosvfs-file-sharing.png.patch
 "
 S="${WORKDIR}/desktop-${PV/_/-}"
 
 LICENSE="CC-BY-3.0 GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="doc dolphin nautilus test webengine"
 RESTRICT="!test? ( test )"
 
@@ -66,6 +68,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.6.6-no-redefine-fortify-source.patch
 	# https://github.com/nextcloud/desktop/pull/7383
 	"${FILESDIR}"/${PN}-3.14.2-doc-fix.patch
+	# https://github.com/nextcloud/desktop/pull/7691
+	"${DISTDIR}"/${PN}-3.15.2-fix-macosvfs-file-sharing.png.patch
 )
 
 src_prepare() {
