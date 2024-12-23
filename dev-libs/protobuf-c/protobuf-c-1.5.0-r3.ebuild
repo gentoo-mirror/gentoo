@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools multilib-minimal
+inherit autotools flag-o-matic multilib-minimal
 
 MY_PV="${PV/_/-}"
 MY_P="${PN}-${MY_PV}"
@@ -39,6 +39,13 @@ PATCHES=(
 src_prepare() {
 	default
 	eautoreconf
+}
+
+src_configure() {
+	# Workaround for bug #946366
+	append-flags $(test-flags-CC -fzero-init-padding-bits=unions)
+
+	multilib-minimal_src_configure
 }
 
 multilib_src_configure() {
