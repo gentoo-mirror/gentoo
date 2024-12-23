@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KDE_ORG_COMMIT=066e1474850994d00ce03c52194136eebd3ef65d
+KDE_ORG_COMMIT=835e741cbd48e30d8e221ed9c1c803b562d9f698
 KFMIN=6.5.0
 QTMIN=6.7.2
 inherit ecm kde.org optfeature
