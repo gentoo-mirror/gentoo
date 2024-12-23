@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop toolchain-funcs xdg-utils
 
-EGIT_COMMIT="e35219148"
+EGIT_COMMIT="d384b22ac"
 MY_BUILD="$(ver_cut 2)"
 MY_DATE="$(ver_cut 1)"
 MY_PV_HRP="5.4"
@@ -52,7 +52,7 @@ RDEPEND="
 	media-libs/libogg
 	media-libs/libsdl2[alsa,joystick,opengl?,sound,video]
 	media-libs/libvorbis
-	media-libs/sdl2-mixer[flac,fluidsynth?,midi,timidity?,vorbis]
+	media-libs/sdl2-mixer[flac,fluidsynth?,timidity?,vorbis]
 	sys-libs/zlib
 	gtk? ( x11-libs/gtk+:2 )
 	opengl? (
