@@ -80,6 +80,7 @@ src_configure() {
 	# TODO:
 	# --with-external-Unicode-EastAsianWidth
 	# --with-external-Text-Unidecode
+	# --enable-xs-perl-libintl for musl (7.2)?
 	#
 	# Also, 7.0.91 seemed to introduce a included-libunistring w/ USE=-standalone
 	# but it doesn't seem to do anything?
