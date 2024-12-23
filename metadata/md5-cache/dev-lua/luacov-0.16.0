@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig test? ( dev-lua/busted[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?,lua_targets_lua5-4(-)?] dev-lua/lua_cliargs[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?,lua_targets_lua5-4(-)?] lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) )
-DEFINED_PHASES=compile install prepare test
+DEFINED_PHASES=install test
 DEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
-DESCRIPTION=Platform independent system calls for Lua
+DESCRIPTION=A simple coverage analyzer for Lua scripts
 EAPI=8
-HOMEPAGE=https://github.com/lunarmodules/luasystem
-INHERIT=lua toolchain-funcs
+HOMEPAGE=https://github.com/keplerproject/luacov
+INHERIT=lua
 IUSE=test lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=MIT
 RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/lunarmodules/luasystem/archive/refs/tags/v0.4.2.tar.gz -> luasystem-0.4.2.tar.gz
+SRC_URI=https://github.com/keplerproject/luacov/archive/refs/tags/v0.16.0.tar.gz -> luacov-0.16.0.tar.gz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	lua-utils	7c89927eda6f21c4c48136247077ab37	lua	3414f66fe14a8c3ffdb5a894097068c6
-_md5_=8c38c0738aa6219f13cd2a8393e3edaa
+_md5_=f81e6ba518254706c2d1b3549fcaee11
