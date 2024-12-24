@@ -11,7 +11,7 @@ HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="+debug ompt test llvm_targets_AMDGPU llvm_targets_NVPTX"
 RESTRICT="!test? ( test )"
 
@@ -132,6 +132,8 @@ src_configure() {
 
 		-DOPENMP_TEST_C_COMPILER="$(type -P "${CHOST}-clang")"
 		-DOPENMP_TEST_CXX_COMPILER="$(type -P "${CHOST}-clang++")"
+		# requires flang
+		-DOPENMP_TEST_Fortran_COMPILER=
 	)
 
 	cmake_src_configure
