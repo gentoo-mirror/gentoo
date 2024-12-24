@@ -29,10 +29,13 @@ RESTRICT="test"
 # dlopen: libglvnd
 RDEPEND="
 	${LUA_DEPS}
+	app-text/cmark:=
 	dev-games/physfs
 	dev-libs/libpcre2:=
 	dev-libs/libunibreak:=
 	dev-libs/libxml2
+	dev-libs/libyaml
+	dev-libs/nativefiledialog-extended
 	media-libs/freetype:2
 	media-libs/libglvnd
 	media-libs/libsdl2[joystick,opengl,video]
@@ -67,6 +70,10 @@ BDEPEND="
 		x11-base/xorg-server[-minimal]
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-nfd.patch
+)
 
 python_check_deps() {
 	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
