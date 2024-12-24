@@ -1,13 +1,19 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
 DESCRIPTION="A tail-like RSS-reader"
-HOMEPAGE="http://www.vanheusden.com/rsstail/ https://github.com/flok99/rsstail"
-SRC_URI="http://www.vanheusden.com/${PN}/${P}.tgz"
+HOMEPAGE="
+	https://www.vanheusden.com/rsstail/
+	https://github.com/folkertvanheusden/rsstail
+"
+SRC_URI="
+	https://github.com/folkertvanheusden/rsstail/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,6 +28,12 @@ src_compile() {
 		CC="$(tc-getCC)" \
 		CFLAGS="${CFLAGS} -DVERSION=\\\"\$(VERSION)\\\"" \
 		LDFLAGS="${LDFLAGS} $($(tc-getPKG_CONFIG) --libs mrss)"
+}
+
+src_test() {
+	# Skip as it's just cppcheck.
+	# We don't run lints for ebuilds.
+	:;
 }
 
 src_install() {
