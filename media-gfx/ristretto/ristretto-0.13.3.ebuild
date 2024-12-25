@@ -14,26 +14,25 @@ SRC_URI="https://archive.xfce.org/src/apps/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 DEPEND="
-	>=dev-libs/glib-2.56:2
-	media-libs/libexif:0=
+	>=dev-libs/glib-2.56.0:2
+	>=media-libs/libexif-0.6.0:0=
 	sys-apps/file
-	x11-libs/cairo:0
-	>=x11-libs/gtk+-3.22:3
-	x11-libs/libX11:0=
-	>=xfce-base/libxfce4ui-4.16:0=
-	>=xfce-base/libxfce4util-4.16:0=
+	>=x11-libs/cairo-1.10.0:0
+	>=x11-libs/gtk+-3.22.0:3
+	>=x11-libs/libX11-1.6.7:0=
+	>=xfce-base/libxfce4ui-4.16.0:0=
+	>=xfce-base/libxfce4util-4.16.0:0=
 	>=xfce-base/xfconf-4.12.1:0=
 "
 RDEPEND="
 	${DEPEND}
 "
 BDEPEND="
-	dev-util/intltool
+	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
-	sys-devel/gettext
 "
 
 pkg_postinst() {
