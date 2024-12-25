@@ -38,15 +38,4 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx \
-	docs/source \
-	dev-python/sphinx-rtd-theme \
-	dev-python/recommonmark \
-	dev-python/sphinxcontrib-apidoc
-
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
-
-src_prepare() {
-	sed -i '/sphinx_git/d' "${S}"/setup.cfg "${S}"/docs/source/conf.py
-	default
-}
