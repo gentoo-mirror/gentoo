@@ -11,7 +11,7 @@ SRC_URI="https://github.com/phaag/nfdump/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug doc jnat ftconv nfpcapd nfprofile nftrack nsel readpcap sflow zstd"
 
 REQUIRED_USE="?? ( jnat nsel )"
@@ -45,7 +45,6 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.6.19-libft.patch
-	"${FILESDIR}"/${PN}-1.7.4-rrdtool-gcc14.patch
 )
 
 DOCS=( AUTHORS ChangeLog README.md )
@@ -80,6 +79,12 @@ src_configure() {
 		$(use_with zstd "zstdpath" "${EPREFIX}/usr")
 	)
 	econf "${myeconfargs[@]}"
+}
+
+src_test(){
+	pushd src/test || die
+	emake -j1 check-TESTS
+	popd || die
 }
 
 src_install() {
