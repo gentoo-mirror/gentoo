@@ -95,6 +95,7 @@ src_configure() {
 		-DENABLE_SYSTEM_YYJSON=yes
 		-DIS_MUSL=$(usex elibc_musl)
 		-DINSTALL_LICENSE=no
+		-DBUILD_FLASHFETCH=no
 
 		-DENABLE_CHAFA=$(usex chafa)
 		-DENABLE_DBUS=$(usex dbus)

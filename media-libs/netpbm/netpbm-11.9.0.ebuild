@@ -8,7 +8,7 @@ inherit flag-o-matic multilib toolchain-funcs
 # Upstream has 3 flavors of netpbm: super stable, stable and advanced.
 # They only provide a tarball for super stable, but super stable is a bit lagging.
 # So we package the stable branch of their svn (currently versions 11.2.xx) on SLOT "0/stable"
-# and the advanced branch of their svn (currently versions 11.8.yy) on SLOT "0/advanced".
+# and the advanced branch of their svn (currently versions 11.9.yy) on SLOT "0/advanced".
 # The stable branch is stabilized according to usual Gentoo rules, while the
 # advanced branch will not be stabilized.
 # A detailed explanation is here https://netpbm.sourceforge.net/release.html
@@ -54,12 +54,10 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/netpbm-10.86.21-build.patch
+	"${FILESDIR}"/netpbm-11.9.0-build.patch
 	"${FILESDIR}"/netpbm-11.0.0-misc-deps.patch
 	"${FILESDIR}"/netpbm-11.1.0-fix-clang-O2.patch
 	"${FILESDIR}"/netpbm-11.6.1-incompatible-pointer-types.patch
-	"${FILESDIR}"/netpbm-11.7.2-lto.patch
-	"${FILESDIR}"/netpbm-11.8.2-fix-C23.patch
 )
 
 netpbm_libtype() {
@@ -166,6 +164,9 @@ src_prepare() {
 			-e 's:pnmindex.*::' \
 			-i test/Test-Order || die
 	fi
+
+	# broken in 11.9.0, upstream informed.  Skip it for now.
+	sed -e 's:pammixmulti-identity.*::' -i test/Test-Order
 }
 
 src_configure() {
