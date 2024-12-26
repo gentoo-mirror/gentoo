@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/gsteele13/spyview.git"
 else
 	SRC_URI="https://github.com/gsteele13/spyview/archive/710b9ddb6aa00fada1a758d42b57b75f92bb32a7.tar.gz -> ${P}.tgz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
@@ -35,6 +35,7 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/spyview-no-user-dirs.patch"
+	"${FILESDIR}/${P}-fltk1.4.patch"
 )
 
 src_unpack() {

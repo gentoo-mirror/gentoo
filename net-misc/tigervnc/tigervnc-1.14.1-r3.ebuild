@@ -18,7 +18,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/TigerVNC/tigervnc/"
 else
 	SRC_URI+=" https://github.com/TigerVNC/tigervnc/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
 fi
 
 LICENSE="GPL-2"
@@ -32,6 +32,7 @@ REQUIRED_USE="
 "
 
 # TODO: sys-libs/libselinux
+# <fltk-1.4: https://github.com/TigerVNC/tigervnc/pull/1887#issuecomment-2545662546
 COMMON_DEPEND="
 	dev-libs/gmp:=
 	dev-libs/nettle:=
@@ -68,7 +69,7 @@ COMMON_DEPEND="
 	)
 	viewer? (
 		media-video/ffmpeg:=
-		x11-libs/fltk:1=
+		<x11-libs/fltk-1.4:1=
 		x11-libs/libXi
 		x11-libs/libXrender
 		!net-misc/turbovnc[viewer]

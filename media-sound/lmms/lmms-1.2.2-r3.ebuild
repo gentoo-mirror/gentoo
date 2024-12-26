@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg
+inherit cmake flag-o-matic xdg
 
 DESCRIPTION="Cross-platform music production software"
 HOMEPAGE="https://lmms.io"
@@ -12,16 +12,22 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/LMMS/lmms/releases/download/v${PV/_/-}/${PN}_${PV/_/-}.tar.xz"
-	S="${WORKDIR}/${PN}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
+	S="${WORKDIR}/${P/_/-}"
 fi
+
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 
 IUSE="alsa debug fluidsynth jack libgig mp3 ogg portaudio pulseaudio sdl soundio stk test vst"
 
-RESTRICT="!test? ( test )"
+# FAIL!  : AutomatableModelTest::LinkTests() 'm1Changed' returned FALSE. ()
+#
+# Did not previously pass, did not previously run. Maintain status quo.
+# Fixed upstream in git.
+RESTRICT="test"
 
 COMMON_DEPEND="
 	dev-qt/qtcore:5
@@ -70,8 +76,9 @@ RDEPEND="${COMMON_DEPEND}
 DOCS=( README.md doc/AUTHORS )
 
 PATCHES=(
-	"${FILESDIR}/${PN}-9999-no_compress_man.patch" #733284
-	"${FILESDIR}/${PN}-9999-plugin-path.patch" #907285
+	"${FILESDIR}/${PN}-1.2.2-no_compress_man.patch" #733284
+	"${FILESDIR}/${PN}-1.2.2-plugin-path.patch" #907285
+	"${FILESDIR}/${PN}-1.2.2-kwidgetsaddons.patch"
 )
 
 src_prepare() {
@@ -83,6 +90,13 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=odr
+	# https://bugs.gentoo.org/860867
+	# https://github.com/LMMS/lmms/pull/6174
+	#
+	# Fixed upstream, remove whenever they finally release a new version.
+	filter-lto
+
 	local mycmakeargs=(
 		-DUSE_WERROR=FALSE
 		-DWANT_CAPS=FALSE
@@ -90,6 +104,7 @@ src_configure() {
 		-DWANT_SWH=FALSE
 		-DWANT_CMT=FALSE
 		-DWANT_CALF=FALSE
+		-DWANT_QT5=TRUE
 		-DWANT_ALSA=$(usex alsa)
 		-DWANT_JACK=$(usex jack)
 		-DWANT_GIG=$(usex libgig)
@@ -108,8 +123,8 @@ src_configure() {
 }
 
 src_test() {
-	# tests are hidden inside a subdir and ctest does not detect them without
-	# running inside that subdir
-	local BUILD_DIR="${BUILD_DIR}/tests"
-	cmake_src_test
+	# does not use ctest
+	cmake_build tests/tests
+	"${BUILD_DIR}"/tests/tests || die
+
 }
