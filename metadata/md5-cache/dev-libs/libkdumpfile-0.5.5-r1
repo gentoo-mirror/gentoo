@@ -1,13 +1,13 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install
-DEPEND=lzo? ( dev-libs/lzo ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
+DEPEND=sys-libs/binutils-libs:= lzo? ( dev-libs/lzo ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=Kernel coredump file access
 EAPI=8
 HOMEPAGE=https://github.com/ptesarik/libkdumpfile
 IUSE=lzo snappy zlib zstd
 KEYWORDS=~amd64
 LICENSE=|| ( LGPL-3+ GPL-2+ )
-RDEPEND=lzo? ( dev-libs/lzo ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
+RDEPEND=sys-libs/binutils-libs:= lzo? ( dev-libs/lzo ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
 SLOT=0
 SRC_URI=https://github.com/ptesarik/libkdumpfile/releases/download/v0.5.5/libkdumpfile-0.5.5.tar.bz2
-_md5_=5d76cdaa9eb4c99c116ed2d41a112f4c
+_md5_=789a79faaab3c830057a12e05f7da311
