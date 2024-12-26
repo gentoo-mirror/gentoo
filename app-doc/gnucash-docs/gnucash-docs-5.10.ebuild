@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/Gnucash/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 FDL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 LOCALES=( de it ja pt )
 IUSE="${LOCALES[*]/#/l10n_}"
 
@@ -24,15 +24,6 @@ BDEPEND="
 	dev-libs/libxml2
 	dev-libs/libxslt
 "
-
-src_prepare() {
-	eapply -R "${FILESDIR}/${P}-reverese-kde-help-dir.patch"
-	cmake_src_prepare
-}
-
-src_compile() {
-	cmake_src_compile -j1
-}
 
 src_install() {
 	local doc_type my_lang
@@ -57,7 +48,7 @@ src_install() {
 			esac
 
 			emake \
-				-C "${BUILD_DIR}/${doc_type}/${my_lang}" \
+				-C "${BUILD_DIR}/${my_lang}/${doc_type}" \
 				DESTDIR="${D}" \
 				install
 		done
