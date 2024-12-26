@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=sys-libs/zlib x11-libs/fltk:1=[opengl?] opengl? ( media-libs/glu virtual/opengl ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Graphical map editor for games using the DOOM engine
+EAPI=7
+HOMEPAGE=https://eureka-editor.sourceforge.net/
+INHERIT=desktop toolchain-funcs xdg
+IUSE=+opengl
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=sys-libs/zlib x11-libs/fltk:1=[opengl?] opengl? ( media-libs/glu virtual/opengl )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/eureka-editor/Eureka/1.27/eureka-1.27b-source.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=9b91e5b5a25e9f15b41003b06418cda6

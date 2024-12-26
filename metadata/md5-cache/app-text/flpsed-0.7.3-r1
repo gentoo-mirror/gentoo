@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXft x11-libs/fltk:1= app-text/ghostscript-gpl[X] dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Pseudo PostScript editor
+EAPI=7
+HOMEPAGE=https://flpsed.org/flpsed.html
+INHERIT=desktop xdg
+KEYWORDS=amd64 x86
+LICENSE=GPL-2
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXft x11-libs/fltk:1= app-text/ghostscript-gpl[X]
+SLOT=0
+SRC_URI=https://flpsed.org/flpsed-0.7.3.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=e8bde52df475e8a481d4bb89946f3516

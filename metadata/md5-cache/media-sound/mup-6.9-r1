@@ -1,0 +1,14 @@
+BDEPEND=app-text/ghostscript-gpl media-libs/netpbm sys-apps/groff app-alternatives/yacc >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile install prepare
+DEPEND=media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/libX11 x11-libs/libXext x11-libs/fltk:1= x11-libs/libXpm x11-base/xorg-proto
+DESCRIPTION=Program for printing music scores
+EAPI=8
+HOMEPAGE=http://www.arkkra.com/
+INHERIT=autotools toolchain-funcs
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=Arkkra
+RDEPEND=media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/libX11 x11-libs/libXext x11-libs/fltk:1= x11-libs/libXpm
+SLOT=0
+SRC_URI=http://www.arkkra.com/ftp/pub/unix/mup69src.tar.gz ftp://ftp.arkkra.com/pub/unix/mup69src.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe
+_md5_=2f56dc4c45c23f8cbbe50e4fa524e272
