@@ -1,0 +1,13 @@
+BDEPEND=app-text/txt2man sys-devel/bison sys-devel/flex sys-apps/which virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=sys-libs/ncurses:= sys-libs/readline:= glib? ( >=dev-libs/glib-2.68:2 ) iconv? ( virtual/libiconv ) odbc? ( >=dev-db/unixODBC-2.0 )
+DESCRIPTION=Set of libraries and utilities for reading Microsoft Access database (MDB) files
+EAPI=8
+HOMEPAGE=https://github.com/mdbtools/mdbtools
+IUSE=glib iconv odbc
+KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=sys-libs/ncurses:= sys-libs/readline:= glib? ( >=dev-libs/glib-2.68:2 ) iconv? ( virtual/libiconv ) odbc? ( >=dev-db/unixODBC-2.0 )
+SLOT=0/3
+SRC_URI=https://github.com/mdbtools/mdbtools/releases/download/v1.0.1/mdbtools-1.0.1.tar.gz
+_md5_=354581019b5afa79e0613c0b913d8c46
