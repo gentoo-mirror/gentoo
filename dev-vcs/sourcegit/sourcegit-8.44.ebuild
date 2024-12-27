@@ -8,22 +8,22 @@ NUGETS="
 avalonia.angle.windows.natives@2.1.22045.20230930
 avalonia.avaloniaedit@11.1.0
 avalonia.buildservices@0.0.29
-avalonia.controls.colorpicker@11.2.2
-avalonia.controls.datagrid@11.2.2
-avalonia.desktop@11.2.2
-avalonia.diagnostics@11.2.2
-avalonia.fonts.inter@11.2.2
-avalonia.freedesktop@11.2.2
-avalonia.native@11.2.2
-avalonia.remote.protocol@11.2.2
+avalonia.controls.colorpicker@11.2.3
+avalonia.controls.datagrid@11.2.3
+avalonia.desktop@11.2.3
+avalonia.diagnostics@11.2.3
+avalonia.fonts.inter@11.2.3
+avalonia.freedesktop@11.2.3
+avalonia.native@11.2.3
+avalonia.remote.protocol@11.2.3
 avalonia.skia@11.0.0
-avalonia.skia@11.2.2
-avalonia.themes.fluent@11.2.2
-avalonia.themes.simple@11.2.2
-avalonia.win32@11.2.2
-avalonia.x11@11.2.2
+avalonia.skia@11.2.3
+avalonia.themes.fluent@11.2.3
+avalonia.themes.simple@11.2.3
+avalonia.win32@11.2.3
+avalonia.x11@11.2.3
 avalonia@11.0.0
-avalonia@11.2.2
+avalonia@11.2.3
 avaloniaedit.textmate@11.1.0
 communitytoolkit.mvvm@8.3.2
 harfbuzzsharp.nativeassets.linux@7.3.0.3
@@ -47,9 +47,9 @@ skiasharp@2.88.9
 system.io.pipelines@8.0.0
 system.text.json@8.0.5
 textmatesharp.grammars@1.0.59
-textmatesharp.grammars@1.0.64
+textmatesharp.grammars@1.0.65
 textmatesharp@1.0.59
-textmatesharp@1.0.64
+textmatesharp@1.0.65
 tmds.dbus.protocol@0.20.0
 "
 
@@ -90,7 +90,9 @@ RDEPEND="
 
 CHECKREQS_DISK_BUILD="1G"
 DOTNET_PKG_PROJECTS=( src/SourceGit.csproj )
-PATCHES=( "${FILESDIR}/sourcegit-8.40-Preference-no-check4Updates.patch" )
+DOTNET_PKG_BUILD_EXTRA_ARGS=(
+	-p:DisableUpdateDetection="true"
+)
 
 pkg_setup() {
 	check-reqs_pkg_setup
