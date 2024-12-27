@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install nofetch postinst postrm preinst unpack
+DESCRIPTION=Platform game where you manipulate flow of time
+EAPI=8
+HOMEPAGE=https://www.gog.com/en/game/braid
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop unpacker xdg
+IUSE=launcher
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=GOG-EULA Arphic CC-BY-NC-SA-1.0
+RDEPEND=!games-puzzle/braid-hb media-gfx/nvidia-cg-toolkit[abi_x86_32] media-libs/libsdl2[joystick,opengl,sound,video,abi_x86_32] virtual/opengl[abi_x86_32] launcher? ( media-libs/fontconfig:1.0[abi_x86_32] x11-libs/libX11[abi_x86_32] x11-libs/libXcursor[abi_x86_32] x11-libs/libXext[abi_x86_32] x11-libs/libXfixes[abi_x86_32] x11-libs/libXft[abi_x86_32] x11-libs/libXinerama[abi_x86_32] )
+RESTRICT=bindist fetch splitdebug
+SLOT=0
+SRC_URI=gog_braid_2.0.0.3.sh
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	unpacker	fb4b84181244b3b9990fa0bf40232dd2	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=e6f78e215623c769bfa2f7369f2d408c
