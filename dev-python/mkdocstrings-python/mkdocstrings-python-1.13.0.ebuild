@@ -26,6 +26,8 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		>=dev-python/beautifulsoup4-4.12.3[${PYTHON_USEDEP}]
+		>=dev-python/inline-snapshot-0.18[${PYTHON_USEDEP}]
 		dev-python/mkdocs-material[${PYTHON_USEDEP}]
 	)
 "
@@ -33,3 +35,14 @@ BDEPEND="
 distutils_enable_tests pytest
 
 export PDM_BUILD_SCM_VERSION=${PV}
+
+python_test() {
+	local EPYTEST_DESELECT=(
+		# "None" meaning particular formatter not installed
+		"tests/test_rendering.py::test_format_code[None-print('Hello')]"
+		"tests/test_rendering.py::test_format_code[None-aaaaa(bbbbb, ccccc=1) + ddddd.eeeee[ffff] or {ggggg: hhhhh, iiiii: jjjjj}]"
+	)
+
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest -p inline_snapshot
+}
