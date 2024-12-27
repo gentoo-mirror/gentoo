@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=curl? ( net-misc/curl:= ) json? ( dev-libs/yajl:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql:= )
+DESCRIPTION=Web application platform for writing scalable, concurrent web based processes
+EAPI=8
+HOMEPAGE=https://kore.io/ https://github.com/jorisvink/kore/
+INHERIT=toolchain-funcs
+IUSE=+acme +curl debug +http +json +openssl postgres +threads
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=curl? ( net-misc/curl:= ) json? ( dev-libs/yajl:= ) openssl? ( dev-libs/openssl:= ) postgres? ( dev-db/postgresql:= )
+REQUIRED_USE=acme? ( curl openssl )
+SLOT=0
+SRC_URI=https://github.com/jorisvink/kore/archive/refs/tags/4.3.0-rc4.tar.gz -> kore-4.3.0_rc4.gh.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=f57f9d75cac065ea4c31eecbe6af622d
