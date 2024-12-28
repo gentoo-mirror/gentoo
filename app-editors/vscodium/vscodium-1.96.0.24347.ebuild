@@ -108,15 +108,20 @@ src_install() {
 	fi
 
 	sed "s|@exec_extra_flags@|${EXEC_EXTRA_FLAGS[*]}|g" \
-		"${FILESDIR}/vscodium-url-handler.desktop" \
-		> "${T}/vscodium-url-handler.desktop" || die
+		"${FILESDIR}/codium-url-handler.desktop" \
+		> "${T}/codium-url-handler.desktop" || die
 
 	sed "s|@exec_extra_flags@|${EXEC_EXTRA_FLAGS[*]}|g" \
-		"${FILESDIR}/vscodium.desktop" \
-		> "${T}/vscodium.desktop" || die
+		"${FILESDIR}/codium.desktop" \
+		> "${T}/codium.desktop" || die
 
-	domenu "${T}/vscodium.desktop"
-	domenu "${T}/vscodium-url-handler.desktop"
+	sed "s|@exec_extra_flags@|${EXEC_EXTRA_FLAGS[*]}|g" \
+		"${FILESDIR}/code-open-in-new-window.desktop" \
+		> "${T}/code-open-in-new-window.desktop" || die
+
+	domenu "${T}/codium.desktop"
+	domenu "${T}/codium-url-handler.desktop"
+	domenu "${T}/codium-open-in-new-window.desktop"
 	newicon "resources/app/resources/linux/code.png" "vscodium.png"
 }
 
