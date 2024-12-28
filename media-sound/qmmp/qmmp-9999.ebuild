@@ -38,7 +38,7 @@ RDEPEND="
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
-	media-libs/taglib
+	media-libs/taglib:=
 	x11-libs/libX11
 	aac? ( media-libs/faad2 )
 	alsa? ( media-libs/alsa-lib )

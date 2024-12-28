@@ -23,7 +23,7 @@ RDEPEND="
 	dev-libs/libpcre
 	media-libs/libmpdclient
 	boost? ( dev-libs/boost:= )
-	taglib? ( media-libs/taglib )
+	taglib? ( media-libs/taglib:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"

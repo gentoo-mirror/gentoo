@@ -15,9 +15,9 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://git.ardour.org/ardour/ardour.git"
 	inherit git-r3
 else
-	KEYWORDS="~amd64 ~loong ~x86"
 	SRC_URI="https://dev.gentoo.org/~fordfrog/distfiles/Ardour-${PV}.0.tar.bz2"
 	S="${WORKDIR}/Ardour-${PV}.0"
+	KEYWORDS="~amd64 ~loong ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -43,7 +43,7 @@ RDEPEND="
 	media-libs/libsoundtouch
 	media-libs/raptor:2
 	media-libs/rubberband
-	media-libs/taglib
+	media-libs/taglib:=
 	media-libs/vamp-plugin-sdk
 	net-libs/libwebsockets
 	net-misc/curl
@@ -62,12 +62,12 @@ RDEPEND="
 #	!bundled-libs? ( media-sound/fluidsynth ) at least libltc is missing to be able to unbundle...
 
 DEPEND="${RDEPEND}
-	${PYTHON_DEPS}
+	jack? ( virtual/jack )"
+BDEPEND="${PYTHON_DEPS}
 	dev-util/itstool
 	sys-devel/gettext
 	virtual/pkgconfig
-	doc? ( app-text/doxygen[dot] )
-	jack? ( virtual/jack )"
+	doc? ( app-text/doxygen[dot] )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.8-metadata.patch"

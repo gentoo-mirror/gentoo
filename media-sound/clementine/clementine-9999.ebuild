@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
 	>=media-libs/libmygpo-qt-1.0.9[qt5(+)]
-	>=media-libs/taglib-1.11.1_p20181028
+	media-libs/taglib:=
 	sys-libs/zlib
 	x11-libs/libX11
 	alsa? ( media-libs/alsa-lib )
@@ -96,6 +96,7 @@ PATCHES=(
 	"${FILESDIR}/clementine-1.4.0_rc2-c17.patch"
 	"${FILESDIR}/clementine-1.4.0_rc2-absl.patch"
 	"${FILESDIR}/clementine-1.4.0_rc2-projectm-dir.patch"
+	"${FILESDIR}/clementine-1.4.0_rc2-fix-build-taglib2.patch"
 )
 
 DOCS=( Changelog README.md )
