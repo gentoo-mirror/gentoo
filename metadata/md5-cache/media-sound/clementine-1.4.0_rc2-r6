@@ -1,17 +1,18 @@
-BDEPEND=>=dev-cpp/gtest-1.8.0 dev-qt/linguist-tools:5 sys-devel/gettext virtual/pkgconfig test? ( dev-qt/qttest:5 gnome-base/gsettings-desktop-schemas ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+BDEPEND=>=dev-cpp/gtest-1.8.0 dev-qt/linguist-tools:5 sys-devel/gettext virtual/pkgconfig test? ( dev-qt/qttest:5 gnome-base/gsettings-desktop-schemas ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-cpp/abseil-cpp:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/protobuf:= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5[sqlite] dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-libs/chromaprint:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 >=media-libs/libmygpo-qt-1.0.9[qt5(+)] media-libs/taglib:= sys-libs/zlib x11-libs/libX11 alsa? ( media-libs/alsa-lib ) cdda? ( dev-libs/libcdio:= ) dbus? ( dev-qt/qtdbus:5 ) ipod? ( >=media-libs/libgpod-0.8.0 ) lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 ) moodbar? ( sci-libs/fftw:3.0= ) mtp? ( >=media-libs/libmtp-1.0.0:= ) projectm? ( media-libs/glew:= >=media-libs/libprojectm-3.1.12:0= virtual/opengl ) pulseaudio? ( media-libs/libpulse ) dev-libs/boost dev-libs/libxml2 dev-qt/qtopengl:5 dev-qt/qtxml:5 virtual/glu box? ( dev-cpp/sparsehash ) dropbox? ( dev-cpp/sparsehash ) googledrive? ( dev-cpp/sparsehash ) seafile? ( dev-cpp/sparsehash ) skydrive? ( dev-cpp/sparsehash )
 DESCRIPTION=Modern music player and library organizer based on Amarok 1.4 and Qt
 EAPI=8
 HOMEPAGE=https://www.clementine-player.org https://github.com/clementine-player/Clementine
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=cmake flag-o-matic plocale virtualx xdg git-r3
+INHERIT=cmake flag-o-matic plocale virtualx xdg
 IUSE=alsa box cdda +dbus debug dropbox googledrive ipod lastfm moodbar mtp projectm pulseaudio seafile skydrive test +udisks wiimote test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-3
-PROPERTIES=live
 RDEPEND=dev-cpp/abseil-cpp:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/protobuf:= dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsql:5[sqlite] dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 media-libs/chromaprint:= media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 >=media-libs/libmygpo-qt-1.0.9[qt5(+)] media-libs/taglib:= sys-libs/zlib x11-libs/libX11 alsa? ( media-libs/alsa-lib ) cdda? ( dev-libs/libcdio:= ) dbus? ( dev-qt/qtdbus:5 ) ipod? ( >=media-libs/libgpod-0.8.0 ) lastfm? ( >=media-libs/liblastfm-1.1.0_pre20150206 ) moodbar? ( sci-libs/fftw:3.0= ) mtp? ( >=media-libs/libmtp-1.0.0:= ) projectm? ( media-libs/glew:= >=media-libs/libprojectm-3.1.12:0= virtual/opengl ) pulseaudio? ( media-libs/libpulse ) media-plugins/gst-plugins-meta:1.0 media-plugins/gst-plugins-soup:1.0 media-plugins/gst-plugins-taglib:1.0 mtp? ( gnome-base/gvfs[mtp] ) udisks? ( sys-fs/udisks:2 )
 REQUIRED_USE=udisks? ( dbus ) wiimote? ( dbus )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	plocale	950fbaec7deeba41b5bcc0572cca99b9	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=eb64102c54f726c47866319fbda85472
+SRC_URI=https://github.com/clementine-player/Clementine/archive/refs/tags/1.4.0rc2.tar.gz -> clementine-1.4.0_rc2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	plocale	950fbaec7deeba41b5bcc0572cca99b9	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=cac5f5501ecfb220b1328e77395a2de8

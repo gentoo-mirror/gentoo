@@ -2010,7 +2010,7 @@ app-emacs/emacsql 4.0.3 4.1.0: A high-level Emacs Lisp RDBMS front-end
 app-emacs/embark 1.1 9999: Conveniently act on minibuffer completions inside GNU Emacs
 app-emacs/embark-consult 1.1 9999: Consult integration for Embark
 app-emacs/emhacks 20070920-r2: Useful Emacs Lisp libraries, including gdiff, jjar, jmaker, swbuff, and tabbar
-app-emacs/emms 20.1 20.2: The Emacs Multimedia System
+app-emacs/emms 20.1 20.2-r1: The Emacs Multimedia System
 app-emacs/emojify 1.2_p20210309: Display emojis in Emacs, like :smile: or plain ASCII ones like :)
 app-emacs/engrave-faces 0.3.1: Convert font-lock faces to other formats
 app-emacs/epc 0.1.1: RPC stack for Emacs Lisp
@@ -5844,7 +5844,7 @@ dev-libs/urdfdom 3.1.0 9999: URDF (U-Robot Description Format) library
 dev-libs/urdfdom_headers 1.1.0 9999: URDF (U-Robot Description Format) headers
 dev-libs/uriparser 0.9.7 0.9.8 0.9.8-r1: Strictly RFC 3986 compliant URI parsing library in C
 dev-libs/userspace-rcu 0.14.0 0.14.1: Userspace RCU (read-copy-update) library
-dev-libs/utfcpp 3.2.1 9999: UTF-8 C++ library
+dev-libs/utfcpp 3.2.1 4.0.6 9999: UTF-8 C++ library
 dev-libs/uthash 2.3.0-r1: An easy-to-use hash implementation for C programmers
 dev-libs/uulib 0.5.20-r3: Library that supports Base64 (MIME), uuencode, xxencode and binhex coding
 dev-libs/vala-common 0.56.16 0.56.17: Build infrastructure for packages that use Vala
@@ -9515,7 +9515,7 @@ dev-python/symengine 0.11.0: Python wrappers to the symengine C++ library
 dev-python/sympy 1.13.3: Computer Algebra System in pure Python
 dev-python/tables 3.10.1: Hierarchical datasets for Python
 dev-python/tabulate 0.9.0-r1: Pretty-print tabular data
-dev-python/tagpy 2022.1: Python Bindings for TagLib
+dev-python/tagpy 2022.1 2022.1-r1: Python Bindings for TagLib
 dev-python/tap-py 3.1-r1: Test Anything Protocol (TAP) tools
 dev-python/taskgroup 0.0.0_alpha4 0.1.1 0.2.1: Backport of asyncio.TaskGroup, asyncio.Runner and asyncio.timeout
 dev-python/tasklib 2.5.1: A Python library for interacting with taskwarrior databases
@@ -11920,7 +11920,7 @@ gnome-extra/gnome-calendar 45.1-r1 46.1: Manage your calendars with simple and m
 gnome-extra/gnome-characters 45.0-r1 46.0: Unicode character map viewer and library
 gnome-extra/gnome-clocks 45.0 46.0: Clocks application for GNOME
 gnome-extra/gnome-color-manager 3.36.0: GNOME color profile tools
-gnome-extra/gnome-commander 1.18.1: A graphical, full featured, twin-panel file manager
+gnome-extra/gnome-commander 1.18.1-r1: A graphical, full featured, twin-panel file manager
 gnome-extra/gnome-contacts 45.1 46.0: GNOME contact management application
 gnome-extra/gnome-directory-thumbnailer 0.1.11-r1: Thumbnail generator for directories
 gnome-extra/gnome-firmware 45.0 46.0 47.0-r1: Install firmware on devices
@@ -11972,7 +11972,7 @@ gnustep-apps/affiche 0.6.0-r5: Affiche allows people to 'stick' notes
 gnustep-apps/batmon 0.8-r1: displays the status of your laptop battery
 gnustep-apps/cdplayer 0.6.0-r1: Small CD Audio Player for GNUstep
 gnustep-apps/cenon 4.0.6: Cenon is a vector graphics tool for GNUstep, OpenStep and MacOSX
-gnustep-apps/cynthiune 1.0.0-r4: Free software and romantic music player for GNUstep
+gnustep-apps/cynthiune 1.0.0-r5: Free software and romantic music player for GNUstep
 gnustep-apps/fisicalab 0.3.5-r1 0.4.0: educational application to solve physics problems
 gnustep-apps/ftp 0.6: FTP client for GNUstep
 gnustep-apps/gemas 0.4-r1: a simple code editor for GNUstep
@@ -13477,8 +13477,8 @@ media-libs/svgalib 1.9.25-r8: A library for running svga graphics on the console
 media-libs/svt-av1 1.1.0 1.4.1 1.5.0-r1 2.1.2 9999: Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 media-libs/svt-hevc 1.5.1 1.5.1-r1 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/t1lib 5.1.2-r5: Type 1 Font Rasterizer Library for UNIX/X11
-media-libs/taglib 1.13.1: Library for reading and editing audio meta data
-media-libs/taglib-extras 1.0.1-r1: Unofficial taglib plugins maintained by the Amarok team
+media-libs/taglib 1.13.1 2.0.2: Library for reading and editing audio meta data
+media-libs/taglib-extras 1.0.1-r1 1.0.1-r2: Unofficial taglib plugins maintained by the Amarok team
 media-libs/tg_owt 0_pre20230921 0_pre20240804-r2: WebRTC build for Telegram
 media-libs/theoraplay 0_pre20180524-r1: Simple library to make decoding of Ogg Theora videos easier
 media-libs/tiff 4.5.0-r2 4.5.1 4.6.0 4.6.0-r1 4.7.0 4.7.0-r1: Tag Image File Format (TIFF) library
@@ -13592,7 +13592,7 @@ media-plugins/gst-plugins-soup 1.22.11 1.22.12: HTTP client source/sink plugin f
 media-plugins/gst-plugins-speex 1.22.11 1.22.12: Speex encoder/decoder plugin for GStreamer
 media-plugins/gst-plugins-srt 1.22.11 1.22.12: Secure reliable transport (SRT) transfer plugin for GStreamer
 media-plugins/gst-plugins-srtp 1.22.11 1.22.12: SRTP encoder/decoder plugin for GStreamer
-media-plugins/gst-plugins-taglib 1.22.11 1.22.12: ID3v2/APEv2 tagger plugin for GStreamer
+media-plugins/gst-plugins-taglib 1.22.11 1.22.12-r1: ID3v2/APEv2 tagger plugin for GStreamer
 media-plugins/gst-plugins-twolame 1.22.11 1.22.12: MPEG2 encoder plugin for GStreamer
 media-plugins/gst-plugins-uvch264 1.22.11 1.22.12: UVC compliant H264 encoding cameras plugin for GStreamer
 media-plugins/gst-plugins-v4l2 1.22.11 1.22.12: plugin for gstreamer
@@ -13681,7 +13681,7 @@ media-plugins/mcp-plugins 0.4.0-r1: MCP ladspa plugins package. Includes moogvcf
 media-plugins/mda-lv2 1.2.10-r1: LV2 port of the MDA plugins by Paul Kellett
 media-plugins/mpg123-output-plugins 1.32.3 1.32.9: a realtime MPEG 1.0/2.0/2.5 audio player for layers 1, 2 and 3
 media-plugins/noise-repellent 0.1.5: An lv2 plug-in for broadband noise reduction
-media-plugins/qmmp-plugin-pack 1.6.1: Set of extra plugins for Qmmp
+media-plugins/qmmp-plugin-pack 1.6.1-r1: Set of extra plugins for Qmmp
 media-plugins/rev-plugins 0.8.1: REV LADSPA plugins package, stereo reverb plugin based on the well-known greverb
 media-plugins/swh-lv2 1.0.16-r1: Large collection of LV2 audio plugins/effects
 media-plugins/swh-plugins 0.4.17: Large collection of LADSPA audio plugins/effects
@@ -13818,8 +13818,8 @@ media-sound/amsynth 1.13.4: Virtual analogue synthesizer
 media-sound/apetag 1.12-r3: Command-line ape 2.0 tagger
 media-sound/apulse 0.1.13-r3: PulseAudio emulation for ALSA
 media-sound/aqualung 1.2-r3: Music player for a wide range of formats designed for gapless playback
-media-sound/ardour 8.10-r3 9999: Digital Audio Workstation
-media-sound/ario 1.6: GTK client for MPD inspired by Rhythmbox but much lighter and faster
+media-sound/ardour 8.10-r4 9999: Digital Audio Workstation
+media-sound/ario 1.6 1.6-r1: GTK client for MPD inspired by Rhythmbox but much lighter and faster
 media-sound/aseqview 0.2.8-r3: ALSA sequencer event viewer/filter
 media-sound/asunder 3.0.1-r1: Graphical Audio CD ripper and encoder with support for many output formats
 media-sound/aucatctl 0.1: A tool for controlling aucat and/or sndiod volume through MIDI
@@ -13839,11 +13839,11 @@ media-sound/bempc 0.11_p20160207: Qt5 MPD client with experimental UI
 media-sound/bitmeter 1.2-r2: Diagnosis tool for JACK audio software
 media-sound/bluez-alsa 4.2.0 4.3.1-r1 9999: Bluetooth Audio ALSA Backend
 media-sound/bplay 0.991: No-frills command-line buffered player and recorder
-media-sound/bpmdetect 0.7.0_pre20170810-r1: Automatic BPM detection utility
+media-sound/bpmdetect 0.7.0_pre20170810-r2: Automatic BPM detection utility
 media-sound/bristol 0.60.11-r4: Synthesizer keyboard emulation package: Moog, Hammond and others
 media-sound/brutefir 1.0o: Software convolution engine for applying long FIR filters
 media-sound/cadence 0.9.2-r1 9999: Collection of tools useful for audio production
-media-sound/cantata 2.5.0-r2: Featureful and configurable Qt client for the music player daemon (MPD)
+media-sound/cantata 2.5.0-r2 2.5.0-r3: Featureful and configurable Qt client for the music player daemon (MPD)
 media-sound/cava 0.10.3: Console-based Audio Visualizer for Alsa
 media-sound/cd-discid 1.4-r1: returns the disc id for the cd in the cd-rom drive
 media-sound/cdparanoia 3.10.2-r8: An advanced CDDA reader with error correction
@@ -13852,12 +13852,12 @@ media-sound/cdstatus 0.97.03: Tool for diagnosing cdrom drive and digital data (
 media-sound/cdtool 2.1.8-r2: collection of command-line utilities to control cdrom devices
 media-sound/chordii 4.5.3: Guitar music typesetter
 media-sound/chuck 1.5.4.1 1.5.4.2 1.5.4.3: Strongly-timed, concurrent, and on-the-fly audio programming language
-media-sound/clementine 1.4.0_rc2-r5 9999: Modern music player and library organizer based on Amarok 1.4 and Qt
+media-sound/clementine 1.4.0_rc2-r5 1.4.0_rc2-r6 9999: Modern music player and library organizer based on Amarok 1.4 and Qt
 media-sound/cmix 1.6-r1: command line audio mixer
 media-sound/cmus 2.12.0 9999: Ncurses based music player with plugin support for many formats
 media-sound/cmusfm 0.5.0: Last.fm scrobbler for cmus music player
 media-sound/combine_wave 0.3.1-r2: sync up 2 audio ch. and/or combine 2 mono audio ch. into one stereo wave ch
-media-sound/coquillo 2.0.1: GUI audio tagger based on Qt and taglib
+media-sound/coquillo 2.0.1-r1: GUI audio tagger based on Qt and taglib
 media-sound/csound 6.17.0-r1 9999: Sound design and signal processing system for composition and performance
 media-sound/cvoicecontrol 0.9_alpha-r2: Console based speech recognition system
 media-sound/dagrab 0.513-r2: fixed point cd ripper
@@ -13877,16 +13877,16 @@ media-sound/dir2ogg 0.13-r2: Converts mp3, m4a, wma, and wav files to Ogg Vorbis
 media-sound/drumstick 2.9.1: Qt/C++ wrapper for ALSA sequencer
 media-sound/dvda-author 10.06-r1: Author a DVD-Audio DVD
 media-sound/easyeffects 7.1.3-r1 7.1.6: Limiter, auto volume and many other plugins for PipeWire applications
-media-sound/easytag 2.4.3-r6: GTK+ utility for editing MP2, MP3, MP4, FLAC, Ogg and other media tags
+media-sound/easytag 2.4.3-r6 2.4.3-r7: GTK+ utility for editing MP2, MP3, MP4, FLAC, Ogg and other media tags
 media-sound/ecasound 2.9.3-r1: Package for multitrack audio processing
 media-sound/elisa 24.08.3 24.12.0: Simple music player by KDE
 media-sound/erec 2.2.0.1-r1: Shared audio recording server
-media-sound/ezstream 0.6.0-r2: A command line source client for Icecast media streaming servers
+media-sound/ezstream 0.6.0-r3: A command line source client for Icecast media streaming servers
 media-sound/fapg 0.44: Fast Audio Playlist Generator
 media-sound/flac-image 1.00-r2: Utility for adding image files (e.g. album cover art) to metadata of FLAC files
 media-sound/flac123 2.1.1: Console app for playing FLAC audio files
 media-sound/flack 2.0.6: edit FLAC tags from command line
-media-sound/flacon 10.0.0-r1 11.3.0 11.4.0: Extracts audio tracks from an audio CD image to separate tracks
+media-sound/flacon 11.3.0 11.4.0: Extracts audio tracks from an audio CD image to separate tracks
 media-sound/flake 0.11: An alternative to the FLAC reference encoder
 media-sound/fluid-soundfont 3.1: The Fluid R3 soundfont
 media-sound/fluidsynth 2.3.7 2.4.0 2.4.1: Software real-time synthesizer based on the Soundfont 2 specifications
@@ -13900,11 +13900,11 @@ media-sound/gimmix 0.5.7.2-r1: a graphical music player daemon (MPD) client usin
 media-sound/glurp 0.12.3: Glurp is a GTK2 based graphical client for the Music Player Daemon
 media-sound/gmorgan 0.79-r4: Opensource software rhythm station
 media-sound/gmtp 1.3.11-r3: Simple MTP client for MP3 players
-media-sound/gnomad 2.9.6-r2: GTK+ music manager for the Portable Digital Entertainment (PDE) protocol
+media-sound/gnomad 2.9.6-r3: GTK+ music manager for the Portable Digital Entertainment (PDE) protocol
 media-sound/gnome-music 45.1 46.0 46.1: Music management for Gnome
 media-sound/gnome-sound-recorder 42.0: Simple sound recorder
 media-sound/gnump3d 3.0-r6: Streaming server for MP3, OGG vorbis and other streamable files
-media-sound/gogglesmm 1.2.1-r2: Fast and light music player
+media-sound/gogglesmm 1.2.1-r2 1.2.1-r3: Fast and light music player
 media-sound/gom 0.29.103-r1: Console Mixer Program for OSS
 media-sound/gpodder 3.11.4 3.11.4-r1: A free cross-platform podcast aggregator
 media-sound/gqradio 1.9.2: An FM radio tuner app from the people who brought you GQmpeg
@@ -13922,7 +13922,7 @@ media-sound/hydrogen 1.2.3 1.2.4 9999: Advanced drum machine
 media-sound/icecream 1.3: Extracts and records individual MP3 tracks from shoutcast streams
 media-sound/id3 0.15-r2: changes the id3 tag in an mp3 file
 media-sound/id3ed 1.10.4-r1: ID3 tag editor for mp3 files
-media-sound/id3ted 1.0: A Command-line ID3 Tag Editor
+media-sound/id3ted 1.0 1.0-r1: A Command-line ID3 Tag Editor
 media-sound/id3tool 1.2a: Tool for easy manipulation of the ID3 tags present in MP3 audio files
 media-sound/id3v2 0.1.12-r1: Command line editor for id3v2 tags
 media-sound/jaaa 0.9.2: JACK and ALSA Audio Analyser is an audio signal generator and spectrum analyser
@@ -13963,9 +13963,9 @@ media-sound/meterbridge 0.9.3: Software meterbridge for the UNIX based JACK audi
 media-sound/mhwaveedit 1.4.24: GTK+ Sound file editor (wav, and a few others.)
 media-sound/mikmod 3.2.8-r1: Console MOD-Player based on libmikmod
 media-sound/milkytracker 1.04.00-r1 1.05.01: FastTracker 2 inspired music tracker
-media-sound/mixxx 2.3.6 2.3.9999 9999: Advanced Digital DJ tool based on Qt
+media-sound/mixxx 2.3.6 2.3.6-r1 2.3.9999 9999: Advanced Digital DJ tool based on Qt
 media-sound/mmix 0.3-r1: Soundcard mixer for the OSS driver
-media-sound/moc 2.6_alpha3-r6: Music On Console - ncurses interface for playing audio files
+media-sound/moc 2.6_alpha3-r7: Music On Console - ncurses interface for playing audio files
 media-sound/modplugtools 0.5.3: libmodplug based module players modplug123 and modplugplay
 media-sound/mp32ogg 0.11-r7: A perl script to convert MP3 files to Ogg Vorbis files
 media-sound/mp3asm 0.1.3-r2: Command line tool to clean and edit mp3 files
@@ -13979,7 +13979,7 @@ media-sound/mp3info 0.8.5a-r1: An MP3 technical info viewer and ID3 1.x tag edit
 media-sound/mp3report 1.0.2: Perl script to create an HTML report of MP3 files in a directory
 media-sound/mp3splt 2.6.2: Command line utility to split mp3 and ogg files without decoding
 media-sound/mp3splt-gtk 0.9.2-r1: GTK+ based utility to split mp3 and ogg files without decoding
-media-sound/mp3unicode 1.2.1: Commandline utility to convert ID3 tags in mp3 files between different encodings
+media-sound/mp3unicode 1.2.1-r1: Commandline utility to convert ID3 tags in mp3 files between different encodings
 media-sound/mp3val 0.1.8-r1: Validate and fix MPEG audio files
 media-sound/mp3wrap 0.5: Command-line utility that wraps multiple mp3 files into one large playable mp3
 media-sound/mpc 0.35: Commandline client for Music Player Daemon (media-sound/mpd)
@@ -14000,13 +14000,13 @@ media-sound/mup 6.9-r1: Program for printing music scores
 media-sound/muse 0.9.2_p20161002: Multiple Streaming Engine, an icecast source streamer
 media-sound/musepack-tools 495: Musepack SV8 libraries and utilities
 media-sound/musescore 3.6.2-r1 4.3.2 4.4.3 4.4.4 9999: WYSIWYG Music Score Typesetter
-media-sound/music-file-organizer 1.0.3: Organizes audio files into directories based on metadata tags
-media-sound/musique 1.5-r1: Qt music player
+media-sound/music-file-organizer 1.0.3-r1: Organizes audio files into directories based on metadata tags
+media-sound/musique 1.5-r1 1.5-r2: Qt music player
 media-sound/ncmpc 0.51: Ncurses client for the Music Player Daemon (MPD)
-media-sound/ncmpcpp 0.9.2_p20221231 0.9.2_p20240724 0.10_p20240912 0.10.1 9999: Featureful ncurses based MPD client inspired by ncmpc
+media-sound/ncmpcpp 0.10_p20240912 0.10.1-r1 9999: Featureful ncurses based MPD client inspired by ncmpc
 media-sound/ncpamixer 1.3.8: ncurses PulseAudio Mixer
 media-sound/ncspot 1.2.1-r1: ncurses Spotify client written in Rust using librespot
-media-sound/nickvision-tagger 2022.11.2: An easy-to-use music tag (metadata) editor
+media-sound/nickvision-tagger 2022.11.2-r1: An easy-to-use music tag (metadata) editor
 media-sound/normalize 0.7.7-r1: Audio file volume normalizer
 media-sound/ogg2mp3 0.6.1-r1: Perl script to convert Ogg Vorbis files to MP3 files
 media-sound/oggtst 0.0: A tool for calculating ogg-vorbis playing time
@@ -14046,16 +14046,16 @@ media-sound/qastools 1.4.0: Qt GUI ALSA tools: mixer, configuration browser
 media-sound/qjackctl 1.0.3 9999: Qt GUI to control the JACK Audio Connection Kit and ALSA sequencer connections
 media-sound/qmidiarp 0.7.1: Arpeggiator, sequencer and MIDI LFO for ALSA
 media-sound/qmidiroute 0.4.0-r1: QMidiRoute is a filter/router for MIDI events
-media-sound/qmmp 1.6.4 9999: Qt5-based audio player with winamp/xmms skins support
+media-sound/qmmp 1.6.4-r1 9999: Qt5-based audio player with winamp/xmms skins support
 media-sound/qpaeq 16.1: Equalizer interface for equalizer sinks of PulseAudio (networked sound server)
 media-sound/qpwgraph 0.7.8 9999: PipeWire Graph Qt GUI Interface
 media-sound/qsampler 1.0.0 9999: Graphical frontend to the LinuxSampler engine
 media-sound/qsynth 1.0.2 9999: Qt application to control FluidSynth
-media-sound/qtagger 1.0.1_p20150402: Simple Qt5 ID3v2 tag editor
+media-sound/qtagger 1.0.1_p20150402-r1: Simple Qt5 ID3v2 tag editor
 media-sound/qtgain 1.0.0: Simple frontend to mp3gain, vorbisgain and metaflac
 media-sound/qtractor 1.4.0-r1 1.5.0: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
 media-sound/qtscrobbler 0.11_pre20130123: Updates last.fm profiles using information from supported portable music players
-media-sound/quimup 1.4.4: Qt5 client for the music player daemon (MPD)
+media-sound/quimup 1.4.4 1.4.4-r1 2.1.0: Qt client for the music player daemon (MPD)
 media-sound/quodlibet 4.6.0-r1 4.6.0-r2: audio library tagger, manager, and player for GTK+
 media-sound/rawrec 0.9.991: CLI program to play and record audiofiles
 media-sound/rcenter 0.6.2: Rcenter - A program to control the EMU10K Remote Control
@@ -14097,14 +14097,14 @@ media-sound/spek 0.8.5-r1: Analyse your audio files by showing their spectrogram
 media-sound/splay 0.9.5.2-r2: An audio player, primarily for the console
 media-sound/split2flac 122 9999: sh script to split an APE/FLAC/WV/WAV audio image with CUE sheet into tracks
 media-sound/spotify 1.2.50 1.2.52: Spotify is a social music platform
-media-sound/strawberry 1.1.3 1.2.2 1.2.3 9999: Modern music player and library organizer based on Clementine and Qt
+media-sound/strawberry 1.1.3 1.2.2 1.2.3-r1 9999: Modern music player and library organizer based on Clementine and Qt
 media-sound/streamripper 1.64.6-r1: Extracts and records individual MP3 file tracks from shoutcast streams
 media-sound/streamtranscoder 3.1.11-r1: Commandline program to transcode shoutcast/icecast streams to different bitrates
 media-sound/subsonic-bin 6.1.6: Subsonic is a complete, personal media streaming solution
 media-sound/substract_wave 0.3-r1: Substracts 2 mono wave files from each other by a factor specified
 media-sound/supercollider 3.13.0 3.13.0-r1: Environment and programming language for real time audio synthesis
 media-sound/synaesthesia 2.4-r2: Nice graphical accompaniment to music
-media-sound/taginfo 1.2-r2: A simple ID3 tag reader for use in shell scripts
+media-sound/taginfo 1.2-r2 1.2-r3: A simple ID3 tag reader for use in shell scripts
 media-sound/tagtool 0.12.3-r2: Audio Tag Tool Ogg/Mp3 Tagger
 media-sound/tap-reverbed 0-r2: Standalone JACK counterpart of LADSPA plugin TAP Reverberator
 media-sound/teamspeak-client 3.6.2 5.0.0_beta77: A client software for quality voice communication via the internet
@@ -14123,7 +14123,7 @@ media-sound/twolame 0.4.0: An optimised MPEG Audio Layer 2 (MP2) encoder
 media-sound/upmpdcli 1.8.18 1.9.0: UPnP Media Renderer front-end for MPD, the Music Player Daemon
 media-sound/vb2rip 1.4: Konami VB2 sound format ripping utility
 media-sound/vbrfixc 0.24-r1: Vbrfix fixes MP3s and re-constructs VBR headers
-media-sound/vimpc 0.09.2-r2 9999: An ncurses based mpd client with vi-like key bindings
+media-sound/vimpc 0.09.2-r3 9999: An ncurses based mpd client with vi-like key bindings
 media-sound/vkeybd 0.1.18e: A virtual MIDI keyboard for X
 media-sound/vlevel 0.5-r1: Dynamic compressor to amplify quiet parts of music
 media-sound/vlorb 1.2: A high quality Audio CD to audio file encoder
@@ -14146,7 +14146,7 @@ media-sound/xfmpc 0.3.1 0.3.2: Music Player Daemon (MPD) client for the Xfce des
 media-sound/xineadump 0.1-r2: Utility for Xine decoding support in transKode
 media-sound/xmms2 0.9.5: X(cross)platform Music Multiplexing System, next generation of the XMMS player
 media-sound/xwax 1.9: Digital vinyl emulation software
-media-sound/yarock 1.4.0-r3: Qt-based music player
+media-sound/yarock 1.4.0-r4: Qt-based music player
 media-sound/yoshimi 2.3.3.1-r1 2.3.3.2-r1: Software synthesizer based on ZynAddSubFX
 media-sound/zynaddsubfx 3.0.6-r5 3.0.6-r6: Software synthesizer capable of making a countless number of instruments
 media-tv/channeleditor 1.9.2.1-r4: Editor for VDR channels.conf
@@ -14157,9 +14157,9 @@ media-tv/gentoo-vdr-scripts 3.0_rc2-r1: Scripts necessary for use of VDR as a se
 media-tv/gtk-v4l 0.4-r1: A GTK+ application for controlling V4L preferences of a web cam device
 media-tv/ivtv-utils 1.4.1-r1: IVTV utilities for Hauppauge PVR PCI cards
 media-tv/ivtvplayer 0.1.3-r3: Simple IVTV command line TV and radio player with support of LIRC
-media-tv/kodi 21.1 21.9999 9999: A free and open source media-player and entertainment hub
+media-tv/kodi 21.1-r1 21.9999 9999: A free and open source media-player and entertainment hub
 media-tv/linuxtv-dvb-apps 1.1.1.20140321-r2: Small utils for DVB to scan, zap, view signal strength
-media-tv/mythtv 33.1-r2: Open Source DVR and media center hub
+media-tv/mythtv 33.1-r3: Open Source DVR and media center hub
 media-tv/mythtv-status 1.0.1 1.1.0: Displays the current status of MythTV at the command prompt
 media-tv/plex-media-server 1.40.5.8921 1.41.0.8994 1.41.2.9200: Free media library that is intended for use with a plex client
 media-tv/shoutcast2vdr 0.0.8-r1: VDR script: generate shoutcast playlists
@@ -14256,7 +14256,7 @@ media-video/pipewire 1.0.7-r1 1.2.3 1.2.4 1.2.5 1.2.6 1.2.7 9999: Multimedia pro
 media-video/pitivi 2023.03-r2: A non-linear video editor using the GStreamer multimedia framework
 media-video/popcorntime-bin 0.4.9 0.5.0-r2 0.5.1-r1: BitTorrent client that includes an integrated media player
 media-video/projectx 0.91.0.10-r5: Converts, splits and demuxes DVB and other MPEG recordings
-media-video/qmplay2 24.06.16 24.12.06 24.12.23 9999: A Qt-based video player, which can play most formats and codecs
+media-video/qmplay2 24.06.16 24.12.06 24.12.23-r1 9999: A Qt-based video player, which can play most formats and codecs
 media-video/rage 0.4.0-r1: Video and audio player written using EFL
 media-video/rav1e 0.6.6-r1 0.7.1-r1 9999: The fastest and safest AV1 encoder
 media-video/recmpeg 1.0.5: Simple libfame-based video encoder, compresses raw video sequences to MPEG video
@@ -15148,7 +15148,7 @@ net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 4.9.0 6.0.0 6.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geoipyupdate 0.0.1: Simple python replacement for the MaxMind geoipupdate program
 net-misc/geomyidae 0.96: A daemon to serve the gopher protocol
-net-misc/gerbera 2.2.0 2.3.0 9999: UPnP Media Server
+net-misc/gerbera 2.2.0 2.3.0-r1 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
 net-misc/gnome-connections 45.0-r2 46.0: A remote desktop client for the GNOME desktop environment
 net-misc/gnome-remote-desktop 45.1-r1 46.3: Remote desktop daemon for GNOME using pipewire
@@ -15337,7 +15337,7 @@ net-misc/sshrc 0.6.2: Bring your .bashrc, .vimrc, etc. from your local machine w
 net-misc/sslh 2.1.2-r1 2.1.4 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
 net-misc/sstp-client 1.0.18-r2: Client implementation of Secure Socket Tunneling Protocol (SSTP)
 net-misc/streamlink 6.9.0 6.10.0 6.11.0 7.0.0 9999: CLI for extracting streams from websites to a video player of your choice
-net-misc/streamtuner 0.99.99-r6: Stream directory browser for browsing internet radio streams
+net-misc/streamtuner 0.99.99-r7: Stream directory browser for browsing internet radio streams
 net-misc/stunnel 5.64-r2 5.65-r2 5.68 5.71 5.71-r1: TLS/SSL - Port Wrapper
 net-misc/stuntman 1.2.16: Open source implementation of the STUN protocol
 net-misc/suite3270 4.0_p13 4.2_p5-r1 4.2_p5-r2 4.3_p6: Complete 3270 (S390) access package
@@ -17454,7 +17454,7 @@ sys-firmware/tt-s2-6400-firmware 0.5.1: Firmware for the Technotrend S2-6400 DVB
 sys-firmware/vgabios 0.7a 0.7a-r1 0.8a 0.8a-r1: VGA BIOS implementation
 sys-firmware/zd1201-firmware 0.14-r1: Firmware for ZyDAS 1201 based USB 802.11b Network WiFi devices
 sys-firmware/zd1211-firmware 1.5-r1: Firmware for ZyDAS ZD1211 USB-WLAN devices supported by the zd1211rw driver
-sys-fs/android-file-transfer-linux 4.2 4.3 9999: Android File Transfer for Linux
+sys-fs/android-file-transfer-linux 4.3-r1 9999: Android File Transfer for Linux
 sys-fs/apfsprogs 0_pre20240521: Experimental APFS tools for linux
 sys-fs/archivemount 0.9.1: Mount archives using libarchive and FUSE
 sys-fs/arm-fdisk 3.0.6-r1: edit disk partitions on Acorn machines
@@ -19027,7 +19027,7 @@ xfce-base/xfconf 4.18.3 4.20.0: A configuration management system for Xfce
 xfce-base/xfdesktop 4.18.1 4.20.0: Desktop manager for the Xfce desktop environment
 xfce-base/xfwm4 4.18.0 4.20.0: Window manager for the Xfce desktop environment
 xfce-extra/thunar-archive-plugin 0.5.2: Archive plug-in for the Thunar filemanager
-xfce-extra/thunar-media-tags-plugin 0.4.0: Adds special features for media files to the Thunar File Manager
+xfce-extra/thunar-media-tags-plugin 0.4.0-r1: Adds special features for media files to the Thunar File Manager
 xfce-extra/thunar-shares-plugin 0.3.2: Thunar plugin to share files using Samba
 xfce-extra/thunar-vcs-plugin 0.2.0-r1: Adds Subversion and GIT actions to the context menu of thunar
 xfce-extra/xfce4-alsa-plugin 0.3.0-r1 0.4.0: Simple ALSA volume control for xfce4-panel
