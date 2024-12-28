@@ -54,9 +54,6 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0.3-try-other-cpp-names.patch"
-	"${FILESDIR}/${PN}-3.4.0-without-gui.patch"
-	# source: https://github.com/google/flatbuffers/pull/7897
-	#"${FILESDIR}/${PN}-3.3.2-flatbuffers-abseil-2023.patch" # bug 905378
 )
 
 src_prepare() {
@@ -75,8 +72,10 @@ src_prepare() {
 	# bug #775968
 	touch build-aux/ar-lib || die
 
-	local AT_M4DIR="macros"
-	eautoreconf
+	# eautoheader MUST be disabled as upstream manually modify its output
+	# rather than using it directly. The version at runtime at least is
+	# broken otherwise. See bug #912275.
+	AT_M4DIR="macros" AT_NOEAUTOHEADER="yes" eautoreconf
 
 	postgres-multi_src_prepare
 }
