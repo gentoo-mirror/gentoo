@@ -41,10 +41,3 @@ src_configure() {
 
 	ecm_src_configure
 }
-
-src_install() {
-	ecm_src_install
-
-	# bug 596316
-	dosym kf5-applications.menu /etc/xdg/menus/applications.menu
-}
