@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/AdaCore/VSS
 INHERIT=ada multiprocessing
 IUSE=+shared static-libs static-pic test ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-3 gcc-runtime-library-exception-3.1
 RDEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-)]
 REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/24.0.0
 SRC_URI=https://github.com/AdaCore/VSS/archive/refs/tags/v24.0.0.tar.gz -> VSS-24.0.0.tar.gz
 _eclasses_=ada	91fe5c33490e013a01ffad92086e7bac	multiprocessing	1e32df7deee68372153dca65f4a7c21f
-_md5_=5bbae12c5b791ab79bb8c47ad04d6d44
+_md5_=6560da4bcb07a930af5a067d0e8c652c
