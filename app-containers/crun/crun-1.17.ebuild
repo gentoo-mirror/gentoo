@@ -39,6 +39,7 @@ BDEPEND="
 
 src_configure() {
 	local myeconfargs=(
+		--cache-file="${S}"/config.cache
 		$(use_enable bpf)
 		$(use_enable caps)
 		$(use_enable criu)
@@ -48,15 +49,6 @@ src_configure() {
 	)
 
 	econf "${myeconfargs[@]}"
-}
-
-src_install() {
-	emake "DESTDIR=${D}" install-exec
-	doman crun.1
-	einstalldocs
-
-	einfo "Cleaning up .la files"
-	find "${ED}" -name '*.la' -delete || die
 }
 
 src_test() {
@@ -72,4 +64,13 @@ src_test() {
 		"tests/test_oci_features"
 	)
 	emake check-TESTS TESTS="${supported_tests[*]}"
+}
+
+src_install() {
+	emake "DESTDIR=${D}" install-exec
+	doman crun.1
+	einstalldocs
+
+	einfo "Cleaning up .la files"
+	find "${ED}" -name '*.la' -delete || die
 }

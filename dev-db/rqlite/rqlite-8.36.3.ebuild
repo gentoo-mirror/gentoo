@@ -3,7 +3,7 @@
 
 EAPI=8
 inherit go-module
-EGIT_COMMIT=2fd4158ec100c464ae8b02562eb440e5720a359d
+EGIT_COMMIT=92bcff8e0b50570294c3d13f6b598821ad3daff6
 
 DESCRIPTION="Replicated SQLite using the Raft consensus protocol"
 HOMEPAGE="https://github.com/rqlite/rqlite https://www.philipotoole.com/tag/rqlite/"
@@ -26,7 +26,7 @@ src_prepare() {
 
 src_compile() {
 	GOBIN="${S}/bin" \
-		go install \
+		ego install \
 			-ldflags="-X main.version=v${PV}
 				-X main.branch=master
 				-X main.commit=${EGIT_COMMIT}
@@ -36,7 +36,7 @@ src_compile() {
 
 src_test() {
 	GOBIN="${S}/bin" \
-		go test ./... || die
+		ego test ./... || die
 }
 
 src_install() {
