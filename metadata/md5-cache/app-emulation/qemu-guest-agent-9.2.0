@@ -1,0 +1,14 @@
+BDEPEND=|| ( dev-lang/python:3.13[ensurepip(-),ncurses,readline] dev-lang/python:3.12[ensurepip(-),ncurses,readline] dev-lang/python:3.11[ensurepip(-),ncurses,readline] dev-lang/python:3.10[ensurepip(-),ncurses,readline] ) dev-lang/perl app-alternatives/ninja virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm setup test
+DEPEND=dev-libs/glib
+DESCRIPTION=QEMU Guest Agent (qemu-ga) for use when running inside a VM
+EAPI=8
+HOMEPAGE=https://wiki.qemu.org/Features/GuestAgent
+INHERIT=edo systemd toolchain-funcs python-any-r1 udev
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2 BSD-2
+RDEPEND=dev-libs/glib
+SLOT=0
+SRC_URI=http://wiki.qemu.org/download/qemu-9.2.0.tar.xz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	udev	f3d9a4376ebd22131726a68e1a0a058f
+_md5_=0647f4016f812aba7cc96977ddfdfd3d
