@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.courier-mta.org/maildrop/
 INHERIT=flag-o-matic autotools
 IUSE=berkdb debug dovecot gdbm ldap mysql postgres static-libs authlib +tools trashquota
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~ppc ppc64 ~s390 ~sparc x86
 LICENSE=GPL-3
 RDEPEND=!mail-mta/courier net-mail/mailbase dev-libs/libpcre2 net-dns/libidn2:= net-libs/courier-unicode:= gdbm? ( sys-libs/gdbm:= ) mysql? ( net-libs/courier-authlib ) postgres? ( net-libs/courier-authlib ) ldap? ( net-libs/courier-authlib ) authlib? ( net-libs/courier-authlib ) !gdbm? ( berkdb? ( sys-libs/db:= ) ) tools? ( !mail-mta/netqmail !<net-mail/courier-imap-5.2.6 net-mail/courier-common[gdbm?,berkdb?] ) dev-lang/perl dovecot? ( net-mail/dovecot )
 REQUIRED_USE=mysql? ( authlib ) postgres? ( authlib ) ldap? ( authlib )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/courier/maildrop-3.1.8.tar.bz2
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe
-_md5_=298e00f5a21e61bc7bb10c335c6c2fd5
+_md5_=12103993594b824e42d17ffd112493fe
