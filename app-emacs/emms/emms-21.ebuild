@@ -20,7 +20,7 @@ fi
 LICENSE="GPL-3+ FDL-1.1+"
 SLOT="0"
 
-RDEPEND="media-libs/taglib"
+RDEPEND="media-libs/taglib:="
 DEPEND="${RDEPEND}"
 
 # EMMS can use almost anything for playing media files therefore the dependency
