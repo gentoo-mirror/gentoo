@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop qmake-utils virtualx
+inherit desktop qmake-utils
 
 DESCRIPTION="Multi-platform GUI for pass, the standard unix password manager"
 HOMEPAGE="https://qtpass.org https://github.com/IJHack/qtpass"
@@ -16,18 +16,22 @@ KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="|| ( app-admin/pass app-admin/gopass )
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	net-misc/x11-ssh-askpass"
+RDEPEND="
+	|| (
+		app-admin/pass
+		app-admin/gopass
+	)
+	dev-qt/qtbase:6[gui,network,widgets]
+	net-misc/x11-ssh-askpass
+"
 DEPEND="${RDEPEND}
-	dev-qt/qtsvg:5
-	test? ( dev-qt/qttest:5 )"
-BDEPEND="dev-qt/linguist-tools:5"
+	dev-qt/qtsvg:6
+"
+BDEPEND="dev-qt/qttools:6[linguist]"
 
 DOCS=( {CHANGELOG,CONTRIBUTING,FAQ,README}.md )
+
+PATCHES=( "${FILESDIR}"/${P}-qt-6.8-buildfix.patch )
 
 src_prepare() {
 	default
@@ -39,11 +43,12 @@ src_prepare() {
 }
 
 src_configure() {
-	eqmake5 PREFIX="${EPREFIX}"/usr
+	eqmake6 PREFIX="${EPREFIX}"/usr
 }
 
 src_test() {
-	virtx default
+	local -x QT_QPA_PLATFORM=offscreen
+	default
 }
 
 src_install() {

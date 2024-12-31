@@ -13,36 +13,25 @@ SRC_URI="https://github.com/danmar/cppcheck/archive/refs/tags/${PV}.tar.gz -> ${
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64 ~arm arm64 ~loong ppc64 ~riscv x86"
-IUSE="charts gui qt6 htmlreport pcre test threads"
+IUSE="charts gui htmlreport pcre test"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	charts? ( gui )
-	qt6? ( gui )
 "
 RESTRICT="!test? ( test )"
 
-DEPEND="
+COMMON_DEPEND="
 	dev-libs/tinyxml2:=
-	pcre? ( dev-libs/libpcre )
 	gui? (
-		qt6? (
-			dev-qt/qtbase:6[gui,widgets,network]
-			dev-qt/qttools:6[assistant,linguist]
-			charts? ( dev-qt/qtcharts:6 )
-		)
-		!qt6? (
-			dev-qt/qtcore:5
-			dev-qt/qtgui:5
-			dev-qt/qthelp:5
-			dev-qt/qtnetwork:5
-			dev-qt/qtprintsupport:5
-			dev-qt/qtwidgets:5
-			charts? ( dev-qt/qtcharts:5 )
-		)
+		dev-qt/qtbase:6[gui,widgets,network]
+		charts? ( dev-qt/qtcharts:6 )
 	)
+	pcre? ( dev-libs/libpcre )
 "
-RDEPEND="
-	${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	gui? ( dev-qt/qttools:6[assistant,linguist] )
+"
+RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
 	htmlreport? (
 		$(python_gen_cond_dep '
@@ -55,17 +44,8 @@ BDEPEND="
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
 	virtual/pkgconfig
-	gui? (
-		!qt6? (
-			dev-qt/linguist-tools:5
-		)
-	)
+	gui? ( dev-qt/qttools:6[assistant,linguist] )
 	test? (
-		gui? (
-			!qt6? (
-				dev-qt/qttest:5
-			)
-		)
 		htmlreport? (
 			$(python_gen_cond_dep '
 				dev-python/pytest[${PYTHON_USEDEP}]
@@ -74,10 +54,6 @@ BDEPEND="
 		)
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.13.0-32-bit-tests.patch
-)
 
 src_prepare() {
 	cmake_src_prepare
@@ -99,7 +75,7 @@ src_configure() {
 		-DHAVE_RULES=$(usex pcre)
 
 		-DBUILD_GUI=$(usex gui)
-		-DUSE_QT6=$(usex qt6)
+		-DUSE_QT6=$(usex gui)
 		-DWITH_QCHART=$(usex charts)
 
 		-DBUILD_TESTS=$(usex test)
@@ -109,7 +85,6 @@ src_configure() {
 		-DUSE_MATCHCOMPILER=ON
 		-DUSE_LIBCXX=OFF
 
-		-DUSE_THREADS=$(usex threads)
 		-DDISABLE_DMAKE=ON
 		-DUSE_BOOST=OFF
 		-DUSE_BUNDLED_TINYXML2=OFF
