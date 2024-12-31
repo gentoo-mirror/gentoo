@@ -12,22 +12,20 @@ LICENSE="GPL-3+ GPL-2+"
 API_VERSION="4"
 SLOT="0/${API_VERSION}"
 KEYWORDS="amd64 ~arm64 x86"
-IUSE="gtk test"
+IUSE="gtk test +unwind"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/glib-2.76.0:2
+	>=dev-libs/glib-2.73.0:2
 	gtk? (
-		>=gui-libs/gtk-4.10:4
+		>=gui-libs/gtk-4.6:4
 		gui-libs/libadwaita:1
 		x11-libs/cairo
 		x11-libs/pango
 	)
 	dev-libs/json-glib
-	>=dev-libs/libdex-0.3.1
-	>=gui-libs/libpanel-1.3.0
-	sys-libs/libunwind:=
-	>=sys-auth/polkit-0.114
+	>=sys-auth/polkit-0.114[daemon]
+	unwind? ( sys-libs/libunwind:= )
 	>=dev-util/sysprof-common-${PV}
 	>=dev-util/sysprof-capture-${PV}:${API_VERSION}
 "
@@ -63,9 +61,11 @@ src_configure() {
 		-Dsystemdunitdir=$(systemd_get_systemunitdir)
 		# -Ddebugdir
 		-Dhelp=true
+		$(meson_use unwind libunwind)
 		-Dtools=true
 		$(meson_use test tests)
 		-Dexamples=false
+		-Dagent=true
 	)
 	meson_src_configure
 }
