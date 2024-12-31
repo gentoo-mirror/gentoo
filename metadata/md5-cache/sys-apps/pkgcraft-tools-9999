@@ -1,14 +1,14 @@
-BDEPEND=llvm_slot_17? ( llvm-core/clang:17 ) llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=llvm_slot_17? ( llvm-core/clang:17 ) llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=pkgcraft-based tools for Gentoo
 EAPI=8
 HOMEPAGE=https://pkgcraft.github.io/
-INHERIT=cargo edo flag-o-matic llvm-r1 git-r3
+INHERIT=cargo edo flag-o-matic llvm-r1 shell-completion git-r3
 IUSE=test debug +llvm_slot_19 llvm_slot_17 llvm_slot_18
 LICENSE=MIT Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3+ ISC MIT Unicode-DFS-2016
 PROPERTIES=live
 REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	a7f1fb4aefa2759dc94e38f7668d373e	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	b5f350ebe96460cff090d0f2ae7e698a	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=6ad0bfcf8b7b7140e0b562ca66222a08
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	a7f1fb4aefa2759dc94e38f7668d373e	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	b5f350ebe96460cff090d0f2ae7e698a	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=dff074cabe87323294a871e553c7a5a4
