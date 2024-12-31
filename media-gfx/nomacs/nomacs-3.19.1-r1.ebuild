@@ -17,14 +17,14 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86 ~amd64-linux"
 IUSE="+opencv plugins raw +tiff test zip"
-RESTRICT="!test? ( test )"
-
 REQUIRED_USE="
 	raw? ( opencv )
 	tiff? ( opencv )
 "
+RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-qt/qt5compat:6
 	dev-qt/qtbase:6[concurrent,cups,gui,network,widgets]
 	dev-qt/qtsvg:6
 	media-gfx/exiv2:=
@@ -36,8 +36,7 @@ RDEPEND="
 	)
 	zip? ( dev-libs/quazip:0=[qt6(+)] )
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="
