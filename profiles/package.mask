@@ -112,11 +112,6 @@ kde-frameworks/kemoticons
 dev-util/android-sdk-update-manager
 dev-java/swt:3.7
 
-# Pacho Ramos <pacho@gentoo.org> (2024-12-02)
-# Dead for ages, not ported to wxGTK 3.2
-# Removal on 2024-12-31.  Bug #929140.
-games-board/blokish
-
 # Michał Górny <mgorny@gentoo.org> (2024-12-01)
 # Superseded by dev-lang/pypy:2.7.
 # Removal on 2024-12-15.
@@ -136,18 +131,6 @@ dev-python/pypy
 # Grave data loss bug. See also:
 # https://github.com/nicotine-plus/nicotine-plus/issues/3152
 =net-p2p/nicotine+-3.3.5
-
-# Takuya Wakazono <pastalian46@gmail.com> (2024-11-27)
-# Replaced by sys-boot/woeusb-ng, which has more recent upstream
-# activity and optional GUI support.
-# Removal on 2024-12-24.
-sys-boot/woeusb
-
-# Michał Górny <mgorny@gentoo.org> (2024-11-23)
-# Implementation detail of dev-python/pyproject-fmt.  New versions
-# integrate the Rust code into the main package.
-# Removal on 2024-12-07.  Bug #944782.
-dev-python/pyproject-fmt-rust
 
 # Ionen Wolkens <ionen@gentoo.org> (2024-11-19)
 # NVIDIA dropped support for the 470.xx branch in September 2024[1].
@@ -174,42 +157,6 @@ dev-python/pyproject-fmt-rust
 # [3] https://wiki.gentoo.org/wiki/Nouveau
 x11-drivers/nvidia-drivers:0/470
 
-# Robin H. Johnson <robbat2@gentoo.org> (2024-11-17)
-# bug 943698
-# Poor upstream code quality, unmaintained upstream;
-# no hardware for testing # anymore.
-# https://public-inbox.gentoo.org/gentoo-dev/robbat2-20240529T185323-477923075Z@orbis-terrarum.net/
-app-misc/g15composer
-app-misc/g15daemon
-app-misc/g15macro
-app-misc/g15message
-app-misc/g15mpd
-app-misc/g15stats
-dev-libs/libg15
-dev-libs/libg15render
-
-# Alfredo Tupone <tupone@gentoo.org> (2024-11-17)
-# Included in dev-ml/odoc, the only rdep
-# Removal on 2024-12-17.
-dev-ml/odoc-parser
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2024-11-17)
-# Needs a header from libusb that doesnt exist anymore. Will never build.
-# Furthermore, modern C problems. Bug 874645. No maintainer.
-# Removal in 30 days.
-dev-util/usb-robot
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2024-11-17)
-# Fails to build on modern compilers, bug 874291. Various open bugs.
-# No maintainer. Removal in 30 days.
-app-emulation/spim
-
-# Jaco Kroon <jaco@uls.co.za> (2024-11-15)
-# clippy exists purely for frr (even comes from the same sources).  This
-# package split is no longer implemented from frr-9.1.2 onwards, so this
-# package is no longer required.
-dev-util/clippy
-
 # Michael Orlitzky <mjo@gentoo.org> (2024-11-13)
 # PHP 8.1.x no longer receives bug fixes unless they address security
 # issues. That means no build fixes, no updates for modern compilers,
@@ -235,12 +182,6 @@ dev-php/snuffleupagus
 dev-php/swoole
 =virtual/httpd-php-8.1
 <www-apps/icingaweb2-2.12.1-r1
-
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2024-11-10)
-# Fails to build with gcc-14. Horrible code. Not touched by a
-# maintainer since 2010. Bugs 729134, 870541, 909625, 933773
-# Removal in 30 days.
-app-accessibility/powiedz
 
 # Matt Jolly <kangie@gentoo.org> (2024-11-09)
 # The legacy Rust ebuilds are no longer maintained and have been
