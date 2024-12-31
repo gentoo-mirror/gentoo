@@ -8,26 +8,23 @@ inherit desktop qmake-utils toolchain-funcs xdg
 
 DESCRIPTION="Tool to render 3D fractals"
 HOMEPAGE="https://www.mandelbulber.com"
-SRC_URI="https://github.com/buddhi1980/${PN}2/releases/download/${PV}/${MY_P}.tar.gz https://downloads.sourceforge.net/${PN}/${MY_P}.tar.gz"
+SRC_URI="https://github.com/buddhi1980/${PN}2/releases/download/${PV}/${MY_P}.tar.gz
+	https://downloads.sourceforge.net/${PN}/${MY_P}.tar.gz"
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="CC-BY-4.0 GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="joystick opencl openexr sndfile tiff"
+IUSE="opencl openexr sndfile tiff"
 
+# IUSE="joystick"
+# 	joystick? ( dev-qt/qtgamepad:6 )
 RDEPEND="
 	dev-libs/lzo
-	dev-qt/qtcore:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtgui:5
-	dev-qt/qtmultimedia:5[qml]
-	dev-qt/qtnetwork:5
-	dev-qt/qttest:5
-	dev-qt/qtwidgets:5
+	dev-qt/qtbase:6[concurrent,gui,network,widgets]
+	dev-qt/qtmultimedia:6[qml]
 	media-libs/libpng:=
 	sci-libs/gsl:=
-	joystick? ( dev-qt/qtgamepad:5 )
 	opencl? (
 		dev-cpp/clhpp
 		virtual/opencl
@@ -40,7 +37,7 @@ RDEPEND="
 	tiff? ( media-libs/tiff:= )
 "
 DEPEND="${RDEPEND}
-	dev-qt/designer:5
+	dev-qt/qttools:6[designer]
 "
 BDEPEND="virtual/pkgconfig"
 
@@ -55,7 +52,7 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	use joystick || sed -i -e "s/qtHaveModule(gamepad)/false/" makefiles/common.pri || die
+	sed -i -e "s/qtHaveModule(gamepad)/false/" makefiles/common.pri || die # TODO: dev-qt/qtgamepad:6
 	use openexr || sed -i -e "s/packagesExist(OpenEXR)/false/" makefiles/common.pri || die
 	use sndfile || sed -i -e "s/packagesExist(sndfile)/false/" makefiles/common.pri || die
 	use tiff || sed -i -e "s/packagesExist(libtiff-4)/false/" makefiles/common.pri || die
@@ -63,9 +60,9 @@ src_prepare() {
 
 src_configure() {
 	if use opencl; then
-		eqmake5 makefiles/${PN}-opencl.pro
+		eqmake6 makefiles/${PN}-opencl.pro
 	else
-		eqmake5 makefiles/${PN}.pro
+		eqmake6 makefiles/${PN}.pro
 	fi
 }
 
