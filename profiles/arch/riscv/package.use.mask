@@ -9,10 +9,6 @@ sci-chemistry/gromacs nnpot
 # dev-util/nvidia-cuda-toolkit or sys-cluster/ucx are not keyworded on riscv
 sys-cluster/slurm nvml ucx
 
-# David Roman <davidroman96@gmail.com> (2024-10-04)
-# dev-libs/libunibreak not keyworded here
-media-libs/libass libunibreak
-
 # Paul Zander <negril.nx+gentoo@gmail.com> (2024-09-08)
 # needs re-keywording and clean-up of media-libs/opencollada
 media-libs/assimp collada
@@ -71,7 +67,6 @@ sys-apps/openrc-navi s6
 
 # Nowa Ammerlaan <nowa@gentoo.org> (2023-08-30)
 # Avoid keywording more Qt stuff
-dev-python/pyside2 datavis
 dev-python/pyside6 httpserver remoteobjects
 dev-python/qtpy remoteobjects
 
@@ -114,10 +109,6 @@ app-editors/neovim lua_single_target_luajit
 # Yixun Lan <dlan@gentoo.org> (2022-11-24)
 # depend on dev-libs/libpcre2[jit] which not supported yet, bug #879511
 www-servers/varnish jit
-
-# Xin Yang <yangmame@icloud.com> (2022-10-18)
-# requires qtwebengine, bug #876301
-app-i18n/fcitx-libpinyin dictionary-manager
 
 # Yixun Lan <dlan@gentoo.org> (2022-01-27)
 # This target supports ASAN/etc...
