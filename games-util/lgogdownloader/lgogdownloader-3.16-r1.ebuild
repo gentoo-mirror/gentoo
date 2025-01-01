@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,10 +8,11 @@ inherit cmake
 DESCRIPTION="Unofficial GOG.com downloader for Linux"
 HOMEPAGE="https://sites.google.com/site/gogdownloader/"
 SRC_URI="https://github.com/Sude-/${PN}/releases/download/v${PV}/${P}.tar.gz"
+
 LICENSE="WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="gui qt6"
+IUSE="gui"
 
 RDEPEND="
 	>=app-crypt/rhash-1.3.3-r2:0=
@@ -21,16 +22,8 @@ RDEPEND="
 	dev-libs/tinyxml2:0=
 	>=net-misc/curl-7.55:0=[ssl]
 	gui? (
-		!qt6? (
-			dev-qt/qtcore:5
-			dev-qt/qtnetwork:5
-			dev-qt/qtwebengine:5[widgets]
-			dev-qt/qtwidgets:5
-		)
-		qt6? (
-			dev-qt/qtbase:6[network,widgets]
-			dev-qt/qtwebengine:6[widgets]
-		)
+		dev-qt/qtbase:6[network,widgets]
+		dev-qt/qtwebengine:6[widgets]
 	)
 "
 
@@ -45,9 +38,6 @@ BDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_QT_GUI=$(usex gui)
-	)
-	use gui && mycmakeargs+=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt6=$(usex !qt6)
 	)
 	cmake_src_configure
 }
