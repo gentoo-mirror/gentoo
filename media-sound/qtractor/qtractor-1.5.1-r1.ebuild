@@ -12,15 +12,12 @@ SRC_URI="https://downloads.sourceforge.net/qtractor/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
 IUSE="aubio cpu_flags_x86_sse debug dssi ladspa libsamplerate mad osc rubberband vorbis zlib"
 REQUIRED_USE="dssi? ( ladspa )"
 
-BDEPEND="
-	virtual/pkgconfig
-	dev-qt/qttools:6[linguist]
-"
 DEPEND="
+	dev-qt/qtbase:6[gui,widgets,xml]
+	dev-qt/qtsvg:6
 	media-libs/alsa-lib
 	media-libs/libsndfile
 	media-libs/lilv
@@ -34,8 +31,6 @@ DEPEND="
 	libsamplerate? ( media-libs/libsamplerate )
 	mad? ( media-libs/libmad )
 	osc? ( media-libs/liblo )
-	dev-qt/qtbase:6[gui,widgets,xml]
-	dev-qt/qtsvg:6
 	rubberband? ( media-libs/rubberband )
 	vorbis? (
 		media-libs/libogg
@@ -44,6 +39,10 @@ DEPEND="
 	zlib? ( sys-libs/zlib )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	virtual/pkgconfig
+	dev-qt/qttools:6[linguist]
+"
 
 src_configure() {
 	local mycmakeargs=(

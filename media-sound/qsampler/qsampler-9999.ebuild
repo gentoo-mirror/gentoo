@@ -18,32 +18,20 @@ HOMEPAGE="https://qsampler.sourceforge.io/ https://www.linuxsampler.org/"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug +libgig qt6"
+IUSE="debug +libgig"
 
 DEPEND="
+	dev-qt/qtbase:6[gui,network,widgets]
+	dev-qt/qtsvg:6
 	media-libs/alsa-lib
 	media-libs/liblscp:=
 	x11-libs/libX11
 	libgig? ( media-libs/libgig:= )
-	qt6? (
-		dev-qt/qtbase:6[gui,network,widgets]
-		dev-qt/qtsvg:6
-	)
-	!qt6? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtsvg:5
-		dev-qt/qtwidgets:5
-	)
 "
 RDEPEND="${DEPEND}
 	media-sound/linuxsampler
 "
-BDEPEND="
-	qt6? ( dev-qt/qttools:6[linguist] )
-	!qt6? ( dev-qt/linguist-tools:5 )
-"
+BDEPEND="dev-qt/qttools:6[linguist]"
 
 DOCS=( ChangeLog README TRANSLATORS )
 
@@ -51,7 +39,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DCONFIG_DEBUG=$(usex debug 1 0)
 		-DCONFIG_LIBGIG=$(usex libgig 1 0)
-		-DCONFIG_QT6=$(usex qt6 1 0)
+		-DCONFIG_QT6=1
 	)
 	cmake_src_configure
 }

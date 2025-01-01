@@ -18,34 +18,22 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+alsa debug jack pulseaudio qt6"
+IUSE="+alsa debug jack pulseaudio"
 
 REQUIRED_USE="|| ( alsa jack pulseaudio )"
 
-BDEPEND="
-	qt6? ( dev-qt/qttools:6[linguist] )
-	!qt6? ( dev-qt/linguist-tools:5 )
-"
 DEPEND="
-	qt6? (
-		dev-qt/qtbase:6[gui,network,widgets]
-		dev-qt/qtsvg:6
-	)
-	!qt6? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtsvg:5
-		dev-qt/qtwidgets:5
-	)
+	dev-qt/qtbase:6[gui,network,widgets]
+	dev-qt/qtsvg:6
 	media-sound/fluidsynth:=[jack?,alsa?,pulseaudio?]
 "
 RDEPEND="${DEPEND}"
+BDEPEND="dev-qt/qttools:6[linguist]"
 
 src_configure() {
 	local mycmakeargs=(
 		-DCONFIG_DEBUG=$(usex debug 1 0)
-		-DCONFIG_QT6=$(usex qt6 1 0)
+		-DCONFIG_QT6=1
 	)
 	cmake_src_configure
 }

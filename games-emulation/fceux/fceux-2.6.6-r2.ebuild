@@ -16,22 +16,15 @@ SRC_URI="
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="archive ffmpeg qt6 x264 x265"
+IUSE="archive ffmpeg x264 x265"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-RDEPEND="
-	${LUA_DEPS}
+RDEPEND="${LUA_DEPS}
+	dev-qt/qtbase:6[gui,opengl,widgets,-gles2-only]
 	media-libs/libglvnd
 	media-libs/libsdl2[joystick,sound,threads(+),video]
 	sys-libs/zlib:=[minizip]
 	archive? ( app-arch/libarchive:= )
-	qt6? ( dev-qt/qtbase:6[gui,opengl,widgets,-gles2-only] )
-	!qt6? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtopengl:5[-gles2-only]
-		dev-qt/qtwidgets:5
-	)
 	ffmpeg? ( media-video/ffmpeg:= )
 	x264? ( media-libs/x264:= )
 	x265? ( media-libs/x265:= )
@@ -61,7 +54,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DGLVND=yes
 		-DPUBLIC_RELEASE=yes
-		-DQT6=$(usex qt6)
+		-DQT6=ON
 	)
 
 	cmake_src_configure
