@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,35 +15,25 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64 ~riscv x86"
-IUSE="aspell djvu qt6 pdf"
+IUSE="aspell djvu pdf"
 
 RESTRICT="test" # no tests
 
 DEPEND="
 	app-text/hunspell:=
+	dev-qt/qt5compat:6
+	dev-qt/qtbase:6[gui,widgets]
 	sys-libs/zlib
 	aspell? ( app-text/aspell )
 	djvu? ( app-text/djvu )
-	qt6? (
-		dev-qt/qtbase:6[widgets]
-		dev-qt/qt5compat:6
-		pdf? ( app-text/poppler:=[qt6(-)] )
-	)
-	!qt6? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		pdf? ( app-text/poppler:=[qt5] )
-	)
+	pdf? ( app-text/poppler:=[qt6(+)] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 DOCS=( AUTHORS ChangeLog NEWS NEWS-RU TODO )
 
-PATCHES=(
-	"${FILESDIR}/tea-62.1.1-fix-desktop.patch"
-)
+PATCHES=( "${FILESDIR}/tea-62.1.1-fix-desktop.patch" )
 
 src_prepare() {
 	cmake_src_prepare
@@ -68,7 +58,6 @@ src_configure() {
 		-DUSE_PDF=$(usex pdf)
 		-DUSE_DJVU=$(usex djvu)
 		-DUSE_PRINTER=OFF # appears to be setup wrong
-		$(cmake_use_find_package qt6 Qt6)
 	)
 
 	cmake_src_configure
