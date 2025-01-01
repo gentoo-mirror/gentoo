@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ declare -g -r -A ZBS_DEPENDENCIES=(
 	[harfbuzz-1220b8588f106c996af10249bfa092c6fb2f35fbacb1505ef477a0b04a7dd1063122.tar.gz]='https://github.com/harfbuzz/harfbuzz/archive/refs/tags/8.4.0.tar.gz'
 	[highway-12205c83b8311a24b1d5ae6d21640df04f4b0726e314337c043cde1432758cbe165b.tar.gz]='https://github.com/google/highway/archive/refs/tags/1.1.0.tar.gz'
 	[imgui-1220bc6b9daceaf7c8c60f3c3998058045ba0c5c5f48ae255ff97776d9cd8bfc6402.tar.gz]='https://github.com/ocornut/imgui/archive/e391fe2e66eb1c96b1624ae8444dc64c23146ef4.tar.gz'
-	[iterm2_themes-12204358b2848ffd993d3425055bff0a5ba9b1b60bead763a6dea0517965d7290a6c.tar.gz]='https://github.com/mbadolato/iTerm2-Color-Schemes/archive/d6c42066b3045292e0b1154ad84ff22d6863ebf7.tar.gz'
+	[iterm2_themes-1220cc25b537556a42b0948437c791214c229efb78b551c80b1e9b18d70bf0498620.tar.gz]='https://github.com/mbadolato/iTerm2-Color-Schemes/archive/e030599a6a6e19fcd1ea047c7714021170129d56.tar.gz'
 	[libpng-1220aa013f0c83da3fb64ea6d327f9173fa008d10e28bc9349eac3463457723b1c66.tar.gz]='https://github.com/pnggroup/libpng/archive/refs/tags/v1.6.43.tar.gz'
 	[libxev-12206029de146b685739f69b10a6f08baee86b3d0a5f9a659fa2b2b66c9602078bbf.tar.gz]='https://github.com/mitchellh/libxev/archive/db6a52bafadf00360e675fefa7926e8e6c0e9931.tar.gz'
 	[libxml2-122032442d95c3b428ae8e526017fad881e7dc78eab4d558e9a58a80bfbd65a64f7d.tar.gz]='https://github.com/GNOME/libxml2/archive/refs/tags/v2.11.5.tar.gz'
@@ -45,10 +45,9 @@ ZIG_SLOT="0.13"
 inherit zig xdg
 
 SRC_URI="
-	https://release.files.ghostty.org/${PV}/ghostty-source.tar.gz -> ${P}.tar.gz
+	https://release.files.ghostty.org/${PV}/ghostty-${PV}.tar.gz
 	${ZBS_DEPENDENCIES_SRC_URI}
 "
-S="${WORKDIR}/ghostty-source"
 
 LICENSE="
 	Apache-2.0 BSD BSD-2 BSD-4 Boost-1.0 MIT MPL-2.0
@@ -103,7 +102,7 @@ QA_PRESTRIPPED="usr/bin/ghostty"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.0.0-bzip2-dependency.patch
-	"${FILESDIR}"/${PN}-1.0.0-copy-terminfo-using-installdir.patch
+	"${FILESDIR}"/${PN}-1.0.1-copy-terminfo-using-installdir.patch
 )
 
 src_configure() {
