@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
 
 CPU_USE=(
 	x86_{avx2,avx512f,avx512_vnni,sse2,ssse3,sse4_2,pclmul,vpclmulqdq}
@@ -37,11 +37,6 @@ multilib_src_configure() {
 		-DZLIB_COMPAT=$(usex compat)
 		-DZLIB_ENABLE_TESTS=$(usex test)
 		-DWITH_GTEST=$(usex test)
-
-		# Unaligned access is controversial and undefined behaviour
-		# Let's keep it off for now
-		# https://github.com/gentoo/gentoo/pull/17167
-		-DWITH_UNALIGNED=OFF
 	)
 
 	# The intrinsics options are all defined conditionally, so we need
