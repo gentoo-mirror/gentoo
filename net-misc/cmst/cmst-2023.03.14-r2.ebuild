@@ -1,7 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit qmake-utils xdg-utils
 
 DESCRIPTION="Qt GUI for Connman with system tray icon"
@@ -12,31 +13,16 @@ S="${WORKDIR}/${PN}-${P}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="qt6"
 
-DEPEND="qt6? ( dev-qt/qtbase:6 )
-	!qt6? (
-		dev-qt/qtcore:5
-		dev-qt/qtdbus:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtwidgets:5
-)
-"
+DEPEND="dev-qt/qtbase:6[dbus,gui,network,widgets]"
 RDEPEND="${DEPEND}
 	net-misc/connman
 "
-BDEPEND="qt6? ( dev-qt/qttools:6 )
-	!qt6? ( dev-qt/linguist-tools:5 )
-"
+BDEPEND="dev-qt/qttools:6[linguist]"
 
 src_configure() {
 	export USE_LIBPATH="${EPREFIX}/usr/$(get_libdir)/${PN}"
-	if use qt6; then
-		eqmake6 DISTRO=gentoo
-	else
-		eqmake5 DISTRO=gentoo
-	fi
+	eqmake6 DISTRO=gentoo
 }
 
 src_install() {
