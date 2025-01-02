@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 USE_RUBY="ruby31 ruby32 ruby33"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
-RUBY_FAKEGEM_EXTRADOC="HISTORY.md README.md"
+RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
@@ -23,9 +23,14 @@ IUSE="test"
 
 ruby_add_rdepend "
 	>=dev-ruby/crass-1.0.2 =dev-ruby/crass-1.0*
-	>=dev-ruby/nokogiri-1.12.0
+	>=dev-ruby/nokogiri-1.16.8
 "
 ruby_add_bdepend "test? ( dev-ruby/minitest )"
+
+all_ruby_prepare() {
+	sed -e 's:_relative ": "./:' \
+		-i ${RUBY_FAKEGEM_GEMSPEC} || die
+}
 
 each_ruby_test() {
 	${RUBY} -Ilib test/test_sanitize.rb || die
