@@ -1,5 +1,5 @@
 BDEPEND=test? ( app-shells/tcsh )
-DEFINED_PHASES=compile install test
+DEFINED_PHASES=compile install
 DEPEND=>=dev-lang/perl-5.8 virtual/latex-base dev-texlive/texlive-plaingeneric dev-perl/Algorithm-Diff dev-perl/Pod-LaTeX
 DESCRIPTION=Compare two latex files and mark up significant differences
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=>=dev-lang/perl-5.8 virtual/latex-base dev-texlive/texlive-plaingeneric dev-perl/Algorithm-Diff
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/ftilmann/latexdiff/archive/1.3.4.tar.gz -> latexdiff-1.3.4.tar.gz
-_md5_=349723763cb9433f459f229566621815
+SRC_URI=https://github.com/ftilmann/latexdiff/archive/1.3.4.tar.gz -> latexdiff-1.3.4.tar.gz https://github.com/ftilmann/latexdiff/pull/314/commits/94e13c799d2e218a814d007ceff37e91828fb4a4.patch -> latexdiff-1.3.4-makefile-fix-example-diff-target.patch
+_md5_=b3575b553b3712ca5a8bf49fa3e9ec24
