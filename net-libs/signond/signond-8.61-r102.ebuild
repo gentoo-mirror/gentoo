@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit qmake-utils multibuild
+inherit qmake-utils
 
 if [[ ${PV} = *9999* ]] ; then
 	EGIT_REPO_URI="https://gitlab.com/nicolasfella/signond.git/"
@@ -12,7 +12,7 @@ if [[ ${PV} = *9999* ]] ; then
 else
 	SRC_URI="https://gitlab.com/accounts-sso/${PN}/-/archive/VERSION_${PV}/${PN}-VERSION_${PV}.tar.bz2 -> ${P}.tar.bz2"
 	S="${WORKDIR}/${PN}-VERSION_${PV}"
-	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Signon daemon for libaccounts-glib"
@@ -22,10 +22,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 # The qt5/qt6 situation is complicated:
 # https://gitlab.com/accounts-sso/signon-plugin-oauth2/-/merge_requests/28#note_1689621252
-# 1) the library is coinstallable for qt5/qt6
-# 2) signond (the daemon) must be built for only one Qt version, matching the
-# Qt version of all consumer plugins.
-IUSE="doc qt5 test"
+IUSE="doc test"
 
 # tests are brittle; they all pass when stars align, bug 727666
 RESTRICT="test !test? ( test )"
@@ -33,24 +30,12 @@ RESTRICT="test !test? ( test )"
 RDEPEND="
 	dev-qt/qtbase:6[dbus,gui,network,sql]
 	net-libs/libproxy
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtdbus:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtsql:5
-	)
 "
-DEPEND="${RDEPEND}
-	test? ( qt5? ( dev-qt/qttest:5 ) )
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	doc? (
 		app-text/doxygen[dot]
-		|| (
-			dev-qt/qttools:6[assistant]
-			dev-qt/qthelp:5
-		)
+		dev-qt/qttools:6[assistant]
 	)
 "
 
@@ -70,23 +55,10 @@ PATCHES=(
 	"${FILESDIR}/${PN}-8.61-consistent-paths.patch" # bug 701142
 )
 
-pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usev qt5) qt6 )
-}
-
 src_prepare() {
 	default
 
-	local qhelpgeneratorpath
-	if has_version "dev-qt/qttools:6[assistant]"; then
-		qhelpgeneratorpath="$(qt6_get_libdir)/qt6/libexec"
-	elif has_version "dev-qt/qthelp:5"; then
-		qhelpgeneratorpath="$(qt5_get_bindir)"
-	else
-		eerror "dev-qt/qttools:6[assistant] nor dev-qt/qthelp:5 available even though in deps(?)"
-	fi
-
-	sed -e "/QHG_LOCATION/s|qhelpgenerator|${qhelpgeneratorpath}/&|" \
+	sed -e "/QHG_LOCATION/s|qhelpgenerator|$(qt6_get_libdir)/qt6/libexec/&|" \
 		-i {lib/plugins/,lib/SignOn/,}doc/doxy.conf || die
 
 	# install docs to correct location
@@ -102,43 +74,18 @@ src_prepare() {
 
 	use test || sed -e '/^SUBDIRS/s/tests//' \
 		-i signon.pro || die "couldn't disable tests"
-
-	multibuild_copy_sources
 }
 
 src_configure() {
-	my_src_configure() {
-		cd "${BUILD_DIR}" || die
-
-		local myqmakeargs=(
-			PREFIX="${EPREFIX}"/usr
-			LIBDIR=$(get_libdir)
-		)
-
-		if [[ ${MULTIBUILD_VARIANT} == qt6 ]]; then
-			eqmake6 "${myqmakeargs[@]}"
-		else
-			eqmake5 "${myqmakeargs[@]}"
-		fi
-	}
-
-	multibuild_foreach_variant my_src_configure
-}
-
-src_compile() {
-	my_src_compile() {
-		emake -C "${BUILD_DIR}"
-	}
-
-	multibuild_foreach_variant my_src_compile
+	local myqmakeargs=(
+		PREFIX="${EPREFIX}"/usr
+		LIBDIR=$(get_libdir)
+	)
+	eqmake6 "${myqmakeargs[@]}"
 }
 
 src_install() {
-	my_src_install() {
-		emake -C "${BUILD_DIR}" INSTALL_ROOT="${D}" install
-	}
-
-	multibuild_foreach_variant my_src_install
+	emake INSTALL_ROOT="${D}" install
 }
 
 pkg_postinst() {
