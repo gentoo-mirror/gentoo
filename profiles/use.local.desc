@@ -342,7 +342,6 @@ app-containers/docker:overlay2 - Enables dependencies for the "overlay2" graph d
 app-containers/docker-credential-helpers:pass - Build pass helper for the pass utility.
 app-containers/incus:fuidshift - Install the fuidshift binary - currently conflicts with app-containers/lxd
 app-containers/incus:qemu - Pull dependencies needed to manage QEMU-based virtual machines with Incus
-app-containers/lxc:io-uring - Enable io_uring support, and use io_uring instead of epoll
 app-containers/lxc:tools - Build and install additional command line tools
 app-containers/nerdctl:rootless - Enables dependencies for running in rootless mode.
 app-containers/podman:btrfs - Enables btrfs support (graph driver) in Podman
@@ -621,7 +620,6 @@ app-emulation/qemu:fdt - Enables firmware device tree support
 app-emulation/qemu:fuse - Enables FUSE block device export
 app-emulation/qemu:glusterfs - Enables GlusterFS cluster fileystem via sys-cluster/glusterfs
 app-emulation/qemu:gnutls - Enable TLS support for the VNC console server. For 1.4 and newer this also enables WebSocket support. For 2.0 through 2.3 also enables disk quorum support.
-app-emulation/qemu:io-uring - Enable efficient I/O via sys-libs/liburing.
 app-emulation/qemu:iscsi - Enable direct iSCSI support via net-libs/libiscsi instead of indirectly via the Linux block layer that sys-block/open-iscsi does.
 app-emulation/qemu:jpeg - Enable jpeg image support for the VNC console server
 app-emulation/qemu:keyutils - Support Linux keyrings via sys-apps/keyutils
@@ -2747,7 +2745,6 @@ dev-ruby/faraday_middleware:mashify - Include FaradayMiddleware::Mashify
 dev-ruby/faraday_middleware:oauth - Include FaradayMiddleware::OAuth
 dev-ruby/faraday_middleware:parsexml - Include FaradayMiddleware::ParseXml
 dev-ruby/faraday_middleware:rashify - Include FaradayMiddleware::Rashify
-dev-ruby/io-event:io-uring - Enable io_uring support, and use io_uring instead of epoll
 dev-ruby/jwt:eddsa - Support EdDSA algorithm using dev-ruby/rbnacl
 dev-ruby/maruku:highlight - Enable source code highlighting via dev-ruby/syntax
 dev-ruby/mysql2:mariadb - Use mariadb bindings
@@ -4778,7 +4775,6 @@ media-sound/mpd:fluidsynth - Enables Fluidsynth MIDI software synthesis (discour
 media-sound/mpd:gme - Enables support for media-libs/game-music-emu for playing various video game music formats.
 media-sound/mpd:id3tag - Support for ID3 tags
 media-sound/mpd:inotify - Use the Linux kernel inotify subsystem to notice changes to mpd music library
-media-sound/mpd:io-uring - Enable support for io_uring
 media-sound/mpd:lame - Support for MP3 streaming via Icecast2
 media-sound/mpd:libmpdclient - Enable support for remote mpd databases
 media-sound/mpd:libsoxr - Enable the libsoxr resampler
@@ -7702,7 +7698,6 @@ sec-policy/selinux-base:unknown-perms - Default allow unknown classes in kernels
 sec-policy/selinux-base-policy:unconfined - Enable support for the unconfined SELinux policy module
 sys-apps/accountsservice:elogind - Use sys-auth/elogind for session tracking
 sys-apps/accountsservice:systemd - Use sys-apps/systemd for session tracking
-sys-apps/bfs:io-uring - Use sys-libs/liburing for faster async I/O
 sys-apps/busybox:make-symlinks - Create all the appropriate symlinks in /bin and /sbin.
 sys-apps/busybox:math - Enable math support in gawk (requires libm)
 sys-apps/busybox:mdev - Create the appropriate symlink in /sbin and install mdev.conf and support files
@@ -7882,7 +7877,6 @@ sys-apps/pcsc-lite:libusb - Use dev-libs/libusb detection to hotplug new smartca
 sys-apps/pcsc-lite:policykit - Uses sys-auth/polkit to restrict access to smartcard readers or smartcards to given users.
 sys-apps/pcsc-lite:udev - Use virtual/libudev rules to handle devices' permissions and hotplug support. Unless you know what you're doing do not disable this flag on Linux kernels. This is provided as an option for completeness.
 sys-apps/pcsc-tools:network-cron - Install a monthly cronjob to update the update-smartcard_list script
-sys-apps/plocate:io-uring - Enable efficient I/O via sys-libs/liburing.
 sys-apps/policycoreutils:audit - Enable support for sys-process/audit and use the audit_* functions (like audit_getuid instead of getuid())
 sys-apps/portage:apidoc - Build html API documentation with sphinx-apidoc.
 sys-apps/portage:gentoo-dev - Enable features required for Gentoo ebuild development.
@@ -8045,7 +8039,6 @@ sys-block/sas2ircu:uefi - Install UEFI variant as well
 sys-block/sas3flash:uefi - Install UEFI variant as well
 sys-block/sas3ircu:uefi - Install EFI variant as well
 sys-block/tgt:rbd - Add support for ceph block devices
-sys-block/thin-provisioning-tools:io-uring - Enable experimental support for io-uring.
 sys-boot/grub:device-mapper - Enable support for devmapper. Required for LUKS or LVM volume detection.
 sys-boot/grub:efiemu - Build and install the efiemu runtimes
 sys-boot/grub:fonts - Build and install fonts for the gfxterm module
@@ -8455,7 +8448,6 @@ sys-power/nvclock:nvcontrol - Add NVCONTROL support for OpenGL options
 sys-power/suspend:crypt - Allows suspend and resume from encrypted disk
 sys-process/atop:modules - Build netatop kernel module and install netatopd daemon.
 sys-process/audit:gssapi - Enable GSSAPI support
-sys-process/audit:io-uring - Enable support for io-uring. Doesn't need the library but needs at least kernel 5.1.
 sys-process/bottom:battery - Include support for laptop battery information
 sys-process/bottom:gpu - Include support for GPU temperature and memory usage information
 sys-process/bottom:zfs - Include support for ZFS ARC memory usage information
