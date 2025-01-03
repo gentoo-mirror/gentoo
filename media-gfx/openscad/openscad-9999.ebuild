@@ -1,9 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake flag-o-matic optfeature virtualx xdg
+PYTHON_COMPAT=( python3_{10..13} )
+inherit cmake flag-o-matic optfeature python-any-r1 virtualx xdg
 
 DESCRIPTION="The Programmers Solid 3D CAD Modeller"
 HOMEPAGE="https://openscad.org/"
@@ -18,22 +19,26 @@ if [[ ${PV} = *9999* ]] ; then
 		'-OpenCSG'
 	)
 else
-	COMMIT="bc0d078e0361d7dba66723ac31bdb3b650ecff37"
-	SANITIZERS_CMAKE_COMMIT="3f0542e4e034aab417c51b2b22c94f83355dee15"
-	MCAD_COMMIT="bd0a7ba3f042bfbced5ca1894b236cea08904e26"
+	if [[ ${PV} = *pre* ]] ; then
+		COMMIT="756e080c7e49072d9926cf9ce766def180a0dcae"
+		SANITIZERS_CMAKE_COMMIT="0573e2ea8651b9bb3083f193c41eb086497cc80a"
+		MCAD_COMMIT="bd0a7ba3f042bfbced5ca1894b236cea08904e26"
 
-	SRC_URI="
-		https://github.com/openscad/openscad/archive/${COMMIT}.tar.gz
-			-> ${P}.tar.gz
-		https://github.com/arsenm/sanitizers-cmake/archive/${SANITIZERS_CMAKE_COMMIT}.tar.gz
-			-> sanitizers-cmake-${SANITIZERS_CMAKE_COMMIT}.tar.gz
-		test? (
-			https://github.com/openscad/MCAD/archive/${MCAD_COMMIT}.tar.gz -> ${PN}-MCAD-${MCAD_COMMIT}.tar.gz
-		)
-	"
-	# doc downloads are not versioned and found at:
-	# https://files.openscad.org/documentation/
-	S="${WORKDIR}/${PN}-${COMMIT}"
+		SRC_URI="
+			https://github.com/openscad/openscad/archive/${COMMIT}.tar.gz
+				-> ${P}.tar.gz
+			https://github.com/arsenm/sanitizers-cmake/archive/${SANITIZERS_CMAKE_COMMIT}.tar.gz
+				-> sanitizers-cmake-${SANITIZERS_CMAKE_COMMIT}.tar.gz
+			test? (
+				https://github.com/openscad/MCAD/archive/${MCAD_COMMIT}.tar.gz -> ${PN}-MCAD-${MCAD_COMMIT}.tar.gz
+			)
+		"
+		# doc downloads are not versioned and found at:
+		# https://files.openscad.org/documentation/
+		S="${WORKDIR}/${PN}-${COMMIT}"
+	else
+		SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.src.tar.gz -> ${P}.tar.gz"
+	fi
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
@@ -74,7 +79,7 @@ RDEPEND="
 	hidapi? ( dev-libs/hidapi )
 	manifold? (
 		dev-cpp/tbb
-		sci-mathematics/manifold
+		>=sci-mathematics/manifold-3.0.1
 	)
 	mimalloc? ( dev-libs/mimalloc:= )
 	pdf? ( x11-libs/cairo )
@@ -90,6 +95,13 @@ BDEPEND="
 	dev-util/itstool
 	sys-devel/gettext
 	virtual/pkgconfig
+	test? (
+		$(python_gen_any_dep '
+			dev-python/numpy[${PYTHON_USEDEP}]
+			dev-python/pillow[${PYTHON_USEDEP}]
+			dev-python/pip[${PYTHON_USEDEP}]
+		')
+	)
 "
 
 DOCS=(
@@ -101,6 +113,17 @@ DOCS=(
 	doc/testing.txt
 	doc/translation.txt
 )
+
+# NOTE the build system sets up a venv for tests, we could use imagemagick with -DUSE_IMAGE_COMPARE_PY="no"
+python_check_deps() {
+	python_has_version "dev-python/numpy[${PYTHON_USEDEP}]" &&
+	python_has_version "dev-python/pillow[${PYTHON_USEDEP}]" &&
+	python_has_version "dev-python/pip[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
 
 src_prepare() {
 	if use test && [[ ${PV} != *9999* ]] ; then
@@ -134,6 +157,7 @@ src_configure() {
 		-DEXPERIMENTAL="$(usex experimental)"
 
 		-DHEADLESS="$(usex !gui)"
+		-DUSE_BUILTIN_CLIPPER2="no"
 		-DUSE_BUILTIN_MANIFOLD="no"
 		-DUSE_CCACHE="no"
 		-DUSE_GLAD="yes"
@@ -142,6 +166,7 @@ src_configure() {
 		-DUSE_MIMALLOC="$(usex mimalloc)"
 		-DUSE_QT6="$(usex gui)"
 		-DOFFLINE_DOCS="no" # TODO
+		-DOPENCSG_DIR="${EPREFIX}/usr/$(get_libdir)"
 	)
 
 	if use gui; then
@@ -155,8 +180,18 @@ src_configure() {
 	if [[ ${PV} != *9999* ]] ; then
 		mycmakeargs+=(
 			-DCMAKE_MODULE_PATH="${WORKDIR}/sanitizers-cmake-${SANITIZERS_CMAKE_COMMIT}/cmake"
+		)
+		if [[ ${PV} = *pre* ]] ; then
+			mycmakeargs+=(
+				-DOPENSCAD_COMMIT="${COMMIT:0:9}"
+				-DOPENSCAD_VERSION="$(ver_cut 1-3)"
+				-DSNAPSHOT="yes"
+			)
+		fi
+	else
+		mycmakeargs+=(
 			-DOPENSCAD_COMMIT="${COMMIT:0:9}"
-			-DOPENSCAD_VERSION="${PV:0:4}.${PV:4:2}.${PV:6:2}"
+			-DSNAPSHOT="yes"
 		)
 	fi
 
