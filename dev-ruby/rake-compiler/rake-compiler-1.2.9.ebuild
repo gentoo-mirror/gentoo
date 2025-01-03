@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,19 +15,19 @@ inherit ruby-fakegem
 
 DESCRIPTION="Provide a standard and simplified way to build and package Ruby extensions"
 HOMEPAGE="https://github.com/rake-compiler/rake-compiler"
-LICENSE="MIT"
-
 SRC_URI="https://github.com/rake-compiler/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+LICENSE="MIT"
+
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="test"
 
 ruby_add_rdepend "dev-ruby/rake"
 
 ruby_add_bdepend "test? ( dev-ruby/rspec:3 )"
 
-USE_RUBY="ruby30 ruby31 ruby32" ruby_add_bdepend "test? ( dev-util/cucumber )"
+USE_RUBY="ruby31 ruby32 ruby33" ruby_add_bdepend "test? ( dev-util/cucumber )"
 
 all_ruby_prepare() {
 	# Avoid failing features for native gems, this also fails with rubygems
@@ -44,7 +44,7 @@ all_ruby_prepare() {
 each_ruby_test() {
 	# Skip cucumber for new ruby versions (not ready yet due to rspec 2 usage)
 	case ${RUBY} in
-		*ruby30|*ruby31|*ruby32)
+		*ruby31|*ruby32|*ruby33)
 			RSPEC_VERSION=3 ruby-ng_rspec
 			ruby-ng_cucumber
 			;;
