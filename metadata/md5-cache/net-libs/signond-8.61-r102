@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/doxygen[dot] dev-qt/qttools:6[assistant] )
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=dev-qt/qtbase:6[dbus,gui,network,sql] net-libs/libproxy
+DESCRIPTION=Signon daemon for libaccounts-glib
+EAPI=8
+HOMEPAGE=https://gitlab.com/accounts-sso
+INHERIT=qmake-utils
+IUSE=doc test
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-qt/qtbase:6[dbus,gui,network,sql] net-libs/libproxy
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.61/signond-VERSION_8.61.tar.bz2 -> signond-8.61.tar.bz2
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=631c35d8b9c6294c7432ba0834b8f3cd
