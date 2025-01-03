@@ -8,8 +8,8 @@ INHERIT=optfeature webapp
 IUSE=vhosts
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 GPL-2+ GPL-3+ LGPL-2.1+ LGPL-3+
-RDEPEND=app-admin/pwgen dev-lang/php[calendar,curl,iconv,imap,nls,pdo,postgres,xml] dev-perl/DBD-Pg dev-perl/DBI dev-perl/YAML >=dev-php/awl-0.64 virtual/httpd-php app-admin/webapp-config
-SLOT=1.1.12
+RDEPEND=app-admin/pwgen || ( ( dev-lang/php:8.2[calendar,curl,iconv,imap,nls,pdo,postgres,xml] virtual/httpd-php:8.2 ) ( dev-lang/php:8.3[calendar,curl,iconv,imap,nls,pdo,postgres,xml] virtual/httpd-php:8.3 ) ) dev-perl/DBD-Pg dev-perl/DBI dev-perl/YAML >=dev-php/awl-0.64 app-admin/webapp-config
+SLOT=1.1.12-r1
 SRC_URI=https://www.davical.org/downloads/davical_1.1.12.orig.tar.xz -> davical-1.1.12.tar.xz
 _eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	webapp	5fa840db95fc7348dfd53b8526ed05f5
-_md5_=f4e861a820efad44a25e20fe3bce331d
+_md5_=4fb295f34ebb06fc1ee42ffdf457e2b6
