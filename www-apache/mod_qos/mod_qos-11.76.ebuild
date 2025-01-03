@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -27,10 +27,6 @@ APACHE2_MOD_DEFINE="QOS"
 DOCFILES="${S}/doc/*.txt ${S}/README.TXT"
 
 need_apache2
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-11.74-fix-incompatible-pointer-to-integer-conversion.diff
-)
 
 pkg_setup() {
 	_init_apache2
