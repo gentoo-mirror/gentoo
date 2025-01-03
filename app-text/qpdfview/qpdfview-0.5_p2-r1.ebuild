@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,8 +8,8 @@ inherit plocale qmake-utils xdg
 
 DESCRIPTION="A tabbed document viewer"
 HOMEPAGE="https://launchpad.net/qpdfview"
-# revision 2161
-SRC_URI="https://dev.gentoo.org/~grozin/${P}.tar.gz"
+REVISION=2162
+SRC_URI="https://bazaar.launchpad.net/~adamreichold/${PN}/trunk/tarball/${REVISION} -> ${PN}-${PV}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -19,7 +19,7 @@ IUSE="cups +dbus djvu fitz +pdf postscript +sqlite +svg synctex"
 REQUIRED_USE="?? ( fitz pdf )"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/qttools:6[linguist]
 	virtual/pkgconfig
 "
 RDEPEND="
@@ -27,16 +27,14 @@ RDEPEND="
 	djvu? ( app-text/djvu )
 	fitz? ( >=app-text/mupdf-1.7:= )
 	postscript? ( app-text/libspectre )
-	dev-qt/qtconcurrent:5
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtprintsupport:5[cups?]
-	dev-qt/qtwidgets:5
-	dbus? ( dev-qt/qtdbus:5 )
-	pdf? ( >=app-text/poppler-0.35[qt5]
-		dev-qt/qtxml:5 )
-	sqlite? ( dev-qt/qtsql:5[sqlite] )
-	svg? ( dev-qt/qtsvg:5 )
+	dev-qt/qtbase:6[gui,widgets,concurrent]
+	dbus? ( dev-qt/qttools:6[qdbus] )
+	pdf? (
+		app-text/poppler[qt6]
+		dev-qt/qtbase:6[xml]
+	)
+	sqlite? ( dev-qt/qtbase:6[sql,sqlite] )
+	svg? ( dev-qt/qtsvg:6 )
 	!svg? ( virtual/freedesktop-icon-theme )
 	synctex? ( app-text/texlive-core )"
 DEPEND="${RDEPEND}"
@@ -47,10 +45,16 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.5-poppler-23.08.0-cxx17.patch
 )
 
+src_unpack() {
+	unpack ${A}
+	mv '~adamreichold'/${PN}/trunk ${PN}-${PV} || die "mv trunk failed"
+}
+
 src_prepare() {
 	default
 
-	local mylrelease="$(qt5_get_bindir)"/lrelease
+	local mylrelease="$(qt6_get_bindir)"/lrelease
+
 	p_locale() {
 		"${mylrelease}" "translations/${PN}_${1}.ts" || die "preparing ${1} locale failed"
 	}
@@ -81,7 +85,8 @@ src_configure() {
 		CONFIG+="${myconfig[*]}"
 		PLUGIN_INSTALL_PATH="${EPREFIX}/usr/$(get_libdir)/${PN}"
 	)
-	eqmake5 "${myqmakeargs[@]}"
+
+	eqmake6 "${myqmakeargs[@]}"
 }
 
 src_install() {
