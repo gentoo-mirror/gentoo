@@ -35,6 +35,11 @@ DEPEND="
 "
 RESTRICT="!test? ( test )"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.10.0-munit-c23.patch
+	"${FILESDIR}"/${P}-gcc15-uninit.patch
+)
+
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DENABLE_STATIC_LIB=$(usex static-libs)
