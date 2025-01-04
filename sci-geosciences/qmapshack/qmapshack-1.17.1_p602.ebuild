@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit cmake xdg
 
 DESCRIPTION="GPS mapping utility"
 HOMEPAGE="https://github.com/Maproom/qmapshack/wiki"
-COMMIT="b53959a305587f0a7f2330b99267b3b24abb76f4"
+COMMIT="23d6fe3e11bd251f123fdba1f1cf2ac8170d4f83"
 SRC_URI="https://github.com/Maproom/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}"/${PN}-${COMMIT}
 LICENSE="GPL-3+"
@@ -30,8 +30,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/qttools:6[linguist]"
-
-PATCHES=( "${FILESDIR}"/dbus-r1.patch )
 
 src_configure() {
 	local mycmakeargs=( -DUSE_QT6DBus=$(usex dbus) )
