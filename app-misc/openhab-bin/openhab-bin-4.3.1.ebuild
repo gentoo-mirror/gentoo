@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,20 +7,21 @@ inherit edo systemd tmpfiles
 
 MY_PN=${PN%-bin}
 MY_P=${MY_PN}-${PV}
+MY_CLI_VER=2024-01-14
 
 DESCRIPTION="An open-source automation software for your home"
 HOMEPAGE="https://www.openhab.org/"
 SRC_URI="
 	https://github.com/openhab/openhab-distro/releases/download/${PV}/${MY_P}.tar.gz
 	https://raw.githubusercontent.com/openhab/openhab-linuxpkg/10061acd36524afb12a033fea6dcf142b399bf56/resources/usr/bin/openhab-cli
-		 -> openhab-cli-2024-01-14
+		 -> openhab-cli-${MY_CLI_VER}
 "
 
 S="${WORKDIR}"
 LICENSE="EPL-2.0"
 SLOT="0"
 
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 MY_JAVA_DEPEND=">=virtual/jre-17"
 
@@ -95,7 +96,7 @@ fi
 export JAVA_HOME
 exec /usr/share/openhab/runtime/bin/karaf "\$@"
 EOF
-	newbin "${DISTDIR}"/openhab-cli-2024-01-14 openhab-cli
+	newbin "${DISTDIR}"/openhab-cli-${MY_CLI_VER} openhab-cli
 
 	newinitd "${FILESDIR}"/openhab.initd openhab
 }
