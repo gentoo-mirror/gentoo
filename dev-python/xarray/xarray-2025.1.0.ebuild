@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,9 +21,10 @@ KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="big-endian"
 
 RDEPEND="
-	>=dev-python/numpy-1.23[${PYTHON_USEDEP}]
-	>=dev-python/pandas-2.0[${PYTHON_USEDEP}]
-	>=dev-python/packaging-23.1[${PYTHON_USEDEP}]
+	<dev-python/numpy-2.1[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.24[${PYTHON_USEDEP}]
+	>=dev-python/pandas-2.1[${PYTHON_USEDEP}]
+	>=dev-python/packaging-23.2[${PYTHON_USEDEP}]
 "
 # note: most of the test dependencies are optional
 BDEPEND="
@@ -33,7 +34,9 @@ BDEPEND="
 		dev-python/cftime[${PYTHON_USEDEP}]
 		dev-python/hypothesis[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
-		!riscv? ( dev-python/netcdf4[bzip2,szip,${PYTHON_USEDEP}] )
+		!riscv? ( !x86? (
+			dev-python/netcdf4[bzip2,szip,${PYTHON_USEDEP}]
+		) )
 		dev-python/toolz[${PYTHON_USEDEP}]
 		!hppa? ( >=dev-python/scipy-1.4[${PYTHON_USEDEP}] )
 	)
@@ -87,8 +90,23 @@ python_test() {
 			xarray/tests/test_dataarray.py::TestDataArray::test_repr_multiindex_long
 			xarray/tests/test_dataset.py::TestDataset::test_repr_multiindex
 			xarray/tests/test_formatting.py::test_array_repr_dtypes_unix
+
+			# converting timestamps into ns, causing an overflow
+			xarray/tests/test_cftimeindex.py::test_asi8
+			xarray/tests/test_coding_times.py::test_decode_cf_time_bounds
+			xarray/tests/test_coding_times.py::test_use_cftime_false_standard_calendar_in_range
+			xarray/tests/test_coding_times.py::test_decode_cf_datetime_non_standard_units
 		)
 	fi
+
+	case ${ARCH} in
+		arm64)
+			EPYTEST_DESELECT+=(
+				'xarray/tests/test_backends.py::TestNetCDF4Data::test_roundtrip_mask_and_scale[dtype0-create_unsigned_false_masked_scaled_data-create_encoded_unsigned_false_masked_scaled_data]'
+				'xarray/tests/test_backends.py::TestNetCDF4Data::test_roundtrip_mask_and_scale[dtype1-create_unsigned_false_masked_scaled_data-create_encoded_unsigned_false_masked_scaled_data]'
+			)
+			;;
+	esac
 
 	if has_version ">=dev-python/numpy-2[${PYTHON_USEDEP}]"; then
 		EPYTEST_DESELECT+=(
@@ -100,6 +118,12 @@ python_test() {
 			'xarray/tests/test_dtypes.py::test_maybe_promote[Q-expected20]'
 			'xarray/tests/test_conventions.py::TestCFEncodedDataStore::test_roundtrip_mask_and_scale[dtype0-create_unsigned_masked_scaled_data-create_encoded_unsigned_masked_scaled_data]'
 			'xarray/tests/test_conventions.py::TestCFEncodedDataStore::test_roundtrip_mask_and_scale[dtype1-create_unsigned_masked_scaled_data-create_encoded_unsigned_masked_scaled_data]'
+		)
+	fi
+
+	if ! has_version "dev-python/seaborn[${PYTHON_USEDEP}]"; then
+		EPYTEST_DESELECT+=(
+			xarray/tests/test_plot.py::TestContour::test_colors
 		)
 	fi
 

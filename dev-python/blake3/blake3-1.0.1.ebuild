@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,52 +9,39 @@ DISTUTILS_USE_PEP517=standalone
 PYTHON_COMPAT=( python3_{10..13} )
 
 CRATES="
-	arrayref@0.3.7
-	arrayvec@0.7.4
-	autocfg@1.1.0
-	bitflags@1.3.2
-	blake3@1.5.0
-	cc@1.0.83
+	arrayref@0.3.9
+	arrayvec@0.7.6
+	autocfg@1.4.0
+	blake3@1.5.5
+	cc@1.2.7
 	cfg-if@1.0.0
-	constant_time_eq@0.3.0
-	crossbeam-deque@0.8.5
+	constant_time_eq@0.3.1
+	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
-	crossbeam-utils@0.8.19
-	either@1.9.0
-	heck@0.4.1
+	crossbeam-utils@0.8.21
+	either@1.13.0
+	heck@0.5.0
 	hex@0.4.3
-	indoc@2.0.4
-	libc@0.2.153
-	lock_api@0.4.11
-	memmap2@0.7.1
-	memoffset@0.9.0
-	once_cell@1.19.0
-	parking_lot@0.12.1
-	parking_lot_core@0.9.9
-	proc-macro2@1.0.78
-	pyo3-build-config@0.20.2
-	pyo3-ffi@0.20.2
-	pyo3-macros-backend@0.20.2
-	pyo3-macros@0.20.2
-	pyo3@0.20.2
-	quote@1.0.35
+	indoc@2.0.5
+	libc@0.2.169
+	memmap2@0.9.5
+	memoffset@0.9.1
+	once_cell@1.20.2
+	portable-atomic@1.10.0
+	proc-macro2@1.0.92
+	pyo3-build-config@0.23.3
+	pyo3-ffi@0.23.3
+	pyo3-macros-backend@0.23.3
+	pyo3-macros@0.23.3
+	pyo3@0.23.3
+	quote@1.0.38
 	rayon-core@1.12.1
-	rayon@1.8.1
-	redox_syscall@0.4.1
-	scopeguard@1.2.0
-	smallvec@1.13.1
-	syn@2.0.48
-	target-lexicon@0.12.13
-	unicode-ident@1.0.12
+	rayon@1.10.0
+	shlex@1.3.0
+	syn@2.0.94
+	target-lexicon@0.12.16
+	unicode-ident@1.0.14
 	unindent@0.2.3
-	windows-targets@0.48.5
-	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_msvc@0.48.5
-	windows_i686_gnu@0.48.5
-	windows_i686_msvc@0.48.5
-	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_msvc@0.48.5
 "
 
 inherit cargo distutils-r1
@@ -80,8 +67,8 @@ LICENSE="
 "
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0-with-LLVM-exceptions BSD-2 MIT Unicode-DFS-2016
-	|| ( Apache-2.0 CC0-1.0 )
+	Apache-2.0-with-LLVM-exceptions BSD-2 MIT Unicode-3.0
+	|| ( Apache-2.0 CC0-1.0 MIT-0 )
 "
 LICENSE+="
 	)
@@ -119,11 +106,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	local PATCHES=(
-		# https://github.com/oconnor663/blake3-py/pull/44
-		"${FILESDIR}/${P}-gcc14.patch"
-	)
-
 	# sed the package name and version to improve compatibility
 	sed -e 's:blake3_experimental_c:blake3:' \
 		-e "s:0[.]0[.]1:${PV}:" \
