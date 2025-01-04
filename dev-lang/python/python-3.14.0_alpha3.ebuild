@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -376,39 +376,7 @@ src_configure() {
 			# Hangs (actually runs indefinitely executing itself w/ many cpython builds)
 			# bug #900429
 			-x test_tools
-
-			# Fails in profiling run, passes in src_test().
-			-x test_capi
-			-x test_embed
 		)
-
-		# Arch-specific skips.  See #931888 for a collection of these.
-		case ${CHOST} in
-			alpha*)
-				profile_task_flags+=(
-					-x test_os
-				)
-				;;
-			hppa*)
-				profile_task_flags+=(
-					-x test_descr
-					# bug 931908
-					-x test_exceptions
-					-x test_os
-				)
-				;;
-			powerpc64-*) # big endian
-				profile_task_flags+=(
-					# bug 931908
-					-x test_exceptions
-				)
-				;;
-			riscv*)
-				profile_task_flags+=(
-					-x test_statistics
-				)
-				;;
-		esac
 
 		if has_version "app-arch/rpm" ; then
 			# Avoid sandbox failure (attempts to write to /var/lib/rpm)
@@ -416,7 +384,8 @@ src_configure() {
 				-x test_distutils
 			)
 		fi
-		local -x PROFILE_TASK="${profile_task_flags[*]}"
+		# PGO sometimes fails randomly
+		local -x PROFILE_TASK="${profile_task_flags[*]} || true"
 	fi
 
 	local myeconfargs=(
@@ -524,6 +493,7 @@ src_compile() {
 		# bug 660358
 		local -x COLUMNS=80
 		local -x PYTHONDONTWRITEBYTECODE=
+		local -x TMPDIR=/var/tmp
 	fi
 
 	# also need to clear the flags explicitly here or they end up
@@ -563,6 +533,7 @@ src_test() {
 	# bug 660358
 	local -x COLUMNS=80
 	local -x PYTHONDONTWRITEBYTECODE=
+	local -x TMPDIR=/var/tmp
 
 	nonfatal emake -Onone test EXTRATESTOPTS="${test_opts[*]}" \
 		CPPFLAGS= CFLAGS= LDFLAGS= < /dev/tty
