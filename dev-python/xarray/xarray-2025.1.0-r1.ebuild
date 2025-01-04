@@ -21,7 +21,6 @@ KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="big-endian"
 
 RDEPEND="
-	<dev-python/numpy-2.1[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.24[${PYTHON_USEDEP}]
 	>=dev-python/pandas-2.1[${PYTHON_USEDEP}]
 	>=dev-python/packaging-23.2[${PYTHON_USEDEP}]
@@ -107,19 +106,6 @@ python_test() {
 			)
 			;;
 	esac
-
-	if has_version ">=dev-python/numpy-2[${PYTHON_USEDEP}]"; then
-		EPYTEST_DESELECT+=(
-			xarray/tests/test_dataset.py::TestDataset::test_polyfit_warnings
-			# https://github.com/pandas-dev/pandas/issues/56996
-			xarray/tests/test_backends.py::test_use_cftime_false_standard_calendar_in_range
-			# TODO
-			'xarray/tests/test_dtypes.py::test_maybe_promote[q-expected19]'
-			'xarray/tests/test_dtypes.py::test_maybe_promote[Q-expected20]'
-			'xarray/tests/test_conventions.py::TestCFEncodedDataStore::test_roundtrip_mask_and_scale[dtype0-create_unsigned_masked_scaled_data-create_encoded_unsigned_masked_scaled_data]'
-			'xarray/tests/test_conventions.py::TestCFEncodedDataStore::test_roundtrip_mask_and_scale[dtype1-create_unsigned_masked_scaled_data-create_encoded_unsigned_masked_scaled_data]'
-		)
-	fi
 
 	if ! has_version "dev-python/seaborn[${PYTHON_USEDEP}]"; then
 		EPYTEST_DESELECT+=(
