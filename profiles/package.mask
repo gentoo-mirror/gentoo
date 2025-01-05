@@ -33,6 +33,45 @@
 
 #--- END OF EXAMPLES ---
 
+# Paul Zander <negril.nx+gentoo@gmail.com> (2025-01-05)
+# Masked for testing
+>=dev-build/rocm-cmake-6.3.0
+>=dev-libs/hipother-6.3.0
+>=dev-libs/rccl-6.3.0
+>=dev-libs/rocdbgapi-6.3.0
+>=dev-libs/rocm-comgr-6.3.0
+>=dev-libs/rocm-device-libs-6.3.0
+>=dev-libs/rocm-opencl-runtime-6.3.0
+>=dev-libs/rocr-runtime-6.3.0
+>=dev-libs/roct-thunk-interface-6.3.0
+>=dev-util/hip-6.3.0
+>=dev-util/hipcc-6.3.0
+>=dev-util/hipify-clang-6.3.0
+>=dev-util/rocm_bandwidth_test-6.3.0
+>=dev-util/rocm-smi-6.3.0
+>=dev-util/rocminfo-6.3.0
+>=dev-util/roctracer-6.3.0
+>=dev-util/Tensile-6.3.0
+>=sci-libs/composable-kernel-6.3.0
+>=sci-libs/hipBLAS-common-6.3.0
+>=sci-libs/hipBLAS-6.3.0
+>=sci-libs/hipBLASLt-6.3.0
+>=sci-libs/hipCUB-6.3.0
+>=sci-libs/hipFFT-6.3.0
+>=sci-libs/hipRAND-6.3.0
+>=sci-libs/hipSOLVER-6.3.0
+>=sci-libs/hipSPARSE-6.3.0
+>=sci-libs/miopen-6.3.0
+>=sci-libs/rocBLAS-6.3.0
+>=sci-libs/rocFFT-6.3.0
+>=sci-libs/rocPRIM-6.3.0
+>=sci-libs/rocRAND-6.3.0
+>=sci-libs/rocSOLVER-6.3.0
+>=sci-libs/rocSPARSE-6.3.0
+>=sci-libs/rocThrust-6.3.0
+>=sci-libs/rocWMMA-6.3.0
+>=sci-libs/rpp-6.3.0
+
 # Nowa Ammerlaan <nowa@gentoo.org> (2025-01-03)
 # Contains a serious bug that can cause deletion of the users home dir.
 # See-also: https://github.com/keshavbhatt/whatsie/issues/230
@@ -156,16 +195,6 @@ kde-frameworks/kemoticons
 # Removal on 2025-01-04
 dev-util/android-sdk-update-manager
 dev-java/swt:3.7
-
-# Patrick Lauer <patrick@gentoo.org> (2024-12-01)
-# ROCm 6.2 builds but doesn't work at all for me
->=dev-libs/roct-thunk-interface-6.2
->=dev-libs/rocm-comgr-6.2
->=dev-libs/rocm-device-libs-6.2
->=dev-libs/rocr-runtime-6.2
->=dev-libs/rocm-opencl-runtime-6.2
->=dev-util/hipcc-6.2
->=dev-util/hip-6.2
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2024-11-28)
 # Grave data loss bug. See also:
@@ -505,11 +534,6 @@ x11-drivers/nvidia-drivers:0/vulkan
 # dev-build/automake version 1.11 is EOL and is only useful for testing
 # old de-ANSI-fication/ansi2knr/AM_C_PROTOTYPES code. Please uninstall.
 dev-build/automake:1.11
-
-# Joonas Niilola <juippis@gentoo.org> (2021-07-29)
-# Upstream provided migration instructions from 2. -> 3. update,
-# breaks if not all at least many revdeps. #805011 for tracker bug.
->=net-libs/mbedtls-3.0.0
 
 # Michał Górny <mgorny@gentoo.org> (2021-07-06)
 # Upstream changed license to GPL-3+ in order to deliberately cause
