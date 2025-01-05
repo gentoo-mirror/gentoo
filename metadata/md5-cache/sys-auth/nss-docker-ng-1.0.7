@@ -1,0 +1,13 @@
+BDEPEND=dev-util/patchelf || ( dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 dev-lang/rust-bin:1.79.0 dev-lang/rust:1.79.0 dev-lang/rust-bin:1.78.0 dev-lang/rust:1.78.0 dev-lang/rust-bin:1.77.1 dev-lang/rust:1.77.1 dev-lang/rust-bin:1.76.0 dev-lang/rust:1.76.0 dev-lang/rust-bin:1.75.0 dev-lang/rust:1.75.0 dev-lang/rust-bin:1.74.1 dev-lang/rust:1.74.1 dev-lang/rust-bin:1.71.1 dev-lang/rust:1.71.1 )
+DEFINED_PHASES=compile configure install postinst setup test unpack
+DESCRIPTION=NSS plugin for finding Docker containers by their ID or name
+EAPI=8
+HOMEPAGE=https://github.com/petski/nss-docker-ng
+INHERIT=cargo readme.gentoo-r1
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 LGPL-3 MIT MPL-2.0 Unicode-DFS-2016
+SLOT=0
+SRC_URI=https://github.com/petski/nss-docker-ng/archive/v1.0.7.tar.gz -> nss-docker-ng-1.0.7.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/sys-auth/nss-docker-ng/nss-docker-ng-1.0.7-crates.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	a7f1fb4aefa2759dc94e38f7668d373e	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	b5f350ebe96460cff090d0f2ae7e698a	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_md5_=72d034d2b9fc3366707497e77d987ac9
