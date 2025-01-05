@@ -7262,6 +7262,7 @@ sci-libs/coinor-cppad:eigen - Add support for Eigen (dev-cpp/eigen)
 sci-libs/coinor-cppad:ipopt - Add support for IPOPT (sci-libs/ipopt)
 sci-libs/coinor-symphony:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
 sci-libs/coinor-utils:glpk - Enable GNU Linear Programming Kit sci-mathematics/glpk support
+sci-libs/composable-kernel:profiler - Build and install the Composable Kernal profiler (ckProfiler)
 sci-libs/dealii:adolc - Adds support for ADOL-C (sci-libs/adolc)
 sci-libs/dealii:arborx - Adds support for ARBORX (sci-libs/arborx)
 sci-libs/dealii:arpack - Adds support for ARPACK (sci-libs/arpack)
@@ -7324,6 +7325,7 @@ sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
 sci-libs/hipCUB:benchmark - Build and install benchmark binaries.
 sci-libs/hipSOLVER:sparse - Build hipSOLVER with sparse functionality (sci-libs/cholmod)
+sci-libs/hipSPARSE:benchmark - Build and install hipsparse-bench.
 sci-libs/hypre:int64 - Build the 64 bits integer library
 sci-libs/indilib:rtlsdr - Enable support for devices supported by net-wireless/rtl-sdr
 sci-libs/indilib:websocket - Enable support for WebSocket protocol
@@ -7360,6 +7362,10 @@ sci-libs/mathgl:octave - Add bindings for sci-mathematics/octave
 sci-libs/matio:sparse - Extend formats for sparse matrix (not matlab)
 sci-libs/metis:double-precision - Use double- rather than single-precision floating-point representation
 sci-libs/metis:int64 - Use 64- rather than 32-bit integer representation (needed for > 2^31 vertices)
+sci-libs/miopen:composable-kernel - Use composable-kernel for GEMM-like and reduction-like operators.
+sci-libs/miopen:hipblaslt - Use hipBLASLt for some non-batched and strided batched problems.
+sci-libs/miopen:rocblas - Build with rocBLAS support
+sci-libs/miopen:roctracer - Build with roctracer support
 sci-libs/mumps:metis - Enable matrix ordering with METIS (sci-libs/metis, sci-libs/parmetis)
 sci-libs/mumps:scotch - Enable matrix ordering with sci-libs/scotch
 sci-libs/netcdf:blosc - Allow using blosc compression via dev-libs/c-blosc
@@ -7399,6 +7405,7 @@ sci-libs/plplot:octave - Add bindings for sci-mathematics/octave
 sci-libs/plplot:qhull - Add bindings for media-libs/qhull
 sci-libs/plplot:shapefile - Enable support for ESRI shapefiles
 sci-libs/rocBLAS:benchmark - Build and install rocblas-bench.
+sci-libs/rocBLAS:hipblaslt - Build with hipBLASLt for some non-batched and strided batched problems on gfx12.
 sci-libs/rocBLAS:test - Perform rocblas-test to compare the result between rocBLAS and system BLAS.
 sci-libs/rocFFT:benchmark - Build and install rocfft benchmark tools.
 sci-libs/rocFFT:perfscripts - Install rocfft-perf performance visualization suite.
