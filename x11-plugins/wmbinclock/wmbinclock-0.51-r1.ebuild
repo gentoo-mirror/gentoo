@@ -1,17 +1,17 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
 DESCRIPTION="a nifty little binary clock dockapp"
 HOMEPAGE="https://www.dockapps.net/wmbinclock"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.bz2"
+SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
 
 RDEPEND="x11-libs/libX11
 	x11-libs/libXpm
@@ -19,7 +19,11 @@ RDEPEND="x11-libs/libX11
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
 
-PATCHES=( "${FILESDIR}"/${P}-gcc-10.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.5-gcc-10.patch
+	"${FILESDIR}"/${PN}-0.5-gcc-14.patch
+)
+DOCS=( CHANGELOG README.md )
 
 src_compile() {
 	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS}" \
@@ -29,6 +33,5 @@ src_compile() {
 
 src_install() {
 	dobin wmBinClock
-	dosym wmBinClock /usr/bin/${PN}
-	dodoc CHANGELOG README
+	einstalldocs
 }
