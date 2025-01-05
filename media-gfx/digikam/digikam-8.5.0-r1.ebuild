@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -90,6 +90,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-8.4.0-cmake.patch"
 	"${FILESDIR}/${PN}-8.3.0-cmake-addressbook.patch"
+	"${FILESDIR}/${P}-cmake-have_ksane.patch" # bug 947312
 )
 
 pkg_pretend() {
