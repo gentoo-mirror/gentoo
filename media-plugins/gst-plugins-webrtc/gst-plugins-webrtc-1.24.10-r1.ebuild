@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,10 @@ DEPEND="${RDEPEND}"
 
 GST_PLUGINS_ENABLED="webrtc webrtcdsp"
 GST_PLUGINS_BUILD_DIR="webrtc webrtcdsp"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-1.24.10-disable-srtp-sctp-dtls-options.patch"
+)
 
 src_prepare() {
 	default
