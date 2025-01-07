@@ -60,6 +60,7 @@ dev-python/qtpy pyside2
 # Joonas Niilola <juippis@gentoo.org> (2024-11-16)
 # Wasm support is (currently) only available on amd64 and arm64.
 www-client/firefox wasm
+www-client/firefox wasm-sandbox
 
 # Matt Jolly <kangie@gentoo.org> (2024-11-11)
 # ICU 76.1 is not compatible with Chromium. Bug #943216.
@@ -472,12 +473,6 @@ sys-libs/ncurses stack-realign
 # Stephan Hartmann <sultan@gentoo.org> (2022-05-29)
 # Not ready for general use.
 >=www-client/chromium-104 pgo
-
-# Joonas Niilola <juippis@gentoo.org> (2022-05-03)
-# system-python-libs is HIGHLY EXPERIMENTAL according to upstream, and
-# still being worked on in Gentoo.
->=mail-client/thunderbird-100.0 system-python-libs
->=www-client/firefox-100.0 system-python-libs
 
 # Piotr Karbowski <slashbeast@gentoo.org> (2022-04-29)
 # There's a bug with gnutls support leading TLS certificates
