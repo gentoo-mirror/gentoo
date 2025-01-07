@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ if [[ ${PV} == 9999 ]]; then
 	SRC_URI=""
 	SLOT="0/14" # This can get easily out of date, but better than 9967
 else
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
 	SLOT="0/$(($(ver_cut 1) - 32))" # 0/libmutter_api_version - ONLY gnome-shell (or anything using mutter-clutter-<api_version>.pc) should use the subslot
 fi
 
@@ -40,9 +40,9 @@ DEPEND="
 	>=x11-libs/pango-1.46[introspection?]
 	>=x11-libs/cairo-1.14[X]
 	>=x11-libs/pixman-0.42
-	>=dev-libs/fribidi-1.0.0
-	>=gnome-base/gsettings-desktop-schemas-42.0[introspection?]
-	>=dev-libs/glib-2.75.1:2
+	>=dev-libs/fribidi-1.10.2
+	>=gnome-base/gsettings-desktop-schemas-47.0[introspection?]
+	>=dev-libs/glib-2.81.1:2
 	gnome-base/gnome-settings-daemon
 	>=x11-libs/libxkbcommon-0.4.3
 	x11-libs/libICE
@@ -52,6 +52,7 @@ DEPEND="
 	>=media-libs/lcms-2.6:2
 	>=media-libs/harfbuzz-2.6.0:=
 	>=dev-libs/libei-1.0.901
+	media-libs/libdisplay-info:=
 
 	gnome? ( gnome-base/gnome-desktop:4= )
 
@@ -60,12 +61,12 @@ DEPEND="
 	media-libs/libglvnd[X]
 
 	wayland? (
-		>=dev-libs/wayland-protocols-1.33
-		>=dev-libs/wayland-1.22.0
+		>=dev-libs/wayland-protocols-1.38
+		>=dev-libs/wayland-1.23.0
 
 		>=x11-libs/libdrm-2.4.118
 		media-libs/mesa[gbm(+)]
-		>=dev-libs/libinput-1.19.0:=
+		>=dev-libs/libinput-1.26.0:=
 
 		elogind? ( sys-auth/elogind )
 		>=x11-base/xwayland-23.2.1[libei(+)]
@@ -73,13 +74,13 @@ DEPEND="
 	)
 	udev? (
 		>=virtual/libudev-232-r1:=
-		>=dev-libs/libgudev-232
+		>=dev-libs/libgudev-238
 	)
 	systemd? ( sys-apps/systemd )
 	x11-libs/libSM
 	input_devices_wacom? ( >=dev-libs/libwacom-0.13:= )
 	>=x11-libs/startup-notification-0.7
-	screencast? ( >=media-video/pipewire-0.3.33:= )
+	screencast? ( >=media-video/pipewire-1.2.0:= )
 	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
 	test? (
 		>=x11-libs/gtk+-3.19.8:3[X,introspection?]
