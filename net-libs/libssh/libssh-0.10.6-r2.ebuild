@@ -13,18 +13,24 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://git.libssh.org/projects/libssh.git"
 else
 	SRC_URI="https://www.libssh.org/files/$(ver_cut 1-2)/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="LGPL-2.1"
 SLOT="0/4" # subslot = soname major version
-IUSE="debug doc examples gssapi mbedtls pcap server +sftp static-libs test zlib"
+IUSE="debug doc examples gcrypt gssapi mbedtls pcap server +sftp static-libs test zlib"
 # Maintainer: check IUSE-defaults at DefineOptions.cmake
 
+REQUIRED_USE="?? ( gcrypt mbedtls )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	!mbedtls? ( >=dev-libs/openssl-1.0.1h-r2:0=[${MULTILIB_USEDEP}] )
+	!gcrypt? (
+		!mbedtls? (
+			>=dev-libs/openssl-1.0.1h-r2:0=[${MULTILIB_USEDEP}]
+		)
+	)
+	gcrypt? ( >=dev-libs/libgcrypt-1.5.3:0[${MULTILIB_USEDEP}] )
 	gssapi? ( >=virtual/krb5-0-r1[${MULTILIB_USEDEP}] )
 	mbedtls? ( net-libs/mbedtls:0=[${MULTILIB_USEDEP}] )
 	zlib? ( >=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}] )
@@ -38,6 +44,11 @@ DEPEND="${RDEPEND}
 BDEPEND="doc? ( app-text/doxygen[dot] )"
 
 DOCS=( AUTHORS CHANGELOG README )
+
+PATCHES=(
+	"${FILESDIR}/${P}-libgcrypt-type-mismatches.patch" # bug 932715
+	"${FILESDIR}/${P}-ipv6-hostname-parsing.patch"
+)
 
 src_prepare() {
 	cmake_src_prepare
@@ -85,7 +96,7 @@ multilib_src_configure() {
 		-DWITH_STACK_PROTECTOR_STRONG=OFF
 		-DWITH_DEBUG_CALLTRACE=$(usex debug)
 		-DWITH_DEBUG_CRYPTO=$(usex debug)
-		-DWITH_GCRYPT=OFF
+		-DWITH_GCRYPT=$(usex gcrypt)
 		-DWITH_GSSAPI=$(usex gssapi)
 		-DWITH_MBEDTLS=$(usex mbedtls)
 		-DWITH_PCAP=$(usex pcap)

@@ -145,6 +145,8 @@ RDEPEND="${DEPEND}
 	qsv? ( media-libs/intel-mediasdk )
 "
 
+PATCHES=( "${FILESDIR}"/${PN}-31.0.0-libx11-link.patch )
+
 QA_PREBUILT="
 	usr/lib*/obs-plugins/chrome-sandbox
 	usr/lib*/obs-plugins/libcef.so
@@ -176,8 +178,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	default
-
 	# -Werror=lto-type-mismatch
 	# https://bugs.gentoo.org/867250
 	# https://github.com/obsproject/obs-studio/issues/8988

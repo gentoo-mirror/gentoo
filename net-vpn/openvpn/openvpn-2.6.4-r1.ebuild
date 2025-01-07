@@ -13,7 +13,7 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://build.openvpn.net/downloads/releases/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
 fi
 
 LICENSE="GPL-2"
@@ -31,7 +31,7 @@ REQUIRED_USE="
 	dco? ( !iproute2 )
 "
 
-COMMON_DEPEND="
+CDEPEND="
 	kernel_linux? (
 		iproute2? ( sys-apps/iproute2[-minimal] )
 	)
@@ -46,16 +46,12 @@ COMMON_DEPEND="
 	sys-libs/libcap-ng:=
 "
 
-BDEPEND="
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
 
-DEPEND="
-	${COMMON_DEPEND}
+DEPEND="${CDEPEND}
 	test? ( dev-util/cmocka )
 "
-RDEPEND="
-	${COMMON_DEPEND}
+RDEPEND="${CDEPEND}
 	acct-group/openvpn
 	acct-user/openvpn
 	selinux? ( sec-policy/selinux-openvpn )
