@@ -34,13 +34,13 @@ RESTRICT="!test? ( test )"
 # in Xwayland after mutter is installed, Xwayland would fail to be started by mutter. mutter already hard-depends on libei, so there's
 # really no extra deps here (besides xdg-desktop-portal, but we want that too, anyhow).
 # v3.32.2 has many excessive or unused *_req variables declared, thus currently the dep order ignores those and goes via dependency() call order
-DEPEND="
+RDEPEND="
 	>=media-libs/graphene-1.10.2[introspection?]
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/pango-1.46[introspection?]
 	>=x11-libs/cairo-1.14[X]
 	>=x11-libs/pixman-0.42
-	>=dev-libs/fribidi-1.10.2
+	>=dev-libs/fribidi-1.0.0
 	>=gnome-base/gsettings-desktop-schemas-47.0[introspection?]
 	>=dev-libs/glib-2.81.1:2
 	gnome-base/gnome-settings-daemon
@@ -90,7 +90,7 @@ DEPEND="
 "
 # for now upstream has "have_x11 = true" in the meson.build, but sooner or later upstream is going to make X optional.
 #	X? (
-DEPEND+="
+RDEPEND+="
 		>=gui-libs/gtk-4.0.0:4[X,introspection?]
 		>=x11-libs/libX11-1.7.0
 		>=x11-libs/libXcomposite-0.4
@@ -111,7 +111,7 @@ DEPEND+="
 "
 #	)"
 
-DEPEND="${DEPEND}
+DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 	sysprof? ( >=dev-util/sysprof-common-3.38.0 )
 "
