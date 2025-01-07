@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst
+DEPEND=acct-group/inadyn acct-user/inadyn dev-libs/confuse:= gnutls? ( dev-libs/nettle:= net-libs/gnutls:= ) mbedtls? ( net-libs/mbedtls:0= ) openssl? ( dev-libs/openssl:= )
+DESCRIPTION=Dynamic DNS client with multiple SSL/TLS library support
+EAPI=8
+HOMEPAGE=https://github.com/troglobit/inadyn
+INHERIT=systemd tmpfiles
+IUSE=gnutls mbedtls openssl
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=acct-group/inadyn acct-user/inadyn dev-libs/confuse:= gnutls? ( dev-libs/nettle:= net-libs/gnutls:= ) mbedtls? ( net-libs/mbedtls:0= ) openssl? ( dev-libs/openssl:= ) virtual/tmpfiles
+REQUIRED_USE=?? ( gnutls mbedtls openssl )
+SLOT=0
+SRC_URI=https://github.com/troglobit/inadyn/releases/download/v2.12.0/inadyn-2.12.0.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=87944ac99027f24a4bc4ccc6767ca72a

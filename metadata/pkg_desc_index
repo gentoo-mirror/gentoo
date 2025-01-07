@@ -1521,7 +1521,7 @@ app-crypt/tpm2-openssl 1.2.0: OpenSSL Provider for TPM2 integration
 app-crypt/tpm2-pkcs11 1.9.1: A PKCS#11 interface for TPM2 hardware
 app-crypt/tpm2-tools 5.7: Tools for the TPM 2.0 TSS
 app-crypt/tpm2-totp 0.3.0-r1: Attest the trustworthiness of a device against a human using time-based OTP
-app-crypt/tpm2-tss 4.0.1 4.0.1-r1 4.0.2 4.0.2-r1 4.1.3: TCG Trusted Platform Module 2.0 Software Stack
+app-crypt/tpm2-tss 4.0.2-r2 4.1.3-r1: TCG Trusted Platform Module 2.0 Software Stack
 app-crypt/trousers 0.3.15 0.3.15-r1: An open-source TCG Software Stack (TSS) v1.1 implementation
 app-crypt/ubuntu-keyring 2020.02.11.2 2020.06.17.1 2021.03.26 2023.11.28.1: GnuPG archive keys of the Ubuntu archive
 app-crypt/veracrypt 1.25.9-r1 1.26.7 1.26.15: Disk encryption with strong security based on TrueCrypt
@@ -3857,7 +3857,7 @@ dev-cpp/clucene 2.3.3.4-r9: High-performance, full-featured text search engine b
 dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration file format
 dev-cpp/cpp-httplib 0.18.0 0.18.1 0.18.3: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1 0_pre20240802: C++ library for the Debug Adapter Protocol
-dev-cpp/cppgir 2.0_p20240315 2.0_p20240928: GObject-Introspection C++ binding wrapper generator
+dev-cpp/cppgir 2.0_p20240928: GObject-Introspection C++ binding wrapper generator
 dev-cpp/cpptoml 0.1.1-r1: Header-only library for parsing TOML
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
 dev-cpp/curlpp 0.8.1: C++ wrapper for libcURL
@@ -5164,7 +5164,7 @@ dev-lang/go 1.22.6 1.22.7 1.22.9 1.22.10 1.23.1 1.23.3 1.23.4 9999: A concurrent
 dev-lang/go-bootstrap 1.20.14: Bootstrap package for dev-lang/go
 dev-lang/gprolog 1.5.0-r1: Native Prolog compiler with constraint solving over finite domains (FD)
 dev-lang/grass 0.13.4: A Sass compiler written purely in Rust
-dev-lang/haxe 4.3.6-r1: Multi-target universal programming language
+dev-lang/haxe 4.3.6-r2: Multi-target universal programming language
 dev-lang/icon 9.5.22e 9.5.24b: Very high level language
 dev-lang/idris2 0.6.0 0.7.0: Purely functional programming language with first class types
 dev-lang/inform 6.33.1_p2 6.35_p4 6.42_p4: Design system for interactive fiction
@@ -5198,7 +5198,7 @@ dev-lang/mono 6.12.0.199-r2: Mono runtime and class libraries, a C# compiler/int
 dev-lang/mono-basic 4.8: Visual Basic Compiler and Runtime
 dev-lang/mujs 1.3.4 1.3.5: An embeddable JavaScript interpreter written in C
 dev-lang/nasm 2.16.03: groovy little assembler
-dev-lang/neko 2.3.0-r2 2.4.0: Neko is a high-level dynamically typed programming language
+dev-lang/neko 2.3.0-r3 2.4.0-r1: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.0.8 2.2.0: Compiled, garbage-collected systems programming language
 dev-lang/nprolog 3.36 3.41 3.53: Interpreter and compiler to be compatible with Arity/Prolog32
@@ -5484,7 +5484,7 @@ dev-libs/liberasurecode 1.6.3: Erasure Code API library written in C with plugga
 dev-libs/libestr 0.1.11-r1: Library for some string essentials
 dev-libs/libev 4.33: A high-performance event loop/event model with lots of feature
 dev-libs/libevdev 1.13.3 9999: Handler library for evdev events
-dev-libs/libevent 2.1.12-r1 2.2.1-r2 9999: Library to execute a function when a specific event occurs on a file descriptor
+dev-libs/libevent 2.1.12-r1 2.2.1-r3 9999: Library to execute a function when a specific event occurs on a file descriptor
 dev-libs/libezV24 0.1.1-r2 0.1.1-r3: Library that provides an easy API to Linux serial ports
 dev-libs/libf2c 20130927-r1 20240130: Library that converts FORTRAN to C source
 dev-libs/libfastjson 1.2304.0: Fork of the json-c library, which is optimized for liblognorm processing
@@ -5649,7 +5649,7 @@ dev-libs/libxmlb 0.3.19: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.39-r1 1.1.42 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
 dev-libs/libzia 4.61 4.64-r1: Platform abstraction code for tucnak package
-dev-libs/libzip 1.9.2 1.11.2: Library for manipulating zip archives
+dev-libs/libzip 1.9.2-r1 1.11.2-r1: Library for manipulating zip archives
 dev-libs/light 1.2.2-r2: A program to control backlights (and other hardware lights)
 dev-libs/link-grammar 5.12.5: A Syntactic English parser
 dev-libs/linux-syscall-support 2022.10.12: Linux Syscall Support
@@ -10474,7 +10474,7 @@ dev-scheme/elk 3.99.8-r1 3.99.8-r2: Scheme implementation designed to be embedda
 dev-scheme/escm 1.1-r1: escm - Embedded Scheme Processor
 dev-scheme/fibers 1.2.0_p20230522-r100: Lightweight concurrency facility for Guile Scheme
 dev-scheme/gambit 4.9.4-r1 4.9.5: Gambit-C is a native Scheme to C compiler and interpreter
-dev-scheme/gauche 0.9.15: A Unix system friendly Scheme Interpreter
+dev-scheme/gauche 0.9.15-r1: A Unix system friendly Scheme Interpreter
 dev-scheme/gauche-cdb 0.3.1-r1: CDB binding for Gauche
 dev-scheme/gauche-gl 0.6-r1: OpenGL binding for Gauche
 dev-scheme/gauche-gtk 0.6 0.6.1: GTK2 binding for Gauche
@@ -14245,7 +14245,7 @@ media-video/mplay-sh 0.5.3-r1: mplayer wrapper script as backend for vdr-mplayer
 media-video/mplayer 1.5_p20230215 1.5_p20230618 1.5_p20231206 1.5_p20241125 9999: Media Player for Linux
 media-video/mpv 0.38.0-r1 0.39.0 9999: Media player for the command line
 media-video/noad 0.8.7-r1 0.8.8: Mark commercial breaks in VDR recordings
-media-video/obs-studio 30.2.3 31.0.0-r2 9999: Software for Recording and Streaming Live Video Content
+media-video/obs-studio 30.2.3-r1 31.0.0-r3 9999: Software for Recording and Streaming Live Video Content
 media-video/oxine 0.7.1-r6: OSD frontend for Xine
 media-video/parole 4.18.1 4.18.2: A simple Xfce4 media player using GStreamer
 media-video/peek 1.5.1-r1: Simple animated Gif screen recorder
@@ -14619,7 +14619,7 @@ net-dns/getdns 1.7.2-r1 1.7.3: Modern asynchronous DNS API
 net-dns/hash-slinger 3.3: Various tools to generate DNS records like SSHFP, TLSA, OPENPGPKEY, IPSECKEY
 net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r1: Toolkit for Internationalized Domain Names (IDN)
-net-dns/inadyn 2.12.0-r1: Dynamic DNS client with multiple SSL/TLS library support
+net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
 net-dns/knot 3.2.2 3.2.9-r1 3.4.3-r2: High-performance authoritative-only DNS server
 net-dns/knot-resolver 5.7.2 5.7.4-r1 6.0.9: A scaleable caching DNS resolver
 net-dns/libidn 1.42: Internationalized Domain Names (IDN) implementation
@@ -14741,7 +14741,7 @@ net-im/slack 4.41.104 4.41.105: Team collaboration tool
 net-im/spectrum2 2.2.1: An open source instant messaging transport
 net-im/swift 4.0.3-r2: An elegant, secure, adaptable and intuitive XMPP Client
 net-im/synapse 1.120.2 1.121.1: Reference implementation of Matrix homeserver
-net-im/telegram-desktop 5.9.0-r1 5.10.0: Official desktop client for Telegram
+net-im/telegram-desktop 5.9.0-r2 5.10.0-r1: Official desktop client for Telegram
 net-im/telegram-desktop-bin 5.8.3 5.9.0: Official desktop client for Telegram (binary package)
 net-im/telepathy-logger 0.8.2-r1: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
@@ -14763,7 +14763,7 @@ net-irc/emech 3.0.99_p20221123: UNIX compatible IRC bot programmed in C
 net-irc/ergo 2.13.0 2.13.1 2.14.0: A modern IRC server written in Go
 net-irc/hexchat 2.16.1-r1 2.16.2 9999: Graphical IRC client based on XChat
 net-irc/ii 1.9 2.0 9999: A minimalist FIFO and filesystem-based IRC client
-net-irc/inspircd 3.17.1 4.2.0 4.4.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
+net-irc/inspircd 3.17.1-r1 4.2.0 4.4.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
 net-irc/irccloud-desktop-bin 0.16.0-r1: IRCCloud Desktop Client
 net-irc/ircii 20240111 20240918: An IRC and ICB client that runs under most UNIX platforms
 net-irc/ircmap 0.99-r1: Scripts to treate diagrams of IRC networks using the LINKS command
@@ -14909,7 +14909,7 @@ net-libs/libqmi 1.32.4 1.32.4-r1 9999: Qualcomm MSM (Mobile Station Modem) Inter
 net-libs/libqrtr-glib 1.2.2: Qualcomm IPC Router protocol helper library
 net-libs/libquotient 0.8.2-r1 0.9.1: Qt-based SDK to develop applications for Matrix
 net-libs/libre-graph-api-cpp-qt-client 1.0.4: API for cloud collaboration inspired by the MS Graph API
-net-libs/librist 0.2.8: Library for Reliable Internet Stream Transport (RIST) protocol
+net-libs/librist 0.2.8-r1: Library for Reliable Internet Stream Transport (RIST) protocol
 net-libs/librouteros 1.1.3: Library for accessing MikroTik's RouterOS via its API
 net-libs/librsync 2.3.2 2.3.4: Remote delta-compression library
 net-libs/libsearpc 3.3.0-r2: Simple C language RPC framework
@@ -14919,7 +14919,7 @@ net-libs/libsmi 0.5.0-r5: A Library to Access SMI MIB Information
 net-libs/libsoup 2.74.3 3.4.4: HTTP client/server library for GNOME
 net-libs/libsrsirc 0.0.14-r2: Lightweight, cross-platform IRC library
 net-libs/libsrtp 1.6.0-r1 2.4.2 2.6.0: Open-source implementation of the Secure Real-time Transport Protocol (SRTP)
-net-libs/libssh 0.10.6-r1 0.11.1 9999: Access a working SSH implementation by means of a library
+net-libs/libssh 0.10.6-r2 0.11.1-r1 9999: Access a working SSH implementation by means of a library
 net-libs/libssh2 1.11.1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r2: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.5 1.3.6: Transport Independent RPC library (SunRPC replacement)
@@ -14929,7 +14929,7 @@ net-libs/libtrace 4.0.21 4.0.22 4.0.26: A library and tools for trace processing
 net-libs/libupnp 1.14.20: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 0.26.7: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
 net-libs/libvncserver 0.9.14-r2: library for creating vnc servers
-net-libs/libwebsockets 4.3.3: A flexible pure-C library for implementing network protocols
+net-libs/libwebsockets 4.3.3-r1: A flexible pure-C library for implementing network protocols
 net-libs/libyang 2.1.55 2.1.148: YANG data modeling language library
 net-libs/liquid-dsp 1.3.2 1.6.0 9999: digital signal processing library for software-defined radios
 net-libs/llhttp 9.2.1: Port of http_parser to llparse
@@ -15113,7 +15113,7 @@ net-misc/connman-json-client 1.0_p20150721-r3: An ncurses UI for connman
 net-misc/connman-notify 0_pre20191003-r3: Desktop notification integration for connman
 net-misc/connman-ui 0_p20150622-r1: A full-featured GTK based trayicon UI for ConnMan
 net-misc/croc 10.0.12 10.0.13 10.1.0 10.1.1: Easily and securely send things from one computer to another
-net-misc/curl 8.8.0-r1 8.9.1-r1 8.10.1-r1 8.11.0 8.11.1-r1 9999: A Client that groks URLs
+net-misc/curl 8.8.0-r2 8.9.1-r2 8.10.1-r2 8.11.0-r1 8.11.1-r2 9999: A Client that groks URLs
 net-misc/datapipe 1.0-r2: Bind a local port and connect it to a remote socket
 net-misc/dcetest 2.0: dcetest is a clone of the Windows rpcinfo
 net-misc/dhcdrop 0.5-r1: Effectively suppresses illegal DHCP servers on the LAN
@@ -15537,7 +15537,7 @@ net-proxy/ziproxy 3.3.2: A forwarding, non-caching, compressing web proxy server
 net-voip/mumble 1.5.634-r1 1.5.735 9999: Mumble is an open source, low-latency, high quality voice chat software
 net-voip/murmur 1.5.634 1.5.735 9999: Mumble is an open source, low-latency, high quality voice chat software
 net-voip/sipvicious 0.3.4-r1: SIPVicious is a SIP security package
-net-voip/umurmur 0.2.20: Minimalistic Murmur (Mumble server)
+net-voip/umurmur 0.2.20-r1: Minimalistic Murmur (Mumble server)
 net-voip/yate 6.2.0 9999: The Yate AV Suite
 net-vpn/6tunnel 0.13: TCP proxy for applications that don't speak IPv6
 net-vpn/candy 5.10.3-r1 5.10.4-r1: A reliable, low-latency, and anti-censorship virtual private network
@@ -15570,7 +15570,7 @@ net-vpn/nstx 1.1_beta6-r3: IP over DNS tunnel
 net-vpn/ocserv 1.1.6 1.1.7 1.3.0-r1 9999: Openconnect SSL VPN server
 net-vpn/openconnect 9.12 9999: Free client for Cisco AnyConnect SSL VPN software
 net-vpn/openfortivpn 1.22.1: Fortinet compatible VPN client
-net-vpn/openvpn 2.5.6-r1 2.5.7-r1 2.6.4 2.6.8 2.6.9 2.6.12 9999: Robust and highly flexible tunneling application compatible with many OSes
+net-vpn/openvpn 2.5.6-r2 2.5.7-r2 2.6.4-r1 2.6.8-r1 2.6.9-r1 2.6.12-r1 9999: Robust and highly flexible tunneling application compatible with many OSes
 net-vpn/ovpn-dco 0.2.20230426 0.2.20231117 0.2.20241216 9999: OpenVPN Data Channel Offload in the linux kernel
 net-vpn/pptpd 1.4.0-r4: Linux Point-to-Point Tunnelling Protocol Server
 net-vpn/protonvpn-cli 2.2.11-r2: A VPN command-line tool from protonvpn - python rewrite
@@ -18073,7 +18073,7 @@ www-apps/wordpress 6.4.4 6.5.5 6.6.2 6.7.1: Wordpress PHP and MySQL based conten
 www-apps/xpra-html5 10.1 15: HTML5 client to connect to any xpra server
 www-apps/zeppelin-bin 0.11.2: Web-based interactive data analytics notebook launcher
 www-client/chromium 130.0.6723.116-r1 131.0.6778.139 131.0.6778.204 132.0.6834.46 132.0.6834.57 133.0.6888.2 133.0.6905.0: Open-source version of Google Chrome web browser
-www-client/dillo 3.1.1-r1 9999: Lean FLTK based web browser
+www-client/dillo 3.1.1-r2 9999: Lean FLTK based web browser
 www-client/elinks 0.16.1.1-r100 0.17.1.1 9999: Advanced and well-established text-mode web browser
 www-client/epiphany 46.0 46.2 46.4: GNOME webbrowser based on Webkit
 www-client/falkon 24.08.3-r2 24.08.3-r3 24.12.0-r1: Cross-platform web browser using QtWebEngine
@@ -18141,7 +18141,7 @@ www-servers/mongrel2 1.11.0-r3: A language agnostic web server focused on web ap
 www-servers/moonbridge 1.1.3-r1: Network Server for Lua Applications
 www-servers/nginx 1.26.2-r8 1.27.3-r1: Robust, small and high performance http and reverse proxy server
 www-servers/nginx-unit 1.33.0 1.34.0: Dynamic web and application server
-www-servers/pound 3.0.2 4.10: A http/https reverse-proxy and load-balancer
+www-servers/pound 4.10: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.3: Pretty small HTTP server -- a command-line tool to share files
 www-servers/puma 6.4.3 6.5.0: a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack
 www-servers/servefile 0.5.4 0.5.4-r1: Serve a single file via HTTP
