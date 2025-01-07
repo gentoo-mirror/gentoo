@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/${P/_/}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
+		KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ppc64 ~riscv x86"
 	fi
 fi
 
@@ -118,10 +118,6 @@ RDEPEND="
 if [[ ${PV} != *9999* ]] ; then
 	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-wireshark )"
 fi
-
-PATCHES=(
-	"${FILESDIR}/${P}-cares.patch"
-)
 
 python_check_deps() {
 	use test || return 0
@@ -247,6 +243,7 @@ src_configure() {
 		-DENABLE_SPANDSP=$(usex spandsp)
 		-DBUILD_wifidump=$(usex wifi)
 		-DENABLE_ZLIB=$(usex zlib)
+		-DENABLE_ZLIBNG=OFF
 		-DENABLE_ZSTD=$(usex zstd)
 	)
 
