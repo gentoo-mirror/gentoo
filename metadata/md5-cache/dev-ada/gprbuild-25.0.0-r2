@@ -1,10 +1,10 @@
-BDEPEND=doc? ( dev-python/sphinx )
+BDEPEND=doc? ( || ( ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/pypy-3.10[symlink] dev-python/sphinx[python_targets_pypy3(-)] ) ) )
 DEFINED_PHASES=compile install prepare setup
 DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/gprconfig_kb[ada_target_gnat_2021(-)?,ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_15(-)]
 DESCRIPTION=Multi-Language Management
 EAPI=8
 HOMEPAGE=https://github.com/AdaCore/gprbuild
-INHERIT=ada multiprocessing
+INHERIT=ada python-any-r1 multiprocessing
 IUSE=doc ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-3
@@ -12,5 +12,5 @@ RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? (
 REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/gprbuild/archive/refs/tags/v25.0.0.tar.gz -> gprbuild-25.0.0.tar.gz https://github.com/AdaCore/xmlada/archive/refs/tags/v25.0.0.tar.gz -> xmlada-25.0.0.tar.gz
-_eclasses_=ada	91fe5c33490e013a01ffad92086e7bac	multiprocessing	1e32df7deee68372153dca65f4a7c21f
-_md5_=a16eb69b90950fb82d100a1e230cc74b
+_eclasses_=ada	91fe5c33490e013a01ffad92086e7bac	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=317993f15a2011ca80667276533e82a7
