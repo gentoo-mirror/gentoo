@@ -908,7 +908,7 @@ app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.36.27 1.36.31 1.36.33: Universal Command Line Environment for AWS
+app-admin/awscli 1.36.27 1.36.31 1.36.33 1.36.34: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.11.2 2024.12.0: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2 3.3.13: Distribution-independent installer framework
@@ -1317,7 +1317,7 @@ app-cdr/geteltorito 0.6: El Torito boot image extractor
 app-cdr/graveman 0.3.12_p5-r5: Graphical frontend for cdrecord, mkisofs, readcd and sox using GTK+2
 app-cdr/iat 0.1.7-r1: BIN, MDF, PDI, CDI, NRG, and B5I converters
 app-cdr/isoimagewriter 24.08.3 24.12.0: Write hybrid ISO files onto a USB disk
-app-cdr/isomaster 1.3.17: Graphical CD image editor for reading, modifying and writing ISO images
+app-cdr/isomaster 1.3.17-r1: Graphical CD image editor for reading, modifying and writing ISO images
 app-cdr/kcdemu 0.9: Frontend to cdemu daemon based on KDE Frameworks
 app-cdr/mirage2iso 0.4.2-r1 9999: CD/DVD image converter using libmirage
 app-cdr/mkcdtoc 1.0-r1: command-line utility to create toc-files for cdrdao
@@ -5397,7 +5397,7 @@ dev-libs/iksemel 1.4-r2: eXtensible Markup Language parser library designed for 
 dev-libs/imath 3.1.11-r1 3.1.12: Imath basic math package
 dev-libs/immer 0.8.1-r1: Library of persistent and immutable data structures written in C++
 dev-libs/inih 57-r1 58: inih (INI not invented here) simple .INI file parser
-dev-libs/iniparser 3.1-r3 4.1-r1 4.2.2: A free stand-alone ini file parsing library
+dev-libs/iniparser 3.1-r3 4.1-r2 4.2.5: Free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916: On-screen input pad to send characters with mouse
 dev-libs/intel-compute-runtime 24.35.30872.25-r1: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-discovery 1.13.178 1.13.179: A user mode library that provides access to GPU performance data
@@ -8147,8 +8147,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0 1.2.0 1.2.1 1.3.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.35.86 1.35.90 1.35.92: The AWS SDK for Python
-dev-python/botocore 1.35.86 1.35.90 1.35.92: Low-level, data-driven core of boto 3
+dev-python/boto3 1.35.86 1.35.90 1.35.92 1.35.93: The AWS SDK for Python
+dev-python/botocore 1.35.86 1.35.90 1.35.92 1.35.93: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8346,7 +8346,7 @@ dev-python/ensurepip-wheel 0.45.1: Shared wheel wheel for use in pip tests
 dev-python/ensurepip-wheels 100: Shared wheels for ensurepip Python module
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
 dev-python/entrypoints 0.4: Discover and load entry points from installed packages
-dev-python/environs 11.1.0 11.2.0 11.2.1: Python library for simplified environment variable parsing
+dev-python/environs 11.2.1 12.0.0: Python library for simplified environment variable parsing
 dev-python/enzyme 0.5.2: Python video metadata parser
 dev-python/ephemeral-port-reserve 1.1.4: Bind to an ephemeral port, force it into the TIME_WAIT state, and unbind it
 dev-python/eradicate 2.3.0: Removes commented-out code from Python files
@@ -8494,7 +8494,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.122.5 6.123.2: A library for property based testing
+dev-python/hypothesis 6.122.5 6.123.2 6.123.7: A library for property based testing
 dev-python/icalendar 6.1.0: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.4.0 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.3 2.6.4 2.6.5: File identification library for Python
@@ -8735,7 +8735,7 @@ dev-python/mkdocs-redirects 1.2.2: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.2.3: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.26.2: Automatic documentation from sources, for MkDocs
 dev-python/mkdocstrings-python 1.12.2 1.13.0: Python handler for dev-python/mkdocstrings
-dev-python/ml-dtypes 0.5.0: A stand-alone implementation of several NumPy dtype extensions
+dev-python/ml-dtypes 0.5.0 0.5.1: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.11.0 0.12.0: Python scrapper to access ModDB mods, games and more as objects
@@ -9005,7 +9005,7 @@ dev-python/pyghmi 1.5.71 1.5.72: A pure python implementation of IPMI protocol
 dev-python/pygit2 1.16.0: Python bindings for libgit2
 dev-python/pygithub 2.5.0: Python library to access the Github API v3
 dev-python/pyglet 2.0.20 2.1_rc3: Cross-platform windowing and multimedia library for Python
-dev-python/pygments 2.18.0 2.19.0: Pygments is a syntax highlighting package written in Python
+dev-python/pygments 2.18.0 2.19.0 2.19.1: Pygments is a syntax highlighting package written in Python
 dev-python/pygments-ansi-color 0.3.0: ANSI color-code highlighting for Pygments
 dev-python/pygments-github-lexers 0.0.5-r2: Pygments Github custom lexers
 dev-python/pygobject 3.46.0-r1 3.48.2-r1 3.50.0: Python bindings for GObject Introspection
@@ -9615,7 +9615,7 @@ dev-python/urwid-readline 0.14 0.15.1: Text input widget for urwid that supports
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
-dev-python/uv 0.5.6 0.5.9 0.5.11 0.5.12 0.5.13 0.5.14: A Python package installer and resolver, written in Rust
+dev-python/uv 0.5.6 0.5.9 0.5.11 0.5.12 0.5.13 0.5.14 0.5.15: A Python package installer and resolver, written in Rust
 dev-python/uvicorn 0.31.1 0.34.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.34.0: Python Data Validation for Humans
@@ -9667,7 +9667,7 @@ dev-python/wurlitzer 3.1.1: Capture C-level stdout/stderr in Python
 dev-python/wxpython 4.2.0 4.2.1-r2: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 1.0.1 2.0.0: Convert calendars using X-WR-TIMEZONE to standard ones
 dev-python/xarray 2024.9.0 2024.10.0 2024.11.0 2025.1.0-r1: N-D labeled arrays and datasets in Python
-dev-python/xcffib 1.5.0 1.6.0: A drop in replacement for xpyb, an XCB python binding
+dev-python/xcffib 1.5.0 1.6.0 1.6.2: A drop in replacement for xpyb, an XCB python binding
 dev-python/xdoctest 1.1.5 1.1.6 1.2.0: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 1.5.1: Python bindings for libxkbcommon using cffi
 dev-python/xlrd 2.0.1-r1: Library to extract data from Microsoft Excel spreadsheets
@@ -9692,7 +9692,7 @@ dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.1: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.3.1: A modern/fast Python SOAP client based on lxml / requests
 dev-python/zenlib 2.4.1 3.0.2 3.1.4 3.1.5 9999: Useful python decorators and utilities
-dev-python/zeroconf 0.136.2: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.136.2 0.137.2: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.21.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zipstream-ng 1.7.1 1.8.0: A modern and easy to use streamable zip file generator
 dev-python/zope-component 6.0: Zope Component Architecture
@@ -13841,7 +13841,7 @@ media-sound/bristol 0.60.11-r4: Synthesizer keyboard emulation package: Moog, Ha
 media-sound/brutefir 1.0o: Software convolution engine for applying long FIR filters
 media-sound/cadence 0.9.2-r1 9999: Collection of tools useful for audio production
 media-sound/cantata 2.5.0-r2 2.5.0-r3: Featureful and configurable Qt client for the music player daemon (MPD)
-media-sound/cava 0.10.3: Console-based Audio Visualizer for Alsa
+media-sound/cava 0.10.3-r1: Console-based Audio Visualizer for Alsa
 media-sound/cd-discid 1.4-r1: returns the disc id for the cd in the cd-rom drive
 media-sound/cdparanoia 3.10.2-r8: An advanced CDDA reader with error correction
 media-sound/cdplay 1.0: A commandline CD Player
@@ -15356,7 +15356,7 @@ net-misc/tipcutils 3.0.6: Utilities for TIPC (Transparent Inter-Process Communic
 net-misc/trurl 0.16 9999: Command line tool for URL parsing and manipulation
 net-misc/tuba 0.8.4 0.9.1: Browse the Fediverse (GTK client)
 net-misc/turbovnc 3.1.3: A fast replacement for TigerVNC
-net-misc/ubridge 0.9.18 0.9.19: Bridge for UDP tunnels, Ethernet, TAP and VMnet interfaces
+net-misc/ubridge 0.9.19-r1: Bridge for UDP tunnels, Ethernet, TAP and VMnet interfaces
 net-misc/ucarp 1.5.2-r7: Portable userland implementation of Common Address Redundancy Protocol (CARP)
 net-misc/udpcast 20211207 20211207-r1: Multicast file transfer tool
 net-misc/udpxy 1.0.23.7-r2: Small daemon to relay multicast UDP traffic to client's TCP (HTTP) connection
@@ -17259,7 +17259,7 @@ sys-block/ms-sys 2.7.0: A command-line program for writing Microsoft compatible 
 sys-block/mtx 1.3.12: Utilities for controlling SCSI media changers and tape drives
 sys-block/nbd 3.25-r1 9999: Userland client/server for kernel network block device
 sys-block/nbdkit 1.32.4 1.36.1: NBD server with stable plugin ABI and permissive license
-sys-block/ndctl 71.1-r2 76.1 77-r1: Helper tools and libraries for managing non-volatile memory on Linux
+sys-block/ndctl 71.1-r2 76.1 77-r2: Helper tools and libraries for managing non-volatile memory on Linux
 sys-block/open-iscsi 2.1.10 2.1.10-r1: A performant, transport independent, multi-platform implementation of RFC3720
 sys-block/open-isns 0.101 0.102: iSNS server and client for Linux
 sys-block/parted 3.6-r2: Create, destroy, resize, check, copy partitions and file systems
