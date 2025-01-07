@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-lang/perl dev-perl/Capture-Tiny dev-perl/DateTime || ( dev-perl/JSON-XS dev-perl/Cpanel-JSON-XS virtual/perl-JSON-PP dev-perl/JSON ) dev-perl/PerlIO-gzip dev-perl/GD dev-perl/JSON || ( ( dev-lang/python:3.12 dev-python/xlsxwriter[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/xlsxwriter[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/xlsxwriter[python_targets_python3_10(-)] ) ) ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-lang/perl dev-perl/Capture-Tiny dev-perl/DateTime || ( dev-perl/JSON-XS dev-perl/Cpanel-JSON-XS virtual/perl-JSON-PP dev-perl/JSON ) dev-perl/TimeDate dev-perl/PerlIO-gzip dev-perl/GD dev-perl/JSON || ( ( dev-lang/python:3.12 dev-python/xlsxwriter[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/xlsxwriter[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/xlsxwriter[python_targets_python3_10(-)] ) ) ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare setup test unpack
 DESCRIPTION=A graphical front-end for GCC's coverage testing tool gcov
 EAPI=8
@@ -7,8 +7,8 @@ INHERIT=optfeature prefix python-any-r1 git-r3
 IUSE=test
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=dev-lang/perl dev-perl/Capture-Tiny dev-perl/DateTime || ( dev-perl/JSON-XS dev-perl/Cpanel-JSON-XS virtual/perl-JSON-PP dev-perl/JSON ) dev-perl/PerlIO-gzip
+RDEPEND=dev-lang/perl dev-perl/Capture-Tiny dev-perl/DateTime || ( dev-perl/JSON-XS dev-perl/Cpanel-JSON-XS virtual/perl-JSON-PP dev-perl/JSON ) dev-perl/TimeDate dev-perl/PerlIO-gzip
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=d69a8bb9b4150adca8d4ffe6d3ed8e1f
+_md5_=12aaf24e66df05ac3c1bfbfe637724a9
