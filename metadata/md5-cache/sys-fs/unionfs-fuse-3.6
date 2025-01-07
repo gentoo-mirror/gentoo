@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] ) ) )
+DEFINED_PHASES=compile install setup test
+DEPEND=sys-fs/fuse:3
+DESCRIPTION=Self-syncing tree-merging file system based on FUSE
+EAPI=8
+HOMEPAGE=https://github.com/rpodgorny/unionfs-fuse
+INHERIT=python-any-r1 toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~x86-linux
+LICENSE=BSD
+RDEPEND=sys-fs/fuse:3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/rpodgorny/unionfs-fuse/archive/v3.6.tar.gz -> unionfs-fuse-3.6.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=a89c95cd6bdec3a8ef0e29d22b3b192b
