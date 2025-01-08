@@ -26,89 +26,59 @@ SRC_URI="
 		https://github.com/Stellarium/stellarium-data/releases/download/stars-2.0/stars_6_2v0_1.cat
 		https://github.com/Stellarium/stellarium-data/releases/download/stars-2.0/stars_7_2v0_1.cat
 		https://github.com/Stellarium/stellarium-data/releases/download/stars-2.0/stars_8_2v0_1.cat
-	)
-	telescope? (
-		https://github.com/indilib/indi/archive/v1.8.5.tar.gz -> indilib-1.8.5.tar.gz
 	)"
 
 LICENSE="GPL-2+ SGI-B-2.0"
 SLOT="0"
-KEYWORDS="amd64 ppc64 ~riscv ~x86"
-IUSE="debug deep-sky doc gps +lens-distortion libcxx media nls qt6 +scripting +show-my-sky stars telescope test webengine +xlsx"
+KEYWORDS="~amd64 ~ppc64 ~riscv ~x86"
+IUSE="debug deep-sky doc gps +lens-distortion libcxx media nls +scripting +show-my-sky stars telescope test webengine +xlsx"
 
 # Python interpreter is used while building RemoteControl plugin
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-lang/perl
 	doc? ( app-text/doxygen[dot] )
-	nls? (
-		!qt6? ( dev-qt/linguist-tools:5 )
-		qt6? ( dev-qt/qttools:6[linguist] )
-	)
+	nls? ( dev-qt/qttools:6[linguist] )
 	verify-sig? ( sec-keys/openpgp-keys-stellarium )
 "
 # TODO: review need for dev-cpp/tbb after several releases of gcc and clang
 RDEPEND="
 	dev-cpp/tbb:=
+	dev-qt/qtbase:6=[concurrent,gui,network,widgets]
+	dev-qt/qtcharts:6
 	media-fonts/dejavu
+	>=sci-astronomy/calcmysky-0.3.0:=[qt6(+)]
 	sys-libs/zlib
-	gps? ( sci-geosciences/gpsd:=[cxx] )
+	gps? (
+		dev-qt/qtpositioning:6
+		dev-qt/qtserialport:6
+		sci-geosciences/gpsd:=[cxx]
+	)
 	lens-distortion? (
 		media-gfx/exiv2:=
 		sci-libs/nlopt
 	)
-	media? ( virtual/opengl )
-	!qt6? (
-		dev-qt/qtcharts:5
-		dev-qt/qtconcurrent:5
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5=
-		dev-qt/qtnetwork:5
-		dev-qt/qtwidgets:5
-		>=sci-astronomy/calcmysky-0.3.0:=[qt5]
-		gps? (
-			dev-qt/qtpositioning:5
-			dev-qt/qtserialport:5
-		)
-		media? (
-			dev-qt/qtmultimedia:5[widgets]
-			dev-qt/qtopengl:5
-		)
-		scripting? ( dev-qt/qtscript:5 )
-		telescope? ( dev-qt/qtserialport:5 )
-		webengine? ( dev-qt/qtwebengine:5[widgets] )
-		xlsx? ( dev-libs/qxlsx:=[qt5(-)] )
+	media? (
+		dev-qt/qtmultimedia:6[gstreamer]
+		virtual/opengl
 	)
-	qt6? (
-		dev-qt/qtbase:6=[concurrent,gui,network,widgets]
-		dev-qt/qtcharts:6
-		>=sci-astronomy/calcmysky-0.3.0:=[qt6]
-		gps? (
-			dev-qt/qtpositioning:6
-			dev-qt/qtserialport:6
-		)
-		media? (
-			dev-qt/qtmultimedia:6[gstreamer]
-		)
-		scripting? ( dev-qt/qtdeclarative:6 )
-		telescope? ( dev-qt/qtserialport:6 )
-		webengine? ( dev-qt/qtwebengine:6[widgets] )
-		xlsx? ( dev-libs/qxlsx:=[qt6(+)] )
+	scripting? ( dev-qt/qtdeclarative:6 )
+	telescope? (
+		dev-qt/qtserialport:6
+		sci-libs/indilib:=
 	)
+	webengine? ( dev-qt/qtwebengine:6[widgets] )
+	xlsx? ( dev-libs/qxlsx:=[qt6(+)] )
 "
 DEPEND="${RDEPEND}
 	libcxx? ( dev-cpp/fast_float )
-	!qt6? (
-		test? ( dev-qt/qttest:5 )
-	)
 "
 
 RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/stellarium-0.23.4-unbundle-zlib.patch"
-	"${FILESDIR}/stellarium-0.24.3-fast_float.patch"
-	"${FILESDIR}/stellarium-0.24.3-tbb-emit.patch"
+	"${FILESDIR}/stellarium-0.24.4-indilib.patch"
 )
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/stellarium.asc
@@ -159,7 +129,7 @@ src_configure() {
 		-DENABLE_GPS="$(usex gps)"
 		-DENABLE_MEDIA="$(usex media)"
 		-DENABLE_NLS="$(usex nls)"
-		-DENABLE_QT6="$(usex qt6)"
+		-DENABLE_QT6=yes
 		-DENABLE_QTWEBENGINE="$(usex webengine)"
 		-DENABLE_SHOWMYSKY=$(usex show-my-sky)
 		-DENABLE_SCRIPTING=$(usex scripting)
@@ -169,13 +139,6 @@ src_configure() {
 		-DUSE_PLUGIN_TELESCOPECONTROL="$(usex telescope)"
 		"$(cmake_use_find_package doc Doxygen)"
 	)
-	if use telescope; then
-		# https://bugs.gentoo.org/913177
-		mycmakeargs+=(
-			-DPREFER_SYSTEM_INDILIB=no
-			-DCPM_indiclient_SOURCE="${WORKDIR}/indi-1.8.5"
-		)
-	fi
 	cmake_src_configure
 }
 
