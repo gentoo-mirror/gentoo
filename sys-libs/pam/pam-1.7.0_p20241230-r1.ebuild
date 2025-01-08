@@ -42,6 +42,7 @@ REQUIRED_USE="?? ( elogind systemd )"
 # meson.build specifically checks for bison and then byacc
 BDEPEND+="
 	|| ( sys-devel/bison dev-util/byacc )
+	app-text/docbook-xsl-ns-stylesheets
 	sys-devel/flex
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
@@ -98,6 +99,7 @@ multilib_src_configure() {
 
 		-Disadir='.'
 		-Dxml-catalog="${BROOT}"/etc/xml/catalog
+		-Dsbindir="${EPREFIX}"/sbin
 		-Dsecuredir="${EPREFIX}"/$(get_libdir)/security
 		-Ddocdir="${EPREFIX}"/usr/share/doc/${PF}
 		-Dhtmldir="${EPREFIX}"/usr/share/doc/${PF}/html
