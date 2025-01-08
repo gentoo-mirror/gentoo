@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,8 +22,8 @@ RDEPEND="
 	app-text/zotero-bin
 	dev-python/bibtexparser[${PYTHON_USEDEP}]
 	>=dev-python/feedparser-6.0.11[${PYTHON_USEDEP}]
+	>=dev-python/httpx-0.28.1[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.21.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -31,6 +31,7 @@ BDEPEND="
 	test? (
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/httpretty[${PYTHON_USEDEP}]
+		dev-python/ipython[${PYTHON_USEDEP}]
 	)
 "
 
