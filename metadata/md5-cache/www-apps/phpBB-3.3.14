@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
+DESCRIPTION=An open-source PHP-based bulletin board package
+EAPI=8
+HOMEPAGE=https://www.phpbb.com/
+INHERIT=webapp
+IUSE=ftp gd mssql mysqli postgres sqlite zlib vhosts
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=|| ( ( virtual/httpd-php:8.3 dev-lang/php:8.3[ftp?,gd?,json(+),mssql?,mysqli?,postgres?,sqlite?,xml,zlib?] ) ( virtual/httpd-php:8.2 dev-lang/php:8.2[ftp?,gd?,json(+),mssql?,mysqli?,postgres?,sqlite?,xml,zlib?] ) ) app-admin/webapp-config
+REQUIRED_USE=|| ( mssql mysqli postgres sqlite )
+SLOT=3.3.14
+SRC_URI=https://download.phpbb.com/pub/release/3.3/3.3.14/phpBB-3.3.14.tar.bz2
+_eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5
+_md5_=1116da18fa68bb3dace6d3af03994d49
