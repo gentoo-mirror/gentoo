@@ -12,7 +12,7 @@ else
 	MY_P="qTox-${PV}"
 	SRC_URI="https://github.com/TokTok/qTox/archive/v${PV}/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/qTox"
+	S="${WORKDIR}/qTox-${PV}"
 fi
 
 DESCRIPTION="Instant messaging client using the encrypted p2p Tox protocol"

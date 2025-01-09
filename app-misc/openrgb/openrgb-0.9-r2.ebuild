@@ -9,7 +9,8 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI=${EGIT_REPO_URI:-"https://gitlab.com/CalcProgrammer1/OpenRGB"}
 else
-	SRC_URI="https://gitlab.com/CalcProgrammer1/OpenRGB/-/archive/release_${PV}/OpenRGB-release_${PV}.tar.bz2"
+	SRC_URI="https://gitlab.com/CalcProgrammer1/OpenRGB/-/archive/release_${PV}/OpenRGB-release_${PV}.tar.bz2
+		https://files.asokolov.org/gentoo/OpenRGB-0.9-odr.patch"
 	S="${WORKDIR}/OpenRGB-release_${PV}"
 	KEYWORDS="~amd64 ~loong ~x86"
 	PATCHES=( "${FILESDIR}"/OpenRGB-0.9-build-system.patch )
@@ -44,6 +45,7 @@ BDEPEND="
 PATCHES+=(
 	"${FILESDIR}"/OpenRGB-0.7-r1-udev.patch
 	"${FILESDIR}"/OpenRGB-0.9-udev-check.patch
+	"${DISTDIR}"/OpenRGB-0.9-odr.patch
 )
 
 CHECKREQS_DISK_BUILD="2G"
@@ -53,8 +55,8 @@ src_prepare() {
 	rm -r dependencies/{httplib,hidapi,libusb,mdns,json,mbedtls}* \
 		|| die "Failed to remove unneded deps"
 
-	rm dependencies/hueplusplus-1.1.0/include/json/json.hpp || die
-	echo "#include <nlohmann/json.hpp>" > dependencies/hueplusplus-1.1.0/include/json/json.hpp || die
+	rm dependencies/hueplusplus-1.0.0/include/json/json.hpp || die
+	echo "#include <nlohmann/json.hpp>" > dependencies/hueplusplus-1.0.0/include/json/json.hpp || die
 }
 
 src_configure() {
@@ -84,7 +86,7 @@ src_configure() {
 src_install() {
 	emake INSTALL_ROOT="${ED}" install
 
-	dodoc README.md
+	dodoc README.md OpenRGB.patch
 
 	rm -r "${ED}"/usr/lib/udev/ || die
 	udev_dorules 60-openrgb.rules
