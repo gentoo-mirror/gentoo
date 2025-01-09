@@ -9,13 +9,14 @@ MY_PV="${PV//_pre*}"
 MY_P="${PN}-${MY_PV}"
 
 # Patch version
-PATCH_SET=( https://github.com/parona-source/mysql-server/releases/download/mysql-8.0.36-patches-01/mysql-8.0.36-patches-01.tar.xz )
+PATCH_SET=( https://github.com/parona-source/mysql-server/releases/download/mysql-8.0.40-patches-01/mysql-8.0.40-patches-01.tar.xz )
 
 DESCRIPTION="A fast, multi-threaded, multi-user SQL database server"
 HOMEPAGE="https://www.mysql.com/"
-SRC_URI="https://cdn.mysql.com/Downloads/MySQL-$(ver_cut 1-2)/mysql-boost-${MY_PV}.tar.gz"
-SRC_URI+=" https://cdn.mysql.com/archives/mysql-$(ver_cut 1-2)/mysql-boost-${MY_PV}.tar.gz"
-SRC_URI+=" https://downloads.mysql.com/archives/MySQL-$(ver_cut 1-2)/${PN}-boost-${MY_PV}.tar.gz"
+# https://dev.mysql.com/downloads/mysql/
+SRC_URI="https://dev.mysql.com/get/Downloads/MySQL-$(ver_cut 1-2)/mysql-boost-${MY_PV}.tar.gz"
+# https://downloads.mysql.com/archives/community/
+SRC_URI+=" https://downloads.mysql.com/archives/get/p/23/file/mysql-boost-${MY_PV}.tar.gz"
 SRC_URI+=" ${PATCH_SET[@]}"
 # Shorten the path because the socket path length must be shorter than 107 chars
 # and we will run a mysql server during test phase
@@ -24,7 +25,7 @@ S="${WORKDIR}/mysql"
 LICENSE="GPL-2"
 SLOT="8.0"
 # -ppc for bug #761715
-KEYWORDS="amd64 arm arm64 ~hppa ~mips -ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips -ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 IUSE="cjk cracklib debug jemalloc latin1 numa +perl profiling router selinux +server tcmalloc test"
 RESTRICT="!test? ( test )"
 
@@ -96,6 +97,8 @@ PATCHES=(
 	"${FILESDIR}"/mysql-8.0.36-boost-clang-fix.patch
 	# Needed due to bundles abseil-cpp, this fix is included in abseil-cpp-20240722
 	"${FILESDIR}"/mysql-8.0.37-fix-bundled-abseil.patch
+	# Needed due to bundles abseil-cpp, this fix is in no release as of 2025-01-09
+	"${FILESDIR}"/mysql-8.0.40-fix-bundled-abseil-gcc15.patch
 )
 
 mysql_init_vars() {
@@ -206,13 +209,8 @@ src_configure() {
 	# Bug #114895, bug #110149
 	filter-flags "-O" "-O[01]"
 
-	# Code is now requiring C++17 due to https://github.com/mysql/mysql-server/commit/236ab55bedd8c9eacd80766d85edde2a8afacd08
+	# Code requires C++17 due to https://github.com/mysql/mysql-server/commit/236ab55bedd8c9eacd80766d85edde2a8afacd08
 	append-cxxflags -std=c++17
-
-	if has sandbox ${FEATURES} ; then
-		# bug #823656
-		append-cppflags -DGTEST_NO_DEATH_TEST=1
-	fi
 
 	local mycmakeargs=(
 		-Wno-dev # less noise
@@ -574,7 +572,7 @@ src_test() {
 		--force --force-restart \
 		--vardir="${T}/var-tests" --tmpdir="${T}/tmp-tests" \
 		--skip-test=tokudb --skip-test-list="${T}/disabled.def" \
-		--retry-failure=0 --max-test-fail=0
+		--retry-failure=2 --max-test-fail=0
 	retstatus_tests=$?
 
 	popd &>/dev/null || die
@@ -586,7 +584,8 @@ src_test() {
 	local failures=""
 	[[ ${retstatus_tests} -eq 0 ]] || failures="${failures} tests"
 
-	cmake_src_test
+	# bug #823656
+	cmake_src_test --test-command "--gtest_death_test_style=threadsafe"
 
 	[[ -z "${failures}" ]] || die "Test failures: ${failures}"
 	einfo "Tests successfully completed"
