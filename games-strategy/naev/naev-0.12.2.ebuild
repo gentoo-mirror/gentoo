@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 LUA_COMPAT=( luajit )
 PYTHON_COMPAT=( python3_{10..13} )
-inherit lua-single meson python-any-r1 virtualx xdg
+inherit lua-single meson python-any-r1 xdg
 
 DESCRIPTION="2D space trading and combat game, in a similar vein to Escape Velocity"
 HOMEPAGE="https://naev.org/"
@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-# tests are very basic, equivalent of just starting the game and checking if
+# tests are very basic, equivalent to just starting the game and checking if
 # can see the main menu -- but this breaks easily with software rendering and
 # some Xorg/mesa versions, simpler to do manually than try to keep this working
 RESTRICT="test"
@@ -50,13 +50,7 @@ RDEPEND="
 	sci-mathematics/glpk:=
 	virtual/libintl
 "
-DEPEND="
-	${RDEPEND}
-	test? (
-		dev-games/physfs[zip]
-		media-libs/libsdl2[X]
-	)
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]')
 	sys-devel/gettext
@@ -65,15 +59,7 @@ BDEPEND="
 		dev-lua/ldoc
 		media-gfx/graphviz
 	)
-	test? (
-		media-libs/mesa[llvm]
-		x11-base/xorg-server[-minimal]
-	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-nfd.patch
-)
 
 python_check_deps() {
 	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
@@ -100,10 +86,6 @@ src_configure() {
 	)
 
 	meson_src_configure
-}
-
-src_test() {
-	virtx meson_src_test
 }
 
 src_install() {
