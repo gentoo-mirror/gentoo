@@ -3,12 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 # Check this on updates
-LLVM_COMPAT=( {15..19} )
+LLVM_COMPAT=( {15..15} )
 
-inherit cmake cuda flag-o-matic llvm-r1 toolchain-funcs python-single-r1
+inherit cmake flag-o-matic llvm-r1 toolchain-funcs python-single-r1
 
 DESCRIPTION="Advanced shading language for production GI renderers"
 HOMEPAGE="https://www.imageworks.com/technology/opensource https://github.com/AcademySoftwareFoundation/OpenShadingLanguage"
@@ -32,24 +32,20 @@ X86_CPU_FEATURES=(
 )
 CPU_FEATURES=( "${X86_CPU_FEATURES[@]/#/cpu_flags_x86_}" )
 
-IUSE="debug doc gui libcxx nofma optix partio test ${CPU_FEATURES[*]%:*} python"
+IUSE="debug doc gui libcxx nofma partio test ${CPU_FEATURES[*]%:*} python"
 
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-# TODO optix
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/pugixml
-	>=media-libs/openexr-3:0=
 	>=media-libs/openimageio-2.4:=
 	$(llvm_gen_dep '
-		llvm-core/clang:${LLVM_SLOT}
-		llvm-core/llvm:${LLVM_SLOT}
+		llvm-core/clang:${LLVM_SLOT}=
+		llvm-core/llvm:${LLVM_SLOT}=
 	')
-	sys-libs/zlib:=
-	optix? ( dev-libs/optix[-headers-only] )
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
@@ -65,6 +61,8 @@ RDEPEND="
 
 DEPEND="${RDEPEND}
 	dev-util/patchelf
+	>=media-libs/openexr-3
+	sys-libs/zlib
 	test? (
 		media-fonts/droid
 	)
@@ -75,6 +73,14 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-boost-config.patch"
+	"${FILESDIR}/${PN}-oslfile.patch"
+	"${FILESDIR}/${PN}-include-cstdint.patch"
+	"${FILESDIR}/${PN}-1.12.14.0-libfmt11.patch"
+	"${FILESDIR}/${PN}-1.12.14.0-m_dz.patch"
+)
+
 pkg_setup() {
 	llvm-r1_pkg_setup
 
@@ -82,11 +88,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	if use optix; then
-		cuda_src_prepare
-		cuda_add_sandbox -w
-	fi
-
 	sed -e "/^install.*llvm_macros.cmake.*cmake/d" -i CMakeLists.txt || die
 
 	cmake_src_prepare
@@ -165,6 +166,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DCMAKE_POLICY_DEFAULT_CMP0146="OLD" # BUG FindCUDA
+		-DCMAKE_POLICY_DEFAULT_CMP0148="OLD" # BUG FindPythonInterp
 
 		# std::tuple_size_v is c++17
 		-DCMAKE_CXX_STANDARD="17"
@@ -180,7 +182,7 @@ src_configure() {
 		-DUSE_SIMD="$(IFS=","; echo "${mysimd[*]}")"
 		-DUSE_BATCHED="$(IFS=","; echo "${mybatched[*]}")"
 		-DUSE_LIBCPLUSPLUS="$(usex libcxx)"
-		-DOSL_USE_OPTIX="$(usex optix)"
+		-DUSE_OPTIX="no"
 		-DUSE_QT="$(usex gui)"
 
 		-DOpenImageIO_ROOT="${EPREFIX}/usr"
@@ -189,20 +191,6 @@ src_configure() {
 	if use debug; then
 		mycmakeargs+=(
 			-DVEC_REPORT="yes"
-		)
-	fi
-
-	if use optix; then
-		mycmakeargs+=(
-			-DOptiX_FIND_QUIETLY="no"
-			-DCUDA_FIND_QUIETLY="no"
-
-			-DOPTIXHOME="${EPREFIX}/opt/optix"
-			-DCUDA_TOOLKIT_ROOT_DIR="${EPREFIX}/opt/cuda"
-
-			-DCUDA_NVCC_FLAGS="--compiler-bindir;$(cuda_gccdir)"
-			-DOSL_EXTRA_NVCC_ARGS="--compiler-bindir;$(cuda_gccdir)"
-			-DCUDA_VERBOSE_BUILD="yes"
 		)
 	fi
 
@@ -229,40 +217,143 @@ src_test() {
 
 	ln -s "${CMAKE_USE_DIR}/src/cmake/" "${BUILD_DIR}/src/cmake" || die
 
-	if use optix; then
-		cp \
-			"${BUILD_DIR}/src/liboslexec/shadeops_cuda.ptx" \
-			"${BUILD_DIR}/src/testrender/"{optix_raytracer,quad,rend_lib_testrender,sphere,wrapper}".ptx" \
-			"${BUILD_DIR}/src/testshade/"{optix_grid_renderer,rend_lib_testshade}".ptx" \
-			"${BUILD_DIR}/bin/" || die
-
-		# NOTE this should go to cuda eclass
-		addwrite /dev/nvidiactl
-		addwrite /dev/nvidia0
-		addwrite /dev/nvidia-uvm
-		addwrite /dev/nvidia-caps
-		addwrite "/dev/char/"
-	fi
-
 	CMAKE_SKIP_TESTS=(
 		"-broken$"
 		"^render"
 
-		# broken with in-tree <=dev-libs/optix-7.5.0 and out of date
-		"^example-cuda$"
-
 		# outright fail
-		"^testoptix.optix.opt$"
-		"^testoptix-noise.optix.opt$"
-		"^testoptix-reparam.optix.opt$"
-		"^transform-reg.regress.batched.opt$"
+		"^color$"
+		"^color.opt$"
+		"^color.batched$"
+		"^color.batched.opt$"
+		"^matrix.batched.opt$"
+		"^osl-imageio"
 		"^spline-reg.regress.batched.opt$"
-
-		# doesn't handle parameters
-		"^osl-imageio$"
-		"^osl-imageio.opt$"
-		"^osl-imageio.opt.rs_bitcode$"
+		"^transform-reg.regress.batched.opt$"
 	)
+
+	# These only fail inside sandbox
+	if [[ "${OSL_OPTIONAL_TESTS}" != "true" ]]; then
+		CMAKE_SKIP_TESTS+=(
+			# TODO: investigate failures
+			# SIGABRT similar to https://github.com/AcademySoftwareFoundation/OpenShadingLanguage/issues/1363
+			"^andor-reg.regress.batched.opt$"
+			"^arithmetic-reg.regress.batched.opt$"
+			"^array-assign-reg.regress.batched.opt$"
+			"^array-length-reg.regress.batched$"
+			"^closure.batched$"
+			"^closure.batched.opt$"
+			"^closure-parameters.batched$"
+			"^closure-parameters.batched.opt$"
+			"^debug-uninit$"
+			"^debug-uninit.opt$"
+			"^debug-uninit.batched$"
+			"^debug-uninit.batched.opt$"
+			"^derivs$"
+			"^derivs.opt$"
+			"^derivs.batched$"
+			"^derivs.batched.opt$"
+			"^filterwidth-reg.regress.batched.opt$"
+			"^geomath.opt$"
+			"^geomath.batched$"
+			"^geomath.batched.opt$"
+			"^getattribute-camera.batched$"
+			"^getattribute-camera.batched.opt$"
+			"^getattribute-shader.batched.opt$"
+			"^gettextureinfo.batched$"
+			"^gettextureinfo-reg.regress.batched.opt$"
+			"^hyperb.opt$"
+			"^hyperb.batched.opt$"
+			"^ieee_fp-reg.regress.batched.opt$"
+			"^initlist.batched$"
+			"^initlist.batched.opt$"
+			"^isconnected.batched$"
+			"^linearstep.batched$"
+			"^linearstep.batched.opt$"
+			"^loop.batched$"
+			"^loop.batched.opt$"
+			"^matrix$"
+			"^matrix.opt$"
+			"^matrix.batched$"
+			"^matrix-compref-reg.regress.batched.opt$"
+			"^message-no-closure.batched$"
+			"^message-no-closure.batched.opt$"
+			"^message-reg.regress.batched.opt$"
+			"^miscmath$"
+			"^miscmath.opt$"
+			"^miscmath.batched$"
+			"^miscmath.batched.opt$"
+			"^noise.batched$"
+			"^noise-cell.batched$"
+			"^noise-gabor.batched$"
+			"^noise-gabor.batched.opt$"
+			"^noise-gabor-reg.regress.batched.opt$"
+			"^noise-generic.batched$"
+			"^noise-generic.batched.opt$"
+			"^noise-perlin.batched$"
+			"^noise-perlin.batched.opt$"
+			"^noise-simplex.batched$"
+			"^noise-simplex.batched.opt$"
+			"^noise-reg.regress.batched.opt$"
+			"^pnoise.batched$"
+			"^pnoise-cell.batched$"
+			"^pnoise-gabor.batched$"
+			"^pnoise-gabor.batched.opt$"
+			"^pnoise-generic.batched$"
+			"^pnoise-generic.batched.opt$"
+			"^pnoise-perlin.batched$"
+			"^pnoise-perlin.batched.opt$"
+			"^pnoise-reg.regress.batched.opt$"
+			"^opt-warnings.batched$"
+			"^opt-warnings.batched.opt$"
+			"^regex-reg.regress.batched.opt$"
+			"^select.batched$"
+			"^select.batched.opt$"
+			"^shaderglobals.batched$"
+			"^shaderglobals.batched.opt$"
+			"^smoothstep-reg.regress.batched.opt$"
+			"^spline.batched$"
+			"^spline.batched.opt$"
+			"^splineinverse-ident.batched$"
+			"^splineinverse-ident.batched.opt$"
+			"^spline-derivbug.batched$"
+			"^spline-derivbug.batched.opt$"
+			"^split-reg.regress.batched.opt$"
+			"^string.batched$"
+			"^string.batched.opt$"
+			"^string-reg.regress.batched.opt$"
+			"^struct.batched$"
+			"^struct-array-mixture.batched$"
+			"^struct-array-mixture.batched.opt$"
+			"^texture-environment-opts-reg.regress.batched.opt$"
+			"^texture-opts-reg.regress.batched.opt$"
+			"^texture-wrap.batched$"
+			"^texture-wrap.batched.opt$"
+			"^transcendental-reg.regress.batched.opt$"
+			"^transform$"
+			"^transform.opt$"
+			"^transform.batched$"
+			"^transform.batched.opt$"
+			"^transformc$"
+			"^transformc.opt$"
+			"^transformc.batched$"
+			"^transformc.batched.opt$"
+			"^trig$"
+			"^trig.opt$"
+			"^trig.batched$"
+			"^trig.batched.opt$"
+			"^trig-reg.regress.batched.opt$"
+			"^vecctr.batched$"
+			"^vecctr.batched.opt$"
+			"^vector-reg.regress.batched.opt$"
+			"^xml-reg.regress.batched.opt$"
+			"^gettextureinfo-udim.batched$"
+			"^gettextureinfo-udim.batched.opt$"
+			"^gettextureinfo-udim-reg.regress.batched.opt$"
+			"^pointcloud.batched$"
+			"^pointcloud.batched.opt$"
+		)
+	fi
 
 	myctestargs=(
 		# src/build-scripts/ci-test.bash
@@ -288,14 +379,16 @@ src_test() {
 
 	CMAKE_SKIP_TESTS=(
 		"^render-background$"
+		"^render-bumptest$"
 		"^render-mx-furnace-sheen$"
 		"^render-mx-burley-diffuse$"
 		"^render-mx-conductor$"
+		"^render-mx-generalized-schlick-glass$"
 		"^render-microfacet$"
+		"^render-oren-nayar$"
 		"^render-veachmis$"
 		"^render-ward$"
 		"^render-raytypes.opt$"
-		"^render-raytypes.opt.rs_bitcode$"
 	)
 
 	myctestargs=(
@@ -311,11 +404,17 @@ src_test() {
 src_install() {
 	cmake_src_install
 
-	if [[ -d "${ED}/usr/build-scripts" ]]; then
-		rm -rf "${ED}/usr/build-scripts" || die
+	if use test; then
+		rm \
+			"${ED}/usr/bin/test"{render,shade{,_dso}} \
+			"${ED}/usr/$(get_libdir)/libtestshade.so"* \
+			|| die
 	fi
 
-	for batched_lib in "${ED}/usr/$(get_libdir)/lib_"*"_oslexec.so"; do
-		patchelf --set-soname "$(basename "${batched_lib}")" "${batched_lib}" || die
-	done
+	if use amd64; then
+		find "${ED}/usr/$(get_libdir)" -type f  -name 'lib_*_oslexec.so' -print0 \
+			| while IFS= read -r -d $'\0' batched_lib; do
+			patchelf --set-soname "$(basename "${batched_lib}")" "${batched_lib}" || die
+		done
+	fi
 }

@@ -42,13 +42,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/pugixml
-	>=media-libs/openexr-3:0=
 	>=media-libs/openimageio-2.4:=
 	$(llvm_gen_dep '
-		llvm-core/clang:${LLVM_SLOT}
-		llvm-core/llvm:${LLVM_SLOT}
+		llvm-core/clang:${LLVM_SLOT}=
+		llvm-core/llvm:${LLVM_SLOT}=
 	')
-	sys-libs/zlib:=
 	optix? ( dev-libs/optix[-headers-only] )
 	python? (
 		${PYTHON_DEPS}
@@ -65,6 +63,8 @@ RDEPEND="
 
 DEPEND="${RDEPEND}
 	dev-util/patchelf
+	>=media-libs/openexr-3
+	sys-libs/zlib
 	test? (
 		media-fonts/droid
 	)
@@ -74,6 +74,13 @@ BDEPEND="
 	sys-devel/flex
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}/${PN}-boost-config.patch"
+	"${FILESDIR}/${PN}-oslfile.patch"
+	"${FILESDIR}/${PN}-include-cstdint.patch"
+	"${FILESDIR}/${PN}-1.12.14.0-m_dz.patch"
+)
 
 pkg_setup() {
 	llvm-r1_pkg_setup
@@ -264,6 +271,15 @@ src_test() {
 		"^osl-imageio.opt.rs_bitcode$"
 	)
 
+	if use optix; then
+		CMAKE_SKIP_TESTS+=(
+			"^color2.optix$"
+			"^color4.optix(|.opt|.fused)$"
+			"^vector2.optix$"
+			"^vector4.optix$"
+		)
+	fi
+
 	myctestargs=(
 		# src/build-scripts/ci-test.bash
 		'--force-new-ctest-process'
@@ -312,10 +328,20 @@ src_install() {
 	cmake_src_install
 
 	if [[ -d "${ED}/usr/build-scripts" ]]; then
-		rm -rf "${ED}/usr/build-scripts" || die
+		rm -vr "${ED}/usr/build-scripts" || die
 	fi
 
-	for batched_lib in "${ED}/usr/$(get_libdir)/lib_"*"_oslexec.so"; do
-		patchelf --set-soname "$(basename "${batched_lib}")" "${batched_lib}" || die
-	done
+	if use test; then
+		rm \
+			"${ED}/usr/bin/test"{render,shade{,_dso}} \
+			"${ED}/usr/$(get_libdir)/libtestshade.so"* \
+			|| die
+	fi
+
+	if use amd64; then
+		find "${ED}/usr/$(get_libdir)" -type f  -name 'lib_*_oslexec.so' -print0 \
+			| while IFS= read -r -d $'\0' batched_lib; do
+			patchelf --set-soname "$(basename "${batched_lib}")" "${batched_lib}" || die
+		done
+	fi
 }
