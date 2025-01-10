@@ -94,7 +94,9 @@ PATCHES=(
 	"${WORKDIR}"/mysql-patches
 	# Needed due to bundled boost-1.77, this fix is included in boost-1.81
 	"${FILESDIR}"/mysql-8.0.36-boost-clang-fix.patch
-	# Needed due to bundles abseil-cpp, this fix is included in abseil-cpp-20240722
+	# Needed due to bundled boost-1.77, this fix is included in boost-1.79
+	"${FILESDIR}"/mysql-8.0.37-fix-bundled-boost.patch
+	# Needed due to bundled abseil-cpp-20230802, this fix is included in abseil-cpp-20240722
 	"${FILESDIR}"/mysql-8.0.37-fix-bundled-abseil.patch
 )
 
@@ -730,7 +732,7 @@ pkg_config() {
 		local n_X
 		let n_X=${#template}-${#template_wo_X}
 		if [[ ${n_X} -lt 3 ]] ; then
-			echo "${FUNCNAME[0]}: too few X's in template ‘${template}’" >&2
+			echo "${FUNCNAME[0]}: too few X's in template '${template}'" >&2
 			return
 		fi
 

@@ -16,7 +16,7 @@ HOMEPAGE="https://www.mysql.com/"
 # https://dev.mysql.com/downloads/mysql/
 SRC_URI="https://dev.mysql.com/get/Downloads/MySQL-$(ver_cut 1-2)/mysql-boost-${MY_PV}.tar.gz"
 # https://downloads.mysql.com/archives/community/
-SRC_URI+=" https://downloads.mysql.com/archives/get/p/23/file/mysql-boost-${MY_PV}.tar.gz"
+SRC_URI+=" https://cdn.mysql.com/archives/mysql-$(ver_cut 1-2)/mysql-boost-${MY_PV}.tar.gz"
 SRC_URI+=" ${PATCH_SET[@]}"
 # Shorten the path because the socket path length must be shorter than 107 chars
 # and we will run a mysql server during test phase
@@ -95,9 +95,11 @@ PATCHES=(
 	"${WORKDIR}"/mysql-patches
 	# Needed due to bundled boost-1.77, this fix is included in boost-1.81
 	"${FILESDIR}"/mysql-8.0.36-boost-clang-fix.patch
-	# Needed due to bundles abseil-cpp, this fix is included in abseil-cpp-20240722
+	# Needed due to bundled boost-1.77, this fix is included in boost-1.79
+	"${FILESDIR}"/mysql-8.0.37-fix-bundled-boost.patch
+	# Needed due to bundled abseil-cpp-20230802, this fix is included in abseil-cpp-20240722
 	"${FILESDIR}"/mysql-8.0.37-fix-bundled-abseil.patch
-	# Needed due to bundles abseil-cpp, this fix is in no release as of 2025-01-09
+	# Needed due to bundled abseil-cpp-20230802, this fix is in no release as of 2025-01-09
 	"${FILESDIR}"/mysql-8.0.40-fix-bundled-abseil-gcc15.patch
 )
 
@@ -729,7 +731,7 @@ pkg_config() {
 		local n_X
 		let n_X=${#template}-${#template_wo_X}
 		if [[ ${n_X} -lt 3 ]] ; then
-			echo "${FUNCNAME[0]}: too few X's in template ‘${template}’" >&2
+			echo "${FUNCNAME[0]}: too few X's in template '${template}'" >&2
 			return
 		fi
 
