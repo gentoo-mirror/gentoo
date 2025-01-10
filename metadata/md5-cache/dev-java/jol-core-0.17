@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/asm:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Java Object Layout: Core
+EAPI=8
+HOMEPAGE=https://openjdk.org/projects/code-tools/jol/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=GPL-2-with-classpath-exception
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/openjdk/jol/archive/0.17.tar.gz -> jol-0.17.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	c346bc0ba9945618340315a1089a82ef
+_md5_=000550ebd6a153d0432b442c80df222a

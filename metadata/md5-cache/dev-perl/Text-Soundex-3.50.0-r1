@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Text-Soundex
 INHERIT=perl-module
 IUSE=minimal perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=amd64 ~arm arm64 ~loong ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=amd64 ~arm arm64 ~loong ~mips ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=!minimal? ( dev-perl/Text-Unidecode ) virtual/perl-if >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/Text-Soundex-3.05.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=5a68daa0d97e0cd8a7dfac8da7c0a7ab
+_md5_=d4f01f96ec929956149ec3d9d5206606

@@ -1337,8 +1337,8 @@ app-containers/catatonit 0.2.0 9999: A container init that is so simple it's eff
 app-containers/cni-plugins 1.3.0 1.5.1 1.6.1: Standard networking plugins for container networking
 app-containers/conmon 2.1.8 2.1.10 2.1.11 9999: An OCI container runtime monitor
 app-containers/containerd 1.7.15 1.7.19 1.7.21 1.7.22 1.7.23 1.7.24 2.0.0 2.0.0-r1 2.0.1: A daemon to control runC
-app-containers/containers-common 0.57.0-r1 0.58.0-r1 0.59.1 0.60.4 9999: Common config files and docs for Containers stack
-app-containers/containers-image 5.29.2-r1 5.30.0 5.32.2 9999: Default config and docs related to Containers' images
+app-containers/containers-common 0.59.1 0.60.4 9999: Common config files and docs for Containers stack
+app-containers/containers-image 5.30.0 5.32.2 9999: Default config and docs related to Containers' images
 app-containers/containers-shortnames 2023.02.20 9999: Configures default shortnames (aliases) for Containers
 app-containers/containers-storage 1.55.1 9999: Default config and docs related to Containers' storage
 app-containers/cosign 2.2.4 2.4.0: container signing utility
@@ -1378,7 +1378,7 @@ app-containers/reg 0.16.1-r1: Docker registry v2 command line client
 app-containers/runc 1.1.12 1.1.13 1.1.14 1.2.0 1.2.1 1.2.2 1.2.3: runc container cli tools
 app-containers/s6-overlay 2.1.0.2-r1: an s6-based init system for containers
 app-containers/sen 0.6.1_p20200905-r1 0.7.0: Terminal User Interface for docker engine
-app-containers/skopeo 1.14.0-r3 1.14.2 1.15.0 1.15.1 9999: Work with remote container images registries
+app-containers/skopeo 1.15.1 1.17.0 9999: Work with remote container images registries
 app-containers/slirp4netns 1.1.9 1.1.12-r1 1.2.0: User-mode networking for unprivileged network namespaces
 app-containers/snapd 2.58 2.61 2.63: Service and tools for management of snap packages
 app-containers/syft 0.75.0 0.76.0 0.94.0 0.95.0 1.9.0: Generate a Software Bill of Materials from container images and filesystems
@@ -4815,7 +4815,7 @@ dev-java/browserlauncher2 1.3-r3: A library that facilitates opening a browser f
 dev-java/bsf 2.4.0-r5: Bean Script Framework
 dev-java/bsh 2.1.1: A small embeddable Java source interpreter
 dev-java/byaccj 1.15-r3: A Java extension of BSD YACC-compatible parser generator
-dev-java/byte-buddy 1.14.0 1.15.10 1.15.11: Offers convenience for attaching an agent to the local or a remote VM
+dev-java/byte-buddy 1.15.10 1.15.11: Offers convenience for attaching an agent to the local or a remote VM
 dev-java/c3p0 0.9.5.5-r2: JDBC drivers with JNDI-bindable DataSources
 dev-java/cache2k-api 0.23.1: light weight and high performance Java caching library: API
 dev-java/cache2k-core 0.23.1: light weight and high performance Java caching library: core
@@ -4823,7 +4823,7 @@ dev-java/caffeine 2.9.3: A high performance caching library
 dev-java/cal10n 0.8.1: java library for writing localized messages using resource bundle
 dev-java/cdi-api 4.0.1-r4: APIs for CDI (Contexts and Dependency Injection for Java)
 dev-java/cglib 3.3.0-r2 3.3.0-r3: cglib is a powerful, high performance and quality Code Generation Library
-dev-java/checker-framework-qual 3.47.0 3.48.3: Annotations for type-checking by the Checker Framework
+dev-java/checker-framework-qual 3.47.0 3.48.3 3.48.4: Annotations for type-checking by the Checker Framework
 dev-java/commons-beanutils 1.9.4-r2: Provides easy-to-use wrappers around Reflection and Introspection APIs
 dev-java/commons-cli 1.9.0: A Java library for working with the command line arguments and options
 dev-java/commons-codec 1.17.1-r1: Implementations of common encoders and decoders in Java
@@ -4980,7 +4980,7 @@ dev-java/jnr-posix 3.1.16-r1 3.1.20: Common cross-project/cross-platform POSIX A
 dev-java/jnr-x86asm 1.0.2-r3: A pure-java port of asmjit
 dev-java/joda-convert 2.2.4: Library to convert Objects to and from String
 dev-java/joda-time 2.13.0: Date and time library to replace JDK date handling
-dev-java/jol-core 0.16-r1: Java Object Layout: Core
+dev-java/jol-core 0.16-r1 0.17: Java Object Layout: Core
 dev-java/jopt-simple 5.0.4: A Java library for parsing command line options
 dev-java/jrobin 1.6.0-r2: JRobin is a 100% pure Java alternative to RRDTool
 dev-java/jsch 0.1.55: JSch is a pure Java implementation of SSH2
@@ -5023,7 +5023,7 @@ dev-java/metainf-services 1.11: Generates META-INF/services files automatically
 dev-java/miglayout 5.3: MiGLayout - Java Layout Manager for Swing, SWT and JavaFX
 dev-java/mill-bin 0.11.7 0.11.12 0.12.0 0.12.1 0.12.3 0.12.4 0.12.5: A Java/Scala build tool
 dev-java/minidns-core 1.0.4: DNS library for Java and Android systems
-dev-java/mockito 1.9.5-r4 2.28.2 2.28.2-r1 4.11.0: Mockito mock objects library core API and implementation
+dev-java/mockito 1.9.5-r4 2.28.2-r1 4.11.0: Mockito mock objects library core API and implementation
 dev-java/msv 2022.7: Multi-Schema Validator Core package
 dev-java/mvel 2.5.2: MVFLEX Expression Language
 dev-java/objenesis 3.4: A library for instantiating Java objects
@@ -11079,7 +11079,7 @@ dev-vcs/reposurgeon 4.27: Tool for editing VCS repositories and translating amon
 dev-vcs/rsvndump 0.6-r1 0.6.1 0.6.1-r1 0.6.2: Dump a remote Subversion repository
 dev-vcs/sourcegit 8.40 8.44 8.45 9999: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
-dev-vcs/stgit 2.4.11-r1 2.4.12-r1 2.4.13: Stack-based patch management for Git
+dev-vcs/stgit 2.4.11-r1 2.4.13 2.5.0: Stack-based patch management for Git
 dev-vcs/subversion 1.14.3: Advanced version control system
 dev-vcs/svn2cl 0.12 0.14: Create a GNU-style ChangeLog from subversion's svn log --xml output
 dev-vcs/svn2git 1.0.18-r1 9999: Tool for one-time conversion from svn to git
