@@ -1,4 +1,4 @@
-# Copyright 2016-2024 Gentoo Authors
+# Copyright 2016-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${PV}/gitea-src-${
 S="${WORKDIR}/${PN}-src-${PV}"
 LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 IUSE="+acct gogit pam sqlite pie"
 
 DEPEND="
@@ -22,7 +22,7 @@ DEPEND="
 	pam? ( sys-libs/pam )"
 RDEPEND="${DEPEND}
 	!gogit? ( dev-vcs/git )"
-BDEPEND=">=dev-lang/go-1.22:="
+BDEPEND=">=dev-lang/go-1.23:="
 
 DOCS=(
 	custom/conf/app.example.ini CHANGELOG.md CONTRIBUTING.md README.md
@@ -125,14 +125,6 @@ pkg_postinst() {
 	fi
 
 	if [[ -n ${REPLACING_VERSIONS} ]]; then
-		if ver_test "${REPLACING_VERSIONS}" -lt 1.21; then
-			ewarn "Since version 1.21.0:"
-			ewarn "  1. The built-in SSH server will now only accept SSH user"
-			ewarn "     certificates, not server certificates. This behaviour matches OpenSSH."
-			ewarn "  2. The options of the subcommand must follow the subcommand now."
-			ewarn "  3. Remove 'CHARSET' config option for MySQL, always use 'utf8mb4'."
-			ewarn "For other breaking changes, see <https://github.com/go-gitea/gitea/releases/tag/v1.21.0>."
-		fi
 		if ver_test "${REPLACING_VERSIONS}" -lt 1.22; then
 			ewarn "Since version 1.22.0:"
 			ewarn "  1. Minimum database requirements updated to MySQL 8.0, PostgreSQL 12, and MSSQL 2012."
@@ -145,6 +137,14 @@ pkg_postinst() {
 			ewarn "     and override base path will override the path."
 			ewarn "  6. Now use a more restricted sanitizer for the repository description."
 			ewarn "For more details, see <https://github.com/go-gitea/gitea/releases/tag/v1.22.0>."
+		fi
+		if ver_test "${REPLACING_VERSIONS}" -lt 1.23; then
+			ewarn "Since version 1.23.0:"
+			ewarn "  1. The config option '[camo].Allways' has been renamed to '[camo].Always'."
+			ewarn "  2. The SHA1 for support for SSH RSA signing has been removed."
+			ewarn "  3. Use UTC as the default timezone when scheduling Actions cron tasks."
+			ewarn "  4. Make OIDC introspection authentication strictly require Client ID and secret."
+			ewarn "For other breaking changes, see <https://github.com/go-gitea/gitea/releases/tag/v1.23.0>."
 		fi
 	fi
 }
