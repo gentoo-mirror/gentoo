@@ -1,0 +1,15 @@
+BDEPEND=>=app-editors/emacs-29.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DEPEND=|| ( app-emacs/jsonrpc >=app-editors/emacs-30:* )
+DESCRIPTION=Debug Adapter Protocol for Emacs
+EAPI=8
+HOMEPAGE=https://github.com/svaante/dape
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=|| ( app-emacs/jsonrpc >=app-editors/emacs-30:* ) >=app-editors/emacs-29.1:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/svaante/dape/archive/refs/tags/0.21.0.tar.gz -> dape-0.21.0.tar.gz
+_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=53260a80f9ce47b06dfb896ed3d0552b
