@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=>=dev-libs/libjodycode-3.1
+DESCRIPTION=Identify duplicate files on the filesystem
+EAPI=8
+HOMEPAGE=https://codeberg.org/jbruchon/jdupes
+INHERIT=toolchain-funcs
+IUSE=+dedupe hardened
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=MIT
+RDEPEND=>=dev-libs/libjodycode-3.1
+RESTRICT=test
+SLOT=0
+SRC_URI=https://codeberg.org/jbruchon/jdupes/archive/v1.28.0.tar.gz -> jdupes-1.28.0.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=bf82a2e8714d0ce349296e5b7e406419
