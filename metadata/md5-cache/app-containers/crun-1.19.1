@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig
+DEFINED_PHASES=configure install setup test
+DEPEND=dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
+DESCRIPTION=A fast and low-memory footprint OCI Container Runtime fully written in C
+EAPI=8
+HOMEPAGE=https://github.com/containers/crun
+INHERIT=python-any-r1
+IUSE=+bpf +caps criu +seccomp selinux systemd static-libs
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= ) selinux? ( sec-policy/selinux-container )
+SLOT=0
+SRC_URI=https://github.com/containers/crun/releases/download/1.19.1/crun-1.19.1.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=c30760130d5d734df2bcdec779d7ef36
