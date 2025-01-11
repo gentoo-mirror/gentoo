@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,24 +18,25 @@ else
 		-> ${P}.tar.gz"
 	S="${WORKDIR}/${PN^^}-${PV}"
 
-	KEYWORDS="amd64 ~arm ppc x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="GPL-2+ GPL-3+ Texinfo-manual"
 SLOT="0"
+IUSE="doc"
 
 BDEPEND="
-	app-text/texi2html
-	dev-texlive/texlive-fontsextra
-	dev-texlive/texlive-latex
-	dev-texlive/texlive-latexextra
-	dev-texlive/texlive-mathscience
-	dev-texlive/texlive-plaingeneric
-	virtual/latex-base
+	doc? (
+		app-text/texi2html
+		dev-texlive/texlive-fontsextra
+		dev-texlive/texlive-latex
+		dev-texlive/texlive-latexextra
+		dev-texlive/texlive-mathscience
+		dev-texlive/texlive-plaingeneric
+		virtual/latex-base
+	)
 "
 
-DOCS=( ChangeLog NEWS ONEWS README
-	   doc/html/{ess,news,readme}.html doc/{ess,readme}.pdf )
 SITEFILE="50${PN}-gentoo.el"
 
 src_prepare() {
@@ -50,7 +51,8 @@ src_compile() {
 
 	elisp-compile lisp/*.el lisp/obsolete/*.el
 	emake autoloads
-	emake -C doc all html pdf
+	emake -C doc all
+	use doc && emake -C doc html pdf
 }
 
 src_test() {
@@ -71,5 +73,10 @@ src_install() {
 		Please see /usr/share/doc/${PF} for the complete documentation."
 	readme.gentoo_create_doc
 
-	einstalldocs
+	dodoc ChangeLog NEWS ONEWS README
+	if use doc; then
+		dodoc doc/{ess,readme}.pdf
+		docinto html
+		dodoc doc/html/{ess,news,readme}.html
+	fi
 }
