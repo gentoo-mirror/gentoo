@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,8 +19,8 @@ SRC_URI="
 "
 
 LICENSE="BSD"
-SLOT="0/17"
-KEYWORDS="amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+SLOT="0/19"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
 	kernel_linux? ( sys-apps/lsb-release )
