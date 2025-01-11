@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 2017-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,10 @@ src_configure() {
 	# Uses std::auto_ptr (deprecated in c++11, removed in c++17)
 	append-cxxflags "-std=c++14"
 
-	default
+	local myconf=(
+		ATF_SHELL="${EPREFIX}/bin/sh"
+	)
+	econf "${myconf[@]}"
 }
 
 src_install() {
