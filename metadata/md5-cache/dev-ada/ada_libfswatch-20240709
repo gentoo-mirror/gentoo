@@ -1,0 +1,15 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_12(-),-ada_target_gcc_15(-)]
+DEFINED_PHASES=compile install prepare setup
+DEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) >=dev-ada/gnatcoll-core-25[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_12(-),-ada_target_gcc_15(-),shared] sys-fs/fswatch
+DESCRIPTION=Ada binding to the libfswatch library
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/ada_libfswatch
+INHERIT=ada
+IUSE=ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3 gcc-runtime-library-exception-3.1
+RDEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) >=dev-ada/gnatcoll-core-25[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_12(-),-ada_target_gcc_15(-),shared] sys-fs/fswatch
+SLOT=0
+SRC_URI=https://github.com/AdaCore/ada_libfswatch/archive/838480d8fca344d9f8a78341113ceb4ed5cf2222.tar.gz -> ada_libfswatch-20240709.tar.gz
+_eclasses_=ada	91fe5c33490e013a01ffad92086e7bac
+_md5_=af3fd299627d08e46bb1ab809e5a8a2b

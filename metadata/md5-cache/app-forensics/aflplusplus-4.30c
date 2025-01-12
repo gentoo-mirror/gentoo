@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/AFLplusplus/AFLplusplus
 INHERIT=flag-o-matic toolchain-funcs llvm-r1 optfeature python-single-r1
 IUSE=test +llvm_slot_19 llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=amd64 ~arm64
+KEYWORDS=amd64 arm64
 LICENSE=Apache-2.0
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) llvm_slot_15? ( llvm-core/clang:15= llvm-core/llvm:15= ) llvm_slot_16? ( llvm-core/clang:16= llvm-core/llvm:16= ) llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) !app-forensics/afl
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/AFLplusplus/AFLplusplus/archive/v4.30c.tar.gz -> aflplusplus-4.30c.tar.gz https://dev.gentoo.org/~sam/distfiles/app-forensics/aflplusplus/aflplusplus-4.30c-patches.tar.xz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=b45fa8b90e58d4bd7c729e3ef93aa013
+_md5_=175a040eca389a3cacc5ce7e68f483b7
