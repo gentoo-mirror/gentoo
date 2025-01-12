@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517="setuptools"
 PYTHON_COMPAT=( python3_{12..13} )
 PYTHON_REQ_USE="sqlite,ssl,xml(+)"
+DISTUTILS_USE_PEP517="setuptools"
 
 inherit distutils-r1 optfeature
 
@@ -20,7 +20,7 @@ else
 	SRC_URI="https://github.com/mikf/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 arm arm64 hppa ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -34,13 +34,13 @@ distutils_enable_tests unittest
 
 src_prepare() {
 	# Tests against real servers, some tests always fail and some are subject to change.
-	rm test/test_extractor.py test/test_results.py || die
+	rm ./test/test_{extractor,results}.py || die
 
 	distutils-r1_src_prepare
 }
 
 python_compile_all() {
-	emake PYTHON="${EPYTHON}" data/completion/{,_}gallery-dl man
+	emake PYTHON="${EPYTHON}" ./data/completion/{,_}gallery-dl man
 }
 
 pkg_postinst() {
