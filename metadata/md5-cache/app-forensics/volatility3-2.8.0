@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/volatilityfoundation/volatility3/ https://www.volatilityfoundation.org/
 INHERIT=distutils-r1
 IUSE=crypt disasm jsonschema leechcore snappy test yara python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-python/pefile-2023.2.7[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] crypt? ( >=dev-python/pycryptodome-3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) disasm? ( >=dev-libs/capstone-3.0.5[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) jsonschema? ( >=dev-python/jsonschema-2.3.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) leechcore? ( >=dev-python/leechcorepyc-2.4.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) snappy? ( app-arch/snappy:0/1.1 ) yara? ( >=dev-python/yara-python-3.8.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=test? ( yara ) || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/volatilityfoundation/volatility3/archive/v2.8.0.tar.gz -> volatility3-2.8.0.gh.tar.gz test? ( https://downloads.volatilityfoundation.org/volatility3/images/win-xp-laptop-2005-06-25.img.gz -> volatility3-win-xp-laptop-2005-06-25.img.gz https://downloads.volatilityfoundation.org/volatility3/images/linux-sample-1.bin.gz -> volatility3-linux-sample-1.bin.gz )
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df
-_md5_=c651c6f8544157d4d47ab9a34033ad2a
+_md5_=a593367a072db62e08467c8eb04fb350
