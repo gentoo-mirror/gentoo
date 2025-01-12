@@ -1,0 +1,16 @@
+BDEPEND=wayland? ( kde-frameworks/extra-cmake-modules:0 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=app-arch/libarchive[zstd] dev-qt/qtbase:6[network,opengl,widgets] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6 media-libs/libsdl2[sound,video] net-libs/enet:= net-libs/libpcap net-libs/libslirp x11-libs/libxkbcommon wayland? ( dev-libs/wayland )
+DESCRIPTION=Nintendo DS emulator, sorta
+EAPI=8
+HOMEPAGE=http://melonds.kuribo64.net https://github.com/Arisotura/melonDS
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake readme.gentoo-r1 toolchain-funcs xdg
+IUSE=+jit +opengl wayland
+KEYWORDS=~amd64
+LICENSE=BSD-2 GPL-2 GPL-3 Unlicense
+RDEPEND=app-arch/libarchive[zstd] dev-qt/qtbase:6[network,opengl,widgets] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6 media-libs/libsdl2[sound,video] net-libs/enet:= net-libs/libpcap net-libs/libslirp x11-libs/libxkbcommon wayland? ( dev-libs/wayland )
+SLOT=0
+SRC_URI=https://github.com/Arisotura/melonDS/archive/1.0rc.tar.gz -> melonds-1.0_rc.gh.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=ebe23220daadfa77da3a7cb934ace0d6
