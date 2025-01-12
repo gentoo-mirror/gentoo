@@ -7,7 +7,7 @@ HOMEPAGE=https://github.com/openzfs/zfs
 IDEPEND=sys-apps/kmod[tools] initramfs? ( sys-kernel/installkernel )
 INHERIT=autotools flag-o-matic linux-mod-r1 multiprocessing verify-sig
 IUSE=custom-cflags debug +rootfs +dist-kernel-cap dist-kernel modules-compress modules-sign +strip +initramfs verify-sig
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~sparc
+KEYWORDS=amd64 arm64 ppc64 ~riscv ~sparc
 LICENSE=CDDL MIT debug? ( GPL-2+ )
 PDEPEND=dist-kernel? ( ~sys-fs/zfs-2.1.16[dist-kernel] )
 RDEPEND=dist-kernel-cap? ( dist-kernel? ( <virtual/dist-kernel-6.8 ) ) sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=0/2.1.16
 SRC_URI=https://github.com/openzfs/zfs/releases/download/zfs-2.1.16/zfs-2.1.16.tar.gz verify-sig? ( https://github.com/openzfs/zfs/releases/download/zfs-2.1.16/zfs-2.1.16.tar.gz.asc )
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	97700892f3bc8ee315ee55ff5297a739	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	1e32df7deee68372153dca65f4a7c21f	linux-mod-r1	84b53048ef3f4ee4f1b3dce65d43580e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=8addbe09957e4272b548dd06d82f7720
+_md5_=57edf332197e32e8b28240e1ff3e9b38
