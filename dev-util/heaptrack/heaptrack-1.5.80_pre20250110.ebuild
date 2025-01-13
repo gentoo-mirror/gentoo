@@ -1,14 +1,14 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+KDE_ORG_COMMIT=5d8bfe4441be81ff3ced10114bb012d24ec0ab86
 inherit cmake kde.org xdg-utils
 
 DESCRIPTION="Fast heap memory profiler"
 HOMEPAGE="https://apps.kde.org/heaptrack/
 https://milianw.de/blog/heaptrack-a-heap-memory-profiler-for-linux"
-SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
@@ -17,23 +17,22 @@ IUSE="+gui test zstd"
 
 RESTRICT="!test? ( test )"
 
+# TODO: unbundle robin-map
 DEPEND="
 	dev-libs/boost:=[zstd?,zlib]
 	sys-libs/libunwind:=
 	sys-libs/zlib
 	gui? (
-		dev-libs/kdiagram:5
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		kde-frameworks/kconfig:5
-		kde-frameworks/kconfigwidgets:5
-		kde-frameworks/kcoreaddons:5
-		kde-frameworks/ki18n:5
-		kde-frameworks/kio:5
-		kde-frameworks/kitemmodels:5
-		kde-frameworks/kwidgetsaddons:5
-		kde-frameworks/threadweaver:5
+		dev-libs/kdiagram:6
+		dev-qt/qtbase:6[gui,widgets]
+		kde-frameworks/kconfig:6
+		kde-frameworks/kconfigwidgets:6
+		kde-frameworks/kcoreaddons:6
+		kde-frameworks/ki18n:6
+		kde-frameworks/kio:6
+		kde-frameworks/kitemmodels:6
+		kde-frameworks/kwidgetsaddons:6
+		kde-frameworks/threadweaver:6
 	)
 	zstd? ( app-arch/zstd:= )
 "
@@ -47,10 +46,6 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	unw_backtrace_skip
 )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.5.0-c99.patch
-)
-
 src_prepare() {
 	cmake_src_prepare
 	rm -rf 3rdparty/boost-zstd || die # ensure no bundling
@@ -58,6 +53,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DHEAPTRACK_USE_QT6=ON
 		-DHEAPTRACK_BUILD_GUI=$(usex gui)
 		-DBUILD_TESTING=$(usex test)
 		$(cmake_use_find_package zstd ZSTD)
