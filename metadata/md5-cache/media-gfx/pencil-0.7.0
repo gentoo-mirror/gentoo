@@ -1,0 +1,16 @@
+DEFINED_PHASES=configure install postinst postrm preinst
+DEPEND=dev-qt/qtbase:6[gui,network,widgets,xml] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6
+DESCRIPTION=2D animation and drawing program based on Qt
+EAPI=8
+HOMEPAGE=https://www.pencil2d.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=qmake-utils xdg
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtbase:6[gui,network,widgets,xml] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/pencil2d/pencil/archive/v0.7.0.tar.gz -> pencil-0.7.0.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=58f877eab1a54fac65619444da30d461
