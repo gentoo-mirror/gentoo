@@ -1,0 +1,16 @@
+BDEPEND=gui? ( kde-frameworks/extra-cmake-modules:0 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure info install nofetch postinst postrm prepare test unpack
+DEPEND=dev-libs/boost:=[zstd?,zlib] sys-libs/libunwind:= sys-libs/zlib gui? ( dev-libs/kdiagram:6 dev-qt/qtbase:6[gui,widgets] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/threadweaver:6 ) zstd? ( app-arch/zstd:= )
+DESCRIPTION=Fast heap memory profiler
+EAPI=8
+HOMEPAGE=https://apps.kde.org/heaptrack/ https://milianw.de/blog/heaptrack-a-heap-memory-profiler-for-linux
+INHERIT=cmake kde.org xdg-utils
+IUSE=+gui test zstd
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/boost:=[zstd?,zlib] sys-libs/libunwind:= sys-libs/zlib gui? ( dev-libs/kdiagram:6 dev-qt/qtbase:6[gui,widgets] kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kio:6 kde-frameworks/kitemmodels:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/threadweaver:6 ) zstd? ( app-arch/zstd:= ) gui? ( >=kde-frameworks/kf-env-4 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gentoo/heaptrack-1.5.80_pre20250110-5d8bfe44.tar.gz https://invent.kde.org/sdk/heaptrack/-/archive/5d8bfe4441be81ff3ced10114bb012d24ec0ab86/heaptrack-5d8bfe4441be81ff3ced10114bb012d24ec0ab86.tar.gz -> heaptrack-1.5.80_pre20250110-5d8bfe44.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	kde.org	2eea56ed41440913be4caa3d255d2db3
+_md5_=ac2cac20a648d2ae8918d939972b8408
