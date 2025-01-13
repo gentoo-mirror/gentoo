@@ -192,9 +192,6 @@ src_configure() {
 	use cet && filter-flags -mindirect-branch -mindirect-branch=*
 	use elibc_musl && append-ldflags -Wl,-z,stack-size=2097152
 
-	# Workaround for gcc PR118409
-	tc-is-gcc && [[ $(gcc-major-version) -eq 15 ]] && append-flags -fdisable-tree-ifcombine
-
 	local x
 	echo
 	for x in CATEGORY CBUILD CHOST CTARGET CFLAGS LDFLAGS ; do
