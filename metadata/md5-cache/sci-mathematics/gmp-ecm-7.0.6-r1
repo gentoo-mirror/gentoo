@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/libxslt app-text/docbook-xsl-stylesheets
+DEFINED_PHASES=compile configure install pretend setup
+DEPEND=dev-libs/gmp:=
+DESCRIPTION=Elliptic Curve Method for Integer Factorization
+EAPI=8
+HOMEPAGE=https://gitlab.inria.fr/zimmerma/ecm
+INHERIT=toolchain-funcs
+IUSE=+custom-tune openmp cpu_flags_x86_sse2
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~ppc-macos ~x64-macos
+LICENSE=GPL-3 LGPL-3
+RDEPEND=dev-libs/gmp:=
+SLOT=0
+SRC_URI=https://gitlab.inria.fr/-/project/24244/uploads/ad3e5019fef98819ceae58b78f4cce93/ecm-7.0.6.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=303877c43f93085d1d213f572216c189
