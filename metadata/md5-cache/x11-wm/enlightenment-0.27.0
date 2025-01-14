@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
-DEPEND=>=dev-libs/efl-1.28.0[eet,fontconfig,sound,X] virtual/udev x11-libs/libXext x11-libs/libxcb x11-libs/xcb-util-keysyms x11-misc/xkeyboard-config acpi? ( sys-power/acpid ) bluetooth? ( net-wireless/bluez ) connman? ( dev-libs/efl[connman] ) exif? ( media-libs/libexif ) geolocation? ( app-misc/geoclue:2.0 ) pam? ( sys-libs/pam ) policykit? ( sys-auth/polkit ) systemd? ( sys-apps/systemd ) udisks? ( sys-fs/udisks:2 ) wayland? ( || ( dev-libs/efl[systemd] dev-libs/efl[elogind] ) dev-libs/efl[drm,wayland] dev-libs/wayland x11-libs/libxkbcommon x11-libs/pixman ) xwayland? ( dev-libs/efl[X,wayland] x11-base/xwayland )
+DEPEND=>=dev-libs/efl-1.28.0[eet,fontconfig,sound,X] virtual/udev x11-libs/libXext x11-libs/libxcb x11-libs/xcb-util-keysyms x11-misc/xkeyboard-config bluetooth? ( net-wireless/bluez ) connman? ( dev-libs/efl[connman] ) exif? ( media-libs/libexif ) geolocation? ( app-misc/geoclue:2.0 ) pam? ( sys-libs/pam ) policykit? ( sys-auth/polkit ) systemd? ( sys-apps/systemd ) udisks? ( sys-fs/udisks:2 ) wayland? ( || ( dev-libs/efl[systemd] dev-libs/efl[elogind] ) dev-libs/efl[drm,wayland] dev-libs/wayland x11-libs/libxkbcommon x11-libs/pixman ) xwayland? ( dev-libs/efl[X,wayland] x11-base/xwayland )
 DESCRIPTION=Enlightenment window manager
 EAPI=8
 HOMEPAGE=https://www.enlightenment.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson optfeature xdg
-IUSE=acpi bluetooth connman doc exif geolocation nls pam policykit systemd udisks wayland xwayland
+IUSE=bluetooth connman doc exif geolocation nls pam policykit systemd udisks wayland xwayland
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=BSD-2
-RDEPEND=>=dev-libs/efl-1.28.0[eet,fontconfig,sound,X] virtual/udev x11-libs/libXext x11-libs/libxcb x11-libs/xcb-util-keysyms x11-misc/xkeyboard-config acpi? ( sys-power/acpid ) bluetooth? ( net-wireless/bluez ) connman? ( dev-libs/efl[connman] ) exif? ( media-libs/libexif ) geolocation? ( app-misc/geoclue:2.0 ) pam? ( sys-libs/pam ) policykit? ( sys-auth/polkit ) systemd? ( sys-apps/systemd ) udisks? ( sys-fs/udisks:2 ) wayland? ( || ( dev-libs/efl[systemd] dev-libs/efl[elogind] ) dev-libs/efl[drm,wayland] dev-libs/wayland x11-libs/libxkbcommon x11-libs/pixman ) xwayland? ( dev-libs/efl[X,wayland] x11-base/xwayland )
+RDEPEND=>=dev-libs/efl-1.28.0[eet,fontconfig,sound,X] virtual/udev x11-libs/libXext x11-libs/libxcb x11-libs/xcb-util-keysyms x11-misc/xkeyboard-config bluetooth? ( net-wireless/bluez ) connman? ( dev-libs/efl[connman] ) exif? ( media-libs/libexif ) geolocation? ( app-misc/geoclue:2.0 ) pam? ( sys-libs/pam ) policykit? ( sys-auth/polkit ) systemd? ( sys-apps/systemd ) udisks? ( sys-fs/udisks:2 ) wayland? ( || ( dev-libs/efl[systemd] dev-libs/efl[elogind] ) dev-libs/efl[drm,wayland] dev-libs/wayland x11-libs/libxkbcommon x11-libs/pixman ) xwayland? ( dev-libs/efl[X,wayland] x11-base/xwayland )
 REQUIRED_USE=xwayland? ( wayland )
 SLOT=0.17/0.27.0
 SRC_URI=https://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.27.0.tar.xz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=6cb797b35e8bcd8bb54b66a168b09e61
+_md5_=148f5ac1abd6e004352503ea51e091a4
