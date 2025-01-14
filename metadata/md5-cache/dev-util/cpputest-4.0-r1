@@ -2,7 +2,7 @@ BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/
 DEFINED_PHASES=prepare
 DEPEND=test? ( >=dev-cpp/gtest-1.8.0 )
 DESCRIPTION=Unit testing and mocking framework for C/C++
-EAPI=7
+EAPI=8
 HOMEPAGE=https://cpputest.github.io/ https://github.com/cpputest/cpputest
 INHERIT=autotools
 IUSE=test
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cpputest/cpputest/releases/download/v4.0/cpputest-4.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe
-_md5_=1b8b210d7f99aaca96f1645cc179dd97
+_md5_=e478c4086f34c69fb86605305243add2
