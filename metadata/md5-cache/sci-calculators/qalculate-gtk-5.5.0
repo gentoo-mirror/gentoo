@@ -1,0 +1,15 @@
+BDEPEND=dev-util/gdbus-codegen dev-util/intltool sys-devel/gettext virtual/pkgconfig
+DEFINED_PHASES=postinst postrm preinst prepare
+DEPEND=dev-libs/glib:2 >=sci-libs/libqalculate-5.5.0:= x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/pango
+DESCRIPTION=Modern multi-purpose calculator
+EAPI=8
+HOMEPAGE=https://qalculate.github.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=optfeature xdg
+KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+
+RDEPEND=dev-libs/glib:2 >=sci-libs/libqalculate-5.5.0:= x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/pango
+SLOT=0
+SRC_URI=https://github.com/Qalculate/qalculate-gtk/releases/download/v5.5.0/qalculate-gtk-5.5.0.tar.gz
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=775cd8e7ebc0e582a905a620d6c0fc3b
