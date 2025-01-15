@@ -1,0 +1,17 @@
+BDEPEND=dev-qt/qttools:6[linguist] dolphin? ( >=kde-frameworks/extra-cmake-modules-5.106.0 ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=dev-db/sqlite-3.34:3 dev-libs/glib:2 >=dev-libs/openssl-1.1.0:0= >=dev-libs/qtkeychain-0.14.2:=[qt6(+)] dev-qt/qt5compat:6 >=dev-qt/qtbase-6.6.0:6[dbus,gui,network,sql,sqlite,ssl,widgets] dev-qt/qtdeclarative:6[widgets] dev-qt/qtsvg:6 dev-qt/qtwebsockets:6 kde-frameworks/karchive:6 kde-frameworks/kguiaddons:6 net-libs/libcloudproviders sys-libs/zlib dolphin? ( kde-frameworks/kcoreaddons:6 kde-frameworks/kio:6 ) nautilus? ( dev-python/nautilus-python ) webengine? ( dev-qt/qtwebengine:6[widgets] ) dev-qt/qtbase:6[concurrent,xml] || ( gnome-base/librsvg media-gfx/inkscape ) doc? ( dev-python/sphinx dev-tex/latexmk dev-texlive/texlive-latexextra virtual/latex-base ) test? ( dev-util/cmocka )
+DESCRIPTION=Desktop Syncing Client for Nextcloud
+EAPI=8
+HOMEPAGE=https://github.com/nextcloud/desktop
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake virtualx xdg
+IUSE=doc dolphin nautilus test webengine test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=CC-BY-3.0 GPL-2
+RDEPEND=>=dev-db/sqlite-3.34:3 dev-libs/glib:2 >=dev-libs/openssl-1.1.0:0= >=dev-libs/qtkeychain-0.14.2:=[qt6(+)] dev-qt/qt5compat:6 >=dev-qt/qtbase-6.6.0:6[dbus,gui,network,sql,sqlite,ssl,widgets] dev-qt/qtdeclarative:6[widgets] dev-qt/qtsvg:6 dev-qt/qtwebsockets:6 kde-frameworks/karchive:6 kde-frameworks/kguiaddons:6 net-libs/libcloudproviders sys-libs/zlib dolphin? ( kde-frameworks/kcoreaddons:6 kde-frameworks/kio:6 ) nautilus? ( dev-python/nautilus-python ) webengine? ( dev-qt/qtwebengine:6[widgets] )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/nextcloud/desktop/archive/v3.15.3.tar.gz -> nextcloud-client-3.15.3.tar.gz https://github.com/nextcloud/desktop/commit/49a7c8d7874643da2550793877115c7f3dbd2d05.patch -> nextcloud-client-3.15.2-fix-macosvfs-file-sharing.png.patch
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=a2c529fd0e173c2f66b40c22ed491c1d
