@@ -3,12 +3,12 @@ DEFINED_PHASES=compile configure info install postinst postrm prepare setup test
 DESCRIPTION=Project management for Emacs package development
 EAPI=8
 HOMEPAGE=https://github.com/cask/cask/
-INHERIT=elisp
+INHERIT=elisp optfeature
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=app-emacs/ansi app-emacs/commander app-emacs/epl app-emacs/f app-emacs/package-build app-emacs/s app-emacs/shut-up >=app-editors/emacs-25.3:*
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/cask/cask/archive/v0.9.0.tar.gz -> cask-0.9.0.gh.tar.gz
-_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5
-_md5_=752f49b1c9b06fba147746c09ba23cfd
+_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=b5b6aa39835a12f55541f63b5fa62473
