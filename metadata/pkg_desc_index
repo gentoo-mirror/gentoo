@@ -908,7 +908,7 @@ app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
-app-admin/awscli 1.36.31 1.36.33 1.36.38 1.36.39: Universal Command Line Environment for AWS
+app-admin/awscli 1.36.31 1.36.33 1.36.38 1.36.39 1.36.40: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.11.2 2024.12.0: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2 3.3.13: Distribution-independent installer framework
@@ -8066,7 +8066,7 @@ dev-python/aniso8601 9.0.1-r1 10.0.0: A library for parsing ISO 8601 strings
 dev-python/annotated-types 0.7.0: Reusable constraint types to use with typing.Annotated
 dev-python/ansi 0.3.7: ANSI cursor movement and graphics in Python
 dev-python/ansi2html 1.9.2: Convert text with ANSI color codes to HTML
-dev-python/ansible-compat 24.9.1 24.10.0: Contains functions that facilitate working with various versions of Ansible
+dev-python/ansible-compat 24.9.1 24.10.0 25.0.0: Contains functions that facilitate working with various versions of Ansible
 dev-python/ansible-pygments 0.1.1-r1: Pygments lexer and style Ansible snippets
 dev-python/ansicolor 0.3.2-r1 9999: Produce ansi color output and colored highlighting and diffing
 dev-python/antlr4-python3-runtime 4.13.2: Python 3 runtime for ANTLR
@@ -8107,7 +8107,7 @@ dev-python/autobahn 24.4.2: WebSocket and WAMP for Twisted and Asyncio
 dev-python/autocommand 2.2.2: Library to create a command-line program from a function
 dev-python/automat 24.8.1: Self-service finite-state machines for the programmer on the go
 dev-python/autopage 0.5.2: A library to provide automatic paging for console output
-dev-python/autopep8 2.3.1: Automatically formats Python code to conform to the PEP 8 style guide
+dev-python/autopep8 2.3.1 2.3.2: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/aws-sam-translator 1.94.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.14.0: AWS X-Ray SDK for Python
@@ -8145,8 +8145,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.1.0 1.2.0 1.2.1 1.3.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.35.90 1.35.92 1.35.97 1.35.98: The AWS SDK for Python
-dev-python/botocore 1.35.90 1.35.92 1.35.97 1.35.98: Low-level, data-driven core of boto 3
+dev-python/boto3 1.35.90 1.35.92 1.35.97 1.35.98 1.35.99: The AWS SDK for Python
+dev-python/botocore 1.35.90 1.35.92 1.35.97 1.35.98 1.35.99: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.24: Syntax highlighting and autocompletion for the Python interpreter
@@ -8174,7 +8174,7 @@ dev-python/cerberus 1.3.6 1.3.7: A lightweight and extensible data-validation li
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.21.0 1.22.2 1.22.3 1.22.4: CloudFormation Linter
+dev-python/cfn-lint 1.21.0 1.22.2 1.22.3 1.22.4 1.22.5: CloudFormation Linter
 dev-python/cftime 1.6.4_p1: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.5.4 4.6.0: Fast HTML/XML template compiler for Python
@@ -8202,7 +8202,7 @@ dev-python/click-threading 0.5.0-r1: Multithreaded Click apps made easy
 dev-python/cliff 4.8.0: Command Line Interface Formulation Framework
 dev-python/clikit 0.6.2-r1: Group of utilities to build beautiful and testable command line interfaces
 dev-python/clint 0.5.1-r4: Python Command-line Application Tools
-dev-python/cloudpickle 3.1.0: Extended pickling support for Python objects
+dev-python/cloudpickle 3.1.0 3.1.1: Extended pickling support for Python objects
 dev-python/cloudscraper 1.2.69: A Python module to bypass Cloudflare's anti-bot page
 dev-python/clr-loader 0.2.6 0.2.7_p0: Generic pure Python loader for .NET runtimes
 dev-python/cmd2 2.5.8: Extra features for standard library's cmd module
@@ -8288,7 +8288,7 @@ dev-python/distro 1.9.0: Reliable machine-readable Linux distribution informatio
 dev-python/dj-database-url 2.3.0: Use Database URLs in your Django Application
 dev-python/dj-email-url 1.0.6: Use an URL to configure email backend settings in your Django Application
 dev-python/dj-search-url 0.1-r1: Use Search URLs in your Django Haystack Application
-dev-python/django 4.2.17 5.0.10 5.1.4: High-level Python web framework
+dev-python/django 4.2.17 4.2.18 5.0.10 5.0.11 5.1.4 5.1.5: High-level Python web framework
 dev-python/django-auth-ldap 4.8.0 5.0.0 5.1.0: Django LDAP authentication backend
 dev-python/django-bootstrap5 24.3: Bootstrap 5 for Django.
 dev-python/django-cache-url 3.4.5: Use Cache URLs in your Django application
@@ -8437,7 +8437,7 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.43 3.1.44: Library used to interact with Git repositories
 dev-python/gmpy2 2.2.1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.24.0: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.156.0 2.157.0 2.158.0: Google API Client for Python
+dev-python/google-api-python-client 2.156.0 2.157.0 2.158.0 2.159.0: Google API Client for Python
 dev-python/google-auth 2.37.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.1: Google Authentication Library
@@ -8739,7 +8739,7 @@ dev-python/ml-dtypes 0.5.0 0.5.1: A stand-alone implementation of several NumPy 
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.11.0 0.12.0: Python scrapper to access ModDB mods, games and more as objects
-dev-python/more-itertools 10.5.0: More routines for operating on iterables, beyond itertools
+dev-python/more-itertools 10.5.0 10.6.0: More routines for operating on iterables, beyond itertools
 dev-python/moto 4.2.14 5.0.25 5.0.26: Mock library for boto
 dev-python/mpdlcd 0.5.2-r2: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 3.1.5 4.0.1: Message Passing Interface for Python
@@ -8763,7 +8763,7 @@ dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plu
 dev-python/nanobind 2.4.0: Tiny and efficient C++/Python bindings
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
-dev-python/nbclassic 1.1.0-r1: Jupyter Notebook as a Jupyter Server Extension
+dev-python/nbclassic 1.1.0-r1 1.2.0: Jupyter Notebook as a Jupyter Server Extension
 dev-python/nbclient 0.10.2: A client library for executing Jupyter notebooks
 dev-python/nbconvert 7.16.4 7.16.5: Converting Jupyter Notebooks
 dev-python/nbdime 4.0.2: Diff and merge of Jupyter Notebooks
@@ -8992,7 +8992,7 @@ dev-python/pydyf 0.11.0: A low-level PDF generator
 dev-python/pyeclib 1.6.4: Messaging API for RPC and notifications over different messaging transports
 dev-python/pyelftools 0.31: pure-Python library for analyzing ELF files and DWARF debugging information
 dev-python/pyenchant 3.2.2-r1: Python bindings for the Enchant spellchecking system
-dev-python/pyfakefs 5.7.3: A fake file system that mocks the Python file system modules
+dev-python/pyfakefs 5.7.3 5.7.4: A fake file system that mocks the Python file system modules
 dev-python/pyflakes 3.2.0: Passive checker for Python programs
 dev-python/pyformance 0.4-r2: Performance metrics, based on Coda Hale's Yammer metrics
 dev-python/pyftpdlib 2.0.1: Python FTP server library
@@ -9179,7 +9179,7 @@ dev-python/pytest-xvfb 3.0.0: Pytest plugin to run Xvfb for tests
 dev-python/python-augeas 1.1.0-r1: Python bindings for Augeas
 dev-python/python-axolotl 0.2.3-r3: A python module for the axolotl protocol
 dev-python/python-axolotl-curve25519 0.4.1_p2-r4: A python wrapper for the curve25519 library with ed25519 signatures
-dev-python/python-box 7.3.0: Python dictionaries with advanced dot notation access
+dev-python/python-box 7.3.0 7.3.1: Python dictionaries with advanced dot notation access
 dev-python/python-bugzilla 3.3.0: A python module for interacting with Bugzilla over XMLRPC
 dev-python/python-caja 1.28.0: Python bindings for the Caja file manager
 dev-python/python-cinderclient 9.6.0: A client for the OpenStack Cinder API
@@ -9477,7 +9477,7 @@ dev-python/spyder-unittest 0.6.0 0.7.0: Plugin for Spyder to run tests and view 
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.54 2.0.36 2.0.37: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.0.1 26.1.2 26.1.3: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 26.1.3 26.2.1: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9658,7 +9658,7 @@ dev-python/wheel 0.45.1: A built-package format for Python
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
 dev-python/widgetsnbextension 4.0.13: IPython HTML widgets for Jupyter
-dev-python/wrapt 1.17.0 1.17.1: Module for decorators, wrappers and monkey patching
+dev-python/wrapt 1.17.0 1.17.1 1.17.2: Module for decorators, wrappers and monkey patching
 dev-python/wsaccel 0.6.7: Accelerator for ws4py, autobahn and tornado
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.2.0: WebSockets state-machine based protocol implementation
@@ -11045,7 +11045,7 @@ dev-vcs/git-delete-merged-branches 7.4.1 7.4.1-r1 7.4.2: Command-line tool to de
 dev-vcs/git-extras 7.1.0 7.2.0 7.3.0: Git utilities -- repo summary, repl, changelog population, and many more
 dev-vcs/git-filter-repo 2.45.0 2.47.0: Quickly rewrite git repository history (filter-branch replacement)
 dev-vcs/git-flow 1.12.3-r2: Git extensions to provide high-level repository operations
-dev-vcs/git-lfs 3.5.1 3.6.0 9999: Command line extension and specification for managing large files with git
+dev-vcs/git-lfs 3.5.1 3.6.1 9999: Command line extension and specification for managing large files with git
 dev-vcs/git-machete 3.25.2: Probably the sharpest git repo organizer & rebase/merge workflow automation tool
 dev-vcs/git-mailz 0.14: Send a collection of patches as emails
 dev-vcs/git-mantle 0.6: Generate an overview of changes on a branch
