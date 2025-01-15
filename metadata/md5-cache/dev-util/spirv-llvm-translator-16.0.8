@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/KhronosGroup/SPIRV-LLVM-Translator
 INHERIT=cmake flag-o-matic llvm-r1 multiprocessing
 IUSE=test +llvm_slot_16
-KEYWORDS=~amd64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=UoI-NCSA
 RDEPEND=dev-util/spirv-tools llvm-core/llvm:16=
 REQUIRED_USE=^^ ( llvm_slot_16 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=16
 SRC_URI=https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v16.0.8.tar.gz -> spirv-llvm-translator-16.0.8.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda
-_md5_=f29b2ec31478cebf549f978aa52aede9
+_md5_=640400236188ce935b30d1971ffb8299
