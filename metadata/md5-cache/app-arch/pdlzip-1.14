@@ -1,0 +1,13 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure unpack
+DESCRIPTION=Public-domain version of lzip compressor
+EAPI=8
+HOMEPAGE=https://www.nongnu.org/lzip/pdlzip.html
+INHERIT=toolchain-funcs verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~mips ~x86
+LICENSE=public-domain
+SLOT=0
+SRC_URI=https://download.savannah.gnu.org/releases/lzip/pdlzip/pdlzip-1.14.tar.gz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/pdlzip/pdlzip-1.14.tar.gz.sig )
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=8ea1bdbc5c5bd9c3fab029f8004e51e7
