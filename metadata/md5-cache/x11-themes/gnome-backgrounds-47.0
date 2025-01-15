@@ -1,0 +1,13 @@
+BDEPEND=>=sys-devel/gettext-0.19.8 app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=A set of backgrounds packaged with the GNOME desktop
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/gnome-backgrounds
+INHERIT=gnome.org meson
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
+LICENSE=CC-BY-SA-2.0 CC-BY-SA-3.0 CC-BY-2.0 CC-BY-4.0
+RDEPEND=media-libs/libjxl[gdk-pixbuf] gnome-base/librsvg
+SLOT=0
+SRC_URI=mirror://gnome/sources/gnome-backgrounds/47/gnome-backgrounds-47.0.tar.xz
+_eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=32aac644b00f899cb8024bfa47233728
