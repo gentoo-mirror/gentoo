@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,11 +6,11 @@ EAPI=8
 inherit gnome.org gnome2-utils meson xdg
 
 DESCRIPTION="A weather application for GNOME"
-HOMEPAGE="https://wiki.gnome.org/Design/Apps/Weather"
+HOMEPAGE="https://apps.gnome.org/Weather/"
 
 LICENSE="GPL-2+ LGPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 DEPEND="
 	>=dev-libs/glib-2.32:2

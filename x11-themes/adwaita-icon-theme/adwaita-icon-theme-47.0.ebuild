@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,15 +16,22 @@ LICENSE="
 	branding? ( CC-BY-SA-4.0 )
 "
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+
 IUSE="branding"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux"
 
 # gtk+:3 is needed for build for the gtk-encode-symbolic-svg utility
 # librsvg is needed for gtk-encode-symbolic-svg to be able to read the source SVG via
 # its pixbuf loader and at runtime for rendering scalable icons shipped by the theme
+# adwaita-icon-theme-legacy needed to be FDO compatible (as done in other distributions
+# as Fedora:
+# https://bugs.gentoo.org/927897
+# https://gitlab.gnome.org/GNOME/adwaita-icon-theme/-/issues/288
+# https://gitlab.gnome.org/GNOME/adwaita-icon-theme/-/commit/9cb8144b387251eef9c0a221b2febe18802e2435
 DEPEND=">=x11-themes/hicolor-icon-theme-0.10"
 RDEPEND="${DEPEND}
 	>=gnome-base/librsvg-2.48:2
+	x11-themes/adwaita-icon-theme-legacy
 "
 BDEPEND="
 	>=gnome-base/librsvg-2.48:2

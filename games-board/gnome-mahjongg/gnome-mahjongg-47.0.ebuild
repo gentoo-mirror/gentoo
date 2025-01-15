@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,16 +6,16 @@ EAPI=8
 inherit gnome.org gnome2-utils meson vala xdg
 
 DESCRIPTION="Disassemble a pile of tiles by removing matching pairs"
-HOMEPAGE="https://wiki.gnome.org/Apps/Mahjongg"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-mahjongg"
 
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.40.0:2
-	>=gui-libs/gtk-4.5.0:4
-	gui-libs/libadwaita:1
+	>=gui-libs/gtk-4.14.0:4
+	>=gui-libs/libadwaita-1.5.0:1
 	>=gnome-base/librsvg-2.46.0:2
 "
 DEPEND="${RDEPEND}
@@ -25,6 +25,7 @@ BDEPEND="
 	$(vala_depend)
 	dev-libs/appstream-glib
 	dev-util/itstool
+	gui-libs/libadwaita:1[vala]
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "

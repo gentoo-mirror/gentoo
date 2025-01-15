@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,18 +6,18 @@ EAPI=8
 inherit gnome.org gnome2-utils meson xdg
 
 DESCRIPTION="The Eye of GNOME image viewer"
-HOMEPAGE="https://wiki.gnome.org/Apps/EyeOfGnome https://gitlab.gnome.org/GNOME/eog"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/eog"
 
 LICENSE="GPL-2+"
 SLOT="1"
+
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="+exif gtk-doc +introspection +jpeg lcms +svg xmp tiff"
 REQUIRED_USE="
 	exif? ( jpeg )
 	gtk-doc? ( introspection )
 "
-
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.73.2:2

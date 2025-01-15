@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,11 +6,11 @@ EAPI=8
 inherit gnome.org gnome2-utils meson vala xdg
 
 DESCRIPTION="Clocks application for GNOME"
-HOMEPAGE="https://wiki.gnome.org/Apps/Clocks https://gitlab.gnome.org/GNOME/gnome-clocks"
+HOMEPAGE="https://apps.gnome.org/Clocks/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.72:2
@@ -19,7 +19,7 @@ RDEPEND="
 	gnome-base/gnome-desktop:4=
 	>=sci-geosciences/geocode-glib-1:2
 	>=app-misc/geoclue-2.4:2.0
-	>=gui-libs/libadwaita-1.4_alpha:1
+	>=gui-libs/libadwaita-1.5:1
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
