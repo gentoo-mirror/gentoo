@@ -130,6 +130,7 @@ acct-group/github-exporter 0-r2: System group: github-exporter
 acct-group/gitlab-runner 1-r2: System group: gitlab-runner
 acct-group/gkrellmd 0-r3: System group: gkrellmd
 acct-group/gluster 0-r3: System group: gluster
+acct-group/gnome-remote-desktop 0: System group: gnome-remote-desktop
 acct-group/gns3 0-r1: System group: gns3
 acct-group/gnump3d 0-r2: A group for media-sound/gnump3d
 acct-group/gnupg-pkcs11 0-r2: Group for app-crypt/gnupg-pkcs11-scd
@@ -573,6 +574,7 @@ acct-user/github-exporter 0-r2: user for github-exporter
 acct-user/gitlab-runner 1-r2: Dedicated user for gitlab-runner
 acct-user/gkrellmd 0-r3: user for gkrellm daemon
 acct-user/gluster 0-r3: System user: gluster
+acct-user/gnome-remote-desktop 0: User for running gnome-remote-desktop
 acct-user/gns3 0-r1: System user: gns3
 acct-user/gnump3d 0-r2: A user for media-sound/gnump3d
 acct-user/gnupg-pkcs11-scd-proxy 0-r2: User for app-crypt/gnupg-pkcs11-scd
@@ -1336,7 +1338,7 @@ app-containers/cadvisor 0.36.0 0.49.2: Analyzes resource usage and performance c
 app-containers/catatonit 0.2.0 9999: A container init that is so simple it's effectively brain-dead
 app-containers/cni-plugins 1.3.0 1.5.1 1.6.1: Standard networking plugins for container networking
 app-containers/conmon 2.1.8 2.1.10 2.1.11 9999: An OCI container runtime monitor
-app-containers/containerd 2.0.1: A daemon to control runC
+app-containers/containerd 2.0.1 2.0.2: A daemon to control runC
 app-containers/containers-common 0.59.1 0.60.4 9999: Common config files and docs for Containers stack
 app-containers/containers-image 5.30.0 5.32.2 9999: Default config and docs related to Containers' images
 app-containers/containers-shortnames 2023.02.20 9999: Configures default shortnames (aliases) for Containers
@@ -1348,10 +1350,10 @@ app-containers/crun 1.14.3 1.16 1.17 1.19.1: A fast and low-memory footprint OCI
 app-containers/devcontainer 0.72.0: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.8.0 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1: System container image builder for LXC and incus
-app-containers/docker 27.4.1-r1: The core functions you need to create Docker images and run Docker containers
+app-containers/docker 27.4.1-r1 27.5.0: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.6.0: Test for best practices around deploying docker containers
 app-containers/docker-buildx 0.11.2 0.14.0 0.19.1 9999: Docker CLI plugin for extended build capabilities with BuildKit
-app-containers/docker-cli 27.4.1: the command line binary for docker
+app-containers/docker-cli 27.4.1 27.5.0: the command line binary for docker
 app-containers/docker-compose 1.29.2-r6 1.29.2-r7 2.28.1 2.32.1 2.32.3: Multi-container orchestration for Docker
 app-containers/docker-credential-helpers 0.6.3 0.8.2: Suite of programs to use native stores to keep Docker credentials safe
 app-containers/docker-proxy 0.8.0_p20230118: Docker container networking
@@ -15146,7 +15148,7 @@ net-misc/geomyidae 0.96: A daemon to serve the gopher protocol
 net-misc/gerbera 2.2.0 2.3.0-r1 9999: UPnP Media Server
 net-misc/getdate 1.2-r2: Network Date/Time Query and Set Local Date/Time Utility
 net-misc/gnome-connections 45.0-r2 46.0: A remote desktop client for the GNOME desktop environment
-net-misc/gnome-remote-desktop 45.1-r1 46.3: Remote desktop daemon for GNOME using pipewire
+net-misc/gnome-remote-desktop 45.1-r1 46.3 47.1: Remote desktop server which allows you to connect to your machine remotely
 net-misc/gns3-gui 2.2.51 2.2.52: Graphical Network Simulator
 net-misc/gns3-server 2.2.51 2.2.52: GNS3 server to asynchronously manage emulators
 net-misc/gofish 1.2-r2: Gofish gopher server
