@@ -218,8 +218,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.18-drop-minizip-dep.patch
 	"${FILESDIR}"/${PN}-3.0.21-freerdp-2.patch # bug 919296, 590164
 	"${WORKDIR}"/${P}-taglib2 # bug 938946, in 3.0.x branch
-	"${FILESDIR}"/${PN}-3.0.21-vaapi-without-ffmpeg4.patch # bug 864721, thx Fedora
 	"${FILESDIR}"/${PN}-3.0.2.1-vdpau.patch # bug 946178
+	"${FILESDIR}"/${P}-vaapi-w-ffmpeg5.patch # bug 864721, in 3.0.x branch
 )
 
 DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
