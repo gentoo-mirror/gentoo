@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,17 +6,16 @@ EAPI=8
 inherit gnome.org gnome2-utils meson xdg
 
 DESCRIPTION="GNOME Translation Editor"
-HOMEPAGE="https://wiki.gnome.org/Apps/Gtranslator"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gtranslator/"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
-IUSE="gtk-doc"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 DEPEND="
 	>=dev-libs/glib-2.71.3:2
-	>=gui-libs/gtk-4.6.0:4
-	>=gui-libs/libadwaita-1.1.0
+	>=gui-libs/gtk-4.12.0:4
+	>=gui-libs/libadwaita-1.6_alpha
 	gnome-extra/libgda:5=
 	gnome-base/gsettings-desktop-schemas
 	>=gui-libs/gtksourceview-5.4.0:5
@@ -29,10 +28,6 @@ BDEPEND="
 	dev-libs/appstream-glib
 	dev-libs/libxml2:2
 	dev-util/glib-utils
-	gtk-doc? (
-		>=dev-util/gtk-doc-1.28
-		app-text/docbook-xml-dtd:4.1.2
-	)
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
@@ -44,7 +39,6 @@ PATCHES=(
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use gtk-doc gtk_doc)
 		-Dprofile=default
 	)
 	meson_src_configure
