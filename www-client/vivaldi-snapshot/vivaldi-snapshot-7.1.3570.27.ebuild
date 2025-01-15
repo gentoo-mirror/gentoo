@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -109,7 +109,7 @@ S="${WORKDIR}"
 LICENSE="Vivaldi"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm ~arm64"
-IUSE="ffmpeg-chromium gtk proprietary-codecs qt5 qt6 widevine"
+IUSE="ffmpeg-chromium gtk proprietary-codecs qt6 widevine"
 RESTRICT="bindist mirror"
 #REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
 
@@ -138,11 +138,6 @@ RDEPEND="
 	proprietary-codecs? (
 		!ffmpeg-chromium? ( >=media-video/ffmpeg-6.1-r1:0/58.60.60[chromium] )
 		ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
-	)
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
 	)
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 	widevine? ( www-plugins/chrome-binary-plugins )
@@ -184,9 +179,8 @@ src_prepare() {
 		rmdir ${VIVALDI_HOME}/lib || die
 	fi
 
-	if ! use qt5; then
-		rm ${VIVALDI_HOME}/libqt5_shim.so || die
-	fi
+	# Qt5 is obsolete now.
+	rm ${VIVALDI_HOME}/libqt5_shim.so || die
 
 	if ! use qt6; then
 		rm ${VIVALDI_HOME}/libqt6_shim.so || die
