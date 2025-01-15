@@ -1,10 +1,10 @@
-# Copyright 2017-2024 Gentoo Authors
+# Copyright 2017-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 EGO_PN=github.com/git-lfs/git-lfs
 # Update the ID as it's included in each build.
-COMMIT_ID="6340befc60876f4f039f215479d9d5a945f817e1"
+COMMIT_ID="ea47a34bde1ba1ecf9eb8dc6d44fcf7aef42f5e3"
 
 inherit go-module shell-completion
 
