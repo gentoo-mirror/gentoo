@@ -1171,7 +1171,7 @@ app-arch/pdv 1.5.1-r5: build a self-extracting and self-installing binary packag
 app-arch/pet2tgz 0.3-r1: Puppy Linux .pet to .tar.gz converter
 app-arch/pigz 2.8: A parallel implementation of gzip
 app-arch/pixz 1.0.7-r1 9999: Parallel Indexed XZ compressor
-app-arch/plzip 1.11: Parallel lzip compressor
+app-arch/plzip 1.11 1.12: Parallel lzip compressor
 app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par files
 app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
@@ -1425,7 +1425,7 @@ app-crypt/ekeyd 1.1.5-r101: Entropy Key userspace daemon
 app-crypt/elettra 1.0: Plausible deniable file cryptography
 app-crypt/envchain 1.0.1: Save environment variables in a secret vault
 app-crypt/fcrackzip 1.0: Zip password cracker
-app-crypt/gcr 3.41.1-r2 4.2.1: Libraries for cryptographic UIs and accessing PKCS#11 modules
+app-crypt/gcr 3.41.1-r2 4.2.1 4.3.0: Libraries for cryptographic UIs and accessing PKCS#11 modules
 app-crypt/gifshuffle 2.0-r1: GIF colourmap steganography
 app-crypt/glep63-check 11: GLEP 63 compliance checker for OpenPGP keys
 app-crypt/gnupg 2.2.42-r4 2.2.43-r1 2.2.45 2.4.5-r1 2.4.5-r2 2.4.6-r1 2.4.7 2.5.1: The GNU Privacy Guard, a GPL OpenPGP implementation
@@ -1502,7 +1502,7 @@ app-crypt/sbsigntools 0.9.4-r1 0.9.5: Utilities for signing and verifying files 
 app-crypt/scdrand 0.3.5: Feed kernel entropy pool from smartcard's TRNG
 app-crypt/scrypt 1.3.2: A simple password-based encryption utility using scrypt key derivation function
 app-crypt/scute 1.7.0-r2: A PKCS #11 module for OpenPGP smartcards
-app-crypt/seahorse 43.0-r3 43.0-r4: Manage your passwords and encryption keys
+app-crypt/seahorse 43.0-r4 47.0.1: Manage your passwords and encryption keys
 app-crypt/sequoia-chameleon-gnupg 0.10.1-r1 0.11.2: Sequoia's reimplementation of the GnuPG interface
 app-crypt/sequoia-sq 0.35.0-r1 0.36.0-r1 0.37.0-r1 1.0.0 1.1.0: CLI of the Sequoia OpenPGP implementation
 app-crypt/sequoia-sqv 1.2.1-r1: A simple OpenPGP signature verification program
@@ -1789,10 +1789,10 @@ app-editors/featherpad 1.5.2 9999: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/focuswriter 1.8.8: Fullscreen and distraction-free word processor
 app-editors/gedit 46.2: A text editor for the GNOME desktop
 app-editors/gedit-plugins 46.0-r1: Collection of extra plugins for the gedit Text Editor
-app-editors/ghex 45.2 46.0 9999: GNOME hexadecimal editor
+app-editors/ghex 46.0 46.1 9999: GNOME hexadecimal editor
 app-editors/ghostwriter 24.08.3 24.12.1: Cross-platform, aesthetic, distraction-free markdown editor
 app-editors/gnome-latex 3.46.0: Integrated LaTeX environment for GNOME
-app-editors/gnome-text-editor 45.3 46.3: A simple text editor for the GNOME desktop
+app-editors/gnome-text-editor 46.3 47.2: A simple text editor for the GNOME desktop
 app-editors/gummi 0.8.3: Simple LaTeX editor for GTK+ users
 app-editors/gvim 9.0.2167 9.1.0366 9.1.0470 9.1.0794 9999: GUI version of the Vim text editor
 app-editors/helix 24.07-r1 25.01: A post-modern text editor
@@ -3283,6 +3283,7 @@ app-text/libodfgen 0.1.8 9999: Library to generate ODF documents from libwpd and
 app-text/libpaper 2.1.3: Library for handling paper characteristics
 app-text/libqxp 0.0.2: Library parsing QuarkXpress documents
 app-text/libspectre 0.2.11 0.2.12: Library for rendering Postscript documents
+app-text/libspelling 0.4.5: A GNOME library for spellchecking
 app-text/libstaroffice 0.0.7 9999: Import filter for old StarOffice documents
 app-text/libwpd 0.10.3: WordPerfect Document import/export library
 app-text/libwpg 0.3.4: C++ library to read and parse graphics in WPG
@@ -5466,7 +5467,7 @@ dev-libs/libdbh 5.0.22: A small library to create and manage 64-bit disk based h
 dev-libs/libdbusmenu 16.04.0-r2: Library to pass menu structure across DBus
 dev-libs/libdbusmenu-lxqt 0.1.0 0.2.0: LXQt DBusMenu Implementation
 dev-libs/libdbusmenu-qt 0.9.3_pre20160218-r3: Library providing Qt implementation of DBusMenu specification
-dev-libs/libdex 0.4.3 0.6.1: Dex provides Future-based programming for GLib-based applications
+dev-libs/libdex 0.6.1 0.8.1: Dex provides Future-based programming for GLib-based applications
 dev-libs/libdispatch 5.7.1 5.7.3 5.8: A library for concurrent code execution on multicore hardware
 dev-libs/libdivecomputer 0.6.0-r1 9999: Library for communication with dive computers from various manufacturers
 dev-libs/libdivsufsort 2.0.1-r2: Suffix-sorting library (for BWT)
@@ -10802,7 +10803,7 @@ dev-util/glade 3.40.0-r1: A user interface designer for GTK+ and GNOME
 dev-util/glib-utils 2.76.4 2.78.3 2.78.4 2.78.6 2.80.4 2.80.5 2.82.2 2.82.4: Build utilities for GLib using projects
 dev-util/global 6.6.4 6.6.10 6.6.13 6.6.14: Tag system to find an object location in various sources
 dev-util/glslang 1.3.290.0 1.3.296.0-r1 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
-dev-util/gnome-builder 44.2-r1 46.3: An IDE for writing GNOME-based software
+dev-util/gnome-builder 46.3 47.2: An IDE for writing GNOME-based software
 dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME desktop environment
 dev-util/gob 2.0.20-r1: Preprocessor for making GTK+ objects with inline C code
 dev-util/goland 2022.3.3-r1: Golang IDE by JetBrains
@@ -11921,7 +11922,7 @@ gnome-extra/gnome-characters 46.0 47.0: Unicode character map viewer and library
 gnome-extra/gnome-clocks 46.0 47.0: Clocks application for GNOME
 gnome-extra/gnome-color-manager 3.36.0: GNOME color profile tools
 gnome-extra/gnome-commander 1.18.1-r1: A graphical, full featured, twin-panel file manager
-gnome-extra/gnome-contacts 45.1 46.0: GNOME contact management application
+gnome-extra/gnome-contacts 46.0 47.1.1: GNOME contact management application
 gnome-extra/gnome-directory-thumbnailer 0.1.11-r1: Thumbnail generator for directories
 gnome-extra/gnome-firmware 45.0 46.0 47.0-r1: Install firmware on devices
 gnome-extra/gnome-getting-started-docs 3.38.1: Help a new user get started in GNOME
@@ -12057,7 +12058,7 @@ gui-libs/gdk-pixbuf-loader-webp 0.2.4 0.2.7: WebP GDK Pixbuf Loader library
 gui-libs/greetd 0.10.0-r1 0.10.3-r1: ipc based login daemon
 gui-libs/gtk 4.12.5-r2 4.14.3-r1 4.14.4-r1 4.16.12: GTK is a multi-platform toolkit for creating graphical user interfaces
 gui-libs/gtk-layer-shell 0.8.2 0.9.0: Library to create desktop components for Wayland using the Layer Shell protocol
-gui-libs/gtksourceview 5.10.0 5.12.1: A text widget implementing syntax highlighting and other features
+gui-libs/gtksourceview 5.12.1 5.14.2: A text widget implementing syntax highlighting and other features
 gui-libs/hyprcursor 0.1.9 0.1.10-r1 0.1.10-r2 0.1.11 9999: The hyprland cursor format, library and utilities
 gui-libs/hyprland-qtutils 0.1.1: Hyprland QT/qml utility apps
 gui-libs/hyprutils 0.2.6 0.3.0-r1 9999: Hyprland utilities library used across the ecosystem
@@ -12066,7 +12067,7 @@ gui-libs/libdecor 0.2.2-r1 9999: A client-side decorations library for Wayland c
 gui-libs/libgedit-amtk 5.8.0: Actions, Menus and Toolbars Kit for GTK applications
 gui-libs/libgedit-gtksourceview 299.0.4: Gedit Technology - Source code editing widget
 gui-libs/libhandy 1.8.3: Building blocks for modern adaptive GNOME apps
-gui-libs/libpanel 1.4.1 1.6.0: A dock/panel library for GTK 4
+gui-libs/libpanel 1.6.0 1.8.1: A dock/panel library for GTK 4
 gui-libs/libwpe 1.14.2: Platform-agnostic interfaces for WPE WebKit
 gui-libs/neatvnc 0.8.1 0.9.2 9999: Liberally licensed VNC server library with a clean interface
 gui-libs/tepl 5.0.1-r1 6.8.0: GtkSourceView-based text editors and IDE helper library
@@ -13163,7 +13164,7 @@ media-libs/glfw 3.3.8 3.3.9 3.4: Portable OpenGL FrameWork
 media-libs/glm 1.0.1: OpenGL Mathematics
 media-libs/glpng 1.46-r1: OpenGL PNG image library
 media-libs/glu 9.0.3 9999: The OpenGL Utility Library
-media-libs/glycin-loaders 1.1.2 1.1.4: Loaders for glycin clients (glycin crate or libglycin)
+media-libs/glycin-loaders 1.1.4: Loaders for glycin clients (glycin crate or libglycin)
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
 media-libs/gmmlib 22.5.2 22.5.3 22.5.4 22.5.5 22.6.0 9999: Intel Graphics Memory Management Library
 media-libs/graphene 1.10.8-r1: A thin layer of types for graphic libraries
@@ -14819,7 +14820,7 @@ net-libs/farstream 0.2.9-r1: Audio/video conferencing framework specifically des
 net-libs/freaklabs-chibiarduino 1.0.8_p20190329 9999: freaklabs fork of the lightweight wireless sensor library for Arduino
 net-libs/glib-networking 2.76.1 2.78.0 2.78.1 2.80.0 2.80.1: Network-related giomodules for glib
 net-libs/gloox 1.0.24-r1 1.0.28: A portable high-level Jabber/XMPP client library for C++
-net-libs/gnome-online-accounts 3.48.1 3.50.3 3.50.4: GNOME framework for accessing online accounts
+net-libs/gnome-online-accounts 3.48.1 3.50.4 3.52.3.1: GNOME framework for accessing online accounts
 net-libs/gnutls 3.8.7.1-r1 3.8.8: A secure communications library implementing the SSL, TLS and DTLS protocols
 net-libs/google-cloud-cpp 2.19.0 2.30.0: Google Cloud Client Library for C++
 net-libs/grpc 1.52.1 1.55.1 1.56.1 1.57.0-r1 1.60.0 1.62.1 1.65.1 1.66.0: Modern open source high performance RPC framework

@@ -1,17 +1,17 @@
 BDEPEND=gtk-doc? ( dev-util/gi-docgen ) test? ( dev-util/desktop-file-utils dev-libs/appstream-glib ) dev-util/gtk-update-icon-cache dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
-DEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4[introspection] gui-libs/libadwaita:1 dev-libs/gobject-introspection !app-editors/ghex:2
+DEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4 >=gui-libs/libadwaita-1.2:1 dev-libs/gobject-introspection !app-editors/ghex:2
 DESCRIPTION=GNOME hexadecimal editor
 EAPI=8
-HOMEPAGE=https://wiki.gnome.org/Apps/Ghex
+HOMEPAGE=https://gitlab.gnome.org/GNOME/ghex
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson xdg
 IUSE=gtk-doc test
-KEYWORDS=amd64 ~arm ~arm64 ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+ FDL-1.1+
-RDEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4[introspection] gui-libs/libadwaita:1 dev-libs/gobject-introspection !app-editors/ghex:2
+RDEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4 >=gui-libs/libadwaita-1.2:1 dev-libs/gobject-introspection !app-editors/ghex:2
 RESTRICT=!test? ( test )
 SLOT=4
-SRC_URI=mirror://gnome/sources/ghex/45/ghex-45.2.tar.xz
+SRC_URI=mirror://gnome/sources/ghex/46/ghex-46.1.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=550a44d3e603aef274140c9a2e9c8e41
+_md5_=fec778930fe41724c3799dcd2eecb82d
