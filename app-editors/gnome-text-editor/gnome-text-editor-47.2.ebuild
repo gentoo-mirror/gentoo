@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,17 +12,18 @@ S="${WORKDIR}/gnome-text-editor-${PV/_/.}"
 LICENSE="GPL-3+ CC-BY-SA-3.0"
 SLOT="0"
 
-IUSE="spell"
+KEYWORDS="~amd64"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+IUSE="+editorconfig spell"
 
 DEPEND="
-	>=dev-libs/glib-2.73.0:2
-	>=gui-libs/gtk-4.7:4
-	>=gui-libs/gtksourceview-5.5.0:5
-	>=gui-libs/libadwaita-1.4_alpha:1
+	>=dev-libs/glib-2.80.0:2
+	>=gui-libs/gtk-4.15:4
+	>=gui-libs/gtksourceview-5.10.0:5
+	>=gui-libs/libadwaita-1.6_alpha:1
 	app-text/editorconfig-core-c
 	x11-libs/cairo
+	>=app-text/libspelling-0.3.0
 	spell? (
 		>=app-text/enchant-2.2.0:2
 		dev-libs/icu:=
@@ -41,6 +42,7 @@ BDEPEND="
 src_configure() {
 	local emesonargs=(
 		$(meson_feature spell enchant)
+		$(meson_feature editorconfig)
 		-Dbugreport_url="https://bugs.gentoo.org"
 	)
 	meson_src_configure

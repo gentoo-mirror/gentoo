@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ LICENSE="LGPL-2+"
 SLOT="0/1"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
-IUSE="debug gnome gtk-doc +introspection kerberos man ms365 +vala"
+IUSE="debug doc gnome +introspection kerberos ms365 +vala"
 REQUIRED_USE="vala? ( introspection )"
 
 # libsoup used in goaoauthprovider
@@ -23,11 +23,12 @@ RDEPEND="
 	>=dev-libs/glib-2.67.4:2
 	sys-apps/dbus
 	introspection? ( >=dev-libs/gobject-introspection-0.6.2:= )
-	>=gui-libs/libadwaita-1.4
-	>=gui-libs/gtk-4.10:4
+	>=gui-libs/libadwaita-1.6_beta
+	>=gui-libs/gtk-4.15.2:4
 	>=dev-libs/json-glib-0.16
 	>=app-crypt/libsecret-0.5
 	>=net-libs/libsoup-3.0:3.0
+	>=sys-apps/keyutils-1.6.2
 	dev-libs/libxml2:2
 	>=net-libs/rest-0.9.0:1.0
 	kerberos? (
@@ -48,7 +49,7 @@ DEPEND="${RDEPEND}
 	dev-libs/gobject-introspection-common
 	gnome-base/gnome-common
 "
-BDEPEND="gtk-doc? ( dev-util/gtk-doc )"
+BDEPEND="doc? ( dev-util/gi-docgen )"
 
 src_prepare() {
 	default
@@ -67,11 +68,18 @@ src_configure() {
 		-Downcloud=true
 		-Dwebdav=true
 		-Dwindows_live=true
-		$(meson_use gtk-doc gtk_doc)
+		$(meson_use doc documentation)
 		$(meson_use ms365 ms_graph)
 		$(meson_use introspection)
 		-Dman=true
 		$(meson_use vala vapi)
 	)
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+	if use doc; then
+		mv "${ED}"/usr/share/doc/${PN} "${ED}"/usr/share/doc/${PF} || die
+	fi
 }

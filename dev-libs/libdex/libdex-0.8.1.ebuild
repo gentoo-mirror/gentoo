@@ -1,16 +1,16 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit gnome.org linux-info meson vala
 
-DESCRIPTION="Deferred Execution library for GNOME and GTK"
+DESCRIPTION="Dex provides Future-based programming for GLib-based applications"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/libdex"
 
 LICENSE="LGPL-2.1+"
 SLOT="0/1"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 IUSE="+eventfd gtk-doc +introspection +liburing sysprof test vala"
 REQUIRED_USE="

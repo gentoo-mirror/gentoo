@@ -1,17 +1,17 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit gnome.org gnome2-utils meson python-any-r1 vala xdg
 
 DESCRIPTION="GNOME contact management application"
-HOMEPAGE="https://wiki.gnome.org/Design/Apps/Contacts"
+HOMEPAGE="https://apps.gnome.org/Contacts/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="+gnome-online-accounts"
 
 VALA_DEPEND="
@@ -20,16 +20,17 @@ VALA_DEPEND="
 	dev-libs/folks[vala(+)]
 	gnome-online-accounts? ( net-libs/gnome-online-accounts[vala] )
 	gnome-extra/evolution-data-server[gtk,vala]
-	>=dev-libs/libportal-0.6:=[gtk,vala]
+	>=dev-libs/libportal-0.7:=[gtk,vala]
 "
 RDEPEND="
 	>=dev-libs/folks-0.14.0:=[eds]
 	>=dev-libs/libgee-0.10:0.8=
 	>=dev-libs/glib-2.64:2
-	>=gui-libs/gtk-4.12:4
-	>=gui-libs/libadwaita-1.4_alpha:1
+	>=gui-libs/gtk-4.15.3:4
+	>=gui-libs/libadwaita-1.6_alpha:1
 	>=gnome-extra/evolution-data-server-3.42:=[gnome-online-accounts?]
-	>=dev-libs/libportal-0.6:=
+	>=dev-libs/libportal-0.7:=
+	>=media-libs/gstreamer-1
 	>=media-gfx/qrencode-4.1.1:=
 	gnome-online-accounts? ( net-libs/gnome-online-accounts:= )
 "
@@ -39,16 +40,11 @@ BDEPEND="
 	${VALA_DEPEND}
 	app-text/docbook-xml-dtd:4.2
 	app-text/docbook-xsl-stylesheets
-	dev-libs/appstream-glib
 	dev-libs/libxml2:2
 	dev-libs/libxslt
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PV}-clang.patch # Upstream commit a6ad56a6151f29
-)
 
 src_prepare() {
 	default

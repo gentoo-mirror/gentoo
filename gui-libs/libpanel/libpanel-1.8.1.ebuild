@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/libpanel"
 
 LICENSE="LGPL-3+"
 SLOT="1"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 IUSE="examples gtk-doc +introspection +vala"
 REQUIRED_USE="
@@ -19,14 +19,13 @@ REQUIRED_USE="
 "
 
 RDEPEND="
-	>=dev-libs/glib-2.75:2
-	>=gui-libs/gtk-4.8:4[introspection?]
-	>=gui-libs/libadwaita-1.2:1
+	>=dev-libs/glib-2.80:2
+	>=gui-libs/gtk-4.15:4[introspection?]
+	>=gui-libs/libadwaita-1.6:1
 	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-util/glib-utils
 	gtk-doc? ( >=dev-util/gi-docgen-2021.1 )
 	vala? ( $(vala_depend) )
 "

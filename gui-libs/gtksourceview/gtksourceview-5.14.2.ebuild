@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,17 +6,17 @@ EAPI=8
 inherit gnome.org meson vala virtualx xdg
 
 DESCRIPTION="A text widget implementing syntax highlighting and other features"
-HOMEPAGE="https://wiki.gnome.org/Projects/GtkSourceView"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gtksourceview"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
 
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk-doc +introspection sysprof +vala"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
 	vala? ( introspection )
 "
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.72:2
@@ -46,10 +46,10 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
-		-Dinstall_tests=false
+		-Dinstall-tests=false
 		$(meson_feature introspection)
 		$(meson_use vala vapi)
-		$(meson_use gtk-doc gtk_doc)
+		$(meson_use gtk-doc documentation)
 		$(meson_use sysprof)
 	)
 	meson_src_configure

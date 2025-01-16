@@ -1,17 +1,17 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit gnome.org gnome2-utils meson python-any-r1 vala xdg
 
 DESCRIPTION="Manage your passwords and encryption keys"
-HOMEPAGE="https://wiki.gnome.org/Apps/Seahorse"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/seahorse"
 
 LICENSE="GPL-2+ FDL-1.1+"
 SLOT="0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="ldap zeroconf"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.66:2
@@ -46,12 +46,6 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-gnupg-2.4.patch
-	"${FILESDIR}"/${P}-musl-stdout.patch
-	"${FILESDIR}"/${P}-clang16.patch
-)
 
 src_prepare() {
 	default

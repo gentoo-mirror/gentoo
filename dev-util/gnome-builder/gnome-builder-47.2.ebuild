@@ -1,20 +1,20 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 DISABLE_AUTOFORMATTING=1
 FORCE_PRINT_ELOG=1
 
 inherit gnome.org gnome2-utils llvm meson optfeature python-single-r1 readme.gentoo-r1 virtualx xdg
 
 DESCRIPTION="An IDE for writing GNOME-based software"
-HOMEPAGE="https://wiki.gnome.org/Apps/Builder https://gitlab.gnome.org/GNOME/gnome-builder"
+HOMEPAGE="https://apps.gnome.org/Builder/ https://gitlab.gnome.org/GNOME/gnome-builder"
 
 # FIXME: Review licenses at some point
 LICENSE="GPL-3+ GPL-2+ LGPL-3+ LGPL-2+ MIT CC-BY-SA-3.0 CC0-1.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64"
 IUSE="clang doc +d-spy flatpak +git gtk-doc spell +sysprof test +webkit"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -31,26 +31,23 @@ REQUIRED_USE="
 # Editorconfig needs old pcre, with vte migrating away, might want it optional or ported to pcre2?
 # An introspection USE flag of a dep is required if any introspection based language plugin wants to use it (grep for gi.repository). Last full check at 3.28.4
 
-# >=gtk-4.12.5 for relying on GtkStackPage autoptr cleanup added in that version
-
 # TODO: Handle llvm slots via llvm.eclass; see plugins/clang/meson.build
 RDEPEND="
-	>=dev-libs/glib-2.75.0:2
-	>=gui-libs/gtk-4.12.5:4[introspection]
-	>=gui-libs/libadwaita-1.3.0:1
-	>=gui-libs/libpanel-1.1.2:1
-	>=gui-libs/gtksourceview-5.7.2:5[introspection]
+	>=dev-libs/glib-2.75:2
+	>=gui-libs/gtk-4.15.5:4[introspection]
+	>=gui-libs/libadwaita-1.6_alpha:1
+	>=gui-libs/libpanel-1.7.0:1
+	>=gui-libs/gtksourceview-5.8:5[introspection]
 	>=dev-libs/json-glib-1.2.0
 	>=dev-libs/jsonrpc-glib-3.43.0:=
-	>=dev-libs/libdex-0.1.1:=
-	>=dev-libs/libpeas-1.34.0:0[python,${PYTHON_SINGLE_USEDEP}]
+	>=dev-libs/libdex-0.7:=
+	>=dev-libs/libpeas-1.99.0:2[python,${PYTHON_SINGLE_USEDEP}]
 	dev-libs/libportal:=[gtk,introspection]
 	>=dev-libs/template-glib-3.36.1:=[introspection]
-	>=gui-libs/vte-0.70.0:2.91-gtk4[introspection]
+	>=gui-libs/vte-0.75.0:2.91-gtk4[introspection]
 	>=dev-libs/libxml2-2.9.0
 	webkit? ( >=net-libs/webkit-gtk-2.38.0:6=[introspection] )
 	>=app-text/cmark-0.29.0:0=
-	d-spy? ( >=dev-debug/d-spy-1.4.0:1 )
 	app-text/editorconfig-core-c
 	flatpak? (
 		dev-util/ostree
@@ -62,19 +59,14 @@ RDEPEND="
 		>=dev-libs/libgit2-glib-1.1.0[ssh]
 	)
 
-	>=dev-libs/gobject-introspection-1.54.0:=
-	$(python_gen_cond_dep '
-		>=dev-python/pygobject-3.22.0:3[${PYTHON_USEDEP}]
-	')
+	>=dev-libs/gobject-introspection-1.74.0:=
 	${PYTHON_DEPS}
 	clang? ( llvm-core/clang:= )
 	spell? (
-		app-text/enchant:2
-		dev-libs/icu:=
+		>=app-text/libspelling-0.3
 	)
 	sysprof? (
-		>=dev-util/sysprof-capture-3.46.0:4
-		>=dev-util/sysprof-3.46.0:0/4
+		>=dev-util/sysprof-45.0[gtk]
 	)
 "
 DEPEND="${RDEPEND}"
@@ -128,10 +120,6 @@ that are currently available with packages include:
 # stylelint for stylesheet (CSS and co) linting
 # gvls for vala language-server integration
 
-PATCHES=(
-	"${FILESDIR}"/${PV}-fix-gtk-4.12.5-build.patch
-)
-
 llvm_check_deps() {
 	has_version "llvm-core/clang:${LLVM_SLOT}"
 }
@@ -139,13 +127,6 @@ llvm_check_deps() {
 pkg_setup() {
 	python-single-r1_pkg_setup
 	use clang && llvm_pkg_setup
-}
-
-src_prepare() {
-	default
-
-	# Fails with clang due to `environ` variable name shadowing unistd.h one
-	sed -i -e '/-Werror=shadow/d' meson.build || die
 }
 
 src_configure() {
@@ -184,9 +165,11 @@ src_configure() {
 		$(meson_use d-spy plugin_dspy)
 		-Dplugin_dub=true
 		-Dplugin_editorconfig=true
+		-Dplugin_elixir_ls=true
 		-Dplugin_eslint=true
 		-Dplugin_file_search=true
 		$(meson_use flatpak plugin_flatpak)
+		-Dplugin_flake8=true
 		-Dplugin_gdb=true
 		-Dplugin_gdiagnose=true
 		-Dplugin_gettext=true
@@ -206,10 +189,12 @@ src_configure() {
 		-Dplugin_lua_language_server=true
 		-Dplugin_make=true
 		-Dplugin_make_templates=true
+		-Dplugin_manuals=false
 		$(meson_use webkit plugin_markdown_preview)
 		$(meson_use webkit plugin_markdown_indenter)
 		-Dplugin_maven=true
 		-Dplugin_meson=true
+		-Dplugin_mesonlsp=true
 		-Dplugin_meson_templates=true
 		-Dplugin_modelines=true
 		-Dplugin_mono=true
