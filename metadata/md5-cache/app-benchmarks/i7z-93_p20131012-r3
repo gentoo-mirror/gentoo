@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install
+DEPEND=sys-libs/ncurses:0= qt6? ( policykit? ( sys-auth/polkit ) dev-qt/qtbase:6[gui,widgets] )
+DESCRIPTION=A better i7 (and now i3, i5) reporting tool for Linux
+EAPI=8
+HOMEPAGE=https://github.com/ajaiantilal/i7z
+INHERIT=desktop qmake-utils toolchain-funcs
+IUSE=policykit qt6
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:0= qt6? ( policykit? ( sys-auth/polkit ) dev-qt/qtbase:6[gui,widgets] )
+SLOT=0
+SRC_URI=https://github.com/ajaiantilal/i7z/archive/5023138d7c35c4667c938b853e5ea89737334e92.tar.gz -> i7z-93_p20131012.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=145f569b3868452b1825d89d427ef0f3
