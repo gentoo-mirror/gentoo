@@ -28,8 +28,9 @@ DEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
-	x11-libs/libxcb
+	x11-libs/libXcursor
 	x11-libs/libXdamage
+	x11-libs/libxcb
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-wm
@@ -38,21 +39,25 @@ DEPEND="
 RDEPEND="${DEPEND}
 	app-admin/sysstat
 	media-sound/alsa-utils
+	sys-apps/dbus
 	sys-fs/inotify-tools
 	sys-power/acpi
 	|| (
 		x11-apps/xbacklight
 		sys-power/acpilight
 	)
+	x11-apps/xinit
 	x11-apps/xrandr
 	x11-misc/numlockx
+	x11-misc/xcompmgr
+	x11-misc/xscreensaver
 	x11-wm/fluxbox"
 
 BDEPEND="
 	dev-qt/linguist-tools:5"
 
 PATCHES=(
-	"${FILESDIR}/1.6.1-desktop-files.patch"
+	"${FILESDIR}/desktop-files.patch"
 )
 
 DOCS=( README.md )
