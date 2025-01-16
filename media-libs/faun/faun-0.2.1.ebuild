@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,23 +6,24 @@ EAPI=8
 inherit edo toolchain-funcs
 
 DESCRIPTION="A high-level C audio library"
-HOMEPAGE="https://wickedsmoke.github.io/faun/"
-SRC_URI="https://github.com/WickedSmoke/faun/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://wickedsmoke.codeberg.page/faun_doc/"
+SRC_URI="https://codeberg.org/wickedsmoke/faun/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
-# based on COPYING file
-LICENSE="MIT flac? ( GPL-2 )"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="flac"
 
 DEPEND="
+	flac? ( media-libs/flac )
 	media-libs/libpulse
 	media-libs/libvorbis
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.1.2_makefile.patch"
+	"${FILESDIR}/${PN}-0.2.1_makefile.patch"
 )
 
 src_configure() {

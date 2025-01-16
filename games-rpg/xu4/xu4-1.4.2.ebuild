@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,14 +10,14 @@ SRC_URI="https://github.com/xu4-engine/u4/archive/refs/tags/v${PV}.tar.gz -> ${P
 	https://downloads.sourceforge.net/xu4/u4upgrad.zip"
 S="${WORKDIR}/u4-${PV}/"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/boron
 	media-libs/allegro:5[opengl]
-	media-libs/faun
+	>=media-libs/faun-0.2.1
 	media-libs/libglvnd
 	media-libs/libpng:=
 	sys-libs/zlib:=[minizip]
