@@ -7,11 +7,11 @@ HOMEPAGE=https://mkvtoolnix.download/ https://gitlab.com/mbunkus/mkvtoolnix
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools flag-o-matic multiprocessing prefix qmake-utils xdg verify-sig
 IUSE=debug dvd gui nls pch test verify-sig
-KEYWORDS=~amd64 ~ppc ppc64 ~x86
+KEYWORDS=amd64 ~ppc ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/boost:= dev-libs/gmp:= >=dev-libs/libebml-1.4.5:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus] media-libs/flac:= >=media-libs/libmatroska-1.7.1:= media-libs/libogg media-libs/libvorbis sys-libs/zlib dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 media-libs/libglvnd )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://mkvtoolnix.download/sources/mkvtoolnix-88.0.tar.xz verify-sig? ( https://mkvtoolnix.download/sources/mkvtoolnix-88.0.tar.xz.sig )
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=dce5b174941cdc0fff738a3122a5315c
+_md5_=a46e1889f6ac09cbaaa7c56ab5343b7b
