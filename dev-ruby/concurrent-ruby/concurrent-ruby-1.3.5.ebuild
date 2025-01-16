@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,5 +34,7 @@ all_ruby_prepare() {
 	# Remove specs for the ext gem
 	rm -rf spec/concurrent/atomic || die
 
-	sed -i 's/git ls-files/find * -print/' ${RUBY_FAKEGEM_GEMSPEC} || die
+	sed -e 's/git ls-files/find * -print/' \
+		-e "s/__dir__/'.'/" \
+		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 }
