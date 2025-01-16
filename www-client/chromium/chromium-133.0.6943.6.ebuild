@@ -47,7 +47,7 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 		https://chromium-fonts.storage.googleapis.com/${TEST_FONT} -> chromium-testfonts-${TEST_FONT:0:10}.tar.gz
 	)
 	ppc64? (
-		https://gitlab.solidsilicon.io/public-development/open-source/chromium/openpower-patches/-/archive/${PPC64_HASH}/openpower-patches-${PPC64_HASH}.tar.bz2 -> chromium-openpower-${PPC64_HASH:0:10}.tar.bz2
+		https://gitlab.raptorengineering.com/raptor-engineering-public/chromium/openpower-patches/-/archive/${PPC64_HASH}/openpower-patches-${PPC64_HASH}.tar.bz2 -> chromium-openpower-${PPC64_HASH:0:10}.tar.bz2
 	)
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
@@ -187,6 +187,9 @@ BDEPEND="
 		llvm-core/clang:${LLVM_SLOT}
 		llvm-core/llvm:${LLVM_SLOT}
 		llvm-core/lld:${LLVM_SLOT}
+		official? (
+			!ppc64? ( llvm-runtimes/compiler-rt-sanitizers:${LLVM_SLOT}[cfi] )
+		)
 	')
 	pgo? (
 		>=dev-python/selenium-3.141.0
@@ -405,8 +408,10 @@ src_prepare() {
 		local patchset_dir="${WORKDIR}/openpower-patches-${PPC64_HASH}/patches"
 		# patch causes build errors on 4K page systems (https://bugs.gentoo.org/show_bug.cgi?id=940304)
 		local page_size_patch="ppc64le/third_party/use-sysconf-page-size-on-ppc64.patch"
-		# Apply the OpenPOWER patches (check for page size)
-		openpower_patches=( $(grep -E "^ppc64le|^upstream" "${patchset_dir}/series" | grep -v "${page_size_patch}" || die) )
+		local isa_3_patch="ppc64le/core/baseline-isa-3-0.patch"
+		# Apply the OpenPOWER patches (check for page size and isa 3.0)
+		openpower_patches=( $(grep -E "^ppc64le|^upstream" "${patchset_dir}/series" | grep -v "${page_size_patch}" |
+			grep -v "${isa_3_patch}" || die) )
 		for patch in "${openpower_patches[@]}"; do
 			PATCHES+=( "${patchset_dir}/${patch}" )
 		done
@@ -415,7 +420,7 @@ src_prepare() {
 		fi
 		# We use vsx3 as a proxy for 'want isa3.0' (POWER9)
 		if use cpu_flags_ppc_vsx3 ; then
-			PATCHES+=( "${patchset_dir}/ppc64le/core/baseline-isa-3-0.patch" )
+			PATCHES+=( +"${patchset_dir}/${isa_3_patch}" )
 		fi
 	fi
 
@@ -1118,7 +1123,11 @@ chromium_configure() {
 		# Allow building against system libraries in official builds
 		sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' \
 			tools/generate_shim_headers/generate_shim_headers.py || die
-		myconf_gn+=" is_cfi=${use_lto}"
+		if use ppc64; then
+			myconf_gn+=" is_cfi=no" # requires llvm-runtimes/compiler-rt-sanitizers[cfi]
+		else
+			myconf_gn+=" is_cfi=${use_lto}"
+		fi
 		# Don't add symbols to build
 		myconf_gn+=" symbol_level=0"
 	fi
