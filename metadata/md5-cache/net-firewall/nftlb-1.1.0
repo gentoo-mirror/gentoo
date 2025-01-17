@@ -1,0 +1,15 @@
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=prepare setup test
+DEPEND=net-firewall/nftables:=[modern-kernel(+)] dev-libs/jansson:= dev-libs/libev:=
+DESCRIPTION=nftables load balancer
+EAPI=8
+HOMEPAGE=https://www.relianoid.com/nftlb https://github.com/relianoid/nftlb
+INHERIT=linux-info autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=AGPL-3
+RDEPEND=net-firewall/nftables:=[modern-kernel(+)] dev-libs/jansson:= dev-libs/libev:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/relianoid/nftlb/archive/v1.1.0.tar.gz -> nftlb-1.1.0.gh.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe
+_md5_=68eeea9e617daf795df08b6b8c087164
