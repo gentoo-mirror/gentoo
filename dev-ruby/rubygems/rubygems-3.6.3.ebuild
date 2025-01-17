@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby31 ruby32 ruby33 ruby34"
 
 inherit ruby-ng prefix
 
@@ -28,6 +28,7 @@ ruby_add_bdepend "
 		dev-ruby/minitest:5
 		dev-ruby/rake
 		dev-ruby/rdoc
+		dev-ruby/test-unit
 		dev-ruby/webrick
 	)"
 
@@ -55,9 +56,15 @@ all_ruby_prepare() {
 	sed -e '/test_gem_exec_gem_uninstall/aomit "requires network"' \
 		-i test/rubygems/test_gem_commands_exec_command.rb || die
 
-	# Update manifest after changing files to avoid a test failure
+	# Avoid tests with newer rdoc versions. These tests have been disabled upstream.
+	sed -e '/test_execute_rdoc/aomit "no longer needed with rdoc 6.9.0"' \
+		-i test/rubygems/test_gem_commands_{install,update}_command.rb || die
+
+	# Update manifest after changing files to avoid a test failure. Set
+	# RUBYLIB to ensure that we consistently use the new code for
+	# rubygems and the bundled bundler.
 	if use test; then
-		rake update_manifest || die
+		RUBYLIB=lib rake update_manifest || die
 	fi
 }
 
