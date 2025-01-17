@@ -1,10 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 GNOME_ORG_MODULE="network-manager-applet"
 
-inherit gnome.org gnome2-utils meson xdg
+inherit flag-o-matic gnome.org gnome2-utils meson xdg
 
 DESCRIPTION="NetworkManager connection editor and applet"
 HOMEPAGE="https://wiki.gnome.org/Projects/NetworkManager"
@@ -39,6 +40,10 @@ BDEPEND="
 "
 
 src_configure() {
+	# Workaround for LLD (bug #947147)
+	# https://gitlab.gnome.org/GNOME/network-manager-applet/-/work_items/197
+	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+
 	local emesonargs=(
 		-Dappindicator=$(usex appindicator ayatana no)
 		$(meson_use modemmanager wwan)
