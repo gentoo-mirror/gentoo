@@ -3964,7 +3964,7 @@ dev-db/mariadb 10.6.15 10.6.17 10.6.20 10.11.10 11.4.4: An enhanced, drop-in rep
 dev-db/mariadb-connector-c 3.3.8 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.26 5.0.30: A high-performance, open source, schema-free document-oriented database
-dev-db/mycli 1.27.2: CLI for MySQL Database with auto-completion and syntax highlighting
+dev-db/mycli 1.27.2 1.29.2: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.15.2.8-r1 0.16.7.5 0.16.11.2: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 5.7.41 8.0.37 8.0.40: A fast, multi-threaded, multi-user SQL database server
@@ -9000,6 +9000,7 @@ dev-python/pyflakes 3.2.0: Passive checker for Python programs
 dev-python/pyformance 0.4-r2: Performance metrics, based on Coda Hale's Yammer metrics
 dev-python/pyftpdlib 2.0.1: Python FTP server library
 dev-python/pyfuse3 3.4.0: Python 3 bindings for libfuse 3 with asynchronous API
+dev-python/pyfzf 0.3.1: A python wrapper for fzf
 dev-python/pygal 3.0.5: A python SVG charts generator
 dev-python/pygame 2.6.1: Python bindings for SDL multimedia library
 dev-python/pygccxml 2.5.0 2.6.1: A specialized XML reader to navigate C++ declarations
@@ -17352,14 +17353,14 @@ sys-cluster/keepalived 2.2.7 2.2.8: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.28.2 1.30.0: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23 1.25: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes API server
-sys-cluster/kube-controller-manager 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.29.11 1.29.12 1.29.13 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes API server
+sys-cluster/kube-controller-manager 1.29.11 1.29.12 1.29.13 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.29.11 1.29.12 1.29.13 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0 1.6.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Scheduler
-sys-cluster/kubeadm 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.29.11 1.29.12 1.29.13 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Scheduler
+sys-cluster/kubeadm 1.29.11 1.29.12 1.29.13 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.29.11 1.29.12 1.29.13 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.29.11 1.29.12 1.29.13 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.12 1.13: A client for kubelet
 sys-cluster/kubelogin 1.30.1 1.31.0: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.27.2 0.27.3: Client-side utility for one-way encrypted secrets in kubernetes
@@ -17600,7 +17601,7 @@ sys-kernel/dracut-crypt-ssh 1.0.8 1.0.8-r1: Early unlocking of encrypted systems
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.232 5.10.233 5.15.175 5.15.176 6.1.121 6.1.122 6.1.123 6.1.124 6.6.67 6.6.68 6.6.68-r1 6.6.69 6.6.70 6.6.71 6.12.7 6.12.8 6.12.9: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.232 5.10.233 5.15.175 5.15.176 6.1.121 6.1.122 6.1.123 6.1.124 6.6.67 6.6.68 6.6.68-r1 6.6.69 6.6.70 6.6.71 6.12.7 6.12.8 6.12.9: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.230 5.10.231 5.10.232 5.10.233 5.15.173 5.15.174 5.15.175 5.15.176 6.1.118 6.1.120 6.1.121 6.1.122 6.1.123 6.1.124 6.6.62 6.6.65 6.6.66 6.6.67 6.6.68 6.6.68-r1 6.6.69 6.6.70 6.6.71 6.12.4-r1 6.12.5 6.12.6 6.12.7 6.12.8 6.12.9: Full sources including the Gentoo patchset for the 6.12 kernel tree
+sys-kernel/gentoo-sources 5.10.230 5.10.231 5.10.232 5.10.233 5.15.173 5.15.174 5.15.175 5.15.176 6.1.118 6.1.120 6.1.121 6.1.122 6.1.123 6.1.124 6.1.125 6.6.62 6.6.65 6.6.66 6.6.67 6.6.68 6.6.68-r1 6.6.69 6.6.70 6.6.71 6.6.72 6.12.4-r1 6.12.5 6.12.6 6.12.7 6.12.8 6.12.9 6.12.10: Full sources including the Gentoo patchset for the 6.12 kernel tree
 sys-kernel/git-sources 6.13_rc1 6.13_rc2 6.13_rc3 6.13_rc4 6.13_rc5 6.13_rc6 6.13_rc7: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 48-r1 49 50: Gentoo fork of installkernel script from debianutils
 sys-kernel/kergen 0.1.5-r1: Kernel config generator
