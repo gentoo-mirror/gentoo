@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Fast, feature-rich, and cross-platform terminal emulator"
-HOMEPAGE="https://ghostty.org/"
+HOMEPAGE="https://ghostty.org/ https://github.com/ghostty-org/ghostty"
 
 declare -g -r -A ZBS_DEPENDENCIES=(
 	[breakpad-12207fd37bb8251919c112dcdd8f616a491857b34a451f7e4486490077206dc2a1ea.tar.gz]='https://github.com/getsentry/breakpad/archive/b99f444ba5f6b98cac261cbb391d8766b34a5918.tar.gz'
@@ -50,36 +50,21 @@ SRC_URI="
 	${ZBS_DEPENDENCIES_SRC_URI}
 "
 
-LICENSE="
-	Apache-2.0 BSD BSD-2 BSD-4 Boost-1.0 MIT MPL-2.0
-	!system-freetype? ( || ( FTL GPL-2+ ) )
-	!system-harfbuzz? ( Old-MIT ISC icu )
-	!system-libpng? ( libpng2 )
-	!system-zlib? ( ZLIB )
-"
+LICENSE="Apache-2.0 BSD BSD-2 BSD-4 Boost-1.0 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
 # TODO: simdutf integration (missing Gentoo version)
 # TODO: spirv-cross integration (missing Gentoo package)
 RDEPEND="
+	>=dev-libs/oniguruma-6.9.9:=
+	>=dev-util/glslang-1.3.296.0:=
 	gui-libs/gtk:4=[X?]
-
-	adwaita? ( gui-libs/libadwaita:1= )
+	>=media-libs/fontconfig-2.14.2:=
+	>=media-libs/freetype-2.13.2:=[bzip2,harfbuzz,png]
+	>=media-libs/harfbuzz-8.4.0:=[truetype]
 	X? ( x11-libs/libX11 )
-	system-fontconfig? ( >=media-libs/fontconfig-2.14.2:= )
-	system-freetype? (
-		system-harfbuzz? ( >=media-libs/freetype-2.13.2:=[bzip2,harfbuzz] )
-		!system-harfbuzz? ( >=media-libs/freetype-2.13.2:=[bzip2] )
-	)
-	system-fontconfig? ( >=media-libs/fontconfig-2.14.2:= )
-	system-freetype? ( >=media-libs/freetype-2.13.2:=[bzip2] )
-	system-glslang? ( >=dev-util/glslang-1.3.296.0:= )
-	system-harfbuzz? ( >=media-libs/harfbuzz-8.4.0:= )
-	system-libpng? ( >=media-libs/libpng-1.6.43:= )
-	system-libxml2? ( >=dev-libs/libxml2-2.11.5:= )
-	system-oniguruma? ( >=dev-libs/oniguruma-6.9.9:= )
-	system-zlib? ( >=sys-libs/zlib-1.3.1:= )
+	adwaita? ( gui-libs/libadwaita:1= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -87,9 +72,6 @@ BDEPEND="
 "
 
 IUSE="+X +adwaita man"
-# System integrations
-IUSE+=" +system-fontconfig +system-freetype +system-glslang +system-harfbuzz +system-libpng +system-libxml2"
-IUSE+=" +system-oniguruma +system-zlib"
 
 # XXX: Because we set --release=fast below, Zig will automatically strip
 #      the binary. Until Ghostty provides a way to disable the banner while
@@ -115,14 +97,18 @@ src_configure() {
 		-Demit-docs=$(usex man true false)
 		-Dversion-string="${PV}"
 
-		-f$(usex system-fontconfig sys no-sys)=fontconfig
-		-f$(usex system-freetype sys no-sys)=freetype
-		-f$(usex system-glslang sys no-sys)=glslang
-		-f$(usex system-harfbuzz sys no-sys)=harfbuzz
-		-f$(usex system-libpng sys no-sys)=libpng
-		-f$(usex system-libxml2 sys no-sys)=libxml2
-		-f$(usex system-oniguruma sys no-sys)=oniguruma
-		-f$(usex system-zlib sys no-sys)=zlib
+		-fsys=fontconfig
+		-fsys=freetype
+		-fsys=glslang
+		-fsys=harfbuzz
+		-fsys=libpng
+		-fsys=libxml2
+		-fsys=oniguruma
+		-fsys=zlib
+
+		# See TODO above RDEPEND
+		-fno-sys=simdutf
+		-fno-sys=spirv-cross
 	)
 
 	zig_src_configure
