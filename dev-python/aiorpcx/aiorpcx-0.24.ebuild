@@ -22,13 +22,13 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 BDEPEND="
 	test? (
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/uvloop[${PYTHON_USEDEP}]
-		dev-python/websockets[${PYTHON_USEDEP}]
+		>=dev-python/websockets-0.14[${PYTHON_USEDEP}]
 	)
 "
 
