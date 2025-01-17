@@ -15239,7 +15239,7 @@ net-misc/netkit-fingerd 0.17-r3: Netkit - fingerd and finger client
 net-misc/netkit-rsh 0.17-r14: Netkit's Remote Shell Suite: rexec{,d} rlogin{,d} rsh{,d}
 net-misc/netkit-talk 0.17-r8: Netkit - talkd: Daemon to help set up talk sessions
 net-misc/netkit-telnetd 0.17-r14: Standard Linux telnet client and server
-net-misc/netkit-timed 0.17-r11: Netkit - timed: Time daemon
+net-misc/netkit-timed 0.17-r11 0.17-r12: Netkit - timed: Time daemon
 net-misc/netopeer2 2.1.59-r1: Server for implementing NETCONF configuration management
 net-misc/netpipe 1.0.0_beta2-r2: tool to reliably distribute binary data using UDP broadcasting techniques
 net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
@@ -15444,7 +15444,7 @@ net-p2p/ed2k_hash 0.4.0-r3: Tool for generating eDonkey2000 links
 net-p2p/eiskaltdcpp 2.4.2 9999: Qt/DC++ based client for DirectConnect and ADC protocols
 net-p2p/energi3 3.0.8 3.1.0 9999: Official golang implementation of the Energi Core
 net-p2p/fms 0.3.84: Spam-resistant message board application for Freenet
-net-p2p/freenet 0.7.5_p1498: An encrypted network without censorship
+net-p2p/freenet 0.7.5_p1498 0.7.5_p1500: An encrypted network without censorship
 net-p2p/go-ethereum 1.10.18 1.13.14 1.14.7 1.14.8 1.14.11 1.14.12: Official golang implementation of the Ethereum protocol
 net-p2p/gtk-gnutella 1.2.2-r1 1.2.3: GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b-r1: A GTK2-based viewer and editor for BitTorrent meta files
@@ -17352,14 +17352,14 @@ sys-cluster/keepalived 2.2.7 2.2.8: A strong & robust keepalive facility to the 
 sys-cluster/knem 1.1.4 9999: High-Performance Intra-Node MPI Communication
 sys-cluster/kops 1.28.2 1.30.0: Kubernetes Operations
 sys-cluster/kronosnet 1.19 1.19-r1 1.23 1.25: Network abstraction layer designed for High Availability use cases
-sys-cluster/kube-apiserver 1.29.11 1.29.12 1.30.7 1.30.8 1.31.3 1.31.4 1.32.0 1.32.1: Kubernetes API server
-sys-cluster/kube-controller-manager 1.29.11 1.29.12 1.30.7 1.30.8 1.31.3 1.31.4 1.32.0 1.32.1: Kubernetes Controller Manager
-sys-cluster/kube-proxy 1.29.11 1.29.12 1.30.7 1.30.8 1.31.3 1.31.4 1.32.0 1.32.1: Kubernetes Proxy service
+sys-cluster/kube-apiserver 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes API server
+sys-cluster/kube-controller-manager 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Controller Manager
+sys-cluster/kube-proxy 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Proxy service
 sys-cluster/kube-router 1.1.1 1.2.2 1.5.0 1.6.0: A turnkey solution for Kubernetes networking
-sys-cluster/kube-scheduler 1.29.11 1.29.12 1.30.7 1.30.8 1.31.3 1.31.4 1.32.0 1.32.1: Kubernetes Scheduler
-sys-cluster/kubeadm 1.29.11 1.29.12 1.30.7 1.30.8 1.31.3 1.31.4 1.32.0 1.32.1: CLI to Easily bootstrap a secure Kubernetes cluster
-sys-cluster/kubectl 1.29.11 1.29.12 1.30.7 1.30.8 1.31.3 1.31.4 1.32.0 1.32.1: CLI to run commands against Kubernetes clusters
-sys-cluster/kubelet 1.29.11 1.29.12 1.30.7 1.30.8 1.31.3 1.31.4 1.32.0 1.32.1: Kubernetes Node Agent
+sys-cluster/kube-scheduler 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Scheduler
+sys-cluster/kubeadm 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: CLI to Easily bootstrap a secure Kubernetes cluster
+sys-cluster/kubectl 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: CLI to run commands against Kubernetes clusters
+sys-cluster/kubelet 1.29.11 1.29.12 1.30.7 1.30.8 1.30.9 1.31.3 1.31.4 1.31.5 1.32.0 1.32.1: Kubernetes Node Agent
 sys-cluster/kubeletctl 1.12 1.13: A client for kubelet
 sys-cluster/kubelogin 1.30.1 1.31.0: kubectl plugin for Kubernetes OpenID Connect authentication
 sys-cluster/kubeseal 0.27.2 0.27.3: Client-side utility for one-way encrypted secrets in kubernetes
@@ -17751,7 +17751,7 @@ sys-process/cronutils 1.10: Utilities to assist running batch processing jobs
 sys-process/ctop 0.7.7: Top-like interface for container-metrics
 sys-process/daemontools 0.76-r10 0.76-r11 0.76-r12: Collection of tools for managing UNIX services
 sys-process/daemontools-encore 1.11-r2: Collection of tools for managing UNIX services
-sys-process/dcron 4.5-r2: A cute little cron from Matt Dillon
+sys-process/dcron 4.5-r2 4.6: Dillon's lightweight and minimalist cron daemon
 sys-process/dumb-init 1.2.5: A minimal init system for Linux containers
 sys-process/evisum 0.6.1: System and process monitor written with EFL
 sys-process/fcron 3.3.1-r1 3.3.1-r2: A command scheduler with extended capabilities over cron and anacron
@@ -18813,7 +18813,7 @@ x11-plugins/wmxres 1.2-r1 1.4: Dock application to select your display mode amon
 x11-terms/alacritty 0.12.3-r1 0.13.2-r1 0.14.0-r1 0.15.0 9999: GPU-accelerated terminal emulator
 x11-terms/aterm 1.0.1-r6: rxvt compatible terminal emulator with transparency support
 x11-terms/cool-retro-term 1.2.0: Terminal emulator with an old school look and feel
-x11-terms/ghostty 1.0.1-r2: Fast, feature-rich, and cross-platform terminal emulator
+x11-terms/ghostty 1.0.1-r3: Fast, feature-rich, and cross-platform terminal emulator
 x11-terms/gnome-terminal 3.44.1 3.50.1 3.52.2: A terminal emulator for GNOME
 x11-terms/guake 3.9.0 3.10: Drop-down terminal for GNOME
 x11-terms/kitty 0.35.2 0.38.1 0.39.0 9999: Fast, feature-rich, GPU-based terminal
