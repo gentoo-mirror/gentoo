@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-03">
+    <title>pip: arbitrary configuration injection</title>
+    <synopsis>A vulnerability has been discovered in pip, which could lead to arbitrary configuration options being injected.</synopsis>
+    <product type="ebuild">pip</product>
+    <announced>2025-01-17</announced>
+    <revised count="1">2025-01-17</revised>
+    <bug>918427</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-python/pip" auto="yes" arch="*">
+            <unaffected range="ge">23.3</unaffected>
+            <vulnerable range="lt">23.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>pip is a tool for installing and managing Python packages.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in pip. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>When installing a package from a Mercurial VCS URL  (ie &#34;pip install hg+...&#34;), the specified Mercurial revision could be used to inject arbitrary configuration options to the &#34;hg clone&#34; call (ie &#34;--config&#34;). Controlling the Mercurial configuration can modify how and which repository is installed. This vulnerability does not affect users who aren&#39;t installing from Mercurial.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All pip users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/pip-23.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5752">CVE-2023-5752</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-17T07:08:02.410954Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-01-17T07:08:02.413296Z">graaff</metadata>
+</glsa>
