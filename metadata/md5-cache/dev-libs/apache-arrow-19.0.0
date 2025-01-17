@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib:= ) zstd? ( app-arch/zstd:= ) dev-cpp/xsimd >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
+DESCRIPTION=A cross-language development platform for in-memory data.
+EAPI=8
+HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/
+INHERIT=cmake
+IUSE=+brotli bzip2 compute dataset +json lz4 +parquet re2 +snappy ssl test zlib zstd
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~riscv ~s390 ~x86
+LICENSE=Apache-2.0
+RDEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib:= ) zstd? ( app-arch/zstd:= )
+REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
+RESTRICT=!test? ( test )
+SLOT=0/19
+SRC_URI=mirror://apache/arrow/arrow-19.0.0/apache-arrow-19.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/c7cf1374cf284c0c73024cd1437becea75558bf8.tar.gz -> parquet-testing-c7cf1374cf284c0c73024cd1437becea75558bf8.tar.gz https://github.com/apache/arrow-testing/archive/4d209492d514c2d3cb2d392681b9aa00e6d8da1c.tar.gz -> arrow-testing-4d209492d514c2d3cb2d392681b9aa00e6d8da1c.tar.gz )
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=93817da9f796c8fa64d2c9906e0129f4
