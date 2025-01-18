@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,6 +28,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-20180410-sysconfdir.patch"
 	"${FILESDIR}/${PN}-20200929-find-OBJDUMP.patch"
 	"${FILESDIR}/${PN}-20231216-autoconf-warning.patch"
+	"${FILESDIR}/${PN}-20240107-O0-for-libc-name-find.patch"
 )
 
 src_prepare() {
