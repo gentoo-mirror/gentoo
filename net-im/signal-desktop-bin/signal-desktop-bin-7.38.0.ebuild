@@ -29,7 +29,7 @@ RDEPEND="
 	media-libs/libpulse
 	media-libs/mesa[X(+)]
 	net-print/cups
-	sys-apps/dbus[X]
+	sys-apps/dbus
 	virtual/udev
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
