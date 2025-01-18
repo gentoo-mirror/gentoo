@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/AdaCore/gpr
 INHERIT=ada multiprocessing
 IUSE=+shared static-libs static-pic ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/xmlada[ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_12(-),-ada_target_gcc_13(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] >=dev-ada/gnatcoll-core-25[ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_12(-),-ada_target_gcc_13(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/gnatcoll-bindings[ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_12(-),-ada_target_gcc_13(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?,iconv(+),gmp]
 REQUIRED_USE=|| ( shared static-libs static-pic ) ada_target_gcc_14
 SLOT=0
 SRC_URI=https://github.com/AdaCore/gpr/releases/download/v25.0.0/gpr2-with-gprconfig_kb-25.0.tgz
 _eclasses_=ada	91fe5c33490e013a01ffad92086e7bac	multiprocessing	1e32df7deee68372153dca65f4a7c21f
-_md5_=a7dc7d81e00743ecaf705ae3f2b35850
+_md5_=73b543bba89a48350753889cd9f4f1a3
