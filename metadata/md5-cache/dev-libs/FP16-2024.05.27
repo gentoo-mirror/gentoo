@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/psimd
+DESCRIPTION=conversion to/from half-precision floating point formats
+EAPI=8
+HOMEPAGE=https://github.com/Maratyszcza/FP16/
+INHERIT=python-r1 cmake
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/psimd python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-python/peachpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/Maratyszcza/FP16/archive/95163a75c51bc8dc29f72d0d7419ec50132984ff.tar.gz -> FP16-2024.05.27.tar.gz
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=3d7219d2b063576b33c5b8c19eb6cbf1
