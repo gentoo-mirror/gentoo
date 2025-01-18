@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig dev-qt/qttools:6[linguist] app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtbase:6[gui,widgets,xml] dev-qt/qtsvg:6 media-libs/alsa-lib media-libs/libsndfile media-libs/lilv media-libs/lv2 media-libs/suil virtual/jack x11-libs/libxcb:= aubio? ( media-libs/aubio:= ) dssi? ( media-libs/dssi ) ladspa? ( media-libs/ladspa-sdk ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) osc? ( media-libs/liblo ) rubberband? ( media-libs/rubberband ) vorbis? ( media-libs/libogg media-libs/libvorbis ) zlib? ( sys-libs/zlib )
+DESCRIPTION=Audio/MIDI multi-track sequencer written in C++ with the Qt framework
+EAPI=8
+HOMEPAGE=https://qtractor.sourceforge.io https://github.com/rncbc/qtractor
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=aubio cpu_flags_x86_sse debug dssi ladspa libsamplerate mad osc rubberband vorbis zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtbase:6[gui,widgets,xml] dev-qt/qtsvg:6 media-libs/alsa-lib media-libs/libsndfile media-libs/lilv media-libs/lv2 media-libs/suil virtual/jack x11-libs/libxcb:= aubio? ( media-libs/aubio:= ) dssi? ( media-libs/dssi ) ladspa? ( media-libs/ladspa-sdk ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) osc? ( media-libs/liblo ) rubberband? ( media-libs/rubberband ) vorbis? ( media-libs/libogg media-libs/libvorbis ) zlib? ( sys-libs/zlib )
+REQUIRED_USE=dssi? ( ladspa )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/qtractor/qtractor-1.5.2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=6c29898c6d9fe35ac4d5b06236180858
