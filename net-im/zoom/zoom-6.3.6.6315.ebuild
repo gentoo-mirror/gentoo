@@ -127,7 +127,6 @@ src_install() {
 			x-scheme-handler/zoommtg \
 			x-scheme-handler/zoomus \
 			application/x-zoom)"
-	mv "${ED}"/usr/share/applications/{ZoomLauncher-,}zoom.desktop || die
 	doicon videoconference-zoom.svg
 	doicon -s scalable videoconference-zoom.svg
 
