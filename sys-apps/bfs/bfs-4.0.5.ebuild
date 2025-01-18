@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,6 +27,8 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	# Not available on Linux
 	acl_is_trivial_np acl_trivial fdclosedir getdents getprogname
 	posix_spawn_file_actions_addfchdir getmntinfo posix_getdents strtofflags
+	# Seems to be in POSIX 2024 but not yet in ncurses?
+	tcgetwinsize
 )
 
 src_configure() {
