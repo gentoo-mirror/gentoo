@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/symengine/symengine/
 INHERIT=cmake llvm-r2 toolchain-funcs
 IUSE=boost debug ecm +flint llvm +mpc +mpfr openmp primesieve tcmalloc test +llvm_slot_19 llvm_slot_18 llvm_slot_20
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=boost? ( dev-libs/boost:= ) !boost? ( dev-libs/gmp:= ) debug? ( sys-libs/binutils-libs:= ) ecm? ( sci-mathematics/gmp-ecm:= ) flint? ( sci-mathematics/flint:= ) mpc? ( dev-libs/mpc:= ) mpfr? ( dev-libs/mpfr:= ) llvm? ( llvm_slot_18? ( llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/llvm:20= ) ) primesieve? ( sci-mathematics/primesieve:= ) tcmalloc? ( dev-util/google-perftools )
 REQUIRED_USE=boost? ( !flint !mpc !mpfr ) llvm? ( ^^ ( llvm_slot_18 llvm_slot_19 llvm_slot_20 ) ) mpc? ( mpfr )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.13
 SRC_URI=https://github.com/symengine/symengine/archive/v0.13.0.tar.gz -> symengine-0.13.0.gh.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r2	9a549740244000fae24a65594bde09c1
-_md5_=67d39f1585d5ca32e90802446ca05476
+_md5_=b18ef731ce065c8e965f9d6774d5db77
