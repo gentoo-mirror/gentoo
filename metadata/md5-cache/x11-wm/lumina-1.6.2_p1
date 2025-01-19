@@ -1,0 +1,16 @@
+BDEPEND=dev-qt/linguist-tools:5 dev-qt/qtpaths:5 app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] dev-qt/qtnetwork:5[ssl] dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 x11-libs/libXcursor x11-libs/libXdamage x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-wm desktop-utils? ( app-text/poppler[qt5] )
+DESCRIPTION=Lumina desktop environment
+EAPI=8
+HOMEPAGE=https://lumina-desktop.org/ https://github.com/lumina-desktop/lumina
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=plocale cmake xdg optfeature
+IUSE=desktop-utils
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] dev-qt/qtnetwork:5[ssl] dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 x11-libs/libXcursor x11-libs/libXdamage x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-wm desktop-utils? ( app-text/poppler[qt5] ) app-admin/sysstat media-sound/alsa-utils sys-apps/dbus sys-fs/inotify-tools sys-power/acpi || ( x11-apps/xbacklight sys-power/acpilight ) x11-apps/xinit x11-apps/xrandr x11-misc/numlockx x11-misc/xcompmgr x11-wm/fluxbox
+SLOT=0
+SRC_URI=https://github.com/andreygrozin/lumina/archive/a521c780862034bf2cd18fc0b258c0541def6dc5.tar.gz -> lumina-1.6.2_p1.tar.gz
+_eclasses_=plocale	950fbaec7deeba41b5bcc0572cca99b9	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	xdg	3ef49a87c52c8b77c476351195dfe575	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=3f00ea1345058b2a67850347a9ac2afe
