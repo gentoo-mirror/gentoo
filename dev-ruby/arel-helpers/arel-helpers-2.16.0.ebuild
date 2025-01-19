@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 RUBY_S=${PN}-*
@@ -21,6 +21,9 @@ KEYWORDS="~amd64 ~arm"
 
 ruby_add_rdepend "
 	|| (
+		dev-ruby/activerecord:8.0
+		dev-ruby/activerecord:7.2
+		dev-ruby/activerecord:7.1
 		dev-ruby/activerecord:7.0
 		dev-ruby/activerecord:6.1
 	)
@@ -31,15 +34,19 @@ ruby_add_bdepend "
 		dev-ruby/rr
 		dev-ruby/activerecord[sqlite]
 		dev-ruby/bundler
-		dev-ruby/combustion
-		>=dev-ruby/database_cleaner-1.8
+		>=dev-ruby/combustion-1.3
+		>=dev-ruby/database_cleaner-2.0
 		>=dev-ruby/sqlite3-1.4
 	)
 "
 
 all_ruby_prepare() {
 	# pry is for debugging, not useful here
-	sed -i -e '/pry-/ s:^:#:' spec/spec_helper.rb || die
+	sed -e '/pry-/ s:^:#:' \
+		-i spec/spec_helper.rb || die
+
+	sed -e '2igem "activerecord", "<8.1"' \
+		-i Gemfile || die
 
 	sed \
 		-e '/rake/ s/~>/>=/' \
