@@ -1,6 +1,6 @@
-BDEPEND=java? ( dev-java/asm:9 dev-java/jna:4 ) moar? ( ~dev-lang/moarvm-9999[clang=] ) clang? ( llvm-core/clang ) java? ( >=virtual/jdk-11 ) dev-lang/perl >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=java? ( >=dev-java/asm-9.7.1_p20241213:0 dev-java/jna:4 ) moar? ( ~dev-lang/moarvm-9999[clang=] ) clang? ( llvm-core/clang ) java? ( >=virtual/jdk-11 ) dev-lang/perl >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install preinst prepare pretend setup test unpack
-DEPEND=java? ( dev-java/asm:9 dev-java/jna:4 ) moar? ( ~dev-lang/moarvm-9999[clang=] ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DEPEND=java? ( >=dev-java/asm-9.7.1_p20241213:0 dev-java/jna:4 ) moar? ( ~dev-lang/moarvm-9999[clang=] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Not Quite Perl, a Raku bootstrapping compiler
 EAPI=8
 HOMEPAGE=https://rakudo.org
@@ -8,9 +8,9 @@ INHERIT=java-pkg-opt-2 multibuild git-r3
 IUSE=doc clang java +moar test java
 LICENSE=Artistic-2
 PROPERTIES=live
-RDEPEND=java? ( dev-java/asm:9 dev-java/jna:4 ) moar? ( ~dev-lang/moarvm-9999[clang=] ) java? ( >=virtual/jre-11 ) java? ( >=dev-java/java-config-2.2.0-r3 )
+RDEPEND=java? ( >=dev-java/asm-9.7.1_p20241213:0 dev-java/jna:4 ) moar? ( ~dev-lang/moarvm-9999[clang=] ) java? ( >=virtual/jre-11 ) java? ( >=dev-java/java-config-2.2.0-r3 )
 REQUIRED_USE=|| ( java moar )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=e07494ceb4f070325fd02790865682fd
+_md5_=2f7a03d5209225df1d73a893b6fbd97f
