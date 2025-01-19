@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=compile configure install postinst postrm setup
+DEFINED_PHASES=compile configure install postinst postrm prepare setup
 DEPEND=>=sys-apps/util-linux-2.23[tty-helpers(-)] cgi? ( >=media-libs/gd-1.8.4 ) modbus? ( usb? ( virtual/libusb:0 ) ) snmp? ( >=net-analyzer/net-snmp-5.7.2 )
 DESCRIPTION=APC UPS daemon with integrated tcp/ip remote shutdown
 EAPI=7
@@ -12,4 +12,4 @@ RDEPEND=>=sys-apps/util-linux-2.23[tty-helpers(-)] cgi? ( >=media-libs/gd-1.8.4 
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/apcupsd/apcupsd-3.14.14.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	systemd	54bd206bb5c4efac6ae28b6b006713b0	udev	f3d9a4376ebd22131726a68e1a0a058f	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
-_md5_=6223416a54a1e942cb73e38d23624c1a
+_md5_=13f5fc46ae6bdacca544a894dd21446d
