@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -42,7 +42,7 @@ fi
 # Commit ref from `strings libffmpeg.so | grep -F "FFmpeg version"` matches this Chromium version
 # used to select the correct ffmpeg-chromium version (corresponds to a major version of Chromium)
 # Does not need to be updated for every new version of Opera, only when it breaks
-CHROMIUM_VERSION="131"
+CHROMIUM_VERSION="132"
 SRC_URI="${SRC_URI_BASE[@]/%//${PV}/linux/${MY_PN}_${PV}_amd64.${OPERA_ARCHIVE_EXT}}"
 S=${WORKDIR}
 

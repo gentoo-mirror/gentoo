@@ -5,17 +5,8 @@ EAPI=8
 
 # PACKAGING NOTES
 
-# Since m133 (and backported a bit...) we are using CI-generated tarballs from
-# https://github.com/chromium-linux-tarballs/chromium-tarballs/ (uploaded to S3
-# and made available via https://chromium-tarballs.distfiles.gentoo.org/).
-
-# We do this because upstream tarballs weigh in at about 3.5x the size of our
-# new "Distro tarballs" and include binaries (etc) that are not useful for
-# downstream consumers (like distributions).
-
-# It is probably still possible to download the google Rust and Clang toolchains
-# and use them to build this package, however we removed this when upstream CI
-# broke for m131 and haven't re-added it.
+# This uses a gentoo-created tarball due to Google CI Failures.
+# Use 133(?) as a base for new official tarballs.
 
 GN_MIN_VER=0.2165
 # chromium-tools/get-chromium-toolchain-strings.py
@@ -52,7 +43,7 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/dev"
+SLOT="0/beta"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
@@ -61,7 +52,7 @@ fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} bindist cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos +official pax-kernel pgo +proprietary-codecs pulseaudio"
-IUSE+=" qt5 qt6 +screencast selinux test +vaapi +wayland +widevine cpu_flags_ppc_vsx3"
+IUSE+=" qt5 qt6 +screencast selinux test +vaapi +wayland +widevine"
 RESTRICT="
 	!bindist? ( bindist )
 	!test? ( test )
@@ -397,7 +388,6 @@ src_prepare() {
 	done
 
 	shopt -u globstar nullglob
-
 	# We can't use the bundled compiler builtins with the system toolchain
 	# `grep` is a development convenience to ensure we fail early when google changes something.
 	local builtins_match="if (is_clang && !is_nacl && !is_cronet_build) {"
@@ -540,6 +530,7 @@ src_prepare() {
 		third_party/fp16
 		third_party/freetype
 		third_party/fusejs
+		third_party/fuzztest
 		third_party/fxdiv
 		third_party/gemmlowp
 		third_party/google_input_tools
@@ -703,12 +694,12 @@ src_prepare() {
 		third_party/zlib/google
 		third_party/zxcvbn-cpp
 		url/third_party/mozilla
-		v8/third_party/siphash
-		v8/third_party/utf8-decoder
-		v8/third_party/valgrind
 		v8/third_party/glibc
 		v8/third_party/inspector_protocol
+		v8/third_party/siphash
+		v8/third_party/utf8-decoder
 		v8/third_party/v8
+		v8/third_party/valgrind
 
 		# gyp -> gn leftovers
 		third_party/speech-dispatcher
@@ -717,10 +708,9 @@ src_prepare() {
 	)
 
 	if use test; then
-		# tar tvf /var/cache/distfiles/${P}-testdata.tar.xz | grep '^d' | grep 'third_party' | awk '{print $NF}'
+		# tar tvf /var/cache/distfiles/${P}-linux-testdata.tar.xz | grep '^d' | grep 'third_party' | awk '{print $NF}'
 		keeplibs+=(
 			third_party/breakpad/breakpad/src/processor
-			third_party/fuzztest
 			third_party/google_benchmark/src/include/benchmark
 			third_party/google_benchmark/src/src
 			third_party/perfetto/protos/third_party/pprof
