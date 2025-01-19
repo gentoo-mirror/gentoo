@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://pecl.php.net/package/event
 INHERIT=php-ext-pecl-r3
 IUSE=debug examples +extra +sockets +ssl threads php_targets_php8-2 php_targets_php8-3
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=PHP-3.01
 RDEPEND=>=dev-libs/libevent-2.0.2[ssl?] ssl? ( dev-libs/openssl:= ) php_targets_php8-2? ( dev-lang/php:8.2[sockets(-)?] ) php_targets_php8-3? ( dev-lang/php:8.3[sockets(-)?] )
 REQUIRED_USE=|| ( php_targets_php8-2 php_targets_php8-3 )
 SLOT=0
 SRC_URI=https://pecl.php.net/get/event-3.1.4.tgz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	php-ext-source-r3	57493651a3540d6ef7bff5e1c97c8dd3	php-ext-pecl-r3	4ca93611caa4190394eb13cc22aedbd0
-_md5_=7a5e5dffeaca021fd39bebda0158250e
+_md5_=0b9f385344b8ee1493480cafe8d48fc2
