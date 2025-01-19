@@ -1,0 +1,13 @@
+BDEPEND=>=sys-devel/gettext-0.18.2 virtual/pkgconfig doc? ( app-text/xmlto dev-libs/libxslt )
+DEFINED_PHASES=configure
+DEPEND=>=sys-apps/flatpak-0.99.1 >=dev-util/ostree-2019.5:= >=dev-libs/elfutils-0.8.12:= >=dev-libs/glib-2.44:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= net-misc/curl:= yaml? ( dev-libs/libyaml:= ) dev-libs/appstream[compose(-)]
+DESCRIPTION=Tool to build flatpaks from source
+EAPI=8
+HOMEPAGE=http://flatpak.org/
+IUSE=doc +yaml
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=sys-apps/flatpak-0.99.1 >=dev-util/ostree-2019.5:= >=dev-libs/elfutils-0.8.12:= >=dev-libs/glib-2.44:2= >=dev-libs/libxml2-2.4:= dev-libs/json-glib:= net-misc/curl:= yaml? ( dev-libs/libyaml:= ) dev-libs/appstream[compose(-)]
+SLOT=0
+SRC_URI=https://github.com/flatpak/flatpak-builder/releases/download/1.4.4/flatpak-builder-1.4.4.tar.xz
+_md5_=2f1ddba5056a8b57fe2b0d0a94bc9e20
