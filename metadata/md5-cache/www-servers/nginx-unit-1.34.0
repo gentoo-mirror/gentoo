@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig
+BDEPEND=sys-apps/which virtual/pkgconfig
 DEFINED_PHASES=configure install prepare setup
 DEPEND=perl? ( dev-lang/perl:= ) php8-3? ( dev-lang/php:8.3[embed] ) python? ( python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) ruby? ( dev-lang/ruby:= dev-ruby/rubygems:= ) ssl? ( dev-libs/openssl:0= ) virtual/libcrypt:0=
 DESCRIPTION=Dynamic web and application server
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( perl python ruby php8-3 perl ssl ) python? ( ^^ ( python_singl
 SLOT=0
 SRC_URI=https://unit.nginx.org/download/unit-1.34.0.tar.gz -> nginx-unit-1.34.0.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=780f4b4120c89690e5697bfba1ee9a26
+_md5_=a9f6e91b180955b50de8ee986bd32f58
