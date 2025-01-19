@@ -1,0 +1,17 @@
+BDEPEND=>=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-6.1.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre2 ) gtk? ( x11-libs/gtk+:2 ) virtual/pkgconfig doc? ( app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.5 dev-libs/libxslt virtual/imagemagick-tools[png] )
+DESCRIPTION=Geographic Objects for PostgreSQL
+EAPI=8
+HOMEPAGE=https://postgis.net
+INHERIT=autotools postgres-multi toolchain-funcs
+IUSE=address-standardizer doc gtk static-libs topology postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/json-c:= dev-libs/libxml2:2 dev-libs/protobuf-c:= >=sci-libs/geos-3.9.0 >=sci-libs/proj-6.1.0:= >=sci-libs/gdal-1.10.0:= address-standardizer? ( dev-libs/libpcre2 ) gtk? ( x11-libs/gtk+:2 )
+REQUIRED_USE=|| ( postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://download.osgeo.org/postgis/source/postgis-3.5.2.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	postgres	2ad3e67607a9b24fe6973ddf464c5258	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_md5_=df856d8c90aca66372b59e35c0192f9c
