@@ -1,0 +1,13 @@
+BDEPEND=sys-devel/gcc:* >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=sys-libs/zlib
+DESCRIPTION=Mutabah's Rust Compiler
+EAPI=8
+HOMEPAGE=https://github.com/thepowersgang/mrustc
+INHERIT=edo multiprocessing rust-toolchain toolchain-funcs git-r3
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=sys-libs/zlib sys-devel/gcc:*
+SLOT=0
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=5917128cc474f3d333d7ee4350d1a7ab
