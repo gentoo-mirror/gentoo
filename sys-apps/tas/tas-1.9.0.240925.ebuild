@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,12 @@ MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="Supermicro Thin-Agent Service for monitoring through the BMC/IPMI"
 HOMEPAGE="https://www.supermicro.com"
-SRC_URI="https://www.supermicro.com/wftp/utility/${MY_PN}/${MY_PN}_${MY_PV}_build.${MY_DATE}.zip"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/817/${MY_PN}_${MY_PV}_build.${MY_DATE}.zip"
 S="${WORKDIR}"
 
 LICENSE="BSD supermicro"
 SLOT="0"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64"
 
 RDEPEND="
 	net-misc/networkmanager
@@ -48,7 +48,7 @@ src_unpack() {
 }
 
 src_install() {
-	dobin TAS/$(usex amd64 '64' '32')bit/IPMITAS
+	dobin TAS/IPMITAS
 
 	insinto /etc/supermicro
 	doins "${FILESDIR}"/tas.ini
