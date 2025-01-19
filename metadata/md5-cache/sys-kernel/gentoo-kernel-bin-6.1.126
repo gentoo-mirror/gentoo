@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/bc app-alternatives/lex virtual/libelf app-alternatives/yacc test? ( dev-tcltk/expect sys-apps/coreutils sys-kernel/dracut sys-fs/e2fsprogs amd64? ( app-emulation/qemu[qemu_softmmu_targets_x86_64] ) arm64? ( app-emulation/qemu[qemu_softmmu_targets_aarch64] ) ppc? ( app-emulation/qemu[qemu_softmmu_targets_ppc] ) ppc64? ( app-emulation/qemu[qemu_softmmu_targets_ppc64] ) sparc? ( app-emulation/qemu[qemu_softmmu_targets_sparc,qemu_softmmu_targets_sparc64] ) x86? ( app-emulation/qemu[qemu_softmmu_targets_i386] ) )
+DEFINED_PHASES=config configure install postinst postrm preinst prepare pretend test unpack
+DESCRIPTION=Pre-built Linux kernel with Gentoo patches
+EAPI=8
+HOMEPAGE=https://www.kernel.org/
+IDEPEND=!initramfs? ( >=sys-kernel/installkernel-14 ) initramfs? ( || ( >=sys-kernel/installkernel-14[dracut(-)] >=sys-kernel/installkernel-14[ugrd(-)] ) )
+INHERIT=kernel-install toolchain-funcs unpacker
+IUSE=+initramfs test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2
+PDEPEND=>=virtual/dist-kernel-6.1.126
+RDEPEND=!sys-kernel/gentoo-kernel:6.1.126 virtual/libelf
+RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
+SLOT=6.1.126
+SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.1-136.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.1-136.extras.tar.xz amd64? ( https://dev.gentoo.org/~mgorny/binpkg/amd64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.126-1.gpkg.tar -> gentoo-kernel-6.1.126-1.amd64.gpkg.tar ) arm64? ( https://dev.gentoo.org/~mgorny/binpkg/arm64/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.126-1.gpkg.tar -> gentoo-kernel-6.1.126-1.arm64.gpkg.tar ) ppc64? ( https://dev.gentoo.org/~mgorny/binpkg/ppc64le/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.126-1.gpkg.tar -> gentoo-kernel-6.1.126-1.ppc64le.gpkg.tar ) x86? ( https://dev.gentoo.org/~mgorny/binpkg/x86/kernel/sys-kernel/gentoo-kernel/gentoo-kernel-6.1.126-1.gpkg.tar -> gentoo-kernel-6.1.126-1.x86.gpkg.tar )
+_eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	dist-kernel-utils	97700892f3bc8ee315ee55ff5297a739	multiprocessing	1e32df7deee68372153dca65f4a7c21f	kernel-install	0b514a68b37af1d396618edfbf1dd064	unpacker	fb4b84181244b3b9990fa0bf40232dd2
+_md5_=38a80b9e302e505bbc80ecf9f3a7b8b3
