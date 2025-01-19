@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,10 +11,10 @@ DESCRIPTION="Cross-platform Direct Connect client"
 HOMEPAGE="https://airdcpp-web.github.io/"
 SRC_URI="https://github.com/airdcpp-web/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~riscv x86"
-IUSE="debug nat-pmp +tbb +webui"
+KEYWORDS="~amd64 ~riscv ~x86"
+IUSE="nat-pmp +tbb +webui"
 
 RDEPEND="
 	acct-user/airdcppd
@@ -31,16 +31,15 @@ RDEPEND="
 	nat-pmp? ( net-libs/libnatpmp:= )
 	tbb? ( dev-cpp/tbb:= )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	dev-cpp/nlohmann_json
+	${RDEPEND}
+"
 BDEPEND="
 	virtual/pkgconfig
 	${PYTHON_DEPS}
 "
 PDEPEND="webui? ( www-apps/airdcpp-webui )"
-
-PATCHES=(
-	"${FILESDIR}/${P}-miniupnpc-2.2.8.patch"
-)
 
 src_configure() {
 	local mycmakeargs=(
@@ -48,7 +47,7 @@ src_configure() {
 		-DENABLE_TBB=$(usex tbb)
 		-DINSTALL_WEB_UI=OFF
 	)
-	CMAKE_BUILD_TYPE=$(usex debug Debug Gentoo) cmake_src_configure
+	cmake_src_configure
 }
 
 src_install() {
