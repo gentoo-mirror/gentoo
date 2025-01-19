@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://pecl.php.net/yaz
 INHERIT=php-ext-pecl-r3
 IUSE=php_targets_php8-2 php_targets_php8-3
-KEYWORDS=~amd64 ~arm ~hppa ~ppc64 ~s390 ~sparc ~x86
+KEYWORDS=~amd64 arm ~hppa ~ppc64 ~s390 ~sparc ~x86
 LICENSE=BSD
 PROPERTIES=test_network
 RDEPEND=>=dev-libs/yaz-3.0.2:0= php_targets_php8-2? ( dev-lang/php:8.2 ) php_targets_php8-3? ( dev-lang/php:8.3 )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://pecl.php.net/get/yaz-1.2.4.tgz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	php-ext-source-r3	57493651a3540d6ef7bff5e1c97c8dd3	php-ext-pecl-r3	4ca93611caa4190394eb13cc22aedbd0
-_md5_=2400e323459b5c7e19f1239972295385
+_md5_=31e958e3c9af1a0e1dc8121205e210d8
