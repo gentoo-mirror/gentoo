@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
-inherit meson python-single-r1 systemd udev
+inherit linux-info meson python-single-r1 systemd udev
 
 DESCRIPTION="Library to configure gaming mice"
 HOMEPAGE="https://github.com/libratbag/libratbag"
@@ -67,6 +67,13 @@ DEPEND="
 	dev-libs/gobject-introspection
 "
 
+CONFIG_CHECK="~HIDRAW"
+
+pkg_setup() {
+	linux-info_pkg_setup
+	python-single-r1_pkg_setup
+}
+
 src_prepare() {
 	default
 
@@ -93,10 +100,16 @@ src_configure() {
 	meson_src_configure
 }
 
+src_test() {
+	# ratbagctl-test writes a "devel" D-Bus policy to the build host. Note that
+	# test must be run as root with FEATURES="-userpriv" or it is skipped.
+	SANDBOX_WRITE+=":${EPREFIX}/etc/dbus-1/system.d" meson_src_test
+}
+
 src_install() {
 	meson_src_install
 	python_fix_shebang "${ED}"/usr/bin/
-	newinitd "${FILESDIR}"/ratbagd.init ratbagd
+	newinitd "${FILESDIR}"/ratbagd.init-r1 ratbagd
 }
 
 pkg_postinst() {
