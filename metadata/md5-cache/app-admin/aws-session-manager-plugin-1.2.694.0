@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare unpack
+DESCRIPTION=AWS Session Manager Plugin for aws-cli
+EAPI=8
+HOMEPAGE=https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html https://github.com/aws/session-manager-plugin
+INHERIT=go-module systemd
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/aws/session-manager-plugin/archive/1.2.694.0.tar.gz -> aws-session-manager-plugin-1.2.694.0.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=67b2bd23d0ea77d8f5b34cb85a147ef6
