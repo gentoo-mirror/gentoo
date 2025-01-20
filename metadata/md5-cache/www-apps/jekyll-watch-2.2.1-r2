@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby31? ( dev-ruby/listen:3[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( dev-ruby/listen:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( test? ( >=www-apps/jekyll-2[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( >=www-apps/jekyll-2[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DESCRIPTION=Rebuild your Jekyll site when a file changes with the --watch switch
+EAPI=8
+HOMEPAGE=https://github.com/jekyll/jekyll-watch
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 test test
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby31? ( dev-ruby/listen:3[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( dev-ruby/listen:3[ruby_targets_ruby32(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jekyll/jekyll-watch/archive/v2.2.1.tar.gz -> jekyll-watch-2.2.1.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	ruby-utils	a5d18cde09a96648a4d316ada2786cdb	ruby-ng	f0dedda0b5f19492ca5de91d98bc1708	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
+_md5_=dd7d75aff91e66641a6a8562def72766
