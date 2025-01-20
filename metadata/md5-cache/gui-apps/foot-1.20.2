@@ -1,0 +1,17 @@
+BDEPEND=app-text/scdoc dev-util/wayland-scanner >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-libs/wayland media-libs/fcft media-libs/fontconfig x11-libs/libxkbcommon x11-libs/pixman grapheme-clustering? ( dev-libs/libutf8proc:=[-cjk] media-libs/fcft[harfbuzz] ) >=dev-libs/tllist-1.1.0 >=dev-libs/wayland-protocols-1.32
+DESCRIPTION=Fast, lightweight and minimalistic Wayland terminal emulator
+EAPI=8
+HOMEPAGE=https://codeberg.org/dnkl/foot
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=meson xdg systemd
+IUSE=+grapheme-clustering test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=MIT
+RDEPEND=dev-libs/wayland media-libs/fcft media-libs/fontconfig x11-libs/libxkbcommon x11-libs/pixman grapheme-clustering? ( dev-libs/libutf8proc:=[-cjk] media-libs/fcft[harfbuzz] ) || ( >=sys-libs/ncurses-6.3[-minimal] ~gui-apps/foot-terminfo-1.20.2 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://codeberg.org/dnkl/foot/releases/download/1.20.2/foot-1.20.2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=2f80993ba1ae5104f0519423ca2b0ea6
