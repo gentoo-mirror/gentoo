@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ CRATES="
 	ahash@0.7.8
 	ahash@0.8.11
 	aho-corasick@1.1.3
-	allocator-api2@0.2.18
+	allocator-api2@0.2.20
 	approx@0.4.0
 	approx@0.5.1
 	ariadne@0.3.0
@@ -29,7 +29,7 @@ CRATES="
 	concolor@0.1.1
 	countme@3.0.1
 	cov-mark@2.0.0
-	cpufeatures@0.2.14
+	cpufeatures@0.2.15
 	crossbeam-deque@0.8.5
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.20
@@ -62,7 +62,7 @@ CRATES="
 	half@2.4.1
 	hashbrown@0.12.3
 	hashbrown@0.14.5
-	hashbrown@0.15.0
+	hashbrown@0.15.1
 	heck@0.5.0
 	hermit-abi@0.4.0
 	indexmap@2.6.0
@@ -72,8 +72,8 @@ CRATES="
 	itertools@0.11.0
 	itertools@0.13.0
 	lazy_static@1.5.0
-	libc@0.2.159
-	libm@0.2.8
+	libc@0.2.162
+	libm@0.2.11
 	matrixcompare-core@0.1.0
 	matrixcompare@0.3.0
 	matrixmultiply@0.3.9
@@ -101,17 +101,17 @@ CRATES="
 	oq3_source_file@0.7.0
 	oq3_syntax@0.7.0
 	paste@1.0.15
-	pest@2.7.13
-	pest_derive@2.7.13
-	pest_generator@2.7.13
-	pest_meta@2.7.13
+	pest@2.7.14
+	pest_derive@2.7.14
+	pest_generator@2.7.14
+	pest_meta@2.7.14
 	petgraph@0.6.5
 	portable-atomic@1.9.0
 	ppv-lite86@0.2.20
 	priority-queue@2.1.1
 	proc-macro-error-attr@1.0.4
 	proc-macro-error@1.0.4
-	proc-macro2@1.0.87
+	proc-macro2@1.0.89
 	pulp-macro@0.1.1
 	pulp@0.18.22
 	py_literal@0.4.0
@@ -133,28 +133,28 @@ CRATES="
 	rayon-core@1.12.1
 	rayon@1.10.0
 	reborrow@0.5.5
-	regex-automata@0.4.8
+	regex-automata@0.4.9
 	regex-syntax@0.8.5
-	regex@1.11.0
+	regex@1.11.1
 	rowan@0.15.15
 	rustc-hash@1.1.0
 	rustiq-core@0.0.10
-	rustversion@1.0.17
+	rustversion@1.0.18
 	rustworkx-core@0.15.1
 	same-file@1.0.6
 	seq-macro@0.3.5
-	serde@1.0.210
-	serde_derive@1.0.210
+	serde@1.0.215
+	serde_derive@1.0.215
 	sha2@0.10.8
 	smallvec@1.13.2
 	smol_str@0.2.2
 	syn@1.0.109
-	syn@2.0.79
+	syn@2.0.87
 	sysctl@0.5.5
 	target-lexicon@0.12.16
 	text-size@1.1.1
-	thiserror-impl@1.0.65
-	thiserror@1.0.65
+	thiserror-impl@1.0.69
+	thiserror@1.0.69
 	triomphe@0.1.11
 	typenum@1.17.0
 	ucd-trie@0.1.7
