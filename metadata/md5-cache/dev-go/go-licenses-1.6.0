@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=Reports on the licenses used by a Go package and its dependencies
+EAPI=8
+HOMEPAGE=https://github.com/google/go-licenses
+INHERIT=shell-completion edo go-module
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD-2 BSD MIT Unlicense
+PROPERTIES=test_network
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/google/go-licenses/archive/refs/tags/v1.6.0.tar.gz -> go-licenses-1.6.0.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/dev-go/go-licenses/go-licenses-1.6.0-deps.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467
+_md5_=72a2640899bc4dbf1a03f2b3360bac69
