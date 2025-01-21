@@ -1,11 +1,11 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit go-module
 
-EGIT_COMMIT="ef588dafa080e3dbc9c061ff3802affb66aef291"
+EGIT_COMMIT="1220ce7ec2701d485a9b1beeea63dae3da134fb5"
 
 DESCRIPTION="Docker-compatible CLI for containerd, with support for Compose"
 HOMEPAGE="https://github.com/containerd/nerdctl"
