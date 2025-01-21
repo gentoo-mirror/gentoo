@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
 inherit distutils-r1 optfeature shell-completion
 
-DESCRIPTION="Python based initramfs generator with TOML defintions"
+DESCRIPTION="Python based POSIX initramfs generator with TOML definitions"
 HOMEPAGE="https://github.com/desultory/ugrd"
 SRC_URI="https://github.com/desultory/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -19,7 +19,7 @@ PROPERTIES="test_privileged"
 
 RDEPEND="
 	app-misc/pax-utils
-	>=dev-python/zenlib-2.3.2[${PYTHON_USEDEP}]
+	>=dev-python/zenlib-3.0.2[${PYTHON_USEDEP}]
 	>=dev-python/pycpio-1.4.0[${PYTHON_USEDEP}]
 	sys-apps/pciutils
 "

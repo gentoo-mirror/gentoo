@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ RDEPEND="
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.1.5-config-full-paths.patch
+	"${FILESDIR}"/${PN}-2.1.7-config-full-paths.patch
 )
 
 src_compile() {
