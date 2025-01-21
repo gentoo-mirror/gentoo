@@ -1,9 +1,9 @@
-# Copyright 2017-2024 Gentoo Authors
+# Copyright 2017-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 MY_COMMIT=""
 
 # Games under Gentoo are marked as 'testing' by convention
@@ -88,7 +88,6 @@ DXX_RDEPEND_USE_FREEDATA_FRAGMENT='
 # extras are enabled.
 DXX_RDEPEND_ENGINE_FRAGMENT='
 	d${ENGINE}x? (
-		!<games-action/d${ENGINE}x-rebirth-0.59.100
 		data? (
 			|| (
 				games-action/descent${ENGINE}-data
