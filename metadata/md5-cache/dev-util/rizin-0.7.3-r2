@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://rizin.re/
 INHERIT=meson python-any-r1
 IUSE=test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=Apache-2.0 BSD LGPL-3 MIT
 RDEPEND=app-arch/lz4:0= app-arch/xz-utils app-arch/zstd:= >=dev-libs/capstone-5:0= dev-libs/libmspack dev-libs/libzip:0= dev-libs/openssl:0= dev-libs/libpcre2:0=[jit] >=dev-libs/tree-sitter-0.19.0:= dev-libs/xxhash sys-apps/file sys-libs/zlib:0=
 RESTRICT=test? ( fetch ) !test? ( test )
 SLOT=0/0.7.3
 SRC_URI=mirror+https://github.com/rizinorg/rizin/releases/download/v0.7.3/rizin-src-v0.7.3.tar.xz test? ( https://github.com/rizinorg/rizin-testbins/archive/1203a9a2f51e32337c8434d9f4f7c4543552e271.tar.gz -> rizin-testbins-1203a9a2f51e32337c8434d9f4f7c4543552e271.tar.gz )
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
-_md5_=df59925ea91e0a7345e5b6c52c92b094
+_md5_=8adcc2ee12e886c3869292e7c1298436
