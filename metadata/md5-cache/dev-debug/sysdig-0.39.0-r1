@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://sysdig.com/
 INHERIT=bash-completion-r1 cmake flag-o-matic linux-info llvm-r1 lua-single
 IUSE=bpf +modules +llvm_slot_19 llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 +lua_single_target_luajit
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=Apache-2.0
 PDEPEND=modules? ( =dev-debug/scap-driver-0.19.0* )
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) dev-cpp/abseil-cpp:= dev-cpp/tbb:= dev-cpp/yaml-cpp:= dev-libs/jsoncpp:= dev-libs/libb64:= bpf? ( >=dev-libs/libbpf-1.1:= ) dev-libs/protobuf:= dev-libs/re2:= dev-libs/uthash net-libs/grpc:= net-misc/curl sys-libs/ncurses:= sys-libs/zlib:= virtual/libelf:=
@@ -14,4 +14,4 @@ REQUIRED_USE=^^ ( lua_single_target_luajit )
 SLOT=0
 SRC_URI=https://github.com/draios/sysdig/archive/0.39.0.tar.gz -> sysdig-0.39.0.tar.gz https://github.com/falcosecurity/libs/archive/0.19.0.tar.gz -> falcosecurity-libs-0.19.0.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=2ef13f081b96e7a49d787070e01de15d
+_md5_=e87a69b61a3224d85ba775bc29cb3456

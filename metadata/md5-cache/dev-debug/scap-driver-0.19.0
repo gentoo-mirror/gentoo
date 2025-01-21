@@ -7,10 +7,10 @@ HOMEPAGE=https://sysdig.com/
 IDEPEND=sys-apps/kmod[tools]
 INHERIT=cmake linux-mod-r1
 IUSE=dist-kernel modules-compress modules-sign +strip
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=Apache-2.0 GPL-2 MIT
 RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 SLOT=0
 SRC_URI=https://github.com/falcosecurity/libs/archive/0.19.0.tar.gz -> falcosecurity-libs-0.19.0.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	97700892f3bc8ee315ee55ff5297a739	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	linux-mod-r1	84b53048ef3f4ee4f1b3dce65d43580e
-_md5_=5978d58dabfeecafaa3cd7eebde4cb4f
+_md5_=7624ce094e015082bf440d1ce7cc15cc
