@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,11 +15,10 @@ if [ "${PV}" = "9999" ]; then
 	EGIT_REPO_URI="https://github.com/deltj/TempestSDR.git"
 else
 	KEYWORDS="~amd64 ~x86"
-	COMMIT="93c238725bdcf2f50c8a1d3789cf56e90f7bab7f"
+	COMMIT="59201a2cb21ab193125719eb318dcfbbf979c32e"
 	SRC_URI="https://github.com/deltj/TempestSDR/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/TempestSDR-${COMMIT}"
 fi
-IUSE=""
 
 DEPEND=">=virtual/jdk-1.8:*
 		dev-libs/boost:=
@@ -29,19 +28,8 @@ DEPEND=">=virtual/jdk-1.8:*
 		net-wireless/bladerf:=
 		net-wireless/hackrf-tools"
 RDEPEND="${DEPEND}"
-BDEPEND=""
-
-src_compile() {
-	emake all
-}
 
 src_install() {
-	insinto /usr/share/${PN}
-	doins JavaGUI/JTempestSDR.jar
-	dodir /usr/bin
-	cat <<-EOF > "${ED}/usr/bin/tempestsdr"
-#!/bin/sh
-java -jar /usr/share/tempestsdr/JTempestSDR.jar
-EOF
-	fperms +x /usr/bin/tempestsdr
+	java-pkg_dojar JavaGUI/JTempestSDR.jar
+	java-pkg_dolauncher tempestsdr --jar JTempestSDR.jar
 }
