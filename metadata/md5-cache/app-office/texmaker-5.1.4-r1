@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DEPEND=app-text/hunspell:= app-text/poppler[qt5] dev-qt/qtcore:5= dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtlockedfile dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[X,qt5(+)] dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext dev-qt/qtconcurrent:5
+DESCRIPTION=Powerful LaTeX-IDE
+EAPI=8
+HOMEPAGE=https://xm1math.net/texmaker/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=qmake-utils readme.gentoo-r1 xdg
+KEYWORDS=amd64 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=app-text/hunspell:= app-text/poppler[qt5] dev-qt/qtcore:5= dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtlockedfile dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsingleapplication[X,qt5(+)] dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib x11-libs/libX11 x11-libs/libXext app-text/ghostscript-gpl app-text/psutils media-libs/netpbm virtual/latex-base
+SLOT=0
+SRC_URI=https://xm1math.net/texmaker/texmaker-5.1.4.tar.bz2
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=ae660a22f987345f5e9b5902de13ff58
