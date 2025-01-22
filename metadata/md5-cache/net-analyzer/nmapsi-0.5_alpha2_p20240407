@@ -1,0 +1,14 @@
+BDEPEND=dev-qt/qttools:6[linguist] app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtbase:6[dbus,gui,network,widgets] dev-qt/qtdeclarative:6 dev-qt/qtwebengine:6[widgets] dev-qt/qt5compat:6
+DESCRIPTION=Qt frontend to nmap
+EAPI=8
+HOMEPAGE=https://github.com/nmapsi4/nmapsi4
+INHERIT=cmake
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtbase:6[dbus,gui,network,widgets] dev-qt/qtdeclarative:6 dev-qt/qtwebengine:6[widgets] dev-qt/qt5compat:6 net-analyzer/nmap net-dns/bind-tools
+SLOT=0
+SRC_URI=https://github.com/nmapsi4/nmapsi4/archive/463e5cdb516dc68d67b29f6815192cb161e4f7f3.tar.gz -> nmapsi-463e5cdb516dc68d67b29f6815192cb161e4f7f3.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=55528b97a58c953db5a553e826c936e9
