@@ -7,7 +7,7 @@ HOMEPAGE=https://dotnet.microsoft.com/ https://github.com/dotnet/dotnet/
 IDEPEND=app-eselect/eselect-dotnet
 INHERIT=check-reqs flag-o-matic llvm-r1 multiprocessing python-any-r1
 IUSE=+llvm_slot_19 llvm_slot_18
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=MIT
 PDEPEND=~dev-dotnet/dotnet-runtime-nugets-9.0.0 ~dev-dotnet/dotnet-runtime-nugets-6.0.36 ~dev-dotnet/dotnet-runtime-nugets-7.0.20 ~dev-dotnet/dotnet-runtime-nugets-8.0.11
 RDEPEND=app-arch/brotli app-crypt/mit-krb5:0/0 dev-libs/icu dev-libs/openssl:= dev-libs/rapidjson dev-util/lttng-ust:= sys-libs/libunwind sys-libs/zlib:0/1
@@ -16,4 +16,4 @@ RESTRICT=splitdebug strip
 SLOT=9.0/9.0.0
 SRC_URI=amd64? ( elibc_glibc? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/dotnet-sdk-9.0.101-prepared-gentoo-glibc-amd64.tar.xz ) elibc_musl? ( https://dev.gentoo.org/~xgqt/distfiles/repackaged/dotnet-sdk-9.0.101-prepared-gentoo-musl-amd64.tar.xz ) )
 _eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
-_md5_=23caa9b8be1648364634fe3759951f7f
+_md5_=17310fe20f7bcea2cfc40f71967fcf12
