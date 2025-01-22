@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,6 @@ COMMON_DEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtsingleapplication[X,qt5(+)]
-	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	sys-libs/zlib
@@ -72,6 +71,7 @@ src_configure() {
 	local myeqmakeargs=(
 		${PN}.pro
 		QT_MAJOR_VERSION=5
+		INTERNALBROWSER=no # bug 926654, just making sure
 		PREFIX="${EPREFIX}/usr"
 		DESKTOPDIR="${EPREFIX}/usr/share/applications"
 		ICONDIR="${EPREFIX}/usr/share/pixmaps"

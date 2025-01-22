@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,12 +14,9 @@ S="${WORKDIR}/SuperCollider-${PV}-Source"
 LICENSE="GPL-2 gpl3? ( GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="ableton-link cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack qt5 server +sndfile static-libs vim webengine X +zeroconf"
+IUSE="ableton-link cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack qt5 server +sndfile static-libs vim X +zeroconf"
 
-REQUIRED_USE="
-	qt5? ( X )
-	webengine? ( qt5 )
-"
+REQUIRED_USE="qt5? ( X )"
 
 BDEPEND="
 	virtual/pkgconfig
@@ -43,11 +40,6 @@ RDEPEND="
 		dev-qt/qtwidgets:5
 	)
 	sndfile? ( media-libs/libsndfile )
-	webengine? (
-		dev-qt/qtwebchannel:5
-		dev-qt/qtwebengine:5[widgets]
-		dev-qt/qtwebsockets:5
-	)
 	X? (
 		x11-libs/libX11
 		x11-libs/libXt
@@ -66,7 +58,8 @@ PATCHES=(
 	"${FILESDIR}/${P}-boost-1.84.patch" # bug 921595
 	"${FILESDIR}/${P}-gcc-13.patch" # bug 905127
 	"${FILESDIR}/${P}-no-ccache.patch" # bug 922095
-	"${WORKDIR}/${PN}-3.13.0-boost-1.85.patch" # bug 932793
+	"${WORKDIR}/${P}-boost-1.85.patch" # bug 932793
+	"${FILESDIR}"/${P}-boost-1.87-{1,2}.patch # bug 946624
 )
 
 src_configure() {
@@ -101,9 +94,7 @@ src_configure() {
 		-DNO_AVAHI=$(usex !zeroconf)
 	)
 
-	use qt5 && mycmakeargs+=(
-		-DSC_USE_QTWEBENGINE=$(usex webengine)
-	)
+	use qt5 && mycmakeargs+=( -DSC_USE_QTWEBENGINE=OFF ) # bug 926680
 
 	use debug && mycmakeargs+=(
 		-DSC_MEMORY_DEBUGGING=ON
