@@ -1,0 +1,15 @@
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip )
+DEFINED_PHASES=compile config configure install postinst preinst prepare test unpack
+DEPEND=nls? ( virtual/libintl )
+DESCRIPTION=Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)
+EAPI=8
+HOMEPAGE=https://www.iana.org/time-zones
+INHERIT=toolchain-funcs flag-o-matic unpacker
+IUSE=nls leaps-timezone zic-slim
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=BSD public-domain
+RDEPEND=nls? ( virtual/libintl ) !sys-libs/glibc[vanilla(+)]
+SLOT=0
+SRC_URI=https://data.iana.org/time-zones/releases/tzdb-2025a.tar.lz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	fb4b84181244b3b9990fa0bf40232dd2
+_md5_=263ed0f1c5799d82ad46f4c8440cbf77
