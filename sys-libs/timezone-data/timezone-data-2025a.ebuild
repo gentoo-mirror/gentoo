@@ -1,20 +1,20 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs flag-o-matic
+inherit toolchain-funcs flag-o-matic unpacker
 
-MY_CODE_VER=${PV}
-MY_DATA_VER=${PV}
 DESCRIPTION="Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)"
 HOMEPAGE="https://www.iana.org/time-zones"
-SRC_URI="https://www.iana.org/time-zones/repository/releases/tzdata${MY_DATA_VER}.tar.gz
-	https://www.iana.org/time-zones/repository/releases/tzcode${MY_CODE_VER}.tar.gz"
+SRC_URI="
+	https://data.iana.org/time-zones/releases/tzdb-${PV}.tar.lz
+"
+S="${WORKDIR}"/tzdb-${PV}
 
 LICENSE="BSD public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="nls leaps-timezone zic-slim"
 
 DEPEND="nls? ( virtual/libintl )"
@@ -22,18 +22,10 @@ RDEPEND="
 	${DEPEND}
 	!sys-libs/glibc[vanilla(+)]
 "
-
-src_unpack() {
-	mkdir "${S}" && cd "${S}" || die
-	default
-}
+BDEPEND="$(unpacker_src_uri_depends)"
 
 src_prepare() {
 	default
-
-	# check_web contacts validator.w3.org
-	sed -i -e 's/check_tables check_web/check_tables/g' \
-		Makefile || die "Failed to disable check_web"
 
 	if tc-is-cross-compiler ; then
 		cp -pR "${S}" "${S}"-native || die
@@ -97,8 +89,8 @@ src_compile() {
 }
 
 src_test() {
-	# VALIDATE_ENV is used for extended/web based tests. Punt on them.
-	emake check VALIDATE_ENV=true
+	# CURL is used for extended/web based tests. Punt on them.
+	emake check CURL=:
 }
 
 src_install() {
