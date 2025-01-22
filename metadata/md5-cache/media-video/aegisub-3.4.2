@@ -1,0 +1,17 @@
+BDEPEND=dev-util/intltool sys-devel/gettext virtual/pkgconfig test? ( lua_single_target_luajit? ( dev-lang/luajit:=[lua52compat] ) x11-libs/wxGTK:3.2-gtk3[X,opengl,debug?] dev-libs/boost:=[icu,nls] dev-libs/icu:= media-libs/ffmpegsource:= media-libs/fontconfig media-libs/freetype media-libs/libass:=[fontconfig] sys-libs/zlib virtual/libiconv virtual/opengl alsa? ( media-libs/alsa-lib ) fftw? ( >=sci-libs/fftw-3.3:= ) openal? ( media-libs/openal ) portaudio? ( =media-libs/portaudio-19* ) pulseaudio? ( media-libs/libpulse ) spell? ( app-text/hunspell:= ) uchardet? ( app-i18n/uchardet ) >=dev-cpp/gtest-1.8.1 >=dev-lua/luarocks-3.4.0-r100 lua_single_target_luajit? ( dev-lua/busted[lua_targets_luajit(-)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test unpack
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:=[lua52compat] ) x11-libs/wxGTK:3.2-gtk3[X,opengl,debug?] dev-libs/boost:=[icu,nls] dev-libs/icu:= media-libs/ffmpegsource:= media-libs/fontconfig media-libs/freetype media-libs/libass:=[fontconfig] sys-libs/zlib virtual/libiconv virtual/opengl alsa? ( media-libs/alsa-lib ) fftw? ( >=sci-libs/fftw-3.3:= ) openal? ( media-libs/openal ) portaudio? ( =media-libs/portaudio-19* ) pulseaudio? ( media-libs/libpulse ) spell? ( app-text/hunspell:= ) uchardet? ( app-i18n/uchardet )
+DESCRIPTION=Advanced subtitle editor
+EAPI=7
+HOMEPAGE=http://www.aegisub.org/ https://github.com/TypesettingTools/Aegisub
+INHERIT=meson flag-o-matic lua-single plocale wxwidgets xdg-utils vcs-snapshot toolchain-funcs
+IUSE=+alsa debug +fftw openal portaudio pulseaudio spell test +uchardet +lua_single_target_luajit
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD MIT
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:=[lua52compat] ) x11-libs/wxGTK:3.2-gtk3[X,opengl,debug?] dev-libs/boost:=[icu,nls] dev-libs/icu:= media-libs/ffmpegsource:= media-libs/fontconfig media-libs/freetype media-libs/libass:=[fontconfig] sys-libs/zlib virtual/libiconv virtual/opengl alsa? ( media-libs/alsa-lib ) fftw? ( >=sci-libs/fftw-3.3:= ) openal? ( media-libs/openal ) portaudio? ( =media-libs/portaudio-19* ) pulseaudio? ( media-libs/libpulse ) spell? ( app-text/hunspell:= ) uchardet? ( app-i18n/uchardet )
+REQUIRED_USE=^^ ( lua_single_target_luajit ) || ( alsa openal portaudio pulseaudio )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/TypesettingTools/Aegisub/archive/v3.4.2.tar.gz -> aegisub-3.4.2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	plocale	950fbaec7deeba41b5bcc0572cca99b9	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	vcs-snapshot	bd69bf57fd2c34e99964a03b1d968177
+_md5_=b6ab22fbc468eb9a2e394d5a11f04279
