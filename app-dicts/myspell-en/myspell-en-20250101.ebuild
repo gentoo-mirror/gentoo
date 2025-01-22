@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://github.com/marcoagpinto/aoo-mozilla-en-dict
 	https://proofingtoolgui.org
 "
-SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1717313617/dict-en-${PV}_lo.oxt"
+SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1735709291/dict-en-20250101_lo.oxt"
 
 LICENSE="BSD MIT LGPL-3+"
 SLOT="0"
