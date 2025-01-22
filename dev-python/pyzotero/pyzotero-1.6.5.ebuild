@@ -35,5 +35,13 @@ BDEPEND="
 	)
 "
 
-distutils_enable_sphinx doc --no-autodoc
+distutils_enable_sphinx doc \
+	dev-python/sphinx-rtd-theme
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# added as RDEP: https://github.com/urschrei/pyzotero/issues/207
+	sed -i -e '/sphinx-rtd-theme/d' pyproject.toml || die
+}
