@@ -72,6 +72,9 @@ if [[ -z ${_LLVM_SOURCE_TYPE+1} ]]; then
 			_LLVM_SOURCE_TYPE=snapshot
 
 			case ${PV} in
+				20.0.0_pre20250122)
+					EGIT_COMMIT=97c3a990f05606cb807faf53bc41302fb62c7980
+					;;
 				20.0.0_pre20250118)
 					EGIT_COMMIT=c3a935e3f967f8f22f5db240d145459ee621c1e0
 					;;
@@ -185,14 +188,26 @@ case ${LLVM_MAJOR} in
 		)
 		;;
 	*)
-		ALL_LLVM_EXPERIMENTAL_TARGETS=(
-			ARC CSKY DirectX M68k SPIRV Xtensa
-		)
-		ALL_LLVM_PRODUCTION_TARGETS=(
-			AArch64 AMDGPU ARM AVR BPF Hexagon Lanai LoongArch Mips
-			MSP430 NVPTX PowerPC RISCV Sparc SystemZ VE WebAssembly X86
-			XCore
-		)
+		# TODO: limit to < 20 when we remove old snapshots
+		if ver_test ${PV} -lt 20.0.0_pre20250122; then
+			ALL_LLVM_EXPERIMENTAL_TARGETS=(
+				ARC CSKY DirectX M68k SPIRV Xtensa
+			)
+			ALL_LLVM_PRODUCTION_TARGETS=(
+				AArch64 AMDGPU ARM AVR BPF Hexagon Lanai LoongArch Mips
+				MSP430 NVPTX PowerPC RISCV Sparc SystemZ VE WebAssembly X86
+				XCore
+			)
+		else
+			ALL_LLVM_EXPERIMENTAL_TARGETS=(
+				ARC CSKY DirectX M68k Xtensa
+			)
+			ALL_LLVM_PRODUCTION_TARGETS=(
+				AArch64 AMDGPU ARM AVR BPF Hexagon Lanai LoongArch Mips
+				MSP430 NVPTX PowerPC RISCV Sparc SPIRV SystemZ VE
+				WebAssembly X86 XCore
+			)
+		fi
 		;;
 esac
 
