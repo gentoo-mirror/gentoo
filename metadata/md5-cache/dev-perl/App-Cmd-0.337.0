@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/Capture-Tiny-0.130.0 virtual/perl-Carp >=dev-perl/Class-Load-0.60.0 dev-perl/Data-OptList >=virtual/perl-Getopt-Long-2.390.0 >=dev-perl/Getopt-Long-Descriptive-0.116.0 dev-perl/IO-TieCombine dev-perl/Module-Pluggable dev-perl/String-RewritePrefix dev-perl/Sub-Exporter dev-perl/Sub-Install virtual/perl-parent virtual/perl-ExtUtils-MakeMaker test? ( !minimal? ( >=virtual/perl-CPAN-Meta-2.120.900 ) virtual/perl-Data-Dumper virtual/perl-File-Spec virtual/perl-IPC-Cmd dev-perl/Test-Fatal >=virtual/perl-Test-Simple-0.960.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Write command line apps with less suffering
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/App-Cmd
+INHERIT=perl-module
+IUSE=minimal perl_features_debug perl_features_ithreads perl_features_quadmath test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/Capture-Tiny-0.130.0 virtual/perl-Carp >=dev-perl/Class-Load-0.60.0 dev-perl/Data-OptList >=virtual/perl-Getopt-Long-2.390.0 >=dev-perl/Getopt-Long-Descriptive-0.116.0 dev-perl/IO-TieCombine dev-perl/Module-Pluggable dev-perl/String-RewritePrefix dev-perl/Sub-Exporter dev-perl/Sub-Install virtual/perl-parent >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/App-Cmd-0.337.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
+_md5_=4675685e012f36827a79af8af5de22ee
