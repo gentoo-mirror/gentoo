@@ -1,9 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-
-[[ "${PV}" == *p20241001 ]] && COMMIT="ec8b5142abaaef8335c23b98c18dee1f960b6e0b"
 
 inherit elisp
 
@@ -16,17 +14,18 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/greghendershott/${PN}.git"
 else
+	[[ "${PV}" == *_p20250122 ]] && \
+		COMMIT="142c36c13de9f9e5e02cef965fb6517235699dd4"
+
 	SRC_URI="https://github.com/greghendershott/${PN}/archive/${COMMIT}.tar.gz
 		-> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-scheme/racket:=[-minimal]
