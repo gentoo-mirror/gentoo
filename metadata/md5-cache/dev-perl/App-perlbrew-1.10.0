@@ -1,0 +1,16 @@
+BDEPEND=>=virtual/perl-ExtUtils-MakeMaker-7.220.0 >=dev-perl/CPAN-Perl-Releases-5.202.307.200 >=dev-perl/Capture-Tiny-0.360.0 >=dev-perl/Devel-PatchPerl-2.80.0 >=virtual/perl-ExtUtils-MakeMaker-7.220.0 >=virtual/perl-File-Temp-0.230.400 virtual/perl-JSON-PP >=dev-perl/local-lib-2.0.14 >=dev-perl/Module-Build-Tiny-0.39.0 test? ( >=dev-perl/File-Which-1.210.0 >=dev-perl/Path-Class-0.330.0 >=dev-perl/Test2-Plugin-IOEvents-0.1.1 >=dev-perl/Test2-Plugin-NoWarnings-0.100.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Manage perl installations in your $HOME
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/App-perlbrew
+INHERIT=perl-module
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=virtual/perl-ExtUtils-MakeMaker-7.220.0 >=dev-perl/CPAN-Perl-Releases-5.202.307.200 >=dev-perl/Capture-Tiny-0.360.0 >=dev-perl/Devel-PatchPerl-2.80.0 >=virtual/perl-ExtUtils-MakeMaker-7.220.0 >=virtual/perl-File-Temp-0.230.400 virtual/perl-JSON-PP >=dev-perl/local-lib-2.0.14 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/G/GU/GUGOD/App-perlbrew-1.01.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
+_md5_=858dfd7295912e246723a84c60ac3db8
