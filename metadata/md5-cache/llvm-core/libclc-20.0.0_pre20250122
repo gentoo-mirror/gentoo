@@ -1,0 +1,13 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) llvm_slot_17? ( llvm-core/clang:17 spirv? ( dev-util/spirv-llvm-translator:17 ) ) llvm_slot_18? ( llvm-core/clang:18 spirv? ( dev-util/spirv-llvm-translator:18 ) ) llvm_slot_19? ( llvm-core/clang:19 spirv? ( dev-util/spirv-llvm-translator:19 ) ) llvm_slot_20? ( llvm-core/clang:20 spirv? ( dev-util/spirv-llvm-translator:20 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=OpenCL C library
+EAPI=8
+HOMEPAGE=https://libclc.llvm.org/
+INHERIT=cmake llvm.org llvm-r1 python-any-r1
+IUSE=+spirv video_cards_nvidia video_cards_r600 video_cards_radeonsi +llvm_slot_19 llvm_slot_17 llvm_slot_18 llvm_slot_20
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( MIT BSD )
+REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 )
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/archive/97c3a990f05606cb807faf53bc41302fb62c7980.tar.gz -> llvm-project-97c3a990f05606cb807faf53bc41302fb62c7980.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm.org	20e8e4da0b2dece1a1a1be9e40d79b5c	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=a547061863a2113a21e25c28bfa3d1b5
