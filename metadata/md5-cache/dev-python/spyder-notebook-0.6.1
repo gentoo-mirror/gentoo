@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/spyder-ide/spyder-notebook
 INHERIT=distutils-r1 pypi virtualx
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
 RDEPEND=dev-python/nbformat[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/notebook-7.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] <dev-python/notebook-8[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/qdarkstyle[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/qtpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/requests[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/spyder-6[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] <dev-python/spyder-7[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/tornado[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/traitlets[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/s/spyder-notebook/spyder_notebook-0.6.1.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df	pypi	ad1b21f87d117ae9bb089bdb65b8f013	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=cb20f025f9aa135db52e3b050c2df066
+_md5_=5dd34214eaf6a581911aff0455d94a1c
