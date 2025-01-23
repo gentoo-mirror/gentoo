@@ -6,15 +6,15 @@ EAPI=8
 inherit autotools flag-o-matic
 
 MY_P="${P/_/-}"
-MY_PV="${PV/_rc/-pre}"
 DESCRIPTION="GNU Midnight Commander is a text based file manager"
 HOMEPAGE="https://midnight-commander.org"
-SRC_URI="https://github.com/MidnightCommander/mc/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${MY_PV}"
+SRC_URI="http://ftp.midnight-commander.org/${MY_P}.tar.xz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+edit gpm sftp +slang spell test unicode X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
+IUSE="+edit gpm nls sftp +slang spell test unicode X"
 
 REQUIRED_USE="spell? ( edit )"
 RESTRICT="!test? ( test )"
@@ -44,11 +44,10 @@ RDEPEND="
 	spell? ( app-dicts/aspell-en )
 "
 
-# Force nls so xgettext is installed.  Will revert this.
 BDEPEND="
-	sys-devel/gettext
 	app-arch/xz-utils
 	virtual/pkgconfig
+	nls? ( sys-devel/gettext )
 	test? ( dev-libs/check )
 "
 
@@ -73,13 +72,6 @@ src_prepare() {
 	fi
 
 	eautoreconf
-
-	# Copied from autogen.sh
-	xgettext --keyword=_ --keyword=N_ --keyword=Q_ --output=- \
-		`find . -name '*.[ch]'` | sed -ne '/^#:/{s/#://;s/:[0-9]*/\
-/g;s/ //g;p;}' | \
-		grep -v '^$' | sort | uniq >po/POTFILES.in || die
-
 }
 
 src_configure() {
@@ -95,7 +87,7 @@ src_configure() {
 		# a library. Let's avoid shared library altogether
 		# as it also conflicts with sci-libs/mc: bug #685938
 		--disable-mclib
-		--enable-nls
+		$(use_enable nls)
 		$(use_enable sftp vfs-sftp)
 		$(use_enable spell aspell)
 		$(use_enable test tests)
