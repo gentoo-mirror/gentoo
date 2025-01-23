@@ -6,16 +6,12 @@ EAPI=8
 DISTUTILS_USE_PEP517=flit
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A library for converting to and from native Python datatypes"
 HOMEPAGE="
 	https://github.com/marshmallow-code/marshmallow/
 	https://pypi.org/project/marshmallow/
-"
-SRC_URI="
-	https://github.com/marshmallow-code/marshmallow/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
