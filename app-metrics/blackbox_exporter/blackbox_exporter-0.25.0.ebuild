@@ -1,25 +1,24 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit fcaps go-module systemd
-GIT_COMMIT=e0d5e44
+GIT_COMMIT=ef3ff4f
 MY_PV="v${PV/_rc/-rc.}"
 
 DESCRIPTION="Prometheus exporter for blackbox probing via HTTP, HTTPS, DNS, TCP and ICMP"
 HOMEPAGE="https://github.com/prometheus/blackbox_exporter"
 SRC_URI="https://github.com/prometheus/blackbox_exporter/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+="	https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
-COMMON_DEPEND="
-	acct-group/blackbox_exporter
+COMMON_DEPEND="acct-group/blackbox_exporter
 	acct-user/blackbox_exporter"
-	DEPEND="${COMMON_DEPEND}"
-	RDEPEND="${COMMON_DEPEND}"
+DEPEND="${COMMON_DEPEND}"
+RDEPEND="${COMMON_DEPEND}"
 BDEPEND="dev-util/promu"
 
 FILECAPS=(
