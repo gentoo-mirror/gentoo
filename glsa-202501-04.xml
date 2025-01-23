@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-04">
+    <title>Yubico pam-u2f: Partial Authentication Bypass</title>
+    <synopsis>A vulnerability has been discovered in Yubico pam-u2f, which can lead to a partial authentication bypass.</synopsis>
+    <product type="ebuild">pam_u2f</product>
+    <announced>2025-01-23</announced>
+    <revised count="1">2025-01-23</revised>
+    <bug>948201</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-auth/pam_u2f" auto="yes" arch="*">
+            <unaffected range="ge">1.3.2</unaffected>
+            <vulnerable range="lt">1.3.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Yubico pam-u2f is a PAM module for FIDO2 and U2F keys.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Yubico pam-u2f. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Depending on specific settings and usage scenarios the result of the pam-u2f module may be altered or ignored.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Yubico pam-u2f users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-auth/pam_u2f-1.3.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-23013">CVE-2025-23013</uri>
+        <uri link="https://www.yubico.com/support/security-advisories/YSA-2025-01">YSA-2025-01</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-23T06:15:02.537459Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-01-23T06:15:02.541001Z">graaff</metadata>
+</glsa>
