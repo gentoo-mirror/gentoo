@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-08">
+    <title>Qt: Buffer Overflow</title>
+    <synopsis>A vulnerability has been discovered in Qt, where a buffer overflow can lead to denial of service.</synopsis>
+    <product type="ebuild">qtbase,qtcore</product>
+    <announced>2025-01-23</announced>
+    <revised count="1">2025-01-23</revised>
+    <bug>911790</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-qt/qtbase" auto="yes" arch="*">
+            <unaffected range="ge">6.5.2</unaffected>
+            <vulnerable range="lt">6.5.2</vulnerable>
+        </package>
+        <package name="dev-qt/qtcore" auto="yes" arch="*">
+            <unaffected range="ge">5.15.10-r1</unaffected>
+            <vulnerable range="lt">5.15.10-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Qt is a cross-platform application development framework.</p>
+    </background>
+    <description>
+        <p>When given specifically crafted data then QXmlStreamReader can end up causing a buffer overflow and subsequently a crash or freeze or get out of memory on recursive entity expansion, with DTD tokens in XML body.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Qt users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtcore-5.15.10-r1"
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtbase-6.5.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37369">CVE-2023-37369</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38197">CVE-2023-38197</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-23T07:21:01.913237Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-01-23T07:21:01.915567Z">graaff</metadata>
+</glsa>
