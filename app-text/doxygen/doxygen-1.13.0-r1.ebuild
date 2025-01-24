@@ -1,13 +1,14 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LLVM_MAX_SLOT=18
-PYTHON_COMPAT=( python3_{10..12} )
+LLVM_COMPAT=( 18 19 )
+LLVM_OPTIONAL=1
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="xml(+)"
 
-inherit cmake flag-o-matic llvm python-any-r1
+inherit cmake flag-o-matic llvm-r1 python-any-r1
 
 DESCRIPTION="Documentation system for most programming languages"
 HOMEPAGE="https://www.doxygen.nl/"
@@ -29,7 +30,7 @@ IUSE="clang debug doc dot doxysearch gui test"
 # - We keep the odd construct of noop USE=test because of
 #   the special relationship b/t RESTRICT & USE for tests.
 #   Also, it's a hint which avoids tests being silently skipped during arch testing.
-REQUIRED_USE="test? ( doc )"
+REQUIRED_USE="clang? ( ${LLVM_REQUIRED_USE} ) test? ( doc )"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -43,14 +44,15 @@ RDEPEND="
 	dev-lang/perl
 	dev-libs/libfmt:=
 	dev-libs/spdlog:=
-	media-libs/libpng:=
 	virtual/libiconv
 	clang? (
-		<llvm-core/clang-$((${LLVM_MAX_SLOT} + 1)):=
+		$(llvm_gen_dep '
+			llvm-core/clang:${LLVM_SLOT}=
+			llvm-core/llvm:${LLVM_SLOT}=
+		')
 	)
 	dot? (
-		media-gfx/graphviz
-		media-libs/freetype
+		media-gfx/graphviz[freetype(+)]
 	)
 	doc? (
 		dev-texlive/texlive-bibtexextra
@@ -61,27 +63,19 @@ RDEPEND="
 		dev-texlive/texlive-plaingeneric
 	)
 	doxysearch? ( dev-libs/xapian:= )
-	gui? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtxml:5
-	)
+	gui? ( dev-qt/qtbase:6[gui,widgets,xml] )
 "
 DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.9.4-link_with_pthread.patch"
-	"${FILESDIR}/${PN}-1.9.7-musl-1.2.4.patch"
 	"${FILESDIR}/${PN}-1.9.8-suppress-unused-option-libcxx.patch"
-
-	# Backports
 )
 
 DOCS=( LANGUAGE.HOWTO README.md )
 
 pkg_setup() {
-	use clang && llvm_pkg_setup
+	use clang && llvm-r1_pkg_setup
 	python-any-r1_pkg_setup
 }
 
@@ -116,10 +110,14 @@ src_configure() {
 		-Dbuild_doc=$(usex doc)
 		-Dbuild_search=$(usex doxysearch)
 		-Dbuild_wizard=$(usex gui)
+		-Dforce_qt=Qt6
 		-Duse_sys_spdlog=ON
 		-Duse_sys_sqlite3=ON
 		-DBUILD_SHARED_LIBS=OFF
 		-DGIT_EXECUTABLE="false"
+
+		# Noisy and irrelevant downstream
+		-Wno-dev
 	)
 
 	use doc && mycmakeargs+=(

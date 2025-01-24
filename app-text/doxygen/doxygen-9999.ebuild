@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -63,12 +63,7 @@ RDEPEND="
 		dev-texlive/texlive-plaingeneric
 	)
 	doxysearch? ( dev-libs/xapian:= )
-	gui? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtxml:5
-	)
+	gui? ( dev-qt/qtbase:6[gui,widgets,xml] )
 "
 DEPEND="${RDEPEND}"
 
@@ -117,6 +112,7 @@ src_configure() {
 		-Dbuild_doc=$(usex doc)
 		-Dbuild_search=$(usex doxysearch)
 		-Dbuild_wizard=$(usex gui)
+		-Dforce_qt=Qt6
 		-Duse_sys_spdlog=ON
 		-Duse_sys_sqlite3=ON
 		-DBUILD_SHARED_LIBS=OFF
