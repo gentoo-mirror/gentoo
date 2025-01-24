@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/google/re2
 INHERIT=multilib-minimal toolchain-funcs
 IUSE=benchmark icu test test-full abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~sparc ~x86
 LICENSE=BSD
 RDEPEND=>=dev-cpp/abseil-cpp-20240116.2-r3:= benchmark? ( dev-cpp/benchmark ) icu? ( dev-libs/icu:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 REQUIRED_USE=test-full? ( test )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/11
 SRC_URI=https://github.com/google/re2/archive/2024-07-02.tar.gz -> re2-2024-07-02.tar.gz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=78f2fded79066957e17ff5cde7af7b2e
+_md5_=8dfe220d3698ab28eb62c3835cfde994
