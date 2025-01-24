@@ -1,15 +1,18 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 USE_RUBY="ruby31 ruby32 ruby33"
 
+RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_EXTRADOC="README.md HISTORY.md"
+RUBY_FAKEGEM_GEMSPEC="launchy.gemspec"
 
 inherit ruby-fakegem virtualx
 
 DESCRIPTION="Helper class for launching cross-platform applications"
 HOMEPAGE="https://github.com/copiousfreetime/launchy"
+SRC_URI="https://github.com/copiousfreetime/launchy/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="ISC"
 
@@ -20,6 +23,7 @@ IUSE="test"
 ruby_add_rdepend "
 	>=dev-ruby/addressable-2.8
 	dev-ruby/childprocess:5
+	>=dev-ruby/logger-1.6:0
 	!<dev-ruby/launchy-2.5.2-r1
 "
 
