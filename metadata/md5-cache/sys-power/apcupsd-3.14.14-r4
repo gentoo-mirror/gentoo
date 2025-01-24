@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare setup
+DEPEND=sys-apps/util-linux[tty-helpers] cgi? ( media-libs/gd:2= ) modbus? ( usb? ( virtual/libusb:0= ) ) snmp? ( net-analyzer/net-snmp )
+DESCRIPTION=APC UPS daemon with integrated tcp/ip remote shutdown
+EAPI=8
+HOMEPAGE=http://www.apcupsd.org/
+INHERIT=linux-info systemd udev tmpfiles
+IUSE=cgi +modbus selinux snmp +usb
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/mailx selinux? ( sec-policy/selinux-apcupsd ) sys-apps/util-linux[tty-helpers] cgi? ( media-libs/gd:2= ) modbus? ( usb? ( virtual/libusb:0= ) ) snmp? ( net-analyzer/net-snmp ) virtual/tmpfiles
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/apcupsd/apcupsd-3.14.14.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	systemd	54bd206bb5c4efac6ae28b6b006713b0	udev	f3d9a4376ebd22131726a68e1a0a058f	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=4007d6fa5c16b9c37626acd67ee32aec
