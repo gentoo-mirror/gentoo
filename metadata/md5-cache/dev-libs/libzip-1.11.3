@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-util/nihtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=sys-libs/zlib bzip2? ( app-arch/bzip2:= ) lzma? ( app-arch/xz-utils ) ssl? ( gnutls? ( dev-libs/nettle:= >=net-libs/gnutls-3.6.5:= ) !gnutls? ( mbedtls? ( net-libs/mbedtls:0= ) !mbedtls? ( dev-libs/openssl:= ) ) ) zstd? ( >=app-arch/zstd-1.4.0:= )
+DESCRIPTION=Library for manipulating zip archives
+EAPI=8
+HOMEPAGE=https://nih.at/libzip/
+INHERIT=cmake multibuild flag-o-matic
+IUSE=bzip2 gnutls lzma mbedtls ssl static-libs test tools zstd
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD
+RDEPEND=sys-libs/zlib bzip2? ( app-arch/bzip2:= ) lzma? ( app-arch/xz-utils ) ssl? ( gnutls? ( dev-libs/nettle:= >=net-libs/gnutls-3.6.5:= ) !gnutls? ( mbedtls? ( net-libs/mbedtls:0= ) !mbedtls? ( dev-libs/openssl:= ) ) ) zstd? ( >=app-arch/zstd-1.4.0:= )
+REQUIRED_USE=test? ( tools )
+RESTRICT=!test? ( test )
+SLOT=0/5
+SRC_URI=https://www.nih.at/libzip/libzip-1.11.3.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364
+_md5_=8c6f47e649d4954bc6c548e96fd6ae76
