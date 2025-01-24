@@ -7,11 +7,11 @@ HOMEPAGE=http://sysprof.com/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson systemd xdg
 IUSE=gtk systemd test
-KEYWORDS=amd64 ~arm64 x86
+KEYWORDS=amd64 ~arm64 ~loong x86
 LICENSE=GPL-3+ GPL-2+
 RDEPEND=>=dev-libs/glib-2.76.0:2 gtk? ( >=gui-libs/gtk-4.10:4 gui-libs/libadwaita:1 x11-libs/cairo x11-libs/pango ) systemd? ( sys-apps/systemd ) dev-libs/json-glib >=dev-libs/libdex-0.3.1 >=gui-libs/libpanel-1.3.0 sys-libs/libunwind:= >=sys-auth/polkit-0.114[daemon] >=dev-util/sysprof-common-46.0 >=dev-util/sysprof-capture-46.0:4
 RESTRICT=!test? ( test )
 SLOT=0/4
 SRC_URI=mirror://gnome/sources/sysprof/46/sysprof-46.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	54bd206bb5c4efac6ae28b6b006713b0	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=75153faa9f97a6997884d5465d9a2915
+_md5_=ae8a2a8d050d7ec91ffdad7da0379540
