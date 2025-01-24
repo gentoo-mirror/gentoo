@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/yacc app-alternatives/lex || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] dev-lang/python:3.10[xml(+)] ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/libfmt:= dev-libs/spdlog:= virtual/libiconv clang? ( llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) ) dot? ( media-gfx/graphviz[freetype(+)] ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 )
+DEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/libfmt:= dev-libs/spdlog:= virtual/libiconv clang? ( llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) ) dot? ( media-gfx/graphviz[freetype(+)] ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtbase:6[gui,widgets,xml] )
 DESCRIPTION=Documentation system for most programming languages
 EAPI=8
 HOMEPAGE=https://www.doxygen.nl/
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic llvm-r1 python-any-r1 git-r3
 IUSE=clang debug doc dot doxysearch gui test +llvm_slot_19 llvm_slot_18
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/libfmt:= dev-libs/spdlog:= virtual/libiconv clang? ( llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) ) dot? ( media-gfx/graphviz[freetype(+)] ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 )
+RDEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/libfmt:= dev-libs/spdlog:= virtual/libiconv clang? ( llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) ) dot? ( media-gfx/graphviz[freetype(+)] ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtbase:6[gui,widgets,xml] )
 REQUIRED_USE=clang? ( ^^ ( llvm_slot_18 llvm_slot_19 ) ) test? ( doc )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=6232bac78b76a4f57eec179392d86a37
+_md5_=ae46290d80f4315e0a1d7b6b1b7240d4
