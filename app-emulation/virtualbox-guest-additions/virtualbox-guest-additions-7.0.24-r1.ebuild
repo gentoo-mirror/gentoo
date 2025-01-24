@@ -93,7 +93,7 @@ src_prepare() {
 	# Provide kernel sources
 	pushd src/VBox/Additions &>/dev/null || die
 	ebegin "Extracting guest kernel module sources"
-	kmk GuestDrivers-src vboxguest-src vboxsf-src vboxvideo-src &>/dev/null
+	kmk GuestDrivers-src vboxguest-src vboxsf-src &>/dev/null
 	eend $? || die
 	popd &>/dev/null || die
 
@@ -102,7 +102,9 @@ src_prepare() {
 
 	# Disable things unused or splitted into separate ebuilds
 	cp "${FILESDIR}/${PN}-5-localconfig" LocalConfig.kmk || die
-	if ! use gui; then
+	if use gui; then
+		echo "VBOX_NO_LEGACY_XORG_X11 := 1" >> LocalConfig.kmk || die
+	else
 		echo "VBOX_WITH_X11_ADDITIONS :=" >> LocalConfig.kmk || die
 	fi
 
@@ -112,6 +114,7 @@ src_prepare() {
 	# Respect LDFLAGS (bug #759100)
 	sed -i -e '/TEMPLATE_VBoxR3Exe_LDFLAGS.linux[    ]*=/ s/$/ $(CCLDFLAGS)/' Config.kmk || die
 
+	eapply "${FILESDIR}"/${PN}-7.1.6-disable-vboxvideo-module.patch
 	eapply "${WORKDIR}/virtualbox-patches-7.0.16/patches"
 	eapply_user
 }
@@ -197,7 +200,6 @@ src_compile() {
 	# Move this here for bug 836037
 	local modargs=( KERN_DIR="${KV_OUT_DIR}" KERN_VER="${KV_FULL}" )
 	local modlist=( vboxguest vboxsf )
-	use gui && modlist+=( vboxvideo )
 	modlist=( "${modlist[@]/%/=misc:${VBOX_MOD_SRC_DIR}}" )
 	linux-mod-r1_src_compile
 }
@@ -260,10 +262,6 @@ src_install() {
 	# VBoxClient autostart file
 	insinto /etc/xdg/autostart
 	doins "${FILESDIR}"/vboxclient.desktop
-
-	# sample xorg.conf
-	dodoc "${FILESDIR}"/xorg.conf.vbox
-	docompress -x "${ED}"/usr/share/doc/${PF}/xorg.conf.vbox
 
 	systemd_dounit "${FILESDIR}/${PN}.service"
 
