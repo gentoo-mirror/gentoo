@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare test unpack
+DEPEND=server? ( acct-group/etcd acct-user/etcd )
+DESCRIPTION=Highly-available key value store for shared configuration and service discovery
+EAPI=8
+HOMEPAGE=https://github.com/etcd-io/etcd
+INHERIT=go-module systemd tmpfiles
+IUSE=doc +server
+KEYWORDS=~amd64 ~loong ~riscv
+LICENSE=Apache-2.0 BSD BSD-2 MIT
+RDEPEND=server? ( acct-group/etcd acct-user/etcd ) virtual/tmpfiles
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/etcd-io/etcd/archive/v3.5.18.tar.gz -> etcd-3.5.18.tar.gz https://dev.gentoo.org/~zmedico/dist/etcd-3.5.18-deps.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467	systemd	54bd206bb5c4efac6ae28b6b006713b0	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=6a45c52434b0019ed38e967fc5ceb761
