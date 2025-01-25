@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://sourceware.org/dwz
 INHERIT=toolchain-funcs
 IUSE=test
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2+ GPL-3+
 RDEPEND=dev-libs/elfutils dev-libs/xxhash elibc_musl? ( >=sys-libs/error-standalone-2.0 sys-libs/obstack-standalone )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://sourceware.org/ftp/dwz/releases/dwz-0.15.tar.xz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=615b23c07ca3af119f6fc232114af1f1
+_md5_=cffab53b561f41453463764c7a8558a3
