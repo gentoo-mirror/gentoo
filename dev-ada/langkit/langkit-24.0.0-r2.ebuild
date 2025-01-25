@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
-ADA_COMPAT=( gcc_12 gcc_13 )
+ADA_COMPAT=( gcc_12 gcc_13 gcc_14 )
 
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 ada multiprocessing
@@ -26,7 +26,7 @@ RESTRICT="test"
 RDEPEND="${PYTHON_DEPS}
 	${ADA_DEPS}
 	dev-ada/gnatcoll-core:=
-	dev-ada/gnatcoll-bindings[${ADA_USEDEP},gmp,iconv,shared?,static-libs?,static-pic?]
+	dev-ada/gnatcoll-bindings[${ADA_USEDEP},gmp,iconv(+),shared?,static-libs?,static-pic?]
 	dev-ada/AdaSAT[${ADA_USEDEP},shared?,static-libs?,static-pic?]
 	dev-python/mako[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
