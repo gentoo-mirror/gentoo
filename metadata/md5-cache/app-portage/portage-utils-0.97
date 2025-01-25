@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Portage-utils
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=openmp +qmanifest static
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=openmp? ( || ( sys-devel/gcc:*[openmp] llvm-runtimes/openmp ) ) qmanifest? ( !static? ( app-crypt/gpgme:= app-crypt/libb2:= sys-libs/zlib:= ) )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~grobian/distfiles/portage-utils-0.97.tar.xz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe
-_md5_=24087fcfb25db406522d36490ca28c2b
+_md5_=2638ff1a6a1991fb26b41a5ada316656
