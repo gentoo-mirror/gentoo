@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,13 +18,15 @@ else
 		verify-sig? ( https://www.ivarch.com/programs/sources/${P}.tar.gz.txt -> ${P}.tar.gz.asc )
 	"
 
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="debug nls"
+IUSE="debug ncurses nls"
 
+RDEPEND="ncurses? ( sys-libs/ncurses:= )"
+DEPEND="${RDEPEND}"
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-pv )"
 
 pkg_setup() {
@@ -38,13 +40,6 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	# Valgrind isn't reliable within sandbox.
-	cat <<-EOF > tests/run-valgrind.sh || die
-	#!/bin/sh
-	exit 77
-	EOF
-	chmod +x tests/run-valgrind.sh || Die
-
 	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
@@ -53,9 +48,12 @@ src_configure() {
 
 	econf \
 		$(use_enable debug debugging) \
+		$(use_with ncurses) \
 		$(use_enable nls)
 }
 
 src_test() {
+	# Valgrind is unreliable within sandbox
+	local -x SKIP_VALGRIND_TESTS=1
 	emake -Onone check
 }
