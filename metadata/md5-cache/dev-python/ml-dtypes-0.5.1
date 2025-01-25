@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/jax-ml/ml_dtypes/ https://pypi.org/project/ml-dtypes/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 debug
-KEYWORDS=~amd64 ~arm arm64 ~x86
+KEYWORDS=amd64 ~arm arm64 x86
 LICENSE=Apache-2.0
 RDEPEND=>=dev-python/numpy-1.21:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jax-ml/ml_dtypes/archive/v0.5.1.tar.gz -> ml_dtypes-0.5.1.gh.tar.gz https://gitlab.com/libeigen/eigen/-/archive/7bf2968fed5f246c0589e1111004cb420fcd7c71/eigen-7bf2968fed5f246c0589e1111004cb420fcd7c71.tar.bz2
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df
-_md5_=e5a78bb0fe2f8cff0a521a48a29a84e6
+_md5_=5a683d644b20ae0fdd2640e2b554bdf7
