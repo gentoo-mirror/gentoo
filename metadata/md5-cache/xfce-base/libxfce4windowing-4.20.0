@@ -5,10 +5,10 @@ DESCRIPTION=Unified widget and session management libs for Xfce
 EAPI=8
 HOMEPAGE=https://gitlab.xfce.org/xfce/libxfce4windowing/
 IUSE=+introspection wayland X
-KEYWORDS=amd64 arm arm64 ~loong ~mips ~ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.72.0 >=x11-libs/gtk+-3.24.10:3[X?,introspection?,wayland?] >=x11-libs/gdk-pixbuf-2.42.8[introspection?] wayland? ( >=dev-libs/wayland-1.20 ) X? ( >=media-libs/libdisplay-info-0.1.1 >=x11-libs/libX11-1.6.7 >=x11-libs/libXrandr-1.5.0 >=x11-libs/libwnck-3.14:3 )
 REQUIRED_USE=|| ( wayland X )
 SLOT=0/4.19.6
 SRC_URI=https://archive.xfce.org/src/xfce/libxfce4windowing/4.20/libxfce4windowing-4.20.0.tar.bz2
-_md5_=51fdada86cc3aa2ceabce776d246e637
+_md5_=ac1dbd981b43d6f44939d4c852287230
