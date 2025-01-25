@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=virtual/libcrypt:=
+DESCRIPTION=Common linux commands in a multicall binary
+EAPI=8
+HOMEPAGE=https://landley.net/code/toybox/
+INHERIT=multiprocessing savedconfig toolchain-funcs
+IUSE=savedconfig
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=0BSD
+RDEPEND=virtual/libcrypt:=
+SLOT=0
+SRC_URI=https://landley.net/code/toybox/downloads/toybox-0.8.12.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	portability	a39e3d646f76cb45d06b44cc1144b8d4	savedconfig	b9131abe556ad2ea96c01b06d658d363	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=3ac1a817bd9fd2a9d96f30d97793278b
