@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/apps/parole/start https://gitlab.xfce.org/apps/parole/
 INHERIT=xdg-utils
 IUSE=libnotify taglib wayland X
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~mips ~ppc ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/dbus-glib-0.100 >=dev-libs/glib-2.38.0:2 media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 sys-apps/dbus >=x11-libs/gtk+-3.22.0:3[wayland?,X?] >=xfce-base/libxfce4ui-4.11.0:=[gtk3(+)] >=xfce-base/libxfce4util-4.11.0:= >=xfce-base/xfconf-4.10.0:= libnotify? ( >=x11-libs/libnotify-0.7 ) taglib? ( >=media-libs/taglib-1.6:0= ) X? ( >=x11-libs/libX11-1.6.7 ) media-plugins/gst-plugins-meta:1.0
 REQUIRED_USE=|| ( wayland X )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/apps/parole/4.18/parole-4.18.2.tar.bz2
 _eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=3fb13512abf8ab6c59695cd13f271df5
+_md5_=b4f56fed2518dccec7e17eb60d7d2146

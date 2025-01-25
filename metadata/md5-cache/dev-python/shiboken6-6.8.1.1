@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://wiki.qt.io/PySide6
 INHERIT=cmake llvm-r1 python-r1 toolchain-funcs
 IUSE=+docstrings numpy test vulkan +llvm_slot_18 llvm_slot_15 llvm_slot_16 llvm_slot_17 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=|| ( GPL-2 GPL-3+ LGPL-3 ) GPL-3
 RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) =dev-qt/qtbase-6.8.1*:6 llvm_slot_15? ( llvm-core/clang:15 llvm-core/llvm:15 ) llvm_slot_16? ( llvm-core/clang:16 llvm-core/llvm:16 ) llvm_slot_17? ( llvm-core/clang:17 llvm-core/llvm:17 ) llvm_slot_18? ( llvm-core/clang:18 llvm-core/llvm:18 ) docstrings? ( >=dev-libs/libxml2-2.6.32 >=dev-libs/libxslt-1.1.19 ) numpy? ( dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) vulkan? ( dev-util/vulkan-headers ) !dev-python/shiboken6:0
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=6/6.8.1.1
 SRC_URI=https://github.com/qtproject/pyside-pyside-setup/archive/refs/tags/v6.8.1.1.tar.gz -> pyside-pyside-setup-6.8.1.1.gh.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23
-_md5_=a279273cf311e3c8a847da784b3ce07f
+_md5_=248bab44156dd42d8ba72c9f75046c23
