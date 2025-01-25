@@ -18,7 +18,7 @@ DEV_URI="
 ADDONS_URI="https://dev-www.libreoffice.org/src/"
 
 BRANDING="${PN}-branding-gentoo-0.8.tar.xz"
-# PATCHSET="${P}-patchset-01.tar.xz"
+PATCHSET="${P}-patchset.tar.xz"
 
 [[ ${MY_PV} == *9999* ]] && inherit git-r3
 inherit autotools bash-completion-r1 check-reqs flag-o-matic java-pkg-opt-2 multiprocessing python-single-r1 qmake-utils toolchain-funcs xdg-utils
@@ -70,11 +70,15 @@ ADDONS_SRC=(
 	)"
 	# Java-WebSocket: not packaged in Gentoo, https://github.com/TooTallNate/Java-WebSocket
 	"java? (
-		${ADDONS_URI}/Java-WebSocket-1.5.6.tar.gz
+		${ADDONS_URI}/Java-WebSocket-1.5.4.tar.gz
 		${ADDONS_URI}/17410483b5b5f267aa18b7e00b65e6e0-hsqldb_1_8_0.zip
 	)"
 	# no release for 8 years, should we package it?
 	"libreoffice_extensions_wiki-publisher? ( ${ADDONS_URI}/a7983f859eafb2677d7ff386a023bc40-xsltml_2.1.2.zip )"
+	# Does not build with 1.6 rhino at all
+	"libreoffice_extensions_scripting-javascript? ( ${ADDONS_URI}/798b2ffdc8bcfe7bca2cf92b62caf685-rhino1_5R5.zip )"
+	# requirement of rhino
+	"libreoffice_extensions_scripting-javascript? ( ${ADDONS_URI}/35c94d2df8893241173de1d16b6034c0-swingExSrc.zip )"
 )
 SRC_URI+=" ${ADDONS_SRC[*]}"
 
@@ -263,9 +267,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 	clang? ( || (
-		(	llvm-core/clang:19
-			llvm-core/llvm:19
-			=llvm-core/lld-19*	)
 		(	llvm-core/clang:18
 			llvm-core/llvm:18
 			=llvm-core/lld-18*	)
@@ -290,15 +291,16 @@ else
 fi
 
 PATCHES=(
-	# "${WORKDIR}"/${PATCHSET/.tar.xz/}
-
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
 	"${FILESDIR}/${PN}-24.2-qtdetect.patch"
 
 	# TODO: upstream
-	"${FILESDIR}/${PN}-24.8-unused-qt5network.patch"
-	"${FILESDIR}/${PN}-24.8-unused-qt6network.patch"
+	"${FILESDIR}/${PN}-7.6-unused-qt5network.patch"
+	"${FILESDIR}/${PN}-24.2-unused-qt6network.patch"
+
+	# from 24.8 branch: bugs #923950, #943695, #917618, #948825
+	"${WORKDIR}"/${PATCHSET/.tar.xz/}
 )
 
 _check_reqs() {
@@ -573,6 +575,9 @@ src_configure() {
 
 		use libreoffice_extensions_scripting-beanshell && \
 			myeconfargs+=( --with-beanshell-jar=$(java-pkg_getjar bsh bsh.jar) )
+
+		use libreoffice_extensions_scripting-javascript && \
+			myeconfargs+=( --with-rhino-jar=$(java-pkg_getjar rhino-1.6 rhino.jar) )
 	fi
 
 	tc-is-lto && myeconfargs+=( --enable-lto )
