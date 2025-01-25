@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/xfce/thunar/thunar-vcs-plugin https://gitlab.xfce.org/thunar-plugins/thunar-vcs-plugin/
 INHERIT=xdg-utils
 IUSE=+git subversion
-KEYWORDS=~amd64 ~riscv ~x86
+KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.32:2= >=x11-libs/gtk+-3.20:3= >=xfce-base/exo-0.11.4:= >=xfce-base/libxfce4util-4.12:= >=xfce-base/thunar-1.7:= git? ( dev-vcs/git ) subversion? ( >=dev-libs/apr-0.9.7:= >=dev-libs/apr-util-0.9.1:= >=dev-vcs/subversion-1.5:= )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/thunar-plugins/thunar-vcs-plugin/0.3/thunar-vcs-plugin-0.3.0.tar.bz2
 _eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=9a16545bfeb825daf6b9593cc30f0a68
+_md5_=f6f6a199c1d39a2225a85ca86c1aa16b

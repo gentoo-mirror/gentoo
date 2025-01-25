@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/panel-plugins/xfce4-sensors-plugin/start https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin/
 INHERIT=xdg-utils
 IUSE=+acpi hddtemp libnotify lm-sensors video_cards_nvidia
-KEYWORDS=~amd64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=>=x11-libs/gtk+-3.22.0:3 >=xfce-base/libxfce4ui-4.16.0:= >=xfce-base/libxfce4util-4.17.2:= >=xfce-base/xfce4-panel-4.16.0:= hddtemp? ( app-admin/hddtemp || ( net-analyzer/openbsd-netcat net-analyzer/netcat ) ) libnotify? ( >=x11-libs/libnotify-0.7:= ) lm-sensors? ( >=sys-apps/lm-sensors-3.1.0:= ) video_cards_nvidia? ( x11-drivers/nvidia-drivers[tools,static-libs] )
 REQUIRED_USE=|| ( hddtemp lm-sensors acpi )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/panel-plugins/xfce4-sensors-plugin/1.4/xfce4-sensors-plugin-1.4.5.tar.bz2
 _eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=44045a790a622a57e328c81487431d74
+_md5_=0bbd35141325b820d4bcedfd3b90dff6
