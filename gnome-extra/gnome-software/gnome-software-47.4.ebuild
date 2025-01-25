@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,19 +11,19 @@ HOMEPAGE="https://apps.gnome.org/Software"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~x86"
-IUSE="flatpak +firmware gnome gtk-doc sysprof udev snap test"
+IUSE="dkms flatpak +firmware gtk-doc sysprof udev snap test"
 
 RDEPEND="
 	>=dev-libs/appstream-0.14.0:0=
 	>=x11-libs/gdk-pixbuf-2.32.0:2
-	>=dev-libs/libxmlb-0.1.7:=
-	>=gui-libs/gtk-4.12.0:4
-	>=dev-libs/glib-2.70.0:2
+	>=dev-libs/libxmlb-0.3.4:=
+	>=gui-libs/gtk-4.13.4:4
+	>=dev-libs/glib-2.76.0:2
 	>=dev-libs/json-glib-1.6.0
 	>=net-libs/libsoup-3.0:3.0
-	>=gui-libs/libadwaita-1.4.0:1
+	>=gui-libs/libadwaita-1.6_alpha:1
 	sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 )
-	gnome? ( >=gnome-base/gsettings-desktop-schemas-3.18.0 )
+	>=gnome-base/gsettings-desktop-schemas-3.18.0
 	sys-auth/polkit
 	firmware? ( >=sys-apps/fwupd-1.6.2 )
 	flatpak? (
@@ -35,7 +35,7 @@ RDEPEND="
 		sys-libs/snapd-glib:=
 	)
 	udev? ( dev-libs/libgudev )
-	>=gnome-base/gsettings-desktop-schemas-3.11.5
+	>=gnome-base/gsettings-desktop-schemas-3.18.0
 "
 DEPEND="${RDEPEND}
 	test? ( dev-libs/libglib-testing )
@@ -63,17 +63,19 @@ src_prepare() {
 src_configure() {
 	local emesonargs=(
 		$(meson_use test tests)
-		$(meson_feature gnome gsettings_desktop_schemas) # Honoring of GNOME date format settings.
 		-Dman=true
 		-Dpackagekit=false
 		# -Dpackagekit_autoremove
 		-Dpolkit=true
 		-Deos_updater=false # Endless OS updater
+		$(meson_use dkms)
 		$(meson_use firmware fwupd)
 		$(meson_use flatpak)
 		-Dmalcontent=false
 		-Drpm_ostree=false
 		-Dwebapps=true
+		-Ddefault_featured_apps=true
+		-Dhardcoded_curated=true
 		-Dhardcoded_foss_webapps=true
 		-Dhardcoded_proprietary_webapps=true
 		$(meson_use udev gudev)
