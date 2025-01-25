@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.pytables.org/ https://github.com/PyTables/PyTables/ https://pypi.org/project/tables/
 INHERIT=distutils-r1 prefix pypi
 IUSE=+cpudetection examples test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 arm ~arm64 ~loong ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=app-arch/bzip2:0= app-arch/lz4:0= >=app-arch/zstd-1.0.0:= >=dev-libs/c-blosc-1.11.1:0= >=dev-libs/c-blosc2-2.11.0:= dev-libs/lzo:2= >=dev-python/numpy-1.19.0:=[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sci-libs/hdf5-1.8.4:= >=dev-python/numexpr-2.6.2[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/packaging[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] cpudetection? ( dev-python/py-cpuinfo[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_pypy3? ( >=dev-lang/pypy-3.10:=[symlink,threads(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[threads(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] )
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/t/tables/tables-3.10.2.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=37fae605dcac35bbcb88387d55282f6e
+_md5_=a856bf79fab710d6c1aa2389a5ba9fb6
