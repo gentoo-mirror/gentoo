@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,15 +6,15 @@ EAPI=8
 inherit cmake gnome2 readme.gentoo-r1
 
 DESCRIPTION="Integrated mail, addressbook and calendaring functionality"
-HOMEPAGE="https://wiki.gnome.org/Apps/Evolution https://gitlab.gnome.org/GNOME/evolution"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/evolution/-/wikis/home https://gitlab.gnome.org/GNOME/evolution"
 
 # Note: explicitly "|| ( LGPL-2 LGPL-3 )", not "LGPL-2+".
 LICENSE="|| ( LGPL-2 LGPL-3 ) CC-BY-SA-3.0 FDL-1.3+ OPENLDAP"
 SLOT="2.0"
 
-IUSE="archive +bogofilter geolocation gtk-doc highlight ldap selinux spamassassin spell ssl +weather ytnef"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+IUSE="archive +bogofilter geolocation gtk-doc highlight ldap libnotify selinux sound spamassassin spell ssl +weather ytnef"
 
 # glade-3 support is for maintainers only per configure.ac
 # pst is not mature enough and changes API/ABI frequently
@@ -30,17 +30,12 @@ DEPEND="
 	>=dev-libs/libxml2-2.7.3:2
 	>=gnome-base/gnome-desktop-2.91.3:3=
 	>=gnome-base/gsettings-desktop-schemas-2.91.92
-	>=gnome-extra/evolution-data-server-${PV}:=[gtk,weather?]
-	|| (
-		media-libs/libcanberra-gtk3
-		>=media-libs/libcanberra-0.25[gtk3(-)]
-	)
+	>=gnome-extra/evolution-data-server-${PV}:=[gtk,sound?,weather?]
 	>=net-libs/libsoup-3.0:3.0
-	>=net-libs/webkit-gtk-2.38.0:4.1=[spell?]
+	>=net-libs/webkit-gtk-2.38.0:4.1[spell?]
 	>=x11-libs/cairo-1.9.15[glib]
 	>=x11-libs/gdk-pixbuf-2.24:2
 	>=x11-libs/gtk+-3.22:3
-	>=x11-libs/libnotify-0.7
 	>=x11-misc/shared-mime-info-0.22
 
 	app-text/cmark:=
@@ -48,8 +43,6 @@ DEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
 
 	gnome-base/dconf
-	x11-libs/libSM
-	x11-libs/libICE
 
 	archive? ( >=app-arch/gnome-autoar-0.1.1[gtk] )
 	bogofilter? ( mail-filter/bogofilter )
@@ -59,6 +52,13 @@ DEPEND="
 		>=media-libs/clutter-gtk-0.90:1.0
 		>=sci-geosciences/geocode-glib-3.26.3:2 )
 	ldap? ( >=net-nds/openldap-2:= )
+	libnotify? ( >=x11-libs/libnotify-0.7 )
+	sound? (
+		|| (
+			media-libs/libcanberra-gtk3
+			>=media-libs/libcanberra-0.25[gtk3(-)]
+		)
+	)
 	spamassassin? ( mail-filter/spamassassin )
 	spell? ( >=app-text/gspell-1.8:= )
 	ssl? (
@@ -103,6 +103,11 @@ file from /usr/share/applications if you use a different browser)."
 # call; if needed, set them after cmake_src_prepare call, if that works
 
 src_prepare() {
+	# libnotify is automagically detected, but a quick and easy way to
+	# force-disable it is to delete the "yes it's there" variable from
+	# CMakeLists.txt.
+	use libnotify || sed '/HAVE_LIBNOTIFY/d' -i CMakeLists.txt || die
+
 	cmake_src_prepare
 	gnome2_src_prepare
 }
@@ -117,7 +122,7 @@ src_configure() {
 		-DENABLE_SMIME=$(usex ssl)
 		-DENABLE_GNOME_DESKTOP=ON
 		-DWITH_ENCHANT_VERSION=2
-		-DENABLE_CANBERRA=ON
+		-DENABLE_CANBERRA=$(usex sound)
 		-DENABLE_AUTOAR=$(usex archive)
 		-DWITH_HELP=ON
 		-DENABLE_YTNEF=OFF
@@ -141,8 +146,7 @@ src_compile() {
 }
 
 src_test() {
-	# -j1: https://gitlab.gnome.org/GNOME/evolution-data-server/-/issues/522
-	cmake_src_test -j1
+	cmake_src_test
 }
 
 src_install() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,23 +6,22 @@ EAPI=8
 inherit cmake gnome2 optfeature
 
 DESCRIPTION="Evolution module for connecting to Microsoft Exchange Web Services"
-HOMEPAGE="https://wiki.gnome.org/Apps/Evolution https://gitlab.gnome.org/GNOME/evolution-ews"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/evolution/-/wikis/home https://gitlab.gnome.org/GNOME/evolution-ews"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="test"
 
-# libical-glib currently (2020-02-29) oddly behind USE=introspection
 RDEPEND="
 	dev-db/sqlite:3
 	>=dev-libs/glib-2.68:2
-	>=dev-libs/libical-3.0.5:0=[introspection(-)]
+	>=dev-libs/libical-3.0.5:0=[glib]
 	>=dev-libs/json-glib-1.0.4
 	>=dev-libs/libmspack-0.4
 	dev-libs/libxml2:2
-	>=gnome-extra/evolution-data-server-${PV}:0=
-	>=mail-client/evolution-${PV}:2.0
+	>=gnome-extra/evolution-data-server-3.54.3:0=
+	>=mail-client/evolution-3.54.3:2.0
 	>=net-libs/libsoup-3.0:3.0
 	>=x11-libs/gtk+-3.10:3
 "
@@ -60,8 +59,7 @@ src_compile() {
 }
 
 src_test() {
-	# -j1: https://gitlab.gnome.org/GNOME/evolution-data-server/-/issues/522
-	cmake_src_test -j1
+	cmake_src_test
 }
 
 src_install() {

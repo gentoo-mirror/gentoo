@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,20 +6,20 @@ EAPI=8
 inherit cmake db-use flag-o-matic gnome2 vala virtualx
 
 DESCRIPTION="Evolution groupware backend"
-HOMEPAGE="https://wiki.gnome.org/Apps/Evolution https://gitlab.gnome.org/GNOME/evolution-data-server"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/evolution/-/wikis/home https://gitlab.gnome.org/GNOME/evolution-data-server"
 
 # Note: explicitly "|| ( LGPL-2 LGPL-3 )", not "LGPL-2+".
 LICENSE="|| ( LGPL-2 LGPL-3 ) BSD Sleepycat"
-SLOT="0/64-11-21-4-2-27-2-27-4-0" # subslot = libcamel-1.2/libebackend-1.2/libebook-1.2/libebook-contacts-1.2/libecal-2.0/libedata-book-1.2/libedata-cal-2.0/libedataserver-1.2/libedataserverui-1.2/libedataserverui4-1.0 soname version
+SLOT="0/64-11-21-4-3-27-2-27-4-0" # subslot = libcamel-1.2/libebackend-1.2/libebook-1.2/libebook-contacts-1.2/libecal-2.0/libedata-book-1.2/libedata-cal-2.0/libedataserver-1.2/libedataserverui-1.2/libedataserverui4-1.0 soname version
 
-IUSE="berkdb +gnome-online-accounts +gtk gtk-doc +introspection ldap kerberos oauth-gtk3 oauth-gtk4 vala +weather"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
+
+IUSE="berkdb +gnome-online-accounts +gtk gtk-doc +introspection ldap kerberos oauth-gtk3 oauth-gtk4 sound vala +weather"
 REQUIRED_USE="
 	oauth-gtk3? ( gtk )
 	oauth-gtk4? ( gtk )
 	vala? ( introspection )
 "
-
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
 
 # berkdb needed only for migrating old addressbook data from <3.13 versions, bug #519512
 # glib-2.70 for build-time optional GPowerProfileMonitor
@@ -32,7 +32,7 @@ RDEPEND="
 	>=dev-libs/nspr-4.4
 	>=dev-libs/nss-3.9
 	>=net-libs/libsoup-3.1.1:3.0
-	>=dev-libs/json-glib-1.0.4
+	>=dev-libs/json-glib-1.0.4[introspection]
 
 	dev-libs/icu:=
 	sys-libs/zlib:=
@@ -42,9 +42,11 @@ RDEPEND="
 	gtk? (
 		>=x11-libs/gtk+-3.20:3
 		>=gui-libs/gtk-4.4:4
-		|| (
-			media-libs/libcanberra-gtk3
-			>=media-libs/libcanberra-0.25[gtk3(-)]
+		sound? (
+			|| (
+				media-libs/libcanberra-gtk3
+				>=media-libs/libcanberra-0.25[gtk3(-)]
+			)
 		)
 
 		oauth-gtk3? ( >=net-libs/webkit-gtk-2.34.0:4.1 )
@@ -99,7 +101,6 @@ src_prepare() {
 	gnome2_src_prepare
 
 	eapply "${FILESDIR}"/3.36.5-gtk-doc-1.32-compat.patch
-	eapply "${FILESDIR}"/3.50.2-c99.patch
 
 	# Make CMakeLists versioned vala enabled
 	sed -e "s;\(find_program(VALAC\) valac);\1 ${VALAC});" \
@@ -108,9 +109,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# bug #944075
-	append-cflags -std=gnu17
-
 	# /usr/include/db.h is always db-1 on FreeBSD
 	# so include the right dir in CPPFLAGS
 	use berkdb && append-cppflags "-I$(db_includedir)"
@@ -131,7 +129,6 @@ src_configure() {
 		-DENABLE_SMIME=ON
 		-DENABLE_GTK=$(usex gtk)
 		-DENABLE_GTK4=$(usex gtk)
-		-DENABLE_CANBERRA=$(usex gtk)
 		-DENABLE_OAUTH2_WEBKITGTK=$(usex oauth-gtk3)
 		-DENABLE_OAUTH2_WEBKITGTK4=$(usex oauth-gtk4)
 		-DENABLE_EXAMPLES=OFF
@@ -144,6 +141,12 @@ src_configure() {
 		-DENABLE_VALA_BINDINGS=$(usex vala)
 		-DENABLE_TESTS=$(usex test)
 	)
+	if use gtk && use sound; then
+		mycmakeargs+=( -DENABLE_CANBERRA=ON )
+	else
+		mycmakeargs+=( -DENABLE_CANBERRA=OFF )
+	fi
+
 	cmake_src_configure
 }
 
@@ -152,8 +155,7 @@ src_compile() {
 }
 
 src_test() {
-	# -j1: https://gitlab.gnome.org/GNOME/evolution-data-server/-/issues/522
-	virtx cmake_src_test -j1
+	virtx cmake_src_test
 }
 
 src_install() {

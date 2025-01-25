@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit gnome.org gnome2-utils meson xdg virtualx
 
 DESCRIPTION="GNOME webbrowser based on Webkit"
-HOMEPAGE="https://wiki.gnome.org/Apps/Web https://gitlab.gnome.org/GNOME/epiphany"
+HOMEPAGE="https://apps.gnome.org/Epiphany/ https://gitlab.gnome.org/GNOME/epiphany"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -21,11 +21,11 @@ DEPEND="
 	>=dev-libs/glib-2.74.0:2
 	gnome-base/gsettings-desktop-schemas
 	media-libs/gstreamer:1.0
-	>=gui-libs/gtk-4.12.0:4
+	>=gui-libs/gtk-4.13.3:4
 	>=app-text/iso-codes-0.35
 	>=dev-libs/json-glib-1.6
 	app-arch/libarchive:=
-	>=gui-libs/libadwaita-1.4.0:1
+	>=gui-libs/libadwaita-1.6_alpha:1
 	>=app-crypt/libsecret-0.19
 	>=net-libs/libsoup-2.99.4:3.0
 	>=dev-libs/libxml2-2.6.12:2
