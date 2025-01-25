@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ SRC_URI="https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-re
 LICENSE="CPL-1.0"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE="+cairo devil doc examples gtk2 gts guile lasi nls pdf perl postscript python qt5 ruby svg tcl webp X"
+IUSE="+cairo devil doc examples gtk2 gts guile lasi nls pdf perl postscript python qt6 ruby svg tcl webp X"
 
 REQUIRED_USE="
 	!cairo? ( !X !gtk2 !postscript !lasi )
@@ -53,12 +53,7 @@ RDEPEND="
 	perl? ( dev-lang/perl:= )
 	postscript? ( app-text/ghostscript-gpl )
 	python? ( ${PYTHON_DEPS} )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtprintsupport:5
-		dev-qt/qtwidgets:5
-	)
+	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 	ruby? ( dev-lang/ruby:* )
 	svg? ( gnome-base/librsvg )
 	tcl? ( >=dev-lang/tcl-8.3:= )
@@ -131,7 +126,7 @@ BDEPEND="
 # And the commands (/cmd):
 # - dot, gvedit, gvpr, smyrna, tools/* :)
 #   sci-libs/gts can be used for some of these
-# - gvedit (via 'qt5'):
+# - gvedit (via 'qt6'):
 #   based on ./configure it needs qt-core and qt-gui only
 # - smyrna : experimental opengl front-end (via 'smyrna')
 #   currently disabled -- it segfaults a lot
@@ -166,7 +161,7 @@ src_configure() {
 		$(use_with gtk2 gdk-pixbuf)
 		$(use_with gtk2)
 		$(use_with gts)
-		$(use_with qt5 qt)
+		$(use_with qt6 qt)
 		$(use_with lasi)
 		$(use_with pdf poppler)
 		$(use_with postscript ghostscript)
@@ -199,7 +194,7 @@ src_configure() {
 		# libtool file collision, bug #276609
 		--without-included-ltdl
 		--disable-ltdl-install
-		QMAKE=$(usev qt5 qmake5)
+		QMAKE=$(usev qt6 qmake6)
 	)
 	# XXX: Temporary bash for bug #926600. It's been reverted upstream
 	# on master already:
