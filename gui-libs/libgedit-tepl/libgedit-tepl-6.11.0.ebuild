@@ -3,23 +3,26 @@
 
 EAPI=8
 
-inherit gnome.org meson virtualx xdg
+inherit gnome.org meson virtualx
 
-DESCRIPTION="Gedit Technology - Source code editing widget"
-HOMEPAGE="https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview"
-SRC_URI="https://gedit-technology.net/tarballs/libgedit-gtksourceview/${P}.tar.xz"
+DESCRIPTION="GtkSourceView-based text editors and IDE helper library"
+HOMEPAGE="https://gitlab.gnome.org/World/gedit/libgedit-tepl"
 
-LICENSE="LGPL-2.1+"
-SLOT="300"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
-
+LICENSE="LGPL-3+"
+SLOT="6/4"
+KEYWORDS="~amd64"
 IUSE="gtk-doc"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
+	!gui-libs/tepl
 	>=dev-libs/glib-2.74:2
-	>=x11-libs/gtk+-3.20:3[introspection]
-	>=dev-libs/libxml2-2.6:2
-
+	>=x11-libs/gtk+-3.22:3[introspection]
+	>=gui-libs/libgedit-gtksourceview-299.1.0:300
+	>=gui-libs/libgedit-amtk-5.0:5=[introspection]
+	gui-libs/libgedit-gfls
+	dev-libs/icu:=
+	gnome-base/gsettings-desktop-schemas
 	dev-libs/gobject-introspection:=
 "
 DEPEND="${RDEPEND}"
@@ -37,10 +40,11 @@ src_configure() {
 	local emesonargs=(
 		-Dgobject_introspection=true
 		$(meson_use gtk-doc gtk_doc)
+		$(meson_use test tests)
 	)
 	meson_src_configure
 }
 
 src_test() {
-	virtx dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
+	virtx meson_src_test
 }

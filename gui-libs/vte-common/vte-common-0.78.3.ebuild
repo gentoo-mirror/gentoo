@@ -1,24 +1,25 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
+GNOME_ORG_MODULE="vte"
 
 inherit flag-o-matic gnome.org meson python-any-r1
 
 DESCRIPTION="Library providing a virtual terminal emulator widget"
-HOMEPAGE="https://wiki.gnome.org/Apps/Terminal/VTE"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/vte"
+
+S="${WORKDIR}/vte-${PV}"
 
 # Once SIXEL support ships (0.66 or later), might need xterm license (but code might be considered upgraded to LGPL-3+)
 LICENSE="LGPL-3+ GPL-3+"
+
 SLOT="2.91" # vte_api_version in meson.build
+
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+
 IUSE="systemd"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
-
-# Upstream is hostile and refuses to upload tarballs.
-SRC_URI="https://gitlab.gnome.org/GNOME/vte/-/archive/${PV}/vte-${PV}.tar.bz2"
-
-S="${WORKDIR}/vte-${PV}"
 
 DEPEND="
 	|| ( >=gui-libs/gtk-4.0.1:4 >=x11-libs/gtk+-3.24.22:3 )
@@ -28,7 +29,7 @@ DEPEND="
 	>=x11-libs/pango-1.22.0
 	>=dev-libs/libpcre2-10.21
 	systemd? ( >=sys-apps/systemd-220:= )
-	sys-libs/zlib
+	>=app-arch/lz4-1.9
 	x11-libs/pango
 "
 RDEPEND="
@@ -53,7 +54,7 @@ src_configure() {
 
 	local emesonargs=(
 		-Da11y=false
-		-Ddebugg=false
+		-Ddebug=false
 		-Ddocs=false
 		-Dgir=false
 		-Dfribidi=true # pulled in by pango anyhow

@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,12 +6,12 @@ EAPI=8
 inherit gnome.org gnome2-utils linux-info meson readme.gentoo-r1 vala xdg
 
 DESCRIPTION="Simple GNOME application to access remote or virtual systems"
-HOMEPAGE="https://gnomeboxes.org"
+HOMEPAGE="https://apps.gnome.org/Boxes/"
 
 LICENSE="LGPL-2+ CC-BY-2.0"
 SLOT="0"
 
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 # FIXME: qemu probably needs to depend on spice[smartcard] directly with USE=spice
 # FIXME: Check over libvirt USE=libvirtd,qemu and the smartcard/usbredir requirements
@@ -21,11 +21,12 @@ DEPEND="
 	>=app-arch/libarchive-3.0.0:=
 	>=dev-libs/glib-2.52:2
 	>=x11-libs/gtk+-3.24.1:3
+	>=dev-libs/libportal-0.7[gtk]
 	>=gui-libs/libhandy-1.5.0:1
 	>=sys-libs/libosinfo-1.10.0-r1
 	net-libs/libsoup:3.0
 	virtual/libusb:1
-	>=app-emulation/libvirt-glib-4.0.0
+	>=app-emulation/libvirt-glib-5.0.0
 	>=dev-libs/libxml2-2.7.8:2
 	>=net-misc/spice-gtk-0.32[gtk3(+),smartcard,usbredir]
 	>=net-libs/webkit-gtk-2.38.0:4.1
@@ -73,10 +74,6 @@ If you have an Intel Processor, run:
 
 If you have an AMD Processor, run:
 # modprobe kvm-amd"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-45.0-c99.patch
-)
 
 pkg_pretend() {
 	linux-info_get_any_version
