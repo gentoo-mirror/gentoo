@@ -1,0 +1,17 @@
+BDEPEND=test? ( || ( ( dev-lang/python:3.12 dev-ada/e3-testsuite[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-ada/e3-testsuite[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-ada/e3-testsuite[python_targets_python3_10(-)] ) ) )
+DEFINED_PHASES=compile install setup test
+DEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/VSS:0/25.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/gnatcoll-core:0/25.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-)]
+DESCRIPTION=Port of the Prettier formatter to the Ada programming language
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/prettier-ada
+INHERIT=ada python-any-r1 multiprocessing
+IUSE=+shared static-libs static-pic test ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/VSS:0/25.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/gnatcoll-core:0/25.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?]
+REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ) || ( shared static-libs static-pic ) test? ( static-libs )
+RESTRICT=!test? ( test )
+SLOT=0/25.0.0
+SRC_URI=https://github.com/AdaCore/prettier-ada/archive/refs/tags/v25.0.0.tar.gz -> prettier-ada-25.0.0.tar.gz
+_eclasses_=ada	91fe5c33490e013a01ffad92086e7bac	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=c6747c1ecbe5f9569e27afcf2349035e
