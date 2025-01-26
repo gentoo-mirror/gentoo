@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,13 +10,14 @@ HOMEPAGE="https://apps.gnome.org/Nautilus/"
 
 LICENSE="GPL-3+ LGPL-2.1+"
 SLOT="0"
-IUSE="+cloudproviders gnome +gstreamer gtk-doc +introspection +previewer selinux sendto"
-REQUIRED_USE="gtk-doc? ( introspection )"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+
+IUSE="+cloudproviders doc gnome +gstreamer +introspection +previewer selinux"
+REQUIRED_USE="doc? ( introspection )"
 
 DEPEND="
-	>=dev-libs/glib-2.77.0:2
+	>=dev-libs/glib-2.79.0:2
 	>=media-libs/gexiv2-0.14.2
 	>=x11-libs/gdk-pixbuf-2.30.0:2
 	gstreamer? ( media-libs/gstreamer:1.0
@@ -24,13 +25,12 @@ DEPEND="
 	>=app-arch/gnome-autoar-0.4.4
 	>=gnome-base/gnome-desktop-43:4=
 	>=gnome-base/gsettings-desktop-schemas-42
-	>=gui-libs/gtk-4.11.2:4[introspection?]
-	>=gui-libs/libadwaita-1.4_alpha:1
-	>=dev-libs/libportal-0.5:=[gtk]
+	>=gui-libs/gtk-4.15.2:4[introspection?]
+	>=gui-libs/libadwaita-1.6_beta:1
+	>=dev-libs/libportal-0.7:=[gtk]
 	>=x11-libs/pango-1.28.3
 	selinux? ( >=sys-libs/libselinux-2.0 )
 	>=app-misc/tracker-3.0:3
-	>=dev-libs/libxml2-2.7.8:2
 	cloudproviders? ( >=net-libs/libcloudproviders-0.3.1 )
 	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
 "
@@ -40,7 +40,7 @@ RDEPEND="${DEPEND}
 BDEPEND="
 	>=dev-util/gdbus-codegen-2.51.2
 	dev-util/glib-utils
-	gtk-doc? (
+	doc? (
 		app-text/docbook-xml-dtd:4.1.2
 		dev-util/gi-docgen
 	)
@@ -51,14 +51,11 @@ BDEPEND="
 PDEPEND="
 	gnome? ( x11-themes/adwaita-icon-theme )
 	previewer? ( >=gnome-extra/sushi-0.1.9 )
-	sendto? ( >=gnome-extra/nautilus-sendto-3.0.1 )
 	>=gnome-base/gvfs-1.14[gtk(+)]
 " # Need gvfs[gtk] for recent:/// support; always built (without USE=gtk) since gvfs-1.34
 
 PATCHES=(
 	"${FILESDIR}"/43.0-optional-gstreamer.patch # Allow controlling audio-video-properties build
-	"${FILESDIR}"/${PV}-fix-av-props-crash.patch # Fix crash opening audio/video properties, upstream #3160
-	"${FILESDIR}"/${PV}-better-icon-lookup-fallback.patch # Upstream #2796 from gnome-45 branch
 )
 
 src_prepare() {
@@ -80,13 +77,12 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use gtk-doc docs)
-		-Dextensions=true # image file properties, sendto support; also required for -Dgstreamer=true
+		$(meson_use doc docs)
+		-Dextensions=true # image file properties, also required for -Dgstreamer=true
 		$(meson_use introspection)
 		-Dpackagekit=false
 		$(meson_use selinux)
 		$(meson_use cloudproviders)
-		-Dprofiling=false
 		-Dtests=$(usex test all none)
 
 		$(meson_use gstreamer) # gstreamer audio-video-properties extension
