@@ -1,14 +1,14 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+PYTHON_COMPAT=( python3_{10..13} )
 
-PYTHON_COMPAT=( python3_{10..12} )
 inherit flag-o-matic gnome.org gnome2-utils meson python-any-r1 virtualx xdg
 
 DESCRIPTION="GNOME's main interface to configure various aspects of the desktop"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-control-center"
-SRC_URI+=" https://dev.gentoo.org/~pacho/${PN}/${PN}-46.2-patchset.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~pacho/${PN}/${P}-patchset.tar.xz"
 SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-gentoo-logo.svg"
 SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-gentoo-logo-dark.svg"
 # Logo is CC-BY-SA-2.5
@@ -33,18 +33,18 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	gnome-online-accounts? (
 		x11-libs/gtk+:3
-		>=net-libs/gnome-online-accounts-3.49.1:=
+		>=net-libs/gnome-online-accounts-3.51.0:=
 	)
 	>=media-libs/libpulse-2.0[glib]
-	>=gui-libs/gtk-4.11.2:4[X,wayland=]
-	>=gui-libs/libadwaita-1.4_alpha:1
+	>=gui-libs/gtk-4.15.2:4[X,wayland=]
+	>=gui-libs/libadwaita-1.6_beta:1
 	>=sys-apps/accountsservice-0.6.39
 	>=x11-misc/colord-0.1.34:0=
 	>=x11-libs/gdk-pixbuf-2.23.0:2
 	>=dev-libs/glib-2.76.6:2
 	gnome-base/gnome-desktop:4=
 	>=gnome-base/gnome-settings-daemon-41.0[colord,input_devices_wacom?]
-	>=gnome-base/gsettings-desktop-schemas-46_beta
+	>=gnome-base/gsettings-desktop-schemas-47.0
 	dev-libs/libxml2:2
 	>=sys-power/upower-0.99.8:=
 	>=dev-libs/libgudev-232

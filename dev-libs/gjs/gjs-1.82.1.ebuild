@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,20 +6,20 @@ EAPI=8
 inherit flag-o-matic gnome.org meson virtualx
 
 DESCRIPTION="Javascript bindings for GNOME"
-HOMEPAGE="https://wiki.gnome.org/Projects/Gjs https://gitlab.gnome.org/GNOME/gjs"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gjs"
 
 LICENSE="MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )"
 SLOT="0"
-IUSE="+cairo examples readline sysprof test"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
+IUSE="examples readline sysprof test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/glib-2.66.0:2
 	dev-libs/libffi:=
 	>=dev-libs/gobject-introspection-1.71.1:=
-	dev-lang/spidermonkey:115
-	cairo? ( x11-libs/cairo[X,glib] )
+	dev-lang/spidermonkey:128
+	x11-libs/cairo[X,glib]
 	readline? ( sys-libs/readline:0= )
 "
 DEPEND="${RDEPEND}
@@ -52,7 +52,6 @@ src_configure() {
 
 	# FIXME: add systemtap/dtrace support, like in glib:2
 	local emesonargs=(
-		$(meson_feature cairo)
 		$(meson_feature readline)
 		$(meson_feature sysprof profiler)
 		-Dinstalled_tests=false

@@ -1,12 +1,12 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop flag-o-matic gnome2 meson pam readme.gentoo-r1 systemd udev
+inherit desktop gnome.org gnome2-utils meson pam readme.gentoo-r1 systemd udev xdg
 
 DESCRIPTION="GNOME Display Manager for managing graphical display servers and user logins"
-HOMEPAGE="https://wiki.gnome.org/Projects/GDM https://gitlab.gnome.org/GNOME/gdm"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gdm"
 
 SRC_URI="${SRC_URI}
 	branding? ( https://www.mail-archive.com/tango-artists@lists.freedesktop.org/msg00043/tango-gentoo-v1.1.tar.gz )
@@ -19,11 +19,12 @@ LICENSE="
 
 SLOT="0"
 
-IUSE="accessibility audit bluetooth-sound branding elogind fprint plymouth selinux systemd tcpd test wayland"
-RESTRICT="!test? ( test )"
-REQUIRED_USE="^^ ( elogind systemd )"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+IUSE="accessibility audit bluetooth-sound branding elogind fprint plymouth selinux systemd tcpd test wayland +X"
+
+RESTRICT="!test? ( test )"
+REQUIRED_USE="^^ ( elogind systemd ) || ( wayland X )"
 
 # dconf, dbus and g-s-d are needed at install time for dconf update
 # keyutils is automagic dep that makes autologin unlock login keyring
@@ -32,21 +33,20 @@ KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
 COMMON_DEPEND="
 	virtual/udev
 	>=dev-libs/libgudev-232:=
-	>=dev-libs/glib-2.56:2
-	>=x11-libs/gtk+-2.91.1:3
-	|| (
-		media-libs/libcanberra-gtk3
-		>=media-libs/libcanberra-0.4[gtk3(-)]
-	)
+	>=dev-libs/glib-2.68:2
+	>=dev-libs/json-glib-1.2.0
 	>=sys-apps/accountsservice-0.6.35
-	x11-libs/libxcb
 	sys-apps/keyutils:=
 	selinux? ( sys-libs/libselinux )
 
-	x11-libs/libX11
-	x11-libs/libXau
-	x11-base/xorg-server[-minimal]
-	x11-libs/libXdmcp
+	X? (
+		x11-libs/libxcb
+		x11-libs/libX11
+		x11-libs/libXau
+		x11-base/xorg-server[-minimal]
+		x11-libs/libXdmcp
+		>=x11-libs/gtk+-2.91.1:3
+	)
 	tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
 
 	systemd? ( >=sys-apps/systemd-186:0=[pam] )
@@ -86,7 +86,6 @@ DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 BDEPEND="
-	app-text/docbook-xml-dtd:4.1.2
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	dev-util/itstool
@@ -94,7 +93,6 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	test? ( >=dev-libs/check-0.9.4 )
-	app-text/yelp-tools
 "
 
 DOC_CONTENTS="
@@ -113,10 +111,6 @@ DOC_CONTENTS="
 	for smartcard support
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-45.0.1-c99.patch
-)
-
 src_prepare() {
 	default
 
@@ -125,9 +119,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# bug #944223
-	append-cflags -std=gnu17
-
 	# --with-initial-vt=7 conflicts with plymouth, bug #453392
 	# gdm-3.30 now reaps (stops) the login screen when the login VT isn't active, which
 	# saves on memory. However this means if we don't start on VT1, gdm doesn't start up
@@ -153,7 +144,8 @@ src_configure() {
 		-Duser=gdm
 		-Duser-display-server=true
 		$(meson_use wayland wayland-support)
-		-Dxdmcp=enabled
+		$(meson_use X x11-support)
+		$(meson_feature X xdmcp)
 	)
 
 	if use elogind; then
@@ -197,7 +189,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	gnome2_pkg_postinst
+	xdg_pkg_postinst
+	gnome2_schemas_update
+
 	local d ret
 
 	# bug #669146; gdm may crash if /var/lib/gdm subdirs are not owned by gdm:gdm
@@ -216,5 +210,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
+	xdg_pkg_postrm
+	gnome2_schemas_update
 	udev_reload
 }

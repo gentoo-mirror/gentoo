@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,25 +12,24 @@ SRC_URI="
 	https://github.com/home-sweet-gnome/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	branding? ( https://www.mail-archive.com/tango-artists@lists.freedesktop.org/msg00043/tango-gentoo-v1.1.tar.gz )
 "
+S="${WORKDIR}/${MY_P}"
+extension_uuid="dash-to-panel@jderose9.github.com"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="branding"
 
 COMMON_DEPEND="dev-libs/glib:2"
 RDEPEND="${COMMON_DEPEND}
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-45
+	>=gnome-base/gnome-shell-46
 "
 DEPEND="${COMMON_DEPEND}"
 BDEPEND="
 	dev-util/intltool
 	sys-devel/gettext
 "
-
-S="${WORKDIR}/${MY_P}"
-extension_uuid="dash-to-panel@jderose9.github.com"
 
 src_prepare() {
 	default

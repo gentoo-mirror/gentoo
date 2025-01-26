@@ -1,22 +1,22 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit gnome.org gnome2-utils meson optfeature python-single-r1 virtualx xdg
 
 DESCRIPTION="Provides core UI functions for the GNOME desktop"
-HOMEPAGE="https://wiki.gnome.org/Projects/GnomeShell https://gitlab.gnome.org/GNOME/gnome-shell"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-shell"
 
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
+
 IUSE="elogind gtk-doc +ibus +networkmanager pipewire systemd test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	?? ( elogind systemd )"
 RESTRICT="!test? ( test )"
-
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
 
 # libXfixes-5.0 needed for pointer barriers and #include <X11/extensions/Xfixes.h>
 DEPEND="
@@ -26,11 +26,11 @@ DEPEND="
 	>=dev-libs/gobject-introspection-1.49.1:=
 	>=dev-libs/gjs-1.73.1[cairo]
 	>=gui-libs/gtk-4:4[introspection]
-	>=x11-wm/mutter-45.0:0/13[introspection,test?]
+	>=x11-wm/mutter-47.0:0/15[introspection,test?]
 	>=sys-auth/polkit-0.120_p20220509[introspection]
-	>=gnome-base/gsettings-desktop-schemas-42_beta[introspection]
-	>=x11-libs/startup-notification-0.11
+	>=gnome-base/gsettings-desktop-schemas-47_alpha[introspection]
 	>=app-i18n/ibus-1.5.19
+	dev-python/docutils
 	>=gnome-base/gnome-desktop-40.0:4=
 	networkmanager? (
 		>=net-misc/networkmanager-1.10.4[introspection]
@@ -119,6 +119,7 @@ BDEPEND="
 	>=dev-util/gdbus-codegen-2.45.3
 	dev-util/glib-utils
 	gtk-doc? ( >=dev-util/gtk-doc-1.17
+		>=dev-util/gi-docgen-2021.1
 		app-text/docbook-xml-dtd:4.5 )
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
@@ -133,7 +134,7 @@ BDEPEND="
 
 PATCHES=(
 	# Change favorites defaults, bug #479918
-	"${FILESDIR}"/40.0-defaults.patch
+	"${FILESDIR}"/46.4-defaults.patch
 )
 
 src_prepare() {
@@ -152,6 +153,7 @@ src_configure() {
 		-Dman=true
 		$(meson_use test tests)
 		$(meson_use networkmanager)
+		$(meson_use networkmanager portal_helper)
 		$(meson_use systemd) # this controls journald integration and desktop file user services related property only as of 3.34.4
 		# (structured logging and having gnome-shell launched apps use its own identifier instead of gnome-session)
 		# suspend support is runtime optional via /run/systemd/seats presence and org.freedesktop.login1.Manager dbus interface; elogind should provide what's necessary

@@ -1,19 +1,19 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit gnome2-utils optfeature readme.gentoo-r1
 
-EGIT_COMMIT="aafc9458a47a68c396933c637de00421f5198a2a"
+EGIT_COMMIT="104269ede04d52caf98734b199d960a3b25b88df"
 
 DESCRIPTION="Keyboard-driven layer for GNOME Shell with tiling support"
 HOMEPAGE="https://github.com/pop-os/shell"
 SRC_URI="https://github.com/pop-os/shell/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/shell-${EGIT_COMMIT}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64"
-IUSE=""
 
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
@@ -21,8 +21,6 @@ RDEPEND="
 	sys-apps/fd
 "
 BDEPEND="dev-lang/typescript"
-
-S="${WORKDIR}/shell-${EGIT_COMMIT}"
 
 DOC_CONTENTS="To configure keybindings run /usr/lib/pop-shell/scripts/configure.sh as user"
 
