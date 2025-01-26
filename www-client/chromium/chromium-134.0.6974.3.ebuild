@@ -720,6 +720,7 @@ src_prepare() {
 		third_party/rust
 		third_party/ruy
 		third_party/s2cellid
+		third_party/search_engines_data
 		third_party/securemessage
 		third_party/selenium-atoms
 		third_party/sentencepiece
