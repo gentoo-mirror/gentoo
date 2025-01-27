@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-qt/qtbase:6[gui,widgets]
+DESCRIPTION=Qt C++ widget for plotting and data visualization
+EAPI=8
+HOMEPAGE=https://www.qcustomplot.com/
+INHERIT=qmake-utils
+KEYWORDS=~amd64 ~arm ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3
+RDEPEND=dev-qt/qtbase:6[gui,widgets]
+SLOT=0
+SRC_URI=https://www.qcustomplot.com/release/2.1.1/QCustomPlot-sharedlib.tar.gz -> qcustomplot-sharedlib-2.1.1.tar.gz https://www.qcustomplot.com/release/2.1.1/QCustomPlot-source.tar.gz -> qcustomplot-source-2.1.1.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=0b2cee9ca90b4519e639d11d08f239b8
