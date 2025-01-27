@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,20 +11,25 @@ HOMEPAGE="https://github.com/sasagawa888/nprolog/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/sasagawa888/${PN}.git"
+	EGIT_REPO_URI="https://github.com/sasagawa888/${PN}"
 else
-	SRC_URI="https://github.com/sasagawa888/nprolog/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+	SRC_URI="https://github.com/sasagawa888/${PN}/archive/refs/tags/%EF%BD%96${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
+	S="${WORKDIR}/${PN}--${PV}"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD-2"
 SLOT="0"
+IUSE="doc"
 
-PATCHES=( "${FILESDIR}/${PN}-3.22-ncursesw.patch" )
+PATCHES=(
+	"${FILESDIR}/nprolog-3.22-ncursesw.patch"
+	"${FILESDIR}/nprolog-3.88-makefile-CURSES_CFLAGS-edlog-rule.patch"
+)
 
-DOCS=( README{,-ja}.md document )
+DOCS=( README{,-ja}.md )
 
 src_prepare() {
 	if [[ -f edlog ]] ; then
@@ -44,6 +49,12 @@ src_install() {
 
 	insinto "/usr/share/${PN}"
 	doins -r example library
+
+	if use doc ; then
+		DOCS+=( document )
+
+		docompress -x "/usr/share/doc/${PF}/document"
+	fi
 
 	einstalldocs
 }
