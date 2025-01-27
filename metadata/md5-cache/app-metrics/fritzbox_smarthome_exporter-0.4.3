@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DEPEND=acct-group/fritzbox_smarthome_exporter acct-user/fritzbox_smarthome_exporter
+DESCRIPTION=Prometheus exporter for FRITZ!Box Smart Home
+EAPI=8
+HOMEPAGE=https://github.com/jayme-github/fritzbox_smarthome_exporter
+INHERIT=go-module
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0 BSD GPL-3 MIT
+RDEPEND=acct-group/fritzbox_smarthome_exporter acct-user/fritzbox_smarthome_exporter
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/jayme-github/fritzbox_smarthome_exporter/archive/v0.4.3.tar.gz -> fritzbox_smarthome_exporter-0.4.3.tar.gz https://dev.gentoo.org/~williamh/dist/fritzbox_smarthome_exporter-0.4.3-deps.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	f14aba975c94ccaa9f357a27e3b17ffe	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467
+_md5_=4b83e5b41bb40994329096c89800e386
