@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,12 +27,12 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	>=dev-python/imageio-2.33[${PYTHON_USEDEP}]
+	>=dev-python/imageio-2.36[${PYTHON_USEDEP}]
 	>=dev-python/lazy-loader-0.4[${PYTHON_USEDEP}]
-	>=dev-python/networkx-2.8[${PYTHON_USEDEP}]
-	>=dev-python/numpy-1.23[${PYTHON_USEDEP}]
-	>=dev-python/pillow-9.1[${PYTHON_USEDEP}]
-	>=dev-python/scipy-1.9[sparse(+),${PYTHON_USEDEP}]
+	>=dev-python/networkx-3.0[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.24[${PYTHON_USEDEP}]
+	>=dev-python/pillow-10.1[${PYTHON_USEDEP}]
+	>=dev-python/scipy-1.11.2[sparse(+),${PYTHON_USEDEP}]
 	>=dev-python/tifffile-2022.8.12[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
@@ -44,18 +44,10 @@ BDEPEND="
 	)
 "
 
-DOCS=( CONTRIBUTORS.txt RELEASE.txt )
-
 # xdist does not work with this test suite
 distutils_enable_tests pytest
 # There is a programmable error in your configuration file:
 #distutils_enable_sphinx doc/source dev-python/numpydoc dev-python/myst-parser
-
-PATCHES=(
-	# https://github.com/scikit-image/scikit-image/pull/7463
-	# stripped down to minimal 3.13 support
-	"${FILESDIR}/${P}-py313.patch"
-)
 
 src_test() {
 	# for some reason, upstream refetches data that's already in the tarball
@@ -86,6 +78,8 @@ python_test() {
 		# tests for downloading all data files, including these not needed
 		# by any actual tests
 		data/tests/test_data.py::test_download_all_with_pooch
+		# hangs? TODO
+		graph/tests/test_rag.py::test_reproducibility
 	)
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
