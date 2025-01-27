@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/json-c
+DESCRIPTION=PostgreSQL Replication Manager
+EAPI=8
+HOMEPAGE=http://www.repmgr.org/
+INHERIT=postgres-multi
+IUSE=postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/json-c net-misc/rsync
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/EnterpriseDB/repmgr/releases/download/v5.5.0/repmgr-5.5.0.tar.gz
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	postgres	2ad3e67607a9b24fe6973ddf464c5258	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_md5_=b887671b42ee6758787d89eacbbde778
