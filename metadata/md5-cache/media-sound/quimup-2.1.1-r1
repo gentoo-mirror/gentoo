@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=configure install postinst postrm preinst
+DEFINED_PHASES=configure install postinst postrm preinst prepare
 DEPEND=dev-qt/qtbase:6[gui,network,widgets] media-libs/libmpdclient
 DESCRIPTION=Qt client for the music player daemon (MPD)
 EAPI=8
@@ -10,6 +10,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=dev-qt/qtbase:6[gui,network,widgets] media-libs/libmpdclient
 SLOT=0
-SRC_URI=https://downloads.sourceforge.net/quimup/Quimup-2.1.1.source.tar.gz
+SRC_URI=https://downloads.sourceforge.net/quimup/Quimup-2.1.1.source.tar.gz https://master.dl.sourceforge.net/project/quimup/Quimup%202.1.1/changelog -> quimup-2.1.1-changelog https://master.dl.sourceforge.net/project/quimup/Quimup%202.1.1/readme -> quimup-2.1.1-readme
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=39c085699dd3ca39d131182111458389
+_md5_=a99f4fefa37b7417d24c300a0a5dc906
