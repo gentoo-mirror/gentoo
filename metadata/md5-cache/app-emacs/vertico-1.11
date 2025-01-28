@@ -1,12 +1,13 @@
-BDEPEND=>=app-emacs/compat-30.0.2.0 >=app-editors/emacs-28.1:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=app-emacs/compat-30.0.2.0 >=app-editors/emacs-28.1:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Vertical interactive completion
 EAPI=8
 HOMEPAGE=https://github.com/minad/vertico/
-INHERIT=elisp git-r3
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-PROPERTIES=live
 RDEPEND=>=app-emacs/compat-30.0.2.0 >=app-editors/emacs-28.1:*
 SLOT=0
-_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5	git-r3	875eb471682d3e1f18da124be97dcc81
+SRC_URI=https://github.com/minad/vertico/archive/1.11.tar.gz -> vertico-1.11.gh.tar.gz
+_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5
 _md5_=34a7cc8f0a32dbb0eafb429a12b2bc6b

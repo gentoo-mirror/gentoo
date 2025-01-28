@@ -1926,9 +1926,9 @@ app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols 
 app-emacs/company-mode 1.0.2: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 30.0.0.0 30.0.1.0-r1 30.0.2.0: Compatibility libraries for Emacs
-app-emacs/consult 1.8 1.9 9999: Consulting complete-read for GNU Emacs
+app-emacs/consult 1.8 1.9 2.0 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0: Consult integration for Flycheck
-app-emacs/corfu 1.6 9999: Completion Overlay Region FUnction
+app-emacs/corfu 1.6 1.7 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.14.2: Versions of common Emacs commands customized to make the best use of ivy
 app-emacs/crontab-mode 1.20: Mode for editing crontab files
 app-emacs/crux 0.4.0 0.5.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
@@ -2034,7 +2034,7 @@ app-emacs/exec-path-from-shell 2.2: Ensure environment variables inside Emacs ar
 app-emacs/exheres-mode 1.10: Major mode for editing files in exheres format
 app-emacs/expand-region 0.11.0-r1 1.0.0: Emacs extension to increase selected region by semantic units
 app-emacs/external-completion 0.1: Let external tools control completion style in GNU Emacs
-app-emacs/exwm 0.31-r1 0.32: Emacs X Window Manager
+app-emacs/exwm 0.32 0.33: Emacs X Window Manager
 app-emacs/f 0.21.0: Modern API for working with files and directories in Emacs
 app-emacs/fedi 0.2: Helper functions for Fediverse or other REST API clients for GNU Emacs
 app-emacs/fennel-mode 0.5.0 0.9.1: Emacs support for the Fennel programming language
@@ -2168,7 +2168,7 @@ app-emacs/org-modern 1.5 1.6 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.5.0 1.6.0: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
-app-emacs/osm 1.4 1.5 9999: OpenStreetMap tile-based viewer for GNU Emacs
+app-emacs/osm 1.4 1.5 1.6 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
 app-emacs/package-lint 0.24: Linting library for Emacs Lisp package metadata
@@ -2289,7 +2289,7 @@ app-emacs/undo-tree 0.8.2-r1: Undo trees and visualization
 app-emacs/uptimes 3.8: Track and display emacs session uptimes
 app-emacs/use-package 2.4.6: Declaration macro for simplifying your Emacs configuration
 app-emacs/uxntal-mode 0.3: GNU Emacs major mode for the uxntal assembly language
-app-emacs/vertico 1.9 1.10 9999: Vertical interactive completion
+app-emacs/vertico 1.9 1.10 1.11 9999: Vertical interactive completion
 app-emacs/vhdl-mode 3.39.3: VHDL-mode for Emacs
 app-emacs/visual-basic-mode 1.5: A mode for editing Visual Basic programs
 app-emacs/vm 8.2.0_beta-r1: The VM mail reader for Emacs
@@ -5205,7 +5205,7 @@ dev-lang/mono-basic 4.8: Visual Basic Compiler and Runtime
 dev-lang/mrustc 0.11.2 9999: Mutabah's Rust Compiler
 dev-lang/mujs 1.3.4 1.3.5: An embeddable JavaScript interpreter written in C
 dev-lang/nasm 2.16.03: groovy little assembler
-dev-lang/neko 2.3.0-r3 2.4.0-r1: Neko is a high-level dynamically typed programming language
+dev-lang/neko 2.4.0-r2: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.0.8 2.2.0: Compiled, garbage-collected systems programming language
 dev-lang/nprolog 3.53 3.88: Interpreter and compiler to be compatible with Arity/Prolog32
@@ -11819,7 +11819,7 @@ games-strategy/maxr 0.2.9: Mechanized Assault and Exploration Reloaded
 games-strategy/megaglest 3.13.0-r2: Cross-platform 3D realtime strategy game
 games-strategy/megaglest-data 3.13.0: Data files for the cross-platform 3D realtime strategy game MegaGlest
 games-strategy/naev 0.12.2: 2D space trading and combat game, in a similar vein to Escape Velocity
-games-strategy/openra 20190314-r100 20231010-r1: A free RTS engine supporting games like Command & Conquer, Red Alert and Dune2k
+games-strategy/openra 20190314-r100 20231010-r1 20231010-r2: A free RTS engine supporting games like Command & Conquer, Red Alert and Dune2k
 games-strategy/s25rttr 0.9.5-r1: Open source remake of The Settlers II: Gold Edition (needs original data files)
 games-strategy/satellite-reign 1.13.06: Real-time, class-based strategy game set in a cyberpunk city
 games-strategy/scorched3d 44-r3: Multi-player tank battle in 3D (OpenGL)
@@ -15161,7 +15161,7 @@ net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/fatrat 1.2.0_beta2_p20161204: Qt5-based download/upload manager
 net-misc/freerdp 2.11.7 2.9999 3.4.0-r12 3.6.3 3.7.0 3.8.0 3.9.0 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 9.1.2 10.0.2 10.1.1: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.28.0 1.28.1 1.28.2 1.28.3 1.28.4 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.28.2 1.28.3 1.28.4 1.28.5 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.35.0-r1: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 4.9.0 6.0.0 6.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
