@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,24 +14,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="dbus"
 
-BDEPEND="
-	app-text/docbook-xsl-stylesheets
-	dev-qt/linguist-tools:5
-	virtual/pkgconfig
-"
 DEPEND="
-	dev-qt/qtbase:6[gui,network,widgets]
+	dev-qt/qtbase:6[dbus?,gui,network,widgets]
 	>=media-sound/drumstick-2.10.0
 	x11-libs/libxcb
-	dbus? ( dev-qt/qtbase:6[dbus] )
 "
 RDEPEND="${DEPEND}
-	dev-qt/qtsvg:5
+	dev-qt/qtsvg:6
 "
-
-src_prepare() {
-	cmake_src_prepare
-}
+BDEPEND="
+	app-text/docbook-xsl-stylesheets
+	dev-qt/qttools:6[linguist]
+	virtual/pkgconfig
+"
 
 src_configure() {
 	local mycmakeargs=(
