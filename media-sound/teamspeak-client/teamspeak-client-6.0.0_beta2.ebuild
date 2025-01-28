@@ -12,7 +12,7 @@ S="${WORKDIR}"
 
 LICENSE="teamspeak5 || ( GPL-2 GPL-3 LGPL-3 )"
 SLOT="5"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2
@@ -26,6 +26,8 @@ RDEPEND="
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
+	sys-apps/systemd-utils
+	sys-apps/util-linux
 	x11-libs/cairo[glib]
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
@@ -39,7 +41,9 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	x11-libs/libXrandr
+	x11-libs/libXrender
 	x11-libs/libXScrnSaver
+	x11-libs/libXtst
 	x11-libs/pango
 "
 
@@ -49,11 +53,14 @@ QA_PREBUILT="
 	opt/teamspeak5-client/chrome-sandbox
 	opt/teamspeak5-client/hotkey_helper
 	opt/teamspeak5-client/libcef.so
+	opt/teamspeak5-client/libEGL.so
+	opt/teamspeak5-client/libGLESv2.so
 	opt/teamspeak5-client/libtschat_client_lib.so
 	opt/teamspeak5-client/libtschat_client_lib_export.so
 	opt/teamspeak5-client/patcher
 	opt/teamspeak5-client/TeamSpeak
 	opt/teamspeak5-client/soundbackends/libalsa_linux_amd64.so
+	opt/teamspeak5-client/libvulkan.so.1
 "
 
 src_prepare() {
@@ -63,6 +70,11 @@ src_prepare() {
 src_install() {
 	exeinto /opt/teamspeak5-client
 	doexe chrome-sandbox hotkey_helper patcher TeamSpeak libcef.so libtschat_client_lib.so libtschat_client_lib_export.so
+
+	# Unfortunately we need to use shipped libs as otherwise
+	# teamspeak-client crashes using system libs. The only positive
+	# is, they only need to be placed in it's teamspeaks home directory.
+	doexe libEGL.so libGLESv2.so libvulkan.so.1
 
 	insinto /opt/teamspeak5-client
 	doins *.bin *.dat *.pak
