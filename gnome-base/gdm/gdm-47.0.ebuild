@@ -116,6 +116,8 @@ src_prepare() {
 
 	# Show logo when branding is enabled
 	use branding && eapply "${FILESDIR}/${PN}-3.30.3-logo.patch"
+
+	eapply "${FILESDIR}/47.0-c23.patch"
 }
 
 src_configure() {
