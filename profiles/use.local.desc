@@ -3701,9 +3701,8 @@ llvm-core/clang:static-analyzer - Install the Clang static analyzer
 llvm-core/clang-common:bootstrap-prefix - !!internal use only!! DO NOT SET THIS FLAG YOURSELF!, used for bootstrapping Gentoo Prefix
 llvm-core/clang-common:cet - Enable support for control flow hijacking protection. On amd64, this provides Intel Control Flow Enforcement Technology (CET). Only provides benefits on newer CPUs. For Intel, the CPU must be at least as new as Tiger Lake. For AMD, it must be at least as new as Zen 3. This is harmless on older CPUs, but provides no benefit either.
 llvm-core/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
-llvm-core/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
+llvm-core/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang. Beware: this breaks ABI, producing binaries incompatible with those built with GCC or Clang using libstdc++. Do not set unless you know what you're doing.
 llvm-core/clang-common:default-lld - Use lld as the default linker for clang
-llvm-core/clang-common:stricter - Default to stricter behavior known from newer clang versions, turning more warnings into errors
 llvm-core/clang-runtime:compiler-rt - Install llvm-runtimes/compiler-rt for -rtlib=compiler-rt
 llvm-core/clang-runtime:libcxx - Install llvm-runtimes/libcxx for -stdlib=libc++
 llvm-core/clang-runtime:offload - Install llvm-runtimes/offload for -fopenmp GPU offloading
