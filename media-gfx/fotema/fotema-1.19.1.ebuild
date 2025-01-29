@@ -12,7 +12,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo gnome2-utils meson xdg-utils
 
-CRATE_P=${P}
+CRATE_P=${P/-/-v}
 DESCRIPTION="Photo gallery for Linux"
 HOMEPAGE="https://github.com/blissd/fotema"
 SRC_URI="
@@ -22,7 +22,7 @@ SRC_URI="
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
-		https://dev.gentoo.org/~mgorny/dist/${CRATE_P}-crates.tar.xz
+		https://github.com/gentoo-crate-dist/fotema/releases/download/v${PV}/${CRATE_P}-crates.tar.xz
 	"
 fi
 
@@ -34,7 +34,7 @@ LICENSE="
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0 ISC MIT
-	MPL-2.0 Unicode-3.0 WTFPL-2 ZLIB
+	MPL-2.0 UoI-NCSA Unicode-3.0 WTFPL-2 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
