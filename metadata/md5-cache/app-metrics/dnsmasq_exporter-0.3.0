@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-group/dnsmasq_exporter acct-user/dnsmasq_exporter
+DESCRIPTION=prometheus exporter for dnsmasq
+EAPI=8
+HOMEPAGE=https://github.com/google/dnsmasq_exporter
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=BSD MIT Apache-2.0
+RDEPEND=acct-group/dnsmasq_exporter acct-user/dnsmasq_exporter
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/google/dnsmasq_exporter/archive/v0.3.0.tar.gz -> dnsmasq_exporter-0.3.0.tar.gz https://dev.gentoo.org/~williamh/dist/dnsmasq_exporter-0.3.0-deps.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467
+_md5_=dd87930e70837b088c2d4e16d44a95c2
