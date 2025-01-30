@@ -1,0 +1,16 @@
+BDEPEND=doc? ( || ( ( dev-lang/python:3.13[xml(+)] >=dev-python/sphinx-7.2.6[python_targets_python3_13(-)] ) ( dev-lang/python:3.12[xml(+)] >=dev-python/sphinx-7.2.6[python_targets_python3_12(-)] ) ( dev-lang/python:3.11[xml(+)] >=dev-python/sphinx-7.2.6[python_targets_python3_11(-)] ) ( dev-lang/python:3.10[xml(+)] >=dev-python/sphinx-7.2.6[python_targets_python3_10(-)] ) ( >=dev-lang/pypy-3.10[symlink,xml(+)] >=dev-python/sphinx-7.2.6[python_targets_pypy3(-)] ) ) ) test? ( acct-group/supervisor >=dev-python/pytest-7.4.4[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_pypy3? ( >=dev-lang/pypy-3.10:=[symlink,xml(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] ) >=dev-python/gpep517-15[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst preinst prepare test
+DESCRIPTION=A system for controlling process state under UNIX
+EAPI=8
+HOMEPAGE=https://supervisord.org/ https://pypi.org/project/supervisor/
+INHERIT=distutils-r1 systemd
+IUSE=doc test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=repoze ZPL BSD HPND GPL-2
+RDEPEND=acct-group/supervisor python_targets_pypy3? ( >=dev-lang/pypy-3.10:=[symlink,xml(+)] ) python_targets_python3_10? ( dev-lang/python:3.10[xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/Supervisor/supervisor/archive/4bf1e57cbf292ce988dc128e0d2c8917f18da9be.tar.gz -> supervisor-4.2.5_p20250125.gh.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=6f7c3af8635227127d6a56cf769af37f
