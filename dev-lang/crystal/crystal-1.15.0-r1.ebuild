@@ -8,7 +8,7 @@ BV_AMD64="${BV}-linux-x86_64"
 
 LLVM_COMPAT=( {18..19} )
 
-inherit bash-completion-r1 llvm-r1 multiprocessing toolchain-funcs
+inherit llvm-r1 multiprocessing shell-completion toolchain-funcs
 
 DESCRIPTION="The Crystal Programming Language"
 HOMEPAGE="https://crystal-lang.org/
@@ -53,7 +53,17 @@ RDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-0.27.0-gentoo-tests-long-unix.patch"
 	"${FILESDIR}/${PN}-0.27.0-gentoo-tests-long-unix-2.patch"
+	"${FILESDIR}/${PN}-1.15.0-remove-enviroment-clearing-tests.patch"
 )
+
+src_prepare() {
+	default
+
+	# Link against system boehm-gc instead of upstream prebuilt static library
+	# bug #929123, #929989 and #931100
+	# https://github.com/crystal-lang/crystal/issues/12035#issuecomment-2522606612
+	rm "${WORKDIR}/crystal-${BV}"/lib/crystal/libgc.a || die
+}
 
 src_configure() {
 	local bootstrap_path="${WORKDIR}/${PN}-${BV}/bin"
@@ -76,6 +86,7 @@ src_configure() {
 		stats=1
 		threads="$(makeopts_jobs)"
 		verbose=1
+		check_lld= # disable opportunistic lld
 
 		AR="$(tc-getAR)"
 		CC="$(tc-getCC)"
@@ -101,8 +112,8 @@ src_install() {
 	exeinto /usr/bin
 	doexe .build/crystal
 
-	insinto /usr/share/zsh/site-functions
-	newins etc/completion.zsh _crystal
+	newzshcomp etc/completion.zsh _crystal
+	newfishcomp etc/completion.fish crystal.fish
 
 	dodoc -r samples
 	doman "man/${PN}.1"
