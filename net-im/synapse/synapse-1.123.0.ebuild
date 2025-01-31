@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,15 +9,14 @@ PYTHON_COMPAT=( python3_{10..13} )
 
 CRATES="
 	aho-corasick@1.1.3
-	anyhow@1.0.93
+	anyhow@1.0.95
 	arc-swap@1.7.1
 	autocfg@1.3.0
 	base64@0.21.7
-	bitflags@2.5.0
 	blake2@0.10.6
 	block-buffer@0.10.4
 	bumpalo@3.16.0
-	bytes@1.8.0
+	bytes@1.9.0
 	cfg-if@1.0.0
 	cpufeatures@0.2.12
 	crypto-common@0.1.6
@@ -27,54 +26,48 @@ CRATES="
 	getrandom@0.2.15
 	headers-core@0.3.0
 	headers@0.4.0
-	heck@0.4.1
+	heck@0.5.0
 	hex@0.4.3
-	http@1.1.0
+	http@1.2.0
 	httpdate@1.0.3
 	indoc@2.0.5
 	itoa@1.0.11
 	js-sys@0.3.69
 	lazy_static@1.5.0
 	libc@0.2.154
-	lock_api@0.4.12
 	log@0.4.22
 	memchr@2.7.2
 	memoffset@0.9.1
 	mime@0.3.17
 	once_cell@1.19.0
-	parking_lot@0.12.2
-	parking_lot_core@0.9.10
 	portable-atomic@1.6.0
 	ppv-lite86@0.2.17
 	proc-macro2@1.0.89
-	pyo3-build-config@0.21.2
-	pyo3-ffi@0.21.2
-	pyo3-log@0.10.0
-	pyo3-macros-backend@0.21.2
-	pyo3-macros@0.21.2
-	pyo3@0.21.2
-	pythonize@0.21.1
+	pyo3-build-config@0.23.4
+	pyo3-ffi@0.23.4
+	pyo3-log@0.12.0
+	pyo3-macros-backend@0.23.4
+	pyo3-macros@0.23.4
+	pyo3@0.23.4
+	pythonize@0.23.0
 	quote@1.0.36
 	rand@0.8.5
 	rand_chacha@0.3.1
 	rand_core@0.6.4
-	redox_syscall@0.5.1
 	regex-automata@0.4.8
 	regex-syntax@0.8.5
 	regex@1.11.1
 	ryu@1.0.18
-	scopeguard@1.2.0
-	serde@1.0.215
-	serde_derive@1.0.215
-	serde_json@1.0.132
+	serde@1.0.217
+	serde_derive@1.0.217
+	serde_json@1.0.135
 	sha1@0.10.6
 	sha2@0.10.8
-	smallvec@1.13.2
 	subtle@2.5.0
 	syn@2.0.85
 	target-lexicon@0.12.14
 	typenum@1.17.0
-	ulid@1.1.3
+	ulid@1.1.4
 	unicode-ident@1.0.12
 	unindent@0.2.3
 	version_check@0.9.4
@@ -85,15 +78,6 @@ CRATES="
 	wasm-bindgen-shared@0.2.92
 	wasm-bindgen@0.2.92
 	web-time@1.1.0
-	windows-targets@0.52.5
-	windows_aarch64_gnullvm@0.52.5
-	windows_aarch64_msvc@0.52.5
-	windows_i686_gnu@0.52.5
-	windows_i686_gnullvm@0.52.5
-	windows_i686_msvc@0.52.5
-	windows_x86_64_gnu@0.52.5
-	windows_x86_64_gnullvm@0.52.5
-	windows_x86_64_msvc@0.52.5
 "
 
 inherit cargo distutils-r1 multiprocessing optfeature systemd
@@ -116,11 +100,10 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
-# <twisted-24.10: https://github.com/element-hq/synapse/issues/17075
 RDEPEND="
 	acct-user/synapse
 	acct-group/synapse
@@ -151,7 +134,7 @@ RDEPEND="
 	dev-python/signedjson[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 	dev-python/treq[${PYTHON_USEDEP}]
-	<dev-python/twisted-24.10[${PYTHON_USEDEP}]
+	dev-python/twisted[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
@@ -174,6 +157,10 @@ BDEPEND="
 
 # Rust extension
 QA_FLAGS_IGNORED="usr/lib/python3.*/site-packages/synapse/synapse_rust.abi3.so"
+
+PATCHES=(
+	"${FILESDIR}/${P}-skip-recovery-test.patch"
+)
 
 src_test() {
 	if use postgres; then
