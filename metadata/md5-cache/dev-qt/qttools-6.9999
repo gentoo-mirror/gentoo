@@ -5,12 +5,12 @@ DESCRIPTION=Qt Tools Collection
 EAPI=8
 HOMEPAGE=https://www.qt.io/
 INHERIT=desktop llvm-r2 optfeature qt6-build
-IUSE=+assistant clang designer distancefieldgenerator gles2-only +linguist opengl pixeltool +qdbus qdoc qml qmlls qtattributionsscanner qtdiag qtplugininfo vulkan +widgets zstd +llvm_slot_19 llvm_slot_17 llvm_slot_18
+IUSE=+assistant clang designer distancefieldgenerator gles2-only +linguist opengl pixeltool +qdbus qdoc qml qmlls qtattributionsscanner qtdiag qtplugininfo vulkan +widgets zstd +llvm_slot_19 llvm_slot_17 llvm_slot_18 custom-cflags
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 PROPERTIES=live
 RDEPEND=~dev-qt/qtbase-6.9999:6[widgets?] assistant? ( ~dev-qt/qtbase-6.9999:6[concurrent,network,sql,sqlite] ) clang? ( llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) ) designer? ( ~dev-qt/qtbase-6.9999:6[network,xml,zstd=] zstd? ( app-arch/zstd:= ) ) qdbus? ( ~dev-qt/qtbase-6.9999:6[dbus,xml] ) qml? ( ~dev-qt/qtdeclarative-6.9999:6[widgets?] ) qmlls? ( ~dev-qt/qtdeclarative-6.9999:6[qmlls] ) qtdiag? ( ~dev-qt/qtbase-6.9999:6[network,gles2-only=,vulkan=] ) widgets? ( ~dev-qt/qtbase-6.9999:6[opengl=] )
 REQUIRED_USE=assistant? ( widgets ) clang? ( ^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 ) ) designer? ( qml widgets ) distancefieldgenerator? ( qml widgets ) pixeltool? ( widgets ) qdoc? ( clang qml ) qmlls? ( assistant qml )
 RESTRICT=test
 SLOT=6/6.9999
-_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r2	9a549740244000fae24a65594bde09c1	optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	git-r3	875eb471682d3e1f18da124be97dcc81	qt6-build	5c7149f40ae5583e279c6f8847fd20c3
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r2	9a549740244000fae24a65594bde09c1	optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	git-r3	875eb471682d3e1f18da124be97dcc81	qt6-build	599009af83514b0574e9915bbc47368e
 _md5_=4a11e2a0807edd0115faeb8af18c56ee

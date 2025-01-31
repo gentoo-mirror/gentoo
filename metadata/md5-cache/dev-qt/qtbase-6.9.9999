@@ -5,7 +5,7 @@ DESCRIPTION=Cross-platform application development framework
 EAPI=8
 HOMEPAGE=https://www.qt.io/
 INHERIT=flag-o-matic qt6-build toolchain-funcs
-IUSE=+X accessibility eglfs evdev gles2-only +libinput opengl renderdoc tslib vulkan wayland +widgets +ssl +udev zstd brotli gssapi libproxy sctp +concurrent +dbus +gui +network +sql +xml icu journald syslog mysql oci8 odbc postgres +sqlite cups gtk nls test
+IUSE=+X accessibility eglfs evdev gles2-only +libinput opengl renderdoc tslib vulkan wayland +widgets +ssl +udev zstd brotli gssapi libproxy sctp +concurrent +dbus +gui +network +sql +xml icu journald syslog mysql oci8 odbc postgres +sqlite cups gtk nls custom-cflags test
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 PDEPEND=nls? ( ~dev-qt/qttranslations-6.9.9999:6 ) wayland? ( ~dev-qt/qtwayland-6.9.9999:6 )
 PROPERTIES=live
@@ -13,5 +13,5 @@ RDEPEND=sys-libs/zlib:= ssl? ( dev-libs/openssl:= ) udev? ( virtual/libudev:= ) 
 REQUIRED_USE=?? ( journald syslog ) X? ( gui ) accessibility? ( gui ) eglfs? ( gui ) evdev? ( gui ) gles2-only? ( gui ) libinput? ( gui ) opengl? ( gui ) renderdoc? ( gui ) tslib? ( gui ) vulkan? ( gui ) wayland? ( gui ) widgets? ( gui ) brotli? ( network ) gssapi? ( network ) libproxy? ( network ) sctp? ( network ) mysql? ( sql ) oci8? ( sql ) odbc? ( sql ) postgres? ( sql ) sqlite? ( sql ) cups? ( gui widgets ) gtk? ( gui widgets ) accessibility? ( dbus ) eglfs? ( opengl ) gles2-only? ( opengl ) gui? ( || ( X eglfs wayland ) ) libinput? ( udev ) sql? ( || ( mysql oci8 odbc postgres sqlite ) ) test? ( icu sql? ( sqlite ) )
 RESTRICT=!test? ( test )
 SLOT=6/6.9.9999
-_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	git-r3	875eb471682d3e1f18da124be97dcc81	qt6-build	5c7149f40ae5583e279c6f8847fd20c3
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	git-r3	875eb471682d3e1f18da124be97dcc81	qt6-build	599009af83514b0574e9915bbc47368e
 _md5_=6b6c79f550477b8577f28c51e815e13d
