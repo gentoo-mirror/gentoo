@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Symlinks to use LLVM on binutils-free system
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:LLVM
+INHERIT=multilib
+IUSE=multilib-symlinks +native-symlinks
+LICENSE=public-domain
+RDEPEND=llvm-core/llvm:21
+SLOT=21
+_eclasses_=multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536
+_md5_=1741a2dcec0ebc05a3d3710ae7420704
