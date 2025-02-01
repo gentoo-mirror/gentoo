@@ -1,14 +1,14 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install preinst prepare setup unpack
+DEFINED_PHASES=compile install preinst prepare setup
 DEPEND=media-libs/libjpeg-turbo:= virtual/libusb:1 virtual/libudev opengl? ( media-libs/freeglut ) doc? ( app-text/doxygen ) java? ( >=virtual/jdk-1.8:* !dev-libs/OpenNI[java] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=OpenNI2 SDK
 EAPI=8
 HOMEPAGE=https://structure.io/openni/
-INHERIT=git-r3 flag-o-matic toolchain-funcs java-pkg-opt-2
+INHERIT=flag-o-matic toolchain-funcs java-pkg-opt-2
 IUSE=cpu_flags_arm_neon doc java opengl static-libs java
+KEYWORDS=amd64 ~arm
 LICENSE=Apache-2.0
-PROPERTIES=live
 RDEPEND=media-libs/libjpeg-turbo:= virtual/libusb:1 virtual/libudev opengl? ( media-libs/freeglut ) java? ( >=virtual/jre-1.8:* !dev-libs/OpenNI[java] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629
-_md5_=a795ba1fa33025f0cfed2d892fac7e87
+SRC_URI=https://github.com/structureio/OpenNI2/archive/2.2-beta2.tar.gz -> OpenNI2-2.2_beta2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629
+_md5_=a4ee1dae2c98d258f63d633c461e7586
