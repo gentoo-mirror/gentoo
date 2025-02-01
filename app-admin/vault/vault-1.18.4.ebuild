@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,18 +9,19 @@ DESCRIPTION="A tool for managing secrets"
 HOMEPAGE="https://vaultproject.io/"
 
 VAULT_WEBUI_ARCHIVE="${P}-webui.tar.xz"
-SRC_URI="https://github.com/zmedico/vault/archive/refs/tags/v${PV}-vendor.tar.gz -> ${P}-vendor.tar.gz
-	webui? (
-		https://dev.gentoo.org/~zmedico/dist/${VAULT_WEBUI_ARCHIVE}
-	)"
+SRC_URI="https://github.com/hashicorp/vault/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" webui? ( https://dev.gentoo.org/~zmedico/dist/${VAULT_WEBUI_ARCHIVE} )"
+SRC_URI+=" https://dev.gentoo.org/~zmedico/dist/${P}-deps.tar.xz"
 
-LICENSE="MPL-2.0 Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT"
+LICENSE="BUSL-1.1 MPL-2.0"
+LICENSE+=" Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 IUSE="+webui"
 
 BDEPEND="
 	app-arch/zip
+	dev-go/enumer
 	dev-go/gox
 	>=dev-lang/go-1.21"
 COMMON_DEPEND="acct-group/vault
@@ -33,7 +34,6 @@ FILECAPS=(
 )
 
 RESTRICT="test"
-S=${WORKDIR}/${P}-vendor
 
 src_unpack() {
 	default
