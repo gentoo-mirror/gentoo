@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-11:* dev-java/commons-cli:0 dev-java/cortado:0 dev-java/findbugs-annotations:0 dev-java/miglayout:5 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Open source clone of the game Colonization
+EAPI=8
+HOMEPAGE=https://www.freecol.org
+INHERIT=desktop java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64
+LICENSE=CC-BY-SA-4.0 GPL-2+
+RDEPEND=>=virtual/jre-11:* dev-java/commons-cli:0 dev-java/cortado:0 dev-java/findbugs-annotations:0 dev-java/miglayout:5 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/freecol/freecol/freecol-1.2.0/freecol-1.2.0-src.zip
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	c346bc0ba9945618340315a1089a82ef
+_md5_=fa55d8f3de6b87c7e9c6f9f43bba1745
