@@ -407,7 +407,6 @@ src_prepare() {
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
 		"${FILESDIR}/chromium-131-unbundle-icu-target.patch"
 		"${FILESDIR}/chromium-134-oauth2-client-switches.patch"
-		"${FILESDIR}/chromium-134-qt5-optional.patch"
 	)
 
 	if use bundled-toolchain; then
@@ -642,7 +641,6 @@ src_prepare() {
 		third_party/libaom/source/libaom/third_party/SVT-AV1
 		third_party/libaom/source/libaom/third_party/vector
 		third_party/libaom/source/libaom/third_party/x86inc
-		third_party/libavif
 		third_party/libc++
 		third_party/libdrm
 		third_party/libgav1
@@ -775,10 +773,11 @@ src_prepare() {
 		url/third_party/mozilla
 		v8/third_party/siphash
 		v8/third_party/utf8-decoder
-		v8/third_party/valgrind
 		v8/third_party/glibc
 		v8/third_party/inspector_protocol
+		v8/third_party/rapidhash-v8
 		v8/third_party/v8
+		v8/third_party/valgrind
 
 		# gyp -> gn leftovers
 		third_party/speech-dispatcher
