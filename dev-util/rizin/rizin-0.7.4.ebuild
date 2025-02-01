@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,9 +6,9 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..13} )
 
 # This is the commit that the CI for the release commit used
-BINS_COMMIT="1203a9a2f51e32337c8434d9f4f7c4543552e271"
+BINS_COMMIT="ced304a8d886b2ba189027a86b2e9d949ab311dd"
 
-inherit flag-o-matic meson python-any-r1
+inherit meson python-any-r1
 
 DESCRIPTION="reverse engineering framework for binary analysis"
 HOMEPAGE="https://rizin.re/"
@@ -34,9 +34,8 @@ RDEPEND="
 	dev-libs/libmspack
 	dev-libs/libzip:0=
 	dev-libs/openssl:0=
-	dev-libs/libpcre2:0=
+	dev-libs/libpcre2:0=[jit]
 	>=dev-libs/tree-sitter-0.19.0:=
-	dev-libs/tree-sitter-c
 	dev-libs/xxhash
 	sys-apps/file
 	sys-libs/zlib:0=
@@ -46,6 +45,8 @@ BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.4.0-never-rebuild-parser.patch"
+	"${FILESDIR}/${PN}-0.7.3-force-local-tree-sitter-c.patch"
+	"${FILESDIR}/${PN}-0.7.3-tree-sitter-underlinking.patch"
 )
 
 src_prepare() {
@@ -70,9 +71,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# workaround tree-sitter-c induced underlinking in bug 928301
-	append-ldflags -ltree-sitter
-
 	local emesonargs=(
 		-Dcli=enabled
 		-Duse_sys_capstone=enabled
