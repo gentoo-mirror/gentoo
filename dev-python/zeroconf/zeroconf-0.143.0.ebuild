@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,13 +17,10 @@ HOMEPAGE="
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	>=dev-python/ifaddr-0.1.7[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		>=dev-python/async-timeout-3.0.0[${PYTHON_USEDEP}]
-	' 3.10)
 "
 # the build system uses custom build script that uses distutils to build
 # C extensions, sigh
@@ -50,6 +47,9 @@ python_test() {
 		# fragile to timeouts (?)
 		tests/services/test_browser.py::test_service_browser_expire_callbacks
 		tests/utils/test_asyncio.py::test_run_coro_with_timeout
+	)
+	local EPYTEST_IGNORE=(
+		tests/benchmarks
 	)
 
 	epytest -o addopts=
