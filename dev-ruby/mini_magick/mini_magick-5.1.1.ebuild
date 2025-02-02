@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ SRC_URI="https://github.com/minimagick/minimagick/archive/v${PV}.tar.gz -> ${P}.
 RUBY_S="minimagick-${PV}"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 
@@ -29,6 +29,8 @@ IUSE="test"
 # and jpeg support at a minimum.
 RDEPEND="media-gfx/imagemagick"
 DEPEND="test? ( virtual/imagemagick-tools[jpeg,png,tiff] )"
+
+ruby_add_rdepend "dev-ruby/logger"
 
 ruby_add_bdepend "test? ( dev-ruby/mocha dev-ruby/webmock )"
 
@@ -47,10 +49,4 @@ all_ruby_prepare() {
 
 	# Avoid spec broken by recent imagemagick updates
 	sed -i -e '/reads exif/askip "Now returns more complete EXIF data"' spec/lib/mini_magick/image_spec.rb || die
-
-	# Avoid graphicsmagick tests because installing both in parallel for
-	# tests is hard.
-	sed -i -e '/identifies when gm exists/,/^    end/ s:^:#:' spec/lib/mini_magick/utilities_spec.rb || die
-	sed -i -e '/returns GraphicsMagick/,/^    end/ s:^:#:' spec/lib/mini_magick_spec.rb || die
-	sed -i -e 's/"GraphicsMagick"//' spec/lib/mini_magick/image_spec.rb || die
 }
