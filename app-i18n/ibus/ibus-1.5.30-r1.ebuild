@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit autotools bash-completion-r1 gnome2-utils flag-o-matic python-r1 toolchain-funcs vala virtualx
+inherit autotools bash-completion-r1 flag-o-matic gnome2-utils python-r1 toolchain-funcs vala virtualx
 
 DESCRIPTION="Intelligent Input Bus for Linux / Unix OS"
 HOMEPAGE="https://github.com/ibus/ibus/wiki"
@@ -29,7 +29,7 @@ REQUIRED_USE="
 		introspection
 	)
 	test? ( gtk3 )
-	vala? ( introspection )
+	vala? ( gtk3 introspection )
 	X? ( gtk3 )
 "
 REQUIRED_USE+=" gtk3? ( wayland? ( introspection ) )" # bug 915359
@@ -45,8 +45,8 @@ DEPEND="
 	)
 	appindicator? ( dev-libs/libdbusmenu[gtk3?] )
 	gtk2? ( x11-libs/gtk+:2 )
-	gtk3? ( x11-libs/gtk+:3 )
-	gtk4? ( gui-libs/gtk:4 )
+	gtk3? ( x11-libs/gtk+:3[X,wayland?] )
+	gtk4? ( gui-libs/gtk:4[X,wayland?] )
 	gui? (
 		x11-libs/libX11
 		x11-libs/libXi
@@ -84,19 +84,18 @@ BDEPEND="
 
 src_prepare() {
 	vala_setup --ignore-use
-	if ! has_version 'x11-libs/gtk+:3[wayland]'; then
-		touch ui/gtk3/panelbinding.vala \
-			ui/gtk3/panel.vala \
-			ui/gtk3/emojierapp.vala || die
-	fi
-	if ! use emoji; then
-		touch \
-			tools/main.vala \
-			ui/gtk3/panel.vala || die
-	fi
-	if ! use appindicator; then
-		touch ui/gtk3/panel.vala || die
-	fi
+	# Under various circumstances, vala transpiles will need to be redone due to
+	# encoding false assumptions about enabled features at the time the distfile
+	# was produced. Vala's conditional compilation encodes the configure options
+	# from the maintainer's machine when creating distfiles.
+	#
+	# See:
+	# - https://github.com/ibus/ibus/issues/2609
+	# - https://gitlab.gnome.org/GNOME/vala/-/issues/1580
+	#
+	# Force all vala files to be regenerated no matter what.
+	find . -name '*.vala' -exec touch {} + || die
+
 	if [[ -n ${GENTOO_VER} ]]; then
 		einfo "Try to apply Gentoo specific patch set"
 		eapply "${WORKDIR}"/patches-gentoo/*.patch
@@ -117,9 +116,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# bug #944071
-	append-flags -std=gnu17
-
 	local unicodedir="${EPREFIX}"/usr/share/unicode
 	local python_conf=()
 	if use python; then
@@ -131,6 +127,9 @@ src_configure() {
 	else
 		python_conf+=( --disable-setup )
 	fi
+
+	# defang automagic dependencies
+	use wayland || append-cflags -DGENTOO_GTK_HIDE_WAYLAND
 
 	if tc-is-cross-compiler && { use emoji || use unicode; }; then
 		mkdir -p "${S}-build"

@@ -5,22 +5,21 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit autotools bash-completion-r1 gnome2-utils python-r1 toolchain-funcs vala virtualx
+inherit autotools bash-completion-r1 flag-o-matic gnome2-utils python-r1 toolchain-funcs vala virtualx
 
 DESCRIPTION="Intelligent Input Bus for Linux / Unix OS"
 HOMEPAGE="https://github.com/ibus/ibus/wiki"
 
 MY_PV=$(ver_rs 3 '-')
-MY_PV_DERP="${MY_PV}-rc2" # Upstream retagged rc2 as the final release
 GENTOO_VER=
 [[ -n ${GENTOO_VER} ]] && \
 	GENTOO_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${P}-gentoo-patches-${GENTOO_VER}.tar.xz"
-SRC_URI="https://github.com/${PN}/${PN}/releases/download/${MY_PV}/${PN}-${MY_PV_DERP}.tar.gz
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/${MY_PV}/${PN}-${MY_PV}.tar.gz
 	${GENTOO_PATCHSET_URI}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="X appindicator +emoji gtk2 +gtk3 +gtk4 +gui +introspection libnotify nls +python systemd test +unicode vala wayland"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
@@ -46,8 +45,8 @@ DEPEND="
 	)
 	appindicator? ( dev-libs/libdbusmenu[gtk3?] )
 	gtk2? ( x11-libs/gtk+:2 )
-	gtk3? ( x11-libs/gtk+:3 )
-	gtk4? ( gui-libs/gtk:4 )
+	gtk3? ( x11-libs/gtk+:3[X,wayland?] )
+	gtk4? ( gui-libs/gtk:4[X,wayland?] )
 	gui? (
 		x11-libs/libX11
 		x11-libs/libXi
@@ -83,8 +82,6 @@ BDEPEND="
 	test? ( x11-apps/setxkbmap )
 	unicode? ( app-i18n/unicode-data )"
 
-S=${WORKDIR}/${PN}-${MY_PV_DERP}
-
 src_prepare() {
 	vala_setup --ignore-use
 	# Under various circumstances, vala transpiles will need to be redone due to
@@ -119,6 +116,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #944071
+	append-flags -std=gnu17
+
 	local unicodedir="${EPREFIX}"/usr/share/unicode
 	local python_conf=()
 	if use python; then
@@ -130,6 +130,9 @@ src_configure() {
 	else
 		python_conf+=( --disable-setup )
 	fi
+
+	# defang automagic dependencies
+	use wayland || append-cflags -DGENTOO_GTK_HIDE_WAYLAND
 
 	if tc-is-cross-compiler && { use emoji || use unicode; }; then
 		mkdir -p "${S}-build"
