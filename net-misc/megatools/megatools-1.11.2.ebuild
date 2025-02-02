@@ -5,11 +5,11 @@ EAPI=8
 
 inherit meson
 
-MY_P="${P}.20220519"
+MY_P="${P}.20250127"
 
 DESCRIPTION="Command line tools and C library for accessing Mega cloud storage"
 HOMEPAGE="https://xff.cz/megatools/"
-SRC_URI="https://xff.cz/megatools/builds/${MY_P}.tar.gz"
+SRC_URI="https://xff.cz/megatools/builds/builds/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
