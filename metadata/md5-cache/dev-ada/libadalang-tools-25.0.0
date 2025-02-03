@@ -1,0 +1,17 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-)]
+DEFINED_PHASES=compile install setup test
+DEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/templates-parser[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?] >=dev-ada/VSS-24.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/libadalang:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),static-libs?,static-pic?]
+DESCRIPTION=Libadalang-based tools: gnatpp, gnatmetric and gnatstub
+EAPI=8
+HOMEPAGE=https://www.adacore.com/community
+INHERIT=ada multiprocessing
+IUSE=+shared static-libs static-pic test ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/templates-parser[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?] >=dev-ada/VSS-24.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/libadalang:=[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gnat_2021(-),-ada_target_gcc_15(-),static-libs?,static-pic?]
+REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/AdaCore/libadalang-tools/archive/refs/tags/v25.0.0.tar.gz -> libadalang-tools-25.0.0.tar.gz
+_eclasses_=ada	91fe5c33490e013a01ffad92086e7bac	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_md5_=807d7833f462542017f33619b4a298ed
