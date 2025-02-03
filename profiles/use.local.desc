@@ -2470,41 +2470,46 @@ dev-python/pyqt6:xml - Build bindings for the QtXml module
 dev-python/pyqt6-webengine:quick - Build bindings for the QtWebEngineQuick module
 dev-python/pyqt6-webengine:widgets - Build bindings for the QtWebEngineWidgets module
 dev-python/pyrsistent:native-extensions - Compiles native C extensions (speedups, instead of using python fallback code).
-dev-python/pyside6:3d - Build Qt3DCore, Qt3DAnimation, Qt3DExtras, Qt3DInput, Qt3DLogic, and Qt3DRender modules
-dev-python/pyside6:bluetooth - Build QtBluetooth module
-dev-python/pyside6:charts - Build QtCharts module
-dev-python/pyside6:concurrent - Build QtConcurrent module
-dev-python/pyside6:designer - Build QtDesigner and QtUiTools modules
-dev-python/pyside6:gles2-only - Build QtGui "QOpenGL*" classes
-dev-python/pyside6:gui - Build QtGui module
-dev-python/pyside6:help - Build QtHelp module
-dev-python/pyside6:httpserver - Build QtHttpServer module
-dev-python/pyside6:location - Build QtLocation module
-dev-python/pyside6:multimedia - Build QtMultimedia and QtMultimediaWidgets modules
-dev-python/pyside6:network - Build QtNetwork module
-dev-python/pyside6:network-auth - Build QtNetworkAuth module
-dev-python/pyside6:nfc - Build QtNfc module
-dev-python/pyside6:pdfium - Build QtPdf module
-dev-python/pyside6:positioning - Build QtPositioning module
-dev-python/pyside6:printsupport - Build QtPrintSupport module
-dev-python/pyside6:qml - Build QtQml module
-dev-python/pyside6:quick - Build QtQuick and QtQuickWidgets modules
-dev-python/pyside6:quick3d - Build QtQuick3D and QtQuickWidgets modules
-dev-python/pyside6:remoteobjects - Build QtRemoteObjects module
-dev-python/pyside6:scxml - Build QtScxml module
-dev-python/pyside6:sensors - Build QtSensors module
-dev-python/pyside6:serialport - Build QtSerialPort modules
-dev-python/pyside6:spatialaudio - Build QtSpatialAudio module
-dev-python/pyside6:speech - Build QtTextToSpeech module
-dev-python/pyside6:sql - Build QtSql module
-dev-python/pyside6:svg - Build QtSvg module
-dev-python/pyside6:testlib - Build QtTest module
-dev-python/pyside6:uitools - Build UITools module
-dev-python/pyside6:webchannel - Build QtWebChannel module
-dev-python/pyside6:webengine - Build QtWebEngine and QtWebEngineWidgets modules
-dev-python/pyside6:websockets - Build QtWebSockets module
-dev-python/pyside6:widgets - Build QtWidgets module
-dev-python/pyside6:xml - Build QtXml module
+dev-python/pyside:3d - Build Qt3DCore, Qt3DAnimation, Qt3DExtras, Qt3DInput, Qt3DLogic, and Qt3DRender modules
+dev-python/pyside:bluetooth - Build QtBluetooth module
+dev-python/pyside:charts - Build QtCharts module
+dev-python/pyside:concurrent - Build QtConcurrent module
+dev-python/pyside:core - Build QtCore module, if disable then only shiboken will be built
+dev-python/pyside:designer - Build QtDesigner and QtUiTools modules
+dev-python/pyside:gles2-only - Build QtGui "QOpenGL*" classes
+dev-python/pyside:gui - Build QtGui module
+dev-python/pyside:help - Build QtHelp module
+dev-python/pyside:httpserver - Build QtHttpServer module
+dev-python/pyside:location - Build QtLocation module
+dev-python/pyside:multimedia - Build QtMultimedia and QtMultimediaWidgets modules
+dev-python/pyside:network - Build QtNetwork module
+dev-python/pyside:network-auth - Build QtNetworkAuth module
+dev-python/pyside:nfc - Build QtNfc module
+dev-python/pyside:numpy - Build with support for dev-python/numpy
+dev-python/pyside:pdfium - Build QtPdf module
+dev-python/pyside:positioning - Build QtPositioning module
+dev-python/pyside:printsupport - Build QtPrintSupport module
+dev-python/pyside:qml - Build QtQml module
+dev-python/pyside:quick - Build QtQuick and QtQuickWidgets modules
+dev-python/pyside:quick3d - Build QtQuick3D and QtQuickWidgets modules
+dev-python/pyside:remoteobjects - Build QtRemoteObjects module
+dev-python/pyside:scxml - Build QtScxml module
+dev-python/pyside:sensors - Build QtSensors module
+dev-python/pyside:serialbus - Build QtSerialBus modules
+dev-python/pyside:serialport - Build QtSerialPort modules
+dev-python/pyside:spatialaudio - Build QtSpatialAudio module
+dev-python/pyside:speech - Build QtTextToSpeech module
+dev-python/pyside:sql - Build QtSql module
+dev-python/pyside:svg - Build QtSvg module
+dev-python/pyside:testlib - Build QtTest module
+dev-python/pyside:tools - Build PySide Tools
+dev-python/pyside:uitools - Build UITools module
+dev-python/pyside:webchannel - Build QtWebChannel module
+dev-python/pyside:webengine - Build QtWebEngine and QtWebEngineWidgets modules
+dev-python/pyside:websockets - Build QtWebSockets module
+dev-python/pyside:webview - Build QtWebView module
+dev-python/pyside:widgets - Build QtWidgets module
+dev-python/pyside:xml - Build QtXml module
 dev-python/python-box:native-extensions - Compiles native C extensions
 dev-python/python-lsp-server:all-plugins - Pull in all optional plugins
 dev-python/python-mpd2:twisted - Enable twisted support
@@ -2524,8 +2529,7 @@ dev-python/qtpy:positioning - Pull in bindings for the QtPositioning module
 dev-python/qtpy:printsupport - Pull in bindings for the QtPrintSupport module
 dev-python/qtpy:pyqt5 - Use dev-python/pyqt5 as Qt for Python implementation
 dev-python/qtpy:pyqt6 - Use dev-python/pyqt6 as Qt for Python implementation
-dev-python/qtpy:pyside2 - Use dev-python/pyside2 as Qt for Python implementation
-dev-python/qtpy:pyside6 - Use dev-python/pyside6 as Qt for Python implementation
+dev-python/qtpy:pyside6 - Use dev-python/pyside as Qt for Python implementation
 dev-python/qtpy:qml - Build bindings for the QtQml
 dev-python/qtpy:quick - Build bindings for the QtQuick
 dev-python/qtpy:quick3d - Build bindings for the QtQuick3D
