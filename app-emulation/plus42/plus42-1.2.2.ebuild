@@ -1,15 +1,15 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit toolchain-funcs
 
-MY_PV="${PN}-nologo-${PV}"
+MY_PV="${PN}-upstream-${PV}"
 
-DESCRIPTION="An HP-42S Calculator Simulator"
-HOMEPAGE="https://thomasokken.com/free42/"
-SRC_URI="https://thomasokken.com/free42/upstream/${MY_PV}.tgz"
+DESCRIPTION="An Enhanced HP-42S Calculator Simulator"
+HOMEPAGE="https://thomasokken.com/plus42/"
+SRC_URI="https://thomasokken.com/plus42/upstream/${MY_PV}.tgz"
 S=${WORKDIR}/${MY_PV}
 
 LICENSE="GPL-2"
@@ -27,9 +27,13 @@ RDEPEND="${DEPEND}"
 DOCS=( CREDITS HISTORY README )
 
 PATCHES=(
-	"${FILESDIR}/${PN}-3.0.14-fix-makefile.patch"
-	"${FILESDIR}/${PN}-3.0.16-fix-build-intel-lib.patch"
+	"${FILESDIR}/${PN}-1.0.9-fix-makefile.patch"
+	"${FILESDIR}/${PN}-1.0.12-fix-build-intel-lib.patch"
 )
+
+src_prepare() {
+	default
+}
 
 src_compile() {
 	local myconf
@@ -41,5 +45,5 @@ src_compile() {
 
 src_install() {
 	default
-	dobin gtk/free42bin gtk/free42dec
+	dobin gtk/plus42bin gtk/plus42dec
 }
