@@ -6,9 +6,9 @@ INHERIT=bash-completion-r1 elisp-common
 IUSE=emacs graphviz
 KEYWORDS=amd64 arm arm64 ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris
 LICENSE=GPL-2 GPL-1+
-RDEPEND=!app-emacs/quilt-el sys-apps/ed dev-util/diffstat graphviz? ( media-gfx/graphviz ) elibc_Darwin? ( app-misc/getopt ) elibc_SunOS? ( app-misc/getopt ) >=sys-apps/coreutils-9.4-r1 app-arch/zstd:=
+RDEPEND=sys-apps/ed dev-util/diffstat graphviz? ( media-gfx/graphviz ) elibc_Darwin? ( app-misc/getopt ) elibc_SunOS? ( app-misc/getopt ) >=sys-apps/coreutils-9.4-r1 app-arch/zstd:=
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://nongnu/quilt/quilt-0.68.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	elisp-common	4ee3453b022aae73f4d827a0f98920c2
-_md5_=f4f5ceccad8ff6cd46f506aac58be3ee
+_md5_=e5b5cb835db94a62965ece94d0ef2be3
