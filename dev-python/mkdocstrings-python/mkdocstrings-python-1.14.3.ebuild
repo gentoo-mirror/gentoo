@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,11 +21,16 @@ KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	>=dev-python/griffe-0.49[${PYTHON_USEDEP}]
-	>=dev-python/mkdocstrings-0.26.0[${PYTHON_USEDEP}]
+	>=dev-python/mkdocstrings-0.28[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-autorefs-1.2[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.0[${PYTHON_USEDEP}]
+	' 3.10)
 "
 BDEPEND="
 	test? (
+		>=dev-python/beautifulsoup4-4.12.3[${PYTHON_USEDEP}]
+		>=dev-python/inline-snapshot-0.18[${PYTHON_USEDEP}]
 		dev-python/mkdocs-material[${PYTHON_USEDEP}]
 	)
 "
@@ -33,3 +38,14 @@ BDEPEND="
 distutils_enable_tests pytest
 
 export PDM_BUILD_SCM_VERSION=${PV}
+
+python_test() {
+	local EPYTEST_DESELECT=(
+		# "None" meaning particular formatter not installed
+		"tests/test_rendering.py::test_format_code[None-print('Hello')]"
+		"tests/test_rendering.py::test_format_code[None-aaaaa(bbbbb, ccccc=1) + ddddd.eeeee[ffff] or {ggggg: hhhhh, iiiii: jjjjj}]"
+	)
+
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest -p inline_snapshot
+}

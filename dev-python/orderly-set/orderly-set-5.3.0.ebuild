@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,18 +6,12 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3 python3_{10..13} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A package containing multiple implementations of Ordered Set"
 HOMEPAGE="
 	https://github.com/seperman/orderly-set/
 	https://pypi.org/project/orderly-set/
-"
-# incomplete test directory
-# https://github.com/seperman/orderly-set/pull/3
-SRC_URI="
-	https://github.com/seperman/orderly-set/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
