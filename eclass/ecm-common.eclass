@@ -196,7 +196,7 @@ _ecm-common_preamble() {
 
 		include(KDEInstallDirs)
 		include(ECMOptionalAddSubdirectory) # commonly used
-		include(FeatureSummary)
+		include(ECMFeatureSummary)
 	_EOF_
 
 	if [[ ${ECM_INSTALL_ICONS} ]]; then
@@ -308,11 +308,11 @@ ecm-common_inject_heredoc() {
 # @FUNCTION: _ecm-common_summary
 # @INTERNAL
 # @DESCRIPTION:
-# Just calls feature_summary
+# Just calls ecm_feature_summary
 _ecm-common_summary() {
 	cat >> CMakeLists.txt <<- _EOF_ || die
 
-		feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+		ecm_feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 	_EOF_
 }
 
