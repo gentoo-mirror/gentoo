@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.694.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.37.2 1.37.6 1.37.11: Universal Command Line Environment for AWS
+app-admin/awscli 1.37.2 1.37.6 1.37.11 1.37.12: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.11.2 2024.12.0: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2 3.3.13: Distribution-independent installer framework
@@ -8059,7 +8059,7 @@ dev-python/aioresponses 0.7.7 0.7.8: Helper to mock/fake web requests in Python'
 dev-python/aiorpcx 0.22.1-r1 0.23.1 0.24: Generic async RPC implementation, including JSON-RPC
 dev-python/aiosignal 1.3.2: A list of registered asynchronous callbacks
 dev-python/aiosmtpd 1.4.6: Reimplementation of the Python stdlib smtpd.py based on asyncio
-dev-python/aiosqlite 0.20.0: asyncio bridge to the standard sqlite3 module
+dev-python/aiosqlite 0.20.0 0.21.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiostream 0.6.3 0.6.4: Generator-based operators for asynchronous iteration
 dev-python/aiounittest 1.4.2: Test asyncio code more easily
 dev-python/ajsonrpc 1.2.0: Async JSON-RPC 2.0 protocol + server powered by asyncio
@@ -8151,8 +8151,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.36.2 1.36.6 1.36.11: The AWS SDK for Python
-dev-python/botocore 1.36.2 1.36.6 1.36.11: Low-level, data-driven core of boto 3
+dev-python/boto3 1.36.2 1.36.6 1.36.11 1.36.12: The AWS SDK for Python
+dev-python/botocore 1.36.2 1.36.6 1.36.11 1.36.12: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8500,7 +8500,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.0.1-r1 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.123.17 6.124.3 6.124.7 6.124.9 6.125.0: A library for property based testing
+dev-python/hypothesis 6.123.17 6.124.3 6.124.7 6.124.9 6.125.0 6.125.1: A library for property based testing
 dev-python/icalendar 6.1.0 6.1.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.5 2.6.6: File identification library for Python
@@ -8599,7 +8599,7 @@ dev-python/jupyter 1.1.1: Jupyter metapackage. Install all the Jupyter component
 dev-python/jupyter-client 8.6.3: Jupyter protocol implementation and client libraries
 dev-python/jupyter-console 6.6.3: A terminal-based console frontend for Jupyter kernels
 dev-python/jupyter-core 5.7.2: Core common functionality of Jupyter projects
-dev-python/jupyter-events 0.11.0: Jupyter Event System library
+dev-python/jupyter-events 0.11.0 0.12.0: Jupyter Event System library
 dev-python/jupyter-kernel-test 0.7.0: A tool for testing Jupyter kernels
 dev-python/jupyter-lsp 2.2.5: Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab
 dev-python/jupyter-packaging 0.12.3: Tools to help build and install Jupyter Python packages
@@ -8646,7 +8646,7 @@ dev-python/libevdev 0.11: Python wrappers for the libevdev library
 dev-python/liblarch 3.2.0: Library to handle directed acyclic graphs
 dev-python/libnacl 2.1.0: Python ctypes wrapper for libsodium
 dev-python/libsass 0.23.0: A straightforward binding of libsass for Python
-dev-python/libtmux 0.36.0 0.37.0 0.38.1 0.39.0 0.40.0 0.40.1: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
+dev-python/libtmux 0.36.0 0.37.0 0.38.1 0.39.0 0.40.0 0.40.1 0.42.0: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
 dev-python/libvirt-python 9.8.0 9.9.0 10.1.0 10.3.0 10.5.0 10.6.0 10.8.0 10.10.0 9999: libvirt Python bindings
 dev-python/license-expression 30.4.1: Parse, compare, simplify and normalize license expressions
 dev-python/line-profiler 4.1.3 4.2.0: Line-by-line profiler
@@ -8689,7 +8689,7 @@ dev-python/markdown-it-py 3.0.0: Python port of markdown-it, Markdown parser
 dev-python/markdown2 2.5.2 2.5.3: Python Markdown language reimplementation
 dev-python/markups 4.1.0: A wrapper around various text markups
 dev-python/markupsafe 3.0.2: Implements a XML/HTML/XHTML Markup safe string for Python
-dev-python/marshmallow 3.25.1 3.26.0: A library for converting to and from native Python datatypes
+dev-python/marshmallow 3.25.1 3.26.0 3.26.1: A library for converting to and from native Python datatypes
 dev-python/matplotlib 3.9.0-r1 3.9.2 3.9.4 3.10.0: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.7: Inline Matplotlib backend for Jupyter
 dev-python/matplotlib-venn 1.1.1: Plot area-proportional two- and three-way Venn diagrams in matplotlib
@@ -8733,15 +8733,15 @@ dev-python/mkdocs-git-authors-plugin 0.9.2: Mkdocs plugin to display git authors
 dev-python/mkdocs-git-revision-date-localized-plugin 1.3.0: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.2.1 1.3.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
-dev-python/mkdocs-material 9.5.50 9.6.1: A Material Design theme for MkDocs
+dev-python/mkdocs-material 9.5.50 9.6.1 9.6.2: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.3.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.8.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.1.0: Build multiple documentation folders in a single Mkdocs
 dev-python/mkdocs-pymdownx-material-extras 2.7: Custom alterations based on Mkdocs-Material
 dev-python/mkdocs-redirects 1.2.2: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.2.3 1.3.0: MkDocs i18n plugin using static translation markdown files
-dev-python/mkdocstrings 0.26.2: Automatic documentation from sources, for MkDocs
-dev-python/mkdocstrings-python 1.12.2 1.13.0: Python handler for dev-python/mkdocstrings
+dev-python/mkdocstrings 0.26.2 0.28.0: Automatic documentation from sources, for MkDocs
+dev-python/mkdocstrings-python 1.13.0 1.14.3: Python handler for dev-python/mkdocstrings
 dev-python/ml-dtypes 0.5.1: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
@@ -8798,7 +8798,7 @@ dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2024.04.15 2024.10.09: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
-dev-python/nuitka 2.6 2.6.1 2.6.2: Python to native compiler
+dev-python/nuitka 2.6 2.6.1 2.6.2 2.6.3: Python to native compiler
 dev-python/numexpr 2.10.2: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.26.4 2.0.2-r1 2.1.3 2.2.0 2.2.1 2.2.2: Fast array and numerical python library
 dev-python/numpydoc 1.8.0: Sphinx extension to support docstrings in Numpy format
@@ -8823,7 +8823,7 @@ dev-python/opentelemetry-sdk 1.29.0: OpenTelemetry Python SDK
 dev-python/opentelemetry-semantic-conventions 1.29.0: OpenTelemetry Semantic Conventions
 dev-python/opt-einsum 3.4.0: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.1.0: A mutable set that remembers the order of its entries
-dev-python/orderly-set 5.2.2 5.2.3: A package containing multiple implementations of Ordered Set
+dev-python/orderly-set 5.2.3 5.3.0: A package containing multiple implementations of Ordered Set
 dev-python/orjson 3.10.11-r1 3.10.12 3.10.13 3.10.14 3.10.15: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-client-config 2.1.0-r2: OpenStack Client Configuation Library
 dev-python/os-service-types 1.7.0-r2: A library to handle official service types for OpenStack and it's aliases
@@ -8849,7 +8849,7 @@ dev-python/pandas 2.2.3: Powerful data structures for data analysis and statisti
 dev-python/pandocfilters 1.5.1: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.8: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.9.0: Parameterized testing with any Python test framework
-dev-python/paramiko 3.5.0: SSH2 protocol library
+dev-python/paramiko 3.5.0 3.5.1: SSH2 protocol library
 dev-python/parse 1.20.2: Parse strings using a specification based on the Python format() syntax
 dev-python/parse-type 0.6.4: Extension to the parse module
 dev-python/parsedatetime 2.6-r1: Parse human-readable date/time strings
@@ -9312,7 +9312,7 @@ dev-python/regex 2024.7.24 2024.9.11 2024.11.6: Alternative regular expression m
 dev-python/regress 2024.11.1-r1: Python bindings to the Rust regress crate
 dev-python/rencode 1.0.6-r3: similar to bencode from the BitTorrent project
 dev-python/reno 4.1.0: Release notes manager, storing release notes in a git repo and building docs
-dev-python/reportlab 4.2.5: Tools for generating printable PDF documents from any data source
+dev-python/reportlab 4.2.5 4.3.0: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r3: A tiny LRU cache implementation and decorator
 dev-python/requests 2.32.3: HTTP library for human beings
 dev-python/requests-cache 1.2.1: Persistent cache for requests library
@@ -9354,7 +9354,7 @@ dev-python/rsa 4.9: Pure-Python RSA implementation
 dev-python/rst-linker 2.6.0: Sphinx plugin to add links and timestamps to the changelog
 dev-python/rtimulib 7.2.1-r3: Python Binding for RTIMULib, a versatile IMU library
 dev-python/rtree 1.3.0: R-Tree spatial index for Python GIS
-dev-python/rtslib-fb 2.1.76 2.2.1: A Python object API for managing the Linux LIO kernel target
+dev-python/rtslib-fb 2.1.76 2.2.1 2.2.2: A Python object API for managing the Linux LIO kernel target
 dev-python/ruamel-yaml 0.18.10: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.12: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.15.1-r1 0.16.0: A high performance Python graph library implemented in Rust
@@ -9484,7 +9484,7 @@ dev-python/spyder-unittest 0.7.0: Plugin for Spyder to run tests and view the re
 dev-python/spyder-vim 0.1.0: Plugin for Spyder to enable Vim keybindings
 dev-python/sqlalchemy 1.4.54 2.0.36 2.0.37: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.3.8 26.3.9: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 26.3.8 26.3.9 26.4.1: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9622,7 +9622,7 @@ dev-python/urwid-readline 0.14 0.15.1: Text input widget for urwid that supports
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
-dev-python/uv 0.5.21 0.5.26: A Python package installer and resolver, written in Rust
+dev-python/uv 0.5.21 0.5.26 0.5.27: A Python package installer and resolver, written in Rust
 dev-python/uvicorn 0.31.1 0.34.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.34.0: Python Data Validation for Humans
@@ -9657,7 +9657,7 @@ dev-python/webob 1.8.9: WSGI request and response object
 dev-python/websocket-client 1.8.0: WebSocket client for python with hybi13 support
 dev-python/websockets 12.0 14.1 14.2: Library for building WebSocket servers and clients in Python
 dev-python/websockify 0.12.0: WebSockets support for any application/server
-dev-python/webtest 3.0.3: Helper to test WSGI applications
+dev-python/webtest 3.0.3 3.0.4: Helper to test WSGI applications
 dev-python/werkzeug 3.1.3: Collection of various utilities for WSGI applications
 dev-python/whatever 0.7: Easy anonymous functions by partial application of operators
 dev-python/whatthepatch 1.0.7: A patch parsing and application library.
@@ -15608,7 +15608,7 @@ net-wireless/bdaddr 0_p20210511: Utility for changing the Bluetooth device addre
 net-wireless/bladerf 2021.03-r1 2023.02 9999: Libraries for supporing the BladeRF hardware from Nuand
 net-wireless/bladerf-firmware 2.4.0: bladeRF FX3 firmware images
 net-wireless/bladerf-fpga 0.12.0 0.15.0: bladeRF FPGA bitstreams
-net-wireless/blueman 2.4.3 9999: Simple and intuitive GTK+ Bluetooth Manager
+net-wireless/blueman 2.4.3 2.4.4 9999: Simple and intuitive GTK+ Bluetooth Manager
 net-wireless/bluez 5.78 5.79: Bluetooth Tools and System Daemons for Linux
 net-wireless/bluez-tools 0_p20201025: A set of tools to manage bluetooth devices for linux
 net-wireless/broadcom-sta 6.30.223.271-r7: Broadcom's IEEE 802.11a/b/g/n hybrid Linux device driver
