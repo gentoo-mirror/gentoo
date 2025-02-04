@@ -9,9 +9,9 @@ IUSE=bzip2 gnutls lzma mbedtls ssl static-libs test tools zstd
 KEYWORDS=amd64 ~arm ~arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86
 LICENSE=BSD
 RDEPEND=sys-libs/zlib bzip2? ( app-arch/bzip2:= ) lzma? ( app-arch/xz-utils ) ssl? ( gnutls? ( dev-libs/nettle:= >=net-libs/gnutls-3.6.5:= ) !gnutls? ( mbedtls? ( net-libs/mbedtls:0= ) !mbedtls? ( dev-libs/openssl:= ) ) ) zstd? ( >=app-arch/zstd-1.4.0:= )
-REQUIRED_USE=test? ( tools )
+REQUIRED_USE=test? ( ssl tools )
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://www.nih.at/libzip/libzip-1.11.2.tar.xz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364
-_md5_=9637bb23d514ed4233b085d788e79772
+_md5_=0a0b601d951c16c4d6b7abefd6bb7954
