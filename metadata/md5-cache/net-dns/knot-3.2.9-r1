@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.knot-dns.cz/ https://gitlab.nic.cz/knot/knot-dns
 INHERIT=flag-o-matic systemd
 IUSE=doc caps doh +fastparser idn +libidn2 quic systemd +utils xdp +cookies +dnsproxy dnstap geoip +noudp +onlinesign +queryacl +rrl +stats +synthrecord +whoami
-KEYWORDS=~amd64 ~riscv ~x86
+KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-3+
 RDEPEND=acct-group/knot acct-user/knot dev-db/lmdb:= dev-libs/libedit dev-libs/userspace-rcu:= dev-python/lmdb:= net-libs/gnutls:= caps? ( sys-libs/libcap-ng ) dnstap? ( dev-libs/fstrm dev-libs/protobuf-c:= ) doh? ( net-libs/nghttp2:= ) geoip? ( dev-libs/libmaxminddb:= ) idn? ( !libidn2? ( net-dns/libidn:0= !net-dns/libidn2 ) libidn2? ( net-dns/libidn2:= ) ) quic? ( >=net-libs/ngtcp2-0.13.1:=[gnutls] ) systemd? ( sys-apps/systemd:= ) xdp? ( >=dev-libs/libbpf-1.0:= net-libs/libmnl:= net-libs/xdp-tools )
 SLOT=0/13.9.4
 SRC_URI=https://knot-dns.nic.cz/release/knot-3.2.9.tar.xz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=62c0bcc1dc9119e82378646fc788c859
+_md5_=4bcdb334bbb1ce5e8cf5b266b55367f1
