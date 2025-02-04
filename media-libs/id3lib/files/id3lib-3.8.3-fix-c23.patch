@@ -1,0 +1,71 @@
+From a52d71d202f6e45cab766c83c16366ca5561a9f2 Mon Sep 17 00:00:00 2001
+From: Sam James <sam@gentoo.org>
+Date: Tue, 4 Feb 2025 15:43:28 +0000
+Subject: [PATCH] Fix C23 compatibility as best as we can
+
+The situation here is complicated. With C23, 'bool' is exposed properly
+out of the box (as the same type as '_Bool'). But this is problematic
+when it comes to C++ where 'bool' was always '_Bool' (or near-enough
+guaranteed), and where we have existing C applications that we don't
+want to break ABI for.
+
+For C++, id3tag was always using native C++ 'bool', so we don't want to change
+that now when looking at C23 compat. This means the ABI issues between
+C and C++ remain: typedef bool my_bool.
+
+For C, continue using the old 'int bool' that the project did before
+C23. This doesn't solve the pre-existing C/C++ ABI issue here where
+C++ always had "good _Bool-as-bool", unfortunately: typedef int my_bool.
+
+Bug: https://bugs.gentoo.org/949086
+Signed-off-by: Sam James <sam@gentoo.org>
+---
+ include/id3/globals.h | 25 ++++++++++++++++---------
+ 1 file changed, 16 insertions(+), 9 deletions(-)
+
+diff --git a/include/id3/globals.h b/include/id3/globals.h
+index 5d8fa20..69c02b4 100644
+--- a/include/id3/globals.h
++++ b/include/id3/globals.h
+@@ -82,12 +82,19 @@
+ 
+ #define ID3_C_VAR extern
+ 
+-#ifndef __cplusplus
+-
+-typedef int bool;
+-#  define false (0)
+-#  define true (!false)
+-
++#if __cplusplus
++/* id3tag was always using native C++ 'bool', so we don't want to change
++   that now when looking at C23 compat. This means the ABI issues between
++   C and C++ remain. */
++#include <stdbool.h>
++typedef bool my_bool;
++#else
++/* For C, continue using the old 'int bool' that the project did before
++   C23. This doesn't solve the pre-existing C/C++ ABI issue here where
++   C++ always had "good _Bool-as-bool", unfortunately. */
++typedef int my_bool;
++#define false (0)
++#define true (!false)
+ #endif /* __cplusplus */
+ 
+ ID3_C_VAR const char * const ID3LIB_NAME;
+@@ -532,9 +539,9 @@ ID3_STRUCT(Mp3_Headerinfo)
+   uint32 framesize;
+   uint32 frames;                // nr of frames
+   uint32 time;                  // nr of seconds in song
+-  bool privatebit;
+-  bool copyrighted;
+-  bool original;
++  my_bool privatebit;
++  my_bool copyrighted;
++  my_bool original;
+ };
+ 
+ #define ID3_NR_OF_V1_GENRES 148
+-- 
+2.48.1
+
