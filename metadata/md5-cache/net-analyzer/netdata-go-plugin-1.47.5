@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.22 >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install postinst test unpack
+DESCRIPTION=Netdata plugin for collectors written in Go
+EAPI=8
+HOMEPAGE=https://github.com/netdata/netdata
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module
+IUSE=+filecaps
+KEYWORDS=~amd64
+LICENSE=GPL-3+ Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0
+RDEPEND=net-analyzer/netdata
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/netdata/netdata/releases/download/v1.47.5/netdata-v1.47.5.tar.gz -> netdata-1.47.5.tar.gz https://dev.gentoo.org/~arkamar/distfiles/netdata-1.47.5-vendor.tar.xz
+_eclasses_=fcaps	27152c9e4da035accb14a2d7879744ef	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	go-env	90efbc8636d2f02d9654183330e84cf7	go-module	df32d29550d40a92da723d3b8e17b467
+_md5_=b4d980a8a9014804b9d3359caee794a6
