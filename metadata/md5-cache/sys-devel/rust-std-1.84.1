@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ~dev-lang/rust-1.84.1:=
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=|| ( >=sys-devel/gcc-4.7:* >=llvm-core/clang-3.5:* )
+DESCRIPTION=Rust standard library, standalone (for crossdev)
+EAPI=8
+HOMEPAGE=https://www.rust-lang.org
+INHERIT=flag-o-matic multiprocessing python-any-r1 rust-toolchain toolchain-funcs
+IUSE=debug
+LICENSE=|| ( MIT Apache-2.0 ) BSD-1 BSD-2 BSD-4
+RDEPEND=|| ( >=sys-devel/gcc-4.7:* >=llvm-core/clang-3.5:* )
+RESTRICT=test
+SLOT=stable/1.84
+SRC_URI=https://static.rust-lang.org/dist/rustc-1.84.1-src.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e
+_md5_=a9762d2dcac7964bb8a9a33b7a2cb4c6

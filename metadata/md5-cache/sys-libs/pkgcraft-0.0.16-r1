@@ -1,4 +1,4 @@
-BDEPEND=dev-util/cargo-c llvm-core/clang || ( dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 dev-lang/rust-bin:1.79.0 dev-lang/rust:1.79.0 dev-lang/rust-bin:1.78.0 dev-lang/rust:1.78.0 dev-lang/rust-bin:1.77.1 dev-lang/rust:1.77.1 )
+BDEPEND=dev-util/cargo-c llvm-core/clang || ( dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 dev-lang/rust-bin:1.79.0 dev-lang/rust:1.79.0 dev-lang/rust-bin:1.78.0 dev-lang/rust:1.78.0 dev-lang/rust-bin:1.77.1 dev-lang/rust:1.77.1 )
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=C library for pkgcraft
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=MIT Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-DFS-2016
 RESTRICT=!test? ( test )
 SLOT=0/0.0.16
 SRC_URI=https://github.com/pkgcraft/pkgcraft/releases/download/pkgcraft-c-0.0.16/pkgcraft-c-0.0.16.tar.xz
-_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	b012b0371821bfd49fee2a8760fb18e3	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	313cf4d416506d4c3d8b9c5dbd9ce689
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2f71cfd308c1c475ddcfd44cb3f552ef	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	313cf4d416506d4c3d8b9c5dbd9ce689
 _md5_=53310dd48d04b9ff22c3bd76f5ce0207
