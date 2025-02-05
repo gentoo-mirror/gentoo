@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install setup
-DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] )
+DEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] )
 DESCRIPTION=Translates addresses into filename, line number, and function names
 EAPI=8
 HOMEPAGE=http://libre.adacore.com/
@@ -7,9 +7,9 @@ INHERIT=ada
 IUSE=ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] )
-REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 )
+RDEPEND=ada_target_gnat_2021? ( dev-lang/gnat-gpl:10[ada] ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] )
+REQUIRED_USE=^^ ( ada_target_gnat_2021 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 )
 SLOT=0
 SRC_URI=https://community.download.adacore.com/v1/884f3b229457c995ddebb46a16a7cc50ed837c90?filename=gnatsymbolize-2021-20210518-19D3B-src.tar.gz -> gnatsymbolize-2021-20210518-19D3B-src.tar.gz
 _eclasses_=ada	91fe5c33490e013a01ffad92086e7bac
-_md5_=56470212668dae3df94f3f0a9f02d46c
+_md5_=2035aec0101343efef57ca13dd9ad3e8
