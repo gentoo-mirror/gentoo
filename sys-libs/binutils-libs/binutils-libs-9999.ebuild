@@ -158,7 +158,7 @@ multilib_src_configure() {
 		# We only care about the libs, so disable programs. #528088
 		--disable-{binutils,etc,ld,gas,gprof,gprofng}
 		# Disable modules that are in a combined binutils/gdb tree. #490566
-		--disable-{gdb,libdecnumber,readline,sim}
+		--disable-{gdb,gdbserver,libbacktrace,libdecnumber,readline,sim}
 		# Strip out broken static link flags.
 		# https://gcc.gnu.org/PR56750
 		--without-stage1-ldflags
@@ -211,7 +211,9 @@ multilib_src_install() {
 	emake DESTDIR="${D}" install
 
 	# Provided by dev-debug/gdb instead
-	rm "${ED}"/usr/share/info/sframe-spec.info || die
+	if [[ ${PV} != 9999 ]] ; then
+		rm "${ED}"/usr/share/info/sframe-spec.info || die
+	fi
 
 	# Provide libiberty.h directly.
 	dosym libiberty/libiberty.h /usr/include/libiberty.h
