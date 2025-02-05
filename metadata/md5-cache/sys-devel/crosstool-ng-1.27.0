@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip >=app-shells/bash-3.1 sys-apps/help2man >=sys-apps/sed-4.0 sys-apps/gawk sys-apps/texinfo sys-apps/which sys-devel/bison sys-devel/flex curl? ( net-misc/curl ) cvs? ( dev-vcs/cvs ) dtc? ( sys-apps/dtc ) git? ( dev-vcs/git ) lzip? ( app-arch/lzip ) meson? ( dev-build/meson ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) ninja? ( app-alternatives/ninja ) rsync? ( net-misc/rsync ) subversion? ( dev-vcs/subversion ) wget? ( net-misc/wget )
+DEFINED_PHASES=configure install prepare setup
+DESCRIPTION=Versatile (cross-)toolchain generator
+EAPI=8
+HOMEPAGE=https://crosstool-ng.github.io/
+INHERIT=python-single-r1
+IUSE=curl cvs doc dtc git lzip meson ninja python rsync subversion wget python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 doc? ( CC-BY-SA-2.5 )
+RDEPEND=app-arch/unzip >=app-shells/bash-3.1 sys-apps/help2man >=sys-apps/sed-4.0 sys-apps/gawk sys-apps/texinfo sys-apps/which sys-devel/bison sys-devel/flex curl? ( net-misc/curl ) cvs? ( dev-vcs/cvs ) dtc? ( sys-apps/dtc ) git? ( dev-vcs/git ) lzip? ( app-arch/lzip ) meson? ( dev-build/meson ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) ninja? ( app-alternatives/ninja ) rsync? ( net-misc/rsync ) subversion? ( dev-vcs/subversion ) wget? ( net-misc/wget )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+SLOT=0
+SRC_URI=https://github.com/crosstool-ng/crosstool-ng/releases/download/crosstool-ng-1.27.0/crosstool-ng-1.27.0.tar.xz http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.27.0.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=1b8d1d1714bd4738f92933c43054dc97
