@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit autotools pam python-single-r1 systemd
 
 DESCRIPTION="The FRRouting Protocol Suite"
@@ -14,7 +14,7 @@ S="${WORKDIR}/frr-${P}"
 
 LICENSE="GPL-2+"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="doc fpm grpc nhrp ospfapi pam rpki snmp test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
@@ -49,7 +49,6 @@ DEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	$(python_gen_cond_dep 'dev-python/ipaddr[${PYTHON_USEDEP}]')
 "
 
 PATCHES=(
