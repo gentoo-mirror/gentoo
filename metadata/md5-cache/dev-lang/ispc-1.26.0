@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/yacc app-alternatives/lex || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=llvm_slot_17? ( llvm-core/clang:17 ) llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) sys-libs/ncurses:= gpu? ( dev-libs/level-zero:= ) !openmp? ( dev-cpp/tbb:= )
+DESCRIPTION=Intel SPMD Program Compiler
+EAPI=8
+HOMEPAGE=https://ispc.github.io/ https://github.com/ispc/ispc/
+INHERIT=cmake llvm-r1 multiprocessing python-any-r1 toolchain-funcs
+IUSE=examples gpu openmp test +llvm_slot_19 llvm_slot_17 llvm_slot_18
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=BSD BSD-2 UoI-NCSA
+RDEPEND=llvm_slot_17? ( llvm-core/clang:17 ) llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) sys-libs/ncurses:= gpu? ( dev-libs/level-zero:= ) !openmp? ( dev-cpp/tbb:= )
+REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ispc/ispc/archive/v1.26.0.tar.gz -> ispc-1.26.0.gh.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
+_md5_=9957f7e89ca4a7815bc8ad18c5187614
