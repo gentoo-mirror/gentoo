@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig virtual/fortran
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test
+DEPEND=virtual/fortran
+DESCRIPTION=Optimized BLAS library based on GotoBLAS2
+EAPI=8
+HOMEPAGE=https://github.com/xianyi/OpenBLAS
+INHERIT=flag-o-matic fortran-2 toolchain-funcs
+IUSE=dynamic eselect-ldso index-64bit openmp pthread relapack test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=BSD
+RDEPEND=eselect-ldso? ( >=app-eselect/eselect-blas-0.2 >=app-eselect/eselect-lapack-0.2 ) virtual/fortran
+REQUIRED_USE=?? ( openmp pthread )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.29/OpenBLAS-0.3.29.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	fortran-2	54fcb693257134adae26819685891ecc
+_md5_=b1f8509759ea4a4945f7859c8cee9388
