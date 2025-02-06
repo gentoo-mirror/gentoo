@@ -25,8 +25,9 @@ EAPI=8
 GN_MIN_VER=0.2207
 # chromium-tools/get-chromium-toolchain-strings.py
 TEST_FONT=f26f29c9d3bfae588207bbc9762de8d142e58935c62a86f67332819b15203b35
-BUNDLED_CLANG_VER=llvmorg-20-init-17108-g29ed6000-1
+BUNDLED_CLANG_VER=llvmorg-20-init-17108-g29ed6000-3
 BUNDLED_RUST_VER=ad211ced81509462cdfe4c29ed10f97279a0acae-1
+RUST_SHORT_HASH=${BUNDLED_RUST_VER:0:10}-${BUNDLED_RUST_VER##*-}
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -54,9 +55,9 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	)
 	bundled-toolchain? (
 		https://gsdview.appspot.com/chromium-browser-clang/Linux_x64/clang-${BUNDLED_CLANG_VER}.tar.xz
-			-> chromium-${PV%%\.*}-clang.tar.xz
+			-> chromium-clang-${BUNDLED_CLANG_VER}.tar.xz
 		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${BUNDLED_RUST_VER}-${BUNDLED_CLANG_VER%-*}.tar.xz
-			-> chromium-${PV%%\.*}-rust.tar.xz
+			-> chromium-rust-toolchain-${RUST_SHORT_HASH}-${BUNDLED_CLANG_VER%-*}.tar.xz
 	)
 	test? (
 		https://chromium-tarballs.distfiles.gentoo.org/${P}-linux-testdata.tar.xz
@@ -68,7 +69,7 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/dev"
+SLOT="0/beta"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
@@ -385,11 +386,12 @@ src_unpack() {
 	if use bundled-toolchain; then
 		einfo "Unpacking bundled Clang ..."
 		mkdir -p "${WORKDIR}"/clang || die "Failed to create clang directory"
-		tar xf "${DISTDIR}/chromium-${PV%%\.*}-clang.tar.xz" -C "${WORKDIR}/clang" || die "Failed to unpack Clang"
+		tar xf "${DISTDIR}/chromium-clang-${BUNDLED_CLANG_VER}.tar.xz" -C "${WORKDIR}/clang" || die "Failed to unpack Clang"
 		einfo "Unpacking bundled Rust ..."
 		local rust_dir="${WORKDIR}/rust-toolchain"
-		mkdir -p ${rust_dir} || die "Failed to create rust toolchain directory"
-		tar xf "${DISTDIR}/chromium-${PV%%\.*}-rust.tar.xz" -C ${rust_dir} || die "Failed to unpack Rust"
+		mkdir -p "${rust_dir}" || die "Failed to create rust toolchain directory"
+		tar xf "${DISTDIR}/chromium-rust-toolchain-${RUST_SHORT_HASH}-${BUNDLED_CLANG_VER%-*}.tar.xz" -C "${rust_dir}" ||
+			die "Failed to unpack Rust"
 	fi
 
 	if use ppc64; then
@@ -407,6 +409,7 @@ src_prepare() {
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
 		"${FILESDIR}/chromium-131-unbundle-icu-target.patch"
 		"${FILESDIR}/chromium-134-oauth2-client-switches.patch"
+		"${FILESDIR}/chromium-134-bindgen-custom-toolchain.patch"
 	)
 
 	if use bundled-toolchain; then
@@ -429,18 +432,6 @@ src_prepare() {
 		cp "${WORKDIR}"/rust-toolchain/VERSION \
 			"${WORKDIR}"/rust-toolchain/INSTALLED_VERSION || die "Failed to set rust version"
 	else
-		# This patch breaks bundled-toolchain builds as the required path_suffix clearly differs
-		# between the two. Probably just need to update the patch to gate updating this value on the 'unbundle'
-		# toolchain? Alternative: move to chromium-patches, but this is probably something that we
-		# can upstream, so let's try to do it properly. For now apply conditionally so that we have _a_ dev
-		# channel ebuild.
-		# Currently evaluates to:
-		# `-resource-dir', `'../../third_party/llvm-build/Release+Asserts/include'`
-		# This is correct if the first part of the concatenated variable points to /usr/lib/clang/<majver>
-		# Correct for bundled toolchain is:
-		# `-resource-dir', `'../../third_party/llvm-build/Release+Asserts/lib/clang/<majver>/include'`
-		# TODO: fix before this leaves dev.
-		PATCHES+=( "${FILESDIR}/chromium-132-bindgen-custom-toolchain.patch" )
 		# We don't need our toolchain patches if we're using the official toolchain
 		shopt -s globstar nullglob
 		# 130: moved the PPC64 patches into the chromium-patches repo
