@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,7 @@ S="${WORKDIR}/mysql"
 
 LICENSE="GPL-2 LGPL-2.1+"
 SLOT="$(ver_cut 1-2)/${SUBSLOT:-0}"
-#KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+backup bindist columnstore cracklib debug extraengine galera innodb-lz4
 	innodb-lzo innodb-snappy jdbc jemalloc kerberos latin1 mroonga
 	numa odbc oqgraph pam +perl profiling rocksdb selinux +server sphinx
@@ -40,7 +40,7 @@ REQUIRED_USE="jdbc? ( extraengine server !static )
 #
 # libfmt-10 contains a bug which was fixed in libfmt-11, see
 # https://jira.mariadb.org/browse/MDEV-32815, bug 946074
-# libfmt-11.1 works with # FMT_STATIC_THOUSANDS_SEPARATOR
+# libfmt-11.1 works with FMT_STATIC_THOUSANDS_SEPARATOR
 # differently, bug 946924
 COMMON_DEPEND="
 	dev-libs/libfmt:=
@@ -349,9 +349,9 @@ src_configure() {
 		-DSUFFIX_INSTALL_DIR=""
 		-DWITH_UNITTEST=OFF
 		-DWITHOUT_CLIENTLIBS=YES
-		-DCLIENT_PLUGIN_DIALOG=OFF
+		-DCLIENT_PLUGIN_DIALOG=$(usex test DYNAMIC OFF)
 		-DCLIENT_PLUGIN_AUTH_GSSAPI_CLIENT=OFF
-		-DCLIENT_PLUGIN_CLIENT_ED25519=OFF
+		-DCLIENT_PLUGIN_CLIENT_ED25519=$(usex test DYNAMIC OFF)
 		-DCLIENT_PLUGIN_MYSQL_CLEAR_PASSWORD=STATIC
 		-DCLIENT_PLUGIN_CACHING_SHA2_PASSWORD=OFF
 	)
@@ -587,12 +587,12 @@ src_test() {
 	disabled_tests+=( "perfschema.nesting;23458;Known to be broken" )
 	disabled_tests+=( "perfschema.prepared_statements;0;Broken test suite" )
 	disabled_tests+=( "perfschema.privilege_table_io;27045;Sporadically failing test" )
-	disabled_tests+=( "plugins.auth_ed25519;0;Needs client libraries built" )
 	disabled_tests+=( "plugins.cracklib_password_check;0;False positive due to varying policies" )
 	disabled_tests+=( "plugins.two_password_validations;0;False positive due to varying policies" )
 	disabled_tests+=( "roles.acl_statistics;0;False positive due to a user count mismatch caused by previous test" )
 	disabled_tests+=( "spider.*;0;Fails with network sandbox" )
 	disabled_tests+=( "sys_vars.wsrep_on_without_provider;25625;Known to be broken" )
+	disabled_tests+=( "sysschema.v_privileges_by_table_by_level;0;Fails with network sandbox, see MDEV-36030")
 
 	if ! use latin1 ; then
 		disabled_tests+=( "funcs_1.is_columns_mysql;0;Requires USE=latin1" )
