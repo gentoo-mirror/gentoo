@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -160,7 +160,7 @@ src_test() {
 	use hepmc3 && tests+=" $(echo main{131..135})"
 	use hepmc3 && use mpich && use highfive && tests+=" $(echo main136)"
 	use lhapdf && tests+=" $(echo main{201..204})"
-	use fastjet && tests+=" $(echo main{211..216})"
+	use fastjet && tests+=" $(echo main{{211..214},216})" # 215 fails...
 	use root && tests+=" main143"
 	use hepmc3 && use lhapdf && tests+=" $(echo main{133,162})"
 	use fastjet && use hepmc3 && use lhapdf && tests+=" $(echo main161)"

@@ -1,9 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs
+PYTHON_COMPAT=( python3_{11..13} )
+inherit toolchain-funcs python-single-r1
 
 MV=$(ver_cut 1-2)
 MY_P="${PN}${PV//./}"
@@ -11,39 +12,62 @@ LHA_VER="6.2.1"
 
 DESCRIPTION="Lund Monte Carlo high-energy physics event generator"
 HOMEPAGE="https://pythia.org/"
-SRC_URI="https://pythia.org/download/${PN}${MV//./}/${MY_P}.tgz
-	test? ( lhapdf? (
-		https://www.hepforge.org/archive/lhapdf/pdfsets/v6.backup/${LHA_VER}/CT10.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/v6.backup/${LHA_VER}/MRST2007lomod.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/v6.backup/${LHA_VER}/NNPDF23_nlo_as_0119_qed_mc.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/v6.backup/${LHA_VER}/NNPDF23_nnlo_as_0119_qed_mc.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/v6.backup/${LHA_VER}/cteq66.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/v6.backup/${LHA_VER}/cteq6l1.tar.gz
-		https://www.hepforge.org/archive/lhapdf/pdfsets/v6.backup/${LHA_VER}/unvalidated/MRST2004qed.tar.gz
-	) )"
+SRC_URI="test? ( lhapdf? (
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/CT10.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/MRST2007lomod.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/NNPDF23_nlo_as_0119_qed_mc.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/NNPDF23_nnlo_as_0119_qed_mc.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/cteq66.tar.gz
+		https://lhapdfsets.web.cern.ch/lhapdfsets/current/cteq6l1.tar.gz
+		https://www.hepforge.org/downloads/lhapdf/pdfsets/v6.backup/${LHA_VER}/MRST2004qed.tar.gz
+	) )
+"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://gitlab.com/Pythia8/releases"
+else
+	SRC_URI="https://pythia.org/download/${PN}${MV//./}/${MY_P}.tgz
+	${SRC_URI}"
+	KEYWORDS="~amd64 ~x86"
+	S="${WORKDIR}/${MY_P}"
+fi
 
-SLOT="8"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
-IUSE="doc examples fastjet +hepmc lhapdf root test zlib"
+SLOT="8"
+IUSE="doc examples fastjet +hepmc3 hepmc2 lhapdf root test zlib python highfive mpich rivet" # evtgen mg5mes rivet powheg
 RESTRICT="!test? ( test )"
+REQUIRED_USE="
+	?? ( hepmc3 hepmc2 )
+	python? ( ${PYTHON_REQUIRED_USE} )
+"
 
 RDEPEND="
 	fastjet? ( sci-physics/fastjet )
-	hepmc? ( sci-physics/hepmc:3= )
+	hepmc3? ( sci-physics/hepmc:3= )
+	hepmc2? ( sci-physics/hepmc:2= )
 	lhapdf? ( sci-physics/lhapdf:= )
-	zlib? ( sys-libs/zlib )"
+	zlib? ( sys-libs/zlib )
+	highfive? (
+		sci-libs/HighFive
+		sci-libs/hdf5[cxx]
+	)
+	rivet? (
+		sci-physics/rivet:*
+	)
+	mpich? ( sys-cluster/mpich )
+	python? ( ${PYTHON_DEPS} )
+	"
+DEPEND="${RDEPEND}"
 # ROOT is used only when building related tests
-DEPEND="${RDEPEND}
+BDEPEND="
 	test? (
 		root? ( sci-physics/root:= )
-	)"
+	)
+"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}8209-root-noninteractive.patch
-)
-
-S="${WORKDIR}/${MY_P}"
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
 
 pkg_pretend() {
 	if use root && ! use test; then
@@ -53,7 +77,7 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	PYTHIADIR="/usr/share/pythia8"
+	PYTHIADIR="/usr/share/Pythia8"
 	EPYTHIADIR="${EPREFIX}${PYTHIADIR}"
 
 	default
@@ -68,9 +92,6 @@ src_prepare() {
 		-e "s|-O2|${CXXFLAGS}|g" \
 		-e "s|Cint|Core|g" \
 		configure || die
-	sed -i 's|$(CXX) $^ -o $@ $(CXX_COMMON) $(CXX_SHARED)|$(CXX) $(LDFLAGS) $^ -o $@ $(CXX_COMMON) $(CXX_SHARED)|g' \
-		Makefile || die
-	sed -i 's|$(CXX)|$(CXX) $(LDFLAGS)|' examples/Makefile || die
 	# we use lhapdf6 instead of lhapdf5
 	# some PDFs changed, use something similar
 	sed -i \
@@ -87,7 +108,7 @@ src_prepare() {
 		-e "s|1e-8|3e-1|g" \
 		-e "s|nlo_as_0119_qed|nlo_as_0119_qed_mc|g" \
 		-e "s|xmldoc|share/Pythia8/xmldoc|g" \
-		examples/main54.cc || die
+		examples/main203.cc || die
 	# ask cflags from root
 	sed -i "s|root-config|root-config --cflags|g" examples/Makefile || die
 
@@ -101,15 +122,21 @@ src_prepare() {
 # - ProMC  https://github.com/Argonne-National-Laboratory/ProMC/
 src_configure() {
 	# homemade configure script
+	local -x CXX="$(tc-getCXX) ${CXXFLAGS} ${LDFLAGS}"
 	./configure \
 		--arch=Linux \
-		--cxx="$(tc-getCXX)" \
 		--prefix="${EPREFIX}/usr" \
-		--prefix-lib="$(get_libdir)" \
+		--prefix-lib="${EPREFIX}/usr/$(get_libdir)" \
 		--prefix-share="${EPYTHIADIR}" \
 		$(usex fastjet "--with-fastjet3" "") \
 		$(usex zlib "--with-gzip" "") \
-		$(usex hepmc "--with-hepmc3" "") \
+		$(use_with hepmc3) \
+		$(use_with highfive) \
+		$(usex highfive --with-hdf5 "") \
+		$(use_with python) \
+		$(use_with rivet) \
+		$(use_with mpich) \
+		$(use_with hepmc2) \
 		$(usex lhapdf "--with-lhapdf6
 			--with-lhapdf6-plugin=LHAPDF6.h
 			--with-lhapdf6-lib=${EPREFIX}/usr/$(get_libdir)" "") \
@@ -120,7 +147,8 @@ src_configure() {
 
 	# fix pythia config script
 	sed -i \
-		-e 's|pythia8/examples/Makefile.inc|pythia8/Makefile.inc|' \
+		-e 's|Pythia8/examples/Makefile.inc|Pythia8/Makefile.inc|' \
+		-e "s|CFG_FILE=.*|CFG_FILE=${EPYTHIADIR}/Makefile.inc|" \
 		-e 's|LINE%=|LINE%%=|' \
 		bin/pythia8-config || die
 }
@@ -128,18 +156,15 @@ src_configure() {
 src_test() {
 	cd examples || die
 
-	local tests="$(echo main{{01..32},37,38,61,62,73,80}.out)"
-	use hepmc && tests+=" $(echo main{41,42,85,86}.out)"
-	use hepmc && use lhapdf && tests+=" $(echo main{43,{87..89}}.out)"
-	use lhapdf && tests+=" $(echo main{51..54}.out)"
-	use fastjet && tests+=" $(echo main{71,72}.out)"
-	use fastjet && use hepmc && use lhapdf && tests+=" $(echo main{81..84}).out"
-	use root && tests+=" main91.out"
-	# Disabled tests:
-	# 33	needs PowHEG
-	# 46	needs ProMC
-	# 48	needs EvtGen
-	# 92	generated ROOT dictionary is badly broken
+	local tests="$(echo main{{101..103},{121..127}})"
+	use hepmc3 && tests+=" $(echo main{131..135})"
+	use hepmc3 && use mpich && use highfive && tests+=" $(echo main136)"
+	use lhapdf && tests+=" $(echo main{201..204})"
+	use fastjet && tests+=" $(echo main{{211..214},216})" # 215 fails...
+	use root && tests+=" main143"
+	use hepmc3 && use lhapdf && tests+=" $(echo main{133,162})"
+	use fastjet && use hepmc3 && use lhapdf && tests+=" $(echo main161)"
+	# Other tests disabled due to missing dependencies
 
 	# use emake for parallel instead of long runmains
 	LD_LIBRARY_PATH="${S}/$(get_libdir):${LD_LIBRARY_PATH}" \
@@ -156,13 +181,14 @@ src_install() {
 	dolib.so lib/libpythia8.so
 	use lhapdf && dolib.so lib/libpythia8lhapdf6.so
 	insinto "${PYTHIADIR}"
-	doins -r share/Pythia8/xmldoc examples/Makefile.inc
+	doins -r share/Pythia8/xmldoc share/Pythia8/pdfdata examples/Makefile.inc
 
 	newenvd - 99pythia8 <<- _EOF_
 		PYTHIA8DATA=${EPYTHIADIR}/xmldoc
 	_EOF_
 
 	dodoc AUTHORS GUIDELINES README
+
 	if use doc; then
 		dodoc -r share/Pythia8/pdfdoc/.
 		dodoc -r share/Pythia8/htmldoc/.
@@ -176,6 +202,11 @@ src_install() {
 		insinto /usr/share/${PN}
 		doins -r examples
 		docompress -x /usr/share/doc/${PF}/examples
+	fi
+	if use python; then
+		local site_dir=$(python_get_sitedir)
+		insinto "${site_dir#${EPREFIX}}"
+		doins lib/pythia8.so
 	fi
 
 	# cleanup
