@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 wrapper
 
@@ -18,7 +18,7 @@ if [[ ${PV} == "99999999" ]]; then
 else
 	MY_PV="${PV:0:4}.${PV:4:2}.${PV:6:2}"
 	SRC_URI="https://github.com/pwndbg/pwndbg/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm64 x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 fi
 
@@ -27,17 +27,17 @@ SLOT="0"
 
 RDEPEND="
 	dev-debug/gdb[python,${PYTHON_SINGLE_USEDEP}]
-	~dev-python/gdb-pt-dump-0.0.0_p20231111[${PYTHON_SINGLE_USEDEP}]
+	~dev-python/gdb-pt-dump-0.0.0_p20240401[${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep '
-		>=dev-libs/capstone-5.0_rc4[python,${PYTHON_USEDEP}]
-		>=dev-python/psutil-5.9.5[${PYTHON_USEDEP}]
-		>=dev-python/pycparser-2.21[${PYTHON_USEDEP}]
+		>=dev-libs/capstone-5.0.3[python,${PYTHON_USEDEP}]
+		>=dev-python/psutil-5.9.8[${PYTHON_USEDEP}]
+		>=dev-python/pycparser-2.22[${PYTHON_USEDEP}]
 		>=dev-python/pyelftools-0.29[${PYTHON_USEDEP}]
-		>=dev-python/pygments-2.15.1[${PYTHON_USEDEP}]
+		>=dev-python/pygments-2.18.0[${PYTHON_USEDEP}]
 		>=dev-python/tabulate-0.9.0[${PYTHON_USEDEP}]
-		>=dev-python/typing-extensions-4.6.1[${PYTHON_USEDEP}]
-		>=dev-util/pwntools-4.11.0[${PYTHON_USEDEP}]
-		>=dev-util/ROPgadget-7.2[${PYTHON_USEDEP}]
+		>=dev-python/typing-extensions-4.12.0[${PYTHON_USEDEP}]
+		>=dev-util/pwntools-4.13.1[${PYTHON_USEDEP}]
+		>=dev-util/ROPgadget-7.3[${PYTHON_USEDEP}]
 		>=dev-util/unicorn-2.0.1[python,${PYTHON_USEDEP}]
 	')
 "
