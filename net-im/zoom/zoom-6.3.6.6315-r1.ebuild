@@ -34,6 +34,7 @@ RDEPEND="zoom-symlink? ( !games-engines/zoom )
 	sys-apps/util-linux
 	sys-libs/glibc
 	sys-libs/zlib
+	virtual/libudev
 	virtual/opengl
 	x11-libs/cairo
 	x11-libs/libdrm
