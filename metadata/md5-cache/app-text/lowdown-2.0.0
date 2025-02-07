@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure test
+DEPEND=virtual/libcrypt:=
+DESCRIPTION=Markdown translator producing HTML5, roff documents in the ms and man formats
+EAPI=8
+HOMEPAGE=https://kristaps.bsd.lv/lowdown/
+INHERIT=toolchain-funcs flag-o-matic
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~x86
+LICENSE=ISC
+RDEPEND=virtual/libcrypt:=
+SLOT=0/3
+SRC_URI=https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_2_0_0.tar.gz -> lowdown-2.0.0.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9
+_md5_=8a2439168b364e87fc9c5a3e16f5bbe2
