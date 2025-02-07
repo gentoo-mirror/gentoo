@@ -3,14 +3,16 @@
 
 EAPI=8
 
-inherit check-reqs flag-o-matic pax-utils toolchain-funcs
+inherit check-reqs pax-utils toolchain-funcs
 
-PYPY_PV=${PV%_p*}
-PYVER=3.10
+PYVER=$(ver_cut 1-2)
+PATCHSET_PV=$(ver_cut 3-)
+PYPY_PV=${PATCHSET_PV%_p*}
+
 MY_P="pypy${PYVER}-v${PYPY_PV/_}"
-PATCHSET="pypy${PYVER}-gentoo-patches-${PV}-r1"
+PATCHSET="pypy${PYVER}-gentoo-patches-${PATCHSET_PV/_rc/rc}"
 
-DESCRIPTION="PyPy3.10 executable (build from source)"
+DESCRIPTION="PyPy3.11 executable (build from source)"
 HOMEPAGE="
 	https://pypy.org/
 	https://github.com/pypy/pypy/
@@ -23,8 +25,7 @@ SRC_URI="
 S="${WORKDIR}/${MY_P}-src"
 
 LICENSE="MIT"
-SLOT="${PYPY_PV}"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+SLOT="${PV%_p*}"
 IUSE="+jit low-memory ncurses cpu_flags_x86_sse2"
 
 RDEPEND="
@@ -34,7 +35,7 @@ RDEPEND="
 	>=sys-libs/zlib-1.1.3:0=
 	virtual/libintl:0=
 	ncurses? ( sys-libs/ncurses:0= )
-	!dev-python/pypy3_10-exe-bin:${SLOT}
+	!dev-lang/pypy3-exe-bin:${SLOT}
 "
 DEPEND="
 	${RDEPEND}
@@ -76,10 +77,6 @@ src_prepare() {
 
 src_configure() {
 	tc-export CC
-
-	# Yes, yuck, but it's being worked on upstream (bug #918971).
-	# https://foss.heptapod.net/pypy/pypy/-/issues/4042
-	append-flags $(test-flags-CC -Wno-error=incompatible-pointer-types)
 
 	local jit_backend
 	if use jit; then
