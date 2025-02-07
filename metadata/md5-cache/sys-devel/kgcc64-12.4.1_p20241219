@@ -1,4 +1,4 @@
-BDEPEND=hppa? ( sys-devel/binutils-hppa64 ) sys-devel/gnuconfig >=app-portage/elt-patches-20240116 app-alternatives/yacc sys-devel/binutils:* >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 )
+BDEPEND=hppa? ( sys-devel/binutils-hppa64 ) sys-devel/gnuconfig >=app-portage/elt-patches-20240116 app-alternatives/yacc sys-devel/binutils:* >=sys-devel/flex-2.5.4 doc? ( app-text/doxygen ) nls? ( sys-devel/gettext ) test? ( >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
 DEPEND=sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0=
 DESCRIPTION=64bit kernel compiler
@@ -13,5 +13,5 @@ RDEPEND=sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4
 RESTRICT=!test? ( test ) test
 SLOT=12
 SRC_URI=mirror://gcc/snapshots/12-20241219/gcc-12-20241219.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-12.4.0-patches-2.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-12.4.0-musl-patches-1.tar.xz
-_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	pax-utils	5555f2e75744739fe100ee62c22d28fe	rust	2f71cfd308c1c475ddcfd44cb3f552ef	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	toolchain	48d558a3cfe13d45a1d31f6930f2de8a
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	pax-utils	5555f2e75744739fe100ee62c22d28fe	rust	2f71cfd308c1c475ddcfd44cb3f552ef	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	toolchain	643b0437ae192dc909dd3cf344360a4c
 _md5_=8c62f224cbfa05d62e7fc6075b2baeaa
