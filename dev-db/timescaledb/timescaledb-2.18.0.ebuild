@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-POSTGRES_COMPAT=( 14 15 16 )
+POSTGRES_COMPAT=( 14 15 16 17 )
 POSTGRES_USEDEP="ssl"
 
 inherit postgres-multi cmake
@@ -12,12 +12,10 @@ DESCRIPTION="Open-source time-series SQL database"
 HOMEPAGE="https://www.timescale.com/"
 SRC_URI="https://github.com/timescale/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-IUSE="proprietary-extensions"
 LICENSE="POSTGRESQL Apache-2.0 proprietary-extensions? ( timescale )"
-
-KEYWORDS="~amd64"
-
 SLOT=0
+KEYWORDS="~amd64"
+IUSE="proprietary-extensions"
 
 RESTRICT="test"
 
