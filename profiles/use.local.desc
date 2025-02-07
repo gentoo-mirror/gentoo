@@ -1879,6 +1879,7 @@ dev-lang/pypy:ensurepip - Install the ensurepip module that uses bundled wheels 
 dev-lang/pypy:full-stdlib - Install complete stdlib as necessary to use PyPy for general purpose programs. By default, only a limited subset that is used when building PyPy3 executables is installed. Note that PyPy2.7's stdlib contains multiple known vulnerabilities.
 dev-lang/pypy:symlink - Install "pypy3" symlink, making this PyPy slot the default PyPy3 implementation that is used for building Gentoo packages.
 dev-lang/pypy:test-install - Install the test suite packages, that are required to run tests in a few reverse dependencies.
+dev-lang/pypy3-exe:low-memory - Build using PyPy with the engine configured towards low memory footprint. This makes it possible to build PyPy using ~3.5G of RAM on amd64 and ~half of that on x86, at the cost of lengthened build time.
 dev-lang/python:bluetooth - Build Bluetooth protocol support in socket module
 dev-lang/python:ensurepip - Install the ensurepip module that uses bundled wheels to bootstrap pip and setuptools (if disabled, it will be only possible to use venv `--without-pip`)
 dev-lang/python:jit - Enable experimental Just-In-Time compilation support.

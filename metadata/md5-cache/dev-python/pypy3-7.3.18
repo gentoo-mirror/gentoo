@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=A backwards compatibility package for dev-lang/pypy:3.10
+EAPI=8
+HOMEPAGE=https://pypy.org/ https://foss.heptapod.net/pypy/pypy/
+IUSE=+gdbm ncurses sqlite +test-install tk
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=metapackage
+RDEPEND==dev-lang/pypy-3.10.7.3.18*:3.10/pypy310-pp73-384[gdbm?,ncurses?,sqlite?,symlink,test-install?,tk?]
+SLOT=0/pypy310-pp73-384
+_md5_=48a53b123c0ceb6d355a59197a0a3d39
