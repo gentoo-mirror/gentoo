@@ -3,9 +3,9 @@
 
 EAPI=8
 
-CRATES=" "
+CRATES=""
 
-RUST_MIN_VER="1.79.0"
+RUST_MIN_VER="1.82.0"
 
 inherit cargo
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://www.nushell.sh"
 SRC_URI="
 	https://github.com/nushell/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 "
-DEPS_URI="https://github.com/freijon/${PN}/releases/download/${PV}/vendor.tar.xz -> ${P}-deps.tar.xz"
+DEPS_URI="https://github.com/freijon/${PN}/releases/download/${PV}/${P}-crates.tar.xz"
 SRC_URI+=" ${DEPS_URI}"
 
 LICENSE="MIT"
@@ -50,8 +50,6 @@ BDEPEND="
 RESTRICT+=" test"
 
 QA_FLAGS_IGNORED="usr/bin/nu.*"
-
-ECARGO_VENDOR="${WORKDIR}/vendor"
 
 src_prepare() {
 	use plugins || eapply "${FILESDIR/${PN}-dont-build-plugins.patch}"
