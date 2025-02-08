@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=A backwards compatibility package for dev-lang/pypy:3.11
+EAPI=8
+HOMEPAGE=https://pypy.org/ https://foss.heptapod.net/pypy/pypy/
+IUSE=+gdbm ncurses sqlite +test-install tk
+LICENSE=metapackage
+RDEPEND==dev-lang/pypy-3.11.7.3.18*:3.11/pypy311-pp73-400[gdbm?,ncurses?,sqlite?,symlink,test-install?,tk?]
+SLOT=0/pypy311-pp73-400
+_md5_=995ccdde0fe128b50f567f965171b8ec
