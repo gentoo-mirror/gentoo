@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -56,6 +56,10 @@ all_ruby_prepare() {
 
 	# Avoid specs that require network access
 	sed -i -e '/when request is not stubbed/,/^      end/ s:^:#:' spec/acceptance/shared/callbacks.rb
+
+	# Avoid flaky spec
+	sed -e '/should only invoke the after_request callback once/ s/it/xit/' \
+		-i spec/acceptance/net_http/net_http_spec.rb || die
 }
 
 each_ruby_test() {
