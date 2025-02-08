@@ -1,4 +1,4 @@
-# Copyright 2012-2024 Gentoo Authors
+# Copyright 2012-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/rime/librime/archive/refs/tags/${PV}.tar.gz -> ${P}.
 
 LICENSE="BSD BSD-2 Boost-1.0 MIT"
 SLOT="0/1-${PV}"
-KEYWORDS="amd64 ~loong x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="debug test"
 RESTRICT="!test? ( test )"
 
