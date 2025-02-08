@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://protobuf.dev
 INHERIT=java-pkg-2 java-pkg-simple cmake
 IUSE=system-protoc doc source test
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=amd64 ~arm64 ~ppc64 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=BSD
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/protocolbuffers/protobuf/releases/download/v29.3/protobuf-29.3.tar.gz test? ( https://repo1.maven.org/maven2/com/google/truth/truth/1.1.3/truth-1.1.3.jar )
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	c346bc0ba9945618340315a1089a82ef	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=229c7aedcc370ae9616645fffae1efde
+_md5_=2485f70571e88f62a7428443e0cbf3c6
