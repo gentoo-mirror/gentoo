@@ -942,7 +942,7 @@ app-admin/doctl 1.78.0 1.79.0 9999: A command line tool for DigitalOcean service
 app-admin/drush 6.7.0-r6 6.7.0-r8: Command line shell and scripting interface for Drupal
 app-admin/eclean-kernel 2.99.8 2.99.10 9999: Remove outdated built kernels
 app-admin/emacs-updater 1.18 1.19: Rebuild Emacs packages
-app-admin/entr 5.6: Run arbitrary commands when files change
+app-admin/entr 5.6 5.7: Run arbitrary commands when files change
 app-admin/eselect 1.4.27-r1 1.4.28 1.4.29 9999: Gentoo's multi-purpose configuration and management tool
 app-admin/evtxtools 1.1.1-r2: Read, decode and dump Windows Vista/2008/7 event log file
 app-admin/exo 1.83.0: Command-line tool for everything at Exoscale: compute, storage, dns
@@ -1364,10 +1364,10 @@ app-containers/earthly 0.8.15: Build automation tool that executes in containers
 app-containers/flannel 0.17.0 0.20.0 0.26.3: An etcd backed network fabric for containers
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0 0.79.3 0.86.1: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
-app-containers/incus 6.0.2 6.0.3 6.7 6.8 6.9-r2: Modern, secure and powerful system container and virtual machine manager
+app-containers/incus 6.0.2 6.0.3 6.8 6.9-r2: Modern, secure and powerful system container and virtual machine manager
 app-containers/k3d 5.6.0 5.7.3 5.7.5: k3d creates k3s clusters in docker
 app-containers/kompose 1.26.1: Tool to move from docker-compose to Kubernetes
-app-containers/lxc 5.0.3 6.0.2 6.0.3: A userspace interface for the Linux kernel containment features
+app-containers/lxc 5.0.3 6.0.3: A userspace interface for the Linux kernel containment features
 app-containers/lxc-templates 3.0.4 3.0.4_p20240917: Old style template scripts for LXC
 app-containers/lxd 5.0.3-r2 5.21.1-r1 6.1: Modern, secure and powerful system container and virtual machine manager
 app-containers/nerdctl 2.0.2 2.0.3: Docker-compatible CLI for containerd, with support for Compose
@@ -5241,7 +5241,7 @@ dev-lang/smlnj 110.99.5 110.99.6.1: Standard ML of New Jersey compiler and libra
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
 dev-lang/souffle 2.4.1-r1: Datalog compiler, synthesizes C++ program from logic specification
 dev-lang/spark 2021: Software development for high-reliability applications
-dev-lang/spidermonkey 102.15.0-r1 115.16.0-r1 128.4.0-r1 128.5.0 128.6.0: Mozilla's JavaScript engine written in C and C++
+dev-lang/spidermonkey 102.15.0-r1 115.16.0-r1 128.4.0-r1 128.6.0: Mozilla's JavaScript engine written in C and C++
 dev-lang/squirrel 3.2: A interpreted language mainly used for games
 dev-lang/swi-prolog 9.1.2-r1 9.3.9: Versatile implementation of the Prolog programming language
 dev-lang/swig 4.1.1-r1 4.2.0 4.2.1: Simplified Wrapper and Interface Generator
@@ -5693,7 +5693,7 @@ dev-libs/newt 0.52.24-r1: Redhat's Newt windowing toolkit development files
 dev-libs/nmeap 0.3-r2: Extensible NMEA-0183 (GPS) data parser in standard C
 dev-libs/npth 1.7-r1 1.8: New GNU Portable Threads Library
 dev-libs/nsgenbind 0.9: Generate Javascript-to-DOM bindings from w3c webidl files
-dev-libs/nspr 4.35-r2 4.36: Netscape Portable Runtime
+dev-libs/nspr 4.36: Netscape Portable Runtime
 dev-libs/nss 3.101.2 3.101.3 3.107 3.108: Mozilla's Network Security Services library that implements PKI support
 dev-libs/nss-pem 1.1.0: PEM file reader for Network Security Services (NSS)
 dev-libs/nsync 1.25.0 1.26.0: C library that exports various synchronization primitives, such as mutexes
@@ -10865,7 +10865,7 @@ dev-util/kup 0.3.6-r2: kernel.org uploader tool
 dev-util/kyua 0.13-r3 0.14: Testing framework for infrastructure software
 dev-util/lcov 2.0-r3 2.0-r4 2.3 9999: A graphical front-end for GCC's coverage testing tool gcov
 dev-util/libabigail 2.5 9999: Suite of tools for checking ABI differences between ELF objects
-dev-util/librnp 0.17.1-r1 0.17.1-r2: High performance C++ OpenPGP library
+dev-util/librnp 0.17.1-r2: High performance C++ OpenPGP library
 dev-util/libtree 3.1.1: ldd as a tree with an option to bundle dependencies into a single folder
 dev-util/linklint 2.3.5: A Perl program that checks links on web sites
 dev-util/local-log4j-vuln-scanner 0.10: simple local log4j vulnerability scanner
@@ -12552,8 +12552,8 @@ mail-client/mutt-wizard 3.3.1 9999: A system for automatically configuring neomu
 mail-client/neomutt 20240201 20240425 20241114 20241212 20250113 99999999: A small but very powerful text-based mail client
 mail-client/roundcube 1.6.7 1.6.9 9999: A browser-based multilingual IMAP client with an application-like user interface
 mail-client/s-nail 14.9.24: Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
-mail-client/thunderbird 128.5.0 128.5.1 128.5.2 128.6.0 128.7.0: Thunderbird Mail Client
-mail-client/thunderbird-bin 128.5.2 128.6.0 128.7.0: Thunderbird Mail Client
+mail-client/thunderbird 128.7.0: Thunderbird Mail Client
+mail-client/thunderbird-bin 128.7.0: Thunderbird Mail Client
 mail-filter/MailScanner 4.84.5.2: Free Anti-Virus and Anti-Spam Filter
 mail-filter/afew 3.0.1 3.0.1-r1: Initial tagging script for Notmuch
 mail-filter/amavisd-milter 1.7.2-r1: sendmail milter for amavisd-new
@@ -13418,7 +13418,7 @@ media-libs/opencv 4.9.0-r2 4.10.0: A collection of algorithms and sample code fo
 media-libs/openexr 3.2.4-r2 3.3.2-r1: ILM's OpenEXR high dynamic-range image file format libraries
 media-libs/openfec 1.4.2.9 1.4.2.11-r1: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
-media-libs/openh264 2.3.1-r3 2.4.1 2.5.0: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
+media-libs/openh264 2.3.1-r3 2.5.0: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
 media-libs/openimageio 2.5.13.1 2.5.18.0: A library for reading and writing images
 media-libs/openjpeg 2.5.0-r5 2.5.0-r6 2.5.2 2.5.3: Open-source JPEG 2000 library
 media-libs/openpgl 0.5.0-r1 0.6.0: Intel Open Path Guiding Library
@@ -14323,7 +14323,7 @@ media-video/x264-encoder 0.0.20220222 0.0.20231114 0.0.20240513 9999: A free com
 media-video/xine-ui 0.99.13-r1 0.99.14: Xine movie player
 media-video/xvattr 1.3-r3: X11 XVideo Querying/Setting Tool from Ogle project
 media-video/xvid4conf 1.12-r1: GTK2-configuration dialog for xvid4
-media-video/yle-dl 20240927 20250126: Download media files from Yle Areena
+media-video/yle-dl 20250126: Download media files from Yle Areena
 net-analyzer/2ping 4.5.1-r1: A bi-directional ping utility
 net-analyzer/alive 2.0.5-r100: Periodic ping program
 net-analyzer/apinger 0.6.1: Alarm Pinger
@@ -17562,7 +17562,7 @@ sys-fs/lsscsi 0.32-r1: SCSI sysfs query tool
 sys-fs/lufis 0.3-r1: Wrapper to use lufs modules with fuse kernel support
 sys-fs/lufs 0.9.7-r4: User-mode filesystem implementation
 sys-fs/lvm2 2.03.21-r1 2.03.22-r1 2.03.22-r7: User-land utilities for LVM2 (device-mapper) software
-sys-fs/lxcfs 5.0.4-r1 6.0.2 6.0.3: FUSE filesystem for LXC
+sys-fs/lxcfs 5.0.4-r1 6.0.3: FUSE filesystem for LXC
 sys-fs/mac-fdisk 0.1_p18 0.1_p18-r1: Mac/PowerMac disk partitioning utility
 sys-fs/mdadm 4.2-r3 4.3 4.3-r1: Tool for running RAID systems - replacement for the raidtools
 sys-fs/mergerfs 2.36.0 2.40.2: A featureful union filesystem
@@ -18099,8 +18099,8 @@ www-client/elinks 0.16.1.1-r100 0.17.1.1 0.18.0 9999: Advanced and well-establis
 www-client/epiphany 46.4 47.2: GNOME webbrowser based on Webkit
 www-client/falkon 24.08.3-r3 24.12.1 24.12.2: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
-www-client/firefox 128.5.0 128.5.1 128.6.0 128.7.0 133.0.3 134.0 134.0.1 134.0.2 135.0: Firefox Web Browser
-www-client/firefox-bin 128.5.2 128.6.0 128.7.0 133.0.3 134.0 134.0.1 134.0.2 135.0: Firefox Web Browser
+www-client/firefox 128.7.0 135.0: Firefox Web Browser
+www-client/firefox-bin 128.7.0 135.0: Firefox Web Browser
 www-client/google-chrome 133.0.6943.53: The web browser from Google
 www-client/google-chrome-beta 134.0.6998.3: The web browser from Google
 www-client/google-chrome-unstable 135.0.6999.2: The web browser from Google
