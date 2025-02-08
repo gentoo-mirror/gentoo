@@ -1,42 +1,29 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
+EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="Bruce's C compiler - Simple C compiler to generate 8086 code"
 HOMEPAGE="http://www.debath.co.uk/ https://github.com/lkundrak/dev86"
-SRC_URI="http://v3.sk/~lkundrak/dev86/Dev86src-${PV}.tar.gz"
+SRC_URI="https://codeberg.org/jbruchon/dev86/archive/v${PV}.tar.gz -> Dev86src-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 RDEPEND="sys-devel/bin86"
-DEPEND="${RDEPEND}
-	dev-util/gperf"
+DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-pic.patch"
-	"${FILESDIR}/${PN}-0.16.19-fortify.patch"
-	"${FILESDIR}/${P}-non-void-return-clang.patch"
-	"${FILESDIR}/${PN}-0.16.21-make.patch"
-	"${FILESDIR}/${P}-void-return-check-msdos-clang-fix.patch"
+	"${FILESDIR}/${P}-makefile.patch"
 )
+
+S="${WORKDIR}/dev86"
 
 src_prepare() {
 	default
-
-	# elksemu doesn't compile under amd64
-	if use amd64; then
-		einfo "Not compiling elksemu on amd64"
-		sed -i \
-			-e 's,alt-libs elksemu,alt-libs,' \
-			-e 's,install-lib install-emu,install-lib,' \
-			makefile.in || die
-	fi
 
 	sed -i -e "s|-O2 -g|${CFLAGS}|" -e '/INEXE=/s:-s::' makefile.in || die
 	sed -i -e "s:/lib/:/$(get_libdir)/:" bcc/bcc.c || die
@@ -49,18 +36,18 @@ src_compile() {
 	# (bug #343655).
 	unset CPPFLAGS
 
+	ln -s lib lib64 || die
+	ln -s ../kinclude/arch libc/include/arch || die
+	ln -s ../kinclude/linuxmt libc/include/linuxmt || die
+
 	# First `make` is also a config, so set all the path vars here
 	emake -j1 \
-		CC="$(tc-getCC) -std=gnu89" \
+		CC="$(tc-getCC)" \
 		LIBDIR="/usr/$(get_libdir)/bcc" \
 		INCLDIR="/usr/$(get_libdir)/bcc" \
 		all
 
 	export PATH=${S}/bin:${PATH}
-
-	cd bin || die
-	ln -s ncc bcc || die
-	cd .. || die
 
 	cd bootblocks || die
 	emake \
