@@ -1,0 +1,17 @@
+BDEPEND=kde-frameworks/extra-cmake-modules:0 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=!app-i18n/fcitx-anthy:4 app-i18n/anthy >=app-i18n/fcitx-5.1.12:5
+DESCRIPTION=Japanese Anthy input methods for Fcitx5
+EAPI=8
+HOMEPAGE=https://fcitx-im.org/ https://github.com/fcitx/fcitx5-anthy
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake unpacker xdg
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=!app-i18n/fcitx-anthy:4 app-i18n/anthy >=app-i18n/fcitx-5.1.12:5
+RESTRICT=!test? ( test )
+SLOT=5
+SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-anthy/fcitx5-anthy-5.1.6.tar.zst
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	unpacker	fb4b84181244b3b9990fa0bf40232dd2	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=e2fecaeab3e6c5b057ff127ab81b385e
