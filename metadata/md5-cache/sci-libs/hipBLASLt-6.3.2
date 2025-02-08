@@ -1,0 +1,17 @@
+BDEPEND=dev-build/rocm-cmake sci-libs/hipBLAS-common:0/6.3 || ( ( dev-lang/python:3.13 dev-python/msgpack[python_targets_python3_13(-)] dev-python/pyyaml[python_targets_python3_13(-)] dev-python/joblib[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/msgpack[python_targets_python3_12(-)] dev-python/pyyaml[python_targets_python3_12(-)] dev-python/joblib[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/msgpack[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] dev-python/joblib[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/msgpack[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] dev-python/joblib[python_targets_python3_10(-)] ) ) llvm_slot_19? ( llvm-core/clang:19 ) test? ( dev-cpp/gtest virtual/blas dev-util/rocm-smi:0/6.3 ) benchmark? ( virtual/blas llvm-runtimes/openmp ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-util/hip:0/6.3 dev-cpp/msgpack-cxx
+DESCRIPTION=General matrix-matrix operations library for AMD Instinct accelerators
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/hipBLASLt
+INHERIT=cmake flag-o-matic llvm-r1 python-any-r1 rocm
+IUSE=+amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx940 +amdgpu_targets_gfx941 +amdgpu_targets_gfx942 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 test benchmark +llvm_slot_19
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/6.3 dev-cpp/msgpack-cxx
+REQUIRED_USE=^^ ( llvm_slot_19 )
+RESTRICT=!test? ( test )
+SLOT=0/6.3
+SRC_URI=https://github.com/ROCm/hipBLASLt/archive/rocm-6.3.2.tar.gz -> hipBLASLt-6.3.2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	rocm	826765f795a41b937d1bfe8e709346cd
+_md5_=3b510f90cce67ddac381f2d5ecbe1ea4
