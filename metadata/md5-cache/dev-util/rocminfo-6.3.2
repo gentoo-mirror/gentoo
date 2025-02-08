@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/rocr-runtime-6.3.2 python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+DESCRIPTION=ROCm Application for Reporting System Info
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocminfo
+INHERIT=cmake python-r1
+IUSE=python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64
+LICENSE=UoI-NCSA
+RDEPEND=>=dev-libs/rocr-runtime-6.3.2 python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+SLOT=0/6.3
+SRC_URI=https://github.com/ROCm/rocminfo/archive/rocm-6.3.2.tar.gz -> rocminfo-6.3.2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23
+_md5_=ec50a1f11e1b8f8aff0138ebfebbd1ab

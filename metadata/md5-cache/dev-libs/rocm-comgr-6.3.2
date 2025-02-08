@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=>=dev-libs/rocm-device-libs-6.3.2 llvm-core/clang-runtime:= llvm_slot_19? ( llvm-core/clang:19= llvm-core/lld:19= ) dev-util/hipcc:0/6.3
+DESCRIPTION=Radeon Open Compute Code Object Manager
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/llvm-project/tree/amd-staging/amd/comgr
+INHERIT=cmake llvm-r1 prefix
+IUSE=test +llvm_slot_19
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-libs/rocm-device-libs-6.3.2 llvm-core/clang-runtime:= llvm_slot_19? ( llvm-core/clang:19= llvm-core/lld:19= ) dev-util/hipcc:0/6.3
+REQUIRED_USE=^^ ( llvm_slot_19 )
+RESTRICT=!test? ( test )
+SLOT=0/6.3
+SRC_URI=https://github.com/ROCm/llvm-project/archive/rocm-6.3.2.tar.gz -> llvm-project-rocm-6.3.2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=d2ca910002fdb70b348691e8dba37528

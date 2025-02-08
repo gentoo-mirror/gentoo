@@ -1,0 +1,15 @@
+BDEPEND=dev-build/rocm-cmake llvm_slot_19? ( llvm-core/clang:19 llvm-core/lld:19 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=Radeon Open Compute Device Libraries
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/llvm-project/tree/amd-staging/amd/device-libs
+INHERIT=cmake flag-o-matic llvm-r1
+IUSE=test +llvm_slot_19
+KEYWORDS=~amd64
+LICENSE=MIT
+REQUIRED_USE=^^ ( llvm_slot_19 )
+RESTRICT=!test? ( test )
+SLOT=0/6.3
+SRC_URI=https://github.com/ROCm/llvm-project/archive/rocm-6.3.2.tar.gz -> llvm-project-rocm-6.3.2.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda
+_md5_=2c43cb71edf110fc592eb44dc56df1ff
