@@ -4,10 +4,10 @@ DESCRIPTION=SELinux context translation to human readable names
 EAPI=8
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=toolchain-funcs
-KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~mips x86
 LICENSE=GPL-2
 RDEPEND=>=sys-libs/libsepol-3.7:=[static-libs(+)] >=sys-libs/libselinux-3.7:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.7/mcstrans-3.7.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=a337a20b1a997cad2060f9e0ec616d03
+_md5_=db14cf9b9ae92653e8b76d2548556fc4
