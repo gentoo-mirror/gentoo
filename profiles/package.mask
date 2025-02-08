@@ -211,56 +211,17 @@ dev-qt/qtstyleplugins
 >=dev-libs/intel-compute-runtime-24.52.32224.5
 >=dev-util/intel-graphics-compiler-2.5.7
 
-# Andrey Grozin <grozin@gentoo.org> (2025-01-09)
-# Unsupported old version, newer versions are not open-source.
-# Depends on Qt5.
-# Bugs 499030, 437262, 597268, 603592, 734890, 745495, 947740.
-# Use app-text/crqt-ng instead.
-# Removal on 2025-02-08.
-app-text/fbreader
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-09)
-# Last release from 2017; fails to build w/ GCC-14 and qscintilla-2.14.1.
-# Depends on Qt5. Bugs #914918, #917408. Removal on 2025-02-08.
-dev-db/tora
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-08)
-# Qt5-based library without any revdeps. Removal on 2025-02-07.
-dev-libs/kqoauth
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-08)
-# Qt5-based library without any revdeps. Removal on 2025-02-07.
-dev-libs/qcoro5
-
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2025-01-06)
 # Masked for testing
 =dev-lang/perl-5.40.1*
 ~virtual/perl-File-Spec-3.910.0
 ~virtual/perl-Module-CoreList-5.202.501.184_rc
 
-# Hans de Graaff <graaff@gentoo.org> (2025-01-06)
-# ruby32-only package. Depends on assumptions that are no longer true in
-# ruby33. No reverse dependencies left. Last release in 2007. Upstream
-# gone. Removal on 2025-02-06.
-dev-ruby/dust
-
-# Sam James <sam@gentoo.org> (2025-01-05)
-# Removed upstream in gstreamer-1.24. See bug #947522. Removal on 2025-02-05.
-media-plugins/gst-plugins-kate
-
 # Nowa Ammerlaan <nowa@gentoo.org> (2025-01-03)
 # Contains a serious bug that can cause deletion of the users home dir.
 # See-also: https://github.com/keshavbhatt/whatsie/issues/230
 # Removal on 2025-03-03 unless upstream fixes the issue
 net-im/whatsie
-
-# Nowa Ammerlaan <nowa@gentoo.org> (2025-01-01)
-# Broken with Qt6 and in wayland sessions. Archived upstream. Has been on life
-# support for several years already.
-# Removal on 2025-02-01
-media-video/vidify
-media-video/vidify-audiosync
-net-misc/lyricwikia
 
 # Michał Górny <mgorny@gentoo.org> (2024-12-05)
 # 6.12.2 does not boot for me.
