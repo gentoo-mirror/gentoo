@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: ecm.eclass
@@ -334,6 +334,18 @@ DEPEND+=" ${COMMONDEPEND}"
 RDEPEND+=" ${COMMONDEPEND}"
 unset COMMONDEPEND
 
+# @FUNCTION: _ecm_handbook_optional
+# @DESCRIPTION:
+# Use with ECM_HANDBOOK=optional; ticks either -DBUILD_DOC if available,
+# or -DCMAKE_DISABLE_FIND_PACKAGE_KF${_KFSLOT}DocTools
+_ecm_handbook_optional() {
+	if grep -Eq "option.*BUILD_DOC" CMakeLists.txt; then
+		echo "-DBUILD_DOC=$(usex handbook)"
+	else
+		echo "-DCMAKE_DISABLE_FIND_PACKAGE_KF${_KFSLOT}DocTools=$(usex !handbook)"
+	fi
+}
+
 # @FUNCTION: _ecm_strip_handbook_translations
 # @INTERNAL
 # @DESCRIPTION:
@@ -488,18 +500,9 @@ _ecm_deprecated_check_gcc_version() {
 	if ver_test ${KFMIN} -ge 6.9; then
 		eqawarn "QA notice: ecm_pkg_${1} has become a no-op."
 		eqawarn "It is no longer being exported with KFMIN >=6.9.0."
-		return
-	fi
-	if [[ ${MERGE_TYPE} != binary && -v KDE_GCC_MINIMAL ]] && tc-is-gcc; then
-
-		local version=$(gcc-version)
-
-		debug-print "GCC version check activated"
-		debug-print "Version detected: ${version}"
-		debug-print "Version required: ${KDE_GCC_MINIMAL}"
-
-		ver_test ${version} -lt ${KDE_GCC_MINIMAL} &&
-			die "Sorry, but gcc-${KDE_GCC_MINIMAL} or later is required for this package (found ${version})."
+	else
+		[[ ${MERGE_TYPE} != binary && -v KDE_GCC_MINIMAL ]] &&
+			tc-check-min_ver gcc ${KDE_GCC_MINIMAL}
 	fi
 }
 
@@ -630,7 +633,7 @@ ecm_src_configure() {
 	fi
 
 	if [[ ${ECM_HANDBOOK} = optional ]] ; then
-		cmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_KF${_KFSLOT}DocTools=$(usex !handbook) )
+		cmakeargs+=( $(_ecm_handbook_optional) )
 	fi
 
 	if in_iuse designer && [[ ${ECM_DESIGNERPLUGIN} = true ]]; then
@@ -746,18 +749,18 @@ ecm_src_install() {
 
 	if [[ -n ${_KDE_ORG_ECLASS} && -d "${ED}"/usr/share/metainfo/ ]]; then
 		if [[ ${KDE_ORG_NAME} != ${PN} ]]; then
-			local ecm_metainfo
+			local ecm_metainfo mainslot=${SLOT%/*}
 			pushd "${ED}"/usr/share/metainfo/ > /dev/null || die
 			for ecm_metainfo in find * -type f -iname "*metainfo.xml"; do
 				case ${ecm_metainfo} in
 					*${KDE_ORG_NAME}*)
-						mv_metainfo ${ecm_metainfo} ${KDE_ORG_NAME} ${PN}${SLOT/0*/}
+						mv_metainfo ${ecm_metainfo} ${KDE_ORG_NAME} ${PN}${mainslot/0*/}
 						;;
 					*${KDE_ORG_NAME/-/_}*)
-						mv_metainfo ${ecm_metainfo} ${KDE_ORG_NAME/-/_} ${PN}${SLOT/0*/}
+						mv_metainfo ${ecm_metainfo} ${KDE_ORG_NAME/-/_} ${PN}${mainslot/0*/}
 						;;
 					org.kde.*)
-						mv_metainfo ${ecm_metainfo} "org.kde." "org.kde.${PN}${SLOT/0*/}-"
+						mv_metainfo ${ecm_metainfo} "org.kde." "org.kde.${PN}${mainslot/0*/}-"
 						;;
 				esac
 			done
