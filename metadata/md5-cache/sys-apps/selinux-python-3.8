@@ -1,0 +1,17 @@
+BDEPEND=test? ( >=sys-libs/libselinux-3.8:=[python] >=sys-libs/libsemanage-3.8:=[python(+)] >=sys-libs/libsepol-3.8:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_10? ( dev-lang/python:3.10[xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] ) >=sys-apps/secilc-3.8 )
+DEFINED_PHASES=compile install prepare test
+DEPEND=>=sys-libs/libselinux-3.8:=[python] >=sys-libs/libsemanage-3.8:=[python(+)] >=sys-libs/libsepol-3.8:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_10? ( dev-lang/python:3.10[xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] )
+DESCRIPTION=SELinux core utilities
+EAPI=8
+HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
+INHERIT=python-r1 toolchain-funcs
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=sys-libs/libselinux-3.8:=[python] >=sys-libs/libsemanage-3.8:=[python(+)] >=sys-libs/libsepol-3.8:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_10? ( dev-lang/python:3.10[xml(+)] ) python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.8/selinux-python-3.8.tar.gz
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-r1	2def7a4ce233dfa344f613025c619a23
+_md5_=06ebaf627faf015d781ad0b3bbc7910f

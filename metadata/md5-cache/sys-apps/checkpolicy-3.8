@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/flex sys-devel/bison
+DEFINED_PHASES=compile install postinst
+DEPEND=>=sys-libs/libsepol-3.8:=[static-libs(+)]
+DESCRIPTION=SELinux policy compiler
+EAPI=8
+HOMEPAGE=http://userspace.selinuxproject.org
+INHERIT=toolchain-funcs
+IUSE=debug
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=>=sys-libs/libsepol-3.8:=[static-libs(+)]
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.8/checkpolicy-3.8.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=a6cff554d8d4aea10528c67d69ddd091
