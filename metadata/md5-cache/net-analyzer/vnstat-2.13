@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-teemutoivola ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png] ) test? ( dev-libs/check )
+DESCRIPTION=Console-based network traffic monitor that keeps statistics of network usage
+EAPI=8
+HOMEPAGE=https://humdi.net/vnstat/
+INHERIT=systemd tmpfiles verify-sig
+IUSE=gd selinux test verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/vnstat acct-user/vnstat dev-db/sqlite gd? ( media-libs/gd[png] ) selinux? ( sec-policy/selinux-vnstatd ) virtual/tmpfiles
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://humdi.net/vnstat/vnstat-2.13.tar.gz https://github.com/vergoh/vnstat/releases/download/v2.13/vnstat-2.13.tar.gz verify-sig? ( https://humdi.net/vnstat/vnstat-2.13.tar.gz.asc https://github.com/vergoh/vnstat/releases/download/v2.13/vnstat-2.13.tar.gz.asc )
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=918a0d8968373abf6f1727df0d418c4c
