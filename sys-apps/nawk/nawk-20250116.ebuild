@@ -12,17 +12,13 @@ S="${WORKDIR}/awk-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux"
 
 BDEPEND="
 	app-alternatives/yacc
 "
 
 DOCS=( README.md FIXES )
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-20230909-big-endian.patch
-)
 
 src_compile() {
 	emake \
