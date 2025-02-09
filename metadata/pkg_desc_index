@@ -2056,7 +2056,7 @@ app-emacs/geiser-chicken 0.17: Chicken Scheme's implementation of the Geiser pro
 app-emacs/geiser-gambit 0.18.1: Gambit Scheme's implementation of the Geiser protocols
 app-emacs/geiser-guile 0.28.3-r100: Guile's implementation of the Geiser protocols
 app-emacs/geiser-mit 0.15: MIT/GNU Scheme's implementation of the Geiser protocols
-app-emacs/ghub 4.2.0: Minuscule client library for the Git forge APIs
+app-emacs/ghub 4.2.0 4.2.1: Minuscule client library for the Git forge APIs
 app-emacs/git-modes 1.4.4 9999: Emacs major modes for editing Git configuration files
 app-emacs/git-timemachine 4.13 9999: Step through historic versions of git controlled files in GNU Emacs
 app-emacs/gnuplot-mode 0.8.1: Gnuplot mode for Emacs
@@ -2174,7 +2174,7 @@ app-emacs/package-lint 0.24: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.33 2.34.1: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26-r1: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
-app-emacs/parsebib 6.4: Emacs Lisp library for reading .bib files
+app-emacs/parsebib 6.4 6.6: Emacs Lisp library for reading .bib files
 app-emacs/parseclj 1.1.1: Clojure Parser for Emacs Lisp
 app-emacs/parseedn 1.2.1: EDN parser for Emacs Lisp
 app-emacs/pdf-tools 1.0.0 1.1.0: Emacs Lisp support library for PDF documents
@@ -3804,7 +3804,7 @@ dev-build/automake 1.11.6-r4 1.16.5-r2 1.17-r1 9999: Used to generate Makefile.i
 dev-build/automake-vanilla 1.11.6 1.15.1 1.16.5 1.17 9999: Used to generate Makefile.in from Makefile.am
 dev-build/automake-wrapper 20221207 20240607 99999999: Wrapper for automake to manage multiple automake versions
 dev-build/b2 5.2.1: A system for large project software construction, simple to use and powerful
-dev-build/bazel-buildtools 7.3.1 8.0.0 8.0.1 8.0.2: Tools for working with Google's Bazel BUILD files.
+dev-build/bazel-buildtools 7.3.1 8.0.0 8.0.1 8.0.3: Tools for working with Google's Bazel BUILD files.
 dev-build/bazelisk 1.24.1 1.25.0: A user-friendly launcher for Bazel written in Go
 dev-build/bmake 20241124 20250125: NetBSD's portable make
 dev-build/boost-m4 0.4_p20221019: Another set of autoconf macros for compiling against boost
@@ -5141,10 +5141,10 @@ dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.0: General-purpose programming language with an emphasis on functional programming
 dev-lang/closure-compiler-bin 20240317: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
-dev-lang/crystal 1.14.0 1.14.1 1.15.0-r1: The Crystal Programming Language
+dev-lang/crystal 1.14.0 1.14.1 1.15.0-r1 1.15.1: The Crystal Programming Language
 dev-lang/cue 0.7.0: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r2: A WAM based Prolog system
-dev-lang/dafny 4.8.0 4.8.1 4.9.0 4.9.1: Dafny is a verification-aware programming language
+dev-lang/dafny 4.8.0 4.8.1 4.9.0 4.9.1 4.10.0: Dafny is a verification-aware programming language
 dev-lang/dafny-bin 4.9.1 4.10.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
@@ -5206,8 +5206,8 @@ dev-lang/mujs 1.3.4 1.3.5: An embeddable JavaScript interpreter written in C
 dev-lang/nasm 2.16.03: groovy little assembler
 dev-lang/neko 2.4.0-r2: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
-dev-lang/nim 2.0.8 2.2.0: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 3.53 3.88 3.89: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nim 2.0.8 2.2.0 2.2.2: Compiled, garbage-collected systems programming language
+dev-lang/nprolog 3.53 3.88 3.89 3.90: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2024.10 2024.12 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.1 4.14.2 5.2.0 5.2.1: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.0.0: Open source implementation of Object Rexx
@@ -10656,7 +10656,7 @@ dev-util/aruba 2.1.0 2.2.0 2.3.0-r1: Cucumber steps for driving out command line
 dev-util/astyle 3.1-r2 3.4.9 3.4.9-r1 3.6.1: Artistic Style is a re-indenter and reformatter for C++, C and Java source code
 dev-util/autodia 2.140.0-r2: Parses source code, XML or data and produces an XML document in Dia format
 dev-util/autoproject 0.20_p5 0.20_p15: Start a programming project using autotools and a command line parser generator
-dev-util/azuredatastudio 1.50.0: Data management and development tool from Microsoft
+dev-util/azuredatastudio 1.50.0 1.51.0: Data management and development tool from Microsoft
 dev-util/babeltrace 1.5.11 2.0.5: A command-line tool and library to read and convert trace files
 dev-util/bats 1.11.0 1.11.1: Bats-core: Bash Automated Testing System
 dev-util/bbe 0.2.2-r1: Sed-like editor for binary files
@@ -16293,7 +16293,7 @@ sci-mathematics/dataplot 20131220: Program for scientific visualization and stat
 sci-mathematics/diagrtb 2.64: Calculation of some eigenvectors of a large real, symmetrical, matrix
 sci-mathematics/dsfmt 2.2.4: Double precision SIMD-oriented Fast Mersenne Twister library
 sci-mathematics/dunshire 0.1.3-r1: Python library to solve linear games over symmetric cones
-sci-mathematics/easycrypt 2024.01-r1 2024.09: Computer-Aided Cryptographic Proofs
+sci-mathematics/easycrypt 2024.09: Computer-Aided Cryptographic Proofs
 sci-mathematics/eclib 20231212 20240408 20250122: Programs for elliptic curves defined over the rational numbers
 sci-mathematics/ent 101202: Random number sequence test and entropy calculation
 sci-mathematics/eprover 3.0_pre008 3.0.03: Automated theorem prover for full first-order logic with equality
@@ -18116,7 +18116,7 @@ www-client/qutebrowser 3.4.0 9999: Keyboard-driven, vim-like browser based on Py
 www-client/seamonkey 2.53.18.2-r2 2.53.19-r1: Seamonkey Web Browser
 www-client/surf 2.1-r3 9999: A simple web browser based on WebKit/GTK+
 www-client/surfraw 2.3.0-r3 99999: A fast unix command line interface to WWW
-www-client/tangram 3.1: Web browser designed to organize and run Web applications
+www-client/tangram 3.1 3.3: Web browser designed to organize and run Web applications
 www-client/uget 2.2.3 9999: Download manager using gtk+ and libcurl
 www-client/vivaldi 7.0.3495.29 7.1.3570.42: A browser for our friends
 www-client/vivaldi-snapshot 7.1.3570.27 7.2.3592.3: A browser for our friends
