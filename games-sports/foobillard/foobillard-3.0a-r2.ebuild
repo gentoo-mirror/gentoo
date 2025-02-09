@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop flag-o-matic toolchain-funcs
 
@@ -32,6 +32,10 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fbsd.patch
 	"${FILESDIR}"/${P}-as-needed.patch
 	"${FILESDIR}"/${P}-gl-clamp.patch
+	"${FILESDIR}"/${P}-c99.patch
+	"${FILESDIR}"/${P}-queue.patch
+	"${FILESDIR}"/${P}-pointer-types.patch
+	"${FILESDIR}"/${P}-musl.patch
 )
 
 src_prepare() {

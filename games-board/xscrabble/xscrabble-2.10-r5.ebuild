@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
@@ -9,17 +9,25 @@ DESCRIPTION="An X11 clone of the well-known Scrabble"
 HOMEPAGE="http://freshmeat.net/projects/xscrabble/?topic_id=80"
 SRC_URI="ftp://ftp.ac-grenoble.fr/ge/educational_games/${P}.tgz
 	l10n_fr? ( ftp://ftp.ac-grenoble.fr/ge/educational_games/xscrabble_fr.tgz )
-	ftp://ftp.ac-grenoble.fr/ge/educational_games/xscrabble_en.tgz"
+	ftp://ftp.ac-grenoble.fr/ge/educational_games/xscrabble_en.tgz
+	https://files.asokolov.org/gentoo/${P}-gcc15.patch
+"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="l10n_fr"
 
-DEPEND="x11-libs/libXaw"
+DEPEND="
+	x11-libs/libX11
+	x11-libs/libXaw
+	x11-libs/libXpm
+	x11-libs/libXt
+"
 RDEPEND="
 	${DEPEND}
 	acct-group/gamestat
+	media-fonts/font-misc-misc
 	!<x11-terms/kterm-6.2.0-r7
 "
 BDEPEND="
@@ -32,6 +40,8 @@ PATCHES=(
 	"${FILESDIR}"/${P}-path-fixes.patch
 	"${FILESDIR}"/${P}-build.patch
 	"${FILESDIR}"/${P}-implicit-declaration.patch
+	"${DISTDIR}"/${P}-gcc15.patch
+	"${FILESDIR}"/${P}-ranlib.patch
 )
 
 src_unpack() {
@@ -48,8 +58,8 @@ src_prepare() {
 
 	# Don't strip binaries
 	sed -i '/install/s/-s //' build || die
-	# Respect AR, RANLIB
-	sed -i 's/CC="${CC}"/& AR="${AR} cq" RANLIB="${RANLIB}"/' build || die
+
+	sed -i "s|REAL_APPDEFAULTS=|REAL_APPDEFAULTS=${EPREFIX}|" build || die
 }
 
 src_configure() {
@@ -79,7 +89,7 @@ src_install() {
 	for f in "${ED}/usr/$(get_libdir)"/X11/app-defaults/* ; do
 		[[ -L ${f} ]] && continue
 		sed -i \
-			-e "s:/usr/games/lib/scrabble/:/usr/share/${PN}/:" \
+			-e "s:/usr/games/lib/scrabble/:${EPREFIX}/usr/share/${PN}/:" \
 			-e "s:fr/eng:fr/en:" \
 			${f} || die "sed ${f} failed"
 	done
