@@ -1,29 +1,28 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/philiphazel.asc
-inherit libtool multilib-minimal verify-sig
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/nicholaswilson.asc
+inherit libtool multilib multilib-minimal toolchain-funcs verify-sig
 
 MY_P="pcre2-${PV/_rc/-RC}"
 
 DESCRIPTION="Perl-compatible regular expression library"
-HOMEPAGE="https://www.pcre.org/"
-if [[ ${PV} != *_rc* ]] ; then
-	# Only the final releases are available here.
-	SRC_URI="https://github.com/PCRE2Project/pcre2/releases/download/${MY_P}/${MY_P}.tar.bz2
-		https://ftp.pcre.org/pub/pcre/${MY_P}.tar.bz2
-		verify-sig? ( https://github.com/PCRE2Project/pcre2/releases/download/${MY_P}/${MY_P}.tar.bz2.sig )"
-else
-	SRC_URI="https://ftp.pcre.org/pub/pcre/Testing/${MY_P}.tar.bz2"
-fi
+HOMEPAGE="https://pcre2project.github.io/pcre2/ https://www.pcre.org/"
+SRC_URI="
+	https://github.com/PCRE2Project/pcre2/releases/download/${MY_P}/${MY_P}.tar.bz2
+	https://ftp.pcre.org/pub/pcre/${MY_P}.tar.bz2
+	verify-sig? ( https://github.com/PCRE2Project/pcre2/releases/download/${MY_P}/${MY_P}.tar.bz2.sig )
+"
 
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD"
 SLOT="0/3" # libpcre2-posix.so version
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+if [[ ${PV} != *_rc* ]] ; then
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+fi
 IUSE="bzip2 +jit libedit +pcre16 +pcre32 +readline static-libs unicode valgrind zlib"
 REQUIRED_USE="?? ( libedit readline )"
 
@@ -39,7 +38,7 @@ DEPEND="
 "
 BDEPEND="
 	virtual/pkgconfig
-	verify-sig? ( sec-keys/openpgp-keys-philiphazel )
+	verify-sig? ( sec-keys/openpgp-keys-nicholaswilson )
 "
 
 MULTILIB_CHOST_TOOLS=(
@@ -89,6 +88,13 @@ multilib_src_install() {
 		DESTDIR="${D}" \
 		$(multilib_is_native_abi || echo "bin_PROGRAMS= dist_html_DATA=") \
 		install
+
+	# bug #934977
+	if ! tc-is-static-only && [[ ! -f "${ED}/usr/$(get_libdir)/libpcre2-8$(get_libname)" ]] ; then
+		eerror "Sanity check for libpcre2-8$(get_libname) failed."
+		eerror "Shared library wasn't built, possible libtool bug"
+		[[ -z ${I_KNOW_WHAT_I_AM_DOING} ]] && die "libpcre2-8$(get_libname) not found in build, aborting"
+	fi
 }
 
 multilib_src_install_all() {
