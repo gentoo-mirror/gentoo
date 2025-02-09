@@ -24,7 +24,7 @@ else
 	"
 	S="${WORKDIR}/${PN}-src-${SRC_PV}"
 
-	#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 LICENSE="public-domain"
@@ -51,6 +51,8 @@ fi
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.47.2-hwtime.h-Don-t-use-rdtsc-on-i486.patch
+	# https://sqlite.org/forum/forumpost/3c2014fea4
+	"${FILESDIR}"/${PN}-3.49.0-cppflags.patch
 )
 
 _fossil_fetch() {
@@ -197,7 +199,8 @@ multilib_src_configure() {
 	# https://sqlite.org/compile.html#enable_fts5
 	# https://sqlite.org/fts3.html
 	# https://sqlite.org/fts5.html
-	append-cppflags -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4
+	append-cppflags -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS
+	options+=( --enable-fts4 )
 	options+=( --enable-fts5 )
 
 	# Support hidden columns.
@@ -206,7 +209,7 @@ multilib_src_configure() {
 	# Support memsys5 memory allocator.
 	# https://sqlite.org/compile.html#enable_memsys5
 	# https://sqlite.org/malloc.html#memsys5
-	append-cppflags -DSQLITE_ENABLE_MEMSYS5
+	options+=( --enable-memsys5 )
 
 	# Support sqlite3_normalized_sql() function.
 	# https://sqlite.org/c3ref/expanded_sql.html
@@ -232,12 +235,12 @@ multilib_src_configure() {
 	# https://sqlite.org/compile.html#enable_geopoly
 	# https://sqlite.org/rtree.html
 	# https://sqlite.org/geopoly.html
-	append-cppflags -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_GEOPOLY
+	options+=( --enable-rtree --enable-geopoly )
 
 	# Support Session extension.
 	# https://sqlite.org/compile.html#enable_session
 	# https://sqlite.org/sessionintro.html
-	append-cppflags -DSQLITE_ENABLE_SESSION
+	options+=( --enable-session )
 
 	# Support scan status functions.
 	# https://sqlite.org/compile.html#enable_stmt_scanstatus
@@ -325,6 +328,7 @@ multilib_src_configure() {
 
 	# https://sqlite.org/forum/forumpost/4f4d06a9f6683bb9
 	tc-export CC
+
 	CC_FOR_BUILD=${CC} econf "${options[@]}"
 }
 
