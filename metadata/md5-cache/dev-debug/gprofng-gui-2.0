@@ -1,0 +1,13 @@
+DEFINED_PHASES=preinst prepare setup
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=Full-fledged graphical interface to operate gprofng
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/gprofng-gui/
+INHERIT=java-pkg-2
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=sys-devel/binutils:*[gprofng(-)] >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
+SLOT=0
+SRC_URI=mirror://gnu/gprofng-gui/gprofng-gui-2.0.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72
+_md5_=384eb9861c6d0df7ee9a3f65cdce381f
