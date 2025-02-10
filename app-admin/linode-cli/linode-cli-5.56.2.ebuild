@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 RDEPEND="
-	dev-python/boto3[${PYTHON_USEDEP}]
+	>=dev-python/boto3-1.36[${PYTHON_USEDEP}]
 	>=dev-python/linode-metadata-0.3[${PYTHON_USEDEP}]
 	dev-python/openapi3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
