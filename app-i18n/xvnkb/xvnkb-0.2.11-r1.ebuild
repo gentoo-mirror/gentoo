@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-inherit toolchain-funcs
+inherit flag-o-matic meson
 
 DESCRIPTION="Vietnamese input keyboard for X"
 HOMEPAGE="https://xvnkb.sourceforge.net/"
@@ -11,7 +11,7 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="spell xft"
 
 RDEPEND="x11-libs/libX11:=
@@ -20,32 +20,27 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
 BDEPEND="xft? ( virtual/pkgconfig )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-cc.patch
-	"${FILESDIR}"/${P}-ldflags.patch
-)
-
 src_prepare() {
 	default
-	tc-export CC
+	cp "${FILESDIR}"/meson.build . ||die "Unable to move build system"
+	cp "${FILESDIR}"/meson.options . ||die "Unable to move build system"
+	cp "${FILESDIR}"/config.h.in . ||die "Unable to move build system"
 }
 
 src_configure() {
-	# *not* autotools. Uses broken logic that assumes all the world is a bash
-	bash ./configure \
-		$(usex spell '' '--no-spellcheck') \
-		$(usex xft '' '--no-xft') \
-		--use-extstroke \
-		|| die "./configure failed"
-	[[ -f Makefile ]] || die "./configure failed to set an error code, but didn't create a Makefile either"
+	append-cflags -std=gnu17
+
+	local emesonargs=(
+		$(meson_use spell spellcheck)
+		$(meson_feature xft)
+		-Dextstroke=true
+	)
+
+	meson_src_configure
 }
 
 src_install() {
-	dobin ${PN}
-	dobin tools/${PN}_ctrl
-
-	dolib.so ${PN}.so.${PV}
-	dosym ${PN}.so.${PV} /usr/$(get_libdir)/${PN}.so
+	meson_src_install
 
 	einstalldocs
 	dodoc -r doc/. scripts contrib
