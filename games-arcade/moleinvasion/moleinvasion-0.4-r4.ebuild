@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop toolchain-funcs
 
@@ -10,6 +10,7 @@ HOMEPAGE="http://moleinvasion.tuxfamily.org/"
 SRC_URI="
 	ftp://download.tuxfamily.org/minvasion/packages/MoleInvasion-${PV}.tar.bz2
 	music? ( mirror://gentoo/${PN}-music-20090731.tar.gz )"
+S="${WORKDIR}/${P}/src"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -24,7 +25,12 @@ DEPEND="
 	virtual/opengl"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${P}/src"
+PATCHES=(
+	"${FILESDIR}"/${P}-opengl.patch
+	"${FILESDIR}"/${P}-underlink.patch
+	"${FILESDIR}"/${P}-fno-common.patch
+	"${FILESDIR}"/${P}-gcc14.patch
+)
 
 src_prepare() {
 	default
@@ -39,11 +45,6 @@ src_prepare() {
 		-e "/^FINALEXEDIR/s:/usr.*:/usr/bin:" \
 		-e "/^FINALDATADIR/s:/usr.*:/usr/share/${PN}:" \
 		Makefile || die "sed failed"
-
-	eapply \
-		"${FILESDIR}"/${P}-opengl.patch \
-		"${FILESDIR}"/${P}-underlink.patch \
-		"${FILESDIR}"/${P}-fno-common.patch
 }
 
 src_configure() {

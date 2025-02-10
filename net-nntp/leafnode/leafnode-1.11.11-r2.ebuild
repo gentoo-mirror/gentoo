@@ -1,7 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit autotools
 
 DESCRIPTION="A USENET software package designed for small sites"
 HOMEPAGE="http://leafnode.sourceforge.net/"
@@ -15,9 +17,20 @@ IUSE="ipv6"
 DEPEND=">=dev-libs/libpcre-3.9"
 RDEPEND="${DEPEND}
 	virtual/inetd"
-DOCS=( CREDITS ChangeLog FAQ.txt FAQ.pdf INSTALL NEWS README-daemontools UNINSTALL-daemontools README README-MAINTAINER README-FQDN )
+DOCS=( CREDITS ChangeLog FAQ.txt FAQ.pdf INSTALL NEWS README-daemontools \
+	UNINSTALL-daemontools README README-MAINTAINER README-FQDN )
 
-PATCHES=( "${FILESDIR}/${P}-checkpeerlocal_ipv6_fix.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-checkpeerlocal_ipv6_fix.patch"
+	"${FILESDIR}/${PN}-1.11.11-configure.patch"
+)
+
+src_prepare() {
+	default
+
+	# bug https://bugs.gentoo.org/900268
+	eautoreconf
+}
 
 src_configure() {
 	econf \

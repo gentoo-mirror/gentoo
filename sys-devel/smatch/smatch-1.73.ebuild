@@ -12,7 +12,7 @@ else
 	SRC_URI="https://repo.or.cz/w/smatch.git/snapshot/${PV}.tar.gz -> ${P}.tar.gz
 		mirror://gentoo/${P}.tar.gz"
 	# Update on bumps
-	S="${WORKDIR}"/${P}-7f4b936
+	S="${WORKDIR}"/${P}-2b596bf
 
 	KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86"
 fi
@@ -28,11 +28,15 @@ RDEPEND="dev-db/sqlite"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-1.72-C23.patch"
+	"${FILESDIR}/${PN}-1.72-function-prototype.patch"
+)
+
 src_prepare() {
 	default
 
 	sed -i \
-		-e '/^CFLAGS =/{s:=:+=:;s:-O2 -finline-functions:${CPPFLAGS}:}' \
 		-e 's:pkg-config:$(PKG_CONFIG):' \
 		Makefile || die
 }

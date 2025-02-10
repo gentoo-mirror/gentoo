@@ -1,10 +1,12 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+inherit autotools
+
 DESCRIPTION="A USENET software package designed for small sites"
-HOMEPAGE="http://leafnode.sourceforge.net/"
+HOMEPAGE="https://leafnode.sourceforge.io/"
 SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
@@ -15,6 +17,15 @@ DEPEND=">=dev-libs/libpcre2-10"
 RDEPEND="${DEPEND}
 	virtual/inetd"
 DOCS=( CREDITS ChangeLog FAQ.txt FAQ.pdf INSTALL NEWS UNINSTALL-daemontools README README-MAINTAINER README-FQDN )
+
+PATCHES=( "${FILESDIR}/${PN}-1.11.11-configure.patch" )
+
+src_prepare() {
+	default
+
+	# bug https://bugs.gentoo.org/900268
+	eautoreconf
+}
 
 src_configure() {
 	econf \
