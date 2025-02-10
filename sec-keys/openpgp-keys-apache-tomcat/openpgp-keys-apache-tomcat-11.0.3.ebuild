@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="OpenPGP keys used by tomcat.apache.org"
-HOMEPAGE="https://tomcat.apache.org/download-10.cgi"
+HOMEPAGE="https://tomcat.apache.org/download-11.cgi"
 SRC_URI="https://downloads.apache.org/tomcat/tomcat-$(ver_cut 1)/v${PV}/KEYS -> ${P}-KEYS.asc"
 S="${WORKDIR}"
 
