@@ -204,41 +204,11 @@ sys-cluster/k3s
 # Removal on 2025-02-17.  Bug #948333.
 dev-python/terminaltables
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-11)
-# Last release from 2012, dead upstream for 7 years, no Gentoo maintainer.
-# Depends on dev-qt/qtwebengine:5, removed from almost every other distro.
-# Bugs #741849, #830220, #851507 and #926672. Removal on 2025-02-10.
-net-misc/fatrat
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-11)
-# Last release from 2020, effectively unmaintained in Gentoo as its
-# maintainer has moved on to taking care of it in rion overlay instead.
-# Depends on Qt5, app-crypt/qca[qt5], dev-qt/qtwebengine:5.
-# Bugs #755446, #926138, #926670. Removal on 2025-02-10.
-net-im/psi
-net-im/psimedia
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-11)
-# Qt5-based library without any revdeps. Depends on app-crypt/qca[qt5].
-# Removal on 2025-02-10.
-dev-libs/qoauth
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-11)
-# Last release from 2020, dead upstream; Depends on app-crypt/qca[qt5].
-# Bug #935556. Removal on 2025-02-10.
-net-im/dianara
-
 # Arthur Zamarin <arthurzam@gentoo.org> (2025-01-10)
 # EAPI=7, maintainer needed, no reverse dependencies, fails to compile,
 # uses deprecated Go eclass.
 # Removal on 2025-02-09.  Bugs #947810, #856319, #844730, #771048, #679078.
 sys-cluster/zetcd
-
-# James Le Cuirot <chewi@gentoo.org> (2025-01-09)
-# Obsolete and needs to be dropped along with Qt5. The GTK theme has been
-# superseded by dev-qt/qtbase[gtk], which uses GTK 3 rather than GTK 2.
-# Removal on 2025-02-09. See bug #947787.
-dev-qt/qtstyleplugins
 
 # Conrad Kostecki <conikost@gentoo.org> (2025-01-09)
 # New version, which dropps support for legacy devices.
