@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/wayland media-libs/mesa[opengl,wayland] media-video/ffmpeg[pulseaudio?,x264] x11-libs/libdrm pipewire? ( >=media-video/pipewire-1.0.5:= ) pulseaudio? ( media-libs/libpulse )
+DESCRIPTION=Screen recorder for wlroots-based compositors
+EAPI=8
+HOMEPAGE=https://github.com/ammen99/wf-recorder
+INHERIT=meson
+IUSE=pipewire pulseaudio
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/wayland media-libs/mesa[opengl,wayland] media-video/ffmpeg[pulseaudio?,x264] x11-libs/libdrm pipewire? ( >=media-video/pipewire-1.0.5:= ) pulseaudio? ( media-libs/libpulse )
+SLOT=0
+SRC_URI=https://github.com/ammen99/wf-recorder/releases/download/v0.5.0/wf-recorder-0.5.0.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=ca49365663ae36777daa333c542f42a1
