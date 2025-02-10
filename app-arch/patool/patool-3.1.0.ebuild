@@ -91,6 +91,10 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
+PATCHES=(
+	"${FILESDIR}"/patool-3.1.0-fix-file-5.46-compat.patch
+)
+
 src_install() {
 	distutils-r1_src_install
 
@@ -108,9 +112,6 @@ python_test() {
 		"tests/archives/test_arc.py"
 		# Error: 1002 (invalid input file)
 		"tests/archives/test_mac.py"
-		# Broken due mime type change for rar in file-5.46
-		# https://github.com/wummel/patool/pull/173
-		"tests/test_mime.py::TestMime::test_nested_gzip"
 	)
 
 	if use elibc_musl; then
