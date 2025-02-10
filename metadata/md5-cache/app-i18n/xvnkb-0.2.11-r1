@@ -1,0 +1,15 @@
+BDEPEND=xft? ( virtual/pkgconfig ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=x11-libs/libX11:= xft? ( x11-libs/libXft:= ) x11-base/xorg-proto
+DESCRIPTION=Vietnamese input keyboard for X
+EAPI=8
+HOMEPAGE=https://xvnkb.sourceforge.net/
+INHERIT=flag-o-matic meson
+IUSE=spell xft
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2+
+RDEPEND=x11-libs/libX11:= xft? ( x11-libs/libXft:= )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/xvnkb/xvnkb-0.2.11.tar.bz2
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=21081494fed0f3d3d74f70836c466799
