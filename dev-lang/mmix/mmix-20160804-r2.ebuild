@@ -1,9 +1,9 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit toolchain-funcs
+inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="Donald Knuth's MMIX Assembler and Simulator"
 HOMEPAGE="https://www-cs-faculty.stanford.edu/~knuth/mmix.html http://mmix.cs.hm.edu"
@@ -26,9 +26,11 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-20110420-makefile.patch
 	"${FILESDIR}"/${PN}-20131017-format-security.patch
 	"${FILESDIR}"/${PN}-20160804-gcc-10.patch
+	"${FILESDIR}"/${PN}-20160804-implicit-int.patch
 )
 
 src_compile() {
+	append-flags -std=gnu17
 	export VARTEXFONTS=${T}/fonts
 	emake all \
 		CFLAGS="${CFLAGS}" \

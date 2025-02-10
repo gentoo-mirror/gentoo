@@ -6,12 +6,12 @@ EAPI=8
 inherit autotools flag-o-matic
 
 DESCRIPTION="Tools and libraries for NWN file manipulation"
-HOMEPAGE="https://sourceforge.net/projects/openknights"
+HOMEPAGE="https://sourceforge.net/projects/openknights/"
 SRC_URI="https://downloads.sourceforge.net/openknights/${P}.tar.gz"
 
 LICENSE="openknights"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="!sci-biology/newick-utils"
 BDEPEND="
@@ -19,6 +19,8 @@ BDEPEND="
 	app-alternatives/lex"
 
 DOCS=( AUTHORS ChangeLog NEWS README README.tech TODO )
+
+PATCHES=( "${FILESDIR}/${P}-C23.patch" )
 
 src_prepare() {
 	default
