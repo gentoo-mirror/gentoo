@@ -95,6 +95,8 @@ BDEPEND="
 "
 
 PATCHES=(
+	# Building mixxx-test target only with explicit test useflag
+	"${FILESDIR}"/${P}-tests.patch
 	# Fix strict-aliasing violations in vendored katai_cpp_stl_runtime
 	# https://github.com/kaitai-io/kaitai_struct_cpp_stl_runtime/commit/c01f530.patch
 	"${FILESDIR}"/${PN}-2.5.0-fix-strict-aliasing-kaitai.patch
