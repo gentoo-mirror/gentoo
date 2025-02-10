@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/boost arpack? ( sci-libs/arpack ) blas? ( virtual/blas ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) superlu? ( >=sci-libs/superlu-5.2 ) arpack? ( virtual/pkgconfig ) blas? ( virtual/pkgconfig ) lapack? ( virtual/pkgconfig )
+DESCRIPTION=Streamlined C++ linear algebra library
+EAPI=8
+HOMEPAGE=https://arma.sourceforge.net
+INHERIT=cmake toolchain-funcs multilib
+IUSE=arpack blas doc examples lapack mkl superlu test
+KEYWORDS=~amd64 ~arm ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/boost arpack? ( sci-libs/arpack ) blas? ( virtual/blas ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) superlu? ( >=sci-libs/superlu-5.2 )
+REQUIRED_USE=test? ( arpack lapack superlu )
+RESTRICT=!test? ( test )
+SLOT=0/14
+SRC_URI=https://downloads.sourceforge.net/arma/armadillo-14.2.3.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=83b5379b49f269ba2170f109a9f0776c
