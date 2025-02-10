@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,11 +20,13 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/argcomplete-1.9.4[${PYTHON_USEDEP}]
+	>=dev-python/attrs-23.1[${PYTHON_USEDEP}]
 	>=dev-python/colorlog-2.6.1[${PYTHON_USEDEP}]
+	>=dev-python/dependency-groups-1.1[${PYTHON_USEDEP}]
 	>=dev-python/packaging-20.9[${PYTHON_USEDEP}]
 	>=dev-python/virtualenv-20.14.1[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
@@ -49,12 +51,16 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO: conda?
 		'tests/test_sessions.py::TestSessionRunner::test__create_venv_options[nox.virtualenv.CondaEnv.create-conda-CondaEnv]'
+		# Internet
+		tests/test_virtualenv.py::test_uv_install
+		tests/test_main.py::test_noxfile_script_mode
 	)
 
 	case ${EPYTHON} in
 		pypy3)
 			EPYTEST_DESELECT+=(
 				# hardcoded CPython assumption
+				tests/test_tox_to_nox.py::test_commands_with_requirements
 				tests/test_tox_to_nox.py::test_skipinstall
 				tests/test_tox_to_nox.py::test_trivial
 				tests/test_tox_to_nox.py::test_usedevelop
