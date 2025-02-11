@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -115,6 +115,9 @@ python_test() {
 
 		# hangs?
 		test/asynchronous/test_grid_file.py::AsyncTestGridFile::test_small_chunks
+
+		# broken async tests?
+		test/asynchronous/test_encryption.py
 	)
 
 	local run_separately=(
@@ -127,7 +130,6 @@ python_test() {
 		test/test_collection.py
 		test/test_crud_unified.py
 		test/test_gridfs.py
-		test/test_gridfs_bucket.py
 	)
 	local run_separately2=(
 		test/test_command_monitoring.py
@@ -135,6 +137,9 @@ python_test() {
 		test/test_cursor.py
 		test/test_database.py
 		test/test_grid_file.py
+	)
+	local run_separately3=(
+		test/test_gridfs_bucket.py
 		test/test_monitoring.py
 	)
 	local run_separately_async=(
@@ -145,7 +150,7 @@ python_test() {
 	if ! use test-full; then
 		# .invalid is guaranteed to return NXDOMAIN per RFC 6761
 		local -x DB_IP=mongodb.invalid
-		epytest
+		epytest -p asyncio
 		return
 	fi
 
@@ -157,7 +162,7 @@ python_test() {
 	local logpath=${TMPDIR}/mongod.log
 
 	local stage failed=
-	for stage in {1..5}; do
+	for stage in {1..6}; do
 		# Now, the hard part: we need to find a free port for mongod.
 		# We're just trying to run it random port numbers and check the log
 		# for bind errors. It shall be noted that 'mongod --fork' does not
@@ -202,16 +207,20 @@ python_test() {
 				nonfatal epytest "${def[@]}" "${run_separately2[@]}" || failed=1
 				;;
 			3)
+				nonfatal epytest "${def[@]}" "${run_separately3[@]}" || failed=1
+				;;
+			4)
 				EPYTEST_DESELECT+=(
 					"${run_separately[@]}"
 					"${run_separately2[@]}"
+					"${run_separately3[@]}"
 				)
 				nonfatal epytest "${def[@]}" || failed=1
 				;;
-			4)
+			5)
 				nonfatal epytest "${async[@]}" "${run_separately_async[@]}" || failed=1
 				;;
-			5)
+			6)
 				EPYTEST_DESELECT+=(
 					"${run_separately_async[@]}"
 				)

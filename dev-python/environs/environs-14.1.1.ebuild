@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,10 +24,16 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/python-dotenv[${PYTHON_USEDEP}]
-	>=dev-python/marshmallow-3.13.0[${PYTHON_USEDEP}]
+	>=dev-python/marshmallow-3.18.0[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/typing-extensions[${PYTHON_USEDEP}]
+	' 3.10)
 "
 BDEPEND="
 	test? (
+		$(python_gen_cond_dep '
+			dev-python/backports-strenum[${PYTHON_USEDEP}]
+		' 3.10)
 		dev-python/django-cache-url[${PYTHON_USEDEP}]
 		dev-python/dj-database-url[${PYTHON_USEDEP}]
 		dev-python/dj-email-url[${PYTHON_USEDEP}]
