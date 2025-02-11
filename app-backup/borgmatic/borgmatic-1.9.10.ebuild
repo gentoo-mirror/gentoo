@@ -17,14 +17,13 @@ HOMEPAGE="
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 IUSE="apprise"
 
 # borg is called as an external tool, hence no pythonic stuff
 RDEPEND="
 	app-backup/borgbackup
 	$(python_gen_cond_dep '
-		<dev-python/colorama-0.5[${PYTHON_USEDEP}]
 		dev-python/jsonschema[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
