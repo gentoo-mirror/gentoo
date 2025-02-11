@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,6 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-
 IUSE="alsa"
 
 BDEPEND="
