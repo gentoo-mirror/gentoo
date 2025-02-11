@@ -1,0 +1,13 @@
+DEFINED_PHASES=install preinst prepare pretend unpack
+DESCRIPTION=Common files shared between multiple slots of clang
+EAPI=8
+HOMEPAGE=https://llvm.org/
+IDEPEND=!default-compiler-rt? ( sys-devel/gcc-config ) !default-libcxx? ( sys-devel/gcc-config )
+INHERIT=bash-completion-r1 llvm.org multilib
+IUSE=default-compiler-rt default-libcxx default-lld bootstrap-prefix cet hardened llvm-libunwind
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+PDEPEND=default-compiler-rt? ( llvm-core/clang-runtime:21[compiler-rt] llvm-libunwind? ( llvm-runtimes/libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=llvm-runtimes/libcxx-21.0.0_pre20250211[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( >=llvm-core/lld-21.0.0_pre20250211 ) !default-lld? ( sys-devel/binutils )
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/archive/2cd8207b26ea4269630feba661f68554d7ae3c15.tar.gz -> llvm-project-2cd8207b26ea4269630feba661f68554d7ae3c15.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	llvm.org	f83c5fe2a85552b0b653c129d0b97a19
+_md5_=c75ec8a3e3e1b648fee8cf345907450a
