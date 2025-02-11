@@ -20,7 +20,7 @@ else
 		SRC_URI="https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/${P}.tar.xz"
 	fi
 
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 DESCRIPTION="Linux firmware files"
@@ -74,7 +74,7 @@ IDEPEND="
 
 QA_PREBUILT="*"
 PATCHES=(
-	"${FILESDIR}"/${PN}-copy-firmware-r6.patch
+	"${FILESDIR}"/${PN}-copy-firmware-r8.patch
 )
 
 pkg_pretend() {
@@ -285,7 +285,7 @@ src_prepare() {
 
 src_install() {
 
-	local FW_OPTIONS=( "-v" )
+	local FW_OPTIONS=( "-v" "-j1" )
 	local files_to_keep=
 
 	if use savedconfig; then
