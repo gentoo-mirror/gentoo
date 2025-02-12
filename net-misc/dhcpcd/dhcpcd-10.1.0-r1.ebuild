@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit systemd toolchain-funcs
+inherit systemd optfeature toolchain-funcs
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -53,9 +53,8 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-10.0.6-rebinding.patch
-	"${FILESDIR}"/${PN}-10.0.6-crash.patch
 	"${FILESDIR}"/${PN}-10.0.6-fix-lib-check.patch
+	"${FILESDIR}"/${P}-seccomp-glibc-2.41.patch
 )
 
 src_configure() {
@@ -170,9 +169,5 @@ pkg_postinst() {
 		elog "https://bugs.gentoo.org/show_bug.cgi?id=477356"
 	fi
 
-	if ! has_version net-dns/bind-tools; then
-		elog
-		elog "If you activate the lookup-hostname hook to look up your hostname"
-		elog "using the dns, you need to install net-dns/bind-tools."
-	fi
+	optfeature "lookup-hostname hook" net-dns/bind-tools
 }
