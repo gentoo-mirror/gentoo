@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,6 +35,8 @@ PATCHES=(
 	# https://bugs.gentoo.org/870970
 	# https://sourceforge.net/p/xsb/bugs/265/
 	"${FILESDIR}"/0001-modern-C-fix-for-implicit-int.patch
+	"${FILESDIR}"/xsb-4.0.0-gcc14-build-fix.patch
+	"${FILESDIR}"/xsb-4.0.0-gcc14-sql.patch
 )
 
 src_prepare() {
