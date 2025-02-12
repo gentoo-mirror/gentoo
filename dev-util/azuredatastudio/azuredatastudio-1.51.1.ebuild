@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ SRC_URI="
 "
 S="${WORKDIR}"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0 BSD BSD-1 BSD-2 BSD-4 CC-BY-4.0 ISC LGPL-2.1+ MIT MPL-2.0 openssl PYTHON TextMate-bundle Unlicense UoI-NCSA W3C"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 IUSE="kerberos"
@@ -85,13 +85,18 @@ src_prepare() {
 
 	cd "${PN}/resources/app" || die
 
+	rm -r ./ThirdPartyNotices.txt || die
+
+	# Disable update server.
+	sed -e "/updateUrl/d" -i ./product.json || die
+
 	# Kerberos libs, same issue as VSCode/VSCodium.
 	if ! use kerberos ; then
 		rm -r node_modules.asar.unpacked/kerberos || die
 	fi
 
 	# Patch "System.Security.Cryptography.Native.OpenSsl.so": *.so.10 -> *.so.1.0.0
-	local mssql_ext_version="5.0.20241115.1"
+	local mssql_ext_version="5.0.20250115.1"
 	local mssql_ext_lib="libSystem.Security.Cryptography.Native.OpenSsl.so"
 	cd "extensions/mssql/sqltoolsservice/Linux/${mssql_ext_version}" || die
 	patchelf --add-needed libcrypto.so.1.0.0 "${mssql_ext_lib}" || die
