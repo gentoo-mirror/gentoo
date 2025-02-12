@@ -18,7 +18,6 @@ CRATES="
 	anstyle-wincon@3.0.6
 	anstyle@1.0.10
 	anyhow@1.0.95
-	argv@0.1.11
 	arrayref@0.3.9
 	arrayvec@0.5.2
 	arrayvec@0.7.6
@@ -26,7 +25,7 @@ CRATES="
 	backtrace@0.3.74
 	base64@0.13.1
 	bitflags@1.3.2
-	bitflags@2.6.0
+	bitflags@2.8.0
 	bitvec@1.0.1
 	blake2b_simd@0.5.11
 	block-buffer@0.10.4
@@ -34,20 +33,20 @@ CRATES="
 	btoi@0.4.3
 	bumpalo@3.16.0
 	caps@0.5.5
-	cc@1.2.7
+	cc@1.2.13
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
 	chrono@0.4.39
-	clap@4.5.24
-	clap_builder@4.5.24
-	clap_derive@4.5.24
+	clap@4.5.28
+	clap_builder@4.5.27
+	clap_derive@4.5.28
 	clap_lex@0.7.4
 	colorchoice@1.0.3
 	constant_time_eq@0.1.5
 	constant_time_eq@0.3.1
 	core-foundation-sys@0.8.7
-	cpufeatures@0.2.16
+	cpufeatures@0.2.17
 	crc-catalog@2.4.0
 	crc32fast@1.4.2
 	crc@3.2.1
@@ -77,10 +76,10 @@ CRATES="
 	fnv@1.0.7
 	funty@2.0.0
 	generic-array@0.14.7
-	getargs@0.5.0
 	getrandom@0.1.16
 	getrandom@0.2.15
-	getset@0.1.3
+	getrandom@0.3.1
+	getset@0.1.4
 	gimli@0.31.1
 	goblin@0.9.3
 	gperftools@0.2.0
@@ -99,9 +98,9 @@ CRATES="
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.7.0
+	indexmap@2.7.1
 	io-uring@0.6.4
-	ipnet@2.10.1
+	ipnet@2.11.0
 	iprange@0.6.7
 	is_terminal_polyfill@1.70.1
 	itoa@1.0.14
@@ -109,22 +108,23 @@ CRATES="
 	keccak@0.1.5
 	lazy_static@1.5.0
 	lexis@0.2.3
+	lexopt@0.3.0
 	libc@0.2.169
-	libcgroups@0.5.0
-	libcontainer@0.5.0
+	libcgroups@0.5.1
+	libcontainer@0.5.1
 	libloading@0.8.6
-	liboci-cli@0.5.0
+	liboci-cli@0.5.1
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
 	linefeed@0.6.0
-	linux-raw-sys@0.4.14
-	log@0.4.22
+	linux-raw-sys@0.4.15
+	log@0.4.25
 	md5@0.7.0
 	memchr@2.7.4
 	memoffset@0.9.1
 	minimal-lexical@0.2.1
-	miniz_oxide@0.8.2
+	miniz_oxide@0.8.3
 	mortal@0.2.4
 	nc@0.9.5
 	nix@0.26.4
@@ -136,7 +136,7 @@ CRATES="
 	num_cpus@1.16.0
 	object@0.36.7
 	oci-spec@0.7.1
-	once_cell@1.20.2
+	once_cell@1.20.3
 	option-ext@0.2.0
 	overload@0.1.1
 	parse-size@1.0.0
@@ -151,33 +151,34 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.92
+	proc-macro2@1.0.93
 	procfs-core@0.17.0
 	procfs@0.17.0
 	protobuf-codegen@3.2.0
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
-	quick_cache@0.6.9
+	quick_cache@0.6.10
 	quote@1.0.38
 	radium@0.7.0
 	raki@1.3.1
 	rand@0.8.5
 	rand_core@0.6.4
-	rand_hc@0.3.2
+	rand_core@0.9.0
+	rand_hc@0.4.0
 	redox_syscall@0.1.57
 	redox_users@0.3.5
 	redox_users@0.4.6
 	regex-automata@0.4.9
 	regex-syntax@0.8.5
-	regex@1.10.6
+	regex@1.11.1
 	ringbuf@0.4.7
 	rust-argon2@0.8.3
 	rust-criu@0.4.0
 	rustc-demangle@0.1.24
-	rustix@0.38.43
+	rustix@0.38.44
 	rustversion@1.0.19
-	ryu@1.0.18
+	ryu@1.0.19
 	safe-path@0.1.0
 	scroll@0.12.0
 	scroll_derive@0.12.0
@@ -185,7 +186,7 @@ CRATES="
 	sendfd@0.4.3
 	serde@1.0.217
 	serde_derive@1.0.217
-	serde_json@1.0.135
+	serde_json@1.0.138
 	sha1@0.10.6
 	sha3@0.10.8
 	sharded-slab@0.1.7
@@ -198,16 +199,16 @@ CRATES="
 	strum@0.26.3
 	strum_macros@0.26.4
 	subtle@2.6.1
-	syn@2.0.95
+	syn@2.0.98
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
-	tempfile@3.15.0
+	tempfile@3.16.0
 	terminfo@0.8.0
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.9
+	thiserror-impl@2.0.11
 	thiserror@1.0.69
-	thiserror@2.0.9
+	thiserror@2.0.11
 	thread_local@1.1.8
 	tick_counter@0.4.5
 	tinyvec@1.8.1
@@ -218,14 +219,15 @@ CRATES="
 	tracing-subscriber@0.3.19
 	tracing@0.1.41
 	typenum@1.17.0
-	unicode-ident@1.0.14
+	unicode-ident@1.0.16
 	unicode-normalization@0.1.24
 	unicode-width@0.1.14
 	unicode-width@0.2.0
 	utf8parse@0.2.2
-	valuable@0.1.0
+	valuable@0.1.1
 	version_check@0.9.5
 	wasi@0.11.0+wasi-snapshot-preview1
+	wasi@0.13.3+wasi-0.2.2
 	wasi@0.9.0+wasi-snapshot-preview1
 	wasm-bindgen-backend@0.2.99
 	wasm-bindgen-macro-support@0.2.99
@@ -256,11 +258,14 @@ CRATES="
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
+	wit-bindgen-rt@0.33.0
 	wyz@0.5.1
 	yaxpeax-arch@0.3.2
-	yaxpeax-arm@0.3.0
+	yaxpeax-arm@0.3.1
 	zerocopy-derive@0.7.35
+	zerocopy-derive@0.8.17
 	zerocopy@0.7.35
+	zerocopy@0.8.17
 	zeroize@1.8.1
 "
 
@@ -276,7 +281,10 @@ IUSE="static"
 
 LICENSE="GPL-3"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 MIT Unicode-DFS-2016"
+LICENSE+="
+	0BSD Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3+ ISC MIT MPL-2.0 Unicode-3.0
+	Unlicense WTFPL-2
+"
 
 SLOT="0"
 KEYWORDS="~amd64"

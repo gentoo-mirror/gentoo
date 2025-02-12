@@ -5,13 +5,12 @@
 
 EAPI=8
 
-SYDVER=3.30.0
+SYDVER=3.31.0
 
 IUSE="static"
 
 CRATES="
 	ahash@0.8.11
-	argv@0.1.11
 	arrayvec@0.7.6
 	autocfg@1.4.0
 	bitflags@2.6.0
@@ -29,14 +28,12 @@ CRATES="
 	crossbeam-utils@0.8.21
 	crypto-common@0.1.6
 	digest@0.10.7
-	dns-lookup@2.0.4
 	either@1.13.0
 	encode_unicode@1.0.0
 	equivalent@1.0.1
 	errno@0.3.10
 	fastrand@2.3.0
 	generic-array@0.14.7
-	getargs@0.5.0
 	getrandom@0.2.15
 	hashbrown@0.15.2
 	hermit-abi@0.3.9
@@ -46,11 +43,13 @@ CRATES="
 	itoa@1.0.14
 	js-sys@0.3.76
 	keccak@0.1.5
+	lexopt@0.3.0
 	libc@0.2.169
 	linux-raw-sys@0.4.14
 	log@0.4.22
 	md5@0.7.0
 	memchr@2.7.4
+	memoffset@0.9.1
 	nix@0.29.0
 	num-traits@0.2.19
 	num_cpus@1.16.0
@@ -68,7 +67,6 @@ CRATES="
 	serde_json@1.0.134
 	sha1@0.10.6
 	sha3@0.10.8
-	socket2@0.5.8
 	syn@2.0.93
 	tempfile@3.14.0
 	typenum@1.17.0
@@ -82,25 +80,15 @@ CRATES="
 	wasm-bindgen-shared@0.2.99
 	wasm-bindgen@0.2.99
 	web-time@1.1.0
-	windows-sys@0.48.0
-	windows-sys@0.52.0
 	windows-sys@0.59.0
-	windows-targets@0.48.5
 	windows-targets@0.52.6
-	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.6
-	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.6
 	windows_i686_gnullvm@0.52.6
-	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.6
-	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
 	zerocopy-derive@0.7.35
 	zerocopy@0.7.35
