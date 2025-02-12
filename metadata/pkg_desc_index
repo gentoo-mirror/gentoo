@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.694.0 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.37.6 1.37.11 1.37.16 1.37.17: Universal Command Line Environment for AWS
+app-admin/awscli 1.37.6 1.37.11 1.37.16 1.37.17 1.37.18: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.12.0 2025.1.1 2025.1.4: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2 3.3.13: Distribution-independent installer framework
@@ -3914,7 +3914,7 @@ dev-cpp/prometheus-cpp 1.2.4: Prometheus Client Library for Modern C++
 dev-cpp/pystring 1.1.3-r1 1.1.4: C++ functions matching the interface and behavior of python string methods
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.12.0: Range library for C++14/17/20, basis for C++20's std::ranges
-dev-cpp/rapidfuzz-cpp 3.2.0 3.3.0 3.3.1: Rapid fuzzy string matching in C++
+dev-cpp/rapidfuzz-cpp 3.2.0 3.3.0 3.3.1 3.3.2: Rapid fuzzy string matching in C++
 dev-cpp/rapidyaml 0.6.0 0.7.2: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-hood-hashing 3.11.5-r2: Fast & memory efficient hashtable based on robin hood hashing for C++11/14/17/20
 dev-cpp/robin-map 1.3.0 9999: C++ fast hash map and hash set using robin hood hashing
@@ -8150,8 +8150,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.36.6 1.36.11 1.36.16 1.36.17: The AWS SDK for Python
-dev-python/botocore 1.36.6 1.36.11 1.36.16 1.36.17: Low-level, data-driven core of boto 3
+dev-python/boto3 1.36.6 1.36.11 1.36.16 1.36.17 1.36.18: The AWS SDK for Python
+dev-python/botocore 1.36.6 1.36.11 1.36.16 1.36.17 1.36.18: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8235,9 +8235,9 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.0 1.3.1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.6.9 7.6.10 7.6.11: Code coverage measurement for Python
+dev-python/coverage 7.6.9 7.6.10 7.6.11 7.6.12: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
-dev-python/cppy 1.3.0: C++ header library which makes it easier to write Python extension modules
+dev-python/cppy 1.3.0 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.8.3-r1 2.8.4-r1 2.9.0-r1 2.9.1: Thin Python bindings to de/compression algorithms in Rust
 dev-python/crashtest 0.4.1: Python library that makes exceptions handling and inspection easier
 dev-python/crc32c 2.6 2.7_p1 2.7.1: CRC32c algorithm in hardware and software
@@ -8246,7 +8246,7 @@ dev-python/crispy-bootstrap3 2024.1: Bootstrap3 template pack for django-crispy-
 dev-python/crispy-bootstrap4 2024.1 2024.10: Bootstrap4 template pack for django-crispy-forms
 dev-python/crispy-bootstrap5 2024.2 2024.10: Bootstrap5 template pack for django-crispy-forms
 dev-python/croniter 6.0.0: Python module to provide iteration for datetime object
-dev-python/cryptography 43.0.3-r1 44.0.0: Library providing cryptographic recipes and primitives
+dev-python/cryptography 43.0.3-r1 44.0.0 44.0.1: Library providing cryptographic recipes and primitives
 dev-python/cson 0.8-r4: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/css-parser 1.0.10: A CSS Cascading Style Sheets library (fork of cssutils)
 dev-python/csscompressor 0.9.5-r2: A python port of YUI CSS Compressor
@@ -8261,7 +8261,7 @@ dev-python/cwcwidth 0.1.9 0.1.10: Python bindings for wc(s)width
 dev-python/cycler 0.12.1: Composable style cycles
 dev-python/cypari2 2.2.1: Cython interface to PARI
 dev-python/cysignals 1.12.2 1.12.3: Interrupt and signal handling for Cython
-dev-python/cython 3.0.11: A Python to C compiler
+dev-python/cython 3.0.11 3.0.12: A Python to C compiler
 dev-python/cython-test-exception-raiser 1.0.2-r1: A trivial extension that just raises an exception (for testing)
 dev-python/daemonize 2.5.0-r1: Library for writing system daemons in Python
 dev-python/datastructclass 0.1.1: A dataclass with struct-like semantics
@@ -8368,7 +8368,7 @@ dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.7-r1: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/faker 35.0.0 35.2.0 35.2.2 36.1.0: A Python package that generates fake data for you
-dev-python/fakeredis 2.26.2: Fake implementation of redis API for testing purposes
+dev-python/fakeredis 2.26.2 2.27.0: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.2 0.3.1: Implementation of bencode with optional fast C extensions
 dev-python/fasteners 0.19: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
@@ -8456,7 +8456,7 @@ dev-python/graphviz 0.20.3: Simple Python interface for Graphviz
 dev-python/greenlet 3.1.1: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.0.2: Python 3 client for the beanstalkd work queue
 dev-python/griddataformats 1.0.2: Reading and writing of data on regular grids in Python
-dev-python/griffe 1.5.5 1.5.6: Signature generator for Python programs
+dev-python/griffe 1.5.6 1.5.7: Signature generator for Python programs
 dev-python/grpcio 1.67.0-r2 1.68.1 1.69.0 1.70.0: HTTP/2-based RPC framework
 dev-python/grpcio-status 1.67.0 1.68.1 1.69.0 1.70.0: Reference package for GRPC Python status proto mapping
 dev-python/grpclib 0.4.7-r1: Pure-Python gRPC implementation for asyncio
@@ -8500,7 +8500,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.124.3 6.124.9 6.125.2: A library for property based testing
+dev-python/hypothesis 6.124.3 6.124.9 6.125.2 6.125.3: A library for property based testing
 dev-python/icalendar 6.1.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.6 2.6.7: File identification library for Python
@@ -8725,7 +8725,7 @@ dev-python/mistune 3.1.0 3.1.1: The fastest markdown parser in pure Python
 dev-python/mitmproxy-wireguard 0.1.20-r1: WireGuard frontend for mitmproxy
 dev-python/mkautodoc 0.2.0: Auto documentation for MkDocs
 dev-python/mkdocs 1.6.0 1.6.1: Project documentation with Markdown
-dev-python/mkdocs-autorefs 1.2.0 1.3.0: Automatically link across pages in MkDoc
+dev-python/mkdocs-autorefs 1.3.0 1.3.1: Automatically link across pages in MkDoc
 dev-python/mkdocs-bootstrap 1.1.1: Bootstrap theme for MkDocs
 dev-python/mkdocs-bootswatch 1.1-r2: Bootswatch themes for MkDocs
 dev-python/mkdocs-gen-files 0.5.0: MkDocs plugin to programmatically generate documentation pages during the build
@@ -8742,7 +8742,7 @@ dev-python/mkdocs-pymdownx-material-extras 2.7: Custom alterations based on Mkdo
 dev-python/mkdocs-redirects 1.2.2: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.3.0: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.26.2 0.28.0: Automatic documentation from sources, for MkDocs
-dev-python/mkdocstrings-python 1.14.5 1.14.6: Python handler for dev-python/mkdocstrings
+dev-python/mkdocstrings-python 1.14.6 1.14.7 1.15.0: Python handler for dev-python/mkdocstrings
 dev-python/ml-dtypes 0.5.1: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
@@ -9109,7 +9109,7 @@ dev-python/pysnmp 7.1.16: Python SNMP library
 dev-python/pysnmp-mibs 0.1.6: SNMP framework in Python - MIBs
 dev-python/pysnmpcrypto 0.0.4: Strong cryptography support for PySNMP (SNMP library for Python)
 dev-python/pysocks 1.7.1-r2: SOCKS client module
-dev-python/pysol-cards 0.18.0: Deal PySol FreeCell cards
+dev-python/pysol-cards 0.18.0 0.18.1: Deal PySol FreeCell cards
 dev-python/pyspectrum2 0.2.0-r2: Implements a protobuf-based interface for Spectrum2 python-based backends
 dev-python/pyspelling 2.10: Spell checker automation tool
 dev-python/pyspf 2.0.14-r3: Python implementation of the Sender Policy Framework (SPF)
@@ -9304,7 +9304,7 @@ dev-python/readthedocs-sphinx-ext 2.2.5: Code specific for Read the Docs and Sph
 dev-python/readtime 3.0.0: Calculates the time some text takes the average human to read
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
-dev-python/recurring-ical-events 3.3.3 3.3.4 3.4.0 3.4.1: Repeat ICalendar events by RRULE, RDATE and EXDATE
+dev-python/recurring-ical-events 3.4.1 3.5.0: Repeat ICalendar events by RRULE, RDATE and EXDATE
 dev-python/redis 5.2.1: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.35.1 0.36.2: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
@@ -9700,7 +9700,7 @@ dev-python/zc-lockfile 3.0_p1: Basic inter-process locks
 dev-python/zconfig 4.1 4.2: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.3.1: A modern/fast Python SOAP client based on lxml / requests
 dev-python/zenlib 3.1.5 9999: Useful python decorators and utilities
-dev-python/zeroconf 0.140.1 0.142.0 0.143.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
+dev-python/zeroconf 0.140.1 0.142.0 0.143.0 0.143.1 0.144.1: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.21.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zipstream-ng 1.7.1 1.8.0: A modern and easy to use streamable zip file generator
 dev-python/zope-component 6.0: Zope Component Architecture
