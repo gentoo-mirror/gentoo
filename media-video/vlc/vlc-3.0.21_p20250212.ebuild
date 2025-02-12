@@ -1,35 +1,20 @@
-# Copyright 2000-2024 Gentoo Authors
+# Copyright 2000-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+COMMIT=120f41a5741fc502b1a73d835093212cccbcb87d
 LUA_COMPAT=( lua5-{1..2} )
-
-MY_PV="${PV/_/-}"
-MY_PV="${MY_PV/-beta/-test}"
-MY_P="${PN}-${MY_PV}"
-if [[ ${PV} = *9999 ]] ; then
-	if [[ ${PV%.9999} != ${PV} ]] ; then
-		EGIT_BRANCH="3.0.x"
-	fi
-	EGIT_REPO_URI="https://code.videolan.org/videolan/vlc.git"
-	inherit git-r3
-else
-	if [[ ${MY_P} = ${P} ]] ; then
-		SRC_URI="https://download.videolan.org/pub/videolan/${PN}/${PV}/${P}.tar.xz"
-	else
-		SRC_URI="https://download.videolan.org/pub/videolan/testing/${MY_P}/${MY_P}.tar.xz"
-	fi
-	KEYWORDS="amd64 ~arm arm64 ~loong ppc ppc64 ~riscv -sparc x86"
-fi
 inherit autotools flag-o-matic lua-single toolchain-funcs virtualx xdg
 
 DESCRIPTION="Media player and framework with support for most multimedia files and streaming"
 HOMEPAGE="https://www.videolan.org/vlc/"
+SRC_URI="https://code.videolan.org/videolan/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
-S="${WORKDIR}/${MY_P}"
 LICENSE="LGPL-2.1 GPL-2"
 SLOT="0/5-9" # vlc - vlccore
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv -sparc ~x86"
 
 IUSE="a52 alsa aom archive aribsub bidi bluray cddb chromaprint chromecast dav1d dbus
 	dc1394 debug directx dts +dvbpsi dvd +encode faad fdk +ffmpeg flac fluidsynth
@@ -62,7 +47,6 @@ BDEPEND="
 	wayland? ( dev-util/wayland-scanner )
 	x86? ( dev-lang/yasm )
 "
-# <ffmpeg-5 dep for USE="ffmpeg vaapi" for bug #864721
 RDEPEND="
 	media-libs/libvorbis
 	net-dns/libidn:=
@@ -192,7 +176,7 @@ RDEPEND="
 		gnome-base/librsvg:2
 		x11-libs/cairo
 	)
-	taglib? ( >=media-libs/taglib-1.9 )
+	taglib? ( media-libs/taglib:= )
 	theora? ( media-libs/libtheora )
 	tremor? ( media-libs/tremor )
 	truetype? (
@@ -204,10 +188,7 @@ RDEPEND="
 	udev? ( virtual/udev )
 	upnp? ( net-libs/libupnp:=[ipv6(+)] )
 	v4l? ( media-libs/libv4l:= )
-	vaapi? (
-		<media-video/ffmpeg-5
-		media-libs/libva:=[drm(+),wayland?,X?]
-	)
+	vaapi? ( media-libs/libva:=[drm(+),wayland?,X?] )
 	vdpau? ( x11-libs/libvdpau )
 	vnc? ( net-libs/libvncserver )
 	vpx? ( media-libs/libvpx:= )
@@ -257,7 +238,7 @@ src_prepare() {
 		eapply "${FILESDIR}"/${PN}-2.2.8-libupnp-slot-1.8.patch
 
 	# Bootstrap when we are on a git checkout.
-	if [[ ${PV} = *9999 ]] ; then
+	if [[ ${PV} == *9999* || ${PV} == *_p[0-9]* ]] ; then
 		./bootstrap
 	fi
 
@@ -290,6 +271,7 @@ src_configure() {
 
 	local myeconfargs=(
 		--disable-aa
+		--disable-amf-frc # DirectX specific
 		--disable-optimizations
 		--disable-rpath
 		--disable-update-check
