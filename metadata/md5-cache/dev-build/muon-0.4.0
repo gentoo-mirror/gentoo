@@ -1,0 +1,16 @@
+BDEPEND=app-text/scdoc >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=curl? ( net-misc/curl ) archive? ( app-arch/libarchive:= ) libpkgconf? ( dev-util/pkgconf:= )
+DESCRIPTION=A meson-compatible build system
+EAPI=8
+HOMEPAGE=https://muon.build/
+INHERIT=edo meson
+IUSE=+archive +curl +libpkgconf test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64
+LICENSE=GPL-3
+RDEPEND=curl? ( net-misc/curl ) archive? ( app-arch/libarchive:= ) libpkgconf? ( dev-util/pkgconf:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://muon.build/releases/v0.4.0/muon-v0.4.0.tar.gz test? ( https://git.sr.ht/~lattis/meson-tests/archive/1e565931348f15f3f9b654f46ab4bf5fa009ca4f.tar.gz -> meson-tests-1e565931348f15f3f9b654f46ab4bf5fa009ca4f.tar.gz )
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=6e439a4fd85b4c1c650222c76d05e374
