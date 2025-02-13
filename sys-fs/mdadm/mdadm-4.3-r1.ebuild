@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SRC_URI="https://www.kernel.org/pub/linux/utils/raid/mdadm/${P/_/-}.tar.xz
 LICENSE="GPL-2"
 SLOT="0"
 [[ "${PV}" = *_rc* ]] || \
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
 IUSE="static systemd +udev corosync"
 
 REQUIRED_USE="static? ( !udev )"
@@ -36,6 +36,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}"-4.3-ldflags.patch
 	"${FILESDIR}/${PN}"-4.3-no-udev.patch
 	"${FILESDIR}/${PN}"-4.3-musl125-1.patch
+	"${FILESDIR}/${PN}"-4.3-do-not-call-gcc-directly.patch # 931972
 	"${WORKDIR}/debian/patches/debian/0001-fix-manpages.patch"
 	"${WORKDIR}/debian/patches/debian/0003-host-name-in-default-mailfrom.patch"
 	"${WORKDIR}/debian/patches/debian/0004-exit-gracefully-when-md-device-not-found.patch"
