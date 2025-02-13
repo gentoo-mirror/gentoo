@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.694.0 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.37.6 1.37.11 1.37.16 1.37.17 1.37.18: Universal Command Line Environment for AWS
+app-admin/awscli 1.37.6 1.37.11 1.37.16 1.37.17 1.37.18 1.37.19: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.12.0 2025.1.1 2025.1.4: Bitwarden password manager desktop client
 app-admin/calamares 3.3.6-r2 3.3.13: Distribution-independent installer framework
@@ -5298,7 +5298,7 @@ dev-libs/boron 2.1.0: A scripting language similar to REBOL
 dev-libs/botan 2.19.3-r2 2.19.5 3.1.1 3.2.0-r1 3.2.0-r2 3.6.1 3.7.1: C++ crypto library
 dev-libs/boxfort 0.1.4 0.1.4-r1: Convenient & cross-platform sandboxing C library
 dev-libs/c-blosc 1.21.6: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.15.2: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.15.2 2.16.0: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/c-siphash 1.1.0: Streaming-capable SipHash Implementation
 dev-libs/c-stdaux 1.5.0: Auxiliary macros and functions for the C standard library
@@ -8151,8 +8151,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.36.6 1.36.11 1.36.16 1.36.17 1.36.18: The AWS SDK for Python
-dev-python/botocore 1.36.6 1.36.11 1.36.16 1.36.17 1.36.18: Low-level, data-driven core of boto 3
+dev-python/boto3 1.36.6 1.36.11 1.36.16 1.36.17 1.36.18 1.36.19: The AWS SDK for Python
+dev-python/botocore 1.36.6 1.36.11 1.36.16 1.36.17 1.36.18 1.36.19: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8386,7 +8386,7 @@ dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer 
 dev-python/findimports 2.5.1 2.5.2: Python module import analysis tool
 dev-python/findpython 0.6.1 0.6.2: A utility to find python versions on your system
 dev-python/fitsio 1.2.3 1.2.4 1.2.5: Python library to read from and write to FITS files
-dev-python/fixtures 4.2.2: Fixtures, reusable state for writing clean tests and more
+dev-python/fixtures 4.2.2 4.2.3: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 7.1.1: A wrapper around PyFlakes, pep8 & mccabe
 dev-python/flaky 3.8.1: Plugin for pytest that automatically reruns flaky tests
 dev-python/flasgger 0.9.7.1: Easy OpenAPI specs and Swagger UI for your Flask API
@@ -8450,7 +8450,7 @@ dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.1: Google Authentication Library
 dev-python/google-i18n-address 3.1.1: Google's i18n address metadata repository
 dev-python/google-pasta 0.2.0-r2: AST-based Python refactoring library
-dev-python/googleapis-common-protos 1.66.0: Python classes generated from the common protos in the googleapis repository
+dev-python/googleapis-common-protos 1.66.0 1.67.0: Python classes generated from the common protos in the googleapis repository
 dev-python/gpep517 16: A backend script to aid installing Python packages in Gentoo
 dev-python/graph-tool 2.75 9999: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/graphviz 0.20.3: Simple Python interface for Graphviz
@@ -8735,7 +8735,7 @@ dev-python/mkdocs-git-authors-plugin 0.9.2: Mkdocs plugin to display git authors
 dev-python/mkdocs-git-revision-date-localized-plugin 1.3.0: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.2.1 1.3.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
-dev-python/mkdocs-material 9.5.50 9.6.1 9.6.2 9.6.3: A Material Design theme for MkDocs
+dev-python/mkdocs-material 9.5.50 9.6.1 9.6.2 9.6.3 9.6.4: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.3.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.8.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.1.0: Build multiple documentation folders in a single Mkdocs
@@ -8767,7 +8767,7 @@ dev-python/mygpoclient 1.10: A gpodder.net client library
 dev-python/mypy 1.13.0 1.14.0 1.14.1-r1 1.15.0: Optional static typing for Python
 dev-python/mypy-extensions 1.0.0: Type system extensions for programs checked with mypy
 dev-python/mysqlclient 2.2.6 2.2.7: Python interface to MySQL
-dev-python/myst-parser 4.0.0: Extended commonmark compliant parser, with bridges to Sphinx
+dev-python/myst-parser 4.0.0 4.0.1: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.4.0 2.5.0: Tiny and efficient C++/Python bindings
 dev-python/natsort 8.4.0: Natural sorting for Python
@@ -9126,7 +9126,7 @@ dev-python/pytest 7.4.4 8.0.2 8.1.2 8.2.2 8.3.4: Simple powerful testing with Py
 dev-python/pytest-aiohttp 1.1.0: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.25.2 0.25.3: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 8.1.0: BDD library for the pytest runner
-dev-python/pytest-check 2.4.1 2.4.2: pytest plugin that allows multiple failures per test
+dev-python/pytest-check 2.4.1 2.4.2 2.5.0: pytest plugin that allows multiple failures per test
 dev-python/pytest-click 1.1.0: Pytest plugin for Click
 dev-python/pytest-codeblocks 0.17.0: Extract code blocks from markdown
 dev-python/pytest-console-scripts 1.4.1: Pytest plugin for testing console scripts
@@ -9305,7 +9305,7 @@ dev-python/readthedocs-sphinx-ext 2.2.5: Code specific for Read the Docs and Sph
 dev-python/readtime 3.0.0: Calculates the time some text takes the average human to read
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
-dev-python/recurring-ical-events 3.4.1 3.5.0: Repeat ICalendar events by RRULE, RDATE and EXDATE
+dev-python/recurring-ical-events 3.5.0 3.5.1: Repeat ICalendar events by RRULE, RDATE and EXDATE
 dev-python/redis 5.2.1: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.35.1 0.36.2: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
@@ -9314,7 +9314,7 @@ dev-python/regex 2024.7.24 2024.9.11 2024.11.6: Alternative regular expression m
 dev-python/regress 2024.11.1-r1: Python bindings to the Rust regress crate
 dev-python/rencode 1.0.6-r3: similar to bencode from the BitTorrent project
 dev-python/reno 4.1.0: Release notes manager, storing release notes in a git repo and building docs
-dev-python/reportlab 4.2.5 4.3.0: Tools for generating printable PDF documents from any data source
+dev-python/reportlab 4.2.5 4.3.0 4.3.1: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r3: A tiny LRU cache implementation and decorator
 dev-python/requests 2.32.3: HTTP library for human beings
 dev-python/requests-cache 1.2.1: Persistent cache for requests library
@@ -9440,7 +9440,7 @@ dev-python/sphinx-bootstrap-theme 0.8.1: Sphinx theme integrates the Bootstrap C
 dev-python/sphinx-celery 2.1.3: Celery Sphinx Theme and Utilities
 dev-python/sphinx-copybutton 0.5.2: A small sphinx extension to add a "copy" button to code blocks
 dev-python/sphinx-epytext 0.0.4-r1: Sphinx epytext extension
-dev-python/sphinx-gallery 0.18.0: Sphinx extension to automatically generate an examples gallery
+dev-python/sphinx-gallery 0.18.0 0.19.0: Sphinx extension to automatically generate an examples gallery
 dev-python/sphinx-inline-tabs 2023.4.21: A sphinx extension for inline tabs
 dev-python/sphinx-issues 5.0.0: Sphinx extension for linking to your project's issue tracker
 dev-python/sphinx-lv2-theme 1.4.2: Minimal pure-CSS Sphinx theme using the LV2 plugin documentation style
@@ -9571,10 +9571,10 @@ dev-python/tpm2-pytss 2.3.0: Python bindings for TSS
 dev-python/tqdm 4.67.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
 dev-python/transitions 0.9.2: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.14.6 3.14.7: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.14.6 3.14.7 3.14.8: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.22.3-r2 0.23.0-r1 0.23.1 0.24.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 24.9.1-r1: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 4.5.3 4.6.0 4.6.1: Python library for loading and using triangular meshes
+dev-python/trimesh 4.5.3 4.6.0 4.6.1 4.6.2: Python library for loading and using triangular meshes
 dev-python/trio 0.28.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.11.1: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2025.1.15.22: Canonical source for classifiers on PyPI (pypi.org)
