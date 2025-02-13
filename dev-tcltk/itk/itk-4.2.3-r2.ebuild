@@ -18,12 +18,12 @@ SRC_URI="
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="amd64 ~arm64 ~ppc ~riscv sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm64 ~ppc ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-lang/tk-8.6:=
-	>=dev-tcltk/itcl-4.1"
+	>=dev-tcltk/itcl-4.2.4"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}-${MY_PV}"
