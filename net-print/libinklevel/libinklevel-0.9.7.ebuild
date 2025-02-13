@@ -13,22 +13,20 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="debug"
 
-DEPEND=">=sys-libs/libieee1284-0.2.11
-	virtual/libusb:1"
+DEPEND="
+	dev-libs/libxml2:=
+	virtual/libusb:1
+"
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.9.2-autoconf-2.70.patch
-)
+PATCHES=( "${FILESDIR}/${PN}-0.9.7-disable-docs.patch" )
 
 src_prepare() {
 	default
-
-	sed -i -e "/^dist_doc_DATA/d" Makefile.am \
-		|| die "Failed to disable installation of docs"
 
 	eautoreconf
 }
