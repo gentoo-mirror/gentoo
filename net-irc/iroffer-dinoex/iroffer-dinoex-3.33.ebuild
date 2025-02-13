@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PLOCALES="de en fr it"
 PLOCALE_BACKUP="en"
@@ -15,7 +15,7 @@ SRC_URI="https://iroffer.net/${P}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+admin +blowfish +chroot curl debug geoip gnutls +http +memsave ruby ssl +telnet upnp"
 
 REQUIRED_USE="
@@ -56,7 +56,7 @@ src_configure() {
 	do_configure \
 		PREFIX="${EPREFIX}/usr" \
 		CC="$(tc-getCC)" \
-		$(usex debug '-profiling' '' '' '')\
+		$(!use elibc_musl && usex debug '-profiling' '' '' '')\
 		$(usex debug '-debug' '' '' '')\
 		$(usex geoip '-geoip' '' '' '')\
 		$(usex chroot '' '-no-chroot' '' '')\
