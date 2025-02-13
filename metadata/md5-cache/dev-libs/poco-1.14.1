@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/libpcre2-10.40:= dev-libs/libutf8proc:= activerecord? ( !app-arch/arc ) avahi? ( net-dns/avahi:= ) mysql? ( dev-db/mysql-connector-c:= ) mariadb? ( dev-db/mariadb-connector-c:= ) postgres? ( dev-db/postgresql:= ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) pdf? ( media-libs/libpng:= ) sqlite? ( dev-db/sqlite:3 ) crypt? ( dev-libs/openssl:= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib:= )
+DESCRIPTION=C++ libraries for building network-based applications
+EAPI=8
+HOMEPAGE=https://pocoproject.org/
+INHERIT=cmake
+IUSE=7z activerecord avahi cppparser +crypt +data examples +file2pagecompiler iodbc mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc postgres prometheus sqlite test +util +xml +zip
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=Boost-1.0
+RDEPEND=>=dev-libs/libpcre2-10.40:= dev-libs/libutf8proc:= activerecord? ( !app-arch/arc ) avahi? ( net-dns/avahi:= ) mysql? ( dev-db/mysql-connector-c:= ) mariadb? ( dev-db/mariadb-connector-c:= ) postgres? ( dev-db/postgresql:= ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) pdf? ( media-libs/libpng:= ) sqlite? ( dev-db/sqlite:3 ) crypt? ( dev-libs/openssl:= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib:= )
+REQUIRED_USE=activerecord? ( util xml ) 7z? ( xml ) file2pagecompiler? ( pagecompiler ) iodbc? ( odbc ) mongodb? ( data ) mysql? ( data ) odbc? ( data ) postgres? ( data ) pagecompiler? ( net util xml ) pocodoc? ( cppparser util xml ) sqlite? ( data ) crypt? ( util ) test? ( data? ( sqlite ) activerecord cppparser crypt pdf prometheus xml )
+RESTRICT=!test? ( test )
+SLOT=0/111
+SRC_URI=https://github.com/pocoproject/poco/archive/poco-1.14.1-release.tar.gz -> poco-1.14.1.tar.gz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
+_md5_=8ec6033cf0c2f95f0f39e2c42adae103
