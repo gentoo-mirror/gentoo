@@ -1,14 +1,14 @@
 BDEPEND=|| ( ( dev-lang/python:3.12 dev-python/cppheaderparser[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/cppheaderparser[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/cppheaderparser[python_targets_python3_10(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/rocr-runtime dev-util/roctracer
+DEPEND==dev-libs/rocr-runtime-5* =dev-util/roctracer-5*
 DESCRIPTION=Callback/Activity Library for Performance tracing AMD GPU's
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/rocprofiler
 INHERIT=cmake python-any-r1
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-libs/rocr-runtime dev-util/roctracer
+RDEPEND==dev-libs/rocr-runtime-5* =dev-util/roctracer-5*
 SLOT=0/5.3
 SRC_URI=https://github.com/ROCm/rocprofiler/archive/rocm-5.3.3.tar.gz -> rocprofiler-5.3.3.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82
-_md5_=9c8efbc2f0a8deef7bfc614640796d10
+_md5_=a3ab9eab14b939fb3763ccc394ba4078
