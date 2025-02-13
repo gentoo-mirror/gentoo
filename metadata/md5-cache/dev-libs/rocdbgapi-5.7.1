@@ -1,6 +1,6 @@
-BDEPEND=doc? ( app-text/doxygen[dot] virtual/latex-base dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=dev-build/cmake doc? ( app-text/doxygen[dot] virtual/latex-base dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/rocm-comgr:0/5.7 dev-libs/rocr-runtime:0/5.7
+DEPEND=dev-libs/rocm-comgr:0/5.7 dev-libs/rocr-runtime:0/5.7 sys-apps/hwdata
 DESCRIPTION=AMD Debugger API
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/ROCdbgapi
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=doc
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-libs/rocm-comgr:0/5.7 dev-libs/rocr-runtime:0/5.7
+RDEPEND=dev-libs/rocm-comgr:0/5.7 dev-libs/rocr-runtime:0/5.7 sys-apps/hwdata
 SLOT=0/5.7
 SRC_URI=https://github.com/ROCm/ROCdbgapi/archive/rocm-5.7.1.tar.gz -> rocdbgapi-5.7.1.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056
-_md5_=b9a9b9473963ab037a8df0806696efbf
+_md5_=747cef977411f5aed077a16143aa5f7b
