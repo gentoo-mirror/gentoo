@@ -29,8 +29,8 @@ inherit python-any-r1 readme.gentoo-r1 rust systemd toolchain-funcs virtualx xdg
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
-PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
-PATCH_V="${PV%%\.*}-1"
+PPC64_HASH="deefc994ce2d31faf6d27f5e81782e039c663aed"
+PATCH_V="${PV%%\.*}-2"
 SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 	test? (
@@ -43,11 +43,11 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/beta"
+SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64 ~ppc64"
 fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
@@ -368,6 +368,8 @@ src_prepare() {
 		"${FILESDIR}/chromium-131-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-132-bindgen-custom-toolchain.patch"
 		"${FILESDIR}/chromium-134-qt5-optional.patch"
+		"${FILESDIR}/chromium-134-map_droppable-glibc.patch"
+		"${FILESDIR}/chromium-135-fix-non-wayland-build.patch"
 	)
 
 	shopt -s globstar nullglob
@@ -417,7 +419,12 @@ src_prepare() {
 
 	default
 
-	rm third_party/node/linux/node-linux-x64/bin/node || die
+	# Not included in -lite tarballs, but we should check for it anyway.
+	if [[ -f third_party/node/linux/node-linux-x64/bin/node ]]; then
+		rm third_party/node/linux/node-linux-x64/bin/node || die
+	else
+		mkdir -p third_party/node/linux/node-linux-x64/bin || die
+	fi
 	ln -s "${EPREFIX}"/usr/bin/node third_party/node/linux/node-linux-x64/bin/node || die
 
 	# adjust python interpreter version
