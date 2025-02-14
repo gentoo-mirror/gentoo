@@ -1,0 +1,15 @@
+BDEPEND=virtual/libusb:0 doc? ( >=app-text/doxygen-1.3.7 ) elibc_musl? ( sys-libs/fts-standalone:= ) virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare test
+DEPEND=virtual/libusb:0 doc? ( >=app-text/doxygen-1.3.7 ) elibc_musl? ( sys-libs/fts-standalone:= )
+DESCRIPTION=General-purpose library for iRiver's iFP portable audio players
+EAPI=8
+HOMEPAGE=https://ifp-driver.sourceforge.net/libifp/
+INHERIT=autotools flag-o-matic
+IUSE=doc examples static-libs
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libusb:0
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/ifp-driver/libifp-1.0.0.2.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9
+_md5_=203d218698c93db870137d99f20417b8
