@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile pretend setup
+DEFINED_PHASES=compile install pretend setup
 DEPEND=dev-libs/libaio dev-libs/libbsd dev-libs/libgcrypt:0= sys-apps/attr sys-libs/libcap sys-libs/zlib virtual/libcrypt:= apparmor? ( sys-apps/apparmor-utils sys-libs/libapparmor ) jpeg? ( media-libs/libjpeg-turbo:= ) keyutils? ( sys-apps/keyutils:= ) sctp? ( net-misc/lksctp-tools )
 DESCRIPTION=Stress test for a computer system with various selectable ways
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=dev-libs/libaio dev-libs/libbsd dev-libs/libgcrypt:0= sys-apps/attr sys-
 SLOT=0
 SRC_URI=https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.18.10.tar.gz -> stress-ng-0.18.10.tar.gz
 _eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3
-_md5_=62855beb4b6c77fda1ba8eda5e131849
+_md5_=677faebbe487a5325ffbdc9a29262934
