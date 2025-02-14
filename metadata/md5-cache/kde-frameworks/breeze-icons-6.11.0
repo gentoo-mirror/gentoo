@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.13 dev-python/lxml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lxml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lxml[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/lxml[python_targets_python3_10(-)] ) ) dev-qt/qtbase:6[gui] >=kde-frameworks/extra-cmake-modules-6.11:* test? ( app-misc/fdupes ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Breeze SVG icon theme
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake frameworks.kde.org python-any-r1 xdg
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=LGPL-3
+RDEPEND=!kde-frameworks/breeze-icons:5 !kde-frameworks/breeze-icons-rcc:5 !kde-frameworks/breeze-icons-rcc:6
+RESTRICT=!test? ( test )
+SLOT=6/6.11
+SRC_URI=mirror://kde/stable/frameworks/6.11/breeze-icons-6.11.0.tar.xz
+_eclasses_=toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	kde.org	2eea56ed41440913be4caa3d255d2db3	frameworks.kde.org	5c0c6e2dbfe1eb60271ec93601749b82	python-utils-r1	42c5abe4a656a4993a06a4fc61dbdd12	python-any-r1	6ddb5e75c10db046f89ebe39c85e1d82	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=bef3e83978aa0c0e75d8e7a5babcb2e3
