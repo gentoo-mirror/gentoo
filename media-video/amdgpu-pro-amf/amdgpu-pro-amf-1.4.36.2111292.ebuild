@@ -16,8 +16,8 @@ MY_PV_FULL="${MY_PV}-${MY_PV_REV}"
 MY_PN="amf-amdgpu-pro"
 MY_PN_ENC="libamdenc-amdgpu-pro"
 
-INTERNAL_VER="6.1.3"
-UBUNTU_VER="22.04"
+INTERNAL_VER="6.3.2"
+UBUNTU_VER="24.04"
 
 DESCRIPTION="AMD's closed source Advanced Media Framework (AMF) driver for AMD GPUs"
 HOMEPAGE="https://www.amd.com/en/support"

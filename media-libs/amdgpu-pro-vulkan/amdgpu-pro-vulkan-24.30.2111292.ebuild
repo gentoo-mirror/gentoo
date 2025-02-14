@@ -7,19 +7,18 @@ inherit unpacker
 
 MY_PV_HIGH=$(ver_cut 1)
 MY_PV_MIDDLE=$(ver_cut 2)
-MY_PV_LOW=$(ver_cut 3)
-MY_PV_REV=$(ver_cut 4)
+MY_PV_REV=$(ver_cut 3)
 
 MY_PV="${MY_PV_HIGH}.${MY_PV_MIDDLE}"
 
-INTERNAL_VER="6.1.3"
+INTERNAL_VER="6.3.2"
 
 MY_PV_FULL="${MY_PV}-${MY_PV_REV}"
 
 MY_PN="vulkan-amdgpu-pro"
 MY_LINK="https://repo.radeon.com/amdgpu/${INTERNAL_VER}/ubuntu/pool/proprietary/v/${MY_PN}"
 
-UBUNTU_VER="22.04"
+UBUNTU_VER="24.04"
 
 DESCRIPTION="AMD's closed source vulkan driver, from Radeon Software for Linux"
 HOMEPAGE="https://www.amd.com/en/support"

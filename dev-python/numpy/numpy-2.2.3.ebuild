@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -45,6 +45,7 @@ BDEPEND="
 		dev-python/charset-normalizer[${PYTHON_USEDEP}]
 		>=dev-python/hypothesis-5.8.0[${PYTHON_USEDEP}]
 		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
+		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	)
 "
@@ -183,9 +184,6 @@ python_test() {
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
 	epytest -p rerunfailures --reruns=5
-
-	# https://github.com/numpy/numpy/issues/27942
-	rm xm.np.npy || die
 }
 
 python_install_all() {
