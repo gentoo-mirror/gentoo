@@ -1,13 +1,13 @@
 BDEPEND=dev-go/gox >=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile install postinst unpack
-DESCRIPTION=The open source infrastructure as code tool
+DESCRIPTION=A tool for building, changing, and combining infrastructure safely
 EAPI=8
-HOMEPAGE=https://www.opentofu.org/
+HOMEPAGE=https://www.terraform.io/
 INHERIT=go-module
-KEYWORDS=amd64
-LICENSE=Apache-2.0 BSD BSD-2 MPL-2.0 MIT ISC
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=BUSL-1.1
 RESTRICT=test strip
 SLOT=0
-SRC_URI=https://github.com/opentofu/opentofu/archive/v1.8.8.tar.gz -> opentofu-1.8.8.tar.gz https://dev.gentoo.org/~williamh/dist/opentofu-1.8.8-deps.tar.xz
+SRC_URI=https://github.com/hashicorp/terraform/archive/v1.10.5.tar.gz -> terraform-1.10.5.tar.gz https://dev.gentoo.org/~williamh/dist/terraform-1.10.5-deps.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	df32d29550d40a92da723d3b8e17b467
-_md5_=4f903f7ced515c5bc8c0dfe94a92e560
+_md5_=d328010e8e180e397cda1ad640c25b19
