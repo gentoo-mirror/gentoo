@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=net-libs/libpcap
+DESCRIPTION=A tool to perform passive OS detection based on SYN packets
+EAPI=8
+HOMEPAGE=https://lcamtuf.coredump.cx/p0f3/
+INHERIT=edo toolchain-funcs
+IUSE=debug
+KEYWORDS=~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=LGPL-2.1
+RDEPEND=net-libs/libpcap
+SLOT=0
+SRC_URI=https://lcamtuf.coredump.cx/p0f3/releases/p0f-3.09b.tgz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=4961abac1dc52d2c94e248e8f6ed65e0
