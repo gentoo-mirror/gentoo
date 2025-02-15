@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,7 @@ S="${WORKDIR}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 RESTRICT="mirror strip test"
 
 RDEPEND="
@@ -67,16 +67,15 @@ QA_PREBUILT="*"
 src_prepare() {
 	default
 
-	# Allow launching the ONLYOFFICE on ALSA systems via
-	# media-sound/apulse
-	sed -i -e 's|\(export LD_LIBRARY_PATH=$DIR$LDLPATH\)|\1:'"${EPREFIX}"'/usr/'$(get_libdir)'/apulse|' \
+	# Allow launching the ONLYOFFICE on ALSA systems via media-sound/apulse
+	sed -i -e "/^export LD_LIBRARY_PATH=/ s|$|:${EPREFIX}/usr/$(get_libdir)/apulse|" \
 		"${S}"/usr/bin/onlyoffice-desktopeditors || die
 }
 
 src_install() {
 	domenu usr/share/applications/onlyoffice-desktopeditors.desktop
 	for size in {16,24,32,48,64,128,256}; do
-		newicon -s "${size}" opt/onlyoffice/desktopeditors/asc-de-"${size}".png onlyoffice-desktopeditors.png
+		doicon -s ${size} usr/share/icons/hicolor/${size}x${size}/apps/onlyoffice-desktopeditors.png
 	done
 
 	dobin usr/bin/desktopeditors usr/bin/onlyoffice-desktopeditors
