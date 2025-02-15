@@ -4,7 +4,7 @@
 EAPI=8
 
 PLOCALES="af ar az bg bn bs ca cs cy da de el en_AU en_GB en_ZA es et eu fa fi fr fr_CA fur gl he hi hr hu id is it ja ka ko lt lv mk mn ms mt nb ne nl pa pl pt pt_BR ro ru sa sk sl sr sv sw ta tg th tr uk ur uz vi zh_CN zh_HK zh_TW zu"
-inherit plocale qmake-utils xdg
+inherit plocale qmake-utils xdg optfeature
 
 DESCRIPTION="Lumina desktop environment"
 HOMEPAGE="https://lumina-desktop.org/"
@@ -28,8 +28,9 @@ DEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
-	x11-libs/libxcb
+	x11-libs/libXcursor
 	x11-libs/libXdamage
+	x11-libs/libxcb
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-wm
@@ -38,20 +39,24 @@ DEPEND="
 RDEPEND="${DEPEND}
 	app-admin/sysstat
 	media-sound/alsa-utils
+	sys-apps/dbus
 	sys-fs/inotify-tools
 	sys-power/acpi
 	|| (
 		x11-apps/xbacklight
 		sys-power/acpilight
 	)
+	x11-apps/xinit
+	x11-apps/xrandr
 	x11-misc/numlockx
+	x11-misc/xcompmgr
 	x11-wm/fluxbox"
 
 BDEPEND="
 	dev-qt/linguist-tools:5"
 
 PATCHES=(
-	"${FILESDIR}/1.6.1-desktop-files.patch"
+	"${FILESDIR}/desktop-files.patch"
 )
 
 DOCS=( README.md )
@@ -83,4 +88,9 @@ src_install() {
 
 	}
 	plocale_for_each_disabled_locale remove_locale
+}
+
+pkg_postinst() {
+	optfeature_header "Additional runtime features:"
+	optfeature "screensaver support" x11-misc/xscreensaver
 }
