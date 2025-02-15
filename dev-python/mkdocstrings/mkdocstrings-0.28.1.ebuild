@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,20 +20,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
-	>=dev-python/click-7.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja2-2.11.1[${PYTHON_USEDEP}]
 	>=dev-python/markdown-3.6[${PYTHON_USEDEP}]
 	>=dev-python/markupsafe-1.1[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.5[${PYTHON_USEDEP}]
-	>=dev-python/mkdocs-autorefs-1.2[${PYTHON_USEDEP}]
-	>=dev-python/platformdirs-2.2[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-autorefs-1.3[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-get-deps-0.2[${PYTHON_USEDEP}]
 	>=dev-python/pymdown-extensions-6.3[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		dev-python/markdown-exec[${PYTHON_USEDEP}]
 		dev-python/mkdocs-material[${PYTHON_USEDEP}]
-		dev-python/mkdocstrings-python[${PYTHON_USEDEP}]
+		>=dev-python/mkdocstrings-python-1.14.1[${PYTHON_USEDEP}]
 		dev-python/sphinx[${PYTHON_USEDEP}]
 	)
 "
