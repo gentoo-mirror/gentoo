@@ -12,20 +12,21 @@ declare -A GIT_CRATES=(
 	[alacritty_terminal]='https://github.com/alacritty/alacritty;5e78d20c709cb1ab8d44ca7a8702cc26d779227c;alacritty-%commit%/alacritty_terminal'
 	[async-pipe]='https://github.com/zed-industries/async-pipe-rs;82d00a04211cf4e1236029aa03e6b6ce2a74c553;async-pipe-rs-%commit%'
 	[async-stripe]='https://github.com/zed-industries/async-stripe;3672dd4efb7181aa597bf580bf5a2f5d23db6735;async-stripe-%commit%'
-	[blade-graphics]='https://github.com/kvark/blade;091a8401033847bb9b6ace3fcf70448d069621c5;blade-%commit%/blade-graphics'
-	[blade-macros]='https://github.com/kvark/blade;091a8401033847bb9b6ace3fcf70448d069621c5;blade-%commit%/blade-macros'
-	[blade-util]='https://github.com/kvark/blade;091a8401033847bb9b6ace3fcf70448d069621c5;blade-%commit%/blade-util'
+	[async-tls]='https://github.com/zed-industries/async-tls;1e759a4b5e370f87dc15e40756ac4f8815b61d9d;async-tls-%commit%'
+	[blade-graphics]='https://github.com/kvark/blade;b16f5c7bd873c7126f48c82c39e7ae64602ae74f;blade-%commit%/blade-graphics'
+	[blade-macros]='https://github.com/kvark/blade;b16f5c7bd873c7126f48c82c39e7ae64602ae74f;blade-%commit%/blade-macros'
+	[blade-util]='https://github.com/kvark/blade;b16f5c7bd873c7126f48c82c39e7ae64602ae74f;blade-%commit%/blade-util'
 	[cosmic-text]='https://github.com/pop-os/cosmic-text;542b20ca4376a3b5de5fa629db1a4ace44e18e0c;cosmic-text-%commit%'
 	[cpal]='https://github.com/zed-industries/cpal;fd8bc2fd39f1f5fdee5a0690656caff9a26d9d50;cpal-%commit%'
 	[font-kit]='https://github.com/zed-industries/font-kit;40391b7c0041d8a8572af2afa3de32ae088f0120;font-kit-%commit%'
 	[git2]='https://github.com/rust-lang/git2-rs;a3b90cb3756c1bb63e2317bf9cfa57838178de5c;git2-rs-%commit%'
 	[libgit2-sys]='https://github.com/rust-lang/git2-rs;a3b90cb3756c1bb63e2317bf9cfa57838178de5c;git2-rs-%commit%/libgit2-sys'
-	[libwebrtc]='https://github.com/zed-industries/livekit-rust-sdks;060964da10574cd9bf06463a53bf6e0769c5c45e;livekit-rust-sdks-%commit%/libwebrtc'
-	[livekit-api]='https://github.com/zed-industries/livekit-rust-sdks;060964da10574cd9bf06463a53bf6e0769c5c45e;livekit-rust-sdks-%commit%/livekit-api'
-	[livekit-protocol]='https://github.com/zed-industries/livekit-rust-sdks;060964da10574cd9bf06463a53bf6e0769c5c45e;livekit-rust-sdks-%commit%/livekit-protocol'
-	[livekit-runtime]='https://github.com/zed-industries/livekit-rust-sdks;060964da10574cd9bf06463a53bf6e0769c5c45e;livekit-rust-sdks-%commit%/livekit-runtime'
-	[livekit]='https://github.com/zed-industries/livekit-rust-sdks;060964da10574cd9bf06463a53bf6e0769c5c45e;livekit-rust-sdks-%commit%/livekit'
-	[lsp-types]='https://github.com/zed-industries/lsp-types;72357d6f6d212bdffba3b5ef4b31d8ca856058e7;lsp-types-%commit%'
+	[libwebrtc]='https://github.com/zed-industries/livekit-rust-sdks;811ceae29fabee455f110c56cd66b3f49a7e5003;livekit-rust-sdks-%commit%/libwebrtc'
+	[livekit-api]='https://github.com/zed-industries/livekit-rust-sdks;811ceae29fabee455f110c56cd66b3f49a7e5003;livekit-rust-sdks-%commit%/livekit-api'
+	[livekit-protocol]='https://github.com/zed-industries/livekit-rust-sdks;811ceae29fabee455f110c56cd66b3f49a7e5003;livekit-rust-sdks-%commit%/livekit-protocol'
+	[livekit-runtime]='https://github.com/zed-industries/livekit-rust-sdks;811ceae29fabee455f110c56cd66b3f49a7e5003;livekit-rust-sdks-%commit%/livekit-runtime'
+	[livekit]='https://github.com/zed-industries/livekit-rust-sdks;811ceae29fabee455f110c56cd66b3f49a7e5003;livekit-rust-sdks-%commit%/livekit'
+	[lsp-types]='https://github.com/zed-industries/lsp-types;1fff0dd12e2071c5667327394cfec163d2a466ab;lsp-types-%commit%'
 	[nvim-rs]='https://github.com/KillTheMule/nvim-rs;69500bae73b8b3f02a05b7bee621a0d0e633da6c;nvim-rs-%commit%'
 	[oo7]='https://github.com/zed-industries/oo7;9d5d5fcd7e4e0add9b420ffb58f67661b0b37568;oo7-%commit%/client'
 	[pet-conda]='https://github.com/microsoft/python-environment-tools;1abe5cec5ebfbe97ca71746a4cfc7fe89bddf8e0;python-environment-tools-%commit%/crates/pet-conda'
@@ -53,13 +54,14 @@ declare -A GIT_CRATES=(
 	[pet-windows-store]='https://github.com/microsoft/python-environment-tools;1abe5cec5ebfbe97ca71746a4cfc7fe89bddf8e0;python-environment-tools-%commit%/crates/pet-windows-store'
 	[pet]='https://github.com/microsoft/python-environment-tools;1abe5cec5ebfbe97ca71746a4cfc7fe89bddf8e0;python-environment-tools-%commit%/crates/pet'
 	[reqwest]='https://github.com/zed-industries/reqwest;fd110f6998da16bbca97b6dddda9be7827c50e29;reqwest-%commit%'
+	[tree-sitter-gitcommit]='https://github.com/zed-industries/tree-sitter-git-commit;88309716a69dd13ab83443721ba6e0b491d37ee9;tree-sitter-git-commit-%commit%'
 	[tree-sitter-gomod]='https://github.com/camdencheek/tree-sitter-go-mod;6efb59652d30e0e9cd5f3b3a669afd6f1a926d3c;tree-sitter-go-mod-%commit%'
 	[tree-sitter-gowork]='https://github.com/zed-industries/tree-sitter-go-work;acb0617bf7f4fda02c6217676cc64acb89536dc7;tree-sitter-go-work-%commit%'
 	[tree-sitter-heex]='https://github.com/zed-industries/tree-sitter-heex;1dd45142fbb05562e35b2040c6129c9bca346592;tree-sitter-heex-%commit%'
 	[tree-sitter-md]='https://github.com/tree-sitter-grammars/tree-sitter-markdown;9a23c1a96c0513d8fc6520972beedd419a973539;tree-sitter-markdown-%commit%'
 	[tree-sitter-yaml]='https://github.com/zed-industries/tree-sitter-yaml;baff0b51c64ef6a1fb1f8390f3ad6015b83ec13a;tree-sitter-yaml-%commit%'
-	[webrtc-sys-build]='https://github.com/zed-industries/livekit-rust-sdks;060964da10574cd9bf06463a53bf6e0769c5c45e;livekit-rust-sdks-%commit%/webrtc-sys/build'
-	[webrtc-sys]='https://github.com/zed-industries/livekit-rust-sdks;060964da10574cd9bf06463a53bf6e0769c5c45e;livekit-rust-sdks-%commit%/webrtc-sys'
+	[webrtc-sys-build]='https://github.com/zed-industries/livekit-rust-sdks;811ceae29fabee455f110c56cd66b3f49a7e5003;livekit-rust-sdks-%commit%/webrtc-sys/build'
+	[webrtc-sys]='https://github.com/zed-industries/livekit-rust-sdks;811ceae29fabee455f110c56cd66b3f49a7e5003;livekit-rust-sdks-%commit%/webrtc-sys'
 	[xim-ctext]='https://github.com/XDeme1/xim-rs;d50d461764c2213655cd9cf65a0ea94c70d3c4fd;xim-rs-%commit%/xim-ctext'
 	[xim-parser]='https://github.com/XDeme1/xim-rs;d50d461764c2213655cd9cf65a0ea94c70d3c4fd;xim-rs-%commit%/xim-parser'
 	[xim]='https://github.com/XDeme1/xim-rs;d50d461764c2213655cd9cf65a0ea94c70d3c4fd;xim-rs-%commit%'
@@ -173,7 +175,12 @@ src_prepare() {
 	local CPAL_GIT="git = \"https://github.com/zed-industries/cpal\", rev = \"${CPAL_COMMIT}\""
 	local CPAL_PATH="path = \"${WORKDIR}/cpal-${CPAL_COMMIT}\""
 
+	local ASYNC_TLS_COMMIT="1e759a4b5e370f87dc15e40756ac4f8815b61d9d"
+	local ASYNC_TLS_GIT="git = \"https://github.com/zed-industries/async-tls\", rev = \"${ASYNC_TLS_COMMIT}\""
+	local ASYNC_TLS_PATH="path = \"${WORKDIR}/async-tls-${ASYNC_TLS_COMMIT}\""
+
 	sed -e "s#${CPAL_GIT}#${CPAL_PATH}#" \
+		-e "s#${ASYNC_TLS_GIT}#${ASYNC_TLS_PATH}#" \
 		-i "${S}/Cargo.toml" || die "Cargo fetch workaround failed"
 }
 
