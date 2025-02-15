@@ -4,12 +4,12 @@ DEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/
 DESCRIPTION=3D engine based on id Software's Quake and QuakeWorld game engines
 EAPI=8
 HOMEPAGE=http://www.quakeforge.net/
-INHERIT=autotools flag-o-matic readme.gentoo-r1 toolchain-funcs
+INHERIT=autotools eapi9-ver flag-o-matic readme.gentoo-r1 toolchain-funcs
 IUSE=alsa +client debug doc flac jack ncurses oss png sdl vorbis vulkan wildmidi zlib
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=client? ( media-libs/libsamplerate net-misc/curl virtual/opengl x11-libs/libX11 x11-libs/libXext x11-libs/libXxf86vm alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) sdl? ( media-libs/libsdl[sound] ) vorbis? ( media-libs/libvorbis ) vulkan? ( media-libs/vulkan-loader ) wildmidi? ( media-sound/wildmidi ) ) ncurses? ( sys-libs/ncurses:= ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib:= )
 SLOT=0
 SRC_URI=https://github.com/quakeforge/quakeforge/archive/e799a7ae45b0ab2ad7b642953277db8ccf256cf8.tar.gz -> quakeforge-0.7.2_p20210722.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=f607fcf0a9d155c10c936a5d07f3ef19
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	14648d8795f7779e11e1bc7cf08b7536	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_md5_=f0130b3b15b938bb70e91b64ca03e1f2
