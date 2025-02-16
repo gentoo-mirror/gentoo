@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="https://download.drobilla.net/${P}.tar.xz"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 ~loong ~mips ppc ppc64 ~riscv x86"
-IUSE="doc gtk gtk2 qt5 test X"
+IUSE="doc gtk gtk2 qt6 test X"
 RESTRICT="!test? ( test )"
 
 # This could be way refined, but it's quickly a rabbit hole
@@ -27,12 +27,7 @@ RDEPEND="
 		>=x11-libs/gtk+-3.14.0:3
 		dev-libs/glib:2
 	)
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtx11extras:5
-	)
+	qt6? ( dev-qt/qtbase:6[gui,widgets,X] )
 	X? ( x11-libs/libX11 )
 "
 DEPEND="${RDEPEND}"
@@ -49,6 +44,8 @@ BDEPEND="
 
 DOCS=( AUTHORS NEWS README.md )
 
+PATCHES=( "${FILESDIR}/${P}-fix-gtk2-option.patch" )
+
 src_prepare() {
 	default
 
@@ -58,10 +55,11 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
+		-Dqt5=disabled
 		$(meson_feature doc docs)
 		$(meson_feature gtk2)
 		$(meson_feature gtk gtk3)
-		$(meson_feature qt5)
+		$(meson_feature qt6)
 		$(meson_feature test tests)
 		$(meson_feature X x11)
 	)
