@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+EPYTEST_XDIST=1
 PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 pypi
@@ -108,6 +109,12 @@ python_test() {
 		"tests/archives/test_arc.py"
 		# Error: 1002 (invalid input file)
 		"tests/archives/test_mac.py"
+		# Needs upstream changes to handle app-arch/7zip[-rar]
+		# https://github.com/wummel/patool/commit/0cd8855a27ee78d3cf283bd62750ed3e846a5e0b
+		# https://github.com/wummel/patool/commit/b2573ed8eaaadf0965ef83fee48b8ecdba0ca124
+		"tests/archives/test_7zz.py"
+	)
+	local EPYTEST_DESELECT=(
 		# Broken due mime type change for rar in file-5.46
 		# https://github.com/wummel/patool/pull/173
 		"tests/test_mime.py::TestMime::test_nested_gzip"
@@ -122,6 +129,8 @@ python_test() {
 	if use x86; then
 		EPYTEST_IGNORE+=(
 			"tests/archives/test_clzip.py"
+		)
+		EPYTEST_DESELECT+=(
 			# bug #916317
 			"tests/archives/test_lrzip.py::TestLrzip::test_lrzip"
 		)

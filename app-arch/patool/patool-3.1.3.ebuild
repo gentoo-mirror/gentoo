@@ -1,9 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+EPYTEST_XDIST=1
 PYTHON_COMPAT=( python3_{10..13} )
 
 inherit distutils-r1 pypi
@@ -13,7 +14,7 @@ HOMEPAGE="https://wummel.github.io/patool/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	test? (
@@ -32,7 +33,7 @@ BDEPEND="
 		app-arch/lzip
 		app-arch/lzop
 		app-arch/ncompress
-		app-arch/p7zip[rar]
+		app-arch/p7zip
 		app-arch/pbzip2
 		app-arch/pdlzip
 		app-arch/pigz
@@ -59,6 +60,7 @@ BDEPEND="
 		sys-apps/grep
 		!elibc_musl? ( app-arch/rar )
 		!x86? (
+			app-arch/7zip
 			app-arch/clzip
 			app-arch/lrzip
 			app-arch/unar
@@ -74,6 +76,7 @@ BDEPEND="
 # app-arch/clzip is unkeyworded on x86
 # app-arch/lrzip bug #916317 on x86
 # app-arch/unar is unkeyworded on x86
+# app-arch/7zip is unkeyworded on x86
 
 # Unpackaged testable dependencies
 # archmage
@@ -87,15 +90,13 @@ BDEPEND="
 # star
 # unalz
 # uncompress.real
-# 7zz ( app-arch/7zip:guru )
 
 distutils_enable_tests pytest
 
-src_install() {
-	distutils-r1_src_install
-
+python_install_all() {
 	einstalldocs
 	doman doc/patool.1
+	distutils-r1_python_install_all
 }
 
 python_test() {
@@ -109,6 +110,7 @@ python_test() {
 		# Error: 1002 (invalid input file)
 		"tests/archives/test_mac.py"
 	)
+	local EPYTEST_DESELECT=()
 
 	if use elibc_musl; then
 		EPYTEST_IGNORE+=(
@@ -119,6 +121,8 @@ python_test() {
 	if use x86; then
 		EPYTEST_IGNORE+=(
 			"tests/archives/test_clzip.py"
+		)
+		EPYTEST_DESELECT+=(
 			# bug #916317
 			"tests/archives/test_lrzip.py::TestLrzip::test_lrzip"
 		)
