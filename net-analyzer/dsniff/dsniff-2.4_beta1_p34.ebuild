@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools toolchain-funcs
+inherit autotools flag-o-matic toolchain-funcs
 
 MY_PV="${PV/_beta/b}"
 MY_PV="${MY_PV/_p*/}"
@@ -25,16 +25,20 @@ IUSE="X"
 # There's a berkdb configure option but we get a build failure if
 # we try to disable it. Not clear how useful the package is
 # without it anyway.
-RDEPEND="net-libs/libpcap
+RDEPEND="
+	net-libs/libpcap
 	>=net-libs/libnet-1.1.2.1-r1
 	>=net-libs/libnids-1.21
 	net-libs/libnsl:=
 	net-libs/libtirpc:=
 	dev-libs/openssl:=
 	>=sys-libs/db-4:=
-	X? ( x11-libs/libXmu )"
-DEPEND="${DEPEND}
-	net-libs/rpcsvc-proto"
+	X? ( x11-libs/libXmu )
+"
+DEPEND="
+	${DEPEND}
+	net-libs/rpcsvc-proto
+"
 # Calls rpcgen during build
 BDEPEND="net-libs/rpcsvc-proto"
 
@@ -53,6 +57,12 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #946622
+	append-flags -std=gnu17
+	# Opt_dns clash (not worth reporting/patching; we already have
+	# a huge heap of patches from Debian)
+	filter-lto
+
 	tc-export AR
 
 	econf \
