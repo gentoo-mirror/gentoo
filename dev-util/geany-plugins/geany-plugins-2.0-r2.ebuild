@@ -1,27 +1,26 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 LUA_COMPAT=( lua5-1 )
-LUA_REQ_USE="deprecated"
 
-inherit autotools flag-o-matic lua-single
+inherit autotools lua-single
 
 DESCRIPTION="A collection of different plugins for Geany"
 HOMEPAGE="https://plugins.geany.org"
-SRC_URI="https://plugins.geany.org/${PN}/${P}.tar.gz"
+SRC_URI="https://plugins.geany.org/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-IUSE="ctags debugger enchant git gpg gtkspell lua markdown nls pretty-printer scope workbench"
+IUSE="ctags debugger enchant git gpg gtkspell lua markdown nls pretty-printer scope webhelper workbench"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
 DEPEND="
 	dev-libs/glib:2
-	>=dev-util/geany-1.37[-gtk2(-)]
+	>=dev-util/geany-2.0
 	x11-libs/gtk+:3
 	ctags? ( dev-util/ctags )
 	debugger? ( x11-libs/vte:2.91 )
@@ -36,6 +35,7 @@ DEPEND="
 		)
 	pretty-printer? ( dev-libs/libxml2:2 )
 	scope? ( x11-libs/vte:2.91 )
+	webhelper? ( net-libs/webkit-gtk:4.1 )
 	workbench? ( dev-libs/libgit2:= )
 "
 RDEPEND="${DEPEND}
@@ -46,7 +46,8 @@ BDEPEND="virtual/pkgconfig
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-libgit2-1.4.patch"
+	"${FILESDIR}/${P}-gcc14.patch"
+	"${FILESDIR}/${P}-gcc15.patch"
 	"${FILESDIR}/${P}-webkit2gtk-4.1.patch"
 )
 
@@ -60,10 +61,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# -DLUA_COMPAT_OPENLIB=1 is required to enable the
-	# deprecated (in 5.1) luaL_openlib API (#878529)
-	use lua_single_target_lua5-1 && append-cppflags -DLUA_COMPAT_OPENLIB=1
-
 	local myeconfargs=(
 		--disable-cppcheck
 		--disable-extra-c-warnings
@@ -107,18 +104,13 @@ src_configure() {
 		$(use_enable pretty-printer)
 		$(use_enable scope)
 		$(use_enable enchant spellcheck)
+		$(use_enable webhelper)
 		$(use_enable workbench)
 		# GeanyGenDoc requires ctpl which isn’t yet in portage
 		--disable-geanygendoc
 		# Require libsoup-2.4 which conflicts with webkit2gtk-4.1
 		--disable-geniuspaste
 		--disable-updatechecker
-		# Require obsolete and vulnerable webkit-gtk versions
-		--disable-devhelp
-		--disable-webhelper
-		# GTK 2 only
-		--disable-geanypy
-		--disable-multiterm
 	)
 
 	econf "${myeconfargs[@]}"

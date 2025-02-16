@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit strip-linguas xdg
+inherit optfeature strip-linguas xdg
 
-LANGS="ar ast be bg ca cs de el en_GB es et eu fa fi fr gl he hi hu id it ja kk ko ku lb lt mn nl nn pl pt pt_BR ro ru sk sl sr sv tr uk vi zh_CN ZH_TW"
+LANGS="ar ast be bg ca cs de el en_GB es et eu fa fi fr gl he hi hu id it ja kk ko ku lb lt mn nl nn pl pt pt_BR ro ru si sk sl sr sv tr uk vi zh_CN ZH_TW"
 NOSHORTLANGS="en_GB zh_CN zh_TW"
 
 DESCRIPTION="GTK+ based fast and lightweight IDE"
@@ -16,7 +16,7 @@ if [[ "${PV}" = 9999* ]] ; then
 else
 	[[ "${PV}" == *_pre* ]] && inherit autotools
 	SRC_URI="https://download.geany.org/${P}.tar.bz2"
-	KEYWORDS="~alpha amd64 arm ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 fi
 LICENSE="GPL-2+ HPND"
 SLOT="0"
@@ -26,7 +26,7 @@ IUSE="+vte"
 BDEPEND="virtual/pkgconfig"
 RDEPEND="
 	>=dev-libs/glib-2.32:2
-	>=x11-libs/gtk+-3.0:3
+	>=x11-libs/gtk+-3.24:3
 	vte? ( x11-libs/vte:2.91 )
 "
 DEPEND="
@@ -34,6 +34,8 @@ DEPEND="
 	dev-util/intltool
 	sys-devel/gettext
 "
+
+PATCHES=( "${FILESDIR}/${P}-gcc15.patch" )
 
 pkg_setup() {
 	strip-linguas ${LANGS}
@@ -73,6 +75,8 @@ pkg_preinst() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+
+	optfeature "editing files outside the local filesystem" gnome-base/gvfs
 }
 
 pkg_postrm() {
