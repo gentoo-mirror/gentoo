@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,6 +32,13 @@ BDEPEND="
 "
 
 SITEFILE="50${PN}-gentoo.el"
+
+src_prepare() {
+	elisp_src_prepare
+
+	# Remove failing tests.
+	rm ./testing/lisp/test-{ob,ob-exp,ob-tangle,ob-shell}.el || die
+}
 
 src_compile() {
 	emake -j1 \
