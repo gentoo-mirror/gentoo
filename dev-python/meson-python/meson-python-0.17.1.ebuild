@@ -1,10 +1,10 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{10..13} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
 
 inherit distutils-r1
 
@@ -55,6 +55,13 @@ src_test() {
 
 python_test() {
 	unset NINJA
+
+	local EPYTEST_DESELECT=()
+	if ! has_version "dev-build/meson[${PYTHON_USEDEP}]"; then
+		EPYTEST_DESELECT+=(
+			tests/test_wheel.py::test_vendored_meson
+		)
+	fi
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest -p pytest_mock

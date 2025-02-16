@@ -1,17 +1,17 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 python3_{10..13} )
+PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
 DESCRIPTION="Simple DNS resolver for asyncio"
 HOMEPAGE="
 	https://pypi.org/project/aiodns/
-	https://github.com/saghul/aiodns/
+	https://github.com/aio-libs/aiodns/
 "
 
 LICENSE="MIT"
@@ -29,7 +29,7 @@ distutils_enable_tests pytest
 
 python_test() {
 	local EPYTEST_DESELECT=(
-		# Internet changed, https://github.com/saghul/aiodns/issues/107
+		# Internet changed, https://github.com/aio-libs/aiodns/issues/107
 		tests.py::DNSTest::test_query_bad_chars
 	)
 
