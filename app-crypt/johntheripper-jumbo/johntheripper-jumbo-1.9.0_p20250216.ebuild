@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,14 +9,13 @@ DESCRIPTION="Fast password cracker, community enhanced version"
 HOMEPAGE="http://www.openwall.com/john/"
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="https://github.com/magnumripper/JohnTheRipper.git"
+	EGIT_REPO_URI="https://github.com/openwall/john.git"
+	EGIT_BRANCH="bleeding-jumbo"
 	inherit git-r3
 else
-	HASH_COMMIT="c798c3f39215f6e08c67677eb9b79f65cfe08e40"
-
+	HASH_COMMIT="8a72b12fe6e1626ef6014e5a190b9d1f69a9edde"
 	SRC_URI="https://github.com/openwall/john/archive/${HASH_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/john-${HASH_COMMIT}"
-
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 fi
 
@@ -66,7 +65,13 @@ src_prepare() {
 src_configure() {
 	cd src || die
 
-	use custom-cflags || strip-flags
+	if ! use custom-cflags ; then
+		strip-flags
+
+		# Nasty (and incomplete) workaround for bug #729422
+		filter-flags '-march=native'
+		append-flags $(test-flags-CC '-mno-avx')
+	fi
 
 	econf \
 		--enable-pkg-config \
