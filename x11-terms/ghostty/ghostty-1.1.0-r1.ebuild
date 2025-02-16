@@ -3,10 +3,10 @@
 
 EAPI=8
 
-DESCRIPTION="Terminfo for ghostty, a fast, feature-rich, and cross-platform terminal emulator"
+DESCRIPTION="Fast, feature-rich, and cross-platform terminal emulator"
 HOMEPAGE="https://ghostty.org/ https://github.com/ghostty-org/ghostty"
 
-# NOTE: Keep in sync with x11-terms/ghostty ebuilds.
+# NOTE: Keep in sync with x11-terms/ghostty-terminfo ebuilds.
 declare -g -r -A ZBS_DEPENDENCIES=(
 	[breakpad-12207fd37bb8251919c112dcdd8f616a491857b34a451f7e4486490077206dc2a1ea.tar.gz]='https://github.com/getsentry/breakpad/archive/b99f444ba5f6b98cac261cbb391d8766b34a5918.tar.gz'
 	[fontconfig-12201149afb3326c56c05bb0a577f54f76ac20deece63aa2f5cd6ff31a4fa4fcb3b7.tar.gz]='https://deps.files.ghostty.org/fontconfig-2.14.2.tar.gz'
@@ -48,41 +48,78 @@ declare -g -r -A ZBS_DEPENDENCIES=(
 )
 
 ZIG_SLOT="0.13"
-inherit zig
+ZIG_NEEDS_LLVM=1
+inherit zig xdg
 
 SRC_URI="
 	https://release.files.ghostty.org/${PV}/ghostty-${PV}.tar.gz
 	${ZBS_DEPENDENCIES_SRC_URI}
 "
-S="${WORKDIR}/${P/-terminfo/}"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0 BSD BSD-2 BSD-4 Boost-1.0 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="!>=sys-libs/ncurses-6.5_p20250118[-minimal]"
-BDEPEND="sys-libs/ncurses"
+# TODO: simdutf integration (missing Gentoo version)
+# TODO: spirv-cross integration (missing Gentoo package)
+COMMON_DEPEND="
+	>=dev-libs/oniguruma-6.9.9:=
+	>=dev-util/glslang-1.3.296.0:=
+	gui-libs/gtk:4=[X?]
+	>=media-libs/fontconfig-2.14.2:=
+	>=media-libs/freetype-2.13.2:=[bzip2,harfbuzz,png]
+	>=media-libs/harfbuzz-8.4.0:=[truetype]
+	X? ( x11-libs/libX11 )
+	adwaita? ( gui-libs/libadwaita:1= )
+"
+DEPEND="${COMMON_DEPEND}"
+RDEPEND="
+	${COMMON_DEPEND}
+	~x11-terms/ghostty-terminfo-${PV}
+"
+BDEPEND="
+	man? ( virtual/pandoc )
+"
+
+IUSE="+X +adwaita man"
+
+# XXX: Because we set --release=fast below, Zig will automatically strip
+#      the binary. Until Ghostty provides a way to disable the banner while
+#      having debug symbols we have ignore pre-stripped file warnings.
+QA_PRESTRIPPED="usr/bin/ghostty"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.1.0-build-add-a-step-for-only-building-terminfo.patch
+	"${FILESDIR}"/${PN}-1.1.0-bzip2-dependency.patch
+	"${FILESDIR}"/${PN}-1.1.0-build-disable-terminfo-database-installation.patch
 )
-
-RESTRICT="test"
 
 src_configure() {
 	local my_zbs_args=(
+		# XXX: Ghostty displays a banner saying it is a debug build unless ReleaseFast is used.
+		--release=fast
+
+		-Dapp-runtime=gtk
+		-Dfont-backend=fontconfig_freetype
+		-Drenderer=opengl
+		-Dgtk-adwaita=$(usex adwaita true false)
+		-Dgtk-x11=$(usex X true false)
+		-Demit-docs=$(usex man true false)
+		-Dversion-string="${PV}"
 		-Demit-terminfo=false
 		-Demit-termcap=false
+
+		-fsys=fontconfig
+		-fsys=freetype
+		-fsys=glslang
+		-fsys=harfbuzz
+		-fsys=libpng
+		-fsys=oniguruma
+		-fsys=zlib
+
+		# See TODO above COMMON_DEPEND
+		-fno-sys=simdutf
+		-fno-sys=spirv-cross
 	)
 
 	zig_src_configure
-}
-
-src_compile() {
-	:
-}
-
-src_install() {
-	DESTDIR="${D}" nonfatal ezig build terminfo "${ZBS_ARGS[@]}" \
-		|| die "Failed to compile terminfo database"
 }
