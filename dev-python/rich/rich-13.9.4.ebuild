@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{10..13} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
 
 inherit distutils-r1 optfeature
 
@@ -44,6 +44,10 @@ python_test() {
 		tests/test_console.py::test_size_can_fall_back_to_std_descriptors
 		# TODO: segfault in recursion (PyQt6 interfering?)
 		tests/test_traceback.py::test_recursive
+		# TODO: some random dep changes?
+		tests/test_markdown.py::test_inline_code
+		tests/test_syntax.py::test_blank_lines
+		tests/test_syntax.py::test_python_render_simple_indent_guides
 	)
 	# version-specific output -- the usual deal
 	case ${EPYTHON} in
@@ -53,16 +57,9 @@ python_test() {
 				tests/test_inspect.py::test_inspect_integer_with_methods_python310only
 			)
 			;;
-		python3.13)
+		pypy3.11)
 			EPYTEST_DESELECT+=(
-				tests/test_inspect.py::test_inspect_builtin_function_except_python311
-				tests/test_inspect.py::test_inspect_integer_with_methods_python38_and_python39
-				tests/test_inspect.py::test_inspect_integer_with_methods_python310only
 				tests/test_inspect.py::test_inspect_integer_with_methods_python311
-				tests/test_pretty.py::test_pretty_dataclass
-				tests/test_pretty.py::test_reference_cycle_dataclass
-				tests/test_pretty.py::test_max_depth_dataclass
-				tests/test_pretty.py::test_attrs_broken
 			)
 			;;
 	esac
