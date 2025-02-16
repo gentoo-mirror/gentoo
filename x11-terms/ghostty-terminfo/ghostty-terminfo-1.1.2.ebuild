@@ -3,20 +3,21 @@
 
 EAPI=8
 
-DESCRIPTION="Fast, feature-rich, and cross-platform terminal emulator"
+DESCRIPTION="Terminfo for ghostty, a fast, feature-rich, and cross-platform terminal emulator"
 HOMEPAGE="https://ghostty.org/ https://github.com/ghostty-org/ghostty"
 
-# NOTE: Keep in sync with x11-terms/ghostty-terminfo ebuilds.
+# NOTE: Keep in sync with x11-terms/ghostty ebuilds.
 declare -g -r -A ZBS_DEPENDENCIES=(
 	[breakpad-12207fd37bb8251919c112dcdd8f616a491857b34a451f7e4486490077206dc2a1ea.tar.gz]='https://github.com/getsentry/breakpad/archive/b99f444ba5f6b98cac261cbb391d8766b34a5918.tar.gz'
 	[fontconfig-12201149afb3326c56c05bb0a577f54f76ac20deece63aa2f5cd6ff31a4fa4fcb3b7.tar.gz]='https://deps.files.ghostty.org/fontconfig-2.14.2.tar.gz'
 	[freetype-1220b81f6ecfb3fd222f76cf9106fecfa6554ab07ec7fdc4124b9bb063ae2adf969d.tar.gz]='https://github.com/freetype/freetype/archive/refs/tags/VER-2-13-2.tar.gz'
 	[glfw-1220736fa4ba211162c7a0e46cc8fe04d95921927688bff64ab5da7420d098a7272d.tar.gz]='https://github.com/mitchellh/glfw/archive/b552c6ec47326b94015feddb36058ea567b87159.tar.gz'
 	[glslang-12201278a1a05c0ce0b6eb6026c65cd3e9247aa041b1c260324bf29cee559dd23ba1.tar.gz]='https://github.com/KhronosGroup/glslang/archive/refs/tags/14.2.0.tar.gz'
+	[gobject-12208d70ee791d7ef7e16e1c3c9c1127b57f1ed066a24f87d57fc9f730c5dc394b9d.tar.zst]='https://github.com/ianprime0509/zig-gobject/releases/download/v0.2.2/bindings-gnome47.tar.zst'
 	[harfbuzz-1220b8588f106c996af10249bfa092c6fb2f35fbacb1505ef477a0b04a7dd1063122.tar.gz]='https://github.com/harfbuzz/harfbuzz/archive/refs/tags/8.4.0.tar.gz'
 	[highway-12205c83b8311a24b1d5ae6d21640df04f4b0726e314337c043cde1432758cbe165b.tar.gz]='https://github.com/google/highway/archive/refs/tags/1.1.0.tar.gz'
 	[imgui-1220bc6b9daceaf7c8c60f3c3998058045ba0c5c5f48ae255ff97776d9cd8bfc6402.tar.gz]='https://github.com/ocornut/imgui/archive/e391fe2e66eb1c96b1624ae8444dc64c23146ef4.tar.gz'
-	[iterm2_themes-12204fc99743d8232e691ac22e058519bfc6ea92de4a11c6dba59b117531c847cd6a.tar.gz]='https://github.com/mbadolato/iTerm2-Color-Schemes/archive/0e23daf59234fc892cba949562d7bf69204594bb.tar.gz'
+	[iterm2_themes-12203d2647e5daf36a9c85b969e03f422540786ce9ea624eb4c26d204fe1f46218f3.tar.gz]='https://github.com/mbadolato/iTerm2-Color-Schemes/archive/db227d159adc265818f2e898da0f70ef8d7b580e.tar.gz'
 	[libpng-1220aa013f0c83da3fb64ea6d327f9173fa008d10e28bc9349eac3463457723b1c66.tar.gz]='https://github.com/pnggroup/libpng/archive/refs/tags/v1.6.43.tar.gz'
 	[libxev-1220ebf88622c4d502dc59e71347e4d28c47e033f11b59aff774ae5787565c40999c.tar.gz]='https://github.com/mitchellh/libxev/archive/31eed4e337fed7b0149319e5cdbb62b848c24fbd.tar.gz'
 	[libxml2-122032442d95c3b428ae8e526017fad881e7dc78eab4d558e9a58a80bfbd65a64f7d.tar.gz]='https://github.com/GNOME/libxml2/archive/refs/tags/v2.11.5.tar.gz'
@@ -40,7 +41,7 @@ declare -g -r -A ZBS_DEPENDENCIES=(
 	[zf-1220edc3b8d8bedbb50555947987e5e8e2f93871ca3c8e8d4cc8f1377c15b5dd35e8.tar.gz]='https://github.com/natecraddock/zf/archive/ed99ca18b02dda052e20ba467e90b623c04690dd.tar.gz'
 	[zg-122055beff332830a391e9895c044d33b15ea21063779557024b46169fb1984c6e40.tar.gz]='https://codeberg.org/atman/zg/archive/v0.13.2.tar.gz'
 	[zig-objc-1220e17e64ef0ef561b3e4b9f3a96a2494285f2ec31c097721bf8c8677ec4415c634.tar.gz]='https://github.com/mitchellh/zig-objc/archive/9b8ba849b0f58fe207ecd6ab7c147af55b17556e.tar.gz'
-	[zig-wayland-12209ca054cb1919fa276e328967f10b253f7537c4136eb48f3332b0f7cf661cad38.tar.gz]='https://codeberg.org/ifreund/zig-wayland/archive/fbfe3b4ac0b472a27b1f1a67405436c58cbee12d.tar.gz'
+	[zig-wayland-12209ca054cb1919fa276e328967f10b253f7537c4136eb48f3332b0f7cf661cad38.tar.gz]='https://deps.files.ghostty.org/zig-wayland-fbfe3b4ac0b472a27b1f1a67405436c58cbee12d.tar.gz'
 	[zig_js-12205a66d423259567764fa0fc60c82be35365c21aeb76c5a7dc99698401f4f6fefc.tar.gz]='https://github.com/mitchellh/zig-js/archive/d0b8b0a57c52fbc89f9d9fecba75ca29da7dd7d1.tar.gz'
 	[zigimg-1220dd654ef941fc76fd96f9ec6adadf83f69b9887a0d3f4ee5ac0a1a3e11be35cf5.tar.gz]='https://github.com/zigimg/zigimg/archive/3a667bdb3d7f0955a5a51c8468eac83210c1439e.tar.gz'
 	[ziglyph-12207831bce7d4abce57b5a98e8f3635811cfefd160bca022eb91fe905d36a02cf25.tar.gz]='https://deps.files.ghostty.org/ziglyph-b89d43d1e3fb01b6074bc1f7fc980324b04d26a5.tar.gz'
@@ -48,78 +49,61 @@ declare -g -r -A ZBS_DEPENDENCIES=(
 )
 
 ZIG_SLOT="0.13"
-ZIG_NEEDS_LLVM=1
-inherit zig xdg
+inherit zig
 
 SRC_URI="
 	https://release.files.ghostty.org/${PV}/ghostty-${PV}.tar.gz
 	${ZBS_DEPENDENCIES_SRC_URI}
 "
+S="${WORKDIR}/${P/-terminfo/}"
 
-LICENSE="Apache-2.0 BSD BSD-2 BSD-4 Boost-1.0 MIT MPL-2.0"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="symlink"
+# Tests are run on the main Ghostty package.
+RESTRICT="test"
 
-# TODO: simdutf integration (missing Gentoo version)
-# TODO: spirv-cross integration (missing Gentoo package)
-COMMON_DEPEND="
-	>=dev-libs/oniguruma-6.9.9:=
-	>=dev-util/glslang-1.3.296.0:=
-	gui-libs/gtk:4=[X?]
-	>=media-libs/fontconfig-2.14.2:=
-	>=media-libs/freetype-2.13.2:=[bzip2,harfbuzz,png]
-	>=media-libs/harfbuzz-8.4.0:=[truetype]
-	X? ( x11-libs/libX11 )
-	adwaita? ( gui-libs/libadwaita:1= )
-"
-DEPEND="${COMMON_DEPEND}"
 RDEPEND="
-	${COMMON_DEPEND}
-	~x11-terms/ghostty-terminfo-${PV}
+	!<x11-terms/ghostty-1.1.0-r1
+	symlink? (
+		!>=sys-libs/ncurses-6.5_p20250118[-minimal]
+		|| (
+			<sys-libs/ncurses-6.5_p20250118
+			>=sys-libs/ncurses-6.5_p20250118[minimal]
+		)
+	)
+	!symlink? (
+		>=sys-libs/ncurses-6.5_p20250118[-minimal]
+	)
 "
-BDEPEND="
-	man? ( virtual/pandoc )
-"
-
-IUSE="+X +adwaita man"
-
-# XXX: Because we set --release=fast below, Zig will automatically strip
-#      the binary. Until Ghostty provides a way to disable the banner while
-#      having debug symbols we have ignore pre-stripped file warnings.
-QA_PRESTRIPPED="usr/bin/ghostty"
+BDEPEND="sys-libs/ncurses"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.1.0-bzip2-dependency.patch
-	"${FILESDIR}"/${PN}-1.1.0-build-disable-terminfo-database-installation.patch
+	"${FILESDIR}"/${PN}-1.1.0-build-add-a-step-for-only-building-terminfo.patch
 )
 
 src_configure() {
 	local my_zbs_args=(
-		# XXX: Ghostty displays a banner saying it is a debug build unless ReleaseFast is used.
-		--release=fast
-
-		-Dapp-runtime=gtk
-		-Dfont-backend=fontconfig_freetype
-		-Drenderer=opengl
-		-Dgtk-adwaita=$(usex adwaita true false)
-		-Dgtk-x11=$(usex X true false)
-		-Demit-docs=$(usex man true false)
-		-Dversion-string="${PV}"
 		-Demit-terminfo=false
 		-Demit-termcap=false
-
-		-fsys=fontconfig
-		-fsys=freetype
-		-fsys=glslang
-		-fsys=harfbuzz
-		-fsys=libpng
-		-fsys=oniguruma
-		-fsys=zlib
-
-		# See TODO above COMMON_DEPEND
-		-fno-sys=simdutf
-		-fno-sys=spirv-cross
 	)
 
 	zig_src_configure
+}
+
+src_compile() {
+	:
+}
+
+src_install() {
+	DESTDIR="${D}" nonfatal ezig build terminfo "${ZBS_ARGS[@]}" \
+		|| die "Failed to compile terminfo database"
+
+	# Newer ncurses versions have a "ghostty" terminfo entry which
+	# collides with the "ghostty" symlink that is installed by default,
+	# but only when USE=-minimal. Remove the symlink in that case.
+	if ! use symlink; then
+		rm -rf "${ED}/usr/share/terminfo/g" || die
+	fi
 }
