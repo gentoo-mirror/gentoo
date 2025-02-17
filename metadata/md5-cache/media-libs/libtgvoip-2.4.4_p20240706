@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20240116 sys-devel/gnuconfig || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/openssl:= media-libs/opus alsa? ( media-libs/alsa-lib ) dsp? ( media-libs/tg_owt:= ) pulseaudio? ( media-libs/libpulse )
 DESCRIPTION=VoIP library for Telegram clients
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/openssl:= media-libs/opus alsa? ( media-libs/alsa-lib ) dsp? ( 
 REQUIRED_USE=|| ( alsa pulseaudio )
 SLOT=0
 SRC_URI=https://github.com/telegramdesktop/libtgvoip/archive/2d2592860478e60d972b96e67ee034b8a71bb57a.tar.gz -> libtgvoip-2.4.4_p20240706.tar.gz
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	7d91cc798a8afd8f4e0c6e9587296ebe
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	03ea4e0b6b685afdc980f00a43ea5d12
 _md5_=dddc8dca4675c2380449fd0aa77f2969
