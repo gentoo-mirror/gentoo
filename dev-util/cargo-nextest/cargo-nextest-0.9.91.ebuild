@@ -41,7 +41,7 @@ CRATES="
 	bstr@1.11.3
 	bumpalo@3.16.0
 	byteorder@1.5.0
-	bytes@1.9.0
+	bytes@1.10.0
 	camino-tempfile@1.1.1
 	camino@1.1.9
 	cargo-platform@0.1.9
@@ -51,14 +51,14 @@ CRATES="
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	chrono@0.4.39
-	clap@4.5.26
-	clap_builder@4.5.26
-	clap_derive@4.5.24
+	clap@4.5.29
+	clap_builder@4.5.29
+	clap_derive@4.5.28
 	clap_lex@0.7.4
 	color-eyre@0.6.3
 	color-spantrace@0.2.1
 	colorchoice@1.0.3
-	config@0.15.6
+	config@0.15.8
 	console-api@0.8.1
 	console-subscriber@0.4.1
 	console@0.15.8
@@ -90,7 +90,6 @@ CRATES="
 	enable-ansi-support@0.2.1
 	encode_unicode@0.3.6
 	equivalent@1.0.1
-	erased-serde@0.4.5
 	errno@0.3.9
 	escape8259@0.5.3
 	eyre@0.6.12
@@ -98,14 +97,14 @@ CRATES="
 	fastrand@2.1.1
 	fiat-crypto@0.2.9
 	filetime@0.2.25
-	fixedbitset@0.4.2
+	fixedbitset@0.5.7
 	flate2@1.0.34
 	fnv@1.0.7
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.1
-	fs-err@3.0.0
-	future-queue@0.3.0
+	fs-err@3.1.0
+	future-queue@0.4.0
 	futures-channel@0.3.31
 	futures-core@0.3.31
 	futures-executor@0.3.31
@@ -120,7 +119,7 @@ CRATES="
 	gimli@0.28.1
 	globset@0.4.15
 	guppy-workspace-hack@0.1.0
-	guppy@0.17.12
+	guppy@0.17.14
 	h2@0.4.6
 	hashbrown@0.12.3
 	hashbrown@0.15.2
@@ -149,10 +148,10 @@ CRATES="
 	indent_write@2.2.0
 	indenter@0.3.3
 	indexmap@1.9.3
-	indexmap@2.7.0
-	indicatif@0.17.9
+	indexmap@2.7.1
+	indicatif@0.17.11
 	indoc@2.0.5
-	insta@1.42.0
+	insta@1.42.1
 	ipnet@2.10.1
 	is_ci@1.2.0
 	is_terminal_polyfill@1.70.1
@@ -168,13 +167,13 @@ CRATES="
 	linked-hash-map@0.5.6
 	linux-raw-sys@0.4.14
 	lock_api@0.4.12
-	log@0.4.24
+	log@0.4.25
 	maplit@1.0.2
 	matchers@0.1.0
 	matchit@0.7.3
 	memchr@2.7.4
-	miette-derive@7.4.0
-	miette@7.4.0
+	miette-derive@7.5.0
+	miette@7.5.0
 	mime@0.3.17
 	minimal-lexical@0.2.1
 	miniz_oxide@0.7.4
@@ -190,11 +189,11 @@ CRATES="
 	num_threads@0.1.7
 	number_prefix@0.4.0
 	object@0.32.2
-	once_cell@1.20.2
+	once_cell@1.20.3
 	openssl-macros@0.1.1
 	openssl-probe@0.1.5
-	openssl-sys@0.9.104
-	openssl@0.10.68
+	openssl-sys@0.9.105
+	openssl@0.10.70
 	os_pipe@1.2.1
 	owo-colors@3.5.0
 	owo-colors@4.1.0
@@ -202,7 +201,7 @@ CRATES="
 	parking_lot_core@0.9.10
 	pathdiff@0.2.3
 	percent-encoding@2.3.1
-	petgraph@0.6.5
+	petgraph@0.7.1
 	pin-project-internal@1.1.7
 	pin-project-lite@0.2.16
 	pin-project@1.1.7
@@ -219,7 +218,6 @@ CRATES="
 	prost@0.13.3
 	quick-error@1.2.3
 	quick-junit@0.5.1
-	quick-xml@0.23.1
 	quick-xml@0.37.1
 	quinn-proto@0.11.8
 	quinn-udp@0.5.5
@@ -249,20 +247,19 @@ CRATES="
 	rustls@0.23.19
 	rustversion@1.0.18
 	rusty-fork@0.3.0
-	ryu@1.0.18
+	ryu@1.0.19
 	same-file@1.0.6
 	schannel@0.1.26
 	scopeguard@1.2.0
 	security-framework-sys@2.12.0
 	security-framework@2.11.1
 	self-replace@1.5.0
-	self_update@0.41.0
-	semver@1.0.24
+	self_update@0.42.0
+	semver@1.0.25
 	serde@1.0.217
 	serde_derive@1.0.217
-	serde_fmt@1.0.3
 	serde_ignored@0.1.10
-	serde_json@1.0.135
+	serde_json@1.0.138
 	serde_path_to_error@0.1.16
 	serde_spanned@0.6.8
 	serde_urlencoded@0.7.1
@@ -291,22 +288,14 @@ CRATES="
 	supports-color@3.0.2
 	supports-hyperlinks@3.0.0
 	supports-unicode@3.0.0
-	sval@2.13.2
-	sval_buffer@2.13.2
-	sval_dynamic@2.13.2
-	sval_fmt@2.13.2
-	sval_json@2.13.2
-	sval_nested@2.13.2
-	sval_ref@2.13.2
-	sval_serde@2.13.2
 	swrite@0.1.0
-	syn@2.0.96
+	syn@2.0.98
 	sync_wrapper@0.1.2
 	sync_wrapper@1.0.1
 	tar@0.4.43
 	target-lexicon@0.12.16
 	target-spec-miette@0.4.4
-	target-spec@3.3.1
+	target-spec@3.4.0
 	tempfile@3.13.0
 	terminal_size@0.4.0
 	test-case-core@3.3.1
@@ -327,9 +316,9 @@ CRATES="
 	tokio-stream@0.1.17
 	tokio-util@0.7.12
 	tokio@1.43.0
-	toml@0.8.19
+	toml@0.8.20
 	toml_datetime@0.6.8
-	toml_edit@0.22.22
+	toml_edit@0.22.24
 	tonic@0.12.3
 	tower-layer@0.3.3
 	tower-service@0.3.3
@@ -342,11 +331,10 @@ CRATES="
 	tracing-subscriber@0.3.19
 	tracing@0.1.41
 	try-lock@0.2.5
-	typeid@1.0.2
 	typenum@1.17.0
 	unarray@0.1.4
 	unicase@2.8.0
-	unicode-ident@1.0.14
+	unicode-ident@1.0.16
 	unicode-linebreak@0.1.5
 	unicode-normalization@0.1.24
 	unicode-width@0.1.14
@@ -358,9 +346,6 @@ CRATES="
 	utf8parse@0.2.2
 	uuid@1.11.0
 	valuable@0.1.0
-	value-bag-serde1@1.10.0
-	value-bag-sval2@1.10.0
-	value-bag@1.10.0
 	vcpkg@0.2.15
 	version_check@0.9.5
 	vte@0.14.1
@@ -379,7 +364,7 @@ CRATES="
 	web-time@1.1.0
 	webpki-roots@0.26.6
 	whoami@1.5.2
-	win32job@2.0.0
+	win32job@2.0.1
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.9
 	winapi-x86_64-pc-windows-gnu@0.4.0
@@ -408,7 +393,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.42.2
 	windows_x86_64_msvc@0.52.6
-	winnow@0.6.24
+	winnow@0.7.2
 	xattr@1.3.1
 	xxhash-rust@0.8.15
 	yansi@1.0.1
@@ -447,7 +432,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QA_FLAGS_IGNORED="usr/bin/cargo-nextest"
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 pkg_setup() {
 	export OPENSSL_NO_VENDOR=1
