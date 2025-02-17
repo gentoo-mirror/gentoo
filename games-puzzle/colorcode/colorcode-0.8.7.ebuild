@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN=ColorCode
 inherit desktop qmake-utils
@@ -9,6 +9,7 @@ inherit desktop qmake-utils
 DESCRIPTION="Free advanced MasterMind clone"
 HOMEPAGE="http://colorcode.laebisch.com/"
 SRC_URI="http://${PN}.laebisch.com/download/${MY_PN}-${PV}.tar.gz"
+S="${WORKDIR}/${MY_PN}-${PV}/src"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -21,8 +22,6 @@ DEPEND="
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_prepare() {
 	default
