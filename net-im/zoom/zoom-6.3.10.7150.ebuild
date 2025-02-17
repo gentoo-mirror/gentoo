@@ -34,6 +34,7 @@ RDEPEND="zoom-symlink? ( !games-engines/zoom )
 	sys-apps/util-linux
 	sys-libs/glibc
 	sys-libs/zlib
+	virtual/libudev
 	virtual/opengl
 	x11-libs/cairo
 	x11-libs/libdrm
@@ -127,7 +128,6 @@ src_install() {
 			x-scheme-handler/zoommtg \
 			x-scheme-handler/zoomus \
 			application/x-zoom)"
-	mv "${ED}"/usr/share/applications/{ZoomLauncher-,}zoom.desktop || die
 	doicon videoconference-zoom.svg
 	doicon -s scalable videoconference-zoom.svg
 
