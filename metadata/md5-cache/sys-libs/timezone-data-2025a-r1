@@ -1,5 +1,5 @@
 BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip )
-DEFINED_PHASES=compile config configure install postinst preinst prepare test unpack
+DEFINED_PHASES=compile config configure install postinst prepare test unpack
 DEPEND=nls? ( virtual/libintl )
 DESCRIPTION=Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=nls? ( virtual/libintl ) !sys-libs/glibc[vanilla(+)]
 SLOT=0
 SRC_URI=https://data.iana.org/time-zones/releases/tzdb-2025a.tar.lz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	fb4b84181244b3b9990fa0bf40232dd2
-_md5_=a7ce5efe3b868af2950b0095b821de06
+_md5_=474b61ce4abff62e1c6072ece3fb00fa
