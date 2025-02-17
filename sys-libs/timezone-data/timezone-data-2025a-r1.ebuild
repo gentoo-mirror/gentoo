@@ -107,31 +107,6 @@ src_install() {
 	dodoc CONTRIBUTING README NEWS *.html
 }
 
-get_TIMEZONE() {
-	local tz src="${EROOT}/etc/timezone"
-	if [[ -e ${src} ]] ; then
-		tz=$(sed -e 's:#.*::' -e 's:[[:space:]]*::g' -e '/^$/d' "${src}")
-	else
-		tz="FOOKABLOIE"
-	fi
-
-	[[ -z ${tz} ]] && return 1 || echo "${tz}"
-}
-
-pkg_preinst() {
-	local tz=$(get_TIMEZONE)
-	if [[ ${tz} == right/* || ${tz} == posix/* ]] ; then
-		eerror "The right & posix subdirs are no longer installed as subdirs -- they have been"
-		eerror "relocated to match upstream paths as sibling paths.  Further, posix/xxx is the"
-		eerror "same as xxx, so you should simply drop the posix/ prefix.  You also should not"
-		eerror "be using right/xxx for the system timezone as it breaks programs."
-		die "Please fix your timezone setting"
-	fi
-
-	# Trim the symlink by hand to avoid portage's automatic protection checks.
-	rm -f "${EROOT}"/usr/share/zoneinfo/posix
-}
-
 configure_tz_data() {
 	# Make sure the /etc/localtime file does not get stale, bug #127899
 	local tz src="${EROOT}/etc/timezone" etc_lt="${EROOT}/etc/localtime"
@@ -139,17 +114,23 @@ configure_tz_data() {
 	# If it's a symlink, assume the user knows what they're doing and
 	# they're managing it themselves, bug #511474
 	if [[ -L "${etc_lt}" ]] ; then
-		einfo "Assuming your ${etc_lt} symlink is what you want; skipping update."
+		einfo "Skipping update: ${etc_lt} is a symlink."
+		if [[ -e ${src} ]]; then
+			einfo "Removing ${src}."
+			rm "${src}"
+		fi
 		return 0
 	fi
 
-	if ! tz=$(get_TIMEZONE) ; then
-		einfo "Assuming your empty ${src} file is what you want; skipping update."
+	if [[ ! -e ${src} ]] ; then
+		einfo "Skipping update: ${src} does not exist."
 		return 0
 	fi
 
-	if [[ "${tz}" == "FOOKABLOIE" ]] ; then
-		einfo "You do not have a timezone set in ${src}; skipping update."
+	tz=$(sed -e 's:#.*::' -e 's:[[:space:]]*::g' -e '/^$/d' "${src}")
+
+	if [[ -z ${tz} ]]; then
+		einfo "Skipping update: ${src} is empty."
 		return 0
 	fi
 
@@ -164,7 +145,7 @@ configure_tz_data() {
 		# If a regular file already exists, copy over it.
 		ewarn "Found a regular file at ${etc_lt}."
 		ewarn "Some software may expect a symlink instead."
-		ewarn "You may convert it to a symlink by removing the file and running:"
+		ewarn "Convert it to a symlink by removing the file and running:"
 		ewarn "  emerge --config sys-libs/timezone-data"
 		einfo "Copying ${tzpath} to ${etc_lt}."
 		cp -f "${tzpath}" "${etc_lt}"
