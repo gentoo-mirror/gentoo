@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_TESTED=( python3_{10..13} pypy3 )
+PYTHON_TESTED=( python3_{10..13} pypy3 pypy3_11 )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
 PYTHON_REQ_USE="threads(+)"
 
@@ -41,9 +41,7 @@ RDEPEND="
 		dev-python/pyasn1[${PYTHON_USEDEP}]
 	)
 	http2? (
-		<dev-python/h2-5.0[${PYTHON_USEDEP}]
 		>=dev-python/h2-3.2[${PYTHON_USEDEP}]
-		<dev-python/priority-2.0[${PYTHON_USEDEP}]
 		>=dev-python/priority-1.1.0[${PYTHON_USEDEP}]
 	)
 	serial? (

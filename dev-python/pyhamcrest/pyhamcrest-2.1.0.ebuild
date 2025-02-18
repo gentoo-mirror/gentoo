@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3 python3_{10..13} )
+PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
 
 inherit distutils-r1
 
@@ -34,6 +34,17 @@ distutils_enable_sphinx doc \
 distutils_enable_tests pytest
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+
+python_test() {
+	local EPYTEST_DESELECT=(
+		# removed in numpy 2.0, https://github.com/hamcrest/PyHamcrest/pull/248
+		tests/hamcrest_unit_test/number/iscloseto_test.py::IsNumericTest::test_numpy_numeric_type_complex
+		tests/hamcrest_unit_test/number/iscloseto_test.py::IsNumericTest::test_numpy_numeric_type_float
+	)
+
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest
+}
 
 python_install_all() {
 	use examples && dodoc -r examples
