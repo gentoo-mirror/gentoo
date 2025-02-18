@@ -75,7 +75,7 @@ python_prepare_all() {
 	local PATCHES=(
 		"${FILESDIR}/pip-23.1-no-coverage.patch"
 		# prepare to unbundle dependencies
-		"${FILESDIR}/pip-24.1-unbundle.patch"
+		"${FILESDIR}/pip-25.0.1-unbundle.patch"
 	)
 
 	distutils-r1_python_prepare_all
@@ -106,6 +106,11 @@ python_compile_all() {
 }
 
 python_test() {
+	if ! has "${EPYTHON}" "${PYTHON_TESTED[@]/_/.}"; then
+		einfo "Skipping tests on ${EPYTHON}"
+		return 0
+	fi
+
 	local EPYTEST_DESELECT=(
 		tests/functional/test_inspect.py::test_inspect_basic
 		# Internet
