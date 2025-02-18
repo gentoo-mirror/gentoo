@@ -13,7 +13,8 @@ DESCRIPTION="Personal finances manager, aiming at being simple and intuitive"
 HOMEPAGE="https://skrooge.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz
+		https://dev.gentoo.org/~asturm/distfiles/${P}-patchset.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -25,13 +26,14 @@ IUSE="activities kde ofx"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	>=app-crypt/qca-2.3.9:2[qt6(-)]
+	>=app-crypt/qca-2.3.9:2[qt6(+)]
 	dev-db/sqlcipher
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-frameworks/karchive-${KFMIN}:6
+	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -46,6 +48,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifyconfig-${KFMIN}:6
 	>=kde-frameworks/kparts-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
+	>=kde-frameworks/ktexttemplate-${KFMIN}:6
 	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
@@ -66,6 +69,8 @@ BDEPEND="
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
+
+PATCHES=( "${WORKDIR}/${P}-patchset" ) # KDE-bugs #498626, #498903, #498613
 
 src_configure() {
 	local mycmakeargs=(
