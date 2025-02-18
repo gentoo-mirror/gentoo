@@ -148,7 +148,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.1-system-mdb.patch
 	"${FILESDIR}"/${PN}-2.6.1-cloak.patch
 	"${FILESDIR}"/${PN}-2.6.1-flags.patch
-	#"${FILESDIR}"/${PN}-2.6.x-gnutls-pointer-error.patch # fixed upstream
 	#"${FILESDIR}"/${PN}-2.6.x-slapd-pointer-types.patch # needs backport
 )
 
@@ -425,17 +424,6 @@ multilib_src_configure() {
 	myconf+=(
 		--without-fetch
 	)
-
-	# The configure scripts make some assumptions that aren't valid in newer GCC.
-	# https://bugs.gentoo.org/920380
-	append-flags $(test-flags-CC -Wno-error=implicit-int)
-	# conftest.c:113:16: error: passing argument 1 of 'pthread_detach' makes
-	# integer from pointer without a cast [-Wint-conversion]
-	append-flags $(test-flags-CC -Wno-error=int-conversion)
-	# error: passing argument 3 of ‘ldap_bv2rdn’ from incompatible pointer type
-	# [-Wincompatible-pointer-types]
-	# expected ‘char **’ but argument is of type ‘const char **’
-	#append-flags $(test-flags-CC -Wno-error=incompatible-pointer-types)
 
 	if use experimental ; then
 		# connectionless ldap per bug #342439
