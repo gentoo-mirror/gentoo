@@ -22,7 +22,7 @@ S=${WORKDIR}/py-${P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 
 # setuptools is needed for distutils import
 DEPEND=">=dev-libs/tree-sitter-0.24.0:="
@@ -50,6 +50,14 @@ PATCHES=(
 src_unpack() {
 	default
 	rmdir "${S}/tree_sitter/core" || die
+}
+
+src_prepare() {
+	sed -e 's/ts_node_child_containing_descendant/ts_node_child_with_descendant/' \
+		-i tree_sitter/binding/node.c || die
+	sed -e 's/TSInputEncodingUTF16/TSInputEncodingUTF16LE/' \
+		-i tree_sitter/binding/parser.c || die
+	distutils-r1_src_prepare
 }
 
 src_test() {
