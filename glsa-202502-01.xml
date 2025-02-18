@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202502-01">
+    <title>OpenSSH: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in OpenSSH, the worst of which could allow a remote attacker to gain unauthorized access.</synopsis>
+    <product type="ebuild">openssh</product>
+    <announced>2025-02-18</announced>
+    <revised count="1">2025-02-18</revised>
+    <bug>949904</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/openssh" auto="yes" arch="*">
+            <unaffected range="ge">9.9_p2</unaffected>
+            <vulnerable range="lt">9.9_p2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenSSH is a free application suite consisting of server and clients that replace tools like telnet, rlogin, rcp and ftp with more secure versions offering additional functionality.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenSSH. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenSSH users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/openssh-9.9_p2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26465">CVE-2025-26465</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26466">CVE-2025-26466</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-02-18T23:20:42.579856Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-02-18T23:20:42.581904Z">sam</metadata>
+</glsa>
