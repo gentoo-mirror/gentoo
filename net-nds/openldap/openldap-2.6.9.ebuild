@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ EAPI=8
 # 2.5.x is an LTS release so we want to keep it for a while.
 
 inherit autotools flag-o-matic multilib multilib-minimal preserve-libs
-inherit ssl-cert toolchain-funcs systemd tmpfiles
+inherit ssl-cert toolchain-funcs systemd tmpfiles verify-sig
 
 MY_PV="$(ver_rs 1-2 _)"
 
@@ -18,15 +18,17 @@ BIS_P="${BIS_PN}-${BIS_PV}"
 DESCRIPTION="LDAP suite of application and development tools"
 HOMEPAGE="https://www.openldap.org/"
 SRC_URI="
-	https://gitlab.com/openldap/${PN}/-/archive/OPENLDAP_REL_ENG_${MY_PV}/${PN}-OPENLDAP_REL_ENG_${MY_PV}.tar.bz2
+	https://openldap.org/software/download/OpenLDAP/${PN}-release/${P}.tgz
 	mirror://gentoo/${BIS_P}
+	verify-sig? ( https://openldap.org/software/download/OpenLDAP/${PN}-release/${P}.tgz.asc )
 "
-S="${WORKDIR}"/${PN}-OPENLDAP_REL_ENG_${MY_PV}
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/openldap.asc
+#S="${WORKDIR}"/${P}
 
 LICENSE="OPENLDAP GPL-2"
 # Subslot added for bug #835654
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 IUSE_DAEMON="argon2 +cleartext crypt experimental minimal samba tcpd"
 IUSE_OVERLAY="overlays perl autoca"
@@ -37,7 +39,7 @@ IUSE="systemd ${IUSE_DAEMON} ${IUSE_BACKEND} ${IUSE_OVERLAY} ${IUSE_OPTIONAL} ${
 REQUIRED_USE="
 	cxx? ( sasl )
 	pbkdf2? ( ssl )
-	test? ( cleartext sasl )
+	test? ( cleartext sasl debug )
 	autoca? ( !gnutls )
 	?? ( test minimal )
 	kerberos? ( ?? ( kinit smbkrb5passwd ) )
@@ -98,6 +100,7 @@ BDEPEND="
 		acct-group/ldap
 		acct-user/ldap
 	)
+	verify-sig? ( >=sec-keys/openpgp-keys-openldap-20201216 )
 "
 
 # for tracking versions
@@ -147,9 +150,9 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.1-system-mdb.patch
 	"${FILESDIR}"/${PN}-2.6.1-cloak.patch
 	"${FILESDIR}"/${PN}-2.6.1-flags.patch
-	"${FILESDIR}"/${PN}-2.6.1-fix-missing-mapping.patch
+	"${FILESDIR}"/${PN}-2.6.1-fix-missing-mapping.v2.patch
 	#"${FILESDIR}"/${PN}-2.6.6-fix-type-mismatch-lloadd.patch
-	"${FILESDIR}"/${PN}-2.6.x-gnutls-pointer-error.patch
+	#"${FILESDIR}"/${PN}-2.6.x-gnutls-pointer-error.patch # fixed by upstream
 	#"${FILESDIR}"/${PN}-2.6.x-slapd-pointer-types.patch # included upstream
 )
 
@@ -342,6 +345,12 @@ pkg_setup() {
 	fi
 }
 
+src_unpack() {
+	use verify-sig &&
+		verify-sig_verify_detached "${DISTDIR}"/${P}.tgz{,.asc}
+	default
+}
+
 src_prepare() {
 	# The system copy of dev-db/lmdb must match the version that this copy
 	# of OpenLDAP shipped with! See bug #588792.
@@ -404,6 +413,9 @@ build_contrib_module() {
 }
 
 multilib_src_configure() {
+	# Workaround for bug #923334, #938553, #946816
+	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+
 	# Optional Features
 	myconf+=(
 		--enable-option-checking
