@@ -74,6 +74,7 @@ src_prepare() {
 	eapply "${FILESDIR}/${P}-unknown-command-test.patch"
 	eapply "${WORKDIR}/${P}-info-handle-compress.patch"
 	eapply "${FILESDIR}/${P}-batch-segfault.patch"
+	eapply "${FILESDIR}/${P}-delay-fcinit-until-needed.patch"
 
 	eapply_user
 
