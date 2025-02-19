@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,8 +11,8 @@ SRC_URI="http://mmonit.com/monit/dist/${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ~ppc64 ~riscv x86 ~amd64-linux"
-IUSE="ipv6 pam ssl"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux"
+IUSE="pam ssl"
 
 RDEPEND="sys-libs/zlib:=
 	virtual/libcrypt:=
@@ -32,7 +32,6 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		$(use_with ipv6)
 		$(use_with pam)
 		$(use_with ssl)
 	)
