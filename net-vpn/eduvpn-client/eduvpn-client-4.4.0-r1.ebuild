@@ -24,12 +24,12 @@ else
 		VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/eduvpn.asc
 	fi
 	inherit verify-sig
-	MY_P="linux-app-${PV}"
+	MY_P="python-${P}"
 	SRC_URI="
-		https://codeberg.org/eduVPN/linux-app/releases/download/${PV}/${MY_P}.tar.xz -> ${P}.tar.xz
-		verify-sig? ( https://codeberg.org/eduVPN/linux-app/releases/download/${PV}/${MY_P}.tar.xz.asc -> ${P}.tar.xz.asc )
+		https://github.com/eduvpn/python-eduvpn-client/releases/download/${PV}/${MY_P}.tar.xz
+		verify-sig? ( https://github.com/eduvpn/python-eduvpn-client/releases/download/${PV}/${MY_P}.tar.xz.asc )
 	"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 	S="${WORKDIR}/${MY_P}"
 fi
 
@@ -47,7 +47,8 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	net-misc/networkmanager
-	>=net-vpn/eduvpn-common-2.99[${PYTHON_USEDEP}]
+	>=net-vpn/eduvpn-common-2.1[${PYTHON_USEDEP}]
+	<net-vpn/eduvpn-common-3[${PYTHON_USEDEP}]
 	x11-libs/libnotify
 "
 
