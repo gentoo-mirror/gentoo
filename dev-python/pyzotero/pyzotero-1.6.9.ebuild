@@ -29,11 +29,18 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/trove-classifiers-2024.7.2[${PYTHON_USEDEP}]
 	test? (
-		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/httpretty[${PYTHON_USEDEP}]
 		dev-python/ipython[${PYTHON_USEDEP}]
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
 	)
 "
 
-distutils_enable_sphinx doc --no-autodoc
+distutils_enable_sphinx doc \
+	dev-python/sphinx-rtd-theme
 distutils_enable_tests pytest
+
+python_test() {
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	epytest -o addopts= -p asyncio
+}
