@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module systemd
 
 MY_PV=${PV/_rc/-rc.}
-EGIT_COMMIT="4890d9e03616d563083fa944aaa083cc49b54ff5"
+EGIT_COMMIT="51bdcb7bac069f263ce238db6bd0610759c2635f"
 
 DESCRIPTION="Docker Registry 2.0"
 HOMEPAGE="https://github.com/docker/distribution"
