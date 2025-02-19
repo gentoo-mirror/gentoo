@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit linux-info
+inherit eapi9-ver linux-info
 
 DESCRIPTION="Gentoo fork of installkernel script from debianutils"
 HOMEPAGE="
@@ -182,7 +182,7 @@ src_install() {
 
 pkg_postinst() {
 	# show only when upgrading to 14+
-	if [[ -n "${REPLACING_VERSIONS}" ]] && ver_test "${REPLACING_VERSIONS}" -lt 14; then
+	if ver_replacing -lt 14; then
 		elog "Version 14 and up of ${PN} effectively merges"
 		elog "${PN}-gentoo and ${PN}-systemd."
 		elog "Switching between the traditional installkernel and systemd's"
@@ -196,7 +196,7 @@ pkg_postinst() {
 	fi
 
 	# show only on first install of version 20+
-	if [[ -z "${REPLACING_VERSIONS}" ]] || ver_test "${REPLACING_VERSIONS}" -lt 20; then
+	if [[ -z "${REPLACING_VERSIONS}" ]] || ver_replacing -lt 20; then
 		if has_version "sys-boot/grub" && ! use grub; then
 			elog "sys-boot/grub is installed but the grub USE flag is not enabled."
 			elog "Users may want to enable this flag to automatically update the"
