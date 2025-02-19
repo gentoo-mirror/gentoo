@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.37.11 1.37.16 1.37.21 1.37.22: Universal Command Line Environment for AWS
+app-admin/awscli 1.37.11 1.37.16 1.37.21 1.37.22 1.37.23: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.12.0 2025.1.1 2025.1.4: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -5223,7 +5223,7 @@ dev-lang/pico8 0.2.6b: Fantasy console for making and playing tiny games and oth
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
 dev-lang/pypy 2.7.7.3.17 2.7.7.3.18 3.10.7.3.17_p4 3.10.7.3.18 3.11.7.3.18_p1: A fast, compliant alternative implementation of the Python (3.11) language
 dev-lang/pypy3-exe 3.11.7.3.18: PyPy3.11 executable (build from source)
-dev-lang/pypy3-exe-bin 3.11.7.3.18: PyPy3.11 executable (pre-built version)
+dev-lang/pypy3-exe-bin 3.11.7.3.18 3.11.7.3.18_p2: PyPy3.11 executable (pre-built version)
 dev-lang/python 2.7.18_p16-r2 3.8.20_p6 3.9.20_p2 3.9.21_p1 3.10.16_p1 3.11.11_p1 3.12.8 3.12.8_p1 3.12.9 3.13.0 3.13.0-r100 3.13.1 3.13.1-r100 3.13.1_p1 3.13.1_p1-r100 3.13.2 3.13.2-r100 3.14.0_alpha3 3.14.0_alpha3-r100 3.14.0_alpha4 3.14.0_alpha4-r100 3.14.0_alpha5 3.14.0_alpha5-r100: Freethreading (no-GIL) version of Python programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
@@ -5272,7 +5272,7 @@ dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for 
 dev-libs/aml 0.3.0 9999: Event timer executor loop
 dev-libs/angelscript 2.36.1 2.37.0: A flexible, cross-platform scripting library
 dev-libs/antlr-c 3.5.2-r2 3.5.2-r3: The ANTLR3 C Runtime
-dev-libs/apache-arrow 19.0.0: A cross-language development platform for in-memory data.
+dev-libs/apache-arrow 19.0.0 19.0.1: A cross-language development platform for in-memory data.
 dev-libs/appstream 1.0.4: Cross-distro effort for providing metadata for software in the Linux ecosystem
 dev-libs/appstream-glib 0.8.2 0.8.3: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.7.4-r2 1.7.4-r3 1.7.5: Apache Portable Runtime Library
@@ -8153,8 +8153,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 24.1.0 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.36.11 1.36.16 1.36.21 1.36.22: The AWS SDK for Python
-dev-python/botocore 1.36.11 1.36.16 1.36.21 1.36.22: Low-level, data-driven core of boto 3
+dev-python/boto3 1.36.11 1.36.16 1.36.21 1.36.22 1.36.23: The AWS SDK for Python
+dev-python/botocore 1.36.11 1.36.16 1.36.21 1.36.22 1.36.23: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8724,7 +8724,7 @@ dev-python/minikanren 1.0.3-r1: Relational programming in Python
 dev-python/minimock 1.3.0-r1: The simplest possible mock library
 dev-python/miniupnpc 2.3.0: Python bindings for UPnP client library
 dev-python/mistletoe 1.4.0: A fast, extensible Markdown parser in pure Python
-dev-python/mistune 3.1.1: The fastest markdown parser in pure Python
+dev-python/mistune 3.1.1 3.1.2: The fastest markdown parser in pure Python
 dev-python/mitmproxy-wireguard 0.1.20-r1: WireGuard frontend for mitmproxy
 dev-python/mkautodoc 0.2.0: Auto documentation for MkDocs
 dev-python/mkdocs 1.6.0 1.6.1: Project documentation with Markdown
@@ -8745,7 +8745,7 @@ dev-python/mkdocs-pymdownx-material-extras 2.7: Custom alterations based on Mkdo
 dev-python/mkdocs-redirects 1.2.2: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.3.0: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.28.0 0.28.1: Automatic documentation from sources, for MkDocs
-dev-python/mkdocstrings-python 1.14.6 1.14.7 1.15.0 1.15.1 1.16.0: Python handler for dev-python/mkdocstrings
+dev-python/mkdocstrings-python 1.14.6 1.14.7 1.15.0 1.15.1 1.16.0 1.16.1: Python handler for dev-python/mkdocstrings
 dev-python/ml-dtypes 0.5.1: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.1.0: Rolling backport of unittest.mock for all Pythons
@@ -8961,7 +8961,7 @@ dev-python/pyaes 1.6.1-r3: Pure-Python Implementation of the AES block-cipher an
 dev-python/pyalsa 1.2.12: Python bindings for ALSA library
 dev-python/pyamg 5.0.1 5.1.0 5.2.0 5.2.1: Algebraic multigrid solvers in Python
 dev-python/pyaml 25.1.0: PyYAML-based module to produce pretty and readable YAML-serialized data
-dev-python/pyarrow 19.0.0: Python library for Apache Arrow
+dev-python/pyarrow 19.0.0 19.0.1: Python library for Apache Arrow
 dev-python/pyasn1 0.6.1: ASN.1 library for Python
 dev-python/pyasn1-modules 0.4.1: pyasn1 modules
 dev-python/pyasynchat 1.0.4: Make asynchat available for Python 3.12 onwards
@@ -9076,7 +9076,7 @@ dev-python/pypresence 4.3.0: Complete Discord IPC and Rich Presence wrapper libr
 dev-python/pyprof2calltree 1.4.5-r1: Convert python profile data to kcachegrind calltree form
 dev-python/pyproj 3.7.0 3.7.1: Python interface to the PROJ library
 dev-python/pyproject-api 1.9.0: API to interact with the python pyproject.toml based projects
-dev-python/pyproject-fmt 2.5.0-r1: Format your pyproject.toml file
+dev-python/pyproject-fmt 2.5.0-r1 2.5.1: Format your pyproject.toml file
 dev-python/pyproject-hooks 1.2.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pyproject-metadata 0.8.1 0.9.0: PEP 621 metadata parsing
 dev-python/pypugjs 5.11.0: Pug (Jade) syntax adapter for Django, Jinja2 and Mako templates
@@ -9280,7 +9280,7 @@ dev-python/pyyaml 6.0.2: YAML parser and emitter for Python
 dev-python/pyyaml-env-tag 0.1-r1: A custom YAML tag for referencing environment variables in YAML files
 dev-python/pyzbar 0.1.9: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 26.2.0 26.2.1: Lightweight and super-fast messaging library built on top of the ZeroMQ library
-dev-python/pyzotero 1.6.4 1.6.5 1.6.6 1.6.8: A Python client for the Zotero API
+dev-python/pyzotero 1.6.8 1.6.9: A Python client for the Zotero API
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
 dev-python/qiskit 1.3.2-r1: An open-source SDK for working with quantum computers
 dev-python/qiskit-aer 0.16 0.16.1: High performance simulator for quantum circuits that includes noise models
@@ -9371,7 +9371,7 @@ dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
 dev-python/schema 0.7.7: Simple data validation library
 dev-python/scikit-build 0.17.6 0.18.0 0.18.1: Improved build system generator for Python C/C++/Fortran/Cython extensions
 dev-python/scikit-build-core 0.10.7: Build backend for CMake based projects
-dev-python/scikit-image 0.25.0 0.25.1: Image processing routines for SciPy
+dev-python/scikit-image 0.25.0 0.25.1 0.25.2: Image processing routines for SciPy
 dev-python/scikit-learn 1.6.0 1.6.1: Machine learning library for Python
 dev-python/scipy 1.14.1 1.15.0 1.15.1 1.15.2: Scientific algorithms library for Python
 dev-python/scripttest 1.3.0-r2: A very small text templating language
@@ -9435,7 +9435,7 @@ dev-python/soupsieve 2.6: A modern CSS selector implementation for BeautifulSoup
 dev-python/spake2 0.8-r1 0.9: python implementation of SPAKE2 password-authenticated key exchange algorithm
 dev-python/spdx-tools 0.8.3: Python library to parse, validate and create SPDX documents
 dev-python/speg 0.3_p20180819-r2: A PEG-based parser interpreter with memoization
-dev-python/sphinx 8.0.2 8.1.3 8.2.0_rc1 8.2.0_rc2: Python documentation generator
+dev-python/sphinx 8.0.2 8.1.3 8.2.0_rc1 8.2.0_rc2 8.2.0: Python documentation generator
 dev-python/sphinx-argparse 0.4.0 0.5.2: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autoapi 3.4.0 3.5.0 3.6.0: A new approach to API documentation in Sphinx
 dev-python/sphinx-autodoc-typehints 3.0.1: Type hints support for the Sphinx autodoc extension
@@ -9517,7 +9517,7 @@ dev-python/svg-path 6.3: SVG path objects and parser
 dev-python/svglib 1.5.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.3 3.0.4: Validate Swagger specs against Swagger 1.1 or 2.0 specification
-dev-python/sybil 9.0.0: Automated testing for the examples in your documentation
+dev-python/sybil 9.0.0 9.1.0: Automated testing for the examples in your documentation
 dev-python/symengine 0.11.0 0.13.0 0.14.0: Python wrappers to the symengine C++ library
 dev-python/sympy 1.13.3: Computer Algebra System in pure Python
 dev-python/tables 3.10.2: Hierarchical datasets for Python
@@ -9553,7 +9553,7 @@ dev-python/threadpoolctl 3.5.0: Limit the number of threads used in native libs 
 dev-python/three-merge 0.1.1-r1: Simple Python library to perform a 3-way merge between strings
 dev-python/thrift 0.21.0: Python implementation of Thrift
 dev-python/thriftpy2 0.5.0 0.5.2: Pure python approach of Apache Thrift
-dev-python/tifffile 2024.12.12 2025.1.10: Read and write TIFF files
+dev-python/tifffile 2024.12.12 2025.1.10 2025.2.18: Read and write TIFF files
 dev-python/time-machine 2.16.0: Travel through time in your tests
 dev-python/timeout-decorator 0.5.0-r1: Timeout decorator
 dev-python/tiny-proxy 0.2.1: Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP tunnel)
@@ -9581,7 +9581,7 @@ dev-python/treq 24.9.1-r1: A requests-like API built on top of twisted.web's Age
 dev-python/trimesh 4.5.3 4.6.0 4.6.1 4.6.2: Python library for loading and using triangular meshes
 dev-python/trio 0.28.0 0.29.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.11.1 0.12.0 0.12.1: WebSocket client and server implementation for Python Trio
-dev-python/trove-classifiers 2025.1.15.22: Canonical source for classifiers on PyPI (pypi.org)
+dev-python/trove-classifiers 2025.1.15.22 2025.2.18.16: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 1.2.1: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/truststore 0.10.0 0.10.1: Verify certificates using native system trust stores
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
@@ -16385,7 +16385,7 @@ sci-mathematics/wxmaxima 24.05.0 24.11.0 25.01.0: Graphical frontend to Maxima, 
 sci-mathematics/yacas 1.9.1-r2: General purpose computer algebra system
 sci-mathematics/yafu 1.34.3-r1: Yet another factoring utility
 sci-mathematics/yices2 2.6.4-r1: SMT Solver supporting SMT-LIB and Yices specification language
-sci-mathematics/z3 4.13.4: An efficient theorem prover
+sci-mathematics/z3 4.13.4 4.14.0: An efficient theorem prover
 sci-misc/ViSP-images 3.3.0 3.5.0: ViSP images data set
 sci-misc/apertium 3.8.3: Shallow-transfer machine Translation engine and toolbox
 sci-misc/boinc 7.24.1-r1 9999: The Berkeley Open Infrastructure for Network Computing
