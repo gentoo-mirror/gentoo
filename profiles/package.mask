@@ -278,27 +278,6 @@ dev-qt/qtserialbus:5
 dev-qt/qtvirtualkeyboard:5
 dev-qt/qtwebview:5
 
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2025-01-20)
-# Unused Java library. Removal on 2025-02-19.
-dev-java/saslprep
-
-# Zac Medico <zmedico@gentoo.org> (2025-01-18)
-# Ebuild is difficult to maintain. No revdeps.
-# Removal on 2025-02-17. Bug #896044
-sys-cluster/k3s
-
-# Michał Górny <mgorny@gentoo.org> (2025-01-18)
-# Superseded by dev-python/terminaltables3, the only revdep switched
-# over.
-# Removal on 2025-02-17.  Bug #948333.
-dev-python/terminaltables
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2025-01-10)
-# EAPI=7, maintainer needed, no reverse dependencies, fails to compile,
-# uses deprecated Go eclass.
-# Removal on 2025-02-09.  Bugs #947810, #856319, #844730, #771048, #679078.
-sys-cluster/zetcd
-
 # Conrad Kostecki <conikost@gentoo.org> (2025-01-09)
 # New version, which dropps support for legacy devices.
 # Will be unmasked, when split to legacy-branch is done.
