@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,9 +29,8 @@ BDEPEND="
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.2.0-tests-run-with-simulator-in-container.patch"
-	"${FILESDIR}/${PN}-1.2.0-Makefile-add-run-with-simulator-to-extra-dists.patch"
 	"${FILESDIR}/${PN}-1.1.1-build-Fix-undefined-references-when-using-slibtool.patch"
+	"${FILESDIR}/${PN}-1.3.0-tests-remove-systemd-ism.patch"
 )
 
 src_prepare() {
