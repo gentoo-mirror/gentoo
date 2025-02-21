@@ -8,14 +8,14 @@ LLVM_OPTIONAL="yes"
 
 inherit llvm-r1 multilib prefix rust-toolchain toolchain-funcs verify-sig multilib-minimal
 
-MY_P="rust-${PV}"
+MY_P="rust-${PV}-r101"
 # curl -L static.rust-lang.org/dist/channel-rust-${PV}.toml 2>/dev/null | grep "xz_url.*rust-src"
 MY_SRC_URI="${RUST_TOOLCHAIN_BASEURL%/}/2024-06-13/rust-src-${PV}.tar.xz"
-GENTOO_BIN_BASEURI="https://dev.gentoo.org/~arthurzam/distfiles/${CATEGORY}/${PN}" # omit leading slash
+GENTOO_BIN_BASEURI="https://github.com/projg2/rust-bootstrap/releases/download/${PV}-r101" # omit leading slash
 
 DESCRIPTION="Systems programming language from Mozilla"
 HOMEPAGE="https://www.rust-lang.org/"
-SRC_URI="$(rust_all_arch_uris ${MY_P})
+SRC_URI="$(rust_all_arch_uris rust-${PV})
 	rust-src? ( ${MY_SRC_URI} )
 "
 # Keep this separate to allow easy commenting out if not yet built
@@ -33,6 +33,10 @@ SRC_URI+=" mips? (
 SRC_URI+=" riscv? (
 	elibc_musl? ( ${GENTOO_BIN_BASEURI}/${MY_P}-riscv64gc-unknown-linux-musl.tar.xz )
 )"
+SRC_URI+=" ppc64? ( elibc_musl? (
+	big-endian?  ( ${GENTOO_BIN_BASEURI}/${MY_P}-powerpc64-unknown-linux-musl.tar.xz )
+	!big-endian? ( ${GENTOO_BIN_BASEURI}/${MY_P}-powerpc64le-unknown-linux-musl.tar.xz )
+) )"
 
 LICENSE="|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4"
 SLOT="${PV}"
