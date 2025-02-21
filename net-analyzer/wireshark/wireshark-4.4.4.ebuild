@@ -86,8 +86,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-# TODO: 4.0.0_rc1 release notes say:
-# "Perl is no longer required to build Wireshark, but may be required to build some source code files and run code analysis checks."
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-lang/perl
@@ -118,6 +116,8 @@ RDEPEND="
 if [[ ${PV} != *9999* ]] ; then
 	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-wireshark )"
 fi
+
+PATCHES=( "${FILESDIR}/4.4.4-fix-skipping-rawshark-tests-on-big-endian.patch" )
 
 python_check_deps() {
 	use test || return 0
