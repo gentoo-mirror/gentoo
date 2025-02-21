@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CODENAME="Piers"
+CODENAME="Omega"
 
 # libdvd{css,read,nav} are not unbundlable without patching the buildsystem.
 
@@ -12,7 +12,7 @@ CODENAME="Piers"
 LIBDVDCSS_VERSION="1.4.3-Next-Nexus-Alpha2-2"
 LIBDVDREAD_VERSION="6.1.3-Next-Nexus-Alpha2-2"
 LIBDVDNAV_VERSION="6.1.1-Next-Nexus-Alpha2-2"
-FFMPEG_VERSION="7.1"
+FFMPEG_VERSION="6.0.1"
 
 # Java bundles from xbmc/interfaces/swig/CMakeLists.txt
 GROOVY_VERSION="4.0.16"
@@ -67,7 +67,7 @@ else
 	MY_PV="${MY_PV}-${CODENAME}"
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI+=" https://github.com/xbmc/xbmc/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 	S=${WORKDIR}/xbmc-${MY_PV}
 fi
 
@@ -118,19 +118,19 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/libcdio-2.1.0:=[cxx]
 	>=dev-libs/libfmt-6.1.2:=
 	dev-libs/libfstrcmp
-	dev-libs/libpcre2:=
+	dev-libs/libpcre[cxx]
 	>=dev-libs/openssl-1.1.1k:0=
 	>=dev-libs/spdlog-1.5.0:=
 	dev-libs/tinyxml[stl]
 	dev-libs/tinyxml2:=
 	media-fonts/roboto
-	media-gfx/exiv2:=
 	media-libs/libglvnd[X?]
 	>=media-libs/freetype-2.10.1
 	media-libs/harfbuzz:=
 	>=media-libs/libass-0.15.0:=
 	media-libs/mesa[opengl,wayland?,X?]
 	media-libs/taglib:=
+	sci-libs/kissfft
 	virtual/libiconv
 	virtual/ttf-fonts
 	x11-libs/libdrm
@@ -162,7 +162,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	)
 	gbm? (
 		>=dev-libs/libinput-1.10.5:=
-		media-libs/libdisplay-info:=
+		media-libs/libdisplay-info
 		x11-libs/libxkbcommon
 	)
 	!gles? (
@@ -184,19 +184,19 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		dev-db/mysql-connector-c:=
 	)
 	nfs? (
-		>=net-fs/libnfs-3.0.0:=
+		>=net-fs/libnfs-2.0.0:=
 	)
 	pipewire? (
 		>=media-video/pipewire-0.3.50:=
 	)
 	pulseaudio? (
-		>=media-libs/libpulse-11.0.0
+		media-libs/libpulse
 	)
 	samba? (
 		>=net-fs/samba-3.4.6[smbclient(+)]
 	)
 	system-ffmpeg? (
-		=media-video/ffmpeg-7*:=[encode,soc(-)?,postproc,vaapi?,vdpau?,X?]
+		=media-video/ffmpeg-6*:=[encode,soc(-)?,postproc,vaapi?,vdpau?,X?]
 	)
 	!system-ffmpeg? (
 		app-arch/bzip2
@@ -271,7 +271,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/kodi-21-optional-ffmpeg-libx11.patch
-	"${FILESDIR}"/kodi-22-silence-libdvdread-git.patch
+	"${FILESDIR}"/kodi-21.1-silence-libdvdread-git.patch
 )
 
 # bug #544020
@@ -306,6 +306,13 @@ src_prepare() {
 	sed -i \
 		-e '/dbus_connection_send_with_reply_and_block/s:-1:3000:' \
 		xbmc/platform/linux/*.cpp || die
+
+	# Add all possible names for kissfft libraries
+	for datatype in {float,int16,int32,simd}; do
+		sed -i \
+			-e "s/\(find_library(KISSFFT_LIBRARY NAMES .*\)/\1 kissfft-${datatype} kissfft-${datatype}-openmp/" \
+			cmake/modules/FindKissFFT.cmake || die
+	done
 
 	if tc-is-cross-compiler; then
 		# These tools are automatically built with CMake during a native build
@@ -355,6 +362,7 @@ src_configure() {
 		-DENABLE_GOLD=OFF
 		-DENABLE_LLD=OFF
 		-DENABLE_MOLD=OFF
+		-DUSE_LTO=OFF
 
 		# Features
 		-DENABLE_AIRTUNES=$(usex airplay)
@@ -393,17 +401,15 @@ src_configure() {
 		-DWITH_FFMPEG=$(usex system-ffmpeg)
 
 		#To bundle or not
-		-DENABLE_INTERNAL_CEC=OFF
-		-DENABLE_INTERNAL_CURL=OFF
 		-DENABLE_INTERNAL_CROSSGUID=OFF
 		-DENABLE_INTERNAL_DAV1D=OFF
-		-DENABLE_INTERNAL_EXIV2=OFF
 		-DENABLE_INTERNAL_FFMPEG="$(usex !system-ffmpeg)"
 		-DENABLE_INTERNAL_FLATBUFFERS=OFF
 		-DENABLE_INTERNAL_FMT=OFF
 		-DENABLE_INTERNAL_FSTRCMP=OFF
 		-DENABLE_INTERNAL_GTEST=OFF
-		-DENABLE_INTERNAL_PCRE2=OFF
+		-DENABLE_INTERNAL_KISSFFT=OFF
+		-DENABLE_INTERNAL_PCRE=OFF
 		-DENABLE_INTERNAL_RapidJSON=OFF
 		-DENABLE_INTERNAL_SPDLOG=OFF
 		-DENABLE_INTERNAL_TAGLIB=OFF
@@ -438,11 +444,9 @@ src_configure() {
 		append-cxxflags -DNDEBUG
 	fi
 
-	if tc-is-lto ; then
-		mycmakeargs+=( -DUSE_LTO=ON )
-	else
-		mycmakeargs+=( -DUSE_LTO=OFF )
-	fi
+	# Violates ODR (bug #860984) and USE_LTO does spooky stuff
+	# https://github.com/xbmc/xbmc/commit/cb72a22d54a91845b1092c295f84eeb48328921e
+	filter-lto
 
 	if tc-is-cross-compiler; then
 		for t in "${NATIVE_TOOLS[@]}" ; do
@@ -474,6 +478,10 @@ src_test() {
 		# Known failing, unreliable test
 		# bug #743938
 		TestCPUInfo.GetCPUFrequency
+		# Test failure stemming from sci-libs/kissfft
+		# The difference between output[2i] and (i==freq1?1.0:0.0) is inf, which exceeds 1e-7, where output[2i]
+		# evaluates to inf,(i==freq1?1.0:0.0) evaluates to 0, and 1e-7 evaluates to 9.9999999999999995e-08.
+		TestRFFT.SimpleSignal
 		# Tries to ping localhost, naturally breaking network-sandbox
 		TestNetwork.PingHost
 	)

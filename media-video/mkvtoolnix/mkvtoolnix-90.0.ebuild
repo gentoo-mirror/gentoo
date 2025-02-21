@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools flag-o-matic multiprocessing qmake-utils xdg
+inherit autotools flag-o-matic multiprocessing prefix qmake-utils toolchain-funcs xdg
 
 if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
@@ -17,7 +17,7 @@ else
 		https://mkvtoolnix.download/sources/${P}.tar.xz
 		verify-sig? ( https://mkvtoolnix.download/sources/${P}.tar.xz.sig )
 	"
-	KEYWORDS="amd64 ppc ppc64 x86"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/mkvtoolnix.asc"
 fi
@@ -27,21 +27,18 @@ HOMEPAGE="https://mkvtoolnix.download/ https://gitlab.com/mbunkus/mkvtoolnix"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug dvd gui nls pch test"
+IUSE="dbus debug dvd gui nls pch test"
 RESTRICT="!test? ( test )"
 
 # check NEWS.md for build system changes entries for boost/libebml/libmatroska
 # version requirement updates and other packaging info
-# <libfmt-11 https://gitlab.com/mbunkus/mkvtoolnix/-/merge_requests/2259
 RDEPEND="
-	app-text/cmark:0=
 	dev-libs/boost:=
 	dev-libs/gmp:=
 	>=dev-libs/libebml-1.4.5:=
 	>=dev-libs/libfmt-8.0.1:=
-	<dev-libs/libfmt-11
 	>=dev-libs/pugixml-1.11
-	>=dev-qt/qtbase-6.2:6[dbus]
+	>=dev-qt/qtbase-6.2:6[dbus?]
 	media-libs/flac:=
 	>=media-libs/libmatroska-1.7.1:=
 	media-libs/libogg
@@ -49,6 +46,7 @@ RDEPEND="
 	sys-libs/zlib
 	dvd? ( media-libs/libdvdread:= )
 	gui? (
+		app-text/cmark:0=
 		>=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets]
 		>=dev-qt/qtmultimedia-6.2:6
 		>=dev-qt/qtsvg-6.2:6
@@ -74,10 +72,26 @@ if [[ ${PV} != *9999 ]] ; then
 	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-mkvtoolnix )"
 fi
 
-PATCHES=(
-	# https://bugs.gentoo.org/927380
-	"${FILESDIR}"/mkvtoolnix-83.0.0-fix-disable-gui.patch
-)
+pkg_setup() {
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		# bug #927497
+		# the compiler used for qtbase affects what compiler arguments qmake will use
+		if tc-is-gcc; then
+			expected_spec="linux-g++"
+		elif tc-is-clang; then
+			expected_spec="linux-clang"
+		fi
+
+		if [[ ${expected_spec} != $(qmake6 -query QMAKE_SPEC) ]]; then
+			if tc-is-gcc; then
+				eerror "Detected non-gcc qmake spec but current compiler is gcc."
+			elif tc-is-clang; then
+				eerror "Detected non-clang qmake spec but current compiler is clang."
+			fi
+			eerror "Compiler mismatch: dev-qt/qtbase:6 and ${CATEGORY}/${PN} have to use the same toolchain https://bugs.gentoo.org/927497"
+		fi
+	fi
+}
 
 src_prepare() {
 	default
@@ -88,6 +102,9 @@ src_prepare() {
 
 	# bug #692018
 	sed -i -e 's/pandoc/diSaBlEd/' ac/pandoc.m4 || die
+
+	# bug #928463
+	hprefixify "${S}/ac/ax_docbook.m4"
 
 	eautoreconf
 
@@ -100,6 +117,7 @@ src_configure() {
 	append-cppflags -I"${ESYSROOT}"/usr/include/utf8cpp
 
 	local myeconfargs=(
+		$(use_enable dbus)
 		$(use_enable debug)
 		$(usex pch "" --disable-precompiled-headers)
 		$(use_enable gui)
