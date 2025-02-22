@@ -247,11 +247,6 @@ app-metrics/burrow_exporter
 dev-go/go-colortext
 dev-go/gom
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-23)
-# Last release from 12 years ago, git master still defaults to Qt4.
-# Plenty of other options in ::gentoo. Bug #947741, removal on 2025-02-22.
-app-editors/juffed
-
 # Nowa Ammerlaan <nowa@gentoo.org> (2025-01-23)
 # Sypder-5 requires Qt5, and there are several dead
 # plugins that have not been migrated to Spyder-6.
@@ -260,10 +255,6 @@ app-editors/juffed
 dev-python/spyder-vim
 dev-python/spyder-terminal
 =dev-python/qtpy-2.4.2
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-23)
-# CVE-2025-23050, bug #948573; Removal on 2025-02-22.
-dev-qt/qtbluetooth:5
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-01-23)
 # Qt5 package without any revdeps. Use dev-qt/qttools[qdbus] instead.
