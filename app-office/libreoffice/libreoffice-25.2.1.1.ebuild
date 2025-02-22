@@ -294,6 +294,7 @@ PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
 	"${FILESDIR}/${PN}-24.2-qtdetect.patch"
+	"${FILESDIR}/${PN}-25.2-cflags.patch"
 
 	# TODO: upstream
 	"${FILESDIR}/${PN}-25.2-unused-qt6network.patch"
@@ -355,15 +356,6 @@ src_prepare() {
 	AT_M4DIR="m4" eautoreconf
 	# hack in the autogen.sh
 	touch autogen.lastrun
-
-	# sed in the tests
-	sed -i \
-		-e "s#all : build unitcheck#all : build#g" \
-		solenv/gbuild/Module.mk || die
-	sed -i \
-		-e "s#check: dev-install subsequentcheck#check: unitcheck slowcheck dev-install subsequentcheck#g" \
-		-e "s#Makefile.gbuild all slowcheck#Makefile.gbuild all#g" \
-		Makefile.in || die
 
 	sed -i \
 		-e "s,/usr/share/bash-completion/completions,$(get_bashcompdir)," \
@@ -596,16 +588,16 @@ src_compile() {
 	addpredict /dev/ati
 	addpredict /dev/nvidiactl
 
-	default
+	emake -Onone
 }
 
 src_test() {
-	emake unitcheck
-	emake slowcheck
+	emake -Onone unitcheck
+	emake -Onone slowcheck
 }
 
 src_install() {
-	emake DESTDIR="${D}" distro-pack-install -o build -o check
+	emake -Onone DESTDIR="${D}" distro-pack-install -o build -o check
 
 	# TODO: still relevant for gtk4?
 	# bug #593514
