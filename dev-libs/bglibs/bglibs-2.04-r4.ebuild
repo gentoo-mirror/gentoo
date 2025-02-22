@@ -15,7 +15,6 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc"
 
 BDEPEND="
-	sys-apps/which
 	dev-build/libtool
 	doc? (
 		app-text/doxygen
@@ -30,6 +29,8 @@ PATCHES=(
 	"${FILESDIR}"/bglibs-2.04-stack-buffers.patch
 	"${FILESDIR}"/bglibs-2.04-feature-tests.patch
 	"${FILESDIR}"/bglibs-2.04-musl.patch
+	"${FILESDIR}"/bglibs-2.04-gcc14.patch
+	"${FILESDIR}"/bglibs-2.04-prefix.patch
 )
 
 src_prepare() {
