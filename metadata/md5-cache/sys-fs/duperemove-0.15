@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install test
-DEPEND=dev-db/sqlite:3 dev-libs/glib:2 sys-apps/util-linux:= dev-libs/libbsd
+DEPEND=dev-db/sqlite:3 dev-libs/glib:2 sys-apps/util-linux:= dev-libs/libbsd dev-libs/xxhash
 DESCRIPTION=Btrfs and xfs deduplication utility
 EAPI=8
 HOMEPAGE=https://github.com/markfasheh/duperemove/
@@ -10,4 +10,4 @@ RDEPEND=dev-db/sqlite:3 dev-libs/glib:2 sys-apps/util-linux:=
 SLOT=0
 SRC_URI=https://github.com/markfasheh/duperemove/archive/v0.15.tar.gz -> duperemove-0.15.gh.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=01bfcdaf2c8f6d84e57e332665921700
+_md5_=a01265a311172429d292cd22cf18bc70
