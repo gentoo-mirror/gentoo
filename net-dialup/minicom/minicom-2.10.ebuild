@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,10 +7,7 @@ inherit autotools
 
 DESCRIPTION="Serial Communication Program"
 HOMEPAGE="https://salsa.debian.org/minicom-team/minicom"
-SRC_URI="
-	https://salsa.debian.org/${PN}-team/${PN}/-/archive/${PV}/${P}.tar.gz
-	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-m4-${PV}.tar.bz2
-"
+SRC_URI="https://salsa.debian.org/${PN}-team/${PN}/-/archive/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -31,17 +28,11 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.8-gentoo-runscript.patch
-	"${FILESDIR}"/${PN}-2.8-lockdir.patch
-	"${FILESDIR}"/${PN}-2.8-enable-large-file.patch
+	"${FILESDIR}"/${PN}-2.9-update-gettext.patch
 )
 
 src_prepare() {
 	default
-
-	# 912459
-	# Embed the needed m4 macros if gettext is not installed
-	mv "${WORKDIR}"/m4 . || die
-
 	eautoreconf
 }
 
