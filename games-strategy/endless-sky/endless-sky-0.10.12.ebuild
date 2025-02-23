@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake prefix xdg
+inherit cmake flag-o-matic xdg
 
 DESCRIPTION="Space exploration, trading & combat in the tradition of Terminal Velocity"
 HOMEPAGE="https://endless-sky.github.io/"
@@ -37,25 +37,36 @@ RDEPEND="
 		media-libs/libsdl2[opengl]
 	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-cpp/catch:0 )
+"
 
 src_prepare() {
 	cmake_src_prepare
 
 	# no /usr/*games/ on Gentoo, adjust docdir, install even if != Release,
 	# and GLEW is unused if USE=gles2-only (using sed for less rebasing)
-	sed -e '/install(/s: games: bin:' \
+	sed -e '/install(/s: games: libexec:' \
 		-e '/install(/s: share/games: share:' \
 		-e "/install(/s: share/doc/endless-sky: share/doc/${PF}:" \
 		-e '/install(/s: CONFIGURATIONS Release::' \
 		-e 's:GLEW REQUIRED:GLEW:' \
 		-i CMakeLists.txt || die
-	sed -i '/PATH/s:share/games:share:' source/Files.cpp || die
 
-	hprefixify -w /PATH/ source/Files.cpp
+	# do not use sanitizers for tests
+	sed -i '/SANITIZER_OPTS/d' tests/CMakeLists.txt || die
+
+	# source/Files.cpp has odd logic to find resources, make a wrapper
+	# rather than try to modify it
+	printf '#!/usr/bin/env sh\nexec %q --resources %q "$@"\n' \
+		"${EPREFIX}"/usr/libexec/${PN} \
+		"${EPREFIX}"/usr/share/${PN} > "${T}"/${PN} || die
 }
 
 src_configure() {
+	filter-lto # -Werror=odr issues
+
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
 		-DES_GLES=$(usex gles2-only)
@@ -68,6 +79,8 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+
+	dobin "${T}"/${PN}
 
 	gzip -d -- "${ED}"/usr/share/man/man6/${PN}.6.gz || die
 	rm -- "${ED}"/usr/share/doc/${PF}/{copyright,license.txt} || die
