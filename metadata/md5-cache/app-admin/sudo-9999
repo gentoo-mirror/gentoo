@@ -4,7 +4,7 @@ DEPEND=sys-libs/zlib:= virtual/libcrypt:= gcrypt? ( dev-libs/libgcrypt:= ) ldap?
 DESCRIPTION=Allows users or groups to run commands as other users
 EAPI=8
 HOMEPAGE=https://www.sudo.ws/
-INHERIT=flag-o-matic pam tmpfiles toolchain-funcs autotools mercurial
+INHERIT=pam tmpfiles toolchain-funcs autotools mercurial
 IUSE=gcrypt ldap nls offensive pam sasl +secure-path selinux +sendmail skey ssl sssd
 LICENSE=ISC BSD
 PROPERTIES=live
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/zlib:= virtual/libcrypt:= gcrypt? ( dev-libs/libgcrypt:= ) ldap
 REQUIRED_USE=?? ( pam skey ) ?? ( gcrypt ssl )
 SLOT=0
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	pam	b56d0c9c20fc5b553f13c8ae165a10a5	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	autotools	03ea4e0b6b685afdc980f00a43ea5d12	mercurial	74061a7620da41b2cb72b135cc6431c7
-_md5_=e594fbc7725389447ab5073ec8f02b4a
+_md5_=a97b1dbe5f8bc77bfc0d3d580db0b29a
