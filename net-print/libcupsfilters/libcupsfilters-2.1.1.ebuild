@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,11 +7,12 @@ inherit libtool
 
 DESCRIPTION="library for developing printing features, split out of cups-filters"
 HOMEPAGE="https://github.com/OpenPrinting/libcupsfilters"
-SRC_URI="https://github.com/OpenPrinting/libcupsfilters/releases/download/${PV}/${P}.tar.xz"
+SRC_URI="https://github.com/OpenPrinting/libcupsfilters/releases/download/${PV/_beta/b}/${P/_beta/b}.tar.xz"
+S="${WORKDIR}"/${P/_beta/b}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 hppa ~loong ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="dbus exif jpeg pdf +poppler +postscript png test tiff"
 RESTRICT="!test? ( test )"
 
@@ -37,13 +38,6 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( media-fonts/dejavu )
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-r3-c++17.patch"
-	"${FILESDIR}/${P}-color-space.patch"
-	"${FILESDIR}/${P}-raster-build-fix.patch"
-	"${FILESDIR}/${P}-raster-gray.patch"
-)
 
 src_prepare() {
 	default
