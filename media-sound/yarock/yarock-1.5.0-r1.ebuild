@@ -13,7 +13,9 @@ S="${WORKDIR}/${PN^}-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="mpv vlc"
+IUSE="mpv +qtmedia vlc"
+
+REQUIRED_USE="|| ( mpv qtmedia vlc )"
 
 RDEPEND="
 	dev-cpp/htmlcxx
@@ -21,6 +23,7 @@ RDEPEND="
 	media-libs/taglib:=
 	x11-libs/libX11
 	mpv? ( media-video/mpv:=[libmpv] )
+	qtmedia? ( dev-qt/qtmultimedia:6 )
 	vlc? ( media-video/vlc:= )
 "
 DEPEND="${RDEPEND}
@@ -48,6 +51,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_PHONON=OFF # questionable benefit over vlc directly
 		-DENABLE_MPV=$(usex mpv)
+		-DENABLE_QTMULTIMEDIA=$(usex qtmedia)
 		-DENABLE_VLC=$(usex vlc)
 	)
 

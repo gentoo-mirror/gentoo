@@ -46,6 +46,3 @@ DEPEND="
 RDEPEND="${DEPEND}
 	net-misc/yt-dlp
 "
-
-# Upstream MR: https://invent.kde.org/multimedia/haruna/-/merge_requests/56
-PATCHES=( "${FILESDIR}/${P}-system-kdsingleapplication.patch" )
