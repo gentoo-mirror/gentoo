@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile install postinst prepare
+DEFINED_PHASES=compile install postinst
 DEPEND=sys-boot/dvhtool abi_mips_o32? ( sys-devel/kgcc64 )
 DESCRIPTION=ARCLoad - Bootloader for SGI IP22/IP32/IP27/IP28/IP30 Systems
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://www.linux-mips.org/pub/linux/mips/people/skylark/arcload-0.5.tar.bz2 mirror://gentoo/arcload-0.50-patches-v1.tar.xz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=e48febc1cc11c268f032e856e893b29a
+_md5_=96d0f1a351744c232445d0c9780362f0
