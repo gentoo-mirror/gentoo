@@ -1,13 +1,20 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit cmake systemd
 
+PAR2_TURBO_VER="1.2.0-nzbget-20250213"
 DESCRIPTION="A command-line based binary newsgrabber supporting .nzb files"
 HOMEPAGE="https://nzbget.com/"
-SRC_URI="https://github.com/nzbgetcom/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	parcheck? (
+		https://github.com/nzbgetcom/par2cmdline-turbo/archive/v${PAR2_TURBO_VER}.tar.gz
+			-> nzbgetcom-par2turbo-${PAR2_TURBO_VER}.tar.gz
+	)
+	https://github.com/nzbgetcom/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -44,7 +51,17 @@ BDEPEND="
 
 DOCS=( ChangeLog.md README.md nzbget.conf )
 
+PATCHES=(
+	# Required to use par2-turbo downloaded into the source directory
+	"${FILESDIR}/${P}-build-with-par2-turbo-offline.patch"
+	# https://github.com/nzbgetcom/nzbget/pull/514
+	"${FILESDIR}/${P}-fix-build-without-parcheck.patch"
+)
+
 src_prepare() {
+	if use parcheck; then
+		mv "${WORKDIR}/par2cmdline-turbo-${PAR2_TURBO_VER}" par2-turbo || die
+	fi
 	cmake_src_prepare
 
 	# Update the main configuration file with the correct paths
