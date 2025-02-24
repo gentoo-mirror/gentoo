@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-python/zenlib-3.0.2[${PYTHON_USEDEP}]
 "
 
-BDEPEND="test? ( dev-python/zstd[${PYTHON_USEDEP}] )"
+BDEPEND="test? ( dev-python/zstandard[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests unittest
 
@@ -37,5 +37,5 @@ python_install_all() {
 }
 
 pkg_postinst() {
-	optfeature "zstd compression support" dev-python/zstd
+	optfeature "zstd compression support" dev-python/zstandard
 }
