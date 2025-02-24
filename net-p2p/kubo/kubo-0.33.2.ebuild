@@ -1,10 +1,16 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit go-module shell-completion systemd
 
+# Upstreams has a directory for each migration, for example fs-repo-15-to-16,
+# each directory is a program by itself. When an upstream tag is created,
+# they use they the name of the last migration program + version, for example
+# fs-repo-15-to-16/v1.0.1. Accordingly, we have a variable for the name and
+# another for the version. Even though the tag uses the name of the last migration,
+# the repository contains source code for all migrations, not only the tagged one.
 FS_MIG_V="1.0.1"
 FS_MIG_N="fs-repo-15-to-16"
 MY_FS_MIG="${FS_MIG_N}-v${FS_MIG_V}"
@@ -75,7 +81,6 @@ src_install() {
 	keepdir /var/log/ipfs
 	fowners -R ipfs:ipfs /var/log/ipfs
 
-	dobin "${FS_MIG_DIR}/fs-repo-migrations/fs-repo-migrations"
 	find "${FS_MIG_DIR}" -executable -type f -name "fs-repo-*" -exec dobin {} \; || die
 }
 
