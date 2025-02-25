@@ -26,7 +26,10 @@ RDEPEND="
 	dev-libs/nss
 	>=media-fonts/noto-emoji-20231130
 	media-libs/alsa-lib
-	media-libs/libpulse
+	|| (
+		media-libs/libpulse
+		media-sound/apulse
+	)
 	media-libs/mesa[X(+)]
 	net-print/cups
 	sys-apps/dbus
@@ -61,7 +64,7 @@ QA_PREBUILT="
 
 src_prepare() {
 	default
-	sed -e 's| --no-sandbox||g' \
+	sed -e "s|^Exec=/opt/Signal/signal-desktop|Exec=${MY_PN}|" \
 		-i usr/share/applications/signal-desktop.desktop || die
 	unpack usr/share/doc/signal-desktop/changelog.gz
 }
@@ -78,7 +81,10 @@ src_install() {
 	fperms u+s /opt/Signal/chrome-sandbox
 	pax-mark m opt/Signal/signal-desktop opt/Signal/chrome-sandbox opt/Signal/chrome_crashpad_handler
 
-	dosym -r /opt/Signal/${MY_PN} /usr/bin/${MY_PN}
+	newbin - signal-desktop <<- _EOF_
+		#!/bin/sh
+		exec \$(command -pv apulse) ${EPREFIX}/opt/Signal/signal-desktop "\${@}"
+	_EOF_
 }
 
 pkg_postinst() {
