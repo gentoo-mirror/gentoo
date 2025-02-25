@@ -90,6 +90,7 @@ RDEPEND="${COMMON_DEPEND}
 	)
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
+	>=kde-plasma/aurorae-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6[wayland(+)]
 	sys-apps/hwdata
 	>=x11-base/xwayland-23.1.0[libei]
@@ -114,10 +115,6 @@ BDEPEND="
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
 
-PATCHES=(
-	"${FILESDIR}"/${P}-gcc15-workaround.patch
-)
-
 src_prepare() {
 	ecm_src_prepare
 
@@ -130,6 +127,8 @@ src_prepare() {
 	if ! use systemd; then
 		sed -e "s/^pkg_check_modules.*libsystemd/#&/" -i CMakeLists.txt || die
 	fi
+
+	cmake_run_in src/plugins cmake_comment_add_subdirectory kdecorations
 }
 
 src_configure() {
