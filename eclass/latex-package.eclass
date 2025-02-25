@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: latex-package.eclass
@@ -60,6 +60,8 @@ esac
 if [[ -z ${_LATEX_PACKAGE_ECLASS} ]]; then
 _LATEX_PACKAGE_ECLASS=1
 
+inherit edo
+
 RDEPEND="virtual/latex-base"
 BDEPEND="${RDEPEND}
 	>=sys-apps/texinfo-4.2-r5"
@@ -76,6 +78,12 @@ TEXMF="/usr/share/texmf-site"
 # This refers to the font supplier; it should be overridden (see eclass
 # DESCRIPTION above)
 SUPPLIER="misc"
+
+# @ECLASS_VARIABLE: LATEX_ENGINE
+# @DESCRIPTION:
+# When compiling documentation (.tex/.dtx), use the specified engine,
+# e.g., lualatex, to build the documention. Defaults to pdflatex.
+: "${LATEX_ENGINE:=pdflatex}"
 
 # @ECLASS_VARIABLE: LATEX_DOC_ARGUMENTS
 # @DESCRIPTION:
@@ -138,18 +146,24 @@ latex-package_src_doinstall() {
 
 						einfo "Making documentation: ${i}"
 						local mypdflatex=(
-							pdflatex
+							${LATEX_ENGINE}
 							${LATEX_DOC_ARGUMENTS}
 							--halt-on-error
 							--interaction=nonstopmode
 							"${i}"
 						)
+
+						if [[ ${LATEX_ENGINE} == "lualatex" ]]; then
+							# bug #950021
+							local -x TEXMFCACHE="${T}" TEXMFVAR="${T}"
+						fi
+
 						# some macros need compiler called twice, do it here.
-						if "${mypdflatex[@]}"; then
-							"${mypdflatex[@]}"
+						if nonfatal edo "${mypdflatex[@]}"; then
+							edo "${mypdflatex[@]}"
 						else
 							einfo "pdflatex failed, trying texi2dvi"
-							texi2dvi -q -c --language=latex "${i}" || die
+							edo texi2dvi -q -c --language=latex "${i}"
 						fi
 					done < <(find -maxdepth 1 -type f -name "*.${1}" -print0)
 				fi
