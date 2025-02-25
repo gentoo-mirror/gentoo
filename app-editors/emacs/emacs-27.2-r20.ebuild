@@ -8,7 +8,7 @@ inherit autotools eapi9-pipestatus elisp-common flag-o-matic readme.gentoo-r1 to
 if [[ ${PV##*.} = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/emacs.git"
-	EGIT_BRANCH="emacs-28"
+	EGIT_BRANCH="emacs-27"
 	EGIT_CHECKOUT_DIR="${WORKDIR}/emacs"
 	S="${EGIT_CHECKOUT_DIR}"
 	SLOT="${PV%%.*}-vcs"
@@ -32,18 +32,19 @@ else
 		SRC_URI="https://alpha.gnu.org/gnu/emacs/pretest/${PN}-${PV/_/-}.tar.xz"
 	fi
 	# Patchset from proj/emacs-patches.git
-	SRC_URI+=" https://dev.gentoo.org/~ulm/emacs/${P}-patches-10.tar.xz"
+	SRC_URI+=" https://dev.gentoo.org/~ulm/emacs/${P}-patches-12.tar.xz"
 	PATCHES=("${WORKDIR}/patch")
 	SLOT="${PV%%.*}"
 	[[ ${PV} == *.*.* ]] && SLOT+="-vcs"
-	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 fi
 
 DESCRIPTION="The extensible, customizable, self-documenting real-time display editor"
 HOMEPAGE="https://www.gnu.org/software/emacs/"
 
 LICENSE="GPL-3+ FDL-1.3+ BSD HPND MIT W3C unicode PSF-2"
-IUSE="acl alsa aqua athena cairo dbus dynamic-loading games gfile gif +gmp gpm gsettings gtk gui gzip-el harfbuzz imagemagick +inotify jit jpeg json kerberos lcms libxml2 livecd m17n-lib mailutils motif png selinux sound source ssl svg systemd +threads tiff toolkit-scroll-bars valgrind wide-int Xaw3d xft +xpm zlib"
+IUSE="acl alsa aqua athena cairo dbus dynamic-loading games gfile gif +gmp gpm gsettings gtk gui gzip-el harfbuzz imagemagick +inotify jpeg json kerberos lcms libxml2 livecd m17n-lib mailutils motif png selinux sound source ssl svg systemd +threads tiff toolkit-scroll-bars valgrind wide-int Xaw3d xft +xpm zlib"
+RESTRICT="test"
 
 RDEPEND="app-emacs/emacs-common[games?,gui(-)?]
 	sys-libs/ncurses:0=
@@ -54,10 +55,6 @@ RDEPEND="app-emacs/emacs-common[games?,gui(-)?]
 	gmp? ( dev-libs/gmp:0= )
 	gpm? ( sys-libs/gpm )
 	!inotify? ( gfile? ( >=dev-libs/glib-2.28.6 ) )
-	jit? (
-		sys-devel/gcc:=[jit(-)]
-		sys-libs/zlib
-	)
 	json? ( dev-libs/jansson:= )
 	kerberos? ( virtual/krb5 )
 	lcms? ( media-libs/lcms:2 )
@@ -141,7 +138,7 @@ QA_CONFIG_IMPL_DECL_SKIP=( malloc_{get,set}_state statvfs64 )
 
 src_prepare() {
 	if [[ ${PV##*.} = 9999 ]]; then
-		FULL_VERSION=$(sed -n 's/^AC_INIT([^,]*,[^0-9.]*\([0-9.]*\).*/\1/p' \
+		FULL_VERSION=$(sed -n 's/^AC_INIT([^,]*,[ \t]*\([^ \t,)]*\).*/\1/p' \
 			configure.ac)
 		[[ ${FULL_VERSION} ]] || die "Cannot determine current Emacs version"
 		einfo "Emacs branch: ${EGIT_BRANCH}"
@@ -151,41 +148,10 @@ src_prepare() {
 			|| die "Upstream version number changed to ${FULL_VERSION}"
 	fi
 
-	if use jit; then
-		export NATIVE_FULL_AOT=1
-		find lisp -type f -name "*.elc" -delete || die
-
-		# These files ignore LDFLAGS. We assign the variable here, because
-		# for live ebuilds FULL_VERSION doesn't exist in global scope
-		QA_FLAGS_IGNORED="usr/$(get_libdir)/emacs/${FULL_VERSION}/native-lisp/.*"
-
-		# The build system requires gcc for native compilation #874657
-		if ! tc-is-gcc; then
-			ewarn "Emacs must be built with gcc[jit] if USE=jit is enabled."
-			ewarn "Ignoring CC=$(tc-getCC) and forcing ${CHOST}-gcc"
-			export CC=${CHOST}-gcc AR=${CHOST}-gcc-ar NM=${CHOST}-gcc-nm \
-				RANLIB=${CHOST}-gcc-ranlib
-			tc-is-gcc || die "tc-is-gcc failed in spite of CC=${CC}"
-		fi
-
-		# gccjit doesn't play well with ccache or distcc #801580
-		# For now, work around the problem with an explicit LIBRARY_PATH
-		if has ccache ${FEATURES} || has distcc ${FEATURES} && tc-is-gcc; then
-			export LIBRARY_PATH=$("$(tc-getCC)" -print-search-dirs \
-				| sed -n '/^libraries:/{s:^[^/]*::;p}')
-		fi
-	fi
-
 	default
 
 	# Fix filename reference in redirected man page
 	sed -i -e "/^\\.so/s/etags/&-${EMACS_SUFFIX}/" doc/man/ctags.1 || die
-
-	# Tests that use bubblewrap don't work in the sandbox:
-	# "bwrap: setting up uid map: Permission denied"
-	# So, disrupt the search for the bwrap executable.
-	sed -i -e 's/(executable-find "bwrap")/nil/' test/src/emacs-tests.el \
-		test/lisp/emacs-lisp/bytecomp-tests.el || die
 
 	AT_M4DIR=m4 eautoreconf
 }
@@ -196,9 +162,6 @@ src_configure() {
 	# We want floating-point arithmetic to be correct #933380
 	replace-flags -Ofast -O2
 	append-flags -fno-fast-math -ffp-contract=off
-
-	# Prevents e.g. tests interfering with running Emacs.
-	unset EMACS_SOCKET_NAME
 
 	local myconf=(
 		--program-suffix="-${EMACS_SUFFIX}"
@@ -217,7 +180,6 @@ src_configure() {
 		$(use_with games gameuser ":gamestat")
 		$(use_with gmp libgmp)
 		$(use_with gpm)
-		$(use_with jit native-compilation)
 		$(use_with json)
 		$(use_with kerberos) $(use_with kerberos kerberos5)
 		$(use_with lcms lcms2)
@@ -228,6 +190,7 @@ src_configure() {
 		$(use_with systemd libsystemd)
 		$(use_with threads)
 		$(use_with wide-int)
+		$(use_with zlib)
 	)
 
 	if use alsa; then
@@ -236,14 +199,6 @@ src_configure() {
 		myconf+=( --with-sound=alsa )
 	else
 		myconf+=( --with-sound=$(usex sound oss no) )
-	fi
-
-	if use jit; then
-		use zlib || ewarn \
-			"USE flag \"jit\" overrides \"-zlib\"; enabling zlib support."
-		myconf+=( --with-zlib )
-	else
-		myconf+=( $(use_with zlib) )
 	fi
 
 	if ! use gui; then
@@ -345,7 +300,6 @@ src_configure() {
 
 src_compile() {
 	export ac_cv_header_valgrind_valgrind_h=$(usex valgrind)
-	append-cppflags -DUSE_VALGRIND=$(usex valgrind)
 
 	if tc-is-cross-compiler; then
 		# Build native tools for compiling lisp etc.
@@ -360,77 +314,12 @@ src_compile() {
 	emake
 }
 
-src_test() {
-	# List .el test files with a comment above listing the exact
-	# subtests which caused failure. Elements should begin with a %.
-	# e.g. %lisp/gnus/mml-sec-tests.el.
-	local exclude_tests=(
-		# Reason: not yet known
-		# mml-secure-en-decrypt-{1,2,3,4}
-		# mml-secure-find-usable-keys-{1,2}
-		# mml-secure-key-checks
-		# mml-secure-select-preferred-keys-4
-		# mml-secure-sign-verify-1
-		%lisp/gnus/mml-sec-tests.el
-
-		# Reason: race condition
-		# Looks like it should be fixed in 29.x at least:
-		# https://debbugs.gnu.org/cgi/bugreport.cgi?bug=55706
-		# files-tests-file-name-non-special-file-in-directory-p
-		%lisp/files-tests.el
-
-		# Reason: permission denied on /nonexistent
-		# (vc-*-bzr only fails if breezy is installed, as they
-		# try to access cache dirs under /nonexistent)
-		#
-		# rmail-undigest-test-multipart-mixed-digest
-		# rmail-undigest-test-rfc1153-less-strict-digest
-		# rmail-undigest-test-rfc1153-sloppy-digest
-		# rmail-undigest-test-rfc934-digest
-		# vc-test-bzr02-state
-		# vc-test-bzr05-rename-file
-		# vc-test-bzr06-version-diff
-		# vc-bzr-test-bug9781
-		%lisp/mail/undigest-tests.el
-		%lisp/vc/vc-tests.el
-		%lisp/vc/vc-bzr-tests.el
-
-		# Reason: some copyright years differ
-		%lisp/emacs-lisp/copyright-tests.el
-
-		# Reason: quoting issues (fixed in Emacs 29)
-		%lib-src/emacsclient-tests.el
-
-		# Reason: tries to access network
-		# internet-is-working
-		%src/process-tests.el
-	)
-	use elibc_musl && exclude_tests+=(
-			# Reason: newlocale(3) lenient locale validation #906012
-			# fns-tests-collate-strings
-			%src/fns-tests.el
-		)
-	use threads || exclude_tests+=(
-			%src/emacs-module-tests.el
-			%src/keyboard-tests.el
-			%src/thread-tests.el
-		)
-
-	# See test/README for possible options
-	emake \
-		EMACS_TEST_VERBOSE=1 \
-		EXCLUDE_TESTS="${exclude_tests[*]}" \
-		TERM=dumb \
-		TEST_BACKTRACE_LINE_LENGTH=nil \
-		check
-}
-
 src_install() {
 	emake DESTDIR="${D}" NO_BIN_LINK=t BLESSMAIL_TARGET= install
 
 	mv "${ED}"/usr/bin/{emacs-${FULL_VERSION}-,}${EMACS_SUFFIX} || die
 	mv "${ED}"/usr/share/man/man1/{emacs-,}${EMACS_SUFFIX}.1 || die
-	mv "${ED}"/usr/share/metainfo/{emacs-,}${EMACS_SUFFIX}.metainfo.xml || die
+	mv "${ED}"/usr/share/metainfo/{emacs-,}${EMACS_SUFFIX}.appdata.xml || die
 
 	# dissuade Portage from removing our dir file #257260
 	touch "${ED}"/usr/share/info/${EMACS_SUFFIX}/.keepinfodir
@@ -445,7 +334,7 @@ src_install() {
 	# avoid collision between slots, see bug #169033 e.g.
 	rm "${ED}"/usr/share/emacs/site-lisp/subdirs.el || die
 	rm -rf "${ED}"/usr/share/{applications,icons} || die
-	rm -rf "${ED}/usr/$(get_libdir)/systemd" || die
+	rm -rf "${ED}/usr/$(get_libdir)" || die
 	rm -rf "${ED}"/var || die
 
 	# remove unused <version>/site-lisp dir
