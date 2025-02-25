@@ -26,8 +26,9 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		dev-python/griffe[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.16[${PYTHON_USEDEP}]
-		>=dev-python/pymdown-extensions-10.0[${PYTHON_USEDEP}]
+		>=dev-python/pymdown-extensions-10.14[${PYTHON_USEDEP}]
 	)
 "
 
