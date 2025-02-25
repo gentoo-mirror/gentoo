@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit autotools desktop python-single-r1 xdg
 
@@ -15,16 +15,15 @@ if [[ "${PV}" == *9999 ]] ; then
 	EGIT_REPO_URI="https://git.claws-mail.org/readonly/claws.git"
 else
 	SRC_URI="https://www.claws-mail.org/download.php?file=releases/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
-SLOT="0"
 LICENSE="GPL-3"
+SLOT="0"
 
-IUSE="archive bogofilter calendar clamav dbus debug doc +gnutls +imap ldap +libcanberra +libnotify litehtml networkmanager nls nntp +notification +oauth pdf perl +pgp python rss session sieve smime spamassassin spam-report spell startup-notification svg valgrind webkit xface"
+IUSE="appindicator archive bogofilter calendar clamav dbus debug doc +gnutls +imap ldap +libcanberra +libnotify litehtml networkmanager nls nntp +notification +oauth pdf perl +pgp python rss session sieve smime spamassassin spam-report spell startup-notification svg valgrind webkit xface"
 REQUIRED_USE="
-	libcanberra? ( notification )
-	libnotify? ( notification )
+	notification? ( || ( appindicator libcanberra libnotify ) )
 	networkmanager? ( dbus )
 	oauth? ( gnutls )
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -66,13 +65,17 @@ COMMONDEPEND="
 	nls? ( >=sys-devel/gettext-0.18 )
 	nntp? ( >=net-libs/libetpan-0.57 )
 	notification? (
+		appindicator? ( dev-libs/libayatana-appindicator )
 		libcanberra? ( || (
 			media-libs/libcanberra-gtk3
 			media-libs/libcanberra[gtk3(-)]
 		) )
 		libnotify? ( x11-libs/libnotify )
 	)
-	perl? ( dev-lang/perl:= )
+	perl? (
+		dev-lang/perl:=
+		virtual/libcrypt:=
+		)
 	pdf? ( app-text/poppler[cairo] )
 	pgp? ( >=app-crypt/gpgme-1.0.0:= )
 	python? (
