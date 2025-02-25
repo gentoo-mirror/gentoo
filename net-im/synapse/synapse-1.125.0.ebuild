@@ -9,33 +9,34 @@ PYTHON_COMPAT=( python3_{10..13} )
 
 CRATES="
 	aho-corasick@1.1.3
-	anyhow@1.0.93
+	anyhow@1.0.95
 	arc-swap@1.7.1
 	autocfg@1.3.0
 	base64@0.21.7
+	bitflags@2.8.0
 	blake2@0.10.6
 	block-buffer@0.10.4
 	bumpalo@3.16.0
-	bytes@1.9.0
+	bytes@1.10.0
 	cfg-if@1.0.0
 	cpufeatures@0.2.12
 	crypto-common@0.1.6
 	digest@0.10.7
 	fnv@1.0.7
 	generic-array@0.14.7
-	getrandom@0.2.15
+	getrandom@0.3.1
 	headers-core@0.3.0
 	headers@0.4.0
 	heck@0.5.0
 	hex@0.4.3
-	http@1.1.0
+	http@1.2.0
 	httpdate@1.0.3
 	indoc@2.0.5
 	itoa@1.0.11
 	js-sys@0.3.69
 	lazy_static@1.5.0
 	libc@0.2.154
-	log@0.4.22
+	log@0.4.25
 	memchr@2.7.2
 	memoffset@0.9.1
 	mime@0.3.17
@@ -43,41 +44,53 @@ CRATES="
 	portable-atomic@1.6.0
 	ppv-lite86@0.2.17
 	proc-macro2@1.0.89
-	pyo3-build-config@0.23.2
-	pyo3-ffi@0.23.2
+	pyo3-build-config@0.23.4
+	pyo3-ffi@0.23.4
 	pyo3-log@0.12.0
-	pyo3-macros-backend@0.23.2
-	pyo3-macros@0.23.2
-	pyo3@0.23.2
+	pyo3-macros-backend@0.23.4
+	pyo3-macros@0.23.4
+	pyo3@0.23.4
 	pythonize@0.23.0
 	quote@1.0.36
-	rand@0.8.5
-	rand_chacha@0.3.1
-	rand_core@0.6.4
+	rand@0.9.0
+	rand_chacha@0.9.0
+	rand_core@0.9.0
 	regex-automata@0.4.8
 	regex-syntax@0.8.5
 	regex@1.11.1
 	ryu@1.0.18
-	serde@1.0.215
-	serde_derive@1.0.215
-	serde_json@1.0.133
+	serde@1.0.217
+	serde_derive@1.0.217
+	serde_json@1.0.138
 	sha1@0.10.6
 	sha2@0.10.8
 	subtle@2.5.0
 	syn@2.0.85
 	target-lexicon@0.12.14
 	typenum@1.17.0
-	ulid@1.1.3
+	ulid@1.2.0
 	unicode-ident@1.0.12
 	unindent@0.2.3
 	version_check@0.9.4
-	wasi@0.11.0+wasi-snapshot-preview1
+	wasi@0.13.3+wasi-0.2.2
 	wasm-bindgen-backend@0.2.92
 	wasm-bindgen-macro-support@0.2.92
 	wasm-bindgen-macro@0.2.92
 	wasm-bindgen-shared@0.2.92
 	wasm-bindgen@0.2.92
 	web-time@1.1.0
+	windows-targets@0.52.6
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_msvc@0.52.6
+	windows_i686_gnu@0.52.6
+	windows_i686_gnullvm@0.52.6
+	windows_i686_msvc@0.52.6
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_msvc@0.52.6
+	wit-bindgen-rt@0.33.0
+	zerocopy-derive@0.8.17
+	zerocopy@0.8.17
 "
 
 inherit cargo distutils-r1 multiprocessing optfeature systemd
@@ -100,11 +113,10 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres systemd test"
 RESTRICT="!test? ( test )"
 
-# <twisted-24.10: https://github.com/element-hq/synapse/issues/17075
 RDEPEND="
 	acct-user/synapse
 	acct-group/synapse
@@ -135,7 +147,7 @@ RDEPEND="
 	dev-python/signedjson[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 	dev-python/treq[${PYTHON_USEDEP}]
-	<dev-python/twisted-24.10[${PYTHON_USEDEP}]
+	dev-python/twisted[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
@@ -158,6 +170,10 @@ BDEPEND="
 
 # Rust extension
 QA_FLAGS_IGNORED="usr/lib/python3.*/site-packages/synapse/synapse_rust.abi3.so"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-1.123.0-skip-recovery-test.patch"
+)
 
 src_test() {
 	if use postgres; then
