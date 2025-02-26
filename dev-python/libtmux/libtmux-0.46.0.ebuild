@@ -39,9 +39,6 @@ python_prepare_all() {
 	local issues="https://github.com/tmux-python/libtmux/issues/"
 	sed -r -i "s|:issue:\`([[:digit:]]+)\`|\`issue \1 ${issues}\1\`|" CHANGES || die
 
-	# increase timeouts for tests
-	sed -e 's/0.01/0.1/' -i tests/test_test.py || die
-
 	distutils-r1_python_prepare_all
 }
 
