@@ -2599,7 +2599,7 @@ dev-qt/qt-creator:webengine - Allow using dev-qt/qtwebengine for better USE=help
 dev-qt/qt-docs:3d - Install documentation for dev-qt/qt3d
 dev-qt/qt-docs:activeqt - Install documentation for ActiveQt (unpackaged, Windows-only)
 dev-qt/qt-docs:assistant - Install documentation for dev-qt/assistant
-dev-qt/qt-docs:bluetooth - Install documentation for dev-qt/qtbluetooth
+dev-qt/qt-docs:bluetooth - Install documentation for dev-qt/qtconnectivity[bluetooth]
 dev-qt/qt-docs:charts - Install documentation for dev-qt/qtcharts
 dev-qt/qt-docs:concurrent - Install documentation for dev-qt/qtconcurrent
 dev-qt/qt-docs:connectivity - Install documentation for dev-qt/qtconnectivity
@@ -2698,7 +2698,8 @@ dev-qt/qtgui:tuio - Build plugin to receive touch events over the TUIO protocol
 dev-qt/qtgui:wayland - Provide dev-qt/qtwayland to ensure Qt applications can be run as Wayland clients
 dev-qt/qthttpserver:websockets - Enable websockets support using dev-qt/qtwebsockets
 dev-qt/qtmultimedia:eglfs - Enable screen capture support with Qt's EGL Full Screen/Single Surface platform plugin
-dev-qt/qtmultimedia:gstreamer - Enable audio support via media-libs/gstreamer
+dev-qt/qtmultimedia:gstreamer - Enable media-libs/gstreamer support
+dev-qt/qtmultimedia:pipewire - Enable media-video/pipewire support
 dev-qt/qtmultimedia:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtmultimedia:widgets - Build the QtMultimediaWidgets module
 dev-qt/qtnetwork:gssapi - Enable support for GSSAPI (virtual/krb5)
