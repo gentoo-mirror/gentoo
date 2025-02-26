@@ -71,7 +71,7 @@ done
 LICENSE="|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4"
 SLOT="${PV%%_*}" # Beta releases get to share the same SLOT as the eventual stable
 
-IUSE="big-endian clippy cpu_flags_x86_sse2 debug dist doc llvm-libunwind lto rustfmt rust-analyzer rust-src system-llvm test wasm ${ALL_LLVM_TARGETS[*]}"
+IUSE="big-endian clippy cpu_flags_x86_sse2 debug dist doc llvm-libunwind lto rustfmt rust-analyzer rust-src +system-llvm test wasm ${ALL_LLVM_TARGETS[*]}"
 
 if [[ ${PV} = *9999* ]]; then
 	# These USE flags require nightly rust
@@ -168,6 +168,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/rust.asc
 PATCHES=(
 	"${DISTDIR}"/${P}-vendor-in-install-phase.patch
 	"${FILESDIR}"/1.85.0-cross-compile-libz.patch
+	"${FILESDIR}"/1.85.0-musl-dynamic-linking.patch
 	"${FILESDIR}"/1.67.0-doc-wasm.patch
 )
 
