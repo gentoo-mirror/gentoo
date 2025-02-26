@@ -6,7 +6,7 @@ EAPI=8
 PLOCALES="ca de es fr ja ko pt_BR ru sv tr uk"
 PLOCALES_BIN="${PLOCALES} bg cs eu fi hu id it ka nb nl pl pt tg zh_TW zh_CN"
 PLOCALE_BACKUP="sv"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit autotools linux-info multilib-minimal optfeature plocale \
 	python-single-r1 pam systemd tmpfiles udev toolchain-funcs
@@ -192,7 +192,8 @@ src_prepare() {
 		Makefile.am \
 		|| die
 
-	# requires valgrind headers installed
+	# requires valgrind headers installed, see
+	# https://github.com/SSSD/sssd/pull/7845
 	sed -i \
 		-e '/^\s*test_iobuf[ \\]*$/d' \
 		Makefile.am \
