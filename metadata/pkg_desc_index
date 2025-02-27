@@ -997,7 +997,7 @@ app-admin/logstash-bin 7.17.25: Tool for managing events and logs
 app-admin/logsurfer+ 1.8-r5 1.8-r6: Real Time Log Monitoring and Alerting
 app-admin/lsyncd 2.3.1: Live Syncing (Mirror) Daemon
 app-admin/makepasswd 1.10-r1: Random password generator
-app-admin/mcelog 200 201 202: A tool to log and decode Machine Check Exceptions
+app-admin/mcelog 200 201 202 204: A tool to log and decode Machine Check Exceptions
 app-admin/mei-amt-check 0_p20170515: AMT status checker
 app-admin/metalog 20220214 20230719: A highly configurable replacement for syslogd/klogd
 app-admin/mkosi 20.2-r1 24.3: Build Bespoke OS Images
@@ -5354,7 +5354,7 @@ dev-libs/editline 1.17.1-r1 1.17.1_p20240527: line editing library for UNIX call
 dev-libs/eekboard 1.0.8_p20121001-r1: An easy to use virtual keyboard toolkit
 dev-libs/efl 1.27.0-r1 1.28.0: Enlightenment Foundation Libraries all-in-one package
 dev-libs/elfutils 0.191-r2 0.192-r1 9999: Libraries/utilities to handle ELF objects (drop in replacement for libelf)
-dev-libs/ell 0.71 0.72 9999: Embedded Linux Library provides core, low-level functionality for system daemons
+dev-libs/ell 0.71 0.72 0.73 9999: Embedded Linux Library provides core, low-level functionality for system daemons
 dev-libs/eventlog 0.2.12: Support library for syslog-ng
 dev-libs/expat 2.6.3 2.6.4: Stream-oriented XML parser library
 dev-libs/faxpp 0.4-r2: Small, fast and conformant XML pull parser written in C
@@ -8238,7 +8238,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.0 1.3.1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.6.9 7.6.10 7.6.11 7.6.12: Code coverage measurement for Python
+dev-python/coverage 7.6.10 7.6.11 7.6.12: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.0 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.8.3-r1 2.8.4-r1 2.9.0-r1 2.9.1: Thin Python bindings to de/compression algorithms in Rust
@@ -12056,7 +12056,7 @@ gui-libs/amtk 5.6.1: Actions, Menus and Toolbars Kit for GTK+ applications
 gui-libs/aquamarine 0.5.0 0.5.1 9999: Aquamarine is a very light linux rendering backend library
 gui-libs/display-manager-init 1.1.2: RC init files for starting display and login managers
 gui-libs/egl-gbm 1.1.2: NVIDIA GBM EGL external platform library
-gui-libs/egl-wayland 1.1.13.1 1.1.17: NVIDIA wayland EGL external platform library
+gui-libs/egl-wayland 1.1.13.1 1.1.17 1.1.18_pre20250114: NVIDIA wayland EGL external platform library
 gui-libs/egl-x11 1.0.0: NVIDIA X11/XCB EGL external platform library
 gui-libs/eglexternalplatform 1.1-r1 1.2: EGL External Platform interface
 gui-libs/gdk-pixbuf-loader-webp 0.2.4 0.2.7: WebP GDK Pixbuf Loader library
@@ -15140,7 +15140,7 @@ net-misc/dhcping 1.2-r1: Utility to send DHCP requests to DHCP servers to see if
 net-misc/dibbler 1.0.1-r4: Portable DHCPv6 implementation (server, client and relay)
 net-misc/downloader-cli 0.3.4: Simple downloader with an customizable progressbar
 net-misc/dropbear 2024.86-r1: Small SSH 2 client/server designed for small memory environments
-net-misc/dropbox 214.4.5217 215.4.7202 216.4.4420 217.4.4417: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox 214.4.5217 215.4.7202 216.4.4420 217.4.4417 218.4.4348: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2023 2024.01.22: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electrum 4.5.8-r2: User friendly Bitcoin client
@@ -16923,7 +16923,7 @@ sys-apps/consolation 0.0.7: libinput based console mouse daemon
 sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 9.4 9.4-r1 9.5 9.6 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
-sys-apps/cpu-x 5.0.2 5.0.3 5.0.4 5.1.0 5.1.1: A Free software that gathers information on CPU, motherboard and more
+sys-apps/cpu-x 5.0.2 5.0.3 5.0.4 5.1.0 5.1.1 5.1.2: A Free software that gathers information on CPU, motherboard and more
 sys-apps/cpuid 20241023: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.9.11 2.10.2 2.10.3: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
@@ -17043,7 +17043,7 @@ sys-apps/man2html 1.6g-r2: Standard commands to read man pages
 sys-apps/mawk 1.3.4_p20240905 1.3.4_p20250131: An (often faster than gawk) awk-interpreter
 sys-apps/mcstrans 3.6 3.7-r1 3.8 9999: SELinux context translation to human readable names
 sys-apps/memtest86+ 6.20-r1 7.00 7.20: Memory tester based on PCMemTest
-sys-apps/memtest86-bin 11.2: Stand alone memory testing software for x86 EFI hardware
+sys-apps/memtest86-bin 11.2-r1: Stand alone memory testing software for x86 EFI hardware
 sys-apps/memtester 4.5.1 4.6.0: Userspace utility for testing the memory subsystem for faults
 sys-apps/merge-usr 6: Script to migrate from split-usr to merged-usr
 sys-apps/miller 5.10.2: A tool like sed, awk, cut, join, and sort for name-indexed data (CSV, JSON, ..)
@@ -17611,8 +17611,8 @@ sys-kernel/dkms 3.1.4 3.1.5: Dynamic Kernel Module Support
 sys-kernel/dracut 060_pre20240104-r4 103-r2 103-r4 105-r4 106-r1 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.234 5.15.178 6.1.129 6.6.79 6.12.16 6.13.4: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.234 5.15.178 6.1.129 6.6.79 6.12.16 6.13.4: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.234 5.15.178 6.1.129 6.6.79 6.6.80 6.12.16 6.12.17 6.13.4 6.13.5: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.234 5.15.178 6.1.129 6.6.79 6.6.80 6.12.16 6.12.17 6.13.4 6.13.5: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.230 5.10.233 5.10.234 5.15.173 5.15.177 5.15.178 6.1.118 6.1.127 6.1.128 6.1.129 6.6.62 6.6.74 6.6.76 6.6.77 6.6.78 6.6.79 6.6.80 6.12.13 6.12.15 6.12.16 6.12.17 6.13.2 6.13.3 6.13.3-r1 6.13.4 6.13.5: Full sources including the Gentoo patchset for the 6.13 kernel tree
 sys-kernel/git-sources 6.14_rc1 6.14_rc2 6.14_rc3 6.14_rc4: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 50 55: Gentoo fork of installkernel script from debianutils
@@ -17631,7 +17631,7 @@ sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230
 sys-kernel/rt-sources 4.14.336_p159 4.19.325_p140 5.4.288_p94 5.10.231_p123 5.15.173_p82 6.0.5_p14 6.1.120_p47 6.5.2_p8 6.6.65_p47: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/scx 1.0.6-r2 1.0.8 1.0.9: sched_ext schedulers and tools
 sys-kernel/ugrd 1.20.0 1.22.0 1.24.2 1.27.2 1.28.2 1.29.0-r1 1.31.2 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.234 5.10.9999 5.15.178 5.15.9999 6.1.129 6.1.9999 6.6.79 6.6.9999 6.12.16 6.12.9999 6.13.4: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.234 5.10.9999 5.15.178 5.15.9999 6.1.129 6.1.9999 6.6.79 6.6.80 6.6.9999 6.12.16 6.12.17 6.12.9999 6.13.4 6.13.5: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.290 5.10.234 5.15.178 6.1.129 6.6.80 6.12.17 6.13.5: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.32_p20250124: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 6.12.10: The Zen Kernel Live Sources
@@ -17817,7 +17817,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.234 5.15.178 6.1.129 6.6.79 6.12.16 6.13.4: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.234 5.15.178 6.1.129 6.6.79 6.6.80 6.12.16 6.12.17 6.13.4 6.13.5: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18258,7 +18258,7 @@ x11-base/xorg-proto 2024.1 9999: X.Org combined protocol headers
 x11-base/xorg-server 21.1.14 21.1.15 21.1.16 9999: X.Org X servers
 x11-base/xorg-sgml-doctools 1.12.1: SGML entities and XML/CSS stylesheets used in X.Org docs
 x11-base/xwayland 24.1.4 24.1.5 24.1.6 9999: Standalone X server running under Wayland
-x11-drivers/nvidia-drivers 390.157 470.256.02-r2 535.230.02 550.40.85 550.144.03 570.86.16-r1: NVIDIA Accelerated Graphics Driver
+x11-drivers/nvidia-drivers 390.157 470.256.02-r2 535.230.02 550.40.85 550.144.03 570.86.16-r1 570.124.04: NVIDIA Accelerated Graphics Driver
 x11-drivers/xf86-input-elographics 1.4.4: Elographics input driver
 x11-drivers/xf86-input-evdev 2.11.0: Generic Linux input driver
 x11-drivers/xf86-input-joystick 1.6.4: X.Org driver for joystick input devices
