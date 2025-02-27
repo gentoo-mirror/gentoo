@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.37.16 1.37.21 1.37.26 1.38.0 1.38.1: Universal Command Line Environment for AWS
+app-admin/awscli 1.37.16 1.37.21 1.37.26 1.38.0 1.38.1 1.38.2: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2024.12.0 2025.1.1 2025.1.4: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -5300,7 +5300,7 @@ dev-libs/boron 2.1.0: A scripting language similar to REBOL
 dev-libs/botan 2.19.3-r2 2.19.5 3.1.1 3.2.0-r1 3.2.0-r2 3.6.1 3.7.1: C++ crypto library
 dev-libs/boxfort 0.1.4 0.1.4-r1: Convenient & cross-platform sandboxing C library
 dev-libs/c-blosc 1.21.6: Blocking, shuffling and lossless compression library
-dev-libs/c-blosc2 2.15.2 2.16.0: Blocking, shuffling and lossless compression library
+dev-libs/c-blosc2 2.15.2 2.16.0 2.17.0: Blocking, shuffling and lossless compression library
 dev-libs/c-capnproto 0.3: C library/compiler for the Cap'n Proto serialization/RPC protocol
 dev-libs/c-siphash 1.1.0: Streaming-capable SipHash Implementation
 dev-libs/c-stdaux 1.5.0: Auxiliary macros and functions for the C standard library
@@ -5510,7 +5510,7 @@ dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binarie
 dev-libs/libgdata 0.18.1-r1: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6-r1: GObject-based interfaces and classes for commonly used data structures
 dev-libs/libgit2 1.7.2 1.8.4 1.9.0: A linkable library for Git
-dev-libs/libgit2-glib 1.2.0-r2: Git library for GLib
+dev-libs/libgit2-glib 1.2.0-r2 1.2.1: Git library for GLib
 dev-libs/libglib-testing 0.1.1: Libglib-testing is a test library providing test harnesses and mock classes
 dev-libs/libgnome-games-support 1.8.2 2.0.0: Library for code common to GNOME games
 dev-libs/libgnt 2.14.3: Pidgin's GLib Ncurses Toolkit
@@ -8153,8 +8153,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.36.16 1.36.21 1.36.26 1.37.0 1.37.1: The AWS SDK for Python
-dev-python/botocore 1.36.16 1.36.21 1.36.26 1.37.0 1.37.1: Low-level, data-driven core of boto 3
+dev-python/boto3 1.36.16 1.36.21 1.36.26 1.37.0 1.37.1 1.37.2: The AWS SDK for Python
+dev-python/botocore 1.36.16 1.36.21 1.36.26 1.37.0 1.37.1 1.37.2: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8257,7 +8257,7 @@ dev-python/cssselect 1.2.0: Parse CSS3 Selectors and translate them to XPath 1.0
 dev-python/cssselect2 0.7.0: Parses CSS3 Selectors and translates them to XPath 1.0
 dev-python/cssutils 2.11.1: A CSS Cascading Style Sheets library
 dev-python/cstruct 5.3 6.0: C-style structs for Python
-dev-python/csvkit 2.0.0 2.0.1: A suite of utilities for converting to and working with CSV
+dev-python/csvkit 2.0.1 2.1.0: A suite of utilities for converting to and working with CSV
 dev-python/curtsies 0.4.2: Curses-like terminal wrapper, with colored strings
 dev-python/cvxopt 1.3.2: Python package for convex optimization
 dev-python/cwcwidth 0.1.9 0.1.10: Python bindings for wc(s)width
@@ -8349,7 +8349,7 @@ dev-python/emcee 3.1.4 3.1.5 3.1.6: Python ensemble sampling toolkit for affine-
 dev-python/emoji 2.14.1: Emoji for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
 dev-python/ensurepip-pip 24.1 24.3.1 25.0 25.0.1: Shared pip wheel for ensurepip Python module
-dev-python/ensurepip-setuptools 75.8.0 75.8.1: Shared setuptools wheel for ensurepip Python module
+dev-python/ensurepip-setuptools 75.8.0 75.8.1 75.8.2: Shared setuptools wheel for ensurepip Python module
 dev-python/ensurepip-wheel 0.45.1: Shared wheel wheel for use in pip tests
 dev-python/ensurepip-wheels 100: Shared wheels for ensurepip Python module
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
@@ -8538,7 +8538,7 @@ dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.29.5 7.0.0_alpha0: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.0: Interactive Parallel Computing with IPython
-dev-python/ipython 8.32.0 9.0.0_beta1: Advanced interactive shell for Python
+dev-python/ipython 8.32.0 9.0.0_beta1 9.0.0_beta2: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
 dev-python/ipython-pygments-lexers 1.1.1: Pygments lexers for syntax-highlighting IPython code and sessions
 dev-python/ipywidgets 8.1.5: IPython HTML widgets for Jupyter
@@ -8547,7 +8547,7 @@ dev-python/irctokens 2.0.2: RFC1459 and IRCv3 protocol tokeniser library
 dev-python/iso8601 2.1.0: Simple module to parse ISO 8601 dates
 dev-python/isodate 0.6.1-r1 0.7.2: ISO 8601 date/time/duration parser and formatter
 dev-python/isoduration 20.11.0-r1: Operations with ISO 8601 durations
-dev-python/isort 6.0.0: A python utility/library to sort imports
+dev-python/isort 6.0.0 6.0.1: A python utility/library to sort imports
 dev-python/iterable-io 1.0.0: Adapt generators and other iterables to a file-like interface
 dev-python/itsdangerous 2.2.0: Various helpers to pass trusted data to untrusted environments and back
 dev-python/itunespy 1.6.1: A simple library to fetch data from the iTunes Store API
@@ -9228,7 +9228,7 @@ dev-python/python-mpv 1.0.7: Python interface to the mpv media player
 dev-python/python-multipart 0.0.20: A streaming multipart parser for Python
 dev-python/python-neutronclient 11.4.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 18.8.0: A client for the OpenStack Nova API
-dev-python/python-openstackclient 7.2.1 7.3.0 7.3.1: A client for the OpenStack APIs
+dev-python/python-openstackclient 7.2.1 7.3.0 7.3.1 7.4.0: A client for the OpenStack APIs
 dev-python/python-pam 2.0.2-r2: Python PAM module
 dev-python/python-poppler-qt5 21.3.0: Python binding for libpoppler-qt5
 dev-python/python-ptrace 0.9.9 9999: A Python binding of ptrace library
@@ -9363,7 +9363,7 @@ dev-python/rtslib-fb 2.2.2: A Python object API for managing the Linux LIO kerne
 dev-python/ruamel-yaml 0.18.10: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.12: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.15.1-r1 0.16.0: A high performance Python graph library implemented in Rust
-dev-python/s3transfer 0.10.4 0.11.2: An Amazon S3 Transfer Manager
+dev-python/s3transfer 0.10.4 0.11.2 0.11.3: An Amazon S3 Transfer Manager
 dev-python/sabctools 8.2.3 8.2.4 8.2.5: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
@@ -9389,7 +9389,7 @@ dev-python/serpent 1.41: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1-r1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service-identity 24.2.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.3.4-r1 1.3.5: Allow customization of the process title
-dev-python/setuptools 75.8.0 75.8.1: Collection of extensions to Distutils
+dev-python/setuptools 75.8.0 75.8.1 75.8.2: Collection of extensions to Distutils
 dev-python/setuptools-gettext 0.1.11 0.1.14: Setuptools plugin for building mo files
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.10.2-r1: A plugin for setuptools to build Rust Python extensions
@@ -9486,7 +9486,7 @@ dev-python/spyder-notebook 0.6.1: Jupyter notebook integration with Spyder
 dev-python/spyder-unittest 0.7.0: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.38: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.3.8 26.3.9 26.4.1 26.6.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 26.6.0 26.7.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -17437,7 +17437,7 @@ sys-devel/mold 2.1.0 2.34.1-r1 2.35.0 2.35.1 2.36.0 9999: A Modern Linker
 sys-devel/multilib-gcc-wrapper 0-r2: Wrappers for gcc tools to be used on non-native CHOSTs
 sys-devel/native-cctools 5-r1: Host OS native assembler as and static linker ld
 sys-devel/nvptx-tools 0_pre20240809 9999: Collection of tools for use with nvptx-none GCC toolchains
-sys-devel/patch 2.7.6-r6 2.7.6-r7 2.7.6_p20250206 9999: Utility to apply diffs to files
+sys-devel/patch 2.7.6-r6 2.7.6-r7 2.7.6_p20250206-r1 9999: Utility to apply diffs to files
 sys-devel/qbe 1.1-r1 1.2 9999: Pure-C embeddable compiler backend
 sys-devel/reflex 20240906 20241231: This is a variant of the flex fast lexical scanner
 sys-devel/rust-std 1.71.1 1.74.1 1.75.0 1.77.1 1.79.0 1.80.1 1.81.0 1.82.0 1.83.0 1.84.1 1.85.0: Rust standard library, standalone (for crossdev)
