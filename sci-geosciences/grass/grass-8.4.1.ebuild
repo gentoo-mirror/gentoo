@@ -102,6 +102,11 @@ BDEPEND="
 	virtual/pkgconfig
 	X? ( dev-lang/swig )"
 
+PATCHES=(
+	# bug 746590
+	"${FILESDIR}/${PN}-flock.patch"
+)
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
