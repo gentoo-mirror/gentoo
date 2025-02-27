@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,10 +18,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64-macos ~x64-macos"
 
 RDEPEND="
-	>=dev-python/agate-1.6.3[${PYTHON_USEDEP}]
-	>=dev-python/agate-excel-0.2.2[${PYTHON_USEDEP}]
-	>=dev-python/agate-dbf-0.2.0[${PYTHON_USEDEP}]
-	>=dev-python/agate-sql-0.5.3[${PYTHON_USEDEP}]
+	>=dev-python/agate-1.12.0[${PYTHON_USEDEP}]
+	>=dev-python/agate-excel-0.4.0[${PYTHON_USEDEP}]
+	>=dev-python/agate-dbf-0.2.3[${PYTHON_USEDEP}]
+	>=dev-python/agate-sql-0.7.0[${PYTHON_USEDEP}]
 	dev-python/openpyxl[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	dev-python/xlrd[${PYTHON_USEDEP}]
