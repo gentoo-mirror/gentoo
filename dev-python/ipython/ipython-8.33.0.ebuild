@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( pypy3 python3_{10..13} )
 PYTHON_REQ_USE='readline(+),sqlite,threads(+)'
 
 inherit distutils-r1 optfeature pypi virtualx
@@ -18,13 +18,12 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="examples notebook nbconvert qt5 +smp test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/decorator[${PYTHON_USEDEP}]
-	dev-python/ipython-pygments-lexers[${PYTHON_USEDEP}]
 	>=dev-python/jedi-0.16[${PYTHON_USEDEP}]
 	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.3[${PYTHON_USEDEP}]
@@ -34,8 +33,11 @@ RDEPEND="
 	dev-python/stack-data[${PYTHON_USEDEP}]
 	>=dev-python/traitlets-5.13.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
+		dev-python/exceptiongroup[${PYTHON_USEDEP}]
+	' 3.10)
+	$(python_gen_cond_dep '
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	' 3.11)
+	' 3.10 3.11)
 "
 
 BDEPEND="
