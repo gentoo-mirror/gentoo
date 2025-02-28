@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ PIPEWIRE_DOCS_VERSION="$(ver_cut 1-2).0"
 # Default to generating docs (inc. man pages) if no prebuilt; overridden later
 PIPEWIRE_DOCS_USEFLAG="+man"
 PYTHON_COMPAT=( python3_{10..13} )
-inherit meson-multilib optfeature prefix python-any-r1 systemd tmpfiles udev
+inherit eapi9-ver meson-multilib optfeature prefix python-any-r1 systemd tmpfiles udev
 
 if [[ ${PV} == 9999 ]]; then
 	PIPEWIRE_DOCS_PREBUILT=0
@@ -47,7 +47,7 @@ else
 		PIPEWIRE_DOCS_USEFLAG="man"
 	fi
 
-	KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 DESCRIPTION="Multimedia processing graphs"
@@ -334,8 +334,12 @@ multilib_src_install_all() {
 		dosym ../../../usr/share/alsa/alsa.conf.d/99-pipewire-default-hook.conf /etc/alsa/conf.d/99-pipewire-default-hook.conf
 	fi
 
+	exeinto /etc/user/init.d
+	newexe "${FILESDIR}"/pipewire.initd pipewire
 	# Enable required wireplumber alsa and bluez monitors
 	if use sound-server; then
+		newexe "${FILESDIR}"/pipewire-pulse.initd pipewire-pulse
+
 		# Install sound-server enabler for wireplumber 0.5.0+ conf syntax
 		insinto /etc/wireplumber/wireplumber.conf.d
 		doins "${FILESDIR}"/gentoo-sound-server-enable-audio-bluetooth.conf
@@ -387,8 +391,7 @@ pkg_postinst() {
 
 	use system-service && tmpfiles_process pipewire.conf
 
-	local ver
-	for ver in ${REPLACING_VERSIONS} ; do
+	if [[ -n ${REPLACING_VERSIONS} ]] ; then
 		if has_version kde-plasma/kwin[screencast] || has_version x11-wm/mutter[screencast] ; then
 			# https://bugs.gentoo.org/908490
 			# https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/3243
@@ -396,7 +399,7 @@ pkg_postinst() {
 			ewarn "Screencasting may not work until you do."
 		fi
 
-		if ver_test ${ver} -le 0.3.66-r1 ; then
+		if ver_replacing -le 0.3.66-r1 ; then
 			elog ">=pipewire-0.3.66 uses the 'pipewire' group to manage permissions"
 			elog "and limits needed to function smoothly:"
 			elog
@@ -462,7 +465,7 @@ pkg_postinst() {
 				fi
 			fi
 		fi
-	done
+	fi
 
 	if [[ ${HAD_SOUND_SERVER} -eq 0 || -z ${REPLACING_VERSIONS} ]] ; then
 		# TODO: We could drop most of this if we set up systemd presets?

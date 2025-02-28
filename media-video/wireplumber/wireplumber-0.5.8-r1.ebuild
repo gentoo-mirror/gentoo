@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,7 +23,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://gitlab.freedesktop.org/pipewire/${PN}/-/archive/${PV}/${P}.tar.bz2"
-	KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 LICENSE="MIT"
@@ -69,8 +69,6 @@ PATCHES=(
 	# TODO: Soon, we should be able to migrate to just a dropin at
 	# /usr/share. See https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/652#note_2399735.
 	"${FILESDIR}"/${PN}-0.5.6-config-disable-sound-server-parts.patch
-
-	"${FILESDIR}"/${P}-bluetooth-only-autoswitch.patch
 )
 
 src_configure() {
@@ -99,6 +97,9 @@ src_configure() {
 
 src_install() {
 	meson_src_install
+
+	exeinto /etc/user/init.d
+	newexe "${FILESDIR}"/wireplumber.initd wireplumber
 
 	mv "${ED}"/usr/share/doc/wireplumber/* "${ED}"/usr/share/doc/${PF} || die
 	rmdir "${ED}"/usr/share/doc/wireplumber || die

@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -62,4 +62,6 @@ src_install() {
 	# bug #915702
 	insinto /usr/share/xdg-desktop-portal
 	doins "${WORKDIR}/${P}/contrib/wlroots-portals.conf"
+	exeinto /etc/user/init.d
+	newexe "${FILESDIR}"/xdg-desktop-portal-wlr.initd xdg-desktop-portal-wlr
 }
