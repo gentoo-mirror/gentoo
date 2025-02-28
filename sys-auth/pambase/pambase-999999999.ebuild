@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -87,7 +87,7 @@ src_configure() {
 		$(usex securetty '--securetty' '') \
 		$(usex selinux '--selinux' '') \
 		$(usex sha512 '--sha512' '') \
-		$(usex systemd '--systemd' '') \
+		$(usex systemd '--systemd' '--openrc') \
 		$(usex yescrypt '--yescrypt' '') \
 		$(usex sssd '--sssd' '') \
 	|| die
