@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DIST_AUTHOR=HAARG
-DIST_VERSION=1.26
+DIST_VERSION=1.27
 inherit perl-module
 
 DESCRIPTION="A formatter for spellchecking Pod"
@@ -19,7 +19,6 @@ RDEPEND="
 	dev-perl/Class-Tiny
 	dev-perl/File-ShareDir
 	dev-perl/Lingua-EN-Inflect
-	virtual/perl-Pod-Escapes
 	>=virtual/perl-Pod-Simple-3.270.0
 	virtual/perl-Text-Tabs+Wrap
 "
