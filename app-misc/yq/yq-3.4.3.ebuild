@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..13} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit pypi distutils-r1
@@ -38,19 +38,10 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}/yq-3.1.2-test.patch"
+	"${FILESDIR}/yq-3.4.3-rename-cli.patch"
 )
 
 python_prepare_all() {
-	cat <<-\EOF > "${T}"/yq-python.patch
-	--- setup.py
-	+++ setup.py
-	@@ -37 +37 @@
-	-        "console_scripts": ["yq=yq:cli", "xq=yq:xq_cli", "tomlq=yq:tq_cli"],
-	+        "console_scripts": ["yq-python=yq:cli", "xq=yq:xq_cli", "tomlq=yq:tq_cli"],
-	EOF
-
-	eapply -p0 "${T}"/yq-python.patch
-
 	sed -e 's:unittest.main():unittest.main(verbosity=2):' \
 		-i test/test.py || die
 
