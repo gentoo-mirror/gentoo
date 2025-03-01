@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,8 +19,8 @@ SLOT="0"
 
 # Rekeyword for ~long, ~x86 and ~riscv, when https://bugs.gentoo.org/937582 is fixed.
 # KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
-KEYWORDS="~amd64 ~arm64"
-IUSE="+crypt geolocation jingle remote rst +spell +webp"
+KEYWORDS="amd64 ~arm64"
+IUSE="+crypt geolocation jingle remote rst +spell upnp +webp"
 
 COMMON_DEPEND="
 	dev-libs/gobject-introspection[cairo(+)]
@@ -34,14 +34,14 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	$(python_gen_cond_dep '
 		dev-python/idna[${PYTHON_USEDEP}]
-		>=dev-python/nbxmpp-5.0.4[${PYTHON_USEDEP}]
+		<dev-python/nbxmpp-6[${PYTHON_USEDEP}]
+		>=dev-python/nbxmpp-5.0.1[${PYTHON_USEDEP}]
 		dev-python/precis-i18n[${PYTHON_USEDEP}]
 		dev-python/pyasn1[${PYTHON_USEDEP}]
 		dev-python/pycairo[${PYTHON_USEDEP}]
 		dev-python/pycurl[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
 		x11-libs/libXScrnSaver
-		sys-apps/xdg-desktop-portal
 		app-crypt/libsecret[crypt,introspection]
 		dev-python/keyring[${PYTHON_USEDEP}]
 		>=dev-python/secretstorage-3.1.1[${PYTHON_USEDEP}]
@@ -77,16 +77,17 @@ RDEPEND="${COMMON_DEPEND}
 			app-text/gspell[introspection]
 			app-text/hunspell
 		)
+		upnp? ( net-libs/gupnp-igd:0[introspection] )
 	')"
 
 python_compile() {
-	./make.py build --dist unix || die
 	distutils-r1_python_compile
+	./pep517build/build_metadata.py -o dist/metadata
 }
 
 python_install() {
 	distutils-r1_python_install
-	./make.py install --dist unix --prefix="${ED}/usr" || die
+	./pep517build/install_metadata.py dist/metadata --prefix="${D}/usr"
 
 	gzip -d "${ED}"/usr/share/man/man1/*.gz || die
 }
