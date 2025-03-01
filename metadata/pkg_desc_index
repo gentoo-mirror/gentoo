@@ -902,7 +902,7 @@ app-admin/ansible 10.2.0 11.0.0 11.1.0: Model-driven deployment, config manageme
 app-admin/ansible-core 2.16.6 2.17.2 2.18.0 2.18.1-r1 9999: Model-driven deployment, config management, and command execution framework
 app-admin/ansible-lint 24.9.2 24.12.2: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
-app-admin/ansible-molecule 24.2.1 24.12.0: A toolkit designed to aid in the development and testing of Ansible roles
+app-admin/ansible-molecule 24.2.1 24.12.0 25.1.0: A toolkit designed to aid in the development and testing of Ansible roles
 app-admin/apache-tools 2.4.62 2.4.63: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
@@ -1796,7 +1796,7 @@ app-editors/gnome-latex 3.46.0: Integrated LaTeX environment for GNOME
 app-editors/gnome-text-editor 46.3 47.2: A simple text editor for the GNOME desktop
 app-editors/gummi 0.8.3: Simple LaTeX editor for GTK+ users
 app-editors/gvim 9.0.2167 9.1.0366 9.1.0470 9.1.0794 9999: GUI version of the Vim text editor
-app-editors/helix 24.07-r1 25.01: A post-modern text editor
+app-editors/helix 24.07-r1 25.01.1: A post-modern text editor
 app-editors/hexcurse 1.60.0: ncurses based hex editor
 app-editors/hexedit 1.6: View and edit files in hex or ASCII
 app-editors/hteditor 2.1.1_pre20161206: File viewer, editor and analyzer for text, binary, and executable files
@@ -2881,7 +2881,7 @@ app-misc/scrub 2.6.1-r2: Overwrite files with iterative patterns
 app-misc/sdate 0.7: Never ending September date
 app-misc/selecta 0.0.7-r1: A fuzzy text selector for files and anything else you need to select
 app-misc/siegfried 1.11.1 1.11.2: Signature-based file format identification
-app-misc/skim 0.10.4-r1: Command-line fuzzy finder
+app-misc/skim 0.10.4-r1 0.16.0: Command-line fuzzy finder
 app-misc/sl 5.02-r1: Sophisticated graphical program which corrects your miss typing
 app-misc/smtm 1.6.10-r2: Stock ticker, profit/loss calculator and chart tool
 app-misc/socnetv 3.1: Qt Social Network Visualizer
@@ -10726,7 +10726,7 @@ dev-util/complexity 1.10-r1: a tool designed for analyzing the complexity of C p
 dev-util/conan 2.7.1 2.9.3 2.10.1 2.11.0: Distributed C/C++ package manager
 dev-util/conf2struct 1.0-r1 1.3-r1 1.5 9999: Create C parsers for libconfig and command-line
 dev-util/cookiecutter 2.3.1 2.5.0 2.6.0: Command-line utility to create projects from cookiecutters (project templates)
-dev-util/cppcheck 2.14.2-r1: Static analyzer of C/C++ code
+dev-util/cppcheck 2.14.2-r1 2.16.0: Static analyzer of C/C++ code
 dev-util/cppi 1.18: a cpp directive indenter
 dev-util/cpptest 2.0.0-r1: Simple but powerful unit testing framework for C++
 dev-util/cppunit 1.15.1-r3 1.15.1_p20240106 9999: C++ port of the famous JUnit framework for unit testing
@@ -13014,7 +13014,7 @@ media-gfx/openscad 2024.11.14_pre 2024.12.30_pre 9999: The Programmers Solid 3D 
 media-gfx/opentoonz 1.6.0: An open-source full-featured 2D animation creation software
 media-gfx/openvdb 10.0.1 11.0.0: Library for the efficient manipulation of volumetric data
 media-gfx/optipng 0.7.8: Compress PNG files without affecting image quality
-media-gfx/oxipng 8.0.0-r1 9.0.0-r1 9.1.2-r1 9.1.2-r2: Multithreaded lossless PNG compression optimizer written in Rust
+media-gfx/oxipng 8.0.0-r1 9.0.0-r1 9.1.2-r1 9.1.2-r2 9.1.3: Multithreaded lossless PNG compression optimizer written in Rust
 media-gfx/pablodraw 3.3.13_beta-r1: Ansi/Ascii text and RIPscrip vector graphic art editor/viewer
 media-gfx/panini 0.74.0: OpenGL-based panoramic image viewer
 media-gfx/pdf2svg 0.2.3-r2: Convert PDF to SVG files using poppler and cairo
@@ -14779,7 +14779,7 @@ net-irc/emech 3.0.99_p20221123: UNIX compatible IRC bot programmed in C
 net-irc/ergo 2.14.0 2.15.0: A modern IRC server written in Go
 net-irc/hexchat 2.16.1-r1 2.16.2 9999: Graphical IRC client based on XChat
 net-irc/ii 1.9 2.0 9999: A minimalist FIFO and filesystem-based IRC client
-net-irc/inspircd 3.17.1-r1 4.4.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
+net-irc/inspircd 3.17.1-r1 4.4.0 4.5.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
 net-irc/irccloud-desktop-bin 0.16.0-r1: IRCCloud Desktop Client
 net-irc/ircii 20240111 20240918: An IRC and ICB client that runs under most UNIX platforms
 net-irc/ircmap 0.99-r1: Scripts to treate diagrams of IRC networks using the LINKS command
@@ -14944,7 +14944,7 @@ net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on 
 net-libs/libtrace 4.0.21 4.0.22 4.0.26: A library and tools for trace processing
 net-libs/libupnp 1.14.20: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 0.26.7: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
-net-libs/libvncserver 0.9.14-r2: library for creating vnc servers
+net-libs/libvncserver 0.9.14-r2 0.9.15: library for creating vnc servers
 net-libs/libwebsockets 4.3.3-r1 4.3.4 4.3.5: A flexible pure-C library for implementing network protocols
 net-libs/libyang 2.1.55 2.1.148 3.7.8: YANG data modeling language library
 net-libs/liquid-dsp 1.3.2 1.6.0 9999: digital signal processing library for software-defined radios
@@ -15563,7 +15563,7 @@ net-vpn/i2p 2.7.0: A privacy-centric, anonymous network
 net-vpn/i2pd 2.54.0 2.55.0: A C++ daemon for accessing the I2P anonymous network
 net-vpn/iodine 0.7.0-r3 0.7.0-r4: IP over DNS tunnel
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)
-net-vpn/libreswan 4.15 5.0 5.1 5.1-r1: IPsec implementation for Linux, fork of Openswan
+net-vpn/libreswan 4.15 5.0 5.1 5.1-r1 5.2: IPsec implementation for Linux, fork of Openswan
 net-vpn/logmein-hamachi 2.1.0.203: LogMeIn Hamachi VPN tunneling engine
 net-vpn/microsoft-azurevpnclient 3.0.0: Microsoft Azure VPN client for connecting securely to the Azure cloud
 net-vpn/mullvad-netns 0.2-r1 0.3-r1 9999: Script to run a command within a Mullvad network namespace
