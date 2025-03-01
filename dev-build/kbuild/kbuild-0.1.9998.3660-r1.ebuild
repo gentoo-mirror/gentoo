@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ DESCRIPTION="A makefile framework for writing simple makefiles for complex tasks
 HOMEPAGE="https://trac.netlabs.org/kbuild/wiki"
 SRC_URI="
 	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}-src.tar.xz
-	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-0.1.9998.3660-fix-clang-16.patch.bz2
+	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-0.1.9998.3660-r1-fix-clang-16.patch.bz2
 "
 
 LICENSE="GPL-3+"
@@ -34,7 +34,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.1.9998.3499-fix-CC.patch"
 	"${FILESDIR}/${PN}-0.1.9998.3660-gcc-15.patch"
 
-	"${WORKDIR}/${PN}-0.1.9998.3660-fix-clang-16.patch"
+	"${WORKDIR}/${PN}-0.1.9998.3660-r1-fix-clang-16.patch"
 )
 
 pkg_setup() {
