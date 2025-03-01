@@ -1194,7 +1194,7 @@ app-arch/unace 2.5-r6: ACE unarchiver
 app-arch/unadf 0.7.12-r2: Extract files from Amiga adf disk images
 app-arch/unar 1.10.8: Unpacker for various archiving formats, e.g. rar v3
 app-arch/unp 2.0_pre9 2.0_pre10 2.0: Script for unpacking various file formats
-app-arch/unrar 7.0.9 7.1.3 7.1.4: Uncompress rar files
+app-arch/unrar 7.1.3 7.1.4 7.1.5: Uncompress rar files
 app-arch/unrpa 2.3.0-r1: Ren'Py's RPA data file extractor
 app-arch/unshield 1.5.1: InstallShield CAB file extractor
 app-arch/unzip 6.0_p27-r1: unzipper for pkzip-compressed files
@@ -1267,7 +1267,7 @@ app-benchmarks/cpuburn 1.4a-r5: CPU testing utilities in optimized assembler for
 app-benchmarks/dbench 4.0: Popular filesystem benchmark
 app-benchmarks/filebench 1.4.9.1-r2: Filebench - A Model Based File System Workload Generator
 app-benchmarks/forkbomb 1.4-r2: Controlled fork() bomber for testing heavy system load
-app-benchmarks/geekbench 2.4.2-r1 2.4.3-r2 3.4.4-r1 4.4.4-r1 5.5.1 6.3.0 6.4.0: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
+app-benchmarks/geekbench 2.4.2-r1 2.4.3-r2 3.4.4-r1 4.4.4-r1 5.5.1 6.4.0: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
 app-benchmarks/geekbench-ml 0.6.0-r1: A Cross-Platform ML workloads Benchmark
 app-benchmarks/hey 0.1.2: HTTP load generator, ApacheBench (ab) replacement, formerly known as rakyll/boom
 app-benchmarks/httperf 0.9.1_p20181111 0.9.1_p20181111-r1: A tool from HP for measuring web server performance
@@ -1548,7 +1548,7 @@ app-dicts/aspell-ca 2.5.0-r1: Aspell (Catalan) language dictionary
 app-dicts/aspell-cs 20040614.1-r1: Aspell (Czech) language dictionary
 app-dicts/aspell-csb 0.02.0-r1: Aspell (Kashubian) language dictionary
 app-dicts/aspell-cy 0.50.3-r1: Aspell (Welsh) language dictionary
-app-dicts/aspell-da 4.3 4.5: Aspell (Danish) language dictionary
+app-dicts/aspell-da 4.5: Aspell (Danish) language dictionary
 app-dicts/aspell-de 20161207.7.0-r1: Aspell (German, Austria-German and Swiss-German) language dictionary
 app-dicts/aspell-de-alt 2.1.1-r2: Aspell (German (traditional orthography)) language dictionary
 app-dicts/aspell-el 0.08.0-r1: Aspell (Greek) language dictionary
@@ -1601,7 +1601,7 @@ app-dicts/aspell-no 0.50.2-r2: Aspell (Norwegian) language dictionary
 app-dicts/aspell-ny 0.01.0-r1: Aspell (Chichewa) language dictionary
 app-dicts/aspell-or 0.03.1-r1: Aspell (Oriya) language dictionary
 app-dicts/aspell-pa 0.01.1-r1: Aspell (Punjabi) language dictionary
-app-dicts/aspell-pl 6.0.20241101.0 6.0.20250101.0: Aspell (Polish) language dictionary
+app-dicts/aspell-pl 6.0.20250101.0: Aspell (Polish) language dictionary
 app-dicts/aspell-pt 20220621: Aspell (Portuguese) language dictionary
 app-dicts/aspell-pt-br 20131030.12.0-r1: Aspell (Brazilian Portuguese) language dictionary
 app-dicts/aspell-qu 0.02.0-r1: Aspell (Quechua Runasimi) language dictionary
@@ -1683,7 +1683,7 @@ app-dicts/myspell-ms 20100407: Malay dictionaries for myspell/hunspell
 app-dicts/myspell-nb 2.0.10-r1: Norwegian dictionaries for myspell/hunspell
 app-dicts/myspell-nl 2.10g-r2: Dutch dictionaries for myspell/hunspell
 app-dicts/myspell-nn 2.0.10: Norwegian dictionaries for myspell/hunspell
-app-dicts/myspell-pl 20241101 20250101: Polish dictionaries for myspell/hunspell
+app-dicts/myspell-pl 20250101: Polish dictionaries for myspell/hunspell
 app-dicts/myspell-pt 20120420: Portuguese dictionaries for myspell/hunspell
 app-dicts/myspell-pt-br 3.2.0: Brazilian dictionaries for myspell/hunspell
 app-dicts/myspell-ro 3.3.10: Romanian dictionaries for myspell/hunspell
@@ -5440,7 +5440,7 @@ dev-libs/ktextaddons 1.5.4: Various text handling addons
 dev-libs/kweathercore 24.08.3 24.12.2: Library for retrieval of weather information including forecasts and alerts
 dev-libs/lager 0.1.1-r1: Library to assist value-oriented design
 dev-libs/leatherman 1.12.13: A C++ toolkit
-dev-libs/level-zero 1.20.2 1.20.3 1.20.4: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.20.2 1.20.3 1.20.4 1.20.6: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113 0.3.113-r1 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5922,8 +5922,8 @@ dev-lua/luafilesystem 1.8.0-r101: File System Library for the Lua programming la
 dev-lua/luajson 1.3.4: JSON Parser/Constructor for Lua
 dev-lua/lualdap 1.4.0: A lua binding for the OpenLDAP client libraries
 dev-lua/luaossl 20220711: Most comprehensive OpenSSL module in the Lua universe
-dev-lua/luaposix 36.2.1: Bindings for POSIX APIs
-dev-lua/luarocks 3.11.1: A package manager for the Lua programming language
+dev-lua/luaposix 36.2.1 36.3: Bindings for POSIX APIs
+dev-lua/luarocks 3.11.1-r1: A package manager for the Lua programming language
 dev-lua/luasec 1.3.2: Lua binding for OpenSSL library to provide TLS/SSL communication
 dev-lua/luasocket 3.1.0: Networking support for the Lua language
 dev-lua/luassert 1.9.0: Assertion library for Lua
@@ -10264,7 +10264,7 @@ dev-ruby/rouge 3.30.0-r1 4.2.1 4.3.0 4.4.0 4.5.1: Yet-another-markdown-parser us
 dev-ruby/rqrcode 2.2.0: Library for encoding QR Codes
 dev-ruby/rqrcode_core 1.2.0: Library for encoding QR Codes
 dev-ruby/rr 3.1.0 3.1.1: A double framework featuring a selection of double techniques and a terse syntax
-dev-ruby/rrdtool-bindings 1.8.0 1.9.0: Ruby bindings for rrdtool
+dev-ruby/rrdtool-bindings 1.8.0 1.9.0 1.9.0-r1: Ruby bindings for rrdtool
 dev-ruby/rspec 3.12.0 3.13.0: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rspec-block_is_expected 1.0.5: Simplify testing of blocks in RSpec
 dev-ruby/rspec-collection_matchers 1.2.1: A Behaviour Driven Development (BDD) framework for Ruby
@@ -11749,7 +11749,7 @@ games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic com
 games-rpg/xu4 1.4.2: A remake of the computer game Ultima IV
 games-rpg/zsdx 1.12.3: Free 2D Zelda fangame
 games-rpg/zsxd 1.12.2: Free 2D Zelda fangame parody
-games-server/bedrock-server 1.21.51.02 1.21.61.01: The official bedrock (non-java) based server for the sandbox video game
+games-server/bedrock-server 1.21.51.02 1.21.62.01: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2 1.75.0-r1: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r3: Server for Mednafen emulator
@@ -11769,7 +11769,7 @@ games-simulation/gl117 1.3.2-r1: Action flight simulator
 games-simulation/lincity 1.13.1-r4: City simulation game for X
 games-simulation/lincity-ng 2.9_beta: City simulation game
 games-simulation/micropolis 1.0_p20180313 1.0_p20220604: Free version of the well-known city building simulation
-games-simulation/openrct2 0.4.18 0.4.19.1 9999: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
+games-simulation/openrct2 0.4.18 0.4.19.1 0.4.20 9999: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
 games-simulation/openttd 14.1 9999: A clone of Transport Tycoon Deluxe
 games-simulation/pmars-sdl 0.9.2e-r1 0.9.2e-r2: Portable redcode simulator's sdl port for core war
 games-simulation/searchandrescue 1.7.0-r1: Helicopter based air rescue flight simulator
@@ -14124,7 +14124,7 @@ media-sound/synaesthesia 2.4-r2: Nice graphical accompaniment to music
 media-sound/taginfo 1.2-r3: A simple ID3 tag reader for use in shell scripts
 media-sound/tagtool 0.12.3-r2: Audio Tag Tool Ogg/Mp3 Tagger
 media-sound/tap-reverbed 0-r2: Standalone JACK counterpart of LADSPA plugin TAP Reverberator
-media-sound/teamspeak-client 3.6.2 5.0.0_beta77-r1 6.0.0_beta2-r1: A client software for quality voice communication via the internet
+media-sound/teamspeak-client 5.0.0_beta77-r1 6.0.0_beta2-r1: A client software for quality voice communication via the internet
 media-sound/teamspeak-server 3.13.7: A server software for hosting quality voice communication via the internet
 media-sound/tempest_for_eliza 1.0.5-r2: Listen to music on the radio generated by images on your screen
 media-sound/terminatorx 4.2.0-r1: Realtime audio synthesizer allowing you to 'scratch' on sampled audio data
@@ -14509,7 +14509,7 @@ net-analyzer/python-gvm 24.8.0 24.12.0: Greenbone Vulnerability Management Pytho
 net-analyzer/raddump 0.3.1 0.3.1-r1: RADIUS packet interpreter
 net-analyzer/rain 1.2.9_beta1-r1: powerful tool for testing stability of utilizing IP protocols
 net-analyzer/rrdcollect 0.2.10: Read system statistical data and feed it to RRDtool
-net-analyzer/rrdtool 1.8.0-r4 1.9.0: A data logging and graphing system for time series data
+net-analyzer/rrdtool 1.8.0-r4 1.9.0 1.9.0-r1: A data logging and graphing system for time series data
 net-analyzer/rtpbreak 1.3a-r2: Analyze any RTP session through heuristics over UDP network traffic
 net-analyzer/rustscan 2.3.0: The Modern Port Scanner
 net-analyzer/sancp 1.6.1-r7: collect network traffic statistics and store them in pcap format
@@ -15612,7 +15612,7 @@ net-wireless/bluez-tools 0_p20201025: A set of tools to manage bluetooth devices
 net-wireless/broadcom-sta 6.30.223.271-r8: Broadcom's IEEE 802.11a/b/g/n hybrid Linux device driver
 net-wireless/bss 0.8-r2: Bluetooth stack smasher / fuzzer
 net-wireless/crackle 0.1-r1: Crackle cracks BLE Encryption (AKA Bluetooth Smart)
-net-wireless/dump1090 4.0 5.0 6.1 9.0 9999: Simple Mode S decoder for RTLSDR devices
+net-wireless/dump1090 4.0 5.0 6.1 9.0 10.0 9999: Simple Mode S decoder for RTLSDR devices
 net-wireless/gnome-bluetooth 46.2 47.1: Bluetooth graphical utilities integrated with GNOME
 net-wireless/gnuradio 3.10.9.2-r6 3.10.11.0 9999: Toolkit that provides signal processing blocks to implement software radios
 net-wireless/gobi_loader 0.7-r3: gobi_loader is a firmware loader for Qualcomm Gobi USB chipsets
@@ -15641,7 +15641,6 @@ net-wireless/libxtrx 0.0_p20201202 9999: High-level XTRX API library
 net-wireless/libxtrxdsp 0.0_p20200830 9999: DSP specific function for SDR in general and XTRX in specific
 net-wireless/libxtrxll 0.0_p20201202 9999: Low-level XTRX hardware abstraction library
 net-wireless/limesuite 23.11.0: Driver and GUI for LMS7002M-based SDR platforms
-net-wireless/linssid 3.6-r2: Graphical wireless scanning for Linux
 net-wireless/lorcon 2020.06.06_p20220216-r2 9999: A generic library for injecting 802.11 frames
 net-wireless/madwimax 0.1.1-r2: Reverse-engineered driver for WiMAX devices based on Samsung CMC-730 chip
 net-wireless/mdk 3.6-r1: Wireless injection tool with various functions
@@ -16991,7 +16990,7 @@ sys-apps/highway 1.1.0-r1: High performance source code search tool
 sys-apps/hotplug2stdout 1.2.1: A tool for reading kernel uevent(s) to stdout
 sys-apps/hponcfg 5.6.0.0-r1: HP Lights-Out Online Configuration Utility (HPONCFG)
 sys-apps/hprofile 6.1.3-r1 6.2.1: Utility to manage hardware, network, power or other profiles (fork)
-sys-apps/hw-probe 1.6.5_p20230812 1.6.6: A tool to probe for hardware, check it's operability and find drivers
+sys-apps/hw-probe 1.6.6: A tool to probe for hardware, check it's operability and find drivers
 sys-apps/hwdata 0.383 0.390 0.391: Hardware identification and configuration data
 sys-apps/hwinfo 23.2-r1: Hardware detection tool used in SuSE Linux
 sys-apps/hwloc 1.11.13-r1 2.6.0-r1 2.8.0-r1 2.9.0 2.9.1 2.9.2 2.9.3-r1 2.11.2: Displays the hardware topology in convenient formats
