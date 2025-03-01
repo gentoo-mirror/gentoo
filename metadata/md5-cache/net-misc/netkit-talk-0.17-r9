@@ -7,8 +7,8 @@ HOMEPAGE=https://wiki.linuxfoundation.org/networking/netkit
 INHERIT=toolchain-funcs
 KEYWORDS=~alpha amd64 ~arm64 ~hppa ~mips ppc ppc64 sparc x86
 LICENSE=BSD
-RDEPEND=>=sys-libs/ncurses-5.2:= virtual/inetd
+RDEPEND=>=sys-libs/ncurses-5.2:= virtual/inetd !net-misc/inetutils[talkd(+)]
 SLOT=0
 SRC_URI=http://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-ntalk-0.17.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=441c5b766cecc7b5dea928df9001ed56
+_md5_=7681a32c3959469806e07650a07d7405
