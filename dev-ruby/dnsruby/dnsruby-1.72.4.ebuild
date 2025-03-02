@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,12 +13,15 @@ inherit ruby-fakegem
 DESCRIPTION="A pure Ruby DNS client library"
 HOMEPAGE="https://github.com/alexdalitz/dnsruby"
 
-KEYWORDS="~amd64 ~arm ~x86"
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="test"
 
-ruby_add_rdepend ">=dev-ruby/simpleidn-0.2.1:0 =dev-ruby/simpleidn-0.2*:0"
+ruby_add_rdepend "
+	dev-ruby/base64:0.2
+	>=dev-ruby/logger-1.6.5:0 =dev-ruby/logger-1.6*
+	>=dev-ruby/simpleidn-0.2.1:0 =dev-ruby/simpleidn-0.2*:0"
 
 ruby_add_bdepend "test? ( >=dev-ruby/minitest-5.4:5 )"
 
