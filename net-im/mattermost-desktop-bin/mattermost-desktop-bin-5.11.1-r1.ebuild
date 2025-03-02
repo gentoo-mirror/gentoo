@@ -91,7 +91,7 @@ src_install() {
 	make_desktop_entry \
 		"${MY_PN} --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto %U" \
 		Mattermost "${MY_PN}" "Network;InstantMessaging;" \
-		"MimeType=x-scheme-handler/mattermost;"
+		"MimeType=x-scheme-handler/mattermost;\nStartupWMClass=Mattermost"
 
 	einstalldocs
 }
