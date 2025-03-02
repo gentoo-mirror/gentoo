@@ -26,18 +26,17 @@ fi
 # examples are licensed CC-BY-SA (without note of specific version)
 LICENSE="LGPL-2 CC-BY-SA-4.0"
 SLOT="0"
-IUSE="debug designer +gui netgen pcl +smesh spacenav test X"
+IUSE="debug designer +gui netgen pcl smesh spacenav test X"
 # Modules are found in src/Mod/ and their options defined in:
 # cMake/FreeCAD_Helpers/InitializeFreeCADBuildOptions.cmake
 # To get their dependencies:
 # 'grep REQUIRES_MODS cMake/FreeCAD_Helpers/CheckInterModuleDependencies.cmake'
-IUSE+=" addonmgr assembly +bim cam cloud fem idf inspection +mesh openscad points reverse robot surface +techdraw"
+IUSE+=" addonmgr assembly bim cam cloud fem idf inspection mesh openscad points reverse robot surface +techdraw"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	bim? ( mesh )
 	cam? ( mesh )
-	gui? ( bim )
 	designer? ( gui )
 	fem? ( smesh )
 	inspection? ( points )
@@ -46,7 +45,6 @@ REQUIRED_USE="
 	reverse? ( mesh points )
 	test? ( techdraw )
 "
-# Draft Workbench needs BIM
 
 RESTRICT="!test? ( test )"
 
@@ -153,7 +151,7 @@ src_configure() {
 		-DBUILD_CAM=$(usex cam)
 		-DBUILD_CLOUD=$(usex cloud)
 		-DBUILD_DRAFT=ON
-		# see below for DRAWING
+		-DBUILD_DRAWING=OFF						# Unmaintained and not ported to Qt 6
 		-DBUILD_FEM=$(usex fem)
 		-DBUILD_FEM_NETGEN=$(usex fem $(usex netgen))
 		-DBUILD_FLAT_MESH=$(usex mesh)			# a submodule of MeshPart
@@ -231,8 +229,6 @@ src_configure() {
 			-DQt6Core_MOC_EXECUTABLE="$(qt6_get_bindir)/moc"
 			-DQt6Core_RCC_EXECUTABLE="$(qt6_get_bindir)/rcc"
 			-DBUILD_QT5=OFF
-			# Drawing module unmaintained and not ported to qt6
-			-DBUILD_DRAWING=OFF
 		)
 	fi
 
