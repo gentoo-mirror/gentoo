@@ -17,20 +17,16 @@ IUSE="minimal examples"
 
 RDEPEND="
 	dev-libs/openssl:=
-	virtual/perl-MIME-Base64
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${RDEPEND}
-	virtual/perl-ExtUtils-MakeMaker
-	virtual/perl-File-Spec
 	test? (
 		!minimal? (
 			dev-perl/Test-Exception
 			dev-perl/Test-Warn
 			dev-perl/Test-NoWarnings
 		)
-		virtual/perl-Test-Simple
 	)
 "
 
@@ -38,6 +34,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.88-fix-network-tests.patch"
 	"${FILESDIR}/${PN}-1.940.0-avoid-runtime-check.patch"
 	"${FILESDIR}/${PN}-1.940.0-openssl-3.4-tests.patch"
+	"${FILESDIR}/${PN}-1.940.0-openssl-3.4-tests-more.patch"
 )
 
 PERL_RM_FILES=(

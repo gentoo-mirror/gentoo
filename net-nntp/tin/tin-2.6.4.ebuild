@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,19 +11,22 @@ SRC_URI="ftp://ftp.tin.org/pub/news/clients/tin/stable/${P}.tar.xz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm ppc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="cancel-locks debug gnutls gpg libtls nls sasl socks5 ssl"
 
 RDEPEND="
 	dev-libs/icu:=
 	dev-libs/libpcre2:=
+	>=dev-libs/uriparser-0.9.8
 	dev-libs/uulib
+	net-dns/libidn2:=
 	sys-libs/ncurses:=
+	sys-libs/zlib:=
 	virtual/libiconv
 	cancel-locks? ( >=net-libs/canlock-3.0:= )
 	gpg? ( app-crypt/gnupg )
 	nls? ( virtual/libintl )
-	sasl? ( virtual/gsasl )
+	sasl? ( net-misc/gsasl[client] )
 	socks5? ( net-proxy/dante )
 	ssl? (
 		gnutls? ( net-libs/gnutls:= )
@@ -36,12 +39,18 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-alternatives/yacc
-	dev-libs/libpcre2
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-gnutls.patch )
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# Windows only (bug #900278)
+	memset_s
+
+	# checking if the socks library uses socks4 prefix
+	Rinit
+	init
+)
 
 DOCS=(
 	README{,.MAC,.WIN}
@@ -64,7 +73,7 @@ src_configure() {
 		$(use_enable debug)
 		$(use_enable gpg pgp-gpg)
 		$(use_enable nls)
-		$(use_with socks5 socks)
+		$(use_with socks5)
 		--disable-mime-strict-charset
 		--enable-nntp
 		--enable-prototypes
@@ -91,7 +100,6 @@ src_configure() {
 		--with-gpg="${EPREFIX}"/usr/bin/gpg
 		--with-ispell="${EPREFIX}"/usr/bin/aspell
 		--with-mailer="${EPREFIX}"/bin/mail
-		--with-sum="${EPREFIX}"/usr/bin/sum
 
 		# set default paths for directories
 		--with-libdir="${EPREFIX}"/var/lib/news
