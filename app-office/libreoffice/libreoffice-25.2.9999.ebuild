@@ -227,7 +227,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-perl/Archive-Zip
 	>=dev-util/cppunit-1.14.0
 	>=dev-util/gperf-3.1
-	dev-util/mdds:1/3.0
+	dev-util/mdds:1/2.1
 	media-libs/glm
 	x11-base/xorg-proto
 	x11-libs/libXt
@@ -262,9 +262,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig
 	clang? ( || (
-		(	llvm-core/clang:20
-			llvm-core/llvm:20
-			=llvm-core/lld-20*	)
 		(	llvm-core/clang:19
 			llvm-core/llvm:19
 			=llvm-core/lld-19*	)
