@@ -3,90 +3,14 @@
 
 EAPI=8
 
-CRATES="
-	allocator-api2@0.2.18
-	autocfg@1.4.0
-	bitflags@2.6.0
-	block-buffer@0.10.4
-	cc@1.1.30
-	cfg-if@1.0.0
-	cfg_aliases@0.2.1
-	cpufeatures@0.2.14
-	crypto-common@0.1.6
-	dashmap@5.5.3
-	digest@0.10.7
-	equivalent@1.0.1
-	errno@0.3.9
-	fnv@1.0.7
-	foldhash@0.1.3
-	generic-array@0.14.7
-	hashbrown@0.14.5
-	hashbrown@0.15.0
-	jobserver@0.1.32
-	lazy_static@1.5.0
-	libc@0.2.159
-	lock_api@0.4.12
-	log@0.4.22
-	lru@0.12.5
-	memchr@2.7.4
-	minimal-lexical@0.2.1
-	nix@0.29.0
-	nom@7.1.3
-	num-traits@0.2.19
-	once_cell@1.20.2
-	parking_lot@0.12.3
-	parking_lot_core@0.9.10
-	phf@0.11.2
-	phf_codegen@0.11.2
-	phf_generator@0.11.2
-	phf_shared@0.11.2
-	pkg-config@0.3.31
-	portable-atomic@1.9.0
-	proc-macro2@1.0.87
-	quote@1.0.37
-	rand@0.8.5
-	rand_core@0.6.4
-	redox_syscall@0.5.7
-	rsconf@0.2.2
-	rust-embed-impl@8.5.0
-	rust-embed-utils@8.5.0
-	rust-embed@8.5.0
-	same-file@1.0.6
-	scopeguard@1.2.0
-	serial_test@1.0.0
-	serial_test_derive@1.0.0
-	sha2@0.10.8
-	shlex@1.3.0
-	siphasher@0.3.11
-	smallvec@1.13.2
-	syn@1.0.109
-	syn@2.0.79
-	terminfo@0.9.0
-	typenum@1.17.0
-	unicode-ident@1.0.13
-	version_check@0.9.5
-	walkdir@2.5.0
-	widestring@1.1.0
-	winapi-util@0.1.9
-	windows-sys@0.52.0
-	windows-sys@0.59.0
-	windows-targets@0.52.6
-	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_msvc@0.52.6
-	windows_i686_gnu@0.52.6
-	windows_i686_gnullvm@0.52.6
-	windows_i686_msvc@0.52.6
-	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_msvc@0.52.6
-"
+CRATES=""
 
 declare -A GIT_CRATES=(
 	[pcre2-sys]='https://github.com/fish-shell/rust-pcre2;85b7afba1a9d9bd445779800e5bcafeb732e4421;rust-pcre2-%commit%/pcre2-sys'
 	[pcre2]='https://github.com/fish-shell/rust-pcre2;85b7afba1a9d9bd445779800e5bcafeb732e4421;rust-pcre2-%commit%'
 )
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit cargo cmake python-any-r1 readme.gentoo-r1 xdg
 
@@ -102,9 +26,10 @@ if [[ ${PV} == "9999" ]]; then
 else
 	SRC_URI="
 		https://github.com/fish-shell/fish-shell/releases/download/${MY_PV}/${MY_P}.tar.xz
+		https://github.com/gentoo-crate-dist/fish-shell/releases/download/${MY_PV}/fish-shell-${MY_PV}-crates.tar.xz
 		${CARGO_CRATE_URIS}
 	"
-	# KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 fi
 
 S="${WORKDIR}/${MY_P}"
