@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ CHROMIUM_LANGS="
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..13} python3_13t )
 
 inherit chromium-2 desktop python-single-r1 xdg
 
@@ -16,14 +16,14 @@ DESCRIPTION="GOG and Epic Games Launcher for Linux"
 HOMEPAGE="https://heroicgameslauncher.com/
 	https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/"
 SRC_URI="
-	https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v${PV}/heroic-${PV}.tar.xz
+	https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v${PV}/heroic-${PV}-linux-x64.tar.xz
 		-> ${P}.tar.xz
 	https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/raw/v${PV}/flatpak/com.heroicgameslauncher.hgl.desktop
 		-> com.heroicgameslauncher.hgl.${PV}.desktop
 	https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/raw/v${PV}/flatpak/com.heroicgameslauncher.hgl.png
 		-> com.heroicgameslauncher.hgl.${PV}.png
 "
-S="${WORKDIR}/${P/-bin}"
+S="${WORKDIR}/Heroic-${PV}-linux-x64"
 
 LICENSE="GPL-3+"
 SLOT="0"
