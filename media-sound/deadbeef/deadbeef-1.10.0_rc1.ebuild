@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ LICENSE="
 	wavpack? ( BSD )
 "
 SLOT="0"
-if [[ ${PV} != *beta* ]]; then
+if [[ ${PV} != *beta* && ${PV} != *rc* ]]; then
 	KEYWORDS="~amd64 ~riscv ~x86"
 fi
 IUSE="aac alsa cdda converter cover dts ffmpeg flac +hotkeys lastfm libretro libsamplerate mp3 musepack nls notify +nullout opus oss pulseaudio pipewire sc68 shellexec +supereq vorbis wavpack zip"
@@ -34,6 +34,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/jansson:=
 	dev-libs/libdispatch
+	media-libs/harfbuzz:=
 	net-misc/curl
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
@@ -64,7 +65,7 @@ DEPEND="
 	pipewire? ( media-video/pipewire:= )
 	vorbis? ( media-libs/libvorbis )
 	wavpack? ( media-sound/wavpack )
-	zip? ( dev-libs/libzip:= )
+	zip? ( sys-libs/zlib )
 "
 
 RDEPEND="${DEPEND}"
