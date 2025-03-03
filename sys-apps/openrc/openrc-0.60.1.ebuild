@@ -50,10 +50,6 @@ RDEPEND="${COMMON_DEPEND}
 
 PDEPEND="netifrc? ( net-misc/netifrc )"
 
-PATCHES=(
-	"${FILESDIR}/${P}-rc-conf.patch"
-)
-
 src_configure() {
 	local emesonargs=(
 	--bindir=/bin
