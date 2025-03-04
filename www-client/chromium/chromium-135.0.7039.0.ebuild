@@ -408,9 +408,8 @@ src_prepare() {
 		"${FILESDIR}/chromium-109-system-zlib.patch"
 		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
 		"${FILESDIR}/chromium-131-unbundle-icu-target.patch"
-		"${FILESDIR}/chromium-134-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-134-bindgen-custom-toolchain.patch"
-		"${FILESDIR}/chromium-135-fix-non-wayland-build.patch"
+		"${FILESDIR}/chromium-135-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-135-map_droppable-glibc.patch"
 	)
 
@@ -614,7 +613,6 @@ src_prepare() {
 		third_party/googletest
 		third_party/highway
 		third_party/hunspell
-		third_party/iccjpeg
 		third_party/ink_stroke_modeler/src/ink_stroke_modeler
 		third_party/ink_stroke_modeler/src/ink_stroke_modeler/internal
 		third_party/ink/src/ink/brush
