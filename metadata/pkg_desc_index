@@ -40,7 +40,6 @@ acct-group/brltty 0-r2: System group: brltty
 acct-group/buildbot 0-r3: Buildbot program group
 acct-group/bumblebee 0-r2: System group: bumblebee
 acct-group/burp 0-r3: Group for the app-backup/burp server
-acct-group/burrow_exporter 0-r3: A group for app-metrics/burrow_exporter
 acct-group/cadvisor 0-r3: System group: cadvisor
 acct-group/cancd 0-r2: A group for the CA NetConsole Daemon
 acct-group/carbon 0-r3: System group: carbon
@@ -487,7 +486,6 @@ acct-user/boinc 0-r2: User for sci-misc/boinc
 acct-user/brltty 0-r2: user for brltty
 acct-user/buildbot 0-r3: Buildbot program user
 acct-user/burp 0-r3: User for the app-backup/burp server
-acct-user/burrow_exporter 0-r3: A user for app-metrics/burrow_exporter
 acct-user/cadvisor 0-r3: User for cadvisor
 acct-user/cancd 0-r3: A user for the CA NetConsole Daemon
 acct-user/carbon 0-r3: User for graphite/carbon suite
@@ -1357,7 +1355,6 @@ app-containers/docker-buildx 0.11.2 0.14.0 0.19.1 0.20.1 9999: Docker CLI plugin
 app-containers/docker-cli 27.4.1 27.5.0 27.5.1 28.0.1: the command line binary for docker
 app-containers/docker-compose 1.29.2-r6 1.29.2-r7 2.28.1 2.32.1 2.32.3: Multi-container orchestration for Docker
 app-containers/docker-credential-helpers 0.8.2 0.9.0: Suite of programs to use native stores to keep Docker credentials safe
-app-containers/docker-proxy 0.8.0_p20230118: Docker container networking
 app-containers/docker-pushrm 1.9.0: Docker CLI plugin to update container repository documentation
 app-containers/docker-registry 3.0.0_rc2 3.0.0_rc3: Docker Registry 2.0
 app-containers/docker-swarm 1.2.9: Swarm Classic: a container clustering system
@@ -2603,7 +2600,6 @@ app-laptop/tuxedo-drivers 3.2.14 4.6.1 4.11.4-r1: Kernel modules for TUXEDO lapt
 app-metrics/alertmanager 0.24.0 0.26.0 0.28.0: Alertmanager for alerts sent by client applications such as Prometheus
 app-metrics/bind_exporter 0.6.1-r1 0.8.0: Prometheus exporter for BIND
 app-metrics/blackbox_exporter 0.24.0 0.25.0: Prometheus exporter for blackbox probing via HTTP, HTTPS, DNS, TCP and ICMP
-app-metrics/burrow_exporter 0.0.6-r2: Prometheus exporter for Burrow
 app-metrics/carbonapi-booking 0.3.0-r1: High-performance Graphite front-end, Booking.com fork
 app-metrics/carbonapi-web 1.1: graphite-web fork for standalone usage with carbonapi
 app-metrics/ceph_exporter 4.1.1-r1 4.2.5: Prometheus exporter that scrapes metrics from a ceph cluster
@@ -4012,7 +4008,7 @@ dev-db/phpmyadmin 5.2.1: Web-based administration for MySQL database in PHP
 dev-db/phppgadmin 7.14.7: Web-based administration for Postgres database in php
 dev-db/plr 8.4.5 8.4.6: R language extension for postgresql database
 dev-db/postgis 3.3.7-r1 3.3.8 3.4.3-r1 3.4.4 3.5.0-r1 3.5.1 3.5.2: Geographic Objects for PostgreSQL
-dev-db/postgresql 13.18 13.19 13.20 14.15 14.16 14.17 15.10 15.11 15.12 16.6 16.7 16.8 17.2 17.3 17.4 9999: PostgreSQL RDBMS
+dev-db/postgresql 13.19 13.20 14.16 14.17 15.11 15.12 16.7 16.8 17.3 17.4 9999: PostgreSQL RDBMS
 dev-db/pspg 5.5.4 5.5.8 5.8.1 5.8.5 5.8.7: A better pager for CLI database clients and can be used in place of psql
 dev-db/psqlodbc 16.00.0000: Official ODBC driver for PostgreSQL
 dev-db/qdbm 1.8.78-r5: Quick Database Manager
@@ -4269,9 +4265,7 @@ dev-gap/utils 0.84 0.87: Utility functions in GAP
 dev-go/act 1.6.0: Automated Component Toolkit code generator
 dev-go/delve 1.20.2 1.21.2 1.22.1 1.23.1 1.24.0: A source-level debugger for the Go programming language
 dev-go/enumer 1.5.10: A Go tool to auto generate methods for your enums
-dev-go/get-ego-vendor 0.2.0: Utility to generate EGO_SUM data for ebuilds
 dev-go/go-bindata 3.1.3: A small utility which generates Go code from any file
-dev-go/go-colortext 0_pre20150720: Change the console foreground and background colors
 dev-go/go-critic 0.6.4: The most opinionated Go source code linter for code audit
 dev-go/go-dep-tarball 0.1: script to package go dependencies
 dev-go/go-license-detector 4.3.0: Scan a source directory and report the license
@@ -4282,7 +4276,6 @@ dev-go/go-tour 0_pre20200201: A Tour of Go
 dev-go/gocov 1.1.0: Coverage testing tool for The Go Programming Language
 dev-go/gogo-protobuf 1.3.2: Protocol Buffers for Go with Gadgets
 dev-go/golangci-lint 1.50.1-r1 1.55.2 1.56.2 1.59.1 1.61.0 1.64.6: Fast linters runner for Go
-dev-go/gom 0_pre20151110-r1: Go Dependency management system similar to bundle for ruby
 dev-go/gopls 0.9.5 0.14.2 0.17.0 0.17.1: "Go please" is the official Go language server
 dev-go/goversion 1.2.0-r1: Print version used to build Go executables
 dev-go/gox 1.0.1: A dead simple, no frills Go cross compile tool
