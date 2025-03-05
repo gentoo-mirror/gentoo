@@ -75,9 +75,6 @@ if [[ -z ${_LLVM_SOURCE_TYPE+1} ]]; then
 				21.0.0_pre20250301)
 					EGIT_COMMIT=7e8a06cfa4a2951b8ee77e19e34926e6e535b4d1
 					;;
-				21.0.0_pre20250225)
-					EGIT_COMMIT=d254fa877f419e61e54709f0a6f2e891da893a60
-					;;
 				*)
 					die "Unknown snapshot: ${PV}"
 					;;
@@ -311,6 +308,9 @@ llvm.org_set_globals() {
 					;;
 				19*)
 					LLVM_MANPAGE_DIST="llvm-19.1.0-manpages.tar.bz2"
+					;;
+				20*)
+					LLVM_MANPAGE_DIST="llvm-20.1.0-manpages.tar.xz"
 					;;
 			esac
 		fi
