@@ -3722,9 +3722,13 @@ llvm-core/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead
 llvm-core/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang. Beware: this breaks ABI, producing binaries incompatible with those built with GCC or Clang using libstdc++. Do not set unless you know what you're doing.
 llvm-core/clang-common:default-lld - Use lld as the default linker for clang
 llvm-core/clang-runtime:compiler-rt - Install llvm-runtimes/compiler-rt for -rtlib=compiler-rt
+llvm-core/clang-runtime:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
+llvm-core/clang-runtime:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
+llvm-core/clang-runtime:default-lld - Use lld as the default linker for clang
 llvm-core/clang-runtime:libcxx - Install llvm-runtimes/libcxx for -stdlib=libc++
 llvm-core/clang-runtime:offload - Install llvm-runtimes/offload for -fopenmp GPU offloading
 llvm-core/clang-runtime:openmp - Install llvm-runtimes/openmp for -fopenmp support
+llvm-core/clang-runtime:polly - Load Polly plugin (you still need -mllvm -polly to use it)
 llvm-core/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) support
 llvm-core/clang-toolchain-symlinks:gcc-symlinks - Install symlinks for 'gcc' and 'g++' for extra compatibility.
 llvm-core/clang-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
