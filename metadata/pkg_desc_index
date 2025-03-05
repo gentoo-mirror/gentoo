@@ -2989,7 +2989,7 @@ app-office/merkuro 24.08.3 24.12.2: Calendar application using Akonadi
 app-office/moneydance 2024.5117: A cross-platform personal finance application
 app-office/multitalk 1.4-r1: New type of presentation program
 app-office/naps2 7.5.2 7.5.3: Document scanning application with a focus on simplicity and ease of use
-app-office/onlyoffice-bin 8.2.2 8.3.0: Onlyoffice is an office productivity suite (binary version)
+app-office/onlyoffice-bin 8.2.2 8.3.0 8.3.1: Onlyoffice is an office productivity suite (binary version)
 app-office/orage 4.18.0 4.20.0: A calendar application for Xfce
 app-office/planner 0.14.91 0.14.92 9999: Project manager for Gnome
 app-office/projectlibre-bin 1.9.3: Open source desktop alternative to Microsoft Project
@@ -5544,7 +5544,7 @@ dev-libs/libmanette 0.2.7: Simple GObject game controller library
 dev-libs/libmateweather 1.28.0: MATE library to access weather information from online services
 dev-libs/libmaxminddb 1.5.2 1.6.0 1.7.1 1.10.0 1.11.0 9999: C library for the MaxMind DB file format
 dev-libs/libmba 0.9.1-r5: A library of generic C modules
-dev-libs/libmcfp 1.2.2 1.2.3: A library that can collect configuration options from command line arguments
+dev-libs/libmcfp 1.2.3 1.3.5: A library that can collect configuration options from command line arguments
 dev-libs/libmcrypt 2.5.8-r7: Provides an uniform interface to access several encryption algorithms
 dev-libs/libmelf 0.4.0-r2: libmelf is a library interface for manipulating ELF object files
 dev-libs/libmemcached 1.0.18-r4: a C client library to the memcached server
@@ -11940,7 +11940,7 @@ gnome-extra/gnome-shell-extension-control-blur-effect-on-lock-screen 20230905 20
 gnome-extra/gnome-shell-extension-dash-to-panel 64 65: An icon taskbar for the Gnome Shell
 gnome-extra/gnome-shell-extension-desktop-icons-ng 47.0.12 47.0.13: Desktop icon support for GNOME Shell
 gnome-extra/gnome-shell-extension-gsconnect 58: KDE Connect implementation for Gnome Shell
-gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20241009 1.2.0_p20241231: Keyboard-driven layer for GNOME Shell with tiling support
+gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20241231 1.2.0_p20250301: Keyboard-driven layer for GNOME Shell with tiling support
 gnome-extra/gnome-shell-extension-weather-in-the-clock 20221024-r3 20221024-r4: Display the current weather in the clock
 gnome-extra/gnome-shell-extensions 46.2 47.3: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 46.1: Unofficial extension pack providing GNOME 2-like features
@@ -12079,7 +12079,7 @@ gui-libs/vte-common 0.76.3 0.78.3: Library providing a virtual terminal emulator
 gui-libs/wayfire-plugins-extra 0.9.0 9999: extra plugins for wayfire
 gui-libs/wf-config 0.9.0 9999: library for managing wayfire configuration files
 gui-libs/wlroots 0.17.4 0.18.0 0.18.1 0.18.2 9999: Pluggable, composable, unopinionated modules for building a Wayland compositor
-gui-libs/wpebackend-fdo 1.14.2-r1: WPE backend designed for Linux desktop systems
+gui-libs/wpebackend-fdo 1.14.2-r1 1.14.3: WPE backend designed for Linux desktop systems
 gui-libs/xdg-desktop-portal-lxqt 1.0.2 1.1.0: Backend implementation for xdg-desktop-portal using Qt/KF5/libfm-qt
 gui-libs/xdg-desktop-portal-wlr 0.7.1-r1 0.7.1-r2 9999: xdg-desktop-portal backend for wlroots
 gui-wm/dwl 0.5-r1 0.6 0.7 9999: dwm for Wayland
@@ -12791,7 +12791,7 @@ media-fonts/mplus-fonts 2.2.4-r1: M+ Japanese bitmap fonts
 media-fonts/mplus-outline-fonts 0_pre063_p1: M+ Japanese outline fonts
 media-fonts/nanum 3.0: Korean fonts distributed by Naver
 media-fonts/nanumfont 2.5: Korean monospace font distributed by Naver
-media-fonts/noto 20241201 20250101 20250201: Google's font family that aims to support all the world's languages
+media-fonts/noto 20250101 20250201 20250301: Google's font family that aims to support all the world's languages
 media-fonts/noto-cjk 20190416: Google's CJK font family
 media-fonts/noto-emoji 20231130 20231130-r1 20241003: Google Noto Emoji fonts
 media-fonts/nunito 1.0-r1: Sans Serif font with rounded terminals
@@ -15868,7 +15868,7 @@ sci-chemistry/chemical-mime-data 0.1.95_pre20171122: A collection of data files 
 sci-chemistry/chemtool 1.6.14 1.6.14-r1: A GTK program for drawing organic molecules
 sci-chemistry/clashlist 3.17-r1: Build lists of van der Waals clashes from an input PDB file
 sci-chemistry/cluster 1.3.081231-r1 1.3.081231-r2: Build lists of collections of interacting items
-sci-chemistry/dssp 2.2.1-r3 3.0.11 4.4.10: The protein secondary structure standard
+sci-chemistry/dssp 2.2.1-r3 3.0.11 4.4.10 4.4.11: The protein secondary structure standard
 sci-chemistry/easychem 0.6-r2: Chemical structure drawing program - focused on presentation
 sci-chemistry/elem 1.0.3-r3: periodic table of the elements
 sci-chemistry/gelemental 2.0.0-r1 2.0.2: Periodic table viewer with detailed information on the chemical elements
@@ -18340,7 +18340,7 @@ x11-libs/libfm-extra 1.3.2: Library for file management
 x11-libs/libfm-qt 2.0.2-r1 2.1.0: Qt Library for Building File Managers
 x11-libs/libfontenc 1.1.8: X.Org fontenc library
 x11-libs/libgxim 0.5.0-r1: GObject-based XIM protocol library
-x11-libs/libnotify 0.8.3: A library for sending desktop notifications
+x11-libs/libnotify 0.8.3 0.8.4: A library for sending desktop notifications
 x11-libs/liboglappth 1.0.0-r1: Libary for OpenGL applications with easy-to-code scene setup and selection
 x11-libs/libpciaccess 0.18.1: Library providing generic access to the PCI bus and devices
 x11-libs/libtinynotify 0.2.1: A lightweight implementation of Desktop Notification Spec
