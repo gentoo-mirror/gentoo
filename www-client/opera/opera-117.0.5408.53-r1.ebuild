@@ -49,7 +49,7 @@ S=${WORKDIR}
 LICENSE="OPERA-2018"
 SLOT="0"
 KEYWORDS="-* amd64"
-IUSE="+ffmpeg-chromium +proprietary-codecs +suid qt5 qt6"
+IUSE="+ffmpeg-chromium +proprietary-codecs +suid qt6"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -82,11 +82,6 @@ RDEPEND="
 	proprietary-codecs? (
 		!ffmpeg-chromium? ( >=media-video/ffmpeg-6.1-r1:0/58.60.60[chromium] )
 		ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
-	)
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5[X]
-		dev-qt/qtwidgets:5
 	)
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 "
@@ -159,9 +154,7 @@ src_install() {
 			  /${OPERA_HOME}/libffmpeg.so
 	fi
 
-	if ! use qt5; then
-		rm "${OPERA_HOME}/libqt5_shim.so" || die
-	fi
+	rm "${OPERA_HOME}/libqt5_shim.so" || die
 	if ! use qt6; then
 		rm "${OPERA_HOME}/libqt6_shim.so" || die
 	fi

@@ -26,7 +26,7 @@ LICENSE="google-chrome"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
-IUSE="qt5 qt6 selinux"
+IUSE="qt6 selinux"
 
 RESTRICT="bindist mirror strip"
 
@@ -63,11 +63,6 @@ RDEPEND="
 	x11-libs/libxshmfence
 	x11-libs/pango
 	x11-misc/xdg-utils
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5[X]
-		dev-qt/qtwidgets:5
-	)
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
 	selinux? ( sec-policy/selinux-chromium )
 "
@@ -112,9 +107,7 @@ src_install() {
 	chromium_remove_language_paks
 	popd > /dev/null || die
 
-	if ! use qt5; then
-		rm "${CHROME_HOME}/libqt5_shim.so" || die
-	fi
+	rm "${CHROME_HOME}/libqt5_shim.so" || die
 	if ! use qt6; then
 		rm "${CHROME_HOME}/libqt6_shim.so" || die
 	fi
