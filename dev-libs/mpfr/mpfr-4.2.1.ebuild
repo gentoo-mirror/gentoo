@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -61,6 +61,7 @@ PATCHES=(
 	"${MY_PATCHES[@]}"
 
 	# Additional patches
+	"${FILESDIR}"/${PN}-4.2.1-include-math.h-to-use-predefined-_Float128-definitio.patch
 )
 
 HTML_DOCS=( doc/FAQ.html )
