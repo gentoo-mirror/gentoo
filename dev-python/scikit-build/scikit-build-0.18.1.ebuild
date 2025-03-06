@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3 python3_{10..13} )
+PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -48,6 +48,11 @@ distutils_enable_sphinx docs \
 distutils_enable_tests pytest
 
 src_prepare() {
+	local PATCHES=(
+		# https://github.com/scikit-build/scikit-build/pull/1120
+		"${FILESDIR}/${P}-setuptools-75.patch"
+	)
+
 	# not packaged
 	sed -i -e '/cmakedomain/d' docs/conf.py || die
 	distutils-r1_src_prepare
