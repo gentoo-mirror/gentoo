@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-python/click-8.1.3[${PYTHON_USEDEP}]
 	<dev-python/orderly-set-6[${PYTHON_USEDEP}]
-	>=dev-python/orderly-set-5.2.2[${PYTHON_USEDEP}]
+	>=dev-python/orderly-set-5.3.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 "
 
