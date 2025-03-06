@@ -22,7 +22,7 @@ EAPI=8
 # new "Distro tarballs" and include binaries (etc) that are not useful for
 # downstream consumers (like distributions).
 
-GN_MIN_VER=0.2207
+GN_MIN_VER=0.2217
 # chromium-tools/get-chromium-toolchain-strings.py
 TEST_FONT=f26f29c9d3bfae588207bbc9762de8d142e58935c62a86f67332819b15203b35
 BUNDLED_CLANG_VER=llvmorg-20-init-17108-g29ed6000-3
@@ -69,7 +69,7 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/dev"
+SLOT="0/beta"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
