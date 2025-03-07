@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/groff virtual/pkgconfig >=app-portage/elt-patches-20240116
+BDEPEND=sys-apps/groff virtual/pkgconfig >=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare
 DEPEND=>=dev-libs/glib-2.6:2 aspell? ( app-text/aspell ) hunspell? ( >=app-text/hunspell-1.2.1:0= ) nuspell? ( >=app-text/nuspell-5.1.0:0= ) voikko? ( dev-libs/libvoikko:= ) test? ( >=dev-libs/unittest++-2.0.0-r2 )
 DESCRIPTION=Spellchecker wrapping library
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( aspell hunspell nuspell )
 RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://github.com/rrthomas/enchant/releases/download/v2.6.1/enchant-2.6.1.tar.gz
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	8bb566b2a31c1b6cfd9cb194fa74835c
 _md5_=5e9c29e3a7073bdfadcaf19d316fd3c1

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) virtual/pkgconfig >=app-portage/elt-patches-20240116
+BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) virtual/pkgconfig >=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install postinst postrm prepare
 DEPEND=acct-group/plugdev virtual/libiconv virtual/libusb:1 crypt? ( dev-libs/libgcrypt:0= )
 DESCRIPTION=Implementation of Microsoft's Media Transfer Protocol (MTP)
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=acct-group/plugdev virtual/libiconv virtual/libusb:1 crypt? ( dev-libs/libgcrypt:0= )
 SLOT=0/9
 SRC_URI=https://downloads.sourceforge.net/libmtp/libmtp-1.1.22.tar.gz
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	udev	f3d9a4376ebd22131726a68e1a0a058f	libtool	6b28392a775f807c8be5fc7ec9a605b9
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	udev	f3d9a4376ebd22131726a68e1a0a058f	libtool	8bb566b2a31c1b6cfd9cb194fa74835c
 _md5_=700b2656cc7214fd9ecef8c82e7e3044

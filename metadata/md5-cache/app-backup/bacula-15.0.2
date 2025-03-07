@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 virtual/pkgconfig
+BDEPEND=>=app-portage/elt-patches-20250306 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=!bacula-clientonly? ( !bacula-nodir? ( virtual/mta ) postgres? ( dev-db/postgresql:=[threads(+)] ) mysql? ( || ( dev-db/mysql-connector-c dev-db/mariadb-connector-c ) ) sqlite? ( dev-db/sqlite:3 ) ) dev-libs/gmp:0 qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtsvg:5 x11-libs/qwt:6 ) logwatch? ( sys-apps/logwatch ) readline? ( sys-libs/readline:0 ) static? ( dev-libs/lzo[static-libs] sys-libs/ncurses:=[static-libs] sys-libs/zlib[static-libs] acl? ( virtual/acl[static-libs(+)] ) ssl? ( dev-libs/openssl:0=[static-libs] ) ) !static? ( dev-libs/lzo sys-libs/ncurses:= sys-libs/zlib acl? ( virtual/acl ) ssl? ( dev-libs/openssl:0= ) ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) dev-util/patchelf
 DESCRIPTION=Featureful client/server network backup suite
@@ -12,5 +12,5 @@ RDEPEND=!bacula-clientonly? ( !bacula-nodir? ( virtual/mta ) postgres? ( dev-db/
 REQUIRED_USE=!bacula-clientonly? ( ^^ ( mysql postgres sqlite ) ) static? ( bacula-clientonly )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/bacula/bacula-15.0.2.tar.gz
-_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	libtool	6b28392a775f807c8be5fc7ec9a605b9	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	libtool	8bb566b2a31c1b6cfd9cb194fa74835c	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	54bd206bb5c4efac6ae28b6b006713b0
 _md5_=986e0a0df58d839f2a7e7db9d636b6c4

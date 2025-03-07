@@ -1,4 +1,4 @@
-BDEPEND=>=app-portage/elt-patches-20240116 virtual/pkgconfig
+BDEPEND=>=app-portage/elt-patches-20250306 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=lzma? ( app-arch/xz-utils ) zlib? ( sys-libs/zlib )
 DESCRIPTION=Load another kernel from the currently executing Linux kernel
@@ -12,5 +12,5 @@ RDEPEND=lzma? ( app-arch/xz-utils ) zlib? ( sys-libs/zlib ) selinux? ( sec-polic
 REQUIRED_USE=lzma? ( zlib )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/utils/kernel/kexec/kexec-tools-2.0.28.tar.xz
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	6b28392a775f807c8be5fc7ec9a605b9	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	538bce96e5589935b57e178e8635f301	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	8bb566b2a31c1b6cfd9cb194fa74835c	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	538bce96e5589935b57e178e8635f301	systemd	54bd206bb5c4efac6ae28b6b006713b0
 _md5_=112511e6fd2ca2361d1d92d37c381c8f
