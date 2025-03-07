@@ -3,7 +3,7 @@
 
 EAPI=8
 
-NEED_EMACS="27.1"
+NEED_EMACS="29.1"
 
 inherit elisp
 
@@ -35,6 +35,7 @@ RDEPEND="
 	app-emacs/closql
 	app-emacs/dash
 	app-emacs/emacsql
+	app-emacs/llama
 	app-emacs/markdown-mode
 	app-emacs/yaml
 "
