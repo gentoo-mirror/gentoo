@@ -907,7 +907,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.37.21 1.37.26 1.38.4 1.38.5 1.38.6 1.38.7 1.38.8: Universal Command Line Environment for AWS
+app-admin/awscli 1.37.21 1.37.26 1.38.4 1.38.5 1.38.6 1.38.7 1.38.8 1.38.9: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2025.1.4 2025.2.0: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -3243,7 +3243,7 @@ app-text/hd2u 1.0.3: Dos2Unix like text file converter
 app-text/highlight 4.9 4.12: Converts source code to formatted text (HTML, LaTeX, etc.) with syntax highlight
 app-text/hnb 1.9.18-r1: A program to organize many kinds of data in one place
 app-text/htag 0.0.24-r1: random signature maker
-app-text/html-xml-utils 8.6: A number of simple utilities for manipulating HTML and XML files
+app-text/html-xml-utils 8.6 8.7: A number of simple utilities for manipulating HTML and XML files
 app-text/html2text 2.1.1 2.2.3 2.2.3-r1: HTML to text converter
 app-text/html401 19991224-r4: DTDs for the HyperText Markup Language 4.01
 app-text/htmldoc 1.9.16-r1: Convert HTML pages into a PDF document
@@ -5647,7 +5647,7 @@ dev-libs/libxdiff 0.23-r3: Library for creating diff files
 dev-libs/libxls 1.6.2-r1 1.6.3: Library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.5-r1: C library for creating Excel XLSX files
 dev-libs/libxml2 2.11.9 2.12.9 2.12.10 2.13.5 2.13.6 9999: XML C parser and toolkit
-dev-libs/libxmlb 0.3.19: Library to help create and query binary XML blobs
+dev-libs/libxmlb 0.3.19 0.3.21: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.39-r1 1.1.42 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
 dev-libs/libzia 4.64-r1 4.67: Platform abstraction code for tucnak package
@@ -5857,7 +5857,7 @@ dev-libs/xmlrpc-c 1.54.05-r3 1.54.06-r1 1.59.03: A lightweight RPC library based
 dev-libs/xmlsec 1.3.6 1.3.7: Command line tool for signing, verifying, encrypting and decrypting XML
 dev-libs/xxhash 0.8.2 0.8.3: Extremely fast non-cryptographic hash algorithm
 dev-libs/yajl 2.1.0-r4 2.1.0-r5: Small event-driven (SAX-style) JSON parser
-dev-libs/yaz 5.34.0 5.34.2: C/C++ toolkit for Z39.50v3 clients and servers
+dev-libs/yaz 5.34.0 5.34.2 5.34.4: C/C++ toolkit for Z39.50v3 clients and servers
 dev-libs/yyjson 0.10.0: Fast JSON library in C
 dev-libs/zix 0.4.2 0.6.2: Lightweight C library of portability wrappers and data structures
 dev-libs/zug 0.1.1-r1: Transducers for C++
@@ -8059,7 +8059,7 @@ dev-python/aiosignal 1.3.2: A list of registered asynchronous callbacks
 dev-python/aiosmtpd 1.4.6: Reimplementation of the Python stdlib smtpd.py based on asyncio
 dev-python/aiosqlite 0.20.0 0.21.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiostream 0.6.3 0.6.4: Generator-based operators for asynchronous iteration
-dev-python/aiounittest 1.4.2 1.4.3: Test asyncio code more easily
+dev-python/aiounittest 1.4.2 1.4.3 1.5.0: Test asyncio code more easily
 dev-python/ajsonrpc 1.2.0: Async JSON-RPC 2.0 protocol + server powered by asyncio
 dev-python/alabaster 1.0.0: A configurable sidebar-enabled Sphinx theme
 dev-python/alembic 1.14.1 1.15.1: Database migrations tool, written by the author of SQLAlchemy
@@ -8076,6 +8076,7 @@ dev-python/ansicolor 0.3.2-r1 9999: Produce ansi color output and colored highli
 dev-python/antlr4-python3-runtime 4.13.2: Python 3 runtime for ANTLR
 dev-python/anyascii 0.3.2: Unicode to ASCII transliteration
 dev-python/anyio 4.8.0: Compatibility layer for multiple asynchronous event loop implementations
+dev-python/anyioutils 0.7.1: Utility classes and functions for AnyIO
 dev-python/apache-libcloud 3.8.0-r1: Unified Interface to the Cloud - python support libs
 dev-python/apipkg 3.0.2: Namespace control and lazy-import mechanism
 dev-python/apispec 6.7.1 6.8.0 6.8.1: A pluggable API specification generator
@@ -8149,8 +8150,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.36.21 1.36.26 1.37.4 1.37.5 1.37.6 1.37.7 1.37.8: The AWS SDK for Python
-dev-python/botocore 1.36.21 1.36.26 1.37.4 1.37.5 1.37.6 1.37.7 1.37.8: Low-level, data-driven core of boto 3
+dev-python/boto3 1.36.21 1.36.26 1.37.4 1.37.5 1.37.6 1.37.7 1.37.8 1.37.9: The AWS SDK for Python
+dev-python/botocore 1.36.21 1.36.26 1.37.4 1.37.5 1.37.6 1.37.7 1.37.8 1.37.9: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8366,7 +8367,7 @@ dev-python/expandvars 0.12.0: Expand system variables Unix style
 dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.7-r1: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/faker 36.1.1 36.2.1: A Python package that generates fake data for you
+dev-python/faker 36.1.1 36.2.1 37.0.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.27.0: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.2 0.3.1: Implementation of bencode with optional fast C extensions
 dev-python/fasteners 0.19: Python package that provides useful locks
@@ -8420,7 +8421,7 @@ dev-python/fritzconnection 1.13.2-r1 1.14.0: Lib/tool to communicate with AVM FR
 dev-python/frozen-flask 1.0.2: Freezes a Flask application into a set of static files
 dev-python/frozenlist 1.5.0: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
-dev-python/fsspec 2025.2.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2025.2.0 2025.3.0: A specification that python filesystems should adhere to
 dev-python/ftfy 6.3.0 6.3.1: Fixes mojibake and other problems with Unicode, after the fact
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
 dev-python/funcy 2.0: A collection of fancy functional tools focused on practicality
@@ -8533,7 +8534,7 @@ dev-python/ioflo 2.0.2-r4: Automated Reasoning Engine and Flow Based Programming
 dev-python/ipaddr 2.2.0-r2: Python IP address manipulation library
 dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
-dev-python/ipykernel 6.29.5 7.0.0_alpha0: IPython Kernel for Jupyter
+dev-python/ipykernel 6.29.5 7.0.0_alpha1: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.0 9.0.1: Interactive Parallel Computing with IPython
 dev-python/ipython 8.32.0 8.33.0 9.0.0 9.0.1: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
@@ -8875,7 +8876,7 @@ dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.1.1: Inject some useful and sensible default behaviors into setuptools
 dev-python/pbs-installer 2025.02.05 2025.02.12: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
-dev-python/pdm 2.22.2 2.22.3: Python package and dependency manager supporting the latest PEP standards
+dev-python/pdm 2.22.3 2.22.4: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.4.3: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdoc3 0.11.5: Auto-generate API documentation for Python projects
 dev-python/peachpy 2022.11.13-r2: Portable Efficient Assembly Code-generator in Higher-level Python
@@ -8985,7 +8986,7 @@ dev-python/pycpio 1.4.2 1.5.2 9999: Python CPIO library
 dev-python/pycryptodome 3.21.0: A self-contained cryptographic library for Python
 dev-python/pycuda 2024.1: Python wrapper for NVIDIA CUDA
 dev-python/pycups 2.0.4: Python bindings for the CUPS API
-dev-python/pycurl 7.45.3 7.45.4 7.45.5: Python bindings for curl/libcurl
+dev-python/pycurl 7.45.3 7.45.4 7.45.5 7.45.6: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8-r1: Set of facilities to extend Python with C++
 dev-python/pydantic 2.10.6 2.11.0_alpha2 2.11.0_beta1: Data parsing and validation using Python type hints
@@ -9208,7 +9209,7 @@ dev-python/python-glanceclient 4.7.0 4.8.0: A client for the OpenStack Glance AP
 dev-python/python-gnupg 0.5.4: A Python wrapper for GnuPG
 dev-python/python-ironicclient 5.10.0: Python bindings for the Ironic API
 dev-python/python-jose 3.4.0-r1: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
-dev-python/python-json-logger 3.2.1: Standard python logging to output log data as json objects
+dev-python/python-json-logger 3.2.1 3.3.0: Standard python logging to output log data as json objects
 dev-python/python-keystoneclient 5.5.0 5.6.0: Client Library for OpenStack Identity
 dev-python/python-ldap 3.4.4: Various LDAP-related Python modules
 dev-python/python-linux-procfs 0.7.3: Python classes to extract information from the Linux kernel /proc files
@@ -9327,7 +9328,7 @@ dev-python/requests-mock 1.12.1: Mock out responses from the requests package
 dev-python/requests-ntlm 1.3.0: HTTP NTLM authentication using the requests library
 dev-python/requests-oauthlib 2.0.0: This project provides first-class OAuth library support for Requests
 dev-python/requests-toolbelt 1.0.0: A utility belt for advanced users of python-requests
-dev-python/requests-unixsocket 0.3.0-r4: Use requests to talk HTTP via a UNIX domain socket
+dev-python/requests-unixsocket 0.3.0-r4 0.4.1: Use requests to talk HTTP via a UNIX domain socket
 dev-python/requests-wsgi-adapter 0.4.1: WSGI Transport Adapter for Requests
 dev-python/requestsexceptions 1.4.0-r1: Finds the correct path to exceptions in the requests library
 dev-python/resolvelib 1.0.1 1.1.0: Resolve abstract dependencies into concrete ones
@@ -9484,7 +9485,7 @@ dev-python/spyder-notebook 0.6.1: Jupyter notebook integration with Spyder
 dev-python/spyder-unittest 0.7.0: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.38: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.7.0 26.8.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 26.7.0 26.8.0 26.9.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9521,7 +9522,7 @@ dev-python/tap-py 3.2.1: Test Anything Protocol (TAP) tools
 dev-python/taskgroup 0.2.2: Backport of asyncio.TaskGroup, asyncio.Runner and asyncio.timeout
 dev-python/tasklib 2.5.1: A Python library for interacting with taskwarrior databases
 dev-python/tavalidate 0.0.6-r1: Utities to validate Tavern responses
-dev-python/tavern 2.11.0: A tool, library, and Pytest plugin for testing RESTful APIs
+dev-python/tavern 2.11.0 2.12.0: A tool, library, and Pytest plugin for testing RESTful APIs
 dev-python/tblib 3.0.0: Traceback fiddling library for Python
 dev-python/tcolorpy 0.1.6 0.1.7: tcolorpy is a Python library to apply true color for terminal text
 dev-python/tekore 5.5.1 6.0.0: Spotify Web API client
@@ -9563,7 +9564,7 @@ dev-python/toolz 1.0.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.4.2: Python web framework and asynchronous networking library
 dev-python/towncrier 24.8.0: Building newsfiles for your project
-dev-python/tox 4.24.1: virtualenv-based automation of test activities
+dev-python/tox 4.24.1 4.24.2: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0: Python bindings for TSS
 dev-python/tqdm 4.67.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
@@ -9589,7 +9590,7 @@ dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
 dev-python/txtorcon 23.11.0 24.8.0: Twisted-based Tor controller client, with state-tracking abstractions
 dev-python/typeguard 4.4.1 4.4.2: Run-time type checker for Python
 dev-python/types-docutils 0.21.0.20241128: Typing stubs for docutils
-dev-python/types-gdb 15.0.0.20241204 15.0.0.20250306: Typing stubs for gdb
+dev-python/types-gdb 15.0.0.20241204 15.0.0.20250306 15.0.0.20250308: Typing stubs for gdb
 dev-python/types-psutil 6.1.0.20241102 6.1.0.20241221 7.0.0.20250218: Typing stubs for psutil
 dev-python/types-setuptools 75.8.0.20250225 75.8.2.20250301 75.8.2.20250305: Typing stubs for setuptools
 dev-python/typing-extensions 4.12.2: Backported and Experimental Type Hints for Python 3.7+
@@ -9702,6 +9703,7 @@ dev-python/zenlib 3.1.5 9999: Useful python decorators and utilities
 dev-python/zeroconf 0.144.3 0.145.1 0.146.1: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.21.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zipstream-ng 1.7.1 1.8.0: A modern and easy to use streamable zip file generator
+dev-python/zmq-anyio 0.3.6: Asynchronous API for ZMQ using AnyIO
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 6.0: Zope Configuration Architecture
 dev-python/zope-deprecation 5.1: Zope Deprecation Infrastructure
@@ -10981,7 +10983,7 @@ dev-util/squashmerge 0.1 9999: dev-util/squashdelta delta merge tool
 dev-util/src-cli 4.4.0 4.5.0 5.0.2-r1 5.1.2 5.2.0: command line interface for the Sourcegraph code search tool
 dev-util/statifier 1.7.4-r2: Statifier is a tool for creating portable, self-containing Linux executables
 dev-util/stressapptest 1.0.11: Stressful Application Test
-dev-util/stripe-mock 0.192.0: Mock HTTP server that responds like the real Stripe API
+dev-util/stripe-mock 0.192.0 0.193.0: Mock HTTP server that responds like the real Stripe API
 dev-util/sysprof 3.48.0-r1 46.0-r1 47.2: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r1 3.48.0 46.0 47.2: Static library for sysprof capture data generation
 dev-util/sysprof-common 3.48.0 46.0 47.2: Static library for sysprof capture data generation
@@ -18865,7 +18867,7 @@ x11-themes/commonbox-styles-extra 0.2-r3: Extra styles pack for flux|black|open(
 x11-themes/constantine-backgrounds 12.1.1.4-r2: Fedora 12 official background artwork
 x11-themes/e-gtk-theme 0.19.3: A GTK theme to match Enlightenment WM's default theme
 x11-themes/e16-themes 1.0.2: All the official E16 themes
-x11-themes/elementary-xfce-icon-theme 0.19 0.20 0.20.1: Elementary icons forked from upstream, extended and maintained for Xfce
+x11-themes/elementary-xfce-icon-theme 0.20.1 0.21: Elementary icons forked from upstream, extended and maintained for Xfce
 x11-themes/experience 3.04-r1: GTK+2 themes which copy and improve the look of XP Luna
 x11-themes/faenza-icon-theme 1.3.1-r1: A scalable icon theme called Faenza
 x11-themes/fedora-backgrounds 27.0.1 28.1.5 29.1.3 30.1.2 31.0.4 32.2.2 33.0.8 34.0.1 36.1.2 37.0.5 38.1.1 39.0.5 40.2.0 41.0.2: A set of default and supplemental wallpapers for Fedora
@@ -19006,7 +19008,7 @@ x11-wm/openbox 3.6.1-r9 9999: Standards compliant, fast, light-weight, extensibl
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
 x11-wm/page 1.9.10 1.9.10-r1: A mouse friendly tiling window manager
 x11-wm/pekwm 0.3.0: A lightweight window manager initially based on aewm++
-x11-wm/qtile 0.28.1 0.30.0: A full-featured, hackable tiling window manager written in Python
+x11-wm/qtile 0.28.1 0.30.0 0.31.0: A full-featured, hackable tiling window manager written in Python
 x11-wm/ratpoison 1.4.9-r3 9999: window manager without mouse dependency
 x11-wm/selectwm 0.4.1-r2: window manager selector tool
 x11-wm/sithwm 1.2.3: Minimalist Window Manager for X
