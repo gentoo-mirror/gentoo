@@ -4,12 +4,12 @@
 EAPI=8
 
 CMAKE_BUILD_TYPE="Release"
-LLVM_COMPAT=( {15..18} )
+LLVM_COMPAT=( {15..19} )
 MY_PN="${PN/intel-/}"
 MY_P="${MY_PN}-${PV}"
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit cmake llvm-r1 python-any-r1
+inherit cmake llvm-r2 python-any-r1
 
 DESCRIPTION="A set of new intrinsics on top of core LLVM IR instructions"
 HOMEPAGE="https://github.com/intel/vc-intrinsics"
@@ -18,7 +18,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/libxml2:2=
