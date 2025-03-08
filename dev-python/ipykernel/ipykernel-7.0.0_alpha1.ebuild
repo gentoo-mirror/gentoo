@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi virtualx
@@ -17,10 +17,10 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
-	>=dev-python/anyio-4.2.0[${PYTHON_USEDEP}]
+	<dev-python/anyio-5[${PYTHON_USEDEP}]
+	>=dev-python/anyio-4.8.0[${PYTHON_USEDEP}]
 	>=dev-python/comm-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/ipython-7.23.1[${PYTHON_USEDEP}]
 	>=dev-python/jupyter-client-8.0.0[${PYTHON_USEDEP}]
@@ -29,8 +29,9 @@ RDEPEND="
 	>=dev-python/nest-asyncio-1.4[${PYTHON_USEDEP}]
 	>=dev-python/packaging-22[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.7[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-25.0[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-26.0[${PYTHON_USEDEP}]
 	>=dev-python/traitlets-5.4.0[${PYTHON_USEDEP}]
+	>=dev-python/zmq-anyio-0.3.6[${PYTHON_USEDEP}]
 "
 # RDEPEND seems specifically needed in BDEPEND, at least jupyter
 # bug #816486

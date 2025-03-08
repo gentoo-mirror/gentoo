@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,10 +13,9 @@ S="${WORKDIR}/${MY_P}"
 
 # see AUTHORS
 LICENSE="
-	GPL-2+
+	GPL-3+
 	Apache-2.0
-	CC-BY-4.0 CC-BY-NC-SA-4.0 CC-BY-SA-4.0
-	public-domain
+	CC-BY-4.0 CC-BY-SA-4.0
 "
 SLOT="0"
 KEYWORDS="~amd64 ~riscv ~x86"
@@ -41,10 +40,4 @@ src_configure() {
 
 src_compile() {
 	emake CC="$(tc-getCC)"
-}
-
-src_install() {
-	default
-	# delete dangling doc links
-	find -L "${D}" -type l -delete || die
 }
