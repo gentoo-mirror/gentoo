@@ -11,8 +11,8 @@ HOMEPAGE="https://www.monkeysaudio.com"
 SRC_URI="https://monkeysaudio.com/files/MAC_${PV/.}_SDK.zip -> ${P}.zip"
 
 LICENSE="BSD"
-SLOT="0/11"
-KEYWORDS="~alpha amd64 ~loong ppc ppc64 ~riscv sparc x86"
+SLOT="0/12"
+KEYWORDS="~alpha ~amd64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 BDEPEND="app-arch/unzip"
 
