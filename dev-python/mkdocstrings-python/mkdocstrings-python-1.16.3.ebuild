@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm-backend
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -21,8 +21,8 @@ KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	>=dev-python/griffe-0.49[${PYTHON_USEDEP}]
-	>=dev-python/mkdocstrings-0.28[${PYTHON_USEDEP}]
-	>=dev-python/mkdocs-autorefs-1.2[${PYTHON_USEDEP}]
+	>=dev-python/mkdocstrings-0.28.3[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-autorefs-1.4[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/typing-extensions-4.0[${PYTHON_USEDEP}]
 	' 3.10)

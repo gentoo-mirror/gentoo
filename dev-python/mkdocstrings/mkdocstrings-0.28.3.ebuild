@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm-backend
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
 
 inherit distutils-r1 pypi
 
@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-python/markdown-3.6[${PYTHON_USEDEP}]
 	>=dev-python/markupsafe-1.1[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.5[${PYTHON_USEDEP}]
-	>=dev-python/mkdocs-autorefs-1.3[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-autorefs-1.4[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-get-deps-0.2[${PYTHON_USEDEP}]
 	>=dev-python/pymdown-extensions-6.3[${PYTHON_USEDEP}]
 "
@@ -32,7 +32,7 @@ BDEPEND="
 	test? (
 		dev-python/markdown-exec[${PYTHON_USEDEP}]
 		dev-python/mkdocs-material[${PYTHON_USEDEP}]
-		>=dev-python/mkdocstrings-python-1.14.1[${PYTHON_USEDEP}]
+		>=dev-python/mkdocstrings-python-1.16.2[${PYTHON_USEDEP}]
 		dev-python/sphinx[${PYTHON_USEDEP}]
 	)
 "

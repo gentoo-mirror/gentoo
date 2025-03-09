@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
 DISTUTILS_USE_PEP517=pdm-backend
 
 inherit distutils-r1 pypi
@@ -26,6 +26,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		dev-python/griffe[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.16[${PYTHON_USEDEP}]
 		>=dev-python/pymdown-extensions-10.14[${PYTHON_USEDEP}]
 	)
