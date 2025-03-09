@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_13 python3_13t )
+PYTHON_COMPAT=( python3_{12..13} python3_13t )
 
 inherit distutils-r1
 
@@ -17,3 +17,7 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
+
+python_test() {
+	"${EPYTHON}" ioctl_opt/__init__.py || die
+}
