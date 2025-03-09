@@ -1,14 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-# Otherwise ExternalProject_add fails, see https://github.com/nzbgetcom/nzbget/issues/460
-CMAKE_MAKEFILE_GENERATOR="emake"
-
 inherit cmake systemd
 
-PAR2_TURBO_VER="1.1.1-nzbget-20241128"
+PAR2_TURBO_VER="1.2.0-nzbget-20250213"
 DESCRIPTION="A command-line based binary newsgrabber supporting .nzb files"
 HOMEPAGE="https://nzbget.com/"
 SRC_URI="
@@ -55,18 +52,13 @@ BDEPEND="
 DOCS=( ChangeLog.md README.md nzbget.conf )
 
 PATCHES=(
-	"${FILESDIR}/${P}-build-with-par2-turbo-offline.patch"
+	# Required to use par2-turbo downloaded into the source directory
+	"${FILESDIR}/${PN}-24.6-build-with-par2-turbo-offline.patch"
 )
 
 src_prepare() {
 	if use parcheck; then
 		mv "${WORKDIR}/par2cmdline-turbo-${PAR2_TURBO_VER}" par2-turbo || die
-	else
-		# See https://github.com/nzbgetcom/nzbget/issues/480
-		rm tests/postprocess/ParCheckerTest.cpp \
-			tests/postprocess/ParRenamerTest.cpp || die
-		sed -Ei '/(ParCheckerTest|ParRenamerTest)\.cpp/d' \
-			tests/postprocess/CMakeLists.txt || die
 	fi
 	cmake_src_prepare
 
