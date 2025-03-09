@@ -5,6 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
+KDE_ORG_COMMIT=17859b4f0b2a654c11e8e209fdc7ea097c7f4ea5
 KFMIN=5.115.0
 QTMIN=5.15.12
 VIRTUALDBUS_TEST="true"
@@ -13,14 +14,10 @@ inherit ecm kde.org optfeature
 DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org/"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
-
 LICENSE="GPL-2"
 SLOT="5"
-IUSE="activities calendar hbci holidays sql sqlcipher"
+KEYWORDS="~amd64"
+IUSE="calendar hbci holidays sql sqlcipher"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
 REQUIRED_USE="sqlcipher? ( sql )"
@@ -58,7 +55,6 @@ RDEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 	>=kde-frameworks/sonnet-${KFMIN}:5
-	activities? ( >=kde-plasma/plasma-activities-${KFMIN}:5 )
 	calendar? ( dev-libs/libical:= )
 	hbci? (
 		>=dev-qt/qtdeclarative-${QTMIN}:5
@@ -95,7 +91,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_WOOB=OFF # ported to Py3; not yet re-added in Gentoo
 		-DUSE_QT_DESIGNER=OFF
-		$(cmake_use_find_package activities KF5Activities)
+		-DCMAKE_DISABLE_FIND_PACKAGE_KF5Activities=ON
 		-DENABLE_LIBICAL=$(usex calendar)
 		-DENABLE_KBANKING=$(usex hbci)
 		$(cmake_use_find_package holidays KF5Holidays)
