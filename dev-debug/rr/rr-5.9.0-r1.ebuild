@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..13} )
 CMAKE_BUILD_TYPE=Release
 
-inherit cmake linux-info python-single-r1
+inherit cmake linux-info python-single-r1 systemd
 
 DESCRIPTION="Record and Replay Framework"
 HOMEPAGE="https://rr-project.org/"
@@ -53,11 +53,18 @@ RESTRICT="test" # toolchain and kernel version dependent
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.7.0-no-force-lto.patch
+	"${FILESDIR}"/${PN}-5.9.0-zen-workaround-service.patch
 )
 
 pkg_setup() {
 	if use kernel_linux; then
 		CONFIG_CHECK="SECCOMP"
+
+		if use amd64 ; then
+			CONFIG_CHECK+=" ~X86_MSR"
+			WARNING_X86_MSR="X86_MSR is needed for rr-zen_workaround.py (AMD Zen CPUs)"
+		fi
+
 		linux-info_pkg_setup
 	fi
 	python-single-r1_pkg_setup
@@ -80,6 +87,9 @@ src_test() {
 
 src_configure() {
 	local mycmakeargs=(
+		# TODO: Could wire up bpf but USE=bpf feels wrong for that
+		# as only introduced in 5.9.0 (e7d9e8fd023461feb01f5d2c7936fcf07df8ce05) which
+		# says it's not "suitable for wide use at this point".
 		-DBUILD_TESTS=$(usex test)
 		-Ddisable32bit=$(usex !multilib) # bug #636786
 	)
@@ -97,4 +107,5 @@ src_install() {
 
 	python_fix_shebang "${ED}"/usr/bin/rr-collect-symbols.py
 	python_newscript scripts/zen_workaround.py rr-zen_workaround.py
+	systemd_newunit scripts/zen_workaround.service rr-zen_workaround.service
 }
