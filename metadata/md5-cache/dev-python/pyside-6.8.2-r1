@@ -4,7 +4,7 @@ DEPEND==dev-qt/qtbase-6.8.2*:6[concurrent?,dbus?,gles2-only=,network?,opengl?,sq
 DESCRIPTION=Python bindings for the Qt framework
 EAPI=8
 HOMEPAGE=https://wiki.qt.io/PySide6
-INHERIT=distutils-r1 llvm-r1 qmake-utils virtualx
+INHERIT=distutils-r1 llvm-r1 multiprocessing qmake-utils virtualx
 IUSE=3d +xml +printsupport bluetooth quick webengine +gui nfc +opengl +widgets websockets +network network-auth charts webview quick3d +testlib svg +core webchannel remoteobjects uitools spatialaudio httpserver pdfium +dbus positioning location designer scxml +concurrent serialbus serialport +sql qml help multimedia sensors speech debug doc gles2-only numpy test tools python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug +llvm_slot_19 llvm_slot_16 llvm_slot_17 llvm_slot_18 test
 KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=6/6.8.2
 SRC_URI=https://github.com/qtproject/pyside-pyside-setup/archive/refs/tags/v6.8.2.tar.gz -> pyside-pyside-setup-6.8.2.gh.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df	llvm-utils	7f49c40879f833f9d07e2d5a9643077b	llvm-r1	0bd586d3786517cd63802a520b404dda	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=b97818239cabd453290e3f6018db6a52
+_md5_=b7d4fa8ba9e8623a8ef7fb75ca3b6176
