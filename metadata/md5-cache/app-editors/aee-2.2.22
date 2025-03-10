@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=X? ( x11-libs/libX11 )
+DESCRIPTION=An easy to use text editor
+EAPI=8
+HOMEPAGE=https://gitlab.com/ports1/aee
+INHERIT=prefix toolchain-funcs
+IUSE=X
+KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux
+LICENSE=Artistic
+RDEPEND=X? ( x11-libs/libX11 )
+SLOT=0
+SRC_URI=https://gitlab.com/ports1/aee/-/archive/2.2.22/aee-2.2.22.tar.bz2
+_eclasses_=prefix	c3c4c93ebda319c0fa7ed6f942ba1010	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=5cbb958b8d483466d3c09aa95402bfab
