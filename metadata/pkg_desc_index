@@ -2816,7 +2816,7 @@ app-misc/mepl 0.45-r2: Self-employed-mode software for 3COM/USR message modems
 app-misc/mime-types 2.1.54: Provides /etc/mime.types file
 app-misc/mkcert 1.4.4: A zero-config tool to make locally trusted development certificates
 app-misc/mmv 1.01b_p19 2.5.1 2.8 2.9.1: Move/copy/append/link multiple files according to a set of wildcard patterns
-app-misc/mosquitto 2.0.20: An Open Source MQTT v3 Broker
+app-misc/mosquitto 2.0.20 2.0.21: An Open Source MQTT v3 Broker
 app-misc/mouseremote 0.90-r4: X10 MouseRemote
 app-misc/muttprint 0.73-r5: Script for pretty printing of your mails
 app-misc/mvcase 0.1-r3: A modified version of mv, used to convert filenames to lower/upper case
@@ -3089,7 +3089,7 @@ app-shells/dsh 0.25.10-r2: Distributed Shell
 app-shells/esh 0.8.5-r3: A UNIX Shell with a simplified Scheme syntax
 app-shells/fish 3.7.1 4.0.0 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r1: F# Shell with integrated F# scripting
-app-shells/fzf 0.56.3 0.57.0 0.59.0: General-purpose command-line fuzzy finder, written in Golang
+app-shells/fzf 0.56.3 0.57.0 0.59.0 0.60.3: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
 app-shells/gentoo-bashcomp 20240625: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20220112 20230117 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
@@ -10882,7 +10882,7 @@ dev-util/maxcso 1.13.0 9999: Fast cso compressor
 dev-util/mdds 2.1.1 3.0.0 9999: Collection of multi-dimensional data structure and indexing algorithm
 dev-util/meld 3.22.0-r2 3.22.1 3.22.2 3.22.2-r1: A graphical diff and merge tool
 dev-util/memprof 0.6.2-r2: Profiling and leak detection tool
-dev-util/mesa_clc 25.0.0 9999: mesa_clc tool used for building OpenCL C to SPIR-V
+dev-util/mesa_clc 25.0.0 25.0.1 9999: mesa_clc tool used for building OpenCL C to SPIR-V
 dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
 dev-util/mingw64-runtime 12.0.0: Free Win64 runtime and import library definitions
 dev-util/mingw64-toolchain 12.0.0: All-in-one mingw64 toolchain intended for building Wine without crossdev
@@ -13176,7 +13176,7 @@ media-libs/glpng 1.46-r1: OpenGL PNG image library
 media-libs/glu 9.0.3 9999: The OpenGL Utility Library
 media-libs/glycin-loaders 1.1.5 1.1.6 1.2_beta1 1.2_rc: Loaders for glycin clients (glycin crate or libglycin)
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
-media-libs/gmmlib 22.5.5 22.6.0 9999: Intel Graphics Memory Management Library
+media-libs/gmmlib 22.5.5 22.6.0 22.7.0 9999: Intel Graphics Memory Management Library
 media-libs/graphene 1.10.8-r1: A thin layer of types for graphic libraries
 media-libs/grilo 0.3.16: A framework for easy media discovery and browsing
 media-libs/gsound 1.0.3: Thin GObject wrapper around the libcanberra sound event library
@@ -13372,7 +13372,7 @@ media-libs/libv4l 1.28.1: v4l-utils libraries and optional utilities
 media-libs/libva 2.22.0 9999: Video Acceleration (VA) API for Linux
 media-libs/libva-compat 1.8.3-r2: Video Acceleration (VA) API for Linux
 media-libs/libva-intel-driver 2.4.1-r6 9999: HW video decode support for Intel integrated graphics
-media-libs/libva-intel-media-driver 24.4.4-r1 25.1.0 25.1.1 25.1.2 9999: Intel Media Driver for VA-API (iHD)
+media-libs/libva-intel-media-driver 24.4.4-r1 25.1.0 25.1.1 25.1.2 25.1.3 9999: Intel Media Driver for VA-API (iHD)
 media-libs/libvisio 0.1.8 9999: Library parsing the file format of MS Visio documents
 media-libs/libvisual 0.4.1 0.4.2-r1: Abstraction library between applications and audio visualisation plugins
 media-libs/libvmaf 2.3.1 3.0.0 9999: C libary for Netflix's Perceptual video quality assessment
@@ -13392,7 +13392,7 @@ media-libs/lilv 0.24.24 0.24.26: Library to make the use of LV2 plugins as simpl
 media-libs/lsp-plugins 1.2.3-r1 1.2.6 1.2.14 9999: Linux Studio Plugins
 media-libs/lv2 1.18.10-r1: A simple but extensible successor of LADSPA
 media-libs/lvtk 1.2.0-r2: A set of C++ wrappers around the LV2 C API
-media-libs/mesa 24.1.7-r1 24.3.4-r1 25.0.0 9999: OpenGL-like graphic library for Linux
+media-libs/mesa 24.1.7-r1 24.3.4-r1 25.0.0 25.0.1 9999: OpenGL-like graphic library for Linux
 media-libs/mesa-amber 21.3.9-r1: OpenGL-like graphic library for Linux
 media-libs/mlt 7.28.0-r1 7.30.0: Open source multimedia framework for television broadcasting
 media-libs/mpvqt 1.0.1: libmpv wrapper for QtQuick2 and QML
@@ -18193,7 +18193,7 @@ x11-apps/smproxy 1.0.7: Session Manager Proxy
 x11-apps/transset 1.0.4: An utility for setting opacity property
 x11-apps/viewres 1.0.7: graphical class browser for Xt
 x11-apps/x11perf 1.7.0: X rendering operation stress test utility
-x11-apps/xauth 1.1.3: X authority file utility
+x11-apps/xauth 1.1.3 1.1.4: X authority file utility
 x11-apps/xbacklight 1.2.4: Sets backlight level using the RandR 1.2 BACKLIGHT output property
 x11-apps/xbiff 1.0.5: mailbox flag for X
 x11-apps/xcalc 1.1.2: scientific calculator for X
@@ -18214,7 +18214,7 @@ x11-apps/xfontsel 1.1.1: point and click selection of X11 font names
 x11-apps/xgamma 1.0.7: Alter a monitor's gamma correction through the X server
 x11-apps/xgc 1.0.6: X graphics demo
 x11-apps/xhost 1.0.9 1.0.10: Controls host and/or user access to a running X server
-x11-apps/xinit 1.4.2 1.4.3: X Window System initializer
+x11-apps/xinit 1.4.2 1.4.3 1.4.4: X Window System initializer
 x11-apps/xinput 1.6.4: Utility to set XInput device parameters
 x11-apps/xinput_calibrator 0.8.0: A generic touchscreen calibration program for X.Org
 x11-apps/xisxwayland 2 9999: Tool to determine whether the X server in use is Xwayland
@@ -18283,7 +18283,7 @@ x11-drivers/xf86-video-vesa 2.6.0: Generic VESA video driver
 x11-drivers/xf86-video-vmware 13.4.0: VMware SVGA video driver
 x11-libs/agg 2.5-r3: High quality rendering engine library for C++
 x11-libs/c++-gtk-utils 2.0.34 2.2.20: A number of classes and functions for programming GTK+ programs using C++
-x11-libs/cairo 1.18.2-r1 9999: A vector graphics library with cross-device output support
+x11-libs/cairo 1.18.2-r1 1.18.4 9999: A vector graphics library with cross-device output support
 x11-libs/cmrt 1.0.6-r3: Intel C for Media RunTime GPU kernel manager
 x11-libs/colord-gtk 0.3.1: GTK support library for colord
 x11-libs/dnd 1.1-r4: OffiX' Drag'n'drop library
@@ -18305,8 +18305,8 @@ x11-libs/libFS 1.0.10: X.Org FS library
 x11-libs/libGLw 8.0.0-r1: Mesa GLw library
 x11-libs/libICE 1.1.2: X.Org Inter-Client Exchange library
 x11-libs/libQGLViewer 2.7.2: C++ library based on Qt that eases the creation of OpenGL 3D viewers
-x11-libs/libSM 1.2.5: X.Org Session Management library
-x11-libs/libX11 1.8.10-r1 1.8.11: X.Org X11 library
+x11-libs/libSM 1.2.5 1.2.6: X.Org Session Management library
+x11-libs/libX11 1.8.10-r1 1.8.11 1.8.12: X.Org X11 library
 x11-libs/libXScrnSaver 1.2.4: X.Org XScrnSaver library
 x11-libs/libXau 1.0.12: X.Org X authorization library
 x11-libs/libXaw 1.0.16: X.Org Xaw library
@@ -18385,7 +18385,7 @@ x11-libs/xcb-util-xrm 1.3-r2: X C-language Bindings sample implementations
 x11-libs/xforms 1.2.4-r1: A graphical user interface toolkit for X
 x11-libs/xosd 2.2.14_p2_p1: Library for overlaying text in X-Windows X-On-Screen-Display
 x11-libs/xpa 2.1.18: Messaging system providing communication between programs
-x11-libs/xtrans 1.5.2: X.Org xtrans library
+x11-libs/xtrans 1.5.2 1.6.0: X.Org xtrans library
 x11-misc/3dfm 1.0-r3: OpenGL-based 3D File Manager
 x11-misc/accessx 0951-r3: Interface to the XKEYBOARD extension in X11
 x11-misc/alacarte 3.50.0 3.52.0: Simple GNOME menu editor
@@ -18417,7 +18417,7 @@ x11-misc/chgres 0.1-r3: A very simple command line utility for changing X resolu
 x11-misc/clipmenu 6.2.0-r1: Clipboard management
 x11-misc/clipnotify 1.0.2: Notify on new X clipboard events
 x11-misc/colord 1.4.7-r1: System service to accurately color manage input and output devices
-x11-misc/compose-tables 1.8.10 1.8.11: X.Org Compose Key tables from libX11
+x11-misc/compose-tables 1.8.10 1.8.11 1.8.12: X.Org Compose Key tables from libX11
 x11-misc/copyq 9.1.0: Clipboard manager with advanced features
 x11-misc/dclock 2.2.2_p12: Digital clock for the X window system
 x11-misc/devilspie 0.23-r2: Window matching utility similar to Sawfish's Matched Windows
