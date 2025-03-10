@@ -3842,7 +3842,7 @@ dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r3 20230125.3-
 dev-cpp/ada 2.9.1: WHATWG-compliant and fast URL parser written in modern C++
 dev-cpp/aixlog 1.5.0-r1: Header-only C++ logging library
 dev-cpp/amqp-cpp 4.3.18: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
-dev-cpp/antlr-cpp 2.7.7-r2 4.11.1 4.13.2: The ANTLR 4 C++ Runtime
+dev-cpp/antlr-cpp 2.7.7-r2 4.11.1 4.13.2-r1: The ANTLR 4 C++ Runtime
 dev-cpp/argparse 2.9 3.0: Argument Parser for Modern C++
 dev-cpp/asio 1.30.2: Asynchronous Network Library
 dev-cpp/atkmm 2.28.3: C++ interface for the ATK library
@@ -3972,12 +3972,12 @@ dev-db/mongodb-compass-bin 1.45.2 1.45.3: GUI for MongoDB
 dev-db/mycli 1.27.2 1.29.2: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.15.2.8-r1 0.16.7.5 0.16.11.2: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
-dev-db/mysql 5.7.41 8.0.37 8.0.40: A fast, multi-threaded, multi-user SQL database server
+dev-db/mysql 5.7.41 8.0.37 8.0.40 8.0.41: A fast, multi-threaded, multi-user SQL database server
 dev-db/mysql++ 3.3.0: C++ API interface to the MySQL database
-dev-db/mysql-connector-c 8.0.36: C client library for MariaDB/MySQL
-dev-db/mysql-connector-c++ 8.0.33-r1: MySQL database connector for C++ (mimics JDBC 4.0 API)
+dev-db/mysql-connector-c 8.0.36 8.0.41: C client library for MariaDB/MySQL
+dev-db/mysql-connector-c++ 8.0.33-r1 9.2.0: MySQL database connector for C++ (mimics JDBC 4.0 API)
 dev-db/mysql-init-scripts 2.3-r8: Gentoo MySQL init scripts
-dev-db/mysql-workbench 8.0.38 8.0.40: MySQL Workbench
+dev-db/mysql-workbench 8.0.38 8.0.40 8.0.41: MySQL Workbench
 dev-db/mysqltuner 2.6.0: Makes recommendations for increased performance and stability for MySQL
 dev-db/mytop 1.9.1-r1: mytop - a top clone for mysql
 dev-db/ocp 0.3 9999: Oracle copy tool
@@ -5781,7 +5781,7 @@ dev-libs/stb 20240201-r1: single-file public domain (or MIT licensed) libraries 
 dev-libs/stfl 0.24-r5: A library which implements a curses-based widget set for text terminals
 dev-libs/teakra 20220224-r1: Emulator, assembler, etc for XpertTeak, the DSP used by DSi/3DS
 dev-libs/template-glib 3.36.2: Templating library for GLib
-dev-libs/thrift 0.16.0-r2 0.18.1-r1 0.20.0: C++ bindings for Apache Thrift
+dev-libs/thrift 0.16.0-r2 0.18.1-r1 0.20.0 0.21.0: C++ bindings for Apache Thrift
 dev-libs/tinyxml 2.6.2-r4 2.6.2-r5: Simple and small C++ XML parser
 dev-libs/tinyxml2 10.0.0: A simple, small, efficient, C++ XML parser
 dev-libs/tllist 1.0.5-r1 1.1.0: Header-only implementation of a typed linked list in C
@@ -17628,7 +17628,7 @@ sys-kernel/pf-sources 6.8_p1 6.8_p5 6.8_p6 6.8_p7 6.8_p8 6.8_p9 6.9_p2 6.9_p4 6.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 6.6.28_p20240424 6.6.31_p20240529 6.6.47_p20240902 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405 6.6.31_p20240529 6.6.47_p20240902: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.325_p140 5.4.288_p94 5.10.231_p123 5.15.173_p82 6.0.5_p14 6.1.120_p47 6.5.2_p8 6.6.65_p47: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/scx 1.0.6-r2 1.0.8 1.0.9: sched_ext schedulers and tools
+sys-kernel/scx 1.0.8 1.0.9 1.0.10: sched_ext schedulers and tools
 sys-kernel/ugrd 1.20.0 1.22.0 1.24.2 1.27.2 1.28.2 1.29.0-r1 1.31.2 9999: Python based POSIX initramfs generator with TOML definitions
 sys-kernel/vanilla-kernel 5.10.234 5.10.9999 5.15.178 5.15.9999 6.1.129 6.1.130 6.1.9999 6.6.79 6.6.80 6.6.81 6.6.82 6.6.9999 6.12.16 6.12.17 6.12.18 6.12.9999 6.13.4 6.13.5 6.13.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.290 5.10.234 5.15.178 6.1.130 6.6.81 6.12.18 6.13.6: Full sources for the Linux kernel
@@ -17669,7 +17669,7 @@ sys-libs/libnvme 1.9 1.10 1.11 1.11.1: C Library for NVM Express on Linux
 sys-libs/libosinfo 1.10.0-r1 1.11.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
-sys-libs/libseccomp 2.5.5-r2 2.6.0 9999: High level interface to Linux seccomp filter
+sys-libs/libseccomp 2.5.5-r2 2.6.0 2.6.0-r1 9999: High level interface to Linux seccomp filter
 sys-libs/libselinux 3.6-r1 3.7-r1 3.8.1 9999: SELinux userland library
 sys-libs/libsemanage 3.7 3.8.1 9999: SELinux kernel and policy management library
 sys-libs/libsepol 3.6 3.7 3.8.1 9999: SELinux binary policy representation library
