@@ -1,15 +1,15 @@
-BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=app-accessibility/at-spi2-core dev-libs/glib:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.20:3 x11-libs/pango test? ( dev-libs/check x11-base/xorg-proto x11-libs/gtk+:3[X] )
+DEPEND=app-accessibility/at-spi2-core >=dev-libs/glib-2.72:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24:3 x11-libs/pango test? ( x11-base/xorg-proto x11-libs/gtk+:3[X] x11-misc/xvfb-run )
 DESCRIPTION=UI library that focuses on simplicity and minimalism
 EAPI=8
 HOMEPAGE=https://pwmt.org/projects/girara/
-INHERIT=meson virtualx git-r3
-IUSE=doc test test
+INHERIT=meson git-r3
+IUSE=doc test
 LICENSE=ZLIB
 PROPERTIES=live
-RDEPEND=app-accessibility/at-spi2-core dev-libs/glib:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.20:3 x11-libs/pango
-RESTRICT=!test? ( test ) !test? ( test )
-SLOT=0
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	virtualx	9741d451eb64ea8bb9faee90d68a9b68	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=42f04bc4722c1cfca513a49c0153f580
+RDEPEND=app-accessibility/at-spi2-core >=dev-libs/glib-2.72:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24:3 x11-libs/pango
+RESTRICT=!test? ( test )
+SLOT=0/9999
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=569dd47a1ebee09fadfa5b4b7b372bf7

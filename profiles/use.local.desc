@@ -5668,8 +5668,6 @@ net-dns/knot:dnsproxy - Enable the tiny DNS proxy module
 net-dns/knot:dnstap - Include support for the dnstap binary log format (http://dnstap.info/)
 net-dns/knot:doh - Enable DNS over HTTP (DoH) using libnghttp2
 net-dns/knot:fastparser - Use a zone file parser that is faster, but requires more memory and CPU time to compile
-net-dns/knot:geoip - Enable the Geography-based responses module
-net-dns/knot:libidn2 - If IDN support is enabled, use net-dns/libidn2 instead of net-dns/libidn
 net-dns/knot:noudp - Enable the module which can send empty truncated responses to UDP queries
 net-dns/knot:onlinesign - Enable the module that sign zones on the fly instead of pre-signing zone
 net-dns/knot:pkcs11 - Add support for PKCS#11
@@ -5686,7 +5684,6 @@ net-dns/knot-resolver:dnstap - Build dnstap binary logging module
 net-dns/knot-resolver:kresc - Build (experimental) command-line client
 net-dns/knot-resolver:manager - Manager is a user-friendly interface and a component handling rolling restarts, config update logic and more.
 net-dns/knot-resolver:nghttp2 - DNS-over-HTTPS support
-net-dns/knot-resolver:prometheus - Metrics exported in Prometheus
 net-dns/knot-resolver:xdp - Enable eXpress Data Path
 net-dns/nsd:bind8-stats - Enables BIND8 like NSTATS and XSTATS and statistics in nsd-control
 net-dns/nsd:default-znow - Enable full relocation binding at load-time (RELRO NOW, to protect GOT and .dtor areas)

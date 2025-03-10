@@ -1138,7 +1138,7 @@ app-arch/hardlink 0.3.2: A tool which replaces copies of a file with hardlinks
 app-arch/innoextract 1.9: A tool to unpack installers created by Inno Setup
 app-arch/lbzip2 2.5_p20181227-r3: Parallel bzip2 utility
 app-arch/lcab 1.0_beta12: CAB file creation tool
-app-arch/lha 114i_p20210328: Utility for creating and opening lzh archives
+app-arch/lha 114i_p20210328 114i_p20250112: Utility for creating and opening lzh archives
 app-arch/libarchive 3.7.7: Multi-format archive and compression library
 app-arch/libdeflate 1.21 1.23 9999: Heavily optimized DEFLATE/zlib/gzip (de)compression
 app-arch/libpar2 0.4-r1: A library for par2, extracted from par2cmdline
@@ -1189,7 +1189,7 @@ app-arch/tarlz 0.26 0.27.1: A parallel archiver combining tar and lzip
 app-arch/tarsync 0.2.3: Synchronize tarball content with file system content
 app-arch/torrentzip 1.3: Create identical zip archives over multiple systems
 app-arch/unace 2.5-r6: ACE unarchiver
-app-arch/unadf 0.7.12-r2: Extract files from Amiga adf disk images
+app-arch/unadf 0.7.12-r2 0.9.0: Extract files from Amiga adf disk images
 app-arch/unar 1.10.8: Unpacker for various archiving formats, e.g. rar v3
 app-arch/unp 2.0: Script for unpacking various file formats
 app-arch/unrar 7.1.3 7.1.4 7.1.5: Uncompress rar files
@@ -5367,7 +5367,7 @@ dev-libs/gdl 3.40.0: GNOME docking library
 dev-libs/geoip 1.6.12 1.6.12-r1: GeoIP Legacy C API
 dev-libs/gf-complete 2.0.0-r1: A Comprehensive Open Source Library for Galois Field Arithmetic
 dev-libs/gf2x 1.3.0-r1: C/C++ routines for fast arithmetic in GF(2)[x]
-dev-libs/girara 0.4.0-r1 0.4.2 0.4.4 9999: UI library that focuses on simplicity and minimalism
+dev-libs/girara 0.4.2 0.4.4 0.4.5 9999: UI library that focuses on simplicity and minimalism
 dev-libs/gjs 1.80.2 1.82.1: Javascript bindings for GNOME
 dev-libs/glib 2.76.4 2.78.6 2.80.5-r1 2.82.4-r1 2.82.5 2.84.0: The GLib library of C routines
 dev-libs/gmime 2.6.23-r2 3.2.14 3.2.15: Library for creating and parsing MIME messages
@@ -5674,7 +5674,7 @@ dev-libs/miniaudio 0.11.15 0.11.21: Single file library for audio playback and c
 dev-libs/miniz 3.0.2: A lossless, high performance data compression library
 dev-libs/mm 1.4.2-r2: Shared Memory Abstraction Library
 dev-libs/mmtf-cpp 1.0.0-r1 1.1.0-r1: The pure C++ implementation of the MMTF API, decoder and encoder
-dev-libs/modsecurity 3.0.12 3.0.13: Application firewall and intrusion detection
+dev-libs/modsecurity 3.0.13 3.0.14: Application firewall and intrusion detection
 dev-libs/mongo-c-driver 1.24.4: Client library written in C for MongoDB
 dev-libs/mpc 1.3.1: A library for multiprecision complex arithmetic with exact rounding
 dev-libs/mpdecimal 4.0.0: Correctly-rounded arbitrary precision decimal floating point arithmetic
@@ -9672,7 +9672,7 @@ dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.2.0: WebSockets state-machine based protocol implementation
 dev-python/wtforms 3.2.1: Flexible forms validation and rendering library for python web development
 dev-python/wurlitzer 3.1.1: Capture C-level stdout/stderr in Python
-dev-python/wxpython 4.2.0 4.2.1-r2: A blending of the wxWindows C++ class library with Python
+dev-python/wxpython 4.2.0 4.2.1-r2 4.2.2: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 1.0.1 2.0.0 2.0.1: Convert calendars using X-WR-TIMEZONE to standard ones
 dev-python/xarray 2024.9.0 2024.10.0 2024.11.0 2025.1.0-r1 2025.1.1 2025.1.2: N-D labeled arrays and datasets in Python
 dev-python/xcffib 1.7.1: A drop in replacement for xpyb, an XCB python binding
@@ -14637,8 +14637,8 @@ net-dns/hash-slinger 3.3: Various tools to generate DNS records like SSHFP, TLSA
 net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
-net-dns/knot 3.2.9-r1 3.4.3-r2 3.4.4: High-performance authoritative-only DNS server
-net-dns/knot-resolver 5.7.4-r1 6.0.9 6.0.10: A scaleable caching DNS resolver
+net-dns/knot 3.4.4: High-performance authoritative-only DNS server
+net-dns/knot-resolver 5.7.4-r1 6.0.10 6.0.11: A scaleable caching DNS resolver
 net-dns/libidn 1.42: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.7: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
 net-dns/maradns 3.5.0036: A security-aware DNS server
@@ -16003,7 +16003,7 @@ sci-geosciences/tcd-utils 20120115-r2 20240222: Utilities for working with Tidal
 sci-geosciences/viking 1.10: GPS data editor and analyzer
 sci-geosciences/xtide 2.15.5: XTide provides tide and current predictions in a wide variety of formats
 sci-geosciences/xyzservices 2024.9.0 2025.1.0: Source of XYZ tiles providers
-sci-libs/HighFive 2.8.0: Header-only C++ interface for libhdf5
+sci-libs/HighFive 2.8.0 2.10.1: Header-only C++ interface for libhdf5
 sci-libs/NNPACK 2020.12.22-r3: acceleration package for neural network computations
 sci-libs/ViSP 3.5.0-r1: Visual Servoing Platform: visual tracking and visual servoing library
 sci-libs/XNNPACK 2024.02.29 2024.11.08: library of floating-point neural network inference operators
@@ -16024,7 +16024,7 @@ sci-libs/btf 1.2.6 2.0.3: Algorithm for matrix permutation into block triangular
 sci-libs/buddy 2.4-r1: Binary Decision Diagram Package
 sci-libs/caffe2 2.4.1-r4 2.5.1-r8 2.6.0: A deep learning framework
 sci-libs/camd 2.4.6-r1 3.0.3: Library to order a sparse matrix prior to Cholesky factorization
-sci-libs/cantera 3.0.1-r1 3.0.1-r2: Object-oriented tool suite for chemical kinetics, thermodynamics, and transport
+sci-libs/cantera 3.0.1-r1 3.0.1-r2 3.1.0: Object-oriented tool suite for chemical kinetics, thermodynamics, and transport
 sci-libs/cartopy 0.24.0 0.24.1: Python package for geospatial data processing and analysis
 sci-libs/ccfits 2.5: C++ interface for cfitsio
 sci-libs/ccolamd 2.9.6 3.0.3: Constrained Column approximate minimum degree ordering algorithm
@@ -18370,7 +18370,7 @@ x11-libs/spread-sheet-widget 0.7 0.8: GNU Spread Sheet Widget
 x11-libs/startup-notification 0.12-r2: Application startup notification and feedback library
 x11-libs/tslib 1.22: Touchscreen Access Library
 x11-libs/vte 0.68.0 0.76.3 0.78.3: Library providing a virtual terminal emulator widget
-x11-libs/wxGTK 3.0.4-r5 3.0.4-r6 3.0.5.1-r1 3.0.5.1-r3 3.2.2.1-r5 3.2.5 3.2.5-r1: GTK version of wxWidgets, a cross-platform C++ GUI toolkit
+x11-libs/wxGTK 3.0.4-r5 3.0.4-r6 3.0.5.1-r1 3.0.5.1-r3 3.2.2.1-r5 3.2.5 3.2.5-r1 3.2.6: GTK version of wxWidgets, a cross-platform C++ GUI toolkit
 x11-libs/xapp 2.8.5 2.8.8: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4-r1 4.60.4-r2: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-imdkit 1.0.9: Input method development support for xcb
