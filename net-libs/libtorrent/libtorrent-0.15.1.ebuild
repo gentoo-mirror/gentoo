@@ -7,11 +7,7 @@ inherit autotools toolchain-funcs
 
 DESCRIPTION="BitTorrent library written in C++ for *nix"
 HOMEPAGE="https://rakshasa.github.io/rtorrent/"
-# rtorrent-archive is an exact match to the tarballs also uploaded to
-# https://github.com/rakshasa/rtorrent/releases, but the problem with that more
-# common path is the libtorrent/rtorrent versions are not in sync, so updating
-# libtorrent wouldnt be more annoying.
-SRC_URI="https://github.com/rakshasa/rtorrent-archive/raw/master/${P}.tar.gz"
+SRC_URI="https://github.com/rakshasa/rtorrent/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 # The README says that the library ABI is not yet stable and dependencies on
@@ -19,24 +15,30 @@ LICENSE="GPL-2"
 # has had more time to mature. Until it matures we should not include a soname
 # subslot.
 SLOT="0"
-KEYWORDS="~amd64 ~arm arm64 ~hppa ~mips ~ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE="debug ssl"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+IUSE="debug ssl test"
+RESTRICT="!test? ( test )"
 
-# cppunit dependency - https://github.com/rakshasa/libtorrent/issues/182
 RDEPEND="
-	dev-util/cppunit:=
 	sys-libs/zlib
-	ssl? ( dev-libs/openssl:= )"
+	ssl? ( dev-libs/openssl:= )
+"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	test? ( dev-util/cppunit )
+"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.14.0-sysroot.patch
 	"${FILESDIR}"/${PN}-0.14.0-tests-address.patch
 )
 
 src_prepare() {
 	default
+	if [[ ${CHOST} != *-darwin* ]]; then
+		# syslibroot is only for macos, change to sysroot for others
+		sed -i 's/Wl,-syslibroot,/Wl,--sysroot,/' "${S}/scripts/common.m4" || die
+	fi
 	eautoreconf
 }
 

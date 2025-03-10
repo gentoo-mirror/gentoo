@@ -3,34 +3,38 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic linux-info systemd
+inherit autotools linux-info systemd
 
 DESCRIPTION="BitTorrent Client using libtorrent"
 HOMEPAGE="https://rakshasa.github.io/rtorrent/"
-SRC_URI="http://rtorrent.net/downloads/${P}.tar.gz"
+SRC_URI="https://github.com/rakshasa/rtorrent/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE="debug selinux test xmlrpc"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+IUSE="debug selinux test tinyxml2 xmlrpc"
 RESTRICT="!test? ( test )"
+REQUIRED_USE="tinyxml2? ( !xmlrpc )"
 
-COMMON_DEPEND="~net-libs/libtorrent-0.13.${PV##*.}
-	>=net-misc/curl-7.19.1
+DEPEND="
+	~net-libs/libtorrent-${PV}
+	net-misc/curl
 	sys-libs/ncurses:0=
-	xmlrpc? ( dev-libs/xmlrpc-c:= )"
-RDEPEND="${COMMON_DEPEND}
+	xmlrpc? ( dev-libs/xmlrpc-c:= )
+"
+RDEPEND="
+	${DEPEND}
 	selinux? ( sec-policy/selinux-rtorrent )
 "
-DEPEND="${COMMON_DEPEND}
-	dev-util/cppunit
-	virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	test? ( dev-util/cppunit )
+"
 
 DOCS=( doc/rtorrent.rc )
 
 PATCHES=(
-	"${FILESDIR}/${P}-bgo891995.patch"
-	"${FILESDIR}/${PN}-0.9.8-configure-c99.patch"
+	"${FILESDIR}"/${PN}-0.15.1-tests-fix-arrays.patch
 )
 
 pkg_setup() {
@@ -57,15 +61,11 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=odr
-	# https://bugs.gentoo.org/861848
-	# https://github.com/rakshasa/rtorrent/issues/1264
-	filter-lto
-
 	# configure needs bash or script bombs out on some null shift, bug #291229
 	CONFIG_SHELL=${BASH} econf \
 		$(use_enable debug) \
-		$(use_with xmlrpc xmlrpc-c)
+		$(usev xmlrpc --with-xmlrpc-c) \
+		$(usev tinyxml2 --with-xmlrpc-tinyxml2)
 }
 
 src_install() {
