@@ -38,6 +38,9 @@ DEPEND="
 # js-debug.  Most tests use only the former.
 RESTRICT="test"
 
+# Remove tests.el to skip compilation and failing tests (see above comment).
+ELISP_REMOVE="${PN}-tests.el"
+
 DOCS=( README.org CHANGELOG.org LICENSE )
 SITEFILE="50${PN}-gentoo.el"
 
@@ -58,10 +61,6 @@ src_compile() {
 	elisp_src_compile
 	elisp-make-autoload-file
 }
-
-# src_test() {
-# 	elisp-test
-# }
 
 src_install() {
 	# Need to ignore dape-tests.el.
