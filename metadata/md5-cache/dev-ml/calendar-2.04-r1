@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DEPEND=<dev-lang/ocaml-5:=[ocamlopt] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Ocaml library to handle dates and time
 EAPI=7
 HOMEPAGE=https://forge.ocamlcore.org/projects/calendar/
@@ -7,8 +7,8 @@ INHERIT=findlib
 IUSE=doc +ocamlopt
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt] dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=<dev-lang/ocaml-5:=[ocamlopt] dev-lang/ocaml:=[ocamlopt?]
 SLOT=0/2.04
 SRC_URI=https://download.ocamlcore.org/calendar/calendar/2.04/calendar-2.04.tar.gz
 _eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e
-_md5_=84ab2cff340c0d1312e5f73dc4542ac0
+_md5_=3fffca61419218cfc73c9a3d3d542322
