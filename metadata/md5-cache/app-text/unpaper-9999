@@ -1,6 +1,6 @@
 BDEPEND=app-text/docbook-xsl-ns-stylesheets dev-libs/libxslt dev-python/sphinx test? ( dev-python/pytest ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=>=media-video/ffmpeg-2:0=[encode]
+DEPEND=media-video/ffmpeg:=[encode(+)]
 DESCRIPTION=Post-processor for scanned and photocopied book pages
 EAPI=8
 HOMEPAGE=https://www.flameeyes.eu/projects/unpaper
@@ -8,8 +8,8 @@ INHERIT=meson git-r3
 IUSE=test
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=media-video/ffmpeg-2:0=[encode]
+RDEPEND=media-video/ffmpeg:=[encode(+)]
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=17bbca4b805e1f2ba8dc1520a0653e12
+_md5_=1fbb03da42a9ad2a94239a522eaa48ed
