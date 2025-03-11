@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/cppo virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare
-DEPEND=>=dev-ml/findlib-1.0 >=dev-lang/ocaml-3.10.2:=[ocamlopt?] pcre? ( >=dev-ml/pcre-ocaml-5:= ) tk? ( dev-ml/labltk:= ) ssl? ( net-libs/gnutls:= ) kerberos? ( virtual/krb5 ) zip? ( dev-ml/camlzip:= ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DEPEND=>=dev-ml/findlib-1.0 <dev-lang/ocaml-5:=[ocamlopt?] pcre? ( >=dev-ml/pcre-ocaml-5:= ) tk? ( dev-ml/labltk:= ) ssl? ( net-libs/gnutls:= ) kerberos? ( virtual/krb5 ) zip? ( dev-ml/camlzip:= ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Modules for OCaml application-level Internet protocols
 EAPI=7
 HOMEPAGE=http://projects.camlcity.org/projects/ocamlnet.html
@@ -8,9 +8,9 @@ INHERIT=findlib toolchain-funcs
 IUSE=kerberos tk httpd +ocamlopt +pcre ssl zip +ocamlopt
 KEYWORDS=amd64 ~ppc x86
 LICENSE=ZLIB GPL-2+
-RDEPEND=>=dev-ml/findlib-1.0 >=dev-lang/ocaml-3.10.2:=[ocamlopt?] pcre? ( >=dev-ml/pcre-ocaml-5:= ) tk? ( dev-ml/labltk:= ) ssl? ( net-libs/gnutls:= ) kerberos? ( virtual/krb5 ) zip? ( dev-ml/camlzip:= ) dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=>=dev-ml/findlib-1.0 <dev-lang/ocaml-5:=[ocamlopt?] pcre? ( >=dev-ml/pcre-ocaml-5:= ) tk? ( dev-ml/labltk:= ) ssl? ( net-libs/gnutls:= ) kerberos? ( virtual/krb5 ) zip? ( dev-ml/camlzip:= ) dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=installsources strip
 SLOT=0/4.1.9
 SRC_URI=http://download.camlcity.org/download/ocamlnet-4.1.9.tar.gz
 _eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=9fae989c346e284ca6ddd7a0b83ea2ff
+_md5_=ebdfcbd1efa35c613fc020b0499b8b02
