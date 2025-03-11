@@ -2,14 +2,14 @@ BDEPEND=dev-ml/cppo dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Tools for authors of ppx rewriters
-EAPI=8
+EAPI=7
 HOMEPAGE=https://github.com/alainfrisch/ppx_tools
 INHERIT=dune
 IUSE=+ocamlopt
-KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
-SLOT=0/6.6
-SRC_URI=https://github.com/alainfrisch/ppx_tools/archive/6.6.tar.gz -> ppx_tools-6.6.tar.gz
+RDEPEND=<dev-lang/ocaml-5 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/6.5
+SRC_URI=https://github.com/alainfrisch/ppx_tools/archive/6.5.tar.gz -> ppx_tools-6.5.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=69a19eb8c2cdcabd6e0ae2b67d884126
+_md5_=4503eb01c23e733a00fe0288ff2cb84b
