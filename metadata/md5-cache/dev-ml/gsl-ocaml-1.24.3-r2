@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/ocaml dev-ml/dune
+BDEPEND=<dev-lang/ocaml-5 dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/dune-configurator >=sci-libs/gsl-1.19:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=OCaml bindings for the GSL library (successor of dev-ml/ocamlgsl)
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-ml/dune-configurator >=sci-libs/gsl-1.19:= !dev-ml/ocamlgsl >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/dune-configurator >=sci-libs/gsl-1.19:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0
 SRC_URI=https://github.com/mmottl/gsl-ocaml/releases/download/1.24.3/gsl-1.24.3.tbz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=da97ad6f1e66f7fbd4ee7c33c6e8e003
+_md5_=d4dd9e2be518beb898cad30b1a8e7991
