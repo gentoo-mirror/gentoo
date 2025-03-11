@@ -21,6 +21,7 @@ REQUIRED_USE="^^ ( elogind systemd )"
 RDEPEND="
 	!${CATEGORY}/${PN}:5
 	!kde-plasma/khotkeys:5
+	>=kde-plasma/aurorae-${PV}:${SLOT}
 	>=kde-plasma/breeze-${PV}:${SLOT}[qt5?]
 	>=kde-plasma/kactivitymanagerd-${PV}:${SLOT}
 	>=kde-plasma/kde-cli-tools-${PV}:${SLOT}
@@ -59,6 +60,7 @@ RDEPEND="
 	>=kde-plasma/polkit-kde-agent-${PV}:*
 	>=kde-plasma/powerdevil-${PV}:${SLOT}
 	>=kde-plasma/qqc2-breeze-style-${PV}:${SLOT}
+	>=kde-apps/spectacle-${PV}:${SLOT}
 	>=kde-plasma/systemsettings-${PV}:${SLOT}
 	>=kde-plasma/xdg-desktop-portal-kde-${PV}:${SLOT}
 	sys-apps/dbus[elogind?,systemd?]

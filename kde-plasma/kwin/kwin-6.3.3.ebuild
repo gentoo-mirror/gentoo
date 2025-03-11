@@ -116,8 +116,8 @@ BDEPEND="
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
 
 PATCHES=(
-	"${FILESDIR}/${P}-crashfix.patch"
-	"${FILESDIR}/${P}-another-crashfix.patch"
+	"${FILESDIR}/${P}-version.patch" # temp. downstream fix
+	"${FILESDIR}/${P}-remove-pragma.patch" # MR 7317, KDE-Bug: 501357
 )
 
 src_prepare() {

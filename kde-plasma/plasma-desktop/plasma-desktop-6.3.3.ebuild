@@ -104,7 +104,6 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!<kde-plasma/kdeplasma-addons-5.25.50
 	!<kde-plasma/plasma-workspace-6.0.80
 	dev-libs/kirigami-addons:6
 	>=dev-qt/qtwayland-${QTMIN}:6
