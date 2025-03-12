@@ -1,4 +1,4 @@
-BDEPEND=sys-libs/binutils-libs:= virtual/pkgconfig
+BDEPEND=sys-libs/binutils-libs:= !dev-ml/findlib:0/0 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Programming language supporting functional, imperative & object-oriented styles
 EAPI=8
@@ -8,9 +8,9 @@ IUSE=emacs flambda latex +ocamlopt test xemacs
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=QPL-1.0 LGPL-2
 PDEPEND=emacs? ( app-emacs/ocaml-mode ) xemacs? ( app-xemacs/ocaml )
-RDEPEND=sys-libs/binutils-libs:=
+RDEPEND=sys-libs/binutils-libs:= !dev-ml/findlib:0/0
 RESTRICT=!test? ( test )
 SLOT=0/5.2.0
 SRC_URI=https://github.com/ocaml/ocaml/archive/5.2.0.tar.gz -> ocaml-5.2.0.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9
-_md5_=d9b954923d1d7c23d79e8aa62ff9781b
+_md5_=bb64ad202bf59534aa4d2493955d661a
