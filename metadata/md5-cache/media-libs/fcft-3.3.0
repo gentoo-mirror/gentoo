@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-text/scdoc virtual/pkgconfig examples? ( dev-util/wayland-scanner ) verify-sig? ( sec-keys/openpgp-keys-dnkl ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=media-libs/fontconfig media-libs/freetype x11-libs/pixman examples? ( dev-libs/libutf8proc:= dev-libs/wayland ) harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libutf8proc? ( dev-libs/libutf8proc:=[-cjk] ) app-i18n/unicode-data dev-libs/tllist examples? ( dev-libs/wayland-protocols ) test? ( dev-libs/check harfbuzz? ( media-fonts/noto-emoji ) )
+DESCRIPTION=Simple library for font loading and glyph rasterization
+EAPI=8
+HOMEPAGE=https://codeberg.org/dnkl/fcft
+INHERIT=meson python-any-r1 verify-sig
+IUSE=examples +harfbuzz +libutf8proc test verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=MIT ZLIB
+RDEPEND=media-libs/fontconfig media-libs/freetype x11-libs/pixman examples? ( dev-libs/libutf8proc:= dev-libs/wayland ) harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libutf8proc? ( dev-libs/libutf8proc:=[-cjk] )
+REQUIRED_USE=libutf8proc? ( harfbuzz ) examples? ( libutf8proc )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://codeberg.org/dnkl/fcft/releases/download/3.3.0/fcft-3.3.0.tar.gz verify-sig? ( https://codeberg.org/dnkl/fcft/releases/download/3.3.0/fcft-3.3.0.tar.gz.sig )
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=447aff5a7792e4c5019fa5db06b9be7d
