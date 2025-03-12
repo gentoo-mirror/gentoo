@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/libunistring:= media-video/ffmpeg-compat:6= sys-libs/gpm sys-libs/ncurses:=
+DESCRIPTION=Blingful TUIs and character graphics
+EAPI=8
+HOMEPAGE=https://notcurses.com
+INHERIT=cmake ffmpeg-compat
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/libunistring:= media-video/ffmpeg-compat:6= sys-libs/gpm sys-libs/ncurses:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/dankamongmen/notcurses/archive/v3.0.8.tar.gz -> notcurses-3.0.8.tar.gz https://github.com/dankamongmen/notcurses/releases/download/v3.0.8/notcurses-doc-3.0.8.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	ffmpeg-compat	ee96007ab30e22b707385add3b01e1a9
+_md5_=92002d34dbe2eb1bebe8d7da6451970e
