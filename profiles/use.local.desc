@@ -7223,7 +7223,7 @@ sci-chemistry/gromacs:gmxapi - Add support for gmxapi library
 sci-chemistry/gromacs:gmxapi-legacy - Enable installing lagacy headers
 sci-chemistry/gromacs:hwloc - Enable HWLoc lib support
 sci-chemistry/gromacs:mkl - Use sci-libs/mkl for fft, blas, lapack routines
-sci-chemistry/gromacs:nnpot - Allow to use sci-libs/caffe2 for NN Potentials
+sci-chemistry/gromacs:nnpot - Allow to use sci-ml/caffe2 for NN Potentials
 sci-chemistry/gromacs:offensive - Enable gromacs partly offensive quotes
 sci-chemistry/gromacs:opencl - Enable opencl non-bonded kernels
 sci-chemistry/gromacs:single-precision - Single precision version of gromacs (default)
@@ -7329,19 +7329,6 @@ sci-libs/blis:eselect-ldso - Enable runtime library switching by eselect and ld.
 sci-libs/blis:openmp - Use openmp threadding model
 sci-libs/blis:pthread - Use pthread threadding model
 sci-libs/blis:serial - Use no threadding model
-sci-libs/caffe2:distributed - Support distributed applications
-sci-libs/caffe2:fbgemm - Use FBGEMM
-sci-libs/caffe2:flash - Enable flash attention
-sci-libs/caffe2:gloo - Use sci-libs/gloo
-sci-libs/caffe2:mkl - Use sci-libs/mkl for blas, lapack and sparse blas routines
-sci-libs/caffe2:nnpack - Use NNPACK
-sci-libs/caffe2:numpy - Add support for math operations through numpy
-sci-libs/caffe2:onednn - Use oneDNN
-sci-libs/caffe2:openblas - Use sci-libs/openblas for blas routines
-sci-libs/caffe2:openmp - Use OpenMP for parallel code
-sci-libs/caffe2:qnnpack - Use QNNPACK
-sci-libs/caffe2:rocm - Enable ROCm gpu computing support
-sci-libs/caffe2:xnnpack - Use XNNPACK
 sci-libs/cantera:hdf5 - Add HDF5 container files support
 sci-libs/cantera:python - Install Python bindings and conversion tools from Chemkin to Cantera format
 sci-libs/cddlib:tools - Add a few executables and tests for cddlib
@@ -7705,6 +7692,19 @@ sci-misc/h5utils:octave - Build Octave plugins
 sci-misc/nco:dap - Support for remote data access with the NETCDF DAP client
 sci-misc/nco:ncap2 - Build next generation netcdf arithmetic processor (needs dev-java/antlr)
 sci-misc/nco:udunits - Add sci-libs/udunits files support
+sci-ml/caffe2:distributed - Support distributed applications
+sci-ml/caffe2:fbgemm - Use FBGEMM
+sci-ml/caffe2:flash - Enable flash attention
+sci-ml/caffe2:gloo - Use sci-libs/gloo
+sci-ml/caffe2:mkl - Use sci-libs/mkl for blas, lapack and sparse blas routines
+sci-ml/caffe2:nnpack - Use NNPACK
+sci-ml/caffe2:numpy - Add support for math operations through numpy
+sci-ml/caffe2:onednn - Use oneDNN
+sci-ml/caffe2:openblas - Use sci-libs/openblas for blas routines
+sci-ml/caffe2:openmp - Use OpenMP for parallel code
+sci-ml/caffe2:qnnpack - Use QNNPACK
+sci-ml/caffe2:rocm - Enable ROCm gpu computing support
+sci-ml/caffe2:xnnpack - Use XNNPACK
 sci-physics/bullet:double-precision - Build libraries in double precision
 sci-physics/bullet:extras - Build the extras
 sci-physics/bullet:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
