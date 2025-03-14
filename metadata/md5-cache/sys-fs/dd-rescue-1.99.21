@@ -1,0 +1,16 @@
+BDEPEND=test? ( lzo? ( app-arch/lzop ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=lzo? ( dev-libs/lzo ) xattr? ( sys-apps/attr )
+DESCRIPTION=Similar to dd but can copy from source with errors
+EAPI=8
+HOMEPAGE=http://www.garloff.de/kurt/linux/ddrescue/
+INHERIT=autotools flag-o-matic toolchain-funcs
+IUSE=cpu_flags_x86_avx2 lzo lzma cpu_flags_x86_sse4_2 static test xattr
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=|| ( GPL-2 GPL-3 )
+RDEPEND=lzo? ( dev-libs/lzo ) xattr? ( sys-apps/attr )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=http://www.garloff.de/kurt/linux/ddrescue/dd_rescue-1.99.21.tar.bz2
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9
+_md5_=e3ac9ea4eefc102b2ae775cc47d9e05c
