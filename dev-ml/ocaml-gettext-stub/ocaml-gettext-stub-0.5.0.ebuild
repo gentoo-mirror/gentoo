@@ -3,23 +3,27 @@
 
 EAPI=8
 
-DUNE_PKG_NAME="gettext"
+MY_PN=${PN/-stub/}
+MY_P=${P/-stub/}
+
+DUNE_PKG_NAME="gettext-stub"
+
 inherit dune
 
-DESCRIPTION="Provides support for internationalization of OCaml program"
+DESCRIPTION="Support for internationalization of OCaml programs using native gettext library"
 HOMEPAGE="https://github.com/gildor478/ocaml-gettext"
-SRC_URI="https://github.com/gildor478/ocaml-gettext/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/gildor478/ocaml-gettext/archive/v${PV}.tar.gz
+	-> ${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="LGPL-2.1-with-linking-exception"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc64"
 IUSE="+ocamlopt test"
-RESTRICT="test"  # Tests fail
+RESTRICT="test"  # Tests fail.
 
 RDEPEND="
-	dev-ml/ocaml-fileutils:=[ocamlopt?]
-	dev-ml/dune-site:=[ocamlopt?]
-	sys-devel/gettext
+	~dev-ml/ocaml-gettext-${PV}:=[ocamlopt?]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
