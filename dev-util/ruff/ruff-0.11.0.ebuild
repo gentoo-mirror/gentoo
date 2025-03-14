@@ -7,8 +7,8 @@ EAPI=8
 
 CRATES="
 	adler2@2.0.0
-	ahash@0.8.11
 	aho-corasick@1.1.3
+	allocator-api2@0.2.21
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anes@0.1.6
@@ -20,9 +20,7 @@ CRATES="
 	anstyle-svg@0.1.7
 	anstyle-wincon@3.0.7
 	anstyle@1.0.10
-	anyhow@1.0.95
-	append-only-vec@0.1.7
-	arc-swap@1.7.1
+	anyhow@1.0.97
 	argfile@0.2.1
 	arrayvec@0.7.6
 	assert_fs@1.1.2
@@ -30,9 +28,9 @@ CRATES="
 	base64@0.13.1
 	bincode@1.3.3
 	bitflags@1.3.2
-	bitflags@2.8.0
+	bitflags@2.9.0
 	block-buffer@0.10.4
-	boxcar@0.2.8
+	boxcar@0.2.10
 	bstr@1.11.3
 	bumpalo@3.17.0
 	byteorder@1.5.0
@@ -44,20 +42,20 @@ CRATES="
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
 	chic@1.2.2
-	chrono@0.4.39
+	chrono@0.4.40
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.28
-	clap_builder@4.5.27
+	clap@4.5.31
+	clap_builder@4.5.31
 	clap_complete@4.5.44
 	clap_complete_command@0.6.1
 	clap_complete_nushell@4.5.5
 	clap_derive@4.5.28
 	clap_lex@0.7.4
 	clearscreen@4.0.1
-	codspeed-criterion-compat@2.7.2
-	codspeed@2.7.2
+	codspeed-criterion-compat@2.8.1
+	codspeed@2.8.1
 	colorchoice@1.0.3
 	colored@2.2.0
 	colored@3.0.0
@@ -116,17 +114,18 @@ CRATES="
 	form_urlencoded@1.2.1
 	fs-err@2.11.0
 	fsevent-sys@4.1.0
+	generator@0.8.4
 	generic-array@0.14.7
 	getopts@0.2.21
 	getrandom@0.2.15
 	getrandom@0.3.1
 	glob@0.3.2
-	globset@0.4.15
+	globset@0.4.16
 	globwalk@0.9.1
 	half@2.4.1
 	hashbrown@0.14.5
 	hashbrown@0.15.2
-	hashlink@0.9.1
+	hashlink@0.10.0
 	heck@0.5.0
 	hermit-abi@0.3.9
 	hermit-abi@0.4.0
@@ -153,11 +152,11 @@ CRATES="
 	imperative@1.0.6
 	indexmap@2.7.1
 	indicatif@0.17.11
-	indoc@2.0.5
+	indoc@2.0.6
 	inotify-sys@0.1.5
 	inotify@0.11.0
 	insta-cmd@0.6.0
-	insta@1.42.1
+	insta@1.42.2
 	is-docker@0.2.0
 	is-macro@0.3.7
 	is-terminal@0.4.15
@@ -173,7 +172,7 @@ CRATES="
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	lazy_static@1.5.0
-	libc@0.2.169
+	libc@0.2.170
 	libcst@1.6.0
 	libcst_derive@1.6.0
 	libmimalloc-sys@0.1.39
@@ -183,7 +182,8 @@ CRATES="
 	linux-raw-sys@0.4.15
 	litemap@0.7.4
 	lock_api@0.4.12
-	log@0.4.25
+	log@0.4.26
+	loom@0.7.2
 	lsp-server@0.7.8
 	matchers@0.1.0
 	matches@0.1.10
@@ -244,13 +244,13 @@ CRATES="
 	predicates-tree@1.0.12
 	predicates@3.1.3
 	pretty_assertions@1.4.1
-	proc-macro2@1.0.93
+	proc-macro2@1.0.94
 	pyproject-toml@0.13.4
 	quick-junit@0.5.1
 	quick-xml@0.37.2
 	quickcheck@1.0.3
 	quickcheck_macros@1.0.0
-	quote@1.0.38
+	quote@1.0.39
 	rand@0.8.5
 	rand@0.9.0
 	rand_chacha@0.3.1
@@ -274,15 +274,16 @@ CRATES="
 	rustversion@1.0.19
 	ryu@1.0.19
 	same-file@1.0.6
-	schemars@0.8.21
-	schemars_derive@0.8.21
+	schemars@0.8.22
+	schemars_derive@0.8.22
+	scoped-tls@1.0.1
 	scopeguard@1.2.0
 	seahash@4.1.0
 	serde-wasm-bindgen@0.6.5
-	serde@1.0.217
-	serde_derive@1.0.217
+	serde@1.0.219
+	serde_derive@1.0.219
 	serde_derive_internals@0.29.1
-	serde_json@1.0.138
+	serde_json@1.0.140
 	serde_repr@0.1.19
 	serde_spanned@0.6.8
 	serde_test@1.0.177
@@ -294,19 +295,19 @@ CRATES="
 	shlex@1.3.0
 	similar@2.7.0
 	siphasher@1.0.1
-	smallvec@1.13.2
+	smallvec@1.14.0
 	snapbox-macros@0.3.10
 	snapbox@0.6.21
 	stable_deref_trait@1.2.0
 	static_assertions@1.1.0
 	strip-ansi-escapes@0.2.1
 	strsim@0.11.1
-	strum@0.27.0
-	strum_macros@0.27.0
+	strum@0.27.1
+	strum_macros@0.27.1
 	syn@1.0.109
-	syn@2.0.98
+	syn@2.0.100
 	synstructure@0.13.1
-	tempfile@3.16.0
+	tempfile@3.17.1
 	termcolor@1.4.1
 	terminal_size@0.4.1
 	terminfo@0.9.0
@@ -315,9 +316,9 @@ CRATES="
 	test-case-macros@3.3.1
 	test-case@3.3.1
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.11
+	thiserror-impl@2.0.12
 	thiserror@1.0.69
-	thiserror@2.0.11
+	thiserror@2.0.12
 	thread_local@1.1.8
 	threadpool@1.8.1
 	tikv-jemalloc-sys@0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
@@ -346,7 +347,7 @@ CRATES="
 	unic-common@0.9.0
 	unic-ucd-category@0.9.0
 	unic-ucd-version@0.9.0
-	unicode-ident@1.0.16
+	unicode-ident@1.0.18
 	unicode-normalization@0.1.24
 	unicode-width@0.1.14
 	unicode-width@0.2.0
@@ -389,11 +390,18 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-core@0.52.0
+	windows-core@0.58.0
+	windows-implement@0.58.0
+	windows-interface@0.58.0
+	windows-link@0.1.0
+	windows-result@0.2.0
+	windows-strings@0.1.0
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-targets@0.48.5
 	windows-targets@0.52.6
+	windows@0.58.0
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_msvc@0.48.5
@@ -433,12 +441,12 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;88a1d7774d78f048fbd77d40abca9ebd729fd1f0;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/salsa-rs/salsa;88a1d7774d78f048fbd77d40abca9ebd729fd1f0;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/salsa-rs/salsa;88a1d7774d78f048fbd77d40abca9ebd729fd1f0;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;095d8b2b8115c3cf8bf31914dd9ea74648bb7cf9;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;095d8b2b8115c3cf8bf31914dd9ea74648bb7cf9;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;095d8b2b8115c3cf8bf31914dd9ea74648bb7cf9;salsa-%commit%'
 )
 
-RUST_MIN_VER="1.80.0"
+RUST_MIN_VER="1.83.0"
 
 inherit shell-completion cargo
 
@@ -458,7 +466,6 @@ LICENSE+="
 	Apache-2.0 BSD CC0-1.0 ISC MIT MPL-2.0 PSF-2 Unicode-3.0
 	Unicode-DFS-2016 WTFPL-2 ZLIB
 "
-
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
 
