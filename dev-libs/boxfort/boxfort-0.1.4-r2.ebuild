@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit meson python-any-r1
 
@@ -14,17 +14,19 @@ S="${WORKDIR}"/BoxFort-${PV}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-alpha amd64 ~arm ~arm64 -hppa -loong -m68k -mips -ppc -ppc64 -riscv -s390 -sparc x86"
+KEYWORDS="-* ~amd64 ~arm ~arm64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="test? (
+BDEPEND="
+	virtual/pkgconfig
+	test? (
 		$(python_gen_any_dep 'dev-util/cram[${PYTHON_USEDEP}]')
-	)"
-BDEPEND="virtual/pkgconfig"
+	)
+"
 
 python_check_deps() {
-	use test && has_version "dev-util/cram[${PYTHON_USEDEP}]"
+	use test && python_has_version "dev-util/cram[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
