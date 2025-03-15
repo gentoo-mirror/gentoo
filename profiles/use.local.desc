@@ -7405,8 +7405,6 @@ sci-libs/gdal:spatialite - Enable Spatial DBMS over sqlite dev-db/spatialite
 sci-libs/gdal:xls - Add the dev-libs/freexl library for xls import support
 sci-libs/ginkgo:cuda - Add support for cuda assimp (dev-util/nvidia-cuda-toolkit)
 sci-libs/ginkgo:hwloc - Add support for hwloc (sys-apps/hwloc)
-sci-libs/gloo:libuv - Enable libuv support
-sci-libs/gloo:redis - Enable Redis backend for storage via dev-libs/hiredis
 sci-libs/gmsh:alglib - Enable alglib support for mesh optimizers
 sci-libs/gmsh:cgns - Enables cgns output support
 sci-libs/gmsh:eigen - Build matrix manipulation with dev-cpp/eigen
@@ -7698,7 +7696,7 @@ sci-misc/nco:udunits - Add sci-libs/udunits files support
 sci-ml/caffe2:distributed - Support distributed applications
 sci-ml/caffe2:fbgemm - Use FBGEMM
 sci-ml/caffe2:flash - Enable flash attention
-sci-ml/caffe2:gloo - Use sci-libs/gloo
+sci-ml/caffe2:gloo - Use sci-ml/gloo
 sci-ml/caffe2:mkl - Use sci-libs/mkl for blas, lapack and sparse blas routines
 sci-ml/caffe2:nnpack - Use NNPACK
 sci-ml/caffe2:numpy - Add support for math operations through numpy
@@ -7708,6 +7706,8 @@ sci-ml/caffe2:openmp - Use OpenMP for parallel code
 sci-ml/caffe2:qnnpack - Use QNNPACK
 sci-ml/caffe2:rocm - Enable ROCm gpu computing support
 sci-ml/caffe2:xnnpack - Use XNNPACK
+sci-ml/gloo:libuv - Enable libuv support
+sci-ml/gloo:redis - Enable Redis backend for storage via dev-libs/hiredis
 sci-physics/bullet:double-precision - Build libraries in double precision
 sci-physics/bullet:extras - Build the extras
 sci-physics/bullet:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
