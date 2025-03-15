@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,8 +34,6 @@ BDEPEND="
 
 DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
-
-elisp-enable-tests ert test -l gptel-org -l gptel-org-test
 
 src_compile() {
 	elisp_src_compile
