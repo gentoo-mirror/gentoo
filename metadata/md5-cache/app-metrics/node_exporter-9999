@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/promu-0.15.0 >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-util/promu-0.17.0 >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare test unpack
 DEPEND=acct-group/node_exporter acct-user/node_exporter selinux? ( sec-policy/selinux-node_exporter )
 DESCRIPTION=Prometheus exporter for machine metrics
@@ -12,4 +12,4 @@ RDEPEND=acct-group/node_exporter acct-user/node_exporter selinux? ( sec-policy/s
 RESTRICT=strip
 SLOT=0
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	df32d29550d40a92da723d3b8e17b467	systemd	54bd206bb5c4efac6ae28b6b006713b0	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=b78517448b6685b41b78fe6891f91a2d
+_md5_=da3beee5c91b6f323ccb216334ea559a
