@@ -7314,10 +7314,6 @@ sci-libs/ViSP:opencv - Enables media-libs/opencv support.
 sci-libs/ViSP:pcl - Enables sci-libs/pcl support.
 sci-libs/ViSP:tutorials - Installs tutorials.
 sci-libs/ViSP:zbar - Enables barcodes reading.
-sci-libs/XNNPACK:assembly - Build with assembly micro-kernels
-sci-libs/XNNPACK:jit - Build with JIT micro-kernels
-sci-libs/XNNPACK:memopt - Build with optimized memory allocation scheme
-sci-libs/XNNPACK:sparse - Build with graph rewriting for sparse inference
 sci-libs/adolc:boost - Use the boost allocator from dev-libs/boost
 sci-libs/adolc:sparse - Add support for sparse matrix algebra with sci-libs/colpack
 sci-libs/armadillo:arpack - Link with sci-libs/arpack libraries for eigen decomposition
@@ -7692,6 +7688,10 @@ sci-misc/h5utils:octave - Build Octave plugins
 sci-misc/nco:dap - Support for remote data access with the NETCDF DAP client
 sci-misc/nco:ncap2 - Build next generation netcdf arithmetic processor (needs dev-java/antlr)
 sci-misc/nco:udunits - Add sci-libs/udunits files support
+sci-ml/XNNPACK:assembly - Build with assembly micro-kernels
+sci-ml/XNNPACK:jit - Build with JIT micro-kernels
+sci-ml/XNNPACK:memopt - Build with optimized memory allocation scheme
+sci-ml/XNNPACK:sparse - Build with graph rewriting for sparse inference
 sci-ml/caffe2:distributed - Support distributed applications
 sci-ml/caffe2:fbgemm - Use FBGEMM
 sci-ml/caffe2:flash - Enable flash attention
@@ -7704,7 +7704,7 @@ sci-ml/caffe2:openblas - Use sci-libs/openblas for blas routines
 sci-ml/caffe2:openmp - Use OpenMP for parallel code
 sci-ml/caffe2:qnnpack - Use QNNPACK
 sci-ml/caffe2:rocm - Enable ROCm gpu computing support
-sci-ml/caffe2:xnnpack - Use XNNPACK
+sci-ml/caffe2:xnnpack - Use sci-ml/XNNPACK
 sci-ml/gloo:libuv - Enable libuv support
 sci-ml/gloo:redis - Enable Redis backend for storage via dev-libs/hiredis
 sci-ml/onnx:disableStaticReg - Disable Static Registration
