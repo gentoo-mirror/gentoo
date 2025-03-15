@@ -14,10 +14,10 @@ if [[ "${PV}" == 9999* ]]; then
 else
 	SRC_URI="
 		https://github.com/caddyserver/caddy/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		https://dev.gentoo.org/~zmedico/dist/${PF}-deps.tar.xz
+		https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
 		https://github.com/caddyserver/dist/archive/refs/tags/v${PV}.tar.gz -> ${P}-docs.tar.gz
 "
-	KEYWORDS="amd64 arm64 ~loong ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
 fi
 
 # MAIN
@@ -36,10 +36,6 @@ DEPEND="${RDEPEND}"
 
 FILECAPS=(
 	-m 755 'cap_net_bind_service=+ep' usr/bin/"${PN}"
-)
-
-PATCHES=(
-	"${FILESDIR}"/remove-binary-altering-commands-2.7.5.patch
 )
 
 # takes a module as an only arg
@@ -81,10 +77,10 @@ src_unpack() {
 
 src_prepare() {
 	default
-	sed -i -e "s|User=caddy|User=http|g;s|Group=caddy|Group=http|g;" ../dist-"${PV}"/init/*service || die
+	sed -i -e "s|User=caddy|User=http|g;s|Group=caddy|Group=http|g;" ../dist-*/init/*service || die
 
 	if [[ "${PV}" != 9999* ]]; then
-		mv ../vendor ./ || die
+		ln -sv ../vendor ./ || die
 		eapply ../go-mod-sum.patch
 
 		for moo in ${MY_MODULES}; do
@@ -114,18 +110,18 @@ src_install() {
 
 	dobin "${PN}"
 	insinto /etc/"${PN}"
-	doins ../dist-"${PV}"/config/Caddyfile
-	systemd_dounit ../dist-"${PV}"/init/*.service
+	doins ../dist-*/config/Caddyfile
+	systemd_dounit ../dist-*/init/*.service
 	newinitd "${FILESDIR}"/initd-2.7.5 "${PN}"
 	newconfd "${FILESDIR}"/confd-2.7.5 "${PN}"
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/logrotated" "${PN}"
 	insinto /usr/share/"${PN}"
-	doins ../dist-"${PV}"/welcome/index.html
+	doins ../dist-*/welcome/index.html
 
 	newbashcomp completion.bash "${PN}"
 	newfishcomp completion.fish "${PN}".fish
 	newzshcomp completion.zsh _"${PN}"
-	newdoc ../dist-"${PV}"/init/README.md systemd-services-README.md
+	newdoc ../dist-*/init/README.md systemd-services-README.md
 	doman manpages/*
 }
