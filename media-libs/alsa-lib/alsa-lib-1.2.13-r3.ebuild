@@ -37,6 +37,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.2.13-update-symbol-name.patch" # bug #943399
 	"${FILESDIR}/${P}-seq-ump-headers.patch" # bug #943696
 	"${FILESDIR}/${P}-headers-again.patch"
+	"${FILESDIR}/${P}-header-fixups.patch"
 )
 
 pkg_setup() {
