@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_REQ_USE="sqlite"
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..13} python3_13t )
 
 inherit edo prefix python-any-r1 readme.gentoo-r1 secureboot toolchain-funcs
 
@@ -14,10 +14,10 @@ HOMEPAGE="https://github.com/tianocore/edk2"
 DBXDATE="05092023" # MMDDYYYY
 BUNDLED_BROTLI_SUBMODULE_SHA="f4153a09f87cbb9c826d8fc12c74642bb2d879ea"
 BUNDLED_LIBFDT_SUBMODULE_SHA="cfff805481bdea27f900c32698171286542b8d3c"
-BUNDLED_LIBSPDM_SUBMODULE_SHA="50924a4c8145fc721e17208f55814d2b38766fe6"
+BUNDLED_LIBSPDM_SUBMODULE_SHA="98ef964e1e9a0c39c7efb67143d3a13a819432e0"
 BUNDLED_MBEDTLS_SUBMODULE_SHA="8c89224991adff88d53cd380f42a2baa36f91454"
 BUNDLED_MIPI_SYS_T_SUBMODULE_SHA="370b5944c046bab043dd8b133727b2135af7747a"
-BUNDLED_OPENSSL_SUBMODULE_P="openssl-3.0.15"
+BUNDLED_OPENSSL_SUBMODULE_P="openssl-3.4.1"
 
 SRC_URI="
 	https://github.com/tianocore/${PN}/archive/${PN}-stable${PV}.tar.gz
@@ -48,7 +48,7 @@ SRC_URI="
 S="${WORKDIR}/${PN}-${PN}-stable${PV}"
 LICENSE="BSD-2 MIT"
 SLOT="0"
-KEYWORDS="-* ~amd64 arm64 ~loong ~riscv"
+KEYWORDS="-* ~amd64 ~arm64 ~loong ~riscv"
 
 BDEPEND="
 	${PYTHON_DEPS}
@@ -64,8 +64,6 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-202411-werror.patch"
-	"${FILESDIR}/${PN}-202411-gcc15.patch"
-	"${FILESDIR}/${PN}-202411-loong.patch"
 	"${FILESDIR}/${PN}-202408-binutils-2.41-textrels.patch"
 )
 
@@ -99,9 +97,9 @@ pkg_setup() {
 		TARGET_ARCH="LOONGARCH64"
 		QEMU_ARCH="loongarch64"
 		ARCH_DIRS="${DIR}/LoongArchVirtQemu"
-		UNIT0="QEMU_EFI.fd"
-		UNIT1="QEMU_VARS.fd"
-		FMT="raw"
+		UNIT0="QEMU_EFI.qcow2"
+		UNIT1="QEMU_VARS.qcow2"
+		FMT="qcow2"
 		;;
 	riscv)
 		TARGET_ARCH="RISCV64"
@@ -271,12 +269,8 @@ src_compile() {
 		raw_to_qcow2 64m Build/ArmVirtQemu-AARCH64*/"${BUILD_DIR}"/FV/QEMU_{EFI,VARS}.fd
 		;;
 	loong)
-		BUILD_ARGS+=(
-			# fails to seed the OpenSSL RNG during early initialization due
-			# to improper FPU enabling (maybe too late)
-			-D NETWORK_TLS_ENABLE=FALSE
-		)
 		mybuild -a LOONGARCH64 -p OvmfPkg/LoongArchVirt/LoongArchVirtQemu.dsc
+		raw_to_qcow2 0 Build/LoongArchVirtQemu/"${BUILD_DIR}"/FV/QEMU_{EFI,VARS}.fd
 		;;
 	riscv)
 		mybuild -a RISCV64 -p OvmfPkg/RiscVVirt/RiscVVirtQemu.dsc
@@ -314,7 +308,7 @@ src_install() {
 		;;
 	loong)
 		insinto ${DIR}/LoongArchVirtQemu
-		doins Build/LoongArchVirtQemu/"${BUILD_DIR}"/FV/QEMU_{EFI,VARS}.fd
+		doins Build/LoongArchVirtQemu/"${BUILD_DIR}"/FV/QEMU_{EFI,VARS}.qcow2
 		;;
 	riscv)
 		insinto ${DIR}/RiscVVirtQemu
