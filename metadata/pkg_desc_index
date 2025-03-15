@@ -1745,7 +1745,7 @@ app-doc/gimp-help 2.10.34-r2: GNU Image Manipulation Program help files
 app-doc/gnu-c-intro-ref 0_pre20240831 9999: GNU C Language Intro and Reference Manual
 app-doc/gnucash-docs 5.8 5.10: Documentation package for GnuCash
 app-doc/jargon 4.4.7-r2: A compendium of hacker slang illuminating many aspects of hackish tradition
-app-doc/kicad-doc 8.0.6 8.0.9: Electronic Schematic and PCB design tools manuals
+app-doc/kicad-doc 8.0.6 8.0.9 9.0.0: Electronic Schematic and PCB design tools manuals
 app-doc/lapack-docs 3.1.1: Documentation reference and man pages for lapack implementations
 app-doc/linkers-and-loaders 1-r1: The Linkers and Loaders book
 app-doc/linux-device-drivers 2-r1 3-r1: Howto write linux device drivers (updated for Linux 2.6)
@@ -5687,6 +5687,7 @@ dev-libs/ncnn 20240820 20241226: High-performance neural network inference frame
 dev-libs/nettle 3.10.1: Low-level cryptographic library
 dev-libs/newt 0.52.24-r1 0.52.25: Redhat's Newt windowing toolkit development files
 dev-libs/nmeap 0.3-r2: Extensible NMEA-0183 (GPS) data parser in standard C
+dev-libs/nng 1.10.1: Light-weight brokerless messaging
 dev-libs/npth 1.7-r1 1.8: New GNU Portable Threads Library
 dev-libs/nsgenbind 0.9: Generate Javascript-to-DOM bindings from w3c webidl files
 dev-libs/nspr 4.36: Netscape Portable Runtime
@@ -10147,7 +10148,7 @@ dev-ruby/network_interface 0.0.4: network_interface layer from metasploit pcapru
 dev-ruby/niceogiri 1.1.2-r1: Some wrappers around and helpers for XML manipulation using Nokogiri
 dev-ruby/nio4r 2.7.3 2.7.4: A high performance selector API for monitoring IO objects
 dev-ruby/nkf 0.2.0: Ruby extension for Network Kanji Filter
-dev-ruby/nokogiri 1.16.6 1.16.8 1.17.2 1.18.1 1.18.3: Nokogiri is an HTML, XML, SAX, and Reader parser
+dev-ruby/nokogiri 1.16.6 1.16.8 1.17.2 1.18.1 1.18.3 1.18.4: Nokogiri is an HTML, XML, SAX, and Reader parser
 dev-ruby/nokogiri-diff 0.2.0-r3 0.3.0: Calculate the differences between two XML/HTML documents
 dev-ruby/oauth 0.6.2-r2 1.1.0: A RubyGem for implementing both OAuth clients and servers
 dev-ruby/oauth-tty 1.0.5: OAuth 1.0 TTY Command Line Interface
@@ -10411,7 +10412,7 @@ dev-ruby/timers 4.3.5-r1 4.4.0: Pure Ruby one-shot and periodic timers
 dev-ruby/tins 1.36.1 1.37.0 1.37.1 1.38.0: All the stuff that isn't good enough for a real library
 dev-ruby/tokyocabinet 1.32.0-r1 1.32.0-r2: Ruby bindings for Tokyo Cabinet
 dev-ruby/tomlrb 2.0.3: A racc based toml parser
-dev-ruby/traces 0.11.1: Application instrumentation and tracing
+dev-ruby/traces 0.11.1 0.15.2: Application instrumentation and tracing
 dev-ruby/transaction-simple 1.4.0.2-r3: Provides transaction support at the object level
 dev-ruby/treetop 1.6.12 1.6.14: Treetop is a language for describing languages
 dev-ruby/ttfunk 1.7.0-r1 1.8.0: A TrueType font parser written in pure ruby
@@ -15929,12 +15930,12 @@ sci-electronics/gtkwave 3.3.106 3.3.111 3.3.121: A wave viewer for LXT, LXT2, VZ
 sci-electronics/gwave 20190116-r100: Analog waveform viewer for SPICE-like simulations
 sci-electronics/irsim 9.7.93 9.7.93-r1: IRSIM is a "switch-level" simulator
 sci-electronics/iverilog 10.3 11.0 12.0 9999: A Verilog simulation and synthesis tool
-sci-electronics/kicad 8.0.6 8.0.9 9999: Electronic Schematic and PCB design tools
-sci-electronics/kicad-footprints 8.0.6 8.0.9 9999: Electronic Schematic and PCB design tools footprint libraries
-sci-electronics/kicad-meta 8.0.6 8.0.9: Electronic Schematic and PCB design tools (meta package)
-sci-electronics/kicad-packages3d 8.0.6 8.0.9 9999: Electronic Schematic and PCB design tools 3D package libraries
-sci-electronics/kicad-symbols 8.0.6 8.0.9 9999: Electronic Schematic and PCB design tools symbol libraries
-sci-electronics/kicad-templates 8.0.6 8.0.9 9999: Electronic Schematic and PCB design tools project templates
+sci-electronics/kicad 8.0.6 8.0.9 9.0.0 9999: Electronic Schematic and PCB design tools
+sci-electronics/kicad-footprints 8.0.6 8.0.9 9.0.0 9999: Electronic Schematic and PCB design tools footprint libraries
+sci-electronics/kicad-meta 8.0.6 8.0.9 9.0.0: Electronic Schematic and PCB design tools (meta package)
+sci-electronics/kicad-packages3d 8.0.6 8.0.9 9.0.0 9999: Electronic Schematic and PCB design tools 3D package libraries
+sci-electronics/kicad-symbols 8.0.6 8.0.9 9.0.0 9999: Electronic Schematic and PCB design tools symbol libraries
+sci-electronics/kicad-templates 8.0.6 8.0.9 9.0.0 9999: Electronic Schematic and PCB design tools project templates
 sci-electronics/klayout 0.29.7 0.29.11 0.29.11-r1 9999: Viewer and editor for GDS and OASIS integrated circuit layouts
 sci-electronics/ktechlab 0.51.0: IDE for microcontrollers and electronics
 sci-electronics/labone 21.08.20515-r2 23.02.42414: Platform independent instrument control for Zurich Instruments devices
@@ -17424,7 +17425,7 @@ sys-devel/distcc 3.4-r4 3.4-r6: Distribute compilation of C code across several 
 sys-devel/dwz 0.15-r1 0.15-r4 9999: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r2 9.5.0 10.5.0 11.5.0 12.4.0 12.4.1_p20241219 12.4.1_p20250227 12.4.1_p20250306 12.5.9999 13.2.0 13.3.1_p20241220 13.3.1_p20250301 13.3.1_p20250307 13.4.9999 14.2.1_p20241221 14.2.1_p20250301 14.2.1_p20250308 14.3.9999 15.0.1_pre20250309 15.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r2 9.5.0 10.5.0 11.5.0 12.4.0 12.4.1_p20241219 12.4.1_p20250227 12.4.1_p20250306 12.4.1_p20250313 12.5.9999 13.2.0 13.3.1_p20241220 13.3.1_p20250301 13.3.1_p20250307 13.3.1_p20250314 13.4.9999 14.2.1_p20241221 14.2.1_p20250301 14.2.1_p20250308 14.3.9999 15.0.1_pre20250309 15.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.11 2.12.1 9999: Utility to manage compilers
 sys-devel/gettext 0.21.1 0.22.5 0.22.5-r1 0.23.1: GNU locale utilities
