@@ -17,7 +17,7 @@ CRATES="
 	anstyle-query@1.1.2
 	anstyle-wincon@3.0.7
 	anstyle@1.0.10
-	anyhow@1.0.96
+	anyhow@1.0.97
 	arrayref@0.3.9
 	arrayvec@0.5.2
 	arrayvec@0.7.6
@@ -25,7 +25,7 @@ CRATES="
 	backtrace@0.3.74
 	base64@0.13.1
 	bitflags@1.3.2
-	bitflags@2.8.0
+	bitflags@2.9.0
 	bitvec@1.0.1
 	blake2b_simd@0.5.11
 	block-buffer@0.10.4
@@ -33,14 +33,14 @@ CRATES="
 	btoi@0.4.3
 	bumpalo@3.17.0
 	caps@0.5.5
-	cc@1.2.15
+	cc@1.2.16
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
-	chrono@0.4.39
-	clap@4.5.30
-	clap_builder@4.5.30
-	clap_derive@4.5.28
+	chrono@0.4.40
+	clap@4.5.32
+	clap_builder@4.5.32
+	clap_derive@4.5.32
 	clap_lex@0.7.4
 	colorchoice@1.0.3
 	constant_time_eq@0.1.5
@@ -65,26 +65,25 @@ CRATES="
 	dirs@1.0.5
 	dirs@4.0.0
 	dirs@5.0.1
-	either@1.13.0
+	either@1.15.0
 	equivalent@1.0.2
 	errno@0.3.10
 	error-chain@0.12.4
 	expiringmap@0.1.2
 	fastrand@2.3.0
 	fixedbitset@0.5.7
-	flate2@1.0.35
+	flate2@1.1.0
 	fnv@1.0.7
 	funty@2.0.0
 	generic-array@0.14.7
 	getrandom@0.1.16
 	getrandom@0.2.15
 	getrandom@0.3.1
-	getset@0.1.4
+	getset@0.1.5
 	gimli@0.31.1
 	goblin@0.9.3
 	gperftools@0.2.0
 	hashbrown@0.12.3
-	hashbrown@0.14.5
 	hashbrown@0.15.2
 	heck@0.5.0
 	hermit-abi@0.3.9
@@ -98,27 +97,28 @@ CRATES="
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.7.1
+	indexmap@2.8.0
 	io-uring@0.6.4
 	ipnet@2.11.0
 	iprange@0.6.7
 	is_terminal_polyfill@1.70.1
-	itoa@1.0.14
+	itoa@1.0.15
 	js-sys@0.3.77
 	keccak@0.1.5
 	lazy_static@1.5.0
 	lexis@0.2.3
 	lexopt@0.3.0
-	libc@0.2.169
-	libcgroups@0.5.1
-	libcontainer@0.5.1
+	libc@0.2.171
+	libcgroups@0.5.2
+	libcontainer@0.5.2
 	libloading@0.8.6
-	liboci-cli@0.5.1
+	liboci-cli@0.5.2
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
 	linefeed@0.6.0
 	linux-raw-sys@0.4.15
+	linux-raw-sys@0.9.3
 	log@0.4.26
 	md5@0.7.0
 	memchr@2.7.4
@@ -136,7 +136,7 @@ CRATES="
 	num_cpus@1.16.0
 	object@0.36.7
 	oci-spec@0.7.1
-	once_cell@1.20.3
+	once_cell@1.21.1
 	option-ext@0.2.0
 	overload@0.1.1
 	parse-size@1.0.0
@@ -145,20 +145,20 @@ CRATES="
 	phf_generator@0.11.3
 	phf_shared@0.11.3
 	pin-project-lite@0.2.16
-	pkg-config@0.3.31
+	pkg-config@0.3.32
 	plain@0.2.3
-	portable-atomic@1.10.0
+	portable-atomic@1.11.0
 	prctl@1.0.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.93
+	proc-macro2@1.0.94
 	procfs-core@0.17.0
 	procfs@0.17.0
 	protobuf-codegen@3.2.0
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
-	quick_cache@0.6.10
+	quick_cache@0.6.12
 	quote@1.0.38
 	radium@0.7.0
 	raki@1.3.1
@@ -175,15 +175,16 @@ CRATES="
 	rust-criu@0.4.0
 	rustc-demangle@0.1.24
 	rustix@0.38.44
-	rustversion@1.0.19
-	ryu@1.0.19
+	rustix@1.0.2
+	rustversion@1.0.20
+	ryu@1.0.20
 	safe-path@0.1.0
 	scroll@0.12.0
 	scroll_derive@0.12.0
 	secure-string@0.3.0
 	sendfd@0.4.3
-	serde@1.0.218
-	serde_derive@1.0.218
+	serde@1.0.219
+	serde_derive@1.0.219
 	serde_json@1.0.139
 	sha1@0.10.6
 	sha3@0.10.8
@@ -197,19 +198,19 @@ CRATES="
 	strum@0.26.3
 	strum_macros@0.26.4
 	subtle@2.6.1
-	syn@2.0.98
+	syn@2.0.100
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
-	tempfile@3.17.1
+	tempfile@3.19.0
 	terminfo@0.8.0
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.11
+	thiserror-impl@2.0.12
 	thiserror@1.0.69
-	thiserror@2.0.11
+	thiserror@2.0.12
 	thread_local@1.1.8
 	tick_counter@0.4.5
-	tinyvec@1.8.1
+	tinyvec@1.9.0
 	tinyvec_macros@0.1.1
 	tracing-attributes@0.1.28
 	tracing-core@0.1.33
@@ -217,7 +218,7 @@ CRATES="
 	tracing-subscriber@0.3.19
 	tracing@0.1.41
 	typenum@1.18.0
-	unicode-ident@1.0.17
+	unicode-ident@1.0.18
 	unicode-normalization@0.1.24
 	unicode-width@0.1.14
 	unicode-width@0.2.0
@@ -237,6 +238,7 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
 	windows-core@0.52.0
+	windows-link@0.1.0
 	windows-sys@0.48.0
 	windows-sys@0.59.0
 	windows-targets@0.48.5
