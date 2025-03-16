@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/findlib test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-ml/camlzip:= dev-ml/num:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) native-compiler? ( <dev-lang/ocaml-5:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Coq/Rocq is a proof assistant written in O'Caml
+EAPI=8
+HOMEPAGE=https://coq.inria.fr/ https://github.com/coq/coq/
+INHERIT=check-reqs desktop dune edo
+IUSE=debug gui native-compiler +ocamlopt test
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+PDEPEND=sci-mathematics/coq-stdlib
+RDEPEND=dev-ml/camlzip:= dev-ml/num:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) native-compiler? ( <dev-lang/ocaml-5:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/9.0.0
+SRC_URI=https://github.com/coq/coq/archive/V9.0.0.tar.gz -> coq-9.0.0.tar.gz
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=9f14959f5059c7b2c9b1d1e7773f3722

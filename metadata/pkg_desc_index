@@ -3315,7 +3315,7 @@ app-text/openpaperwork-core 2.2.3 2.2.5: Core part of Paperwork (plugin manageme
 app-text/openpaperwork-gtk 2.2.3 2.2.5: Paperwork plugins
 app-text/opensp 1.5.2-r10: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
-app-text/pandoc-bin 3.6.2 3.6.3: Conversion between markup formats (binary package)
+app-text/pandoc-bin 3.6.2 3.6.3 3.6.4: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
 app-text/paper-clip 5.5.1-r1 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/paperwork 2.2.3 2.2.5: a personal document manager for scanned documents (and PDFs)
@@ -5129,7 +5129,7 @@ dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
 dev-lang/bas 2.6-r1: An interpreter for the classic dialect of the programming language BASIC
 dev-lang/bff 1.0.7: A brainfuck interpreter
-dev-lang/boogie 3.2.5 3.3.3 3.4.1 3.4.2 3.4.3: SMT-based program verifier
+dev-lang/boogie 3.4.3 3.5.1: SMT-based program verifier
 dev-lang/c-intercal 31.0 33.0-r1: C-INTERCAL - INTERCAL to binary (via C) compiler
 dev-lang/cfortran 4.4-r4 20110621 20210827: Header file allowing to call Fortran routines from C and C++
 dev-lang/clips 6.40: Tool for building Expert Systems (native version)
@@ -5204,7 +5204,7 @@ dev-lang/nasm 2.16.03: groovy little assembler
 dev-lang/neko 2.4.0-r2: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.2.0 2.2.2: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 3.88 3.98 4.00: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nprolog 3.88 3.98 4.00 4.05: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2024.10 2024.12 2025.01 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.1 4.14.2 5.2.0-r1 5.2.1-r1 5.3.0-r1: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.0.0 5.1.0_beta12932: Open source implementation of Object Rexx
@@ -5273,7 +5273,7 @@ dev-libs/argtable 2.13-r4: An ANSI C library for parsing GNU-style command-line 
 dev-libs/asmjit 2024.10.25 9999: Machine code generation for C++
 dev-libs/atf 0.21-r3 0.22-r1: Libraries to write tests in C, C++ and shell
 dev-libs/atk 2.38.0 2.46.0: GTK+ & GNOME Accessibility Toolkit
-dev-libs/avro-c 1.9.1-r2 1.12.0: c library for the apache avro data serialization system
+dev-libs/avro-c 1.12.0: c library for the apache avro data serialization system
 dev-libs/aws-c-cal 0.4.5: Crypto Abstraction Layer: Cross-Platform C99 wrapper for cryptography primitives
 dev-libs/aws-c-common 0.4.62 0.5.2: Core c99 package for AWS SDK for C
 dev-libs/aws-c-event-stream 0.2.5-r1 0.2.7: C99 implementation of the vnd.amazon.eventstream content-type
@@ -5305,7 +5305,7 @@ dev-libs/cereal 1.3.2-r2: Header-only C++11 serialization library
 dev-libs/cgilib 0.7-r2: Simple and lightweight interface to the CGI for C and C++ programs
 dev-libs/cglm 0.9.4 0.9.6: OpenGL Mathematics (glm) for C
 dev-libs/cgreen 1.3.0: Unit test and mocking framework for C and C++
-dev-libs/check 0.15.2-r1 0.15.2-r2: A unit test framework for C
+dev-libs/check 0.15.2-r2: A unit test framework for C
 dev-libs/chmlib 0.40-r2: Library for MS CHM (compressed html) file format
 dev-libs/cjose 0.6.2.2 0.6.2.3: C library implementing the Javascript Object Signing and Encryption (JOSE)
 dev-libs/cl 1.2.4-r2: OpenCL bindings for Erlang
@@ -10480,7 +10480,7 @@ dev-scheme/cyclone 0.35.0 0.36.0 9999: R7RS Scheme to C compiler
 dev-scheme/elk 3.99.8-r1 3.99.8-r2: Scheme implementation designed to be embeddable extension to C/C++ applications
 dev-scheme/escm 1.1-r1: escm - Embedded Scheme Processor
 dev-scheme/fibers 1.2.0_p20230522-r100: Lightweight concurrency facility for Guile Scheme
-dev-scheme/gambit 4.9.4-r1 4.9.5: Gambit-C is a native Scheme to C compiler and interpreter
+dev-scheme/gambit 4.9.5: Gambit-C is a native Scheme to C compiler and interpreter
 dev-scheme/gauche 0.9.15-r1: A Unix system friendly Scheme Interpreter
 dev-scheme/gauche-cdb 0.3.1-r1: CDB binding for Gauche
 dev-scheme/gauche-gl 0.6-r1: OpenGL binding for Gauche
@@ -16263,9 +16263,10 @@ sci-mathematics/calc 2.13.0.1: Arbitrary precision C-like arithmetic system
 sci-mathematics/cgal 5.6 5.6.1 6.0 6.0.1: C++ library for geometric algorithms and data structures
 sci-mathematics/clipper2 1.4.0: Polygon Clipping and Offsetting
 sci-mathematics/cliquer 1.22: C routines for finding cliques in an arbitrary weighted graph
-sci-mathematics/coq 8.17.1-r1 8.19.2-r1 8.20.0-r1: Proof assistant written in O'Caml
-sci-mathematics/coq-mathcomp 1.19.0: Mathematical Components for the Coq proof assistant
+sci-mathematics/coq 8.17.1-r1 8.19.2-r1 8.20.0-r1 9.0.0: Coq/Rocq is a proof assistant written in O'Caml
+sci-mathematics/coq-mathcomp 1.19.0-r1: Mathematical Components for the Coq proof assistant
 sci-mathematics/coq-serapi 0.20.0: Serialization library and protocol for interaction with the Coq proof assistant
+sci-mathematics/coq-stdlib 9.0.0: Stdlib for the Coq/Rocq Prover, used to be part of Coq
 sci-mathematics/cryptominisat 5.11.21-r1: Advanced SAT solver with C++ and command-line interfaces
 sci-mathematics/cubicle 1.2.0-r2: Model checker for verifying properties of array-based systems
 sci-mathematics/cudd 3.0.0: Colorado University binary Decision Diagram library
