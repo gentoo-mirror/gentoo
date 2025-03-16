@@ -12,7 +12,7 @@ DESCRIPTION="Framework for notifying the user of an event"
 
 LICENSE="LGPL-2.1+"
 KEYWORDS="amd64 ~arm arm64 ~loong ppc64 ~riscv ~x86"
-IUSE="dbus phonon qml speech X"
+IUSE="dbus qml speech X"
 
 RDEPEND="
 	>=dev-qt/qtdbus-${QTMIN}:5
@@ -21,9 +21,8 @@ RDEPEND="
 	=kde-frameworks/kconfig-${PVCUT}*:5
 	=kde-frameworks/kcoreaddons-${PVCUT}*:5
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X?]
+	media-libs/libcanberra
 	dbus? ( dev-libs/libdbusmenu-qt[qt5(+)] )
-	!phonon? ( media-libs/libcanberra )
-	phonon? ( >=media-libs/phonon-4.11.0[qt5(+)] )
 	qml? ( >=dev-qt/qtdeclarative-${QTMIN}:5 )
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
 	X? (
@@ -40,7 +39,6 @@ BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package dbus dbusmenu-qt5)
-		$(cmake_use_find_package !phonon Canberra)
 		$(cmake_use_find_package qml Qt5Qml)
 		$(cmake_use_find_package speech Qt5TextToSpeech)
 		-DWITHOUT_X11=$(usex !X)
