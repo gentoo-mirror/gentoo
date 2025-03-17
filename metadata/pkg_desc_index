@@ -1201,7 +1201,7 @@ app-arch/upx-bin 4.1.0 4.2.4: Ultimate Packer for eXecutables, binary version wi
 app-arch/vimball 0.5.1-r1 9999: A command-line vimball archive extractor
 app-arch/wimlib 1.14.4: The open source Windows Imaging (WIM) library
 app-arch/xar 1.8.0.0.487.100.1 1.8.0.0.498: An easily extensible archive format
-app-arch/xarchiver 0.5.4.23: A GTK+ archive manager that can be used with Thunar
+app-arch/xarchiver 0.5.4.23 0.5.4.24: A GTK+ archive manager that can be used with Thunar
 app-arch/xdms 1.3.2-r2: xDMS - Amiga DMS disk image decompressor
 app-arch/xz-utils 5.4.7-r1 5.6.3 5.6.4 5.7.2_beta 9999: Utils for managing LZMA compressed files
 app-arch/zchunk 1.3.2 1.4.0 1.5.1 9999: File format designed for highly efficient deltas with good compression
@@ -8042,8 +8042,8 @@ dev-python/aiocache 0.12.2 0.12.3: Asyncio cache manager
 dev-python/aiodns 3.2.0: Simple DNS resolver for asyncio
 dev-python/aiofiles 24.1.0: File support for asyncio
 dev-python/aiohappyeyeballs 2.4.6 2.4.8 2.5.0 2.6.1: Happy Eyeballs for pre-resolved hosts
-dev-python/aiohttp 3.11.11 3.11.12 3.11.13: HTTP client/server for asyncio
-dev-python/aiohttp-cors 0.7.0-r2: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
+dev-python/aiohttp 3.11.11 3.11.12 3.11.13 3.11.14: HTTP client/server for asyncio
+dev-python/aiohttp-cors 0.7.0-r2 0.8.0: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-oauthlib 0.1.0: This project provides first-class OAuth library support for aiohttp
 dev-python/aiohttp-socks 0.10.1: SOCKS proxy connector for aiohttp
 dev-python/aiohttp-theme 0.1.7: Sphinx theme for aiohttp
@@ -8096,7 +8096,7 @@ dev-python/asteval 1.0.4 1.0.5 1.0.6: Evaluator of Python expression using ast m
 dev-python/astor 0.8.1-r1: Read/rewrite/write Python ASTs
 dev-python/astroid 3.3.8 3.3.9: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 3.0.0: Annotate Python AST trees with source text and token information
-dev-python/async-lru 2.0.4: Simple lru_cache for asyncio
+dev-python/async-lru 2.0.4 2.0.5: Simple lru_cache for asyncio
 dev-python/async-timeout 4.0.3 5.0.1: Timeout context manager for asyncio programs
 dev-python/asyncssh 2.20.0: Asynchronous SSHv2 client and server library
 dev-python/asyncstdlib 3.13.0 3.13.1: The missing async toolbox
@@ -8232,7 +8232,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.0 1.3.1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.6.10 7.6.11 7.6.12: Code coverage measurement for Python
+dev-python/coverage 7.6.10 7.6.11 7.6.12 7.7.0: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.0 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.9.0-r1 2.9.1 2.10.0_rc1: Thin Python bindings to de/compression algorithms in Rust
@@ -8270,7 +8270,7 @@ dev-python/dbutils 3.1.0: Database connections for multi-threaded environments
 dev-python/ddt 1.7.2: Data-Driven/Decorated Tests
 dev-python/debtcollector 3.0.0: Python deprecation patterns and strategies that collect technical debt
 dev-python/decorator 5.2.1: Simplifies the usage of decorators for the average programmer
-dev-python/deepdiff 8.2.0 8.3.0: A library for comparing dictionaries, iterables, strings and other objects
+dev-python/deepdiff 8.3.0 8.4.1: A library for comparing dictionaries, iterables, strings and other objects
 dev-python/deepmerge 2.0: Tools to handle merging of nested data structures in python
 dev-python/defusedxml 0.7.1-r1 0.8.0_rc2: XML bomb protection for Python stdlib modules, an xml serialiser
 dev-python/denonavr 1.0.0 1.0.1: Automation Library for Denon AVR receivers
@@ -8498,7 +8498,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.126.0 6.127.9 6.128.2 6.129.0 6.129.1 6.129.2: A library for property based testing
+dev-python/hypothesis 6.126.0 6.127.9 6.128.2 6.129.0 6.129.1 6.129.2 6.129.3: A library for property based testing
 dev-python/icalendar 6.1.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.8: File identification library for Python
@@ -8646,7 +8646,7 @@ dev-python/libevdev 0.11: Python wrappers for the libevdev library
 dev-python/liblarch 3.2.0: Library to handle directed acyclic graphs
 dev-python/libnacl 2.1.0: Python ctypes wrapper for libsodium
 dev-python/libsass 0.23.0: A straightforward binding of libsass for Python
-dev-python/libtmux 0.36.0 0.39.0 0.40.1 0.42.0 0.44.2 0.45.0 0.46.0: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
+dev-python/libtmux 0.36.0 0.39.0 0.40.1 0.42.0 0.44.2 0.45.0 0.46.0 0.46.1: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
 dev-python/libusb1 3.2.0: Python ctype-based wrapper around libusb1
 dev-python/libvirt-python 10.10.0 11.0.0 11.1.0 9999: libvirt Python bindings
 dev-python/license-expression 30.4.1: Parse, compare, simplify and normalize license expressions
@@ -8738,7 +8738,7 @@ dev-python/mkdocs-material 9.6.5 9.6.7-r1 9.6.8: A Material Design theme for MkD
 dev-python/mkdocs-material-extensions 1.3.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.8.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.1.0: Build multiple documentation folders in a single Mkdocs
-dev-python/mkdocs-pymdownx-material-extras 2.7: Custom alterations based on Mkdocs-Material
+dev-python/mkdocs-pymdownx-material-extras 2.7 2.8: Custom alterations based on Mkdocs-Material
 dev-python/mkdocs-redirects 1.2.2: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.3.0: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.28.2 0.28.3 0.29.0: Automatic documentation from sources, for MkDocs
@@ -8801,7 +8801,7 @@ dev-python/nox 2024.10.09 2025.02.09: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
 dev-python/nuitka 2.6.7 2.6.8: Python to native compiler
 dev-python/numexpr 2.10.2: Fast numerical array expression evaluator for Python and NumPy
-dev-python/numpy 1.26.4 2.0.2-r1 2.1.3 2.2.2 2.2.3: Fast array and numerical python library
+dev-python/numpy 1.26.4 2.0.2-r1 2.1.3 2.2.2 2.2.3 2.2.4: Fast array and numerical python library
 dev-python/numpydoc 1.8.0: Sphinx extension to support docstrings in Numpy format
 dev-python/oauthlib 3.2.2: Spec-compliant and thorough implementation of the OAuth request-signing logic
 dev-python/objgraph 3.6.2: Draws Python object reference graphs with graphviz
@@ -9063,7 +9063,7 @@ dev-python/pyotp 2.9.0: PyOTP is a Python library for generating and verifying o
 dev-python/pyparsing 3.2.1: Easy-to-use Python module for text parsing
 dev-python/pyparted 3.13.0: Python bindings for sys-block/parted
 dev-python/pypax 0.9.5-r2 9999: Python module to get or set either PT_PAX and/or XATTR_PAX flags
-dev-python/pypdf 5.3.0 5.3.1: Python library to work with PDF files
+dev-python/pypdf 5.3.0 5.3.1 5.4.0: Python library to work with PDF files
 dev-python/pyperclip 1.9.0: A cross-platform clipboard module for Python
 dev-python/pyphen 0.17.2: Python module for hyphenation using hunspell dictionaries
 dev-python/pypillowfight 0.3.0_p20210816-r1 0.3.1: Small library containing various image processing algorithms
@@ -9603,7 +9603,7 @@ dev-python/ujson 5.10.0: Ultra fast JSON encoder and decoder for Python
 dev-python/ukkonen 1.0.1-r1: Implementation of bounded Levenshtein distance (Ukkonen)
 dev-python/unasync 0.6.0-r1: The async transformation code
 dev-python/uncertainties 3.2.1 3.2.2: Python module for calculations with uncertainties
-dev-python/unearth 0.17.1 0.17.2: A utility to fetch and download python packages
+dev-python/unearth 0.17.2 0.17.3: A utility to fetch and download python packages
 dev-python/unidecode 1.3.8: Module providing ASCII transliterations of Unicode text
 dev-python/unidiff 0.7.5: Unified diff parsing/metadata extraction library
 dev-python/unittest-mixins 1.6-r2: A set of mixin classes and other helpers for unittest test case classes
@@ -18143,7 +18143,7 @@ www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
 www-plugins/browserpass 3.1.0: WebExtension host binary for app-admin/pass, a UNIX password manager
 www-plugins/chrome-binary-plugins 134.0.6998.88 135.0.7049.17_beta 136.0.7064.0_alpha: Binary plugins from Google Chrome for use in Chromium
-www-plugins/lightspark 0.8.6.1-r1 0.8.7-r1: High performance flash player
+www-plugins/lightspark 0.8.7-r1 0.9.0: High performance flash player
 www-plugins/passff-host 1.2.4: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.9.155 4.10.38: A PDF reader in JavaScript
 www-servers/adsf 1.5.0 1.5.2: A Dead Simple Fileserver is a static file server that can launch in a directory
