@@ -8,15 +8,13 @@ inherit cmake udev xdg
 DESCRIPTION="Corsair K65/K70/K95 Driver"
 HOMEPAGE="https://github.com/ckb-next/ckb-next"
 
-COMMIT=22cdb6d1854b668d8485addd7a6b01f0c2ac4dea
-
 if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ckb-next/ckb-next.git"
 else
-	SRC_URI="https://github.com/ckb-next/ckb-next/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/ckb-next/ckb-next/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-next-${COMMIT}"
+	S="${WORKDIR}/${PN}-next-${PV}"
 fi
 
 LICENSE="GPL-2"
