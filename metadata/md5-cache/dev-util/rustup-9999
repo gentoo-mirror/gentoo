@@ -4,12 +4,12 @@ DEPEND=app-arch/xz-utils net-misc/curl:=[http2,ssl] dev-libs/openssl:0=
 DESCRIPTION=Rust toolchain installer
 EAPI=8
 HOMEPAGE=https://rust-lang.github.io/rustup/
-INHERIT=bash-completion-r1 cargo prefix git-r3
+INHERIT=cargo prefix shell-completion toolchain-funcs git-r3
 IUSE=debug
-LICENSE=|| ( Apache-2.0 MIT ) Apache-2.0 BSD ISC MIT Unicode-DFS-2016
+LICENSE=|| ( Apache-2.0 MIT ) Apache-2.0 BSD ISC MIT MPL-2.0 openssl Unicode-3.0
 PROPERTIES=live
 RDEPEND=app-arch/xz-utils net-misc/curl:=[http2,ssl] dev-libs/openssl:0=
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	969e004a4a07d654b01c6b15e2c66080	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	eb4315c13bbb1d5195ce27f8934644f9	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=bd5659f8a12cb354e7b2719474834977
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	969e004a4a07d654b01c6b15e2c66080	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	eb4315c13bbb1d5195ce27f8934644f9	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=b057e66589c6ac981c34a774cbe0700c
