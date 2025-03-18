@@ -1,30 +1,35 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LUA_COMPAT=( lua5-{1..2} luajit )
+LUA_COMPAT=( lua5-{1..4} luajit )
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 WEBAPP_MANUAL_SLOT="yes"
 
-inherit lua-single python-single-r1 toolchain-funcs webapp
+inherit lua-single python-single-r1 tmpfiles toolchain-funcs webapp
 
 [[ -z "${CGIT_CACHEDIR}" ]] && CGIT_CACHEDIR="/var/cache/${PN}/"
 
-GIT_V="2.25.1"
+GIT_V="2.46.0"
+MY_COMMIT="09d24d7cd0b7e85633f2f43808b12871bb209d69"
 
-DESCRIPTION="a fast web-interface for git repositories"
-HOMEPAGE="https://git.zx2c4.com/cgit/about"
+DESCRIPTION="A fast web-interface for Git repositories"
+HOMEPAGE="https://git.zx2c4.com/cgit/about/"
 SRC_URI="https://www.kernel.org/pub/software/scm/git/git-${GIT_V}.tar.xz
-	https://git.zx2c4.com/cgit/snapshot/${P}.tar.xz"
+	https://git.zx2c4.com/cgit/snapshot/cgit-${MY_COMMIT}.tar.xz"
+
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm ~riscv x86"
+KEYWORDS="~amd64 ~arm ~riscv ~x86"
+
 IUSE="doc +highlight +lua test"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} ) ${PYTHON_REQUIRED_USE}"
+
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -56,15 +61,16 @@ pkg_setup() {
 }
 
 src_configure() {
-	rmdir git || die
-	mv "${WORKDIR}"/git-"${GIT_V}" git || die
+	if ! [[ ${PV} =~ 9999* ]]; then
+		rmdir git || die
+		mv "${WORKDIR}"/git-"${GIT_V}" git || die
+	fi
 
 	echo "prefix = ${EPREFIX}/usr" >> cgit.conf || die "echo prefix failed"
 	echo "libdir = ${EPREFIX}/usr/$(get_libdir)" >> cgit.conf || die "echo libdir failed"
 	echo "CGIT_SCRIPT_PATH = ${MY_CGIBINDIR}" >> cgit.conf || die "echo CGIT_SCRIPT_PATH failed"
 	echo "CGIT_DATA_PATH = ${MY_HTDOCSDIR}" >> cgit.conf || die "echo CGIT_DATA_PATH failed"
 	echo "CACHE_ROOT = ${CGIT_CACHEDIR}" >> cgit.conf || die "echo CACHE_ROOT failed"
-	echo "DESTDIR = ${D}" >> cgit.conf || die "echo DESTDIR failed"
 	if use lua; then
 		echo "LUA_PKGCONFIG = ${ELUA}" >> cgit.conf || die "echo LUA_PKGCONFIG failed"
 	else
@@ -80,7 +86,7 @@ src_compile() {
 src_install() {
 	webapp_src_preinst
 
-	emake V=1 AR="$(tc-getAR)" CC="$(tc-getCC)" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" install
+	emake V=1 AR="$(tc-getAR)" CC="$(tc-getCC)" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" DESTDIR="${D}" install
 
 	insinto /etc
 	doins "${FILESDIR}"/cgitrc
@@ -91,9 +97,11 @@ src_install() {
 	webapp_postinst_txt en "${FILESDIR}"/postinstall-en.txt
 	webapp_src_install
 
-	keepdir "${CGIT_CACHEDIR}"
-	fowners ${PN}:${PN} "${CGIT_CACHEDIR}"
-	fperms 700 "${CGIT_CACHEDIR}"
+	cat > cgit.conf <<-EOT || die
+		d ${CGIT_CACHEDIR} 0700 cgit cgit -
+	EOT
+	dotmpfiles cgit.conf
+
 	python_fix_shebang .
 }
 
@@ -103,6 +111,11 @@ src_test() {
 
 pkg_postinst() {
 	webapp_pkg_postinst
-	ewarn "If you intend to run cgit using web server's user"
-	ewarn "you should change ${CGIT_CACHEDIR} permissions."
+	tmpfiles_process cgit.conf
+	ewarn "The cgit cache is enabled using the cache-size setting in cgitrc."
+	ewarn "If enabling the cache and running cgit using the web server's user"
+	ewarn "you should copy ${EROOT}/usr/lib/tmpfiles.d/cgit.conf"
+	ewarn "to ${EROOT}/etc/tmpfiles.d/ and edit, changing the ownership fields."
+	ewarn "If you use the cache-root setting in cgitrc to specify a cache directory"
+	ewarn "other than ${CGIT_CACHEDIR} edit the path in cgit.conf."
 }
