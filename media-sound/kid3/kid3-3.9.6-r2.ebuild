@@ -18,7 +18,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE="acoustid flac kde mp3 mp4 +mpris +taglib test vorbis"
 
-REQUIRED_USE="flac? ( vorbis )"
+REQUIRED_USE="test? ( flac mp3 mp4 taglib vorbis )" # bug 926747
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -30,10 +30,7 @@ DEPEND="
 		media-libs/chromaprint:=
 		media-video/ffmpeg:=
 	)
-	flac? (
-		media-libs/flac:=[cxx]
-		media-libs/libvorbis
-	)
+	flac? ( media-libs/flac:=[cxx] )
 	kde? (
 		kde-frameworks/kconfig:6
 		kde-frameworks/kconfigwidgets:6
@@ -59,7 +56,11 @@ BDEPEND="${PYTHON_DEPS}
 	kde? ( kde-frameworks/extra-cmake-modules:0 )
 "
 
-PATCHES=( "${FILESDIR}/${P}-no-ndebug.patch" ) # bug 949369
+PATCHES=(
+	"${FILESDIR}/${P}-no-ndebug.patch" # bug 949369
+	# https://invent.kde.org/multimedia/kid3/-/merge_requests/34
+	"${FILESDIR}/${P}-oggflacmetadata-buildfix.patch" # bug 917038
+)
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
