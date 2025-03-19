@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ RESTRICT="mirror"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="internal-zookeeper connect"
+IUSE="connect"
 
 COMMON_DEPEND="acct-group/kafka
 	acct-user/kafka
@@ -29,7 +29,6 @@ S="${WORKDIR}/${MY_P}"
 INSTALL_DIR="/opt/${MY_PN}"
 
 src_prepare() {
-	sed -i -e 's:/tmp/zookeeper:/var/lib/kafka/zookeeper:' "config/zookeeper.properties" || die
 	sed -i -e 's:/tmp/kafka-logs:/var/lib/kafka/logs:' "config/server.properties" || die
 	sed -i -e 's:/tmp/connect.offsets:/var/lib/kafka/connect.offsets:' "config/connect-standalone.properties" || die
 	eapply_user
@@ -37,17 +36,7 @@ src_prepare() {
 
 src_install() {
 	insinto /etc/kafka
-	doins config/zookeeper.properties config/server.properties
-	if use "internal-zookeeper"; then
-		keepdir /var/lib/kafka/zookeeper
-		newinitd "${FILESDIR}/${MY_PN}-zookeeper.init.d" "${MY_PN}-zookeeper"
-
-		ewarn "Zookeeper owner has been changed to kafka:kafka"
-		ewarn "you might want to run chown -R kafka:kafka /var/lib/kafka/zookeeper"
-		ewarn "or set COMMAND_USER=\"root:root\" in /etc/conf.d/kafka-zookeeper"
-		ewarn "to keep the previous behavior."
-		ewarn "All logs files have been move to /var/log/kafka/"
-	fi
+	doins config/server.properties
 
 	if use "connect"; then
 		doins config/connect-distributed.properties config/connect-standalone.properties
