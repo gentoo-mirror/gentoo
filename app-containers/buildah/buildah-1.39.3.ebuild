@@ -27,7 +27,7 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/containers/buildah.git"
 else
 	SRC_URI="https://github.com/containers/buildah/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 RDEPEND="
@@ -83,7 +83,7 @@ src_prepare() {
 	$(usex btrfs echo 'echo exclude_graphdriver_btrfs btrfs_noversion')
 	EOF
 
-	use test || eapply "${FILESDIR}/${PN}-1.37.5-disable-tests.patch"
+	use test || eapply "${FILESDIR}/${PN}-1.38.0-disable-tests.patch"
 }
 
 src_compile() {

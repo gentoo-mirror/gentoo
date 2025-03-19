@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit toolchain-funcs
 DESCRIPTION="User-mode networking daemons for VMs and namespaces, replacement for Slirp"
 HOMEPAGE="https://passt.top/"
 
-RELEASE_COMMIT="6b38f07"
+RELEASE_COMMIT="a1e48a0"
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -26,6 +26,8 @@ IUSE="static"
 src_prepare() {
 	default
 	tc-export CC
+	# Do not install doc/demo.sh
+	sed -i -e "/demo/d" Makefile || die
 }
 
 src_compile() {
