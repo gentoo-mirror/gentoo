@@ -1,5 +1,6 @@
 BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
 DEFINED_PHASES=compile install unpack
+DEPEND=app-crypt/gpgme btrfs? ( sys-fs/btrfs-progs )
 DESCRIPTION=Exporter for podman giving containers, pods, images, volumes & networks metrics
 EAPI=8
 HOMEPAGE=https://github.com/containers/prometheus-podman-exporter
@@ -7,8 +8,9 @@ INHERIT=go-module systemd
 IUSE=btrfs systemd
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0
+RDEPEND=app-crypt/gpgme btrfs? ( sys-fs/btrfs-progs )
 RESTRICT=test strip
 SLOT=0
-SRC_URI=https://github.com/containers/prometheus-podman-exporter/archive/refs/tags/v1.10.1.tar.gz -> prometheus-podman-exporter-1.10.1.tar.gz
+SRC_URI=https://github.com/containers/prometheus-podman-exporter/archive/refs/tags/v1.15.0.tar.gz -> prometheus-podman-exporter-1.15.0.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	df32d29550d40a92da723d3b8e17b467	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=a82bf4abf0f780154fb17613e1496bb6
+_md5_=941b7f688d67105671a86e03ce4715af
