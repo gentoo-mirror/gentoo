@@ -53,9 +53,7 @@ DOCS=( ChangeLog.md README.md nzbget.conf )
 
 PATCHES=(
 	# Required to use par2-turbo downloaded into the source directory
-	"${FILESDIR}/${P}-build-with-par2-turbo-offline.patch"
-	# https://github.com/nzbgetcom/nzbget/pull/514
-	"${FILESDIR}/${P}-fix-build-without-parcheck.patch"
+	"${FILESDIR}/${PN}-24.6-build-with-par2-turbo-offline.patch"
 )
 
 src_prepare() {
