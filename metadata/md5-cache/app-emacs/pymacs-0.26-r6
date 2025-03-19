@@ -1,15 +1,15 @@
-BDEPEND=doc? ( >=dev-python/docutils-0.7 virtual/latex-base ) >=app-editors/emacs-25.3:* python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=doc? ( >=dev-python/docutils-0.7 virtual/latex-base ) >=app-editors/emacs-25.3:* python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=A tool that allows both-side communication between Python and Emacs Lisp
 EAPI=8
 HOMEPAGE=https://www.emacswiki.org/emacs/PyMacs https://github.com/dgentry/Pymacs/
 INHERIT=elisp distutils-r1
-IUSE=doc python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=doc python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=amd64 arm ~hppa ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2+
-RDEPEND=>=app-editors/emacs-25.3:* python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=>=app-editors/emacs-25.3:* python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 SLOT=0
 SRC_URI=https://github.com/dgentry/Pymacs/archive/v0.26.tar.gz -> pymacs-0.26.tar.gz
 _eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df
-_md5_=9cae1b8dd51ef332fc62f7ce777c0012
+_md5_=417fdb70178be7ed438d8f51b737a2b3
