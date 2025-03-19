@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,6 +24,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 ruby_add_rdepend "
+	=dev-ruby/base64-0.2*
 	dev-ruby/faraday:2
 	dev-ruby/faraday-retry:2
 "
@@ -31,6 +32,7 @@ ruby_add_rdepend "
 ruby_add_bdepend "test? (
 	>=dev-ruby/vcr-2.9.3
 	>=dev-ruby/webmock-3.8:3
+	dev-ruby/webrick
 )"
 
 all_ruby_prepare() {
