@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit toolchain-funcs
 
 # sslscan builds against a static openssl library to allow weak ciphers
 # to be enabled so that they can be tested.
-OPENSSL_RELEASE_TAG="openssl-3.0.13"
+OPENSSL_RELEASE_TAG="openssl-3.3.3"
 
 DESCRIPTION="Fast SSL configuration scanner"
 HOMEPAGE="https://github.com/rbsec/sslscan"
