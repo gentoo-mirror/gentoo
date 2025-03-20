@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -149,11 +149,14 @@ src_configure() {
 		-DENABLE_ALIAS=$(usex alias)
 		-DENABLE_BUFLIST=$(usex buflist)
 		-DENABLE_CHARSET=$(usex charset)
-		# -DENABLE_DOC requires all plugins (except javascript).
-		# https://github.com/weechat/weechat/blob/v4.0.2/CMakeLists.txt#L144
-		# Impossible since php was dropped in net-irc/weechat-3.5.r1.ebuild. bug #705702
-		-DENABLE_DOC=OFF
-		-DENABLE_DOC_INCOMPLETE=$(usex doc)
+		-DENABLE_DOC=$(usex doc)
+		# To build complete documentation weechat requires all plugins (except
+		# javascript) to be enabled. That's impossible since php was dropped in
+		# net-irc/weechat-3.5.r1.ebuild. bug #705702
+		# If user chooses to build documentation via -DENABLE_DOC we must force
+		# building incomplete documentation, for which support was added in 4.0.0
+		# https://github.com/weechat/weechat/blob/v4.0.0/ReleaseNotes.adoc#documentation
+		-DENABLE_DOC_INCOMPLETE=ON
 		-DENABLE_ENCHANT=$(usex enchant)
 		-DENABLE_EXEC=$(usex exec)
 		-DENABLE_FIFO=$(usex fifo)
