@@ -1,15 +1,14 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-MODULES_OPTIONAL_USE="modules"
-inherit autotools linux-mod flag-o-matic pam systemd tmpfiles toolchain-funcs
+MODULES_OPTIONAL_IUSE="modules"
+inherit autotools linux-mod-r1 flag-o-matic pam systemd tmpfiles toolchain-funcs
 
 MY_PV=${PV/_/}
 MY_P="${PN}-${MY_PV}"
-PVER=20211212
-KERNEL_LIMIT=5.17
+KERNEL_LIMIT=6.11
 
 DESCRIPTION="The OpenAFS distributed file system"
 HOMEPAGE="https://www.openafs.org/"
@@ -18,8 +17,9 @@ HOMEPAGE="https://www.openafs.org/"
 SRC_URI="
 	https://openafs.org/dl/openafs/${MY_PRE}${MY_PV}/${MY_P}-src.tar.bz2
 	https://openafs.org/dl/openafs/${MY_PRE}${MY_PV}/${MY_P}-doc.tar.bz2
-	https://dev.gentoo.org/~bircoph/afs/${PN}-patches-${PVER}.tar.xz
 "
+
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="IBM BSD openafs-krb5-a APSL-2"
 SLOT="0"
@@ -46,7 +46,6 @@ BDEPEND="
 	)
 	perl? ( dev-lang/swig )"
 DEPEND="
-	!net-fs/openafs-kernel
 	virtual/libcrypt:=
 	virtual/libintl
 	amd64? ( tsm? ( app-backup/tsm ) )
@@ -62,10 +61,23 @@ RDEPEND="
 	${DEPEND}
 	selinux? ( sec-policy/selinux-afs )"
 
-S="${WORKDIR}/${MY_P}"
-
-PATCHES=( "${WORKDIR}/gentoo/patches" )
-
+PATCHES=(
+	"${FILESDIR}"/0001-autoconf-use-AC_CHECK_TOOL-for-as-and-ld.patch
+	"${FILESDIR}"/0002-pam-paths.patch
+	"${FILESDIR}"/0003-fbsd.patch
+	"${FILESDIR}"/0004-sparc.patch
+	"${FILESDIR}"/0005-uname.patch
+	"${FILESDIR}"/0006-resolv.patch
+	"${FILESDIR}"/0007-afsauthent-symbols.patch
+	"${FILESDIR}"/0008-flags.patch
+	"${FILESDIR}"/0009-docbook2pdf.patch
+	"${FILESDIR}"/0010-libperl.patch
+	"${FILESDIR}"/0011-xbsa.patch
+	"${FILESDIR}"/0012-xml-dtd.patch
+	"${FILESDIR}"/0013-kernel-cc-ld.patch
+	"${FILESDIR}"/0014-upstream-struct-init.patch
+	"${FILESDIR}"/0015-upstream-struct-desiginated-init.patch
+)
 CONFIG_CHECK="~!AFS_FS KEYS"
 ERROR_AFS_FS="OpenAFS conflicts with the in-kernel AFS-support. Make sure not to load both at the same time!"
 ERROR_KEYS="OpenAFS needs CONFIG_KEYS option enabled"
@@ -89,7 +101,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	use kernel_linux && linux-mod_pkg_setup
+	use kernel_linux && linux-mod-r1_pkg_setup
 }
 
 src_prepare() {
@@ -102,7 +114,7 @@ src_prepare() {
 	# build system is very delicate, so we can't run eautoreconf
 	# run autotools commands based on what is listed in regen.sh
 	_elibtoolize -c -f -i
-	eaclocal -I src/cf -I src/external/rra-c-util/m4
+	eaclocal -I src/cf -I src/external/rra-c-util/m4 -I src/external/autoconf-archive/m4
 	eautoconf
 	eautoconf -o configure-libafs configure-libafs.ac
 	eautoheader
@@ -111,7 +123,28 @@ src_prepare() {
 }
 
 src_configure() {
-	local -a myconf
+	# requires the --enable-static to avoid build errors.  This is
+	# currently an upstream limitation.
+	local myconf=(
+		--enable-static
+		--disable-strip-binaries
+		$(use_enable bitmap-later)
+		$(use_enable debug)
+		$(use_enable debug debug-locks)
+		$(use_enable debug debug-lwp)
+		$(use_enable fuse fuse-client)
+		$(use_enable kauth)
+		$(use_enable modules kernel-module)
+		$(use_enable namei namei-fileserver)
+		$(use_enable ncurses gtx)
+		$(use_enable pthreaded-ubik)
+		$(use_enable supergroups)
+		$(use_enable ubik-read-while-write)
+		$(use_with apidoc dot)
+		$(use_with doc docbook-stylesheets /usr/share/sgml/docbook/xsl-stylesheets)
+		$(use_with kerberos krb5)
+		$(use_with perl swig)
+	)
 
 	# bug #861368
 	filter-lto
@@ -138,26 +171,8 @@ src_configure() {
 	local BSD_BUILD_DIR="/usr/src/sys/${MY_ARCH}/compile/GENERIC"
 
 	AFS_SYSKVERS=26 \
-	econf \
-		--disable-strip-binaries \
-		$(use_enable bitmap-later) \
-		$(use_enable debug) \
-		$(use_enable debug debug-locks) \
-		$(use_enable debug debug-lwp) \
-		$(use_enable fuse fuse-client) \
-		$(use_enable kauth) \
-		$(use_enable modules kernel-module) \
-		$(use_enable namei namei-fileserver) \
-		$(use_enable ncurses gtx) \
-		$(use_enable pthreaded-ubik) \
-		$(use_enable supergroups) \
-		$(use_enable ubik-read-while-write) \
-		$(use_with apidoc dot) \
-		$(use_with doc docbook-stylesheets /usr/share/sgml/docbook/xsl-stylesheets) \
-		$(use_with kerberos krb5) \
-		$(use_with kerberos gssapi) \
-		$(use_with perl swig) \
-		"${myconf[@]}"
+	econf "${myconf[@]}"
+
 }
 
 src_compile() {
@@ -169,30 +184,30 @@ src_compile() {
 		emake -C doc/xml/QuickStartUnix auqbg000.pdf
 		emake -C doc/xml/UserGuide auusg000.pdf
 	fi
-	use apidoc && doxygen doc/doxygen/Doxyfile
+	if use apidoc; then
+		doxygen doc/doxygen/Doxyfile || die "Failed to build doxygen files"
+	fi
 }
 
 src_install() {
-	local OPENRCDIR="${WORKDIR}/gentoo/openrc"
-	local SYSTEMDDIR="${WORKDIR}/gentoo/systemd"
+	local OPENRCDIR="${FILESDIR}/openrc"
+	local SYSTEMDDIR="${FILESDIR}/systemd"
 
 	emake DESTDIR="${ED}" install_nolibafs
 
 	if use modules; then
 		if use kernel_linux; then
 			local srcdir=$(expr "${S}"/src/libafs/MODLOAD-*)
-			[[ -f ${srcdir}/libafs.${KV_OBJ} ]] || die "Couldn't find compiled kernel module"
-
-			MODULE_NAMES="libafs(fs/openafs:${srcdir})"
-
-			linux-mod_src_install
+			[[ -f ${srcdir}/libafs.ko ]] || die "Couldn't find compiled kernel module"
+			linux_domodule ${srcdir}/libafs.ko
+			modules_post_process
 		fi
 	fi
 
 	insinto /etc/openafs
 	doins src/afsd/CellServDB
-	echo "/afs:/var/cache/openafs:200000" > "${ED}"/etc/openafs/cacheinfo
-	echo "openafs.org" > "${ED}"/etc/openafs/ThisCell
+	newins "${FILESDIR}/ThisCell.default" ThisCell
+	newins "${FILESDIR}/cacheinfo.default" cacheinfo
 
 	# pam_afs and pam_afs.krb have been installed in irregular locations, fix
 	if use kauth; then
@@ -227,8 +242,7 @@ src_install() {
 
 	# minimal documentation
 	use kauth && doman src/pam/pam_afs.5
-	DOCS=( "${WORKDIR}/gentoo/README.Gentoo"
-			src/afsd/CellServDB NEWS README )
+	DOCS=( "${FILESDIR}/README.Gentoo" src/afsd/CellServDB NEWS README )
 
 	# documentation package
 	rm -rf doc/txt/winnotes || die # unneeded docs
@@ -273,17 +287,14 @@ pkg_preinst() {
 	## (when they are not present)
 	local x
 	for x in cacheinfo CellServDB ThisCell ; do
-		if [ -e "${EROOT}"/etc/openafs/${x} ] ; then
+		if [[ -e "${EROOT}"/etc/openafs/${x} ]] ; then
 			cp "${EROOT}"/etc/openafs/${x} "${ED}"/etc/openafs/
 		fi
 	done
 }
 
 pkg_postinst() {
-	if use modules; then
-		# Update linker.hints file
-		use kernel_linux && linux-mod_pkg_postinst
-	fi
+	use kernel_linux && linux-mod-r1_pkg_postinst
 
 	tmpfiles_process openafs-client.conf
 
@@ -301,29 +312,22 @@ pkg_postinst() {
 	elog "first use and whenever ${EROOT}/etc/openafs/cacheinfo is edited."
 }
 
-pkg_postrm() {
-	if use modules; then
-		# Update linker.hints file
-		use kernel_linux && linux-mod_pkg_postrm
-	fi
-}
-
 pkg_config() {
 	elog "Setting cache options for systemd."
 
 	SERVICED_FILE="${EROOT}"/etc/systemd/system/openafs-client.service.d/00gentoo.conf
-	[ ! -e "${SERVICED_FILE}" ] && die "Systemd service.d file ${SERVICED_FILE} not found."
+	[[ ! -e "${SERVICED_FILE}" ]] && die "Systemd service.d file ${SERVICED_FILE} not found."
 
 	CACHESIZE=$(cut -d ':' -f 3 "${EROOT}"/etc/openafs/cacheinfo)
-	[ -z ${CACHESIZE} ] && die "Failed to parse ${EROOT}/etc/openafs/cacheinfo."
+	[[ -z ${CACHESIZE} ]] && die "Failed to parse ${EROOT}/etc/openafs/cacheinfo."
 
-	if [ ${CACHESIZE} -lt 131070 ]; then
+	if [[ ${CACHESIZE} -lt 131070 ]]; then
 		AFSD_CACHE_ARGS="-stat 300 -dcache 100 -daemons 2 -volumes 50"
-	elif [ ${CACHESIZE} -lt 524288 ]; then
+	elif [[ ${CACHESIZE} -lt 524288 ]]; then
 		AFSD_CACHE_ARGS="-stat 2000 -dcache 800 -daemons 3 -volumes 70"
-	elif [ ${CACHESIZE} -lt 1048576 ]; then
+	elif [[ ${CACHESIZE} -lt 1048576 ]]; then
 		AFSD_CACHE_ARGS="-stat 2800 -dcache 2400 -daemons 5 -volumes 128"
-	elif [ ${CACHESIZE} -lt 2209715 ]; then
+	elif [[ ${CACHESIZE} -lt 2209715 ]]; then
 		AFSD_CACHE_ARGS="-stat 3600 -dcache 3600 -daemons 5 -volumes 196 -files 50000"
 	else
 		AFSD_CACHE_ARGS="-stat 4000 -dcache 4000 -daemons 6 -volumes 256 -files 50000"

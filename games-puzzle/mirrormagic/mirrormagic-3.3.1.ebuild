@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,33 +7,22 @@ inherit desktop toolchain-funcs
 
 DESCRIPTION="A game like Deflektor (C 64) or Mindbender (Amiga)"
 HOMEPAGE="https://www.artsoft.org/mirrormagic/"
-SRC_URI="https://www.artsoft.org/RELEASES/linux/${PN}/${P}.tar.gz"
+SRC_URI="https://www.artsoft.org/RELEASES/linux/mirrormagic/${P}-linux.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="sdl"
 
 RDEPEND="
-	!sdl? ( x11-libs/libX11 )
-	sdl? (
-		media-libs/libsdl[video]
-		media-libs/sdl-mixer
-		media-libs/sdl-image
-	)
+	media-libs/libsdl2[video]
+	media-libs/sdl2-image
+	media-libs/sdl2-mixer
+	media-libs/sdl2-net
 "
-DEPEND="${RDEPEND}
-	!sdl? ( x11-libs/libXt )
-"
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
-	eapply \
-		"${FILESDIR}"/${P}-gcc41.patch \
-		"${FILESDIR}"/${P}-parallel.patch \
-		"${FILESDIR}"/${P}-64bit.patch \
-		"${FILESDIR}"/${P}-gcc5.patch \
-		"${FILESDIR}"/${P}-editor.patch
 	rm -f ${PN} || die
 }
 
@@ -45,9 +34,9 @@ src_compile() {
 		RANLIB="$(tc-getRANLIB)" \
 		OPTIONS="${CFLAGS}" \
 		EXTRA_LDFLAGS="${LDFLAGS}" \
-		RO_GAME_DIR=/usr/share/${PN} \
-		RW_GAME_DIR=/var/${PN} \
-		TARGET=$(usex sdl sdl x11)
+		BASE_PATH="${EPREFIX}/usr/share/${PN}" \
+		PROGBASE=${PN} \
+		TARGET=sdl2
 }
 
 src_install() {
