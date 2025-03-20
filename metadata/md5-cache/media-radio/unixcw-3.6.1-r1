@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://unixcw.sourceforge.net
 INHERIT=autotools
 IUSE=alsa ncurses pulseaudio suid test qt6
-KEYWORDS=~alpha amd64 ~ppc x86
+KEYWORDS=~alpha amd64 ppc x86
 LICENSE=GPL-2+
 RDEPEND=ncurses? ( sys-libs/ncurses:= ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/unixcw/unixcw-3.6.1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6
-_md5_=d6a665091d94c7712f5e79c607a94a86
+_md5_=850935137937f88154ef730bd8bcd005
