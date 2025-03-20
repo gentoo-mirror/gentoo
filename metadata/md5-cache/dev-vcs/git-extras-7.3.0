@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.12 >=dev-python/gitpython-3.1.40[python_targets_python3_12(-)] >=dev-python/pytest-7.2[python_targets_python3_12(-)] dev-python/testpath[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/gitpython-3.1.40[python_targets_python3_11(-)] >=dev-python/pytest-7.2[python_targets_python3_11(-)] dev-python/testpath[python_targets_python3_11(-)] ) ) )
+BDEPEND=test? ( || ( ( dev-lang/python:3.13 >=dev-python/gitpython-3.1.40[python_targets_python3_13(-)] >=dev-python/pytest-7.2[python_targets_python3_13(-)] dev-python/testpath[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/gitpython-3.1.40[python_targets_python3_12(-)] >=dev-python/pytest-7.2[python_targets_python3_12(-)] dev-python/testpath[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/gitpython-3.1.40[python_targets_python3_11(-)] >=dev-python/pytest-7.2[python_targets_python3_11(-)] dev-python/testpath[python_targets_python3_11(-)] ) ) )
 DEFINED_PHASES=compile install prepare setup test
 DESCRIPTION=Git utilities -- repo summary, repl, changelog population, and many more
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tj/git-extras/archive/7.3.0.tar.gz -> git-extras-7.3.0.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=12d6c436afb88444090b03a5074dc6dd
+_md5_=64c04180f54a70593578e23142d816fb
