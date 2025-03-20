@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit python-single-r1 xdg-utils
 
@@ -28,6 +28,7 @@ RDEPEND="
 	${BDEPEND}
 	dev-libs/gobject-introspection
 	$(python_gen_cond_dep '
+		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
 	x11-libs/gtk+:3[introspection]
