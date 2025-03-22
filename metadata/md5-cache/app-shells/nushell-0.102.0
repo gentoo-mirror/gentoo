@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.nushell.sh
 INHERIT=cargo
 IUSE=plugins system-clipboard X debug
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=MIT 0BSD Apache-2.0 BSD Boost-1.0 CC-PD CC0-1.0 ISC MIT MPL-2.0 MPL-2.0 Unicode-DFS-2016 ZLIB
 RDEPEND=>=dev-libs/libgit2-0.99:= dev-libs/oniguruma:= dev-libs/openssl:0= net-libs/libssh2:= net-libs/nghttp2:= net-misc/curl dev-db/sqlite:3= system-clipboard? ( X? ( x11-libs/libX11 x11-libs/libxcb ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/nushell/nushell/archive/0.102.0.tar.gz -> nushell-0.102.0.tar.gz https://github.com/freijon/nushell/releases/download/0.102.0/nushell-0.102.0-crates.tar.xz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	e9d31591b9b0251018cd5c60a43bafa1	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	eb4315c13bbb1d5195ce27f8934644f9
-_md5_=5e7da8da75f3c3a8bd658c7a8fb42f53
+_md5_=98b2ea195ba313fbae614cfe0396e920
