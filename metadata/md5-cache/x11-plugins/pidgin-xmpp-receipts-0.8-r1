@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install unpack
-DEPEND=net-im/pidgin[gtk]
+DEPEND=net-im/pidgin[gui]
 DESCRIPTION=Implementation of xmpp message delivery receipts (XEP-0184) for Pidgin
 EAPI=7
 HOMEPAGE=https://github.com/noonien-d/pidgin-xmpp-receipts
 INHERIT=vcs-snapshot toolchain-funcs
 KEYWORDS=amd64 ~riscv
 LICENSE=GPL-3
-RDEPEND=net-im/pidgin[gtk]
+RDEPEND=net-im/pidgin[gui]
 SLOT=0
 SRC_URI=https://github.com/noonien-d/pidgin-xmpp-receipts/archive/release_0.8.tar.gz -> pidgin-xmpp-receipts-0.8.tar.gz
 _eclasses_=vcs-snapshot	bd69bf57fd2c34e99964a03b1d968177	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=ac540e57b5229cd7a08f81e632655137
+_md5_=ac64cd630b87d2a8921a6d31b8324253
