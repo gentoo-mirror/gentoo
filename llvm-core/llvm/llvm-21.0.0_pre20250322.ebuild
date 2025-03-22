@@ -63,7 +63,7 @@ PDEPEND="
 	binutils-plugin? ( >=llvm-core/llvmgold-${LLVM_MAJOR} )
 "
 
-LLVM_COMPONENTS=( llvm cmake third-party )
+LLVM_COMPONENTS=( llvm cmake libc third-party )
 LLVM_MANPAGES=1
 LLVM_USE_TARGETS=provide
 llvm.org_set_globals
@@ -251,6 +251,7 @@ get_distribution_components() {
 			UnicodeNameMappingGenerator
 
 			# tools
+			amdhsa-loader
 			bugpoint
 			dsymutil
 			llc
@@ -282,6 +283,7 @@ get_distribution_components() {
 			llvm-dwp
 			llvm-exegesis
 			llvm-extract
+			llvm-gpu-loader
 			llvm-gsymutil
 			llvm-ifs
 			llvm-install-name-tool
@@ -296,6 +298,7 @@ get_distribution_components() {
 			llvm-mc
 			llvm-mca
 			llvm-ml
+			llvm-ml64
 			llvm-modextract
 			llvm-mt
 			llvm-nm
