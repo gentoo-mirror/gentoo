@@ -48,7 +48,7 @@ DEPEND="
 	dev-libs/gmp:0
 	!clientonly? (
 		acct-user/${PN}
-		dev-db/postgresql:*[threads(+)]
+		dev-db/postgresql:*[server,threads(+)]
 		director? (
 			virtual/mta
 		)
