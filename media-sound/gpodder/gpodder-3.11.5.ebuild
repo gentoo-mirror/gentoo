@@ -1,22 +1,24 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-DISTUTILS_USE_SETUPTOOLS=no
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1 optfeature xdg
 
 DESCRIPTION="A free cross-platform podcast aggregator"
 HOMEPAGE="https://gpodder.github.io/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+dbus bluetooth mtp"
 
 RDEPEND="
@@ -50,25 +52,36 @@ distutils_enable_tests pytest
 src_prepare() {
 	default
 
-	sed -i -e 's:--cov=gpodder::' makefile || die
+	sed -e 's:--cov=gpodder::' -i makefile || die
+
+	emake PYTHON="${EPYTHON}" build
 }
 
 python_test() {
 	# These are pulled out from the Makefile to give us more control
 	# See bug #795165
 	# Previously, we used 'emake releasetest' in src_test
-	LC_ALL=C epytest --ignore=tests --ignore=src/gpodder/utilwin32ctypes.py --doctest-modules src/gpodder/util.py src/gpodder/jsonconfig.py \
-		-p no:localserver
-	LC_ALL=C epytest tests --ignore=src/gpodder/utilwin32ctypes.py --ignore=src/mygpoclient \
-		-p no:localserver
+
+	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+
+	local -x EPYTEST_IGNORE=(
+		src/gpodder/utilwin32ctypes.py
+	)
+
+	epytest \
+		--ignore=tests \
+		--doctest-modules src/gpodder/util.py \
+		src/gpodder/jsonconfig.py
+
+	epytest tests \
+		--ignore=src/mygpoclient \
+		-p pytest_httpserver
 }
 
 src_install() {
-	emake PYTHON="${EPYTHON}" DESTDIR="${D}" install
-
 	distutils-r1_src_install
 
-	touch "${ED}"/usr/share/gpodder/no-update-check || die
+	touch "${ED}/usr/share/gpodder/no-update-check" || die
 }
 
 pkg_postinst() {
