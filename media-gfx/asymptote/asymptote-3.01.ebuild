@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,13 +8,13 @@ PYTHON_COMPAT=( python3_{10..12} )
 inherit autotools elisp-common latex-package python-r1
 
 DESCRIPTION="A vector graphics language that provides a framework for technical drawing"
-HOMEPAGE="https://asymptote.sourceforge.io/"
+HOMEPAGE="https://asymptote.sourceforge.io/ https://github.com/vectorgraphics/asymptote/"
 SRC_URI="https://downloads.sourceforge.net/asymptote/${P}.src.tgz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="+boehm-gc context curl doc emacs examples fftw gsl +imagemagick latex lsp offscreen +opengl python sigsegv svg test vim-syntax X"
+IUSE="+boehm-gc context curl doc emacs examples fftw gsl gui +imagemagick latex lsp offscreen +opengl python sigsegv svg test vim-syntax"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -27,11 +27,10 @@ RDEPEND="
 	>=sys-libs/readline-4.3-r5:0=
 	net-libs/libtirpc:=
 	imagemagick? ( media-gfx/imagemagick[png] )
-	opengl? ( media-libs/mesa[X(+)] media-libs/freeglut media-libs/glew:0 media-libs/glm )
+	opengl? ( media-libs/mesa[X] media-libs/freeglut media-libs/glew:0 media-libs/glm )
 	offscreen? ( media-libs/mesa[osmesa] )
 	svg? ( app-text/dvisvgm )
 	sigsegv? ( dev-libs/libsigsegv )
-	boehm-gc? ( >=dev-libs/boehm-gc-7.0[cxx,threads] )
 	fftw? ( >=sci-libs/fftw-3.0.1:= )
 	gsl? ( sci-libs/gsl:= )
 	python? ( ${PYTHON_DEPS} )
@@ -41,7 +40,7 @@ RDEPEND="
 		dev-libs/rapidjson
 		dev-libs/utfcpp
 	)
-	X? (
+	gui? (
 		${PYTHON_DEPS}
 		dev-python/pyqt5[${PYTHON_USEDEP},gui,widgets,svg]
 		dev-python/cson
@@ -73,6 +72,8 @@ PATCHES=(
 
 	# Bug #322473
 	"${FILESDIR}/${PN}-2.70-info.patch"
+
+	"${FILESDIR}/${PN}-3.00-gc-check.patch"
 )
 
 src_prepare() {
@@ -94,7 +95,7 @@ src_configure() {
 		--disable-gc-full-debug \
 		--with-latex=/usr/share/texmf-site/tex/latex \
 		--with-context=/usr/share/texmf-site/tex/context \
-		$(use_enable boehm-gc gc system) \
+		$(use_enable boehm-gc) \
 		$(use_enable curl) \
 		$(use_enable lsp) \
 		$(use_enable fftw) \
@@ -107,12 +108,11 @@ src_configure() {
 src_compile() {
 	default
 
+	emake doc/version.texi
 	cd doc || die
 	emake asy.1
 	einfo "Making info"
-	cd png || die
 	emake ${PN}.info
-	cd .. || die
 	if use doc; then
 		cd FAQ || die
 		emake
@@ -155,12 +155,11 @@ src_install() {
 	# asymptote.py
 	if use python; then
 		python_moduleinto ${PN}
-		python_foreach_impl python_domodule aspy.py
 		python_foreach_impl python_domodule base/${PN}.py
 	fi
 
-	# X GUI
-	if use X; then
+	# gui
+	if use gui; then
 		cd GUI || die
 		python_setup
 		sed -e 1d -i xasy.py
