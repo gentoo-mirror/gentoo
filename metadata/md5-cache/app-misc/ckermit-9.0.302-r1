@@ -1,15 +1,15 @@
 BDEPEND=ncurses? ( virtual/pkgconfig )
 DEFINED_PHASES=compile install prepare
 DEPEND=ncurses? ( >=sys-libs/ncurses-5.2:= )
-DESCRIPTION=Combined serial and network communication software package
-EAPI=8
-HOMEPAGE=https://www.kermitproject.org/
+DESCRIPTION=combined serial and network communication software package
+EAPI=7
+HOMEPAGE=http://www.kermitproject.org/
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=ncurses
-KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86
-LICENSE=Kermit
+KEYWORDS=amd64 arm ~hppa ppc ppc64 x86
+LICENSE=BSD
 RDEPEND=ncurses? ( >=sys-libs/ncurses-5.2:= ) net-dialup/lrzsz
 SLOT=0
-SRC_URI=https://www.kermitproject.org/ftp/kermit/archives/cku414-beta11.tar.gz https://www.kermitproject.org/ftp/kermit/test/tar/cku414-beta11.tar.gz
+SRC_URI=ftp://kermit.columbia.edu/kermit/archives/cku302.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9
-_md5_=032f927e1b83d8f57517071b42a554ef
+_md5_=ef6aa187bc0e744f14c0bb2a7ec96141
