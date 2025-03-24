@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -13,7 +13,7 @@ DESCRIPTION="combined serial and network communication software package"
 SRC_URI="ftp://kermit.columbia.edu/kermit/archives/${MY_P}.tar.gz"
 HOMEPAGE="http://www.kermitproject.org/"
 
-LICENSE="Kermit"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 arm ~hppa ppc ppc64 x86"
 IUSE="ncurses"
@@ -41,6 +41,10 @@ src_prepare() {
 }
 
 src_compile() {
+	filter-lto
+
+	BUILD_CFLAGS+=" -std=gnu89"
+
 	# we don't enable any of the telnet/ftp authentication stuff
 	# since there are other packages which do these things better
 	# USE="kerberos pam shadow ssl zlib"
@@ -57,7 +61,8 @@ src_compile() {
 	append-cppflags -DNOARROWKEYS # bug #669332
 	emake \
 		CC="$(tc-getCC)" \
-		KFLAGS="${CPPFLAGS}" \
+		CC2="$(tc-getCC)" \
+		KFLAGS="${CPPFLAGS} -std=gnu89 -Wno-format-security" \
 		LIBS="-lcrypt -lresolv -lutil ${LIBS}" \
 		LNKFLAGS="${LDFLAGS}" \
 		linuxa
