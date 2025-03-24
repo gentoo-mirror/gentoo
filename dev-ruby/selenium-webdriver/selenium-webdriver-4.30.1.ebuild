@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,9 +19,9 @@ HOMEPAGE="https://github.com/seleniumhq/selenium"
 
 LICENSE="Apache-2.0"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
-RDEPEND=" >=dev-util/selenium-manager-$(ver_cut 1-2)"
+RDEPEND=">=dev-util/selenium-manager-$(ver_cut 1-2)"
 
 ruby_add_rdepend "
 	>=dev-ruby/base64-0.2 =dev-ruby/base64-0*
