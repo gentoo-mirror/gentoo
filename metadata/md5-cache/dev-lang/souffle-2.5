@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/bison sys-devel/flex test? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install preinst prepare pretend setup test
+DEPEND=ffi? ( dev-libs/libffi:= ) ncurses? ( sys-libs/ncurses:= ) openmp? ( llvm-runtimes/openmp:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) swig? ( dev-lang/swig:= ) zlib? ( sys-libs/zlib:= ) java? ( >=virtual/jdk-1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DESCRIPTION=Datalog compiler, synthesizes C++ program from logic specification
+EAPI=8
+HOMEPAGE=http://souffle-lang.github.io/ https://github.com/souffle-lang/souffle/
+INHERIT=bash-completion-r1 cmake java-pkg-opt-2 python-single-r1
+IUSE=+ffi java +ncurses +openmp python +sqlite swig test +zlib java python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64
+LICENSE=UPL-1.0
+RDEPEND=ffi? ( dev-libs/libffi:= ) ncurses? ( sys-libs/ncurses:= ) openmp? ( llvm-runtimes/openmp:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) swig? ( dev-lang/swig:= ) zlib? ( sys-libs/zlib:= ) java? ( >=dev-java/java-config-2.2.0-r3 )
+REQUIRED_USE=java? ( swig ) python? ( swig ) test? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/souffle-lang/souffle/archive/2.5.tar.gz -> souffle-2.5.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=d91f0cda279aa9cbe0deda6e7cfb7268
