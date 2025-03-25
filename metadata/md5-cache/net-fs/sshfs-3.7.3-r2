@@ -1,15 +1,15 @@
 BDEPEND=dev-python/docutils virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=>=sys-fs/fuse-3.1.0:3 >=dev-libs/glib-2.4.2
+DEPEND=>=sys-fs/fuse-3.1.0:3= >=dev-libs/glib-2.4.2
 DESCRIPTION=Fuse-filesystem utilizing the sftp service
 EAPI=8
 HOMEPAGE=https://github.com/libfuse/sshfs
 INHERIT=meson
 KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=>=sys-fs/fuse-3.1.0:3 >=dev-libs/glib-2.4.2 virtual/openssh
+RDEPEND=>=sys-fs/fuse-3.1.0:3= >=dev-libs/glib-2.4.2 virtual/openssh
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.3/sshfs-3.7.3.tar.xz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=4f4a9d3ba40bc1e1345064e66a70fc1b
+_md5_=7e5c39b9cf8906e1e97045e53512ca3c
