@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517="setuptools"
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1
 
@@ -22,6 +22,10 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
+
+# Upstream runs tests via the ansible-test command, which requires the package
+# to be installed prior to testing. Running the test via pytest in non-trivial
+# due to the amount of flags that need to be passed.
 RESTRICT="test"
 
 RDEPEND="
@@ -40,14 +44,4 @@ RDEPEND="
 "
 BDEPEND="
 	>=dev-python/packaging-16.6[${PYTHON_USEDEP}]
-	test? (
-		dev-python/botocore[${PYTHON_USEDEP}]
-		dev-python/pytz[${PYTHON_USEDEP}]
-	)"
-
-distutils_enable_tests pytest
-
-python_compile() {
-	export ANSIBLE_SKIP_CONFLICT_CHECK=1
-	distutils-r1_python_compile
-}
+"

@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+DISTUTILS_USE_PEP517="setuptools"
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
 
@@ -13,32 +13,33 @@ HOMEPAGE="https://github.com/ansible/ansible-lint"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 # Upstream has stated explicitly that all tests require Internet access
 PROPERTIES="test_network"
 RESTRICT="test"
 
 RDEPEND="
-	>=app-admin/ansible-core-2.13.0[${PYTHON_USEDEP}]
-	>=dev-python/ansible-compat-24.9.1[${PYTHON_USEDEP}]
-	>=dev-python/black-24.3.0[${PYTHON_USEDEP}]
-	>=dev-python/filelock-3.8.0[${PYTHON_USEDEP}]
+	>=app-admin/ansible-core-2.18.1[${PYTHON_USEDEP}]
+	>=dev-python/ansible-compat-25.1.2[${PYTHON_USEDEP}]
+	>=dev-python/black-24.8.0[${PYTHON_USEDEP}]
+	>=dev-python/filelock-3.14.0[${PYTHON_USEDEP}]
 	dev-python/importlib-metadata[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.17.0[${PYTHON_USEDEP}]
-	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
+	>=dev-python/packaging-24.0[${PYTHON_USEDEP}]
 	>=dev-python/pathspec-0.10.3[${PYTHON_USEDEP}]
-	>=dev-python/pyyaml-5.4.1[${PYTHON_USEDEP}]
-	>=dev-python/rich-12.0.0[${PYTHON_USEDEP}]
-	>=dev-python/ruamel-yaml-0.18.5[${PYTHON_USEDEP}]
-	>=dev-python/wcmatch-8.5.0[${PYTHON_USEDEP}]
-	>=dev-util/yamllint-1.30.0[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-6.0.2[${PYTHON_USEDEP}]
+	>=dev-python/ruamel-yaml-0.18.9[${PYTHON_USEDEP}]
+	>=dev-python/wcmatch-8.5.2[${PYTHON_USEDEP}]
+	>=dev-util/yamllint-1.35.1[${PYTHON_USEDEP}]
 	dev-vcs/git"
 BDEPEND="
 	>=dev-python/setuptools-scm-7.0.5[${PYTHON_USEDEP}]
 	test? (
 		dev-python/mypy[${PYTHON_USEDEP}]
 		dev-python/jmespath[${PYTHON_USEDEP}]
+		dev-python/license-expression[${PYTHON_USEDEP}]
+		dev-python/pylint[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		>=dev-python/pytest-plus-0.6[${PYTHON_USEDEP}]
 		>=dev-python/pytest-xdist-2.5.0[${PYTHON_USEDEP}]
