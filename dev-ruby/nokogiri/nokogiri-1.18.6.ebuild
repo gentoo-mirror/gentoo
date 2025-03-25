@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby31 ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md ROADMAP.md SECURITY.md"
 
@@ -19,17 +19,17 @@ SRC_URI="https://github.com/sparklemotion/nokogiri/archive/v${PV}.tar.gz -> ${P}
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~arm64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos"
 IUSE="test"
 
 RDEPEND="
-	>=dev-libs/libxml2-2.12.8
-	>=dev-libs/libxslt-1.1.39
+	>=dev-libs/libxml2-2.13.5
+	>=dev-libs/libxslt-1.1.43
 	>=sys-libs/zlib-1.3.1
 	virtual/libiconv"
 DEPEND="
-	>=dev-libs/libxml2-2.12.8
-	>=dev-libs/libxslt-1.1.39
+	>=dev-libs/libxml2-2.13.5
+	>=dev-libs/libxslt-1.1.43
 	>=sys-libs/zlib-1.3.1
 	virtual/libiconv"
 
@@ -57,6 +57,10 @@ all_ruby_prepare() {
 
 	# There is no need for mini_portile2 to be a runtime dependency on Gentoo
 	sed -i -e '/mini_portile2/ s:^:#:' ${RUBY_FAKEGEM_GEMSPEC} || die
+
+	# Avoid a failing test already dropped upstream.
+	sed -e '128 s:^:#:' \
+		-i test/xml/test_document_encoding.rb || die
 }
 
 each_ruby_configure() {
