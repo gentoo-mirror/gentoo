@@ -69,6 +69,7 @@ acct-group/ddclient 0-r3: A group for the dynamic DNS client
 acct-group/defang 0-r2: A group for mail-filter/mimedefang
 acct-group/dehydrated 0-r2: dehydrated program group
 acct-group/deluge 0-r3: System group: deluge
+acct-group/derper 0: Group for the DERP service of net-vpn/derper
 acct-group/dhcp 0-r3: System group: dhcp
 acct-group/dhcpcd 0-r3: System group: dhcpcd
 acct-group/dialout 0-r3: System group: dialout
@@ -515,6 +516,7 @@ acct-user/ddclient 0-r3: A user for the dynamic DNS client
 acct-user/defang 0-r2: A user for mail-filter/mimedefang
 acct-user/dehydrated 0-r2: dehydrated program user
 acct-user/deluge 0-r3: user for deluge
+acct-user/derper 0: User for the DERP service of net-vpn/derper
 acct-user/dhcp 0-r3: user for dhcp daemon
 acct-user/dhcpcd 0-r3: user for dhcpcd client
 acct-user/dictd 0-r2: uid for app-text/dictd
@@ -2939,7 +2941,7 @@ app-misc/xmind 3.7.6_p201801311814: Brainstorming and mind mapping software tool
 app-misc/yq 3.4.3: Command-line YAML processor - jq wrapper for YAML documents
 app-misc/yq-go 4.44.3 4.44.5 4.45.1: yq is a lightweight and portable command-line YAML, JSON and XML processor
 app-misc/ytree 2.09 2.10: Curses-based file manager
-app-misc/zellij 0.41.2-r1 0.42.0: A terminal workspace with batteries included
+app-misc/zellij 0.41.2-r1 0.42.1: A terminal workspace with batteries included
 app-misc/zisofs-tools 1.0.8-r1: User utilities for zisofs
 app-mobilephone/adebar 2.4.1: Android DEvice Backup And Report, using Bash and ADB
 app-mobilephone/anyremote 6.5: Bluetooth, infrared or cable remote control service
@@ -15539,6 +15541,7 @@ net-voip/yate 6.2.0 9999: The Yate AV Suite
 net-vpn/6tunnel 0.13: TCP proxy for applications that don't speak IPv6
 net-vpn/candy 5.10.4-r1 5.10.6: A reliable, low-latency, and anti-censorship virtual private network
 net-vpn/corkscrew 2.0-r1: a tool for tunneling SSH through HTTP proxies
+net-vpn/derper 1.80.3: DERP server for tailscale network
 net-vpn/eduvpn-client 4.4.0 4.4.0-r1 4.4.99.0 9999: Linux client and Python client API for eduVPN
 net-vpn/eduvpn-common 2.1.0 2.99.0: Linux client and Python client API for eduVPN
 net-vpn/fp-multiuser 0.0.2: A frp server plugin to support multiple users for frp
