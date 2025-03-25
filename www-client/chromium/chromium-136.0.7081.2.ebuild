@@ -25,9 +25,10 @@ EAPI=8
 GN_MIN_VER=0.2217
 # chromium-tools/get-chromium-toolchain-strings.py
 TEST_FONT=f26f29c9d3bfae588207bbc9762de8d142e58935c62a86f67332819b15203b35
-BUNDLED_CLANG_VER=llvmorg-20-init-17108-g29ed6000-3
-BUNDLED_RUST_VER=ad211ced81509462cdfe4c29ed10f97279a0acae-1
+BUNDLED_CLANG_VER=llvmorg-21-init-5118-g52cd27e6-4
+BUNDLED_RUST_VER=f7b43542838f0a4a6cfdb17fbeadf45002042a77-1
 RUST_SHORT_HASH=${BUNDLED_RUST_VER:0:10}-${BUNDLED_RUST_VER##*-}
+NODE_VER=22.11.0
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -48,7 +49,7 @@ inherit python-any-r1 readme.gentoo-r1 rust systemd toolchain-funcs virtualx xdg
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
-PATCH_V="${PV%%\.*}"
+PATCH_V="${PV%%\.*}-1"
 SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	!bundled-toolchain? (
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
@@ -212,7 +213,7 @@ BDEPEND="
 	dev-lang/perl
 	>=dev-util/gperf-3.0.3
 	dev-vcs/git
-	>=net-libs/nodejs-7.6.0[inspector]
+	>=net-libs/nodejs-${NODE_VER}:0/${NODE_VER%%.*}[inspector]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	virtual/pkgconfig
@@ -411,6 +412,7 @@ src_prepare() {
 		"${FILESDIR}/chromium-134-bindgen-custom-toolchain.patch"
 		"${FILESDIR}/chromium-135-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-135-map_droppable-glibc.patch"
+		"${FILESDIR}/chromium-136-drop-nodejs-ver-check.patch"
 	)
 
 	if use bundled-toolchain; then
