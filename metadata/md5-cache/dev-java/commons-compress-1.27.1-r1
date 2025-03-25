@@ -1,6 +1,6 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-commons ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
-DEPEND=dev-java/asm:9 dev-java/brotli-dec:0 dev-java/commons-codec:0 >=dev-java/commons-io-2.17.0:1 dev-java/commons-lang:3.6 dev-java/xz-java:0 dev-java/zstd-jni:0 >=virtual/jdk-11:* dev-java/osgi-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=dev-java/asm:9 dev-java/brotli-dec:0 dev-java/commons-codec:0 >=dev-java/commons-io-2.17.0:1 >=dev-java/commons-lang-3.17.0:3.6 dev-java/xz-java:0 dev-java/zstd-jni:0 >=virtual/jdk-11:* dev-java/osgi-core:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Java API for working with archive files
 EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-compress/
@@ -8,8 +8,8 @@ INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source verify-sig
 KEYWORDS=amd64 arm64 ppc64
 LICENSE=Apache-2.0
-RDEPEND=dev-java/asm:9 dev-java/brotli-dec:0 dev-java/commons-codec:0 >=dev-java/commons-io-2.17.0:1 dev-java/commons-lang:3.6 dev-java/xz-java:0 dev-java/zstd-jni:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=dev-java/asm:9 dev-java/brotli-dec:0 dev-java/commons-codec:0 >=dev-java/commons-io-2.17.0:1 >=dev-java/commons-lang-3.17.0:3.6 dev-java/xz-java:0 dev-java/zstd-jni:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=mirror://apache/commons/compress/source/commons-compress-1.27.1-src.tar.gz verify-sig? ( https://downloads.apache.org/commons/compress/source/commons-compress-1.27.1-src.tar.gz.asc )
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	c346bc0ba9945618340315a1089a82ef	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=b79bfb3045d9f92187e564aa385abe2f
+_md5_=da336b1c046efbfddcd0055bc83e7438
