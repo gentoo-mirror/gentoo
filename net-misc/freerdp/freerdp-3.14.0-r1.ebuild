@@ -1,4 +1,4 @@
-# Copyright 2011-2024 Gentoo Authors
+# Copyright 2011-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ else
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="https://pub.freerdp.com/releases/${MY_P}.tar.gz
 		verify-sig? ( https://pub.freerdp.com/releases/${MY_P}.tar.gz.asc )"
-	KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-akallabeth )"
 	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/akallabeth.asc"
 fi
@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	!ffmpeg? (
 		x11-libs/cairo:0=
 	)
-	fuse? ( sys-fs/fuse:3 )
+	fuse? ( sys-fs/fuse:3= )
 	gstreamer? (
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
@@ -128,8 +128,7 @@ run_for_testing() {
 }
 
 src_configure() {
-	# bug #881695
-	filter-lto
+	use debug || append-cppflags -DNDEBUG
 	freerdp_configure -DBUILD_TESTING=OFF
 	run_for_testing freerdp_configure -DBUILD_TESTING=ON
 }
@@ -146,10 +145,15 @@ freerdp_configure() {
 		-DWITH_ALSA=$(option alsa)
 		-DWITH_CCACHE=OFF
 		-DWITH_CLIENT=$(option client)
+
 		-DWITH_CLIENT_SDL=$(option sdl)
+		# https://bugs.gentoo.org/951452
+		-DWITH_CLIENT_SDL3=OFF
+
 		-DWITH_SAMPLE=OFF
 		-DWITH_CUPS=$(option cups)
 		-DWITH_DEBUG_ALL=$(option debug)
+		-DWITH_VERBOSE_WINPR_ASSERT=$(option debug)
 		-DWITH_MANPAGES=ON
 		-DWITH_FFMPEG=$(option ffmpeg)
 		-DWITH_FREERDP_DEPRECATED_COMMANDLINE=ON

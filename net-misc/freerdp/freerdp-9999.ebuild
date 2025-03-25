@@ -59,7 +59,7 @@ COMMON_DEPEND="
 	!ffmpeg? (
 		x11-libs/cairo:0=
 	)
-	fuse? ( sys-fs/fuse:3 )
+	fuse? ( sys-fs/fuse:3= )
 	gstreamer? (
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
@@ -145,7 +145,11 @@ freerdp_configure() {
 		-DWITH_ALSA=$(option alsa)
 		-DWITH_CCACHE=OFF
 		-DWITH_CLIENT=$(option client)
+
 		-DWITH_CLIENT_SDL=$(option sdl)
+		# https://bugs.gentoo.org/951452
+		-DWITH_CLIENT_SDL3=OFF
+
 		-DWITH_SAMPLE=OFF
 		-DWITH_CUPS=$(option cups)
 		-DWITH_DEBUG_ALL=$(option debug)
