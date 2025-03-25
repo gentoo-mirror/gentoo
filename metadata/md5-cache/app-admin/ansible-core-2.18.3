@@ -1,0 +1,16 @@
+BDEPEND=>=dev-python/packaging-16.6[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Model-driven deployment, config management, and command execution framework
+EAPI=8
+HOMEPAGE=https://www.ansible.com/
+INHERIT=distutils-r1 pypi
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos
+LICENSE=GPL-3
+RDEPEND=dev-python/paramiko[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/jinja2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pyyaml[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/cryptography[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/httplib2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/six[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/netaddr[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pexpect[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/resolvelib-0.5.3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] <dev-python/resolvelib-1.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] net-misc/sshpass virtual/ssh python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/a/ansible-core/ansible_core-2.18.3.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df	pypi	ad1b21f87d117ae9bb089bdb65b8f013
+_md5_=f75df7ffb825f98326e07a8e71c2d187

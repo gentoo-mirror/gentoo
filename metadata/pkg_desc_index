@@ -898,11 +898,11 @@ app-admin/aerospike-amc-community 4.0.19-r2 5.0.0: Web UI based monitoring tool 
 app-admin/amazon-ec2-init 20101127-r2: Init script to setup Amazon EC2 instance parameters
 app-admin/analog 6.0.17: Multi-purpose, multi-platform log file analyser
 app-admin/ananicy 2.2.1-r1: ANother Auto NICe daemon
-app-admin/ansible 10.2.0 11.0.0 11.1.0: Model-driven deployment, config management, and command execution framework
-app-admin/ansible-core 2.16.6 2.17.2 2.18.0 2.18.1-r1 9999: Model-driven deployment, config management, and command execution framework
-app-admin/ansible-lint 24.9.2 24.12.2: Checks ansible playbooks for practices and behaviour that can be improved
+app-admin/ansible 11.1.0 11.2.0: Model-driven deployment, config management, and command execution framework
+app-admin/ansible-core 2.18.1-r1 2.18.3 9999: Model-driven deployment, config management, and command execution framework
+app-admin/ansible-lint 24.12.2 25.1.3: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
-app-admin/ansible-molecule 24.2.1 24.12.0 25.1.0: A toolkit designed to aid in the development and testing of Ansible roles
+app-admin/ansible-molecule 25.1.0: A toolkit designed to aid in the development and testing of Ansible roles
 app-admin/apache-tools 2.4.62 2.4.63: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
@@ -1830,7 +1830,7 @@ app-editors/qemacs 0.4.1_pre20170225-r1: QEmacs is a very small but powerful UNI
 app-editors/qhexedit2 0.8.9_p20210525-r3 0.8.10: Hex editor library, Qt application written in C++ with Python bindings
 app-editors/qxmledit 0.9.18-r1: Simple Qt-based XML editor
 app-editors/remarkable 1.9.0_pre20210320-r3: Fully featured markdown editor, supports github markdown dialect
-app-editors/retext 8.0.2 9999: Simple editor for Markdown and reStructuredText
+app-editors/retext 8.0.2-r1 8.1.0 9999: Simple editor for Markdown and reStructuredText
 app-editors/sandy 0.4-r1: an ncurses text editor with an easy-to-read, hackable C source
 app-editors/scite 5.3.5: A very powerful, highly configurable, small editor with syntax coloring
 app-editors/shed 1.16: Simple Hex EDitor
@@ -2385,11 +2385,11 @@ app-emulation/vagrant 2.4.0-r1 2.4.1: A tool for building and distributing devel
 app-emulation/vendor-reset 0.1.1_pre20221205 0.1.1_pre20221205-r1 0.1.1_pre20221205-r2 9999: Linux kernel vendor specific hardware reset module
 app-emulation/vice 3.8-r1 3.9: Versatile Commodore Emulator
 app-emulation/virt-firmware 24.7 24.11: Tools for ovmf/armvirt firmware volumes
-app-emulation/virt-manager 5.0.0 5.0.0-r1 9999: A graphical tool for administering virtual machines
+app-emulation/virt-manager 5.0.0 5.0.0-r1 5.0.0-r2 9999: Desktop tool for managing libvirt virtual machines
 app-emulation/virt-v2v 2.6.0 2.7.7: Tool to convert guests from foreign hypervisors to run on KVM
 app-emulation/virt-viewer 11.0: Graphical console client for connecting to virtual machines
 app-emulation/virt-what 1.21 1.25: Detects if the current machine is running in a virtual machine
-app-emulation/virtio-win 0.1.229.1 0.1.240.1 0.1.248.1: VirtIO drivers for Windows virtual machines running on KVM
+app-emulation/virtio-win 0.1.229.1 0.1.240.1 0.1.248.1 0.1.266.1: VirtIO drivers for Windows virtual machines running on KVM
 app-emulation/virtiofsd 1.10.0-r2 1.10.1-r2 1.11.1-r2 9999: Shared file system for virtual machines
 app-emulation/virtualbox 6.1.50-r3 7.0.22 7.0.24 7.1.4 7.1.6a 9999: Family of powerful x86 virtualization products for enterprise and home use
 app-emulation/virtualbox-additions 6.1.50 7.0.22 7.0.24 7.1.4 7.1.6: CD image containing guest additions for VirtualBox
@@ -3934,7 +3934,7 @@ dev-cpp/wangle 2024.11.04.00: A framework providing common abstractions for buil
 dev-cpp/waylandpp 1.0.0-r1 9999: Wayland C++ bindings
 dev-cpp/websocketpp 0.8.2: C++/Boost Asio based websocket client/server library
 dev-cpp/xsimd 13.0.0-r1 13.1.0 13.2.0: C++ wrappers for SIMD intrinsics
-dev-cpp/yaml-cpp 0.8.0: YAML parser and emitter in C++
+dev-cpp/yaml-cpp 0.8.0 0.8.0-r1: YAML parser and emitter in C++
 dev-db/apgdiff 2.7.0-r1: A simple PostgreSQL diff tool that is useful for schema upgrades
 dev-db/barman 3.9.0 3.10.0 3.10.1 3.11.1 3.12.1 3.13.0: Administration tool for disaster recovery of PostgreSQL servers
 dev-db/bucardo 5.4.1: An asynchronous PostgreSQL replication system
@@ -11065,7 +11065,7 @@ dev-vcs/hg-git 1.0.2-r1 1.1.1: push to and pull from a Git repository using Merc
 dev-vcs/hub 2.14.2-r1: Command-line wrapper for git that makes you better at GitHub
 dev-vcs/kdesvn 2.1.0-r1: Frontend to the subversion vcs
 dev-vcs/lab 0.25.1: Lab wraps Git or Hub, making it simple to interact with repositories on GitLab
-dev-vcs/mercurial 6.7.4-r2 6.8.2 6.9.4 9999: Scalable distributed SCM
+dev-vcs/mercurial 6.7.4-r2 6.7.4-r3 6.8.2 6.9.4 9999: Scalable distributed SCM
 dev-vcs/mr 1.20180726: Multiple Repository management tool
 dev-vcs/notify-webhook 0.1.0-r1: Git post-receive web hook notifier in Python
 dev-vcs/pre-commit 4.0.1 4.1.0 4.2.0: A framework for managing and maintaining multi-language Git pre-commit hooks
@@ -14247,7 +14247,7 @@ media-video/mjpegtools 2.2.1-r2: Tools for MJPEG video
 media-video/mjpg-streamer 0_pre20120621-r2 0_pre20200524-r1 0_pre20200524-r2: MJPG-streamer takes JPGs from Linux-UVC compatible webcams
 media-video/mkclean 0.8.10-r1: mkclean is a command line tool to clean and optimize Matroska files
 media-video/mkvalidator 0.5.2 0.6.0: mkvalidator is a command line tool to verify Matroska files for spec conformance
-media-video/mkvtoolnix 86.0 88.0 90.0 9999: Tools to create, alter, and inspect Matroska files
+media-video/mkvtoolnix 86.0 88.0 90.0 91.0 9999: Tools to create, alter, and inspect Matroska files
 media-video/motion 4.5.1-r3 4.5.1-r4: A software motion detector
 media-video/motiontrack 0.1.3-r2: A set of tools that detect motion between two images
 media-video/movit 1.7.1: High-performance, high-quality video filters for the GPU
@@ -14732,7 +14732,7 @@ net-im/libcommuni 3.7.0-r2: A cross-platform IRC framework written with Qt
 net-im/mattermost-desktop-bin 5.10.2-r1 5.11.2: Mattermost Desktop application
 net-im/neochat 24.12.2 24.12.3: Client for Matrix, the decentralized communication protocol
 net-im/openmittsu 0.10.2.0: Open source chat client for Threema-style end-to-end encrypted chat networks
-net-im/pidgin 2.14.13-r1: GTK Instant Messenger client
+net-im/pidgin 2.14.13-r1 2.14.14: GTK Instant Messenger client
 net-im/poezio 0.14 9999: Console XMPP client that looks like most famous IRC clients
 net-im/profanity 0.13.1-r1 0.14.0 0.14.0-r2: A console based XMPP client inspired by Irssi
 net-im/prosody 0.12.5 13.0.0: Prosody is a modern XMPP communication server
@@ -15146,7 +15146,7 @@ net-misc/eventd 0.29.0-r2: A small daemon to act on remote or local events
 net-misc/exabgp 4.2.21-r1 4.2.23: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 2.11.7 2.11.7-r1 2.9999 3.4.0-r12 3.6.3 3.7.0 3.8.0 3.9.0 3.11.1-r1 3.12.0 3.14.0 9999: Free implementation of the Remote Desktop Protocol
-net-misc/frr 9.1.2 9.1.3 10.0.3 10.1.2 10.2.1: The FRRouting Protocol Suite
+net-misc/frr 10.0.3 10.1.2 10.1.3 10.2.1 10.2.2 10.3: The FRRouting Protocol Suite
 net-misc/gallery-dl 1.28.5 1.29.0 1.29.2 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.35.0-r1 0.36.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
@@ -15549,7 +15549,7 @@ net-vpn/frp 0.56.0 0.58.1 0.60.0 0.61.1: A reverse proxy that exposes a server b
 net-vpn/gsocket 1.4.43 1.4.43-r1 9999: Allow firewalled/NATed host to establish a secure connection
 net-vpn/headscale 0.25.1: An open source, self-hosted implementation of the Tailscale control server
 net-vpn/httptunnel 3.3_p20180119 3.3_p20230508: httptunnel can create IP tunnels through firewalls/proxies using HTTP
-net-vpn/i2p 2.7.0 2.8.0: A privacy-centric, anonymous network
+net-vpn/i2p 2.7.0 2.8.1: A privacy-centric, anonymous network
 net-vpn/i2pd 2.55.0 2.56.0: A C++ daemon for accessing the I2P anonymous network
 net-vpn/iodine 0.7.0-r3 0.7.0-r4: IP over DNS tunnel
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)

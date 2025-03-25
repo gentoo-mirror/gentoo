@@ -1,16 +1,17 @@
 BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt dev-ruby/rake virtual/pkgconfig nls? ( sys-devel/gettext app-text/po4a ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=dev-libs/boost:= dev-libs/gmp:= >=dev-libs/libebml-1.4.5:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.1:= media-libs/libogg media-libs/libvorbis sys-libs/zlib dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 ) >=dev-cpp/nlohmann_json-3.9.1 >=dev-libs/utfcpp-3.1.2 test? ( dev-cpp/gtest )
+DEPEND=dev-libs/boost:= dev-libs/gmp:= >=dev-libs/libebml-1.4.5:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.1:= media-libs/libogg media-libs/libvorbis sys-libs/zlib dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 ) >=dev-cpp/nlohmann_json-3.11.3 >=dev-libs/utfcpp-3.1.2 test? ( dev-cpp/gtest )
 DESCRIPTION=Tools to create, alter, and inspect Matroska files
 EAPI=8
-HOMEPAGE=https://mkvtoolnix.download/ https://gitlab.com/mbunkus/mkvtoolnix
+HOMEPAGE=https://mkvtoolnix.download/ https://codeberg.org/mbunkus/mkvtoolnix
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools flag-o-matic multiprocessing prefix qmake-utils toolchain-funcs xdg git-r3
 IUSE=dbus debug dvd gui nls pch test
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=dev-libs/boost:= dev-libs/gmp:= >=dev-libs/libebml-1.4.5:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.1:= media-libs/libogg media-libs/libvorbis sys-libs/zlib dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 )
+REQUIRED_USE=dbus? ( gui )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=58c50ba45eada3fd9aef48bb2305c254
+_md5_=b8b79b8ea75a7bf81535fd4bc501adc1

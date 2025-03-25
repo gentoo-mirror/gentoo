@@ -1,16 +1,16 @@
-BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Ansible module for hashicorp vault
 EAPI=8
 HOMEPAGE=https://www.ansible.com/
 INHERIT=distutils-r1
-IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
-RDEPEND=>=app-admin/ansible-core-2.12.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/hvac-1.2.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/requests[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=>=app-admin/ansible-core-2.12.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/hvac-1.2.1[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/requests[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/TerryHowe/ansible-modules-hashivault/archive/5.2.1.tar.gz -> ansible-modules-hashivault-5.2.1.gh.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df
-_md5_=554e7df7c1c3764c467ec4cf722177dd
+_md5_=e29ff2ed69a5d3f0ff6db06a43422d14
