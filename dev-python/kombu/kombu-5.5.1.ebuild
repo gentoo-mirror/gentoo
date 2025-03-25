@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -46,16 +46,28 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx-celery
 
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# unpin deps (notably tzdata, sigh)
+	> requirements/default.txt || die
+}
+
 python_test() {
 	local EPYTEST_DESELECT=(
 		# TODO
 		t/unit/transport/test_redis.py::test_Channel::test_connparams_health_check_interval_supported
+		t/unit/transport/test_redis.py::test_Channel::test_global_keyprefix_transaction
+		# bad filename assumption?
+		t/unit/asynchronous/aws/test_connection.py::test_AsyncHTTPSConnection::test_request_with_cert_path_https
 	)
 	local EPYTEST_IGNORE=(
 		# obsolete Pyro4
 		t/unit/transport/test_pyro.py
 		# unpackaged azure
 		t/unit/transport/test_azurestoragequeues.py
+		# unpackage google-cloud
+		t/unit/transport/test_gcpubsub.py
 	)
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
