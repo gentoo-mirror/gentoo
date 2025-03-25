@@ -4,9 +4,9 @@
 EAPI=7
 
 # This ebuild uses 3 special global variables:
-# GRUB_BOOTSTRAP: Depend on python and invoke bootstrap (gnulib).
-# GRUB_AUTOGEN: Depend on python and invoke autogen.sh.
-# GRUB_AUTORECONF: Inherit autotools and invoke eautoreconf.
+# GRUB_BOOTSTRAP: Invoke bootstrap (gnulib)
+# GRUB_AUTOGEN: Invoke autogen.sh
+# GRUB_AUTORECONF: Inherit autotools and invoke eautoreconf
 #
 # When applying patches:
 # If gnulib is updated, set GRUB_BOOTSTRAP=1
@@ -21,7 +21,7 @@ if [[ ${PV} == 9999  ]]; then
 	GRUB_BOOTSTRAP=1
 fi
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 WANT_LIBTOOL=none
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/dkiper.gpg
 
