@@ -1,6 +1,6 @@
 BDEPEND=dev-util/gdbus-codegen dev-python/docutils sys-devel/gettext virtual/pkgconfig test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) dev-libs/libportal || ( ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] dev-python/python-dbusmock[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pytest[python_targets_python3_10(-)] dev-python/pytest-xdist[python_targets_python3_10(-)] dev-python/python-dbusmock[python_targets_python3_10(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
-DEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd )
+DEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3=[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd )
 DESCRIPTION=Desktop integration portal
 EAPI=8
 HOMEPAGE=https://flatpak.org/ https://github.com/flatpak/xdg-desktop-portal
@@ -8,10 +8,10 @@ INHERIT=meson python-any-r1 systemd
 IUSE=geolocation flatpak seccomp systemd test
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1
-RDEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd ) sys-apps/dbus
+RDEPEND=>=dev-libs/glib-2.66:2 dev-libs/json-glib >=media-video/pipewire-0.3:= >=sys-fs/fuse-3.10.0:3=[suid] x11-libs/gdk-pixbuf geolocation? ( >=app-misc/geoclue-2.5.3:2.0 ) flatpak? ( sys-apps/flatpak ) seccomp? ( sys-apps/bubblewrap ) systemd? ( sys-apps/systemd ) sys-apps/dbus
 REQUIRED_USE=flatpak? ( seccomp )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/flatpak/xdg-desktop-portal/releases/download/1.18.4/xdg-desktop-portal-1.18.4.tar.xz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=eee38f6a08f1823dc0c918119e1efcc3
+_md5_=f57b88cc6b843d2477f4832c90e06783
