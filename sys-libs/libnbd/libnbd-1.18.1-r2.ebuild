@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit bash-completion-r1 python-single-r1
 
 DESCRIPTION="NBD client library in userspace"
@@ -12,7 +12,7 @@ SRC_URI="https://download.libguestfs.org/libnbd/$(ver_cut 1-2)-stable/${P}.tar.g
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~sparc ~x86"
+KEYWORDS="amd64 ~ppc64 ~sparc ~x86"
 IUSE="fuse gnutls go ocaml python test"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
@@ -21,7 +21,7 @@ RESTRICT="!test? ( test )"
 # libxml2 - URI support
 RDEPEND="
 	dev-libs/libxml2
-	fuse? ( sys-fs/fuse:3 )
+	fuse? ( sys-fs/fuse:3= )
 	gnutls? ( net-libs/gnutls:= )
 	python? ( ${PYTHON_DEPS} )
 	go? ( dev-lang/go )
@@ -64,6 +64,7 @@ src_configure() {
 		$(use_enable ocaml)
 		$(use_enable python)
 		$(use_with gnutls)
+		--disable-rust # TODO(arsen): security bump takes priority
 		--with-libxml2
 	)
 
