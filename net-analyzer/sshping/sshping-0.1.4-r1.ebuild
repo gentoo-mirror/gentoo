@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,6 +20,7 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}/${P}-fix-man-dir.patch"
 	"${FILESDIR}/${P}-respect-cxxflags.patch"
+	"${FILESDIR}/${P}-cmake-minimum-version.patch"
 )
 
 src_configure() {
