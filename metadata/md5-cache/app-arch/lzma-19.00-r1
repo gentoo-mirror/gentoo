@@ -1,7 +1,7 @@
-BDEPEND=|| ( >=app-arch/7zip-24.09[symlink] app-arch/p7zip )
+BDEPEND=|| ( app-arch/7zip app-arch/p7zip )
 DEFINED_PHASES=compile install postinst unpack
 DESCRIPTION=LZMA Stream Compressor from the SDK
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.7-zip.org/sdk.html
 INHERIT=toolchain-funcs unpacker
 IUSE=doc
@@ -9,5 +9,5 @@ KEYWORDS=~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x
 LICENSE=public-domain
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/sevenzip/lzma1900.7z -> lzma-19.00.7z
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	13d8d65b19f96f31b38c39b57419304e
-_md5_=0ccce2b0d29ed09b5b5695347c7257cc
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
+_md5_=2ce0102040cbeb543d890ee61a7e599d
