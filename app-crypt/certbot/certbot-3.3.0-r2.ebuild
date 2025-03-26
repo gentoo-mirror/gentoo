@@ -19,10 +19,6 @@ else
 		https://github.com/certbot/certbot/archive/v${PV}.tar.gz
 			-> ${P}.gh.tar.gz
 	"
-	#KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-	# Only for amd64, arm64 and x86 because of dev-python/python-augeas
-	#KEYWORDS="~amd64 ~arm64 ~x86"
-	# Only for amd64 and x86 because of dev-python/dns-lexicon
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
@@ -243,6 +239,11 @@ src_compile() {
 }
 
 python_compile_all() {
+	# There is no documentation in certbot-apache or certbot-nginx.
+	if [[ "${dir}" = "certbot-apache" ]] || [[ "${dir}" = "certbot-nginx" ]]; then
+		return
+	fi
+
 	# Used to build documentation
 	use doc && {
 		sphinx_compile_all
