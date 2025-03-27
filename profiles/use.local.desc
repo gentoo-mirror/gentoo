@@ -1855,7 +1855,6 @@ dev-lang/php:argon2 - Enable password hashing algorithm from app-crypt/argon2
 dev-lang/php:bcmath - Enable the BCMath Arbitrary Precision Mathematics extension
 dev-lang/php:capstone - Support opcache JIT disassembly through dev-libs/capstone
 dev-lang/php:cli - Enable the Command-Line Interface (CLI) SAPI
-dev-lang/php:coverage - Include gcov symbols for test coverage and lcov reports. Only useful for extension developers, and requires GCC.
 dev-lang/php:ctype - Enable the Character type checking (ctype) extension
 dev-lang/php:embed - Enable embed SAPI
 dev-lang/php:enchant - Enable the Enchant spelling library extension using app-text/enchant
@@ -3784,7 +3783,6 @@ lxqt-base/lxqt-meta:desktop-portal - Enable the LXQt sys-apps/xdg-desktop-portal
 lxqt-base/lxqt-meta:display-manager - Install a graphical display manager
 lxqt-base/lxqt-meta:filemanager - Install x11-misc/pcmanfm-qt file manager
 lxqt-base/lxqt-meta:lximage - Install media-gfx/lximage-qt image viewer
-lxqt-base/lxqt-meta:minimal - Do not install x11-wm/openbox window manager
 lxqt-base/lxqt-meta:nls - Install dev-qt/qttranslations to better support different locales
 lxqt-base/lxqt-meta:powermanagement - Install lxqt-base/lxqt-powermanagement package
 lxqt-base/lxqt-meta:processviewer - Install x11-misc/qps package
@@ -8521,7 +8519,6 @@ sys-libs/libblockdev:vdo - Enable Virtual Data Optimizer support.
 sys-libs/libcap:tools - Install captree, which requires dev-lang/go
 sys-libs/libnbd:fuse - Install the sys-fs/fuse powered nbdfuse.
 sys-libs/libnbd:go - Build bindings for dev-lang/go
-sys-libs/libnbd:uri-support - Enable nbd:// URI support via dev-libs/libxml2.
 sys-libs/libnvme:json - Support JSON output via dev-libs/json-c
 sys-libs/libnvme:keyutils - Add support for sys-apps/keyutils
 sys-libs/libnvme:uring - uring support via sys-libs/liburing
@@ -8625,7 +8622,6 @@ www-apache/mod_musicindex:archive - Add archive support
 www-apache/mod_musicindex:cache - Add File cache support
 www-apache/mod_musicindex:mysql - Add MySQL cache support
 www-apache/mod_nss:ecc - enable Elliptical Curve Cyptography
-www-apache/mod_perl:ithreads - Build for use with thread-capable perl, needs same setting as in dev-lang/perl
 www-apache/mod_security:fuzzyhash - Support fuzzy hash computations (to detect malware, for example) using the app-crypt/ssdeep package.
 www-apache/mod_security:geoip - Pull in dev-libs/geoip for use by the SecGeoLookupDb directive.
 www-apache/mod_security:jit - Add support for the PCRE Just-in-Time optimisation, as enabled by dev-libs/libpcre with jit USE flag enabled. Might not be available on hardened systems.

@@ -1,6 +1,6 @@
-BDEPEND=test? ( dev-debug/gdb dev-libs/elfutils[utils] dev-util/dejagnu ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-debug/gdb dev-libs/elfutils[utils] dev-util/dejagnu ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare test unpack
-DEPEND=dev-libs/elfutils dev-libs/xxhash
+DEPEND=dev-libs/elfutils dev-libs/xxhash elibc_musl? ( >=sys-libs/error-standalone-2.0 sys-libs/obstack-standalone )
 DESCRIPTION=DWARF optimization and duplicate removal tool
 EAPI=8
 HOMEPAGE=https://sourceware.org/dwz
@@ -8,8 +8,8 @@ INHERIT=toolchain-funcs git-r3
 IUSE=test
 LICENSE=GPL-2+ GPL-3+
 PROPERTIES=live
-RDEPEND=dev-libs/elfutils dev-libs/xxhash
+RDEPEND=dev-libs/elfutils dev-libs/xxhash elibc_musl? ( >=sys-libs/error-standalone-2.0 sys-libs/obstack-standalone )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=f1fd83eb2980070fc6c4d71d9d4cf6b0
+_md5_=a9da6b33c13be0eac8b07dd7f20c062b

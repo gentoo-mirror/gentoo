@@ -1,13 +1,15 @@
-BDEPEND=>=media-libs/libjpeg-turbo-3.0.0 app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=media-libs/libjpeg-turbo-3.0.0
 DESCRIPTION=Open source project that includes YUV scaling and conversion functionality.
 EAPI=8
 HOMEPAGE=https://chromium.googlesource.com/libyuv/libyuv
-INHERIT=cmake git-r3
+INHERIT=cmake edo git-r3
+IUSE=test
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=>=media-libs/libjpeg-turbo-3.0.0
-RESTRICT=test
+RESTRICT=!test? ( test )
 SLOT=0/9999
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=9f38fea055ec2b993cea25c639d27b02
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	edo	367e103a74bf77e6a8da7894d999fa3c	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=8a06be237e7d24379f380e2f2f643042
