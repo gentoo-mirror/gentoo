@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup unpack
 DEPEND=acct-group/bitlbee acct-user/bitlbee dev-libs/glib:2 dev-libs/json-parser:= purple? ( net-im/pidgin ) libevent? ( dev-libs/libevent:= ) otr? ( >=net-libs/libotr-4 ) gnutls? ( net-libs/gnutls:= ) !gnutls? ( nss? ( dev-libs/nss ) !nss? ( dev-libs/openssl:0= ) ) selinux? ( sec-policy/selinux-bitlbee ) test? ( dev-libs/check )
 DESCRIPTION=irc to IM gateway that support multiple IM protocols
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( purple xmpp ) purple? ( plugins ) test? ( xmpp )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	54bd206bb5c4efac6ae28b6b006713b0	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=15844d3d3930b55395bb1cb12c2e996c
+_md5_=805009c8bbdf68cd371915a8fc191fdd
