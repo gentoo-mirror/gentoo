@@ -90,6 +90,7 @@ RDEPEND="${DEPEND}
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-cpp/cli11
+	dev-cpp/expected
 	dev-cpp/ms-gsl
 	test? (
 		dev-cpp/gtest
