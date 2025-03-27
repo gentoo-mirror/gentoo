@@ -23,5 +23,7 @@ ruby_add_bdepend "test? ( dev-ruby/test-unit dev-ruby/test-unit-ruby-core )"
 
 all_ruby_prepare() {
 	sed -e 's:_relative ": "./:' \
+		-e 's/git ls-files -z/find * -print0/' \
+		-e 's/__dir__/"."/' \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 }
