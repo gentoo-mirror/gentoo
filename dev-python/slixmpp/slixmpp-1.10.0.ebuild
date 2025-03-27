@@ -11,46 +11,46 @@ CRATES="
 	icu_collections@1.5.0
 	icu_locid@1.5.0
 	icu_locid_transform@1.5.0
-	icu_locid_transform_data@1.5.0
+	icu_locid_transform_data@1.5.1
 	icu_normalizer@1.5.0
-	icu_normalizer_data@1.5.0
+	icu_normalizer_data@1.5.1
 	icu_properties@1.5.1
-	icu_properties_data@1.5.0
+	icu_properties_data@1.5.1
 	icu_provider@1.5.0
 	icu_provider_macros@1.5.0
 	idna@1.0.3
 	idna_adapter@1.2.0
-	indoc@2.0.5
+	indoc@2.0.6
 	jid@0.12.0
-	libc@0.2.170
+	libc@0.2.171
 	litemap@0.7.5
 	memchr@2.7.4
 	memoffset@0.9.1
-	once_cell@1.20.3
+	once_cell@1.21.1
 	portable-atomic@1.11.0
-	proc-macro2@1.0.93
+	proc-macro2@1.0.94
 	pyo3-build-config@0.23.5
 	pyo3-ffi@0.23.5
 	pyo3-macros-backend@0.23.5
 	pyo3-macros@0.23.5
 	pyo3@0.23.5
-	quote@1.0.38
-	serde@1.0.218
-	serde_derive@1.0.218
+	quote@1.0.40
+	serde@1.0.219
+	serde_derive@1.0.219
 	smallvec@1.14.0
 	stable_deref_trait@1.2.0
 	stringprep@0.1.5
-	syn@2.0.98
+	syn@2.0.100
 	synstructure@0.13.1
 	target-lexicon@0.12.16
 	tinystr@0.7.6
-	tinyvec@1.8.1
+	tinyvec@1.9.0
 	tinyvec_macros@0.1.1
 	unicode-bidi@0.3.18
-	unicode-ident@1.0.17
+	unicode-ident@1.0.18
 	unicode-normalization@0.1.24
 	unicode-properties@0.1.3
-	unindent@0.2.3
+	unindent@0.2.4
 	utf16_iter@1.0.5
 	utf8_iter@1.0.4
 	write16@1.0.0
