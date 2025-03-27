@@ -1,0 +1,9 @@
+DEFINED_PHASES=postinst
+DESCRIPTION=A 32-level game designed for competitive deathmatch play
+EAPI=8
+HOMEPAGE=https://freedoom.github.io
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=metapackage
+RDEPEND=~games-fps/freedm-data-0.13.0 || ( games-fps/gzdoom[nonfree(+)] games-engines/odamex games-fps/chocolate-doom games-fps/doomsday games-fps/prboom-plus )
+SLOT=0
+_md5_=b200ab2e0aaa2b6ced36f84aa0755bd9
