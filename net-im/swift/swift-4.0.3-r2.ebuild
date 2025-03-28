@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..2} luajit )
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit lua-single python-any-r1 scons-utils toolchain-funcs
 
@@ -62,6 +62,7 @@ PATCHES=(
 	"${WORKDIR}"/${PN}-4.0.3-python3-compatibility.patch
 	"${FILESDIR}"/${PN}-4.0.3-reproducible-build.patch
 	"${FILESDIR}"/${PN}-4.0.3-miniupnpc.patch
+	"${FILESDIR}"/${PN}-4.0.3-scons-4.9.0.patch
 )
 
 pkg_setup() {
