@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-python/sphinx-7.2.3 dev-python/sphinx-rtd-theme media-libs/fontconfig || ( ( dev-lang/python:3.12 >=dev-python/pyyaml-6.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/pyyaml-6.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/pyyaml-6.0[python_targets_python3_10(-)] ) )
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) >=dev-python/sphinx-7.2.3 dev-python/sphinx-rtd-theme media-libs/fontconfig || ( ( dev-lang/python:3.13 >=dev-python/pyyaml-6.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/pyyaml-6.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/pyyaml-6.0[python_targets_python3_11(-)] ) )
 DEFINED_PHASES=compile install prepare setup
 DESCRIPTION=Developer documentation generated from the Linux kernel
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=graphviz? ( >=media-gfx/graphviz-5.0.0 )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.12.19.tar.xz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=408a0a2216ed359708a2054a8a0f00f9
+_md5_=a0f7b31b6271ee8eff44759d046a9666
