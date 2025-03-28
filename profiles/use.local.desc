@@ -5075,7 +5075,6 @@ media-video/ffmpeg:cdio - Enable audio CDs reading via dev-libs/libcdio-paranoia
 media-video/ffmpeg:chromaprint - Enable audio fingerprinting support via media-libs/chromaprint
 media-video/ffmpeg:chromium - Builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi.
 media-video/ffmpeg:codec2 - Enable codec2 low bit rate speech codec support via media-libs/codec2
-media-video/ffmpeg:cpudetection - Enables runtime CPU detection (useful for bindist, compatibility on other CPUs)
 media-video/ffmpeg:cuda - Enable support for various GPU-accelerated filters using NVIDIA PTX compiled with llvm-core/clang
 media-video/ffmpeg:dav1d - Enable AV1 decoding support via media-libs/dav1d
 media-video/ffmpeg:drm - Enable use of x11-libs/libdrm for various hardware accelerated functions and Kernel Mode Setting screen capture
@@ -5084,36 +5083,25 @@ media-video/ffmpeg:flite - Enable text-to-speech filter support via app-accessib
 media-video/ffmpeg:frei0r - Enable use of filters through media-plugins/frei0r-plugins
 media-video/ffmpeg:fribidi - Enable Bidi support for the drawtext filter via dev-libs/fribidi
 media-video/ffmpeg:gcrypt - Enable using dev-libs/libgcrypt for rtmp(t)e support (not needed if using any of USE=gmp,librtmp,openssl), and for obtaining random bytes (not needed if USE=openssl)
-media-video/ffmpeg:glslang - Use dev-util/glslang to compile GLSL
 media-video/ffmpeg:gme - Enables various game music formats support via media-libs/game-music-emu
 media-video/ffmpeg:gnutls - Enable using net-libs/gnutls for TLS/HTTPS support and other minor functions (has no effect if USE=openssl is set)
 media-video/ffmpeg:gpl - Enable use of GPL licensed code, should be kept enabled unless LGPL binaries are needed
-media-video/ffmpeg:hardcoded-tables - Use pre-calculated tables rather than calculating them on the fly. It results in an increase of approximately 15% in the size of libavcodec, the main library impacted by this change. It enables savings in table generation time, done once at codec initialization, since by hardcoding the tables, they do not need to be computed at runtime. However, the savings are often negligible (~100k cycles is a typical number) especially when amortized over the entire encoding/decoding operation. Improvements are being made to the runtime initialization, and so over time, this option will have an impact on fewer and fewer codecs.
 media-video/ffmpeg:iec61883 - Enable FireWire DV/HDV input device support via media-libs/libiec61883
 media-video/ffmpeg:kvazaar - Enable H.265/HEVC encoding support via media-libs/kvazaar
 media-video/ffmpeg:lcms - Enable ICC profile support via media-libs/lcms
 media-video/ffmpeg:libaom - Enable AV1 de/encoding via media-libs/libaom (warning: this is the reference implementation and is slower than the alternatives)
 media-video/ffmpeg:libaribb24 - Enable ARIB text and caption decoding via media-libs/aribb24
-media-video/ffmpeg:libdrm - Enables x11-libs/libdrm support for better screen grabbing and hardware accelerated codecs.
 media-video/ffmpeg:libilbc - Enable internet Low Bitrate Codec de/encoding support via media-libs/libilbc
 media-video/ffmpeg:liblc3 - Enable Low Complexity Communication Codec de/encoding support via media-sound/liblc3
 media-video/ffmpeg:libplacebo - Enable use of GPU-accelerated filters from media-libs/libplacebo
 media-video/ffmpeg:librtmp - Enable Real Time Messaging Protocol support via media-video/rtmpdump in addition to FFmpeg's own implementation
 media-video/ffmpeg:libsoxr - Enable use of the audio resampler from media-libs/soxr
 media-video/ffmpeg:libtesseract - Enable Optical Character Recognition (OCR) filter support via app-text/tesseract
-media-video/ffmpeg:libv4l - Uses media-libs/libv4l for video4linux instead of direct calls. Adds support for more devices via the userspace library.
-media-video/ffmpeg:libxml2 - Uses dev-libs/libxml2 to enable dash demuxing support.
 media-video/ffmpeg:lv2 - Enable use of filters through media-libs/lv2
-media-video/ffmpeg:mipsdspr1 - Enables MIPS DSP ASE R1 optimizations.
-media-video/ffmpeg:mipsdspr2 - Enables MIPS DSP ASE R2 optimizations.
-media-video/ffmpeg:mipsfpu - Enables floating point MIPS optimizations.
-media-video/ffmpeg:mmal - Enables Multi-Media Abstraction Layer (MMAL) decoding support: Available e.g. on the Raspberry Pi.
-media-video/ffmpeg:network - Enables network streaming support
 media-video/ffmpeg:npp - Enable Nvidia Performance Primitives-based filters via dev-util/nvidia-cuda-toolkit (warning: if USE=gpl is enabled, this produces non-redistributable build)
 media-video/ffmpeg:openh264 - Enable H.264 encoding support via media-libs/openh264
 media-video/ffmpeg:openmpt - Enable MPTM tracked music files decoding support via media-libs/libopenmpt
 media-video/ffmpeg:openssl - Enable using dev-libs/openssl for TLS/HTTPS support and other minor functions (USE=gnutls has no effect if set)
-media-video/ffmpeg:pic - Force shared libraries to be built as PIC (this is safer)
 media-video/ffmpeg:postproc - Enable libpostproc video post processing library support (should not disable this unless need to disable USE=gpl)
 media-video/ffmpeg:qrcode - Enable QR encode generation support via media-gfx/qrencode
 media-video/ffmpeg:qsv - Enable Intel Quick Sync Video support via media-libs/libvpl
