@@ -5,7 +5,7 @@
     <synopsis>Multiple vulnerabilities have been discovered in Chromium and its derivatives, the worst of which can lead to remote code execution.</synopsis>
     <product type="ebuild">chromium,google-chrome,microsoft-edge,microsoft-edge,opera</product>
     <announced>2024-12-07</announced>
-    <revised count="1">2024-12-07</revised>
+    <revised count="2">2025-03-28</revised>
     <bug>924450</bug>
     <bug>925161</bug>
     <bug>925666</bug>
@@ -21,7 +21,7 @@
     <bug>931548</bug>
     <access>remote</access>
     <affected>
-        <package name="ww-client/microsoft-edge" auto="yes" arch="*">
+        <package name="www-client/microsoft-edge" auto="yes" arch="*">
             <unaffected range="ge">124.0.2478.97</unaffected>
         </package>
         <package name="www-client/chromium" auto="yes" arch="*">
