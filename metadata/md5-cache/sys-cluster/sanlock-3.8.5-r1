@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/which virtual/pkgconfig
+DEFINED_PHASES=compile install setup
+DEPEND=dev-libs/libaio sys-apps/util-linux python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
+DESCRIPTION=shared storage lock manager
+EAPI=8
+HOMEPAGE=https://pagure.io/sanlock
+INHERIT=flag-o-matic linux-info python-r1 systemd
+IUSE=python python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=LGPL-2+ GPL-2 GPL-2+
+RDEPEND=acct-user/sanlock acct-group/sanlock dev-libs/libaio sys-apps/util-linux python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) )
+SLOT=0
+SRC_URI=https://releases.pagure.org/sanlock/sanlock-3.8.5.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=7d743f7f694abd211842b1e0f203140c
