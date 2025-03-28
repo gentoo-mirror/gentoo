@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 PLOCALES="ca de es fr ja ko pt_BR ru sv tr uk"
 PLOCALES_BIN="${PLOCALES} bg cs eu fi hu id it ka nb nl pl pt tg zh_TW zh_CN"
 PLOCALE_BACKUP="sv"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit autotools linux-info multilib-minimal optfeature plocale \
 	python-single-r1 pam systemd toolchain-funcs
@@ -24,10 +24,8 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="acl doc +netlink nfsv4 nls +man python samba selinux subid sudo systemd systemtap test"
-REQUIRED_USE="
-	python? ( ${PYTHON_REQUIRED_USE} )
-	test? ( sudo )"
+IUSE="acl doc +netlink nfsv4 nls passkey python samba selinux systemd systemtap test"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -55,6 +53,7 @@ DEPEND="
 	netlink? ( dev-libs/libnl:3 )
 	nfsv4? ( >=net-fs/nfs-utils-2.3.1-r2 )
 	nls? ( >=sys-devel/gettext-0.18 )
+	passkey? ( dev-libs/libfido2:= )
 	python? (
 		${PYTHON_DEPS}
 		systemd? (
@@ -68,24 +67,24 @@ DEPEND="
 		>=sys-libs/libselinux-2.1.9
 		>=sys-libs/libsemanage-2.1
 	)
-	subid? ( >=sys-apps/shadow-4.9 )
 	systemd? (
 		sys-apps/systemd:=
 		sys-apps/util-linux
 	)
 	systemtap? ( dev-debug/systemtap )"
 RDEPEND="${DEPEND}
+	passkey? ( sys-apps/pcsc-lite[policykit] )
 	selinux? ( >=sec-policy/selinux-sssd-2.20120725-r9 )"
+DEPEND+="
+	sys-apps/shadow"
 BDEPEND="
 	virtual/pkgconfig
+	app-text/docbook-xml-dtd:4.4
+	>=dev-libs/libxslt-1.1.26
 	${PYTHON_DEPS}
 	doc? ( app-text/doxygen )
-	man? (
-		app-text/docbook-xml-dtd:4.4
-		>=dev-libs/libxslt-1.1.26
-		nls? ( app-text/po4a )
-	)
-	nls? ( sys-devel/gettext )
+	nls? ( sys-devel/gettext
+	       app-text/po4a )
 	test? (
 		dev-libs/check
 		dev-libs/softhsm:2
@@ -102,7 +101,7 @@ CONFIG_CHECK="~KEYS"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.8.2-krb5_pw_locked.patch"
-	"${FILESDIR}/${PN}-2.9.1-conditional-python-install.patch"
+	"${FILESDIR}/${PN}-2.9.6-conditional-python-install.patch"
 )
 
 MULTILIB_WRAPPED_HEADERS=(
@@ -181,7 +180,7 @@ multilib_src_configure() {
 		--sbindir="${EPREFIX}"/usr/sbin
 		--with-pid-path="${EPREFIX}"/run
 		--with-plugin-path="${EPREFIX}"/usr/$(get_libdir)/sssd
-		--enable-pammoddir="${EPREFIX}"/$(getpam_mod_dir)
+		--enable-pammoddir="${EPREFIX}$(getpam_mod_dir)"
 		--with-ldb-lib-dir="${EPREFIX}"/usr/$(get_libdir)/samba/ldb
 		--with-db-path="${EPREFIX}"/var/lib/sss/db
 		--with-gpo-cache-path="${EPREFIX}"/var/lib/sss/gpo_cache
@@ -207,13 +206,13 @@ multilib_src_configure() {
 		$(multilib_native_use_with nfsv4 nfsv4-idmapd-plugin)
 		$(use_enable nls)
 		$(multilib_native_use_with netlink libnl)
-		$(multilib_native_use_with man manpages)
-		$(multilib_native_use_with sudo)
+		--with-manpages
+		--with-sudo
 		$(multilib_native_with autofs)
 		$(multilib_native_with ssh)
 		--without-oidc-child
-		--without-passkey
-		$(use_with subid)
+		$(multilib_native_with passkey)
+		--with-subid
 		$(use_enable systemtap)
 		--without-python2-bindings
 		$(multilib_native_use_with python python3-bindings)
@@ -331,5 +330,11 @@ pkg_postinst() {
 	elog "You must set up sssd.conf (default installed into /etc/sssd)"
 	elog "and (optionally) configuration in /etc/pam.d in order to use SSSD"
 	elog "features."
+	echo
 	optfeature "Kerberos keytab renew (see krb5_renew_interval)" app-crypt/adcli
+
+	if ! use python; then
+		echo
+		ewarn "sssctl analyze will not work because the python USE flag is disabled."
+	fi
 }
