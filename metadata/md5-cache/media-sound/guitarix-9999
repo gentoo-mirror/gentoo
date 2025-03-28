@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12[threads(+)] dev-lang/python:3.11[threads(+)] dev-lang/python:3.10[threads(+)] ) virtual/pkgconfig standalone? ( dev-lang/sassc nls? ( dev-util/intltool sys-devel/gettext ) ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.13[threads(+)] dev-lang/python:3.12[threads(+)] dev-lang/python:3.11[threads(+)] dev-lang/python:3.10[threads(+)] ) virtual/pkgconfig standalone? ( dev-lang/sassc nls? ( dev-util/intltool sys-devel/gettext ) ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst setup unpack
 DEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler net-misc/curl sci-libs/fftw:3.0= x11-libs/gtk+:3 lv2? ( media-libs/lv2 ) standalone? ( dev-libs/boost:= media-libs/liblrdf media-libs/lilv virtual/jack bluetooth? ( net-wireless/bluez ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) )
 DESCRIPTION=Virtual guitar amplifier for Linux
@@ -13,4 +13,4 @@ RDEPEND=dev-cpp/eigen:3 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 media
 REQUIRED_USE=|| ( lv2 standalone )
 SLOT=0
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	waf-utils	1d6e4c1706086040b1ebd9e6aa170341	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=1334352cddd07d3f1a4a67b9a98a261f
+_md5_=b3f7c195bd28cfdd426929295916038e
