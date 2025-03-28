@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ SRC_URI="https://linuxcontainers.org/downloads/incus/${P}.tar.xz
 LICENSE="Apache-2.0 BSD LGPL-3 MIT"
 SLOT="0/lts"
 KEYWORDS="amd64 ~arm64"
-IUSE="apparmor fuidshift nls"
+IUSE="apparmor fuidshift nls qemu"
 
 DEPEND="acct-group/incus
 	acct-group/incus-admin
@@ -28,19 +28,27 @@ DEPEND="acct-group/incus
 	sys-libs/libcap
 	virtual/udev"
 RDEPEND="${DEPEND}
+	|| (
+		net-firewall/iptables
+		net-firewall/nftables
+	)
 	fuidshift? ( !app-containers/lxd )
-	net-firewall/ebtables
-	net-firewall/iptables
 	sys-apps/iproute2
 	sys-fs/fuse:*
 	>=sys-fs/lxcfs-5.0.0
 	sys-fs/squashfs-tools[lzma]
-	virtual/acl"
+	virtual/acl
+	qemu? (
+		app-cdr/cdrtools
+		app-emulation/qemu[spice,usbredir,virtfs]
+		sys-apps/gptfdisk
+	)"
 BDEPEND=">=dev-lang/go-1.21
 	nls? ( sys-devel/gettext )
 	verify-sig? ( sec-keys/openpgp-keys-linuxcontainers )"
 
 CONFIG_CHECK="
+	~AIO
 	~CGROUPS
 	~IPC_NS
 	~NET_NS
@@ -55,6 +63,7 @@ CONFIG_CHECK="
 	~VHOST_VSOCK
 "
 
+ERROR_AIO="CONFIG_AIO is required."
 ERROR_IPC_NS="CONFIG_IPC_NS is required."
 ERROR_NET_NS="CONFIG_NET_NS is required."
 ERROR_PID_NS="CONFIG_PID_NS is required."
@@ -195,6 +204,11 @@ src_install() {
 	dodoc AUTHORS
 	dodoc -r doc/*
 	use nls && domo po/*.mo
+
+	# Incus needs INCUS_EDK2_PATH in env to find OVMF files for virtual machines, #946184
+	newenvd - 90incus <<- _EOF_
+		INCUS_EDK2_PATH=${EPREFIX}/usr/share/edk2-ovmf
+	_EOF_
 }
 
 pkg_postinst() {
@@ -203,7 +217,6 @@ pkg_postinst() {
 	elog "  https://wiki.gentoo.org/wiki/Incus"
 	elog "  https://wiki.gentoo.org/wiki/Incus#Migrating_from_LXD"
 	elog
-	optfeature "virtual machine support" app-cdr/cdrtools app-emulation/qemu[spice,usbredir,virtfs]
 	optfeature "btrfs storage backend" sys-fs/btrfs-progs
 	optfeature "ipv6 support" net-dns/dnsmasq[ipv6]
 	optfeature "full incus-migrate support" net-misc/rsync
