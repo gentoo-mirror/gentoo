@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] dev-python/sphinx sys-apps/texinfo ) test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) >=app-portage/elt-patches-20250306 sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=dev-libs/elfutils dev-libs/libxml2:2 dev-libs/xxhash btf? ( dev-libs/libbpf:= ) elibc_musl? ( sys-libs/fts-standalone )
+DEPEND=app-arch/xz-utils dev-libs/elfutils dev-libs/libxml2:2 dev-libs/xxhash btf? ( dev-libs/libbpf:= ) elibc_musl? ( sys-libs/fts-standalone )
 DESCRIPTION=Suite of tools for checking ABI differences between ELF objects
 EAPI=8
 HOMEPAGE=https://sourceware.org/libabigail/
@@ -8,8 +8,8 @@ INHERIT=libtool bash-completion-r1 python-any-r1 out-of-source autotools git-r3
 IUSE=btf debug +doc test
 LICENSE=Apache-2.0-with-LLVM-exceptions
 PROPERTIES=live
-RDEPEND=dev-libs/elfutils dev-libs/libxml2:2 dev-libs/xxhash btf? ( dev-libs/libbpf:= ) elibc_musl? ( sys-libs/fts-standalone )
+RDEPEND=app-arch/xz-utils dev-libs/elfutils dev-libs/libxml2:2 dev-libs/xxhash btf? ( dev-libs/libbpf:= ) elibc_musl? ( sys-libs/fts-standalone )
 RESTRICT=!test? ( test )
 SLOT=0/5
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	c81bd096be5f4c82f4e8f156ef112402	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	out-of-source	15ce2b6ae214f3abe70892ce1e517abd	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=605f83143fdd69e286b2b582a8701bb0
+_md5_=6ba2276e3f07f526a9666a294676cc6d
