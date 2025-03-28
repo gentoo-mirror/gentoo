@@ -150,6 +150,12 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.48.1-macos-no-fsmonitor.patch
 	"${FILESDIR}"/${PN}-2.49.0-meson-use-test_environment-conditionally.patch
+	"${FILESDIR}"/${PN}-2.49.0-docs.patch
+
+	# This patch isn't merged upstream but is kept in the ebuild by
+	# demand from developers. It's opt-in (needs a config option)
+	# and the documentation mentions that it is a Gentoo addition.
+	"${FILESDIR}"/${PN}-2.49.0-diff-implement-config.diff.renames-copies-harder.patch
 )
 
 pkg_setup() {
@@ -256,7 +262,9 @@ src_configure() {
 		# otherwise.
 		#
 		# Fixes https://bugs.gentoo.org/952004
-		sed -i "s/subdir('coccinelle')/# subdir('coccinelle')/" "${WORKDIR}/git-${PV}/contrib/meson.build" || die
+		emesonargs+=(
+			-Dcoccinelle=disabled
+		)
 	fi
 
 	meson_src_configure
