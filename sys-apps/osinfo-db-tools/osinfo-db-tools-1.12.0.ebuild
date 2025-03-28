@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit meson python-any-r1
 
@@ -37,12 +37,6 @@ BDEPEND="
 		')
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.10.0-no-clobber-fortify-source.patch
-	"${FILESDIR}"/${PN}-1.11.0-Make-xmlError-structs-constant.patch
-	"${FILESDIR}"/${PN}-1.11.0-osinfo-db-validate-Add-more-libxml-includes.patch
-)
 
 python_check_deps() {
 	python_has_version "dev-python/pytest[${PYTHON_USEDEP}]" && \

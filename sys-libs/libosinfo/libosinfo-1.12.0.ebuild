@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,11 @@ SRC_URI="https://releases.pagure.org/libosinfo/${P}.tar.xz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="gtk-doc +introspection +vala test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="vala? ( introspection )"
-
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv ~sparc x86"
 
 # Unsure about osinfo-db-tools rdep, but at least fedora does it too
 RDEPEND="
@@ -43,11 +42,6 @@ BDEPEND="
 	vala? ( $(vala_depend) )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PV}-build-Add-option-to-disable-libsoup3.patch
-	"${FILESDIR}"/1.11.0-osinfo-Make-xmlError-struct-constant-in-propagate_li.patch
-)
-
 src_prepare() {
 	default
 	use vala && vala_setup
@@ -60,7 +54,7 @@ src_configure() {
 		$(meson_feature introspection enable-introspection)
 		$(meson_use test enable-tests)
 		$(meson_feature vala enable-vala)
-		-Dlibsoup3=enabled
+		-Dlibsoup-abi=3.0
 		-Dwith-pci-ids-path="${EPREFIX}"/usr/share/hwdata/pci.ids
 		-Dwith-usb-ids-path="${EPREFIX}"/usr/share/hwdata/usb.ids
 	)

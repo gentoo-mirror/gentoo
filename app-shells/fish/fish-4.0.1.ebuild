@@ -10,7 +10,7 @@ declare -A GIT_CRATES=(
 	[pcre2]='https://github.com/fish-shell/rust-pcre2;85b7afba1a9d9bd445779800e5bcafeb732e4421;rust-pcre2-%commit%'
 )
 
-inherit cargo cmake multiprocessing readme.gentoo-r1 xdg
+inherit cargo cmake readme.gentoo-r1 xdg
 
 DESCRIPTION="Friendly Interactive SHell"
 HOMEPAGE="https://fishshell.com/"
@@ -46,6 +46,10 @@ BDEPEND="
 # Release tarballs contain prebuilt documentation.
 [[ ${PV} == 9999 ]] && BDEPEND+=" doc? ( dev-python/sphinx )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-4.0.1-use-cargo-eclass-for-build.patch"
+)
+
 QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_unpack() {
@@ -60,7 +64,6 @@ src_unpack() {
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}/etc"
-		-DCTEST_PARALLEL_LEVEL="$(makeopts_jobs)"
 		-DINSTALL_DOCS="$(usex doc)"
 	)
 	cargo_src_configure --no-default-features \
@@ -87,20 +90,10 @@ src_compile() {
 	fi
 
 	cargo_src_compile
-
-	# Copy built binaries into the cmake build directory to mark the targets
-	# up-to-date in cmake.
-	for target in fish fish_indent fish_key_reader; do
-		cp "$(cargo_target_dir)/${target}" "${BUILD_DIR}" || die
-	done
-
-	cmake_src_compile
 }
 
 src_test() {
 	local -x CARGO_TERM_COLOR=always
-	local -x FISH_SOURCE_DIR="${S}"
-	local -x FISH_FORCE_COLOR=1
 	local -x TEST_VERBOSE=1
 	cargo_env cmake_src_test -R cargo-test
 }
