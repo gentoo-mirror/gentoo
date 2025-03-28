@@ -1,10 +1,10 @@
-# Copyright 2018-2024 Gentoo Authors
+# Copyright 2018-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit bash-completion-r1 distutils-r1
 
@@ -13,9 +13,11 @@ DESCRIPTION="Multi-container orchestration for Docker"
 HOMEPAGE="https://github.com/docker/compose"
 SRC_URI="https://github.com/docker/compose/archive/${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
 
+S="${WORKDIR}/compose-${MY_PV}"
+
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	>=dev-python/distro-1.5.0[${PYTHON_USEDEP}]
@@ -39,8 +41,6 @@ DEPEND="${RDEPEND}
 		dev-python/py[${PYTHON_USEDEP}]
 	)"
 
-S="${WORKDIR}/compose-${MY_PV}"
-
 EPYTEST_DESELECT=(
 	# These are not ready for >=dev-python/docker-7
 	tests/unit/cli/docker_client_test.py::TLSConfigTestCase::
@@ -55,6 +55,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-tests-unit-cli-test-py.patch
 	# Bug #920631 -- https://bugs.gentoo.org/920631
 	"${FILESDIR}"/${P}-docker-7.patch
+	"${FILESDIR}"/${P}-python-3.13.patch
 )
 
 DOCS=( CHANGELOG.md README.md )
