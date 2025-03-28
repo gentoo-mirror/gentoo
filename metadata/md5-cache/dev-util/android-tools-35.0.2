@@ -5,12 +5,12 @@ DESCRIPTION=Android platform tools (adb, fastboot, and mkbootimg)
 EAPI=8
 HOMEPAGE=https://github.com/nmeum/android-tools/ https://developer.android.com/
 INHERIT=cmake flag-o-matic python-r1
-IUSE=python udev python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=python udev python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=Apache-2.0 BSD-2
-RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= >=dev-libs/libusb-1.0.28 dev-libs/libfmt:= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
+RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= >=dev-libs/libusb-1.0.28 dev-libs/libfmt:= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) )
 SLOT=0
 SRC_URI=https://github.com/nmeum/android-tools/releases/download/35.0.2/android-tools-35.0.2.tar.xz https://dev.gentoo.org/~zmedico/dist/android-tools-31.0.3-no-gtest.patch
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de
-_md5_=9b0e9f62ee07d4c3375eb6a40ff460c2
+_md5_=1e9d90946648dc28db3e2effa31dd1f6

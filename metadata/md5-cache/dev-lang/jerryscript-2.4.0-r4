@@ -1,16 +1,16 @@
-BDEPEND=debugger? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=debugger? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Ultra-lightweight JavaScript engine for the Internet of Things
 EAPI=8
 HOMEPAGE=https://github.com/jerryscript-project/jerryscript
 INHERIT=cmake python-single-r1
-IUSE=debugger python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=debugger python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=debugger? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) )
-REQUIRED_USE=debugger? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 ) )
+RDEPEND=debugger? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=debugger? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/jerryscript-project/jerryscript/archive/refs/tags/v2.4.0.tar.gz -> jerryscript-2.4.0.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	357f1a896fbedcd06e5ce55419c49eb9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=368c0ac7bf9e76ccc6ca44345671edb9
+_md5_=ab13f959543f23be2b894b0a30740092
