@@ -1,15 +1,15 @@
-BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DESCRIPTION=A GUI for f.lux
 EAPI=8
 HOMEPAGE=https://github.com/xflux-gui/fluxgui/
 INHERIT=distutils-r1 gnome2-utils
-IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=-* ~amd64 ~x86
 LICENSE=MIT
-RDEPEND=dev-libs/libayatana-appindicator dev-python/pexpect[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pygobject[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pyxdg[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/libXxf86vm x11-misc/xflux python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=dev-libs/libayatana-appindicator dev-python/pexpect[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pygobject[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pyxdg[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] x11-libs/libXxf86vm x11-misc/xflux python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 SLOT=0
 SRC_URI=https://github.com/xflux-gui/fluxgui/archive/refs/tags/v2.0.tar.gz -> xflux-gui-2.0.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88
-_md5_=63128cf3c9370a953943fccc843bd032
+_md5_=597e2b316c48fce40142ead527a7cd29

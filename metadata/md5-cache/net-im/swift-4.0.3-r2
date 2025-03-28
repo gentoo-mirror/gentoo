@@ -1,4 +1,4 @@
-BDEPEND=|| ( ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-build/scons-4.4.0[python_targets_python3_10(-)] ) )
+BDEPEND=|| ( ( dev-lang/python:3.13 >=dev-build/scons-4.4.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-build/scons-4.4.0[python_targets_python3_10(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-db/sqlite:3 dev-libs/boost:= dev-libs/openssl:0= net-libs/libnatpmp net-libs/miniupnpc:= sys-libs/zlib expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2 ) icu? ( dev-libs/icu:= ) idn? ( net-dns/libidn:= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) >=dev-build/scons-3.0.1-r3 test? ( net-dns/avahi )
 DESCRIPTION=An elegant, secure, adaptable and intuitive XMPP Client
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=4/0
 SRC_URI=https://swift.im/git/swift/snapshot/swift-swift-4.0.3.tar.bz2 -> swift-4.0.3.tar.bz2 https://dev.gentoo.org/~conikost/distfiles/patches/swift-4.0.3-python3-compatibility.patch.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	scons-utils	87365f855ad8a7c4572ad0f0adcb8eee
-_md5_=034436993148352c59b7fc92325c8f4a
+_md5_=e2d08ab661e7a50afec8ad9efcece7fa
