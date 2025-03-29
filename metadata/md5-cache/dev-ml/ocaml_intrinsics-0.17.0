@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/ocaml-4.12 >=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
+BDEPEND=>=dev-lang/ocaml-5 >=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/dune-configurator:=[ocamlopt?] dev-ml/ocaml_intrinsics_kernel:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Invoke amd64 instructions (such as clz, popcnt, rdtsc, rdpmc)
@@ -6,11 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/janestreet/ocaml_intrinsics/
 INHERIT=dune
 IUSE=+ocamlopt
-KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
+KEYWORDS=~amd64 ~arm64 ~ppc64
 LICENSE=MIT
 RDEPEND=dev-ml/dune-configurator:=[ocamlopt?] dev-ml/ocaml_intrinsics_kernel:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
-RESTRICT=test
 SLOT=0/0.17
 SRC_URI=https://github.com/janestreet/ocaml_intrinsics/archive/v0.17.0.tar.gz -> ocaml_intrinsics-0.17.0.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=894669c88cb8d12f7a0a0e7b969d5821
+_md5_=2273eea3b59bf002ce1c7384f048be0c
