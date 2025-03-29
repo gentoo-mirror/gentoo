@@ -12,8 +12,8 @@ PYTHON_COMPAT=( python3_{10..13} )
 inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
 CEF_VERSION="cef_binary_6533_linux"
-OBS_BROWSER_COMMIT="16ff0faef223959f6ab9dbfd4e8c6c1622a7991b"
-OBS_WEBSOCKET_COMMIT="63e04d20daf84391955580579e6576dfb373fa7f"
+OBS_BROWSER_COMMIT="b56fd78936761891475458447c1cc9058bb9c2d4"
+OBS_WEBSOCKET_COMMIT="c542622d7b6d41ce5875f54efdab1d4ac2967ef4"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
 HOMEPAGE="https://obsproject.com"
@@ -61,6 +61,8 @@ BDEPEND="
 	python? ( dev-lang/swig )
 "
 # media-video/ffmpeg[opus] required due to bug 909566
+# The websocket plug-in fails to build with 'dev-cpp/asio-1.34.0':
+#   https://github.com/obsproject/obs-websocket/issues/1291
 DEPEND="
 	dev-cpp/nlohmann_json
 	dev-libs/glib:2
@@ -141,7 +143,7 @@ DEPEND="
 		x11-libs/libxkbcommon
 	)
 	websocket? (
-		dev-cpp/asio
+		<dev-cpp/asio-1.34.0
 		dev-cpp/websocketpp
 		dev-libs/qr-code-generator
 	)
