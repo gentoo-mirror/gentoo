@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]] ; then
 
 	REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 else
-	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/waynedavison.asc
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/andrewtridgell.asc
 	inherit verify-sig
 
 	if [[ -n ${RSYNC_NEEDS_AUTOCONF} ]] ; then
@@ -27,7 +27,7 @@ else
 		SRC_DIR="src-previews"
 	else
 		SRC_DIR="src"
-		KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 	fi
 
 	SRC_URI="https://rsync.samba.org/ftp/rsync/${SRC_DIR}/${P/_/}.tar.gz
@@ -42,7 +42,7 @@ REQUIRED_USE+=" examples? ( ${PYTHON_REQUIRED_USE} )"
 REQUIRED_USE+=" rrsync? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
-	>=dev-libs/popt-1.5
+	>=dev-libs/popt-1.19
 	acl? ( virtual/acl )
 	examples? (
 		${PYTHON_DEPS}
@@ -73,8 +73,12 @@ if [[ ${PV} == *9999 ]] ; then
 			dev-python/commonmark[${PYTHON_USEDEP}]
 		')"
 else
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-waynedavison )"
+	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-andrewtridgell )"
 fi
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.4.1-c23.patch
+)
 
 pkg_setup() {
 	# - USE=examples needs Python itself at runtime, but nothing else
@@ -108,9 +112,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# Should be fixed upstream in next release (>3.3.0) (bug #943745)
-	append-cflags $(test-flags-CC -std=gnu17)
-
 	local myeconfargs=(
 		--with-rsyncd-conf="${EPREFIX}"/etc/rsyncd.conf
 		--without-included-popt
