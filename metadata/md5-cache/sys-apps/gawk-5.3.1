@@ -4,12 +4,12 @@ DEPEND=mpfr? ( dev-libs/gmp:= dev-libs/mpfr:= ) readline? ( sys-libs/readline:= 
 DESCRIPTION=GNU awk pattern-matching language
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/gawk/gawk.html
-INHERIT=verify-sig
+INHERIT=verify-sig flag-o-matic
 IUSE=mpfr pma nls readline verify-sig
 KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 RDEPEND=mpfr? ( dev-libs/gmp:= dev-libs/mpfr:= ) readline? ( sys-libs/readline:= )
 SLOT=0
 SRC_URI=mirror://gnu/gawk/gawk-5.3.1.tar.xz verify-sig? ( mirror://gnu/gawk/gawk-5.3.1.tar.xz.sig )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=6a94117da1e15d132fc3e7a23789a3e1
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72
+_md5_=14caf03c243a8196bacb55ba8870b9b0
