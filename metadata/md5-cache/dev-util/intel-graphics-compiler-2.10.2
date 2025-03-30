@@ -1,6 +1,6 @@
 BDEPEND=|| ( ( dev-lang/python:3.13 dev-python/mako[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/mako[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/mako[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/mako[python_targets_python3_10(-)] ) ) || ( ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/pyyaml[python_targets_python3_10(-)] ) ) llvm_slot_15? ( llvm-core/lld:15 ) || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/opencl-clang:15[llvm_slot_15(-)?] dev-util/spirv-tools llvm_slot_15? ( llvm-core/lld:15 llvm-core/llvm:15 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.22.0[llvm_slot_15(-)?] dev-util/spirv-llvm-translator:15= )
+DEPEND=dev-libs/opencl-clang:15[llvm_slot_15(-)?] dev-util/spirv-tools llvm_slot_15? ( llvm-core/lld:15 llvm-core/llvm:15 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.22.1[llvm_slot_15(-)?] dev-util/spirv-llvm-translator:15= )
 DESCRIPTION=LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
 EAPI=8
 HOMEPAGE=https://github.com/intel/intel-graphics-compiler
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic llvm-r1 python-any-r1
 IUSE=debug vc +llvm_slot_15
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-libs/opencl-clang:15[llvm_slot_15(-)?] dev-util/spirv-tools llvm_slot_15? ( llvm-core/lld:15 llvm-core/llvm:15 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.22.0[llvm_slot_15(-)?] dev-util/spirv-llvm-translator:15= )
+RDEPEND=dev-libs/opencl-clang:15[llvm_slot_15(-)?] dev-util/spirv-tools llvm_slot_15? ( llvm-core/lld:15 llvm-core/llvm:15 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.22.1[llvm_slot_15(-)?] dev-util/spirv-llvm-translator:15= )
 REQUIRED_USE=^^ ( llvm_slot_15 )
-SLOT=0/2.5.0
-SRC_URI=https://github.com/intel/intel-graphics-compiler/archive/refs/tags/v2.9.0.tar.gz -> intel-graphics-compiler-2.9.0.tar.gz
+SLOT=0/2.10.2
+SRC_URI=https://github.com/intel/intel-graphics-compiler/archive/refs/tags/v2.10.2.tar.gz -> intel-graphics-compiler-2.10.2.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=7a90ea89dd65ac33f93bd85f721d5366
+_md5_=1d181c4ba6c0562b724b7e7bc3cf90c5
