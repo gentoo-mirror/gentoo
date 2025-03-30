@@ -4,27 +4,23 @@
 EAPI=8
 
 MY_P="swipl-${PV}"
-PATCHSET_VER="0"
-
 inherit cmake desktop flag-o-matic java-pkg-opt-2 toolchain-funcs xdg
 
 DESCRIPTION="Versatile implementation of the Prolog programming language"
 HOMEPAGE="https://www.swi-prolog.org/"
 
-if [[ "${PV}" == *9999* ]] ; then
+if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/SWI-Prolog/swipl-devel.git"
 else
 	SRC_URI="https://www.swi-prolog.org/download/devel/src/${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
-
 	KEYWORDS="amd64 ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos"
 fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="X archive berkdb +cli debug doc +gmp gui +ipc java minimal odbc pcre pgo qt6 ssl test yaml"
+IUSE="X archive berkdb +cli debug doc +gmp gui +ipc java minimal odbc pcre pgo ssl test yaml"
 RESTRICT="!test? ( test )"
 
 # See cmake/PackageSelection.cmake and cmake/DocDepends.cmake
@@ -56,13 +52,7 @@ COMMON_DEPEND="
 		sys-libs/readline:=
 	)
 	gmp? ( dev-libs/gmp:0= )
-	gui? (
-		!qt6? (
-			dev-qt/qtgui:5
-			dev-qt/qtwidgets:5
-		)
-		qt6? ( dev-qt/qtbase:6[gui,widgets] )
-	)
+	gui? ( dev-qt/qtbase:6[gui,widgets] )
 	!minimal? ( dev-libs/ossp-uuid )
 	odbc? ( dev-db/unixODBC )
 	pcre? ( dev-libs/libpcre )
@@ -133,6 +123,7 @@ src_configure() {
 		-DSWIPL_PACKAGES_JAVA=$(usex java)
 		-DSWIPL_PACKAGES_ODBC=$(usex odbc)
 		-DSWIPL_PACKAGES_PCRE=$(usex pcre)
+		-DSWIPL_PACKAGES_QT=$(usex gui)
 		-DSWIPL_PACKAGES_SSL=$(usex ssl)
 		-DSWIPL_PACKAGES_TERM=$(usex cli)
 		-DSWIPL_PACKAGES_TIPC=$(usex ipc)
@@ -141,15 +132,6 @@ src_configure() {
 		-DUSE_GMP=$(usex gmp)
 		-DUSE_TCMALLOC=OFF
 	)
-
-	if use gui; then
-		mycmakeargs+=(
-			-DSWIPL_PACKAGES_QT=yes
-			$(cmake_use_find_package qt6 Qt6)
-		)
-	else
-		mycmakeargs+=( -DSWIPL_PACKAGES_QT=no )
-	fi
 
 	if use test && use java; then
 		mycmakeargs+=( -DJUNIT_JAR="${ESYSROOT}"/usr/share/junit-4/lib/junit.jar )
