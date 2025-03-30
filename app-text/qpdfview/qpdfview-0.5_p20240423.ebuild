@@ -4,12 +4,13 @@
 EAPI=8
 
 PLOCALES="af ast az be ber bg bs ca cs da de el en_AU en_GB eo es eu fa fi fr gl he hi hr hu id it ja kk ko ku ky lt lv ms my nb nds oc pl pt pt_BR ro ru rue sk sr sv th tr ug uk uz vi zgh zh_CN zh_TW"
+PRE_EXISTING_TARNAME="${PN}-0.5_p2" # TODO: drop on next bump
+REVISION=2162
 inherit plocale qmake-utils xdg
 
-DESCRIPTION="A tabbed document viewer"
+DESCRIPTION="Tabbed document viewer"
 HOMEPAGE="https://launchpad.net/qpdfview"
-REVISION=2162
-SRC_URI="https://bazaar.launchpad.net/~adamreichold/${PN}/trunk/tarball/${REVISION} -> ${PN}-${PV}.tar.gz"
+SRC_URI="https://bazaar.launchpad.net/~adamreichold/${PN}/trunk/tarball/${REVISION} -> ${PRE_EXISTING_TARNAME}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -23,16 +24,12 @@ BDEPEND="
 	virtual/pkgconfig
 "
 RDEPEND="
+	dev-qt/qtbase:6[concurrent,dbus?,gui,widgets]
 	cups? ( net-print/cups )
 	djvu? ( app-text/djvu )
 	fitz? ( >=app-text/mupdf-1.7:= )
+	pdf? ( app-text/poppler[qt6] )
 	postscript? ( app-text/libspectre )
-	dev-qt/qtbase:6[gui,widgets,concurrent]
-	dbus? ( dev-qt/qttools:6[qdbus] )
-	pdf? (
-		app-text/poppler[qt6]
-		dev-qt/qtbase:6[xml]
-	)
 	sqlite? ( dev-qt/qtbase:6[sql,sqlite] )
 	svg? ( dev-qt/qtsvg:6 )
 	!svg? ( virtual/freedesktop-icon-theme )
@@ -72,17 +69,18 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconfig=() i=
+	local myconfig=() i
 	for i in cups dbus djvu pdf svg synctex; do
-		use ${i} || myconfig+=(without_${i})
+		use ${i} || myconfig+=( without_${i} )
 	done
-	use fitz && myconfig+=(with_fitz)
-	use postscript || myconfig+=(without_ps)
-	use sqlite || myconfig+=(without_sql)
+	use fitz && myconfig+=( with_fitz )
+	use postscript || myconfig+=( without_ps )
+	use sqlite || myconfig+=( without_sql )
 
 	local myqmakeargs=(
 		qpdfview.pro
 		CONFIG+="${myconfig[*]}"
+		$(usex fitz FITZ_PLUGIN_LIBS="-lmupdf" "")
 		PLUGIN_INSTALL_PATH="${EPREFIX}/usr/$(get_libdir)/${PN}"
 	)
 
