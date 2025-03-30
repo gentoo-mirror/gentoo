@@ -15,25 +15,25 @@ SRC_URI="https://github.com/intel/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
-SLOT="0/1.6.32224"
+SLOT="0/1.6.32961"
 KEYWORDS="~amd64"
 IUSE="+l0 +vaapi"
 
 RDEPEND="
-	>=dev-util/intel-graphics-compiler-2.7.8
-	>=media-libs/gmmlib-22.5.2:=
+	>=dev-util/intel-graphics-compiler-2.10.2
+	>=media-libs/gmmlib-22.7.1:=
 "
 
 DEPEND="
 	${RDEPEND}
 	dev-libs/intel-metrics-discovery:=
-	>=dev-libs/intel-metrics-library-1.0.182:=
+	>=dev-libs/intel-metrics-library-1.0.196:=
 	dev-libs/libnl:3
 	dev-libs/libxml2:2
 	>=dev-util/intel-graphics-system-controller-0.9.5:=
 	media-libs/mesa
 	>=virtual/opencl-3
-	l0? ( >=dev-libs/level-zero-1.20.4:= )
+	l0? ( >=dev-libs/level-zero-1.21.2:= )
 	vaapi? (
 		x11-libs/libdrm[video_cards_intel]
 		media-libs/libva

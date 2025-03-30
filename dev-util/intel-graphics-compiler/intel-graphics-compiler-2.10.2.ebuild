@@ -14,7 +14,7 @@ HOMEPAGE="https://github.com/intel/intel-graphics-compiler"
 SRC_URI="https://github.com/intel/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0/2.5.0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="debug vc"
 
@@ -26,7 +26,7 @@ DEPEND="
 		llvm-core/llvm:${LLVM_SLOT}
 	')
 	vc? (
-		>=dev-libs/intel-vc-intrinsics-0.22.0[${LLVM_USEDEP}]
+		>=dev-libs/intel-vc-intrinsics-0.22.1[${LLVM_USEDEP}]
 		dev-util/spirv-llvm-translator:15=
 	)
 "
@@ -79,7 +79,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS="OFF"
 		-DCCLANG_FROM_SYSTEM="ON"
-		-DCCLANG_SONAME_VERSION="${LLVM_SLOT}"
 		-DCMAKE_LIBRARY_PATH="$(get_llvm_prefix)/$(get_libdir)"
 		-DIGC_BUILD__VC_ENABLED="$(usex vc)"
 		-DIGC_OPTION__ARCHITECTURE_TARGET="Linux64"
@@ -92,7 +91,6 @@ src_configure() {
 		-DIGC_OPTION__OPENCL_HEADER_PATH="/usr/lib/clang/${llvm_version##*-}/include/opencl-c.h"
 		-DIGC_OPTION__SPIRV_TOOLS_MODE="Prebuilds"
 		-DIGC_OPTION__SPIRV_TRANSLATOR_MODE="Prebuilds"
-		-DIGC_OPTION__USE_KHRONOS_SPIRV_TRANSLATOR_IN_SC="ON"
 		-DIGC_OPTION__USE_PREINSTALLED_SPIRV_HEADERS="ON"
 		$(usex vc '-DIGC_OPTION__VC_INTRINSICS_MODE=Prebuilds' '')
 		-DPYTHON_EXECUTABLE="${PYTHON}"
