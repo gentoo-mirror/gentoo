@@ -1,0 +1,14 @@
+BDEPEND=nls? ( sys-devel/gettext ) virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=idn? ( net-dns/libidn2 ) keyring? ( app-crypt/libsecret ) nls? ( virtual/libintl ) sasl? ( >=net-misc/gsasl-2.1[client] ) ssl? ( gnutls? ( >=net-libs/gnutls-3.7.2:=[idn?] ) !gnutls? ( dev-libs/openssl:= ) )
+DESCRIPTION=Small, fast, and portable POP3 client
+EAPI=8
+HOMEPAGE=https://marlam.de/mpop/
+IUSE=gnutls idn keyring nls sasl ssl
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-3
+RDEPEND=idn? ( net-dns/libidn2 ) keyring? ( app-crypt/libsecret ) nls? ( virtual/libintl ) sasl? ( >=net-misc/gsasl-2.1[client] ) ssl? ( gnutls? ( >=net-libs/gnutls-3.7.2:=[idn?] ) !gnutls? ( dev-libs/openssl:= ) )
+REQUIRED_USE=gnutls? ( ssl )
+SLOT=0
+SRC_URI=https://marlam.de/mpop/releases/mpop-1.4.21.tar.xz
+_md5_=d80dbef936a2a63617aacf1fc23d6635
