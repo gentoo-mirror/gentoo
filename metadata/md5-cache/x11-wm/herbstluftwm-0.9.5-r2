@@ -1,17 +1,17 @@
-BDEPEND=>=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] virtual/pkgconfig test? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=>=dev-python/gpep517-15[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-69.0.3[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] virtual/pkgconfig test? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) >=dev-python/pytest-7.4.4[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender test? ( dev-python/ewmh dev-python/python-xlib x11-apps/xsetroot x11-base/xorg-server[xephyr,xvfb] x11-misc/xdotool x11-terms/xterm )
 DESCRIPTION=A manual tiling window manager for X
 EAPI=8
 HOMEPAGE=https://herbstluftwm.org/
 INHERIT=cmake desktop distutils-r1
-IUSE=+doc python test test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=+doc python test test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=amd64 x86
 LICENSE=BSD-2
-RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) ) test? ( python )
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXfixes x11-libs/libXft x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender app-shells/bash python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) ) test? ( python )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://herbstluftwm.org/tarballs/herbstluftwm-0.9.5.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	85ccd3b54a6533fb120ee52b7c76a3df
-_md5_=e66262a2c97c51cdf8779e9d2f1c96b7
+_md5_=4b5fb77d95e058fdc83030a3445cb9b3
