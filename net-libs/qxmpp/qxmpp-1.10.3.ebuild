@@ -3,15 +3,18 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake kde.org
 
-DESCRIPTION="A cross-platform C++ XMPP client library based on the Qt framework"
-HOMEPAGE="https://github.com/qxmpp-project/qxmpp"
-SRC_URI="https://github.com/${PN}-project/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Cross-platform C++ XMPP client and server library"
+HOMEPAGE="https://invent.kde.org/libraries/qxmpp"
+
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/unstable/${PN}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="LGPL-2.1 CC0-1.0"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="doc gstreamer omemo test"
 RESTRICT="!test? ( test )"
 
@@ -25,9 +28,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	doc? ( app-text/doxygen )
-"
+BDEPEND="doc? ( app-text/doxygen )"
 
 src_configure() {
 	local mycmakeargs=(
@@ -40,15 +41,14 @@ src_configure() {
 		-DWITH_QCA=$(usex omemo)
 		-DWITH_GSTREAMER=$(usex gstreamer)
 	)
-
 	cmake_src_configure
 }
 
 src_test() {
-	local myctestargs=(
+	local CMAKE_SKIP_TESTS=(
 		# require network connection, bug #623708
-		-E "tst_(qxmpptransfermanager|qxmppiceconnection)"
+		tst_qxmpptransfermanager
+		tst_qxmppiceconnection
 	)
-
 	cmake_src_test
 }
