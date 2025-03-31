@@ -1141,7 +1141,7 @@ app-arch/innoextract 1.9: A tool to unpack installers created by Inno Setup
 app-arch/lbzip2 2.5_p20181227-r3: Parallel bzip2 utility
 app-arch/lcab 1.0_beta12: CAB file creation tool
 app-arch/lha 114i_p20210328 114i_p20250112: Utility for creating and opening lzh archives
-app-arch/libarchive 3.7.8: Multi-format archive and compression library
+app-arch/libarchive 3.7.8 3.7.9: Multi-format archive and compression library
 app-arch/libdeflate 1.23 9999: Heavily optimized DEFLATE/zlib/gzip (de)compression
 app-arch/libpar2 0.4-r1: A library for par2, extracted from par2cmdline
 app-arch/lrzip 0.651: Long Range ZIP or Lzma RZIP optimized for compressing large files
@@ -2989,7 +2989,7 @@ app-office/moneydance 2024.5117: A cross-platform personal finance application
 app-office/multitalk 1.4-r1: New type of presentation program
 app-office/naps2 7.5.3 8.1.1: Document scanning application with a focus on simplicity and ease of use
 app-office/onlyoffice-bin 8.3.0 8.3.2: Onlyoffice is an office productivity suite (binary version)
-app-office/orage 4.18.0 4.20.0: A calendar application for Xfce
+app-office/orage 4.18.0 4.20.0 4.20.1: A calendar application for Xfce
 app-office/planner 0.14.91 0.14.92 9999: Project manager for Gnome
 app-office/projectlibre-bin 1.9.3: Open source desktop alternative to Microsoft Project
 app-office/sc-im 0.8.3-r1: Ncurses based, vim-like spreadsheet calculator
@@ -3938,7 +3938,7 @@ dev-db/apgdiff 2.7.0-r1: A simple PostgreSQL diff tool that is useful for schema
 dev-db/barman 3.9.0 3.10.0 3.10.1 3.11.1 3.12.1 3.13.0: Administration tool for disaster recovery of PostgreSQL servers
 dev-db/bucardo 5.4.1: An asynchronous PostgreSQL replication system
 dev-db/cdb 0.75-r4 0.75-r5: Fast, reliable, simple package for creating and reading constant databases
-dev-db/citus 12.1.7 13.0.2 9999: Open-source postgresql extension for clustering/multi-node setups
+dev-db/citus 12.1.7 13.0.2 13.0.3 9999: Open-source postgresql extension for clustering/multi-node setups
 dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud services
 dev-db/datadraw 3.1.1: feature rich database generator for high performance C applications
 dev-db/dbeaver-bin 24.3.4 25.0.0: Free universal database tool (community edition)
@@ -8064,7 +8064,7 @@ dev-python/apache-libcloud 3.8.0-r1: Unified Interface to the Cloud - python sup
 dev-python/apipkg 3.0.2: Namespace control and lazy-import mechanism
 dev-python/apispec 6.7.1 6.8.0 6.8.1: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r3: Module for determining appropriate platform-specific dirs
-dev-python/apprise 1.9.2: Push Notifications that work with just about every platform
+dev-python/apprise 1.9.2 1.9.3: Push Notifications that work with just about every platform
 dev-python/apscheduler 3.10.4 3.11.0: In-process task scheduler with Cron-like capabilities
 dev-python/apsw 3.47.2.0 3.49.1.0: APSW - Another Python SQLite Wrapper
 dev-python/argcomplete 3.6.0 3.6.1: Bash tab completion for argparse
@@ -8120,7 +8120,7 @@ dev-python/betterproto 2.0.0_beta6 2.0.0_beta7: A better Protobuf / gRPC generat
 dev-python/bibtexparser 1.4.1 1.4.2 1.4.3: A BibTeX parser written in Python
 dev-python/binaryornot 0.4.4-r3: Ultra-lightweight pure Python package to guess whether a file is binary or text
 dev-python/bincopy 20.1.0: Mangling of various file formats that conveys binary information
-dev-python/bitarray 3.0.0 3.1.1 3.2.0: Efficient arrays of booleans -- C extension
+dev-python/bitarray 3.0.0 3.1.1 3.2.0 3.3.0: Efficient arrays of booleans -- C extension
 dev-python/bitstring 4.3.0 4.3.1: A pure Python module for creation and analysis of binary data
 dev-python/bitvector 3.5.0-r1: A pure-Python memory-efficient packed representation for bit arrays
 dev-python/black 24.10.0 25.1.0: The uncompromising Python code formatter
@@ -8218,7 +8218,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.0 1.3.1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.6.10 7.6.11 7.6.12 7.7.0 7.7.1: Code coverage measurement for Python
+dev-python/coverage 7.6.10 7.6.11 7.6.12 7.7.0 7.7.1 7.8.0: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.0 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.9.1 2.10.0_rc1: Thin Python bindings to de/compression algorithms in Rust
@@ -8404,7 +8404,7 @@ dev-python/fritzconnection 1.13.2-r1 1.14.0: Lib/tool to communicate with AVM FR
 dev-python/frozen-flask 1.0.2: Freezes a Flask application into a set of static files
 dev-python/frozenlist 1.5.0: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16: Filesystem abstraction layer
-dev-python/fsspec 2025.3.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2025.3.0 2025.3.1: A specification that python filesystems should adhere to
 dev-python/ftfy 6.3.0 6.3.1: Fixes mojibake and other problems with Unicode, after the fact
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
 dev-python/funcy 2.0: A collection of fancy functional tools focused on practicality
@@ -8612,7 +8612,7 @@ dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.2: Python function spy support for unit tests
 dev-python/kiwisolver 1.4.8: An efficient C++ implementation of the Cassowary constraint solving algorithm
 dev-python/klein 24.8.0: Micro-framework for developing production-ready web services with Python
-dev-python/kombu 5.5.0 5.5.1: AMQP Messaging Framework for Python
+dev-python/kombu 5.5.1 5.5.2: AMQP Messaging Framework for Python
 dev-python/krb5 0.7.1: Kerberos API bindings for Python
 dev-python/lark 1.2.2: Python module to propose a modern general-purpose parsing library for Python
 dev-python/latexcodec 3.0.0: Lexer and codec to work with LaTeX code in Python
@@ -8720,7 +8720,7 @@ dev-python/mkdocs-git-authors-plugin 0.9.2 0.9.4: Mkdocs plugin to display git a
 dev-python/mkdocs-git-revision-date-localized-plugin 1.3.0 1.4.2 1.4.4 1.4.5: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.2.1 1.3.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
-dev-python/mkdocs-material 9.6.8 9.6.9: A Material Design theme for MkDocs
+dev-python/mkdocs-material 9.6.8 9.6.9 9.6.10: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.3.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.8.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.1.0: Build multiple documentation folders in a single Mkdocs
@@ -8734,7 +8734,7 @@ dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder
 dev-python/mock 5.2.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.11.0 0.12.0: Python scrapper to access ModDB mods, games and more as objects
 dev-python/more-itertools 10.6.0: More routines for operating on iterables, beyond itertools
-dev-python/moto 4.2.14 5.1.1: Mock library for boto
+dev-python/moto 4.2.14 5.1.1 5.1.2: Mock library for boto
 dev-python/mpdlcd 0.5.2-r2: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 3.1.5 4.0.1: Message Passing Interface for Python
 dev-python/mpmath 1.4.0_alpha2 1.4.0_alpha3 1.4.0_alpha4: Python library for arbitrary-precision floating-point arithmetic
@@ -8988,7 +8988,7 @@ dev-python/pyeclib 1.6.4: Messaging API for RPC and notifications over different
 dev-python/pyelftools 0.32: pure-Python library for analyzing ELF files and DWARF debugging information
 dev-python/pyenchant 3.2.2-r1: Python bindings for the Enchant spellchecking system
 dev-python/pyfakefs 5.7.4: A fake file system that mocks the Python file system modules
-dev-python/pyflakes 3.2.0 3.3.0: Passive checker for Python programs
+dev-python/pyflakes 3.2.0 3.3.0 3.3.1: Passive checker for Python programs
 dev-python/pyformance 0.4-r2: Performance metrics, based on Coda Hale's Yammer metrics
 dev-python/pyftpdlib 2.0.1: Python FTP server library
 dev-python/pyfuse3 3.4.0-r1: Python 3 bindings for libfuse 3 with asynchronous API
@@ -9112,7 +9112,7 @@ dev-python/pytest 7.4.4 8.0.2 8.1.2 8.2.2 8.3.5: Simple powerful testing with Py
 dev-python/pytest-aiohttp 1.1.0: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.23.8 0.25.3 0.26.0: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 8.1.0: BDD library for the pytest runner
-dev-python/pytest-check 2.5.0 2.5.1: pytest plugin that allows multiple failures per test
+dev-python/pytest-check 2.5.0 2.5.1 2.5.2: pytest plugin that allows multiple failures per test
 dev-python/pytest-click 1.1.0: Pytest plugin for Click
 dev-python/pytest-codeblocks 0.17.0: Extract code blocks from markdown
 dev-python/pytest-console-scripts 1.4.1: Pytest plugin for testing console scripts
@@ -9163,7 +9163,7 @@ dev-python/pytest-subtests 0.14.1: Unittest subTest() support and subtests fixtu
 dev-python/pytest-sugar 1.0.0: Plugin that changes the default look and feel of pytest
 dev-python/pytest-system-statistics 1.0.2-r2: Pytest Plugin Which Reports System Usage Statistics
 dev-python/pytest-tempdir 2019.10.12-r1: Pytest plugin to support for a predictable and repeatable temporary directory
-dev-python/pytest-testinfra 10.1.1 10.2.1: Write unit tests in Python to test actual state of your servers
+dev-python/pytest-testinfra 10.1.1 10.2.1 10.2.2: Write unit tests in Python to test actual state of your servers
 dev-python/pytest-timeout 2.3.1: pytest plugin to abort hanging tests
 dev-python/pytest-tornado 0.8.1-r1: Fixtures and markers to simplify testing of asynchronous tornado applications
 dev-python/pytest-tornasync 0.6.0_p2-r1: Pytest plugin for testing Python 3.5+ Tornado code
@@ -9329,7 +9329,7 @@ dev-python/rfc3986 2.0.0-r1: Validating URI References per RFC 3986
 dev-python/rfc3986-validator 0.1.1-r2: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r3: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
 dev-python/rfc8785 0.1.3 0.1.4: Pure-Python impl. of RFC 8785 (JSON Canonicalization Scheme)
-dev-python/rich 13.9.4: Python library for rendering rich text, tables, etc. to the terminal
+dev-python/rich 13.9.4 14.0.0: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/roman 5.0: An Integer to Roman numerals converter
 dev-python/roman-numerals-py 2.0.0: Manipulate roman numerals
 dev-python/rope 1.13.0-r1: Python refactoring library
@@ -9533,7 +9533,7 @@ dev-python/threadpoolctl 3.6.0: Limit the number of threads used in native libs 
 dev-python/three-merge 0.1.1-r1: Simple Python library to perform a 3-way merge between strings
 dev-python/thrift 0.21.0: Python implementation of Thrift
 dev-python/thriftpy2 0.5.0 0.5.2: Pure python approach of Apache Thrift
-dev-python/tifffile 2025.2.18 2025.3.13: Read and write TIFF files
+dev-python/tifffile 2025.3.13 2025.3.30: Read and write TIFF files
 dev-python/time-machine 2.16.0: Travel through time in your tests
 dev-python/timeout-decorator 0.5.0-r1: Timeout decorator
 dev-python/tiny-proxy 0.2.1: Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP tunnel)
@@ -9602,14 +9602,14 @@ dev-python/untangle 1.2.1-r2: Convert XML documents into Python objects
 dev-python/uri-template 1.3.0: URI Template expansion in strict adherence to RFC 6570
 dev-python/uritemplate 4.1.1: Python implementation of RFC6570, URI Template
 dev-python/uritools 4.0.3: RFC 3986-compliant URI parsing, classification and composition
-dev-python/url-normalize 1.4.3-r1: URL normalization for Python
+dev-python/url-normalize 1.4.3-r1 2.2.0: URL normalization for Python
 dev-python/urllib3 2.3.0: HTTP library with thread-safe connection pooling, file post, and more
 dev-python/urwid 2.6.16: Curses-based user interface library for Python
 dev-python/urwid-readline 0.14 0.15.1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.1 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
-dev-python/uv 0.6.5 0.6.6 0.6.7 0.6.8 0.6.9 0.6.10: A Python package installer and resolver, written in Rust
+dev-python/uv 0.6.5 0.6.6 0.6.7 0.6.8 0.6.9 0.6.10 0.6.11: A Python package installer and resolver, written in Rust
 dev-python/uvicorn 0.31.1 0.34.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.34.0: Python Data Validation for Humans
@@ -9660,7 +9660,7 @@ dev-python/wtforms 3.2.1: Flexible forms validation and rendering library for py
 dev-python/wurlitzer 3.1.1: Capture C-level stdout/stderr in Python
 dev-python/wxpython 4.2.0 4.2.1-r2 4.2.2: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 1.0.1 2.0.0 2.0.1: Convert calendars using X-WR-TIMEZONE to standard ones
-dev-python/xarray 2024.9.0 2025.1.1 2025.1.2 2025.3.0: N-D labeled arrays and datasets in Python
+dev-python/xarray 2024.9.0 2025.1.1 2025.1.2 2025.3.0 2025.3.1: N-D labeled arrays and datasets in Python
 dev-python/xcffib 1.7.1: A drop in replacement for xpyb, an XCB python binding
 dev-python/xdoctest 1.1.5 1.1.6 1.2.0: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 1.5.1: Python bindings for libxkbcommon using cffi
