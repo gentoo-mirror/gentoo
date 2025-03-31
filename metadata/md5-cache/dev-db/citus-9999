@@ -1,15 +1,15 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) app-arch/lz4 app-arch/zstd
+DEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17= ) postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) app-arch/lz4 app-arch/zstd
 DESCRIPTION=Open-source postgresql extension for clustering/multi-node setups
 EAPI=8
 HOMEPAGE=https://www.citusdata.com/
 INHERIT=git-r3 postgres-multi
-IUSE=postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
+IUSE=postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15
 LICENSE=POSTGRESQL AGPL-3
 PROPERTIES=live
-RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) app-arch/lz4 app-arch/zstd
+RDEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17= ) postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) app-arch/lz4 app-arch/zstd
 RESTRICT=test
 SLOT=0
 _eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	postgres	aa74feb4d9c1e9af578d99aea36bbace	postgres-multi	ccad35d745ce66b41837db8a6ee94601
-_md5_=63bdf43cacb54856b0988ad1cb8f2635
+_md5_=f55001790b149c59d2f1f58c4e0b434c
