@@ -1,4 +1,4 @@
-BDEPEND=test? ( python_single_target_python3_10? ( dev-python/aiosmtpd[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/aiosmtpd[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/aiosmtpd[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/aiosmtpd[python_targets_python3_13(-)] ) ) virtual/pkgconfig
+BDEPEND=python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/setuptools[python_targets_python3_13(-)] ) test? ( python_single_target_python3_10? ( dev-python/aiosmtpd[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/aiosmtpd[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/aiosmtpd[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/aiosmtpd[python_targets_python3_13(-)] ) ) virtual/pkgconfig
 DEFINED_PHASES=compile install postinst preinst prepare setup test
 DESCRIPTION=Scans log files and bans IPs that show malicious signs
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fail2ban/fail2ban/archive/1.1.0.tar.gz -> fail2ban-1.1.0.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	systemd	54bd206bb5c4efac6ae28b6b006713b0	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
-_md5_=d06b99ef8aeffcac854e4cf8f5c99279
+_md5_=6242a95fbf10f0f6200ea710c402a6bb

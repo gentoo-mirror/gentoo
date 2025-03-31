@@ -1,4 +1,4 @@
-BDEPEND=test? ( python_single_target_python3_10? ( dev-python/aiosmtpd[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/aiosmtpd[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/aiosmtpd[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/aiosmtpd[python_targets_python3_13(-)] ) ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=python_single_target_python3_10? ( dev-python/setuptools[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/setuptools[python_targets_python3_13(-)] ) test? ( python_single_target_python3_10? ( dev-python/aiosmtpd[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/aiosmtpd[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/aiosmtpd[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/aiosmtpd[python_targets_python3_13(-)] ) ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst preinst prepare setup test unpack
 DESCRIPTION=Scans log files and bans IPs that show malicious signs
 EAPI=8
@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_1
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	bash-completion-r1	767861f3744f589ee5291c1698b1c082	edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	systemd	54bd206bb5c4efac6ae28b6b006713b0	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=4a521f2bb60c85ece09871e62913fc1e
+_md5_=0e881143fdefafcbbb739faa03727498
