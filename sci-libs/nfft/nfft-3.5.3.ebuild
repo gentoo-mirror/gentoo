@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit toolchain-funcs
+inherit autotools toolchain-funcs
 
 DESCRIPTION="library for nonequispaced discrete Fourier transformations"
 HOMEPAGE="https://www-user.tu-chemnitz.de/~potts/nfft/"
@@ -14,8 +14,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc openmp"
 
-RDEPEND="sci-libs/fftw:3.0[threads,openmp?]"
+RDEPEND="sci-libs/fftw:3.0=[threads,openmp?]"
 DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${P}-gcc15.patch"
+	"${FILESDIR}/${P}-rtc.patch"
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -25,11 +30,14 @@ pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
 
+src_prepare() {
+	default
+	eautoreconf
+}
+
 src_configure() {
 	econf \
 		--enable-all \
-		--enable-shared \
-		--disable-static \
 		$(use_enable openmp)
 }
 
