@@ -42,6 +42,9 @@ BDEPEND="
 
 DOCS=( Changelog NOTES README.md )
 
+# Upstream MR: https://invent.kde.org/multimedia/kaffeine/-/merge_requests/14
+PATCHES=( "${FILESDIR}/${P}-force-xcb-platform.patch" )
+
 src_configure() {
 	# tools working on $HOME directory for a local git checkout
 	local mycmakeargs=(
