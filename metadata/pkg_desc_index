@@ -3874,6 +3874,7 @@ dev-cpp/folly 2023.06.19.00-r1 2024.11.04.00-r2: An open-source C++ library deve
 dev-cpp/frugally-deep 0.15.30: Header-only library for using Keras models in C++
 dev-cpp/functional-plus 0.2.22: Functional Programming Library for C++
 dev-cpp/gflags 2.2.2-r1 9999: Google's C++ argument parsing library
+dev-cpp/glaze 4.4.3: Extremely fast, in memory, JSON and interface library for modern C++
 dev-cpp/glibmm 2.66.7 2.78.1: C++ interface for glib2
 dev-cpp/glog 0.5.0 0.6.0: Google Logging library
 dev-cpp/gstreamermm 1.10.0-r2: C++ interface for GStreamer
@@ -3926,6 +3927,7 @@ dev-cpp/termcolor 2.1.0: A header-only C++ library for printing colored messages
 dev-cpp/toml11 4.3.0 4.4.0: TOML for Modern C++
 dev-cpp/tomlplusplus 3.4.0: TOML config file parser and serializer
 dev-cpp/tree 3.18: An STL-like tree class
+dev-cpp/ut2-glaze 0.0.4: A stripped down fork of boost-ext ut2
 dev-cpp/valijson 1.0.2 1.0.3 1.0.4: Header-only C++ library for JSON Schema validation
 dev-cpp/wangle 2024.11.04.00: A framework providing common abstractions for building services
 dev-cpp/waylandpp 1.0.0-r1 9999: Wayland C++ bindings
@@ -5384,7 +5386,7 @@ dev-libs/hiredis 1.0.2-r3 1.1.0-r1 1.2.0: Minimalistic C client library for the 
 dev-libs/http-fetcher 1.1.0-r2: Library for downloading files via HTTP using the GET method
 dev-libs/hyphen 2.8.8-r2: ALTLinux hyphenation library
 dev-libs/hyprgraphics 0.1.1: Hyprland graphics / resource utilities
-dev-libs/hyprland-protocols 0.4.0 9999: Wayland protocol extensions for Hyprland
+dev-libs/hyprland-protocols 0.4.0 0.6.2 9999: Wayland protocol extensions for Hyprland
 dev-libs/hyprlang 0.5.2 0.5.3 0.6.0: Official implementation library for the hypr config language
 dev-libs/icinga-php-library 0.13.0 0.13.2 0.14.1: Icinga PHP libraries for Icinga Web 2
 dev-libs/icinga-php-thirdparty 0.12.0 0.12.1: Icinga PHP libraries for Icinga Web 2
@@ -12043,7 +12045,7 @@ gui-apps/wmenu 0.1.8 0.1.9 9999: dynamic menu for wlroots compositors, maintains
 gui-apps/wofi 1.4.1 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-apps/xwaylandvideobridge 0.4.0-r1: Screenshare Wayland windows to XWayland apps
 gui-libs/amtk 5.6.1: Actions, Menus and Toolbars Kit for GTK+ applications
-gui-libs/aquamarine 0.5.0 0.5.1 9999: Aquamarine is a very light linux rendering backend library
+gui-libs/aquamarine 0.5.0 0.5.1 0.8.0 9999: Aquamarine is a very light linux rendering backend library
 gui-libs/display-manager-init 1.1.2-r1: RC init files for starting display and login managers
 gui-libs/egl-gbm 1.1.2.1: NVIDIA GBM EGL external platform library
 gui-libs/egl-wayland 1.1.13.1 1.1.18: NVIDIA wayland EGL external platform library
@@ -12056,7 +12058,7 @@ gui-libs/gtk-layer-shell 0.8.2 0.9.0: Library to create desktop components for W
 gui-libs/gtksourceview 5.12.1-r1 5.14.2: A text widget implementing syntax highlighting and other features
 gui-libs/hyprcursor 0.1.9 0.1.10-r1 0.1.10-r2 0.1.11 9999: The hyprland cursor format, library and utilities
 gui-libs/hyprland-qtutils 0.1.1: Hyprland QT/qml utility apps
-gui-libs/hyprutils 0.2.6 0.3.0-r1 9999: Hyprland utilities library used across the ecosystem
+gui-libs/hyprutils 0.2.6 0.3.0-r1 0.5.2 9999: Hyprland utilities library used across the ecosystem
 gui-libs/kddockwidgets 2.2.1: KDAB's Dock Widget Framework for Qt
 gui-libs/libadwaita 1.5.2 1.5.3 1.5.5 1.6.2: Building blocks for modern GNOME applications
 gui-libs/libdecor 0.2.2-r1 9999: A client-side decorations library for Wayland clients
@@ -12079,7 +12081,7 @@ gui-libs/xdg-desktop-portal-lxqt 1.0.2 1.1.0: Backend implementation for xdg-des
 gui-libs/xdg-desktop-portal-wlr 0.7.1-r1 0.7.1-r2 9999: xdg-desktop-portal backend for wlroots
 gui-wm/dwl 0.5-r1 0.6 0.7 9999: dwm for Wayland
 gui-wm/gamescope 3.16.2: Efficient micro-compositor for running games
-gui-wm/hyprland 0.42.0-r2 0.45.2 0.46.2-r1 9999: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
+gui-wm/hyprland 0.42.0-r2 0.45.2 0.46.2-r1 0.47.2 9999: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 gui-wm/sway 1.9-r1 1.10 1.10.1 9999: i3-compatible Wayland window manager
 gui-wm/tinywl 0.17.4 0.18.0 0.18.1 9999: "minimum viable product" Wayland compositor based on wlroots
 gui-wm/wayfire 0.9.0 9999: compiz like 3D wayland compositor
