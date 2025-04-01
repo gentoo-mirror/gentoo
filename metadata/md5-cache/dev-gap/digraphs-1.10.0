@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( x11-misc/xdg-utils app-text/gv app-text/xpdf app-text/evince kde-apps/okular ) ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp sci-mathematics/gap:= >=sci-mathematics/planarity-4 sci-libs/bliss:= dev-gap/io dev-gap/orb dev-gap/datastructures )
+DEFINED_PHASES=compile configure install test
+DEPEND=sci-mathematics/gap:= >=sci-mathematics/planarity-4 sci-libs/bliss:=
+DESCRIPTION=Graphs, digraphs, and multidigraphs in GAP
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/packages/#digraphs
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64 ~riscv
+LICENSE=GPL-3+
+RDEPEND=sci-mathematics/gap:= >=sci-mathematics/planarity-4 sci-libs/bliss:= dev-gap/io dev-gap/orb dev-gap/datastructures sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/digraphs/Digraphs/releases/download/v1.10.0/digraphs-1.10.0.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92
+_md5_=09566a2abb1bd1667642e81fabf4b3a3
