@@ -7,19 +7,23 @@ MY_PN=${PN%-bin}
 
 DESCRIPTION="A Java/Scala build tool"
 HOMEPAGE="https://mill-build.org/"
-SRC_URI="https://github.com/com-lihaoyi/${MY_PN}/releases/download/${PV}/${PV}-assembly -> ${P}"
+SRC_URI="
+	https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/${PV}/mill-dist-${PV}.jar
+		-> ${P}.jar
+"
+
 S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
-RDEPEND=">=virtual/jre-1.8:*"
+RDEPEND=">=virtual/jre-11:*"
 
 src_unpack() {
 	:
 }
 
 src_install() {
-	newbin "${DISTDIR}"/${P} ${MY_PN}
+	newbin "${DISTDIR}"/${P}.jar ${MY_PN}
 }
