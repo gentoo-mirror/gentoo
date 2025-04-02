@@ -33,7 +33,7 @@ RDEPEND="
 	app-arch/snappy:=
 	dev-libs/expat
 	dev-libs/libevent:=
-	dev-libs/libxml2[icu]
+	dev-libs/libxml2:=[icu]
 	dev-libs/libxslt
 	dev-libs/nspr
 	dev-libs/nss
@@ -108,6 +108,7 @@ PATCHES+=(
 	# add extras as needed here, may merge in set if carries across versions
 	"${FILESDIR}"/${PN}-6.8.2-glibc2.41.patch
 	"${FILESDIR}"/${PN}-6.8.3-pipewire1.4.patch
+	"${FILESDIR}"/${PN}-6.9.0-x11-pixmap-leak.patch
 )
 
 python_check_deps() {
