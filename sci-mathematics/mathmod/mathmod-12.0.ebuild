@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,28 +11,32 @@ HOMEPAGE="https://github.com/parisolab/mathmod
 	https://www.facebook.com/parisolab"
 SRC_URI="https://github.com/parisolab/mathmod/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2+ GPL-3"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtopengl:5
-	dev-qt/qtwidgets:5"
+	dev-qt/qtbase:6[gui,opengl,widgets]
+"
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	# Fix collision between <complex.h> and QT
+	# Merged, to be removed with release 12.1
+	"${FILESDIR}"/${P}-rm_complex.patch
+)
+
 src_configure() {
-	eqmake5 MathMod.pro
+	eqmake6 MathMod.pro
 }
 
 src_install() {
-	exeinto /usr/bin
-	doexe MathMod
+	dobin MathMod
 	insinto /usr/share/${P}
 	doins mathmodconfig.js mathmodcollection.js advancedmodels.js
-	newicon -s 16 images/icon/catenoid_mini_16x16.png catenoid.png
-	newicon -s 32 images/icon/catenoid_mini_32x32.png catenoid.png
-	newicon -s 64 images/icon/catenoid_mini_64x64.png catenoid.png
+	local size
+	for size in 16 32 64; do
+		newicon -s ${size} images/icon/catenoid_mini_${size}x${size}.png catenoid.png
+	done
 	make_desktop_entry MathMod MathMod catenoid
 }
