@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=~dev-qt/qtbase-6.9.0:6[widgets?] assistant? ( ~dev-qt/qtbase-6.9.0:6[concurrent,network,sql,sqlite] ) clang? ( llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) ) designer? ( ~dev-qt/qtbase-6.9.0:6[network,xml,zstd=] zstd? ( app-arch/zstd:= ) ) qdbus? ( ~dev-qt/qtbase-6.9.0:6[dbus,xml] ) qml? ( ~dev-qt/qtdeclarative-6.9.0:6[widgets?] ) qmlls? ( ~dev-qt/qtdeclarative-6.9.0:6[qmlls] ) qtdiag? ( ~dev-qt/qtbase-6.9.0:6[network,gles2-only=,vulkan=] ) widgets? ( ~dev-qt/qtbase-6.9.0:6[opengl=] ) qtdiag? ( vulkan? ( dev-util/vulkan-headers ) )
+DESCRIPTION=Qt Tools Collection
+EAPI=8
+HOMEPAGE=https://www.qt.io/
+INHERIT=desktop llvm-r2 optfeature qt6-build
+IUSE=+assistant clang designer distancefieldgenerator gles2-only +linguist opengl pixeltool +qdbus qdoc qml qmlls qtattributionsscanner qtdiag qtplugininfo vulkan +widgets zstd +llvm_slot_19 llvm_slot_17 llvm_slot_18 llvm_slot_20 custom-cflags
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND=~dev-qt/qtbase-6.9.0:6[widgets?] assistant? ( ~dev-qt/qtbase-6.9.0:6[concurrent,network,sql,sqlite] ) clang? ( llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) ) designer? ( ~dev-qt/qtbase-6.9.0:6[network,xml,zstd=] zstd? ( app-arch/zstd:= ) ) qdbus? ( ~dev-qt/qtbase-6.9.0:6[dbus,xml] ) qml? ( ~dev-qt/qtdeclarative-6.9.0:6[widgets?] ) qmlls? ( ~dev-qt/qtdeclarative-6.9.0:6[qmlls] ) qtdiag? ( ~dev-qt/qtbase-6.9.0:6[network,gles2-only=,vulkan=] ) widgets? ( ~dev-qt/qtbase-6.9.0:6[opengl=] )
+REQUIRED_USE=assistant? ( widgets ) clang? ( ^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 ) ) designer? ( qml widgets ) distancefieldgenerator? ( qml widgets ) pixeltool? ( widgets ) qdoc? ( clang qml ) qmlls? ( assistant qml )
+RESTRICT=test
+SLOT=6/6.9.0
+SRC_URI=https://download.qt.io/official_releases/qt/6.9/6.9.0/submodules/qttools-everywhere-src-6.9.0.tar.xz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r2	9a549740244000fae24a65594bde09c1	optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	10a50dfaf728b802fcfd37f8d0da9056	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	qt6-build	4557c6031a5108264afec6de6d31616e
+_md5_=2c52256d4e78fe65cb395a9ff38add70
