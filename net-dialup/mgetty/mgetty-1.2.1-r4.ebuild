@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,12 @@ inherit flag-o-matic systemd toolchain-funcs
 
 DESCRIPTION="A programm for sending and receiving fax and voice"
 HOMEPAGE="http://mgetty.greenie.net/"
-SRC_URI="ftp://mgetty.greenie.net/pub/mgetty/source/$(ver_cut 1-2)/${P}.tar.gz"
+SRC_URI="http://mgetty.greenie.net/source/$(ver_cut 1-2)/${P}.tar.gz"
+
+LICENSE="GPL-2"
+SLOT="0"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+IUSE="+fax fidonet split-usr"
 
 DEPEND="
 	dev-lang/perl
@@ -16,7 +21,6 @@ DEPEND="
 	app-alternatives/awk
 	fax? ( !net-misc/efax )
 "
-
 RDEPEND="
 	${DEPEND}
 	acct-group/fax
@@ -26,11 +30,6 @@ RDEPEND="
 		media-libs/netpbm
 	)
 "
-
-SLOT="0"
-LICENSE="GPL-2"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~s390 sparc x86"
-IUSE="+fax fidonet split-usr"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.1.36-callback.patch
