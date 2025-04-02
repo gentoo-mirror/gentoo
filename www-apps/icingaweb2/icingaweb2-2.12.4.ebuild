@@ -11,7 +11,7 @@ HOMEPAGE="https://icinga.com/"
 if [[ ${PV} == *9999 ]];then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Icinga/icingaweb2.git"
-	EGIT_BRANCH="main"
+	EGIT_BRANCH="master"
 else
 	SRC_URI="https://codeload.github.com/Icinga/${PN}/tar.gz/v${PV} -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
@@ -28,6 +28,7 @@ DEPEND=">=net-analyzer/icinga2-2.1.1
 		apache2-server? ( >=www-servers/apache-2.4.0 )
 		nginx? ( >=www-servers/nginx-1.7.0:* )
 		|| (
+			dev-lang/php:8.1[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
 			dev-lang/php:8.2[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
 			dev-lang/php:8.3[apache2?,cli,curl,fileinfo,fpm?,gd,intl,ldap?,mysql?,nls,pdo,postgres?,sockets,ssl,xslt,xml]
 		)
