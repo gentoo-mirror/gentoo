@@ -3544,7 +3544,7 @@ kde-apps/kdecore-meta:share - Install kde-frameworks/purpose for share file cont
 kde-apps/kdecore-meta:webengine - Enable www-client/falkon which depends on dev-qt/qtwebengine
 kde-apps/kdeedu-meta:webengine - Enable packages requiring dev-qt/qtwebengine
 kde-apps/kdegraphics-meta:color-management - Enable color management via media-libs/opencolorio
-kde-apps/kdegraphics-meta:screencast - Pull in kde-apps/spectacle for screenshot/screenrecording support
+kde-apps/kdegraphics-meta:screencast - Pull in kde-plasma/spectacle for screenshot/screenrecording support
 kde-apps/kdegraphics-meta:webengine - Enable page scanning support via media-gfx/skanpage
 kde-apps/kdemultimedia-meta:cdrom - Include packages for optical discs
 kde-apps/kdenetwork-meta:bittorrent - Pull in net-p2p/ktorrent for BitTorrent protocol support
@@ -3611,7 +3611,6 @@ kde-apps/okular:share - Enable support for a share menu using kde-frameworks/pur
 kde-apps/parley:webengine - Build browser integration for the editor, requires dev-qt/qtwebengine
 kde-apps/pimcommon:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
 kde-apps/pimcommon:designer - Build plugins for dev-qt/designer
-kde-apps/spectacle:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/step:qalculate - Enable the libqalculate library for unit conversion
 kde-apps/thumbnailers:blender - Enable blender thumbnail generation using kde-frameworks/karchive
 kde-apps/thumbnailers:gettext - Enable PO file thumbnail generation using kde-apps/kdesdk-thumbnailers
@@ -3713,6 +3712,7 @@ kde-plasma/plasma-workspace:telemetry - Enable User Feedback control module for 
 kde-plasma/plasma-workspace:wallpaper-metadata - Show metadata for image wallpaper plugin using kde-apps/libkexiv2
 kde-plasma/plasma5support:activities - Enable kactivities support
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
+kde-plasma/spectacle:share - Enable support for a share menu using kde-frameworks/purpose
 llvm-core/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
 llvm-core/clang:ieee-long-double - Use accelerated 128-bit IEEE long double ABI (ppc64le only)
 llvm-core/clang:static-analyzer - Install the Clang static analyzer
