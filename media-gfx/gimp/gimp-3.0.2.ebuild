@@ -11,11 +11,11 @@ inherit flag-o-matic lua-single meson python-single-r1 toolchain-funcs vala xdg
 
 DESCRIPTION="GNU Image Manipulation Program"
 HOMEPAGE="https://www.gimp.org/"
-SRC_URI="mirror://gimp/v$(ver_cut 1-2)/${PN}-$(ver_cut 1-3)-RC3.tar.xz"
+SRC_URI="mirror://gimp/v$(ver_cut 1-2)/${P}.tar.xz"
 
-S="${WORKDIR}/${PN}-$(ver_cut 1-3)-RC3"
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0/3"
+KEYWORDS="~amd64"
 
 IUSE="X aalib alsa doc fits gnome heif javascript jpeg2k jpegxl lua mng openexr openmp postscript test udev unwind vala vector-icons webp wmf xpm"
 REQUIRED_USE="
@@ -44,10 +44,10 @@ COMMON_DEPEND="
 	dev-libs/libxslt
 	>=gnome-base/librsvg-2.57.3:2
 	>=media-gfx/mypaint-brushes-2.0.2:=
-	>=media-libs/babl-0.1.110[introspection,lcms,vala?]
+	>=media-libs/babl-0.1.112[introspection,lcms,vala?]
 	>=media-libs/fontconfig-2.12.6
 	>=media-libs/freetype-2.10.2
-	>=media-libs/gegl-0.4.54:0.4[cairo,introspection,lcms,vala?]
+	>=media-libs/gegl-0.4.58:0.4[cairo,introspection,lcms,vala?]
 	>=media-libs/gexiv2-0.14.0
 	>=media-libs/harfbuzz-2.6.5:=
 	>=media-libs/lcms-2.13.1:2
@@ -116,10 +116,6 @@ BDEPEND="
 
 DOCS=( "AUTHORS" "NEWS" "README" "README.i18n" )
 
-PATCHES=(
-	"${FILESDIR}/${P}_debug_self_gdb_optional.patch" # Bug 949910
-)
-
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
@@ -148,23 +144,7 @@ src_prepare() {
 	sed -i -e "s/'gimp-@0@'.format(gimp_app_version)/'gimp-${PVR}'/" gimp-data/images/logo/meson.build || die
 }
 
-_adjust_sandbox() {
-	# Bugs #569738 and #591214
-	local nv
-	for nv in /dev/nvidia-uvm /dev/nvidiactl /dev/nvidia{0..9} ; do
-		# We do not check for existence as they may show up later
-		# https://bugs.gentoo.org/show_bug.cgi?id=569738#c21
-		addwrite "${nv}"
-	done
-
-	addwrite /dev/dri/  # bugs #574038 and #684886
-	addwrite /dev/ati/  # bug #589198
-	addwrite /proc/mtrr  # bug #589198
-}
-
 src_configure() {
-	_adjust_sandbox
-
 	# bug #944284 (https://gitlab.gnome.org/GNOME/gimp/-/issues/12843)
 	append-cflags -std=gnu17
 
@@ -240,10 +220,6 @@ src_install() {
 	meson_src_install
 
 	python_optimize
-
-	# Workaround for bug #321111 to give GIMP the least
-	# precedence on PDF documents by default
-	mv "${ED}"/usr/share/applications/{,zzz-}gimp.desktop || die
 
 	find "${D}" -name '*.la' -type f -delete || die
 
