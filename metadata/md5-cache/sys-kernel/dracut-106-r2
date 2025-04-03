@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/dracut-ng/dracut-ng/wiki
 INHERIT=cargo flag-o-matic bash-completion-r1 edo optfeature systemd toolchain-funcs
 IUSE=+dracut-cpio selinux test debug
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2
 PROPERTIES=test? ( test_privileged test_network )
 RDEPEND=app-alternatives/cpio >=app-shells/bash-4.0:0 sys-apps/coreutils[xattr(-)] >=sys-apps/kmod-23[tools] || ( >=sys-apps/sysvinit-2.87-r3 sys-apps/openrc[sysv-utils(-),selinux?] sys-apps/openrc-navi[sysv-utils(-),selinux?] sys-apps/systemd[sysv-utils] sys-apps/s6-linux-init[sysv-utils(-)] ) >=sys-apps/util-linux-2.21 virtual/pkgconfig[native-symlinks(+)] virtual/udev elibc_musl? ( sys-libs/fts-standalone ) selinux? ( sec-policy/selinux-dracut sys-libs/libselinux sys-libs/libsepol )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/dracut-ng/dracut-ng/archive/refs/tags/106.tar.gz -> dracut-106.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	e9d31591b9b0251018cd5c60a43bafa1	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	7282c47a52f41c358a5d49c66884c7bc	bash-completion-r1	767861f3744f589ee5291c1698b1c082	edo	367e103a74bf77e6a8da7894d999fa3c	optfeature	538bce96e5589935b57e178e8635f301	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=4f248dce491d41f551e848cbfe4d8457
+_md5_=6ec01a5d0e5f6761bc29f9df085c6d9e
