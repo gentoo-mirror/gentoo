@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/asm:0 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=JSON Small and Fast Parser
+EAPI=8
+HOMEPAGE=https://urielch.github.io
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/netplex/json-smart-v2/archive/2.5.2.tar.gz -> json-smart-2.5.2.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	3dd4432a9f6bd6048ee5cbe00cba2171
+_md5_=7401d52a36157e36db7a585e3940b05e
