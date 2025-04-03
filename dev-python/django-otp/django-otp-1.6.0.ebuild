@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/django-3.2[${PYTHON_USEDEP}]
+	>=dev-python/django-4.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
