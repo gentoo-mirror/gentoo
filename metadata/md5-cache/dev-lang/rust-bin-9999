@@ -1,9 +1,9 @@
 BDEPEND=prefix? ( dev-util/patchelf ) verify-sig? ( sec-keys/openpgp-keys-rust ) net-misc/curl verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
-DEFINED_PHASES=compile configure install postinst postrm pretend test unpack
+DEFINED_PHASES=compile configure install postinst postrm test unpack
 DESCRIPTION=Systems programming language from Mozilla
 EAPI=8
 HOMEPAGE=https://www.rust-lang.org/
-INHERIT=edo llvm-r1 multilib prefix rust-toolchain toolchain-funcs verify-sig multilib-minimal optfeature
+INHERIT=edo llvm-r1 multilib prefix rust-toolchain verify-sig multilib-minimal optfeature
 IUSE=big-endian clippy cpu_flags_x86_sse2 doc prefix rust-analyzer rust-src rustfmt +llvm_slot_20 verify-sig abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 LICENSE=|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4
 PROPERTIES=live
@@ -12,4 +12,4 @@ REQUIRED_USE=x86? ( cpu_flags_x86_sse2 )
 RESTRICT=strip
 SLOT=9999
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=f9e1e5e938920b1e905d183a5ef5aff3
+_md5_=6fe14be324ab98082b050e159c1c068a
