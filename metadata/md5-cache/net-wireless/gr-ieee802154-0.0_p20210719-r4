@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/swig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=net-wireless/gnuradio:0=[python_single_target_python3_10(-)?,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] python_single_target_python3_10? ( dev-libs/boost:=[python,python_targets_python3_10(-)] dev-python/pybind11[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-libs/boost:=[python,python_targets_python3_11(-)] dev-python/pybind11[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost:=[python,python_targets_python3_12(-)] dev-python/pybind11[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost:=[python,python_targets_python3_13(-)] dev-python/pybind11[python_targets_python3_13(-)] ) dev-libs/gmp dev-libs/spdlog:= sci-libs/volk:= python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+DESCRIPTION=IEEE 802.15.4 ZigBee Transceiver
+EAPI=8
+HOMEPAGE=https://github.com/bastibl/gr-ieee802-15-4
+INHERIT=cmake python-single-r1
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=net-wireless/gnuradio:0=[python_single_target_python3_10(-)?,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] python_single_target_python3_10? ( dev-libs/boost:=[python,python_targets_python3_10(-)] dev-python/pybind11[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-libs/boost:=[python,python_targets_python3_11(-)] dev-python/pybind11[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost:=[python,python_targets_python3_12(-)] dev-python/pybind11[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost:=[python,python_targets_python3_13(-)] dev-python/pybind11[python_targets_python3_13(-)] ) dev-libs/gmp dev-libs/spdlog:= sci-libs/volk:= python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+SLOT=0/0.0_p20210719
+SRC_URI=https://github.com/bastibl/gr-ieee802-15-4/archive/1a2999ce2778df279870f028a4ce15d94e60fbd9.tar.gz -> gr-ieee802154-0.0_p20210719.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=27a399532491dd4257edd5c926bbcb89
