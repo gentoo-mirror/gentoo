@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -33,14 +33,22 @@ PATCHES=(
 	"${FILESDIR}"/${P}-gcc-4.1.patch
 	# Bug https://bugs.gentoo.org/783192
 	"${FILESDIR}"/${P}-arlocal.patch
+	# util/build never exits on failure, leading to confusing reports
+	"${FILESDIR}"/${P}-makefile-exit-on-fail.patch
 )
 
 src_prepare() {
 	# spice accepts -O1 at most
 	replace-flags -O* -O1
 
+	# The code is from 1989, later updated in 1993. It is deeply incompatible
+	# with Modern C (c99). It also needs `#define linux` from gnu...
+	append-flags -std=gnu89
+
 	# Avoid re-creating WORKDIR due to stupid mtime
 	touch ..
+
+	echo "CC = $(tc-getCC)" >> conf/defaults
 
 	sed -i -e "s/termcap/ncurses/g" \
 		-e "s/joe/\/usr\/libexec\/editor/g" \
