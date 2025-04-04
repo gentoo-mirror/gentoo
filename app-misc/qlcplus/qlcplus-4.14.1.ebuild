@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit qmake-utils udev virtualx xdg
+inherit cmake udev xdg
 
 DESCRIPTION="A software to control DMX or analog lighting systems"
 HOMEPAGE="https://www.qlcplus.org/"
@@ -18,52 +18,37 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/qttools:6[linguist]
 "
 RDEPEND="
 	dev-embedded/libftdi:1
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5[jpeg]
-	dev-qt/qtmultimedia:5[widgets]
-	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
-	dev-qt/qtserialport:5
-	dev-qt/qtwidgets:5
+	dev-qt/qtbase:6[gui,network,widgets]
+	dev-qt/qtdeclarative:6
+	dev-qt/qtmultimedia:6
+	dev-qt/qtserialport:6
+	dev-qt/qtwebsockets:6
 	media-libs/alsa-lib
 	media-libs/libmad
 	media-libs/libsndfile
 	sci-libs/fftw:3.0=
 	virtual/libusb:1
-	virtual/udev
+	virtual/libudev:=
 "
 IDEPEND="
 	dev-util/desktop-file-utils
 "
-DEPEND="${RDEPEND}
-	dev-qt/qttest:5
+DEPEND="
+	${RDEPEND}
 "
 
 src_prepare() {
-	default
+	cmake_src_prepare
 
-	sed -e "/UDEVRULESDIR/s:/etc/udev/rules.d:$(get_udevdir)/rules.d:" \
-		-i variables.pri || die
+	sed -e "s|lib/${CMAKE_C_LIBRARY_ARCHITECTURE}|$(get_libdir)|g" \
+		-i variables.cmake || die
 
-	## Remove Werror-flag since there are some warnings with gcc-9.x
-	sed -e "s/QMAKE_CXXFLAGS += -Werror/#&/g" \
-		-i variables.pri || die
-
-	## Remove Werror-flag since there are some warnings with gcc-9.x
-	sed -e "s/unix:QMAKE_CFLAGS += -Werror/#&/g" \
-		-i variables.pri || die
-}
-
-src_configure() {
-	eqmake5
-}
-
-src_install() {
-	emake INSTALL_ROOT="${D}" install
+	sed -e "s|/etc/udev/rules.d|$(get_udevdir)|g" \
+		-i variables.cmake || die
 }
 
 pkg_postinst() {
@@ -74,7 +59,8 @@ pkg_postinst() {
 }
 
 src_test() {
-	virtx emake check
+	local -x QT_QPA_PLATFORM=offscreen
+	cmake_build check
 }
 
 pkg_postrm() {
