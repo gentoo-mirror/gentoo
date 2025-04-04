@@ -25,7 +25,7 @@ IUSE="test"
 
 ruby_add_rdepend "
 	dev-ruby/concurrent-ruby:1
-	dev-ruby/dry-core:1
+	>=dev-ruby/dry-core-1.1:1
 	>=dev-ruby/zeitwerk-2.6:2
 "
 
@@ -33,3 +33,8 @@ ruby_add_bdepend "test? (
 	dev-ruby/dry-types
 	dev-ruby/warning
 )"
+
+all_ruby_prepare() {
+	# Avoid specs for unpackaged optional super_diff.
+	rm -f spec/extensions/super_diff_spec.rb || die
+}
