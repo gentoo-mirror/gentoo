@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,9 +10,9 @@ S="${WORKDIR}/${P/-}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
-# fa and ko omitted because of build failures (patches are welcome!)
-MY_L10N=(cs da de el es fi fr hu id it mk nb nl pl pt-BR ro ru sr sv uk vi)
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+# fa omitted because of build failures (patches are welcome!)
+MY_L10N=(cs da de el es fi fr hu id it ko mk nb nl pl pt-BR ro ru sr sv uk vi)
 IUSE="${MY_L10N[@]/#/l10n_}"
 # require at least one language lest we install an empty package
 # pkgcheck warning: RequiredUseDefaults
@@ -33,13 +33,6 @@ src_prepare() {
 
 	# some packages have their own translations
 	local f noinst_manpages=(
-		# app-arch/xz-utils
-		xz.1
-		xzdec.1
-		xzdiff.1
-		xzgrep.1
-		xzless.1
-		xzmore.1
 		# sys-apps/shadow
 		groups.1
 		su.1
@@ -49,29 +42,10 @@ src_prepare() {
 		mountpoint.1
 		utmpdump.1
 		wall.1
-		halt.8
 		killall5.8
 		runlevel.8
 		shutdown.8
 		sulogin.8
-		# sys-process/procps
-		free.1
-		pgrep.1
-		pmap.1
-		ps.1
-		pwdx.1
-		tload.1
-		uptime.1
-		sysctl.conf.5
-		sysctl.8
-		vmstat.8
-		# sys-process/psmisc
-		fuser.1
-		killall.1
-		peekfd.1
-		prtstat.1
-		pslog.1
-		pstree.1
 	)
 
 	for f in "${noinst_manpages[@]}"; do
