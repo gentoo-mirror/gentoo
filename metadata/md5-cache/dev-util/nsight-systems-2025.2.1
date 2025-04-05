@@ -1,0 +1,14 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=compile configure install prepare unpack
+DESCRIPTION=performance analysis tool designed to visualize an application’s algorithms
+EAPI=8
+HOMEPAGE=https://developer.nvidia.com/nsight-systems
+INHERIT=unpacker
+KEYWORDS=~amd64 ~arm64
+LICENSE=NVIDIA-r2
+RDEPEND=app-crypt/mit-krb5 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/wayland dev-qt/qtwayland:6 media-libs/fontconfig media-libs/freetype media-libs/gst-plugins-base:1.0 media-libs/gstreamer:1.0 media-libs/libglvnd media-libs/tiff-compat:4 sys-apps/dbus sys-cluster/rdma-core x11-drivers/nvidia-drivers x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/libxcb x11-libs/libxkbcommon x11-libs/libxkbfile x11-libs/libxshmfence x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm arm64? ( media-libs/gst-plugins-bad:1.0 )
+RESTRICT=bindist mirror strip test
+SLOT=2025.2.1
+SRC_URI=amd64? ( https://developer.nvidia.com/downloads/assets/tools/secure/nsight-systems/2025_2/nsight-systems-2025.2.1_2025.2.1.130-1_amd64.deb ) arm64? ( https://developer.nvidia.com/downloads/assets/tools/secure/nsight-systems/2025_2/nsight-systems-2025.2.1_2025.2.1.130-1_arm64.deb )
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
+_md5_=d5b5c736e211acec5b1cba495be964d6

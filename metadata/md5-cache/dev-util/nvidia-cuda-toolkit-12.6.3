@@ -1,0 +1,16 @@
+BDEPEND=|| ( ( dev-lang/python:3.13 dev-python/defusedxml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/defusedxml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/defusedxml[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/defusedxml[python_targets_python3_10(-)] ) )
+DEFINED_PHASES=compile configure install postinst prepare pretend setup unpack
+DESCRIPTION=NVIDIA CUDA Toolkit (compiler and friends)
+EAPI=8
+HOMEPAGE=https://developer.nvidia.com/cuda-zone
+INHERIT=check-reqs toolchain-funcs python-r1
+IUSE=debugger examples profiler rdma sanitizer python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=-* ~amd64 ~arm64 ~amd64-linux ~arm64-linux
+LICENSE=NVIDIA-CUDA
+RDEPEND=|| ( <sys-devel/gcc-14_pre[cxx] <llvm-core/clang-19_pre ) sys-process/numactl debugger? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) examples? ( media-libs/freeglut media-libs/glu ) rdma? ( sys-cluster/rdma-core )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=bindist mirror strip test
+SLOT=0/12.6.3
+SRC_URI=amd64? ( https://developer.download.nvidia.com/compute/cuda/12.6.3/local_installers/cuda_12.6.3_560.35.05_linux.run ) arm64? ( https://developer.download.nvidia.com/compute/cuda/12.6.3/local_installers/cuda_12.6.3_560.35.05_linux_sbsa.run )
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de
+_md5_=2b1ab90da75ace306bd5b2bb01a17fe6
