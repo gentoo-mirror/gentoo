@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{10..13} )
 inherit check-reqs toolchain-funcs
 inherit python-r1
 
-DRIVER_PV="570.86.10"
+DRIVER_PV="570.124.06"
 GCC_MAX_VER="14"
 CLANG_MAX_VER="19"
 
@@ -63,19 +63,15 @@ BDEPEND="
 CUDA_PATH="/opt/cuda"
 QA_PREBUILT="${CUDA_PATH#/}/*"
 
-PATCHES=(
-	"${FILESDIR}/nvidia-cuda-toolkit-glibc-2.41-r1.patch"
-)
-
 python_check_deps() {
 	python_has_version "dev-python/defusedxml[${PYTHON_USEDEP}]"
 }
 
 cuda-toolkit_check_reqs() {
 	if use amd64; then
-		export CHECKREQS_DISK_BUILD="6645M"
+		export CHECKREQS_DISK_BUILD="6608M"
 	elif use arm64; then
-		export CHECKREQS_DISK_BUILD="6412M"
+		export CHECKREQS_DISK_BUILD="6354M"
 	fi
 
 	"check-reqs_pkg_${EBUILD_PHASE}"
@@ -119,6 +115,10 @@ pkg_pretend() {
 pkg_setup() {
 	cuda-toolkit_check_reqs
 
+	if [[ "${MERGE_TYPE}" == binary ]]; then
+		return
+	fi
+
 	# we need python for manifest parsing and to determine the supported python versions for cuda-gdb
 	python_setup
 
@@ -149,6 +149,14 @@ src_unpack() {
 	)
 
 	bash "${DISTDIR}/${A}" --tar xf -X <(printf "%s\n" "${exclude[@]}") || die "failed to extract ${A}"
+}
+
+src_prepare() {
+	pushd "builds/cuda_nvcc/targets/${narch}-linux" >/dev/null || die
+	eapply -p5 "${FILESDIR}/nvidia-cuda-toolkit-glibc-2.41-r1.patch"
+	popd >/dev/null || die
+
+	default
 }
 
 src_configure() {

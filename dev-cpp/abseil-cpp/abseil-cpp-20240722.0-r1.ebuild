@@ -16,7 +16,7 @@ SLOT="0/${PV:2:4}.$(ver_cut 2).0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~s390 sparc x86 ~arm64-macos ~x64-macos"
 IUSE="test"
 
-RDEPEND=">=dev-cpp/gtest-1.13.0[${MULTILIB_USEDEP}]"
+RDEPEND=">=dev-cpp/gtest-1.13.0:=[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
@@ -46,6 +46,7 @@ src_prepare() {
 		-e '/"-msse4.1",/d' \
 		-e '/"-mfpu=neon"/d' \
 		-e '/"-march=armv8-a+crypto"/d' \
+		-e '/NOMINMAX/d' \
 		absl/copts/copts.py || die
 
 	# now generate cmake files

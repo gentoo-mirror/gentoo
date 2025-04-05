@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,11 +12,15 @@ HOMEPAGE="https://abseil.io/"
 SRC_URI="https://github.com/abseil/abseil-cpp/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0/${PV%%.*}"
+SLOT="0/${PV:2:4}.$(ver_cut 2).0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 
-RDEPEND=">=dev-cpp/gtest-1.13.0[${MULTILIB_USEDEP}]"
+RDEPEND="
+	test? (
+		dev-cpp/gtest:=[${MULTILIB_USEDEP}]
+	)
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
@@ -31,10 +35,14 @@ PATCHES=(
 	"${FILESDIR}/${PN}-20230802.0-sdata-tests.patch"
 	"${FILESDIR}/${PN}-random-tests.patch" #935417
 	"${FILESDIR}/${PN}-20230802.0-conditional-use-of-lzcnt.patch" #934337
+	"${FILESDIR}/${PN}-include-cstdint.patch"
+	"${FILESDIR}/${PN}-20240722.0-ciso646-cxx17.patch"
 )
 
 src_prepare() {
 	cmake_src_prepare
+
+	use ppc && eapply "${FILESDIR}/${PN}-atomic.patch"
 
 	# un-hardcode abseil compiler flags
 	sed -i \
@@ -42,6 +50,7 @@ src_prepare() {
 		-e '/"-msse4.1",/d' \
 		-e '/"-mfpu=neon"/d' \
 		-e '/"-march=armv8-a+crypto"/d' \
+		-e '/NOMINMAX/d' \
 		absl/copts/copts.py || die
 
 	# now generate cmake files
@@ -58,10 +67,31 @@ multilib_src_configure() {
 		-DABSL_USE_EXTERNAL_GOOGLETEST=ON
 		-DABSL_PROPAGATE_CXX_STD=TRUE
 		# TEST_HELPERS needed for protobuf (bug #915902)
-		-DABSL_BUILD_TEST_HELPERS=ON
-		-DABSL_BUILD_TESTING=$(usex test ON OFF)
-		$(usex test -DBUILD_TESTING=ON '') # intentional usex, it used both variables for tests.
+		-DABSL_BUILD_TEST_HELPERS="$(usex test)"
+		-DABSL_BUILD_TESTING="$(usex test)"
 	)
+	# intentional use, it uses both variables for tests.
+	if use test; then
+		mycmakeargs+=(
+			-DBUILD_TESTING="yes"
+		)
+	fi
 
 	cmake_src_configure
+}
+
+multilib_src_test() {
+	if ! use amd64; then
+		CMAKE_SKIP_TESTS=(
+			absl_symbolize_test
+		)
+
+		if use ppc; then
+			CMAKE_SKIP_TESTS+=(
+				absl_failure_signal_handler_test
+			)
+		fi
+	fi
+
+	cmake_src_test
 }
