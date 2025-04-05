@@ -2247,7 +2247,7 @@ dev-libs/quazip:qt6 - Build with Qt6 support
 dev-libs/raft:zfs - ZFS support
 dev-libs/re2:benchmark - Build a benchmark binary, install it as re2-bench
 dev-libs/re2:test-full - Run additional, quite slow tests
-dev-libs/rocksdb:numa - Enable NUMA support
+dev-libs/rocksdb:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-libs/rocksdb:tbb - Enable support for dev-cpp/tbb
 dev-libs/sentry-native:breakpad - Use dev-util/breakpad as the crash handler
 dev-libs/sentry-native:curl - Enable support for automated uploading of crash reports
@@ -2948,7 +2948,7 @@ dev-util/perf:doc - Build documentation and man pages. With this USE flag disabl
 dev-util/perf:libpfm - Enable dev-libs/libpfm support
 dev-util/perf:libtraceevent - Enable dev-libs/libtraceevent support
 dev-util/perf:libtracefs - Enable dev-libs/libtracefs support
-dev-util/perf:numa - Enable NUMA support
+dev-util/perf:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-util/perf:perl - Add support for Perl as a scripting language for perf tools.
 dev-util/perf:systemtap - Add support to define SDT event in perf tools.
 dev-util/perf:unwind - Use sys-libs/libunwind for frame unwinding support.
