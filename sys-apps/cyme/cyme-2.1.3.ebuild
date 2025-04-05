@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[nusb]='https://github.com/kevinmehall/nusb;3c8ba0a1aadacec8371b6d14deb31c95d3c30602;nusb-%commit%'
+	[nusb]='https://github.com/kevinmehall/nusb;dad53d268db6620d641a01eb2ecb8b5791fcc1fc;nusb-%commit%'
 )
 
 inherit cargo
@@ -21,7 +21,7 @@ SRC_URI="
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
-		https://dev.gentoo.org/~mgorny/dist/${P}-crates.tar.xz
+		https://github.com/gentoo-crate-dist/cyme/releases/download/v${PV}/cyme-v${PV}-crates.tar.xz
 	"
 fi
 
@@ -35,11 +35,3 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="/usr/bin/cyme"
-
-src_prepare() {
-	default
-
-	# siiigh
-	local nusb=( "${WORKDIR}"/nusb-* )
-	sed -i -e "/^nusb/s&git.*&path = \"${nusb}/\" }&" Cargo.toml || die
-}
