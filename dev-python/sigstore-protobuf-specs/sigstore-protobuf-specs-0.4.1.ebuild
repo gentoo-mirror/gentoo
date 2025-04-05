@@ -20,4 +20,5 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	~dev-python/betterproto-2.0.0_beta7[${PYTHON_USEDEP}]
+	=dev-python/pydantic-2*[${PYTHON_USEDEP}]
 "
