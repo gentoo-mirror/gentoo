@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/containers/conmon
 INHERIT=toolchain-funcs
 IUSE=+seccomp systemd
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/glib:= seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/containers/conmon/archive/v2.1.11.tar.gz -> conmon-2.1.11.tar.gz https://github.com/Flowdalic/conmon/commit/ff8794c5bc0805cc430229728befde16da47b68c.patch -> conmon-2.1.11-make-docs-target-not-depend-on-install.tools.patch
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96
-_md5_=c365367a0021fe927783c8956a903096
+_md5_=74d517d8ca5466acd96482d966492913
