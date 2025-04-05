@@ -9,6 +9,8 @@ DESCRIPTION="Robust, scalable and extensible XMPP server"
 HOMEPAGE="https://www.ejabberd.im/ https://github.com/processone/ejabberd/"
 SRC_URI="
 	https://github.com/processone/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/processone/ejabberd/commit/5008947e326f24fa88f9c06c970630047d6b1020.patch ->
+		${PN}-25.03-fix-sqlite-schema.patch
 "
 
 LICENSE="GPL-2"
@@ -28,32 +30,32 @@ RESTRICT="test"
 DEPEND="
 	>=dev-lang/erlang-20[odbc?,ssl]
 	>=dev-erlang/cache_tab-1.0.31
-	>=dev-erlang/eimp-1.0.23
+	>=dev-erlang/eimp-1.0.24
 	>=dev-erlang/fast_tls-1.1.22
-	>=dev-erlang/fast_xml-1.1.53
+	>=dev-erlang/fast_xml-1.1.55
 	>=dev-erlang/fast_yaml-1.0.37
-	>=dev-erlang/yconf-1.0.16
+	>=dev-erlang/yconf-1.0.18
 	>=dev-erlang/jiffy-1.1.1
 	>=dev-erlang/jose-1.11.10
 	>=dev-erlang/lager-3.9.1
 	>=dev-erlang/p1_oauth2-0.6.14
-	>=dev-erlang/p1_utils-1.0.26-r1
-	>=dev-erlang/stringprep-1.0.30
-	>=dev-erlang/xmpp-1.9.0
+	>=dev-erlang/p1_utils-1.0.27
+	>=dev-erlang/stringprep-1.0.31
+	>=dev-erlang/xmpp-1.10.0
 	>=dev-erlang/pkix-1.0.10
 	>=dev-erlang/mqtree-1.0.17
 	>=dev-erlang/idna-6.0.0-r1
-	>=dev-erlang/p1_acme-1.0.24
+	>=dev-erlang/p1_acme-1.0.25
 	>=dev-erlang/base64url-1.0.1
 	ldap? ( =net-nds/openldap-2* )
 	mysql? ( >=dev-erlang/p1_mysql-1.0.25 )
 	odbc? ( dev-db/unixODBC )
 	pam? ( >=dev-erlang/epam-1.0.14 )
-	postgres? ( >=dev-erlang/p1_pgsql-1.1.28 )
+	postgres? ( >=dev-erlang/p1_pgsql-1.1.32 )
 	redis? ( >=dev-erlang/eredis-1.2.0 )
-	sip? ( >=dev-erlang/esip-1.0.56 )
+	sip? ( >=dev-erlang/esip-1.0.57 )
 	sqlite? ( >=dev-erlang/sqlite3-1.1.15 )
-	stun? ( >=dev-erlang/stun-1.2.15 )
+	stun? ( >=dev-erlang/stun-1.2.17 )
 	zlib? ( >=dev-erlang/ezlib-1.0.13 )
 "
 RDEPEND="
@@ -66,6 +68,7 @@ RDEPEND="
 DOCS=( CHANGELOG.md README.md )
 PATCHES=(
 	"${FILESDIR}/ejabberd-22.10-adjust-ejabberd.service.template-to-Gentoo.patch"
+	"${DISTDIR}"/${PN}-25.03-fix-sqlite-schema.patch
 )
 
 # Get path to ejabberd lib directory.
