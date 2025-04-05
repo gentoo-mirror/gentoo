@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/facebook/fbthrift
 INHERIT=cmake
 IUSE=test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=Apache-2.0
 RDEPEND=app-arch/zstd:= ~dev-cpp/fizz-2024.11.04.00:= ~dev-cpp/folly-2024.11.04.00:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] ~dev-cpp/mvfst-2024.11.04.00:= ~dev-cpp/wangle-2024.11.04.00:= dev-libs/boost:=[nls(+)] dev-libs/libevent:= dev-libs/libfmt:= dev-libs/openssl:= dev-libs/xxhash:= sys-libs/zlib:= test? ( dev-cpp/gtest )
 RESTRICT=test
 SLOT=0/2024.11.04.00
 SRC_URI=https://github.com/facebook/fbthrift/archive/refs/tags/v2024.11.04.00.tar.gz -> fbthrift-2024.11.04.00.gh.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
-_md5_=25acc04b55f4e104ce17b7e0e07fcccb
+_md5_=10ad654cb70b83b6b5374823e40baa5c
