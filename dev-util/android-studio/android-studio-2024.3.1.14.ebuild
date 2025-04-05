@@ -95,7 +95,7 @@ src_install() {
 	insinto "${dir}"
 	doins -r *
 
-	fperms 755 "${dir}"/bin/{fsnotifier,format.sh,game-tools.sh,inspect.sh,ltedit.sh,profiler.sh,studio.sh,studio_safe.sh}
+	fperms 755 "${dir}"/bin/{fsnotifier,format.sh,game-tools.sh,inspect.sh,ltedit.sh,profiler.sh,studio,studio.sh,studio_safe.sh}
 	fperms -R 755 "${dir}"/bin/{helpers,lldb}
 	fperms -R 755 "${dir}"/jbr/bin
 	fperms 755 "${dir}"/jbr/lib/{jexec,jspawnhelper}
@@ -106,11 +106,11 @@ src_install() {
 	fperms -R 755 "${dir}"/plugins/android/resources/trace_processor_daemon
 	fperms -R 755 "${dir}"/plugins/android/resources/transport/{arm64-v8a,armeabi-v7a,x86,x86_64}
 	fperms -R 755 "${dir}"/plugins/android-ndk/resources/lldb/{android,bin,lib,shared}
-	fperms 755 "${dir}"/plugins/c-clangd-plugin/bin/clang/linux/x64/clangd
+	fperms 755 "${dir}"/plugins/c-clangd-plugin/bin/clang/linux/x64/bin/clangd
 	fperms -R 755 "${dir}"/plugins/terminal/shell-integrations/{,fish}
 
 	newicon "bin/studio.png" "${PN}.png"
-	make_wrapper ${PN} ${dir}/bin/studio.sh
+	make_wrapper ${PN} ${dir}/bin/studio
 	make_desktop_entry ${PN} "Android Studio" ${PN} "Development;IDE" "StartupWMClass=jetbrains-studio"
 
 	# https://developer.android.com/studio/command-line/variables
