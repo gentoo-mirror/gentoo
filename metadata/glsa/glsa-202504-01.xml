@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202504-01">
+    <title>XZ Utils: Use after free</title>
+    <synopsis>A vulnerability has been discovered in XZ Utils, which could lead to denial of service.</synopsis>
+    <product type="ebuild">xz-utils</product>
+    <announced>2025-04-05</announced>
+    <revised count="1">2025-04-05</revised>
+    <bug>953086</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-arch/xz-utils" auto="yes" arch="*">
+            <unaffected range="ge">5.6.4-r1</unaffected>
+            <vulnerable range="lt">5.6.4-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>XZ Utils is free general-purpose data compression software with a high compression ratio.</p>
+    </background>
+    <description>
+        <p>A use-after-free has been discovered in XZ utils. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>The multithreaded .xz decoder in liblzma has a bug where invalid input can at least result in a crash. The effects include heap use after free and writing to an address based on the null pointer plus an offset. Applications and libraries that use the lzma_stream_decoder_mt function are affected.
+
+It&#39;s unlikely one can achieve more than a crash if xz is built with PIE on a 64-bit system especially, as is done in Gentoo by default.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All XZ utils users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/xz-utils-5.6.4-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-31115">CVE-2025-31115</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-04-05T00:42:34.287919Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-04-05T00:42:34.291736Z">sam</metadata>
+</glsa>
