@@ -1,8 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby31 ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="README.md doc-install/text/*.md"
 
@@ -21,12 +21,14 @@ IUSE="doc test"
 
 ruby_add_rdepend "dev-ruby/power_assert"
 
+ruby_add_bdepend "test? ( dev-ruby/bigdecimal dev-ruby/csv )"
+
 all_ruby_prepare() {
 	mv doc doc-install || die "moving doc directory out of the way failed"
 }
 
 each_ruby_test() {
-	${RUBY} test/run-test.rb || die "testsuite failed"
+	${RUBY} test/run.rb || die "testsuite failed"
 }
 
 all_ruby_install() {

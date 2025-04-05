@@ -34,9 +34,7 @@ RDEPEND="
 		)
 	)
 	perl? ( dev-perl/File-MimeInfo )
-	plasma? (
-		virtual/pkgconfig
-	)
+	plasma? ( virtual/pkgconfig )
 	X? (
 		x11-apps/xprop
 		x11-apps/xset
@@ -44,17 +42,9 @@ RDEPEND="
 "
 PDEPEND="
 	plasma? (
+		dev-qt/qtbase:6
+		kde-frameworks/kservice:6
 		kde-plasma/kde-cli-tools:*
-		|| (
-			(
-				kde-frameworks/kservice:6
-				dev-qt/qtbase:6
-			)
-			(
-				kde-frameworks/kservice:5
-				dev-qt/qtpaths:5
-			)
-		)
 	)
 "
 BDEPEND="
