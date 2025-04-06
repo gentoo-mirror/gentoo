@@ -33,13 +33,13 @@ CRATES="
 	btoi@0.4.3
 	bumpalo@3.17.0
 	caps@0.5.5
-	cc@1.2.16
+	cc@1.2.17
 	cfg-if@1.0.0
 	cfg_aliases@0.1.1
 	cfg_aliases@0.2.1
 	chrono@0.4.40
-	clap@4.5.32
-	clap_builder@4.5.32
+	clap@4.5.35
+	clap_builder@4.5.35
 	clap_derive@4.5.32
 	clap_lex@0.7.4
 	colorchoice@1.0.3
@@ -53,9 +53,9 @@ CRATES="
 	crossbeam-utils@0.8.21
 	crypto-common@0.1.6
 	dactyl@0.8.0
-	darling@0.20.10
-	darling_core@0.20.10
-	darling_macro@0.20.10
+	darling@0.20.11
+	darling_core@0.20.11
+	darling_macro@0.20.11
 	derive_builder@0.20.2
 	derive_builder_core@0.20.2
 	derive_builder_macro@0.20.2
@@ -72,13 +72,13 @@ CRATES="
 	expiringmap@0.1.2
 	fastrand@2.3.0
 	fixedbitset@0.5.7
-	flate2@1.1.0
+	flate2@1.1.1
 	fnv@1.0.7
 	funty@2.0.0
 	generic-array@0.14.7
 	getrandom@0.1.16
 	getrandom@0.2.15
-	getrandom@0.3.1
+	getrandom@0.3.2
 	getset@0.1.5
 	gimli@0.31.1
 	goblin@0.9.3
@@ -93,7 +93,7 @@ CRATES="
 	hmac@0.12.1
 	home@0.5.11
 	iana-time-zone-haiku@0.1.2
-	iana-time-zone@0.1.61
+	iana-time-zone@0.1.63
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
@@ -107,21 +107,22 @@ CRATES="
 	keccak@0.1.5
 	lazy_static@1.5.0
 	lexis@0.2.3
-	lexopt@0.3.0
+	lexopt@0.3.1
 	libc@0.2.171
-	libcgroups@0.5.2
-	libcontainer@0.5.2
+	libcgroups@0.5.3
+	libcontainer@0.5.3
 	libloading@0.8.6
-	liboci-cli@0.5.2
+	liboci-cli@0.5.3
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
 	libseccomp@0.3.0
 	linefeed@0.6.0
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.9.3
-	log@0.4.26
+	log@0.4.27
 	md5@0.7.0
 	memchr@2.7.4
+	memoffset@0.7.1
 	memoffset@0.9.1
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.5
@@ -136,7 +137,7 @@ CRATES="
 	num_cpus@1.16.0
 	object@0.36.7
 	oci-spec@0.7.1
-	once_cell@1.21.1
+	once_cell@1.21.3
 	option-ext@0.2.0
 	overload@0.1.1
 	parse-size@1.0.0
@@ -145,6 +146,7 @@ CRATES="
 	phf_generator@0.11.3
 	phf_shared@0.11.3
 	pin-project-lite@0.2.16
+	pin-utils@0.1.0
 	pkg-config@0.3.32
 	plain@0.2.3
 	portable-atomic@1.11.0
@@ -160,6 +162,7 @@ CRATES="
 	protobuf@3.2.0
 	quick_cache@0.6.12
 	quote@1.0.38
+	r-efi@5.2.0
 	radium@0.7.0
 	raki@1.3.1
 	rand@0.8.5
@@ -175,7 +178,7 @@ CRATES="
 	rust-criu@0.4.0
 	rustc-demangle@0.1.24
 	rustix@0.38.44
-	rustix@1.0.2
+	rustix@1.0.5
 	rustversion@1.0.20
 	ryu@1.0.20
 	safe-path@0.1.0
@@ -185,7 +188,7 @@ CRATES="
 	sendfd@0.4.3
 	serde@1.0.219
 	serde_derive@1.0.219
-	serde_json@1.0.139
+	serde_json@1.0.140
 	sha1@0.10.6
 	sha3@0.10.8
 	sharded-slab@0.1.7
@@ -202,7 +205,7 @@ CRATES="
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
-	tempfile@3.19.0
+	tempfile@3.19.1
 	terminfo@0.8.0
 	thiserror-impl@1.0.69
 	thiserror-impl@2.0.12
@@ -226,7 +229,7 @@ CRATES="
 	valuable@0.1.1
 	version_check@0.9.5
 	wasi@0.11.0+wasi-snapshot-preview1
-	wasi@0.13.3+wasi-0.2.2
+	wasi@0.14.2+wasi-0.2.4
 	wasi@0.9.0+wasi-snapshot-preview1
 	wasm-bindgen-backend@0.2.100
 	wasm-bindgen-macro-support@0.2.100
@@ -237,8 +240,12 @@ CRATES="
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	windows-core@0.52.0
+	windows-core@0.60.1
+	windows-implement@0.59.0
+	windows-interface@0.59.1
 	windows-link@0.1.0
+	windows-result@0.3.1
+	windows-strings@0.3.1
 	windows-sys@0.48.0
 	windows-sys@0.59.0
 	windows-targets@0.48.5
@@ -258,7 +265,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
-	wit-bindgen-rt@0.33.0
+	wit-bindgen-rt@0.39.0
 	wyz@0.5.1
 	yaxpeax-arch@0.3.2
 	yaxpeax-arm@0.3.1
