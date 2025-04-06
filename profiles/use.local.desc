@@ -8436,7 +8436,7 @@ sys-fs/zfs-auto-snapshot:default-exclude - Only take snapshots of datasets with 
 sys-fs/zfs-kmod:dist-kernel-cap - Prevents upgrading to an unsupported kernel version when combined with USE=dist-kernel
 sys-fs/zfs-kmod:rootfs - Pull dependencies and check kernel options required for root-on-zfs
 sys-kernel/asahi-sources:symlink - Automatically symlink the kernel sources to /usr/src/linux
-sys-kernel/dracut:dracut-cpio - Build the enhanced 'dracut-cpio' program
+sys-kernel/dracut:dracut-cpio - Build the enhanced 'dracut-cpio' program, written in Rust.
 sys-kernel/genkernel:firmware - Prefer system firmware sys-kernel/linux-firmware over local copy.
 sys-kernel/gentoo-kernel:experimental - Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".
 sys-kernel/gentoo-kernel:generic-uki - Build and install a generic initramfs and Unified Kernel Image, this is intended for building binpkgs with a pre-generated UKI included (EXPERIMENTAL).
