@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=>=dev-libs/cJSON-1.7.15 dev-libs/openssl:= sctp? ( net-misc/lksctp-tools )
+DESCRIPTION=A TCP, UDP, and SCTP network bandwidth measurement tool
+EAPI=8
+HOMEPAGE=https://github.com/esnet/iperf
+INHERIT=autotools systemd
+IUSE=sctp
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+LICENSE=BSD
+RDEPEND=>=dev-libs/cJSON-1.7.15 dev-libs/openssl:= sctp? ( net-misc/lksctp-tools )
+SLOT=3
+SRC_URI=https://github.com/esnet/iperf/releases/download/3.18/iperf-3.18.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=70b1af2b1e44b7857eb9b15c2689d0cf
