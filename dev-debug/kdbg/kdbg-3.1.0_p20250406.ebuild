@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT="1ff0635e655de67d1c8b4c405595bd174a8e3622"
+COMMIT="78450aec94de5c2c5e07f9a448f454ebe39e4fc0"
 PATCHSET="${P}-patchset.tar.xz"
 ECM_HANDBOOK="true"
 KFMIN=6.9.0
@@ -37,18 +37,16 @@ RDEPEND="${DEPEND}
 "
 
 # Patchset containing queued up upstream MRs, in order:
-# https://github.com/j6t/kdbg/pull/48
-# https://github.com/j6t/kdbg/pull/45
-# https://github.com/j6t/kdbg/pull/46
-# https://github.com/j6t/kdbg/pull/47
-# TODO upstream:
+# https://github.com/j6t/kdbg/pull/48 (only partially picked)
 # https://github.com/j6t/kdbg/commit/2e5de789 (Switch to KX11Extras)
-# https://github.com/j6t/kdbg/commit/812dcfa1 (Cast to QChar)
-# https://github.com/j6t/kdbg/pull/26/commits/21c7b20c (rebase: port to Qt6/KF6)
+# https://github.com/j6t/kdbg/pull/49 (Cast to QChar)
+# https://github.com/j6t/kdbg/pull/50
 PATCHES=( "${WORKDIR}"/${PATCHSET/.tar.xz/} )
 
 src_prepare() {
 	ecm_src_prepare
+	# TODO: raising ECM leads to many more deprecations erroring out:
+	sed -e "/^find_package(ECM/ s/\${KF_MIN_VERSION} //" -i CMakeLists.txt || die
 	if ! use handbook; then
 		cmake_run_in kdbg cmake_comment_add_subdirectory doc
 	fi
