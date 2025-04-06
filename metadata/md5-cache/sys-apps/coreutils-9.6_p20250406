@@ -1,16 +1,15 @@
-BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare setup test unpack
 DEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) static? ( acl? ( sys-apps/acl[static-libs] ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:=[static-libs] ) openssl? ( dev-libs/openssl:=[static-libs] ) xattr? ( sys-apps/attr[static-libs] ) )
 DESCRIPTION=Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/coreutils/
-INHERIT=flag-o-matic python-any-r1 toolchain-funcs verify-sig git-r3
+INHERIT=flag-o-matic python-any-r1 toolchain-funcs verify-sig
 IUSE=acl caps gmp hostname kill multicall nls +openssl selinux +split-usr static test vanilla xattr verify-sig
 LICENSE=GPL-3+
-PROPERTIES=live
 RDEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) hostname? ( !sys-apps/net-tools[hostname] ) kill? ( !sys-apps/util-linux[kill] !sys-process/procps[kill] ) !<sys-apps/util-linux-2.13 !<sys-apps/sandbox-2.10-r4 !sys-apps/stat !net-mail/base64 !sys-apps/mktemp !<app-forensics/tct-1.18-r1 !<net-fs/netatalk-2.0.3-r4
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=!vanilla? ( https://dev.gentoo.org/~sam/distfiles/sys-apps/coreutils/coreutils-9.6-patches.tar.xz )
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	git-r3	875eb471682d3e1f18da124be97dcc81
+SRC_URI=https://www.pixelbeat.org/cu/coreutils-9.6.53-14af8.tar.xz -> coreutils-9.6_p20250406.tar.xz verify-sig? ( https://www.pixelbeat.org/cu/coreutils-9.6.53-14af8.tar.xz.sig -> coreutils-9.6_p20250406.tar.xz.sig ) !vanilla? ( https://dev.gentoo.org/~sam/distfiles/sys-apps/coreutils/coreutils-9.6-patches.tar.xz )
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
 _md5_=73f3a96dfec503108cf2005de3e29d48

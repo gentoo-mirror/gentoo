@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gzip ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install postinst unpack
+DESCRIPTION=Standard GNU compressor
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/gzip/
+INHERIT=eapi9-ver flag-o-matic verify-sig
+IUSE=pic static verify-sig
+LICENSE=GPL-3+
+PDEPEND=app-alternatives/gzip
+RDEPEND=!app-arch/pigz[symlink(-)]
+SLOT=0
+SRC_URI=https://meyering.net/gzip/gzip-1.13.56-e549.tar.xz -> gzip-1.13_p20250405.tar.xz verify-sig? ( https://meyering.net/gzip/gzip-1.13.56-e549.tar.xz.sig -> gzip-1.13_p20250405.tar.xz.sig )
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=5b67a6ac3ad8122255fd880fd0fba42a
