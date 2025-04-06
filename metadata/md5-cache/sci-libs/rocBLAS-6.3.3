@@ -1,6 +1,6 @@
 BDEPEND=>=dev-build/rocm-cmake-5.3 video_cards_amdgpu? ( dev-util/Tensile:0/6.3 ) hipblaslt? ( sci-libs/hipBLASLt:0/6.3 ) test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( app-text/doxygen media-gfx/graphviz )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=>=dev-cpp/msgpack-cxx-6.0.0 dev-util/hip:0/6.3 test? ( virtual/blas dev-cpp/gtest llvm-runtimes/openmp ) benchmark? ( virtual/blas llvm-runtimes/openmp )
+DEPEND=>=dev-cpp/msgpack-cxx-6.0.0 dev-util/hip:0/6.3 test? ( virtual/blas dev-cpp/gtest llvm-runtimes/openmp ) benchmark? ( virtual/blas dev-cpp/gtest llvm-runtimes/openmp )
 DESCRIPTION=AMD's library for BLAS on ROCm
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/rocBLAS
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/6.3
 SRC_URI=https://github.com/ROCm/rocBLAS/archive/rocm-6.3.3.tar.gz -> rocm-rocBLAS-6.3.3.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	docs	006125f2158d2f16904ebd9114336058	edo	367e103a74bf77e6a8da7894d999fa3c	rocm	826765f795a41b937d1bfe8e709346cd	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda
-_md5_=7cc26bc72c36b8190be863dc20f9b8e1
+_md5_=3d3a119e0531844b883a0a532b3a9137
