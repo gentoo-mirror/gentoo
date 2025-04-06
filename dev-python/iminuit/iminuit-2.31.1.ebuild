@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -44,6 +44,8 @@ src_prepare() {
 
 	# do not force LTO
 	sed -i -e '/INTERPROCEDURAL_OPTIMIZATION/d' CMakeLists.txt || die
+	# https://github.com/scikit-build/scikit-build-core/issues/912
+	sed -i -e '/scikit-build-core/s:0\.10:0.8:' pyproject.toml || die
 }
 
 src_test() {
