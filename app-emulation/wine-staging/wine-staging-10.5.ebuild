@@ -9,7 +9,7 @@ inherit autotools edo flag-o-matic multilib multilib-build optfeature
 inherit prefix python-any-r1 toolchain-funcs wrapper
 
 WINE_GECKO=2.47.4
-WINE_MONO=9.4.0
+WINE_MONO=10.0.0
 WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == *9999 ]]; then
@@ -32,20 +32,25 @@ HOMEPAGE="
 
 S="${WORKDIR}/${WINE_P}"
 
-LICENSE="LGPL-2.1+ BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff"
+LICENSE="
+	LGPL-2.1+
+	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff
+	|| ( WTFPL-2 public-domain )
+"
 SLOT="${PV}"
 IUSE="
-	+X +abi_x86_32 +abi_x86_64 +alsa capi crossdev-mingw cups +dbus dos
-	llvm-libunwind custom-cflags ffmpeg +fontconfig +gecko gphoto2
-	+gstreamer kerberos +mingw +mono netapi nls odbc opencl +opengl
-	pcap perl pulseaudio samba scanner +sdl selinux smartcard +ssl
-	+strip +truetype udev +unwind usb v4l +vulkan wayland wow64
+	+X +abi_x86_32 +abi_x86_64 +alsa bluetooth capi crossdev-mingw cups
+	+dbus dos llvm-libunwind custom-cflags ffmpeg +fontconfig +gecko
+	gphoto2 +gstreamer kerberos +mingw +mono netapi nls odbc opencl
+	+opengl pcap perl pulseaudio samba scanner +sdl selinux smartcard
+	+ssl +strip +truetype udev +unwind usb v4l +vulkan wayland wow64
 	+xcomposite xinerama
 "
 # bug #551124 for truetype
-# TODO: wow64 can be done without mingw if using clang (needs bug #912237)
+# TODO?: wow64 can be done without mingw if using clang (needs bug #912237)
 REQUIRED_USE="
 	X? ( truetype )
+	bluetooth? ( dbus )
 	crossdev-mingw? ( mingw )
 	wow64? ( abi_x86_64 !abi_x86_32 mingw )
 "
@@ -136,6 +141,7 @@ DEPEND="
 	${WINE_COMMON_DEPEND}
 	sys-kernel/linux-headers
 	X? ( x11-base/xorg-proto )
+	bluetooth? ( net-wireless/bluez )
 "
 # gitapply.sh "can" work without git but that is hardly tested
 # and known failing with some versions, so force real git
@@ -169,7 +175,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-7.17-noexecstack.patch
 	"${FILESDIR}"/${PN}-7.20-unwind.patch
 	"${FILESDIR}"/${PN}-8.13-rpath.patch
-	"${FILESDIR}"/${PN}-10.0-binutils2.44.patch
 )
 
 pkg_pretend() {
@@ -311,6 +316,11 @@ src_configure() {
 		$(use_with wayland)
 		$(use_with xcomposite)
 		$(use_with xinerama)
+
+		$(usev !bluetooth '
+			ac_cv_header_bluetooth_bluetooth_h=no
+			ac_cv_header_bluetooth_rfcomm_h=no
+		')
 		$(usev !odbc ac_cv_lib_soname_odbc=)
 	)
 
@@ -402,27 +412,10 @@ src_install() {
 	use abi_x86_32 && emake DESTDIR="${D}" -C ../build32 install
 	use abi_x86_64 && emake DESTDIR="${D}" -C ../build64 install # do last
 
-	# Ensure both wine64 and wine are available if USE=abi_x86_64 (wow64,
-	# -abi_x86_32, and/or EXTRA_ECONF could cause varying scenarios where
-	# one or the other could be missing and that is unexpected for users
-	# and some tools like winetricks)
-	if use abi_x86_64; then
-		if [[ -e ${ED}${WINE_PREFIX}/bin/wine64 && ! -e ${ED}${WINE_PREFIX}/bin/wine ]]; then
-			dosym wine64 ${WINE_PREFIX}/bin/wine
-			dosym wine64-preloader ${WINE_PREFIX}/bin/wine-preloader
-
-			# also install wine(1) man pages (incl. translations)
-			local man
-			for man in ../build64/loader/wine.*man; do
-				: "${man##*/wine}"
-				: "${_%.*}"
-				insinto ${WINE_DATADIR}/man/${_:+${_#.}/}man1
-				newins ${man} wine.1
-			done
-		elif [[ ! -e ${ED}${WINE_PREFIX}/bin/wine64 && -e ${ED}${WINE_PREFIX}/bin/wine ]]; then
-			dosym wine ${WINE_PREFIX}/bin/wine64
-			dosym wine-preloader ${WINE_PREFIX}/bin/wine64-preloader
-		fi
+	# "wine64" is no longer provided, but a keep symlink for old scripts
+	# TODO: remove the guard later, only useful for bisecting -9999
+	if [[ ! -e ${ED}${WINE_PREFIX}/bin/wine64 ]]; then
+		use abi_x86_64 && dosym wine ${WINE_PREFIX}/bin/wine64
 	fi
 
 	use perl || rm "${ED}"${WINE_DATADIR}/man/man1/wine{dump,maker}.1 \
