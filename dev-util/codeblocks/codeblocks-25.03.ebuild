@@ -14,16 +14,8 @@ FP_REV=378
 
 DESCRIPTION="The open source, cross platform, free C, C++ and Fortran IDE"
 HOMEPAGE="https://www.codeblocks.org/"
-
-# svn export --ignore-externals https://svn.code.sf.net/p/codeblocks/code/trunk@${REV} codeblocks-20.03_p${REV}
-# tar -cjf codeblocks-20.03_p${REV}.tar.bz2 codeblocks-20.03_p${REV}
-#
-# svn export https://svn.code.sf.net/p/fortranproject/code/trunk@${FP_REV} fortranproject_r${FP_REV}
-# tar -cjf fortranproject_r${FP_REV}.tar.bz2 fortranproject_r${FP_REV}
-SRC_URI="
-	https://github.com/band-a-prend/gentoo-overlay/releases/download/${PN}-20.03_p${REV}/${PN}-20.03_p${REV}.tar.bz2
-	https://github.com/band-a-prend/gentoo-overlay/releases/download/${PN}-20.03_p${REV}/${FP_NAME}_r${FP_REV}.tar.bz2
-"
+SRC_URI="https://downloads.sourceforge.net/${PN}/${P/-/_}.tar.xz -> ${P}.tar.xz"
+S="${WORKDIR}/${P/-/_}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -55,14 +47,9 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-9999-nodebug.diff"
-	"${FILESDIR}/${P}_FortranProject-r378-autotools-build.patch"
+	"${FILESDIR}/${P}_env.patch"
+	"${FILESDIR}/${P}_FortranProject-r386-autotools-build.patch"
 )
-
-src_unpack() {
-	default
-	mv -T "${WORKDIR}/${FP_NAME}_r${FP_REV}" "${S}"/src/plugins/contrib/FortranProject || die
-}
 
 src_prepare() {
 	default
