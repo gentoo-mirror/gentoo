@@ -1,5 +1,5 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
-DEFINED_PHASES=compile install test
+DEFINED_PHASES=compile install prepare test
 DEPEND=>=dev-lang/ocaml-4.14 dev-ml/dune-configurator:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Invoke amd64 instructions (such as clz, popcnt, rdtsc, rdpmc)
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0/0.16
 SRC_URI=https://github.com/janestreet/ocaml_intrinsics/archive/v0.16.0.tar.gz -> ocaml_intrinsics-0.16.0.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=06ce7dfafded4224259480cde4f49e83
+_md5_=ead48a993d19affff255db60734fb229
