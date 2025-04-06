@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/OpenGL
 INHERIT=perl-module
 IUSE=examples perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=~amd64 arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=media-libs/freeglut:= x11-libs/libICE:= x11-libs/libXext:= x11-libs/libXi:= x11-libs/libXmu:= >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ET/ETJ/OpenGL-0.7002.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=20232d14a956d0fae38c5ab789087e39
+_md5_=dcbb9a939127590f0591626088f3e668
