@@ -1,10 +1,10 @@
 DEFINED_PHASES=postinst
 DESCRIPTION=Virtual for OpenCL API
-EAPI=8
+EAPI=7
 INHERIT=multilib-build
 IUSE=abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv x86
 RDEPEND=>=dev-libs/opencl-icd-loader-2023.02.06[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 SLOT=0
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib-build	9ac26ea006828266d235e2f0135429b5
-_md5_=810b82d794ed737c3995e909c499e85f
+_md5_=cee27a34623b36f5e9ada1aca668bdcb
