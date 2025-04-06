@@ -108,7 +108,7 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="Vivaldi"
 SLOT="0"
-KEYWORDS="-* amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm ~arm64"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt6 widevine"
 RESTRICT="bindist mirror"
 #REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
@@ -165,7 +165,7 @@ src_prepare() {
 	rmdir etc/{cron.daily/,} ${VIVALDI_HOME}/cron/ || die
 
 	# Remove scripts that will most likely break things.
-	rm -vf ${VIVALDI_HOME}/update-{ffmpeg,widevine} || die
+	rm -vf ${VIVALDI_HOME}/update-ffmpeg || die
 
 	pushd ${VIVALDI_HOME}/locales > /dev/null || die
 	rm ja-KS.pak || die # No flag for Kansai as not in IETF list.
@@ -209,8 +209,6 @@ src_install() {
 	if use widevine; then
 		dosym ../../usr/$(get_libdir)/chromium-browser/WidevineCdm \
 			  /${VIVALDI_HOME}/WidevineCdm
-	else
-		rm "${ED}"/${VIVALDI_HOME}/WidevineCdm || die
 	fi
 
 	case ${PN} in
