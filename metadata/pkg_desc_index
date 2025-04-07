@@ -1846,7 +1846,7 @@ app-editors/vim 9.0.2167 9.1.0366 9.1.0470 9.1.0794 9999: Vim, an improved vi-st
 app-editors/vim-core 9.0.2167 9.0.2167-r1 9.1.0366 9.1.0366-r1 9.1.0470 9.1.0794 9999: vim and gvim shared files
 app-editors/vis 0.9 0.9-r1 9999: Modern, legacy free, simple yet efficient vim-like editor
 app-editors/vscode 1.98.2 1.99.0: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.98.2.25072: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscodium 1.98.2.25072 1.99.02289: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r2 1.0-r3: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r3: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.5.35-r8 21.5.9999: highly customizable open source text editor and application development system
@@ -2622,7 +2622,7 @@ app-metrics/mysqld_exporter 0.14.0 0.14.0_p20221209 0.14.0_p20230328: Prometheus
 app-metrics/nftables-exporter 0.2.7 0.3.1: prometheus exporter for nftables metrics
 app-metrics/nginx-lua-prometheus 0.1_pre20170610-r100: Library that exports Nginx metrics to Prometheus
 app-metrics/nginx-vts-exporter 0.10.8: Nginx virtual host traffic stats exporter for Prometheus
-app-metrics/node_exporter 1.8.1 1.8.2 1.9.0 9999: Prometheus exporter for machine metrics
+app-metrics/node_exporter 1.8.2 1.9.0 1.9.1 9999: Prometheus exporter for machine metrics
 app-metrics/openvpn_exporter 0.3.0: Prometheus Exporter for OpenVPN
 app-metrics/portage-exporter 0.1.0: Prometheus exporter for Gentoo Portage
 app-metrics/postfix_exporter 0.3.0: Prometheus Exporter for Postfix
@@ -3968,7 +3968,7 @@ dev-db/mariadb 10.6.15 10.6.17 10.6.20 10.6.21 10.11.10 10.11.11 11.4.5: An enha
 dev-db/mariadb-connector-c 3.3.8 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30: A high-performance, open source, schema-free document-oriented database
-dev-db/mongodb-compass-bin 1.45.2 1.45.3 1.45.4: GUI for MongoDB
+dev-db/mongodb-compass-bin 1.45.4 1.46.0: GUI for MongoDB
 dev-db/mycli 1.29.2: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.15.2.8-r1 0.16.11.2 0.18.1.1: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
@@ -15739,7 +15739,7 @@ sci-biology/augustus 2.5.5 3.4.0-r3 3.5.0: Eukaryotic gene predictor
 sci-biology/bamtools 2.5.2 9999: A programmer's API and an end-user's toolkit for handling BAM files
 sci-biology/bcftools 1.19 1.20 1.21: Utilities for variant calling and manipulating VCF and BCF files
 sci-biology/bedtools 2.30.0 2.31.1: Tools for manipulation and analysis of BED, GFF/GTF, VCF, SAM/BAM file formats
-sci-biology/bfast 0.7.0a: Blat-like Fast Accurate Search Tool
+sci-biology/bfast 0.7.0a 0.7.0a-r1: Blat-like Fast Accurate Search Tool
 sci-biology/biogrep 1.0-r3: Multithreaded tool for matching large sets of patterns against biosequence DBs
 sci-biology/bioperl 1.6.9-r1: Perl tools for bioinformatics - Core modules
 sci-biology/bioperl-db 1.6.9-r2: Perl tools for bioinformatics - Perl API that accesses the BioSQL schema
@@ -17622,8 +17622,8 @@ sys-kernel/dkms 3.1.4 3.1.5 3.1.6 3.1.7 9999: Dynamic Kernel Module Support
 sys-kernel/dracut 060_pre20240104-r4 103-r4 106-r2 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.234 5.10.235 5.15.178 5.15.179 6.1.132 6.6.85 6.12.21 6.13.9: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.234 5.10.235 5.15.178 5.15.179 6.1.132 6.6.85 6.12.21 6.13.9: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.234 5.10.235 5.15.178 5.15.179 6.1.132 6.1.133 6.6.85 6.6.86 6.12.21 6.12.22 6.13.9 6.13.10 6.14.1: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.234 5.10.235 5.15.178 5.15.179 6.1.132 6.1.133 6.6.85 6.6.86 6.12.21 6.12.22 6.13.9 6.13.10 6.14.1: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.233 5.10.234 5.10.235 5.15.177 5.15.178 5.15.179 6.1.118 6.1.129 6.1.130 6.1.131 6.1.132 6.1.133 6.6.62 6.6.79 6.6.83 6.6.84 6.6.85 6.6.86 6.12.16 6.12.19 6.12.20 6.12.21 6.12.22 6.13.7 6.13.8 6.13.9 6.13.10 6.14.0 6.14.1: Full sources including the Gentoo patchset for the 6.14 kernel tree
 sys-kernel/git-sources 6.15_rc1: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 50 55 56 57: Gentoo fork of installkernel script from debianutils
@@ -17642,7 +17642,7 @@ sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230
 sys-kernel/rt-sources 4.14.336_p159 4.19.325_p140 5.4.290_p95 5.10.234_p127 5.15.177_p83 6.0.5_p14 6.1.128_p49 6.5.2_p8 6.6.65_p47: Full Linux 6.6 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/scx 1.0.8 1.0.9 1.0.10: sched_ext schedulers and tools
 sys-kernel/ugrd 1.20.0 1.22.0 1.24.2 1.27.2 1.28.2 1.29.0-r1 1.31.2 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.234 5.10.235 5.10.9999 5.15.178 5.15.179 5.15.9999 6.1.132 6.1.9999 6.6.85 6.6.9999 6.12.21 6.12.9999 6.13.9: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.234 5.10.235 5.10.9999 5.15.178 5.15.179 5.15.9999 6.1.132 6.1.133 6.1.9999 6.6.85 6.6.86 6.6.9999 6.12.21 6.12.22 6.12.9999 6.13.9 6.13.10 6.14.1: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.291 5.10.235 5.15.179 6.1.133 6.6.86 6.12.22 6.13.10 6.14.1: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.32_p20250124 1.33: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 6.13.8: The Zen Kernel Live Sources
@@ -17828,7 +17828,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.234 5.10.235 5.15.178 5.15.179 6.1.132 6.6.85 6.12.21 6.13.9: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.234 5.10.235 5.15.178 5.15.179 6.1.132 6.1.133 6.6.85 6.6.86 6.12.21 6.12.22 6.13.9 6.13.10 6.14.1: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
