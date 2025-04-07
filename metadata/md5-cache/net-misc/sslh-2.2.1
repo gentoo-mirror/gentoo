@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=caps? ( sys-libs/libcap ) dev-libs/libpcre2:= systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) dev-libs/libconfig:= libev? ( dev-libs/libev ) >=dev-libs/libconfig-1.5:= dev-lang/perl
+DESCRIPTION=Port multiplexer - accept both HTTPS and SSH connections on the same port
+EAPI=7
+HOMEPAGE=https://www.rutschle.net/tech/sslh/README.html
+INHERIT=flag-o-matic systemd toolchain-funcs
+IUSE=caps libev systemd tcpd
+KEYWORDS=~amd64 ~arm ~m68k ~mips ~s390 ~x86
+LICENSE=GPL-2
+RDEPEND=caps? ( sys-libs/libcap ) dev-libs/libpcre2:= systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) dev-libs/libconfig:= libev? ( dev-libs/libev ) >=dev-libs/libconfig-1.5:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/yrutschle/sslh/archive/v2.2.1.tar.gz -> sslh-2.2.1.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=4b20a521468d1cd00164818e13ae1a78

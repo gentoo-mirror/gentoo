@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DESCRIPTION=An indexer manager/proxy to integrate with your various PVR apps
+EAPI=8
+HOMEPAGE=https://wiki.servarr.com/prowlarr/ https://github.com/Prowlarr/Prowlarr/
+INHERIT=systemd
+KEYWORDS=-* ~amd64 ~arm ~arm64
+LICENSE=GPL-3
+RDEPEND=acct-group/prowlarr acct-user/prowlarr dev-libs/icu dev-db/sqlite
+RESTRICT=bindist strip test
+SLOT=0
+SRC_URI=amd64? ( elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v1.33.2.5002/Prowlarr.develop.1.33.2.5002.linux-core-x64.tar.gz ) elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v1.33.2.5002/Prowlarr.develop.1.33.2.5002.linux-musl-core-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v1.33.2.5002/Prowlarr.develop.1.33.2.5002.linux-core-arm.tar.gz ) elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v1.33.2.5002/Prowlarr.develop.1.33.2.5002.linux-musl-core-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v1.33.2.5002/Prowlarr.develop.1.33.2.5002.linux-core-arm64.tar.gz ) elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v1.33.2.5002/Prowlarr.develop.1.33.2.5002.linux-musl-core-arm64.tar.gz ) )
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=ae16173934051f951202eb340b7cad46
