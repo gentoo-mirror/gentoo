@@ -15,7 +15,7 @@ SRC_URI+=" verify-sig? ( https://invisible-island.net/archives/${PN}/${MY_P}.tgz
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="MIT"
-SLOT="0/6" # subslot = soname version
+SLOT="0/6.3.5" # subslot = soname version, check VERSION
 KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="examples unicode"
 
@@ -42,6 +42,7 @@ src_configure() {
 		--with-shared \
 		--with-pkg-config \
 		--enable-pc-files \
+		--with-shlib-version=abi \
 		--with-pkg-config-libdir="${EPREFIX}/usr/$(get_libdir)/pkgconfig" \
 		--with-ncurses$(usex unicode "w" "")
 }
