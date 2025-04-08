@@ -1,8 +1,8 @@
-# Copyright 2018-2024 Gentoo Authors
+# Copyright 2018-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit go-module
+inherit eapi9-ver go-module
 MY_PV=${PV/_/-}
 
 DESCRIPTION="Multi-container orchestration for Docker"
@@ -10,14 +10,14 @@ HOMEPAGE="https://github.com/docker/compose"
 SRC_URI="https://github.com/docker/compose/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
 SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
 
+S="${WORKDIR}/compose-${MY_PV}"
+
 LICENSE="Apache-2.0"
 SLOT="2"
 KEYWORDS="~amd64 ~arm64"
 
-BDEPEND=">=dev-lang/go-1.21"
 RDEPEND=">=app-containers/docker-cli-23.0.0"
 
-S="${WORKDIR}/compose-${MY_PV}"
 RESTRICT="test"
 
 src_prepare() {
@@ -41,6 +41,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	ver_replacing -ge 2 && return
 	ewarn
 	ewarn "docker-compose 2.x is a sub command of docker"
 	ewarn "Use 'docker compose' from the command line instead of"
