@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://openrct2.org/
 INHERIT=cmake readme.gentoo-r1 xdg-utils
 IUSE=dedicated +flac +opengl scripting test +truetype +vorbis
-KEYWORDS=amd64 ~arm arm64 ppc64 x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/icu:= dev-libs/jansson:= dev-libs/libzip:= media-libs/libpng:= net-misc/curl[ssl] sys-libs/zlib !dedicated? ( media-libs/libsdl2 media-libs/speexdsp flac? ( media-libs/flac:= ) opengl? ( virtual/opengl ) vorbis? ( media-libs/libvorbis ) ) dev-libs/openssl:0= scripting? ( dev-lang/duktape:= ) truetype? ( media-libs/fontconfig:1.0 media-libs/freetype:2 ) dedicated? ( acct-group/openrct2 acct-user/openrct2 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/OpenRCT2/OpenRCT2/archive/v0.4.18.tar.gz -> openrct2-0.4.18.tar.gz https://github.com/OpenRCT2/openmusic/releases/download/v1.6/openmusic.zip -> openrct2-openmusic-1.6.zip https://github.com/OpenRCT2/objects/releases/download/v1.4.12/objects.zip -> openrct2-objects-1.4.12.zip https://github.com/OpenRCT2/OpenSoundEffects/releases/download/v1.0.5/opensound.zip -> openrct2-opensound-1.0.5.zip https://github.com/OpenRCT2/title-sequences/releases/download/v0.4.14/title-sequences.zip -> openrct2-title-sequences-0.4.14.zip test? ( https://github.com/OpenRCT2/replays/releases/download/v0.0.84/replays.zip -> openrct2-replays-0.0.84.zip )
+SRC_URI=https://github.com/OpenRCT2/OpenRCT2/archive/v0.4.21.tar.gz -> openrct2-0.4.21.tar.gz https://github.com/OpenRCT2/openmusic/releases/download/v1.6/openmusic.zip -> openrct2-openmusic-1.6.zip https://github.com/OpenRCT2/objects/releases/download/v1.6.1/objects.zip -> openrct2-objects-1.6.1.zip https://github.com/OpenRCT2/OpenSoundEffects/releases/download/v1.0.5/opensound.zip -> openrct2-opensound-1.0.5.zip https://github.com/OpenRCT2/title-sequences/releases/download/v0.4.14/title-sequences.zip -> openrct2-title-sequences-0.4.14.zip test? ( https://github.com/OpenRCT2/replays/releases/download/v0.0.86/replays.zip -> openrct2-replays-0.0.86.zip )
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=6af9c1246b6794ab71810323d4021412
+_md5_=794de1244e68069dcb9c121058a3de64
