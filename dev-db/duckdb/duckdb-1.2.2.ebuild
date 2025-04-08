@@ -18,6 +18,10 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 src_configure() {
-	mycmakeargs=( "-DINSTALL_LIB_DIR=/usr/$(get_libdir)/" -DOVERRIDE_GIT_DESCRIBE=v${PV} )
+	mycmakeargs=( "-DINSTALL_LIB_DIR=/usr/$(get_libdir)/"
+		"-DOVERRIDE_GIT_DESCRIBE=v${PV}"
+		"-DBUILD_EXTENSIONS='autocomplete;icu;tpch;tpcds;json;jemalloc'"
+		"-DCXX_EXTRA=${CXXFLAGS}"
+		)
 	cmake_src_configure
 }
