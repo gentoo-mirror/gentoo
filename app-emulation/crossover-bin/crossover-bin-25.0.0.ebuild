@@ -15,7 +15,7 @@ S="${WORKDIR}"
 LICENSE="CROSSOVER-3"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="+capi +cups doc +gphoto2 +gstreamer +jpeg +lcms +mp3 +nls osmesa +openal +opencl +opengl +pcap +png +scanner +ssl +v4l +vulkan"
+IUSE="+capi +cups +gphoto2 +gstreamer +jpeg +lcms +mp3 +nls osmesa +openal +opencl +opengl +pcap +png +scanner +ssl +v4l +vulkan"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RESTRICT="bindist test"
@@ -102,7 +102,6 @@ src_prepare() {
 	# Remove unnecessary files, license.txt file kept as it's used by
 	# multiple files (apart of the menu to show the license)
 	rm -r guis/ || die "Could not remove files"
-	use doc || rm -r doc/ || die "Could not remove files"
 }
 
 src_install() {

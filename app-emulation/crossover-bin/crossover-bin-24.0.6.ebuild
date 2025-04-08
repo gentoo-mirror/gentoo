@@ -1,14 +1,16 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit python-single-r1 unpacker
 
 DESCRIPTION="Commercial version of app-emulation/wine with paid support"
 HOMEPAGE="https://www.codeweavers.com/products/"
 SRC_URI="https://media.codeweavers.com/pub/crossover/cxlinux/demo/install-crossover-${PV}.bin"
+
+S="${WORKDIR}"
 
 LICENSE="CROSSOVER-3"
 SLOT="0"
@@ -18,16 +20,13 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RESTRICT="bindist test"
 QA_PREBUILT="*"
-S="${WORKDIR}"
 
-DEPEND=""
 BDEPEND="${PYTHON_DEPS}
 	app-alternatives/cpio
 	app-arch/unzip
 	dev-lang/perl
 	dev-util/bbe
 "
-
 RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
