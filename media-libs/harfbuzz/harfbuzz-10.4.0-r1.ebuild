@@ -44,6 +44,8 @@ BDEPEND="
 	introspection? ( dev-util/glib-utils )
 "
 
+FILES=( "${FILESDIR}/${P}-meson-harfbuzz.patch" ) # bug 950274
+
 src_prepare() {
 	default
 
