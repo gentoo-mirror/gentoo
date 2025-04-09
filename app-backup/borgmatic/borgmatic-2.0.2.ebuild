@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 IUSE="apprise"
 
 # borg is called as an external tool, hence no pythonic stuff
@@ -68,11 +68,11 @@ pkg_postinst() {
 		elog "    ${PN} config generate"
 		elog
 		elog "Systemd users wishing to periodically run ${PN} can use the provided timer and service units."
-	elif ver_replacing -lt 1.9.0; then
-		ewarn "Please be warned that ${PN}-1.9.0 has introduced several breaking changes."
+	elif ver_replacing -lt 2.0.0; then
+		ewarn "Please be warned that ${PN}-2.0.0 has introduced several breaking changes."
 		ewarn "For details, please see"
 		ewarn
-		ewarn "	https://github.com/borgmatic-collective/borgmatic/releases/tag/1.9.0"
+		ewarn "	https://github.com/borgmatic-collective/borgmatic/releases/tag/2.0.0"
 		ewarn
 	fi
 }
