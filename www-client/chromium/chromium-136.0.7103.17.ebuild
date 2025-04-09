@@ -25,9 +25,10 @@ EAPI=8
 GN_MIN_VER=0.2217
 # chromium-tools/get-chromium-toolchain-strings.py
 TEST_FONT=f26f29c9d3bfae588207bbc9762de8d142e58935c62a86f67332819b15203b35
-BUNDLED_CLANG_VER=llvmorg-20-init-17108-g29ed6000-3
-BUNDLED_RUST_VER=ad211ced81509462cdfe4c29ed10f97279a0acae-1
+BUNDLED_CLANG_VER=llvmorg-21-init-5118-g52cd27e6-4
+BUNDLED_RUST_VER=f7b43542838f0a4a6cfdb17fbeadf45002042a77-1
 RUST_SHORT_HASH=${BUNDLED_RUST_VER:0:10}-${BUNDLED_RUST_VER##*-}
+NODE_VER=22.11.0
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -48,7 +49,7 @@ inherit python-any-r1 readme.gentoo-r1 rust systemd toolchain-funcs virtualx xdg
 DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
-PATCH_V="${PV%%\.*}"
+PATCH_V="${PV%%\.*}-2"
 SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	!bundled-toolchain? (
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
@@ -69,11 +70,11 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
 LICENSE="BSD"
-SLOT="0/stable"
+SLOT="0/dev"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
@@ -212,7 +213,7 @@ BDEPEND="
 	dev-lang/perl
 	>=dev-util/gperf-3.0.3
 	dev-vcs/git
-	>=net-libs/nodejs-7.6.0[inspector]
+	>=net-libs/nodejs-${NODE_VER}:0/${NODE_VER%%.*}[inspector]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	virtual/pkgconfig
@@ -259,22 +260,25 @@ pre_build_checks() {
 	# Check build requirements: bugs #471810, #541816, #914220
 	# We're going to start doing maths here on the size of an unpacked source tarball,
 	# this should make updates easier as chromium continues to balloon in size.
-	local BASE_DISK=24
-	local EXTRA_DISK=1
-	local CHECKREQS_MEMORY="4G"
-	tc-is-cross-compiler && EXTRA_DISK=2
+	# xz -l /var/cache/distfiles/chromium-${PV}*.tar.xz
+	local base_disk=9 # Round up
+	use test && base_disk=$((base_disk + 5))
+	local extra_disk=1 # Always include a little extra space
+	local memory=4
+	tc-is-cross-compiler && extra_disk=$((extra_disk * 2))
 	if tc-is-lto || use pgo; then
-		CHECKREQS_MEMORY="9G"
-		tc-is-cross-compiler && EXTRA_DISK=4
-		use pgo && EXTRA_DISK=8
+		memory=$((memory * 2 + 1))
+		tc-is-cross-compiler && extra_disk=$((extra_disk * 2)) # Double the requirements
+		use pgo && extra_disk=$((extra_disk + 4))
 	fi
 	if is-flagq '-g?(gdb)?([1-9])'; then
 		if use custom-cflags; then
-			EXTRA_DISK=13
+			extra_disk=$((extra_disk + 5))
 		fi
-		CHECKREQS_MEMORY="16G"
+		memory=$((memory * 2))
 	fi
-	CHECKREQS_DISK_BUILD="$((BASE_DISK + EXTRA_DISK))G"
+	local CHECKREQS_MEMORY="${memory}G"
+	local CHECKREQS_DISK_BUILD="$((base_disk + extra_disk))G"
 	check-reqs_${EBUILD_PHASE_FUNC}
 }
 
@@ -411,7 +415,7 @@ src_prepare() {
 		"${FILESDIR}/chromium-134-bindgen-custom-toolchain.patch"
 		"${FILESDIR}/chromium-135-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-135-map_droppable-glibc.patch"
-		"${FILESDIR}/chromium-135-webrtc-pipewire.patch"
+		"${FILESDIR}/chromium-136-drop-nodejs-ver-check.patch"
 	)
 
 	if use bundled-toolchain; then
@@ -493,6 +497,16 @@ src_prepare() {
 	fi
 
 	default
+
+	if [[ ${LLVM_SLOT} == "19" ]]; then
+		# Upstream now hard depend on a feature that was added in LLVM 20.1, but we don't want to stabilise that yet.
+		# Do the temp file shuffle in case someone is using something other than `gawk`
+		{
+			awk '/config\("clang_warning_suppression"\) \{/	{ print $0 " }"; sub(/clang/, "xclang"); print; next }
+				{ print }' build/config/compiler/BUILD.gn > "${T}/build.gn" && \
+				mv "${T}/build.gn" build/config/compiler/BUILD.gn
+		} || die "Unable to disable warning suppression"
+	fi
 
 	# Not included in -lite tarballs, but we should check for it anyway.
 	if [[ -f third_party/node/linux/node-linux-x64/bin/node ]]; then
@@ -581,6 +595,7 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/i18n
 		third_party/devtools-frontend/src/front_end/third_party/intl-messageformat
 		third_party/devtools-frontend/src/front_end/third_party/json5
+		third_party/devtools-frontend/src/front_end/third_party/legacy-javascript
 		third_party/devtools-frontend/src/front_end/third_party/lighthouse
 		third_party/devtools-frontend/src/front_end/third_party/lit
 		third_party/devtools-frontend/src/front_end/third_party/marked

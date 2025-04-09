@@ -49,7 +49,7 @@ DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
 PATCH_V="${PV%%\.*}"
-SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
+SRC_URI="https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/download/${PV}/chromium-${PV}-linux.tar.xz
 	!bundled-toolchain? (
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 	)
@@ -60,7 +60,7 @@ SRC_URI="https://chromium-tarballs.distfiles.gentoo.org/${P}-linux.tar.xz
 			-> chromium-rust-toolchain-${RUST_SHORT_HASH}-${BUNDLED_CLANG_VER%-*}.tar.xz
 	)
 	test? (
-		https://chromium-tarballs.distfiles.gentoo.org/${P}-linux-testdata.tar.xz
+		https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/download/${PV}/chromium-${PV}-linux-testdata.tar.xz
 		https://chromium-fonts.storage.googleapis.com/${TEST_FONT} -> chromium-testfonts-${TEST_FONT:0:10}.tar.gz
 	)
 	ppc64? (
@@ -72,6 +72,7 @@ LICENSE="BSD"
 SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
+# Do _not_ drop stable keywords for amd64 on patch releases. aarch64 still needs to go through the stablereq process.
 if [[ ${SLOT} != "0/dev" ]]; then
 	KEYWORDS="amd64 ~arm64"
 fi
@@ -259,22 +260,25 @@ pre_build_checks() {
 	# Check build requirements: bugs #471810, #541816, #914220
 	# We're going to start doing maths here on the size of an unpacked source tarball,
 	# this should make updates easier as chromium continues to balloon in size.
-	local BASE_DISK=24
-	local EXTRA_DISK=1
-	local CHECKREQS_MEMORY="4G"
-	tc-is-cross-compiler && EXTRA_DISK=2
+	# xz -l /var/cache/distfiles/chromium-${PV}*.tar.xz
+	local base_disk=9 # Round up
+	use test && base_disk=$((base_disk + 5))
+	local extra_disk=1 # Always include a little extra space
+	local memory=4
+	tc-is-cross-compiler && extra_disk=$((extra_disk * 2))
 	if tc-is-lto || use pgo; then
-		CHECKREQS_MEMORY="9G"
-		tc-is-cross-compiler && EXTRA_DISK=4
-		use pgo && EXTRA_DISK=8
+		memory=$((memory * 2 + 1))
+		tc-is-cross-compiler && extra_disk=$((extra_disk * 2)) # Double the requirements
+		use pgo && extra_disk=$((extra_disk + 4))
 	fi
 	if is-flagq '-g?(gdb)?([1-9])'; then
 		if use custom-cflags; then
-			EXTRA_DISK=13
+			extra_disk=$((extra_disk + 5))
 		fi
-		CHECKREQS_MEMORY="16G"
+		memory=$((memory * 2))
 	fi
-	CHECKREQS_DISK_BUILD="$((BASE_DISK + EXTRA_DISK))G"
+	local CHECKREQS_MEMORY="${memory}G"
+	local CHECKREQS_DISK_BUILD="$((base_disk + extra_disk))G"
 	check-reqs_${EBUILD_PHASE_FUNC}
 }
 
