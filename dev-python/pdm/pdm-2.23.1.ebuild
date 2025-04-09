@@ -29,6 +29,7 @@ RDEPEND="
 	>=dev-python/hishel-0.0.32[${PYTHON_USEDEP}]
 	>=dev-python/httpcore-1.0.6[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
+	>=dev-python/id-1.5.0[${PYTHON_USEDEP}]
 	dev-python/installer[${PYTHON_USEDEP}]
 	dev-python/msgpack[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
@@ -41,7 +42,7 @@ RDEPEND="
 	dev-python/shellingham[${PYTHON_USEDEP}]
 	dev-python/tomlkit[${PYTHON_USEDEP}]
 	>=dev-python/truststore-0.9[${PYTHON_USEDEP}]
-	>=dev-python/unearth-0.17.0[${PYTHON_USEDEP}]
+	>=dev-python/unearth-0.17.5[${PYTHON_USEDEP}]
 	dev-python/virtualenv[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/tomli[${PYTHON_USEDEP}]
@@ -52,6 +53,8 @@ BDEPEND="
 	test? (
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
+		dev-python/pytest-httpx[${PYTHON_USEDEP}]
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		dev-python/uv
 	)
 "
@@ -128,5 +131,5 @@ python_test() {
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest  -m "not network and not integration and not path" \
-		-p pytest_mock
+		-p pytest_mock -p pytest_httpx
 }

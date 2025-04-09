@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/annotated-types-0.6.0[${PYTHON_USEDEP}]
-	~dev-python/pydantic-core-2.33.0[${PYTHON_USEDEP}]
+	~dev-python/pydantic-core-2.33.1[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.12.2[${PYTHON_USEDEP}]
 	>=dev-python/typing-inspection-0.4.0[${PYTHON_USEDEP}]
 	dev-python/tzdata[${PYTHON_USEDEP}]
