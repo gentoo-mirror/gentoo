@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=A high-level Emacs Lisp RDBMS front-end
+EAPI=8
+HOMEPAGE=https://github.com/magit/emacsql
+INHERIT=elisp
+IUSE=postgres mysql
+KEYWORDS=~amd64
+LICENSE=Unlicense
+RDEPEND=postgres? ( dev-db/postgresql ) mysql? ( virtual/mysql ) >=app-editors/emacs-26.1:*
+SLOT=0
+SRC_URI=https://github.com/magit/emacsql/archive/refs/tags/v4.3.0.tar.gz -> emacsql-4.3.0.tar.gz
+_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=91d3c7b4ba214fef0c19ef00f3b76e6b
