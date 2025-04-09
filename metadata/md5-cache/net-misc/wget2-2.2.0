@@ -4,11 +4,11 @@ DEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) !gnutls? ( dev-libs
 DESCRIPTION=GNU Wget2 is a file and recursive website downloader
 EAPI=8
 HOMEPAGE=https://gitlab.com/gnuwget/wget2
-IUSE=brotli bzip2 doc +gnutls gpgme +http2 idn lzip lzma openssl pcre psl +ssl test xattr zlib
+IUSE=brotli bzip2 doc +gnutls gpgme +http2 idn lzip lzma pcre psl +ssl test xattr zlib
 KEYWORDS=~amd64 ~arm64 ~loong ~x86
 LICENSE=GPL-3+ LGPL-3+
 RDEPEND=brotli? ( app-arch/brotli ) bzip2? ( app-arch/bzip2 ) !gnutls? ( dev-libs/libgcrypt:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) gpgme? ( app-crypt/gpgme:= dev-libs/libassuan:= dev-libs/libgpg-error ) http2? ( net-libs/nghttp2 ) idn? ( net-dns/libidn2:= ) lzip? ( app-arch/lzlib ) lzma? ( app-arch/xz-utils ) pcre? ( dev-libs/libpcre2 ) psl? ( net-libs/libpsl ) xattr? ( sys-apps/attr ) zlib? ( sys-libs/zlib )
 RESTRICT=!test? ( test )
 SLOT=0/0
 SRC_URI=mirror://gnu/wget/wget2-2.2.0.tar.gz
-_md5_=24917bf07b47693f86b6db15b8d831a0
+_md5_=8166d62f85e4224f57209c9ae3d32e51
