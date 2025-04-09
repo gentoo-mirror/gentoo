@@ -3,6 +3,8 @@
 
 EAPI=8
 
+NEED_EMACS="29.1"
+
 inherit elisp
 
 DESCRIPTION="Minuscule client library for the Git forge APIs"
@@ -17,27 +19,28 @@ else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
-DOCS=( README.org )
-ELISP_TEXINFO="docs/ghub.texi"
-SITEFILE="50${PN}-gentoo.el"
-
 RDEPEND="
-	>=app-emacs/compat-30.0.0.0
-	>=app-emacs/treepy-0.1.2
+	>=app-emacs/compat-30.0.2.0
+	app-emacs/llama
+	app-emacs/treepy
 "
 BDEPEND="
 	${RDEPEND}
 	sys-apps/texinfo
 "
 
+DOCS=( README.org )
+ELISP_TEXINFO="docs/ghub.texi"
+SITEFILE="50${PN}-gentoo.el"
+
 src_prepare() {
-	mv lisp/*.el . || die
+	mv ./lisp/*.el . || die
 
 	elisp_src_prepare
 }
