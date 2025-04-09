@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-28.1:*[jpeg,json(+),libxml2,png,svg] >=app-emacs/compat-30.0.2.0 >=app-editors/emacs-28.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=OpenStreetMap tile-based viewer for GNU Emacs
+EAPI=8
+HOMEPAGE=https://github.com/minad/osm/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-28.1:*[jpeg,json(+),libxml2,png,svg] >=app-emacs/compat-30.0.2.0 net-misc/curl[ssl] >=app-editors/emacs-28.1:*
+SLOT=0
+SRC_URI=https://github.com/minad/osm/archive/1.7.tar.gz -> osm-1.7.tar.gz
+_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=5af9c42c65f3d7c2b9df2a91429339c9
