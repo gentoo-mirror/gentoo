@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/imath:3=
+DESCRIPTION=Open Source API and interchange format for editorial timeline information
+EAPI=8
+HOMEPAGE=https://github.com/AcademySoftwareFoundation/OpenTimelineIO
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/imath:3=
+RESTRICT=!test? ( test )
+SLOT=0/0.17
+SRC_URI=https://github.com/AcademySoftwareFoundation/OpenTimelineIO/archive/refs/tags/v0.17.0.tar.gz -> OpenTimelineIO-0.17.0.tar.gz https://github.com/Tencent/rapidjson/archive/24b5e7a8b27f42fa16b96fc70aade9106cf7102f.tar.gz -> rapidjson-24b5e7a8b27f42fa16b96fc70aade9106cf7102f.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
+_md5_=3371f164ea229be409227b5da4ccff27
