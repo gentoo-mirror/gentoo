@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=dev-libs/glib:2 dev-libs/json-glib dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:0= x11-libs/gdk-pixbuf x11-libs/gtk+:3[X?,wayland?] X? ( x11-libs/libX11 x11-libs/libxkbfile ) appindicator? ( dev-libs/libayatana-appindicator ) crypt? ( dev-libs/libgcrypt:0= ) keyring? ( app-crypt/libsecret ) gvnc? ( net-libs/gtk-vnc ) kwallet? ( kde-frameworks/kwallet:5 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) rdp? ( net-misc/freerdp:3= cups? ( net-print/cups:= ) ) spice? ( net-misc/spice-gtk[gtk3] ) ssh? ( net-libs/libssh:0=[sftp] x11-libs/vte:2.91 ) vnc? ( net-libs/libvncserver[jpeg] ) webkit? ( net-libs/webkit-gtk:4.1 ) zeroconf? ( >=net-dns/avahi-0.8-r2[dbus,gtk] ) spice? ( app-emulation/spice-protocol )
+DESCRIPTION=A GTK+ RDP, SPICE, VNC and SSH client
+EAPI=8
+HOMEPAGE=https://remmina.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake python-single-r1 xdg
+IUSE=+appindicator crypt cups examples keyring gvnc kwallet nls python spice ssh rdp vnc wayland webkit zeroconf X python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=GPL-2+-with-openssl-exception
+RDEPEND=dev-libs/glib:2 dev-libs/json-glib dev-libs/libpcre2 dev-libs/libsodium:= dev-libs/openssl:0= x11-libs/gdk-pixbuf x11-libs/gtk+:3[X?,wayland?] X? ( x11-libs/libX11 x11-libs/libxkbfile ) appindicator? ( dev-libs/libayatana-appindicator ) crypt? ( dev-libs/libgcrypt:0= ) keyring? ( app-crypt/libsecret ) gvnc? ( net-libs/gtk-vnc ) kwallet? ( kde-frameworks/kwallet:5 ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) rdp? ( net-misc/freerdp:3= cups? ( net-print/cups:= ) ) spice? ( net-misc/spice-gtk[gtk3] ) ssh? ( net-libs/libssh:0=[sftp] x11-libs/vte:2.91 ) vnc? ( net-libs/libvncserver[jpeg] ) webkit? ( net-libs/webkit-gtk:4.1 ) zeroconf? ( >=net-dns/avahi-0.8-r2[dbus,gtk] ) virtual/freedesktop-icon-theme
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ) || ( X wayland )
+SLOT=0
+SRC_URI=https://gitlab.com/Remmina/Remmina/-/archive/v1.4.40/Remmina-v1.4.40.tar.bz2
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=bfde0ff9caef3e142eda2e81b62da8d5
