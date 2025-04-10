@@ -5,17 +5,20 @@ EAPI=8
 
 CMAKE_BUILD_TYPE="Release"
 LLVM_COMPAT=( 15 )
+MY_PN="igc"
+MY_P="${MY_PN}-${PV}"
 PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cmake flag-o-matic llvm-r1 python-any-r1
 
 DESCRIPTION="LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware"
 HOMEPAGE="https://github.com/intel/intel-graphics-compiler"
-SRC_URI="https://github.com/intel/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/intel/${PN}/archive/refs/tags/${MY_P}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="MIT"
-SLOT="0/${PV}"
-KEYWORDS="~amd64"
+SLOT="legacy/1.0.1"
+KEYWORDS="amd64"
 IUSE="debug vc"
 
 DEPEND="
@@ -26,12 +29,15 @@ DEPEND="
 		llvm-core/llvm:${LLVM_SLOT}
 	')
 	vc? (
-		>=dev-libs/intel-vc-intrinsics-0.22.1[${LLVM_USEDEP}]
+		>=dev-libs/intel-vc-intrinsics-0.21.0[${LLVM_USEDEP}]
 		dev-util/spirv-llvm-translator:15=
 	)
 "
 
-RDEPEND="${DEPEND}"
+RDEPEND="
+	!dev-util/intel-graphics-compiler:0
+	${DEPEND}
+"
 
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/mako[${PYTHON_USEDEP}]')
@@ -47,6 +53,7 @@ python_check_deps() {
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.0.9-no_Werror.patch"
+	"${FILESDIR}/${PN}-1.0.8173-opencl-clang_version.patch"
 	"${FILESDIR}/${PN}-1.0.8365-disable-git.patch"
 )
 
@@ -79,6 +86,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS="OFF"
 		-DCCLANG_FROM_SYSTEM="ON"
+		-DCCLANG_SONAME_VERSION="${LLVM_SLOT}"
 		-DCMAKE_LIBRARY_PATH="$(get_llvm_prefix)/$(get_libdir)"
 		-DIGC_BUILD__VC_ENABLED="$(usex vc)"
 		-DIGC_OPTION__ARCHITECTURE_TARGET="Linux64"
@@ -91,9 +99,11 @@ src_configure() {
 		-DIGC_OPTION__OPENCL_HEADER_PATH="/usr/lib/clang/${llvm_version##*-}/include/opencl-c.h"
 		-DIGC_OPTION__SPIRV_TOOLS_MODE="Prebuilds"
 		-DIGC_OPTION__SPIRV_TRANSLATOR_MODE="Prebuilds"
+		-DIGC_OPTION__USE_KHRONOS_SPIRV_TRANSLATOR_IN_SC="ON"
 		-DIGC_OPTION__USE_PREINSTALLED_SPIRV_HEADERS="ON"
 		$(usex vc '-DIGC_OPTION__VC_INTRINSICS_MODE=Prebuilds' '')
 		-DPYTHON_EXECUTABLE="${PYTHON}"
+		-DINSTALL_GENX_IR="ON"
 		-DSPIRVLLVMTranslator_INCLUDE_DIR="${EPREFIX}/usr/lib/llvm/${LLVM_SLOT}/include/LLVMSPIRVLib"
 		-Wno-dev
 	)
