@@ -2132,11 +2132,6 @@ gcc_do_filter_flags() {
 		filter-flags -fdiagnostics-set-output=text:experimental-nesting=yes
 	fi
 
-	if is_d ; then
-		# bug #940750
-		filter-flags -Warray-bounds
-	fi
-
 	# Please use USE=lto instead (bug #906007).
 	filter-lto
 
@@ -2325,23 +2320,31 @@ gcc_do_make() {
 		STAGE1_CFLAGS=${STAGE1_CFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CFLAGS}"}
 		# multilib.eclass lacks get_abi_CXXFLAGS (bug #940501)
 		STAGE1_CXXFLAGS=${STAGE1_CXXFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CXXFLAGS}"}
+		# Default to CFLAGS for GDCFLAGS if unset
+		STAGE1_GDCFLAGS=${STAGE1_GDCFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CFLAGS}"}
 		STAGE1_LDFLAGS=${STAGE1_LDFLAGS-"${abi_ldflags} ${LDFLAGS}"}
 		BOOT_CFLAGS=${BOOT_CFLAGS-"$(get_abi_CFLAGS ${TARGET_DEFAULT_ABI}) ${CFLAGS}"}
 		BOOT_LDFLAGS=${BOOT_LDFLAGS-"${abi_ldflags} ${LDFLAGS}"}
 		LDFLAGS_FOR_TARGET="${LDFLAGS_FOR_TARGET:-${LDFLAGS}}"
 
-		# If we need to in future, we could really simplify this
-		# to just be unconditional for stage1. It doesn't really
-		# matter there. If we want to go in the other direction
-		# and make this more conditional, we could check if
-		# the bootstrap compiler is < GCC 12. See bug #940470.
-		if _tc_use_if_iuse d && use hardened ; then
-			STAGE1_CXXFLAGS+=" -U_GLIBCXX_ASSERTIONS"
+		if _tc_use_if_iuse d ; then
+			# If we need to in future, we could really simplify this
+			# to just be unconditional for stage1. It doesn't really
+			# matter there. If we want to go in the other direction
+			# and make this more conditional, we could check if
+			# the bootstrap compiler is < GCC 12. See bug #940470.
+			if use hardened ; then
+				STAGE1_CXXFLAGS+=" -U_GLIBCXX_ASSERTIONS"
+			fi
+
+			# This can be dropped a while after 2025-03-31 (bug #940750).
+			STAGE1_GDCFLAGS+=" -Wno-array-bounds"
 		fi
 
 		emakeargs+=(
 			STAGE1_CFLAGS="${STAGE1_CFLAGS}"
 			STAGE1_CXXFLAGS="${STAGE1_CXXFLAGS}"
+			STAGE1_GDCFLAGS="${STAGE1_GDCFLAGS}"
 			STAGE1_LDFLAGS="${STAGE1_LDFLAGS}"
 			BOOT_CFLAGS="${BOOT_CFLAGS}"
 			BOOT_LDFLAGS="${BOOT_LDFLAGS}"
