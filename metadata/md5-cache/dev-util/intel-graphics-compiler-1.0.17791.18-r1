@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic llvm-r1 python-any-r1
 IUSE=debug vc +llvm_slot_15
 KEYWORDS=amd64
 LICENSE=MIT
-RDEPEND=dev-libs/opencl-clang:15[llvm_slot_15(-)?] dev-util/spirv-tools llvm_slot_15? ( llvm-core/lld:15 llvm-core/llvm:15 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.21.0[llvm_slot_15(-)?] dev-util/spirv-llvm-translator:15= )
+RDEPEND=!dev-util/intel-graphics-compiler:0 dev-libs/opencl-clang:15[llvm_slot_15(-)?] dev-util/spirv-tools llvm_slot_15? ( llvm-core/lld:15 llvm-core/llvm:15 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.21.0[llvm_slot_15(-)?] dev-util/spirv-llvm-translator:15= )
 REQUIRED_USE=^^ ( llvm_slot_15 )
-SLOT=0/1.0.1
+SLOT=legacy/1.0.1
 SRC_URI=https://github.com/intel/intel-graphics-compiler/archive/refs/tags/igc-1.0.17791.18.tar.gz -> intel-graphics-compiler-1.0.17791.18.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=b4651f71454d74a6163d21c630efce68
+_md5_=87c2c16ef42c6fdffcd53088b6cd951f

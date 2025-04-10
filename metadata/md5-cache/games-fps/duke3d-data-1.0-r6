@@ -1,7 +1,7 @@
 BDEPEND=demo? ( app-arch/unzip ) gog? ( app-arch/unzip )
 DEFINED_PHASES=install nofetch postinst unpack
 DESCRIPTION=Duke Nukem 3D (Atomic Edition) data files
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.3drealms.com/
 INHERIT=cdrom
 IUSE=+demo gog cdinstall
@@ -13,4 +13,4 @@ RESTRICT=bindist gog? ( fetch ) mirror
 SLOT=0
 SRC_URI=demo? ( https://archive.org/download/3dduke13/3dduke13.zip ) gog? ( gog_duke_nukem_3d_atomic_edition_2.0.0.9.sh )
 _eclasses_=portability	a39e3d646f76cb45d06b44cc1144b8d4	cdrom	8675d9def499d198e42ce3f3ded87bfc
-_md5_=eafe9a19a3a1714ce2752819505ba913
+_md5_=eeffffb47157ed6231572da69f474724
