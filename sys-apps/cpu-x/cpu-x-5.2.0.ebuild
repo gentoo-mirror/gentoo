@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,8 +28,7 @@ COMMON_DEPEND="
 	gui? ( dev-cpp/gtkmm:3.0
 		>=x11-libs/gtk+-3.12:3 )
 	cpu? ( >=dev-libs/libcpuid-0.7.0:= )
-	gpu? ( >=media-libs/glfw-3.3
-		media-libs/libglvnd )
+	gpu? ( media-libs/libglvnd )
 	pci? ( sys-apps/pciutils )
 	ncurses? ( sys-libs/ncurses:=[tinfo] )
 	opencl? ( virtual/opencl )
@@ -60,7 +59,7 @@ src_configure() {
 		-DWITH_GETTEXT=$(usex nls)
 		-DWITH_GTK=$(usex gui)
 		-DWITH_LIBCPUID=$(usex cpu)
-		-DWITH_LIBGLFW=$(usex gpu)
+		-DWITH_LIBEGL=$(usex gpu)
 		-DWITH_LIBPCI=$(usex pci)
 		-DWITH_LIBSTATGRAB=OFF
 		-DWITH_NCURSES=$(usex ncurses)
