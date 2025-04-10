@@ -1,0 +1,14 @@
+BDEPEND=openssl? ( !static? ( dev-libs/openssl:= ) static? ( dev-libs/openssl:=[static-libs] ) ) test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:9999 dev-lang/rust:9999 dev-lang/rust-bin:1.86 dev-lang/rust:1.86 dev-lang/rust-bin:1.85.1 dev-lang/rust:1.85.1 dev-lang/rust-bin:1.85.0 dev-lang/rust:1.85.0 dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 )
+DEFINED_PHASES=compile configure install setup test unpack
+DESCRIPTION=A command line tool for bug, issue, and ticket mangling
+EAPI=8
+HOMEPAGE=https://github.com/radhermit/bugbite
+INHERIT=cargo edo multiprocessing shell-completion
+IUSE=openssl static test debug
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/radhermit/bugbite/releases/download/bugbite-cli-0.0.14/bugbite-cli-0.0.14.tar.xz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	6a1a623042f6bd7664528dc10f4df3d8	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a841e8aa4e7e39f3be436a349ef5d072	edo	367e103a74bf77e6a8da7894d999fa3c	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_md5_=b0f0486d0d8eb08d03d246619d9fb2da
