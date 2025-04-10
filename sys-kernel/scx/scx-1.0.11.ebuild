@@ -5,15 +5,12 @@ EAPI=8
 
 LLVM_COMPAT=( {16..19} )
 
-# List of crates for pycargoebuild:
-# rust/scx_{loader,rustland_core,stats,utils}
-# scheds/rust/scx_{bpfland,lavd,layered,rlfifo,rustland,rusty}
 CRATES="
 "
 
 RUST_MIN_VER="1.74.1"
 
-inherit llvm-r1 linux-info cargo rust-toolchain meson
+inherit llvm-r1 linux-info cargo rust-toolchain toolchain-funcs meson
 
 DESCRIPTION="sched_ext schedulers and tools"
 HOMEPAGE="https://github.com/sched-ext/scx"
@@ -23,7 +20,7 @@ SRC_URI="
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
-		https://github.com/gentoo-crate-dist/scx/releases/download/v${PV}/scx-v${PV}-crates.tar.xz
+		https://github.com/gentoo-crate-dist/scx/releases/download/v${PV}/scx-${PV}-crates.tar.xz
 	"
 fi
 
@@ -34,16 +31,12 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="openrc systemd"
+IUSE="systemd"
 
 DEPEND="
 	virtual/libelf:=
 	sys-libs/zlib:=
 	>=dev-libs/libbpf-1.5:=
-	openrc? ( || (
-		sys-apps/openrc
-		sys-apps/openrc-navi
-	) )
 "
 RDEPEND="
 	${DEPEND}
@@ -77,9 +70,11 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	# Inject the rust_abi value into install_rust_user_scheds
-	sed -i "s;\${MESON_BUILD_ROOT};\${MESON_BUILD_ROOT}/$(rust_abi);" \
-		meson-scripts/install_rust_user_scheds || die
+	if tc-is-cross-compiler; then
+		# Inject the rust_abi value into install_rust_user_scheds
+		sed -i "s;\${MESON_BUILD_ROOT};\${MESON_BUILD_ROOT}/$(rust_abi);" \
+			meson-scripts/install_rust_user_scheds || die
+	fi
 
 	# bug #944832
 	sed -i 's;^#!/usr/bin/;#!/sbin/;' \
@@ -98,7 +93,7 @@ src_configure() {
 		-Doffline=true
 		-Denable_rust=true
 		-Dlibalpm=disabled
-		$(meson_feature openrc)
+		-Dopenrc=disabled
 		$(meson_feature systemd)
 	)
 
@@ -126,4 +121,9 @@ src_install() {
 		readme_name="${readme_name%/README.md}"
 		newdoc "${readme}" "${readme_name}.md"
 	done
+
+	newinitd services/openrc/scx.initrd scx
+	insinto /etc/default
+	doins services/scx
+	dosym ../default/scx /etc/conf.d/scx
 }
