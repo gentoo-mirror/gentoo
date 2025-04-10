@@ -16,7 +16,7 @@ IUSE="+alsa ao +audiofile bzip2 cdio chromaprint +curl doc +dbus
 	+eventfd expat faad +ffmpeg flac fluidsynth gme httpd +icu +id3tag +inotify
 	+io-uring jack lame libmpdclient libsamplerate libsoxr +mad mikmod mms
 	modplug +mpg123 musepack nfs openal openmpt opus oss pipewire pulseaudio qobuz
-	recorder samba selinux shout sid signalfd snapcast sndfile sndio soundcloud sqlite
+	recorder samba selinux shout sid signalfd snapcast sndfile sndio sqlite
 	systemd test tremor twolame upnp vorbis wavpack webdav wildmidi
 	zeroconf zip zlib"
 
@@ -33,7 +33,6 @@ REQUIRED_USE="
 	recorder? ( || ( ${ENCODER_PLUGINS} ) )
 	shout? ( || ( ${ENCODER_PLUGINS} ) )
 	qobuz? ( curl )
-	soundcloud? ( curl )
 	upnp? ( curl expat )
 	webdav? ( curl expat )
 "
@@ -99,7 +98,6 @@ RDEPEND="
 	pulseaudio? ( media-libs/libpulse )
 	pipewire? ( media-video/pipewire:= )
 	qobuz? (
-		dev-libs/yajl:=
 		!ffmpeg? ( dev-libs/libgcrypt:= )
 		ffmpeg? ( media-video/ffmpeg )
 	)
@@ -111,13 +109,8 @@ RDEPEND="
 		media-libs/libshout
 	)
 	sid? ( media-libs/libsidplayfp:= )
-	snapcast? (
-		dev-libs/yajl:=
-		media-sound/snapcast
-	)
 	sndfile? ( media-libs/libsndfile )
 	sndio? ( media-sound/sndio:= )
-	soundcloud? ( dev-libs/yajl:= )
 	sqlite? ( dev-db/sqlite:3 )
 	systemd? ( sys-apps/systemd:= )
 	tremor? (
@@ -137,6 +130,8 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	qobuz? ( >=dev-cpp/nlohmann_json-3.11.3 )
+	snapcast? ( >=dev-cpp/nlohmann_json-3.11.3 )
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="virtual/pkgconfig"
@@ -221,7 +216,6 @@ src_configure() {
 		$(meson_feature sid sidplay)
 		$(meson_feature sndfile)
 		$(meson_feature sndio)
-		$(meson_feature soundcloud)
 		$(meson_feature libsoxr soxr)
 		$(meson_feature sqlite)
 		$(meson_feature systemd)
@@ -276,10 +270,10 @@ src_configure() {
 		)
 	fi
 
-	# yajl links only with these plugins enabled
-	if use qobuz || use snapcast || use soundcloud; then
+	# nlohmann_json is only required with these plugins enabled
+	if use qobuz || use snapcast; then
 		emesonargs+=(
-			-Dyajl=enabled
+			-Dnlohmann_json=enabled
 		)
 	fi
 
@@ -290,8 +284,8 @@ src_install() {
 	if use doc; then
 		local HTML_DOCS=( "${BUILD_DIR}"/doc/html/. )
 	else
-		newman "${FILESDIR}"/${PN}.1-${PV} ${PN}.1
-		newman "${FILESDIR}"/${PN}.conf.5-${PV} ${PN}.conf.5
+		newman "${FILESDIR}"/${PN}.1-0.24.2 ${PN}.1
+		newman "${FILESDIR}"/${PN}.conf.5-0.24.2 ${PN}.conf.5
 	fi
 
 	meson_src_install
@@ -309,8 +303,8 @@ src_install() {
 		# Extra options for running MPD under OpenRC
 		# (options that should not be set when using systemd)
 		sed -i \
-			-e 's:^#log_file.*$:log_file "/var/log/mpd/mpd.log":' \
-			-e 's:^#pid_file.*$:pid_file "/run/mpd/mpd.pid":' \
+			-e '0,/^#log_file.*$/s::log_file "/var/log/mpd/mpd.log"\n&:' \
+			-e '0,/^#pid_file.*$/s::pid_file "/run/mpd/mpd.pid"\n&:' \
 			"${ED}/etc/mpd.conf" || die
 	fi
 
