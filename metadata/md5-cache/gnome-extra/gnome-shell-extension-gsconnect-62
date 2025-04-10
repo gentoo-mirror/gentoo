@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=dev-libs/glib:2
+DESCRIPTION=KDE Connect implementation for Gnome Shell
+EAPI=8
+HOMEPAGE=https://github.com/GSConnect/gnome-shell-extension-gsconnect
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2-utils meson readme.gentoo-r1 virtualx xdg
+IUSE=nautilus test
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=dev-libs/gjs-1.68 >=gnome-base/gnome-shell-46 gnome-base/gvfs gnome-extra/evolution-data-server || ( media-libs/libcanberra media-libs/gsound ) nautilus? ( dev-python/nautilus-python gnome-base/nautilus[introspection] )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/GSConnect/gnome-shell-extension-gsconnect/archive/v62.tar.gz -> gnome-shell-extension-gsconnect-62.tar.gz
+_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=71b35bea469a9292fa5ac445ecbef48a
