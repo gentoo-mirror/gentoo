@@ -4,7 +4,7 @@ DEPEND=virtual/libelf:= sys-libs/zlib:= >=dev-libs/libbpf-1.5:=
 DESCRIPTION=sched_ext schedulers and tools
 EAPI=8
 HOMEPAGE=https://github.com/sched-ext/scx
-INHERIT=llvm-r1 linux-info cargo rust-toolchain meson
+INHERIT=llvm-r1 linux-info cargo rust-toolchain toolchain-funcs meson
 IUSE=systemd +llvm_slot_19 llvm_slot_16 llvm_slot_17 llvm_slot_18 debug
 KEYWORDS=amd64
 LICENSE=GPL-2 Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 )
 SLOT=0
 SRC_URI=https://github.com/sched-ext/scx/archive/refs/tags/v1.0.10.tar.gz -> scx-1.0.10.tar.gz https://github.com/gentoo-crate-dist/scx/releases/download/v1.0.10/scx-1.0.10-crates.tar.xz
 _eclasses_=llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	6a1a623042f6bd7664528dc10f4df3d8	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a841e8aa4e7e39f3be436a349ef5d072	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=5946d8d03fe4f4f8549484e3b47d5b1b
+_md5_=b09b0a5aa25a38a29f1a7b76976b129f
