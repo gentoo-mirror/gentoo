@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ SLOT="$(ver_cut 1)"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="test"
 
-DEPEND+=" test? ( sys-process/lsof )"
+DEPEND="test? ( sys-process/lsof )"
 
 ruby_add_rdepend "
 	|| ( <dev-ruby/faraday-net_http-3.5:3 dev-ruby/faraday-net_http:2 )
@@ -54,8 +54,4 @@ all_ruby_prepare() {
 	sed -e '/git ls-files/ s:^:#:' \
 		-e "s:_relative ': './:" \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
-}
-
-each_ruby_test() {
-	MT_NO_PLUGINS=true each_fakegem_test
 }
