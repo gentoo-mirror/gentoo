@@ -3325,14 +3325,18 @@ games-strategy/0ad:nvtt - Support for some uncompressed data formats (might be n
 games-strategy/colobot:devbuild - TODO
 games-strategy/colobot:tools - Build tools
 games-strategy/colobot-data:music - Enable music support
+games-strategy/freeciv:authentication - Enable authentication support, useful for dedicated servers
 games-strategy/freeciv:gtk3 - Build the gtk3 client
 games-strategy/freeciv:gtk4 - Build the gtk4 client
 games-strategy/freeciv:json - Add support for JSON via dev-libs/jansson
 games-strategy/freeciv:mapimg - Additional mag image toolkit via media-gfx/imagemagick
+games-strategy/freeciv:mariadb - Support dev-db/mariadb as an authentication backend
 games-strategy/freeciv:modpack - Build the freeciv-modpack-program to download/install mods
+games-strategy/freeciv:odbc - Support ODBC as an authentication backend
 games-strategy/freeciv:rule-editor - Build ruleset editor
-games-strategy/freeciv:server - Enable server support. Disabling this will also make it impossible to start local games.
-games-strategy/freeciv:sound - Add support for sound provided by media-libs/sdl-mixer
+games-strategy/freeciv:sdl3 - Build the SDL3 client. This will also use media-libs/sdl3-mixer for audio in the SDL2 client, if enabled
+games-strategy/freeciv:server - Enable server support. Disabling this will also make it impossible to start local games
+games-strategy/freeciv:sound - Add support for sound provided by media-libs/sdl2-mixer or media-libs/sdl3-mixer
 games-strategy/freeciv:system-lua - Use dev-lang/lua instead of the bundled liblua
 games-strategy/freeciv:web-server - Build the freeciv-web server in place of the freeciv server
 games-strategy/freeorion:client - Build game client
@@ -4510,6 +4514,7 @@ media-libs/osl:nofma - Do not use Fuse-Multiply-Add operations
 media-libs/osl:optix - Add support for NVIDIA's OptiX Raytracing Engine
 media-libs/osl:partio - Use media-libs/partio
 media-libs/phonon:designer - Install plugin for dev-qt/designer
+media-libs/plutosvg:freetype - Enable media-libs/freetype integration
 media-libs/portmidi:test-programs - Install various example programs
 media-libs/quarter:designer - Install plugin for dev-qt/designer
 media-libs/quarter:qch - Install API documentation in QCH format
@@ -4543,6 +4548,22 @@ media-libs/sdl2-mixer:wav - Support WAVE files
 media-libs/sdl2-mixer:wavpack - Support WavPack files
 media-libs/sdl2-mixer:xmp - Support MOD via media-libs/libxmp
 media-libs/sdl2-ttf:harfbuzz - Use media-libs/harfbuzz for enhanced font rendering
+media-libs/sdl3-image:samples - Install sample programs
+media-libs/sdl3-image:stb - Use stb_image from vendored dev-libs/stb for JPEG and PNG image loading to reduce external dependencies
+media-libs/sdl3-mixer:drlibs - Use vendored dr_{flac,mp3} instead of media-libs/flac and/or media-sound/mpg123-base for those formats
+media-libs/sdl3-mixer:fluidsynth - Use media-sound/fluidsynth for MIDI support
+media-libs/sdl3-mixer:gme - Support additional music formats with media-libs/game-music-emu
+media-libs/sdl3-mixer:midi - Basic support for MIDI files
+media-libs/sdl3-mixer:mod - Basic support for MOD files
+media-libs/sdl3-mixer:modplug - Support MOD via media-libs/libmodplug
+media-libs/sdl3-mixer:playtools - Install playwave and playmus tools (useful for testing)
+media-libs/sdl3-mixer:stb - Use dev-libs/stb instead of media-libs/libvorbis for OGG Vorbis support
+media-libs/sdl3-mixer:tremor - Use media-libs/tremor instead of media-libs/libvorbis for OGG Vorbis support
+media-libs/sdl3-mixer:wav - Support WAVE files
+media-libs/sdl3-mixer:wavpack - Support WavPack files
+media-libs/sdl3-mixer:xmp - Support MOD via media-libs/libxmp
+media-libs/sdl3-ttf:harfbuzz - Use media-libs/harfbuzz for enhanced font rendering
+media-libs/sdl3-ttf:plutosvg - Use media-libs/plutosvg for colour emoji support
 media-libs/sdl_audiolib:fluidsynth - Enable support for MIDI via media-sound/fluidsynth
 media-libs/sdl_audiolib:mpg123 - Enable support for mp3 decoding via media-sound/mpg123
 media-libs/sdl_audiolib:openmpt - OpenMPT decoder via media-libs/libopenmpt
