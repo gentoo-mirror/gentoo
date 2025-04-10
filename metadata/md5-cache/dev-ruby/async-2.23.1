@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/socketry/async
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 doc test test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~riscv ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~riscv ~sparc ~x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby31? ( >=dev-ruby/console-1.29:1[ruby_targets_ruby31(-)] dev-ruby/fiber-annotation[ruby_targets_ruby31(-)] >=dev-ruby/io-event-1.9:1[ruby_targets_ruby31(-)] >=dev-ruby/metrics-0.12:0[ruby_targets_ruby31(-)] >=dev-ruby/traces-0.15:0[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/console-1.29:1[ruby_targets_ruby32(-)] dev-ruby/fiber-annotation[ruby_targets_ruby32(-)] >=dev-ruby/io-event-1.9:1[ruby_targets_ruby32(-)] >=dev-ruby/metrics-0.12:0[ruby_targets_ruby32(-)] >=dev-ruby/traces-0.15:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/console-1.29:1[ruby_targets_ruby33(-)] dev-ruby/fiber-annotation[ruby_targets_ruby33(-)] >=dev-ruby/io-event-1.9:1[ruby_targets_ruby33(-)] >=dev-ruby/metrics-0.12:0[ruby_targets_ruby33(-)] >=dev-ruby/traces-0.15:0[ruby_targets_ruby33(-)] ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=2
 SRC_URI=https://github.com/socketry/async/archive/v2.23.1.tar.gz -> async-2.23.1.tar.gz
 _eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	16d3941ed2dc39f4819368ae51bc0b72	ruby-utils	a5d18cde09a96648a4d316ada2786cdb	ruby-ng	f0dedda0b5f19492ca5de91d98bc1708	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
-_md5_=9f37f9bde7f5c5b9fa4c92c3619696fe
+_md5_=bdf8cc12a1d47efcab3ea6890d77337d
