@@ -1,4 +1,4 @@
-BDEPEND=doc? ( || ( ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx-rtd-theme[python_targets_python3_10(-)] ) ( dev-lang/pypy:3.10[symlink] dev-python/sphinx[python_targets_pypy3(-)] dev-python/sphinx-rtd-theme[python_targets_pypy3(-)] ) ) )
+BDEPEND=doc? ( || ( ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx-rtd-theme[python_targets_python3_10(-)] ) ) )
 DEFINED_PHASES=compile install prepare setup test
 DEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_15(-)]
 DESCRIPTION=Ada unit testing framework
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/aunit/archive/refs/tags/v25.0.0.tar.gz -> aunit-25.0.0.tar.gz
 _eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=a285c20e021de99fe782d006595a11da
+_md5_=9928312cad6d621789258625a5f25d3d
