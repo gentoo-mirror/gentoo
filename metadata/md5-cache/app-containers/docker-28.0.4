@@ -1,0 +1,16 @@
+BDEPEND=dev-go/go-md2man virtual/pkgconfig >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm setup unpack
+DEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd )
+DESCRIPTION=The core functions you need to create Docker images and run Docker containers
+EAPI=8
+HOMEPAGE=https://www.docker.com/
+INHERIT=go-module linux-info optfeature systemd toolchain-funcs udev
+IUSE=apparmor btrfs +container-init cuda +overlay2 seccomp selinux systemd
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd ) >=net-firewall/iptables-1.4 sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9 >=app-containers/containerd-2.0.4[apparmor?,btrfs?,seccomp?] >=app-containers/runc-1.2.5[apparmor?,seccomp?] !app-containers/docker-proxy !<app-containers/docker-cli-28.0.4 container-init? ( >=sys-process/tini-0.19.0[static] ) cuda? ( app-containers/nvidia-container-toolkit ) selinux? ( sec-policy/selinux-docker )
+RESTRICT=installsources strip test strip
+SLOT=0
+SRC_URI=https://github.com/moby/moby/archive/v28.0.4.tar.gz -> docker-28.0.4.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	e8de74bac929ba17427e740e95707d00	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	df32d29550d40a92da723d3b8e17b467	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	538bce96e5589935b57e178e8635f301	systemd	54bd206bb5c4efac6ae28b6b006713b0	udev	f3d9a4376ebd22131726a68e1a0a058f
+_md5_=cbc297db49a4cd092dbcbb3ba84a3c07
