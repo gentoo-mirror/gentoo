@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/checker-framework-qual:0 >=dev-java/jna-5.17.0:0 dev-java/osgi-cmpn:8 dev-java/osgi-core:0 >=dev-java/scram-3.1:0 dev-java/waffle-jna:0 >=virtual/jdk-1.8:* test? ( dev-java/junit:5 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Java JDBC 4.2 (JRE 8+) driver for PostgreSQL database
+EAPI=8
+HOMEPAGE=https://jdbc.postgresql.org/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://jdbc.postgresql.org/download/postgresql-jdbc-42.7.5.src.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	3dd4432a9f6bd6048ee5cbe00cba2171
+_md5_=ba877a493f3741c476f8aea43efe2f25

@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=dev-java/caffeine:0 dev-java/checker-framework-qual:0 dev-java/jakarta-servlet-api:4 >=dev-java/jna-5.17.0:0 dev-java/slf4j-api:0 >=virtual/jdk-1.8:* test? ( dev-java/junit:5 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Enable drop-in Windows Single Sign On for popular Java web servers
+EAPI=8
+HOMEPAGE=https://waffle.github.io/waffle/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/Waffle/waffle/archive/waffle-parent-3.3.0.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	3dd4432a9f6bd6048ee5cbe00cba2171
+_md5_=0ac309e866e0cb102a3a51f3ff981d6d
