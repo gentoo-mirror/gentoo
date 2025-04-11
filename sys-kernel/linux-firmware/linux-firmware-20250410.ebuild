@@ -3,7 +3,7 @@
 
 EAPI=8
 PYTHON_COMPAT=( python3_{10..13} )
-inherit dist-kernel-utils linux-info mount-boot python-any-r1 savedconfig
+inherit dist-kernel-utils eapi9-ver linux-info mount-boot python-any-r1 savedconfig
 
 # In case this is a real snapshot, fill in commit below.
 # For normal, tagged releases, leave blank
@@ -20,7 +20,7 @@ else
 		SRC_URI="https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/${P}.tar.xz"
 	fi
 
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 DESCRIPTION="Linux firmware files"
@@ -30,7 +30,7 @@ LICENSE="GPL-2 GPL-2+ GPL-3 BSD MIT || ( MPL-1.1 GPL-2 )
 	redistributable? ( linux-fw-redistributable BSD-2 BSD BSD-4 ISC MIT )
 	unknown-license? ( all-rights-reserved )"
 SLOT="0"
-IUSE="bindist compress-xz compress-zstd deduplicate dist-kernel +initramfs +redistributable savedconfig unknown-license"
+IUSE="bindist compress-xz compress-zstd deduplicate dist-kernel +initramfs +redistributable unknown-license"
 REQUIRED_USE="initramfs? ( redistributable )
 	?? ( compress-xz compress-zstd )
 	savedconfig? ( !deduplicate )"
@@ -374,16 +374,12 @@ pkg_postinst() {
 	elog "If you are only interested in particular firmware files, edit the saved"
 	elog "configfile and remove those that you do not want."
 
-	local ver
-	for ver in ${REPLACING_VERSIONS}; do
-		if ver_test ${ver} -lt 20190514; then
-			elog
-			elog 'Starting with version 20190514, installation of many firmware'
-			elog 'files is controlled by USE flags. Please review your USE flag'
-			elog 'and package.license settings if you are missing some files.'
-			break
-		fi
-	done
+	if ver_replacing -lt 20190514; then
+		elog
+		elog 'Starting with version 20190514, installation of many firmware'
+		elog 'files is controlled by USE flags. Please review your USE flag'
+		elog 'and package.license settings if you are missing some files.'
+	fi
 
 	if use initramfs; then
 		if use dist-kernel; then
