@@ -5,8 +5,6 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=sip
-PYPI_NO_NORMALIZE=1
-PYPI_PN=PyQt6
 PYTHON_COMPAT=( python3_{10..13} )
 inherit distutils-r1 flag-o-matic multiprocessing pypi qmake-utils
 
@@ -18,15 +16,15 @@ HOMEPAGE="https://www.riverbankcomputing.com/software/pyqt/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 # defaults match what is provided with qtbase by default (except testlib),
 # reduces the need to set flags but does increase build time a fair amount
 IUSE="
 	bluetooth +dbus debug designer examples gles2-only +gui help
 	multimedia +network nfc opengl pdfium positioning +printsupport
-	qml quick quick3d remoteobjects serialport sensors spatialaudio
-	speech +sql +ssl svg testlib webchannel websockets vulkan
-	+widgets +xml
+	qml quick quick3d remoteobjects scxml serialport sensors
+	spatialaudio speech +sql +ssl svg testlib webchannel websockets
+	vulkan +widgets +xml
 "
 # see `grep -r "%Import " sip` and `grep qmake_QT project.py`
 REQUIRED_USE="
@@ -40,6 +38,7 @@ REQUIRED_USE="
 	quick3d? ( gui qml )
 	quick? ( gui qml )
 	remoteobjects? ( network )
+	scxml? ( gui )
 	spatialaudio? ( multimedia )
 	sql? ( widgets )
 	svg? ( gui )
@@ -72,6 +71,7 @@ COMMON_DEPEND="
 	quick3d? ( >=dev-qt/qtquick3d-${QT_PV} )
 	quick? ( >=dev-qt/qtdeclarative-${QT_PV}[opengl] )
 	remoteobjects? ( >=dev-qt/qtremoteobjects-${QT_PV} )
+	scxml? ( >=dev-qt/qtscxml-${QT_PV} )
 	sensors? ( >=dev-qt/qtsensors-${QT_PV} )
 	serialport? ( >=dev-qt/qtserialport-${QT_PV} )
 	speech? (
@@ -96,10 +96,6 @@ BDEPEND="
 	>=dev-qt/qtbase-${QT_PV}
 	dbus? ( virtual/pkgconfig )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-qt682.patch
-)
 
 src_prepare() {
 	default
@@ -154,6 +150,7 @@ python_configure_all() {
 			$(usev widgets QtQuickWidgets))
 		$(pyqt_use_enable quick3d QtQuick3D)
 		$(pyqt_use_enable remoteobjects QtRemoteObjects)
+		$(pyqt_use_enable scxml QtStateMachine)
 		$(pyqt_use_enable sensors QtSensors)
 		$(pyqt_use_enable serialport QtSerialPort)
 		$(pyqt_use_enable spatialaudio QtSpatialAudio)
