@@ -4,18 +4,18 @@
 EAPI=8
 
 DIST_AUTHOR=ETJ
-DIST_VERSION=2.103
+DIST_VERSION=2.101
 
 inherit perl-module
 
-DESCRIPTION="A PDL interface to the GD image library"
+DESCRIPTION="A PDL interface to the Gnu Scientific Library"
 
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="
-	>=dev-perl/PDL-2.94.0
-	media-libs/gd
+	>=dev-perl/PDL-2.96.0
+	sci-libs/gsl
 "
 BDEPEND="${RDEPEND}
 "
