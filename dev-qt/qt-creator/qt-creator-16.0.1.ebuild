@@ -29,7 +29,7 @@ else
 		cmdbridge-server? ( https://dev.gentoo.org/~ionen/distfiles/${QTC_P}-vendor.tar.xz )
 	"
 	S=${WORKDIR}/${QTC_P}
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Lightweight IDE for C++/QML development centering around Qt"
@@ -45,7 +45,7 @@ IUSE="
 REQUIRED_USE="clang? ( ${LLVM_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
-QT_PV=6.5.4:6
+QT_PV=6.7.3:6
 
 # := is used where Qt's private APIs are used for safety
 COMMON_DEPEND="
@@ -53,6 +53,7 @@ COMMON_DEPEND="
 	>=dev-qt/qt5compat-${QT_PV}
 	>=dev-qt/qtbase-${QT_PV}=[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QT_PV}=
+	sys-libs/zlib:=
 	clang? (
 		$(llvm_gen_dep '
 			llvm-core/clang:${LLVM_SLOT}=
@@ -71,6 +72,8 @@ COMMON_DEPEND="
 	qmldesigner? (
 		>=dev-qt/qtquick3d-${QT_PV}=
 		>=dev-qt/qtsvg-${QT_PV}
+		>=dev-qt/qtwebsockets-${QT_PV}
+		webengine? ( >=dev-qt/qtwebengine-${QT_PV} )
 	)
 	serialterminal? ( >=dev-qt/qtserialport-${QT_PV} )
 	svg? ( >=dev-qt/qtsvg-${QT_PV} )
@@ -98,7 +101,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-15.0.0-musl-no-execinfo.patch
+	"${FILESDIR}"/${PN}-16.0.0-musl-no-execinfo.patch
 	"${FILESDIR}"/${PN}-12.0.0-musl-no-malloc-trim.patch
 )
 
@@ -186,6 +189,10 @@ src_configure() {
 		# to lag behind and bundled may work out better for now
 		# https://bugreports.qt.io/browse/QTCREATORBUG-29169
 		$(use help && usev !webengine -DCMAKE_DISABLE_FIND_PACKAGE_litehtml=yes)
+
+		# help shouldn't use with the above, but qmldesigner is automagic
+		$(use help || use qmldesigner &&
+			cmake_use_find_package webengine Qt6WebEngineWidgets)
 
 		-DBUILD_PLUGIN_SERIALTERMINAL=$(usex serialterminal)
 		-DENABLE_SVG_SUPPORT=$(usex svg)
