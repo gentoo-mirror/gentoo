@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-ml/ounit2 dev-ml/ppx_expect ) dev-lang/ocaml dev-ml/dune
+BDEPEND=>=dev-ml/dune-3.12 test? ( dev-ml/ounit2 dev-ml/ppx_expect ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install prepare test
 DEPEND=>=dev-lang/ocaml-4.14 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Regular expression library for OCaml
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.13.3
 SRC_URI=https://github.com/ocaml/ocaml-re/archive/1.13.3.tar.gz -> ocaml-re-1.13.3.gh.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=2bdbd99644e11940b2d5c83ea765c9b3
+_md5_=32edb2255e622a767bb044c3b6630a7d
