@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=JSON for Modern C++
+EAPI=8
+HOMEPAGE=https://github.com/nlohmann/json https://nlohmann.github.io/json/
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/nlohmann/json/archive/v3.12.0.tar.gz -> nlohmann_json-3.12.0.tar.gz test? ( https://github.com/nlohmann/json_test_data/archive/v3.1.0.tar.gz -> nlohmann_json-testdata-3.1.0.tar.gz )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
+_md5_=f760b0ca1b7e96dabe3d0e102f469c57
