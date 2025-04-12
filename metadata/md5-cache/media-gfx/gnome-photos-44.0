@@ -1,17 +1,17 @@
-BDEPEND=dev-libs/appstream-glib dev-libs/libxslt app-text/docbook-xsl-stylesheets dev-util/desktop-file-utils dev-util/gdbus-codegen dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( || ( ( dev-lang/python:3.11 dev-util/dogtail[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-util/dogtail[python_targets_python3_10(-)] ) ) ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=dev-libs/appstream-glib dev-libs/libxslt app-text/docbook-xsl-stylesheets dev-util/desktop-file-utils dev-util/gdbus-codegen dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( || ( ( dev-lang/python:3.13 dev-util/dogtail[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-util/dogtail[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-util/dogtail[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-util/dogtail[python_targets_python3_10(-)] ) ) ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=media-libs/babl >=x11-libs/cairo-1.14.0 >=x11-libs/gdk-pixbuf-2.36.8:2 >=media-libs/gegl-0.4.0:0.4[cairo,raw] sci-geosciences/geocode-glib:2 >=media-libs/gexiv2-0.14.0 >=dev-libs/glib-2.62.0:2 dev-libs/libportal:=[gtk] >=net-libs/gnome-online-accounts-3.8.0:= gnome-base/gsettings-desktop-schemas >=x11-libs/gtk+-3.22.16:3 >=dev-libs/libdazzle-3.26.0 >=gui-libs/libhandy-1.1.90:1 media-libs/libjpeg-turbo:0= >=media-libs/libpng-1.6:0= app-misc/tracker:3 sys-apps/dbus
 DESCRIPTION=Access, organize and share your photos on GNOME
 EAPI=8
-HOMEPAGE=https://wiki.gnome.org/Apps/Photos
+HOMEPAGE=https://gitlab.gnome.org/Archive/gnome-photos
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson python-any-r1 virtualx xdg
 IUSE=test upnp-av test
 KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-3+ LGPL-2+ CC0-1.0
 RDEPEND=media-libs/babl >=x11-libs/cairo-1.14.0 >=x11-libs/gdk-pixbuf-2.36.8:2 >=media-libs/gegl-0.4.0:0.4[cairo,raw] sci-geosciences/geocode-glib:2 >=media-libs/gexiv2-0.14.0 >=dev-libs/glib-2.62.0:2 dev-libs/libportal:=[gtk] >=net-libs/gnome-online-accounts-3.8.0:= gnome-base/gsettings-desktop-schemas >=x11-libs/gtk+-3.22.16:3 >=dev-libs/libdazzle-3.26.0 >=gui-libs/libhandy-1.1.90:1 media-libs/libjpeg-turbo:0= >=media-libs/libpng-1.6:0= app-misc/tracker:3 sys-apps/dbus upnp-av? ( net-libs/dleyna:1.0= ) app-misc/tracker-miners:3
-RESTRICT=!test? ( test ) !test? ( test )
+RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-photos/44/gnome-photos-44.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=b791db31021acc1c45ed4b2a68955cd8
+_md5_=403a2f9a17419645b4b93d2c314b547c
