@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( >=dev-cpp/gtest-1.15.2 )
+DESCRIPTION=A flexible modern C++ library for string manipulation and storage
+EAPI=8
+HOMEPAGE=https://github.com/zrax/string_theory/
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/zrax/string_theory/archive/3.9.tar.gz -> string-theory-3.9.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
+_md5_=b5fc48cbff476849345edc7e064e333c

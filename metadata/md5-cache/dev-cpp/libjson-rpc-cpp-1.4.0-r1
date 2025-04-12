@@ -1,0 +1,16 @@
+BDEPEND=test? ( <dev-cpp/catch-3 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/jsoncpp:= http-client? ( net-misc/curl:= ) http-server? ( net-libs/libmicrohttpd:= ) redis-client? ( dev-libs/hiredis:= ) redis-server? ( dev-libs/hiredis:= ) stubgen? ( dev-libs/argtable:= )
+DESCRIPTION=JSON-RPC (1.0 & 2.0) framework for C++
+EAPI=8
+HOMEPAGE=https://github.com/cinemast/libjson-rpc-cpp/
+INHERIT=cmake
+IUSE=+http-client +http-server redis-client redis-server +stubgen test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/jsoncpp:= http-client? ( net-misc/curl:= ) http-server? ( net-libs/libmicrohttpd:= ) redis-client? ( dev-libs/hiredis:= ) redis-server? ( dev-libs/hiredis:= ) stubgen? ( dev-libs/argtable:= )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/cinemast/libjson-rpc-cpp/archive/v1.4.0.tar.gz -> libjson-rpc-cpp-1.4.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
+_md5_=98c4badb0212f82192b5b21668cd1a7a

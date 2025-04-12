@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig dev-util/intltool sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=dev-libs/dbus-glib dev-libs/glib:2 dev-libs/libgudev net-wireless/bluez x11-libs/cairo x11-libs/gtk+:3 virtual/freedesktop-icon-theme
+DESCRIPTION=GUI for accessing the Wintec WBT 201 / G-Rays 2 GPS device
+EAPI=8
+HOMEPAGE=http://www.daria.co.uk/gps
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools gnome2
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/dbus-glib dev-libs/glib:2 dev-libs/libgudev net-wireless/bluez x11-libs/cairo x11-libs/gtk+:3 virtual/freedesktop-icon-theme
+SLOT=0
+SRC_URI=http://www.zen35309.zen.co.uk/gps/gtk-g-rays2-2.05.tar.xz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95
+_md5_=8e4b7f314ffc12d6ff047e19549728b3

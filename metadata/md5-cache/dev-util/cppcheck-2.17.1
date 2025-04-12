@@ -7,7 +7,7 @@ HOMEPAGE=https://github.com/danmar/cppcheck
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake python-single-r1 xdg
 IUSE=charts gui htmlreport pcre test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ppc64 ~riscv ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/tinyxml2:= gui? ( dev-qt/qtbase:6[gui,widgets,network] charts? ( dev-qt/qtcharts:6 ) ) pcre? ( dev-libs/libpcre ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) htmlreport? ( python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygments[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygments[python_targets_python3_13(-)] ) )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) charts? ( gui )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/danmar/cppcheck/archive/refs/tags/2.17.1.tar.gz -> cppcheck-2.17.1.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=fe7c4c6db1cd6e46f858aa05acb1a2fd
+_md5_=78125d5e1164516b2a3729df501eca47

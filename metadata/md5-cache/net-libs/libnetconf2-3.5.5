@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/openssl:0= >=net-libs/libyang-2.0.194 net-libs/libssh:0=[server] virtual/libcrypt:= test? ( dev-util/cmocka )
+DESCRIPTION=C library for building NETCONF servers and clients
+EAPI=8
+HOMEPAGE=https://github.com/CESNET/libnetconf2
+INHERIT=cmake flag-o-matic
+IUSE=doc test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/openssl:0= >=net-libs/libyang-2.0.194 net-libs/libssh:0=[server] virtual/libcrypt:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/CESNET/libnetconf2/archive/v3.5.5.tar.gz -> libnetconf2-3.5.5.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
+_md5_=21810f42fffd6a3570aca8a8ce6a58ec
