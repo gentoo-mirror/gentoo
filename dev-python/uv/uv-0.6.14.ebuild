@@ -90,7 +90,7 @@ pkg_setup() {
 src_prepare() {
 	local PATCHES=(
 		# https://github.com/astral-sh/uv/pull/12851
-		"${FILESDIR}/${P}-test-ws.patch"
+		"${FILESDIR}/uv-0.6.13-test-ws.patch"
 	)
 
 	default
