@@ -4,10 +4,10 @@ EAPI=8
 HOMEPAGE=https://clang.llvm.org/
 INHERIT=multilib-build
 IUSE=+compiler-rt libcxx offload openmp +sanitize abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos
+KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos
 LICENSE=metapackage
 RDEPEND=compiler-rt? ( ~llvm-runtimes/compiler-rt-19.1.7:19[abi_x86_32(+)?,abi_x86_64(+)?] sanitize? ( ~llvm-runtimes/compiler-rt-sanitizers-19.1.7:19[abi_x86_32(+)?,abi_x86_64(+)?] ) ) libcxx? ( >=llvm-runtimes/libcxx-19.1.7[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) openmp? ( >=llvm-runtimes/openmp-19.1.7[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] offload? ( >=llvm-runtimes/offload-19.1.7 ) )
 REQUIRED_USE=sanitize? ( compiler-rt )
 SLOT=19
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib-build	9ac26ea006828266d235e2f0135429b5
-_md5_=f69ee09f55add5e996012905359da8ca
+_md5_=a0456d08366f4a1da675f9fc03077fa3
