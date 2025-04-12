@@ -12,5 +12,5 @@ PDEPEND=openntpd? ( net-misc/openntpd )
 RDEPEND=>=dev-libs/libevent-2.0.9:=[threads(+)?] readline? ( >=sys-libs/readline-4.1:= ) kernel_linux? ( caps? ( sys-libs/libcap ) ) zeroconf? ( net-dns/avahi[mdnsresponder-compat] ) snmp? ( net-analyzer/net-snmp ) ssl? ( dev-libs/openssl:= ) parse-clocks? ( net-misc/pps-tools ) acct-group/ntp acct-user/ntp selinux? ( sec-policy/selinux-ntp ) vim-syntax? ( app-vim/ntp-syntax ) !net-misc/ntpsec !openntpd? ( !net-misc/openntpd ) virtual/tmpfiles
 SLOT=0
 SRC_URI=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p17.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	flag-o-matic	e8de74bac929ba17427e740e95707d00	systemd	54bd206bb5c4efac6ae28b6b006713b0	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	flag-o-matic	e8de74bac929ba17427e740e95707d00	systemd	54bd206bb5c4efac6ae28b6b006713b0	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
 _md5_=3c5fa4add7d56146700bad738bbc4443

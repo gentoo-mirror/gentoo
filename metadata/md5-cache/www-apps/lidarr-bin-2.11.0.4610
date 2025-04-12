@@ -10,5 +10,5 @@ RDEPEND=acct-group/lidarr acct-user/lidarr media-video/mediainfo dev-libs/icu de
 RESTRICT=bindist strip test
 SLOT=0
 SRC_URI=amd64? ( elibc_glibc? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.0.4610/Lidarr.develop.2.11.0.4610.linux-core-x64.tar.gz ) elibc_musl? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.0.4610/Lidarr.develop.2.11.0.4610.linux-musl-core-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.0.4610/Lidarr.develop.2.11.0.4610.linux-core-arm.tar.gz ) elibc_musl? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.0.4610/Lidarr.develop.2.11.0.4610.linux-musl-core-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.0.4610/Lidarr.develop.2.11.0.4610.linux-core-arm64.tar.gz ) elibc_musl? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.0.4610/Lidarr.develop.2.11.0.4610.linux-musl-core-arm64.tar.gz ) )
-_eclasses_=toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	54bd206bb5c4efac6ae28b6b006713b0
 _md5_=5e2f9e18426dbde7f8591b07d3b39834

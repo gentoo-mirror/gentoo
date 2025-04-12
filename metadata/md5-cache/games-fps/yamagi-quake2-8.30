@@ -11,5 +11,5 @@ RDEPEND=client? ( media-libs/libsdl2[opengl?,video,vulkan?] net-misc/curl gles? 
 REQUIRED_USE=|| ( client dedicated ) client? ( || ( opengl gles softrender vulkan ) )
 SLOT=0
 SRC_URI=https://deponie.yamagi.org/quake2/quake2-8.30.tar.xz ctf? ( https://deponie.yamagi.org/quake2/quake2-ctf-1.10.tar.xz ) rogue? ( https://deponie.yamagi.org/quake2/quake2-rogue-2.11.tar.xz ) xatrix? ( https://deponie.yamagi.org/quake2/quake2-xatrix-2.12.tar.xz ) vulkan? ( https://github.com/yquake2/ref_vk/archive/refs/tags/v1.0.7.tar.gz -> quake2-ref_vk-1.0.7.tar.gz )
-_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib	b2a329026f2e404e9e371097dda47f96	wrapper	11a2a3bd712784986679b60a0cab34a0
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	wrapper	11a2a3bd712784986679b60a0cab34a0
 _md5_=3a1261098a5ec435efb5926b63ccd5f6

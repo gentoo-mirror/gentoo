@@ -1,0 +1,13 @@
+BDEPEND=kde-apps/kaccounts-integration:6 app-alternatives/ninja >=dev-build/cmake-3.20.5 >=kde-frameworks/extra-cmake-modules-6.13:* dev-qt/qtbase:6
+DEFINED_PHASES=compile configure info install nofetch prepare setup test unpack
+DESCRIPTION=KAccounts generated service files for nextcloud and google services
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm-common frameworks.kde.org
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2
+RDEPEND=!<kde-frameworks/purpose-5.116.0-r2:5 !<kde-frameworks/purpose-6.5.0-r1:6
+SLOT=0
+SRC_URI=mirror://kde/stable/frameworks/6.13/purpose-6.13.0.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	ecm-common	2409ff2ed4921be52f7f7cdd30078e2d	kde.org	2eea56ed41440913be4caa3d255d2db3	frameworks.kde.org	5c0c6e2dbfe1eb60271ec93601749b82
+_md5_=ae31a1a68a163955392ebce6a05c2e6f
