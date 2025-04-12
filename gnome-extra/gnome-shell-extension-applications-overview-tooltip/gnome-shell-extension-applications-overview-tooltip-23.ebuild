@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,19 +7,17 @@ inherit gnome2-utils
 DESCRIPTION="Show tooltip with full name and description"
 HOMEPAGE="https://github.com/RaphaelRochet/applications-overview-tooltip"
 SRC_URI="https://github.com/RaphaelRochet/applications-overview-tooltip/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P/gnome-shell-extension-}"
+extension_uuid="applications-overview-tooltip@RaphaelRochet"
 
-# https://github.com/RaphaelRochet/applications-overview-tooltip/issues/7
-LICENSE="public-domain"
+LICENSE="CC0-1.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-45
+	>=gnome-base/gnome-shell-46
 "
-
-S="${WORKDIR}/${P/gnome-shell-extension-}"
-extension_uuid="applications-overview-tooltip@RaphaelRochet"
 
 src_install() {
 	einstalldocs
