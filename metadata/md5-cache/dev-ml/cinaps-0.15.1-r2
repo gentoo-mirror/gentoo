@@ -1,8 +1,8 @@
-BDEPEND=test? ( dev-ml/ppx_jane:0/0.14.0 ) dev-lang/ocaml dev-ml/dune
+BDEPEND=test? ( dev-ml/ppx_jane ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/re:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Trivial metaprogramming tool
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/ocaml-ppx/cinaps
 INHERIT=dune
 IUSE=+ocamlopt test
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.15.1
 SRC_URI=https://github.com/ocaml-ppx/cinaps/archive/v0.15.1.tar.gz -> cinaps-0.15.1.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=ff967a16b7a2a791fc47600f54133673
+_md5_=619c9860a2f01e8ed6051fcab6f48d35
