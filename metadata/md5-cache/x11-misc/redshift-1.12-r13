@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://jonls.dk/redshift/
 INHERIT=autotools flag-o-matic systemd xdg-utils python-r1
 IUSE=appindicator geoclue gtk nls python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ppc64 ~riscv x86
 LICENSE=GPL-3
 RDEPEND=>=x11-libs/libX11-1.4 x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libdrm appindicator? ( dev-libs/libayatana-appindicator ) geoclue? ( app-misc/geoclue:2.0 dev-libs/glib:2 ) gtk? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) gtk? ( dev-python/pygobject[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] x11-libs/gtk+:3[introspection] dev-python/pyxdg[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] )
 REQUIRED_USE=gtk? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) )
 SLOT=0
 SRC_URI=https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	flag-o-matic	e8de74bac929ba17427e740e95707d00	systemd	54bd206bb5c4efac6ae28b6b006713b0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de
-_md5_=89ce7854a264606754781aa3598565e4
+_md5_=35fcbaf4f99eb802db15ee14b5a06899
