@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.hamlib.github.io
 INHERIT=autotools flag-o-matic python-single-r1
 IUSE=doc perl python tcl python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~riscv x86
 LICENSE=LGPL-2+ GPL-2+
 RDEPEND==virtual/libusb-0* dev-libs/libxml2 sys-libs/readline:0= perl? ( dev-lang/perl ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) tcl? ( dev-lang/tcl:0= )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/4.2
 SRC_URI=https://downloads.sourceforge.net/hamlib/hamlib-4.6.2.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=c083bff393bde3a9b88bc27d0e849643
+_md5_=ba0646bf59424358c7e57fafd4d94127

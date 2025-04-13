@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS
 INHERIT=flag-o-matic multilib toolchain-funcs multilib-minimal
 IUSE=cacert test +utils cpu_flags_ppc_altivec cpu_flags_x86_avx2 cpu_flags_x86_sse3 cpu_flags_ppc_vsx abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-solaris
 LICENSE=|| ( MPL-2.0 GPL-2 LGPL-2.1 )
 RDEPEND=>=dev-libs/nspr-4.35[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-db/sqlite-3.8.2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-libs/zlib-1.2.8-r1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] virtual/pkgconfig
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_101_3_RTM/src/nss-3.101_3.tar.gz -> nss-3.101.3.tar.gz cacert? ( https://dev.gentoo.org/~juippis/mozilla/patchsets/nss-3.101-cacert-class1-class3.patch )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multilib	b2a329026f2e404e9e371097dda47f96	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=5b87811efd1c79a68289ad96f7fb7e7a
+_md5_=f45330211f659f3d477c259ddd83fcfe
