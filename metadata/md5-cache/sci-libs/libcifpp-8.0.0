@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/PDB-REDO/libcifpp
 INHERIT=cmake
 IUSE=test
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
 RDEPEND=>=dev-cpp/eigen-3.4.0:3 dev-libs/boost:= sys-libs/zlib test? ( dev-cpp/catch:0 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/PDB-REDO/libcifpp/archive/refs/tags/v7.0.9.tar.gz -> libcifpp-7.0.9.tar.gz https://dev.gentoo.org/~pacho/libcifpp/libcifpp-7.0.9-components.cif.xz
+SRC_URI=https://github.com/PDB-REDO/libcifpp/archive/refs/tags/v8.0.0.tar.gz -> libcifpp-8.0.0.tar.gz https://dev.gentoo.org/~pacho/libcifpp/libcifpp-8.0.0-components.cif.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
-_md5_=a7a50a035786500d0a0e3b50ec62ad0e
+_md5_=9c0d9e9bc8d924598a10b2572184d04e

@@ -7,11 +7,11 @@ HOMEPAGE=https://gitlab.gnome.org/GNOME/gnome-network-displays
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson python-any-r1 xdg
 IUSE=firewalld test
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=GPL-3+
 RDEPEND=dev-libs/glib:2 gnome-base/gnome-desktop:3 media-libs/gst-rtsp-server media-libs/libpulse[glib] media-plugins/gst-plugins-faac media-plugins/gst-plugins-x264 media-plugins/gst-plugins-ximagesrc >=gui-libs/gtk-4 >=net-misc/networkmanager-1.16.0[wifi] >=dev-libs/libportal-0.7[gtk] >=gui-libs/libadwaita-1 net-dns/avahi[introspection] net-dns/dnsmasq net-wireless/wpa_supplicant[p2p] sys-apps/xdg-desktop-portal[screencast(+)] firewalld? ( net-firewall/firewalld )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=mirror://gnome/sources/gnome-network-displays/0.93/gnome-network-displays-0.93.0.tar.xz
+SRC_URI=mirror://gnome/sources/gnome-network-displays/0.96/gnome-network-displays-0.96.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=22183f5e563b63c5003375349135a541
+_md5_=5b80aab883ef04a1cfe285302c13e2be
