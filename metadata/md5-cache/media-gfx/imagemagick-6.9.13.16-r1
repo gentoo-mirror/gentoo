@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://imagemagick.org/index.php
 INHERIT=flag-o-matic libtool perl-functions toolchain-funcs
 IUSE=bzip2 corefonts +cxx djvu fftw fontconfig fpx graphviz hardened hdri heif jbig jpeg jpeg2k lcms lqr lzma opencl openexr openmp pango perl +png postscript q32 q8 raw static-libs svg test tiff truetype webp wmf X xml zlib
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 hppa ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=imagemagick
 RDEPEND=!media-gfx/graphicsmagick[imagemagick] dev-libs/libltdl bzip2? ( app-arch/bzip2 ) corefonts? ( media-fonts/corefonts ) djvu? ( app-text/djvu ) fftw? ( sci-libs/fftw:3.0 ) fontconfig? ( media-libs/fontconfig ) fpx? ( >=media-libs/libfpx-1.3.0-r1 ) graphviz? ( media-gfx/graphviz ) heif? ( media-libs/libheif:=[x265] ) jbig? ( >=media-libs/jbigkit-2:= ) jpeg? ( media-libs/libjpeg-turbo:= ) jpeg2k? ( >=media-libs/openjpeg-2.1.0:2 ) lcms? ( media-libs/lcms:2= ) lqr? ( media-libs/liblqr ) opencl? ( virtual/opencl ) openexr? ( media-libs/openexr:0= ) pango? ( x11-libs/pango ) perl? ( >=dev-lang/perl-5.8.8:= ) png? ( media-libs/libpng:= ) postscript? ( app-text/ghostscript-gpl:= ) raw? ( media-libs/libraw:= ) svg? ( gnome-base/librsvg media-gfx/potrace ) tiff? ( media-libs/tiff:= ) truetype? ( media-fonts/urw-fonts >=media-libs/freetype-2 ) webp? ( media-libs/libwebp:= ) wmf? ( media-libs/libwmf ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libXext x11-libs/libXt ) xml? ( dev-libs/libxml2 ) lzma? ( app-arch/xz-utils ) zlib? ( sys-libs/zlib:= )
 REQUIRED_USE=corefonts? ( truetype ) svg? ( xml ) test? ( corefonts )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/6.9.13-0
 SRC_URI=mirror://imagemagick/ImageMagick-6.9.13-16.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	libtool	c81bd096be5f4c82f4e8f156ef112402	perl-functions	1863acf0982afafc67797e3ce7275b4c
-_md5_=b27409e063ccd40450f947fff91f72f9
+_md5_=3f63e50266b4a04eb168e70a073e369d
