@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/which virtual/pkgconfig || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 )
+DEFINED_PHASES=configure install prepare setup test
+DEPEND=net-misc/curl !static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= ) elibc_musl? ( sys-libs/queue-standalone ) static-libs? ( lz4? ( app-arch/lz4:=[static-libs(+)] ) sasl? ( dev-libs/cyrus-sasl:=[static-libs(+)] ) ssl? ( dev-libs/openssl:0=[static-libs(+)] ) zstd? ( app-arch/zstd:=[static-libs(+)] ) sys-libs/zlib:=[static-libs(+)] )
+DESCRIPTION=Apache Kafka C/C++ client library
+EAPI=8
+HOMEPAGE=https://github.com/confluentinc/librdkafka
+INHERIT=flag-o-matic python-any-r1 toolchain-funcs
+IUSE=+lz4 sasl ssl static-libs +zstd
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD-2
+RDEPEND=net-misc/curl !static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= )
+SLOT=0/1
+SRC_URI=https://github.com/confluentinc/librdkafka/archive/v2.8.0.tar.gz -> librdkafka-2.8.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=531243f2cf0953479ee087f271e35c6a
