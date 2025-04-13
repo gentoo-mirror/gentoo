@@ -1,4 +1,4 @@
-BDEPEND=llvm_slot_17? ( llvm-core/clang:17 ) llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:9999 dev-lang/rust:9999 dev-lang/rust-bin:1.86 dev-lang/rust:1.86 dev-lang/rust-bin:1.85.1 dev-lang/rust:1.85.1 dev-lang/rust-bin:1.85.0 dev-lang/rust:1.85.0 dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 )
+BDEPEND=llvm_slot_17? ( llvm-core/clang:17 ) llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) test? ( dev-util/cargo-nextest ) || ( dev-lang/rust-bin:9999 dev-lang/rust:9999 dev-lang/rust-bin:1.86.0 dev-lang/rust:1.86.0 dev-lang/rust-bin:1.85.1 dev-lang/rust:1.85.1 dev-lang/rust-bin:1.85.0 dev-lang/rust:1.85.0 dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 )
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=pkgcraft-based tools for Gentoo
 EAPI=8
@@ -11,5 +11,5 @@ REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pkgcraft/pkgcraft/releases/download/pkgcraft-tools-0.0.23/pkgcraft-tools-0.0.23.tar.xz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	6a1a623042f6bd7664528dc10f4df3d8	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a841e8aa4e7e39f3be436a349ef5d072	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	e9d31591b9b0251018cd5c60a43bafa1	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a841e8aa4e7e39f3be436a349ef5d072	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
 _md5_=a0cf7015499e4ecae0fef4337f27cc73

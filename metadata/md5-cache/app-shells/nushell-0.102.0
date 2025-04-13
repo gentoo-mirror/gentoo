@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( dev-lang/rust-bin:9999 dev-lang/rust:9999 dev-lang/rust-bin:1.86 dev-lang/rust:1.86 dev-lang/rust-bin:1.85.1 dev-lang/rust:1.85.1 dev-lang/rust-bin:1.85.0 dev-lang/rust:1.85.0 dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 )
+BDEPEND=virtual/pkgconfig || ( dev-lang/rust-bin:9999 dev-lang/rust:9999 dev-lang/rust-bin:1.86.0 dev-lang/rust:1.86.0 dev-lang/rust-bin:1.85.1 dev-lang/rust:1.85.1 dev-lang/rust-bin:1.85.0 dev-lang/rust:1.85.0 dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=>=dev-libs/libgit2-0.99:= dev-libs/oniguruma:= dev-libs/openssl:0= net-libs/libssh2:= net-libs/nghttp2:= net-misc/curl dev-db/sqlite:3= system-clipboard? ( X? ( x11-libs/libX11 x11-libs/libxcb ) )
 DESCRIPTION=A new type of shell, written in Rust
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/libgit2-0.99:= dev-libs/oniguruma:= dev-libs/openssl:0= net-l
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/nushell/nushell/archive/0.102.0.tar.gz -> nushell-0.102.0.tar.gz https://github.com/freijon/nushell/releases/download/0.102.0/nushell-0.102.0-crates.tar.xz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	6a1a623042f6bd7664528dc10f4df3d8	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a841e8aa4e7e39f3be436a349ef5d072
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	e9d31591b9b0251018cd5c60a43bafa1	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a841e8aa4e7e39f3be436a349ef5d072
 _md5_=98b2ea195ba313fbae614cfe0396e920
