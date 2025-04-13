@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit gnome.org gnome2-utils meson readme.gentoo-r1 xdg
 
 DESCRIPTION="Archive manager for GNOME"
-HOMEPAGE="https://wiki.gnome.org/Apps/FileRoller"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/file-roller"
 
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
@@ -19,7 +19,7 @@ REQUIRED_USE="gtk-doc? ( introspection )"
 # pango used in fr-window
 RDEPEND="
 	>=dev-libs/glib-2.38:2
-	>=gui-libs/gtk-4.8.1:4[introspection?]
+	>=gui-libs/gtk-4.12.0:4[introspection?]
 	>=gui-libs/libadwaita-1.2:1
 	nautilus? ( >=gnome-base/nautilus-43.0 )
 	>=dev-libs/json-glib-0.14
@@ -43,7 +43,7 @@ DOC_CONTENTS="
 ${PN} is a frontend for several archiving utilities. If you want a
 particular archive format support, see ${HOMEPAGE}
 and install the relevant package. For example:
-7-zip   - app-arch/p7zip
+7-zip   - app-arch/7zip or app-arch/p7zip
 ace     - app-arch/unace
 arj     - app-arch/arj
 brotli  - app-arch/brotli
@@ -62,7 +62,7 @@ zoo     - app-arch/zoo"
 
 src_prepare() {
 	# File providing Gentoo package names for various archivers
-	cp -v "${FILESDIR}"/3.36-packages.match data/packages.match || die
+	cp -v "${FILESDIR}"/44.4-packages.match data/packages.match || die
 
 	default
 	xdg_environment_reset

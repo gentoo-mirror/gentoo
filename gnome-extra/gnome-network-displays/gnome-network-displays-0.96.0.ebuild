@@ -1,8 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit gnome.org gnome2-utils meson python-any-r1 xdg
 
 DESCRIPTION="Stream the desktop to Wi-Fi Display capable devices"
@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-network-displays"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="firewalld test"
 RESTRICT="!test? ( test )"
 
@@ -26,6 +26,7 @@ RDEPEND="
 	>=net-misc/networkmanager-1.16.0[wifi]
 	>=dev-libs/libportal-0.7[gtk]
 	>=gui-libs/libadwaita-1
+	net-dns/avahi[introspection]
 	net-dns/dnsmasq
 	net-wireless/wpa_supplicant[p2p]
 	sys-apps/xdg-desktop-portal[screencast(+)]

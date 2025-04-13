@@ -10,7 +10,7 @@ SRC_URI="https://github.com/PDB-REDO/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 # doc disabled as it only generates a PDF from the manpage for now
 # https://github.com/PDB-REDO/dssp/issues/64
 #IUSE="doc"
@@ -18,7 +18,7 @@ KEYWORDS="amd64 ~x86"
 CDEPEND="
 	dev-libs/boost:=[zlib]
 	>=dev-libs/libmcfp-1.3.5
-	>=sci-libs/libcifpp-7.0.3
+	>=sci-libs/libcifpp-8.0.0
 "
 BDEPEND="${CDEPEND}
 	dev-cpp/catch:0
