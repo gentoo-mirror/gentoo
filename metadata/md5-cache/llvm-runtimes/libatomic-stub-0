@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Stub library which allows compiler-rt to replace libatomic
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=llvm-runtimes/compiler-rt[atomic-builtins(-)] !sys-devel/gcc
+SLOT=0
+_md5_=7a44350ed93484589bf611fad7c649af

@@ -4,7 +4,7 @@ DEPEND=>=x11-libs/wxGTK-3.2.7:3.2-gtk3=[gstreamer,libnotify,opengl,sdl,tiff,webk
 DESCRIPTION=A blending of the wxWindows C++ class library with Python
 EAPI=8
 HOMEPAGE=https://www.wxpython.org/ https://github.com/wxWidgets/Phoenix/ https://pypi.org/project/wxPython/
-INHERIT=distutils-r1 multiprocessing virtualx wxwidgets pypi
+INHERIT=distutils-r1 multilib multiprocessing virtualx wxwidgets pypi
 IUSE=test webkit test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug test
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=wxWinLL-3
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=4.0
 SRC_URI=https://files.pythonhosted.org/packages/source/w/wxPython/wxPython-4.2.3.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	57cca9c4edd0e2a2591feae559933c10	virtualx	9741d451eb64ea8bb9faee90d68a9b68	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=75755960d73b2879b211c86f488d68bb
+_md5_=9ce6e23b596343441063362dd6757a8e
