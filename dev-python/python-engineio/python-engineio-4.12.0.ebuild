@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,6 +31,7 @@ RDEPEND="
 # Can use eventlet, werkzeug, or gevent, but no tests for werkzeug
 BDEPEND="
 	test? (
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/tornado[${PYTHON_USEDEP}]
 		dev-python/websockets[${PYTHON_USEDEP}]
 	)
@@ -55,5 +56,5 @@ python_test() {
 	)
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
+	epytest -p asyncio
 }
