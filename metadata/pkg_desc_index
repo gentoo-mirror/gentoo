@@ -2085,7 +2085,7 @@ app-emacs/httpd 1.1: A HTTP server embedded in the Emacs
 app-emacs/hydra 0.15.0: Make Emacs bindings that stick around
 app-emacs/icicles 2018.02.13.23733 2018.10.15.23738: Minibuffer input completion and cycling
 app-emacs/igrep 2.113: An improved interface to "grep" and "find"
-app-emacs/indent-bars 0.8.2: Fast, configurable indentation guide-bars for Emacs
+app-emacs/indent-bars 0.8.2 0.8.3: Fast, configurable indentation guide-bars for Emacs
 app-emacs/inf-clojure 3.2.1: Major mode for Clojure code
 app-emacs/inform-mode 1.6.2: A major mode for editing Inform programs
 app-emacs/initsplit 1.8_pre20160919: Split customizations into different files
@@ -2259,7 +2259,7 @@ app-emacs/stripes 0.3.1.1: An Emacs mode that alternates the background color of
 app-emacs/sumibi 0.7.4: Statistical Japanese input method using the Internet as a large corpus
 app-emacs/sunrise-commander 6_p20210927: Twin-pane file manager for Emacs inspired by Midnight Commander
 app-emacs/svg-lib 0.2.8 0.3: SVG tags, progress bars & icons
-app-emacs/swift-mode 9.1.0 9.2.0: Emacs support for Apple's Swift programming language
+app-emacs/swift-mode 9.2.0 9.3.0: Emacs support for Apple's Swift programming language
 app-emacs/swiper 0.14.2 0.15.0 0.15.1: Alternative to isearch that uses ivy to show overview of all matches
 app-emacs/switch-window 1.6.2_p20210808: Offer a customizable visual way to choose a window to switch to
 app-emacs/system-packages 1.1.0: Manage your installed packages with Emacs
@@ -2314,7 +2314,7 @@ app-emacs/xclip 1.11-r1 1.11.1: Emacs Interface to XClip
 app-emacs/xelb 0.20-r1: X protocol Emacs Lisp Binding
 app-emacs/xrdb-mode 3.0-r1: An Emacs major mode for editing X resource database files
 app-emacs/xslide 0.2.2-r1: An Emacs major mode for editing XSL stylesheets and running XSL processes
-app-emacs/yaml 0.5.5: YAML parser in Emacs Lisp
+app-emacs/yaml 0.5.5 1.2.0: YAML parser in Emacs Lisp
 app-emacs/yaml-mode 0.0.15 0.0.16: A major mode for GNU Emacs for editing YAML files
 app-emacs/yasnippet 0.14.1_p20240406: Yet another snippet extension for Emacs
 app-emacs/yasnippet-snippets 1.1: A collection of yasnippet snippets for many languages
@@ -2987,7 +2987,7 @@ app-office/mdbtools 1.0.1: Set of libraries and utilities for reading Microsoft 
 app-office/merkuro 24.12.3: Calendar application using Akonadi
 app-office/moneydance 2024.5117: A cross-platform personal finance application
 app-office/multitalk 1.4-r1: New type of presentation program
-app-office/naps2 7.5.3 8.1.1-r1: Document scanning application with a focus on simplicity and ease of use
+app-office/naps2 7.5.3 8.1.1-r1 8.1.4: Document scanning application with a focus on simplicity and ease of use
 app-office/onlyoffice-bin 8.3.0 8.3.2: Onlyoffice is an office productivity suite (binary version)
 app-office/orage 4.18.0 4.20.0 4.20.1: A calendar application for Xfce
 app-office/planner 0.14.91 0.14.92 9999: Project manager for Gnome
@@ -4067,10 +4067,10 @@ dev-dotnet/csharp-gentoodotnetinfo 1.1.1-r1 2.0.0 2.9999: .NET information tool 
 dev-dotnet/csharp-language-server 0.15.0 0.16.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.6 0.6.7: A command line C# REPL with syntax highlighting
 dev-dotnet/dotnet-outdated 4.6.4: Display and update outdated NuGet packages in a project
-dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.31 6.0.32 6.0.33 6.0.36 7.0.14-r1 7.0.20 8.0.6-r1 8.0.7 8.0.8 8.0.11 8.0.12 9.0.0 9.0.1: .NET runtime nugets
+dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.32 6.0.33 6.0.36 7.0.14-r1 7.0.20 8.0.7 8.0.8 8.0.11 8.0.12 8.0.15 9.0.0 9.0.1 9.0.4: .NET runtime nugets
 dev-dotnet/dotnet-script 1.5.0 1.6.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 8.0.107-r2 9.0.101: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.106 8.0.107 8.0.108 9.0.101 9.0.102-r1: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.417-r4 7.0.404-r4 8.0.107 8.0.108 9.0.101 9.0.102-r1 9.0.105: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.20.0 4.24.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 7.0.0 7.0.1: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.77.1 0.77.4 0.77.5: F# language server using the Language Server Protocol
@@ -11098,7 +11098,7 @@ dev-vcs/rcsi 0.5: A program to give information about RCS files
 dev-vcs/repo 2.48 2.52 2.53: Google tool for managing git, particularly multiple repos
 dev-vcs/reposurgeon 5.3: Tool for editing VCS repositories and translating among different systems
 dev-vcs/rsvndump 0.6.1-r1 0.6.2: Dump a remote Subversion repository
-dev-vcs/sourcegit 2025.03 2025.06 2025.08 2025.09 2025.10 2025.11 9999: Open Source Git GUI client using .NET AvaloniaUI
+dev-vcs/sourcegit 2025.03 2025.06 2025.08 2025.09 2025.10 2025.11 2025.12 9999: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
 dev-vcs/stgit 2.5.0 2.5.2 2.5.3: Stack-based patch management for Git
 dev-vcs/subversion 1.14.3 1.14.5 1.14.5-r1: Advanced version control system
@@ -15168,7 +15168,7 @@ net-misc/exabgp 4.2.21-r1 4.2.23: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 2.11.7 2.11.7-r1 2.9999 3.9.0-r1 3.14.0-r1 3.14.1 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.0.3 10.1.2 10.1.3 10.2.1 10.2.2 10.3: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.28.5 1.29.0 1.29.2 1.29.3 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.29.0 1.29.2 1.29.3 1.29.4 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.35.0-r1 0.36.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
@@ -17093,7 +17093,7 @@ sys-apps/nosig 2: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 2.11 2.12: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
-sys-apps/openrazer 3.9.0-r1 3.10.0 3.10.1: Drivers and user-space daemon to control Razer devices on GNU/Linux
+sys-apps/openrazer 3.10.0 3.10.1 3.10.2: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.56 0.61 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/openrc-navi 0.60_beta4 9999: OpenRC fork with user services support
 sys-apps/osinfo-db 20240701 20250124: osinfo database files
