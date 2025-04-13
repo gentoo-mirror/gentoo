@@ -1368,7 +1368,7 @@ app-containers/incus 6.0.3-r1 6.0.4 6.10.1-r1 6.11: Modern, secure and powerful 
 app-containers/k3d 5.6.0 5.7.3 5.7.5 5.8.3: k3d creates k3s clusters in docker
 app-containers/kompose 1.35.0: Tool to move from docker-compose to Kubernetes
 app-containers/lxc 5.0.3 6.0.3 6.0.4: A userspace interface for the Linux kernel containment features
-app-containers/lxc-templates 3.0.4 3.0.4_p20240917: Old style template scripts for LXC
+app-containers/lxc-templates 3.0.4_p20240917: Old style template scripts for LXC
 app-containers/lxd 5.0.3-r2 5.21.1-r1 6.1 6.3: Modern, secure and powerful system container and virtual machine manager
 app-containers/nerdctl 2.0.2 2.0.3: Docker-compatible CLI for containerd, with support for Compose
 app-containers/netavark 1.12.2-r1 1.14.1 9999: A container network stack
@@ -5244,7 +5244,7 @@ dev-lang/smlnj 110.99.5 110.99.6.1: Standard ML of New Jersey compiler and libra
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
 dev-lang/souffle 2.4.1-r1 2.5: Datalog compiler, synthesizes C++ program from logic specification
 dev-lang/spark 2024.01.11-r2: Software development for high-reliability applications
-dev-lang/spidermonkey 102.15.0-r1 115.16.0-r1 128.4.0-r1 128.6.0 128.7.0 128.8.0 128.9.0: Mozilla's JavaScript engine written in C and C++
+dev-lang/spidermonkey 102.15.0-r1 115.16.0-r1 128.8.0 128.9.0: Mozilla's JavaScript engine written in C and C++
 dev-lang/squirrel 3.2: A interpreted language mainly used for games
 dev-lang/swi-prolog 9.3.9-r1: Versatile implementation of the Prolog programming language
 dev-lang/swig 4.1.1-r1 4.2.0 4.2.1 4.3.0: Simplified Wrapper and Interface Generator
@@ -5322,7 +5322,7 @@ dev-libs/collada-dom 2.5.0-r1: COLLADA Document Object Model (DOM) C++ Library
 dev-libs/concurrencykit 0.7.2-r1: A library with concurrency related algorithms and data structures in C
 dev-libs/confuse 3.3-r2: a configuration file parser library
 dev-libs/console_bridge 1.0.2 9999: A ROS-independent package for logging into rosconsole/rosout
-dev-libs/cowsql 1.15.6 1.15.7: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
+dev-libs/cowsql 1.15.7: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
 dev-libs/cppcodec 0.2 9999: C++11 library to encode/decode base64, base64url, base32, base32hex and hex
 dev-libs/cpuinfo 2024.10.22.2: CPU INFOrmation library
 dev-libs/crc32c 1.1.2-r2: CRC32C implementation with support for CPU-specific acceleration instructions
@@ -5698,7 +5698,7 @@ dev-libs/nng 1.10.1: Light-weight brokerless messaging
 dev-libs/npth 1.7-r1 1.8: New GNU Portable Threads Library
 dev-libs/nsgenbind 0.9: Generate Javascript-to-DOM bindings from w3c webidl files
 dev-libs/nspr 4.36: Netscape Portable Runtime
-dev-libs/nss 3.101.2 3.101.3 3.109 3.110: Mozilla's Network Security Services library that implements PKI support
+dev-libs/nss 3.101.2 3.101.3 3.110: Mozilla's Network Security Services library that implements PKI support
 dev-libs/nss-pem 1.1.0: PEM file reader for Network Security Services (NSS)
 dev-libs/nsync 1.25.0 1.26.0: C library that exports various synchronization primitives, such as mutexes
 dev-libs/ntl 11.5.1-r4: High-performance and portable C++ number theory library
@@ -10708,7 +10708,7 @@ dev-util/cargo-tarpaulin 0.30.0-r1 0.32.1 0.32.2 0.32.3: Cargo-Tarpaulin is a to
 dev-util/cargo-vendor-filterer 0.5.17: Tool to 'cargo vendor' with filtering
 dev-util/catalyst 4.0.0 9999: Release metatool used for creating releases based on Gentoo Linux
 dev-util/catfish 4.18.0 4.20.0: A frontend for find, (s)locate, doodle, tracker, beagle, strigi and pinot
-dev-util/cbindgen 0.27.0-r1 0.28.0: A tool for generating C bindings to Rust code
+dev-util/cbindgen 0.28.0: A tool for generating C bindings to Rust code
 dev-util/ccache 4.10.2-r1 4.11.2: Fast compiler cache
 dev-util/cccc 3.1.6-r1: Source metrics (line counts, complexity, etc) for Java and C++
 dev-util/ccls 0.20240202 0.20240505 0.20241108 9999: C/C++/ObjC language server
@@ -10787,7 +10787,7 @@ dev-util/drone-cli 1.7.0: Command-line interface for Drone
 dev-util/dropwatch 1.5.4: Monitor for dropped network packets
 dev-util/dwdiff 2.1.4: diff-like program operating at word level instead of line level
 dev-util/ebuildtester 42-r3 44: A dockerized approach to test a Gentoo package within a clean stage3 container
-dev-util/edi 0.8.0-r2 0.8.0-r3: An EFL-based IDE
+dev-util/edi 0.8.0-r3: An EFL-based IDE
 dev-util/editorconfig-geany 0.2.1: EditorConfig plugin for Geany
 dev-util/egypt 1.11: Devilishly simple tool for creating call graphs of C programs
 dev-util/elfkickers 3.2-r1: Collection of programs to manipulate ELF files: sstrip, rebind, elfls, elftoc
@@ -12560,8 +12560,8 @@ mail-client/mutt-wizard 3.3.1 9999: A system for automatically configuring neomu
 mail-client/neomutt 20240201 20250113 20250404 99999999: A small but very powerful text-based mail client
 mail-client/roundcube 1.6.7 1.6.10 9999: A browser-based multilingual IMAP client with an application-like user interface
 mail-client/s-nail 14.9.24 14.9.25: Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
-mail-client/thunderbird 128.8.0 128.8.1 128.9.0 128.9.1 136.0.1 137.0 137.0.1: Thunderbird Mail Client
-mail-client/thunderbird-bin 128.8.1 128.9.0 128.9.1 136.0.1 137.0 137.0.1: Thunderbird Mail Client
+mail-client/thunderbird 128.9.0 128.9.1 137.0.1: Thunderbird Mail Client
+mail-client/thunderbird-bin 128.9.1 137.0.1: Thunderbird Mail Client
 mail-filter/MailScanner 4.84.5.2: Free Anti-Virus and Anti-Spam Filter
 mail-filter/afew 3.0.1-r1: Initial tagging script for Notmuch
 mail-filter/amavisd-milter 1.7.2-r1: sendmail milter for amavisd-new
@@ -14037,7 +14037,7 @@ media-sound/musique 1.12.1_p20240628: Qt music player
 media-sound/ncmpc 0.51: Ncurses client for the Music Player Daemon (MPD)
 media-sound/ncmpcpp 0.10.1-r1 9999: Featureful ncurses based MPD client inspired by ncmpc
 media-sound/ncpamixer 1.3.8: ncurses PulseAudio Mixer
-media-sound/ncspot 1.2.1-r1 1.2.2: ncurses Spotify client written in Rust using librespot
+media-sound/ncspot 1.2.2: ncurses Spotify client written in Rust using librespot
 media-sound/nickvision-tagger 2024.6.0: An easy-to-use music tag (metadata) editor
 media-sound/normalize 0.7.7-r1: Audio file volume normalizer
 media-sound/ogg2mp3 0.6.1-r1: Perl script to convert Ogg Vorbis files to MP3 files
@@ -14334,7 +14334,7 @@ media-video/x264-encoder 0.0.20220222 0.0.20231114 0.0.20240513 9999: A free com
 media-video/xine-ui 0.99.13-r1 0.99.14: Xine movie player
 media-video/xvattr 1.3-r4: X11 XVideo Querying/Setting Tool from Ogle project
 media-video/xvid4conf 1.12-r1: GTK2-configuration dialog for xvid4
-media-video/yle-dl 20250126 20250227 20250316: Download media files from Yle Areena
+media-video/yle-dl 20250316: Download media files from Yle Areena
 net-analyzer/2ping 4.5.1-r1: A bi-directional ping utility
 net-analyzer/alive 2.0.5-r100: Periodic ping program
 net-analyzer/apinger 0.6.1: Alarm Pinger
@@ -18118,8 +18118,8 @@ www-client/elinks 0.17.1.1 0.18.0 9999: Advanced and well-established text-mode 
 www-client/epiphany 46.4 47.2: GNOME webbrowser based on Webkit
 www-client/falkon 24.12.3: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
-www-client/firefox 128.8.0 128.9.0 136.0.2 136.0.3 137.0 137.0.1: Firefox Web Browser
-www-client/firefox-bin 128.9.0 137.0 137.0.1: Firefox Web Browser
+www-client/firefox 128.9.0 137.0.1: Firefox Web Browser
+www-client/firefox-bin 128.9.0 137.0.1: Firefox Web Browser
 www-client/google-chrome 135.0.7049.84: The web browser from Google
 www-client/google-chrome-beta 136.0.7103.17: The web browser from Google
 www-client/google-chrome-unstable 137.0.7106.2: The web browser from Google
@@ -18139,7 +18139,7 @@ www-client/opera-developer 119.0.5482.0 119.0.5489.0 119.0.5495.0: A fast and se
 www-client/otter 1.0.03-r1 9999: Project aiming to recreate classic Opera (12.x) UI using Qt5
 www-client/pybugz 0.14 9999: Command line interface to (Gentoo) Bugzilla
 www-client/qutebrowser 3.4.0-r1 3.5.0-r1 9999: Keyboard-driven, vim-like browser based on Python and Qt
-www-client/seamonkey 2.53.18.2-r2 2.53.19-r1 2.53.20: Seamonkey Web Browser
+www-client/seamonkey 2.53.20: Seamonkey Web Browser
 www-client/surf 2.1-r3 9999: A simple web browser based on WebKit/GTK+
 www-client/surfraw 2.3.0-r3 99999: A fast unix command line interface to WWW
 www-client/tangram 3.1 3.3: Web browser designed to organize and run Web applications
