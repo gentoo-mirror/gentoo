@@ -33,6 +33,11 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-04-14)
+# Package destabilisation mask after prolongued time w/o maintainer.
+# Bug #949838
+~app-emulation/q4wine-1.3.13
+
 # Hans de Graaff <graaff@gentoo.org> (2025-04-14)
 # Obsolete slot that fails tests, bug 933189. EAPI 7.  Use the newer
 # slot instead. Masked for removal on 2025-05-14.
@@ -122,23 +127,6 @@ app-text/kchmviewer
 # Removal on 2025-05-01.  Bug #949960.
 x11-terms/aterm
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-04-02)
-# Package destabilisation mask: Depends on Qt5WebEngine with no Qt6-based
-# release in sight. Snapshot is from a Qt6 work branch, so nowhere near
-# stabilisation material. Bug #926676
-~sci-geosciences/qmapshack-1.17.1
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-04-01)
-# Package destabilisation mask: No KF6-based- or ffmpeg-7 compatible
-# release in sight, needs xcb platform workaround, providing a snapshot
-# is the best we can do.
-~media-video/subtitlecomposer-0.8.1
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-04-01)
-# Package destabilisation mask: No KF6-based release in sight, runtime-
-# defunct in Wayland sessions, providing a snapshot is the best we can do.
-~kde-misc/rsibreak-0.12.15
-
 # Norbert Norbiros <norbiros@protonmail.com> (2025-04-01)
 # Screen v5.0.0 has a lot of regressions
 # https://lists.gnu.org/archive/html/screen-devel/2024-10/msg00007.html
@@ -188,11 +176,6 @@ net-im/yowsup
 =app-emulation/virtualbox-additions-7.1.6
 =app-emulation/virtualbox-modules-7.1.6
 =app-emulation/virtualbox-guest-additions-7.1.6-r1
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-03-25)
-# Package destabilisation mask after prolongued time w/o maintainer.
-# Bug #936636
-~app-editors/texworks-0.6.8
 
 # Maciej Barć <xgqt@gentoo.org> (2025-03-25)
 # It is possible Gentoo could be hit by "legal" action when having this package.
@@ -325,10 +308,6 @@ dev-python/bitvector
 sys-cluster/crmsh
 sys-cluster/pacemaker
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-03-17)
-# Database migration issues on upgrade, bug #951486
-~app-office/kmymoney-5.1.92_p20250306
-
 # Arthur Zamarin <arthurzam@gentoo.org> (2025-03-15)
 # EAPI=7, uses deprecated Go eclasses. Isn't maintained in Gentoo
 # since 2019, with awaiting version bump (upstream is still active).
@@ -359,12 +338,6 @@ sys-apps/openrc-navi
 # Mask out of caution for now.
 =dev-util/pkgconf-2.4.1
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-03-06)
-# Last release in 2018 and no upstream activity ever since.
-# Please migrate to an alternative backup solution. Bug #947894
-# Removal on 2025-04-15.
-app-backup/luckybackup
-
 # Michał Górny <mgorny@gentoo.org> (2025-03-06)
 # This package is clearly unmaintained.  It has lost all CPython
 # versions, and retained PyPy3 likely only because it wasn't versioned.
@@ -376,12 +349,6 @@ dev-vcs/notify-webhook
 # Doesn't seem to cleanly load, see:
 # https://github.com/lkrg-org/lkrg/issues/364
 =app-antivirus/lkrg-0.9.9
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-03-01)
-# Last release 14 years ago, dead upstream, depends on Qt5 (and even that
-# only by means of downstream patching). Bug #947634.
-# Removal on 2025-04-15.
-sci-biology/clustalx
 
 # Eray Aslan <eras@gentoo.org> (2025-02-24)
 # Mask experimental software
