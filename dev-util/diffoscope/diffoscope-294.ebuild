@@ -16,7 +16,7 @@ SRC_URI="https://diffoscope.org/archive/${P}.tar.bz2"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="acl binutils bzip2 libcaca colord cpio +diff docx dtc e2fsprogs file
 find gettext gif gpg haskell hdf5 hex imagemagick iso java llvm lzma
 mono opendocument pascal pdf postscript R rpm sqlite squashfs
@@ -80,7 +80,10 @@ RDEPEND="
 # docx2txt: bug #797688
 BDEPEND="
 	test? (
-		app-arch/p7zip
+		|| (
+			>=app-arch/7zip-24.09[symlink(+)]
+			app-arch/p7zip
+		)
 		app-text/docx2txt
 		app-text/html2text
 		media-libs/libcaca
