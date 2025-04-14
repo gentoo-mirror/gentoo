@@ -27,6 +27,12 @@ IUSE="btrfs systemd"
 # there are no test files so prevent tests
 RESTRICT="test"
 
+DEPEND="
+	app-crypt/gpgme
+	btrfs? ( sys-fs/btrfs-progs )
+"
+RDEPEND="${DEPEND}"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-1.10.1-gentoo-systemd.patch"
 )
