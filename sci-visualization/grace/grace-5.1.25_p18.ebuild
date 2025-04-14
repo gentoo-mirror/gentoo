@@ -1,10 +1,10 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 FORTRAN_NEEDED=fortran
 
-inherit desktop fortran-2 toolchain-funcs xdg
+inherit desktop flag-o-matic fortran-2 toolchain-funcs xdg
 
 DESCRIPTION="Motif based XY-plotting tool"
 HOMEPAGE="https://plasma-gate.weizmann.ac.il/Grace/"
@@ -40,8 +40,9 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.1.22-dlmodule.patch
 	# Honor -noask option and avoid accidentally overwritting files
 	"${FILESDIR}"/${PN}-5.1.25-honor-noask.patch
-	# Fix C99 compat (from Fedora)
-	"${FILESDIR}"/${PN}-c99.patch
+	# Fix C99 compat (from Fedora); included in debian "source-hardening"???
+	#"${FILESDIR}"/${PN}-c99.patch
+	"${FILESDIR}"/${PN}-configure-c99.patch
 )
 
 pkg_setup() {
@@ -53,6 +54,9 @@ src_prepare() {
 
 	# Debian patches
 	for p in $(<"${WORKDIR}"/debian/patches/series) ; do
+		# We have a safer one
+		[[ ${p} = configure-implicit-declarations.diff ]] && continue
+
 		eapply -p1 "${WORKDIR}/debian/patches/${p}"
 	done
 
@@ -75,6 +79,15 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=strict-aliasing, -Werror=lto-type-mismatch
+	# https://bugs.gentoo.org/863293
+	append-flags -fno-strict-aliasing
+
+	# https://bugs.gentoo.org/946273
+	append-cflags -std=gnu17
+
+	filter-lto
+
 	tc-export CC AR
 
 	# the configure script just produces a basic Make.conf
