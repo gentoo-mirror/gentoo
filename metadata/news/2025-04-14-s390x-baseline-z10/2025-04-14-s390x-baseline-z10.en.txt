@@ -1,0 +1,33 @@
+Title: Gentoo raises s390x baseline to z10
+Author: Andreas K. Hüttel <dilfridge@gentoo.org>
+Posted: 2025-04-14
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Profile: default/linux/s390/17.0/s390x
+Display-If-Profile: default/linux/s390/17.0/s390x/systemd/merged-usr
+Display-If-Profile: default/linux/s390/23.0/split-usr/s390x
+Display-If-Profile: default/linux/s390/23.0/s390x
+Display-If-Profile: default/linux/s390/23.0/s390x/systemd
+
+Since more and more software for s390x assumes the presence of a more recent
+processor, we will raise the ISA baseline in 64bit s390x profiles for the
+catalyst stage builds and the published binary packages from z900 to z10 (i.e.,
+-march=z10).
+
+* If you are running an installation and emerge locally from source, this does
+  not affect you.
+
+* If you are running an installation and use our binary packages, please make
+  sure you have compatibility for z10 or switch to building from source.
+
+* The 64bit s390x stages will only work with machines compatible with z10.
+
+* This does not affect the 31bit s390 stages or packages.
+
+The z10 Enterprise Class (2097 series) was introduced in February 2008 [1],
+which essentially means everyone except hardware archaeologists should be fine.
+
+Note that z10 is still a very conservative setting; on modern machines a newer
+ISA is strongly recommended.
+
+[1] https://en.wikipedia.org/wiki/IBM_Z
