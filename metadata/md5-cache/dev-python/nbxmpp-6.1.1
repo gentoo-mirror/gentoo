@@ -5,12 +5,12 @@ EAPI=8
 HOMEPAGE=https://dev.gajim.org/gajim/python-nbxmpp/ https://pypi.org/project/nbxmpp/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=amd64 arm64 ~loong ~riscv x86
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/gobject-introspection net-libs/libsoup:3.0[introspection] dev-python/idna[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/packaging[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/precis-i18n-1.0.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pygobject-3.42[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://dev.gajim.org/gajim/python-nbxmpp/-/archive/5.0.4/python-nbxmpp-5.0.4.tar.bz2
+SRC_URI=https://dev.gajim.org/gajim/python-nbxmpp/-/archive/6.1.1/python-nbxmpp-6.1.1.tar.bz2
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	57cca9c4edd0e2a2591feae559933c10
-_md5_=696d6ef63aba66e8fad9cdccc1ce1c66
+_md5_=f1c10abd6b3832a858e4a0eec28a3921
