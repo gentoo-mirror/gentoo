@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/go dev-lang/perl dev-libs/protobuf[protoc(+)] app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= virtual/libusb:1=
+DEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= <dev-libs/protobuf-30:= sys-libs/zlib:= virtual/libusb:1=
 DESCRIPTION=Android platform tools (adb, fastboot, and mkbootimg)
 EAPI=8
 HOMEPAGE=https://github.com/nmeum/android-tools/ https://developer.android.com/
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic python-r1
 IUSE=python udev python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
 KEYWORDS=amd64 ~arm arm64 x86
 LICENSE=Apache-2.0 BSD-2
-RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= >=dev-libs/protobuf-3.0.0:= sys-libs/zlib:= virtual/libusb:1= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= <dev-libs/protobuf-30:= sys-libs/zlib:= virtual/libusb:1= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
 SLOT=0
 SRC_URI=https://github.com/nmeum/android-tools/releases/download/34.0.5/android-tools-34.0.5.tar.xz https://dev.gentoo.org/~zmedico/dist/android-tools-31.0.3-no-gtest.patch
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de
-_md5_=b7fb8c1b458329f84f7af91ec3b0fd50
+_md5_=b83699cd5fc399586c6cc47e66544287
