@@ -12,6 +12,6 @@ RDEPEND=acct-user/gvm >=dev-python/defusedxml-0.6[python_targets_pypy3(-)?,pytho
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_pypy3_11 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/greenbone/ospd-openvas/archive/v22.7.1.tar.gz -> ospd-openvas-22.7.1.tar.gz
+SRC_URI=https://github.com/greenbone/ospd-openvas/archive/v22.7.1.tar.gz -> ospd-openvas-22.7.1.tar.gz https://github.com/greenbone/ospd-openvas/commit/f968bcc540c22dad89a2ee3bdfc6384b97b6fa0f.patch -> ospd-openvas-22.7.1-add-delay-in-mqtt-test.patch
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	57cca9c4edd0e2a2591feae559933c10	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=ef13871b16e6aebfd381d07b3fa677c3
+_md5_=dd26198dbb8265084291a10d8fadc17e
