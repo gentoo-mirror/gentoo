@@ -1,16 +1,16 @@
-BDEPEND=test? ( dev-python/pypdf[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-16[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/poetry-core-2.1.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=test? ( dev-python/pypdf[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_10? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/unittest-or-fail[python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/poetry-core-2.1.1[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Suite of tools for PDF files manipulation written in Python
 EAPI=8
 HOMEPAGE=https://github.com/hellerbarde/stapler/ https://pypi.org/project/stapler/
 INHERIT=distutils-r1
-IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=BSD
-RDEPEND=dev-python/pypdf[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=dev-python/pypdf[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/hellerbarde/stapler/archive/382f1edc62296e071093a5419811a2fca9d78d93.tar.gz -> stapler-382f1edc62296e071093a5419811a2fca9d78d93.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	57cca9c4edd0e2a2591feae559933c10
-_md5_=464b137a0f9beb0dcbf7a9219ee96f1f
+_md5_=db05ad46f0b332f62999a9fd4c0c2248

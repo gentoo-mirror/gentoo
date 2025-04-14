@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
-DEPEND=test? ( || ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) )
+DEPEND=test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) )
 DESCRIPTION=A small C library for x86 (and x86_64) CPU detection and feature extraction
 EAPI=8
 HOMEPAGE=http://libcpuid.sourceforge.net/
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0/17
 SRC_URI=https://github.com/anrieff/libcpuid/archive/v0.7.1.tar.gz -> libcpuid-0.7.1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=6b1f5b1abe29edfb3fd3e83a3d775c1d
+_md5_=e9c4a73f3d4c3ff14adb5e5f1ec1bea8
