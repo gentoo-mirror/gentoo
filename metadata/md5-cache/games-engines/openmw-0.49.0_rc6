@@ -1,0 +1,18 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] dev-python/sphinx ) gui? ( dev-qt/qttools:6[linguist] ) test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) app-arch/lz4:= dev-cpp/yaml-cpp:= dev-db/sqlite:3 dev-games/recastnavigation:= >=dev-games/mygui-3.4.3:= dev-libs/boost:=[zlib] dev-libs/icu:= dev-libs/tinyxml[stl] media-libs/libsdl2[joystick,opengl,video] media-libs/openal media-video/ffmpeg:= >=sci-physics/bullet-2.86:=[double-precision] sys-libs/zlib virtual/opengl osg-fork? ( >=dev-games/openscenegraph-openmw-3.6:=[collada(-),jpeg,png,sdl,svg,truetype,zlib] ) !osg-fork? ( >=dev-games/openscenegraph-3.6.5:=[collada(-),jpeg,png,sdl,svg,truetype,zlib] ) gui? ( app-arch/unshield dev-qt/qtbase:6[gui,network,opengl,widgets] dev-qt/qtsvg:6 ) dev-cpp/sol2
+DESCRIPTION=Open source reimplementation of TES III: Morrowind
+EAPI=8
+HOMEPAGE=https://openmw.org/ https://gitlab.com/OpenMW/openmw
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake lua-single readme.gentoo-r1 xdg
+IUSE=doc devtools +gui +osg-fork test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=GPL-3 MIT BitstreamVera ZLIB
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) app-arch/lz4:= dev-cpp/yaml-cpp:= dev-db/sqlite:3 dev-games/recastnavigation:= >=dev-games/mygui-3.4.3:= dev-libs/boost:=[zlib] dev-libs/icu:= dev-libs/tinyxml[stl] media-libs/libsdl2[joystick,opengl,video] media-libs/openal media-video/ffmpeg:= >=sci-physics/bullet-2.86:=[double-precision] sys-libs/zlib virtual/opengl osg-fork? ( >=dev-games/openscenegraph-openmw-3.6:=[collada(-),jpeg,png,sdl,svg,truetype,zlib] ) !osg-fork? ( >=dev-games/openscenegraph-3.6.5:=[collada(-),jpeg,png,sdl,svg,truetype,zlib] ) gui? ( app-arch/unshield dev-qt/qtbase:6[gui,network,opengl,widgets] dev-qt/qtsvg:6 )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/OpenMW/openmw/archive/openmw-49-rc6.tar.gz test? ( https://gitlab.com/OpenMW/example-suite/-/raw/8966dab24692555eec720c854fb0f73d108070cd/game_template/data/template.omwgame -> openmw-template-8966dab24692555eec720c854fb0f73d108070cd.omwgame )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=36d8e2e739de0f2af2f1a48177196423
