@@ -1,16 +1,16 @@
 BDEPEND=dev-python/docutils virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
-DEPEND=>=dev-libs/glib-2.28:2 >=net-libs/gssdp-1.6.0:1.6= >=net-libs/gupnp-1.6.0:1.6= >=net-libs/gupnp-av-0.12.9:0= >=media-libs/gupnp-dlna-0.9.4:2.0= >=net-libs/libsoup-3.0:3.0 dev-libs/libxml2 python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) !net-libs/dleyna-connector-dbus !net-libs/dleyna-core !net-libs/dleyna-renderer !net-misc/dleyna-server
+DEPEND=>=dev-libs/glib-2.28:2 >=net-libs/gssdp-1.6.0:1.6= >=net-libs/gupnp-1.6.0:1.6= >=net-libs/gupnp-av-0.12.9:0= >=media-libs/gupnp-dlna-0.9.4:2.0= >=net-libs/libsoup-3.0:3.0 dev-libs/libxml2 python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) !net-libs/dleyna-connector-dbus !net-libs/dleyna-core !net-libs/dleyna-renderer !net-misc/dleyna-server
 DESCRIPTION=A set of services and D-Bus APIs to simplify access to UPnP/DLNA media devices
 EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/World/dLeyna
 INHERIT=meson python-single-r1
-IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
 LICENSE=LGPL-2.1
-RDEPEND=>=dev-libs/glib-2.28:2 >=net-libs/gssdp-1.6.0:1.6= >=net-libs/gupnp-1.6.0:1.6= >=net-libs/gupnp-av-0.12.9:0= >=media-libs/gupnp-dlna-0.9.4:2.0= >=net-libs/libsoup-3.0:3.0 dev-libs/libxml2 python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) !net-libs/dleyna-connector-dbus !net-libs/dleyna-core !net-libs/dleyna-renderer !net-misc/dleyna-server
-REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RDEPEND=>=dev-libs/glib-2.28:2 >=net-libs/gssdp-1.6.0:1.6= >=net-libs/gupnp-1.6.0:1.6= >=net-libs/gupnp-av-0.12.9:0= >=media-libs/gupnp-dlna-0.9.4:2.0= >=net-libs/libsoup-3.0:3.0 dev-libs/libxml2 python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) !net-libs/dleyna-connector-dbus !net-libs/dleyna-core !net-libs/dleyna-renderer !net-misc/dleyna-server
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=1.0/6
 SRC_URI=https://gitlab.gnome.org/World/dLeyna/-/archive/v0.8.3/dLeyna-v0.8.3.tar.bz2
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=ca90d45df19ba21448c49672ef5e2c60
+_md5_=b893c2b8cc62d9756af8617b474eecb9

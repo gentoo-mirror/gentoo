@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=setup
-DEPEND=>=dev-libs/dbus-glib-0.51 >=dev-libs/glib-2.32:2 >=net-libs/telepathy-glib-0.21 sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+DEPEND=>=dev-libs/dbus-glib-0.51 >=dev-libs/glib-2.32:2 >=net-libs/telepathy-glib-0.21 sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
 DESCRIPTION=Full-featured IRC connection manager for Telepathy
-EAPI=7
+EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/telepathy/telepathy-idle
 INHERIT=python-single-r1
-IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~alpha amd64 ~arm arm64 ~ppc ~ppc64 ~sparc x86 ~x86-linux
 LICENSE=LGPL-2.1+
-RDEPEND=>=dev-libs/dbus-glib-0.51 >=dev-libs/glib-2.32:2 >=net-libs/telepathy-glib-0.21 sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RDEPEND=>=dev-libs/dbus-glib-0.51 >=dev-libs/glib-2.32:2 >=net-libs/telepathy-glib-0.21 sys-apps/dbus python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://telepathy.freedesktop.org/releases/telepathy-idle/telepathy-idle-0.2.2.tar.gz
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=933b223031a1c7375dc456bcddd238ba
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=df8d2144c275aff1878a66a433fc6c7f

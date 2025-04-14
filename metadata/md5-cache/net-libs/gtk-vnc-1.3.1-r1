@@ -1,9 +1,9 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-lang/perl-5 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) >=dev-lang/perl-5 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=>=dev-libs/glib-2.56.0:2 >=x11-libs/gdk-pixbuf-2.36.0:2 >=dev-libs/libgcrypt-1.8.0:0= >=net-libs/gnutls-3.6.0:0= >=sys-libs/zlib-1.2.11 >=x11-libs/gtk+-3.24.41-r1:3[introspection?,wayland?,X?] >=x11-libs/cairo-1.15.0 introspection? ( >=dev-libs/gobject-introspection-1.56.0:= ) pulseaudio? ( media-libs/libpulse ) sasl? ( >=dev-libs/cyrus-sasl-2.1.27:2 ) X? ( >=x11-libs/libX11-1.6.5 ) x11-base/xorg-proto
 DESCRIPTION=VNC viewer widget for GTK
 EAPI=8
-HOMEPAGE=https://wiki.gnome.org/Projects/gtk-vnc https://gitlab.gnome.org/GNOME/gtk-vnc
+HOMEPAGE=https://gitlab.gnome.org/GNOME/gtk-vnc
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=flag-o-matic gnome.org vala meson python-any-r1 xdg
 IUSE=+introspection pulseaudio sasl +vala wayland X
@@ -14,4 +14,4 @@ REQUIRED_USE=vala? ( introspection )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gtk-vnc/1.3/gtk-vnc-1.3.1.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	gnome.org	e1b4f392dbfedfb8974b71b017937f08	vala	e477903dbe0105930c51f170a592dc16	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=821a92c7232f686fd2472def59ac97b3
+_md5_=8898d94a2abcf7e5f7efd4b503b7a9ed

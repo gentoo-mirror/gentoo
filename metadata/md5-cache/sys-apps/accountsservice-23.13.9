@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( || ( ( dev-lang/python:3.12 dev-python/python-dbusmock[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+BDEPEND=dev-libs/libxslt dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) test? ( || ( ( dev-lang/python:3.13 dev-python/python-dbusmock[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/python-dbusmock[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-dbusmock[python_targets_python3_10(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-libs/glib-2.63.5:2 sys-auth/polkit virtual/libcrypt:= elogind? ( >=sys-auth/elogind-229.4 ) introspection? ( >=dev-libs/gobject-introspection-0.9.12:= ) systemd? ( >=sys-apps/systemd-186:0= ) sys-apps/dbus
 DESCRIPTION=D-Bus interfaces for querying and manipulating user account information
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.freedesktop.org/software/accountsservice/accountsservice-23.13.9.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7726144f5af59e186d66746d0f513e5	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	54bd206bb5c4efac6ae28b6b006713b0
-_md5_=87ca05b5bcc834db7829c7d5dcbf05e1
+_md5_=0bb587065f4d5ba1e7f115b586a270f1
