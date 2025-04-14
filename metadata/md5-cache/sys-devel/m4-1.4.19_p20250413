@@ -1,0 +1,14 @@
+BDEPEND=app-arch/xz-utils nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-m4 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install prepare test unpack
+DEPEND=virtual/libiconv nls? ( sys-devel/gettext virtual/libintl )
+DESCRIPTION=GNU macro processor
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/m4/m4.html
+INHERIT=verify-sig
+IUSE=examples nls verify-sig
+LICENSE=GPL-3+
+RDEPEND=virtual/libiconv nls? ( sys-devel/gettext virtual/libintl )
+SLOT=0
+SRC_URI=https://alpha.gnu.org/gnu/m4/m4-1.4.19.60-6ebfc.tar.xz https://people.redhat.com/eblake/m4/m4-1.4.19.60-6ebfc.tar.xz verify-sig? ( https://alpha.gnu.org/gnu/m4/m4-1.4.19.60-6ebfc.tar.xz.sig https://people.redhat.com/eblake/m4/m4-1.4.19.60-6ebfc.tar.xz.sig )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=74fd62a7a69b5f0ba71c6a0f98ff4af3
