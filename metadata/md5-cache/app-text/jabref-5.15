@@ -1,0 +1,15 @@
+BDEPEND=>=dev-java/gradle-bin-8 dev-java/java-config
+DEFINED_PHASES=compile install postinst postrm preinst unpack
+DEPEND=>=virtual/jdk-21:*
+DESCRIPTION=Graphical Java application for managing BibTeX and biblatex (.bib) databases
+EAPI=8
+HOMEPAGE=https://www.jabref.org/ https://github.com/JabRef/jabref
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop edo multiprocessing xdg
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=virtual/jre-21
+SLOT=0
+SRC_URI=https://github.com/JabRef/jabref/archive/v5.15.tar.gz -> jabref-5.15.tar.gz https://dev.gentoo.org/~arthurzam/distfiles/app-text/jabref/jabref-5.15-gradle-deps.tar.xz https://github.com/JabRef/abbrv.jabref.org/archive/7f27d794befacdb279039c3bae807ea0f3faacca.tar.gz -> jabref-5.15-abbrv.tar.gz https://github.com/citation-style-language/locales/archive/606fa26be1d87837c4e607362b28ed58a7576875.tar.gz -> jabref-5.15-locales.tar.gz https://github.com/citation-style-language/styles/archive/616763159e5fbedcfb574ac02648e727b8166dad.tar.gz -> jabref-5.15-styles.tar.gz https://github.com/JabRef/jabref/commit/a64bb070259dd93de8cb88188e4c5bf892f2af2b.patch -> jabref-5.15-fix-11517.patch https://github.com/JabRef/jabref/commit/e2ab9c016e41902d867da1d7e13ce0e5da44615f.patch -> jabref-5.15-fix-11544.patch
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=c0db3094449d340e1f252e95083398ce
