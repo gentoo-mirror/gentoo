@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/AdaCore/gnatcoll-bindings/
 INHERIT=ada multiprocessing python-single-r1
 IUSE=doc gmp lzma openmp +shared static-libs static-pic ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 x86
 LICENSE=GPL-3
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/gnatcoll-core:0/25.0.0[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_12(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] gmp? ( dev-libs/gmp:* ) lzma? ( app-arch/xz-utils ) openmp? ( sys-devel/gcc:=[openmp] ) python_single_target_python3_11? ( doc? ( dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ) python_single_target_python3_12? ( doc? ( dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ) python_single_target_python3_13? ( doc? ( dev-python/sphinx[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) )
 REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ^^ ( ada_target_gcc_13 ada_target_gcc_14 )
 SLOT=0/25.0.0
 SRC_URI=https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v25.0.0.tar.gz -> gnatcoll-bindings-25.0.0.tar.gz
 _eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=476db71b6b61d8d0659fe8033f1ee83d
+_md5_=a1aacbcf7106c43f9aa749700ddd830f
