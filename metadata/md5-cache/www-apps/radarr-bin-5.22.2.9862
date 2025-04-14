@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DESCRIPTION=A fork of Sonarr to work with movies a la Couchpotato
+EAPI=8
+HOMEPAGE=https://www.radarr.video/ https://github.com/Radarr/Radarr/
+INHERIT=systemd
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=acct-group/radarr acct-user/radarr media-video/mediainfo dev-libs/icu dev-db/sqlite
+RESTRICT=bindist strip test
+SLOT=0
+SRC_URI=amd64? ( elibc_glibc? ( https://github.com/Radarr/Radarr/releases/download/v5.22.2.9862/Radarr.develop.5.22.2.9862.linux-core-x64.tar.gz ) elibc_musl? ( https://github.com/Radarr/Radarr/releases/download/v5.22.2.9862/Radarr.develop.5.22.2.9862.linux-musl-core-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://github.com/Radarr/Radarr/releases/download/v5.22.2.9862/Radarr.develop.5.22.2.9862.linux-core-arm.tar.gz ) elibc_musl? ( https://github.com/Radarr/Radarr/releases/download/v5.22.2.9862/Radarr.develop.5.22.2.9862.linux-musl-core-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://github.com/Radarr/Radarr/releases/download/v5.22.2.9862/Radarr.develop.5.22.2.9862.linux-core-arm64.tar.gz ) elibc_musl? ( https://github.com/Radarr/Radarr/releases/download/v5.22.2.9862/Radarr.develop.5.22.2.9862.linux-musl-core-arm64.tar.gz ) )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=47dac8539424f34c73a6cdb4cc772310

@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install prepare
+DESCRIPTION=Looks and smells like Sonarr but made for music
+EAPI=8
+HOMEPAGE=https://lidarr.audio/ https://github.com/Lidarr/Lidarr/
+INHERIT=systemd
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=acct-group/lidarr acct-user/lidarr media-video/mediainfo dev-libs/icu dev-db/sqlite
+RESTRICT=bindist strip test
+SLOT=0
+SRC_URI=amd64? ( elibc_glibc? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.1.4621/Lidarr.develop.2.11.1.4621.linux-core-x64.tar.gz ) elibc_musl? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.1.4621/Lidarr.develop.2.11.1.4621.linux-musl-core-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.1.4621/Lidarr.develop.2.11.1.4621.linux-core-arm.tar.gz ) elibc_musl? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.1.4621/Lidarr.develop.2.11.1.4621.linux-musl-core-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.1.4621/Lidarr.develop.2.11.1.4621.linux-core-arm64.tar.gz ) elibc_musl? ( https://github.com/Lidarr/Lidarr/releases/download/v2.11.1.4621/Lidarr.develop.2.11.1.4621.linux-musl-core-arm64.tar.gz ) )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=5e2f9e18426dbde7f8591b07d3b39834
