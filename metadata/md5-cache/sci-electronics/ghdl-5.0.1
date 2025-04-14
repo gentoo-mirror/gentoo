@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://ghdl.github.io/ghdl/ https://github.com/ghdl/ghdl/
 INHERIT=ada edo llvm-r1 toolchain-funcs
 IUSE=llvm +static-libs ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 +llvm_slot_19 llvm_slot_18
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) llvm? ( llvm_slot_18? ( llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/llvm:19= ) )
 REQUIRED_USE=ada_target_gcc_14 llvm? ( static-libs ) ^^ ( llvm_slot_18 llvm_slot_19 )
 SLOT=0
 SRC_URI=https://github.com/ghdl/ghdl/archive/v5.0.1.tar.gz -> ghdl-5.0.1.tar.gz
 _eclasses_=ada	02ff4ede51c5f676746b340a6406accf	edo	367e103a74bf77e6a8da7894d999fa3c	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
-_md5_=19b7e9672b9ec03b906a4badc2874255
+_md5_=4fd4ace6892afc1fe0d5a08187d88533

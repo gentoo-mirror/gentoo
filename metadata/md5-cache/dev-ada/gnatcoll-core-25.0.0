@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/AdaCore/gnatcoll-core/
 INHERIT=ada python-any-r1 multiprocessing
 IUSE=doc minimal +projects +shared static-libs static-pic test ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-3
 RDEPEND=projects? ( ~dev-ada/libgpr-25.0.0:=[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_12(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] )
 REQUIRED_USE=|| ( shared static-libs static-pic ) ^^ ( ada_target_gcc_13 ada_target_gcc_14 ) projects? ( !minimal )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0/25.0.0
 SRC_URI=https://github.com/AdaCore/gnatcoll-core/archive/refs/tags/v25.0.0.tar.gz -> gnatcoll-core-25.0.0.tar.gz
 _eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b7726144f5af59e186d66746d0f513e5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=0211218004f0f86bbf25d693e4879bc4
+_md5_=16b706370d6ed46f2285b8c75180343c
