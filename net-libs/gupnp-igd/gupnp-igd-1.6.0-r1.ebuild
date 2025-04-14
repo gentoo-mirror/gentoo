@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,19 +16,23 @@ IUSE="gtk-doc +introspection"
 # The only existing test is broken
 RESTRICT="test"
 
-RDEPEND="
+DEPEND="
 	>=dev-libs/glib-2.70.0:2[${MULTILIB_USEDEP}]
 	>=net-libs/gssdp-1.6:1.6=[${MULTILIB_USEDEP}]
 	>=net-libs/gupnp-1.6:1.6=[${MULTILIB_USEDEP}]
 	introspection? ( >=dev-libs/gobject-introspection-0.10 )
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	gtk-doc? ( !net-libs/gupnp-igd:0[gtk-doc] )
+"
 BDEPEND="
 	dev-util/glib-utils
 	sys-devel/gettext
 	virtual/pkgconfig
-	gtk-doc? ( dev-util/gtk-doc
-		app-text/docbook-xml-dtd:4.1.2 )
+	gtk-doc? (
+		dev-util/gtk-doc
+		app-text/docbook-xml-dtd:4.1.2
+	)
 "
 
 src_prepare() {
