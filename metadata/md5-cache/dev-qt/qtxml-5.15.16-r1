@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.qt.io/ https://invent.kde.org/qt/qt/qtbase https://community.kde.org/Qt5PatchCollection
 INHERIT=qt5-build
 IUSE=debug test
-KEYWORDS=~amd64 arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 RDEPEND==dev-qt/qtcore-5.15.16*:5=
 RESTRICT=test
 SLOT=5/5.15
 SRC_URI=https://download.qt.io/official_releases/qt/5.15/5.15.16/submodules/qtbase-everywhere-opensource-src-5.15.16.tar.xz https://dev.gentoo.org/~asturm/distfiles/qtbase-5.15.16-gentoo-kde-1.tar.xz https://dev.gentoo.org/~asturm/distfiles/qtbase-5.15-gentoo-patchset-6.tar.xz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	virtualx	9741d451eb64ea8bb9faee90d68a9b68	qt5-build	09e8263c08e9b60281a89d9abe5da7b8
-_md5_=65040cc25086c4b7cb736fd8bab06bf9
+_md5_=898f8781caa7580cd4bcd710f1d3c9e0
