@@ -1,0 +1,17 @@
+BDEPEND=dev-qt/linguist-tools:5 app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare test unpack
+DEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/tiff:= sci-libs/cfitsio:= sci-libs/getdata[cxx] sci-libs/gsl:= sci-libs/hdf5:=[cxx] sci-libs/matio:= sci-libs/netcdf-cxx:3 test? ( dev-qt/qttest:5 )
+DESCRIPTION=Fast real-time large-dataset viewing and plotting tool
+EAPI=8
+HOMEPAGE=https://kst-plot.kde.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake flag-o-matic kde.org xdg
+IUSE=debug test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 LGPL-2 FDL-1.2
+RDEPEND=dev-qt/designer:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/tiff:= sci-libs/cfitsio:= sci-libs/getdata[cxx] sci-libs/gsl:= sci-libs/hdf5:=[cxx] sci-libs/matio:= sci-libs/netcdf-cxx:3
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://gentoo/kst-plot-2.1.0_p20250415-16334f6f.tar.gz https://invent.kde.org/graphics/kst-plot/-/archive/16334f6f99613a1b60873d93835f9083dca258b2/kst-plot-16334f6f99613a1b60873d93835f9083dca258b2.tar.gz -> kst-plot-2.1.0_p20250415-16334f6f.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	kde.org	2eea56ed41440913be4caa3d255d2db3	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=accd7af00d04237307878f325c425d9a
