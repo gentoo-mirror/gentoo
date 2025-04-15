@@ -7,7 +7,7 @@ inherit systemd tmpfiles toolchain-funcs
 
 MOD_CASE="0.9.1"
 MOD_CLAMAV="0.14rc2"
-MOD_DISKUSE="0.9"
+MOD_DISKUSE="0.9.1"
 MOD_GSS="1.3.9"
 MOD_MSG="0.5.1"
 MOD_VROOT="0.9.12"
@@ -23,7 +23,7 @@ SRC_URI="
 	ftp://ftp.proftpd.org/distrib/source/${P/_/}.tar.gz
 	case? ( https://github.com/Castaglia/${PN}-mod_case/archive/v${MOD_CASE}.tar.gz -> mod_case-${MOD_CASE}.tar.gz )
 	clamav? ( https://github.com/jbenden/mod_clamav/archive/v${MOD_CLAMAV}.tar.gz -> ${PN}-mod_clamav-${MOD_CLAMAV}.tar.gz )
-	diskuse? ( http://www.castaglia.org/${PN}/modules/${PN}-mod-diskuse-${MOD_DISKUSE}.tar.gz )
+	diskuse? ( https://github.com/Castaglia/${PN}-mod_diskuse/archive/v${MOD_DISKUSE}.tar.gz -> mod_diskuse-${MOD_DISKUSE}.tar.gz )
 	kerberos? ( https://downloads.sourceforge.net/gssmod/mod_gss-${MOD_GSS}.tar.gz )
 	msg? ( https://github.com/Castaglia/${PN}-mod_msg/archive/v${MOD_MSG}.tar.gz -> mod_msg-${MOD_MSG}.tar.gz )
 	vroot? ( https://github.com/Castaglia/${PN}-mod_vroot/archive/v${MOD_VROOT}.tar.gz -> mod_vroot-${MOD_VROOT}.tar.gz )
@@ -33,7 +33,7 @@ S="${WORKDIR}/${P/_/}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="acl authfile ban +caps case clamav copy ctrls deflate diskuse dso dynmasq exec ifsession ifversion ident ipv6
+IUSE="acl authfile ban +caps case clamav copy ctrls deflate diskuse dso dynmasq exec ifsession ifversion ident
 	kerberos ldap log-forensic memcache msg mysql ncurses nls pam +pcre postgres qos radius
 	ratio readme rewrite selinux sftp shaper sitemisc snmp sodium softquota sqlite ssl tcpd test unique-id vroot"
 # Some tests are ran in chroot. Confuses sandbox.
@@ -114,18 +114,20 @@ src_prepare() {
 	fi
 
 	if use clamav ; then
+		in_dir mod_clamav-${MOD_CLAMAV} eapply "${FILESDIR}"/"${PN}"-1.3.9-clamav-refresh-api.patch
+		in_dir mod_clamav-${MOD_CLAMAV} eapply "${FILESDIR}"/"${PN}"-1.3.9-clamav-debool.patch
 		cp -v "${WORKDIR}"/mod_clamav-${MOD_CLAMAV}/mod_clamav.{c,h} contrib || die
 		eapply -p0 "${WORKDIR}"/mod_clamav-${MOD_CLAMAV}/001-add-mod_clamav-to-tests.patch
 	fi
 
 	if use diskuse; then
-		in_dir mod_diskuse eapply "${FILESDIR}"/${PN}-1.3.6_rc4-diskuse-refresh-api.patch
+		in_dir ${PN}-mod_diskuse-${MOD_DISKUSE} eapply "${FILESDIR}"/${PN}-1.3.6_rc4-diskuse-refresh-api.patch
 
 		# ./configure will modify files. Symlink them instead of copying
-		ln -sv "${WORKDIR}"/mod_diskuse/mod_diskuse.h "${S}"/contrib || die
+		ln -sv "${WORKDIR}"/${PN}-mod_diskuse-${MOD_DISKUSE}/mod_diskuse.h "${S}"/contrib || die
 
-		cp -v "${WORKDIR}"/mod_diskuse/mod_diskuse.c "${S}"/contrib || die
-		cp -v "${WORKDIR}"/mod_diskuse/mod_diskuse.html "${S}"/doc/contrib || die
+		cp -v "${WORKDIR}"/${PN}-mod_diskuse-${MOD_DISKUSE}/mod_diskuse.c "${S}"/contrib || die
+		cp -v "${WORKDIR}"/${PN}-mod_diskuse-${MOD_DISKUSE}/mod_diskuse.html "${S}"/doc/contrib || die
 	fi
 
 	if use msg; then
@@ -139,6 +141,7 @@ src_prepare() {
 
 	if use kerberos ; then
 		# in_dir mod_gss-${MOD_GSS} eapply "${FILESDIR}"/${PN}-1.3.6_rc4-gss-refresh-api.patch
+		in_dir mod_gss-${MOD_GSS} eapply "${FILESDIR}"/${PN}-1.3.9-gss-refresh-api.patch
 
 		# Support app-crypt/heimdal / Gentoo Bug #284853
 		sed -i -e "s/krb5_principal2principalname/_\0/" "${WORKDIR}"/mod_gss-${MOD_GSS}/mod_auth_gss.c.in || die
@@ -175,7 +178,7 @@ src_configure() {
 	use ctrls && m="${m}:mod_ctrls_admin"
 	use deflate && m="${m}:mod_deflate"
 	if use diskuse ; then
-		in_dir mod_diskuse econf
+		in_dir ${PN}-mod_diskuse-${MOD_DISKUSE} econf
 		m="${m}:mod_diskuse"
 	fi
 	use dynmasq && m="${m}:mod_dynmasq"
@@ -243,7 +246,6 @@ src_configure() {
 		$(use_enable ctrls)
 		$(use_enable dso)
 		$(use_enable ident)
-		$(use_enable ipv6)
 		$(use_enable memcache)
 		$(use_enable ncurses)
 		$(use_enable nls)
