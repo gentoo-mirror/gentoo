@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+BDEPEND=>=dev-lang/go-1.24.0 >=dev-lang/go-1.20:= app-arch/unzip
 DEFINED_PHASES=compile install prepare unpack
 DESCRIPTION=terminal based UI to manage kubernetes clusters
 EAPI=8
@@ -10,4 +10,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/derailed/k9s/archive/v0.40.10.tar.gz -> k9scli-0.40.10.tar.gz https://dev.gentoo.org/~williamh/dist/k9scli-0.40.10-deps.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	df32d29550d40a92da723d3b8e17b467
-_md5_=ef802e8d814c5cebad5d723197ab7279
+_md5_=dfa2f37135d865966b07c2693423ddc6
