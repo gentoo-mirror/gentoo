@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/bzip2:= app-arch/lz4:= app-arch/snappy:= app-arch/zstd:= dev-cpp/gflags:= sys-libs/liburing:= sys-libs/zlib:= sys-process/numactl jemalloc? ( dev-libs/jemalloc:= ) tbb? ( dev-cpp/tbb:= )
+DESCRIPTION=Embeddable, persistent key-value store for fast storage
+EAPI=8
+HOMEPAGE=http://rocksdb.org https://github.com/facebook/rocksdb/
+INHERIT=cmake
+IUSE=jemalloc numa static-libs tbb test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=app-arch/bzip2:= app-arch/lz4:= app-arch/snappy:= app-arch/zstd:= dev-cpp/gflags:= sys-libs/liburing:= sys-libs/zlib:= sys-process/numactl jemalloc? ( dev-libs/jemalloc:= ) tbb? ( dev-cpp/tbb:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/facebook/rocksdb/archive/v10.1.3.tar.gz -> rocksdb-10.1.3.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
+_md5_=9ddb51162cc99e0caee3dda34bc63b1d
