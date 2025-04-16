@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/lit[python_targets_python3_10(-)] ) ) ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-18.1.6 ) app-alternatives/ninja >=dev-build/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=~llvm-core/llvm-20.1.3:20=[debug=]
+DESCRIPTION=Polyhedral optimizations for LLVM
+EAPI=8
+HOMEPAGE=https://polly.llvm.org/
+INHERIT=cmake llvm.org python-any-r1
+IUSE=+debug test verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA MIT
+RDEPEND=~llvm-core/llvm-20.1.3:20=[debug=]
+RESTRICT=!test? ( test )
+SLOT=20/20.1
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.3/llvm-project-20.1.3.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.3/llvm-project-20.1.3.src.tar.xz.sig )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	llvm.org	30b2acb78ba3a2ba4e9747b11026470b	python-utils-r1	d1be7a6de225276141d669742d56f3f3	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=1bcd6f2aa3ce6d068c51075cca6c538d
