@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+DEFINED_PHASES=install prepare setup
+DESCRIPTION=Short-term-memory training N-Back game
+EAPI=8
+HOMEPAGE=https://github.com/brain-workshop/brainworkshop/
+INHERIT=desktop python-single-r1
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~x86
+LICENSE=CC-Sampling-Plus-1.0 GPL-2+
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_10? ( >=dev-python/pyglet-2[python_targets_python3_10(-),sound] ) python_single_target_python3_11? ( >=dev-python/pyglet-2[python_targets_python3_11(-),sound] ) python_single_target_python3_12? ( >=dev-python/pyglet-2[python_targets_python3_12(-),sound] ) python_single_target_python3_13? ( >=dev-python/pyglet-2[python_targets_python3_13(-),sound] )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+SLOT=0
+SRC_URI=https://github.com/brain-workshop/brainworkshop/archive/07d2e2fcf5e6cf5264374f08bf7aee29d23b29ff.tar.gz -> brainworkshop-5.0.3_p20250317.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	d1be7a6de225276141d669742d56f3f3	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=264f052b0f56ddcff427281ac69a1936
