@@ -1,9 +1,9 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-RUST_MIN_VER=1.81.0
+RUST_MIN_VER=1.83.0
 inherit cargo desktop optfeature xdg
 
 MY_PV=nightly-${PV:3:4}-${PV:7:2}-${PV:9:2}
@@ -20,11 +20,11 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+="
-	Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC UbuntuFontLicense-1.0 MIT
-	MPL-2.0 OFL-1.1 openssl Unicode-3.0 Unicode-DFS-2016 ZLIB
+	Apache-2.0 BSD BSD-2 Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 OFL-1.1
+	UbuntuFontLicense-1.0 Unicode-3.0 ZLIB openssl
 " # crates
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -92,8 +92,8 @@ pkg_postinst() {
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		elog "${PN} is experimental software that is still under heavy development"
 		elog "and only receiving nightly releases. Plans in Gentoo is to update"
-		elog "roughly every months if no known major regressions (feel free to"
-		elog "report if you feel a newer nightly is needed ahead of time)."
+		elog "roughly every two months if no known major regressions (feel free"
+		elog "to report if you feel a newer nightly is needed ahead of time)."
 		elog
 		elog "There is currently no plans to support wasm builds / browser"
 		elog "extensions, this provides the desktop viewer and other tools."
