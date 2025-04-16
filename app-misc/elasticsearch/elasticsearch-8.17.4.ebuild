@@ -15,10 +15,11 @@ KEYWORDS="~amd64"
 
 DEPEND="acct-group/elasticsearch
 	acct-user/elasticsearch"
+# This package _actually does depend_ on JDK at runtime. #950962
 RDEPEND="acct-group/elasticsearch
 	acct-user/elasticsearch
 	sys-libs/zlib
-	virtual/jre:17"
+	virtual/jdk:17"
 
 QA_FLAGS_IGNORED="usr/share/elasticsearch/lib/platform/linux-x64/*.so"
 QA_PREBUILT="
@@ -31,7 +32,7 @@ QA_PRESTRIPPED="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-env.patch"
+	"${FILESDIR}/${PN}-env-2.patch"
 )
 
 src_prepare() {
@@ -62,8 +63,6 @@ src_install() {
 	insinto /usr/share/${PN}
 	doins -r .
 
-	keepdir /usr/share/${PN}/plugins
-
 	exeinto /usr/share/${PN}/bin
 	doexe "${FILESDIR}"/elasticsearch-systemd-pre-exec
 
@@ -88,9 +87,10 @@ src_install() {
 
 pkg_postinst() {
 	# Elasticsearch will choke on our keep file and dodir will not preserve the empty dir
-	local KEEPFILE
-	KEEPFILE=$(find "${EROOT}/usr/share/${PN}/plugins/" -type f -name '.keep*')
-	rm "${KEEPFILE}" || die
+	# `equery check` complains that the keep file doesn't exist if we simply remove it
+	if [[ ! -d "${EROOT}/usr/share/${PN}/plugins" ]] ; then
+		mkdir "${EROOT}/usr/share/${PN}/plugins" || die
+	fi
 	tmpfiles_process /usr/lib/tmpfiles.d/${PN}.conf
 	if ! systemd_is_booted ; then
 		elog "You may create multiple instances of ${PN} by"
