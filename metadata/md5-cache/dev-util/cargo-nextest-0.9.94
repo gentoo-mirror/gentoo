@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig || ( dev-lang/rust-bin:9999 dev-lang/rust:9999 dev-lang/rust-bin:1.86.0 dev-lang/rust:1.86.0 dev-lang/rust-bin:1.85.1 dev-lang/rust:1.85.1 dev-lang/rust-bin:1.85.0 dev-lang/rust:1.85.0 dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=>=app-arch/zstd-1.5.5:= dev-libs/openssl
+DESCRIPTION=Next-generation test runner for Rust
+EAPI=8
+HOMEPAGE=https://nexte.st/
+INHERIT=cargo
+IUSE=debug
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=|| ( Apache-2.0 MIT ) Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-3.0
+RDEPEND=>=app-arch/zstd-1.5.5:= dev-libs/openssl
+SLOT=0
+SRC_URI=https://github.com/nextest-rs/nextest/archive/refs/tags/cargo-nextest-0.9.94.tar.gz https://github.com/gentoo-crate-dist/nextest/releases/download/cargo-nextest-0.9.94/nextest-cargo-nextest-0.9.94-crates.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	e9d31591b9b0251018cd5c60a43bafa1	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a841e8aa4e7e39f3be436a349ef5d072
+_md5_=f8306cfbb36c3949f35f595d1abf6a41
