@@ -37,7 +37,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 # Missing x test:
-#  elastisearch
 #  joblib
 #  joblibspark
 #  faiss-cpu
@@ -47,7 +46,6 @@ DEPEND="${RDEPEND}"
 #  pyav
 #  pyspark
 #  py7zr
-#  pytest-xdist
 #  s3fs
 #  tensorflow
 #  tiktoken
@@ -60,10 +58,12 @@ BDEPEND="test? (
 	$(python_gen_cond_dep '
 		dev-python/absl-py[${PYTHON_USEDEP}]
 		dev-python/decorator[${PYTHON_USEDEP}]
+		dev-python/elasticsearch[${PYTHON_USEDEP}]
 		dev-python/lz4[${PYTHON_USEDEP}]
 		dev-python/moto[${PYTHON_USEDEP}]
 		dev-python/protobuf:=[${PYTHON_USEDEP}]
 		dev-python/pytest-datadir[${PYTHON_USEDEP}]
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		dev-python/soundfile[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 		dev-python/zstandard[${PYTHON_USEDEP}]
