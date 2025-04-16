@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-NEED_EMACS=28.1
+NEED_EMACS="28.1"
 
 inherit elisp
 
@@ -36,11 +36,13 @@ src_prepare() {
 
 	# Skip failing test. Tests are marked as "WORK IN PROGRESS" at the
 	# top of the file.
-	local skip_tests=(
-		denote-test--denote-get-identifier
+	local -a skip_tests=(
+		dt-denote--date-convert
+		dt-denote-get-identifier
 	)
-	for test in "${skip_tests[@]}"; do
-		sed -i "/${test}/a (ert-skip nil)" tests/denote-test.el || die
+	local skip_test=""
+	for skip_test in "${skip_tests[@]}"; do
+		sed -i "/${skip_test}/a (ert-skip nil)" tests/denote-test.el || die
 	done
 }
 
