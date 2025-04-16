@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit desktop python-single-r1
 
 DESCRIPTION="Puzzle game similar to the famous Bejeweled or Zookeeper"
@@ -29,6 +29,7 @@ BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
 	"${WORKDIR}"/debian/patches
+	"${FILESDIR}"/${PN}-0.7.1-numpy2.patch
 )
 
 src_prepare() {
