@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/doxygen media-gfx/graphviz ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/openssl:0= mqtt? ( app-misc/mosquitto )
+DESCRIPTION=Daemon for communication with eBUS heating systems
+EAPI=8
+HOMEPAGE=https://ebusd.de https://github.com/john30/ebusd
+INHERIT=autotools systemd
+IUSE=+contrib doc knx mqtt +ssl test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/openssl:0= mqtt? ( app-misc/mosquitto )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/john30/ebusd/archive/refs/tags/25.1.tar.gz -> ebusd-25.1.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	systemd	54bd206bb5c4efac6ae28b6b006713b0
+_md5_=048b81e934a7e498c82e81dbb3ab8b8a
