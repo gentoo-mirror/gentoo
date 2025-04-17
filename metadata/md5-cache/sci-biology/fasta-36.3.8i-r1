@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install prepare test
+DESCRIPTION=FASTA is a DNA and Protein sequence alignment software package
+EAPI=8
+HOMEPAGE=https://fasta.bioch.virginia.edu/fasta_www2/fasta_down.shtml
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=debug cpu_flags_x86_sse2
+KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=fasta
+SLOT=0
+SRC_URI=https://github.com/wrpearson/fasta36/archive/refs/tags/v36.3.8i_14-Nov-2020.tar.gz -> fasta-36.3.8i.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00
+_md5_=da4692628a22db099c9bdddeeefdfef3
