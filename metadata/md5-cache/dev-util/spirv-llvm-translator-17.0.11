@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( dev-python/lit llvm-core/clang:17 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/spirv-tools llvm-core/llvm:17= >=dev-util/spirv-headers-1.4.309.0
+DESCRIPTION=Bi-directional translator between SPIR-V and LLVM IR
+EAPI=8
+HOMEPAGE=https://github.com/KhronosGroup/SPIRV-LLVM-Translator
+INHERIT=cmake flag-o-matic llvm-r2 multiprocessing
+IUSE=test +llvm_slot_17
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=UoI-NCSA
+RDEPEND=dev-util/spirv-tools llvm-core/llvm:17=
+REQUIRED_USE=^^ ( llvm_slot_17 )
+RESTRICT=!test? ( test )
+SLOT=17
+SRC_URI=https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v17.0.11.tar.gz -> spirv-llvm-translator-17.0.11.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	llvm-utils	846280a994c1843d9c21248c188bd147	multilib	b2a329026f2e404e9e371097dda47f96	llvm-r2	a5ef1fdf58800ef46a588e7780784437
+_md5_=ba8e391271ba50a9257875f1d1f57d1c
