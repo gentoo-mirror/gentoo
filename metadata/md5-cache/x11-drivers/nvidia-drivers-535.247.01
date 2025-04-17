@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/m4 virtual/pkgconfig modules? ( dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) ) virtual/pkgconfig
+DEFINED_PHASES=compile install postinst preinst prepare setup unpack
+DEPEND=acct-group/video X? ( x11-libs/libpciaccess ) persistenced? ( acct-user/nvpd net-libs/libtirpc:= ) tools? ( >=app-accessibility/at-spi2-core-2.46:2 dev-libs/glib:2 dev-libs/jansson:= media-libs/harfbuzz:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXext x11-libs/libXxf86vm x11-libs/pango ) static-libs? ( x11-base/xorg-proto x11-libs/libX11 x11-libs/libXext ) tools? ( media-libs/libglvnd sys-apps/dbus x11-base/xorg-proto x11-libs/libXrandr x11-libs/libXv x11-libs/libvdpau ) modules? ( virtual/linux-sources )
+DESCRIPTION=NVIDIA Accelerated Graphics Driver
+EAPI=8
+HOMEPAGE=https://www.nvidia.com/
+IDEPEND=modules? ( sys-apps/kmod[tools] )
+INHERIT=desktop eapi9-pipestatus flag-o-matic linux-mod-r1 multilib readme.gentoo-r1 systemd toolchain-funcs unpacker user-info
+IUSE=+X abi_x86_32 abi_x86_64 kernel-open persistenced powerd +static-libs +tools wayland dist-kernel modules-compress modules-sign +strip +modules
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=NVIDIA-r2 Apache-2.0 BSD BSD-2 GPL-2 MIT ZLIB curl openssl
+RDEPEND=acct-group/video X? ( x11-libs/libpciaccess ) persistenced? ( acct-user/nvpd net-libs/libtirpc:= ) tools? ( >=app-accessibility/at-spi2-core-2.46:2 dev-libs/glib:2 dev-libs/jansson:= media-libs/harfbuzz:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXext x11-libs/libXxf86vm x11-libs/pango ) dev-libs/openssl:0/3 sys-libs/glibc X? ( media-libs/libglvnd[X,abi_x86_32(-)?] x11-libs/libX11[abi_x86_32(-)?] x11-libs/libXext[abi_x86_32(-)?] ) powerd? ( sys-apps/dbus[abi_x86_32(-)?] ) wayland? ( gui-libs/egl-gbm >=gui-libs/egl-wayland-1.1.10 media-libs/libglvnd ) modules? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+REQUIRED_USE=kernel-open? ( modules )
+SLOT=0/535
+SRC_URI=amd64? ( https://download.nvidia.com/XFree86/Linux-x86_64/535.247.01/NVIDIA-Linux-x86_64-535.247.01.run ) arm64? ( https://download.nvidia.com/XFree86/Linux-aarch64/535.247.01/NVIDIA-Linux-aarch64-535.247.01.run ) https://download.nvidia.com/XFree86/nvidia-installer/nvidia-installer-535.247.01.tar.bz2 https://download.nvidia.com/XFree86/nvidia-modprobe/nvidia-modprobe-535.247.01.tar.bz2 https://download.nvidia.com/XFree86/nvidia-persistenced/nvidia-persistenced-535.247.01.tar.bz2 https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-535.247.01.tar.bz2 https://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-535.247.01.tar.bz2 https://download.nvidia.com/XFree86/NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-535.247.01.tar.xz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	8fd483ccdf8e7fc0919507c0c7c273e4	edo	367e103a74bf77e6a8da7894d999fa3c	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	multiprocessing	1e32df7deee68372153dca65f4a7c21f	linux-mod-r1	84b53048ef3f4ee4f1b3dce65d43580e	multilib	b2a329026f2e404e9e371097dda47f96	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	54bd206bb5c4efac6ae28b6b006713b0	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	user-info	9951b1a0e4f026d16c33a001fd2d5cdf
+_md5_=a75c313a6389eb1a09c4dedcdd0eab06

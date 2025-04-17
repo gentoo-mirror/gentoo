@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
+DESCRIPTION=Onlyoffice is an office productivity suite (binary version)
+EAPI=8
+HOMEPAGE=https://www.onlyoffice.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop unpacker xdg
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-qt/qtdeclarative:5 dev-qt/qtgui:5[eglfs] media-libs/alsa-lib media-libs/fontconfig media-libs/freetype media-libs/gst-plugins-base:1.0 media-libs/gstreamer:1.0 media-libs/libglvnd media-libs/mesa net-print/cups sys-apps/dbus sys-devel/gcc sys-libs/glibc x11-libs/cairo x11-libs/gtk+:3 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr x11-libs/libdrm x11-libs/libxcb x11-libs/libxkbcommon x11-libs/pango || ( media-libs/libpulse media-sound/apulse )
+RESTRICT=mirror strip test
+SLOT=0
+SRC_URI=amd64? ( https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v8.3.3/onlyoffice-desktopeditors_amd64.deb -> onlyoffice-bin-8.3.3_amd64.deb )
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=26ec9421c79d897adfd5461b222a48b9
