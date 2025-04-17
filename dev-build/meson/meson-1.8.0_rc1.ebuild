@@ -28,7 +28,11 @@ else
 		https://github.com/mesonbuild/meson/releases/download/${MY_PV}/${MY_P}.tar.gz
 		verify-sig? ( https://github.com/mesonbuild/meson/releases/download/${MY_PV}/${MY_P}.tar.gz.asc )
 		https://github.com/mesonbuild/meson/releases/download/${MY_PV}/meson-reference.3 -> meson-reference-${MY_PV}.3
+		https://github.com/mesonbuild/meson/commit/944456b5f9b4428853f231368e2baea979042c46.patch?full_index=1 -> ${P}-lld.patch
 	"
+	# Releases may be signed by those listed in Releasing.md. Jussi
+	# remains the default release manager.
+	# https://github.com/mesonbuild/meson/commit/c2d795735fa1c46c54d6aed4d4a30f36a1f853cb
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-jpakkane )"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/jpakkane.gpg
 
@@ -99,6 +103,9 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.2.1-python-path.patch
+	# https://github.com/mesonbuild/meson/pull/14486
+	# last-minute regression in lld support
+	"${DISTDIR}"/${P}-lld.patch
 )
 
 src_unpack() {
