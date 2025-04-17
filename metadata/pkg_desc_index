@@ -2391,12 +2391,13 @@ app-emulation/virt-viewer 11.0: Graphical console client for connecting to virtu
 app-emulation/virt-what 1.21 1.25: Detects if the current machine is running in a virtual machine
 app-emulation/virtio-win 0.1.229.1 0.1.240.1 0.1.248.1 0.1.266.1: VirtIO drivers for Windows virtual machines running on KVM
 app-emulation/virtiofsd 1.10.0-r2 1.10.1-r2 1.11.1-r2 9999: Shared file system for virtual machines
-app-emulation/virtualbox 6.1.50-r3 7.0.22 7.0.24 7.1.4 7.1.6a 9999: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-additions 6.1.50 7.0.22 7.0.24 7.1.4 7.1.6: CD image containing guest additions for VirtualBox
-app-emulation/virtualbox-extpack-oracle 6.1.50 7.0.22 7.0.24 7.1.4 7.1.6: PUEL extensions for VirtualBox
-app-emulation/virtualbox-guest-additions 6.1.50-r1 7.0.22 7.0.24-r1 7.1.4 7.1.6-r1: VirtualBox kernel modules and user-space tools for Gentoo guests
-app-emulation/virtualbox-kvm 7.0.22_pre20240828 7.1.4_pre20241220 7.1.6a_pre20250207: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-modules 6.1.50-r2 7.0.22-r1 7.0.24 7.1.4-r1 7.1.6: Kernel Modules for Virtualbox
+app-emulation/virtualbox 6.1.50-r3 7.0.22 7.0.26 7.1.4 7.1.8 9999: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-additions 6.1.50 7.0.22 7.0.26 7.1.4 7.1.8: CD image containing guest additions for VirtualBox
+app-emulation/virtualbox-extpack-oracle 6.1.50 7.0.22 7.0.26 7.1.4 7.1.8: PUEL extensions for VirtualBox
+app-emulation/virtualbox-guest-additions 6.1.50-r1 7.0.22 7.0.26 7.1.4 7.1.8: VirtualBox kernel modules and user-space tools for Gentoo guests
+app-emulation/virtualbox-guest-modules 7.0.26 7.1.8: Kernel Modules for Virtualbox Guest Additions
+app-emulation/virtualbox-kvm 7.0.22_pre20240828 7.1.4_pre20241220 7.1.8_pre20250207: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-modules 6.1.50-r2 7.0.22-r1 7.0.26 7.1.4-r1 7.1.8: Kernel Modules for Virtualbox
 app-emulation/vkd3d-proton 2.6-r1 2.12 2.13 2.14.1 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r1: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
@@ -2725,7 +2726,7 @@ app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
 app-misc/evtest 1.35: test program for capturing input device events
 app-misc/faq 0.0.7: Format agnostic jQ
-app-misc/fastfetch 0.1.9999 0.2.9999 2.38.0 2.40.4: Fast neofetch-like system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 2.38.0 2.40.4 2.41.0: Fast neofetch-like system information tool
 app-misc/fdupes 2.3.2 9999: Identify/delete duplicate files residing within specified directories
 app-misc/fdutils 5.6_p2: Utilities for configuring and debugging the Linux floppy driver
 app-misc/fhem 6.3: A GPL'd perl server for house automation
@@ -2810,7 +2811,7 @@ app-misc/logiops 0.3.5: An unofficial userspace driver for HID++ Logitech device
 app-misc/lsx 0.1-r1: list executables
 app-misc/ltunify 0.3: Tool for working with Logitech Unifying receivers and devices
 app-misc/lxsplit 0.2.4-r1: Command-line file splitter/joiner for Linux
-app-misc/mc 4.8.30-r2 4.8.32-r1 4.8.33: GNU Midnight Commander is a text based file manager
+app-misc/mc 4.8.30-r2 4.8.33: GNU Midnight Commander is a text based file manager
 app-misc/media-player-info 24-r1: Repository of data files describing media player capabilities
 app-misc/mencal 3.0-r1: Calendar to track menstruation cycles
 app-misc/mepl 0.45-r2: Self-employed-mode software for 3COM/USR message modems
@@ -13411,7 +13412,7 @@ media-libs/musicbrainz 5.1.0-r1: Client Library for accessing the latest XML bas
 media-libs/mutagen 1.47.0: Audio metadata tag reader and writer implemented in pure Python
 media-libs/nanosvg 20231202: NanoSVG is a simple stupid single-header-file SVG parse.
 media-libs/nas 1.9.5-r2: Network Audio System
-media-libs/netpbm 11.2.11 11.2.13 11.2.14 11.10.2 9999: A set of utilities for converting to/from the netpbm (and related) formats
+media-libs/netpbm 11.2.13 11.2.15 11.10.2 9999: A set of utilities for converting to/from the netpbm (and related) formats
 media-libs/noise-suppression-for-voice 1.10-r2 9999: A real-time noise suppression plugin for voice
 media-libs/nv-codec-headers 12.1.14.0 12.2.72.0 13.0.19.0: FFmpeg version of headers required to interface with Nvidias codec APIs
 media-libs/nvidia-vaapi-driver 0.0.13: A VA-API implemention using NVIDIA's NVDEC
@@ -15151,7 +15152,7 @@ net-misc/dhcpcd-ui 0.7.9: Desktop notification and configuration for dhcpcd
 net-misc/dhcping 1.2-r1: Utility to send DHCP requests to DHCP servers to see if responding
 net-misc/dibbler 1.0.1-r4: Portable DHCPv6 implementation (server, client and relay)
 net-misc/downloader-cli 0.3.4-r1: Simple downloader with an customizable progressbar
-net-misc/dropbear 2024.86-r1 2025.87: Small SSH 2 client/server designed for small memory environments
+net-misc/dropbear 2025.87: Small SSH 2 client/server designed for small memory environments
 net-misc/dropbox 214.4.5217 215.4.7202 216.4.4420 217.4.4417 218.4.4348 219.4.4463 221.4.5365: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2024.01.22 2024.04.17: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
