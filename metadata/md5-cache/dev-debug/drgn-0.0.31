@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( dev-libs/check ) test? ( >=dev-libs/elfutils-0.165[debuginfod?] dev-libs/libkdumpfile:= ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=>=dev-libs/elfutils-0.165[debuginfod?] dev-libs/libkdumpfile:= python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+DESCRIPTION=Programmable debugger
+EAPI=8
+HOMEPAGE=https://github.com/osandov/drgn https://pypi.org/project/drgn/ https://drgn.readthedocs.io/en/latest/
+INHERIT=distutils-r1 multiprocessing pypi toolchain-funcs
+IUSE=debuginfod openmp test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-libs/elfutils-0.165[debuginfod?] dev-libs/libkdumpfile:= python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0/0.0.31
+SRC_URI=https://files.pythonhosted.org/packages/source/d/drgn/drgn-0.0.31.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	d1be7a6de225276141d669742d56f3f3	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	e00a374020e6ed96997e27ad9902706d	pypi	ad1b21f87d117ae9bb089bdb65b8f013
+_md5_=4d4772859fec4f2913a1b22f2270822c
