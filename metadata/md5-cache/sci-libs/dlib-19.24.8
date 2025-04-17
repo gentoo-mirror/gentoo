@@ -1,0 +1,17 @@
+BDEPEND=python? ( >=dev-python/gpep517-16[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] test? ( dev-python/pytest[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pip[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) ffmpeg? ( media-video/ffmpeg:=[X?] ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) webp? ( media-libs/libwebp:= ) X? ( x11-libs/libX11 )
+DESCRIPTION=Numerical and networking C++ library
+EAPI=8
+HOMEPAGE=https://dlib.net/
+INHERIT=cmake cuda distutils-r1
+IUSE=cblas cuda debug examples ffmpeg gif jpeg lapack mkl png python sqlite test webp X cpu_flags_x86_avx cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=Boost-1.0
+RDEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) ffmpeg? ( media-video/ffmpeg:=[X?] ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) webp? ( media-libs/libwebp:= ) X? ( x11-libs/libX11 )
+REQUIRED_USE=python? ( png || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) )
+RESTRICT=!test? ( test )
+SLOT=0/19.24.8
+SRC_URI=https://github.com/davisking/dlib/archive/v19.24.8.tar.gz -> dlib-19.24.8.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	cuda	283d0f298f6c196c755a0f8d50daca85	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	python-utils-r1	d1be7a6de225276141d669742d56f3f3	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	e00a374020e6ed96997e27ad9902706d
+_md5_=c1dba03c3157ff53ee2a8558a3b7d200
