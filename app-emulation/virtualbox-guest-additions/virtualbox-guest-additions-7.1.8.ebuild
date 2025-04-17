@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit edo linux-mod-r1 readme.gentoo-r1 systemd toolchain-funcs udev
+inherit edo readme.gentoo-r1 systemd toolchain-funcs udev
 
 MY_PN="VirtualBox"
 MY_PV=${PV^^}
@@ -15,7 +15,6 @@ SRC_URI="https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2
 	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.1.0.tar.bz2"
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
-# Reminder: see the LICENSE related comment in app-emulation/virtualbox-additions ebuild
 LICENSE="GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~x86"
@@ -27,6 +26,7 @@ RDEPEND="
 	acct-user/vboxguest
 	sys-libs/pam
 	sys-libs/zlib
+	~app-emulation/virtualbox-guest-modules-${PV}
 	dbus? ( sys-apps/dbus )
 	gui? (
 		x11-apps/xrandr
@@ -58,11 +58,6 @@ BDEPEND="
 
 DOCS=()	# Don't install the default README file during einstalldocs
 
-VBOX_MOD_SRC_DIR="out/linux.${ARCH}/release/bin/additions/src"
-CONFIG_CHECK="~DRM_TTM ~DRM_VMWGFX"
-WARNING_DRM_TTM="DRM_TTM is needed for running the vboxvideo driver."
-WARNING_DRM_VMWGFX="DRM_VMWGFX is the recommended driver for VMSVGA."
-
 DOC_CONTENTS="\n
 Please add users to the \"vboxguest\" group so they can\n
 benefit from seamless mode, auto-resize and clipboard.\n
@@ -90,16 +85,6 @@ Warning:\n
 src_prepare() {
 	# Remove shipped binaries (kBuild,yasm), see bug #232775
 	rm -r kBuild/bin tools || die
-
-	# Provide kernel sources
-	pushd src/VBox/Additions &>/dev/null || die
-	ebegin "Extracting guest kernel module sources"
-	kmk GuestDrivers-src vboxguest-src vboxsf-src &>/dev/null
-	eend $? || die
-	popd &>/dev/null || die
-
-	# PaX fixes (see bug #298988)
-	eapply -d "${VBOX_MOD_SRC_DIR}" -- "${FILESDIR}"/vboxguest-6.1.36-log-use-c99.patch
 
 	# Disable things unused or splitted into separate ebuilds
 	cp "${FILESDIR}/${PN}-5-localconfig" LocalConfig.kmk || die
@@ -135,7 +120,7 @@ src_configure() {
 		--disable-alsa
 		$(usev !dbus --disable-dbus)
 		--target-arch=${ARCH}
-		--with-linux="${KV_OUT_DIR}"
+		--disable-kmods
 		--build-headless
 	)
 
@@ -194,29 +179,9 @@ src_compile() {
 	)
 
 	MAKE="kmk" emake "${myemakeargs[@]}"
-
-	# Now creating the kernel modules. We must do this _after_
-	# we compiled the user-space tools as we need two of the
-	# automatically generated header files. (>=3.2.0)
-	# Move this here for bug 836037
-	local modargs=( KERN_DIR="${KV_OUT_DIR}" KERN_VER="${KV_FULL}" )
-	local modlist=( vboxguest vboxsf )
-	modlist=( "${modlist[@]/%/=misc:${VBOX_MOD_SRC_DIR}}" )
-	linux-mod-r1_src_compile
 }
 
 src_install() {
-	linux-mod-r1_src_install
-
-	insinto /etc/modprobe.d # 485996
-	newins - vboxsf.conf <<-EOF
-		# modprobe.d configuration file for VBOXSF
-
-		# Internal Aliases - Do not edit
-		# ------------------------------
-		alias fs-vboxsf vboxsf
-	EOF
-
 	cd out/linux.${ARCH}/release/bin/additions || die
 
 	insinto /sbin
@@ -270,7 +235,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	linux-mod-r1_pkg_postinst
 	udev_reload
 
 	if ! use gui ; then
