@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Metapackage for KIO thumbnail generators
+EAPI=8
+HOMEPAGE=https://apps.kde.org/kdegraphics_thumbnailers/
+IUSE=blender gettext mobi pdf raw video
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=metapackage
+RDEPEND=blender? ( >=media-gfx/kio-blender-thumbnailer-25.04.0:6 ) gettext? ( >=kde-apps/kdesdk-thumbnailers-25.04.0:6 ) mobi? ( >=media-gfx/kio-mobi-thumbnailer-25.04.0:6 ) pdf? ( >=media-gfx/kio-ps-thumbnailer-25.04.0:6 ) raw? ( >=media-gfx/kio-raw-thumbnailer-25.04.0:6 ) video? ( >=kde-apps/ffmpegthumbs-25.04.0:6 )
+SLOT=6
+_md5_=69fa9bf24381a2adb94a71b2fad3c794

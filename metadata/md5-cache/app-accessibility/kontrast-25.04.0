@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 handbook? ( >=kde-frameworks/kdoctools-6.9.0:6 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.9.0:*
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare test unpack
+DEPEND=dev-db/futuresql dev-libs/qcoro >=dev-qt/qtbase-6.7.2:6[dbus,gui,sql,widgets] >=dev-qt/qtdeclarative-6.7.2:6 >=dev-qt/qtsvg-6.7.2:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/kcrash-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kirigami-6.9.0:6 dev-qt/qtbase:6
+DESCRIPTION=Tool to check contrast for colors to verify they are correctly accessible
+EAPI=8
+HOMEPAGE=https://apps.kde.org/kontrast/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm gear.kde.org xdg
+IUSE=debug +handbook
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-db/futuresql dev-libs/qcoro >=dev-qt/qtbase-6.7.2:6[dbus,gui,sql,widgets] >=dev-qt/qtdeclarative-6.7.2:6 >=dev-qt/qtsvg-6.7.2:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/kcrash-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kirigami-6.9.0:6 kde-plasma/xdg-desktop-portal-kde:* || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !app-accessibility/kontrast:5
+SLOT=6
+SRC_URI=mirror://kde/stable/release-service/25.04.0/src/kontrast-25.04.0.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	8e875f5f12d01e5057997e9fc4d05f45	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	55514126a8fb6ef1a8177b37308e3a12	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=8d5ffd992dd68ace3708aff46c76ed1e

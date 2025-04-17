@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=KDE SDK - merge this to pull in all kdesdk-derived packages
+EAPI=8
+HOMEPAGE=https://apps.kde.org/categories/development/
+IUSE=cvs git mercurial perl php python subversion webengine
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=metapackage
+RDEPEND=>=dev-build/dolphin-plugins-makefileactions-25.04.0:* >=dev-util/massif-visualizer-25.04.0:* >=kde-apps/kapptemplate-25.04.0:* >=kde-apps/kcachegrind-25.04.0:* >=kde-apps/kde-dev-scripts-25.04.0:* >=kde-apps/kde-dev-utils-25.04.0:* >=kde-apps/kdesdk-thumbnailers-25.04.0:* >=kde-apps/kompare-25.04.0:* >=kde-apps/libkomparediff2-25.04.0:* >=kde-apps/poxml-25.04.0:* >=kde-apps/umbrello-25.04.0:* cvs? ( >=kde-apps/cervisia-25.04.0:* ) git? ( >=kde-apps/dolphin-plugins-git-25.04.0:* ) mercurial? ( >=kde-apps/dolphin-plugins-mercurial-25.04.0:* ) perl? ( >=dev-util/kio-perldoc-25.04.0:* ) python? ( >=kde-apps/lokalize-25.04.0:* ) subversion? ( >=kde-apps/dolphin-plugins-subversion-25.04.0:* ) webengine? ( >=dev-util/kdevelop-25.04.0:* php? ( >=dev-util/kdevelop-php-25.04.0:* ) python? ( >=dev-util/kdevelop-python-25.04.0:* ) )
+SLOT=0
+_md5_=25f6a0d0758b5c97d1f2390aa464abf3

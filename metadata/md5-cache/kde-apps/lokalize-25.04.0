@@ -1,0 +1,18 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 handbook? ( >=kde-frameworks/kdoctools-6.9.0:6 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.9.0:*
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) >=app-text/hunspell-1.2.8:= >=dev-qt/qtbase-6.7.2:6[dbus,gui,sql,widgets,xml] >=kde-frameworks/kcompletion-6.9.0:6 >=kde-frameworks/kconfig-6.9.0:6 >=kde-frameworks/kconfigwidgets-6.9.0:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/kcrash-6.9.0:6 >=kde-frameworks/kdbusaddons-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kiconthemes-6.9.0:6 >=kde-frameworks/kio-6.9.0:6 >=kde-frameworks/kitemviews-6.9.0:6 >=kde-frameworks/knotifications-6.9.0:6 >=kde-frameworks/kparts-6.9.0:6 >=kde-frameworks/ktextwidgets-6.9.0:6 >=kde-frameworks/kwidgetsaddons-6.9.0:6 >=kde-frameworks/kxmlgui-6.9.0:6 >=kde-frameworks/sonnet-6.9.0:6 dev-qt/qtbase:6
+DESCRIPTION=Localization tool for KDE software and other free and open source software
+EAPI=8
+HOMEPAGE=https://apps.kde.org/lokalize/ https://l10n.kde.org/tools/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=python-single-r1 ecm gear.kde.org optfeature xdg
+IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 debug +handbook test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) >=app-text/hunspell-1.2.8:= >=dev-qt/qtbase-6.7.2:6[dbus,gui,sql,widgets,xml] >=kde-frameworks/kcompletion-6.9.0:6 >=kde-frameworks/kconfig-6.9.0:6 >=kde-frameworks/kconfigwidgets-6.9.0:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/kcrash-6.9.0:6 >=kde-frameworks/kdbusaddons-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kiconthemes-6.9.0:6 >=kde-frameworks/kio-6.9.0:6 >=kde-frameworks/kitemviews-6.9.0:6 >=kde-frameworks/knotifications-6.9.0:6 >=kde-frameworks/kparts-6.9.0:6 >=kde-frameworks/ktextwidgets-6.9.0:6 >=kde-frameworks/kwidgetsaddons-6.9.0:6 >=kde-frameworks/kxmlgui-6.9.0:6 >=kde-frameworks/sonnet-6.9.0:6 python_single_target_python3_10? ( dev-python/translate-toolkit[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/translate-toolkit[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/translate-toolkit[python_targets_python3_12(-)] ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/lokalize:5
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RESTRICT=test !test? ( test )
+SLOT=6
+SRC_URI=mirror://kde/stable/release-service/25.04.0/src/lokalize-25.04.0.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	d1be7a6de225276141d669742d56f3f3	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	e8de74bac929ba17427e740e95707d00	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	8e875f5f12d01e5057997e9fc4d05f45	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	55514126a8fb6ef1a8177b37308e3a12	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=2c3f26133a5990535b3f7fdab09701e5
