@@ -1,16 +1,16 @@
-BDEPEND=test? ( dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?] llvm-core/llvm ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-18.1.6 ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/gpep517-16[python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?] verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=test? ( dev-python/psutil[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] llvm-core/llvm ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-18.1.6 ) python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=A stand-alone install of the LLVM suite testing tool
 EAPI=8
 HOMEPAGE=https://llvm.org/
 INHERIT=distutils-r1 llvm.org
-IUSE=test python_targets_python3_10 python_targets_python3_11 verify-sig
+IUSE=test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 verify-sig
 KEYWORDS=amd64 arm arm64 ppc ppc64 ~riscv sparc x86
 LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
+RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-project-15.0.7.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-project-15.0.7.src.tar.xz.sig )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	d1be7a6de225276141d669742d56f3f3	python-r1	fa2daad0051275fa416115c76e53b1de	distutils-r1	e00a374020e6ed96997e27ad9902706d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	llvm.org	30b2acb78ba3a2ba4e9747b11026470b
-_md5_=3cb9ed2b960f184acfbd19917d9bf69e
+_md5_=97b7f6e9b0d699a729db8781aad314d3
