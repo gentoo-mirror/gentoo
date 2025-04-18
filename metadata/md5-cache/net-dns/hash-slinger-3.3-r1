@@ -1,0 +1,14 @@
+DEFINED_PHASES=install setup
+DESCRIPTION=Various tools to generate DNS records like SSHFP, TLSA, OPENPGPKEY, IPSECKEY
+EAPI=8
+HOMEPAGE=https://github.com/letoams/hash-slinger
+INHERIT=python-single-r1
+IUSE=ipsec +openpgp +ssh python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=GPL-2+
+RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_10? ( dev-python/dnspython[python_targets_python3_10(-)] dev-python/m2crypto[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/dnspython[python_targets_python3_11(-)] dev-python/m2crypto[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/dnspython[python_targets_python3_12(-)] dev-python/m2crypto[python_targets_python3_12(-)] ) net-dns/unbound[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] ipsec? ( net-vpn/libreswan[dnssec] ) openpgp? ( python_single_target_python3_10? ( dev-python/python-gnupg[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-gnupg[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/python-gnupg[python_targets_python3_12(-)] ) ) ssh? ( virtual/openssh )
+REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+SLOT=0
+SRC_URI=https://github.com/letoams/hash-slinger/archive/3.3.tar.gz -> hash-slinger-3.3.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	d1be7a6de225276141d669742d56f3f3	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=a7ad31aa367c05adc74d365a9e107584
