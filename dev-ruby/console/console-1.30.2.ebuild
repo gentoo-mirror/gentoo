@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby31 ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="readme.md"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
@@ -24,6 +24,8 @@ ruby_add_rdepend "
 	>=dev-ruby/fiber-local-1.1:1
 	dev-ruby/json
 "
+
+ruby_add_depend "test? ( dev-ruby/sus-fixtures-console )"
 
 all_ruby_prepare() {
 	sed -i -E 's/require_relative "(.+)"/require File.expand_path("\1")/g' "${RUBY_FAKEGEM_GEMSPEC}" || die
