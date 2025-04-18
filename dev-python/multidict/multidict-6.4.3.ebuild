@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
+PYTHON_COMPAT=( python3_{10..13} python3_13t pypy3 pypy3_11 )
 
 inherit distutils-r1
 
@@ -28,6 +28,11 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/typing-extensions-4.1.0[${PYTHON_USEDEP}]
 	' 3.10)
+"
+BDEPEND="
+	test? (
+		dev-python/objgraph[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
