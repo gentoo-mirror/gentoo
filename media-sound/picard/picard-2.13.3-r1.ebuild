@@ -15,7 +15,7 @@ if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://data.musicbrainz.org/pub/musicbrainz/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm64 x86"
 fi
 
 DESCRIPTION="Cross-platform music tagger"
@@ -25,11 +25,14 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE="discid fingerprints nls"
 
+BDEPEND="
+	nls? ( dev-qt/linguist-tools:5 )
+"
 RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/fasteners[${PYTHON_USEDEP}]
 		dev-python/pyjwt[${PYTHON_USEDEP}]
-		dev-python/pyqt6[gui,network,qml,widgets,${PYTHON_USEDEP}]
+		dev-python/pyqt5[declarative,gui,network,widgets,${PYTHON_USEDEP}]
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		media-libs/mutagen[${PYTHON_USEDEP}]
@@ -37,8 +40,6 @@ RDEPEND="
 	')
 	fingerprints? ( media-libs/chromaprint[tools] )
 "
-DEPEND="test? ( $(python_gen_cond_dep 'dev-python/pyqt6[testlib,${PYTHON_USEDEP}]') )"
-BDEPEND="nls? ( dev-qt/qttools:6[linguist] )"
 
 distutils_enable_tests pytest
 
