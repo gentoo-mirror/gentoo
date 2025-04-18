@@ -4,21 +4,19 @@
 EAPI=8
 
 LLVM_COMPAT=( 20 )
+MY_PN="SPIRV-LLVM-Translator"
+MY_P="${MY_PN}-${PV}"
 
-inherit cmake-multilib flag-o-matic llvm-r1 multiprocessing
+inherit cmake-multilib flag-o-matic llvm-r2 multiprocessing
 
-EGIT_COMMIT=cec12d6cf46306d0a015e883d5adb5a8200df1c0
-MY_P=SPIRV-LLVM-Translator-${EGIT_COMMIT}
 DESCRIPTION="Bi-directional translator between SPIR-V and LLVM IR"
 HOMEPAGE="https://github.com/KhronosGroup/SPIRV-LLVM-Translator"
-SRC_URI="
-	https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/${EGIT_COMMIT}.tar.gz
-		-> ${MY_P}.tar.gz
-"
-S=${WORKDIR}/${MY_P}
+SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="UoI-NCSA"
 SLOT="$(ver_cut 1)"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -27,7 +25,7 @@ RDEPEND="
 	llvm-core/llvm:${SLOT}=[${MULTILIB_USEDEP}]
 "
 DEPEND="${RDEPEND}
-	>=dev-util/spirv-headers-1.3.280
+	>=dev-util/spirv-headers-1.4.309.0
 "
 BDEPEND="
 	virtual/pkgconfig
