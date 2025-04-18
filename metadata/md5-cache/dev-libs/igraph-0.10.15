@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/gmp:0= dev-libs/libxml2 sci-libs/arpack sci-mathematics/glpk:= sci-mathematics/plfit virtual/blas virtual/lapack
+DESCRIPTION=Creating and manipulating undirected and directed graphs
+EAPI=8
+HOMEPAGE=https://igraph.org/
+INHERIT=cmake
+IUSE=debug test threads
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/gmp:0= dev-libs/libxml2 sci-libs/arpack sci-mathematics/glpk:= sci-mathematics/plfit virtual/blas virtual/lapack
+RESTRICT=!test? ( test )
+SLOT=0/0
+SRC_URI=https://github.com/igraph/igraph/releases/download/0.10.15/igraph-0.10.15.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57
+_md5_=0e151e76b38596ab4eafaaf748e33344
