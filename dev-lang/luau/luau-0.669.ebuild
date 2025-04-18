@@ -12,12 +12,12 @@ HOMEPAGE="https://luau.org/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/luau-lang/${PN}.git"
+	EGIT_REPO_URI="https://github.com/luau-lang/${PN}"
 else
 	SRC_URI="https://github.com/luau-lang/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MIT"
@@ -27,7 +27,7 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/luau-0.653-TypedAllocator-cpp.patch"
-	"${FILESDIR}/luau-0.653-cmake_minimum.patch"
+	"${FILESDIR}/luau-0.669-cmake_minimum.patch"
 )
 
 DOCS=( CONTRIBUTING.md README.md SECURITY.md )
