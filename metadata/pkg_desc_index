@@ -5144,9 +5144,9 @@ dev-lang/clips 6.40: Tool for building Expert Systems (native version)
 dev-lang/clipsjni 6.40-r1: Tool for building Expert Systems (Java version)
 dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.0: General-purpose programming language with an emphasis on functional programming
-dev-lang/closure-compiler-bin 20250402: JavaScript optimizing compiler
+dev-lang/closure-compiler-bin 20250402 20250407: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
-dev-lang/crystal 1.15.1 1.16.0: The Crystal Programming Language
+dev-lang/crystal 1.15.1 1.16.0 1.16.1: The Crystal Programming Language
 dev-lang/cue 0.7.0: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r2: A WAM based Prolog system
 dev-lang/dafny 4.8.0 4.8.1 4.9.0 4.9.1 4.10.0: Dafny is a verification-aware programming language
@@ -5195,7 +5195,7 @@ dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.47.0-r2: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.6: A powerful light-weight programming language designed for extending applications
 dev-lang/luajit 2.1.1716656478-r1 2.1.1731601260 2.1.9999999999: Just-In-Time Compiler for the Lua programming language
-dev-lang/luau 0.653 0.662 0.666: Gradually typed embeddable scripting language derived from Lua
+dev-lang/luau 0.662 0.666 0.669: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1: High-level specification language for equational and logic programming
 dev-lang/mercury 22.01.1-r1: Mercury is a modern general-purpose logic/functional programming language
 dev-lang/mercury-extras 22.01.1: Additional libraries and tools that are not part of the Mercury standard library
@@ -10884,7 +10884,7 @@ dev-util/lv2lint 0.16.2: Check whether a given LV2 plugin is up to the specifica
 dev-util/lxqt-build-tools 2.0.0-r1 2.1.0: LXQt Build Tools
 dev-util/makeheaders 0_p20240202 0_p20240823: Tool that automatically generates .h files for a C or C++ programming project
 dev-util/makepp 2.0.99.2: GNU make replacement
-dev-util/marksman 2023.12.09 2024.10.07: LSP language server for editing Markdown files
+dev-util/marksman 2024.10.07 2024.12.18: LSP language server for editing Markdown files
 dev-util/massif-visualizer 24.12.3 25.04.0: Tool visualising massif data
 dev-util/maturin 1.8.2 1.8.3: Build and publish crates with pyo3, rust-cpython and cffi bindings
 dev-util/maxcso 1.13.0 9999: Fast cso compressor
@@ -11098,7 +11098,7 @@ dev-vcs/rcsi 0.5: A program to give information about RCS files
 dev-vcs/repo 2.48 2.52 2.53: Google tool for managing git, particularly multiple repos
 dev-vcs/reposurgeon 5.3: Tool for editing VCS repositories and translating among different systems
 dev-vcs/rsvndump 0.6.1-r1 0.6.2: Dump a remote Subversion repository
-dev-vcs/sourcegit 2025.03 2025.06 2025.08 2025.09 2025.10 2025.11 2025.12 9999: Open Source Git GUI client using .NET AvaloniaUI
+dev-vcs/sourcegit 2025.06 2025.08 2025.10 2025.12 2025.13 9999: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
 dev-vcs/stgit 2.5.0 2.5.2 2.5.3: Stack-based patch management for Git
 dev-vcs/subversion 1.14.3 1.14.5 1.14.5-r1: Advanced version control system
@@ -12034,8 +12034,8 @@ gnustep-libs/performance 0.5.0 0.6.0: Help improve the performance of GNUstep ap
 gnustep-libs/renaissance 0.9.0-r2: GNUstep Renaissance allows to describe user interfaces XML files
 gnustep-libs/sope 5.1.1-r1 5.2.0-r1: A set of frameworks forming a complete Web application server environment
 gnustep-libs/sqlclient 1.8.1-r2 1.9.0: GNUstep lightweight database abstraction layer
-gui-apps/foot 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1-r1 1.20.2 1.20.2-r2 1.21.0: Fast, lightweight and minimalistic Wayland terminal emulator
-gui-apps/foot-terminfo 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1 1.20.2 1.21.0: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
+gui-apps/foot 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1-r1 1.20.2 1.20.2-r2 1.21.0 1.22.0: Fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1 1.20.2 1.21.0 1.22.0: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
 gui-apps/gnome-console 46.0 47.1: A simple user-friendly terminal emulator for the GNOME desktop
 gui-apps/grim 1.4.1 9999: Grab images from a Wayland compositor
 gui-apps/gtkgreet 0.7 0.8 9999: gtk based greeter for greetd
@@ -16267,7 +16267,7 @@ sci-mathematics/alectryon 1.4.0-r2: Toolkit for literate programming in Coq
 sci-mathematics/alt-ergo 2.4.3-r2: Automatic theorem prover
 sci-mathematics/arb 2.23.0: C library for arbitrary-precision interval arithmetic
 sci-mathematics/bertini 1.4 1.6: Software for Numerical Algebraic Geometry
-sci-mathematics/boolector 3.2.3 3.2.4: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
+sci-mathematics/boolector 3.2.4: Fast SMT solver for bit-vectors, arrays and uninterpreted functions
 sci-mathematics/btor2tools 1.0.0_pre20220518-r1: Generic parser and tools for the BTOR2 format
 sci-mathematics/cadabra 2.4.5.4 2.4.5.6 2.4.5.7: Field-theory motivated approach to computer algebra
 sci-mathematics/cadical 1.9.5 2.0.0: Simplified Satisfiability Solver
@@ -18133,7 +18133,7 @@ www-misc/buku 4.9: Powerful command-line bookmark manager
 www-misc/fcgiwrap 1.1.0-r2 1.1.0_p20150419 1.1.0_p20150419-r2: Simple FastCGI wrapper for CGI scripts (CGI support for nginx)
 www-misc/htdig 3.2.0_beta6-r5: HTTP/HTML indexing and searching system
 www-misc/litmus 0.13-r1: WebDAV server protocol compliance test suite
-www-misc/logswan 2.1.14 9999: Fast Web log analyzer using probabilistic data structures
+www-misc/logswan 2.1.14 2.1.15 9999: Fast Web log analyzer using probabilistic data structures
 www-misc/mergelog 4.5-r3: A utility to merge apache logs in chronological order
 www-misc/monitorix 3.14.0-r1 3.15.0 3.16.0: A lightweight system monitoring tool
 www-misc/multisort 1.1-r2: Merges httpd logfiles in the Common Log Format

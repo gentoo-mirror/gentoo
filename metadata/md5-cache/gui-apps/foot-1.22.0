@@ -1,0 +1,17 @@
+BDEPEND=app-text/scdoc dev-util/wayland-scanner verify-sig? ( sec-keys/openpgp-keys-dnkl ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=dev-libs/wayland >=media-libs/fcft-3.3.1 media-libs/fontconfig x11-libs/libxkbcommon x11-libs/pixman grapheme-clustering? ( dev-libs/libutf8proc:=[-cjk] media-libs/fcft[harfbuzz] ) >=dev-libs/tllist-1.1.0 >=dev-libs/wayland-protocols-1.41
+DESCRIPTION=Fast, lightweight and minimalistic Wayland terminal emulator
+EAPI=8
+HOMEPAGE=https://codeberg.org/dnkl/foot
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=meson systemd verify-sig xdg
+IUSE=+grapheme-clustering test utempter verify-sig verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=MIT
+RDEPEND=dev-libs/wayland >=media-libs/fcft-3.3.1 media-libs/fontconfig x11-libs/libxkbcommon x11-libs/pixman grapheme-clustering? ( dev-libs/libutf8proc:=[-cjk] media-libs/fcft[harfbuzz] ) || ( ~gui-apps/foot-terminfo-1.22.0 >=sys-libs/ncurses-6.3[-minimal] ) utempter? ( sys-libs/libutempter )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://codeberg.org/dnkl/foot/releases/download/1.22.0/foot-1.22.0.tar.gz verify-sig? ( https://codeberg.org/dnkl/foot/releases/download/1.22.0/foot-1.22.0.tar.gz.sig )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	d1be7a6de225276141d669742d56f3f3	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	54bd206bb5c4efac6ae28b6b006713b0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=20c85d9cf70db3fd61bb4a83a39c2207
