@@ -17,7 +17,6 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+networkmanager +upower"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="${PYTHON_DEPS}
@@ -55,10 +54,6 @@ src_prepare() {
 		PYTHON_INCLUDE_PATH="$(python_get_library_path)"\
 		PYTHON_CFLAGS="$(python_get_CFLAGS)"\
 		PYTHON_LIBS="$(python_get_LIBS)"
-
-	cp "${FILESDIR}/calamares-gentoo-branding.desc" \
-		src/branding/default/branding.desc ||
-			die "Failed to overwrite branding file"
 }
 
 src_configure() {
