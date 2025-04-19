@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit meson python-single-r1 readme.gentoo-r1 xdg
 
@@ -19,7 +19,7 @@ else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3+"
@@ -44,10 +44,7 @@ RDEPEND="
 BDEPEND="
 	${RDEPEND}
 	dev-util/intltool
-	dev-lang/sassc
 "
-
-PATCHES=( "${FILESDIR}/polychromatic-0.9.3-command-v.patch" )
 
 DOC_CONTENTS="To automatically start up Polychromatic on session login copy
 /usr/share/polychromatic/polychromatic-autostart.desktop file into Your user's
